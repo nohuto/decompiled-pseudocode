@@ -1,130 +1,90 @@
 /*
- * XREFs of ??1CDDisplaySwapChain@@MEAA@XZ @ 0x1802887F0
+ * XREFs of ??1CDDisplaySwapChain@@MEAA@XZ @ 0x1802423FC
  * Callers:
- *     ??_GCDDisplaySwapChain@@MEAAPEAXI@Z @ 0x180288CC4 (--_GCDDisplaySwapChain@@MEAAPEAXI@Z.c)
+ *     ??_GCDDisplaySwapChain@@MEAAPEAXI@Z @ 0x180242D80 (--_GCDDisplaySwapChain@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?AdvanceUnpin@CD3DDevice@@QEAAXU_LUID@@I_N@Z @ 0x1800C7634 (-AdvanceUnpin@CD3DDevice@@QEAAXU_LUID@@I_N@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@AEAAXXZ @ 0x1800F05D8 (-_Tidy@-$vector@EV-$allocator@E@std@@@std@@AEAAXXZ.c)
- *     ?CloseHandle@details@wil@@YAXPEAX@Z @ 0x1800FFF80 (-CloseHandle@details@wil@@YAXPEAX@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$_Destroy_range@V?$allocator@UDDisplayPrimaryBufferResources@@@std@@@std@@YAXPEAUDDisplayPrimaryBufferResources@@QEAU1@AEAV?$allocator@UDDisplayPrimaryBufferResources@@@0@@Z @ 0x1802881EC (--$_Destroy_range@V-$allocator@UDDisplayPrimaryBufferResources@@@std@@@std@@YAXPEAUDDisplayPrima.c)
- *     ??$_Destroy_range@V?$allocator@V?$unique_ptr@VCRegion@@U?$default_delete@VCRegion@@@std@@@std@@@std@@@std@@YAXPEAV?$unique_ptr@VCRegion@@U?$default_delete@VCRegion@@@std@@@0@QEAV10@AEAV?$allocator@V?$unique_ptr@VCRegion@@U?$default_delete@VCRegion@@@std@@@std@@@0@@Z @ 0x180288274 (--$_Destroy_range@V-$allocator@V-$unique_ptr@VCRegion@@U-$default_delete@VCRegion@@@std@@@std@@@.c)
- *     ??$_Destroy_range@V?$allocator@VCDDisplayCachedScanout@@@std@@@std@@YAXPEAVCDDisplayCachedScanout@@QEAV1@AEAV?$allocator@VCDDisplayCachedScanout@@@0@@Z @ 0x1802882B8 (--$_Destroy_range@V-$allocator@VCDDisplayCachedScanout@@@std@@@std@@YAXPEAVCDDisplayCachedScanou.c)
- *     ??$_Free_non_head@V?$allocator@U?$_List_node@V?$unique_ptr@VCDDisplayAgedCachedScanout@@U?$default_delete@VCDDisplayAgedCachedScanout@@@std@@@std@@PEAX@std@@@std@@@?$_List_node@V?$unique_ptr@VCDDisplayAgedCachedScanout@@U?$default_delete@VCDDisplayAgedCachedScanout@@@std@@@std@@PEAX@std@@SAXAEAV?$allocator@U?$_List_node@V?$unique_ptr@VCDDisplayAgedCachedScanout@@U?$default_delete@VCDDisplayAgedCachedScanout@@@std@@@std@@PEAX@std@@@1@PEAU01@@Z @ 0x1802884FC (--$_Free_non_head@V-$allocator@U-$_List_node@V-$unique_ptr@VCDDisplayAgedCachedScanout@@U-$defau.c)
- *     ??1DDisplayTargetResources@@QEAA@XZ @ 0x180288B7C (--1DDisplayTargetResources@@QEAA@XZ.c)
- *     ??1DDisplayTaskPoolResources@@QEAA@XZ @ 0x180288C04 (--1DDisplayTaskPoolResources@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002D180 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x180045030 (--1-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@Z$1-CloseHandle@details@wil@@YAX0@ZU-$integr.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180060020 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ??1CDeviceResource@@MEAA@XZ @ 0x18006194C (--1CDeviceResource@@MEAA@XZ.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@AEAAXXZ @ 0x1800D42BC (-_Tidy@-$vector@EV-$allocator@E@std@@@std@@AEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$_Destroy_range@V?$allocator@UDDisplayPrimaryBufferResources@@@std@@@std@@YAXPEAUDDisplayPrimaryBufferResources@@0AEAV?$allocator@UDDisplayPrimaryBufferResources@@@0@@Z @ 0x180238DFC (--$_Destroy_range@V-$allocator@UDDisplayPrimaryBufferResources@@@std@@@std@@YAXPEAUDDisplayPrima.c)
+ *     ??$_Destroy_range@V?$allocator@V?$unique_ptr@VCRegion@@U?$default_delete@VCRegion@@@std@@@std@@@std@@@std@@YAXPEAV?$unique_ptr@VCRegion@@U?$default_delete@VCRegion@@@std@@@0@0AEAV?$allocator@V?$unique_ptr@VCRegion@@U?$default_delete@VCRegion@@@std@@@std@@@0@@Z @ 0x180238E34 (--$_Destroy_range@V-$allocator@V-$unique_ptr@VCRegion@@U-$default_delete@VCRegion@@@std@@@std@@@.c)
+ *     ??1DDisplayTargetResources@@QEAA@XZ @ 0x180242620 (--1DDisplayTargetResources@@QEAA@XZ.c)
+ *     ??1DDisplayTaskPoolResources@@QEAA@XZ @ 0x180242690 (--1DDisplayTaskPoolResources@@QEAA@XZ.c)
  */
 
 void __fastcall CDDisplaySwapChain::~CDDisplaySwapChain(CDDisplaySwapChain *this)
 {
-  unsigned __int64 v2; // r8
-  char *v3; // rdi
+  char *v2; // rsi
+  __int64 v3; // rcx
   __int64 v4; // rcx
   __int64 v5; // rcx
   __int64 v6; // rcx
-  _QWORD *i; // rcx
-  CD3DDevice *v8; // rcx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // rcx
-  void *v12; // rdx
-  wil::details *v13; // rcx
-  void ***v14; // rcx
-  DDisplayPrimaryBufferResources *v15; // rcx
-  __int64 v16; // rcx
-  __int64 *v17; // rcx
+  void *v7; // rdx
+  void *v8; // rbx
+  void *v9; // rbx
+  CD3DDevice *v10; // rcx
 
-  v2 = (unsigned __int64)this + 224;
-  v3 = (char *)this + 216;
-  *(_QWORD *)this = &CDDisplaySwapChain::`vftable'{for `IOverlaySwapChain'};
-  *((_QWORD *)this + 2) = &CDDisplaySwapChain::`vftable'{for `CMILCOMBaseWeakRef'};
-  *((_QWORD *)this + 5) = &CDDisplaySwapChain::`vftable'{for `CDeviceResource'};
-  *((_QWORD *)this + 27) = &CDDisplaySwapChain::`vftable'{for `IDeviceResourceNotify'};
-  *((_QWORD *)this + 28) = &CDDisplaySwapChain::`vftable'{for `IDDisplayEventListener'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 4LL) + 8) = &CDDisplaySwapChain::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 8LL) + 8) = &CDDisplaySwapChain::`vftable'{for `IPixelFormat'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 12LL) + 8) = &CDDisplaySwapChain::`vftable'{for `IDeviceResource'};
-  v4 = *(int *)(*((_QWORD *)this + 1) + 4LL);
-  *(_DWORD *)((char *)this + v4 + 4) = v4 - 536;
-  v5 = *(int *)(*((_QWORD *)this + 1) + 8LL);
-  *(_DWORD *)((char *)this + v5 + 4) = v5 - 552;
-  v6 = *(int *)(*((_QWORD *)this + 1) + 12LL);
-  *(_DWORD *)((char *)this + v6 + 4) = v6 - 576;
-  for ( i = (_QWORD *)*((_QWORD *)&xmmword_1803E6540 + 1);
-        i != (_QWORD *)xmmword_1803E6550 && *i != (v2 & ((unsigned __int128)-(__int128)(unsigned __int64)this >> 64));
-        ++i )
+  *(_QWORD *)this = &CDDisplaySwapChain::`vftable'{for `CMILCOMBase'};
+  *((_QWORD *)this + 2) = &CDDisplaySwapChain::`vftable'{for `CDeviceResource'};
+  *((_QWORD *)this + 7) = &CDDisplaySwapChain::`vftable'{for `IDeviceResourceNotify'};
+  *((_QWORD *)this + 8) = &CDDisplaySwapChain::`vftable'{for `IOverlaySwapChain'};
+  v2 = (char *)this + 224;
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 3) + 4LL) + 24) = &CDDisplaySwapChain::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 3) + 8LL) + 24) = &CDDisplaySwapChain::`vftable'{for `IDeviceResource'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 3) + 12LL) + 24) = &CDDisplaySwapChain::`vftable'{for `IPixelFormat'};
+  v3 = *(int *)(*((_QWORD *)this + 3) + 4LL);
+  *(_DWORD *)((char *)this + v3 + 20) = v3 - 424;
+  v4 = *(int *)(*((_QWORD *)this + 3) + 8LL);
+  *(_DWORD *)((char *)this + v4 + 20) = v4 - 440;
+  v5 = *(int *)(*((_QWORD *)this + 3) + 12LL);
+  *(_DWORD *)((char *)this + v5 + 20) = v5 - 464;
+  if ( *(_QWORD *)v2 )
   {
-    ;
+    v6 = *(_QWORD *)v2 + 8LL + *(int *)(*(_QWORD *)(*(_QWORD *)v2 + 8LL) + 8LL);
+    (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v6 + 48LL))(v6, (char *)this + 56);
   }
-  memmove_0(i, i + 1, xmmword_1803E6550 - (_QWORD)(i + 1));
-  *(_QWORD *)&xmmword_1803E6550 = xmmword_1803E6550 - 8;
-  v8 = (CD3DDevice *)*((_QWORD *)this + 10);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 54);
+  std::vector<unsigned char>::_Tidy((__int64)this + 408);
+  wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>(
+    (wil::details **)this + 49,
+    v7);
+  v8 = (void *)*((_QWORD *)this + 46);
   if ( v8 )
-    CD3DDevice::AdvanceUnpin(v8, *(struct _LUID *)((char *)this + 88), *((unsigned int *)this + 98), 1u);
-  (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 43) + 104LL))(
-    *((_QWORD *)this + 43),
-    *((unsigned int *)this + 98));
-  std::_Destroy_range<std::allocator<CDDisplayCachedScanout>>(*((__int64 **)this + 29), *((__int64 **)this + 30));
-  *((_QWORD *)this + 30) = *((_QWORD *)this + 29);
-  std::_List_node<std::unique_ptr<CDDisplayAgedCachedScanout>,void *>::_Free_non_head<std::allocator<std::_List_node<std::unique_ptr<CDDisplayAgedCachedScanout>,void *>>>(
-    v9,
-    *((_QWORD ***)this + 32));
-  **((_QWORD **)this + 32) = *((_QWORD *)this + 32);
-  *(_QWORD *)(*((_QWORD *)this + 32) + 8LL) = *((_QWORD *)this + 32);
-  *((_QWORD *)this + 33) = 0LL;
-  v10 = *((_QWORD *)this + 16);
-  if ( v10 )
   {
-    v11 = v10 + 8 + *(int *)(*(_QWORD *)(v10 + 8) + 8LL);
-    (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v11 + 48LL))(v11, v3);
+    std::_Destroy_range<std::allocator<std::unique_ptr<CRegion>>>(*((CRegion ***)this + 46), *((CRegion ***)this + 47));
+    std::_Deallocate<16,0>(v8, (*((_QWORD *)this + 48) - (_QWORD)v8) & 0xFFFFFFFFFFFFFFF8uLL);
+    *((_QWORD *)this + 46) = 0LL;
+    *((_QWORD *)this + 47) = 0LL;
+    *((_QWORD *)this + 48) = 0LL;
   }
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 66);
-  std::vector<unsigned char>::_Tidy((__int64)this + 504);
-  v13 = (wil::details *)*((_QWORD *)this + 60);
-  if ( v13 )
-    wil::details::CloseHandle(v13, v12);
-  v14 = (void ***)*((_QWORD *)this + 57);
-  if ( v14 )
-  {
-    std::_Destroy_range<std::allocator<std::unique_ptr<CRegion>>>(v14, *((void ****)this + 58));
-    std::_Deallocate<16,0>(
-      *((void **)this + 57),
-      (*((_QWORD *)this + 59) - *((_QWORD *)this + 57)) & 0xFFFFFFFFFFFFFFF8uLL);
-    *((_QWORD *)this + 57) = 0LL;
-    *((_QWORD *)this + 58) = 0LL;
-    *((_QWORD *)this + 59) = 0LL;
-  }
-  v15 = (DDisplayPrimaryBufferResources *)*((_QWORD *)this + 50);
-  if ( v15 )
+  FastRegion::CRegion::FreeMemory((void **)this + 37);
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)v2);
+  v9 = (void *)*((_QWORD *)this + 25);
+  if ( v9 )
   {
     std::_Destroy_range<std::allocator<DDisplayPrimaryBufferResources>>(
-      v15,
-      *((DDisplayPrimaryBufferResources **)this + 51));
-    std::_Deallocate<16,0>(
-      *((void **)this + 50),
-      (*((_QWORD *)this + 52) - *((_QWORD *)this + 50)) & 0xFFFFFFFFFFFFFFE0uLL);
-    *((_QWORD *)this + 50) = 0LL;
-    *((_QWORD *)this + 51) = 0LL;
-    *((_QWORD *)this + 52) = 0LL;
+      *((DDisplayPrimaryBufferResources **)this + 25),
+      *((DDisplayPrimaryBufferResources **)this + 26));
+    std::_Deallocate<16,0>(v9, (*((_QWORD *)this + 27) - (_QWORD)v9) & 0xFFFFFFFFFFFFFFE0uLL);
+    *((_QWORD *)this + 25) = 0LL;
+    *((_QWORD *)this + 26) = 0LL;
+    *((_QWORD *)this + 27) = 0LL;
   }
-  DDisplayTargetResources::~DDisplayTargetResources((CDDisplaySwapChain *)((char *)this + 312));
-  DDisplayTaskPoolResources::~DDisplayTaskPoolResources((CDDisplaySwapChain *)((char *)this + 280));
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 34);
-  std::_List_node<std::unique_ptr<CDDisplayAgedCachedScanout>,void *>::_Free_non_head<std::allocator<std::_List_node<std::unique_ptr<CDDisplayAgedCachedScanout>,void *>>>(
-    v16,
-    *((_QWORD ***)this + 32));
-  std::_Deallocate<16,0>(*((void **)this + 32), 0x18uLL);
-  v17 = (__int64 *)*((_QWORD *)this + 29);
-  if ( v17 )
-  {
-    std::_Destroy_range<std::allocator<CDDisplayCachedScanout>>(v17, *((__int64 **)this + 30));
-    std::_Deallocate<16,0>(*((void **)this + 29), 8 * ((__int64)(*((_QWORD *)this + 31) - *((_QWORD *)this + 29)) >> 3));
-    *((_QWORD *)this + 29) = 0LL;
-    *((_QWORD *)this + 30) = 0LL;
-    *((_QWORD *)this + 31) = 0LL;
-  }
-  COverlaySwapChainBase::~COverlaySwapChainBase(this);
+  DDisplayTargetResources::~DDisplayTargetResources((CDDisplaySwapChain *)((char *)this + 144));
+  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)this + 17);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 16);
+  DDisplayTaskPoolResources::~DDisplayTaskPoolResources((CDDisplaySwapChain *)((char *)this + 96));
+  v10 = (CD3DDevice *)*((_QWORD *)this + 11);
+  if ( v10 )
+    CD3DDevice::Release(v10);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 10);
+  CDeviceResource::~CDeviceResource((CDDisplaySwapChain *)((char *)this + 16));
+  *(_QWORD *)this = &CMILCOMBase::`vftable';
 }

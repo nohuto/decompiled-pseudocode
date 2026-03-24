@@ -1,17 +1,18 @@
 /*
- * XREFs of SshpGenerateDeviceFriendlyName @ 0x140845C24
+ * XREFs of SshpGenerateDeviceFriendlyName @ 0x1408FB170
  * Callers:
- *     SleepstudyHelper_GetPdoFriendlyName @ 0x140845A10 (SleepstudyHelper_GetPdoFriendlyName.c)
- *     SleepstudyHelperCreateBlockerFromDevice @ 0x140845B40 (SleepstudyHelperCreateBlockerFromDevice.c)
- *     SleepstudyHelperCreateBlockerFromComponent @ 0x1409A2070 (SleepstudyHelperCreateBlockerFromComponent.c)
+ *     SleepstudyHelperCreateBlockerFromComponent @ 0x1408FAFB0 (SleepstudyHelperCreateBlockerFromComponent.c)
+ *     SleepstudyHelperCreateBlockerFromDevice @ 0x1408FB0A0 (SleepstudyHelperCreateBlockerFromDevice.c)
+ *     SleepstudyHelper_GetPdoFriendlyName @ 0x1408FB440 (SleepstudyHelper_GetPdoFriendlyName.c)
  * Callees:
- *     RtlUnicodeStringCat @ 0x140208C9C (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCatString @ 0x140209B44 (RtlUnicodeStringCatString.c)
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     RtlUnicodeStringPrintf @ 0x1403C448C (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IoGetDeviceProperty @ 0x140792EB0 (IoGetDeviceProperty.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlUnicodeStringCat @ 0x140206B20 (RtlUnicodeStringCat.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     RtlUnicodeStringPrintf @ 0x14036E45C (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringCatString @ 0x1403C3D6C (RtlUnicodeStringCatString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IoGetDeviceProperty @ 0x1406B8A70 (IoGetDeviceProperty.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SshpGenerateDeviceFriendlyName(
@@ -23,154 +24,164 @@ __int64 __fastcall SshpGenerateDeviceFriendlyName(
   struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rax
   ULONG v5; // esi
   const UNICODE_STRING *DeviceNode; // r15
-  wchar_t *v10; // r14
+  void *v10; // r14
+  NTSTATUS v11; // ebx
   NTSTATUS DeviceProperty; // eax
-  NTSTATUS v12; // ebx
   ULONG v13; // esi
-  unsigned int v14; // esi
-  wchar_t *Pool2; // rax
-  __int64 v16; // r8
-  wchar_t *v17; // rax
-  __int64 v19; // r8
+  __int64 v14; // r8
+  __int64 v15; // rsi
+  PVOID PoolWithTag; // rax
+  __int64 v17; // r8
+  _WORD *v18; // rax
+  signed int v19; // ecx
   __int64 v20; // rdx
-  ULONG v21; // [rsp+30h] [rbp-59h]
+  _WORD *v21; // rax
+  ULONG Tag; // [rsp+30h] [rbp-59h]
   ULONG BufferLength; // [rsp+34h] [rbp-55h] BYREF
-  UNICODE_STRING SourceString; // [rsp+38h] [rbp-51h] BYREF
-  char v24; // [rsp+50h] [rbp-39h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-51h] BYREF
+  char v26; // [rsp+50h] [rbp-39h] BYREF
 
   DeviceObjectExtension = DeviceObject->DeviceObjectExtension;
   v5 = 0;
   BufferLength = 0;
-  v21 = a3;
+  Tag = a3;
   DeviceNode = (const UNICODE_STRING *)DeviceObjectExtension->DeviceNode;
   v10 = 0LL;
-  SourceString = 0LL;
-  if ( DeviceNode )
+  DestinationString = 0LL;
+  if ( !DeviceNode )
   {
-    DeviceProperty = IoGetDeviceProperty(DeviceObject, DevicePropertyDeviceDescription, 0, 0LL, &BufferLength);
-    v12 = DeviceProperty;
-    if ( DeviceProperty == -1073741789 )
+    v11 = -1073741811;
+    goto LABEL_46;
+  }
+  DeviceProperty = IoGetDeviceProperty(DeviceObject, DevicePropertyDeviceDescription, 0, 0LL, &BufferLength);
+  v11 = DeviceProperty;
+  if ( DeviceProperty == -1073741789 )
+  {
+    if ( BufferLength > 0xFFFF )
     {
-      if ( BufferLength > 0xFFFF )
-      {
-        v12 = -2147483643;
-        goto LABEL_27;
-      }
-      v5 = BufferLength + 4;
+      v11 = -2147483643;
+      goto LABEL_45;
     }
-    else if ( DeviceProperty != -1073741772 )
+    v5 = BufferLength + 4;
+  }
+  else if ( DeviceProperty != -1073741772 )
+  {
+    goto LABEL_44;
+  }
+  v13 = DeviceNode[8].Length + v5;
+  if ( a2 )
+  {
+    v14 = *a2;
+    DestinationString.Buffer = (wchar_t *)&v26;
+    *(_DWORD *)&DestinationString.Length = 0x400000;
+    v11 = RtlUnicodeStringPrintf(&DestinationString, L" (%d)", v14);
+    if ( v11 < 0 )
+      goto LABEL_45;
+    v13 += DestinationString.Length;
+  }
+  if ( !v13 )
+  {
+    v11 = -1073741811;
+    goto LABEL_45;
+  }
+  a3 = Tag;
+  v15 = v13 + 2;
+  if ( (unsigned int)v15 >= 0xFFFF )
+  {
+    v11 = -2147483643;
+    goto LABEL_46;
+  }
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 2 * v15, Tag);
+  v10 = PoolWithTag;
+  if ( !PoolWithTag )
+  {
+    v11 = -1073741670;
+    goto LABEL_45;
+  }
+  memset(PoolWithTag, 0, (unsigned int)v15);
+  if ( BufferLength )
+  {
+    v11 = IoGetDeviceProperty(DeviceObject, DevicePropertyDeviceDescription, BufferLength, v10, &BufferLength);
+    if ( v11 < 0 )
+      goto LABEL_45;
+    *a4 = 0LL;
+    v17 = 0x7FFFLL;
+    v18 = v10;
+    do
     {
-      if ( DeviceProperty >= 0 )
-        return (unsigned int)v12;
-      goto LABEL_27;
+      if ( !*v18 )
+        break;
+      ++v18;
+      --v17;
     }
-    v13 = DeviceNode[8].Length + v5;
-    if ( a2 )
+    while ( v17 );
+    v19 = v17 == 0 ? 0xC000000D : 0;
+    if ( v17 )
     {
-      v19 = *a2;
-      SourceString.Buffer = (wchar_t *)&v24;
-      *(_DWORD *)&SourceString.Length = 0x400000;
-      v12 = RtlUnicodeStringPrintf(&SourceString, L" (%d)", v19);
-      if ( v12 < 0 )
-        goto LABEL_27;
-      v13 += SourceString.Length;
+      if ( a4 )
+      {
+        a4->Buffer = (wchar_t *)v10;
+        a4->Length = 2 * (v17 != 0 ? 0x7FFF - v17 : 0);
+      }
+      else
+      {
+        v19 = -1073741811;
+      }
     }
-    if ( !v13 )
-    {
-      v12 = -1073741811;
-      goto LABEL_27;
-    }
-    a3 = v21;
-    v14 = v13 + 2;
-    if ( v14 < 0xFFFF )
-    {
-      Pool2 = (wchar_t *)ExAllocatePool2(256LL, 2LL * v14, v21);
-      v10 = Pool2;
-      if ( !Pool2 )
-      {
-        v12 = -1073741670;
-        goto LABEL_27;
-      }
-      if ( !BufferLength )
-      {
-        *a4 = 0LL;
-        v20 = 0x7FFFLL;
-        while ( *Pool2 )
-        {
-          ++Pool2;
-          if ( !--v20 )
-            goto LABEL_47;
-        }
-        if ( a4 )
-        {
-          a4->Buffer = v10;
-          a4->Length = 2 * (0x7FFF - v20);
-        }
-LABEL_47:
-        a4->MaximumLength = v14;
-LABEL_20:
-        v12 = RtlUnicodeStringCat(a4, DeviceNode + 8);
-        if ( v12 >= 0 )
-        {
-          if ( !BufferLength || (v12 = RtlUnicodeStringCatString(a4, L")"), v12 >= 0) )
-          {
-            if ( !a2 )
-              return 0;
-            v12 = RtlUnicodeStringCat(a4, &SourceString);
-            if ( v12 >= 0 )
-              return 0;
-          }
-        }
-        goto LABEL_27;
-      }
-      v12 = IoGetDeviceProperty(DeviceObject, DevicePropertyDeviceDescription, BufferLength, Pool2, &BufferLength);
-      if ( v12 < 0 )
-      {
-LABEL_27:
-        a3 = v21;
-        goto LABEL_31;
-      }
-      *a4 = 0LL;
-      v16 = 0x7FFFLL;
-      v17 = v10;
-      do
-      {
-        if ( !*v17 )
-          break;
-        ++v17;
-        --v16;
-      }
-      while ( v16 );
-      v12 = -1073741811;
-      if ( v16 )
-      {
-        if ( !a4 )
-        {
-LABEL_18:
-          a4->MaximumLength = v14;
-          if ( v12 >= 0 )
-          {
-            v12 = RtlUnicodeStringCatString(a4, L" (");
-            if ( v12 >= 0 )
-              goto LABEL_20;
-          }
-          goto LABEL_27;
-        }
-        a4->Buffer = v10;
-        a4->Length = 2 * (0x7FFF - v16);
-      }
-      v12 = v16 == 0 ? 0xC000000D : 0;
-      goto LABEL_18;
-    }
-    v12 = -2147483643;
+    a4->MaximumLength = v15;
+    v11 = v19;
+    if ( v19 < 0 )
+      goto LABEL_45;
+    v11 = RtlUnicodeStringCatString(a4, L" (");
   }
   else
   {
-    v12 = -1073741811;
+    *a4 = 0LL;
+    v20 = 0x7FFFLL;
+    v21 = v10;
+    do
+    {
+      if ( !*v21 )
+        break;
+      ++v21;
+      --v20;
+    }
+    while ( v20 );
+    if ( v20 && a4 )
+    {
+      a4->Buffer = (wchar_t *)v10;
+      a4->Length = 2 * (v20 != 0 ? 0x7FFF - v20 : 0);
+    }
+    a4->MaximumLength = v15;
+    v11 = 0;
   }
-LABEL_31:
+  if ( v11 >= 0 )
+  {
+    v11 = RtlUnicodeStringCat(a4, DeviceNode + 8);
+    if ( v11 >= 0 )
+    {
+      if ( BufferLength )
+        v11 = RtlUnicodeStringCatString(a4, L")");
+      if ( v11 >= 0 )
+      {
+        if ( a2 )
+          v11 = RtlUnicodeStringCat(a4, &DestinationString);
+        if ( v11 >= 0 )
+        {
+          v11 = 0;
+LABEL_44:
+          v10 = 0LL;
+          if ( v11 >= 0 )
+            return (unsigned int)v11;
+        }
+      }
+    }
+  }
+LABEL_45:
+  a3 = Tag;
+LABEL_46:
   *a4 = 0LL;
   if ( v10 )
     CmpFreeTransientPoolWithTag(v10, a3);
-  return (unsigned int)v12;
+  return (unsigned int)v11;
 }

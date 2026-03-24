@@ -1,351 +1,223 @@
 /*
- * XREFs of MiAddPhysicalMemoryChunks @ 0x140A2BEFC
+ * XREFs of MiAddPhysicalMemoryChunks @ 0x1408C547C
  * Callers:
- *     MiActOnPartitionNodePages @ 0x1406580F0 (MiActOnPartitionNodePages.c)
- *     MmAddPhysicalMemory @ 0x140A2D1C0 (MmAddPhysicalMemory.c)
- *     MiHotAddBootDescriptor @ 0x140B9A4C0 (MiHotAddBootDescriptor.c)
+ *     MiActOnPartitionNodePages @ 0x1405607E0 (MiActOnPartitionNodePages.c)
+ *     MmAddPhysicalMemory @ 0x1408C6370 (MmAddPhysicalMemory.c)
+ *     MiHotAddBootDeferredDescriptors @ 0x140A552F0 (MiHotAddBootDeferredDescriptors.c)
  * Callees:
- *     MiGetLargestPageIndex @ 0x1402C8990 (MiGetLargestPageIndex.c)
- *     MiGetClosestImplicitNode @ 0x1402E5D9C (MiGetClosestImplicitNode.c)
- *     MiGetAvailablePagesExcludeSlists @ 0x14035DA0C (MiGetAvailablePagesExcludeSlists.c)
- *     MiRestrictRangeToNode @ 0x140375D64 (MiRestrictRangeToNode.c)
- *     MiNodeAvailablePages @ 0x14046C646 (MiNodeAvailablePages.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140551100 (IoUpdateDumpPhysicalRanges.c)
- *     MiPageToNode @ 0x140617860 (MiPageToNode.c)
- *     MiNodeLargeFreeZeroPages2 @ 0x14064FBDC (MiNodeLargeFreeZeroPages2.c)
- *     MiAddPhysicalMemory @ 0x140A2B738 (MiAddPhysicalMemory.c)
+ *     MiGetClosestImplicitNode @ 0x14028CB50 (MiGetClosestImplicitNode.c)
+ *     MiGetLargestPageIndex @ 0x140323300 (MiGetLargestPageIndex.c)
+ *     MiPageToNode @ 0x140329884 (MiPageToNode.c)
+ *     MiRestrictRangeToNode @ 0x1403AC2E0 (MiRestrictRangeToNode.c)
+ *     MiNodeLargeFreeZeroPages2 @ 0x140556CA0 (MiNodeLargeFreeZeroPages2.c)
+ *     MiAddPhysicalMemory @ 0x1408C4EE0 (MiAddPhysicalMemory.c)
  */
 
-__int64 __fastcall MiAddPhysicalMemoryChunks(
-        unsigned __int16 *a1,
-        unsigned __int64 *a2,
-        __int64 *a3,
-        unsigned __int64 a4,
-        unsigned int a5,
-        int a6)
+__int64 __fastcall MiAddPhysicalMemoryChunks(ULONG_PTR *a1, unsigned __int64 *a2, _QWORD *a3, int a4)
 {
-  unsigned int v6; // r14d
-  unsigned __int64 v7; // r12
-  __int64 v9; // rdi
-  __int64 v10; // rbx
-  unsigned __int64 v11; // r13
-  ULONG_PTR v12; // rsi
-  __int64 v13; // rsi
-  int v14; // edi
-  ULONG_PTR v15; // r13
-  int v16; // r15d
-  unsigned __int64 v17; // rsi
-  int v18; // eax
-  int ClosestImplicitNode; // eax
-  int v20; // ecx
-  _QWORD *v21; // r10
-  __int64 v22; // r8
-  unsigned __int64 v23; // rcx
-  unsigned int v24; // r8d
-  __int64 v25; // r12
-  __int64 *v26; // r9
-  unsigned __int64 v27; // rdx
-  unsigned __int64 AvailablePagesExcludeSlists; // rcx
-  __int64 v29; // r8
-  unsigned __int16 *v30; // r10
-  __int64 v31; // rax
-  unsigned __int64 v32; // rdx
-  unsigned __int64 v33; // rax
-  unsigned int v34; // eax
-  int v35; // eax
-  unsigned __int64 v36; // r13
-  unsigned __int64 v37; // rdx
-  unsigned int v39; // [rsp+30h] [rbp-38h]
-  __int64 v40; // [rsp+38h] [rbp-30h] BYREF
-  unsigned __int64 v41; // [rsp+40h] [rbp-28h] BYREF
-  unsigned __int64 v42; // [rsp+48h] [rbp-20h]
-  _QWORD *v43; // [rsp+50h] [rbp-18h]
-  unsigned __int64 v44; // [rsp+58h] [rbp-10h]
-  int v46; // [rsp+B8h] [rbp+50h]
-  int v49; // [rsp+D0h] [rbp+68h]
-  unsigned int v50; // [rsp+D0h] [rbp+68h]
+  unsigned __int64 v4; // r14
+  __int64 v5; // rbx
+  unsigned __int64 v6; // rax
+  int v7; // ebp
+  int v8; // r15d
+  unsigned __int64 v9; // rdi
+  int v11; // r12d
+  ULONG_PTR v12; // r14
+  ULONG_PTR v13; // rax
+  unsigned __int64 v14; // rsi
+  int v15; // eax
+  __int64 v16; // r8
+  unsigned __int64 v17; // rcx
+  BOOL v18; // ebp
+  __int64 v20; // r12
+  unsigned __int64 v21; // r8
+  __int64 v22; // r9
+  unsigned int LargestPageIndex; // r15d
+  unsigned __int64 v24; // rcx
+  unsigned int v25; // r13d
+  unsigned __int64 v26; // rcx
+  unsigned __int64 v27; // rcx
+  __int64 v28; // rax
+  unsigned int v29; // eax
+  int v30; // eax
+  __int64 v31; // [rsp+30h] [rbp-48h] BYREF
+  unsigned __int64 v32; // [rsp+38h] [rbp-40h]
+  unsigned __int64 v34; // [rsp+88h] [rbp+10h] BYREF
+  _QWORD *v35; // [rsp+90h] [rbp+18h]
 
-  v6 = a5;
-  v39 = 1;
-  v42 = 512LL;
-  v7 = 512LL;
-  if ( a4 )
+  v35 = a3;
+  v4 = *a2;
+  v5 = 0LL;
+  v34 = *a2;
+  v6 = *a3;
+  v7 = 0;
+  v8 = 0;
+  v32 = 0LL;
+  v9 = v6;
+  v11 = 0;
+  while ( 1 )
   {
-    v7 = 0x40000LL;
-    v6 = a5 | 0x400000;
-    if ( a4 != 0x40000 )
-      v7 = 512LL;
-    v39 = a4 != 0x40000;
-    v42 = v7;
-  }
-  v9 = *a3;
-  v10 = 0LL;
-  v11 = *a2;
-  v12 = (unsigned __int64)*a3 >> 12;
-  v41 = *a2;
-  v40 = v9;
-  if ( (v6 & 0x10000) != 0 )
-  {
-    v6 |= 0x406000u;
-    v13 = v12 << 12;
     while ( 1 )
     {
-      v40 = v13;
-      v14 = MiAddPhysicalMemory(a1, (__int64 *)&v41, &v40, v6, 0LL);
-      if ( v14 >= 0 )
+      v12 = v4 >> 12;
+      v13 = MiRestrictRangeToNode(v12, v6 >> 12);
+      v14 = v13;
+      if ( v12 < 0x100000 && v12 + v13 > 0x100000 )
+        v14 = 0x100000 - v12;
+      v15 = MiPageToNode(v12);
+      v31 = qword_140C50D90 + 4544LL * ((unsigned int)MiGetClosestImplicitNode(v15 + 1) - 1);
+      if ( v11 < 0 )
       {
-        *a3 = v40;
-        goto LABEL_110;
-      }
-      if ( (v6 & 0x4000) == 0 )
-        break;
-      v6 &= ~0x4000u;
-    }
-    *a3 = 0LL;
-    return (unsigned int)v14;
-  }
-  v44 = 0LL;
-  v49 = 0;
-  v15 = v11 >> 12;
-  v16 = MiSystemPartition != a1 ? 2 : 0;
-  v46 = v16;
-  v17 = MiRestrictRangeToNode(v15, v12);
-  while ( v17 >= a4 )
-  {
-    if ( v15 < 0x100000 && v17 + v15 > 0x100000 )
-      v17 = 0x100000 - v15;
-    v18 = MiPageToNode(v15);
-    ClosestImplicitNode = MiGetClosestImplicitNode(v18 + 1);
-    v20 = v49;
-    v21 = (_QWORD *)(qword_140C6B510 + 25408LL * (unsigned int)(ClosestImplicitNode - 1));
-    v43 = v21;
-    if ( v49 < 0 )
-    {
-      v17 = v44;
-      if ( v44 > v7 )
-      {
-        if ( a1 == MiSystemPartition )
+        v14 = v32;
+        if ( v32 > 0x200 )
+          v14 = 512LL;
+        switch ( v8 )
         {
-          v17 = v7;
+          case 0:
+            if ( v32 > 0x200 )
+            {
+              v7 = 0;
+              break;
+            }
+            v18 = v12 < 0x100000;
+            goto LABEL_21;
+          case 1:
+            v18 = v32 <= 0x200;
+LABEL_21:
+            v7 = v18 + 1;
+            break;
+          case 2:
+            v7 = 3;
+            break;
+          case 3:
+            v7 = 4;
+            break;
+          case 4:
+            goto LABEL_27;
+        }
+      }
+      else
+      {
+        v7 = 0;
+        LODWORD(v16) = 1;
+        if ( (v12 & 0x1FF) != 0 )
+        {
+LABEL_11:
+          if ( v14 > MiLargePageSizes[(unsigned int)v16] - v12 % MiLargePageSizes[(unsigned int)v16] )
+            v14 = MiLargePageSizes[(unsigned int)v16] - v12 % MiLargePageSizes[(unsigned int)v16];
         }
         else
         {
-          v17 = (v44 >> 1) & ~(v7 - 1);
-          if ( v17 < v7 )
-            v17 = v7;
+          v17 = 512LL;
+          while ( v14 >= v17 )
+          {
+            v14 &= ~(v17 - 1);
+            if ( !(_DWORD)v16 )
+              break;
+            v16 = (unsigned int)(v16 - 1);
+            v17 = MiLargePageSizes[v16];
+            if ( v12 % v17 )
+              goto LABEL_11;
+          }
         }
       }
-      switch ( v46 )
+      v20 = 1LL;
+      LargestPageIndex = MiGetLargestPageIndex();
+      if ( LargestPageIndex <= 1 )
       {
-        case 0:
-          if ( v44 <= v7 )
-            v16 = (v15 < 0x100000) + 1;
-          else
-            v16 = 0;
-          break;
-        case 1:
-          v16 = 2 - (v7 < v44);
-          break;
-        case 2:
-          if ( a1 == MiSystemPartition )
-            v16 = 3;
-          else
-            v16 = v7 < v44 ? 2 : 4;
-          break;
-        case 3:
-          goto LABEL_45;
-        case 4:
-          if ( v44 <= v7 )
-            goto LABEL_107;
-LABEL_45:
-          v16 = 4;
-          break;
-      }
-    }
-    else
-    {
-      v16 = 0;
-      LODWORD(v22) = 1;
-      if ( a1 != MiSystemPartition )
-        v16 = v46;
-      if ( (v15 & 0x1FF) != 0 )
-      {
-LABEL_24:
-        if ( v17 > MiLargePageSizes[(unsigned int)v22] - v15 % MiLargePageSizes[(unsigned int)v22] )
-          v17 = MiLargePageSizes[(unsigned int)v22] - v15 % MiLargePageSizes[(unsigned int)v22];
-      }
-      else
-      {
-        v23 = 512LL;
-        while ( v17 >= v23 )
+        while ( 1 )
         {
-          v17 &= ~(v23 - 1);
-          if ( !(_DWORD)v22 )
+          v24 = MiLargePageSizes[LargestPageIndex];
+          if ( !(v12 % v24) && !(v14 % v24) )
             break;
-          v22 = (unsigned int)(v22 - 1);
-          v23 = MiLargePageSizes[v22];
-          if ( v15 % v23 )
-            goto LABEL_24;
+          if ( ++LargestPageIndex > 1 )
+            goto LABEL_34;
         }
+        v20 = MiLargePageSizes[LargestPageIndex];
       }
-    }
-    v24 = 0;
-    v25 = 1LL;
-    v50 = 0;
-    v26 = MiLargePageSizes;
-    while ( v15 % *v26 || v17 % *v26 )
-    {
-      ++v24;
-      ++v26;
-      v50 = v24;
-      if ( v24 > 1 )
-        goto LABEL_52;
-    }
-    v25 = *v26;
-LABEL_52:
-    v27 = v42;
-    v6 &= 0xFFFF4FFF;
-    if ( v17 < v42 )
-      goto LABEL_86;
-    if ( !v16 )
-    {
-      AvailablePagesExcludeSlists = MiNodeLargeFreeZeroPages2((__int64)v21, 0);
-      if ( !AvailablePagesExcludeSlists )
+LABEL_34:
+      v25 = a4 & 0xFFFFA7FF;
+      if ( v14 >= v21 )
       {
-        if ( v17 + v15 > 0x100000 && v17 > v42 )
+        if ( v7 )
         {
-          v17 = v42;
-          v50 = v39;
-          v25 = v42;
+LABEL_41:
+          if ( v7 != 1 || (v26 = MiNodeLargeFreeZeroPages2(v22, 1)) == 0 )
+          {
+            if ( v14 != 512 )
+              v14 = 512LL;
+            goto LABEL_58;
+          }
         }
-        v16 = 1;
-LABEL_61:
-        AvailablePagesExcludeSlists = MiNodeLargeFreeZeroPages2((__int64)v43, 1);
+        else
+        {
+          v26 = MiNodeLargeFreeZeroPages2(v22, 0);
+          if ( !v26 )
+          {
+            if ( v14 + v12 > 0x100000 && v14 > 0x200 )
+            {
+              LargestPageIndex = 1;
+              v14 = 512LL;
+              v20 = 512LL;
+            }
+            v22 = v31;
+            v7 = 1;
+            goto LABEL_41;
+          }
+        }
+        if ( v26 < (unsigned __int64)(48 * v20) >> 12 )
+        {
+          while ( !LargestPageIndex )
+          {
+            LargestPageIndex = 1;
+            v20 = MiLargePageSizes[1];
+            if ( v26 >= (unsigned __int64)(48 * v20) >> 12 )
+              goto LABEL_48;
+          }
+          v20 = 1LL;
+        }
+LABEL_48:
+        if ( v20 != 1 )
+        {
+          v25 |= 0x4000u;
+          if ( a1 == &MiSystemPartition )
+          {
+            if ( LargestPageIndex == 1 )
+              v25 |= 0x800u;
+            else
+              v25 |= 0x1000u;
+          }
+        }
+        v27 = v26 << 12;
+        v28 = ~(v20 - 1);
+        if ( v14 > (v28 & (v27 / 0x30)) )
+          v14 = v28 & (v27 / 0x30);
       }
-      LODWORD(v29) = v50;
-      v27 = v42;
-      goto LABEL_63;
+LABEL_58:
+      v32 = v14;
+      v29 = v25 & 0xFFFFDFFF;
+      a4 = v25 | 0x2000;
+      v8 = v7;
+      if ( v7 > 2 )
+        a4 = v29;
+      v31 = v14 << 12;
+      v30 = MiAddPhysicalMemory(a1, &v34, &v31, a4, 0LL);
+      v11 = v30;
+      if ( v30 < 0 )
+        break;
+      v4 = v31 + v34;
+      v5 += v31;
+      v34 += v31;
+      v6 = v9 - v5;
+      if ( v9 == v5 )
+        goto LABEL_27;
     }
-    v50 = v24;
-    if ( v16 == 3 )
-      goto LABEL_83;
-    if ( v16 == 1 )
-      goto LABEL_61;
-    if ( a1 == MiSystemPartition )
-    {
-LABEL_83:
-      v33 = v27;
-      if ( v17 == v27 )
-        v33 = v17;
-      v17 = v33;
-LABEL_86:
-      v30 = a1;
-      goto LABEL_87;
-    }
-    if ( v16 == 2 )
-    {
-      AvailablePagesExcludeSlists = MiNodeAvailablePages(v21);
-      if ( AvailablePagesExcludeSlists < 6 )
-      {
-        v31 = 0LL;
-        v46 = 4;
-        v49 = 0;
-        goto LABEL_99;
-      }
-      LODWORD(v29) = v50;
-      goto LABEL_64;
-    }
-    AvailablePagesExcludeSlists = MiGetAvailablePagesExcludeSlists((__int64)MiSystemPartition);
-LABEL_63:
-    if ( !AvailablePagesExcludeSlists )
-      goto LABEL_83;
-LABEL_64:
-    if ( AvailablePagesExcludeSlists >= (unsigned __int64)(48 * v25) >> 12 )
-    {
-LABEL_67:
-      if ( v25 != 1 )
-      {
-        v30 = a1;
-        if ( a1 == MiSystemPartition )
-          v6 |= 0x8000u;
-        goto LABEL_78;
-      }
-    }
-    else
-    {
-      while ( (unsigned int)v29 < v39 )
-      {
-        v29 = (unsigned int)(v29 + 1);
-        v25 = MiLargePageSizes[v29];
-        if ( AvailablePagesExcludeSlists >= (unsigned __int64)(48 * v25) >> 12 )
-          goto LABEL_67;
-      }
-      v25 = 1LL;
-    }
-    v30 = a1;
-LABEL_78:
-    v32 = ~(v25 - 1) & ((AvailablePagesExcludeSlists << 12) / 0x30);
-    if ( a4 )
-    {
-      v32 &= ~(a4 - 1);
-      if ( v32 < a4 )
-        v32 = a4;
-    }
-    if ( v17 > v32 )
-      v17 = v32;
-LABEL_87:
-    if ( (v6 & 0x80u) == 0 && (v15 & 0x1FF) == 0 && (v17 & 0x1FF) == 0 )
-    {
-      if ( MiGetLargestPageIndex() || (v15 & 0x3FFFF) != 0 || (v17 & 0x3FFFF) != 0 )
-        v6 |= 0x1000u;
-      else
-        v6 |= 0x2000u;
-    }
-    v44 = v17;
-    v34 = v6 & 0xFFFFBFFF;
-    v46 = v16;
-    v6 |= 0x4000u;
-    if ( v16 > 2 )
-      v6 = v34;
-    v40 = v17 << 12;
-    v35 = MiAddPhysicalMemory(v30, (__int64 *)&v41, &v40, v6, 0LL);
-    v49 = v35;
-    if ( v35 >= 0 )
-    {
-      v31 = v40;
-LABEL_99:
-      v10 += v31;
-      v36 = v31 + v41;
-      v37 = v9 - v10;
-      v41 += v31;
-      v40 = v9 - v10;
-      if ( v9 == v10 )
-      {
-        v20 = v49;
-        goto LABEL_107;
-      }
-      goto LABEL_104;
-    }
-    if ( v35 != -1073741670 && v35 != -1073741523 )
-    {
-      v20 = v35;
-      goto LABEL_107;
-    }
-    v36 = v41;
-    v37 = v40;
-LABEL_104:
-    v15 = v36 >> 12;
-    v17 = MiRestrictRangeToNode(v15, v37 >> 12);
-    v7 = v42;
+    if ( v30 != -1073741670 && v30 != -1073741523 || v7 == 4 )
+      break;
+    v4 = v34;
+    v6 = v31;
   }
-  v20 = -1073741800;
-LABEL_107:
-  v14 = 0;
-  if ( !v10 )
-    v14 = v20;
-  *a3 = v10;
-LABEL_110:
-  if ( !a6 && v14 >= 0 && (v6 & 2) == 0 )
-    IoUpdateDumpPhysicalRanges();
-  return (unsigned int)v14;
+LABEL_27:
+  *v35 = v5;
+  return (unsigned int)v11;
 }

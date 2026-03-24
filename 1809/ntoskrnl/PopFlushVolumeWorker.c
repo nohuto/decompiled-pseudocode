@@ -5,14 +5,14 @@
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwFlushBuffersFile @ 0x1401B8AD0 (ZwFlushBuffersFile.c)
- *     ZwCreateFile @ 0x1401B8C10 (ZwCreateFile.c)
- *     PopFlushAndHold @ 0x1402DE4C0 (PopFlushAndHold.c)
- *     ObQueryNameString @ 0x14065F680 (ObQueryNameString.c)
- *     NtDeviceIoControlFile @ 0x140691970 (NtDeviceIoControlFile.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwFlushBuffersFile @ 0x1401B8AF0 (ZwFlushBuffersFile.c)
+ *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
+ *     PopFlushAndHold @ 0x1402DE5C0 (PopFlushAndHold.c)
+ *     ObQueryNameString @ 0x14065F660 (ObQueryNameString.c)
+ *     NtDeviceIoControlFile @ 0x140691950 (NtDeviceIoControlFile.c)
  */
 
 void __fastcall PopFlushVolumeWorker(struct _KEVENT *StartContext)
@@ -38,15 +38,15 @@ void __fastcall PopFlushVolumeWorker(struct _KEVENT *StartContext)
       || (v4 = (_QWORD *)v2[1], (_QWORD *)*v4 != v2)
       || (*v4 = v3,
           *(_QWORD *)(v3 + 8) = v4,
-          v5 = (_QWORD *)qword_140417F38,
-          *(__int64 **)qword_140417F38 != &PopVolumeDevices) )
+          v5 = (_QWORD *)qword_140417FB8,
+          *(__int64 **)qword_140417FB8 != &PopVolumeDevices) )
     {
       __fastfail(3u);
     }
     *v2 = &PopVolumeDevices;
     v2[1] = v5;
     *v5 = v2;
-    qword_140417F38 = (__int64)v2;
+    qword_140417FB8 = (__int64)v2;
     KeReleaseGuardedMutex(&PopVolumeLock);
     if ( ObQueryNameString((PVOID)*(v2 - 6), &ObjectNameInfo, 0x200u, &ReturnLength) >= 0 )
     {

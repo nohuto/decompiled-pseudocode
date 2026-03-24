@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_UpdatingDeviceExitLatencyInTheControllerAfterIncreasingExitLatency @ 0x1C0023160
+ * XREFs of HUBDSM_UpdatingDeviceExitLatencyInTheControllerAfterIncreasingExitLatency @ 0x1C0022D10
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl @ 0x1C00248B0 (HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl.c)
+ *     HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl @ 0x1C0024470 (HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl.c)
  */
 
 __int64 __fastcall HUBDSM_UpdatingDeviceExitLatencyInTheControllerAfterIncreasingExitLatency(__int64 a1)

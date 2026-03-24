@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ViCtxCaptureInitialIsrState @ 0x140941C3C (ViCtxCaptureInitialIsrState.c)
  *     ViCtxCheckAndReleaseIsrState @ 0x140941CD8 (ViCtxCheckAndReleaseIsrState.c)
  */

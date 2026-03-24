@@ -2,8 +2,8 @@
  * XREFs of MiFlushTbListEarly @ 0x1400854DC
  * Callers:
  *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
- *     MiReplenishBitMap @ 0x1400EFDD0 (MiReplenishBitMap.c)
- *     MiResetAccessBitPteWorker @ 0x1402B3680 (MiResetAccessBitPteWorker.c)
+ *     MiReplenishBitMap @ 0x1400EFDF0 (MiReplenishBitMap.c)
+ *     MiResetAccessBitPteWorker @ 0x1402B3780 (MiResetAccessBitPteWorker.c)
  * Callees:
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  */

@@ -1,297 +1,312 @@
 /*
- * XREFs of ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x14037FDA0
+ * XREFs of ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x1402D70CC
  * Callers:
- *     ?StDmPageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14037FC84 (-StDmPageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     ?StNpLeafPageOut@?$ST_STORE@USM_TRAITS@@@@SA_KPEAUNP_CTX@NP_CONTEXT@@PEAX@Z @ 0x1405FA770 (-StNpLeafPageOut@-$ST_STORE@USM_TRAITS@@@@SA_KPEAUNP_CTX@NP_CONTEXT@@PEAX@Z.c)
+ *     ?StDmPageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1402DA900 (-StDmPageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StNpLeafPageOut@?$ST_STORE@USM_TRAITS@@@@SA_KPEAUNP_CTX@NP_CONTEXT@@PEAX@Z @ 0x14059CBE0 (-StNpLeafPageOut@-$ST_STORE@USM_TRAITS@@@@SA_KPEAUNP_CTX@NP_CONTEXT@@PEAX@Z.c)
  * Callees:
- *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x1402210C0 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
- *     KiAbThreadRemoveBoostsSlow @ 0x14022B568 (KiAbThreadRemoveBoostsSlow.c)
- *     ?SmStAcquireStoreLockExclusive@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140238A40 (-SmStAcquireStoreLockExclusive@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     RtlCompressBuffer @ 0x140244760 (RtlCompressBuffer.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14034EE30 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     RtlComputeCrc32 @ 0x140369820 (RtlComputeCrc32.c)
- *     ?StDmpDummyPageRecordAllocate@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14037E8DC (-StDmpDummyPageRecordAllocate@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
- *     SmHpChunkFree @ 0x14037EC9C (SmHpChunkFree.c)
- *     ?StDmpSinglePageInsert@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x1403800F0 (-StDmpSinglePageInsert@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_S.c)
- *     ?StDmPageRecordUnprotect@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x1403812B0 (-StDmPageRecordUnprotect@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z.c)
- *     SmHpChunkAlloc @ 0x1403815D4 (SmHpChunkAlloc.c)
- *     ?StDmpSinglePageFindSpace@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z @ 0x1403817C4 (-StDmpSinglePageFindSpace@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     SmCrAuthEncrypt @ 0x1405FD8C0 (SmCrAuthEncrypt.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
+ *     ?StDmPageRecordUnprotect@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x140253FFC (-StDmPageRecordUnprotect@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z.c)
+ *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
+ *     RtlComputeCrc32 @ 0x1402A2690 (RtlComputeCrc32.c)
+ *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x1402A7A34 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ *     ?StDmpDummyPageRecordAllocate@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x1402D36D8 (-StDmpDummyPageRecordAllocate@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
+ *     SmHpChunkFree @ 0x1402D51D8 (SmHpChunkFree.c)
+ *     ?StDmpSinglePageFindSpace@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z @ 0x1402D6DD0 (-StDmpSinglePageFindSpace@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z.c)
+ *     SmHpChunkAlloc @ 0x1402D6EDC (SmHpChunkAlloc.c)
+ *     ?SmStAcquireStoreLockExclusive@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1402DA478 (-SmStAcquireStoreLockExclusive@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     RtlCompressBuffer @ 0x1402DAB30 (RtlCompressBuffer.c)
+ *     ?StDmpSinglePageInsert@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x1402DABBC (-StDmpSinglePageInsert@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_S.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ?StDmpCurrentRegionWrite@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14059C72C (-StDmpCurrentRegionWrite@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
+ *     SmCrAuthEncrypt @ 0x1405A00D4 (SmCrAuthEncrypt.c)
  */
 
-__int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
+__int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a2, __int64 a3, int *a4)
 {
-  int v5; // eax
+  unsigned __int64 v6; // r14
+  int v7; // r8d
   unsigned int v8; // edx
-  int Space; // edi
-  __int64 v10; // rsi
-  int v11; // ecx
-  unsigned __int8 *v12; // r14
-  void *v13; // r15
-  ULONG v14; // edx
-  int v15; // r13d
-  unsigned int v16; // r12d
-  size_t v17; // r8
-  unsigned __int8 *v18; // rcx
-  UCHAR *v19; // rdx
-  __int64 v20; // rax
-  unsigned __int64 v21; // rsi
-  ULONG v22; // ecx
-  int *v23; // rdi
-  int v24; // eax
-  __int64 v25; // rax
-  ULONG_PTR v27; // rsi
-  struct _KTHREAD *CurrentThread; // r14
-  unsigned int SessionId; // ecx
-  __int64 p_Process; // rdi
-  unsigned int v31; // edx
-  int v32; // r8d
-  struct _KTHREAD *v33; // rcx
-  bool v34; // zf
-  int v35; // eax
-  UCHAR *v36; // rdi
-  unsigned int v37; // ecx
-  int v38; // ecx
-  ULONG v39; // r9d
-  __int64 v40; // r9
-  __int64 v41; // rcx
-  int v42; // eax
-  ULONG FinalCompressedSize; // [rsp+40h] [rbp-39h] BYREF
-  int v44; // [rsp+44h] [rbp-35h] BYREF
-  unsigned __int8 v45[8]; // [rsp+48h] [rbp-31h] BYREF
-  _DWORD *v46; // [rsp+50h] [rbp-29h]
-  unsigned int *v47; // [rsp+58h] [rbp-21h]
-  int *v48; // [rsp+60h] [rbp-19h]
-  __int64 v49; // [rsp+68h] [rbp-11h]
-  __int64 v50; // [rsp+70h] [rbp-9h] BYREF
-  int v51; // [rsp+78h] [rbp-1h]
+  int v9; // ebx
+  int Space; // esi
+  __int64 v11; // r15
+  ULONG_PTR v12; // r15
+  struct _KTHREAD *CurrentThread; // rbx
+  unsigned int SessionId; // edx
+  unsigned __int8 v15; // r12
+  unsigned int v16; // r8d
+  bool v17; // zf
+  __int64 v18; // rcx
+  __int64 v19; // rsi
+  unsigned __int8 v20; // al
+  int v21; // ecx
+  UCHAR *v22; // r15
+  UCHAR *v23; // r12
+  ULONG v24; // edx
+  unsigned int v25; // r13d
+  size_t v26; // r8
+  UCHAR *v27; // rdx
+  _WORD *v28; // rax
+  ULONG v29; // eax
+  int *v30; // rsi
+  __int64 v31; // rax
+  __int64 v32; // rax
+  int v34; // eax
+  UCHAR *v35; // rsi
+  unsigned int v36; // ecx
+  __int64 v37; // r9
+  __int64 v38; // rcx
+  int v39; // eax
+  ULONG FinalCompressedSize; // [rsp+40h] [rbp-49h] BYREF
+  ULONG_PTR v41; // [rsp+44h] [rbp-45h] BYREF
+  int v42; // [rsp+4Ch] [rbp-3Dh]
+  _DWORD *v43; // [rsp+50h] [rbp-39h] BYREF
+  __int64 v44; // [rsp+58h] [rbp-31h]
+  unsigned __int8 v45[8]; // [rsp+60h] [rbp-29h] BYREF
+  int v46; // [rsp+68h] [rbp-21h]
+  _DWORD *v47; // [rsp+70h] [rbp-19h]
+  int *v48; // [rsp+78h] [rbp-11h]
+  __int64 v49; // [rsp+80h] [rbp-9h] BYREF
+  int v50; // [rsp+88h] [rbp-1h]
 
   v48 = (int *)a2;
-  v50 = 0LL;
-  v51 = 0;
-  v5 = *(_DWORD *)(a1 + 776);
+  v44 = a3;
+  v49 = 0LL;
+  v50 = 0;
+  v6 = 0LL;
+  v7 = (unsigned __int8)*(_DWORD *)(a1 + 776);
   v8 = *(_DWORD *)a2 & 7;
-  v49 = a3;
   v47 = a4;
-  *(_QWORD *)v45 = 0LL;
-  v44 = 0;
-  if ( ((unsigned __int8)v5 == 0 ? 7 : 0) < v8 )
-    v8 = (unsigned __int8)v5 == 0 ? 7 : 0;
-  Space = ST_STORE<SM_TRAITS>::StDmpSinglePageFindSpace(a1, v8, *a4, (unsigned int)v45, (__int64)&v44);
-  if ( Space >= 0 )
+  v43 = 0LL;
+  LODWORD(v41) = 0;
+  v9 = 0;
+  v46 = 0;
+  FinalCompressedSize = 0;
+  if ( ((unsigned __int8)v7 == 0 ? 7 : 0) < v8 )
+    v8 = v7 == 0 ? 7 : 0;
+  Space = ST_STORE<SM_TRAITS>::StDmpSinglePageFindSpace(a1, v8, *a4, &v43, (int *)&v41);
+  if ( Space < 0 )
+    goto LABEL_41;
+  v11 = *(_QWORD *)(a1 + 800);
+  if ( (*(_BYTE *)(v11 + 6021) & 4) != 0 )
   {
-    v10 = *(_QWORD *)(a1 + 800);
-    if ( (*(_BYTE *)(v10 + 6021) & 4) != 0 )
+    v12 = v11 + 6024;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v12, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v12);
+    v42 = 0;
+    CurrentThread = KeGetCurrentThread();
+    if ( (unsigned int)MiGetSystemRegionType(v12) == 1 )
+      SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
+    else
+      SessionId = -1;
+    --CurrentThread->SpecialApcDisable;
+    v15 = ++CurrentThread->AbAllocationRegionCount;
+    v16 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+    while ( 1 )
     {
-      v27 = v10 + 6024;
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v27, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(v27);
-      CurrentThread = KeGetCurrentThread();
-      if ( v27 - qword_140C50630 >= 0x8000000000LL )
-        SessionId = -1;
-      else
-        SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
-      _disable();
-      p_Process = (__int64)&CurrentThread[1].Process;
-      v31 = 0;
-      while ( (*(_QWORD *)p_Process & 0x7FFFFFFFFFFFFFFCLL) != (v27 & 0x7FFFFFFFFFFFFFFCLL)
-           || !*(_BYTE *)(p_Process + 18)
-           || (*(_DWORD *)p_Process & 1) != 0
-           || *(_DWORD *)(p_Process + 8) != SessionId )
+      v17 = !_BitScanReverse((unsigned int *)&v18, v16);
+      HIDWORD(v41) = v18;
+      if ( v17 )
+        break;
+      v19 = (__int64)&CurrentThread->LockEntries[v18];
+      v16 &= ~(1 << v18);
+      if ( (*(_BYTE *)(v19 + 26) & 1) != 0
+        && (*(_DWORD *)(v19 + 32) & 1) == 0
+        && (*(_QWORD *)(v19 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v12 & 0x7FFFFFFFFFFFFFFCLL)
+        && *(_DWORD *)(v19 + 40) == SessionId )
       {
-        ++v31;
-        p_Process += 96LL;
-        if ( v31 >= 6 )
-          goto LABEL_34;
-      }
-      *(_BYTE *)(p_Process + 18) = 0;
-      if ( !p_Process )
-      {
-LABEL_34:
-        if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
-          KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v27, SessionId, 0LL);
-        _enable();
-        goto LABEL_41;
-      }
-      if ( *(__int64 *)p_Process < 0 )
-      {
-        *(_BYTE *)p_Process |= 2u;
-        _enable();
-        KiAbEntryRemoveFromTree(p_Process);
-        _disable();
-      }
-      v32 = *(_DWORD *)(p_Process + 88);
-      *(_DWORD *)(p_Process + 88) = 0;
-      *(_BYTE *)(p_Process + 17) = 0;
-      *(_QWORD *)p_Process = 0LL;
-      CurrentThread->AbEntrySummary |= 1 << *(_BYTE *)(p_Process + 16);
-      _enable();
-      if ( v32 )
-        KiAbThreadRemoveBoostsSlow((ULONG_PTR)CurrentThread, v27, v32);
-LABEL_41:
-      v33 = KeGetCurrentThread();
-      v34 = v33->SpecialApcDisable++ == -1;
-      if ( v34 && ($CEA84C04E3712D858E5667A507841A2A *)v33->ApcState.ApcListHead[0].Flink != &v33->152 )
-        KiCheckForKernelApcDelivery();
-    }
-    v11 = *(_DWORD *)a2;
-    v12 = (unsigned __int8 *)(*(_QWORD *)v45 + *(unsigned int *)(a1 + 824));
-    v13 = *(void **)(a2 + 8);
-    v46 = *(_DWORD **)v45;
-    if ( v11 >= 0 )
-    {
-      v35 = *(_DWORD *)(a1 + 776);
-      if ( (v35 & 0x400) != 0 )
-      {
-        v14 = 4096;
-      }
-      else
-      {
-        if ( (v35 & 0x8000) != 0 )
+        *(_BYTE *)(v19 + 26) &= ~1u;
+        if ( *(_QWORD *)(v19 + 32) )
         {
-          memmove((void *)(*(_QWORD *)(a1 + 1784) + 4096LL), v13, 0x1000uLL);
-          v11 = *(_DWORD *)a2;
-          v13 = (void *)(*(_QWORD *)(a1 + 1784) + 4096LL);
+          if ( v19 )
+          {
+            *(_BYTE *)(v19 + 32) |= 2u;
+            if ( *(__int64 *)(v19 + 32) < 0 )
+              KiAbEntryRemoveFromTree(v19);
+            v42 = *(_DWORD *)(v19 + 88) & 0x1FFFF;
+            *(_DWORD *)(v19 + 88) &= 0xFFFE0000;
+            *(_BYTE *)(v19 + 25) &= ~1u;
+            *(_QWORD *)(v19 + 32) = 0LL;
+            v20 = 1 << ((signed __int64)(v19 - (unsigned __int64)CurrentThread->LockEntries) / 96);
+            if ( v15 == 1 )
+              CurrentThread->AbEntrySummary |= v20;
+            else
+              _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, v20);
+            goto LABEL_21;
+          }
+          break;
         }
-        v14 = 0;
       }
+    }
+    if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
+      KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v12, SessionId, 0LL);
+LABEL_21:
+    --CurrentThread->AbAllocationRegionCount;
+    KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
+    v17 = CurrentThread->SpecialApcDisable++ == -1;
+    if ( v17 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery(1LL);
+    KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
+  }
+  v9 = 1;
+  v21 = *(_DWORD *)a2;
+  v22 = (UCHAR *)v43 + *(unsigned int *)(a1 + 824);
+  v23 = *(UCHAR **)(a2 + 8);
+  if ( *(int *)a2 >= 0 )
+  {
+    v34 = *(_DWORD *)(a1 + 776);
+    if ( (v34 & 0x400) != 0 )
+    {
+      v24 = 4096;
     }
     else
     {
-      v14 = *(_DWORD *)(*(_QWORD *)(a3 + 16) + 40LL);
+      if ( (v34 & 0x8000) != 0 )
+      {
+        memmove((void *)(*(_QWORD *)(a1 + 1784) + 4096LL), *(const void **)(a2 + 8), 0x1000uLL);
+        v21 = *(_DWORD *)a2;
+        v23 = (UCHAR *)(*(_QWORD *)(a1 + 1784) + 4096LL);
+      }
+      v24 = 0;
     }
-    v15 = v44;
-    v16 = *(_DWORD *)(a1 + 816) - (v44 & *(_DWORD *)(a1 + 808));
-    FinalCompressedSize = v14;
-    if ( v11 < 0 )
+  }
+  else
+  {
+    v24 = *(_DWORD *)(*(_QWORD *)(v44 + 16) + 40LL);
+  }
+  v25 = *(_DWORD *)(a1 + 816) - (v41 & *(_DWORD *)(a1 + 808));
+  FinalCompressedSize = v24;
+  if ( v21 < 0 )
+  {
+    v26 = v24;
+    v27 = v23;
+LABEL_29:
+    memmove(v22, v27, v26);
+    goto LABEL_30;
+  }
+  if ( v25 >= *(_DWORD *)(a1 + 820) )
+    v35 = v22;
+  else
+    v35 = *(UCHAR **)(a1 + 1784);
+  if ( !v24 )
+  {
+    if ( RtlCompressBuffer(
+           *(_WORD *)(a1 + 992),
+           v23,
+           0x1000u,
+           v35,
+           0x1000u,
+           0x1000u,
+           &FinalCompressedSize,
+           *(PVOID *)(a1 + 896)) >= 0 )
     {
-      v17 = v14;
-      v18 = v12;
-      v19 = (UCHAR *)v13;
-      goto LABEL_9;
+      v24 = FinalCompressedSize;
     }
-    if ( v16 >= *(_DWORD *)(a1 + 820) )
-      v36 = v12;
     else
-      v36 = *(UCHAR **)(a1 + 1784);
-    if ( !v14 )
     {
-      if ( RtlCompressBuffer(
-             *(_WORD *)(a1 + 992),
-             (PUCHAR)v13,
-             0x1000u,
-             v36,
-             0x1000u,
-             0x1000u,
-             &FinalCompressedSize,
-             *(PVOID *)(a1 + 896)) >= 0 )
-      {
-        v14 = FinalCompressedSize;
-      }
-      else
-      {
-        v14 = 4096;
-        FinalCompressedSize = 4096;
-      }
-    }
-    if ( v36 != v12 )
-    {
-      v37 = (v14 + *(_DWORD *)(a1 + 824) + 15) >> 4;
-      *v47 = v37;
-      if ( v37 > v16 )
-      {
-        Space = -1073741267;
-LABEL_62:
-        SMKM_STORE<SM_TRAITS>::SmStAcquireStoreLockExclusive(*(_QWORD *)(a1 + 800));
-        return (unsigned int)Space;
-      }
-    }
-    if ( v14 > 0xFF0 )
-    {
-      if ( (*(_DWORD *)(a1 + 776) & 0x200) != 0 )
-      {
-        Space = -1073740762;
-        goto LABEL_62;
-      }
-      v14 = 4096;
-      v36 = (UCHAR *)v13;
+      v24 = 4096;
       FinalCompressedSize = 4096;
     }
-    if ( v36 == v12 )
-      goto LABEL_10;
-    v17 = v14;
-    v18 = v12;
-    v19 = v36;
-LABEL_9:
-    memmove(v18, v19, v17);
-LABEL_10:
-    if ( !*(_QWORD *)(a1 + 760) )
+  }
+  if ( v35 != v22 )
+  {
+    v36 = (v24 + *(_DWORD *)(a1 + 824) + 15) >> 4;
+    *v47 = v36;
+    if ( v36 > v25 )
     {
-      Space = ST_STORE<SM_TRAITS>::StDmpDummyPageRecordAllocate(a1);
-      if ( Space < 0 )
-        goto LABEL_62;
+      Space = -1073741267;
+      goto LABEL_41;
     }
+  }
+  if ( v24 > 0xFF0 )
+  {
+    if ( (*(_DWORD *)(a1 + 776) & 0x200) != 0 )
+    {
+      Space = -1073740762;
+      goto LABEL_41;
+    }
+    v24 = 4096;
+    v35 = v23;
+    FinalCompressedSize = 4096;
+  }
+  if ( v35 != v22 )
+  {
+    v26 = v24;
+    v27 = v35;
+    goto LABEL_29;
+  }
+LABEL_30:
+  if ( *(_QWORD *)(a1 + 760) || (Space = ST_STORE<SM_TRAITS>::StDmpDummyPageRecordAllocate(a1), Space >= 0) )
+  {
+    v9 = 0;
     SMKM_STORE<SM_TRAITS>::SmStAcquireStoreLockExclusive(*(_QWORD *)(a1 + 800));
-    v20 = SmHpChunkAlloc(a1 + 192);
-    v21 = v20;
-    if ( !v20 )
-      return (unsigned int)-1073741670;
-    ST_STORE<SM_TRAITS>::StDmPageRecordUnprotect(a1, v20);
-    *(_QWORD *)(v21 + 4) = 0LL;
-    *(_DWORD *)v21 = v15;
-    v22 = FinalCompressedSize;
+    v28 = SmHpChunkAlloc((_DWORD *)(a1 + 192));
+    v6 = (unsigned __int64)v28;
+    if ( !v28 )
+    {
+      Space = -1073741670;
+      goto LABEL_41;
+    }
+    ST_STORE<SM_TRAITS>::StDmPageRecordUnprotect(a1, (__int64)v28);
+    *(_QWORD *)(v6 + 4) = 0LL;
+    *(_DWORD *)v6 = v41;
+    v29 = FinalCompressedSize;
     if ( FinalCompressedSize < 0x1000 )
     {
-      *(_DWORD *)(v21 + 4) ^= ((unsigned __int16)FinalCompressedSize ^ (unsigned __int16)*(_DWORD *)(v21 + 4)) & 0xFFF;
-      v22 = FinalCompressedSize;
+      *(_DWORD *)(v6 + 4) ^= FinalCompressedSize & 0xFFF;
+      v29 = FinalCompressedSize;
     }
-    v23 = v48;
+    v30 = v48;
     if ( *v48 >= 0 )
     {
       *(_QWORD *)v45 = 0LL;
-      MetroHash64::Hash(v12, v22, v45, 0LL);
-      v24 = *(_DWORD *)v45;
+      MetroHash64::Hash(v22, v29, v45);
+      LODWORD(v31) = *(_DWORD *)v45;
     }
     else
     {
-      v24 = *(_DWORD *)(v49 + 96);
+      v31 = *(_QWORD *)(v44 + 96);
     }
-    *(_DWORD *)(v21 + 8) = v24;
-    v25 = *(_QWORD *)(a1 + 1016);
-    if ( *(_DWORD *)(v25 + 24) )
+    *(_DWORD *)(v6 + 8) = v31;
+    v32 = *(_QWORD *)(a1 + 1016);
+    if ( *(_DWORD *)(v32 + 24) )
     {
-      v38 = *(_DWORD *)(v25 + 8);
-      v39 = FinalCompressedSize;
+      v37 = -*(_DWORD *)(v32 + 8) & (*(_DWORD *)(v32 + 8) + FinalCompressedSize - 1);
       ++*(_QWORD *)(a1 + 1024);
-      *(_DWORD *)(v21 + 12) = *(_DWORD *)(a1 + 1024);
-      v40 = -v38 & (v38 + v39 - 1);
-      *(_WORD *)(v21 + 6) = *(_WORD *)(a1 + 1028);
-      LODWORD(v50) = FinalCompressedSize;
-      HIDWORD(v50) = *(_DWORD *)(v21 + 12);
-      v41 = *(_QWORD *)(a1 + 1016);
-      v51 = *(unsigned __int16 *)(v21 + 6);
-      if ( (int)SmCrAuthEncrypt(v41, v12, v12, v40, &v50) < 0 )
+      *(_DWORD *)(v6 + 12) = *(_DWORD *)(a1 + 1024);
+      *(_WORD *)(v6 + 6) = *(_WORD *)(a1 + 1028);
+      LODWORD(v49) = FinalCompressedSize;
+      HIDWORD(v49) = *(_DWORD *)(v6 + 12);
+      v38 = *(_QWORD *)(a1 + 1016);
+      v50 = *(unsigned __int16 *)(v6 + 6);
+      if ( (int)SmCrAuthEncrypt(v38, v22, v22, v37, &v49) < 0 )
       {
         Space = -1073741174;
-        goto LABEL_73;
+        goto LABEL_41;
       }
     }
     else if ( *(_BYTE *)(a1 + 776) )
     {
-      v42 = RtlComputeCrc32(0, (char *)v12, FinalCompressedSize);
-      *v46 = v42;
+      v39 = RtlComputeCrc32(0, (char *)v22, FinalCompressedSize);
+      *v43 = v39;
     }
-    Space = ST_STORE<SM_TRAITS>::StDmpSinglePageInsert(a1, v23, v21);
+    Space = ST_STORE<SM_TRAITS>::StDmpSinglePageInsert(a1, v30, v6);
     if ( Space >= 0 )
-      return 0;
-LABEL_73:
-    SmHpChunkFree((_DWORD *)(a1 + 192), v21);
+    {
+      v6 = 0LL;
+      Space = 0;
+    }
   }
+LABEL_41:
+  if ( v9 )
+    SMKM_STORE<SM_TRAITS>::SmStAcquireStoreLockExclusive(*(_QWORD *)(a1 + 800));
+  if ( v6 )
+    SmHpChunkFree((_DWORD *)(a1 + 192), v6);
   return (unsigned int)Space;
 }

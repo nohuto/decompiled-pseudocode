@@ -1,11 +1,11 @@
 /*
- * XREFs of IopAddRunTimeTriageDataBlocks @ 0x140552268
+ * XREFs of IopAddRunTimeTriageDataBlocks @ 0x1405037A4
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x14054FF70 (IoFillTriageDumpBuffer.c)
+ *     IoFillTriageDumpBuffer @ 0x140501A40 (IoFillTriageDumpBuffer.c)
  * Callees:
- *     IopAddTriageDumpDataBlock @ 0x1403AC9E4 (IopAddTriageDumpDataBlock.c)
- *     IopGetMaxValidMemorySize @ 0x140553320 (IopGetMaxValidMemorySize.c)
- *     IopGetMaxValidMemorySizeDown @ 0x140553398 (IopGetMaxValidMemorySizeDown.c)
+ *     IopAddTriageDumpDataBlock @ 0x1403CC1A8 (IopAddTriageDumpDataBlock.c)
+ *     IopGetMaxValidMemorySize @ 0x140503DCC (IopGetMaxValidMemorySize.c)
+ *     IopGetMaxValidMemorySizeDown @ 0x140503E44 (IopGetMaxValidMemorySizeDown.c)
  */
 
 __int64 __fastcall IopAddRunTimeTriageDataBlocks(

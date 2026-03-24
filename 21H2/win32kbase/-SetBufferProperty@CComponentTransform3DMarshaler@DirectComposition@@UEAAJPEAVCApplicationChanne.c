@@ -1,112 +1,40 @@
 /*
- * XREFs of ?SetBufferProperty@CComponentTransform3DMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00AF550
+ * XREFs of ?SetBufferProperty@CComponentTransform3DMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00949D0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     memcmp @ 0x1C00CE7B0 (memcmp.c)
  */
 
 __int64 __fastcall DirectComposition::CComponentTransform3DMarshaler::SetBufferProperty(
         DirectComposition::CComponentTransform3DMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
-        const void *a4,
-        size_t Size,
+        _OWORD *a4,
+        unsigned __int64 a5,
         bool *a6)
 {
   unsigned int v6; // ebx
-  int v7; // r8d
-  int v8; // r8d
-  int v9; // r8d
-  int v10; // r8d
-  int v11; // r8d
-  size_t v12; // r8
-  __int64 v13; // rax
-  char *v14; // rcx
+  _OWORD *v9; // rbp
 
   v6 = 0;
-  if ( a3 )
+  *a6 = 0;
+  if ( a3 == 20 && a4 && a5 == 64 )
   {
-    v7 = a3 - 1;
-    if ( v7 )
+    v9 = (_OWORD *)((char *)this + 148);
+    if ( memcmp((char *)this + 148, a4, 0x40uLL) )
     {
-      v8 = v7 - 1;
-      if ( v8 )
-      {
-        v9 = v8 - 1;
-        if ( v9 )
-        {
-          v10 = v9 - 3;
-          if ( v10 )
-          {
-            v11 = v10 - 1;
-            if ( v11 )
-            {
-              if ( v11 != 1 )
-                return (unsigned int)-1073741811;
-              v12 = Size;
-              if ( Size != 64 )
-                return (unsigned int)-1073741811;
-              *((_DWORD *)this + 4) &= ~0x4000u;
-              v13 = 156LL;
-            }
-            else
-            {
-              v12 = Size;
-              if ( Size != 12 )
-                return (unsigned int)-1073741811;
-              *((_DWORD *)this + 4) &= ~0x2000u;
-              v13 = 144LL;
-            }
-          }
-          else
-          {
-            v12 = Size;
-            if ( Size != 12 )
-              return (unsigned int)-1073741811;
-            *((_DWORD *)this + 4) &= ~0x1000u;
-            v13 = 128LL;
-          }
-        }
-        else
-        {
-          v12 = Size;
-          if ( Size != 16 )
-            return (unsigned int)-1073741811;
-          *((_DWORD *)this + 4) &= ~0x400u;
-          v13 = 112LL;
-        }
-      }
-      else
-      {
-        v12 = Size;
-        if ( Size != 12 )
-          return (unsigned int)-1073741811;
-        *((_DWORD *)this + 4) &= ~0x200u;
-        v13 = 100LL;
-      }
+      *v9 = *a4;
+      v9[1] = a4[1];
+      v9[2] = a4[2];
+      v9[3] = a4[3];
     }
-    else
-    {
-      v12 = Size;
-      if ( Size != 12 )
-        return (unsigned int)-1073741811;
-      *((_DWORD *)this + 4) &= ~0x80u;
-      v13 = 80LL;
-    }
+    *((_DWORD *)this + 4) &= ~0x4000u;
+    *a6 = 1;
   }
   else
   {
-    v12 = Size;
-    if ( Size != 8 )
-      return (unsigned int)-1073741811;
-    *((_DWORD *)this + 4) &= ~0x100u;
-    v13 = 92LL;
-  }
-  v14 = (char *)this + v13;
-  if ( !v14 )
     return (unsigned int)-1073741811;
-  memmove(v14, a4, v12);
-  *a6 = 1;
+  }
   return v6;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalUnmaskInterrupt @ 0x14013DF50
+ * XREFs of xHalUnmaskInterrupt @ 0x14013DF70
  * Callers:
  *     <none>
  * Callees:

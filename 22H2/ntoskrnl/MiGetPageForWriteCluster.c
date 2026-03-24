@@ -1,79 +1,72 @@
 /*
- * XREFs of MiGetPageForWriteCluster @ 0x14046C0B6
+ * XREFs of MiGetPageForWriteCluster @ 0x140386FCC
  * Callers:
- *     MiBuildReservationCluster @ 0x140638354 (MiBuildReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x1403866F0 (MiBuildReservationCluster.c)
  * Callees:
- *     MiReferencePageForModifiedWrite @ 0x1403497E0 (MiReferencePageForModifiedWrite.c)
- *     MiCheckPteForWriteCluster @ 0x14046BFB2 (MiCheckPteForWriteCluster.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReferencePageForModifiedWrite @ 0x14025614C (MiReferencePageForModifiedWrite.c)
+ *     MiCheckPteForWriteCluster @ 0x1403870F4 (MiCheckPteForWriteCluster.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-unsigned __int64 __fastcall MiGetPageForWriteCluster(
+__int64 __fastcall MiGetPageForWriteCluster(
         __int64 a1,
-        ULONG_PTR a2,
+        __int64 a2,
         unsigned __int64 a3,
-        int *a4,
-        _DWORD *a5)
+        __int64 a4,
+        int a5,
+        int *a6,
+        _DWORD *a7)
 {
-  int v6; // esi
-  unsigned __int64 v7; // rbx
-  ULONG_PTR v9; // rax
-  __int64 v10; // rdi
+  int v7; // esi
+  ULONG_PTR v10; // rax
+  __int64 v11; // rdi
   unsigned __int8 CurrentIrql; // al
-  unsigned __int8 v13; // bl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v16; // eax
-  bool v17; // zf
-  char v18[40]; // [rsp+20h] [rbp-28h] BYREF
+  bool v16; // zf
 
-  v6 = 0;
-  v7 = a3;
-  v18[0] = 0;
-  *a5 = 1;
-  v9 = MiCheckPteForWriteCluster(a1, a2, a3, v18);
-  v10 = v9;
-  if ( v9 )
+  v7 = 0;
+  *a7 = 1;
+  v10 = MiCheckPteForWriteCluster();
+  v11 = v10;
+  if ( v10 )
   {
-    *a5 = MiReferencePageForModifiedWrite(v9, 0);
-    _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    *a7 = MiReferencePageForModifiedWrite(v10, 0);
+    _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    if ( KiIrqlFlags )
     {
-      v13 = v18[0];
-      if ( v18[0] <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v13 = v18[0];
-        v16 = ~(unsigned __int16)(-1LL << (v18[0] + 1));
-        v17 = (v16 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v16;
-        if ( v17 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v16 = (SchedulerAssist[5] & 0xFFFF0001) == 0;
+          SchedulerAssist[5] &= 0xFFFF0001;
+          if ( v16 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
-    else
-    {
-      v13 = v18[0];
-    }
-    __writecr8(v13);
-    if ( *a5 )
+    __writecr8(0LL);
+    if ( *a7 )
       goto LABEL_8;
   }
-  else if ( (unsigned int)*a4 <= 0x1F )
+  else if ( (unsigned int)*a6 <= 0x1F )
   {
-    if ( qword_140C65C40 )
+    if ( qword_140C4DF40 )
     {
-      if ( (v7 & 0x10) == 0 )
-        v7 &= ~qword_140C65C40;
+      if ( (a3 & 0x10) == 0 )
+        a3 &= ~qword_140C4DF40;
     }
-    if ( !_bittest64(*(const signed __int64 **)(a1 + 8), HIDWORD(v7)) )
+    if ( !_bittest64(*(const signed __int64 **)(a1 + 8), HIDWORD(a3)) )
     {
-      v10 = qword_140C697F0;
-      v6 = *a4 + 1;
+      v11 = qword_140C4ED60;
+      v7 = *a6 + 1;
 LABEL_8:
-      *a4 = v6;
-      return 0xAAAAAAAAAAAAAAABuLL * ((v10 + 0x220000000000LL) >> 4);
+      *a6 = v7;
+      return (v11 + 0x58000000000LL) / 48;
     }
   }
   return -1LL;

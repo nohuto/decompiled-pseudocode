@@ -1,12 +1,12 @@
 /*
- * XREFs of ?xxxWrapCallWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C014FD40
+ * XREFs of ?xxxWrapCallWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C015F5C0
  * Callers:
  *     <none>
  * Callees:
- *     SfnDWORD @ 0x1C004DC40 (SfnDWORD.c)
- *     HMValidateHandleNoRip @ 0x1C00A3A40 (HMValidateHandleNoRip.c)
- *     ?CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z @ 0x1C0119178 (-CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     HMValidateHandleNoRip @ 0x1C0023C6C (HMValidateHandleNoRip.c)
+ *     SfnDWORD @ 0x1C006B3C0 (SfnDWORD.c)
+ *     ?CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z @ 0x1C0129398 (-CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall xxxWrapCallWindowProc(
@@ -19,6 +19,8 @@ __int64 __fastcall xxxWrapCallWindowProc(
   unsigned int v6; // ebx
   __int64 v9; // rax
   unsigned int v10; // ecx
+  __int64 v11; // rax
+  __int64 v12; // r10
 
   v6 = a2;
   if ( !(unsigned int)CheckProcessIdentity(a1, a2, a3, a4) )
@@ -27,17 +29,19 @@ __int64 __fastcall xxxWrapCallWindowProc(
   v10 = v6 & 0x1FFFF;
   if ( v9 )
   {
+    v11 = *(_QWORD *)(v9 + 40);
+    v12 = *(_QWORD *)(v11 + 16);
     if ( v10 >= 0x400 )
-      return SfnDWORD((__int64 *)a1, v6, a3, a4, *(_QWORD *)(*(_QWORD *)(v9 + 40) + 16LL), *(_QWORD *)(gpsi + 752LL));
+      return SfnDWORD((__int64 *)a1, v6, a3, a4, v12, *(_QWORD *)(gpsi + 752LL));
     else
-      return ((__int64 (__fastcall *)(struct tagWND *, _QWORD, unsigned __int64, unsigned __int64, _QWORD, _QWORD, int, _QWORD))gapfnScSendMessage[(unsigned __int8)MessageTable[(unsigned __int16)v6]])(
+      return ((__int64 (__fastcall *)(struct tagWND *, _QWORD, unsigned __int64, unsigned __int64, __int64, _QWORD, bool, _QWORD))gapfnScSendMessage[(unsigned __int8)MessageTable[(unsigned __int16)v6]])(
                a1,
                v6,
                a3,
                a4,
-               *(_QWORD *)(*(_QWORD *)(v9 + 40) + 16LL),
+               v12,
                *(_QWORD *)(gpsi + 752LL),
-               (*(unsigned __int16 *)(*(_QWORD *)(v9 + 40) + 24LL) >> 1) & 1,
+               (*(_WORD *)(v11 + 24) & 2) != 0,
                0LL);
   }
   else if ( v10 < 0x400 )

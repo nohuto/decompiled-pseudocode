@@ -1,32 +1,41 @@
 /*
- * XREFs of FreeInputContext @ 0x1C00FA700
+ * XREFs of FreeInputContext @ 0x1C01101E0
  * Callers:
  *     <none>
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     ??4?$SharedMixedObjectPointerFieldpImcNext@UtagIMC@@@tagIMC@@QEAAPEAU1@PEAU1@@Z @ 0x1C0150AE0 (--4-$SharedMixedObjectPointerFieldpImcNext@UtagIMC@@@tagIMC@@QEAAPEAU1@PEAU1@@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall FreeInputContext(__int64 a1)
 {
   __int64 result; // rax
-  __int64 v3; // rcx
-  __int64 v4; // rax
+  __int64 v3; // r8
+  __int64 v4; // rdx
+  __int64 v5; // rax
+  __int64 v6; // rcx
 
-  if ( !gcInHMDestroyUnlockedObjectWorker )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1);
   result = HMMarkObjectDestroy(a1);
+  v3 = 0LL;
   if ( (_DWORD)result )
   {
-    v3 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 792LL);
-    while ( v3 )
+    v4 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 792LL);
+    if ( v4 )
     {
-      v4 = v3;
-      v3 = *(_QWORD *)(v3 + 56);
-      if ( v3 == a1 )
+      do
       {
-        tagIMC::SharedMixedObjectPointerFieldpImcNext<tagIMC>::operator=(v4 + 56, *(_QWORD *)(a1 + 56));
-        return HMFreeObject(a1);
+        v5 = *(_QWORD *)(v4 + 56);
+        if ( v5 == a1 )
+          break;
+        v4 = *(_QWORD *)(v4 + 56);
+      }
+      while ( v5 );
+      if ( v4 )
+      {
+        v6 = *(_QWORD *)(a1 + 56);
+        if ( v6 )
+          v3 = *(_QWORD *)(v6 + 48);
+        *(_QWORD *)(*(_QWORD *)(v4 + 40) + 16LL) = v3;
+        *(_QWORD *)(v4 + 56) = v6;
       }
     }
     return HMFreeObject(a1);

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerSchedulePeriodicQueries @ 0x1403B3414
+ * XREFs of HalpTimerSchedulePeriodicQueries @ 0x1403CE16C
  * Callers:
- *     HalpTimerInitSystem @ 0x14037B080 (HalpTimerInitSystem.c)
- *     HalpTscFallbackToPlatformSource @ 0x14050A3C4 (HalpTscFallbackToPlatformSource.c)
+ *     HalpTimerInitSystem @ 0x1403AF740 (HalpTimerInitSystem.c)
+ *     HalpTscFallbackToPlatformSource @ 0x1404C15D8 (HalpTscFallbackToPlatformSource.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
  */
 
 __int64 HalpTimerSchedulePeriodicQueries()
@@ -15,8 +15,9 @@ __int64 HalpTimerSchedulePeriodicQueries()
   ULONG_PTR v1; // rdi
   __int64 v2; // r11
   ULONGLONG v3; // r10
-  ULONGLONG v4; // rax
+  ULONGLONG v5; // rax
   ULONGLONG pullResult; // [rsp+40h] [rbp+8h] BYREF
+  ULONGLONG v7; // [rsp+48h] [rbp+10h] BYREF
 
   pullResult = 0LL;
   v0 = HalpAlwaysOnCounter;
@@ -29,17 +30,13 @@ __int64 HalpTimerSchedulePeriodicQueries()
     v3 = 120000LL;
   else
     v3 = pullResult / *(_QWORD *)(v1 + 192);
-  pullResult = v3;
-  v4 = v3;
+  v7 = v3;
   if ( v0 )
   {
-    if ( RtlULongLongMult(v2 << *(_DWORD *)(v0 + 220), 0xFAuLL, &pullResult) < 0 )
-      v4 = 120000LL;
-    else
-      v4 = pullResult / *(_QWORD *)(v0 + 192);
+    v5 = RtlULongLongMult(v2 << *(_DWORD *)(v0 + 220), 0xFAuLL, &v7) < 0 ? 120000LL : v7 / *(_QWORD *)(v0 + 192);
+    if ( v5 < v3 )
+      v3 = v5;
   }
-  if ( v4 < v3 )
-    v3 = v4;
   if ( v3 - 1 > 0x1D4BF )
     LODWORD(v3) = 120000;
   return KiSetTimerEx((__int64)&HalpTimerPeriodicTimer, -10000LL * (int)v3, v3, 0, (__int64)&HalpTimerDpc);

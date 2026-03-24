@@ -1,5 +1,5 @@
 /*
- * XREFs of ?FinalRelease@CRenderTarget@@MEAAXXZ @ 0x180104C80
+ * XREFs of ?FinalRelease@CRenderTarget@@MEAAXXZ @ 0x1800E0520
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall CRenderTarget::FinalRelease(CRenderTarget *this)
 {
-  CRenderTargetManager::RemoveRenderTarget(*(CRenderTargetManager **)(*((_QWORD *)this + 2) + 216LL), this);
+  CRenderTargetManager::RemoveRenderTarget(*(CRenderTargetManager **)(*((_QWORD *)this + 2) + 88LL), this);
 }

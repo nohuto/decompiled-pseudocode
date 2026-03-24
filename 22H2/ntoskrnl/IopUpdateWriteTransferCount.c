@@ -1,24 +1,26 @@
 /*
- * XREFs of IopUpdateWriteTransferCount @ 0x140556610
+ * XREFs of IopUpdateWriteTransferCount @ 0x140344D20
  * Callers:
- *     IopUpdateIrpTransferCount @ 0x14028C580 (IopUpdateIrpTransferCount.c)
+ *     IopUpdateIrpTransferCount @ 0x1403F08A0 (IopUpdateIrpTransferCount.c)
  * Callees:
  *     <none>
  */
 
-struct _KTHREAD *__fastcall IopUpdateWriteTransferCount(unsigned int a1, __int64 a2)
+unsigned __int64 __fastcall IopUpdateWriteTransferCount(unsigned int a1, __int64 a2)
 {
-  struct _KTHREAD *result; // rax
+  unsigned __int64 result; // rax
+  struct _KTHREAD *CurrentThread; // rcx
 
+  result = a1;
   if ( a2 )
   {
-    result = (struct _KTHREAD *)_InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 1584), a1);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 1584), a1);
   }
   else
   {
-    result = KeGetCurrentThread();
-    result->WriteTransferCount += a1;
+    CurrentThread = KeGetCurrentThread();
+    CurrentThread->WriteTransferCount += result;
   }
-  __addgsqword(0x2EF0u, a1);
+  __addgsqword(0x2EF0u, result);
   return result;
 }

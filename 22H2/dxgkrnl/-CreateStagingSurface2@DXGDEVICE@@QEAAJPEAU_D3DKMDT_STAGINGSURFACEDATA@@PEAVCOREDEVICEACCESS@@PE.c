@@ -1,69 +1,63 @@
 /*
- * XREFs of ?CreateStagingSurface2@DXGDEVICE@@QEAAJPEAU_D3DKMDT_STAGINGSURFACEDATA@@PEAVCOREDEVICEACCESS@@PEAI2@Z @ 0x1C02E8F30
+ * XREFs of ?CreateStagingSurface2@DXGDEVICE@@QEAAJPEAU_D3DKMDT_STAGINGSURFACEDATA@@PEAVCOREDEVICEACCESS@@PEAI2@Z @ 0x1C0254A84
  * Callers:
- *     ?CheckPrimaryContentWorker@VIDPNSOURCEINFO@@AEAAJPEAVDXGALLOCATION@@@Z @ 0x1C02F718C (-CheckPrimaryContentWorker@VIDPNSOURCEINFO@@AEAAJPEAVDXGALLOCATION@@@Z.c)
- *     ?PrepareStagingBuffer@DXGPRESENT@@QEAAJPEAVDXGDEVICE@@IPEAVCOREDEVICEACCESS@@PEAI@Z @ 0x1C033FE40 (-PrepareStagingBuffer@DXGPRESENT@@QEAAJPEAVDXGDEVICE@@IPEAVCOREDEVICEACCESS@@PEAI@Z.c)
+ *     ?PrepareStagingBuffer@DXGPRESENT@@QEAAJPEAVDXGDEVICE@@IPEAVCOREDEVICEACCESS@@PEAI@Z @ 0x1C0281DC8 (-PrepareStagingBuffer@DXGPRESENT@@QEAAJPEAVDXGDEVICE@@IPEAVCOREDEVICEACCESS@@PEAI@Z.c)
+ *     ?CheckPrimaryContentWorker@VIDPNSOURCEINFO@@AEAAJPEAVDXGALLOCATION@@@Z @ 0x1C02BA390 (-CheckPrimaryContentWorker@VIDPNSOURCEINFO@@AEAAJPEAVDXGALLOCATION@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?CreateStandardAllocation@DXGDEVICE@@QEAAJPEAU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C01A0874 (-CreateStandardAllocation@DXGDEVICE@@QEAAJPEAU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACC.c)
- *     ?DestroyStagingSurface@DXGDEVICE@@QEAAXIIPEAVCOREDEVICEACCESS@@@Z @ 0x1C02E9134 (-DestroyStagingSurface@DXGDEVICE@@QEAAXIIPEAVCOREDEVICEACCESS@@@Z.c)
- *     ?MakeAllocationResident@DXGDEVICE@@QEAAJIPEAVCOREDEVICEACCESS@@@Z @ 0x1C02EB9E4 (-MakeAllocationResident@DXGDEVICE@@QEAAJIPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?CreateStandardAllocation@DXGDEVICE@@QEAAJPEAU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C011B800 (-CreateStandardAllocation@DXGDEVICE@@QEAAJPEAU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACC.c)
+ *     ?DestroyStagingSurface@DXGDEVICE@@QEAAXIIPEAVCOREDEVICEACCESS@@@Z @ 0x1C0254C34 (-DestroyStagingSurface@DXGDEVICE@@QEAAXIIPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?MakeAllocationResident@DXGDEVICE@@QEAAJIPEAVCOREDEVICEACCESS@@@Z @ 0x1C0256374 (-MakeAllocationResident@DXGDEVICE@@QEAAJIPEAVCOREDEVICEACCESS@@@Z.c)
  */
 
 __int64 __fastcall DXGDEVICE::CreateStagingSurface2(
-        DXGDEVICE *this,
+        struct _DXGK_ALLOCATIONINFO *this,
         struct _D3DKMDT_STAGINGSURFACEDATA *a2,
         struct COREDEVICEACCESS *a3,
         unsigned int *a4,
         unsigned int *a5)
 {
-  char v9; // al
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  char v12; // al
   __int64 result; // rax
-  struct COREDEVICEACCESS *v11; // r8
+  struct COREDEVICEACCESS *v14; // r8
   int AllocationResident; // edi
-  _QWORD v13[54]; // [rsp+50h] [rbp-B0h] BYREF
+  _QWORD v16[54]; // [rsp+20h] [rbp-E0h] BYREF
 
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*((_QWORD *)this + 2) + 16LL)) )
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(this->Size + 16)) )
   {
-    WdLogSingleEntry1(1LL, 8788LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceSharedOwner()",
-      8788LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdAssertion(v10, v9);
+    *(_QWORD *)(v11 + 24) = 8684LL;
+    WdLogEvent5_WdAssertion(v11);
   }
-  memset(v13, 0, 0x1A8uLL);
+  memset(v16, 0, 0x1A8uLL);
   *a4 = 0;
   if ( a5 )
     *a5 = 0;
-  v9 = v13[51];
-  HIDWORD(v13[0]) = 0;
-  LODWORD(v13[2]) = 3;
-  v13[3] = a2;
+  v12 = v16[51];
+  HIDWORD(v16[0]) = 0;
+  LODWORD(v16[2]) = 3;
+  v16[3] = a2;
   if ( !a5 )
-    v9 = 1;
-  LOBYTE(v13[51]) = v9;
-  result = DXGDEVICE::CreateStandardAllocation(this, (struct _D3DKM_CREATESTANDARDALLOCATION *)v13, a3);
+    v12 = 1;
+  LOBYTE(v16[51]) = v12;
+  result = DXGDEVICE::CreateStandardAllocation(this, (struct _D3DKM_CREATESTANDARDALLOCATION *)v16, a3);
   if ( (int)result >= 0 )
   {
-    AllocationResident = DXGDEVICE::MakeAllocationResident(this, HIDWORD(v13[6]), v11);
+    AllocationResident = DXGDEVICE::MakeAllocationResident((DXGDEVICE *)this, HIDWORD(v16[6]), v14);
     if ( AllocationResident >= 0 )
     {
-      *a4 = HIDWORD(v13[6]);
+      *a4 = HIDWORD(v16[6]);
       if ( a5 )
-        *a5 = v13[1];
+        *a5 = v16[1];
     }
     else
     {
-      DXGDEVICE::DestroyStagingSurface(this, HIDWORD(v13[6]), v13[1], a3);
+      DXGDEVICE::DestroyStagingSurface((DXGDEVICE *)this, HIDWORD(v16[6]), v16[1], a3);
     }
     return (unsigned int)AllocationResident;
   }

@@ -1,17 +1,17 @@
 /*
- * XREFs of vUnlinkEudcRFONTsAndPFEsWorker @ 0x1C02A0ADC
+ * XREFs of vUnlinkEudcRFONTsAndPFEsWorker @ 0x1C02985C0
  * Callers:
- *     vUnlinkEudcRFONTsAndPFEs @ 0x1C02A09C0 (vUnlinkEudcRFONTsAndPFEs.c)
+ *     vUnlinkEudcRFONTsAndPFEs @ 0x1C02984B0 (vUnlinkEudcRFONTsAndPFEs.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z @ 0x1C013E750 (-SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z.c)
- *     vMakeInactiveHelper @ 0x1C02A07F0 (vMakeInactiveHelper.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z @ 0x1C016A260 (-SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z.c)
+ *     vMakeInactiveHelper @ 0x1C029836C (vMakeInactiveHelper.c)
  */
 
 struct PFF *__fastcall vUnlinkEudcRFONTsAndPFEsWorker(_QWORD *a1, __int64 a2, struct PFF *a3)
 {
   __int64 v6; // rbx
-  unsigned int v7; // r8d
+  unsigned int v7; // edx
   __int64 v8; // rcx
   int v9; // esi
   __int64 v10; // r9
@@ -56,32 +56,34 @@ struct PFF *__fastcall vUnlinkEudcRFONTsAndPFEsWorker(_QWORD *a1, __int64 a2, st
               }
               v8 = (unsigned int)(v8 + 1);
               if ( (unsigned int)v8 >= v7 )
-                goto LABEL_13;
+                goto LABEL_11;
             }
             vMakeInactiveHelper((__int64 *)(v10 + 8 * v8));
             if ( *(_QWORD *)(*(_QWORD *)(v6 + 120) + 120LL) == a2 )
               break;
           }
-LABEL_13:
-          if ( *(_QWORD *)(v6 + 744) && v9 )
-            break;
-LABEL_18:
+LABEL_11:
+          v13 = *(void **)(v6 + 744);
+          if ( v13 && v9 )
+            goto LABEL_13;
+LABEL_16:
           *(_DWORD *)(v6 + 712) = 0;
           v6 = *(_QWORD *)(v6 + 496);
           RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v18);
           if ( !v6 )
-            goto LABEL_19;
+            goto LABEL_17;
         }
         v13 = *(void **)(v6 + 744);
+LABEL_13:
         if ( v13 != (void *)(v6 + 752) )
           Win32FreePool(v13);
         *(_QWORD *)(v6 + 744) = 0LL;
         *(_DWORD *)(v6 + 840) = 0;
         *(_DWORD *)(v6 + 832) = 0;
         *(_DWORD *)(v6 + 836) = 0;
-        goto LABEL_18;
+        goto LABEL_16;
       }
-LABEL_19:
+LABEL_17:
       for ( i = 0LL; (unsigned int)i < *((_DWORD *)v17 + 52); i = (unsigned int)(i + 1) )
       {
         v15 = *((_QWORD *)v17 + i + 27);

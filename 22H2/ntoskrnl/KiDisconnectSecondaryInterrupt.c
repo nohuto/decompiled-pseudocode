@@ -1,16 +1,16 @@
 /*
- * XREFs of KiDisconnectSecondaryInterrupt @ 0x140571AD8
+ * XREFs of KiDisconnectSecondaryInterrupt @ 0x14051914C
  * Callers:
- *     KeDisconnectInterrupt @ 0x14031F1B8 (KeDisconnectInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x1403767A4 (KeDisconnectInterrupt.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KiDisconnectInterruptCommon @ 0x14031F540 (KiDisconnectInterruptCommon.c)
- *     HalDisableInterrupt @ 0x14031F710 (HalDisableInterrupt.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x1403A2AE8 (KiAcquireSecondaryInterruptConnectLock.c)
- *     KiAcquireSecondaryPassiveConnectLock @ 0x1403A3118 (KiAcquireSecondaryPassiveConnectLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KiDisconnectInterruptCommon @ 0x140376B1C (KiDisconnectInterruptCommon.c)
+ *     HalDisableInterrupt @ 0x140376CF0 (HalDisableInterrupt.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x140518E6C (KiAcquireSecondaryInterruptConnectLock.c)
+ *     KiAcquireSecondaryPassiveConnectLock @ 0x140518EE4 (KiAcquireSecondaryPassiveConnectLock.c)
  */
 
 __int64 __fastcall KiDisconnectSecondaryInterrupt(__int64 a1, _DWORD *a2)
@@ -18,7 +18,7 @@ __int64 __fastcall KiDisconnectSecondaryInterrupt(__int64 a1, _DWORD *a2)
   bool v4; // si
   __int64 v5; // rdi
   __int64 v6; // rax
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
   unsigned __int8 v8; // bl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -38,8 +38,8 @@ __int64 __fastcall KiDisconnectSecondaryInterrupt(__int64 a1, _DWORD *a2)
     if ( v6 == a1 )
       v4 = *(_QWORD *)(v6 + 8) == v6 + 8;
   }
-  KxReleaseSpinLock((volatile signed __int64 *)v5);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  KxReleaseSpinLock((PKSPIN_LOCK)v5);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
   {
     v8 = v15;
     if ( v15 <= 0xFu && CurrentIrql >= 2u )

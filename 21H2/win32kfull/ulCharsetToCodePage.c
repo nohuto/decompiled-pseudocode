@@ -1,9 +1,9 @@
 /*
- * XREFs of ulCharsetToCodePage @ 0x1C0170DBA
+ * XREFs of ulCharsetToCodePage @ 0x1C02DD638
  * Callers:
- *     ?ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z @ 0x1C001F018 (-ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z.c)
- *     ?vAttemptDeviceMatch@MAPPER@@QEAAXXZ @ 0x1C0291D74 (-vAttemptDeviceMatch@MAPPER@@QEAAXXZ.c)
- *     ?vEmergency@MAPPER@@QEAAXXZ @ 0x1C0291F30 (-vEmergency@MAPPER@@QEAAXXZ.c)
+ *     ?ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z @ 0x1C0115FE4 (-ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z.c)
+ *     ?vAttemptDeviceMatch@MAPPER@@QEAAXXZ @ 0x1C029435C (-vAttemptDeviceMatch@MAPPER@@QEAAXXZ.c)
+ *     ?vEmergency@MAPPER@@QEAAXXZ @ 0x1C029451C (-vEmergency@MAPPER@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

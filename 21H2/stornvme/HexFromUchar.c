@@ -1,8 +1,8 @@
 /*
- * XREFs of HexFromUchar @ 0x1C000DAD8
+ * XREFs of HexFromUchar @ 0x1C0012748
  * Callers:
- *     SerialNumberFromNvmeId @ 0x1C000D9BC (SerialNumberFromNvmeId.c)
- *     GUIDToSCSINameString @ 0x1C000DA64 (GUIDToSCSINameString.c)
+ *     GUIDToSCSINameString @ 0x1C0012564 (GUIDToSCSINameString.c)
+ *     SerialNumberFromNvmeId @ 0x1C00172DC (SerialNumberFromNvmeId.c)
  * Callees:
  *     <none>
  */

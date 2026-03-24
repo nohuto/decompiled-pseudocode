@@ -1,30 +1,27 @@
 /*
- * XREFs of FsRtlInsertPerFileObjectContext @ 0x1402FD4C0
+ * XREFs of FsRtlInsertPerFileObjectContext @ 0x1402FB1E0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x14022F760 (ExAcquireAutoExpandPushLockExclusive.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x14022F8B0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     IoGetFileObjectFilterContext @ 0x1402FD5C0 (IoGetFileObjectFilterContext.c)
- *     IoChangeFileObjectFilterContext @ 0x1402FD83C (IoChangeFileObjectFilterContext.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     IoChangeFileObjectFilterContext @ 0x1402D736C (IoChangeFileObjectFilterContext.c)
+ *     IoGetFileObjectFilterContext @ 0x1402FB2DC (IoGetFileObjectFilterContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall FsRtlInsertPerFileObjectContext(PFILE_OBJECT FileObject, PFSRTL_PER_FILEOBJECT_CONTEXT Ptr)
 {
   NTSTATUS result; // eax
-  _OWORD *Pool2; // rax
-  __int64 v6; // r8
-  void *v7; // rbx
-  _OWORD *v8; // rdx
-  _QWORD *v9; // rax
+  _QWORD *PoolWithTag; // rax
+  void *v6; // rbx
+  _QWORD *v7; // rax
   struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR v11; // rbx
-  ULONG_PTR v12; // rcx
-  struct _LIST_ENTRY *v13; // rax
-  struct _LIST_ENTRY *v14; // rcx
+  ULONG_PTR v9; // rbx
+  struct _LIST_ENTRY *v10; // rax
+  struct _LIST_ENTRY *v11; // rcx
   ULONG_PTR BugCheckParameter2; // [rsp+30h] [rbp+8h] BYREF
 
   BugCheckParameter2 = 0LL;
@@ -35,38 +32,34 @@ NTSTATUS __stdcall FsRtlInsertPerFileObjectContext(PFILE_OBJECT FileObject, PFSR
   {
     if ( BugCheckParameter2 )
       goto LABEL_6;
-    Pool2 = (_OWORD *)ExAllocatePool2(66LL, 32LL, 1480806214LL);
-    BugCheckParameter2 = (ULONG_PTR)Pool2;
-    v7 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x58434F46u);
+    BugCheckParameter2 = (ULONG_PTR)PoolWithTag;
+    v6 = PoolWithTag;
+    if ( !PoolWithTag )
       return -1073741670;
-    LOBYTE(v6) = 1;
-    *Pool2 = 0LL;
-    *(_QWORD *)Pool2 = 0LL;
-    v8 = Pool2;
-    v9 = Pool2 + 1;
-    v9[1] = v9;
-    *v9 = v9;
-    if ( (int)IoChangeFileObjectFilterContext(FileObject, v8, v6) >= 0
-      || (ExFreePoolWithTag(v7, 0),
+    *PoolWithTag = 0LL;
+    v7 = PoolWithTag + 1;
+    v7[1] = v7;
+    *v7 = v7;
+    if ( (int)IoChangeFileObjectFilterContext((__int64)FileObject) >= 0
+      || (ExFreePoolWithTag(v6, 0),
           IoGetFileObjectFilterContext(FileObject, &BugCheckParameter2, 0LL),
           BugCheckParameter2) )
     {
 LABEL_6:
       CurrentThread = KeGetCurrentThread();
-      v11 = BugCheckParameter2;
-      v12 = BugCheckParameter2;
       --CurrentThread->KernelApcDisable;
-      ExAcquireAutoExpandPushLockExclusive(v12, 0LL);
-      v13 = (struct _LIST_ENTRY *)(v11 + 16);
-      v14 = *(struct _LIST_ENTRY **)(v11 + 16);
-      if ( v14->Blink != (struct _LIST_ENTRY *)(v11 + 16) )
+      v9 = BugCheckParameter2;
+      ExAcquirePushLockExclusiveEx(BugCheckParameter2, 0LL);
+      v10 = (struct _LIST_ENTRY *)(v9 + 8);
+      v11 = *(struct _LIST_ENTRY **)(v9 + 8);
+      if ( v11->Blink != (struct _LIST_ENTRY *)(v9 + 8) )
         __fastfail(3u);
-      Ptr->Links.Flink = v14;
-      Ptr->Links.Blink = v13;
-      v14->Blink = &Ptr->Links;
-      v13->Flink = &Ptr->Links;
-      ExReleaseAutoExpandPushLockExclusive(v11, 0LL);
+      Ptr->Links.Flink = v11;
+      Ptr->Links.Blink = v10;
+      v11->Blink = &Ptr->Links;
+      v10->Flink = &Ptr->Links;
+      ExReleasePushLockEx(v9, 0LL);
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       return 0;
     }

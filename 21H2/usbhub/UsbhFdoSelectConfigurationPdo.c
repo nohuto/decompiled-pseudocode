@@ -1,16 +1,16 @@
 /*
- * XREFs of UsbhFdoSelectConfigurationPdo @ 0x1C002A2CC
+ * XREFs of UsbhFdoSelectConfigurationPdo @ 0x1C002B61C
  * Callers:
- *     UsbhPdoInternalDeviceControl @ 0x1C0017C10 (UsbhPdoInternalDeviceControl.c)
+ *     UsbhPdoInternalDeviceControl @ 0x1C0009690 (UsbhPdoInternalDeviceControl.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     WPP_RECORDER_SF_q @ 0x1C002E090 (WPP_RECORDER_SF_q.c)
- *     WPP_RECORDER_SF_qd @ 0x1C002E354 (WPP_RECORDER_SF_qd.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
- *     UsbhValidateConfigurationDescriptor @ 0x1C0051D20 (UsbhValidateConfigurationDescriptor.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002F46C (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C002F730 (WPP_RECORDER_SF_qd.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
+ *     UsbhValidateConfigurationDescriptor @ 0x1C0053370 (UsbhValidateConfigurationDescriptor.c)
  */
 
 NTSTATUS __fastcall UsbhFdoSelectConfigurationPdo(
@@ -31,9 +31,10 @@ NTSTATUS __fastcall UsbhFdoSelectConfigurationPdo(
   unsigned int v16; // ecx
   _IO_STACK_LOCATION *CurrentStackLocation; // rax
   _IO_STACK_LOCATION *v18; // rax
-  int v20; // [rsp+98h] [rbp+20h] BYREF
+  int v20; // [rsp+48h] [rbp-30h]
+  int v21; // [rsp+98h] [rbp+20h] BYREF
 
-  v20 = 0;
+  v21 = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     WPP_RECORDER_SF_q(
       WPP_GLOBAL_Control->DeviceExtension,
@@ -62,14 +63,15 @@ LABEL_21:
     if ( !(unsigned __int8)UsbhValidateConfigurationDescriptor(
                              SecurityContext[1].SecurityQos,
                              HIWORD(SecurityQos->Length),
-                             &v20,
+                             &v21,
                              0LL) )
     {
-      v12 = v20;
+      v12 = v21;
       Length_low = 9;
-      HIDWORD(SecurityContext->SecurityQos) = v20;
+      HIDWORD(SecurityContext->SecurityQos) = v21;
       if ( LOBYTE(SecurityQos->Length) < 9u )
         Length_low = LOBYTE(SecurityQos->Length);
+      LOBYTE(v20) = 0;
       v14 = -1073741811;
       UsbhException(
         (int)DeviceObject,
@@ -81,7 +83,7 @@ LABEL_21:
         v12,
         usbfile_hub_c,
         2550,
-        0);
+        v20);
       goto LABEL_21;
     }
     v15 = 2 * SecurityQos->ContextTrackingMode;
@@ -101,6 +103,7 @@ LABEL_21:
     }
     if ( v16 > *((_DWORD *)v6 + 758) )
     {
+      LOBYTE(v20) = 0;
       HIDWORD(SecurityContext->SecurityQos) = -1073737728;
       _InterlockedExchange((volatile __int32 *)(v9 + 428), 5);
       v14 = -1073741670;
@@ -114,7 +117,7 @@ LABEL_21:
         HIDWORD(SecurityContext->SecurityQos),
         usbfile_hub_c,
         2573,
-        0);
+        v20);
       goto LABEL_21;
     }
   }

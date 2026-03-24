@@ -1,26 +1,26 @@
 /*
- * XREFs of PspCaptureProcessParameters @ 0x14069D410
+ * XREFs of PspCaptureProcessParameters @ 0x1406071A0
  * Callers:
- *     NtCreateUserProcess @ 0x14066D650 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
  * Callees:
- *     PspCaptureUserProcessParameters @ 0x14069D480 (PspCaptureUserProcessParameters.c)
+ *     PspCaptureUserProcessParameters @ 0x1406068CC (PspCaptureUserProcessParameters.c)
  */
 
 __int64 __fastcall PspCaptureProcessParameters(char a1, __int64 a2, __int64 a3)
 {
-  unsigned int v3; // eax
+  char v3; // al
   __int64 result; // rax
   char v6; // al
 
-  v3 = *(unsigned __int8 *)(a3 + 8);
+  v3 = *(_BYTE *)(a3 + 8);
   if ( a1 )
   {
     result = PspCaptureUserProcessParameters(
-               (int)a3 + 208,
+               (_QWORD *)(a3 + 208),
                a2,
-               *(_QWORD *)(a3 + 488),
-               (v3 >> 3) & 1,
-               *(_QWORD *)(a3 + 440));
+               *(_QWORD *)(a3 + 512),
+               (v3 & 8) != 0,
+               *(_QWORD *)(a3 + 464));
     if ( (int)result < 0 )
       return result;
     v6 = *(_BYTE *)(a3 + 8);

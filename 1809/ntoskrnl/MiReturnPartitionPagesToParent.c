@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReturnPartitionPagesToParent @ 0x1402D24D4
+ * XREFs of MiReturnPartitionPagesToParent @ 0x1402D25D4
  * Callers:
- *     MiFreePartitionPhysicalPages @ 0x1408603CC (MiFreePartitionPhysicalPages.c)
+ *     MiFreePartitionPhysicalPages @ 0x1408603AC (MiFreePartitionPhysicalPages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDrainZeroLookasides @ 0x14011AC80 (MiDrainZeroLookasides.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiActOnPartitionNodePages @ 0x1402D0018 (MiActOnPartitionNodePages.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDrainZeroLookasides @ 0x14011ACA0 (MiDrainZeroLookasides.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiActOnPartitionNodePages @ 0x1402D0118 (MiActOnPartitionNodePages.c)
  */
 
 __int64 __fastcall MiReturnPartitionPagesToParent(__int64 a1)

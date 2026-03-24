@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbGetRegValueMappedProperty @ 0x140788D90
+ * XREFs of DrvDbGetRegValueMappedProperty @ 0x14063B5DC
  * Callers:
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x1406C1FDC (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbGetDeviceIdMappedProperty @ 0x140785234 (DrvDbGetDeviceIdMappedProperty.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x1407886D0 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbGetDriverInfFileMappedProperty @ 0x140789970 (DrvDbGetDriverInfFileMappedProperty.c)
- *     DrvDbGetDriverFileMappedProperty @ 0x140A2E5CC (DrvDbGetDriverFileMappedProperty.c)
- *     DrvDbGetDriverPackageSignerName @ 0x140A2ED3C (DrvDbGetDriverPackageSignerName.c)
+ *     DrvDbGetDriverInfFileMappedProperty @ 0x14063B05C (DrvDbGetDriverInfFileMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x14063B8BC (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbGetDeviceIdMappedProperty @ 0x1406C4158 (DrvDbGetDeviceIdMappedProperty.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x140735830 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbGetDriverFileMappedProperty @ 0x14097D684 (DrvDbGetDriverFileMappedProperty.c)
+ *     DrvDbGetDriverPackageSignerName @ 0x14097DDA8 (DrvDbGetDriverPackageSignerName.c)
  * Callees:
- *     _RegRtlQueryValue @ 0x14077FC64 (_RegRtlQueryValue.c)
+ *     _RegRtlQueryValue @ 0x140642318 (_RegRtlQueryValue.c)
  */
 
 __int64 __fastcall DrvDbGetRegValueMappedProperty(
@@ -21,78 +21,61 @@ __int64 __fastcall DrvDbGetRegValueMappedProperty(
         _DWORD *a7)
 {
   int v9; // eax
-  _WORD *v11; // rbx
-  int v12; // eax
-  int *v13; // r9
-  const WCHAR *v14; // rdx
-  unsigned int v15; // eax
-  unsigned int v16; // edx
-  int v17; // eax
-  unsigned int v18; // ecx
-  __int64 v20[3]; // [rsp+30h] [rbp-18h] BYREF
-  int v21; // [rsp+50h] [rbp+8h] BYREF
-  int v22; // [rsp+54h] [rbp+Ch]
-  int v23; // [rsp+60h] [rbp+18h] BYREF
+  int v10; // eax
+  unsigned int Value; // eax
+  unsigned int v12; // edx
+  int v13; // eax
+  unsigned int v14; // ecx
+  __int64 v16[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  v22 = HIDWORD(a1);
-  v23 = 0;
-  v21 = 0;
   v9 = *(_DWORD *)(a3 + 8);
-  v11 = a5;
   if ( v9 == 17 || v9 == 5 )
-  {
-    v13 = &v21;
-    v12 = 4;
-  }
+    v10 = 4;
   else
-  {
-    v12 = a6;
-    v13 = (int *)a5;
-  }
-  v14 = *(const WCHAR **)(a3 + 16);
-  LODWORD(v20[0]) = v12;
-  v15 = RegRtlQueryValue(a2, v14, &v23, v13, (unsigned int *)v20);
-  v16 = v15;
-  if ( v15 == -1073741772 )
+    v10 = a6;
+  LODWORD(v16[0]) = v10;
+  Value = RegRtlQueryValue(a2, (__int64)v16);
+  v12 = Value;
+  if ( Value == -1073741772 )
     return (unsigned int)-1073741275;
-  if ( !v15 || v15 == -1073741789 )
+  if ( !Value || Value == -1073741789 )
   {
-    if ( v23 == *(_DWORD *)(a3 + 24) )
+    if ( !*(_DWORD *)(a3 + 24) )
     {
       *a4 = *(_DWORD *)(a3 + 8);
-      v17 = *(_DWORD *)(a3 + 8);
-      if ( v17 == 5 )
+      v13 = *(_DWORD *)(a3 + 8);
+      if ( v13 == 5 )
       {
         *a7 = 2;
-        if ( !v11 || a6 < 2 )
+        if ( !a5 || a6 < 2 )
           return (unsigned int)-1073741789;
-        if ( v16 != -1073741789 )
+        if ( v12 != -1073741789 )
         {
-          *v11 = v21;
-          return v16;
+          *a5 = 0;
+          return v12;
         }
       }
       else
       {
-        if ( v17 != 17 )
+        if ( v13 != 17 )
         {
-          v18 = v20[0];
-          *a7 = v20[0];
-          if ( v11 && a6 >= v18 )
-            return v16;
+          v14 = v16[0];
+          *a7 = v16[0];
+          if ( a5 && a6 >= v14 )
+            return v12;
           return (unsigned int)-1073741789;
         }
         *a7 = 1;
-        if ( !v11 || !a6 )
+        if ( !a5 || !a6 )
           return (unsigned int)-1073741789;
-        if ( v16 != -1073741789 )
+        if ( v12 != -1073741789 )
         {
-          *(_BYTE *)v11 = -(v21 != 0);
-          return v16;
+          *(_BYTE *)a5 = 0;
+          return v12;
         }
       }
     }
     return (unsigned int)-1073741595;
   }
-  return v16;
+  return v12;
 }

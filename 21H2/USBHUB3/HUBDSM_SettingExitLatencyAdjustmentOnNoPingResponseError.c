@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_SettingExitLatencyAdjustmentOnNoPingResponseError @ 0x1C001DD60
+ * XREFs of HUBDSM_SettingExitLatencyAdjustmentOnNoPingResponseError @ 0x1C001D820
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpUnJoinClassOfTrust @ 0x140208994
+ * XREFs of CmpUnJoinClassOfTrust @ 0x14036173C
  * Callers:
- *     CmShutdownSystem2 @ 0x14053EE38 (CmShutdownSystem2.c)
- *     CmpDestroyHive @ 0x14065A7E0 (CmpDestroyHive.c)
- *     CmpCompleteUnloadKey @ 0x14067BE48 (CmpCompleteUnloadKey.c)
- *     CmpResolveHiveLoadConflict @ 0x140914914 (CmpResolveHiveLoadConflict.c)
+ *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
+ *     CmpDestroyHive @ 0x140728F38 (CmpDestroyHive.c)
+ *     CmShutdownSystem @ 0x14086B8F8 (CmShutdownSystem.c)
+ *     CmpResolveHiveLoadConflict @ 0x14086E724 (CmpResolveHiveLoadConflict.c)
  * Callees:
- *     CmpUnlockHiveList @ 0x1406DEFDC (CmpUnlockHiveList.c)
- *     CmpLockHiveListExclusive @ 0x1406DEFFC (CmpLockHiveListExclusive.c)
+ *     CmpLockHiveListExclusive @ 0x14071D2A4 (CmpLockHiveListExclusive.c)
+ *     CmpUnlockHiveList @ 0x14071D2C4 (CmpUnlockHiveList.c)
  */
 
 void __fastcall CmpUnJoinClassOfTrust(__int64 a1)
@@ -16,7 +16,7 @@ void __fastcall CmpUnJoinClassOfTrust(__int64 a1)
   __int64 v2; // rcx
   _QWORD *v3; // rax
 
-  v1 = (_QWORD *)(a1 + 4120);
+  v1 = (_QWORD *)(a1 + 4160);
   if ( (_QWORD *)*v1 != v1 )
   {
     CmpLockHiveListExclusive();

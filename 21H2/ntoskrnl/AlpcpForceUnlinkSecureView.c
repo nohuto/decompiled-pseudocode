@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpForceUnlinkSecureView @ 0x140967328
+ * XREFs of AlpcpForceUnlinkSecureView @ 0x1408C3570
  * Callers:
- *     AlpcpCleanupProcessViews @ 0x1407E0D28 (AlpcpCleanupProcessViews.c)
+ *     AlpcpCleanupProcessViews @ 0x140613E6C (AlpcpCleanupProcessViews.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MmUnsecureVirtualMemory @ 0x1406F8010 (MmUnsecureVirtualMemory.c)
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1407A6A34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x1407B0F40 (AlpcpUnlockBlob.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     MmUnsecureVirtualMemory @ 0x14061F760 (MmUnsecureVirtualMemory.c)
  */
 
 void __fastcall AlpcpForceUnlinkSecureView(ULONG_PTR a1)
@@ -31,7 +31,7 @@ void __fastcall AlpcpForceUnlinkSecureView(ULONG_PTR a1)
     {
       KiStackAttachProcess(v2, 0LL, (__int64)v5, v4);
       MmUnsecureVirtualMemory(*(HANDLE *)(v3 + 64));
-      KiUnstackDetachProcess((__int64)v5, 0LL);
+      KiUnstackDetachProcess((__int64)v5, 0);
       *(_QWORD *)(v3 + 64) = 0LL;
     }
     *(_DWORD *)(v3 + 72) |= 1u;

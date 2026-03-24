@@ -1,5 +1,5 @@
 /*
- * XREFs of IoReleaseRemoveLockEx @ 0x14011EDF0
+ * XREFs of IoReleaseRemoveLockEx @ 0x14011EE10
  * Callers:
  *     ViFilterDeviceUsageNotificationCompletion @ 0x140943090 (ViFilterDeviceUsageNotificationCompletion.c)
  *     ViFilterGenericCompletionRoutine @ 0x140943550 (ViFilterGenericCompletionRoutine.c)
@@ -7,8 +7,8 @@
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     VfRemLockReportBadReleaseTag @ 0x140934824 (VfRemLockReportBadReleaseTag.c)
  */

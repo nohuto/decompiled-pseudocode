@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCD2DBitmap@@UEAAPEAXI@Z @ 0x18006C930
+ * XREFs of ??_GCD2DBitmap@@UEAAPEAXI@Z @ 0x180039770
  * Callers:
  *     <none>
  * Callees:
- *     ??1CD2DBitmap@@UEAA@XZ @ 0x18006A758 (--1CD2DBitmap@@UEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??1CD2DBitmap@@UEAA@XZ @ 0x180039EAC (--1CD2DBitmap@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 CD2DBitmap *__fastcall CD2DBitmap::`scalar deleting destructor'(CD2DBitmap *this, char a2)

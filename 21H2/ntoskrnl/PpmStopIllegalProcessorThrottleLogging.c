@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmStopIllegalProcessorThrottleLogging @ 0x140373090
+ * XREFs of PpmStopIllegalProcessorThrottleLogging @ 0x140365C90
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 __int64 __fastcall PpmStopIllegalProcessorThrottleLogging(__int64 a1)
 {
-  *(_BYTE *)(a1 + 33848) = 0;
+  *(_BYTE *)(a1 + 33008) = 0;
   return 0LL;
 }

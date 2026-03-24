@@ -1,17 +1,15 @@
 /*
- * XREFs of NtGdiDDCCIGetCapabilitiesString @ 0x1C026A240
+ * XREFs of NtGdiDDCCIGetCapabilitiesString @ 0x1C0271B70
  * Callers:
  *     <none>
  * Callees:
- *     ?DdcciGetCapabilitiesString@CMonitorAPI@@QEAAJPEAXPEADK@Z @ 0x1C0268E90 (-DdcciGetCapabilitiesString@CMonitorAPI@@QEAAJPEAXPEADK@Z.c)
+ *     ?DdcciGetCapabilitiesString@CMonitorAPI@@QEAAJPEAXPEADK@Z @ 0x1C0270768 (-DdcciGetCapabilitiesString@CMonitorAPI@@QEAAJPEAXPEADK@Z.c)
  */
 
-__int64 __fastcall NtGdiDDCCIGetCapabilitiesString(void *a1, char *a2, unsigned int a3)
+__int64 __fastcall NtGdiDDCCIGetCapabilitiesString(CMonitorAPI *a1, char *a2, unsigned int a3)
 {
-  __int64 v7; // rax
-
-  if ( !a3 )
+  if ( a3 )
+    return CMonitorAPI::DdcciGetCapabilitiesString(a1, a1, a2, a3);
+  else
     return 3221225485LL;
-  v7 = SGDGetSessionState(a1);
-  return CMonitorAPI::DdcciGetCapabilitiesString(*(CMonitorAPI **)(*(_QWORD *)(v7 + 32) + 8728LL), a1, a2, a3);
 }

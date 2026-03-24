@@ -1,418 +1,330 @@
 /*
- * XREFs of MiReplacePageTablePage @ 0x1403932CC
+ * XREFs of MiReplacePageTablePage @ 0x1403634C0
  * Callers:
- *     MiStealPage @ 0x1403BBD7C (MiStealPage.c)
- *     MmStealTopLevelPage @ 0x1403D6DAC (MmStealTopLevelPage.c)
+ *     MiStealPage @ 0x140334CB4 (MiStealPage.c)
+ *     MmStealTopLevelPage @ 0x140387ED8 (MmStealTopLevelPage.c)
  * Callees:
- *     MiMakeProtectionPfnCompatible @ 0x140217E84 (MiMakeProtectionPfnCompatible.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F450 (MiInsertTbFlushEntry.c)
- *     MiWriteValidPteNewProtection @ 0x1402846E0 (MiWriteValidPteNewProtection.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402858B4 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiLockTransitionLeafPageEx @ 0x1403477B8 (MiLockTransitionLeafPageEx.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348380 (MiLockNestedPageAtDpcInline.c)
- *     MiIsPdeOrAboveAccessible @ 0x14034EF50 (MiIsPdeOrAboveAccessible.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiWriteValidPteNewProtection @ 0x140290080 (MiWriteValidPteNewProtection.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x1402AA5C0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiGetLeafVa @ 0x1402AD4F0 (MiGetLeafVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     MiIsPdeOrAboveAccessible @ 0x14032A440 (MiIsPdeOrAboveAccessible.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140333FA0 (MiLockNestedPageAtDpcInline.c)
+ *     MiLockTransitionLeafPage @ 0x140363DD4 (MiLockTransitionLeafPage.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 unsigned __int64 __fastcall MiReplacePageTablePage(unsigned __int64 a1)
 {
   __int64 v2; // r12
   int v3; // r15d
-  unsigned __int64 v4; // r14
-  __int64 v5; // r13
-  __int64 v6; // rcx
+  unsigned __int64 v4; // rsi
+  __int64 v5; // rcx
+  __int64 *v6; // rax
   __int64 v7; // rdi
-  int v8; // esi
-  int v9; // r10d
+  int v8; // ebx
+  __int64 v9; // r13
+  unsigned __int64 v10; // rcx
+  int v11; // r10d
   unsigned __int64 LeafVa; // r9
-  unsigned __int64 v11; // r11
-  unsigned __int64 *v12; // rcx
-  __int64 *v13; // r12
-  int ProtectionPfnCompatible; // eax
-  unsigned __int64 ValidPte; // rbx
-  int v16; // esi
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  _QWORD *v19; // r12
-  __int64 v20; // rax
-  __int64 v21; // rbx
-  __int64 v22; // rdx
-  unsigned __int64 v23; // rbx
-  __int64 v24; // rsi
-  unsigned __int64 v25; // r14
-  unsigned __int64 v26; // rbx
-  int v27; // r15d
-  unsigned __int64 v28; // rsi
-  __int64 v29; // rbx
-  __int64 v30; // rdx
-  __int64 v31; // r8
-  __int64 v32; // rcx
-  unsigned __int64 result; // rax
-  unsigned __int64 v34; // rdx
-  __int64 v35; // rbx
-  unsigned __int64 v36; // rax
-  unsigned __int64 v37; // rdx
-  unsigned __int64 v38; // rcx
+  unsigned __int64 v13; // r11
   int SystemRegionType; // eax
-  bool v40; // zf
-  unsigned __int64 v41; // rcx
-  __int64 v42; // rsi
-  __int64 v43; // rax
-  unsigned __int64 v44; // rax
-  __int64 v45; // rcx
-  __int64 v46; // rdx
-  __int64 v47; // r8
-  unsigned int v48; // r11d
-  __int64 v49; // rcx
-  unsigned __int64 v50; // rax
-  int v51; // [rsp+20h] [rbp-E0h]
-  int v52; // [rsp+24h] [rbp-DCh]
-  int v53; // [rsp+28h] [rbp-D8h] BYREF
-  __int64 v54; // [rsp+30h] [rbp-D0h] BYREF
-  int v55; // [rsp+38h] [rbp-C8h]
-  int v56; // [rsp+3Ch] [rbp-C4h]
-  BOOL v57; // [rsp+40h] [rbp-C0h]
-  __int64 v58; // [rsp+48h] [rbp-B8h]
-  unsigned __int64 v59; // [rsp+50h] [rbp-B0h]
-  int v60; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned __int64 v61; // [rsp+60h] [rbp-A0h]
-  __int64 v62; // [rsp+68h] [rbp-98h]
-  unsigned __int64 UltraMapping; // [rsp+70h] [rbp-90h]
-  __int64 v64; // [rsp+78h] [rbp-88h]
-  __int64 *v65; // [rsp+80h] [rbp-80h]
-  __int64 v66; // [rsp+88h] [rbp-78h] BYREF
-  _QWORD v67[24]; // [rsp+90h] [rbp-70h] BYREF
+  unsigned __int64 v15; // r14
+  __int64 *v16; // r12
+  __int64 v17; // rax
+  unsigned __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v21; // rbx
+  unsigned __int64 v22; // rcx
+  __int64 v23; // rsi
+  __int64 v24; // rax
+  unsigned __int64 v25; // rax
+  __int64 v26; // rdx
+  unsigned __int64 v27; // rbx
+  __int64 v28; // rdx
+  unsigned __int64 v29; // r12
+  unsigned __int64 v30; // rbx
+  __int64 v31; // r12
+  __int64 v32; // rdi
+  unsigned __int64 v33; // rax
+  __int64 v34; // rcx
+  int v35; // r13d
+  __int64 v36; // rbx
+  unsigned __int64 v37; // rax
+  __int64 v38; // r8
+  __int64 v39; // r9
+  __int64 v40; // rdi
+  __int64 v41; // r14
+  unsigned __int64 result; // rax
+  unsigned __int64 v43; // rax
+  int v44; // [rsp+20h] [rbp-E0h]
+  int v45; // [rsp+24h] [rbp-DCh]
+  int v46; // [rsp+28h] [rbp-D8h]
+  int v47; // [rsp+2Ch] [rbp-D4h]
+  int v48; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 v49; // [rsp+38h] [rbp-C8h] BYREF
+  __int64 v50; // [rsp+40h] [rbp-C0h]
+  int v51; // [rsp+48h] [rbp-B8h]
+  __int64 v52; // [rsp+50h] [rbp-B0h]
+  __int64 *v53; // [rsp+58h] [rbp-A8h]
+  int v54; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned __int64 v55; // [rsp+68h] [rbp-98h]
+  unsigned __int64 v56; // [rsp+70h] [rbp-90h]
+  __int64 v57; // [rsp+78h] [rbp-88h]
+  __int64 v58; // [rsp+80h] [rbp-80h]
+  __int64 v59; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v60; // [rsp+90h] [rbp-70h]
+  _QWORD v61[24]; // [rsp+A0h] [rbp-60h] BYREF
 
-  v59 = a1;
-  memset(v67, 0, 0xB8uLL);
+  v55 = a1;
+  memset(v61, 0, 0xB8uLL);
   v2 = *(_QWORD *)(a1 + 24);
   v3 = 0;
   v4 = *(_QWORD *)(a1 + 8);
-  v5 = v2;
-  v6 = *(_QWORD *)(a1 + 32);
+  v5 = *(_QWORD *)(a1 + 32);
+  v6 = *(__int64 **)(a1 + 16);
   *(_DWORD *)(a1 + 56) = -1073741823;
-  v61 = v4;
-  v58 = v2;
-  v62 = v6;
-  v7 = 48 * v2 - 0x220000000000LL;
+  v56 = v4;
+  v52 = v2;
+  v57 = v5;
+  v53 = v6;
+  v50 = v2;
+  v7 = 48 * v2 - 0x58000000000LL;
   v8 = *(_DWORD *)(a1 + 60);
-  v64 = 48 * v6 - 0x220000000000LL;
-  v55 = 0;
-  v52 = 0;
-  v51 = 0;
-  v56 = 0;
+  v9 = 48 * v5 - 0x58000000000LL;
+  v45 = 0;
+  v44 = 0;
+  v47 = 0;
+  v60 = v9;
+  v46 = 0;
   if ( v8 == 1 )
   {
-    v38 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 1928LL);
-    if ( !v38 )
-      return MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(v64 + 16));
-    v66 = MI_READ_PTE_LOCK_FREE(((v38 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-    if ( (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v66) >> 12) & 0xFFFFFFFFFFLL) != v2 )
-      return MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(v64 + 16));
+    v10 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 1928LL);
+    if ( !v10 )
+      return MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(v9 + 16));
+    v59 = MI_READ_PTE_LOCK_FREE(((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
+    if ( (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v59) >> 12) & 0xFFFFFFFFFLL) != v2 )
+      return MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(v9 + 16));
   }
-  v9 = 1;
-  if ( (*(_QWORD *)(v7 + 40) & 0xFFFFFFFFFFLL) == v2 )
+  v11 = 1;
+  if ( (*(_QWORD *)(v7 + 40) & 0xFFFFFFFFFLL) == v2 )
   {
-    v53 = 1;
+    v51 = 1;
     if ( v8 == 1 )
-      v5 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 40LL) >> 12;
+      v50 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 40LL) >> 12;
   }
   else
   {
-    v53 = 0;
+    v51 = 0;
     LeafVa = MiGetLeafVa(v4);
     if ( LeafVa > 0x7FFFFFFEFFFFLL
-      && (LeafVa < qword_140C6A658 || LeafVa > qword_140C67170)
-      && (LeafVa < 0xFFFFF68000000000uLL || LeafVa > v11) )
+      && (LeafVa < qword_140C4FB38 || LeafVa > qword_140C4E368)
+      && (LeafVa < 0xFFFFF68000000000uLL || LeafVa > v13) )
     {
       SystemRegionType = MiGetSystemRegionType(LeafVa);
-      v9 = 0;
+      v11 = 0;
       if ( SystemRegionType == 1 )
-        v9 = 2;
+        v11 = 2;
     }
   }
-  v67[2] = 0LL;
-  v67[3] = 0LL;
-  LODWORD(v67[0]) = v9;
-  v12 = (unsigned __int64 *)(*(_QWORD *)(v59 + 16) + 96LL);
-  WORD2(v67[0]) = 0;
-  LODWORD(v67[1]) = 20;
-  UltraMapping = MiGetUltraMapping(v12, 3u, 1LL, 0);
-  v13 = (__int64 *)(((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-  v65 = v13;
-  ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4, v64);
-  ValidPte = MiMakeValidPte((unsigned __int64)v13, v62, ProtectionPfnCompatible | 0xA0000000);
-  v16 = 0;
-  v57 = MiPteInShadowRange((unsigned __int64)v13);
-  v17 = ValidPte;
-  v18 = 0x8000000000000000uLL;
-  if ( !v57 )
-    goto LABEL_7;
-  if ( MiPteHasShadow() )
-  {
-    v16 = 1;
-    if ( !HIBYTE(word_140C66DFC) )
-    {
-      v40 = (ValidPte & 1) == 0;
-      goto LABEL_70;
-    }
-  }
-  else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
-  {
-    v40 = (ValidPte & 1) == 0;
-LABEL_70:
-    if ( !v40 )
-      v17 |= v18;
-  }
-LABEL_7:
-  *v13 = v17;
-  if ( v16 )
-    MiWritePteShadow((__int64)v13, v17, v18);
-  v19 = (_QWORD *)UltraMapping;
+  v61[2] = 0LL;
+  v61[3] = 0LL;
+  v15 = v4;
+  v16 = v53;
+  v58 = -(__int64)v4;
+  LODWORD(v61[0]) = v11;
+  WORD2(v61[0]) = 0;
+  LODWORD(v61[1]) = 20;
   do
   {
     while ( 1 )
     {
-      v20 = MI_READ_PTE_LOCK_FREE(v4);
-      v54 = v20;
-      v21 = v20;
-      if ( (v20 & 1) != 0 )
+      v17 = MI_READ_PTE_LOCK_FREE(v15);
+      v49 = v17;
+      v21 = v17;
+      if ( (v17 & 1) != 0 )
         break;
-      if ( (v20 & 0x400) != 0 || (v20 & 0x800) == 0 )
-        goto LABEL_13;
-      v41 = (__int64)(v4 << 25) >> 16;
-      if ( v41 >= 0xFFFFF68000000000uLL && v41 <= 0xFFFFF6FFFFFFFFFFuLL && !(unsigned int)MiIsPdeOrAboveAccessible(v4) )
+      v18 = v17;
+      if ( (v17 & 0x400) != 0 || (v17 & 0x800) == 0 )
+        goto LABEL_35;
+      v22 = (__int64)(v15 << 25) >> 16;
+      if ( v22 >= 0xFFFFF68000000000uLL && v22 <= 0xFFFFF6FFFFFFFFFFuLL && !MiIsPdeOrAboveAccessible(v15) )
+        goto LABEL_84;
+      v23 = MiLockTransitionLeafPage(v15);
+      if ( v23 )
       {
-        ++dword_140C136F4;
-        goto LABEL_110;
-      }
-      v42 = MiLockTransitionLeafPageEx(v4, (_BYTE *)(v3 != 0), 0);
-      if ( v42 )
-      {
-        v21 = MI_READ_PTE_LOCK_FREE(v4);
-        v54 = v21;
-        v43 = *(_QWORD *)(v42 + 40);
-        if ( (v43 & 0xFFFFFFFFFFLL) != v5 && (v43 & 0x10000000000LL) != 0 )
-          ++v56;
-        if ( (*(_BYTE *)(v42 + 34) & 0x20) != 0 )
+        v21 = MI_READ_PTE_LOCK_FREE(v15);
+        v49 = v21;
+        v24 = *(_QWORD *)(v23 + 40);
+        v19 = 0xFFFFFFFFFLL;
+        v18 = v21;
+        if ( (v24 & 0xFFFFFFFFFLL) != v50 && (v24 & 0x1000000000LL) != 0 )
+          ++v47;
+        if ( (*(_BYTE *)(v23 + 34) & 0x20) != 0 )
         {
-          ++dword_140C136F0;
-          _InterlockedAnd64((volatile signed __int64 *)(v42 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          goto LABEL_110;
+          _InterlockedAnd64((volatile signed __int64 *)(v23 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+          goto LABEL_84;
         }
         ++v3;
-LABEL_13:
-        if ( v5 == v58 )
-          goto LABEL_14;
-        goto LABEL_82;
+        goto LABEL_35;
       }
     }
-    ++v52;
-    if ( (v20 & 0x80u) != 0LL )
-      goto LABEL_56;
-    v36 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v54) >> 12) & 0xFFFFFFFFFFLL;
-    if ( v36 != qword_140C697F8 )
+    ++v45;
+    if ( (v17 & 0x80u) != 0LL )
+      goto LABEL_32;
+    v25 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v49) >> 12) & 0xFFFFFFFFFLL;
+    if ( v25 != qword_140C4ED68 )
     {
-      if ( v36 > qword_140C65CA0 )
-        goto LABEL_48;
-      v37 = *(_QWORD *)(48 * v36 - 0x21FFFFFFFFD8LL);
-      if ( ((v37 >> 54) & 1) == 0 || (v37 & 0x10000000000LL) == 0 )
-        goto LABEL_48;
-LABEL_56:
-      ++v51;
-      goto LABEL_48;
+      v18 = *(_QWORD *)(48 * v25 - 0x57FFFFFFFD8LL);
+      if ( ((v18 >> 50) & 1) == 0 || (v18 & 0x1000000000LL) == 0 )
+        goto LABEL_33;
+LABEL_32:
+      ++v44;
+      goto LABEL_33;
     }
-    ++v55;
-LABEL_48:
-    if ( v5 == v58 )
-      goto LABEL_14;
-    v21 = MI_READ_PTE_LOCK_FREE(*(_QWORD *)(v59 + 64) + 8 * ((__int64)(v4 - v61) >> 3));
-LABEL_82:
-    v21 &= -(__int64)((v21 & 1) != 0);
-    v54 = v21;
-LABEL_14:
-    *v19 = v21;
-    v4 += 8LL;
-    ++v19;
+    ++v46;
+LABEL_33:
+    if ( v50 == v52 )
+      goto LABEL_37;
+    v21 = MI_READ_PTE_LOCK_FREE(*(_QWORD *)(v55 + 64) + 8 * ((__int64)(v15 + v58) >> 3));
+    v49 = v21;
+    v18 = v21;
+LABEL_35:
+    if ( v50 != v52 )
+    {
+      LOBYTE(v18) = -(v18 & 1);
+      v21 &= -(__int64)((_BYTE)v18 != 0);
+      v49 = v21;
+    }
+LABEL_37:
+    *v16 = v21;
+    v15 += 8LL;
+    ++v16;
   }
-  while ( (v4 & 0xFFF) != 0 );
+  while ( (v15 & 0xFFF) != 0 );
   if ( v3 )
   {
-    MiLockNestedPageAtDpcInline(v7);
+    MiLockNestedPageAtDpcInline(v7, v18, v19, v20);
   }
   else
   {
-    v60 = 0;
+    v54 = 0;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(v7 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v60);
+        KeYieldProcessorEx(&v54, v18, v19, v20);
       while ( *(__int64 *)(v7 + 24) < 0 );
     }
   }
-  v22 = *(_QWORD *)(v7 + 24);
-  v23 = v22 & 0x3FFFFFFFFFFFFFFFLL;
-  if ( (v53 || (unsigned __int16)v22 == (unsigned __int64)(unsigned int)(v3 - v55 - v56 - v51 + v52 + 1))
+  v26 = *(_QWORD *)(v7 + 24);
+  v27 = v26 & 0x3FFFFFFFFFFFFFFFLL;
+  if ( (v51 || (unsigned __int16)v26 == (unsigned __int64)(unsigned int)(v3 - v46 - v47 - v44 + v45 + 1))
     && *(_WORD *)(v7 + 32) == 1
-    && v23 < 0x10000 )
+    && v27 < 0x10000 )
   {
-    v24 = v64;
-    MiLockNestedPageAtDpcInline(v64);
-    *(_QWORD *)(v24 + 24) = v23 | *(_QWORD *)(v24 + 24) & 0xC000000000000000uLL;
-    _InterlockedAnd64((volatile signed __int64 *)(v24 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    MiLockNestedPageAtDpcInline(v9, v26, v19, v20);
+    *(_QWORD *)(v9 + 24) = v27 | *(_QWORD *)(v9 + 24) & 0xC000000000000000uLL;
+    _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    v25 = v61;
-    v26 = v61;
+    v29 = v56;
+    v30 = v56;
     if ( v3 )
     {
+      v31 = v52;
+      v32 = v57;
       do
       {
-        v44 = MI_READ_PTE_LOCK_FREE(v26);
-        if ( (v44 & 1) == 0 && (v44 & 0x400) == 0 && (v44 & 0x800) != 0 )
+        v33 = MI_READ_PTE_LOCK_FREE(v30);
+        if ( (v33 & 1) == 0 && (v33 & 0x400) == 0 && (v33 & 0x800) != 0 )
         {
-          if ( qword_140C65C40 )
-          {
-            if ( (v44 & 0x10) != 0 )
-              v44 &= ~0x10uLL;
-            else
-              v44 &= ~qword_140C65C40;
-          }
-          v45 = 48 * ((v44 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
-          if ( (*(_QWORD *)(v45 + 40) & 0xFFFFFFFFFFLL) == v5 && v5 == v58 )
-            MiSetPfnPteFrame(v45, v62);
+          if ( qword_140C4DF40 && (v33 & 0x10) == 0 )
+            v33 &= ~qword_140C4DF40;
+          v34 = 48 * ((v33 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
+          v28 = *(_QWORD *)(v34 + 40);
+          if ( (v28 & 0xFFFFFFFFFLL) == v50 && v50 == v31 )
+            *(_QWORD *)(v34 + 40) = v28 ^ (v32 ^ v28) & 0xFFFFFFFFFLL;
           --v3;
-          _InterlockedAnd64((volatile signed __int64 *)(v45 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+          _InterlockedAnd64((volatile signed __int64 *)(v34 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         }
-        v26 += 8LL;
+        v30 += 8LL;
       }
       while ( v3 );
-      v25 = v61;
+      v29 = v56;
     }
-    v27 = v52;
-    if ( v52 )
+    v35 = v45;
+    if ( v45 )
     {
-      v28 = UltraMapping - v25;
+      v53 = (__int64 *)((char *)v53 - v29);
       do
       {
-        v54 = MI_READ_PTE_LOCK_FREE(v25);
-        v29 = v54;
-        if ( (v54 & 1) != 0 )
+        v49 = MI_READ_PTE_LOCK_FREE(v29);
+        v36 = v49;
+        if ( (v49 & 1) != 0 )
         {
-          --v27;
-          v34 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v54) >> 12) & 0xFFFFFFFFFFLL;
-          if ( v34 <= qword_140C65CA0 && ((*(_QWORD *)(48 * v34 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 && v34 != v5 )
+          --v35;
+          v37 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v49) >> 12) & 0xFFFFFFFFFLL;
+          v40 = 48 * v37;
+          v28 = (*(_QWORD *)(48 * v37 - 0x57FFFFFFFD8LL) >> 50) & 1LL;
+          v41 = v50;
+          if ( ((*(_QWORD *)(48 * v37 - 0x57FFFFFFFD8LL) >> 50) & 1) != 0 && v37 != v50 )
           {
-            v53 = 0;
-            v35 = 48 * v34 - 0x220000000000LL;
-            while ( _interlockedbittestandset64((volatile signed __int32 *)(v35 + 24), 0x3FuLL) )
+            v48 = 0;
+            while ( _interlockedbittestandset64((volatile signed __int32 *)(v40 - 0x58000000000LL + 24), 0x3FuLL) )
             {
               do
-                KeYieldProcessorEx(&v53);
-              while ( *(__int64 *)(v35 + 24) < 0 );
+                KeYieldProcessorEx(&v48, v28, v38, v39);
+              while ( *(__int64 *)(v40 - 0x58000000000LL + 24) < 0 );
             }
-            if ( (*(_QWORD *)(v35 + 40) & 0xFFFFFFFFFFLL) == v5 && v5 == v58 )
-              MiSetPfnPteFrame(v35, v62);
-            _InterlockedAnd64((volatile signed __int64 *)(v35 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-            v29 = v54;
+            v28 = 0xFFFFFFFFFLL;
+            if ( (*(_QWORD *)(v40 - 0x58000000000LL + 40) & 0xFFFFFFFFFLL) == v41 && v41 == v52 )
+              *(_QWORD *)(v40 - 0x58000000000LL + 40) ^= (v57 ^ *(_QWORD *)(v40 - 0x58000000000LL + 40)) & 0xFFFFFFFFFLL;
+            _InterlockedAnd64((volatile signed __int64 *)(v40 - 0x58000000000LL + 24), 0x7FFFFFFFFFFFFFFFuLL);
+            v36 = v49;
           }
-          if ( v5 != v58 )
+          if ( v41 != v52 )
+            v36 = MI_READ_PTE_LOCK_FREE(*(_QWORD *)(v55 + 64) + 8 * ((__int64)(v29 + v58) >> 3));
+          if ( (v36 & 1) != 0 )
           {
-            v29 = MI_READ_PTE_LOCK_FREE(*(_QWORD *)(v59 + 64) + 8 * ((__int64)(v28 + v25 - UltraMapping) >> 3));
-            v54 = v29;
-          }
-          if ( (v29 & 1) != 0 )
-          {
-            v54 = v29 | 0x20;
-            MiWriteValidPteNewProtection(v25 + v28, v29 | 0x20);
-            if ( (MiFlags & 0x300) == 0 )
-              MiInsertTbFlushEntry((__int64)v67, (__int64)(v25 << 25) >> 16, 1LL, 0);
+            MiWriteValidPteNewProtection((unsigned __int64)v53 + v29, v36 | 0x20);
+            if ( (MiFlags & 0x100) == 0 && (MiFlags & 0x200) == 0 )
+              MiInsertTbFlushEntry((__int64)v61, (__int64)(v29 << 25) >> 16, 1LL, 0);
           }
         }
-        v25 += 8LL;
+        v29 += 8LL;
       }
-      while ( v27 );
+      while ( v35 );
     }
-    v30 = ZeroPte;
-    v31 = 0LL;
-    if ( !v57 )
-      goto LABEL_28;
-    if ( MiPteHasShadow() )
-    {
-      v31 = 1LL;
-      if ( !HIBYTE(word_140C66DFC) )
-        goto LABEL_107;
-    }
-    else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
-    {
-LABEL_107:
-      if ( (v30 & 1) != 0 )
-        v30 |= 0x8000000000000000uLL;
-    }
-LABEL_28:
-    v32 = (__int64)v65;
-    *v65 = v30;
-    if ( (_DWORD)v31 )
-      MiWritePteShadow(v32, v30, v31);
-    MiFlushTbList((int *)v67);
-    result = v59;
-    *(_DWORD *)(v59 + 56) = 0;
+    MiFlushTbList((__int64)v61, (_KPROCESS *)v28);
+    result = v55;
+    *(_DWORD *)(v55 + 56) = 0;
     return result;
   }
-  ++dword_140C136F8;
   _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-LABEL_110:
-  v46 = ZeroPte;
-  v47 = 0LL;
-  if ( v57 )
+LABEL_84:
+  if ( v3 )
   {
-    if ( MiPteHasShadow() )
+    do
     {
-      v47 = v48;
-      if ( HIBYTE(word_140C66DFC) )
-        goto LABEL_117;
-    }
-    else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
-    {
-      goto LABEL_117;
-    }
-    if ( ((unsigned __int8)v46 & (unsigned __int8)v48) != 0 )
-      v46 |= 0x8000000000000000uLL;
-  }
-LABEL_117:
-  v49 = (__int64)v65;
-  *v65 = v46;
-  if ( (_DWORD)v47 )
-    MiWritePteShadow(v49, v46, v47);
-  while ( v3 )
-  {
-    v4 -= 8LL;
-    v50 = MI_READ_PTE_LOCK_FREE(v4);
-    if ( (v50 & 1) == 0 && (v50 & 0x400) == 0 && (v50 & 0x800) != 0 )
-    {
-      if ( qword_140C65C40 )
+      v15 -= 8LL;
+      v43 = MI_READ_PTE_LOCK_FREE(v15);
+      if ( (v43 & 1) == 0 && (v43 & 0x400) == 0 && (v43 & 0x800) != 0 )
       {
-        if ( (v50 & 0x10) != 0 )
-          v50 &= ~0x10uLL;
-        else
-          v50 &= ~qword_140C65C40;
+        if ( qword_140C4DF40 && (v43 & 0x10) == 0 )
+          v43 &= ~qword_140C4DF40;
+        --v3;
+        _InterlockedAnd64(
+          (volatile signed __int64 *)(48 * ((v43 >> 12) & 0xFFFFFFFFFLL) - 0x57FFFFFFFE8LL),
+          0x7FFFFFFFFFFFFFFFuLL);
       }
-      --v3;
-      _InterlockedAnd64(
-        (volatile signed __int64 *)(48 * ((v50 >> 12) & 0xFFFFFFFFFFLL) - 0x21FFFFFFFFE8LL),
-        0x7FFFFFFFFFFFFFFFuLL);
     }
+    while ( v3 );
+    v9 = v60;
   }
-  return MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(v64 + 16));
+  return MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(v9 + 16));
 }

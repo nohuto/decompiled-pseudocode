@@ -1,15 +1,15 @@
 /*
- * XREFs of PerfLogSpinLockAcquire @ 0x140600D74
+ * XREFs of PerfLogSpinLockAcquire @ 0x1405AB314
  * Callers:
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14045FB2E (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x14045FBEE (KiTryToAcquireQueuedSpinLockInstrumented.c)
- *     KiAcquireSpinLockInstrumented @ 0x14045FDD0 (KiAcquireSpinLockInstrumented.c)
- *     KiTryToAcquireSpinLockInstrumented @ 0x14045FE8C (KiTryToAcquireSpinLockInstrumented.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046ADD8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046AE92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046AF56 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x14046AFE8 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
- *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14060B190 (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14051630C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x140516448 (KiTryToAcquireQueuedSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1405167CC (KiAcquireSpinLockInstrumented.c)
+ *     KiTryToAcquireSpinLockInstrumented @ 0x140516904 (KiTryToAcquireSpinLockInstrumented.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5AE8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1405B5BA4 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5D30 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1405B5DBC (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x1405B5E54 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
  * Callees:
  *     <none>
  */

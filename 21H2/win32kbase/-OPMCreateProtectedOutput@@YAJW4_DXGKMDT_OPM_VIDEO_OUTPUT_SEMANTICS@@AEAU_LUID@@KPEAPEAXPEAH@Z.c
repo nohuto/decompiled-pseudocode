@@ -1,10 +1,10 @@
 /*
- * XREFs of ?OPMCreateProtectedOutput@@YAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z @ 0x1C00CF6B8
+ * XREFs of ?OPMCreateProtectedOutput@@YAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z @ 0x1C00BFD68
  * Callers:
- *     DrvCreatePhysicalMonitorObjects @ 0x1C00CF400 (DrvCreatePhysicalMonitorObjects.c)
- *     NtGdiCreateOPMProtectedOutput @ 0x1C016D080 (NtGdiCreateOPMProtectedOutput.c)
+ *     DrvCreatePhysicalMonitorObjects @ 0x1C00BFAC0 (DrvCreatePhysicalMonitorObjects.c)
+ *     NtGdiCreateOPMProtectedOutput @ 0x1C0140140 (NtGdiCreateOPMProtectedOutput.c)
  * Callees:
- *     ?CreateProtectedOutput@COPM@@QEAAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z @ 0x1C00CF6F0 (-CreateProtectedOutput@COPM@@QEAAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH.c)
+ *     ?CreateProtectedOutput@COPM@@QEAAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z @ 0x1C00BFDA0 (-CreateProtectedOutput@COPM@@QEAAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH.c)
  */
 
 __int64 __fastcall OPMCreateProtectedOutput(COPM *a1, struct _LUID *a2, unsigned int a3, void **a4, int *a5)

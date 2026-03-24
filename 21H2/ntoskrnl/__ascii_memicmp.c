@@ -1,7 +1,7 @@
 /*
- * XREFs of __ascii_memicmp @ 0x1403FEDEC
+ * XREFs of __ascii_memicmp @ 0x1403EFC94
  * Callers:
- *     _memicmp @ 0x1403FEE54 (_memicmp.c)
+ *     _memicmp @ 0x1403EFCFC (_memicmp.c)
  * Callees:
  *     <none>
  */

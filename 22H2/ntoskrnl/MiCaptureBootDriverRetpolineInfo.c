@@ -1,69 +1,57 @@
 /*
- * XREFs of MiCaptureBootDriverRetpolineInfo @ 0x140830F70
+ * XREFs of MiCaptureBootDriverRetpolineInfo @ 0x1407A57C0
  * Callers:
- *     MiInitializeLoadedModuleList @ 0x140B5FD1C (MiInitializeLoadedModuleList.c)
+ *     MiInitializeLoadedModuleList @ 0x140A55E9C (MiInitializeLoadedModuleList.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x140214B80 (RtlImageNtHeaderEx.c)
- *     MiCreateRetpolineRelocationInformation @ 0x1406A7128 (MiCreateRetpolineRelocationInformation.c)
- *     MiCaptureRetpolineRelocationTables @ 0x1406A723C (MiCaptureRetpolineRelocationTables.c)
- *     LdrCaptureDynamicRelocationTableHeader @ 0x1406A7AD4 (LdrCaptureDynamicRelocationTableHeader.c)
- *     MiFreeImageRetpolineContext @ 0x1406A88E0 (MiFreeImageRetpolineContext.c)
- *     LdrImageDirectoryEntryToLoadConfig @ 0x1407D4B48 (LdrImageDirectoryEntryToLoadConfig.c)
+ *     RtlImageNtHeaderEx @ 0x14029D010 (RtlImageNtHeaderEx.c)
+ *     MiCaptureRetpolineRelocationTables @ 0x140662620 (MiCaptureRetpolineRelocationTables.c)
+ *     MiFreeImageRetpolineContext @ 0x140662DCC (MiFreeImageRetpolineContext.c)
+ *     MiCaptureDynamicRelocationTableRva @ 0x14066351C (MiCaptureDynamicRelocationTableRva.c)
+ *     MiCreateRetpolineRelocationInformation @ 0x140663658 (MiCreateRetpolineRelocationInformation.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x14075C6CC (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
 __int64 __fastcall MiCaptureBootDriverRetpolineInfo(unsigned __int64 a1, unsigned int a2, _QWORD *a3)
 {
-  __int64 v5; // r14
+  __int64 v4; // rbp
   int RetpolineRelocationInformation; // ebx
-  _DWORD *Config; // rax
+  __int64 Config; // rax
   unsigned __int64 v8; // rcx
   int v9; // esi
-  __int64 v10; // r15
-  char v12; // [rsp+28h] [rbp-48h]
-  __int64 v13; // [rsp+40h] [rbp-30h] BYREF
-  _OWORD v14[2]; // [rsp+48h] [rbp-28h] BYREF
-  int v15; // [rsp+A8h] [rbp+38h] BYREF
-  __int64 v16; // [rsp+B8h] [rbp+48h] BYREF
+  __int64 v10; // r8
+  unsigned int v12[18]; // [rsp+40h] [rbp-48h] BYREF
+  unsigned int v13; // [rsp+98h] [rbp+10h] BYREF
+  __int64 v14; // [rsp+A8h] [rbp+20h] BYREF
 
-  v15 = 0;
-  v16 = 0LL;
-  v13 = 0LL;
-  v5 = a2;
-  memset(v14, 0, sizeof(v14));
-  RetpolineRelocationInformation = RtlImageNtHeaderEx(0, a1, a2, &v16);
+  v13 = 0;
+  v14 = 0LL;
+  v4 = a2;
+  memset(v12, 0, 32);
+  RetpolineRelocationInformation = RtlImageNtHeaderEx(0, a1, a2, &v14);
   if ( RetpolineRelocationInformation >= 0 )
   {
     Config = LdrImageDirectoryEntryToLoadConfig(a1);
-    if ( Config && (int)*Config >= 228 )
+    if ( Config && *(int *)Config >= 228 )
     {
-      v8 = *((_QWORD *)Config + 15);
+      v8 = *(_QWORD *)(Config + 120);
       v9 = 0;
-      if ( v8 && v8 >= a1 && v8 < v5 + a1 - 8 )
+      if ( v8 && v8 >= a1 && v8 < v4 + a1 - 8 )
         v9 = v8 - a1;
-      v10 = v16;
-      RetpolineRelocationInformation = LdrCaptureDynamicRelocationTableHeader(
+      RetpolineRelocationInformation = MiCaptureDynamicRelocationTableRva(
                                          a1,
-                                         v5,
-                                         (__int64)Config,
-                                         *Config,
+                                         v4,
                                          0LL,
-                                         *(_WORD *)(v16 + 24),
-                                         &v15,
+                                         *(_WORD *)(v14 + 24),
+                                         Config,
+                                         *(_DWORD *)Config,
                                          &v13);
       if ( RetpolineRelocationInformation >= 0 )
       {
-        RetpolineRelocationInformation = MiCaptureRetpolineRelocationTables(
-                                           a1,
-                                           v5,
-                                           *(_DWORD *)(v10 + 84),
-                                           v15,
-                                           &v13,
-                                           v12,
-                                           (__int64 *)v14);
+        RetpolineRelocationInformation = MiCaptureRetpolineRelocationTables(a1, v4, v10, v13, v12);
         if ( RetpolineRelocationInformation >= 0 )
         {
-          RetpolineRelocationInformation = MiCreateRetpolineRelocationInformation((__int64)v14, v9, v5, a3);
-          MiFreeImageRetpolineContext(v14);
+          RetpolineRelocationInformation = MiCreateRetpolineRelocationInformation((__int64)v12, v9, v4, a3);
+          MiFreeImageRetpolineContext(v12);
         }
       }
     }

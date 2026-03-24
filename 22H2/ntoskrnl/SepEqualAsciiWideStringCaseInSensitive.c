@@ -1,17 +1,17 @@
 /*
- * XREFs of SepEqualAsciiWideStringCaseInSensitive @ 0x1409D0990
+ * XREFs of SepEqualAsciiWideStringCaseInSensitive @ 0x1409241B0
  * Callers:
- *     SepSecureBootFindMatchingRegistryRule @ 0x1409D0C40 (SepSecureBootFindMatchingRegistryRule.c)
+ *     SepSecureBootFindMatchingRegistryRule @ 0x140924440 (SepSecureBootFindMatchingRegistryRule.c)
  * Callees:
  *     <none>
  */
 
 char __fastcall SepEqualAsciiWideStringCaseInSensitive(unsigned __int16 *a1, unsigned __int16 *a2)
 {
-  unsigned __int64 v2; // r8
+  __int64 v2; // r8
   char *v3; // rcx
   char *v4; // r9
-  char *v5; // r10
+  char *i; // r10
   signed __int64 v6; // r9
   unsigned int v7; // eax
   unsigned int v8; // edx
@@ -21,22 +21,16 @@ char __fastcall SepEqualAsciiWideStringCaseInSensitive(unsigned __int16 *a1, uns
   {
     v3 = (char *)*((_QWORD *)a1 + 1);
     v4 = (char *)*((_QWORD *)a2 + 1);
-    v5 = &v3[v2];
-    if ( v2 >= 8 )
+    for ( i = &v3[v2]; (unsigned int)v2 >= 8; v4 += 8 )
     {
-      do
-      {
-        if ( *(_QWORD *)v3 != *(_QWORD *)v4 )
-          break;
-        LODWORD(v2) = v2 - 8;
-        if ( !(_DWORD)v2 )
-          return 1;
-        v3 += 8;
-        v4 += 8;
-      }
-      while ( (unsigned int)v2 >= 8 );
+      if ( *(_QWORD *)v3 != *(_QWORD *)v4 )
+        break;
+      LODWORD(v2) = v2 - 8;
+      if ( !(_DWORD)v2 )
+        return 1;
+      v3 += 8;
     }
-    if ( v3 >= v5 )
+    if ( v3 >= i )
       return 1;
     v6 = v4 - v3;
     while ( 1 )
@@ -53,7 +47,7 @@ char __fastcall SepEqualAsciiWideStringCaseInSensitive(unsigned __int16 *a1, uns
           break;
       }
       v3 += 2;
-      if ( v3 >= v5 )
+      if ( v3 >= i )
         return 1;
     }
   }

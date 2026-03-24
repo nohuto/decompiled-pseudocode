@@ -1,147 +1,140 @@
 /*
- * XREFs of PipMigratePnpState @ 0x140B0EC60
+ * XREFs of PipMigratePnpState @ 0x140A51084
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     RtlCompareMemory @ 0x14042A1E0 (RtlCompareMemory.c)
- *     _PnpCtxRegCreateKey @ 0x140772A24 (_PnpCtxRegCreateKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x14078014C (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxOpenMachine @ 0x140827888 (_PnpCtxOpenMachine.c)
- *     _PnpCtxRegQueryValue @ 0x14082EB54 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegCloseKey @ 0x14082EB8C (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegOpenKey @ 0x14082EBA4 (_PnpCtxRegOpenKey.c)
- *     _CmGetMatchingDeviceList @ 0x14083D790 (_CmGetMatchingDeviceList.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x14083EAEC (_PnpCtxRegEnumKeyWithCallback.c)
- *     _PnpCtxCloseMachine @ 0x140A2296C (_PnpCtxCloseMachine.c)
- *     _PnpCtxRegCopyTree @ 0x140A22CA4 (_PnpCtxRegCopyTree.c)
- *     _PnpCtxRegSetValue @ 0x140A22D7C (_PnpCtxRegSetValue.c)
+ *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
+ *     _PnpCtxRegCreateKey @ 0x14063B560 (_PnpCtxRegCreateKey.c)
+ *     _PnpCtxRegCloseKey @ 0x14063B8A4 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14064081C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegQueryValue @ 0x1406BADC4 (_PnpCtxRegQueryValue.c)
+ *     _CmGetMatchingDeviceList @ 0x140773920 (_CmGetMatchingDeviceList.c)
+ *     _PnpCtxOpenMachine @ 0x1407A455C (_PnpCtxOpenMachine.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x1407B1488 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     _PnpCtxCloseMachine @ 0x140974534 (_PnpCtxCloseMachine.c)
+ *     _PnpCtxRegCopyTree @ 0x14097486C (_PnpCtxRegCopyTree.c)
+ *     _PnpCtxRegSetValue @ 0x140974944 (_PnpCtxRegSetValue.c)
  */
 
 __int64 PipMigratePnpState()
 {
-  PERESOURCE *v0; // rdi
-  int v1; // eax
-  __int64 v2; // rcx
+  char v0; // si
+  PERESOURCE *v1; // rdi
+  int v2; // eax
+  __int64 v3; // rcx
   int CachedContextBaseKey; // ebx
-  int v5; // eax
   int v6; // eax
   int v7; // eax
-  __int64 v8; // rcx
+  int v8; // eax
   int v9; // eax
   __int64 v10; // r8
   int v11; // eax
-  __int64 v12; // [rsp+20h] [rbp-49h]
-  __int64 v13; // [rsp+28h] [rbp-41h]
-  void *v14; // [rsp+40h] [rbp-29h] BYREF
-  void *v15; // [rsp+48h] [rbp-21h] BYREF
-  void *v16; // [rsp+50h] [rbp-19h] BYREF
-  int v17; // [rsp+58h] [rbp-11h] BYREF
+  int MatchingDeviceList; // eax
+  __int64 v13; // [rsp+20h] [rbp-49h]
+  __int64 v14; // [rsp+28h] [rbp-41h]
+  void *v15; // [rsp+40h] [rbp-29h] BYREF
+  void *v16; // [rsp+48h] [rbp-21h] BYREF
+  void *v17; // [rsp+50h] [rbp-19h] BYREF
+  int v18; // [rsp+58h] [rbp-11h] BYREF
   __int64 Source2; // [rsp+60h] [rbp-9h] BYREF
-  __int64 v19; // [rsp+68h] [rbp-1h] BYREF
-  PERESOURCE *v20; // [rsp+70h] [rbp+7h] BYREF
-  void *v21; // [rsp+78h] [rbp+Fh] BYREF
+  __int64 v20; // [rsp+68h] [rbp-1h] BYREF
+  PERESOURCE *v21; // [rsp+70h] [rbp+7h] BYREF
+  void *v22; // [rsp+78h] [rbp+Fh] BYREF
   _QWORD Source1[8]; // [rsp+80h] [rbp+17h] BYREF
-  unsigned int v23; // [rsp+D0h] [rbp+67h] BYREF
-  int v24; // [rsp+D8h] [rbp+6Fh] BYREF
-  int v25; // [rsp+E0h] [rbp+77h] BYREF
-  int v26; // [rsp+E8h] [rbp+7Fh] BYREF
+  unsigned int v24; // [rsp+D0h] [rbp+67h] BYREF
+  int v25; // [rsp+D8h] [rbp+6Fh] BYREF
+  int v26; // [rsp+E0h] [rbp+77h] BYREF
+  int v27; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  v15 = 0LL;
   v16 = 0LL;
-  v19 = 0LL;
-  v24 = 0;
-  v0 = 0LL;
+  v17 = 0LL;
+  v20 = 0LL;
+  v0 = 0;
   v25 = 0;
+  v1 = 0LL;
   v26 = 0;
-  v14 = 0LL;
+  v27 = 0;
+  v15 = 0LL;
   Source1[0] = 0LL;
   Source2 = 0LL;
+  v22 = 0LL;
   v21 = 0LL;
-  v20 = 0LL;
-  v17 = 0;
-  v1 = PnpCtxRegOpenKey(
+  v18 = 0;
+  v2 = PnpCtxRegOpenKey(
          *(__int64 *)&PiPnpRtlCtx,
-         2147483650LL,
-         (__int64)L"System\\Setup\\Upgrade\\PnP",
+         -2147483646,
+         (int)L"System\\Setup\\Upgrade\\PnP",
          0,
-         0x2001Fu,
-         (__int64)&v15);
-  CachedContextBaseKey = v1;
-  if ( v1 == -1073741772 )
+         131103,
+         (__int64)&v16);
+  CachedContextBaseKey = v2;
+  if ( v2 == -1073741772 )
     goto LABEL_2;
-  if ( v1 >= 0 )
+  if ( v2 >= 0 )
   {
-    v23 = 4;
-    v5 = PnpCtxRegQueryValue(v2, v15, L"MigrationStatus", &v24, &v25, &v23);
-    CachedContextBaseKey = v5;
-    if ( v5 != -1073741772 )
+    v24 = 4;
+    v6 = PnpCtxRegQueryValue(v3, v16, L"MigrationStatus", &v25, &v26, &v24);
+    CachedContextBaseKey = v6;
+    if ( v6 != -1073741772 )
     {
-      if ( v5 < 0 )
+      if ( v6 < 0 )
         goto LABEL_3;
-      if ( v24 != 4 || v23 != 4 )
+      if ( v25 != 4 || v24 != 4 )
       {
         CachedContextBaseKey = -1073741823;
-LABEL_48:
-        if ( v0 )
-          PnpCtxCloseMachine(v0);
-        goto LABEL_3;
+        goto LABEL_47;
       }
     }
-    v6 = PnpCtxRegOpenKey(
-           *(__int64 *)&PiPnpRtlCtx,
-           (__int64)v15,
-           (__int64)L"CurrentControlSet",
-           0,
-           0x2001Fu,
-           (__int64)&v16);
-    CachedContextBaseKey = v6;
-    if ( v6 == -1073741772 )
+    v7 = PnpCtxRegOpenKey(*(__int64 *)&PiPnpRtlCtx, (int)v16, (int)L"CurrentControlSet", 0, 131103, (__int64)&v17);
+    CachedContextBaseKey = v7;
+    if ( v7 == -1073741772 )
     {
 LABEL_2:
       CachedContextBaseKey = 0;
       goto LABEL_3;
     }
-    if ( v6 >= 0 )
+    if ( v7 >= 0 )
     {
       CachedContextBaseKey = PnpCtxRegOpenKey(
                                *(__int64 *)&PiPnpRtlCtx,
-                               (__int64)v16,
-                               (__int64)L"Control\\DeviceMigration",
+                               (int)v17,
+                               (int)L"Control\\DeviceMigration",
                                0,
-                               0x20019u,
-                               (__int64)&v14);
+                               131097,
+                               (__int64)&v15);
       if ( CachedContextBaseKey >= 0 )
       {
-        v23 = 8;
-        CachedContextBaseKey = PnpCtxRegQueryValue(v2, v14, L"MigrationTime", &v24, &Source2, &v23);
+        v24 = 8;
+        CachedContextBaseKey = PnpCtxRegQueryValue(v3, v15, L"MigrationTime", &v25, &Source2, &v24);
         if ( CachedContextBaseKey >= 0 )
         {
-          if ( v24 == 3 && v23 == 8 )
+          if ( v25 == 3 && v24 == 8 )
           {
-            PnpCtxRegCloseKey(v2, v14);
-            v14 = 0LL;
-            CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 4, (__int64)&v19);
+            PnpCtxRegCloseKey(v3, v15);
+            v15 = 0LL;
+            CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 4, (__int64)&v20);
             if ( CachedContextBaseKey < 0 )
               goto LABEL_3;
             CachedContextBaseKey = PnpCtxRegCreateKey(
                                      *(__int64 *)&PiPnpRtlCtx,
-                                     v19,
+                                     v20,
                                      (__int64)L"Control\\DeviceMigration",
                                      0,
                                      0x20006u,
                                      0LL,
-                                     (__int64)&v14,
+                                     (__int64)&v15,
                                      0LL);
             if ( CachedContextBaseKey < 0 )
               goto LABEL_3;
-            v23 = 8;
-            v7 = PnpCtxRegQueryValue(v2, v14, L"MigrationTime", &v24, Source1, &v23);
-            CachedContextBaseKey = v7;
-            if ( v7 == -1073741772 )
+            v24 = 8;
+            v8 = PnpCtxRegQueryValue(v3, v15, L"MigrationTime", &v25, Source1, &v24);
+            CachedContextBaseKey = v8;
+            if ( v8 == -1073741772 )
               goto LABEL_32;
-            if ( v7 < 0 )
+            if ( v8 < 0 )
               goto LABEL_3;
-            if ( v24 == 3 && v23 == 8 )
+            if ( v25 == 3 && v24 == 8 )
             {
               if ( RtlCompareMemory(Source1, &Source2, 8uLL) == 8 )
               {
@@ -149,73 +142,78 @@ LABEL_2:
                 goto LABEL_3;
               }
 LABEL_32:
-              v25 = 259;
-              CachedContextBaseKey = PnpCtxRegSetValue(v2, v15, L"MigrationStatus", 4u, &v25, 4u);
+              v26 = 259;
+              CachedContextBaseKey = PnpCtxRegSetValue(v3, v16, L"MigrationStatus", 4u, &v26, 4u);
               if ( CachedContextBaseKey < 0 )
                 goto LABEL_3;
-              CachedContextBaseKey = PnpCtxRegSetValue(v2, v14, L"MigrationTime", 3u, &Source2, 8u);
+              CachedContextBaseKey = PnpCtxRegSetValue(v3, v15, L"MigrationTime", 3u, &Source2, 8u);
               if ( CachedContextBaseKey < 0 )
                 goto LABEL_3;
-              v23 = 4;
-              CachedContextBaseKey = PnpCtxRegQueryValue(v2, v15, L"TargetVersion", &v24, &v26, &v23);
-              if ( CachedContextBaseKey >= 0 )
+              v24 = 4;
+              v0 = 1;
+              CachedContextBaseKey = PnpCtxRegQueryValue(v3, v16, L"TargetVersion", &v25, &v27, &v24);
+              if ( CachedContextBaseKey < 0 )
+                goto LABEL_50;
+              if ( v25 != 4 || v24 != 4 )
               {
-                if ( v24 == 4 && v23 == 4 )
-                {
-                  if ( (v26 & 0xFFFF0000) == 0xA000000 )
-                  {
-                    CachedContextBaseKey = PnpCtxRegCopyTree(v8, (int)v16, 0, v19, 0LL);
-                    if ( CachedContextBaseKey >= 0 )
-                    {
-                      v9 = PnpCtxRegOpenKey(
-                             *(__int64 *)&PiPnpRtlCtx,
-                             (__int64)v16,
-                             (__int64)L"Services",
-                             0,
-                             0x20019u,
-                             (__int64)&v21);
-                      CachedContextBaseKey = v9;
-                      if ( v9 == -1073741772
-                        || v9 >= 0
-                        && (CachedContextBaseKey = PnpCtxRegEnumKeyWithCallback(
-                                                     *(__int64 *)&PiPnpRtlCtx,
-                                                     v21,
-                                                     (__int64)PipMigrateCleanServiceCallback,
-                                                     0LL),
-                            CachedContextBaseKey >= 0) )
-                      {
-                        v11 = PnpCtxOpenMachine(v8, 0LL, v10, -1LL, v12, v13, &v20);
-                        v0 = v20;
-                        CachedContextBaseKey = v11;
-                        if ( v11 >= 0 )
-                        {
-                          CachedContextBaseKey = CmGetMatchingDeviceList(
-                                                   (__int64)v20,
-                                                   (__int64)&PipMigrateResetDeviceCallback,
-                                                   0LL,
-                                                   0LL,
-                                                   0,
-                                                   (__int64)&v17,
-                                                   0);
-                          if ( CachedContextBaseKey == -1073741789 )
-                            CachedContextBaseKey = 0;
-                        }
-                      }
-                    }
-                  }
-                  else
-                  {
-                    CachedContextBaseKey = -1073741735;
-                  }
-                }
-                else
-                {
-                  CachedContextBaseKey = -1073741823;
-                }
+                CachedContextBaseKey = -1073741823;
+                goto LABEL_50;
               }
-              v25 = CachedContextBaseKey;
-              PnpCtxRegSetValue(v8, v15, L"MigrationStatus", 4u, &v25, 4u);
-              goto LABEL_48;
+              if ( (v27 & 0xFFFF0000) != 0xA000000 )
+              {
+                CachedContextBaseKey = -1073741735;
+                goto LABEL_50;
+              }
+              CachedContextBaseKey = PnpCtxRegCopyTree(v3, (int)v17, 0, v20, 0LL);
+              if ( CachedContextBaseKey < 0 )
+                goto LABEL_50;
+              v9 = PnpCtxRegOpenKey(*(__int64 *)&PiPnpRtlCtx, (int)v17, (int)L"Services", 0, 131097, (__int64)&v22);
+              CachedContextBaseKey = v9;
+              if ( v9 != -1073741772 )
+              {
+                if ( v9 < 0 )
+                  goto LABEL_50;
+                CachedContextBaseKey = PnpCtxRegEnumKeyWithCallback(
+                                         *(__int64 *)&PiPnpRtlCtx,
+                                         v22,
+                                         (__int64)PipMigrateCleanServiceCallback,
+                                         0LL);
+                if ( CachedContextBaseKey < 0 )
+                  goto LABEL_50;
+              }
+              v11 = PnpCtxOpenMachine(v3, 0LL, v10, -1LL, v13, v14, &v21);
+              v1 = v21;
+              CachedContextBaseKey = v11;
+              if ( v11 < 0 )
+                goto LABEL_50;
+              MatchingDeviceList = CmGetMatchingDeviceList(
+                                     (__int64)v21,
+                                     (__int64)&PipMigrateResetDeviceCallback,
+                                     0LL,
+                                     0LL,
+                                     0,
+                                     (__int64)&v18,
+                                     0);
+              CachedContextBaseKey = MatchingDeviceList;
+              if ( MatchingDeviceList == -1073741789 )
+              {
+                CachedContextBaseKey = 0;
+                goto LABEL_50;
+              }
+              if ( MatchingDeviceList < 0 )
+                goto LABEL_50;
+LABEL_47:
+              if ( !v0 )
+              {
+LABEL_51:
+                if ( v1 )
+                  PnpCtxCloseMachine(v1);
+                goto LABEL_3;
+              }
+LABEL_50:
+              v26 = CachedContextBaseKey;
+              PnpCtxRegSetValue(v3, v16, L"MigrationStatus", 4u, &v26, 4u);
+              goto LABEL_51;
             }
           }
           CachedContextBaseKey = -1073741823;
@@ -224,13 +222,13 @@ LABEL_32:
     }
   }
 LABEL_3:
-  if ( v21 )
-    PnpCtxRegCloseKey(v2, v21);
-  if ( v14 )
-    PnpCtxRegCloseKey(v2, v14);
-  if ( v16 )
-    PnpCtxRegCloseKey(v2, v16);
+  if ( v22 )
+    PnpCtxRegCloseKey(v3, v22);
   if ( v15 )
-    PnpCtxRegCloseKey(v2, v15);
+    PnpCtxRegCloseKey(v3, v15);
+  if ( v17 )
+    PnpCtxRegCloseKey(v3, v17);
+  if ( v16 )
+    PnpCtxRegCloseKey(v3, v16);
   return (unsigned int)CachedContextBaseKey;
 }

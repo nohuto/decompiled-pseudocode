@@ -1,15 +1,22 @@
 /*
- * XREFs of McTemplateU0qqxx_EventWriteTransfer @ 0x18012E12A
+ * XREFs of McTemplateU0qqxx_EventWriteTransfer @ 0x180163278
  * Callers:
- *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180053040 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
+ *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180077800 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
+ *     ?AddLatencyData@CTelemetryComputeScribbleAggregator@@SAXAEBV?$vector@UComputeScribbleLatencyData@@V?$allocator@UComputeScribbleLatencyData@@@std@@@std@@@Z @ 0x180163020 (-AddLatencyData@CTelemetryComputeScribbleAggregator@@SAXAEBV-$vector@UComputeScribbleLatencyData.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0qqxx_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, char a5, char a6)
+ULONG __fastcall McTemplateU0qqxx_EventWriteTransfer(
+        __int64 a1,
+        const EVENT_DESCRIPTOR *a2,
+        __int64 a3,
+        int a4,
+        char a5,
+        char a6)
 {
-  _BYTE v7[16]; // [rsp+38h] [rbp-19h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v7; // [rsp+38h] [rbp-19h] BYREF
   int *v8; // [rsp+48h] [rbp-9h]
   __int64 v9; // [rsp+50h] [rbp-1h]
   int *v10; // [rsp+58h] [rbp+7h]
@@ -29,12 +36,7 @@ __int64 __fastcall McTemplateU0qqxx_EventWriteTransfer(__int64 a1, __int64 a2, _
   v10 = &v17;
   v13 = 8LL;
   v12 = &a5;
-  v15 = 8LL;
   v14 = &a6;
-  return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
-           &CHANNELANIMATIONS_ACTIVE,
-           a3,
-           5LL,
-           v7);
+  v15 = 8LL;
+  return McGenEventWrite_EventWriteTransfer(Microsoft_Windows_Dwm_Core_Provider_Context, a2, a3, 5u, &v7);
 }

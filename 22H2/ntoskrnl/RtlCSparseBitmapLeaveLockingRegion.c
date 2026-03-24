@@ -1,57 +1,49 @@
 /*
- * XREFs of RtlCSparseBitmapLeaveLockingRegion @ 0x140314750
+ * XREFs of RtlCSparseBitmapLeaveLockingRegion @ 0x1402FD108
  * Callers:
- *     RtlSparseArrayElementAllocate @ 0x1403102A4 (RtlSparseArrayElementAllocate.c)
- *     RtlCSparseBitmapBitmaskWrite @ 0x140312170 (RtlCSparseBitmapBitmaskWrite.c)
- *     RtlpCSparseBitmapPageCommit @ 0x140313248 (RtlpCSparseBitmapPageCommit.c)
- *     RtlpCSparseBitmapPageDecommit @ 0x14035557C (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x1402FC33C (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x1402FC764 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlSparseArrayElementAllocate @ 0x1402FD064 (RtlSparseArrayElementAllocate.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x1402FD390 (RtlpCSparseBitmapPageCommit.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall RtlCSparseBitmapLeaveLockingRegion(unsigned __int8 *a1)
 {
-  $C71981A45BEB2B45F82C232A7085991E *v1; // rax
+  int v1; // eax
   unsigned __int64 v2; // rbx
-  struct _KTHREAD *CurrentThread; // rcx
-  bool v4; // zf
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
+  bool v5; // zf
 
-  v1 = ($C71981A45BEB2B45F82C232A7085991E *)*((_QWORD *)a1 + 1);
-  if ( v1[1].ApcStateFill[0] )
+  if ( *(_BYTE *)(*((_QWORD *)a1 + 1) + 48LL) )
   {
+    LOBYTE(v1) = KiIrqlFlags;
     v2 = *a1;
     if ( KiIrqlFlags )
     {
-      LOBYTE(v1) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)v1 <= 0xFu
-        && (unsigned __int8)v2 <= 0xFu
-        && (unsigned __int8)v1 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        LODWORD(v1) = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-        v4 = ((unsigned int)v1 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= (unsigned int)v1;
-        if ( v4 )
-          LOBYTE(v1) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        LOBYTE(v1) = KeGetCurrentIrql();
+        if ( (unsigned __int8)v1 <= 0xFu && (unsigned __int8)v2 <= 0xFu && (unsigned __int8)v1 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v1 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+          v5 = (v1 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v1;
+          if ( v5 )
+            LOBYTE(v1) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v2);
   }
   else
   {
-    CurrentThread = KeGetCurrentThread();
-    v4 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v4 )
-    {
-      v1 = &CurrentThread->152;
-      if ( ($C71981A45BEB2B45F82C232A7085991E *)v1->ApcState.ApcListHead[0].Flink != v1 )
-        LOBYTE(v1) = KiCheckForKernelApcDelivery();
-    }
+    LOBYTE(v1) = KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   }
-  return (char)v1;
+  return v1;
 }

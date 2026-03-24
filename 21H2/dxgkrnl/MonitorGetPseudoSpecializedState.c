@@ -1,44 +1,49 @@
 /*
- * XREFs of MonitorGetPseudoSpecializedState @ 0x1C0163BCC
+ * XREFs of MonitorGetPseudoSpecializedState @ 0x1C013E10C
  * Callers:
- *     DxgkGetMonitorInternalInfo @ 0x1C01659C0 (DxgkGetMonitorInternalInfo.c)
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01A0EB0 (DxgkDisplayConfigDeviceInfo.c)
+ *     DxgkGetMonitorInternalInfo @ 0x1C011B670 (DxgkGetMonitorInternalInfo.c)
  * Callees:
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0010D08 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
- *     ?GetPseudoSpecializedState@MonitorUsageState@DxgMonitor@@QEBAXPEA_N00@Z @ 0x1C0163C60 (-GetPseudoSpecializedState@MonitorUsageState@DxgMonitor@@QEBAXPEA_N00@Z.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009A04 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_GetPseudoSpecializedState@DXGMONITOR@@QEAAJPEA_N0@Z @ 0x1C013E1C0 (-_GetPseudoSpecializedState@DXGMONITOR@@QEAAJPEA_N0@Z.c)
  */
 
-__int64 __fastcall MonitorGetPseudoSpecializedState(__int64 a1, bool *a2, bool *a3, bool *a4)
+__int64 __fastcall MonitorGetPseudoSpecializedState(struct HDXGMONITOR__ *a1, bool *a2, bool *a3)
 {
-  __int64 v7; // rbx
-  unsigned int v8; // edi
-  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v3; // edi
+  __int64 result; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  DXGMONITOR *v9; // rsi
+  int PseudoSpecializedState; // eax
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  DXGMONITOR *v15; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( a1 )
-  {
-    MONITOR_MGR::AcquireMonitorShared(&v10, a1);
-    v7 = v10;
-    if ( v10 )
-    {
-      DxgMonitor::MonitorUsageState::GetPseudoSpecializedState(
-        *(DxgMonitor::MonitorUsageState **)(v10 + 240),
-        a2,
-        a3,
-        a4);
-      v8 = 0;
-      ExReleaseResourceLite((PERESOURCE)(v7 + 24));
-      KeLeaveCriticalRegion();
-    }
-    else
-    {
-      v8 = -1073741275;
-      WdLogSingleEntry1(2LL, -1073741275LL);
-    }
-    return v8;
-  }
-  else
-  {
-    WdLogSingleEntry1(2LL, -1073741811LL);
+  v3 = 0;
+  if ( !a1 )
     return 3221225485LL;
+  v15 = 0LL;
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, &v15);
+  if ( (int)result >= 0 )
+  {
+    v9 = v15;
+    if ( !v15 )
+    {
+      v11 = WdLogNewEntry5_WdAssertion(v8, v7);
+      WdLogEvent5_WdAssertion(v11);
+      v14 = WdLogNewEntry5_WdAssertion(v13, v12);
+      WdLogEvent5_WdAssertion(v14);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceExclusiveLite((PERESOURCE)((char *)v9 + 296), 1u);
+    PseudoSpecializedState = DXGMONITOR::_GetPseudoSpecializedState(v9, a2, a3);
+    if ( PseudoSpecializedState < 0 )
+      v3 = PseudoSpecializedState;
+    ExReleaseResourceLite((PERESOURCE)((char *)v9 + 296));
+    KeLeaveCriticalRegion();
+    return v3;
   }
+  return result;
 }

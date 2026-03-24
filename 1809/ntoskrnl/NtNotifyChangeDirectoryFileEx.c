@@ -1,26 +1,26 @@
 /*
- * XREFs of NtNotifyChangeDirectoryFileEx @ 0x1406B9D00
+ * XREFs of NtNotifyChangeDirectoryFileEx @ 0x1406B9CE0
  * Callers:
- *     NtNotifyChangeDirectoryFile @ 0x1406B9CA0 (NtNotifyChangeDirectoryFile.c)
+ *     NtNotifyChangeDirectoryFile @ 0x1406B9C80 (NtNotifyChangeDirectoryFile.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x14008C794 (IopMarkApcRoutineIfAsynchronousIo32.c)
  *     IopReferenceFileObject @ 0x14008C7EC (IopReferenceFileObject.c)
  *     IopAcquireFastLock @ 0x14008C84C (IopAcquireFastLock.c)
  *     IopVerifierExAllocatePoolWithQuota @ 0x14008C8C0 (IopVerifierExAllocatePoolWithQuota.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B70 (IoGetRelatedDeviceObject.c)
- *     IopAllocateIrpExReturn @ 0x1400B92C0 (IopAllocateIrpExReturn.c)
- *     IoAllocateMdl @ 0x1400DFCB0 (IoAllocateMdl.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     IopProbeAndLockPages_1 @ 0x140285938 (IopProbeAndLockPages_1.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
+ *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     IopProbeAndLockPages_1 @ 0x140285A38 (IopProbeAndLockPages_1.c)
  *     IopAcquireFileObjectLock @ 0x1405A3480 (IopAcquireFileObjectLock.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
  *     IopSynchronousServiceTail @ 0x14063B620 (IopSynchronousServiceTail.c)
- *     IopAllocateIrpCleanup @ 0x1408193D4 (IopAllocateIrpCleanup.c)
- *     IopExceptionCleanup @ 0x140819B48 (IopExceptionCleanup.c)
+ *     IopAllocateIrpCleanup @ 0x1408193B4 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanup @ 0x140819B28 (IopExceptionCleanup.c)
  */
 
 __int64 NtNotifyChangeDirectoryFileEx(void *a1, void *a2, ...)

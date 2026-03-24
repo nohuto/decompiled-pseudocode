@@ -1,29 +1,31 @@
 /*
- * XREFs of ?CheckCommonComputeScribbleSupport@CSuperWetInkManager@@AEAAJPEA_N@Z @ 0x1801CB954
+ * XREFs of ?CheckCommonComputeScribbleSupport@CSuperWetInkManager@@AEAAJPEA_N@Z @ 0x180194A78
  * Callers:
- *     ?CheckHostComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUVailSuperWetStroke@1@PEA_N@Z @ 0x1801CB99C (-CheckHostComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUVailSuperWetStroke@1@PEA_N@Z.c)
- *     ?CheckLocalComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUSuperWetStroke@1@PEA_N@Z @ 0x1801CBADC (-CheckLocalComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUSuperWetStroke@1@PEA_N@Z.c)
+ *     ?CheckHostComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUVailSuperWetStroke@1@PEA_N@Z @ 0x180194ACC (-CheckHostComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUVailSuperWetStroke@1@PEA_N@Z.c)
+ *     ?CheckLocalComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUSuperWetStroke@1@PEA_N@Z @ 0x180194C40 (-CheckLocalComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUSuperWetStroke@1@PEA_N@Z.c)
  * Callees:
- *     McTemplateU0q_EventWriteTransfer @ 0x18012DEC4 (McTemplateU0q_EventWriteTransfer.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152674 (McTemplateU0q_EventWriteTransfer.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SuperWetInk@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18019575C (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_SuperWetInk@@@details@wil@@QEAAX_NW4Repor.c)
  */
 
 __int64 __fastcall CSuperWetInkManager::CheckCommonComputeScribbleSupport(CSuperWetInkManager *this, bool *a2)
 {
-  bool v2; // zf
+  bool *v2; // rbx
+  __int64 v3; // rcx
 
-  v2 = CCommonRegistryData::SuperWetEnabled == 0;
+  v2 = a2;
   *a2 = 0;
-  if ( v2 )
+  LOBYTE(a2) = 1;
+  wil::details::FeatureImpl<__WilFeatureTraits_Feature_SuperWetInk>::ReportUsage(
+    &`wil::Feature<__WilFeatureTraits_Feature_SuperWetInk>::GetImpl'::`2'::impl,
+    a2);
+  if ( CCommonRegistryData::SuperWetEnabled )
   {
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x100000) != 0 )
-      McTemplateU0q_EventWriteTransfer(
-        (__int64)&Microsoft_Windows_Dwm_Core_Provider_Context,
-        (__int64)&EVTDESC_COMPUTESCRIBBLE_INCOMPATIBLE,
-        9LL);
+    *v2 = 1;
   }
-  else
+  else if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x40000) != 0 )
   {
-    *a2 = 1;
+    McTemplateU0q_EventWriteTransfer(v3, &EVTDESC_COMPUTESCRIBBLE_INCOMPATIBLE, 9LL);
   }
   return 0LL;
 }

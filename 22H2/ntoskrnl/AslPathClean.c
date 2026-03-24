@@ -1,172 +1,129 @@
 /*
- * XREFs of AslPathClean @ 0x140A54BF8
+ * XREFs of AslPathClean @ 0x140753B84
  * Callers:
- *     SdbpResolveMatchingFile @ 0x140A517D0 (SdbpResolveMatchingFile.c)
+ *     SdbpResolveMatchingFile @ 0x1407531CC (SdbpResolveMatchingFile.c)
  * Callees:
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     wcsncmp @ 0x1403DB3F0 (wcsncmp.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     wcsncmp @ 0x1403D3940 (wcsncmp.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
-__int64 __fastcall AslPathClean(const wchar_t *Src, void *a2, unsigned __int64 a3)
+__int64 __fastcall AslPathClean(wchar_t *Str, void *a2, unsigned __int64 a3)
 {
-  unsigned __int64 v3; // rdi
-  unsigned int v5; // ebp
+  unsigned __int64 v3; // rbp
+  unsigned int v5; // edi
   wchar_t *v7; // rbx
   unsigned __int64 v8; // rbx
   unsigned __int64 v9; // rcx
-  unsigned __int64 v10; // rdx
+  unsigned __int64 i; // rdx
   wchar_t v11; // ax
   wchar_t v12; // ax
-  wchar_t v13; // ax
-  bool v14; // zf
-  unsigned __int64 v15; // rax
-  wchar_t v16; // r8
-  wchar_t v17; // r8
-  wchar_t v18; // ax
-  __int16 v19; // ax
-  __int16 v20; // ax
-  unsigned __int64 v21; // rax
+  wchar_t v14; // ax
+  wchar_t v15; // r8
+  __int16 v16; // ax
+  __int16 v17; // ax
+  unsigned __int64 v18; // rax
 
   v3 = -1LL;
   v5 = 0;
   do
     ++v3;
-  while ( Src[v3] );
-  if ( a3 >= v3 + 1 )
+  while ( Str[v3] );
+  if ( a3 < v3 + 1 )
+    return (unsigned int)-1073741789;
+  v7 = wcschr(Str, 0x3Au);
+  if ( !v7 )
   {
-    v7 = wcschr(Src, 0x3Au);
-    if ( v7 )
-      goto LABEL_10;
     v8 = 4LL;
-    if ( !wcsncmp(Src, L"\\??\\", 4uLL) )
-      goto LABEL_12;
-    if ( !wcsncmp(Src, L"\\\\", 2uLL) )
+    if ( !wcsncmp(Str, L"\\??\\", 4uLL) )
+      goto LABEL_6;
+    if ( !wcsncmp(Str, L"\\\\", 2uLL) )
     {
       v8 = 2LL;
-      goto LABEL_12;
+      goto LABEL_6;
     }
-    v7 = wcschr(Src, 0x5Cu);
-    if ( v7 )
-LABEL_10:
-      v8 = ((unsigned __int64)((char *)v7 - (char *)Src) >> 1) + 1;
-    else
+    v7 = wcschr(Str, 0x5Cu);
+    if ( !v7 )
+    {
       v8 = 1LL;
-LABEL_12:
-    memmove(a2, Src, 2 * v8);
-    v9 = v8;
-    v10 = v8;
-    if ( v8 >= v3 )
-    {
-LABEL_54:
-      *((_WORD *)a2 + v9) = 0;
-      return v5;
+      goto LABEL_6;
     }
-    while ( 1 )
-    {
-      v11 = Src[v10];
-      if ( v11 == 92 || v11 == 47 )
-      {
-        if ( !v9 || *((_WORD *)a2 + v9 - 1) != 92 )
-          *((_WORD *)a2 + v9++) = 92;
-        goto LABEL_53;
-      }
-      if ( v11 != 46 )
-        break;
-      if ( v10 + 1 == v3 )
-        goto LABEL_54;
-      v13 = Src[v10 + 1];
-      if ( v13 == 92 || v13 == 47 )
-      {
-        ++v10;
-        goto LABEL_53;
-      }
-      v14 = v13 == 46;
-      v15 = v10 + 2;
-      if ( v14 )
-      {
-        if ( v15 == v3 || (v16 = Src[v15], v16 == 92) || v16 == 47 )
-        {
-          while ( v9 >= v8 )
-          {
-            v19 = *((_WORD *)a2 + v9);
-            *((_WORD *)a2 + v9) = 0;
-            if ( v19 == 92 )
-            {
-              do
-              {
-                v20 = *((_WORD *)a2 + v9);
-                *((_WORD *)a2 + v9) = 0;
-                if ( v20 == 92 )
-                  break;
-                --v9;
-              }
-              while ( v9 >= v8 );
-              break;
-            }
-            --v9;
-          }
-          v21 = v9 + 1;
-          ++v10;
-          if ( v9 >= v8 )
-            v21 = v9;
-          v9 = v21;
-          goto LABEL_53;
-        }
-      }
-      v17 = Src[v15];
-      if ( v17 != 92 && v17 != 47 )
-      {
-        if ( v10 < v3 )
-        {
-          while ( 1 )
-          {
-            v18 = Src[v10];
-            if ( v18 == 92 )
-              break;
-            if ( v18 != 47 )
-            {
-              *((_WORD *)a2 + v9) = v18;
-              ++v10;
-              ++v9;
-              if ( v10 < v3 )
-                continue;
-            }
-LABEL_20:
-            if ( v10 >= v3 )
-              goto LABEL_25;
-            break;
-          }
-LABEL_21:
-          if ( v9 >= 2 && *((_WORD *)a2 + v9 - 1) == 46 && *((_WORD *)a2 + v9 - 2) != 46 )
-            --v9;
-        }
-LABEL_25:
-        --v10;
-      }
-LABEL_53:
-      if ( ++v10 >= v3 )
-        goto LABEL_54;
-    }
-    if ( v10 < v3 )
-    {
-      while ( 1 )
-      {
-        v12 = Src[v10];
-        if ( v12 == 92 )
-          goto LABEL_21;
-        if ( v12 != 47 )
-        {
-          *((_WORD *)a2 + v9) = v12;
-          ++v10;
-          ++v9;
-          if ( v10 < v3 )
-            continue;
-        }
-        goto LABEL_20;
-      }
-    }
-    goto LABEL_25;
   }
-  return (unsigned int)-1073741789;
+  v8 = ((unsigned __int64)((char *)v7 - (char *)Str) >> 1) + 1;
+LABEL_6:
+  memmove(a2, Str, 2 * v8);
+  v9 = v8;
+  for ( i = v8; i < v3; ++i )
+  {
+    v11 = Str[i];
+    if ( v11 == 92 || v11 == 47 )
+    {
+      if ( !v9 || *((_WORD *)a2 + v9 - 1) != 92 )
+        *((_WORD *)a2 + v9++) = 92;
+    }
+    else if ( v11 == 46 )
+    {
+      if ( i + 1 == v3 )
+        break;
+      v14 = Str[i + 1];
+      if ( v14 == 92 || v14 == 47 )
+      {
+        ++i;
+      }
+      else if ( v14 == 46 )
+      {
+        if ( i + 2 == v3 || (v15 = Str[i + 2], v15 == 92) || v15 == 47 )
+        {
+          if ( v9 >= v8 )
+          {
+            do
+            {
+              v16 = *((_WORD *)a2 + v9);
+              *((_WORD *)a2 + v9) = 0;
+              if ( v16 == 92 )
+                break;
+              --v9;
+            }
+            while ( v9 >= v8 );
+            while ( v9 >= v8 )
+            {
+              v17 = *((_WORD *)a2 + v9);
+              *((_WORD *)a2 + v9) = 0;
+              if ( v17 == 92 )
+                break;
+              --v9;
+            }
+          }
+          v18 = v9 + 1;
+          ++i;
+          if ( v9 >= v8 )
+            v18 = v9;
+          v9 = v18;
+        }
+      }
+    }
+    else
+    {
+      if ( i < v3 )
+      {
+        do
+        {
+          v12 = Str[i];
+          if ( v12 == 92 )
+            break;
+          if ( v12 == 47 )
+            break;
+          *((_WORD *)a2 + v9) = v12;
+          ++i;
+          ++v9;
+        }
+        while ( i < v3 );
+        if ( i < v3 && v9 >= 2 && *((_WORD *)a2 + v9 - 1) == 46 && *((_WORD *)a2 + v9 - 2) != 46 )
+          --v9;
+      }
+      --i;
+    }
+  }
+  *((_WORD *)a2 + v9) = 0;
+  return v5;
 }

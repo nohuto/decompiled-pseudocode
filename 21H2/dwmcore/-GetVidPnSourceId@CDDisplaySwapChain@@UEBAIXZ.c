@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetVidPnSourceId@CDDisplaySwapChain@@UEBAIXZ @ 0x1800FA150
+ * XREFs of ?GetVidPnSourceId@CDDisplaySwapChain@@UEBAIXZ @ 0x1800E2200
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CDDisplaySwapChain::GetVidPnSourceId(CDDisplaySwapChain *this)
 {
-  return *((unsigned int *)this + 66);
+  return *((unsigned int *)this + 32);
 }

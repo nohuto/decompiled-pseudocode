@@ -1,22 +1,21 @@
 /*
- * XREFs of KeAllocateCalloutStack @ 0x140851370
+ * XREFs of KeAllocateCalloutStack @ 0x1407C7640
  * Callers:
  *     <none>
  * Callees:
- *     KeAllocateCalloutStackEx @ 0x140871A70 (KeAllocateCalloutStackEx.c)
+ *     KeAllocateCalloutStackEx @ 0x1407800A0 (KeAllocateCalloutStackEx.c)
  */
 
-__int64 __fastcall KeAllocateCalloutStack(char a1, __int64 a2)
+__int64 __fastcall KeAllocateCalloutStack(char a1)
 {
-  int v2; // eax
-  __int64 v3; // rcx
-  __int64 v5; // [rsp+38h] [rbp+10h] BYREF
+  int v1; // eax
+  __int64 v2; // rcx
+  __int64 v4; // [rsp+38h] [rbp+10h] BYREF
 
-  v5 = 0LL;
-  LOBYTE(a2) = 1;
-  v2 = KeAllocateCalloutStackEx(a1 != 0, a2, 0LL, &v5);
-  v3 = v5;
-  if ( v2 < 0 )
+  v4 = 0LL;
+  v1 = KeAllocateCalloutStackEx(a1 != 0, 1u, 0LL, &v4);
+  v2 = v4;
+  if ( v1 < 0 )
     return 0LL;
-  return v3;
+  return v2;
 }

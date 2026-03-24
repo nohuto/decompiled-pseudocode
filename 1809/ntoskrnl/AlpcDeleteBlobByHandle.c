@@ -3,8 +3,8 @@
  * Callers:
  *     AlpcSecurityDestroyProcedure @ 0x140616C90 (AlpcSecurityDestroyProcedure.c)
  *     AlpcSectionDeleteProcedure @ 0x14061B210 (AlpcSectionDeleteProcedure.c)
- *     AlpcSectionDestroyProcedure @ 0x1406B9520 (AlpcSectionDestroyProcedure.c)
- *     AlpcReserveDestroyProcedure @ 0x1406C9440 (AlpcReserveDestroyProcedure.c)
+ *     AlpcSectionDestroyProcedure @ 0x1406B9500 (AlpcSectionDestroyProcedure.c)
+ *     AlpcReserveDestroyProcedure @ 0x1406C9420 (AlpcReserveDestroyProcedure.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

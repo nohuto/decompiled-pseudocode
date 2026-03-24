@@ -1,22 +1,22 @@
 /*
- * XREFs of SepRmReferenceFindCap @ 0x140300A60
+ * XREFs of SepRmReferenceFindCap @ 0x140300B60
  * Callers:
  *     SeComputeCreatorDeniedRights @ 0x14004D520 (SeComputeCreatorDeniedRights.c)
  *     SeAccessCheckWithHintWithAdminlessChecks @ 0x1400516C0 (SeAccessCheckWithHintWithAdminlessChecks.c)
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9450 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6A4 (SepCommonAccessCheckExWithAdminlessChecks.c)
- *     SeRmReferenceFindCapName @ 0x1403008E0 (SeRmReferenceFindCapName.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9470 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6C4 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SeRmReferenceFindCapName @ 0x1403009E0 (SeRmReferenceFindCapName.c)
  *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
- *     RtlLookupEntryHashTable @ 0x1400DD710 (RtlLookupEntryHashTable.c)
- *     RtlGetNextEntryHashTable @ 0x140117AF0 (RtlGetNextEntryHashTable.c)
- *     SepRmDereferenceCapTable @ 0x1402FEC44 (SepRmDereferenceCapTable.c)
- *     SepComputeSidSignature @ 0x14065C418 (SepComputeSidSignature.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
+ *     RtlLookupEntryHashTable @ 0x1400DD730 (RtlLookupEntryHashTable.c)
+ *     RtlGetNextEntryHashTable @ 0x140117B10 (RtlGetNextEntryHashTable.c)
+ *     SepRmDereferenceCapTable @ 0x1402FED44 (SepRmDereferenceCapTable.c)
+ *     SepComputeSidSignature @ 0x14065C3F8 (SepComputeSidSignature.c)
  */
 
 __int64 __fastcall SepRmReferenceFindCap(PSID Sid1, PRTL_DYNAMIC_HASH_TABLE_ENTRY *a2)

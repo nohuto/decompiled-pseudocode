@@ -1,10 +1,10 @@
 /*
- * XREFs of AdtpIsSDValidSelfRelative @ 0x14064C900
+ * XREFs of AdtpIsSDValidSelfRelative @ 0x1403F9A44
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x14064B46C (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x1405C237C (AdtpBuildAccessReasonAuditString.c)
  * Callees:
- *     RtlGetControlSecurityDescriptor @ 0x140678850 (RtlGetControlSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x140726610 (RtlValidSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x14065EF00 (RtlValidSecurityDescriptor.c)
+ *     RtlGetControlSecurityDescriptor @ 0x1406772D0 (RtlGetControlSecurityDescriptor.c)
  */
 
 __int64 __fastcall AdtpIsSDValidSelfRelative(void *a1, bool *a2)

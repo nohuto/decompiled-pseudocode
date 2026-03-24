@@ -1,352 +1,284 @@
 /*
- * XREFs of ?VmBusDdiQueryAdapterInfo@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037C790
+ * XREFs of ?VmBusDdiQueryAdapterInfo@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0240220
  * Callers:
  *     <none>
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEDEVICE@@@@YAPEAUDXGKVMB_COMMAND_CREATEDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B894 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEDEVICE@@@@YAPEAUDXGKVMB_COMMAND_CREATEDEVICE@@PEAUD.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C019F070 (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
- *     ?GetDriverCapsSizeFromDdiVersion@@YAII@Z @ 0x1C01FECFC (-GetDriverCapsSizeFromDdiVersion@@YAII@Z.c)
- *     ?GetPhysicalAdapterCapsSizeFromDdiVersion@@YAII@Z @ 0x1C0229030 (-GetPhysicalAdapterCapsSizeFromDdiVersion@@YAII@Z.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEDEVICE@@@@YAPEAUDXGKVMB_COMMAND_CREATEDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00406AC (--$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEDEVICE@@@@YAPEAUDXGKVMB_COMMAND_CREATEDEVICE@@PEAUD.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C0133E18 (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
+ *     ?GetDriverCapsSizeFromDdiVersion@@YAII@Z @ 0x1C0192D58 (-GetDriverCapsSizeFromDdiVersion@@YAII@Z.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusDdiQueryAdapterInfo(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  __int64 v3; // rbx
-  const wchar_t *v4; // r9
-  char v5; // r13
-  __int64 v6; // rax
-  int *v7; // rbx
-  __int64 v8; // rsi
-  unsigned int v9; // edx
-  unsigned __int64 v10; // r8
-  __int64 v11; // rcx
-  __int64 v12; // r12
-  unsigned int v13; // r14d
-  unsigned int PhysicalAdapterCapsSizeFromDdiVersion; // eax
-  unsigned int v15; // edx
-  int v16; // r8d
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rax
+  char v6; // r15
+  __int64 v7; // rax
+  int *v8; // rbx
+  __int64 v9; // rcx
+  __int64 v10; // rsi
+  unsigned int v11; // r8d
+  unsigned __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+  __int64 v15; // rcx
+  __int64 v16; // rcx
   __int64 v17; // rcx
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // rax
-  unsigned int DriverCapsSizeFromDdiVersion; // eax
+  unsigned __int64 v18; // rcx
+  __int64 v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rdx
   __int64 v22; // r8
-  int v23; // eax
-  unsigned int v24; // edx
-  __int64 v25; // rax
-  _DWORD *v26; // rax
-  _QWORD v28[7]; // [rsp+50h] [rbp-B8h] BYREF
-  _BYTE v29[8]; // [rsp+88h] [rbp-80h] BYREF
-  DXGPUSHLOCK *v30; // [rsp+90h] [rbp-78h]
-  int v31; // [rsp+98h] [rbp-70h]
-  _BYTE v32[144]; // [rsp+A8h] [rbp-60h] BYREF
+  int v23; // r14d
+  int v24; // eax
+  SIZE_T v25; // rax
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  __int64 v28; // rcx
+  __int64 v29; // r9
+  __int64 v30; // rax
+  _QWORD v32[7]; // [rsp+20h] [rbp-E8h] BYREF
+  DXGPUSHLOCK *v33[2]; // [rsp+58h] [rbp-B0h] BYREF
+  int v34; // [rsp+68h] [rbp-A0h]
+  _BYTE v35[144]; // [rsp+78h] [rbp-90h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v29, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v30);
-  v2 = *((_QWORD *)a1 + 10);
-  v31 = 1;
-  if ( !*(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v33, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v33[1]);
+  v4 = *((_QWORD *)a1 + 5);
+  v34 = 1;
+  if ( !*(_BYTE *)(v4 + 165) )
   {
-    v3 = 4496LL;
-    WdLogSingleEntry1(2LL, 4496LL);
-    v4 = L"The adapter is already closed by the guest";
-LABEL_94:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v4, v3, 0LL, 0LL, 0LL, 0LL);
-    goto LABEL_95;
+    v5 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v5 + 24) = 3979LL;
+LABEL_74:
+    WdLogEvent5_WdError(v5);
+    goto LABEL_75;
   }
-  v5 = 0;
-  v6 = CastToVmBusCommand<DXGKVMB_COMMAND_CREATEDEVICE>((__int64)a1);
-  v7 = (int *)v6;
-  if ( !v6 )
+  v6 = 0;
+  v7 = CastToVmBusCommand<DXGKVMB_COMMAND_CREATEDEVICE>((__int64)a1);
+  v8 = (int *)v7;
+  if ( !v7 )
   {
-LABEL_95:
-    v5 = 0;
-    goto LABEL_96;
+LABEL_75:
+    v6 = 0;
+    goto LABEL_76;
   }
-  v8 = *(_QWORD *)(*((_QWORD *)a1 + 10) + 16LL);
-  if ( *(int *)(v8 + 2552) < 0x2000 )
-    v9 = 1;
+  v9 = *((_QWORD *)a1 + 5);
+  v10 = *(_QWORD *)(v9 + 16);
+  if ( *(int *)(v10 + 2328) < 0x2000 )
+    v11 = 1;
   else
-    v9 = *(_DWORD *)(v8 + 288);
-  v10 = *(unsigned int *)(v6 + 28);
-  v11 = *((unsigned int *)a1 + 36);
-  if ( v11 - 39 < v10 )
+    v11 = *(_DWORD *)(v10 + 280);
+  v12 = *(unsigned int *)(v7 + 28);
+  if ( (unsigned __int64)*((unsigned int *)a1 + 22) - 39 < v12 )
   {
-    WdLogSingleEntry2(2LL, (unsigned int)v11, 4506LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid packet size: 0x%I64x",
-      *((unsigned int *)a1 + 36),
-      4506LL,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_95;
+    v5 = WdLogNewEntry5_WdError(v9, v12);
+    *(_QWORD *)(v5 + 24) = *((unsigned int *)a1 + 22);
+    *(_QWORD *)(v5 + 32) = 3989LL;
+    goto LABEL_74;
   }
-  v12 = *(unsigned int *)(v6 + 32);
-  v13 = *(_DWORD *)(v6 + 32);
-  switch ( *(_DWORD *)(v6 + 24) )
+  v13 = (unsigned int)(*(_DWORD *)(v7 + 24) - 1);
+  if ( *(_DWORD *)(v7 + 24) == 1 )
   {
-    case 1:
-      DriverCapsSizeFromDdiVersion = GetDriverCapsSizeFromDdiVersion(*(_DWORD *)(v8 + 2096));
-      v13 = DriverCapsSizeFromDdiVersion;
-      if ( v7[7] || v7[8] > DriverCapsSizeFromDdiVersion )
+    if ( (_DWORD)v12
+      || *(_DWORD *)(v7 + 32) != (unsigned int)GetDriverCapsSizeFromDdiVersion(*(unsigned int *)(v10 + 1872), v12) )
+    {
+      v5 = WdLogNewEntry5_WdError(v13, v12);
+      *(_QWORD *)(v5 + 24) = 3998LL;
+      goto LABEL_74;
+    }
+  }
+  else
+  {
+    v14 = (unsigned int)(*(_DWORD *)(v7 + 24) - 10);
+    if ( *(_DWORD *)(v7 + 24) == 10 )
+    {
+      if ( (_DWORD)v12 )
       {
-        v3 = 4524LL;
-        WdLogSingleEntry1(2LL, 4524LL);
-        v4 = L"Invalid buffer size for DXGKQAITYPE_DRIVERCAPS";
-        goto LABEL_94;
-      }
-      goto LABEL_57;
-    case 0xA:
-      if ( (_DWORD)v10 )
-      {
-        if ( (_DWORD)v10 != 4 )
+        if ( (_DWORD)v12 != 4 )
         {
-          v3 = 4589LL;
-          WdLogSingleEntry1(2LL, 4589LL);
-          v4 = L"Invalid input buffer size for DXGKQAITYPE_HISTORYBUFFERPRECISION";
-          goto LABEL_94;
+          v5 = WdLogNewEntry5_WdError(v14, v12);
+          *(_QWORD *)(v5 + 24) = 4057LL;
+          goto LABEL_74;
         }
-        v20 = *(unsigned int *)(v6 + 36);
+        v19 = *(unsigned int *)(v7 + 36);
       }
       else
       {
-        v20 = 0LL;
+        v19 = 0LL;
       }
-      if ( (unsigned int)v20 >= v9 )
+      if ( (unsigned int)v19 >= v11 )
       {
-        v3 = 4596LL;
-        WdLogSingleEntry1(2LL, 4596LL);
-        v4 = L"Invalid PhysicalAdapterIndex for DXGKQAITYPE_HISTORYBUFFERPRECISION";
-        goto LABEL_94;
+        v5 = WdLogNewEntry5_WdError(v14, v12);
+        *(_QWORD *)(v5 + 24) = 4064LL;
+        goto LABEL_74;
       }
-      if ( v12 == 4LL * *(unsigned __int16 *)(344 * v20 + *(_QWORD *)(v8 + 2808)) )
-        goto LABEL_57;
-      v3 = 4602LL;
-      WdLogSingleEntry1(2LL, 4602LL);
-      goto LABEL_24;
-    case 0xD:
-      if ( (_DWORD)v10 != 4 || (_DWORD)v12 != 24 )
+      v20 = 4LL * *(unsigned __int16 *)(360 * v19 + *(_QWORD *)(v10 + 2584));
+      if ( v8[8] != v20 )
       {
-        v3 = 4551LL;
-        WdLogSingleEntry1(2LL, 4551LL);
-        v4 = L"Invalid buffer size for DXGKQAITYPE_GPUMMUCAPS";
-        goto LABEL_94;
+        v5 = WdLogNewEntry5_WdError(360 * v19, v20);
+        *(_QWORD *)(v5 + 24) = 4070LL;
+        goto LABEL_74;
       }
-      if ( *(_DWORD *)(v6 + 36) < v9 )
-        goto LABEL_57;
-      v3 = 4556LL;
-      WdLogSingleEntry1(2LL, 4556LL);
-      goto LABEL_29;
-    case 0xE:
-      if ( (_DWORD)v10 != 4 || (_DWORD)v12 != 20 )
+    }
+    else
+    {
+      v15 = (unsigned int)(*(_DWORD *)(v7 + 24) - 13);
+      if ( *(_DWORD *)(v7 + 24) == 13 )
       {
-        v3 = 4564LL;
-        WdLogSingleEntry1(2LL, 4564LL);
-        v4 = L"Invalid buffer size for DXGKQAITYPE_PAGETABLELEVELDESC";
-        goto LABEL_94;
-      }
-      v17 = *(unsigned __int16 *)(v6 + 38);
-      if ( (unsigned int)v17 >= v9
-        || (*(_DWORD *)(v8 + 2284) & 0x40) == 0
-        || ((v18 = *(_QWORD *)(*(_QWORD *)(v8 + 2928) + 1264LL)) != 0 ? (v19 = v18 + 144 * v17) : (v19 = 0LL),
-            (unsigned int)*(unsigned __int16 *)(v6 + 36) >= *(_DWORD *)(v19 + 16)) )
-      {
-        v3 = 4573LL;
-        WdLogSingleEntry1(2LL, 4573LL);
-        v4 = L"Invalid parameters DXGKQAITYPE_PAGETABLELEVELDESC";
-        goto LABEL_94;
-      }
-      goto LABEL_57;
-    case 0xF:
-      PhysicalAdapterCapsSizeFromDdiVersion = GetPhysicalAdapterCapsSizeFromDdiVersion(*(_DWORD *)(v8 + 2096));
-      v13 = PhysicalAdapterCapsSizeFromDdiVersion;
-      if ( v16 != 4 || (unsigned int)v12 > PhysicalAdapterCapsSizeFromDdiVersion )
-      {
-        v3 = 4538LL;
-        WdLogSingleEntry1(2LL, 4538LL);
-        v4 = L"Invalid buffer size for DXGKQAITYPE_PHYSICALADAPTERCAPS";
-        goto LABEL_94;
-      }
-      if ( v7[9] < v15 )
-        goto LABEL_57;
-      v3 = 4543LL;
-      WdLogSingleEntry1(2LL, 4543LL);
-LABEL_29:
-      v4 = L"Invalid physical adapter index";
-      goto LABEL_94;
-    case 0x1A:
-      if ( (_DWORD)v12 == 28 && (_DWORD)v10 == 4 )
-      {
-        if ( *(_DWORD *)(v6 + 36) >= v9 )
+        if ( (_DWORD)v12 != 4 || *(_DWORD *)(v7 + 32) != 24 )
         {
-          v3 = 4618LL;
-          WdLogSingleEntry1(2LL, 4618LL);
-          v4 = L"Invalid PhysicalAdapterIndex for DXGKQAITYPE_ADAPTERPERFDATA_CAPS";
-          goto LABEL_94;
+          v5 = WdLogNewEntry5_WdError(v15, v12);
+          *(_QWORD *)(v5 + 24) = 4019LL;
+          goto LABEL_74;
         }
-        goto LABEL_57;
-      }
-      v3 = 4612LL;
-      WdLogSingleEntry1(2LL, 4612LL);
-LABEL_24:
-      v4 = L"Invalid output buffer size for DXGKQAITYPE_HISTORYBUFFERPRECISION";
-      goto LABEL_94;
-  }
-  if ( *(_DWORD *)(v6 + 24) != 27 )
-  {
-    WdLogSingleEntry1(2LL, *(int *)(v6 + 24));
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Invalid query type: 0x%I64x", v7[6], 0LL, 0LL, 0LL, 0LL);
-    goto LABEL_95;
-  }
-  if ( (_DWORD)v12 != 128 )
-  {
-    v3 = 4627LL;
-    WdLogSingleEntry1(2LL, 4627LL);
-    v4 = L"Invalid output buffer size for DXGKQAITYPE_GPUVERSION";
-    goto LABEL_94;
-  }
-LABEL_57:
-  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v32, (struct DXGADAPTER *const)v8, 0LL);
-  if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v32, 0LL) >= 0 )
-  {
-    v23 = v7[6];
-    memset(&v28[1], 0, 48);
-    LODWORD(v28[1]) = v23;
-    HIDWORD(v28[5]) = _mm_cvtsi128_si32(_mm_srli_si128((__m128i)0LL, 4)) | 1;
-    LODWORD(v28[3]) = v7[7];
-    v28[2] = v7 + 9;
-    if ( v13 )
-    {
-      if ( v13 > 0x20000 )
-      {
-        WdLogSingleEntry1(2LL, v13);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Invalid output buffer size: 0x%I64x",
-          v13,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        goto LABEL_92;
-      }
-      LODWORD(v28[5]) = v13;
-      v28[4] = operator new[](v13, 0x4B677844u, 64LL);
-      if ( !v28[4] )
-      {
-        WdLogSingleEntry1(6LL, 4659LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262145,
-          -1,
-          (__int64)L"Failed to allocate pOutputData",
-          4659LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        goto LABEL_92;
-      }
-    }
-    if ( (int)DXGADAPTER::DdiQueryAdapterInfo((DXGADAPTER *)v8, (struct _DXGKARG_QUERYADAPTERINFO *)&v28[1], v22) < 0 )
-    {
-LABEL_90:
-      if ( v28[4] )
-        operator delete((void *)v28[4]);
-      goto LABEL_92;
-    }
-    v24 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 12) + 608LL) + 392LL);
-    if ( v7[6] != 1 )
-    {
-      if ( v7[6] == 13 )
-      {
-        if ( v24 <= 0x25 )
-          *(_DWORD *)v28[4] &= 0x7FFu;
-      }
-      else if ( v7[6] == 15 )
-      {
-        v25 = v28[4];
-        *(_QWORD *)(v28[4] + 8LL) = 0LL;
-        if ( v24 > 0x10 )
+        if ( *(_DWORD *)(v7 + 36) >= v11 )
         {
-          if ( v24 <= 0x25 )
-            *(_DWORD *)(v25 + 16) &= 0x3Fu;
+          v5 = WdLogNewEntry5_WdError(v15, v12);
+          *(_QWORD *)(v5 + 24) = 4024LL;
+          goto LABEL_74;
+        }
+      }
+      else if ( *(_DWORD *)(v7 + 24) == 14 )
+      {
+        if ( (_DWORD)v12 != 4 || *(_DWORD *)(v7 + 32) != 20 )
+        {
+          v5 = WdLogNewEntry5_WdError((unsigned int)(*(_DWORD *)(v7 + 24) - 14), v12);
+          *(_QWORD *)(v5 + 24) = 4032LL;
+          goto LABEL_74;
+        }
+        v18 = *(unsigned __int16 *)(v7 + 38);
+        if ( (unsigned int)v18 >= v11
+          || (*(_DWORD *)(v10 + 2060) & 0x40) == 0
+          || ((v12 = *(_QWORD *)(*(_QWORD *)(v10 + 2704) + 1128LL)) != 0 ? (v18 = v12 + 144 * v18) : (v18 = 0LL),
+              (unsigned int)*(unsigned __int16 *)(v7 + 36) >= *(_DWORD *)(v18 + 16)) )
+        {
+          v5 = WdLogNewEntry5_WdError(v18, v12);
+          *(_QWORD *)(v5 + 24) = 4041LL;
+          goto LABEL_74;
+        }
+      }
+      else
+      {
+        v16 = (unsigned int)(*(_DWORD *)(v7 + 24) - 15);
+        if ( *(_DWORD *)(v7 + 24) == 15 )
+        {
+          if ( (_DWORD)v12 != 4 || *(_DWORD *)(v7 + 32) != 32 )
+          {
+            v5 = WdLogNewEntry5_WdError(v16, v12);
+            *(_QWORD *)(v5 + 24) = 4006LL;
+            goto LABEL_74;
+          }
+          if ( *(_DWORD *)(v7 + 36) >= v11 )
+          {
+            v5 = WdLogNewEntry5_WdError(v16, v12);
+            *(_QWORD *)(v5 + 24) = 4011LL;
+            goto LABEL_74;
+          }
         }
         else
         {
-          *(_DWORD *)(v25 + 16) &= 0x1Fu;
+          v17 = (unsigned int)(*(_DWORD *)(v7 + 24) - 26);
+          if ( *(_DWORD *)(v7 + 24) == 26 )
+          {
+            if ( *(_DWORD *)(v7 + 32) != 28 || (_DWORD)v12 != 4 )
+            {
+              v5 = WdLogNewEntry5_WdError(v17, v12);
+              *(_QWORD *)(v5 + 24) = 4080LL;
+              goto LABEL_74;
+            }
+            if ( *(_DWORD *)(v7 + 36) >= v11 )
+            {
+              v5 = WdLogNewEntry5_WdError(v17, v12);
+              *(_QWORD *)(v5 + 24) = 4086LL;
+              goto LABEL_74;
+            }
+          }
+          else
+          {
+            if ( *(_DWORD *)(v7 + 24) != 27 )
+            {
+              v5 = WdLogNewEntry5_WdError(v17, v12);
+              *(_QWORD *)(v5 + 24) = v8[6];
+              goto LABEL_74;
+            }
+            if ( *(_DWORD *)(v7 + 32) != 128 )
+            {
+              v5 = WdLogNewEntry5_WdError(v17, v12);
+              *(_QWORD *)(v5 + 24) = 4095LL;
+              goto LABEL_74;
+            }
+          }
         }
       }
-      goto LABEL_89;
     }
-    v26 = (_DWORD *)v28[4];
-    if ( v24 > 0x25 )
-    {
-      if ( v24 > 0x28 )
-      {
-LABEL_89:
-        VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 16), (void *)v28[4], v12);
-        v5 = 1;
-        goto LABEL_90;
-      }
-    }
-    else
-    {
-      *(_DWORD *)(v28[4] + 60LL) &= 0x7Fu;
-      v26[16] &= 0x7FFu;
-    }
-    v26[12] &= 0x3Fu;
-    v26[13] &= ~0x80000000;
-    if ( v24 > 0x10 )
-    {
-      if ( v24 > 0x1B )
-      {
-        if ( v24 <= 0x25 )
-        {
-          if ( (int)v26[84] > 10240 )
-            v26[84] = 10240;
-          v26[17] &= 0x3FFFu;
-          v26[144] &= 0x3Fu;
-        }
-      }
-      else
-      {
-        if ( (int)v26[84] > 9984 )
-          v26[84] = 9984;
-        v26[17] &= 0x3FFFu;
-        v26[144] &= 0x1Fu;
-      }
-    }
-    else
-    {
-      if ( (int)v26[84] > 9728 )
-        v26[84] = 9728;
-      v26[17] &= 0x1FFFu;
-      v26[144] &= 0xFu;
-    }
-    goto LABEL_89;
   }
-LABEL_92:
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v32);
-LABEL_96:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v29);
-  return v5;
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v35, (struct DXGADAPTER *const)v10, 0LL);
+  v23 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v35, 0LL);
+  if ( v23 >= 0 )
+  {
+    v24 = v8[7];
+    v32[1] = (unsigned int)v8[6];
+    memset(&v32[3], 0, 32);
+    LODWORD(v32[3]) = v24;
+    v32[2] = v8 + 9;
+    v25 = (unsigned int)v8[8];
+    v26 = _mm_cvtsi128_si32(_mm_srli_si128((__m128i)0LL, 4)) | 1u;
+    HIDWORD(v32[5]) = v26;
+    if ( (_DWORD)v25 )
+    {
+      if ( (unsigned int)v25 > 0x20000 )
+      {
+        v27 = WdLogNewEntry5_WdError(v26, v21);
+        *(_QWORD *)(v27 + 24) = (unsigned int)v8[8];
+        WdLogEvent5_WdError(v27);
+        goto LABEL_72;
+      }
+      LODWORD(v32[5]) = v25;
+      v32[4] = operator new(v25, 0x4B677844u, 1, (POOL_TYPE)512);
+      if ( !v32[4] )
+      {
+        v30 = WdLogNewEntry5_WdLowResource(v28, v21, v22, v29);
+        *(_QWORD *)(v30 + 24) = 4127LL;
+        WdLogEvent5_WdLowResource(v30);
+        v23 = -1073741801;
+      }
+    }
+    if ( v23 >= 0 )
+    {
+      if ( (int)DXGADAPTER::DdiQueryAdapterInfo((DXGADAPTER *)v10, (struct _DXGKARG_QUERYADAPTERINFO *)&v32[1], v22) >= 0 )
+      {
+        if ( v8[6] == 1 )
+        {
+          if ( *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 7) + 496LL) + 352LL) <= 0x10u && *(int *)(v32[4] + 336LL) > 9728 )
+            *(_DWORD *)(v32[4] + 336LL) = 9728;
+        }
+        else if ( v8[6] == 15 )
+        {
+          *(_QWORD *)(v32[4] + 8LL) = 0LL;
+        }
+        VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), (void *)v32[4], v32[5]);
+        v6 = 1;
+      }
+      if ( v32[4] )
+        operator delete[]((void *)v32[4]);
+    }
+  }
+LABEL_72:
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v35, v21);
+LABEL_76:
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v33);
+  return v6;
 }

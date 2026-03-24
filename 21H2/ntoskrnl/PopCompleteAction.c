@@ -1,10 +1,10 @@
 /*
- * XREFs of PopCompleteAction @ 0x1407FD778
+ * XREFs of PopCompleteAction @ 0x140773D74
  * Callers:
- *     PopExecutePowerAction @ 0x1407FEC6C (PopExecutePowerAction.c)
- *     PopPolicyWorkerAction @ 0x1407FF440 (PopPolicyWorkerAction.c)
+ *     PopExecutePowerAction @ 0x1407751C8 (PopExecutePowerAction.c)
+ *     PopPolicyWorkerAction @ 0x140775870 (PopPolicyWorkerAction.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
  */
 
 LONG __fastcall PopCompleteAction(__int64 a1, LONG a2)

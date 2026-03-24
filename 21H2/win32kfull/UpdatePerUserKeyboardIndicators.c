@@ -1,7 +1,7 @@
 /*
- * XREFs of UpdatePerUserKeyboardIndicators @ 0x1C00B9370
+ * XREFs of UpdatePerUserKeyboardIndicators @ 0x1C002787C
  * Callers:
- *     xxxUpdatePerUserSystemParameters @ 0x1C00B8188 (xxxUpdatePerUserSystemParameters.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C0026814 (xxxUpdatePerUserSystemParameters.c)
  * Callees:
  *     <none>
  */
@@ -23,15 +23,15 @@ __int64 __fastcall UpdatePerUserKeyboardIndicators(__int64 a1)
     if ( (gklpBootTime[1] & 2) != 0 )
     {
       *(_BYTE *)(v2 + 264) = v3 | 2;
-      v4 = *(_QWORD *)gafAsyncKeyState;
-      gafAsyncKeyState[36] |= 2u;
+      v4 = gafAsyncKeyState;
+      *((_BYTE *)&gafAsyncKeyState + 36) |= 2u;
       gafRawKeyState[36] |= 2u;
     }
     else
     {
       *(_BYTE *)(v2 + 264) = v3 & 0xFD;
-      v4 = *(_QWORD *)gafAsyncKeyState;
-      gafAsyncKeyState[36] &= ~2u;
+      v4 = gafAsyncKeyState;
+      *((_BYTE *)&gafAsyncKeyState + 36) &= ~2u;
       gafRawKeyState[36] &= ~2u;
     }
     gfKanaToggle = 0;

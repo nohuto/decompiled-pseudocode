@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPIBuildPdo @ 0x1C0005FA8
+ * XREFs of ACPIBuildPdo @ 0x1C0011198
  * Callers:
- *     ACPIDetectPdoDevices @ 0x1C0006CE8 (ACPIDetectPdoDevices.c)
- *     ACPIDetectDockDevices @ 0x1C000A628 (ACPIDetectDockDevices.c)
+ *     ACPIDetectPdoDevices @ 0x1C0019338 (ACPIDetectPdoDevices.c)
+ *     ACPIDetectDockDevices @ 0x1C001A800 (ACPIDetectDockDevices.c)
  * Callees:
- *     AcpiEvaluateBiosMethodsOnPciRootBus @ 0x1C000628C (AcpiEvaluateBiosMethodsOnPciRootBus.c)
- *     ACPIAddInitializationDependencies @ 0x1C0006354 (ACPIAddInitializationDependencies.c)
- *     AMLIIsNamedChildPresent @ 0x1C000A410 (AMLIIsNamedChildPresent.c)
- *     AcpiArblibFreeArbiterInstance @ 0x1C0049B1C (AcpiArblibFreeArbiterInstance.c)
- *     AcpiArblibInitializeArbiter @ 0x1C0049B58 (AcpiArblibInitializeArbiter.c)
- *     ACPIIsDebuggingDevice @ 0x1C0091E0C (ACPIIsDebuggingDevice.c)
+ *     AcpiEvaluateBiosMethodsOnPciRootBus @ 0x1C00114B0 (AcpiEvaluateBiosMethodsOnPciRootBus.c)
+ *     ACPIAddInitializationDependencies @ 0x1C0011578 (ACPIAddInitializationDependencies.c)
+ *     AMLIIsNamedChildPresent @ 0x1C001F220 (AMLIIsNamedChildPresent.c)
+ *     ACPIIsDebuggingDevice @ 0x1C0098DCC (ACPIIsDebuggingDevice.c)
+ *     AcpiArblibFreeArbiterInstance @ 0x1C00AD264 (AcpiArblibFreeArbiterInstance.c)
+ *     AcpiArblibInitializeArbiter @ 0x1C00AD2D4 (AcpiArblibInitializeArbiter.c)
  */
 
 NTSTATUS __fastcall ACPIBuildPdo(struct _DRIVER_OBJECT *a1, __int64 a2, struct _DEVICE_OBJECT *a3, char a4)
@@ -30,7 +30,7 @@ NTSTATUS __fastcall ACPIBuildPdo(struct _DRIVER_OBJECT *a1, __int64 a2, struct _
   PVOID *v20; // rbx
   PDEVICE_OBJECT DeviceObject; // [rsp+78h] [rbp+38h] BYREF
 
-  v4 = *(_QWORD *)(a2 + 760);
+  v4 = *(_QWORD *)(a2 + 720);
   DeviceObject = 0LL;
   AttachedDeviceReference = 0LL;
   result = IoCreateDevice(a1, 0, 0LL, 0x32u, 0x180u, 0, &DeviceObject);
@@ -38,7 +38,7 @@ NTSTATUS __fastcall ACPIBuildPdo(struct _DRIVER_OBJECT *a1, __int64 a2, struct _
     return result;
   if ( a4 )
   {
-    if ( (*(_DWORD *)(a2 + 8) & 0x100000LL) != 0 )
+    if ( (*(_DWORD *)(a2 + 8) & 0x100000) != 0 )
     {
       a4 = 0;
     }
@@ -48,11 +48,11 @@ NTSTATUS __fastcall ACPIBuildPdo(struct _DRIVER_OBJECT *a1, __int64 a2, struct _
       if ( !AttachedDeviceReference )
       {
         v17 = -1073741810;
-        goto LABEL_46;
+        goto LABEL_45;
       }
     }
   }
-  if ( _bittest64((const signed __int64 *)(a2 + 8), 0x25u) )
+  if ( (*(_QWORD *)(a2 + 8) & 0x2000000000LL) != 0 )
   {
     if ( !(unsigned __int8)AMLIIsNamedChildPresent(v4, 1397900127LL) )
     {
@@ -82,7 +82,7 @@ NTSTATUS __fastcall ACPIBuildPdo(struct _DRIVER_OBJECT *a1, __int64 a2, struct _
       }
       while ( v19 );
     }
-LABEL_46:
+LABEL_45:
     IoDeleteDevice(DeviceObject);
     return v17;
   }
@@ -90,20 +90,20 @@ LABEL_4:
   v10 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
   DeviceObject->DeviceExtension = (void *)a2;
   v11 = DeviceObject;
-  *(_QWORD *)(a2 + 768) = DeviceObject;
-  *(_QWORD *)(a2 + 784) = v11;
-  _InterlockedIncrement((volatile signed __int32 *)(a2 + 732));
+  *(_QWORD *)(a2 + 728) = DeviceObject;
+  *(_QWORD *)(a2 + 744) = v11;
+  _InterlockedIncrement((volatile signed __int32 *)(a2 + 692));
   _InterlockedAnd64((volatile signed __int64 *)(a2 + 8), 0xFFFFFFFFFFFFFC00uLL);
   _InterlockedOr64((volatile signed __int64 *)(a2 + 8), 0x20uLL);
-  LODWORD(v11) = *(_DWORD *)(a2 + 368);
+  LODWORD(v11) = *(_DWORD *)(a2 + 328);
   *(_QWORD *)(a2 + 8) |= 0x800uLL;
-  *(_QWORD *)(a2 + 1000) |= 0x800uLL;
+  *(_QWORD *)(a2 + 960) |= 0x800uLL;
   *(_QWORD *)(a2 + 24) = &AcpiPdoIrpDispatch;
-  *(_DWORD *)(a2 + 372) = (_DWORD)v11;
-  *(_DWORD *)(a2 + 368) = 0;
+  *(_DWORD *)(a2 + 332) = (_DWORD)v11;
+  *(_DWORD *)(a2 + 328) = 0;
   if ( a4 )
   {
-    *(_QWORD *)(a2 + 776) = AttachedDeviceReference;
+    *(_QWORD *)(a2 + 736) = AttachedDeviceReference;
     _InterlockedOr64((volatile signed __int64 *)(a2 + 8), 0x40uLL);
     *(_QWORD *)(a2 + 24) = &AcpiBusFilterIrpDispatch;
     DeviceObject->StackSize = AttachedDeviceReference->StackSize + 1;
@@ -120,7 +120,7 @@ LABEL_4:
   {
     v16 = (char *)&AcpiThermalZoneIrpDispatch;
   }
-  else if ( _bittest64((const signed __int64 *)(a2 + 1000), 0x28u) )
+  else if ( (*(_QWORD *)(a2 + 960) & 0x10000000000LL) != 0 )
   {
     v16 = (char *)&AcpiPepIrpDispatch;
   }
@@ -128,14 +128,14 @@ LABEL_4:
   {
     if ( (v12 & 0x200000000000LL) == 0 )
       goto LABEL_17;
-    if ( !*(_QWORD *)(a2 + 608) )
+    if ( !*(_QWORD *)(a2 + 568) )
       goto LABEL_17;
     v13 = AcpiInternalDeviceTable;
     v14 = 0;
     if ( !AcpiInternalDeviceTable )
       goto LABEL_17;
     v15 = 0LL;
-    while ( !strstr(*(const char **)(a2 + 608), v13) )
+    while ( !strstr(*(const char **)(a2 + 568), v13) )
     {
       v15 = ++v14;
       v13 = (&AcpiInternalDeviceTable)[2 * v14];
@@ -150,13 +150,13 @@ LABEL_17:
     FixedButtonDeviceObject = (__int64)DeviceObject;
   KeReleaseSpinLock(&AcpiDeviceTreeLock, v10);
   ACPIAddInitializationDependencies(a2);
-  if ( (*(_BYTE *)(a2 + 1000) & 0x40) != 0 )
+  if ( (*(_BYTE *)(a2 + 960) & 0x40) != 0 )
     *(_QWORD *)(a2 + 24) = &AcpiDepPdoIrpDispatch;
   AcpiEvaluateBiosMethodsOnPciRootBus(a2);
-  if ( !_bittest64((const signed __int64 *)(a2 + 8), 0x33u) && (int)ACPIIsDebuggingDevice(DeviceObject) >= 0 )
+  if ( (*(_QWORD *)(a2 + 8) & 0x8000000000000LL) == 0 && (int)ACPIIsDebuggingDevice(DeviceObject) >= 0 )
     DeviceObject->Flags |= 0x2000000u;
   DeviceObject->Flags &= ~0x80u;
-  if ( _bittest64((const signed __int64 *)(a2 + 8), 0x34u) )
+  if ( (*(_QWORD *)(a2 + 8) & 0x10000000000000LL) != 0 )
     DeviceObject->Flags |= 8u;
   return 0;
 }

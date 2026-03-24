@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Initialize@CFloodEffectMarshaler@DirectComposition@@UEAAJXZ @ 0x1C02101A0
+ * XREFs of ?Initialize@CFloodEffectMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01E1390
  * Callers:
  *     <none>
  * Callees:
- *     ?Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ @ 0x1C020EA90 (-Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ.c)
+ *     ?Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ @ 0x1C01DFD50 (-Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CFloodEffectMarshaler::Initialize(DirectComposition::CFloodEffectMarshaler *this)
@@ -14,7 +14,7 @@ __int64 __fastcall DirectComposition::CFloodEffectMarshaler::Initialize(DirectCo
   if ( (int)result >= 0 )
   {
     result = 0LL;
-    *((_OWORD *)this + 7) = xmmword_1C0266E88;
+    *((_OWORD *)this + 7) = xmmword_1C0226EB0;
   }
   return result;
 }

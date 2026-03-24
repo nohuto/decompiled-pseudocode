@@ -1,15 +1,15 @@
 /*
- * XREFs of MiContractWsSwapPageFile @ 0x1406EC1C4
+ * XREFs of MiContractWsSwapPageFile @ 0x14071068C
  * Callers:
- *     MmInSwapWorkingSet @ 0x14025F4D4 (MmInSwapWorkingSet.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x14059D170 (MiTrimUnusedPageFileRegionsWorker.c)
- *     MmCleanProcessAddressSpace @ 0x1406F89A4 (MmCleanProcessAddressSpace.c)
- *     MmInSwapVirtualAddresses @ 0x140980040 (MmInSwapVirtualAddresses.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x140267690 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MmInSwapWorkingSet @ 0x14035C504 (MmInSwapWorkingSet.c)
+ *     MmCleanProcessAddressSpace @ 0x1406EB24C (MmCleanProcessAddressSpace.c)
+ *     MmInSwapVirtualAddresses @ 0x140734690 (MmInSwapVirtualAddresses.c)
  * Callees:
- *     MiWsSwapPageFileNumber @ 0x14025FF00 (MiWsSwapPageFileNumber.c)
- *     MiNumberWsSwapPagefiles @ 0x140268BB0 (MiNumberWsSwapPagefiles.c)
- *     ExQueueWorkItemToPartition @ 0x1402EF060 (ExQueueWorkItemToPartition.c)
- *     PsReferencePartitionSafe @ 0x1403606EC (PsReferencePartitionSafe.c)
+ *     MiNumberWsSwapPagefiles @ 0x140273228 (MiNumberWsSwapPagefiles.c)
+ *     PsReferencePartitionSafe @ 0x1402AC004 (PsReferencePartitionSafe.c)
+ *     ExQueueWorkItemToPartition @ 0x1402F78AC (ExQueueWorkItemToPartition.c)
+ *     MiWsSwapPageFileNumber @ 0x14035C3AC (MiWsSwapPageFileNumber.c)
  */
 
 char __fastcall MiContractWsSwapPageFile(__int64 a1)
@@ -24,20 +24,20 @@ char __fastcall MiContractWsSwapPageFile(__int64 a1)
   if ( (_DWORD)v1 )
   {
     LODWORD(v1) = MiWsSwapPageFileNumber(v2);
-    v4 = *(_QWORD **)(v3 + 8LL * (unsigned int)v1 + 16736);
+    v4 = *(_QWORD **)(v3 + 8LL * (unsigned int)v1 + 6944);
     if ( v4[3] >= 0x10000uLL && v4[6] >= 0x10000uLL )
     {
       v1 = *v4 - 0x10000LL;
       if ( v1 >= v4[2] )
       {
-        LODWORD(v1) = _InterlockedCompareExchange((volatile signed __int32 *)(v3 + 1144), 1, 0);
+        LODWORD(v1) = _InterlockedCompareExchange((volatile signed __int32 *)(v3 + 1120), 1, 0);
         if ( !(_DWORD)v1 )
         {
           LOBYTE(v1) = PsReferencePartitionSafe(*(_QWORD *)(v3 + 176));
           if ( (_BYTE)v1 )
-            LOBYTE(v1) = ExQueueWorkItemToPartition(v5 + 1112, 3, 0xFFFFFFFF, *(_QWORD *)(v5 + 176));
+            LOBYTE(v1) = ExQueueWorkItemToPartition((_QWORD *)(v5 + 1088), 3, 0xFFFFFFFF, *(_QWORD *)(v5 + 176));
           else
-            _InterlockedExchange((volatile __int32 *)(v5 + 1144), 0);
+            _InterlockedExchange((volatile __int32 *)(v5 + 1120), 0);
         }
       }
     }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SetRailsEnabled_RenderThread@CInteraction@@AEAAJ_NW4RailsAxis@@@Z @ 0x1800E83EC
+ * XREFs of ?SetRailsEnabled_RenderThread@CInteraction@@AEAAJ_NW4RailsAxis@@@Z @ 0x1800D0498
  * Callers:
- *     ?ProcessUpdateRails@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPDATERAILS@@@Z @ 0x1800E8384 (-ProcessUpdateRails@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPDATERAILS.c)
- *     ?SetProperty@CInteraction@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801F2F50 (-SetProperty@CInteraction@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?ProcessUpdateRails@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPDATERAILS@@@Z @ 0x1800D0430 (-ProcessUpdateRails@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPDATERAILS.c)
+ *     ?SetProperty@CInteraction@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801C7110 (-SetProperty@CInteraction@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
  * Callees:
- *     ?GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z @ 0x18006D8F4 (-GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?NotifyUpdateRails@CManipulationManager@@QEAAJPEAVCInteraction@@_NW4RailsAxis@@@Z @ 0x1800E8484 (-NotifyUpdateRails@CManipulationManager@@QEAAJPEAVCInteraction@@_NW4RailsAxis@@@Z.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z @ 0x1800625D8 (-GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?NotifyUpdateRails@CManipulationManager@@QEAAJPEAVCInteraction@@_NW4RailsAxis@@@Z @ 0x1800D0530 (-NotifyUpdateRails@CManipulationManager@@QEAAJPEAVCInteraction@@_NW4RailsAxis@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CInteraction::SetRailsEnabled_RenderThread(__int64 a1, char a2, unsigned int a3)
@@ -24,14 +24,14 @@ __int64 __fastcall CInteraction::SetRailsEnabled_RenderThread(__int64 a1, char a
   __int64 v14; // rcx
   struct CManipulationManager *v16; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = *(CComposition **)(a1 + 16);
+  v3 = *(CComposition **)(a1 + 24);
   v16 = 0LL;
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v16);
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v16);
   ManipulationManager = CComposition::GetManipulationManager(v3, &v16);
   v10 = ManipulationManager;
   if ( ManipulationManager < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, ManipulationManager, 0x3CEu);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, ManipulationManager, 0x3EAu, 0LL);
   }
   else
   {
@@ -40,18 +40,18 @@ __int64 __fastcall CInteraction::SetRailsEnabled_RenderThread(__int64 a1, char a
     v10 = updated;
     if ( updated < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, updated, 0x3D0u);
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, updated, 0x3ECu, 0LL);
     }
     else
     {
-      v14 = *(_QWORD *)(a1 + 272);
+      v14 = *(_QWORD *)(a1 + 264);
       if ( v14 )
       {
         LOBYTE(v12) = a2;
-        (*(void (__fastcall **)(__int64, __int64, _QWORD))(*(_QWORD *)(v14 + 72) + 72LL))(v14 + 72, v12, a3);
+        (*(void (__fastcall **)(__int64, __int64, _QWORD))(*(_QWORD *)(v14 + 64) + 72LL))(v14 + 64, v12, a3);
       }
     }
   }
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v16);
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v16);
   return v10;
 }

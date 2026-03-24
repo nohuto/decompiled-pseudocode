@@ -1,111 +1,108 @@
 /*
- * XREFs of EtwpProcessorRundown @ 0x1409EB100
+ * XREFs of EtwpProcessorRundown @ 0x14093E88C
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140814360 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x14079743C (EtwpKernelTraceRundown.c)
  * Callees:
- *     KeQueryActiveGroupCount @ 0x1402622B0 (KeQueryActiveGroupCount.c)
- *     KeQueryHighestNodeNumber @ 0x140263710 (KeQueryHighestNodeNumber.c)
- *     KeQueryNodeActiveAffinity @ 0x140263730 (KeQueryNodeActiveAffinity.c)
- *     KeGetProcessorNumberFromIndex @ 0x1402949F0 (KeGetProcessorNumberFromIndex.c)
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     KeQueryGroupAffinity @ 0x1402D75B0 (KeQueryGroupAffinity.c)
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeGetProcessorNumberFromIndex @ 0x1402754F0 (KeGetProcessorNumberFromIndex.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryGroupAffinity @ 0x1402C95F0 (KeQueryGroupAffinity.c)
+ *     KeQueryActiveGroupCount @ 0x1402E2F50 (KeQueryActiveGroupCount.c)
+ *     KeQueryHighestNodeNumber @ 0x1402E2F60 (KeQueryHighestNodeNumber.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpProcessorRundown(__int64 a1)
 {
-  struct _PROCESSOR_NUMBER *Pool2; // rdi
+  struct _PROCESSOR_NUMBER *PoolWithTag; // rsi
   ULONG ActiveProcessorCount; // eax
-  __int64 v4; // rbx
-  unsigned int v5; // r8d
-  __int64 v6; // rdx
+  unsigned int v4; // ebx
+  ULONG v5; // edi
+  unsigned int v6; // r8d
+  __int64 v7; // rdx
   USHORT ActiveGroupCount; // ax
-  unsigned int v8; // edi
-  unsigned int v9; // ebx
-  KAFFINITY *v10; // rsi
+  unsigned int v9; // esi
+  unsigned int v10; // edi
+  KAFFINITY *v11; // r14
   KAFFINITY GroupAffinity; // rax
-  unsigned int v12; // r8d
-  __int64 v13; // rdx
+  unsigned int v13; // r8d
+  __int64 v14; // rdx
   USHORT HighestNodeNumber; // ax
-  unsigned int v15; // ebx
   bool v16; // zf
   int v17; // eax
   unsigned int v18; // r8d
   __int64 v19; // rdx
-  unsigned int v20; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned int v21; // [rsp+34h] [rbp-CCh] BYREF
-  int v22; // [rsp+38h] [rbp-C8h] BYREF
-  _OWORD P[64]; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int *v24; // [rsp+440h] [rbp+340h] BYREF
-  int v25; // [rsp+448h] [rbp+348h]
-  int v26; // [rsp+44Ch] [rbp+34Ch]
-  struct _PROCESSOR_NUMBER *v27; // [rsp+450h] [rbp+350h]
-  int v28; // [rsp+458h] [rbp+358h]
-  int v29; // [rsp+45Ch] [rbp+35Ch]
+  ULONG v20; // [rsp+38h] [rbp-D0h] BYREF
+  unsigned int v21; // [rsp+3Ch] [rbp-CCh] BYREF
+  int v22; // [rsp+40h] [rbp-C8h] BYREF
+  _OWORD P[64]; // [rsp+48h] [rbp-C0h] BYREF
+  unsigned int *v24; // [rsp+448h] [rbp+340h] BYREF
+  __int64 v25; // [rsp+450h] [rbp+348h]
+  struct _PROCESSOR_NUMBER *v26; // [rsp+458h] [rbp+350h]
+  int v27; // [rsp+460h] [rbp+358h]
+  int v28; // [rsp+464h] [rbp+35Ch]
 
   memset(P, 0, sizeof(P));
-  Pool2 = (struct _PROCESSOR_NUMBER *)P;
+  PoolWithTag = (struct _PROCESSOR_NUMBER *)P;
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
+  v4 = 0;
   v20 = ActiveProcessorCount;
   if ( ActiveProcessorCount > 0x20 )
   {
-    Pool2 = (struct _PROCESSOR_NUMBER *)ExAllocatePool2(256LL, 4LL * ActiveProcessorCount, 1953985605LL);
-    if ( !Pool2 )
+    PoolWithTag = (struct _PROCESSOR_NUMBER *)ExAllocatePoolWithTag(PagedPool, 4LL * ActiveProcessorCount, 0x74777445u);
+    if ( !PoolWithTag )
       goto LABEL_8;
     ActiveProcessorCount = v20;
   }
-  v4 = 0LL;
+  v5 = 0;
   if ( ActiveProcessorCount )
   {
     do
     {
-      KeGetProcessorNumberFromIndex(v4, &Pool2[v4]);
+      KeGetProcessorNumberFromIndex(v5, &PoolWithTag[v5]);
       ActiveProcessorCount = v20;
-      v4 = (unsigned int)(v4 + 1);
+      ++v5;
     }
-    while ( (unsigned int)v4 < v20 );
+    while ( v5 < v20 );
   }
-  v5 = *(_DWORD *)a1;
-  v6 = *(_QWORD *)(a1 + 1096);
-  v26 = 0;
-  v29 = 0;
-  v28 = 4 * ActiveProcessorCount;
+  v6 = *(_DWORD *)a1;
+  v7 = *(_QWORD *)(a1 + 1080);
+  v27 = 4 * ActiveProcessorCount;
   v24 = &v20;
-  v25 = 4;
-  v27 = Pool2;
-  EtwpLogKernelEvent((__int64)&v24, v6, v5, 2u, 0xB1Bu, 0x401802u);
-  if ( Pool2 != (struct _PROCESSOR_NUMBER *)P )
-    ExFreePoolWithTag(Pool2, 0);
+  v25 = 4LL;
+  v26 = PoolWithTag;
+  v28 = 0;
+  EtwpLogKernelEvent((__int64)&v24, v7, v6, 2u, 0xB1Bu, 0x401802u);
+  if ( PoolWithTag != (struct _PROCESSOR_NUMBER *)P )
+    ExFreePoolWithTag(PoolWithTag, 0);
 LABEL_8:
   ActiveGroupCount = KeQueryActiveGroupCount();
-  v8 = ActiveGroupCount;
-  v9 = 0;
+  v9 = ActiveGroupCount;
+  v10 = 0;
   v22 = ActiveGroupCount;
   if ( ActiveGroupCount )
   {
-    v10 = (KAFFINITY *)P;
+    v11 = (KAFFINITY *)P;
     do
     {
-      GroupAffinity = KeQueryGroupAffinity(v9++);
-      *v10++ = GroupAffinity;
+      GroupAffinity = KeQueryGroupAffinity(v10++);
+      *v11++ = GroupAffinity;
     }
-    while ( v9 < v8 );
+    while ( v10 < v9 );
   }
-  v12 = *(_DWORD *)a1;
-  v13 = *(_QWORD *)(a1 + 1096);
-  v26 = 0;
-  v29 = 0;
+  v13 = *(_DWORD *)a1;
+  v14 = *(_QWORD *)(a1 + 1080);
   v24 = (unsigned int *)&v22;
-  v27 = (struct _PROCESSOR_NUMBER *)P;
-  v28 = 8 * v8;
-  v25 = 4;
-  EtwpLogKernelEvent((__int64)&v24, v13, v12, 2u, 0xB1Au, 0x401802u);
+  v26 = (struct _PROCESSOR_NUMBER *)P;
+  v27 = 8 * v9;
+  v25 = 4LL;
+  v28 = 0;
+  EtwpLogKernelEvent((__int64)&v24, v14, v13, 2u, 0xB1Au, 0x401802u);
   HighestNodeNumber = KeQueryHighestNodeNumber();
-  v15 = 0;
   v16 = HighestNodeNumber == -1;
   v17 = HighestNodeNumber + 1;
   v21 = v17;
@@ -113,19 +110,15 @@ LABEL_8:
   {
     do
     {
-      KeQueryNodeActiveAffinity(v15, (PGROUP_AFFINITY)&P[v15], 0LL);
+      KeQueryNodeActiveAffinity(v4, (PGROUP_AFFINITY)&P[v4], 0LL);
       v17 = v21;
-      ++v15;
+      ++v4;
     }
-    while ( v15 < v21 );
+    while ( v4 < v21 );
   }
-  v26 = 0;
-  v29 = 0;
   v18 = *(_DWORD *)a1;
-  v19 = *(_QWORD *)(a1 + 1096);
+  v19 = *(_QWORD *)(a1 + 1080);
+  v27 = 16 * v17;
   v24 = &v21;
-  v28 = 16 * v17;
-  v27 = (struct _PROCESSOR_NUMBER *)P;
-  v25 = 4;
   EtwpLogKernelEvent((__int64)&v24, v19, v18, 2u, 0xB18u, 0x401802u);
 }

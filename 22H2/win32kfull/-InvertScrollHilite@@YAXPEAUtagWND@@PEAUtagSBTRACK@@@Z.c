@@ -1,16 +1,16 @@
 /*
- * XREFs of ?InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z @ 0x1C022913C
+ * XREFs of ?InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z @ 0x1C0244238
  * Callers:
- *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0229B1C (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
+ *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0244C54 (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
  * Callees:
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00ABF38 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     NtGdiPatBlt @ 0x1C00DBEF0 (NtGdiPatBlt.c)
- *     ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C02291DC (-RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C0067530 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     NtGdiPatBlt @ 0x1C00B3F50 (NtGdiPatBlt.c)
+ *     ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C02442D8 (-RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z.c)
  */
 
 void __fastcall InvertScrollHilite(struct tagWND *a1, const struct tagRECT *a2)
 {
-  int *p_left; // rdi
+  LONG *p_left; // rdi
   struct tagSBTRACK *v5; // rdx
   HDC DCEx; // rbx
 

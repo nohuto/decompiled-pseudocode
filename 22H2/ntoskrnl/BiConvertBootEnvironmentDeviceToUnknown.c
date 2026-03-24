@@ -1,21 +1,20 @@
 /*
- * XREFs of BiConvertBootEnvironmentDeviceToUnknown @ 0x140A5CD50
+ * XREFs of BiConvertBootEnvironmentDeviceToUnknown @ 0x14096FA80
  * Callers:
- *     BiConvertRegistryDataToElement @ 0x140807EB4 (BiConvertRegistryDataToElement.c)
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140809F18 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x1407824D4 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertRegistryDataToElement @ 0x140784CB0 (BiConvertRegistryDataToElement.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall BiConvertBootEnvironmentDeviceToUnknown(_DWORD *Src, _QWORD *a2, _DWORD *a3)
+__int64 __fastcall BiConvertBootEnvironmentDeviceToUnknown(_DWORD *Src, _QWORD *a2, unsigned int *a3)
 {
-  unsigned int v4; // eax
-  size_t v7; // rbp
-  _DWORD *Pool2; // rax
-  unsigned int v9; // ebx
-  _DWORD *v10; // rdi
+  unsigned int v4; // edi
+  _DWORD *PoolWithTag; // rax
+  unsigned int v8; // ebx
+  _DWORD *v9; // rsi
 
   v4 = Src[2] + 20;
   if ( Src[2] >= 0xFFFFFFEC )
@@ -24,22 +23,21 @@ __int64 __fastcall BiConvertBootEnvironmentDeviceToUnknown(_DWORD *Src, _QWORD *
   }
   else
   {
-    v7 = v4;
-    Pool2 = (_DWORD *)ExAllocatePool2(258LL, v4, 1262764866LL);
-    v9 = 0;
-    v10 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v4, 0x4B444342u);
+    v8 = 0;
+    v9 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memset(Pool2, 0, v7);
-      *v10 = 5;
-      memmove(v10 + 5, Src, (unsigned int)Src[2]);
-      *a2 = v10;
-      *a3 = v7;
+      memset(PoolWithTag, 0, v4);
+      *v9 = 5;
+      memmove(v9 + 5, Src, (unsigned int)Src[2]);
+      *a2 = v9;
+      *a3 = v4;
     }
     else
     {
       return (unsigned int)-1073741670;
     }
   }
-  return v9;
+  return v8;
 }

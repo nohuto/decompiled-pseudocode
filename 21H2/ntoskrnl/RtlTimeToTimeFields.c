@@ -1,27 +1,29 @@
 /*
- * XREFs of RtlTimeToTimeFields @ 0x1402D1A30
+ * XREFs of RtlTimeToTimeFields @ 0x14036E9A0
  * Callers:
- *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x1407446E0 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
- *     PiDevCfgLogDeviceConfigured @ 0x1407459F4 (PiDevCfgLogDeviceConfigured.c)
- *     PiDevCfgBuildDriverConfigurationId @ 0x140746B5C (PiDevCfgBuildDriverConfigurationId.c)
- *     IopCopyBootLogRegistryToFile @ 0x14082848C (IopCopyBootLogRegistryToFile.c)
- *     ExpRefreshSystemTime @ 0x1408357A0 (ExpRefreshSystemTime.c)
- *     ExpRefreshTimeZoneInformation @ 0x140835844 (ExpRefreshTimeZoneInformation.c)
- *     RtlCutoverTimeToSystemTime @ 0x140835D14 (RtlCutoverTimeToSystemTime.c)
- *     CmpUpdateReorganizeRegistryValues @ 0x14085EDEC (CmpUpdateReorganizeRegistryValues.c)
- *     ExpKernelExpirationDateCacheProvider @ 0x140864400 (ExpKernelExpirationDateCacheProvider.c)
- *     ExInitializeUtcTimeZoneBias @ 0x140864D14 (ExInitializeUtcTimeZoneBias.c)
- *     HalpUtcTimeToAcpiRealTime @ 0x1409082EC (HalpUtcTimeToAcpiRealTime.c)
- *     NtSetSystemTime @ 0x1409F8350 (NtSetSystemTime.c)
- *     HaliSetWakeAlarm @ 0x140A523B0 (HaliSetWakeAlarm.c)
- *     ExpSetSystemTime @ 0x140A52E00 (ExpSetSystemTime.c)
- *     HdlspProcessDumpCommand @ 0x140AA9C94 (HdlspProcessDumpCommand.c)
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
+ *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x14073A788 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x14073B090 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x14073D468 (PiDevCfgBuildDriverConfigurationId.c)
+ *     IopCopyBootLogRegistryToFile @ 0x140790278 (IopCopyBootLogRegistryToFile.c)
+ *     ExpRefreshSystemTime @ 0x1407A909C (ExpRefreshSystemTime.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
+ *     RtlCutoverTimeToSystemTime @ 0x1407A9CD0 (RtlCutoverTimeToSystemTime.c)
+ *     CmpUpdateReorganizeRegistryValues @ 0x1407CEF8C (CmpUpdateReorganizeRegistryValues.c)
+ *     ExpKernelExpirationDateCacheProvider @ 0x1407D39F0 (ExpKernelExpirationDateCacheProvider.c)
+ *     ExInitializeUtcTimeZoneBias @ 0x1407D4B40 (ExInitializeUtcTimeZoneBias.c)
+ *     HalpUtcTimeToAcpiRealTime @ 0x1408640B4 (HalpUtcTimeToAcpiRealTime.c)
+ *     NtSetSystemTime @ 0x14094BD10 (NtSetSystemTime.c)
+ *     HaliSetWakeAlarm @ 0x1409987D0 (HaliSetWakeAlarm.c)
+ *     ExpSetSystemTime @ 0x140998FC8 (ExpSetSystemTime.c)
+ *     HdlspProcessDumpCommand @ 0x1409EFC18 (HdlspProcessDumpCommand.c)
+ *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlpTimeToTimeFields @ 0x1402D1A48 (RtlpTimeToTimeFields.c)
+ *     RtlpTimeToTimeFields @ 0x1402B5C18 (RtlpTimeToTimeFields.c)
  */
 
 void __stdcall RtlTimeToTimeFields(PLARGE_INTEGER Time, PTIME_FIELDS TimeFields)
 {
-  RtlpTimeToTimeFields(Time, TimeFields);
+  __int64 v2; // r8
+
+  RtlpTimeToTimeFields((__int64 *)Time, TimeFields, v2);
 }

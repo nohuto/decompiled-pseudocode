@@ -1,9 +1,11 @@
 /*
- * XREFs of ?Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z @ 0x1C00F7C00
+ * XREFs of ?Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z @ 0x1C00F4B64
  * Callers:
- *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F7180 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F36E8 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?Dump@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAU_DUMP_CONTEXT@2@@Z @ 0x1C02DDE1C (-Dump@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAU_DUMP_CONTEXT@2@@Z.c)
+ *     ?FreeAll@CLeakTrackingAllocator@NSInstrumentation@@QEAAXXZ @ 0x1C02DDFB0 (-FreeAll@CLeakTrackingAllocator@NSInstrumentation@@QEAAXXZ.c)
  * Callees:
- *     ?_RemoveAllocationFromLookup@UmfdAllocation@@CAXPEAX00@Z @ 0x1C000B70C (-_RemoveAllocationFromLookup@UmfdAllocation@@CAXPEAX00@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall NSInstrumentation::CPointerHashTable::Enumerate(
@@ -11,32 +13,30 @@ void __fastcall NSInstrumentation::CPointerHashTable::Enumerate(
         void (*a2)(void *, void *, void *),
         void *a3)
 {
-  _DWORD *v3; // rsi
-  unsigned int v4; // edi
-  unsigned int v5; // ebp
-  unsigned int v6; // ebx
-  __int64 v7; // rax
-  NSInstrumentation::CPointerHashTable *v8; // rcx
+  unsigned int v3; // edi
+  unsigned int v7; // ebp
+  unsigned int v8; // ebx
+  __int64 v9; // rax
+  __int64 v10; // rcx
 
-  v3 = UmfdAllocation::s_allocationLookup;
-  v4 = *((_DWORD *)UmfdAllocation::s_allocationLookup + 12);
-  if ( v4 )
+  v3 = *((_DWORD *)this + 12);
+  if ( v3 )
   {
-    v5 = 0;
-    v6 = 0;
+    v7 = 0;
+    v8 = 0;
     do
     {
-      if ( v6 >= v3[10] )
+      if ( v8 >= *((_DWORD *)this + 10) )
         break;
-      v7 = *((_QWORD *)v3 + 4);
-      v8 = *(NSInstrumentation::CPointerHashTable **)(v7 + 16LL * v6);
-      if ( v8 )
+      v9 = *((_QWORD *)this + 4);
+      v10 = *(_QWORD *)(v9 + 16LL * v8);
+      if ( v10 )
       {
-        UmfdAllocation::_RemoveAllocationFromLookup(v8, *(char **)(v7 + 16LL * v6 + 8), 0LL);
-        ++v5;
+        ((void (__fastcall *)(__int64, _QWORD, void *))a2)(v10, *(_QWORD *)(v9 + 16LL * v8 + 8), a3);
+        ++v7;
       }
-      ++v6;
+      ++v8;
     }
-    while ( v5 < v4 );
+    while ( v7 < v3 );
   }
 }

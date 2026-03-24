@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpGetDisallowList @ 0x1409E7D78
+ * XREFs of EtwpGetDisallowList @ 0x1409346C8
  * Callers:
- *     NtTraceControl @ 0x140725C40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
  */
 
 __int64 __fastcall EtwpGetDisallowList(__int64 a1, unsigned __int16 *a2, void *a3, unsigned int *a4)
@@ -25,16 +25,16 @@ __int64 __fastcall EtwpGetDisallowList(__int64 a1, unsigned __int16 *a2, void *a
   if ( v8 )
   {
     memset(a3, 0, *a4);
-    ExAcquirePushLockSharedEx((ULONG_PTR)(v8 + 172), 0LL);
-    v9 = 16 * *((unsigned __int16 *)v8 + 532);
+    ExAcquirePushLockSharedEx((ULONG_PTR)(v8 + 176), 0LL);
+    v9 = 16 * *((unsigned __int16 *)v8 + 524);
     if ( v9 > v5 )
       v6 = -1073741789;
     else
-      memmove(a3, *((const void **)v8 + 134), v9);
+      memmove(a3, *((const void **)v8 + 132), v9);
     *a4 = v9;
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)v8 + 86, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)v8 + 86);
-    KeAbPostRelease((ULONG_PTR)(v8 + 172));
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)v8 + 88, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)v8 + 88);
+    KeAbPostRelease((ULONG_PTR)(v8 + 176));
     EtwpReleaseLoggerContext(v8, 0);
   }
   else

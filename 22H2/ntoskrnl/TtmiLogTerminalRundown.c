@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogTerminalRundown @ 0x1409AA974
+ * XREFs of TtmiLogTerminalRundown @ 0x140904EF8
  * Callers:
- *     TtmiTerminalsRundown @ 0x1409AB708 (TtmiTerminalsRundown.c)
+ *     TtmiTerminalsRundown @ 0x1408FDD38 (TtmiTerminalsRundown.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void TtmiLogTerminalRundown()
@@ -65,9 +65,9 @@ void TtmiLogTerminalRundown()
   int *v52; // [rsp+1B0h] [rbp+B0h]
   __int64 v53; // [rsp+1B8h] [rbp+B8h]
 
-  if ( (unsigned int)dword_140D53948 > 5 )
+  if ( (unsigned int)dword_140D2D8C8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140D53948, 1LL) )
+    if ( tlgKeywordOn((__int64)&dword_140D2D8C8, 1LL) )
     {
       v2 = *v0;
       v20 = &v2;
@@ -122,8 +122,8 @@ void TtmiLogTerminalRundown()
       v53 = 4LL;
       v52 = &v14;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140D53948,
-        (unsigned __int8 *)&unk_140032DF8,
+        (__int64)&dword_140D2D8C8,
+        (unsigned __int8 *)byte_14002B495,
         0LL,
         0LL,
         0x13u,

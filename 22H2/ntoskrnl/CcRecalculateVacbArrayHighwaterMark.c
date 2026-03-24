@@ -1,25 +1,26 @@
 /*
- * XREFs of CcRecalculateVacbArrayHighwaterMark @ 0x140538134
+ * XREFs of CcRecalculateVacbArrayHighwaterMark @ 0x1404EB128
  * Callers:
- *     CcGetRandomVacbArrayWithReference @ 0x140538094 (CcGetRandomVacbArrayWithReference.c)
- *     CcUnmapInactiveViewsInternal @ 0x140538490 (CcUnmapInactiveViewsInternal.c)
+ *     CcGetRandomVacbArrayWithReference @ 0x1404EB088 (CcGetRandomVacbArrayWithReference.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1404EB484 (CcUnmapInactiveViewsInternal.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall CcRecalculateVacbArrayHighwaterMark(__int64 a1)
 {
-  int v1; // edx
+  __int64 v1; // rdx
 
-  v1 = *(_DWORD *)(a1 + 8) + 1;
+  LODWORD(v1) = *(_DWORD *)(a1 + 8) + 1;
   if ( *(_DWORD *)(a1 + 8) != -1 )
   {
     do
     {
-      if ( *(_QWORD *)(a1 + 40LL * (unsigned int)--v1 + 24) )
+      v1 = (unsigned int)(v1 - 1);
+      if ( *(_QWORD *)(a1 + 40 * v1 + 24) )
         break;
       *(_DWORD *)(a1 + 8) = v1;
     }
-    while ( v1 );
+    while ( (_DWORD)v1 );
   }
 }

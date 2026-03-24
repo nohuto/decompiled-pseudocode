@@ -1,22 +1,21 @@
 /*
- * XREFs of ?Dispose@FxPkgPnp@@MEAAEXZ @ 0x1C0033E80
+ * XREFs of ?Dispose@FxPkgPnp@@MEAAEXZ @ 0x1C0080310
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C0017090 (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     ??_GFxQueryInterface@@QEAAPEAXI@Z @ 0x1C005FD00 (--_GFxQueryInterface@@QEAAPEAXI@Z.c)
+ *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C000EA4C (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     ??_GFxQueryInterface@@QEAAPEAXI@Z @ 0x1C0041054 (--_GFxQueryInterface@@QEAAPEAXI@Z.c)
  */
 
 unsigned __int8 __fastcall FxPkgPnp::Dispose(FxPkgPnp *this, _FX_DRIVER_GLOBALS *a2)
 {
   FxWaitLockInternal *p_m_QueryInterfaceLock; // rbx
   _SINGLE_LIST_ENTRY *Next; // rdi
-  unsigned int v5; // edx
+  _SINGLE_LIST_ENTRY *v5; // rax
+  FxQueryInterface *v6; // rcx
   void (__fastcall *InterfaceDereference)(void *); // rax
-  _SINGLE_LIST_ENTRY *v8; // rax
-  FxQueryInterface *v9; // rcx
 
   p_m_QueryInterfaceLock = &this->m_QueryInterfaceLock;
   this->m_InterruptListHead.Blink = &this->m_InterruptListHead;
@@ -29,12 +28,12 @@ unsigned __int8 __fastcall FxPkgPnp::Dispose(FxPkgPnp *this, _FX_DRIVER_GLOBALS 
   KeLeaveCriticalRegion();
   while ( Next )
   {
-    v8 = Next;
-    v9 = (FxQueryInterface *)&Next[-5];
+    v5 = Next;
+    v6 = (FxQueryInterface *)&Next[-5];
     Next = Next->Next;
-    v8->Next = 0LL;
-    if ( !v9->m_EmbeddedInterface )
-      FxQueryInterface::`scalar deleting destructor'(v9, v5);
+    v5->Next = 0LL;
+    if ( !v6->m_EmbeddedInterface )
+      FxQueryInterface::`scalar deleting destructor'(v6);
   }
   InterfaceDereference = this->m_D3ColdInterface.InterfaceDereference;
   if ( InterfaceDereference )

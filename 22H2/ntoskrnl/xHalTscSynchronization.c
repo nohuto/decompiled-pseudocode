@@ -1,13 +1,12 @@
 /*
- * XREFs of xHalTscSynchronization @ 0x14053F5E0
+ * XREFs of xHalTscSynchronization @ 0x1404F1450
  * Callers:
  *     <none>
  * Callees:
- *     KeAdjustInterruptTime @ 0x14056C214 (KeAdjustInterruptTime.c)
+ *     KeAdjustInterruptTime @ 0x14038D11C (KeAdjustInterruptTime.c)
  */
 
-__int64 __fastcall xHalTscSynchronization(__int64 a1, __int64 a2)
+char xHalTscSynchronization()
 {
-  LOBYTE(a2) = 1;
-  return KeAdjustInterruptTime(0LL, a2);
+  return KeAdjustInterruptTime(0LL, 1);
 }

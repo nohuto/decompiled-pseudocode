@@ -1,12 +1,12 @@
 /*
- * XREFs of ?_PnpDeviceUsageNotification@FxPkgPnp@@KAJPEAV1@PEAVFxIrp@@@Z @ 0x1C001CC20
+ * XREFs of ?_PnpDeviceUsageNotification@FxPkgPnp@@KAJPEAV1@PEAVFxIrp@@@Z @ 0x1C00830F0
  * Callers:
  *     <none>
  * Callees:
- *     ?PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1C001C83C (-PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
+ *     ?PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1C00810DC (-PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
  */
 
-__int64 __fastcall FxPkgPnp::_PnpDeviceUsageNotification(FxPkgPnp *This, _DEVICE_OBJECT *Irp)
+__int64 __fastcall FxPkgPnp::_PnpDeviceUsageNotification(FxPkgPnp *This, FxIrp *Irp)
 {
   return FxPkgPnp::PnpDeviceUsageNotification(This, Irp);
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of CcRecalculateVacbArrayHighwaterMark @ 0x14026A678
+ * XREFs of CcRecalculateVacbArrayHighwaterMark @ 0x14026A778
  * Callers:
- *     CcGetRandomVacbArrayWithReference @ 0x14026A5D8 (CcGetRandomVacbArrayWithReference.c)
- *     CcUnmapInactiveViewsInternal @ 0x14026A9AC (CcUnmapInactiveViewsInternal.c)
+ *     CcGetRandomVacbArrayWithReference @ 0x14026A6D8 (CcGetRandomVacbArrayWithReference.c)
+ *     CcUnmapInactiveViewsInternal @ 0x14026AAAC (CcUnmapInactiveViewsInternal.c)
  * Callees:
  *     <none>
  */

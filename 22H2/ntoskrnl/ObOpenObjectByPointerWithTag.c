@@ -1,9 +1,9 @@
 /*
- * XREFs of ObOpenObjectByPointerWithTag @ 0x14097C190
+ * XREFs of ObOpenObjectByPointerWithTag @ 0x1408DCAE0
  * Callers:
- *     DbgkCaptureLiveKernelDump @ 0x14053C1B8 (DbgkCaptureLiveKernelDump.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1404EE598 (DbgkCaptureLiveKernelDump.c)
  * Callees:
- *     ObOpenObjectByPointer @ 0x1407379D0 (ObOpenObjectByPointer.c)
+ *     ObOpenObjectByPointer @ 0x140653F10 (ObOpenObjectByPointer.c)
  */
 
 NTSTATUS __stdcall ObOpenObjectByPointerWithTag(

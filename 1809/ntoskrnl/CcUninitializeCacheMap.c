@@ -1,7 +1,7 @@
 /*
  * XREFs of CcUninitializeCacheMap @ 0x14007C530
  * Callers:
- *     CcPurgeCacheSection @ 0x1400E7A80 (CcPurgeCacheSection.c)
+ *     CcPurgeCacheSection @ 0x1400E7AA0 (CcPurgeCacheSection.c)
  * Callees:
  *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140023880 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
@@ -11,15 +11,15 @@
  *     CcFreeWorkQueueEntry @ 0x14007EDF0 (CcFreeWorkQueueEntry.c)
  *     CcScheduleLazyWriteScan @ 0x14007EEC8 (CcScheduleLazyWriteScan.c)
  *     CcInsertIntoDirtySharedCacheMapList @ 0x14007EF50 (CcInsertIntoDirtySharedCacheMapList.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     CcGetPartition @ 0x1400AD010 (CcGetPartition.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     CcPurgeCacheSection @ 0x1400E7A80 (CcPurgeCacheSection.c)
- *     IoDiskIoAttributionDereference @ 0x140105834 (IoDiskIoAttributionDereference.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290900 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     CcPurgeCacheSection @ 0x1400E7AA0 (CcPurgeCacheSection.c)
+ *     IoDiskIoAttributionDereference @ 0x140105854 (IoDiskIoAttributionDereference.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

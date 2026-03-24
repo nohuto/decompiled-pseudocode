@@ -1,44 +1,44 @@
 /*
- * XREFs of RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x1409BF370
+ * XREFs of RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x140919E90
  * Callers:
- *     RtlpFcUpdateUsageTriggers @ 0x1409BF948 (RtlpFcUpdateUsageTriggers.c)
+ *     RtlpFcUpdateUsageTriggers @ 0x14091A6E8 (RtlpFcUpdateUsageTriggers.c)
  * Callees:
- *     RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1405EE7A0 (RtlpFcCompareUsageSubscriptionToUsageSubscription.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1403F8848 (RtlpFcCompareUsageSubscriptionToUsageSubscription.c)
  */
 
-__int64 __fastcall RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable(
+NTSTATUS __fastcall RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable(
         _DWORD *a1,
         int *a2,
         unsigned __int64 a3,
-        __int64 *a4)
+        ULONGLONG *a4)
 {
-  unsigned __int64 v4; // r10
-  unsigned __int64 v5; // rbx
+  ULONGLONG v5; // r10
   unsigned __int64 v6; // r11
   __int64 v8; // rdi
-  unsigned __int64 v9; // rbp
+  ULONGLONG v9; // rbp
   int *v10; // rsi
   __int64 v11; // rdx
   int v12; // eax
-  int v13; // ecx
-  unsigned __int64 v14; // rax
-  int v15; // ecx
-  unsigned __int64 v16; // r8
-  int *v17; // rdx
-  bool v18; // zf
-  unsigned __int64 v19; // rcx
-  __int64 result; // rax
-  unsigned __int64 v21; // rax
+  ULONGLONG v13; // r9
+  int v14; // ecx
+  ULONGLONG v15; // rax
+  int v16; // ecx
+  unsigned __int64 v17; // r8
+  int *v18; // rdx
+  bool v19; // zf
+  ULONGLONG v20; // rcx
+  NTSTATUS result; // eax
   __int64 v22; // rdx
+  unsigned __int64 v23; // rax
 
-  v4 = 0LL;
   v5 = 0LL;
   v6 = 0LL;
   if ( a1 )
   {
-    v4 = (unsigned int)*a1;
+    v5 = (unsigned int)*a1;
     v8 = (__int64)(a1 + 1);
-    v9 = v4;
+    v9 = v5;
     if ( *a1 )
     {
       v10 = a2;
@@ -52,73 +52,69 @@ __int64 __fastcall RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable(
         {
           if ( v12 != 1 )
           {
-            ++v5;
+            ++v13;
             v8 += 16LL;
             continue;
           }
-          v15 = *v10;
-          v14 = v4 + 1;
+          v16 = *v10;
+          v15 = v5 + 1;
           v10 += 5;
           ++v6;
           v11 += 20LL;
-          if ( v15 )
-            v14 = v4;
+          if ( v16 )
+            v15 = v5;
         }
         else
         {
-          v13 = *v10;
-          v14 = v4 - 1;
+          v14 = *v10;
+          v15 = v5 - 1;
           v10 += 5;
-          ++v5;
+          ++v13;
           v8 += 16LL;
           ++v6;
           v11 += 20LL;
-          if ( !v13 )
-            v14 = v4;
+          if ( !v14 )
+            v15 = v5;
         }
-        v4 = v14;
+        v5 = v15;
       }
-      while ( v5 < v9 );
+      while ( v13 < v9 );
     }
   }
   if ( v6 < a3 )
   {
-    v16 = a3 - v6;
-    v17 = &a2[5 * v6];
+    v17 = a3 - v6;
+    v18 = &a2[5 * v6];
     do
     {
-      v18 = *v17 == 0;
-      v19 = v4 + 1;
-      v17 += 5;
-      if ( !v18 )
-        v19 = v4;
-      v4 = v19;
-      --v16;
+      v19 = *v18 == 0;
+      v20 = v5 + 1;
+      v18 += 5;
+      if ( !v19 )
+        v20 = v5;
+      v5 = v20;
+      --v17;
     }
-    while ( v16 );
+    while ( v17 );
   }
 LABEL_20:
-  if ( v4 )
+  if ( v5 )
   {
-    v21 = 16 * v4;
-    if ( is_mul_ok(v4, 0x10uLL) )
+    result = RtlULongLongMult(v5, 0x10uLL, a4);
+    if ( result >= 0 )
     {
       v22 = -1LL;
-      if ( v21 + 4 >= v21 )
-        v22 = v21 + 4;
-      result = v21 + 4 < v21 ? 0xC0000095 : 0;
+      v23 = *a4 + 4;
+      if ( v23 >= *a4 )
+        v22 = *a4 + 4;
+      result = v23 < *a4 ? 0xC0000095 : 0;
+      *a4 = v22;
     }
-    else
-    {
-      v22 = -1LL;
-      result = 3221225621LL;
-    }
-    *a4 = v22;
   }
   else
   {
     *a4 = 0LL;
-    return 0LL;
+    return 0;
   }
   return result;
 }

@@ -1,42 +1,41 @@
 /*
- * XREFs of IoDeleteDevice @ 0x1402D3820
+ * XREFs of IoDeleteDevice @ 0x140360D90
  * Callers:
- *     DifIoDeleteDeviceWrapper @ 0x14060E7A0 (DifIoDeleteDeviceWrapper.c)
- *     IopInitializeDeviceInstanceKey @ 0x1406CF970 (IopInitializeDeviceInstanceKey.c)
- *     PiSwGetChildPdo @ 0x1406E32E4 (PiSwGetChildPdo.c)
- *     IoCreateDeviceSecure @ 0x1407435E0 (IoCreateDeviceSecure.c)
- *     RawMountVolume @ 0x14074C2EC (RawMountVolume.c)
- *     RawDeleteVcb @ 0x14074D308 (RawDeleteVcb.c)
- *     IopPnPDispatch @ 0x140763C50 (IopPnPDispatch.c)
- *     HalpAddDevice @ 0x14081E300 (HalpAddDevice.c)
- *     IoReportDetectedDevice @ 0x14081EB20 (IoReportDetectedDevice.c)
- *     IopLegacyResourceAllocation @ 0x14081F570 (IopLegacyResourceAllocation.c)
- *     IopRemoveLegacyDeviceNode @ 0x14081F69C (IopRemoveLegacyDeviceNode.c)
- *     IopCreateRootEnumeratedDeviceObject @ 0x140859598 (IopCreateRootEnumeratedDeviceObject.c)
- *     VrpRegistryUnload @ 0x140926260 (VrpRegistryUnload.c)
- *     PiSwDestroyDeviceObject @ 0x140953508 (PiSwDestroyDeviceObject.c)
- *     PiInitializeDevice @ 0x14095975C (PiInitializeDevice.c)
- *     RawShutdown @ 0x1409B4E80 (RawShutdown.c)
- *     ViDdiDriverEntry @ 0x140A834A0 (ViDdiDriverEntry.c)
- *     VfFilterAttach @ 0x140A9E12C (VfFilterAttach.c)
- *     ViFilterDispatchPnp @ 0x140A9E540 (ViFilterDispatchPnp.c)
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
- *     RawInitialize @ 0x140B229D0 (RawInitialize.c)
- *     WmipDriverEntry @ 0x140B22C40 (WmipDriverEntry.c)
+ *     RawDeleteVcb @ 0x14071B46C (RawDeleteVcb.c)
+ *     RawMountVolume @ 0x14071C1B0 (RawMountVolume.c)
+ *     PiSwDestroyDeviceObject @ 0x140732CF8 (PiSwDestroyDeviceObject.c)
+ *     IoCreateDeviceSecure @ 0x14073C480 (IoCreateDeviceSecure.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074ED50 (IopInitializeDeviceInstanceKey.c)
+ *     IopPnPDispatch @ 0x14074F750 (IopPnPDispatch.c)
+ *     IopLegacyResourceAllocation @ 0x140753474 (IopLegacyResourceAllocation.c)
+ *     IopRemoveLegacyDeviceNode @ 0x1407535A8 (IopRemoveLegacyDeviceNode.c)
+ *     PiSwGetChildPdo @ 0x14077093C (PiSwGetChildPdo.c)
+ *     HalpAddDevice @ 0x1407AE4B0 (HalpAddDevice.c)
+ *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
+ *     IopCreateRootEnumeratedDeviceObject @ 0x1407C8CB8 (IopCreateRootEnumeratedDeviceObject.c)
+ *     VrpRegistryUnload @ 0x140882810 (VrpRegistryUnload.c)
+ *     PiInitializeDevice @ 0x1408B3C6C (PiInitializeDevice.c)
+ *     RawShutdown @ 0x14090F280 (RawShutdown.c)
+ *     ViDdiDriverEntry @ 0x1409C82B0 (ViDdiDriverEntry.c)
+ *     VfFilterAttach @ 0x1409E4EF4 (VfFilterAttach.c)
+ *     ViFilterDispatchPnp @ 0x1409E5300 (ViFilterDispatchPnp.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     RawInitialize @ 0x140A69840 (RawInitialize.c)
+ *     WmipDriverEntry @ 0x140A69AA0 (WmipDriverEntry.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     PoRunDownDeviceObject @ 0x1402D3980 (PoRunDownDeviceObject.c)
- *     IopCompleteUnloadOrDelete @ 0x1402D5CA8 (IopCompleteUnloadOrDelete.c)
- *     IopRemoveTimerFromTimerList @ 0x1403DE184 (IopRemoveTimerFromTimerList.c)
- *     ObMakeTemporaryObject @ 0x1406E1700 (ObMakeTemporaryObject.c)
- *     ObQueryNameString @ 0x14070F640 (ObQueryNameString.c)
- *     PnpFreeInterruptInformation @ 0x14074D6AC (PnpFreeInterruptInformation.c)
- *     EtwTiLogDeviceObjectLoadUnload @ 0x14074F418 (EtwTiLogDeviceObjectLoadUnload.c)
- *     IoUnregisterShutdownNotification @ 0x140A65430 (IoUnregisterShutdownNotification.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     IovDeleteDevice @ 0x140A807E4 (IovDeleteDevice.c)
+ *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     PoRunDownDeviceObject @ 0x140360EE8 (PoRunDownDeviceObject.c)
+ *     IopCompleteUnloadOrDelete @ 0x140360FD0 (IopCompleteUnloadOrDelete.c)
+ *     IopRemoveTimerFromTimerList @ 0x1403CED08 (IopRemoveTimerFromTimerList.c)
+ *     ObMakeTemporaryObject @ 0x14062C010 (ObMakeTemporaryObject.c)
+ *     ObQueryNameString @ 0x140718930 (ObQueryNameString.c)
+ *     PnpFreeInterruptInformation @ 0x14071B49C (PnpFreeInterruptInformation.c)
+ *     EtwTiLogDeviceObjectLoadUnload @ 0x14071BB4C (EtwTiLogDeviceObjectLoadUnload.c)
+ *     IoUnregisterShutdownNotification @ 0x1409AB010 (IoUnregisterShutdownNotification.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IovDeleteDevice @ 0x1409C5198 (IovDeleteDevice.c)
  */
 
 void __stdcall IoDeleteDevice(PDEVICE_OBJECT DeviceObject)
@@ -46,7 +45,7 @@ void __stdcall IoDeleteDevice(PDEVICE_OBJECT DeviceObject)
   struct _OBJECT_NAME_INFORMATION *v3; // rdi
   PIO_TIMER Timer; // rdi
   KIRQL v6; // al
-  struct _OBJECT_NAME_INFORMATION *Pool2; // rax
+  struct _OBJECT_NAME_INFORMATION *Pool; // rax
   void *retaddr; // [rsp+28h] [rbp+0h]
   ULONG ReturnLength; // [rsp+30h] [rbp+8h] BYREF
 
@@ -56,11 +55,11 @@ void __stdcall IoDeleteDevice(PDEVICE_OBJECT DeviceObject)
   v3 = 0LL;
   if ( (Flags & 0x40) != 0 && ObQueryNameString(DeviceObject, 0LL, 0, &ReturnLength) == -1073741820 )
   {
-    Pool2 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, ReturnLength, 538996553LL);
-    v3 = Pool2;
-    if ( Pool2 )
+    Pool = (struct _OBJECT_NAME_INFORMATION *)IopVerifierExAllocatePool(PagedPool, ReturnLength);
+    v3 = Pool;
+    if ( Pool )
     {
-      if ( ObQueryNameString(DeviceObject, Pool2, ReturnLength, &ReturnLength) >= 0 )
+      if ( ObQueryNameString(DeviceObject, Pool, ReturnLength, &ReturnLength) >= 0 )
         v2 = v3;
     }
   }

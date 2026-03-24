@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMcUpdateLock @ 0x14051BD2C
+ * XREFs of HalpMcUpdateLock @ 0x1403877E4
  * Callers:
- *     HalpPowerStateCallback @ 0x1403B0040 (HalpPowerStateCallback.c)
- *     HalStartDynamicProcessor @ 0x140504D00 (HalStartDynamicProcessor.c)
- *     HalpLoadMicrocode @ 0x140934BE0 (HalpLoadMicrocode.c)
+ *     HalpPowerStateCallback @ 0x1403A67F0 (HalpPowerStateCallback.c)
+ *     HalStartDynamicProcessor @ 0x1404BC230 (HalStartDynamicProcessor.c)
+ *     HalpLoadMicrocode @ 0x140866070 (HalpLoadMicrocode.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     MmLockPreChargedPagedPool @ 0x140A309C0 (MmLockPreChargedPagedPool.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     MmLockPreChargedPagedPool @ 0x140777640 (MmLockPreChargedPagedPool.c)
  */
 
 __int64 __fastcall HalpMcUpdateLock(__int64 a1, __int64 a2)

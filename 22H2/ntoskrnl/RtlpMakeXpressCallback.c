@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpMakeXpressCallback @ 0x1405B49C8
+ * XREFs of RtlpMakeXpressCallback @ 0x140388830
  * Callers:
- *     RtlCompressBufferXpressHuffStandard @ 0x140372640 (RtlCompressBufferXpressHuffStandard.c)
- *     RtlCompressBufferXpressLzStandard @ 0x1403888E0 (RtlCompressBufferXpressLzStandard.c)
- *     RtlCompressBufferXpressHuffMax @ 0x1405B2874 (RtlCompressBufferXpressHuffMax.c)
- *     RtlCompressBufferXpressLzMax @ 0x1405B2FC8 (RtlCompressBufferXpressLzMax.c)
- *     RtlDecompressBufferXpressHuffProgress @ 0x1405B36D4 (RtlDecompressBufferXpressHuffProgress.c)
- *     RtlDecompressBufferXpressLzProgress @ 0x1405B4098 (RtlDecompressBufferXpressLzProgress.c)
+ *     RtlCompressBufferXpressLzStandard @ 0x1402DF970 (RtlCompressBufferXpressLzStandard.c)
+ *     RtlCompressBufferXpressHuffStandard @ 0x140365750 (RtlCompressBufferXpressHuffStandard.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x140591084 (RtlCompressBufferXpressHuffMax.c)
+ *     RtlCompressBufferXpressLzMax @ 0x1405917A8 (RtlCompressBufferXpressLzMax.c)
+ *     RtlDecompressBufferXpressHuffProgress @ 0x140591EC0 (RtlDecompressBufferXpressHuffProgress.c)
+ *     RtlDecompressBufferXpressLzProgress @ 0x1405924E8 (RtlDecompressBufferXpressLzProgress.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 unsigned __int64 __fastcall RtlpMakeXpressCallback(__int64 a1, unsigned __int64 a2, __int64 a3)

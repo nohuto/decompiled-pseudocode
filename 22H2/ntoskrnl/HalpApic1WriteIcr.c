@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpApic1WriteIcr @ 0x14051ABB0
+ * XREFs of HalpApic1WriteIcr @ 0x1402EFAF0
  * Callers:
  *     <none>
  * Callees:
@@ -12,9 +12,12 @@ __int64 __fastcall HalpApic1WriteIcr(int a1, int a2)
 
   while ( (*(_DWORD *)(HalpLocalApic + 768) & 0x1000) != 0 )
     ;
-  if ( (a2 & 0xC0000) == 0 )
-    *(_DWORD *)(HalpLocalApic + 784) = a1;
   result = HalpLocalApic;
-  *(_DWORD *)(HalpLocalApic + 768) = a2;
+  if ( (a2 & 0xC0000) == 0 )
+  {
+    *(_DWORD *)(HalpLocalApic + 784) = a1;
+    result = HalpLocalApic;
+  }
+  *(_DWORD *)(result + 768) = a2;
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ??$vGarbageCollectObject@VEPATHOBJGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00DBAC4
+ * XREFs of ??$vGarbageCollectObject@VEPATHOBJGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CBBFC
  * Callers:
- *     ?vGarbageCollectObjects@@YAXXZ @ 0x1C0017AB0 (-vGarbageCollectObjects@@YAXXZ.c)
+ *     ?vGarbageCollectObjects@@YAXXZ @ 0x1C00CBF38 (-vGarbageCollectObjects@@YAXXZ.c)
  * Callees:
- *     HmgShareLock @ 0x1C0021AA0 (HmgShareLock.c)
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0021FC0 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0022260 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
- *     ??1HANDLELOCK@@QEAA@XZ @ 0x1C0022D20 (--1HANDLELOCK@@QEAA@XZ.c)
- *     ?bGarbageCollect@EPATHOBJGC@@QEAA_NXZ @ 0x1C00D96B4 (-bGarbageCollect@EPATHOBJGC@@QEAA_NXZ.c)
- *     ??1EPATHOBJGC@@QEAA@XZ @ 0x1C00DBCD0 (--1EPATHOBJGC@@QEAA@XZ.c)
+ *     HmgShareLock @ 0x1C002E7A0 (HmgShareLock.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C002F290 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C002F590 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ??1HANDLELOCK@@QEAA@XZ @ 0x1C0030210 (--1HANDLELOCK@@QEAA@XZ.c)
+ *     ?bGarbageCollect@EPATHOBJGC@@QEAA_NXZ @ 0x1C00C84CC (-bGarbageCollect@EPATHOBJGC@@QEAA_NXZ.c)
+ *     ??1EPATHOBJGC@@QEAA@XZ @ 0x1C00CBEF8 (--1EPATHOBJGC@@QEAA@XZ.c)
  */
 
 void __fastcall vGarbageCollectObject<EPATHOBJGC>(unsigned int a1)
@@ -45,7 +45,7 @@ void __fastcall vGarbageCollectObject<EPATHOBJGC>(unsigned int a1)
     {
       v4 = 0LL;
       v5 = 0;
-      HANDLELOCK::vLockHandle((HANDLELOCK *)&v4, (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000, 0LL, 0, 0);
+      HANDLELOCK::vLockHandle((HANDLELOCK *)&v4, (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000, 0, 0, 0);
       if ( v5 && (*(_DWORD *)(v4 + 8) & 0xFFFFFFFE) == 0x80000012 )
       {
         HANDLELOCK::vUnlock((HANDLELOCK *)&v4);

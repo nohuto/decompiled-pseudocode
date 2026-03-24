@@ -1,18 +1,18 @@
 /*
- * XREFs of ?RedirAlphaBlend@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAU_BLENDOBJ@@@Z @ 0x1C02A4120
+ * XREFs of ?RedirAlphaBlend@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAU_BLENDOBJ@@@Z @ 0x1C029B160
  * Callers:
  *     <none>
  * Callees:
- *     EngAlphaBlend @ 0x1C00D6070 (EngAlphaBlend.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00DCB64 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C011BFB4 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C011C160 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C015AD8E (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
- *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x1C02A2E8C (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
- *     ??0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C02A40D4 (--0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
- *     ?bMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C02A6678 (-bMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E920 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00AC9D8 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     EngAlphaBlend @ 0x1C00ACA60 (EngAlphaBlend.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2904 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C0298C80 (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
+ *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x1C029A884 (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
+ *     ??0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C029B118 (--0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ?bMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C029D5EC (-bMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
  */
 
 __int64 __fastcall RedirAlphaBlend(
@@ -21,103 +21,101 @@ __int64 __fastcall RedirAlphaBlend(
         CLIPOBJ *pco,
         XLATEOBJ *pxlo,
         RECTL *prclDest,
-        RECTL *prclSrc,
+        RECTL *a6,
         BLENDOBJ *a7)
 {
-  __int64 v11; // rcx
-  BLENDOBJ *pBlendObj; // r13
+  BLENDOBJ *pBlendObj; // r12
+  RECTL *prclSrc; // r13
   __int64 HDEV; // rbx
-  __int64 v14; // rdx
-  Gre::Base *v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  int v18; // eax
+  int v14; // eax
   struct _DISPSURF *i; // rbx
-  __int64 v20; // rdi
+  __int64 v16; // r9
   struct _SURFOBJ *DevBitmap; // rax
-  __int64 v22; // r11
-  unsigned int v23; // ebx
-  __int64 v25; // [rsp+48h] [rbp-71h] BYREF
-  struct SURFACE *v26; // [rsp+50h] [rbp-69h] BYREF
-  struct SURFACE *v27; // [rsp+58h] [rbp-61h] BYREF
-  __int128 v28; // [rsp+68h] [rbp-51h] BYREF
-  __int64 v29; // [rsp+78h] [rbp-41h]
-  int v30; // [rsp+80h] [rbp-39h]
-  _QWORD v31[2]; // [rsp+88h] [rbp-31h] BYREF
-  _BYTE v32[40]; // [rsp+98h] [rbp-21h] BYREF
-  __int64 v33; // [rsp+C0h] [rbp+7h]
-  __int64 v34; // [rsp+C8h] [rbp+Fh]
-  __int64 v35; // [rsp+108h] [rbp+4Fh] BYREF
+  __int64 v18; // r10
+  __int64 v19; // r11
+  unsigned int v20; // r8d
+  __int64 v22; // [rsp+48h] [rbp-71h] BYREF
+  struct SURFACE *v23; // [rsp+50h] [rbp-69h] BYREF
+  struct SURFACE *v24; // [rsp+58h] [rbp-61h] BYREF
+  __int128 v25; // [rsp+68h] [rbp-51h] BYREF
+  __int64 v26; // [rsp+78h] [rbp-41h]
+  int v27; // [rsp+80h] [rbp-39h]
+  _QWORD v28[2]; // [rsp+88h] [rbp-31h] BYREF
+  _BYTE v29[40]; // [rsp+98h] [rbp-21h] BYREF
+  __int64 v30; // [rsp+C0h] [rbp+7h]
+  __int64 v31; // [rsp+C8h] [rbp+Fh]
+  __int64 v32; // [rsp+108h] [rbp+4Fh] BYREF
 
-  REDIROPEN::REDIROPEN((REDIROPEN *)&v27, a1);
-  REDIROPEN::REDIROPEN((REDIROPEN *)&v26, a2);
+  REDIROPEN::REDIROPEN((REDIROPEN *)&v24, a1);
+  REDIROPEN::REDIROPEN((REDIROPEN *)&v23, a2);
   pBlendObj = a7;
+  prclSrc = a6;
   if ( a1 )
   {
     if ( ((__int64)a1[1].hsurf & 0x800) != 0 )
     {
-      HDEV = UserGetHDEV(v11);
+      HDEV = UserGetHDEV();
       if ( HDEV )
       {
-        DLODCOBJ::DLODCOBJ((DLODCOBJ *)v31);
-        v34 = 0LL;
-        v33 = 0LL;
-        v31[0] = 0LL;
-        v18 = *(_DWORD *)(HDEV + 40);
-        v28 = 0LL;
-        v30 = 1;
-        if ( (v18 & 1) != 0 )
+        DLODCOBJ::DLODCOBJ((DLODCOBJ *)v28);
+        v31 = 0LL;
+        v30 = 0LL;
+        v28[0] = 0LL;
+        v14 = *(_DWORD *)(HDEV + 40);
+        v25 = 0LL;
+        v27 = 1;
+        if ( (v14 & 1) != 0 )
         {
-          Gre::Base::Globals(v15);
-          *(_QWORD *)&v28 = *(_QWORD *)(HDEV + 48);
-          v29 = HDEV;
-          GreAcquireSemaphore(v28);
-          EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v28, 11LL);
+          *(_QWORD *)&v25 = *(_QWORD *)(HDEV + 48);
+          v26 = HDEV;
+          GreAcquireSemaphore(v25);
+          EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v25, 11LL);
+          v14 = *(_DWORD *)(HDEV + 40);
         }
-        if ( (*(_DWORD *)(HDEV + 40) & 0x20000) != 0 )
+        if ( (v14 & 0x20000) != 0 )
         {
-          for ( i = **(struct _DISPSURF ***)(HDEV + 1768); i; i = *(struct _DISPSURF **)i )
+          for ( i = **(struct _DISPSURF ***)(HDEV + 1800); i; i = *(struct _DISPSURF **)i )
           {
-            v20 = *((_QWORD *)i + 6);
-            v35 = v20;
-            if ( v20 )
+            v16 = *((_QWORD *)i + 6);
+            v32 = v16;
+            if ( v16 )
             {
-              if ( (*(_DWORD *)(v20 + 1792) & 0x8000000) != 0 && (*(_DWORD *)(v20 + 2096) & 0x8000) != 0 )
+              if ( (*(_DWORD *)(v16 + 1824) & 0x8000000) != 0 && (*(_DWORD *)(v16 + 2128) & 0x8000) != 0 )
               {
-                if ( *(_QWORD *)(*(_QWORD *)(v20 + 1760) + 632LL) )
+                if ( *(_QWORD *)(*(_QWORD *)(v16 + 1792) + 632LL) )
                 {
                   MARK_ACCDRV_NOTIFICATION::MARK_ACCDRV_NOTIFICATION(
-                    (MARK_ACCDRV_NOTIFICATION *)&v25,
-                    (struct PDEVOBJ *)&v35,
+                    (MARK_ACCDRV_NOTIFICATION *)&v22,
+                    (struct PDEVOBJ *)&v32,
                     a1);
                   GetDevBitmap(i, a2);
                   DevBitmap = GetDevBitmap(i, a1);
-                  (*(void (__fastcall **)(struct _SURFOBJ *, __int64, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, BLENDOBJ *))(*(_QWORD *)(v20 + 1760) + 632LL))(
+                  (*(void (__fastcall **)(struct _SURFOBJ *, __int64, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, BLENDOBJ *))(v18 + 632))(
                     DevBitmap,
-                    v22,
+                    v19,
                     pco,
                     pxlo,
                     prclDest,
                     prclSrc,
                     pBlendObj);
-                  if ( v25 )
-                    *(_WORD *)(v25 + 78) &= ~0x8000u;
+                  if ( v22 )
+                    *(_WORD *)(v22 + 78) &= ~0x8000u;
                 }
               }
             }
           }
         }
-        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v28, v14, v16, v17);
-        if ( v31[0] )
-          DLODCOBJ::vUnlock((DLODCOBJ *)v31);
-        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v32);
+        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v25);
+        if ( v28[0] )
+          DLODCOBJ::vUnlock((DLODCOBJ *)v28);
+        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v29);
       }
     }
   }
-  v23 = EngAlphaBlend(a1, a2, pco, pxlo, prclDest, prclSrc, pBlendObj);
-  if ( v26 )
-    bMakeOpaque(v26);
-  if ( v27 )
-    bMakeOpaque(v27);
-  return v23;
+  v20 = EngAlphaBlend(a1, a2, pco, pxlo, prclDest, prclSrc, pBlendObj);
+  if ( v23 )
+    bMakeOpaque(v23);
+  if ( v24 )
+    bMakeOpaque(v24);
+  return v20;
 }

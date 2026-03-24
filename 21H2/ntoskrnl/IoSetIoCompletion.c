@@ -1,14 +1,14 @@
 /*
- * XREFs of IoSetIoCompletion @ 0x1407D55B0
+ * XREFs of IoSetIoCompletion @ 0x1406B09A0
  * Callers:
- *     PspSendJobNotification @ 0x14025863C (PspSendJobNotification.c)
- *     NtLockFile @ 0x14071D220 (NtLockFile.c)
- *     IopXxxControlFile @ 0x1407308F0 (IopXxxControlFile.c)
+ *     PspSendJobNotification @ 0x1402C3DCC (PspSendJobNotification.c)
+ *     IopXxxControlFile @ 0x1406FE010 (IopXxxControlFile.c)
+ *     NtLockFile @ 0x140708790 (NtLockFile.c)
  * Callees:
- *     IoSetIoCompletionEx2 @ 0x14035A850 (IoSetIoCompletionEx2.c)
+ *     IoSetIoCompletionEx2 @ 0x140246230 (IoSetIoCompletionEx2.c)
  */
 
-__int64 __fastcall IoSetIoCompletion(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5, unsigned __int8 a6)
+__int64 __fastcall IoSetIoCompletion(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, unsigned __int8 a6)
 {
   return IoSetIoCompletionEx2(a1, a2, a3, a4, a5, a6, 0LL, 0);
 }

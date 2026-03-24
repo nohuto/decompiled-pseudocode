@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DrvMoveGraphicsDevice@@YAXPEAUtagGRAPHICS_DEVICE@@00@Z @ 0x1C0069BE0
+ * XREFs of ?DrvMoveGraphicsDevice@@YAXPEAUtagGRAPHICS_DEVICE@@00@Z @ 0x1C00B353C
  * Callers:
- *     ?DrvSortGraphicsDeviceList@@YAXXZ @ 0x1C0069B28 (-DrvSortGraphicsDeviceList@@YAXXZ.c)
+ *     ?DrvSortGraphicsDeviceList@@YAXXZ @ 0x1C00B3484 (-DrvSortGraphicsDeviceList@@YAXXZ.c)
  * Callees:
  *     <none>
  */

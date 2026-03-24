@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CCompositionSpotLight::sc_Direction__ @ 0x180002130
+ * XREFs of _dynamic_initializer_for__CCompositionSpotLight::sc_Direction__ @ 0x180001DD0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CCompositionSpotLight::sc_Direction__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D1940 = (unsigned __int64)CCompositionLight::SetDirectionProperty;
-  qword_1803D1950 = v1;
+  xmmword_180345920 = (unsigned __int64)CCompositionLight::SetDirectionProperty;
+  qword_180345930 = v1;
   return result;
 }

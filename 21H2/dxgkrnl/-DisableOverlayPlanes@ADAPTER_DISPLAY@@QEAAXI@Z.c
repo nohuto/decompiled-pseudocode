@@ -1,62 +1,145 @@
 /*
- * XREFs of ?DisableOverlayPlanes@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C01962B0
+ * XREFs of ?DisableOverlayPlanes@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C00EF2B0
  * Callers:
- *     ?ClearDisplayedAllMultiPlaneOverlaysUnsafe@DXGDEVICE@@QEAAXI@Z @ 0x1C002E938 (-ClearDisplayedAllMultiPlaneOverlaysUnsafe@DXGDEVICE@@QEAAXI@Z.c)
- *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C017D520 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
- *     ?DisableMPOPlanes@ADAPTER_DISPLAY@@QEAAXIE@Z @ 0x1C01C70A8 (-DisableMPOPlanes@ADAPTER_DISPLAY@@QEAAXIE@Z.c)
- *     ?RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C01C8BD0 (-RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z.c)
- *     ?UnpinAllDirectFlipAllocations@DXGDEVICE@@QEAAJIHPEAVCOREDEVICEACCESS@@@Z @ 0x1C02E7898 (-UnpinAllDirectFlipAllocations@DXGDEVICE@@QEAAJIHPEAVCOREDEVICEACCESS@@@Z.c)
- *     ?DisplayOnlyPresent@DXGCONTEXT@@QEAAJPEAU_D3DKMT_PRESENT@@PEAVDXGALLOCATION@@IPEAU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0319550 (-DisplayOnlyPresent@DXGCONTEXT@@QEAAJPEAU_D3DKMT_PRESENT@@PEAVDXGALLOCATION@@IPEAU_DXGKARG_PRESE.c)
+ *     ?ClearDisplayedAllMultiPlaneOverlaysUnsafe@DXGDEVICE@@QEAAXI@Z @ 0x1C001B184 (-ClearDisplayedAllMultiPlaneOverlaysUnsafe@DXGDEVICE@@QEAAXI@Z.c)
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C00FDFA0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ *     ?UnpinAllDirectFlipAllocations@DXGDEVICE@@QEAAJIHPEAVCOREDEVICEACCESS@@@Z @ 0x1C014E908 (-UnpinAllDirectFlipAllocations@DXGDEVICE@@QEAAJIHPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C014F414 (-RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z.c)
+ *     ?DisableMPOPlanes@ADAPTER_DISPLAY@@QEAAXIE@Z @ 0x1C0211660 (-DisableMPOPlanes@ADAPTER_DISPLAY@@QEAAXIE@Z.c)
+ *     ?DisplayOnlyPresent@DXGCONTEXT@@QEAAJPEAU_D3DKMT_PRESENT@@PEAVDXGALLOCATION@@IPEAU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C02A3C38 (-DisplayOnlyPresent@DXGCONTEXT@@QEAAJPEAU_D3DKMT_PRESENT@@PEAVDXGALLOCATION@@IPEAU_DXGKARG_PRESE.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E350 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?DisableOverlayPlanesUnsafe@DISPLAY_SOURCE@@AEAAXE@Z @ 0x1C01964D8 (-DisableOverlayPlanesUnsafe@DISPLAY_SOURCE@@AEAAXE@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?DisableOverlayPlanesUnsafe@DISPLAY_SOURCE@@AEAAXE@Z @ 0x1C00EF578 (-DisableOverlayPlanesUnsafe@DISPLAY_SOURCE@@AEAAXE@Z.c)
  */
 
-void __fastcall ADAPTER_DISPLAY::DisableOverlayPlanes(ADAPTER_DISPLAY *this, unsigned int a2)
+void __fastcall ADAPTER_DISPLAY::DisableOverlayPlanes(ADAPTER_DISPLAY *this, __int64 a2)
 {
-  __int64 v2; // rdi
-  DXGFASTMUTEX *v4; // rbx
-  int v5; // eax
-  int v6; // eax
-  DXGFASTMUTEX *v7; // [rsp+50h] [rbp-18h]
-  char v8; // [rsp+58h] [rbp-10h]
+  __int64 v2; // rsi
+  struct _KTHREAD *CurrentThread; // rcx
+  struct _KTHREAD **v5; // rbx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  int v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  struct _KTHREAD **v14; // rbx
+  int v15; // eax
+  int v16; // eax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  _QWORD *v19; // rax
+  int v20; // eax
+  __int64 v21; // rax
+  int v22; // r9d
+  __int64 v23; // rax
+  __int64 v24; // rax
+  _QWORD *v25; // rax
+  __int64 v26; // rax
+  struct _KTHREAD **v27; // [rsp+20h] [rbp-18h] BYREF
+  char v28; // [rsp+28h] [rbp-10h]
 
-  v2 = a2;
-  v7 = (ADAPTER_DISPLAY *)((char *)this + 608);
-  v8 = 0;
-  if ( this == (ADAPTER_DISPLAY *)-608LL )
+  v2 = (unsigned int)a2;
+  v27 = (struct _KTHREAD **)((char *)this + 528);
+  v28 = 0;
+  if ( this == (ADAPTER_DISPLAY *)-528LL )
   {
-    WdLogSingleEntry1(1LL, 573LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_pMutex != NULL", 573LL, 0LL, 0LL, 0LL, 0LL);
+    v17 = WdLogNewEntry5_WdAssertion(-528LL, a2);
+    *(_QWORD *)(v17 + 24) = 762LL;
+    WdLogEvent5_WdAssertion(v17);
   }
-  if ( *((struct _KTHREAD **)v7 + 3) == KeGetCurrentThread() )
+  CurrentThread = KeGetCurrentThread();
+  if ( v27[2] == CurrentThread )
   {
-    WdLogSingleEntry1(1LL, 580LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"!m_pMutex->IsOwner()", 580LL, 0LL, 0LL, 0LL, 0LL);
+    v18 = WdLogNewEntry5_WdAssertion(CurrentThread, a2);
+    *(_QWORD *)(v18 + 24) = 769LL;
+    WdLogEvent5_WdAssertion(v18);
   }
-  DXGFASTMUTEX::Acquire(v7);
-  v8 = 1;
-  DISPLAY_SOURCE::DisableOverlayPlanesUnsafe((DISPLAY_SOURCE *)(*((_QWORD *)this + 16) + 4000 * v2), 0);
-  if ( v8 )
+  if ( v28 )
   {
-    v4 = v7;
-    v8 = 0;
-    if ( *((struct _KTHREAD **)v7 + 3) != KeGetCurrentThread() )
-      WdLogSingleEntry5(0LL, 275LL, 4LL, v7, 0LL, 0LL);
-    v5 = *((_DWORD *)v4 + 8);
-    if ( v5 <= 0 )
+    v19 = (_QWORD *)WdLogNewEntry5_WdCriticalError(CurrentThread, a2);
+    v19[5] = &v27;
+    v19[3] = 275LL;
+    v19[4] = 4LL;
+    v19[6] = 0LL;
+    v19[7] = 0LL;
+    WdLogEvent5_WdCriticalError(v19);
+  }
+  v5 = v27;
+  KeEnterCriticalRegion();
+  if ( v5[2] == KeGetCurrentThread() )
+  {
+    v20 = *((_DWORD *)v5 + 6);
+    if ( v20 <= 0 )
     {
-      WdLogSingleEntry1(1LL, 516LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_OwnerAcquireCount > 0", 516LL, 0LL, 0LL, 0LL, 0LL);
-      v5 = *((_DWORD *)v4 + 8);
+      v21 = WdLogNewEntry5_WdAssertion(v7, v6);
+      *(_QWORD *)(v21 + 24) = 661LL;
+      WdLogEvent5_WdAssertion(v21);
+      v20 = *((_DWORD *)v5 + 6);
     }
-    v6 = v5 - 1;
-    *((_DWORD *)v4 + 8) = v6;
-    if ( !v6 )
+    v11 = v20 + 1;
+  }
+  else
+  {
+    if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx(v5, 0LL) )
     {
-      *((_QWORD *)v4 + 3) = 0LL;
-      ExReleasePushLockExclusiveEx((char *)v4 + 8, 0LL);
+      if ( bTracingEnabled )
+      {
+        v22 = *((_DWORD *)v5 + 7);
+        if ( v22 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+          McTemplateK0q_EtwWriteTransfer(v9, &EventBlockThread, v10, v22);
+      }
+      _InterlockedIncrement64((volatile signed __int64 *)v5 + 1);
+      ExAcquirePushLockExclusiveEx(v5, 0LL);
+    }
+    if ( v5[2] )
+    {
+      v23 = WdLogNewEntry5_WdAssertion(v9, v8);
+      *(_QWORD *)(v23 + 24) = 685LL;
+      WdLogEvent5_WdAssertion(v23);
+    }
+    if ( *((_DWORD *)v5 + 6) )
+    {
+      v24 = WdLogNewEntry5_WdAssertion(v9, v8);
+      *(_QWORD *)(v24 + 24) = 686LL;
+      WdLogEvent5_WdAssertion(v24);
+    }
+    v5[2] = KeGetCurrentThread();
+    v11 = 1;
+  }
+  *((_DWORD *)v5 + 6) = v11;
+  v28 = 1;
+  DISPLAY_SOURCE::DisableOverlayPlanesUnsafe((DISPLAY_SOURCE *)(*((_QWORD *)this + 14) + 3968 * v2), 0);
+  if ( v28 )
+  {
+    v14 = v27;
+    v28 = 0;
+    if ( v27[2] != KeGetCurrentThread() )
+    {
+      v25 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v13, v12);
+      v25[3] = 275LL;
+      v25[4] = 4LL;
+      v25[5] = v14;
+      v25[6] = 0LL;
+      v25[7] = 0LL;
+      WdLogEvent5_WdCriticalError(v25);
+    }
+    v15 = *((_DWORD *)v14 + 6);
+    if ( v15 <= 0 )
+    {
+      v26 = WdLogNewEntry5_WdAssertion(v13, v12);
+      *(_QWORD *)(v26 + 24) = 705LL;
+      WdLogEvent5_WdAssertion(v26);
+      v15 = *((_DWORD *)v14 + 6);
+    }
+    v16 = v15 - 1;
+    *((_DWORD *)v14 + 6) = v16;
+    if ( !v16 )
+    {
+      v14[2] = 0LL;
+      ExReleasePushLockExclusiveEx(v14, 0LL);
     }
     KeLeaveCriticalRegion();
   }

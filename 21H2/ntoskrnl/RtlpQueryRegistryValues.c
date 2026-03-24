@@ -1,58 +1,58 @@
 /*
- * XREFs of RtlpQueryRegistryValues @ 0x140781F40
+ * XREFs of RtlpQueryRegistryValues @ 0x140640A68
  * Callers:
- *     WmipQueryWmiDataBlock @ 0x1406932C0 (WmipQueryWmiDataBlock.c)
- *     RtlQueryRegistryValuesEx @ 0x1406DEF50 (RtlQueryRegistryValuesEx.c)
- *     RtlQueryRegistryValues @ 0x1406E7C40 (RtlQueryRegistryValues.c)
- *     RtlpQueryTimeZoneInformationWorker @ 0x1406F1774 (RtlpQueryTimeZoneInformationWorker.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x140744E30 (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgQueryDriverNode @ 0x140746270 (PiDevCfgQueryDriverNode.c)
- *     PiDevCfgConfigureDevice @ 0x1407702BC (PiDevCfgConfigureDevice.c)
- *     WmipGetGuidSecurityDescriptor @ 0x140782C4C (WmipGetGuidSecurityDescriptor.c)
- *     EtwStartAutoLogger @ 0x140817CD8 (EtwStartAutoLogger.c)
- *     EtwpGetAutoLoggerProviderFilter @ 0x140822030 (EtwpGetAutoLoggerProviderFilter.c)
- *     EtwpEnableAutoLoggerProvider @ 0x1408226C0 (EtwpEnableAutoLoggerProvider.c)
- *     PspQueryForwardersEnabled @ 0x140835508 (PspQueryForwardersEnabled.c)
- *     RtlpUpdateDynamicTimeZones @ 0x140836228 (RtlpUpdateDynamicTimeZones.c)
- *     RtlSetActiveTimeBias @ 0x1408364C4 (RtlSetActiveTimeBias.c)
- *     EtwpGetAutoLoggerEventNameFilter @ 0x140853230 (EtwpGetAutoLoggerEventNameFilter.c)
- *     EtwpGetAutoLoggerLevelKwFilter @ 0x140856A54 (EtwpGetAutoLoggerLevelKwFilter.c)
- *     IopQueryPassiveInterruptRegistryOptions @ 0x140859BF8 (IopQueryPassiveInterruptRegistryOptions.c)
- *     VRegSetup @ 0x14085B100 (VRegSetup.c)
- *     PerfDiagpUpdatePerfDiagLoggerEnableFlags @ 0x1408603A8 (PerfDiagpUpdatePerfDiagLoggerEnableFlags.c)
- *     ExpGetNumberOfInitialSessionsFromRegistry @ 0x1408619F4 (ExpGetNumberOfInitialSessionsFromRegistry.c)
- *     PiDevCfgClearDeviceMigrationNode @ 0x14094B144 (PiDevCfgClearDeviceMigrationNode.c)
- *     PiDevCfgQueryDeviceMigrationNode @ 0x14094CBE0 (PiDevCfgQueryDeviceMigrationNode.c)
- *     PiCreateDriverSwDeviceCallback @ 0x14095A750 (PiCreateDriverSwDeviceCallback.c)
- *     PiDrvDbQuerySystemPathWin32 @ 0x14095D038 (PiDrvDbQuerySystemPathWin32.c)
- *     PpmRegisterSpmSettings @ 0x14099DB50 (PpmRegisterSpmSettings.c)
- *     PspSiloGetMultiUserTsFromRegistry @ 0x1409AC5A0 (PspSiloGetMultiUserTsFromRegistry.c)
- *     PspSiloGetSuiteMaskStringFromRegistry @ 0x1409AC63C (PspSiloGetSuiteMaskStringFromRegistry.c)
- *     SmKmRegParamsLoad @ 0x1409D624C (SmKmRegParamsLoad.c)
- *     EtwpGetPmcCpuHierarchyRegistry @ 0x1409E10D8 (EtwpGetPmcCpuHierarchyRegistry.c)
- *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1409E1200 (EtwpLoadMicroarchitecturalProfileGroup.c)
- *     EtwpLoadMicroarchitecturalProfileSource @ 0x1409E1514 (EtwpLoadMicroarchitecturalProfileSource.c)
- *     ExpReadTimeZoneInformation @ 0x1409F8048 (ExpReadTimeZoneInformation.c)
- *     ExIsStateSeparationEnabled @ 0x1409F8CE0 (ExIsStateSeparationEnabled.c)
- *     ExpPcwDisabledStatus @ 0x140A029F8 (ExpPcwDisabledStatus.c)
+ *     RtlQueryRegistryValues @ 0x14063EB80 (RtlQueryRegistryValues.c)
+ *     WmipGetGuidSecurityDescriptor @ 0x14063FB18 (WmipGetGuidSecurityDescriptor.c)
+ *     WmipQueryWmiDataBlock @ 0x140682580 (WmipQueryWmiDataBlock.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406BBF50 (RtlQueryRegistryValuesEx.c)
+ *     RtlpQueryTimeZoneInformationWorker @ 0x1406E0944 (RtlpQueryTimeZoneInformationWorker.c)
+ *     PiDevCfgQueryDriverNode @ 0x14073C7F4 (PiDevCfgQueryDriverNode.c)
+ *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x14076BE54 (PiDevCfgQueryDriverConfiguration.c)
+ *     EtwpEnableAutoLoggerProvider @ 0x1407949F4 (EtwpEnableAutoLoggerProvider.c)
+ *     EtwpGetAutoLoggerProviderFilter @ 0x140795014 (EtwpGetAutoLoggerProviderFilter.c)
+ *     SshpQueryRegistryValues @ 0x1407968F0 (SshpQueryRegistryValues.c)
+ *     EtwStartAutoLogger @ 0x14079B594 (EtwStartAutoLogger.c)
+ *     PerfDiagpUpdatePerfDiagLoggerEnableFlags @ 0x14079C468 (PerfDiagpUpdatePerfDiagLoggerEnableFlags.c)
+ *     PspQueryForwardersEnabled @ 0x1407A8C18 (PspQueryForwardersEnabled.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x1407AA15C (RtlpUpdateDynamicTimeZones.c)
+ *     RtlSetActiveTimeBias @ 0x1407AA3F4 (RtlSetActiveTimeBias.c)
+ *     EtwpGetAutoLoggerEventNameFilter @ 0x1407C5D1C (EtwpGetAutoLoggerEventNameFilter.c)
+ *     IopQueryPassiveInterruptRegistryOptions @ 0x1407C9794 (IopQueryPassiveInterruptRegistryOptions.c)
+ *     VRegSetup @ 0x1407CAEC0 (VRegSetup.c)
+ *     EtwpGetAutoLoggerLevelKwFilter @ 0x1407CB108 (EtwpGetAutoLoggerLevelKwFilter.c)
+ *     ExpGetNumberOfInitialSessionsFromRegistry @ 0x1407D1C18 (ExpGetNumberOfInitialSessionsFromRegistry.c)
+ *     PiDevCfgClearDeviceMigrationNode @ 0x1408A55FC (PiDevCfgClearDeviceMigrationNode.c)
+ *     PiDevCfgQueryDeviceMigrationNode @ 0x1408A7234 (PiDevCfgQueryDeviceMigrationNode.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x1408B46E0 (PiCreateDriverSwDeviceCallback.c)
+ *     PiDrvDbQuerySystemPathWin32 @ 0x1408B6D68 (PiDrvDbQuerySystemPathWin32.c)
+ *     PpmRegisterSpmSettings @ 0x1408F60F0 (PpmRegisterSpmSettings.c)
+ *     PspSiloGetMultiUserTsFromRegistry @ 0x140906858 (PspSiloGetMultiUserTsFromRegistry.c)
+ *     PspSiloGetSuiteMaskStringFromRegistry @ 0x1409068F4 (PspSiloGetSuiteMaskStringFromRegistry.c)
+ *     SmKmRegParamsLoad @ 0x14092BD48 (SmKmRegParamsLoad.c)
+ *     EtwpGetPmcCpuHierarchyRegistry @ 0x14093A464 (EtwpGetPmcCpuHierarchyRegistry.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x14093A58C (EtwpLoadMicroarchitecturalProfileGroup.c)
+ *     EtwpLoadMicroarchitecturalProfileSource @ 0x14093A870 (EtwpLoadMicroarchitecturalProfileSource.c)
+ *     ExpPcwDisabledStatus @ 0x140956CB8 (ExpPcwDisabledStatus.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     DbgPrint @ 0x140369BD0 (DbgPrint.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x14041B9C0 (ZwEnumerateValueKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     RtlpGetRegistryHandle @ 0x14077FDA0 (RtlpGetRegistryHandle.c)
- *     RtlpAllocDeallocQueryBuffer @ 0x14078239C (RtlpAllocDeallocQueryBuffer.c)
- *     RtlpCallQueryRegistryRoutine @ 0x14078241C (RtlpCallQueryRegistryRoutine.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     DbgPrint @ 0x140284160 (DbgPrint.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1403FA600 (ZwEnumerateValueKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlpAllocDeallocQueryBuffer @ 0x140640EB0 (RtlpAllocDeallocQueryBuffer.c)
+ *     RtlpCallQueryRegistryRoutine @ 0x140640F30 (RtlpCallQueryRegistryRoutine.c)
+ *     RtlpGetRegistryHandle @ 0x140642460 (RtlpGetRegistryHandle.c)
  */
 
-__int64 RtlpQueryRegistryValues(int a1, const WCHAR *a2, __int64 a3, __int64 a4, ...)
+__int64 RtlpQueryRegistryValues(__int64 a1, const WCHAR *a2, __int64 a3, __int64 a4, ...)
 {
   __int64 v4; // r15
   ULONG v6; // r14d
+  int v8; // r12d
   __int64 result; // rax
   int v10; // r12d
   const WCHAR *v11; // rdx
@@ -92,16 +92,17 @@ __int64 RtlpQueryRegistryValues(int a1, const WCHAR *a2, __int64 a3, __int64 a4,
   v40 = va_arg(va1, _QWORD);
   v4 = a4;
   v6 = 0;
-  memset(&ObjectAttributes, 0, 44);
   Handle = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   v30 = 0;
+  v8 = a1;
   DestinationString = 0LL;
   ValueName = 0LL;
-  result = RtlpGetRegistryHandle(a1, a2, 0, &Handle);
+  result = RtlpGetRegistryHandle(a1, a2, 0LL, &Handle);
   LODWORD(v38) = result;
   if ( (int)result < 0 )
     return result;
-  v10 = a1 & 0x40000000;
+  v10 = v8 & 0x40000000;
   if ( v10 )
     v11 = 0LL;
   else
@@ -119,7 +120,7 @@ __int64 RtlpQueryRegistryValues(int a1, const WCHAR *a2, __int64 a3, __int64 a4,
 LABEL_6:
     if ( !*(_QWORD *)a3 && (*(_DWORD *)(a3 + 8) & 0x21) == 0 )
     {
-LABEL_31:
+LABEL_8:
       if ( Handle && !v10 )
         ZwClose(Handle);
       if ( KeyHandle )
@@ -135,7 +136,7 @@ LABEL_31:
     {
 LABEL_76:
       v16 = -1073741811;
-      goto LABEL_31;
+      goto LABEL_8;
     }
     if ( (v18 & 3) != 0 && KeyHandle != Handle )
     {
@@ -156,9 +157,9 @@ LABEL_76:
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
       v16 = ZwOpenKey(&KeyHandle, 0x2000000u, &ObjectAttributes);
       if ( v16 < 0 )
-        goto LABEL_31;
+        goto LABEL_8;
       if ( !*(_QWORD *)a3 )
-        goto LABEL_22;
+        goto LABEL_31;
     }
     else
     {
@@ -171,7 +172,7 @@ LABEL_76:
           if ( v20 > 4 )
           {
             DbgPrint("RtlpQueryRegistryValues: Miscomputed buffer size at line %d\n", 1276);
-            goto LABEL_31;
+            goto LABEL_8;
           }
           v16 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValueFullInformation, (PVOID)v15, Length, &v30);
           if ( v16 == -2147483643 )
@@ -189,7 +190,7 @@ LABEL_76:
               LODWORD(v38) = v16;
             }
             if ( v16 != -1073741789 )
-              goto LABEL_27;
+              goto LABEL_36;
           }
           else
           {
@@ -206,16 +207,16 @@ LABEL_76:
             {
               v6 = 0;
               if ( v21 < 0 )
-                goto LABEL_31;
+                goto LABEL_8;
               if ( (*(_DWORD *)(a3 + 8) & 0x40) != 0 )
                 ZwDeleteValueKey(KeyHandle, &ValueName);
-LABEL_22:
+LABEL_31:
               if ( v16 >= 0 )
               {
                 a3 += 56LL;
                 goto LABEL_6;
               }
-              goto LABEL_31;
+              goto LABEL_8;
             }
           }
           v23 = v30 + 10;
@@ -224,7 +225,7 @@ LABEL_22:
           if ( !v15 )
           {
             v16 = v38;
-            goto LABEL_31;
+            goto LABEL_8;
           }
           Length = v23 - 2;
           *(_DWORD *)(v15 + 8) = 0;
@@ -240,7 +241,7 @@ LABEL_22:
                 0LL,
                 v4,
                 *(_QWORD *)(a3 + 24));
-        goto LABEL_22;
+        goto LABEL_31;
       }
     }
     v24 = 0;
@@ -263,7 +264,7 @@ LABEL_22:
           v6 = 0;
         }
         v4 = a4;
-        goto LABEL_22;
+        goto LABEL_31;
       }
       if ( v16 >= 0 )
       {
@@ -290,15 +291,15 @@ LABEL_22:
 LABEL_75:
           v16 = v38;
           v4 = a4;
-LABEL_27:
+LABEL_36:
           v6 = 0;
-          goto LABEL_22;
+          goto LABEL_31;
         }
       }
       else
       {
         if ( v16 < 0 )
-          goto LABEL_31;
+          goto LABEL_8;
         v24 = 0;
         if ( (*(_DWORD *)(a3 + 8) & 0x40) != 0 )
         {

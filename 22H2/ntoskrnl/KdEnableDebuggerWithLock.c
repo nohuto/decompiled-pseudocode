@@ -1,15 +1,15 @@
 /*
- * XREFs of KdEnableDebuggerWithLock @ 0x14056781C
+ * XREFs of KdEnableDebuggerWithLock @ 0x140510CBC
  * Callers:
- *     KdEnableDebugger @ 0x1405677E0 (KdEnableDebugger.c)
- *     KeBugCheck2 @ 0x140568330 (KeBugCheck2.c)
+ *     KdEnableDebugger @ 0x140510C80 (KdEnableDebugger.c)
+ *     KeBugCheck2 @ 0x140516A10 (KeBugCheck2.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KdPowerTransitionEx @ 0x1403AD360 (KdPowerTransitionEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KdInitSystem @ 0x140AB2040 (KdInitSystem.c)
- *     KdpRestoreAllBreakpoints @ 0x140AB6B28 (KdpRestoreAllBreakpoints.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KdPowerTransitionEx @ 0x140510F00 (KdPowerTransitionEx.c)
+ *     KdInitSystem @ 0x1409B5160 (KdInitSystem.c)
+ *     KdpRestoreAllBreakpoints @ 0x1409BA598 (KdpRestoreAllBreakpoints.c)
  */
 
 __int64 __fastcall KdEnableDebuggerWithLock(char a1)
@@ -17,16 +17,15 @@ __int64 __fastcall KdEnableDebuggerWithLock(char a1)
   unsigned __int8 CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
   int v5; // eax
-  int v6; // eax
-  unsigned __int8 v7; // al
-  struct _KPRCB *v8; // r9
-  _DWORD *v9; // r8
-  int v10; // eax
-  bool v11; // zf
-  unsigned __int8 v12; // al
+  unsigned __int8 v6; // al
+  struct _KPRCB *v7; // r9
+  _DWORD *v8; // r8
+  int v9; // eax
+  bool v10; // zf
+  unsigned __int8 v11; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v14; // r8
-  int v15; // eax
+  _DWORD *v13; // r8
+  int v14; // eax
 
   CurrentIrql = 0;
   if ( KdPitchDebugger )
@@ -40,53 +39,54 @@ __int64 __fastcall KdEnableDebuggerWithLock(char a1)
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      v5 = 4;
-      if ( CurrentIrql != 2 )
-        v5 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v5;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     KxAcquireSpinLock(&KdDebuggerLock);
   }
-  v6 = KdDisableCount;
+  v5 = KdDisableCount;
   if ( KdDisableCount )
   {
     --KdDisableCount;
-    if ( v6 == 1 && KdPreviouslyEnabled )
+    if ( v5 == 1 && KdPreviouslyEnabled )
     {
-      if ( !a1 )
+      if ( a1 )
+      {
+        KdPowerTransitionEx(1073741825LL, 0LL);
+        KdpDebugRoutineSelect = 1;
+        LOBYTE(KdDebuggerEnabled) = 1;
+        MEMORY[0xFFFFF780000002D4] = 1;
+        KdpRestoreAllBreakpoints();
+      }
+      else
       {
         PoHiberInProgress = 1;
         KdInitSystem(0LL, 0LL);
         KdpRestoreAllBreakpoints();
         PoHiberInProgress = 0;
-        return 0LL;
       }
-      KdPowerTransitionEx(1073741825, 0);
-      LOBYTE(KdDebuggerEnabled) = 1;
-      KdpDebugRoutineSelect = 1;
-      *(_BYTE *)(MmWriteableSharedUserData + 724) = 1;
-      KdpRestoreAllBreakpoints();
     }
-    else if ( !a1 )
+    if ( a1 )
     {
-      return 0LL;
-    }
-    KxReleaseSpinLock((volatile signed __int64 *)&KdDebuggerLock);
-    if ( KiIrqlFlags )
-    {
-      v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      KxReleaseSpinLock(&KdDebuggerLock);
+      if ( KiIrqlFlags )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v14 = CurrentPrcb->SchedulerAssist;
-        v15 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v11 = (v15 & v14[5]) == 0;
-        v14[5] &= v15;
-        if ( v11 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          v11 = KeGetCurrentIrql();
+          if ( v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v13 = CurrentPrcb->SchedulerAssist;
+            v14 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v10 = (v14 & v13[5]) == 0;
+            v13[5] &= v14;
+            if ( v10 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
+        }
       }
+      __writecr8(CurrentIrql);
     }
-    __writecr8(CurrentIrql);
     return 0LL;
   }
   if ( !a1 )
@@ -94,19 +94,22 @@ __int64 __fastcall KdEnableDebuggerWithLock(char a1)
     KdInitSystem(0LL, 0LL);
     return 0LL;
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&KdDebuggerLock);
+  KxReleaseSpinLock(&KdDebuggerLock);
   if ( KiIrqlFlags )
   {
-    v7 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v8 = KeGetCurrentPrcb();
-      v9 = v8->SchedulerAssist;
-      v10 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v11 = (v10 & v9[5]) == 0;
-      v9[5] &= v10;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick(v8);
+      v6 = KeGetCurrentIrql();
+      if ( v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+      {
+        v7 = KeGetCurrentPrcb();
+        v8 = v7->SchedulerAssist;
+        v9 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v10 = (v9 & v8[5]) == 0;
+        v8[5] &= v9;
+        if ( v10 )
+          KiRemoveSystemWorkPriorityKick((__int64)v7);
+      }
     }
   }
   __writecr8(CurrentIrql);

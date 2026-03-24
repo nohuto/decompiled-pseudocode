@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpFreezeThawWorker @ 0x1407F5C70
+ * XREFs of CmpFreezeThawWorker @ 0x1407F5C50
  * Callers:
  *     <none>
  * Callees:
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     CmThawRegistry @ 0x1407F5A94 (CmThawRegistry.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     CmThawRegistry @ 0x1407F5A74 (CmThawRegistry.c)
  */
 
 PVOID CmpFreezeThawWorker()

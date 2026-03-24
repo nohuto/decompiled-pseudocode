@@ -1,11 +1,11 @@
 /*
- * XREFs of IoSetGenericIrpExtension @ 0x1403925A0
+ * XREFs of IoSetGenericIrpExtension @ 0x140379B90
  * Callers:
- *     StRtlIoStorInfoSetNvCachePriority @ 0x140676EB8 (StRtlIoStorInfoSetNvCachePriority.c)
+ *     StRtlIoStorInfoSetNvCachePriority @ 0x1405C9210 (StRtlIoStorInfoSetNvCachePriority.c)
  * Callees:
- *     IopIrpHasExtensionType @ 0x140290158 (IopIrpHasExtensionType.c)
- *     IopAllocateIrpExtension @ 0x1402906EC (IopAllocateIrpExtension.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     IopIrpHasExtensionType @ 0x1402E6690 (IopIrpHasExtensionType.c)
+ *     IopAllocateIrpExtension @ 0x1402E6980 (IopAllocateIrpExtension.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall IoSetGenericIrpExtension(__int64 a1, const void *a2, unsigned __int16 a3, char a4)

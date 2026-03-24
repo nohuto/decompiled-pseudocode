@@ -11,54 +11,54 @@
  *     PopSetWatchdog @ 0x140006068 (PopSetWatchdog.c)
  *     RtlStringCbCopyW @ 0x1400073A0 (RtlStringCbCopyW.c)
  *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     RtlCheckTokenMembership @ 0x1400DCAF0 (RtlCheckTokenMembership.c)
- *     RtlStringCbLengthW @ 0x14011CAA8 (RtlStringCbLengthW.c)
- *     PopDiagTraceEventNoPayload @ 0x140135A40 (PopDiagTraceEventNoPayload.c)
- *     PoLatencySensitivityHint @ 0x14013F310 (PoLatencySensitivityHint.c)
- *     PopDiagTraceSessionDisplayStateChange @ 0x140158B8C (PopDiagTraceSessionDisplayStateChange.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PpmInternalPlatformIdleVeto @ 0x1402D54E8 (PpmInternalPlatformIdleVeto.c)
- *     PpmInternalProcessorIdleVeto @ 0x1402D553C (PpmInternalProcessorIdleVeto.c)
- *     PopIsRunningInVm @ 0x1402D6CC0 (PopIsRunningInVm.c)
- *     PopQueryBootSessionStandbyActivationInfo @ 0x1402D6D44 (PopQueryBootSessionStandbyActivationInfo.c)
+ *     RtlCheckTokenMembership @ 0x1400DCB10 (RtlCheckTokenMembership.c)
+ *     RtlStringCbLengthW @ 0x14011CAC8 (RtlStringCbLengthW.c)
+ *     PopDiagTraceEventNoPayload @ 0x140135A60 (PopDiagTraceEventNoPayload.c)
+ *     PoLatencySensitivityHint @ 0x14013F330 (PoLatencySensitivityHint.c)
+ *     PopDiagTraceSessionDisplayStateChange @ 0x140158BAC (PopDiagTraceSessionDisplayStateChange.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PpmInternalPlatformIdleVeto @ 0x1402D55E8 (PpmInternalPlatformIdleVeto.c)
+ *     PpmInternalProcessorIdleVeto @ 0x1402D563C (PpmInternalProcessorIdleVeto.c)
+ *     PopIsRunningInVm @ 0x1402D6DC0 (PopIsRunningInVm.c)
+ *     PopQueryBootSessionStandbyActivationInfo @ 0x1402D6E44 (PopQueryBootSessionStandbyActivationInfo.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
  *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
- *     RtlIsMultiSessionSku @ 0x1406AD9E0 (RtlIsMultiSessionSku.c)
- *     PoUserShutdownInitiated @ 0x1406DE500 (PoUserShutdownInitiated.c)
- *     PopTransitionCheckpoint @ 0x1406DE600 (PopTransitionCheckpoint.c)
- *     PopSetDisplayStatus @ 0x1406E1F20 (PopSetDisplayStatus.c)
- *     PoUserShutdownCancelled @ 0x1406E2260 (PoUserShutdownCancelled.c)
- *     EtwpCoverageUserIsAdmin @ 0x1406E26D4 (EtwpCoverageUserIsAdmin.c)
- *     PopIsRunningAsLocalSystem @ 0x1406E2728 (PopIsRunningAsLocalSystem.c)
- *     PopBootStatSet @ 0x1407184E4 (PopBootStatSet.c)
- *     PpmPerfUpdateDomainPolicy @ 0x140719BAC (PpmPerfUpdateDomainPolicy.c)
- *     PopEsQueueStateEvaluation @ 0x14071A4E0 (PopEsQueueStateEvaluation.c)
- *     PopUpdateConsoleDisplayState @ 0x14071C278 (PopUpdateConsoleDisplayState.c)
- *     PopBroadcastSessionInfo @ 0x14072987C (PopBroadcastSessionInfo.c)
- *     PopBootStatGet @ 0x1407530B0 (PopBootStatGet.c)
- *     PopUpdateExternalDisplayState @ 0x1407624D8 (PopUpdateExternalDisplayState.c)
- *     PopFxPlatformRegisterInterface @ 0x140762FA4 (PopFxPlatformRegisterInterface.c)
- *     PopUpdateBackgroundCoolingStatus @ 0x1407638F8 (PopUpdateBackgroundCoolingStatus.c)
- *     PopCheckTestsigningEnabled @ 0x140865EA4 (PopCheckTestsigningEnabled.c)
- *     PopNotifySessionUserPowerRequestAttributed @ 0x140866470 (PopNotifySessionUserPowerRequestAttributed.c)
- *     PpmPerfGetBrandedFrequency @ 0x14086B10C (PpmPerfGetBrandedFrequency.c)
- *     PopScreenOff @ 0x14086F4B8 (PopScreenOff.c)
- *     PopScreenOn @ 0x14086F500 (PopScreenOn.c)
- *     PopNetIsDisconnectStandbyActive @ 0x140876DFC (PopNetIsDisconnectStandbyActive.c)
- *     PopNetUpdateStandbyRequest @ 0x140876F8C (PopNetUpdateStandbyRequest.c)
- *     PopQueryPowerButtonBugcheckEnabled @ 0x1408771BC (PopQueryPowerButtonBugcheckEnabled.c)
- *     PopBootStatCheckIntegrity @ 0x140877270 (PopBootStatCheckIntegrity.c)
- *     PopBootStatRestoreDefaults @ 0x1408774D8 (PopBootStatRestoreDefaults.c)
- *     PopBootStatUnlock @ 0x1408775BC (PopBootStatUnlock.c)
- *     PopUpdateSmartUserPresencePredictions @ 0x1408777EC (PopUpdateSmartUserPresencePredictions.c)
- *     TtmNotifySessionPowerStateChange @ 0x140880020 (TtmNotifySessionPowerStateChange.c)
- *     TtmNotifySessionTerminalInput @ 0x1408800A4 (TtmNotifySessionTerminalInput.c)
- *     RtlCapabilityCheckForSingleSessionSku @ 0x140893CC0 (RtlCapabilityCheckForSingleSessionSku.c)
+ *     RtlIsMultiSessionSku @ 0x1406AD9C0 (RtlIsMultiSessionSku.c)
+ *     PoUserShutdownInitiated @ 0x1406DE4E0 (PoUserShutdownInitiated.c)
+ *     PopTransitionCheckpoint @ 0x1406DE5E0 (PopTransitionCheckpoint.c)
+ *     PopSetDisplayStatus @ 0x1406E1F00 (PopSetDisplayStatus.c)
+ *     PoUserShutdownCancelled @ 0x1406E2240 (PoUserShutdownCancelled.c)
+ *     EtwpCoverageUserIsAdmin @ 0x1406E26B4 (EtwpCoverageUserIsAdmin.c)
+ *     PopIsRunningAsLocalSystem @ 0x1406E2708 (PopIsRunningAsLocalSystem.c)
+ *     PopBootStatSet @ 0x1407184C4 (PopBootStatSet.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x140719B8C (PpmPerfUpdateDomainPolicy.c)
+ *     PopEsQueueStateEvaluation @ 0x14071A4C0 (PopEsQueueStateEvaluation.c)
+ *     PopUpdateConsoleDisplayState @ 0x14071C258 (PopUpdateConsoleDisplayState.c)
+ *     PopBroadcastSessionInfo @ 0x14072985C (PopBroadcastSessionInfo.c)
+ *     PopBootStatGet @ 0x140753090 (PopBootStatGet.c)
+ *     PopUpdateExternalDisplayState @ 0x1407624B8 (PopUpdateExternalDisplayState.c)
+ *     PopFxPlatformRegisterInterface @ 0x140762F84 (PopFxPlatformRegisterInterface.c)
+ *     PopUpdateBackgroundCoolingStatus @ 0x1407638D8 (PopUpdateBackgroundCoolingStatus.c)
+ *     PopCheckTestsigningEnabled @ 0x140865E84 (PopCheckTestsigningEnabled.c)
+ *     PopNotifySessionUserPowerRequestAttributed @ 0x140866450 (PopNotifySessionUserPowerRequestAttributed.c)
+ *     PpmPerfGetBrandedFrequency @ 0x14086B0EC (PpmPerfGetBrandedFrequency.c)
+ *     PopScreenOff @ 0x14086F498 (PopScreenOff.c)
+ *     PopScreenOn @ 0x14086F4E0 (PopScreenOn.c)
+ *     PopNetIsDisconnectStandbyActive @ 0x140876DDC (PopNetIsDisconnectStandbyActive.c)
+ *     PopNetUpdateStandbyRequest @ 0x140876F6C (PopNetUpdateStandbyRequest.c)
+ *     PopQueryPowerButtonBugcheckEnabled @ 0x14087719C (PopQueryPowerButtonBugcheckEnabled.c)
+ *     PopBootStatCheckIntegrity @ 0x140877250 (PopBootStatCheckIntegrity.c)
+ *     PopBootStatRestoreDefaults @ 0x1408774B8 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatUnlock @ 0x14087759C (PopBootStatUnlock.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x1408777CC (PopUpdateSmartUserPresencePredictions.c)
+ *     TtmNotifySessionPowerStateChange @ 0x140880000 (TtmNotifySessionPowerStateChange.c)
+ *     TtmNotifySessionTerminalInput @ 0x140880084 (TtmNotifySessionTerminalInput.c)
+ *     RtlCapabilityCheckForSingleSessionSku @ 0x140893CA0 (RtlCapabilityCheckForSingleSessionSku.c)
  */
 
 __int64 __fastcall PopPowerInformationInternal(
@@ -422,8 +422,8 @@ LABEL_176:
           return (unsigned int)-1073741670;
         memset(v72, 0, 0x30uLL);
         *v73 = PopBsdPhysicalPowerButtonInfoAtBoot;
-        v73[1] = xmmword_14043FE90;
-        v73[2] = xmmword_14043FEA0;
+        v73[1] = xmmword_14043FEC0;
+        v73[2] = xmmword_14043FED0;
         *a5 = v73;
         *v7 = 48;
 LABEL_81:
@@ -455,7 +455,7 @@ LABEL_22:
           return (unsigned int)-1073741670;
         memset(v96, 0, 0x20uLL);
         *v44 = PopBsdPowerTransitionExtensionAtBoot;
-        v45 = xmmword_14043FEC0;
+        v45 = xmmword_14043FF10;
 LABEL_105:
         v44[1] = v45;
         *a5 = v44;
@@ -924,18 +924,18 @@ LABEL_215:
       BrandedFrequency = 0;
       v37[4] = v52;
       v53 = 0;
-      if ( dword_1404E1474 == 1 )
+      if ( dword_1404E1434 == 1 )
         v53 = 2;
       v54 = v53 | v52 & 0xFD;
       v55 = 0;
       v56 = v37[5];
       v37[4] = v54;
-      if ( dword_1404E1478 == 1 )
+      if ( dword_1404E1438 == 1 )
         v55 = 4;
       v57 = v55 | v54 & 0xFB;
       v58 = 0;
       v37[4] = v57;
-      if ( dword_1404E1480 == 1 )
+      if ( dword_1404E1440 == 1 )
         v58 = 8;
       v37[4] = v58 | v57 & 0xF7;
       v59 = (v50 != 0) | v56 & 0xFE;
@@ -970,7 +970,7 @@ LABEL_215:
         return (unsigned int)-1073741670;
       memset(v43, 0, 0x20uLL);
       *v44 = PopBsdPowerTransitionAtBoot;
-      v45 = xmmword_14043FF10;
+      v45 = xmmword_14043FEF0;
       goto LABEL_105;
     }
     v62 = v42 - 1;

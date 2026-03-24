@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_UnregisteringWithHSMOnDetachAfterCleanup @ 0x1C0020530
+ * XREFs of HUBDSM_UnregisteringWithHSMOnDetachAfterCleanup @ 0x1C001DB10
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_UnregisterWithHSM @ 0x1C0011618 (HUBMUX_UnregisterWithHSM.c)
- *     HUBMISC_ReleaseWdfReferenceOnPort @ 0x1C003278C (HUBMISC_ReleaseWdfReferenceOnPort.c)
+ *     HUBMUX_UnregisterWithHSM @ 0x1C00101F0 (HUBMUX_UnregisterWithHSM.c)
+ *     HUBMISC_ReleaseWdfReferenceOnPort @ 0x1C002F5A4 (HUBMISC_ReleaseWdfReferenceOnPort.c)
  */
 
 __int64 __fastcall HUBDSM_UnregisteringWithHSMOnDetachAfterCleanup(__int64 a1)

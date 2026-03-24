@@ -1,9 +1,9 @@
 /*
- * XREFs of _strnset_s @ 0x1403E69F0
+ * XREFs of _strnset_s @ 0x1403D75C0
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl strnset_s(char *Str, size_t SizeInBytes, int Val, size_t MaxCount)
@@ -22,12 +22,14 @@ LABEL_6:
     {
       while ( MaxCount )
       {
-        if ( !--SizeInBytes )
-          goto LABEL_16;
-        *v5 = Val;
-        --MaxCount;
-        if ( !*++v5 )
-          goto LABEL_11;
+        if ( --SizeInBytes )
+        {
+          *v5 = Val;
+          --MaxCount;
+          if ( *++v5 )
+            continue;
+        }
+        goto LABEL_11;
       }
     }
     else

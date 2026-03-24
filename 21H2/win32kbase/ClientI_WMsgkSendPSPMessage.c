@@ -1,7 +1,7 @@
 /*
- * XREFs of ClientI_WMsgkSendPSPMessage @ 0x1C00D0E18
+ * XREFs of ClientI_WMsgkSendPSPMessage @ 0x1C00C2684
  * Callers:
- *     WmsgpSendPSPMessage @ 0x1C02C8C94 (WmsgpSendPSPMessage.c)
+ *     WmsgpSendPSPMessage @ 0x1C027FBF4 (WmsgpSendPSPMessage.c)
  * Callees:
  *     <none>
  */

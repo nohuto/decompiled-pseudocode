@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiGetStats @ 0x1C016C400
+ * XREFs of NtGdiGetStats @ 0x1C013F180
  * Callers:
  *     <none>
  * Callees:
- *     ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C0061B40 (-GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z.c)
+ *     ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C000DD60 (-GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z.c)
  */
 
 __int64 __fastcall NtGdiGetStats(int a1, int a2, unsigned int a3, volatile void *a4, SIZE_T Length)

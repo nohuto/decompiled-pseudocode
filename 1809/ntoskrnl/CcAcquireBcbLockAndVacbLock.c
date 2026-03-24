@@ -1,11 +1,11 @@
 /*
- * XREFs of CcAcquireBcbLockAndVacbLock @ 0x14012CEF4
+ * XREFs of CcAcquireBcbLockAndVacbLock @ 0x14012CF14
  * Callers:
  *     CcUnmapVacbArray @ 0x1400798E0 (CcUnmapVacbArray.c)
- *     CcExtendVacbArray @ 0x14012C9A4 (CcExtendVacbArray.c)
- *     CcDereferenceFileOffset @ 0x14026A4D4 (CcDereferenceFileOffset.c)
- *     CcReferenceFileOffset @ 0x14026A6A0 (CcReferenceFileOffset.c)
- *     CcUnmapInactiveViewsInternal @ 0x14026A9AC (CcUnmapInactiveViewsInternal.c)
+ *     CcExtendVacbArray @ 0x14012C9C4 (CcExtendVacbArray.c)
+ *     CcDereferenceFileOffset @ 0x14026A5D4 (CcDereferenceFileOffset.c)
+ *     CcReferenceFileOffset @ 0x14026A7A0 (CcReferenceFileOffset.c)
+ *     CcUnmapInactiveViewsInternal @ 0x14026AAAC (CcUnmapInactiveViewsInternal.c)
  * Callees:
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)

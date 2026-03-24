@@ -1,9 +1,9 @@
 /*
- * XREFs of ExAllocatePoolWithQuota @ 0x140606CB0
+ * XREFs of ExAllocatePoolWithQuota @ 0x1405B3520
  * Callers:
- *     VerifierExAllocatePoolWithQuota @ 0x140AD1CD0 (VerifierExAllocatePoolWithQuota.c)
+ *     VerifierExAllocatePoolWithQuota @ 0x1409D4D10 (VerifierExAllocatePoolWithQuota.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1402080C0 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
  */
 
 PVOID __stdcall ExAllocatePoolWithQuota(POOL_TYPE PoolType, SIZE_T NumberOfBytes)

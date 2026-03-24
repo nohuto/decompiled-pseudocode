@@ -1,20 +1,18 @@
 /*
- * XREFs of PopIsLockConsoleTimeoutActive @ 0x14080A454
+ * XREFs of PopIsLockConsoleTimeoutActive @ 0x1408F518C
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14039A210 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     PopAcquireAdaptiveLock @ 0x1407EF098 (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1407EF120 (PopReleaseAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x14067DFA4 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x14067E094 (PopAcquireAdaptiveLock.c)
  */
 
 char PopIsLockConsoleTimeoutActive()
 {
   char v0; // bl
 
-  v0 = 1;
-  PopAcquireAdaptiveLock(1);
-  if ( !byte_140C1F3A1 || byte_140C1F3A2 || dword_140C1F3B8 == -1 )
-    v0 = 0;
+  PopAcquireAdaptiveLock(0);
+  v0 = BYTE6(xmmword_140C20590);
   PopReleaseAdaptiveLock();
   return v0;
 }

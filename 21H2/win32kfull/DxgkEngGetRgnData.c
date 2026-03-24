@@ -1,5 +1,5 @@
 /*
- * XREFs of DxgkEngGetRgnData @ 0x1C02752A0
+ * XREFs of DxgkEngGetRgnData @ 0x1C0277AD0
  * Callers:
  *     <none>
  * Callees:

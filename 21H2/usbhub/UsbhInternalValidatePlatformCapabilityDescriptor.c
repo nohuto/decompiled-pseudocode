@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhInternalValidatePlatformCapabilityDescriptor @ 0x1C0051804
+ * XREFs of UsbhInternalValidatePlatformCapabilityDescriptor @ 0x1C0052E54
  * Callers:
- *     UsbhInternalValidateDeviceCapabilityDescriptor @ 0x1C0051618 (UsbhInternalValidateDeviceCapabilityDescriptor.c)
+ *     UsbhInternalValidateDeviceCapabilityDescriptor @ 0x1C0052C68 (UsbhInternalValidateDeviceCapabilityDescriptor.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 char __fastcall UsbhInternalValidatePlatformCapabilityDescriptor(__int64 a1, unsigned __int8 *a2, ULONG **a3)

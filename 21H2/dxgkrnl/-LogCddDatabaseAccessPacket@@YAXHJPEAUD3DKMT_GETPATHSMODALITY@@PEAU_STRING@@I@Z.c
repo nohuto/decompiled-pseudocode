@@ -1,13 +1,14 @@
 /*
- * XREFs of ?LogCddDatabaseAccessPacket@@YAXHJPEAUD3DKMT_GETPATHSMODALITY@@PEAU_STRING@@I@Z @ 0x1C01B5EA8
+ * XREFs of ?LogCddDatabaseAccessPacket@@YAXHJPEAUD3DKMT_GETPATHSMODALITY@@PEAU_STRING@@I@Z @ 0x1C013C8D8
  * Callers:
- *     ?RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z @ 0x1C01B6AE8 (-RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z.c)
- *     ?Persist@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C01C2A0C (-Persist@CCD_TOPOLOGY@@QEAAJI@Z.c)
+ *     ?Persist@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C00E14E8 (-Persist@CCD_TOPOLOGY@@QEAAJI@Z.c)
+ *     ?RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z @ 0x1C01375F4 (-RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01B32DC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C013AB0C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
  */
 
 void __fastcall LogCddDatabaseAccessPacket(
@@ -17,69 +18,71 @@ void __fastcall LogCddDatabaseAccessPacket(
         struct _STRING *a4,
         unsigned int a5)
 {
-  unsigned int v9; // ebp
-  __int64 v10; // rax
-  unsigned int v11; // r8d
-  __int64 v12; // rdi
-  __int64 v13; // rcx
-  int v14; // ebx
+  unsigned int v9; // r14d
+  char *v10; // rax
+  unsigned int v11; // esi
+  char *v12; // rdi
+  unsigned int v13; // eax
+  __int64 v14; // rax
   __int64 v15; // rcx
+  int v16; // ebx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
   unsigned int CurrentProcessSessionId; // eax
 
-  v9 = 160 * *((unsigned __int16 *)a3 + 10) + a4->Length + 73;
-  v10 = operator new[](v9, 0x63644356u, 256LL, (__int64)a4);
+  v9 = 144 * *((unsigned __int16 *)a3 + 10) + a4->Length + 73;
+  v10 = (char *)operator new[](v9, 0x63644356u, PagedPool);
   v11 = 0;
   v12 = v10;
   if ( v10 )
   {
-    *(_DWORD *)v10 = 49;
-    *(_DWORD *)(v10 + 4) = v9;
-    *(_DWORD *)(v10 + 40) = 0;
-    *(_QWORD *)(v10 + 32) = 0LL;
-    *(_OWORD *)(v10 + 8) = 0LL;
-    *(_QWORD *)(v10 + 24) = 0LL;
-    *(_DWORD *)(v10 + 52) = a5;
-    *(_DWORD *)(v10 + 48) = a2;
-    *(_DWORD *)(v10 + 56) = a1;
-    *(_DWORD *)(v10 + 60) = *((unsigned __int16 *)a3 + 10);
-    LOWORD(v10) = *((_WORD *)a3 + 10);
-    if ( (_WORD)v10 )
+    memset(v10, 0, v9);
+    *(_DWORD *)v12 = 35;
+    *((_DWORD *)v12 + 1) = v9;
+    *((_DWORD *)v12 + 10) = 0;
+    *((_QWORD *)v12 + 4) = 0LL;
+    *(_OWORD *)(v12 + 8) = 0LL;
+    *((_QWORD *)v12 + 3) = 0LL;
+    *((_DWORD *)v12 + 13) = a5;
+    *((_DWORD *)v12 + 12) = a2;
+    *((_DWORD *)v12 + 14) = a1;
+    *((_DWORD *)v12 + 15) = *((unsigned __int16 *)a3 + 10);
+    LOWORD(v13) = *((_WORD *)a3 + 10);
+    if ( (_WORD)v13 )
     {
       do
       {
-        v10 = v11++;
-        v13 = 160 * v10;
-        *(_QWORD *)(v13 + v12 + 72) = *((_QWORD *)a3 + 37 * v10 + 7);
-        *(_QWORD *)(v13 + v12 + 80) = *((_QWORD *)a3 + 37 * v10 + 8);
-        *(_QWORD *)(v13 + v12 + 88) = *((_QWORD *)a3 + 37 * v10 + 9);
-        *(_DWORD *)(v13 + v12 + 96) = *((_DWORD *)a3 + 74 * v10 + 20);
-        *(_DWORD *)(v13 + v12 + 100) = *((_DWORD *)a3 + 74 * v10 + 21);
-        *(_QWORD *)(v13 + v12 + 104) = *((_QWORD *)a3 + 37 * v10 + 16);
-        *(_QWORD *)(v13 + v12 + 112) = *(_QWORD *)((char *)a3 + 296 * v10 + 92);
-        *(_QWORD *)(v13 + v12 + 120) = *(_QWORD *)((char *)a3 + 296 * v10 + 100);
-        *(_QWORD *)(v13 + v12 + 128) = *(_QWORD *)((char *)a3 + 296 * v10 + 108);
-        *(_QWORD *)(v13 + v12 + 136) = *(_QWORD *)((char *)a3 + 296 * v10 + 116);
-        *(_DWORD *)(v13 + v12 + 144) = *((_DWORD *)a3 + 74 * v10 + 22);
-        *(_DWORD *)(v13 + v12 + 148) = (int)(*((_DWORD *)a3 + 74 * v10 + 34) << 29) >> 29;
-        *(_DWORD *)(v13 + v12 + 152) = *((_DWORD *)a3 + 74 * v10 + 36);
-        *(_DWORD *)(v13 + v12 + 156) = *((_DWORD *)a3 + 74 * v10 + 37);
-        *(_OWORD *)(v13 + v12 + 160) = *(_OWORD *)((char *)a3 + 296 * v10 + 152);
-        *(_OWORD *)(v13 + v12 + 176) = *(_OWORD *)((char *)a3 + 296 * v10 + 168);
-        *(_DWORD *)(v13 + v12 + 192) = *((_DWORD *)a3 + 74 * v10 + 47);
-        *(_DWORD *)(v13 + v12 + 196) = *((_DWORD *)a3 + 74 * v10 + 48);
-        *(_DWORD *)(v13 + v12 + 200) = *((_DWORD *)a3 + 74 * v10 + 49);
-        *(_QWORD *)(v13 + v12 + 204) = *((_QWORD *)a3 + 37 * v10 + 25);
-        *(_QWORD *)(v13 + v12 + 212) = *((_QWORD *)a3 + 37 * v10 + 35);
-        *(_DWORD *)(v13 + v12 + 228) = *((_DWORD *)a3 + 74 * v10 + 74);
-        LODWORD(v10) = *((unsigned __int16 *)a3 + 10);
+        v14 = v11++;
+        v15 = 18 * v14;
+        *(_QWORD *)&v12[8 * v15 + 72] = *((_QWORD *)a3 + 34 * v14 + 6);
+        *(_QWORD *)&v12[8 * v15 + 80] = *((_QWORD *)a3 + 34 * v14 + 7);
+        *(_QWORD *)&v12[8 * v15 + 88] = *((_QWORD *)a3 + 34 * v14 + 8);
+        *(_DWORD *)&v12[8 * v15 + 96] = *((_DWORD *)a3 + 68 * v14 + 18);
+        *(_DWORD *)&v12[8 * v15 + 100] = *((_DWORD *)a3 + 68 * v14 + 19);
+        *(_QWORD *)&v12[8 * v15 + 104] = *((_QWORD *)a3 + 34 * v14 + 15);
+        *(_QWORD *)&v12[8 * v15 + 112] = *(_QWORD *)((char *)a3 + 272 * v14 + 84);
+        *(_QWORD *)&v12[8 * v15 + 120] = *(_QWORD *)((char *)a3 + 272 * v14 + 92);
+        *(_QWORD *)&v12[8 * v15 + 128] = *(_QWORD *)((char *)a3 + 272 * v14 + 100);
+        *(_QWORD *)&v12[8 * v15 + 136] = *(_QWORD *)((char *)a3 + 272 * v14 + 108);
+        *(_DWORD *)&v12[8 * v15 + 144] = *((_DWORD *)a3 + 68 * v14 + 20);
+        *(_DWORD *)&v12[8 * v15 + 148] = (int)(*((_DWORD *)a3 + 68 * v14 + 32) << 29) >> 29;
+        *(_DWORD *)&v12[8 * v15 + 152] = *((_DWORD *)a3 + 68 * v14 + 34);
+        *(_DWORD *)&v12[8 * v15 + 156] = *((_DWORD *)a3 + 68 * v14 + 35);
+        *(_OWORD *)&v12[8 * v15 + 160] = *((_OWORD *)a3 + 17 * v14 + 9);
+        *(_OWORD *)&v12[8 * v15 + 176] = *((_OWORD *)a3 + 17 * v14 + 10);
+        *(_DWORD *)&v12[8 * v15 + 192] = *((_DWORD *)a3 + 68 * v14 + 45);
+        *(_DWORD *)&v12[8 * v15 + 196] = *((_DWORD *)a3 + 68 * v14 + 46);
+        *(_DWORD *)&v12[8 * v15 + 200] = *((_DWORD *)a3 + 68 * v14 + 47);
+        *(_QWORD *)&v12[8 * v15 + 204] = *((_QWORD *)a3 + 34 * v14 + 24);
+        v13 = *((unsigned __int16 *)a3 + 10);
       }
-      while ( v11 < (unsigned int)v10 );
+      while ( v11 < v13 );
     }
-    v14 = 160 * (unsigned __int16)v10 + v12 + 72;
-    memmove((void *)(160LL * (unsigned __int16)v10 + v12 + 72), a4->Buffer, a4->Length);
-    *(_DWORD *)(v12 + 64) = v14 - v12;
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v15);
+    v16 = 144 * (unsigned __int16)v13 + (_DWORD)v12 + 72;
+    memmove(&v12[144 * (unsigned __int16)v13 + 72], a4->Buffer, a4->Length);
+    *((_DWORD *)v12 + 16) = v16 - (_DWORD)v12;
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v18, v17);
     DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v12, CurrentProcessSessionId);
-    operator delete[]((void *)v12);
+    operator delete[](v12);
   }
 }

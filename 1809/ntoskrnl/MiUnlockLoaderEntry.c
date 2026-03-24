@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlockLoaderEntry @ 0x1400DBB0C
+ * XREFs of MiUnlockLoaderEntry @ 0x1400DBB2C
  * Callers:
- *     MiSetPagingOfDriver @ 0x1400DADDC (MiSetPagingOfDriver.c)
- *     MiMakeDriverPagesPrivate @ 0x1400DB3F0 (MiMakeDriverPagesPrivate.c)
- *     MiFindDriverNonPagedSections @ 0x1406556BC (MiFindDriverNonPagedSections.c)
- *     MiLockdownSections @ 0x140682C04 (MiLockdownSections.c)
- *     MiFreeInitializationCode @ 0x1406C783C (MiFreeInitializationCode.c)
+ *     MiSetPagingOfDriver @ 0x1400DADFC (MiSetPagingOfDriver.c)
+ *     MiMakeDriverPagesPrivate @ 0x1400DB410 (MiMakeDriverPagesPrivate.c)
+ *     MiFindDriverNonPagedSections @ 0x14065569C (MiFindDriverNonPagedSections.c)
+ *     MiLockdownSections @ 0x140682BE4 (MiLockdownSections.c)
+ *     MiFreeInitializationCode @ 0x1406C781C (MiFreeInitializationCode.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -16,8 +16,8 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x140117B80 (ExReleaseAutoExpandPushLockExclusive.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x140117BA0 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlockLoaderEntry(__int64 a1, int a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpPcwDisabledStatus @ 0x140A01868
+ * XREFs of ExpPcwDisabledStatus @ 0x140956D08
  * Callers:
- *     PcwCreateInstance @ 0x140761C60 (PcwCreateInstance.c)
- *     PcwAddInstance @ 0x14086DBB0 (PcwAddInstance.c)
- *     PcwRegister @ 0x140874250 (PcwRegister.c)
+ *     PcwCreateInstance @ 0x140666980 (PcwCreateInstance.c)
+ *     PcwAddInstance @ 0x140667BC0 (PcwAddInstance.c)
+ *     PcwRegister @ 0x1407817E0 (PcwRegister.c)
  * Callees:
- *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x1406B9848 (RtlpQueryRegistryValues.c)
  */
 
 __int64 ExpPcwDisabledStatus()
@@ -26,24 +26,26 @@ __int64 ExpPcwDisabledStatus()
   int v13; // [rsp+B0h] [rbp+67h] BYREF
   int v14; // [rsp+B8h] [rbp+6Fh] BYREF
 
-  v13 = 0;
   v0 = ExpPcwEnableState;
+  v13 = 0;
   if ( ExpPcwEnableState )
     return v0 != 1 ? 0xC0000002 : 0;
   v14 = -1;
-  v2 = 0LL;
   v4 = L"Start";
+  v2 = 0LL;
   v3 = 288;
-  v6 = 67108868;
   v5 = &v13;
-  v8 = 4;
+  v6 = 67108868;
   v7 = &v14;
-  v9 = 0LL;
+  v8 = 4;
   v12 = 0LL;
+  v9 = 0LL;
   v10 = 0LL;
   v11 = 0LL;
-  result = RtlpQueryRegistryValues(1LL, L"pcw", &v2, 0LL);
-  if ( (_DWORD)result == -1073741772 || (int)result >= 0 )
+  result = RtlpQueryRegistryValues(1LL, L"pcw", (__int64)&v2, 0LL);
+  if ( (_DWORD)result == -1073741772 )
+    result = 0LL;
+  if ( (int)result >= 0 )
   {
     v0 = 2 - (v13 != 0);
     ExpPcwEnableState = v0;

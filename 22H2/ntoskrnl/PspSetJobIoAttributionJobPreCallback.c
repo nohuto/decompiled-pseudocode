@@ -1,5 +1,5 @@
 /*
- * XREFs of PspSetJobIoAttributionJobPreCallback @ 0x1407E9DD0
+ * XREFs of PspSetJobIoAttributionJobPreCallback @ 0x1406A3650
  * Callers:
  *     <none>
  * Callees:
@@ -12,6 +12,6 @@ __int64 __fastcall PspSetJobIoAttributionJobPreCallback(__int64 a1, __int64 a2)
 
   v2 = *(_QWORD *)(a2 + 8);
   if ( a1 != v2 )
-    *(_QWORD *)(a1 + 1568) = v2 & -(__int64)(*(_BYTE *)(a2 + 16) != 0);
+    *(_QWORD *)(a1 + 1352) = v2 & -(__int64)(*(_BYTE *)(a2 + 16) != 0);
   return 0LL;
 }

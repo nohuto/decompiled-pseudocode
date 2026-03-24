@@ -1,18 +1,18 @@
 /*
- * XREFs of PcwAddInstance @ 0x1406914E0
+ * XREFs of PcwAddInstance @ 0x1406914C0
  * Callers:
  *     ExProcessorCounterSetCallback @ 0x1405CD7B0 (ExProcessorCounterSetCallback.c)
- *     FsRtlAddDiskIOCounterInstance @ 0x1408155AC (FsRtlAddDiskIOCounterInstance.c)
- *     FsRtlDiskIOCounterSetCallback @ 0x140815680 (FsRtlDiskIOCounterSetCallback.c)
- *     KiSynchCounterSetCallback @ 0x1408434F0 (KiSynchCounterSetCallback.c)
- *     KiSynchNumaCounterSetCallback @ 0x140843600 (KiSynchNumaCounterSetCallback.c)
- *     PoThermalCounterSetCallback @ 0x14086C2A0 (PoThermalCounterSetCallback.c)
- *     EtwpEventTracingCounterSetCallback @ 0x1409085F0 (EtwpEventTracingCounterSetCallback.c)
+ *     FsRtlAddDiskIOCounterInstance @ 0x14081558C (FsRtlAddDiskIOCounterInstance.c)
+ *     FsRtlDiskIOCounterSetCallback @ 0x140815660 (FsRtlDiskIOCounterSetCallback.c)
+ *     KiSynchCounterSetCallback @ 0x1408434D0 (KiSynchCounterSetCallback.c)
+ *     KiSynchNumaCounterSetCallback @ 0x1408435E0 (KiSynchNumaCounterSetCallback.c)
+ *     PoThermalCounterSetCallback @ 0x14086C280 (PoThermalCounterSetCallback.c)
+ *     EtwpEventTracingCounterSetCallback @ 0x1409085D0 (EtwpEventTracingCounterSetCallback.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x14010DBCC (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14010DBE4 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     ExpPcwDisabledStatus @ 0x1408D7178 (ExpPcwDisabledStatus.c)
+ *     ExReleaseExtensionTable @ 0x14010DBEC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExpPcwDisabledStatus @ 0x1408D7158 (ExpPcwDisabledStatus.c)
  */
 
 NTSTATUS __stdcall PcwAddInstance(PPCW_BUFFER Buffer, PCUNICODE_STRING Name, ULONG Id, ULONG Count, PPCW_DATA Data)

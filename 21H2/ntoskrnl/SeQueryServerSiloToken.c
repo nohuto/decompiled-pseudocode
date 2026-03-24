@@ -1,17 +1,19 @@
 /*
- * XREFs of SeQueryServerSiloToken @ 0x1406C1480
+ * XREFs of SeQueryServerSiloToken @ 0x1406B04A0
  * Callers:
- *     NtCreateUserProcess @ 0x14066D650 (NtCreateUserProcess.c)
- *     SepCreateClientSecurityEx @ 0x140727350 (SepCreateClientSecurityEx.c)
- *     SepUpdateSiloInClientSecurity @ 0x1409CC028 (SepUpdateSiloInClientSecurity.c)
+ *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
+ *     SepCreateClientSecurityEx @ 0x14065E160 (SepCreateClientSecurityEx.c)
+ *     SepUpdateSiloInClientSecurity @ 0x140922668 (SepUpdateSiloInClientSecurity.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     PsGetSiloBySessionId @ 0x14077D624 (PsGetSiloBySessionId.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     PsGetSiloBySessionId @ 0x140634520 (PsGetSiloBySessionId.c)
  */
 
-__int64 __fastcall SeQueryServerSiloToken(__int64 a1, __int64 a2)
+__int64 __fastcall SeQueryServerSiloToken(
+        __int64 a1,
+        int (__fastcall **a2)(_DMA_ADAPTER *, _DEVICE_OBJECT *, _MDL *, void *, unsigned int, void (__fastcall *)(_DEVICE_OBJECT *, _IRP *, _SCATTER_GATHER_LIST *, void *), void *, unsigned __int8, void *, unsigned int))
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v5; // ebx

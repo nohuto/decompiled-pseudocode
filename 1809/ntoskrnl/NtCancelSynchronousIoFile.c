@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCancelSynchronousIoFile @ 0x14081D3B0
+ * XREFs of NtCancelSynchronousIoFile @ 0x14081D390
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     IopCancelSynchronousIrpsForThread @ 0x14081971C (IopCancelSynchronousIrpsForThread.c)
+ *     IopCancelSynchronousIrpsForThread @ 0x1408196FC (IopCancelSynchronousIrpsForThread.c)
  */
 
 NTSTATUS __fastcall NtCancelSynchronousIoFile(void *a1, __int64 a2, unsigned __int64 a3)

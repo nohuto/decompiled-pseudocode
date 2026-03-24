@@ -1,14 +1,14 @@
 /*
- * XREFs of ?vRestoreAccumBoundsAndEnableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ @ 0x1C02A8A60
+ * XREFs of ?vRestoreAccumBoundsAndEnableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ @ 0x1C029ED60
  * Callers:
- *     NtGdiLineTo @ 0x1C015AE20 (NtGdiLineTo.c)
- *     NtGdiInvertRgn @ 0x1C02A9D30 (NtGdiInvertRgn.c)
- *     GrePolyBezier @ 0x1C02ABFF0 (GrePolyBezier.c)
- *     GrePolyPolygon @ 0x1C02AC330 (GrePolyPolygon.c)
- *     GrePolyPolyline @ 0x1C02AC620 (GrePolyPolyline.c)
- *     NtGdiRectangle @ 0x1C02AD690 (NtGdiRectangle.c)
+ *     GrePolyPolyline @ 0x1C0142500 (GrePolyPolyline.c)
+ *     NtGdiRectangle @ 0x1C0143A10 (NtGdiRectangle.c)
+ *     GrePolyPolygon @ 0x1C0144870 (GrePolyPolygon.c)
+ *     NtGdiLineTo @ 0x1C0144E10 (NtGdiLineTo.c)
+ *     NtGdiInvertRgn @ 0x1C0148D60 (NtGdiInvertRgn.c)
+ *     GrePolyBezier @ 0x1C029FE00 (GrePolyBezier.c)
  * Callees:
- *     ?vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C02C0950 (-vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     ?vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C0145B34 (-vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
  */
 
 void __fastcall DWMSCREENREADMODIFYWRITEASSIST::vRestoreAccumBoundsAndEnableSpriteUpdates(

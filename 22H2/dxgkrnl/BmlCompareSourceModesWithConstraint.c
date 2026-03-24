@@ -1,35 +1,50 @@
 /*
- * XREFs of BmlCompareSourceModesWithConstraint @ 0x1C03BD18C
+ * XREFs of BmlCompareSourceModesWithConstraint @ 0x1C0147190
  * Callers:
- *     BmlCompareSourceModes @ 0x1C03BCFB4 (BmlCompareSourceModes.c)
+ *     BmlCompareSourceModes @ 0x1C014766C (BmlCompareSourceModes.c)
  * Callees:
- *     BmlCompareRegionsWithPivot @ 0x1C01775B0 (BmlCompareRegionsWithPivot.c)
- *     BmlDoesSourceModeObeyConstraint @ 0x1C017A8D0 (BmlDoesSourceModeObeyConstraint.c)
- *     ??$BmlCompareValues@_N@@YA?AW4BML_COMPARISON_RESULT@@_N0@Z @ 0x1C01EAA7C (--$BmlCompareValues@_N@@YA-AW4BML_COMPARISON_RESULT@@_N0@Z.c)
+ *     BmlDoesSourceModeObeyConstraint @ 0x1C01474DC (BmlDoesSourceModeObeyConstraint.c)
+ *     BmlCompareRegionsWithPivot @ 0x1C01477DC (BmlCompareRegionsWithPivot.c)
  */
 
 __int64 __fastcall BmlCompareSourceModesWithConstraint(__int64 a1, unsigned __int16 a2, __int64 a3, __int64 a4)
 {
-  __int64 v8; // rbx
-  int v9; // ecx
-  unsigned int v10; // edx
+  __int64 v8; // rdi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  unsigned int v11; // ebx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  int v14; // edx
+  int v15; // r9d
+  __int64 v17; // rax
+  __int64 v18; // rax
 
-  v8 = *(_QWORD *)(120LL * a2 + a1 + 16);
-  if ( !BmlDoesSourceModeObeyConstraint(a1, a2, (_DWORD *)a3) )
-    WdLogSingleEntry0(1LL);
-  if ( !BmlDoesSourceModeObeyConstraint(a1, a2, (_DWORD *)a4) )
-    WdLogSingleEntry0(1LL);
-  v9 = *(_DWORD *)(v8 + 116);
-  v10 = 0;
-  if ( (!v9
-     || (*(_QWORD *)v8 & 0x8000000100LL) == 0
-     || (v10 = BmlCompareValues<bool>(*(_DWORD *)(a3 + 96) == v9, *(_DWORD *)(a4 + 96) == v9)) == 0)
-    && (*(_DWORD *)v8 & 0x100LL) != 0 )
+  v8 = *(_QWORD *)(104LL * a2 + a1 + 16);
+  v11 = 0;
+  if ( !(unsigned __int8)BmlDoesSourceModeObeyConstraint(a1, a2) )
+  {
+    v17 = WdLogNewEntry5_WdAssertion(v10, v9);
+    WdLogEvent5_WdAssertion(v17);
+  }
+  if ( !(unsigned __int8)BmlDoesSourceModeObeyConstraint(a1, a2) )
+  {
+    v18 = WdLogNewEntry5_WdAssertion(v13, v12);
+    WdLogEvent5_WdAssertion(v18);
+  }
+  if ( (*(_QWORD *)v8 & 0x8000000100LL) != 0
+    && (v14 = *(_DWORD *)(v8 + 116), v15 = *(_DWORD *)(a3 + 96), (v15 == v14) != (*(_DWORD *)(a4 + 96) == v14)) )
+  {
+    v11 = -1;
+    if ( v15 == v14 )
+      return 1;
+  }
+  else if ( (*(_QWORD *)v8 & 0x100LL) != 0 )
   {
     return (unsigned int)BmlCompareRegionsWithPivot(
                            (struct _D3DKMDT_2DREGION *)(a3 + 76),
                            (struct _D3DKMDT_2DREGION *)(a4 + 76),
                            (struct _D3DKMDT_2DREGION *)(v8 + 96));
   }
-  return v10;
+  return v11;
 }

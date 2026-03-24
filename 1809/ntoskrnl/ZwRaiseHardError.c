@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwRaiseHardError @ 0x1401BAD70
+ * XREFs of ZwRaiseHardError @ 0x1401BAD90
  * Callers:
  *     <none>
  * Callees:

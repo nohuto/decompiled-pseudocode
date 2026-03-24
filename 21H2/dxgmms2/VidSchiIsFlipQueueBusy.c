@@ -1,7 +1,7 @@
 /*
- * XREFs of VidSchiIsFlipQueueBusy @ 0x1C0005420
+ * XREFs of VidSchiIsFlipQueueBusy @ 0x1C0007000
  * Callers:
- *     VidSchiWaitForSchedulerEvents @ 0x1C0097530 (VidSchiWaitForSchedulerEvents.c)
+ *     VidSchiWaitForSchedulerEvents @ 0x1C0080820 (VidSchiWaitForSchedulerEvents.c)
  * Callees:
  *     <none>
  */
@@ -11,18 +11,17 @@ __int64 __fastcall VidSchiIsFlipQueueBusy(__int64 a1)
   unsigned __int8 v2; // di
   unsigned int v3; // r8d
   unsigned int v4; // edx
-  __int64 v5; // rcx
+  __int64 v5; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   v2 = 0;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1728), &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1712), &LockHandle);
   v3 = *(_DWORD *)(a1 + 40);
   v4 = 0;
   if ( v3 )
   {
-    v5 = a1 + 3200;
-    while ( !*(_QWORD *)v5 || !*(_DWORD *)(*(_QWORD *)v5 + 3000LL) )
+    v5 = a1 + 3104;
+    while ( !*(_QWORD *)v5 || !*(_DWORD *)(*(_QWORD *)v5 + 2352LL) )
     {
       ++v4;
       v5 += 8LL;

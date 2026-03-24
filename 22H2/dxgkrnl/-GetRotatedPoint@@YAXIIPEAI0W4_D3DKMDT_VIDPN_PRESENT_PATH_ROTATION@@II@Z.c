@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetRotatedPoint@@YAXIIPEAI0W4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@II@Z @ 0x1C0339268
+ * XREFs of ?GetRotatedPoint@@YAXIIPEAI0W4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@II@Z @ 0x1C027DE44
  * Callers:
- *     ?RotateCursorShapeWorker@@YAXPEAUCURSOR_INFO@@PEBU1@@Z @ 0x1C02320FA (-RotateCursorShapeWorker@@YAXPEAUCURSOR_INFO@@PEBU1@@Z.c)
+ *     ?RotateCursorShapeWorker@@YAXPEAUCURSOR_INFO@@PEBU1@@Z @ 0x1C027E16C (-RotateCursorShapeWorker@@YAXPEAUCURSOR_INFO@@PEBU1@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 void __fastcall GetRotatedPoint(
@@ -15,47 +15,33 @@ void __fastcall GetRotatedPoint(
         unsigned int a6,
         unsigned int a7)
 {
-  unsigned int v11; // eax
-  int v12; // ecx
-  unsigned int v13; // ecx
+  unsigned int v7; // ebx
+  __int64 v11; // rax
 
-  if ( a5 != D3DKMDT_VPPR_IDENTITY )
+  v7 = a1;
+  switch ( a5 )
   {
-    switch ( a5 )
-    {
-      case D3DKMDT_VPPR_ROTATE90:
-        v13 = a2;
-        v11 = a6 - a1 - 1;
-        goto LABEL_12;
-      case D3DKMDT_VPPR_ROTATE180:
-        v11 = a7 - a2 - 1;
-        v12 = a6 - a1;
-        goto LABEL_7;
-      case D3DKMDT_VPPR_ROTATE270:
-        v11 = a1;
-        v12 = a7 - a2;
-LABEL_7:
-        v13 = v12 - 1;
-        goto LABEL_12;
-    }
+    case D3DKMDT_VPPR_ROTATE90:
+      v7 = a2;
+      a1 = a6 - a1 - 1;
+      break;
+    case D3DKMDT_VPPR_ROTATE180:
+      a1 = a7 - a2 - 1;
+      v7 = a6 - v7 - 1;
+      break;
+    case D3DKMDT_VPPR_ROTATE270:
+      v7 = a7 - a2 - 1;
+      break;
+    default:
+      if ( a5 != D3DKMDT_VPPR_IDENTITY )
+      {
+        v11 = WdLogNewEntry5_WdAssertion((unsigned int)(a5 - 3), (unsigned int)a5);
+        *(_QWORD *)(v11 + 24) = 387LL;
+        WdLogEvent5_WdAssertion(v11);
+      }
+      a1 = a2;
+      break;
   }
-  if ( a5 != D3DKMDT_VPPR_IDENTITY )
-  {
-    WdLogSingleEntry1(1LL, 387LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"Orientation == D3DKMDT_VPPR_IDENTITY",
-      387LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-  }
-  v11 = a2;
-  v13 = a1;
-LABEL_12:
-  *a3 = v13;
-  *a4 = v11;
+  *a3 = v7;
+  *a4 = a1;
 }

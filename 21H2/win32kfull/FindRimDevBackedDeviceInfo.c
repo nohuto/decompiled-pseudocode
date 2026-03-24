@@ -1,7 +1,7 @@
 /*
- * XREFs of FindRimDevBackedDeviceInfo @ 0x1C01CCE54
+ * XREFs of FindRimDevBackedDeviceInfo @ 0x1C01D0EC4
  * Callers:
- *     EditionRimDeviceReadNotification @ 0x1C01CCDD0 (EditionRimDeviceReadNotification.c)
+ *     EditionRimDeviceReadNotification @ 0x1C01D0E40 (EditionRimDeviceReadNotification.c)
  * Callees:
  *     <none>
  */

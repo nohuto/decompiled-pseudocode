@@ -1,18 +1,18 @@
 /*
- * XREFs of McTemplateK0pqqq_EtwWriteTransfer @ 0x1C004105C
+ * XREFs of McTemplateK0pqqq_EtwWriteTransfer @ 0x1C003A478
  * Callers:
- *     ?DdiSetVidPnSourceAddressWithMultiPlaneOverlay3@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3@@@Z @ 0x1C000D470 (-DdiSetVidPnSourceAddressWithMultiPlaneOverlay3@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_SETVIDPNSOURC.c)
- *     ?CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z @ 0x1C003F8C8 (-CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z.c)
- *     ?ProcessPStateTransitionRequest@DXGADAPTER@@QEAAXXZ @ 0x1C004069C (-ProcessPStateTransitionRequest@DXGADAPTER@@QEAAXXZ.c)
- *     DpiDxgkDdiStartDevice @ 0x1C01FF8FC (DpiDxgkDdiStartDevice.c)
- *     DpiMiracastDdiMiracastQueryCaps @ 0x1C0228CF4 (DpiMiracastDdiMiracastQueryCaps.c)
- *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C02B96C8 (-ReportState@DXGADAPTER@@QEAAXXZ.c)
- *     ?VmBusOpenAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0381CF0 (-VmBusOpenAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
- *     DpiCallDrvSetBacklightOptimizationLevel @ 0x1C03A2494 (DpiCallDrvSetBacklightOptimizationLevel.c)
- *     DpiCallDrvSetBrightness @ 0x1C03A2510 (DpiCallDrvSetBrightness.c)
+ *     ?CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z @ 0x1C0037230 (-CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z.c)
+ *     ?ProcessPStateTransitionRequest@DXGADAPTER@@QEAAXXZ @ 0x1C0038CC8 (-ProcessPStateTransitionRequest@DXGADAPTER@@QEAAXXZ.c)
+ *     ?VmBusOpenAdapterCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00D9DC0 (-VmBusOpenAdapterCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     DpiDxgkDdiStartDevice @ 0x1C0188360 (DpiDxgkDdiStartDevice.c)
+ *     DpiMiracastDdiMiracastQueryCaps @ 0x1C019E8B8 (DpiMiracastDdiMiracastQueryCaps.c)
+ *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C020F5FC (-ReportState@DXGADAPTER@@QEAAXXZ.c)
+ *     ?VmBusOpenAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C02444D0 (-VmBusOpenAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     DpiCallDrvSetBacklightOptimizationLevel @ 0x1C02D1F50 (DpiCallDrvSetBacklightOptimizationLevel.c)
+ *     DpiCallDrvSetBrightness @ 0x1C02D1FCC (DpiCallDrvSetBrightness.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

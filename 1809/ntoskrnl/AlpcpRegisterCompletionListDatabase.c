@@ -1,7 +1,7 @@
 /*
- * XREFs of AlpcpRegisterCompletionListDatabase @ 0x1406D506C
+ * XREFs of AlpcpRegisterCompletionListDatabase @ 0x1406D504C
  * Callers:
- *     AlpcpInitializeCompletionList @ 0x1406D4C00 (AlpcpInitializeCompletionList.c)
+ *     AlpcpInitializeCompletionList @ 0x1406D4BE0 (AlpcpInitializeCompletionList.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

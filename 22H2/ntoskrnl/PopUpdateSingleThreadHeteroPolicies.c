@@ -1,9 +1,9 @@
 /*
- * XREFs of PopUpdateSingleThreadHeteroPolicies @ 0x1408A5FA0
+ * XREFs of PopUpdateSingleThreadHeteroPolicies @ 0x1408F1550
  * Callers:
  *     <none>
  * Callees:
- *     KiSetHeteroPolicyThread @ 0x140577A9C (KiSetHeteroPolicyThread.c)
+ *     KiSetHeteroPolicyThread @ 0x1405202A4 (KiSetHeteroPolicyThread.c)
  */
 
 __int64 __fastcall PopUpdateSingleThreadHeteroPolicies(__int64 a1, __int64 a2)
@@ -12,6 +12,6 @@ __int64 __fastcall PopUpdateSingleThreadHeteroPolicies(__int64 a1, __int64 a2)
 
   v2 = *(_BYTE *)(a2 + 126);
   if ( v2 >= 0 && (v2 & 0x7F) == 8 )
-    KiSetHeteroPolicyThread(a2, 8);
+    KiSetHeteroPolicyThread(a2, 8LL, 1LL, (_DWORD *)1);
   return 0LL;
 }

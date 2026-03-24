@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CompareTableEntries@?$CGenericTable@UMaterialPropertyId@MaterialProperty@@U2@$0HEHCEDEE@$0A@@DirectComposition@@CA?AW4_RTL_GENERIC_COMPARE_RESULTS@@PEAU_RTL_GENERIC_TABLE@@PEAX1@Z @ 0x1C00AFF80
+ * XREFs of ?CompareTableEntries@?$CGenericTable@UMaterialPropertyId@MaterialProperty@@U2@$0HEHCEDEE@$0A@@DirectComposition@@CA?AW4_RTL_GENERIC_COMPARE_RESULTS@@PEAU_RTL_GENERIC_TABLE@@PEAX1@Z @ 0x1C00A0F80
  * Callers:
  *     <none>
  * Callees:
@@ -15,13 +15,16 @@ __int64 __fastcall DirectComposition::CGenericTable<MaterialProperty::MaterialPr
 
   if ( *FirstStruct < *SecondStruct )
     return 0LL;
-  if ( *FirstStruct != *SecondStruct )
-    return 1LL;
-  v3 = SecondStruct[1];
-  if ( FirstStruct[1] < v3 )
+  if ( *FirstStruct == *SecondStruct )
+  {
+    v3 = SecondStruct[1];
+    if ( FirstStruct[1] >= v3 )
+    {
+      if ( *FirstStruct == *SecondStruct && FirstStruct[1] == v3 )
+        return 2LL;
+      return 1LL;
+    }
     return 0LL;
-  if ( FirstStruct[1] == v3 )
-    return 2LL;
-  else
-    return 1LL;
+  }
+  return 1LL;
 }

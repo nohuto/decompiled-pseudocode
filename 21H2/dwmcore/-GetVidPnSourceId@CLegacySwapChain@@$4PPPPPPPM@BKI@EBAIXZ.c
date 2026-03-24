@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetVidPnSourceId@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAIXZ @ 0x18010A5D0
+ * XREFs of ?GetVidPnSourceId@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAIXZ @ 0x1800F7DF0
  * Callers:
  *     <none>
  * Callees:

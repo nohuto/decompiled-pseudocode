@@ -1,13 +1,12 @@
 /*
- * XREFs of ?Create@DiagnosticCallbacksManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x18002F0AC
+ * XREFs of ?Create@DiagnosticCallbacksManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800B44C8
  * Callers:
- *     ?Initialize@CComposition@@MEAAJXZ @ 0x18002E810 (-Initialize@CComposition@@MEAAJXZ.c)
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800B48A0 (-Initialize@CComposition@@MEAAJXZ.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??$CreateServer@VDiagnosticCallbacksManager@@@BaseBamoConnection@Bamo@Microsoft@@SAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBGPEAPEAVDiagnosticCallbacksManager@@@Z @ 0x18002F19C (--$CreateServer@VDiagnosticCallbacksManager@@@BaseBamoConnection@Bamo@Microsoft@@SAJPEAUIMessage.c)
- *     ??1?$unique_storage@U?$resource_policy@PEAXP6APEAXPEAX@Z$1?LocalFree@@YAPEAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x18002F62C (--1-$unique_storage@U-$resource_policy@PEAXP6APEAXPEAX@Z$1-LocalFree@@YAPEAX0@ZU-$integral_const.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x180178750 (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
+ *     ??$CreateServer@VDiagnosticCallbacksManager@@@BaseBamoConnection@Bamo@Microsoft@@SAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBGPEAPEAVDiagnosticCallbacksManager@@@Z @ 0x1800B43FC (--$CreateServer@VDiagnosticCallbacksManager@@@BaseBamoConnection@Bamo@Microsoft@@SAJPEAUIMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x18014E76C (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall DiagnosticCallbacksManager::Create(
@@ -15,15 +14,16 @@ __int64 __fastcall DiagnosticCallbacksManager::Create(
         struct DiagnosticCallbacksManager **a2)
 {
   const char *v4; // r9
-  int v5; // eax
-  int v6; // r9d
+  __int64 v5; // rax
+  int v6; // eax
+  __int64 v7; // r9
   unsigned int LastError; // ebx
-  __int64 v8; // rcx
-  __int64 v10; // rdx
-  __int64 v11; // [rsp+30h] [rbp-10h] BYREF
-  int v12; // [rsp+38h] [rbp-8h]
+  __int64 v9; // rcx
+  __int64 v11; // rdx
+  int v12; // [rsp+20h] [rbp-20h]
+  __int128 v13; // [rsp+30h] [rbp-10h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+18h]
-  __int64 v14; // [rsp+68h] [rbp+28h] BYREF
+  __int64 v15; // [rsp+68h] [rbp+28h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+70h] [rbp+30h] BYREF
 
   *a2 = 0LL;
@@ -42,47 +42,45 @@ __int64 __fastcall DiagnosticCallbacksManager::Create(
                   v4);
     goto LABEL_7;
   }
-  v14 = 0LL;
-  v5 = (*(__int64 (__fastcall **)(struct IMessageSession *, PSECURITY_DESCRIPTOR, __int64 *))(*(_QWORD *)a1 + 64LL))(
+  v5 = *(_QWORD *)a1;
+  v15 = 0LL;
+  v6 = (*(__int64 (__fastcall **)(struct IMessageSession *, PSECURITY_DESCRIPTOR, __int64 *))(v5 + 64))(
          a1,
          SecurityDescriptor,
-         &v14);
-  LastError = v5;
-  if ( v5 < 0 )
+         &v15);
+  LastError = v6;
+  if ( v6 < 0 )
   {
-    v10 = 46LL;
+    v11 = 46LL;
   }
   else
   {
-    v11 = 0LL;
-    v12 = 1;
-    v5 = Microsoft::Bamo::BaseBamoConnection::CreateServer<DiagnosticCallbacksManager>(
-           (_DWORD)a1,
-           v14,
-           (unsigned int)&v11,
-           v6,
-           (__int64)a2);
-    LastError = v5;
-    if ( v5 >= 0 )
+    *(_QWORD *)&v13 = 0LL;
+    DWORD2(v13) = 1;
+    v6 = Microsoft::Bamo::BaseBamoConnection::CreateServer<DiagnosticCallbacksManager>((__int64 *)a1, v15, &v13, v7, a2);
+    LastError = v6;
+    if ( v6 >= 0 )
     {
       LastError = 0;
       goto LABEL_5;
     }
-    v10 = 53LL;
+    v11 = 53LL;
   }
   wil::details::in1diag3::Return_Hr(
     retaddr,
-    (void *)v10,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\diagnosticcallbacksmanager.cpp",
-    (const char *)(unsigned int)v5);
+    (void *)v11,
+    (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\diagnosticcallbacksmanager.cpp",
+    (const char *)(unsigned int)v6,
+    v12);
 LABEL_5:
-  v8 = v14;
-  if ( v14 )
+  v9 = v15;
+  if ( v15 )
   {
-    v14 = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
+    v15 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
   }
 LABEL_7:
-  wil::details::unique_storage<wil::details::resource_policy<void *,void * (*)(void *),&void * LocalFree(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,void * (*)(void *),&void * LocalFree(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>(&SecurityDescriptor);
+  if ( SecurityDescriptor )
+    LocalFree(SecurityDescriptor);
   return LastError;
 }

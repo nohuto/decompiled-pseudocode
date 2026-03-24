@@ -1,47 +1,55 @@
 /*
- * XREFs of ViDdiDriverEntry @ 0x140A834A0
+ * XREFs of ViDdiDriverEntry @ 0x1409C82B0
  * Callers:
  *     <none>
  * Callees:
- *     IoDeleteDevice @ 0x1402D3820 (IoDeleteDevice.c)
- *     IoWMIRegistrationControl @ 0x1406C8220 (IoWMIRegistrationControl.c)
- *     IoCreateDevice @ 0x14074ED50 (IoCreateDevice.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
+ *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
+ *     IoWMIRegistrationControl @ 0x140754F30 (IoWMIRegistrationControl.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-NTSTATUS __fastcall ViDdiDriverEntry(PDRIVER_OBJECT DriverObject)
+__int64 __fastcall ViDdiDriverEntry(PDRIVER_OBJECT DriverObject)
 {
-  NTSTATUS result; // eax
-  struct _DEVICE_OBJECT **v3; // rcx
-  PDEVICE_OBJECT v4; // rax
-  struct _DEVICE_OBJECT *v5; // rbx
-  NTSTATUS v6; // edi
+  int v3; // ebx
+  __int64 v4; // rdi
+  NTSTATUS v5; // esi
+  PDEVICE_OBJECT v6; // rcx
+  int v7; // ebx
+  __int64 i; // rdi
+  struct _DEVICE_OBJECT *v9; // rsi
+  NTSTATUS v10; // ebp
   PDEVICE_OBJECT DeviceObject; // [rsp+50h] [rbp+8h] BYREF
 
-  DriverObject->MajorFunction[23] = (PDRIVER_DISPATCH)ViDdiDispatchWmi;
   DeviceObject = 0LL;
-  ViDdiDeviceObjectArray = ExAllocatePool2(64LL, 8uLL, 0x61446656u);
+  DriverObject->MajorFunction[23] = (PDRIVER_DISPATCH)ViDdiDispatchWmi;
+  ViDdiDeviceObjectArray = (__int64)ExAllocatePoolWithTag(NonPagedPoolNx, 8uLL, 0x61446656u);
   if ( !ViDdiDeviceObjectArray )
-    return -1073741670;
-  result = IoCreateDevice(DriverObject, 4u, 0LL, 0x22u, 0x180u, 0, &DeviceObject);
-  if ( result >= 0 )
+    return 3221225626LL;
+  v3 = 0;
+  v4 = 0LL;
+  do
   {
-    v3 = (struct _DEVICE_OBJECT **)ViDdiDeviceObjectArray;
-    v4 = DeviceObject;
-    *(_QWORD *)ViDdiDeviceObjectArray = DeviceObject;
-    *(_DWORD *)v4->DeviceExtension = 0;
-    v5 = *v3;
-    v5->Flags &= ~0x80u;
-    v6 = IoWMIRegistrationControl(v5, 1u);
-    if ( v6 >= 0 )
-    {
-      return 0;
-    }
-    else
-    {
-      IoDeleteDevice(v5);
-      return v6;
-    }
+    v5 = IoCreateDevice(DriverObject, 4u, 0LL, 0x22u, 0x180u, 0, &DeviceObject);
+    if ( v5 < 0 )
+      return (unsigned int)v5;
+    v6 = DeviceObject;
+    *(_QWORD *)(v4 + ViDdiDeviceObjectArray) = DeviceObject;
+    v4 += 8LL;
+    *(_DWORD *)v6->DeviceExtension = v3++;
   }
-  return result;
+  while ( !v3 );
+  v7 = 0;
+  for ( i = 0LL; ; i += 8LL )
+  {
+    v9 = *(struct _DEVICE_OBJECT **)(i + ViDdiDeviceObjectArray);
+    v9->Flags &= ~0x80u;
+    v10 = IoWMIRegistrationControl(v9, 1u);
+    if ( v10 < 0 )
+      break;
+    if ( ++v7 )
+      return 0LL;
+  }
+  IoDeleteDevice(v9);
+  return (unsigned int)v10;
 }

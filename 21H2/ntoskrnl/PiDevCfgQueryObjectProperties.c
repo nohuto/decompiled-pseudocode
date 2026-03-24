@@ -1,278 +1,286 @@
 /*
- * XREFs of PiDevCfgQueryObjectProperties @ 0x140746CCC
+ * XREFs of PiDevCfgQueryObjectProperties @ 0x14073CE44
  * Callers:
- *     PiDevCfgInitDeviceContext @ 0x1407448BC (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x140744E30 (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgGetDriverPackageId @ 0x140745620 (PiDevCfgGetDriverPackageId.c)
- *     PiDevCfgLogDeviceStarted @ 0x1407456F8 (PiDevCfgLogDeviceStarted.c)
- *     PiDevCfgLogDeviceConfigured @ 0x1407459F4 (PiDevCfgLogDeviceConfigured.c)
- *     PiDevCfgQueryDriverNode @ 0x140746270 (PiDevCfgQueryDriverNode.c)
- *     PiDevCfgProcessDevice @ 0x140747740 (PiDevCfgProcessDevice.c)
- *     PiDevCfgConfigureDevice @ 0x1407702BC (PiDevCfgConfigureDevice.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14094AA64 (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14094B864 (PiDevCfgFindDeviceMigrationNode.c)
- *     PpDevCfgProcessDeviceClass @ 0x14094EA0C (PpDevCfgProcessDeviceClass.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x14094ED84 (PpDevCfgProcessDeviceExtensions.c)
- *     PpDevCfgProcessDeviceReset @ 0x14094F4CC (PpDevCfgProcessDeviceReset.c)
- *     PpDevCfgInit @ 0x140B0ED44 (PpDevCfgInit.c)
+ *     PpDevCfgProcessDeviceClass @ 0x14072FE5C (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceReset @ 0x1407301CC (PpDevCfgProcessDeviceReset.c)
+ *     PiDevCfgProcessDevice @ 0x140739D90 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgLogDeviceStarted @ 0x14073ADD4 (PiDevCfgLogDeviceStarted.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x14073B090 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgInitDeviceContext @ 0x14073BA30 (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgGetDriverPackageId @ 0x14073C1E8 (PiDevCfgGetDriverPackageId.c)
+ *     PiDevCfgQueryDriverNode @ 0x14073C7F4 (PiDevCfgQueryDriverNode.c)
+ *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x14076BE54 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1408A4F1C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1408A5E04 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x1408AA8EC (PpDevCfgProcessDeviceExtensions.c)
+ *     PpDevCfgInit @ 0x140A52024 (PpDevCfgInit.c)
  * Callees:
- *     PnpValidateStringData @ 0x1402D19D8 (PnpValidateStringData.c)
- *     PnpValidateMultiSzData @ 0x1402D19FC (PnpValidateMultiSzData.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExpAllocateStringRoutine @ 0x1406BE560 (ExpAllocateStringRoutine.c)
- *     _PnpOpenObjectRegKey @ 0x14077C924 (_PnpOpenObjectRegKey.c)
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     PnpValidateMultiSzData @ 0x14036EF08 (PnpValidateMultiSzData.c)
+ *     PnpValidateStringData @ 0x14036EF78 (PnpValidateStringData.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _PnpOpenObjectRegKey @ 0x140637864 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiDevCfgQueryObjectProperties(__int64 a1, int a2, int a3, __int64 a4, __int64 a5, unsigned int a6)
+__int64 __fastcall PiDevCfgQueryObjectProperties(
+        __int64 a1,
+        __int64 a2,
+        unsigned int a3,
+        void *a4,
+        __int64 a5,
+        unsigned int a6)
 {
-  int v6; // ebx
-  void *Pool2; // rdi
-  int v8; // r15d
-  int *v9; // rsi
-  int v10; // eax
-  __int64 v11; // r14
-  UNICODE_STRING *v12; // r12
-  unsigned int MaximumLength; // ecx
-  int v14; // r9d
-  int ObjectProperty; // eax
-  int v16; // r9d
-  unsigned int v17; // ecx
-  int v19; // eax
-  SIZE_T v20; // rdx
-  int v21; // r8d
+  __int64 v6; // r10
+  int ObjectProperty; // ebx
+  void *v8; // r15
+  unsigned int v9; // r13d
+  __int64 v10; // rdi
+  int v11; // eax
+  __int64 v12; // r14
+  UNICODE_STRING *v13; // rsi
+  unsigned int MaximumLength; // r12d
+  HANDLE v15; // r9
+  SIZE_T v17; // rdx
+  PVOID PoolWithTag; // rax
   wchar_t *StringRoutine; // rax
   wchar_t *Buffer; // rdx
-  __int64 v24; // rax
-  void *v25; // rax
-  size_t Size; // [rsp+68h] [rbp-19h] BYREF
-  int v27; // [rsp+70h] [rbp-11h]
-  HANDLE Handle; // [rsp+78h] [rbp-9h] BYREF
-  __int64 v29; // [rsp+80h] [rbp-1h]
-  unsigned int v30; // [rsp+D8h] [rbp+57h]
+  int v21; // eax
+  PVOID v22; // rax
+  int v23; // [rsp+68h] [rbp-19h] BYREF
+  int v24; // [rsp+6Ch] [rbp-15h]
+  HANDLE Handle; // [rsp+70h] [rbp-11h] BYREF
+  __int64 v26; // [rsp+78h] [rbp-9h]
+  unsigned int Size; // [rsp+D8h] [rbp+57h] BYREF
+  int Size_4; // [rsp+DCh] [rbp+5Bh]
+  __int64 v29; // [rsp+E0h] [rbp+5Fh]
+  unsigned int v30; // [rsp+E8h] [rbp+67h]
+  void *v31; // [rsp+F0h] [rbp+6Fh]
 
-  v29 = *(_QWORD *)&PiPnpRtlCtx;
-  v6 = 0;
+  v31 = a4;
+  v30 = a3;
+  v29 = a2;
+  Size_4 = HIDWORD(a1);
+  v6 = 0LL;
+  v26 = *(_QWORD *)&PiPnpRtlCtx;
+  ObjectProperty = 0;
   Handle = 0LL;
-  Pool2 = 0LL;
-  v8 = 0;
-  Size = 0x100000000LL;
+  v8 = 0LL;
+  v23 = 1;
+  v9 = 0;
+  Size = 0;
   if ( !a4 )
   {
-    v6 = PnpOpenObjectRegKey(PiPnpRtlCtx, a2, a3, 33554433, 0, (__int64)&Handle);
-    if ( v6 < 0 )
+    v21 = PnpOpenObjectRegKey(*(__int64 *)&PiPnpRtlCtx, a2, a3, 33554433, 0, (__int64)&Handle);
+    v6 = 0LL;
+    ObjectProperty = v21;
+    if ( v21 < 0 )
       goto LABEL_23;
   }
-  v27 = 0;
+  v24 = 0;
   if ( !a6 )
     goto LABEL_23;
-  v9 = (int *)(a5 + 8);
+  v10 = a5 + 8;
   while ( 2 )
   {
-    v10 = v9[5];
-    v11 = *((_QWORD *)v9 + 1);
-    if ( (v10 & 4) != 0 )
+    v11 = *(_DWORD *)(v10 + 20);
+    v12 = *(_QWORD *)(v10 + 8);
+    if ( (v11 & 4) != 0 )
     {
-      v12 = (UNICODE_STRING *)*((_QWORD *)v9 + 1);
-      v11 = *(_QWORD *)(v11 + 8);
-      MaximumLength = v12->MaximumLength;
+      v13 = *(UNICODE_STRING **)(v10 + 8);
+      v12 = *(_QWORD *)(v12 + 8);
+      MaximumLength = v13->MaximumLength;
     }
     else
     {
-      MaximumLength = v9[4];
-      v12 = 0LL;
+      MaximumLength = *(_DWORD *)(v10 + 16);
+      v13 = (UNICODE_STRING *)v6;
     }
-    v30 = MaximumLength;
-    if ( (v10 & 2) != 0 )
+    if ( (v11 & 2) != 0 )
     {
-      if ( Pool2 || (v8 = 260, (Pool2 = (void *)ExAllocatePool2(256LL, 260LL, 1667526736LL)) != 0LL) )
+      if ( v8
+        || (v9 = 260,
+            PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x104uLL, 0x63647050u),
+            v6 = 0LL,
+            (v8 = PoolWithTag) != 0LL) )
       {
-        v11 = (__int64)Pool2;
+        v12 = (__int64)v8;
         goto LABEL_9;
       }
-LABEL_78:
-      v6 = -1073741670;
+      ObjectProperty = -1073741670;
       goto LABEL_23;
     }
     while ( 1 )
     {
-      v14 = (int)Handle;
-      if ( a4 )
-        v14 = a4;
+      v15 = Handle;
+      if ( v31 )
+        v15 = v31;
       ObjectProperty = PnpGetObjectProperty(
+                         v26,
                          v29,
-                         a2,
-                         a3,
-                         v14,
-                         0LL,
-                         *((_QWORD *)v9 - 1),
-                         (__int64)&Size + 4,
-                         v11,
+                         v30,
+                         (__int64)v15,
+                         v6,
+                         *(_QWORD *)(v10 - 8),
+                         (__int64)&v23,
+                         v12,
                          MaximumLength,
                          (__int64)&Size,
-                         0);
-      v6 = ObjectProperty;
+                         v6);
       if ( ObjectProperty != -1073741789 )
       {
-        if ( ObjectProperty == -1073741670 )
-          goto LABEL_21;
-        v16 = v8;
-        if ( ObjectProperty < 0 )
-          goto LABEL_15;
-        v19 = HIDWORD(Size);
-        v20 = (unsigned int)Size;
-        if ( !HIDWORD(Size) )
+        v6 = 0LL;
+        goto LABEL_14;
+      }
+      if ( (*(_DWORD *)(v10 + 20) & 2) == 0 )
+        goto LABEL_66;
+      if ( Size <= MaximumLength )
+      {
+        ObjectProperty = -1073741595;
+LABEL_66:
+        v6 = 0LL;
+        goto LABEL_16;
+      }
+      ExFreePoolWithTag(v8, 0);
+      v9 = Size;
+      v22 = ExAllocatePoolWithTag(PagedPool, Size, 0x63647050u);
+      v6 = 0LL;
+      v8 = v22;
+      if ( !v22 )
+        break;
+      v12 = (__int64)v22;
+LABEL_9:
+      MaximumLength = v9;
+    }
+    ObjectProperty = -1073741670;
+LABEL_14:
+    if ( ObjectProperty == -1073741670 )
+      break;
+    if ( ObjectProperty >= 0 )
+    {
+      v17 = Size;
+      if ( v23 )
+      {
+        if ( v23 != *(_DWORD *)v10 )
         {
-          *v9 = 0;
-          goto LABEL_37;
+          ObjectProperty = -1073741823;
+          goto LABEL_16;
         }
-        v21 = *v9;
-        if ( HIDWORD(Size) == *v9 )
+        if ( v23 == 18 || v23 == 20 || v23 == 25 )
         {
-          if ( v21 != 18 || HIDWORD(Size) != 25 )
-            goto LABEL_30;
+          if ( !PnpValidateStringData(v12, Size) )
+            ObjectProperty = -1073741823;
         }
-        else if ( v21 != 18 || HIDWORD(Size) != 25 )
+        else if ( v23 == 8210 && !PnpValidateMultiSzData((_WORD *)v12, Size) )
         {
-          goto LABEL_70;
+          ObjectProperty = -1073741823;
         }
-        *v9 = 25;
-LABEL_30:
-        if ( v19 != 18 && v19 != 20 && v19 != 25 )
+      }
+      else
+      {
+        *(_DWORD *)v10 = 0;
+      }
+      if ( ObjectProperty >= 0 )
+      {
+        if ( v13 && (unsigned int)v17 > 0xFFFE )
+          ObjectProperty = -2147483643;
+        if ( ObjectProperty >= 0 )
         {
-          if ( v19 == 8210 )
+          if ( (*(_DWORD *)(v10 + 20) & 2) == 0 )
+            goto LABEL_37;
+          if ( v13 )
           {
-            if ( !PnpValidateMultiSzData((_WORD *)v11, v20) )
-              v6 = -1073741823;
-            if ( v6 < 0 )
-              goto LABEL_15;
-          }
-LABEL_37:
-          v8 = v16;
-          if ( v12 && (unsigned int)v20 > 0xFFFE )
-          {
-            v6 = -2147483643;
-LABEL_15:
-            v17 = v30;
-            goto LABEL_16;
-          }
-          if ( (v9[5] & 2) == 0 )
-          {
-            if ( !v12 )
-            {
-LABEL_40:
-              if ( (v9[5] & 2) != 0 )
-              {
-                **((_QWORD **)v9 + 1) = v11;
-                LODWORD(v20) = Size;
-              }
-              v9[4] = v20;
-LABEL_43:
-              v17 = v30;
-              goto LABEL_16;
-            }
-LABEL_47:
-            v12->Length = v20;
-            if ( HIDWORD(Size) != 8210 )
-            {
-              Buffer = v12->Buffer;
-              if ( Buffer )
-              {
-                if ( (unsigned __int16)Size >= 2u && !Buffer[((unsigned __int64)(unsigned __int16)Size >> 1) - 1] )
-                  v12->Length = Size - 2;
-              }
-            }
-            goto LABEL_43;
-          }
-          if ( v12 )
-          {
-            StringRoutine = (wchar_t *)ExpAllocateStringRoutine(v20);
-            v12->Buffer = StringRoutine;
+            StringRoutine = (wchar_t *)ExpAllocateStringRoutine(v17);
+            v13->Buffer = StringRoutine;
             if ( StringRoutine )
             {
-              v12->MaximumLength = Size;
-              memmove(StringRoutine, Pool2, (unsigned int)Size);
-              LOWORD(v20) = Size;
-              goto LABEL_47;
+              v13->MaximumLength = Size;
+LABEL_49:
+              memmove(StringRoutine, v8, Size);
+              LODWORD(v17) = Size;
+              v6 = 0LL;
+LABEL_37:
+              if ( v13 )
+              {
+                v13->Length = v17;
+                if ( v23 != 8210 )
+                {
+                  Buffer = v13->Buffer;
+                  if ( Buffer )
+                  {
+                    if ( (unsigned __int16)Size >= 2u
+                      && Buffer[((unsigned __int64)(unsigned __int16)Size >> 1) - 1] == (_WORD)v6 )
+                    {
+                      v13->Length = Size - 2;
+                    }
+                  }
+                }
+              }
+              else
+              {
+                if ( (*(_DWORD *)(v10 + 20) & 2) != 0 )
+                {
+                  **(_QWORD **)(v10 + 8) = v12;
+                  LODWORD(v17) = Size;
+                }
+                *(_DWORD *)(v10 + 16) = v17;
+              }
+              goto LABEL_16;
             }
           }
           else
           {
-            v25 = (void *)ExAllocatePool2(256LL, v20, 1667526736LL);
-            v11 = (__int64)v25;
-            if ( v25 )
-            {
-              memmove(v25, Pool2, (unsigned int)Size);
-              LODWORD(v20) = Size;
-              goto LABEL_40;
-            }
+            StringRoutine = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v17, 0x63647050u);
+            v12 = (__int64)StringRoutine;
+            if ( StringRoutine )
+              goto LABEL_49;
           }
-          v6 = -1073741670;
-          goto LABEL_21;
+          ObjectProperty = -1073741670;
+          break;
         }
-        if ( PnpValidateStringData(v11, v20) )
-          goto LABEL_37;
-LABEL_70:
-        v6 = -1073741823;
-        goto LABEL_15;
       }
-      v17 = v30;
-      if ( (v9[5] & 2) == 0 )
-        goto LABEL_16;
-      if ( (unsigned int)Size <= v30 )
-        break;
-      ExFreePoolWithTag(Pool2, 0);
-      v8 = Size;
-      v24 = ExAllocatePool2(256LL, (unsigned int)Size, 1667526736LL);
-      Pool2 = (void *)v24;
-      if ( !v24 )
-        goto LABEL_78;
-      v11 = v24;
-LABEL_9:
-      MaximumLength = v8;
-      v30 = v8;
     }
-    v6 = -1073741595;
 LABEL_16:
-    v9[6] = v6;
-    if ( v6 >= 0 )
+    *(_DWORD *)(v10 + 24) = ObjectProperty;
+    if ( ObjectProperty < 0 )
     {
-LABEL_20:
-      v9 += 10;
-      if ( ++v27 < a6 )
-        continue;
-    }
-    else
-    {
-      if ( (v9[5] & 8) != 0 )
+      if ( (*(_DWORD *)(v10 + 20) & 8) == 0 )
       {
-        if ( v12 )
-        {
-          RtlInitUnicodeString(v12, 0LL);
-        }
-        else if ( v11 )
-        {
-          memset((void *)v11, 0, v17);
-        }
-      }
-      if ( (v9[5] & 1) == 0 )
-      {
-        v6 = 0;
+LABEL_18:
+        if ( (*(_DWORD *)(v10 + 20) & 1) != 0 )
+          break;
+        ObjectProperty = v6;
         goto LABEL_20;
       }
+      if ( v13 )
+      {
+        RtlInitUnicodeString(v13, 0LL);
+      }
+      else
+      {
+        if ( !v12 )
+          goto LABEL_18;
+        memset((void *)v12, 0, MaximumLength);
+      }
+      v6 = 0LL;
+      goto LABEL_18;
     }
+LABEL_20:
+    v10 += 40LL;
+    if ( ++v24 < a6 )
+      continue;
     break;
   }
-LABEL_21:
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( v8 )
+    ExFreePoolWithTag(v8, 0);
 LABEL_23:
   if ( Handle )
     ZwClose(Handle);
-  return (unsigned int)v6;
+  return (unsigned int)ObjectProperty;
 }

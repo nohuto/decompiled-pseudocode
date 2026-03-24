@@ -1,32 +1,31 @@
 /*
- * XREFs of _SetCancelRotationDelayHintWindow @ 0x1C01AE818
+ * XREFs of _SetCancelRotationDelayHintWindow @ 0x1C01D2510
  * Callers:
- *     NtUserSetCancelRotationDelayHintWindow @ 0x1C01DA9E0 (NtUserSetCancelRotationDelayHintWindow.c)
+ *     <none>
  * Callees:
- *     IAMThreadAccessGranted @ 0x1C002731C (IAMThreadAccessGranted.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     IAMThreadAccessGranted @ 0x1C0037F54 (IAMThreadAccessGranted.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 SetCancelRotationDelayHintWindow()
 {
   unsigned int v0; // ebx
-  int v1; // eax
-  __int64 v2; // r9
+  __int64 v1; // rdx
+  __int64 v2; // r8
   __int64 v3; // rax
   _QWORD v5[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v0 = 1;
-  LOBYTE(v1) = IAMThreadAccessGranted(gptiCurrent);
-  if ( v1 )
+  if ( IAMThreadAccessGranted(gptiCurrent) )
   {
     v3 = *(_QWORD *)(v2 + 24) + 304LL;
     v5[1] = v2;
     v5[0] = v3;
-    HMAssignmentLock(v5, 0LL);
+    HMAssignmentLock(v5);
   }
   else
   {
-    UserSetLastError(5);
+    UserSetLastError(5LL, v1, v2);
     return 0;
   }
   return v0;

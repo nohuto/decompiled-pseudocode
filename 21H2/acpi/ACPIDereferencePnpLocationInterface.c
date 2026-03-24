@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIDereferencePnpLocationInterface @ 0x1C009FEE0
+ * XREFs of ACPIDereferencePnpLocationInterface @ 0x1C00A1AB0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall ACPIDereferencePnpLocationInterface(_QWORD *P)

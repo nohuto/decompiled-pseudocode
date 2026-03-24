@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsNonOverlappingResourceCB@VIDMM_SEGMENT@@SA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00EB080
+ * XREFs of ?IsNonOverlappingResourceCB@VIDMM_SEGMENT@@SA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00C7500
  * Callers:
- *     ?MoveOneResource@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@Z @ 0x1C00EB2B0 (-MoveOneResource@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@Z.c)
+ *     ?MoveOneResource@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@Z @ 0x1C00C76E0 (-MoveOneResource@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@Z.c)
  * Callees:
- *     ?HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ @ 0x1C0017D88 (-HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ.c)
+ *     ?HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ @ 0x1C00159EC (-HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ.c)
  */
 
 char __fastcall VIDMM_SEGMENT::IsNonOverlappingResourceCB(_VIDMM_GLOBAL_ALLOC_NONPAGED **a1)
@@ -16,9 +16,9 @@ char __fastcall VIDMM_SEGMENT::IsNonOverlappingResourceCB(_VIDMM_GLOBAL_ALLOC_NO
   int *v6; // rdx
   int *v7; // rax
 
-  if ( _VIDMM_GLOBAL_ALLOC_NONPAGED::HasOutstandingPresentReferences(a1[66]) )
+  if ( _VIDMM_GLOBAL_ALLOC_NONPAGED::HasOutstandingPresentReferences(a1[64]) )
     return 1;
-  v2 = (_QWORD **)(v1 + 272);
+  v2 = (_QWORD **)(v1 + 288);
   v3 = *v2;
   while ( v3 != v2 )
   {

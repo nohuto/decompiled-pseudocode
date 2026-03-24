@@ -1,15 +1,15 @@
 /*
- * XREFs of LogSchedEvent @ 0x1C00297A4
+ * XREFs of LogSchedEvent @ 0x1C002A1C0
  * Callers:
- *     SyncEvalObject @ 0x1C000B990 (SyncEvalObject.c)
- *     InsertReadyQueue @ 0x1C000E2B0 (InsertReadyQueue.c)
- *     RunContext @ 0x1C0010A50 (RunContext.c)
- *     AMLIPauseInterpreter @ 0x1C00647E0 (AMLIPauseInterpreter.c)
- *     AMLIResumeInterpreter @ 0x1C0064914 (AMLIResumeInterpreter.c)
- *     AsyncCallBack @ 0x1C00696FC (AsyncCallBack.c)
- *     NestAsyncEvalObject @ 0x1C006982C (NestAsyncEvalObject.c)
+ *     SyncEvalObject @ 0x1C0004490 (SyncEvalObject.c)
+ *     InsertReadyQueue @ 0x1C00047A0 (InsertReadyQueue.c)
+ *     RunContext @ 0x1C0004DD0 (RunContext.c)
+ *     AMLIPauseInterpreter @ 0x1C006355C (AMLIPauseInterpreter.c)
+ *     AMLIResumeInterpreter @ 0x1C0063690 (AMLIResumeInterpreter.c)
+ *     AsyncCallBack @ 0x1C00682D8 (AsyncCallBack.c)
+ *     NestAsyncEvalObject @ 0x1C00683FC (NestAsyncEvalObject.c)
  * Callees:
- *     LogEvent @ 0x1C0029800 (LogEvent.c)
+ *     LogEvent @ 0x1C002A21C (LogEvent.c)
  */
 
 __int64 __fastcall LogSchedEvent(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

@@ -1,25 +1,25 @@
 /*
- * XREFs of PspSendJobNotification @ 0x14036D8F8
+ * XREFs of PspSendJobNotification @ 0x14031D13C
  * Callers:
- *     PspSendProcessNotificationToJobChain @ 0x14069F410 (PspSendProcessNotificationToJobChain.c)
- *     PspIncrementJobChainProcessCounts @ 0x14069F520 (PspIncrementJobChainProcessCounts.c)
- *     PspValidateJobAssignmentProcessLimits @ 0x1406A04F8 (PspValidateJobAssignmentProcessLimits.c)
- *     PspRemoveProcessFromJobChain @ 0x1406A2DB0 (PspRemoveProcessFromJobChain.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1406A3680 (PspEnforceLimitsJobPostCallback.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x1406FAC70 (PspChangeJobMemoryUsageByProcess.c)
- *     PspCompleteServerSiloShutdownDeferred @ 0x1409ACBA0 (PspCompleteServerSiloShutdownDeferred.c)
- *     PsReportProcessMemoryLimitViolation @ 0x1409B1DEC (PsReportProcessMemoryLimitViolation.c)
- *     PspAssociateCompletionPortCallback @ 0x1409B2100 (PspAssociateCompletionPortCallback.c)
+ *     PspAssociateCompletionPortCallback @ 0x1405D9200 (PspAssociateCompletionPortCallback.c)
+ *     PspSendProcessNotificationToJobChain @ 0x140605088 (PspSendProcessNotificationToJobChain.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406167F8 (PspRemoveProcessFromJobChain.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140618780 (PspEnforceLimitsJobPostCallback.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x14065DD10 (PspChangeJobMemoryUsageByProcess.c)
+ *     PspIncrementJobChainProcessCounts @ 0x14071ED18 (PspIncrementJobChainProcessCounts.c)
+ *     PspValidateJobAssignmentProcessLimits @ 0x14071F2FC (PspValidateJobAssignmentProcessLimits.c)
+ *     PspCompleteServerSiloShutdownDeferred @ 0x140905FB0 (PspCompleteServerSiloShutdownDeferred.c)
+ *     PsReportProcessMemoryLimitViolation @ 0x140908964 (PsReportProcessMemoryLimitViolation.c)
  * Callees:
- *     IoSetIoCompletion @ 0x1407E9F70 (IoSetIoCompletion.c)
+ *     IoSetIoCompletion @ 0x140693B60 (IoSetIoCompletion.c)
  */
 
 __int64 __fastcall PspSendJobNotification(__int64 a1, __int64 a2, int a3, char a4)
 {
   __int64 result; // rax
 
-  result = IoSetIoCompletion(*(_QWORD *)(a1 + 552), *(_QWORD *)(a1 + 560), a3, 0, a2, a4);
+  result = IoSetIoCompletion(*(_QWORD *)(a1 + 456), *(_QWORD *)(a1 + 464), a3, 0, a2, a4);
   if ( (int)result >= 0 )
-    _InterlockedIncrement64((volatile signed __int64 *)(a1 + 568));
+    _InterlockedIncrement64((volatile signed __int64 *)(a1 + 472));
   return result;
 }

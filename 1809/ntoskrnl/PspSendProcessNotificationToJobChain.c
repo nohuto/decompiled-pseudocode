@@ -3,7 +3,7 @@
  * Callers:
  *     PspRundownSingleProcess @ 0x140603A48 (PspRundownSingleProcess.c)
  * Callees:
- *     PspSendJobNotification @ 0x140137D9C (PspSendJobNotification.c)
+ *     PspSendJobNotification @ 0x140137DBC (PspSendJobNotification.c)
  *     PspUnlockJob @ 0x1405FE0C0 (PspUnlockJob.c)
  *     PspUnlockJobConditionally @ 0x1405FE8B8 (PspUnlockJobConditionally.c)
  *     PspLockJobConditionally @ 0x1406006E4 (PspLockJobConditionally.c)

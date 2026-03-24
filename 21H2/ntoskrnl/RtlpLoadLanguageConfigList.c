@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlpLoadLanguageConfigList @ 0x140830634
+ * XREFs of RtlpLoadLanguageConfigList @ 0x140793AC0
  * Callers:
- *     RtlpMuiRegLoadRegistryInfo @ 0x14082FBD4 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x140794628 (RtlpMuiRegLoadRegistryInfo.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     NtClose @ 0x140731D50 (NtClose.c)
- *     RtlpPopulateLanguageConfigList @ 0x14082FDD8 (RtlpPopulateLanguageConfigList.c)
- *     RtlpMuiRegCreateLanguageConfigList @ 0x14082FF7C (RtlpMuiRegCreateLanguageConfigList.c)
- *     LdrpOpenKey @ 0x14083071C (LdrpOpenKey.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x140A34D60 (RtlpLoadPolicyLanguageSpec.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     NtClose @ 0x1406F0980 (NtClose.c)
+ *     LdrpOpenKey @ 0x140793BA8 (LdrpOpenKey.c)
+ *     RtlpPopulateLanguageConfigList @ 0x1407941DC (RtlpPopulateLanguageConfigList.c)
+ *     RtlpMuiRegCreateLanguageConfigList @ 0x140794380 (RtlpMuiRegCreateLanguageConfigList.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x140980D00 (RtlpLoadPolicyLanguageSpec.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpLoadLanguageConfigList(__int64 a1, __int64 *a2, __int64 a3)
 {
-  __int64 v5; // rsi
+  void *v5; // rsi
   __int64 v6; // r8
   __int64 v7; // r8
   int v8; // eax
   int PolicyLanguageSpec; // ebx
   void *v11; // rcx
-  _QWORD *LanguageConfigList; // rax
+  __int64 LanguageConfigList; // rax
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-10h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp+48h] BYREF
 
@@ -29,7 +29,7 @@ __int64 __fastcall RtlpLoadLanguageConfigList(__int64 a1, __int64 *a2, __int64 a
   DestinationString = 0LL;
   if ( a2 && a3 )
   {
-    v5 = *a2;
+    v5 = (void *)*a2;
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings");
     if ( (int)LdrpOpenKey(&DestinationString, 0LL, v6, &Handle) >= 0 )
     {
@@ -66,7 +66,7 @@ LABEL_6:
     if ( a2 )
     {
       v11 = (void *)*a2;
-      if ( *a2 != v5 )
+      if ( (void *)*a2 != v5 )
       {
         if ( v11 )
           ExFreePoolWithTag(v11, 0);
@@ -76,13 +76,13 @@ LABEL_6:
   }
   else if ( !*a2 )
   {
-    LanguageConfigList = RtlpMuiRegCreateLanguageConfigList(1);
-    *a2 = (__int64)LanguageConfigList;
+    LanguageConfigList = RtlpMuiRegCreateLanguageConfigList(1LL);
+    *a2 = LanguageConfigList;
     if ( !LanguageConfigList )
     {
       PolicyLanguageSpec = -1073741801;
 LABEL_22:
-      *a2 = v5;
+      *a2 = (__int64)v5;
     }
   }
   return (unsigned int)PolicyLanguageSpec;

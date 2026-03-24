@@ -1,5 +1,5 @@
 /*
- * XREFs of MmDeterminePoolType @ 0x1402B909C
+ * XREFs of MmDeterminePoolType @ 0x1402B919C
  * Callers:
  *     VerifierMmBuildMdlForNonPagedPool @ 0x140944540 (VerifierMmBuildMdlForNonPagedPool.c)
  *     ExFreePoolSanityChecks @ 0x14094AD7C (ExFreePoolSanityChecks.c)

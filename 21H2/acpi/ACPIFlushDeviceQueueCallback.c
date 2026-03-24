@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIFlushDeviceQueueCallback @ 0x1C004B5A0
+ * XREFs of ACPIFlushDeviceQueueCallback @ 0x1C004C850
  * Callers:
  *     <none>
  * Callees:
- *     ACPIFlushQueuesUnload @ 0x1C004B5F8 (ACPIFlushQueuesUnload.c)
- *     AMLIRestartContext @ 0x1C00648F4 (AMLIRestartContext.c)
+ *     ACPIFlushQueuesUnload @ 0x1C004C8A8 (ACPIFlushQueuesUnload.c)
+ *     AMLIRestartContext @ 0x1C0063670 (AMLIRestartContext.c)
  */
 
 __int64 __fastcall ACPIFlushDeviceQueueCallback(__int64 a1, __int64 a2, int a3)

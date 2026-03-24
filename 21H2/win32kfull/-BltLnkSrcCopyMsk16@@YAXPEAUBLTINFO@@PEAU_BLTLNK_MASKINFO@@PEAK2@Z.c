@@ -1,5 +1,5 @@
 /*
- * XREFs of ?BltLnkSrcCopyMsk16@@YAXPEAUBLTINFO@@PEAU_BLTLNK_MASKINFO@@PEAK2@Z @ 0x1C02DAE90
+ * XREFs of ?BltLnkSrcCopyMsk16@@YAXPEAUBLTINFO@@PEAU_BLTLNK_MASKINFO@@PEAK2@Z @ 0x1C02DCA00
  * Callers:
  *     <none>
  * Callees:

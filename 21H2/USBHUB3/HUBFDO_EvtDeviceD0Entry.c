@@ -1,16 +1,15 @@
 /*
- * XREFs of HUBFDO_EvtDeviceD0Entry @ 0x1C000C530
+ * XREFs of HUBFDO_EvtDeviceD0Entry @ 0x1C000C140
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000C094 (McTemplateK0pqq_EtwWriteTransfer.c)
- *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C000C10C (McTemplateK0pqqh_EtwWriteTransfer.c)
- *     HUBMISC_WaitForSignal @ 0x1C0030194 (HUBMISC_WaitForSignal.c)
- *     MicrosoftTelemetryAssertTriggeredArgsMsgKM @ 0x1C004025C (MicrosoftTelemetryAssertTriggeredArgsMsgKM.c)
- *     SleepstudyHelper_ComponentActive @ 0x1C0042380 (SleepstudyHelper_ComponentActive.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C000BD24 (McTemplateK0pqqh_EtwWriteTransfer.c)
+ *     HUBMISC_WaitForSignal @ 0x1C002FAF4 (HUBMISC_WaitForSignal.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsMsgKM @ 0x1C003F67C (MicrosoftTelemetryAssertTriggeredArgsMsgKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBFDO_EvtDeviceD0Entry(__int64 a1)
@@ -38,7 +37,7 @@ __int64 __fastcall HUBFDO_EvtDeviceD0Entry(__int64 a1)
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0067198);
+         off_1C0066170);
   v3 = v2;
   *(_DWORD *)(v2 + 2600) = 1;
   _InterlockedOr((volatile signed __int32 *)(v2 + 40), 0x20000u);
@@ -55,7 +54,7 @@ __int64 __fastcall HUBFDO_EvtDeviceD0Entry(__int64 a1)
              &GUID_PDC_IDLE_RESILIENCY_ENGAGED,
              HUBFDO_IdleResiliencyCallback,
              (PVOID)v3,
-             (PVOID *)(v3 + 2640));
+             v4);
       if ( v6 >= 0 )
       {
         v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD, POWER_SETTING_CALLBACK *, int, const char *))(WdfFunctions_01015 + 3504))(
@@ -63,11 +62,11 @@ __int64 __fastcall HUBFDO_EvtDeviceD0Entry(__int64 a1)
                a1,
                0LL,
                HUBFDO_IdleResiliencyCallback,
-               1372,
+               1244,
                "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubfdo.c");
         if ( v7 < 0 )
         {
-          MicrosoftTelemetryAssertTriggeredArgsMsgKM(v8, (unsigned int)v7, 0LL, "WdfDeviceStopIdle failed");
+          MicrosoftTelemetryAssertTriggeredArgsMsgKM(v8, (unsigned int)v7);
           PoUnregisterPowerSettingCallback(*v4);
           *v4 = 0LL;
         }
@@ -78,40 +77,37 @@ __int64 __fastcall HUBFDO_EvtDeviceD0Entry(__int64 a1)
           *(_QWORD *)(v3 + 2520),
           2u,
           3u,
-          0x1Fu,
-          (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids,
+          0x1Bu,
+          (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids,
           v6);
       }
     }
   }
-  if ( !*(_QWORD *)(v3 + 2560) )
+  if ( !*(_QWORD *)(v3 + 2560) && (*(_DWORD *)(v3 + 40) & 0x4000000) != 0 )
   {
-    if ( _bittest((const signed __int32 *)(v3 + 40), 0x1Au) )
+    v9 = (struct _DEVICE_OBJECT *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 248))(
+                                    WdfDriverGlobals,
+                                    a1);
+    v10 = PoRegisterPowerSettingCallback(
+            v9,
+            &GUID_USB_SETTING_SELECTIVE_SUSPEND,
+            HUBFDO_PowerSettingCallback,
+            (PVOID)v3,
+            (PVOID *)(v3 + 2560));
+    if ( v10 < 0 )
     {
-      v9 = (struct _DEVICE_OBJECT *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 248))(
-                                      WdfDriverGlobals,
-                                      a1);
-      v10 = PoRegisterPowerSettingCallback(
-              v9,
-              &GUID_USB_SETTING_SELECTIVE_SUSPEND,
-              HUBFDO_PowerSettingCallback,
-              (PVOID)v3,
-              (PVOID *)(v3 + 2560));
-      if ( v10 < 0 )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LODWORD(v21) = v10;
-          WPP_RECORDER_SF_d(
-            *(_QWORD *)(v3 + 2520),
-            2u,
-            3u,
-            0x20u,
-            (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids,
-            v21);
-        }
-        *(_QWORD *)(v3 + 2560) = 0LL;
+        LODWORD(v21) = v10;
+        WPP_RECORDER_SF_d(
+          *(_QWORD *)(v3 + 2520),
+          2u,
+          3u,
+          0x1Cu,
+          (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids,
+          v21);
       }
+      *(_QWORD *)(v3 + 2560) = 0LL;
     }
   }
   v11 = 0;

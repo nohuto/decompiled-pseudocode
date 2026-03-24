@@ -1,5 +1,5 @@
 /*
- * XREFs of ExUnregisterExtension @ 0x1408D6EC0
+ * XREFs of ExUnregisterExtension @ 0x1408D6EA0
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,9 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     ExpDereferenceHost @ 0x1408D6FA8 (ExpDereferenceHost.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExpDereferenceHost @ 0x1408D6F88 (ExpDereferenceHost.c)
  */
 
 __int64 __fastcall ExUnregisterExtension(struct _EX_RUNDOWN_REF *a1)

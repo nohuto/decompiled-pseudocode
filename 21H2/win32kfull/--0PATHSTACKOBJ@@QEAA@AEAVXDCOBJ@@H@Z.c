@@ -1,24 +1,24 @@
 /*
- * XREFs of ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C0137C34
+ * XREFs of ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C0145120
  * Callers:
- *     GrePolyPolylineInternal @ 0x1C0136510 (GrePolyPolylineInternal.c)
- *     GrePolylineTo @ 0x1C0136880 (GrePolylineTo.c)
- *     GreRectangle @ 0x1C0136C70 (GreRectangle.c)
- *     GrePolyBezierTo @ 0x1C0137490 (GrePolyBezierTo.c)
- *     GrePolyPolygonInternal @ 0x1C0137A70 (GrePolyPolygonInternal.c)
- *     ?GreLineTo@@YAHPEAUHDC__@@HH@Z @ 0x1C0137FE4 (-GreLineTo@@YAHPEAUHDC__@@HH@Z.c)
- *     ?GrePolyBezierInternal@@YAHPEAUHDC__@@PEAUtagPOINT@@K@Z @ 0x1C029E444 (-GrePolyBezierInternal@@YAHPEAUHDC__@@PEAUtagPOINT@@K@Z.c)
- *     GreAngleArc @ 0x1C029E684 (GreAngleArc.c)
- *     GrePolyDraw @ 0x1C029EE18 (GrePolyDraw.c)
- *     NtGdiEllipse @ 0x1C029F2E0 (NtGdiEllipse.c)
- *     NtGdiRoundRect @ 0x1C029F530 (NtGdiRoundRect.c)
- *     NtGdiArcInternal @ 0x1C02AFE50 (NtGdiArcInternal.c)
+ *     NtGdiRoundRect @ 0x1C0142820 (NtGdiRoundRect.c)
+ *     GrePolyPolylineInternal @ 0x1C0142BD0 (GrePolyPolylineInternal.c)
+ *     GrePolylineTo @ 0x1C0143CD0 (GrePolylineTo.c)
+ *     GreRectangle @ 0x1C01440E0 (GreRectangle.c)
+ *     GrePolyBezierTo @ 0x1C0144930 (GrePolyBezierTo.c)
+ *     GrePolyPolygonInternal @ 0x1C0144F40 (GrePolyPolygonInternal.c)
+ *     ?GreLineTo@@YAHPEAUHDC__@@HH@Z @ 0x1C01454C4 (-GreLineTo@@YAHPEAUHDC__@@HH@Z.c)
+ *     ?GrePolyBezierInternal@@YAHPEAUHDC__@@PEAUtagPOINT@@K@Z @ 0x1C029FB0C (-GrePolyBezierInternal@@YAHPEAUHDC__@@PEAUtagPOINT@@K@Z.c)
+ *     GreAngleArc @ 0x1C029FD70 (GreAngleArc.c)
+ *     GrePolyDraw @ 0x1C02A0538 (GrePolyDraw.c)
+ *     NtGdiEllipse @ 0x1C02A0A00 (NtGdiEllipse.c)
+ *     NtGdiArcInternal @ 0x1C02B1280 (NtGdiArcInternal.c)
  * Callees:
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C0137840 (--1XEPATHOBJ@@QEAA@XZ.c)
- *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C0138854 (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
- *     ?ptfxGetCurrent@EPATHOBJ@@QEBA?AU_POINTFIX@@XZ @ 0x1C01388BC (-ptfxGetCurrent@EPATHOBJ@@QEBA-AU_POINTFIX@@XZ.c)
- *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C0282D44 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C0144D0C (--1XEPATHOBJ@@QEAA@XZ.c)
+ *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C0145D54 (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
+ *     ?ptfxGetCurrent@EPATHOBJ@@QEBA?AU_POINTFIX@@XZ @ 0x1C0145E20 (-ptfxGetCurrent@EPATHOBJ@@QEBA-AU_POINTFIX@@XZ.c)
+ *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C0286614 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
  */
 
 PATHSTACKOBJ *__fastcall PATHSTACKOBJ::PATHSTACKOBJ(PATHSTACKOBJ *this, DC **a2, int a3)

@@ -1,39 +1,39 @@
 /*
- * XREFs of MiSelectImageBase @ 0x1406AAA28
+ * XREFs of MiSelectImageBase @ 0x14066AAC0
  * Callers:
- *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
- *     MiRelocateImageAgain @ 0x1406AA700 (MiRelocateImageAgain.c)
+ *     MiRelocateImageAgain @ 0x14066A858 (MiRelocateImageAgain.c)
+ *     MiRelocateImage @ 0x140702D80 (MiRelocateImage.c)
  * Callees:
- *     MiGetImageBitMapInfo @ 0x1402106F4 (MiGetImageBitMapInfo.c)
- *     ExGenRandom @ 0x1403173F0 (ExGenRandom.c)
- *     MiSetControlAreaSystemVa @ 0x140367FAC (MiSetControlAreaSystemVa.c)
- *     MiBytesToMapSystemImage @ 0x140696AE4 (MiBytesToMapSystemImage.c)
- *     MiSelectSystemImageAddress @ 0x140696DA4 (MiSelectSystemImageAddress.c)
- *     MiSelectRelocationStartHint @ 0x1406AACDC (MiSelectRelocationStartHint.c)
- *     MiObtainRelocationBits @ 0x1406AAE04 (MiObtainRelocationBits.c)
- *     MiGetImageWowSubsystemIndex @ 0x1407E1268 (MiGetImageWowSubsystemIndex.c)
- *     MiImageCanUseHighOverflowArea @ 0x140A48200 (MiImageCanUseHighOverflowArea.c)
- *     MiSelectOverflowDllBase @ 0x140A4822C (MiSelectOverflowDllBase.c)
+ *     ExGenRandom @ 0x14022C200 (ExGenRandom.c)
+ *     MiGetImageBitMapInfo @ 0x1402FA0E0 (MiGetImageBitMapInfo.c)
+ *     MiSetControlAreaSystemVa @ 0x14037EB94 (MiSetControlAreaSystemVa.c)
+ *     MiObtainRelocationBits @ 0x14066ADB4 (MiObtainRelocationBits.c)
+ *     MiSelectRelocationStartHint @ 0x14066AE90 (MiSelectRelocationStartHint.c)
+ *     MiGetImageWowSubsystemIndex @ 0x14066B044 (MiGetImageWowSubsystemIndex.c)
+ *     MiBytesToMapSystemImage @ 0x1406FF140 (MiBytesToMapSystemImage.c)
+ *     MiSelectSystemImageAddress @ 0x14075F648 (MiSelectSystemImageAddress.c)
+ *     MiImageCanUseHighOverflowArea @ 0x1408D7D20 (MiImageCanUseHighOverflowArea.c)
+ *     MiSelectOverflowDllBase @ 0x1408D7D4C (MiSelectOverflowDllBase.c)
  */
 
-__int64 __fastcall MiSelectImageBase(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned __int64 *a5)
+__int64 __fastcall MiSelectImageBase(__int64 a1, __int64 a2, unsigned int a3, int a4, __int64 *a5)
 {
-  __int64 v5; // rbp
+  __int64 v5; // rsi
   int v6; // ebx
-  bool v7; // zf
   int v8; // r10d
-  __int64 v9; // r11
-  __int64 v11; // rcx
-  unsigned int v12; // esi
-  int ImageWowSubsystemIndex; // esi
-  __int64 v14; // r9
-  unsigned __int64 v15; // rax
-  __int64 v16; // r13
-  unsigned __int64 v17; // r12
-  unsigned int v18; // r15d
-  __int16 v19; // r10
+  __int64 v9; // r9
+  __int64 v10; // r11
+  __int64 v11; // rdi
+  unsigned int v12; // ebp
+  unsigned __int64 v13; // rcx
+  __int64 v14; // r12
+  unsigned __int64 v15; // r13
+  unsigned int v16; // r14d
+  __int64 v17; // r8
   __int64 started; // rax
-  unsigned __int64 v21; // rdi
+  __int64 v19; // rax
+  int v20; // eax
+  int ImageWowSubsystemIndex; // eax
   unsigned __int64 v23; // rax
   __int64 v24; // rax
   unsigned __int64 v25; // rcx
@@ -42,133 +42,151 @@ __int64 __fastcall MiSelectImageBase(__int64 a1, __int64 a2, __int64 a3, int a4,
   __int64 v28; // [rsp+28h] [rbp-50h] BYREF
   _OWORD v29[4]; // [rsp+30h] [rbp-48h] BYREF
   __int64 v30; // [rsp+80h] [rbp+8h]
-  unsigned int v31; // [rsp+90h] [rbp+18h]
+  int v31; // [rsp+90h] [rbp+18h]
 
   v31 = a3;
   v5 = *(_QWORD *)a1;
   v6 = 0;
-  v7 = (*(_BYTE *)(a1 + 14) & 0x40) == 0;
-  v8 = a4;
-  v9 = a2;
   v27 = 0LL;
+  v8 = a4;
   v28 = 0LL;
-  if ( v7 )
+  v9 = *(_QWORD *)(a1 + 56);
+  v10 = a2;
+  v11 = 0LL;
+  v30 = v9;
+  if ( (*(_BYTE *)(a1 + 14) & 0x40) == 0 )
   {
-    v11 = *(_QWORD *)(a1 + 56);
-    if ( (*(_BYTE *)(v11 + 51) & 0x10) != 0 && _bittest16((const signed __int16 *)(v11 + 44), 0xDu) )
+    if ( (*(_BYTE *)(v9 + 51) & 0x10) != 0 && (*(_WORD *)(v9 + 44) & 0x2000) != 0 )
+    {
       v12 = 2;
-    else
-      v12 = *(_QWORD *)(a1 + 32) <= 0xFFFFFFFFuLL;
+      goto LABEL_6;
+    }
+    if ( *(_QWORD *)(a1 + 32) < 0x100000000uLL )
+    {
+      v12 = 1;
 LABEL_6:
-    *(_DWORD *)(v5 + 92) ^= (*(_DWORD *)(v5 + 92) ^ (v12 << 20)) & 0x300000;
-    goto LABEL_7;
-  }
-  ImageWowSubsystemIndex = MiGetImageWowSubsystemIndex();
-  if ( ImageWowSubsystemIndex != -1 )
-  {
-    v12 = ImageWowSubsystemIndex + 3;
+      *(_DWORD *)(v5 + 92) ^= (*(_DWORD *)(v5 + 92) ^ (v12 << 20)) & 0x300000;
+      v9 = *(_QWORD *)(a1 + 56);
+      v30 = v9;
+      goto LABEL_7;
+    }
+    v12 = 0;
+LABEL_5:
+    v30 = v9;
     if ( v12 == 4 )
       goto LABEL_7;
     goto LABEL_6;
   }
+  ImageWowSubsystemIndex = MiGetImageWowSubsystemIndex(a1);
+  if ( ImageWowSubsystemIndex != -1 )
+  {
+    v12 = ImageWowSubsystemIndex + 3;
+    goto LABEL_5;
+  }
   v12 = 4;
 LABEL_7:
-  v14 = *(_QWORD *)(a1 + 56);
-  LODWORD(v15) = *(_DWORD *)(a1 + 8);
-  v30 = v14;
-  if ( !(_DWORD)a3 )
+  LODWORD(v13) = *(_DWORD *)(a1 + 8);
+  if ( !a3 )
   {
-    if ( !dword_140C6997C )
+    if ( !dword_140C4CCB0 )
       goto LABEL_9;
-    v26 = ((unsigned int)dword_140C6997C >> 12) + ((dword_140C6997C & 0xFFF) != 0);
+    v26 = ((unsigned int)MiUserHotPatchReserveSize >> 12) + ((MiUserHotPatchReserveSize & 0xFFF) != 0);
     if ( !v26 )
       goto LABEL_9;
-    if ( v26 + (unsigned int)v15 >= (unsigned int)v15 )
+    if ( v26 + (unsigned int)v13 >= (unsigned int)v13 )
     {
-      LODWORD(v15) = v26 + v15;
+      LODWORD(v13) = v26 + v13;
       goto LABEL_9;
     }
     return 3221225503LL;
   }
-  v23 = MiBytesToMapSystemImage((unsigned int)((_DWORD)v15 << 12));
+  v23 = MiBytesToMapSystemImage((unsigned int)((_DWORD)v13 << 12));
   if ( !v23 )
     return 3221225503LL;
   a3 = v31;
-  v15 = v23 >> 12;
+  v13 = v23 >> 12;
 LABEL_9:
-  LODWORD(v16) = -1;
-  if ( v8 )
+  v14 = -1LL;
+  if ( v8 == 1 )
   {
-    LOWORD(v18) = 0;
-    v21 = *(_QWORD *)(a1 + 32);
-    goto LABEL_45;
+    LOWORD(v16) = 0;
+    v11 = *(_QWORD *)(a1 + 32);
+    goto LABEL_27;
   }
-  v17 = *(_QWORD *)(a1 + 32) - *(_QWORD *)(v9 + 40);
-  v18 = (unsigned int)(v15 + 15) >> 4;
-  if ( !(_DWORD)a3 )
+  v15 = *(_QWORD *)(a1 + 32) - *(_QWORD *)(v10 + 40);
+  v16 = (unsigned int)(v13 + 15) >> 4;
+  if ( !a3 )
   {
-    v19 = 0x2000;
-    if ( (*(_WORD *)(v14 + 44) & 0x2000) != 0 )
+    v17 = 0x2000LL;
+    if ( (*(_WORD *)(v9 + 44) & 0x2000) != 0 )
     {
       v29[0] = 0LL;
-      LOBYTE(a3) = v12 != 4;
-      if ( !dword_140D1D1E0 || !(unsigned int)MiImageCanUseHighOverflowArea(a1, v17, a3) )
+      LOBYTE(v17) = v12 != 4;
+      if ( dword_140CFB190 && (unsigned int)MiImageCanUseHighOverflowArea(a1, v15, v17) )
+        LOBYTE(v17) = 0;
+      if ( (_BYTE)v17 )
       {
-        if ( (_BYTE)a3 )
+        MiGetImageBitMapInfo(v12, v29, &v28, &v27);
+        started = MiSelectRelocationStartHint(v29, (unsigned __int16)v16, v27, 0LL);
+        v14 = started;
+        if ( started == -1 )
         {
-          MiGetImageBitMapInfo(v12, v29, &v28, &v27);
-          started = MiSelectRelocationStartHint(v29, (unsigned __int16)v18, v27, 0LL);
-          v16 = started;
-          if ( started != -1 )
-            v16 = MiObtainRelocationBits(v29, (unsigned __int16)v18, started);
-          if ( v16 != -1 )
-          {
-            v21 = v28 - ((v16 + (unsigned __int16)v18) << 16);
-LABEL_18:
-            *(_DWORD *)(v5 + 88) = v16;
-            *(_WORD *)(v5 + 92) = v18;
-LABEL_19:
-            *(_DWORD *)(v5 + 92) = (v6 << 23) | *(_DWORD *)(v5 + 92) & 0xFF7FFFFF;
-            *a5 = v21;
-            return 0LL;
-          }
-          v14 = v30;
-          v19 = 0x2000;
+          v9 = v30;
+        }
+        else
+        {
+          v19 = MiObtainRelocationBits(v29, (unsigned __int16)v16, started);
+          v9 = v30;
+          v14 = v19;
+          if ( v19 != -1 )
+            v11 = v28 - ((v19 + (unsigned __int16)v16) << 16);
         }
       }
     }
-    if ( (*(_DWORD *)(v5 + 92) & 0x800000) != 0 )
-    {
-      v21 = *(_QWORD *)(a1 + 32);
-      v6 = 1;
-      goto LABEL_19;
-    }
-    if ( !v12 )
-    {
-      v6 = 1;
-      v21 = ((unsigned int)ExGenRandom(1) % (131073 - (unsigned __int64)(unsigned __int16)v18) + 2146828288) << 16;
+    if ( v14 != -1 )
       goto LABEL_18;
-    }
-    if ( ((unsigned __int16)v19 & *(_WORD *)(v14 + 44)) == 0 )
+    v20 = *(_DWORD *)(v5 + 92);
+    if ( (v20 & 0x800000) != 0 )
     {
+      v11 = *(_QWORD *)(a1 + 32);
       v6 = 1;
-      v25 = (unsigned __int64)(unsigned __int8)ExGenRandom(1) << 16;
-      if ( v17 >= 0x1000000 )
-        v21 = v17 - v25;
+      goto LABEL_20;
+    }
+    if ( v12 )
+    {
+      if ( (*(_WORD *)(v9 + 44) & 0x2000) != 0 )
+      {
+        v11 = MiSelectOverflowDllBase(a1, v15, v12);
+      }
       else
-        v21 = v25 + 0x10000;
-      goto LABEL_18;
+      {
+        v25 = (unsigned __int64)(unsigned __int8)ExGenRandom(1) << 16;
+        v11 = v15 - v25;
+        if ( v15 < 0x1000000 )
+          v11 = v25 + 0x10000;
+      }
     }
-    v21 = MiSelectOverflowDllBase(a1, v17, v12);
-LABEL_45:
+    else
+    {
+      v11 = ((unsigned int)ExGenRandom(1) % (131073LL - (unsigned __int16)v16) + 2146828288) << 16;
+    }
+LABEL_27:
     v6 = 1;
-    goto LABEL_18;
+LABEL_18:
+    *(_DWORD *)(v5 + 88) = v14;
+    *(_WORD *)(v5 + 92) = v16;
+LABEL_19:
+    v20 = *(_DWORD *)(v5 + 92);
+LABEL_20:
+    *(_DWORD *)(v5 + 92) = (v6 << 23) | v20 & 0xFF7FFFFF;
+    *a5 = v11;
+    return 0LL;
   }
-  v24 = MiSelectSystemImageAddress(a3, v15);
-  v21 = v24;
+  v24 = MiSelectSystemImageAddress(a3, (unsigned int)v13);
+  v11 = v24;
   if ( v24 )
   {
-    *(_WORD *)(v5 + 92) = v18;
+    *(_WORD *)(v5 + 92) = v16;
     *(_DWORD *)(v5 + 88) = (unsigned __int64)(v24 + 0x800000000000LL) >> 16;
     MiSetControlAreaSystemVa(v5, v31);
     goto LABEL_19;

@@ -1,54 +1,53 @@
 /*
- * XREFs of VertexTransfer::TransformDeviceSpacePositionAndNormal @ 0x180208DF8
+ * XREFs of VertexTransfer::TransformDeviceSpacePositionAndNormal @ 0x1800124D8
  * Callers:
- *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x180206C68 (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldX.c)
- *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x180206DC8 (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_C_ea_180206DC8.c)
- *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x180206F28 (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_C_ea_180206F28.c)
- *     VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1802071D8 (VertexTransfer--Transfer_VertexTransfer--CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_World.c)
- *     VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1802072D4 (VertexTransfer--Transfer_VertexTransfer--CNonScale2DOperator_Vertex_UVxN_VertexXYW__ea_1802072D4.c)
- *     VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1802073D0 (VertexTransfer--Transfer_VertexTransfer--CNonScale2DOperator_Vertex_UVxN_VertexXYW__ea_1802073D0.c)
- *     VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1802076C8 (VertexTransfer--Transfer_VertexTransfer--CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ.c)
- *     VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1802077F0 (VertexTransfer--Transfer_VertexTransfer--CScale2DOperator_Vertex_UVxN_VertexXYW_Col_ea_1802077F0.c)
- *     VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x180207918 (VertexTransfer--Transfer_VertexTransfer--CScale2DOperator_Vertex_UVxN_VertexXYW_Col_ea_180207918.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x180012390 (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldX.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A809C (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_C_ea_1801A809C.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A81FC (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_C_ea_1801A81FC.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A84C4 (VertexTransfer--Transfer_VertexTransfer--CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_World.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A85C0 (VertexTransfer--Transfer_VertexTransfer--CNonScale2DOperator_Vertex_UVxN_VertexXYW__ea_1801A85C0.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A86BC (VertexTransfer--Transfer_VertexTransfer--CNonScale2DOperator_Vertex_UVxN_VertexXYW__ea_1801A86BC.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A89B4 (VertexTransfer--Transfer_VertexTransfer--CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A8ADC (VertexTransfer--Transfer_VertexTransfer--CScale2DOperator_Vertex_UVxN_VertexXYW_Col_ea_1801A8ADC.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A8C04 (VertexTransfer--Transfer_VertexTransfer--CScale2DOperator_Vertex_UVxN_VertexXYW_Col_ea_1801A8C04.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?XMConvertFloatToHalfStream@PackedVector@DirectX@@YAPEAGPEAG_KPEBM11@Z @ 0x180208F14 (-XMConvertFloatToHalfStream@PackedVector@DirectX@@YAPEAGPEAG_KPEBM11@Z.c)
- *     ?TransformIgnoreZW@CMILMatrix@@QEBAXPEBUD2D_POINT_2F@@PEAUMilPoint4F@@I@Z @ 0x1802714E4 (-TransformIgnoreZW@CMILMatrix@@QEBAXPEBUD2D_POINT_2F@@PEAUMilPoint4F@@I@Z.c)
+ *     ?TransformIgnoreZW@CMILMatrix@@QEBAXPEBUD2D_POINT_2F@@PEAUMilPoint4F@@I@Z @ 0x180012BF0 (-TransformIgnoreZW@CMILMatrix@@QEBAXPEBUD2D_POINT_2F@@PEAUMilPoint4F@@I@Z.c)
+ *     ?XMConvertFloatToHalf@PackedVector@DirectX@@YAGM@Z @ 0x180021468 (-XMConvertFloatToHalf@PackedVector@DirectX@@YAGM@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-unsigned __int16 *__fastcall VertexTransfer::TransformDeviceSpacePositionAndNormal(
+unsigned __int16 __fastcall VertexTransfer::TransformDeviceSpacePositionAndNormal(
         struct D2D_POINT_2F *a1,
         CMILMatrix *this,
-        _DWORD *a3,
+        __int64 a3,
         __int64 a4)
 {
-  float v7; // xmm2_4
-  float v8; // xmm3_4
-  float v9; // xmm0_4
-  unsigned __int64 v11; // [rsp+20h] [rbp-48h]
-  unsigned __int64 v12; // [rsp+28h] [rbp-40h]
-  _DWORD v13[3]; // [rsp+30h] [rbp-38h] BYREF
-  float v14; // [rsp+3Ch] [rbp-2Ch]
+  float v4; // xmm1_4
+  DirectX::PackedVector *v6; // rcx
+  float v7; // xmm5_4
+  float v8; // xmm4_4
+  __int64 v9; // r9
+  _DWORD *v10; // r11
+  unsigned __int16 result; // ax
+  unsigned __int16 *v12; // r9
+  __int64 v13; // r11
+  _DWORD v14[3]; // [rsp+20h] [rbp-28h] BYREF
+  float v15; // [rsp+2Ch] [rbp-1Ch]
 
+  v6 = 0LL;
   if ( this )
   {
-    CMILMatrix::TransformIgnoreZW(this, a1, (struct MilPoint4F *)v13, a4);
-    v7 = *(float *)&v13[1];
-    v8 = *(float *)&v13[2];
-    *(_DWORD *)(a4 + 16) = v13[0];
-    *(float *)(a4 + 20) = v7;
-    *(float *)(a4 + 24) = v8;
-    if ( v14 != 1.0 && v14 != 0.0 )
-    {
-      v9 = 1.0 / v14;
-      *(float *)(a4 + 16) = (float)(1.0 / v14) * *(float *)(a4 + 16);
-      *(float *)(a4 + 20) = v7 * v9;
-      *(float *)(a4 + 24) = v8 * v9;
-    }
-    *(_DWORD *)(a4 + 32) = *a3;
-    *(_DWORD *)(a4 + 36) = a3[1];
-    *(_DWORD *)(a4 + 40) = a3[2];
-    *(_DWORD *)(a4 + 44) = a3[3];
+    CMILMatrix::TransformIgnoreZW(this, a1, (struct MilPoint4F *)v14, a4);
+    v7 = v15;
+    v8 = *(float *)v14;
+    v4 = *(float *)&v14[2] / v15;
+    *(float *)(v9 + 20) = *(float *)&v14[1] / v15;
+    *(float *)(v9 + 24) = v4;
+    *(float *)(v9 + 16) = v8 / v7;
+    *(_DWORD *)(v9 + 32) = *v10;
+    *(_DWORD *)(v9 + 36) = v10[1];
+    *(_DWORD *)(v9 + 40) = v10[2];
+    *(_DWORD *)(v9 + 44) = v10[3];
   }
   else
   {
@@ -58,11 +57,11 @@ unsigned __int16 *__fastcall VertexTransfer::TransformDeviceSpacePositionAndNorm
     *(_DWORD *)(a4 + 40) = 0;
     *(_DWORD *)(a4 + 44) = 1065353216;
   }
-  return DirectX::PackedVector::XMConvertFloatToHalfStream(
-           (DirectX::PackedVector *)(a4 + 28),
-           (unsigned __int16 *)this,
-           (unsigned __int64)a1,
-           (const float *)a4,
-           v11,
-           v12);
+  do
+  {
+    result = DirectX::PackedVector::XMConvertFloatToHalf(v6, v4);
+    *v12 = result;
+  }
+  while ( v13 != 1 );
+  return result;
 }

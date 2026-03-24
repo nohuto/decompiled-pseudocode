@@ -1,25 +1,25 @@
 /*
- * XREFs of PpmTranslatePlatformIdleAccounting @ 0x140598218
+ * XREFs of PpmTranslatePlatformIdleAccounting @ 0x140577400
  * Callers:
- *     PpmEventTracePlatformIdleAccounting @ 0x140999120 (PpmEventTracePlatformIdleAccounting.c)
+ *     PpmEventTracePlatformIdleAccounting @ 0x1408F32F0 (PpmEventTracePlatformIdleAccounting.c)
  * Callees:
- *     PpmConvertTime @ 0x1402553F0 (PpmConvertTime.c)
+ *     PpmConvertTime @ 0x14034523C (PpmConvertTime.c)
  */
 
 __int64 __fastcall PpmTranslatePlatformIdleAccounting(__int64 a1, __int64 a2)
 {
-  __int64 v2; // r11
-  __int64 v3; // rsi
+  __int64 v2; // rbx
+  __int64 v3; // rbp
   unsigned int v4; // edx
   __int64 result; // rax
-  __int64 v6; // rdi
-  __int64 v7; // rbp
-  __int64 v8; // rbx
+  __int64 v6; // rsi
+  __int64 v7; // r14
+  __int64 v8; // rdi
   unsigned int v9; // ecx
-  unsigned __int64 v10; // r12
-  _DWORD *v11; // r14
-  __int64 v12; // r15
-  __int64 v13; // r13
+  __int64 v10; // r13
+  _DWORD *v11; // r15
+  __int64 v12; // r12
+  __int64 v13; // rbx
 
   v2 = a2;
   v3 = 0LL;
@@ -46,7 +46,7 @@ __int64 __fastcall PpmTranslatePlatformIdleAccounting(__int64 a1, __int64 a2)
       *(_DWORD *)(v6 + 8) = PpmConvertTime(*(_QWORD *)(v8 + 20), v10, 0xF4240uLL);
       *(_DWORD *)(v6 + 4) = PpmConvertTime(*(_QWORD *)(v8 + 12), v10, 0xF4240uLL);
       v11 = (_DWORD *)(v6 + 44);
-      v12 = v8 + 196;
+      v12 = v8 + 188;
       v13 = 26LL;
       do
       {
@@ -61,10 +61,11 @@ __int64 __fastcall PpmTranslatePlatformIdleAccounting(__int64 a1, __int64 a2)
       }
       while ( v13 );
       v6 += 664LL;
-      v8 += 1016LL;
+      v8 += 1008LL;
       --v7;
     }
     while ( v7 );
+    v2 = a2;
   }
   *(_QWORD *)(v2 + 8) = v3;
   return result;

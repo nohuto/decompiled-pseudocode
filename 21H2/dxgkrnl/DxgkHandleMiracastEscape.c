@@ -1,313 +1,354 @@
 /*
- * XREFs of DxgkHandleMiracastEscape @ 0x1C038E208
+ * XREFs of DxgkHandleMiracastEscape @ 0x1C02CF1E8
  * Callers:
- *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
+ *     DxgkEscape @ 0x1C00F9100 (DxgkEscape.c)
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C001C320 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     DpiMiracastGetDeviceContextFromLuid @ 0x1C006111C (DpiMiracastGetDeviceContextFromLuid.c)
- *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C0061CB0 (DpiMiracastReleaseMiracastDeviceContext.c)
- *     DpiMiracastStopMiracastSessionSync @ 0x1C0061EE0 (DpiMiracastStopMiracastSessionSync.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01B32DC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C01B40A0 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01B445C (DpiAcquireCoreSyncAccessSafe.c)
- *     DpiMiracastDdiMiracastIoControl @ 0x1C038CE68 (DpiMiracastDdiMiracastIoControl.c)
- *     DpiMiracastHandleStartSessionDone @ 0x1C038D50C (DpiMiracastHandleStartSessionDone.c)
- *     DpiMiracastHandleStopSessionDone @ 0x1C038D988 (DpiMiracastHandleStopSessionDone.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0018FF0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     DpiMiracastGetDeviceContextFromLuid @ 0x1C005347C (DpiMiracastGetDeviceContextFromLuid.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C0054050 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C00542A0 (DpiMiracastStopMiracastSessionSync.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0121730 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C01219AC (DpiAcquireCoreSyncAccessSafe.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C013AB0C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpiMiracastDdiMiracastIoControl @ 0x1C02CDD98 (DpiMiracastDdiMiracastIoControl.c)
+ *     DpiMiracastHandleStartSessionDone @ 0x1C02CE44C (DpiMiracastHandleStartSessionDone.c)
+ *     DpiMiracastHandleStopSessionDone @ 0x1C02CE8D4 (DpiMiracastHandleStopSessionDone.c)
  */
 
-__int64 __fastcall DxgkHandleMiracastEscape(unsigned int a1, _QWORD *a2)
+__int64 __fastcall DxgkHandleMiracastEscape(__int64 a1, __int64 a2)
 {
   __int64 v3; // rsi
   __int64 v4; // r13
   _DWORD *PoolWithQuotaTag; // r15
   char v6; // r12
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 *DeviceContextFromLuid; // r14
-  __int64 v13; // r8
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  unsigned int v16; // eax
-  unsigned int v17; // eax
+  __int64 v7; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 DeviceContextFromLuid; // r14
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // rax
+  __int64 v17; // rdx
   __int64 v18; // rcx
-  char *v19; // rdx
-  unsigned int v20; // eax
-  int v21; // eax
+  unsigned int v19; // eax
+  __int64 v20; // rcx
+  __int64 v21; // r9
   __int64 v22; // rax
-  int v23; // eax
-  __int64 v24; // rdx
-  __int64 v25; // rdx
+  unsigned int v23; // eax
+  char *v24; // rdx
+  unsigned int v25; // eax
   int v26; // eax
-  struct _KEVENT *v27; // r9
-  void *v28; // rcx
-  NTSTATUS v29; // eax
-  unsigned int v30; // eax
-  char v31; // [rsp+40h] [rbp-B8h]
-  char v32; // [rsp+42h] [rbp-B6h]
-  char v33; // [rsp+43h] [rbp-B5h]
-  int v34; // [rsp+44h] [rbp-B4h]
+  __int64 v27; // r13
+  __int64 v28; // r13
+  int v29; // eax
+  __int64 v30; // rax
+  int v31; // r13d
+  int v32; // eax
+  struct _KEVENT *v33; // r9
+  void *v34; // rcx
+  NTSTATUS v35; // eax
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  __int64 v38; // r13
+  __int64 v39; // rax
+  unsigned int v40; // eax
+  __int64 v41; // rax
+  void *v42; // r13
+  __int64 v43; // rdi
+  char v44; // [rsp+40h] [rbp-B8h]
+  char v45; // [rsp+42h] [rbp-B6h]
+  char v46; // [rsp+43h] [rbp-B5h]
   PVOID Src; // [rsp+48h] [rbp-B0h]
-  PVOID Object[4]; // [rsp+60h] [rbp-98h] BYREF
-  _DWORD v37[2]; // [rsp+80h] [rbp-78h] BYREF
-  _BYTE v38[24]; // [rsp+88h] [rbp-70h] BYREF
-  __int64 v39; // [rsp+A0h] [rbp-58h]
-  int v40; // [rsp+A8h] [rbp-50h]
-  int v41; // [rsp+ACh] [rbp-4Ch]
-  int v42; // [rsp+B0h] [rbp-48h]
-  int v43; // [rsp+B4h] [rbp-44h]
-  int v44; // [rsp+B8h] [rbp-40h]
-  int v45; // [rsp+BCh] [rbp-3Ch]
+  PVOID Object; // [rsp+58h] [rbp-A0h] BYREF
+  PVOID v49; // [rsp+60h] [rbp-98h]
+  __int64 v50; // [rsp+68h] [rbp-90h]
+  __int64 v51; // [rsp+70h] [rbp-88h]
+  __int64 v52; // [rsp+78h] [rbp-80h]
+  _DWORD v53[2]; // [rsp+80h] [rbp-78h] BYREF
+  _BYTE v54[24]; // [rsp+88h] [rbp-70h] BYREF
+  __int64 v55; // [rsp+A0h] [rbp-58h]
+  int v56; // [rsp+A8h] [rbp-50h]
+  int v57; // [rsp+ACh] [rbp-4Ch]
+  int v58; // [rsp+B0h] [rbp-48h]
+  int v59; // [rsp+B4h] [rbp-44h]
+  int v60; // [rsp+B8h] [rbp-40h]
+  int v61; // [rsp+BCh] [rbp-3Ch]
 
-  Object[2] = a2;
+  v51 = a2;
   LODWORD(v3) = 0;
   v4 = 0LL;
+  v52 = 0LL;
   PoolWithQuotaTag = 0LL;
   Src = 0LL;
   v6 = 0;
-  v31 = 0;
-  v33 = 0;
-  v32 = 0;
-  if ( a1 < 0x38 )
+  v44 = 0;
+  v46 = 0;
+  v45 = 0;
+  if ( (unsigned int)a1 < 0x38 )
   {
-    WdLogSingleEntry1(2LL, -1073741789LL);
+    v7 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v7 + 24) = -1073741789LL;
+    WdLogEvent5_WdError(v7);
     return 3221225507LL;
   }
-  *((_DWORD *)a2 + 12) = 0;
-  DeviceContextFromLuid = DpiMiracastGetDeviceContextFromLuid(*a2, 0);
-  Object[1] = DeviceContextFromLuid;
+  *(_DWORD *)(a2 + 48) = 0;
+  DeviceContextFromLuid = DpiMiracastGetDeviceContextFromLuid(*(_QWORD *)a2, 0);
+  v50 = DeviceContextFromLuid;
   if ( !DeviceContextFromLuid )
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
+    v12 = WdLogNewEntry5_WdError(v10, v9);
+    *(_QWORD *)(v12 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v12);
     return 3221225485LL;
   }
-  if ( PsGetCurrentProcess(v9, v8, v10, v11) == DeviceContextFromLuid[13] )
+  if ( PsGetCurrentProcess(v10, v9) != *(_QWORD *)(DeviceContextFromLuid + 104) )
   {
-    v16 = *((_DWORD *)a2 + 4);
-    if ( v16 && (PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v16, 0x74727044u)) == 0LL
-      || (v17 = *((_DWORD *)a2 + 8)) != 0 && (Src = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v17, 0x74727044u)) == 0LL )
+    v3 = -1073741790LL;
+LABEL_7:
+    v16 = WdLogNewEntry5_WdError(v14, v13);
+    *(_QWORD *)(v16 + 24) = v3;
+LABEL_8:
+    WdLogEvent5_WdError(v16);
+    goto LABEL_63;
+  }
+  v19 = *(_DWORD *)(a2 + 16);
+  if ( v19 && (PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v19, 0x74727044u)) == 0LL
+    || (v23 = *(_DWORD *)(a2 + 32)) != 0 && (Src = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v23, 0x74727044u)) == 0LL )
+  {
+    LODWORD(v3) = -1073741801;
+    v22 = WdLogNewEntry5_WdLowResource(v20, v13, v15, v21);
+    *(_QWORD *)(v22 + 24) = -1073741801LL;
+    WdLogEvent5_WdLowResource(v22);
+    goto LABEL_63;
+  }
+  v14 = *(unsigned int *)(a2 + 16);
+  if ( (_DWORD)v14 )
+  {
+    v24 = *(char **)(a2 + 24);
+    if ( (unsigned __int64)&v24[v14] > MmUserProbeAddress || &v24[v14] < v24 )
     {
-      v14 = -1073741801LL;
-      LODWORD(v3) = -1073741801;
-      v15 = 6LL;
-      goto LABEL_9;
+      *(_BYTE *)MmUserProbeAddress = 0;
+      LODWORD(v14) = *(_DWORD *)(a2 + 16);
+      v24 = *(char **)(a2 + 24);
     }
-    v18 = *((unsigned int *)a2 + 4);
-    if ( (_DWORD)v18 )
+    memmove(PoolWithQuotaTag, v24, (unsigned int)v14);
+  }
+  v25 = *(_DWORD *)(a2 + 32);
+  if ( v25 )
+    ProbeForWrite(*(volatile void **)(a2 + 40), v25, 1u);
+  v26 = *(_DWORD *)(a2 + 8);
+  if ( (v26 & 6) != 0 )
+  {
+    AcquireMiniportListMutex();
+    v6 = 1;
+    v27 = *(_QWORD *)(DeviceContextFromLuid + 432);
+    if ( !v27 )
     {
-      v19 = (char *)a2[3];
-      if ( (unsigned __int64)&v19[v18] > MmUserProbeAddress || &v19[v18] < v19 )
-      {
-        *(_BYTE *)MmUserProbeAddress = 0;
-        LODWORD(v18) = *((_DWORD *)a2 + 4);
-        v19 = (char *)a2[3];
-      }
-      memmove(PoolWithQuotaTag, v19, (unsigned int)v18);
+      v28 = -1073741275LL;
+LABEL_24:
+      LODWORD(v3) = v28;
+      v16 = WdLogNewEntry5_WdError(v14, v13);
+      *(_QWORD *)(v16 + 24) = v28;
+      goto LABEL_8;
     }
-    v20 = *((_DWORD *)a2 + 8);
-    if ( v20 )
-      ProbeForWrite((volatile void *)a2[5], v20, 1u);
-    v21 = *((_DWORD *)a2 + 2);
-    if ( (v21 & 6) != 0 )
+    v4 = *(_QWORD *)(v27 + 64);
+    v52 = v4;
+    KeEnterCriticalRegion();
+    if ( *(_BYTE *)(v4 + 484) )
+      DpiCheckForOutstandingD3Requests(v4);
+    ExAcquireResourceSharedLite(*(PERESOURCE *)(v4 + 168), 1u);
+    v44 = 1;
+    v14 = *(unsigned int *)(v4 + 236);
+    if ( (_DWORD)v14 != 2 && (*(_DWORD *)(v4 + 240) != 2 || (((_DWORD)v14 - 3) & 0xFFFFFFFC) != 0 || (_DWORD)v14 == 4) )
     {
-      AcquireMiniportListMutex();
-      v6 = 1;
-      v22 = DeviceContextFromLuid[54];
-      if ( !v22 )
-      {
-        v14 = -1073741275LL;
-LABEL_25:
-        LODWORD(v3) = v14;
-        goto LABEL_8;
-      }
-      v4 = *(_QWORD *)(v22 + 64);
-      KeEnterCriticalRegion();
-      if ( *(_BYTE *)(v4 + 484) )
-        DpiCheckForOutstandingD3Requests(v4);
-      ExAcquireResourceSharedLite(*(PERESOURCE *)(v4 + 168), 1u);
-      v31 = 1;
-      v18 = *(unsigned int *)(v4 + 236);
-      if ( (_DWORD)v18 != 2 && (*(_DWORD *)(v4 + 240) != 2 || (((_DWORD)v18 - 3) & 0xFFFFFFFC) != 0 || (_DWORD)v18 == 4) )
-      {
-        v14 = -1073741130LL;
-        goto LABEL_25;
-      }
-      v21 = *((_DWORD *)a2 + 2);
-      if ( (v21 & 4) != 0 )
-      {
-        v23 = DpiAcquireCoreSyncAccessSafe(DeviceContextFromLuid[54], *((_BYTE *)a2 + 12));
-        v3 = v23;
-        if ( v23 < 0 )
-          goto LABEL_7;
-        v33 = 1;
-        v21 = *((_DWORD *)a2 + 2);
-      }
+      v28 = -1073741130LL;
+      goto LABEL_24;
     }
-    if ( (v21 & 1) != 0 )
+    v26 = *(_DWORD *)(a2 + 8);
+    if ( (v26 & 4) != 0 )
     {
-      ExEnterCriticalRegionAndAcquireFastMutexUnsafe(DeviceContextFromLuid + 4);
-      DeviceContextFromLuid[11] = (__int64)KeGetCurrentThread();
-      v32 = 1;
-      v21 = *((_DWORD *)a2 + 2);
+      v29 = DpiAcquireCoreSyncAccessSafe(*(_QWORD *)(DeviceContextFromLuid + 432), *(_BYTE *)(a2 + 12));
+      v3 = v29;
+      if ( v29 < 0 )
+        goto LABEL_7;
+      v46 = 1;
+      v26 = *(_DWORD *)(a2 + 8);
     }
-    if ( v21 == 4 )
+  }
+  if ( (v26 & 1) != 0 )
+  {
+    ExEnterCriticalRegionAndAcquireFastMutexUnsafe(DeviceContextFromLuid + 32);
+    *(_QWORD *)(DeviceContextFromLuid + 88) = KeGetCurrentThread();
+    v45 = 1;
+    v26 = *(_DWORD *)(a2 + 8);
+  }
+  if ( v26 == 4 )
+  {
+    LODWORD(v3) = DpiMiracastDdiMiracastIoControl(
+                    v4,
+                    *(_QWORD *)(DeviceContextFromLuid + 448),
+                    *(unsigned int *)(a2 + 16),
+                    (__int64)PoolWithQuotaTag,
+                    *(_DWORD *)(a2 + 32),
+                    (__int64)Src,
+                    (_DWORD *)(a2 + 48));
+    goto LABEL_62;
+  }
+  if ( v26 == 8 )
+  {
+    if ( *(_DWORD *)(a2 + 16) >= 0x350u )
     {
-      LODWORD(v3) = DpiMiracastDdiMiracastIoControl(
-                      v4,
-                      DeviceContextFromLuid[56],
-                      *((unsigned int *)a2 + 4),
-                      (__int64)PoolWithQuotaTag,
-                      *((_DWORD *)a2 + 8),
-                      (__int64)Src,
-                      (_DWORD *)a2 + 12);
-      goto LABEL_61;
+      DpiMiracastHandleStartSessionDone((char *)DeviceContextFromLuid, (__int64)PoolWithQuotaTag, v15);
+      goto LABEL_62;
     }
-    v24 = 8LL;
-    if ( v21 == 8 )
+    LODWORD(v3) = -1073741811;
+    v30 = WdLogNewEntry5_WdError(v14, v13);
+    *(_QWORD *)(v30 + 24) = 8LL;
+    goto LABEL_58;
+  }
+  if ( v26 != 16 )
+  {
+    if ( v26 == 24 )
     {
-      if ( *((_DWORD *)a2 + 4) >= 0x350u )
+      v33 = 0LL;
+      v49 = 0LL;
+      if ( *(_DWORD *)(a2 + 16) >= 0x18u )
       {
-        DpiMiracastHandleStartSessionDone((char *)DeviceContextFromLuid, (__int64)PoolWithQuotaTag, v13);
-        goto LABEL_61;
+        v34 = (void *)*((_QWORD *)PoolWithQuotaTag + 1);
+        if ( v34 )
+        {
+          Object = 0LL;
+          v35 = ObReferenceObjectByHandle(v34, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
+          v38 = v35;
+          v33 = (struct _KEVENT *)Object;
+          v49 = Object;
+          LODWORD(v3) = v35;
+          if ( v35 < 0 )
+          {
+            v39 = WdLogNewEntry5_WdError(v37, v36);
+            *(_QWORD *)(v39 + 24) = v38;
+            WdLogEvent5_WdError(v39);
+            v33 = 0LL;
+            v49 = 0LL;
+          }
+        }
+        DpiMiracastStopMiracastSessionSync(
+          (char *)DeviceContextFromLuid,
+          0,
+          0LL,
+          v33,
+          PoolWithQuotaTag[4],
+          *PoolWithQuotaTag);
+        goto LABEL_62;
       }
     }
     else
     {
-      v24 = 16LL;
-      if ( v21 != 16 )
+      if ( v26 != 32 )
       {
-        if ( v21 == 24 )
-        {
-          v27 = 0LL;
-          if ( *((_DWORD *)a2 + 4) >= 0x18u )
-          {
-            v28 = (void *)*((_QWORD *)PoolWithQuotaTag + 1);
-            if ( v28 )
-            {
-              Object[0] = 0LL;
-              v29 = ObReferenceObjectByHandle(v28, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 1, Object, 0LL);
-              v27 = (struct _KEVENT *)Object[0];
-              LODWORD(v3) = v29;
-              if ( v29 < 0 )
-              {
-                WdLogSingleEntry1(2LL, v29);
-                v27 = 0LL;
-              }
-            }
-            DpiMiracastStopMiracastSessionSync(
-              (char *)DeviceContextFromLuid,
-              0,
-              0LL,
-              v27,
-              PoolWithQuotaTag[4],
-              *PoolWithQuotaTag);
-            goto LABEL_61;
-          }
-        }
-        else
-        {
-          if ( v21 != 32 )
-          {
-            v25 = -1073741637LL;
-            LODWORD(v3) = -1073741637;
-LABEL_50:
-            WdLogSingleEntry1(2LL, v25);
-LABEL_61:
-            v31 = v6;
-            goto LABEL_62;
-          }
-          memset(v38, 0, sizeof(v38));
-          v41 = 0;
-          *((_BYTE *)DeviceContextFromLuid + 591) = 1;
-          if ( *((_DWORD *)a2 + 4) >= 0x404u )
-          {
-            *((_BYTE *)PoolWithQuotaTag + 1023) = 0;
-            v34 = 0;
-            LOBYTE(v18) = 1;
-            if ( (unsigned __int8)WdIsDebuggerPresent(v18) )
-            {
-              DbgPrintEx(0x65u, 0, (PCSTR)PoolWithQuotaTag);
-              __debugbreak();
-              v34 = 1;
-            }
-            v26 = PoolWithQuotaTag[256];
-            v37[0] = 6;
-            v37[1] = 64;
-            v40 = 0;
-            v39 = 0LL;
-            memset(v38, 0, sizeof(v38));
-            v42 = 74;
-            v43 = v26;
-            v44 = v34;
-            v45 = 0;
-            DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v37, 0x200000000LL);
-            goto LABEL_61;
-          }
-        }
-        LODWORD(v3) = -1073741811;
-        v25 = -1073741811LL;
-        goto LABEL_50;
+        LODWORD(v3) = -1073741637;
+        v30 = WdLogNewEntry5_WdError(v14, v13);
+        *(_QWORD *)(v30 + 24) = -1073741637LL;
+LABEL_59:
+        WdLogEvent5_WdError(v30);
+        goto LABEL_62;
       }
-      if ( *((_DWORD *)a2 + 4) >= 0x350u )
+      memset(v54, 0, sizeof(v54));
+      v57 = 0;
+      *(_BYTE *)(DeviceContextFromLuid + 591) = 1;
+      if ( *(_DWORD *)(a2 + 16) >= 0x404u )
       {
-        DpiMiracastHandleStopSessionDone((char *)DeviceContextFromLuid, (__int64)PoolWithQuotaTag, v13);
-        goto LABEL_61;
+        *((_BYTE *)PoolWithQuotaTag + 1023) = 0;
+        v31 = 0;
+        LOBYTE(v14) = 1;
+        if ( (unsigned __int8)WdIsDebuggerPresent(v14) )
+        {
+          DbgPrintEx(0x65u, 0, (PCSTR)PoolWithQuotaTag);
+          __debugbreak();
+          v31 = 1;
+        }
+        v32 = PoolWithQuotaTag[256];
+        v53[0] = 6;
+        v53[1] = 64;
+        v56 = 0;
+        v55 = 0LL;
+        memset(v54, 0, sizeof(v54));
+        v58 = 74;
+        v59 = v32;
+        v60 = v31;
+        v61 = 0;
+        DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v53, 0x200000000LL);
+        goto LABEL_62;
       }
     }
     LODWORD(v3) = -1073741811;
-    WdLogSingleEntry2(2LL, v24, -1073741811LL);
-    goto LABEL_61;
+    v30 = WdLogNewEntry5_WdError(v14, v13);
+    *(_QWORD *)(v30 + 24) = -1073741811LL;
+    goto LABEL_59;
   }
-  v3 = -1073741790LL;
-LABEL_7:
-  v14 = v3;
-LABEL_8:
-  v15 = 2LL;
-LABEL_9:
-  WdLogSingleEntry1(v15, v14);
-LABEL_62:
-  if ( (int)v3 >= 0 )
+  if ( *(_DWORD *)(a2 + 16) < 0x350u )
   {
-    v30 = *((_DWORD *)a2 + 12);
-    if ( *((_DWORD *)a2 + 8) >= v30 )
-    {
-      if ( v30 )
-        memmove((void *)a2[5], Src, *((unsigned int *)a2 + 12));
-    }
-    else
-    {
-      LODWORD(v3) = -1073741811;
-      WdLogSingleEntry1(2LL, -1073741811LL);
-    }
+    LODWORD(v3) = -1073741811;
+    v30 = WdLogNewEntry5_WdError(v14, v13);
+    *(_QWORD *)(v30 + 24) = 16LL;
+LABEL_58:
+    *(_QWORD *)(v30 + 32) = -1073741811LL;
+    goto LABEL_59;
   }
+  DpiMiracastHandleStopSessionDone((char *)DeviceContextFromLuid, (__int64)PoolWithQuotaTag, v15);
+LABEL_62:
+  v44 = v6;
+LABEL_63:
+  if ( (int)v3 < 0 )
+  {
+LABEL_68:
+    v42 = Src;
+    goto LABEL_69;
+  }
+  v40 = *(_DWORD *)(a2 + 48);
+  if ( *(_DWORD *)(a2 + 32) < v40 )
+  {
+    LODWORD(v3) = -1073741811;
+    v41 = WdLogNewEntry5_WdError(v18, v17);
+    *(_QWORD *)(v41 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v41);
+    goto LABEL_68;
+  }
+  if ( !v40 )
+    goto LABEL_68;
+  v42 = Src;
+  memmove(*(void **)(a2 + 40), Src, *(unsigned int *)(a2 + 48));
+LABEL_69:
   if ( PoolWithQuotaTag )
     ExFreePoolWithTag(PoolWithQuotaTag, 0);
-  if ( Src )
-    ExFreePoolWithTag(Src, 0);
-  if ( v32 )
+  if ( v42 )
+    ExFreePoolWithTag(v42, 0);
+  if ( v45 )
   {
-    DeviceContextFromLuid[11] = 0LL;
-    ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(DeviceContextFromLuid + 4);
+    *(_QWORD *)(DeviceContextFromLuid + 88) = 0LL;
+    ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(DeviceContextFromLuid + 32);
   }
-  if ( v33 )
-    DpiReleaseCoreSyncAccessSafe(DeviceContextFromLuid[54], *((_BYTE *)a2 + 12));
-  if ( v31 )
+  if ( v46 )
+    DpiReleaseCoreSyncAccessSafe(*(_QWORD *)(DeviceContextFromLuid + 432), *(_BYTE *)(a2 + 12));
+  if ( v44 )
   {
-    if ( *(_BYTE *)(v4 + 484) )
-      DpiEnableD3Requests(*(_QWORD *)(v4 + 24));
-    ExReleaseResourceLite(*(PERESOURCE *)(v4 + 168));
+    v43 = v52;
+    if ( *(_BYTE *)(v52 + 484) )
+      DpiEnableD3Requests(*(_QWORD *)(v52 + 24));
+    ExReleaseResourceLite(*(PERESOURCE *)(v43 + 168));
     KeLeaveCriticalRegion();
   }
   if ( v6 )
   {
-    _InterlockedExchange64(&qword_1C01304D8, 0LL);
+    _InterlockedExchange64(&qword_1C00B2B50, 0LL);
     KeReleaseMutex(Mutex, 0);
   }
-  DpiMiracastReleaseMiracastDeviceContext((int *)DeviceContextFromLuid, (unsigned int)DeviceContextFromLuid);
+  DpiMiracastReleaseMiracastDeviceContext((int *)DeviceContextFromLuid, DeviceContextFromLuid);
   return (unsigned int)v3;
 }

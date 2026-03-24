@@ -1,10 +1,10 @@
 /*
- * XREFs of ?BeginFigure@CPathData@@EEAAXUD2D_POINT_2F@@W4D2D1_FIGURE_BEGIN@@@Z @ 0x180280260
+ * XREFs of ?BeginFigure@CPathData@@EEAAXUD2D_POINT_2F@@W4D2D1_FIGURE_BEGIN@@@Z @ 0x1802209E0
  * Callers:
  *     <none>
  * Callees:
- *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x18001FB80 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
- *     ?AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z @ 0x1802801B4 (-AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z.c)
+ *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x1801B5A28 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
+ *     ?AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z @ 0x180220944 (-AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z.c)
  */
 
 void __fastcall CPathData::BeginFigure(CPathData *this, struct D2D_POINT_2F a2, enum D2D1_FIGURE_BEGIN a3)
@@ -14,10 +14,10 @@ void __fastcall CPathData::BeginFigure(CPathData *this, struct D2D_POINT_2F a2, 
   struct D2D_POINT_2F v8; // [rsp+28h] [rbp-20h]
 
   Path::Segment::Segment(v7, 0);
-  v6 = *((_BYTE *)this + 48);
+  v6 = *((_BYTE *)this + 40);
   v8 = a2;
   v7[2] = v6;
   v7[3] = a3 == D2D1_FIGURE_BEGIN_HOLLOW;
-  CPathData::AppendSegment(this, (struct Path::Segment *)v7);
-  *((_BYTE *)this + 48) = 0;
+  CPathData::AppendSegment((CPathData *)((char *)this - 16), (struct Path::Segment *)v7);
+  *((_BYTE *)this + 40) = 0;
 }

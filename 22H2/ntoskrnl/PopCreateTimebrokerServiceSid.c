@@ -1,18 +1,19 @@
 /*
- * XREFs of PopCreateTimebrokerServiceSid @ 0x140B73154
+ * XREFs of PopCreateTimebrokerServiceSid @ 0x140A7127C
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     RtlInitializeSid @ 0x140782560 (RtlInitializeSid.c)
- *     RtlLengthRequiredSid @ 0x1407D1BF0 (RtlLengthRequiredSid.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlLengthRequiredSid @ 0x1405DC260 (RtlLengthRequiredSid.c)
+ *     RtlInitializeSid @ 0x140718B40 (RtlInitializeSid.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PopCreateTimebrokerServiceSid()
 {
-  ULONG v0; // eax
-  _DWORD *Pool2; // rax
+  ULONG v0; // edi
+  _DWORD *PoolWithTag; // rax
   _DWORD *v2; // rbx
   NTSTATUS v3; // edi
   struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp+8h] BYREF
@@ -20,16 +21,13 @@ __int64 PopCreateTimebrokerServiceSid()
   *(_DWORD *)IdentifierAuthority.Value = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   v0 = RtlLengthRequiredSid(6u);
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, v0, 0x67696450u);
-  v2 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v0, 0x67696450u);
+  v2 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v3 = RtlInitializeSid(Pool2, &IdentifierAuthority, 6u);
-    if ( v3 < 0 )
-    {
-      ExFreePoolWithTag(v2, 0x67696450u);
-    }
-    else
+    memset(PoolWithTag, 0, v0);
+    v3 = RtlInitializeSid(v2, &IdentifierAuthority, 6u);
+    if ( v3 >= 0 )
     {
       v2[2] = 80;
       v2[3] = 410965207;
@@ -38,7 +36,10 @@ __int64 PopCreateTimebrokerServiceSid()
       v2[6] = -1973635081;
       v2[7] = -539001157;
       PopTimeBrokerServiceSid = (__int64)v2;
+      v2 = 0LL;
     }
+    if ( v2 )
+      ExFreePoolWithTag(v2, 0x67696450u);
   }
   else
   {

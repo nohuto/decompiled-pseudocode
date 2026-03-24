@@ -1,21 +1,21 @@
 /*
- * XREFs of SepRemoveTokenLogonSession @ 0x1409D03E4
+ * XREFs of SepRemoveTokenLogonSession @ 0x140923C20
  * Callers:
- *     SepLinkLogonSessions @ 0x140353CA0 (SepLinkLogonSessions.c)
- *     SepTokenDeleteMethod @ 0x140729600 (SepTokenDeleteMethod.c)
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
- *     SepSetServerSiloToken @ 0x1409C9AD0 (SepSetServerSiloToken.c)
+ *     SepLinkLogonSessions @ 0x14032C264 (SepLinkLogonSessions.c)
+ *     SepTokenDeleteMethod @ 0x140635410 (SepTokenDeleteMethod.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
+ *     SepSetServerSiloToken @ 0x14091CCB4 (SepSetServerSiloToken.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepRemoveTokenLogonSession(__int64 a1)
 {
-  unsigned int v2; // edx
   struct _KTHREAD *CurrentThread; // rax
+  unsigned int v3; // edx
   __int64 v4; // rbx
   struct _ERESOURCE *v5; // rsi
   __int64 *v6; // rdx
@@ -25,12 +25,11 @@ void __fastcall SepRemoveTokenLogonSession(__int64 a1)
 
   if ( (*(_DWORD *)(a1 + 200) & 0x20) == 0 )
   {
-    v2 = 1529154084 * *(_DWORD *)(a1 + 24);
     CurrentThread = KeGetCurrentThread();
+    v3 = (unsigned int)(1529154084 * *(_DWORD *)(a1 + 24)) >> 28;
     --CurrentThread->KernelApcDisable;
-    v2 >>= 28;
-    v4 = v2;
-    v5 = &SepRmDbLock + (v2 & 3);
+    v4 = v3;
+    v5 = &SepRmDbLock + (v3 & 3);
     ExAcquireResourceExclusiveLite(v5, 1u);
     v6 = *(__int64 **)(SepLogonSessions + 8 * v4);
     if ( v6 )

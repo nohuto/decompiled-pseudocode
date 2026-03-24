@@ -1,12 +1,12 @@
 /*
- * XREFs of AcpiDiagTraceTemperatureTelemetry @ 0x1C002F08C
+ * XREFs of AcpiDiagTraceTemperatureTelemetry @ 0x1C0011D50
  * Callers:
- *     ACPIThermalLoopEx @ 0x1C00209D8 (ACPIThermalLoopEx.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
  * Callees:
- *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0021FCC (ACPIAmliBuildObjectPathnameUnicode.c)
- *     _tlgKeywordOn @ 0x1C0023FBC (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0023FEC (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C000FB50 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C000FB80 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0010920 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 void __fastcall AcpiDiagTraceTemperatureTelemetry(__int64 a1)
@@ -37,9 +37,9 @@ void __fastcall AcpiDiagTraceTemperatureTelemetry(__int64 a1)
   if ( AcpiDiagThermalTelemetryEnabled )
   {
     v2 = *(_QWORD *)(a1 + 200);
-    if ( (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 760), (__int64)&DestinationString, 1) >= 0
-      && (unsigned int)dword_1C007E0E8 > 5
-      && tlgKeywordOn((__int64)&dword_1C007E0E8) )
+    if ( (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 720), (__int64)&DestinationString) >= 0
+      && (unsigned int)dword_1C007F0E8 > 5
+      && tlgKeywordOn((__int64)&dword_1C007F0E8) )
     {
       v5 = *(_DWORD *)(v2 + 328);
       v11 = 0;
@@ -58,7 +58,7 @@ void __fastcall AcpiDiagTraceTemperatureTelemetry(__int64 a1)
       v13 = 2;
       v18 = 2;
       v10 = 4;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C007E0E8, (unsigned __int8 *)dword_1C0071EF9, v3, v4, 7u, &v8);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C007F0E8, (unsigned __int8 *)dword_1C0072601, v3, v4, 7u, &v8);
     }
   }
   if ( DestinationString.Buffer )

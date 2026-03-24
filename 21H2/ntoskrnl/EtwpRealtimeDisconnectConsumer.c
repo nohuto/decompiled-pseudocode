@@ -1,23 +1,22 @@
 /*
- * XREFs of EtwpRealtimeDisconnectConsumer @ 0x1406EC954
+ * XREFs of EtwpRealtimeDisconnectConsumer @ 0x1406B8CF8
  * Callers:
- *     EtwpRealtimeDisconnectConsumerByHandle @ 0x1406EC208 (EtwpRealtimeDisconnectConsumerByHandle.c)
- *     EtwpCloseRealTimeConnectionObject @ 0x1406EC270 (EtwpCloseRealTimeConnectionObject.c)
+ *     EtwpRealtimeDisconnectConsumerByHandle @ 0x1406B8844 (EtwpRealtimeDisconnectConsumerByHandle.c)
+ *     EtwpCloseRealTimeConnectionObject @ 0x1406B88B0 (EtwpCloseRealTimeConnectionObject.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     EtwpSynchronizeWithLogger @ 0x1406EC9F8 (EtwpSynchronizeWithLogger.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140797594 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x1407981E8 (EtwpReleaseLoggerContext.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpSynchronizeWithLogger @ 0x1406B8D9C (EtwpSynchronizeWithLogger.c)
  */
 
-__int64 __fastcall EtwpRealtimeDisconnectConsumer(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall EtwpRealtimeDisconnectConsumer(__int64 a1)
 {
-  __int64 v4; // rax
-  __int64 v5; // rsi
-  ULONG_PTR v6; // rbx
-  unsigned int v7; // ebx
-  __int64 v8; // rdx
+  unsigned int *v2; // rax
+  unsigned int *v3; // rsi
+  ULONG_PTR v4; // rbx
+  unsigned int v5; // ebx
 
   if ( (*(_BYTE *)(a1 + 90) & 5) != 0 )
   {
@@ -25,24 +24,22 @@ __int64 __fastcall EtwpRealtimeDisconnectConsumer(__int64 a1, __int64 a2, __int6
   }
   else
   {
-    LOBYTE(a3) = 1;
-    v4 = EtwpAcquireLoggerContextByLoggerId(*(_QWORD *)(a1 + 152), *(unsigned __int16 *)(a1 + 88), a3);
-    v5 = v4;
-    if ( v4 )
+    v2 = EtwpAcquireLoggerContextByLoggerId(*(_QWORD *)(a1 + 152), *(unsigned __int16 *)(a1 + 88), 1);
+    v3 = v2;
+    if ( v2 )
     {
-      v6 = v4 + 688;
-      ExAcquirePushLockExclusiveEx(v4 + 688, 0LL);
-      *(_QWORD *)(v5 + 352) = a1;
-      ExReleasePushLockEx(v6, 0LL);
-      v7 = EtwpSynchronizeWithLogger(v5, 16LL);
-      EtwpSynchronizeWithLogger(v5, 4LL);
-      LOBYTE(v8) = 1;
-      EtwpReleaseLoggerContext(v5, v8);
+      v4 = (ULONG_PTR)(v2 + 176);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)(v2 + 176), 0LL);
+      *((_QWORD *)v3 + 46) = a1;
+      ExReleasePushLockEx(v4, 0LL);
+      v5 = EtwpSynchronizeWithLogger(v3, 16LL);
+      EtwpSynchronizeWithLogger(v3, 4LL);
+      EtwpReleaseLoggerContext(v3, 1);
     }
     else
     {
       return (unsigned int)-1073741811;
     }
   }
-  return v7;
+  return v5;
 }

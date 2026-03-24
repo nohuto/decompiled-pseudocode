@@ -1,91 +1,96 @@
 /*
- * XREFs of ?bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z @ 0x1C02FD85C
+ * XREFs of ?bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z @ 0x1C02D4F2C
  * Callers:
- *     FONTOBJ_cGetGlyphs @ 0x1C0298770 (FONTOBJ_cGetGlyphs.c)
- *     ?STROBJ_bEnumLinked@@YAHPEAVESTROBJ@@PEAKPEAPEAU_GLYPHPOS@@@Z @ 0x1C02B4598 (-STROBJ_bEnumLinked@@YAHPEAVESTROBJ@@PEAKPEAPEAU_GLYPHPOS@@@Z.c)
- *     ?bExtraRectsToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z @ 0x1C02D9C50 (-bExtraRectsToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z.c)
- *     ?bTextToPathWorkhorse@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z @ 0x1C02DA2FC (-bTextToPathWorkhorse@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z.c)
- *     STROBJ_bEnum @ 0x1C02DBBE0 (STROBJ_bEnum.c)
+ *     ?STROBJ_bEnumLinked@@YAHPEAVESTROBJ@@PEAKPEAPEAU_GLYPHPOS@@@Z @ 0x1C0007498 (-STROBJ_bEnumLinked@@YAHPEAVESTROBJ@@PEAKPEAPEAU_GLYPHPOS@@@Z.c)
+ *     STROBJ_bEnum @ 0x1C00CCDA0 (STROBJ_bEnum.c)
+ *     FONTOBJ_cGetGlyphs @ 0x1C0292FB0 (FONTOBJ_cGetGlyphs.c)
+ *     ?cGetGlyphData@RFONTOBJ@@QEAAKKPEAU_GLYPHPOS@@@Z @ 0x1C02A7224 (-cGetGlyphData@RFONTOBJ@@QEAAKKPEAU_GLYPHPOS@@@Z.c)
+ *     ?bTextToPathWorkhorse@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z @ 0x1C02BD818 (-bTextToPathWorkhorse@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z.c)
  * Callees:
- *     ?QueryGlyphMetricsPlusBits@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAPEAU_GLYPHDATA@@PEAPEAU_GLYPHBITS@@@Z @ 0x1C007F8F4 (-QueryGlyphMetricsPlusBits@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAPEAU_GLYPHDATA@@PEAPEAU.c)
- *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C0080E54 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
- *     ?bInsertPathLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@@Z @ 0x1C02FDD64 (-bInsertPathLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@@Z.c)
+ *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C009A248 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
+ *     ?QueryGlyphMetricsPlusBits@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAPEAU_GLYPHDATA@@PEAPEAU_GLYPHBITS@@@Z @ 0x1C009A308 (-QueryGlyphMetricsPlusBits@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAPEAU_GLYPHDATA@@PEAPEAU.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ?bInsertPathLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@@Z @ 0x1C02D5208 (-bInsertPathLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@@Z.c)
  */
 
 __int64 __fastcall RFONTOBJ::bInsertGlyphbitsLookaside(RFONTOBJ *this, struct _GLYPHPOS *a2, int a3)
 {
-  unsigned int *v6; // r14
-  __int64 v7; // rbx
-  unsigned int v8; // eax
-  __int64 v9; // rbp
-  void *v10; // rcx
-  __int64 v11; // rax
-  struct _GLYPHDATA *v12; // rbx
-  unsigned int v13; // eax
-  __int64 v14; // r8
+  __int64 v6; // r10
+  unsigned int v7; // ebx
+  unsigned int *v8; // r14
+  unsigned int v9; // eax
+  unsigned int v10; // ebp
+  void *v11; // rcx
+  __int64 v12; // rax
+  struct _GLYPHDATA *v13; // rdi
   HGLYPH hg; // r9d
-  struct _GLYPHBITS *v16; // [rsp+40h] [rbp-38h] BYREF
-  _QWORD v17[3]; // [rsp+48h] [rbp-30h] BYREF
-  struct _GLYPHDATA *v18; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v15; // r8
+  unsigned int v16; // eax
+  struct _GLYPHBITS *v17; // [rsp+40h] [rbp-38h] BYREF
+  _QWORD v18[3]; // [rsp+48h] [rbp-30h] BYREF
+  struct _GLYPHDATA *v19; // [rsp+98h] [rbp+20h] BYREF
 
   if ( a3 == 2 )
     return RFONTOBJ::bInsertPathLookaside(this, a2);
-  v6 = *(unsigned int **)this;
-  v17[0] = *(_QWORD *)(*(_QWORD *)this + 128LL);
-  v7 = *(_QWORD *)(v17[0] + 88LL);
-  if ( v7 == *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(this) + 32) + 23448LL) )
+  v6 = *(_QWORD *)this;
+  v7 = 0;
+  v18[0] = *(_QWORD *)(*(_QWORD *)this + 128LL);
+  if ( *(struct PDEV **)(v18[0] + 88LL) == qword_1C0340AC0 )
   {
-    v13 = v6[159];
-    v6[161] = 0;
-    v14 = *(_QWORD *)this;
+    *(_DWORD *)(v6 + 644) = 0;
     hg = a2->hg;
-    v18 = 0LL;
-    v16 = 0LL;
+    v15 = *(_QWORD *)this;
+    v16 = *(_DWORD *)(v6 + 636);
+    v19 = 0LL;
+    v17 = 0LL;
     if ( (unsigned int)PFFOBJ::QueryGlyphMetricsPlusBits(
-                         (PFFOBJ *)v17,
-                         *(struct DHPDEV__ **)(v14 + 112),
-                         (struct _FONTOBJ *)v14,
+                         (PFFOBJ *)v18,
+                         *(struct DHPDEV__ **)(v15 + 112),
+                         (struct _FONTOBJ *)v15,
                          hg,
-                         v13,
-                         &v18,
-                         &v16) == -1 )
-      return 0LL;
-    v18->gdf.pgb = v16;
-    a2->pgdf = &v18->gdf;
+                         v16,
+                         &v19,
+                         &v17) == -1 )
+      return v7;
+    v19->gdf.pgb = v17;
+    a2->pgdf = &v19->gdf;
+    return 1;
   }
-  else
+  v8 = (unsigned int *)(v6 + 632);
+  v9 = *(_DWORD *)(v6 + 632);
+  v10 = v9 + 64;
+  if ( v9 + 64 >= 0x50 )
   {
-    v8 = v6[158] + 64;
-    if ( v8 < 0x50 )
-      return 0LL;
-    v9 = v8;
-    if ( *(_QWORD *)(*(_QWORD *)this + 624LL) < (unsigned __int64)v8 )
+    if ( *(_QWORD *)(v6 + 624) < (unsigned __int64)v10 )
     {
-      v10 = *(void **)(*(_QWORD *)this + 616LL);
-      if ( v10 )
-        Win32FreePool(v10);
-      *(_QWORD *)(*(_QWORD *)this + 616LL) = Win32AllocPoolZInit(v9, 1667326791LL);
-      v11 = *(_QWORD *)this;
+      v11 = *(void **)(v6 + 616);
+      if ( v11 )
+        Win32FreePool(v11);
+      *(_QWORD *)(*(_QWORD *)this + 616LL) = PALLOCMEM2(v10, 1667326791LL, 1);
+      v12 = *(_QWORD *)this;
       if ( !*(_QWORD *)(*(_QWORD *)this + 616LL) )
       {
-        *(_QWORD *)(v11 + 624) = 0LL;
-        return 0LL;
+        *(_QWORD *)(v12 + 624) = 0LL;
+        return v7;
       }
-      *(_QWORD *)(v11 + 624) = v9;
+      *(_QWORD *)(v12 + 624) = v10;
+      v6 = *(_QWORD *)this;
+      v9 = *v8;
     }
-    v12 = *(struct _GLYPHDATA **)(*(_QWORD *)this + 616LL);
+    v13 = *(struct _GLYPHDATA **)(v6 + 616);
     if ( (unsigned int)PFFOBJ::QueryFontData(
-                         (PFFOBJ *)v17,
-                         *(struct DHPDEV__ **)(*(_QWORD *)this + 112LL),
-                         *(struct _FONTOBJ **)this,
+                         (PFFOBJ *)v18,
+                         *(struct DHPDEV__ **)(v6 + 112),
+                         (struct _FONTOBJ *)v6,
                          1u,
                          a2->hg,
-                         v12,
-                         &v12[1],
-                         v6[158]) == -1 )
-      return 0LL;
-    a2->pgdf = &v12->gdf;
-    v12->gdf.pgb = (GLYPHBITS *)&v12[1];
+                         v13,
+                         &v13[1],
+                         v9) == -1 )
+      return v7;
+    a2->pgdf = &v13->gdf;
+    v13->gdf.pgb = (GLYPHBITS *)&v13[1];
+    return 1;
   }
-  return 1LL;
+  return v7;
 }

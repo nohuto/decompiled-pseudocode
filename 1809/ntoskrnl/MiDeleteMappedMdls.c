@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDeleteMappedMdls @ 0x1402AAEA4
+ * XREFs of MiDeleteMappedMdls @ 0x1402AAFA4
  * Callers:
- *     MiMappedPageWriter @ 0x140180780 (MiMappedPageWriter.c)
+ *     MiMappedPageWriter @ 0x1401807A0 (MiMappedPageWriter.c)
  *     MiEnablePartitionMappedWrites @ 0x14061BE6C (MiEnablePartitionMappedWrites.c)
  * Callees:
  *     MiFreeModWriterEntry @ 0x140022C88 (MiFreeModWriterEntry.c)

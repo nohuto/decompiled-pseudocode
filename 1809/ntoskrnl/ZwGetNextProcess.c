@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwGetNextProcess @ 0x1401B9F90
+ * XREFs of ZwGetNextProcess @ 0x1401B9FB0
  * Callers:
  *     <none>
  * Callees:

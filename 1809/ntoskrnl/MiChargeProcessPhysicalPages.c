@@ -1,8 +1,8 @@
 /*
- * XREFs of MiChargeProcessPhysicalPages @ 0x14085B8B0
+ * XREFs of MiChargeProcessPhysicalPages @ 0x14085B890
  * Callers:
- *     NtAllocateUserPhysicalPages @ 0x1408506B0 (NtAllocateUserPhysicalPages.c)
- *     MiCreateLargePageVad @ 0x14085D048 (MiCreateLargePageVad.c)
+ *     NtAllocateUserPhysicalPages @ 0x140850690 (NtAllocateUserPhysicalPages.c)
+ *     MiCreateLargePageVad @ 0x14085D028 (MiCreateLargePageVad.c)
  * Callees:
  *     <none>
  */

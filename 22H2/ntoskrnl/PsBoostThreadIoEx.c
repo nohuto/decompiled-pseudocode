@@ -1,229 +1,225 @@
 /*
- * XREFs of PsBoostThreadIoEx @ 0x14022FF50
+ * XREFs of PsBoostThreadIoEx @ 0x1402CDF90
  * Callers:
- *     PsBoostThreadIo @ 0x14022FF30 (PsBoostThreadIo.c)
- *     ExpReleaseResourceSharedForThreadLite @ 0x14023D860 (ExpReleaseResourceSharedForThreadLite.c)
- *     CcUnpinFileDataEx @ 0x14025D6F0 (CcUnpinFileDataEx.c)
- *     ExpFreeOwnerEntry @ 0x140260A40 (ExpFreeOwnerEntry.c)
- *     CcApplyLowIoPriorityToThread @ 0x14029BA88 (CcApplyLowIoPriorityToThread.c)
- *     CcAcquireByteRangeForWrite @ 0x14029CF10 (CcAcquireByteRangeForWrite.c)
- *     ExpApplyPriorityBoost @ 0x1402A8420 (ExpApplyPriorityBoost.c)
- *     ExDeleteResourceLite @ 0x1402A8CA0 (ExDeleteResourceLite.c)
- *     ExpReleaseResourceExclusiveForThreadLite @ 0x1402BAD10 (ExpReleaseResourceExclusiveForThreadLite.c)
- *     FsRtlpWaitForIoAtEof @ 0x140304990 (FsRtlpWaitForIoAtEof.c)
- *     KiAbThreadUnboostIoPriority @ 0x140318684 (KiAbThreadUnboostIoPriority.c)
- *     ExReinitializeResourceLite @ 0x1403187C0 (ExReinitializeResourceLite.c)
- *     KiAbThreadBoostIoPriority @ 0x140319118 (KiAbThreadBoostIoPriority.c)
- *     ExpSetResourceOwnerPointerEx @ 0x140319F90 (ExpSetResourceOwnerPointerEx.c)
- *     ExpBoostIoAfterAcquire @ 0x14031ACD0 (ExpBoostIoAfterAcquire.c)
- *     FsRtlReleaseEofLock @ 0x140328600 (FsRtlReleaseEofLock.c)
- *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x140338340 (ExEnterPriorityRegionAndAcquireResourceShared.c)
- *     PsLeavePriorityRegion @ 0x140339930 (PsLeavePriorityRegion.c)
- *     PsEnterPriorityRegion @ 0x14033BF50 (PsEnterPriorityRegion.c)
- *     FsRtlpModifyThreadPriorities @ 0x140358684 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpDoBoost @ 0x140358738 (FsRtlpDoBoost.c)
- *     CcBoostLowPriorityWorkerThread @ 0x14036D094 (CcBoostLowPriorityWorkerThread.c)
- *     IoBoostThreadIo @ 0x140373590 (IoBoostThreadIo.c)
- *     ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x14060AA20 (ExEnterPriorityRegionAndAcquireResourceExclusive.c)
- *     ExReleaseResourceAndLeavePriorityRegion @ 0x14060AA80 (ExReleaseResourceAndLeavePriorityRegion.c)
+ *     ExpApplyPriorityBoost @ 0x14022E970 (ExpApplyPriorityBoost.c)
+ *     FsRtlReleaseEofLock @ 0x14026F300 (FsRtlReleaseEofLock.c)
+ *     ExpFreeOwnerEntry @ 0x140275670 (ExpFreeOwnerEntry.c)
+ *     ExDeleteResourceLite @ 0x140275720 (ExDeleteResourceLite.c)
+ *     CcApplyLowIoPriorityToThread @ 0x140276988 (CcApplyLowIoPriorityToThread.c)
+ *     ExReinitializeResourceLite @ 0x140277FA0 (ExReinitializeResourceLite.c)
+ *     CcAcquireByteRangeForWrite @ 0x1402905C0 (CcAcquireByteRangeForWrite.c)
+ *     ExpReleaseResourceSharedForThreadLite @ 0x1402CBCD0 (ExpReleaseResourceSharedForThreadLite.c)
+ *     ExpAcquireResourceSharedLite @ 0x1402CC770 (ExpAcquireResourceSharedLite.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x1402CD0C0 (ExpAcquireResourceExclusiveLite.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x1402CD8D0 (ExpReleaseResourceExclusiveForThreadLite.c)
+ *     PsBoostThreadIo @ 0x1402CDF70 (PsBoostThreadIo.c)
+ *     ExpSetResourceOwnerPointerEx @ 0x1402DCAE0 (ExpSetResourceOwnerPointerEx.c)
+ *     ExpBoostIoAfterAcquire @ 0x1402DD0E0 (ExpBoostIoAfterAcquire.c)
+ *     KiAbThreadBoostIoPriority @ 0x1402DE724 (KiAbThreadBoostIoPriority.c)
+ *     FsRtlpWaitForIoAtEof @ 0x1402EE2CC (FsRtlpWaitForIoAtEof.c)
+ *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x1402F01D0 (ExEnterPriorityRegionAndAcquireResourceShared.c)
+ *     PsLeavePriorityRegion @ 0x1402F12F0 (PsLeavePriorityRegion.c)
+ *     PsEnterPriorityRegion @ 0x1402F2A60 (PsEnterPriorityRegion.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x1403116A8 (CcBoostLowPriorityWorkerThread.c)
+ *     FsRtlpDoBoost @ 0x140323D50 (FsRtlpDoBoost.c)
+ *     KiAbThreadUnboostIoPriority @ 0x14032A2E0 (KiAbThreadUnboostIoPriority.c)
+ *     FsRtlpModifyThreadPriorities @ 0x1403798E4 (FsRtlpModifyThreadPriorities.c)
+ *     IoBoostThreadIo @ 0x1405055B0 (IoBoostThreadIo.c)
+ *     ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x1405B52D0 (ExEnterPriorityRegionAndAcquireResourceExclusive.c)
+ *     ExReleaseResourceAndLeavePriorityRegion @ 0x1405B53A0 (ExReleaseResourceAndLeavePriorityRegion.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140227700 (RtlCaptureStackBackTrace.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiAbQueueAutoBoostDpc @ 0x140307C18 (KiAbQueueAutoBoostDpc.c)
- *     KiAbThreadInsertList @ 0x14035F9D0 (KiAbThreadInsertList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CDE0 (RtlCaptureStackBackTrace.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiAbQueueAutoBoostDpc @ 0x1402DE7EC (KiAbQueueAutoBoostDpc.c)
+ *     KiAbThreadInsertList @ 0x14032116C (KiAbThreadInsertList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void __fastcall PsBoostThreadIoEx(__int64 a1, char a2, char a3, __int64 a4)
+void __fastcall PsBoostThreadIoEx(__int64 a1, char a2, char a3, void *a4)
 {
-  signed __int32 v4; // edi
+  signed __int32 v4; // ebx
   KIRQL v5; // r13
-  _QWORD *v6; // rax
-  char v8; // bp
-  __int64 v11; // r12
-  bool v12; // zf
-  __int64 **v13; // r14
-  __int64 *v14; // rcx
-  __int64 **v15; // r14
+  char v7; // bp
+  PVOID *v10; // r12
+  bool v11; // zf
+  unsigned __int8 v12; // bl
+  struct _KPRCB *v13; // rdi
+  PVOID *PoolWithTag; // rax
+  __int64 **v15; // r15
   __int64 *v16; // rcx
-  __int64 v17; // rax
-  unsigned __int8 v18; // bl
-  struct _KPRCB *v19; // rdi
-  __int64 Pool2; // rax
-  __int64 v21; // r12
-  _QWORD *v22; // rdx
-  __int64 v23; // rax
-  _QWORD *v24; // rdx
+  __int64 **v17; // r15
+  __int64 *v18; // rcx
+  __int64 v19; // rax
+  __int64 v20; // rax
+  PVOID **v21; // rcx
+  PVOID **v22; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v28; // eax
-  _DWORD *v29; // r9
-  __int64 v30; // rdx
-  unsigned __int8 v31; // cl
-  struct _KPRCB *v32; // r9
-  _DWORD *v33; // r8
-  int v34; // eax
-  _QWORD *v35; // [rsp+20h] [rbp-38h]
+  int v26; // eax
+  _DWORD *v27; // r9
+  unsigned __int8 v28; // al
+  struct _KPRCB *v29; // r9
+  _DWORD *v30; // r8
+  int v31; // eax
 
   v4 = 0;
   v5 = 0;
-  v6 = 0LL;
-  v8 = a3;
+  v7 = a3;
+  v10 = 0LL;
   if ( PspAlwaysTrackIoBoosting )
   {
-    v8 = 1;
+    v7 = 1;
   }
   else if ( !a3 )
   {
-    v11 = a1 + 1488;
-    goto LABEL_4;
+    goto LABEL_3;
   }
-  Pool2 = ExAllocatePool2(64LL, 112LL, 1936682818LL);
-  v35 = (_QWORD *)Pool2;
-  v21 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (PVOID *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x70uLL, 0x736F6F42u);
+  v10 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    RtlCaptureStackBackTrace(1u, 0xAu, (PVOID *)(Pool2 + 16), 0LL);
-    *(_QWORD *)(v21 + 96) = KeGetCurrentThread();
-    *(_QWORD *)(v21 + 104) = a4;
+    memset(PoolWithTag, 0, 0x70uLL);
+    RtlCaptureStackBackTrace(1u, 0xAu, v10 + 2, 0LL);
+    v10[12] = KeGetCurrentThread();
+    v10[13] = a4;
   }
-  v11 = a1 + 1488;
-  v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 1488));
-  v6 = v35;
-LABEL_4:
+  v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 1408));
+LABEL_3:
   if ( a2 )
   {
-    if ( *(_DWORD *)(a1 + 1440) )
+    if ( *(_DWORD *)(a1 + 1360) )
     {
-      v4 = _InterlockedDecrement((volatile signed __int32 *)(a1 + 1440));
-      if ( !v8 )
-        goto LABEL_12;
-      if ( *(_DWORD *)(a1 + 1440) )
+      v4 = _InterlockedDecrement((volatile signed __int32 *)(a1 + 1360));
+      if ( !v7 )
+        goto LABEL_6;
+      if ( !*(_DWORD *)(a1 + 1360) )
       {
-        if ( v6 )
-        {
-          v24 = *(_QWORD **)(a1 + 1480);
-          if ( *v24 != a1 + 1472 )
-            goto LABEL_41;
-          *v6 = a1 + 1472;
-          v6[1] = v24;
-          *v24 = v6;
-          *(_QWORD *)(a1 + 1480) = v6;
-        }
-      }
-      else
-      {
-        if ( v6 )
-          ExFreePoolWithTag(v6, 0x736F6F42u);
-        v15 = (__int64 **)(a1 + 1456);
+        if ( v10 )
+          ExFreePoolWithTag(v10, 0x736F6F42u);
+        v15 = (__int64 **)(a1 + 1376);
         while ( 1 )
         {
           v16 = *v15;
           if ( *v15 == (__int64 *)v15 )
             break;
-          v17 = *v16;
-          if ( (__int64 **)v16[1] != v15 || *(__int64 **)(v17 + 8) != v16 )
-            goto LABEL_41;
-          *v15 = (__int64 *)v17;
-          *(_QWORD *)(v17 + 8) = v15;
+          v19 = *v16;
+          if ( (__int64 **)v16[1] != v15 || *(__int64 **)(v19 + 8) != v16 )
+            goto LABEL_37;
+          *v15 = (__int64 *)v19;
+          *(_QWORD *)(v19 + 8) = v15;
           ExFreePoolWithTag(v16, 0x736F6F42u);
         }
-        v13 = (__int64 **)(a1 + 1472);
+        v17 = (__int64 **)(a1 + 1392);
         while ( 1 )
         {
-          v14 = *v13;
-          if ( *v13 == (__int64 *)v13 )
-            break;
-          v23 = *v14;
-          if ( (__int64 **)v14[1] != v13 || *(__int64 **)(v23 + 8) != v14 )
-            goto LABEL_41;
-          *v13 = (__int64 *)v23;
-          *(_QWORD *)(v23 + 8) = v13;
-          ExFreePoolWithTag(v14, 0x736F6F42u);
+          v18 = *v17;
+          if ( *v17 == (__int64 *)v17 )
+            goto LABEL_29;
+          v20 = *v18;
+          if ( (__int64 **)v18[1] != v17 || *(__int64 **)(v20 + 8) != v18 )
+            goto LABEL_37;
+          *v17 = (__int64 *)v20;
+          *(_QWORD *)(v20 + 8) = v17;
+          ExFreePoolWithTag(v18, 0x736F6F42u);
         }
       }
+      if ( v10 )
+      {
+        v21 = *(PVOID ***)(a1 + 1400);
+        if ( *v21 == (PVOID *)(a1 + 1392) )
+        {
+          *v10 = (PVOID)(a1 + 1392);
+          v10[1] = v21;
+          *v21 = v10;
+          *(_QWORD *)(a1 + 1400) = v10;
+          goto LABEL_29;
+        }
+LABEL_37:
+        __fastfail(3u);
+      }
     }
-    if ( !v8 )
-      goto LABEL_12;
-    goto LABEL_10;
   }
-  v4 = _InterlockedIncrement((volatile signed __int32 *)(a1 + 1440));
-  if ( v8 )
+  else
   {
-    if ( !v6 )
+    v4 = _InterlockedIncrement((volatile signed __int32 *)(a1 + 1360));
+    if ( !v7 )
+      goto LABEL_13;
+    if ( !v10 )
+      goto LABEL_29;
+    v22 = *(PVOID ***)(a1 + 1384);
+    if ( *v22 != (PVOID *)(a1 + 1376) )
+      goto LABEL_37;
+    *v10 = (PVOID)(a1 + 1376);
+    v10[1] = v22;
+    *v22 = v10;
+    *(_QWORD *)(a1 + 1384) = v10;
+  }
+LABEL_29:
+  if ( v7 )
+  {
+    KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 1408));
+    if ( KiIrqlFlags )
     {
-LABEL_10:
-      KxReleaseSpinLock(v11);
-      if ( KiIrqlFlags )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
+        if ( CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v28 = ~(unsigned __int16)(-1LL << (v5 + 1));
-          v12 = (v28 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v28;
-          if ( v12 )
+          v26 = ~(unsigned __int16)(-1LL << (v5 + 1));
+          v11 = (v26 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v26;
+          if ( v11 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
-      __writecr8(v5);
-      if ( !a2 )
-        goto LABEL_6;
-LABEL_12:
-      v12 = v4 == 0;
-      goto LABEL_13;
     }
-    v22 = *(_QWORD **)(a1 + 1464);
-    if ( *v22 == a1 + 1456 )
-    {
-      *v6 = a1 + 1456;
-      v6[1] = v22;
-      *v22 = v6;
-      *(_QWORD *)(a1 + 1464) = v6;
-      goto LABEL_10;
-    }
-LABEL_41:
-    __fastfail(3u);
+    __writecr8(v5);
   }
 LABEL_6:
-  v12 = v4 == 1;
-LABEL_13:
-  if ( v12 && !a2 && *(_BYTE *)(a1 + 793) )
+  if ( !a2 )
   {
-    v18 = KeGetCurrentIrql();
+LABEL_13:
+    v11 = v4 == 1;
+    goto LABEL_8;
+  }
+  v11 = v4 == 0;
+LABEL_8:
+  if ( v11 && !a2 && *(_BYTE *)(a1 + 793) )
+  {
+    v12 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v18 <= 0xFu )
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v12 <= 0xFu )
     {
-      v29 = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( v18 == 2 )
-        LODWORD(v30) = 4;
-      else
-        v30 = (-1LL << (v18 + 1)) & 4;
-      v29[5] |= v30;
+      v27 = KeGetCurrentPrcb()->SchedulerAssist;
+      v27[5] |= (-1 << (v12 + 1)) & 4;
     }
-    v19 = KeGetCurrentPrcb();
-    if ( (unsigned int)KiAbThreadInsertList(a1, &v19->AbPropagateBoostsList, a1 + 808) )
-      KiAbQueueAutoBoostDpc(v19);
+    v13 = KeGetCurrentPrcb();
+    if ( (unsigned int)KiAbThreadInsertList(a1, &v13->AbPropagateBoostsList, a1 + 808) )
+      KiAbQueueAutoBoostDpc(v13);
     if ( KiIrqlFlags )
     {
-      v31 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && v18 <= 0xFu && v31 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v32 = KeGetCurrentPrcb();
-        v33 = v32->SchedulerAssist;
-        v34 = ~(unsigned __int16)(-1LL << (v18 + 1));
-        v12 = (v34 & v33[5]) == 0;
-        v33[5] &= v34;
-        if ( v12 )
-          KiRemoveSystemWorkPriorityKick(v32);
+        v28 = KeGetCurrentIrql();
+        if ( v28 <= 0xFu && v12 <= 0xFu && v28 >= 2u )
+        {
+          v29 = KeGetCurrentPrcb();
+          v30 = v29->SchedulerAssist;
+          v31 = ~(unsigned __int16)(-1LL << (v12 + 1));
+          v11 = (v31 & v30[5]) == 0;
+          v30[5] &= v31;
+          if ( v11 )
+            KiRemoveSystemWorkPriorityKick(v29);
+        }
       }
     }
-    __writecr8(v18);
+    __writecr8(v12);
   }
 }

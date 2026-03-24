@@ -3,7 +3,7 @@
  * Callers:
  *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
  *     PspCreateThread @ 0x140621D64 (PspCreateThread.c)
- *     PspCreatePicoThread @ 0x14088C460 (PspCreatePicoThread.c)
+ *     PspCreatePicoThread @ 0x14088C440 (PspCreatePicoThread.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -20,11 +20,11 @@
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     RtlGetExtendedContextLength @ 0x1400A1D44 (RtlGetExtendedContextLength.c)
  *     PsQueryThreadStartAddress @ 0x1400A3970 (PsQueryThreadStartAddress.c)
- *     PoEnergyEstimationEnabled @ 0x1400ACF60 (PoEnergyEstimationEnabled.c)
- *     KeSelectIdealProcessor @ 0x1400D8994 (KeSelectIdealProcessor.c)
- *     KeSelectNodeForAffinity @ 0x140115748 (KeSelectNodeForAffinity.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PoEnergyEstimationEnabled @ 0x1400ACF80 (PoEnergyEstimationEnabled.c)
+ *     KeSelectIdealProcessor @ 0x1400D89B4 (KeSelectIdealProcessor.c)
+ *     KeSelectNodeForAffinity @ 0x140115768 (KeSelectNodeForAffinity.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     KeInitThread @ 0x1405656E0 (KeInitThread.c)
@@ -34,11 +34,11 @@
  *     MmSecureVirtualMemoryEx @ 0x1405F5CB8 (MmSecureVirtualMemoryEx.c)
  *     MmCreateTeb @ 0x1405F8848 (MmCreateTeb.c)
  *     PspSetupUserStack @ 0x1405F8DD0 (PspSetupUserStack.c)
- *     PspWow64InitThread @ 0x1406A7F7C (PspWow64InitThread.c)
- *     PspWow64SetupUserStack @ 0x1406BBBE8 (PspWow64SetupUserStack.c)
- *     PspDeleteUserStack @ 0x1406CB090 (PspDeleteUserStack.c)
- *     PspUmsInitThread @ 0x14088AD2C (PspUmsInitThread.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     PspWow64InitThread @ 0x1406A7F5C (PspWow64InitThread.c)
+ *     PspWow64SetupUserStack @ 0x1406BBBC8 (PspWow64SetupUserStack.c)
+ *     PspDeleteUserStack @ 0x1406CB070 (PspDeleteUserStack.c)
+ *     PspUmsInitThread @ 0x14088AD0C (PspUmsInitThread.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PspAllocateThread(

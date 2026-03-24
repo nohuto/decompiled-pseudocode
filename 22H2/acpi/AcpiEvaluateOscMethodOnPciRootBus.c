@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiEvaluateOscMethodOnPciRootBus @ 0x1C00346B4
+ * XREFs of AcpiEvaluateOscMethodOnPciRootBus @ 0x1C0011ABC
  * Callers:
- *     AcpiEvaluateBiosMethodsOnPciRootBus @ 0x1C00345E4 (AcpiEvaluateBiosMethodsOnPciRootBus.c)
- *     PciRootBusBiosMethodDispatcherOnResume @ 0x1C0034770 (PciRootBusBiosMethodDispatcherOnResume.c)
+ *     AcpiEvaluateBiosMethodsOnPciRootBus @ 0x1C00114B0 (AcpiEvaluateBiosMethodsOnPciRootBus.c)
+ *     PciRootBusBiosMethodDispatcherOnResume @ 0x1C0031AF0 (PciRootBusBiosMethodDispatcherOnResume.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     ACPIAmliEvaluateOsc @ 0x1C007C7E8 (ACPIAmliEvaluateOsc.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ACPIAmliEvaluateOsc @ 0x1C009A3A0 (ACPIAmliEvaluateOsc.c)
  */
 
 __int64 __fastcall AcpiEvaluateOscMethodOnPciRootBus(__int64 a1, unsigned __int8 a2, int a3, _DWORD *a4, int *a5)
@@ -17,7 +17,7 @@ __int64 __fastcall AcpiEvaluateOscMethodOnPciRootBus(__int64 a1, unsigned __int8
   _DWORD v10[2]; // [rsp+40h] [rbp-28h] BYREF
   int v11; // [rsp+48h] [rbp-20h]
 
-  v6 = *(_QWORD *)(a1 + 760);
+  v6 = *(_QWORD *)(a1 + 720);
   v10[0] = a2;
   v7 = *a4 | *a5;
   v10[1] = PciRootBusFeaturesSupported;

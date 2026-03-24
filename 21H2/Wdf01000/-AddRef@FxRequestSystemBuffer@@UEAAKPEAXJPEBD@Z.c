@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AddRef@FxRequestSystemBuffer@@UEAAKPEAXJPEBD@Z @ 0x1C006AFC0
+ * XREFs of ?AddRef@FxRequestSystemBuffer@@UEAAKPEAXJPEBD@Z @ 0x1C0055A90
  * Callers:
  *     <none>
  * Callees:
- *     ?AddIrpReference@FxRequest@@QEAAXXZ @ 0x1C006858C (-AddIrpReference@FxRequest@@QEAAXXZ.c)
+ *     ?AddIrpReference@FxRequest@@QEAAXXZ @ 0x1C004ECBC (-AddIrpReference@FxRequest@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxRequestSystemBuffer::AddRef(

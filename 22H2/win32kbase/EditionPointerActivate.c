@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionPointerActivate @ 0x1C0232C6C
+ * XREFs of EditionPointerActivate @ 0x1C01FBE8C
  * Callers:
- *     ApiSetEditionPointerActivate @ 0x1C0206FB8 (ApiSetEditionPointerActivate.c)
+ *     ApiSetEditionPointerActivate @ 0x1C01CCA80 (ApiSetEditionPointerActivate.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall EditionPointerActivate(_OWORD *a1))(_QWORD)
@@ -16,8 +16,8 @@ __int64 (__fastcall *__fastcall EditionPointerActivate(_OWORD *a1))(_QWORD)
   __int128 v6; // xmm1
   _OWORD v7[7]; // [rsp+30h] [rbp-78h] BYREF
 
-  result = qword_1C0296518;
-  if ( qword_1C0296518 )
+  result = qword_1C02572F0;
+  if ( qword_1C02572F0 )
   {
     v2 = a1[1];
     v7[0] = *a1;
@@ -31,7 +31,7 @@ __int64 (__fastcall *__fastcall EditionPointerActivate(_OWORD *a1))(_QWORD)
     v6 = a1[5];
     v7[6] = v5;
     v7[5] = v6;
-    return (__int64 (__fastcall *)(_QWORD))qword_1C0296518(v7);
+    return (__int64 (__fastcall *)(_QWORD))qword_1C02572F0(v7);
   }
   return result;
 }

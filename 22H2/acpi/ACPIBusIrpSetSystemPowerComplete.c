@@ -1,22 +1,22 @@
 /*
- * XREFs of ACPIBusIrpSetSystemPowerComplete @ 0x1C0009A00
+ * XREFs of ACPIBusIrpSetSystemPowerComplete @ 0x1C004AC30
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     ACPIDeviceIrpCompleteRequest @ 0x1C001D6A0 (ACPIDeviceIrpCompleteRequest.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDeviceIrpCompleteRequest @ 0x1C000E200 (ACPIDeviceIrpCompleteRequest.c)
  */
 
 void __fastcall ACPIBusIrpSetSystemPowerComplete(
         ULONG_PTR DeviceObject,
         UCHAR MinorFunction,
         POWER_STATE PowerState,
-        _QWORD *Context,
+        IRP *Context,
         PIO_STATUS_BLOCK IoStatus)
 {
-  __int64 DeviceExtension; // rax
+  _QWORD *DeviceExtension; // rax
 
-  DeviceExtension = ACPIInternalGetDeviceExtension(DeviceObject);
-  Context[7] = 0LL;
-  ACPIDeviceIrpCompleteRequest(DeviceExtension, Context, (unsigned int)IoStatus->Status);
+  DeviceExtension = (_QWORD *)ACPIInternalGetDeviceExtension(DeviceObject);
+  Context->IoStatus.Information = 0LL;
+  ACPIDeviceIrpCompleteRequest(DeviceExtension, Context, IoStatus->Status);
 }

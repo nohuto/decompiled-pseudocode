@@ -1,16 +1,16 @@
 /*
- * XREFs of Is_MonitorFromRectSupported @ 0x1C000B650
+ * XREFs of Is_MonitorFromRectSupported @ 0x1C0071978
  * Callers:
- *     TransformRectBetweenCoordinateSpaces @ 0x1C0062C80 (TransformRectBetweenCoordinateSpaces.c)
- *     PhysicalToLogicalDPIRect @ 0x1C009AB80 (PhysicalToLogicalDPIRect.c)
+ *     TransformRectBetweenCoordinateSpaces @ 0x1C0070D00 (TransformRectBetweenCoordinateSpaces.c)
+ *     LogicalToPhysicalDPIRect @ 0x1C00711D0 (LogicalToPhysicalDPIRect.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 Is_MonitorFromRectSupported()
 {
-  if ( qword_1C0296048 )
-    return qword_1C0296048();
+  if ( qword_1C0256C38 )
+    return qword_1C0256C38();
   else
     return 3221225659LL;
 }

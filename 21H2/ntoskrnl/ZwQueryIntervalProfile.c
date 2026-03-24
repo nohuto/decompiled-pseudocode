@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryIntervalProfile @ 0x14041E260
+ * XREFs of ZwQueryIntervalProfile @ 0x1403FCDE0
  * Callers:
  *     <none>
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpWatchdogBugcheck @ 0x140289C30
+ * XREFs of PnpWatchdogBugcheck @ 0x140289D30
  * Callers:
  *     PnpDisableWatchdog @ 0x140005B60 (PnpDisableWatchdog.c)
- *     PnpProcessWatchdogWorkItem @ 0x140289A8C (PnpProcessWatchdogWorkItem.c)
+ *     PnpProcessWatchdogWorkItem @ 0x140289B8C (PnpProcessWatchdogWorkItem.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 void __fastcall __noreturn PnpWatchdogBugcheck(__int64 a1)

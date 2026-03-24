@@ -1,9 +1,9 @@
 /*
- * XREFs of PopConnectedStandbySettingCallback @ 0x1408673F0
+ * XREFs of PopConnectedStandbySettingCallback @ 0x140781970
  * Callers:
  *     <none>
  * Callees:
- *     PopFanUpdateCsState @ 0x1409976EC (PopFanUpdateCsState.c)
+ *     PopFanUpdateCsState @ 0x1408F17C0 (PopFanUpdateCsState.c)
  */
 
 __int64 __fastcall PopConnectedStandbySettingCallback(_QWORD *a1, int *a2, int a3)
@@ -31,7 +31,7 @@ __int64 __fastcall PopConnectedStandbySettingCallback(_QWORD *a1, int *a2, int a
       }
       else
       {
-        if ( (_DWORD)qword_140C3CE24 || PopHiberBootForceMonitorOff )
+        if ( (_DWORD)qword_140C23A44 || PopHiberBootForceMonitorOff )
         {
           PopMonitorOffDueToSleep = 1;
           return v4;

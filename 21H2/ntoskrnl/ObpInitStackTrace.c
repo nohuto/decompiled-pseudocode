@@ -1,32 +1,30 @@
 /*
- * XREFs of ObpInitStackTrace @ 0x140B2CE90
+ * XREFs of ObpInitStackTrace @ 0x140A709B0
  * Callers:
- *     ObInitSystem @ 0x140AFE184 (ObInitSystem.c)
+ *     ObInitSystem @ 0x140A3E538 (ObInitSystem.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObpInitStackAndObjectTables @ 0x140985FBC (ObpInitStackAndObjectTables.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObpInitStackAndObjectTables @ 0x1408DE970 (ObpInitStackAndObjectTables.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-int ObpInitStackTrace()
+void ObpInitStackTrace()
 {
   int v0; // ebx
-  __int64 Pool2; // rax
-  __int64 v2; // rdi
-  __int64 v3; // rbx
-  unsigned __int16 v4; // bx
-  unsigned int v5; // edi
-  unsigned int v6; // edx
-  int *v7; // r9
-  unsigned int i; // r8d
-  int v9; // r10d
-  unsigned int v10; // r11d
-  int v11; // eax
-  int v12; // ecx
-  int v13; // ebx
+  __int64 v1; // rdi
+  __int64 v2; // rbx
+  unsigned __int16 v3; // bx
+  PVOID PoolWithTag; // rax
+  unsigned int v5; // edx
+  unsigned int v6; // r9d
+  int *v7; // r8
+  int v8; // r10d
+  unsigned int i; // r11d
+  unsigned int v10; // eax
+  int v11; // ecx
+  int v12; // ebx
 
   ObpStackTraceLock = 0LL;
   ObpPushStackInfoWorkItem.Parameter = 0LL;
@@ -35,90 +33,79 @@ int ObpInitStackTrace()
   v0 = 0;
   ObpPushStackInfoWorkItem.WorkerRoutine = (void (__fastcall *)(void *))ObpPushStackInfoQueue;
   memset(&ObpRegTracePoolTags, 0, 0x40uLL);
-  LODWORD(Pool2) = (unsigned int)memset(&ObpRuntimeTracePoolTags, 0, 0x40uLL);
-  v2 = -1LL;
+  memset(&ObpRuntimeTracePoolTags, 0, 0x40uLL);
+  v1 = -1LL;
   ObpNumTracedObjects = 0;
   ObpStackSequence = 0;
   if ( ObpTraceProcessNameBuffer[0] )
   {
-    v3 = -1LL;
+    v2 = -1LL;
     do
-      ++v3;
-    while ( ObpTraceProcessNameBuffer[v3] );
-    v4 = 2 * v3;
-    Pool2 = ExAllocatePool2(64LL, v4 + 2LL, 0x7452624Fu);
-    ObpRegTraceProcessName.Buffer = (wchar_t *)Pool2;
-    if ( !Pool2 )
-      return Pool2;
-    ObpRegTraceProcessName.Length = v4;
-    ObpRegTraceProcessName.MaximumLength = v4 + 2;
-    LODWORD(Pool2) = (unsigned int)memmove((void *)Pool2, ObpTraceProcessNameBuffer, (unsigned __int16)(v4 + 2));
+      ++v2;
+    while ( ObpTraceProcessNameBuffer[v2] );
+    v3 = 2 * v2;
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v3 + 2LL, 0x7452624Fu);
+    qword_140C25E58 = PoolWithTag;
+    if ( !PoolWithTag )
+      return;
+    LOWORD(ObpRegTraceProcessName) = v3;
+    WORD1(ObpRegTraceProcessName) = v3 + 2;
+    memmove(PoolWithTag, ObpTraceProcessNameBuffer, (unsigned __int16)(v3 + 2));
     v0 = 32;
   }
   if ( ObpTracePoolTagsBuffer[0] )
   {
     do
-      ++v2;
-    while ( ObpTracePoolTagsBuffer[v2] );
-    v5 = v2 + 1;
-    LODWORD(Pool2) = -858993459 * v5;
-    v6 = v5 / 5;
-    if ( v5 / 5 <= 0x10 )
-    {
-      if ( !v6 )
-      {
-LABEL_17:
-        v0 |= 0x10u;
-        goto LABEL_3;
-      }
-    }
-    else
-    {
+      ++v1;
+    while ( ObpTracePoolTagsBuffer[v1] );
+    v5 = 0;
+    v6 = ((int)v1 + 1) / 5u;
+    if ( v6 > 0x10 )
       v6 = 16;
-    }
-    v7 = (int *)&ObpRegTracePoolTags;
-    for ( i = 0; i < v6; ++i )
+    if ( v6 )
     {
-      v9 = *v7;
-      v10 = 0;
+      v7 = (int *)&ObpRegTracePoolTags;
       do
       {
-        v11 = 5 * i - v10++;
-        Pool2 = (unsigned int)(v11 + 3);
-        v12 = (v9 << 8) | (unsigned __int16)ObpTracePoolTagsBuffer[Pool2];
-        v9 = v12;
+        v8 = *v7;
+        for ( i = 0; i < 4; ++i )
+        {
+          v10 = 5 * v5 - i;
+          v11 = (v8 << 8) | (unsigned __int16)ObpTracePoolTagsBuffer[v10 + 3];
+          v8 = v11;
+        }
+        *v7 = v11;
+        ++v5;
+        ++v7;
       }
-      while ( v10 < 4 );
-      *v7++ = v12;
+      while ( v5 < v6 );
     }
-    goto LABEL_17;
+    v0 |= 0x10u;
   }
-LABEL_3:
   if ( v0 )
   {
     if ( ObpTracePermanent )
       v0 |= 0x40u;
-    LODWORD(Pool2) = ObpInitStackAndObjectTables();
-    if ( (int)Pool2 < 0 )
+    if ( (int)ObpInitStackAndObjectTables() < 0 )
     {
       if ( (v0 & 0x10) != 0 )
-        LODWORD(Pool2) = (unsigned int)memset(&ObpRegTracePoolTags, 0, 0x40uLL);
+        memset(&ObpRegTracePoolTags, 0, 0x40uLL);
       if ( (v0 & 0x20) != 0 )
       {
-        ExFreePoolWithTag(ObpRegTraceProcessName.Buffer, 0x7452624Fu);
-        LODWORD(Pool2) = RtlInitUnicodeStringEx(&ObpRegTraceProcessName, 0LL);
+        ExFreePoolWithTag(qword_140C25E58, 0x7452624Fu);
+        ObpRegTraceProcessName = 0LL;
+        qword_140C25E58 = 0LL;
       }
     }
     else
     {
-      v13 = v0 | 1;
-      ObpRegTraceFlags = v13;
-      ObpTraceFlags = v13;
-      if ( (v13 & 0x10) != 0 )
+      v12 = v0 | 1;
+      ObpRegTraceFlags = v12;
+      ObpTraceFlags = v12;
+      if ( (v12 & 0x10) != 0 )
         ObpTracePoolTags = (__int64)&ObpRegTracePoolTags;
-      if ( (v13 & 0x20) != 0 )
-        ObpTraceProcessName = &ObpRegTraceProcessName;
+      if ( (v12 & 0x20) != 0 )
+        ObpTraceProcessName = (PCUNICODE_STRING)&ObpRegTraceProcessName;
     }
   }
-  return Pool2;
 }

@@ -1,69 +1,70 @@
 /*
- * XREFs of ObFastDereferenceObject @ 0x140297B60
+ * XREFs of ObFastDereferenceObject @ 0x140345620
  * Callers:
- *     SepDesktopAppxSubProcessToken @ 0x140225D5C (SepDesktopAppxSubProcessToken.c)
- *     RtlpQueryLowBoxId @ 0x1402979F8 (RtlpQueryLowBoxId.c)
- *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x14036E6B8 (SepVerifyDesktopAppPolicyOverrideCaller.c)
- *     SeSetLearningModeObjectInformation @ 0x1405B845C (SeSetLearningModeObjectInformation.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14069F068 (PspAllocateAndQueryNotificationChannel.c)
- *     PspInitializeProcessSecurity @ 0x1406B64F0 (PspInitializeProcessSecurity.c)
- *     SeSubProcessToken @ 0x1406B71F8 (SeSubProcessToken.c)
- *     SeIsTokenAssignableToProcess @ 0x1406BA488 (SeIsTokenAssignableToProcess.c)
- *     ExpWnfQueryCurrentUserSID @ 0x140714AE0 (ExpWnfQueryCurrentUserSID.c)
- *     AlpcpCheckConnectionSecurity @ 0x140715A70 (AlpcpCheckConnectionSecurity.c)
- *     PsQueryProcessAttributes @ 0x14071DE84 (PsQueryProcessAttributes.c)
- *     NtOpenThreadTokenEx @ 0x14071DF70 (NtOpenThreadTokenEx.c)
- *     PsImpersonateClient @ 0x140734F30 (PsImpersonateClient.c)
- *     ExpGetProcessInformation @ 0x1407432D0 (ExpGetProcessInformation.c)
- *     EtwTraceAppStateChange @ 0x140751F08 (EtwTraceAppStateChange.c)
- *     EtwpPsProvTraceProcess @ 0x1407528E0 (EtwpPsProvTraceProcess.c)
- *     EtwpBuildProcessEvent @ 0x140754A38 (EtwpBuildProcessEvent.c)
- *     EtwQueryProcessTelemetryInfo @ 0x140754D60 (EtwQueryProcessTelemetryInfo.c)
- *     PspExitThread @ 0x14076DF3C (PspExitThread.c)
- *     DbgkCreateThread @ 0x14077012C (DbgkCreateThread.c)
- *     PspMapSystemDll @ 0x1407A37F0 (PspMapSystemDll.c)
- *     AlpcpPortQueryConnectedSidInfo @ 0x1407AB5FC (AlpcpPortQueryConnectedSidInfo.c)
- *     PopEtGetProcessSidAndPackageIdentity @ 0x1407B366C (PopEtGetProcessSidAndPackageIdentity.c)
- *     PfSnCheckModernApp @ 0x1407C2F34 (PfSnCheckModernApp.c)
- *     SepIsSiblingTokenByPointer @ 0x1407C7544 (SepIsSiblingTokenByPointer.c)
- *     MiIsUserQueryVmCallerTrusted @ 0x1407D08DC (MiIsUserQueryVmCallerTrusted.c)
- *     SepIsChildTokenByPointer @ 0x1407DD4A0 (SepIsChildTokenByPointer.c)
- *     PspSetRedirectionTrustPolicy @ 0x1407DDAA4 (PspSetRedirectionTrustPolicy.c)
- *     PspGetRedirectionTrustPolicy @ 0x1407DE628 (PspGetRedirectionTrustPolicy.c)
- *     PspSetQuotaLimits @ 0x1407E3E94 (PspSetQuotaLimits.c)
- *     PspSetNoChildProcessRestrictedPolicy @ 0x1407E8AF0 (PspSetNoChildProcessRestrictedPolicy.c)
- *     PspGetNoChildProcessRestrictedPolicy @ 0x1407EA400 (PspGetNoChildProcessRestrictedPolicy.c)
- *     NtImpersonateAnonymousToken @ 0x1407F5620 (NtImpersonateAnonymousToken.c)
- *     SepCopyAnonymousTokenAndSetSilo @ 0x1409C9410 (SepCopyAnonymousTokenAndSetSilo.c)
- *     EtwpGetPsmKeyExtendedHeaderItem @ 0x1409E7204 (EtwpGetPsmKeyExtendedHeaderItem.c)
- *     EtwpPsProvProcessEnumCallback @ 0x1409EFB10 (EtwpPsProvProcessEnumCallback.c)
- *     EtwpApplyPackageIdFilter @ 0x1409F4FC8 (EtwpApplyPackageIdFilter.c)
- *     MmInitSystemDll @ 0x140B76620 (MmInitSystemDll.c)
- *     PspGetSystemDllSecureHandle @ 0x140B97B2C (PspGetSystemDllSecureHandle.c)
+ *     PspGetRedirectionTrustPolicy @ 0x1405CF638 (PspGetRedirectionTrustPolicy.c)
+ *     PspSetRedirectionTrustPolicy @ 0x1405CF6A4 (PspSetRedirectionTrustPolicy.c)
+ *     AlpcpCheckConnectionSecurity @ 0x1405DEB24 (AlpcpCheckConnectionSecurity.c)
+ *     PsQueryProcessAttributes @ 0x140600F24 (PsQueryProcessAttributes.c)
+ *     EtwpBuildProcessEvent @ 0x140602610 (EtwpBuildProcessEvent.c)
+ *     EtwpPsProvTraceProcess @ 0x140602CDC (EtwpPsProvTraceProcess.c)
+ *     SeSubProcessToken @ 0x140603E44 (SeSubProcessToken.c)
+ *     ExpWnfQueryCurrentUserSID @ 0x1406107B4 (ExpWnfQueryCurrentUserSID.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x140611674 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwTraceAppStateChange @ 0x14062B3BC (EtwTraceAppStateChange.c)
+ *     PfSnCheckModernApp @ 0x1406308A8 (PfSnCheckModernApp.c)
+ *     ExpGetProcessInformation @ 0x14063E980 (ExpGetProcessInformation.c)
+ *     NtOpenThreadTokenEx @ 0x140653590 (NtOpenThreadTokenEx.c)
+ *     EtwpGetSidExtendedHeaderItem @ 0x140654EBC (EtwpGetSidExtendedHeaderItem.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x14065CC90 (PspAllocateAndQueryNotificationChannel.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x1406616E8 (AlpcpPortQueryConnectedSidInfo.c)
+ *     PopEtGetProcessSidAndPackageIdentity @ 0x14067CCB4 (PopEtGetProcessSidAndPackageIdentity.c)
+ *     PspSetQuotaLimits @ 0x140688A74 (PspSetQuotaLimits.c)
+ *     PspSetNoChildProcessRestrictedPolicy @ 0x1406A2C88 (PspSetNoChildProcessRestrictedPolicy.c)
+ *     PspGetNoChildProcessRestrictedPolicy @ 0x1406A5360 (PspGetNoChildProcessRestrictedPolicy.c)
+ *     DbgkCreateThread @ 0x1406C01E0 (DbgkCreateThread.c)
+ *     PspExitThread @ 0x1406C35F8 (PspExitThread.c)
+ *     PfQuerySuperfetchInformation @ 0x1406CD5D0 (PfQuerySuperfetchInformation.c)
+ *     ObOpenObjectByNameEx @ 0x1406CEA90 (ObOpenObjectByNameEx.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     PsImpersonateClient @ 0x1406D3C60 (PsImpersonateClient.c)
+ *     PspMapSystemDll @ 0x1406FCA38 (PspMapSystemDll.c)
+ *     PspInitializeProcessSecurity @ 0x140703CD0 (PspInitializeProcessSecurity.c)
+ *     SeIsTokenAssignableToProcess @ 0x14070DAF4 (SeIsTokenAssignableToProcess.c)
+ *     SepIsSiblingTokenByPointer @ 0x14070DCB4 (SepIsSiblingTokenByPointer.c)
+ *     SepIsChildTokenByPointer @ 0x14070DDA8 (SepIsChildTokenByPointer.c)
+ *     NtImpersonateAnonymousToken @ 0x14070DED0 (NtImpersonateAnonymousToken.c)
+ *     SepCopyAnonymousTokenAndSetSilo @ 0x14091C690 (SepCopyAnonymousTokenAndSetSilo.c)
+ *     EtwpGetPsmKeyExtendedHeaderItem @ 0x1409339B4 (EtwpGetPsmKeyExtendedHeaderItem.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x14093EBB0 (EtwpPsProvProcessEnumCallback.c)
+ *     EtwpApplyPackageIdFilter @ 0x1409408CC (EtwpApplyPackageIdFilter.c)
+ *     MmInitSystemDll @ 0x140A4B9EC (MmInitSystemDll.c)
+ *     PspGetSystemDllSecureHandle @ 0x140A93648 (PspGetSystemDllSecureHandle.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x140582C68 (ObpPushStackInfo.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
  */
 
-signed __int64 __fastcall ObFastDereferenceObject(signed __int64 *a1, unsigned __int64 a2, ULONG a3)
+void __fastcall ObFastDereferenceObject(signed __int64 *a1, struct _DMA_ADAPTER *a2)
 {
-  signed __int64 result; // rax
-  signed __int64 v4; // rtt
+  signed __int64 v2; // rax
+  signed __int64 v3; // rtt
 
   _m_prefetchw(a1);
-  result = *a1;
-  if ( (a2 ^ *a1) >= 0xF )
-    return ObfDereferenceObjectWithTag((PVOID)a2, a3);
-  while ( 1 )
+  v2 = *a1;
+  if ( ((unsigned __int64)a2 ^ *a1) >= 0xF )
   {
-    v4 = result;
-    result = _InterlockedCompareExchange64(a1, result + 1, result);
-    if ( v4 == result )
-      break;
-    if ( (a2 ^ result) >= 0xF )
-      return ObfDereferenceObjectWithTag((PVOID)a2, a3);
+LABEL_4:
+    HalPutDmaAdapter(a2);
   }
-  if ( ObpTraceFlags )
-    return ObpPushStackInfo((int)a2 - 48);
-  return result;
+  else
+  {
+    while ( 1 )
+    {
+      v3 = v2;
+      v2 = _InterlockedCompareExchange64(a1, v2 + 1, v2);
+      if ( v3 == v2 )
+        break;
+      if ( ((unsigned __int64)a2 ^ v2) >= 0xF )
+        goto LABEL_4;
+    }
+  }
 }

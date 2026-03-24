@@ -1,55 +1,74 @@
 /*
- * XREFs of ?_CcdCreateKeyFromSetIdStr@CCD_SET_STRING_ID@@SAJPEAU_UNICODE_STRING@@AEBU_STRING@@@Z @ 0x1C01AECD8
+ * XREFs of ?_CcdCreateKeyFromSetIdStr@CCD_SET_STRING_ID@@SAJPEAU_UNICODE_STRING@@AEBU_STRING@@@Z @ 0x1C0130DD8
  * Callers:
- *     ??$_ForSetSubkey@VTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGAEBU_STRING@@P6AJPEAVTOPOLOGY_SET_DESCRIPTOR@0@PEAX@Z3_N@Z @ 0x1C01AF3E8 (--$_ForSetSubkey@VTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGAEBU_STRING@@P6AJPEAVTOP.c)
- *     ??$_ForSetSubkey@VCONNECTED_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGAEBU_STRING@@P6AJPEAVCONNECTED_SET_DESCRIPTOR@0@PEAX@Z3_N@Z @ 0x1C01B6FEC (--$_ForSetSubkey@VCONNECTED_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGAEBU_STRING@@P6AJPEAVCO.c)
- *     ?SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z @ 0x1C01D6A40 (-SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ??$_ForSetSubkey@VTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGAEBU_STRING@@P6AJPEAVTOPOLOGY_SET_DESCRIPTOR@0@PEAX@Z3_N@Z @ 0x1C0136A94 (--$_ForSetSubkey@VTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGAEBU_STRING@@P6AJPEAVTOP.c)
+ *     ?SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z @ 0x1C0147398 (-SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ??$_ForSetSubkey@VCONNECTED_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGAEBU_STRING@@P6AJPEAVCONNECTED_SET_DESCRIPTOR@0@PEAX@Z3_N@Z @ 0x1C01476E8 (--$_ForSetSubkey@VCONNECTED_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGAEBU_STRING@@P6AJPEAVCO.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?CcdCreateMd5Checksum@@YAJPEBEIPEAG@Z @ 0x1C01AEC2C (-CcdCreateMd5Checksum@@YAJPEBEIPEAG@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?CcdCreateMd5Checksum@@YAJPEBEIPEAG@Z @ 0x1C0130F0C (-CcdCreateMd5Checksum@@YAJPEBEIPEAG@Z.c)
  */
 
 __int64 __fastcall CCD_SET_STRING_ID::_CcdCreateKeyFromSetIdStr(
         PUNICODE_STRING DestinationString,
-        const struct _STRING *a2,
-        __int64 a3,
-        __int64 a4)
+        const struct _STRING *a2)
 {
   USHORT Length; // si
-  unsigned __int64 v7; // rax
-  wchar_t *v8; // rax
-  NTSTATUS v9; // eax
-  unsigned int v10; // r14d
+  unsigned __int64 v5; // r14
+  SIZE_T v6; // rax
+  wchar_t *v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  NTSTATUS v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r14
   wchar_t *Buffer; // rax
   int Md5Checksum; // eax
-  unsigned int v13; // esi
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rsi
   __int64 result; // rax
-  _STRING SourceString; // [rsp+30h] [rbp-38h] BYREF
+  _QWORD *v22; // rax
+  _QWORD *v23; // rax
+  _QWORD *v24; // rax
+  struct _STRING SourceString; // [rsp+20h] [rbp-38h] BYREF
 
   Length = a2->Length;
   if ( a2->Length >= 0x80u )
     Length = 128;
-  v7 = 2LL * (unsigned __int16)(Length + 34);
-  if ( !is_mul_ok((unsigned __int16)(Length + 34), 2uLL) )
-    v7 = -1LL;
-  v8 = (wchar_t *)operator new[](v7, 0x63644356u, 256LL, a4);
-  DestinationString->Buffer = v8;
-  if ( v8 )
+  v5 = (unsigned __int16)(Length + 34);
+  v6 = 2 * v5;
+  if ( !is_mul_ok(v5, 2uLL) )
+    v6 = -1LL;
+  v7 = (wchar_t *)operator new[](v6, 0x63644356u, PagedPool);
+  DestinationString->Buffer = v7;
+  if ( v7 )
   {
+    memset(v7, 0, 2 * v5);
     DestinationString->Length = 0;
     SourceString.Length = Length;
-    SourceString.MaximumLength = Length;
     DestinationString->MaximumLength = 2 * (Length + 1);
+    SourceString.MaximumLength = Length;
     *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;
     SourceString.Buffer = a2->Buffer;
-    v9 = RtlAnsiStringToUnicodeString(DestinationString, &SourceString, 0);
-    v10 = v9;
-    if ( v9 < 0 )
+    v12 = RtlAnsiStringToUnicodeString(DestinationString, &SourceString, 0);
+    v15 = v12;
+    if ( v12 < 0 )
     {
-      WdLogSingleEntry5(1LL, v9, a2, a2->Length, Length, DestinationString->MaximumLength);
+      v23 = (_QWORD *)WdLogNewEntry5_WdAssertion(v14, v13);
+      v23[3] = v15;
+      v23[4] = a2;
+      v23[5] = a2->Length;
+      v23[6] = Length;
+      v23[7] = DestinationString->MaximumLength;
+      WdLogEvent5_WdAssertion(v23);
       operator delete[](DestinationString->Buffer);
-      result = v10;
+      result = (unsigned int)v15;
       *DestinationString = 0LL;
     }
     else
@@ -61,12 +80,17 @@ __int64 __fastcall CCD_SET_STRING_ID::_CcdCreateKeyFromSetIdStr(
                       (const unsigned __int8 *)a2->Buffer,
                       a2->Length,
                       &DestinationString->Buffer[Length + 1]);
-      v13 = Md5Checksum;
+      v20 = Md5Checksum;
       if ( Md5Checksum < 0 )
       {
-        WdLogSingleEntry4(1LL, Md5Checksum, a2, a2->Buffer, a2->Length);
+        v24 = (_QWORD *)WdLogNewEntry5_WdAssertion(v19, v18);
+        v24[3] = v20;
+        v24[4] = a2;
+        v24[5] = a2->Buffer;
+        v24[6] = a2->Length;
+        WdLogEvent5_WdAssertion(v24);
         operator delete[](DestinationString->Buffer);
-        result = v13;
+        result = (unsigned int)v20;
         *DestinationString = 0LL;
       }
       else
@@ -78,7 +102,11 @@ __int64 __fastcall CCD_SET_STRING_ID::_CcdCreateKeyFromSetIdStr(
   }
   else
   {
-    WdLogSingleEntry3(6LL, a2, a2->Length, (unsigned __int16)(Length + 34));
+    v22 = (_QWORD *)WdLogNewEntry5_WdLowResource(v9, v8, v10, v11);
+    v22[3] = a2;
+    v22[4] = a2->Length;
+    v22[5] = v5;
+    WdLogEvent5_WdLowResource(v22);
     return 3221225495LL;
   }
   return result;

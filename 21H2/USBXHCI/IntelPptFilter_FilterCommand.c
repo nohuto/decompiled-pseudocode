@@ -1,11 +1,11 @@
 /*
- * XREFs of IntelPptFilter_FilterCommand @ 0x1C007A100
+ * XREFs of IntelPptFilter_FilterCommand @ 0x1C0079100
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     IntelPptFilter_CheckAndIncreaseEndpointCount @ 0x1C007A020 (IntelPptFilter_CheckAndIncreaseEndpointCount.c)
- *     IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C007A2E8 (IntelPptFilter_FilterEndpointConfigureCommand.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     IntelPptFilter_CheckAndIncreaseEndpointCount @ 0x1C0079020 (IntelPptFilter_CheckAndIncreaseEndpointCount.c)
+ *     IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C00792E8 (IntelPptFilter_FilterEndpointConfigureCommand.c)
  */
 
 __int64 __fastcall IntelPptFilter_FilterCommand(__int64 a1, __int64 a2)

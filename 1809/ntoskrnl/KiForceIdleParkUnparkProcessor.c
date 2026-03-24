@@ -1,12 +1,12 @@
 /*
- * XREFs of KiForceIdleParkUnparkProcessor @ 0x14029AEA8
+ * XREFs of KiForceIdleParkUnparkProcessor @ 0x14029AFA8
  * Callers:
- *     KiForceIdleParkUnparkDpcRoutine @ 0x14029AE80 (KiForceIdleParkUnparkDpcRoutine.c)
- *     KiForceIdleUpdateSchedulerParkState @ 0x14029B200 (KiForceIdleUpdateSchedulerParkState.c)
+ *     KiForceIdleParkUnparkDpcRoutine @ 0x14029AF80 (KiForceIdleParkUnparkDpcRoutine.c)
+ *     KiForceIdleUpdateSchedulerParkState @ 0x14029B300 (KiForceIdleUpdateSchedulerParkState.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeTransitionProcessorParkState @ 0x14029CC9C (KeTransitionProcessorParkState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeTransitionProcessorParkState @ 0x14029CD9C (KeTransitionProcessorParkState.c)
  */
 
 __int64 __fastcall KiForceIdleParkUnparkProcessor(__int64 a1, __int64 a2, __int64 a3)

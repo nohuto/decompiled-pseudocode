@@ -1,26 +1,27 @@
 /*
- * XREFs of CmpBlockTwoHiveWrites @ 0x140A13908
+ * XREFs of CmpBlockTwoHiveWrites @ 0x1406EB244
  * Callers:
- *     CmSaveMergedKeys @ 0x140A0BE34 (CmSaveMergedKeys.c)
- *     CmpVirtualBranchIsReplicated @ 0x140A1A6DC (CmpVirtualBranchIsReplicated.c)
- *     CmpVirtualPathPresent @ 0x140A1A890 (CmpVirtualPathPresent.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1406EAEDC (CmpVirtualBranchIsReplicated.c)
+ *     CmpVirtualPathPresent @ 0x140870EA0 (CmpVirtualPathPresent.c)
+ *     CmSaveMergedKeys @ 0x14087CAE0 (CmSaveMergedKeys.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     CmpDeleteHive @ 0x14074EBE4 (CmpDeleteHive.c)
- *     CmpGetNextActiveHive @ 0x140752570 (CmpGetNextActiveHive.c)
- *     CmpReferenceHive @ 0x14076AA9C (CmpReferenceHive.c)
- *     HvLockHiveFlusherExclusive @ 0x140AF6670 (HvLockHiveFlusherExclusive.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140AF668C (HvUnlockHiveFlusherExclusive.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
+ *     CmpGetNextActiveHive @ 0x1406EB310 (CmpGetNextActiveHive.c)
+ *     CmpDeleteHive @ 0x14071BAC4 (CmpDeleteHive.c)
  */
 
-__int64 __fastcall CmpBlockTwoHiveWrites(volatile signed __int32 *P, __int64 a2, char a3)
+__int64 __fastcall CmpBlockTwoHiveWrites(__int64 a1, __int64 a2, char a3)
 {
   char v3; // r14
   char v4; // bp
   struct _EX_RUNDOWN_REF *i; // rcx
-  __int64 *NextActiveHive; // rax
-  struct _EX_RUNDOWN_REF *v10; // rsi
-  volatile signed __int32 *v11; // rcx
+  __int64 NextActiveHive; // rax
+  struct _EX_RUNDOWN_REF *v10; // rbx
+  void *v12; // rcx
 
   v3 = 0;
   v4 = 0;
@@ -30,43 +31,44 @@ __int64 __fastcall CmpBlockTwoHiveWrites(volatile signed __int32 *P, __int64 a2,
     v10 = (struct _EX_RUNDOWN_REF *)NextActiveHive;
     if ( !NextActiveHive )
       break;
-    if ( P == (volatile signed __int32 *)NextActiveHive || (__int64 *)a2 == NextActiveHive )
+    if ( a1 == NextActiveHive || a2 == NextActiveHive )
     {
       if ( a3 )
-        CmpReferenceHive((__int64)NextActiveHive);
-      HvLockHiveFlusherExclusive(v10);
-      if ( P == (volatile signed __int32 *)v10 )
+        CmpReferenceHive(NextActiveHive);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&v10[9], 0LL);
+      if ( (struct _EX_RUNDOWN_REF *)a1 == v10 )
         v3 = 1;
       else
         v4 = 1;
-      if ( (!P || v3 == 1) && (!a2 || v4 == 1) )
+      if ( (!a1 || v3 == 1) && (!a2 || v4 == 1) )
       {
-        ExReleaseRundownProtection_0(v10 + 205);
+        ExReleaseRundownProtection(v10 + 204);
         break;
       }
     }
   }
-  if ( P && !v3 )
+  if ( (!a1 || v3) && (!a2 || v4) )
+    return 0LL;
+  if ( v3 == 1 )
+  {
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 72));
+    KeAbPostRelease(a1 + 72);
+    if ( !a3 || _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4272), 0xFFFFFFFF) != 1 )
+      return 3221225524LL;
+    v12 = (void *)a1;
+  }
+  else
   {
     if ( v4 != 1 )
       return 3221225524LL;
-    HvUnlockHiveFlusherExclusive(a2);
-    if ( !a3 || _InterlockedExchangeAdd((volatile signed __int32 *)(a2 + 4232), 0xFFFFFFFF) != 1 )
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 72), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)(a2 + 72));
+    KeAbPostRelease(a2 + 72);
+    if ( !a3 || _InterlockedExchangeAdd((volatile signed __int32 *)(a2 + 4272), 0xFFFFFFFF) != 1 )
       return 3221225524LL;
-    v11 = (volatile signed __int32 *)a2;
-LABEL_29:
-    CmpDeleteHive(v11);
-    return 3221225524LL;
+    v12 = (void *)a2;
   }
-  if ( a2 && !v4 )
-  {
-    if ( v3 != 1 )
-      return 3221225524LL;
-    HvUnlockHiveFlusherExclusive(P);
-    if ( !a3 || _InterlockedExchangeAdd(P + 1058, 0xFFFFFFFF) != 1 )
-      return 3221225524LL;
-    v11 = P;
-    goto LABEL_29;
-  }
-  return 0LL;
+  CmpDeleteHive(v12);
+  return 3221225524LL;
 }

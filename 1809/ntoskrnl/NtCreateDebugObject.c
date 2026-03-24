@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateDebugObject @ 0x14080FA70
+ * XREFs of NtCreateDebugObject @ 0x14080FA50
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
  */

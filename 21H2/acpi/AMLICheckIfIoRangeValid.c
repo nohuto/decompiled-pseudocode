@@ -1,7 +1,7 @@
 /*
- * XREFs of AMLICheckIfIoRangeValid @ 0x1C00646A0
+ * XREFs of AMLICheckIfIoRangeValid @ 0x1C00633F4
  * Callers:
- *     AcpiValidatePepDeviceControlResources @ 0x1C00B0BB4 (AcpiValidatePepDeviceControlResources.c)
+ *     AcpiValidatePepDeviceControlResources @ 0x1C00B1914 (AcpiValidatePepDeviceControlResources.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopRegistryInitializeCallbacks @ 0x14083618C
+ * XREFs of IopRegistryInitializeCallbacks @ 0x1407B3FD0
  * Callers:
- *     IoInitSystem @ 0x140B606E0 (IoInitSystem.c)
+ *     IoInitSystem @ 0x140A66E8C (IoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwNotifyChangeKey @ 0x14041CAC0 (ZwNotifyChangeKey.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     IopRegistryOpenDeepestPath @ 0x1408363C8 (IopRegistryOpenDeepestPath.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwNotifyChangeKey @ 0x1403FBD60 (ZwNotifyChangeKey.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     IopRegistryOpenDeepestPath @ 0x1407B41F4 (IopRegistryOpenDeepestPath.c)
  */
 
 __int64 IopRegistryInitializeCallbacks()
@@ -22,13 +22,15 @@ __int64 IopRegistryInitializeCallbacks()
   DestinationString = 0LL;
   v1 = &IopRegistryRegisteredCallbacks;
   v6 = 0;
-  if ( off_140C046D0 )
+  if ( off_140C030F0 )
   {
     v2 = 0LL;
     do
     {
       v3 = v1[6];
-      if ( v3 && ((int (__fastcall *)(wchar_t **))v3)(v1) < 0 )
+      if ( v3 )
+        LODWORD(v3) = ((__int64 (__fastcall *)(wchar_t **))v3)(v1);
+      if ( (int)v3 < 0 )
       {
         *((_DWORD *)v1 + 2) = 0;
       }

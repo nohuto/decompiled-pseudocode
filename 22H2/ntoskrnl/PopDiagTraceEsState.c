@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceEsState @ 0x140592F34
+ * XREFs of PopDiagTraceEsState @ 0x1405719C8
  * Callers:
- *     PopEsUpdateState @ 0x1403C5BF4 (PopEsUpdateState.c)
+ *     PopEsUpdateState @ 0x14039A208 (PopEsUpdateState.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 BOOLEAN PopDiagTraceEsState()

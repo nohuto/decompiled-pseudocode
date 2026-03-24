@@ -1,97 +1,97 @@
 /*
- * XREFs of _GetKeyNameText @ 0x1C00135E0
+ * XREFs of _GetKeyNameText @ 0x1C006BB70
  * Callers:
  *     <none>
  * Callees:
- *     wcsncpycch @ 0x1C00136C4 (wcsncpycch.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00462A0 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     InternalMapVirtualKeyEx @ 0x1C006BBB0 (InternalMapVirtualKeyEx.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     InternalMapVirtualKeyEx @ 0x1C003E420 (InternalMapVirtualKeyEx.c)
+ *     wcsncpycch @ 0x1C006BC58 (wcsncpycch.c)
  */
 
 __int64 __fastcall GetKeyNameText(unsigned int a1, _WORD *a2, int a3)
 {
-  unsigned int v5; // ebx
-  unsigned __int64 v6; // rdi
-  struct tagTHREADINFO *v7; // rax
-  __int64 v8; // rax
-  _QWORD *v9; // rsi
-  __int64 v10; // rax
-  __int64 v11; // rdx
+  unsigned int v4; // ebx
+  unsigned __int64 v5; // rdi
+  __int64 ThreadWin32Thread; // rax
+  __int64 v7; // rax
+  _QWORD *v8; // rsi
+  __int64 v9; // rax
+  __int64 v10; // rdx
   __int64 result; // rax
-  char v13; // cl
-  unsigned int v14; // eax
-  int v15; // eax
-  _WORD **v16; // rcx
-  _WORD *v17; // rdx
+  char v12; // cl
+  unsigned int v13; // eax
+  signed int v14; // eax
+  _WORD **v15; // rcx
+  _WORD *v16; // rdx
 
-  v5 = a1;
-  v6 = (unsigned __int64)a1 >> 16;
-  v7 = PtiCurrentShared();
+  v4 = a1;
+  v5 = (unsigned __int64)a1 >> 16;
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   if ( a3 < 1 )
     return 0LL;
-  if ( (v5 & 0x2000000) != 0 )
+  if ( (v4 & 0x2000000) != 0 )
   {
-    v13 = v6;
-    if ( (_BYTE)v6 == 54 )
-      v13 = 42;
-    LOBYTE(v6) = v13;
-    if ( (v5 & 0x1000000) != 0 && (v13 == 29 || v13 == 56) )
-      v5 &= ~0x1000000u;
-    v5 &= ~0x2000000u;
+    v12 = v5;
+    if ( (_BYTE)v5 == 54 )
+      v12 = 42;
+    LOBYTE(v5) = v12;
+    if ( (v4 & 0x1000000) != 0 && (v12 == 29 || v12 == 56) )
+      v4 &= ~0x1000000u;
+    v4 &= ~0x2000000u;
   }
-  v8 = *((_QWORD *)v7 + 55);
-  if ( !v8 )
+  v7 = *(_QWORD *)(ThreadWin32Thread + 440);
+  if ( !v7 )
     return 0LL;
-  v9 = *(_QWORD **)(*(_QWORD *)(v8 + 48) + 32LL);
-  if ( (v5 & 0x1000000) != 0 )
-    v10 = v9[4];
+  v8 = *(_QWORD **)(*(_QWORD *)(v7 + 48) + 32LL);
+  if ( (v4 & 0x1000000) != 0 )
+    v9 = v8[4];
   else
-    v10 = v9[3];
-  if ( v10 )
+    v9 = v8[3];
+  if ( v9 )
   {
-    while ( *(_BYTE *)v10 )
+    while ( *(_BYTE *)v9 )
     {
-      if ( (_BYTE)v6 == *(_BYTE *)v10 )
+      if ( (_BYTE)v5 == *(_BYTE *)v9 )
       {
-        v11 = *(_QWORD *)(v10 + 8);
-        if ( v11 )
+        v10 = *(_QWORD *)(v9 + 8);
+        if ( v10 )
         {
-          result = (unsigned int)wcsncpycch(a2, v11, (unsigned int)a3) - 1;
+          result = (unsigned int)wcsncpycch(a2, v10, (unsigned int)a3) - 1;
           a2[(int)result] = 0;
           return result;
         }
       }
-      v10 += 16LL;
+      v9 += 16LL;
     }
   }
-  v14 = InternalMapVirtualKeyEx((unsigned __int8)v6, 1LL, v9);
+  v13 = InternalMapVirtualKeyEx((unsigned __int8)v5, 1LL, (__int64)v8);
+  if ( !v13 )
+    return 0LL;
+  v14 = InternalMapVirtualKeyEx(v13, 2LL, (__int64)v8);
   if ( !v14 )
     return 0LL;
-  v15 = InternalMapVirtualKeyEx(v14, 2LL, v9);
-  if ( !v15 )
-    return 0LL;
-  if ( v15 < 0 )
+  if ( v14 < 0 )
   {
-    v16 = (_WORD **)v9[5];
-    if ( v16 )
+    v15 = (_WORD **)v8[5];
+    if ( v15 )
     {
       while ( 1 )
       {
-        v17 = *v16;
-        if ( !*v16 )
+        v16 = *v15;
+        if ( !*v15 )
           break;
-        if ( *v17 == (_WORD)v15 )
+        if ( *v16 == (_WORD)v14 )
         {
-          result = (unsigned int)wcsncpycch(a2, v17 + 1, (unsigned int)a3) - 1;
+          result = (unsigned int)wcsncpycch(a2, v16 + 1, (unsigned int)a3) - 1;
           a2[(int)result] = 0;
           return result;
         }
-        ++v16;
+        ++v15;
       }
     }
   }
-  *a2 = v15;
+  *a2 = v14;
   if ( a3 >= 2 )
     a2[1] = 0;
   return 1LL;

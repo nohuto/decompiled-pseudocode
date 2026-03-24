@@ -1,17 +1,17 @@
 /*
- * XREFs of AslpPathWildcardAllocMatchNode @ 0x140A16F94
+ * XREFs of AslpPathWildcardAllocMatchNode @ 0x140969C60
  * Callers:
- *     AslPathWildcardFindFirst @ 0x140A15ECC (AslPathWildcardFindFirst.c)
- *     AslPathWildcardFindNext @ 0x140A1641C (AslPathWildcardFindNext.c)
+ *     AslPathWildcardFindFirst @ 0x140968AF4 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x1409690C4 (AslPathWildcardFindNext.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x140208AD8 (RtlUnicodeStringCopy.c)
- *     RtlUShortAdd @ 0x1402DE190 (RtlUShortAdd.c)
- *     RtlUnicodeStringCatString @ 0x14036BFE0 (RtlUnicodeStringCatString.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     RtlUnicodeStringCbCatStringN @ 0x140649CA0 (RtlUnicodeStringCbCatStringN.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B444 (AslAlloc.c)
- *     AslpPathWildcardFreeMatchNode @ 0x140A17288 (AslpPathWildcardFreeMatchNode.c)
+ *     RtlUnicodeStringCopy @ 0x140206CD0 (RtlUnicodeStringCopy.c)
+ *     RtlUShortAdd @ 0x1402B256C (RtlUShortAdd.c)
+ *     RtlUnicodeStringCatString @ 0x1403C410C (RtlUnicodeStringCatString.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     RtlUnicodeStringCbCatStringN @ 0x1405C0BFC (RtlUnicodeStringCbCatStringN.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075B098 (AslAlloc.c)
+ *     AslpPathWildcardFreeMatchNode @ 0x140969F54 (AslpPathWildcardFreeMatchNode.c)
  */
 
 __int64 __fastcall AslpPathWildcardAllocMatchNode(
@@ -30,7 +30,7 @@ __int64 __fastcall AslpPathWildcardAllocMatchNode(
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
   USHORT pusResult; // [rsp+90h] [rbp+20h] BYREF
 
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   IoStatusBlock = 0LL;
   *(_QWORD *)&DestinationString->Length = 0LL;
   DestinationString->Buffer = 0LL;
@@ -46,53 +46,62 @@ __int64 __fastcall AslpPathWildcardAllocMatchNode(
   if ( !a3[1] )
   {
     v8 = a4 != 0 ? -1073741638 : -1073741197;
-LABEL_20:
-    AslpPathWildcardFreeMatchNode(DestinationString);
-    return (unsigned int)v8;
+    goto LABEL_20;
   }
   if ( !a4 )
   {
     v8 = -1073741565;
-    goto LABEL_20;
+LABEL_21:
+    AslpPathWildcardFreeMatchNode(DestinationString);
+    return (unsigned int)v8;
   }
   pusResult = SourceString->Length;
   v8 = RtlUShortAdd(pusResult, a6, &pusResult);
-  if ( v8 < 0 )
-    goto LABEL_19;
-  v8 = RtlUShortAdd(pusResult, 4u, &pusResult);
-  if ( v8 < 0 )
-    goto LABEL_19;
-  v10 = pusResult;
-  DestinationString->MaximumLength = pusResult;
-  DestinationString->Length = 0;
-  v11 = (wchar_t *)AslAlloc(v9, v10);
-  DestinationString->Buffer = v11;
-  if ( !v11 )
+  if ( v8 >= 0 )
   {
-    v8 = -1073741801;
-    goto LABEL_20;
+    v8 = RtlUShortAdd(pusResult, 4u, &pusResult);
+    if ( v8 >= 0 )
+    {
+      v10 = pusResult;
+      DestinationString->MaximumLength = pusResult;
+      DestinationString->Length = 0;
+      v11 = (wchar_t *)AslAlloc(v9, v10);
+      DestinationString->Buffer = v11;
+      if ( !v11 )
+      {
+        v8 = -1073741801;
+        goto LABEL_21;
+      }
+      v8 = RtlUnicodeStringCopy(DestinationString, SourceString);
+      if ( v8 >= 0 )
+      {
+        if ( DestinationString->Buffer[((unsigned __int64)DestinationString->Length >> 1) - 1] == 92
+          || (v8 = RtlUnicodeStringCatString(DestinationString, L"\\"), v8 >= 0) )
+        {
+          if ( !pszSrc || !a6 || (v8 = RtlUnicodeStringCbCatStringN(DestinationString, pszSrc, a6), v8 >= 0) )
+          {
+            ObjectAttributes.Length = 48;
+            ObjectAttributes.RootDirectory = 0LL;
+            ObjectAttributes.Attributes = 576;
+            ObjectAttributes.ObjectName = DestinationString;
+            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            v8 = ZwOpenFile(
+                   (PHANDLE)&DestinationString[1].Buffer,
+                   0x100001u,
+                   &ObjectAttributes,
+                   &IoStatusBlock,
+                   1u,
+                   0x21u);
+            if ( v8 >= 0 )
+              return (unsigned int)v8;
+          }
+        }
+      }
+    }
   }
-  v8 = RtlUnicodeStringCopy(DestinationString, SourceString);
+  AslLogCallPrintf(1LL);
+LABEL_20:
   if ( v8 < 0 )
-    goto LABEL_19;
-  if ( DestinationString->Buffer[((unsigned __int64)DestinationString->Length >> 1) - 1] != 92 )
-  {
-    v8 = RtlUnicodeStringCatString(DestinationString, L"\\");
-    if ( v8 < 0 )
-      goto LABEL_19;
-  }
-  if ( pszSrc && a6 && (v8 = RtlUnicodeStringCbCatStringN(DestinationString, pszSrc, a6), v8 < 0)
-    || (ObjectAttributes.Length = 48,
-        ObjectAttributes.RootDirectory = 0LL,
-        ObjectAttributes.Attributes = 576,
-        ObjectAttributes.ObjectName = DestinationString,
-        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL,
-        v8 = ZwOpenFile((PHANDLE)&DestinationString[1].Buffer, 0x100001u, &ObjectAttributes, &IoStatusBlock, 1u, 0x21u),
-        v8 < 0) )
-  {
-LABEL_19:
-    AslLogCallPrintf(1LL);
-    goto LABEL_20;
-  }
+    goto LABEL_21;
   return (unsigned int)v8;
 }

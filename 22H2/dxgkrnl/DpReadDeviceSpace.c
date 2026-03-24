@@ -1,82 +1,84 @@
 /*
- * XREFs of DpReadDeviceSpace @ 0x1C001C7F0
+ * XREFs of DpReadDeviceSpace @ 0x1C00211B0
  * Callers:
- *     ?InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z @ 0x1C02B7EE4 (-InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z.c)
- *     ?ReadVirtualFunctionConfig@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_READVIRTUALFUNCTIONCONFIG@@@Z @ 0x1C036F400 (-ReadVirtualFunctionConfig@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_READVIRTUALFUNCTIONCONFIG@@.c)
- *     ?CreateVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGADAPTER@@@Z @ 0x1C0372C34 (-CreateVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGADAPTER@@@Z.c)
+ *     ?ReadVirtualFunctionConfig@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_READVIRTUALFUNCTIONCONFIG@@@Z @ 0x1C02363A0 (-ReadVirtualFunctionConfig@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_READVIRTUALFUNCTIONCONFIG@@.c)
+ *     ?CreateVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGADAPTER@@@Z @ 0x1C0238B94 (-CreateVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGADAPTER@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DpReadDeviceSpace(__int64 a1, __int64 a2, void *a3, ULONG Offset, ULONG Length, ULONG *a6)
 {
   unsigned int v6; // ebx
-  __int64 v8; // rcx
-  int v9; // r8d
-  __int64 (__fastcall *v10)(_QWORD, __int64, void *); // r11
+  __int64 v8; // r8
+  __int64 (__fastcall *v9)(_QWORD, __int64, void *); // r11
   ULONG BusDataByOffset; // eax
-  __int64 v12; // rcx
-  __int64 v13; // rdx
+  __int64 v11; // rax
+  __int64 v13; // rdi
+  __int64 v14; // rax
   __int64 (__fastcall *v15)(_QWORD, void *, _QWORD, _QWORD); // rax
+  __int64 v16; // rax
 
   v6 = 0;
   if ( !a1 )
-    goto LABEL_12;
+    goto LABEL_16;
   if ( !a3 )
-    goto LABEL_12;
+    goto LABEL_16;
   if ( !a6 )
-    goto LABEL_12;
+    goto LABEL_16;
   *a6 = 0;
-  v8 = *(_QWORD *)(a1 + 64);
-  if ( !v8 )
-    goto LABEL_12;
-  if ( *(_DWORD *)(v8 + 16) != 1953656900 )
-    goto LABEL_12;
-  v9 = *(_DWORD *)(v8 + 20);
-  if ( (unsigned int)(v9 - 2) > 1 )
-    goto LABEL_12;
-  if ( (_DWORD)a2 && (_DWORD)a2 != 1382638416 )
+  a1 = *(_QWORD *)(a1 + 64);
+  if ( !a1 )
+    goto LABEL_16;
+  if ( *(_DWORD *)(a1 + 16) != 1953656900 )
+    goto LABEL_16;
+  v8 = *(unsigned int *)(a1 + 20);
+  if ( (unsigned int)(v8 - 2) > 1 || (_DWORD)a2 && (_DWORD)a2 != 1382638416 && (unsigned int)a2 + 0x80000000 > 1 )
+    goto LABEL_16;
+  if ( (_DWORD)a2 == -2147483647 )
   {
-    if ( (_DWORD)a2 == 0x80000000 )
+    if ( (_DWORD)v8 != 2 )
     {
-      BusDataByOffset = HalGetBusDataByOffset(PCIConfiguration, 0, 0, a3, Offset, Length);
-      goto LABEL_10;
+LABEL_16:
+      v13 = -1073741811LL;
+LABEL_17:
+      v6 = v13;
+      v14 = WdLogNewEntry5_WdError(a1, a2);
+      *(_QWORD *)(v14 + 24) = v13;
+      WdLogEvent5_WdError(v14);
+      return v6;
     }
-    if ( (_DWORD)a2 == -2147483647 && v9 == 2 )
+    if ( (*(_DWORD *)(a1 + 3980) & 4) == 0 )
     {
-      if ( (*(_DWORD *)(v8 + 4004) & 4) == 0 )
-      {
-        v13 = -1071774661LL;
-        goto LABEL_19;
-      }
-      v15 = *(__int64 (__fastcall **)(_QWORD, void *, _QWORD, _QWORD))(v8 + 2968);
-      if ( v15 )
-      {
-        BusDataByOffset = v15(*(_QWORD *)(v8 + 2944), a3, Offset, Length);
-        goto LABEL_10;
-      }
-LABEL_22:
-      v13 = -1073741823LL;
-      v6 = -1073741823;
-      v12 = 3LL;
-      goto LABEL_11;
+      v13 = -1071774661LL;
+      goto LABEL_17;
     }
-LABEL_12:
-    v13 = -1073741811LL;
-LABEL_19:
-    v6 = v13;
-    v12 = 2LL;
-    goto LABEL_11;
+    v15 = *(__int64 (__fastcall **)(_QWORD, void *, _QWORD, _QWORD))(a1 + 2952);
+    if ( v15 )
+    {
+      BusDataByOffset = v15(*(_QWORD *)(a1 + 2928), a3, Offset, Length);
+      goto LABEL_12;
+    }
+LABEL_23:
+    v6 = -1073741823;
+    v16 = WdLogNewEntry5_WdWarning(a1, a2, v8);
+    *(_QWORD *)(v16 + 24) = -1073741823LL;
+    WdLogEvent5_WdWarning(v16);
+    return v6;
   }
-  v10 = *(__int64 (__fastcall **)(_QWORD, __int64, void *))(v8 + 616);
-  if ( !v10 )
-    goto LABEL_22;
-  BusDataByOffset = v10(*(_QWORD *)(v8 + 568), a2, a3);
-LABEL_10:
+  if ( (_DWORD)a2 == 0x80000000 )
+  {
+    BusDataByOffset = HalGetBusDataByOffset(PCIConfiguration, 0, 0, a3, Offset, Length);
+    goto LABEL_12;
+  }
+  v9 = *(__int64 (__fastcall **)(_QWORD, __int64, void *))(a1 + 616);
+  if ( !v9 )
+    goto LABEL_23;
+  BusDataByOffset = v9(*(_QWORD *)(a1 + 568), a2, a3);
+LABEL_12:
   *a6 = BusDataByOffset;
-  v12 = 4LL;
-  v13 = BusDataByOffset;
-LABEL_11:
-  WdLogSingleEntry1(v12, v13);
+  v11 = WdLogNewEntry5_WdEvent();
+  *(_QWORD *)(v11 + 24) = *a6;
+  WdLogEvent5_WdEvent(v11);
   return v6;
 }

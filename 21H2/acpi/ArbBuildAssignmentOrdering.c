@@ -1,18 +1,18 @@
 /*
- * XREFs of ArbBuildAssignmentOrdering @ 0x1C009E3D8
+ * XREFs of ArbBuildAssignmentOrdering @ 0x1C009FF94
  * Callers:
- *     ArbInitializeArbiterInstance @ 0x1C009E128 (ArbInitializeArbiterInstance.c)
+ *     ArbInitializeArbiterInstance @ 0x1C009FCF0 (ArbInitializeArbiterInstance.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     ZwClose_0 @ 0x1C002F1D7 (ZwClose_0.c)
- *     ZwCreateKey_0 @ 0x1C002F231 (ZwCreateKey_0.c)
- *     ZwOpenKey_0 @ 0x1C002F255 (ZwOpenKey_0.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     ArbAddOrdering @ 0x1C009E820 (ArbAddOrdering.c)
- *     ArbpGetRegistryValue @ 0x1C009E908 (ArbpGetRegistryValue.c)
- *     ArbInitializeOrderingList @ 0x1C009E9D8 (ArbInitializeOrderingList.c)
- *     ArbFreeOrderingList @ 0x1C009EA24 (ArbFreeOrderingList.c)
- *     ArbPruneOrdering @ 0x1C00B7B4C (ArbPruneOrdering.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ZwClose_0 @ 0x1C0031D17 (ZwClose_0.c)
+ *     ZwCreateKey_0 @ 0x1C0031D71 (ZwCreateKey_0.c)
+ *     ZwOpenKey_0 @ 0x1C0031D95 (ZwOpenKey_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ArbAddOrdering @ 0x1C00A03D8 (ArbAddOrdering.c)
+ *     ArbpGetRegistryValue @ 0x1C00A04C0 (ArbpGetRegistryValue.c)
+ *     ArbInitializeOrderingList @ 0x1C00A0590 (ArbInitializeOrderingList.c)
+ *     ArbFreeOrderingList @ 0x1C00A05F0 (ArbFreeOrderingList.c)
+ *     ArbPruneOrdering @ 0x1C00B7EBC (ArbPruneOrdering.c)
  */
 
 __int64 __fastcall ArbBuildAssignmentOrdering(__int64 a1)
@@ -36,7 +36,7 @@ __int64 __fastcall ArbBuildAssignmentOrdering(__int64 a1)
   v11 = 0LL;
   v10 = 0LL;
   v9 = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   v13 = 0LL;
   v14 = 0LL;
   KeEnterCriticalRegion();
@@ -80,14 +80,14 @@ __int64 __fastcall ArbBuildAssignmentOrdering(__int64 a1)
   if ( v4 )
   {
     ExFreePoolWithTag(v4, 0);
-    *(_DWORD *)(a1 + 56) = 0;
+    *(_WORD *)(a1 + 56) = 0;
+    *(_WORD *)(a1 + 58) = 0;
   }
   v5 = *(void **)(a1 + 80);
   if ( v5 )
   {
     ExFreePoolWithTag(v5, 0);
-    *(_WORD *)(a1 + 72) = 0;
-    *(_WORD *)(a1 + 74) = 0;
+    *(_DWORD *)(a1 + 72) = 0;
   }
   KeSetEvent(*(PRKEVENT *)(a1 + 8), 0, 0);
   KeLeaveCriticalRegion();

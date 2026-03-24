@@ -1,32 +1,32 @@
 /*
- * XREFs of CmpVolumeManagerGetContextForGuidUnsafe @ 0x140701EF4
+ * XREFs of CmpVolumeManagerGetContextForGuidUnsafe @ 0x14072152C
  * Callers:
- *     CmpVolumeManagerGetContextForFile @ 0x140701CB8 (CmpVolumeManagerGetContextForFile.c)
+ *     CmpVolumeManagerGetContextForFile @ 0x140721364 (CmpVolumeManagerGetContextForFile.c)
  * Callees:
  *     <none>
  */
 
-__int64 *__fastcall CmpVolumeManagerGetContextForGuidUnsafe(__int64 a1, _QWORD *a2)
+__int64 __fastcall CmpVolumeManagerGetContextForGuidUnsafe(__int64 a1, _QWORD *a2)
 {
-  __int64 *v2; // r10
-  __int64 *v3; // r9
-  __int64 *i; // r8
-  __int64 v5; // rcx
+  __int64 v2; // r8
+  __int64 v3; // r9
+  __int64 v4; // rcx
 
-  v2 = (__int64 *)(a1 + 8);
+  v2 = qword_140D2EF58;
   v3 = 0LL;
-  for ( i = *(__int64 **)(a1 + 8); i != v2; i = (__int64 *)*i )
+  while ( (__int64 *)v2 != &qword_140D2EF58 )
   {
-    v5 = i[4] - *a2;
-    if ( !v5 )
-      v5 = i[5] - a2[1];
-    if ( !v5 )
+    v4 = *(_QWORD *)(v2 + 32) - *a2;
+    if ( !v4 )
+      v4 = *(_QWORD *)(v2 + 40) - a2[1];
+    if ( !v4 )
     {
-      v3 = i;
-      if ( i && _InterlockedIncrement64(i + 3) <= 1 )
+      v3 = v2;
+      if ( v2 && _InterlockedIncrement64((volatile signed __int64 *)(v2 + 24)) <= 1 )
         __fastfail(0xEu);
       return v3;
     }
+    v2 = *(_QWORD *)v2;
   }
   return v3;
 }

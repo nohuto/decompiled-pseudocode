@@ -1,26 +1,26 @@
 /*
- * XREFs of KiParkUmsThread @ 0x14029D5C0
+ * XREFs of KiParkUmsThread @ 0x14029D6C0
  * Callers:
- *     KiUmsExit @ 0x1401D0F00 (KiUmsExit.c)
+ *     KiUmsExit @ 0x1401D1000 (KiUmsExit.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
  *     KiDispatchException @ 0x1400A2F50 (KiDispatchException.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     RtlXRestore @ 0x14012F8D4 (RtlXRestore.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwTerminateProcess @ 0x1401B86F0 (ZwTerminateProcess.c)
- *     ZwTerminateThread @ 0x1401B8BD0 (ZwTerminateThread.c)
- *     KeResetLegacyFloatingPointState @ 0x1401BC290 (KeResetLegacyFloatingPointState.c)
- *     KeRestoreLegacyFloatingPointControlWord @ 0x1401BC2B0 (KeRestoreLegacyFloatingPointControlWord.c)
- *     _alloca_probe @ 0x1401C5DA0 (_alloca_probe.c)
- *     KiUmsRestoreUch @ 0x1401D0A00 (KiUmsRestoreUch.c)
- *     KiIsPrimaryPresent @ 0x14029D404 (KiIsPrimaryPresent.c)
- *     KeUpdateUmsThreadState @ 0x1408455C8 (KeUpdateUmsThreadState.c)
- *     KiUmsExceptionFilter @ 0x140845BC4 (KiUmsExceptionFilter.c)
- *     KiCaptureUmsThreadContext @ 0x140846B58 (KiCaptureUmsThreadContext.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     RtlXRestore @ 0x14012F8F4 (RtlXRestore.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwTerminateProcess @ 0x1401B8710 (ZwTerminateProcess.c)
+ *     ZwTerminateThread @ 0x1401B8BF0 (ZwTerminateThread.c)
+ *     KeResetLegacyFloatingPointState @ 0x1401BC2B0 (KeResetLegacyFloatingPointState.c)
+ *     KeRestoreLegacyFloatingPointControlWord @ 0x1401BC2D0 (KeRestoreLegacyFloatingPointControlWord.c)
+ *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
+ *     KiUmsRestoreUch @ 0x1401D0B00 (KiUmsRestoreUch.c)
+ *     KiIsPrimaryPresent @ 0x14029D504 (KiIsPrimaryPresent.c)
+ *     KeUpdateUmsThreadState @ 0x1408455A8 (KeUpdateUmsThreadState.c)
+ *     KiUmsExceptionFilter @ 0x140845BA4 (KiUmsExceptionFilter.c)
+ *     KiCaptureUmsThreadContext @ 0x140846B38 (KiCaptureUmsThreadContext.c)
  */
 
 NTSTATUS __fastcall KiParkUmsThread(__int64 SparePtr, __int64 a2, __int64 a3)

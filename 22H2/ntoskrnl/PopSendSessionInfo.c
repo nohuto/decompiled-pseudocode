@@ -1,39 +1,42 @@
 /*
- * XREFs of PopSendSessionInfo @ 0x1406831FC
+ * XREFs of PopSendSessionInfo @ 0x1408F54E0
  * Callers:
- *     PopReleaseAdaptiveLock @ 0x1407EC4C8 (PopReleaseAdaptiveLock.c)
- *     PopAdaptivePowerSettingCallback @ 0x140825BB0 (PopAdaptivePowerSettingCallback.c)
+ *     PopSetWin32kDisplayTimeout @ 0x1408F52F4 (PopSetWin32kDisplayTimeout.c)
+ *     PopSetWin32kInputTimeout @ 0x1408F5358 (PopSetWin32kInputTimeout.c)
  * Callees:
- *     PopInvokeWin32Callout @ 0x1407D3E3C (PopInvokeWin32Callout.c)
+ *     PopInvokeWin32Callout @ 0x1406F45B8 (PopInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PopSendSessionInfo(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax
   int v5; // [rsp+20h] [rbp-30h] BYREF
-  __int16 v6; // [rsp+25h] [rbp-2Bh]
-  char v7; // [rsp+27h] [rbp-29h]
-  int v8; // [rsp+28h] [rbp-28h]
-  int v9; // [rsp+2Ch] [rbp-24h]
-  __int64 v10; // [rsp+30h] [rbp-20h]
-  int v11; // [rsp+38h] [rbp-18h]
-  int v12; // [rsp+3Ch] [rbp-14h]
-  __int64 v13; // [rsp+40h] [rbp-10h]
-  int v14; // [rsp+60h] [rbp+10h] BYREF
+  char v6; // [rsp+24h] [rbp-2Ch]
+  __int16 v7; // [rsp+25h] [rbp-2Bh]
+  char v8; // [rsp+27h] [rbp-29h]
+  int v9; // [rsp+28h] [rbp-28h]
+  int v10; // [rsp+2Ch] [rbp-24h]
+  __int64 v11; // [rsp+30h] [rbp-20h]
+  int v12; // [rsp+38h] [rbp-18h]
+  int v13; // [rsp+3Ch] [rbp-14h]
+  __int64 v14; // [rsp+40h] [rbp-10h]
+  int v15; // [rsp+60h] [rbp+10h] BYREF
 
-  v14 = a1;
+  v15 = a1;
   result = 0LL;
-  v6 = 0;
   v7 = 0;
-  v9 = 0;
-  v12 = 0;
+  v8 = 0;
+  v10 = 0;
+  v13 = 0;
   if ( PsWin32CalloutsEstablished )
   {
-    v10 = a4;
-    v8 = 20;
-    v11 = 0;
-    v13 = 0LL;
-    return PopInvokeWin32Callout(5LL, &v5, 1LL, &v14, 0);
+    v11 = a4;
+    v5 = 0;
+    v6 = 0;
+    v9 = 20;
+    v12 = 0;
+    v14 = 0LL;
+    return PopInvokeWin32Callout(5, (__int64)&v5, 1, &v15);
   }
   return result;
 }

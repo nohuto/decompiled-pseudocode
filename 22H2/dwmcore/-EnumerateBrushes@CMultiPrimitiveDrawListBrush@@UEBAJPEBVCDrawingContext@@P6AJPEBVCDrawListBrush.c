@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EnumerateBrushes@CMultiPrimitiveDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX@Z2@Z @ 0x1800DC0D0
+ * XREFs of ?EnumerateBrushes@CMultiPrimitiveDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX@Z2@Z @ 0x1800EF0F0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CMultiPrimitiveDrawListBrush::EnumerateBrushes(
@@ -13,12 +13,12 @@ __int64 __fastcall CMultiPrimitiveDrawListBrush::EnumerateBrushes(
         int (*a3)(const struct CDrawListBrush *, void *),
         void *a4)
 {
-  unsigned int v4; // edi
+  unsigned int v4; // esi
   __int128 *v6; // rbx
   int v9; // r12d
-  __int128 *v10; // rsi
-  __int128 v11; // xmm0
-  __int64 v12; // rax
+  __int128 *v10; // rdi
+  __int64 v11; // rax
+  __int128 v12; // xmm0
   int v13; // eax
   __int64 v14; // rcx
 
@@ -28,11 +28,11 @@ __int64 __fastcall CMultiPrimitiveDrawListBrush::EnumerateBrushes(
   v10 = &v6[*((_QWORD *)this + 10)];
   while ( v6 != v10 )
   {
-    v12 = *((_QWORD *)this + 9);
-    v11 = *v6;
-    *(_BYTE *)(v12 + 52) = 1;
-    *(_OWORD *)(v12 + 32) = v11;
-    *(_DWORD *)(v12 + 48) = v9;
+    v11 = *((_QWORD *)this + 9);
+    v12 = *v6;
+    *(_BYTE *)(v11 + 52) = 1;
+    *(_OWORD *)(v11 + 32) = v12;
+    *(_DWORD *)(v11 + 48) = v9;
     v13 = ((__int64 (__fastcall *)(_QWORD, void *))a3)(*((_QWORD *)this + 9), a4);
     v4 = v13;
     if ( v13 < 0 )

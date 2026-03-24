@@ -2,7 +2,7 @@
  * XREFs of ApplyRelocations @ 0x1400014FC
  * Callers:
  *     WbDecryptWarbirdEncryptionSegmentBlockV0 @ 0x1405845DC (WbDecryptWarbirdEncryptionSegmentBlockV0.c)
- *     sub_1408E56B8 @ 0x1408E56B8 (sub_1408E56B8.c)
+ *     sub_1408E5698 @ 0x1408E5698 (sub_1408E5698.c)
  * Callees:
  *     <none>
  */

@@ -1,35 +1,38 @@
 /*
- * XREFs of ?DestroyProtectedOutput@COPM@@QEAAJPEAX@Z @ 0x1C015B750
+ * XREFs of ?DestroyProtectedOutput@COPM@@QEAAJPEAX@Z @ 0x1C0140050
  * Callers:
- *     ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C015C0B4 (-OPMDestroyProtectedOutput@@YAJPEAX@Z.c)
+ *     ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C0140318 (-OPMDestroyProtectedOutput@@YAJPEAX@Z.c)
  * Callees:
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00A25A0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
- *     ?DestroyHandleInternal@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@AEAAJPEAVCOPMProtectedOutput@@KPEAVCMutex@2@@Z @ 0x1C015B6B0 (-DestroyHandleInternal@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@AEAAJPEAVCOPMProtec.c)
- *     ?GetHandleObject@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProtectedOutput@@@Z @ 0x1C015BC88 (-GetHandleObject@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProte.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00885A0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProtectedOutput@@@Z @ 0x1C00BFA40 (-GetHandleObject@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProte.c)
+ *     ?DestroyHandleInternal@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@AEAAJPEAVCOPMProtectedOutput@@KPEAVCMutex@2@@Z @ 0x1C013FFB0 (-DestroyHandleInternal@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@AEAAJPEAVCOPMProtec.c)
  */
 
-__int64 __fastcall COPM::DestroyProtectedOutput(void **this, void *a2)
+__int64 __fastcall COPM::DestroyProtectedOutput(COPM *this, unsigned __int64 a2)
 {
+  OPM *v2; // rsi
   int HandleObject; // edi
   int v5; // eax
   struct _KMUTANT *v6; // rcx
-  __int64 v8; // [rsp+40h] [rbp+8h] BYREF
+  OPM::CMonitorPDO *v8; // [rsp+40h] [rbp+8h] BYREF
 
-  OPM::CMutex::Lock(this + 7);
+  v8 = this;
+  v2 = qword_1C0250C58;
+  OPM::CMutex::Lock((void **)qword_1C0250C58 + 7);
   v8 = 0LL;
-  HandleObject = OPM::CMonitorHandleTable<COPMProtectedOutput,void *>::GetHandleObject(this + 3, a2, &v8);
+  HandleObject = OPM::CMonitorHandleTable<COPMProtectedOutput,void *>::GetHandleObject((__int64)v2 + 24, a2, &v8);
   if ( HandleObject >= 0 )
   {
     v5 = OPM::CMonitorHandleTable<COPMProtectedOutput,void *>::DestroyHandleInternal(
-           (__int64)(this + 3),
-           v8,
-           (unsigned int)a2,
-           this + 6);
+           (__int64)v2 + 24,
+           (__int64)v8,
+           a2,
+           (void **)v2 + 6);
     HandleObject = 0;
     if ( v5 < 0 )
       HandleObject = v5;
   }
-  v6 = (struct _KMUTANT *)this[7];
+  v6 = (struct _KMUTANT *)*((_QWORD *)v2 + 7);
   if ( v6 )
     KeReleaseMutex(v6, 0);
   return (unsigned int)HandleObject;

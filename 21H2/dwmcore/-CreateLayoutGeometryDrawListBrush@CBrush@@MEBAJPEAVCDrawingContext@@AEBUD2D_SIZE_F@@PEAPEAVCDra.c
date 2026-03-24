@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreateLayoutGeometryDrawListBrush@CBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x1800DB9E0
+ * XREFs of ?CreateLayoutGeometryDrawListBrush@CBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x180051890
  * Callers:
- *     ?CreateLayoutGeometryDrawListBrush@CNineGridBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x1800DB970 (-CreateLayoutGeometryDrawListBrush@CNineGridBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEA.c)
+ *     ?CreateLayoutGeometryDrawListBrush@CNineGridBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x18001C4F0 (-CreateLayoutGeometryDrawListBrush@CNineGridBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEA.c)
  * Callees:
- *     ??_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z @ 0x1800542C0 (--_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z @ 0x180089958 (-Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z.c)
+ *     ??_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z @ 0x180051950 (--_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z.c)
+ *     ?Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z @ 0x180051998 (-Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CBrush::CreateLayoutGeometryDrawListBrush(
@@ -33,13 +33,13 @@ __int64 __fastcall CBrush::CreateLayoutGeometryDrawListBrush(
     v6 = *(CGeometryOnlyDrawListBrush **)v13[0];
     *(_QWORD *)v13[0] = v13[1];
     if ( v6 )
-      CGeometryOnlyDrawListBrush::`vector deleting destructor'(v6, 1);
+      CGeometryOnlyDrawListBrush::`vector deleting destructor'(v6, 1u);
   }
   if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v6, 0LL, 0LL, v7, 0x92u);
+    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v6, 0LL, 0, v7, 0x95u, 0LL);
     if ( v12 )
-      CGeometryOnlyDrawListBrush::`vector deleting destructor'(v12, 1);
+      CGeometryOnlyDrawListBrush::`vector deleting destructor'(v12, 1u);
   }
   else
   {

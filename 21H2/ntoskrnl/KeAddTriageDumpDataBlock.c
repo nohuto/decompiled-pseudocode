@@ -1,12 +1,12 @@
 /*
- * XREFs of KeAddTriageDumpDataBlock @ 0x1403D7DF0
+ * XREFs of KeAddTriageDumpDataBlock @ 0x1403CA0D0
  * Callers:
- *     RtlMarkHiberPhase @ 0x14038D4F0 (RtlMarkHiberPhase.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     IopInitializeTriageDumpData @ 0x1408555E0 (IopInitializeTriageDumpData.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     RtlMarkHiberPhase @ 0x140592CE4 (RtlMarkHiberPhase.c)
+ *     IopInitializeTriageDumpData @ 0x1407C9158 (IopInitializeTriageDumpData.c)
  * Callees:
- *     KiValidateTriageDumpDataArray @ 0x1403D7ED0 (KiValidateTriageDumpDataArray.c)
- *     KiIsAddressRangeValid @ 0x1403D7FD4 (KiIsAddressRangeValid.c)
+ *     KiValidateTriageDumpDataArray @ 0x1403CA18C (KiValidateTriageDumpDataArray.c)
+ *     KiIsAddressRangeValid @ 0x1403CA26C (KiIsAddressRangeValid.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -20,9 +20,9 @@ NTSTATUS __stdcall KeAddTriageDumpDataBlock(
   char *v6; // rsi
   ULONG NumBlocksUsed; // r9d
   char *v9; // rdx
-  SIZE_T v10; // r8
-  char *v11; // rcx
-  struct _LIST_ENTRY *v12; // rdx
+  struct _LIST_ENTRY *v10; // rdx
+  SIZE_T v12; // r8
+  char *v13; // rcx
 
   v4 = 0;
   v6 = *(char **)&MaxDataSize;
@@ -40,20 +40,20 @@ NTSTATUS __stdcall KeAddTriageDumpDataBlock(
   {
     do
     {
-      v10 = KtriageDumpDataArray->Blocks[v4].Size;
-      v11 = (char *)(&KtriageDumpDataArray[1].List.Flink)[2 * v4] + v10;
-      if ( v6 < v11 && (unsigned __int64)v9 > v10 )
+      v12 = KtriageDumpDataArray->Blocks[v4].Size;
+      v13 = (char *)(&KtriageDumpDataArray[1].List.Flink)[2 * v4] + v12;
+      if ( v6 < v13 && (unsigned __int64)v9 > v12 )
       {
-        if ( (unsigned __int64)v6 < v10 )
+        if ( (unsigned __int64)v6 < v12 )
         {
-          if ( v9 <= v11 )
+          if ( v9 <= v13 )
             v9 = (char *)KtriageDumpDataArray->Blocks[v4].Size;
         }
         else
         {
-          if ( v9 <= v11 )
+          if ( v9 <= v13 )
             return 0;
-          v6 = (char *)(&KtriageDumpDataArray[1].List.Flink)[2 * v4] + v10;
+          v6 = (char *)(&KtriageDumpDataArray[1].List.Flink)[2 * v4] + v12;
         }
       }
       ++v4;
@@ -62,13 +62,13 @@ NTSTATUS __stdcall KeAddTriageDumpDataBlock(
   }
   if ( NumBlocksUsed == KtriageDumpDataArray->NumBlocksTotal )
     return -1073741789;
-  v12 = (struct _LIST_ENTRY *)(v9 - v6);
-  if ( (unsigned __int64)v12 <= KtriageDumpDataArray->ComponentNameBufferLength - KtriageDumpDataArray->VirtMemSize )
+  v10 = (struct _LIST_ENTRY *)(v9 - v6);
+  if ( (unsigned __int64)v10 <= KtriageDumpDataArray->ComponentNameBufferLength - KtriageDumpDataArray->VirtMemSize )
   {
-    (&KtriageDumpDataArray[1].List.Flink)[2 * v4] = v12;
+    (&KtriageDumpDataArray[1].List.Flink)[2 * v4] = v10;
     KtriageDumpDataArray->Blocks[v4].Size = (SIZE_T)v6;
     ++KtriageDumpDataArray->NumBlocksUsed;
-    KtriageDumpDataArray->VirtMemSize += (unsigned int)v12;
+    KtriageDumpDataArray->VirtMemSize += (unsigned int)v10;
     return 0;
   }
   return -1073741670;

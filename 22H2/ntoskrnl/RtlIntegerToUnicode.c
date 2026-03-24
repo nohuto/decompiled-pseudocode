@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIntegerToUnicode @ 0x1407FB5D0
+ * XREFs of RtlIntegerToUnicode @ 0x1406ED570
  * Callers:
- *     RtlConvertSidToUnicodeString @ 0x1407FB3F0 (RtlConvertSidToUnicodeString.c)
+ *     RtlConvertSidToUnicodeString @ 0x1406ED390 (RtlConvertSidToUnicodeString.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall RtlIntegerToUnicode(unsigned int a1, unsigned int a2, int a3, char *a4)
@@ -13,7 +13,7 @@ __int64 __fastcall RtlIntegerToUnicode(unsigned int a1, unsigned int a2, int a3,
   int v8; // ecx
   int v9; // r9d
   _WORD *v10; // r10
-  int v11; // ebx
+  int v11; // edx
   __int64 v12; // rbx
   bool v13; // cc
   __int64 v15; // rdx

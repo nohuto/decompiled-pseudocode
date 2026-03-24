@@ -1,22 +1,22 @@
 /*
  * XREFs of SepCreateClientSecurityEx @ 0x140631EC0
  * Callers:
- *     SeCreateClientSecurityFromSubjectContextEx @ 0x1402FFD50 (SeCreateClientSecurityFromSubjectContextEx.c)
+ *     SeCreateClientSecurityFromSubjectContextEx @ 0x1402FFE50 (SeCreateClientSecurityFromSubjectContextEx.c)
  *     SeCreateClientSecurityEx @ 0x140631CE0 (SeCreateClientSecurityEx.c)
- *     SeCreateClientSecurity @ 0x1406491F0 (SeCreateClientSecurity.c)
- *     SeCreateClientSecurityFromSubjectContext @ 0x1406CB670 (SeCreateClientSecurityFromSubjectContext.c)
+ *     SeCreateClientSecurity @ 0x1406491D0 (SeCreateClientSecurity.c)
+ *     SeCreateClientSecurityFromSubjectContext @ 0x1406CB650 (SeCreateClientSecurityFromSubjectContext.c)
  * Callees:
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PsIsHostSilo @ 0x1400B8A60 (PsIsHostSilo.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
- *     SepGetAnonymousToken @ 0x1400DD4EC (SepGetAnonymousToken.c)
+ *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
+ *     SepGetAnonymousToken @ 0x1400DD50C (SepGetAnonymousToken.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     SeCopyClientToken @ 0x140649E94 (SeCopyClientToken.c)
- *     SeQueryServerSiloToken @ 0x1406C5520 (SeQueryServerSiloToken.c)
- *     SepCopyClientTokenAndSetSilo @ 0x14089BCF0 (SepCopyClientTokenAndSetSilo.c)
- *     SeGetTokenControlInformation @ 0x1408A1D1C (SeGetTokenControlInformation.c)
+ *     SeCopyClientToken @ 0x140649E74 (SeCopyClientToken.c)
+ *     SeQueryServerSiloToken @ 0x1406C5500 (SeQueryServerSiloToken.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x14089BCD0 (SepCopyClientTokenAndSetSilo.c)
+ *     SeGetTokenControlInformation @ 0x1408A1CFC (SeGetTokenControlInformation.c)
  */
 
 __int64 __fastcall SepCreateClientSecurityEx(

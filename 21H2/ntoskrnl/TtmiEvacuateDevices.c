@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmiEvacuateDevices @ 0x1409A1D08
+ * XREFs of TtmiEvacuateDevices @ 0x1408FC2A8
  * Callers:
- *     TtmiSessionTerminalListWorker @ 0x1409A3450 (TtmiSessionTerminalListWorker.c)
- *     TtmpDispatchEvacuateDevices @ 0x1409A6940 (TtmpDispatchEvacuateDevices.c)
+ *     TtmiSessionTerminalListWorker @ 0x1408FD930 (TtmiSessionTerminalListWorker.c)
+ *     TtmpDispatchEvacuateDevices @ 0x140900D64 (TtmpDispatchEvacuateDevices.c)
  * Callees:
- *     TtmiLogDeviceFromTerminalRemoved @ 0x1409A7C70 (TtmiLogDeviceFromTerminalRemoved.c)
+ *     TtmiLogDeviceFromTerminalRemoved @ 0x14090210C (TtmiLogDeviceFromTerminalRemoved.c)
  */
 
 char __fastcall TtmiEvacuateDevices(__int64 a1, __int64 a2)

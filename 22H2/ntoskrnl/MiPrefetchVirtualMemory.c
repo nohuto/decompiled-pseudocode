@@ -1,319 +1,294 @@
 /*
- * XREFs of MiPrefetchVirtualMemory @ 0x1402EE1C8
+ * XREFs of MiPrefetchVirtualMemory @ 0x14033DEB0
  * Callers:
- *     MiInPageSingleKernelStack @ 0x14021B110 (MiInPageSingleKernelStack.c)
- *     MmCopyMemory @ 0x1402EDB50 (MmCopyMemory.c)
- *     MiPrefetchRestOfCluster @ 0x1403674AC (MiPrefetchRestOfCluster.c)
- *     MiBuildForkPte @ 0x140662270 (MiBuildForkPte.c)
- *     MmPrefetchVirtualMemory @ 0x140681A70 (MmPrefetchVirtualMemory.c)
- *     MiPrefetchDriverPages @ 0x1406FA230 (MiPrefetchDriverPages.c)
- *     NtSetInformationVirtualMemory @ 0x1407A4530 (NtSetInformationVirtualMemory.c)
+ *     MmCopyMemory @ 0x14030C030 (MmCopyMemory.c)
+ *     MiPrefetchRestOfCluster @ 0x14032AA04 (MiPrefetchRestOfCluster.c)
+ *     MiInPageSingleKernelStack @ 0x1403561A0 (MiInPageSingleKernelStack.c)
+ *     MiBuildForkPte @ 0x1405581FC (MiBuildForkPte.c)
+ *     MiPrefetchDriverPages @ 0x140668420 (MiPrefetchDriverPages.c)
+ *     NtSetInformationVirtualMemory @ 0x1406FA310 (NtSetInformationVirtualMemory.c)
+ *     MmPrefetchVirtualMemory @ 0x1406FB498 (MmPrefetchVirtualMemory.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     MmAccessFault @ 0x140235350 (MmAccessFault.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     MiPfCompletePrefetchIos @ 0x1402A3920 (MiPfCompletePrefetchIos.c)
- *     MiDereferenceInPageAutoBoostLock @ 0x1402BD3E8 (MiDereferenceInPageAutoBoostLock.c)
- *     MiGetInPageAutoBoostLock @ 0x1402BD418 (MiGetInPageAutoBoostLock.c)
- *     KeAbPostReleaseEx @ 0x1402BD4C0 (KeAbPostReleaseEx.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiAdvanceFaultList @ 0x1402EE7F4 (MiAdvanceFaultList.c)
- *     MiCommitmentAvailable @ 0x1402EE868 (MiCommitmentAvailable.c)
- *     MiVaIsUltra @ 0x1402EE88C (MiVaIsUltra.c)
- *     MiPfCoalesceAndIssueIOs @ 0x140360C60 (MiPfCoalesceAndIssueIOs.c)
- *     MiLeapPrefetch @ 0x140631964 (MiLeapPrefetch.c)
- *     MiPrefetchPreallocatePages @ 0x140632198 (MiPrefetchPreallocatePages.c)
- *     MiPrefetchReleasePreallocatedPages @ 0x14063251C (MiPrefetchReleasePreallocatedPages.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     MmAccessFault @ 0x14020D050 (MmAccessFault.c)
+ *     MiPfCompletePrefetchIos @ 0x14027D180 (MiPfCompletePrefetchIos.c)
+ *     MiGetLeafVa @ 0x1402AD4F0 (MiGetLeafVa.c)
+ *     MiAdvanceFaultList @ 0x1402E40E8 (MiAdvanceFaultList.c)
+ *     MiPfCoalesceAndIssueIOs @ 0x14031B9F4 (MiPfCoalesceAndIssueIOs.c)
+ *     MiSufficientAvailablePages @ 0x14033E480 (MiSufficientAvailablePages.c)
+ *     MiVaIsUltra @ 0x14033E4C0 (MiVaIsUltra.c)
+ *     MiLeapPrefetch @ 0x14037BA1C (MiLeapPrefetch.c)
+ *     MiPrefetchPreallocatePages @ 0x140539560 (MiPrefetchPreallocatePages.c)
+ *     MiPrefetchReleasePreallocatedPages @ 0x1405398E0 (MiPrefetchReleasePreallocatedPages.c)
  */
 
 __int64 __fastcall MiPrefetchVirtualMemory(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  int v4; // esi
-  __int64 v7; // r8
-  ULONG_PTR v8; // r13
-  struct _KTHREAD *CurrentThread; // r15
-  unsigned __int8 v10; // dl
+  struct _KTHREAD *CurrentThread; // rsi
+  unsigned __int8 v8; // dl
   _KPROCESS *Process; // rcx
-  char v12; // al
-  __int64 v13; // rcx
-  void *v14; // rax
-  unsigned __int64 v15; // rdx
-  unsigned __int64 v16; // r9
-  __int64 v17; // r15
-  __int64 v18; // r8
+  char v10; // al
+  unsigned __int64 v11; // rax
+  __int64 v12; // rcx
+  __int64 *v13; // r15
+  __int64 *v14; // r11
+  unsigned __int64 v15; // r9
+  unsigned __int64 v16; // r10
+  __int64 v17; // rsi
+  __int64 v18; // rdx
   unsigned __int64 v19; // rdi
-  unsigned __int64 LeafVa; // r14
-  bool v21; // zf
-  __int64 v22; // r14
-  unsigned __int64 v23; // r14
-  unsigned __int64 v24; // r15
-  int v25; // r11d
-  int v26; // eax
-  _QWORD *v28; // rax
-  __int64 v29; // rax
-  unsigned __int64 v30; // rax
-  int v31; // edx
-  int v32; // eax
-  _QWORD *v33; // rcx
-  _QWORD *v34; // r8
-  int v35; // eax
-  struct _KTHREAD *v36; // [rsp+30h] [rbp-89h]
-  __int16 v37; // [rsp+40h] [rbp-79h] BYREF
-  int v38; // [rsp+42h] [rbp-77h]
-  __int16 v39; // [rsp+46h] [rbp-73h]
-  __int64 v40; // [rsp+48h] [rbp-71h]
-  unsigned __int64 v41; // [rsp+50h] [rbp-69h]
-  unsigned __int64 v42; // [rsp+58h] [rbp-61h]
-  unsigned __int64 v43; // [rsp+60h] [rbp-59h]
-  _QWORD *v44[2]; // [rsp+68h] [rbp-51h] BYREF
-  _QWORD v45[2]; // [rsp+78h] [rbp-41h] BYREF
-  unsigned __int64 v46; // [rsp+88h] [rbp-31h] BYREF
-  int v47; // [rsp+90h] [rbp-29h]
-  int v48; // [rsp+94h] [rbp-25h]
-  __int64 v49; // [rsp+98h] [rbp-21h]
-  ULONG_PTR BugCheckParameter2; // [rsp+A0h] [rbp-19h]
-  _OWORD v51[6]; // [rsp+B0h] [rbp-9h] BYREF
-  __int64 v52; // [rsp+120h] [rbp+67h]
-  int v54; // [rsp+138h] [rbp+7Fh]
+  unsigned __int64 LeafVa; // r8
+  unsigned __int64 v21; // rax
+  unsigned __int64 v22; // rcx
+  unsigned __int64 v23; // rsi
+  unsigned __int64 v24; // r14
+  int v25; // r9d
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  int v28; // edi
+  int v29; // r14d
+  int v30; // eax
+  unsigned __int64 v32; // rax
+  int v33; // r8d
+  int v34; // eax
+  __int64 *v35; // rcx
+  __int64 *v36; // rdx
+  int v37; // eax
+  int v38; // ecx
+  __int64 v39; // [rsp+30h] [rbp-C8h] BYREF
+  __int64 v40; // [rsp+38h] [rbp-C0h]
+  unsigned __int64 v41; // [rsp+40h] [rbp-B8h]
+  unsigned __int64 v42; // [rsp+48h] [rbp-B0h]
+  unsigned __int64 v43; // [rsp+50h] [rbp-A8h]
+  _QWORD *v44[2]; // [rsp+58h] [rbp-A0h] BYREF
+  __int64 v45[2]; // [rsp+68h] [rbp-90h] BYREF
+  unsigned __int64 v46; // [rsp+78h] [rbp-80h] BYREF
+  int v47; // [rsp+80h] [rbp-78h]
+  int v48; // [rsp+84h] [rbp-74h]
+  __int64 v49; // [rsp+88h] [rbp-70h]
+  _OWORD v50[3]; // [rsp+90h] [rbp-68h] BYREF
+  int v51; // [rsp+100h] [rbp+8h]
+  struct _KTHREAD *v52; // [rsp+108h] [rbp+10h]
+  int v53; // [rsp+118h] [rbp+20h]
 
-  v46 = 0LL;
-  v42 = 0LL;
-  v4 = 0;
-  v43 = 0LL;
-  v49 = 0LL;
-  BugCheckParameter2 = 0LL;
-  v7 = a2;
-  v54 = 0;
-  v8 = 0LL;
-  v38 = 0;
-  v39 = 0;
+  v53 = 0;
+  v39 = 1LL;
   v48 = 0;
+  v42 = 0LL;
+  v43 = 0LL;
   v44[1] = v44;
   v44[0] = v44;
-  v45[1] = v45;
-  v45[0] = v45;
-  v37 = 1;
+  v45[1] = (__int64)v45;
+  v45[0] = (__int64)v45;
   v40 = a2;
   v41 = a1;
+  v46 = 0LL;
+  v49 = 0LL;
   v47 = a4;
   CurrentThread = KeGetCurrentThread();
-  v36 = CurrentThread;
-  v10 = BYTE6(CurrentThread[1].Queue);
+  v51 = 0;
+  v52 = CurrentThread;
+  v8 = BYTE6(CurrentThread[1].Queue);
   Process = CurrentThread->ApcState.Process;
-  if ( v10 >= 2u )
+  if ( v8 >= 2u )
     return 3221225626LL;
-  if ( a3 != 1 )
+  if ( a3 == 1 )
   {
-    v12 = *(_BYTE *)(a3 + 184) & 7;
-    if ( v12 == 1 )
+    v13 = (__int64 *)&MiSystemPartition;
+LABEL_7:
+    BYTE6(CurrentThread[1].Queue) = v8 + 1;
+    --CurrentThread->KernelApcDisable;
+    memset(v50, 0, sizeof(v50));
+    if ( v42 < v41 )
     {
-      v30 = Process[1].Affinity.StaticBitmap[25];
-      if ( v30 )
+      v14 = MiState;
+      while ( 1 )
       {
-        v13 = *(unsigned __int16 *)(v30 + 366);
-        goto LABEL_6;
+        v15 = 0xFFFF800000000000uLL;
+        v16 = 0xFFFFF68000000000uLL;
+        if ( (v47 & 0x40000) != 0 && (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) != 0 )
+        {
+          v29 = v51;
+          v28 = -1073741749;
+          goto LABEL_37;
+        }
+        v17 = a2 + 16 * v42;
+        v18 = *(_QWORD *)(v17 + 8);
+        if ( v43 >= ((unsigned __int64)(*(_DWORD *)v17 & 0xFFF) + v18 + 4095) >> 12 )
+          goto LABEL_63;
+        if ( !v18 )
+        {
+          v42 = v41;
+          v43 = 0LL;
+LABEL_82:
+          CurrentThread = v52;
+LABEL_36:
+          v28 = v53;
+          v29 = v51;
+          goto LABEL_37;
+        }
+        if ( (v19 = *(_QWORD *)v17 + (v43 << 12), LeafVa = v19, v19 >= qword_140C4FB38) && v19 <= qword_140C4E368
+          || v19 >= 0xFFFF800000000000uLL
+          && ((unsigned int)MiVaIsUltra(*(_QWORD *)v17 + (v43 << 12), v18, v19, 0xFFFF800000000000uLL)
+           || *((_BYTE *)v14 + ((v19 >> 39) & 0x1FF) + 12296) == 1
+           && v19 >= qword_140C4DDE0
+           && v19 < qword_140C4DDE0 + 290816) )
+        {
+LABEL_63:
+          MiAdvanceFaultList(&v39);
+          goto LABEL_35;
+        }
+        if ( v19 >= v16 && v19 <= 0xFFFFF6FFFFFFFFFFuLL )
+        {
+          if ( v19 >= v16 + 0x4000000000LL )
+            goto LABEL_63;
+          LeafVa = MiGetLeafVa(v19);
+        }
+        if ( LeafVa < v15 )
+          goto LABEL_16;
+        if ( *((_BYTE *)v14 + ((LeafVa >> 39) & 0x1FF) + 12296) != 1 )
+          break;
+        if ( a3 == 1 || (*(_BYTE *)(a3 + 184) & 7) != 1 )
+          goto LABEL_63;
+LABEL_18:
+        if ( (v47 & 0x80u) == 0 )
+        {
+          if ( !(unsigned int)MiSufficientAvailablePages(v13, 288LL) )
+            goto LABEL_82;
+          v21 = v13[949];
+          v22 = v13[933];
+          if ( v22 > v21 || v21 - v22 < 0x1080 || v13[896] < 288 )
+            goto LABEL_82;
+        }
+        if ( (a4 & 0x20000) != 0 )
+          MiPrefetchPreallocatePages((unsigned int)v50, (unsigned int)&v39, (_DWORD)v13, a3, v17, v19);
+        v23 = v42;
+        v24 = v43;
+        v25 = MmAccessFault(0LL, v19, 0, (ULONG_PTR)&v39 + 1);
+        if ( BYTE1(v39) == 2 )
+        {
+          if ( (v47 & 0x80u) == 0 )
+            goto LABEL_82;
+        }
+        else if ( BYTE1(v39) != 1 )
+        {
+          if ( v42 == v23 && v43 == v24 )
+          {
+            v26 = *(_QWORD *)(v40 + 16 * v42 + 8) + 4095LL;
+            v27 = *(_DWORD *)(v40 + 16 * v42) & 0xFFF;
+            if ( ++v43 == (unsigned __int64)(v26 + v27) >> 12 )
+            {
+              v32 = v42 + 1;
+              v42 = v32;
+              v43 = 0LL;
+              if ( v32 < v41 && !*(_QWORD *)(v40 + 16 * v32 + 8) )
+                v42 = v41;
+            }
+          }
+          goto LABEL_30;
+        }
+        BYTE1(v39) = 0;
+LABEL_30:
+        if ( v25 < 0 )
+        {
+          v51 = v25;
+          v29 = v25;
+          if ( v25 != -1073741819 || v42 == v41 || !(unsigned int)MiLeapPrefetch(&v39, 0LL) )
+          {
+            CurrentThread = v52;
+            v28 = v53;
+            goto LABEL_37;
+          }
+        }
+        if ( v46 >= 0x200000 )
+          MiPfCoalesceAndIssueIOs(v45, (__int64)v44, &v46);
+        if ( (v47 & 0x400) != 0 )
+        {
+          v33 = 0;
+          v34 = 0;
+          while ( 1 )
+          {
+            v35 = (__int64 *)v44;
+            if ( !v34 )
+              v35 = v45;
+            v36 = (__int64 *)*v35;
+            if ( (__int64 *)*v35 != v35 )
+              break;
+LABEL_70:
+            if ( (unsigned int)++v34 >= 2 )
+              goto LABEL_34;
+          }
+          while ( ++v33 != 4 )
+          {
+            v36 = (__int64 *)*v36;
+            if ( v36 == v35 )
+              goto LABEL_70;
+          }
+          v37 = MiPfCompletePrefetchIos(v44, (__int64)v45, a3);
+          if ( v37 < 0 )
+          {
+            v38 = v53;
+            if ( v53 >= 0 )
+              v38 = v37;
+            v53 = v38;
+          }
+          v46 = 0LL;
+        }
+LABEL_34:
+        v14 = MiState;
+LABEL_35:
+        CurrentThread = v52;
+        if ( v42 >= v41 )
+          goto LABEL_36;
       }
+      if ( LeafVa >= v15 )
+      {
+        if ( a3 != 1 )
+          goto LABEL_63;
+        goto LABEL_18;
+      }
+LABEL_16:
+      if ( a3 == 1 || (*(_BYTE *)(a3 + 184) & 7) != 0 )
+        goto LABEL_63;
+      goto LABEL_18;
     }
-    else if ( !v12 )
+    v28 = 0;
+    v29 = 0;
+LABEL_37:
+    if ( (a4 & 0x20000) != 0 )
+      MiPrefetchReleasePreallocatedPages(v50, &v39, v13, 1LL);
+    v30 = MiPfCompletePrefetchIos(v44, (__int64)v45, a3);
+    if ( v30 < 0 )
     {
-      v13 = Process[1].IdealProcessor[25];
+      if ( v28 < 0 )
+      {
+LABEL_42:
+        KeLeaveCriticalRegionThread((__int64)CurrentThread);
+        --BYTE6(CurrentThread[1].Queue);
+        return (unsigned int)v28;
+      }
+      v28 = v30;
+    }
+    if ( v28 >= 0 && v29 < 0 && (v47 & 0x8000) != 0 )
+      v28 = v29;
+    goto LABEL_42;
+  }
+  v10 = *(_BYTE *)(a3 + 184) & 7;
+  if ( v10 == 1 )
+  {
+    v11 = Process[1].AffinityPadding[5];
+    if ( v11 )
+    {
+      v12 = *(unsigned __int16 *)(v11 + 430);
 LABEL_6:
-      v14 = *(void **)(qword_140C674C8 + 8 * v13);
+      v13 = *(__int64 **)(qword_140C4E648 + 8 * v12);
       goto LABEL_7;
     }
-    return 3221225485LL;
   }
-  v14 = &MiSystemPartition;
-LABEL_7:
-  v52 = (__int64)v14;
-  BYTE6(CurrentThread[1].Queue) = v10 + 1;
-  --CurrentThread->KernelApcDisable;
-  v15 = v41;
-  memset(v51, 0, 48);
-  if ( v42 >= v41 )
+  else if ( !v10 )
   {
-LABEL_47:
-    v22 = v52;
-    goto LABEL_48;
+    v12 = Process[1].IdealProcessorPadding[5];
+    goto LABEL_6;
   }
-  while ( 1 )
-  {
-    v16 = 0xFFFFF68000000000uLL;
-    if ( (v47 & 0x40000) != 0 )
-    {
-      if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) != 0 )
-      {
-        v4 = -1073741749;
-        goto LABEL_47;
-      }
-      v15 = v41;
-    }
-    v17 = v7 + 16 * v42;
-    v18 = *(_QWORD *)(v17 + 8);
-    if ( v43 >= ((unsigned __int64)(*(_DWORD *)v17 & 0xFFF) + v18 + 4095) >> 12 )
-      goto LABEL_46;
-    if ( !v18 )
-    {
-      v43 = 0LL;
-      v42 = v15;
-LABEL_91:
-      CurrentThread = v36;
-      goto LABEL_47;
-    }
-    if ( (v19 = *(_QWORD *)v17 + (v43 << 12), LeafVa = v19, v19 >= qword_140C6A658) && v19 <= qword_140C67170
-      || v19 >= 0xFFFF800000000000uLL && (unsigned int)MiVaIsUltra(*(_QWORD *)v17 + (v43 << 12)) )
-    {
-LABEL_46:
-      MiAdvanceFaultList(&v37);
-      goto LABEL_36;
-    }
-    if ( v19 >= v16 && v19 <= 0xFFFFF6FFFFFFFFFFuLL )
-    {
-      if ( v19 >= v16 + 0x4000000000LL )
-        goto LABEL_46;
-      LeafVa = MiGetLeafVa(v19);
-    }
-    if ( (unsigned int)MiGetSystemRegionType(LeafVa) == 1 )
-    {
-      if ( a3 == 1 )
-        goto LABEL_46;
-      v21 = (*(_BYTE *)(a3 + 184) & 7) == 1;
-      goto LABEL_19;
-    }
-    if ( LeafVa >= 0xFFFF800000000000uLL )
-    {
-      v21 = a3 == 1;
-LABEL_19:
-      if ( !v21 )
-        goto LABEL_46;
-      goto LABEL_20;
-    }
-    if ( a3 == 1 || (*(_BYTE *)(a3 + 184) & 7) != 0 )
-      goto LABEL_46;
-LABEL_20:
-    v22 = v52;
-    if ( (v47 & 0x80u) == 0
-      && (!(unsigned int)MiSufficientAvailablePages(v52, 0x120uLL)
-       || (unsigned __int64)MiCommitmentAvailable(v52) < 0x1080
-       || *(__int64 *)(v52 + 17280) < 288) )
-    {
-      break;
-    }
-    if ( (a4 & 0x20000) != 0 )
-      MiPrefetchPreallocatePages((unsigned int)v51, (unsigned int)&v37, v52, a3, v17, v19);
-    if ( !v8 )
-    {
-      v28 = MiGetInPageAutoBoostLock();
-      BugCheckParameter2 = (ULONG_PTR)v28;
-      if ( v28 )
-      {
-        v29 = KeAbPreAcquire((__int64)v28, 0LL);
-        v8 = v29;
-        if ( v29 )
-        {
-          *(_BYTE *)(v29 + 18) = 1;
-          goto LABEL_27;
-        }
-        if ( BugCheckParameter2 )
-        {
-          MiDereferenceInPageAutoBoostLock((volatile signed __int64 *)BugCheckParameter2);
-          BugCheckParameter2 = 0LL;
-        }
-      }
-      v8 = 1LL;
-    }
-LABEL_27:
-    v23 = v42;
-    v24 = v43;
-    v25 = MmAccessFault(0LL, v19, 0, (ULONG_PTR)&v37 + 1);
-    if ( HIBYTE(v37) == 2 )
-    {
-      if ( (v47 & 0x80u) == 0 )
-        goto LABEL_91;
-    }
-    else if ( HIBYTE(v37) != 1 )
-    {
-      if ( v42 == v23 && v43 == v24 )
-        MiAdvanceFaultList(&v37);
-      goto LABEL_32;
-    }
-    HIBYTE(v37) = 0;
-LABEL_32:
-    if ( v25 < 0 )
-    {
-      v54 = v25;
-      if ( v25 != -1073741819 || v42 == v41 || !(unsigned int)MiLeapPrefetch(&v37, 0LL) )
-        goto LABEL_91;
-    }
-    if ( v46 >= 0x200000 )
-      MiPfCoalesceAndIssueIOs(v45, v44, &v46);
-    if ( (v47 & 0x400) != 0 )
-    {
-      v31 = 0;
-      v32 = 0;
-      while ( 2 )
-      {
-        v33 = v44[0];
-        v34 = v44;
-        if ( !v32 )
-        {
-          v33 = (_QWORD *)v45[0];
-          v34 = v45;
-        }
-        while ( v33 != v34 )
-        {
-          if ( ++v31 == 4 )
-          {
-            v35 = MiPfCompletePrefetchIos(v44, (__int64)v45, a3);
-            if ( v35 < 0 && v4 >= 0 )
-              v4 = v35;
-            v46 = 0LL;
-            if ( v8 > 1 )
-            {
-              KeAbPostReleaseEx(BugCheckParameter2, v8);
-              v8 = 0LL;
-              MiDereferenceInPageAutoBoostLock((volatile signed __int64 *)BugCheckParameter2);
-              BugCheckParameter2 = 0LL;
-            }
-            goto LABEL_36;
-          }
-          v33 = (_QWORD *)*v33;
-        }
-        if ( (unsigned int)++v32 < 2 )
-          continue;
-        break;
-      }
-    }
-LABEL_36:
-    v15 = v41;
-    CurrentThread = v36;
-    if ( v42 >= v41 )
-      goto LABEL_47;
-    v7 = a2;
-  }
-  CurrentThread = v36;
-LABEL_48:
-  if ( (a4 & 0x20000) != 0 )
-    MiPrefetchReleasePreallocatedPages(v51, &v37, v22, 1LL);
-  v26 = MiPfCompletePrefetchIos(v44, (__int64)v45, a3);
-  if ( v26 < 0 )
-  {
-    if ( v4 >= 0 )
-      v4 = v26;
-  }
-  else if ( v4 >= 0 && v54 < 0 && (v47 & 0x8000) != 0 )
-  {
-    v4 = v54;
-  }
-  if ( v8 > 1 )
-  {
-    KeAbPostReleaseEx(BugCheckParameter2, v8);
-    MiDereferenceInPageAutoBoostLock((volatile signed __int64 *)BugCheckParameter2);
-    BugCheckParameter2 = 0LL;
-  }
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  --BYTE6(CurrentThread[1].Queue);
-  return (unsigned int)v4;
+  return 3221225485LL;
 }

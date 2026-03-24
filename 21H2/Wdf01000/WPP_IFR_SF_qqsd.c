@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_qqsd @ 0x1C006E98C
+ * XREFs of WPP_IFR_SF_qqsd @ 0x1C005BA0C
  * Callers:
- *     ?CheckForAbandondedTags@FxTagTracker@@QEAAXXZ @ 0x1C006E530 (-CheckForAbandondedTags@FxTagTracker@@QEAAXXZ.c)
+ *     ?CheckForAbandondedTags@FxTagTracker@@QEAAXXZ @ 0x1C005B5F0 (-CheckForAbandondedTags@FxTagTracker@@QEAAXXZ.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qqsd(

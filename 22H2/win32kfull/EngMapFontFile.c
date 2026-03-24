@@ -1,9 +1,9 @@
 /*
- * XREFs of EngMapFontFile @ 0x1C028B630
+ * XREFs of EngMapFontFile @ 0x1C0289CA0
  * Callers:
  *     <none>
  * Callees:
- *     ?EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z @ 0x1C028A5D8 (-EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z.c)
+ *     ?EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z @ 0x1C0288CC0 (-EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z.c)
  */
 
 BOOL __stdcall EngMapFontFile(ULONG_PTR iFile, PULONG *ppjBuf, ULONG *pcjBuf)

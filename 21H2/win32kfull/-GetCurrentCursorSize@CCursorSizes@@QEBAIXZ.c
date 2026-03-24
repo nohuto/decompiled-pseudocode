@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetCurrentCursorSize@CCursorSizes@@QEBAIXZ @ 0x1C00B2F9C
+ * XREFs of ?GetCurrentCursorSize@CCursorSizes@@QEBAIXZ @ 0x1C002A72C
  * Callers:
- *     zzzUpdateCursorImage @ 0x1C00734A0 (zzzUpdateCursorImage.c)
- *     ?SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z @ 0x1C00B2D30 (-SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z.c)
+ *     ?SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z @ 0x1C002A4E0 (-SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z.c)
+ *     zzzUpdateCursorImage @ 0x1C0080F20 (zzzUpdateCursorImage.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00F4E24 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C0104BEC (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C0103D60 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C010B1D8 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
  */
 
 __int64 __fastcall CCursorSizes::GetCurrentCursorSize(CCursorSizes *this)

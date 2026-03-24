@@ -1,19 +1,17 @@
 /*
- * XREFs of Command_ASMediaGetFirmwareVersionHighCommandCompletion @ 0x1C002DDB0
+ * XREFs of Command_ASMediaGetFirmwareVersionHighCommandCompletion @ 0x1C002DC00
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
  */
 
 LONG __fastcall Command_ASMediaGetFirmwareVersionHighCommandCompletion(__int64 a1)
 {
   __int64 *v1; // rbx
   __int64 v2; // rdi
-  int v4; // [rsp+28h] [rbp-20h]
-  int v5; // [rsp+30h] [rbp-18h]
-  int v6; // [rsp+38h] [rbp-10h]
+  int v3; // edx
 
   v1 = *(__int64 **)(a1 + 48);
   v2 = *v1;
@@ -21,18 +19,17 @@ LONG __fastcall Command_ASMediaGetFirmwareVersionHighCommandCompletion(__int64 a
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v6 = (unsigned __int8)*((_DWORD *)v1 + 10);
-      v5 = *((unsigned __int8 *)v1 + 41);
-      v4 = *((unsigned __int8 *)v1 + 42);
-      WPP_RECORDER_SF_ddd(
+      v3 = *((unsigned __int8 *)v1 + 42);
+      LOBYTE(v3) = 4;
+      WPP_RECORDER_SF_ddL(
         *(_QWORD *)(v2 + 16),
-        4u,
-        7u,
-        0x17u,
-        (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids,
-        v4,
-        v5,
-        v6);
+        v3,
+        7,
+        23,
+        (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids,
+        *((_BYTE *)v1 + 42),
+        *((_BYTE *)v1 + 41),
+        *((_DWORD *)v1 + 10));
     }
     *(_QWORD *)(*(_QWORD *)(v2 + 8) + 328LL) |= ((unsigned __int8)*((_DWORD *)v1 + 10) | ((unsigned __int64)*(unsigned __int16 *)((char *)v1 + 41) << 8)) << 24;
   }
@@ -45,7 +42,7 @@ LONG __fastcall Command_ASMediaGetFirmwareVersionHighCommandCompletion(__int64 a
         3,
         7,
         24,
-        (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids,
+        (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids,
         *((_BYTE *)v1 + 43));
   }
   return KeSetEvent((PRKEVENT)(v1 + 13), 0, 0);

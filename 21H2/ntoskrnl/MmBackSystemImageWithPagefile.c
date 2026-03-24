@@ -1,26 +1,26 @@
 /*
- * XREFs of MmBackSystemImageWithPagefile @ 0x14080F66C
+ * XREFs of MmBackSystemImageWithPagefile @ 0x140780A8C
  * Callers:
- *     FsRtlSetDriverBacking @ 0x14080F640 (FsRtlSetDriverBacking.c)
+ *     FsRtlSetDriverBacking @ 0x140780A60 (FsRtlSetDriverBacking.c)
  * Callees:
- *     MiLookupDataTableEntry @ 0x1402FDA80 (MiLookupDataTableEntry.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     MmReleaseLoadLock @ 0x1406F5AF0 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406F5B50 (MmAcquireLoadLock.c)
- *     MiBackSystemImageWithPagefile @ 0x14080F6C8 (MiBackSystemImageWithPagefile.c)
+ *     MiLookupDataTableEntry @ 0x1402E776C (MiLookupDataTableEntry.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MmReleaseLoadLock @ 0x1406D1110 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406D1170 (MmAcquireLoadLock.c)
+ *     MiBackSystemImageWithPagefile @ 0x140780AE8 (MiBackSystemImageWithPagefile.c)
  */
 
-__int64 __fastcall MmBackSystemImageWithPagefile(ULONG_PTR BugCheckParameter2)
+__int64 __fastcall MmBackSystemImageWithPagefile(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4)
 {
-  _QWORD *v2; // rsi
+  __int64 v5; // rsi
   struct _KTHREAD *Lock; // rdi
-  unsigned int v4; // ebx
+  unsigned int v7; // ebx
 
-  v2 = MiLookupDataTableEntry(BugCheckParameter2, 1);
-  if ( !v2 )
+  v5 = MiLookupDataTableEntry(BugCheckParameter2, 1LL, a3, a4);
+  if ( !v5 )
     KeBugCheckEx(0x1Au, 0x1239uLL, BugCheckParameter2, 0LL, 0LL);
   Lock = MmAcquireLoadLock();
-  v4 = MiBackSystemImageWithPagefile(v2);
+  v7 = MiBackSystemImageWithPagefile(v5);
   MmReleaseLoadLock((__int64)Lock);
-  return v4;
+  return v7;
 }

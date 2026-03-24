@@ -1,16 +1,16 @@
 /*
- * XREFs of WdipSemLoadNextContextProvider @ 0x14083FC00
+ * XREFs of WdipSemLoadNextContextProvider @ 0x1407996F8
  * Callers:
- *     WdipSemLoadNextScenario @ 0x14084028C (WdipSemLoadNextScenario.c)
+ *     WdipSemLoadNextScenario @ 0x140799D84 (WdipSemLoadNextScenario.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlGUIDFromString @ 0x1407814E0 (RtlGUIDFromString.c)
- *     WdipSemQueryValueFromRegistry @ 0x140840760 (WdipSemQueryValueFromRegistry.c)
- *     WdipSemOpenRegistryKey @ 0x140840870 (WdipSemOpenRegistryKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
+ *     WdipSemQueryValueFromRegistry @ 0x14079A264 (WdipSemQueryValueFromRegistry.c)
+ *     WdipSemOpenRegistryKey @ 0x14079A374 (WdipSemOpenRegistryKey.c)
  */
 
 __int64 __fastcall WdipSemLoadNextContextProvider(HANDLE KeyHandle, ULONG Index, GUID *Guid)

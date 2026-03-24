@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCreateJobObject @ 0x14041BCE0
+ * XREFs of ZwCreateJobObject @ 0x1403FAFE0
  * Callers:
- *     DifZwCreateJobObjectWrapper @ 0x1405EE850 (DifZwCreateJobObjectWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

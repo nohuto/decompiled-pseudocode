@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpUnlockDeviceActionQueue @ 0x140253DD4
+ * XREFs of PnpUnlockDeviceActionQueue @ 0x1402C6F4C
  * Callers:
- *     IoControlPnpDeviceActionQueue @ 0x140253DB4 (IoControlPnpDeviceActionQueue.c)
- *     IoFreePoDeviceNotifyList @ 0x140A51484 (IoFreePoDeviceNotifyList.c)
- *     PipInitializeCoreDriversByGroup @ 0x140B10D98 (PipInitializeCoreDriversByGroup.c)
- *     IopInitializeBootDrivers @ 0x140B114E8 (IopInitializeBootDrivers.c)
+ *     IoControlPnpDeviceActionQueue @ 0x1402C6F2C (IoControlPnpDeviceActionQueue.c)
+ *     IoFreePoDeviceNotifyList @ 0x1409979FC (IoFreePoDeviceNotifyList.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140A5D42C (PipInitializeCoreDriversByGroup.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
  */
 
 __int64 PnpUnlockDeviceActionQueue()

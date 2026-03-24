@@ -1,16 +1,16 @@
 /*
- * XREFs of XmPushaOp @ 0x1403A06A0
+ * XREFs of XmPushaOp @ 0x1403C3D00
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
- *     XmPushStack @ 0x1403B8F30 (XmPushStack.c)
+ *     XmPushStack @ 0x140396668 (XmPushStack.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
  */
 
 __int64 __fastcall XmPushaOp(__int64 a1)
 {
   unsigned int v2; // edi
-  int *v3; // rdx
+  unsigned __int16 *v3; // rdx
   __int64 result; // rax
   int v5; // [rsp+30h] [rbp+8h] BYREF
 
@@ -20,11 +20,11 @@ __int64 __fastcall XmPushaOp(__int64 a1)
   do
   {
     if ( v2 == 4 )
-      v3 = &v5;
+      v3 = (unsigned __int16 *)&v5;
     else
-      v3 = (int *)(a1 + 4 * (v2 + 6LL));
+      v3 = (unsigned __int16 *)(a1 + 4 * (v2 + 6LL));
     XmSetSourceValue(a1, v3);
-    result = XmPushStack(a1, *(unsigned int *)(a1 + 108));
+    result = XmPushStack(a1, *(_DWORD *)(a1 + 108));
     ++v2;
   }
   while ( v2 <= 7 );

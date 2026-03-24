@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmReleaseDmaBuffer @ 0x1C002D260
+ * XREFs of VidMmReleaseDmaBuffer @ 0x1C0022F30
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C0017494 (-ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z.c)
+ *     ?ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C0015520 (-ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z.c)
  */
 
 void __fastcall VidMmReleaseDmaBuffer(VIDMM_DMA_POOL **a1)

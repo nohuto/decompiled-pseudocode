@@ -1,17 +1,17 @@
 /*
- * XREFs of MiSessionReferenceImage @ 0x14020A998
+ * XREFs of MiSessionReferenceImage @ 0x1403A7274
  * Callers:
- *     MiResolveImageReferences @ 0x1406AE044 (MiResolveImageReferences.c)
- *     MmChangeImageProtection @ 0x140723EB0 (MmChangeImageProtection.c)
+ *     MmChangeImageProtection @ 0x1406FE6A0 (MmChangeImageProtection.c)
+ *     MiResolveImageReferences @ 0x14075C9FC (MiResolveImageReferences.c)
  * Callees:
- *     MiSessionLookupImage @ 0x14020AB88 (MiSessionLookupImage.c)
+ *     MiSessionLookupImage @ 0x140328A98 (MiSessionLookupImage.c)
  */
 
-__int64 __fastcall MiSessionReferenceImage(__int64 a1)
+__int64 __fastcall MiSessionReferenceImage(unsigned __int64 a1)
 {
   __int64 result; // rax
 
-  result = MiSessionLookupImage(a1);
+  result = (__int64)MiSessionLookupImage(a1);
   if ( result )
   {
     ++*(_DWORD *)(result + 60);

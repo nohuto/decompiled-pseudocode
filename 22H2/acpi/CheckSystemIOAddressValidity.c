@@ -1,31 +1,30 @@
 /*
- * XREFs of CheckSystemIOAddressValidity @ 0x1C0051C78
+ * XREFs of CheckSystemIOAddressValidity @ 0x1C0027590
  * Callers:
- *     WriteSystemIO @ 0x1C000624C (WriteSystemIO.c)
- *     ReadSystemIO @ 0x1C0052EFC (ReadSystemIO.c)
+ *     AccessBaseField @ 0x1C0001970 (AccessBaseField.c)
+ *     ReadSystemIO @ 0x1C0027528 (ReadSystemIO.c)
+ *     WriteSystemIO @ 0x1C006800C (WriteSystemIO.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
-char __fastcall CheckSystemIOAddressValidity(char a1, const char *a2, unsigned int a3, unsigned int *a4)
+__int64 __fastcall CheckSystemIOAddressValidity(unsigned __int8 a1, const char *a2, unsigned int a3, unsigned int *a4)
 {
-  unsigned __int64 v5; // rdi
-  char v8; // bp
-  __int64 v9; // rsi
-  __int64 v10; // r8
+  unsigned int v5; // edi
+  unsigned __int8 v8; // r14
+  __int64 v9; // rbx
+  const char *v10; // r9
   _DWORD *v11; // rax
-  __int64 v12; // r14
-  const void *v13; // r8
-  const char *v14; // r9
+  __int64 v13; // rbp
+  unsigned int v14; // r8d
   int v15; // ecx
-  __int64 v16; // rcx
-  void (__fastcall *v17)(__int64, _QWORD, _QWORD, unsigned int *); // rax
-  struct _DEVICE_OBJECT *v18; // rcx
-  struct _IO_WORKITEM *WorkItem; // rbx
-  int v20; // ecx
-  _DWORD *Pool2; // rax
-  const void *v23; // [rsp+20h] [rbp-38h]
+  void (__fastcall *v16)(_QWORD, _QWORD, _QWORD, unsigned int *); // rax
+  struct _DEVICE_OBJECT *v17; // rcx
+  struct _IO_WORKITEM *WorkItem; // rsi
+  int v19; // ecx
+  _DWORD *PoolWithTag; // rax
+  __int64 v21; // [rsp+20h] [rbp-38h]
 
   v5 = (unsigned int)a2;
   v8 = 1;
@@ -36,32 +35,31 @@ char __fastcall CheckSystemIOAddressValidity(char a1, const char *a2, unsigned i
     return v8;
   v10 = 0LL;
   v11 = gpBadIOAddressList;
-  while ( (unsigned int)a2 < *v11 || (unsigned int)a2 >= v11[1] + *v11 )
+  while ( (unsigned int)a2 < *v11 || (unsigned int)a2 >= *v11 + v11[1] )
   {
     v9 = (unsigned int)(v9 + 1);
-    v10 = (unsigned int)v9;
+    v10 = (const char *)(unsigned int)v9;
     v11 = (char *)gpBadIOAddressList + 24 * v9;
     if ( !v11[1] )
       return v8;
   }
-  v12 = 3 * v10;
-  v13 = 0LL;
-  v23 = 0LL;
-  v14 = 0LL;
-  if ( *((_DWORD *)gpBadIOAddressList + 2 * v12 + 2) > (unsigned int)gdwHighestOSVerQueried )
+  v13 = 24LL * (_QWORD)v10;
+  LODWORD(v10) = 0;
+  v14 = 0;
+  v21 = 0LL;
+  if ( *(_DWORD *)((char *)gpBadIOAddressList + v13 + 8) > (unsigned int)gdwHighestOSVerQueried )
   {
-    PrintDebugMessage(24, (const void *)(unsigned int)a2, 0LL, 0LL, 0LL);
-    v17 = (void (__fastcall *)(__int64, _QWORD, _QWORD, unsigned int *))*((_QWORD *)gpBadIOAddressList + v12 + 2);
-    if ( !v17 )
+    PrintDebugMessage(24, (_DWORD)a2, 0, 0, 0LL);
+    v16 = *(void (__fastcall **)(_QWORD, _QWORD, _QWORD, unsigned int *))((char *)gpBadIOAddressList + v13 + 16);
+    if ( !v16 )
       goto LABEL_17;
-    LOBYTE(v16) = a1;
     v8 = 0;
-    v17(v16, (unsigned int)v5, a3, a4);
-    v23 = (const void *)*a4;
-    v14 = "Read";
-    v13 = (const void *)v5;
+    v16(a1, v5, a3, a4);
+    v21 = *a4;
+    v10 = "Read";
+    v14 = v5;
     if ( !a1 )
-      v14 = "Wrote";
+      v10 = "Wrote";
     a2 = "read";
     if ( !a1 )
       a2 = "write";
@@ -71,35 +69,34 @@ char __fastcall CheckSystemIOAddressValidity(char a1, const char *a2, unsigned i
   {
     v8 = 0;
     v15 = 25;
-    a2 = (const char *)(unsigned int)a2;
   }
-  PrintDebugMessage(v15, a2, v13, v14, v23);
+  PrintDebugMessage(v15, (_DWORD)a2, v14, (_DWORD)v10, v21);
 LABEL_17:
-  if ( !RootDeviceExtension || (v18 = *(struct _DEVICE_OBJECT **)(RootDeviceExtension + 768)) == 0LL )
+  if ( !RootDeviceExtension || (v17 = *(struct _DEVICE_OBJECT **)(RootDeviceExtension + 728)) == 0LL )
   {
-    v20 = 22;
+    v19 = 22;
     goto LABEL_25;
   }
-  WorkItem = IoAllocateWorkItem(v18);
+  WorkItem = IoAllocateWorkItem(v17);
   if ( !WorkItem )
   {
-    v20 = 21;
+    v19 = 21;
 LABEL_25:
-    PrintDebugMessage(v20, 0LL, 0LL, 0LL, 0LL);
+    PrintDebugMessage(v19, 0, 0, 0, 0LL);
     return v8;
   }
-  Pool2 = (_DWORD *)ExAllocatePool2(64LL, 24LL, 1231842625LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x496C6D41u);
+  if ( PoolWithTag )
   {
-    *(_BYTE *)Pool2 = a1;
-    Pool2[1] = v5;
-    Pool2[2] = v9;
-    *((_QWORD *)Pool2 + 2) = WorkItem;
-    IoQueueWorkItem(WorkItem, DelayedLogInErrorLog, DelayedWorkQueue, Pool2);
+    *(_BYTE *)PoolWithTag = a1;
+    PoolWithTag[1] = v5;
+    PoolWithTag[2] = v9;
+    *((_QWORD *)PoolWithTag + 2) = WorkItem;
+    IoQueueWorkItem(WorkItem, DelayedLogInErrorLog, DelayedWorkQueue, PoolWithTag);
   }
   else
   {
-    PrintDebugMessage(20, 0LL, 0LL, 0LL, 0LL);
+    PrintDebugMessage(20, 0, 0, 0, 0LL);
     IoFreeWorkItem(WorkItem);
   }
   return v8;

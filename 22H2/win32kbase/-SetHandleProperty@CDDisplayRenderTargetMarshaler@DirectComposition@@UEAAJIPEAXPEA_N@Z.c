@@ -1,41 +1,39 @@
 /*
- * XREFs of ?SetHandleProperty@CDDisplayRenderTargetMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C0227D80
+ * XREFs of ?SetHandleProperty@CDDisplayRenderTargetMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C01EEE90
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CDDisplayRenderTargetMarshaler::SetHandleProperty(
         DirectComposition::CDDisplayRenderTargetMarshaler *this,
-        __int64 a2,
+        int a2,
         void *a3,
         bool *a4)
 {
   unsigned int v4; // edi
   PVOID v8; // rsi
-  __int64 DxgkWin32kInterface; // rax
-  struct _OBJECT_TYPE *v10; // rax
-  NTSTATUS v11; // eax
-  void *v12; // rcx
+  struct _OBJECT_TYPE *v9; // rax
+  NTSTATUS v10; // eax
+  void *v11; // rcx
   PVOID Object; // [rsp+30h] [rbp-18h] BYREF
 
   v4 = 0;
-  if ( (_DWORD)a2 == 2 )
+  if ( a2 == 2 )
   {
     v8 = 0LL;
     if ( !a3
-      || (DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(this, a2),
-          v10 = (struct _OBJECT_TYPE *)(*(__int64 (**)(void))(DxgkWin32kInterface + 496))(),
+      || (v9 = (struct _OBJECT_TYPE *)((__int64 (*)(void))qword_1C0250A88)(),
           Object = 0LL,
-          v11 = ObReferenceObjectByHandle(a3, 0x1F0000u, v10, 1, &Object, 0LL),
+          v10 = ObReferenceObjectByHandle(a3, 0x1F0000u, v9, 1, &Object, 0LL),
           v8 = Object,
-          v4 = v11,
-          v11 >= 0) )
+          v4 = v10,
+          v10 >= 0) )
     {
-      v12 = (void *)*((_QWORD *)this + 10);
-      if ( v12 )
-        DxgkReleaseCompositionObjectReference(v12);
+      v11 = (void *)*((_QWORD *)this + 10);
+      if ( v11 )
+        DxgkReleaseCompositionObjectReference(v11);
       *((_QWORD *)this + 10) = v8;
     }
     *((_DWORD *)this + 4) |= 0x20u;

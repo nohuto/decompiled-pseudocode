@@ -5,10 +5,10 @@
  *     VfFreeMemoryNotification @ 0x140925CB8 (VfFreeMemoryNotification.c)
  *     VfFreePoolNotification @ 0x140937E9C (VfFreePoolNotification.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1400F5668 (VfAvlCleanupLockContext.c)
- *     VfAvlLookupTreeNode @ 0x14016C410 (VfAvlLookupTreeNode.c)
- *     VfPoolIsInternalFree @ 0x14030B088 (VfPoolIsInternalFree.c)
- *     VfAvlInitializeLockContext @ 0x14030B4B4 (VfAvlInitializeLockContext.c)
+ *     VfAvlCleanupLockContext @ 0x1400F5688 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14016C430 (VfAvlLookupTreeNode.c)
+ *     VfPoolIsInternalFree @ 0x14030B188 (VfPoolIsInternalFree.c)
+ *     VfAvlInitializeLockContext @ 0x14030B5B4 (VfAvlInitializeLockContext.c)
  *     ViRemLockDeleteFirstTreeNode @ 0x140934854 (ViRemLockDeleteFirstTreeNode.c)
  */
 

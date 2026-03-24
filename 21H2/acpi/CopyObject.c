@@ -1,16 +1,16 @@
 /*
- * XREFs of CopyObject @ 0x1C0069E40
+ * XREFs of CopyObject @ 0x1C0069110
  * Callers:
  *     <none>
  * Callees:
- *     DupObjData @ 0x1C00169A0 (DupObjData.c)
- *     WriteObject @ 0x1C0017010 (WriteObject.c)
- *     MatchObjType @ 0x1C00178E0 (MatchObjType.c)
- *     ValidateTarget @ 0x1C0018344 (ValidateTarget.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     MoveObjData @ 0x1C0066938 (MoveObjData.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     DupObjData @ 0x1C000A400 (DupObjData.c)
+ *     MatchObjType @ 0x1C000ABEC (MatchObjType.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ValidateTarget @ 0x1C000B264 (ValidateTarget.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     MoveObjData @ 0x1C0065580 (MoveObjData.c)
  */
 
 __int64 __fastcall CopyObject(struct _SLIST_ENTRY *a1, __int64 a2)

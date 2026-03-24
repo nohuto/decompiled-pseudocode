@@ -1,7 +1,7 @@
 /*
  * XREFs of MmUnmapViewOfSection @ 0x140616D50
  * Callers:
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
  * Callees:
  *     MiUnmapViewOfSection @ 0x1406171B0 (MiUnmapViewOfSection.c)
  */

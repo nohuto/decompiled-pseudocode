@@ -1,57 +1,58 @@
 /*
- * XREFs of NtGdiSetLinkedUFIs @ 0x1C02788B0
+ * XREFs of NtGdiSetLinkedUFIs @ 0x1C027CDA0
  * Callers:
  *     <none>
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?bSetLinkedUFIs@XDCOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@I@Z @ 0x1C02C0850 (-bSetLinkedUFIs@XDCOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@I@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2890 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ?bSetLinkedUFIs@XDCOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@I@Z @ 0x1C02ACEA0 (-bSetLinkedUFIs@XDCOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@I@Z.c)
  */
 
-__int64 __fastcall NtGdiSetLinkedUFIs(HDC a1, char *Src, __int64 a3, __int64 a4)
+__int64 __fastcall NtGdiSetLinkedUFIs(HDC a1, char *Src, unsigned int a3)
 {
-  __int64 v4; // rdi
-  _BYTE *v7; // rbx
-  unsigned int v8; // r14d
-  size_t v10; // r8
-  _QWORD v11[6]; // [rsp+38h] [rbp-80h] BYREF
-  _BYTE v12[32]; // [rsp+68h] [rbp-50h] BYREF
+  __int64 v3; // rdi
+  _BYTE *v6; // rbx
+  unsigned int v7; // r14d
+  size_t v9; // r8
+  _QWORD v10[6]; // [rsp+38h] [rbp-80h] BYREF
+  _BYTE v11[32]; // [rsp+68h] [rbp-50h] BYREF
 
-  v4 = (unsigned int)a3;
-  v7 = 0LL;
-  v8 = 1;
-  if ( !Src && (_DWORD)a3 )
+  v3 = a3;
+  v6 = 0LL;
+  v7 = 1;
+  if ( !Src && a3 )
     return 0LL;
-  if ( (unsigned int)a3 <= 4 )
+  if ( a3 <= 4 )
   {
-    v7 = v12;
+    v6 = v11;
   }
   else
   {
-    if ( (unsigned int)a3 <= 0x4E2000 && 8 * (_DWORD)a3 )
-      v7 = (_BYTE *)Win32AllocPool((unsigned int)(8 * a3), 1684629063LL, a3, a4);
-    if ( !v7 )
+    if ( a3 <= 0x4E2000 )
+      v6 = PALLOCMEM2(8 * a3, 1684629063LL, 0);
+    if ( !v6 )
       return 0LL;
   }
   if ( Src )
   {
-    v10 = 8 * v4;
-    if ( 8 * v4 )
+    v9 = 8 * v3;
+    if ( 8 * v3 )
     {
       if ( ((unsigned __int8)Src & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)&Src[v10] > MmUserProbeAddress || &Src[v10] < Src )
+      if ( (unsigned __int64)&Src[v9] > MmUserProbeAddress || &Src[v9] < Src )
         *(_BYTE *)MmUserProbeAddress = 0;
     }
-    memmove(v7, Src, v10);
+    memmove(v6, Src, v9);
   }
-  DCOBJ::DCOBJ((DCOBJ *)v11, a1);
-  if ( v11[0] )
-    v8 = XDCOBJ::bSetLinkedUFIs((XDCOBJ *)v11, (struct _UNIVERSAL_FONT_ID *)v7, v4);
-  DCOBJ::~DCOBJ((DCOBJ *)v11);
-  if ( v7 != v12 )
-    Win32FreePool(v7);
-  return v8;
+  DCOBJ::DCOBJ((DCOBJ *)v10, a1);
+  if ( v10[0] )
+    v7 = XDCOBJ::bSetLinkedUFIs((XDCOBJ *)v10, (struct _UNIVERSAL_FONT_ID *)v6, v3);
+  DCOBJ::~DCOBJ((DCOBJ *)v10);
+  if ( v6 != v11 )
+    Win32FreePool(v6);
+  return v7;
 }

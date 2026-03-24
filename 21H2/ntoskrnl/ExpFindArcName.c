@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpFindArcName @ 0x1409FC2D0
+ * XREFs of ExpFindArcName @ 0x14094FF14
  * Callers:
- *     ExpCreateOutputARC @ 0x1409FBD64 (ExpCreateOutputARC.c)
+ *     ExpCreateOutputARC @ 0x14094F9A4 (ExpCreateOutputARC.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
- *     wcsncat_s @ 0x1403E7750 (wcsncat_s.c)
- *     wcsncpy_s @ 0x1403E7870 (wcsncpy_s.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x14041C260 (ZwOpenDirectoryObject.c)
- *     ZwQueryDirectoryObject @ 0x14041E0A0 (ZwQueryDirectoryObject.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     ExpTranslateSymbolicLink @ 0x1409FEF6C (ExpTranslateSymbolicLink.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
+ *     wcsncat_s @ 0x1403D8300 (wcsncat_s.c)
+ *     wcsncpy_s @ 0x1403D8420 (wcsncpy_s.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1403FAEA0 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x1403FCC20 (ZwQueryDirectoryObject.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     ExpTranslateSymbolicLink @ 0x140952BBC (ExpTranslateSymbolicLink.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpFindArcName(const UNICODE_STRING *a1, wchar_t **a2)
@@ -93,7 +93,7 @@ __int64 __fastcall ExpFindArcName(const UNICODE_STRING *a1, wchar_t **a2)
       if ( v12 < 0 )
       {
         ExFreePoolWithTag(v10, 0);
-        goto LABEL_26;
+        goto LABEL_23;
       }
       v2 = RtlEqualUnicodeString(&DestinationString, a1, 1u);
       ExFreePoolWithTag(DestinationString.Buffer, 0);
@@ -102,7 +102,7 @@ __int64 __fastcall ExpFindArcName(const UNICODE_STRING *a1, wchar_t **a2)
         wcsncpy_s(v10, ((unsigned __int64)NumberOfBytes >> 1) + 1, v7->Buffer, v11);
         v10[v11] = 0;
         *a2 = v10;
-        goto LABEL_26;
+        goto LABEL_23;
       }
       ExFreePoolWithTag(v10, 0);
     }
@@ -110,6 +110,7 @@ __int64 __fastcall ExpFindArcName(const UNICODE_STRING *a1, wchar_t **a2)
   v12 = 0;
   if ( DirectoryObject != -2147483622 )
     v12 = DirectoryObject;
+LABEL_23:
   if ( v12 >= 0 && !v2 )
     v12 = -1073741766;
 LABEL_26:

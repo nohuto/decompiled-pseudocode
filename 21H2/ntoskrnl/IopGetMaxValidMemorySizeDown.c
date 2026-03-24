@@ -1,18 +1,18 @@
 /*
- * XREFs of IopGetMaxValidMemorySizeDown @ 0x140554878
+ * XREFs of IopGetMaxValidMemorySizeDown @ 0x1405041C4
  * Callers:
- *     IopAddRunTimeTriageDataBlocks @ 0x140553FB4 (IopAddRunTimeTriageDataBlocks.c)
- *     IopMarkPagesForRunTimeTriageDataBlocks @ 0x14055DEF4 (IopMarkPagesForRunTimeTriageDataBlocks.c)
+ *     IopAddRunTimeTriageDataBlocks @ 0x140503B24 (IopAddRunTimeTriageDataBlocks.c)
+ *     IopMarkPagesForRunTimeTriageDataBlocks @ 0x14050C100 (IopMarkPagesForRunTimeTriageDataBlocks.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14028FBF0 (MmIsAddressValidEx.c)
+ *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
  */
 
 __int64 __fastcall IopGetMaxValidMemorySizeDown(__int64 a1)
 {
-  unsigned int v1; // ebx
-  unsigned __int64 v2; // rsi
+  unsigned int v1; // esi
+  unsigned __int64 v2; // rdi
   int v4; // ebp
-  unsigned int v5; // edi
+  unsigned int v5; // ebx
 
   v1 = 0;
   v2 = (a1 - 1) & 0xFFFFFFFFFFFFF000uLL;
@@ -20,19 +20,18 @@ __int64 __fastcall IopGetMaxValidMemorySizeDown(__int64 a1)
     return 0LL;
   v4 = 0;
   v5 = 256;
-  while ( MmIsAddressValidEx(v2) )
+  do
   {
+    if ( !MmIsAddressValidEx(v2) )
+      break;
     v1 += v4;
-    if ( v2 )
-    {
-      v2 -= 4096LL;
-      v4 = 4096;
-      if ( v1 < 0x100 )
-        continue;
-    }
-    if ( v1 >= 0x100 )
-      return v5;
-    return v1;
+    if ( !v2 )
+      break;
+    v2 -= 4096LL;
+    v4 = 4096;
   }
-  return v1;
+  while ( v1 < 0x100 );
+  if ( v1 < 0x100 )
+    return v1;
+  return v5;
 }

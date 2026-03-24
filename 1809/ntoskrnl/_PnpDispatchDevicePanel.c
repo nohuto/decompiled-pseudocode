@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpDispatchDevicePanel @ 0x140749A80
+ * XREFs of _PnpDispatchDevicePanel @ 0x140749A60
  * Callers:
  *     <none>
  * Callees:
- *     _CmValidateDevicePanelName @ 0x140749B10 (_CmValidateDevicePanelName.c)
- *     _CmGetMatchingDevicePanelList @ 0x140749D08 (_CmGetMatchingDevicePanelList.c)
- *     _CmGetDevicePanelMappedProperty @ 0x1408FBD44 (_CmGetDevicePanelMappedProperty.c)
- *     _CmGetDevicePanelMappedPropertyKeys @ 0x1408FBE60 (_CmGetDevicePanelMappedPropertyKeys.c)
- *     _CmGetDevicePanelMappedPropertyLocales @ 0x1408FBEF4 (_CmGetDevicePanelMappedPropertyLocales.c)
- *     _CmOpenDevicePanelRegKey @ 0x1408FC054 (_CmOpenDevicePanelRegKey.c)
- *     _CmSetDevicePanelMappedProperty @ 0x1408FC76C (_CmSetDevicePanelMappedProperty.c)
+ *     _CmValidateDevicePanelName @ 0x140749AF0 (_CmValidateDevicePanelName.c)
+ *     _CmGetMatchingDevicePanelList @ 0x140749CE8 (_CmGetMatchingDevicePanelList.c)
+ *     _CmGetDevicePanelMappedProperty @ 0x1408FBD24 (_CmGetDevicePanelMappedProperty.c)
+ *     _CmGetDevicePanelMappedPropertyKeys @ 0x1408FBE40 (_CmGetDevicePanelMappedPropertyKeys.c)
+ *     _CmGetDevicePanelMappedPropertyLocales @ 0x1408FBED4 (_CmGetDevicePanelMappedPropertyLocales.c)
+ *     _CmOpenDevicePanelRegKey @ 0x1408FC034 (_CmOpenDevicePanelRegKey.c)
+ *     _CmSetDevicePanelMappedProperty @ 0x1408FC74C (_CmSetDevicePanelMappedProperty.c)
  */
 
 __int64 __fastcall PnpDispatchDevicePanel(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, __int64 a5)

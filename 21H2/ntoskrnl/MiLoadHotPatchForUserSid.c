@@ -1,116 +1,124 @@
 /*
- * XREFs of MiLoadHotPatchForUserSid @ 0x1409743A4
+ * XREFs of MiLoadHotPatchForUserSid @ 0x1408CAF30
  * Callers:
- *     NtManageHotPatch @ 0x1406C9390 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x1408CED40 (NtManageHotPatch.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     RtlHashBytes2 @ 0x1402AC180 (RtlHashBytes2.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     RtlCopySid @ 0x14066A4E0 (RtlCopySid.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     MiAllocateHotPatchRecord @ 0x140970F88 (MiAllocateHotPatchRecord.c)
- *     MiCompareUserSidHotPatchNodes @ 0x140972C84 (MiCompareUserSidHotPatchNodes.c)
- *     MiHotPatchAllProcesses @ 0x140973630 (MiHotPatchAllProcesses.c)
- *     MiInsertHotPatchRecord @ 0x140973D6C (MiInsertHotPatchRecord.c)
- *     MiOpenHotPatchFile @ 0x14097638C (MiOpenHotPatchFile.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlHashBytes2 @ 0x1403F8A24 (RtlHashBytes2.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     RtlCopySid @ 0x140706ED0 (RtlCopySid.c)
+ *     MiAllocateHotPatchRecord @ 0x1408C8CD4 (MiAllocateHotPatchRecord.c)
+ *     MiCompareUserSidHotPatchNodes @ 0x1408C985C (MiCompareUserSidHotPatchNodes.c)
+ *     MiHotPatchAllProcesses @ 0x1408CA278 (MiHotPatchAllProcesses.c)
+ *     MiInsertHotPatchRecord @ 0x1408CA9A0 (MiInsertHotPatchRecord.c)
+ *     MiOpenHotPatchFile @ 0x1408CCB08 (MiOpenHotPatchFile.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiLoadHotPatchForUserSid(const void **a1, void *a2, int *a3)
 {
   int v6; // ebx
-  _QWORD *HotPatchRecord; // r15
-  struct _KTHREAD *CurrentThread; // rdi
+  _QWORD *HotPatchRecord; // rdi
+  struct _KTHREAD *CurrentThread; // r15
   _QWORD *v9; // rsi
-  bool v10; // r12
-  int v11; // eax
-  _QWORD *v12; // rax
+  char v10; // al
+  bool v11; // r12
+  int v12; // eax
+  _QWORD *v13; // rax
   _QWORD *Pool; // rax
-  _QWORD *v14; // rbp
-  bool v15; // zf
-  PVOID Object; // [rsp+50h] [rbp-48h] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-40h] BYREF
-  __int128 v19; // [rsp+60h] [rbp-38h] BYREF
-  ULONG DestinationSidLength; // [rsp+B8h] [rbp+20h]
+  _QWORD *v15; // rbp
+  PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp-48h] BYREF
+  HANDLE Handle; // [rsp+48h] [rbp-40h] BYREF
+  __int128 v19; // [rsp+50h] [rbp-38h] BYREF
+  ULONG DestinationSidLength; // [rsp+A8h] [rbp+20h]
 
   Handle = 0LL;
-  Object = 0LL;
+  DmaAdapter = 0LL;
   v19 = 0LL;
-  v6 = MiOpenHotPatchFile((_DWORD)a1, (_DWORD)a2, (_DWORD)a3, (unsigned int)&Handle, (__int64)&Object);
+  v6 = MiOpenHotPatchFile((_DWORD)a1, 1, 0, (unsigned int)&Handle, (__int64)&DmaAdapter, 0LL, (__int64)a3, 0LL);
   if ( v6 < 0 )
-    goto LABEL_25;
+    goto LABEL_23;
   HotPatchRecord = MiAllocateHotPatchRecord(*a3, a3[1], a1);
   if ( !HotPatchRecord )
-    goto LABEL_3;
+  {
+    v6 = -1073741670;
+    goto LABEL_23;
+  }
   CurrentThread = KeGetCurrentThread();
   DestinationSidLength = RtlLengthSid(a2);
-  *(_QWORD *)&v19 = RtlHashBytes2((const unsigned __int8 *)a2, DestinationSidLength, 0LL);
+  *(_QWORD *)&v19 = RtlHashBytes2((const unsigned __int8 *)a2, DestinationSidLength);
   *((_QWORD *)&v19 + 1) = a2;
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C533C0, 0LL);
-  v9 = (_QWORD *)qword_140C533A8;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&MiHotPatchListLock, 0LL);
+  v9 = (_QWORD *)MiUserSidPatchLists;
   v10 = 0;
-  if ( !qword_140C533A8 )
-    goto LABEL_8;
+  v11 = 0;
+  if ( !MiUserSidPatchLists )
+    goto LABEL_12;
   while ( 1 )
   {
-    v11 = MiCompareUserSidHotPatchNodes(&v19, (__int64)v9);
-    if ( v11 > 0 )
+    v12 = MiCompareUserSidHotPatchNodes(&v19, (__int64)v9);
+    if ( v12 <= 0 )
       break;
-    if ( v11 >= 0 )
-      goto LABEL_19;
-    v12 = (_QWORD *)*v9;
-    if ( !*v9 )
-      goto LABEL_8;
-LABEL_17:
-    v9 = v12;
+    v13 = (_QWORD *)v9[1];
+    if ( !v13 )
+    {
+      v11 = 1;
+      goto LABEL_13;
+    }
+LABEL_10:
+    v9 = v13;
   }
-  v12 = (_QWORD *)v9[1];
-  if ( v12 )
-    goto LABEL_17;
-  v10 = 1;
-LABEL_8:
-  Pool = MiAllocatePool(256, DestinationSidLength + 40, 0x73486D4Du);
-  v14 = Pool;
-  if ( Pool )
+  if ( v12 < 0 )
   {
+    v13 = (_QWORD *)*v9;
+    if ( !*v9 )
+      goto LABEL_13;
+    goto LABEL_10;
+  }
+  v10 = 1;
+LABEL_12:
+  if ( !v10 )
+  {
+LABEL_13:
+    Pool = MiAllocatePool(256, DestinationSidLength + 40, 0x73486D4Du);
+    v15 = Pool;
+    if ( !Pool )
+    {
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&MiHotPatchListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(&MiHotPatchListLock);
+      KeAbPostRelease((ULONG_PTR)&MiHotPatchListLock);
+      KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+      v6 = -1073741670;
+      goto LABEL_21;
+    }
     Pool[3] = 0LL;
     Pool[4] = v19;
     RtlCopySid(DestinationSidLength, Pool + 5, a2);
-    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C533A8, (unsigned __int64)v9, v10, v14);
-    v9 = v14;
-LABEL_19:
-    MiInsertHotPatchRecord(v9 + 3, HotPatchRecord, 1);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C533C0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&qword_140C533C0);
-    KeAbPostRelease((ULONG_PTR)&qword_140C533C0);
-    v15 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v15 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery();
-    MiHotPatchAllProcesses(*a3, a3[1]);
-    v6 = 0;
+    RtlAvlInsertNodeEx((unsigned __int64 *)&MiUserSidPatchLists, (unsigned __int64)v9, v11, v15);
+    v9 = v15;
   }
-  else
-  {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C533C0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&qword_140C533C0);
-    KeAbPostRelease((ULONG_PTR)&qword_140C533C0);
-    v15 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v15 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery();
+  MiInsertHotPatchRecord(v9 + 3, HotPatchRecord, 1);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&MiHotPatchListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&MiHotPatchListLock);
+  KeAbPostRelease((ULONG_PTR)&MiHotPatchListLock);
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  HotPatchRecord = 0LL;
+  MiHotPatchAllProcesses(*a3, a3[1]);
+  v6 = 0;
+LABEL_21:
+  if ( HotPatchRecord )
     ExFreePoolWithTag(HotPatchRecord, 0);
-LABEL_3:
-    v6 = -1073741670;
-  }
-LABEL_25:
-  if ( Object )
-    ObfDereferenceObject(Object);
+LABEL_23:
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
   if ( Handle )
     ObCloseHandle(Handle, 0);
   return (unsigned int)v6;

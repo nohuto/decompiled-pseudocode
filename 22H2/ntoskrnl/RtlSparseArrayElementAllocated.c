@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlSparseArrayElementAllocated @ 0x14024FAFC
+ * XREFs of RtlSparseArrayElementAllocated @ 0x140289B6C
  * Callers:
- *     RtlpHpVaMgrCtxFree @ 0x140210A8C (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpVaMgrCtxQuery @ 0x14024FA60 (RtlpHpVaMgrCtxQuery.c)
- *     RtlpHpVaMgrRangeFind @ 0x14036004C (RtlpHpVaMgrRangeFind.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x140289ACC (RtlpHpVaMgrCtxQuery.c)
+ *     RtlpHpVaMgrCtxFree @ 0x1402FBDA0 (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrRangeFind @ 0x1402FD938 (RtlpHpVaMgrRangeFind.c)
  * Callees:
- *     RtlCSparseBitmapFindBitSetCapped @ 0x14024FB60 (RtlCSparseBitmapFindBitSetCapped.c)
+ *     RtlCSparseBitmapFindBitSetCapped @ 0x140289BC8 (RtlCSparseBitmapFindBitSetCapped.c)
  */
 
 __int64 __fastcall RtlSparseArrayElementAllocated(__int64 a1, __int64 a2)

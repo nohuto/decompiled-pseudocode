@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HasSinglePrimitive@CRenderData@@UEBA_NXZ @ 0x1800FB710
+ * XREFs of ?HasSinglePrimitive@CRenderData@@UEBA_NXZ @ 0x1800E2EE0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CRenderData::HasSinglePrimitive(CRenderData *this)
 {
-  return *((_BYTE *)this + 297);
+  return *((_BYTE *)this + 265);
 }

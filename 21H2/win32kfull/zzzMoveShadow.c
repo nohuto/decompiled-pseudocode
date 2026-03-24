@@ -1,11 +1,11 @@
 /*
- * XREFs of zzzMoveShadow @ 0x1C0239998
+ * XREFs of zzzMoveShadow @ 0x1C023E2B0
  * Callers:
- *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0043774 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C006E958 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
  * Callees:
- *     ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C001F3A8 (-FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     zzzUpdateLayeredWindow @ 0x1C008FE60 (zzzUpdateLayeredWindow.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C00BC1E8 (-FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z.c)
+ *     zzzUpdateLayeredWindow @ 0x1C00F1FE4 (zzzUpdateLayeredWindow.c)
  */
 
 struct tagSHADOW *__fastcall zzzMoveShadow(struct tagWND *a1)
@@ -13,23 +13,27 @@ struct tagSHADOW *__fastcall zzzMoveShadow(struct tagWND *a1)
   struct tagSHADOW *result; // rax
   __int64 v2; // rcx
   struct tagSHADOW *v3; // rbx
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int128 v7; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+60h] [rbp-18h]
-  struct tagPOINT v9; // [rsp+88h] [rbp+10h] BYREF
+  __int64 v4; // rdi
+  __int64 ThreadWin32Thread; // rax
+  __int64 v6; // rcx
+  _QWORD v7[5]; // [rsp+50h] [rbp-28h] BYREF
+  struct tagPOINT v8; // [rsp+88h] [rbp+10h] BYREF
 
-  v7 = 0LL;
-  v8 = 0LL;
+  v7[2] = 0LL;
   result = FindShadow(a1);
   v3 = result;
   if ( result )
   {
-    v9 = *(struct tagPOINT *)(*(_QWORD *)(v2 + 40) + 88LL);
-    ThreadLock(*((_QWORD *)result + 1), (__int64 *)&v7);
-    zzzUpdateLayeredWindow(*((struct tagWND **)v3 + 1), 0LL, &v9, 0LL, 0LL, 0LL, 0, 0LL, 0, 0LL);
-    return (struct tagSHADOW *)ThreadUnlock1(v5, v4, v6);
+    v8 = *(struct tagPOINT *)(*(_QWORD *)(v2 + 40) + 88LL);
+    v4 = *((_QWORD *)result + 1);
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    v7[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+    *(_QWORD *)(ThreadWin32Thread + 416) = v7;
+    v7[1] = v4;
+    if ( v4 )
+      HMLockObject(v4);
+    zzzUpdateLayeredWindow(*((struct tagWND **)v3 + 1), 0LL, &v8, 0LL, 0LL, 0LL, 0, 0LL, 0, 0LL);
+    return (struct tagSHADOW *)ThreadUnlock1(v6);
   }
   return result;
 }

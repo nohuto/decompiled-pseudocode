@@ -1,13 +1,13 @@
 /*
- * XREFs of PopIdleAoAcDozeToS4 @ 0x140877630
+ * XREFs of PopIdleAoAcDozeToS4 @ 0x140877610
  * Callers:
  *     <none>
  * Callees:
  *     PopDeepSleepClearDisengageReason @ 0x140004E80 (PopDeepSleepClearDisengageReason.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopExecutePowerAction @ 0x1406DE110 (PopExecutePowerAction.c)
- *     PopTraceSystemIdleS0LowPowerDoze @ 0x140875560 (PopTraceSystemIdleS0LowPowerDoze.c)
+ *     PopExecutePowerAction @ 0x1406DE0F0 (PopExecutePowerAction.c)
+ *     PopTraceSystemIdleS0LowPowerDoze @ 0x140875540 (PopTraceSystemIdleS0LowPowerDoze.c)
  */
 
 __int64 PopIdleAoAcDozeToS4()
@@ -18,18 +18,18 @@ __int64 PopIdleAoAcDozeToS4()
 
   PopAcquirePolicyLock();
   PopTraceSystemIdleS0LowPowerDoze();
-  dword_140417650 = 0;
+  dword_140417670 = 0;
   memset(v3, 0, 24);
-  if ( dword_140417668 == 1 )
+  if ( dword_140417688 == 1 )
     goto LABEL_10;
-  if ( dword_140417668 != 2 )
+  if ( dword_140417688 != 2 )
   {
-    if ( dword_140417668 == 3 )
+    if ( dword_140417688 == 3 )
     {
       LODWORD(v3[0]) = 13;
       goto LABEL_11;
     }
-    if ( dword_140417668 == 4 )
+    if ( dword_140417688 == 4 )
     {
       LODWORD(v3[0]) = 14;
       goto LABEL_11;
@@ -51,6 +51,6 @@ LABEL_11:
   v1 = 0x8000002400000003uLL;
   PopExecutePowerAction((__int64)v3, 0, &v1, 5, 1u);
   PopReleasePolicyLock();
-  _InterlockedAnd(&dword_14041766C, 0);
+  _InterlockedAnd(&dword_14041768C, 0);
   return PopDeepSleepClearDisengageReason(4u);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?bValid@CHMRefHwndByHandle@@QEBA_NXZ @ 0x1C008EBE0
+ * XREFs of ?bValid@CHMRefHwndByHandle@@QEBA_NXZ @ 0x1C007F700
  * Callers:
  *     <none>
  * Callees:

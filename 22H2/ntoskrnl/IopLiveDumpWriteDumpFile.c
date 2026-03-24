@@ -1,249 +1,166 @@
 /*
- * XREFs of IopLiveDumpWriteDumpFile @ 0x14094F534
+ * XREFs of IopLiveDumpWriteDumpFile @ 0x140898BD0
  * Callers:
- *     IoCaptureLiveDump @ 0x14094BA98 (IoCaptureLiveDump.c)
- *     IoWriteDeferredLiveDumpData @ 0x14094C374 (IoWriteDeferredLiveDumpData.c)
+ *     IoCaptureLiveDump @ 0x1408962E8 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x140896A70 (IoWriteDeferredLiveDumpData.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MmFreePagesFromMdl @ 0x1402EBFB0 (MmFreePagesFromMdl.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     SecureDump_Get_SecureDumpHeader @ 0x14055E080 (SecureDump_Get_SecureDumpHeader.c)
- *     RtlNumberOfSetBitsEx @ 0x1405A8C00 (RtlNumberOfSetBitsEx.c)
- *     MmFreeIndependentPages @ 0x140880080 (MmFreeIndependentPages.c)
- *     IopLiveDumpCheckTermination @ 0x14094DF94 (IopLiveDumpCheckTermination.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x14094E0D8 (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpFreeIoSpaceRanges @ 0x14094E314 (IopLiveDumpFreeIoSpaceRanges.c)
- *     IopLiveDumpWriteBuffer @ 0x14094F470 (IopLiveDumpWriteBuffer.c)
- *     IopLiveDumpWriteSecondaryData @ 0x140950268 (IopLiveDumpWriteSecondaryData.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MmFreePagesFromMdl @ 0x1403294B0 (MmFreePagesFromMdl.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     SecureDump_Get_SecureDumpHeader @ 0x14050A7D0 (SecureDump_Get_SecureDumpHeader.c)
+ *     RtlNumberOfSetBitsEx @ 0x140587DF0 (RtlNumberOfSetBitsEx.c)
+ *     MmFreeIndependentPages @ 0x140763BF0 (MmFreeIndependentPages.c)
+ *     IopLiveDumpCheckTermination @ 0x140897FAC (IopLiveDumpCheckTermination.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x140898070 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpWriteBuffer @ 0x140898B0C (IopLiveDumpWriteBuffer.c)
+ *     IopLiveDumpWriteSecondaryData @ 0x140899798 (IopLiveDumpWriteSecondaryData.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopLiveDumpWriteDumpFile(__int64 a1)
 {
-  __int64 v1; // r14
-  void *v2; // r13
-  void *v4; // r12
-  LARGE_INTEGER v5; // rax
-  unsigned __int64 v6; // rsi
+  __int64 v1; // rsi
+  __int64 v2; // r14
+  void *v3; // r13
+  void *v5; // r12
+  LARGE_INTEGER v6; // rax
+  unsigned __int64 v7; // r15
   struct _KTHREAD *CurrentThread; // rax
   int SecureDumpHeader; // edi
-  ULONG v9; // r8d
-  struct _MDL *v10; // rcx
-  __int64 v11; // rax
-  struct _MDL *v12; // rdi
-  __int64 v13; // rcx
-  unsigned __int64 v14; // rdx
-  struct _MDL *Next; // r15
-  unsigned int v16; // edx
-  unsigned __int64 j; // rcx
-  struct _MDL *v18; // rdi
-  __int64 v19; // rcx
-  unsigned __int64 v20; // rdx
-  struct _MDL *v21; // r15
-  unsigned int v22; // edx
-  unsigned __int64 k; // rcx
-  __int64 v24; // rax
-  int v25; // ecx
-  __int64 v26; // rsi
-  __int128 v27; // xmm0
-  int v28; // ecx
-  __int128 v29; // xmm0
-  int v30; // ecx
-  LARGE_INTEGER v31; // rdx
-  _DWORD *v32; // rax
-  ULONG v33; // r8d
+  ULONG v10; // r8d
+  struct _MDL *v11; // rcx
+  __int64 v12; // rax
+  int v13; // ecx
+  __int64 v14; // r15
+  __int128 v15; // xmm0
+  int v16; // ecx
+  __int128 v17; // xmm0
+  __int64 v18; // rax
+  LARGE_INTEGER v19; // rcx
+  SIZE_T v20; // rdx
+  _DWORD *PoolWithTag; // rax
+  ULONG v22; // r8d
   LARGE_INTEGER ByteOffset; // [rsp+38h] [rbp-39h] BYREF
-  struct _KTHREAD *i; // [rsp+40h] [rbp-31h]
-  __int64 v37; // [rsp+48h] [rbp-29h]
-  __int128 v38; // [rsp+50h] [rbp-21h] BYREF
-  __int128 v39; // [rsp+60h] [rbp-11h]
-  __int64 v40; // [rsp+70h] [rbp-1h]
-  __int128 v41; // [rsp+78h] [rbp+7h] BYREF
-  __int128 v42; // [rsp+88h] [rbp+17h]
-  __int64 v43; // [rsp+98h] [rbp+27h]
+  struct _KTHREAD *v25; // [rsp+40h] [rbp-31h]
+  __int64 v26; // [rsp+48h] [rbp-29h]
+  __int128 v27; // [rsp+50h] [rbp-21h] BYREF
+  __int128 v28; // [rsp+60h] [rbp-11h]
+  __int64 v29; // [rsp+70h] [rbp-1h]
+  __int128 v30; // [rsp+78h] [rbp+7h] BYREF
+  __int128 v31; // [rsp+88h] [rbp+17h]
+  __int64 v32; // [rsp+98h] [rbp+27h]
 
   v1 = *(_QWORD *)(a1 + 560);
-  v2 = *(void **)(a1 + 64);
-  v37 = 0LL;
-  v4 = 0LL;
-  v40 = 0LL;
-  v38 = 0LL;
-  v43 = 0LL;
-  v39 = 0LL;
-  v41 = 0LL;
-  v42 = 0LL;
-  if ( *(_BYTE *)(a1 + 984) )
-    v5.QuadPart = *(_QWORD *)(v1 + 8224) + *(unsigned int *)(a1 + 992);
+  v2 = a1 + 680;
+  v3 = *(void **)(a1 + 64);
+  v26 = 0LL;
+  v5 = 0LL;
+  v27 = 0LL;
+  v29 = 0LL;
+  v28 = 0LL;
+  v32 = 0LL;
+  v30 = 0LL;
+  v31 = 0LL;
+  if ( *(_BYTE *)(a1 + 880) )
+    v6.QuadPart = *(_QWORD *)(v1 + 8224) + *(unsigned int *)(a1 + 888);
   else
-    v5 = *(LARGE_INTEGER *)(v1 + 8224);
-  ByteOffset = v5;
-  v6 = 0LL;
+    v6 = *(LARGE_INTEGER *)(v1 + 8224);
+  ByteOffset = v6;
+  v7 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  for ( i = CurrentThread; v6 < *(_QWORD *)(a1 + 736); ++v6 )
+  v25 = CurrentThread;
+  if ( !*(_QWORD *)(a1 + 736) )
+  {
+LABEL_14:
+    v12 = RtlNumberOfSetBitsEx((_QWORD *)(a1 + 544));
+    v13 = *(_DWORD *)(a1 + 984);
+    v14 = v12;
+    if ( v13 )
+    {
+      v15 = *(_OWORD *)(a1 + 960);
+      *(_QWORD *)&v28 = *(_QWORD *)(a1 + 976);
+      v29 = *(_QWORD *)(a1 + 56);
+      *(_QWORD *)(a1 + 56) = &v27;
+      v27 = v15;
+      DWORD2(v28) = v13;
+    }
+    v16 = *(_DWORD *)(a1 + 936);
+    if ( v16 )
+    {
+      v17 = *(_OWORD *)(a1 + 912);
+      *(_QWORD *)&v31 = *(_QWORD *)(a1 + 928);
+      v32 = *(_QWORD *)(a1 + 56);
+      *(_QWORD *)(a1 + 56) = &v30;
+      v30 = v17;
+      DWORD2(v31) = v16;
+    }
+    SecureDumpHeader = IopLiveDumpWriteSecondaryData(v3, a1);
+    if ( SecureDumpHeader < 0 )
+      goto LABEL_29;
+    v18 = *(unsigned int *)(a1 + 888);
+    v19 = ByteOffset;
+    *(_DWORD *)(v1 + 4176) |= 0x10u;
+    *(_QWORD *)(v1 + 4000) = v19.QuadPart - v18;
+    *(_QWORD *)(v1 + 8232) = v14;
+    *(_DWORD *)(v1 + 0x2000) = 1347241043;
+    *(_DWORD *)(v1 + 8196) = 1347245380;
+    if ( *(_BYTE *)(a1 + 880) )
+    {
+      v20 = *(unsigned int *)(a1 + 888);
+      ByteOffset.QuadPart = v20;
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v20, 0x706D644Cu);
+      v5 = PoolWithTag;
+      if ( !PoolWithTag )
+      {
+        SecureDumpHeader = -1073741670;
+        goto LABEL_29;
+      }
+      SecureDumpHeader = SecureDump_Get_SecureDumpHeader(v1, PoolWithTag, *(_DWORD *)(a1 + 888));
+      if ( SecureDumpHeader < 0 )
+        goto LABEL_27;
+    }
+    else
+    {
+      ByteOffset.QuadPart = 0LL;
+    }
+    SecureDumpHeader = IopLiveDumpWriteBuffer(v3, (PVOID)v1, *(_DWORD *)(v1 + 8224), &ByteOffset, a1, 0);
+    if ( *(_BYTE *)(a1 + 880) )
+    {
+      v22 = *(_DWORD *)(a1 + 888);
+      ByteOffset.QuadPart = 0LL;
+      SecureDumpHeader = IopLiveDumpWriteBuffer(v3, v5, v22, &ByteOffset, a1, 1);
+    }
+LABEL_27:
+    if ( v5 )
+      ExFreePoolWithTag(v5, 0);
+    goto LABEL_29;
+  }
+  while ( 1 )
   {
     SecureDumpHeader = IopLiveDumpCheckTermination(a1, (__int64)CurrentThread);
     if ( SecureDumpHeader < 0 )
-      goto LABEL_54;
-    v9 = v6 >= *(_QWORD *)(a1 + 736) - 1LL ? *(_DWORD *)(a1 + 720) << 12 : BufferChunkSizeInBytes;
-    SecureDumpHeader = IopLiveDumpWriteBuffer(v2, *(PVOID *)(*(_QWORD *)(a1 + 752) + 8 * v6), v9, &ByteOffset, a1, 0);
+      break;
+    v10 = v7 >= *(_QWORD *)(v2 + 56) - 1LL ? *(_DWORD *)(v2 + 40) << 12 : BufferChunkSizeInBytes;
+    SecureDumpHeader = IopLiveDumpWriteBuffer(v3, *(PVOID *)(*(_QWORD *)(v2 + 72) + 8 * v7), v10, &ByteOffset, a1, 0);
     if ( SecureDumpHeader < 0 )
-      goto LABEL_54;
-    v10 = *(struct _MDL **)(*(_QWORD *)(a1 + 760) + 8 * v6);
-    if ( v10 )
+      break;
+    v11 = *(struct _MDL **)(*(_QWORD *)(v2 + 80) + 8 * v7);
+    if ( v11 )
     {
-      MmFreePagesFromMdl(v10);
-      ExFreePoolWithTag(*(PVOID *)(*(_QWORD *)(a1 + 760) + 8 * v6), 0x706D644Cu);
-      *(_QWORD *)(*(_QWORD *)(a1 + 752) + 8 * v6) = 0LL;
-      v11 = *(_QWORD *)(a1 + 760);
+      MmFreePagesFromMdl(v11);
+      ExFreePoolWithTag(*(PVOID *)(*(_QWORD *)(v2 + 80) + 8 * v7), 0);
+      *(_QWORD *)(*(_QWORD *)(v2 + 80) + 8 * v7) = 0LL;
     }
     else
     {
-      v12 = *(struct _MDL **)(a1 + 816);
-      if ( v12 )
-      {
-        v13 = *(_QWORD *)(a1 + 808);
-        if ( v13 )
-        {
-          v14 = *(_QWORD *)(a1 + 800);
-          if ( v6 >= v14 )
-          {
-            if ( v6 - v14 + 1 == v13 )
-            {
-              do
-              {
-                Next = v12->Next;
-                if ( (v12->MdlFlags & 1) != 0 )
-                  MmUnmapLockedPages(v12->MappedSystemVa, v12);
-                ExFreePoolWithTag(v12, 0x706D644Cu);
-                v12 = Next;
-              }
-              while ( Next );
-              v16 = *(_DWORD *)(a1 + 832);
-              *(_QWORD *)(a1 + 816) = 0LL;
-              IopLiveDumpFreeIoSpaceRanges((PVOID *)(a1 + 824), v16);
-              for ( j = *(_QWORD *)(a1 + 800); j < v6; *(_QWORD *)(a1 + 800) = j )
-              {
-                *(_QWORD *)(*(_QWORD *)(a1 + 752) + 8 * j) = 0LL;
-                j = *(_QWORD *)(a1 + 800) + 1LL;
-              }
-              *(_QWORD *)(a1 + 808) = 0LL;
-            }
-            goto LABEL_36;
-          }
-        }
-      }
-      v18 = *(struct _MDL **)(a1 + 856);
-      if ( v18 )
-      {
-        v19 = *(_QWORD *)(a1 + 848);
-        if ( v19 )
-        {
-          v20 = *(_QWORD *)(a1 + 840);
-          if ( v6 >= v20 )
-          {
-            if ( v6 - v20 + 1 == v19 )
-            {
-              do
-              {
-                v21 = v18->Next;
-                if ( (v18->MdlFlags & 1) != 0 )
-                  MmUnmapLockedPages(v18->MappedSystemVa, v18);
-                ExFreePoolWithTag(v18, 0x706D644Cu);
-                v18 = v21;
-              }
-              while ( v21 );
-              v22 = *(_DWORD *)(a1 + 872);
-              *(_QWORD *)(a1 + 856) = 0LL;
-              IopLiveDumpFreeIoSpaceRanges((PVOID *)(a1 + 864), v22);
-              for ( k = *(_QWORD *)(a1 + 840); k < v6; *(_QWORD *)(a1 + 840) = k )
-              {
-                *(_QWORD *)(*(_QWORD *)(a1 + 752) + 8 * k) = 0LL;
-                k = *(_QWORD *)(a1 + 840) + 1LL;
-              }
-              *(_QWORD *)(a1 + 848) = 0LL;
-            }
-            goto LABEL_36;
-          }
-        }
-      }
-      MmFreeIndependentPages(*(_QWORD *)(*(_QWORD *)(a1 + 752) + 8 * v6), (unsigned int)BufferChunkSizeInBytes);
-      v11 = *(_QWORD *)(a1 + 752);
+      MmFreeIndependentPages(*(_QWORD *)(*(_QWORD *)(v2 + 72) + 8 * v7), (unsigned int)BufferChunkSizeInBytes);
     }
-    *(_QWORD *)(v11 + 8 * v6) = 0LL;
-LABEL_36:
-    CurrentThread = i;
+    *(_QWORD *)(*(_QWORD *)(v2 + 72) + 8 * v7++) = 0LL;
+    CurrentThread = v25;
+    if ( v7 >= *(_QWORD *)(v2 + 56) )
+      goto LABEL_14;
   }
-  v24 = RtlNumberOfSetBitsEx((_QWORD *)(a1 + 544));
-  v25 = *(_DWORD *)(a1 + 1088);
-  v26 = v24;
-  if ( v25 )
-  {
-    v27 = *(_OWORD *)(a1 + 1064);
-    *(_QWORD *)&v39 = *(_QWORD *)(a1 + 1080);
-    v40 = *(_QWORD *)(a1 + 56);
-    *(_QWORD *)(a1 + 56) = &v38;
-    v38 = v27;
-    DWORD2(v39) = v25;
-  }
-  v28 = *(_DWORD *)(a1 + 1040);
-  if ( v28 )
-  {
-    v29 = *(_OWORD *)(a1 + 1016);
-    *(_QWORD *)&v42 = *(_QWORD *)(a1 + 1032);
-    v43 = *(_QWORD *)(a1 + 56);
-    *(_QWORD *)(a1 + 56) = &v41;
-    v41 = v29;
-    DWORD2(v42) = v28;
-  }
-  SecureDumpHeader = IopLiveDumpWriteSecondaryData(v2, a1);
-  if ( SecureDumpHeader >= 0 )
-  {
-    *(_QWORD *)(v1 + 4000) = ByteOffset.QuadPart - *(unsigned int *)(a1 + 992);
-    v30 = *(_DWORD *)(v1 + 4176) | 0x10;
-    *(_DWORD *)(v1 + 4176) = v30;
-    if ( (*(_DWORD *)(a1 + 40) & 0x20) != 0 )
-      *(_DWORD *)(v1 + 4176) = v30 | 0x4000;
-    *(_DWORD *)(v1 + 0x2000) = 1347241043;
-    *(_DWORD *)(v1 + 8196) = 1347245380;
-    *(_QWORD *)(v1 + 8232) = v26;
-    if ( *(_BYTE *)(a1 + 984) )
-    {
-      v31.QuadPart = *(unsigned int *)(a1 + 992);
-      ByteOffset = v31;
-      v32 = (_DWORD *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))ExAllocatePool2)(
-                        64LL,
-                        (LARGE_INTEGER)v31.QuadPart,
-                        1886217292LL);
-      v4 = v32;
-      if ( !v32 )
-      {
-        SecureDumpHeader = -1073741670;
-        goto LABEL_54;
-      }
-      SecureDumpHeader = SecureDump_Get_SecureDumpHeader(v1, v32, *(_DWORD *)(a1 + 992));
-      if ( SecureDumpHeader < 0 )
-      {
-LABEL_53:
-        ExFreePoolWithTag(v4, 0);
-        goto LABEL_54;
-      }
-    }
-    else
-    {
-      ByteOffset.QuadPart = 0LL;
-    }
-    SecureDumpHeader = IopLiveDumpWriteBuffer(v2, (PVOID)v1, *(_DWORD *)(v1 + 8224), &ByteOffset, a1, 0);
-    if ( *(_BYTE *)(a1 + 984) )
-    {
-      v33 = *(_DWORD *)(a1 + 992);
-      ByteOffset.QuadPart = 0LL;
-      SecureDumpHeader = IopLiveDumpWriteBuffer(v2, v4, v33, &ByteOffset, a1, 1);
-    }
-    if ( v4 )
-      goto LABEL_53;
-  }
-LABEL_54:
-  IopLiveDumpFreeDumpBuffers(a1);
+LABEL_29:
+  IopLiveDumpFreeDumpBuffers(v2);
   return (unsigned int)SecureDumpHeader;
 }

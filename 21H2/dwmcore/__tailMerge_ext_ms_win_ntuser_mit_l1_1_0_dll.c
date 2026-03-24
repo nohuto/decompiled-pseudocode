@@ -1,9 +1,9 @@
 /*
- * XREFs of __tailMerge_ext_ms_win_ntuser_mit_l1_1_0_dll @ 0x1801027A0
+ * XREFs of __tailMerge_ext_ms_win_ntuser_mit_l1_1_0_dll @ 0x1800E929E
  * Callers:
- *     __imp_load_MITGetCursorUpdateHandle @ 0x180102794 (__imp_load_MITGetCursorUpdateHandle.c)
+ *     __imp_load_MITGetCursorUpdateHandle @ 0x1800E9292 (__imp_load_MITGetCursorUpdateHandle.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x1800F39B0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE920 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_ext_ms_win_ntuser_mit_l1_1_0_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

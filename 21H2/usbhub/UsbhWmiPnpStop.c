@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhWmiPnpStop @ 0x1C0049D00
+ * XREFs of UsbhWmiPnpStop @ 0x1C004B0D0
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 int __fastcall UsbhWmiPnpStop(PDEVICE_OBJECT DeviceObject)

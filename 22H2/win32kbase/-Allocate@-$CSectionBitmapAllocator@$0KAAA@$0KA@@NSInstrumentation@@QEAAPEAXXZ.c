@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Allocate@?$CSectionBitmapAllocator@$0KAAA@$0KA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C009DF28
+ * XREFs of ?Allocate@?$CSectionBitmapAllocator@$0KAAA@$0KA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C00938C4
  * Callers:
- *     ?Allocate@?$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C009DE94 (-Allocate@-$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ *     ?Allocate@?$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C01136C8 (-Allocate@-$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ.c)
  * Callees:
- *     ?CommitSlot@?$CSectionBitmapAllocator@$0KAAA@$0KA@@NSInstrumentation@@AEAA_NI@Z @ 0x1C009E048 (-CommitSlot@-$CSectionBitmapAllocator@$0KAAA@$0KA@@NSInstrumentation@@AEAA_NI@Z.c)
+ *     ?CommitSlot@?$CSectionBitmapAllocator@$0KAAA@$0KA@@NSInstrumentation@@AEAA_NI@Z @ 0x1C00939E4 (-CommitSlot@-$CSectionBitmapAllocator@$0KAAA@$0KA@@NSInstrumentation@@AEAA_NI@Z.c)
  */
 
 __int64 __fastcall NSInstrumentation::CSectionBitmapAllocator<40960,160>::Allocate(__int64 *a1)
@@ -12,7 +12,6 @@ __int64 __fastcall NSInstrumentation::CSectionBitmapAllocator<40960,160>::Alloca
   ULONG ClearBits; // eax
   __int64 v4; // rsi
   ULONG v5; // r14d
-  __int64 v6; // rcx
 
   v1 = *a1;
   KeEnterCriticalRegion();
@@ -23,12 +22,11 @@ __int64 __fastcall NSInstrumentation::CSectionBitmapAllocator<40960,160>::Alloca
   if ( ClearBits != -1
     && (unsigned __int8)NSInstrumentation::CSectionBitmapAllocator<40960,160>::CommitSlot(a1, ClearBits) )
   {
-    RtlTestBit((PRTL_BITMAP)(a1[3] ^ a1[2]), v5);
-    RtlSetBit((PRTL_BITMAP)(a1[3] ^ a1[2]), v5);
-    ++*((_DWORD *)a1 + 8);
-    v6 = a1[2] ^ a1[1];
-    *((_DWORD *)a1 + 8) &= -(*((_DWORD *)a1 + 8) < 0xFAu);
-    v4 = ((v5 / 0x19) << 12) + v6 + 160 * (v5 % 0x19);
+    RtlTestBit((PRTL_BITMAP)(a1[2] ^ a1[3]), v5);
+    RtlSetBit((PRTL_BITMAP)(a1[2] ^ a1[3]), v5);
+    if ( ++*((_DWORD *)a1 + 8) >= 0xFAu )
+      *((_DWORD *)a1 + 8) = 0;
+    v4 = ((v5 / 0x19) << 12) + (a1[2] ^ a1[1]) + 160 * (v5 % 0x19);
   }
   ExReleasePushLockExclusiveEx(v1, 0LL);
   KeLeaveCriticalRegion();

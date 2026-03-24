@@ -1,22 +1,22 @@
 /*
- * XREFs of ?DxgkQueryClockCalibrationInternal@@YAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYCLOCKCALIBRATION@@PEAVDXGADAPTER@@@Z @ 0x1C02CF06C
+ * XREFs of ?DxgkQueryClockCalibrationInternal@@YAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYCLOCKCALIBRATION@@PEAVDXGADAPTER@@@Z @ 0x1C00D6A20
  * Callers:
- *     DxgkQueryClockCalibration @ 0x1C02D34B0 (DxgkQueryClockCalibration.c)
- *     ?VmBusQueryClockCalibration@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0372DF0 (-VmBusQueryClockCalibration@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusQueryClockCalibrationCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00DAA70 (-VmBusQueryClockCalibrationCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusQueryClockCalibration@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C02453B0 (-VmBusQueryClockCalibration@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C000BD00 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?DdiCalibrateGpuClock@ADAPTER_RENDER@@QEAAJIIPEAU_DXGK_GPUCLOCKDATA@@@Z @ 0x1C0046E64 (-DdiCalibrateGpuClock@ADAPTER_RENDER@@QEAAJIIPEAU_DXGK_GPUCLOCKDATA@@@Z.c)
- *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C01798C0 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
- *     ?VmBusSendQueryClockCalibration@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYCLOCKCALIBRATION@@@Z @ 0x1C037B71C (-VmBusSendQueryClockCalibration@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUE.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004130 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?DdiCalibrateGpuClock@ADAPTER_RENDER@@QEAAJIIPEAU_DXGK_GPUCLOCKDATA@@@Z @ 0x1C003C1F8 (-DdiCalibrateGpuClock@ADAPTER_RENDER@@QEAAJIIPEAU_DXGK_GPUCLOCKDATA@@@Z.c)
+ *     ?IsClockCalibrationSupportedv2@ADAPTER_RENDER@@QEBAEXZ @ 0x1C003EF58 (-IsClockCalibrationSupportedv2@ADAPTER_RENDER@@QEBAEXZ.c)
+ *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C00F7CD0 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
+ *     ?VmBusSendQueryClockCalibration@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYCLOCKCALIBRATION@@@Z @ 0x1C024ABE4 (-VmBusSendQueryClockCalibration@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUE.c)
  */
 
 __int64 __fastcall DxgkQueryClockCalibrationInternal(
@@ -24,136 +24,146 @@ __int64 __fastcall DxgkQueryClockCalibrationInternal(
         struct _D3DKMT_QUERYCLOCKCALIBRATION *a2,
         struct DXGADAPTER *a3)
 {
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  __int64 v9; // rdx
   int PairingAdapters; // ebx
-  struct DXGADAPTER *v7; // rdi
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // rax
+  struct DXGADAPTER *v15; // rsi
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  _QWORD *v19; // rax
   __int64 PhysicalAdapterIndex; // rax
-  __int64 NodeOrdinal; // rdx
+  __int64 v21; // rax
+  __int64 NodeOrdinal; // rcx
+  __int64 v23; // rcx
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
   int ClockCalibration; // eax
-  ADAPTER_RENDER *v11; // rcx
-  __int64 v12; // rax
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  struct DXGADAPTER *v16; // [rsp+50h] [rbp-B0h] BYREF
-  int v17; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v18; // [rsp+60h] [rbp-A0h]
-  char v19; // [rsp+68h] [rbp-98h]
-  unsigned __int64 v20; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v21[144]; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v28; // rdx
+  ADAPTER_RENDER *v29; // rcx
+  struct _DXGK_GPUCLOCKDATA *v30; // r9
+  __int64 v31; // rax
+  __int64 v32; // rcx
+  __int64 v33; // r8
+  struct DXGADAPTER *v35; // [rsp+40h] [rbp-C0h] BYREF
+  int v36; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v37; // [rsp+50h] [rbp-B0h]
+  char v38; // [rsp+58h] [rbp-A8h]
+  unsigned __int64 v39; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE v40[144]; // [rsp+70h] [rbp-90h] BYREF
 
-  v17 = -1;
-  v18 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v36 = -1;
+  v37 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v19 = 1;
-    v17 = 2125;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v38 = 1;
+    v36 = 2125;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)a1, &EventProfilerEnter, (__int64)a3, 2125);
   }
   else
   {
-    v19 = 0;
+    v38 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v17, 2125);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v36, 2125LL);
   if ( a3 )
   {
-    v16 = 0LL;
-    PairingAdapters = DxgkpGetPairingAdapters(a3, 0, &v16, &v20, 0LL, 0LL, 0);
+    v35 = 0LL;
+    PairingAdapters = DxgkpGetPairingAdapters(a3, 0, &v35, &v39, 0LL, 0LL, 0);
     if ( PairingAdapters < 0 )
     {
-      WdLogSingleEntry1(3LL, a3);
-      goto LABEL_28;
+      v14 = WdLogNewEntry5_WdWarning(v12, v11, v13);
+      *(_QWORD *)(v14 + 24) = a3;
+      WdLogEvent5_WdWarning(v14);
+      goto LABEL_29;
     }
-    v7 = v16;
-    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v21, v16, 0LL);
-    PairingAdapters = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v21, 0LL);
-    DXGADAPTER::ReleaseReference(v7);
+    v15 = v35;
+    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v40, v35, 0LL);
+    PairingAdapters = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v40, 0LL);
+    DXGADAPTER::ReleaseReference(v15);
     if ( PairingAdapters < 0 )
     {
-      WdLogSingleEntry1(3LL, v7);
-LABEL_27:
-      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v21);
+      v19 = (_QWORD *)WdLogNewEntry5_WdWarning(v17, v16, v18);
+      v19[3] = v15;
+LABEL_25:
+      WdLogEvent5_WdWarning(v19);
       goto LABEL_28;
     }
     PhysicalAdapterIndex = a2->PhysicalAdapterIndex;
-    if ( (unsigned int)PhysicalAdapterIndex >= *((_DWORD *)v7 + 72) )
+    if ( (unsigned int)PhysicalAdapterIndex >= *((_DWORD *)v15 + 70) )
     {
-      NodeOrdinal = (unsigned int)PhysicalAdapterIndex;
-LABEL_14:
-      WdLogSingleEntry1(3LL, NodeOrdinal);
+      v21 = WdLogNewEntry5_WdWarning(v17, v16, v18);
+      NodeOrdinal = a2->PhysicalAdapterIndex;
+LABEL_15:
+      *(_QWORD *)(v21 + 24) = NodeOrdinal;
+      WdLogEvent5_WdWarning(v21);
       PairingAdapters = -1073741811;
-      goto LABEL_27;
+LABEL_28:
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v40, v24);
+      goto LABEL_29;
     }
-    NodeOrdinal = a2->NodeOrdinal;
-    if ( (unsigned int)NodeOrdinal >= *(unsigned __int16 *)(344 * PhysicalAdapterIndex + *((_QWORD *)v7 + 335)) )
-      goto LABEL_14;
+    v23 = *(unsigned __int16 *)(360 * PhysicalAdapterIndex + *((_QWORD *)v15 + 323));
+    if ( a2->NodeOrdinal >= (unsigned int)v23 )
+    {
+      v21 = WdLogNewEntry5_WdWarning(v23, v16, v18);
+      NodeOrdinal = a2->NodeOrdinal;
+      goto LABEL_15;
+    }
     *(_OWORD *)&a2->ClockData.GpuFrequency = 0LL;
     a2->ClockData.CpuClockCounter = 0LL;
     a2->ClockData.Flags.Value = 0;
-    if ( *((_BYTE *)v7 + 209) )
+    if ( *((_BYTE *)v15 + 209) )
     {
-      if ( *((_DWORD *)DXGGLOBAL_GetGlobal() + 450) < 0x15u )
+      if ( *((_DWORD *)DXGGLOBAL::GetGlobal(v23, v16) + 408) < 0x15u )
       {
         PairingAdapters = -1073741822;
-        goto LABEL_23;
+LABEL_23:
+        if ( PairingAdapters >= 0 )
+        {
+          PairingAdapters = 0;
+          goto LABEL_28;
+        }
+        v19 = (_QWORD *)WdLogNewEntry5_WdWarning(v25, v24, v26);
+        v19[3] = PairingAdapters;
+        v19[4] = a2->NodeOrdinal;
+        v19[5] = a2->PhysicalAdapterIndex;
+        goto LABEL_25;
       }
       ClockCalibration = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendQueryClockCalibration(
-                           (struct DXGADAPTER *)((char *)v7 + 4344),
+                           (struct DXGADAPTER *)((char *)v15 + 4240),
                            a1,
                            a2);
     }
     else
     {
-      v11 = (ADAPTER_RENDER *)*((_QWORD *)v7 + 350);
-      v12 = *((_QWORD *)v11 + 2);
-      if ( !*(_QWORD *)(v12 + 904) || *(int *)(v12 + 2424) < 0x2000 )
+      if ( !ADAPTER_RENDER::IsClockCalibrationSupportedv2(*((ADAPTER_RENDER **)v15 + 338)) )
       {
-        WdLogSingleEntry1(2LL, 9696LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Clock calibration cannot be queried if the driver does nto support it.",
-          9696LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v31 = WdLogNewEntry5_WdError(v29, v28);
+        *(_QWORD *)(v31 + 24) = 9566LL;
+        WdLogEvent5_WdError(v31);
         PairingAdapters = -1073741823;
-        goto LABEL_27;
+        goto LABEL_28;
       }
-      ClockCalibration = ADAPTER_RENDER::DdiCalibrateGpuClock(
-                           v11,
-                           a2->NodeOrdinal,
-                           a2->PhysicalAdapterIndex,
-                           &a2->ClockData);
+      ClockCalibration = ADAPTER_RENDER::DdiCalibrateGpuClock(v29, a2->NodeOrdinal, a2->PhysicalAdapterIndex, v30);
     }
     PairingAdapters = ClockCalibration;
-LABEL_23:
-    if ( PairingAdapters >= 0 )
-      PairingAdapters = 0;
-    else
-      WdLogSingleEntry3(3LL, PairingAdapters, a2->NodeOrdinal, a2->PhysicalAdapterIndex);
-    goto LABEL_27;
+    goto LABEL_23;
   }
-  WdLogSingleEntry2(2LL, a1, a2->hAdapter);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Invalid adapter, pDxgProcess=0x%I64x, hAdapter=0x%8x",
-    (__int64)a1,
-    a2->hAdapter,
-    0LL,
-    0LL,
-    0LL);
+  v8 = WdLogNewEntry5_WdError(v7, v6);
+  *(_QWORD *)(v8 + 24) = a1;
+  *(_QWORD *)(v8 + 32) = a2->hAdapter;
+  WdLogEvent5_WdError(v8);
   PairingAdapters = -1073741811;
-LABEL_28:
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v17);
-  if ( v19 )
-  {
-    LOBYTE(v13) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v13, &EventProfilerExit, v14, v17);
-  }
+LABEL_29:
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v36, v9);
+  if ( v38 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v32, &EventProfilerExit, v33, v36);
   return (unsigned int)PairingAdapters;
 }

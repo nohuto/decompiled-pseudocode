@@ -1,12 +1,12 @@
 /*
- * XREFs of ResetAccelerationCurves @ 0x1C00A0780
+ * XREFs of ResetAccelerationCurves @ 0x1C006EC40
  * Callers:
- *     _SetPrecisionTouchPadConfiguration @ 0x1C0148CEC (_SetPrecisionTouchPadConfiguration.c)
+ *     <none>
  * Callees:
- *     ?ResetAccelerationCurves@CDeviceAcceleration@@QEAAXXZ @ 0x1C00A07A8 (-ResetAccelerationCurves@CDeviceAcceleration@@QEAAXXZ.c)
+ *     ?ResetAccelerationCurves@CDeviceAcceleration@@QEAAXXZ @ 0x1C006EC68 (-ResetAccelerationCurves@CDeviceAcceleration@@QEAAXXZ.c)
  */
 
 void __fastcall ResetAccelerationCurves(int a1)
 {
-  CDeviceAcceleration::ResetAccelerationCurves(*(&qword_1C0288098 + 3 * a1));
+  CDeviceAcceleration::ResetAccelerationCurves(*(&qword_1C0246098 + 3 * a1));
 }

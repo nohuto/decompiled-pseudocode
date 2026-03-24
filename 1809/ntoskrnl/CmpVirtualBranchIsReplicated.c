@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpVirtualBranchIsReplicated @ 0x1407F3DDC
+ * XREFs of CmpVirtualBranchIsReplicated @ 0x1407F3DBC
  * Callers:
- *     CmpVEExecuteRealStoreParseLogic @ 0x1407F3A08 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x1407F3BD0 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x1407F39E8 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x1407F3BB0 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     CmpBlockTwoHiveWrites @ 0x1407F0774 (CmpBlockTwoHiveWrites.c)
- *     CmpUnblockTwoHiveWrites @ 0x1407F0A10 (CmpUnblockTwoHiveWrites.c)
- *     CmpFindPathByName @ 0x1407F2EC4 (CmpFindPathByName.c)
- *     CmpGetCmHiveFromVirtualPath @ 0x1407F3364 (CmpGetCmHiveFromVirtualPath.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     CmpBlockTwoHiveWrites @ 0x1407F0754 (CmpBlockTwoHiveWrites.c)
+ *     CmpUnblockTwoHiveWrites @ 0x1407F09F0 (CmpUnblockTwoHiveWrites.c)
+ *     CmpFindPathByName @ 0x1407F2EA4 (CmpFindPathByName.c)
+ *     CmpGetCmHiveFromVirtualPath @ 0x1407F3344 (CmpGetCmHiveFromVirtualPath.c)
  */
 
 bool __fastcall CmpVirtualBranchIsReplicated(__int64 a1, __m128i *a2, char *a3)

@@ -1,105 +1,98 @@
 /*
- * XREFs of PopThermalHandlePreviousShutdown @ 0x1408601A8
+ * XREFs of PopThermalHandlePreviousShutdown @ 0x1407D0960
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     PopOpenThermalLoggingKey @ 0x1403B005C (PopOpenThermalLoggingKey.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x14034B79C (_tlgCreate1Sz_wchar_t.c)
+ *     PopOpenThermalLoggingKey @ 0x1403CC25C (PopOpenThermalLoggingKey.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void PopThermalHandlePreviousShutdown()
 {
-  HANDLE v0; // rbx
-  char v1; // r15
-  char v2; // r14
-  int v3; // esi
-  WCHAR *v4; // r12
-  WCHAR *Pool2; // rdi
+  HANDLE v0; // rdi
+  char v1; // r14
+  WCHAR *v2; // rbx
+  WCHAR *v3; // r15
+  int v4; // esi
+  WCHAR *PoolWithTag; // rax
   HANDLE v6; // rsi
-  ULONG ResultLength; // [rsp+30h] [rbp-D8h]
-  ULONG Data[2]; // [rsp+48h] [rbp-C0h] BYREF
-  HANDLE KeyHandle; // [rsp+50h] [rbp-B8h] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-B0h] BYREF
-  void *v11; // [rsp+60h] [rbp-A8h] BYREF
-  UNICODE_STRING v12; // [rsp+68h] [rbp-A0h] BYREF
-  UNICODE_STRING ValueName_8; // [rsp+78h] [rbp-90h] BYREF
-  UNICODE_STRING v14; // [rsp+88h] [rbp-80h] BYREF
-  __int64 v15; // [rsp+98h] [rbp-70h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-68h] BYREF
-  _BYTE KeyValueInformation[24]; // [rsp+B0h] [rbp-58h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v18; // [rsp+C8h] [rbp-40h] BYREF
-  _BYTE v19[16]; // [rsp+E8h] [rbp-20h] BYREF
-  HANDLE *p_KeyHandle; // [rsp+F8h] [rbp-10h]
-  __int64 v21; // [rsp+100h] [rbp-8h]
-  HANDLE *p_Handle; // [rsp+108h] [rbp+0h]
-  __int64 v23; // [rsp+110h] [rbp+8h]
-  __int64 *v24; // [rsp+118h] [rbp+10h]
-  __int64 v25; // [rsp+120h] [rbp+18h]
+  ULONG ResultLength; // [rsp+30h] [rbp-81h]
+  ULONG Length; // [rsp+48h] [rbp-69h] BYREF
+  int Data; // [rsp+4Ch] [rbp-65h] BYREF
+  HANDLE KeyHandle; // [rsp+50h] [rbp-61h] BYREF
+  HANDLE Handle; // [rsp+58h] [rbp-59h] BYREF
+  UNICODE_STRING v12; // [rsp+60h] [rbp-51h] BYREF
+  UNICODE_STRING ValueName; // [rsp+70h] [rbp-41h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+80h] [rbp-31h] BYREF
+  __int128 KeyValueInformation; // [rsp+90h] [rbp-21h] BYREF
+  int v16; // [rsp+A0h] [rbp-11h]
+  struct _EVENT_DATA_DESCRIPTOR v17; // [rsp+A8h] [rbp-9h] BYREF
+  char v18[16]; // [rsp+C8h] [rbp+17h] BYREF
+  HANDLE *p_KeyHandle; // [rsp+D8h] [rbp+27h]
+  int v20; // [rsp+E0h] [rbp+2Fh]
+  int v21; // [rsp+E4h] [rbp+33h]
 
   KeyHandle = 0LL;
-  Data[0] = 0;
-  Data[1] = 0;
-  DestinationString = 0LL;
-  v11 = 0LL;
-  v12 = 0LL;
+  Length = 0;
+  Data = 0;
   Handle = 0LL;
-  ValueName_8 = 0LL;
-  v14 = 0LL;
+  DestinationString = 0LL;
+  v12 = 0LL;
+  ValueName = 0LL;
   if ( (int)PopOpenThermalLoggingKey(0, &KeyHandle) >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, L"ShutdownOccurred");
     RtlInitUnicodeString(&v12, L"ShutdownSource");
-    RtlInitUnicodeString(&ValueName_8, L"ShutdownTemperature");
-    RtlInitUnicodeString(&v14, L"ShutdownTotalUpTime");
+    RtlInitUnicodeString(&ValueName, L"ShutdownTemperature");
     v0 = KeyHandle;
-    memset(KeyValueInformation, 0, sizeof(KeyValueInformation));
-    if ( ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, KeyValueInformation, 0x18u, Data) >= 0
-      && *(_QWORD *)&KeyValueInformation[4] == 0x400000004LL )
+    v16 = 0;
+    KeyValueInformation = 0LL;
+    if ( ZwQueryValueKey(
+           KeyHandle,
+           &DestinationString,
+           KeyValuePartialInformation,
+           &KeyValueInformation,
+           0x14u,
+           &Length) >= 0
+      && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
     {
-      if ( ZwQueryValueKey(v0, &ValueName_8, KeyValuePartialInformation, KeyValueInformation, 0x18u, Data) >= 0
-        && *(_QWORD *)&KeyValueInformation[4] == 0x400000004LL )
+      if ( ZwQueryValueKey(v0, &ValueName, KeyValuePartialInformation, &KeyValueInformation, 0x14u, &Length) >= 0
+        && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
       {
         v1 = 1;
-        Data[1] = *(_DWORD *)&KeyValueInformation[12];
+        Data = HIDWORD(KeyValueInformation);
       }
       else
       {
         v1 = 0;
       }
-      if ( ZwQueryValueKey(v0, &v14, KeyValuePartialInformation, KeyValueInformation, 0x18u, Data) >= 0
-        && *(_QWORD *)&KeyValueInformation[4] == 0x80000000BLL )
+      v2 = 0LL;
+      v3 = (WCHAR *)L"Unknown";
+      v4 = 16;
+      if ( ZwQueryValueKey(v0, &v12, KeyValuePartialInformation, 0LL, 0, &Length) == -1073741789 )
       {
-        v2 = 1;
-        v11 = *(void **)&KeyValueInformation[12];
-      }
-      else
-      {
-        v2 = 0;
-      }
-      v3 = 16;
-      v4 = (WCHAR *)L"Unknown";
-      Pool2 = 0LL;
-      if ( ZwQueryValueKey(v0, &v12, KeyValuePartialInformation, 0LL, 0, Data) == -1073741789 )
-      {
-        Pool2 = (WCHAR *)ExAllocatePool2(256LL, Data[0] + 2LL, 1836214356LL);
-        if ( Pool2 )
+        PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, Length + 2LL, 0x6D726854u);
+        v2 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          if ( ZwQueryValueKey(v0, &v12, KeyValuePartialInformation, Pool2, Data[0], Data) >= 0
-            && *((_DWORD *)Pool2 + 1) == 1 )
+          memset(PoolWithTag, 0, Length + 2LL);
+          if ( ZwQueryValueKey(v0, &v12, KeyValuePartialInformation, v2, Length, &Length) >= 0
+            && *((_DWORD *)v2 + 1) == 1 )
           {
-            v3 = *((_DWORD *)Pool2 + 2);
-            v4 = Pool2 + 6;
+            v4 = *((_DWORD *)v2 + 2);
+            v3 = v2 + 6;
           }
         }
       }
@@ -107,42 +100,34 @@ void PopThermalHandlePreviousShutdown()
       {
         if ( (int)PopOpenThermalLoggingKey(1, &Handle) >= 0 )
         {
-          ResultLength = v3;
+          ResultLength = v4;
           v6 = Handle;
-          ZwSetValueKey(Handle, &v12, 0, 1u, v4, ResultLength);
+          ZwSetValueKey(Handle, &v12, 0, 1u, v3, ResultLength);
           if ( v1 )
-            ZwSetValueKey(v6, &ValueName_8, 0, 4u, &Data[1], 4u);
-          if ( v2 )
-            ZwSetValueKey(v6, &v14, 0, 0xBu, &v11, 8u);
+            ZwSetValueKey(v6, &ValueName, 0, 4u, &Data, 4u);
           ZwClose(v6);
         }
         ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_SHUTDOWN_OCCURRED, 0LL);
-        if ( (unsigned int)dword_140C064D0 > 5 && tlgKeywordOn((__int64)&dword_140C064D0, 0x800000000000LL) )
+        if ( (unsigned int)dword_140C02228 > 5 && tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
         {
-          tlgCreate1Sz_wchar_t((__int64)v19, (const size_t *)v4);
+          tlgCreate1Sz_wchar_t((__int64)v18, (const size_t *)v3);
+          v21 = 0;
           p_KeyHandle = &KeyHandle;
-          Handle = v11;
-          LODWORD(KeyHandle) = Data[1];
-          p_Handle = &Handle;
-          v21 = 4LL;
-          v24 = &v15;
-          v23 = 8LL;
-          v15 = 0x1000000LL;
-          v25 = 8LL;
+          LODWORD(KeyHandle) = Data;
+          v20 = 4;
           tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140C064D0,
-            (unsigned __int8 *)byte_14002DC03,
+            (__int64)&dword_140C02228,
+            (unsigned __int8 *)byte_140027038,
             0LL,
             0LL,
-            6u,
-            &v18);
+            4u,
+            &v17);
         }
-        ZwDeleteValueKey(v0, &ValueName_8);
+        ZwDeleteValueKey(v0, &ValueName);
         ZwDeleteValueKey(v0, &v12);
-        ZwDeleteValueKey(v0, &v14);
       }
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0x6D726854u);
+      if ( v2 )
+        ExFreePoolWithTag(v2, 0x6D726854u);
     }
     if ( v0 )
       ZwClose(v0);

@@ -1,70 +1,69 @@
 /*
- * XREFs of ?Allocate@?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C00A69D0
+ * XREFs of ?Allocate@?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C00F8E48
  * Callers:
- *     ??$UserAllocateIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ @ 0x1C001FFA0 (--$UserAllocateIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ.c)
- *     InternalRegisterClassEx @ 0x1C00CB7A0 (InternalRegisterClassEx.c)
+ *     ??$UserAllocateIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ @ 0x1C0167A00 (--$UserAllocateIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ.c)
  * Callees:
- *     ?Create@?$CSectionEntry@$0JAAA@$0JA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C000E5F4 (-Create@-$CSectionEntry@$0JAAA@$0JA@@NSInstrumentation@@SAPEAV12@XZ.c)
- *     ?Allocate@?$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C00A6A80 (-Allocate@-$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ.c)
- *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C01BDFD0 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
+ *     ?Allocate@?$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C00F8FC4 (-Allocate@-$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ.c)
+ *     ?Create@?$CSectionEntry@$0JAAA@$0JA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C00F9184 (-Create@-$CSectionEntry@$0JAAA@$0JA@@NSInstrumentation@@SAPEAV12@XZ.c)
+ *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C01E8768 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
+ *     ?PlatformAllocateFromPagedLookasideList@NSInstrumentation@@YAPEAXPEAX@Z @ 0x1C02DCAF8 (-PlatformAllocateFromPagedLookasideList@NSInstrumentation@@YAPEAXPEAX@Z.c)
  */
 
-PVOID __fastcall NSInstrumentation::CTypeIsolation<36864,144>::Allocate(__int64 a1)
+void *__fastcall NSInstrumentation::CTypeIsolation<36864,144>::Allocate(__int64 a1, void *a2)
 {
-  __int64 v2; // rbx
-  __int64 v3; // rbp
-  __int64 v4; // r8
+  __int64 v3; // rbx
+  __int64 v4; // rbp
   _QWORD *i; // rsi
   __int64 v6; // r14
-  _QWORD *v8; // rax
-  _QWORD *v9; // rsi
-  __int64 v10; // rbx
-  _QWORD *v11; // rax
+  __int64 v7; // rax
+  _QWORD *v8; // rsi
+  __int64 v9; // rbx
+  _QWORD *v10; // rcx
 
   if ( *(_BYTE *)(a1 + 36) )
-    return ExAllocateFromPagedLookasideList(*(PPAGED_LOOKASIDE_LIST *)(a1 + 24));
-  v2 = *(_QWORD *)(a1 + 16);
-  v3 = 0LL;
+    return NSInstrumentation::PlatformAllocateFromPagedLookasideList(*(NSInstrumentation **)(a1 + 24), a2);
+  v3 = *(_QWORD *)(a1 + 16);
+  v4 = 0LL;
   KeEnterCriticalRegion();
-  ExAcquirePushLockSharedEx(v2, 0LL);
+  ExAcquirePushLockSharedEx(v3, 0LL);
   for ( i = *(_QWORD **)a1; i != (_QWORD *)a1; i = (_QWORD *)*i )
   {
     v6 = NSInstrumentation::CSectionBitmapAllocator<36864,144>::Allocate(i[4]);
     if ( v6 )
     {
-      ExReleasePushLockSharedEx(v2, 0LL, v4);
+      ExReleasePushLockSharedEx(v3, 0LL);
       KeLeaveCriticalRegion();
-      return (PVOID)v6;
+      return (void *)v6;
     }
   }
-  ExReleasePushLockSharedEx(v2, 0LL, v4);
+  ExReleasePushLockSharedEx(v3, 0LL);
   KeLeaveCriticalRegion();
-  v8 = NSInstrumentation::CSectionEntry<36864,144>::Create();
-  v9 = v8;
-  if ( v8 )
+  v7 = NSInstrumentation::CSectionEntry<36864,144>::Create();
+  v8 = (_QWORD *)v7;
+  if ( v7 )
   {
-    v3 = NSInstrumentation::CSectionBitmapAllocator<36864,144>::Allocate(v8[4]);
-    if ( v3 )
+    v4 = NSInstrumentation::CSectionBitmapAllocator<36864,144>::Allocate(*(_QWORD *)(v7 + 32));
+    if ( v4 )
     {
-      v10 = *(_QWORD *)(a1 + 16);
+      v9 = *(_QWORD *)(a1 + 16);
       KeEnterCriticalRegion();
-      ExAcquirePushLockExclusiveEx(v10, 0LL);
-      v11 = *(_QWORD **)(a1 + 8);
-      if ( *v11 != a1 )
+      ExAcquirePushLockExclusiveEx(v9, 0LL);
+      v10 = *(_QWORD **)(a1 + 8);
+      if ( *v10 != a1 )
         __fastfail(3u);
-      *v9 = a1;
-      v9[1] = v11;
-      *v11 = v9;
+      v8[1] = v10;
+      *v8 = a1;
+      *v10 = v8;
       *(_DWORD *)(a1 + 32) += 252;
-      *(_QWORD *)(a1 + 8) = v9;
-      ExReleasePushLockExclusiveEx(v10, 0LL);
+      *(_QWORD *)(a1 + 8) = v8;
+      ExReleasePushLockExclusiveEx(v9, 0LL);
       KeLeaveCriticalRegion();
     }
     else
     {
-      NSInstrumentation::CSectionEntry<24576,96>::~CSectionEntry<24576,96>(v9);
-      ExFreePoolWithTag(v9, 0);
+      NSInstrumentation::CSectionEntry<24576,96>::~CSectionEntry<24576,96>(v8);
+      ExFreePoolWithTag(v8, 0);
     }
   }
-  return (PVOID)v3;
+  return (void *)v4;
 }

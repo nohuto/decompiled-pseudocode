@@ -1,8 +1,7 @@
 /*
- * XREFs of ??0EPOINTFIX@@QEAA@XZ @ 0x1C01312F0
+ * XREFs of ??0EPOINTFIX@@QEAA@XZ @ 0x1C0137910
  * Callers:
- *     xxxDestroyWindow @ 0x1C00E8400 (xxxDestroyWindow.c)
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
+ *     <none>
  * Callees:
  *     <none>
  */

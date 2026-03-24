@@ -1,23 +1,23 @@
 /*
- * XREFs of MiAllocateInPageSupport @ 0x1402E0CE4
+ * XREFs of MiAllocateInPageSupport @ 0x14029A230
  * Callers:
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
- *     MiResolvePageFileFault @ 0x14066B52C (MiResolvePageFileFault.c)
+ *     MiResolveMappedFileFault @ 0x140299B10 (MiResolveMappedFileFault.c)
+ *     MiResolvePageFileFault @ 0x1402E0F08 (MiResolvePageFileFault.c)
  * Callees:
- *     MiFreeInPageSupportBlock @ 0x1402BD2CC (MiFreeInPageSupportBlock.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
- *     MiGetInPageSupportBlock @ 0x1402E12E4 (MiGetInPageSupportBlock.c)
+ *     MiUnlockProtoPoolPage @ 0x140239160 (MiUnlockProtoPoolPage.c)
+ *     MiGetInPageSupportBlock @ 0x14023E894 (MiGetInPageSupportBlock.c)
+ *     MiFreeInPageSupportBlock @ 0x14027CF5C (MiFreeInPageSupportBlock.c)
+ *     MiLockProtoPoolPage @ 0x14029A790 (MiLockProtoPoolPage.c)
  */
 
-__int64 __fastcall MiAllocateInPageSupport(unsigned __int64 a1, unsigned int a2, unsigned int *a3, __int64 *a4)
+PSLIST_ENTRY __fastcall MiAllocateInPageSupport(__int64 a1, char a2, unsigned int *a3, __int64 *a4)
 {
-  __int64 v7; // rsi
+  __int64 v7; // rdi
   unsigned int v8; // eax
-  unsigned int v9; // ebx
-  __int64 v10; // rcx
-  __int64 result; // rax
-  struct _SLIST_ENTRY *v12; // rsi
+  char v9; // bl
+  char v10; // cl
+  PSLIST_ENTRY result; // rax
+  struct _SLIST_ENTRY *v12; // rdi
   __int64 v13; // rax
 
   if ( a4 )
@@ -50,25 +50,28 @@ __int64 __fastcall MiAllocateInPageSupport(unsigned __int64 a1, unsigned int a2,
       v9 &= ~1u;
       *a3 = 16;
     }
-    v12 = (struct _SLIST_ENTRY *)MiGetInPageSupportBlock(v9);
-    if ( !v12 )
+    v12 = MiGetInPageSupportBlock(v9);
+    if ( v12 )
+      goto LABEL_15;
+    if ( (v9 & 1) == 0 )
+      return v12;
+    *a3 = 16;
+    v12 = MiGetInPageSupportBlock(v9 & 0xFE);
+    if ( v12 )
     {
-      if ( (v9 & 1) == 0 )
-        return (__int64)v12;
-      *a3 = 16;
-      v12 = (struct _SLIST_ENTRY *)MiGetInPageSupportBlock(v9 & 0xFFFFFFFE);
-      if ( !v12 )
-        return 0LL;
+LABEL_15:
+      if ( a4 )
+      {
+        v13 = MiLockProtoPoolPage(a1, 0LL);
+        if ( !v13 )
+        {
+          MiFreeInPageSupportBlock(v12);
+          return 0LL;
+        }
+        *a4 = v13;
+      }
+      return v12;
     }
-    if ( !a4 )
-      return (__int64)v12;
-    v13 = MiLockProtoPoolPage(a1, 0LL);
-    if ( v13 )
-    {
-      *a4 = v13;
-      return (__int64)v12;
-    }
-    MiFreeInPageSupportBlock(v12);
     return 0LL;
   }
   return result;

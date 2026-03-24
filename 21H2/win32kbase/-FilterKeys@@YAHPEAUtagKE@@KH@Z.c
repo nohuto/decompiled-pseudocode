@@ -1,11 +1,11 @@
 /*
- * XREFs of ?FilterKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01B91C0
+ * XREFs of ?FilterKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01833E0
  * Callers:
  *     <none>
  * Callees:
- *     ApiSetEditionKillAccessibilityTimer @ 0x1C0209254 (ApiSetEditionKillAccessibilityTimer.c)
- *     ApiSetEditionPostRitSound @ 0x1C020AA7C (ApiSetEditionPostRitSound.c)
- *     ApiSetEditionSetAccessibilityTimer @ 0x1C020B760 (ApiSetEditionSetAccessibilityTimer.c)
+ *     ApiSetEditionKillAccessibilityTimer @ 0x1C01CC6B0 (ApiSetEditionKillAccessibilityTimer.c)
+ *     ApiSetEditionPostRitSound @ 0x1C01CD51C (ApiSetEditionPostRitSound.c)
+ *     ApiSetEditionSetAccessibilityTimer @ 0x1C01CDE54 (ApiSetEditionSetAccessibilityTimer.c)
  */
 
 __int64 __fastcall FilterKeys(struct tagKE *a1, __int64 a2, int a3)
@@ -33,7 +33,7 @@ __int64 __fastcall FilterKeys(struct tagKE *a1, __int64 a2, int a3)
       }
       gFilterKeysState = 0;
     }
-    else if ( gPhysModifierState == 2 && (xmmword_1C0295A4C & 4) != 0 && !gtmridFKActivation && gFilterKeysState != 8 )
+    else if ( gPhysModifierState == 2 && (xmmword_1C0250C04 & 4) != 0 && !gtmridFKActivation && gFilterKeysState != 8 )
     {
       gFilterKeysState = 1;
       gtmridFKActivation = ApiSetEditionSetAccessibilityTimer(0LL, 4000LL, FKActivationTimer);
@@ -49,7 +49,7 @@ __int64 __fastcall FilterKeys(struct tagKE *a1, __int64 a2, int a3)
       gtmridFKActivation = 0LL;
     }
   }
-  if ( (xmmword_1C0295A4C & 1) == 0 )
+  if ( (xmmword_1C0250C04 & 1) == 0 )
     return 1LL;
   if ( !v5 )
   {
@@ -71,7 +71,7 @@ __int64 __fastcall FilterKeys(struct tagKE *a1, __int64 a2, int a3)
         gBounceVk = 0;
       }
       gdwPUDFlags &= ~0x400u;
-      if ( (xmmword_1C0295A4C & 0x40) != 0 )
+      if ( (xmmword_1C0250C04 & 0x40) != 0 )
         ApiSetEditionPostRitSound(4LL, a2, 0LL);
       if ( gtmridFKAcceptanceDelay )
       {
@@ -87,19 +87,19 @@ __int64 __fastcall FilterKeys(struct tagKE *a1, __int64 a2, int a3)
       gFKExtraInformation = v6;
       gFKNextProcIndex = a3;
       gFKKeyEvent = v10;
-      xmmword_1C029DC58 = *((_OWORD *)a1 + 1);
-      if ( !DWORD1(xmmword_1C0295A4C) )
+      xmmword_1C0258F78 = *((_OWORD *)a1 + 1);
+      if ( !DWORD1(xmmword_1C0250C04) )
       {
-        v12 = HIDWORD(xmmword_1C0295A4C);
-        if ( HIDWORD(xmmword_1C0295A4C) )
+        v12 = HIDWORD(xmmword_1C0250C04);
+        if ( HIDWORD(xmmword_1C0250C04) )
         {
-          if ( DWORD2(xmmword_1C0295A4C) )
-            v12 = DWORD2(xmmword_1C0295A4C);
+          if ( DWORD2(xmmword_1C0250C04) )
+            v12 = DWORD2(xmmword_1C0250C04);
           gtmridFKResponse = ApiSetEditionSetAccessibilityTimer(0LL, v12, xxxFKRepeatRateTimer);
         }
         return 1LL;
       }
-      v11 = ApiSetEditionSetAccessibilityTimer(0LL, DWORD1(xmmword_1C0295A4C), xxxFKAcceptanceDelayTimer);
+      v11 = ApiSetEditionSetAccessibilityTimer(0LL, DWORD1(xmmword_1C0250C04), xxxFKAcceptanceDelayTimer);
       gdwPUDFlags &= ~0x800u;
       gtmridFKAcceptanceDelay = v11;
     }

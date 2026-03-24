@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     RtlpIsNameInExpressionPrivate @ 0x1400A3EE0 (RtlpIsNameInExpressionPrivate.c)
- *     RtlpUpcaseUnicodeStringPrivate @ 0x1400A44D8 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x1400A44F8 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  */
 

@@ -1,1 +1,0 @@
-/*\n * XREFs of sub_1C00013E0 @ 0x1C00013E0\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\n__int64 __fastcall sub_1C00013E0(__int64 a1, __int64 a2, struct _KEVENT *a3)\n{\n  KeSetEvent(a3, 0, 0);\n  return 3221225494LL;\n}\n

@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDbReadKFlag @ 0x14080B194
+ * XREFs of KsepDbReadKFlag @ 0x1407B3DC0
  * Callers:
- *     KsepDbCacheReadDeviceInternal @ 0x14080AB88 (KsepDbCacheReadDeviceInternal.c)
+ *     KsepDbCacheReadDeviceInternal @ 0x140755564 (KsepDbCacheReadDeviceInternal.c)
  * Callees:
- *     SdbGetStringTagPtr @ 0x140757878 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
- *     SdbReadQWORDTag @ 0x14080B234 (SdbReadQWORDTag.c)
+ *     SdbGetStringTagPtr @ 0x140755D70 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
+ *     SdbReadQWORDTag @ 0x1407B3E60 (SdbReadQWORDTag.c)
  */
 
 __int64 __fastcall KsepDbReadKFlag(__int64 a1, __int64 a2, __int64 a3)
@@ -14,25 +14,26 @@ __int64 __fastcall KsepDbReadKFlag(__int64 a1, __int64 a2, __int64 a3)
   unsigned int v6; // ebp
   unsigned int FirstTag; // eax
   __int64 v8; // r8
+  __int64 v9; // r9
   __int64 StringTagPtr; // rax
-  unsigned int v10; // eax
+  unsigned int v11; // eax
 
   v4 = a2;
   v6 = -1073741823;
   if ( (_DWORD)a2 )
   {
-    FirstTag = SdbFindFirstTag(a1, a2, 24577LL);
+    FirstTag = SdbFindFirstTag(a1, a2, 24577);
     if ( FirstTag )
     {
-      StringTagPtr = SdbGetStringTagPtr(a1, FirstTag, v8);
+      StringTagPtr = SdbGetStringTagPtr(a1, FirstTag, v8, v9);
       if ( StringTagPtr )
       {
         *(_QWORD *)a3 = StringTagPtr;
-        v10 = SdbFindFirstTag(a1, v4, 20485LL);
-        if ( v10 )
+        v11 = SdbFindFirstTag(a1, v4, 20485);
+        if ( v11 )
         {
           *(_DWORD *)(a3 + 8) = 11;
-          *(_QWORD *)(a3 + 32) = SdbReadQWORDTag(a1, v10, 0LL);
+          *(_QWORD *)(a3 + 32) = SdbReadQWORDTag(a1, v11, 0LL);
           v6 = 0;
           *(_QWORD *)(a3 + 16) = a3 + 32;
           *(_DWORD *)(a3 + 12) = 8;

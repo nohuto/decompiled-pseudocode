@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_G?$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@UEAAPEAXI@Z @ 0x1C0068840
+ * XREFs of ??_G?$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@UEAAPEAXI@Z @ 0x1C005B940
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$Set@VDMMVIDEOPRESENTTARGET@@@@UEAA@XZ @ 0x1C0067D94 (--1-$Set@VDMMVIDEOPRESENTTARGET@@@@UEAA@XZ.c)
+ *     ??1?$Set@VDMMVIDEOPRESENTTARGET@@@@UEAA@XZ @ 0x1C005AFDC (--1-$Set@VDMMVIDEOPRESENTTARGET@@@@UEAA@XZ.c)
  */
 
 _QWORD *__fastcall IndexedSet<DMMVIDEOPRESENTTARGET>::`scalar deleting destructor'(_QWORD *P, char a2)

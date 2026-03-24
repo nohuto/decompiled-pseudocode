@@ -1,9 +1,9 @@
 /*
- * XREFs of EngCopyBits @ 0x1C0232630
+ * XREFs of EngCopyBits @ 0x1C01FBB80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 BOOL __stdcall EngCopyBits(
@@ -16,8 +16,8 @@ BOOL __stdcall EngCopyBits(
 {
   BOOL result; // eax
 
-  result = (int)qword_1C0294698;
-  if ( qword_1C0294698 )
-    return qword_1C0294698(psoDest, psoSrc, pco, pxlo, prclDest, pptlSrc);
+  result = (int)qword_1C0255288;
+  if ( qword_1C0255288 )
+    return qword_1C0255288(psoDest, psoSrc, pco, pxlo, prclDest, pptlSrc);
   return result;
 }

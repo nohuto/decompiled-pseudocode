@@ -1,13 +1,13 @@
 /*
- * XREFs of TR_SendCompleteStageRequest @ 0x1C0041B60
+ * XREFs of TR_SendCompleteStageRequest @ 0x1C003F64C
  * Callers:
- *     Isoch_Stage_CompleteTD @ 0x1C00029D0 (Isoch_Stage_CompleteTD.c)
- *     Control_TransferData_Free @ 0x1C0006064 (Control_TransferData_Free.c)
- *     Bulk_Stage_FreeScatterGatherList @ 0x1C00118F4 (Bulk_Stage_FreeScatterGatherList.c)
- *     Isoch_Stage_FreeScatterGatherList @ 0x1C0045138 (Isoch_Stage_FreeScatterGatherList.c)
+ *     Isoch_Stage_CompleteTD @ 0x1C00021E0 (Isoch_Stage_CompleteTD.c)
+ *     Control_TransferData_Free @ 0x1C00043F8 (Control_TransferData_Free.c)
+ *     Bulk_Stage_FreeScatterGatherList @ 0x1C000DBA8 (Bulk_Stage_FreeScatterGatherList.c)
+ *     Isoch_Stage_FreeScatterGatherList @ 0x1C00424A8 (Isoch_Stage_FreeScatterGatherList.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall TR_SendCompleteStageRequest(__int64 a1, int a2)

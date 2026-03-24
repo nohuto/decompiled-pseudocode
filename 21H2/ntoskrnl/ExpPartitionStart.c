@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpPartitionStart @ 0x140851C58
+ * XREFs of ExpPartitionStart @ 0x1407C2134
  * Callers:
- *     PspAllocatePartition @ 0x14085BD34 (PspAllocatePartition.c)
- *     ExpWorkerInitialization @ 0x140B240EC (ExpWorkerInitialization.c)
+ *     PspAllocatePartition @ 0x1407CC2B4 (PspAllocatePartition.c)
+ *     ExpWorkerInitialization @ 0x140A6AE74 (ExpWorkerInitialization.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140263730 (KeQueryNodeActiveAffinity.c)
- *     ExpWorkQueueManagerStart @ 0x140851D00 (ExpWorkQueueManagerStart.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
+ *     ExpWorkQueueManagerStart @ 0x1407C21E4 (ExpWorkQueueManagerStart.c)
  */
 
 __int64 __fastcall ExpPartitionStart(__int64 a1)
 {
   unsigned __int16 v2; // bx
-  USHORT *v3; // rcx
+  __int64 v3; // rax
   __int64 result; // rax
   struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
 
@@ -22,9 +22,9 @@ __int64 __fastcall ExpPartitionStart(__int64 a1)
   {
     Affinity = 0LL;
     v3 = 0LL;
-    if ( (_UNKNOWN *)KeNodeBlock[v2] != (_UNKNOWN *)((char *)&KiNodeInit + 280 * v2) )
-      v3 = (USHORT *)KeNodeBlock[v2];
-    KeQueryNodeActiveAffinity(*v3, &Affinity, 0LL);
+    if ( (_UNKNOWN *)KeNodeBlock[v2] != (_UNKNOWN *)((char *)&KiNodeInit + 384 * v2) )
+      v3 = KeNodeBlock[v2];
+    KeQueryNodeActiveAffinity(*(_WORD *)(v3 + 146), &Affinity, 0LL);
     if ( Affinity.Mask )
     {
       result = ExpWorkQueueManagerStart(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL * v2));

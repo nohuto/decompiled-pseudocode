@@ -1,53 +1,40 @@
 /*
- * XREFs of RemoteShadowStart @ 0x1C020342C
+ * XREFs of RemoteShadowStart @ 0x1C0226110
  * Callers:
- *     NtUserRemoteShadowStart @ 0x1C01D9D30 (NtUserRemoteShadowStart.c)
+ *     <none>
  * Callees:
- *     SetPointer @ 0x1C005CFA0 (SetPointer.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     RemoteRedrawScreen @ 0x1C01334E0 (RemoteRedrawScreen.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     GetRemoteHDEV @ 0x1C0203084 (GetRemoteHDEV.c)
- *     bDrvShadowConnect @ 0x1C02DD7B4 (bDrvShadowConnect.c)
+ *     SetPointer @ 0x1C002A420 (SetPointer.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     RemoteRedrawScreen @ 0x1C0162DB4 (RemoteRedrawScreen.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     GetRemoteHDEV @ 0x1C0225D68 (GetRemoteHDEV.c)
+ *     bDrvShadowConnect @ 0x1C02BFFC8 (bDrvShadowConnect.c)
  */
 
 __int64 __fastcall RemoteShadowStart(void *Src, size_t Size)
 {
   SIZE_T v2; // r14
   __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
   __int64 RemoteContext; // r15
-  PDEVICE_OBJECT v6; // rcx
-  _UNKNOWN **v7; // r8
   void *v9; // rax
   void *v10; // rdi
   __int64 RemoteHDEV; // rax
   int v12; // ebx
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
+  int v13; // ecx
 
   v2 = (unsigned int)Size;
   RemoteContext = GreGetRemoteContext();
-  v6 = WPP_GLOBAL_Control;
-  LOBYTE(v4) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  v7 = &WPP_RECORDER_INITIALIZED;
-  LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)v4 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v4,
-      (_DWORD)v7,
-      22,
-      4,
-      3,
-      22,
-      (__int64)&WPP_38afe8d8a8303f1671169ac824553c0d_Traceguids);
-  if ( PsGetCurrentProcess(v6, v4, v7) != gpepCSRSS )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v4) = 4;
+    WPP_RECORDER_SF_(v5, v4, 9, 22, (__int64)&WPP_a65f4517be503488af1f6543f5ef864f_Traceguids);
+  }
+  if ( PsGetCurrentProcess(v5, v4, v6) != gpepCSRSS )
     return 3221225506LL;
   ProbeForRead(Src, v2, 1u);
-  v9 = (void *)Win32AllocPoolWithQuotaZInit(v2, 1769435989LL);
+  v9 = (void *)Win32AllocPoolWithQuota(v2, 1769435989LL);
   v10 = v9;
   if ( !v9 )
     ExRaiseStatus(-1073741801);
@@ -60,7 +47,7 @@ __int64 __fastcall RemoteShadowStart(void *Src, size_t Size)
   Win32FreePool(v10);
   if ( !v12 )
     return 3221880856LL;
-  RemoteRedrawScreen(v14, v13, v15);
+  RemoteRedrawScreen(v13);
   SetPointer(1LL);
   *(_DWORD *)(gpsi + 2236LL) |= 2u;
   return 0LL;

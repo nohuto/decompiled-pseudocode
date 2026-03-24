@@ -1,52 +1,52 @@
 /*
- * XREFs of NtSystemDebugControl @ 0x1406DC120
+ * XREFs of NtSystemDebugControl @ 0x1407CFC00
  * Callers:
  *     <none>
  * Callees:
- *     ExUnlockUserBuffer @ 0x140231450 (ExUnlockUserBuffer.c)
- *     DbgBreakPointWithStatus @ 0x140429800 (DbgBreakPointWithStatus.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     DbgkCaptureLiveKernelDump @ 0x140540798 (DbgkCaptureLiveKernelDump.c)
- *     KdDisableDebugger @ 0x140565360 (KdDisableDebugger.c)
- *     KdEnableDebugger @ 0x140565580 (KdEnableDebugger.c)
- *     KdSetDbgPrintBufferSize @ 0x140565974 (KdSetDbgPrintBufferSize.c)
- *     ExLockUserBuffer @ 0x1406A904C (ExLockUserBuffer.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     ExpKdPullRemoteFileForUser @ 0x1408536D4 (ExpKdPullRemoteFileForUser.c)
- *     DbgkCaptureLiveDump @ 0x14092AC5C (DbgkCaptureLiveDump.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExUnlockUserBuffer @ 0x1402997FC (ExUnlockUserBuffer.c)
+ *     KdDisableDebugger @ 0x1403CFA20 (KdDisableDebugger.c)
+ *     DbgBreakPointWithStatus @ 0x1404078B0 (DbgBreakPointWithStatus.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1404EE658 (DbgkCaptureLiveKernelDump.c)
+ *     KdEnableDebugger @ 0x140510D40 (KdEnableDebugger.c)
+ *     KdSetDbgPrintBufferSize @ 0x1405116E4 (KdSetDbgPrintBufferSize.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     DbgkCaptureLiveDump @ 0x140887D1C (DbgkCaptureLiveDump.c)
+ *     ExpKdPullRemoteFileForUser @ 0x14095B9CC (ExpKdPullRemoteFileForUser.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall NtSystemDebugControl(
         int a1,
-        unsigned __int64 a2,
+        unsigned int *a2,
         unsigned int a3,
-        _DWORD *a4,
+        bool *a4,
         unsigned int Length,
         _DWORD *a6)
 {
   __int64 v7; // r15
   KPROCESSOR_MODE PreviousMode; // r13
-  int v11; // ebx
-  __int64 v12; // r13
-  int v13; // edi
+  int v12; // ebx
+  __int64 v13; // r13
+  int v14; // eax
   int v15; // edi
   int v16; // edi
   int v17; // edi
   int v18; // edi
   int v19; // edi
   int v20; // edi
-  int v21; // eax
-  int v22; // edi
-  int v23; // edi
-  int v24; // edi
-  unsigned int v25; // eax
-  size_t v26; // rsi
+  int v21; // edi
+  unsigned int v22; // eax
+  size_t v23; // rsi
   PVOID PoolWithTag; // rdi
+  int v25; // edi
+  int v26; // edi
+  int v27; // edi
   KPROCESSOR_MODE v28; // [rsp+34h] [rbp-D4h]
   size_t Size; // [rsp+38h] [rbp-D0h] BYREF
   SIZE_T NumberOfBytes; // [rsp+40h] [rbp-C8h]
@@ -74,251 +74,253 @@ __int64 __fastcall NtSystemDebugControl(
   v28 = PreviousMode;
   if ( a1 != 38 && !SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
     return 3221225506LL;
-  v11 = 0;
+  v12 = 0;
   if ( PreviousMode )
   {
     if ( (_DWORD)v7 )
     {
-      if ( (a2 & 3) != 0 )
+      if ( ((unsigned __int8)a2 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v12 = 0x7FFFFFFF0000LL;
-      if ( a2 + v7 > 0x7FFFFFFF0000LL || a2 + v7 < a2 )
+      v13 = 0x7FFFFFFF0000LL;
+      if ( (unsigned __int64)a2 + v7 > 0x7FFFFFFF0000LL || (unsigned int *)((char *)a2 + v7) < a2 )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     else
     {
-      v12 = 0x7FFFFFFF0000LL;
+      v13 = 0x7FFFFFFF0000LL;
     }
     if ( Length )
       ProbeForWrite(a4, Length, 4u);
     if ( a6 )
     {
       if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
-        v12 = (__int64)a6;
-      *(_DWORD *)v12 = *(_DWORD *)v12;
+        v13 = (__int64)a6;
+      *(_DWORD *)v13 = *(_DWORD *)v13;
     }
     PreviousMode = v28;
   }
-  if ( a1 <= 28 )
+  if ( a1 > 28 )
   {
-    if ( a1 == 28 )
+    if ( a1 <= 34 )
     {
-      if ( (_DWORD)v7 == 1 )
+      if ( a1 == 34 )
+        goto LABEL_64;
+      v18 = a1 - 29;
+      if ( !v18 )
       {
-        KdIgnoreUmExceptions = *(_BYTE *)a2 == 0;
-        goto LABEL_25;
-      }
-      return 3221225476LL;
-    }
-    if ( a1 > 23 )
-    {
-      v22 = a1 - 24;
-      if ( !v22 )
-      {
-        if ( (_DWORD)v7 == 1 )
+        if ( (_DWORD)v7 == 56 && Length >= 0x40000 )
         {
-          KdAutoEnableOnEvent = *(_BYTE *)a2 != 0;
-          goto LABEL_25;
+          v33 = *(_OWORD *)a2;
+          v34 = *((_OWORD *)a2 + 1);
+          v35 = *((_OWORD *)a2 + 2);
+          v36 = *((_QWORD *)a2 + 6);
+          if ( DWORD2(v35)
+            || !HIDWORD(v35)
+            || (v33 & 0xFFFFFFFE) != 0
+            || 8 * (unsigned __int64)HIDWORD(v35) > 0xFFFFFFFF )
+          {
+            return 3221225485LL;
+          }
+          v22 = 0x100000;
+          if ( Length <= 0x100000 )
+            v22 = NumberOfBytes;
+          v23 = v22;
+          PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v22, 0x704E534Bu);
+          NumberOfBytes = (SIZE_T)PoolWithTag;
+          if ( PoolWithTag )
+          {
+            v12 = ExLockUserBuffer(v36, 8 * HIDWORD(v35), PreviousMode, IoReadAccess, &v31, (struct _MDL **)&P);
+            if ( v12 >= 0 )
+            {
+              memset(PoolWithTag, 0, v23);
+              v36 = v31;
+              v12 = DbgkCaptureLiveDump(&v33, PoolWithTag, (unsigned int)v23, &Size);
+              if ( v12 >= 0 )
+              {
+                if ( (unsigned int)Size <= Length )
+                  memmove(a4, PoolWithTag, (unsigned int)Size);
+                else
+                  v12 = -1073741823;
+              }
+              ExFreePoolWithTag(PoolWithTag, 0);
+              ExUnlockUserBuffer((struct _MDL *)P);
+            }
+            else
+            {
+              ExFreePoolWithTag(PoolWithTag, 0);
+            }
+          }
+          else
+          {
+            v12 = -1073741801;
+          }
+          goto LABEL_105;
         }
         return 3221225476LL;
       }
-      v23 = v22 - 1;
-      if ( !v23 )
-      {
-        if ( Length == 4 )
-        {
-          *a4 = KdPrintBufferSize;
-          goto LABEL_25;
-        }
-        return 3221225476LL;
-      }
-      v24 = v23 - 1;
-      if ( !v24 )
-      {
-        if ( (_DWORD)v7 != 4 )
-          return 3221225476LL;
-        HIDWORD(Size) = 0;
-        v21 = KdSetDbgPrintBufferSize(*(_DWORD *)a2);
-LABEL_43:
-        v11 = v21;
-        goto LABEL_25;
-      }
-      if ( v24 == 1 )
+      v19 = v18 - 1;
+      if ( !v19 )
       {
         if ( Length == 1 )
         {
-          *(_BYTE *)a4 = KdIgnoreUmExceptions == 0;
-          goto LABEL_25;
+          *a4 = KdBlockEnable;
+          goto LABEL_105;
         }
         return 3221225476LL;
       }
-LABEL_103:
-      v11 = -1073741821;
-      goto LABEL_25;
-    }
-    if ( a1 == 23 )
-    {
-      if ( Length == 1 )
+      v20 = v19 - 1;
+      if ( !v20 )
       {
-        *(_BYTE *)a4 = KdAutoEnableOnEvent;
-        goto LABEL_25;
-      }
-      return 3221225476LL;
-    }
-    if ( a1 < 0 )
-      goto LABEL_103;
-    if ( a1 > 5 )
-    {
-      if ( a1 == 6 )
-      {
-        if ( (_BYTE)KdDebuggerEnabled == 1 )
-          DbgBreakPointWithStatus(6u);
-        else
-          v11 = -1073741823;
-        goto LABEL_25;
-      }
-      if ( a1 > 20 )
-      {
-        if ( a1 == 21 )
-          v21 = KdEnableDebugger();
-        else
-          v21 = KdDisableDebugger();
-        goto LABEL_43;
-      }
-    }
-    return 3221225474LL;
-  }
-  if ( a1 > 34 )
-  {
-    v13 = a1 - 35;
-    if ( !v13 )
-    {
-      if ( Length == 4 )
-      {
-        *a4 = KdUmAttachPid;
-        if ( !KdResetUmAttachPid )
+        if ( (_DWORD)v7 == 1 )
         {
-LABEL_24:
-          v11 = 0;
-          goto LABEL_25;
+          KdBlockEnable = *(_BYTE *)a2;
+          goto LABEL_105;
         }
-LABEL_107:
-        KdUmAttachPid = 0;
-        goto LABEL_24;
+        return 3221225476LL;
+      }
+      v21 = v20 - 1;
+      if ( !v21 )
+      {
+        KdUmBreakMarker = -618808389;
+        goto LABEL_104;
+      }
+      if ( v21 != 1 )
+        goto LABEL_95;
+      if ( Length != 4 )
+        return 3221225476LL;
+      *(_DWORD *)a4 = KdUmBreakPid;
+      if ( KdResetUmBreakPid )
+LABEL_64:
+        KdUmBreakPid = 0;
+LABEL_104:
+      v12 = 0;
+      goto LABEL_105;
+    }
+    v25 = a1 - 35;
+    if ( v25 )
+    {
+      v26 = v25 - 1;
+      if ( v26 )
+      {
+        v27 = v26 - 1;
+        if ( v27 )
+        {
+          if ( v27 != 1 )
+            goto LABEL_95;
+          if ( (_DWORD)v7 != 16 || Length )
+            return 3221225476LL;
+          v14 = ExpKdPullRemoteFileForUser(a2);
+        }
+        else
+        {
+          if ( (_DWORD)v7 != 64 || Length )
+            return 3221225476LL;
+          v37[0] = *(_OWORD *)a2;
+          v37[1] = *((_OWORD *)a2 + 1);
+          v37[2] = *((_OWORD *)a2 + 2);
+          v37[3] = *((_OWORD *)a2 + 3);
+          v14 = DbgkCaptureLiveKernelDump((__int64)v37);
+        }
+        goto LABEL_34;
+      }
+    }
+    else
+    {
+      if ( Length != 4 )
+        return 3221225476LL;
+      *(_DWORD *)a4 = KdUmAttachPid;
+      if ( !KdResetUmAttachPid )
+        goto LABEL_104;
+    }
+    KdUmAttachPid = 0;
+    goto LABEL_104;
+  }
+  if ( a1 == 28 )
+  {
+    if ( (_DWORD)v7 == 1 )
+    {
+      KdIgnoreUmExceptions = *(_BYTE *)a2 == 0;
+      goto LABEL_105;
+    }
+    return 3221225476LL;
+  }
+  if ( a1 > 23 )
+  {
+    v15 = a1 - 24;
+    if ( !v15 )
+    {
+      if ( (_DWORD)v7 == 1 )
+      {
+        KdAutoEnableOnEvent = *(_BYTE *)a2 != 0;
+        goto LABEL_105;
       }
       return 3221225476LL;
     }
-    v19 = v13 - 1;
-    if ( !v19 )
-      goto LABEL_107;
-    v20 = v19 - 1;
-    if ( !v20 )
-    {
-      if ( (_DWORD)v7 != 64 || Length )
-        return 3221225476LL;
-      v37[0] = *(_OWORD *)a2;
-      v37[1] = *(_OWORD *)(a2 + 16);
-      v37[2] = *(_OWORD *)(a2 + 32);
-      v37[3] = *(_OWORD *)(a2 + 48);
-      v21 = DbgkCaptureLiveKernelDump((__int64)v37);
-      goto LABEL_43;
-    }
-    if ( v20 == 1 )
-    {
-      if ( (_DWORD)v7 != 16 || Length )
-        return 3221225476LL;
-      v21 = ExpKdPullRemoteFileForUser(a2);
-      goto LABEL_43;
-    }
-    goto LABEL_103;
-  }
-  if ( a1 == 34 )
-  {
-LABEL_80:
-    KdUmBreakPid = 0;
-    goto LABEL_24;
-  }
-  v15 = a1 - 29;
-  if ( v15 )
-  {
     v16 = v15 - 1;
     if ( !v16 )
     {
-      if ( Length == 1 )
+      if ( Length == 4 )
       {
-        *(_BYTE *)a4 = KdBlockEnable;
-        goto LABEL_25;
+        *(_DWORD *)a4 = KdPrintBufferSize;
+        goto LABEL_105;
       }
       return 3221225476LL;
     }
     v17 = v16 - 1;
-    if ( !v17 )
+    if ( v17 )
     {
-      if ( (_DWORD)v7 == 1 )
+      if ( v17 != 1 )
+        goto LABEL_95;
+      if ( Length == 1 )
       {
-        KdBlockEnable = *(_BYTE *)a2;
-        goto LABEL_25;
+        *a4 = KdIgnoreUmExceptions == 0;
+        goto LABEL_105;
       }
       return 3221225476LL;
     }
-    v18 = v17 - 1;
-    if ( !v18 )
-    {
-      KdUmBreakMarker = -618808389;
-      goto LABEL_24;
-    }
-    if ( v18 != 1 )
-      goto LABEL_103;
-    if ( Length != 4 )
+    if ( (_DWORD)v7 != 4 )
       return 3221225476LL;
-    *a4 = KdUmBreakPid;
-    if ( !KdResetUmBreakPid )
-      goto LABEL_24;
-    goto LABEL_80;
+    HIDWORD(Size) = 0;
+    v14 = KdSetDbgPrintBufferSize(*a2);
+LABEL_34:
+    v12 = v14;
+    goto LABEL_105;
   }
-  if ( (_DWORD)v7 != 56 || Length < 0x40000 )
+  if ( a1 == 23 )
+  {
+    if ( Length == 1 )
+    {
+      *a4 = KdAutoEnableOnEvent;
+      goto LABEL_105;
+    }
     return 3221225476LL;
-  v33 = *(_OWORD *)a2;
-  v34 = *(_OWORD *)(a2 + 16);
-  v35 = *(_OWORD *)(a2 + 32);
-  v36 = *(_QWORD *)(a2 + 48);
-  if ( DWORD2(v35) || !HIDWORD(v35) || (v33 & 0xFFFFFFFE) != 0 || 8 * (unsigned __int64)HIDWORD(v35) > 0xFFFFFFFF )
-    return 3221225485LL;
-  v25 = 0x100000;
-  if ( Length <= 0x100000 )
-    v25 = NumberOfBytes;
-  v26 = v25;
-  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v25, 0x704E534Bu);
-  NumberOfBytes = (SIZE_T)PoolWithTag;
-  if ( PoolWithTag )
-  {
-    v11 = ExLockUserBuffer(v36, 8 * HIDWORD(v35), PreviousMode, IoReadAccess, &v31, (struct _MDL **)&P);
-    if ( v11 >= 0 )
-    {
-      memset(PoolWithTag, 0, v26);
-      v36 = v31;
-      v11 = DbgkCaptureLiveDump(&v33, PoolWithTag, (unsigned int)v26, &Size);
-      if ( v11 >= 0 )
-      {
-        if ( (unsigned int)Size <= Length )
-          memmove(a4, PoolWithTag, (unsigned int)Size);
-        else
-          v11 = -1073741823;
-      }
-      ExFreePoolWithTag(PoolWithTag, 0);
-      ExUnlockUserBuffer((struct _MDL *)P);
-    }
-    else
-    {
-      ExFreePoolWithTag(PoolWithTag, 0);
-    }
   }
+  if ( a1 < 0 )
+  {
+LABEL_95:
+    v12 = -1073741821;
+    goto LABEL_105;
+  }
+  if ( a1 <= 5 )
+    return 3221225474LL;
+  if ( a1 != 6 )
+  {
+    if ( a1 > 20 )
+    {
+      if ( a1 == 21 )
+        v14 = KdEnableDebugger();
+      else
+        v14 = KdDisableDebugger();
+      goto LABEL_34;
+    }
+    return 3221225474LL;
+  }
+  if ( (_BYTE)KdDebuggerEnabled == 1 )
+    DbgBreakPointWithStatus(6u);
   else
-  {
-    v11 = -1073741801;
-  }
-LABEL_25:
+    v12 = -1073741823;
+LABEL_105:
   if ( a6 )
     *a6 = Size;
-  return (unsigned int)v11;
+  return (unsigned int)v12;
 }

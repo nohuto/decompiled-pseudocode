@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_SuspendedWithPendingReset @ 0x1C0008D10
+ * XREFs of HUBHSM_SuspendedWithPendingReset @ 0x1C0008A00
  * Callers:
  *     <none>
  * Callees:
- *     HUBFDO_AcquireWdfPowerReference @ 0x1C000D124 (HUBFDO_AcquireWdfPowerReference.c)
+ *     HUBFDO_AcquireWdfPowerReference @ 0x1C000CD44 (HUBFDO_AcquireWdfPowerReference.c)
  */
 
 __int64 __fastcall HUBHSM_SuspendedWithPendingReset(__int64 a1)

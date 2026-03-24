@@ -1,82 +1,85 @@
 /*
- * XREFs of UsbhQueryHubState @ 0x1C00386EC
+ * XREFs of UsbhQueryHubState @ 0x1C00399BC
  * Callers:
- *     UsbhHubProcessIsr @ 0x1C00083B0 (UsbhHubProcessIsr.c)
- *     UsbhGetHubPowerStatus @ 0x1C002BE98 (UsbhGetHubPowerStatus.c)
+ *     UsbhHubProcessIsr @ 0x1C000F090 (UsbhHubProcessIsr.c)
+ *     UsbhGetHubPowerStatus @ 0x1C002D2B4 (UsbhGetHubPowerStatus.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhSyncSendCommand @ 0x1C0019810 (UsbhSyncSendCommand.c)
- *     Usb_Disconnected @ 0x1C0028F5C (Usb_Disconnected.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhSyncSendCommand @ 0x1C000A740 (UsbhSyncSendCommand.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     Usb_Disconnected @ 0x1C001CEB4 (Usb_Disconnected.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 __int64 __fastcall UsbhQueryHubState(__int64 a1, __int64 a2, _DWORD *a3)
 {
-  _WORD *Pool2; // rax
-  _WORD *v8; // rax
-  int v9; // eax
-  __int64 v10; // r15
-  int v11; // edi
-  unsigned __int16 *v12; // r8
+  _WORD *PoolWithTag; // rax
+  _WORD *v7; // rax
+  int v8; // eax
+  __int64 v9; // r15
+  int v10; // edi
+  unsigned __int16 *v11; // r8
   unsigned int v13; // edx
   __int64 v14; // rax
   int v15; // [rsp+20h] [rbp-40h]
+  int v16; // [rsp+48h] [rbp-18h]
   PVOID P; // [rsp+50h] [rbp-10h] BYREF
-  _BYTE v17[2]; // [rsp+58h] [rbp-8h] BYREF
-  int v18; // [rsp+5Ah] [rbp-6h]
-  __int16 v19; // [rsp+5Eh] [rbp-2h]
-  int v20; // [rsp+A8h] [rbp+48h] BYREF
+  _BYTE v18[2]; // [rsp+58h] [rbp-8h] BYREF
+  int v19; // [rsp+5Ah] [rbp-6h]
+  __int16 v20; // [rsp+5Eh] [rbp-2h]
+  int v21; // [rsp+A8h] [rbp+48h] BYREF
 
-  v20 = 0;
-  Pool2 = (_WORD *)ExAllocatePool2(64LL, 10LL, 1112885333LL);
-  P = Pool2;
-  if ( Pool2 )
+  v21 = 0;
+  PoolWithTag = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 0xAuLL, 0x42554855u);
+  P = PoolWithTag;
+  if ( PoolWithTag && (*(_QWORD *)PoolWithTag = 0LL, PoolWithTag[4] = 0, P) )
   {
-    Pool2[2] = 4;
-    v8 = P;
+    *((_WORD *)P + 2) = 4;
+    v7 = P;
     *(_DWORD *)a2 = 0;
-    v8[3] = 0;
+    v7[3] = 0;
     *((_WORD *)P + 1) = 0;
     *(_WORD *)P = 0;
-    v17[0] = -96;
+    v18[0] = -96;
     *((_BYTE *)P + 8) = 0;
-    v17[1] = 0;
-    v18 = 0;
-    v19 = *((_WORD *)P + 2);
-    v9 = UsbhSyncSendCommand(a1, (__int64)v17, (__int64)P, (_WORD *)P + 2, v15, &v20);
-    v10 = v20;
-    v11 = v9;
-    Log(a1, 4, 1365799796, v9, v20);
-    v12 = (unsigned __int16 *)P;
-    if ( v11 < 0 || *((_WORD *)P + 2) == 4 )
+    v18[1] = 0;
+    v19 = 0;
+    v20 = *((_WORD *)P + 2);
+    v8 = UsbhSyncSendCommand(a1, (__int64)v18, (__int64)P, (_WORD *)P + 2, v15, &v21);
+    v9 = v21;
+    v10 = v8;
+    Log(a1, 4, 1365799796, v8, v21);
+    v11 = (unsigned __int16 *)P;
+    if ( v10 < 0 || *((_WORD *)P + 2) == 4 )
     {
-      if ( (v11 & 0xC0000000) == 0xC0000000 && !Usb_Disconnected(v11) )
+      if ( (v10 & 0xC0000000) == 0xC0000000 && !Usb_Disconnected(v10) )
       {
-        Log(a1, 4, 1366324018, v12[2], v10);
-        UsbhException(a1, 0, 8, (int)&P, 10, v11, v10, usbfile_bus_c, 1758, 0);
-        v12 = (unsigned __int16 *)P;
+        Log(a1, 4, 1366324018, v11[2], v9);
+        LOBYTE(v16) = 0;
+        UsbhException(a1, 0, 8, (int)&P, 10, v10, v9, usbfile_bus_c, 1758, v16);
+        v11 = (unsigned __int16 *)P;
       }
-      if ( v11 >= 0 )
+      if ( v10 >= 0 )
       {
-        v13 = v12[1];
+        v13 = v11[1];
         *(_WORD *)(a2 + 2) = v13;
-        v14 = *v12;
+        v14 = *v11;
         *(_WORD *)a2 = v14;
         Log(a1, 4, 1215329140, v13, v14);
-        v12 = (unsigned __int16 *)P;
+        v11 = (unsigned __int16 *)P;
       }
       if ( a3 )
-        *a3 = v10;
-      if ( v12 )
-        ExFreePoolWithTag(v12, 0);
-      return (unsigned int)v11;
+        *a3 = v9;
+      if ( v11 )
+        ExFreePoolWithTag(v11, 0);
+      return (unsigned int)v10;
     }
     else
     {
-      Log(a1, 4, 1366324017, *((unsigned __int16 *)P + 2), v10);
-      UsbhException(a1, 0, 9, (int)&P, 10, v11, v10, usbfile_bus_c, 1745, 0);
+      Log(a1, 4, 1366324017, *((unsigned __int16 *)P + 2), v9);
+      LOBYTE(v16) = 0;
+      UsbhException(a1, 0, 9, (int)&P, 10, v10, v9, usbfile_bus_c, 1745, v16);
       if ( a3 )
-        *a3 = v10;
+        *a3 = v9;
       if ( P )
         ExFreePoolWithTag(P, 0);
       return 3221225473LL;

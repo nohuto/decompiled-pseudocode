@@ -1,11 +1,11 @@
 /*
- * XREFs of Bulk_WdfEvtIoCanceledOnQueue @ 0x1C0044E10
+ * XREFs of Bulk_WdfEvtIoCanceledOnQueue @ 0x1C0044960
  * Callers:
  *     <none>
  * Callees:
- *     TR_QueueDpcForTransferCompletion @ 0x1C000C644 (TR_QueueDpcForTransferCompletion.c)
- *     Bulk_TransferData_Initialize @ 0x1C000EFC8 (Bulk_TransferData_Initialize.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     Bulk_TransferData_Initialize @ 0x1C000D390 (Bulk_TransferData_Initialize.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000E954 (TR_QueueDpcForTransferCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Bulk_WdfEvtIoCanceledOnQueue(__int64 a1, __int64 a2)
@@ -18,11 +18,11 @@ __int64 __fastcall Bulk_WdfEvtIoCanceledOnQueue(__int64 a1, __int64 a2)
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0061388);
+         off_1C0060388);
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a2,
-         off_1C0061090);
+         off_1C0060090);
   v5 = v4;
   if ( !*(_BYTE *)(v4 + 16) )
     Bulk_TransferData_Initialize(v3, (_QWORD *)v4, a2);

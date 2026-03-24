@@ -1,57 +1,83 @@
 /*
- * XREFs of _PnpParseIndirectResourceString @ 0x14079E934
+ * XREFs of _PnpParseIndirectResourceString @ 0x140663774
  * Callers:
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14069B554 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1406CC880 (_CmGetDeviceMappedPropertyFromRegProp.c)
- *     _PnpRegQueryValueIndirect @ 0x1407BB240 (_PnpRegQueryValueIndirect.c)
+ *     _PnpRegQueryValueIndirect @ 0x14067DD50 (_PnpRegQueryValueIndirect.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1406B7BD8 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073BA4C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x14022B68C (RtlUnalignedStringCchLengthW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     RtlUnicodeStringToInteger @ 0x14079EA50 (RtlUnicodeStringToInteger.c)
+ *     RtlUnalignedStringCchLengthW @ 0x14032EA54 (RtlUnalignedStringCchLengthW.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     RtlUnicodeStringToInteger @ 0x1406638D0 (RtlUnicodeStringToInteger.c)
  */
 
-bool __fastcall PnpParseIndirectResourceString(const wchar_t *a1)
+char __fastcall PnpParseIndirectResourceString(__int64 a1)
 {
-  _WORD *v1; // r11
-  __int16 v3; // ax
-  unsigned int v4; // ecx
-  __int64 v5; // rdi
-  __int16 v6; // ax
+  int v2; // ebp
+  __int16 v4; // ax
+  unsigned int v5; // ecx
+  __int64 v6; // rsi
+  __int16 v7; // ax
   __int64 i; // rcx
-  __int16 v8; // dx
-  int v9; // ebx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
-  size_t Value; // [rsp+58h] [rbp+20h] BYREF
+  __int16 v9; // dx
+  int v10; // edi
+  __int64 v11; // rdx
+  __int16 v12; // cx
+  __int64 v13; // r8
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
+  size_t Value; // [rsp+68h] [rbp+20h] BYREF
 
   Value = 0LL;
   DestinationString = 0LL;
-  if ( RtlUnalignedStringCchLengthW(a1, 0x7FFFuLL, &Value) < 0 || Value < 5 || *v1 != 64 )
+  if ( RtlUnalignedStringCchLengthW((STRSAFE_PCUNZWCH)a1, 0x7FFFuLL, &Value) < 0 )
     return 0;
-  v3 = v1[1];
-  v4 = 1;
-  while ( v3 && v3 != 44 )
-    v3 = v1[++v4];
-  if ( v1[v4] != 44 )
+  v2 = Value;
+  if ( Value < 5 || *(_WORD *)a1 != 64 )
     return 0;
-  v5 = v4 + 1;
-  v6 = v1[v5];
-  if ( v6 != 35 && v6 != 45 )
+  v4 = *(_WORD *)(a1 + 2);
+  v5 = 1;
+  while ( v4 && v4 != 44 )
+    v4 = *(_WORD *)(a1 + 2LL * ++v5);
+  if ( *(_WORD *)(a1 + 2LL * v5) != 44 )
     return 0;
-  for ( i = v4 + 2; ; i = (unsigned int)(i + 1) )
+  v6 = v5 + 1;
+  v7 = *(_WORD *)(a1 + 2 * v6);
+  if ( v7 != 35 && v7 != 45 )
+    return 0;
+  for ( i = (unsigned int)(v6 + 1); ; i = (unsigned int)(i + 1) )
   {
-    v8 = v1[i];
-    if ( !v8 || v8 == 59 )
+    v9 = *(_WORD *)(a1 + 2 * i);
+    if ( !v9 || v9 == 59 )
       break;
   }
-  v9 = 0;
-  if ( v1[i] == 59 )
-    v9 = i;
-  if ( RtlInitUnicodeStringEx(&DestinationString, &v1[v5 + 1]) < 0 )
+  v10 = 0;
+  if ( *(_WORD *)(a1 + 2 * i) == 59 )
+    v10 = i;
+  if ( RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)(a1 + 2 * (v6 + 1))) < 0 )
     return 0;
-  if ( v9 )
+  if ( v10 )
   {
-    DestinationString.Length = 2 * (v9 - v5) - 2;
+    DestinationString.Length = 2 * (v10 - v6) - 2;
     DestinationString.MaximumLength = DestinationString.Length;
   }
-  return RtlUnicodeStringToInteger(&DestinationString, 0xAu, (PULONG)&Value) >= 0;
+  if ( RtlUnicodeStringToInteger(&DestinationString, 0xAu, (PULONG)&Value) < 0 )
+    return 0;
+  if ( v10 )
+  {
+    v11 = (unsigned int)(v10 + 1);
+    v12 = *(_WORD *)(a1 + 2 * v11);
+    if ( v12 )
+    {
+      v13 = (unsigned int)(v10 + 2);
+      do
+      {
+        if ( v12 == 59 && *(_WORD *)(a1 + 2 * v13) == 40 && *(_WORD *)(a1 + 2LL * (unsigned int)(v2 - 1)) == 41 )
+          break;
+        v11 = (unsigned int)(v11 + 1);
+        v13 = (unsigned int)(v13 + 1);
+        v12 = *(_WORD *)(a1 + 2 * v11);
+      }
+      while ( v12 );
+    }
+  }
+  return 1;
 }

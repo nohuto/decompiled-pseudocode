@@ -1,8 +1,8 @@
 /*
- * XREFs of ??1?$AutoBuffer@G@DMM@@UEAA@XZ @ 0x1C0011C28
+ * XREFs of ??1?$AutoBuffer@G@DMM@@UEAA@XZ @ 0x1C000A388
  * Callers:
- *     ??_G?$AutoBuffer@U_D3DDDI_MULTISAMPLINGMETHOD@@@DMM@@UEAAPEAXI@Z @ 0x1C0068270 (--_G-$AutoBuffer@U_D3DDDI_MULTISAMPLINGMETHOD@@@DMM@@UEAAPEAXI@Z.c)
- *     ?DmmGetTargetIdFromCcdMonitorId@@YAJQEAXPEBU_UNICODE_STRING@@IPEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@3PEAE44@Z @ 0x1C01AFC48 (-DmmGetTargetIdFromCcdMonitorId@@YAJQEAXPEBU_UNICODE_STRING@@IPEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TEC.c)
+ *     ??_G?$AutoBuffer@G@DMM@@UEAAPEAXI@Z @ 0x1C005B630 (--_G-$AutoBuffer@G@DMM@@UEAAPEAXI@Z.c)
+ *     ?DmmGetTargetIdFromCcdMonitorId@@YAJQEAXPEBU_UNICODE_STRING@@IPEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@3PEAE4@Z @ 0x1C012FF7C (-DmmGetTargetIdFromCcdMonitorId@@YAJQEAXPEBU_UNICODE_STRING@@IPEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TEC.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ void **__fastcall DMM::AutoBuffer<unsigned short>::~AutoBuffer<unsigned short>(_
   void *v2; // rcx
   void **result; // rax
 
-  *a1 = &DMM::AutoBuffer<_D3DDDI_MULTISAMPLINGMETHOD>::`vftable'{for `SetElement'};
+  *a1 = &DMM::AutoBuffer<unsigned short>::`vftable'{for `SetElement'};
   a1[3] = &DMM::AutoBuffer<unsigned short>::`vftable'{for `NonReferenceCounted'};
   v2 = (void *)a1[4];
   if ( v2 )

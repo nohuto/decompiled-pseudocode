@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDrvDbQuerySyncNodesUpdated @ 0x14083E148
+ * XREFs of PiDrvDbQuerySyncNodesUpdated @ 0x14083E128
  * Callers:
  *     PpDevCfgInit @ 0x1409C875C (PpDevCfgInit.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
  *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
  *     RtlGetPersistedStateLocation @ 0x140612450 (RtlGetPersistedStateLocation.c)
- *     _RegRtlSetValue @ 0x1406FCBC8 (_RegRtlSetValue.c)
- *     IopCreateRegistryKeyEx @ 0x1407096E4 (IopCreateRegistryKeyEx.c)
+ *     _RegRtlSetValue @ 0x1406FCBA8 (_RegRtlSetValue.c)
+ *     IopCreateRegistryKeyEx @ 0x1407096C4 (IopCreateRegistryKeyEx.c)
  */
 
 __int64 __fastcall PiDrvDbQuerySyncNodesUpdated(char a1, char *a2)

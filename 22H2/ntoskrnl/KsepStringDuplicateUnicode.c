@@ -1,43 +1,41 @@
 /*
- * XREFs of KsepStringDuplicateUnicode @ 0x140694900
+ * XREFs of KsepStringDuplicateUnicode @ 0x14075B024
  * Callers:
- *     KseShimDriverIoCallbacks @ 0x140693D74 (KseShimDriverIoCallbacks.c)
- *     KseDriverLoadImage @ 0x140694730 (KseDriverLoadImage.c)
+ *     KseShimDriverIoCallbacks @ 0x140757D14 (KseShimDriverIoCallbacks.c)
+ *     KseDriverLoadImage @ 0x14075AD50 (KseDriverLoadImage.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x140209ED0 (KsepPoolAllocatePaged.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlAssert @ 0x1405AA150 (RtlAssert.c)
+ *     KsepPoolAllocatePaged @ 0x140371F2C (KsepPoolAllocatePaged.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlAssert @ 0x140588750 (RtlAssert.c)
  */
 
 __int64 __fastcall KsepStringDuplicateUnicode(__int64 a1, const void **a2)
 {
-  __int64 v4; // r14
-  unsigned __int64 v5; // rsi
+  size_t v4; // rbx
   _WORD *Paged; // rax
-  _WORD *v7; // rbp
+  _WORD *v6; // rbp
   __int64 result; // rax
-  __int64 v9; // rax
+  __int64 v8; // rax
 
   if ( !a2 )
   {
-    v9 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    KsepHistoryErrors[2 * v9 + 1] = -1073740768;
-    KsepHistoryErrors[2 * v9] = 197261;
+    v8 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+    KsepHistoryErrors[2 * v8 + 1] = -1073740768;
+    KsepHistoryErrors[2 * v8] = 197261;
     if ( (KsepDebugFlag & 4) != 0 )
       RtlAssert("SourceString != NULL", "minkernel\\ntos\\kshim\\ksemisc.c", 0x28Du, 0LL);
   }
   *(_OWORD *)a1 = 0LL;
-  v4 = *(unsigned __int16 *)a2;
-  v5 = v4 + 2;
-  Paged = KsepPoolAllocatePaged(v4 + 2);
-  v7 = Paged;
+  v4 = *(unsigned __int16 *)a2 + 2LL;
+  Paged = KsepPoolAllocatePaged(v4);
+  v6 = Paged;
   if ( !Paged )
     return 3221225495LL;
-  memmove(Paged, a2[1], (unsigned int)v4);
-  v7[(v5 >> 1) - 1] = 0;
-  *(_WORD *)a1 = v4;
+  memmove(Paged, a2[1], v4 - 2);
+  v6[(v4 >> 1) - 1] = 0;
+  *(_QWORD *)(a1 + 8) = v6;
+  *(_WORD *)a1 = v4 - 2;
   result = 0LL;
-  *(_QWORD *)(a1 + 8) = v7;
-  *(_WORD *)(a1 + 2) = v5;
+  *(_WORD *)(a1 + 2) = v4;
   return result;
 }

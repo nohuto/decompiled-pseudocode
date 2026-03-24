@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetHighestPteConsumer @ 0x1402CD878
+ * XREFs of MiGetHighestPteConsumer @ 0x1402CD978
  * Callers:
- *     MiIssueNoPtesBugcheck @ 0x1402AD708 (MiIssueNoPtesBugcheck.c)
+ *     MiIssueNoPtesBugcheck @ 0x1402AD808 (MiIssueNoPtesBugcheck.c)
  * Callees:
  *     <none>
  */

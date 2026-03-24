@@ -3,13 +3,13 @@
  * Callers:
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObCreateObject @ 0x1405BD820 (ObCreateObject.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
  *     ObInsertObject @ 0x14061B280 (ObInsertObject.c)
- *     ObCreateObjectType @ 0x1407289E0 (ObCreateObjectType.c)
+ *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
  */
 
 __int64 MiSectionInitialization()

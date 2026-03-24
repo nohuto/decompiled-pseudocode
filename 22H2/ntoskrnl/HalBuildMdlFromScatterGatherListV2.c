@@ -1,10 +1,10 @@
 /*
- * XREFs of HalBuildMdlFromScatterGatherListV2 @ 0x1403D3990
+ * XREFs of HalBuildMdlFromScatterGatherListV2 @ 0x140303890
  * Callers:
  *     <none>
  * Callees:
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     IopAllocateMdl @ 0x1402FC0EC (IopAllocateMdl.c)
+ *     IoAllocateMdl @ 0x14035A110 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
  */
 
 __int64 __fastcall HalBuildMdlFromScatterGatherListV2(__int64 a1, unsigned int *a2, struct _MDL *a3, struct _MDL **a4)
@@ -12,19 +12,19 @@ __int64 __fastcall HalBuildMdlFromScatterGatherListV2(__int64 a1, unsigned int *
   __int64 v6; // rbx
   unsigned int v7; // r8d
   unsigned int *v8; // r14
-  __int64 v9; // r9
+  unsigned int v9; // r9d
   struct _MDL *v10; // rdi
-  _QWORD *v11; // r15
+  _QWORD *p_Next; // r15
   int v12; // eax
   unsigned int v13; // r12d
-  unsigned int v14; // edx
+  ULONG v14; // edx
   char v15; // cl
   int *v16; // r13
   int v17; // r10d
   int v18; // r11d
   unsigned int v19; // ebp
-  __int64 Mdl; // rax
-  __int64 v21; // rax
+  PMDL Mdl; // rax
+  PMDL v21; // rax
   struct _MDL *Next; // rbx
   struct _MDL *v23; // r8
   int v24; // eax
@@ -39,11 +39,11 @@ __int64 __fastcall HalBuildMdlFromScatterGatherListV2(__int64 a1, unsigned int *
   unsigned int v33; // [rsp+30h] [rbp-48h]
   int v34; // [rsp+34h] [rbp-44h]
   int v35; // [rsp+38h] [rbp-40h]
-  int v36; // [rsp+90h] [rbp+18h]
+  unsigned int v36; // [rsp+90h] [rbp+18h]
 
   if ( !a3 )
     return 3221225485LL;
-  if ( !*(_BYTE *)(a1 + 440) && *(_BYTE *)(a1 + 445) )
+  if ( !*(_BYTE *)(a1 + 432) && *(_BYTE *)(a1 + 437) )
   {
     *a4 = a3;
     return 0LL;
@@ -53,11 +53,11 @@ __int64 __fastcall HalBuildMdlFromScatterGatherListV2(__int64 a1, unsigned int *
     return 3221225587LL;
   v7 = *a2;
   v8 = a2 + 4;
-  v9 = 0LL;
+  v9 = 0;
   v33 = v7;
   v10 = 0LL;
   v36 = 0;
-  v11 = 0LL;
+  p_Next = 0LL;
   v12 = 0;
   v13 = 0;
   v14 = 0;
@@ -117,17 +117,17 @@ LABEL_30:
     v34 = *v16;
     if ( !v15 && (v12 || v19) )
     {
-      Mdl = IopAllocateMdl(v13, v14, 1, v9, 0LL, 0);
+      Mdl = IoAllocateMdl((PVOID)v13, v14, 1u, 0, 0LL);
       if ( !Mdl )
         goto LABEL_26;
-      *(_WORD *)(Mdl + 10) |= 0x2802u;
+      Mdl->MdlFlags |= 0x2802u;
       if ( v10 )
-        *v11 = Mdl;
+        *p_Next = Mdl;
       else
-        v10 = (struct _MDL *)Mdl;
+        v10 = Mdl;
       v7 = v33;
-      v11 = (_QWORD *)Mdl;
-      LODWORD(v9) = v36;
+      p_Next = &Mdl->Next;
+      v9 = v36;
       v14 = 0;
       LOWORD(v17) = v34;
       v18 = v35;
@@ -135,24 +135,24 @@ LABEL_30:
     v15 = 0;
     if ( v14 )
       v19 = v13;
-    v9 = (unsigned int)(v9 + 1);
+    ++v9;
     v14 += v18;
     v13 = v19;
     v12 = ((_WORD)v17 + (_WORD)v18) & 0xFFF;
     v36 = v9;
     v16 += 6;
   }
-  while ( (unsigned int)v9 < v7 );
+  while ( v9 < v7 );
   if ( !v14 )
     goto LABEL_30;
-  v21 = IopAllocateMdl(v19, v14, 1, v9, 0LL, 0);
+  v21 = IoAllocateMdl((PVOID)v19, v14, 1u, 0, 0LL);
   if ( v21 )
   {
-    *(_WORD *)(v21 + 10) |= 0x2802u;
+    v21->MdlFlags |= 0x2802u;
     if ( v10 )
-      *v11 = v21;
+      *p_Next = v21;
     else
-      v10 = (struct _MDL *)v21;
+      v10 = v21;
     goto LABEL_30;
   }
 LABEL_26:

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaCommitScatterMapBuffers @ 0x140510B04
+ * XREFs of HalpDmaCommitScatterMapBuffers @ 0x1404C7174
  * Callers:
- *     HalpDmaAllocateLocalScatterPool @ 0x1409342E8 (HalpDmaAllocateLocalScatterPool.c)
- *     HalpDmaGrowScatterMapBuffers @ 0x1409346D4 (HalpDmaGrowScatterMapBuffers.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x1408650C8 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalpDmaGrowScatterMapBuffers @ 0x1408654B8 (HalpDmaGrowScatterMapBuffers.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     HalpDmaGetTranslationEntries @ 0x14039C20C (HalpDmaGetTranslationEntries.c)
- *     HalpDmaPrependTranslations @ 0x14045C156 (HalpDmaPrependTranslations.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     HalpDmaGetTranslationEntries @ 0x1403BB980 (HalpDmaGetTranslationEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaPrependTranslations @ 0x1404C7CB0 (HalpDmaPrependTranslations.c)
  */
 
 __int64 __fastcall HalpDmaCommitScatterMapBuffers(__int64 a1, __int64 a2, __int64 a3, int a4, _DWORD *a5)
@@ -17,18 +17,19 @@ __int64 __fastcall HalpDmaCommitScatterMapBuffers(__int64 a1, __int64 a2, __int6
   unsigned __int64 v9; // rbx
   __int64 result; // rax
   __int64 v11; // rbp
-  char v12; // r13
-  _QWORD *v13; // rcx
-  __int64 v14; // r8
+  char v12; // r15
+  __int64 v13; // rdx
+  __int64 v14; // r9
   __int64 v15; // rax
   __int64 v16; // rax
-  __int64 v17; // rax
+  __int64 v17; // rcx
+  __int64 v18; // rax
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v22; // eax
-  bool v23; // zf
+  int v23; // eax
+  bool v24; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-48h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
@@ -46,8 +47,8 @@ __int64 __fastcall HalpDmaCommitScatterMapBuffers(__int64 a1, __int64 a2, __int6
   v11 = result;
   if ( result )
   {
-    v12 = *(_BYTE *)(a1 + 152);
-    v13 = (_QWORD *)result;
+    v12 = *(_BYTE *)(a1 + 144);
+    v13 = result;
     if ( (_DWORD)v9 )
     {
       v14 = (unsigned int)v9;
@@ -63,38 +64,45 @@ __int64 __fastcall HalpDmaCommitScatterMapBuffers(__int64 a1, __int64 a2, __int6
         {
           a3 += 4096LL;
         }
-        *v13 = v15;
+        *(_QWORD *)v13 = v15;
         if ( a2 )
         {
-          v13[6] = a2 | v13[6] & 0xFFF;
+          v17 = a2 | *(_DWORD *)(v13 + 48) & 0xFFF;
           a2 += 4096LL;
         }
-        v13[6] = (4LL * (v12 & 1)) | v12 & 1 | v13[6] & 0xFFFFFFFFFFFFFFFAuLL | 2 | 8;
-        v13 = (_QWORD *)v13[1];
+        else
+        {
+          v17 = *(_QWORD *)(v13 + 48);
+        }
+        *(_QWORD *)(v13 + 48) = (4LL * (v12 & 1)) | v17 & 0xFFFFFFFFFFFFFFFAuLL | v12 & 1 | 0xA;
+        v13 = *(_QWORD *)(v13 + 8);
         --v14;
       }
       while ( v14 );
     }
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 128), &LockHandle);
-    v17 = HalpDmaPrependTranslations(v11, v9, *(_QWORD *)(a1 + 32));
-    *(_DWORD *)(a1 + 40) += v9;
-    *(_QWORD *)(a1 + 32) = v17;
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 120), &LockHandle);
+    v18 = HalpDmaPrependTranslations(v11, (unsigned int)v9, *(_QWORD *)(a1 + 24));
+    *(_DWORD *)(a1 + 32) += v9;
+    *(_QWORD *)(a1 + 24) = v18;
     if ( v12 )
-      *(_DWORD *)(a1 + 216) += v9;
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+      *(_DWORD *)(a1 + 208) += v9;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v22 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v23 = (v22 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v22;
-        if ( v23 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v23 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v24 = (v23 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v23;
+          if ( v24 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(OldIrql);

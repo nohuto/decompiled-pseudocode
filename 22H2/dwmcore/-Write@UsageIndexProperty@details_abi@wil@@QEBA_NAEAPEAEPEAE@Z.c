@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Write@UsageIndexProperty@details_abi@wil@@QEBA_NAEAPEAEPEAE@Z @ 0x18019ABB4
+ * XREFs of ?Write@UsageIndexProperty@details_abi@wil@@QEBA_NAEAPEAEPEAE@Z @ 0x1800AF3B0
  * Callers:
- *     ?RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z @ 0x180199C30 (-RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z.c)
+ *     ?RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z @ 0x1800AF6CC (-RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z.c)
  * Callees:
- *     memcpy_s @ 0x1800FA15C (memcpy_s.c)
+ *     memcpy_s @ 0x1800AFAC4 (memcpy_s.c)
  */
 
 bool __fastcall wil::details_abi::UsageIndexProperty::Write(
@@ -12,58 +12,52 @@ bool __fastcall wil::details_abi::UsageIndexProperty::Write(
         char *a3)
 {
   char *v4; // rbx
-  char *v7; // r14
-  char *v8; // r8
-  rsize_t v9; // r9
-  rsize_t v10; // rdx
-  unsigned __int16 *v11; // r14
-  rsize_t v12; // r9
+  rsize_t v7; // r9
   bool result; // al
-  __int16 v14; // [rsp+40h] [rbp+8h] BYREF
+  char *v9; // r14
+  char *p_Source; // r8
+  rsize_t v11; // r9
+  rsize_t v12; // rdx
+  __int16 Source; // [rsp+40h] [rbp+8h] BYREF
 
   v4 = *a2;
   if ( *((_BYTE *)this + 2) == 1 )
   {
-    v7 = v4 + 2;
+    v9 = v4 + 2;
     if ( v4 + 2 > a3 )
       return 0;
-    v8 = (char *)&v14;
-    v9 = 2LL;
-    v14 = *((_WORD *)this + 2);
-    v10 = 2LL;
+    p_Source = (char *)&Source;
+    v11 = 2LL;
+    Source = *((_WORD *)this + 2);
+    v12 = 2LL;
+    goto LABEL_8;
   }
-  else
+  if ( *((_BYTE *)this + 2) == 2 )
   {
-    if ( *((_BYTE *)this + 2) != 2 )
-      goto LABEL_8;
-    v7 = v4 + 4;
+    v9 = v4 + 4;
     if ( v4 + 4 > a3 )
       return 0;
-    v10 = 4LL;
-    v8 = (char *)this + 4;
-    v9 = 4LL;
-  }
-  memcpy_s(v4, v10, v8, v9);
-  v4 = v7;
+    v12 = 4LL;
+    p_Source = (char *)this + 4;
+    v11 = 4LL;
 LABEL_8:
+    memcpy_s(v4, v12, p_Source, v11);
+    v4 = v9;
+  }
   if ( !*(_WORD *)this )
   {
-    if ( v4 + 2 <= a3 )
-    {
-      v11 = (unsigned __int16 *)((char *)this + 8);
-      memcpy_s(v4, a3 - v4, (char *)this + 8, 2uLL);
-      v4 += 2;
-      goto LABEL_12;
-    }
-    return 0;
+    if ( v4 + 2 > a3 )
+      return 0;
+    memcpy_s(v4, a3 - v4, (char *)this + 8, 2uLL);
+    v4 += 2;
   }
-  v11 = (unsigned __int16 *)((char *)this + 8);
-LABEL_12:
-  v12 = *v11;
-  if ( &v4[v12] > a3 )
-    return 0;
-  memcpy_s(v4, a3 - v4, *((const void *const *)this + 3), v12);
-  result = 1;
-  *a2 = &v4[*v11];
-  return result;
+  v7 = *((unsigned __int16 *)this + 4);
+  if ( &v4[v7] <= a3 )
+  {
+    memcpy_s(v4, a3 - v4, *((const void *const *)this + 3), v7);
+    result = 1;
+    *a2 = &v4[*((unsigned __int16 *)this + 4)];
+    return result;
+  }
+  return 0;
 }

@@ -1,30 +1,32 @@
 /*
- * XREFs of SetDebugHotKeys @ 0x1C003CA78
+ * XREFs of SetDebugHotKeys @ 0x1C00090CC
  * Callers:
- *     RawInputThread @ 0x1C003F070 (RawInputThread.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
  * Callees:
- *     ?_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z @ 0x1C0043264 (-_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z.c)
+ *     _RegisterHotKey @ 0x1C0032BD4 (_RegisterHotKey.c)
  */
 
 __int64 SetDebugHotKeys()
 {
-  __int64 v0; // rcx
-  __int64 v1; // rcx
-  __int64 v2; // rcx
-  unsigned int v3; // eax
-  __int64 v5; // rcx
-  bool v6; // zf
-  unsigned int v7; // [rsp+40h] [rbp+8h]
+  int v0; // eax
+  int v1; // eax
+  unsigned __int8 v2; // cf
+  ULONG_PTR *BugCheckParameter2; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2a; // [rsp+20h] [rbp-18h]
+  ULONG_PTR v6; // [rsp+40h] [rbp+8h] BYREF
 
+  LODWORD(v6) = 0;
+  BugCheckParameter2 = &v6;
   FastGetProfileDword(0LL, 21LL, L"UserDebuggerHotkey");
-  if ( *(_BYTE *)(SGDGetUserSessionState(v0) + 12568) == 2
-    || *(_BYTE *)(SGDGetUserSessionState(v1) + 12568) == 4
-    || *(_BYTE *)(SGDGetUserSessionState(v2) + 12568) == 7
-    || (v6 = *(_BYTE *)(SGDGetUserSessionState(v5) + 12568) == 8, v3 = 109, v6) )
+  v0 = v6;
+  if ( !(_DWORD)v6 )
   {
-    v3 = 123;
+    if ( gKeyboardInfo > 8u || (v1 = 404, v2 = _bittest(&v1, gKeyboardInfo), v0 = 123, !v2) )
+      v0 = 109;
+    LODWORD(v6) = v0;
   }
-  v7 = v3;
-  _RegisterHotKey((struct tagWND *)1, 0LL, -5, 0, v3, 0LL);
-  return _RegisterHotKey((struct tagWND *)1, 0LL, -6, 4u, v7, 0LL);
+  LODWORD(BugCheckParameter2) = v0;
+  RegisterHotKey((struct tagWND *)1, (ULONG_PTR)BugCheckParameter2);
+  LODWORD(BugCheckParameter2a) = v6;
+  return RegisterHotKey((struct tagWND *)1, BugCheckParameter2a);
 }

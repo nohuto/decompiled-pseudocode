@@ -1,122 +1,274 @@
 /*
- * XREFs of MmMapViewInSystemCache @ 0x14029F510
+ * XREFs of MmMapViewInSystemCache @ 0x140291460
  * Callers:
- *     CcGetVacbMiss @ 0x14029EFF0 (CcGetVacbMiss.c)
+ *     CcGetVacbMiss @ 0x140291040 (CcGetVacbMiss.c)
  * Callees:
- *     MiGetSystemCacheReverseMap @ 0x1402622F0 (MiGetSystemCacheReverseMap.c)
- *     MiOffsetToProtos @ 0x140288420 (MiOffsetToProtos.c)
- *     MiAddViewsForSection @ 0x140288650 (MiAddViewsForSection.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     MiObtainSystemCacheView @ 0x14029FD70 (MiObtainSystemCacheView.c)
- *     MiManageSubsectionView @ 0x1402A03E0 (MiManageSubsectionView.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     MiReadyReservedView @ 0x14062EF00 (MiReadyReservedView.c)
- *     MiRemoveSystemCacheReferences @ 0x14062EFDC (MiRemoveSystemCacheReferences.c)
+ *     MiManageSubsectionView @ 0x140291780 (MiManageSubsectionView.c)
+ *     MiGetSystemCacheReverseMap @ 0x140292630 (MiGetSystemCacheReverseMap.c)
+ *     MiObtainSystemCacheView @ 0x140292B80 (MiObtainSystemCacheView.c)
+ *     MiGetPteLink @ 0x140293260 (MiGetPteLink.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     MiAddViewsForSection @ 0x140295C70 (MiAddViewsForSection.c)
+ *     MiOffsetToProtos @ 0x1402A11E0 (MiOffsetToProtos.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiCompareTbFlushTimeStamp @ 0x140307B3C (MiCompareTbFlushTimeStamp.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiRemoveSystemCacheReferences @ 0x140537390 (MiRemoveSystemCacheReferences.c)
  */
 
-__int64 __fastcall MmMapViewInSystemCache(__int64 a1, unsigned __int64 *a2, unsigned __int64 *a3)
+__int64 __fastcall MmMapViewInSystemCache(__int64 a1, __int64 *a2, unsigned __int64 *a3, _DWORD *a4)
 {
-  int v3; // eax
-  __int64 v6; // rax
-  ULONG_PTR BugCheckParameter4; // r8
-  _DWORD *v8; // r9
-  __int64 v9; // rdi
-  int v10; // esi
-  __int64 v11; // rsi
-  unsigned int *v12; // r13
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  ULONG_PTR v10; // rax
+  ULONG_PTR v11; // r12
+  BOOL v12; // edx
+  int v13; // ecx
+  __int64 v14; // r15
+  ULONG_PTR v15; // rbp
   __int64 result; // rax
-  __int64 v14; // rcx
-  unsigned __int64 v15; // rdi
-  _WORD *v16; // rbp
-  __int64 v17; // rax
-  unsigned __int64 v18; // rbx
-  _QWORD *SystemCacheReverseMap; // rdi
-  __int64 *v20; // r8
-  unsigned __int64 v21; // r9
-  unsigned __int64 v22; // r11
-  unsigned __int64 v23; // rcx
-  unsigned __int64 v24; // rdx
-  __int64 v25; // rax
-  __int64 v26; // rcx
-  __int64 v27; // rax
-  signed __int32 v28[8]; // [rsp+0h] [rbp-88h] BYREF
-  __int128 v29; // [rsp+30h] [rbp-58h]
-  __int128 v30; // [rsp+40h] [rbp-48h]
-  unsigned __int64 v31; // [rsp+50h] [rbp-38h]
-  unsigned __int64 v32; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v17; // rcx
+  _WORD *v18; // r13
+  __int64 v19; // rax
+  __int64 v20; // rdx
+  unsigned __int64 v21; // rdi
+  unsigned __int64 v22; // rbx
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  unsigned __int64 v27; // rbx
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // r9
+  unsigned __int64 v32; // rbx
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // r8
+  __int64 v36; // r9
+  unsigned __int64 v37; // rbx
+  __int64 v38; // rdx
+  __int64 v39; // rcx
+  __int64 v40; // r8
+  __int64 v41; // r9
+  __int64 v42; // rcx
+  unsigned __int64 v43; // rsi
+  __int64 v44; // rax
+  unsigned __int64 v45; // rbp
+  unsigned __int64 v46; // r14
+  _QWORD *SystemCacheReverseMap; // r9
+  unsigned __int64 v48; // rdx
+  unsigned __int64 v49; // rcx
+  __int64 v50; // rdx
+  ULONG_PTR v51; // r15
+  __int64 v52; // rbx
+  __int64 v53; // rcx
+  __int64 v54; // r8
+  __int64 v55; // r9
+  __int64 v56; // rax
+  __int64 PteLink; // rax
+  signed __int32 v58[8]; // [rsp+0h] [rbp-178h] BYREF
+  __int64 v59; // [rsp+30h] [rbp-148h] BYREF
+  _QWORD *v60; // [rsp+38h] [rbp-140h]
+  __int64 *v61; // [rsp+40h] [rbp-138h]
+  unsigned __int64 *v62; // [rsp+48h] [rbp-130h]
+  ULONG_PTR v63; // [rsp+50h] [rbp-128h]
+  _QWORD v64[24]; // [rsp+60h] [rbp-118h] BYREF
 
-  v3 = *(_DWORD *)(a1 + 56);
-  v32 = 0LL;
-  if ( (v3 & 0x20) != 0 )
+  v62 = a3;
+  v61 = a2;
+  v59 = 0LL;
+  memset(v64, 0, 0xB8uLL);
+  if ( (*(_DWORD *)(a1 + 56) & 0x20) != 0 )
     return 3221225608LL;
-  v6 = MiSectionControlArea(a1);
-  v9 = v6;
-  v10 = BugCheckParameter4;
-  if ( (*v8 & 0xFFF) != 0 )
-    v10 = 1;
-  v11 = (unsigned int)((*v8 >> 12) + v10);
-  if ( !(_DWORD)v11 )
-    KeBugCheckEx(0x1Au, 0x103087uLL, v6, 0LL, BugCheckParameter4);
-  v12 = MiOffsetToProtos(v6, *a3, &v32);
-  result = MiAddViewsForSection((ULONG_PTR)v12, v11 + v32, 5u);
+  v10 = MiSectionControlArea(a1, v8, v9);
+  v11 = v10;
+  v12 = (*a4 & 0xFFF) != 0;
+  v13 = *a4 >> 12;
+  v14 = (unsigned int)(v12 + v13);
+  if ( !(v12 + v13) )
+    KeBugCheckEx(0x1Au, 0x103087uLL, v10, 0LL, 0LL);
+  v63 = MiOffsetToProtos(v10, *a3, &v59);
+  v15 = v63;
+  result = MiAddViewsForSection(v63);
   if ( (int)result < 0 )
   {
-    ++dword_140C6A320;
+    ++dword_140C4F820;
     return result;
   }
-  v14 = *(_WORD *)(v9 + 60) & 0x3FF;
-  v15 = *a2;
-  v16 = *(_WORD **)(qword_140C674C8 + 8 * v14);
+  v17 = *(_WORD *)(v11 + 60) & 0x3FF;
+  v18 = *(_WORD **)(qword_140C4E648 + 8 * v17);
   if ( *a2 )
   {
-    MiReadyReservedView(v15);
+    v21 = (((unsigned __int64)*a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    if ( MiGetPteLink(*(_QWORD *)(v21 + 24)) == 2 )
+    {
+      PteLink = MiGetPteLink(*(_QWORD *)(v21 + 16));
+      if ( (unsigned __int8)MiCompareTbFlushTimeStamp(PteLink, 0xFFFFFLL) )
+      {
+        LODWORD(v64[1]) = 20;
+        v64[3] = 0LL;
+        MiInsertTbFlushEntry(v64, (__int64)(v21 << 25) >> 16, 64LL, 0LL);
+        MiFlushTbList(v64);
+      }
+    }
   }
   else
   {
-    v17 = MiObtainSystemCacheView(*(_QWORD *)(qword_140C674C8 + 8 * v14));
-    v15 = v17;
-    if ( !v17 )
+    v19 = MiObtainSystemCacheView(*(_QWORD *)(qword_140C4E648 + 8 * v17));
+    v21 = v19;
+    if ( !v19 )
     {
-      ++dword_140C6A320;
-      MiRemoveSystemCacheReferences((ULONG_PTR)v12);
+      ++dword_140C4F820;
+      MiRemoveSystemCacheReferences(v15);
       return 3221225495LL;
     }
-    *a2 = v17;
+    *a2 = v19 << 25 >> 16;
   }
-  v18 = ((v15 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL + 8 * v11;
-  SystemCacheReverseMap = (_QWORD *)MiGetSystemCacheReverseMap(v15);
-  v23 = *a3 >> 2;
-  v24 = (unsigned __int64)(*v16 & 0x3FF) << 6;
-  SystemCacheReverseMap[2] &= 0xFFFFFFFFFFFFFFFCuLL;
-  SystemCacheReverseMap[3] = v12;
-  for ( SystemCacheReverseMap[4] = v11 & 0x3F | SystemCacheReverseMap[4] & 0xC000000000000000uLL | v23 & 0x3FFFFFFFFFFF0000LL | v24;
-        (unsigned __int64)v20 < v18;
-        ++v20 )
+  v22 = ZeroPte;
+  if ( !(unsigned int)MiPteInShadowRange(v21, v20) )
+    goto LABEL_8;
+  if ( !(unsigned int)MiPteHasShadow(v24, v23, v25, v26) )
   {
-    if ( v21 >= v22 )
+    if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
+      && (ZeroPte & 1) != 0 )
     {
-      v12 = (unsigned int *)*((_QWORD *)v12 + 2);
-      v21 = *((_QWORD *)v12 + 1);
-      v27 = v12[11];
+      v22 = ZeroPte | 0x8000000000000000uLL;
+    }
+LABEL_8:
+    *(_QWORD *)v21 = v22;
+    goto LABEL_9;
+  }
+  if ( !HIBYTE(word_140C4E008) && (ZeroPte & 1) != 0 )
+    v22 = ZeroPte | 0x8000000000000000uLL;
+  *(_QWORD *)v21 = v22;
+  MiWritePteShadow(v21, v22);
+LABEL_9:
+  v27 = ZeroPte;
+  if ( !(unsigned int)MiPteInShadowRange(v21 + 8, v23) )
+  {
+LABEL_10:
+    *(_QWORD *)(v21 + 8) = v27;
+    goto LABEL_11;
+  }
+  if ( !(unsigned int)MiPteHasShadow(v29, v28, v30, v31) )
+  {
+    if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
+      && (ZeroPte & 1) != 0 )
+    {
+      v27 = ZeroPte | 0x8000000000000000uLL;
+    }
+    goto LABEL_10;
+  }
+  if ( !HIBYTE(word_140C4E008) && (ZeroPte & 1) != 0 )
+    v27 = ZeroPte | 0x8000000000000000uLL;
+  *(_QWORD *)(v21 + 8) = v27;
+  MiWritePteShadow(v21 + 8, v27);
+LABEL_11:
+  v32 = ZeroPte;
+  if ( !(unsigned int)MiPteInShadowRange(v21 + 16, v28) )
+  {
+LABEL_12:
+    *(_QWORD *)(v21 + 16) = v32;
+    goto LABEL_13;
+  }
+  if ( !(unsigned int)MiPteHasShadow(v34, v33, v35, v36) )
+  {
+    if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
+      && (ZeroPte & 1) != 0 )
+    {
+      v32 = ZeroPte | 0x8000000000000000uLL;
+    }
+    goto LABEL_12;
+  }
+  if ( !HIBYTE(word_140C4E008) && (ZeroPte & 1) != 0 )
+    v32 = ZeroPte | 0x8000000000000000uLL;
+  *(_QWORD *)(v21 + 16) = v32;
+  MiWritePteShadow(v21 + 16, v32);
+LABEL_13:
+  v37 = ZeroPte;
+  if ( (unsigned int)MiPteInShadowRange(v21 + 24, v33) )
+  {
+    if ( (unsigned int)MiPteHasShadow(v39, v38, v40, v41) )
+    {
+      if ( !HIBYTE(word_140C4E008) && (ZeroPte & 1) != 0 )
+        v37 = ZeroPte | 0x8000000000000000uLL;
+      *(_QWORD *)(v21 + 24) = v37;
+      MiWritePteShadow(v21 + 24, v37);
+      goto LABEL_15;
+    }
+    if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
+      && (ZeroPte & 1) != 0 )
+    {
+      v37 = ZeroPte | 0x8000000000000000uLL;
+    }
+  }
+  *(_QWORD *)(v21 + 24) = v37;
+LABEL_15:
+  v42 = *(_QWORD *)(v15 + 8);
+  v43 = v42 + 8 * v59;
+  v44 = *(unsigned int *)(v15 + 44);
+  v45 = v21 + 8 * v14;
+  v46 = v42 + 8 * v44;
+  SystemCacheReverseMap = (_QWORD *)MiGetSystemCacheReverseMap(*v61);
+  v48 = (unsigned __int64)(*v18 & 0x3FF) << 6;
+  v60 = SystemCacheReverseMap;
+  v49 = *v62;
+  SystemCacheReverseMap[2] &= 0xFFFFFFFFFFFFFFFCuLL;
+  v50 = v14 & 0x3F | (v49 >> 2) & 0x3FFFFFFFFFFF0000LL | v48;
+  v51 = v63;
+  SystemCacheReverseMap[3] = v63;
+  SystemCacheReverseMap[4] = v50;
+  if ( !*(_QWORD *)(v11 + 64) )
+    SystemCacheReverseMap[3] = v51 | 1;
+  for ( ; v21 < v45; v43 += 8LL )
+  {
+    if ( v43 >= v46 )
+    {
+      v51 = *(_QWORD *)(v51 + 16);
+      v43 = *(_QWORD *)(v51 + 8);
+      v56 = *(unsigned int *)(v51 + 44);
       SystemCacheReverseMap[3] |= 1uLL;
-      v22 = v21 + 8 * v27;
+      v46 = v43 + 8 * v56;
     }
-    v25 = (v21 << 16) | 0x400;
-    if ( qword_140C65C40 )
+    v52 = (v43 << 16) | 0x400;
+    if ( qword_140C4DF40 )
     {
-      v26 = (v21 << 16) | 0x410;
-      if ( (qword_140C65C40 & v25) == 0 )
-        v26 = qword_140C65C40 | (v21 << 16) | 0x400;
-      v25 = v26;
+      if ( (qword_140C4DF40 & v52) != 0 )
+        v52 = (v43 << 16) | 0x410;
+      else
+        v52 |= qword_140C4DF40;
     }
-    *v20 = v25;
+    if ( (unsigned int)MiPteInShadowRange(v21, v50) )
+    {
+      if ( (unsigned int)MiPteHasShadow(v53, v50, v54, v55) )
+      {
+        if ( !HIBYTE(word_140C4E008) && (v52 & 1) != 0 )
+          v52 |= 0x8000000000000000uLL;
+        *(_QWORD *)v21 = v52;
+        MiWritePteShadow(v21, v52);
+        goto LABEL_25;
+      }
+      if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
+        && (v52 & 1) != 0 )
+      {
+        v52 |= 0x8000000000000000uLL;
+      }
+    }
+    *(_QWORD *)v21 = v52;
+LABEL_25:
+    SystemCacheReverseMap = v60;
     v21 += 8LL;
   }
-  _InterlockedOr(v28, 0);
-  v31 = SystemCacheReverseMap[4] | 0xC000000000000000uLL;
-  v29 = 0LL;
-  v30 = 0LL;
-  SystemCacheReverseMap[4] = v31;
-  MiManageSubsectionView(v12, SystemCacheReverseMap, (2 * (unsigned __int8)SystemCacheReverseMap[3]) & 2 | 1u);
+  _InterlockedOr(v58, 0);
+  SystemCacheReverseMap[2] = *v61;
+  MiManageSubsectionView(v51, SystemCacheReverseMap, (2 * (unsigned __int8)SystemCacheReverseMap[3]) & 2 | 1u);
   return 0LL;
 }

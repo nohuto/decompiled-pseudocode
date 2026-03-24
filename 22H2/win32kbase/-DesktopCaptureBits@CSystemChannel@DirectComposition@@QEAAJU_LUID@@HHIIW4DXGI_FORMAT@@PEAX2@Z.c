@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DesktopCaptureBits@CSystemChannel@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z @ 0x1C020D15C
+ * XREFs of ?DesktopCaptureBits@CSystemChannel@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z @ 0x1C01D5918
  * Callers:
- *     ?DesktopCaptureBits@CConnection@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z @ 0x1C020A4D0 (-DesktopCaptureBits@CConnection@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z.c)
+ *     ?DesktopCaptureBits@CConnection@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z @ 0x1C01D2F60 (-DesktopCaptureBits@CConnection@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z.c)
  * Callees:
- *     ?GetPayloadWritePointer@CBatch@DirectComposition@@QEAA_N_KPEAPEAX@Z @ 0x1C00258D4 (-GetPayloadWritePointer@CBatch@DirectComposition@@QEAA_N_KPEAPEAX@Z.c)
- *     ?Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_N1PEBUSynchronizationObject@2@PEAVCMilProtocolBlock@@PEAII@Z @ 0x1C0026EA4 (-Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_N1PEBUSynchronizationObject@2@PEAVCMil.c)
- *     ?PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C002715C (-PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ.c)
+ *     ?GetPayloadWritePointer@CBatch@DirectComposition@@QEAA_N_KPEAPEAX@Z @ 0x1C005C9A0 (-GetPayloadWritePointer@CBatch@DirectComposition@@QEAA_N_KPEAPEAX@Z.c)
+ *     ?Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z @ 0x1C005E8B4 (-Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z.c)
+ *     ?PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C005EAF4 (-PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CSystemChannel::DesktopCaptureBits(
@@ -21,7 +21,7 @@ __int64 __fastcall DirectComposition::CSystemChannel::DesktopCaptureBits(
 {
   char *v13; // rcx
   int v14; // eax
-  void *v16; // [rsp+50h] [rbp+8h] BYREF
+  void *v16; // [rsp+30h] [rbp+8h] BYREF
 
   v16 = 0LL;
   DirectComposition::CApplicationChannel::PreallocateNextBatch((DirectComposition::CApplicationChannel *)a1);
@@ -36,17 +36,9 @@ __int64 __fastcall DirectComposition::CSystemChannel::DesktopCaptureBits(
   *((_DWORD *)v13 + 8) = a7;
   *(_QWORD *)(v13 + 44) = a8;
   *(_QWORD *)(v13 + 52) = a9;
-  *((_DWORD *)v13 + 1) = 269;
+  *((_DWORD *)v13 + 1) = 278;
   *((_QWORD *)v13 + 1) = a2;
   *((_DWORD *)v13 + 4) = a3;
   *((_DWORD *)v13 + 5) = a4;
-  return DirectComposition::CApplicationChannel::Commit(
-           (DirectComposition::CApplicationChannel *)a1,
-           0LL,
-           1,
-           0,
-           0LL,
-           0LL,
-           0LL,
-           0);
+  return DirectComposition::CApplicationChannel::Commit((DirectComposition::CApplicationChannel *)a1, 0LL, 1, 0LL);
 }

@@ -1,33 +1,31 @@
 /*
- * XREFs of BapdpRegisterBitlockerStatus @ 0x140B1C88C
+ * XREFs of BapdpRegisterBitlockerStatus @ 0x140A41810
  * Callers:
- *     BapdpProcessBitlockerStatus @ 0x140B1C3C8 (BapdpProcessBitlockerStatus.c)
+ *     BapdpProcessBitlockerStatus @ 0x140A4133C (BapdpProcessBitlockerStatus.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
  */
 
-int __fastcall BapdpRegisterBitlockerStatus(PVOID Data, int a2)
+void __fastcall BapdpRegisterBitlockerStatus(PVOID Data, int a2)
 {
-  int result; // eax
-  NTSTATUS v4; // eax
-  HANDLE v5; // rcx
+  NTSTATUS v3; // eax
+  HANDLE v4; // rcx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   ULONG Disposition; // [rsp+90h] [rbp+10h] BYREF
   HANDLE KeyHandle; // [rsp+A0h] [rbp+20h] BYREF
   HANDLE Handle; // [rsp+A8h] [rbp+28h] BYREF
 
-  Disposition = 0;
-  result = 0;
-  *(&ObjectAttributes.Attributes + 1) = 0;
-  *(&ObjectAttributes.Length + 1) = 0;
-  DestinationString = 0LL;
   if ( Data )
   {
+    Disposition = 0;
+    *(&ObjectAttributes.Length + 1) = 0;
+    *(&ObjectAttributes.Attributes + 1) = 0;
+    DestinationString = 0LL;
     if ( a2 == 4 )
     {
       KeyHandle = 0LL;
@@ -38,8 +36,7 @@ int __fastcall BapdpRegisterBitlockerStatus(PVOID Data, int a2)
       ObjectAttributes.Length = 48;
       ObjectAttributes.Attributes = 576;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      result = ZwOpenKey(&KeyHandle, 0x2001Fu, &ObjectAttributes);
-      if ( result >= 0 )
+      if ( ZwOpenKey(&KeyHandle, 0x2001Fu, &ObjectAttributes) >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, L"BitlockerStatus");
         ObjectAttributes.RootDirectory = KeyHandle;
@@ -47,18 +44,17 @@ int __fastcall BapdpRegisterBitlockerStatus(PVOID Data, int a2)
         ObjectAttributes.ObjectName = &DestinationString;
         ObjectAttributes.Attributes = 576;
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        v4 = ZwCreateKey(&Handle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 1u, &Disposition);
-        v5 = KeyHandle;
-        if ( v4 >= 0 )
+        v3 = ZwCreateKey(&Handle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 1u, &Disposition);
+        v4 = KeyHandle;
+        if ( v3 >= 0 )
         {
           ZwClose(KeyHandle);
           RtlInitUnicodeString(&DestinationString, L"BootStatus");
           ZwSetValueKey(Handle, &DestinationString, 0, 4u, Data, 4u);
-          v5 = Handle;
+          v4 = Handle;
         }
-        return ZwClose(v5);
+        ZwClose(v4);
       }
     }
   }
-  return result;
 }

@@ -1,1 +1,71 @@
-/*\n * XREFs of KeyboardCallAllPorts @ 0x1C0004050\n * Callers:\n *     KeyboardClassDeviceControl @ 0x1C000C8D0 (KeyboardClassDeviceControl.c)\n * Callees:\n *     <none>\n */\n\n__int64 __fastcall KeyboardCallAllPorts(__int64 a1, IRP *a2, unsigned int *a3)\n{\n  struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx\n  unsigned int v5; // ebp\n  unsigned int v7; // edx\n  __int64 v8; // rax\n  unsigned int v9; // eax\n  __int64 v10; // rax\n  __int64 v11; // rax\n  __int64 v12; // rdi\n  struct _IO_STACK_LOCATION *v13; // rax\n  unsigned int v14; // ebx\n  __int64 result; // rax\n\n  CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;\n  v5 = a3[1];\n  *(_OWORD *)&CurrentStackLocation[-1].MajorFunction = *(_OWORD *)&CurrentStackLocation->MajorFunction;\n  *(_OWORD *)&CurrentStackLocation[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&CurrentStackLocation->Parameters.NotifyDirectoryEx.CompletionFilter;\n  *(_OWORD *)(&CurrentStackLocation[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&CurrentStackLocation->Parameters.SetQuota\n                                                                             + 6);\n  CurrentStackLocation[-1].FileObject = CurrentStackLocation->FileObject;\n  CurrentStackLocation[-1].Control = 0;\n  CurrentStackLocation[-1].MajorFunction = 15;\n  v7 = *a3;\n  if ( a3[1] < *a3 )\n  {\n    do\n    {\n      v8 = a3[1];\n      if ( LOBYTE(a3[6 * v8 + 6]) && !HIBYTE(a3[6 * v8 + 6]) )\n        break;\n      v9 = v8 + 1;\n      a3[1] = v9;\n    }\n    while ( v9 < v7 );\n  }\n  v10 = a3[1];\n  if ( (unsigned int)v10 >= v7 )\n  {\n    if ( a2->PendingReturned )\n      a2->Tail.Overlay.CurrentStackLocation->Control |= 1u;\n    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 32LL), a2, 0x20u);\n    ExFreePoolWithTag(a3, 0);\n    return 0LL;\n  }\n  else\n  {\n    v11 = 3 * v10;\n    v12 = *(_QWORD *)&a3[2 * v11 + 4];\n    CurrentStackLocation[-1].FileObject = *(PFILE_OBJECT *)&a3[2 * v11 + 2];\n    ++a3[1];\n    v13 = a2->Tail.Overlay.CurrentStackLocation;\n    v13[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)&KeyboardCallAllPorts;\n    v13[-1].Context = a3;\n    v13[-1].Control = -32;\n    v14 = IofCallDriver(*(PDEVICE_OBJECT *)(v12 + 16), a2);\n    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v12 + 32), a2, 0x20u);\n    result = 3221225494LL;\n    if ( !v5 )\n      return v14;\n  }\n  return result;\n}\n
+/*
+ * XREFs of KeyboardCallAllPorts @ 0x1C0004050
+ * Callers:
+ *     KeyboardClassDeviceControl @ 0x1C000C8D0 (KeyboardClassDeviceControl.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall KeyboardCallAllPorts(__int64 a1, IRP *a2, unsigned int *a3)
+{
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
+  unsigned int v5; // ebp
+  unsigned int v7; // edx
+  __int64 v8; // rax
+  unsigned int v9; // eax
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rdi
+  struct _IO_STACK_LOCATION *v13; // rax
+  unsigned int v14; // ebx
+  __int64 result; // rax
+
+  CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
+  v5 = a3[1];
+  *(_OWORD *)&CurrentStackLocation[-1].MajorFunction = *(_OWORD *)&CurrentStackLocation->MajorFunction;
+  *(_OWORD *)&CurrentStackLocation[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&CurrentStackLocation->Parameters.NotifyDirectoryEx.CompletionFilter;
+  *(_OWORD *)(&CurrentStackLocation[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&CurrentStackLocation->Parameters.SetQuota
+                                                                             + 6);
+  CurrentStackLocation[-1].FileObject = CurrentStackLocation->FileObject;
+  CurrentStackLocation[-1].Control = 0;
+  CurrentStackLocation[-1].MajorFunction = 15;
+  v7 = *a3;
+  if ( a3[1] < *a3 )
+  {
+    do
+    {
+      v8 = a3[1];
+      if ( LOBYTE(a3[6 * v8 + 6]) && !HIBYTE(a3[6 * v8 + 6]) )
+        break;
+      v9 = v8 + 1;
+      a3[1] = v9;
+    }
+    while ( v9 < v7 );
+  }
+  v10 = a3[1];
+  if ( (unsigned int)v10 >= v7 )
+  {
+    if ( a2->PendingReturned )
+      a2->Tail.Overlay.CurrentStackLocation->Control |= 1u;
+    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 32LL), a2, 0x20u);
+    ExFreePoolWithTag(a3, 0);
+    return 0LL;
+  }
+  else
+  {
+    v11 = 3 * v10;
+    v12 = *(_QWORD *)&a3[2 * v11 + 4];
+    CurrentStackLocation[-1].FileObject = *(PFILE_OBJECT *)&a3[2 * v11 + 2];
+    ++a3[1];
+    v13 = a2->Tail.Overlay.CurrentStackLocation;
+    v13[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)&KeyboardCallAllPorts;
+    v13[-1].Context = a3;
+    v13[-1].Control = -32;
+    v14 = IofCallDriver(*(PDEVICE_OBJECT *)(v12 + 16), a2);
+    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v12 + 32), a2, 0x20u);
+    result = 3221225494LL;
+    if ( !v5 )
+      return v14;
+  }
+  return result;
+}

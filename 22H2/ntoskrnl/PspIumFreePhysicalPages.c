@@ -1,34 +1,34 @@
 /*
- * XREFs of PspIumFreePhysicalPages @ 0x1405A60E0
+ * XREFs of PspIumFreePhysicalPages @ 0x140583D0C
  * Callers:
- *     PsDispatchIumService @ 0x1405A4EF4 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1403A6C20 (MmMapLockedPagesWithReservedMapping.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PspIumFreePartitionPages @ 0x1405A5EDC (PspIumFreePartitionPages.c)
- *     MmUnmapReservedMapping @ 0x14061E980 (MmUnmapReservedMapping.c)
- *     MmFreeSecureKernelPages @ 0x140657F1C (MmFreeSecureKernelPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403C8440 (MmMapLockedPagesWithReservedMapping.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmUnmapReservedMapping @ 0x140531BD0 (MmUnmapReservedMapping.c)
+ *     MmFreeSecureKernelPages @ 0x140553644 (MmFreeSecureKernelPages.c)
+ *     PspIumFreePartitionPages @ 0x140583B20 (PspIumFreePartitionPages.c)
  */
 
-__int64 __fastcall PspIumFreePhysicalPages(__int64 a1, unsigned int a2, __int64 a3)
+void __fastcall PspIumFreePhysicalPages(__int64 a1, int a2, ULONG_PTR a3)
 {
   KIRQL v5; // si
-  _DWORD *v6; // rbx
+  PVOID v6; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v10; // eax
   bool v11; // zf
   struct _MDL MemoryDescriptorList; // [rsp+30h] [rbp-40h] BYREF
-  __int64 v14; // [rsp+60h] [rbp-10h] BYREF
+  ULONG_PTR v13[2]; // [rsp+60h] [rbp-10h] BYREF
 
   MemoryDescriptorList.Next = 0LL;
   MemoryDescriptorList.ByteOffset = 0;
-  v14 = a3;
+  v13[0] = a3;
   memset(&MemoryDescriptorList.MdlFlags + 1, 0, 28);
   v5 = 0;
   *(_DWORD *)&MemoryDescriptorList.Size = 131128;
@@ -39,29 +39,35 @@ __int64 __fastcall PspIumFreePhysicalPages(__int64 a1, unsigned int a2, __int64 
     v5 = KeAcquireSpinLockRaiseToDpc(&PspIumFreeMappingLock);
     v6 = MmMapLockedPagesWithReservedMapping(PspIumFreeMapping, 0x466D7356u, &MemoryDescriptorList, MmCached);
   }
-  if ( v6[10] )
+  if ( *((_DWORD *)v6 + 10) )
   {
     if ( a1 )
-      PspIumFreePartitionPages(a1, (v6[10] >> 12) + ((v6[10] & 0xFFF) != 0), (__int64)(v6 + 12));
+      PspIumFreePartitionPages(
+        a1,
+        (*((_DWORD *)v6 + 10) >> 12) + ((*((_DWORD *)v6 + 10) & 0xFFF) != 0),
+        (ULONG_PTR *)v6 + 6);
     else
-      MmFreeSecureKernelPages(v6, a2);
+      MmFreeSecureKernelPages((PMDL)v6, a2);
   }
   if ( v6 == PspIumFreeMapping )
   {
     MmUnmapReservedMapping(v6, 0x466D7356u, &MemoryDescriptorList);
-    KxReleaseSpinLock((volatile signed __int64 *)&PspIumFreeMappingLock);
+    KxReleaseSpinLock(&PspIumFreeMappingLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v10 = ~(unsigned __int16)(-1LL << (v5 + 1));
-        v11 = (v10 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v10;
-        if ( v11 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v10 = ~(unsigned __int16)(-1LL << (v5 + 1));
+          v11 = (v10 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v10;
+          if ( v11 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v5);
@@ -71,7 +77,7 @@ __int64 __fastcall PspIumFreePhysicalPages(__int64 a1, unsigned int a2, __int64 
     MmUnmapLockedPages(v6, &MemoryDescriptorList);
   }
   if ( a1 )
-    return PspIumFreePartitionPages(a1, 1, (__int64)&v14);
+    PspIumFreePartitionPages(a1, 1, v13);
   else
-    return MmFreeSecureKernelPages(&MemoryDescriptorList, 0LL);
+    MmFreeSecureKernelPages(&MemoryDescriptorList, 0);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PipAddtoRebuildPowerRelationsQueue @ 0x14076BD4C
+ * XREFs of PipAddtoRebuildPowerRelationsQueue @ 0x14074B6C4
  * Callers:
- *     IoResolveDependency @ 0x1403CBF80 (IoResolveDependency.c)
- *     PipAddDependencyEdgeBetweenNodes @ 0x14055F864 (PipAddDependencyEdgeBetweenNodes.c)
- *     PnpNewDeviceNodeDependencyCheck @ 0x14076BB10 (PnpNewDeviceNodeDependencyCheck.c)
- *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x1408442B0 (PipAddDependentsToRebuildPowerRelationsQueue.c)
+ *     IoResolveDependency @ 0x1403BE1B0 (IoResolveDependency.c)
+ *     PipAddDependencyEdgeBetweenNodes @ 0x14050C510 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x14074B494 (PnpNewDeviceNodeDependencyCheck.c)
+ *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x1407B4B40 (PipAddDependentsToRebuildPowerRelationsQueue.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     PipIsDeviceReadyForPowerRelations @ 0x14076BDD4 (PipIsDeviceReadyForPowerRelations.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     PipIsDeviceReadyForPowerRelations @ 0x14074B750 (PipIsDeviceReadyForPowerRelations.c)
  */
 
 _QWORD *__fastcall PipAddtoRebuildPowerRelationsQueue(__int64 a1)
@@ -25,24 +25,28 @@ _QWORD *__fastcall PipAddtoRebuildPowerRelationsQueue(__int64 a1)
     {
       result = *(_QWORD **)(v2 + 312);
       v3 = result[10];
-      if ( v3 )
+    }
+    else
+    {
+      v3 = 0LL;
+    }
+    if ( v3 )
+    {
+      v4 = *(void **)(v3 + 48);
+      if ( v4 )
       {
-        v4 = *(void **)(v3 + 48);
-        if ( v4 )
+        v5 = (_QWORD *)(v3 + 72);
+        if ( (_QWORD *)*v5 == v5 )
         {
-          v5 = (_QWORD *)(v3 + 72);
-          if ( (_QWORD *)*v5 == v5 )
-          {
-            ObfReferenceObjectWithTag(v4, 0x44706E50u);
-            ++*(_DWORD *)(v3 + 88);
-            result = (_QWORD *)qword_140C46A88;
-            if ( *(__int64 **)qword_140C46A88 != &PiRebuildPowerRelationsQueue )
-              __fastfail(3u);
-            *v5 = &PiRebuildPowerRelationsQueue;
-            *(_QWORD *)(v3 + 80) = result;
-            *result = v5;
-            qword_140C46A88 = v3 + 72;
-          }
+          ObfReferenceObjectWithTag(v4, 0x44706E50u);
+          ++*(_DWORD *)(v3 + 88);
+          result = (_QWORD *)qword_140C456C8;
+          if ( *(__int64 **)qword_140C456C8 != &PiRebuildPowerRelationsQueue )
+            __fastfail(3u);
+          *v5 = &PiRebuildPowerRelationsQueue;
+          *(_QWORD *)(v3 + 80) = result;
+          *result = v5;
+          qword_140C456C8 = v3 + 72;
         }
       }
     }

@@ -1,22 +1,22 @@
 /*
- * XREFs of PspProcessClose @ 0x1407BE600
+ * XREFs of PspProcessClose @ 0x1406796D0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     PsTerminateProcess @ 0x140683794 (PsTerminateProcess.c)
- *     PspRundownProcess @ 0x1409B3E3C (PspRundownProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     PsTerminateProcess @ 0x14069F4E8 (PsTerminateProcess.c)
+ *     PspRundownProcess @ 0x14090B29C (PspRundownProcess.c)
  */
 
-__int64 __fastcall PspProcessClose(__int64 a1, ULONG_PTR a2, __int64 a3, unsigned __int64 a4)
+__int64 __fastcall PspProcessClose(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
   __int64 result; // rax
   struct _KTHREAD *CurrentThread; // r14
-  volatile signed __int64 *v7; // rsi
-  signed __int32 v8; // ebp
+  signed __int32 v7; // ebp
+  volatile signed __int64 *v8; // rsi
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   result = (__int64)&retaddr;
@@ -29,27 +29,27 @@ __int64 __fastcall PspProcessClose(__int64 a1, ULONG_PTR a2, __int64 a3, unsigne
       {
         result = *(unsigned int *)(a1 + 1124);
         if ( (result & 0x40000008) != 0 )
-          return PsTerminateProcess(a2);
+          return PsTerminateProcess(a2, 3221225738LL);
       }
     }
   }
   else
   {
     CurrentThread = KeGetCurrentThread();
-    v7 = (volatile signed __int64 *)(a2 + 1080);
-    v8 = 0x2000000;
+    v7 = 0x2000000;
     --CurrentThread->KernelApcDisable;
+    v8 = (volatile signed __int64 *)(a2 + 1080);
     ExAcquirePushLockExclusiveEx(a2 + 1080, 0LL);
     if ( !*(_DWORD *)(a2 + 1520) )
     {
       _m_prefetchw((const void *)(a2 + 1124));
-      v8 = _InterlockedOr((volatile signed __int32 *)(a2 + 1124), 8u);
+      v7 = _InterlockedOr((volatile signed __int32 *)(a2 + 1124), 8u);
     }
-    if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v7);
-    KeAbPostRelease((ULONG_PTR)v7);
+    if ( (_InterlockedExchangeAdd64(v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v8);
+    KeAbPostRelease((ULONG_PTR)v8);
     result = (__int64)KeLeaveCriticalRegionThread((__int64)CurrentThread);
-    if ( (v8 & 0x2000000) == 0 )
+    if ( (v7 & 0x2000000) == 0 )
       return PspRundownProcess((PVOID)a2);
   }
   return result;

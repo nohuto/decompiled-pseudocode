@@ -1,39 +1,41 @@
 /*
- * XREFs of ?RemovePublicObject@@YAHIPEAX@Z @ 0x1C01F9C1C
+ * XREFs of ?RemovePublicObject@@YAHIPEAX@Z @ 0x1C021A9A8
  * Callers:
- *     ?xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z @ 0x1C01FA300 (-xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z.c)
- *     FreeDdeXact @ 0x1C01FAFB0 (FreeDdeXact.c)
+ *     ?xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z @ 0x1C021B45C (-xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z.c)
+ *     FreeDdeXact @ 0x1C021C4B0 (FreeDdeXact.c)
  * Callees:
- *     ?GiveObject@@YAHIPEAXK@Z @ 0x1C01F9A1C (-GiveObject@@YAHIPEAXK@Z.c)
+ *     ?GiveObject@@YAHIPEAXK@Z @ 0x1C021A78C (-GiveObject@@YAHIPEAXK@Z.c)
  */
 
 __int64 __fastcall RemovePublicObject(int a1, void *a2)
 {
-  __int64 v2; // rbx
-  _QWORD *v3; // rdi
+  void **v2; // rbx
+  void **v3; // rdi
 
-  if ( a1 == 2 || a1 == 9 || a1 == 130 )
+  if ( a1 != 2 && a1 != 9 && a1 != 130 )
+    return 0LL;
+  v2 = (void **)gpPublicObjectList;
+  v3 = 0LL;
+  if ( !gpPublicObjectList )
+    return 0LL;
+  do
   {
-    v2 = gpPublicObjectList;
-    v3 = 0LL;
-    while ( v2 )
-    {
-      if ( *(void **)(v2 + 8) == a2 )
-      {
-        if ( (*(_DWORD *)(v2 + 16))-- == 1 )
-        {
-          GiveObject(a1, a2, *(_DWORD *)(v2 + 20));
-          if ( v3 )
-            *v3 = *(_QWORD *)v2;
-          else
-            gpPublicObjectList = *(_QWORD *)v2;
-          Win32FreePool((void *)v2);
-        }
-        return 1LL;
-      }
-      v3 = (_QWORD *)v2;
-      v2 = *(_QWORD *)v2;
-    }
+    if ( v2[1] == a2 )
+      break;
+    v3 = v2;
+    v2 = (void **)*v2;
   }
-  return 0LL;
+  while ( v2 );
+  if ( !v2 )
+    return 0LL;
+  if ( (*((_DWORD *)v2 + 4))-- == 1 )
+  {
+    GiveObject(a1, a2, *((_DWORD *)v2 + 5));
+    if ( v3 )
+      *v3 = *v2;
+    else
+      gpPublicObjectList = (__int64)*v2;
+    Win32FreePool(v2);
+  }
+  return 1LL;
 }

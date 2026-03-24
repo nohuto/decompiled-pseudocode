@@ -1,72 +1,76 @@
 /*
- * XREFs of IopWaitAndAcquireFileObjectLock @ 0x140765710
+ * XREFs of IopWaitAndAcquireFileObjectLock @ 0x1406352D8
  * Callers:
- *     IopValidateAndGetWriteParameters @ 0x140223D50 (IopValidateAndGetWriteParameters.c)
- *     NtSetInformationFile @ 0x1402A6AD0 (NtSetInformationFile.c)
- *     IopFlushBuffersFile @ 0x140686004 (IopFlushBuffersFile.c)
- *     NtQueryVolumeInformationFile @ 0x140686AF0 (NtQueryVolumeInformationFile.c)
- *     IopGetSetSecurityObject @ 0x14069C1D0 (IopGetSetSecurityObject.c)
- *     IopXxxControlFile @ 0x1406E5590 (IopXxxControlFile.c)
- *     NtQueryInformationFile @ 0x1407250E0 (NtQueryInformationFile.c)
- *     IopCloseFile @ 0x14072FFC0 (IopCloseFile.c)
- *     IopReadFile @ 0x14074C6D0 (IopReadFile.c)
- *     IopQueryXxxInformation @ 0x14075D79C (IopQueryXxxInformation.c)
- *     NtLockFile @ 0x1407659A0 (NtLockFile.c)
- *     BuildQueryDirectoryIrp @ 0x140765DB0 (BuildQueryDirectoryIrp.c)
- *     NtUnlockFile @ 0x1407B5080 (NtUnlockFile.c)
- *     NtQueryEaFile @ 0x1407CA550 (NtQueryEaFile.c)
- *     NtNotifyChangeDirectoryFileEx @ 0x1407CC120 (NtNotifyChangeDirectoryFileEx.c)
- *     NtReadFileScatter @ 0x1407E75F0 (NtReadFileScatter.c)
- *     NtWriteFileGather @ 0x1407E8870 (NtWriteFileGather.c)
- *     NtSetVolumeInformationFile @ 0x140881DA0 (NtSetVolumeInformationFile.c)
- *     IoSetInformation @ 0x1408836C0 (IoSetInformation.c)
- *     IopSetEaOrQuotaInformationFile @ 0x140945B70 (IopSetEaOrQuotaInformationFile.c)
- *     NtSetEaFile @ 0x14094AD10 (NtSetEaFile.c)
- *     NtQueryQuotaInformationFile @ 0x14094B320 (NtQueryQuotaInformationFile.c)
+ *     NtSetInformationFile @ 0x1402D2A20 (NtSetInformationFile.c)
+ *     IopValidateAndGetWriteParameters @ 0x1403F178C (IopValidateAndGetWriteParameters.c)
+ *     IopReadFile @ 0x1405CE318 (IopReadFile.c)
+ *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
+ *     IopQueryXxxInformation @ 0x140633A38 (IopQueryXxxInformation.c)
+ *     IopCloseFile @ 0x14064A140 (IopCloseFile.c)
+ *     IopXxxControlFile @ 0x14064B730 (IopXxxControlFile.c)
+ *     NtLockFile @ 0x140655E20 (NtLockFile.c)
+ *     NtUnlockFile @ 0x140674110 (NtUnlockFile.c)
+ *     NtFlushBuffersFileEx @ 0x14067D120 (NtFlushBuffersFileEx.c)
+ *     NtReadFileScatter @ 0x14067E2A0 (NtReadFileScatter.c)
+ *     NtWriteFileGather @ 0x14067EA40 (NtWriteFileGather.c)
+ *     NtQueryEaFile @ 0x14067F740 (NtQueryEaFile.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x140691690 (NtNotifyChangeDirectoryFileEx.c)
+ *     IopGetSetSecurityObject @ 0x1406C8520 (IopGetSetSecurityObject.c)
+ *     BuildQueryDirectoryIrp @ 0x1406C8A70 (BuildQueryDirectoryIrp.c)
+ *     NtQueryVolumeInformationFile @ 0x1406C9680 (NtQueryVolumeInformationFile.c)
+ *     NtSetEaFile @ 0x140731000 (NtSetEaFile.c)
+ *     NtSetVolumeInformationFile @ 0x14076C940 (NtSetVolumeInformationFile.c)
+ *     IoSetInformation @ 0x14077BFD0 (IoSetInformation.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x1408923FC (IopSetEaOrQuotaInformationFile.c)
+ *     NtQueryQuotaInformationFile @ 0x140895B90 (NtQueryQuotaInformationFile.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     KeSetEventBoostPriorityEx @ 0x1402BBFA0 (KeSetEventBoostPriorityEx.c)
- *     KeAbPostReleaseEx @ 0x1402BD4C0 (KeAbPostReleaseEx.c)
- *     IopWaitForLockAlertable @ 0x1402FCCD4 (IopWaitForLockAlertable.c)
- *     KeAbPreWait @ 0x1402FD270 (KeAbPreWait.c)
+ *     IopWaitForLockAlertable @ 0x140271220 (IopWaitForLockAlertable.c)
+ *     KeSetEventBoostPriorityEx @ 0x140271E08 (KeSetEventBoostPriorityEx.c)
+ *     KeAbPreWait @ 0x140273740 (KeAbPreWait.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     KeAbPostReleaseEx @ 0x1402E3DB0 (KeAbPostReleaseEx.c)
  */
 
 __int64 __fastcall IopWaitAndAcquireFileObjectLock(
         volatile signed __int32 *Object,
-        char a2,
-        char a3,
+        __int64 a2,
+        __int64 a3,
         __int64 a4,
         _BYTE *a5)
 {
+  char v6; // r14
+  char v7; // r15
   NTSTATUS v9; // ebp
-  _QWORD v11[5]; // [rsp+30h] [rbp-28h] BYREF
+  _BYTE v11[40]; // [rsp+30h] [rbp-28h] BYREF
   int Priority; // [rsp+60h] [rbp+8h] BYREF
 
+  v6 = a3;
+  v7 = a2;
   _InterlockedIncrement(Object + 28);
   do
   {
     if ( !*((_DWORD *)Object + 29) && !_InterlockedExchange(Object + 29, 1) )
     {
       if ( a4 )
-        *(_BYTE *)(a4 + 18) = 1;
+        *(_BYTE *)(a4 + 26) |= 1u;
       ObfReferenceObject((PVOID)Object);
       _InterlockedDecrement(Object + 28);
       return 0;
     }
     if ( a4 )
-      KeAbPreWait((__int64 *)a4);
-    v9 = IopWaitForLockAlertable((PVOID)(Object + 32), a2, a3);
+      KeAbPreWait(a4, a2, a3);
+    v9 = IopWaitForLockAlertable((PVOID)(Object + 32), v7, v6);
     if ( a4 )
-      a4 = KeAbPreAcquire((__int64)(Object + 32), a4);
+      a4 = KeAbPreAcquire((ULONG_PTR)(Object + 32), a4, 0LL);
   }
   while ( v9 >= 0 );
   _InterlockedDecrement(Object + 28);
   if ( !*((_DWORD *)Object + 29) && *((_DWORD *)Object + 28) )
   {
     Priority = KeGetCurrentThread()->Priority;
-    KeSetEventBoostPriorityEx((__int64)(Object + 32), v11, &Priority, (__int64)(Object + 32), 0, 1);
+    KeSetEventBoostPriorityEx((__int64)(Object + 32), (__int64)v11, (__int64)&Priority, (_DWORD *)Object + 32, 0, 1);
   }
   if ( a4 )
     KeAbPostReleaseEx((ULONG_PTR)(Object + 32), a4);

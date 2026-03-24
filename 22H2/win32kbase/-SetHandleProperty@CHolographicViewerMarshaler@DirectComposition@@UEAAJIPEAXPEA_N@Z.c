@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetHandleProperty@CHolographicViewerMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C0227420
+ * XREFs of ?SetHandleProperty@CHolographicViewerMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C01EE610
  * Callers:
  *     <none>
  * Callees:
- *     CallerHasScreenDuplicationCapability @ 0x1C02270B8 (CallerHasScreenDuplicationCapability.c)
+ *     CallerHasScreenDuplicationCapability @ 0x1C01EE2A8 (CallerHasScreenDuplicationCapability.c)
  */
 
 __int64 __fastcall DirectComposition::CHolographicViewerMarshaler::SetHandleProperty(
@@ -24,7 +24,7 @@ __int64 __fastcall DirectComposition::CHolographicViewerMarshaler::SetHandleProp
     else
     {
       *((_QWORD *)this + 13) = a3;
-      *((_QWORD *)this + 16) = PsGetCurrentProcess(this, a2, a3);
+      *((_QWORD *)this + 16) = PsGetCurrentProcess(this, a2);
       if ( CallerHasScreenDuplicationCapability() )
         *((_DWORD *)this + 31) |= 1u;
       *((_DWORD *)this + 15) |= 8u;

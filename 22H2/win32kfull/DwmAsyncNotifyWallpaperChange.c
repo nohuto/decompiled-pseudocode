@@ -1,7 +1,7 @@
 /*
- * XREFs of DwmAsyncNotifyWallpaperChange @ 0x1C0049A08
+ * XREFs of DwmAsyncNotifyWallpaperChange @ 0x1C012EA10
  * Callers:
- *     xxxSetDeskWallpaper @ 0x1C0049544 (xxxSetDeskWallpaper.c)
+ *     xxxSetDeskWallpaper @ 0x1C012E7EC (xxxSetDeskWallpaper.c)
  * Callees:
  *     <none>
  */

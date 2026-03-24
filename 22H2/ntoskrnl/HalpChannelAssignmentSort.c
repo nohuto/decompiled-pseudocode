@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpChannelAssignmentSort @ 0x140B93980
+ * XREFs of HalpChannelAssignmentSort @ 0x140A8D9F0
  * Callers:
  *     <none>
  * Callees:
@@ -9,8 +9,7 @@
 __int64 __fastcall HalpChannelAssignmentSort(_WORD *a1, _WORD *a2)
 {
   unsigned __int16 v2; // ax
-  unsigned __int16 v3; // cx
-  unsigned __int16 v4; // dx
+  unsigned __int16 v3; // ax
 
   v2 = a1[5];
   if ( v2 >= a2[5] )
@@ -18,9 +17,8 @@ __int64 __fastcall HalpChannelAssignmentSort(_WORD *a1, _WORD *a2)
     if ( v2 > a2[5] )
       return 1LL;
     v3 = a1[4];
-    v4 = a2[4];
-    if ( v3 >= v4 )
-      return v3 > v4;
+    if ( v3 >= a2[4] )
+      return v3 > a2[4];
   }
   return 0xFFFFFFFFLL;
 }

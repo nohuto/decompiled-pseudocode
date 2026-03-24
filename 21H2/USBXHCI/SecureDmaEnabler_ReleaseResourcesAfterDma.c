@@ -1,14 +1,14 @@
 /*
- * XREFs of SecureDmaEnabler_ReleaseResourcesAfterDma @ 0x1C004FF90
+ * XREFs of SecureDmaEnabler_ReleaseResourcesAfterDma @ 0x1C004F3D0
  * Callers:
- *     Control_Transfer_Complete @ 0x1C00062CC (Control_Transfer_Complete.c)
- *     Isoch_Stage_CompleteTD @ 0x1C00070C0 (Isoch_Stage_CompleteTD.c)
- *     Bulk_Stage_FreeScatterGatherList @ 0x1C000F744 (Bulk_Stage_FreeScatterGatherList.c)
- *     Isoch_Stage_FreeScatterGatherList @ 0x1C0042EC8 (Isoch_Stage_FreeScatterGatherList.c)
+ *     Isoch_Stage_CompleteTD @ 0x1C00021E0 (Isoch_Stage_CompleteTD.c)
+ *     Control_TransferData_Free @ 0x1C00043F8 (Control_TransferData_Free.c)
+ *     Bulk_Stage_FreeScatterGatherList @ 0x1C000DBA8 (Bulk_Stage_FreeScatterGatherList.c)
+ *     Isoch_Stage_FreeScatterGatherList @ 0x1C00424A8 (Isoch_Stage_FreeScatterGatherList.c)
  * Callees:
- *     Controller_RaiseAndTrackIrql @ 0x1C0005C20 (Controller_RaiseAndTrackIrql.c)
- *     Controller_LowerAndTrackIrql @ 0x1C0005CB4 (Controller_LowerAndTrackIrql.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00052C8 (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0005358 (Controller_RaiseAndTrackIrql.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
  */
 
 void __fastcall SecureDmaEnabler_ReleaseResourcesAfterDma(__int64 a1, __int64 a2)

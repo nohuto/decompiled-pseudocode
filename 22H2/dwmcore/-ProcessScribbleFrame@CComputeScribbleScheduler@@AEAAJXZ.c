@@ -1,162 +1,195 @@
 /*
- * XREFs of ?ProcessScribbleFrame@CComputeScribbleScheduler@@AEAAJXZ @ 0x180203994
+ * XREFs of ?ProcessScribbleFrame@CComputeScribbleScheduler@@AEAAJXZ @ 0x1801A4AD0
  * Callers:
- *     _lambda_1e65f1bd86c69cffa4e82cca78acb4e5_::_lambda_invoker_cdecl_ @ 0x1802020F0 (_lambda_1e65f1bd86c69cffa4e82cca78acb4e5_--_lambda_invoker_cdecl_.c)
+ *     _lambda_53d4671a486059e215298fd0bc9bb545_::_lambda_invoker_cdecl_ @ 0x1800EF1B0 (_lambda_53d4671a486059e215298fd0bc9bb545_--_lambda_invoker_cdecl_.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180100300 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0x_EventWriteTransfer @ 0x18012DF9E (McTemplateU0x_EventWriteTransfer.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
- *     ?DecideBufferToDispatch@CComputeScribbleScheduler@@AEAAJPEAPEAVCComputeScribbleFramebuffer@@0@Z @ 0x18020311C (-DecideBufferToDispatch@CComputeScribbleScheduler@@AEAAJPEAPEAVCComputeScribbleFramebuffer@@0@Z.c)
- *     ?ReadyWakeupFence@CComputeScribbleScheduler@@AEAAJ_K@Z @ 0x180203C58 (-ReadyWakeupFence@CComputeScribbleScheduler@@AEAAJ_K@Z.c)
- *     ?SetupWakeupFence@CComputeScribbleScheduler@@AEAAJAEBUScribbleFrame@1@@Z @ 0x180204038 (-SetupWakeupFence@CComputeScribbleScheduler@@AEAAJAEBUScribbleFrame@1@@Z.c)
- *     ?StopInternal@CComputeScribbleScheduler@@AEAAXXZ @ 0x18020414C (-StopInternal@CComputeScribbleScheduler@@AEAAXXZ.c)
- *     ?reset@?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@QEAAXPEAU_RTL_SRWLOCK@@@Z @ 0x18020453C (-reset@-$unique_storage@U-$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1-ReleaseSRWLockExclus.c)
- *     ?ClearScribbles@CComputeScribbleFramebuffer@@QEAAXXZ @ 0x180204C30 (-ClearScribbles@CComputeScribbleFramebuffer@@QEAAXXZ.c)
- *     ?DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbleStopwatch@@_KPEAUIDCompositionDirectInkSuperWetRenderer@@PEAUIUnknown@@PEAUComputeScribbleLatencyData@@@Z @ 0x180204D4C (-DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbl.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ??1?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x1800AFCA8 (--1-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1-ReleaseS.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5D20 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbleStopwatch@@_KPEAUIUnknown@@AEAV?$vector@UComputeScribbleLatencyData@@V?$allocator@UComputeScribbleLatencyData@@@std@@@std@@@Z @ 0x1800EF4C0 (-DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbl.c)
+ *     ??C?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@VCMegaRect@@@std@@@std@@@std@@QEBAPEAVCMegaRect@@XZ @ 0x1800EF794 (--C-$_Deque_iterator@V-$_Deque_val@U-$_Deque_simple_types@VCMegaRect@@@std@@@std@@@std@@QEBAPEAV.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     McTemplateU0xq_EventWriteTransfer @ 0x180152914 (McTemplateU0xq_EventWriteTransfer.c)
+ *     McTemplateU0x_EventWriteTransfer @ 0x180153F28 (McTemplateU0x_EventWriteTransfer.c)
+ *     ?AddLatencyData@CTelemetryComputeScribbleAggregator@@SAXAEBV?$vector@UComputeScribbleLatencyData@@V?$allocator@UComputeScribbleLatencyData@@@std@@@std@@@Z @ 0x180163020 (-AddLatencyData@CTelemetryComputeScribbleAggregator@@SAXAEBV-$vector@UComputeScribbleLatencyData.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180184EF4 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??0ScribbleFrame@CComputeScribbleScheduler@@QEAA@AEBU01@@Z @ 0x1801A3D1C (--0ScribbleFrame@CComputeScribbleScheduler@@QEAA@AEBU01@@Z.c)
+ *     ??A?$deque@UScribbleFrame@CComputeScribbleScheduler@@V?$allocator@UScribbleFrame@CComputeScribbleScheduler@@@std@@@std@@QEAAAEAUScribbleFrame@CComputeScribbleScheduler@@_K@Z @ 0x1801A3E9C (--A-$deque@UScribbleFrame@CComputeScribbleScheduler@@V-$allocator@UScribbleFrame@CComputeScribbl.c)
+ *     ?SetupWakeupFence@CComputeScribbleScheduler@@AEAAJAEBUScribbleFrame@1@@Z @ 0x1801A5134 (-SetupWakeupFence@CComputeScribbleScheduler@@AEAAJAEBUScribbleFrame@1@@Z.c)
+ *     ?_Tidy@?$deque@UScribbleFrame@CComputeScribbleScheduler@@V?$allocator@UScribbleFrame@CComputeScribbleScheduler@@@std@@@std@@AEAAXXZ @ 0x1801A55B8 (-_Tidy@-$deque@UScribbleFrame@CComputeScribbleScheduler@@V-$allocator@UScribbleFrame@CComputeScr.c)
+ *     ?pop_front@?$deque@UScribbleFrame@CComputeScribbleScheduler@@V?$allocator@UScribbleFrame@CComputeScribbleScheduler@@@std@@@std@@QEAAXXZ @ 0x1801A5694 (-pop_front@-$deque@UScribbleFrame@CComputeScribbleScheduler@@V-$allocator@UScribbleFrame@CComput.c)
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@QEAAXPEAU_RTL_SRWLOCK@@@Z @ 0x1801A56DC (-reset@-$unique_storage@U-$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1-ReleaseSRWLockExclus.c)
+ *     ?OnDroppedScribble@CComputeScribbleFramebuffer@@QEAAX_K@Z @ 0x1801A653C (-OnDroppedScribble@CComputeScribbleFramebuffer@@QEAAX_K@Z.c)
+ *     ?GetElapsedTimeMs@CComputeScribbleStopwatch@@QEAAMXZ @ 0x1801A9F28 (-GetElapsedTimeMs@CComputeScribbleStopwatch@@QEAAMXZ.c)
  */
 
-__int64 __fastcall CComputeScribbleScheduler::ProcessScribbleFrame(
-        CComputeScribbleScheduler *this,
-        __int64 a2,
-        __int64 a3)
+__int64 __fastcall CComputeScribbleScheduler::ProcessScribbleFrame(CComputeScribbleScheduler *this)
 {
-  LARGE_INTEGER *v4; // rbx
-  RTL_SRWLOCK *QuadPart; // rbx
-  __int64 v6; // rcx
-  __int64 v7; // rax
-  __int64 v8; // rsi
-  __int64 i; // rcx
-  int v11; // eax
-  unsigned int v12; // r14d
-  int ready; // esi
-  __int64 v14; // rdx
-  CComputeScribbleFramebuffer *v15; // r14
-  CComputeScribbleFramebuffer *Ptr; // r14
-  unsigned __int64 *v17; // rbx
-  int v18; // eax
-  unsigned int v19; // ebx
-  LARGE_INTEGER PerformanceCount; // [rsp+40h] [rbp-19h] BYREF
-  CComputeScribbleFramebuffer *v21; // [rsp+48h] [rbp-11h] BYREF
-  _BYTE v22[56]; // [rsp+50h] [rbp-9h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v23; // [rsp+88h] [rbp+2Fh] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+B8h] [rbp+5Fh]
+  LARGE_INTEGER *v1; // rbx
+  __int64 v3; // rcx
+  unsigned int v4; // ebx
+  unsigned __int64 v5; // r14
+  __int64 **v6; // r15
+  __int64 *v7; // r11
+  __int64 *v8; // r10
+  __int64 *v9; // r11
+  __int64 *v10; // rax
+  __int64 v11; // rcx
+  __int64 *v12; // rsi
+  int v13; // esi
+  __int64 v14; // r12
+  unsigned __int64 v15; // rdx
+  unsigned __int64 v16; // r9
+  const struct CComputeScribbleScheduler::ScribbleFrame *v17; // rax
+  const struct CComputeScribbleScheduler::ScribbleFrame *v18; // rax
+  __int64 v19; // rax
+  CDrawListEntry *v20; // r15
+  CComputeScribbleStopwatch *v21; // r8
+  struct ID3D12CommandQueue *v22; // rdx
+  int v23; // r14d
+  float ElapsedTimeMs; // xmm0_4
+  char v25; // cl
+  __int128 v27; // [rsp+30h] [rbp-79h] BYREF
+  __int64 v28; // [rsp+40h] [rbp-69h]
+  __int64 *v29[3]; // [rsp+48h] [rbp-61h] BYREF
+  __int64 *v30[3]; // [rsp+60h] [rbp-49h] BYREF
+  __int64 *v31[3]; // [rsp+78h] [rbp-31h] BYREF
+  __int64 *v32[3]; // [rsp+90h] [rbp-19h] BYREF
+  CDrawListEntry *v33[3]; // [rsp+A8h] [rbp-1h] BYREF
+  float v34; // [rsp+C0h] [rbp+17h]
+  wil::details::in1diag3 *retaddr; // [rsp+108h] [rbp+5Fh]
+  unsigned __int64 v36; // [rsp+110h] [rbp+67h]
+  RTL_SRWLOCK *v37; // [rsp+118h] [rbp+6Fh] BYREF
+  LARGE_INTEGER PerformanceCount; // [rsp+120h] [rbp+77h] BYREF
 
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x100000) != 0 )
-    McGenEventWrite_EventWriteTransfer(
-      &Microsoft_Windows_Dwm_Core_Provider_Context,
-      &EVTDESC_COMPUTESCRIBBLE_THREADWAKEUP_RAW,
-      a3,
-      1u,
-      &v23);
-  v4 = (LARGE_INTEGER *)*((_QWORD *)this + 10);
+  v1 = (LARGE_INTEGER *)*((_QWORD *)this + 8);
   QueryPerformanceCounter(&PerformanceCount);
-  v4[6] = PerformanceCount;
-  QuadPart = (RTL_SRWLOCK *)((char *)this + 88);
-  AcquireSRWLockExclusive((PSRWLOCK)this + 11);
-  v6 = *((_QWORD *)this + 12);
-  PerformanceCount.QuadPart = (LONGLONG)this + 88;
-  if ( !v6 )
-    goto LABEL_12;
-  v7 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v6 + 64LL))(v6);
-  v8 = v7;
-  if ( !v7 )
-    goto LABEL_12;
-  if ( v7 == -1 )
+  v1[6] = PerformanceCount;
+  AcquireSRWLockExclusive((PSRWLOCK)this + 9);
+  v3 = *((_QWORD *)this + 11);
+  v37 = (RTL_SRWLOCK *)((char *)this + 72);
+  v4 = 0;
+  v5 = 0LL;
+  if ( v3 )
   {
-    CComputeScribbleScheduler::StopInternal(this);
-LABEL_12:
-    if ( QuadPart )
-      ReleaseSRWLockExclusive(QuadPart);
-    return 0LL;
+    v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v3 + 64LL))(v3);
+    *((_DWORD *)this + 34) = v5;
   }
-  for ( i = *((_QWORD *)this + 14); ; i += 8LL )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x40000) != 0 )
+    McTemplateU0x_EventWriteTransfer(v3, &EVTDESC_COMPUTESCRIBBLE_THREADWAKEUP, v5);
+  if ( *((_QWORD *)this + 16) )
   {
-    if ( i == *((_QWORD *)this + 15) )
+    v6 = (__int64 **)((char *)this + 96);
+    while ( 1 )
     {
-      wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)this + 12);
-      wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)this + 13);
-      goto LABEL_12;
+      v7 = *v6;
+      v29[2] = *((__int64 **)this + 15);
+      v29[0] = v7;
+      v29[1] = 0LL;
+      if ( *(unsigned int *)(std::_Deque_iterator<std::_Deque_val<std::_Deque_simple_types<CMegaRect>>>::operator->(v29)
+                           + 16) >= v5 )
+        break;
+      v30[1] = 0LL;
+      v30[2] = v8;
+      v30[0] = v9;
+      v10 = (__int64 *)std::_Deque_iterator<std::_Deque_val<std::_Deque_simple_types<CMegaRect>>>::operator->(v30);
+      v12 = v10;
+      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x40000) != 0 )
+        McTemplateU0xq_EventWriteTransfer(v11, &EVTDESC_COMPUTESCRIBBLE_FRAMEDROPPED, v10[1], *(_DWORD *)(*v10 + 236));
+      CComputeScribbleFramebuffer::OnDroppedScribble((CComputeScribbleFramebuffer *)*v12, v12[1]);
+      std::deque<CComputeScribbleScheduler::ScribbleFrame>::pop_front((char *)this + 96);
+      if ( !*((_QWORD *)this + 16) )
+        goto LABEL_36;
     }
-    if ( *(_BYTE *)(*(_QWORD *)i + 240LL) )
-      break;
-  }
-  *((_QWORD *)this + 20) = (unsigned int)v7;
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x100000) != 0 )
-    McTemplateU0x_EventWriteTransfer(i, (__int64)&EVTDESC_COMPUTESCRIBBLE_THREADWAKEUP, v7);
-  v11 = CComputeScribbleScheduler::DecideBufferToDispatch(this, (struct CComputeScribbleFramebuffer **)&v23, &v21);
-  v12 = v11;
-  if ( v11 < 0 )
-  {
+    v31[1] = 0LL;
+    v31[2] = v8;
+    v31[0] = v9;
+    v13 = 0;
+    v14 = *(unsigned int *)(std::_Deque_iterator<std::_Deque_val<std::_Deque_simple_types<CMegaRect>>>::operator->(v31)
+                          + 16);
+    v15 = v14 == v5;
+    if ( v16 > v15 )
+    {
+      v17 = (const struct CComputeScribbleScheduler::ScribbleFrame *)std::deque<CComputeScribbleScheduler::ScribbleFrame>::operator[](
+                                                                       (__int64)this + 96,
+                                                                       v15);
+      v13 = CComputeScribbleScheduler::SetupWakeupFence(this, v17);
+      if ( v13 < 0 )
+        std::deque<CComputeScribbleScheduler::ScribbleFrame>::_Tidy((char *)this + 96);
+    }
+    if ( v14 == v5 )
+    {
+      v32[2] = *((__int64 **)this + 15);
+      v32[0] = *v6;
+      v32[1] = 0LL;
+      v18 = (const struct CComputeScribbleScheduler::ScribbleFrame *)std::_Deque_iterator<std::_Deque_val<std::_Deque_simple_types<CMegaRect>>>::operator->(v32);
+      CComputeScribbleScheduler::ScribbleFrame::ScribbleFrame((CComputeScribbleScheduler::ScribbleFrame *)v33, v18);
+      std::deque<CComputeScribbleScheduler::ScribbleFrame>::pop_front((char *)this + 96);
+      wil::details::unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>::reset(
+        &v37,
+        0LL);
+      v19 = *((_QWORD *)this + 20);
+      v20 = v33[0];
+      v21 = (CComputeScribbleStopwatch *)*((_QWORD *)this + 8);
+      v22 = (struct ID3D12CommandQueue *)*((_QWORD *)this + 1);
+      v27 = 0LL;
+      v28 = 0LL;
+      v23 = CComputeScribbleFramebuffer::DispatchScribbles(v33[0], v22, v21, (unsigned __int64)v33[1], v19, &v27);
+      if ( v23 < 0 )
+      {
+        if ( v13 < 0 )
+          wil::details::in1diag3::_Log_Hr(
+            retaddr,
+            (void *)0x21C,
+            (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblescheduler.cpp",
+            (const char *)(unsigned int)v13);
+        wil::details::in1diag3::Return_Hr(
+          retaddr,
+          (void *)0x21D,
+          (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblescheduler.cpp",
+          (const char *)(unsigned int)v23);
+        if ( (_QWORD)v27 )
+          std::_Deallocate<16,0>((void *)v27, 56 * ((v28 - (__int64)v27) / 56));
+        if ( v20 )
+          CDrawListEntry::Release(v20);
+        goto LABEL_35;
+      }
+      ElapsedTimeMs = CComputeScribbleStopwatch::GetElapsedTimeMs(*((CComputeScribbleStopwatch **)this + 8));
+      if ( ElapsedTimeMs <= (float)(v34 * 1000.0) )
+      {
+        v25 = 0;
+        v36 = 1LL;
+      }
+      else
+      {
+        v25 = 1;
+        v36 = 0x100000001LL;
+      }
+      _InterlockedExchangeAdd64(&qword_180347408, v36);
+      if ( !v25 )
+        CTelemetryComputeScribbleAggregator::AddLatencyData((__int64 *)&v27);
+      if ( (_QWORD)v27 )
+        std::_Deallocate<16,0>((void *)v27, 56 * ((v28 - (__int64)v27) / 56));
+      if ( v33[0] )
+        CDrawListEntry::Release(v33[0]);
+    }
+    if ( v13 >= 0 )
+      goto LABEL_36;
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0x221,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblescheduler.cpp",
-      (const char *)(unsigned int)v11);
-    if ( this != (CComputeScribbleScheduler *)-88LL )
-      ReleaseSRWLockExclusive((PSRWLOCK)this + 11);
-    return v12;
-  }
-  ready = CComputeScribbleScheduler::ReadyWakeupFence(this, v8 + 1);
-  if ( ready < 0 )
-  {
-    v14 = 548LL;
-LABEL_23:
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)v14,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblescheduler.cpp",
-      (const char *)(unsigned int)ready);
-    if ( QuadPart )
-      ReleaseSRWLockExclusive(QuadPart);
-    return (unsigned int)ready;
-  }
-  v15 = v21;
-  ready = 0;
-  if ( v21 )
-  {
-    ready = CComputeScribbleScheduler::SetupWakeupFence(
-              this,
-              (const struct CComputeScribbleScheduler::ScribbleFrame *)(*((_QWORD *)this + 17)
-                                                                      + 32LL * *((unsigned int *)v21 + 61)));
-    if ( ready < 0 )
-      CComputeScribbleFramebuffer::ClearScribbles(v15);
-  }
-  Ptr = (CComputeScribbleFramebuffer *)v23.Ptr;
-  if ( !v23.Ptr )
-  {
+      (void *)0x22D,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblescheduler.cpp",
+      (const char *)(unsigned int)v13);
+    v23 = v13;
 LABEL_35:
-    if ( ready >= 0 )
-      goto LABEL_12;
-    v14 = 585LL;
-    goto LABEL_23;
+    v4 = v23;
+    goto LABEL_36;
   }
-  v17 = (unsigned __int64 *)(*((_QWORD *)this + 17) + 32LL * *(unsigned int *)(v23.Ptr + 244));
-  wil::details::unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>::reset(
-    &PerformanceCount,
-    0LL);
-  v18 = CComputeScribbleFramebuffer::DispatchScribbles(
-          Ptr,
-          *((struct ID3D12CommandQueue **)this + 2),
-          *((struct CComputeScribbleStopwatch **)this + 10),
-          *v17,
-          *((struct IDCompositionDirectInkSuperWetRenderer **)this + 27),
-          *((struct IUnknown **)this + 26),
-          (struct ComputeScribbleLatencyData *)v22);
-  v19 = v18;
-  if ( v18 >= 0 )
-  {
-    QuadPart = (RTL_SRWLOCK *)PerformanceCount.QuadPart;
-    goto LABEL_35;
-  }
-  wil::details::in1diag3::Return_Hr(
-    retaddr,
-    (void *)0x241,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblescheduler.cpp",
-    (const char *)(unsigned int)v18);
-  if ( PerformanceCount.QuadPart )
-    ReleaseSRWLockExclusive((PSRWLOCK)PerformanceCount.QuadPart);
-  return v19;
+  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)this + 10);
+  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)this + 11);
+LABEL_36:
+  wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>>(&v37);
+  return v4;
 }

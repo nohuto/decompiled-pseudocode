@@ -1,12 +1,12 @@
 /*
- * XREFs of KeUnstackDetachProcess @ 0x1400F1070
+ * XREFs of KeUnstackDetachProcess @ 0x1400F1090
  * Callers:
  *     MmNewProcessInitialized @ 0x140582398 (MmNewProcessInitialized.c)
  *     EtwpAddRegEntryToGroup @ 0x1405C2750 (EtwpAddRegEntryToGroup.c)
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
- *     KiDetachProcess @ 0x1400B9C80 (KiDetachProcess.c)
+ *     KiDetachProcess @ 0x1400B9CA0 (KiDetachProcess.c)
  */
 
 void __stdcall KeUnstackDetachProcess(PRKAPC_STATE ApcState)

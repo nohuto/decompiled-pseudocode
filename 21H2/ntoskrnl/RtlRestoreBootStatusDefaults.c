@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlRestoreBootStatusDefaults @ 0x1409BABB4
+ * XREFs of RtlRestoreBootStatusDefaults @ 0x1409155A8
  * Callers:
- *     PopBootStatRestoreDefaults @ 0x140998F18 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatRestoreDefaults @ 0x1408F2538 (PopBootStatRestoreDefaults.c)
  * Callees:
- *     RtlGetNtProductType @ 0x140245CC0 (RtlGetNtProductType.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x14041B860 (ZwWriteFile.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlpRecordBootStatusData @ 0x1406D6A74 (RtlpRecordBootStatusData.c)
+ *     RtlGetNtProductType @ 0x1402C2020 (RtlGetNtProductType.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlpRecordBootStatusData @ 0x14078A554 (RtlpRecordBootStatusData.c)
  */
 
 __int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
@@ -24,17 +24,17 @@ __int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
   _OWORD *v11; // rcx
   LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-B0h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-A8h] BYREF
-  _BYTE Buffer[192]; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE Buffer[176]; // [rsp+70h] [rbp-90h] BYREF
 
   IoStatusBlock = 0LL;
-  memset(&Buffer[4], 0, 0xBCuLL);
-  *(_DWORD *)Buffer = 192;
+  memset(&Buffer[4], 0, 0xACuLL);
+  *(_DWORD *)Buffer = 176;
   RtlGetNtProductType(&Buffer[4]);
-  *(_DWORD *)&Buffer[184] = 0;
+  *(_DWORD *)&Buffer[168] = 0;
   v2 = (const __m128i *)Buffer;
   v3 = 0LL;
   *(_WORD *)&Buffer[9] = 286;
-  v4 = 12LL;
+  v4 = 11LL;
   Buffer[49] = 1;
   Buffer[11] = 0;
   do
@@ -49,8 +49,8 @@ __int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
   v7 = _mm_add_epi8(v6, _mm_srli_si128(v6, 4));
   v8 = _mm_add_epi8(v7, _mm_srli_si128(v7, 2));
   Buffer[50] = _mm_cvtsi128_si32(_mm_add_epi8(v8, _mm_srli_si128(v8, 1)));
-  RtlpRecordBootStatusData(0, (__int64)Buffer, 0LL, 192LL);
-  v9 = ZwWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0xC0u, &ByteOffset, 0LL);
+  RtlpRecordBootStatusData(0, (__int64)Buffer, 0LL, 176LL);
+  v9 = ZwWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0xB0u, &ByteOffset, 0LL);
   if ( v9 >= 0 )
   {
     if ( BootStatFileHandleAcquired )
@@ -72,7 +72,6 @@ __int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
           *v11 = *(_OWORD *)&Buffer[128];
           v11[1] = *(_OWORD *)&Buffer[144];
           v11[2] = *(_OWORD *)&Buffer[160];
-          v11[3] = *(_OWORD *)&Buffer[176];
         }
       }
     }

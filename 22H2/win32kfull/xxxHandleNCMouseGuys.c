@@ -1,169 +1,153 @@
 /*
- * XREFs of xxxHandleNCMouseGuys @ 0x1C0200A20
+ * XREFs of xxxHandleNCMouseGuys @ 0x1C0223744
  * Callers:
- *     ?xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z @ 0x1C0222AD8 (-xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z.c)
+ *     ?xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z @ 0x1C00DACB8 (-xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z.c)
  * Callees:
- *     GetNonChildAncestor @ 0x1C00255E4 (GetNonChildAncestor.c)
- *     xxxGetSysMenuPtr @ 0x1C006347C (xxxGetSysMenuPtr.c)
- *     ?IsVerticallyMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C00C3E24 (-IsVerticallyMaximized@@YA_NPEBUtagWND@@@Z.c)
- *     ?IsSemiMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C00D0C08 (-IsSemiMaximized@@YA_NPEBUtagWND@@@Z.c)
- *     ?xxxActivateWindowWithOptions@@YA_NPEAUtagWND@@W4ActivateWindowKind@@W4ComputeWindowToActivateStrategy@@W4WindowActivateReason@@@Z @ 0x1C00E19D0 (-xxxActivateWindowWithOptions@@YA_NPEAUtagWND@@W4ActivateWindowKind@@W4ComputeWindowToActivateSt.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
- *     ?xxxArrangeWindow@@YAXPEAUtagWND@@W4_WINDOW_ARRANGEMENT_COMMAND@@@Z @ 0x1C01EBB54 (-xxxArrangeWindow@@YAXPEAUtagWND@@W4_WINDOW_ARRANGEMENT_COMMAND@@@Z.c)
- *     ?WindowSubjectToBehavior@ShellWindowManagement@@YA_NPEBUtagWND@@K@Z @ 0x1C021E068 (-WindowSubjectToBehavior@ShellWindowManagement@@YA_NPEBUtagWND@@K@Z.c)
- *     xxxSetSysMenu @ 0x1C0222254 (xxxSetSysMenu.c)
- *     ?DragOperationFromMaximizedAllowed@WindowArrangement@@YA_NPEBUtagWND@@@Z @ 0x1C022DE70 (-DragOperationFromMaximizedAllowed@WindowArrangement@@YA_NPEBUtagWND@@@Z.c)
- *     ?MoveWithArrangementAllowed@WindowArrangement@@YA_NPEBUtagWND@@@Z @ 0x1C022DED8 (-MoveWithArrangementAllowed@WindowArrangement@@YA_NPEBUtagWND@@@Z.c)
- *     ?SizeWithSnapAllowed@WindowArrangement@@YA_NPEBUtagWND@@@Z @ 0x1C022DF04 (-SizeWithSnapAllowed@WindowArrangement@@YA_NPEBUtagWND@@@Z.c)
- *     _GetMenuState @ 0x1C024BB54 (_GetMenuState.c)
+ *     GetNonChildAncestor @ 0x1C0038928 (GetNonChildAncestor.c)
+ *     ?xxxActivateWindowWithOptions@@YA_NPEAUtagWND@@W4ActivateWindowKind@@W4ComputeWindowToActivateStrategy@@W4WindowActivateReason@@@Z @ 0x1C0039AC8 (-xxxActivateWindowWithOptions@@YA_NPEAUtagWND@@W4ActivateWindowKind@@W4ComputeWindowToActivateSt.c)
+ *     xxxSetSysMenu @ 0x1C0046C70 (xxxSetSysMenu.c)
+ *     ?WindowSubjectToBehavior@ShellWindowManagement@@YA_NPEAUtagWND@@K@Z @ 0x1C004B54C (-WindowSubjectToBehavior@ShellWindowManagement@@YA_NPEAUtagWND@@K@Z.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
+ *     xxxGetSysMenuPtr @ 0x1C006190C (xxxGetSysMenuPtr.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     _GetMenuState @ 0x1C00DADD0 (_GetMenuState.c)
+ *     ?xxxArrangeWindow@@YAXPEAUtagWND@@W4_WINDOW_ARRANGEMENT_COMMAND@@@Z @ 0x1C020D06C (-xxxArrangeWindow@@YAXPEAUtagWND@@W4_WINDOW_ARRANGEMENT_COMMAND@@@Z.c)
+ *     ?DragOperationFromMaximizedAllowed@@YA_NPEAUtagWND@@@Z @ 0x1C02234C8 (-DragOperationFromMaximizedAllowed@@YA_NPEAUtagWND@@@Z.c)
+ *     ?MoveWithArrangementAllowed@@YA_NPEAUtagWND@@@Z @ 0x1C02234F4 (-MoveWithArrangementAllowed@@YA_NPEAUtagWND@@@Z.c)
+ *     ?SizeWithSnapAllowed@@YA_NPEAUtagWND@@@Z @ 0x1C02235BC (-SizeWithSnapAllowed@@YA_NPEAUtagWND@@@Z.c)
  */
 
-char __fastcall xxxHandleNCMouseGuys(
-        __int64 BugCheckParameter2,
-        const struct tagWND *a2,
-        unsigned int a3,
-        __int128 *a4)
+void __fastcall xxxHandleNCMouseGuys(unsigned __int64 a1, int a2, int a3, struct _LARGE_STRING *a4)
 {
-  __int64 v4; // rax
-  __int64 v5; // r14
-  const struct tagWND *v8; // rcx
-  unsigned int v9; // ebp
-  unsigned int v10; // esi
-  const struct tagWND *v11; // rdx
-  const struct tagWND *NonChildAncestor; // rbx
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
+  __int64 v4; // rbp
+  int v5; // r15d
+  unsigned int v8; // esi
+  int v9; // r14d
+  __int64 v10; // rcx
+  int v11; // edx
+  __int64 v12; // rcx
+  __int64 NonChildAncestor; // rbx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v15; // rcx
   __int64 SysMenuPtr; // rax
-  const struct tagWND *v17; // rdx
-  __int64 v18; // rcx
-  unsigned int v19; // r8d
-  __int128 v21; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v22; // [rsp+60h] [rbp-28h]
+  __int64 v17; // rcx
+  unsigned int v18; // r8d
+  __int128 v19; // [rsp+50h] [rbp-38h] BYREF
+  __int64 v20; // [rsp+60h] [rbp-28h]
 
-  LOBYTE(v4) = 0;
-  v5 = a3;
-  v21 = 0LL;
-  v22 = 0LL;
+  v4 = (unsigned int)a3;
+  v5 = 0;
+  v8 = 0xFFFF;
+  v9 = 24;
+  v19 = 0LL;
+  v20 = 0LL;
   if ( a3 == 2 )
   {
-    v11 = (const struct tagWND *)(unsigned int)((_DWORD)a2 - 161);
-    if ( (_DWORD)v11 )
+    v11 = a2 - 161;
+    if ( v11 )
     {
-      if ( (_DWORD)v11 != 2 )
-        return v4;
-      if ( (*(_BYTE *)(*(_QWORD *)(BugCheckParameter2 + 40) + 31LL) & 0x21) != 0
-        || WindowArrangement::MoveWithArrangementAllowed((WindowArrangement *)BugCheckParameter2, v11)
-        && IsSemiMaximized((const struct tagWND *)BugCheckParameter2) )
+      if ( v11 == 2 )
       {
-        v10 = 61728;
-        goto LABEL_34;
+        if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 31LL) & 0x21) != 0
+          || MoveWithArrangementAllowed((struct tagWND *)a1) && (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 233LL) & 3) != 0 )
+        {
+          v8 = 61728;
+        }
+        else if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 30LL) & 1) != 0 )
+        {
+          v8 = 61488;
+        }
+        v5 = 1;
       }
-      v4 = *(_QWORD *)(BugCheckParameter2 + 40);
-      if ( (*(_BYTE *)(v4 + 30) & 1) == 0 )
-        return v4;
-      v10 = 61488;
     }
     else
     {
-      v4 = *(_QWORD *)(BugCheckParameter2 + 40);
-      if ( (*(_BYTE *)(v4 + 31) & 0xC0) == 0x40 && (*(_DWORD *)(BugCheckParameter2 + 320) & 0x2000) != 0 )
-        return v4;
-      NonChildAncestor = (const struct tagWND *)GetNonChildAncestor(BugCheckParameter2);
-      ThreadLock(NonChildAncestor, &v21);
-      xxxActivateWindowWithOptions(NonChildAncestor, 0, 0LL, 0);
-      ThreadUnlock1(v14, v13, v15);
-      v10 = 61456;
+      v12 = *(_QWORD *)(a1 + 40);
+      if ( (*(_BYTE *)(v12 + 31) & 0xC0) != 0x40 || (*(_BYTE *)(v12 + 233) & 0x10) == 0 )
+      {
+        NonChildAncestor = GetNonChildAncestor(a1);
+        ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+        *(_QWORD *)&v19 = *(_QWORD *)(ThreadWin32Thread + 416);
+        *(_QWORD *)(ThreadWin32Thread + 416) = &v19;
+        *((_QWORD *)&v19 + 1) = NonChildAncestor;
+        if ( NonChildAncestor )
+          HMLockObject(NonChildAncestor);
+        xxxActivateWindowWithOptions(NonChildAncestor, 0, 0, 0);
+        ThreadUnlock1(v15);
+        v8 = 61456;
+      }
     }
-    goto LABEL_38;
   }
-  if ( a3 == 3 || a3 == 5 || a3 == 6 || a3 == 7 )
+  else
   {
-    LOBYTE(v4) = (_BYTE)a2 + 95;
-    if ( (((_DWORD)a2 - 161) & 0xFFFFFFFD) != 0 )
-      return v4;
-    if ( a3 != 3 )
+    if ( a3 == 3 )
+      goto LABEL_14;
+    if ( a3 <= 4 )
+      goto LABEL_37;
+    if ( a3 <= 7 )
     {
-      if ( a3 != 5 )
+LABEL_14:
+      if ( ((a2 - 161) & 0xFFFFFFFD) != 0 )
+        goto LABEL_37;
+      if ( a3 == 3 )
+      {
+        if ( a2 == 163 )
+        {
+          v8 = 61536;
+          goto LABEL_37;
+        }
+      }
+      else if ( a3 != 5 )
       {
         if ( a3 == 6 )
-          v10 = 61568;
+          v8 = 61568;
         else
-          v10 = 61552;
-        goto LABEL_34;
+          v8 = 61552;
+        goto LABEL_37;
       }
-      goto LABEL_25;
+      v8 = 61584;
     }
-    if ( (_DWORD)a2 != 163 )
+    else if ( (a3 == 12 || a3 == 15) && a2 == 163 && SizeWithSnapAllowed((struct tagWND *)a1) )
     {
-LABEL_25:
-      v10 = 61584;
-      goto LABEL_34;
-    }
-    v10 = 61536;
-LABEL_38:
-    if ( (*(_BYTE *)(*(_QWORD *)(BugCheckParameter2 + 40) + 30LL) & 8) != 0 )
-    {
-      xxxSetSysMenu(BugCheckParameter2);
-      SysMenuPtr = xxxGetSysMenuPtr((_QWORD *)BugCheckParameter2);
-      LOBYTE(v4) = GetMenuState(SysMenuPtr, (unsigned __int16)v10 & 0xFFF0);
-      if ( (v4 & 3) != 0 )
+      v10 = *(_QWORD *)(a1 + 40);
+      if ( (*(_BYTE *)(v10 + 31) & 0x21) == 0 )
       {
-        if ( v10 != 61456 )
-          return v4;
-        v18 = *(_QWORD *)(BugCheckParameter2 + 40);
-        if ( (*(_BYTE *)(v18 + 30) & 4) == 0 )
-          return v4;
-        if ( (*(_BYTE *)(v18 + 31) & 1) == 0 )
-          return v4;
-        if ( !WindowArrangement::DragOperationFromMaximizedAllowed((WindowArrangement *)BugCheckParameter2, v17) )
+        v5 = 1;
+        if ( (*(_BYTE *)(v10 + 233) & 3) != 0 )
         {
-          LOBYTE(v4) = ShellWindowManagement::WindowSubjectToBehavior(
-                         (ShellWindowManagement *)BugCheckParameter2,
-                         (const struct tagWND *)4,
-                         v19);
-          if ( !(_BYTE)v4 )
-            return v4;
+          if ( (*(_BYTE *)(v10 + 233) & 3) == 3 )
+            v9 = 19;
         }
-      }
-    }
-LABEL_34:
-    _InterlockedIncrement(&glSendMessage);
-    LOBYTE(v4) = xxxSendTransformableMessageTimeout(
-                   (unsigned __int64 *)BugCheckParameter2,
-                   0x112u,
-                   v5 | v10,
-                   a4,
-                   0,
-                   0,
-                   0LL,
-                   1,
-                   1);
-    return v4;
-  }
-  if ( (a3 == 12 || a3 == 15) && (_DWORD)a2 == 163 )
-  {
-    LOBYTE(v4) = WindowArrangement::SizeWithSnapAllowed((WindowArrangement *)BugCheckParameter2, a2);
-    if ( (_BYTE)v4 )
-    {
-      v4 = *(_QWORD *)(BugCheckParameter2 + 40);
-      if ( (*(_BYTE *)(v4 + 31) & 0x21) == 0 )
-      {
-        if ( IsVerticallyMaximized((const struct tagWND *)BugCheckParameter2) )
-        {
-          v9 = 19;
-LABEL_15:
-          LOBYTE(v4) = xxxArrangeWindow((ShellWindowManagement **)BugCheckParameter2, (const struct tagWND *)v9);
-          return v4;
-        }
-        LOBYTE(v4) = IsSemiMaximized(v8);
-        if ( !(_BYTE)v4 )
+        else
         {
           v9 = 18;
-          goto LABEL_15;
         }
       }
     }
   }
-  return v4;
+LABEL_37:
+  if ( v8 != 61456 && v8 != 61488 && v8 != 61536
+    || (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 30LL) & 8) == 0
+    || (xxxSetSysMenu((struct tagWND *)a1),
+        SysMenuPtr = xxxGetSysMenuPtr((_QWORD *)a1),
+        (GetMenuState(SysMenuPtr, (unsigned __int16)v8 & 0xFFF0) & 3) == 0)
+    || v8 == 61456
+    && (v17 = *(_QWORD *)(a1 + 40), (*(_BYTE *)(v17 + 30) & 4) != 0)
+    && (*(_BYTE *)(v17 + 31) & 1) != 0
+    && (DragOperationFromMaximizedAllowed((struct tagWND *)a1)
+     || ShellWindowManagement::WindowSubjectToBehavior((ShellWindowManagement **)a1, (struct tagWND *)4, v18)) )
+  {
+    if ( v5 && gSqmIsOptedIn )
+      WinSqmIncrementDWORD(&SqmGlobalSessionGuid, 3534LL, 1LL);
+    if ( v8 == 0xFFFF )
+    {
+      if ( v9 != 24 )
+        xxxArrangeWindow(a1, v9);
+    }
+    else
+    {
+      _InterlockedIncrement(&glSendMessage);
+      xxxSendTransformableMessageTimeout(a1, 0x112u, v4 | v8, a4, 0, 0, 0LL, 1, 1);
+    }
+  }
 }

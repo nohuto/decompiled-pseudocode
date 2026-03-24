@@ -1,1 +1,35 @@
-/*\n * XREFs of KeyboardSendIrpSynchronously @ 0x1C000D2F0\n * Callers:\n *     KeyboardPnP @ 0x1C0001A70 (KeyboardPnP.c)\n *     KeyboardStart @ 0x1C00023C0 (KeyboardStart.c)\n *     KbdEnableDisablePort @ 0x1C000CF60 (KbdEnableDisablePort.c)\n * Callees:\n *     <none>\n */\n\n__int64 __fastcall KeyboardSendIrpSynchronously(PDEVICE_OBJECT DeviceObject, PIRP Irp, char a3)\n{\n  struct _IO_STACK_LOCATION *v6; // rax\n  struct _IO_STACK_LOCATION *CurrentStackLocation; // rax\n  struct _KEVENT Event; // [rsp+30h] [rbp-28h] BYREF\n\n  KeInitializeEvent(&Event, SynchronizationEvent, 0);\n  if ( a3 )\n  {\n    CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;\n    *(_OWORD *)&CurrentStackLocation[-1].MajorFunction = *(_OWORD *)&CurrentStackLocation->MajorFunction;\n    *(_OWORD *)&CurrentStackLocation[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&CurrentStackLocation->Parameters.NotifyDirectoryEx.CompletionFilter;\n    *(_OWORD *)(&CurrentStackLocation[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&CurrentStackLocation->Parameters.SetQuota\n                                                                               + 6);\n    CurrentStackLocation[-1].FileObject = CurrentStackLocation->FileObject;\n    CurrentStackLocation[-1].Control = 0;\n  }\n  v6 = Irp->Tail.Overlay.CurrentStackLocation;\n  v6[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)KbdSyncComplete;\n  v6[-1].Context = &Event;\n  v6[-1].Control = -32;\n  IofCallDriver(DeviceObject, Irp);\n  KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);\n  return (unsigned int)Irp->IoStatus.Status;\n}\n
+/*
+ * XREFs of KeyboardSendIrpSynchronously @ 0x1C000D2F0
+ * Callers:
+ *     KeyboardPnP @ 0x1C0001A70 (KeyboardPnP.c)
+ *     KeyboardStart @ 0x1C00023C0 (KeyboardStart.c)
+ *     KbdEnableDisablePort @ 0x1C000CF60 (KbdEnableDisablePort.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall KeyboardSendIrpSynchronously(PDEVICE_OBJECT DeviceObject, PIRP Irp, char a3)
+{
+  struct _IO_STACK_LOCATION *v6; // rax
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  struct _KEVENT Event; // [rsp+30h] [rbp-28h] BYREF
+
+  KeInitializeEvent(&Event, SynchronizationEvent, 0);
+  if ( a3 )
+  {
+    CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
+    *(_OWORD *)&CurrentStackLocation[-1].MajorFunction = *(_OWORD *)&CurrentStackLocation->MajorFunction;
+    *(_OWORD *)&CurrentStackLocation[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&CurrentStackLocation->Parameters.NotifyDirectoryEx.CompletionFilter;
+    *(_OWORD *)(&CurrentStackLocation[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&CurrentStackLocation->Parameters.SetQuota
+                                                                               + 6);
+    CurrentStackLocation[-1].FileObject = CurrentStackLocation->FileObject;
+    CurrentStackLocation[-1].Control = 0;
+  }
+  v6 = Irp->Tail.Overlay.CurrentStackLocation;
+  v6[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)KbdSyncComplete;
+  v6[-1].Context = &Event;
+  v6[-1].Control = -32;
+  IofCallDriver(DeviceObject, Irp);
+  KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+  return (unsigned int)Irp->IoStatus.Status;
+}

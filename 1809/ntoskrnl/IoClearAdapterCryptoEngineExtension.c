@@ -1,11 +1,11 @@
 /*
- * XREFs of IoClearAdapterCryptoEngineExtension @ 0x140284E30
+ * XREFs of IoClearAdapterCryptoEngineExtension @ 0x140284F30
  * Callers:
  *     <none>
  * Callees:
- *     IopAllocateIrpExtension @ 0x1400DF998 (IopAllocateIrpExtension.c)
- *     IopFreeIrpExtension @ 0x140107830 (IopFreeIrpExtension.c)
- *     IopIrpHasExtensionType @ 0x140107C2C (IopIrpHasExtensionType.c)
+ *     IopAllocateIrpExtension @ 0x1400DF9B8 (IopAllocateIrpExtension.c)
+ *     IopFreeIrpExtension @ 0x140107850 (IopFreeIrpExtension.c)
+ *     IopIrpHasExtensionType @ 0x140107C4C (IopIrpHasExtensionType.c)
  */
 
 __int64 __fastcall IoClearAdapterCryptoEngineExtension(__int64 a1)

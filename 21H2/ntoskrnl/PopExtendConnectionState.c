@@ -1,18 +1,19 @@
 /*
- * XREFs of PopExtendConnectionState @ 0x14081D3C0
+ * XREFs of PopExtendConnectionState @ 0x1407D24F4
  * Callers:
- *     PopSetSessionUserStatus @ 0x1407EF430 (PopSetSessionUserStatus.c)
- *     PopInitializeAdpm @ 0x140AF33B0 (PopInitializeAdpm.c)
+ *     PopSetSessionUserStatus @ 0x14067D980 (PopSetSessionUserStatus.c)
+ *     PopInitializeAdpm @ 0x140A725E8 (PopInitializeAdpm.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PopExtendConnectionState(unsigned int a1)
+PVOID __fastcall PopExtendConnectionState(unsigned int a1)
 {
   unsigned int v1; // ebx
-  __int64 result; // rax
+  PVOID result; // rax
   void *v3; // rdi
   PVOID v4; // rsi
 
@@ -27,18 +28,19 @@ __int64 __fastcall PopExtendConnectionState(unsigned int a1)
   {
     v1 = 8;
   }
-  result = ExAllocatePool2(256LL, v1, 1936020304LL);
-  v3 = (void *)result;
+  result = ExAllocatePoolWithTag(PagedPool, v1, 0x73655350u);
+  v3 = result;
   if ( result )
   {
+    memset(result, 0, v1);
     v4 = PopConnectionState;
     if ( PopConnectionState )
     {
-      memmove((void *)result, PopConnectionState, (unsigned __int64)(unsigned int)PopMaximumConnectionSessions >> 3);
+      memmove(v3, PopConnectionState, (unsigned __int64)(unsigned int)PopMaximumConnectionSessions >> 3);
       ExFreePoolWithTag(v4, 0x73655350u);
     }
-    result = 8 * v1;
     PopConnectionState = v3;
+    result = (PVOID)(8 * v1);
     PopMaximumConnectionSessions = 8 * v1;
     PopConnectionBitmap.SizeOfBitMap = 8 * v1;
     PopConnectionBitmap.Buffer = (unsigned int *)v3;

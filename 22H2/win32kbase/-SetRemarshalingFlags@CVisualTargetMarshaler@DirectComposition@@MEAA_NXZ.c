@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CVisualTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C020D690
+ * XREFs of ?SetRemarshalingFlags@CVisualTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01F81E0
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ char __fastcall DirectComposition::CVisualTargetMarshaler::SetRemarshalingFlags(
   char result; // al
 
   result = 0;
-  if ( *((_QWORD *)this + 8) )
+  if ( *((_QWORD *)this + 9) )
   {
     *((_DWORD *)this + 4) |= 0x20u;
     return 1;

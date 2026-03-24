@@ -1,21 +1,17 @@
 /*
- * XREFs of MiCopyLargeVad @ 0x140A493BC
+ * XREFs of MiCopyLargeVad @ 0x1408D9D70
  * Callers:
- *     MiMapChildLargePageVads @ 0x140A492EC (MiMapChildLargePageVads.c)
+ *     MiMapChildLargePageVads @ 0x1408D99B0 (MiMapChildLargePageVads.c)
  * Callees:
- *     ExUnlockUserBuffer @ 0x140206EC4 (ExUnlockUserBuffer.c)
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     MiLocateVadEvent @ 0x14030B2DC (MiLocateVadEvent.c)
- *     MiLocateLockedVadEvent @ 0x14030B2F4 (MiLocateLockedVadEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     MiMapUserLargePages @ 0x140668E30 (MiMapUserLargePages.c)
- *     ExLockUserBuffer @ 0x140687918 (ExLockUserBuffer.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     MiLocateVadEvent @ 0x14027EA34 (MiLocateVadEvent.c)
+ *     MiLocateLockedVadEvent @ 0x14027EA4C (MiLocateLockedVadEvent.c)
+ *     ExUnlockUserBuffer @ 0x1402EC94C (ExUnlockUserBuffer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     MiMapUserLargePages @ 0x14055E670 (MiMapUserLargePages.c)
+ *     ExLockUserBuffer @ 0x1406605D0 (ExLockUserBuffer.c)
  */
 
 __int64 __fastcall MiCopyLargeVad(ULONG_PTR a1, __int64 a2, __int64 a3)
@@ -24,31 +20,30 @@ __int64 __fastcall MiCopyLargeVad(ULONG_PTR a1, __int64 a2, __int64 a3)
   __int64 VadEvent; // rax
   __int64 v7; // r8
   _KPROCESS *v8; // r9
-  __int64 v9; // rax
-  __int64 v10; // rdi
-  int v11; // edi
-  int v13; // r12d
-  int v14; // r13d
-  unsigned __int64 v15; // rbx
-  unsigned __int64 v16; // rdx
-  unsigned __int64 v17; // r14
-  unsigned __int64 v18; // rsi
-  size_t v19; // rdi
-  void *v20; // rcx
-  struct _MDL *v21; // r15
-  void *v22; // [rsp+30h] [rbp-39h] BYREF
-  PVOID v23; // [rsp+38h] [rbp-31h] BYREF
+  int v9; // ebx
+  int v11; // r12d
+  unsigned __int64 v12; // rbx
+  int v13; // r13d
+  unsigned __int64 v14; // rdx
+  unsigned __int64 v15; // r14
+  unsigned __int64 v16; // rsi
+  size_t v17; // rdi
+  _DWORD *v18; // r9
+  void *v19; // rcx
+  struct _MDL *v20; // r15
+  void *v21; // [rsp+30h] [rbp-39h] BYREF
+  PVOID v22; // [rsp+38h] [rbp-31h] BYREF
   PVOID P; // [rsp+40h] [rbp-29h] BYREF
   void *Src; // [rsp+48h] [rbp-21h] BYREF
   ULONG_PTR BugCheckParameter1; // [rsp+50h] [rbp-19h]
-  $115DCDF994C6370D29323EAB0E0C9502 v27; // [rsp+58h] [rbp-11h] BYREF
+  _OWORD v26[3]; // [rsp+58h] [rbp-11h] BYREF
 
   BugCheckParameter1 = a1;
   Src = 0LL;
   P = 0LL;
-  v23 = 0LL;
   v22 = 0LL;
-  memset(&v27, 0, sizeof(v27));
+  v21 = 0LL;
+  memset(v26, 0, sizeof(v26));
   MiLocateLockedVadEvent(a3, 16);
   VadEvent = MiLocateVadEvent(a2, v5);
   if ( v7 )
@@ -56,65 +51,56 @@ __int64 __fastcall MiCopyLargeVad(ULONG_PTR a1, __int64 a2, __int64 a3)
     *(_BYTE *)(v7 + 8) = *(_BYTE *)(VadEvent + 8);
     *(_QWORD *)(v7 + 16) = *(_QWORD *)(VadEvent + 16);
   }
-  KiStackAttachProcess(v8, 0, (__int64)&v27);
-  v9 = KeAbPreAcquire(a3 + 40, 0LL);
-  v10 = v9;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)(a3 + 40), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a3 + 40), v9, a3 + 40);
-  if ( v10 )
-    *(_BYTE *)(v10 + 18) = 1;
-  v11 = MiMapUserLargePages(a3, 0, 0, 0LL);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a3 + 40), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)(a3 + 40));
-  KeAbPostRelease(a3 + 40);
-  KiUnstackDetachProcess(&v27);
-  if ( v11 < 0 )
-    return (unsigned int)v11;
-  v13 = 0;
-  v14 = *(_DWORD *)(a3 + 48) & 0x200;
-  v15 = 4292870144LL;
-  v16 = *(unsigned int *)(a2 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a2 + 32) << 32);
-  v17 = v16 << 12;
-  v18 = ((*(unsigned int *)(a2 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a2 + 33) << 32)) - v16 + 1) << 12;
-  while ( v18 )
+  KiStackAttachProcess(v8, 0LL, (__int64)v26, v8);
+  v9 = MiMapUserLargePages(a3);
+  KiUnstackDetachProcess((__int64)v26, 0);
+  if ( v9 < 0 )
+    return (unsigned int)v9;
+  v11 = 0;
+  v12 = 4292870144LL;
+  v13 = *(_DWORD *)(a3 + 48) & 0x200;
+  v14 = *(unsigned int *)(a2 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a2 + 32) << 32);
+  v15 = v14 << 12;
+  v16 = ((*(unsigned int *)(a2 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a2 + 33) << 32)) - v14 + 1) << 12;
+  while ( v16 )
   {
-    v19 = v15;
-    if ( v18 <= v15 )
-      v19 = v18;
-    v13 = ExLockUserBuffer(v17, v19, 1, IoReadAccess, &Src, (struct _MDL **)&P);
-    if ( v13 < 0 )
-      goto LABEL_15;
-    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v27);
-    v20 = (void *)v17;
-    if ( v14 )
+    v17 = v12;
+    if ( v16 <= v12 )
+      v17 = v16;
+    v11 = ExLockUserBuffer(v15, v17, 1, IoReadAccess, &Src, (struct _MDL **)&P);
+    if ( v11 < 0 )
+      goto LABEL_9;
+    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v26, v18);
+    v19 = (void *)v15;
+    if ( v13 )
     {
-      v21 = 0LL;
-      v22 = (void *)v17;
-      v23 = 0LL;
+      v20 = 0LL;
+      v21 = (void *)v15;
+      v22 = 0LL;
     }
     else
     {
-      v13 = ExLockUserBuffer(v17, v19, 1, IoWriteAccess, &v22, (struct _MDL **)&v23);
-      if ( v13 < 0 )
+      v11 = ExLockUserBuffer(v15, v17, 1, IoWriteAccess, &v21, (struct _MDL **)&v22);
+      if ( v11 < 0 )
       {
-        KiUnstackDetachProcess(&v27);
+        KiUnstackDetachProcess((__int64)v26, 0);
         ExUnlockUserBuffer((struct _MDL *)P);
-LABEL_15:
-        v15 = (v19 >> 1) & 0x7FFFFFFFFFE00000LL;
-        if ( v15 < 0x200000 )
-          return (unsigned int)v13;
+LABEL_9:
+        v12 = (v17 >> 1) & 0x7FFFFFFFFFE00000LL;
+        if ( v12 < 0x200000 )
+          return (unsigned int)v11;
         continue;
       }
-      v21 = (struct _MDL *)v23;
-      v20 = v22;
+      v20 = (struct _MDL *)v22;
+      v19 = v21;
     }
-    memmove(v20, Src, v19);
-    if ( !v14 )
-      ExUnlockUserBuffer(v21);
-    KiUnstackDetachProcess(&v27);
+    memmove(v19, Src, v17);
+    if ( !v13 )
+      ExUnlockUserBuffer(v20);
+    KiUnstackDetachProcess((__int64)v26, 0);
     ExUnlockUserBuffer((struct _MDL *)P);
-    v18 -= v19;
-    v17 += v19;
+    v16 -= v17;
+    v15 += v17;
   }
-  return (unsigned int)v13;
+  return (unsigned int)v11;
 }

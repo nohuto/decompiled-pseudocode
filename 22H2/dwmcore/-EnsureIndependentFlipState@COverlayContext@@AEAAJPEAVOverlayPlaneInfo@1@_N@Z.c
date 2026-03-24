@@ -1,17 +1,15 @@
 /*
- * XREFs of ?EnsureIndependentFlipState@COverlayContext@@AEAAJPEAVOverlayPlaneInfo@1@_N@Z @ 0x1801DD1F4
+ * XREFs of ?EnsureIndependentFlipState@COverlayContext@@AEAAJPEAVOverlayPlaneInfo@1@_N@Z @ 0x18017BA30
  * Callers:
- *     ?ApplyConfiguration@COverlayContext@@QEAAJAEBVCDirtyRegion@@PEAV?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@PEA_N2@Z @ 0x18008BF64 (-ApplyConfiguration@COverlayContext@@QEAAJAEBVCDirtyRegion@@PEAV-$vector@PEBVCVisual@@V-$allocat.c)
- *     ?UpdateMPOCaps@COverlayContext@@QEAAJXZ @ 0x1800C97B8 (-UpdateMPOCaps@COverlayContext@@QEAAJXZ.c)
+ *     ?Reset@COverlayContext@@IEAAXXZ @ 0x18002E744 (-Reset@COverlayContext@@IEAAXXZ.c)
+ *     ?PresentNeeded@COverlayContext@@QEAA_NXZ @ 0x18002FC98 (-PresentNeeded@COverlayContext@@QEAA_NXZ.c)
+ *     ?ReleaseObsoletePlaneAssignments@COverlayContext@@AEAAJXZ @ 0x1800DE864 (-ReleaseObsoletePlaneAssignments@COverlayContext@@AEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0qqq_EventWriteTransfer @ 0x18012DF20 (McTemplateU0qqq_EventWriteTransfer.c)
- *     McTemplateU0qqqq_EventWriteTransfer @ 0x18012E8A8 (McTemplateU0qqqq_EventWriteTransfer.c)
- *     ?IsFullscreen@COverlayContext@@AEBA_NAEBVOverlayPlaneInfo@1@@Z @ 0x18012FAC8 (-IsFullscreen@COverlayContext@@AEBA_NAEBVOverlayPlaneInfo@1@@Z.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
- *     McTemplateU0tu_EventWriteTransfer @ 0x1801DF184 (McTemplateU0tu_EventWriteTransfer.c)
+ *     ?DoesContain@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18003A95C (-DoesContain@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?IsFullscreen@COverlayContext@@AEBA_NAEBVOverlayPlaneInfo@1@@Z @ 0x18017C29C (-IsFullscreen@COverlayContext@@AEBA_NAEBVOverlayPlaneInfo@1@@Z.c)
  */
 
 __int64 __fastcall COverlayContext::EnsureIndependentFlipState(
@@ -19,168 +17,117 @@ __int64 __fastcall COverlayContext::EnsureIndependentFlipState(
         struct COverlayContext::OverlayPlaneInfo *a2,
         char a3)
 {
-  int v6; // ebx
-  unsigned int v7; // r15d
-  __int64 v8; // rbp
-  __int64 v9; // r14
-  unsigned int v10; // ebp
-  char v11; // al
-  __int64 v12; // r8
-  char v13; // r12
-  __int64 v14; // rdx
-  int v15; // r9d
-  unsigned __int8 (__fastcall *v16)(__int64); // rax
-  unsigned int v17; // ebx
-  __int64 (__fastcall *v18)(__int64, _QWORD, _QWORD, _QWORD); // rdi
-  unsigned int v19; // eax
-  int v20; // eax
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  unsigned int v23; // eax
-  __int64 v24; // rcx
-  int v25; // r9d
-  int v26; // eax
-  __int64 v27; // rcx
-  int v28; // eax
-  __int64 v29; // rcx
-  int v30; // edi
-  unsigned int v32; // [rsp+30h] [rbp-68h] BYREF
-  __int64 v33; // [rsp+38h] [rbp-60h]
-  struct _EVENT_DATA_DESCRIPTOR v34; // [rsp+40h] [rbp-58h] BYREF
+  int v3; // r13d
+  unsigned int v4; // r12d
+  int v5; // r15d
+  char v6; // bp
+  int v9; // ecx
+  __int64 v10; // rax
+  bool IsFullscreen; // bl
+  unsigned int v12; // edi
+  __int64 v13; // rax
+  __int64 v14; // rdi
+  __int64 (__fastcall *v15)(__int64, __int64, __int64, _QWORD, int, int); // rbx
+  int v16; // eax
+  __int64 v17; // r8
+  __int64 v18; // rdx
+  int v19; // eax
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  _DWORD v23[4]; // [rsp+40h] [rbp-68h] BYREF
+  _BYTE v24[16]; // [rsp+50h] [rbp-58h] BYREF
 
-  v6 = 0;
-  v7 = 0;
-  v33 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)this + 176LL))(*(_QWORD *)this);
-  v8 = v33;
-  if ( a3 && (!*((_BYTE *)this + 11308) || !*((_BYTE *)a2 + 177)) )
-    a3 = 0;
-  v9 = *((_QWORD *)a2 + 2);
+  v3 = *((_DWORD *)a2 + 49);
+  v4 = 0;
+  v5 = 0;
+  v6 = a3;
   if ( a3 )
   {
-    v10 = (*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)v9 + 96LL))(*((_QWORD *)a2 + 2));
-    v11 = (*(__int64 (__fastcall **)(__int64, unsigned int *))(*(_QWORD *)v9 + 104LL))(v9, &v32);
-    v12 = 0LL;
-    v13 = v11;
-    if ( CCommonRegistryData::m_customRefreshRateMode && v10 )
+    if ( !*((_BYTE *)this + 11428) || !*((_BYTE *)a2 + 178) )
+      v6 = 0;
+    if ( v6 )
     {
-      v14 = *(unsigned __int8 *)(*((_QWORD *)g_pComposition + 27) + 577LL);
-      if ( !(_BYTE)v14
-        || -1227133513 * (unsigned int)((__int64)(*((_QWORD *)this + 914) - *((_QWORD *)this + 913)) >> 5) != 1 )
+      if ( (*(unsigned int (__fastcall **)(_QWORD))(**(_QWORD **)this + 56LL))(*(_QWORD *)this) )
       {
-        if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x2000000) != 0 )
-          McTemplateU0tu_EventWriteTransfer(
-            0x6DB6DB6DB6DB6DB7LL,
-            v14,
-            *(unsigned __int8 *)(*((_QWORD *)g_pComposition + 27) + 577LL),
-            0x6DB6DB6DB6DB6DB7LL * ((__int64)(*((_QWORD *)this + 914) - *((_QWORD *)this + 913)) >> 5));
-        goto LABEL_31;
-      }
-      if ( *((_BYTE *)this + 11301) )
-      {
-        if ( !COverlayContext::IsFullscreen((__int64 **)this, a2) )
+        if ( *((int *)a2 + 13) < 0 || (v9 = *((_DWORD *)a2 + 14), v9 < 0) )
         {
-          if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x2000000) != 0 )
-            McTemplateU0qqqq_EventWriteTransfer(
-              (__int64)&Microsoft_Windows_Dwm_Core_Provider_Context,
-              (__int64)&CustomDurationRejectPlaneFullscreenTest,
-              *((unsigned int *)a2 + 17),
-              *((_DWORD *)a2 + 18),
-              *((_DWORD *)a2 + 19),
-              *((_DWORD *)a2 + 20));
-          goto LABEL_31;
+          v6 = 0;
+        }
+        else
+        {
+          v23[0] = *((_DWORD *)a2 + 13);
+          v23[2] = *((_DWORD *)a2 + 15);
+          v23[3] = *((_DWORD *)a2 + 16);
+          v23[1] = v9;
+          v10 = (*(__int64 (__fastcall **)(_QWORD, _BYTE *))(**(_QWORD **)this + 160LL))(*(_QWORD *)this, v24);
+          v6 &= TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::DoesContain(v10, (__int64)v23);
         }
       }
-      else if ( *((_BYTE *)this + 11024) )
+      if ( v6 )
       {
-        if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x2000000) != 0 )
-          McGenEventWrite_EventWriteTransfer(
-            &Microsoft_Windows_Dwm_Core_Provider_Context,
-            &CustomDurationRejectDesktopPlaneEnabledTest,
-            0LL,
-            1u,
-            &v34);
-        goto LABEL_31;
-      }
-      if ( v10 == *((_DWORD *)a2 + 49) && v32 == *((_DWORD *)a2 + 50) && v13 == *((_BYTE *)a2 + 204) )
-      {
-        v7 = *((_DWORD *)a2 + 48);
-        if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x2000000) != 0 )
+        IsFullscreen = 0;
+        v12 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)a2 + 2) + 96LL))(*((_QWORD *)a2 + 2));
+        if ( v12
+          && *(_BYTE *)(*((_QWORD *)g_pComposition + 11) + 129LL)
+          && (unsigned int)((*((_QWORD *)this + 915) - *((_QWORD *)this + 914)) / 224LL) == 1 )
         {
-          v15 = -1;
-          if ( v13 )
-            v15 = v32;
-          McTemplateU0qqq_EventWriteTransfer(v32, (__int64)&CustomDurationUseCachedDuration, v10, v15, v7);
+          if ( *((_BYTE *)this + 11421) )
+            IsFullscreen = COverlayContext::IsFullscreen(this, a2);
+          else
+            IsFullscreen = *((_BYTE *)this + 11032) == 0;
         }
-      }
-      else
-      {
-        LOBYTE(v12) = v13;
-        v23 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64, _QWORD))(*(_QWORD *)v33 + 168LL))(v33, v10, v12, v32);
-        v7 = v23;
-        if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x2000000) != 0 )
+        if ( IsFullscreen )
         {
-          v25 = -1;
-          if ( v13 )
-            v25 = v32;
-          McTemplateU0qqq_EventWriteTransfer(v24, (__int64)&CustomDurationComputeSupportedDuration, v10, v25, v23);
+          if ( v12 == *((_DWORD *)a2 + 50) )
+          {
+            v5 = *((_DWORD *)a2 + 49);
+          }
+          else
+          {
+            v13 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)this + 192LL))(*(_QWORD *)this);
+            v5 = (*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v13 + 104LL))(v13, v12);
+            *((_DWORD *)a2 + 49) = v5;
+            *((_DWORD *)a2 + 50) = v12;
+          }
         }
-        *((_DWORD *)a2 + 50) = v32;
-        *((_DWORD *)a2 + 49) = v10;
-        *((_BYTE *)a2 + 204) = v13;
-        *((_DWORD *)a2 + 48) = v7;
-      }
-      goto LABEL_22;
-    }
-LABEL_31:
-    *((_DWORD *)a2 + 49) = 0;
-    *((_DWORD *)a2 + 50) = 0;
-    *((_BYTE *)a2 + 204) = 0;
-    *((_DWORD *)a2 + 48) = 0;
-LABEL_22:
-    v8 = v33;
-  }
-  v16 = *(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v9 + 320LL);
-  if ( a3 )
-  {
-    if ( !v16(v9) )
-    {
-      v17 = *((_DWORD *)a2 + 52);
-      v18 = *(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD))(*(_QWORD *)v9 + 352LL);
-      v19 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v8 + 56LL))(v8);
-      v20 = v18(v9, *((_QWORD *)a2 + 3), v19, v17);
-      v6 = v20;
-      if ( v20 >= 0 )
-      {
-        if ( !*((_BYTE *)a2 + 183) )
+        else
         {
-          LOBYTE(v22) = 1;
-          (*(void (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)v9 + 408LL))(v9, 3LL, v22);
+          *((_DWORD *)a2 + 50) = 0;
+          *((_DWORD *)a2 + 49) = 0;
         }
-        *((_BYTE *)a2 + 183) = 1;
-      }
-      else
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0xC25u, 0LL);
       }
     }
   }
-  else if ( v16(v9) )
+  if ( v5 != v3
+    || v6 != (*(unsigned __int8 (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)a2 + 2) + 248LL))(
+               *((_QWORD *)a2 + 2),
+               0LL) )
   {
-    v26 = (*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v9 + 376LL))(v9, *((_QWORD *)a2 + 3));
-    v6 = v26;
-    if ( v26 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0xC3Au, 0LL);
-    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v9 + 408LL))(v9, 3LL);
-    *((_BYTE *)a2 + 183) = 0;
+    if ( (*(unsigned __int8 (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)a2 + 2) + 248LL))(*((_QWORD *)a2 + 2), 0LL) )
+      LOBYTE(v4) = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)a2 + 2) + 256LL))(*((_QWORD *)a2 + 2));
+    v14 = *((_QWORD *)a2 + 2);
+    v15 = *(__int64 (__fastcall **)(__int64, __int64, __int64, _QWORD, int, int))(*(_QWORD *)v14 + 272LL);
+    v16 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)this + 176LL))(*(_QWORD *)this);
+    LOBYTE(v17) = v4;
+    LOBYTE(v18) = v6;
+    v19 = v15(v14, v18, v17, *((unsigned int *)a2 + 51), v5, v16);
+    v4 = v19;
+    if ( v19 >= 0 )
+    {
+      if ( *((_BYTE *)a2 + 219) != v6 )
+      {
+        LOBYTE(v21) = v6;
+        (*(void (__fastcall **)(_QWORD, __int64, __int64))(**((_QWORD **)a2 + 2) + 304LL))(
+          *((_QWORD *)a2 + 2),
+          3LL,
+          v21);
+      }
+      *((_BYTE *)a2 + 219) = v6;
+    }
+    else
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0xB2Au, 0LL);
+    }
   }
-  if ( *((_BYTE *)a2 + 183) )
-  {
-    v28 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)v9 + 368LL))(v9, *((_QWORD *)a2 + 3), v7);
-    v30 = v28;
-    if ( v28 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, 0xC4Cu, 0LL);
-    if ( !v6 || v6 >= 0 && v30 < 0 )
-      return (unsigned int)v30;
-  }
-  return (unsigned int)v6;
+  return v4;
 }

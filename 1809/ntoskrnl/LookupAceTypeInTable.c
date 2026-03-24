@@ -1,10 +1,10 @@
 /*
- * XREFs of LookupAceTypeInTable @ 0x1406B04FC
+ * XREFs of LookupAceTypeInTable @ 0x1406B04DC
  * Callers:
- *     LocalGetAclForString @ 0x1406AFCAC (LocalGetAclForString.c)
- *     LocalConvertAclToString @ 0x1408A4F70 (LocalConvertAclToString.c)
+ *     LocalGetAclForString @ 0x1406AFC8C (LocalGetAclForString.c)
+ *     LocalConvertAclToString @ 0x1408A4F50 (LocalConvertAclToString.c)
  * Callees:
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
  */
 
 wchar_t **__fastcall LookupAceTypeInTable(wchar_t *Str1, int a2, int a3)

@@ -1,20 +1,20 @@
 /*
- * XREFs of MmPerfLogSessionRundown @ 0x140A32628
+ * XREFs of MmPerfLogSessionRundown @ 0x1408C8C68
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140827608 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x1407922CC (EtwpKernelTraceRundown.c)
  * Callees:
- *     MmGetNextSession @ 0x14035E6A0 (MmGetNextSession.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwTraceSiloDcEvent @ 0x1405FD5B0 (EtwTraceSiloDcEvent.c)
+ *     MmGetNextSession @ 0x140263DE0 (MmGetNextSession.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwTraceSiloDcEvent @ 0x1405A80D0 (EtwTraceSiloDcEvent.c)
  */
 
 __int64 __fastcall MmPerfLogSessionRundown(__int64 a1, unsigned int a2, int a3)
 {
   unsigned __int16 v3; // di
-  void *v5; // rcx
+  struct _DMA_ADAPTER *v5; // rcx
   __int64 v7; // rdx
   __int64 NextSession; // rax
-  void *v9; // rbx
+  struct _DMA_ADAPTER *v9; // rbx
   __int128 v11; // [rsp+30h] [rbp-48h] BYREF
   __int128 *v12; // [rsp+40h] [rbp-38h] BYREF
   int v13; // [rsp+48h] [rbp-30h]
@@ -29,7 +29,7 @@ __int64 __fastcall MmPerfLogSessionRundown(__int64 a1, unsigned int a2, int a3)
   while ( 1 )
   {
     NextSession = MmGetNextSession(v5);
-    v9 = (void *)NextSession;
+    v9 = (struct _DMA_ADAPTER *)NextSession;
     if ( !NextSession )
       break;
     v7 = *(_QWORD *)(NextSession + 1368);

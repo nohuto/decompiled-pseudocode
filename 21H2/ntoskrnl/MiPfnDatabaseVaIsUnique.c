@@ -1,0 +1,22 @@
+/*
+ * XREFs of MiPfnDatabaseVaIsUnique @ 0x14052EB8C
+ * Callers:
+ *     MiGetNextNonGapPfnPage @ 0x1403B9A00 (MiGetNextNonGapPfnPage.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall MiPfnDatabaseVaIsUnique(unsigned __int64 *a1)
+{
+  unsigned __int64 v1; // rcx
+  __int64 result; // rax
+
+  v1 = *a1;
+  result = 1LL;
+  if ( (v1 & 1) == 0
+    || qword_140C4EDC8 != (PVOID)qword_140C4EDD0 && (PVOID)((v1 >> 12) & 0xFFFFFFFFFLL) == qword_140C4EDC8 )
+  {
+    return 0LL;
+  }
+  return result;
+}

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?_GetQpcBasedTouchStackTime@@YAKXZ @ 0x1C01AFCC0
+ * XREFs of ?_GetQpcBasedTouchStackTime@@YAKXZ @ 0x1C01DBBEC
  * Callers:
- *     ?xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z @ 0x1C01AFE3C (-xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z.c)
- *     xxxInjectTouchInput @ 0x1C01B07F4 (xxxInjectTouchInput.c)
+ *     ?xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z @ 0x1C01DBD5C (-xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z.c)
+ *     xxxInjectTouchInput @ 0x1C01DC7EC (xxxInjectTouchInput.c)
  * Callees:
  *     <none>
  */

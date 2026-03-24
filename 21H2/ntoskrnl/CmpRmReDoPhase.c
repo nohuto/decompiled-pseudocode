@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpRmReDoPhase @ 0x14091C3F0
+ * XREFs of CmpRmReDoPhase @ 0x140875820
  * Callers:
- *     CmpStartRMLog @ 0x14080C884 (CmpStartRMLog.c)
+ *     CmpStartRMLog @ 0x14077D4E4 (CmpStartRMLog.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmpTransSearchAddTransFromRm @ 0x14067F2D4 (CmpTransSearchAddTransFromRm.c)
- *     CmpDoReadTxRBigLogRecord @ 0x14091BF58 (CmpDoReadTxRBigLogRecord.c)
- *     CmpRealignLogBuffers @ 0x14091C0D4 (CmpRealignLogBuffers.c)
- *     CmpVerifyLogRecord @ 0x14091C7F0 (CmpVerifyLogRecord.c)
- *     CmpDoReDoRecord @ 0x140925BD8 (CmpDoReDoRecord.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpVerifyLogRecord @ 0x1405CCE70 (CmpVerifyLogRecord.c)
+ *     CmpTransSearchAddTransFromRm @ 0x140766DB4 (CmpTransSearchAddTransFromRm.c)
+ *     CmpDoReadTxRBigLogRecord @ 0x140875374 (CmpDoReadTxRBigLogRecord.c)
+ *     CmpRealignLogBuffers @ 0x1408754F8 (CmpRealignLogBuffers.c)
+ *     CmpDoReDoRecord @ 0x140881FB8 (CmpDoReDoRecord.c)
  */
 
 int __fastcall CmpRmReDoPhase(__int64 a1, CLFS_LSN a2)
 {
   _QWORD *v2; // rax
-  struct _PRIVILEGE_SET *v4; // rdi
-  int v5; // eax
-  __int64 v6; // rsi
+  ULONG v4; // edx
+  struct _PRIVILEGE_SET *v5; // rdi
+  int v6; // eax
   PVOID ppvReadBuffer; // [rsp+58h] [rbp-9h] BYREF
   PVOID pvReadContext; // [rsp+60h] [rbp-1h] BYREF
-  struct _PRIVILEGE_SET *v10; // [rsp+68h] [rbp+7h] BYREF
-  __int64 v11; // [rsp+70h] [rbp+Fh] BYREF
+  __int64 v10; // [rsp+68h] [rbp+7h] BYREF
+  struct _PRIVILEGE_SET *v11; // [rsp+70h] [rbp+Fh] BYREF
   CLFS_LSN plsnPrevious; // [rsp+78h] [rbp+17h] BYREF
   CLFS_LSN plsnUndoNext; // [rsp+80h] [rbp+1Fh] BYREF
   CLFS_LSN plsnRecord; // [rsp+88h] [rbp+27h] BYREF
@@ -38,71 +38,72 @@ int __fastcall CmpRmReDoPhase(__int64 a1, CLFS_LSN a2)
   plsnPrevious.ullOffset = 0LL;
   plsnRecord.ullOffset = 0LL;
   peRecordType = 0;
-  v11 = 0LL;
-  if ( (_QWORD *)*v2 == v2 )
-    return (int)v2;
-  LODWORD(v2) = ClfsReadLogRecord(
-                  *(PVOID *)(a1 + 96),
-                  &plsnFirst,
-                  ClfsContextForward,
-                  &ppvReadBuffer,
-                  &pcbBuffer,
-                  &peRecordType,
-                  &plsnUndoNext,
-                  &plsnPrevious,
-                  &pvReadContext);
-  while ( (int)v2 >= 0 )
+  v10 = 0LL;
+  if ( (_QWORD *)*v2 != v2 )
   {
-    if ( (peRecordType & 1) != 0 )
-    {
-      LODWORD(v2) = CmpTransSearchAddTransFromRm((_QWORD *)a1, 0LL, (__int64)ppvReadBuffer + 16, 0, (__int64)&v11);
-      if ( (int)v2 >= 0 )
-      {
-        v4 = (struct _PRIVILEGE_SET *)ppvReadBuffer;
-        v10 = (struct _PRIVILEGE_SET *)ppvReadBuffer;
-        v18 = pcbBuffer;
-        if ( pcbBuffer < 0x30 )
-          break;
-        if ( *((int *)ppvReadBuffer + 3) < 0 )
-        {
-          LODWORD(v2) = CmpDoReadTxRBigLogRecord(pvReadContext, ppvReadBuffer, pcbBuffer, &v10, &v18);
-          if ( (int)v2 < 0 )
-            break;
-          v4 = v10;
-        }
-        v5 = CmpVerifyLogRecord(v4);
-        v6 = v11;
-        if ( v5 >= 0 )
-        {
-          CmpRealignLogBuffers((__int64)v4);
-          if ( (int)CmpDoReDoRecord(v6, v4) < 0 )
-            goto LABEL_14;
-        }
-        else
-        {
-          if ( (_BYTE)KdDebuggerEnabled && !(_BYTE)KdDebuggerNotPresent )
-            __debugbreak();
-LABEL_14:
-          *(_DWORD *)(v6 + 48) |= 2u;
-        }
-        if ( *((int *)ppvReadBuffer + 3) < 0 )
-          CmSiFreeMemory(v4);
-      }
-    }
-    peRecordType = 1;
-    LODWORD(v2) = ClfsReadNextLogRecord(
-                    pvReadContext,
+    LODWORD(v2) = ClfsReadLogRecord(
+                    *(PVOID *)(a1 + 96),
+                    &plsnFirst,
+                    ClfsContextForward,
                     &ppvReadBuffer,
                     &pcbBuffer,
                     &peRecordType,
-                    0LL,
                     &plsnUndoNext,
                     &plsnPrevious,
-                    &plsnRecord);
-    if ( (_DWORD)v2 == -1073741807 )
-      break;
+                    &pvReadContext);
+    do
+    {
+      if ( (int)v2 < 0 )
+        break;
+      if ( (peRecordType & 1) != 0 )
+      {
+        LODWORD(v2) = CmpTransSearchAddTransFromRm((_QWORD *)a1, 0LL, (__int64)ppvReadBuffer + 16, 0, (__int64)&v10);
+        if ( (int)v2 >= 0 )
+        {
+          v4 = pcbBuffer;
+          v5 = (struct _PRIVILEGE_SET *)ppvReadBuffer;
+          v11 = (struct _PRIVILEGE_SET *)ppvReadBuffer;
+          v18 = pcbBuffer;
+          if ( pcbBuffer < 0x30 )
+            break;
+          if ( *((int *)ppvReadBuffer + 3) < 0 )
+          {
+            LODWORD(v2) = CmpDoReadTxRBigLogRecord(pvReadContext, ppvReadBuffer, pcbBuffer, &v11, &v18);
+            if ( (int)v2 < 0 )
+              break;
+            v5 = v11;
+            v4 = v18;
+          }
+          v6 = CmpVerifyLogRecord((__int64)v5, v4);
+          if ( v6 >= 0 )
+          {
+            CmpRealignLogBuffers((__int64)v5);
+            v6 = CmpDoReDoRecord(v10, v5);
+          }
+          else if ( (_BYTE)KdDebuggerEnabled && !(_BYTE)KdDebuggerNotPresent )
+          {
+            __debugbreak();
+          }
+          if ( v6 < 0 )
+            *(_DWORD *)(v10 + 48) |= 2u;
+          if ( *((int *)ppvReadBuffer + 3) < 0 )
+            CmSiFreeMemory(v5);
+        }
+      }
+      peRecordType = 1;
+      LODWORD(v2) = ClfsReadNextLogRecord(
+                      pvReadContext,
+                      &ppvReadBuffer,
+                      &pcbBuffer,
+                      &peRecordType,
+                      0LL,
+                      &plsnUndoNext,
+                      &plsnPrevious,
+                      &plsnRecord);
+    }
+    while ( (_DWORD)v2 != -1073741807 );
+    if ( pvReadContext )
+      LODWORD(v2) = ClfsTerminateReadLog(pvReadContext);
   }
-  if ( pvReadContext )
-    LODWORD(v2) = ClfsTerminateReadLog(pvReadContext);
   return (int)v2;
 }

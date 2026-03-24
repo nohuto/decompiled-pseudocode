@@ -1,11 +1,11 @@
 /*
- * XREFs of rimIDECheckConfidenceSupport @ 0x1C019AB98
+ * XREFs of rimIDECheckConfidenceSupport @ 0x1C0166F4C
  * Callers:
- *     RIMIDECreatePointerDeviceInfo @ 0x1C019B9FC (RIMIDECreatePointerDeviceInfo.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167958 (RIMIDECreatePointerDeviceInfo.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     rimHidP_GetSpecificButtonCaps @ 0x1C018E844 (rimHidP_GetSpecificButtonCaps.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     rimHidP_GetSpecificButtonCaps @ 0x1C01635C4 (rimHidP_GetSpecificButtonCaps.c)
  */
 
 int __fastcall rimIDECheckConfidenceSupport(__int64 a1, struct _HIDP_PREPARSED_DATA *a2)
@@ -18,8 +18,8 @@ int __fastcall rimIDECheckConfidenceSupport(__int64 a1, struct _HIDP_PREPARSED_D
   v5[0] = 1;
   result = rimHidP_GetSpecificButtonCaps(HidP_Input, 0xDu, 0, 0x47u, &v6, v5, a2);
   if ( (int)(result + 0x80000000) < 0 || result == -1072627705 )
-    *(_DWORD *)(a1 + 360) |= 4u;
+    *(_DWORD *)(a1 + 312) |= 4u;
   else
-    *(_DWORD *)(a1 + 360) &= ~4u;
+    *(_DWORD *)(a1 + 312) &= ~4u;
   return result;
 }

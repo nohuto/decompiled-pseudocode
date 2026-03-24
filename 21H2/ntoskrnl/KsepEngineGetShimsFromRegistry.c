@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepEngineGetShimsFromRegistry @ 0x14075CC14
+ * XREFs of KsepEngineGetShimsFromRegistry @ 0x14075B74C
  * Callers:
- *     KsepGetShimsForDriver @ 0x14075C7BC (KsepGetShimsForDriver.c)
+ *     KsepGetShimsForDriver @ 0x140758B78 (KsepGetShimsForDriver.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1402D8494 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x1402D84BC (KsepPoolAllocatePaged.c)
- *     KsepLogError @ 0x140368C88 (KsepLogError.c)
- *     KsepDebugPrint @ 0x14057D738 (KsepDebugPrint.c)
- *     KsepRegistryQueryDriverShims @ 0x14075C8A4 (KsepRegistryQueryDriverShims.c)
- *     KsepStringDuplicate @ 0x14075C924 (KsepStringDuplicate.c)
- *     KsepStringFree @ 0x14075CDC4 (KsepStringFree.c)
- *     KsepDbGetShimInfo @ 0x1409638AC (KsepDbGetShimInfo.c)
- *     KsepStringSplitMultiString @ 0x140964E64 (KsepStringSplitMultiString.c)
+ *     KsepPoolFreePaged @ 0x140371724 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x14037174C (KsepPoolAllocatePaged.c)
+ *     KsepLogError @ 0x140371F74 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
+ *     KsepRegistryQueryDriverShims @ 0x14075B1F4 (KsepRegistryQueryDriverShims.c)
+ *     KsepStringDuplicate @ 0x14075B274 (KsepStringDuplicate.c)
+ *     KsepStringFree @ 0x14075B800 (KsepStringFree.c)
+ *     KsepDbGetShimInfo @ 0x1408BF81C (KsepDbGetShimInfo.c)
+ *     KsepStringSplitMultiString @ 0x1408C0E24 (KsepStringSplitMultiString.c)
  */
 
 __int64 __fastcall KsepEngineGetShimsFromRegistry(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
@@ -106,7 +106,7 @@ LABEL_20:
       KsepHistoryErrors[2 * v18] = 132101;
       if ( (KsepDebugFlag & 2) != 0 )
         KsepDebugPrint(0LL, "KSE: Cannot resolve registry shims to Sdb: 0x%x\n", DriverShims);
-      KsepLogError(0LL, (__int64)"KSE: Cannot resolve registry shims to Sdb: 0x%x\n", DriverShims);
+      KsepLogError(0, "KSE: Cannot resolve registry shims to Sdb: 0x%x\n", DriverShims);
       v14 = v23;
     }
     v16 = v21;

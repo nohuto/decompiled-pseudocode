@@ -1,51 +1,47 @@
 /*
- * XREFs of ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C003CC18
+ * XREFs of ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C0111CA0
  * Callers:
- *     EditionKeepMachineUp @ 0x1C003CB30 (EditionKeepMachineUp.c)
+ *     EditionKeepMachineUp @ 0x1C0111BE0 (EditionKeepMachineUp.c)
  * Callees:
- *     SetTimerCoalescingTolerance @ 0x1C003CD20 (SetTimerCoalescingTolerance.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     SetTimerCoalescingTolerance @ 0x1C0111E00 (SetTimerCoalescingTolerance.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-void __fastcall KeepMachineUp(__int64 a1)
+void __fastcall KeepMachineUp(unsigned int a1)
 {
-  __int64 v1; // rbx
-  __int64 v2; // rcx
-  __int64 v3; // rcx
-  __int64 v4; // rcx
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  _QWORD v7[2]; // [rsp+20h] [rbp-28h] BYREF
+  _DWORD *v1; // rdx
+  __int64 v2; // rbx
+  _QWORD v3[2]; // [rsp+20h] [rbp-28h] BYREF
 
-  v1 = (int)a1;
-  if ( !*(_DWORD *)(SGDGetUserSessionState(a1) + 2956) || gProtocolType )
+  v1 = *(_DWORD **)gPowerTransitionsState;
+  v2 = (int)a1;
+  if ( !gPowerTransitionsState[1] || gProtocolType )
   {
-    if ( *(_DWORD *)(SGDGetUserSessionState(v2) + 2964) && !gProtocolType )
+    if ( gPowerTransitionsState[3] && !gProtocolType )
     {
-      PoSetUserPresent((unsigned int)v1);
-      *(_DWORD *)(SGDGetUserSessionState(v6) + 2964) = 0;
+      PoSetUserPresent(a1);
+      v1 = *(_DWORD **)gPowerTransitionsState;
+      gPowerTransitionsState[3] = 0;
     }
-    if ( *(_DWORD *)(SGDGetUserSessionState(v3) + 2952) && *(_DWORD *)(SGDGetUserSessionState(v4) + 3080) != 2
-      || *(_DWORD *)(SGDGetUserSessionState(v4) + 2960)
-      || gfSwitchInProgress )
+    if ( *v1 && gPowerDisplayState[16] != 2 || v1[2] || gfSwitchInProgress )
     {
-      if ( gdwRITdaemonLockState )
+      if ( gdwRITdemonLockState )
         SetTimerCoalescingTolerance(0LL);
     }
     else
     {
-      v7[0] = 4LL;
-      v7[1] = v1;
-      QueuePowerRequest(v7, 0LL);
+      v3[0] = 4LL;
+      v3[1] = v2;
+      QueuePowerRequest(v3, 0LL);
     }
-    if ( *(_DWORD *)(SGDGetUserSessionState(v4) + 2960) )
+    if ( gPowerTransitionsState[2] )
     {
-      if ( !**(_BYTE **)(SGDGetUserSessionState(v5) + 2928) )
-        SetPendingInput((unsigned int)v1);
+      if ( !*gpbIgnoreSleepInput )
+        SetPendingInput((unsigned int)v2);
     }
   }
   else
   {
-    PoSetUserPresent((unsigned int)v1);
+    PoSetUserPresent(a1);
   }
 }

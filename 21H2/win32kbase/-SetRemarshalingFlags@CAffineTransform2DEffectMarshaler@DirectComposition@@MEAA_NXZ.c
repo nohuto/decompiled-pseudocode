@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CAffineTransform2DEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0219DD0
+ * XREFs of ?SetRemarshalingFlags@CAffineTransform2DEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E3A90
  * Callers:
  *     <none>
  * Callees:
@@ -19,44 +19,44 @@ bool __fastcall DirectComposition::CAffineTransform2DEffectMarshaler::SetRemarsh
   float v8; // xmm2_4
 
   result = 0;
-  *((_DWORD *)this + 28) = 0;
-  if ( *((_DWORD *)this + 20) )
+  *((_DWORD *)this + 26) = 0;
+  if ( *((_DWORD *)this + 18) )
     return 1;
-  if ( *((_DWORD *)this + 30) )
+  if ( *((_DWORD *)this + 28) )
     return 1;
-  if ( *((_DWORD *)this + 31) != 1 )
+  if ( *((_DWORD *)this + 29) != 1 )
     return 1;
-  v2 = *((float *)this + 32) - 1.0;
+  v2 = *((float *)this + 30) - 1.0;
   if ( v2 > 0.0000099999997 )
     return 1;
   if ( v2 < -0.0000099999997 )
     return 1;
-  v3 = *((float *)this + 33);
+  v3 = *((float *)this + 31);
   if ( v3 > 0.0000099999997 )
     return 1;
   if ( v3 < -0.0000099999997 )
     return 1;
-  v4 = *((float *)this + 34);
+  v4 = *((float *)this + 32);
   if ( v4 > 0.0000099999997 )
     return 1;
   if ( v4 < -0.0000099999997 )
     return 1;
-  v5 = *((float *)this + 35) - 1.0;
+  v5 = *((float *)this + 33) - 1.0;
   if ( v5 > 0.0000099999997 )
     return 1;
   if ( v5 < -0.0000099999997 )
     return 1;
-  v6 = *((float *)this + 36);
+  v6 = *((float *)this + 34);
   if ( v6 > 0.0000099999997 )
     return 1;
   if ( v6 < -0.0000099999997 )
     return 1;
-  v7 = *((float *)this + 37);
+  v7 = *((float *)this + 35);
   if ( v7 > 0.0000099999997 )
     return 1;
   if ( v7 < -0.0000099999997 )
     return 1;
-  v8 = *((float *)this + 38) - 1.0;
+  v8 = *((float *)this + 36) - 1.0;
   if ( v8 > 0.0000099999997 || v8 < -0.0000099999997 )
     return 1;
   return result;

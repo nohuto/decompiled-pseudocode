@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VidMmiIsSaveableResource@@YA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00EB770
+ * XREFs of ?VidMmiIsSaveableResource@@YA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00B61F0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsMovableResourceNoDisplayingCB@VIDMM_SEGMENT@@SA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00FD770 (-IsMovableResourceNoDisplayingCB@VIDMM_SEGMENT@@SA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?IsMovableResourceNoDisplayingCB@VIDMM_SEGMENT@@SA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00C5EF0 (-IsMovableResourceNoDisplayingCB@VIDMM_SEGMENT@@SA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
  */
 
 bool __fastcall VidMmiIsSaveableResource(struct _VIDMM_GLOBAL_ALLOC *a1)

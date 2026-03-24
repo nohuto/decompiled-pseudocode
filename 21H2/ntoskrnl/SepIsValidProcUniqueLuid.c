@@ -1,13 +1,13 @@
 /*
- * XREFs of SepIsValidProcUniqueLuid @ 0x1409CE444
+ * XREFs of SepIsValidProcUniqueLuid @ 0x140924964
  * Callers:
- *     SepRmValidateProcUniqueLuidWrkr @ 0x1409CD850 (SepRmValidateProcUniqueLuidWrkr.c)
+ *     SepRmValidateProcUniqueLuidWrkr @ 0x140923D70 (SepRmValidateProcUniqueLuidWrkr.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     SepFindMatchingLuidEntry @ 0x1409CE3A8 (SepFindMatchingLuidEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     SepFindMatchingLuidEntry @ 0x1409248C8 (SepFindMatchingLuidEntry.c)
  */
 
 __int64 __fastcall SepIsValidProcUniqueLuid(struct _LIST_ENTRY **a1)
@@ -29,6 +29,6 @@ __int64 __fastcall SepIsValidProcUniqueLuid(struct _LIST_ENTRY **a1)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)SeLuidToIndexMapping, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v4);
   KeAbPostRelease((ULONG_PTR)v4);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v3;
 }

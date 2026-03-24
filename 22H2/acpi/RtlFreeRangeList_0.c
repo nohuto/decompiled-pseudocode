@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlFreeRangeList_0 @ 0x1C0001A1F
+ * XREFs of RtlFreeRangeList_0 @ 0x1C0031CCF
  * Callers:
- *     ArbBootAllocation @ 0x1C00A1090 (ArbBootAllocation.c)
- *     ArbCommitAllocation @ 0x1C00A17C0 (ArbCommitAllocation.c)
- *     ArbDeleteArbiterInstance @ 0x1C00A17F4 (ArbDeleteArbiterInstance.c)
- *     ArbInitializeRangeList @ 0x1C00A1FB0 (ArbInitializeRangeList.c)
- *     ArbQueryConflict @ 0x1C00A2350 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x1C00A2740 (ArbRetestAllocation.c)
- *     ArbRollbackAllocation @ 0x1C00A2930 (ArbRollbackAllocation.c)
- *     ArbStartArbiter @ 0x1C00A2BA0 (ArbStartArbiter.c)
- *     ArbTestAllocation @ 0x1C00A2BF0 (ArbTestAllocation.c)
+ *     ArbBootAllocation @ 0x1C00954B0 (ArbBootAllocation.c)
+ *     ArbTestAllocation @ 0x1C00959B0 (ArbTestAllocation.c)
+ *     ArbRollbackAllocation @ 0x1C00A3710 (ArbRollbackAllocation.c)
+ *     ArbCommitAllocation @ 0x1C00B7BF0 (ArbCommitAllocation.c)
+ *     ArbDeleteArbiterInstance @ 0x1C00B7C24 (ArbDeleteArbiterInstance.c)
+ *     ArbInitializeRangeList @ 0x1C00B7CE0 (ArbInitializeRangeList.c)
+ *     ArbQueryConflict @ 0x1C00B8080 (ArbQueryConflict.c)
+ *     ArbRetestAllocation @ 0x1C00B8460 (ArbRetestAllocation.c)
+ *     ArbStartArbiter @ 0x1C00B88A0 (ArbStartArbiter.c)
  * Callees:
  *     <none>
  */

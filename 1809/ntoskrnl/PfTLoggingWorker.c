@@ -1,17 +1,17 @@
 /*
- * XREFs of PfTLoggingWorker @ 0x14073F950
+ * XREFs of PfTLoggingWorker @ 0x14073F930
  * Callers:
  *     <none>
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
  *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KeSetBasePriorityThread @ 0x1400CD350 (KeSetBasePriorityThread.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PfpFlushBuffers @ 0x140669E90 (PfpFlushBuffers.c)
- *     PfTGenerateTrace @ 0x140683A90 (PfTGenerateTrace.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeSetBasePriorityThread @ 0x1400CD370 (KeSetBasePriorityThread.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PfpFlushBuffers @ 0x140669E70 (PfpFlushBuffers.c)
+ *     PfTGenerateTrace @ 0x140683A70 (PfTGenerateTrace.c)
  */
 
 LONG __fastcall PfTLoggingWorker(__int64 a1)

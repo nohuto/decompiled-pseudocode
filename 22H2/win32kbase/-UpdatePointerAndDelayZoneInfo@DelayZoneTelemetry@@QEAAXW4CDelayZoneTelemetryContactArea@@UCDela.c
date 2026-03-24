@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDelayZonePanelTelemetryData@@PEBUtagPOINTER_INFO@@K@Z @ 0x1C01FC0F8
+ * XREFs of ?UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDelayZonePanelTelemetryData@@PEBUtagPOINTER_INFO@@K@Z @ 0x1C01BD654
  * Callers:
- *     ?ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01E662C (-ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z.c)
+ *     ?ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01AD158 (-ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?AddInputPanelRectToList@DelayZoneTelemetry@@AEAAXUtagRECT@@@Z @ 0x1C01FBBE4 (-AddInputPanelRectToList@DelayZoneTelemetry@@AEAAXUtagRECT@@@Z.c)
- *     ?HitTestInputPanelRegion@DelayZoneTelemetry@@AEAA_NUtagPOINT@@@Z @ 0x1C01FBE6C (-HitTestInputPanelRegion@DelayZoneTelemetry@@AEAA_NUtagPOINT@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddInputPanelRectToList@DelayZoneTelemetry@@AEAAXUtagRECT@@@Z @ 0x1C01BD2BC (-AddInputPanelRectToList@DelayZoneTelemetry@@AEAAXUtagRECT@@@Z.c)
+ *     ?HitTestInputPanelRegion@DelayZoneTelemetry@@AEAA_NUtagPOINT@@@Z @ 0x1C01BD3C4 (-HitTestInputPanelRegion@DelayZoneTelemetry@@AEAA_NUtagPOINT@@@Z.c)
  */
 
 void __fastcall DelayZoneTelemetry::UpdatePointerAndDelayZoneInfo(
@@ -16,19 +16,19 @@ void __fastcall DelayZoneTelemetry::UpdatePointerAndDelayZoneInfo(
         int a5)
 {
   __int64 v9; // r11
-  __int64 v10; // r14
-  __int64 v11; // rsi
+  __int64 v10; // rsi
+  __int64 v11; // rbp
   int v12; // eax
   struct tagRECT v13; // [rsp+20h] [rbp-28h] BYREF
 
   v9 = (*((_DWORD *)a1 + 2) + a5) % 0xD5u;
   v10 = (unsigned int)v9;
   v11 = 6 * v9;
-  *((_DWORD *)a1 + 2 * v11 + 517) = a3->left;
-  *((_DWORD *)a1 + 2 * v11 + 518) = a3->top;
-  v12 = (int)qword_1C02962D0;
-  if ( qword_1C02962D0 )
-    v12 = qword_1C02962D0();
+  *((_DWORD *)a1 + 12 * v9 + 517) = a3->left;
+  *((_DWORD *)a1 + 12 * v9 + 518) = a3->top;
+  v12 = (int)qword_1C0257060;
+  if ( qword_1C0257060 )
+    v12 = qword_1C0257060();
   *((_DWORD *)a1 + 2 * v11 + 519) = v12;
   *((_DWORD *)a1 + 2 * v11 + 520) = a4->x;
   *((_DWORD *)a1 + 2 * v11 + 521) = a4[1].y;

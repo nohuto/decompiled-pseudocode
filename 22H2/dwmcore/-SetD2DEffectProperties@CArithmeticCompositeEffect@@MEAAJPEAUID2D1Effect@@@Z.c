@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetD2DEffectProperties@CArithmeticCompositeEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x180257FF0
+ * XREFs of ?SetD2DEffectProperties@CArithmeticCompositeEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x1801F5BD0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CArithmeticCompositeEffect::SetD2DEffectProperties(
@@ -21,7 +21,7 @@ __int64 __fastcall CArithmeticCompositeEffect::SetD2DEffectProperties(
          a2,
          0LL,
          0LL,
-         (char *)this + 176,
+         (char *)this + 152,
          16);
   v6 = v4;
   if ( v4 < 0 )
@@ -34,7 +34,7 @@ __int64 __fastcall CArithmeticCompositeEffect::SetD2DEffectProperties(
            a2,
            1LL,
            0LL,
-           (char *)this + 192,
+           (char *)this + 168,
            4);
     v6 = v7;
     if ( v7 < 0 )

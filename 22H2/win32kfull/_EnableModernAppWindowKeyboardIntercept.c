@@ -1,46 +1,50 @@
 /*
- * XREFs of _EnableModernAppWindowKeyboardIntercept @ 0x1C01E3698
+ * XREFs of _EnableModernAppWindowKeyboardIntercept @ 0x1C0206A00
  * Callers:
- *     NtUserEnableModernAppWindowKeyboardIntercept @ 0x1C01CF420 (NtUserEnableModernAppWindowKeyboardIntercept.c)
+ *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     RegisterModernAppThreadForRawKeyboard @ 0x1C01AA00C (RegisterModernAppThreadForRawKeyboard.c)
- *     UnregisterModernAppThreadForRawKeyboard @ 0x1C01AA0B8 (UnregisterModernAppThreadForRawKeyboard.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     RegisterModernAppThreadForRawKeyboard @ 0x1C01D51B0 (RegisterModernAppThreadForRawKeyboard.c)
+ *     UnregisterModernAppThreadForRawKeyboard @ 0x1C01D525C (UnregisterModernAppThreadForRawKeyboard.c)
  */
 
 __int64 __fastcall EnableModernAppWindowKeyboardIntercept(__int64 a1, int a2)
 {
-  int v2; // ebx
+  int v2; // edi
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v6; // rcx
-  __int64 v7; // rdi
-  int v8; // ecx
-  struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
-  char v12; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // rbx
+  __int64 v9; // rcx
+  struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
+  __int128 v13; // [rsp+30h] [rbp-28h]
+  __int64 v14; // [rsp+40h] [rbp-18h]
+  char v15; // [rsp+60h] [rbp+8h] BYREF
 
   v2 = 0;
-  v12 = 0;
+  v15 = 0;
   DestinationString = 0LL;
   CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
-  v6 = CurrentProcessWin32Process;
-  if ( CurrentProcessWin32Process )
-    v6 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-  v7 = *(_QWORD *)(a1 + 16);
-  if ( *(_QWORD *)(v7 + 424) != v6 || (*(_DWORD *)(v6 + 816) & 0x30) != 0x10 && !(unsigned int)IsImmersiveBroker(v6) )
+  v8 = *(_QWORD *)(a1 + 16);
+  if ( *(_QWORD *)(v8 + 424) != CurrentProcessWin32Process
+    || (*(_DWORD *)(CurrentProcessWin32Process + 820) & 0x30) != 0x10
+    && !(unsigned int)IsImmersiveBroker(CurrentProcessWin32Process) )
   {
-    v8 = 5;
-LABEL_14:
-    UserSetLastError(v8);
+    v9 = 5LL;
+LABEL_12:
+    UserSetLastError(v9, v6, v7);
     return v2;
   }
   RtlInitUnicodeString(&DestinationString, L"inputForegroundObservation");
-  if ( (int)RtlCapabilityCheck(0LL, &DestinationString, &v12) < 0 || !v12 )
+  if ( (int)RtlCapabilityCheck(0LL, &DestinationString, &v15) < 0 || !v15 )
   {
-    v8 = 12;
-    goto LABEL_14;
+    v9 = 12LL;
+    goto LABEL_12;
   }
+  v14 = *((_QWORD *)&gObjDummyLock + 2);
+  v13 = gObjDummyLock;
   if ( a2 )
-    return (int)RegisterModernAppThreadForRawKeyboard(v7);
+    return (int)RegisterModernAppThreadForRawKeyboard(v8);
   else
-    return (int)UnregisterModernAppThreadForRawKeyboard(v7);
+    return (int)UnregisterModernAppThreadForRawKeyboard(v8);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetFlags@CHolographicViewer@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICVIEWER_SETFLAGS@@@Z @ 0x18029CBD8
+ * XREFs of ?ProcessSetFlags@CHolographicViewer@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICVIEWER_SETFLAGS@@@Z @ 0x18025A5D4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?OnChanged@CHolographicViewer@@AEAAXXZ @ 0x18029C960 (-OnChanged@CHolographicViewer@@AEAAXXZ.c)
+ *     ?OnChanged@CHolographicViewer@@AEAAXXZ @ 0x18025A350 (-OnChanged@CHolographicViewer@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CHolographicViewer::ProcessSetFlags(
@@ -11,7 +11,7 @@ __int64 __fastcall CHolographicViewer::ProcessSetFlags(
         struct CResourceTable *a2,
         const struct tagMILCMD_HOLOGRAPHICVIEWER_SETFLAGS *a3)
 {
-  *((_DWORD *)this + 34) = *((_DWORD *)a3 + 2);
+  *((_DWORD *)this + 32) = *((_DWORD *)a3 + 2);
   CHolographicViewer::OnChanged(this);
   return 0LL;
 }

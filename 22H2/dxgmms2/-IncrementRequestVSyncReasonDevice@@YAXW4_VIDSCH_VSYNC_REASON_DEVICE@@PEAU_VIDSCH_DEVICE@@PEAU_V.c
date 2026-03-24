@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IncrementRequestVSyncReasonDevice@@YAXW4_VIDSCH_VSYNC_REASON_DEVICE@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0004B50
+ * XREFs of ?IncrementRequestVSyncReasonDevice@@YAXW4_VIDSCH_VSYNC_REASON_DEVICE@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0015C74
  * Callers:
- *     VidSchControlVSyncDevice @ 0x1C0090D20 (VidSchControlVSyncDevice.c)
+ *     VidSchControlVSyncDevice @ 0x1C00884D0 (VidSchControlVSyncDevice.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ __int64 __fastcall IncrementRequestVSyncReasonDevice(unsigned int a1, __int64 a2
   if ( a1 < 4 )
   {
     v5 = 0LL;
-    if ( *(_BYTE *)(a3 + 2212) )
+    if ( *(_BYTE *)(a3 + 2132) )
     {
       if ( a4 == -3 )
       {

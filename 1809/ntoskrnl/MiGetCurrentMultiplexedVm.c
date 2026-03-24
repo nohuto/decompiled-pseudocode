@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetCurrentMultiplexedVm @ 0x1400EF4C4
+ * XREFs of MiGetCurrentMultiplexedVm @ 0x1400EF4E4
  * Callers:
- *     MmGetWorkingSetLeafSize @ 0x1400F0D98 (MmGetWorkingSetLeafSize.c)
- *     MmQuerySystemWorkingSetInformation @ 0x140130A14 (MmQuerySystemWorkingSetInformation.c)
- *     MmAdjustWorkingSetSizeEx @ 0x14013C044 (MmAdjustWorkingSetSizeEx.c)
+ *     MmGetWorkingSetLeafSize @ 0x1400F0DB8 (MmGetWorkingSetLeafSize.c)
+ *     MmQuerySystemWorkingSetInformation @ 0x140130A34 (MmQuerySystemWorkingSetInformation.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14013C064 (MmAdjustWorkingSetSizeEx.c)
  * Callees:
  *     <none>
  */

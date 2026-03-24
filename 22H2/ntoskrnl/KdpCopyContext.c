@@ -1,60 +1,35 @@
 /*
- * XREFs of KdpCopyContext @ 0x140AB15FC
+ * XREFs of KdpCopyContext @ 0x1409B9B28
  * Callers:
- *     KdpReport @ 0x14030E694 (KdpReport.c)
- *     KdpSetContextEx @ 0x140393C88 (KdpSetContextEx.c)
- *     KdpSymbol @ 0x140AB1510 (KdpSymbol.c)
- *     KdpGetContext @ 0x140AB2694 (KdpGetContext.c)
- *     KdpSetContext @ 0x140AB5B98 (KdpSetContext.c)
- *     KdpCommandString @ 0x140AB627C (KdpCommandString.c)
+ *     KdpSetContextEx @ 0x14051142C (KdpSetContextEx.c)
+ *     KdpReport @ 0x140511924 (KdpReport.c)
+ *     KdpGetContext @ 0x1409B7628 (KdpGetContext.c)
+ *     KdpSetContext @ 0x1409B8D7C (KdpSetContext.c)
+ *     KdpCommandString @ 0x1409B9600 (KdpCommandString.c)
+ *     KdpSymbol @ 0x1409B99C0 (KdpSymbol.c)
  * Callees:
- *     KdpQuickMoveMemory @ 0x140AB2880 (KdpQuickMoveMemory.c)
+ *     KdpQuickMoveMemory @ 0x1409B9CF0 (KdpQuickMoveMemory.c)
  */
 
-__int64 __fastcall KdpCopyContext(char *a1, int a2, _BYTE *a3)
+__int64 __fastcall KdpCopyContext(__int64 a1, __int64 a2, __int64 a3)
 {
-  char *v3; // r10
-  int v4; // r9d
-  _BYTE *v5; // rcx
-  _BYTE *v6; // r11
-  char *v7; // rdx
-  int v8; // r8d
+  _DWORD *v3; // r10
+  __int64 v4; // r11
   __int64 result; // rax
-  unsigned int v10; // eax
-  __int64 v11; // r8
-  unsigned int v12; // eax
-  __int64 v13; // r8
+  int v6; // r9d
+  unsigned int v7; // eax
+  __int64 v8; // r8
 
-  v3 = a1;
-  v4 = a2;
-  v5 = a3;
-  v6 = a3;
-  v7 = (char *)(v3 - a3);
-  v8 = 1232;
-  do
+  KdpQuickMoveMemory(a1, a3, 1232LL);
+  result = 1048640LL;
+  v3[12] = v6;
+  if ( (v6 & 0x100040) == 0x100040 )
   {
-    v5[(_QWORD)v7] = *v5;
-    ++v5;
-    --v8;
-  }
-  while ( v8 );
-  *((_DWORD *)v3 + 12) = v4;
-  if ( (v4 & 0x100040) == 0x100040 )
-  {
-    v10 = *((_DWORD *)v3 + 313);
-    v11 = *((unsigned int *)v6 + 313);
-    if ( v10 <= (unsigned int)v11 )
-      v11 = v10;
-    KdpQuickMoveMemory(&v3[*((int *)v3 + 312) + 1232], &v6[*((int *)v6 + 312) + 1232], v11);
-  }
-  result = 1048704LL;
-  if ( (v4 & 0x100080) == 0x100080 )
-  {
-    v12 = *((_DWORD *)v3 + 315);
-    v13 = *((unsigned int *)v6 + 315);
-    if ( v12 <= (unsigned int)v13 )
-      v13 = v12;
-    return KdpQuickMoveMemory(&v3[*((int *)v3 + 314) + 1232], &v6[*((int *)v6 + 314) + 1232], v13);
+    v7 = v3[313];
+    v8 = *(unsigned int *)(v4 + 1252);
+    if ( v7 <= (unsigned int)v8 )
+      v8 = v7;
+    return KdpQuickMoveMemory((char *)v3 + v3[312] + 1232, *(int *)(v4 + 1248) + v4 + 1232, v8);
   }
   return result;
 }

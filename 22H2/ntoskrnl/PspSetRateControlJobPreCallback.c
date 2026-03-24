@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSetRateControlJobPreCallback @ 0x1409B33E0
+ * XREFs of PspSetRateControlJobPreCallback @ 0x140909BD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PspSetEffectiveRateControlJob @ 0x1409B2A88 (PspSetEffectiveRateControlJob.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PspSetEffectiveRateControlJob @ 0x140909448 (PspSetEffectiveRateControlJob.c)
  */
 
 void __fastcall PspSetRateControlJobPreCallback(__int64 a1, __int64 a2)

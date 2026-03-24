@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDirectedDripsDiagRundownBroadcastTrees @ 0x1408066F4
+ * XREFs of PopDirectedDripsDiagRundownBroadcastTrees @ 0x1408F73B0
  * Callers:
- *     PopDirectedDripsDiagNotifySessionStop @ 0x140806424 (PopDirectedDripsDiagNotifySessionStop.c)
+ *     PopDirectedDripsDiagNotifySessionStop @ 0x1408F71A4 (PopDirectedDripsDiagNotifySessionStop.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void PopDirectedDripsDiagRundownBroadcastTrees()
@@ -84,7 +84,7 @@ void PopDirectedDripsDiagRundownBroadcastTrees()
     }
     PopDirectedDripsDiagSessionContext = *(PVOID *)PopDirectedDripsDiagSessionContext;
     *(_QWORD *)(v1 + 8) = &PopDirectedDripsDiagSessionContext;
-    if ( (unsigned int)dword_140D3B940 > 5 && tlgKeywordOn((__int64)&dword_140D3B940, 0x400000000000LL) )
+    if ( (unsigned int)dword_140D2D900 > 5 && tlgKeywordOn((__int64)&dword_140D2D900, 0x400000000000LL) )
     {
       v2 = *((_QWORD *)v0 + 2);
       v21 = v20;
@@ -116,8 +116,8 @@ void PopDirectedDripsDiagRundownBroadcastTrees()
       v22 = 0x1000000LL;
       v46 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140D3B940,
-        (unsigned __int8 *)&dword_140031D3C,
+        (__int64)&dword_140D2D900,
+        (unsigned __int8 *)word_140029E62,
         0LL,
         0LL,
         0xDu,
@@ -128,7 +128,7 @@ void PopDirectedDripsDiagRundownBroadcastTrees()
       v9 = (_QWORD *)*((_QWORD *)v0 + 3);
       if ( !v9 )
         break;
-      if ( (unsigned int)dword_140D3B940 > 5 && tlgKeywordOn((__int64)&dword_140D3B940, 0x400000000000LL) )
+      if ( (unsigned int)dword_140D2D900 > 5 && tlgKeywordOn((__int64)&dword_140D2D900, 0x400000000000LL) )
       {
         v21 = v20;
         v26 = 8LL;
@@ -158,8 +158,8 @@ void PopDirectedDripsDiagRundownBroadcastTrees()
         v23 = 0x1000000LL;
         v40 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140D3B940,
-          (unsigned __int8 *)byte_140031F31,
+          (__int64)&dword_140D2D900,
+          (unsigned __int8 *)byte_140029DD5,
           0LL,
           0LL,
           0xAu,

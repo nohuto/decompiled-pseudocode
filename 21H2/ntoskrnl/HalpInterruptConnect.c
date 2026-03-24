@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpInterruptConnect @ 0x140507ED8
+ * XREFs of HalpInterruptConnect @ 0x1404BB438
  * Callers:
- *     HalpTimerInitializeSystemWatchdog @ 0x14050E930 (HalpTimerInitializeSystemWatchdog.c)
- *     HalpRegisterPeiErrorSource @ 0x14051BE58 (HalpRegisterPeiErrorSource.c)
- *     HalpDmaConfigureInterrupt @ 0x14052A52C (HalpDmaConfigureInterrupt.c)
+ *     HalpTimerInitializeSystemWatchdog @ 0x1404C24E0 (HalpTimerInitializeSystemWatchdog.c)
+ *     HalpRegisterPeiErrorSource @ 0x1404CFB84 (HalpRegisterPeiErrorSource.c)
+ *     HalpDmaConfigureInterrupt @ 0x1404DC830 (HalpDmaConfigureInterrupt.c)
  * Callees:
- *     HalpInterruptApplyOverrides @ 0x140252258 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptGsiToLine @ 0x140252380 (HalpInterruptGsiToLine.c)
- *     HalpInterruptRemap @ 0x1403D57DC (HalpInterruptRemap.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HalpInterruptLineToGsi @ 0x14050918C (HalpInterruptLineToGsi.c)
- *     IoSetDevicePropertyData @ 0x14080D9D0 (IoSetDevicePropertyData.c)
- *     IoConnectInterruptEx @ 0x140816FD0 (IoConnectInterruptEx.c)
+ *     HalpInterruptRemap @ 0x1403785E0 (HalpInterruptRemap.c)
+ *     HalpInterruptApplyOverrides @ 0x140378E24 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpInterruptLineToGsi @ 0x1404BC704 (HalpInterruptLineToGsi.c)
+ *     IoSetDevicePropertyData @ 0x140746D80 (IoSetDevicePropertyData.c)
+ *     IoConnectInterruptEx @ 0x140761BD0 (IoConnectInterruptEx.c)
  */
 
 int __fastcall HalpInterruptConnect(
@@ -31,7 +31,7 @@ int __fastcall HalpInterruptConnect(
 {
   __int128 v16; // xmm0
   int result; // eax
-  _QWORD v18[2]; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned int v18[4]; // [rsp+40h] [rbp-C0h] BYREF
   PKINTERRUPT *v19; // [rsp+50h] [rbp-B0h]
   KSPIN_LOCK *v20; // [rsp+58h] [rbp-A8h]
   _IO_CONNECT_INTERRUPT_PARAMETERS Parameters; // [rsp+60h] [rbp-A0h] BYREF
@@ -42,7 +42,7 @@ int __fastcall HalpInterruptConnect(
   memset(Data, 0, sizeof(Data));
   v16 = *a1;
   DWORD2(Data[0]) = 0;
-  v18[0] = 0LL;
+  *(_QWORD *)v18 = 0LL;
   LODWORD(Data[3]) = a11 & 0x3FFFFFFF | Data[3] & 0xC0000000 | 0x40000000;
   LODWORD(Data[0]) = 1;
   HIDWORD(Data[0]) = a3;
@@ -57,7 +57,7 @@ int __fastcall HalpInterruptConnect(
     if ( result >= 0 )
     {
       memset(v18, 0, 12);
-      result = HalpInterruptRemap(0, 0LL, (int)v18, 0, (unsigned int *)Data + 2, 1u);
+      result = HalpInterruptRemap(0, 0, (__int64)v18, 0, (unsigned int *)Data + 2, 1u);
       if ( result >= 0 )
       {
         IoSetDevicePropertyData(AcpiRootPdo, &INTERRUPT_CONNECTION_DATA_PKEY, 0, 0, 0x1003u, 0x60u, Data);

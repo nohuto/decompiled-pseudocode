@@ -1,122 +1,105 @@
 /*
- * XREFs of ?_HandleRemovePhysicalMonitor@MONITOR_MGR@@QEAAJIEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03C8044
+ * XREFs of ?_HandleRemovePhysicalMonitor@MONITOR_MGR@@QEAAJIEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F2BA8
  * Callers:
- *     MonitorRemovePhysicalMonitor @ 0x1C03C4890 (MonitorRemovePhysicalMonitor.c)
+ *     MonitorRemovePhysicalMonitor @ 0x1C02F4814 (MonitorRemovePhysicalMonitor.c)
  * Callees:
- *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C0002F24 (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C006BD14 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgPr.c)
- *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C01AC420 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
- *     ?_IssueMonitorEvent@MONITOR_MGR@@UEAAJIW4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01F6110 (-_IssueMonitorEvent@MONITOR_MGR@@UEAAJIW4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_D.c)
- *     ?_RemoveMonitorFromList@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@@Z @ 0x1C020AEB0 (-_RemoveMonitorFromList@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@@Z.c)
- *     ?_DestroyPhysicalMonitor@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0233718 (-_DestroyPhysicalMonitor@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@.c)
- *     ?_ChangeLIDStatus@DXGMONITOR@@QEAAX_N@Z @ 0x1C03C9194 (-_ChangeLIDStatus@DXGMONITOR@@QEAAX_N@Z.c)
- *     ?_SetAttachedPhysicalMonitor@DXGMONITOR@@QEAAXPEAV1@@Z @ 0x1C03C9CD4 (-_SetAttachedPhysicalMonitor@DXGMONITOR@@QEAAXPEAV1@@Z.c)
- *     ?ReportHpdDepartureSkipped@MonitorUsb4State@DxgMonitor@@QEAAXXZ @ 0x1C03CAC6C (-ReportHpdDepartureSkipped@MonitorUsb4State@DxgMonitor@@QEAAXXZ.c)
+ *     ?_ChangeLIDStatus@DXGMONITOR@@QEAAXE@Z @ 0x1C005DE44 (-_ChangeLIDStatus@DXGMONITOR@@QEAAXE@Z.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0133648 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_IssueMonitorEvent@MONITOR_MGR@@QEAAJIW4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0179C8C (-_IssueMonitorEvent@MONITOR_MGR@@QEAAJIW4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_D.c)
+ *     ?_RemoveMonitorFromList@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@@Z @ 0x1C0184D30 (-_RemoveMonitorFromList@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@@Z.c)
+ *     ?_DestroyPhysicalMonitor@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F2604 (-_DestroyPhysicalMonitor@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@.c)
  */
 
 __int64 __fastcall MONITOR_MGR::_HandleRemovePhysicalMonitor(
-        MONITOR_MGR *this,
-        unsigned int a2,
+        struct _FAST_MUTEX *this,
+        __int64 a2,
         char a3,
         struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a4)
 {
-  __int64 v4; // rsi
-  int MonitorInstance; // ebx
-  __int64 v9; // rbp
-  DXGMONITOR *v10; // rbx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rax
-  DxgMonitor::MonitorUsb4State *v17; // rcx
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // r9
-  __int64 v22; // rcx
-  __int64 v23; // rax
-  int v24; // r14d
-  DXGMONITOR *v25; // rcx
-  _QWORD *v26; // rcx
-  DXGMONITOR *v27[5]; // [rsp+30h] [rbp-28h] BYREF
-  int v28; // [rsp+68h] [rbp+10h] BYREF
+  char v4; // r15
+  __int64 v5; // rdi
+  __int64 v8; // rax
+  unsigned int v9; // r12d
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  int MonitorInstance; // ebp
+  __int64 v13; // rax
+  DXGMONITOR *v15; // rbx
+  __int64 v16; // rax
+  __int64 v17; // r14
+  _QWORD *v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  DXGMONITOR *v21; // [rsp+30h] [rbp-38h] BYREF
 
-  v4 = a2;
-  if ( a2 == -1 )
-    WdLogSingleEntry0(1LL);
-  v27[0] = 0LL;
-  MonitorInstance = MONITOR_MGR::_GetMonitorInstance(this, v4, 0, v27);
-  v9 = 2LL;
+  v4 = 0;
+  v5 = (unsigned int)a2;
+  if ( (_DWORD)a2 == -1 )
+  {
+    v8 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v8);
+  }
+  v21 = 0LL;
+  v9 = 0;
+  MonitorInstance = MONITOR_MGR::_GetMonitorInstance(this, (unsigned int)v5, 0, &v21);
   if ( MonitorInstance < 0 )
-    goto LABEL_17;
-  v10 = v27[0];
-  if ( !v27[0] )
-    WdLogSingleEntry0(1LL);
-  if ( (*((_BYTE *)v10 + 176) & 2) != 0 )
   {
-    DXGMONITOR::_ChangeLIDStatus(v10, 0);
+    v13 = WdLogNewEntry5_WdError(v11, v10);
+    *(_QWORD *)(v13 + 24) = v5;
+    *(_QWORD *)(v13 + 32) = this;
+    WdLogEvent5_WdError(v13);
+    return (unsigned int)MonitorInstance;
+  }
+  v15 = v21;
+  if ( !v21 )
+  {
+    v16 = WdLogNewEntry5_WdAssertion(v11, v10);
+    WdLogEvent5_WdAssertion(v16);
+  }
+  v17 = 2LL;
+  if ( (*((_DWORD *)v15 + 10) & 2) != 0 )
+  {
+    DXGMONITOR::_ChangeLIDStatus(v15, 0LL);
     if ( a3 )
-    {
-      v15 = WdLogNewEntry5_WdTrace(v12, v11, v13, v14);
-      *(_QWORD *)(v15 + 24) = v4;
-      *(_QWORD *)(v15 + 32) = this;
       return 0LL;
-    }
   }
-  v17 = (DxgMonitor::MonitorUsb4State *)*((_QWORD *)v10 + 33);
-  if ( !*((_BYTE *)v17 + 8) || !*((_BYTE *)v17 + 56) )
+  if ( *((_DWORD *)v15 + 108) == 1 )
   {
-    v24 = *((_DWORD *)v10 + 78);
-    if ( v24 == 1 )
-    {
-      if ( (int)MONITOR_MGR::_RemoveMonitorFromList(this, v10) < 0 )
-        WdLogSingleEntry0(1LL);
-      v26 = (_QWORD *)((char *)this + 8);
-      if ( *(_DWORD *)(*((_QWORD *)v10 + 30) + 16LL) )
-        v9 = 5LL;
-      v24 = 1;
-    }
-    else
-    {
-      v25 = v10;
-      v10 = (DXGMONITOR *)*((_QWORD *)v10 + 40);
-      DXGMONITOR::_SetAttachedPhysicalMonitor(v25, 0LL);
-      if ( !v10 )
-      {
-        MonitorInstance = -1073741275;
-LABEL_17:
-        WdLogSingleEntry2(2LL, v4, this);
-        return (unsigned int)MonitorInstance;
-      }
-      v9 = 3LL;
-      v26 = (_QWORD *)((char *)this + 8);
-    }
-    MONITOR_MGR::_IssueMonitorEvent(v26, *((_DWORD *)v10 + 45), 0, v9, v24, (__int64)a4);
-    return MONITOR_MGR::_DestroyPhysicalMonitor(this, v10, a4);
+    MonitorInstance = MONITOR_MGR::_RemoveMonitorFromList(this, (struct DXGMONITOR ***)v15);
   }
-  DxgMonitor::MonitorUsb4State::ReportHpdDepartureSkipped(v17);
-  DxgkLogCodePointPacket(
-    0x7Bu,
-    *((_DWORD *)v10 + 45),
-    0,
-    0,
-    *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 3) + 16LL) + 404LL));
-  if ( (unsigned int)dword_1C013F8A8 > 5 )
+  else
   {
-    v22 = *(_QWORD *)(*((_QWORD *)this + 3) + 16LL);
-    v27[0] = *(DXGMONITOR **)(v22 + 404);
-    v28 = *((_DWORD *)v10 + 45);
-    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
-      v22,
-      byte_1C00AA2EA,
-      v20,
-      v21,
-      (__int64)&v28,
-      (__int64)v27);
+    v9 = *((_DWORD *)v15 + 108);
+    v18 = (_QWORD *)((char *)v15 + 440);
+    v15 = (DXGMONITOR *)*((_QWORD *)v15 + 55);
+    *v18 = 0LL;
+    if ( !v15 )
+    {
+      v19 = WdLogNewEntry5_WdError(v11, v10);
+      *(_QWORD *)(v19 + 24) = v5;
+      *(_QWORD *)(v19 + 32) = this;
+      WdLogEvent5_WdError(v19);
+      return 3221226021LL;
+    }
+    v4 = 1;
   }
-  v23 = WdLogNewEntry5_WdTrace(v19, v18, v20, v21);
-  *(_QWORD *)(v23 + 24) = v4;
-  *(_QWORD *)(v23 + 32) = this;
-  return 128LL;
+  if ( MonitorInstance < 0 )
+  {
+    v20 = WdLogNewEntry5_WdAssertion(v11, v10);
+    WdLogEvent5_WdAssertion(v20);
+  }
+  if ( v4 )
+  {
+    v17 = 3LL;
+  }
+  else if ( *((_DWORD *)v15 + 148) )
+  {
+    v17 = 5LL;
+    goto LABEL_20;
+  }
+  if ( !v4 )
+LABEL_20:
+    v9 = 1;
+  MONITOR_MGR::_IssueMonitorEvent(this, *((unsigned int *)v15 + 11), 0, v17, v9, (__int64)a4);
+  return MONITOR_MGR::_DestroyPhysicalMonitor(this, v15, a4);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInterruptCreateGdtEntry32 @ 0x1403B90AC
+ * XREFs of HalpInterruptCreateGdtEntry32 @ 0x1403A17C8
  * Callers:
- *     HalpInterruptBuildStartupStub @ 0x1403B8EAC (HalpInterruptBuildStartupStub.c)
+ *     HalpInterruptBuildStartupStub @ 0x1403A1580 (HalpInterruptBuildStartupStub.c)
  * Callees:
  *     <none>
  */

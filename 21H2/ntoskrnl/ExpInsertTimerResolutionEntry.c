@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpInsertTimerResolutionEntry @ 0x14025AB54
+ * XREFs of ExpInsertTimerResolutionEntry @ 0x1402D32AC
  * Callers:
- *     NtSetTimerResolution @ 0x1407D6CE0 (NtSetTimerResolution.c)
+ *     NtSetTimerResolution @ 0x1406DC720 (NtSetTimerResolution.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpInsertTimerResolutionEntry(__int64 a1)

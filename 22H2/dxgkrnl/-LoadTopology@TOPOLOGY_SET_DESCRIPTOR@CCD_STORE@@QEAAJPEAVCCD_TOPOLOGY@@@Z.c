@@ -1,315 +1,329 @@
 /*
- * XREFs of ?LoadTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEAVCCD_TOPOLOGY@@@Z @ 0x1C0181C2C
+ * XREFs of ?LoadTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEAVCCD_TOPOLOGY@@@Z @ 0x1C014C6D8
  * Callers:
- *     ?_LoadTopologyDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@PEAX@Z @ 0x1C0182A50 (-_LoadTopologyDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIPTOR@C.c)
+ *     ?_LoadTopologyDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@PEAX@Z @ 0x1C014C640 (-_LoadTopologyDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIPTOR@C.c)
  * Callees:
- *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0003820 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     DxgkGetAdapterDefaultScaling @ 0x1C016D5A0 (DxgkGetAdapterDefaultScaling.c)
- *     ?GetSetId@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAPEBVCCD_SET_STRING_ID@@XZ @ 0x1C0181430 (-GetSetId@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAPEBVCCD_SET_STRING_ID@@XZ.c)
- *     ?SetModalitySetId@CCD_TOPOLOGY@@QEAAAEBVCCD_SET_STRING_ID@@AEBV2@@Z @ 0x1C01815E0 (-SetModalitySetId@CCD_TOPOLOGY@@QEAAAEBVCCD_SET_STRING_ID@@AEBV2@@Z.c)
- *     ?_ReadPath@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@AEAAJPEAXIQEAGPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C0181FC8 (-_ReadPath@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@AEAAJPEAXIQEAGPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@.c)
- *     _CcdReadRegistryValues @ 0x1C01820E0 (_CcdReadRegistryValues.c)
- *     _CcdOpenRegistrySubkey @ 0x1C0182230 (_CcdOpenRegistrySubkey.c)
- *     ?QueryCloneInfo@CCD_SET_STRING_ID@@QEBAJIPEAI00@Z @ 0x1C0184AA0 (-QueryCloneInfo@CCD_SET_STRING_ID@@QEBAJIPEAI00@Z.c)
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C019F020 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
- *     ?ClearPathDescriptor@CCD_TOPOLOGY@@SAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C01E96A0 (-ClearPathDescriptor@CCD_TOPOLOGY@@SAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z.c)
+ *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C000D300 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013D77C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     _CcdOpenRegistrySubkey @ 0x1C013E5A0 (_CcdOpenRegistrySubkey.c)
+ *     ?GetSetId@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAPEBVCCD_SET_STRING_ID@@XZ @ 0x1C013ED24 (-GetSetId@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAPEBVCCD_SET_STRING_ID@@XZ.c)
+ *     _CcdReadRegistryValues @ 0x1C013EF0C (_CcdReadRegistryValues.c)
+ *     ?_ReadPath@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@AEAAJPEAXIPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C013F060 (-_ReadPath@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@AEAAJPEAXIPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z.c)
+ *     ?QueryCloneInfo@CCD_SET_STRING_ID@@QEBAJIPEAI00@Z @ 0x1C01406DC (-QueryCloneInfo@CCD_SET_STRING_ID@@QEBAJIPEAI00@Z.c)
+ *     ?SetModalitySetId@CCD_TOPOLOGY@@QEAAAEBVCCD_SET_STRING_ID@@AEBV2@@Z @ 0x1C0141E34 (-SetModalitySetId@CCD_TOPOLOGY@@QEAAAEBVCCD_SET_STRING_ID@@AEBV2@@Z.c)
+ *     ?ClearPathDescriptor@CCD_TOPOLOGY@@SAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C014C9EC (-ClearPathDescriptor@CCD_TOPOLOGY@@SAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z.c)
+ *     DxgkGetAdapterDefaultScaling @ 0x1C014EAF0 (DxgkGetAdapterDefaultScaling.c)
  */
 
 __int64 __fastcall CCD_STORE::TOPOLOGY_SET_DESCRIPTOR::LoadTopology(
         CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *this,
         struct CCD_TOPOLOGY *a2)
 {
-  unsigned __int16 v3; // di
-  __int64 v4; // rax
-  unsigned __int16 v5; // r8
-  unsigned __int16 v6; // dx
-  __int64 v7; // rcx
-  unsigned int v8; // ebx
+  const struct CCD_SET_STRING_ID *SetId; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  unsigned __int16 v6; // di
+  unsigned __int16 *v7; // r13
+  __int64 v8; // rdx
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  unsigned int v11; // ebx
   struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rax
-  __int64 v10; // rsi
-  __int64 v11; // rbx
-  unsigned int v12; // r12d
-  int v13; // eax
-  __int64 v14; // r15
-  int v15; // eax
+  __int64 v13; // r14
+  __int64 v14; // rbx
+  unsigned int v15; // r12d
   int v16; // eax
-  __int64 v17; // r15
-  int v18; // eax
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v19; // rsi
-  int RegistryValues; // eax
-  __int64 v21; // rcx
-  int v22; // eax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // rsi
+  int v20; // eax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
   int v23; // eax
-  __int64 v24; // rcx
-  int v25; // eax
-  __int64 v26; // rcx
-  unsigned int v27; // eax
-  unsigned int v28; // edx
-  CCD_SET_STRING_ID *v29; // rbx
-  void **v30; // rax
-  __int64 v32; // rax
-  __int64 v33; // rdx
-  int v34; // eax
-  int v35; // ecx
-  __int64 v36; // rax
-  __int64 v37; // rcx
-  __int64 v38; // r9
-  unsigned int v39; // [rsp+30h] [rbp-50h] BYREF
-  unsigned int v40; // [rsp+34h] [rbp-4Ch] BYREF
-  int v41; // [rsp+38h] [rbp-48h] BYREF
-  HANDLE Handle; // [rsp+40h] [rbp-40h] BYREF
-  int v43; // [rsp+48h] [rbp-38h]
-  unsigned int v44; // [rsp+4Ch] [rbp-34h]
-  CCD_SET_STRING_ID *SetId; // [rsp+50h] [rbp-30h]
-  CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *v46; // [rsp+58h] [rbp-28h]
-  unsigned __int16 v47; // [rsp+60h] [rbp-20h] BYREF
-  unsigned __int16 v48; // [rsp+68h] [rbp-18h] BYREF
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v26; // rsi
+  int RegistryValues; // eax
+  __int64 v28; // rdx
+  CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *v29; // rcx
+  int v30; // eax
+  int Path; // eax
+  char *v32; // rdx
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  __int64 v35; // rcx
+  unsigned int v36; // eax
+  unsigned int v37; // ecx
+  __int64 v38; // rdx
+  __int64 v39; // rcx
+  __int64 v41; // rax
+  __int64 v42; // rcx
+  __int64 v43; // rax
+  _QWORD *v44; // rax
+  int v45; // eax
+  __int64 v46; // rax
+  _QWORD *v47; // rax
+  _QWORD *v48; // rax
+  _QWORD *v49; // rax
+  _QWORD *v50; // rax
+  _QWORD *v51; // rax
+  unsigned int v52; // [rsp+30h] [rbp-40h] BYREF
+  unsigned int v53[3]; // [rsp+34h] [rbp-3Ch] BYREF
+  HANDLE Handle; // [rsp+40h] [rbp-30h] BYREF
+  int v55; // [rsp+48h] [rbp-28h]
+  unsigned int v56; // [rsp+4Ch] [rbp-24h]
+  CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *v57; // [rsp+50h] [rbp-20h]
+  wchar_t Dest; // [rsp+58h] [rbp-18h] BYREF
 
-  v46 = this;
-  v3 = 0;
+  v57 = this;
   SetId = CCD_STORE::TOPOLOGY_SET_DESCRIPTOR::GetSetId(this);
+  v6 = 0;
+  v7 = (unsigned __int16 *)SetId;
   if ( !SetId )
   {
-    WdLogSingleEntry0(2LL);
+    v41 = WdLogNewEntry5_WdError(v5, v4);
+    WdLogEvent5_WdError(v41);
     return 3221225473LL;
   }
-  v4 = *((_QWORD *)a2 + 8);
-  if ( v4 )
-    v5 = *(_WORD *)(v4 + 22);
+  v8 = *((unsigned __int16 *)SetId + 16);
+  v9 = *((_QWORD *)a2 + 8);
+  if ( v9 )
+    v10 = *(unsigned __int16 *)(v9 + 22);
   else
-    v5 = 0;
-  v6 = *((_WORD *)SetId + 16);
-  v7 = *((_QWORD *)a2 + 8);
-  if ( !v4 )
-    v7 = 0LL;
-  if ( v6 > v5 )
+    v10 = 0LL;
+  if ( (unsigned __int16)v8 > (unsigned __int16)v10 )
   {
-    if ( v4 )
-      v3 = *(_WORD *)(v7 + 22);
-    WdLogSingleEntry2(1LL, v3, *((unsigned __int16 *)SetId + 16));
+    v42 = WdLogNewEntry5_WdAssertion(v10, v8);
+    v43 = *((_QWORD *)a2 + 8);
+    if ( v43 )
+      v6 = *(_WORD *)(v43 + 22);
+    *(_QWORD *)(v42 + 24) = v6;
+    *(_QWORD *)(v42 + 32) = v7[16];
+    WdLogEvent5_WdAssertion(v42);
     return 3221225507LL;
   }
-  v8 = 0;
-  if ( v6 )
+  v11 = 0;
+  if ( (_WORD)v8 )
   {
     do
     {
-      PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor(a2, v8);
+      PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor(a2, v11);
       CCD_TOPOLOGY::ClearPathDescriptor(PathDescriptor);
-      ++v8;
+      ++v11;
     }
-    while ( v8 < *((unsigned __int16 *)SetId + 16) );
+    while ( v11 < v7[16] );
   }
-  v43 = -1;
-  LODWORD(v10) = -1073741823;
+  v55 = -1;
+  LODWORD(v13) = -1073741823;
   Handle = 0LL;
-  v11 = 0LL;
-  v12 = 0;
-  if ( !*((_WORD *)SetId + 16) )
-    return (unsigned int)v10;
+  v14 = 0LL;
+  v15 = 0;
+  if ( !v7[16] )
+    return (unsigned int)v13;
   while ( 1 )
   {
-    v39 = 0;
-    v40 = 0;
-    v41 = 0;
-    v13 = CCD_SET_STRING_ID::QueryCloneInfo(SetId, v12, &v39, 0LL, &v40);
-    LODWORD(v10) = v13;
-    if ( v13 < 0 )
-    {
-      WdLogSingleEntry4(1LL, v13, v12, a2, *((_QWORD *)a2 + 8));
-      goto LABEL_43;
-    }
-    v14 = v39;
-    if ( v43 != v39 )
-    {
-      v15 = RtlStringCbPrintfW(&v48, 6uLL, L"%02x", v39);
-      v10 = v15;
-      if ( v15 < 0 )
-      {
-        v37 = 1LL;
-      }
-      else
-      {
-        if ( Handle )
-          ZwClose(Handle);
-        v16 = CcdOpenRegistrySubkey(&Handle, 131097LL, *((_QWORD *)v46 + 8), &v48, 0LL);
-        v10 = v16;
-        if ( v16 >= 0 )
-        {
-          v43 = v14;
-          goto LABEL_17;
-        }
-        v37 = 2LL;
-      }
-      WdLogSingleEntry5(v37, v10, v12, v14, a2, *((_QWORD *)a2 + 8));
-      goto LABEL_43;
-    }
-LABEL_17:
-    v17 = v40;
-    v39 = v40;
-    v18 = RtlStringCbPrintfW(&v47, 6uLL, L"%02x", v40);
-    LODWORD(v10) = v18;
-    if ( v18 < 0 )
-    {
-      WdLogSingleEntry2(1LL, v18, v17);
-      return (unsigned int)v10;
-    }
-    v19 = CCD_TOPOLOGY::GetPathDescriptor(a2, v12);
-    RegistryValues = CcdReadRegistryValues(Handle, 0LL, &unk_1C013F550, 8LL, v19);
-    v21 = RegistryValues;
-    if ( RegistryValues < 0 )
+    v53[1] = 0;
+    v52 = 0;
+    v53[0] = 0;
+    v16 = CCD_SET_STRING_ID::QueryCloneInfo((CCD_SET_STRING_ID *)v7, v15, &v53[1], 0LL, &v52);
+    v13 = v16;
+    if ( v16 < 0 )
       break;
-    *((_QWORD *)v19 + 13) = *((_QWORD *)v19 + 12);
-    v22 = CcdReadRegistryValues(Handle, 0LL, &unk_1C013F200, 2LL, &v41);
-    v21 = v22;
-    if ( v22 == -1073741772 )
+    v19 = v53[1];
+    if ( v55 != v53[1] )
     {
-      v41 = 0;
+      v20 = RtlStringCbPrintfW(&Dest, 6uLL, L"%02x", v53[1]);
+      v13 = v20;
+      if ( v20 < 0 )
+      {
+        v49 = (_QWORD *)WdLogNewEntry5_WdAssertion(v22, v21);
+        v49[3] = v13;
+        v49[4] = v15;
+        v49[5] = v19;
+        v49[6] = a2;
+        v49[7] = *((_QWORD *)a2 + 8);
+        goto LABEL_69;
+      }
+      if ( Handle )
+        ZwClose(Handle);
+      v23 = CcdOpenRegistrySubkey((int)&Handle, 131097, *((_QWORD *)v57 + 8), &Dest, 0LL);
+      v13 = v23;
+      if ( v23 < 0 )
+      {
+        v48 = (_QWORD *)WdLogNewEntry5_WdError(v25, v24);
+        v48[4] = v15;
+        v48[3] = v13;
+        v48[5] = v19;
+        v48[6] = a2;
+        v48[7] = *((_QWORD *)a2 + 8);
+        WdLogEvent5_WdError(v48);
+        goto LABEL_35;
+      }
+      v55 = v19;
     }
-    else if ( v22 < 0 )
+    v26 = CCD_TOPOLOGY::GetPathDescriptor(a2, v15);
+    RegistryValues = CcdReadRegistryValues(Handle, 0LL, &unk_1C00B1620, 8u, (__int64)v26);
+    v13 = RegistryValues;
+    if ( RegistryValues < 0 )
+      goto LABEL_66;
+    *((_QWORD *)v26 + 13) = *((_QWORD *)v26 + 12);
+    v30 = CcdReadRegistryValues(Handle, 0LL, &unk_1C00B17E0, 2u, (__int64)v53);
+    v13 = v30;
+    if ( v30 == -1073741772 )
     {
-      v38 = v39;
-      goto LABEL_78;
+      v53[0] = 0;
     }
-    v44 = *((_DWORD *)v19 + 24);
-    v40 = *((_DWORD *)v19 + 25);
-    v23 = CCD_STORE::TOPOLOGY_SET_DESCRIPTOR::_ReadPath(
-            (CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *)v22,
-            Handle,
-            v39,
-            &v47,
-            v19);
-    if ( v23 < 0 )
+    else if ( v30 < 0 )
     {
-      WdLogSingleEntry5(2LL, v23, v12, v39, a2, *((_QWORD *)a2 + 8));
-      goto LABEL_79;
+LABEL_66:
+      v50 = (_QWORD *)WdLogNewEntry5_WdError(v29, v28);
+      v50[3] = v13;
+      v50[4] = Handle;
+      v50[5] = v52;
+      v50[6] = v15;
+      goto LABEL_67;
     }
-    *((_DWORD *)v19 + 51) = 0;
-    *((_DWORD *)v19 + 52) = 4;
-    switch ( v41 )
+    v56 = *((_DWORD *)v26 + 24);
+    v53[1] = *((_DWORD *)v26 + 25);
+    Path = CCD_STORE::TOPOLOGY_SET_DESCRIPTOR::_ReadPath(v29, Handle, v52, v26);
+    v13 = Path;
+    if ( Path < 0 )
     {
-      case 0:
-        v32 = *(_QWORD *)v19;
-        v33 = *(_QWORD *)v19 & 0x10B87LL;
-        *(_QWORD *)v19 = v33;
-        if ( (v32 & 0x100) != 0 )
+      v50 = (_QWORD *)WdLogNewEntry5_WdError(v33, v32);
+      v50[4] = v15;
+      v50[5] = v52;
+      v50[3] = v13;
+      v50[6] = a2;
+      v50[7] = *((_QWORD *)a2 + 8);
+LABEL_67:
+      WdLogEvent5_WdError(v50);
+      CCD_TOPOLOGY::ClearPathDescriptor(v26);
+      goto LABEL_35;
+    }
+    *((_DWORD *)v26 + 51) = 0;
+    *((_DWORD *)v26 + 52) = 4;
+    switch ( v53[0] )
+    {
+      case 0u:
+        *(_QWORD *)v26 &= 0x10B87uLL;
+        if ( (*(_QWORD *)v26 & 0x100LL) != 0 )
         {
-          if ( (v32 & 0x200) == 0 || ((*((_DWORD *)v19 + 33) - 2) & 0xFFFFFFFD) != 0 )
+          if ( (*(_QWORD *)v26 & 0x200LL) == 0 || ((*((_DWORD *)v26 + 33) - 2) & 0xFFFFFFFD) != 0 )
           {
-            v34 = *((_DWORD *)v19 + 25);
-            v35 = *((_DWORD *)v19 + 24);
+            v45 = *((_DWORD *)v26 + 25);
+            v33 = *((unsigned int *)v26 + 24);
           }
           else
           {
-            v34 = *((_DWORD *)v19 + 24);
-            v35 = *((_DWORD *)v19 + 25);
+            v45 = *((_DWORD *)v26 + 24);
+            v33 = *((unsigned int *)v26 + 25);
           }
-          *((_DWORD *)v19 + 38) = v35;
-          *((_DWORD *)v19 + 39) = v34;
-          *(_QWORD *)v19 = v33 | 0x20000;
+          *((_DWORD *)v26 + 38) = v33;
+          *((_DWORD *)v26 + 39) = v45;
+          *(_QWORD *)v26 |= 0x20000uLL;
         }
-LABEL_59:
-        v36 = *(_QWORD *)v19 & 0x30B87LL;
-        *(_QWORD *)v19 = v36;
-        if ( v41 == 1 && (v36 & 0x10000) != 0 && *((_DWORD *)v19 + 35) == 5 )
-          DxgkGetAdapterDefaultScaling((struct _LUID *)v19 + 2, (enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING *)v19 + 35);
-LABEL_63:
-        *(_QWORD *)v19 &= 0x830B87uLL;
-        if ( *((_DWORD *)v19 + 29) != 21 )
-          WdLogSingleEntry3(3LL, *((int *)v19 + 29), v46, v19);
-        *((_DWORD *)v19 + 29) = 21;
-LABEL_66:
-        *(_QWORD *)v19 &= 0x830F87uLL;
-LABEL_27:
-        *(_QWORD *)v19 &= 0x1830F87uLL;
-        goto LABEL_28;
-      case 1:
-        goto LABEL_59;
-      case 2:
-        goto LABEL_63;
-      case 3:
-        goto LABEL_66;
-      case 4:
-        goto LABEL_27;
+LABEL_54:
+        v46 = *(_QWORD *)v26 & 0x30B87LL;
+        *(_QWORD *)v26 = v46;
+        if ( v53[0] == 1 && (v46 & 0x10000) != 0 )
+        {
+          v32 = (char *)v26 + 140;
+          if ( *((_DWORD *)v26 + 35) == 5 )
+            DxgkGetAdapterDefaultScaling((char *)v26 + 16, v32);
+        }
+LABEL_58:
+        *(_QWORD *)v26 &= 0x830B87uLL;
+        if ( *((_DWORD *)v26 + 29) != 21 )
+        {
+          v47 = (_QWORD *)WdLogNewEntry5_WdWarning(v33, v32, v34);
+          v47[3] = *((int *)v26 + 29);
+          v47[4] = v57;
+          v47[5] = v26;
+          WdLogEvent5_WdWarning(v47);
+        }
+        *((_DWORD *)v26 + 29) = 21;
+        goto LABEL_23;
+      case 1u:
+        goto LABEL_54;
+      case 2u:
+        goto LABEL_58;
     }
-    WdLogSingleEntry3(2LL, v41, *((unsigned int *)v19 + 6), *((unsigned int *)v19 + 7));
-    CCD_TOPOLOGY::ClearPathDescriptor(v19);
-LABEL_28:
-    v24 = *(_QWORD *)v19;
-    if ( (*(_QWORD *)v19 & 0x1000000LL) != 0 )
+    if ( v53[0] != 3 )
     {
-      v25 = CcdReadRegistryValues(Handle, &v47, &unk_1C013F000, 4LL, v19);
-      if ( v25 < 0 )
-      {
-        WdLogSingleEntry3(3LL, v25, v12, v39);
-        goto LABEL_41;
-      }
+      v44 = (_QWORD *)WdLogNewEntry5_WdError(v33, v32);
+      v44[3] = (int)v53[0];
+      v44[4] = *((unsigned int *)v26 + 6);
+      v44[5] = *((unsigned int *)v26 + 7);
+      WdLogEvent5_WdError(v44);
+      CCD_TOPOLOGY::ClearPathDescriptor(v26);
+      goto LABEL_24;
     }
-    else
+LABEL_23:
+    *(_QWORD *)v26 &= 0x830F87uLL;
+LABEL_24:
+    v35 = *(_QWORD *)v26;
+    if ( (*(_QWORD *)v26 & 0x20000LL) != 0 )
     {
-      *((_DWORD *)v19 + 60) = 1;
-      if ( (v24 & 2) != 0 )
+      if ( v52 )
       {
-        *((_QWORD *)v19 + 28) = *(_QWORD *)((char *)v19 + 52);
-        *(_QWORD *)v19 = v24 | 0x1000000;
-      }
-    }
-    v26 = *(_QWORD *)v19;
-    if ( (*(_QWORD *)v19 & 0x20000LL) != 0 )
-    {
-      if ( v39 )
-      {
-        *((_QWORD *)v19 + 19) = v11;
+        *((_QWORD *)v26 + 19) = v14;
       }
       else
       {
-        if ( (v26 & 0x200) != 0 && ((*((_DWORD *)v19 + 33) - 2) & 0xFFFFFFFD) == 0 )
+        if ( (v35 & 0x200) != 0 && ((*((_DWORD *)v26 + 33) - 2) & 0xFFFFFFFD) == 0 )
         {
-          v27 = v44;
-          v28 = v40;
+          v36 = v56;
+          v37 = v53[1];
         }
         else
         {
-          v27 = v40;
-          v28 = v44;
+          v36 = v53[1];
+          v37 = v56;
         }
-        *((_DWORD *)v19 + 38) = v28;
-        *((_DWORD *)v19 + 39) = v27;
-        v11 = *((_QWORD *)v19 + 19);
+        *((_DWORD *)v26 + 38) = v37;
+        *((_DWORD *)v26 + 39) = v36;
+        v14 = *((_QWORD *)v26 + 19);
+        v35 = *(_QWORD *)v26;
       }
     }
-    if ( (v26 & 0x10000) != 0 )
+    if ( (v35 & 0x10000) != 0 )
     {
-      *((_DWORD *)v19 + 34) = *((_DWORD *)v19 + 35);
-      v26 |= 0x40000000000uLL;
-      *(_QWORD *)v19 = v26;
+      *((_DWORD *)v26 + 34) = *((_DWORD *)v26 + 35);
+      v35 |= 0x40000000000uLL;
+      *(_QWORD *)v26 = v35;
     }
-    if ( (v26 & 0x100) == 0 )
-      *(_QWORD *)v19 = v26 & 0xFFFFFFFFFF7FFFFFuLL;
-    if ( ++v12 >= *((unsigned __int16 *)SetId + 16) )
-      goto LABEL_41;
+    if ( (v35 & 0x100) == 0 )
+      *(_QWORD *)v26 = v35 & 0xFFFFFFFFFF7FFFFFuLL;
+    if ( ++v15 >= v7[16] )
+      goto LABEL_35;
   }
-  v38 = v17;
-LABEL_78:
-  WdLogSingleEntry4(2LL, v21, Handle, v38, v12);
-LABEL_79:
-  CCD_TOPOLOGY::ClearPathDescriptor(v19);
-LABEL_41:
-  v29 = SetId;
-  v30 = CCD_TOPOLOGY::SetModalitySetId((void **)a2, SetId);
-  LODWORD(v10) = *(_DWORD *)v30;
-  if ( *(int *)v30 < 0 )
+  v49 = (_QWORD *)WdLogNewEntry5_WdAssertion(v18, v17);
+  v49[3] = v13;
+  v49[4] = v15;
+  v49[5] = a2;
+  v49[6] = *((_QWORD *)a2 + 8);
+LABEL_69:
+  WdLogEvent5_WdAssertion(v49);
+LABEL_35:
+  if ( (int)v13 >= 0 )
   {
-    WdLogSingleEntry3(2LL, *(int *)v30, a2, v29);
+    v13 = *(int *)CCD_TOPOLOGY::SetModalitySetId((void **)a2, (const struct CCD_SET_STRING_ID *)v7);
+    if ( (int)v13 < 0 )
+    {
+      v51 = (_QWORD *)WdLogNewEntry5_WdError(v39, v38);
+      v51[3] = v13;
+      v51[4] = a2;
+      v51[5] = v7;
+      WdLogEvent5_WdError(v51);
+    }
+    else
+    {
+      *(_WORD *)(*((_QWORD *)a2 + 8) + 20LL) = v7[16];
+      *(_DWORD *)(*((_QWORD *)a2 + 8) + 24LL) |= 1u;
+    }
   }
-  else
-  {
-    *(_WORD *)(*((_QWORD *)a2 + 8) + 20LL) = *((_WORD *)v29 + 16);
-    *(_DWORD *)(*((_QWORD *)a2 + 8) + 24LL) |= 1u;
-  }
-LABEL_43:
   if ( Handle )
     ZwClose(Handle);
-  return (unsigned int)v10;
+  return (unsigned int)v13;
 }

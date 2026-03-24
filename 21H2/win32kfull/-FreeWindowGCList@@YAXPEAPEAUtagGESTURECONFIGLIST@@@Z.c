@@ -1,8 +1,8 @@
 /*
- * XREFs of ?FreeWindowGCList@@YAXPEAPEAUtagGESTURECONFIGLIST@@@Z @ 0x1C011F4A8
+ * XREFs of ?FreeWindowGCList@@YAXPEAPEAUtagGESTURECONFIGLIST@@@Z @ 0x1C0133F38
  * Callers:
- *     FreeWindowGCData @ 0x1C005FC00 (FreeWindowGCData.c)
- *     SetGestureConfigSettings @ 0x1C0116A34 (SetGestureConfigSettings.c)
+ *     FreeWindowGCData @ 0x1C007C120 (FreeWindowGCData.c)
+ *     SetGestureConfigSettings @ 0x1C012B4F4 (SetGestureConfigSettings.c)
  * Callees:
  *     <none>
  */

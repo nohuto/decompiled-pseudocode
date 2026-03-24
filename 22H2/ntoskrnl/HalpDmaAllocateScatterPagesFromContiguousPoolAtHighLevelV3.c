@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3 @ 0x1404FF2E0
+ * XREFs of HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3 @ 0x1404B6FF8
  * Callers:
- *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x1405105C4 (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x1404C6C2C (HalpDmaAllocateMapRegistersAtHighLevel.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA20 (RtlClearBits.c)
- *     RtlFindClearBitsAndSet @ 0x140295D80 (RtlFindClearBitsAndSet.c)
- *     HalpDmaIndexToTranslationEntry @ 0x14045C07E (HalpDmaIndexToTranslationEntry.c)
+ *     RtlClearBits @ 0x140206DC0 (RtlClearBits.c)
+ *     RtlFindClearBitsAndSet @ 0x1402509C0 (RtlFindClearBitsAndSet.c)
+ *     HalpDmaIndexToTranslationEntry @ 0x1404C7BD8 (HalpDmaIndexToTranslationEntry.c)
  */
 
 __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3(
@@ -29,7 +29,7 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3(
   v8 = 0LL;
   do
   {
-    ClearBitsAndSet = RtlFindClearBitsAndSet(*(PRTL_BITMAP *)(a2 + 24), 1u, v5);
+    ClearBitsAndSet = RtlFindClearBitsAndSet(*(PRTL_BITMAP *)(a2 + 16), 1u, v5);
     if ( ClearBitsAndSet == -1 )
       return 0LL;
     if ( ClearBitsAndSet == v4 )
@@ -48,7 +48,7 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3(
     }
     else
     {
-      RtlClearBits(*(PRTL_BITMAP *)(a2 + 24), ClearBitsAndSet, 1u);
+      RtlClearBits(*(PRTL_BITMAP *)(a2 + 16), ClearBitsAndSet, 1u);
     }
     v5 = ClearBitsAndSet + 1;
   }

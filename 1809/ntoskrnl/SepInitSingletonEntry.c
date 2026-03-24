@@ -1,12 +1,12 @@
 /*
- * XREFs of SepInitSingletonEntry @ 0x1400D9938
+ * XREFs of SepInitSingletonEntry @ 0x1400D9958
  * Callers:
- *     SepAddLuidToIndexEntry @ 0x14064EFCC (SepAddLuidToIndexEntry.c)
+ *     SepAddLuidToIndexEntry @ 0x14064EFAC (SepAddLuidToIndexEntry.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     SepGetSingletonEntryFromIndexNumber @ 0x1400D9BB0 (SepGetSingletonEntryFromIndexNumber.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x1400D9BD0 (SepGetSingletonEntryFromIndexNumber.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 volatile LONG *__fastcall SepInitSingletonEntry(__int64 a1, __int64 a2)

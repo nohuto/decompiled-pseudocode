@@ -1,56 +1,72 @@
 /*
- * XREFs of ?DrvDisableMDEVChildren@@YAHPEAU_MDEV@@HK@Z @ 0x1C001845C
+ * XREFs of ?DrvDisableMDEVChildren@@YAHPEAU_MDEV@@HK@Z @ 0x1C001635C
  * Callers:
- *     DrvDisableMDEV @ 0x1C001A570 (DrvDisableMDEV.c)
- *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C00C6D84 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
+ *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C0014AC8 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
+ *     DrvDisableMDEV @ 0x1C0015E10 (DrvDisableMDEV.c)
  * Callees:
- *     ?DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z @ 0x1C001AA80 (-DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z.c)
- *     DrvDxgkDisplayOnOff @ 0x1C00C2000 (DrvDxgkDisplayOnOff.c)
- *     ?DrvEnableDisplay@@YAHPEAUHDEV__@@@Z @ 0x1C00CBA60 (-DrvEnableDisplay@@YAHPEAUHDEV__@@@Z.c)
+ *     ?DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z @ 0x1C0015974 (-DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z.c)
+ *     DrvDxgkDisplayOnOff @ 0x1C00B6500 (DrvDxgkDisplayOnOff.c)
+ *     ?DrvEnableDisplay@@YAHPEAUHDEV__@@@Z @ 0x1C00C4698 (-DrvEnableDisplay@@YAHPEAUHDEV__@@@Z.c)
  */
 
-__int64 __fastcall DrvDisableMDEVChildren(struct _MDEV *a1, int a2, unsigned int a3)
+__int64 __fastcall DrvDisableMDEVChildren(struct _MDEV *a1, __int64 a2, unsigned int a3)
 {
-  __int64 v6; // rbx
-  int v7; // esi
-  __int64 v9; // rbp
-  __int64 v10; // rdx
-  HDEV *v11; // rdi
+  __int64 v4; // r14
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rbx
+  int v10; // esi
+  __int64 v11; // rax
+  __int64 v13; // rbp
+  HDEV *v14; // rdi
 
-  WdLogSingleEntry2(5LL, a1);
-  v6 = 0LL;
-  v7 = 1;
-  if ( !*((_DWORD *)a1 + 5) )
-    goto LABEL_4;
-  while ( !a2 )
+  v4 = (int)a2;
+  v6 = WdLogNewEntry5_WdTrace(a1, a2);
+  *(_QWORD *)(v6 + 24) = a1;
+  *(_QWORD *)(v6 + 32) = v4;
+  WdLogEvent5_WdTrace(v6);
+  v9 = 0LL;
+  v10 = 1;
+  if ( *((_DWORD *)a1 + 5) )
   {
-LABEL_3:
-    v6 = (unsigned int)(v6 + 1);
-    if ( (unsigned int)v6 >= *((_DWORD *)a1 + 5) )
-      goto LABEL_4;
-  }
-  v9 = 56LL * (unsigned int)v6;
-  v7 = DrvDisableDisplay(*(HDEV *)((char *)a1 + v9 + 40), 0);
-  if ( v7 )
-  {
-    DrvDxgkDisplayOnOff(*(_QWORD *)((char *)a1 + v9 + 40), 0LL, a3);
-    goto LABEL_3;
-  }
-  if ( (_DWORD)v6 )
-  {
-    v11 = (HDEV *)((char *)a1 + 40);
     do
     {
-      LOBYTE(v10) = 1;
-      DrvDxgkDisplayOnOff(*v11, v10, a3);
-      while ( !(unsigned int)DrvEnableDisplay(*v11) )
-        ;
-      v11 += 7;
-      --v6;
+      if ( (_DWORD)v4 )
+      {
+        v13 = 56LL * (unsigned int)v9;
+        v10 = DrvDisableDisplay(*(HSEMAPHORE **)((char *)a1 + v13 + 40), 0);
+        if ( !v10 )
+          goto LABEL_8;
+        DrvDxgkDisplayOnOff(*(_QWORD *)((char *)a1 + v13 + 40), 0LL, a3);
+      }
+      v9 = (unsigned int)(v9 + 1);
     }
-    while ( v6 );
+    while ( (unsigned int)v9 < *((_DWORD *)a1 + 5) );
+    if ( v10 )
+      goto LABEL_5;
+LABEL_8:
+    if ( (_DWORD)v9 )
+    {
+      v14 = (HDEV *)((char *)a1 + 40);
+      do
+      {
+        if ( (_DWORD)v4 )
+        {
+          LOBYTE(v7) = 1;
+          DrvDxgkDisplayOnOff(*v14, v7, a3);
+          while ( !(unsigned int)DrvEnableDisplay(*v14) )
+            ;
+        }
+        v14 += 7;
+        --v9;
+      }
+      while ( v9 );
+    }
   }
-LABEL_4:
-  WdLogSingleEntry1(5LL, v7);
-  return (unsigned int)v7;
+LABEL_5:
+  v11 = WdLogNewEntry5_WdTrace(v8, v7);
+  *(_QWORD *)(v11 + 24) = v10;
+  WdLogEvent5_WdTrace(v11);
+  return (unsigned int)v10;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of _anonymous_namespace_::_UpdateTimestampTopologySetCallback @ 0x1C01DF220
+ * XREFs of _anonymous_namespace_::_UpdateTimestampTopologySetCallback @ 0x1C0160750
  * Callers:
  *     <none>
  * Callees:
- *     ?TouchTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJXZ @ 0x1C01DF238 (-TouchTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJXZ.c)
+ *     ?TouchTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJXZ @ 0x1C0160768 (-TouchTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJXZ.c)
  */
 
 __int64 __fastcall anonymous_namespace_::_UpdateTimestampTopologySetCallback(

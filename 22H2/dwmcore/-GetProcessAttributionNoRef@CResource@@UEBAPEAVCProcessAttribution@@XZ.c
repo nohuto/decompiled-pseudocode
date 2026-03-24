@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetProcessAttributionNoRef@CResource@@UEBAPEAVCProcessAttribution@@XZ @ 0x1800BB1E0
+ * XREFs of ?GetProcessAttributionNoRef@CResource@@UEBAPEAVCProcessAttribution@@XZ @ 0x1800BB370
  * Callers:
- *     ?SetSurfaceInfo@CCompositionSurfaceBitmap@@AEAAXPEAVCCompositionSurfaceInfo@@@Z @ 0x1800BB100 (-SetSurfaceInfo@CCompositionSurfaceBitmap@@AEAAXPEAVCCompositionSurfaceInfo@@@Z.c)
+ *     <none>
  * Callees:
  *     <none>
  */
@@ -12,6 +12,6 @@ struct CProcessAttribution *__fastcall CResource::GetProcessAttributionNoRef(CRe
 
   result = (struct CProcessAttribution *)*((_QWORD *)this + 6);
   if ( result )
-    return (struct CProcessAttribution *)*((_QWORD *)result + 6);
+    return (struct CProcessAttribution *)*((_QWORD *)result + 5);
   return result;
 }

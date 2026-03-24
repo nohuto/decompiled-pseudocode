@@ -1,32 +1,33 @@
 /*
- * XREFs of DwmAsyncChildUnlink @ 0x1C005A888
+ * XREFs of DwmAsyncChildUnlink @ 0x1C00E9CC4
  * Callers:
- *     ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C0059F80 (-DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z.c)
+ *     UnlinkWindow @ 0x1C007E8D8 (UnlinkWindow.c)
+ *     ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C00E9948 (-DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z.c)
  * Callees:
- *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C00CD030 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ *     <none>
  */
 
 __int64 __fastcall DwmAsyncChildUnlink(PVOID Object, __int64 a2, __int64 a3)
 {
-  unsigned int v6; // ebx
-  _OWORD v8[2]; // [rsp+20h] [rbp-40h] BYREF
-  __int64 v9; // [rsp+40h] [rbp-20h]
-  int v10; // [rsp+48h] [rbp-18h]
-  _QWORD v11[2]; // [rsp+4Ch] [rbp-14h]
+  unsigned int v4; // ebx
+  _OWORD v6[2]; // [rsp+20h] [rbp-40h] BYREF
+  __int64 v7; // [rsp+40h] [rbp-20h]
+  int v8; // [rsp+48h] [rbp-18h]
+  _QWORD v9[2]; // [rsp+4Ch] [rbp-14h]
 
-  v6 = -1073741823;
-  IncrementDWMWindowUniqueness();
+  v4 = -1073741823;
+  _InterlockedIncrement64(&g_cDWMWindowUniqueness);
   if ( Object )
   {
-    memset(v8, 0, sizeof(v8));
-    WORD2(v8[0]) = 0x8000;
-    v9 = 0LL;
-    LODWORD(v8[0]) = 3932180;
-    v10 = 1073741843;
-    v11[0] = a2;
-    v11[1] = a3;
-    v6 = LpcRequestPort(Object, v8);
+    v7 = 0LL;
+    v9[0] = a2;
+    memset(v6, 0, sizeof(v6));
+    WORD2(v6[0]) = 0x8000;
+    LODWORD(v6[0]) = 3932180;
+    v8 = 1073741843;
+    v9[1] = a3;
+    v4 = LpcRequestPort(Object, v6);
     ObfDereferenceObject(Object);
   }
-  return v6;
+  return v4;
 }

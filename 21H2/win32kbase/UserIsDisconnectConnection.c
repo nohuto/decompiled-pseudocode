@@ -1,5 +1,5 @@
 /*
- * XREFs of UserIsDisconnectConnection @ 0x1C006BA90
+ * XREFs of UserIsDisconnectConnection @ 0x1C001EB70
  * Callers:
  *     <none>
  * Callees:

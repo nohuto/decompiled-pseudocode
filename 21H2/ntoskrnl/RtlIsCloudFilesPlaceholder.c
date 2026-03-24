@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlIsCloudFilesPlaceholder @ 0x1405ECF20
+ * XREFs of RtlIsCloudFilesPlaceholder @ 0x14058D8C0
  * Callers:
- *     <none>
+ *     CmpAdjustFileCFSafety @ 0x1403F057C (CmpAdjustFileCFSafety.c)
  * Callees:
  *     <none>
  */

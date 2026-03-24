@@ -1,18 +1,18 @@
 /*
- * XREFs of ?xxxDispBrokerSetDisplayConfig@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@II_N@Z @ 0x1C012F6E4
+ * XREFs of ?xxxDispBrokerSetDisplayConfig@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@II_N@Z @ 0x1C01162AC
  * Callers:
- *     xxxUserSetDisplayConfig @ 0x1C0012540 (xxxUserSetDisplayConfig.c)
+ *     xxxUserSetDisplayConfig @ 0x1C00770F0 (xxxUserSetDisplayConfig.c)
  * Callees:
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     InitDisplayBrokerMessage_DispBroker::AlpcRequest_8___lambda_38c6dc7437b728cc1d00ec4d9055c622__&DrvSampleDisplayState_ @ 0x1C012F1AC (InitDisplayBrokerMessage_DispBroker--AlpcRequest_8___lambda_38c6dc7437b728cc1d00ec4d9055c622__-D.c)
- *     ??$SyncMessage@$07@DispBrokerClient@DispBroker@@QEAAJPEAU?$AlpcRequest@$07@1@PEAU?$AlpcReply@$07@1@@Z @ 0x1C012F274 (--$SyncMessage@$07@DispBrokerClient@DispBroker@@QEAAJPEAU-$AlpcRequest@$07@1@PEAU-$AlpcReply@$07.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C002A9C0 (Win32AllocPoolWithQuotaZInit.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     InitDisplayBrokerMessage_DispBroker::AlpcRequest_8___lambda_38c6dc7437b728cc1d00ec4d9055c622__&DrvSampleDisplayState_ @ 0x1C0115948 (InitDisplayBrokerMessage_DispBroker--AlpcRequest_8___lambda_38c6dc7437b728cc1d00ec4d9055c622__-D.c)
+ *     ??$SyncMessage@$07@DispBrokerClient@DispBroker@@QEAAJPEAU?$AlpcRequest@$07@1@PEAU?$AlpcReply@$07@1@@Z @ 0x1C0115A10 (--$SyncMessage@$07@DispBrokerClient@DispBroker@@QEAAJPEAU-$AlpcRequest@$07@1@PEAU-$AlpcReply@$07.c)
  */
 
 __int64 __fastcall xxxDispBrokerSetDisplayConfig(
-        NSInstrumentation::CLeakTrackingAllocator *a1,
+        int a1,
         struct DISPLAYCONFIG_PATH_INFO_INTERNAL *a2,
         int a3,
         int a4,
@@ -20,50 +20,44 @@ __int64 __fastcall xxxDispBrokerSetDisplayConfig(
 {
   unsigned int v5; // ebx
   __int64 result; // rax
-  char *QuotaZInit; // rax
-  char *v8; // rdi
-  __int64 v9; // r9
-  int v10; // ebx
-  int v11; // [rsp+28h] [rbp-61h] BYREF
-  unsigned int *v12[5]; // [rsp+30h] [rbp-59h] BYREF
-  _DWORD v13[20]; // [rsp+58h] [rbp-31h] BYREF
-  struct DISPLAYCONFIG_PATH_INFO_INTERNAL *v14; // [rsp+F0h] [rbp+67h] BYREF
-  int v15; // [rsp+F8h] [rbp+6Fh] BYREF
-  int v16; // [rsp+100h] [rbp+77h] BYREF
+  _WORD *v7; // rax
+  __int64 v8; // rdi
+  int v9; // ebx
+  int v10; // [rsp+28h] [rbp-61h] BYREF
+  unsigned int *v11[5]; // [rsp+30h] [rbp-59h] BYREF
+  _DWORD v12[20]; // [rsp+58h] [rbp-31h] BYREF
+  struct DISPLAYCONFIG_PATH_INFO_INTERNAL *v13; // [rsp+F0h] [rbp+67h] BYREF
+  int v14; // [rsp+F8h] [rbp+6Fh] BYREF
+  int v15; // [rsp+100h] [rbp+77h] BYREF
 
-  v16 = a4;
-  v15 = a3;
-  v14 = a2;
-  v11 = (int)a1;
-  v5 = 216 * (_DWORD)a1 + 80;
+  v15 = a4;
+  v14 = a3;
+  v13 = a2;
+  v10 = a1;
+  v5 = 200 * a1 + 80;
   if ( v5 >= 0x7FFF )
     return 2147483653LL;
-  QuotaZInit = (char *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                         a1,
-                         (unsigned __int64)a2,
-                         v5,
-                         0x44535042u);
-  v8 = QuotaZInit;
-  if ( !QuotaZInit )
+  v7 = Win32AllocPoolWithQuotaZInit(v5, 0x44535042u);
+  v8 = (__int64)v7;
+  if ( !v7 )
     return 3221225495LL;
-  v12[0] = (unsigned int *)&v11;
-  v12[1] = (unsigned int *)&v15;
-  v12[2] = (unsigned int *)&v16;
-  v12[3] = (unsigned int *)&a5;
-  v12[4] = (unsigned int *)&v14;
+  v11[0] = (unsigned int *)&v10;
+  v11[1] = (unsigned int *)&v14;
+  v11[2] = (unsigned int *)&v15;
+  v11[3] = (unsigned int *)&a5;
+  v11[4] = (unsigned int *)&v13;
   InitDisplayBrokerMessage_DispBroker::AlpcRequest_8___lambda_38c6dc7437b728cc1d00ec4d9055c622___DrvSampleDisplayState_(
-    QuotaZInit,
-    v12,
+    v7,
+    v11,
     v5 - 80);
-  memset(v13, 0, 0x48uLL);
-  v10 = DispBroker::DispBrokerClient::SyncMessage<8>(
-          (__int64)DispBroker::DispBrokerClient::s_pSessionBroker,
-          (__int64)v8,
-          (__int64)v13,
-          v9);
-  NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v8);
-  result = v13[16];
-  if ( v10 < 0 )
-    return (unsigned int)v10;
+  memset(v12, 0, 0x48uLL);
+  v9 = DispBroker::DispBrokerClient::SyncMessage<8>(
+         (__int64)DispBroker::DispBrokerClient::s_pSessionBroker,
+         v8,
+         (__int64)v12);
+  Win32FreePool(v8);
+  result = v12[16];
+  if ( v9 < 0 )
+    return (unsigned int)v9;
   return result;
 }

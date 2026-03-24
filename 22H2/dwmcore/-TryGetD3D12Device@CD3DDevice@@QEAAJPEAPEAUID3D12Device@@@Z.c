@@ -1,14 +1,14 @@
 /*
- * XREFs of ?TryGetD3D12Device@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z @ 0x18028E848
+ * XREFs of ?TryGetD3D12Device@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z @ 0x180240454
  * Callers:
- *     ?CheckHostComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUVailSuperWetStroke@1@PEA_N@Z @ 0x1801CB99C (-CheckHostComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUVailSuperWetStroke@1@PEA_N@Z.c)
- *     ?EnsureLocalSuperWetResources@CSuperWetInkManager@@AEAAJPEAVIMonitorTarget@@PEA_N@Z @ 0x1801CBEC0 (-EnsureLocalSuperWetResources@CSuperWetInkManager@@AEAAJPEAVIMonitorTarget@@PEA_N@Z.c)
+ *     ?CheckHostComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUVailSuperWetStroke@1@PEA_N@Z @ 0x180194ACC (-CheckHostComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUVailSuperWetStroke@1@PEA_N@Z.c)
+ *     ?EnsureLocalSuperWetResources@CSuperWetInkManager@@AEAAJPEAVIMonitorTarget@@PEA_N@Z @ 0x180194EB8 (-EnsureLocalSuperWetResources@CSuperWetInkManager@@AEAAJPEAVIMonitorTarget@@PEA_N@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?EnsureBeginCreateD3D12Resources@CD3DDevice@@AEAAJXZ @ 0x18028D7EC (-EnsureBeginCreateD3D12Resources@CD3DDevice@@AEAAJXZ.c)
- *     ?WaitForResult@?$CAsyncTask@UD3D12Resources@CD3DDevice@@@@QEAAJPEAPEAUD3D12Resources@CD3DDevice@@@Z @ 0x18028EDD0 (-WaitForResult@-$CAsyncTask@UD3D12Resources@CD3DDevice@@@@QEAAJPEAPEAUD3D12Resources@CD3DDevice@.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?EnsureBeginCreateD3D12Resources@CD3DDevice@@AEAAJXZ @ 0x18023EF38 (-EnsureBeginCreateD3D12Resources@CD3DDevice@@AEAAJXZ.c)
+ *     ?WaitForResult@?$CAsyncTask@UD3D12Resources@CD3DDevice@@@@QEAAJPEAPEAUD3D12Resources@CD3DDevice@@@Z @ 0x180240A20 (-WaitForResult@-$CAsyncTask@UD3D12Resources@CD3DDevice@@@@QEAAJPEAPEAUD3D12Resources@CD3DDevice@.c)
  */
 
 __int64 __fastcall CD3DDevice::TryGetD3D12Device(CD3DDevice *this, struct ID3D12Device **a2)
@@ -26,18 +26,18 @@ __int64 __fastcall CD3DDevice::TryGetD3D12Device(CD3DDevice *this, struct ID3D12
   v5 = D3D12Resources;
   if ( D3D12Resources >= 0 )
   {
-    v6 = *((_QWORD *)this + 129);
+    v6 = *((_QWORD *)this + 134);
     v11 = 0LL;
-    if ( *(_BYTE *)(v6 + 100) )
+    if ( *(_BYTE *)(v6 + 92) )
     {
-      v7 = CAsyncTask<CD3DDevice::D3D12Resources>::WaitForResult(*((_QWORD *)this + 129), &v12);
+      v7 = CAsyncTask<CD3DDevice::D3D12Resources>::WaitForResult(*((_QWORD *)this + 134), &v12);
       v5 = v7;
       if ( v7 < 0 )
       {
         wil::details::in1diag3::Return_Hr(
           retaddr,
-          (void *)0x604,
-          (int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
+          (void *)0x7B4,
+          (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
           (const char *)(unsigned int)v7);
 LABEL_10:
         wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v11);
@@ -58,8 +58,8 @@ LABEL_10:
   }
   wil::details::in1diag3::Return_Hr(
     retaddr,
-    (void *)0x5FB,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
+    (void *)0x7AB,
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
     (const char *)(unsigned int)D3D12Resources);
   return v5;
 }

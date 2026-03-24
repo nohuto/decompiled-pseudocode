@@ -1,14 +1,14 @@
 /*
- * XREFs of IoRequestDeviceEjectEx @ 0x14055FE70
+ * XREFs of IoRequestDeviceEjectEx @ 0x14050C8F0
  * Callers:
- *     IoRequestDeviceEject @ 0x14055FE50 (IoRequestDeviceEject.c)
+ *     IoRequestDeviceEject @ 0x14050C8D0 (IoRequestDeviceEject.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoRequestDeviceEjectEx(
@@ -18,15 +18,17 @@ NTSTATUS __stdcall IoRequestDeviceEjectEx(
         PDRIVER_OBJECT DriverObject)
 {
   _DWORD *DeviceNode; // rcx
-  __int64 Pool2; // rdi
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rdi
   const void **v11; // rbx
   struct _DRIVER_OBJECT *v12; // rcx
   UNICODE_STRING *p_DriverName; // rcx
   char *v14; // rcx
   unsigned __int16 *v15; // rdi
-  _WORD *v16; // rcx
-  __int64 v17; // rax
+  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rdx
+  _WORD *v17; // rcx
   __int64 v18; // rcx
+  _WORD *v19; // rcx
+  __int64 v20; // rcx
 
   if ( !PhysicalDeviceObject )
     goto LABEL_20;
@@ -51,47 +53,53 @@ NTSTATUS __stdcall IoRequestDeviceEjectEx(
     if ( v14 )
     {
       v15 = (unsigned __int16 *)(v14 + 40);
-      IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)0x388);
+      IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)0x310);
       if ( *v15 )
       {
         IoAddTriageDumpDataBlock((ULONG)v15, (PVOID)2);
         IoAddTriageDumpDataBlock(*((_QWORD *)v15 + 1), (PVOID)*v15);
       }
-      v16 = (char *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 56;
-      if ( *v16 )
+      DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
+      v17 = (char *)DeviceObjectExtension->DeviceNode + 56;
+      if ( *v17 )
       {
-        IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)2);
+        IoAddTriageDumpDataBlock((ULONG)v17, (PVOID)2);
         IoAddTriageDumpDataBlock(
           *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 8),
           (PVOID)*((unsigned __int16 *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 28));
+        DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
       }
-      v17 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
-      if ( v17 && *(_WORD *)(v17 + 56) )
+      v18 = *((_QWORD *)DeviceObjectExtension->DeviceNode + 2);
+      if ( v18 )
       {
-        IoAddTriageDumpDataBlock(v17 + 56, (PVOID)2);
-        v18 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
-        IoAddTriageDumpDataBlock(*(_QWORD *)(v18 + 64), (PVOID)*(unsigned __int16 *)(v18 + 56));
+        v19 = (_WORD *)(v18 + 56);
+        if ( *v19 )
+        {
+          IoAddTriageDumpDataBlock((ULONG)v19, (PVOID)2);
+          v20 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
+          IoAddTriageDumpDataBlock(*(_QWORD *)(v20 + 64), (PVOID)*(unsigned __int16 *)(v20 + 56));
+        }
       }
     }
 LABEL_20:
     KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)PhysicalDeviceObject, 0LL, 0LL);
   }
-  Pool2 = ExAllocatePool2(64LL, 1496LL, 1181773392LL);
-  if ( !Pool2 )
+  PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x5D8uLL, 0x46706E50u);
+  if ( !PoolWithTag )
     return -1073741670;
   v11 = (const void **)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode;
-  *(_QWORD *)Pool2 = Callback;
-  *(_QWORD *)(Pool2 + 8) = Context;
-  memmove((void *)(Pool2 + 64), v11[6], *((unsigned __int16 *)v11 + 20));
-  *(_WORD *)(Pool2 + 2 * ((unsigned __int64)*((unsigned __int16 *)v11 + 20) >> 1) + 64) = 0;
+  PoolWithTag->List.Flink = (struct _LIST_ENTRY *)Callback;
+  PoolWithTag->List.Blink = (struct _LIST_ENTRY *)Context;
+  memmove(&PoolWithTag[2], v11[6], *((unsigned __int16 *)v11 + 20));
+  *((_WORD *)&PoolWithTag[2].List.Flink + ((unsigned __int64)*((unsigned __int16 *)v11 + 20) >> 1)) = 0;
   if ( DriverObject )
     ObfReferenceObjectWithTag(DriverObject, 0x45706E50u);
-  *(_QWORD *)(Pool2 + 16) = DriverObject;
-  *(_DWORD *)(Pool2 + 464) = 0;
-  *(_WORD *)(Pool2 + 468) = 0;
-  *(_QWORD *)(Pool2 + 48) = PnpRequestDeviceEjectExWorker;
-  *(_QWORD *)(Pool2 + 56) = Pool2;
-  *(_QWORD *)(Pool2 + 32) = 0LL;
-  ExQueueWorkItem((PWORK_QUEUE_ITEM)(Pool2 + 32), DelayedWorkQueue);
+  PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))DriverObject;
+  LODWORD(PoolWithTag[14].WorkerRoutine) = 0;
+  WORD2(PoolWithTag[14].WorkerRoutine) = 0;
+  PoolWithTag[1].WorkerRoutine = (void (__fastcall *)(void *))PnpRequestDeviceEjectExWorker;
+  PoolWithTag[1].Parameter = PoolWithTag;
+  PoolWithTag[1].List.Flink = 0LL;
+  ExQueueWorkItem(PoolWithTag + 1, DelayedWorkQueue);
   return 0;
 }

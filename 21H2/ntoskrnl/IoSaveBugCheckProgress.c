@@ -1,19 +1,16 @@
 /*
- * XREFs of IoSaveBugCheckProgress @ 0x140552B40
+ * XREFs of IoSaveBugCheckProgress @ 0x140502780
  * Callers:
- *     IoWriteCrashDump @ 0x140553244 (IoWriteCrashDump.c)
- *     IoAddPagesForPartialKernelDump @ 0x14055CC5C (IoAddPagesForPartialKernelDump.c)
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055CF88 (IopAddLiveDumpPagesToPartialKernelDump.c)
- *     KeBugCheck2 @ 0x1405660A0 (KeBugCheck2.c)
- *     KiBugCheckWriteCrashDump @ 0x140567588 (KiBugCheckWriteCrashDump.c)
- *     KiCollectTriageDumpDataBlocks @ 0x140567630 (KiCollectTriageDumpDataBlocks.c)
- *     KiDisplayBlueScreen @ 0x140567874 (KiDisplayBlueScreen.c)
- *     KiUpdateBugcheckRecoveryProgress @ 0x140579B48 (KiUpdateBugcheckRecoveryProgress.c)
- *     BgpFwDisplayBugCheckScreen @ 0x14064E9C0 (BgpFwDisplayBugCheckScreen.c)
+ *     IoWriteCrashDump @ 0x140502CD0 (IoWriteCrashDump.c)
+ *     IoAddPagesForPartialKernelDump @ 0x14050B6A0 (IoAddPagesForPartialKernelDump.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14050B798 (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
+ *     KiDisplayBlueScreen @ 0x1405180C0 (KiDisplayBlueScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x1405C5704 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403D2A90 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IoUpdateBugCheckProgressEnvVariable @ 0x140553164 (IoUpdateBugCheckProgressEnvVariable.c)
+ *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x140502BE0 (IoUpdateBugCheckProgressEnvVariable.c)
  */
 
 LONG __fastcall IoSaveBugCheckProgress(int a1)
@@ -26,7 +23,7 @@ LONG __fastcall IoSaveBugCheckProgress(int a1)
   if ( CrashdmpDumpBlock )
   {
     v2 = *(_DWORD *)(CrashdmpDumpBlock + 1404);
-    if ( (v2 & 0x860000) == 0 )
+    if ( (v2 & 0x60000) == 0 )
     {
       *(_DWORD *)(CrashdmpDumpBlock + 1404) = v2 ^ ((unsigned __int16)a1 ^ (unsigned __int16)v2) & 0x1FF;
       result = IoUpdateBugCheckProgressEnvVariable();

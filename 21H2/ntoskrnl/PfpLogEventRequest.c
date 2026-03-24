@@ -1,46 +1,46 @@
 /*
- * XREFs of PfpLogEventRequest @ 0x140986E88
+ * XREFs of PfpLogEventRequest @ 0x14077668C
  * Callers:
- *     PfSetSuperfetchInformation @ 0x1406AD6BC (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x1406DBD54 (PfSetSuperfetchInformation.c)
  * Callees:
- *     PfLogEvent @ 0x14036044C (PfLogEvent.c)
- *     MmGetDefaultPagePriority @ 0x140360698 (MmGetDefaultPagePriority.c)
- *     MmIssueMemoryListCommand @ 0x140862398 (MmIssueMemoryListCommand.c)
- *     PfGenerateTrace @ 0x140988074 (PfGenerateTrace.c)
- *     PfTSetTracingPriority @ 0x140A6AD80 (PfTSetTracingPriority.c)
+ *     MmGetDefaultPagePriority @ 0x1402D47AC (MmGetDefaultPagePriority.c)
+ *     PfLogEvent @ 0x1402D4DFC (PfLogEvent.c)
+ *     PfGenerateTrace @ 0x140776874 (PfGenerateTrace.c)
+ *     MmIssueMemoryListCommand @ 0x14078CF24 (MmIssueMemoryListCommand.c)
+ *     PfTSetTracingPriority @ 0x1409B0E2C (PfTSetTracingPriority.c)
  */
 
-__int64 __fastcall PfpLogEventRequest(int *a1)
+__int64 __fastcall PfpLogEventRequest(int *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v2; // rcx
+  unsigned int v5; // ecx
+  int v6; // edi
+  __int64 v8; // rcx
   __int64 DefaultPagePriority; // rcx
-  unsigned int v4; // ecx
-  int v5; // edi
-  int v7; // [rsp+30h] [rbp+8h] BYREF
+  int v10; // [rsp+30h] [rbp+8h] BYREF
 
   if ( (*a1 & 0x1Fu) - 2 <= 1 )
   {
-    v2 = *((_QWORD *)a1 + 1);
-    *(_OWORD *)v2 = xmmword_140C4EC70;
-    *(_QWORD *)(v2 + 16) = unk_140C4EC80;
+    v8 = *((_QWORD *)a1 + 1);
+    *(_OWORD *)v8 = xmmword_140C4FED0;
+    *(_QWORD *)(v8 + 16) = unk_140C4FEE0;
     if ( (*a1 & 0x1F) == 2 )
-      DefaultPagePriority = (*(_DWORD *)(v2 + 24) >> 5) & 7;
+      DefaultPagePriority = (*(_DWORD *)(v8 + 24) >> 5) & 7;
     else
       DefaultPagePriority = (unsigned int)MmGetDefaultPagePriority();
     PfTSetTracingPriority(DefaultPagePriority);
   }
   if ( (*(_BYTE *)a1 & 0x1F) == 0x1B && (*(_DWORD *)(*((_QWORD *)a1 + 1) + 8LL) & 3) == 1 )
-    _InterlockedAnd(&dword_140CF5E54, 0xFFFFFFFE);
-  v4 = *a1;
-  v5 = dword_140C5451C
+    _InterlockedAnd(&dword_140CEC354, 0xFFFFFFFE);
+  v5 = *a1;
+  v6 = dword_140C502DC
      + ((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
        + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10);
   if ( (*a1 & 0x20) != 0 )
   {
-    v7 = ((unsigned int)*a1 >> 6) & 1;
-    MmIssueMemoryListCommand((unsigned int *)&v7, 4u, 0);
+    v10 = ((unsigned int)*a1 >> 6) & 1;
+    MmIssueMemoryListCommand(&v10, 4LL, 0LL, a4);
     PfGenerateTrace(&Thread, 0LL);
-    v4 = *a1;
+    v5 = *a1;
   }
-  return PfLogEvent(v4 & 0x1F, v5, *((const void **)a1 + 1), v4 >> 7);
+  return PfLogEvent(v5 & 0x1F, v6, *((const void **)a1 + 1), v5 >> 7);
 }

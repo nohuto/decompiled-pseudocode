@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessSetTracingCookie@CBaseExpression@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETTRACINGCOOKIE@@@Z @ 0x1800D92E4
+ * XREFs of ?ProcessSetTracingCookie@CBaseExpression@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETTRACINGCOOKIE@@@Z @ 0x1800CC664
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x180045318 (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
- *     ?GetTracingCookie@CBaseExpression@@QEBAIXZ @ 0x1800D933C (-GetTracingCookie@CBaseExpression@@QEBAIXZ.c)
+ *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x1800634E0 (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
+ *     ?GetTracingCookie@CBaseExpression@@QEBAIXZ @ 0x1800CC6C4 (-GetTracingCookie@CBaseExpression@@QEBAIXZ.c)
  */
 
 __int64 __fastcall CBaseExpression::ProcessSetTracingCookie(
@@ -12,29 +12,33 @@ __int64 __fastcall CBaseExpression::ProcessSetTracingCookie(
         struct CResourceTable *a2,
         const struct tagMILCMD_BASEEXPRESSION_SETTRACINGCOOKIE *a3)
 {
-  __int64 v3; // r10
-  __int64 v4; // r11
-  CSparseStorage *v5; // rcx
-  __int64 v7; // rdx
-  struct CResourceTable *v8; // [rsp+38h] [rbp+10h] BYREF
+  unsigned int TracingCookie; // eax
+  __int64 v4; // r10
+  __int64 v5; // r11
+  int v6; // ecx
+  CSparseStorage *v7; // rcx
+  __int64 v9; // rcx
+  struct CResourceTable *v10; // [rsp+38h] [rbp+10h] BYREF
 
-  v8 = a2;
-  if ( CBaseExpression::GetTracingCookie(this) )
+  v10 = a2;
+  TracingCookie = CBaseExpression::GetTracingCookie(this);
+  v6 = *(_DWORD *)(v5 + 8);
+  if ( TracingCookie )
   {
-    if ( !*(_DWORD *)(v3 + 8) )
-      --*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 16) + 424LL) + 160LL);
+    if ( !v6 )
+      --*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 16) + 272LL) + 160LL);
   }
-  else if ( *(_DWORD *)(v3 + 8) )
+  else if ( v6 )
   {
-    v7 = *(_QWORD *)(*(_QWORD *)(v4 + 16) + 424LL);
-    ++*(_DWORD *)(v7 + 160);
-    *(_BYTE *)(v7 + 448) |= 2u;
+    v9 = *(_QWORD *)(*(_QWORD *)(v4 + 16) + 272LL);
+    ++*(_DWORD *)(v9 + 160);
+    *(_BYTE *)(v9 + 416) |= 2u;
   }
-  v5 = (CSparseStorage *)(v4 + 328);
-  LODWORD(v8) = *(_DWORD *)(v3 + 8);
-  if ( (_DWORD)v8 == `CVisual::SetWorldRenderingScaleOverride'::`2'::sc_defaultValue )
-    *(_DWORD *)(*(_QWORD *)v5 + 4LL) &= ~0x20000000u;
+  v7 = (CSparseStorage *)(v4 + 304);
+  LODWORD(v10) = *(_DWORD *)(v5 + 8);
+  if ( (_DWORD)v10 == `CVisual::SetResampleMode'::`2'::sc_defaultValue )
+    *(_DWORD *)(*(_QWORD *)v7 + 4LL) &= ~0x80000000;
   else
-    CSparseStorage::SetData(v5, 3u, 4u, &v8);
+    CSparseStorage::SetData(v7, 1u, 4u, &v10);
   return 0LL;
 }

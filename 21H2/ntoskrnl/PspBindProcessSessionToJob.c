@@ -1,11 +1,11 @@
 /*
- * XREFs of PspBindProcessSessionToJob @ 0x1406827E8
+ * XREFs of PspBindProcessSessionToJob @ 0x140613568
  * Callers:
- *     PspEstablishJobHierarchy @ 0x1406822EC (PspEstablishJobHierarchy.c)
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     PspEstablishJobHierarchy @ 0x14071FA0C (PspEstablishJobHierarchy.c)
  * Callees:
- *     MmGetSessionId @ 0x140300B40 (MmGetSessionId.c)
- *     PspConvertJobToMixed @ 0x1409B00F8 (PspConvertJobToMixed.c)
+ *     MmGetSessionId @ 0x140253550 (MmGetSessionId.c)
+ *     PspConvertJobToMixed @ 0x140908CB4 (PspConvertJobToMixed.c)
  */
 
 __int64 __fastcall PspBindProcessSessionToJob(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall PspBindProcessSessionToJob(__int64 a1, __int64 a2)
   if ( v4 == SessionId )
     return 0LL;
   if ( v4 == -1
-    && ((v6 = _InterlockedCompareExchange((volatile signed __int32 *)(v2 + 576), SessionId, -1), v6 == -1)
+    && ((v6 = _InterlockedCompareExchange((volatile signed __int32 *)(v2 + 480), SessionId, -1), v6 == -1)
      || v6 == SessionId) )
   {
     return 0LL;

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpGetPartitionTableInfo @ 0x1408D0E9C
+ * XREFs of ExpGetPartitionTableInfo @ 0x1408D0E7C
  * Callers:
- *     ExpFindDiskSignature @ 0x1408D0840 (ExpFindDiskSignature.c)
+ *     ExpFindDiskSignature @ 0x1408D0820 (ExpFindDiskSignature.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwDeviceIoControlFile @ 0x1401B8250 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x1401B8270 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

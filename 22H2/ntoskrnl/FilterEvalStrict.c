@@ -1,13 +1,13 @@
 /*
- * XREFs of FilterEvalStrict @ 0x14078A088
+ * XREFs of FilterEvalStrict @ 0x1406A8D24
  * Callers:
- *     FilterEval @ 0x140788970 (FilterEval.c)
- *     FilterEvalStrict @ 0x14078A088 (FilterEvalStrict.c)
+ *     FilterEvalStrict @ 0x1406A8D24 (FilterEvalStrict.c)
+ *     FilterEval @ 0x1406AC424 (FilterEval.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     FilterEvalStrict @ 0x14078A088 (FilterEvalStrict.c)
- *     PropertyEval @ 0x14078A2F0 (PropertyEval.c)
- *     FindFilterOperatorClose @ 0x14078D724 (FindFilterOperatorClose.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     FilterEvalStrict @ 0x1406A8D24 (FilterEvalStrict.c)
+ *     PropertyEval @ 0x1406A8F84 (PropertyEval.c)
+ *     FindFilterOperatorClose @ 0x1406AC3A4 (FindFilterOperatorClose.c)
  */
 
 __int64 __fastcall FilterEvalStrict(
@@ -29,26 +29,29 @@ __int64 __fastcall FilterEvalStrict(
   __int64 v17; // rcx
   __int64 v18; // rdx
   __int64 v19; // r8
-  int v20; // ecx
-  int v21; // eax
-  bool v22; // zf
-  unsigned int v23; // r13d
-  unsigned int v24; // r12d
-  unsigned int v25; // [rsp+40h] [rbp-30h] BYREF
-  unsigned int v26; // [rsp+44h] [rbp-2Ch] BYREF
-  int v27; // [rsp+48h] [rbp-28h]
-  int v28; // [rsp+4Ch] [rbp-24h]
-  unsigned int v29; // [rsp+50h] [rbp-20h]
-  __int64 v30; // [rsp+58h] [rbp-18h] BYREF
-  unsigned int *v31; // [rsp+60h] [rbp-10h]
-  unsigned int v34; // [rsp+C0h] [rbp+50h] BYREF
+  __int64 v20; // rcx
+  int v21; // ecx
+  int v22; // eax
+  bool v23; // zf
+  unsigned int v24; // r13d
+  unsigned int v25; // r12d
+  __int64 v26; // [rsp+20h] [rbp-50h]
+  __int64 v27; // [rsp+20h] [rbp-50h]
+  unsigned int v28; // [rsp+40h] [rbp-30h] BYREF
+  unsigned int v29; // [rsp+44h] [rbp-2Ch] BYREF
+  int v30; // [rsp+48h] [rbp-28h]
+  int v31; // [rsp+4Ch] [rbp-24h]
+  unsigned int v32; // [rsp+50h] [rbp-20h]
+  __int64 v33; // [rsp+58h] [rbp-18h] BYREF
+  unsigned int *v34; // [rsp+60h] [rbp-10h]
+  unsigned int v37; // [rsp+C0h] [rbp+50h] BYREF
 
-  v28 = 1;
-  v34 = 0;
-  v27 = 0;
-  v25 = 0;
-  v30 = 0LL;
-  v26 = 0;
+  v31 = 1;
+  v37 = 0;
+  v30 = 0;
+  v28 = 0;
+  v33 = 0LL;
+  v29 = 0;
   if ( a3 < 3 )
     return 3221225485LL;
   v8 = *(_DWORD *)a4 & 0xFF00000;
@@ -56,143 +59,149 @@ __int64 __fastcall FilterEvalStrict(
     return 3221225485LL;
   v9 = a5;
   *a5 = 0;
-  result = FindFilterOperatorClose(a3, a4, &v34);
+  result = FindFilterOperatorClose(a3, a4, &v37);
   v12 = result;
   if ( (_DWORD)result )
     return result;
   v13 = (unsigned int *)(a4 + 56);
   v14 = -1073741823;
-  v31 = (unsigned int *)(v11 + 56LL * v34);
-  v15 = a3 - v34;
+  v34 = (unsigned int *)(v11 + 56LL * v37);
+  v15 = a3 - v37;
   v16 = a3 - 1;
-  v29 = v15;
+  v32 = v15;
   if ( v8 == 3145728 || v8 == 0x100000 )
   {
     while ( 1 )
     {
       if ( v16 <= 1 )
-        goto LABEL_14;
-      v34 = 0;
+        goto LABEL_26;
+      v37 = 0;
       *v9 = 0;
       if ( (*v13 & 0xFF00000) != 0 )
       {
-        result = FindFilterOperatorClose(v16, v13, &v34);
-        v23 = v34 + 1;
+        result = FindFilterOperatorClose(v16, v13, &v37);
+        v24 = v37 + 1;
         if ( (_DWORD)result )
           return result;
-        result = FilterEvalStrict((_DWORD)a1, a2, v23, (_DWORD)v13, (__int64)v9);
+        result = FilterEvalStrict((_DWORD)a1, a2, v24, (_DWORD)v13, (__int64)v9);
         v12 = result;
         if ( (_DWORD)result == -1073741823 )
         {
-          v28 = 0;
+          v31 = 0;
         }
         else if ( (_DWORD)result )
         {
           return result;
         }
-        v13 += 14 * v23;
-        v16 -= v23;
-        goto LABEL_12;
-      }
-      result = a1(a2, v13 + 2, &v25, &v26, &v30);
-      v12 = result;
-      if ( (_DWORD)result != -1073741275 )
-        break;
-      v12 = 0;
-      if ( (*v13 & 0xFFF) == 1 )
-      {
-        v17 = 0LL;
-        v19 = 0LL;
-        v18 = 0LL;
-        v25 = 0;
-        v30 = 0LL;
-        v26 = 0;
-LABEL_11:
-        PropertyEval(v17, v18, v19, *v13, v13[10], *((_QWORD *)v13 + 6), v13[11], v9);
-        v13 += 14;
-        --v16;
-LABEL_12:
-        if ( *v9 == (v8 == 3145728) )
-        {
-          v13 = v31;
-          v20 = 1;
-          v16 = v29;
-          goto LABEL_15;
-        }
+        v16 -= v24;
+        v20 = 56LL * v24;
       }
       else
       {
-        v28 = 0;
-        v13 += 14;
+        v12 = a1(a2, v13 + 2, &v28, &v29, &v33);
+        if ( v12 == -1073741275 )
+        {
+          v12 = 0;
+          if ( (*v13 & 0xFFF) != 1 )
+          {
+            v31 = 0;
+            v20 = 56LL;
+            --v16;
+            goto LABEL_13;
+          }
+          v17 = 0LL;
+          v19 = 0LL;
+          v18 = 0LL;
+          v28 = 0;
+          v33 = 0LL;
+          v29 = 0;
+        }
+        else
+        {
+          v17 = v28;
+          v18 = v33;
+          v19 = v29;
+        }
+        if ( v12 )
+          return v12;
+        LODWORD(v26) = v13[10];
+        PropertyEval(v17, v18, v19, *v13, v26, *((_QWORD *)v13 + 6), v13[11], v9);
         --v16;
+        v20 = 56LL;
       }
+      if ( *v9 == (v8 == 3145728) )
+      {
+        v13 = v34;
+        v21 = 1;
+        v16 = v32;
+        goto LABEL_15;
+      }
+LABEL_13:
+      v13 = (unsigned int *)((char *)v13 + v20);
     }
-    if ( (_DWORD)result )
-      return result;
-    v17 = v25;
-    v18 = v30;
-    v19 = v26;
-    goto LABEL_11;
   }
   if ( v8 != 5242880 )
     return 3221225485LL;
   if ( (*v13 & 0xFF00000) != 0 )
   {
-    result = FindFilterOperatorClose(v16, v13, &v34);
-    v24 = v34 + 1;
+    result = FindFilterOperatorClose(v16, v13, &v37);
+    v25 = v37 + 1;
     if ( !(_DWORD)result )
     {
-      result = FilterEvalStrict((_DWORD)a1, a2, v24, (_DWORD)v13, (__int64)v9);
+      result = FilterEvalStrict((_DWORD)a1, a2, v25, (_DWORD)v13, (__int64)v9);
       v12 = result;
       if ( !(_DWORD)result )
       {
-        v13 += 14 * v24;
-        v16 -= v24;
+        v13 += 14 * v25;
+        v16 -= v25;
         v14 = -1073741823;
-        goto LABEL_44;
+LABEL_46:
+        *v9 = *v9 == 0;
+LABEL_26:
+        v21 = v30;
+LABEL_15:
+        if ( !v16 )
+          return 3221225485LL;
+        v22 = *v13 & 0xFF00000;
+        switch ( v22 )
+        {
+          case 4194304:
+            v23 = v8 == 3145728;
+            break;
+          case 2097152:
+            if ( v8 == 0x100000 )
+              goto LABEL_19;
+            return 3221225485LL;
+          case 6291456:
+            v23 = v8 == 5242880;
+            break;
+          default:
+            return 3221225485LL;
+        }
+        if ( v23 )
+        {
+LABEL_19:
+          if ( v21 || v31 || v12 )
+            return v12;
+          return v14;
+        }
+        return 3221225485LL;
       }
     }
   }
   else
   {
-    result = a1(a2, (unsigned int *)(a4 + 64), &v25, &v26, &v30);
+    result = a1(a2, (unsigned int *)(a4 + 64), &v28, &v29, &v33);
     v12 = result;
     if ( (_DWORD)result == -1073741275 )
       return v14;
     if ( !(_DWORD)result )
     {
-      PropertyEval(v25, v30, v26, *v13, *(_DWORD *)(a4 + 96), *(_QWORD *)(a4 + 104), *(_DWORD *)(a4 + 100), v9);
+      LODWORD(v27) = *(_DWORD *)(a4 + 96);
+      PropertyEval(v28, v33, v29, *v13, v27, *(_QWORD *)(a4 + 104), *(_DWORD *)(a4 + 100), v9);
       --v16;
       v13 = (unsigned int *)(a4 + 112);
-LABEL_44:
-      *v9 = *v9 == 0;
-LABEL_14:
-      v20 = v27;
-LABEL_15:
-      if ( !v16 )
-        return 3221225485LL;
-      v21 = *v13 & 0xFF00000;
-      switch ( v21 )
-      {
-        case 4194304:
-          v22 = v8 == 3145728;
-          break;
-        case 2097152:
-          v22 = v8 == 0x100000;
-          break;
-        case 6291456:
-          v22 = v8 == 5242880;
-          break;
-        default:
-          return 3221225485LL;
-      }
-      if ( v22 )
-      {
-        if ( v20 || v28 || v12 )
-          return v12;
-        return v14;
-      }
-      return 3221225485LL;
+      goto LABEL_46;
     }
   }
   return result;

@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CViewBox::sc_VerticalAlignment__ @ 0x180003190
+ * XREFs of _dynamic_initializer_for__CViewBox::sc_VerticalAlignment__ @ 0x180002A60
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CViewBox::sc_VerticalAlignment__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D2448 = (unsigned __int64)CViewBox::SetAnimatedProperty;
-  qword_1803D2458 = v1;
+  xmmword_180346520 = (unsigned __int64)CViewBox::SetAnimatedProperty;
+  qword_180346530 = v1;
   return result;
 }

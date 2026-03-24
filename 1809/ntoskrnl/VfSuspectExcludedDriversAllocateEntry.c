@@ -1,10 +1,10 @@
 /*
  * XREFs of VfSuspectExcludedDriversAllocateEntry @ 0x140937D20
  * Callers:
- *     VfSuspectDriversParseRegistryString @ 0x1409F8938 (VfSuspectDriversParseRegistryString.c)
- *     VfXdvExcludeParseRegistryString @ 0x1409F8AF4 (VfXdvExcludeParseRegistryString.c)
+ *     VfSuspectDriversParseRegistryString @ 0x1409F8948 (VfSuspectDriversParseRegistryString.c)
+ *     VfXdvExcludeParseRegistryString @ 0x1409F8B04 (VfXdvExcludeParseRegistryString.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

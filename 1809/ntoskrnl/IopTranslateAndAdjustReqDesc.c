@@ -1,11 +1,11 @@
 /*
- * XREFs of IopTranslateAndAdjustReqDesc @ 0x14073013C
+ * XREFs of IopTranslateAndAdjustReqDesc @ 0x14073011C
  * Callers:
- *     IopSetupArbiterAndTranslators @ 0x14072F478 (IopSetupArbiterAndTranslators.c)
+ *     IopSetupArbiterAndTranslators @ 0x14072F458 (IopSetupArbiterAndTranslators.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

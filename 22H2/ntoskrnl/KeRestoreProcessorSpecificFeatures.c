@@ -1,19 +1,19 @@
 /*
- * XREFs of KeRestoreProcessorSpecificFeatures @ 0x14056BFE4
+ * XREFs of KeRestoreProcessorSpecificFeatures @ 0x140383DBC
  * Callers:
- *     PnprQuiesceProcessorDpc @ 0x140A9D540 (PnprQuiesceProcessorDpc.c)
- *     PopHandleNextState @ 0x140AA81DC (PopHandleNextState.c)
+ *     PopHandleNextState @ 0x1409938B0 (PopHandleNextState.c)
+ *     PnprQuiesceProcessorDpc @ 0x1409AE4D0 (PnprQuiesceProcessorDpc.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRestoreFeatureBits @ 0x140576730 (KiRestoreFeatureBits.c)
- *     KiDisableCacheErrataSource @ 0x140579280 (KiDisableCacheErrataSource.c)
- *     KiSetPageAttributesTable @ 0x140A8D010 (KiSetPageAttributesTable.c)
- *     KiRestoreXSaveSupport @ 0x140A9F714 (KiRestoreXSaveSupport.c)
+ *     KiRestoreFeatureBits @ 0x140383E20 (KiRestoreFeatureBits.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiDisableCacheErrataSource @ 0x140522154 (KiDisableCacheErrataSource.c)
+ *     KiRestoreXSaveSupport @ 0x14099503C (KiRestoreXSaveSupport.c)
+ *     KiSetPageAttributesTable @ 0x14099965C (KiSetPageAttributesTable.c)
  */
 
-__int64 __fastcall KeRestoreProcessorSpecificFeatures(__int64 a1)
+__int64 KeRestoreProcessorSpecificFeatures()
 {
-  unsigned __int64 v7; // rax
+  unsigned __int64 v6; // rax
 
   KiSetPageAttributesTable();
   if ( KiTLBCOverride )
@@ -22,10 +22,11 @@ __int64 __fastcall KeRestoreProcessorSpecificFeatures(__int64 a1)
   __asm { cpuid }
   if ( (_RDX & 0x2000000) != 0 )
   {
-    v7 = __readmsr(0xC0000080) | 0x4000;
-    _RDX = HIDWORD(v7);
-    __writemsr(0xC0000080, v7);
+    _RCX = 3221225600LL;
+    v6 = __readmsr(0xC0000080) | 0x4000;
+    _RDX = HIDWORD(v6);
+    __writemsr(0xC0000080, v6);
   }
-  KiRestoreXSaveSupport(a1, _RDX);
+  KiRestoreXSaveSupport(_RCX, _RDX);
   return KiRestoreFeatureBits();
 }

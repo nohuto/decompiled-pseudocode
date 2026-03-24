@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetReferenceProperty@CLayerVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0009490
+ * XREFs of ?SetReferenceProperty@CLayerVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0004420
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?SetReferenceProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C00845C0 (-SetReferenceProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCR.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?SetReferenceProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0059DF0 (-SetReferenceProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCR.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CLayerVisualMarshaler::SetReferenceProperty(
@@ -23,7 +23,7 @@ __int64 __fastcall DirectComposition::CLayerVisualMarshaler::SetReferencePropert
 
   v5 = 0;
   *a5 = 0;
-  if ( a3 == 53 )
+  if ( a3 == 51 )
   {
     if ( a4
       && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
@@ -32,12 +32,12 @@ __int64 __fastcall DirectComposition::CLayerVisualMarshaler::SetReferencePropert
     {
       v5 = -1073741811;
     }
-    v9 = 384LL;
+    v9 = 368LL;
     v10 = 1;
   }
   else
   {
-    if ( a3 != 54 )
+    if ( a3 != 52 )
       return (unsigned int)DirectComposition::CVisualMarshaler::SetReferenceProperty(this, a2, a3, a4, a5);
     if ( a4
       && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
@@ -46,7 +46,7 @@ __int64 __fastcall DirectComposition::CLayerVisualMarshaler::SetReferencePropert
     {
       v5 = -1073741811;
     }
-    v9 = 392LL;
+    v9 = 376LL;
     v10 = 2;
   }
   if ( v5 >= 0 )
@@ -64,7 +64,7 @@ __int64 __fastcall DirectComposition::CLayerVisualMarshaler::SetReferencePropert
         *(_QWORD *)((char *)this + v9) = a4;
         DirectComposition::CResourceMarshaler::AddRef(a4);
       }
-      *((_DWORD *)this + 101) |= v10;
+      *((_DWORD *)this + 97) |= v10;
       *a5 = 1;
     }
   }

@@ -1,36 +1,35 @@
 /*
- * XREFs of ?ForEachChangedProcessAttribution@CProcessAttributionObserver@@QEAAXPEAXV?$function@$$A6AXPEAXK_KPEBGW4ProcessAttributionFlags@@AEBUProcessAttributionResourceCounters@@@Z@std@@@Z @ 0x180078A60
+ * XREFs of ?ForEachChangedProcessAttribution@CProcessAttributionObserver@@QEAAXPEAXV?$function@$$A6AXPEAXK_KPEBGW4ProcessAttributionFlags@@AEBUProcessAttributionResourceCounters@@@Z@std@@@Z @ 0x1800EB3C0
  * Callers:
- *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180077634 (_anonymous_namespace_--SealCurrentFrameSequence.c)
- *     ?SendReportToE3@CEnergyReporter@@AEAAXXZ @ 0x18007878C (-SendReportToE3@CEnergyReporter@@AEAAXXZ.c)
- *     ?CheckAndReportHighResourceUsage@CProcessResourceAttributionReporter@@AEAAXXZ @ 0x18007886C (-CheckAndReportHighResourceUsage@CProcessResourceAttributionReporter@@AEAAXXZ.c)
+ *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180028740 (_anonymous_namespace_--SealCurrentFrameSequence.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18006FCF0 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ *     ?SendReportToE3@CEnergyReporter@@AEAAXXZ @ 0x1800CD518 (-SendReportToE3@CEnergyReporter@@AEAAXXZ.c)
+ *     ?CheckAndReportHighResourceUsage@CProcessResourceAttributionReporter@@AEAAXXZ @ 0x1800D3148 (-CheckAndReportHighResourceUsage@CProcessResourceAttributionReporter@@AEAAXXZ.c)
  * Callees:
- *     ?EnumerateChangedProcessAttributions@CProcessAttributionManager@@AEAAXAEAVCProcessAttributionObserver@@PEAXV?$function@$$A6AXPEAXK_KPEBGW4ProcessAttributionFlags@@AEBUProcessAttributionResourceCounters@@@Z@std@@@Z @ 0x18007B4A0 (-EnumerateChangedProcessAttributions@CProcessAttributionManager@@AEAAXAEAVCProcessAttributionObs.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?EnumerateChangedProcessAttributions@CProcessAttributionManager@@AEAAXAEAVCProcessAttributionObserver@@PEAXV?$function@$$A6AXPEAXK_KPEBGW4ProcessAttributionFlags@@AEBUProcessAttributionResourceCounters@@@Z@std@@@Z @ 0x1800EA3A4 (-EnumerateChangedProcessAttributions@CProcessAttributionManager@@AEAAXAEAVCProcessAttributionObs.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CProcessAttributionObserver::ForEachChangedProcessAttribution(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall CProcessAttributionObserver::ForEachChangedProcessAttribution(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rbp
+  void **v3; // rbp
   __int64 (__fastcall ***v5)(_QWORD, _BYTE *); // rcx
-  __int64 result; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  _BYTE v11[56]; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v12; // [rsp+58h] [rbp-10h]
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  _BYTE v10[56]; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v11; // [rsp+58h] [rbp-10h]
 
-  v3 = *(_QWORD *)(a1 + 8);
+  v3 = *(void ***)(a1 + 8);
   v5 = *(__int64 (__fastcall ****)(_QWORD, _BYTE *))(a3 + 56);
-  v12 = 0LL;
+  v11 = 0LL;
   if ( v5 )
-    v12 = (**v5)(v5, v11);
-  result = CProcessAttributionManager::EnumerateChangedProcessAttributions(v3, a1, a2, v11);
-  v10 = *(_QWORD *)(a3 + 56);
-  if ( v10 )
+    v11 = (**v5)(v5, v10);
+  CProcessAttributionManager::EnumerateChangedProcessAttributions(v3, a1, a2, (__int64)v10);
+  v9 = *(_QWORD *)(a3 + 56);
+  if ( v9 )
   {
-    LOBYTE(v9) = v10 != a3;
-    result = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v10 + 32LL))(v10, v9);
+    LOBYTE(v8) = v9 != a3;
+    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v9 + 32LL))(v9, v8);
     *(_QWORD *)(a3 + 56) = 0LL;
   }
-  return result;
 }

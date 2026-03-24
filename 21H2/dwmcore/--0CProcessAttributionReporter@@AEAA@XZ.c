@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CProcessAttributionReporter@@AEAA@XZ @ 0x1800DDDEC
+ * XREFs of ??0CProcessAttributionReporter@@AEAA@XZ @ 0x180029408
  * Callers:
- *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800DD5DC (-RunCompositionThread@CConnection@@AEAAJXZ.c)
+ *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x18002692C (-RunCompositionThread@CConnection@@AEAAJXZ.c)
  * Callees:
- *     ?CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ @ 0x1800DDEC8 (-CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ.c)
+ *     ?CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ @ 0x180029470 (-CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ.c)
  */
 
 CProcessAttributionReporter *__fastcall CProcessAttributionReporter::CProcessAttributionReporter(
@@ -24,6 +24,6 @@ CProcessAttributionReporter *__fastcall CProcessAttributionReporter::CProcessAtt
   *((_QWORD *)this + 12) = 0LL;
   *((_QWORD *)this + 13) = 0LL;
   *((_QWORD *)this + 14) = 0LL;
-  *((_QWORD *)this + 15) = CProcessAttributionManager::CreateObserver(qword_1803D33D8);
+  *((_QWORD *)this + 15) = CProcessAttributionManager::CreateObserver(lpMem);
   return this;
 }

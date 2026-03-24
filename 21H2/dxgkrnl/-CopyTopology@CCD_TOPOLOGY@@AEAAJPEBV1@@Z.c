@@ -1,88 +1,87 @@
 /*
- * XREFs of ?CopyTopology@CCD_TOPOLOGY@@AEAAJPEBV1@@Z @ 0x1C03A9208
+ * XREFs of ?CopyTopology@CCD_TOPOLOGY@@AEAAJPEBV1@@Z @ 0x1C02EA7E8
  * Callers:
- *     ?ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01C07FC (-ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     ?Functionalize@CCD_TOPOLOGY@@QEAAJI_N@Z @ 0x1C01C08BC (-Functionalize@CCD_TOPOLOGY@@QEAAJI_N@Z.c)
- *     ?AddActiveNonDesktopPathsToTopology@CCD_TOPOLOGY@@AEAAJPEAV1@_N@Z @ 0x1C01C0964 (-AddActiveNonDesktopPathsToTopology@CCD_TOPOLOGY@@AEAAJPEAV1@_N@Z.c)
+ *     ?ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0163848 (-ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?Functionalize@CCD_TOPOLOGY@@QEAAJI_N@Z @ 0x1C0163908 (-Functionalize@CCD_TOPOLOGY@@QEAAJI_N@Z.c)
+ *     ?AddActiveNonDesktopPathsToTopology@CCD_TOPOLOGY@@AEAAJPEAV1@_N@Z @ 0x1C01639B0 (-AddActiveNonDesktopPathsToTopology@CCD_TOPOLOGY@@AEAAJPEAV1@_N@Z.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?GetMaximumAdapterCountInSession@DXGGLOBAL@@QEAAKXZ @ 0x1C01BFEEC (-GetMaximumAdapterCountInSession@DXGGLOBAL@@QEAAKXZ.c)
- *     ?CopyPathModalityDescriptor@CCD_TOPOLOGY@@AEAAJPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@PEBU2@@Z @ 0x1C03A9094 (-CopyPathModalityDescriptor@CCD_TOPOLOGY@@AEAAJPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@PEBU2@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C0133BB0 (-GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
+ *     ?CopyPathModalityDescriptor@CCD_TOPOLOGY@@AEAAJPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@PEBU2@@Z @ 0x1C02EA674 (-CopyPathModalityDescriptor@CCD_TOPOLOGY@@AEAAJPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@PEBU2@@Z.c)
  */
 
-__int64 __fastcall CCD_TOPOLOGY::CopyTopology(
-        CCD_TOPOLOGY *this,
-        const struct CCD_TOPOLOGY *a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall CCD_TOPOLOGY::CopyTopology(CCD_TOPOLOGY *this, const struct CCD_TOPOLOGY *a2)
 {
-  __int64 v6; // rax
-  __int64 v7; // rdi
-  unsigned __int16 v8; // cx
-  unsigned int v9; // esi
-  __int64 v10; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rdi
+  unsigned __int16 v6; // cx
+  unsigned int v7; // esi
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
   DXGGLOBAL *Global; // rax
-  unsigned __int64 v12; // rax
-  __int64 v13; // r9
-  unsigned __int64 MaximumAdapterCountInSession; // kr00_8
-  __int64 v15; // rcx
-  __int64 v16; // r8
+  __int64 v12; // rdx
+  SIZE_T v13; // rax
+  unsigned __int64 MaximumAdapterCount; // kr00_8
+  __int64 v15; // rax
 
   if ( !a2 )
     return 3221225485LL;
-  v6 = *((_QWORD *)this + 8);
-  v7 = *((_QWORD *)a2 + 8);
-  if ( !v6 )
-    return 3221225507LL;
-  v8 = *(_WORD *)(v7 + 20);
-  if ( *(_WORD *)(v6 + 22) < v8 )
-    return 3221225507LL;
-  *(_WORD *)(v6 + 20) = v8;
-  v9 = 0;
-  *(_DWORD *)(*((_QWORD *)this + 8) + 32LL) = *(_DWORD *)(v7 + 32);
-  *(_DWORD *)(*((_QWORD *)this + 8) + 24LL) = *(_DWORD *)(v7 + 24);
-  *(_DWORD *)(*((_QWORD *)this + 8) + 36LL) = *(_DWORD *)(v7 + 36);
-  v10 = *((_QWORD *)this + 8);
-  *(_OWORD *)v10 = *(_OWORD *)v7;
-  *(_DWORD *)(v10 + 16) = *(_DWORD *)(v7 + 16);
-  if ( *(_WORD *)(v7 + 20) )
+  v4 = *((_QWORD *)this + 8);
+  v5 = *((_QWORD *)a2 + 8);
+  if ( v4 )
   {
-    while ( (int)CCD_TOPOLOGY::CopyPathModalityDescriptor(
-                   (CCD_TOPOLOGY *)(296LL * v9),
-                   (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(296LL * v9 + *((_QWORD *)this + 8) + 56LL),
-                   (const struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(296LL * v9 + v7 + 56),
-                   a4) >= 0 )
+    v6 = *(_WORD *)(v5 + 20);
+    if ( *(_WORD *)(v4 + 22) >= v6 )
     {
-      if ( ++v9 >= *(unsigned __int16 *)(v7 + 20) )
-        goto LABEL_8;
-    }
-    v16 = *((_QWORD *)this + 8);
-    goto LABEL_14;
-  }
+      *(_WORD *)(v4 + 20) = v6;
+      v7 = 0;
+      *(_DWORD *)(*((_QWORD *)this + 8) + 32LL) = *(_DWORD *)(v5 + 32);
+      *(_DWORD *)(*((_QWORD *)this + 8) + 24LL) = *(_DWORD *)(v5 + 24);
+      v8 = *((_QWORD *)this + 8);
+      *(_OWORD *)v8 = *(_OWORD *)v5;
+      *(_DWORD *)(v8 + 16) = *(_DWORD *)(v5 + 16);
+      if ( *(_WORD *)(v5 + 20) )
+      {
+        while ( (int)CCD_TOPOLOGY::CopyPathModalityDescriptor(
+                       (CCD_TOPOLOGY *)(272LL * v7),
+                       (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(272LL * v7 + *((_QWORD *)this + 8) + 48LL),
+                       (const struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(272LL * v7 + v5 + 48)) >= 0 )
+        {
+          if ( ++v7 >= *(unsigned __int16 *)(v5 + 20) )
+            goto LABEL_8;
+        }
+        goto LABEL_14;
+      }
 LABEL_8:
-  if ( *(_QWORD *)(v7 + 48) )
-  {
-    Global = DXGGLOBAL_GetGlobal();
-    MaximumAdapterCountInSession = (unsigned int)DXGGLOBAL::GetMaximumAdapterCountInSession(Global);
-    v12 = 340 * MaximumAdapterCountInSession;
-    if ( !is_mul_ok(MaximumAdapterCountInSession, 0x154uLL) )
-      v12 = -1LL;
-    *(_QWORD *)(*((_QWORD *)this + 8) + 48LL) = operator new[](v12, 0x63644356u, 256LL, v13);
-    v15 = *((_QWORD *)this + 8);
-    if ( !*(_QWORD *)(v15 + 48) )
-    {
-      v16 = *((_QWORD *)this + 8);
+      if ( *(_QWORD *)(v5 + 40) )
+      {
+        Global = DXGGLOBAL::GetGlobal(v8, (__int64)a2);
+        MaximumAdapterCount = (unsigned int)DXGGLOBAL::GetMaximumAdapterCount(Global, v12);
+        v13 = 336 * MaximumAdapterCount;
+        if ( !is_mul_ok(MaximumAdapterCount, 0x150uLL) )
+          v13 = -1LL;
+        *(_QWORD *)(*((_QWORD *)this + 8) + 40LL) = operator new[](v13, 0x63644356u, PagedPool);
+        v8 = *((_QWORD *)this + 8);
+        if ( !*(_QWORD *)(v8 + 40) )
+        {
 LABEL_14:
-      WdLogSingleEntry2(6LL, this, v16);
-      return 3221225495LL;
+          v15 = WdLogNewEntry5_WdLowResource(v8, a2, v9, v10);
+          *(_QWORD *)(v15 + 24) = this;
+          *(_QWORD *)(v15 + 32) = *((_QWORD *)this + 8);
+          WdLogEvent5_WdLowResource(v15);
+          return 3221225495LL;
+        }
+        *(_DWORD *)(v8 + 36) = *(_DWORD *)(v5 + 36);
+        memmove(
+          *(void **)(*((_QWORD *)this + 8) + 40LL),
+          *(const void **)(v5 + 40),
+          336LL * *(unsigned int *)(*((_QWORD *)this + 8) + 36LL));
+      }
+      return 0LL;
     }
-    *(_DWORD *)(v15 + 40) = *(_DWORD *)(v7 + 40);
-    memmove(
-      *(void **)(*((_QWORD *)this + 8) + 48LL),
-      *(const void **)(v7 + 48),
-      340LL * *(unsigned int *)(*((_QWORD *)this + 8) + 40LL));
   }
-  return 0LL;
+  return 3221225507LL;
 }

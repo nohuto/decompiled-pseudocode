@@ -1,8 +1,8 @@
 /*
- * XREFs of CiReleaseProcessLock @ 0x1C000BA10
+ * XREFs of CiReleaseProcessLock @ 0x1C000BC90
  * Callers:
- *     CiThreadReferenceTaskIndex @ 0x1C0002ED0 (CiThreadReferenceTaskIndex.c)
- *     CiProcessSuspend @ 0x1C0004B64 (CiProcessSuspend.c)
+ *     CiThreadReferenceTaskIndex @ 0x1C0001D30 (CiThreadReferenceTaskIndex.c)
+ *     CiProcessSuspend @ 0x1C00048B4 (CiProcessSuspend.c)
  * Callees:
  *     <none>
  */

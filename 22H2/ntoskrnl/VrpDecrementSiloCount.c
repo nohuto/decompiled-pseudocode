@@ -1,32 +1,22 @@
 /*
- * XREFs of VrpDecrementSiloCount @ 0x140A71FD4
+ * XREFs of VrpDecrementSiloCount @ 0x1408827A4
  * Callers:
- *     VrpJobContextDelete @ 0x140A72090 (VrpJobContextDelete.c)
+ *     VrpJobContextDelete @ 0x140882830 (VrpJobContextDelete.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     CmUnRegisterCallback @ 0x140A0F270 (CmUnRegisterCallback.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     CmUnRegisterCallback @ 0x140869C60 (CmUnRegisterCallback.c)
  */
 
 _QWORD *VrpDecrementSiloCount()
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v1; // rax
-  signed __int8 v2; // cf
-  __int64 v3; // rdi
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v1 = KeAbPreAcquire((__int64)&VrpActiveSilosLock, 0LL);
-  v2 = _interlockedbittestandset64((volatile signed __int32 *)&VrpActiveSilosLock, 0LL);
-  v3 = v1;
-  if ( v2 )
-    ExfAcquirePushLockExclusiveEx(&VrpActiveSilosLock, v1, (__int64)&VrpActiveSilosLock);
-  if ( v3 )
-    *(_BYTE *)(v3 + 18) = 1;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&VrpActiveSilosLock, 0LL);
   if ( !--VrpNumActiveSilos )
     CmUnRegisterCallback(VrpCallbackCookie);
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&VrpActiveSilosLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

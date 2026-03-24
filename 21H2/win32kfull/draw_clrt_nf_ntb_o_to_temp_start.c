@@ -1,5 +1,5 @@
 /*
- * XREFs of draw_clrt_nf_ntb_o_to_temp_start @ 0x1C00D9D80
+ * XREFs of draw_clrt_nf_ntb_o_to_temp_start @ 0x1C00D0E60
  * Callers:
  *     <none>
  * Callees:
@@ -49,7 +49,7 @@ unsigned __int8 *__fastcall draw_clrt_nf_ntb_o_to_temp_start(
     v14 = v12[2];
     result = (unsigned __int8 *)(a3 + v7 * (__int64)(*v8 + v12[1] - a7) + *v12 + *(v8 - 1) - v9);
     v15 = v7;
-    v16 = (unsigned __int8 *)off_1C03260D0;
+    v16 = (unsigned __int8 *)off_1C032B0D0;
     v17 = (unsigned __int8 *)(v12 + 4);
     v25 = (int)(v15 - v14);
     do

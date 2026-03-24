@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetDeviceTarget@CDxHandleAdvancedDirectFlipBitmapRealization@@UEAAJPEBV?$shared_ptr@VCRegion@@@std@@PEAPEAVIDeviceTarget@@@Z @ 0x1802B2270
+ * XREFs of ?GetDeviceTarget@CDxHandleAdvancedDirectFlipBitmapRealization@@UEAAJPEBV?$shared_ptr@VCRegion@@@std@@PEAPEAVIDeviceTarget@@@Z @ 0x180263AC0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??4?$shared_ptr@UShapeData@CCursorState@@@std@@QEAAAEAV01@AEBV01@@Z @ 0x1801F6A6C (--4-$shared_ptr@UShapeData@CCursorState@@@std@@QEAAAEAV01@AEBV01@@Z.c)
- *     ?EnsureRenderTarget@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ @ 0x1802B1FC8 (-EnsureRenderTarget@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ.c)
- *     ?SaveOffOverdraw@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ @ 0x1802B2540 (-SaveOffOverdraw@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??4?$shared_ptr@UManipulationThreadTelemetryData@@@std@@QEAAAEAV01@AEBV01@@Z @ 0x180183ADC (--4-$shared_ptr@UManipulationThreadTelemetryData@@@std@@QEAAAEAV01@AEBV01@@Z.c)
+ *     ?EnsureRenderTarget@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ @ 0x180263878 (-EnsureRenderTarget@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ.c)
+ *     ?SaveOffOverdraw@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ @ 0x180263D24 (-SaveOffOverdraw@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ.c)
  */
 
 __int64 __fastcall CDxHandleAdvancedDirectFlipBitmapRealization::GetDeviceTarget(__int64 a1, _QWORD *a2, __int64 *a3)
@@ -23,14 +23,14 @@ __int64 __fastcall CDxHandleAdvancedDirectFlipBitmapRealization::GetDeviceTarget
   __int64 v13; // rcx
 
   v3 = 0LL;
-  v4 = (CDxHandleAdvancedDirectFlipBitmapRealization *)(a1 - 400);
+  v4 = (CDxHandleAdvancedDirectFlipBitmapRealization *)(a1 - 368);
   if ( a2
-    && (std::shared_ptr<CCursorState::ShapeData>::operator=((__int64 *)(a1 + 24), a2),
+    && (std::shared_ptr<ManipulationThreadTelemetryData>::operator=((_QWORD *)(a1 + 24), a2),
         v7 = CDxHandleAdvancedDirectFlipBitmapRealization::SaveOffOverdraw(v4),
         v9 = v7,
         v7 < 0) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xA2u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xC4u, 0LL);
   }
   else
   {
@@ -38,7 +38,7 @@ __int64 __fastcall CDxHandleAdvancedDirectFlipBitmapRealization::GetDeviceTarget
     v9 = v10;
     if ( v10 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xA5u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xC7u, 0LL);
     }
     else
     {

@@ -1,10 +1,10 @@
 /*
- * XREFs of PsChargeProcessQuota @ 0x1402924A8
+ * XREFs of PsChargeProcessQuota @ 0x140357284
  * Callers:
- *     MmAdjustWorkingSetSizeEx @ 0x1402E9C78 (MmAdjustWorkingSetSizeEx.c)
- *     MmCreateProcessAddressSpace @ 0x140705F00 (MmCreateProcessAddressSpace.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14031711C (MmAdjustWorkingSetSizeEx.c)
+ *     MmCreateProcessAddressSpace @ 0x1406FDDB4 (MmCreateProcessAddressSpace.c)
  * Callees:
- *     PspChargeQuota @ 0x14022EC10 (PspChargeQuota.c)
+ *     PspChargeQuota @ 0x14021ADA0 (PspChargeQuota.c)
  */
 
 __int64 __fastcall PsChargeProcessQuota(struct _KPROCESS *a1, __int64 a2, unsigned __int64 a3)
@@ -12,5 +12,5 @@ __int64 __fastcall PsChargeProcessQuota(struct _KPROCESS *a1, __int64 a2, unsign
   if ( a1 == PsInitialSystemProcess )
     return 0LL;
   else
-    return PspChargeQuota(a1[1].Affinity.StaticBitmap[27], (__int64)a1, 3, a3);
+    return PspChargeQuota(a1[1].AffinityPadding[7], (__int64)a1, 3, a3);
 }

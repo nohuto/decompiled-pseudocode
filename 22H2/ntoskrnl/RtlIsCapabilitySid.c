@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlIsCapabilitySid @ 0x1407F3128
+ * XREFs of RtlIsCapabilitySid @ 0x1406EF980
  * Callers:
- *     RtlCheckTokenCapability @ 0x14036FFE0 (RtlCheckTokenCapability.c)
- *     SepFilterToken @ 0x1407F2180 (SepFilterToken.c)
- *     NtCreateLowBoxToken @ 0x1407F2AC0 (NtCreateLowBoxToken.c)
+ *     RtlCheckTokenCapability @ 0x140586670 (RtlCheckTokenCapability.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     NtCreateLowBoxToken @ 0x1406EF370 (NtCreateLowBoxToken.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
  */
 
 bool __fastcall RtlIsCapabilitySid(__int64 a1)

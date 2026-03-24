@@ -1,54 +1,61 @@
 /*
- * XREFs of KiEndThreadCycleAccumulation @ 0x1402B2C60
+ * XREFs of KiEndThreadCycleAccumulation @ 0x14022D9F0
  * Callers:
- *     KiChooseTargetProcessor @ 0x1402392C0 (KiChooseTargetProcessor.c)
- *     KiQuantumEnd @ 0x1402486D0 (KiQuantumEnd.c)
- *     KeRemoveQueueEx @ 0x1402A9F20 (KeRemoveQueueEx.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x1402BACC8 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiIdleSchedule @ 0x1403072F0 (KiIdleSchedule.c)
- *     KiGroupSchedulingGenerationEnd @ 0x140308178 (KiGroupSchedulingGenerationEnd.c)
- *     KiHandleDeferredPreemption @ 0x140309098 (KiHandleDeferredPreemption.c)
- *     KeUpdateTotalCyclesCurrentThread @ 0x140329C68 (KeUpdateTotalCyclesCurrentThread.c)
- *     PpmCheckCustomRun @ 0x14032B45C (PpmCheckCustomRun.c)
- *     KeUpdateThreadTag @ 0x140366580 (KeUpdateThreadTag.c)
- *     KeSetThreadSchedulerAssist @ 0x14056D2BC (KeSetThreadSchedulerAssist.c)
- *     KiSelectIdleProcessor @ 0x140577744 (KiSelectIdleProcessor.c)
+ *     KeRemoveQueueEx @ 0x140204790 (KeRemoveQueueEx.c)
+ *     PsImpersonateContainerOfThread @ 0x14021BC50 (PsImpersonateContainerOfThread.c)
+ *     KiProcessDeferredReadyList @ 0x140230540 (KiProcessDeferredReadyList.c)
+ *     KiReadyOutSwappedThreads @ 0x140247DD0 (KiReadyOutSwappedThreads.c)
+ *     KiIdleSchedule @ 0x140256430 (KiIdleSchedule.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     KiQuantumEnd @ 0x140257550 (KiQuantumEnd.c)
+ *     KeSetBasePriorityThread @ 0x1402586C0 (KeSetBasePriorityThread.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x14025923C (KiGroupSchedulingGenerationEnd.c)
+ *     KiExitDispatcher @ 0x1402C4150 (KiExitDispatcher.c)
+ *     KeSetSchedulingGroupRankBias @ 0x1402DE278 (KeSetSchedulingGroupRankBias.c)
+ *     KeYieldExecution @ 0x1402F64D0 (KeYieldExecution.c)
+ *     KiCheckForThreadDispatch @ 0x1403413C4 (KiCheckForThreadDispatch.c)
+ *     KiSchedulerApc @ 0x140342C10 (KiSchedulerApc.c)
+ *     KeBoostPriorityThread @ 0x140353A70 (KeBoostPriorityThread.c)
+ *     KeSetLegacyAffinityThread @ 0x14035E050 (KeSetLegacyAffinityThread.c)
+ *     KiAbThreadUnboostCpuPriority @ 0x14035EACC (KiAbThreadUnboostCpuPriority.c)
+ *     KeCpuSetReportParkedProcessors @ 0x14035EDA0 (KeCpuSetReportParkedProcessors.c)
+ *     KeUpdateThreadTag @ 0x14036B8A0 (KeUpdateThreadTag.c)
+ *     KiAbForceProcessLockEntry @ 0x14038F384 (KiAbForceProcessLockEntry.c)
+ *     KeSetAffinityThread @ 0x140398CCC (KeSetAffinityThread.c)
+ *     KeSetCpuSetsProcess @ 0x1403C5984 (KeSetCpuSetsProcess.c)
+ *     KeUpdateThreadCpuSets @ 0x1403C5AAC (KeUpdateThreadCpuSets.c)
+ *     KeRecomputeCpuSetAffinityProcess @ 0x14051C878 (KeRecomputeCpuSetAffinityProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x14051CB20 (KeSetSelectedCpuSetsThread.c)
+ *     KeSetThreadSchedulerAssist @ 0x14051E508 (KeSetThreadSchedulerAssist.c)
+ *     KiSetHeteroPolicyThread @ 0x1405202A4 (KiSetHeteroPolicyThread.c)
  * Callees:
- *     KiEndThreadAccountingPeriodEx @ 0x140248430 (KiEndThreadAccountingPeriodEx.c)
+ *     KiEndThreadAccountingPeriod @ 0x140230CF0 (KiEndThreadAccountingPeriod.c)
  */
 
-unsigned __int64 __fastcall KiEndThreadCycleAccumulation(
-        __int64 a1,
-        __int64 a2,
-        unsigned __int64 *a3,
-        unsigned __int8 a4)
+unsigned __int64 __fastcall KiEndThreadCycleAccumulation(__int64 a1, __int64 a2, unsigned __int64 *a3)
 {
-  unsigned __int64 v7; // rsi
-  unsigned __int64 v8; // r8
-  unsigned __int64 v9; // rbx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  unsigned __int64 v12; // rdx
-  bool v13; // zf
+  unsigned __int64 v5; // rsi
+  unsigned __int64 v6; // r8
+  unsigned __int64 v7; // rbx
+  unsigned __int64 v8; // rcx
+  bool v9; // zf
   unsigned __int64 result; // rax
 
   *(_BYTE *)(a1 + 32) = 1;
-  v7 = __rdtsc();
-  v8 = v7 - *(_QWORD *)(a1 + 33152);
-  v9 = v8 + *(_QWORD *)(a2 + 72);
-  *(_QWORD *)(a2 + 72) = v9;
-  v10 = *(unsigned int *)(a1 + 33208);
-  v11 = *(unsigned int *)(a2 + 80);
-  *(_QWORD *)(a1 + 33152) = v7;
-  v12 = v11 + ((v8 * v10) >> 16);
-  if ( v12 > 0xFFFFFFFF )
-    LODWORD(v12) = -1;
-  v13 = (*(_BYTE *)(a2 + 2) & 0xBE) == 0;
-  *(_DWORD *)(a2 + 80) = v12;
-  if ( !v13 )
-    KiEndThreadAccountingPeriodEx(a1, a2, v8, a4);
-  result = v9;
+  v5 = __rdtsc();
+  v6 = v5 - *(_QWORD *)(a1 + 32448);
+  v7 = v6 + *(_QWORD *)(a2 + 72);
+  v8 = v6 + *(unsigned int *)(a2 + 80);
+  *(_QWORD *)(a2 + 72) = v7;
+  *(_QWORD *)(a1 + 32448) = v5;
+  if ( v8 > 0xFFFFFFFF )
+    LODWORD(v8) = -1;
+  v9 = (*(_BYTE *)(a2 + 2) & 0x3E) == 0;
+  *(_DWORD *)(a2 + 80) = v8;
+  if ( !v9 )
+    KiEndThreadAccountingPeriod(a1, a2);
+  result = v7;
   if ( a3 )
-    *a3 = v7;
+    *a3 = v5;
   return result;
 }

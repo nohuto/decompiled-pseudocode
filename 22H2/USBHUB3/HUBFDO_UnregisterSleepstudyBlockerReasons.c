@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBFDO_UnregisterSleepstudyBlockerReasons @ 0x1C007BE60
+ * XREFs of HUBFDO_UnregisterSleepstudyBlockerReasons @ 0x1C0077BBC
  * Callers:
- *     HUBFDO_EvtDeviceReleaseHardware @ 0x1C0078370 (HUBFDO_EvtDeviceReleaseHardware.c)
- *     HUBFDO_RegisterSleepstudyBlockerReasons @ 0x1C007B9A4 (HUBFDO_RegisterSleepstudyBlockerReasons.c)
+ *     HUBFDO_EvtDeviceReleaseHardware @ 0x1C00746B0 (HUBFDO_EvtDeviceReleaseHardware.c)
+ *     HUBFDO_RegisterSleepstudyBlockerReasons @ 0x1C00777CC (HUBFDO_RegisterSleepstudyBlockerReasons.c)
  * Callees:
- *     SleepstudyHelper_UnregisterComponent @ 0x1C0043C6C (SleepstudyHelper_UnregisterComponent.c)
+ *     <none>
  */
 
 __int64 __fastcall HUBFDO_UnregisterSleepstudyBlockerReasons(_QWORD *a1)

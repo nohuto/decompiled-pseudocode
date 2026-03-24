@@ -1,10 +1,10 @@
 /*
- * XREFs of IcCopyInputStateToDeviceState @ 0x1C0098F48
+ * XREFs of IcCopyInputStateToDeviceState @ 0x1C00937A0
  * Callers:
- *     IrqArbCommitAllocation @ 0x1C009A2E0 (IrqArbCommitAllocation.c)
- *     AcpiIrqLibSetupSciInterrupt @ 0x1C009D86C (AcpiIrqLibSetupSciInterrupt.c)
+ *     IrqArbCommitAllocation @ 0x1C0093900 (IrqArbCommitAllocation.c)
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0097104 (AcpiIrqLibSetupSciInterrupt.c)
  * Callees:
- *     IrqArbGsivFromIrq @ 0x1C009A2C0 (IrqArbGsivFromIrq.c)
+ *     IrqArbGsivFromIrq @ 0x1C00938DC (IrqArbGsivFromIrq.c)
  */
 
 NTSTATUS __fastcall IcCopyInputStateToDeviceState(__int64 a1, int a2)

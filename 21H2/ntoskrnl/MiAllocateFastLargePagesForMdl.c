@@ -1,149 +1,122 @@
 /*
- * XREFs of MiAllocateFastLargePagesForMdl @ 0x140589518
+ * XREFs of MiAllocateFastLargePagesForMdl @ 0x140533CE4
  * Callers:
- *     MiFindPagesForMdl @ 0x1402652C4 (MiFindPagesForMdl.c)
+ *     MiFindPagesForMdl @ 0x1402E40DC (MiFindPagesForMdl.c)
  * Callees:
- *     MiFreeLargeZeroPages @ 0x14026E05C (MiFreeLargeZeroPages.c)
- *     MiInitializeLargePfnList @ 0x14026E1F4 (MiInitializeLargePfnList.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiEndDpcGang @ 0x1405C041C (MiEndDpcGang.c)
- *     MiInitializeDpcGang @ 0x1405C04D4 (MiInitializeDpcGang.c)
- *     MiInsertDpcGang @ 0x1405C05A4 (MiInsertDpcGang.c)
- *     MiStartDpcGang @ 0x1405C0634 (MiStartDpcGang.c)
- *     MiAllocateLargeZeroPages @ 0x1405C0D40 (MiAllocateLargeZeroPages.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
+ *     MiEndDpcGang @ 0x140560498 (MiEndDpcGang.c)
+ *     MiInitializeDpcGang @ 0x140560550 (MiInitializeDpcGang.c)
+ *     MiInsertDpcGang @ 0x14056061C (MiInsertDpcGang.c)
+ *     MiStartDpcGang @ 0x1405606AC (MiStartDpcGang.c)
  */
 
 __int64 __fastcall MiAllocateFastLargePagesForMdl(__int64 a1, unsigned int a2, char a3)
 {
   int v6; // eax
-  __int64 v7; // rsi
-  int v8; // ecx
-  int v9; // eax
-  unsigned __int64 v10; // r15
-  int v11; // r13d
-  bool v12; // zf
-  unsigned __int64 v13; // rax
-  __int64 v14; // r12
+  __int64 v7; // rdi
+  __int64 v8; // r14
+  int v9; // r8d
+  int v10; // r13d
+  unsigned __int64 v11; // r12
+  int v12; // ecx
   __int64 result; // rax
-  int v16; // r14d
-  __int64 v17; // r8
-  __int64 v18; // r11
-  _QWORD *v19; // rdi
-  unsigned __int64 v20; // r12
-  __int64 v21; // r15
-  _QWORD **v22; // rbx
-  _QWORD *v23; // rdx
-  _QWORD *v24; // rax
-  __int64 v25; // r8
-  __int64 v26; // rax
-  _QWORD v27[12]; // [rsp+20h] [rbp-E0h] BYREF
-  _QWORD v28[28]; // [rsp+80h] [rbp-80h] BYREF
-  _QWORD v29[12]; // [rsp+160h] [rbp+60h] BYREF
+  int v14; // r15d
+  unsigned __int8 CurrentIrql; // cl
+  __int64 v16; // r11
+  _QWORD *v17; // rsi
+  _QWORD *v18; // r8
+  unsigned __int64 v19; // r12
+  _QWORD *v20; // rbx
+  unsigned int v21; // ecx
+  __int64 v22; // rax
+  _OWORD v23[2]; // [rsp+40h] [rbp-C0h] BYREF
+  _QWORD v24[48]; // [rsp+60h] [rbp-A0h] BYREF
 
-  memset(v28, 0, 0xD8uLL);
-  memset(v29, 0, sizeof(v29));
-  memset(v27, 0, 0x58uLL);
+  memset(v24, 0, sizeof(v24));
   v6 = *(_DWORD *)(a1 + 60);
   v7 = *(_QWORD *)(a1 + 64);
+  v8 = 4LL;
+  memset(v23, 0, sizeof(v23));
   if ( v6 )
   {
     if ( v6 == 2 )
     {
-      v8 = 28;
+      v9 = 28;
     }
     else
     {
-      v8 = 4;
+      v9 = 4;
       if ( v6 == 3 )
-        v8 = 0;
+        v9 = 0;
     }
   }
   else
   {
-    v8 = 12;
+    v9 = 12;
   }
-  v9 = 16;
-  v10 = (unsigned __int64)*(unsigned int *)(v7 + 40) >> 12;
-  v11 = a3 & 1;
-  if ( v11 )
-    v9 = 24;
-  v12 = *(_QWORD *)(a1 + 16) == 0x100000LL;
-  LODWORD(v27[0]) = v9;
-  if ( v12 )
-    LODWORD(v27[0]) = v9 | 1;
-  v27[1] = *(_QWORD *)a1;
-  v13 = *(_QWORD *)(a1 + 40) - v10;
-  v27[4] = __PAIR64__(v8, a2);
-  v27[5] = -1LL;
-  v27[2] = v13;
-  v27[3] = *(_QWORD *)(a1 + 32);
-  v27[10] = v29;
-  while ( 1 )
+  v10 = a3 & 1;
+  v11 = (unsigned __int64)*(unsigned int *)(v7 + 40) >> 12;
+  v12 = (2 * v10 + 1) | 4;
+  if ( *(_QWORD *)(a1 + 16) != 0x100000LL )
+    v12 = 2 * v10 + 1;
+  result = MiAllocateLargeZeroPages(
+             *(_QWORD *)a1,
+             (unsigned int)*(_QWORD *)(a1 + 40) - (unsigned int)v11,
+             *(_QWORD *)(a1 + 32),
+             a2,
+             v9,
+             (__int64)v23,
+             v12);
+  v14 = result;
+  if ( result )
   {
-    v14 = qword_140C51850;
-    result = *(_QWORD *)a1;
-    if ( *(_QWORD *)(a1 + 24) < *(_QWORD *)(*(_QWORD *)a1 + 16712LL) )
-      break;
-    MiInitializeLargePfnList(v29);
-    result = MiAllocateLargeZeroPages(v27);
-    v16 = v27[9];
-    if ( !v27[9] )
-      break;
-    if ( v14 == qword_140C51850 )
+    CurrentIrql = KeGetCurrentIrql();
+    MiInitializeDpcGang(v24, a2, CurrentIrql < 2u ? 0 : 2);
+    LODWORD(v24[23]) |= 0x40u;
+    v16 = 0LL;
+    *(_QWORD *)(a1 + 72) = KeGetCurrentThread()->ApcState.Process;
+    v24[0] = a1;
+    v17 = (_QWORD *)(v7 + 48 + 8 * v11);
+    do
     {
-      v17 = 4LL;
-      if ( KeGetCurrentIrql() >= 2u || (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
-        v17 = 6LL;
-      MiInitializeDpcGang(v28, a2, v17);
-      LODWORD(v28[23]) |= 0x40u;
-      v28[0] = a1;
-      v18 = 0LL;
-      v19 = (_QWORD *)(v7 + 48 + 8 * v10);
-      do
+      v18 = *(_QWORD **)((char *)v23 + v16 * 8);
+      v19 = MiLargePageSizes[v16];
+      if ( v18 )
       {
-        v20 = MiLargePageSizes[v18];
-        v21 = 3 * v18;
-        v22 = (_QWORD **)&v29[3 * v18];
-        while ( 1 )
+        do
         {
-          v23 = *v22;
-          if ( *v22 == v22 )
-            break;
-          if ( (_QWORD **)v23[1] != v22 || (v24 = (_QWORD *)*v23, *(_QWORD **)(*v23 + 8LL) != v23) )
-            __fastfail(3u);
-          *v22 = v24;
-          v24[1] = v22;
-          --v29[v21 + 2];
-          v25 = 0LL;
-          if ( v20 )
+          v20 = (_QWORD *)*v18;
+          v21 = 0;
+          if ( v19 )
           {
-            v26 = 0LL;
+            v22 = 0LL;
             do
             {
-              v25 = (unsigned int)(v25 + 1);
-              *v19++ = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v23 + 0x44000000000LL) >> 4) + v26;
-              v26 = (unsigned int)v25;
+              ++v21;
+              *v17++ = (__int64)(v18 + 0xB000000000LL) / 48 + v22;
+              v22 = v21;
             }
-            while ( (unsigned int)v25 < v20 );
+            while ( v21 < v19 );
           }
-          MiInsertDpcGang(v28, v23, v25);
+          MiInsertDpcGang(v24, v18);
+          v18 = v20;
         }
-        v18 = (unsigned int)(v18 + 1);
+        while ( v20 );
       }
-      while ( (unsigned int)v18 < 4 );
-      *(_DWORD *)(v7 + 40) += v16 << 12;
-      MiStartDpcGang(v28);
-      MiEndDpcGang(v28);
-      *(_QWORD *)(v7 + 16) = 0LL;
-      result = 2LL;
-      *(_WORD *)(v7 + 10) |= 2u;
-      if ( v11 )
-        *(_QWORD *)(v7 + 24) = 1LL;
-      return result;
+      ++v16;
+      --v8;
     }
-    MiFreeLargeZeroPages(*(_QWORD *)a1, (__int64)v29, (LODWORD(v27[0]) >> 3) & 1, 0LL);
-    v27[9] = 0LL;
+    while ( v8 );
+    *(_DWORD *)(v7 + 40) += v14 << 12;
+    MiStartDpcGang(v24);
+    MiEndDpcGang(v24);
+    *(_QWORD *)(v7 + 16) = 0LL;
+    result = 2LL;
+    *(_WORD *)(v7 + 10) |= 2u;
+    if ( v10 )
+      *(_QWORD *)(v7 + 24) = 1LL;
   }
   return result;
 }

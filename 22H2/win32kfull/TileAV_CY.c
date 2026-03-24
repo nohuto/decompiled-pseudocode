@@ -1,5 +1,5 @@
 /*
- * XREFs of TileAV_CY @ 0x1C025DAA0
+ * XREFs of TileAV_CY @ 0x1C02664B0
  * Callers:
  *     <none>
  * Callees:
@@ -33,8 +33,7 @@ __int64 __fastcall TileAV_CY(__int64 a1)
       v6 = v7;
   }
   while ( v2 != v3 );
-  result = (unsigned int)(*(_DWORD *)(a1 + 256) - 1);
-  *(_DWORD *)(a1 + 256) = result;
+  result = (unsigned int)--*(_DWORD *)(a1 + 256);
   if ( (int)result <= 0 )
   {
     *(_QWORD *)(a1 + 248) = *(_QWORD *)(a1 + 32);

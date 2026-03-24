@@ -1,22 +1,21 @@
 /*
- * XREFs of imp_WdfUsbTargetPipeGetType @ 0x1C0076740
+ * XREFs of imp_WdfUsbTargetPipeGetType @ 0x1C00690D0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?_UsbdPipeTypeToWdf@FxUsbPipe@@SA?AW4_WDF_USB_PIPE_TYPE@@W4_USBD_PIPE_TYPE@@@Z @ 0x1C006C4B8 (-_UsbdPipeTypeToWdf@FxUsbPipe@@SA-AW4_WDF_USB_PIPE_TYPE@@W4_USBD_PIPE_TYPE@@@Z.c)
  */
 
-__int64 __fastcall imp_WdfUsbTargetPipeGetType(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFUSBPIPE__ *Pipe)
+_WDF_USB_PIPE_TYPE __fastcall imp_WdfUsbTargetPipeGetType(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFUSBPIPE__ *Pipe)
 {
-  unsigned int v2; // ebx
-  __int64 PipeType; // rcx
   FxUsbPipe *pUsbPipe; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = 0;
   pUsbPipe = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Pipe, 0x1203u, (void **)&pUsbPipe);
-  PipeType = pUsbPipe->m_PipeInformation.PipeType;
-  if ( (unsigned int)PipeType < 4 )
-    return (unsigned int)`FxUsbPipe::_UsbdPipeTypeToWdf'::`2'::types[PipeType];
-  return v2;
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Pipe,
+    0x1203u,
+    (void **)&pUsbPipe);
+  return FxUsbPipe::_UsbdPipeTypeToWdf(pUsbPipe->m_PipeInformation.PipeType);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpProcessDependencyRelations @ 0x140767CF8
+ * XREFs of PnpProcessDependencyRelations @ 0x140737710
  * Callers:
- *     PnpProcessRelation @ 0x140767AEC (PnpProcessRelation.c)
+ *     PnpProcessRelation @ 0x1407374AC (PnpProcessRelation.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PipIsDevNodeDNStarted @ 0x1402DEAB0 (PipIsDevNodeDNStarted.c)
- *     PnpProcessRelation @ 0x140767AEC (PnpProcessRelation.c)
- *     PiGetDependentList @ 0x14076BBF4 (PiGetDependentList.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1407756F4 (PnpAcquireDependencyRelationsLock.c)
- *     PiEnumerateDependentListEntry @ 0x1409426FC (PiEnumerateDependentListEntry.c)
+ *     PipIsDevNodeDNStarted @ 0x1402651F8 (PipIsDevNodeDNStarted.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x140639C1C (PnpAcquireDependencyRelationsLock.c)
+ *     PnpProcessRelation @ 0x1407374AC (PnpProcessRelation.c)
+ *     PiGetDependentList @ 0x14074B374 (PiGetDependentList.c)
+ *     PiEnumerateDependentListEntry @ 0x14089D8F8 (PiEnumerateDependentListEntry.c)
  */
 
 __int64 __fastcall PnpProcessDependencyRelations(
@@ -33,7 +33,7 @@ __int64 __fastcall PnpProcessDependencyRelations(
   v5 = *(_QWORD *)(a1 + 32);
   v17 = 0LL;
   v9 = 0;
-  PnpAcquireDependencyRelationsLock(0LL);
+  PnpAcquireDependencyRelationsLock(0);
   DependentList = (_QWORD **)PiGetDependentList(v5);
   v11 = *DependentList;
   if ( *DependentList != DependentList )
@@ -47,10 +47,10 @@ __int64 __fastcall PnpProcessDependencyRelations(
       {
         v14 = *(_QWORD *)(*(_QWORD *)(v17 + 312) + 40LL);
         v15 = *(_DWORD *)(v14 + 300);
-        if ( v15 < 784 || v15 > 785 )
+        if ( v15 < 782 || v15 > 783 )
           v16 = !PipIsDevNodeDNStarted(v14);
         else
-          v16 = ((*(_DWORD *)(v14 + 304) - 788) & 0xFFFFFFFD) == 0;
+          v16 = ((*(_DWORD *)(v14 + 304) - 786) & 0xFFFFFFFD) == 0;
         if ( !v16 )
           v9 = PnpProcessRelation(v14, a2, a3, a4, BugCheckParameter3);
         if ( v9 < 0 )
@@ -60,6 +60,6 @@ __int64 __fastcall PnpProcessDependencyRelations(
     while ( v11 != DependentList );
   }
   ExReleaseResourceLite(&PiDependencyRelationsLock);
-  PpDevNodeUnlockTree(0LL);
+  PpDevNodeUnlockTree(0);
   return (unsigned int)v9;
 }

@@ -1,19 +1,17 @@
 /*
- * XREFs of ?CreateNewPlaneConfig@DISPLAY_SOURCE@@AEAAXIPEBVDXGALLOCATION@@EIPEBUtagRECT@@11W4_D3DDDI_ROTATION@@W4D3DKMT_MULTIPLANE_OVERLAY_BLEND@@W4D3DDDI_COLOR_SPACE_TYPE@@IW4_D3DDDIFORMAT@@E@Z @ 0x1C01DB908
+ * XREFs of ?CreateNewPlaneConfig@DISPLAY_SOURCE@@AEAAXIPEBVDXGALLOCATION@@EIPEBUtagRECT@@11W4_D3DDDI_ROTATION@@W4D3DKMT_MULTIPLANE_OVERLAY_BLEND@@W4D3DDDI_COLOR_SPACE_TYPE@@IW4_D3DDDIFORMAT@@E@Z @ 0x1C016A5AC
  * Callers:
- *     ?DisableOverlayPlanesUnsafe@DISPLAY_SOURCE@@AEAAXE@Z @ 0x1C01964D8 (-DisableOverlayPlanesUnsafe@DISPLAY_SOURCE@@AEAAXE@Z.c)
- *     ?SetMultiplaneOverlayConfigUnsafe@DISPLAY_SOURCE@@QEAAXIPEBVDXGALLOCATION@@EIPEBUtagRECT@@11W4_D3DDDI_ROTATION@@W4D3DKMT_MULTIPLANE_OVERLAY_BLEND@@W4D3DDDI_COLOR_SPACE_TYPE@@IW4_D3DDDIFORMAT@@E@Z @ 0x1C01965F0 (-SetMultiplaneOverlayConfigUnsafe@DISPLAY_SOURCE@@QEAAXIPEBVDXGALLOCATION@@EIPEBUtagRECT@@11W4_D.c)
- *     ?PresentMultiPlaneOverlay3@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAVCOREDEVICEACCESS@@PEAPEAV1@@Z @ 0x1C0196940 (-PresentMultiPlaneOverlay3@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAVCOREDEV.c)
+ *     ?DisableOverlayPlanesUnsafe@DISPLAY_SOURCE@@AEAAXE@Z @ 0x1C00EF578 (-DisableOverlayPlanesUnsafe@DISPLAY_SOURCE@@AEAAXE@Z.c)
+ *     ?SetMultiplaneOverlayConfigUnsafe@DISPLAY_SOURCE@@QEAAXIPEBVDXGALLOCATION@@EIPEBUtagRECT@@11W4_D3DDDI_ROTATION@@W4D3DKMT_MULTIPLANE_OVERLAY_BLEND@@W4D3DDDI_COLOR_SPACE_TYPE@@IW4_D3DDDIFORMAT@@E@Z @ 0x1C00EF680 (-SetMultiplaneOverlayConfigUnsafe@DISPLAY_SOURCE@@QEAAXIPEBVDXGALLOCATION@@EIPEBUtagRECT@@11W4_D.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0pqqtqqqqqqqqqqqqqqqq_EtwWriteTransfer @ 0x1C0045D98 (McTemplateK0pqqtqqqqqqqqqqqqqqqq_EtwWriteTransfer.c)
- *     ?SetPlaneConfigState@@YAXEPEBVDXGALLOCATION@@IPEBUtagRECT@@11W4_D3DDDI_ROTATION@@W4D3DKMT_MULTIPLANE_OVERLAY_BLEND@@W4D3DDDI_COLOR_SPACE_TYPE@@IW4_D3DDDIFORMAT@@EPEAU_DISPLAY_PLANE_CONFIG_STATE@@@Z @ 0x1C01DBA98 (-SetPlaneConfigState@@YAXEPEBVDXGALLOCATION@@IPEBUtagRECT@@11W4_D3DDDI_ROTATION@@W4D3DKMT_MULTIP.c)
- *     ?GetNextConfigIndex@@YAHH@Z @ 0x1C01DBB4C (-GetNextConfigIndex@@YAHH@Z.c)
+ *     McTemplateK0pqqtqqqqqqqqqqqqqqqq_EtwWriteTransfer @ 0x1C003B428 (McTemplateK0pqqtqqqqqqqqqqqqqqqq_EtwWriteTransfer.c)
+ *     ?SetPlaneConfigState@@YAXEPEBVDXGALLOCATION@@IPEBUtagRECT@@11W4_D3DDDI_ROTATION@@W4D3DKMT_MULTIPLANE_OVERLAY_BLEND@@W4D3DDDI_COLOR_SPACE_TYPE@@IW4_D3DDDIFORMAT@@EPEAU_DISPLAY_PLANE_CONFIG_STATE@@@Z @ 0x1C016A720 (-SetPlaneConfigState@@YAXEPEBVDXGALLOCATION@@IPEBUtagRECT@@11W4_D3DDDI_ROTATION@@W4D3DKMT_MULTIP.c)
+ *     ?GetNextConfigIndex@@YAHH@Z @ 0x1C016A7C4 (-GetNextConfigIndex@@YAHH@Z.c)
  */
 
 void __fastcall DISPLAY_SOURCE::CreateNewPlaneConfig(
         DISPLAY_SOURCE *this,
-        unsigned int a2,
+        __int64 a2,
         const struct DXGALLOCATION *a3,
         char a4,
         unsigned int a5,
@@ -28,38 +26,31 @@ void __fastcall DISPLAY_SOURCE::CreateNewPlaneConfig(
         char a14)
 {
   __int64 v17; // rdi
+  __int64 v18; // rax
   int NextConfigIndex; // eax
-  __int64 v19; // rdx
-  int v20; // ecx
-  __int64 v21; // r8
-  int v22; // eax
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
+  __int64 v20; // rdx
+  int v21; // ecx
+  __int64 v22; // r8
+  int v23; // eax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
 
-  v17 = a2;
-  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 1) + 632LL) != KeGetCurrentThread() )
+  v17 = (unsigned int)a2;
+  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 1) + 544LL) != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 9770LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_DisplayCore->IsDisplayStateMutexOwner()",
-      9770LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v18 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v18 + 24) = 9635LL;
+    WdLogEvent5_WdAssertion(v18);
   }
-  NextConfigIndex = GetNextConfigIndex(*((_DWORD *)this + 42 * v17 + 286));
-  v20 = *(_DWORD *)(v19 + 1148);
-  v21 = NextConfigIndex;
-  *(_DWORD *)(v19 + 1144) = NextConfigIndex;
-  if ( NextConfigIndex == v20 || v20 == -1 )
+  NextConfigIndex = GetNextConfigIndex(*((_DWORD *)this + 42 * v17 + 280));
+  v21 = *(_DWORD *)(v20 + 1124);
+  v22 = NextConfigIndex;
+  *(_DWORD *)(v20 + 1120) = NextConfigIndex;
+  if ( NextConfigIndex == v21 || v21 == -1 )
   {
-    v22 = GetNextConfigIndex(v20);
-    *(_DWORD *)(v19 + 1148) = v22;
+    v23 = GetNextConfigIndex(v21);
+    *(_DWORD *)(v20 + 1124) = v23;
   }
   SetPlaneConfigState(
     a4,
@@ -74,17 +65,17 @@ void __fastcall DISPLAY_SOURCE::CreateNewPlaneConfig(
     a12,
     a13,
     a14,
-    (struct _DISPLAY_PLANE_CONFIG_STATE *)(80 * v21 + v19 + 1152));
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+    (struct _DISPLAY_PLANE_CONFIG_STATE *)(80 * v22 + v20 + 1128));
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     McTemplateK0pqqtqqqqqqqqqqqqqqqq_EtwWriteTransfer(
-      v24,
-      v23,
       v25,
+      v24,
+      v26,
       *(_QWORD *)(*((_QWORD *)this + 1) + 16LL),
       *((_DWORD *)this + 4),
       v17,
       a4,
-      v25,
+      v26,
       a6->left,
       a6->top,
       a6->right,

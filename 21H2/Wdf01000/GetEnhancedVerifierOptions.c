@@ -1,47 +1,68 @@
 /*
- * XREFs of GetEnhancedVerifierOptions @ 0x1C0028C04
+ * XREFs of GetEnhancedVerifierOptions @ 0x1C0041FA8
  * Callers:
- *     FxLibraryCommonRegisterClient @ 0x1C0028820 (FxLibraryCommonRegisterClient.c)
+ *     FxLibraryCommonRegisterClient @ 0x1C0041AE4 (FxLibraryCommonRegisterClient.c)
  * Callees:
- *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C0014DF4 (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
+ *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C00184EC (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     ?IsClientInfoValid@@YAEPEAU_CLIENT_INFO@@@Z @ 0x1C0041634 (-IsClientInfoValid@@YAEPEAU_CLIENT_INFO@@@Z.c)
  */
 
-void __fastcall GetEnhancedVerifierOptions(_FX_DRIVER_GLOBALS *FxDriverGlobals)
+void __fastcall GetEnhancedVerifierOptions(_CLIENT_INFO *ClientInfo, unsigned int *Options)
 {
-  _DRIVER_OBJECT *m_DriverObject; // rcx
-  unsigned int value; // [rsp+30h] [rbp-59h] BYREF
-  FxAutoRegKey hWdf; // [rsp+38h] [rbp-51h] BYREF
-  FxAutoRegKey hKey; // [rsp+40h] [rbp-49h] BYREF
-  _UNICODE_STRING parametersPath; // [rsp+48h] [rbp-41h] BYREF
-  _UNICODE_STRING valueName; // [rsp+58h] [rbp-31h] BYREF
-  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-21h] BYREF
-  wchar_t parametersPath_buffer[4]; // [rsp+98h] [rbp+Fh] BYREF
-  wchar_t valueName_buffer[24]; // [rsp+A0h] [rbp+17h] BYREF
+  __int64 v3; // rcx
+  _UNICODE_STRING *v4; // rax
+  unsigned int value; // [rsp+20h] [rbp-69h] BYREF
+  FxAutoRegKey hWdf; // [rsp+28h] [rbp-61h] BYREF
+  FxAutoRegKey hKey; // [rsp+30h] [rbp-59h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+38h] [rbp-51h] BYREF
+  _UNICODE_STRING parametersPath; // [rsp+68h] [rbp-21h] BYREF
+  _UNICODE_STRING valueName; // [rsp+78h] [rbp-11h] BYREF
+  wchar_t parametersPath_buffer[16]; // [rsp+88h] [rbp-1h] BYREF
+  wchar_t valueName_buffer[24]; // [rsp+A8h] [rbp+1Fh] BYREF
 
   value = 0;
   hKey.m_Key = 0LL;
-  m_DriverObject = FxDriverGlobals->DriverObject.m_DriverObject;
   hWdf.m_Key = 0LL;
-  wcscpy(parametersPath_buffer, L"Wdf");
-  *(_QWORD *)&parametersPath.Length = 524294LL;
+  wcscpy(parametersPath_buffer, L"Parameters\\Wdf");
   parametersPath.Buffer = parametersPath_buffer;
+  *(_QWORD *)&parametersPath.Length = 1966108LL;
+  *(_OWORD *)valueName_buffer = *(_OWORD *)L"EnhancedVerifierOptions";
   *(_QWORD *)&valueName.Length = 3145774LL;
-  wcscpy(valueName_buffer, L"EnhancedVerifierOptions");
+  *Options = 0;
+  wcscpy(&valueName_buffer[8], L"VerifierOptions");
   valueName.Buffer = valueName_buffer;
-  if ( (int)IoOpenDriverRegistryKey(m_DriverObject, 0LL, 131097LL, 0LL, &hWdf) >= 0 )
+  if ( IsClientInfoValid(ClientInfo) )
   {
+    v4 = *(_UNICODE_STRING **)(v3 + 8);
     *(&ObjectAttributes.Length + 1) = 0;
     memset(&ObjectAttributes.Attributes + 1, 0, 20);
-    ObjectAttributes.RootDirectory = hWdf.m_Key;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.ObjectName = v4;
     ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = &parametersPath;
     ObjectAttributes.Attributes = 576;
-    if ( ZwOpenKey(&hKey.m_Key, 0x20019u, &ObjectAttributes) >= 0
-      && FxRegKey::_QueryULong(hKey.m_Key, &valueName, &value) >= 0 )
+    if ( ZwOpenKey(&hWdf.m_Key, 0x20019u, &ObjectAttributes) >= 0 )
     {
-      FxDriverGlobals->FxEnhancedVerifierOptions = value;
+      *(&ObjectAttributes.Length + 1) = 0;
+      memset(&ObjectAttributes.Attributes + 1, 0, 20);
+      ObjectAttributes.RootDirectory = hWdf.m_Key;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.ObjectName = &parametersPath;
+      ObjectAttributes.Attributes = 576;
+      if ( ZwOpenKey(&hKey.m_Key, 0x20019u, &ObjectAttributes) >= 0
+        && (int)FxRegKey::_QueryULong(hKey.m_Key, &valueName, &value) >= 0
+        && value )
+      {
+        *Options = value;
+      }
     }
+  }
+  else
+  {
+    if ( !WdfLdrDbgPrintOn )
+      return;
+    DbgPrintEx(0x65u, 0, "%s: ", "Wdf01000");
+    DbgPrintEx(0x65u, 0, "LibraryRegisterClient: Invalid ClientInfo received from wdfldr \n");
   }
   if ( hWdf.m_Key )
     ZwClose(hWdf.m_Key);

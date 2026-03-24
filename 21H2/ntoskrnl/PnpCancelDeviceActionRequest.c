@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpCancelDeviceActionRequest @ 0x140562004
+ * XREFs of PnpCancelDeviceActionRequest @ 0x14050E7D8
  * Callers:
- *     PiQueueDeviceRequest @ 0x14065F5D4 (PiQueueDeviceRequest.c)
- *     PiControlGetSetDeviceStatus @ 0x1407793D0 (PiControlGetSetDeviceStatus.c)
+ *     PiControlGetSetDeviceStatus @ 0x140639930 (PiControlGetSetDeviceStatus.c)
+ *     PiQueueDeviceRequest @ 0x14072F218 (PiQueueDeviceRequest.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
-char __fastcall PnpCancelDeviceActionRequest(__int64 a1)
+_QWORD *__fastcall PnpCancelDeviceActionRequest(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
 
@@ -18,5 +18,5 @@ char __fastcall PnpCancelDeviceActionRequest(__int64 a1)
   ExAcquirePushLockExclusiveEx(a1 + 80, 0LL);
   *(_BYTE *)(a1 + 88) = 1;
   ExReleasePushLockEx(a1 + 80, 0LL);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

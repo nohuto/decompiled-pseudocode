@@ -1,28 +1,29 @@
 /*
- * XREFs of SepRmSetAuditEventWrkr @ 0x14084DD00
+ * XREFs of SepRmSetAuditEventWrkr @ 0x1407C5350
  * Callers:
- *     SepRmCommandServerThread @ 0x14082D2D0 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x1407AD670 (SepRmCommandServerThread.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402D19C0 (PsIsCurrentThreadInServerSilo.c)
  */
 
 char __fastcall SepRmSetAuditEventWrkr(__int64 a1, __int64 a2)
 {
-  unsigned int v3; // ebx
+  unsigned int v3; // edi
   int v4; // eax
-  int *v5; // rdi
-  __int64 *v6; // rsi
-  __int64 v7; // r14
-  __int16 v8; // r11
-  __int16 v9; // dx
-  __int16 v10; // cx
-  __int64 v11; // rbp
-  int v12; // edx
-  int v13; // r8d
+  int *v5; // r10
+  __int64 *v6; // r11
+  __int64 v7; // rsi
+  __int16 v8; // r8
+  __int16 v9; // ax
+  __int16 v10; // r9
+  __int64 v11; // rdx
+  __int16 v12; // bx
+  int v13; // ecx
+  int v14; // edx
 
   v3 = 0;
   *(_DWORD *)(a2 + 40) = 0;
-  LOBYTE(v4) = PsIsCurrentThreadInServerSilo();
+  LOBYTE(v4) = PsIsCurrentThreadInServerSilo(a1, a2);
   if ( !(_BYTE)v4 )
   {
     v5 = SeAuditingStateByCategory;
@@ -39,12 +40,14 @@ char __fastcall SepRmSetAuditEventWrkr(__int64 a1, __int64 a2)
       do
       {
         *(_WORD *)&SeAuditingState[2 * v3] = 0;
-        if ( (*(_BYTE *)(a1 + 2LL * v3 + 44) & 1) != 0 )
+        v12 = *(_WORD *)(a1 + 2LL * v3 + 44);
+        if ( (v12 & 1) != 0 )
         {
           SeAuditingState[2 * v3] = 1;
           ++v9;
+          v12 = *(_WORD *)(a1 + 2LL * v3 + 44);
         }
-        if ( (*(_BYTE *)(a1 + 2LL * v3 + 44) & 2) != 0 )
+        if ( (v12 & 2) != 0 )
         {
           SeAuditingState[2 * v3 + 1] = 1;
           ++v10;
@@ -57,29 +60,29 @@ char __fastcall SepRmSetAuditEventWrkr(__int64 a1, __int64 a2)
       {
         if ( v9 == v8 )
         {
-          v12 = 33;
+          v13 = 33;
+          v14 = 17;
           v4 = 65;
-          v13 = 17;
         }
         else
         {
-          v12 = 34;
+          v13 = 34;
+          v14 = 18;
           v4 = 66;
-          v13 = 18;
         }
       }
       else
       {
 LABEL_11:
-        v12 = 36;
+        v13 = 36;
+        v14 = 20;
         v4 = 68;
-        v13 = 20;
       }
       if ( v10 )
       {
-        v4 = v12;
+        v4 = v13;
         if ( v10 == v8 )
-          v4 = v13;
+          v4 = v14;
       }
       *v5 = v4;
       v6 = (__int64 *)((char *)v6 + 2);

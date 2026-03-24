@@ -1,16 +1,17 @@
 /*
- * XREFs of PnpiBiosAddressExtendedToIoDescriptor @ 0x1C00B2EAC
+ * XREFs of PnpiBiosAddressExtendedToIoDescriptor @ 0x1C00B35FC
  * Callers:
- *     PnpBiosResourcesToNtResources @ 0x1C009832C (PnpBiosResourcesToNtResources.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     PnpiBiosValidateMemoryMapAttribute @ 0x1C0022FA0 (PnpiBiosValidateMemoryMapAttribute.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     ACPIInitIgnoreResourceMapDescriptor @ 0x1C005E810 (ACPIInitIgnoreResourceMapDescriptor.c)
- *     WPP_RECORDER_SF_i @ 0x1C005F66C (WPP_RECORDER_SF_i.c)
- *     PnpiBiosAddressHandleGlobalFlags @ 0x1C00980F0 (PnpiBiosAddressHandleGlobalFlags.c)
- *     PnpiUpdateResourceList @ 0x1C0098B40 (PnpiUpdateResourceList.c)
- *     AcpiDiagTraceMemoryReserved @ 0x1C00AA0D4 (AcpiDiagTraceMemoryReserved.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     PnpiBiosValidateMemoryMapAttribute @ 0x1C0017180 (PnpiBiosValidateMemoryMapAttribute.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     ACPIInitIgnoreResourceMapDescriptor @ 0x1C005DB00 (ACPIInitIgnoreResourceMapDescriptor.c)
+ *     WPP_RECORDER_SF_i @ 0x1C005E858 (WPP_RECORDER_SF_i.c)
+ *     PnpiBiosAddressHandleGlobalFlags @ 0x1C009CCB8 (PnpiBiosAddressHandleGlobalFlags.c)
+ *     PnpiUpdateResourceList @ 0x1C009D638 (PnpiUpdateResourceList.c)
+ *     AcpiDiagTraceMemoryReserved @ 0x1C00AB2D8 (AcpiDiagTraceMemoryReserved.c)
  */
 
 int __fastcall PnpiBiosAddressExtendedToIoDescriptor(
@@ -24,7 +25,7 @@ int __fastcall PnpiBiosAddressExtendedToIoDescriptor(
   __int64 v7; // rcx
   unsigned int v8; // r8d
   __int64 v9; // r10
-  __int64 v10; // rdi
+  const void **v10; // rdi
   int result; // eax
   struct _IO_RESOURCE_DESCRIPTOR *v12; // rdi
   unsigned int v13; // eax
@@ -68,7 +69,7 @@ int __fastcall PnpiBiosAddressExtendedToIoDescriptor(
   }
   if ( !v7 )
     return 0;
-  v10 = v9 + 8LL * v8;
+  v10 = (const void **)(v9 + 8LL * v8);
   result = PnpiUpdateResourceList(v10, &v27);
   if ( result < 0 )
     return result;
@@ -91,12 +92,12 @@ int __fastcall PnpiBiosAddressExtendedToIoDescriptor(
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      WPP_RECORDER_SF_D(
+      WPP_RECORDER_SF_L(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         2u,
         0xDu,
         0x18u,
-        (__int64)&WPP_acc401d4e49f33dc1a5cdf16911e1587_Traceguids,
+        (__int64)&WPP_fad942c932903a636e6a214bab40d1dd_Traceguids,
         *(unsigned __int16 *)(BugCheckParameter2 + 1));
       LOWORD(v13) = *(_WORD *)(BugCheckParameter2 + 1);
     }
@@ -129,7 +130,7 @@ int __fastcall PnpiBiosAddressExtendedToIoDescriptor(
           2u,
           0xDu,
           0x19u,
-          (__int64)&WPP_acc401d4e49f33dc1a5cdf16911e1587_Traceguids);
+          (__int64)&WPP_fad942c932903a636e6a214bab40d1dd_Traceguids);
       v17 = v21;
       BugCheckParameter4 = v21;
     }
@@ -142,7 +143,7 @@ int __fastcall PnpiBiosAddressExtendedToIoDescriptor(
           2u,
           0xDu,
           0x1Au,
-          (__int64)&WPP_acc401d4e49f33dc1a5cdf16911e1587_Traceguids);
+          (__int64)&WPP_fad942c932903a636e6a214bab40d1dd_Traceguids);
         v17 = BugCheckParameter4;
       }
       v16 = 1LL;
@@ -161,7 +162,7 @@ int __fastcall PnpiBiosAddressExtendedToIoDescriptor(
         v18,
         0xDu,
         0x1Bu,
-        (__int64)&WPP_acc401d4e49f33dc1a5cdf16911e1587_Traceguids,
+        (__int64)&WPP_fad942c932903a636e6a214bab40d1dd_Traceguids,
         v17);
       v17 = BugCheckParameter4;
     }
@@ -205,7 +206,7 @@ int __fastcall PnpiBiosAddressExtendedToIoDescriptor(
         2u,
         0xDu,
         0x1Cu,
-        (__int64)&WPP_acc401d4e49f33dc1a5cdf16911e1587_Traceguids,
+        (__int64)&WPP_fad942c932903a636e6a214bab40d1dd_Traceguids,
         MaximumAddress);
     }
   }

@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpGetLookasideInformation @ 0x140605318
+ * XREFs of ExpGetLookasideInformation @ 0x1405B1BC0
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExLockUserBuffer @ 0x140687918 (ExLockUserBuffer.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExLockUserBuffer @ 0x1406605D0 (ExLockUserBuffer.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpGetLookasideInformation(__int64 a1, __int64 a2, _DWORD *a3)
 {
   int v3; // edi
   unsigned int v4; // r14d
-  int v5; // r13d
+  int v5; // r12d
   _DWORD *v6; // rsi
   __int64 *v7; // rdx
   __int64 v8; // rbx
@@ -115,20 +115,23 @@ __int64 __fastcall ExpGetLookasideInformation(__int64 a1, __int64 a2, _DWORD *a3
         v8 += 32LL;
         v28 = v8;
       }
-      KxReleaseSpinLock((volatile signed __int64 *)&ExNPagedLookasideLock);
+      KxReleaseSpinLock(&ExNPagedLookasideLock);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
-          v18 = (v17 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v17;
-          if ( v18 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-          v8 = v28;
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
+            v18 = (v17 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v17;
+            if ( v18 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            v8 = v28;
+          }
         }
       }
       __writecr8(v13);
@@ -159,19 +162,22 @@ __int64 __fastcall ExpGetLookasideInformation(__int64 a1, __int64 a2, _DWORD *a3
         v28 = v8;
       }
 LABEL_27:
-      KxReleaseSpinLock((volatile signed __int64 *)v10);
+      KxReleaseSpinLock(v10);
       if ( KiIrqlFlags )
       {
-        v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v21 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          v22 = KeGetCurrentPrcb();
-          v23 = v22->SchedulerAssist;
-          v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
-          v18 = (v24 & v23[5]) == 0;
-          v23[5] &= v24;
-          if ( v18 )
-            KiRemoveSystemWorkPriorityKick((__int64)v22);
+          v21 = KeGetCurrentIrql();
+          if ( v21 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v21 >= 2u )
+          {
+            v22 = KeGetCurrentPrcb();
+            v23 = v22->SchedulerAssist;
+            v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
+            v18 = (v24 & v23[5]) == 0;
+            v23[5] &= v24;
+            if ( v18 )
+              KiRemoveSystemWorkPriorityKick((__int64)v22);
+          }
         }
       }
       __writecr8((unsigned __int8)v13);

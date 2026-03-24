@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpAsynchronousCall @ 0x14074C5A8
+ * XREFs of PnpAsynchronousCall @ 0x14076910C
  * Callers:
- *     PnpSendIrp @ 0x1402D2F74 (PnpSendIrp.c)
- *     PiIrpQueryRemoveDevice @ 0x1409589A4 (PiIrpQueryRemoveDevice.c)
+ *     PnpSendIrp @ 0x140361DC8 (PnpSendIrp.c)
+ *     PiIrpQueryRemoveDevice @ 0x1407342EC (PiIrpQueryRemoveDevice.c)
  * Callees:
- *     IoAllocateIrp @ 0x1402AAB20 (IoAllocateIrp.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     IovUtilWatermarkIrp @ 0x1402D3080 (IovUtilWatermarkIrp.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x1402D30A0 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     IovUtilWatermarkIrp @ 0x140361ED4 (IovUtilWatermarkIrp.c)
+ *     IoAllocateIrp @ 0x140361FF0 (IoAllocateIrp.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140362020 (IoGetAttachedDeviceReferenceWithTag.c)
  */
 
 __int64 __fastcall PnpAsynchronousCall(struct _DEVICE_OBJECT *a1, __int128 *a2, IO_COMPLETION_ROUTINE *a3, void *a4)
@@ -31,11 +31,11 @@ __int64 __fastcall PnpAsynchronousCall(struct _DEVICE_OBJECT *a1, __int128 *a2, 
   {
     IovUtilWatermarkIrp();
     if ( a1 )
-    {
       DeviceNode = a1->DeviceObjectExtension->DeviceNode;
-      if ( DeviceNode )
-        DeviceNode[9] = Irp;
-    }
+    else
+      DeviceNode = 0LL;
+    if ( DeviceNode )
+      DeviceNode[9] = Irp;
     Irp->IoStatus.Information = 0LL;
     v11 = *a2;
     Irp->IoStatus.Status = -1073741637;

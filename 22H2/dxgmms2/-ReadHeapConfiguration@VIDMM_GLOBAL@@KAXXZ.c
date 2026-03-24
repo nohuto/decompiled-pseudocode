@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReadHeapConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C13DC
+ * XREFs of ?ReadHeapConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0093898
  * Callers:
- *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0468 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0091434 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
  */
 
 void VIDMM_GLOBAL::ReadHeapConfiguration(void)
@@ -156,11 +156,11 @@ void VIDMM_GLOBAL::ReadHeapConfiguration(void)
   v24 = 8;
   v10 = 8;
   v1 = 256;
-  if ( (unsigned __int64)qword_1C0076288 <= 0x53333333 )
+  if ( (unsigned __int64)qword_1C00501D8 <= 0x53333333 )
     v1 = 64;
   v8 = 1;
   v26 = v1;
-  if ( (unsigned __int64)qword_1C0076288 <= 0x53333333 )
+  if ( (unsigned __int64)qword_1C00501D8 <= 0x53333333 )
     v0 = 64;
   v12 = v1;
   v27 = v0;
@@ -279,18 +279,18 @@ void VIDMM_GLOBAL::ReadHeapConfiguration(void)
   v130 = 0LL;
   RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers\\MemoryManager", &v30, 0LL, 0LL);
   VIDMM_GLOBAL::_Config &= ~0x200u;
-  dword_1C0076478 = v2;
-  dword_1C007647C = v3;
-  dword_1C0076480 = v4;
-  dword_1C0076484 = v5;
-  dword_1C0076488 = v6;
-  dword_1C007648C = v7;
-  dword_1C0076490 = v8;
-  dword_1C0076494 = v9;
-  dword_1C0076498 = v10;
-  dword_1C007649C = v11;
-  dword_1C00764A0 = v12;
-  dword_1C00764A4 = v13;
-  dword_1C00764A8 = v14;
-  LODWORD(dword_1C00764AC) = v15;
+  dword_1C00503C8 = v2;
+  dword_1C00503CC = v3;
+  dword_1C00503D0 = v4;
+  dword_1C00503D4 = v5;
+  dword_1C00503D8 = v6;
+  dword_1C00503DC = v7;
+  dword_1C00503E0 = v8;
+  dword_1C00503E4 = v9;
+  dword_1C00503E8 = v10;
+  dword_1C00503EC = v11;
+  dword_1C00503F0 = v12;
+  dword_1C00503F4 = v13;
+  dword_1C00503F8 = v14;
+  LODWORD(dword_1C00503FC) = v15;
 }

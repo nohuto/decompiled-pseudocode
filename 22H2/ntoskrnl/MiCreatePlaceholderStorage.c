@@ -1,50 +1,47 @@
 /*
- * XREFs of MiCreatePlaceholderStorage @ 0x140A47CA0
+ * XREFs of MiCreatePlaceholderStorage @ 0x1408D8328
  * Callers:
- *     MiReserveUserMemory @ 0x14071F450 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1407202F0 (MiMapViewOfDataSection.c)
- *     MiInitializePartialVad @ 0x14076DBFC (MiInitializePartialVad.c)
- *     MiAllocateChildVads @ 0x140A483EC (MiAllocateChildVads.c)
+ *     MiDeletePartialVad @ 0x14027DF5C (MiDeletePartialVad.c)
+ *     MiReserveUserMemory @ 0x140637BF0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x140639820 (MiMapViewOfDataSection.c)
+ *     MiAllocateChildVads @ 0x1408D8AE0 (MiAllocateChildVads.c)
  * Callees:
- *     PsChargeProcessNonPagedPoolQuota @ 0x140289A20 (PsChargeProcessNonPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x14028B210 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiInsertVadEvent @ 0x1402E326C (MiInsertVadEvent.c)
- *     MiAllocateVad @ 0x1407D0138 (MiAllocateVad.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiInsertVadEvent @ 0x14025B21C (MiInsertVadEvent.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140297040 (PsChargeProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140298A60 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiAllocateVad @ 0x1406FC4B8 (MiAllocateVad.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreatePlaceholderStorage(__int64 a1)
 {
-  struct _KPROCESS *Process; // rsi
-  int v3; // ebx
+  struct _KPROCESS *Process; // rdi
+  __int64 result; // rax
   _QWORD *Pool; // rax
-  _QWORD *v5; // rdi
+  _QWORD *v5; // rbx
   __int64 Vad; // rax
-  __int64 v7; // r9
 
   Process = KeGetCurrentThread()->ApcState.Process;
-  v3 = PsChargeProcessNonPagedPoolQuota(Process, 0x88uLL);
-  if ( v3 < 0 )
-    return (unsigned int)v3;
-  Pool = MiAllocatePool(64, 0x48uLL, 0x73706D4Du);
-  v5 = Pool;
-  if ( !Pool )
+  result = PsChargeProcessNonPagedPoolQuota(Process, 0x88uLL);
+  if ( (int)result >= 0 )
   {
-    v3 = -1073741670;
-LABEL_6:
+    Pool = MiAllocatePool(64, 0x48uLL, 0x73706D4Du);
+    v5 = Pool;
+    if ( Pool )
+    {
+      *((_DWORD *)Pool + 16) = 128;
+      Vad = MiAllocateVad(0LL, 0LL, 2);
+      v5[1] = Vad;
+      if ( Vad )
+      {
+        MiInsertVadEvent(a1, v5, 0);
+        return 0LL;
+      }
+      ExFreePoolWithTag(v5, 0);
+    }
     PsReturnProcessNonPagedPoolQuota(Process, 136LL);
-    return (unsigned int)v3;
+    return 3221225626LL;
   }
-  *((_DWORD *)Pool + 16) = 128;
-  Vad = MiAllocateVad(0LL, 0LL, 2);
-  v5[1] = Vad;
-  if ( !Vad )
-  {
-    v3 = -1073741670;
-    ExFreePoolWithTag(v5, 0);
-    goto LABEL_6;
-  }
-  MiInsertVadEvent(a1, v5, 0LL, v7);
-  return 0LL;
+  return result;
 }

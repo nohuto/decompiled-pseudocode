@@ -1,132 +1,79 @@
 /*
- * XREFs of RIMAbArbitratePointerDeviceFrame @ 0x1C0188460
+ * XREFs of RIMAbArbitratePointerDeviceFrame @ 0x1C015A14C
  * Callers:
- *     RIMEndAllActiveContacts @ 0x1C0191610 (RIMEndAllActiveContacts.c)
- *     RIMSuppressAllActiveContacts @ 0x1C01958A0 (RIMSuppressAllActiveContacts.c)
- *     rimCreateAndProcessPointerDeviceButtonOnlyFrame @ 0x1C01AE834 (rimCreateAndProcessPointerDeviceButtonOnlyFrame.c)
- *     rimDoProcessAnyPointerDeviceInput @ 0x1C01AEB68 (rimDoProcessAnyPointerDeviceInput.c)
- *     rimEndPointerDeviceStaleContacts @ 0x1C01AF120 (rimEndPointerDeviceStaleContacts.c)
+ *     RIMEndAllActiveContacts @ 0x1C015D0D0 (RIMEndAllActiveContacts.c)
+ *     RIMSuppressAllActiveContacts @ 0x1C015FBFC (RIMSuppressAllActiveContacts.c)
+ *     rimCreateAndProcessPointerDeviceButtonOnlyFrame @ 0x1C0179434 (rimCreateAndProcessPointerDeviceButtonOnlyFrame.c)
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01796B8 (rimDoProcessAnyPointerDeviceInput.c)
+ *     rimEndPointerDeviceStaleContacts @ 0x1C0179BD0 (rimEndPointerDeviceStaleContacts.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     rimAbRemoveGlobalPenDeadzoneIfExpired @ 0x1C0187468 (rimAbRemoveGlobalPenDeadzoneIfExpired.c)
- *     rimAbSuppressLowerRankActivityForFrame @ 0x1C0187718 (rimAbSuppressLowerRankActivityForFrame.c)
- *     rimAbSuppressLowerRankActivityInFrame @ 0x1C0187C10 (rimAbSuppressLowerRankActivityInFrame.c)
- *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C0187FE0 (rimAbUpdateDeadzonesAndResurrectContacts.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     rimAbRemoveGlobalPenDeadzoneIfExpired @ 0x1C01593D4 (rimAbRemoveGlobalPenDeadzoneIfExpired.c)
+ *     rimAbSuppressLowerRankActivityForFrame @ 0x1C01595D0 (rimAbSuppressLowerRankActivityForFrame.c)
+ *     rimAbSuppressLowerRankActivityInFrame @ 0x1C015999C (rimAbSuppressLowerRankActivityInFrame.c)
+ *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C0159CF4 (rimAbUpdateDeadzonesAndResurrectContacts.c)
  */
 
-__int64 __fastcall RIMAbArbitratePointerDeviceFrame(struct RawInputManagerObject *a1, __int64 a2, __int64 a3)
+__int64 __fastcall RIMAbArbitratePointerDeviceFrame(struct RawInputManagerObject *a1, __int64 a2)
 {
-  __int64 v3; // rbx
-  _QWORD **v5; // rdi
-  __int64 v6; // rbp
-  unsigned int v7; // r14d
-  __int64 v9; // r8
-  __int64 v10; // r8
-  _QWORD *v11; // rbx
-  __int64 *v12; // rax
+  __int64 v2; // rbx
+  _QWORD **v4; // r14
+  __int64 v5; // rbp
+  unsigned int v6; // esi
+  int v7; // edx
+  _QWORD *v8; // rbx
+  __int64 *v9; // rax
+  int v10; // edx
 
-  v3 = a2;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  v2 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
+      a2,
       1,
       28,
-      (__int64)&WPP_3a0f0d76a8e8385ab6cfb42384993437_Traceguids);
-  v5 = (_QWORD **)((char *)a1 + 448);
-  v6 = *(_QWORD *)(v3 + 472);
-  v7 = 1;
-  if ( gDeviceArbitrationType )
+      (__int64)&WPP_1df71edf843731ddcb2b607f62e3e01f_Traceguids);
+  }
+  v4 = (_QWORD **)((char *)a1 + 448);
+  v5 = *(_QWORD *)(v2 + 480);
+  v6 = 1;
+  if ( !gDeviceArbitrationType )
   {
-    rimAbRemoveGlobalPenDeadzoneIfExpired((__int64)a1, a2, a3);
-    rimAbUpdateDeadzonesAndResurrectContacts((__int64)a1, v3, v9);
-    v11 = *v5;
-    while ( v11 != v5 )
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      return v6;
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)gRimLog, a2, 1, 29, (__int64)&WPP_1df71edf843731ddcb2b607f62e3e01f_Traceguids);
+    goto LABEL_13;
+  }
+  rimAbRemoveGlobalPenDeadzoneIfExpired((__int64)a1);
+  rimAbUpdateDeadzonesAndResurrectContacts((__int64)a1, v2);
+  v8 = *v4;
+  while ( v8 != v4 )
+  {
+    v9 = v8 - 1;
+    v8 = (_QWORD *)*v8;
+    if ( *v9 != v5 )
+      v6 &= rimAbSuppressLowerRankActivityForFrame(a1, *v9, v5);
+  }
+  rimAbSuppressLowerRankActivityInFrame((__int64)a1, v5);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v10) = 4;
+    WPP_RECORDER_SF_d((_DWORD)gRimLog, v10, 1, 30, (__int64)&WPP_1df71edf843731ddcb2b607f62e3e01f_Traceguids, v6);
+LABEL_13:
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     {
-      v12 = v11 - 1;
-      v11 = (_QWORD *)*v11;
-      if ( *v12 != v6 )
-        v7 &= rimAbSuppressLowerRankActivityForFrame(a1, *v12, v6);
-    }
-    rimAbSuppressLowerRankActivityInFrame((__int64)a1, v6, v10);
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-    {
-      LOBYTE(a2) = 0;
-    }
-    if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_D(
-        WPP_GLOBAL_Control->AttachedDevice,
-        a2,
-        a3,
-        (_DWORD)gRimLog,
-        4,
+      LOBYTE(v7) = 5;
+      WPP_RECORDER_SF_(
+        WPP_GLOBAL_Control->DeviceExtension,
+        v7,
         1,
-        30,
-        (__int64)&WPP_3a0f0d76a8e8385ab6cfb42384993437_Traceguids,
-        v7);
+        31,
+        (__int64)&WPP_1df71edf843731ddcb2b607f62e3e01f_Traceguids);
     }
   }
-  else
-  {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-    {
-      LOBYTE(a2) = 0;
-    }
-    if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        a2,
-        a3,
-        (_DWORD)gRimLog,
-        4,
-        1,
-        29,
-        (__int64)&WPP_3a0f0d76a8e8385ab6cfb42384993437_Traceguids);
-    }
-  }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      WPP_GLOBAL_Control->DeviceExtension,
-      5,
-      1,
-      31,
-      (__int64)&WPP_3a0f0d76a8e8385ab6cfb42384993437_Traceguids);
-  return v7;
+  return v6;
 }

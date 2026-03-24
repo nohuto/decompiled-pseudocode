@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpAllocateMidLevelTable @ 0x1407B0618
+ * XREFs of ExpAllocateMidLevelTable @ 0x14069A62C
  * Callers:
- *     ExpAllocateHandleTableEntrySlow @ 0x1407B0D50 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x140606260 (ExpAllocateHandleTableEntrySlow.c)
  * Callees:
- *     ExpFreeTablePagedPool @ 0x14068AD30 (ExpFreeTablePagedPool.c)
- *     ExpAllocateLowLevelTable @ 0x1407B0F40 (ExpAllocateLowLevelTable.c)
- *     ExpAllocateTablePagedPool @ 0x1407B1018 (ExpAllocateTablePagedPool.c)
+ *     ExpFreeTablePagedPool @ 0x1406044E0 (ExpFreeTablePagedPool.c)
+ *     ExpAllocateLowLevelTable @ 0x1406064EC (ExpAllocateLowLevelTable.c)
+ *     ExpAllocateTablePagedPool @ 0x14069A6A0 (ExpAllocateTablePagedPool.c)
  */
 
-__int64 *__fastcall ExpAllocateMidLevelTable(__int64 a1, __int64 *a2, __int64 a3)
+_QWORD *__fastcall ExpAllocateMidLevelTable(__int64 a1, _QWORD *a2, __int64 a3)
 {
-  __int64 *TablePagedPool; // rdi
-  __int64 LowLevelTable; // rax
+  _QWORD *TablePagedPool; // rdi
+  _QWORD *LowLevelTable; // rax
 
-  TablePagedPool = (__int64 *)ExpAllocateTablePagedPool(*(_QWORD *)(a1 + 16), 4096LL);
+  TablePagedPool = (_QWORD *)ExpAllocateTablePagedPool(*(_QWORD *)(a1 + 16), 4096LL);
   if ( TablePagedPool )
   {
     LowLevelTable = ExpAllocateLowLevelTable(a1, a3);

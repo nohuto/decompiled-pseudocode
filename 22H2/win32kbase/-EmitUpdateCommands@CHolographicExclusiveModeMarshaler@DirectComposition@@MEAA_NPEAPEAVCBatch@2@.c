@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdateCommands@CHolographicExclusiveModeMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0226CD0
+ * XREFs of ?EmitUpdateCommands@CHolographicExclusiveModeMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EDEB0
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     ?EmitExclusiveOpacity@CHolographicExclusiveModeMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0226C5C (-EmitExclusiveOpacity@CHolographicExclusiveModeMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EmitExclusiveOpacity@CHolographicExclusiveModeMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EDE3C (-EmitExclusiveOpacity@CHolographicExclusiveModeMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@.c)
  */
 
 char __fastcall DirectComposition::CHolographicExclusiveModeMarshaler::EmitUpdateCommands(
@@ -24,8 +24,8 @@ char __fastcall DirectComposition::CHolographicExclusiveModeMarshaler::EmitUpdat
     v5 = v7;
     *v7 = 20;
     *(_OWORD *)(v5 + 1) = 0LL;
-    v5[1] = 168;
-    v5[2] = *((_DWORD *)this + 8);
+    v5[1] = 176;
+    v5[2] = *((_DWORD *)this + 6);
     v5[3] = *((_DWORD *)this + 14);
     v5[4] = *((_DWORD *)this + 16);
     *((_DWORD *)this + 4) &= ~0x20u;

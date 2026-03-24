@@ -1,12 +1,12 @@
 /*
- * XREFs of MakeGdtReadOnly @ 0x1403C205C
+ * XREFs of MakeGdtReadOnly @ 0x1403B4F30
  * Callers:
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeWriteProtectProcessorState @ 0x140A59A7C (KeWriteProtectProcessorState.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeWriteProtectProcessorState @ 0x14099F128 (KeWriteProtectProcessorState.c)
  */
 
 void MakeGdtReadOnly()
@@ -23,7 +23,7 @@ void MakeGdtReadOnly()
   for ( Affinity = 0LL; (unsigned int)v1 < (unsigned int)KeNumberProcessors_0; v1 = (unsigned int)(v1 + 1) )
   {
     v2 = KiProcessorIndexToNumberMappingTable[v1] & 0x3F;
-    Affinity.Group = KiProcessorIndexToNumberMappingTable[v1] >> 6;
+    Affinity.Group = (unsigned int)KiProcessorIndexToNumberMappingTable[v1] >> 6;
     *(_DWORD *)Affinity.Reserved = 0;
     Affinity.Reserved[2] = 0;
     Affinity.Mask = 1LL << v2;

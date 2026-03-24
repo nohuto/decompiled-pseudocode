@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkEvict @ 0x1C01A2130
+ * XREFs of DxgkEvict @ 0x1C0154B20
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEAD@Z @ 0x1C01A2B9C (-DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEAD@Z.c)
+ *     ?DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEAD@Z @ 0x1C0154B3C (-DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEAD@Z.c)
  */
 
 int __fastcall DxgkEvict(struct _D3DKMT_EVICT *a1)

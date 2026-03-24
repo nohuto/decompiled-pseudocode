@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vWidenSetupForFrameRgn@EPATHOBJ@@QEAAXAEAVXDCOBJ@@JJPEAVEXFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C02F363C
+ * XREFs of ?vWidenSetupForFrameRgn@EPATHOBJ@@QEAAXAEAVXDCOBJ@@JJPEAVEXFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C01419D8
  * Callers:
- *     NtGdiFrameRgn @ 0x1C02A9590 (NtGdiFrameRgn.c)
+ *     NtGdiFrameRgn @ 0x1C013E790 (NtGdiFrameRgn.c)
  * Callees:
- *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0017678 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C00986B8 (-bIsZero@EFLOAT@@QEBAHXZ.c)
  */
 
 void __fastcall EPATHOBJ::vWidenSetupForFrameRgn(
@@ -55,15 +55,15 @@ void __fastcall EPATHOBJ::vWidenSetupForFrameRgn(
   *(_OWORD *)(v17 + 16) = *(_OWORD *)(v15 + 336);
   *(_DWORD *)(v17 + 32) = *(_DWORD *)(v15 + 352);
   v18 = *(float **)v16;
-  if ( v13 >= v14 )
-  {
-    v18[2] = v12 * v18[2];
-    *(float *)(*(_QWORD *)v16 + 12LL) = v12 * *(float *)(*(_QWORD *)v16 + 12LL);
-  }
-  else
+  if ( v13 < v14 )
   {
     *v18 = v12 * *v18;
     *(float *)(*(_QWORD *)v16 + 4LL) = v12 * *(float *)(*(_QWORD *)v16 + 4LL);
+  }
+  else
+  {
+    v18[2] = v12 * v18[2];
+    *(float *)(*(_QWORD *)v16 + 12LL) = v12 * *(float *)(*(_QWORD *)v16 + 12LL);
   }
   EXFORMOBJ::vComputeAccelFlags(v16, 8u);
 }

@@ -1,40 +1,39 @@
 /*
- * XREFs of EngLockSurface @ 0x1C003D970
+ * XREFs of EngLockSurface @ 0x1C002DFA0
  * Callers:
- *     ?EngCreateLockedBitmap@@YAPEAU_SURFOBJ@@UtagSIZE@@JKKPEAX@Z @ 0x1C000BB40 (-EngCreateLockedBitmap@@YAPEAU_SURFOBJ@@UtagSIZE@@JKKPEAX@Z.c)
- *     ?MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C015EE80 (-MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
+ *     ?EngCreateLockedBitmap@@YAPEAU_SURFOBJ@@UtagSIZE@@JKKPEAX@Z @ 0x1C00C9FC0 (-EngCreateLockedBitmap@@YAPEAU_SURFOBJ@@UtagSIZE@@JKKPEAX@Z.c)
+ *     ?MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C0142080 (-MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C003F8A0 (--1SURFREF@@QEAA@XZ.c)
- *     INC_SHARE_REF_CNT @ 0x1C00417D0 (INC_SHARE_REF_CNT.c)
- *     HmgShareLockCheckIgnoreStockBit @ 0x1C008B660 (HmgShareLockCheckIgnoreStockBit.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ @ 0x1C00D1560 (--0-$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002CB94 (--1SURFREF@@QEAA@XZ.c)
+ *     INC_SHARE_REF_CNT @ 0x1C002E2E0 (INC_SHARE_REF_CNT.c)
+ *     HmgShareLockCheckIgnoreStockBit @ 0x1C0032E40 (HmgShareLockCheckIgnoreStockBit.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ @ 0x1C00C7FE0 (--0-$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ.c)
  */
 
 SURFOBJ *__stdcall EngLockSurface(HSURF hsurf)
 {
   __int64 v2; // rdx
   __int64 v3; // rax
-  __int64 v4; // rdx
-  SURFOBJ *v5; // rbx
-  _BYTE v7[32]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v8; // [rsp+40h] [rbp-18h]
+  SURFOBJ *v4; // rbx
+  _BYTE v6[32]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v7; // [rsp+40h] [rbp-18h]
 
-  UnexpectedThreadTerminationHandler<SURFREF>::UnexpectedThreadTerminationHandler<SURFREF>(v7);
+  UnexpectedThreadTerminationHandler<SURFREF>::UnexpectedThreadTerminationHandler<SURFREF>(v6);
   LOBYTE(v2) = 5;
-  v8 = 0LL;
+  v7 = 0LL;
   v3 = HmgShareLockCheckIgnoreStockBit(hsurf, v2);
-  v8 = v3;
+  v7 = v3;
   if ( v3 )
   {
-    INC_SHARE_REF_CNT(v3, v4);
-    v5 = (SURFOBJ *)(v8 + 24);
-    if ( !v8 )
-      v5 = 0LL;
+    INC_SHARE_REF_CNT(v3);
+    v4 = (SURFOBJ *)(v7 + 24);
+    if ( !v7 )
+      v4 = 0LL;
   }
   else
   {
-    v5 = 0LL;
+    v4 = 0LL;
   }
-  SURFREF::~SURFREF((SURFREF *)v7);
-  return v5;
+  SURFREF::~SURFREF((SURFREF *)v6);
+  return v4;
 }

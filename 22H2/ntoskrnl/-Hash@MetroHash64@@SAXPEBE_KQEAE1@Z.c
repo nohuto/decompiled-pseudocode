@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x14067BE00
+ * XREFs of ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x140300354
  * Callers:
- *     RtlHashBytes2 @ 0x140419DA8 (RtlHashBytes2.c)
- *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x1405BE94C (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
- *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x1405C7AE8 (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
- *     SmFixSingleBitCorruption @ 0x1405CA0D4 (SmFixSingleBitCorruption.c)
- *     SmHpBufferProtectEx @ 0x1405CA344 (SmHpBufferProtectEx.c)
- *     MiAddMdlTracker @ 0x14061C55C (MiAddMdlTracker.c)
- *     MiValidateMdlTracker @ 0x14061D088 (MiValidateMdlTracker.c)
+ *     SmHpBufferProtectEx @ 0x140253760 (SmHpBufferProtectEx.c)
+ *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x140264F1C (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
+ *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x140265610 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
+ *     RtlHashBytes2 @ 0x1403F80A4 (RtlHashBytes2.c)
+ *     MiAddMdlTracker @ 0x140530794 (MiAddMdlTracker.c)
+ *     MiValidateMdlTracker @ 0x140530F18 (MiValidateMdlTracker.c)
+ *     SmFixSingleBitCorruption @ 0x14059D020 (SmFixSingleBitCorruption.c)
  * Callees:
  *     <none>
  */
@@ -19,21 +19,22 @@ void __fastcall MetroHash64::Hash(const unsigned __int8 *a1, unsigned __int64 a2
   __int64 v6; // r9
   __m128i si128; // xmm0
   __int64 v8; // r8
-  __int64 v9; // rdi
-  __int64 v10; // rsi
+  __int64 v9; // rdx
+  __int64 v10; // rdi
   __int64 v11; // rbx
-  __int64 v12; // rsi
+  __int64 v12; // rdi
   __int64 v13; // rcx
   __int64 v14; // r8
-  __int64 v15; // rdx
-  __int64 v16; // rax
-  __int64 v17; // r8
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  __int64 v17; // rcx
   __int64 v18; // rax
   __int64 v19; // rax
-  __int64 v20; // rax
+  __int64 v20; // rcx
   __int64 v21; // rax
-  __int64 v22; // rax
-  __int64 v23; // rcx
+  __int64 v22; // r8
+  __int64 v23; // rdx
+  __int64 v24; // rax
 
   v3 = &a1[a2];
   v5 = a1;
@@ -57,44 +58,44 @@ void __fastcall MetroHash64::Hash(const unsigned __int8 *a1, unsigned __int64 a2
       v9 = v8 + __ROR8__(v13 + v9, 29);
     }
     while ( v5 <= v3 - 32 );
-    v15 = v10 ^ (2729050939LL * __ROR8__(v8 + 3603962101LL * (v11 + v9), 37));
+    v15 = v10 ^ (2729050939LL * __ROR8__(v8 + 3603962101LL * (v9 + v11), 37));
     v16 = v9 ^ (3603962101LL * __ROR8__(v11 + 2729050939LL * (v15 + v8), 37));
-    v6 = (v8 ^ v11 ^ (3603962101LL * __ROR8__(v15 + 2729050939LL * (v8 + v16), 37)) ^ (2729050939LL
-                                                                                     * __ROR8__(
-                                                                                         v16
-                                                                                       + 3603962101LL * (v15 + v11),
-                                                                                         37)))
+    v6 = (v11 ^ v8 ^ (2729050939LL * __ROR8__(v16 + 3603962101LL * (v11 + v15), 37)) ^ (3603962101LL
+                                                                                      * __ROR8__(
+                                                                                          v15
+                                                                                        + 2729050939LL * (v16 + v8),
+                                                                                          37)))
        + 0x52BC33FEDBE4CBB5LL;
   }
   if ( v3 - v5 >= 16 )
   {
-    v17 = 817650473LL * __ROR8__(v6 + 1654206401LL * *(_QWORD *)v5, 29);
-    v18 = 1654206401LL * *((_QWORD *)v5 + 1);
+    v20 = 1654206401LL * *(_QWORD *)v5;
+    v21 = *((_QWORD *)v5 + 1);
     v5 += 16;
-    v19 = __ROR8__(v6 + v18, 29);
-    v6 += (817650473 * v19) ^ (__ROR8__(0x9472CC564AE2C91LL * v19, 21)
-                             + (v17 ^ (817650473 * v19 + __ROR8__(3603962101LL * v17, 21))));
+    v22 = 817650473LL * __ROR8__(v6 + v20, 29);
+    v23 = 817650473LL * __ROR8__(v6 + 1654206401 * v21, 29);
+    v6 += v23 ^ (__ROR8__(817650473 * v23, 21) + (v22 ^ (v23 + __ROR8__(3603962101LL * v22, 21))));
   }
   if ( v3 - v5 >= 8 )
   {
-    v20 = 817650473LL * *(_QWORD *)v5;
+    v18 = 817650473LL * *(_QWORD *)v5;
     v5 += 8;
-    v6 = (2729050939LL * __ROR8__(v20 + v6, 55)) ^ (v20 + v6);
+    v6 = (2729050939LL * __ROR8__(v18 + v6, 55)) ^ (v18 + v6);
   }
   if ( v3 - v5 >= 4 )
   {
-    v21 = *(unsigned int *)v5;
+    v24 = *(unsigned int *)v5;
     v5 += 4;
-    v6 = (2729050939LL * __ROR8__(817650473 * v21 + v6, 26)) ^ (817650473 * v21 + v6);
+    v6 = (2729050939LL * __ROR8__(817650473 * v24 + v6, 26)) ^ (817650473 * v24 + v6);
   }
   if ( v3 - v5 >= 2 )
   {
-    v22 = *(unsigned __int16 *)v5;
+    v19 = *(unsigned __int16 *)v5;
     v5 += 2;
-    v6 = (2729050939LL * __ROR8__(817650473 * v22 + v6, 48)) ^ (817650473 * v22 + v6);
+    v6 = (2729050939LL * __ROR8__(817650473 * v19 + v6, 48)) ^ (817650473 * v19 + v6);
   }
   if ( v3 - v5 >= 1 )
     v6 = (2729050939LL * __ROR8__(817650473LL * *v5 + v6, 37)) ^ (817650473LL * *v5 + v6);
-  v23 = 3603962101u * (v6 ^ __ROR8__(v6, 28));
-  *(_QWORD *)a3 = v23 ^ __ROR8__(v23, 29);
+  v17 = 3603962101u * (v6 ^ __ROR8__(v6, 28));
+  *(_QWORD *)a3 = v17 ^ __ROR8__(v17, 29);
 }

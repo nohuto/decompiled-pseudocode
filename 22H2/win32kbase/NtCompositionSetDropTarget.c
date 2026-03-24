@@ -1,15 +1,14 @@
 /*
- * XREFs of NtCompositionSetDropTarget @ 0x1C009C0B0
+ * XREFs of NtCompositionSetDropTarget @ 0x1C0059290
  * Callers:
  *     <none>
  * Callees:
- *     ?ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C0099700 (-ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z.c)
- *     ?SetDropTarget@CompositionInputObject@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C009C214 (-SetDropTarget@CompositionInputObject@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z.c)
+ *     ?SetDropTarget@CompositionInputObject@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C0059400 (-SetDropTarget@CompositionInputObject@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z.c)
+ *     ?ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C0083A80 (-ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z.c)
  */
 
-__int64 __fastcall NtCompositionSetDropTarget(void *a1, ULONG64 a2, __int64 a3)
+__int64 __fastcall NtCompositionSetDropTarget(void *a1, ULONG64 a2, _QWORD *a3)
 {
-  _QWORD *v3; // rsi
   int v4; // edi
   PVOID v5; // r14
   __int64 v6; // rbx
@@ -22,11 +21,10 @@ __int64 __fastcall NtCompositionSetDropTarget(void *a1, ULONG64 a2, __int64 a3)
   __int128 v14; // [rsp+78h] [rbp-40h]
   __int64 v15; // [rsp+88h] [rbp-30h]
   PVOID Object; // [rsp+C8h] [rbp+10h] BYREF
-  __int64 v17; // [rsp+D0h] [rbp+18h]
+  _QWORD *v17; // [rsp+D0h] [rbp+18h]
   __int64 v18; // [rsp+D8h] [rbp+20h]
 
   v17 = a3;
-  v3 = (_QWORD *)a3;
   v4 = 0;
   v8 = 0LL;
   v9 = 0LL;
@@ -53,21 +51,21 @@ __int64 __fastcall NtCompositionSetDropTarget(void *a1, ULONG64 a2, __int64 a3)
   }
   if ( v4 >= 0 )
   {
-    LOBYTE(a3) = 1;
-    v4 = CompositionInputObject::ResolveHandle(a1, 2LL, a3, (struct CompositionInputObject **)&Object);
+    v4 = CompositionInputObject::ResolveHandle(a1, 2u, 1, (struct CompositionInputObject **)&Object);
     v5 = Object;
     if ( v4 >= 0 )
     {
       v6 = *((_QWORD *)Object + 2);
+      v18 = v6;
       v4 = CompositionInputObject::SetDropTarget(Object, (const struct COMPOSITION_INPUT_QUEUE *)&v8);
       ObfDereferenceObject(v5);
       if ( v4 >= 0 )
       {
-        if ( v3 )
+        if ( a3 )
         {
-          if ( v3 + 1 < v3 || (unsigned __int64)(v3 + 1) > MmUserProbeAddress )
+          if ( a3 + 1 < a3 || (unsigned __int64)(a3 + 1) > MmUserProbeAddress )
             *(_BYTE *)MmUserProbeAddress = 0;
-          *v3 = v6;
+          *a3 = v6;
         }
       }
     }

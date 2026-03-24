@@ -1,76 +1,78 @@
 /*
- * XREFs of PspWriteTebImpersonationInfo @ 0x1407AF4B0
+ * XREFs of PspWriteTebImpersonationInfo @ 0x14065B280
  * Callers:
- *     PsRestoreImpersonation @ 0x140726090 (PsRestoreImpersonation.c)
- *     PsImpersonateClient @ 0x1407AF1B0 (PsImpersonateClient.c)
+ *     PsImpersonateClient @ 0x14065AEA0 (PsImpersonateClient.c)
+ *     PsRestoreImpersonation @ 0x140706540 (PsRestoreImpersonation.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PspWriteTebImpersonationInfo(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   _DWORD *v6; // rsi
-  __int64 v7; // r14
+  _KPROCESS *v7; // r14
   int v8; // eax
   bool v9; // dl
   BOOL v10; // ecx
-  __int16 v11; // ax
-  signed __int32 v13[8]; // [rsp+0h] [rbp-98h] BYREF
-  char v14; // [rsp+20h] [rbp-78h]
-  bool v15; // [rsp+21h] [rbp-77h]
-  _DWORD *v16; // [rsp+28h] [rbp-70h]
-  __int64 v17; // [rsp+30h] [rbp-68h]
-  __int64 v18; // [rsp+38h] [rbp-60h]
-  _OWORD v19[3]; // [rsp+48h] [rbp-50h] BYREF
+  unsigned __int64 v11; // rax
+  __int16 v12; // r8
+  signed __int32 v14[8]; // [rsp+0h] [rbp-98h] BYREF
+  char v15; // [rsp+20h] [rbp-78h]
+  bool v16; // [rsp+21h] [rbp-77h]
+  _DWORD *v17; // [rsp+28h] [rbp-70h]
+  _KPROCESS *v18; // [rsp+30h] [rbp-68h]
+  __int64 v19; // [rsp+38h] [rbp-60h]
+  _OWORD v20[3]; // [rsp+48h] [rbp-50h] BYREF
 
-  v18 = a1;
-  memset(v19, 0, sizeof(v19));
+  v19 = a1;
+  memset(v20, 0, sizeof(v20));
   v6 = *(_DWORD **)(a1 + 240);
-  v16 = v6;
+  v17 = v6;
   if ( v6 && (*(_DWORD *)(a1 + 116) & 0x400) == 0 )
   {
-    v7 = *(_QWORD *)(a1 + 544);
-    v17 = v7;
-    if ( *(_QWORD *)(a2 + 184) == v7 )
+    v7 = *(_KPROCESS **)(a1 + 544);
+    v18 = v7;
+    if ( *(_KPROCESS **)(a2 + 184) == v7 )
     {
-      v14 = 0;
+      v15 = 0;
     }
     else
     {
-      KiStackAttachProcess((_KPROCESS *)v7, 0LL, (__int64)v19, a4);
-      v14 = 1;
+      KiStackAttachProcess(v7, 0LL, (__int64)v20, a4);
+      v15 = 1;
     }
-    if ( a1 == a2 || ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 1352)) )
+    if ( a1 == a2 || ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 1272)) )
     {
       do
       {
-        v8 = *(_DWORD *)(a1 + 1376) & 8;
+        v8 = *(_DWORD *)(a1 + 1296) & 8;
         v9 = v8 != 0;
-        v15 = v8 != 0;
+        v16 = v8 != 0;
         v10 = v8 != 0;
         v6[1511] = v10;
         v6[1530] = 0;
-        if ( *(_QWORD *)(v7 + 1408) )
+        v11 = v7[1].AffinityPadding[10];
+        if ( v11 )
         {
-          v11 = *(_WORD *)(v7 + 2412);
-          if ( v11 == 332 || v11 == 452 )
+          v12 = *(_WORD *)(v11 + 8);
+          if ( v12 == 332 || v12 == 452 )
           {
             v6[3047] = v10;
             v6[3057] = 0;
           }
         }
-        _InterlockedOr(v13, 0);
+        _InterlockedOr(v14, 0);
       }
-      while ( v9 != ((*(_DWORD *)(a1 + 1376) & 8) != 0) );
+      while ( v9 != ((*(_DWORD *)(a1 + 1296) & 8) != 0) );
       if ( a1 != a2 )
-        ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a1 + 1352));
+        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 1272));
     }
-    if ( v14 )
-      KiUnstackDetachProcess((__int64)v19, 0LL);
+    if ( v15 )
+      KiUnstackDetachProcess((__int64)v20, 0);
   }
   return 0LL;
 }

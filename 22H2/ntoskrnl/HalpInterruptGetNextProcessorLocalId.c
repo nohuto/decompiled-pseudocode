@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptGetNextProcessorLocalId @ 0x140376FA8
+ * XREFs of HalpInterruptGetNextProcessorLocalId @ 0x1403A1BB4
  * Callers:
- *     HalpInterruptStartProcessor @ 0x140A895A0 (HalpInterruptStartProcessor.c)
+ *     HalpInterruptStartProcessor @ 0x140999F64 (HalpInterruptStartProcessor.c)
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403776B0 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A1C74 (HalpQueryMaximumRegisteredProcessorCount.c)
  */
 
 __int64 __fastcall HalpInterruptGetNextProcessorLocalId(char a1, _DWORD *a2)
@@ -103,10 +103,10 @@ __int64 __fastcall HalpInterruptGetNextProcessorLocalId(char a1, _DWORD *a2)
 LABEL_9:
     if ( (a1 & 2) == 0 )
     {
-      if ( v10 == -1073741275 )
+      if ( v10 != -1073741275 )
+        goto LABEL_11;
+      if ( (a1 & 1) != 0 )
       {
-        if ( (a1 & 1) == 0 )
-          return v10;
         v5 = HalpInterruptProcessorState + (v8 << 6);
         *(_BYTE *)(v5 + 12) = 1;
         *(_DWORD *)v5 = *a2;
@@ -115,27 +115,24 @@ LABEL_9:
           *(_DWORD *)(v5 + 8) = *(_DWORD *)(v4 + 8);
         LODWORD(HalpInterruptProcessorCount) = v8 + 1;
         v10 = 0;
-      }
-      else if ( (a1 & 1) == 0 )
-      {
-        return v10;
-      }
-      if ( !v4 )
-      {
-        v17 = 0;
-        if ( v7 )
+LABEL_11:
+        if ( (a1 & 1) != 0 && !v4 )
         {
-          for ( i = HalpInterruptDynamicProcessorState; *(_BYTE *)(i + 12); i += 64LL )
+          v17 = 0;
+          if ( v7 )
           {
-            if ( ++v17 >= v7 )
-              return v10;
+            for ( i = HalpInterruptDynamicProcessorState; *(_BYTE *)(i + 12); i += 64LL )
+            {
+              if ( ++v17 >= v7 )
+                return v10;
+            }
+            v19 = *(_OWORD *)v5;
+            ++HalpInterruptDynamicProcessorCount;
+            *(_OWORD *)i = v19;
+            *(_OWORD *)(i + 16) = *(_OWORD *)(v5 + 16);
+            *(_OWORD *)(i + 32) = *(_OWORD *)(v5 + 32);
+            *(_OWORD *)(i + 48) = *(_OWORD *)(v5 + 48);
           }
-          v19 = *(_OWORD *)v5;
-          ++HalpInterruptDynamicProcessorCount;
-          *(_OWORD *)i = v19;
-          *(_OWORD *)(i + 16) = *(_OWORD *)(v5 + 16);
-          *(_OWORD *)(i + 32) = *(_OWORD *)(v5 + 32);
-          *(_OWORD *)(i + 48) = *(_OWORD *)(v5 + 48);
         }
       }
       return v10;

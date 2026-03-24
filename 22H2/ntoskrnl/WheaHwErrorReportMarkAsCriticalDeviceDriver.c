@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaHwErrorReportMarkAsCriticalDeviceDriver @ 0x140611330
+ * XREFs of WheaHwErrorReportMarkAsCriticalDeviceDriver @ 0x1405BBDA0
  * Callers:
  *     <none>
  * Callees:
- *     WheapErrorHandleIsValid @ 0x140611848 (WheapErrorHandleIsValid.c)
+ *     WheapErrorHandleIsValid @ 0x1405BC290 (WheapErrorHandleIsValid.c)
  */
 
 __int64 WheaHwErrorReportMarkAsCriticalDeviceDriver()

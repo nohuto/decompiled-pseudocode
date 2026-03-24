@@ -1,124 +1,186 @@
 /*
- * XREFs of ?DelegateMoveSizeToShell@@YAXPEAUtagWND@@I@Z @ 0x1C021CF44
+ * XREFs of ?DelegateMoveSizeToShell@@YAXPEAUtagWND@@I@Z @ 0x1C0223730
  * Callers:
- *     xxxSysCommand @ 0x1C011BA1C (xxxSysCommand.c)
+ *     xxxSysCommand @ 0x1C0130714 (xxxSysCommand.c)
  * Callees:
- *     INPUTDEST_FROM_PWND @ 0x1C0077618 (INPUTDEST_FROM_PWND.c)
- *     PostInputMessage @ 0x1C00AB69C (PostInputMessage.c)
- *     AdjustPwndPtiPqForDelegation @ 0x1C00AC8D8 (AdjustPwndPtiPqForDelegation.c)
- *     ?ExtendedBehaviorEnabled@ShellWindowManagement@@YA_NK@Z @ 0x1C010DB58 (-ExtendedBehaviorEnabled@ShellWindowManagement@@YA_NK@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?TrackedWindowMoveSizeIntercept@NotifyShell@@YAXPEAUtagWND@@IK@Z @ 0x1C0236DB8 (-TrackedWindowMoveSizeIntercept@NotifyShell@@YAXPEAUtagWND@@IK@Z.c)
+ *     AdjustPwndPtiPqForDelegation @ 0x1C004F520 (AdjustPwndPtiPqForDelegation.c)
+ *     PostInputMessage @ 0x1C0050880 (PostInputMessage.c)
+ *     _anonymous_namespace_::NotifyShellSimplePayload @ 0x1C0124960 (_anonymous_namespace_--NotifyShellSimplePayload.c)
+ *     INPUTDEST_FROM_PWND @ 0x1C01325F4 (INPUTDEST_FROM_PWND.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C02111D4 (WPP_RECORDER_SF_qd.c)
  */
 
-void __fastcall DelegateMoveSizeToShell(struct tagWND *a1, unsigned int a2, __int64 a3, unsigned int a4)
+void __fastcall DelegateMoveSizeToShell(struct tagWND *a1, __int64 a2, __int64 a3)
 {
-  __int64 v4; // rax
-  __int64 v5; // rdi
-  struct tagWND *v7; // rbx
-  __int64 v8; // r15
-  bool v9; // zf
-  char v10; // dl
-  __int64 v11; // rcx
-  unsigned __int16 v12; // si
+  __int64 v3; // rax
+  __int64 v4; // rdi
+  struct tagWND *v5; // rbx
+  __int64 v6; // rsi
+  __int64 v7; // r15
+  __int64 v8; // rcx
+  unsigned __int16 v9; // r14
+  int v10; // ecx
+  __int16 v11; // bx
+  _OWORD *v12; // rax
   int v13; // ecx
-  __int16 v14; // bx
-  __int128 *v15; // rax
-  int v16; // ecx
-  __int64 v17; // rbx
-  __int64 v18; // [rsp+20h] [rbp-E0h]
-  int v19; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v20; // [rsp+78h] [rbp-88h] BYREF
-  struct tagWND *v21; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v22; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v23; // [rsp+90h] [rbp-70h] BYREF
-  _DWORD v24[30]; // [rsp+98h] [rbp-68h] BYREF
-  __int128 v25; // [rsp+110h] [rbp+10h]
-  __int128 v26; // [rsp+120h] [rbp+20h]
-  __int128 v27; // [rsp+130h] [rbp+30h]
-  __int128 v28; // [rsp+140h] [rbp+40h]
-  __int128 v29; // [rsp+150h] [rbp+50h]
-  __int128 v30; // [rsp+160h] [rbp+60h]
-  __int128 v31; // [rsp+170h] [rbp+70h]
+  __int64 v14; // r15
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int128 *v17; // r10
+  __int64 v18; // rax
+  __int128 *v19; // r9
+  __int64 v20; // rax
+  __int128 *v21; // r8
+  __int64 v22; // xmm1_8
+  __int128 v23; // xmm0
+  __int64 v24; // xmm1_8
+  __int128 v25; // xmm0
+  __int64 v26; // xmm1_8
+  struct tagQ *v27; // rcx
+  __int128 v28; // xmm0
+  __int64 v29; // xmm1_8
+  __int128 v30; // xmm0
+  __int64 v31; // xmm1_8
+  __int128 v32; // xmm0
+  __int64 v33; // xmm1_8
+  __int128 v34; // xmm0
+  __int64 v35; // xmm1_8
+  unsigned __int64 v36; // [rsp+30h] [rbp-D0h]
+  int v37; // [rsp+70h] [rbp-90h] BYREF
+  __int128 v38; // [rsp+78h] [rbp-88h]
+  __int64 v39; // [rsp+88h] [rbp-78h]
+  __int64 v40; // [rsp+90h] [rbp-70h] BYREF
+  struct tagWND *v41; // [rsp+98h] [rbp-68h] BYREF
+  __int128 *v42; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v43; // [rsp+A8h] [rbp-58h] BYREF
+  _DWORD v44[28]; // [rsp+B0h] [rbp-50h] BYREF
+  _OWORD v45[7]; // [rsp+120h] [rbp+20h] BYREF
 
-  v4 = *((_QWORD *)a1 + 3);
-  v5 = *((_QWORD *)a1 + 2);
-  v21 = a1;
-  v7 = a1;
-  v22 = v5;
-  v8 = *(_QWORD *)(v4 + 320);
-  if ( !a2 || (v9 = a2 == 10, v10 = 1, v9) )
-    v10 = 0;
-  v11 = *(_QWORD *)(v8 + 16);
-  v12 = 0;
-  if ( *(_QWORD *)(v5 + 432) != *(_QWORD *)(v11 + 432) )
-    *(_DWORD *)(v11 + 488) |= 0x20u;
-  if ( v10 )
+  v3 = *((_QWORD *)a1 + 3);
+  v4 = *((_QWORD *)a1 + 2);
+  v5 = a1;
+  v6 = (unsigned int)a2;
+  v41 = a1;
+  v7 = *(_QWORD *)(v3 + 328);
+  v43 = v4;
+  if ( !(_DWORD)a2 || (LOBYTE(a2) = 1, (_DWORD)v6 == 10) )
+    LOBYTE(a2) = 0;
+  v8 = *(_QWORD *)(v7 + 16);
+  v9 = 0;
+  if ( *(_QWORD *)(v4 + 432) != *(_QWORD *)(v8 + 432) )
+    *(_DWORD *)(v8 + 488) |= 0x20u;
+  if ( (_BYTE)a2 )
   {
-    v13 = *(_DWORD *)(*(_QWORD *)(v5 + 432) + 388LL);
-    if ( (v13 & 0x800000) != 0 || (v13 & 0x1000000) != 0 )
+    v10 = *(_DWORD *)(*(_QWORD *)(v4 + 432) + 388LL);
+    if ( (v10 & 0x800000) != 0 || (v10 & 0x1000000) != 0 )
     {
-      v14 = word_1C0335C90[0];
+      v11 = word_1C033AAD0[0];
       if ( CTouchProcessor::ThreadHasPrimaryCaptureExternal(
              gpTouchProcessor,
-             (struct tagTHREADINFO *const)v5,
-             word_1C0335C90[0]) )
+             (struct tagTHREADINFO *const)v4,
+             word_1C033AAD0[0]) )
       {
-        v12 = v14;
+        v9 = v11;
       }
     }
     else
     {
-      v12 = 1;
+      v9 = 1;
     }
-    if ( !ShellWindowManagement::ExtendedBehaviorEnabled((ShellWindowManagement *)0x20000000) )
-    {
-      v15 = (__int128 *)INPUTDEST_FROM_PWND(v24, v8);
-      v25 = *v15;
-      v26 = v15[1];
-      v27 = v15[2];
-      v28 = v15[3];
-      v29 = v15[4];
-      v30 = v15[5];
-      v31 = v15[6];
-      ForceCapture(1LL);
-    }
-    v20 = 0LL;
-    SetSystemInputSource(&v20);
-    v16 = *(unsigned __int16 *)(v5 + 764) | (*(unsigned __int16 *)(v5 + 768) << 16);
-    v19 = 0;
-    v23 = *(_QWORD *)(v5 + 432);
-    v17 = v16;
+    v12 = INPUTDEST_FROM_PWND(v44, v7);
+    v45[0] = *v12;
+    v45[1] = v12[1];
+    v45[2] = v12[2];
+    v45[3] = v12[3];
+    v45[4] = v12[4];
+    v45[5] = v12[5];
+    v45[6] = v12[6];
+    ForceCapture(1LL, v45);
+    v40 = 0LL;
+    SetSystemInputSource(&v40);
+    v13 = *(unsigned __int16 *)(v4 + 764) | (*(unsigned __int16 *)(v4 + 768) << 16);
+    v37 = 0;
+    v42 = *(__int128 **)(v4 + 432);
+    v14 = v13;
     if ( (unsigned int)AdjustPwndPtiPqForDelegation(
-                         &v23,
-                         (__int64 *)&v21,
-                         (struct tagTHREADINFO **)&v22,
+                         (__int64 *)&v42,
+                         (__int64 *)&v41,
+                         (struct tagTHREADINFO **)&v43,
                          0x202u,
-                         &v20,
-                         &v19) )
+                         &v40,
+                         &v37) )
     {
-      v18 = v17;
-      v7 = v21;
+      v15 = *((_QWORD *)v42 + 15);
+      if ( v15 )
+        v16 = *(_QWORD *)(v15 + 16);
+      else
+        v16 = 0LL;
+      v17 = (__int128 *)gObjDummyLock;
+      if ( v16 )
+        v17 = (__int128 *)(v16 + 392);
+      v18 = *((_QWORD *)v42 + 11);
+      v19 = (__int128 *)gObjDummyLock;
+      if ( v18 )
+        v19 = (__int128 *)(v18 + 392);
+      v20 = *((_QWORD *)v42 + 12);
+      v21 = (__int128 *)gObjDummyLock;
+      if ( v20 )
+        v21 = (__int128 *)(v20 + 392);
+      v5 = v41;
+      v22 = *((_QWORD *)&gpsiLock + 2);
+      v38 = gpsiLock;
+      v23 = *(_OWORD *)((char *)v41 + 56);
+      v39 = v22;
+      v24 = *((_QWORD *)v41 + 9);
+      v38 = v23;
+      v25 = *(_OWORD *)(v43 + 392);
+      v39 = v24;
+      v26 = *(_QWORD *)(v43 + 408);
+      v27 = *(struct tagQ **)(v43 + 432);
+      v38 = v25;
+      v28 = *v42;
+      v39 = v26;
+      v29 = *((_QWORD *)v42 + 2);
+      v38 = v28;
+      v30 = *v21;
+      v39 = v29;
+      v31 = *((_QWORD *)v21 + 2);
+      v38 = v30;
+      v32 = *v19;
+      v39 = v31;
+      v33 = *((_QWORD *)v19 + 2);
+      v38 = v32;
+      v34 = *v17;
+      v39 = v33;
+      v35 = *((_QWORD *)v17 + 2);
+      v38 = v34;
+      v39 = v35;
       PostInputMessage(
-        *(struct tagQ **)(v22 + 432),
-        v21,
+        v27,
+        v41,
         0x202u,
         0LL,
-        v18,
+        v14,
         0,
         0LL,
         0LL,
         0,
-        (struct tagINPUT_MESSAGE_SOURCE *)&v20,
+        (struct tagINPUT_MESSAGE_SOURCE *)&v40,
         0LL,
         0LL,
-        v19,
-        v22);
+        v37,
+        v43);
     }
     else
     {
-      v7 = v21;
+      v5 = v41;
     }
   }
-  NotifyShell::TrackedWindowMoveSizeIntercept(v7, (struct tagWND *)a2, v12, a4);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LODWORD(v36) = v6;
+    WPP_RECORDER_SF_qd(v8, a2, a3, 0xCu, (__int64)&WPP_df8d2832c9f0384c87c95eb8329d57df_Traceguids, v5, v36);
+  }
+  anonymous_namespace_::NotifyShellSimplePayload(*(_QWORD *)v5, 4, v6, v9);
 }

@@ -3,7 +3,7 @@
  * Callers:
  *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
  * Callees:
- *     KiForceSymbolReferences @ 0x1409F6460 (KiForceSymbolReferences.c)
+ *     KiForceSymbolReferences @ 0x1409F6470 (KiForceSymbolReferences.c)
  */
 
 __int64 (*KiInitSystem())()

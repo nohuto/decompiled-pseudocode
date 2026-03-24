@@ -1,23 +1,23 @@
 /*
- * XREFs of PpmParkRegisterParking @ 0x140189690
+ * XREFs of PpmParkRegisterParking @ 0x1401896B0
  * Callers:
- *     PpmCheckInitProcessors @ 0x14074EE58 (PpmCheckInitProcessors.c)
+ *     PpmCheckInitProcessors @ 0x14074EE38 (PpmCheckInitProcessors.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopExecuteOnTargetProcessors @ 0x1400A5EA8 (PopExecuteOnTargetProcessors.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C20 (KeQueryNodeActiveAffinity.c)
- *     PpmParkApplyPolicy @ 0x140189E50 (PpmParkApplyPolicy.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PopExecuteOnTargetProcessors @ 0x1400A5EC8 (PopExecuteOnTargetProcessors.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
+ *     PpmParkApplyPolicy @ 0x140189E70 (PpmParkApplyPolicy.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PpmParkParkingAvailable @ 0x14074F33C (PpmParkParkingAvailable.c)
- *     PpmIdleInitializeConcurrency @ 0x14074FD24 (PpmIdleInitializeConcurrency.c)
+ *     PpmParkParkingAvailable @ 0x14074F31C (PpmParkParkingAvailable.c)
+ *     PpmIdleInitializeConcurrency @ 0x14074FD04 (PpmIdleInitializeConcurrency.c)
  */
 
 __int64 PpmParkRegisterParking()

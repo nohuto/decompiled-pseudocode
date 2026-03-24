@@ -4,10 +4,10 @@
  *     VfInitSystemNoRebootNeeded @ 0x1409265A0 (VfInitSystemNoRebootNeeded.c)
  *     VerifierInitSystem @ 0x1409DAED4 (VerifierInitSystem.c)
  * Callees:
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     PsCreateSystemThread @ 0x14066AA90 (PsCreateSystemThread.c)
+ *     PsCreateSystemThread @ 0x14066AA70 (PsCreateSystemThread.c)
  */
 
 NTSTATUS VfPendingInitPhase1()

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAttemptPageFileReduction @ 0x14059AEEC
+ * XREFs of MiAttemptPageFileReduction @ 0x140542908
  * Callers:
- *     MiProcessDereferenceList @ 0x140393EC0 (MiProcessDereferenceList.c)
+ *     MiProcessDereferenceList @ 0x140387B6C (MiProcessDereferenceList.c)
  * Callees:
- *     MiOkToShrinkPageFiles @ 0x140216D20 (MiOkToShrinkPageFiles.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiQueueSyncModifiedWriterApc @ 0x14059CFBC (MiQueueSyncModifiedWriterApc.c)
- *     IoSetInformation @ 0x14080AE60 (IoSetInformation.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiOkToShrinkPageFiles @ 0x140296CDC (MiOkToShrinkPageFiles.c)
+ *     MiQueueSyncModifiedWriterApc @ 0x1402D3D2C (MiQueueSyncModifiedWriterApc.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IoSetInformation @ 0x14077C0D0 (IoSetInformation.c)
  */
 
 int __fastcall MiAttemptPageFileReduction(__int64 a1)
@@ -29,11 +29,11 @@ int __fastcall MiAttemptPageFileReduction(__int64 a1)
   __int64 *v13; // rdi
   __int64 v14; // rcx
   __int64 FileInformation; // [rsp+38h] [rbp-D0h] BYREF
-  int v17[22]; // [rsp+48h] [rbp-C0h] BYREF
+  int v17[24]; // [rsp+48h] [rbp-C0h] BYREF
   int Object[28]; // [rsp+A8h] [rbp-60h] BYREF
 
   FileInformation = 0LL;
-  memset(v17, 0, sizeof(v17));
+  memset(v17, 0, 0x58uLL);
   memset(Object, 0, 0x68uLL);
   Object[1] = 0;
   v2 = *(_QWORD *)(a1 + 24);
@@ -47,9 +47,9 @@ int __fastcall MiAttemptPageFileReduction(__int64 a1)
     Object[8] = *(unsigned __int8 *)(a1 + 76);
     Object[9] = *(_DWORD *)(a1 + 40);
 LABEL_12:
-    MiQueueSyncModifiedWriterApc(v2, (int)v17, (int)MiAttemptPageFileReductionApc, (int)Object, Object);
+    MiQueueSyncModifiedWriterApc(v2, (__int64)v17, (__int64)MiAttemptPageFileReductionApc, (__int64)Object, Object);
     v12 = &Object[10];
-    v13 = (__int64 *)(v2 + 16736);
+    v13 = (__int64 *)(v2 + 6944);
     do
     {
       v11 = (unsigned int)*v12;
@@ -88,7 +88,7 @@ LABEL_12:
     }
   }
   __writecr8(v5);
-  LODWORD(v11) = MiOkToShrinkPageFiles(*(_QWORD *)(v2 + 17256), *(_QWORD *)(v2 + 17496));
+  LODWORD(v11) = MiOkToShrinkPageFiles(*(_QWORD *)(v2 + 7464), *(_QWORD *)(v2 + 7592));
   if ( (_DWORD)v11 )
   {
     Object[8] = 16;

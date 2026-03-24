@@ -1,12 +1,12 @@
 /*
- * XREFs of _raise_exc_ex @ 0x1403DD960
+ * XREFs of _raise_exc_ex @ 0x1403D5DD0
  * Callers:
- *     _raise_exc @ 0x1403DD930 (_raise_exc.c)
- *     _raise_excf @ 0x1403DDBF4 (_raise_excf.c)
+ *     _raise_exc @ 0x1403D5DA0 (_raise_exc.c)
+ *     _raise_excf @ 0x1403D6060 (_raise_excf.c)
  * Callees:
- *     RaiseException @ 0x1403DD870 (RaiseException.c)
- *     _clrfp @ 0x1403DDC28 (_clrfp.c)
- *     _statfp @ 0x1403DDCF8 (_statfp.c)
+ *     RaiseException @ 0x1403D5CE0 (RaiseException.c)
+ *     _clrfp @ 0x1403D60C0 (_clrfp.c)
+ *     _statfp @ 0x1403D6190 (_statfp.c)
  */
 
 __int64 __fastcall raise_exc_ex(
@@ -25,13 +25,15 @@ __int64 __fastcall raise_exc_ex(
   char v14; // al
   __int64 v15; // rax
   unsigned int v16; // eax
-  unsigned int *v17; // rsi
-  unsigned int *v18; // rcx
-  unsigned __int64 v19; // rax
+  unsigned int v17; // eax
+  unsigned int *v18; // rsi
+  unsigned int *v19; // rcx
+  unsigned int v20; // eax
+  unsigned __int64 v21; // rax
   __int64 result; // rax
-  unsigned int *v21; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int *v23; // [rsp+30h] [rbp+8h] BYREF
 
-  v21 = a1;
+  v23 = a1;
   v7 = 0;
   a1[1] = 0;
   a1[2] = 0;
@@ -99,46 +101,60 @@ LABEL_27:
       break;
   }
   *a1 ^= (*a1 ^ (32 * a4)) & 0x1FFE0;
-  v17 = a6;
+  v17 = a1[8];
+  v18 = a6;
   if ( a7 )
   {
-    a1[8] = a1[8] & 0xFFFFFFE0 | 1;
+    a1[8] = v17 & 0xFFFFFFE0 | 1;
     a1[4] = *a5;
     a1[24] = a1[24] & 0xFFFFFFE0 | 1;
-    a1[20] = *v17;
+    a1[20] = *v18;
   }
   else
   {
-    a1[8] = a1[8] & 0xFFFFFFE0 | 3;
+    a1[8] = v17 & 0xFFFFFFE0 | 3;
     *((_QWORD *)a1 + 2) = *(_QWORD *)a5;
     a1[24] = a1[24] & 0xFFFFFFE0 | 3;
-    *((_QWORD *)a1 + 10) = *(_QWORD *)v17;
+    *((_QWORD *)a1 + 10) = *(_QWORD *)v18;
   }
   clrfp();
-  RaiseException(v7, 0, 1u, &v21);
-  v18 = v21;
-  if ( (v21[2] & 0x10) != 0 )
+  RaiseException(v7, 0, 1u, &v23);
+  v19 = v23;
+  v20 = v23[2];
+  if ( (v20 & 0x10) != 0 )
+  {
     *a2 &= ~0x80uLL;
-  if ( (v18[2] & 8) != 0 )
+    v20 = v19[2];
+  }
+  if ( (v20 & 8) != 0 )
+  {
     *a2 &= ~0x200uLL;
-  if ( (v18[2] & 4) != 0 )
+    v20 = v19[2];
+  }
+  if ( (v20 & 4) != 0 )
+  {
     *a2 &= ~0x400uLL;
-  if ( (v18[2] & 2) != 0 )
+    v20 = v19[2];
+  }
+  if ( (v20 & 2) != 0 )
+  {
     *a2 &= ~0x800uLL;
-  if ( (v18[2] & 1) != 0 )
+    v20 = v19[2];
+  }
+  if ( (v20 & 1) != 0 )
     *a2 &= ~0x1000uLL;
-  switch ( *v18 & 3 )
+  switch ( *v19 & 3 )
   {
     case 0u:
       *a2 &= 0xFFFFFFFFFFFF9FFFuLL;
       break;
     case 1u:
-      v19 = *a2 & 0xFFFFFFFFFFFF9FFFuLL | 0x2000;
+      v21 = *a2 & 0xFFFFFFFFFFFF9FFFuLL | 0x2000;
       goto LABEL_49;
     case 2u:
-      v19 = *a2 & 0xFFFFFFFFFFFF9FFFuLL | 0x4000;
+      v21 = *a2 & 0xFFFFFFFFFFFF9FFFuLL | 0x4000;
 LABEL_49:
-      *a2 = v19;
+      *a2 = v21;
       break;
     case 3u:
       *a2 |= 0x6000uLL;
@@ -146,13 +162,13 @@ LABEL_49:
   }
   if ( a7 )
   {
-    result = v18[20];
-    *v17 = result;
+    result = v19[20];
+    *v18 = result;
   }
   else
   {
-    result = *((_QWORD *)v18 + 10);
-    *(_QWORD *)v17 = result;
+    result = *((_QWORD *)v19 + 10);
+    *(_QWORD *)v18 = result;
   }
   return result;
 }

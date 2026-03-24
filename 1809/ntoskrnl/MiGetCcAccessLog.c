@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetCcAccessLog @ 0x140662A88
+ * XREFs of MiGetCcAccessLog @ 0x140662A68
  * Callers:
- *     MmPrefetchForCacheManager @ 0x140662658 (MmPrefetchForCacheManager.c)
+ *     MmPrefetchForCacheManager @ 0x140662638 (MmPrefetchForCacheManager.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiQueuePageAccessLog @ 0x140088980 (MiQueuePageAccessLog.c)
- *     MiInitializePageAccessLogging @ 0x140114904 (MiInitializePageAccessLogging.c)
+ *     MiInitializePageAccessLogging @ 0x140114924 (MiInitializePageAccessLogging.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

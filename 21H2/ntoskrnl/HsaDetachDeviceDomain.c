@@ -1,9 +1,9 @@
 /*
- * XREFs of HsaDetachDeviceDomain @ 0x140531690
+ * XREFs of HsaDetachDeviceDomain @ 0x1404E2A20
  * Callers:
  *     <none>
  * Callees:
- *     HsaAttachDeviceDomainInternal @ 0x1405311A8 (HsaAttachDeviceDomainInternal.c)
+ *     HsaAttachDeviceDomainInternal @ 0x1404E24F8 (HsaAttachDeviceDomainInternal.c)
  */
 
 __int64 __fastcall HsaDetachDeviceDomain(__int64 a1, __int64 a2)

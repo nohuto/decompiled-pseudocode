@@ -1,15 +1,12 @@
 /*
- * XREFs of ObpRemoveObjectRoutine @ 0x1407CDAC0
+ * XREFs of ObpRemoveObjectRoutine @ 0x1406F0440
  * Callers:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x1402BA130 (NtWaitForWorkViaWorkerFactory.c)
- *     NtSetInformationWorkerFactory @ 0x1402D4530 (NtSetInformationWorkerFactory.c)
- *     ObpProcessRemoveObjectQueue @ 0x1406A1000 (ObpProcessRemoveObjectQueue.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObpProcessRemoveObjectQueue @ 0x140684B90 (ObpProcessRemoveObjectQueue.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ObpFreeObject @ 0x1407CDBA0 (ObpFreeObject.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ObpFreeObject @ 0x1406F0520 (ObpFreeObject.c)
  */
 
 __int64 __fastcall ObpRemoveObjectRoutine(__int64 a1, char a2)
@@ -19,7 +16,7 @@ __int64 __fastcall ObpRemoveObjectRoutine(__int64 a1, char a2)
   __int64 v7; // [rsp+60h] [rbp+8h] BYREF
 
   v4 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 + 24) ^ (unsigned __int64)BYTE1(a1)];
-  if ( (PVOID)v4 == ObpTypeObjectType )
+  if ( (PADAPTER_OBJECT)v4 == ObpTypeObjectType )
     KeBugCheckEx(0xF4u, v4, a1 + 48, 0LL, 0LL);
   v7 = *(_QWORD *)(a1 + 40);
   if ( v7 )

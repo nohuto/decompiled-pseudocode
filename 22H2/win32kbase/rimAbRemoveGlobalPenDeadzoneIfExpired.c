@@ -1,42 +1,38 @@
 /*
- * XREFs of rimAbRemoveGlobalPenDeadzoneIfExpired @ 0x1C00E0C1A
+ * XREFs of rimAbRemoveGlobalPenDeadzoneIfExpired @ 0x1C0159304
  * Callers:
- *     RIMAbArbitratePointerDeviceFrame @ 0x1C017D324 (RIMAbArbitratePointerDeviceFrame.c)
+ *     RIMAbArbitratePointerDeviceFrame @ 0x1C015A07C (RIMAbArbitratePointerDeviceFrame.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     rimAbRemoveGlobalPenDeadzone @ 0x1C017C1A0 (rimAbRemoveGlobalPenDeadzone.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimAbRemoveGlobalPenDeadzone @ 0x1C01592A8 (rimAbRemoveGlobalPenDeadzone.c)
  */
 
-void __fastcall rimAbRemoveGlobalPenDeadzoneIfExpired(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+_UNKNOWN **__fastcall rimAbRemoveGlobalPenDeadzoneIfExpired(__int64 a1)
 {
-  int v5; // edx
-  int v6; // r8d
+  _UNKNOWN **result; // rax
+  int v3; // edx
 
-  if ( !*(_DWORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 436) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 145);
-  if ( *(_DWORD *)(a1 + 492)
-    && (unsigned int)((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) >= *(_DWORD *)(a1 + 704) )
+  if ( !gDeviceArbitrationType )
+    result = (_UNKNOWN **)MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 141);
+  if ( *(_DWORD *)(a1 + 492) )
   {
-    rimAbRemoveGlobalPenDeadzone(a1);
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (LOBYTE(v5) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+    result = (_UNKNOWN **)MEMORY[0xFFFFF78000000320];
+    if ( (unsigned int)((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) >= *(_DWORD *)(a1 + 504) )
     {
-      LOBYTE(v5) = 0;
-    }
-    if ( (_BYTE)v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v6) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v5,
-        v6,
-        (_DWORD)gRimLog,
-        4,
-        1,
-        11,
-        (__int64)&WPP_d0136f6132203aac44a878359d3f87a2_Traceguids);
+      rimAbRemoveGlobalPenDeadzone(a1);
+      result = &WPP_RECORDER_INITIALIZED;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v3) = 4;
+        return (_UNKNOWN **)WPP_RECORDER_SF_(
+                              (_DWORD)gRimLog,
+                              v3,
+                              1,
+                              11,
+                              (__int64)&WPP_1df71edf843731ddcb2b607f62e3e01f_Traceguids);
+      }
     }
   }
+  return result;
 }

@@ -1,28 +1,28 @@
 /*
- * XREFs of ??4?$ComPtr@VKeyframeValue@@@WRL@Microsoft@@QEAAAEAV012@PEAVKeyframeValue@@@Z @ 0x18004E0C0
+ * XREFs of ??4?$ComPtr@VKeyframeValue@@@WRL@Microsoft@@QEAAAEAV012@PEAVKeyframeValue@@@Z @ 0x1800AC1A8
  * Callers:
- *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x18004D958 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
+ *     ?AddKeyframe@KeyframeSequence@@QEAAXIMPEAVKeyframeValue@@PEAVKeyframeInterpolation@@@Z @ 0x1800AAEFC (-AddKeyframe@KeyframeSequence@@QEAAXIMPEAVKeyframeValue@@PEAVKeyframeInterpolation@@@Z.c)
  * Callees:
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?InternalRelease@?$ComPtr@VCDrawListCache@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D75D0 (-InternalRelease@-$ComPtr@VCDrawListCache@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C8F44 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 *__fastcall Microsoft::WRL::ComPtr<KeyframeValue>::operator=(__int64 *a1, __int64 a2)
+_QWORD *__fastcall Microsoft::WRL::ComPtr<KeyframeValue>::operator=(_QWORD *a1, void (__fastcall ***a2)(_QWORD))
 {
-  __int64 v2; // rax
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  void (__fastcall ***v2)(_QWORD); // rax
+  void (__fastcall ***v6)(_QWORD); // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = *a1;
-  if ( *a1 != a2 )
+  v2 = (void (__fastcall ***)(_QWORD))*a1;
+  if ( (void (__fastcall ***)(_QWORD))*a1 != a2 )
   {
     if ( a2 )
     {
-      CMILRefCountImpl::AddReference((CMILRefCountImpl *)(a2 + 8));
-      v2 = *a1;
+      (**a2)(a2);
+      v2 = (void (__fastcall ***)(_QWORD))*a1;
     }
     v6 = v2;
     *a1 = a2;
-    Microsoft::WRL::ComPtr<CDrawListCache>::InternalRelease(&v6);
+    Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v6);
   }
   return a1;
 }

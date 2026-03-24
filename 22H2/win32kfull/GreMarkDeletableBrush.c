@@ -1,11 +1,11 @@
 /*
- * XREFs of GreMarkDeletableBrush @ 0x1C00AEC68
+ * XREFs of GreMarkDeletableBrush @ 0x1C00261A4
  * Callers:
- *     SetDesktopPattern @ 0x1C00AEAF4 (SetDesktopPattern.c)
- *     RecolorDeskPattern @ 0x1C00BDFC0 (RecolorDeskPattern.c)
+ *     SetDesktopPattern @ 0x1C0026030 (SetDesktopPattern.c)
+ *     RecolorDeskPattern @ 0x1C01369E0 (RecolorDeskPattern.c)
  * Callees:
- *     ??0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z @ 0x1C00AF004 (--0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z.c)
- *     ??1BRUSHSELOBJ@@QEAA@XZ @ 0x1C00AF0A4 (--1BRUSHSELOBJ@@QEAA@XZ.c)
+ *     ??1BRUSHSELOBJ@@QEAA@XZ @ 0x1C0026620 (--1BRUSHSELOBJ@@QEAA@XZ.c)
+ *     ??0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z @ 0x1C00266AC (--0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z.c)
  */
 
 void __fastcall GreMarkDeletableBrush(HBRUSH a1)

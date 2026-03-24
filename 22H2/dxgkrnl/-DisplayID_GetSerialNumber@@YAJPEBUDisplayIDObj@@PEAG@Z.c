@@ -1,30 +1,32 @@
 /*
- * XREFs of ?DisplayID_GetSerialNumber@@YAJPEBUDisplayIDObj@@PEAG@Z @ 0x1C0072C80
+ * XREFs of ?DisplayID_GetSerialNumber@@YAJPEBUDisplayIDObj@@PEAG@Z @ 0x1C005FE98
  * Callers:
- *     ?AppendSerialNumber@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAU_UNICODE_STRING@@@Z @ 0x1C03D0380 (-AppendSerialNumber@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAU_UNICODE_STRING@@@Z.c)
+ *     ?_DispatchInternalIOCtrl@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z @ 0x1C0166938 (-_DispatchInternalIOCtrl@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z.c)
+ *     ?_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ @ 0x1C0182B14 (-_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ.c)
+ *     ?_GetMonitorDiagInfo@DXGMONITOR@@QEAAJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C018323C (-_GetMonitorDiagInfo@DXGMONITOR@@QEAAJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z.c)
  * Callees:
- *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00156B0 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     ?DisplayID_Get_PRODUCT_IDENTIFICATION_BLOCK@@YAJPEBUDisplayIDObj@@AEAPEBU_DISPLAYID_PRODUCT_IDENTIFICATION_BLOCK@@@Z @ 0x1C0072DF0 (-DisplayID_Get_PRODUCT_IDENTIFICATION_BLOCK@@YAJPEBUDisplayIDObj@@AEAPEBU_DISPLAYID_PRODUCT_IDEN.c)
- *     ?IsValidBlock@DisplayID_ProductId_Parser@@QEBA_NXZ @ 0x1C00731F4 (-IsValidBlock@DisplayID_ProductId_Parser@@QEBA_NXZ.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C001A228 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?DisplayID_Get_PRODUCT_IDENTIFICATION_BLOCK@@YAJPEBUDisplayIDObj@@AEAPEAU_DISPLAYID_PRODUCT_IDENTIFICATION_BLOCK@@@Z @ 0x1C0060008 (-DisplayID_Get_PRODUCT_IDENTIFICATION_BLOCK@@YAJPEBUDisplayIDObj@@AEAPEAU_DISPLAYID_PRODUCT_IDEN.c)
+ *     ?IsValidBlock@DisplayID_ProductId_Parser@@QEBA_NXZ @ 0x1C0060264 (-IsValidBlock@DisplayID_ProductId_Parser@@QEBA_NXZ.c)
  */
 
-NTSTATUS __fastcall DisplayID_GetSerialNumber(const struct DisplayIDObj *a1, unsigned __int16 *a2)
+__int64 __fastcall DisplayID_GetSerialNumber(const struct DisplayIDObj *a1, unsigned __int16 *a2)
 {
-  NTSTATUS result; // eax
+  __int64 result; // rax
   unsigned __int8 *v3; // rdx
   unsigned __int16 *v4; // r10
   struct _DISPLAYID_PRODUCT_IDENTIFICATION_BLOCK *v5; // [rsp+38h] [rbp+10h] BYREF
 
   if ( !a2 )
-    return -1073741811;
+    return 3221225485LL;
   v5 = 0LL;
   result = DisplayID_Get_PRODUCT_IDENTIFICATION_BLOCK(a1, &v5);
-  if ( result >= 0 )
+  if ( (int)result >= 0 )
   {
     if ( DisplayID_ProductId_Parser::IsValidBlock((DisplayID_ProductId_Parser *)&v5) )
       return RtlStringCchPrintfW(v4, 9uLL, (size_t *)L"%08x", v3[8] + ((v3[9] + ((v3[10] + (v3[11] << 8)) << 8)) << 8));
     else
-      return -1073741637;
+      return 3221225659LL;
   }
   return result;
 }

@@ -1,27 +1,27 @@
 /*
- * XREFs of SepScheduleImageVerificationCallbacks @ 0x1407E2904
+ * XREFs of SepScheduleImageVerificationCallbacks @ 0x140770584
  * Callers:
- *     SeValidateImageHeader @ 0x1406AC8B0 (SeValidateImageHeader.c)
+ *     SeValidateImageHeader @ 0x14066BB90 (SeValidateImageHeader.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SepScheduleImageVerificationCallbacks(__int64 a1, unsigned int a2)
+__int64 __fastcall SepScheduleImageVerificationCallbacks(struct _LIST_ENTRY *a1, unsigned int a2)
 {
-  __int64 Pool2; // rax
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
   unsigned int v5; // ebx
 
-  Pool2 = ExAllocatePool2(64LL, a2 + 48LL, 1668499779LL);
+  PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, a2 + 48LL, 0x63734943u);
   v5 = 0;
-  if ( Pool2 )
+  if ( PoolWithTag )
   {
-    *(_QWORD *)(Pool2 + 24) = Pool2;
-    *(_QWORD *)(Pool2 + 16) = SepImageVerificationCallbackWorker;
-    *(_QWORD *)Pool2 = 0LL;
-    *(_QWORD *)(Pool2 + 32) = a1;
-    *(_DWORD *)(Pool2 + 40) = a2;
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)Pool2, DelayedWorkQueue);
+    PoolWithTag->Parameter = PoolWithTag;
+    PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))SepImageVerificationCallbackWorker;
+    PoolWithTag->List.Flink = 0LL;
+    PoolWithTag[1].List.Flink = a1;
+    LODWORD(PoolWithTag[1].List.Blink) = a2;
+    ExQueueWorkItem(PoolWithTag, DelayedWorkQueue);
   }
   else
   {

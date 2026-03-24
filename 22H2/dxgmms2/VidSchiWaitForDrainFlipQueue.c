@@ -1,45 +1,32 @@
 /*
- * XREFs of VidSchiWaitForDrainFlipQueue @ 0x1C00B5608
+ * XREFs of VidSchiWaitForDrainFlipQueue @ 0x1C00CF658
  * Callers:
- *     VidSchiDrainFlipQueue @ 0x1C00B55E0 (VidSchiDrainFlipQueue.c)
+ *     VidSchiDrainFlipQueue @ 0x1C00CE7B0 (VidSchiDrainFlipQueue.c)
  * Callees:
- *     VidSchiProfilePerformanceTick @ 0x1C000AA30 (VidSchiProfilePerformanceTick.c)
- *     VidSchiIsMmIoFlipPending @ 0x1C0017D7C (VidSchiIsMmIoFlipPending.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?DecrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z @ 0x1C0034508 (-DecrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z.c)
- *     ?IncrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z @ 0x1C0034B10 (-IncrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z.c)
- *     ?VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z @ 0x1C004A2E8 (-VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z.c)
- *     VidSchWaitForCompletionEvent @ 0x1C0087E2C (VidSchWaitForCompletionEvent.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C000B6D0 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiIsMmIoFlipPending @ 0x1C0015044 (VidSchiIsMmIoFlipPending.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C0080A40 (VidSchWaitForCompletionEvent.c)
  */
 
-char __fastcall VidSchiWaitForDrainFlipQueue(struct _VIDSCH_GLOBAL *a1)
+char __fastcall VidSchiWaitForDrainFlipQueue(__int64 a1)
 {
   char result; // al
-  __int64 v3; // r8
-  _DWORD v4[42]; // [rsp+40h] [rbp-A8h] BYREF
-  unsigned int v5; // [rsp+F0h] [rbp+8h] BYREF
+  _DWORD v3[42]; // [rsp+40h] [rbp-A8h] BYREF
 
-  memset(v4, 0, 0xA0uLL);
-  v4[4] = 3;
-  v4[5] = 1;
-  *((_QWORD *)a1 + 203) = MEMORY[0xFFFFF78000000320];
-  KeResetEvent((PRKEVENT)a1 + 66);
+  memset(v3, 0, 0xA0uLL);
+  v3[4] = 3;
+  v3[5] = 1;
+  *(_QWORD *)(a1 + 1608) = MEMORY[0xFFFFF78000000320];
+  KeResetEvent((PRKEVENT)(a1 + 1568));
   while ( 1 )
   {
-    v5 = 0;
-    result = VidSchiIsMmIoFlipPending((__int64)a1, &v5);
+    result = VidSchiIsMmIoFlipPending(a1);
     if ( !result )
       break;
-    if ( *((_BYTE *)a1 + 59) )
-    {
-      DXGADAPTER::IncrementVSyncWaiter(*((DXGADAPTER **)a1 + 2), v5);
-      VidSchiSetInterruptTargetPresentId(a1, v5, 0, 0LL, 1, 0);
-    }
-    VidSchiProfilePerformanceTick(16LL, (__int64)a1, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL);
-    VidSchWaitForCompletionEvent((__int64)a1, (__int64)v4, 0xFFFFFFFFLL);
-    VidSchiProfilePerformanceTick(17LL, (__int64)a1, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL);
-    if ( *((_BYTE *)a1 + 59) )
-      DXGADAPTER::DecrementVSyncWaiter(*((DXGADAPTER **)a1 + 2), v5, v3);
+    VidSchiProfilePerformanceTick(16LL, a1, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL);
+    VidSchWaitForCompletionEvent(a1, (__int64)v3, 0xFFFFFFFFLL);
+    VidSchiProfilePerformanceTick(17LL, a1, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL);
   }
   return result;
 }

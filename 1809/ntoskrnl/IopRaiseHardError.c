@@ -1,18 +1,18 @@
 /*
- * XREFs of IopRaiseHardError @ 0x14081A4F0
+ * XREFs of IopRaiseHardError @ 0x14081A4D0
  * Callers:
- *     IopApcHardError @ 0x140819430 (IopApcHardError.c)
+ *     IopApcHardError @ 0x140819410 (IopApcHardError.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     IopVerifierExAllocatePool_0 @ 0x1400DD83C (IopVerifierExAllocatePool_0.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObQueryNameStringMode @ 0x140660F70 (ObQueryNameStringMode.c)
- *     ExRaiseHardError @ 0x1408D6600 (ExRaiseHardError.c)
+ *     ObQueryNameStringMode @ 0x140660F50 (ObQueryNameStringMode.c)
+ *     ExRaiseHardError @ 0x1408D65E0 (ExRaiseHardError.c)
  */
 
 void __fastcall IopRaiseHardError(PIRP Irp, __int64 a2, char *a3)

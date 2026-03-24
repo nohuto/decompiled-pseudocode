@@ -1,11 +1,12 @@
 /*
- * XREFs of ??0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z @ 0x18006AAC4
+ * XREFs of ??0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z @ 0x18003A210
  * Callers:
- *     ??0CD2DBrush@@IEAA@PEAVCD2DResourceManager@@PEAUID2D1Brush@@@Z @ 0x18003E3DC (--0CD2DBrush@@IEAA@PEAVCD2DResourceManager@@PEAUID2D1Brush@@@Z.c)
- *     ??0CD2DBitmap@@IEAA@PEAVCD2DResourceManager@@_NPEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@I@Z @ 0x18006A868 (--0CD2DBitmap@@IEAA@PEAVCD2DResourceManager@@_NPEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AE.c)
- *     ??0CD2DInk@@IEAA@PEAVCD2DResourceManager@@@Z @ 0x18028D244 (--0CD2DInk@@IEAA@PEAVCD2DResourceManager@@@Z.c)
- *     ??0CD2DGenericInk@@AEAA@PEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@@Z @ 0x18028D618 (--0CD2DGenericInk@@AEAA@PEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@@Z.c)
- *     ??0CD2DEffect@@IEAA@PEAVCD2DResourceManager@@@Z @ 0x18028DA54 (--0CD2DEffect@@IEAA@PEAVCD2DResourceManager@@@Z.c)
+ *     ??0CD2DBitmap@@IEAA@PEAVCD2DResourceManager@@_NPEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@I@Z @ 0x180039FC8 (--0CD2DBitmap@@IEAA@PEAVCD2DResourceManager@@_NPEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AE.c)
+ *     ??0CD2DPrimitiveProperties@@IEAA@PEAVCD2DResourceManager@@PEAUID2D1PrivateCompositorPrimitiveProperties@@@Z @ 0x18024B00C (--0CD2DPrimitiveProperties@@IEAA@PEAVCD2DResourceManager@@PEAUID2D1PrivateCompositorPrimitivePro.c)
+ *     ??0CD2DCommandList@@IEAA@PEAVCD2DResourceManager@@@Z @ 0x18024B2E4 (--0CD2DCommandList@@IEAA@PEAVCD2DResourceManager@@@Z.c)
+ *     ??0CD2DInk@@IEAA@PEAVCD2DResourceManager@@@Z @ 0x18024CCD4 (--0CD2DInk@@IEAA@PEAVCD2DResourceManager@@@Z.c)
+ *     ??0CD2DGenericInk@@AEAA@PEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@@Z @ 0x18024D048 (--0CD2DGenericInk@@AEAA@PEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@@Z.c)
+ *     ??0CD2DEffect@@IEAA@PEAVCD2DResourceManager@@@Z @ 0x18024D474 (--0CD2DEffect@@IEAA@PEAVCD2DResourceManager@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +19,7 @@ CD2DResource *__fastcall CD2DResource::CD2DResource(CD2DResource *this, struct C
 
   *((_DWORD *)this + 2) = 0;
   *(_QWORD *)this = &CD2DResource::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16) = &CD2DResource::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16) = &CBackdropBrush::`vftable'{for `IUnknown'};
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 8LL) + 16) = &CD2DResource::`vftable'{for `IDeviceResource'};
   v4 = *(int *)(*((_QWORD *)this + 2) + 4LL);
   *(_DWORD *)((char *)this + v4 + 12) = v4 - 72;

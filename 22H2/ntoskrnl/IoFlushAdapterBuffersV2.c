@@ -1,28 +1,28 @@
 /*
- * XREFs of IoFlushAdapterBuffersV2 @ 0x14045CF00
+ * XREFs of IoFlushAdapterBuffersV2 @ 0x140389760
  * Callers:
- *     HalPutScatterGatherListV2 @ 0x1403CE2D8 (HalPutScatterGatherListV2.c)
+ *     IoFlushAdapterBuffers @ 0x140389720 (IoFlushAdapterBuffers.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpDmaFlushContiguousTransferV2 @ 0x14045D916 (HalpDmaFlushContiguousTransferV2.c)
- *     HalpDmaFlushScatterTransferV2 @ 0x14045DA2C (HalpDmaFlushScatterTransferV2.c)
- *     HalpDmaFlushBuffer @ 0x140510CD0 (HalpDmaFlushBuffer.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpDmaFlushBuffer @ 0x1404C749C (HalpDmaFlushBuffer.c)
+ *     HalpDmaFlushContiguousTransferV2 @ 0x1404CD76C (HalpDmaFlushContiguousTransferV2.c)
+ *     HalpDmaFlushScatterTransferV2 @ 0x1404CD888 (HalpDmaFlushScatterTransferV2.c)
  */
 
 char __fastcall IoFlushAdapterBuffersV2(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, char a6)
 {
   if ( a5 )
   {
-    if ( a1 && !*(_BYTE *)(a1 + 441) )
-      (*(void (__fastcall **)(_QWORD))(DmaDispatch + 48))(*(_QWORD *)(a1 + 432));
+    if ( a1 && !*(_BYTE *)(a1 + 433) )
+      (*(void (__fastcall **)(_QWORD))(DmaDispatch + 48))(*(_QWORD *)(a1 + 424));
     if ( a3 )
     {
-      if ( a1 && *(_BYTE *)(a1 + 442) )
+      if ( a1 && *(_BYTE *)(a1 + 434) )
         HalpDmaFlushScatterTransferV2(a1, a2, a3, a4, a5, a6);
       else
         HalpDmaFlushContiguousTransferV2(a1, a2, a3, a4, a5, a6);
     }
-    else if ( !a6 && !*(_BYTE *)(a1 + 445) )
+    else if ( !a6 && !*(_BYTE *)(a1 + 437) )
     {
       HalpDmaFlushBuffer(a1, a2, a4, a5, 0, 0);
     }

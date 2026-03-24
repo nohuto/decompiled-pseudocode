@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmIdleCheckCoordinatedStateEligibility @ 0x1405C7A38
+ * XREFs of PpmIdleCheckCoordinatedStateEligibility @ 0x140566410
  * Callers:
- *     PpmIdleSelectStates @ 0x1403A1620 (PpmIdleSelectStates.c)
- *     PpmIdleCheckCoordinatedDependency @ 0x1405C7798 (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleSelectStates @ 0x140395580 (PpmIdleSelectStates.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x140566140 (PpmIdleCheckCoordinatedDependency.c)
  * Callees:
- *     KeIsSubsetAffinityEx @ 0x14020EF50 (KeIsSubsetAffinityEx.c)
- *     PpmCheckIdleVeto @ 0x1405C7078 (PpmCheckIdleVeto.c)
- *     PpmIdleCheckCoordinatedDependencies @ 0x1405C7638 (PpmIdleCheckCoordinatedDependencies.c)
- *     PpmIdleRollbackCoordinatedSelection @ 0x1405C83DC (PpmIdleRollbackCoordinatedSelection.c)
- *     PpmIdleWaitForDependentTransitions @ 0x1405C86F0 (PpmIdleWaitForDependentTransitions.c)
+ *     KeIsSubsetAffinityEx @ 0x140513640 (KeIsSubsetAffinityEx.c)
+ *     PpmCheckIdleVeto @ 0x1405657C8 (PpmCheckIdleVeto.c)
+ *     PpmIdleCheckCoordinatedDependencies @ 0x140565FE0 (PpmIdleCheckCoordinatedDependencies.c)
+ *     PpmIdleRollbackCoordinatedSelection @ 0x140566CCC (PpmIdleRollbackCoordinatedSelection.c)
+ *     PpmIdleWaitForDependentTransitions @ 0x140567184 (PpmIdleWaitForDependentTransitions.c)
  */
 
 __int64 __fastcall PpmIdleCheckCoordinatedStateEligibility(
@@ -33,13 +33,13 @@ __int64 __fastcall PpmIdleCheckCoordinatedStateEligibility(
   unsigned int v21; // [rsp+B0h] [rbp+28h]
 
   v9 = PpmPlatformStates;
-  v12 = *(_QWORD *)(a1 + 33600);
-  v13 = 448LL * a5;
-  v14 = v12 + 336;
+  v12 = *(_QWORD *)(a1 + 0x8000);
+  v13 = 384LL * a5;
+  v14 = v12 + 240;
   v21 = *(_DWORD *)(a8 + 4);
   if ( *(_BYTE *)(v13 + PpmPlatformStates + 121) )
   {
-    if ( !*(_BYTE *)(v12 + 732) )
+    if ( !*(_BYTE *)(v12 + 540) )
     {
       v15 = *(_BYTE *)(a1 + 33) != 0 ? 0xFFFFFFFFLL : 2147483660LL;
 LABEL_21:
@@ -47,14 +47,16 @@ LABEL_21:
       return v15;
     }
   }
-  else if ( !(unsigned int)KeIsSubsetAffinityEx(v13 + PpmPlatformStates + 128, v12 + 768) )
+  else if ( !(unsigned int)KeIsSubsetAffinityEx(
+                             (unsigned __int16 *)(v13 + PpmPlatformStates + 128),
+                             (unsigned __int16 *)(v12 + 576)) )
   {
 LABEL_5:
     v15 = 0xFFFFFFFFLL;
     goto LABEL_21;
   }
   if ( _InterlockedCompareExchange(
-         (volatile signed __int32 *)(v13 + v9 + 416),
+         (volatile signed __int32 *)(v13 + v9 + 320),
          (a6 << 27) | KeGetPcr()->Prcb.Number & 0xFFF | 0x1000000,
          0) )
   {
@@ -72,7 +74,7 @@ LABEL_5:
     v15 = 2147483650LL;
     goto LABEL_21;
   }
-  if ( *(_DWORD *)(v13 + v9 + 448) )
+  if ( *(_DWORD *)(v13 + v9 + 384) )
     goto LABEL_20;
   if ( *(unsigned int *)(v13 + v9 + 76) > v18 )
   {
@@ -86,7 +88,7 @@ LABEL_5:
           a3 - *(_DWORD *)(v13 + v9 + 72),
           v18,
           *(_DWORD *)(v13 + v9 + 124),
-          *(_QWORD *)(v13 + v9 + 408),
+          *(_QWORD *)(v13 + v9 + 312),
           (__int64)a7,
           a8,
           v14);
@@ -102,7 +104,7 @@ LABEL_5:
     v15 = 2147483653LL;
     goto LABEL_21;
   }
-  if ( *(_DWORD *)(v13 + v9 + 448) )
+  if ( *(_DWORD *)(v13 + v9 + 384) )
   {
 LABEL_20:
     v15 = 2147483652LL;

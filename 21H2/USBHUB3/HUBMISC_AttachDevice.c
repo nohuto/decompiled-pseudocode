@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBMISC_AttachDevice @ 0x1C002E4A0
+ * XREFs of HUBMISC_AttachDevice @ 0x1C002DE1C
  * Callers:
- *     HUBPSM20_IssuingAttachDeviceToPort @ 0x1C0010F50 (HUBPSM20_IssuingAttachDeviceToPort.c)
- *     HUBPSM30_IssuingAttachDeviceToDsm @ 0x1C0012150 (HUBPSM30_IssuingAttachDeviceToDsm.c)
- *     HUBPSM30_IssuingAttachDeviceWithResetToDsm @ 0x1C0012180 (HUBPSM30_IssuingAttachDeviceWithResetToDsm.c)
+ *     HUBPSM20_IssuingAttachDeviceToPort @ 0x1C0010B40 (HUBPSM20_IssuingAttachDeviceToPort.c)
+ *     HUBPSM30_IssuingAttachDeviceToDsm @ 0x1C0011C50 (HUBPSM30_IssuingAttachDeviceToDsm.c)
+ *     HUBPSM30_IssuingAttachDeviceWithResetToDsm @ 0x1C0011C80 (HUBPSM30_IssuingAttachDeviceWithResetToDsm.c)
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
  */
 
 __int64 __fastcall HUBMISC_AttachDevice(__int64 a1)

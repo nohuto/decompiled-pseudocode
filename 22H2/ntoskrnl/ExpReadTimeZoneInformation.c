@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpReadTimeZoneInformation @ 0x1409F8038
+ * XREFs of ExpReadTimeZoneInformation @ 0x1405D1A44
  * Callers:
- *     ExpReadSiloTimeZoneMarker @ 0x1409F8008 (ExpReadSiloTimeZoneMarker.c)
- *     ExpTimeZoneInitSiloState @ 0x1409F8168 (ExpTimeZoneInitSiloState.c)
+ *     ExpReadSiloTimeZoneMarker @ 0x1405D1A14 (ExpReadSiloTimeZoneMarker.c)
+ *     ExpTimeZoneInitSiloState @ 0x1405D1B7C (ExpTimeZoneInitSiloState.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x14069EF80 (RtlQueryRegistryValuesEx.c)
  */
 
 __int64 __fastcall ExpReadTimeZoneInformation(__int64 a1, int a2, __int64 a3)
@@ -21,5 +21,5 @@ __int64 __fastcall ExpReadTimeZoneInformation(__int64 a1, int a2, __int64 a3)
   LODWORD(v6[4]) = 67108868;
   v6[5] = &v7;
   LODWORD(v6[6]) = 4;
-  return RtlpQueryRegistryValues(2LL, L"TimeZoneInformation", v6, 0LL);
+  return RtlQueryRegistryValuesEx(2LL, L"TimeZoneInformation", v6, 0LL, 0LL);
 }

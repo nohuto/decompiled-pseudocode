@@ -1,140 +1,129 @@
 /*
- * XREFs of BuildHwndList @ 0x1C0071A90
+ * XREFs of BuildHwndList @ 0x1C006CB60
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
- *     ?BuildWindowListWithDpiBoundaryInfo@@YAPEAUtagWLDBI@@PEAUtagWND@@0PEAUtagBWL@@PEAH@Z @ 0x1C006A228 (-BuildWindowListWithDpiBoundaryInfo@@YAPEAUtagWLDBI@@PEAUtagWND@@0PEAUtagBWL@@PEAH@Z.c)
- *     UpdateMonitorForWindowAndChildren @ 0x1C006A424 (UpdateMonitorForWindowAndChildren.c)
- *     NtUserBuildHwndList @ 0x1C0070A10 (NtUserBuildHwndList.c)
- *     ?xxxSendDpiChangedMsgs@@YA_NPEAUtagWND@@PEAUtagRECT@@PEAUtagBWL@@G@Z @ 0x1C0078980 (-xxxSendDpiChangedMsgs@@YA_NPEAUtagWND@@PEAUtagRECT@@PEAUtagBWL@@G@Z.c)
- *     ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C0098738 (-DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z.c)
- *     _SetDeferredDpiStateForWindowAndChildren @ 0x1C009C90C (_SetDeferredDpiStateForWindowAndChildren.c)
- *     ?xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z @ 0x1C00A25A8 (-xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z.c)
- *     ?xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z @ 0x1C00A6928 (-xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z.c)
- *     xxxBroadcastMessageEx @ 0x1C00A9E58 (xxxBroadcastMessageEx.c)
- *     ?xxxProcessRecalcForThread@DesktopRecalc@@YAXXZ @ 0x1C00AEE98 (-xxxProcessRecalcForThread@DesktopRecalc@@YAXXZ.c)
- *     xxxShowOwnedWindows @ 0x1C00CB710 (xxxShowOwnedWindows.c)
- *     ?xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z @ 0x1C00DFE44 (-xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z.c)
- *     xxxDWP_UpdateUIState @ 0x1C00FB224 (xxxDWP_UpdateUIState.c)
- *     ?AssociateInputContextEx@@YA?AW4_AIC_STATUS@@PEAUtagWND@@PEAUtagIMC@@K@Z @ 0x1C0106DEC (-AssociateInputContextEx@@YA-AW4_AIC_STATUS@@PEAUtagWND@@PEAUtagIMC@@K@Z.c)
- *     xxxClientShutdown @ 0x1C01093D0 (xxxClientShutdown.c)
- *     ?xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z @ 0x1C013F388 (-xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z.c)
- *     ?DestroyInputContext@@YAHPEAUtagIMC@@@Z @ 0x1C01498D8 (-DestroyInputContext@@YAHPEAUtagIMC@@@Z.c)
- *     xxxArrangeIconicWindows @ 0x1C014E0E4 (xxxArrangeIconicWindows.c)
- *     xxxMetricsRecalc @ 0x1C015823C (xxxMetricsRecalc.c)
- *     ?StartRecalcForDesktop@DesktopRecalc@@YAXPEAUtagDESKTOP@@PEAVCMonitorTopology@@W4StartRecalcOption@@@Z @ 0x1C015CF00 (-StartRecalcForDesktop@DesktopRecalc@@YAXPEAUtagDESKTOP@@PEAVCMonitorTopology@@W4StartRecalcOpti.c)
- *     xxxInternalEnumWindow @ 0x1C01CE524 (xxxInternalEnumWindow.c)
- *     ?FixupOverlayWindowAttributes@@YAHPEAUtagWND@@@Z @ 0x1C01D2150 (-FixupOverlayWindowAttributes@@YAHPEAUtagWND@@@Z.c)
- *     SnapshotWindowRects @ 0x1C01D31E8 (SnapshotWindowRects.c)
- *     ?xxxSendGDIScaledDpiChangedMsgs@@YAHPEAUtagWND@@PEAUtagBWL@@@Z @ 0x1C01DF164 (-xxxSendGDIScaledDpiChangedMsgs@@YAHPEAUtagWND@@PEAUtagBWL@@@Z.c)
- *     xxxForceWindowToDpiForTest @ 0x1C01E0AE0 (xxxForceWindowToDpiForTest.c)
- *     ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01ED4B8 (-InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z.c)
- *     ?xxxProcessPositionEvent@ShellWindowPos@@YAXPEAUtagQMSG@@@Z @ 0x1C02377B8 (-xxxProcessPositionEvent@ShellWindowPos@@YAXPEAUtagQMSG@@@Z.c)
- *     ?xxxForceUpdateProcessDpiAwarenessContext@@YAXPEAUtagWND@@K@Z @ 0x1C0238468 (-xxxForceUpdateProcessDpiAwarenessContext@@YAXPEAUtagWND@@K@Z.c)
- *     ?ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z @ 0x1C0243670 (-ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z.c)
+ *     xxxClientShutdown @ 0x1C000B2CC (xxxClientShutdown.c)
+ *     _SetDeferredDpiStateForWindowAndChildren @ 0x1C0013BBC (_SetDeferredDpiStateForWindowAndChildren.c)
+ *     xxxShowOwnedWindows @ 0x1C002C1D4 (xxxShowOwnedWindows.c)
+ *     ?xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z @ 0x1C003C920 (-xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z.c)
+ *     ?xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z @ 0x1C003ED58 (-xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z.c)
+ *     xxxBroadcastMessageEx @ 0x1C003FE88 (xxxBroadcastMessageEx.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
+ *     ?xxxSendDpiChangedMsgs@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagBWL@@G@Z @ 0x1C006ABEC (-xxxSendDpiChangedMsgs@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagBWL@@G@Z.c)
+ *     xxxInheritWindowMonitor @ 0x1C006C878 (xxxInheritWindowMonitor.c)
+ *     ?xxxImeWindowPosChanged@@YAXPEAUtagSMWP@@@Z @ 0x1C006DB4C (-xxxImeWindowPosChanged@@YAXPEAUtagSMWP@@@Z.c)
+ *     BuildWindowListWithDpiBoundaryInfo @ 0x1C006F994 (BuildWindowListWithDpiBoundaryInfo.c)
+ *     xxxDWP_UpdateUIState @ 0x1C00E0EE4 (xxxDWP_UpdateUIState.c)
+ *     ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C00E9C98 (-DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z.c)
+ *     UpdateMonitorForWindowAndChildren @ 0x1C00F160C (UpdateMonitorForWindowAndChildren.c)
+ *     ?xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z @ 0x1C00F7808 (-xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z.c)
+ *     xxxDesktopRecalc @ 0x1C00FFD6C (xxxDesktopRecalc.c)
+ *     ?xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z @ 0x1C010C1FC (-xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z.c)
+ *     AssociateInputContextEx @ 0x1C0118C60 (AssociateInputContextEx.c)
+ *     DestroyInputContext @ 0x1C015854C (DestroyInputContext.c)
+ *     xxxArrangeIconicWindows @ 0x1C015E5A0 (xxxArrangeIconicWindows.c)
+ *     xxxInternalEnumWindow @ 0x1C01D2394 (xxxInternalEnumWindow.c)
+ *     ?FixupOverlayWindowAttributes@@YAHPEAUtagWND@@@Z @ 0x1C01D6500 (-FixupOverlayWindowAttributes@@YAHPEAUtagWND@@@Z.c)
+ *     SnapshotWindowRects @ 0x1C01D7988 (SnapshotWindowRects.c)
+ *     xxxMetricsRecalc @ 0x1C01D7C94 (xxxMetricsRecalc.c)
+ *     ?xxxSendGDIScaledDpiChangedMsgs@@YAHPEAUtagWND@@PEAUtagBWL@@@Z @ 0x1C01E48EC (-xxxSendGDIScaledDpiChangedMsgs@@YAHPEAUtagWND@@PEAUtagBWL@@@Z.c)
+ *     xxxForceUpdateProcessDpiAwarenessContext @ 0x1C01E646C (xxxForceUpdateProcessDpiAwarenessContext.c)
+ *     xxxForceWindowToDpiForTest @ 0x1C01E669C (xxxForceWindowToDpiForTest.c)
+ *     ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01F2C38 (-InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z.c)
+ *     ?ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z @ 0x1C0247E10 (-ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z.c)
  * Callees:
- *     ?InternalBuildHwndList@@YAPEAUtagBWL@@PEAU1@PEAUtagWND@@I@Z @ 0x1C0071CD0 (-InternalBuildHwndList@@YAPEAUtagBWL@@PEAU1@PEAUtagWND@@I@Z.c)
- *     ?InternalRebuildHwndListForIMEClass@@YAPEAUtagBWL@@PEAU1@@Z @ 0x1C0072370 (-InternalRebuildHwndListForIMEClass@@YAPEAUtagBWL@@PEAU1@@Z.c)
- *     ?EligibleWindow@ShellWindowManagement@@YA_NPEBUtagWND@@@Z @ 0x1C0109B50 (-EligibleWindow@ShellWindowManagement@@YA_NPEBUtagWND@@@Z.c)
+ *     IsNonImmersiveBand @ 0x1C0037374 (IsNonImmersiveBand.c)
+ *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C004B630 (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
+ *     _anonymous_namespace_::EligibleWindow @ 0x1C004B788 (_anonymous_namespace_--EligibleWindow.c)
+ *     ?InternalBuildHwndList@@YAPEAUtagBWL@@PEAU1@PEAUtagWND@@I@Z @ 0x1C006D440 (-InternalBuildHwndList@@YAPEAUtagBWL@@PEAU1@PEAUtagWND@@I@Z.c)
+ *     ?InternalRebuildHwndListForIMEClass@@YAPEAUtagBWL@@PEAU1@@Z @ 0x1C01D2280 (-InternalRebuildHwndListForIMEClass@@YAPEAUtagBWL@@PEAU1@@Z.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-struct tagBWL *__fastcall BuildHwndList(ShellWindowManagement *this, const struct tagWND *a2, __int64 a3, int a4)
+struct tagBWL *__fastcall BuildHwndList(struct tagWND *a1, char a2, __int64 a3)
 {
-  __int64 v4; // r12
-  char v7; // di
-  __int64 v9; // rax
-  struct tagBWL *v10; // r14
-  __int64 v11; // rsi
-  int v12; // ecx
-  __int64 v13; // rsi
-  _QWORD *v14; // rax
-  __int64 *ThreadWin32Thread; // rax
-  __int64 v17; // rsi
-  __int64 v18; // rax
-  __int64 v19; // rsi
-  __int64 v20; // rcx
+  struct tagBWL *v3; // r14
+  __int64 v7; // rdi
+  _QWORD *v8; // rax
+  struct tagBWL *result; // rax
+  __int64 v10; // rdi
+  __int64 v11; // rdi
+  __int64 v12; // rax
+  __int64 v13; // rdi
+  struct tagWND *v14; // rdx
+  __int64 v15; // rax
+  __int64 v16; // rcx
 
-  v4 = 0LL;
-  v7 = (char)a2;
-  if ( a4 == 1 && (v10 = pbwlCache) != 0LL )
+  v3 = pbwlCache;
+  if ( pbwlCache )
   {
     pbwlCache = 0LL;
   }
   else
   {
-    v9 = Win32AllocPoolZInit(296LL, 1819767637LL);
-    v10 = (struct tagBWL *)v9;
-    if ( !v9 )
+    v15 = Win32AllocPool(296LL, 1819767637LL);
+    v3 = (struct tagBWL *)v15;
+    if ( !v15 )
       return 0LL;
-    *(_QWORD *)(v9 + 16) = v9 + 280;
+    *(_QWORD *)(v15 + 16) = v15 + 280;
   }
-  *((_QWORD *)v10 + 3) = a3;
-  for ( *((_QWORD *)v10 + 1) = (char *)v10 + 32; this; this = (ShellWindowManagement *)*((_QWORD *)this + 11) )
+  *((_QWORD *)v3 + 3) = a3;
+  for ( *((_QWORD *)v3 + 1) = (char *)v3 + 32; a1; a1 = (struct tagWND *)*((_QWORD *)a1 + 11) )
   {
-    v11 = *((_QWORD *)v10 + 3);
-    if ( (v7 & 0x10) == 0
-      || (v12 = *(_DWORD *)(*((_QWORD *)this + 5) + 236LL), (unsigned int)(v12 - 1) <= 1)
-      || v12 == 16 )
+    v7 = *((_QWORD *)v3 + 3);
+    if ( (a2 & 0x20) == 0
+      || IsNonImmersiveBand((__int64)a1)
+      || (a2 & 0x10) != 0 && (*(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) & 0x1000000) != 0 )
     {
-      if ( (v7 & 0x20) == 0
-        || (v20 = *((_QWORD *)this + 5), (*(_BYTE *)(v20 + 31) & 0x11) != 0x10)
-        || (*(_BYTE *)(v20 + 20) & 0x40) != 0
-        || !ShellWindowManagement::EligibleWindow(this, a2) )
+      if ( (a2 & 0x40) == 0
+        || (v16 = *((_QWORD *)a1 + 5), (*(_BYTE *)(v16 + 31) & 0x11) != 0x10)
+        || (*(_BYTE *)(v16 + 20) & 0x40) != 0
+        || !ShellWindowManagement::BehaviorEnabled(*((ShellWindowManagement **)a1 + 3), (const struct tagDESKTOP *)0xFF)
+        || !anonymous_namespace_::EligibleWindow(a1, 0) )
       {
-        if ( !v11 || v11 == *((_QWORD *)this + 2) )
+        if ( !v7 || v7 == *((_QWORD *)a1 + 2) )
         {
-          **((_QWORD **)v10 + 1) = *(_QWORD *)this;
-          *((_QWORD *)v10 + 1) += 8LL;
-          v13 = *((_QWORD *)v10 + 1);
-          if ( v13 == *((_QWORD *)v10 + 2) )
+          **((_QWORD **)v3 + 1) = *(_QWORD *)a1;
+          *((_QWORD *)v3 + 1) += 8LL;
+          v10 = *((_QWORD *)v3 + 1);
+          if ( v10 == *((_QWORD *)v3 + 2) )
           {
-            v17 = v13 - (_QWORD)v10;
-            v18 = UserReAllocPool(v10, (unsigned int)v17 + 8LL, (unsigned int)v17 + 72LL, 1819767637LL);
-            if ( !v18 )
+            v11 = v10 - (_QWORD)v3;
+            v12 = UserReAllocPool(v3, (unsigned int)v11 + 8LL, (unsigned int)v11 + 72LL, 1819767637LL);
+            if ( !v12 )
               break;
-            v19 = v18 + v17;
-            v10 = (struct tagBWL *)v18;
-            *(_QWORD *)(v18 + 8) = v19;
-            *(_QWORD *)(v18 + 16) = v19 + 64;
+            v13 = v12 + v11;
+            v3 = (struct tagBWL *)v12;
+            *(_QWORD *)(v12 + 8) = v13;
+            *(_QWORD *)(v12 + 16) = v13 + 64;
           }
         }
       }
     }
-    if ( (v7 & 1) != 0 )
+    if ( (a2 & 1) != 0 )
     {
-      a2 = (const struct tagWND *)*((_QWORD *)this + 14);
-      if ( a2 )
+      v14 = (struct tagWND *)*((_QWORD *)a1 + 14);
+      if ( v14 )
       {
-        v10 = InternalBuildHwndList(v10, a2, 3u);
-        if ( *((_QWORD *)v10 + 1) >= *((_QWORD *)v10 + 2) )
+        v3 = InternalBuildHwndList(v3, v14, 3u);
+        if ( *((_QWORD *)v3 + 1) >= *((_QWORD *)v3 + 2) )
           break;
       }
     }
-    if ( (v7 & 2) == 0 )
+    if ( (a2 & 2) == 0 )
       break;
   }
-  v14 = (_QWORD *)*((_QWORD *)v10 + 1);
-  if ( (unsigned __int64)v14 >= *((_QWORD *)v10 + 2) )
+  v8 = (_QWORD *)*((_QWORD *)v3 + 1);
+  if ( (unsigned __int64)v8 >= *((_QWORD *)v3 + 2) )
   {
-    Win32FreePool(v10);
+    Win32FreePool(v3);
     return 0LL;
   }
-  *v14 = 1LL;
-  if ( (v7 & 8) != 0 )
-    v10 = InternalRebuildHwndListForIMEClass(v10);
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v4 = *ThreadWin32Thread;
-  *((_QWORD *)v10 + 3) = v4;
-  if ( a4 )
-  {
-    *((_QWORD *)v10 + 3) = gptiCurrent;
-    *(_QWORD *)v10 = gpbwlList;
-    gpbwlList = v10;
-  }
-  else
-  {
-    *(_QWORD *)v10 = 3LL;
-  }
-  return v10;
+  *v8 = 1LL;
+  if ( (a2 & 8) != 0 )
+    v3 = InternalRebuildHwndListForIMEClass(v3);
+  result = v3;
+  *((_QWORD *)v3 + 3) = gptiCurrent;
+  *(_QWORD *)v3 = gpbwlList;
+  gpbwlList = v3;
+  return result;
 }

@@ -1,12 +1,11 @@
 /*
- * XREFs of ?GetPointerCaptureInt@CTouchProcessor@@AEAAPEAVCInputDest@@PEAUCPointerCaptureInfo@@PEAH@Z @ 0x1C00E4292
+ * XREFs of ?GetPointerCaptureInt@CTouchProcessor@@AEAAPEAVCInputDest@@PEAUCPointerCaptureInfo@@PEAH@Z @ 0x1C0191FB0
  * Callers:
- *     ?GetPointerCapture@CTouchProcessor@@AEAAX_KHPEAPEAVCInputDest@@PEAH@Z @ 0x1C00E417A (-GetPointerCapture@CTouchProcessor@@AEAAX_KHPEAPEAVCInputDest@@PEAH@Z.c)
- *     ?GetPointerCapture@CTouchProcessor@@QEAAX_KHPEAPEAXPEAH@Z @ 0x1C00E41F0 (-GetPointerCapture@CTouchProcessor@@QEAAX_KHPEAPEAXPEAH@Z.c)
+ *     ?GetPointerCapture@CTouchProcessor@@AEAAX_KHPEAPEAVCInputDest@@PEAH@Z @ 0x1C0191E34 (-GetPointerCapture@CTouchProcessor@@AEAAX_KHPEAPEAVCInputDest@@PEAH@Z.c)
+ *     ?GetPointerCapture@CTouchProcessor@@QEAAX_KHPEAPEAXPEAH@Z @ 0x1C0191EE0 (-GetPointerCapture@CTouchProcessor@@QEAAX_KHPEAPEAXPEAH@Z.c)
  * Callees:
- *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C0045E80 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
- *     ?TestWindowFlag@CInputDest@@QEBA_NK@Z @ 0x1C01B59F8 (-TestWindowFlag@CInputDest@@QEBA_NK@Z.c)
- *     ?ReleasePointerCaptureInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureInfo@@@Z @ 0x1C01D2974 (-ReleasePointerCaptureInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureInfo@@@Z.c)
+ *     ?TestWindowFlag@CInputDest@@QEBA_NK@Z @ 0x1C009D0F8 (-TestWindowFlag@CInputDest@@QEBA_NK@Z.c)
+ *     ?ReleasePointerCaptureInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureInfo@@@Z @ 0x1C019B1E8 (-ReleasePointerCaptureInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureInfo@@@Z.c)
  */
 
 struct CInputDest *__fastcall CTouchProcessor::GetPointerCaptureInt(
@@ -14,17 +13,15 @@ struct CInputDest *__fastcall CTouchProcessor::GetPointerCaptureInt(
         struct CPointerCaptureInfo *a2,
         int *a3)
 {
-  CInputDest *v3; // r10
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  CInputDest *v11; // r10
+  CInputDest *v3; // r11
+  int v5; // r10d
+  CInputDest *v8; // r11
 
   v3 = (struct CPointerCaptureInfo *)((char *)a2 + 8);
-  if ( *((_DWORD *)a2 + 2) && (CInputDest::TestWindowFlag(v3, 0x480u) || CInputDest::TestWindowFlag(v11, 0x380u)) )
+  v5 = *((_DWORD *)a2 + 2);
+  if ( v5 && (CInputDest::TestWindowFlag(v3, 1152) || CInputDest::TestWindowFlag(v8, 896)) )
   {
-    if ( IS_USERCRIT_OWNED_EXCLUSIVE(v8, v7, v9, v10) )
+    if ( ExIsResourceAcquiredExclusiveLite(gpresUser) == 1 )
       CTouchProcessor::ReleasePointerCaptureInt(this, a2);
     if ( a3 )
       *a3 = 0;
@@ -33,7 +30,10 @@ struct CInputDest *__fastcall CTouchProcessor::GetPointerCaptureInt(
   else
   {
     if ( a3 )
+    {
       *a3 = *((_DWORD *)a2 + 32);
-    return (struct CInputDest *)((unsigned __int64)v3 & -(__int64)(*(_DWORD *)v3 != 0));
+      v5 = *(_DWORD *)v3;
+    }
+    return (struct CInputDest *)((unsigned __int64)v3 & -(__int64)(v5 != 0));
   }
 }

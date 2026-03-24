@@ -1,11 +1,11 @@
 /*
- * XREFs of EmonReleaseProfileResourcesInternal @ 0x1405213F0
+ * XREFs of EmonReleaseProfileResourcesInternal @ 0x1404D41E0
  * Callers:
- *     EmonAllocateResources @ 0x14051FFF8 (EmonAllocateResources.c)
- *     EmonReleaseProfileResources @ 0x140521310 (EmonReleaseProfileResources.c)
+ *     EmonAllocateResources @ 0x1404D31B8 (EmonAllocateResources.c)
+ *     EmonReleaseProfileResources @ 0x1404D4100 (EmonReleaseProfileResources.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     EmonReleaseReservedCounters @ 0x1405214A8 (EmonReleaseReservedCounters.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     EmonReleaseReservedCounters @ 0x1404D4298 (EmonReleaseReservedCounters.c)
  */
 
 __int64 __fastcall EmonReleaseProfileResourcesInternal(__int64 a1)

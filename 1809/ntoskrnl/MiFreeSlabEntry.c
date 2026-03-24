@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFreeSlabEntry @ 0x1402C2228
+ * XREFs of MiFreeSlabEntry @ 0x1402C2328
  * Callers:
- *     MiFreeSlabEntries @ 0x1402C20D8 (MiFreeSlabEntries.c)
+ *     MiFreeSlabEntries @ 0x1402C21D8 (MiFreeSlabEntries.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiFreeLargePageMemory @ 0x140026200 (MiFreeLargePageMemory.c)
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x1402C2C3C (MiUpdateSlabPagePlaceholderState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x1402C2D3C (MiUpdateSlabPagePlaceholderState.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

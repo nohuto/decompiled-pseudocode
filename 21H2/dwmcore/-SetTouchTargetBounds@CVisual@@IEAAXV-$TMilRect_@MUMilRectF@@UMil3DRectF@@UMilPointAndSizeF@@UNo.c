@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetTouchTargetBounds@CVisual@@IEAAXV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800657D8
+ * XREFs of ?SetTouchTargetBounds@CVisual@@IEAAXV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800C9988
  * Callers:
- *     ?ProcessSetTouchTargetRect@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETTOUCHTARGETRECT@@@Z @ 0x1800675B4 (-ProcessSetTouchTargetRect@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETTOUCHTARGET.c)
+ *     ?ProcessSetTouchTargetRect@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETTOUCHTARGETRECT@@@Z @ 0x1800C9820 (-ProcessSetTouchTargetRect@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETTOUCHTARGET.c)
  * Callees:
- *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x180045318 (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
- *     _Init_thread_footer @ 0x180101100 (_Init_thread_footer.c)
- *     _Init_thread_header @ 0x180101168 (_Init_thread_header.c)
+ *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x1800634E0 (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
+ *     _Init_thread_footer @ 0x1800E7910 (_Init_thread_footer.c)
+ *     _Init_thread_header @ 0x1800E7978 (_Init_thread_header.c)
  */
 
 void __fastcall CVisual::SetTouchTargetBounds(__int64 a1, _QWORD *a2)
@@ -18,11 +18,11 @@ void __fastcall CVisual::SetTouchTargetBounds(__int64 a1, _QWORD *a2)
     Init_thread_header(&__TSS0__1__SetTouchTargetBounds_CVisual__IEAAXV__TMilRect__MUMilRectF__UMil3DRectF__UMilPointAndSizeF__UNotNeeded_RectUniqueness_____Z_4HA);
     if ( __TSS0__1__SetTouchTargetBounds_CVisual__IEAAXV__TMilRect__MUMilRectF__UMil3DRectF__UMilPointAndSizeF__UNotNeeded_RectUniqueness_____Z_4HA == -1 )
     {
-      `CVisual::SetTouchTargetBounds'::`2'::sc_defaultValue = *(_OWORD *)&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
+      `CVisual::SetTouchTargetBounds'::`2'::sc_defaultValue = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
       Init_thread_footer(&__TSS0__1__SetTouchTargetBounds_CVisual__IEAAXV__TMilRect__MUMilRectF__UMil3DRectF__UMilPointAndSizeF__UNotNeeded_RectUniqueness_____Z_4HA);
     }
   }
-  v4 = (CSparseStorage *)(a1 + 224);
+  v4 = (CSparseStorage *)(a1 + 216);
   v5 = *a2 - `CVisual::SetTouchTargetBounds'::`2'::sc_defaultValue;
   if ( *a2 == (_QWORD)`CVisual::SetTouchTargetBounds'::`2'::sc_defaultValue )
     v5 = a2[1] - *((_QWORD *)&`CVisual::SetTouchTargetBounds'::`2'::sc_defaultValue + 1);

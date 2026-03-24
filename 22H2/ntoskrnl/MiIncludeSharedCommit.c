@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIncludeSharedCommit @ 0x1402A0DB0
+ * XREFs of MiIncludeSharedCommit @ 0x1402955B0
  * Callers:
- *     MiReleaseControlAreaCharges @ 0x1402A0CF4 (MiReleaseControlAreaCharges.c)
- *     MiInsertSharedCommitNode @ 0x140722090 (MiInsertSharedCommitNode.c)
- *     MiRemoveSharedCommitNode @ 0x140722410 (MiRemoveSharedCommitNode.c)
- *     MiUpdateProcessSharedCommit @ 0x1407487B8 (MiUpdateProcessSharedCommit.c)
- *     MiVadHasSharedCommit @ 0x140A43E08 (MiVadHasSharedCommit.c)
+ *     MiReleaseControlAreaCharges @ 0x140294C48 (MiReleaseControlAreaCharges.c)
+ *     MiRemoveSharedCommitNode @ 0x140638C00 (MiRemoveSharedCommitNode.c)
+ *     MiInsertSharedCommitNode @ 0x140638E70 (MiInsertSharedCommitNode.c)
+ *     MiUpdateProcessSharedCommit @ 0x1406817F4 (MiUpdateProcessSharedCommit.c)
+ *     MiVadHasSharedCommit @ 0x1408D9A80 (MiVadHasSharedCommit.c)
  * Callees:
  *     <none>
  */
@@ -13,18 +13,18 @@
 __int64 __fastcall MiIncludeSharedCommit(__int64 a1)
 {
   int v1; // eax
-  int v3; // edx
+  int v2; // edx
   _QWORD *i; // rax
 
   v1 = *(_DWORD *)(a1 + 56);
   if ( (v1 & 0x20) != 0 )
     return 1LL;
-  if ( (v1 & 0x400) == 0 && a1 != qword_140C65920 && !*(_QWORD *)(a1 + 64) )
+  if ( (v1 & 0x400) == 0 && a1 != qword_140C4CC28 && !*(_QWORD *)(a1 + 64) )
   {
-    v3 = 0;
-    for ( i = &unk_140C658B8; a1 != *i; i += 8 )
+    v2 = 0;
+    for ( i = &unk_140C4CBC0; a1 != *i; i += 8 )
     {
-      if ( ++v3 )
+      if ( ++v2 )
         return 1LL;
     }
   }

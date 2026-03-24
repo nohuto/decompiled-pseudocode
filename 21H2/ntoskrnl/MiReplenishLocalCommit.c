@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReplenishLocalCommit @ 0x140240348
+ * XREFs of MiReplenishLocalCommit @ 0x1402BA3E4
  * Callers:
- *     MiChargeCommit @ 0x14032A4B0 (MiChargeCommit.c)
+ *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
  * Callees:
- *     MiSyncCommitSignals @ 0x1403CF698 (MiSyncCommitSignals.c)
+ *     MiSyncCommitSignals @ 0x1403BF928 (MiSyncCommitSignals.c)
  */
 
 signed __int64 __fastcall MiReplenishLocalCommit(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -19,28 +19,28 @@ signed __int64 __fastcall MiReplenishLocalCommit(__int64 a1, __int64 a2, unsigne
   unsigned __int64 v15; // rdx
 
   v5 = a3 + a4;
-  result = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 17256), a3 + a4, a3);
+  result = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 7464), a3 + a4, a3);
   if ( a3 == result )
   {
-    v9 = *(_QWORD *)(a1 + 16032);
-    if ( v5 >= v9 && a3 < v9 || (v10 = *(_QWORD *)(a1 + 16024), v5 >= v10) && a3 < v10 )
+    v9 = *(_QWORD *)(a1 + 6240);
+    if ( v5 >= v9 && a3 < v9 || (v10 = *(_QWORD *)(a1 + 6232), v5 >= v10) && a3 < v10 )
       MiSyncCommitSignals(a1, 0LL);
-    if ( v5 > *(_QWORD *)(a1 + 16000) )
-      *(_QWORD *)(a1 + 16000) = v5;
-    _m_prefetchw((const void *)(a2 + 34456));
-    v11 = *(unsigned int *)(a2 + 34456);
+    if ( v5 > *(_QWORD *)(a1 + 6208) )
+      *(_QWORD *)(a1 + 6208) = v5;
+    _m_prefetchw((const void *)(a2 + 33560));
+    v11 = *(unsigned int *)(a2 + 33560);
     for ( i = a4 + v11; i <= 0x200; i = (int)result + a4 )
     {
-      result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a2 + 34456), v11 + a4, v11);
+      result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a2 + 33560), v11 + a4, v11);
       if ( (int)result == v11 )
         return result;
       v11 = (int)result;
     }
-    v13 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 17256), -a4);
-    v14 = *(_QWORD *)(a1 + 16032);
+    v13 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7464), -a4);
+    v14 = *(_QWORD *)(a1 + 6240);
     if ( v13 >= v14 && v13 - a4 < v14 )
       return MiSyncCommitSignals(a1, 0LL);
-    v15 = *(_QWORD *)(a1 + 16024);
+    v15 = *(_QWORD *)(a1 + 6232);
     result = v13 - a4;
     if ( v13 - a4 < v15 && v13 >= v15 )
       return MiSyncCommitSignals(a1, 0LL);

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwDebugActiveProcess @ 0x1401B9A70
+ * XREFs of ZwDebugActiveProcess @ 0x1401B9A90
  * Callers:
  *     <none>
  * Callees:

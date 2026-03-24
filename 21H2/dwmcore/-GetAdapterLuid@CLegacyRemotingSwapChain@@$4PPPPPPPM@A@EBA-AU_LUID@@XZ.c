@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAdapterLuid@CLegacyRemotingSwapChain@@$4PPPPPPPM@A@EBA?AU_LUID@@XZ @ 0x18010AA90
+ * XREFs of ?GetAdapterLuid@CLegacyRemotingSwapChain@@$4PPPPPPPM@A@EBA?AU_LUID@@XZ @ 0x1800F8420
  * Callers:
  *     <none>
  * Callees:

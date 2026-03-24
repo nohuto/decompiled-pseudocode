@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpUnlockHandleDatabaseEntry @ 0x14098485C
+ * XREFs of ObpUnlockHandleDatabaseEntry @ 0x1408DD0B8
  * Callers:
- *     ObpIncrementHandleCountEx @ 0x140733B40 (ObpIncrementHandleCountEx.c)
+ *     ObpIncrementHandleCountEx @ 0x1406F5F60 (ObpIncrementHandleCountEx.c)
  * Callees:
- *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x1402F35B8 (OBJECT_HEADER_TO_HANDLE_INFO.c)
+ *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x1402642D4 (OBJECT_HEADER_TO_HANDLE_INFO.c)
  */
 
-char __fastcall ObpUnlockHandleDatabaseEntry(__int64 a1)
+__int64 __fastcall ObpUnlockHandleDatabaseEntry(__int64 a1)
 {
-  __int64 v1; // rax
+  __int64 result; // rax
   __int64 v2; // r10
   __int64 v3; // r8
   _DWORD *v4; // r9
@@ -16,44 +16,43 @@ char __fastcall ObpUnlockHandleDatabaseEntry(__int64 a1)
   int v6; // ecx
   char v7; // al
 
-  v1 = OBJECT_HEADER_TO_HANDLE_INFO(a1);
-  v4 = (_DWORD *)v1;
+  result = OBJECT_HEADER_TO_HANDLE_INFO(a1);
+  v4 = (_DWORD *)result;
   if ( (*(_BYTE *)(v3 + 27) & 0x40) != 0 )
   {
-LABEL_9:
-    --*(_BYTE *)(v1 + 11);
-    goto LABEL_10;
+LABEL_11:
+    --*(_BYTE *)(result + 11);
+    goto LABEL_12;
   }
-  v5 = *(int **)v1;
+  v5 = *(int **)result;
   v6 = *v5;
   v4 = v5 + 2;
-  v1 = 0LL;
-  if ( v6 )
+  result = 0LL;
+  if ( !v6 )
+    goto LABEL_12;
+  while ( *(_QWORD *)v4 != v2 )
   {
-    do
-    {
-      if ( *(_QWORD *)v4 == v2 )
-      {
-        v7 = *((_BYTE *)v4 + 11);
-        if ( v7 != -1 )
-        {
-          LOBYTE(v1) = v7 - 1;
-          *((_BYTE *)v4 + 11) = v1;
-          goto LABEL_10;
-        }
-        v1 = (__int64)v4;
-      }
-      v4 += 4;
-      --v6;
-    }
-    while ( v6 );
-    if ( !v1 )
-      goto LABEL_10;
-    v4 = (_DWORD *)v1;
-    goto LABEL_9;
+LABEL_6:
+    v4 += 4;
+    if ( !--v6 )
+      goto LABEL_9;
   }
-LABEL_10:
+  v7 = *((_BYTE *)v4 + 11);
+  if ( v7 == -1 )
+  {
+    result = (__int64)v4;
+    goto LABEL_6;
+  }
+  *((_BYTE *)v4 + 11) = v7 - 1;
+  result = 0LL;
+LABEL_9:
+  if ( result )
+  {
+    v4 = (_DWORD *)result;
+    goto LABEL_11;
+  }
+LABEL_12:
   if ( !*((_BYTE *)v4 + 11) && (v4[2] & 0xFFFFFF) == 0 )
     *(_QWORD *)v4 = 0LL;
-  return v1;
+  return result;
 }

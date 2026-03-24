@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEtAppIdDereference @ 0x1407B2FD0
+ * XREFs of PopEtAppIdDereference @ 0x14067D864
  * Callers:
- *     PoEnergyContextCleanup @ 0x1407B12D0 (PoEnergyContextCleanup.c)
- *     PopEtGetProcessAppId @ 0x1407B16E0 (PopEtGetProcessAppId.c)
- *     PopEtAggregateKeyCleanup @ 0x1407B2F88 (PopEtAggregateKeyCleanup.c)
+ *     PoEnergyContextCleanup @ 0x14061410C (PoEnergyContextCleanup.c)
+ *     PopEtGetProcessAppId @ 0x14067C448 (PopEtGetProcessAppId.c)
+ *     PopEtAggregateKeyCleanup @ 0x14067D78C (PopEtAggregateKeyCleanup.c)
  * Callees:
- *     RtlInternEntryDereference @ 0x1407B3090 (RtlInternEntryDereference.c)
+ *     RtlInternEntryDereference @ 0x14067D894 (RtlInternEntryDereference.c)
  */
 
 __int64 __fastcall PopEtAppIdDereference(__int64 a1)

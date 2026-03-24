@@ -1,16 +1,15 @@
 /*
- * XREFs of ?RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z @ 0x1C0366F90
+ * XREFs of ?RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z @ 0x1C02B401C
  * Callers:
- *     ?Initialize@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C02E20F0 (-Initialize@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJPEAVDXGVMBUSCHANNEL@@@Z.c)
- *     ?CreateVmBusGuestSubscribers@DXGVAILGUESTOBJECT@@IEAAJXZ @ 0x1C036144C (-CreateVmBusGuestSubscribers@DXGVAILGUESTOBJECT@@IEAAJXZ.c)
- *     ?CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C03615BC (-CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ.c)
+ *     ?Initialize@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C028D508 (-Initialize@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJPEAVDXGVMBUSCHANNEL@@@Z.c)
+ *     ?CreateVmBusGuestSubscribers@DXGVAILGUESTOBJECT@@IEAAJXZ @ 0x1C02B5208 (-CreateVmBusGuestSubscribers@DXGVAILGUESTOBJECT@@IEAAJXZ.c)
+ *     ?CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C02B53C0 (-CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Create@DXGCHANNELENDPOINTPROXY@@SAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAVDXGVMBUSCHANNEL@@PEAPEAV1@@Z @ 0x1C0365F38 (-Create@DXGCHANNELENDPOINTPROXY@@SAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAVDXGVMBUSCHANNEL@@PEAPEAV1@@Z.c)
- *     ?ProxyFromSubscriberTag@DXGVMBUSCHANNEL@@AEAAJIPEAPEAVDXGCHANNELENDPOINTPROXY@@@Z @ 0x1C0366EF8 (-ProxyFromSubscriberTag@DXGVMBUSCHANNEL@@AEAAJIPEAPEAVDXGCHANNELENDPOINTPROXY@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Create@DXGCHANNELENDPOINTPROXY@@SAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAVDXGVMBUSCHANNEL@@PEAPEAV1@@Z @ 0x1C02B3150 (-Create@DXGCHANNELENDPOINTPROXY@@SAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAVDXGVMBUSCHANNEL@@PEAPEAV1@@Z.c)
+ *     ?ProxyFromSubscriberTag@DXGVMBUSCHANNEL@@AEAAJIPEAPEAVDXGCHANNELENDPOINTPROXY@@@Z @ 0x1C02B3F84 (-ProxyFromSubscriberTag@DXGVMBUSCHANNEL@@AEAAJIPEAPEAVDXGCHANNELENDPOINTPROXY@@@Z.c)
  */
 
 __int64 __fastcall DXGVMBUSCHANNEL::RegisterSubscriber(
@@ -20,63 +19,77 @@ __int64 __fastcall DXGVMBUSCHANNEL::RegisterSubscriber(
         struct IDXGCHANNEL **a4)
 {
   __int64 v5; // rsi
-  unsigned int v8; // edi
+  __int64 v8; // rdi
   int v9; // eax
-  signed __int32 v10; // eax
-  signed __int32 v11; // ett
-  struct DXGCHANNELENDPOINTPROXY *v12; // rcx
-  char *v13; // rax
-  char **v14; // rdx
-  char *v15; // rbx
-  bool v16; // zf
-  struct DXGCHANNELENDPOINTPROXY *v18; // [rsp+50h] [rbp-28h] BYREF
-  _BYTE v19[24]; // [rsp+58h] [rbp-20h] BYREF
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  signed __int32 v15; // eax
+  signed __int32 v16; // ett
+  __int64 v17; // rax
+  struct DXGCHANNELENDPOINTPROXY *v18; // rcx
+  char *v19; // rax
+  char **v20; // rdx
+  char *v21; // rbx
+  bool v22; // zf
+  _QWORD *v23; // rax
+  struct DXGCHANNELENDPOINTPROXY *v25; // [rsp+20h] [rbp-28h] BYREF
+  _BYTE v26[32]; // [rsp+28h] [rbp-20h] BYREF
 
-  v18 = 0LL;
+  v25 = 0LL;
   v5 = a2;
-  v8 = -1073740008;
-  if ( (unsigned int)DXGVMBUSCHANNEL::ProxyFromSubscriberTag(this, a2, &v18) == -1073741275 )
+  LODWORD(v8) = -1073740008;
+  if ( (unsigned int)DXGVMBUSCHANNEL::ProxyFromSubscriberTag(this, a2, &v25) == -1073741275 )
   {
-    v9 = DXGCHANNELENDPOINTPROXY::Create(v5, a3, this, &v18);
+    v9 = DXGCHANNELENDPOINTPROXY::Create(v5, a3, this, &v25);
     v8 = v9;
     if ( v9 < 0 )
     {
-      WdLogSingleEntry4(3LL, v5, v9, 524LL, this);
+      v23 = (_QWORD *)WdLogNewEntry5_WdWarning(v11, v10, v12);
+      v23[3] = v5;
+      v23[4] = v8;
+      v23[5] = 524LL;
+      v23[6] = this;
+      WdLogEvent5_WdWarning(v23);
     }
     else
     {
-      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v19, (DXGVMBUSCHANNEL *)((char *)this + 72), 1);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v19);
+      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v26, (DXGVMBUSCHANNEL *)((char *)this + 72), 1);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v26);
       _m_prefetchw((char *)this + 8);
-      v10 = *((_DWORD *)this + 2);
-      while ( v10 )
+      v15 = *((_DWORD *)this + 2);
+      while ( v15 )
       {
-        v11 = v10;
-        v10 = _InterlockedCompareExchange((volatile signed __int32 *)this + 2, v10 + 1, v10);
-        if ( v11 == v10 )
+        v14 = (unsigned int)(v15 + 1);
+        v16 = v15;
+        v15 = _InterlockedCompareExchange((volatile signed __int32 *)this + 2, v14, v15);
+        if ( v16 == v15 )
           goto LABEL_7;
       }
-      WdLogSingleEntry1(1LL, 513LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"b", 513LL, 0LL, 0LL, 0LL, 0LL);
+      v17 = WdLogNewEntry5_WdAssertion(v14, v13);
+      *(_QWORD *)(v17 + 24) = 513LL;
+      WdLogEvent5_WdAssertion(v17);
 LABEL_7:
-      v12 = v18;
-      if ( v18 )
-        v13 = (char *)v18 + 16;
+      v18 = v25;
+      if ( v25 )
+        v19 = (char *)v25 + 16;
       else
-        v13 = 0LL;
-      v14 = (char **)*((_QWORD *)this + 7);
-      v15 = (char *)this + 48;
-      if ( *v14 != v15 )
+        v19 = 0LL;
+      v20 = (char **)*((_QWORD *)this + 7);
+      v21 = (char *)this + 48;
+      if ( *v20 != v21 )
         __fastfail(3u);
-      *(_QWORD *)v13 = v15;
-      *((_QWORD *)v13 + 1) = v14;
-      *v14 = v13;
-      v16 = v19[8] == 0;
-      *((_QWORD *)v15 + 1) = v13;
-      *a4 = v12;
-      if ( !v16 )
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v19);
+      *(_QWORD *)v19 = v21;
+      *((_QWORD *)v19 + 1) = v20;
+      *v20 = v19;
+      v22 = v26[8] == 0;
+      *((_QWORD *)v21 + 1) = v19;
+      *a4 = v18;
+      if ( !v22 )
+        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v26, (__int64)v20);
     }
   }
-  return v8;
+  return (unsigned int)v8;
 }

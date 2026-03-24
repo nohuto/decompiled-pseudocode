@@ -1,1 +1,17 @@
-/*\n * XREFs of __GSHandlerCheckCommon @ 0x1C0002970\n * Callers:\n *     __GSHandlerCheck @ 0x1C0002950 (__GSHandlerCheck.c)\n * Callees:\n *     <none>\n */\n\nchar __fastcall _GSHandlerCheckCommon(__int64 a1, __int64 a2)\n{\n  char result; // al\n\n  result = *(_BYTE *)(*(_QWORD *)(a2 + 8) + *(unsigned int *)(*(_QWORD *)(a2 + 16) + 8LL) + 3LL);\n  if ( (result & 0xF) != 0 )\n    return *(_BYTE *)(*(_QWORD *)(a2 + 8) + *(unsigned int *)(*(_QWORD *)(a2 + 16) + 8LL) + 3LL) & 0xF0;\n  return result;\n}\n
+/*
+ * XREFs of __GSHandlerCheckCommon @ 0x1C0002970
+ * Callers:
+ *     __GSHandlerCheck @ 0x1C0002950 (__GSHandlerCheck.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall _GSHandlerCheckCommon(__int64 a1, __int64 a2)
+{
+  char result; // al
+
+  result = *(_BYTE *)(*(_QWORD *)(a2 + 8) + *(unsigned int *)(*(_QWORD *)(a2 + 16) + 8LL) + 3LL);
+  if ( (result & 0xF) != 0 )
+    return *(_BYTE *)(*(_QWORD *)(a2 + 8) + *(unsigned int *)(*(_QWORD *)(a2 + 16) + 8LL) + 3LL) & 0xF0;
+  return result;
+}

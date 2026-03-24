@@ -1,33 +1,33 @@
 /*
- * XREFs of ?RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z @ 0x1C021AE14
+ * XREFs of ?RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z @ 0x1C019CF40
  * Callers:
- *     ?ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C017DC5C (-ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FC874 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
- *     ?RecordFeatureUsageWddmVersion@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0219498 (-RecordFeatureUsageWddmVersion@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0219510 (-CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS.c)
- *     MonitorSetAppOverride @ 0x1C03C4C54 (MonitorSetAppOverride.c)
+ *     ?ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C013B690 (-ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C018F684 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?RecordFeatureUsageWddmVersion@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0191054 (-RecordFeatureUsageWddmVersion@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C019450C (-CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS.c)
+ *     MonitorSetAppOverride @ 0x1C02F4D98 (MonitorSetAppOverride.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall DXGGLOBAL::RecordFeatureUsage(__int64 a1, int a2, int a3)
 {
-  __int64 v3; // rdi
+  __int64 v3; // rsi
   __int64 v5; // rcx
   const wchar_t *v6; // rax
-  NTSTATUS v7; // esi
+  NTSTATUS v7; // edi
   wchar_t *v8; // rdx
-  __int64 v9; // rcx
-  wchar_t *v10; // rax
-  __int128 v12; // [rsp+48h] [rbp-19h] BYREF
-  struct _UNICODE_STRING ValueName; // [rsp+58h] [rbp-9h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp+7h] BYREF
-  int Data; // [rsp+D8h] [rbp+77h] BYREF
-  void *KeyHandle; // [rsp+E0h] [rbp+7Fh] BYREF
+  __int64 v9; // rax
+  wchar_t *v10; // rcx
+  __int128 v12; // [rsp+50h] [rbp-21h] BYREF
+  struct _UNICODE_STRING ValueName; // [rsp+60h] [rbp-11h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-1h] BYREF
+  int Data; // [rsp+E8h] [rbp+77h] BYREF
+  void *KeyHandle; // [rsp+F0h] [rbp+7Fh] BYREF
 
   Data = a3;
   v3 = a2;
-  if ( (unsigned int)(a2 - 10) > 1 && *(_BYTE *)(a2 + a1 + 304792) )
+  if ( (unsigned int)(a2 - 10) > 1 && *(_BYTE *)(a2 + a1 + 304576) )
     return 0LL;
   KeyHandle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
@@ -35,16 +35,20 @@ __int64 __fastcall DXGGLOBAL::RecordFeatureUsage(__int64 a1, int a2, int a3)
   v12 = 0LL;
   v5 = 0x7FFFLL;
   v6 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\FeatureSetUsage";
-  while ( *v6 )
+  do
   {
+    if ( !*v6 )
+      break;
     ++v6;
-    if ( !--v5 )
-      goto LABEL_8;
+    --v5;
   }
-  *((_QWORD *)&v12 + 1) = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\FeatureSetUsage";
-  LOWORD(v12) = 2 * (0x7FFF - v5);
-  WORD1(v12) = v12 + 2;
-LABEL_8:
+  while ( v5 );
+  if ( v5 )
+  {
+    *((_QWORD *)&v12 + 1) = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\FeatureSetUsage";
+    LOWORD(v12) = 2 * (0x7FFF - v5);
+    WORD1(v12) = v12 + 2;
+  }
   ObjectAttributes.ObjectName = (PUNICODE_STRING)&v12;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
@@ -54,27 +58,31 @@ LABEL_8:
   if ( !v7 )
   {
     _mm_lfence();
-    v8 = off_1C008DB90[v3];
+    v8 = off_1C0072A40[v3];
     ValueName = 0LL;
     if ( v8 )
     {
       v9 = 0x7FFFLL;
       v10 = v8;
-      while ( *v10 )
+      do
       {
+        if ( !*v10 )
+          break;
         ++v10;
-        if ( !--v9 )
-          goto LABEL_15;
+        --v9;
       }
-      ValueName.Buffer = v8;
-      ValueName.Length = 2 * (0x7FFF - v9);
-      ValueName.MaximumLength = ValueName.Length + 2;
+      while ( v9 );
+      if ( v9 )
+      {
+        ValueName.Buffer = v8;
+        ValueName.Length = 2 * (0x7FFF - v9);
+        ValueName.MaximumLength = ValueName.Length + 2;
+      }
     }
-LABEL_15:
     v7 = ZwSetValueKey(KeyHandle, &ValueName, 0, 4u, &Data, 4u);
     ZwClose(KeyHandle);
   }
   if ( v7 >= 0 )
-    *(_BYTE *)(v3 + a1 + 304792) = 1;
+    *(_BYTE *)(v3 + a1 + 304576) = 1;
   return (unsigned int)v7;
 }

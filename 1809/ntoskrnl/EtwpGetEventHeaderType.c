@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpGetEventHeaderType @ 0x1400CC1C0
+ * XREFs of EtwpGetEventHeaderType @ 0x1400CC1E0
  * Callers:
- *     NtTraceEvent @ 0x1400CB490 (NtTraceEvent.c)
+ *     NtTraceEvent @ 0x1400CB4B0 (NtTraceEvent.c)
  * Callees:
  *     <none>
  */

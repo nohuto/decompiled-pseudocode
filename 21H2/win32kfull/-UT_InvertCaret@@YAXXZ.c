@@ -1,51 +1,47 @@
 /*
- * XREFs of ?UT_InvertCaret@@YAXXZ @ 0x1C00C2950
+ * XREFs of ?UT_InvertCaret@@YAXXZ @ 0x1C004500C
  * Callers:
- *     zzzInternalShowCaret @ 0x1C00C2D88 (zzzInternalShowCaret.c)
- *     zzzInternalHideCaret @ 0x1C00C33BC (zzzInternalHideCaret.c)
- *     CaretBlinkProc @ 0x1C00C3720 (CaretBlinkProc.c)
- *     zzzSetCaretPos @ 0x1C010A5AC (zzzSetCaretPos.c)
+ *     CaretBlinkProc @ 0x1C00290B0 (CaretBlinkProc.c)
+ *     zzzSetCaretPos @ 0x1C002B4F0 (zzzSetCaretPos.c)
+ *     zzzInternalHideCaret @ 0x1C0067540 (zzzInternalHideCaret.c)
+ *     zzzInternalShowCaret @ 0x1C006A12C (zzzInternalShowCaret.c)
  * Callees:
- *     NtGdiBitBltInternal @ 0x1C003DD70 (NtGdiBitBltInternal.c)
- *     IsVisible @ 0x1C006C350 (IsVisible.c)
- *     GrePolyPatBlt @ 0x1C00C1D4C (GrePolyPatBlt.c)
- *     _ExcludeUpdateRgn @ 0x1C00C4B2C (_ExcludeUpdateRgn.c)
- *     GreSaveDCInternal @ 0x1C00DE7E8 (GreSaveDCInternal.c)
+ *     _ExcludeUpdateRgn @ 0x1C0043070 (_ExcludeUpdateRgn.c)
+ *     GrePolyPatBlt @ 0x1C0045794 (GrePolyPatBlt.c)
+ *     IsVisible @ 0x1C0068164 (IsVisible.c)
+ *     NtGdiBitBltInternal @ 0x1C0088690 (NtGdiBitBltInternal.c)
+ *     GreSaveDC @ 0x1C008E558 (GreSaveDC.c)
  */
 
 void UT_InvertCaret(void)
 {
   __int64 v0; // rdi
-  struct tagWND *v1; // rbx
-  HDC DC; // rax
+  __int64 v1; // rbx
+  __int64 DC; // rax
   HDC v3; // rsi
   int v4; // ebp
-  unsigned __int64 v5; // rcx
-  __int64 v6; // rbx
-  _DWORD v7[4]; // [rsp+60h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+70h] [rbp-18h]
+  __int64 v5; // rbx
 
   v0 = *(_QWORD *)(gptiCurrent + 432LL);
-  v1 = *(struct tagWND **)(v0 + 296);
+  v1 = *(_QWORD *)(v0 + 296);
   if ( v1 && (unsigned int)IsVisible(*(_QWORD *)(v0 + 296)) )
   {
-    DC = (HDC)_GetDC();
-    v3 = DC;
-    if ( *(_QWORD *)(*((_QWORD *)v1 + 5) + 136LL) )
+    DC = _GetDC();
+    v3 = (HDC)DC;
+    if ( *(_QWORD *)(*(_QWORD *)(v1 + 40) + 136LL) )
     {
       v4 = 1;
-      GreSaveDCInternal(DC);
-      if ( (*(_BYTE *)(*((_QWORD *)v1 + 5) + 21LL) & 1) != 0 )
-        ExcludeUpdateRgn(v3, v1);
+      GreSaveDC(DC);
+      if ( (*(_BYTE *)(*(_QWORD *)(v1 + 40) + 21LL) & 1) != 0 )
+        ExcludeUpdateRgn(v3, (struct tagWND *)v1);
     }
     else
     {
       v4 = 0;
     }
-    v5 = *(_QWORD *)(v0 + 336);
-    if ( v5 > 1 )
+    if ( *(_QWORD *)(v0 + 336) > 1uLL )
     {
-      v6 = GreSelectBitmap(ghdcMem, *(_QWORD *)(v0 + 336));
+      v5 = GreSelectBitmap(ghdcMem, *(_QWORD *)(v0 + 336));
       NtGdiBitBltInternal(
         v3,
         *(_DWORD *)(v0 + 316),
@@ -58,19 +54,11 @@ void UT_InvertCaret(void)
         6684742,
         0,
         0);
-      GreSelectBitmap(ghdcMem, v6);
+      GreSelectBitmap(ghdcMem, v5);
     }
     else
     {
-      v7[0] = *(_DWORD *)(v0 + 316);
-      v7[1] = *(_DWORD *)(v0 + 320);
-      v7[2] = *(_DWORD *)(v0 + 328);
-      v7[3] = *(_DWORD *)(v0 + 324);
-      if ( v5 == 1 )
-        v8 = *(_QWORD *)(gpsi + 4944LL);
-      else
-        v8 = ghbrWhite;
-      GrePolyPatBlt(v3, 5898313, (struct _POLYPATBLT *)v7, 1);
+      GrePolyPatBlt(v3);
     }
     if ( v4 )
       GreRestoreDC(v3, 0xFFFFFFFFLL);

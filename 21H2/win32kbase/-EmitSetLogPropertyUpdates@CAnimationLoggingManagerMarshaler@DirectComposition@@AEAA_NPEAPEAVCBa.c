@@ -1,78 +1,66 @@
 /*
- * XREFs of ?EmitSetLogPropertyUpdates@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000AD84
+ * XREFs of ?EmitSetLogPropertyUpdates@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0065978
  * Callers:
- *     ?EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000ACB0 (-EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@.c)
+ *     ?EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00659D0 (-EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@.c)
  * Callees:
- *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C000B2B0 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
- *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C000B3E0 (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_65891078065f0b4b6a24da5ea3e43146___ @ 0x1C022A4B4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_65891078065f0b4b6a24da5ea3e4314.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C00658DC (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     _lambda_b8fe0773f13596fc9d0c7c35c2a05b25_::operator() @ 0x1C00BC160 (_lambda_b8fe0773f13596fc9d0c7c35c2a05b25_--operator().c)
  */
 
 char __fastcall DirectComposition::CAnimationLoggingManagerMarshaler::EmitSetLogPropertyUpdates(
         DirectComposition::CAnimationLoggingManagerMarshaler *this,
-        struct DirectComposition::CBatch **a2)
+        struct DirectComposition::CBatch ***a2)
 {
   unsigned int v2; // esi
-  unsigned int v4; // ebp
-  char v6; // di
-  __int64 v8; // r14
-  struct DirectComposition::CWeakReferenceBase *v9; // rdx
-  char updated; // al
-  size_t v11; // r8
-  __int128 Src; // [rsp+20h] [rbp-38h] BYREF
-  _QWORD v13[5]; // [rsp+30h] [rbp-28h] BYREF
+  char v5; // di
+  bool v6; // zf
+  char *v8; // rax
+  unsigned int v9; // eax
+  int v10; // ecx
+  _QWORD v11[5]; // [rsp+20h] [rbp-28h] BYREF
+  unsigned int v12; // [rsp+50h] [rbp+8h] BYREF
+  void *v13; // [rsp+60h] [rbp+18h] BYREF
 
-  v2 = *((_DWORD *)this + 26);
-  v4 = *((_DWORD *)this + 22);
-  v6 = 1;
-  if ( v2 < v4 )
+  v2 = *((_DWORD *)this + 20);
+  v12 = *((_DWORD *)this + 24);
+  v5 = 1;
+  v6 = v12 == v2;
+  if ( v12 < v2 )
   {
-    v8 = *((unsigned int *)this + 26);
-    do
+    v11[0] = this;
+    v11[1] = &v12;
+    while ( 1 )
     {
-      Src = *(_OWORD *)(v8 * *((_QWORD *)this + 12) + *((_QWORD *)this + 8));
-      v9 = (struct DirectComposition::CWeakReferenceBase *)Src;
-      if ( (_QWORD)Src && *(_QWORD *)(Src + 16) )
-      {
-        v13[0] = this;
-        v13[1] = &Src;
-        updated = DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_65891078065f0b4b6a24da5ea3e43146___(
-                    this,
-                    a2,
-                    v13);
-        v9 = (struct DirectComposition::CWeakReferenceBase *)Src;
-        v6 = updated;
-      }
-      else
-      {
-        v6 = 1;
-      }
-      if ( v9 )
-      {
-        DirectComposition::CApplicationChannel::ReleaseWeakReference(
-          *((DirectComposition::CApplicationChannel **)*a2 + 1),
-          v9);
-        v11 = *((_QWORD *)this + 12);
-        *(_QWORD *)&Src = 0LL;
-        memmove((void *)(*((_QWORD *)this + 8) + v11 * v2), &Src, v11);
-      }
-      if ( !v6 )
+      v13 = 0LL;
+      if ( !DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x18uLL, &v13) )
         break;
-      ++*((_DWORD *)this + 26);
-      ++v2;
-      ++v8;
+      v8 = (char *)v13;
+      *(_DWORD *)v13 = 24;
+      *(_OWORD *)(v8 + 4) = 0LL;
+      *((_DWORD *)v8 + 5) = 0;
+      *((_DWORD *)v8 + 1) = 19;
+      *((_DWORD *)v8 + 2) = *((_DWORD *)this + 6);
+      lambda_b8fe0773f13596fc9d0c7c35c2a05b25_::operator()(v11);
+      v9 = v12;
+      v10 = ++*((_DWORD *)this + 24);
+      v12 = v9 + 1;
+      if ( v9 + 1 >= v2 )
+        goto LABEL_10;
     }
-    while ( v2 < v4 );
+    v10 = *((_DWORD *)this + 24);
+    v5 = 0;
+LABEL_10:
+    v6 = v10 == v2;
   }
-  if ( *((_DWORD *)this + 26) == v4 )
+  if ( v6 )
   {
-    v6 = 1;
+    v5 = 1;
     DirectComposition::CDCompDynamicArrayBase::SetCount(
-      (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 64),
+      (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 56),
       0LL,
       0x6D6C4344u);
-    *((_DWORD *)this + 26) = 0;
+    *((_DWORD *)this + 24) = 0;
   }
-  return v6;
+  return v5;
 }

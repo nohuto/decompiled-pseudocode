@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SessionInitialize@UmfdHostLifeTimeManager@@CA_NXZ @ 0x1C00F7C74
+ * XREFs of ?SessionInitialize@UmfdHostLifeTimeManager@@CA_NXZ @ 0x1C00F48F8
  * Callers:
- *     UmfdSessionInitialize @ 0x1C00F6DB0 (UmfdSessionInitialize.c)
+ *     UmfdSessionInitialize @ 0x1C00F3920 (UmfdSessionInitialize.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ char UmfdHostLifeTimeManager::SessionInitialize(void)
   UmfdHostLifeTimeManager::s_InitialFontsAddedEvent = (PRKEVENT)Win32AllocPoolNonPaged(24LL, 1986348102LL);
   if ( !UmfdHostLifeTimeManager::s_InitialFontsAddedEvent )
     return 0;
-  UmfdHostLifeTimeManager::s_SessionRasterizerOnHostReadyEvent = (PVOID)Win32AllocPoolNonPaged(24LL, 1986348102LL);
+  UmfdHostLifeTimeManager::s_SessionRasterizerOnHostReadyEvent = (PRKEVENT)Win32AllocPoolNonPaged(24LL, 1986348102LL);
   if ( !UmfdHostLifeTimeManager::s_SessionRasterizerOnHostReadyEvent )
     return 0;
   GreInitializePushLock(&UmfdHostLifeTimeManager::s_ReadyLock);
@@ -25,6 +25,6 @@ char UmfdHostLifeTimeManager::SessionInitialize(void)
   KeInitializeEvent(UmfdHostLifeTimeManager::s_WinlogonCallbackEvent, SynchronizationEvent, 0);
   KeInitializeEvent(UmfdHostLifeTimeManager::s_SessionRasterizerInitializedEvent, NotificationEvent, 0);
   KeInitializeEvent(UmfdHostLifeTimeManager::s_InitialFontsAddedEvent, NotificationEvent, 0);
-  KeInitializeEvent((PRKEVENT)UmfdHostLifeTimeManager::s_SessionRasterizerOnHostReadyEvent, NotificationEvent, 0);
+  KeInitializeEvent(UmfdHostLifeTimeManager::s_SessionRasterizerOnHostReadyEvent, NotificationEvent, 0);
   return 1;
 }

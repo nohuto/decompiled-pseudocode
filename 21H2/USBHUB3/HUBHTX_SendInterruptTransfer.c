@@ -1,27 +1,27 @@
 /*
- * XREFs of HUBHTX_SendInterruptTransfer @ 0x1C0003544
+ * XREFs of HUBHTX_SendInterruptTransfer @ 0x1C0003378
  * Callers:
- *     HUBHSM_SendingInterruptTransfer @ 0x1C0008BB0 (HUBHSM_SendingInterruptTransfer.c)
- *     HUBHSM_SendingInterruptTransferAfterResettingPipe @ 0x1C0008BF0 (HUBHSM_SendingInterruptTransferAfterResettingPipe.c)
+ *     HUBHSM_SendingInterruptTransfer @ 0x1C00088A0 (HUBHSM_SendingInterruptTransfer.c)
+ *     HUBHSM_SendingInterruptTransferAfterResettingPipe @ 0x1C00088E0 (HUBHSM_SendingInterruptTransferAfterResettingPipe.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBHTX_SendInterruptTransfer(__int64 a1)
 {
   __int64 v1; // rsi
-  int v3; // edi
+  int v3; // ebx
   __int64 v4; // rax
   int v5; // eax
   unsigned __int16 v6; // ax
   __int64 v7; // rax
   __int64 result; // rax
   int v9; // r14d
-  int v10; // edi
+  int v10; // ebx
   __int64 v11; // rax
   __int64 v12; // [rsp+28h] [rbp-41h]
   int v13; // [rsp+28h] [rbp-41h]
@@ -45,17 +45,17 @@ __int64 __fastcall HUBHTX_SendInterruptTransfer(__int64 a1)
     v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
            WdfDriverGlobals,
            WdfDriverGlobals->Driver,
-           off_1C00671E8);
+           off_1C00661C0);
     v13 = v3;
     WPP_RECORDER_SF_d(
       *(_QWORD *)(v4 + 64),
       2u,
       2u,
       0x3Bu,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       v13);
   }
-  memset((void *)(a1 + 978), 0, 0x7EuLL);
+  memset((void *)(a1 + 976), 0, 0x80uLL);
   *(_QWORD *)(a1 + 984) = *(_QWORD *)(a1 + 248);
   *(_DWORD *)(a1 + 1008) = 2;
   v5 = *(_DWORD *)(a1 + 1008);
@@ -114,14 +114,14 @@ __int64 __fastcall HUBHTX_SendInterruptTransfer(__int64 a1)
       v11 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
               WdfDriverGlobals,
               WdfDriverGlobals->Driver,
-              off_1C00671E8);
+              off_1C00661C0);
       LODWORD(v12) = v10;
       result = WPP_RECORDER_SF_d(
                  *(_QWORD *)(v11 + 64),
                  2u,
                  2u,
                  0x3Bu,
-                 (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+                 (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
                  v12);
     }
     if ( v9 < 0 )

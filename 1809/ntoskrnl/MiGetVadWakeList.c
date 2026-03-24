@@ -2,21 +2,21 @@
  * XREFs of MiGetVadWakeList @ 0x140068270
  * Callers:
  *     MiRemoveVadCharges @ 0x1405EC820 (MiRemoveVadCharges.c)
- *     MiFreePlaceholderStorage @ 0x1406D0BF0 (MiFreePlaceholderStorage.c)
- *     MiFreeRotateView @ 0x14084F2B4 (MiFreeRotateView.c)
- *     MiFreeVadEventBitmap @ 0x14084F494 (MiFreeVadEventBitmap.c)
- *     MiFreeLargePageView @ 0x14085D394 (MiFreeLargePageView.c)
+ *     MiFreePlaceholderStorage @ 0x1406D0BD0 (MiFreePlaceholderStorage.c)
+ *     MiFreeRotateView @ 0x14084F294 (MiFreeRotateView.c)
+ *     MiFreeVadEventBitmap @ 0x14084F474 (MiFreeVadEventBitmap.c)
+ *     MiFreeLargePageView @ 0x14085D374 (MiFreeLargePageView.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiCheckProcessShadow @ 0x140046A70 (MiCheckProcessShadow.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlNotifyLongSpinWait @ 0x1402712D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298230 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiDeleteDeferredCloneDescriptors @ 0x1402C9768 (MiDeleteDeferredCloneDescriptors.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C178 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiDeleteDeferredCloneDescriptors @ 0x1402C9868 (MiDeleteDeferredCloneDescriptors.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

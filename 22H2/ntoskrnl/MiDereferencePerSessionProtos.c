@@ -1,56 +1,44 @@
 /*
- * XREFs of MiDereferencePerSessionProtos @ 0x1407B6168
+ * XREFs of MiDereferencePerSessionProtos @ 0x14069F60C
  * Callers:
- *     MiRemoveFromSystemSpace @ 0x1402137A0 (MiRemoveFromSystemSpace.c)
- *     MiInsertInSystemSpace @ 0x140213D30 (MiInsertInSystemSpace.c)
- *     MiMapSystemImage @ 0x140695E88 (MiMapSystemImage.c)
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiDeleteVad @ 0x1406FA4D0 (MiDeleteVad.c)
- *     MiSectionDelete @ 0x140721C30 (MiSectionDelete.c)
- *     MiFinishCreateSection @ 0x140722DA0 (MiFinishCreateSection.c)
- *     MiInitializeImageExtents @ 0x140A33EFC (MiInitializeImageExtents.c)
- *     MiDeletePartialCloneVads @ 0x140A48E9C (MiDeletePartialCloneVads.c)
+ *     MiDeleteVad @ 0x14021BFB0 (MiDeleteVad.c)
+ *     MiInsertInSystemSpace @ 0x14027B460 (MiInsertInSystemSpace.c)
+ *     MiRemoveFromSystemSpace @ 0x1402854CC (MiRemoveFromSystemSpace.c)
+ *     MiMapViewOfImageSection @ 0x14061D2D0 (MiMapViewOfImageSection.c)
+ *     MiSectionDelete @ 0x140638220 (MiSectionDelete.c)
+ *     MiFinishCreateSection @ 0x1406532B0 (MiFinishCreateSection.c)
+ *     MiValidateSectionCreate @ 0x14066B20C (MiValidateSectionCreate.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
+ *     MiMapSystemImage @ 0x14075C8B4 (MiMapSystemImage.c)
+ *     MiDeletePartialCloneVads @ 0x1408D9578 (MiDeletePartialCloneVads.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     MiDereferenceSubsectionProtos @ 0x1407B6248 (MiDereferenceSubsectionProtos.c)
- *     MiFreeSubsectionProtos @ 0x1407B6624 (MiFreeSubsectionProtos.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiDereferenceSubsectionProtos @ 0x14069F6BC (MiDereferenceSubsectionProtos.c)
+ *     MiFreeSubsectionProtos @ 0x14069FA50 (MiFreeSubsectionProtos.c)
  */
 
 __int64 __fastcall MiDereferencePerSessionProtos(__int64 *a1, unsigned int a2)
 {
-  struct _KTHREAD *CurrentThread; // rsi
-  __int64 v4; // rbx
-  unsigned __int64 *v6; // rbx
-  __int64 v7; // rax
-  __int64 v8; // rdi
+  struct _KTHREAD *CurrentThread; // rbp
+  __int64 v4; // rsi
+  volatile signed __int64 *v6; // rsi
   _QWORD *i; // rdi
-  bool v10; // zf
-  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
+  v9 = 0LL;
   v4 = *a1;
-  v12 = 0LL;
-  v6 = (unsigned __int64 *)(v4 + 40);
   --CurrentThread->SpecialApcDisable;
-  v7 = KeAbPreAcquire((__int64)v6, 0LL);
-  v8 = v7;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v6, v7, (__int64)v6);
-  if ( v8 )
-    *(_BYTE *)(v8 + 18) = 1;
+  v6 = (volatile signed __int64 *)(v4 + 40);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)v6, 0LL);
   for ( i = a1 + 16; i; i = (_QWORD *)i[2] )
-    MiDereferenceSubsectionProtos(i, a2, &v12);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)v6);
+    MiDereferenceSubsectionProtos(i, a2, &v9);
+  if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v6);
   KeAbPostRelease((ULONG_PTR)v6);
-  v10 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v10 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
-  return MiFreeSubsectionProtos(&v12);
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  return MiFreeSubsectionProtos(&v9);
 }

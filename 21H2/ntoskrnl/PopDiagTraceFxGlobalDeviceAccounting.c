@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceFxGlobalDeviceAccounting @ 0x140395E40
+ * XREFs of PopDiagTraceFxGlobalDeviceAccounting @ 0x14057252C
  * Callers:
- *     PopFxStopDeviceAccounting @ 0x140395BDC (PopFxStopDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x14056D03C (PopFxStopDeviceAccounting.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxGlobalDeviceAccounting(__int64 a1)
@@ -13,57 +13,49 @@ void __fastcall PopDiagTraceFxGlobalDeviceAccounting(__int64 a1)
   __int64 v2; // r9
   __int64 v3; // r10
   __int64 v4; // r11
-  __int64 v5; // [rsp+30h] [rbp-59h] BYREF
-  __int64 v6; // [rsp+38h] [rbp-51h] BYREF
-  __int64 v7; // [rsp+40h] [rbp-49h] BYREF
-  __int64 v8; // [rsp+48h] [rbp-41h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v9; // [rsp+50h] [rbp-39h] BYREF
-  __int64 *v10; // [rsp+70h] [rbp-19h]
-  int v11; // [rsp+78h] [rbp-11h]
-  int v12; // [rsp+7Ch] [rbp-Dh]
-  __int64 *v13; // [rsp+80h] [rbp-9h]
-  int v14; // [rsp+88h] [rbp-1h]
-  int v15; // [rsp+8Ch] [rbp+3h]
-  __int64 v16; // [rsp+90h] [rbp+7h]
-  int v17; // [rsp+98h] [rbp+Fh]
-  int v18; // [rsp+9Ch] [rbp+13h]
-  __int64 v19; // [rsp+A0h] [rbp+17h]
-  int v20; // [rsp+A8h] [rbp+1Fh]
-  int v21; // [rsp+ACh] [rbp+23h]
-  __int64 *v22; // [rsp+B0h] [rbp+27h]
-  int v23; // [rsp+B8h] [rbp+2Fh]
-  int v24; // [rsp+BCh] [rbp+33h]
-  __int64 *v25; // [rsp+C0h] [rbp+37h]
-  int v26; // [rsp+C8h] [rbp+3Fh]
-  int v27; // [rsp+CCh] [rbp+43h]
+  __int64 v5; // [rsp+30h] [rbp-49h] BYREF
+  __int64 v6; // [rsp+38h] [rbp-41h] BYREF
+  __int64 v7; // [rsp+40h] [rbp-39h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v8; // [rsp+50h] [rbp-29h] BYREF
+  __int64 *v9; // [rsp+70h] [rbp-9h]
+  int v10; // [rsp+78h] [rbp-1h]
+  int v11; // [rsp+7Ch] [rbp+3h]
+  __int64 *v12; // [rsp+80h] [rbp+7h]
+  int v13; // [rsp+88h] [rbp+Fh]
+  int v14; // [rsp+8Ch] [rbp+13h]
+  __int64 v15; // [rsp+90h] [rbp+17h]
+  int v16; // [rsp+98h] [rbp+1Fh]
+  int v17; // [rsp+9Ch] [rbp+23h]
+  __int64 v18; // [rsp+A0h] [rbp+27h]
+  int v19; // [rsp+A8h] [rbp+2Fh]
+  int v20; // [rsp+ACh] [rbp+33h]
+  __int64 *v21; // [rsp+B0h] [rbp+37h]
+  int v22; // [rsp+B8h] [rbp+3Fh]
+  int v23; // [rsp+BCh] [rbp+43h]
 
-  if ( !PopDiagFxAccountingTelemetryDisabled && (unsigned int)dword_140C04570 > 5 )
+  if ( !PopDiagFxAccountingTelemetryDisabled && (unsigned int)dword_140C02228 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C04570, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
     {
-      v12 = 0;
-      v15 = 0;
-      v18 = 0;
-      v21 = 0;
-      v24 = 0;
-      v27 = 0;
+      v11 = 0;
+      v14 = 0;
+      v17 = 0;
+      v20 = 0;
+      v23 = 0;
       v5 = PopWnfCsEnterScenarioId;
-      v10 = &v5;
-      v13 = &v6;
-      v17 = 40;
-      v20 = 40;
-      v22 = &v7;
-      v25 = &v8;
-      v11 = 8;
-      v14 = 8;
-      v19 = v2;
-      v23 = 8;
-      v26 = 8;
+      v9 = &v5;
+      v12 = &v6;
+      v16 = 40;
+      v19 = 40;
+      v21 = &v7;
+      v10 = 8;
+      v13 = 8;
+      v18 = v2;
+      v22 = 8;
       v6 = a1;
-      v16 = v3;
+      v15 = v3;
       v7 = v4;
-      v8 = 0x1000000LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04570, (unsigned __int8 *)word_14002F97A, 0LL, 0LL, 8u, &v9);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, (unsigned __int8 *)byte_1400289FB, 0LL, 0LL, 7u, &v8);
     }
   }
 }

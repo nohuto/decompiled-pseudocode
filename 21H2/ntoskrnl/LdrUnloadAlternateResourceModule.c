@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrUnloadAlternateResourceModule @ 0x14025C678
+ * XREFs of LdrUnloadAlternateResourceModule @ 0x14037FD58
  * Callers:
- *     MiUnloadSystemImage @ 0x1406F4FB8 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
  * Callees:
- *     LdrUnloadAlternateResourceModuleEx @ 0x14025C690 (LdrUnloadAlternateResourceModuleEx.c)
+ *     LdrUnloadAlternateResourceModuleEx @ 0x14037FD70 (LdrUnloadAlternateResourceModuleEx.c)
  */
 
-__int64 LdrUnloadAlternateResourceModule()
+__int64 __fastcall LdrUnloadAlternateResourceModule(__int64 a1)
 {
-  return LdrUnloadAlternateResourceModuleEx();
+  return LdrUnloadAlternateResourceModuleEx(a1);
 }

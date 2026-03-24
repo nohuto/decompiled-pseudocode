@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpRecordShutdownStopTime @ 0x1407ED0B8
+ * XREFs of CmpRecordShutdownStopTime @ 0x1407ED098
  * Callers:
- *     CmShutdownSystem @ 0x1407EC8D4 (CmShutdownSystem.c)
+ *     CmShutdownSystem @ 0x1407EC8B4 (CmShutdownSystem.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
  *     RtlGetPersistedStateLocation @ 0x140612450 (RtlGetPersistedStateLocation.c)
- *     CmpReadBuildLab @ 0x1407ECF54 (CmpReadBuildLab.c)
+ *     CmpReadBuildLab @ 0x1407ECF34 (CmpReadBuildLab.c)
  */
 
 __int64 CmpRecordShutdownStopTime()

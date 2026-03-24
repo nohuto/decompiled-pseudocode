@@ -1,11 +1,11 @@
 /*
- * XREFs of KiRestoreProcessorControlState @ 0x14041F650
+ * XREFs of KiRestoreProcessorControlState @ 0x1403FE170
  * Callers:
- *     KdpReport @ 0x140299E94 (KdpReport.c)
- *     KiFreezeTargetExecution @ 0x14029AF90 (KiFreezeTargetExecution.c)
- *     KiRestoreProcessorState @ 0x14029B804 (KiRestoreProcessorState.c)
- *     KdpSymbol @ 0x140A6F61C (KdpSymbol.c)
- *     KdpCommandString @ 0x140A74270 (KdpCommandString.c)
+ *     KdpReport @ 0x1405119E4 (KdpReport.c)
+ *     KiFreezeTargetExecution @ 0x14051DE60 (KiFreezeTargetExecution.c)
+ *     KiRestoreProcessorState @ 0x1405252F8 (KiRestoreProcessorState.c)
+ *     KdpCommandString @ 0x1409B9600 (KdpCommandString.c)
+ *     KdpSymbol @ 0x1409B99C0 (KdpSymbol.c)
  * Callees:
  *     <none>
  */
@@ -46,7 +46,7 @@ __int64 __fastcall KiRestoreProcessorControlState(__int64 a1)
   result = 0LL;
   __writedr(6u, 0LL);
   __writedr(7u, v4);
-  if ( (__readgsbyte(0x8B22u) & 2) != 0 && (v4 & 0x300) != 0 && (KiCpuTracingFlags & 2) == 0 )
+  if ( (__readgsbyte(0x8722u) & 2) != 0 && (v4 & 0x300) != 0 && (KiCpuTracingFlags & 2) == 0 )
   {
     if ( (v4 & 0x200) != 0 )
       LODWORD(result) = 2;

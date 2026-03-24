@@ -1,17 +1,18 @@
 /*
- * XREFs of ?AddOcclusionInformation@CSurfaceBrush@@UEAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z @ 0x1800CD204
+ * XREFs of ?AddOcclusionInformation@CSurfaceBrush@@UEAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z @ 0x18008E0EC
  * Callers:
- *     ?AddOcclusionInformation@CSurfaceBrush@@$4PPPPPPPM@A@EAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z @ 0x180107AB0 (-AddOcclusionInformation@CSurfaceBrush@@$4PPPPPPPM@A@EAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@.c)
+ *     ?AddOcclusionInformation@CSurfaceBrush@@$4PPPPPPPM@A@EAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z @ 0x1800F6A30 (-AddOcclusionInformation@CSurfaceBrush@@$4PPPPPPPM@A@EAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@.c)
  * Callees:
- *     ?CheckAndRecordOverlayCandidate@COcclusionContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo@@PEBVCMILMatrix@@PEBVCShape@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x180006A08 (-CheckAndRecordOverlayCandidate@COcclusionContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo.c)
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x180057724 (--0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z.c)
- *     ??R?$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z @ 0x18006286C (--R-$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z @ 0x1800ABBF0 (-ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z.c)
- *     ?CollectRectangleForOcclusion@COcclusionContext@@AEAAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_N1PEAV2@@Z @ 0x1800B788C (-CollectRectangleForOcclusion@COcclusionContext@@AEAAXPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@U.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??R?$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z @ 0x180007474 (--R-$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002D2C0 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CheckAndRecordOverlayCandidate@COcclusionContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo@@PEBVCMILMatrix@@PEBVCShape@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x180068454 (-CheckAndRecordOverlayCandidate@COcclusionContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo.c)
+ *     ?CollectRectangleForOcclusion@COcclusionContext@@AEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NPEAV2@@Z @ 0x180076230 (-CollectRectangleForOcclusion@COcclusionContext@@AEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@U.c)
+ *     ?ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z @ 0x180086E90 (-ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z.c)
+ *     ?GetCompositionSurfaceInfo@CSurfaceBrush@@AEBAJPEAPEAVCCompositionSurfaceInfo@@@Z @ 0x18009D23C (-GetCompositionSurfaceInfo@CSurfaceBrush@@AEBAJPEAPEAVCCompositionSurfaceInfo@@@Z.c)
+ *     ??0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800C4638 (--0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CSurfaceBrush::AddOcclusionInformation(
@@ -19,153 +20,135 @@ __int64 __fastcall CSurfaceBrush::AddOcclusionInformation(
         struct COcclusionContext *a2,
         const struct D2D_SIZE_F *a3)
 {
-  char v3; // si
-  CSurfaceBrush *v4; // r15
-  unsigned int v5; // ebx
-  char v9; // al
-  __int64 *v10; // rcx
-  char v11; // r12
-  __int64 v12; // rax
-  struct CShape *v13; // rcx
-  struct CShape *v14; // rax
-  __int64 v15; // r11
+  __int64 v4; // rcx
+  int v7; // edi
+  int v8; // eax
+  CSurfaceBrush *v9; // rsi
+  struct CCompositionSurfaceInfo *v10; // rcx
+  __int64 (__fastcall ***v11)(_QWORD, __int64); // rdx
+  int v12; // eax
+  __int64 v13; // r8
+  int CompositionSurfaceInfo; // eax
+  struct CCompositionSurfaceInfo *v15; // rbx
+  int v16; // eax
   __int64 v17; // rcx
-  __int64 v18; // r9
-  int v19; // eax
-  FLOAT width; // xmm0_4
-  FLOAT height; // xmm1_4
-  int v22; // r9d
-  __int64 v23; // r11
-  unsigned int v24; // [rsp+20h] [rbp-A9h]
-  __int64 v25; // [rsp+30h] [rbp-99h] BYREF
-  __int64 (__fastcall ***v26)(_QWORD, __int64); // [rsp+38h] [rbp-91h] BYREF
-  int v27; // [rsp+40h] [rbp-89h] BYREF
-  struct D2D_MATRIX_3X2_F v28; // [rsp+48h] [rbp-81h] BYREF
-  _BYTE v29[80]; // [rsp+70h] [rbp-59h] BYREF
-  __int128 v30; // [rsp+C0h] [rbp-9h] BYREF
-  struct CShape **v31; // [rsp+D0h] [rbp+7h] BYREF
-  struct CShape *v32; // [rsp+D8h] [rbp+Fh] BYREF
-  char v33; // [rsp+E0h] [rbp+17h]
+  __int64 v18; // rcx
+  int v20; // r9d
+  unsigned int v21; // [rsp+20h] [rbp-89h]
+  __int64 (__fastcall ***v22)(_QWORD, __int64); // [rsp+30h] [rbp-79h] BYREF
+  _QWORD *v23; // [rsp+38h] [rbp-71h] BYREF
+  struct D2D_MATRIX_3X2_F v24; // [rsp+40h] [rbp-69h] BYREF
+  _BYTE v25[80]; // [rsp+70h] [rbp-39h] BYREF
+  struct CCompositionSurfaceInfo *v26[2]; // [rsp+C0h] [rbp+17h] BYREF
+  char v27; // [rsp+D0h] [rbp+27h]
 
-  v3 = 0;
-  v4 = (CSurfaceBrush *)((char *)this - 200);
-  v5 = 0;
-  if ( (*(unsigned __int8 (__fastcall **)(char *))(*((_QWORD *)this - 25) + 192LL))((char *)this - 200) )
-    return v5;
-  if ( a3->width <= 0.0 )
-    return v5;
-  if ( a3->height <= 0.0 )
-    return v5;
-  v9 = (*(__int64 (__fastcall **)(_QWORD, CSurfaceBrush *))(**((_QWORD **)this - 11) + 8LL))(*((_QWORD *)this - 11), v4);
-  v10 = (__int64 *)*((_QWORD *)this - 11);
-  v11 = v9;
-  v12 = *v10;
-  v25 = 0LL;
-  (*(void (__fastcall **)(__int64 *, CSurfaceBrush *, __int64 *))(v12 + 56))(v10, v4, &v25);
-  if ( !v11 && !v25 )
-    return v5;
-  v26 = 0LL;
-  v31 = (struct CShape **)&v26;
-  v32 = 0LL;
-  v33 = 1;
-  v5 = CSurfaceBrush::ComputeLayout(v4, a3, (struct CContent::LayoutData *)&v28, &v32);
-  if ( v33 )
+  v4 = *((_QWORD *)this - 11);
+  v23 = 0LL;
+  v7 = 0;
+  if ( !v4 || (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v4 + 56LL))(v4, 200LL) )
+    v8 = -2003292404;
+  else
+    v8 = (***((__int64 (__fastcall ****)(_QWORD, GUID *, _QWORD **))this - 11))(
+           *((_QWORD *)this - 11),
+           &GUID_b35f2031_4b76_4d4e_b98c_6771dfcc753c,
+           &v23);
+  if ( v8 < 0 )
+    goto LABEL_26;
+  v9 = (CSurfaceBrush *)((char *)this - 184);
+  if ( (*(unsigned __int8 (__fastcall **)(CSurfaceBrush *))(*(_QWORD *)v9 + 208LL))(v9)
+    || a3->width <= 0.0
+    || a3->height <= 0.0 )
   {
-    v13 = v32;
-    v14 = *v31;
-    *v31 = v32;
-    if ( v14 )
-      std::default_delete<CShape>::operator()((__int64)v13, (__int64 (__fastcall ***)(_QWORD, __int64))v14);
+    goto LABEL_26;
   }
-  if ( v5 != -2003304441 )
+  v22 = 0LL;
+  v26[0] = (struct CCompositionSurfaceInfo *)&v22;
+  v26[1] = 0LL;
+  v27 = 1;
+  v7 = CSurfaceBrush::ComputeLayout(v9, a3, (struct CContent::LayoutData *)&v24, &v26[1]);
+  if ( v27 )
   {
-    if ( (v5 & 0x80000000) != 0 )
-    {
-      v22 = v5;
-      v24 = 317;
-      goto LABEL_37;
-    }
-    if ( !(unsigned __int8)(*v26)[8](v26, (__int64)&v27) || v27 != 1 )
-      goto LABEL_35;
-    if ( *((_BYTE *)a2 + 1205) )
-    {
-      v15 = v25;
-      if ( !v25 )
-        goto LABEL_18;
-      if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v25 + 272LL))(v25) )
-        v3 = 1;
-    }
-    v15 = v25;
-LABEL_18:
+    v10 = v26[1];
+    v11 = *(__int64 (__fastcall ****)(_QWORD, __int64))v26[0];
+    *(_QWORD *)v26[0] = v26[1];
     if ( v11 )
-    {
-      v17 = *((_QWORD *)this - 11);
-      v30 = 0LL;
-      if ( (*(unsigned __int8 (__fastcall **)(__int64, CSurfaceBrush *, struct CShape ***))(*(_QWORD *)v17 + 24LL))(
-             v17,
-             v4,
-             &v31)
-        && COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)&v32 + 1) - 1.0) & _xmm) < 0.0000011920929 )
-      {
-        width = a3->width;
-        height = a3->height;
-        *(_QWORD *)&v30 = 0LL;
-        *((_QWORD *)&v30 + 1) = __PAIR64__(LODWORD(height), LODWORD(width));
-      }
-      else
-      {
-        v19 = ((__int64 (__fastcall *)(__int64 (__fastcall ***)(_QWORD, __int64), __int128 *, _QWORD))(*v26)[6])(
-                v26,
-                &v30,
-                0LL);
-        v5 = v19;
-        if ( v19 < 0 )
-        {
-          v24 = 343;
-LABEL_33:
-          v22 = v19;
-LABEL_37:
-          MilInstrumentationCheckHR_MaybeFailFast((__int64)v13, 0LL, 0LL, v22, v24);
-          goto LABEL_38;
-        }
-      }
-      COcclusionContext::CollectRectangleForOcclusion((__int64)a2, (float *)&v30, v3, v18, 0LL);
-      v15 = v25;
-    }
-    if ( !v3 )
-    {
-LABEL_20:
-      if ( v26 )
-      {
-        (**v26)(v26, 1LL);
-        v15 = v25;
-      }
-      if ( v15 )
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v15 + 16LL))(v15);
-      return v5;
-    }
-    CMILMatrix::CMILMatrix((CMILMatrix *)v29, &v28);
-    v19 = COcclusionContext::CheckAndRecordOverlayCandidate(
-            (__int64)a2,
-            *((_QWORD *)a2 + 149),
-            v23,
-            (__int64)v29,
-            (__int64)v26,
-            0);
-    v5 = v19;
-    if ( v19 >= 0 )
-    {
-LABEL_35:
-      v15 = v25;
-      goto LABEL_20;
-    }
-    v24 = 358;
-    goto LABEL_33;
+      std::default_delete<CShape>::operator()((__int64)v10, v11);
   }
-  v5 = 0;
-LABEL_38:
-  if ( v26 )
-    std::default_delete<CShape>::operator()((__int64)v13, v26);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v25);
-  return v5;
+  if ( v7 == -2003304441 )
+  {
+    v7 = 0;
+    goto LABEL_37;
+  }
+  if ( v7 < 0 )
+  {
+    v20 = v7;
+    v21 = 303;
+    goto LABEL_36;
+  }
+  if ( !v23 || !(unsigned __int8)(*v22)[5](v22, (__int64)v26) || LODWORD(v26[0]) != 1 )
+  {
+LABEL_24:
+    if ( v22 )
+      (**v22)(v22, 1LL);
+    goto LABEL_26;
+  }
+  if ( (*(unsigned __int8 (__fastcall **)(_QWORD *))(*v23 + 8LL))(v23) )
+  {
+    *(_OWORD *)v26 = 0LL;
+    v12 = ((__int64 (__fastcall *)(__int64 (__fastcall ***)(_QWORD, __int64), struct CCompositionSurfaceInfo **, _QWORD))(*v22)[4])(
+            v22,
+            v26,
+            0LL);
+    v7 = v12;
+    if ( v12 < 0 )
+    {
+      v21 = 312;
+    }
+    else
+    {
+      v12 = COcclusionContext::CollectRectangleForOcclusion((__int64)a2, (float *)v26, v13, 0LL);
+      v7 = v12;
+      if ( v12 >= 0 )
+        goto LABEL_19;
+      v21 = 314;
+    }
+    v20 = v12;
+LABEL_36:
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v10, 0LL, 0, v20, v21, 0LL);
+    goto LABEL_37;
+  }
+LABEL_19:
+  if ( !*((_BYTE *)a2 + 1245) )
+    goto LABEL_24;
+  v26[0] = 0LL;
+  CompositionSurfaceInfo = CSurfaceBrush::GetCompositionSurfaceInfo(v9, v26);
+  v15 = v26[0];
+  if ( CompositionSurfaceInfo < 0
+    || (CMILMatrix::CMILMatrix((CMILMatrix *)v25, &v24),
+        v16 = COcclusionContext::CheckAndRecordOverlayCandidate(
+                (__int64)a2,
+                *((_QWORD *)a2 + 154),
+                (__int64)v15,
+                v25,
+                (__int64)v22,
+                0),
+        v7 = v16,
+        v16 >= 0) )
+  {
+    if ( v15 )
+      (*(void (__fastcall **)(struct CCompositionSurfaceInfo *))(*(_QWORD *)v15 + 16LL))(v15);
+    goto LABEL_24;
+  }
+  MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x147u, 0LL);
+  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)v26);
+LABEL_37:
+  if ( v22 )
+    std::default_delete<CShape>::operator()((__int64)v10, v22);
+LABEL_26:
+  if ( v23 )
+  {
+    v18 = (__int64)v23 + *(int *)(v23[1] + 4LL) + 8;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v18 + 16LL))(v18);
+  }
+  return (unsigned int)v7;
 }

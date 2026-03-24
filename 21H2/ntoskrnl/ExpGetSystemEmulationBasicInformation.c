@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpGetSystemEmulationBasicInformation @ 0x14023559C
+ * XREFs of ExpGetSystemEmulationBasicInformation @ 0x1402BD0C8
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetNumberOfPhysicalPages @ 0x1406AD260 (MmGetNumberOfPhysicalPages.c)
- *     ExSystemExceptionFilter @ 0x1409F8660 (ExSystemExceptionFilter.c)
+ *     MmGetNumberOfPhysicalPages @ 0x14064F740 (MmGetNumberOfPhysicalPages.c)
+ *     ExSystemExceptionFilter @ 0x1407D4F10 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall ExpGetSystemEmulationBasicInformation(__int64 a1)
@@ -20,21 +20,21 @@ __int64 __fastcall ExpGetSystemEmulationBasicInformation(__int64 a1)
   int v10; // eax
   int v11; // eax
 
-  v2 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[5];
-  v3 = KeGetCurrentThread()->ApcState.Process[1].IdealProcessor[25];
+  v2 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[5];
+  v3 = KeGetCurrentThread()->ApcState.Process[1].IdealProcessorPadding[5];
   Group = KeGetCurrentPrcb()->Group;
   *(_DWORD *)a1 = 0;
   *(_DWORD *)(a1 + 4) = KeMaximumIncrement;
   *(_DWORD *)(a1 + 8) = 4096;
   *(_DWORD *)(a1 + 24) = 0x10000;
-  if ( (unsigned __int16)Group >= (unsigned __int16)KeActiveProcessors )
+  if ( (unsigned __int16)Group >= (unsigned int)KeActiveProcessors[0] )
   {
     LODWORD(v5) = 0;
     v6 = 0LL;
   }
   else
   {
-    v5 = qword_140D06E48[Group];
+    v5 = qword_140CFC848[Group];
     v6 = v5;
   }
   v7 = (unsigned int)v5 | HIDWORD(v6);
@@ -53,11 +53,11 @@ __int64 __fastcall ExpGetSystemEmulationBasicInformation(__int64 a1)
     v10 = NumberOfPhysicalPages;
   *(_DWORD *)(a1 + 12) = v10;
   v11 = -1;
-  if ( *(_QWORD *)(*(_QWORD *)(qword_140C51F48 + 8 * v3) + 16704LL) <= 0xFFFFFFFFuLL )
-    v11 = *(_QWORD *)(*(_QWORD *)(qword_140C51F48 + 8 * v3) + 16704LL);
+  if ( *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * v3) + 6912LL) <= 0xFFFFFFFFuLL )
+    v11 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * v3) + 6912LL);
   *(_DWORD *)(a1 + 16) = v11;
-  if ( *(_QWORD *)(*(_QWORD *)(qword_140C51F48 + 8 * v3) + 16712LL) <= 0xFFFFFFFFuLL )
-    v9 = *(_QWORD *)(*(_QWORD *)(qword_140C51F48 + 8 * v3) + 16712LL);
+  if ( *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * v3) + 6920LL) <= 0xFFFFFFFFuLL )
+    v9 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * v3) + 6920LL);
   *(_DWORD *)(a1 + 20) = v9;
   return 0LL;
 }

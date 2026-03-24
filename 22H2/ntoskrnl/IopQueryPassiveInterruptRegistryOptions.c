@@ -1,11 +1,11 @@
 /*
- * XREFs of IopQueryPassiveInterruptRegistryOptions @ 0x1408573DC
+ * XREFs of IopQueryPassiveInterruptRegistryOptions @ 0x1407C96B4
  * Callers:
- *     IopInitializePassiveInterruptServices @ 0x140B6B6E4 (IopInitializePassiveInterruptServices.c)
+ *     IopInitializePassiveInterruptServices @ 0x140A6D460 (IopInitializePassiveInterruptServices.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x1406B9848 (RtlpQueryRegistryValues.c)
  */
 
 __int64 IopQueryPassiveInterruptRegistryOptions()
@@ -40,7 +40,7 @@ __int64 IopQueryPassiveInterruptRegistryOptions()
   LODWORD(v7[15]) = 288;
   LODWORD(v7[18]) = 67108868;
   v7[19] = &v6;
-  RegistryValues = RtlpQueryRegistryValues(2LL, L"Session Manager\\I/O System", v7, 0LL);
+  RegistryValues = RtlpQueryRegistryValues(2LL, L"Session Manager\\I/O System", (__int64)v7, 0LL);
   if ( RegistryValues >= 0 )
   {
     if ( (_BYTE)v4 )

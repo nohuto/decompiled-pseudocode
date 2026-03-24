@@ -1,7 +1,7 @@
 /*
- * XREFs of IvtClearPendingFaults @ 0x14052E3B0
+ * XREFs of IvtClearPendingFaults @ 0x1404DF988
  * Callers:
- *     IvtEnableInterrupt @ 0x140A63C70 (IvtEnableInterrupt.c)
+ *     IvtEnableInterrupt @ 0x1409A98E0 (IvtEnableInterrupt.c)
  * Callees:
  *     <none>
  */
@@ -18,11 +18,11 @@ __int64 __fastcall IvtClearPendingFaults(__int64 a1)
   __int64 result; // rax
   __int128 v10; // [rsp+0h] [rbp-18h] BYREF
 
-  v1 = *(unsigned __int8 *)(a1 + 221);
+  v1 = *(unsigned __int8 *)(a1 + 181);
   v2 = *(_QWORD *)(a1 + 8);
   v10 = 0LL;
   v4 = *(_DWORD *)(v2 + 52);
-  v5 = *(_QWORD *)(a1 + 8) + 16 * ((*(_QWORD *)(a1 + 216) >> 24) & 0x3FFLL);
+  v5 = *(_QWORD *)(a1 + 8) + 16 * ((*(_QWORD *)(a1 + 176) >> 24) & 0x3FFLL);
   v6 = 0;
   v7 = v1 + 1;
   if ( v7 )

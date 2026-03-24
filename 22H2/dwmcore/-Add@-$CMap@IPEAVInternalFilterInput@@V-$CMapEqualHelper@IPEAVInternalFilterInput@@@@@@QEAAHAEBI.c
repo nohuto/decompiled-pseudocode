@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Add@?$CMap@IPEAVInternalFilterInput@@V?$CMapEqualHelper@IPEAVInternalFilterInput@@@@@@QEAAHAEBIAEBQEAVInternalFilterInput@@@Z @ 0x18021B504
+ * XREFs of ?Add@?$CMap@IPEAVInternalFilterInput@@V?$CMapEqualHelper@IPEAVInternalFilterInput@@@@@@QEAAHAEBIAEBQEAVInternalFilterInput@@@Z @ 0x1801B231C
  * Callers:
- *     ?ProcessUpdateInputs@CFilterEffect@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_FILTEREFFECT_UPDATEINPUTS@@PEBXI@Z @ 0x18021D190 (-ProcessUpdateInputs@CFilterEffect@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_FILTEREFFECT_UPDATEIN.c)
+ *     ?ProcessUpdateInputs@CFilterEffect@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_FILTEREFFECT_UPDATEINPUTS@@PEBXI@Z @ 0x1801B29A0 (-ProcessUpdateInputs@CFilterEffect@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_FILTEREFFECT_UPDATEIN.c)
  * Callees:
- *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x180027730 (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
+ *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x18004610C (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
  */
 
 __int64 __fastcall CMap<unsigned int,InternalFilterInput *,CMapEqualHelper<unsigned int,InternalFilterInput *>>::Add(
@@ -13,27 +13,32 @@ __int64 __fastcall CMap<unsigned int,InternalFilterInput *,CMapEqualHelper<unsig
 {
   LPVOID v6; // rax
   void *v7; // rcx
-  LPVOID v8; // rax
-  __int64 v9; // r8
-  _DWORD *v10; // rdx
-  _QWORD *v11; // rdx
+  char *v8; // rax
+  char *v9; // rcx
+  __int64 v10; // rdx
+  _DWORD *v11; // r8
+  char *v12; // rdx
 
   v6 = DefaultHeap::Realloc(*(void **)a1, 4LL * (*(_DWORD *)(a1 + 16) + 1));
   if ( !v6 )
     return 0LL;
   v7 = *(void **)(a1 + 8);
   *(_QWORD *)a1 = v6;
-  v8 = DefaultHeap::Realloc(v7, 8LL * (*(_DWORD *)(a1 + 16) + 1));
+  v8 = (char *)DefaultHeap::Realloc(v7, 8LL * (*(_DWORD *)(a1 + 16) + 1));
+  v9 = v8;
   if ( !v8 )
     return 0LL;
-  v9 = *(int *)(a1 + 16);
+  v10 = *(int *)(a1 + 16);
   *(_QWORD *)(a1 + 8) = v8;
-  v10 = (_DWORD *)(*(_QWORD *)a1 + 4 * v9);
-  if ( v10 )
-    *v10 = *a2;
-  v11 = (_QWORD *)(*(_QWORD *)(a1 + 8) + 8 * v9);
+  v11 = (_DWORD *)(*(_QWORD *)a1 + 4 * v10);
   if ( v11 )
-    *v11 = *a3;
+  {
+    *v11 = *a2;
+    v9 = *(char **)(a1 + 8);
+  }
+  v12 = &v9[8 * v10];
+  if ( v12 )
+    *(_QWORD *)v12 = *a3;
   ++*(_DWORD *)(a1 + 16);
   return 1LL;
 }

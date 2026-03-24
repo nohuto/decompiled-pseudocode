@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vGetEntriesFrom@XEPALOBJ@@QEAAXV1@0PEAGK@Z @ 0x1C02BBFC8
+ * XREFs of ?vGetEntriesFrom@XEPALOBJ@@QEAAXV1@0PEAGK@Z @ 0x1C02BD9F8
  * Callers:
- *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIPEAEPEAUtagBITMAPINFO@@III@Z @ 0x1C0028378 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
- *     GreStretchDIBitsInternal @ 0x1C0029B2C (GreStretchDIBitsInternal.c)
- *     GreCreateDIBitmapReal @ 0x1C002BC78 (GreCreateDIBitmapReal.c)
- *     GreSetDIBitsToDeviceInternal @ 0x1C002E3F0 (GreSetDIBitsToDeviceInternal.c)
+ *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIPEAEPEAUtagBITMAPINFO@@III@Z @ 0x1C007F448 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
+ *     GreCreateDIBitmapReal @ 0x1C00AC12C (GreCreateDIBitmapReal.c)
+ *     GreStretchDIBitsInternal @ 0x1C00AE0CC (GreStretchDIBitsInternal.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF5A0 (GreSetDIBitsToDeviceInternal.c)
  * Callees:
  *     <none>
  */
@@ -15,8 +15,8 @@ unsigned __int64 __fastcall XEPALOBJ::vGetEntriesFrom(__int64 a1, __int64 a2, __
   unsigned int v7; // esi
   unsigned int v9; // r11d
   unsigned int v10; // r9d
-  __int64 v11; // rbx
-  unsigned __int16 *v12; // rdi
+  unsigned __int16 *v11; // rdi
+  __int64 v12; // rbx
   unsigned int v13; // eax
   unsigned int v14; // edx
   unsigned int v15; // eax
@@ -32,14 +32,14 @@ unsigned __int64 __fastcall XEPALOBJ::vGetEntriesFrom(__int64 a1, __int64 a2, __
   v10 = a5;
   if ( a5 )
   {
-    v11 = 4LL * a5;
-    v12 = (unsigned __int16 *)(a4 + 2LL * a5);
+    v11 = (unsigned __int16 *)(a4 + 2LL * a5);
+    v12 = 4LL * a5;
     do
     {
-      --v12;
+      --v11;
       --v10;
-      v13 = *v12;
-      v11 -= 4LL;
+      v13 = *v11;
+      v12 -= 4LL;
       if ( v13 >= v7 )
         v13 %= v7;
       v14 = *(_DWORD *)(*(_QWORD *)(a2 + 112) + 4LL * v13);
@@ -60,7 +60,7 @@ unsigned __int64 __fastcall XEPALOBJ::vGetEntriesFrom(__int64 a1, __int64 a2, __
       }
       HIBYTE(v17) = 0;
       result = v17;
-      *(_DWORD *)(v11 + *(_QWORD *)(*(_QWORD *)a1 + 112LL)) = v17;
+      *(_DWORD *)(v12 + *(_QWORD *)(*(_QWORD *)a1 + 112LL)) = v17;
     }
     while ( v10 );
   }

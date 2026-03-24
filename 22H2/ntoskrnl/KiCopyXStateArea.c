@@ -1,12 +1,18 @@
 /*
- * XREFs of KiCopyXStateArea @ 0x140572780
+ * XREFs of KiCopyXStateArea @ 0x140519ED0
  * Callers:
- *     KeContextFromKframes @ 0x14030DF40 (KeContextFromKframes.c)
- *     KxContextToKframes @ 0x14033F640 (KxContextToKframes.c)
- *     PspSetContext @ 0x1407242B0 (PspSetContext.c)
- *     PspGetContext @ 0x140724684 (PspGetContext.c)
+ *     KeContextFromKframes @ 0x14033CB10 (KeContextFromKframes.c)
+ *     KxContextToKframes @ 0x140342010 (KxContextToKframes.c)
+ *     PspGetContext @ 0x1406C2D84 (PspGetContext.c)
+ *     PspSetContext @ 0x1406C3150 (PspSetContext.c)
+ *     KeCopyContextFromUch @ 0x1408BE1D0 (KeCopyContextFromUch.c)
+ *     KeCopyContextFromUmsContext @ 0x1408BE48C (KeCopyContextFromUmsContext.c)
+ *     KeCopyContextToUch @ 0x1408BE640 (KeCopyContextToUch.c)
+ *     KeCopyContextToUmsContext @ 0x1408BE8AC (KeCopyContextToUmsContext.c)
+ *     KiCopyUchToStagingArea @ 0x1408BEF28 (KiCopyUchToStagingArea.c)
+ *     KiRestoreUchFromUmsContext @ 0x1408BF078 (KiRestoreUchFromUmsContext.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 void __fastcall KiCopyXStateArea(__int64 a1, __int64 a2, __int64 a3)

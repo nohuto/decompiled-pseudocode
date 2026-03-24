@@ -1,85 +1,74 @@
 /*
- * XREFs of DxgkAcquireGdiViewIds @ 0x1C02272AC
+ * XREFs of DxgkAcquireGdiViewIds @ 0x1C019DB44
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C0200110 (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C0189268 (DpiFdoStartAdapter.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A8230 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?AcquireSessionGdiViewId@DXGSESSIONDATA@@QEAAJPEAK@Z @ 0x1C0354B1C (-AcquireSessionGdiViewId@DXGSESSIONDATA@@QEAAJPEAK@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0123B08 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?AcquireSessionGdiViewId@DXGSESSIONDATA@@QEAAJPEAK@Z @ 0x1C029EB8C (-AcquireSessionGdiViewId@DXGSESSIONDATA@@QEAAJPEAK@Z.c)
  */
 
-__int64 __fastcall DxgkAcquireGdiViewIds(char a1, unsigned int a2, _DWORD *a3, __int64 a4)
+__int64 __fastcall DxgkAcquireGdiViewIds(__int64 a1, __int64 a2, _DWORD *a3, __int64 a4)
 {
-  DXGSESSIONDATA *SessionDataForSpecifiedSession; // rsi
+  DXGSESSIONDATA *SessionDataForSpecifiedSession; // rbp
+  unsigned int v7; // ebx
+  char v8; // si
   __int64 v9; // rbx
   int v10; // eax
-  int v11; // edi
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  int v13; // edi
   struct DXGGLOBAL *Global; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
 
   SessionDataForSpecifiedSession = 0LL;
-  if ( !a1
-    || (Global = DXGGLOBAL::GetGlobal(),
-        (SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
-                                            *((DXGSESSIONMGR **)Global + 118),
-                                            a2)) != 0LL) )
+  v7 = a2;
+  v8 = a1;
+  if ( (_BYTE)a1 )
   {
-    v9 = 0LL;
-    if ( *a3 )
+    Global = DXGGLOBAL::GetGlobal(a1, a2);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
+                                       *((DXGSESSIONMGR **)Global + 102),
+                                       v7);
+    if ( !SessionDataForSpecifiedSession )
     {
-      while ( 1 )
-      {
-        v10 = a1
-            ? DXGSESSIONDATA::AcquireSessionGdiViewId(SessionDataForSpecifiedSession, (unsigned int *)(a4 + 4 * v9))
-            : DMgrAcquireGdiViewId(a4 + 4 * v9);
-        v11 = v10;
-        if ( v10 < 0 )
-          break;
-        v9 = (unsigned int)(v9 + 1);
-        if ( (unsigned int)v9 >= *a3 )
-          return 0LL;
-      }
-      if ( !(_DWORD)v9 )
-      {
-        WdLogSingleEntry1(2LL, v10);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Cannot reserve any GDI Id, (Status = 0x%I64x)",
-          v11,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        return (unsigned int)v11;
-      }
-      *a3 = v9;
-      WdLogSingleEntry2(2LL, (unsigned int)v9, v10);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Cannot reserve GDI Id for VidPn number 0x%I64x, (Status = 0x%I64x)",
-        (unsigned int)v9,
-        v11,
-        0LL,
-        0LL,
-        0LL);
+      v18 = WdLogNewEntry5_WdError(v17, v16);
+      *(_QWORD *)(v18 + 24) = v7;
+      *(_QWORD *)(v18 + 32) = -1073741811LL;
+      WdLogEvent5_WdError(v18);
+      return 3221225485LL;
     }
+  }
+  v9 = 0LL;
+  if ( !*a3 )
+    return 0LL;
+  while ( 1 )
+  {
+    v10 = v8
+        ? DXGSESSIONDATA::AcquireSessionGdiViewId(SessionDataForSpecifiedSession, (unsigned int *)(a4 + 4 * v9))
+        : DMgrAcquireGdiViewId(a4 + 4 * v9);
+    v13 = v10;
+    if ( v10 < 0 )
+      break;
+    v9 = (unsigned int)(v9 + 1);
+    if ( (unsigned int)v9 >= *a3 )
+      return 0LL;
+  }
+  if ( (_DWORD)v9 )
+  {
+    *a3 = v9;
+    v20 = WdLogNewEntry5_WdError(v12, v11);
+    *(_QWORD *)(v20 + 24) = (unsigned int)v9;
+    *(_QWORD *)(v20 + 32) = v13;
+    WdLogEvent5_WdError(v20);
     return 0LL;
   }
-  v11 = -1073741811;
-  WdLogSingleEntry2(2LL, a2, -1073741811LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Cannot find the session data for session 0x%I64x, returning 0x%I64x.",
-    a2,
-    -1073741811LL,
-    0LL,
-    0LL,
-    0LL);
-  return (unsigned int)v11;
+  v19 = WdLogNewEntry5_WdError(v12, v11);
+  *(_QWORD *)(v19 + 24) = v13;
+  WdLogEvent5_WdError(v19);
+  return (unsigned int)v13;
 }

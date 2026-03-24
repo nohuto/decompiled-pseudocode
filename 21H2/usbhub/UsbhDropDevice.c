@@ -1,19 +1,19 @@
 /*
- * XREFs of UsbhDropDevice @ 0x1C004C208
+ * XREFs of UsbhDropDevice @ 0x1C004D614
  * Callers:
- *     UsbhHubDispatchPortEvent @ 0x1C0016AF0 (UsbhHubDispatchPortEvent.c)
- *     UsbhReset1DropDevice @ 0x1C004D590 (UsbhReset1DropDevice.c)
- *     UsbhReset1DropDeviceTimeout @ 0x1C004D680 (UsbhReset1DropDeviceTimeout.c)
- *     UsbhReset2DropDevice @ 0x1C004DB80 (UsbhReset2DropDevice.c)
- *     UsbhReset2DropDeviceTimeout @ 0x1C004DC70 (UsbhReset2DropDeviceTimeout.c)
+ *     UsbhHubDispatchPortEvent @ 0x1C0008BD0 (UsbhHubDispatchPortEvent.c)
+ *     UsbhReset1DropDevice @ 0x1C004E9A0 (UsbhReset1DropDevice.c)
+ *     UsbhReset1DropDeviceTimeout @ 0x1C004EA90 (UsbhReset1DropDeviceTimeout.c)
+ *     UsbhReset2DropDevice @ 0x1C004EF90 (UsbhReset2DropDevice.c)
+ *     UsbhReset2DropDeviceTimeout @ 0x1C004F080 (UsbhReset2DropDeviceTimeout.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhReleaseEnumBusLockEx @ 0x1C000FB0C (UsbhReleaseEnumBusLockEx.c)
- *     UsbhSignalDriverResetEvent @ 0x1C001DF64 (UsbhSignalDriverResetEvent.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhAssertBusLock @ 0x1C0035D6C (UsbhAssertBusLock.c)
- *     Usbh_Disconnect_PdoEvent @ 0x1C003A55C (Usbh_Disconnect_PdoEvent.c)
- *     UsbhBusUnlatchPdo @ 0x1C004C104 (UsbhBusUnlatchPdo.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C00029EC (UsbhReleaseEnumBusLockEx.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhSignalDriverResetEvent @ 0x1C0017FEC (UsbhSignalDriverResetEvent.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhAssertBusLock @ 0x1C0037028 (UsbhAssertBusLock.c)
+ *     Usbh_Disconnect_PdoEvent @ 0x1C003B86C (Usbh_Disconnect_PdoEvent.c)
+ *     UsbhBusUnlatchPdo @ 0x1C004D510 (UsbhBusUnlatchPdo.c)
  */
 
 void __fastcall UsbhDropDevice(__int64 a1, __int64 a2, __int64 a3)

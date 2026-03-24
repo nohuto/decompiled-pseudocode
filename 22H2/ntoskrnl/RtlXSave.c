@@ -1,13 +1,15 @@
 /*
- * XREFs of RtlXSave @ 0x14020DFD0
+ * XREFs of RtlXSave @ 0x14031A820
  * Callers:
- *     KiSaveNpxState @ 0x14020DD50 (KiSaveNpxState.c)
- *     KeSaveExtendedAndSupervisorState @ 0x14020DDFC (KeSaveExtendedAndSupervisorState.c)
- *     RtlXSaveS @ 0x14036DE54 (RtlXSaveS.c)
- *     ViCtxCaptureInitialIsrState @ 0x140AE5AB8 (ViCtxCaptureInitialIsrState.c)
- *     ViCtxCheckAndReleaseIsrState @ 0x140AE5B58 (ViCtxCheckAndReleaseIsrState.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x14031A61C (KeSaveExtendedAndSupervisorState.c)
+ *     RtlXSaveS @ 0x14031A7EC (RtlXSaveS.c)
+ *     KiSaveNpxState @ 0x1405252F0 (KiSaveNpxState.c)
+ *     KiSwapToUmsThread @ 0x1408BD970 (KiSwapToUmsThread.c)
+ *     KiCaptureUmsThreadContext @ 0x1408BEBA0 (KiCaptureUmsThreadContext.c)
+ *     ViCtxCaptureInitialIsrState @ 0x1409E42B4 (ViCtxCaptureInitialIsrState.c)
+ *     ViCtxCheckAndReleaseIsrState @ 0x1409E4354 (ViCtxCheckAndReleaseIsrState.c)
  * Callees:
- *     XSaveCHelper @ 0x140429AD0 (XSaveCHelper.c)
+ *     XSaveCHelper @ 0x140408150 (XSaveCHelper.c)
  */
 
 __int64 __fastcall RtlXSave(_DWORD *a1, unsigned __int64 a2, __int64 a3)

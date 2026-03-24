@@ -1,14 +1,14 @@
 /*
- * XREFs of IopConnectLinkTrackingPort @ 0x1409448B0
+ * XREFs of IopConnectLinkTrackingPort @ 0x140891510
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     NtClose @ 0x1406E4570 (NtClose.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     NtSecureConnectPort @ 0x1407C43C0 (NtSecureConnectPort.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     NtSecureConnectPort @ 0x1405DDC90 (NtSecureConnectPort.c)
+ *     NtClose @ 0x14063E0A0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
 LONG __fastcall IopConnectLinkTrackingPort(__int64 a1)
@@ -40,7 +40,7 @@ LONG __fastcall IopConnectLinkTrackingPort(__int64 a1)
              0LL,
              0LL,
              0LL,
-             &Object,
+             (unsigned __int64)&Object,
              0LL,
              0LL);
       if ( v1 >= 0 )
@@ -54,7 +54,7 @@ LONG __fastcall IopConnectLinkTrackingPort(__int64 a1)
         {
           Object = 0LL;
           v1 = ObReferenceObjectByHandle(Handle, 0, LpcPortObjectType, 0, &Object, 0LL);
-          IopLinkTrackingServiceObject = Object;
+          IopLinkTrackingServiceObject = (PADAPTER_OBJECT)Object;
           NtClose(Handle);
         }
       }

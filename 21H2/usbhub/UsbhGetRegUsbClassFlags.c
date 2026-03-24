@@ -1,11 +1,12 @@
 /*
- * XREFs of UsbhGetRegUsbClassFlags @ 0x1C0044C38
+ * XREFs of UsbhGetRegUsbClassFlags @ 0x1C0045F24
  * Callers:
- *     UsbhGetUsbDeviceFlags @ 0x1C0037EA8 (UsbhGetUsbDeviceFlags.c)
+ *     UsbhGetUsbDeviceFlags @ 0x1C0039180 (UsbhGetUsbDeviceFlags.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     RtlStringCbPrintfW @ 0x1C004436C (RtlStringCbPrintfW.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     RtlStringCbPrintfW @ 0x1C004561C (RtlStringCbPrintfW.c)
  */
 
 void __fastcall UsbhGetRegUsbClassFlags(__int64 a1, __int64 a2)
@@ -13,17 +14,17 @@ void __fastcall UsbhGetRegUsbClassFlags(__int64 a1, __int64 a2)
   unsigned __int8 *v3; // rax
   unsigned int v4; // edi
   int v5; // esi
-  int v6; // r12d
-  wchar_t *Pool2; // rax
+  int v6; // r15d
+  wchar_t *PoolWithTag; // rax
   wchar_t *v8; // rbx
-  int v9; // r14d
+  int v9; // r12d
   unsigned int v10; // esi
   wchar_t *v11; // rax
   wchar_t **v12; // rdi
-  wchar_t **v13; // r12
+  wchar_t **v13; // r15
   void (__fastcall *SystemRoutineAddress)(__int64, wchar_t *, __int64 (__fastcall **)(int, int, int, int, __int64, __int64), __int64, _QWORD); // rax
   wchar_t *v15; // rax
-  wchar_t **v16; // r14
+  wchar_t **v16; // r15
   void (__fastcall *v17)(__int64, wchar_t *, __int64 (__fastcall **)(int, int, int, int, __int64, __int64), __int64, _QWORD); // rax
   wchar_t *i; // rax
   int v19; // eax
@@ -49,15 +50,16 @@ void __fastcall UsbhGetRegUsbClassFlags(__int64 a1, __int64 a2)
   v6 = v3[2440];
   if ( (unsigned __int8)(v4 - 1) <= 0xFDu )
   {
-    Pool2 = (wchar_t *)ExAllocatePool2(64LL, 84LL, 1112885333LL);
-    v8 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 0x54uLL, 0x42554855u);
+    v8 = PoolWithTag;
+    if ( PoolWithTag )
     {
+      memset(PoolWithTag, 0, 0x54uLL);
       v9 = v5;
       v34 = v5;
       v21 = v5;
       v10 = v4;
-      if ( (RtlStringCbPrintfW(Pool2, 0x54uLL, L"usbflags\\CLASS_%02X_SUBCLASS_%02X_PROTOCOL_%02X", v4, v21, v6) & 0xC0000000) != 0xC0000000 )
+      if ( (RtlStringCbPrintfW(v8, 0x54uLL, L"usbflags\\CLASS_%02X_SUBCLASS_%02X_PROTOCOL_%02X", v4, v21, v6) & 0xC0000000) != 0xC0000000 )
       {
         v11 = GlobalClassValues;
         v12 = &GlobalClassValues;

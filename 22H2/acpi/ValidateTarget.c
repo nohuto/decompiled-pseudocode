@@ -1,88 +1,102 @@
 /*
- * XREFs of ValidateTarget @ 0x1C004D510
+ * XREFs of ValidateTarget @ 0x1C000B264
  * Callers:
- *     Divide @ 0x1C00065A0 (Divide.c)
- *     ExprOp2_32 @ 0x1C0006642 (ExprOp2_32.c)
- *     Load @ 0x1C00556E0 (Load.c)
- *     Concat @ 0x1C0055F80 (Concat.c)
- *     ConcatenateResTemplate @ 0x1C00562B0 (ConcatenateResTemplate.c)
- *     CondRefOf @ 0x1C00564B0 (CondRefOf.c)
- *     CopyObject @ 0x1C0056570 (CopyObject.c)
- *     ExprOp1_32 @ 0x1C00566E0 (ExprOp1_32.c)
- *     ExprOp1_64 @ 0x1C005683C (ExprOp1_64.c)
- *     ExprOp2_64 @ 0x1C0056A00 (ExprOp2_64.c)
- *     Index @ 0x1C0056C20 (Index.c)
- *     MidString @ 0x1C0057B60 (MidString.c)
- *     Store @ 0x1C0058B80 (Store.c)
- *     ToBuffer @ 0x1C0058C60 (ToBuffer.c)
- *     ToDecStr @ 0x1C0058CE0 (ToDecStr.c)
- *     ToHexStr @ 0x1C00590D0 (ToHexStr.c)
- *     ToInteger @ 0x1C00593F0 (ToInteger.c)
- *     ToString @ 0x1C0059470 (ToString.c)
+ *     Index @ 0x1C000B100 (Index.c)
+ *     ToInteger @ 0x1C000C110 (ToInteger.c)
+ *     Load @ 0x1C0024DC0 (Load.c)
+ *     CondRefOf @ 0x1C002BED0 (CondRefOf.c)
+ *     ExprOp1_64 @ 0x1C002FC60 (ExprOp1_64.c)
+ *     Concat @ 0x1C0068C00 (Concat.c)
+ *     ConcatenateResTemplate @ 0x1C0068F10 (ConcatenateResTemplate.c)
+ *     CopyObject @ 0x1C0069110 (CopyObject.c)
+ *     Divide @ 0x1C0069240 (Divide.c)
+ *     ExprOp1_32 @ 0x1C00692E4 (ExprOp1_32.c)
+ *     ExprOp2_32 @ 0x1C0069428 (ExprOp2_32.c)
+ *     MidString @ 0x1C0069D60 (MidString.c)
+ *     ToBuffer @ 0x1C006A7D0 (ToBuffer.c)
+ *     ToDecStr @ 0x1C006A850 (ToDecStr.c)
+ *     ToHexStr @ 0x1C006AC20 (ToHexStr.c)
+ *     ToString @ 0x1C006AF40 (ToString.c)
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
- *     GetObjectTypeName @ 0x1C004BD70 (GetObjectTypeName.c)
- *     MatchObjType @ 0x1C004C084 (MatchObjType.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
+ *     FreeData @ 0x1C00036E8 (FreeData.c)
+ *     MatchObjType @ 0x1C000ABEC (MatchObjType.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
  */
 
-__int64 __fastcall ValidateTarget(__int64 a1, __int64 a2, int a3, __int64 a4)
+__int64 __fastcall ValidateTarget(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
-  _WORD *v4; // r14
-  unsigned int v5; // ebx
-  unsigned int v6; // eax
-  __int64 v9; // r10
-  int v11; // ecx
-  __int16 v12; // r11
+  unsigned int v4; // r10d
+  unsigned int v5; // edi
+  __int64 v8; // rbx
+  int v10; // ecx
+  unsigned int v11; // eax
+  __int16 v13; // r10
+  __int16 v14; // r11
   int ObjectTypeName; // eax
-  int v14; // r11d
-  int v15; // r8d
-  int v16; // ecx
-  __int64 v17; // r10
+  int v16; // r11d
+  int v17; // r8d
+  int v18; // ecx
 
-  v4 = (_WORD *)(a2 + 2);
+  v4 = *(unsigned __int16 *)(a2 + 2);
   v5 = 0;
-  v6 = *(unsigned __int16 *)(a2 + 2);
-  v9 = a2;
-  if ( (_WORD)v6 == 128 )
+  v8 = a2;
+  if ( (_WORD)v4 == 128 )
   {
-    v9 = *(_QWORD *)(a2 + 16) + 64LL;
+    v8 = *(_QWORD *)(a2 + 16) + 64LL;
   }
-  else if ( (_WORD)v6 == 129 )
+  else if ( (_WORD)v4 == 129 )
   {
-    v9 = *(_QWORD *)(a2 + 16);
+    v8 = *(_QWORD *)(a2 + 16);
   }
-  else if ( v6 > 0x10 || (v11 = 81921, !_bittest(&v11, v6)) )
+  else if ( v4 > 0x10 || (v10 = 81921, !_bittest(&v10, v4)) )
   {
     LogError(3222536202LL);
-    AcpiDiagTraceAmlError(a1, -1072431094);
-    ObjectTypeName = GetObjectTypeName((unsigned __int16)*v4);
-    v15 = 0;
-    v16 = 208;
-    goto LABEL_14;
+    AcpiDiagTraceAmlError(a1, 3222536202LL);
+    ObjectTypeName = GetObjectTypeName(*(unsigned __int16 *)(v8 + 2));
+    v17 = 0;
+    v18 = 208;
+    goto LABEL_24;
   }
-  *(_QWORD *)a4 = v9;
-  if ( *v4 != 128 )
-    goto LABEL_18;
-  if ( !MatchObjType(*(unsigned __int16 *)(v9 + 2), a3) )
+  *(_QWORD *)a4 = v8;
+  if ( (_WORD)v4 != 128 )
+    goto LABEL_6;
+  if ( !MatchObjType(*(unsigned __int16 *)(v8 + 2), a3) )
   {
     LogError(3222536202LL);
-    AcpiDiagTraceAmlError(a1, -1072431094);
+    AcpiDiagTraceAmlError(a1, 3222536202LL);
     GetObjectTypeName(a3);
     ObjectTypeName = GetObjectTypeName(*(unsigned __int16 *)(*(_QWORD *)a4 + 2LL));
-    v15 = v14;
-    v16 = 207;
-LABEL_14:
-    PrintDebugMessage(v16, ObjectTypeName, v15, 0, 0LL);
+    v17 = v16;
+    v18 = 207;
+LABEL_24:
+    PrintDebugMessage(v18, ObjectTypeName, v17, 0, 0LL);
     return (unsigned int)-1072431094;
   }
-  if ( v12 != 128 )
+  if ( v13 == v14 )
+    return v5;
+LABEL_6:
+  v11 = *(unsigned __int16 *)(v8 + 2);
+  if ( v11 == 133 )
   {
-LABEL_18:
-    if ( MatchObjType(*(unsigned __int16 *)(v9 + 2), 133) )
-      FreeDataBuffs(v17, 1u);
+LABEL_10:
+    FreeData(v8);
+    return v5;
   }
+  if ( *(_WORD *)(v8 + 2) )
+  {
+    if ( v11 <= 4 )
+    {
+      v11 = 133;
+    }
+    else if ( v11 == 5 || v11 == 14 )
+    {
+      return v5;
+    }
+  }
+  if ( v11 == 133 || !v11 )
+    goto LABEL_10;
   return v5;
 }

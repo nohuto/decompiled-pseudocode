@@ -1,19 +1,16 @@
 /*
- * XREFs of VfConfigureAdapterChannel @ 0x140AC6CF0
+ * XREFs of VfConfigureAdapterChannel @ 0x1409CB6B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViGetRealDmaAdapter @ 0x140ACA158 (ViGetRealDmaAdapter.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ViGetRealDmaOperation @ 0x1409CEA60 (ViGetRealDmaOperation.c)
  */
 
-__int64 __fastcall VfConfigureAdapterChannel(int a1, unsigned int a2, __int64 a3)
+__int64 __fastcall VfConfigureAdapterChannel(__int64 a1, unsigned int a2, __int64 a3)
 {
-  __int64 RealDmaAdapter; // rax
+  __int64 (__fastcall *RealDmaOperation)(__int64, _QWORD, __int64); // rax
 
-  RealDmaAdapter = ViGetRealDmaAdapter(a1);
-  return (*(__int64 (__fastcall **)(__int64, _QWORD, __int64))(*(_QWORD *)(RealDmaAdapter + 8) + 168LL))(
-           RealDmaAdapter,
-           a2,
-           a3);
+  RealDmaOperation = (__int64 (__fastcall *)(__int64, _QWORD, __int64))ViGetRealDmaOperation(a1);
+  return RealDmaOperation(a1, a2, a3);
 }

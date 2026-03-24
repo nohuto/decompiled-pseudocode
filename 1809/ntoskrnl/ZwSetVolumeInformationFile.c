@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetVolumeInformationFile @ 0x1401BB6D0
+ * XREFs of ZwSetVolumeInformationFile @ 0x1401BB6F0
  * Callers:
  *     <none>
  * Callees:

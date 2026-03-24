@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1SEMOBJEX@@QEAA@XZ @ 0x1C00D4AB4
+ * XREFs of ??1SEMOBJEX@@QEAA@XZ @ 0x1C00C2E3C
  * Callers:
- *     HDXDrvEscape @ 0x1C00D4960 (HDXDrvEscape.c)
- *     GreDrvConnect @ 0x1C016C570 (GreDrvConnect.c)
+ *     HDXDrvEscape @ 0x1C00C2D00 (HDXDrvEscape.c)
+ *     GreDrvConnect @ 0x1C013F280 (GreDrvConnect.c)
  * Callees:
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
  */
 
 void __fastcall SEMOBJEX::~SEMOBJEX(SEMOBJEX *this, __int64 a2, int a3)

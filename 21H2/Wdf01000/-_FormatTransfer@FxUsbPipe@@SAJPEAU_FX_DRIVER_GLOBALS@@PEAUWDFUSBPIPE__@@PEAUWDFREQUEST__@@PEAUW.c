@@ -1,15 +1,15 @@
 /*
- * XREFs of ?_FormatTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAUWDFMEMORY__@@PEAU_WDFMEMORY_OFFSET@@K@Z @ 0x1C007AB18
+ * XREFs of ?_FormatTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAUWDFMEMORY__@@PEAU_WDFMEMORY_OFFSET@@K@Z @ 0x1C006E078
  * Callers:
- *     imp_WdfUsbTargetPipeFormatRequestForRead @ 0x1C0076280 (imp_WdfUsbTargetPipeFormatRequestForRead.c)
- *     imp_WdfUsbTargetPipeFormatRequestForWrite @ 0x1C0076640 (imp_WdfUsbTargetPipeFormatRequestForWrite.c)
+ *     imp_WdfUsbTargetPipeFormatRequestForRead @ 0x1C0068C10 (imp_WdfUsbTargetPipeFormatRequestForRead.c)
+ *     imp_WdfUsbTargetPipeFormatRequestForWrite @ 0x1C0068FD0 (imp_WdfUsbTargetPipeFormatRequestForWrite.c)
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?GetBufferLength@FxRequestBuffer@@QEAAKXZ @ 0x1C0006AA0 (-GetBufferLength@FxRequestBuffer@@QEAAKXZ.c)
- *     ?SetMemory@FxRequestBuffer@@QEAAXPEAVIFxMemory@@PEAU_WDFMEMORY_OFFSET@@@Z @ 0x1C001B2C8 (-SetMemory@FxRequestBuffer@@QEAAXPEAVIFxMemory@@PEAU_WDFMEMORY_OFFSET@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_qqqd @ 0x1C00532C0 (WPP_IFR_SF_qqqd.c)
- *     ?FormatTransferRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@PEAUFxRequestBuffer@@K@Z @ 0x1C0080A24 (-FormatTransferRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@PEAUFxRequestBuffer@@K@Z.c)
+ *     ?GetBufferLength@FxRequestBuffer@@QEAAKXZ @ 0x1C000B08C (-GetBufferLength@FxRequestBuffer@@QEAAKXZ.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?SetMemory@FxRequestBuffer@@QEAAXPEAVIFxMemory@@PEAU_WDFMEMORY_OFFSET@@@Z @ 0x1C000CDB0 (-SetMemory@FxRequestBuffer@@QEAAXPEAVIFxMemory@@PEAU_WDFMEMORY_OFFSET@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qqqd @ 0x1C002EB50 (WPP_IFR_SF_qqqd.c)
+ *     ?FormatTransferRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@PEAUFxRequestBuffer@@K@Z @ 0x1C006C04C (-FormatTransferRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@PEAUFxRequestBuffer@@K@Z.c)
  */
 
 __int64 __fastcall FxUsbPipe::_FormatTransfer(
@@ -56,7 +56,7 @@ __int64 __fastcall FxUsbPipe::_FormatTransfer(
       if ( v12 < BufferLength || v12 > pMemory->GetBufferSize(pMemory) )
       {
         _a4 = -1073741675;
-        goto $Done_56;
+        goto $Done_47;
       }
     }
     FxRequestBuffer::SetMemory(&buf, pMemory, v10);
@@ -78,7 +78,7 @@ __int64 __fastcall FxUsbPipe::_FormatTransfer(
     HIDWORD(m_RequestContext[1].__vftable) = (v14 & 1) + 5;
     _a1 = v21;
   }
-$Done_56:
+$Done_47:
   if ( m_Globals->FxVerboseOn )
     WPP_IFR_SF_qqqd(
       m_Globals,

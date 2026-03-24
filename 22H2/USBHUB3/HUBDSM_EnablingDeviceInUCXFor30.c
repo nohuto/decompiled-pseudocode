@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_EnablingDeviceInUCXFor30 @ 0x1C0020AE0
+ * XREFs of HUBDSM_EnablingDeviceInUCXFor30 @ 0x1C001E240
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C0026BA0 (HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl.c)
+ *     HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C0024204 (HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl.c)
  */
 
 __int64 __fastcall HUBDSM_EnablingDeviceInUCXFor30(__int64 a1)

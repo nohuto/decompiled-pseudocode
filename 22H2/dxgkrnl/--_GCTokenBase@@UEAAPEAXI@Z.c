@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_GCTokenBase@@UEAAPEAXI@Z @ 0x1C0078090
+ * XREFs of ??_GCTokenBase@@UEAAPEAXI@Z @ 0x1C0064550
  * Callers:
  *     <none>
  * Callees:

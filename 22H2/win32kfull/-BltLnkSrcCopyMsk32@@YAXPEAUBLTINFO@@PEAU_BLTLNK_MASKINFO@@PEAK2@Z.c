@@ -1,5 +1,5 @@
 /*
- * XREFs of ?BltLnkSrcCopyMsk32@@YAXPEAUBLTINFO@@PEAU_BLTLNK_MASKINFO@@PEAK2@Z @ 0x1C009CFF0
+ * XREFs of ?BltLnkSrcCopyMsk32@@YAXPEAUBLTINFO@@PEAU_BLTLNK_MASKINFO@@PEAK2@Z @ 0x1C00FE820
  * Callers:
  *     <none>
  * Callees:
@@ -11,27 +11,28 @@ void __fastcall BltLnkSrcCopyMsk32(struct BLTINFO *a1, struct _BLTLNK_MASKINFO *
   int v4; // eax
   struct _BLTLNK_MASKINFO *v5; // r8
   int v6; // r11d
-  struct BLTINFO *v7; // rsi
-  int v8; // r12d
+  struct BLTINFO *v7; // rbx
+  int v8; // r13d
   __int64 v9; // rcx
-  __int64 v10; // rbp
+  __int64 v10; // rdi
   __int64 v11; // rdx
   int v12; // r14d
-  char v13; // r9
+  int v13; // r15d
   unsigned int v14; // edx
   int v15; // ecx
-  bool v16; // cc
-  int v17; // r15d
-  int v18; // r13d
-  unsigned int v19; // edx
-  int v20; // r10d
-  __int64 v21; // rax
-  _DWORD *v22; // rbx
-  _DWORD *v23; // rdi
-  unsigned __int8 v24; // [rsp+0h] [rbp-58h]
-  int v25; // [rsp+4h] [rbp-54h]
-  __int64 v26; // [rsp+8h] [rbp-50h]
+  char v16; // bp
+  bool v17; // cc
+  int v18; // r12d
+  int v19; // r15d
+  unsigned int v20; // edx
+  int v21; // esi
+  __int64 v22; // rax
+  _DWORD *v23; // r9
+  _DWORD *v24; // r10
+  unsigned __int8 v25; // [rsp+0h] [rbp-58h]
+  int v26; // [rsp+4h] [rbp-54h]
   __int64 v27; // [rsp+10h] [rbp-48h]
+  __int64 v28; // [rsp+18h] [rbp-40h]
 
   v4 = *((_DWORD *)a2 + 6);
   v5 = a2;
@@ -41,43 +42,44 @@ void __fastcall BltLnkSrcCopyMsk32(struct BLTINFO *a1, struct _BLTLNK_MASKINFO *
   v9 = *((_QWORD *)a1 + 1);
   v10 = *(_QWORD *)a2;
   v11 = *((_QWORD *)v7 + 2);
-  v25 = v4;
-  v26 = v11;
-  v24 = *((_BYTE *)v5 + 36);
-  v27 = v9;
+  v26 = v4;
+  v27 = v11;
+  v25 = *((_BYTE *)v5 + 36);
+  v28 = v9;
   while ( v8 )
   {
     --v8;
-    v17 = *((_DWORD *)v7 + 7);
-    v20 = *((_DWORD *)v5 + 7);
-    v22 = (_DWORD *)(v9 + 4LL * *((int *)v7 + 12));
-    v23 = (_DWORD *)(v11 + 4LL * *((int *)v7 + 14));
-    if ( v17 <= 0 )
+    v18 = *((_DWORD *)v7 + 7);
+    v21 = *((_DWORD *)v5 + 7);
+    v23 = (_DWORD *)(v9 + 4LL * *((int *)v7 + 12));
+    v24 = (_DWORD *)(v11 + 4LL * *((int *)v7 + 14));
+    if ( v18 <= 0 )
       goto LABEL_44;
     do
     {
-      v12 = v25 - v20;
-      v13 = 0;
-      v14 = v24 ^ *(unsigned __int8 *)(((__int64)v20 >> 3) + v10);
-      v15 = 8 - (v20 & 7);
-      if ( v15 > v17 )
+      v12 = v26 - v21;
+      v13 = v18;
+      v14 = v25 ^ *(unsigned __int8 *)(((__int64)v21 >> 3) + v10);
+      v15 = 8 - (v21 & 7);
+      v16 = v15 - v18;
+      if ( v15 <= v18 )
       {
-        v15 = v17;
-        v13 = 8 - (v20 & 7) - v17;
+        v13 = 8 - (v21 & 7);
+        v16 = 0;
       }
-      v16 = v15 <= v12;
-      if ( v15 > v12 )
+      v17 = v13 <= v12;
+      if ( v13 > v12 )
       {
-        v13 += v15 - v12;
-        v16 = v15 <= v12;
+        v16 += v13 - v12;
+        v17 = v13 <= v12;
       }
-      if ( v16 )
-        v12 = v15;
-      v17 -= v12;
-      v18 = v12 + v20;
+      if ( v17 )
+        v12 = v13;
+      v18 -= v12;
+      v19 = v12 + v21;
       if ( v14 )
       {
-        v19 = v14 >> v13;
+        v20 = v14 >> v16;
         if ( v12 != 1 )
         {
           if ( v12 != 2 )
@@ -94,55 +96,55 @@ void __fastcall BltLnkSrcCopyMsk32(struct BLTINFO *a1, struct _BLTLNK_MASKINFO *
                     {
                       if ( v12 != 8 )
                         goto LABEL_40;
-                      if ( (v19 & 1) != 0 )
-                        v23[7] = v22[7];
-                      v19 >>= 1;
+                      if ( (v20 & 1) != 0 )
+                        v24[7] = v23[7];
+                      v20 >>= 1;
                     }
-                    if ( (v19 & 1) != 0 )
-                      v23[6] = v22[6];
-                    v19 >>= 1;
+                    if ( (v20 & 1) != 0 )
+                      v24[6] = v23[6];
+                    v20 >>= 1;
                   }
-                  if ( (v19 & 1) != 0 )
-                    v23[5] = v22[5];
-                  v19 >>= 1;
+                  if ( (v20 & 1) != 0 )
+                    v24[5] = v23[5];
+                  v20 >>= 1;
                 }
-                if ( (v19 & 1) != 0 )
-                  v23[4] = v22[4];
-                v19 >>= 1;
+                if ( (v20 & 1) != 0 )
+                  v24[4] = v23[4];
+                v20 >>= 1;
               }
-              if ( (v19 & 1) != 0 )
-                v23[3] = v22[3];
-              v19 >>= 1;
+              if ( (v20 & 1) != 0 )
+                v24[3] = v23[3];
+              v20 >>= 1;
             }
-            if ( (v19 & 1) != 0 )
-              v23[2] = v22[2];
-            v19 >>= 1;
+            if ( (v20 & 1) != 0 )
+              v24[2] = v23[2];
+            v20 >>= 1;
           }
-          if ( (v19 & 1) != 0 )
-            v23[1] = v22[1];
-          v19 >>= 1;
+          if ( (v20 & 1) != 0 )
+            v24[1] = v23[1];
+          v20 >>= 1;
         }
-        if ( (v19 & 1) != 0 )
-          *v23 = *v22;
+        if ( (v20 & 1) != 0 )
+          *v24 = *v23;
       }
 LABEL_40:
-      v20 = 0;
-      v21 = 4LL * v12;
-      v22 = (_DWORD *)((char *)v22 + v21);
-      v23 = (_DWORD *)((char *)v23 + v21);
-      if ( v18 != v25 )
-        v20 = v18;
+      v21 = 0;
+      v22 = 4LL * v12;
+      v23 = (_DWORD *)((char *)v23 + v22);
+      v24 = (_DWORD *)((char *)v24 + v22);
+      if ( v19 != v26 )
+        v21 = v19;
     }
-    while ( v17 > 0 );
+    while ( v18 > 0 );
     v5 = a2;
     v7 = a1;
-    v9 = v27;
-    v11 = v26;
+    v9 = v28;
+    v11 = v27;
 LABEL_44:
     v11 += *((int *)v7 + 11);
     v9 += *((int *)v7 + 10);
-    v26 = v11;
-    v27 = v9;
+    v27 = v11;
+    v28 = v9;
     if ( *((int *)v7 + 9) <= 0 )
     {
       if ( v6 )

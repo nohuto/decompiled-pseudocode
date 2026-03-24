@@ -1,9 +1,9 @@
 /*
- * XREFs of PipDeviceObjectListIndexOf @ 0x140869240
+ * XREFs of PipDeviceObjectListIndexOf @ 0x140749980
  * Callers:
- *     PipIsDeviceInDeviceObjectList @ 0x14086921C (PipIsDeviceInDeviceObjectList.c)
- *     IopMergeRelationLists @ 0x14096CAE4 (IopMergeRelationLists.c)
- *     IopRemoveRelationFromList @ 0x14096CC54 (IopRemoveRelationFromList.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x14074995C (PipIsDeviceInDeviceObjectList.c)
+ *     IopMergeRelationLists @ 0x1408B2778 (IopMergeRelationLists.c)
+ *     IopRemoveRelationFromList @ 0x1408B28E4 (IopRemoveRelationFromList.c)
  * Callees:
  *     <none>
  */

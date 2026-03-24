@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SampleStartingValue@CKeyframeAnimation@@AEAAJXZ @ 0x1800C2160
+ * XREFs of ?SampleStartingValue@CKeyframeAnimation@@AEAAJXZ @ 0x1800AD298
  * Callers:
- *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180056390 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?SampleExpressionsAndStartingValue@CKeyframeAnimation@@IEAAJPEAVCExpressionValueStack@@@Z @ 0x1800BD934 (-SampleExpressionsAndStartingValue@CKeyframeAnimation@@IEAAJPEAVCExpressionValueStack@@@Z.c)
- *     ?GetSampledStartingValue@CKeyframeAnimation@@QEAAJPEAVCExpressionValue@@@Z @ 0x1800EE7B0 (-GetSampledStartingValue@CKeyframeAnimation@@QEAAJPEAVCExpressionValue@@@Z.c)
+ *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800AB420 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z @ 0x1800ABEF0 (-Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z.c)
+ *     ?SampleExpressionsAndStartingValue@CKeyframeAnimation@@IEAAJPEAVCExpressionValueStack@@@Z @ 0x1800ACD7C (-SampleExpressionsAndStartingValue@CKeyframeAnimation@@IEAAJPEAVCExpressionValueStack@@@Z.c)
+ *     ?GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x18020607C (-GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ResolveTargetNoRef@CBaseExpression@@IEAAPEAVCResource@@XZ @ 0x1800C22B0 (-ResolveTargetNoRef@CBaseExpression@@IEAAPEAVCResource@@XZ.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     ??4?$com_ptr_t@VCPathData@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCPathData@@@Z @ 0x18011A304 (--4-$com_ptr_t@VCPathData@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCPathData@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z @ 0x18021738C (-ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ResolveTargetNoRef@CBaseExpression@@IEAAPEAVCResource@@XZ @ 0x1800AD3B4 (-ResolveTargetNoRef@CBaseExpression@@IEAAPEAVCResource@@XZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     ??4?$com_ptr_t@VCColorGradientStop@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorGradientStop@@@Z @ 0x1800EFDF4 (--4-$com_ptr_t@VCColorGradientStop@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorGradi.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z @ 0x1801B149C (-ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::SampleStartingValue(CKeyframeAnimation *this)
@@ -27,121 +27,124 @@ __int64 __fastcall CKeyframeAnimation::SampleStartingValue(CKeyframeAnimation *t
   int v9; // ecx
   int v10; // ecx
   int v11; // ecx
-  __int64 v13; // rcx
-  int v14; // ecx
+  __int64 v12; // rcx
+  __int64 v14; // rcx
   int v15; // ecx
   int v16; // ecx
-  unsigned int v17; // [rsp+28h] [rbp-19h]
-  __int128 v18; // [rsp+38h] [rbp-9h] BYREF
-  __int128 v19; // [rsp+48h] [rbp+7h]
-  __int128 v20; // [rsp+58h] [rbp+17h]
-  __int128 v21; // [rsp+68h] [rbp+27h]
-  __int64 v22; // [rsp+78h] [rbp+37h] BYREF
-  int v23; // [rsp+80h] [rbp+3Fh]
-  char v24; // [rsp+84h] [rbp+43h]
+  int v17; // ecx
+  unsigned int v18; // [rsp+28h] [rbp-19h]
+  __int128 v19; // [rsp+38h] [rbp-9h] BYREF
+  __int128 v20; // [rsp+48h] [rbp+7h]
+  __int128 v21; // [rsp+58h] [rbp+17h]
+  __int128 v22; // [rsp+68h] [rbp+27h]
+  __int64 v23; // [rsp+78h] [rbp+37h]
+  int v24; // [rsp+80h] [rbp+3Fh]
+  char v25; // [rsp+84h] [rbp+43h]
 
-  memset_0(&v18, 0, 0x40uLL);
-  v2 = *((_QWORD *)this + 48);
-  v22 = 0LL;
-  v23 = 18;
-  v24 = 0;
+  memset_0(&v19, 0, 0x40uLL);
+  v2 = *((_QWORD *)this + 44);
+  v23 = 0LL;
+  v24 = 18;
+  v25 = 0;
   if ( *(_DWORD *)v2 )
-    goto LABEL_10;
+    return 0;
   v3 = CBaseExpression::ResolveTargetNoRef(this);
-  v4 = (*(__int64 (__fastcall **)(struct CResource *, _QWORD, __int128 *))(*(_QWORD *)v3 + 136LL))(
+  v4 = (*(__int64 (__fastcall **)(struct CResource *, _QWORD, __int128 *))(*(_QWORD *)v3 + 144LL))(
          v3,
-         *((unsigned int *)this + 48),
-         &v18);
+         *((unsigned int *)this + 46),
+         &v19);
   v6 = v4;
   if ( v4 < 0 )
   {
-    v17 = 2035;
-    goto LABEL_32;
+    v18 = 1957;
+    goto LABEL_35;
   }
-  v7 = *((_QWORD *)this + 25);
-  if ( v7 )
+  v7 = *((_QWORD *)this + 24);
+  if ( !v7
+    || !*(_BYTE *)(v7 + 4)
+    || (v4 = CExpressionValue::ApplyMaskToValue((CExpressionValue *)&v19, (struct SubchannelMaskInfo *)v7),
+        v6 = v4,
+        v4 >= 0) )
   {
-    if ( *(_BYTE *)(v7 + 4) )
+    v8 = *((_DWORD *)this + 36);
+    *(_DWORD *)v2 = v8;
+    if ( v8 > 52 )
     {
-      v4 = CExpressionValue::ApplyMaskToValue((CExpressionValue *)&v18, (struct SubchannelMaskInfo *)v7);
-      v6 = v4;
-      if ( v4 < 0 )
+      v15 = v8 - 69;
+      if ( !v15 || (v16 = v15 - 1) == 0 || (v17 = v16 - 1) == 0 )
       {
-        v17 = 2049;
-LABEL_32:
-        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, v17, 0LL);
-        goto LABEL_11;
+        *(_OWORD *)(v2 + 8) = v19;
+        goto LABEL_10;
+      }
+      v14 = (unsigned int)(v17 - 33);
+      if ( !(_DWORD)v14 )
+      {
+        *(_OWORD *)(v2 + 8) = v19;
+        *(_QWORD *)(v2 + 24) = v20;
+        goto LABEL_10;
+      }
+      if ( (_DWORD)v14 == 161 )
+      {
+        *(_OWORD *)(v2 + 8) = v19;
+        *(_OWORD *)(v2 + 24) = v20;
+        *(_OWORD *)(v2 + 40) = v21;
+        *(_OWORD *)(v2 + 56) = v22;
+        goto LABEL_10;
       }
     }
-  }
-  v8 = *((_DWORD *)this + 38);
-  *(_DWORD *)v2 = v8;
-  if ( v8 == 52 )
-  {
-    *(_QWORD *)(v2 + 8) = v18;
-    *(_DWORD *)(v2 + 16) = DWORD2(v18);
-    goto LABEL_10;
-  }
-  if ( v8 > 52 )
-  {
-    v14 = v8 - 69;
-    if ( !v14 || (v15 = v14 - 1) == 0 || (v16 = v15 - 1) == 0 )
+    else
     {
-      *(_OWORD *)(v2 + 8) = v18;
-      goto LABEL_10;
+      if ( v8 == 52 )
+      {
+        *(_QWORD *)(v2 + 8) = v19;
+        *(_DWORD *)(v2 + 16) = DWORD2(v19);
+        goto LABEL_10;
+      }
+      v9 = v8 - 11;
+      if ( !v9 )
+      {
+        wil::com_ptr_t<CColorGradientStop,wil::err_returncode_policy>::operator=((char *)this + 424, v23);
+        goto LABEL_10;
+      }
+      v10 = v9 - 6;
+      if ( !v10 )
+      {
+        *(_BYTE *)(v2 + 8) = v19;
+        goto LABEL_10;
+      }
+      v11 = v10 - 1;
+      if ( !v11 )
+      {
+        *(_DWORD *)(v2 + 8) = v19;
+LABEL_10:
+        v6 = 0;
+        goto LABEL_11;
+      }
+      v14 = (unsigned int)(v11 - 17);
+      if ( !(_DWORD)v14 )
+      {
+        *(_QWORD *)(v2 + 8) = v19;
+        goto LABEL_10;
+      }
+      if ( (_DWORD)v14 == 7 )
+      {
+        *(_DWORD *)(v2 + 8) = v19;
+        goto LABEL_10;
+      }
     }
-    v13 = (unsigned int)(v16 - 33);
-    if ( !(_DWORD)v13 )
-    {
-      *(_OWORD *)(v2 + 8) = v18;
-      *(_QWORD *)(v2 + 24) = v19;
-      goto LABEL_10;
-    }
-    if ( (_DWORD)v13 == 161 )
-    {
-      *(_OWORD *)(v2 + 8) = v18;
-      *(_OWORD *)(v2 + 24) = v19;
-      *(_OWORD *)(v2 + 40) = v20;
-      *(_OWORD *)(v2 + 56) = v21;
-      goto LABEL_10;
-    }
-    goto LABEL_29;
-  }
-  v9 = v8 - 11;
-  if ( !v9 )
-  {
-    wil::com_ptr_t<CPathData,wil::err_returncode_policy>::operator=((char *)this + 456, v22);
-    goto LABEL_10;
-  }
-  v10 = v9 - 6;
-  if ( !v10 )
-  {
-    *(_BYTE *)(v2 + 8) = v18;
-    goto LABEL_10;
-  }
-  v11 = v10 - 1;
-  if ( v11 )
-  {
-    v13 = (unsigned int)(v11 - 17);
-    if ( !(_DWORD)v13 )
-    {
-      *(_QWORD *)(v2 + 8) = v18;
-      goto LABEL_10;
-    }
-    if ( (_DWORD)v13 == 7 )
-    {
-      *(_DWORD *)(v2 + 8) = v18;
-      goto LABEL_10;
-    }
-LABEL_29:
     v6 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2147024809, 0x83Eu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024809, 0x7F0u, 0LL);
     goto LABEL_11;
   }
-  *(_DWORD *)(v2 + 8) = v18;
-LABEL_10:
-  v6 = 0;
+  v18 = 1971;
+LABEL_35:
+  MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, v18, 0LL);
 LABEL_11:
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v22);
+  v12 = v23;
+  if ( v23 )
+  {
+    v23 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
+  }
   return v6;
 }

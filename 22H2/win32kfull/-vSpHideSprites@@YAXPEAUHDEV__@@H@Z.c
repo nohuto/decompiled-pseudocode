@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vSpHideSprites@@YAXPEAUHDEV__@@H@Z @ 0x1C00B9034
+ * XREFs of ?vSpHideSprites@@YAXPEAUHDEV__@@H@Z @ 0x1C012C3F4
  * Callers:
- *     GreHideSprites @ 0x1C00B8FE0 (GreHideSprites.c)
+ *     GreHideSprites @ 0x1C012C3B0 (GreHideSprites.c)
  * Callees:
- *     ?vSpHook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C001B69C (-vSpHook@@YAXPEAU_SPRITESTATE@@@Z.c)
- *     ?vSpUnhook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00B90B8 (-vSpUnhook@@YAXPEAU_SPRITESTATE@@@Z.c)
- *     ??0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C00F6640 (--0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
- *     ??1SPRITEDDIACCESS@@QEAA@XZ @ 0x1C00F6984 (--1SPRITEDDIACCESS@@QEAA@XZ.c)
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C01137BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ??1SPRITEDDIACCESS@@QEAA@XZ @ 0x1C008BE40 (--1SPRITEDDIACCESS@@QEAA@XZ.c)
+ *     ??0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C008C448 (--0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
+ *     ?vSpHook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00ED260 (-vSpHook@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F09BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ?vSpUnhook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C012C478 (-vSpUnhook@@YAXPEAU_SPRITESTATE@@@Z.c)
  */
 
 void __fastcall vSpHideSprites(HDEV a1, int a2)
@@ -17,13 +17,13 @@ void __fastcall vSpHideSprites(HDEV a1, int a2)
   int v5; // eax
   __int64 v6; // rbx
   unsigned int v7; // edx
-  _BYTE v8[192]; // [rsp+20h] [rbp-C8h] BYREF
+  __int64 *v8[24]; // [rsp+20h] [rbp-C8h] BYREF
   HDEV v9; // [rsp+F0h] [rbp+8h] BYREF
 
   v9 = a1;
   SPRITEDDIACCESS::SPRITEDDIACCESS((SPRITEDDIACCESS *)v8, (struct PDEVOBJ *)&v9);
   v3 = v9;
-  v4 = *((_QWORD *)v9 + 11);
+  v4 = *((_QWORD *)v9 + 12);
   if ( v4 )
   {
     do
@@ -38,15 +38,15 @@ void __fastcall vSpHideSprites(HDEV a1, int a2)
     }
     while ( v6 );
   }
-  v5 = *((_DWORD *)v3 + 290);
+  v5 = *((_DWORD *)v3 + 292);
   if ( a2 )
   {
     if ( v5 )
-      vSpUnhook((struct _SPRITESTATE *)(v3 + 20));
+      vSpUnhook((struct _SPRITESTATE *)(v3 + 22));
   }
   else if ( !v5 )
   {
-    vSpHook((struct _SPRITESTATE *)(v3 + 20));
+    vSpHook((struct _SPRITESTATE *)(v3 + 22));
   }
-  SPRITEDDIACCESS::~SPRITEDDIACCESS((SPRITEDDIACCESS *)v8);
+  SPRITEDDIACCESS::~SPRITEDDIACCESS(v8);
 }

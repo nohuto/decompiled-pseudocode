@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Initialize@CHolographicClient@@AEAAJXZ @ 0x1802AD024
+ * XREFs of ?Initialize@CHolographicClient@@AEAAJXZ @ 0x18025B104
  * Callers:
- *     ?Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z @ 0x1802ACA2C (-Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z.c)
+ *     ?Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z @ 0x18025AB4C (-Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?EnsureHolographicCompositor@CHolographicClient@@AEAAJXZ @ 0x1802ACD10 (-EnsureHolographicCompositor@CHolographicClient@@AEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EnsureHolographicCompositor@CHolographicClient@@AEAAJXZ @ 0x18025AE10 (-EnsureHolographicCompositor@CHolographicClient@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CHolographicClient::Initialize(LARGE_INTEGER *this)

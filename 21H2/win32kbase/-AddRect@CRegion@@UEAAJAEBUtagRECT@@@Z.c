@@ -1,15 +1,15 @@
 /*
- * XREFs of ?AddRect@CRegion@@UEAAJAEBUtagRECT@@@Z @ 0x1C008EE00
+ * XREFs of ?AddRect@CRegion@@UEAAJAEBUtagRECT@@@Z @ 0x1C00255A0
  * Callers:
  *     <none>
  * Callees:
- *     ?vSwap@RGNOBJ@@QEAAXPEAV1@@Z @ 0x1C00233C0 (-vSwap@RGNOBJ@@QEAAXPEAV1@@Z.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C0023C00 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C0024160 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
- *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C0025A8C (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
- *     ?bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z @ 0x1C0026860 (-bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z.c)
- *     ?vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z @ 0x1C0027BB0 (-vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z.c)
- *     ?InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z @ 0x1C008EF30 (-InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z.c)
+ *     ?InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z @ 0x1C0027480 (-InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C002B038 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C002B750 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C002B874 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vSwap@RGNOBJ@@QEAAXPEAV1@@Z @ 0x1C002BDC0 (-vSwap@RGNOBJ@@QEAAXPEAV1@@Z.c)
+ *     ?bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z @ 0x1C0034020 (-bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z.c)
+ *     ?vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z @ 0x1C00348E0 (-vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z.c)
  */
 
 __int64 __fastcall CRegion::AddRect(CRegion *this, const struct tagRECT *a2)
@@ -19,9 +19,9 @@ __int64 __fastcall CRegion::AddRect(CRegion *this, const struct tagRECT *a2)
   int v7; // ecx
   __int64 v8; // [rsp+20h] [rbp-30h] BYREF
   int v9; // [rsp+28h] [rbp-28h]
-  struct _RECTL *v10; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v10; // [rsp+30h] [rbp-20h] BYREF
   int v11; // [rsp+38h] [rbp-18h]
-  struct _RECTL v12; // [rsp+40h] [rbp-10h] BYREF
+  _RECTL v12; // [rsp+40h] [rbp-10h] BYREF
   __int64 v13; // [rsp+68h] [rbp+18h] BYREF
 
   if ( a2->left > a2->right || a2->top > a2->bottom )
@@ -36,16 +36,18 @@ __int64 __fastcall CRegion::AddRect(CRegion *this, const struct tagRECT *a2)
   if ( v7 != 1 )
     return (unsigned int)-1073741811;
   v13 = *((_QWORD *)this + 2);
+  v10 = 0LL;
   v11 = 0;
   RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v10, 0x70u);
   RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v10);
+  v8 = 0LL;
   v9 = 0;
   RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v8, 0x70u);
   RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v8);
   if ( v10 && v8 )
   {
-    v12 = (struct _RECTL)*a2;
-    RGNOBJ::vSet(&v10, &v12);
+    v12 = (_RECTL)*a2;
+    RGNOBJ::vSet((RGNOBJ *)&v10, &v12);
     if ( (unsigned int)RGNOBJ::bMerge((RGNOBJ *)&v8, (struct RGNOBJ *)&v13, (struct RGNOBJ *)&v10, 0xEu) )
     {
       RGNOBJ::vSwap((RGNOBJ *)&v8, (struct RGNOBJ *)&v13);

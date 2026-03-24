@@ -1,11 +1,11 @@
 /*
- * XREFs of wil_details_UpdateFeatureConfiguredStates @ 0x1C016766C
+ * XREFs of wil_details_UpdateFeatureConfiguredStates @ 0x1C00DC1FC
  * Callers:
- *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1C0167650 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
+ *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1C00DC1E0 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C0025D20 (wil_details_FeatureDescriptors_SkipPadding.c)
- *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C016742C (wil_details_BuildFeatureStateCacheFromQueryResults.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C0027828 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C00DBFBC (wil_details_BuildFeatureStateCacheFromQueryResults.c)
  */
 
 volatile signed __int32 **wil_details_UpdateFeatureConfiguredStates()
@@ -20,7 +20,7 @@ volatile signed __int32 **wil_details_UpdateFeatureConfiguredStates()
   __int64 v7; // [rsp+30h] [rbp-28h] BYREF
   int v8; // [rsp+38h] [rbp-20h]
 
-  for ( i = &wil_details_featureDescriptors_a; ; i = (int **)(v4 + 7) )
+  for ( i = &wil_details_featureDescriptors_a; ; i = (int **)(v4 + 5) )
   {
     result = (volatile signed __int32 **)wil_details_FeatureDescriptors_SkipPadding(i);
     v4 = result;

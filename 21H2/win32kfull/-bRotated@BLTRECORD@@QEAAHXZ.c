@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bRotated@BLTRECORD@@QEAAHXZ @ 0x1C028A080
+ * XREFs of ?bRotated@BLTRECORD@@QEAAHXZ @ 0x1C028C3D8
  * Callers:
- *     GrePlgBlt @ 0x1C028B85C (GrePlgBlt.c)
+ *     GrePlgBlt @ 0x1C028DBB0 (GrePlgBlt.c)
  * Callees:
  *     <none>
  */

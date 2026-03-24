@@ -1,206 +1,223 @@
 /*
- * XREFs of MiComputeOptimalZeroPath @ 0x140B088E4
+ * XREFs of MiComputeOptimalZeroPath @ 0x140A548A8
  * Callers:
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MiZeroPhysicalPage @ 0x1402359C4 (MiZeroPhysicalPage.c)
- *     MiChangePageAttribute @ 0x140267E78 (MiChangePageAttribute.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402C6EB0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetPage @ 0x140213610 (MiGetPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiZeroPhysicalPage @ 0x1402E6380 (MiZeroPhysicalPage.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiChangePageAttribute @ 0x1403041E4 (MiChangePageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 MiComputeOptimalZeroPath()
+ULONG_PTR MiComputeOptimalZeroPath()
 {
   unsigned int *v0; // rsi
   unsigned int v1; // edi
   __int64 i; // rbx
-  __int64 result; // rax
-  unsigned int v4; // edx
-  __int64 v5; // rcx
-  int *v6; // r15
-  __int64 v7; // rsi
-  unsigned __int64 v8; // r14
-  __int64 v9; // r12
-  ULONG_PTR v10; // r15
-  __int64 v11; // r13
-  LARGE_INTEGER PerformanceCounter; // rbx
-  __int64 v13; // rsi
-  int *v14; // r15
-  ULONG_PTR v15; // rdi
-  unsigned __int64 v16; // r14
-  LARGE_INTEGER v17; // rbx
-  unsigned __int64 *v18; // rdi
-  __int64 v19; // rsi
-  unsigned __int64 v20; // kr00_8
-  unsigned __int64 v21; // r14
-  bool v22; // zf
-  __int64 v23; // rdi
-  __int64 v24; // r14
-  __int64 v25; // rbx
-  unsigned __int64 v26; // rsi
-  struct _KPRCB *CurrentPrcb; // r10
+  ULONG_PTR result; // rax
+  __int64 v4; // rdx
+  __int64 v5; // r8
   _DWORD *SchedulerAssist; // r9
-  __int64 v29; // rsi
-  __int64 v30; // rbx
-  unsigned __int64 v31; // r14
-  struct _KPRCB *v32; // r10
-  _DWORD *v33; // r9
-  signed __int32 v34[8]; // [rsp+0h] [rbp-78h] BYREF
-  int *v35; // [rsp+20h] [rbp-58h]
-  unsigned __int64 *v36; // [rsp+28h] [rbp-50h]
-  __int64 v37; // [rsp+30h] [rbp-48h]
-  unsigned __int64 v38; // [rsp+40h] [rbp-38h]
-  _OWORD v39[3]; // [rsp+48h] [rbp-30h]
-  int v40; // [rsp+C0h] [rbp+48h] BYREF
-  int v41; // [rsp+C4h] [rbp+4Ch]
-  ULONG_PTR v42; // [rsp+C8h] [rbp+50h]
-  __int64 v43; // [rsp+D0h] [rbp+58h]
-  __int64 v44; // [rsp+D8h] [rbp+60h]
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  int *v9; // r15
+  __int64 v10; // rsi
+  ULONG_PTR v11; // rdi
+  unsigned __int64 v12; // r14
+  __int64 v13; // r12
+  __int64 v14; // r13
+  unsigned __int64 v15; // rbx
+  unsigned __int64 v16; // rax
+  __int64 v17; // rsi
+  unsigned __int64 *v18; // rdi
+  ULONG_PTR v19; // r15
+  unsigned __int64 v20; // r14
+  unsigned __int64 v21; // rbx
+  unsigned __int64 v22; // r9
+  _DWORD *v23; // r9
+  __int64 v24; // r8
+  unsigned __int64 v25; // rax
+  __int64 v26; // rsi
+  int *v27; // r15
+  unsigned __int64 v28; // kr00_8
+  unsigned __int64 v29; // r14
+  unsigned __int64 v30; // rdx
+  bool v31; // zf
+  __int64 v32; // rdi
+  __int64 v33; // r14
+  __int64 v34; // rbx
+  unsigned __int64 v35; // rsi
+  struct _KPRCB *CurrentPrcb; // r10
+  __int64 v37; // rsi
+  __int64 v38; // rbx
+  unsigned __int64 v39; // r14
+  struct _KPRCB *v40; // r10
+  signed __int32 v41[8]; // [rsp+0h] [rbp-78h] BYREF
+  unsigned __int64 *v42; // [rsp+20h] [rbp-58h]
+  __int64 v43; // [rsp+28h] [rbp-50h]
+  ULONG_PTR v44; // [rsp+30h] [rbp-48h]
+  unsigned __int64 v45; // [rsp+40h] [rbp-38h]
+  __int128 v46; // [rsp+48h] [rbp-30h]
+  ULONG_PTR BugCheckParameter2[4]; // [rsp+58h] [rbp-20h]
+  int v48; // [rsp+C0h] [rbp+48h] BYREF
+  int v49; // [rsp+C4h] [rbp+4Ch]
+  __int64 v50; // [rsp+C8h] [rbp+50h]
+  __int64 v51; // [rsp+D0h] [rbp+58h]
+  int *v52; // [rsp+D8h] [rbp+60h]
 
-  v40 = 0;
-  v0 = (unsigned int *)&v40;
+  v48 = 0;
+  v0 = (unsigned int *)&v48;
   v1 = 0;
-  v41 = 2;
-  v39[0] = 0LL;
-  for ( i = 0LL; ; i += 8LL )
+  v49 = 2;
+  v46 = 0LL;
+  for ( i = 0LL; ; ++i )
   {
-    result = MiGetPage((__int64)&MiSystemPartition, v1, 0);
-    *(_QWORD *)((char *)&v39[1] + i) = result;
-    if ( result == -1 )
+    result = MiGetPage((__int64)&MiSystemPartition, v1, 0LL);
+    BugCheckParameter2[i] = result;
+    if ( result == -1LL )
       break;
-    v4 = *v0;
-    v5 = 48 * result - 0x220000000000LL;
-    *(_QWORD *)((char *)v39 + i) = v5;
-    if ( *(unsigned __int8 *)(v5 + 34) >> 6 != v4 )
-      MiChangePageAttribute(v5, v4, 0);
+    v7 = *v0;
+    v8 = 48 * result - 0x58000000000LL;
+    BugCheckParameter2[i - 2] = v8;
+    if ( *(unsigned __int8 *)(v8 + 34) >> 6 != (_DWORD)v7 )
+      MiChangePageAttribute(v8, v7, 0LL, SchedulerAssist);
     ++v1;
     ++v0;
     if ( v1 >= 2 )
     {
-      v37 = 2LL;
-      v6 = &v40;
-      v36 = (unsigned __int64 *)&unk_140C50828;
-      v7 = 0LL;
-      v35 = &v40;
-      v44 = 0LL;
+      v43 = 2LL;
+      v9 = &v48;
+      v42 = (unsigned __int64 *)&unk_140C4DFE8;
+      v10 = 0LL;
+      v52 = &v48;
+      v51 = 0LL;
       do
       {
-        v8 = 0LL;
-        v9 = *v6;
-        v10 = *(_QWORD *)((char *)&v39[1] + v7);
-        v42 = v10;
-        v11 = 3LL;
+        v11 = *(ULONG_PTR *)((char *)BugCheckParameter2 + v10);
+        v12 = 0LL;
+        v13 = *v9;
+        v44 = v11;
+        v14 = 3LL;
         do
         {
-          PerformanceCounter = KeQueryPerformanceCounter(0LL);
-          _InterlockedOr(v34, 0);
-          MiZeroPhysicalPage(v10, 3, v9);
-          _InterlockedOr(v34, 0);
-          v8 += *(_QWORD *)&KeQueryPerformanceCounter(0LL) - PerformanceCounter.QuadPart;
-          --v11;
+          v15 = __rdtsc();
+          _InterlockedOr(v41, 0);
+          MiZeroPhysicalPage(v11, 3, (unsigned int)v13, (unsigned __int64)SchedulerAssist);
+          _InterlockedOr(v41, 0);
+          v16 = __rdtsc();
+          v12 += (((unsigned __int64)HIDWORD(v16) << 32) | (unsigned int)v16) - v15;
+          --v14;
         }
-        while ( v11 );
-        v13 = *(_QWORD *)((char *)v39 + v7);
-        v14 = v35;
-        v15 = v42;
-        v43 = 3LL;
-        v38 = v8 / 3;
-        v16 = 0LL;
-        do
-        {
-          v17 = KeQueryPerformanceCounter(0LL);
-          _InterlockedOr(v34, 0);
-          MiChangePageAttribute(v13, 1u, 0);
-          MiZeroPhysicalPage(v15, 3, v9);
-          MiChangePageAttribute(v13, v9, 0);
-          _InterlockedOr(v34, 0);
-          v16 += *(_QWORD *)&KeQueryPerformanceCounter(0LL) - v17.QuadPart;
-          --v43;
-        }
-        while ( v43 );
-        v18 = v36;
+        while ( v14 );
+        v17 = *(ULONG_PTR *)((char *)&BugCheckParameter2[-2] + v10);
+        v18 = v42;
         v19 = v44;
-        v20 = v16;
-        v21 = v38;
-        if ( v20 / 3 < 9 * (v38 / 0xA) )
-          dword_140C507DC[4 * v9] = 1;
-        v7 = v19 + 8;
-        *(v18 - 1) = v21;
-        v6 = v14 + 1;
-        *v18 = v20 / 3;
-        v44 = v7;
-        v22 = v37-- == 1;
-        v35 = v6;
-        v36 = v18 + 2;
+        v50 = 3LL;
+        v45 = v12 / 3;
+        v20 = 0LL;
+        do
+        {
+          v21 = __rdtsc();
+          _InterlockedOr(v41, 0);
+          MiChangePageAttribute(v17, 1LL, 0LL, SchedulerAssist);
+          MiZeroPhysicalPage(v19, 3, (unsigned int)v13, v22);
+          MiChangePageAttribute(v17, (unsigned int)v13, 0LL, v23);
+          _InterlockedOr(v41, 0);
+          v25 = __rdtsc();
+          v20 += (((unsigned __int64)HIDWORD(v25) << 32) | (unsigned int)v25) - v21;
+          --v50;
+        }
+        while ( v50 );
+        v26 = v51;
+        v27 = v52;
+        v28 = v20;
+        v29 = v45;
+        v30 = v45 / 0xA;
+        if ( v28 / 3 < 9 * (v45 / 0xA) )
+        {
+          v30 = (unsigned __int64)dword_140C4DF9C;
+          dword_140C4DF9C[4 * v13] = 1;
+        }
+        v10 = v26 + 8;
+        *(v18 - 1) = v29;
+        v9 = v27 + 1;
+        *v18 = v28 / 3;
+        v51 = v10;
+        v31 = v43-- == 1;
+        v52 = v9;
+        v42 = v18 + 2;
       }
-      while ( !v22 );
-      v23 = 0LL;
-      v24 = 2LL;
+      while ( !v31 );
+      v32 = 0LL;
+      v33 = 2LL;
       do
       {
-        v25 = *(_QWORD *)((char *)v39 + v23);
-        v26 = (unsigned __int8)MiLockPageInline(v25);
-        MiInsertPageInFreeOrZeroedList(*(_QWORD *)((char *)&v39[1] + v23), 2);
-        _InterlockedAnd64((volatile signed __int64 *)(v25 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+        v34 = BugCheckParameter2[v32 - 2];
+        v35 = (unsigned __int8)MiLockPageInline(v34, v30, v24, SchedulerAssist);
+        MiInsertPageInFreeOrZeroedList(BugCheckParameter2[v32], 2);
+        _InterlockedAnd64((volatile signed __int64 *)(v34 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         result = (unsigned int)KiIrqlFlags;
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )
           {
             result = KeGetCurrentIrql();
-            if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v26 <= 0xFu && (unsigned __int8)result >= 2u )
+            if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v35 <= 0xFu && (unsigned __int8)result >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
+              v30 = -1LL << ((unsigned __int8)v35 + 1);
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
-              result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v26 + 1));
-              v22 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-              SchedulerAssist[5] &= result;
-              if ( v22 )
+              result = ~(unsigned __int16)v30;
+              v31 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+              v24 = (unsigned int)result & SchedulerAssist[5];
+              SchedulerAssist[5] = v24;
+              if ( v31 )
                 result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
             }
           }
         }
-        __writecr8(v26);
-        v23 += 8LL;
-        --v24;
+        __writecr8(v35);
+        ++v32;
+        --v33;
       }
-      while ( v24 );
+      while ( v33 );
       return result;
     }
   }
   if ( v1 )
   {
-    v29 = 8LL * v1;
+    v37 = v1;
     do
     {
-      v29 -= 8LL;
+      --v37;
       --v1;
-      v30 = *(_QWORD *)((char *)v39 + v29);
-      v31 = (unsigned __int8)MiLockPageInline(v30);
-      MiInsertPageInFreeOrZeroedList(*(_QWORD *)((char *)&v39[1] + v29), 2);
-      _InterlockedAnd64((volatile signed __int64 *)(v30 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      v38 = BugCheckParameter2[v37 - 2];
+      v39 = (unsigned __int8)MiLockPageInline(v38, v4, v5, SchedulerAssist);
+      MiInsertPageInFreeOrZeroedList(BugCheckParameter2[v37], 2);
+      _InterlockedAnd64((volatile signed __int64 *)(v38 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       result = (unsigned int)KiIrqlFlags;
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
           result = KeGetCurrentIrql();
-          if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v31 <= 0xFu && (unsigned __int8)result >= 2u )
+          if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v39 <= 0xFu && (unsigned __int8)result >= 2u )
           {
-            v32 = KeGetCurrentPrcb();
-            v33 = v32->SchedulerAssist;
-            result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v31 + 1));
-            v22 = ((unsigned int)result & v33[5]) == 0;
-            v33[5] &= result;
-            if ( v22 )
-              result = KiRemoveSystemWorkPriorityKick((__int64)v32);
+            v40 = KeGetCurrentPrcb();
+            v4 = -1LL << ((unsigned __int8)v39 + 1);
+            SchedulerAssist = v40->SchedulerAssist;
+            result = ~(unsigned __int16)v4;
+            v31 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+            v5 = (unsigned int)result & SchedulerAssist[5];
+            SchedulerAssist[5] = v5;
+            if ( v31 )
+              result = KiRemoveSystemWorkPriorityKick((__int64)v40);
           }
         }
       }
-      __writecr8(v31);
+      __writecr8(v39);
     }
     while ( v1 );
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiComputeHash64 @ 0x140101DD0
+ * XREFs of MiComputeHash64 @ 0x140101DF0
  * Callers:
  *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
  *     MiCombinePte @ 0x140088F10 (MiCombinePte.c)
- *     MiPerformCombineScan @ 0x140101D40 (MiPerformCombineScan.c)
+ *     MiPerformCombineScan @ 0x140101D60 (MiPerformCombineScan.c)
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  *     MiMapDummyPages @ 0x1409DC7AC (MiMapDummyPages.c)
  * Callees:

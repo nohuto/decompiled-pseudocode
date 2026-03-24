@@ -1,21 +1,19 @@
 /*
- * XREFs of PpmInstallNewIdleDomains @ 0x1405C87C0
+ * XREFs of PpmInstallNewIdleDomains @ 0x140567250
  * Callers:
  *     <none>
  * Callees:
- *     KiCopyAffinityEx @ 0x140300030 (KiCopyAffinityEx.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
  */
 
 __int64 __fastcall PpmInstallNewIdleDomains(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rbp
-  unsigned int v3; // esi
+  __int64 v2; // rdi
+  unsigned int v3; // ebx
   int v5; // eax
-  unsigned int v6; // r15d
-  __int64 v7; // rdi
+  unsigned int v6; // esi
 
-  v2 = *(_QWORD *)(a1 + 33600);
+  v2 = *(_QWORD *)(a1 + 0x8000);
   v3 = 0;
   if ( v2 && (v5 = *(_DWORD *)(v2 + 32), v5 == *(_DWORD *)(a2 + 4)) )
   {
@@ -24,10 +22,8 @@ __int64 __fastcall PpmInstallNewIdleDomains(__int64 a1, __int64 a2)
     {
       do
       {
-        v7 = 344LL * v6 + v2 + 1104;
-        *(_QWORD *)v7 = 2097153LL;
-        memset((void *)(v7 + 8), 0, 0x100uLL);
-        KiCopyAffinityEx(v7, *(_WORD *)(v7 + 2), (unsigned __int16 *)(264LL * v6++ + a2 + 272));
+        KeCopyAffinityEx(248LL * v6 + v2 + 816, (unsigned __int16 *)(168LL * v6 + a2 + 176));
+        ++v6;
       }
       while ( v6 < *(_DWORD *)(v2 + 32) );
     }

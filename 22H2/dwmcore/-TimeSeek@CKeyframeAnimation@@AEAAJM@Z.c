@@ -1,12 +1,12 @@
 /*
- * XREFs of ?TimeSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1800BB33C
+ * XREFs of ?TimeSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1800A9DC8
  * Callers:
- *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180056CD0 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x1800ABBA8 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
  * Callees:
- *     ?GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ @ 0x1800BB448 (-GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ.c)
- *     ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x1800BD6F0 (-ConfigureTimer@KeyframeSequence@@QEAAXXZ.c)
- *     ?PrepareSequenceForIteration@CKeyframeAnimation@@AEAAXI@Z @ 0x1800BD760 (-PrepareSequenceForIteration@CKeyframeAnimation@@AEAAXI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ @ 0x1800AA37C (-GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ.c)
+ *     ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x1800ACA0C (-ConfigureTimer@KeyframeSequence@@QEAAXXZ.c)
+ *     ?PrepareSequenceForIteration@CKeyframeAnimation@@AEAAXI@Z @ 0x1800ACE0C (-PrepareSequenceForIteration@CKeyframeAnimation@@AEAAXI@Z.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::TimeSeek(CKeyframeAnimation *this, float a2)
@@ -14,57 +14,55 @@ __int64 __fastcall CKeyframeAnimation::TimeSeek(CKeyframeAnimation *this, float 
   float v2; // xmm3_4
   char v3; // al
   int v4; // eax
-  int *v5; // r10
+  CKeyframeAnimation *v5; // r11
   float AnimationTimeLength; // xmm0_4
   signed int v7; // edx
-  int *v8; // rcx
-  int v9; // r8d
-  __int64 v10; // r10
-  __int64 v11; // rcx
-  int v12; // r10d
-  unsigned int v13; // ebx
-  float v15; // xmm1_4
+  int v8; // ecx
+  __int64 v9; // r11
+  __int64 v10; // rcx
+  int v11; // r10d
+  unsigned int v12; // ebx
+  float v14; // xmm1_4
 
   v2 = a2;
   if ( a2 < 0.0 )
   {
-    v13 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2147024809, 0x9FCu, 0LL);
+    v12 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x9AEu, 0LL);
   }
   else
   {
-    v3 = *((_BYTE *)this + 581);
+    v3 = *((_BYTE *)this + 549);
     if ( (v3 & 1) != 0 && (v3 & 2) == 0 )
     {
-      v4 = *((_DWORD *)this + 122);
+      v4 = *((_DWORD *)this + 114);
       if ( v4 > 0 )
       {
-        v15 = a2 * 1000.0;
-        if ( v15 <= (float)v4 )
+        v14 = a2 * 1000.0;
+        if ( v14 <= (float)v4 )
         {
-          v4 = (int)v15;
+          v4 = (int)v14;
           v2 = 0.0;
         }
         else
         {
           v2 = v2 - (float)((float)v4 / 1000.0);
         }
-        *((_DWORD *)this + 123) = v4;
+        *((_DWORD *)this + 115) = v4;
       }
       AnimationTimeLength = CKeyframeAnimation::GetAnimationTimeLength(this);
-      v7 = v5[136];
-      v8 = v5 + 135;
-      v9 = (int)(float)(v2 / AnimationTimeLength);
-      if ( v7 >= 0 && (*v8 = v9, v5[137] = v7 - v9, v7 - v9 < 0) )
-        v5[137] = 0;
-      else
+      v7 = *((_DWORD *)v5 + 128);
+      v8 = (int)(float)(v2 / AnimationTimeLength);
+      if ( v7 < 0 || (*((_DWORD *)v5 + 129) = v7 - v8, v7 - v8 >= 0) )
         v7 = (int)(float)(v2 / AnimationTimeLength);
-      *v8 = v7;
-      CKeyframeAnimation::PrepareSequenceForIteration((CKeyframeAnimation *)v5, v7);
-      KeyframeSequence::ConfigureTimer(*(KeyframeSequence **)(v10 + 392));
-      *(_DWORD *)(v11 + 92) = v12;
+      else
+        *((_DWORD *)v5 + 129) = 0;
+      *((_DWORD *)v5 + 127) = v7;
+      CKeyframeAnimation::PrepareSequenceForIteration(v5, v7);
+      KeyframeSequence::ConfigureTimer(*(KeyframeSequence **)(v9 + 360));
+      *(_DWORD *)(v10 + 92) = v11;
     }
     return 0;
   }
-  return v13;
+  return v12;
 }

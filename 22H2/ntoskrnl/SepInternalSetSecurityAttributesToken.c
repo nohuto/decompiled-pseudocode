@@ -1,16 +1,16 @@
 /*
- * XREFs of SepInternalSetSecurityAttributesToken @ 0x140370364
+ * XREFs of SepInternalSetSecurityAttributesToken @ 0x140595B2C
  * Callers:
- *     SeSetSecurityAttributesTokenEx @ 0x1403A1680 (SeSetSecurityAttributesTokenEx.c)
- *     SeSetSecurityAttributesToken @ 0x1407EF9E0 (SeSetSecurityAttributesToken.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x1405974C0 (SeSetSecurityAttributesTokenEx.c)
+ *     SeSetSecurityAttributesToken @ 0x14091C970 (SeSetSecurityAttributesToken.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224D10 (AuthzBasepSetSecurityAttributesToken.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     SepShouldSetDelinkFlags @ 0x1407F15F0 (SepShouldSetDelinkFlags.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402506CC (AuthzBasepSetSecurityAttributesToken.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     SepShouldSetDelinkFlags @ 0x1406EEA8C (SepShouldSetDelinkFlags.c)
  */
 
 __int64 __fastcall SepInternalSetSecurityAttributesToken(void *a1, KPROCESSOR_MODE a2, char a3, int *a4, __int64 a5)
@@ -34,9 +34,9 @@ __int64 __fastcall SepInternalSetSecurityAttributesToken(void *a1, KPROCESSOR_MO
       if ( a3 || (unsigned __int8)SepShouldSetDelinkFlags(a4, a5) )
         v7 = 1;
       CurrentThread = KeGetCurrentThread();
-      v10 = (PERESOURCE *)Object;
       --CurrentThread->KernelApcDisable;
-      ExAcquireResourceExclusiveLite(v10[6], 1u);
+      v10 = (PERESOURCE *)Object;
+      ExAcquireResourceExclusiveLite(*((PERESOURCE *)Object + 6), 1u);
       _InterlockedOr(v14, 0);
       v11 = a4;
       v12 = Object;

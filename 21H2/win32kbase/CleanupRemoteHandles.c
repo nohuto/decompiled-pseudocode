@@ -1,28 +1,26 @@
 /*
- * XREFs of CleanupRemoteHandles @ 0x1C00C2980
+ * XREFs of CleanupRemoteHandles @ 0x1C00B49D0
  * Callers:
- *     xxxRemoteConnect @ 0x1C007EDC0 (xxxRemoteConnect.c)
+ *     xxxRemoteConnect @ 0x1C01177E0 (xxxRemoteConnect.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 (*__fastcall CleanupRemoteHandles(_QWORD *a1, __int64 a2, __int64 a3))(void)
+__int64 __fastcall CleanupRemoteHandles(_QWORD *a1, __int64 a2)
 {
-  char *v4; // rdx
-  __int64 v5; // rcx
-  __int64 (*result)(void); // rax
+  __int64 v3; // rcx
+  PVOID v4; // rcx
+  __int64 result; // rax
 
   a1[1] = 0LL;
   a1[2] = 0LL;
   a1[4] = 0LL;
   a1[3] = 0LL;
-  v4 = (char *)a1[7];
-  if ( v4 )
+  v3 = a1[7];
+  if ( v3 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      v4);
+    Win32FreePool(v3);
     a1[7] = 0LL;
   }
   if ( gThinwireFileObject )
@@ -35,39 +33,28 @@ __int64 (*__fastcall CleanupRemoteHandles(_QWORD *a1, __int64 a2, __int64 a3))(v
     ObfDereferenceObject(gVideoFileObject);
     gVideoFileObject = 0LL;
   }
+  v4 = gpRemoteBeepDevice;
   if ( gpRemoteBeepDevice )
   {
     ObfDereferenceObject(gpRemoteBeepDevice);
     gpRemoteBeepDevice = 0LL;
   }
-  if ( gRemoteMouseChannelHandlePair )
-    ZwClose(gRemoteMouseChannelHandlePair);
-  if ( *(&gRemoteMouseChannelHandlePair + 1) )
-    ZwClose(*(&gRemoteMouseChannelHandlePair + 1));
-  *(_OWORD *)&gRemoteMouseChannelHandlePair = 0LL;
-  if ( gRemoteKeyboardChannelHandlePair )
-    ZwClose(gRemoteKeyboardChannelHandlePair);
-  v5 = (__int64)*(&gRemoteKeyboardChannelHandlePair + 1);
-  if ( *(&gRemoteKeyboardChannelHandlePair + 1) )
-    ZwClose(*(&gRemoteKeyboardChannelHandlePair + 1));
-  result = (__int64 (*)(void))qword_1C029CC70;
-  *(_OWORD *)&gRemoteKeyboardChannelHandlePair = 0LL;
-  if ( qword_1C029CC70 )
+  ghRemoteMouseChannel = 0LL;
+  ghRemoteKeyboardChannel = 0LL;
+  result = (__int64)qword_1C0258050;
+  if ( qword_1C0258050 )
+    result = qword_1C0258050(v4, a2);
+  if ( (_DWORD)result )
   {
-    result = (__int64 (*)(void))qword_1C029CC70(v5, v4, a3);
-    if ( (_DWORD)result )
+    if ( qword_1C0256D80 )
+      result = qword_1C0256D80();
+    else
+      result = 3221225659LL;
+    if ( (int)result >= 0 )
     {
-      result = qword_1C029BAD0;
-      if ( qword_1C029BAD0 )
-      {
-        result = (__int64 (*)(void))qword_1C029BAD0();
-        if ( (int)result >= 0 )
-        {
-          result = qword_1C029BAD8;
-          if ( qword_1C029BAD8 )
-            return (__int64 (*)(void))qword_1C029BAD8();
-        }
-      }
+      result = (__int64)qword_1C0256D88;
+      if ( qword_1C0256D88 )
+        return qword_1C0256D88();
     }
   }
   return result;

@@ -1,23 +1,24 @@
 /*
- * XREFs of xxxTranslateAccelerator @ 0x1C000C884
+ * XREFs of xxxTranslateAccelerator @ 0x1C010B0F8
  * Callers:
- *     NtUserTranslateAccelerator @ 0x1C000C720 (NtUserTranslateAccelerator.c)
+ *     NtUserTranslateAccelerator @ 0x1C010AF90 (NtUserTranslateAccelerator.c)
  * Callees:
- *     SystoChar @ 0x1C000C9D4 (SystoChar.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C0064FE4 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C009E5C0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     xxxLoadSysDesktopMenu @ 0x1C00AF9D4 (xxxLoadSysDesktopMenu.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
- *     xxxSetSysMenu @ 0x1C0222254 (xxxSetSysMenu.c)
- *     ?xxxTA_AccelerateMenu@@YAIQEAUtagWND@@AEBV?$SmartObjStackRef@UtagMENU@@@@IQEAPEAUHMENU__@@@Z @ 0x1C023035C (-xxxTA_AccelerateMenu@@YAIQEAUtagWND@@AEBV-$SmartObjStackRef@UtagMENU@@@@IQEAPEAUHMENU__@@@Z.c)
+ *     xxxSetSysMenu @ 0x1C0046C70 (xxxSetSysMenu.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A94C (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE190 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     SystoChar @ 0x1C010B4B0 (SystoChar.c)
+ *     xxxLoadSysDesktopMenu @ 0x1C01291D4 (xxxLoadSysDesktopMenu.c)
+ *     ?xxxTA_AccelerateMenu@@YAIQEAUtagWND@@AEBV?$SmartObjStackRef@UtagMENU@@@@IQEAPEAUHMENU__@@@Z @ 0x1C015BFFC (-xxxTA_AccelerateMenu@@YAIQEAUtagWND@@AEBV-$SmartObjStackRef@UtagMENU@@@@IQEAPEAUHMENU__@@@Z.c)
  */
 
-__int64 __fastcall xxxTranslateAccelerator(_QWORD *BugCheckParameter2, __int64 a2, __int64 a3)
+__int64 __fastcall xxxTranslateAccelerator(unsigned __int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // r12
-  unsigned int v5; // r13d
+  unsigned int v5; // r15d
   int v6; // eax
-  __int64 v7; // r15
+  __int64 v7; // r13
   __int64 v8; // rax
   unsigned int v9; // edi
   __int64 v10; // rcx
@@ -25,29 +26,33 @@ __int64 __fastcall xxxTranslateAccelerator(_QWORD *BugCheckParameter2, __int64 a
   __int16 KeyState; // ax
   unsigned __int8 v13; // di
   __int16 v14; // ax
-  __int64 v15; // rcx
-  unsigned __int8 v16; // dl
+  unsigned __int8 v15; // dl
+  __int64 v16; // rcx
   char v17; // r14
   int v19; // eax
-  int v20; // eax
+  unsigned __int64 v20; // r15
   BOOL v21; // edi
   int v22; // ebx
-  __int64 v23; // r13
-  __int64 v24; // rcx
+  __int64 v23; // rcx
+  __int64 v24; // rbx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v26; // rcx
   __int64 SysDesktopMenu; // rbx
-  __int64 *v26; // rcx
-  char v27; // cl
-  unsigned __int8 v28; // [rsp+50h] [rbp-39h]
-  __int64 v29; // [rsp+60h] [rbp-29h]
-  __int128 v30; // [rsp+68h] [rbp-21h] BYREF
-  __int64 v31; // [rsp+78h] [rbp-11h]
-  _BYTE v32[16]; // [rsp+80h] [rbp-9h] BYREF
-  __int64 v33; // [rsp+90h] [rbp+7h]
-  _BYTE v34[16]; // [rsp+98h] [rbp+Fh] BYREF
-  __int64 v35; // [rsp+A8h] [rbp+1Fh]
+  __int64 *v28; // rcx
+  __int64 v29; // rax
+  __int64 v30; // rcx
+  char v31; // cl
+  unsigned __int64 v32; // r8
+  __int64 v33; // rax
+  int v34; // eax
+  unsigned __int8 v35; // [rsp+50h] [rbp-39h]
+  __int128 v36; // [rsp+60h] [rbp-29h] BYREF
+  __int64 v37; // [rsp+70h] [rbp-19h]
+  _QWORD v38[3]; // [rsp+78h] [rbp-11h] BYREF
+  _QWORD v39[10]; // [rsp+90h] [rbp+7h] BYREF
 
-  v31 = 0LL;
-  v30 = 0LL;
+  v37 = 0LL;
+  v36 = 0LL;
   if ( (gfInNumpadHexInput & 2) != 0 )
     return 0LL;
   v4 = a2 + 28;
@@ -57,20 +62,18 @@ __int64 __fastcall xxxTranslateAccelerator(_QWORD *BugCheckParameter2, __int64 a
   {
 LABEL_3:
     v7 = 1LL;
-    v29 = 1LL;
     goto LABEL_4;
   }
   v19 = v6 - 2;
   if ( v19 )
   {
-    v20 = v19 - 2;
-    if ( !v20 )
+    v34 = v19 - 2;
+    if ( !v34 )
       goto LABEL_3;
-    if ( v20 != 2 )
+    if ( v34 != 2 )
       return 0LL;
   }
   v7 = 0LL;
-  v29 = 0LL;
 LABEL_4:
   v8 = *(_QWORD *)(gptiCurrent + 440LL);
   if ( v8
@@ -88,80 +91,105 @@ LABEL_4:
   v11 = ((unsigned __int16)_GetKeyState(v10) >> 12) & 8;
   KeyState = _GetKeyState(v9);
   v13 = v11 | 0x10;
-  if ( KeyState >= 0 )
+  if ( (KeyState & 0x8000) == 0 )
     v13 = v11;
   v14 = _GetKeyState(16LL);
-  v15 = a3;
-  v16 = v13 | 4;
-  if ( v14 >= 0 )
-    v16 = v13;
-  v28 = v16;
+  v15 = v13 | 4;
+  v16 = a3;
+  if ( (v14 & 0x8000) == 0 )
+    v15 = v13;
+  v35 = v15;
   do
   {
     v17 = *(_BYTE *)v4;
-    if ( *(unsigned __int16 *)(v4 + 2) == *(_QWORD *)(v15 + 16)
+    if ( *(unsigned __int16 *)(v4 + 2) == *(_QWORD *)(v16 + 16)
       && (_DWORD)v7 == (v17 & 1)
-      && (!v7 || (((unsigned __int8)v17 ^ v16) & 0xC) == 0)
-      && (((unsigned __int8)v17 ^ v16) & 0x10) == 0 )
+      && (!v7 || (((unsigned __int8)v17 ^ v15) & 0xC) == 0)
+      && (((unsigned __int8)v17 ^ v15) & 0x10) == 0 )
     {
-      v5 = 1;
+      v20 = *(unsigned __int16 *)(v4 + 4);
       v21 = 0;
       v22 = 0;
       if ( *(_WORD *)(v4 + 4) )
       {
-        v23 = BugCheckParameter2[21];
-        if ( (*(_BYTE *)(BugCheckParameter2[5] + 31LL) & 0x40) == 0 )
+        v23 = *(_QWORD *)(a1 + 40);
+        if ( (*(_BYTE *)(v23 + 31) & 0x40) != 0 )
+          goto LABEL_28;
+        v24 = *(_QWORD *)(a1 + 168);
+        ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+        *(_QWORD *)&v36 = *(_QWORD *)(ThreadWin32Thread + 416);
+        *(_QWORD *)(ThreadWin32Thread + 416) = &v36;
+        *((_QWORD *)&v36 + 1) = v24;
+        if ( v24 )
+          HMLockObject(v24);
+        SmartObjStackRefBase<tagMENU>::Init(v38, v24);
+        v38[2] = 0LL;
+        v22 = xxxTA_AccelerateMenu(a1);
+        SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v38);
+        ThreadUnlock1(v26);
+        v23 = *(_QWORD *)(a1 + 40);
+        if ( (*(_BYTE *)(v23 + 31) & 0x40) != 0 || !v22 )
         {
-          ThreadLock(BugCheckParameter2[21], &v30);
-          SmartObjStackRefBase<tagMENU>::Init(v32, v23);
-          v33 = 0LL;
-          v22 = xxxTA_AccelerateMenu((ULONG_PTR)BugCheckParameter2);
-          SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v32);
-          ThreadUnlock1();
-        }
-        v24 = BugCheckParameter2[5];
-        if ( (*(_BYTE *)(v24 + 31) & 0x40) != 0 || !v22 )
-        {
-          SysDesktopMenu = BugCheckParameter2[20];
-          if ( SysDesktopMenu || (*(_BYTE *)(v24 + 30) & 8) == 0 )
+LABEL_28:
+          SysDesktopMenu = *(_QWORD *)(a1 + 160);
+          if ( SysDesktopMenu || (*(_BYTE *)(v23 + 30) & 8) == 0 )
           {
-            ThreadLock(BugCheckParameter2[20], &v30);
+            v33 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+            *(_QWORD *)&v36 = *(_QWORD *)(v33 + 416);
+            *(_QWORD *)(v33 + 416) = &v36;
+            *((_QWORD *)&v36 + 1) = SysDesktopMenu;
+            if ( SysDesktopMenu )
+              HMLockObject(SysDesktopMenu);
           }
           else
           {
-            v26 = (__int64 *)(BugCheckParameter2[3] + 56LL);
-            SysDesktopMenu = *v26;
-            if ( !*v26 )
-              SysDesktopMenu = xxxLoadSysDesktopMenu(v26, 16LL);
-            ThreadLock(SysDesktopMenu, &v30);
-            xxxSetSysMenu(BugCheckParameter2);
+            v28 = (__int64 *)(*(_QWORD *)(a1 + 24) + 56LL);
+            SysDesktopMenu = *v28;
+            if ( !*v28 )
+              SysDesktopMenu = xxxLoadSysDesktopMenu(v28, 16LL);
+            v29 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+            *(_QWORD *)&v36 = *(_QWORD *)(v29 + 416);
+            *(_QWORD *)(v29 + 416) = &v36;
+            *((_QWORD *)&v36 + 1) = SysDesktopMenu;
+            if ( SysDesktopMenu )
+              HMLockObject(SysDesktopMenu);
+            xxxSetSysMenu((struct tagWND *)a1);
           }
-          SmartObjStackRefBase<tagMENU>::Init(v34, SysDesktopMenu);
-          v35 = 0LL;
-          v22 = xxxTA_AccelerateMenu((ULONG_PTR)BugCheckParameter2);
+          SmartObjStackRefBase<tagMENU>::Init(v39, SysDesktopMenu);
+          v39[2] = 0LL;
+          v22 = xxxTA_AccelerateMenu(a1);
           v21 = v22 != 0;
-          SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v34);
-          ThreadUnlock1();
+          SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v39);
+          ThreadUnlock1(v30);
         }
-        v5 = 1;
       }
-      v27 = *(_BYTE *)(BugCheckParameter2[5] + 31LL);
+      v31 = *(_BYTE *)(*(_QWORD *)(a1 + 40) + 31LL);
       if ( (v22 & 1) == 0
         && (!v22
-         || ((v27 & 0x20) == 0 || v21) && !*(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 112LL) && (v27 & 8) == 0) )
+         || ((v31 & 0x20) == 0 || v21) && !*(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 104LL) && (v31 & 8) == 0) )
       {
         _InterlockedIncrement(&glSendMessage);
-        xxxSendTransformableMessageTimeout((ULONG_PTR)BugCheckParameter2, 0, 0, 0LL, 1, !v21);
+        v32 = v20;
+        if ( !v21 )
+          v32 = v20 | 0x10000;
+        xxxSendTransformableMessageTimeout(
+          a1,
+          v21 + 273,
+          v32,
+          (struct _LARGE_STRING *)((unsigned __int64)v21 << 16),
+          0,
+          0,
+          0LL,
+          1,
+          !v21);
         v17 = 0x80;
       }
-      v16 = v28;
-      v15 = a3;
+      v15 = v35;
+      v16 = a3;
+      v5 = 1;
     }
     v4 += 6LL;
-    if ( v17 < 0 )
-      break;
-    v7 = v29;
   }
-  while ( !v5 );
+  while ( v17 >= 0 && !v5 );
   return v5;
 }

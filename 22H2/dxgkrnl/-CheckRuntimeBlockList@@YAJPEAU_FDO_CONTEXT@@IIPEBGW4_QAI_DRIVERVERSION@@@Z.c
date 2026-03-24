@@ -1,13 +1,12 @@
 /*
- * XREFs of ?CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C021C410
+ * XREFs of ?CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C019231C
  * Callers:
- *     DxgkInitializeBlockList @ 0x1C021C2F0 (DxgkInitializeBlockList.c)
+ *     DxgkInitializeBlockList @ 0x1C01921FC (DxgkInitializeBlockList.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z @ 0x1C021C7DC (-FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z.c)
- *     ?ConvertStringsToOneMultiString@@YAJPEAU_UNICODE_STRING@@IPEAPEAGPEAI@Z @ 0x1C021CE60 (-ConvertStringsToOneMultiString@@YAJPEAU_UNICODE_STRING@@IPEAPEAGPEAI@Z.c)
- *     DxgkFreeUnicodeString @ 0x1C021D03C (DxgkFreeUnicodeString.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z @ 0x1C01923A8 (-FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z.c)
+ *     DxgkFreeUnicodeString @ 0x1C0196230 (DxgkFreeUnicodeString.c)
+ *     ?ConvertStringsToOneMultiString@@YAJPEAU_UNICODE_STRING@@IPEAPEAGPEAI@Z @ 0x1C0196264 (-ConvertStringsToOneMultiString@@YAJPEAU_UNICODE_STRING@@IPEAPEAGPEAI@Z.c)
  */
 
 __int64 __fastcall CheckRuntimeBlockList(
@@ -17,60 +16,48 @@ __int64 __fastcall CheckRuntimeBlockList(
         const unsigned __int16 *a4,
         enum _QAI_DRIVERVERSION a5)
 {
-  unsigned int BlockListStrings; // eax
-  __int64 v7; // rbx
-  unsigned int v8; // esi
-  int v10; // eax
-  struct _UNICODE_STRING *v11; // rdi
-  unsigned int v12[4]; // [rsp+50h] [rbp-178h] BYREF
-  struct _UNICODE_STRING v13; // [rsp+60h] [rbp-168h] BYREF
+  int BlockListStrings; // eax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rbx
+  int v10; // esi
+  __int64 v12; // rax
+  struct _UNICODE_STRING *v13; // rdi
+  unsigned int v14[4]; // [rsp+40h] [rbp-178h] BYREF
+  struct _UNICODE_STRING v15; // [rsp+50h] [rbp-168h] BYREF
 
-  v12[0] = 0;
+  v14[0] = 0;
   BlockListStrings = FindBlockListStrings(
                        L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\BlockList\\Runtime",
                        a2,
                        a3,
                        a4,
                        a5,
-                       v12,
-                       &v13);
-  v7 = v12[0];
-  v8 = BlockListStrings;
-  if ( v12[0] >= 0x14 )
+                       v14,
+                       &v15);
+  v9 = v14[0];
+  v10 = BlockListStrings;
+  if ( v14[0] >= 0x14 )
   {
-    WdLogSingleEntry1(1LL, 785LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"foundStringCount < MAX_TRUE_CONDITIONS",
-      785LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v12 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v12 + 24) = 785LL;
+    WdLogEvent5_WdAssertion(v12);
   }
-  if ( (_DWORD)v7 )
+  if ( (_DWORD)v9 )
   {
-    v12[0] = 0;
-    v10 = ConvertStringsToOneMultiString(&v13, v7, a1 + 716, v12);
-    v8 = v10;
-    if ( v10 < 0 )
-    {
-      if ( v10 == -1073741637 )
-        *((_BYTE *)a1 + 5740) = 1;
-    }
-    else
-    {
-      *((_DWORD *)a1 + 1434) = 2 * v12[0];
-    }
-    v11 = &v13;
+    v14[0] = 0;
+    v10 = ConvertStringsToOneMultiString(&v15, v9, a1 + 740, v14);
+    if ( v10 >= 0 )
+      *((_DWORD *)a1 + 1482) = 2 * v14[0];
+    if ( v10 == -1073741637 )
+      *((_BYTE *)a1 + 5932) = 1;
+    v13 = &v15;
     do
     {
-      DxgkFreeUnicodeString(v11++);
-      --v7;
+      DxgkFreeUnicodeString(v13++);
+      --v9;
     }
-    while ( v7 );
+    while ( v9 );
   }
-  return v8;
+  return (unsigned int)v10;
 }

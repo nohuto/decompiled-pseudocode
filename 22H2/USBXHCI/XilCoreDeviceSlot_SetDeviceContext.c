@@ -1,14 +1,14 @@
 /*
- * XREFs of XilCoreDeviceSlot_SetDeviceContext @ 0x1C0019E94
+ * XREFs of XilCoreDeviceSlot_SetDeviceContext @ 0x1C000F6C4
  * Callers:
- *     XilDeviceSlot_SetDeviceContext @ 0x1C0019DE4 (XilDeviceSlot_SetDeviceContext.c)
+ *     XilDeviceSlot_SetDeviceContext @ 0x1C000F634 (XilDeviceSlot_SetDeviceContext.c)
  * Callees:
- *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C0007FF0 (XilUsbDevice_GetDeviceContextBufferVA.c)
- *     WPP_RECORDER_SF_dq @ 0x1C0019380 (WPP_RECORDER_SF_dq.c)
- *     XilUsbDevice_GetDeviceContextBufferLA @ 0x1C0019F8C (XilUsbDevice_GetDeviceContextBufferLA.c)
- *     WPP_RECORDER_SF_qdi @ 0x1C0019FB8 (WPP_RECORDER_SF_qdi.c)
- *     memset @ 0x1C0020600 (memset.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C00057C4 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     WPP_RECORDER_SF_qdi @ 0x1C000F7BC (WPP_RECORDER_SF_qdi.c)
+ *     XilUsbDevice_GetDeviceContextBufferLA @ 0x1C000F868 (XilUsbDevice_GetDeviceContextBufferLA.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0010CB0 (WPP_RECORDER_SF_dq.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
  */
 
 __int64 __fastcall XilCoreDeviceSlot_SetDeviceContext(
@@ -17,7 +17,7 @@ __int64 __fastcall XilCoreDeviceSlot_SetDeviceContext(
         unsigned int a3,
         __int64 DeviceContextBufferLA)
 {
-  __int64 v5; // r15
+  __int64 v5; // r12
   unsigned int v8; // edi
   __int64 v9; // rdx
   __int64 v10; // rcx
@@ -26,7 +26,7 @@ __int64 __fastcall XilCoreDeviceSlot_SetDeviceContext(
   void *DeviceContextBufferVA; // r13
   __int64 v14; // rax
   size_t v15; // r8
-  __int64 v16; // r12
+  __int64 v16; // r15
   __int64 v17; // r14
   int v18; // r8d
   int v19; // r9d
@@ -70,7 +70,7 @@ LABEL_4:
         v20,
         10,
         12,
-        (__int64)&WPP_cb7a5c278baa3da630509d7564b04261_Traceguids,
+        (__int64)&WPP_57b4ec5b2a77395746dfb5e96c966fbd_Traceguids,
         v5,
         *(_QWORD *)(v16 + 8 * v5));
     }

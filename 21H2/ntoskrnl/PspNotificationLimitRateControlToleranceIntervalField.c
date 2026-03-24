@@ -1,8 +1,8 @@
 /*
- * XREFs of PspNotificationLimitRateControlToleranceIntervalField @ 0x1406874F0
+ * XREFs of PspNotificationLimitRateControlToleranceIntervalField @ 0x140615C54
  * Callers:
- *     NtQueryInformationJobObject @ 0x140684450 (NtQueryInformationJobObject.c)
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140616880 (NtQueryInformationJobObject.c)
  * Callees:
  *     <none>
  */

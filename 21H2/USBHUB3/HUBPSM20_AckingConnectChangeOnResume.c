@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM20_AckingConnectChangeOnResume @ 0x1C00117F0
+ * XREFs of HUBPSM20_AckingConnectChangeOnResume @ 0x1C00113E0
  * Callers:
  *     <none>
  * Callees:
- *     HUBHTX_AckPortChangeUsingControlTransfer @ 0x1C00041BC (HUBHTX_AckPortChangeUsingControlTransfer.c)
+ *     HUBHTX_AckPortChangeUsingControlTransfer @ 0x1C0004000 (HUBHTX_AckPortChangeUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBPSM20_AckingConnectChangeOnResume(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

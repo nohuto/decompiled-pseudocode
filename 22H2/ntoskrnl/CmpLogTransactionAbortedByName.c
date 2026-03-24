@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLogTransactionAbortedByName @ 0x140A1E4B8
+ * XREFs of CmpLogTransactionAbortedByName @ 0x140874CD4
  * Callers:
- *     CmpLogTransactionAbortedWithChildName @ 0x1407EA278 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406A4E54 (CmpLogTransactionAbortedWithChildName.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall CmpLogTransactionAbortedByName(unsigned __int16 *a1, int a2, __int64 a3, unsigned int a4)
@@ -27,9 +27,9 @@ void __fastcall CmpLogTransactionAbortedByName(unsigned __int16 *a1, int a2, __i
     v5 = a4;
     do
     {
-      if ( (unsigned int)dword_140C04390 > 4 )
+      if ( (unsigned int)dword_140C02130 > 4 )
       {
-        if ( tlgKeywordOn((__int64)&dword_140C04390, 1LL) )
+        if ( tlgKeywordOn((__int64)&dword_140C02130, 1LL) )
         {
           v11 = 0;
           v13[1] = 0;
@@ -42,8 +42,8 @@ void __fastcall CmpLogTransactionAbortedByName(unsigned __int16 *a1, int a2, __i
           v7 = a2;
           v15 = 4;
           tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140C04390,
-            (unsigned __int8 *)word_140037A32,
+            (__int64)&dword_140C02130,
+            (unsigned __int8 *)byte_140023879,
             0LL,
             0LL,
             5u,

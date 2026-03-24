@@ -1,44 +1,37 @@
 /*
- * XREFs of ?FindManipulationContext@CManipulationContext@@CAPEAV1@PEBUMCCollections@@PEBVCInteraction@@PEAH@Z @ 0x1801A4410
+ * XREFs of ?FindManipulationContext@CManipulationContext@@CAPEAV1@PEBUMCCollections@@PEBVCInteraction@@PEAH@Z @ 0x180234040
  * Callers:
- *     ?FindWorkspace@CManipulationContext@@SAXPEAUMCCollections@@PEAVCInteraction@@PEAK@Z @ 0x1801A44A8 (-FindWorkspace@CManipulationContext@@SAXPEAUMCCollections@@PEAVCInteraction@@PEAK@Z.c)
- *     ?InvalidateMCs@CManipulationContext@@SAXPEAUMCCollections@@PEAVCVisual@@PEAVCInteraction@@W4MidManipulationUpdateType@@PEAI@Z @ 0x1801A4904 (-InvalidateMCs@CManipulationContext@@SAXPEAUMCCollections@@PEAVCVisual@@PEAVCInteraction@@W4MidM.c)
- *     ?RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z @ 0x1801A59E8 (-RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z.c)
+ *     ?FindWorkspace@CManipulationContext@@SAXPEAUMCCollections@@PEAVCInteraction@@PEAK@Z @ 0x1802340C4 (-FindWorkspace@CManipulationContext@@SAXPEAUMCCollections@@PEAVCInteraction@@PEAK@Z.c)
+ *     ?InvalidateMCs@CManipulationContext@@SAXPEAUMCCollections@@PEAVCVisual@@PEAVCInteraction@@W4MidManipulationUpdateType@@PEAI@Z @ 0x1802345A0 (-InvalidateMCs@CManipulationContext@@SAXPEAUMCCollections@@PEAVCVisual@@PEAVCInteraction@@W4MidM.c)
+ *     ?RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z @ 0x1802354B4 (-RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 struct CManipulationContext *__fastcall CManipulationContext::FindManipulationContext(
         const struct MCCollections *a1,
-        __int64 a2,
+        const struct CInteraction *a2,
         int *a3)
 {
   __int64 v3; // rbx
-  int v5; // edi
-  unsigned __int64 v6; // rax
-  __int64 v7; // r14
-  __int64 v8; // rdx
-  __int64 v9; // rbp
+  int v6; // edi
+  __int64 i; // r14
 
   v3 = 0LL;
-  v5 = 0;
+  v6 = 0;
   if ( *((int *)a1 + 8) > 0 )
   {
-    v6 = a2 + 64;
-    v7 = 0LL;
-    v8 = -a2;
-    v9 = v6 & -(__int64)(v8 != 0);
-    while ( (*(__int64 (__fastcall **)(_QWORD, __int64, int *))(**(_QWORD **)(v7 + *((_QWORD *)a1 + 3)) + 16LL))(
-              *(_QWORD *)(v7 + *((_QWORD *)a1 + 3)),
-              v8,
-              a3) != v9 )
+    for ( i = 0LL;
+          (const struct CInteraction *)(*(__int64 (__fastcall **)(_QWORD, const struct CInteraction *, int *))(**(_QWORD **)(i + *((_QWORD *)a1 + 3)) + 16LL))(
+                                         *(_QWORD *)(i + *((_QWORD *)a1 + 3)),
+                                         a2,
+                                         a3) != a2;
+          i += 8LL )
     {
-      ++v5;
-      v7 += 8LL;
-      if ( v5 >= *((_DWORD *)a1 + 8) )
+      if ( ++v6 >= *((_DWORD *)a1 + 8) )
         return (struct CManipulationContext *)v3;
     }
-    return *(struct CManipulationContext **)(*((_QWORD *)a1 + 3) + 8LL * v5);
+    return *(struct CManipulationContext **)(*((_QWORD *)a1 + 3) + 8LL * v6);
   }
   return (struct CManipulationContext *)v3;
 }

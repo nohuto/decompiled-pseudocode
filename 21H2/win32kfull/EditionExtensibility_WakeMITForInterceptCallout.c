@@ -1,15 +1,15 @@
 /*
- * XREFs of EditionExtensibility_WakeMITForInterceptCallout @ 0x1C01D4100
+ * XREFs of EditionExtensibility_WakeMITForInterceptCallout @ 0x1C01D9990
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     WakeDIT @ 0x1C010BDD4 (WakeDIT.c)
  */
 
 __int64 EditionExtensibility_WakeMITForInterceptCallout()
 {
   if ( !_InterlockedCompareExchange(&glDitMouseHandling, 1, 1) )
     return 0LL;
-  EtwTraceWakeMIT(4LL);
-  return (unsigned __int8)WakeMIT(4LL);
+  EtwTraceWakeDIT(4LL);
+  return WakeDIT(4u);
 }

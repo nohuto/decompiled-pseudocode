@@ -1,14 +1,14 @@
 /*
- * XREFs of xxxTrackBox @ 0x1C0242A00
+ * XREFs of xxxTrackBox @ 0x1C0246B40
  * Callers:
- *     ?xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0240920 (-xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0244990 (-xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z.c)
  * Callees:
- *     PtInRect @ 0x1C0077984 (PtInRect.c)
- *     _SetSystemTimer @ 0x1C00C2F28 (_SetSystemTimer.c)
- *     ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C024082C (-RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z.c)
- *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C0240A10 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
- *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0241180 (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
- *     xxxEndScroll @ 0x1C0241878 (xxxEndScroll.c)
+ *     _SetSystemTimer @ 0x1C002CAB8 (_SetSystemTimer.c)
+ *     PtInRect @ 0x1C004DEBC (PtInRect.c)
+ *     ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C0244898 (-RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z.c)
+ *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C0244A80 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
+ *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0245214 (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
+ *     xxxEndScroll @ 0x1C0245904 (xxxEndScroll.c)
  */
 
 void __fastcall xxxTrackBox(struct tagWND *a1, int a2, __int64 a3, int a4)
@@ -17,7 +17,7 @@ void __fastcall xxxTrackBox(struct tagWND *a1, int a2, __int64 a3, int a4)
   BOOL v8; // eax
   char v9; // r8
   BOOL v10; // edi
-  unsigned int v11; // r8d
+  int v11; // r8d
   int v12; // esi
   int v13; // esi
   __int64 v14; // rax
@@ -61,11 +61,11 @@ LABEL_17:
       {
         if ( v10 != (*(_DWORD *)v7 & 1) )
         {
-          v14 = SetSystemTimer((unsigned __int64)a1, 65534LL, v11, (__int64)xxxContScroll, 0);
+          v14 = SetSystemTimer((__int64)a1, 65534, v11, (int)xxxContScroll, 0);
           v15 = *(struct tagWND **)(v7 + 24);
           *(_QWORD *)(v7 + 64) = v14;
           if ( v15 )
-            xxxDoScroll(*(struct tagWND **)(v7 + 16), v15, *(unsigned int *)(v7 + 56), 0LL, (*(_DWORD *)v7 >> 1) & 1);
+            xxxDoScroll(*(struct _LARGE_STRING ***)(v7 + 16), v15, *(_DWORD *)(v7 + 56), 0, (*(_DWORD *)v7 >> 1) & 1);
         }
       }
       goto LABEL_17;

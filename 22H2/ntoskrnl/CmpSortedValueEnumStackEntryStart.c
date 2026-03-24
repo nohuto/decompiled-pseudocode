@@ -1,92 +1,86 @@
 /*
- * XREFs of CmpSortedValueEnumStackEntryStart @ 0x140A25254
+ * XREFs of CmpSortedValueEnumStackEntryStart @ 0x14087B778
  * Callers:
- *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x140A25438 (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
+ *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x14087B94C (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     qsort @ 0x1403D9DD0 (qsort.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E034C (HvpGetCellContextReinitialize.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     qsort @ 0x1403D23C0 (qsort.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall CmpSortedValueEnumStackEntryStart(__int64 a1, ULONG_PTR a2, __int64 a3)
+__int64 __fastcall CmpSortedValueEnumStackEntryStart(__int64 a1, __int64 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
 {
-  unsigned int v4; // ebx
-  size_t v7; // r14
-  struct _PRIVILEGE_SET *Pool; // rsi
-  ULONG_PTR v9; // rdx
-  __int64 CellFlat; // rax
-  unsigned int *v11; // r12
-  unsigned int *v12; // rbp
-  _QWORD *p_PrivilegeCount; // r13
-  size_t v14; // r15
-  ULONG_PTR v15; // rdx
-  __int64 CellPaged; // rax
-  __int64 v17; // r13
-  __int64 v20; // [rsp+68h] [rbp+10h] BYREF
-  __int64 v21; // [rsp+70h] [rbp+18h]
+  size_t v6; // rbp
+  unsigned int v7; // ebx
+  struct _LOOKASIDE_LIST_EX *v8; // r9
+  struct _PRIVILEGE_SET *v9; // rdi
+  _QWORD *v10; // rsi
+  __int64 v11; // rax
+  _QWORD *v12; // r13
+  signed __int64 v13; // r15
+  size_t v14; // r14
+  _QWORD *v15; // r12
+  unsigned int *v16; // rdi
+  __int64 v17; // rax
+  struct _PRIVILEGE_SET *v18; // rdi
+  __int64 v21; // [rsp+78h] [rbp+10h] BYREF
+  struct _PRIVILEGE_SET *TransientPoolWithTag; // [rsp+88h] [rbp+20h]
 
-  v4 = 0;
-  v20 = 0LL;
-  HvpGetCellContextReinitialize(&v20);
+  v21 = 0xFFFFFFFFLL;
   *(_QWORD *)a1 = a2;
-  v7 = *(unsigned int *)(a3 + 36);
-  if ( (_DWORD)v7 )
+  v6 = *(unsigned int *)(a3 + 36);
+  WORD2(v21) = 0;
+  if ( (_DWORD)v6 )
   {
-    Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(256LL, 8 * v7, 943148355LL);
-    if ( Pool )
+    TransientPoolWithTag = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithTag(PagedPool, 8 * v6, 0x38374D43u, a4);
+    v9 = TransientPoolWithTag;
+    if ( TransientPoolWithTag )
     {
-      v21 = CmpAllocatePool(256LL, 8 * v7, 943148355LL);
-      if ( v21 )
+      v10 = CmpAllocateTransientPoolWithTag(PagedPool, 8 * v6, 0x38374D43u, v8);
+      if ( v10 )
       {
-        v9 = *(unsigned int *)(a3 + 40);
-        if ( (*(_BYTE *)(a2 + 140) & 1) != 0 )
-          CellFlat = HvpGetCellFlat(a2, v9, &v20);
-        else
-          CellFlat = HvpGetCellPaged(a2, v9, (unsigned int *)&v20);
-        v11 = (unsigned int *)CellFlat;
-        v12 = (unsigned int *)v21;
-        p_PrivilegeCount = &Pool->PrivilegeCount;
-        v14 = v7;
+        v11 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64 *))(a2 + 8))(a2, *(unsigned int *)(a3 + 40), &v21);
+        v12 = v10;
+        v13 = (char *)v9 - (char *)v10;
+        v14 = v6;
+        v15 = v10;
+        v16 = (unsigned int *)v11;
         do
         {
-          HvpGetCellContextReinitialize(v12);
-          v15 = *v11;
-          if ( (*(_BYTE *)(a2 + 140) & 1) != 0 )
-            CellPaged = HvpGetCellFlat(a2, v15, v12);
-          else
-            CellPaged = HvpGetCellPaged(a2, v15, v12);
-          *p_PrivilegeCount = CellPaged;
-          v12 += 2;
-          ++p_PrivilegeCount;
-          ++v11;
+          *v12 = 0LL;
+          *(_DWORD *)v12 = -1;
+          v17 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD *))(a2 + 8))(a2, *v16, v15++);
+          *(_QWORD *)((char *)v12 + v13) = v17;
+          ++v16;
+          ++v12;
           --v14;
         }
         while ( v14 );
-        v17 = v21;
-        if ( (*(_BYTE *)(a2 + 140) & 1) != 0 )
-          HvpReleaseCellFlat(a2, &v20);
-        else
-          HvpReleaseCellPaged(a2, (unsigned int *)&v20);
-        qsort(Pool, v7, 8uLL, CmpSortedValueEnumStackValueCompareFunction);
-        *(_QWORD *)(a1 + 8) = Pool;
-        *(_QWORD *)(a1 + 16) = v17;
-        *(_DWORD *)(a1 + 24) = v7;
+        v18 = TransientPoolWithTag;
+        (*(void (__fastcall **)(__int64, __int64 *))(a2 + 16))(a2, &v21);
+        qsort(v18, v6, 8uLL, CmpSortedValueEnumStackValueCompareFunction);
+        *(_QWORD *)(a1 + 8) = v18;
+        v9 = 0LL;
+        v7 = 0;
+        *(_QWORD *)(a1 + 16) = v10;
+        *(_DWORD *)(a1 + 24) = v6;
       }
       else
       {
-        v4 = -1073741670;
-        CmSiFreeMemory(Pool);
+        v7 = -1073741670;
       }
+      if ( v9 )
+        CmSiFreeMemory(v9);
     }
     else
     {
       return (unsigned int)-1073741670;
     }
   }
-  return v4;
+  else
+  {
+    return 0;
+  }
+  return v7;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessSetConstantOpacity@CMeshGeometry2D@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MESHGEOMETRY2D_SETCONSTANTOPACITY@@@Z @ 0x180225290
+ * XREFs of ?ProcessSetConstantOpacity@CMeshGeometry2D@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MESHGEOMETRY2D_SETCONSTANTOPACITY@@@Z @ 0x1801D6D30
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800443B0 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetVertexCount@CMeshGeometry2D@@UEAAIXZ @ 0x180114510 (-GetVertexCount@CMeshGeometry2D@@UEAAIXZ.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800375A0 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetVertexCount@CMeshGeometry2D@@UEAAIXZ @ 0x1801D6BA0 (-GetVertexCount@CMeshGeometry2D@@UEAAIXZ.c)
  */
 
 __int64 __fastcall CMeshGeometry2D::ProcessSetConstantOpacity(
@@ -20,14 +20,14 @@ __int64 __fastcall CMeshGeometry2D::ProcessSetConstantOpacity(
   v3 = 0LL;
   v5 = 0;
   LODWORD(v7) = CMeshGeometry2D::GetVertexCount(this);
-  if ( (_DWORD)v7 == *((_DWORD *)this + 38) >> 2 )
+  if ( (_DWORD)v7 == *((_DWORD *)this + 36) >> 2 )
   {
     if ( (_DWORD)v7 )
     {
       v7 = (unsigned int)v7;
       do
       {
-        *(_DWORD *)(v3 + *((_QWORD *)this + 20)) = *((_DWORD *)a3 + 2);
+        *(_DWORD *)(v3 + *((_QWORD *)this + 19)) = *((_DWORD *)a3 + 2);
         v3 += 4LL;
         --v7;
       }
@@ -38,7 +38,7 @@ __int64 __fastcall CMeshGeometry2D::ProcessSetConstantOpacity(
   else
   {
     v5 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v7, 0LL, 0LL, -2003303421, 0x3Bu);
+    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v7, 0LL, 0, -2003303421, 0x3Bu, 0LL);
   }
   return v5;
 }

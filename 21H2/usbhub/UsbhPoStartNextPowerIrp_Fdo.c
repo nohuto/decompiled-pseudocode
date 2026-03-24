@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbhPoStartNextPowerIrp_Fdo @ 0x1C003BE4C
+ * XREFs of UsbhPoStartNextPowerIrp_Fdo @ 0x1C003D17C
  * Callers:
- *     UsbhFdoPower_SetPower @ 0x1C0004020 (UsbhFdoPower_SetPower.c)
- *     UsbhFdoDevicePowerState @ 0x1C0005910 (UsbhFdoDevicePowerState.c)
- *     UsbhFdoSxIoComplete_Action @ 0x1C00066A0 (UsbhFdoSxIoComplete_Action.c)
- *     UsbhFdoD0PoComplete_Action @ 0x1C0006D20 (UsbhFdoD0PoComplete_Action.c)
- *     UsbhFdoSystemPowerState @ 0x1C0007740 (UsbhFdoSystemPowerState.c)
- *     UsbhFdoPower_QueryPower @ 0x1C000D4D0 (UsbhFdoPower_QueryPower.c)
- *     UsbhFdoQuerySystemPowerState @ 0x1C001E3C4 (UsbhFdoQuerySystemPowerState.c)
- *     UsbhFdoQuerySystemPowerSxIoCompletion @ 0x1C001E7A0 (UsbhFdoQuerySystemPowerSxIoCompletion.c)
+ *     UsbhFdoSxIoComplete_Action @ 0x1C000DFA0 (UsbhFdoSxIoComplete_Action.c)
+ *     UsbhFdoD0PoComplete_Action @ 0x1C000E620 (UsbhFdoD0PoComplete_Action.c)
+ *     UsbhFdoSystemPowerState @ 0x1C000E9B0 (UsbhFdoSystemPowerState.c)
+ *     UsbhFdoDevicePowerState @ 0x1C00101B0 (UsbhFdoDevicePowerState.c)
+ *     UsbhFdoPower_QueryPower @ 0x1C00136E0 (UsbhFdoPower_QueryPower.c)
+ *     UsbhFdoQuerySystemPowerState @ 0x1C0016028 (UsbhFdoQuerySystemPowerState.c)
+ *     UsbhFdoPower_SetPower @ 0x1C001AA90 (UsbhFdoPower_SetPower.c)
+ *     UsbhFdoQuerySystemPowerSxIoCompletion @ 0x1C001C210 (UsbhFdoQuerySystemPowerSxIoCompletion.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 void __fastcall UsbhPoStartNextPowerIrp_Fdo(__int64 a1, IRP *a2, int a3)

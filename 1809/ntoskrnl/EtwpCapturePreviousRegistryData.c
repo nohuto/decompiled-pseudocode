@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCapturePreviousRegistryData @ 0x1408BC0B8
+ * XREFs of EtwpCapturePreviousRegistryData @ 0x1408BC098
  * Callers:
- *     EtwpRegTraceCallback @ 0x1408BC250 (EtwpRegTraceCallback.c)
+ *     EtwpRegTraceCallback @ 0x1408BC230 (EtwpRegTraceCallback.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
  */
 
 void __fastcall EtwpCapturePreviousRegistryData(__int64 a1)

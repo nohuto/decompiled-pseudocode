@@ -1,29 +1,29 @@
 /*
- * XREFs of EtwTraceDequeueWork @ 0x1405FCAF0
+ * XREFs of EtwTraceDequeueWork @ 0x1405A75DC
  * Callers:
- *     KeRemoveQueueEx @ 0x1402A9F20 (KeRemoveQueueEx.c)
+ *     KeRemoveQueueEx @ 0x140204790 (KeRemoveQueueEx.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall EtwTraceDequeueWork(__int64 a1, __int64 a2, int a3)
+void __fastcall EtwTraceDequeueWork(__int64 a1, __int64 a2, int a3)
 {
   int v3; // eax
-  _DWORD v5[2]; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v6; // [rsp+38h] [rbp-40h]
-  _QWORD v7[3]; // [rsp+40h] [rbp-38h] BYREF
-  int v8; // [rsp+58h] [rbp-20h]
-  int v9; // [rsp+5Ch] [rbp-1Ch]
+  _DWORD v4[2]; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v5; // [rsp+38h] [rbp-40h]
+  _QWORD v6[3]; // [rsp+40h] [rbp-38h] BYREF
+  int v7; // [rsp+58h] [rbp-20h]
+  int v8; // [rsp+5Ch] [rbp-1Ch]
 
-  v3 = *(_DWORD *)(a1 + 1232);
-  v6 = 0LL;
-  v5[0] = v3;
-  v7[0] = v5;
-  v7[2] = a2;
-  v7[1] = 8LL;
-  v8 = 8 * a3;
-  v9 = 0;
-  v5[1] = a3;
-  return EtwTraceKernelEvent((int)v7, 2, 0x21000000u, 1343, 22027778);
+  v3 = *(_DWORD *)(a1 + 1152);
+  v5 = 0LL;
+  v4[0] = v3;
+  v6[0] = v4;
+  v6[2] = a2;
+  v6[1] = 8LL;
+  v7 = 8 * a3;
+  v8 = 0;
+  v4[1] = a3;
+  EtwTraceKernelEvent((__int64)v6, 2u, 0x21000000u, 0x53Fu, 0x1501E02u);
 }

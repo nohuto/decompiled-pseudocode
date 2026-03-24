@@ -1,43 +1,50 @@
 /*
- * XREFs of HvpDelistFreeCell @ 0x140709CC0
+ * XREFs of HvpDelistFreeCell @ 0x140656E34
  * Callers:
- *     HvpDoAllocateCell @ 0x14070A4F0 (HvpDoAllocateCell.c)
- *     HvpIsFreeNeighbor @ 0x14070AEB0 (HvpIsFreeNeighbor.c)
+ *     HvpDoAllocateCell @ 0x1406564F8 (HvpDoAllocateCell.c)
+ *     HvpIsFreeNeighbor @ 0x140656D70 (HvpIsFreeNeighbor.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpRemoveFreeCellHint @ 0x14070A2D0 (HvpRemoveFreeCellHint.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HvpRemoveFreeCellHint @ 0x1406557C0 (HvpRemoveFreeCellHint.c)
  */
 
-__int64 __fastcall HvpDelistFreeCell(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
+_DWORD *__fastcall HvpDelistFreeCell(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, int a3)
 {
-  bool v2; // zf
-  unsigned int v3; // edi
-  __int64 CellPaged; // rax
-  __int64 v6; // rcx
-  __int64 result; // rax
-  unsigned int v8; // [rsp+58h] [rbp+20h] BYREF
-  int v9; // [rsp+5Ch] [rbp+24h]
+  unsigned int v4; // edi
+  _DWORD *result; // rax
+  __int64 v7; // r8
+  unsigned int v8; // r8d
+  int v9; // [rsp+58h] [rbp+20h] BYREF
+  int v10; // [rsp+5Ch] [rbp+24h]
 
-  v8 = -1;
-  v2 = (*(_BYTE *)(BugCheckParameter2 + 140) & 1) == 0;
-  v3 = BugCheckParameter3;
-  v9 = 0;
-  if ( v2 )
-    CellPaged = HvpGetCellPaged(BugCheckParameter2, BugCheckParameter3, &v8);
-  else
-    CellPaged = HvpGetCellFlat(BugCheckParameter2, BugCheckParameter3);
-  v6 = CellPaged;
-  result = CellPaged - 4;
-  if ( (result & -(__int64)(v6 != 0)) != 0 )
+  v9 = -1;
+  v10 = 0;
+  v4 = BugCheckParameter3;
+  result = (_DWORD *)(*(__int64 (__fastcall **)(ULONG_PTR, ULONG_PTR, int *))(BugCheckParameter2 + 8))(
+                       BugCheckParameter2,
+                       BugCheckParameter3,
+                       &v9);
+  if ( result )
   {
-    HvpRemoveFreeCellHint(BugCheckParameter2, v3, 0);
-    if ( (*(_BYTE *)(BugCheckParameter2 + 140) & 1) != 0 )
-      return HvpReleaseCellFlat(BugCheckParameter2, &v8);
-    else
-      return HvpReleaseCellPaged(BugCheckParameter2, &v8);
+    if ( --result )
+    {
+      v7 = (unsigned int)((*result >> 3) - 1);
+      if ( (unsigned int)v7 >= 0x10 )
+      {
+        v8 = (unsigned int)v7 >> 4;
+        if ( v8 > 0xFF )
+        {
+          v7 = 23LL;
+        }
+        else
+        {
+          _BitScanReverse(&v8, v8);
+          v7 = v8 + 16;
+        }
+      }
+      HvpRemoveFreeCellHint(BugCheckParameter2, v4, v7, a3, 0);
+      return (_DWORD *)(*(__int64 (__fastcall **)(ULONG_PTR, int *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v9);
+    }
   }
   return result;
 }

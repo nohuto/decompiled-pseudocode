@@ -1,166 +1,166 @@
 /*
- * XREFs of MiInitializeCacheFlushing @ 0x140B6B46C
+ * XREFs of MiInitializeCacheFlushing @ 0x140A54B0C
  * Callers:
- *     MiInitSystem @ 0x140B47C18 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MiFlushCacheForAttributeChange @ 0x14021ABA4 (MiFlushCacheForAttributeChange.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiGetPage @ 0x14026D240 (MiGetPage.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiFinalizePageAttribute @ 0x1402E15E4 (MiFinalizePageAttribute.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiZeroPhysicalPage @ 0x14033905C (MiZeroPhysicalPage.c)
- *     KeInvalidateAllCaches @ 0x14036D4F0 (KeInvalidateAllCaches.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036EF4C (MiFlushEntireTbDueToAttributeChange.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14041AD60 (ZwQuerySystemInformation.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiGetPage @ 0x1402135D0 (MiGetPage.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiFlushCacheForAttributeChange @ 0x140283EC8 (MiFlushCacheForAttributeChange.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x140284A0C (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiFinalizePageAttribute @ 0x140337444 (MiFinalizePageAttribute.c)
+ *     MiZeroPhysicalPage @ 0x1403578E0 (MiZeroPhysicalPage.c)
+ *     MiReleaseFreshPage @ 0x140357CD4 (MiReleaseFreshPage.c)
+ *     KeInvalidateAllCaches @ 0x1403A4700 (KeInvalidateAllCaches.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwQuerySystemInformation @ 0x1403FA0E0 (ZwQuerySystemInformation.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 MiInitializeCacheFlushing()
 {
   __int64 result; // rax
-  ULONG_PTR v1; // rbx
-  __int64 v2; // rdi
-  __int64 v3; // rcx
-  unsigned __int8 CurrentIrql; // si
-  __int64 v5; // r12
-  __int64 v6; // r15
-  unsigned int v7; // eax
-  SIZE_T v8; // r13
+  _DWORD *v1; // r9
+  ULONG_PTR v2; // rbx
+  unsigned __int64 v3; // rsi
+  __int64 v4; // rdi
+  struct _KPRCB *SchedulerAssist; // r9
+  unsigned __int8 CurrentIrql; // bp
+  __int64 v7; // r12
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // r8
+  __int64 v12; // r9
+  unsigned __int64 v13; // rax
+  __int64 v14; // rdx
+  unsigned __int64 v15; // r15
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  unsigned __int64 v18; // rsi
+  __int64 v19; // r13
+  unsigned int v20; // eax
   PVOID Pool; // r15
-  LARGE_INTEGER v10; // r14
-  LARGE_INTEGER v11; // rbx
-  LARGE_INTEGER v12; // rax
-  LARGE_INTEGER v13; // rcx
-  _DWORD *SchedulerAssist; // r9
-  int v15; // edx
-  unsigned __int8 v16; // al
-  struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v18; // r8
-  int v19; // eax
-  bool v20; // zf
-  signed __int32 v21[8]; // [rsp+0h] [rbp-70h] BYREF
-  LARGE_INTEGER v22; // [rsp+20h] [rbp-50h] BYREF
-  unsigned __int64 v23; // [rsp+28h] [rbp-48h] BYREF
-  int v24; // [rsp+30h] [rbp-40h] BYREF
-  int v25; // [rsp+34h] [rbp-3Ch] BYREF
-  LARGE_INTEGER PerformanceFrequency; // [rsp+38h] [rbp-38h] BYREF
-  _OWORD v27[2]; // [rsp+40h] [rbp-30h] BYREF
+  size_t v22; // r14
+  __int64 v23; // r12
+  unsigned __int64 v24; // rbx
+  unsigned __int64 v25; // rax
+  unsigned __int64 v26; // r13
+  unsigned __int8 v27; // al
+  int v28; // eax
+  bool v29; // zf
+  signed __int32 v30[8]; // [rsp+0h] [rbp-88h] BYREF
+  int v31; // [rsp+20h] [rbp-68h] BYREF
+  int v32; // [rsp+24h] [rbp-64h] BYREF
+  size_t Size; // [rsp+28h] [rbp-60h]
+  _OWORD v34[2]; // [rsp+30h] [rbp-58h] BYREF
 
-  memset(v27, 0, sizeof(v27));
-  if ( (int)ZwQuerySystemInformation(192LL, (__int64)v27) >= 0 && (BYTE8(v27[0]) & 1) != 0 )
-    byte_140C65BE8 = 1;
-  result = MiGetPage((__int64)MiSystemPartition, 0, 0);
-  v1 = result;
+  memset(v34, 0, sizeof(v34));
+  if ( (int)ZwQuerySystemInformation(192LL, (__int64)v34) >= 0 && (BYTE8(v34[0]) & 1) != 0 )
+    byte_140C4DEE8 = 1;
+  result = MiGetPage((__int64)&MiSystemPartition, 0, 0LL);
+  v2 = result;
   if ( result != -1 )
   {
-    v23 = 0LL;
-    v22.QuadPart = 0LL;
-    v2 = 48 * result - 0x220000000000LL;
-    MiFinalizePageAttribute(v2, 1LL, 0);
+    v3 = 0LL;
+    v4 = 48 * result - 0x58000000000LL;
+    MiFinalizePageAttribute(v4, 1LL, 0, v1);
     CurrentIrql = KeGetCurrentIrql();
-    v5 = 2LL;
     __writecr8(2uLL);
-    v6 = 4LL;
+    v7 = 4LL;
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
-      SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == 2 )
-      {
-        v15 = 4;
-      }
-      else
-      {
-        v3 = (unsigned int)CurrentIrql + 1;
-        v15 = (-1LL << (CurrentIrql + 1)) & 4;
-      }
-      SchedulerAssist[5] |= v15;
+      SchedulerAssist = (struct _KPRCB *)KeGetCurrentPrcb()->SchedulerAssist;
+      HIDWORD(SchedulerAssist->NextThread) |= (-1LL << (CurrentIrql + 1)) & 4;
     }
     do
     {
-      MiZeroPhysicalPage(v3, v1, 0LL, 0);
-      v24 = 0;
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 24), 0x3FuLL) )
+      MiZeroPhysicalPage(v2, 1, 0LL, SchedulerAssist);
+      v31 = 0;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v4 + 24), 0x3FuLL) )
       {
         do
-          KeYieldProcessorEx(&v24);
-        while ( *(__int64 *)(v2 + 24) < 0 );
+          KeYieldProcessorEx(&v31, v8, v9, v10);
+        while ( *(__int64 *)(v4 + 24) < 0 );
       }
-      *(_BYTE *)(v2 + 34) &= 0x3Fu;
-      _InterlockedAnd64((volatile signed __int64 *)(v2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      MiFlushCacheForAttributeChange(v1, 1LL, 0, &v23);
-      v25 = 0;
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 24), 0x3FuLL) )
+      *(_BYTE *)(v4 + 34) &= 0x3Fu;
+      _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      Size = __rdtsc();
+      _InterlockedOr(v30, 0);
+      MiFlushCacheForAttributeChange(v2, 1LL, 0LL, v10);
+      _InterlockedOr(v30, 0);
+      v13 = __rdtsc();
+      v14 = (unsigned __int64)HIDWORD(v13) << 32;
+      v32 = 0;
+      v15 = v13;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v4 + 24), 0x3FuLL) )
       {
         do
-          KeYieldProcessorEx(&v25);
-        while ( *(__int64 *)(v2 + 24) < 0 );
+          KeYieldProcessorEx(&v32, v14, v11, v12);
+        while ( *(__int64 *)(v4 + 24) < 0 );
       }
-      *(_BYTE *)(v2 + 34) = *(_BYTE *)(v2 + 34) & 0x3F | 0x40;
-      _InterlockedAnd64((volatile signed __int64 *)(v2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      *(_BYTE *)(v4 + 34) = *(_BYTE *)(v4 + 34) & 0x3F | 0x40;
+      _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       MiFlushEntireTbDueToAttributeChange();
-      --v6;
+      v3 += v15 - Size;
+      --v7;
     }
-    while ( v6 );
-    v23 >>= 2;
-    if ( v23 )
+    while ( v7 );
+    v18 = v3 >> 2;
+    v19 = 0LL;
+    if ( v18 )
     {
-      v7 = dword_140C65BD8;
-      if ( !dword_140C65BD8 )
-        v7 = 256;
-      v8 = 3 * (v7 >> 2);
-      Pool = MiAllocatePool(64, v8, 0x20206D4Du);
+      v20 = dword_140C4DED8;
+      if ( !dword_140C4DED8 )
+        v20 = 256;
+      Size = 3 * (v20 >> 2);
+      Pool = MiAllocatePool(64, Size, 0x20206D4Du);
       if ( Pool )
       {
-        v10 = v22;
+        v22 = Size;
+        v23 = 2LL;
         do
         {
-          memset(Pool, 0, v8);
-          PerformanceFrequency.QuadPart = 0LL;
-          v11 = KeQueryPerformanceCounter(&PerformanceFrequency);
-          if ( PerformanceFrequency.QuadPart != 10000000 )
-            v11.QuadPart = 10000000 * v11.QuadPart / PerformanceFrequency.QuadPart;
-          _InterlockedOr(v21, 0);
-          ++dword_140C65C04;
+          memset(Pool, 0, v22);
+          v24 = __rdtsc();
+          _InterlockedOr(v30, 0);
+          ++dword_140C4DF04;
           KeInvalidateAllCaches();
-          _InterlockedOr(v21, 0);
-          v22.QuadPart = 0LL;
-          v12 = KeQueryPerformanceCounter(&v22);
-          if ( v22.QuadPart != 10000000 )
-            v12.QuadPart = 10000000 * v12.QuadPart / v22.QuadPart;
-          _InterlockedOr(v21, 0);
-          v13 = v11;
-          if ( v12.QuadPart >= (unsigned __int64)v11.QuadPart )
-            v13 = v12;
-          v10.QuadPart += v13.QuadPart - v11.QuadPart;
-          --v5;
+          _InterlockedOr(v30, 0);
+          v25 = __rdtsc();
+          _InterlockedOr(v30, 0);
+          v19 += (((unsigned __int64)HIDWORD(v25) << 32) | (unsigned int)v25) - v24;
+          --v23;
         }
-        while ( v5 );
+        while ( v23 );
         ExFreePoolWithTag(Pool, 0);
-        dword_140C65C0C = (v10.QuadPart & 0xFFFFFFFFFFFFFFFEuLL) / v23;
-        LOBYTE(v5) = 2;
+        v26 = v19 & 0xFFFFFFFFFFFFFFFEuLL;
+        v16 = v26 % v18;
+        dword_140C4DF0C = v26 / v18;
       }
     }
     if ( KiIrqlFlags )
     {
-      v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= (unsigned __int8)v5 )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v18 = CurrentPrcb->SchedulerAssist;
-        v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v20 = (v19 & v18[5]) == 0;
-        v18[5] &= v19;
-        if ( v20 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        v27 = KeGetCurrentIrql();
+        if ( v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+        {
+          SchedulerAssist = KeGetCurrentPrcb();
+          v17 = (__int64)SchedulerAssist->SchedulerAssist;
+          v28 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v29 = (v28 & *(_DWORD *)(v17 + 20)) == 0;
+          v16 = (unsigned int)v28 & *(_DWORD *)(v17 + 20);
+          *(_DWORD *)(v17 + 20) = v16;
+          if ( v29 )
+            KiRemoveSystemWorkPriorityKick((__int64)SchedulerAssist);
+        }
       }
     }
     __writecr8(CurrentIrql);
-    return MiReleaseFreshPage(v2);
+    return MiReleaseFreshPage(v4, v16, v17, SchedulerAssist);
   }
   return result;
 }

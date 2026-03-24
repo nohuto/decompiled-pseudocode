@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_ECFlipWaitedConsumerReturn@@UEAAPEAXI@Z @ 0x1C007C3A0
+ * XREFs of ??_ECFlipWaitedConsumerReturn@@UEAAPEAXI@Z @ 0x1C006AA40
  * Callers:
  *     <none>
  * Callees:
- *     ??1CFlipTokenOperation@@MEAA@XZ @ 0x1C007ECCC (--1CFlipTokenOperation@@MEAA@XZ.c)
+ *     ??1CFlipTokenOperation@@MEAA@XZ @ 0x1C006BE9C (--1CFlipTokenOperation@@MEAA@XZ.c)
  */
 
 CFlipTokenOperation *__fastcall CFlipWaitedConsumerReturn::`vector deleting destructor'(

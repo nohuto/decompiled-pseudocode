@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetHandleProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C0235B60
+ * XREFs of ?SetHandleProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C01F52B0
  * Callers:
  *     <none>
  * Callees:
@@ -33,7 +33,7 @@ __int64 __fastcall DirectComposition::CCaptureRenderTargetMarshaler::SetHandlePr
         return (unsigned int)v4;
       v7 = v10;
     }
-    v8 = (void *)*((_QWORD *)this + 15);
+    v8 = (void *)*((_QWORD *)this + 14);
     if ( v7 == v8 )
     {
       if ( v7 )
@@ -43,11 +43,11 @@ __int64 __fastcall DirectComposition::CCaptureRenderTargetMarshaler::SetHandlePr
     {
       if ( v8 )
       {
-        DxgkReleaseCompositionObjectReference(*((void **)this + 15));
+        DxgkReleaseCompositionObjectReference(*((void **)this + 14));
         v7 = v10;
       }
       *((_DWORD *)this + 4) |= 0x40u;
-      *((_QWORD *)this + 15) = v7;
+      *((_QWORD *)this + 14) = v7;
       *v5 = 1;
     }
   }

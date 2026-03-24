@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhSsh_CheckPortChangeQueuesIdle @ 0x1C0003A50
+ * XREFs of UsbhSsh_CheckPortChangeQueuesIdle @ 0x1C0015500
  * Callers:
- *     UsbhSsh_CheckHubIdle @ 0x1C00038F4 (UsbhSsh_CheckHubIdle.c)
- *     Usbh_SSH_Event @ 0x1C0004D80 (Usbh_SSH_Event.c)
+ *     Usbh_SSH_Event @ 0x1C0012810 (Usbh_SSH_Event.c)
+ *     UsbhSsh_CheckHubIdle @ 0x1C0015BF8 (UsbhSsh_CheckHubIdle.c)
  * Callees:
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 __int64 __fastcall UsbhSsh_CheckPortChangeQueuesIdle(__int64 a1)
@@ -15,17 +15,17 @@ __int64 __fastcall UsbhSsh_CheckPortChangeQueuesIdle(__int64 a1)
   __int64 v5; // rcx
   __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 v8; // rsi
+  __int64 v8; // rdi
   __int64 v9; // rcx
   KIRQL v10; // al
-  KSPIN_LOCK *v11; // rcx
-  bool v12; // zf
+  bool v11; // zf
+  KSPIN_LOCK *v12; // rcx
 
   if ( !a1 )
     UsbhTrapFatal_Dbg(0LL, 0LL);
   v2 = *(_DWORD **)(a1 + 64);
   if ( !v2 )
-LABEL_29:
+LABEL_28:
     UsbhTrapFatal_Dbg(a1, 0LL);
   if ( *v2 != 541218120 )
     UsbhTrapFatal_Dbg(a1, v2);
@@ -33,7 +33,7 @@ LABEL_29:
   {
     v4 = *(_QWORD *)(a1 + 64);
     if ( !v4 )
-      goto LABEL_29;
+      goto LABEL_28;
     if ( *(_DWORD *)v4 != 541218120 )
       UsbhTrapFatal_Dbg(a1, v4);
     if ( i > *(unsigned __int8 *)(v4 + 2938) )
@@ -51,7 +51,7 @@ LABEL_29:
     {
       v6 = *(_QWORD *)(a1 + 64);
       if ( !v6 )
-        goto LABEL_29;
+        goto LABEL_28;
       if ( *(_DWORD *)v6 != 541218120 )
         UsbhTrapFatal_Dbg(a1, v6);
       if ( i > *(unsigned __int8 *)(v6 + 2938) )
@@ -86,13 +86,14 @@ LABEL_29:
       v8 = 0LL;
     }
     v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v8 + 440));
-    v11 = (KSPIN_LOCK *)(v8 + 440);
-    v12 = *(_QWORD *)(v8 + 456) == v8 + 456;
+    *(_DWORD *)(v8 + 448) = 1;
+    v11 = *(_QWORD *)(v8 + 456) != v8 + 456;
     *(_DWORD *)(v8 + 448) = 0;
-    if ( !v12 )
+    v12 = (KSPIN_LOCK *)(v8 + 440);
+    if ( v11 )
       break;
-    KeReleaseSpinLock(v11, v10);
+    KeReleaseSpinLock(v12, v10);
   }
-  KeReleaseSpinLock(v11, v10);
+  KeReleaseSpinLock(v12, v10);
   return 3221225473LL;
 }

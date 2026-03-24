@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiSetMagicColors @ 0x1C0175B20
+ * XREFs of NtGdiSetMagicColors @ 0x1C01497E0
  * Callers:
  *     <none>
  * Callees:
- *     GreSetMagicColors @ 0x1C0175868 (GreSetMagicColors.c)
+ *     GreSetMagicColors @ 0x1C0149538 (GreSetMagicColors.c)
  */
 
 __int64 __fastcall NtGdiSetMagicColors(HDC a1, unsigned int a2, unsigned int a3)

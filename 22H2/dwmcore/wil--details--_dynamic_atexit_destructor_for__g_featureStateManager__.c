@@ -1,12 +1,20 @@
 /*
- * XREFs of wil::details::_dynamic_atexit_destructor_for__g_featureStateManager__ @ 0x180124210
+ * XREFs of wil::details::_dynamic_atexit_destructor_for__g_featureStateManager__ @ 0x1800F8EE0
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?ProcessShutdownInProgress@wil@@YA_NXZ @ 0x1800AFF2C (-ProcessShutdownInProgress@wil@@YA_NXZ.c)
  */
 
-void wil::details::_dynamic_atexit_destructor_for__g_featureStateManager__()
+void __fastcall wil::details::_dynamic_atexit_destructor_for__g_featureStateManager__(wil *a1)
 {
-  wil::manually_managed_shutdown_aware_object<wil::details::FeatureStateManager>::destroy((wil::details::FeatureStateManager *)&wil::details::g_featureStateManager);
+  if ( wil::ProcessShutdownInProgress(a1) )
+  {
+    wil::details::g_featureStateManager = 0;
+    wil::details_abi::ProcessLocalStorage<wil::details_abi::FeatureStateData>::`scalar deleting destructor'((wil *)&unk_18034B308);
+  }
+  else
+  {
+    wil::details::FeatureStateManager::~FeatureStateManager((wil::details::FeatureStateManager *)&wil::details::g_featureStateManager);
+  }
 }

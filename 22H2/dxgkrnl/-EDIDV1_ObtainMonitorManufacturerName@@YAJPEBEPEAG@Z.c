@@ -1,18 +1,22 @@
 /*
- * XREFs of ?EDIDV1_ObtainMonitorManufacturerName@@YAJPEBEPEAG@Z @ 0x1C001EFD4
+ * XREFs of ?EDIDV1_ObtainMonitorManufacturerName@@YAJPEBEPEAG@Z @ 0x1C001E6A0
  * Callers:
- *     ?AppendManufacturerName@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_UNICODE_STRING@@@Z @ 0x1C020C140 (-AppendManufacturerName@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_UNICODE_STRING@@@Z.c)
+ *     ?_DispatchInternalIOCtrl@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z @ 0x1C0166938 (-_DispatchInternalIOCtrl@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z.c)
+ *     ?_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0182398 (-_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SC.c)
+ *     ?_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ @ 0x1C0182B14 (-_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ.c)
+ *     ?_GetMonitorDescriptorIDs@DXGMONITOR@@QEAAJPEAU_DXGK_GENERIC_DESCRIPTOR@@@Z @ 0x1C0182FF4 (-_GetMonitorDescriptorIDs@DXGMONITOR@@QEAAJPEAU_DXGK_GENERIC_DESCRIPTOR@@@Z.c)
+ *     ?_GetMonitorDiagInfo@DXGMONITOR@@QEAAJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C018323C (-_GetMonitorDiagInfo@DXGMONITOR@@QEAAJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z.c)
  * Callees:
- *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C0010ADC (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
+ *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C000D878 (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
  */
 
 __int64 __fastcall EDIDV1_ObtainMonitorManufacturerName(unsigned __int8 *a1, unsigned __int16 *a2)
 {
   __int64 result; // rax
   _WORD *v3; // r11
-  unsigned __int8 v4; // dl
-  char v5; // cl
-  unsigned __int8 v6; // al
+  unsigned __int8 v4; // r9
+  char v5; // dl
+  char v6; // r8
   _QWORD v7[13]; // [rsp+20h] [rbp-68h] BYREF
 
   if ( !a1 || !a2 )
@@ -22,11 +26,11 @@ __int64 __fastcall EDIDV1_ObtainMonitorManufacturerName(unsigned __int8 *a1, uns
   if ( (int)result >= 0 )
   {
     v4 = *(_BYTE *)(v7[0] + 9LL);
-    v5 = 8 * (*(_BYTE *)(v7[0] + 8LL) & 3);
-    v6 = ((*(_BYTE *)(v7[0] + 8LL) >> 2) & 0x1F) + 64;
+    v5 = (*(_BYTE *)(v7[0] + 8LL) >> 2) & 0x1F;
+    v6 = (v4 >> 5) | (8 * (*(_BYTE *)(v7[0] + 8LL) & 3));
     v3[3] = 0;
-    *v3 = v6;
-    v3[1] = (unsigned __int8)(((v4 >> 5) | v5) + 64);
+    *v3 = (unsigned __int8)(v5 + 64);
+    v3[1] = (unsigned __int8)(v6 + 64);
     v3[2] = (unsigned __int8)((v4 & 0x1F) + 64);
     return 0LL;
   }

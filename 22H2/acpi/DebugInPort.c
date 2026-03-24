@@ -1,15 +1,15 @@
 /*
- * XREFs of DebugInPort @ 0x1C004DA30
+ * XREFs of DebugInPort @ 0x1C0066040
  * Callers:
- *     DebugI @ 0x1C004D9D0 (DebugI.c)
- *     DebugID @ 0x1C004D9F0 (DebugID.c)
- *     DebugIW @ 0x1C004DA10 (DebugIW.c)
+ *     DebugI @ 0x1C0065FE0 (DebugI.c)
+ *     DebugID @ 0x1C0066000 (DebugID.c)
+ *     DebugIW @ 0x1C0066020 (DebugIW.c)
  * Callees:
- *     _strtoui64_0 @ 0x1C0001A79 (_strtoui64_0.c)
- *     ConPrintf @ 0x1C004D7D8 (ConPrintf.c)
- *     IsNumber @ 0x1C004E1F4 (IsNumber.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     ReadSystemIO @ 0x1C0052EFC (ReadSystemIO.c)
+ *     ReadSystemIO @ 0x1C0027528 (ReadSystemIO.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     _strtoui64_0 @ 0x1C0031D29 (_strtoui64_0.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
+ *     IsNumber @ 0x1C0066824 (IsNumber.c)
  */
 
 __int64 __fastcall DebugInPort(const char *a1, unsigned int a2)
@@ -23,19 +23,19 @@ __int64 __fastcall DebugInPort(const char *a1, unsigned int a2)
   v2 = 0;
   if ( !a1 )
   {
-    if ( byte_1C00709F8 )
+    if ( byte_1C00834A8 )
     {
-      byte_1C00709F8 = 0;
+      byte_1C00834A8 = 0;
       return v2;
     }
 LABEL_13:
-    PrintDebugMessage(220, 0, 0, 0, 0LL);
+    PrintDebugMessage(220, 0LL, 0LL, 0LL, 0LL);
     return (unsigned int)-2;
   }
   v5 = strtoui64_0(a1, 0LL, 16);
-  if ( byte_1C00709F8 || !(unsigned __int8)IsNumber(a1, 16LL) )
+  if ( byte_1C00834A8 || !(unsigned __int8)IsNumber(a1, 16LL) )
     goto LABEL_13;
-  SystemIO = ReadSystemIO(v5, a2, 0xFFFFFFFFLL);
+  SystemIO = ReadSystemIO(v5, a2, -1);
   ConPrintf("%04x: ", v5);
   v7 = a2 - 1;
   if ( v7 )
@@ -56,6 +56,6 @@ LABEL_13:
     ConPrintf("%02x", (unsigned __int8)SystemIO);
   }
   ConPrintf("\n");
-  byte_1C00709F8 = 1;
+  byte_1C00834A8 = 1;
   return v2;
 }

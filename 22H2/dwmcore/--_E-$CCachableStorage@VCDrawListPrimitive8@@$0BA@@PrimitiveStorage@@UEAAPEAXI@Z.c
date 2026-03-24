@@ -1,16 +1,17 @@
 /*
- * XREFs of ??_E?$CCachableStorage@VCDrawListPrimitive8@@$0BA@@PrimitiveStorage@@UEAAPEAXI@Z @ 0x180030610
+ * XREFs of ??_E?$CCachableStorage@VCDrawListPrimitive8@@$0BA@@PrimitiveStorage@@UEAAPEAXI@Z @ 0x180059120
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCDrawListPrimitive8@@@Z @ 0x180030664 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCDrawListPrimitive8@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801051B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCDrawListPrimitive8@@@Z @ 0x180057E14 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCDrawListPrimitive8@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1B00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
-_QWORD *__fastcall PrimitiveStorage::CCachableStorage<CDrawListPrimitive8,16>::`vector deleting destructor'(
-        _QWORD *lpMem,
-        char a2)
+CDrawListPolygonBuilder *__fastcall PrimitiveStorage::CCachableStorage<CDrawListPrimitive8,16>::`vector deleting destructor'(
+        CDrawListPolygonBuilder *lpMem,
+        char a2,
+        unsigned int a3)
 {
   struct CObjectCache *ObjectCache; // rax
 
@@ -19,18 +20,18 @@ _QWORD *__fastcall PrimitiveStorage::CCachableStorage<CDrawListPrimitive8,16>::`
   {
     if ( (a2 & 4) != 0 )
     {
-      __global_delete(lpMem, 0x300uLL);
+      CDrawListPolygonBuilder::AddBeziers(lpMem, (const struct D2D1_BEZIER_SEGMENT *)0x2F8, a3);
     }
     else
     {
-      ObjectCache = CThreadContext::GetObjectCache((struct CDrawListPrimitive8 *)lpMem);
+      ObjectCache = CThreadContext::GetObjectCache(lpMem);
       if ( *((_DWORD *)ObjectCache + 1) >= *(_DWORD *)ObjectCache )
       {
         operator delete(lpMem);
       }
       else
       {
-        *lpMem = *((_QWORD *)ObjectCache + 1);
+        *(_QWORD *)lpMem = *((_QWORD *)ObjectCache + 1);
         ++*((_DWORD *)ObjectCache + 1);
         *((_QWORD *)ObjectCache + 1) = lpMem;
       }

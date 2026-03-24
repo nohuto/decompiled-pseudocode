@@ -1,19 +1,19 @@
 /*
- * XREFs of AslpFileLargeEnsureLargeFileMapping @ 0x140A19DE8
+ * XREFs of AslpFileLargeEnsureLargeFileMapping @ 0x14096BEF4
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x14084192C (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407B24C4 (AslFileAllocAndGetAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslpFileMappingGetFileKind @ 0x140842E88 (AslpFileMappingGetFileKind.c)
- *     AslpFileLargeGetChecksumAttributes @ 0x140A1A024 (AslpFileLargeGetChecksumAttributes.c)
- *     AslpFileLargeMapCreate @ 0x140A1A2F8 (AslpFileLargeMapCreate.c)
- *     AslpFileLargeMapDelete @ 0x140A1A570 (AslpFileLargeMapDelete.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslpFileMappingGetFileKind @ 0x1407B3894 (AslpFileMappingGetFileKind.c)
+ *     AslpFileLargeGetChecksumAttributes @ 0x14096C12C (AslpFileLargeGetChecksumAttributes.c)
+ *     AslpFileLargeMapCreate @ 0x14096C404 (AslpFileLargeMapCreate.c)
+ *     AslpFileLargeMapDelete @ 0x14096C67C (AslpFileLargeMapDelete.c)
  */
 
 __int64 __fastcall AslpFileLargeEnsureLargeFileMapping(__int64 a1, __int64 a2)
 {
-  unsigned int v5; // eax
-  _DWORD *v6; // rcx
+  _DWORD *v5; // rdx
+  int i; // ecx
   int FileKind; // ebx
   _QWORD *v8; // rbx
   __int64 v9; // rax
@@ -23,16 +23,13 @@ __int64 __fastcall AslpFileLargeEnsureLargeFileMapping(__int64 a1, __int64 a2)
   if ( *(_QWORD *)(a2 + 24) < 0x100000uLL )
     return 3221225712LL;
   v11 = 0LL;
-  v5 = 0;
-  v6 = (_DWORD *)(a1 + 24);
-  do
+  v5 = (_DWORD *)(a1 + 24);
+  for ( i = 0; i < 35; ++i )
   {
-    if ( v5 > 0x13 && v5 != 22 && v5 != 24 && (v5 <= 0x19 || v5 > 0x1F && v5 != 33) )
-      *v6 |= 2u;
-    ++v5;
-    v6 += 8;
+    if ( i < 0 || i > 19 && i != 22 && i != 24 && (unsigned int)(i - 26) > 5 )
+      *v5 |= 2u;
+    v5 += 8;
   }
-  while ( (int)v5 < 34 );
   FileKind = AslpFileLargeMapCreate(&v11, a2 + 8);
   if ( FileKind >= 0 )
   {

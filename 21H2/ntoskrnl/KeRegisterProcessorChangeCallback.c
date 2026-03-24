@@ -1,18 +1,18 @@
 /*
- * XREFs of KeRegisterProcessorChangeCallback @ 0x140858460
+ * XREFs of KeRegisterProcessorChangeCallback @ 0x1407C8800
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     ExRegisterCallback @ 0x14025A0B0 (ExRegisterCallback.c)
- *     ExUnregisterCallback @ 0x14025DE40 (ExUnregisterCallback.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     HalGetProcessorIdByNtNumber @ 0x1403B4DA0 (HalGetProcessorIdByNtNumber.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExCreateCallback @ 0x1406E0E40 (ExCreateCallback.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140377550 (HalGetProcessorIdByNtNumber.c)
+ *     ExRegisterCallback @ 0x14037F1A0 (ExRegisterCallback.c)
+ *     ExUnregisterCallback @ 0x140381970 (ExUnregisterCallback.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
  */
 
 PVOID __stdcall KeRegisterProcessorChangeCallback(
@@ -43,8 +43,8 @@ PVOID __stdcall KeRegisterProcessorChangeCallback(
   v19 = CallbackContext;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-  v24 = 0;
   v5 = 0;
+  v24 = 0;
   CallbackObject = 0LL;
   v6 = Flags;
   DestinationString = 0LL;
@@ -59,7 +59,7 @@ PVOID __stdcall KeRegisterProcessorChangeCallback(
     ExAcquireFastMutex(&KiDynamicProcessorLock);
     v7 = ExRegisterCallback(CallbackObject, (PCALLBACK_FUNCTION)CallbackFunction, CallbackContext);
     v20 = v7;
-    ObfDereferenceObject(CallbackObject);
+    HalPutDmaAdapter((PADAPTER_OBJECT)CallbackObject);
     if ( !v7 || (v6 & 1) == 0 )
     {
 LABEL_4:

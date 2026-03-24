@@ -1,9 +1,9 @@
 /*
- * XREFs of GreCreatePatternBrush @ 0x1C00C5B00
+ * XREFs of GreCreatePatternBrush @ 0x1C00B8300
  * Callers:
  *     <none>
  * Callees:
- *     GreCreatePatternBrushInternal @ 0x1C00634C0 (GreCreatePatternBrushInternal.c)
+ *     GreCreatePatternBrushInternal @ 0x1C001BA50 (GreCreatePatternBrushInternal.c)
  */
 
 __int64 __fastcall GreCreatePatternBrush(HBITMAP a1)

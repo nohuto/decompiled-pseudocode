@@ -1,18 +1,18 @@
 /*
- * XREFs of HsaInitializeIommu @ 0x140A99320
+ * XREFs of HsaInitializeIommu @ 0x1409AA730
  * Callers:
  *     <none>
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     HalSocRequestApi @ 0x140378A3C (HalSocRequestApi.c)
- *     HalMapIoSpace @ 0x14037E780 (HalMapIoSpace.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     HsaBuildDeviceTableEntry @ 0x14052F348 (HsaBuildDeviceTableEntry.c)
- *     HsaGetBlockedDomain @ 0x14053006C (HsaGetBlockedDomain.c)
- *     HsaProcessDeviceExceptions @ 0x1405308E8 (HsaProcessDeviceExceptions.c)
- *     HsaInitializeInterruptRemapping @ 0x140A99188 (HsaInitializeInterruptRemapping.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     HalSocRequestApi @ 0x1403A199C (HalSocRequestApi.c)
+ *     HalMapIoSpace @ 0x1403B3460 (HalMapIoSpace.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HsaBuildDeviceTableEntry @ 0x1404E2640 (HsaBuildDeviceTableEntry.c)
+ *     HsaGetBlockedDomain @ 0x1404E3670 (HsaGetBlockedDomain.c)
+ *     HsaProcessDeviceExceptions @ 0x1404E3EEC (HsaProcessDeviceExceptions.c)
+ *     HsaInitializeInterruptRemapping @ 0x1409AA588 (HsaInitializeInterruptRemapping.c)
  */
 
 __int64 __fastcall HsaInitializeIommu(__int64 a1, int a2, char a3)
@@ -24,64 +24,59 @@ __int64 __fastcall HsaInitializeIommu(__int64 a1, int a2, char a3)
   PVOID v8; // rax
   PVOID v9; // rax
   unsigned int v10; // esi
-  _QWORD *v11; // r15
-  __int64 v12; // r13
+  __int64 *v11; // r13
+  _QWORD *v12; // r15
   __int64 v13; // rdx
   SIZE_T v14; // r14
   bool v15; // zf
   __int64 v16; // rax
   PVOID v17; // rax
   unsigned int v18; // r14d
-  unsigned int v19; // r13d
-  unsigned int v20; // eax
-  unsigned __int64 v21; // rbx
-  unsigned int v22; // ecx
-  __int64 v23; // rdx
-  __int16 v24; // r9
+  __int64 v19; // rbx
+  __int64 v20; // rcx
+  __int16 v21; // r8
   __int16 BlockedDomain; // ax
-  int v26; // r8d
-  __int64 v27; // rax
-  __int64 *v28; // rdx
-  unsigned __int64 v29; // r8
-  _QWORD *v30; // r9
+  int v23; // edx
+  __int128 v24; // rax
+  _QWORD *v25; // r9
+  unsigned __int64 v26; // r8
+  __int64 v27; // r11
   unsigned int i; // ecx
+  __int64 v29; // rdx
+  __int16 v30; // r9
+  char v31; // r8
   __int64 v32; // rdx
-  __int16 v33; // r9
-  char v34; // r8
+  __int64 v33; // rcx
+  __int64 v34; // rdx
   __int64 v35; // rax
-  __int64 v36; // rdx
-  __int64 v37; // rcx
-  __int64 v38; // rdx
-  __int64 v39; // rax
-  __int64 v40; // rbx
-  __int64 v41; // rbx
+  __int64 v36; // rbx
+  __int64 v37; // rbx
   PHYSICAL_ADDRESS PhysicalAddress; // rax
-  __int64 v43; // rcx
-  signed __int32 v44[8]; // [rsp+8h] [rbp-99h] BYREF
-  char v45; // [rsp+68h] [rbp-39h]
-  unsigned int v46; // [rsp+6Ch] [rbp-35h] BYREF
-  unsigned __int64 v47; // [rsp+70h] [rbp-31h] BYREF
-  int v48; // [rsp+78h] [rbp-29h]
-  __int64 *v49; // [rsp+80h] [rbp-21h]
-  __int128 v50; // [rsp+88h] [rbp-19h]
-  __int128 v51; // [rsp+98h] [rbp-9h]
-  _QWORD v52[4]; // [rsp+A8h] [rbp+7h] BYREF
+  __int64 v39; // rcx
+  signed __int32 v40[8]; // [rsp+8h] [rbp-79h] BYREF
+  char v41; // [rsp+58h] [rbp-29h]
+  unsigned int v42; // [rsp+5Ch] [rbp-25h] BYREF
+  __int64 v43; // [rsp+60h] [rbp-21h] BYREF
+  int v44; // [rsp+68h] [rbp-19h]
+  __int128 v45; // [rsp+70h] [rbp-11h]
+  __int128 v46; // [rsp+80h] [rbp-1h]
+  _QWORD v47[4]; // [rsp+90h] [rbp+Fh] BYREF
 
   v3 = *(_DWORD *)(a1 + 176);
   v4 = *(_DWORD *)(a1 + 172);
-  v45 = a3;
-  v46 = 0;
-  v47 = 0LL;
-  v48 = v3;
-  v50 = 0LL;
-  v51 = 0LL;
+  v41 = a3;
+  v42 = 0;
+  v43 = 0LL;
+  v44 = v3;
+  v45 = 0LL;
+  v46 = 0LL;
   if ( !a2 )
   {
     result = HalSocRequestApi(a1, 0LL, 4, 8LL, &HsaPhysicalMemoryApi);
     if ( (int)result < 0 )
       return result;
     if ( !v4 && !v3 )
-      goto LABEL_39;
+      goto LABEL_38;
     if ( v4 == 2 && !HsaBlockedPageTable )
     {
       v7.QuadPart = ((__int64 (__fastcall *)(__int64, __int64))HsaPhysicalMemoryApi)(-1LL, 1LL);
@@ -101,9 +96,8 @@ __int64 __fastcall HsaInitializeIommu(__int64 a1, int a2, char a3)
       || (v9 = HalMapIoSpace(*(LARGE_INTEGER *)(a1 + 8), 0x2040uLL, MmNonCached), (*(_QWORD *)a1 = v9) != 0LL) )
     {
       v10 = 0;
-      v49 = v52;
-      v11 = (_QWORD *)(a1 + 24);
-      v12 = 3LL;
+      v11 = v47;
+      v12 = (_QWORD *)(a1 + 24);
       do
       {
         if ( v10 )
@@ -124,136 +118,122 @@ __int64 __fastcall HsaInitializeIommu(__int64 a1, int a2, char a3)
           v13 = 512LL;
           v14 = 0x200000LL;
         }
-        v15 = *v11 == 0LL;
-        v11[2] = v14;
+        v15 = *v12 == 0LL;
+        v12[2] = v14;
         if ( v15 )
         {
           v16 = ((__int64 (__fastcall *)(__int64, __int64))HsaPhysicalMemoryApi)(-1LL, v13);
-          v11[1] = v16;
+          v12[1] = v16;
           if ( !v16 )
             return 3221225473LL;
           v17 = HalMapIoSpace(*(LARGE_INTEGER *)(a1 + 24LL * v10 + 32), v14, MmNonCached);
-          *v11 = v17;
+          *v12 = v17;
           if ( !v17 )
             return 3221225473LL;
           memset(v17, 0, v14);
           v18 = 0;
           if ( !v10 )
           {
-            v19 = 0;
-            v47 = *(_QWORD *)(a1 + 24);
-            v20 = 0;
-            v21 = v47;
-            v22 = 0;
-            v46 = 0;
+            v19 = *(_QWORD *)(a1 + 24);
+            v42 = 0;
             do
             {
-              v23 = 0LL;
-              v24 = 0;
-              v47 = 0LL;
+              v20 = 0LL;
+              v21 = 0;
+              v43 = 0LL;
               if ( v4 == 2 )
               {
-                BlockedDomain = HsaGetBlockedDomain(a1, (int *)&v46, &v47);
-                v23 = v47;
-                v24 = BlockedDomain;
-                v26 = 2;
+                BlockedDomain = HsaGetBlockedDomain(a1, (int *)&v42, (unsigned __int64 *)&v43);
+                v20 = v43;
+                v21 = BlockedDomain;
+                v23 = 2;
               }
               else
               {
-                v26 = 0;
-                v18 = v20;
-                v19 = v22;
+                v23 = 0;
               }
               HsaBuildDeviceTableEntry(
                 a1,
                 0LL,
                 0,
-                0,
-                0,
-                v24,
-                v26,
+                v21,
                 v23,
+                v20,
                 0LL,
                 (__int64)&HsaSharedRemappingTable,
-                v21 + 32LL * v18);
-              v18 = v19 + 1;
-              v46 = v18;
-              v20 = ++v19;
-              v22 = v18;
+                v19 + 32LL * v18++);
+              v42 = v18;
             }
             while ( v18 < 0x10000 );
-            v12 = 3LL;
           }
         }
         ++v10;
-        v27 = v11[1] / 4096LL;
-        v28 = v49;
-        v11 += 3;
-        *v49 = v27;
-        v49 = v28 + 1;
+        v24 = (__int64)v12[1];
+        v12 += 3;
+        *v11++ = (__int64)((WORD4(v24) & 0xFFF) + (_QWORD)v24) >> 12;
       }
       while ( v10 < 4 );
-      if ( v4 != 2 || v45 || (int)HsaProcessDeviceExceptions(a1) >= 0 )
+      if ( v4 != 2 || v41 || (int)HsaProcessDeviceExceptions(a1) >= 0 )
       {
-        v29 = 0LL;
-        v30 = (_QWORD *)(a1 + 64);
+        v25 = (_QWORD *)(a1 + 64);
+        v26 = 0LL;
+        v27 = 3LL;
         do
         {
           for ( i = 15; i > 8; --i )
           {
-            if ( (unsigned __int64)(1LL << i) <= *v30 >> 4 )
+            if ( (unsigned __int64)(1LL << i) <= *v25 >> 4 )
               break;
           }
-          v30 += 3;
-          v32 = *(_QWORD *)((char *)&v50 + v29 + 8) ^ (*(_QWORD *)((char *)&v50 + v29 + 8) ^ (v52[v29 / 8 + 1] << 12)) & 0xFFFFFFFFFF000LL;
-          *(_QWORD *)((char *)&v50 + v29 + 8) = v32 ^ (v32 ^ ((unsigned __int64)i << 56)) & 0xF00000000000000LL;
-          v29 += 8LL;
-          --v12;
+          v25 += 3;
+          v29 = *(_QWORD *)((char *)&v45 + v26 + 8) ^ (*(_QWORD *)((char *)&v45 + v26 + 8) ^ (v47[v26 / 8 + 1] << 12)) & 0xFFFFFFFFFF000LL;
+          *(_QWORD *)((char *)&v45 + v26 + 8) = v29 ^ (v29 ^ ((unsigned __int64)i << 56)) & 0xF00000000000000LL;
+          v26 += 8LL;
+          --v27;
         }
-        while ( v12 );
-        v3 = v48;
-LABEL_39:
-        **(_QWORD **)a1 = ((v52[0] & 0xFFFFFFFFFFLL) << 12) | ((unsigned __int16)(*(_QWORD *)(a1 + 40) >> 12)
+        while ( v27 );
+        v3 = v44;
+LABEL_38:
+        **(_QWORD **)a1 = ((v47[0] & 0xFFFFFFFFFFLL) << 12) | ((unsigned __int16)(*(_QWORD *)(a1 + 40) >> 12)
                                                              + ((*(_QWORD *)(a1 + 40) & 0xFFFLL) != 0)
                                                              - 1) & 0x1FF;
-        _InterlockedOr(v44, 0);
-        *(_QWORD *)(*(_QWORD *)a1 + 8LL) = *((_QWORD *)&v50 + 1);
-        _InterlockedOr(v44, 0);
-        *(_QWORD *)(*(_QWORD *)a1 + 16LL) = v51;
-        _InterlockedOr(v44, 0);
+        _InterlockedOr(v40, 0);
+        *(_QWORD *)(*(_QWORD *)a1 + 8LL) = *((_QWORD *)&v45 + 1);
+        _InterlockedOr(v40, 0);
+        *(_QWORD *)(*(_QWORD *)a1 + 16LL) = v46;
+        _InterlockedOr(v40, 0);
         *(_QWORD *)(*(_QWORD *)a1 + 0x2000LL) = 0LL;
-        _InterlockedOr(v44, 0);
+        _InterlockedOr(v40, 0);
         *(_QWORD *)(*(_QWORD *)a1 + 8200LL) = 0LL;
-        _InterlockedOr(v44, 0);
+        _InterlockedOr(v40, 0);
         *(_QWORD *)(*(_QWORD *)a1 + 8208LL) = 0LL;
-        _InterlockedOr(v44, 0);
+        _InterlockedOr(v40, 0);
         *(_QWORD *)(*(_QWORD *)a1 + 8216LL) = 0LL;
-        _InterlockedOr(v44, 0);
-        v33 = *(_WORD *)(a1 + 18);
-        if ( (v33 & 8) != 0 )
+        _InterlockedOr(v40, 0);
+        v30 = *(_WORD *)(a1 + 18);
+        if ( (v30 & 8) != 0 )
         {
-          *(_QWORD *)(*(_QWORD *)a1 + 56LL) = *((_QWORD *)&v51 + 1);
-          _InterlockedOr(v44, 0);
-          v33 = *(_WORD *)(a1 + 18);
+          *(_QWORD *)(*(_QWORD *)a1 + 56LL) = *((_QWORD *)&v46 + 1);
+          _InterlockedOr(v40, 0);
+          v30 = *(_WORD *)(a1 + 18);
         }
-        v34 = *(_BYTE *)(a1 + 16);
-        v35 = v34 & 1;
-        v36 = (2 * v35 + 69637) | 0x100;
-        if ( (v34 & 2) == 0 )
-          v36 = 2 * v35 + 69637;
-        v37 = v36 | 0x200;
-        if ( (v34 & 4) == 0 )
-          v37 = v36;
-        v38 = v37 | 0x400;
-        if ( (v34 & 0x20) == 0 )
-          v38 = v37;
-        v39 = v38 | 0x800;
-        if ( (v34 & 8) == 0 )
-          v39 = v38;
-        v40 = v39 | 0xA00000A000LL;
-        if ( (v33 & 4) == 0 )
-          v40 = v39;
-        v41 = v40 | 0x60;
+        v31 = *(_BYTE *)(a1 + 16);
+        v32 = (2LL * (v31 & 1) + 69637) | 0x100;
+        if ( (v31 & 2) == 0 )
+          v32 = 2LL * (*(_BYTE *)(a1 + 16) & 1) + 69637;
+        v33 = v32 | 0x200;
+        if ( (*(_BYTE *)(a1 + 16) & 4) == 0 )
+          v33 = v32;
+        v34 = v33 | 0x400;
+        if ( (v31 & 0x20) == 0 )
+          v34 = v33;
+        v35 = v34 | 0x800;
+        if ( (v31 & 8) == 0 )
+          v35 = v34;
+        v36 = v35 | 0x800000A000LL;
+        if ( (v30 & 4) == 0 )
+          v36 = v35;
+        v37 = v36 | 0x60;
         if ( !*(_QWORD *)(a1 + 128) )
         {
           PhysicalAddress = MmGetPhysicalAddress((PVOID)(a1 + 120));
@@ -261,15 +241,15 @@ LABEL_39:
           *(_QWORD *)(a1 + 136) = *(_QWORD *)(a1 + 136) & 0xFF0000000000002LL | (8
                                                                                * ((PhysicalAddress.QuadPart >> 3) & 0x1FFFFFFFFFFFFLL)) | 0x1000000000000005LL;
         }
-        v43 = v41 | 0xC000000020000LL;
+        v39 = v37 | 0xC000000020000LL;
         if ( !v3 )
-          v43 = v41;
-        *(_QWORD *)(*(_QWORD *)a1 + 24LL) = v43;
-        _InterlockedOr(v44, 0);
+          v39 = v37;
+        *(_QWORD *)(*(_QWORD *)a1 + 24LL) = v39;
+        _InterlockedOr(v40, 0);
         if ( (*(_BYTE *)(a1 + 18) & 0x10) != 0 )
         {
           *(_DWORD *)(*(_QWORD *)a1 + 364LL) = 0x2000;
-          _InterlockedOr(v44, 0);
+          _InterlockedOr(v40, 0);
         }
         return 0LL;
       }

@@ -1,24 +1,24 @@
 /*
- * XREFs of IoStartPacket @ 0x1402576D0
+ * XREFs of IoStartPacket @ 0x140506440
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertDeviceQueue @ 0x140257A00 (KeInsertDeviceQueue.c)
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     KeInsertByKeyDeviceQueue @ 0x14045A4A0 (KeInsertByKeyDeviceQueue.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeInsertByKeyDeviceQueue @ 0x14051A8C0 (KeInsertByKeyDeviceQueue.c)
+ *     KeInsertDeviceQueue @ 0x14051A980 (KeInsertDeviceQueue.c)
  */
 
 void __stdcall IoStartPacket(PDEVICE_OBJECT DeviceObject, PIRP Irp, PULONG Key, PDRIVER_CANCEL CancelFunction)
 {
   KIRQL v8; // r14
   unsigned __int8 CurrentIrql; // bp
+  _DWORD *SchedulerAssist; // r9
   union _IRP::$66699B8BF83DC91F51A70E4C6E3F33A6 *p_Tail; // rdx
   KDEVICE_QUEUE *p_DeviceQueue; // rcx
   BOOLEAN inserted; // al
-  _DWORD *SchedulerAssist; // r9
   unsigned __int8 v14; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *v16; // r8
@@ -84,7 +84,7 @@ void __stdcall IoStartPacket(PDEVICE_OBJECT DeviceObject, PIRP Irp, PULONG Key, 
         v18 = (v17 & v16[5]) == 0;
         v16[5] &= v17;
         if ( v18 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
   }

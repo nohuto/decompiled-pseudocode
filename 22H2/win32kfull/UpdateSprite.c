@@ -1,24 +1,23 @@
 /*
- * XREFs of UpdateSprite @ 0x1C00D5D64
+ * XREFs of UpdateSprite @ 0x1C00BE6C4
  * Callers:
- *     xxxCompositedPaint @ 0x1C0016544 (xxxCompositedPaint.c)
- *     UpdateSpriteArea @ 0x1C00A6444 (UpdateSpriteArea.c)
- *     UnsetLayeredWindow @ 0x1C00C8C24 (UnsetLayeredWindow.c)
- *     _SetLayeredWindowAttributes @ 0x1C00D5980 (_SetLayeredWindowAttributes.c)
- *     OffsetWindow @ 0x1C00F1570 (OffsetWindow.c)
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00F58E4 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     zzzUpdateLayeredWindow @ 0x1C01BD720 (zzzUpdateLayeredWindow.c)
+ *     OffsetWindow @ 0x1C004CA70 (OffsetWindow.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068290 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     _SetLayeredWindowAttributes @ 0x1C00BD1E8 (_SetLayeredWindowAttributes.c)
+ *     UnsetLayeredWindow @ 0x1C00EEE28 (UnsetLayeredWindow.c)
+ *     zzzUpdateLayeredWindow @ 0x1C00F1C94 (zzzUpdateLayeredWindow.c)
+ *     UpdateSpriteArea @ 0x1C015B014 (UpdateSpriteArea.c)
+ *     xxxCompositedPaint @ 0x1C023DFF0 (xxxCompositedPaint.c)
  * Callees:
- *     GreUpdateSprite @ 0x1C00D5F08 (GreUpdateSprite.c)
- *     _GetProp @ 0x1C00F21FC (_GetProp.c)
- *     ?InitializeMiniWinInfo@@YAXQEBUtagWND@@PEAUtagMINIWINDOWINFO@@@Z @ 0x1C011B17C (-InitializeMiniWinInfo@@YAXQEBUtagWND@@PEAUtagMINIWINDOWINFO@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     GreUpdateSprite @ 0x1C00BE800 (GreUpdateSprite.c)
+ *     ?InitializeMiniWinInfo@@YAXQEAUtagWND@@PEAUtagMINIWINDOWINFO@@@Z @ 0x1C00BE8E0 (-InitializeMiniWinInfo@@YAXQEAUtagWND@@PEAUtagMINIWINDOWINFO@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall UpdateSprite(
         HDEV a1,
-        const struct tagWND *a2,
+        struct tagWND *a2,
         __int64 a3,
         HDC a4,
         struct tagPOINT *a5,
@@ -30,16 +29,12 @@ __int64 __fastcall UpdateSprite(
         unsigned int a11,
         struct tagRECT *a12)
 {
-  unsigned int v15; // edi
-  int v16; // eax
-  _BYTE v18[144]; // [rsp+90h] [rbp-D8h] BYREF
+  int v14; // eax
+  _BYTE v17[144]; // [rsp+90h] [rbp-D8h] BYREF
 
-  memset_0(v18, 0, 0x88uLL);
-  InitializeMiniWinInfo(a2, (struct tagMINIWINDOWINFO *)v18);
-  v15 = 0;
-  if ( (GetProp(a2, (unsigned __int16)atomDispAffinity, 1LL) & 1) != 0 )
-    v15 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a2 + 2) + 424LL) + 56LL);
-  v16 = IsWindowDesktopComposed(a2);
+  memset(v17, 0, 0x88uLL);
+  InitializeMiniWinInfo(a2, (struct tagMINIWINDOWINFO *)v17);
+  v14 = IsWindowDesktopComposed(a2);
   return (unsigned int)GreUpdateSprite(
                          a1,
                          *(HWND *)a2,
@@ -53,10 +48,9 @@ __int64 __fastcall UpdateSprite(
                          a10,
                          a11,
                          a12,
-                         (struct tagMINIWINDOWINFO *)v18,
-                         v16,
-                         0,
-                         v15) == 0
+                         (struct tagMINIWINDOWINFO *)v17,
+                         v14,
+                         0) == 0
        ? 0x803F0001
        : 0;
 }

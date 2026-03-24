@@ -2,12 +2,12 @@
  * XREFs of MmEnoughMemoryForWrite @ 0x140021608
  * Callers:
  *     CcCanIWriteStream @ 0x1400213FC (CcCanIWriteStream.c)
- *     CcCanIWrite @ 0x140104D00 (CcCanIWrite.c)
+ *     CcCanIWrite @ 0x140104D20 (CcCanIWrite.c)
  * Callees:
  *     MiLockSectionControlArea @ 0x140020210 (MiLockSectionControlArea.c)
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MmEnoughMemoryForWrite(_QWORD *a1)

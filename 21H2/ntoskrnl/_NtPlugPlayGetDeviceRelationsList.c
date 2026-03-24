@@ -1,10 +1,10 @@
 /*
- * XREFs of _NtPlugPlayGetDeviceRelationsList @ 0x1406E5E80
+ * XREFs of _NtPlugPlayGetDeviceRelationsList @ 0x14097C15C
  * Callers:
- *     _CmGetDeviceRelationsList @ 0x1406E5DD4 (_CmGetDeviceRelationsList.c)
+ *     _CmGetDeviceRelationsList @ 0x140976FE8 (_CmGetDeviceRelationsList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     _PnpCtxGetNtPlugPlayRoutine @ 0x1407817E8 (_PnpCtxGetNtPlugPlayRoutine.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _PnpCtxGetNtPlugPlayRoutine @ 0x140641440 (_PnpCtxGetNtPlugPlayRoutine.c)
  */
 
 __int64 __fastcall NtPlugPlayGetDeviceRelationsList(
@@ -21,7 +21,7 @@ __int64 __fastcall NtPlugPlayGetDeviceRelationsList(
   _QWORD v11[3]; // [rsp+40h] [rbp-18h] BYREF
 
   v11[0] = 0LL;
-  result = PnpCtxGetNtPlugPlayRoutine(a1, 4LL, v11);
+  result = PnpCtxGetNtPlugPlayRoutine(a1, 4, v11);
   if ( (int)result >= 0 )
   {
     if ( v11[0] )

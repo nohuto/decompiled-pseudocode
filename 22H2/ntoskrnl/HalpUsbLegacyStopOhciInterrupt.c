@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpUsbLegacyStopOhciInterrupt @ 0x140521130
+ * XREFs of HalpUsbLegacyStopOhciInterrupt @ 0x1404D72BC
  * Callers:
- *     HalpStopLegacyUsbInterruptsInternal @ 0x140A983BC (HalpStopLegacyUsbInterruptsInternal.c)
+ *     HalpStopLegacyUsbInterruptsInternal @ 0x1409A9314 (HalpStopLegacyUsbInterruptsInternal.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x1402C3000 (KeStallExecutionProcessor.c)
- *     HalpUnmapVirtualAddress @ 0x14037E7D0 (HalpUnmapVirtualAddress.c)
- *     HalpMap @ 0x14037E878 (HalpMap.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeStallExecutionProcessor @ 0x14022A1F0 (KeStallExecutionProcessor.c)
+ *     HalpUnmapVirtualAddress @ 0x1403BB230 (HalpUnmapVirtualAddress.c)
+ *     HalpMap @ 0x1403BB2D8 (HalpMap.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall HalpUsbLegacyStopOhciInterrupt(__int64 a1, unsigned int a2, unsigned int a3)
@@ -19,7 +19,7 @@ __int64 __fastcall HalpUsbLegacyStopOhciInterrupt(__int64 a1, unsigned int a2, u
   _DWORD v8[16]; // [rsp+40h] [rbp-58h] BYREF
 
   memset(v8, 0, sizeof(v8));
-  result = ((__int64 (__fastcall *)(_QWORD, _QWORD, _DWORD *, _QWORD, int))qword_140C01A40)(a2, a3, v8, 0LL, 64);
+  result = ((__int64 (__fastcall *)(_QWORD, _QWORD, _DWORD *, _QWORD, int))qword_140C00630)(a2, a3, v8, 0LL, 64);
   if ( (v8[1] & 2) != 0 )
   {
     result = v8[4] & 0xFFFFFFF0;

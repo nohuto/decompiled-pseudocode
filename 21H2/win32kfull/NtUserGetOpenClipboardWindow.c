@@ -1,27 +1,27 @@
 /*
- * XREFs of NtUserGetOpenClipboardWindow @ 0x1C00CA5F0
+ * XREFs of NtUserGetOpenClipboardWindow @ 0x1C0030670
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00CD268 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00304E8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
  */
 
-__int64 __fastcall NtUserGetOpenClipboardWindow(__int64 a1, __int64 a2, __int64 a3)
+__int64 NtUserGetOpenClipboardWindow()
 {
-  struct tagWINDOWSTATION *v3; // rax
-  __int64 v4; // rcx
-  __int64 v5; // rbx
-  __int64 *v6; // rax
+  struct tagWINDOWSTATION *v0; // rax
+  __int64 v1; // rcx
+  __int64 v2; // rbx
+  __int64 *v3; // rax
 
-  EnterSharedCrit(a1, a2, a3);
-  v3 = CheckClipboardAccess();
-  v5 = 0LL;
-  if ( v3 )
+  EnterSharedCrit(0LL, 1LL);
+  v0 = CheckClipboardAccess();
+  v2 = 0LL;
+  if ( v0 )
   {
-    v6 = (__int64 *)*((_QWORD *)v3 + 12);
-    if ( v6 )
-      v5 = *v6;
+    v3 = (__int64 *)*((_QWORD *)v0 + 12);
+    if ( v3 )
+      v2 = *v3;
   }
-  UserSessionSwitchLeaveCrit(v4);
-  return v5;
+  UserSessionSwitchLeaveCrit(v1);
+  return v2;
 }

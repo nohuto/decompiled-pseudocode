@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryInformationResourceManager @ 0x140194530
+ * XREFs of NtQueryInformationResourceManager @ 0x140194550
  * Callers:
  *     <none>
  * Callees:

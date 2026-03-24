@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CHolographicManager@@AEAA@PEAVCComposition@@@Z @ 0x18002EE78
+ * XREFs of ??0CHolographicManager@@AEAA@PEAVCComposition@@@Z @ 0x1800B68BC
  * Callers:
- *     ?Create@CHolographicManager@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x18002EDE8 (-Create@CHolographicManager@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
+ *     ?Create@CHolographicManager@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x1800B681C (-Create@CHolographicManager@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ CHolographicManager *__fastcall CHolographicManager::CHolographicManager(
   *((_QWORD *)this + 12) = 0LL;
   *(_QWORD *)this = &CHolographicManager::`vftable'{for `IHolographicManager'};
   *((_QWORD *)this + 4) = 0LL;
-  *((_QWORD *)this + 1) = &CHolographicManager::`vftable'{for `CMILRefCountBaseT<IMILRefCount>'};
+  *((_QWORD *)this + 1) = &CHolographicManager::`vftable'{for `CMILRefCountBase'};
   *((_QWORD *)this + 3) = a2;
   *((_QWORD *)this + 14) = 0LL;
   *((_QWORD *)this + 15) = 0LL;

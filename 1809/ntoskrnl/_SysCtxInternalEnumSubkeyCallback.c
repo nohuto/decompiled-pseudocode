@@ -1,9 +1,9 @@
 /*
- * XREFs of _SysCtxInternalEnumSubkeyCallback @ 0x14018B2BC
+ * XREFs of _SysCtxInternalEnumSubkeyCallback @ 0x14018B2DC
  * Callers:
- *     _RegRtlEnumKeyWithCallback @ 0x14074BB8C (_RegRtlEnumKeyWithCallback.c)
+ *     _RegRtlEnumKeyWithCallback @ 0x14074BB6C (_RegRtlEnumKeyWithCallback.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall SysCtxInternalEnumSubkeyCallback(__int64 a1, __int64 a2, __int64 a3)

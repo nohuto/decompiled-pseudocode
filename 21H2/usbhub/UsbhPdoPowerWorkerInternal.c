@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhPdoPowerWorkerInternal @ 0x1C003C148
+ * XREFs of UsbhPdoPowerWorkerInternal @ 0x1C003D328
  * Callers:
- *     UsbhPdoPowerWorker @ 0x1C003C130 (UsbhPdoPowerWorker.c)
+ *     UsbhPdoPowerWorker @ 0x1C003D310 (UsbhPdoPowerWorker.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall UsbhPdoPowerWorkerInternal(ULONG_PTR a1, IRP *a2)
@@ -52,5 +52,5 @@ LABEL_12:
     Status = a2->IoStatus.Status;
     goto LABEL_12;
   }
-  return (unsigned int)off_1C005D858[2 * v10](a1, (ULONG_PTR)a2);
+  return (unsigned int)off_1C005F168[2 * v10](a1, (ULONG_PTR)a2);
 }

@@ -8,7 +8,7 @@
  *     VfFreeAdapterObject @ 0x14092AE10 (VfFreeAdapterObject.c)
  *     ViAdapterCallback @ 0x14092C3B0 (ViAdapterCallback.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     ViHalPreprocessOptions @ 0x14092DD28 (ViHalPreprocessOptions.c)
  */
 
@@ -19,7 +19,7 @@ void __fastcall DECREMENT_ADAPTER_CHANNELS(__int64 a1)
   v2 = _InterlockedIncrement((volatile signed __int32 *)(a1 + 184));
   if ( *(_DWORD *)(a1 + 192) < 3u && v2 != *(_DWORD *)(a1 + 180) )
   {
-    ViHalPreprocessOptions(byte_140405468, "Driver has freed too many simultaneous adapter channels.", 4LL);
-    VfReportIssueWithOptions(0xE6u, 4uLL, v2 != *(_DWORD *)(a1 + 180), 0LL, 0LL, byte_140405468);
+    ViHalPreprocessOptions(byte_14040545C, "Driver has freed too many simultaneous adapter channels.", 4LL);
+    VfReportIssueWithOptions(0xE6u, 4uLL, v2 != *(_DWORD *)(a1 + 180), 0LL, 0LL, byte_14040545C);
   }
 }

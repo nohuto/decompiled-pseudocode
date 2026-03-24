@@ -1,16 +1,16 @@
 /*
- * XREFs of ?ProcessUpdate@CCompiledEffectTemplate@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPILEDEFFECTTEMPLATE@@@Z @ 0x1800DA2A8
+ * XREFs of ?ProcessUpdate@CCompiledEffectTemplate@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPILEDEFFECTTEMPLATE@@@Z @ 0x1800CA8D8
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ @ 0x18004188C (-SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ.c)
- *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180042824 (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
- *     ?ResolveAllocation@CSharedSectionBase@@QEAAPEAX_K0@Z @ 0x1800469AC (-ResolveAllocation@CSharedSectionBase@@QEAAPEAX_K0@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C07E8 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?BeginCompile@CEffectCompilationService@@QEAAJPEAVCCompiledEffectTemplate@@PEAUIEffectDescription@Composition@UI@Windows@@PEAPEAVCEffectCompilationTask@@@Z @ 0x1800DA3D8 (-BeginCompile@CEffectCompilationService@@QEAAJPEAVCCompiledEffectTemplate@@PEAUIEffectDescriptio.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetRestrictedErrorDescription@CEffectCompilationTask@@SAJPEAPEAG@Z @ 0x1801BF6E0 (-GetRestrictedErrorDescription@CEffectCompilationTask@@SAJPEAPEAG@Z.c)
+ *     ?ResolveAllocation@CSharedSectionBase@@QEAAPEAX_K0@Z @ 0x180059E10 (-ResolveAllocation@CSharedSectionBase@@QEAAPEAX_K0@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180065F4C (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3004 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ @ 0x1800A9454 (-SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ.c)
+ *     ?BeginCompile@CEffectCompilationService@@QEAAJPEAVCCompiledEffectTemplate@@PEAUIEffectDescription@Composition@UI@Windows@@PEAPEAVCEffectCompilationTask@@@Z @ 0x1800CA9F4 (-BeginCompile@CEffectCompilationService@@QEAAJPEAVCCompiledEffectTemplate@@PEAUIEffectDescriptio.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetRestrictedErrorDescription@CEffectCompilationTask@@SAJPEAPEAG@Z @ 0x180182F54 (-GetRestrictedErrorDescription@CEffectCompilationTask@@SAJPEAPEAG@Z.c)
  */
 
 __int64 __fastcall CCompiledEffectTemplate::ProcessUpdate(
@@ -38,7 +38,7 @@ __int64 __fastcall CCompiledEffectTemplate::ProcessUpdate(
   v4 = this;
   v5 = 0;
   v19 = 0LL;
-  if ( *((_QWORD *)this + 10) )
+  if ( *((_QWORD *)this + 9) )
   {
     v8 = -2003303422;
     v17 = 34;
@@ -46,14 +46,14 @@ LABEL_12:
     v11 = v8;
     goto LABEL_17;
   }
-  this = (CCompiledEffectTemplate *)CResourceTable::GetResource((__int64)a2, *((_DWORD *)a3 + 2), 0xA8u);
+  this = (CCompiledEffectTemplate *)CResourceTable::GetResource((__int64)a2, *((_DWORD *)a3 + 2), 0xA9u);
   if ( !this )
   {
     v8 = -2003303421;
     v17 = 42;
     goto LABEL_12;
   }
-  *((_QWORD *)v4 + 9) = *((_QWORD *)a3 + 3);
+  *((_QWORD *)v4 + 8) = *((_QWORD *)a3 + 3);
   v6 = CSharedSectionBase::ResolveAllocation(this, *((unsigned int *)a3 + 3), *((unsigned int *)a3 + 4));
   if ( !v6 )
   {
@@ -72,10 +72,10 @@ LABEL_12:
   else
   {
     v7 = CEffectCompilationService::BeginCompile(
-           *(CEffectCompilationService **)(*((_QWORD *)v4 + 2) + 248LL),
+           *(CEffectCompilationService **)(*((_QWORD *)v4 + 2) + 120LL),
            v4,
            v19,
-           (struct CEffectCompilationTask **)v4 + 10);
+           (struct CEffectCompilationTask **)v4 + 9);
     v8 = v7;
     if ( v7 >= 0 )
     {
@@ -87,25 +87,25 @@ LABEL_12:
   }
   v11 = v7;
 LABEL_17:
-  MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, v11, v17);
+  MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v11, v17, 0LL);
   CCompiledEffectTemplate::SignalCompileCompletedEvent(v4);
   if ( CNotificationResource::ShouldNotify(v4) )
   {
-    v12 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v4 + 2) + 1240LL) + 40LL);
+    v12 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v4 + 2) + 1080LL) + 48LL);
     bstrString = 0LL;
     if ( v5 < 0 )
       CEffectCompilationTask::GetRestrictedErrorDescription(&bstrString);
     v13 = *((_QWORD *)v4 + 6);
     if ( v13 )
-      v14 = *(_DWORD *)(v13 + 76);
+      v14 = *(_DWORD *)(v13 + 68);
     else
       v14 = 0;
     v18[0] = v14;
-    v18[1] = *((unsigned int *)v4 + 16);
-    v15 = CoreUICallSend(v12, v18, 2LL, 8LL, 1, &unk_18032C3C8);
+    v18[1] = *((unsigned int *)v4 + 14);
+    v15 = CoreUICallSend(v12, v18, 2LL, 5LL, 1, &unk_1802CE73D);
     v8 = v15;
     if ( v15 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0LL, v15, 0x5Bu);
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x5Bu, 0LL);
     SysFreeString(bstrString);
   }
   if ( v5 < 0 )

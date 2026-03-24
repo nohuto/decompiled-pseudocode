@@ -1,27 +1,27 @@
 /*
- * XREFs of GreDwmCreatedBitmapRemotingOutput @ 0x1C01357DC
+ * XREFs of GreDwmCreatedBitmapRemotingOutput @ 0x1C01639FC
  * Callers:
- *     NtGdiDwmCreatedBitmapRemotingOutput @ 0x1C01357C0 (NtGdiDwmCreatedBitmapRemotingOutput.c)
+ *     NtGdiDwmCreatedBitmapRemotingOutput @ 0x1C01639E0 (NtGdiDwmCreatedBitmapRemotingOutput.c)
  * Callees:
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B818 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C007AC00 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
- *     DrvModeChangeCompleteNotify @ 0x1C013588C (DrvModeChangeCompleteNotify.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C00173F0 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     DrvModeChangeCompleteNotify @ 0x1C0163AB8 (DrvModeChangeCompleteNotify.c)
  */
 
-void __fastcall GreDwmCreatedBitmapRemotingOutput(Gre::Base *a1)
+void GreDwmCreatedBitmapRemotingOutput()
 {
-  struct Gre::Base::SESSION_GLOBALS *v1; // rbx
-  __int64 v2; // rdx
-  __int64 v3; // rcx
+  __int64 v0; // rdx
+  __int64 v1; // rcx
+  __int64 v2; // r8
+  __int64 v3; // r9
   char v4; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = Gre::Base::Globals(a1);
-  SEMOBJSHARED::SEMOBJSHARED((SEMOBJSHARED *)&v4, *((HSEMAPHORE *)v1 + 10));
-  GreAcquireSemaphoreSharedInternal(*((_QWORD *)v1 + 9));
-  EtwTraceGreLockAcquireSemaphoreShared(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v1 + 9));
-  if ( (unsigned int)UserIsCurrentProcessDwm() && (unsigned int)UserIsRemoteConnection(v3, v2) )
+  SEMOBJSHARED::SEMOBJSHARED((SEMOBJSHARED *)&v4, ghsemDynamicModeChange);
+  GreAcquireSemaphoreSharedInternal(ghsemDwmState);
+  EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDwmState", ghsemDwmState);
+  if ( (unsigned int)UserIsCurrentProcessDwm() && (unsigned int)UserIsRemoteConnection(v1, v0, v2, v3) )
     DrvModeChangeCompleteNotify();
-  EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
-  GreReleaseSemaphoreInternal(*((_QWORD *)v1 + 9));
+  EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
+  GreReleaseSemaphoreInternal(ghsemDwmState);
   SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)&v4);
 }

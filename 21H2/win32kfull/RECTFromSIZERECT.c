@@ -1,8 +1,9 @@
 /*
- * XREFs of RECTFromSIZERECT @ 0x1C00F512C
+ * XREFs of RECTFromSIZERECT @ 0x1C0102FFC
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     xxxCheckFullScreen @ 0x1C0061F88 (xxxCheckFullScreen.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     xxxCheckFullScreen @ 0x1C007C5FC (xxxCheckFullScreen.c)
+ *     ?ExtendArrangedRectangleByFrameMargin@@YAXPEAUtagWND@@PEAUtagSIZERECT@@@Z @ 0x1C01CFDFC (-ExtendArrangedRectangleByFrameMargin@@YAXPEAUtagWND@@PEAUtagSIZERECT@@@Z.c)
  * Callees:
  *     <none>
  */

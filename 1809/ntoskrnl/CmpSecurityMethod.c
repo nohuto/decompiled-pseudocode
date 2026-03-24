@@ -3,20 +3,20 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E900 (EtwGetKernelTraceTimestamp.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1401B2F98 (CmpIsRegistryLockAcquired.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpSetKeySecurity @ 0x1405B8548 (CmpSetKeySecurity.c)
  *     CmpQueryKeySecurity @ 0x1405CB550 (CmpQueryKeySecurity.c)
  *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
- *     CmPostCallbackNotificationEx @ 0x14063FAC0 (CmPostCallbackNotificationEx.c)
- *     CmpAssignKeySecurity @ 0x14075B97C (CmpAssignKeySecurity.c)
+ *     CmPostCallbackNotificationEx @ 0x14063FAA0 (CmPostCallbackNotificationEx.c)
+ *     CmpAssignKeySecurity @ 0x14075B95C (CmpAssignKeySecurity.c)
  */
 
 __int64 __fastcall CmpSecurityMethod(

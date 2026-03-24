@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlRestoreContext @ 0x1401C5780
+ * XREFs of RtlRestoreContext @ 0x1401C57A0
  * Callers:
  *     RtlUnwindEx @ 0x14009DF30 (RtlUnwindEx.c)
  * Callees:
- *     KeCheckStackAndTargetAddress @ 0x1400CC2A0 (KeCheckStackAndTargetAddress.c)
- *     ZwContinue @ 0x1401B89D0 (ZwContinue.c)
+ *     KeCheckStackAndTargetAddress @ 0x1400CC2C0 (KeCheckStackAndTargetAddress.c)
+ *     ZwContinue @ 0x1401B89F0 (ZwContinue.c)
  */
 
 void __cdecl RtlRestoreContext(struct _CONTEXT *ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord)

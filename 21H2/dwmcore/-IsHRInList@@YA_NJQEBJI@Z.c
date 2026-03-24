@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsHRInList@@YA_NJQEBJI@Z @ 0x180073528
+ * XREFs of ?IsHRInList@@YA_NJQEBJI@Z @ 0x180216844
  * Callers:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  * Callees:
  *     <none>
  */

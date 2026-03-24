@@ -1,18 +1,22 @@
 /*
- * XREFs of ?ClipToPolygon@ClipPlaneIterator@@QEAAJPEAVCPolygon@@AEBVCMILMatrix@@AEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@U_CMILSurfaceRect_@RectUniqueness@@UNotNeeded@4@@@@Z @ 0x1801D9A84
+ * XREFs of ?ClipToPolygon@ClipPlaneIterator@@QEAAJPEAVCPolygon@@AEBVCMILMatrix@@AEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@U_CMILSurfaceRect_@RectUniqueness@@UNotNeeded@4@@@@Z @ 0x18018EC20
  * Callers:
- *     ?UpdateBspCurrentPolygonClippingPlanes@CDrawingContext@@AEAAJXZ @ 0x1801D7054 (-UpdateBspCurrentPolygonClippingPlanes@CDrawingContext@@AEAAJXZ.c)
+ *     ?UpdateBspCurrentPolygonClippingPlanes@CDrawingContext@@AEAAJXZ @ 0x18017864C (-UpdateBspCurrentPolygonClippingPlanes@CDrawingContext@@AEAAJXZ.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?ResetToStart@ClipPlaneIterator@@AEAAXXZ @ 0x1801DA048 (-ResetToStart@ClipPlaneIterator@@AEAAXXZ.c)
- *     ?SetClipPoints@ClipPlaneIterator@@AEAAJPEBUD2D_POINT_2F@@IPEBW4D2D1_POLYGON_EDGE_FLAG@@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x1801DA0A8 (-SetClipPoints@ClipPlaneIterator@@AEAAJPEBUD2D_POINT_2F@@IPEBW4D2D1_POLYGON_EDGE_FLAG@@AEBUD2D_M.c)
- *     ?GetD2D1Matrix4x4@CMILMatrix@@QEBA?AUD2D_MATRIX_4X4_F@@XZ @ 0x1802701FC (-GetD2D1Matrix4x4@CMILMatrix@@QEBA-AUD2D_MATRIX_4X4_F@@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?GetD3DMatrix@CMILMatrix@@QEBA?AU_D3DMATRIX@@XZ @ 0x1800E100C (-GetD3DMatrix@CMILMatrix@@QEBA-AU_D3DMATRIX@@XZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?ResetToStart@ClipPlaneIterator@@AEAAXXZ @ 0x18018F1E4 (-ResetToStart@ClipPlaneIterator@@AEAAXXZ.c)
+ *     ?SetClipPoints@ClipPlaneIterator@@AEAAJPEBUD2D_POINT_2F@@IPEBW4D2D1_POLYGON_EDGE_FLAG@@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x18018F244 (-SetClipPoints@ClipPlaneIterator@@AEAAJPEBUD2D_POINT_2F@@IPEBW4D2D1_POLYGON_EDGE_FLAG@@AEBUD2D_M.c)
  */
 
-__int64 __fastcall ClipPlaneIterator::ClipToPolygon(ClipPlaneIterator *this, __int64 a2, CMILMatrix *a3, _DWORD *a4)
+__int64 __fastcall ClipPlaneIterator::ClipToPolygon(
+        ClipPlaneIterator *this,
+        __int64 a2,
+        struct _D3DMATRIX *a3,
+        _DWORD *a4)
 {
   unsigned int v7; // r15d
   __int64 v8; // r12
@@ -21,14 +25,14 @@ __int64 __fastcall ClipPlaneIterator::ClipToPolygon(ClipPlaneIterator *this, __i
   unsigned int v11; // ebx
   __int64 v12; // rcx
   const enum D2D1_POLYGON_EDGE_FLAG *v13; // rdi
-  CMILMatrix *v14; // rcx
+  struct _D3DMATRIX *v14; // rcx
   __int64 v15; // r8
   struct D2D_POINT_2F *v16; // r9
   __int64 v17; // rax
   __int128 v18; // xmm4
   __int64 v19; // rax
   __m128 v20; // xmm3
-  struct D2D_MATRIX_4X4_F *D2D1Matrix4x4; // rax
+  struct _D3DMATRIX *D3DMatrix; // rax
   float v22; // xmm4_4
   float v23; // xmm2_4
   float *v24; // r9
@@ -41,7 +45,7 @@ __int64 __fastcall ClipPlaneIterator::ClipToPolygon(ClipPlaneIterator *this, __i
   int v31; // eax
   __int64 v32; // rcx
   struct D2D_MATRIX_3X2_F v35; // [rsp+38h] [rbp-41h] BYREF
-  struct D2D_MATRIX_4X4_F v36; // [rsp+50h] [rbp-29h] BYREF
+  struct _D3DMATRIX v36; // [rsp+50h] [rbp-29h] BYREF
 
   ClipPlaneIterator::ResetToStart(this);
   v7 = *(_DWORD *)(a2 + 40);
@@ -68,14 +72,13 @@ __int64 __fastcall ClipPlaneIterator::ClipToPolygon(ClipPlaneIterator *this, __i
           v35.dx = *(FLOAT *)(v15 + v19 + 16);
           v20.m128_f32[0] = _mm_shuffle_ps(v20, v20, 85).m128_f32[0];
           LODWORD(v16->y) = v20.m128_i32[0];
-          D2D1Matrix4x4 = CMILMatrix::GetD2D1Matrix4x4(v14, &v36);
-          v23 = (float)((float)(v20.m128_f32[0] * D2D1Matrix4x4->_24) + (float)(v22 * D2D1Matrix4x4->_14))
-              + D2D1Matrix4x4->_44;
-          *v24 = (float)((float)((float)(v20.m128_f32[0] * D2D1Matrix4x4->_21) + (float)(v22 * D2D1Matrix4x4->_11))
-                       + D2D1Matrix4x4->_41)
+          D3DMatrix = CMILMatrix::GetD3DMatrix(v14, &v36);
+          v23 = (float)((float)(v20.m128_f32[0] * D3DMatrix->_24) + (float)(v22 * D3DMatrix->_14)) + D3DMatrix->_44;
+          *v24 = (float)((float)((float)(v20.m128_f32[0] * D3DMatrix->_21) + (float)(v22 * D3DMatrix->_11))
+                       + D3DMatrix->_41)
                / v23;
-          v24[1] = (float)((float)((float)(v20.m128_f32[0] * D2D1Matrix4x4->_22) + (float)(v22 * D2D1Matrix4x4->_12))
-                         + D2D1Matrix4x4->_42)
+          v24[1] = (float)((float)((float)(v20.m128_f32[0] * D3DMatrix->_22) + (float)(v22 * D3DMatrix->_12))
+                         + D3DMatrix->_42)
                  / v23;
           v16 = (struct D2D_POINT_2F *)(v24 + 2);
           v25 = *(_QWORD *)(a2 + 16);

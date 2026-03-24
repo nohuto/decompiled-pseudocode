@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vSrcCopyS8D1@@YAXPEAUBLTINFO@@@Z @ 0x1C02E9A10
+ * XREFs of ?vSrcCopyS8D1@@YAXPEAUBLTINFO@@@Z @ 0x1C02C9260
  * Callers:
  *     <none>
  * Callees:
@@ -9,17 +9,18 @@
 void __fastcall vSrcCopyS8D1(struct BLTINFO *a1)
 {
   __int64 v1; // rdx
-  char v2; // r9
+  char v2; // r10
   int v3; // ebp
   int v4; // esi
-  __int64 v5; // r14
+  __int64 v5; // r15
   _BYTE *v6; // r11
-  unsigned __int8 *v7; // rdi
+  unsigned __int8 *v7; // rbx
   int v8; // r8d
-  _BYTE *v9; // rbx
-  unsigned __int8 *v10; // rdx
+  _BYTE *v9; // rdi
+  unsigned __int8 *v10; // r14
   __int64 v11; // rax
-  int v12; // r8d
+  char v12; // dl
+  int v13; // r8d
 
   v1 = *((int *)a1 + 14);
   v2 = 0;
@@ -38,18 +39,19 @@ void __fastcall vSrcCopyS8D1(struct BLTINFO *a1)
     while ( v8 != v3 )
     {
       v11 = *v10;
-      v2 *= 2;
+      v12 = 2 * v2;
       ++v10;
-      if ( *(_DWORD *)(v5 + 4 * v11) )
-        v2 |= 1u;
+      v2 = (2 * v2) | 1;
+      if ( !*(_DWORD *)(v5 + 4 * v11) )
+        v2 = v12;
       if ( (++v8 & 7) == 0 )
         *v9++ = v2;
     }
-    v12 = v8 & 7;
-    if ( v12 )
+    v13 = v8 & 7;
+    if ( v13 )
     {
-      v2 <<= 8 - v12;
-      *v9 = (255 >> v12) & *v9 | v2 & ~(255 >> v12);
+      v2 <<= 8 - v13;
+      *v9 = (255 >> v13) & *v9 | v2 & ~(255 >> v13);
     }
     if ( !--v4 )
       break;

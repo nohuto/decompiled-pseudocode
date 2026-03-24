@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiGetDCPoint @ 0x1C00037B0
+ * XREFs of NtGdiGetDCPoint @ 0x1C010D760
  * Callers:
  *     <none>
  * Callees:

@@ -3,7 +3,7 @@
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:
- *     BgQueryBootGraphicsInformation @ 0x14016ED88 (BgQueryBootGraphicsInformation.c)
+ *     BgQueryBootGraphicsInformation @ 0x14016EDA8 (BgQueryBootGraphicsInformation.c)
  */
 
 __int64 __fastcall BgkQueryBootGraphicsInformation(int a1, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of Endpoint_ClearStallTransferCompletion @ 0x1C0037EB0
+ * XREFs of Endpoint_ClearStallTransferCompletion @ 0x1C0037D30
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     WPP_RECORDER_SF_ddqd @ 0x1C003BB20 (WPP_RECORDER_SF_ddqd.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     WPP_RECORDER_SF_ddqd @ 0x1C003B4AC (WPP_RECORDER_SF_ddqd.c)
  */
 
 __int64 __fastcall Endpoint_ClearStallTransferCompletion(PDEVICE_OBJECT DeviceObject, PIRP Irp, _QWORD *Context)

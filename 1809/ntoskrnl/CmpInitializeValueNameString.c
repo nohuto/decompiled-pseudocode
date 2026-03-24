@@ -1,11 +1,11 @@
 /*
  * XREFs of CmpInitializeValueNameString @ 0x1405AF46C
  * Callers:
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x140695104 (CmpLightWeightPrepareSetValueKeyUoW.c)
- *     CmpMergeKeyValues @ 0x1407FDB00 (CmpMergeKeyValues.c)
- *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x140804430 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1406950E4 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpMergeKeyValues @ 0x1407FDAE0 (CmpMergeKeyValues.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x140804410 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
  * Callees:
- *     CmSiBugCheck @ 0x14026D6B0 (CmSiBugCheck.c)
+ *     CmSiBugCheck @ 0x14026D7B0 (CmSiBugCheck.c)
  *     CmpCopyCompressedName @ 0x1405AF298 (CmpCopyCompressedName.c)
  */
 

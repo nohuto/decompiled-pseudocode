@@ -1,5 +1,5 @@
 /*
- * XREFs of PspGetPicoThreadContext @ 0x1407F50C0
+ * XREFs of PspGetPicoThreadContext @ 0x140726500
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall PspGetPicoThreadContext(__int64 a1)
 {
-  return *(_QWORD *)(a1 + 1584);
+  return *(_QWORD *)(a1 + 1504);
 }

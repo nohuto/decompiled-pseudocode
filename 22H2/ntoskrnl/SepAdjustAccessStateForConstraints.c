@@ -1,88 +1,89 @@
 /*
- * XREFs of SepAdjustAccessStateForConstraints @ 0x1407AB890
+ * XREFs of SepAdjustAccessStateForConstraints @ 0x14076EC80
  * Callers:
- *     SeAdjustAccessStateForAccessConstraints @ 0x1407AB870 (SeAdjustAccessStateForAccessConstraints.c)
- *     CmpSetAccessStateForBackupRestore @ 0x140880B18 (CmpSetAccessStateForBackupRestore.c)
- *     SeAdjustAccessStateForTrustLabel @ 0x1409C9BB0 (SeAdjustAccessStateForTrustLabel.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x14076EBB4 (CmpSetAccessStateForBackupRestore.c)
+ *     SeAdjustAccessStateForTrustLabel @ 0x14091CDA0 (SeAdjustAccessStateForTrustLabel.c)
  * Callees:
- *     RtlSidDominatesForTrust @ 0x1402B33C0 (RtlSidDominatesForTrust.c)
- *     SeGetTrustLabelAce @ 0x1402B5BF0 (SeGetTrustLabelAce.c)
- *     SepFilterCheck @ 0x1402B5C70 (SepFilterCheck.c)
- *     SepLocateTokenTrustLevel @ 0x1403347F0 (SepLocateTokenTrustLevel.c)
+ *     SepFilterCheck @ 0x1402CF460 (SepFilterCheck.c)
+ *     SepLocateTokenTrustLevel @ 0x1403034A8 (SepLocateTokenTrustLevel.c)
+ *     RtlSidDominatesForTrust @ 0x140346DF0 (RtlSidDominatesForTrust.c)
+ *     SeGetTrustLabelAce @ 0x140347390 (SeGetTrustLabelAce.c)
  */
 
 __int64 __fastcall SepAdjustAccessStateForConstraints(__int64 a1, __int64 a2, char a3, __int64 a4)
 {
+  int v7; // ebp
+  int v8; // r12d
   __int64 result; // rax
-  int v5; // ebx
-  int v6; // esi
-  int v10; // ebp
-  int v11; // eax
-  int v12; // r12d
-  _DWORD *v13; // r8
+  int v10; // eax
+  int v11; // edi
+  int v12; // ebx
+  __int64 v13; // r8
   __int64 TrustLabelAce; // rax
   __int64 v15; // r14
-  int v16; // ebx
-  int v17; // r12d
-  __int64 v18; // r15
+  int v16; // eax
+  int v17; // edi
+  int v18; // ebx
+  __int64 v19; // r15
   __int64 TokenTrustLevel; // rax
-  int v20; // ecx
-  __int64 v21; // [rsp+30h] [rbp-38h] BYREF
-  char v22; // [rsp+88h] [rbp+20h] BYREF
+  int v21; // ecx
+  __int64 v22; // [rsp+30h] [rbp-38h] BYREF
+  char v23; // [rsp+88h] [rbp+20h] BYREF
 
+  v22 = 0LL;
+  v23 = 0;
+  v7 = -1;
+  v8 = -1;
   result = *(unsigned int *)(a4 + 12);
-  v5 = 0;
-  v22 = 0;
-  v6 = -1;
-  v21 = 0LL;
-  v10 = -1;
   if ( (result & 6) != 0 )
   {
-    v11 = *(_DWORD *)(a1 + 68);
-    if ( v11 == 1 )
+    v10 = *(_DWORD *)(a1 + 68);
+    if ( v10 == 1 )
     {
-      v5 = 17957001;
+      v11 = 17957001;
       v12 = 18809110;
     }
-    else if ( v11 == 256 )
+    else if ( v10 == 256 )
     {
-      v5 = 16908313;
+      v11 = 16908313;
       v12 = 17760262;
     }
     else
     {
+      v11 = 0;
       v12 = 0;
     }
-    v13 = *(_DWORD **)(a4 + 32);
+    v13 = *(_QWORD *)(a4 + 32);
     if ( !v13 )
-      v13 = *(_DWORD **)(a4 + 48);
-    SepFilterCheck(a2, 0LL, v13, 1, (int *)&v21);
-    if ( BYTE4(v21) && a3 )
-      v6 = v21;
+      v13 = *(_QWORD *)(a4 + 48);
+    SepFilterCheck(a2, 0LL, v13, 1, (int *)&v22);
+    if ( BYTE4(v22) && a3 )
+      v7 = v22;
     TrustLabelAce = SeGetTrustLabelAce(a2);
     v15 = TrustLabelAce;
     if ( TrustLabelAce )
     {
-      v18 = TrustLabelAce + 8;
+      v19 = TrustLabelAce + 8;
       if ( TrustLabelAce == -8
         || (TokenTrustLevel = SepLocateTokenTrustLevel((__int64 *)(a4 + 32)),
-            RtlSidDominatesForTrust(TokenTrustLevel, v18, &v22),
-            !v22) )
+            RtlSidDominatesForTrust(TokenTrustLevel, v19, &v23),
+            !v23) )
       {
-        v10 = *(_DWORD *)(v15 + 4);
+        v8 = *(_DWORD *)(v15 + 4);
       }
     }
-    result = ~(v6 & (unsigned int)v10);
-    v16 = result & v5;
-    v17 = result & v12;
-    if ( v10 != -1 || v6 != -1 )
+    v16 = ~(v7 & v8);
+    v17 = v16 & v11;
+    v18 = v16 & v12;
+    result = 0xFFFFFFFFLL;
+    if ( v8 != -1 || v7 != -1 )
     {
-      v20 = *(_DWORD *)(a4 + 12);
+      v21 = *(_DWORD *)(a4 + 12);
       result = *(unsigned int *)(a4 + 20);
-      if ( (v20 & 2) != 0 )
-        result = ~v16 & (unsigned int)result;
-      if ( (v20 & 4) != 0 )
+      if ( (v21 & 2) != 0 )
         result = ~v17 & (unsigned int)result;
+      if ( (v21 & 4) != 0 )
+        result = ~v18 & (unsigned int)result;
       *(_DWORD *)(a4 + 20) = result;
     }
   }

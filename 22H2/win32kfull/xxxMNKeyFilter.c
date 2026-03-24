@@ -1,23 +1,24 @@
 /*
- * XREFs of xxxMNKeyFilter @ 0x1C023F1B8
+ * XREFs of xxxMNKeyFilter @ 0x1C025046C
  * Callers:
- *     xxxSysCommand @ 0x1C00A7BFC (xxxSysCommand.c)
+ *     xxxSysCommand @ 0x1C0130364 (xxxSysCommand.c)
  * Callees:
- *     xxxMessageBeep @ 0x1C01F6D88 (xxxMessageBeep.c)
- *     MNPositionSysMenu @ 0x1C01FF5E4 (MNPositionSysMenu.c)
- *     xxxMNStartMenu @ 0x1C01FFC8C (xxxMNStartMenu.c)
- *     xxxMNLoop @ 0x1C02146AC (xxxMNLoop.c)
- *     xxxMNCancel @ 0x1C0216E04 (xxxMNCancel.c)
- *     xxxMNChar @ 0x1C02170F8 (xxxMNChar.c)
- *     xxxMNCloseHierarchy @ 0x1C0217510 (xxxMNCloseHierarchy.c)
- *     xxxMNOpenHierarchy @ 0x1C0218BF0 (xxxMNOpenHierarchy.c)
- *     xxxMNSelectItem @ 0x1C0219AA0 (xxxMNSelectItem.c)
- *     xxxMNSwitchToAlternateMenu @ 0x1C021A4F4 (xxxMNSwitchToAlternateMenu.c)
+ *     MNPositionSysMenu @ 0x1C0155548 (MNPositionSysMenu.c)
+ *     xxxMessageBeep @ 0x1C015D220 (xxxMessageBeep.c)
+ *     xxxMNStartMenu @ 0x1C0222080 (xxxMNStartMenu.c)
+ *     xxxMNLoop @ 0x1C0234488 (xxxMNLoop.c)
+ *     xxxMNCancel @ 0x1C0236ED4 (xxxMNCancel.c)
+ *     xxxMNChar @ 0x1C02372E4 (xxxMNChar.c)
+ *     xxxMNCloseHierarchy @ 0x1C0237760 (xxxMNCloseHierarchy.c)
+ *     xxxMNOpenHierarchy @ 0x1C02394F8 (xxxMNOpenHierarchy.c)
+ *     xxxMNSelectItem @ 0x1C023A5BC (xxxMNSelectItem.c)
+ *     xxxMNSwitchToAlternateMenu @ 0x1C023B334 (xxxMNSwitchToAlternateMenu.c)
  */
 
 void __fastcall xxxMNKeyFilter(__int64 *a1, __int64 a2, unsigned int a3)
 {
   int v3; // ebp
+  __int64 v7; // r8
 
   v3 = *(_DWORD *)(a2 + 8);
   if ( (v3 & 8) == 0 )
@@ -46,14 +47,14 @@ void __fastcall xxxMNKeyFilter(__int64 *a1, __int64 a2, unsigned int a3)
           xxxMNSwitchToAlternateMenu((__int64 **)a1, a2);
         if ( (**(_DWORD **)*a1 & 4) == 0 )
           goto LABEL_19;
-        MNPositionSysMenu(*(_QWORD *)(*(_QWORD *)*a1 + 16LL), *(_QWORD **)(*(_QWORD *)*a1 + 40LL));
+        MNPositionSysMenu(*(_QWORD *)(*(_QWORD *)*a1 + 16LL), *(_QWORD **)(*(_QWORD *)*a1 + 40LL), v7);
         xxxMNSelectItem((__int64 **)a1, a2, 0);
         xxxMNOpenHierarchy((__int64 **)a1, a2);
         **(_DWORD **)*a1 &= ~0x80u;
       }
       else
       {
-        xxxMNChar((__int64 **)a1, a2, a3);
+        xxxMNChar(a1, a2, a3);
         if ( *(_DWORD *)(*(_QWORD *)*a1 + 80LL) == -1 )
         {
 LABEL_19:

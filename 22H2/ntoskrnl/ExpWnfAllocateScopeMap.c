@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpWnfAllocateScopeMap @ 0x14085EB24
+ * XREFs of ExpWnfAllocateScopeMap @ 0x1407CFBDC
  * Callers:
- *     ExpWnfResolveScopeInstance @ 0x140713418 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x14060F914 (ExpWnfResolveScopeInstance.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfAllocateScopeMap(_QWORD *a1)
 {
-  __int64 Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v3; // rbx
   unsigned int v4; // ecx
   _QWORD *v5; // rax
 
-  Pool2 = ExAllocatePool2(256LL, 176LL, 543583831LL);
-  v3 = (_DWORD *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0xB0uLL, 0x20666E57u);
+  v3 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  memset((void *)(Pool2 + 4), 0, 0xACuLL);
+  memset(PoolWithTag + 1, 0, 0xACuLL);
   v4 = 0;
   *v3 = 11536641;
   v5 = v3 + 10;

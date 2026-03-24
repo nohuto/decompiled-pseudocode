@@ -1,51 +1,51 @@
 /*
- * XREFs of CmpCleanupLightWeightTransaction @ 0x1406E26C4
+ * XREFs of CmpCleanupLightWeightTransaction @ 0x1406A2E10
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x14065CE0C (CmpCommitLightWeightTransaction.c)
- *     CmpAbortLightWeightTransaction @ 0x1406E2624 (CmpAbortLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x1406A2C98 (CmpCommitLightWeightTransaction.c)
+ *     CmpAbortLightWeightTransaction @ 0x140770FE4 (CmpAbortLightWeightTransaction.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     CmpTransDereferenceTransaction @ 0x14067F788 (CmpTransDereferenceTransaction.c)
- *     CmpLockRegistryExclusive @ 0x14071B6EC (CmpLockRegistryExclusive.c)
- *     CmpTransMgrFreeVolatileData @ 0x14071BC94 (CmpTransMgrFreeVolatileData.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
- *     CmpAttachToRegistryProcess @ 0x140AB4550 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140AB4580 (CmpDetachFromRegistryProcess.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
+ *     CmpTransDereferenceTransaction @ 0x1406A32E0 (CmpTransDereferenceTransaction.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
+ *     CmpTransMgrFreeVolatileData @ 0x14071D4D0 (CmpTransMgrFreeVolatileData.c)
  */
 
-void __fastcall CmpCleanupLightWeightTransaction(_QWORD *BugCheckParameter2)
+_QWORD *__fastcall CmpCleanupLightWeightTransaction(_QWORD *BugCheckParameter2, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
+  __int64 v5; // rdx
+  __int64 v6; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v7; // rdx
-  _QWORD *v8; // rax
-  _OWORD v9[3]; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v8; // rdx
+  _QWORD *v9; // rax
+  _QWORD *result; // rax
+  _OWORD v11[3]; // [rsp+20h] [rbp-48h] BYREF
 
-  memset(v9, 0, sizeof(v9));
-  CmpAttachToRegistryProcess(v9);
+  memset(v11, 0, sizeof(v11));
+  CmpAttachToRegistryProcess((__int64)v11, a2, a3, a4);
   CmpLockRegistryExclusive();
   CmpTransMgrFreeVolatileData((ULONG_PTR)BugCheckParameter2);
-  CmpUnlockRegistry(v3, v2, v4, v5);
-  CmpDetachFromRegistryProcess(v9);
+  CmpUnlockRegistry(v6, v5);
+  KiUnstackDetachProcess((__int64)v11, 0);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
-  v7 = *BugCheckParameter2;
+  v8 = *BugCheckParameter2;
   if ( *(_QWORD **)(*BugCheckParameter2 + 8LL) != BugCheckParameter2
-    || (v8 = (_QWORD *)BugCheckParameter2[1], (_QWORD *)*v8 != BugCheckParameter2) )
+    || (v9 = (_QWORD *)BugCheckParameter2[1], (_QWORD *)*v9 != BugCheckParameter2) )
   {
     __fastfail(3u);
   }
-  *v8 = v7;
-  *(_QWORD *)(v7 + 8) = v8;
+  *v9 = v8;
+  *(_QWORD *)(v8 + 8) = v9;
   ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-  KeLeaveCriticalRegion();
+  result = KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( BugCheckParameter2[7] )
-    CmpTransDereferenceTransaction(BugCheckParameter2[7]);
+    return (_QWORD *)CmpTransDereferenceTransaction(BugCheckParameter2[7]);
+  return result;
 }

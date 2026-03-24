@@ -1,7 +1,7 @@
 /*
- * XREFs of GetDebugHookLParamSize @ 0x1C0205EA8
+ * XREFs of GetDebugHookLParamSize @ 0x1C0228624
  * Callers:
- *     ?NtUserfnHkINLPDEBUGHOOKSTRUCT@@YA_JK_KPEAUtagDEBUGHOOKINFO@@@Z @ 0x1C01CC47C (-NtUserfnHkINLPDEBUGHOOKSTRUCT@@YA_JK_KPEAUtagDEBUGHOOKINFO@@@Z.c)
+ *     ?NtUserfnHkINLPDEBUGHOOKSTRUCT@@YA_JK_KPEAUtagDEBUGHOOKINFO@@@Z @ 0x1C01F5FA0 (-NtUserfnHkINLPDEBUGHOOKSTRUCT@@YA_JK_KPEAUtagDEBUGHOOKINFO@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -9,12 +9,9 @@
 __int64 __fastcall GetDebugHookLParamSize(unsigned __int64 a1, __int64 a2)
 {
   unsigned int v2; // r8d
-  unsigned __int64 v3; // rcx
-  unsigned __int64 v4; // rcx
-  unsigned __int64 v5; // rcx
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
+  int v3; // ecx
+  int v4; // ecx
+  int v5; // ecx
 
   v2 = 0;
   if ( a1 > 6 )
@@ -36,29 +33,24 @@ __int64 __fastcall GetDebugHookLParamSize(unsigned __int64 a1, __int64 a2)
   }
   if ( a1 == 6 )
     return 48;
-  if ( !a1 )
+  if ( a1 <= 1 )
     return 24;
-  v3 = a1 - 1;
-  if ( !v3 )
-    return 24;
-  v4 = v3 - 2;
-  if ( !v4 )
+  if ( a1 == 3 )
     return 48;
-  v5 = v4 - 1;
-  if ( !v5 )
+  if ( a1 == 4 )
     return 32;
-  if ( v5 != 1 )
+  if ( a1 != 5 )
     return v2;
-  v6 = *(_DWORD *)(a2 + 24);
-  if ( !v6 )
+  v3 = *(_DWORD *)(a2 + 24);
+  if ( !v3 )
     return 16;
-  v7 = v6 - 3;
-  if ( !v7 )
+  v4 = v3 - 3;
+  if ( !v4 )
     return 16;
-  v8 = v7 - 2;
-  if ( !v8 )
+  v5 = v4 - 2;
+  if ( !v5 )
     return 16;
-  if ( v8 == 1 )
+  if ( v5 == 1 )
     return 40;
   return v2;
 }

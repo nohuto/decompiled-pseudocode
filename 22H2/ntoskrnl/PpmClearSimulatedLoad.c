@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmClearSimulatedLoad @ 0x1409868A0
+ * XREFs of PpmClearSimulatedLoad @ 0x1408E6134
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140255090 (KeGetProcessorIndexFromNumber.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140344E90 (KeGetProcessorIndexFromNumber.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmClearSimulatedLoad(PPROCESSOR_NUMBER ProcNumber)
@@ -15,10 +15,11 @@ __int64 __fastcall PpmClearSimulatedLoad(PPROCESSOR_NUMBER ProcNumber)
   void *v2; // rdi
   __int64 i; // rcx
   unsigned int v4; // r9d
-  __int64 v5; // r8
+  unsigned int v5; // r8d
   __int64 v6; // r11
-  __int64 v7; // rax
-  unsigned int v8; // ebx
+  __int64 v7; // rdx
+  __int64 v8; // rax
+  unsigned int v9; // ebx
   ULONG ProcessorIndexFromNumber; // eax
 
   v2 = 0LL;
@@ -27,20 +28,21 @@ __int64 __fastcall PpmClearSimulatedLoad(PPROCESSOR_NUMBER ProcNumber)
   {
     for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
     {
-      v4 = *(_DWORD *)(i + 296);
-      v5 = 0LL;
+      v4 = *(_DWORD *)(i + 200);
+      v5 = 0;
       if ( v4 )
       {
-        v6 = *(_QWORD *)(i + 312);
-        while ( *(_DWORD *)(v6 + 144 * v5 + 16) != 1
-             || *(_DWORD *)(v6 + 144 * v5 + 20) != (*(_DWORD *)ProcNumber & 0x7FFFFFFF) )
+        v6 = *(_QWORD *)(i + 216);
+        while ( 1 )
         {
-          v5 = (unsigned int)(v5 + 1);
-          if ( (unsigned int)v5 >= v4 )
+          v7 = 136LL * v5;
+          if ( *(_DWORD *)(v7 + v6 + 16) == 1 && *(_DWORD *)(v7 + v6 + 20) == (*(_DWORD *)ProcNumber & 0x7FFFFFFF) )
+            break;
+          if ( ++v5 >= v4 )
             goto LABEL_10;
         }
-        v7 = *(_QWORD *)(v6 + 144 * v5);
-        if ( v7 )
+        v8 = *(_QWORD *)(v7 + v6);
+        if ( v8 )
           goto LABEL_16;
       }
 LABEL_10:
@@ -52,17 +54,17 @@ LABEL_10:
     || (ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(ProcNumber), ProcessorIndexFromNumber == -1) )
   {
 LABEL_12:
-    v8 = -1073741811;
+    v9 = -1073741811;
     goto LABEL_17;
   }
-  v7 = KeGetPrcb(ProcessorIndexFromNumber) + 33968;
+  v8 = KeGetPrcb(ProcessorIndexFromNumber) + 33128;
 LABEL_16:
-  v2 = *(void **)(v7 + 24);
-  *(_QWORD *)(v7 + 24) = 0LL;
-  v8 = 0;
+  v2 = *(void **)(v8 + 24);
+  *(_QWORD *)(v8 + 24) = 0LL;
+  v9 = 0;
 LABEL_17:
   PpmReleaseLock(&PpmPerfPolicyLock);
   if ( v2 )
     ExFreePoolWithTag(v2, 0x704D5050u);
-  return v8;
+  return v9;
 }

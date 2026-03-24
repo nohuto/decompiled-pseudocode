@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EnsureTagAllocation@CDeletedNotificationList@DirectComposition@@QEAAJXZ @ 0x1C00A6D30
+ * XREFs of ?EnsureTagAllocation@CDeletedNotificationList@DirectComposition@@QEAAJXZ @ 0x1C01D5870
  * Callers:
- *     ?SetResourceDeletedNotificationTag@CApplicationChannel@DirectComposition@@QEAAJI_K@Z @ 0x1C00A6C8C (-SetResourceDeletedNotificationTag@CApplicationChannel@DirectComposition@@QEAAJI_K@Z.c)
+ *     ?SetResourceDeletedNotificationTag@CApplicationChannel@DirectComposition@@QEAAJI_K@Z @ 0x1C0098CEC (-SetResourceDeletedNotificationTag@CApplicationChannel@DirectComposition@@QEAAJI_K@Z.c)
  * Callees:
- *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C003175C (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C002AAB4 (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall DirectComposition::CDeletedNotificationList::EnsureTagAllocation(
@@ -15,10 +15,10 @@ __int64 __fastcall DirectComposition::CDeletedNotificationList::EnsureTagAllocat
   __int64 v4; // rdi
   unsigned __int64 v5; // rbp
   unsigned __int64 v6; // rdi
-  __int64 v8; // rdx
-  size_t v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rcx
+  __int64 v7; // rdx
+  size_t v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // rcx
   __int64 Src; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = 0;
@@ -37,13 +37,13 @@ LABEL_5:
   {
     if ( v5 > v6 )
     {
-      v8 = *((unsigned int *)this + 10);
-      v9 = *((_QWORD *)this + 4);
-      v10 = *(_QWORD *)this;
-      *((_DWORD *)this + 10) = v8 + 1;
-      v11 = v9 * (*((_QWORD *)this + 3) - 1LL);
-      Src = *(_QWORD *)(v8 * v9 + v10);
-      memmove((void *)(v10 + v11), &Src, v9);
+      v7 = *((unsigned int *)this + 10);
+      v8 = *((_QWORD *)this + 4);
+      v9 = *(_QWORD *)this;
+      *((_DWORD *)this + 10) = v7 + 1;
+      v10 = v8 * (*((_QWORD *)this + 3) - 1LL);
+      Src = *(_QWORD *)(v7 * v8 + v9);
+      memmove((void *)(v9 + v10), &Src, v8);
     }
     goto LABEL_5;
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PoCreatePowerRequest @ 0x1403C6280
+ * XREFs of PoCreatePowerRequest @ 0x140772400
  * Callers:
  *     <none>
  * Callees:
- *     PoCaptureReasonContext @ 0x140209BF8 (PoCaptureReasonContext.c)
- *     PopPowerRequestCreateCommon @ 0x14032BB98 (PopPowerRequestCreateCommon.c)
- *     PoDestroyReasonContext @ 0x14032D130 (PoDestroyReasonContext.c)
+ *     PoDestroyReasonContext @ 0x14034BC54 (PoDestroyReasonContext.c)
+ *     PoCaptureReasonContext @ 0x14034C66C (PoCaptureReasonContext.c)
+ *     PopCreateKernelPowerRequest @ 0x140772488 (PopCreateKernelPowerRequest.c)
  */
 
 NTSTATUS __stdcall PoCreatePowerRequest(
@@ -13,27 +13,24 @@ NTSTATUS __stdcall PoCreatePowerRequest(
         PDEVICE_OBJECT DeviceObject,
         PCOUNTED_REASON_CONTEXT Context)
 {
-  __int64 v4; // rdx
-  NTSTATUS v5; // ebx
-  __int64 v6; // r8
-  __int64 v7; // r9
+  NTSTATUS v4; // ebx
   PVOID P; // [rsp+40h] [rbp+8h] BYREF
-  void *v10; // [rsp+48h] [rbp+10h] BYREF
+  void *v7; // [rsp+48h] [rbp+10h] BYREF
 
-  v10 = 0LL;
+  v7 = 0LL;
   P = 0LL;
   *PowerRequest = 0LL;
   if ( !DeviceObject )
     return -1073741811;
-  v5 = PoCaptureReasonContext((unsigned __int64)Context, 0, (__int64)DeviceObject, 1, 0LL, (__int64 *)&P);
-  if ( v5 < 0 || (v5 = PopPowerRequestCreateCommon(P, 0, &v10), v5 < 0) )
+  v4 = PoCaptureReasonContext((unsigned __int64)Context, 0LL, (__int64)DeviceObject, 1, 0LL, &P);
+  if ( v4 < 0 || (v4 = PopCreateKernelPowerRequest(&v7, P), v4 < 0) )
   {
     if ( P )
-      PoDestroyReasonContext(P, v4, v6, v7);
+      PoDestroyReasonContext(P);
   }
   else
   {
-    *PowerRequest = v10;
+    *PowerRequest = v7;
   }
-  return v5;
+  return v4;
 }

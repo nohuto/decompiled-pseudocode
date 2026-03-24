@@ -1,18 +1,18 @@
 /*
- * XREFs of NtAdjustPrivilegesToken @ 0x1406BA640
+ * XREFs of NtAdjustPrivilegesToken @ 0x140608190
  * Callers:
- *     RtlpSysVolTakeOwnership @ 0x1409BEC08 (RtlpSysVolTakeOwnership.c)
+ *     RtlpSysVolTakeOwnership @ 0x140915ED8 (RtlpSysVolTakeOwnership.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     SepAdjustPrivileges @ 0x1406BAA20 (SepAdjustPrivileges.c)
- *     SeCaptureLuidAndAttributesArray @ 0x1406BB054 (SeCaptureLuidAndAttributesArray.c)
- *     SeReleaseLuidAndAttributesArray @ 0x1406BB138 (SeReleaseLuidAndAttributesArray.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x1405DD318 (SeReleaseLuidAndAttributesArray.c)
+ *     SepAdjustPrivileges @ 0x140608570 (SepAdjustPrivileges.c)
+ *     SeCaptureLuidAndAttributesArray @ 0x1406089BC (SeCaptureLuidAndAttributesArray.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtAdjustPrivilegesToken(
@@ -23,47 +23,44 @@ NTSTATUS __stdcall NtAdjustPrivilegesToken(
         PTOKEN_PRIVILEGES PreviousState,
         PULONG ReturnLength)
 {
-  KPROCESSOR_MODE PreviousMode; // r14
+  char PreviousMode; // r14
   __int64 v11; // rsi
   char *v12; // rcx
   PTOKEN_PRIVILEGES v13; // rbx
   NTSTATUS result; // eax
-  __int64 v15; // rdx
-  int v16; // edi
+  int v15; // edi
   struct _KTHREAD *CurrentThread; // rax
-  PERESOURCE *v18; // rsi
-  __int64 v19; // r12
-  int v20; // r8d
-  _QWORD *v21; // rdi
-  int v22; // edx
-  int v23; // r8d
-  ULONG v24; // eax
-  __int64 v25; // rdx
-  __int64 v26; // rdx
-  signed __int32 v27[8]; // [rsp+0h] [rbp-A8h] BYREF
+  PERESOURCE *v17; // rsi
+  __int64 v18; // r12
+  int v19; // r8d
+  _QWORD *v20; // rdi
+  int v21; // edx
+  int v22; // r8d
+  ULONG v23; // eax
+  signed __int32 v24[8]; // [rsp+0h] [rbp-A8h] BYREF
   PVOID *Object; // [rsp+20h] [rbp-88h]
   POBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+28h] [rbp-80h]
-  __int64 v30; // [rsp+30h] [rbp-78h]
-  KPROCESSOR_MODE v31; // [rsp+50h] [rbp-58h]
+  __int64 v27; // [rsp+30h] [rbp-78h]
+  char v28; // [rsp+50h] [rbp-58h]
   ULONG PrivilegeCount; // [rsp+54h] [rbp-54h]
-  PVOID v33; // [rsp+58h] [rbp-50h] BYREF
-  ULONG v34; // [rsp+60h] [rbp-48h] BYREF
-  ULONG v35; // [rsp+64h] [rbp-44h] BYREF
-  __int64 v36; // [rsp+68h] [rbp-40h] BYREF
-  NTSTATUS v37; // [rsp+70h] [rbp-38h]
-  _DWORD v38[3]; // [rsp+74h] [rbp-34h] BYREF
-  char v39; // [rsp+B8h] [rbp+10h] BYREF
+  PVOID v30; // [rsp+58h] [rbp-50h] BYREF
+  ULONG v31; // [rsp+60h] [rbp-48h] BYREF
+  ULONG v32; // [rsp+64h] [rbp-44h] BYREF
+  __int64 v33; // [rsp+68h] [rbp-40h] BYREF
+  NTSTATUS v34; // [rsp+70h] [rbp-38h]
+  _DWORD v35[3]; // [rsp+74h] [rbp-34h] BYREF
+  char v36; // [rsp+B8h] [rbp+10h] BYREF
 
   PrivilegeCount = 0;
-  v36 = 0LL;
-  v38[0] = 0;
-  v34 = 0;
-  v35 = 0;
-  v39 = 0;
+  v33 = 0LL;
+  v35[0] = 0;
+  v31 = 0;
+  v32 = 0;
+  v36 = 0;
   if ( !DisableAllPrivileges && !NewState )
     return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v31 = PreviousMode;
+  v28 = PreviousMode;
   if ( PreviousMode )
   {
     if ( DisableAllPrivileges )
@@ -76,7 +73,7 @@ NTSTATUS __stdcall NtAdjustPrivilegesToken(
         ExRaiseDatatypeMisalignment();
       v11 = 0x7FFFFFFF0000LL;
       PrivilegeCount = NewState->PrivilegeCount;
-      v38[1] = 12 * (PrivilegeCount - 1) + 16;
+      v35[1] = 12 * (PrivilegeCount - 1) + 16;
       if ( 12 * (PrivilegeCount - 1) != -16 )
       {
         v12 = (char *)&NewState->Privileges[PrivilegeCount];
@@ -99,10 +96,10 @@ LABEL_16:
                  NewState->Privileges,
                  (int)Object,
                  (int)HandleInformation,
-                 v30,
-                 (__int64)&v36,
-                 (__int64)v38);
-      v37 = result;
+                 v27,
+                 (__int64)&v33,
+                 (__int64)v35);
+      v34 = result;
       if ( result < 0 )
         return result;
     }
@@ -115,92 +112,83 @@ LABEL_16:
     goto LABEL_16;
   }
 LABEL_18:
-  v33 = 0LL;
-  v16 = ObReferenceObjectByHandle(
+  v30 = 0LL;
+  v15 = ObReferenceObjectByHandle(
           TokenHandle,
           v13 != 0LL ? 40 : 32,
           (POBJECT_TYPE)SeTokenObjectType,
           PreviousMode,
-          &v33,
+          &v30,
           0LL);
-  if ( v16 < 0 )
+  if ( v15 < 0 )
   {
-    if ( v36 )
-    {
-      LOBYTE(v15) = PreviousMode;
-      SeReleaseLuidAndAttributesArray(v36, v15);
-    }
-    return v16;
+    if ( v33 )
+      SeReleaseLuidAndAttributesArray((void *)v33, PreviousMode);
+    return v15;
   }
   else
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v18 = (PERESOURCE *)v33;
-    ExAcquireResourceExclusiveLite(*((PERESOURCE *)v33 + 6), 1u);
-    _InterlockedOr(v27, 0);
-    v19 = v36;
-    LOBYTE(v20) = DisableAllPrivileges;
-    v21 = v33;
+    v17 = (PERESOURCE *)v30;
+    ExAcquireResourceExclusiveLite(*((PERESOURCE *)v30 + 6), 1u);
+    _InterlockedOr(v24, 0);
+    v18 = v33;
+    LOBYTE(v19) = DisableAllPrivileges;
+    v20 = v30;
     SepAdjustPrivileges(
-      (_DWORD)v33,
+      (_DWORD)v30,
       0,
-      v20,
+      v19,
       PrivilegeCount,
-      v36,
+      v33,
       (__int64)v13,
-      (__int64)&v34,
-      (__int64)&v35,
-      (__int64)&v39);
-    if ( v13 && (*ReturnLength = v34, v34 > BufferLength) )
+      (__int64)&v31,
+      (__int64)&v32,
+      (__int64)&v36);
+    if ( v13 && (*ReturnLength = v31, v31 > BufferLength) )
     {
-      _InterlockedOr(v27, 0);
-      ExReleaseResourceLite(v18[6]);
+      _InterlockedOr(v24, 0);
+      ExReleaseResourceLite(v17[6]);
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      ObfDereferenceObject(v33);
-      if ( v36 )
-      {
-        LOBYTE(v26) = PreviousMode;
-        SeReleaseLuidAndAttributesArray(v36, v26);
-      }
+      HalPutDmaAdapter((PADAPTER_OBJECT)v30);
+      if ( v33 )
+        SeReleaseLuidAndAttributesArray((void *)v33, PreviousMode);
       return -1073741789;
     }
     else
     {
-      LOBYTE(v23) = DisableAllPrivileges;
-      LOBYTE(v22) = 1;
-      v37 = SepAdjustPrivileges(
-              (_DWORD)v21,
+      LOBYTE(v22) = DisableAllPrivileges;
+      LOBYTE(v21) = 1;
+      v34 = SepAdjustPrivileges(
+              (_DWORD)v20,
+              v21,
               v22,
-              v23,
               PrivilegeCount,
-              v19,
+              v18,
               (__int64)v13,
-              (__int64)&v34,
-              (__int64)&v35,
-              (__int64)&v39);
+              (__int64)&v31,
+              (__int64)&v32,
+              (__int64)&v36);
       if ( v13 )
       {
-        v24 = v35;
-        v13->PrivilegeCount = v35;
-        if ( !v24 )
+        v23 = v32;
+        v13->PrivilegeCount = v32;
+        if ( !v23 )
         {
           v13->Privileges[0].Luid = 0LL;
           v13->Privileges[0].Attributes = 0;
         }
       }
-      if ( v39 )
-        v21[7] = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
-      _InterlockedOr(v27, 0);
-      ExReleaseResourceLite(v18[6]);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      ObfDereferenceObject(v33);
       if ( v36 )
-      {
-        LOBYTE(v25) = PreviousMode;
-        SeReleaseLuidAndAttributesArray(v36, v25);
-      }
-      return v37;
+        v20[7] = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
+      _InterlockedOr(v24, 0);
+      ExReleaseResourceLite(v17[6]);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      HalPutDmaAdapter((PADAPTER_OBJECT)v30);
+      if ( v33 )
+        SeReleaseLuidAndAttributesArray((void *)v33, PreviousMode);
+      return v34;
     }
   }
 }

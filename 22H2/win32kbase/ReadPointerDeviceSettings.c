@@ -1,11 +1,11 @@
 /*
- * XREFs of ReadPointerDeviceSettings @ 0x1C0095570
+ * XREFs of ReadPointerDeviceSettings @ 0x1C000D080
  * Callers:
- *     xxxSystemParametersInfo @ 0x1C0094FF0 (xxxSystemParametersInfo.c)
+ *     xxxSystemParametersInfo @ 0x1C000CD30 (xxxSystemParametersInfo.c)
  * Callees:
- *     ?LoadPointerDeviceTouchSettings@@YAHXZ @ 0x1C0095C9C (-LoadPointerDeviceTouchSettings@@YAHXZ.c)
- *     GetDWORDSettingValues @ 0x1C0095EC0 (GetDWORDSettingValues.c)
- *     ApiSetEditionOverrideUserTouchGestureSettings @ 0x1C0206EF4 (ApiSetEditionOverrideUserTouchGestureSettings.c)
+ *     ?LoadPointerDeviceTouchSettings@@YAHXZ @ 0x1C000C3FC (-LoadPointerDeviceTouchSettings@@YAHXZ.c)
+ *     GetDWORDSettingValuesEx @ 0x1C000C4A0 (GetDWORDSettingValuesEx.c)
+ *     ApiSetEditionOverrideUserTouchGestureSettings @ 0x1C000D1F4 (ApiSetEditionOverrideUserTouchGestureSettings.c)
  */
 
 __int64 __fastcall ReadPointerDeviceSettings(int a1, _DWORD *a2)
@@ -24,20 +24,18 @@ __int64 __fastcall ReadPointerDeviceSettings(int a1, _DWORD *a2)
   int v14; // eax
   int v15; // eax
   int v16; // eax
-  int v17; // eax
-  int v18; // eax
-  bool v19; // zf
-  struct tagDEVICECONFIG_SETTING *v20; // rsi
-  int v21; // eax
+  bool v17; // zf
+  struct tagDEVICECONFIG_SETTING *v18; // rsi
+  int v19; // eax
 
   v2 = 0;
   if ( a1 == 146 )
   {
     if ( !gTouchMonitor || !gMultiTouchMonitor )
       LoadPointerDeviceTouchSettings();
-    ApiSetEditionOverrideUserTouchGestureSettings(off_1C0283038, off_1C0283028);
-    v4 = off_1C0283038;
-    *a2 = (unsigned int)(*((_DWORD *)off_1C0283038 + 3) - 1) > 0xFFFFFFFD;
+    ApiSetEditionOverrideUserTouchGestureSettings(off_1C02450F8, off_1C02450E8);
+    v4 = off_1C02450F8;
+    *a2 = (unsigned int)(*((_DWORD *)off_1C02450F8 + 3) - 1) > 0xFFFFFFFD;
     v5 = *((_DWORD *)v4 + 7);
     if ( v5 == -1 )
       v5 = *((_DWORD *)v4 + 6);
@@ -85,23 +83,15 @@ __int64 __fastcall ReadPointerDeviceSettings(int a1, _DWORD *a2)
     v16 = *((_DWORD *)v4 + 51);
     if ( v16 == -1 )
       v16 = *((_DWORD *)v4 + 50);
+    v17 = gMultiTouchMonitor == 0;
+    v18 = off_1C02450E8;
     a2[13] = v16;
-    v17 = *((_DWORD *)v4 + 55);
-    if ( v17 == -1 )
-      v17 = *((_DWORD *)v4 + 54);
-    a2[14] = v17;
-    v18 = *((_DWORD *)v4 + 59);
-    if ( v18 == -1 )
-      v18 = *((_DWORD *)v4 + 58);
-    v19 = gMultiTouchMonitor == 0;
-    v20 = off_1C0283028;
-    a2[15] = v18;
-    if ( v19 )
-      GetDWORDSettingValues(3LL, v20);
-    v21 = *((_DWORD *)v20 + 3);
-    if ( v21 == -1 )
-      v21 = *((_DWORD *)v20 + 2);
-    a2[4] = v21;
+    if ( v17 )
+      GetDWORDSettingValuesEx(3LL, (__int64)v18, 1u, 0);
+    v19 = *((_DWORD *)v18 + 3);
+    if ( v19 == -1 )
+      v19 = *((_DWORD *)v18 + 2);
+    a2[4] = v19;
     return 1;
   }
   return v2;

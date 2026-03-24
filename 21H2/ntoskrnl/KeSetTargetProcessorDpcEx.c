@@ -1,14 +1,12 @@
 /*
- * XREFs of KeSetTargetProcessorDpcEx @ 0x14025ACA0
+ * XREFs of KeSetTargetProcessorDpcEx @ 0x1402D1640
  * Callers:
- *     KeMaskInterrupt @ 0x1403AED64 (KeMaskInterrupt.c)
- *     HalpHvInitMcaPcrContext @ 0x1403D2700 (HalpHvInitMcaPcrContext.c)
- *     KeSetTargetProcessorDpc @ 0x14056F980 (KeSetTargetProcessorDpc.c)
- *     KiAltContextWorkQueueAddItem @ 0x14057C248 (KiAltContextWorkQueueAddItem.c)
- *     WheaFlushETWEventsAddWorkRtn @ 0x140645DC0 (WheaFlushETWEventsAddWorkRtn.c)
- *     HalpMcaInitializePcrContext @ 0x140A5B2F8 (HalpMcaInitializePcrContext.c)
+ *     KeMaskInterrupt @ 0x140376F40 (KeMaskInterrupt.c)
+ *     HalpHvInitMcaPcrContext @ 0x1403C54F0 (HalpHvInitMcaPcrContext.c)
+ *     KeSetTargetProcessorDpc @ 0x140519D70 (KeSetTargetProcessorDpc.c)
+ *     HalpMcaInitializePcrContext @ 0x1409A023C (HalpMcaInitializePcrContext.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
  */
 
 NTSTATUS __stdcall KeSetTargetProcessorDpcEx(PKDPC Dpc, PPROCESSOR_NUMBER ProcNumber)
@@ -19,6 +17,6 @@ NTSTATUS __stdcall KeSetTargetProcessorDpcEx(PKDPC Dpc, PPROCESSOR_NUMBER ProcNu
   if ( ProcessorIndexFromNumber == -1 )
     return -1073741811;
   if ( !Dpc->DpcData )
-    Dpc->Number = ProcessorIndexFromNumber + 2048;
+    Dpc->Number = ProcessorIndexFromNumber + 1280;
   return 0;
 }

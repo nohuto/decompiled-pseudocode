@@ -1,20 +1,21 @@
 /*
- * XREFs of ?AddDevice@DXGPROCESS@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C018D600
+ * XREFs of ?AddDevice@DXGPROCESS@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C0138654
  * Callers:
- *     ?CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIENT_TYPE@@PEAVDXGADAPTER@@EEEPEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_GUEST_DATA@@E@Z @ 0x1C018D67C (-CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIE.c)
+ *     ?CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIENT_TYPE@@PEAVDXGADAPTER@@EEEPEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_GUEST_DATA@@@Z @ 0x1C01384D0 (-CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIE.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 void __fastcall DXGPROCESS::AddDevice(DXGPROCESS *this, struct DXGDEVICE *a2)
 {
-  int v3; // edx
+  int v3; // eax
   _QWORD *v5; // rcx
-  _QWORD *v6; // rax
-  __int64 v7; // rdx
+  __int64 v6; // rdx
+  _QWORD *v7; // rax
+  __int64 v8; // rax
 
-  v3 = *((_DWORD *)a2 + 116);
-  if ( (*((_DWORD *)this + 106) & 1) != 0 )
+  v3 = *((_DWORD *)a2 + 108);
+  if ( *((_BYTE *)this + 344) )
   {
     if ( v3 == 2 )
       goto LABEL_3;
@@ -23,26 +24,18 @@ void __fastcall DXGPROCESS::AddDevice(DXGPROCESS *this, struct DXGDEVICE *a2)
   {
     goto LABEL_3;
   }
-  WdLogSingleEntry1(1LL, 6334LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    262146,
-    -1,
-    (__int64)L"(m_bCsrssProcess && pDevice->IsCddDevice()) || (!m_bCsrssProcess && !pDevice->IsCddDevice())",
-    6334LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  v8 = WdLogNewEntry5_WdAssertion(this, a2);
+  *(_QWORD *)(v8 + 24) = 5969LL;
+  WdLogEvent5_WdAssertion(v8);
 LABEL_3:
-  v5 = (_QWORD *)(((unsigned __int64)a2 + 24) & -(__int64)(a2 != 0LL));
-  v6 = (_QWORD *)((char *)this + 320);
-  v7 = *((_QWORD *)this + 40);
-  if ( *(DXGPROCESS **)(v7 + 8) != (DXGPROCESS *)((char *)this + 320) )
+  v5 = (_QWORD *)((char *)this + 280);
+  v6 = *((_QWORD *)this + 35);
+  v7 = (_QWORD *)((char *)a2 + 24);
+  if ( *(DXGPROCESS **)(v6 + 8) != (DXGPROCESS *)((char *)this + 280) )
     __fastfail(3u);
+  *v7 = v6;
+  *((_QWORD *)a2 + 4) = v5;
+  *(_QWORD *)(v6 + 8) = v7;
   *v5 = v7;
-  *(_QWORD *)((((unsigned __int64)a2 + 24) & -(__int64)(a2 != 0LL)) + 8) = v6;
-  *(_QWORD *)(v7 + 8) = v5;
-  *v6 = v5;
-  *((_BYTE *)this + 336) = 1;
+  *((_BYTE *)this + 296) = 1;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?ColorTransformResourceUpdate@CChannel@@UEAAJIAEBUMilColorTransform@@@Z @ 0x1801AA540
+ * XREFs of ?ColorTransformResourceUpdate@CChannel@@UEAAJIAEBUMilColorTransform@@@Z @ 0x18014FBB0
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
 __int64 __fastcall CChannel::ColorTransformResourceUpdate(
-        CDataStreamWriter **this,
+        CChannel *this,
         unsigned int a2,
         const struct MilColorTransform *a3)
 {
@@ -32,8 +32,8 @@ __int64 __fastcall CChannel::ColorTransformResourceUpdate(
   int v22; // [rsp+90h] [rbp+4Fh]
   struct _RTL_CRITICAL_SECTION *v23; // [rsp+A8h] [rbp+67h] BYREF
 
-  v23 = (struct _RTL_CRITICAL_SECTION *)(this + 21);
-  EnterCriticalSection((LPCRITICAL_SECTION)(this + 21));
+  v23 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
   CChannel::CheckHandle((__int64)this, a2, 24);
   v14 = 58;
   memset_0(&v15, 0, 0x68uLL);

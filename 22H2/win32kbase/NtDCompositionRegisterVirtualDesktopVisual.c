@@ -1,54 +1,63 @@
 /*
- * XREFs of NtDCompositionRegisterVirtualDesktopVisual @ 0x1C000EF50
+ * XREFs of NtDCompositionRegisterVirtualDesktopVisual @ 0x1C01D27F0
  * Callers:
  *     <none>
  * Callees:
- *     ?OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z @ 0x1C0086BD0 (-OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z.c)
- *     UserReferenceDwmApiPort @ 0x1C0086FA0 (UserReferenceDwmApiPort.c)
- *     GreLockDwmState @ 0x1C0087030 (GreLockDwmState.c)
- *     GreUnlockDwmState @ 0x1C00870B0 (GreUnlockDwmState.c)
- *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0099744 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     GreLockDwmState @ 0x1C0048DD0 (GreLockDwmState.c)
+ *     GreUnlockDwmState @ 0x1C0048E10 (GreUnlockDwmState.c)
+ *     UserReferenceDwmApiPort @ 0x1C004AAF0 (UserReferenceDwmApiPort.c)
+ *     ?OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z @ 0x1C004B1A0 (-OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z.c)
+ *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0083A34 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtDCompositionRegisterVirtualDesktopVisual(__int64 a1, __int64 *a2, void *a3)
 {
-  __int64 v4; // rbx
-  int v5; // edi
-  CompositionObject *v6; // rsi
-  PVOID v7; // rdi
-  __int64 v8; // rcx
+  ULONG64 v5; // r8
+  __int64 v6; // rbx
+  int v7; // edi
+  CompositionObject *v8; // rsi
+  __int64 v9; // r8
+  __int64 v10; // r9
+  PVOID v11; // rdi
+  PVOID v12; // rcx
   PVOID Object; // [rsp+78h] [rbp+20h] BYREF
 
-  if ( a2 + 1 < a2 || (unsigned __int64)(a2 + 1) > MmUserProbeAddress )
+  v5 = (ULONG64)(a2 + 1);
+  if ( a2 + 1 < a2 || v5 > MmUserProbeAddress )
     a2 = (__int64 *)MmUserProbeAddress;
-  v4 = *a2;
+  v6 = *a2;
   Object = 0LL;
-  v5 = DirectComposition::ResourceObject::ResolveHandle(a3, 1u, 1, (struct DirectComposition::ResourceObject **)&Object);
-  if ( v5 >= 0 )
+  LOBYTE(v5) = 1;
+  v7 = DirectComposition::ResourceObject::ResolveHandle(
+         a3,
+         1LL,
+         v5,
+         (struct DirectComposition::ResourceObject **)&Object);
+  if ( v7 >= 0 )
   {
-    v6 = (CompositionObject *)Object;
-    if ( *((_DWORD *)Object + 9) == 196 )
+    v8 = (CompositionObject *)Object;
+    if ( *((_DWORD *)Object + 9) == 195 )
     {
       GreLockDwmState();
       Object = 0LL;
-      v5 = CompositionObject::OpenDwmHandle(v6, &Object);
-      if ( v5 >= 0 )
+      v7 = CompositionObject::OpenDwmHandle(v8, &Object, v9, v10);
+      if ( v7 >= 0 )
       {
-        v7 = Object;
-        v8 = UserReferenceDwmApiPort();
-        if ( qword_1C0294ED0 )
-          v5 = qword_1C0294ED0(v8, a1, v4, v7);
+        v11 = Object;
+        v12 = UserReferenceDwmApiPort();
+        if ( qword_1C0255AD8 )
+          v7 = qword_1C0255AD8(v12, a1, v6, v11);
         else
-          v5 = -1073741637;
+          v7 = -1073741637;
       }
       GreUnlockDwmState();
     }
     else
     {
-      v5 = -1073741811;
+      v7 = -1073741811;
     }
-    ObfDereferenceObject(v6);
+    ObfDereferenceObject(v8);
   }
-  return (unsigned int)v5;
+  return (unsigned int)v7;
 }

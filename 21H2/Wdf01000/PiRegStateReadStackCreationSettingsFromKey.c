@@ -1,12 +1,12 @@
 /*
- * XREFs of PiRegStateReadStackCreationSettingsFromKey @ 0x1C00BED90
+ * XREFs of PiRegStateReadStackCreationSettingsFromKey @ 0x1C00BD620
  * Callers:
- *     PpRegStateReadCreateClassCreationSettings @ 0x1C00BEF84 (PpRegStateReadCreateClassCreationSettings.c)
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C00BD814 (PpRegStateReadCreateClassCreationSettings.c)
  * Callees:
- *     WdmlibRtlInitUnicodeStringEx @ 0x1C008FBA4 (WdmlibRtlInitUnicodeStringEx.c)
- *     SeUtilSecurityInfoFromSecurityDescriptor @ 0x1C00BF21C (SeUtilSecurityInfoFromSecurityDescriptor.c)
- *     CmRegUtilUcValueGetFullBuffer @ 0x1C00BF554 (CmRegUtilUcValueGetFullBuffer.c)
- *     CmRegUtilWstrValueGetDword @ 0x1C00BF7B8 (CmRegUtilWstrValueGetDword.c)
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C008EE80 (WdmlibRtlInitUnicodeStringEx.c)
+ *     SeUtilSecurityInfoFromSecurityDescriptor @ 0x1C00BDAAC (SeUtilSecurityInfoFromSecurityDescriptor.c)
+ *     CmRegUtilUcValueGetFullBuffer @ 0x1C00BDDE0 (CmRegUtilUcValueGetFullBuffer.c)
+ *     CmRegUtilWstrValueGetDword @ 0x1C00BE044 (CmRegUtilWstrValueGetDword.c)
  */
 
 __int64 __fastcall PiRegStateReadStackCreationSettingsFromKey(
@@ -50,17 +50,14 @@ __int64 __fastcall PiRegStateReadStackCreationSettingsFromKey(
   StackCreationSettings->Exclusivity = 0;
   DestinationString = 0LL;
   inited = WdmlibRtlInitUnicodeStringEx(&DestinationString, (wchar_t *)L"Security");
-  if ( inited < 0
-    || (FullBuffer = CmRegUtilUcValueGetFullBuffer(
-                       ClassOrDeviceKey,
-                       &DestinationString,
-                       v9,
-                       (unsigned int)v10,
-                       &keyInfo),
-        v7 = keyInfo,
-        v10 = 0LL,
-        inited = FullBuffer,
-        FullBuffer < 0) )
+  if ( inited >= 0 )
+  {
+    FullBuffer = CmRegUtilUcValueGetFullBuffer(ClassOrDeviceKey, &DestinationString, v9, (unsigned int)v10, &keyInfo);
+    v7 = keyInfo;
+    inited = FullBuffer;
+    v10 = 0LL;
+  }
+  if ( inited < 0 )
   {
     if ( inited == -1073741772 )
       inited = (int)v10;
@@ -68,7 +65,7 @@ __int64 __fastcall PiRegStateReadStackCreationSettingsFromKey(
   else
   {
     LOBYTE(v10) = 1;
-    inited = SeCaptureSecurityDescriptor((char *)keyInfo + keyInfo->DataOffset, 0LL, 1LL, v10, &newSecurityDescriptor);
+    inited = SeCaptureSecurityDescriptor((char *)v7 + v7->DataOffset, 0LL, 1LL, v10, &newSecurityDescriptor);
     v10 = 0LL;
   }
   if ( v7 )

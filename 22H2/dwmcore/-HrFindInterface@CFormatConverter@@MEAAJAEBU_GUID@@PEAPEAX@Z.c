@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HrFindInterface@CFormatConverter@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802BC420
+ * XREFs of ?HrFindInterface@CFormatConverter@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180219630
  * Callers:
  *     <none>
  * Callees:
@@ -30,7 +30,7 @@ __int64 __fastcall CFormatConverter::HrFindInterface(CFormatConverter *this, con
     else
     {
 LABEL_8:
-      *a3 = this;
+      *a3 = (void *)(((unsigned __int64)this + 16) & -(__int64)(this != 0LL));
       return 0LL;
     }
   }

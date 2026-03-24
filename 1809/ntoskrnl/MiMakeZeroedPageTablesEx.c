@@ -3,8 +3,8 @@
  * Callers:
  *     MiMakeZeroedPageTables @ 0x140026644 (MiMakeZeroedPageTables.c)
  *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
- *     MiExpandSystemCache @ 0x1400F61AC (MiExpandSystemCache.c)
- *     MiExpandPtes @ 0x1400F63F4 (MiExpandPtes.c)
+ *     MiExpandSystemCache @ 0x1400F61CC (MiExpandSystemCache.c)
+ *     MiExpandPtes @ 0x1400F6414 (MiExpandPtes.c)
  *     MiMapBBTMemory @ 0x1409BA008 (MiMapBBTMemory.c)
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  *     MiCreateTopLevelUltraMappings @ 0x1409D9BC0 (MiCreateTopLevelUltraMappings.c)
@@ -18,9 +18,9 @@
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
  *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiGetLargePagesForSystemMapping @ 0x140851F90 (MiGetLargePagesForSystemMapping.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiGetLargePagesForSystemMapping @ 0x140851F70 (MiGetLargePagesForSystemMapping.c)
  */
 
 __int64 __fastcall MiMakeZeroedPageTablesEx(__int64 a1, __int64 a2, unsigned int a3, signed int a4)

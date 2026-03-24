@@ -1,235 +1,274 @@
 /*
- * XREFs of ParseField @ 0x1C005AB50
+ * XREFs of ParseField @ 0x1C0021D30
  * Callers:
- *     ParseFieldList @ 0x1C005B250 (ParseFieldList.c)
+ *     ParseFieldList @ 0x1C0021C38 (ParseFieldList.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     RtlStringCchCopyNA @ 0x1C002BAFC (RtlStringCchCopyNA.c)
- *     ConPrintf @ 0x1C004D7D8 (ConPrintf.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintIndent @ 0x1C004E4A4 (PrintIndent.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
- *     CreateNameSpaceObject @ 0x1C004F12C (CreateNameSpaceObject.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
- *     ParseFieldConnection @ 0x1C005AF80 (ParseFieldConnection.c)
- *     ParsePackageLen @ 0x1C005BF1C (ParsePackageLen.c)
+ *     FreeNameSpaceObjects @ 0x1C0003A50 (FreeNameSpaceObjects.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
+ *     PrintIndent @ 0x1C00668F0 (PrintIndent.c)
+ *     ParseFieldConnection @ 0x1C006BA34 (ParseFieldConnection.c)
  */
 
-__int64 __fastcall ParseField(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, unsigned __int8 *a5, _DWORD **a6)
+__int64 __fastcall ParseField(__int64 a1, unsigned __int64 i, __int64 a3, _DWORD *a4, _BYTE *a5, _DWORD **a6)
 {
-  unsigned int v6; // ebp
-  __int64 v9; // r13
-  int v10; // esi
-  unsigned __int8 **v12; // rbx
-  const char *v13; // rdx
-  char v14; // r8
-  int v15; // eax
-  const char *v16; // rdx
-  unsigned int v17; // ecx
-  unsigned int v18; // ebx
-  __int64 v19; // r13
-  unsigned int v20; // r8d
-  void *v21; // rax
-  __int64 v22; // r9
-  unsigned int v23; // eax
-  int v24; // ecx
-  unsigned __int8 *v25; // rax
-  bool v26; // r12
-  unsigned __int8 *v27; // r15
-  char v28; // cl
-  int v29; // ecx
-  bool v30; // zf
-  unsigned __int8 *v31; // rax
-  __int64 v33; // [rsp+30h] [rbp-78h]
-  __int64 v34; // [rsp+38h] [rbp-70h] BYREF
-  unsigned __int8 *v35; // [rsp+40h] [rbp-68h]
-  char pszDest[8]; // [rsp+48h] [rbp-60h] BYREF
+  unsigned __int64 v8; // rbp
+  unsigned int v10; // esi
+  unsigned __int8 *v11; // r9
+  __int64 v12; // r8
+  int v13; // ecx
+  __int64 v14; // rax
+  __int64 v15; // rcx
+  unsigned __int8 v16; // r8
+  unsigned __int8 *v17; // rax
+  unsigned int v18; // r14d
+  __int64 v19; // r8
+  unsigned __int64 v20; // rdi
+  unsigned int v21; // r8d
+  void *v22; // rax
+  __int64 v23; // r9
+  unsigned int v24; // eax
+  int v25; // ecx
+  int v26; // ecx
+  _BYTE *v27; // rax
+  char v29; // cl
+  char v30; // cl
+  unsigned int v31; // eax
+  __int64 v32; // r9
+  _DWORD *v33; // r8
+  const char *v34; // rcx
+  unsigned __int64 v35; // rcx
+  bool v36; // di
+  char v37; // cl
+  int v38; // eax
+  _BYTE *v39; // rax
+  int v40; // [rsp+30h] [rbp-78h]
+  unsigned __int64 v41; // [rsp+38h] [rbp-70h] BYREF
+  _BYTE *v42; // [rsp+40h] [rbp-68h]
+  unsigned __int8 v43[8]; // [rsp+48h] [rbp-60h] BYREF
 
-  v6 = 0;
-  v33 = a2;
-  v9 = a2;
-  v35 = a5;
-  v10 = 1;
+  v42 = a5;
+  v8 = i;
+  v10 = 0;
   if ( (gdwfAMLI & 4) != 0 )
-    _InterlockedAdd((volatile signed __int32 *)(a2 + 112), 1u);
-  v12 = (unsigned __int8 **)(a1 + 120);
-  v13 = *(const char **)(a1 + 120);
-  v14 = *v13;
-  if ( ((*v13 - 1) & 0xFD) != 0 )
+    _InterlockedIncrement((volatile signed __int32 *)(i + 112));
+  v11 = *(unsigned __int8 **)(a1 + 120);
+  v12 = *v11;
+  if ( (((_BYTE)v12 - 1) & 0xFD) != 0 )
   {
-    if ( v14 == 2 )
+    if ( (_BYTE)v12 == 2 )
     {
-      *v12 = (unsigned __int8 *)(v13 + 1);
-      v15 = ParseFieldConnection(a1, a6);
-      v6 = v15;
-      if ( v15 )
+      *(_QWORD *)(a1 + 120) = v11 + 1;
+      v31 = ParseFieldConnection(a1, a6);
+      v10 = v31;
+      if ( v31 )
       {
-        LogError(v15);
-        AcpiDiagTraceAmlError(a1, v6);
-        PrintDebugMessage(125, 0LL, 0LL, 0LL, 0LL);
+        LogError(v31);
+        AcpiDiagTraceAmlError(a1, v10);
+        PrintDebugMessage(125, 0, 0, 0, 0LL);
       }
       else
       {
+        v33 = *a6;
         (*a6)[1] = *a4;
         if ( (gDebugger & 0xD0) != 0 )
         {
-          PrintIndent(a1);
-          v16 = (const char *)(*a6 + 4);
+          PrintIndent(a1, (unsigned int)gDebugger, v33, v32);
           if ( **a6 == 1 )
-            ConPrintf("Connection(%s)", v16);
+            ConPrintf("Connection(%s)");
           else
-            ConPrintf(
-              "Connection(%02x %02x %02x %02x ...)",
-              *(unsigned __int8 *)v16,
-              *((unsigned __int8 *)*a6 + 17),
-              *((unsigned __int8 *)*a6 + 18),
-              *((unsigned __int8 *)*a6 + 19));
+            ConPrintf("Connection(%02x %02x %02x %02x ...)");
         }
       }
     }
     else
     {
-      v17 = (*(_DWORD *)a3 & 0xF) - 1;
-      if ( v17 <= 3 )
-        v10 = 1 << v17;
-      v34 = 0LL;
-      if ( v14 )
+      v13 = *(_DWORD *)a3 & 0xF;
+      v14 = 1LL;
+      if ( (unsigned int)(v13 - 1) <= 3 )
       {
-        RtlStringCchCopyNA(pszDest, 5uLL, v13, 4uLL);
-        *v12 += 4;
+        v29 = v13 - 1;
+        i = (unsigned int)(1 << v29);
+        v40 = 1 << v29;
       }
       else
       {
-        pszDest[0] = 0;
-        *v12 = (unsigned __int8 *)(v13 + 1);
+        v40 = 1;
       }
-      v18 = ParsePackageLen(v12, 0LL);
+      v41 = 0LL;
+      v15 = 5LL;
+      if ( (_BYTE)v12 )
+      {
+        for ( i = (unsigned __int64)v43; v15 != 1; ++i )
+        {
+          v16 = *(_BYTE *)(v11 - v43 + i);
+          if ( !v16 )
+            break;
+          *(_BYTE *)i = v16;
+          --v15;
+        }
+        if ( !v15 )
+          --i;
+        *(_BYTE *)i = 0;
+        v14 = 4LL;
+      }
+      else
+      {
+        v43[0] = 0;
+      }
+      v17 = &v11[v14];
+      *(_QWORD *)(a1 + 120) = v17;
+      v18 = *v17;
+      *(_QWORD *)(a1 + 120) = v17 + 1;
+      v19 = v18 >> 6;
+      if ( (_BYTE)v19 )
+      {
+        v18 &= 0xFu;
+        LOBYTE(v11) = 0;
+        do
+        {
+          i = *(_QWORD *)(a1 + 120);
+          v30 = (char)v11;
+          LOBYTE(v11) = (_BYTE)v11 + 1;
+          v18 |= *(unsigned __int8 *)i << (8 * v30 + 4);
+          *(_QWORD *)(a1 + 120) = i + 1;
+        }
+        while ( (unsigned __int8)v11 < (unsigned __int8)v19 );
+      }
       if ( (gDebugger & 0xD0) != 0 )
       {
-        PrintIndent(a1);
-        if ( pszDest[0] )
+        PrintIndent(a1, i, v19, v11);
+        if ( v43[0] )
         {
-          ConPrintf("%s,%d", pszDest, v18);
-        }
-        else if ( v18 <= 0x20 || (((_BYTE)v18 + *(_BYTE *)a4) & 7) != 0 )
-        {
-          ConPrintf(",%d", v18);
+          ConPrintf("%s,%d");
         }
         else
         {
-          ConPrintf("Offset(0x%x)", (v18 + *a4) >> 3);
+          if ( v18 <= 0x20 || (((_BYTE)v18 + *(_BYTE *)a4) & 7) != 0 )
+            v34 = ",%d";
+          else
+            v34 = "Offset(0x%x)";
+          ConPrintf(v34);
         }
       }
-      v6 = CreateNameSpaceObject(
-             *(_QWORD *)(a1 + 320),
-             (unsigned __int8 *)pszDest,
-             *(_QWORD *)(a1 + 80),
-             *(struct _EX_RUNDOWN_REF **)(a1 + 88),
-             &v34,
-             0);
-      if ( !v6 )
+      v10 = CreateNameSpaceObject(
+              *(_QWORD *)(a1 + 320),
+              v43,
+              *(_QWORD *)(a1 + 80),
+              *(struct _EX_RUNDOWN_REF **)(a1 + 88),
+              &v41,
+              0);
+      if ( !v10 )
       {
-        v19 = v34;
-        v20 = 40;
-        *(_WORD *)(v34 + 66) = 5;
-        *(_DWORD *)(v19 + 88) = 40;
+        v20 = v41;
+        v21 = 40;
+        *(_WORD *)(v41 + 66) = 5;
+        *(_DWORD *)(v20 + 88) = 40;
         if ( *a6 )
         {
-          v20 = (*a6)[3] + 40;
-          *(_DWORD *)(v19 + 88) = v20;
+          v21 = (*a6)[3] + 40;
+          *(_DWORD *)(v20 + 88) = v21;
         }
-        v21 = (void *)HeapAlloc(*(_QWORD *)(a1 + 320), 1430537800, v20);
-        *(_QWORD *)(v19 + 96) = v21;
-        if ( v21 )
+        v22 = (void *)HeapAlloc(*(struct _SLIST_ENTRY **)(a1 + 320), 1430537800, v21);
+        *(_QWORD *)(v20 + 96) = v22;
+        if ( v22 )
         {
-          memset(v21, 0, *(unsigned int *)(v19 + 88));
-          v22 = *(_QWORD *)(v19 + 96);
-          *(_QWORD *)v22 = v33;
-          v33 = 0LL;
-          *(_DWORD *)(v22 + 20) = *(_DWORD *)a3;
-          v23 = v10 * (*a4 / (unsigned int)(8 * v10));
-          *(_DWORD *)(v22 + 8) = v23;
-          v24 = *a4 - 8 * v23;
-          *(_DWORD *)(v22 + 16) = v18;
-          v25 = v35;
-          *(_DWORD *)(v22 + 12) = v24;
-          *(_BYTE *)(v22 + 24) = *v25;
+          memset(v22, 0, *(unsigned int *)(v20 + 88));
+          v23 = *(_QWORD *)(v20 + 96);
+          *(_QWORD *)v23 = v8;
+          v8 = 0LL;
+          *(_DWORD *)(v23 + 20) = *(_DWORD *)a3;
+          v24 = v40 * (*a4 / (unsigned int)(8 * v40));
+          *(_DWORD *)(v23 + 8) = v24;
+          v25 = *a4;
+          *(_DWORD *)(v23 + 16) = v18;
+          v26 = v25 - 8 * v24;
+          v27 = v42;
+          *(_DWORD *)(v23 + 12) = v26;
+          *(_BYTE *)(v23 + 24) = *v27;
           if ( *a6 )
           {
-            *(_DWORD *)(v22 + 28) = **a6;
-            *(_DWORD *)(v22 + 32) = (*a6)[1];
-            *(_DWORD *)(v22 + 36) = (*a6)[3];
-            memmove((void *)(v22 + 40), *a6 + 4, (unsigned int)(*a6)[3]);
+            *(_DWORD *)(v23 + 28) = **a6;
+            *(_DWORD *)(v23 + 32) = (*a6)[1];
+            *(_DWORD *)(v23 + 36) = (*a6)[3];
+            memmove((void *)(v23 + 40), *a6 + 4, (unsigned int)(*a6)[3]);
           }
           *a4 += v18;
         }
         else
         {
-          v6 = -1073741670;
-          LogError(-1073741670);
-          AcpiDiagTraceAmlError(a1, -1073741670);
-          PrintDebugMessage(124, 0LL, 0LL, 0LL, 0LL);
+          v10 = -1073741670;
+          LogError(3221225626LL);
+          AcpiDiagTraceAmlError(a1, 3221225626LL);
+          PrintDebugMessage(124, 0, 0, 0, 0LL);
         }
-        DereferenceObjectEx(v19);
-        v9 = v33;
+        if ( (gdwfAMLI & 4) != 0 && _InterlockedExchangeAdd((volatile signed __int32 *)(v20 + 112), 0xFFFFFFFF) == 1 )
+        {
+          v35 = v41;
+          *(_WORD *)(v41 + 64) |= 4u;
+          if ( (*(_WORD *)(v35 + 64) & 0x40) == 0 )
+            FreeNameSpaceObjects(v35);
+        }
       }
     }
-    goto LABEL_47;
+    goto LABEL_25;
   }
-  *v12 = (unsigned __int8 *)(v13 + 1);
-  v26 = v14 == 3;
+  *(_QWORD *)(a1 + 120) = v11 + 1;
+  v36 = (_BYTE)v12 == 3;
   *(_DWORD *)a3 &= 0xFFFFFFF0;
-  *(_DWORD *)a3 |= **v12 & 0xF;
-  if ( v14 != 3 && (**v12 & 0xC0) != 0 )
+  *(_DWORD *)a3 |= **(_BYTE **)(a1 + 120) & 0xF;
+  if ( (_BYTE)v12 != 3 && (**(_BYTE **)(a1 + 120) & 0xC0) != 0 )
   {
-    v27 = (unsigned __int8 *)(a3 + 1);
     *(_BYTE *)(a3 + 1) = 0;
-    v28 = **v12 & 0xC0;
-    if ( v28 == 64 )
+    v37 = **(_BYTE **)(a1 + 120) & 0xC0;
+    if ( v37 == 64 )
     {
-      v29 = 2816;
+      v38 = 2816;
     }
     else
     {
-      v30 = v28 == (char)0x80;
-      v29 = 3584;
-      if ( !v30 )
-        v29 = 3840;
+      v38 = 3840;
+      v12 = 3584LL;
+      if ( v37 == (char)0x80 )
+        v38 = 3584;
     }
-    v26 = 1;
-    *(_DWORD *)a3 |= v29;
-    v31 = ++*v12;
-    goto LABEL_41;
+    *(_DWORD *)a3 |= v38;
+    v36 = 1;
+    v39 = (_BYTE *)++*(_QWORD *)(a1 + 120);
+    goto LABEL_57;
   }
-  ++*v12;
-  v27 = (unsigned __int8 *)(a3 + 1);
+  ++*(_QWORD *)(a1 + 120);
   *(_BYTE *)(a3 + 1) = 0;
-  *(_DWORD *)a3 |= *(*v12)++ << 8;
-  v31 = *v12;
-  if ( v14 == 3 )
+  *(_DWORD *)a3 |= *(unsigned __int8 *)(*(_QWORD *)(a1 + 120))++ << 8;
+  v39 = *(_BYTE **)(a1 + 120);
+  if ( (_BYTE)v12 == 3 )
   {
-LABEL_41:
-    *a5 = *v31;
-    ++*v12;
-    goto LABEL_43;
+LABEL_57:
+    *a5 = *v39;
+    ++*(_QWORD *)(a1 + 120);
+    goto LABEL_58;
   }
   *a5 = 0;
-LABEL_43:
+LABEL_58:
   if ( (gDebugger & 0xD0) != 0 )
   {
-    PrintIndent(a1);
-    ConPrintf("AccessAs(0x%x,0x%x", (unsigned __int8)*(_DWORD *)a3, *v27);
-    if ( v26 )
-      ConPrintf(",0x%x)\n", *v35);
+    PrintIndent(a1, i, v12, v11);
+    ConPrintf("AccessAs(0x%x,0x%x");
+    if ( v36 )
+      ConPrintf(",0x%x)\n");
     else
       ConPrintf(")\n");
   }
-LABEL_47:
-  if ( v9 )
-    DereferenceObjectEx(v9);
-  return v6;
+LABEL_25:
+  if ( v8 )
+    DereferenceObjectEx(v8);
+  return v10;
 }

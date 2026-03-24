@@ -1,20 +1,20 @@
 /*
- * XREFs of McTemplateK0izzx_EtwWriteTransfer @ 0x1405605E0
+ * XREFs of McTemplateK0izzx_EtwWriteTransfer @ 0x14050E9B8
  * Callers:
- *     PnpWatchdogEtwWrite @ 0x140560B10 (PnpWatchdogEtwWrite.c)
+ *     PnpWatchdogEtwWrite @ 0x1408AB8E4 (PnpWatchdogEtwWrite.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403C3C60 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036E304 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0izzx_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
 {
-  const wchar_t *v3; // rcx
-  const wchar_t *v4; // r8
-  __int64 v6; // rax
-  int v7; // r10d
-  __int64 v8; // rdx
-  int v9; // r9d
+  const wchar_t *v3; // rax
+  __int64 v4; // rcx
+  int v6; // r9d
+  __int64 v7; // rdx
+  int v8; // r8d
+  const wchar_t *v9; // rax
   bool v10; // zf
   struct _EVENT_DATA_DESCRIPTOR v12; // [rsp+30h] [rbp-21h] BYREF
   va_list v13; // [rsp+40h] [rbp-11h]
@@ -38,44 +38,44 @@ NTSTATUS McTemplateK0izzx_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a
   v23 = va_arg(va1, _QWORD);
   v25 = va_arg(va1, const wchar_t *);
   v26 = va_arg(va1, const wchar_t *);
-  v3 = v25;
-  v4 = v26;
-  va_copy(v13, va);
-  v6 = -1LL;
   v14 = 8LL;
-  v7 = 10;
+  va_copy(v13, va);
+  v3 = v25;
+  v4 = -1LL;
+  v6 = 10;
   if ( v25 )
   {
-    v8 = -1LL;
+    v7 = -1LL;
     do
-      ++v8;
-    while ( v25[v8] );
-    v9 = 2 * v8 + 2;
+      ++v7;
+    while ( v25[v7] );
+    v8 = 2 * v7 + 2;
   }
   else
   {
-    v9 = 10;
+    v8 = 10;
   }
-  v16 = v9;
+  v16 = v8;
   v17 = 0;
   if ( !v25 )
     v3 = L"NULL";
   v15 = v3;
+  v9 = v26;
   v10 = v26 == 0LL;
   if ( v26 )
   {
     do
-      ++v6;
-    while ( v26[v6] );
-    v7 = 2 * v6 + 2;
+      ++v4;
+    while ( v26[v4] );
+    v6 = 2 * v4 + 2;
     v10 = v26 == 0LL;
   }
   if ( v10 )
-    v4 = L"NULL";
-  v19 = v7;
-  v18 = v4;
-  va_copy(v21, va1);
+    v9 = L"NULL";
+  v19 = v6;
+  v18 = v9;
   v20 = 0;
+  va_copy(v21, va1);
   v22 = 8LL;
   return McGenEventWrite_EtwWriteTransfer(MS_KernelPnP_Provider_Context, a2, 0LL, 5u, &v12);
 }

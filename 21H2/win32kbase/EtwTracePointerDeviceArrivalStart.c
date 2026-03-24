@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTracePointerDeviceArrivalStart @ 0x1C014E1B0
+ * XREFs of EtwTracePointerDeviceArrivalStart @ 0x1C0123590
  * Callers:
- *     ApiSetEtwTracePointerDeviceArrivalStart @ 0x1C020C7BC (ApiSetEtwTracePointerDeviceArrivalStart.c)
+ *     ApiSetEtwTracePointerDeviceArrivalStart @ 0x1C01CE9A4 (ApiSetEtwTracePointerDeviceArrivalStart.c)
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C014F270 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124580 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTracePointerDeviceArrivalStart(__int64 a1)

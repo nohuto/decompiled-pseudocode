@@ -1,17 +1,17 @@
 /*
- * XREFs of ?Initialize@?$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NXZ @ 0x1C024072C
+ * XREFs of ?Initialize@?$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NXZ @ 0x1C0244798
  * Callers:
- *     ?Create@?$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C0240278 (-Create@-$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@SAPEAV12@XZ.c)
+ *     ?Create@?$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C0244320 (-Create@-$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@SAPEAV12@XZ.c)
  * Callees:
- *     ?PlatformMapViewInSessionSpace@NSInstrumentation@@YAJPEAXPEAPEAX_K@Z @ 0x1C00E9C38 (-PlatformMapViewInSessionSpace@NSInstrumentation@@YAJPEAXPEAPEAX_K@Z.c)
- *     ?PlatformCreateSection@NSInstrumentation@@YAPEAXI@Z @ 0x1C00E9C80 (-PlatformCreateSection@NSInstrumentation@@YAPEAXI@Z.c)
- *     ?Create@?$CSectionBitmapAllocator@$0GAAA@$0GA@@NSInstrumentation@@SAPEAV12@QEAE@Z @ 0x1C021B3DC (-Create@-$CSectionBitmapAllocator@$0GAAA@$0GA@@NSInstrumentation@@SAPEAV12@QEAE@Z.c)
+ *     ?PlatformMapViewInSessionSpace@NSInstrumentation@@YAJPEAXPEAPEAX_K@Z @ 0x1C01607A4 (-PlatformMapViewInSessionSpace@NSInstrumentation@@YAJPEAXPEAPEAX_K@Z.c)
+ *     ?PlatformCreateSection@NSInstrumentation@@YAPEAXI@Z @ 0x1C01607EC (-PlatformCreateSection@NSInstrumentation@@YAPEAXI@Z.c)
+ *     ?Create@?$CSectionBitmapAllocator@$0GAAA@$0GA@@NSInstrumentation@@SAPEAV12@QEAE@Z @ 0x1C02212D4 (-Create@-$CSectionBitmapAllocator@$0GAAA@$0GA@@NSInstrumentation@@SAPEAV12@QEAE@Z.c)
  */
 
 bool __fastcall NSInstrumentation::CSectionEntry<28672,112>::Initialize(PVOID *a1)
 {
   NSInstrumentation *Section; // rax
-  __int64 v3; // rax
+  PVOID *v3; // rax
   bool result; // al
 
   Section = (NSInstrumentation *)NSInstrumentation::PlatformCreateSection((NSInstrumentation *)0x7000);
@@ -22,7 +22,7 @@ bool __fastcall NSInstrumentation::CSectionEntry<28672,112>::Initialize(PVOID *a
     if ( NSInstrumentation::PlatformMapViewInSessionSpace(Section, a1 + 3, (void **)0x7000) >= 0 )
     {
       v3 = NSInstrumentation::CSectionBitmapAllocator<24576,96>::Create((__int64)a1[3]);
-      a1[4] = (PVOID)v3;
+      a1[4] = v3;
       if ( v3 )
         return 1;
     }

@@ -1,10 +1,9 @@
 /*
- * XREFs of MmAllocatePagesForMdl @ 0x1403AA2F0
+ * XREFs of MmAllocatePagesForMdl @ 0x1403A5DB0
  * Callers:
- *     DifMmAllocatePagesForMdlWrapper @ 0x1405E6E30 (DifMmAllocatePagesForMdlWrapper.c)
- *     HalpDmaAllocateScatterMemory @ 0x140934518 (HalpDmaAllocateScatterMemory.c)
+ *     HalpDmaAllocateScatterMemory @ 0x1408652F8 (HalpDmaAllocateScatterMemory.c)
  * Callees:
- *     MiAllocatePagesForMdl @ 0x1402F8CDC (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x140354954 (MiAllocatePagesForMdl.c)
  */
 
 PMDL __stdcall MmAllocatePagesForMdl(
@@ -20,8 +19,6 @@ PMDL __stdcall MmAllocatePagesForMdl(
                  SkipBytes.QuadPart,
                  TotalBytes,
                  3,
-                 *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 192) + 138LL),
-                 0,
-                 (__int64)KeGetCurrentThread()->ApcState.Process,
-                 0LL);
+                 *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 192) + 146LL),
+                 0);
 }

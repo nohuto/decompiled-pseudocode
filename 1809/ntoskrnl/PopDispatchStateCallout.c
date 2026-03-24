@@ -1,24 +1,24 @@
 /*
- * XREFs of PopDispatchStateCallout @ 0x1406DDC80
+ * XREFs of PopDispatchStateCallout @ 0x1406DDC60
  * Callers:
- *     PoPowerOffMonitor @ 0x140142C88 (PoPowerOffMonitor.c)
- *     PopReleaseAdaptiveLock @ 0x1406DC650 (PopReleaseAdaptiveLock.c)
- *     PopBlockSessionSwitch @ 0x1406DDB50 (PopBlockSessionSwitch.c)
- *     PoUnblockConsoleSwitch @ 0x1406DDBCC (PoUnblockConsoleSwitch.c)
- *     PoStartPowerStateTasks @ 0x1406DDBF0 (PoStartPowerStateTasks.c)
- *     PoEndPowerStateTasks @ 0x1406DDC10 (PoEndPowerStateTasks.c)
- *     PoBlockConsoleSwitch @ 0x1406DDC30 (PoBlockConsoleSwitch.c)
- *     PopIssueActionRequest @ 0x1406DE870 (PopIssueActionRequest.c)
- *     PopSuspendApps @ 0x1406DEBF0 (PopSuspendApps.c)
- *     PopSuspendServices @ 0x1406DEC58 (PopSuspendServices.c)
- *     PopResumeApps @ 0x1406DECC8 (PopResumeApps.c)
- *     PopResumeServices @ 0x1406DED60 (PopResumeServices.c)
- *     PopDirectedDripsNotifyAppsAndServices @ 0x140867FDC (PopDirectedDripsNotifyAppsAndServices.c)
- *     PoEndPartitionReplace @ 0x14086BEB0 (PoEndPartitionReplace.c)
- *     PoStartPartitionReplace @ 0x14086BFD4 (PoStartPartitionReplace.c)
+ *     PoPowerOffMonitor @ 0x140142CA8 (PoPowerOffMonitor.c)
+ *     PopReleaseAdaptiveLock @ 0x1406DC630 (PopReleaseAdaptiveLock.c)
+ *     PopBlockSessionSwitch @ 0x1406DDB30 (PopBlockSessionSwitch.c)
+ *     PoUnblockConsoleSwitch @ 0x1406DDBAC (PoUnblockConsoleSwitch.c)
+ *     PoStartPowerStateTasks @ 0x1406DDBD0 (PoStartPowerStateTasks.c)
+ *     PoEndPowerStateTasks @ 0x1406DDBF0 (PoEndPowerStateTasks.c)
+ *     PoBlockConsoleSwitch @ 0x1406DDC10 (PoBlockConsoleSwitch.c)
+ *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
+ *     PopSuspendApps @ 0x1406DEBD0 (PopSuspendApps.c)
+ *     PopSuspendServices @ 0x1406DEC38 (PopSuspendServices.c)
+ *     PopResumeApps @ 0x1406DECA8 (PopResumeApps.c)
+ *     PopResumeServices @ 0x1406DED40 (PopResumeServices.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x140867FBC (PopDirectedDripsNotifyAppsAndServices.c)
+ *     PoEndPartitionReplace @ 0x14086BE90 (PoEndPartitionReplace.c)
+ *     PoStartPartitionReplace @ 0x14086BFB4 (PoStartPartitionReplace.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PopInvokeWin32Callout @ 0x1405B0C84 (PopInvokeWin32Callout.c)
  */
 

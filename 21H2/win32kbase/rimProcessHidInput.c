@@ -1,41 +1,43 @@
 /*
- * XREFs of rimProcessHidInput @ 0x1C01A99EC
+ * XREFs of rimProcessHidInput @ 0x1C017573C
  * Callers:
- *     rimProcessDeviceBufferAndStartRead @ 0x1C0003B78 (rimProcessDeviceBufferAndStartRead.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175130 (rimProcessDeviceBufferAndStartRead.c)
  * Callees:
- *     rimStackAttachAndProcessInput @ 0x1C0004590 (rimStackAttachAndProcessInput.c)
- *     ?DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z @ 0x1C019A7B0 (-DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z.c)
- *     ApiSetProcessHidRawInput @ 0x1C020EF90 (ApiSetProcessHidRawInput.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z @ 0x1C0166854 (-DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z.c)
+ *     rimStackAttachAndProcessInput @ 0x1C01761B4 (rimStackAttachAndProcessInput.c)
+ *     ApiSetProcessHidRawInput @ 0x1C01D02A0 (ApiSetProcessHidRawInput.c)
  */
 
-void __fastcall rimProcessHidInput(__int64 a1, __int64 a2, __int64 a3)
+char __fastcall rimProcessHidInput(__int64 a1, __int64 a2)
 {
-  int v5; // eax
+  int v4; // eax
+  char result; // al
 
-  if ( (*(_DWORD *)(a2 + 184) & 0x10000) == 0 && (*(_DWORD *)(a2 + 200) & 0x80u) != 0 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  if ( *(_QWORD *)(a2 + 472) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
+  if ( (*(_DWORD *)(a2 + 184) & 0x4000) == 0 && (*(_DWORD *)(a2 + 200) & 0x80u) != 0 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 357);
+  if ( *(_QWORD *)(a2 + 480) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 358);
   if ( !*(_DWORD *)(a1 + 88) && (*(_DWORD *)(a2 + 200) & 0x80u) != 0 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  if ( (*(_QWORD *)(a1 + 864) || *(_DWORD *)(a1 + 1088))
-    && (v5 = *(_DWORD *)(a2 + 184), (v5 & 0x2000) != 0)
-    && (v5 & 0x80000) != 0
-    && (v5 & 0x1000000) == 0 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 359);
+  if ( (*(_QWORD *)(a1 + 640) || *(_DWORD *)(a1 + 864))
+    && (v4 = *(_DWORD *)(a2 + 184), (v4 & 0x2000) != 0)
+    && (v4 & 0x20000) != 0
+    && (v4 & 0x400000) == 0 )
   {
-    if ( (v5 & 0x400000) == 0 )
+    if ( (v4 & 0x100000) == 0 )
     {
-      *(_DWORD *)(a2 + 184) = v5 | 0x400000;
-      ZwSetEvent(*(HANDLE *)(a1 + 344), 0LL);
+      *(_DWORD *)(a2 + 184) = v4 | 0x100000;
+      ZwSetEvent(*(HANDLE *)(a1 + 384), 0LL);
     }
-    *(_BYTE *)(a1 + 808) = 1;
-    InputTraceLogging::RIM::DropInput(a2);
+    *(_BYTE *)(a1 + 584) = 1;
+    return InputTraceLogging::RIM::DropInput(a2);
   }
   else
   {
-    rimStackAttachAndProcessInput(a1, a2, *(_QWORD *)(*(_QWORD *)(a2 + 456) + 24LL), a2 + 256, 0);
-    if ( (*(_DWORD *)(a2 + 184) & 0x20000) != 0 )
-      ApiSetProcessHidRawInput(a2);
+    result = rimStackAttachAndProcessInput(a1, a2, *(_QWORD *)(*(_QWORD *)(a2 + 464) + 24LL), (int)a2 + 256, 0);
+    if ( (*(_DWORD *)(a2 + 184) & 0x8000) != 0 )
+      return ApiSetProcessHidRawInput(a2);
   }
+  return result;
 }

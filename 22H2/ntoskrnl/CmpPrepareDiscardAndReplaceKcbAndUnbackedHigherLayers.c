@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A20004
+ * XREFs of CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140876448
  * Callers:
- *     CmDeleteLayeredKey @ 0x14061695C (CmDeleteLayeredKey.c)
- *     CmDeleteKey @ 0x14071009C (CmDeleteKey.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A29058 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmDeleteLayeredKey @ 0x1404ECFB8 (CmDeleteLayeredKey.c)
+ *     CmDeleteKey @ 0x1406E47E4 (CmDeleteKey.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14087F660 (CmpLightWeightPrepareDeleteKeyUoW.c)
  * Callees:
- *     CmpDrainDelayDerefContext @ 0x14022D510 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x1402314A4 (CmpInitializeDelayDerefContext.c)
- *     CmpEnumerateAllHigherLayerKcbs @ 0x140A1FB6C (CmpEnumerateAllHigherLayerKcbs.c)
- *     CmpPrepareDiscardReplacePost @ 0x140A200B0 (CmpPrepareDiscardReplacePost.c)
+ *     CmpInitializeDelayDerefContext @ 0x1402D1878 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x1402D1890 (CmpDrainDelayDerefContext.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x140734DF4 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpPrepareDiscardReplacePost @ 0x1408764F0 (CmpPrepareDiscardReplacePost.c)
  */
 
 __int64 __fastcall CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers(__int64 a1, __int64 a2)

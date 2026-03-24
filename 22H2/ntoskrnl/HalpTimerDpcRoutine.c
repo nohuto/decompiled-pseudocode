@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpTimerDpcRoutine @ 0x140369D10
+ * XREFs of HalpTimerDpcRoutine @ 0x14032A8C0
  * Callers:
  *     <none>
  * Callees:
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KiInsertQueueDpc @ 0x14021FD20 (KiInsertQueueDpc.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpTimerDpcRoutine()
@@ -22,12 +22,12 @@ __int64 HalpTimerDpcRoutine()
   signed __int64 v7; // rdx
   __int64 v8; // rbx
   __int64 v9; // rax
-  unsigned __int64 v10; // r11
+  unsigned __int64 v10; // r10
   signed __int64 v11; // rax
   int v12; // r9d
   __int64 v13; // r8
   __int64 v14; // rcx
-  unsigned __int64 v15; // r8
+  unsigned __int64 v15; // rcx
   __int64 v16; // rdx
   signed __int32 v17[8]; // [rsp+0h] [rbp-38h] BYREF
 
@@ -61,17 +61,15 @@ __int64 HalpTimerDpcRoutine()
       v12 = *(_DWORD *)(v0 + 220);
       if ( ((v8 ^ v10) & (1LL << ((unsigned __int8)v12 - 1))) != 0 )
       {
+        v13 = 1LL << v12;
         if ( v12 == 64 )
-          v13 = -1LL;
+          v14 = -1LL;
         else
-          v13 = (1LL << v12) - 1;
-        v14 = 0LL;
-        if ( v12 != 64 )
-          v14 = 1LL << v12;
-        v15 = v8 & v13;
+          v14 = v13 - 1;
+        v15 = v8 & v14;
         v7 = v10 | v8 ^ v15;
         if ( v10 < v15 )
-          v7 += v14;
+          v7 += v13;
         _InterlockedCompareExchange64((volatile signed __int64 *)(v0 + 200), v7, v11);
       }
       else

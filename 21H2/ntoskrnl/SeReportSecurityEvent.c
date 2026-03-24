@@ -1,9 +1,9 @@
 /*
- * XREFs of SeReportSecurityEvent @ 0x1405F4C40
+ * XREFs of SeReportSecurityEvent @ 0x140596CA0
  * Callers:
  *     <none>
  * Callees:
- *     SeReportSecurityEventWithSubCategory @ 0x1402EC620 (SeReportSecurityEventWithSubCategory.c)
+ *     SeReportSecurityEventWithSubCategory @ 0x1402529F0 (SeReportSecurityEventWithSubCategory.c)
  */
 
 NTSTATUS __stdcall SeReportSecurityEvent(
@@ -14,5 +14,5 @@ NTSTATUS __stdcall SeReportSecurityEvent(
 {
   if ( AuditParameters )
     AuditParameters->CategoryId = 3;
-  return SeReportSecurityEventWithSubCategory(Flags, SourceName, UserSid, AuditParameters, 0x7Au);
+  return SeReportSecurityEventWithSubCategory(Flags, SourceName, UserSid, AuditParameters, 0x7Bu);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBatteryCheckCompositeCapacity @ 0x14071A60C
+ * XREFs of PopBatteryCheckCompositeCapacity @ 0x14071A5EC
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14071A168 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  */
 
 void __fastcall PopBatteryCheckCompositeCapacity(int *a1, int a2, _DWORD *a3)
@@ -79,66 +79,66 @@ void __fastcall PopBatteryCheckCompositeCapacity(int *a1, int a2, _DWORD *a3)
   __int64 v70; // [rsp+178h] [rbp+78h]
 
   *a3 = 0;
-  if ( !dword_140417834 )
+  if ( !dword_140417914 )
   {
     v6 = 0;
-    dword_1404179C0 = 0;
+    dword_140417AA0 = 0;
 LABEL_3:
     LOBYTE(v7) = 0;
 LABEL_4:
-    dword_1404179C8 = 0;
+    dword_140417AA8 = 0;
     goto LABEL_5;
   }
   v13 = (unsigned int)a1[1];
   LODWORD(v14) = 100000;
-  if ( HIDWORD(qword_140417880) > (unsigned int)v13 )
+  if ( HIDWORD(qword_140417960) > (unsigned int)v13 )
   {
-    if ( HIDWORD(qword_140417880) )
-      v14 = 100000 * v13 / (unsigned __int64)HIDWORD(qword_140417880);
+    if ( HIDWORD(qword_140417960) )
+      v14 = 100000 * v13 / (unsigned __int64)HIDWORD(qword_140417960);
     else
       LODWORD(v14) = 0;
   }
   v15 = 0;
-  if ( dword_1404179B0 != -1 )
-    v15 = v14 - dword_1404179B0;
+  if ( dword_140417A90 != -1 )
+    v15 = v14 - dword_140417A90;
   v16 = ((int)v14 + 500) / 0x3E8u;
-  v17 = (dword_1404179B0 + 500) / 0x3E8u;
+  v17 = (dword_140417A90 + 500) / 0x3E8u;
   if ( v16 != v17 )
     *a3 = v16 - v17;
-  v6 = byte_1404179C4;
-  LOBYTE(v7) = byte_1404179A8;
-  dword_1404179B0 = v14;
+  v6 = byte_140417AA4;
+  LOBYTE(v7) = byte_140417A88;
+  dword_140417A90 = v14;
   if ( a2 == 1 )
   {
     v6 = 0;
-    dword_1404179C0 = 0;
+    dword_140417AA0 = 0;
     LOBYTE(v7) = 1;
     goto LABEL_4;
   }
-  if ( a2 != ((unk_140417860 & 1) == 0) )
+  if ( a2 != ((unk_140417940 & 1) == 0) )
   {
     v6 = 0;
 LABEL_20:
-    dword_1404179C0 = v14;
+    dword_140417AA0 = v14;
     goto LABEL_3;
   }
-  if ( byte_140417838 )
+  if ( byte_140417918 )
   {
-    if ( byte_1404179C4 )
+    if ( byte_140417AA4 )
       goto LABEL_3;
     goto LABEL_20;
   }
-  v18 = dword_1404179C0;
-  if ( dword_1404179C0 < (unsigned int)v14 )
+  v18 = dword_140417AA0;
+  if ( dword_140417AA0 < (unsigned int)v14 )
   {
     v18 = v14;
-    dword_1404179C0 = v14;
+    dword_140417AA0 = v14;
   }
-  v6 = byte_1404179C4;
+  v6 = byte_140417AA4;
   if ( v18 > (int)v14 + WeakChargerChargeDropMilliPercent )
     v6 = 1;
-  v19 = v15 + dword_1404179C8;
-  dword_1404179C8 = v19;
+  v19 = v15 + dword_140417AA8;
+  dword_140417AA8 = v19;
   if ( (int)abs32(v19) >= BatteryChargeTrajectoryThresholdMilliPercent )
   {
     v7 = v19 >> 31;
@@ -150,9 +150,9 @@ LABEL_5:
   v10 = "Battery Charging";
   v11 = "Battery Critical";
   v12 = "Battery charge limiting mode";
-  if ( byte_1404179C4 != v6 )
+  if ( byte_140417AA4 != v6 )
   {
-    byte_1404179C4 = v6;
+    byte_140417AA4 = v6;
     v36 = v6;
     updated = ZwUpdateWnfStateData((__int64)&WNF_PO_WEAK_CHARGER, (__int64)&v36, 4LL);
     if ( pCallbackContext.LevelPlus1 > 5 )
@@ -162,8 +162,8 @@ LABEL_5:
         v20 = *a1;
         v21 = "AC Power";
         v22 = (unsigned int)a1[1];
-        v37 = (unsigned __int8)byte_1404179C4;
-        v38 = dword_140417834;
+        v37 = (unsigned __int8)byte_140417AA4;
+        v38 = dword_140417914;
         if ( (v20 & 1) == 0 )
           v21 = "DC Power";
         v23 = "Battery Charging";
@@ -179,10 +179,10 @@ LABEL_5:
         if ( v25 )
           v26 = "-";
         v46 = v26;
-        if ( HIDWORD(qword_140417880) )
+        if ( HIDWORD(qword_140417960) )
         {
-          v34 = (unsigned int)((HIDWORD(qword_140417880) >> 1) + 100 * v22) / HIDWORD(qword_140417880);
-          v27 = 100000 * v22 / (unsigned __int64)HIDWORD(qword_140417880);
+          v34 = (unsigned int)((HIDWORD(qword_140417960) >> 1) + 100 * v22) / HIDWORD(qword_140417960);
+          v27 = 100000 * v22 / (unsigned __int64)HIDWORD(qword_140417960);
         }
         else
         {
@@ -195,7 +195,7 @@ LABEL_5:
         v48 = &v37;
         v50 = &v38;
         v40 = v22;
-        v41 = HIDWORD(qword_140417880);
+        v41 = HIDWORD(qword_140417960);
         v49 = 4LL;
         v51 = 4LL;
         TlgCreateSz(&pDesc, v21);
@@ -217,13 +217,13 @@ LABEL_5:
         v66 = 4LL;
         v68 = 4LL;
         v70 = 4LL;
-        TlgWrite(&pCallbackContext, &unk_14036EE5F, 0LL, 0LL, 0x10u, &pData);
+        TlgWrite(&pCallbackContext, &unk_14036EB7D, 0LL, 0LL, 0x10u, &pData);
       }
     }
   }
-  if ( byte_1404179A8 != (_BYTE)v7 )
+  if ( byte_140417A88 != (_BYTE)v7 )
   {
-    byte_1404179A8 = v7;
+    byte_140417A88 = v7;
     v43 = (unsigned __int8)v7;
     ZwUpdateWnfStateData((__int64)&WNF_PO_BATTERY_DISCHARGING, (__int64)&v43, 4LL);
     if ( pCallbackContext.LevelPlus1 > 5 )
@@ -232,8 +232,8 @@ LABEL_5:
       {
         v30 = *a1;
         v31 = (unsigned int)a1[1];
-        v42 = (unsigned __int8)byte_1404179A8;
-        v41 = dword_140417834;
+        v42 = (unsigned __int8)byte_140417A88;
+        v41 = dword_140417914;
         if ( (v30 & 1) == 0 )
           v8 = "DC Power";
         if ( (v30 & 2) == 0 )
@@ -244,10 +244,10 @@ LABEL_5:
           v11 = "-";
         if ( (v30 & 0x10) == 0 )
           v12 = "-";
-        if ( HIDWORD(qword_140417880) )
+        if ( HIDWORD(qword_140417960) )
         {
-          v34 = (unsigned int)((HIDWORD(qword_140417880) >> 1) + 100 * v31) / HIDWORD(qword_140417880);
-          v32 = 100000 * v31 / (unsigned __int64)HIDWORD(qword_140417880);
+          v34 = (unsigned int)((HIDWORD(qword_140417960) >> 1) + 100 * v31) / HIDWORD(qword_140417960);
+          v32 = 100000 * v31 / (unsigned __int64)HIDWORD(qword_140417960);
         }
         else
         {
@@ -260,7 +260,7 @@ LABEL_5:
         v48 = &v42;
         v50 = &v41;
         v39 = v31;
-        v38 = HIDWORD(qword_140417880);
+        v38 = HIDWORD(qword_140417960);
         v36 = v29;
         v49 = 4LL;
         v51 = 4LL;
@@ -283,7 +283,7 @@ LABEL_5:
         v66 = v33;
         v68 = v33;
         v70 = v33;
-        TlgWrite(&pCallbackContext, &unk_14036ECFE, 0LL, 0LL, 0x10u, &pData);
+        TlgWrite(&pCallbackContext, &unk_14036EA1C, 0LL, 0LL, 0x10u, &pData);
       }
     }
   }

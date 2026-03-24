@@ -1,162 +1,169 @@
 /*
- * XREFs of ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800C4940
+ * XREFs of ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800B8A24
  * Callers:
- *     ?CreateNewGenerator@CPrimitiveGroup@@AEAAJPEAPEAVCPrimitiveGroupDrawListGenerator@@@Z @ 0x180010DB4 (-CreateNewGenerator@CPrimitiveGroup@@AEAAJPEAPEAVCPrimitiveGroupDrawListGenerator@@@Z.c)
- *     ?GetSourceInputBounds@CEffectBrush@@AEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBUD2D_SIZE_F@@AEAV?$DynArray@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0A@@@@Z @ 0x18001C0CC (-GetSourceInputBounds@CEffectBrush@@AEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSi.c)
- *     ?DrawImage@CRenderDataBuilder@@UEAAJAEBUMilRectF@@I@Z @ 0x18001C3F0 (-DrawImage@CRenderDataBuilder@@UEAAJAEBUMilRectF@@I@Z.c)
- *     ??$AddProperty@UD2DVector4@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector4@@PEAI@Z @ 0x18001C668 (--$AddProperty@UD2DVector4@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator.c)
- *     ??$AddProperty@UD2DVector2@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector2@@PEAI@Z @ 0x18001E5F0 (--$AddProperty@UD2DVector2@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator.c)
- *     ??$AddProperty@_N@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEB_NPEAI@Z @ 0x18001EA40 (--$AddProperty@_N@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4.c)
- *     ?AddMultiple@?$DynArrayImpl@$0A@@@IEAAJIIPEAPEAX@Z @ 0x18001F1E4 (-AddMultiple@-$DynArrayImpl@$0A@@@IEAAJIIPEAPEAX@Z.c)
- *     ?GetUnOccludedWorldShape@CRectanglesShape@@UEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVCMILMatrix@@PEAPEAVCShape@@@Z @ 0x1800331A0 (-GetUnOccludedWorldShape@CRectanglesShape@@UEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoi.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     ?AddMultipleAndSet@?$DynArray@UtagRECT@@$0A@@@QEAAJPEFBUtagRECT@@I@Z @ 0x1800C48AC (-AddMultipleAndSet@-$DynArray@UtagRECT@@$0A@@@QEAAJPEFBUtagRECT@@I@Z.c)
- *     ??$AddProperty@M@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBMPEAI@Z @ 0x1800DD520 (--$AddProperty@M@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4D.c)
- *     ??$AddProperty@UD2D_MATRIX_3X2_F@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2D_MATRIX_3X2_F@@PEAI@Z @ 0x1800DD7C4 (--$AddProperty@UD2D_MATRIX_3X2_F@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAll.c)
- *     ??$AddProperty@UD2DMatrix@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DMatrix@@PEAI@Z @ 0x1800DDDA0 (--$AddProperty@UD2DMatrix@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@.c)
- *     ??$AddProperty@U_D3DCOLORVALUE@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBU_D3DCOLORVALUE@@PEAI@Z @ 0x1800DE1C0 (--$AddProperty@U_D3DCOLORVALUE@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAlloc.c)
- *     ??$AddProperty@UD2DVector3@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector3@@PEAI@Z @ 0x1800DE5BC (--$AddProperty@UD2DVector3@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator.c)
- *     ?DrawGeometry@CRenderDataBuilder@@UEAAJII@Z @ 0x1800F95B0 (-DrawGeometry@CRenderDataBuilder@@UEAAJII@Z.c)
- *     ?PushTransform@CRenderDataBuilder@@UEAAJI@Z @ 0x1800F9790 (-PushTransform@CRenderDataBuilder@@UEAAJI@Z.c)
- *     ?Pop@CRenderDataBuilder@@UEAAJXZ @ 0x1800F9F50 (-Pop@CRenderDataBuilder@@UEAAJXZ.c)
- *     ?DrawRectangle@CRenderDataBuilder@@UEAAJAEBUMilRectF@@I@Z @ 0x1800FA430 (-DrawRectangle@CRenderDataBuilder@@UEAAJAEBUMilRectF@@I@Z.c)
- *     ?DrawVisual@CRenderDataBuilder@@UEAAJI@Z @ 0x1800FA930 (-DrawVisual@CRenderDataBuilder@@UEAAJI@Z.c)
- *     ?DrawTileImage@CRenderDataBuilder@@UEAAJIAEBUMilRectF@@MAEBUMilPoint2F@@@Z @ 0x1800FB160 (-DrawTileImage@CRenderDataBuilder@@UEAAJIAEBUMilRectF@@MAEBUMilPoint2F@@@Z.c)
- *     ?DrawBitmap@CRenderDataBuilder@@UEAAJI@Z @ 0x1800FC6E0 (-DrawBitmap@CRenderDataBuilder@@UEAAJI@Z.c)
- *     ?Optimize@?$ShrinkableArray@PEAVCBatchCommand@@U?$UniqueLifetime@PEAVCBatchCommand@@@@@@QEAAXXZ @ 0x180100F7C (-Optimize@-$ShrinkableArray@PEAVCBatchCommand@@U-$UniqueLifetime@PEAVCBatchCommand@@@@@@QEAAXXZ.c)
- *     ?Optimize@?$ShrinkableArray@PEAVCDrawListEntryBatch@@U?$RefCountLifetime@PEAVCDrawListEntryBatch@@@@@@QEAAXXZ @ 0x180102858 (-Optimize@-$ShrinkableArray@PEAVCDrawListEntryBatch@@U-$RefCountLifetime@PEAVCDrawListEntryBatch.c)
- *     ?DrawSolidRectangle@CRenderDataBuilder@@UEAAJAEBUMilRectF@@AEBU_D3DCOLORVALUE@@@Z @ 0x180102E10 (-DrawSolidRectangle@CRenderDataBuilder@@UEAAJAEBUMilRectF@@AEBU_D3DCOLORVALUE@@@Z.c)
- *     ?GetUnOccludedWorldShape@CRegionShape@@UEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVCMILMatrix@@PEAPEAVCShape@@@Z @ 0x1801B20A0 (-GetUnOccludedWorldShape@CRegionShape@@UEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAn.c)
- *     ??$AddProperty@UD2DQuaternion@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DQuaternion@@PEAI@Z @ 0x1801E16AC (--$AddProperty@UD2DQuaternion@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAlloca.c)
- *     ?DrawMesh2D@CRenderDataBuilder@@UEAAJII@Z @ 0x1801F1AB0 (-DrawMesh2D@CRenderDataBuilder@@UEAAJII@Z.c)
- *     ?CreateSkyBoxPrimitive@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAPEAVCDrawListPrimitive@@@Z @ 0x180225820 (-CreateSkyBoxPrimitive@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAPEAVCDrawLi.c)
- *     ?ProcessSegmentCountUpdate@CInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INK_SEGMENTCOUNTUPDATE@@@Z @ 0x18022FD78 (-ProcessSegmentCountUpdate@CInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INK_SEGMENTCOUNTUPDATE@@.c)
+ *     ?GetSourceInputBounds@CEffectBrush@@AEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBUD2D_SIZE_F@@AEAV?$DynArray@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0A@@@@Z @ 0x180005AAC (-GetSourceInputBounds@CEffectBrush@@AEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSi.c)
+ *     ??$AddProperty@UD2DVector3@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector3@@PEAI@Z @ 0x180019C28 (--$AddProperty@UD2DVector3@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator.c)
+ *     ?DrawSolidRectangle@CRenderDataBuilder@@UEAAJAEBUMilRectF@@AEBU_D3DCOLORVALUE@@@Z @ 0x18001BA30 (-DrawSolidRectangle@CRenderDataBuilder@@UEAAJAEBUMilRectF@@AEBU_D3DCOLORVALUE@@@Z.c)
+ *     ??$AddProperty@UD2DVector2@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector2@@PEAI@Z @ 0x18001E834 (--$AddProperty@UD2DVector2@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator.c)
+ *     ?PostSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180084280 (-PostSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?CreateNewGenerator@CPrimitiveGroup@@AEAAJPEAPEAVCPrimitiveGroupDrawListGenerator@@@Z @ 0x18009F4F8 (-CreateNewGenerator@CPrimitiveGroup@@AEAAJPEAPEAVCPrimitiveGroupDrawListGenerator@@@Z.c)
+ *     ?AddMultipleAndSet@?$DynArray@VCZOrderedRect@@$0A@@@QEAAJPEFBVCZOrderedRect@@I@Z @ 0x1800B8888 (-AddMultipleAndSet@-$DynArray@VCZOrderedRect@@$0A@@@QEAAJPEFBVCZOrderedRect@@I@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?AddMultiple@?$DynArrayImpl@$0A@@@IEAAJIIPEAPEAX@Z @ 0x1800B89B8 (-AddMultiple@-$DynArrayImpl@$0A@@@IEAAJIIPEAPEAX@Z.c)
+ *     ??$AddProperty@M@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBMPEAI@Z @ 0x1800BD454 (--$AddProperty@M@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4D.c)
+ *     ??$AddProperty@UD2D_MATRIX_3X2_F@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2D_MATRIX_3X2_F@@PEAI@Z @ 0x1800BD50C (--$AddProperty@UD2D_MATRIX_3X2_F@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAll.c)
+ *     ??$AddProperty@UD2DMatrix@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DMatrix@@PEAI@Z @ 0x1800BD5D0 (--$AddProperty@UD2DMatrix@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@.c)
+ *     ??$AddProperty@UD2DVector4@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector4@@PEAI@Z @ 0x1800BD6A4 (--$AddProperty@UD2DVector4@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator.c)
+ *     ?PushTransform@CRenderDataBuilder@@UEAAJI@Z @ 0x1800D6140 (-PushTransform@CRenderDataBuilder@@UEAAJI@Z.c)
+ *     ?DrawGeometry@CRenderDataBuilder@@UEAAJII@Z @ 0x1800D66E0 (-DrawGeometry@CRenderDataBuilder@@UEAAJII@Z.c)
+ *     ?Pop@CRenderDataBuilder@@UEAAJXZ @ 0x1800D76C0 (-Pop@CRenderDataBuilder@@UEAAJXZ.c)
+ *     ?DrawImage@CRenderDataBuilder@@UEAAJAEBUMilRectF@@I@Z @ 0x1800D8750 (-DrawImage@CRenderDataBuilder@@UEAAJAEBUMilRectF@@I@Z.c)
+ *     ?DrawTileImage@CRenderDataBuilder@@UEAAJIAEBUMilRectF@@MAEBUMilPoint2F@@@Z @ 0x1800D8D20 (-DrawTileImage@CRenderDataBuilder@@UEAAJIAEBUMilRectF@@MAEBUMilPoint2F@@@Z.c)
+ *     ?DrawRectangle@CRenderDataBuilder@@UEAAJAEBUMilRectF@@I@Z @ 0x1800D9990 (-DrawRectangle@CRenderDataBuilder@@UEAAJAEBUMilRectF@@I@Z.c)
+ *     ?DrawBitmap@CRenderDataBuilder@@UEAAJI@Z @ 0x1800DAD60 (-DrawBitmap@CRenderDataBuilder@@UEAAJI@Z.c)
+ *     ?DrawVisual@CRenderDataBuilder@@UEAAJI@Z @ 0x1800DAEC0 (-DrawVisual@CRenderDataBuilder@@UEAAJI@Z.c)
+ *     ?Optimize@?$ShrinkableReferenceArray@PEAVCBaseDrawListEntry@@@@QEAAXXZ @ 0x1800DB598 (-Optimize@-$ShrinkableReferenceArray@PEAVCBaseDrawListEntry@@@@QEAAXXZ.c)
+ *     ?Optimize@?$ShrinkableReferenceArray@PEAVCDrawListEntryBatch@@@@QEAAXXZ @ 0x1800DD86C (-Optimize@-$ShrinkableReferenceArray@PEAVCDrawListEntryBatch@@@@QEAAXXZ.c)
+ *     ?Optimize@?$ShrinkableReferenceArray@PEAVCGroupDrawListEntry@@@@QEAAXXZ @ 0x1800DDA4C (-Optimize@-$ShrinkableReferenceArray@PEAVCGroupDrawListEntry@@@@QEAAXXZ.c)
+ *     ?DrawMesh2D@CRenderDataBuilder@@UEAAJII@Z @ 0x180154260 (-DrawMesh2D@CRenderDataBuilder@@UEAAJII@Z.c)
+ *     ??$AddProperty@_N@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEB_NPEAI@Z @ 0x18017EE30 (--$AddProperty@_N@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4.c)
+ *     ?CreateSkyBoxPrimitive@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAPEAVCDrawListPrimitive@@@Z @ 0x1801BB8C4 (-CreateSkyBoxPrimitive@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAPEAVCDrawLi.c)
+ *     ?ProcessSegmentCountUpdate@CInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INK_SEGMENTCOUNTUPDATE@@@Z @ 0x1801C5448 (-ProcessSegmentCountUpdate@CInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INK_SEGMENTCOUNTUPDATE@@.c)
+ *     ?EnsureCount@CMILResourceCache@@IEAAJI@Z @ 0x18021EEF8 (-EnsureCount@CMILResourceCache@@IEAAJI@Z.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
  */
 
-__int64 __fastcall DynArrayImpl<0>::Grow(unsigned __int64 a1, unsigned int a2, int a3, int a4, unsigned __int64 *a5)
+__int64 __fastcall DynArrayImpl<0>::Grow(__int64 a1, unsigned int a2, int a3, int a4, unsigned __int64 *a5)
 {
   unsigned int v5; // eax
-  unsigned __int64 v6; // rsi
-  unsigned int v8; // r10d
-  unsigned int v9; // eax
-  unsigned int v10; // ebx
-  unsigned int v11; // r14d
-  unsigned int v12; // r14d
-  int v13; // edx
-  unsigned int v14; // r8d
-  unsigned __int64 v15; // rax
-  void *v16; // rbp
-  SIZE_T v17; // rbx
+  void *v6; // rsi
+  __int64 v9; // rdi
+  unsigned int v10; // ebp
+  unsigned int v11; // r9d
+  unsigned int v12; // ebx
+  unsigned __int64 v13; // r8
+  unsigned int v15; // eax
+  unsigned int v16; // ecx
+  unsigned int v17; // edx
+  void *v18; // r15
+  SIZE_T v19; // r14
   HANDLE ProcessHeap; // rax
-  void *v19; // rbp
-  int v20; // eax
-  HANDLE v22; // rax
-  char *v23; // rax
-  __int64 v24; // rcx
-  unsigned __int64 v25; // rdx
-  unsigned int v26; // [rsp+20h] [rbp-18h]
+  int v21; // eax
+  HANDLE v23; // rax
+  char *v24; // rax
+  unsigned __int64 v25; // r8
+  int v26; // r9d
+  unsigned int v27; // [rsp+20h] [rbp-28h]
 
   v5 = *(_DWORD *)(a1 + 24);
-  v6 = a1;
-  v8 = v5 + a3;
+  v6 = 0LL;
+  v9 = a1;
+  v10 = v5 + a3;
   if ( v5 + a3 < v5 )
   {
-    v26 = 216;
-    goto LABEL_38;
+    v27 = 213;
+    goto LABEL_40;
   }
-  v9 = *(_DWORD *)(a1 + 20);
-  v10 = 0;
-  if ( v8 > v9 )
+  v11 = *(_DWORD *)(a1 + 20);
+  v12 = 0;
+  if ( v10 > v11 )
   {
-    a1 = a2 * (unsigned __int64)v8;
-    if ( a1 > 0xFFFFFFFF )
+    v13 = a2 * (unsigned __int64)v10;
+    if ( v13 > 0xFFFFFFFF )
     {
-      v26 = 225;
+      v27 = 222;
     }
     else
     {
-      v11 = v8;
       if ( !a4 )
       {
-        v12 = v8 - v9;
-        v13 = 16;
-        if ( v9 <= 0x10 || (v14 = 8092, v13 = v9, v9 < 0x1F9C) )
-          v14 = v13;
-        if ( v12 <= v14 )
-          v12 = v14;
-        v11 = v9 + v12;
-        if ( v11 < v9 || (v15 = a2 * (unsigned __int64)v11, v15 > 0xFFFFFFFF) )
-          v11 = v8;
-        else
-          a1 = (unsigned int)v15;
-      }
-      if ( v11 <= 0xFFFFFFFF / a2 )
-      {
-        v16 = *(void **)v6;
-        v17 = (unsigned int)a1;
-        if ( *(_QWORD *)v6 == *(_QWORD *)(v6 + 8) )
+        v15 = 16;
+        v16 = 8092;
+        v17 = v10 - v11;
+        if ( v11 > 0x10 )
+          v15 = v11;
+        if ( v15 < 0x1F9C )
+          v16 = v15;
+        if ( v17 <= v16 )
+          v17 = v16;
+        a1 = v17 + v11;
+        if ( (unsigned int)a1 >= v11 && a2 * (unsigned __int64)(unsigned int)a1 <= 0xFFFFFFFF )
         {
-          if ( (_DWORD)a1 )
+          v10 = v17 + v11;
+          LODWORD(v13) = a2 * a1;
+        }
+      }
+      if ( v10 <= 0xFFFFFFFF / a2 )
+      {
+        v18 = *(void **)v9;
+        v19 = (unsigned int)v13;
+        if ( *(_QWORD *)v9 == *(_QWORD *)(v9 + 8) )
+        {
+          if ( (_DWORD)v13 )
           {
             ProcessHeap = GetProcessHeap();
-            v19 = HeapAlloc(ProcessHeap, 0, (unsigned int)v17);
-            if ( v19 )
-            {
-              v20 = *(_DWORD *)(v6 + 24);
-              v10 = 0;
-              if ( v20 )
-                memcpy_0(v19, *(const void **)v6, a2 * v20);
-LABEL_19:
-              *(_DWORD *)(v6 + 20) = v11;
-              *(_QWORD *)v6 = v19;
-              return v10;
-            }
-            v10 = -2147024882;
+            v6 = HeapAlloc(ProcessHeap, 0, (unsigned int)v19);
+            if ( !v6 )
+              v12 = -2147024882;
           }
           else
           {
-            v10 = -2147024809;
+            v12 = -2147024809;
           }
-          MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, v10, 0x102u, 0LL);
-          return v10;
-        }
-        if ( v16 )
-        {
-          v22 = GetProcessHeap();
-          v23 = (char *)HeapReAlloc(v22, 0, v16, v17);
+          if ( (v12 & 0x80000000) == 0 )
+          {
+            v21 = *(_DWORD *)(v9 + 24);
+            if ( v21 )
+              memcpy_0(v6, *(const void **)v9, a2 * v21);
+LABEL_22:
+            *(_DWORD *)(v9 + 20) = v10;
+            *(_QWORD *)v9 = v6;
+            return v12;
+          }
+          v27 = 255;
         }
         else
         {
-          v23 = (char *)DefaultHeap::Alloc((unsigned int)a1);
-        }
-        v19 = v23;
-        if ( !v23 )
-        {
-          v10 = -2147024882;
-          MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, -2147024882, 0x114u, 0LL);
-          return v10;
-        }
-        v10 = 0;
-        if ( v23 != *(char **)v6 )
-        {
-          if ( a5 )
+          if ( v18 )
           {
-            v25 = *a5;
-            if ( *a5 >= *(_QWORD *)v6 && v25 < *(_QWORD *)v6 + (unsigned __int64)(*(_DWORD *)(v6 + 20) * a2) )
-              *a5 = (unsigned __int64)&v23[v25 - *(_QWORD *)v6];
+            v23 = GetProcessHeap();
+            v24 = (char *)HeapReAlloc(v23, 0, v18, v19);
           }
+          else
+          {
+            v24 = (char *)DefaultHeap::Alloc((unsigned int)v13);
+          }
+          v6 = v24;
+          if ( v24 )
+          {
+            if ( v24 != *(char **)v9 )
+            {
+              if ( a5 )
+              {
+                v25 = *a5;
+                if ( *a5 >= *(_QWORD *)v9 && v25 < *(_QWORD *)v9 + (unsigned __int64)(a2 * *(_DWORD *)(v9 + 20)) )
+                  *a5 = (unsigned __int64)&v24[v25 - *(_QWORD *)v9];
+              }
+            }
+            goto LABEL_22;
+          }
+          v12 = -2147024882;
+          v27 = 273;
         }
-        goto LABEL_19;
+        v26 = v12;
+LABEL_41:
+        MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, v26, v27, 0LL);
+        return v12;
       }
-      v26 = 251;
+      v27 = 248;
     }
-LABEL_38:
-    v10 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024362, v26, 0LL);
+LABEL_40:
+    v26 = -2147024362;
+    v12 = -2147024362;
+    goto LABEL_41;
   }
-  return v10;
+  return v12;
 }

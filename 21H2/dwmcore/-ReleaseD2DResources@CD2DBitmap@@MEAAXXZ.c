@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseD2DResources@CD2DBitmap@@MEAAXXZ @ 0x1800FFBD0
+ * XREFs of ?ReleaseD2DResources@CD2DBitmap@@MEAAXXZ @ 0x1800E0280
  * Callers:
- *     ?ReleaseD2DResources@CDeviceTextureTarget@@MEAAXXZ @ 0x1800FFBA0 (-ReleaseD2DResources@CDeviceTextureTarget@@MEAAXXZ.c)
+ *     ?ReleaseD2DResources@CDeviceTextureTarget@@MEAAXXZ @ 0x180020180 (-ReleaseD2DResources@CDeviceTextureTarget@@MEAAXXZ.c)
  * Callees:
- *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E98E4 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D09C8 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
  */
 
 void __fastcall CD2DBitmap::ReleaseD2DResources(CD2DBitmap *this)

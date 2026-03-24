@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiSetIcmMode @ 0x1C00E3800
+ * XREFs of NtGdiSetIcmMode @ 0x1C014C740
  * Callers:
  *     <none>
  * Callees:
- *     ?GreSetICMMode@@YAHPEAUHDC__@@KK@Z @ 0x1C00E3818 (-GreSetICMMode@@YAHPEAUHDC__@@KK@Z.c)
+ *     ?GreSetICMMode@@YAHPEAUHDC__@@KK@Z @ 0x1C014C758 (-GreSetICMMode@@YAHPEAUHDC__@@KK@Z.c)
  */
 
 __int64 __fastcall NtGdiSetIcmMode(HDC a1, unsigned int a2, unsigned int a3)

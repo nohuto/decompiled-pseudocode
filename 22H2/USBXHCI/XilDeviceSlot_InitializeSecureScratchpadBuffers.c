@@ -1,13 +1,13 @@
 /*
- * XREFs of XilDeviceSlot_InitializeSecureScratchpadBuffers @ 0x1C0038294
+ * XREFs of XilDeviceSlot_InitializeSecureScratchpadBuffers @ 0x1C00367D4
  * Callers:
- *     DeviceSlot_D0EntryCleanupState @ 0x1C000FF38 (DeviceSlot_D0EntryCleanupState.c)
- *     DeviceSlot_ControllerResetPostReset @ 0x1C0037AD0 (DeviceSlot_ControllerResetPostReset.c)
+ *     DeviceSlot_D0EntryCleanupState @ 0x1C000B42C (DeviceSlot_D0EntryCleanupState.c)
+ *     DeviceSlot_ControllerResetPostReset @ 0x1C0036010 (DeviceSlot_ControllerResetPostReset.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 char __fastcall XilDeviceSlot_InitializeSecureScratchpadBuffers(__int64 *a1)
@@ -50,7 +50,7 @@ char __fastcall XilDeviceSlot_InitializeSecureScratchpadBuffers(__int64 *a1)
           v5,
           10,
           22,
-          (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids,
+          (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids,
           v10);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v6, v7, v8);
@@ -68,7 +68,7 @@ char __fastcall XilDeviceSlot_InitializeSecureScratchpadBuffers(__int64 *a1)
                    v5,
                    10,
                    21,
-                   (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids,
+                   (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids,
                    v4);
   }
   return v4;

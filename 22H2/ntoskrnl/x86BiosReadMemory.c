@@ -1,16 +1,16 @@
 /*
- * XREFs of x86BiosReadMemory @ 0x1403969C0
+ * XREFs of x86BiosReadMemory @ 0x1403BF070
  * Callers:
  *     <none>
  * Callees:
- *     x86BiosTranslateAddress @ 0x1403BE960 (x86BiosTranslateAddress.c)
+ *     x86BiosTranslateAddress @ 0x140397450 (x86BiosTranslateAddress.c)
  */
 
 __int64 __fastcall x86BiosReadMemory(unsigned __int16 a1, unsigned __int16 a2, _BYTE *a3, int a4)
 {
   int v5; // ebx
   unsigned __int16 v6; // di
-  _BYTE *v8; // rax
+  int *v8; // rax
 
   v5 = a4;
   v6 = a2;
@@ -20,8 +20,8 @@ __int64 __fastcall x86BiosReadMemory(unsigned __int16 a1, unsigned __int16 a2, _
   {
     do
     {
-      v8 = (_BYTE *)x86BiosTranslateAddress(a1, v6++);
-      *a3++ = *v8;
+      v8 = x86BiosTranslateAddress(a1, v6++);
+      *a3++ = *(_BYTE *)v8;
       --v5;
     }
     while ( v5 );

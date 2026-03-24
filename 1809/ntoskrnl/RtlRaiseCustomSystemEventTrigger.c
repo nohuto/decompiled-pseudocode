@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlRaiseCustomSystemEventTrigger @ 0x1402F55A0
+ * XREFs of RtlRaiseCustomSystemEventTrigger @ 0x1402F56A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryWnfStateData @ 0x1401BACF0 (ZwQueryWnfStateData.c)
- *     ZwQueryWnfStateNameInformation @ 0x1401BAD10 (ZwQueryWnfStateNameInformation.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryWnfStateData @ 0x1401BAD10 (ZwQueryWnfStateData.c)
+ *     ZwQueryWnfStateNameInformation @ 0x1401BAD30 (ZwQueryWnfStateNameInformation.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
- *     RtlpCtAllocateMemory @ 0x140899728 (RtlpCtAllocateMemory.c)
- *     RtlpCtContextFree @ 0x14089974C (RtlpCtContextFree.c)
- *     RtlpCtContextInit @ 0x1408997A8 (RtlpCtContextInit.c)
- *     RtlpCtFreeMemory @ 0x140899870 (RtlpCtFreeMemory.c)
- *     RtlpCtQueueWorkItem @ 0x140899930 (RtlpCtQueueWorkItem.c)
+ *     RtlpCtAllocateMemory @ 0x140899708 (RtlpCtAllocateMemory.c)
+ *     RtlpCtContextFree @ 0x14089972C (RtlpCtContextFree.c)
+ *     RtlpCtContextInit @ 0x140899788 (RtlpCtContextInit.c)
+ *     RtlpCtFreeMemory @ 0x140899850 (RtlpCtFreeMemory.c)
+ *     RtlpCtQueueWorkItem @ 0x140899910 (RtlpCtQueueWorkItem.c)
  */
 
 __int64 __fastcall RtlRaiseCustomSystemEventTrigger(__int64 a1)

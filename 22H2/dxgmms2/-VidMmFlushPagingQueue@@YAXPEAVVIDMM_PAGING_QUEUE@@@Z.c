@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VidMmFlushPagingQueue@@YAXPEAVVIDMM_PAGING_QUEUE@@@Z @ 0x1C0001D90
+ * XREFs of ?VidMmFlushPagingQueue@@YAXPEAVVIDMM_PAGING_QUEUE@@@Z @ 0x1C0012A10
  * Callers:
  *     <none>
  * Callees:
- *     ?Flush@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C008A288 (-Flush@VIDMM_PAGING_QUEUE@@QEAAXXZ.c)
+ *     ?Flush@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C00825BC (-Flush@VIDMM_PAGING_QUEUE@@QEAAXXZ.c)
  */
 
 void __fastcall VidMmFlushPagingQueue(struct VIDMM_PAGING_QUEUE *a1)

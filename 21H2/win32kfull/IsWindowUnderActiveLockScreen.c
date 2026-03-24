@@ -1,12 +1,12 @@
 /*
- * XREFs of IsWindowUnderActiveLockScreen @ 0x1C00779AC
+ * XREFs of IsWindowUnderActiveLockScreen @ 0x1C004DEE4
  * Callers:
- *     ?DCEIsWindowHit@@YAHPEAUtagWND@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C0077660 (-DCEIsWindowHit@@YAHPEAUtagWND@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
- *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C007D36C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
- *     DCELogicalSpeedTopLevelHitTest @ 0x1C01DF4B0 (DCELogicalSpeedTopLevelHitTest.c)
- *     ?_IsTaskWindow@@YAHPEAUtagWND@@0@Z @ 0x1C01ED8C8 (-_IsTaskWindow@@YAHPEAUtagWND@@0@Z.c)
- *     _GetNextQueueWindow @ 0x1C01EE6BC (_GetNextQueueWindow.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C003D28C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     ?DCEIsWindowHit@@YAHPEAUtagWND@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C004DB1C (-DCEIsWindowHit@@YAHPEAUtagWND@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
+ *     DCELogicalSpeedTopLevelHitTest @ 0x1C01E4F40 (DCELogicalSpeedTopLevelHitTest.c)
+ *     ?_IsTaskWindow@@YAHPEAUtagWND@@0@Z @ 0x1C01F3064 (-_IsTaskWindow@@YAHPEAUtagWND@@0@Z.c)
+ *     _GetNextQueueWindow @ 0x1C01F3ED8 (_GetNextQueueWindow.c)
  * Callees:
  *     <none>
  */

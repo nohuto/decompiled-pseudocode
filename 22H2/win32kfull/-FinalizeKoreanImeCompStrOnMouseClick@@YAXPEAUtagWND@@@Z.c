@@ -1,22 +1,22 @@
 /*
- * XREFs of ?FinalizeKoreanImeCompStrOnMouseClick@@YAXPEAUtagWND@@@Z @ 0x1C01AACF4
+ * XREFs of ?FinalizeKoreanImeCompStrOnMouseClick@@YAXPEAUtagWND@@@Z @ 0x1C01D8170
  * Callers:
- *     EditionFinalizeKoreanImeCompStrOnMouseClick @ 0x1C014F870 (EditionFinalizeKoreanImeCompStrOnMouseClick.c)
+ *     EditionFinalizeKoreanImeCompStrOnMouseClick @ 0x1C0106880 (EditionFinalizeKoreanImeCompStrOnMouseClick.c)
  * Callees:
- *     GetAppImeCompatFlags @ 0x1C00A3C7C (GetAppImeCompatFlags.c)
- *     _PostMessage @ 0x1C00B6CD0 (_PostMessage.c)
- *     PostInputMessage @ 0x1C0117268 (PostInputMessage.c)
+ *     _PostMessage @ 0x1C002DBA0 (_PostMessage.c)
+ *     PostInputMessage @ 0x1C00507E0 (PostInputMessage.c)
+ *     GetAppImeCompatFlags @ 0x1C0106BA4 (GetAppImeCompatFlags.c)
  */
 
 void __fastcall FinalizeKoreanImeCompStrOnMouseClick(struct tagWND *a1)
 {
   __int64 v1; // rbx
-  struct tagWND *v2; // rcx
-  __int64 v3; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v2; // rcx
+  __int64 v3; // [rsp+A0h] [rbp+67h] BYREF
 
   v1 = *((_QWORD *)a1 + 2);
   v3 = 0LL;
-  if ( !*(_QWORD *)(gpqForeground + 112LL) && (GetAppImeCompatFlags((struct tagTHREADINFO *)v1) & 0x400000) == 0 )
+  if ( !*(_QWORD *)(gpqForeground + 104LL) && (GetAppImeCompatFlags(v1) & 0x400000) == 0 )
   {
     if ( *(_WORD *)(v1 + 632) <= 0x400u )
     {
@@ -35,16 +35,15 @@ void __fastcall FinalizeKoreanImeCompStrOnMouseClick(struct tagWND *a1)
         0LL,
         0LL,
         0,
-        0,
         0LL);
     }
     else
     {
-      v2 = *(struct tagWND **)(v1 + 784);
+      v2 = *(_QWORD *)(v1 + 784);
       if ( v2 )
       {
-        if ( *(char *)(*((_QWORD *)v2 + 5) + 20LL) >= 0 )
-          PostMessage(v2, 0x287u, 0x20uLL, 0LL);
+        if ( *(char *)(*(_QWORD *)(v2 + 40) + 20LL) >= 0 )
+          PostMessage(v2, 647, 32, 0);
       }
     }
   }

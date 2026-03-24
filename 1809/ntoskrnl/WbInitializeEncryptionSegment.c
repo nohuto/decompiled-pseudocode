@@ -3,13 +3,13 @@
  * Callers:
  *     WbGetInitializedEncryptionSegment @ 0x140583F8C (WbGetInitializedEncryptionSegment.c)
  * Callees:
- *     ?wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeaturePropertyCache@@IW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1400A4E4C (-wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeatureProperty.c)
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     ?wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeaturePropertyCache@@IW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1400A4E6C (-wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeatureProperty.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     WbAlloc @ 0x140624D14 (WbAlloc.c)
- *     WbVerifyVirtualAddressSignature @ 0x1406909A4 (WbVerifyVirtualAddressSignature.c)
- *     sub_1406910CC @ 0x1406910CC (sub_1406910CC.c)
+ *     WbVerifyVirtualAddressSignature @ 0x140690984 (WbVerifyVirtualAddressSignature.c)
+ *     sub_1406910AC @ 0x1406910AC (sub_1406910AC.c)
  */
 
 __int64 __fastcall WbInitializeEncryptionSegment(__int64 a1, __int64 a2, __int64 a3)
@@ -79,7 +79,7 @@ __int64 __fastcall WbInitializeEncryptionSegment(__int64 a1, __int64 a2, __int64
     {
       g_wil_details_pfnFeatureLoggingHook(
         0xE67B5Au,
-        (const struct FEATURE_LOGGED_TRAITS *)&unk_14035B838,
+        (const struct FEATURE_LOGGED_TRAITS *)&unk_14035B948,
         0LL,
         0,
         (const enum wil_ReportingKind *)&v36,
@@ -128,7 +128,7 @@ __int64 __fastcall WbInitializeEncryptionSegment(__int64 a1, __int64 a2, __int64
     v7 = WbVerifyVirtualAddressSignature(*(PVOID *)(v12 + 8));
     if ( v7 >= 0 )
     {
-      v7 = sub_1406910CC(*v11);
+      v7 = sub_1406910AC(*v11);
       if ( v7 >= 0 )
       {
         if ( RtlCompareMemory(*(const void **)(a1 + 8), *v11, Length) != Length )
@@ -151,7 +151,7 @@ __int64 __fastcall WbInitializeEncryptionSegment(__int64 a1, __int64 a2, __int64
           {
             g_wil_details_pfnFeatureLoggingHook(
               0xE67B5Au,
-              (const struct FEATURE_LOGGED_TRAITS *)&unk_14035B838,
+              (const struct FEATURE_LOGGED_TRAITS *)&unk_14035B948,
               0LL,
               0,
               (const enum wil_ReportingKind *)&v31,
@@ -172,7 +172,7 @@ __int64 __fastcall WbInitializeEncryptionSegment(__int64 a1, __int64 a2, __int64
           {
             g_wil_details_pfnFeatureLoggingHook(
               0xE67B5Au,
-              (const struct FEATURE_LOGGED_TRAITS *)&unk_14035B838,
+              (const struct FEATURE_LOGGED_TRAITS *)&unk_14035B948,
               0LL,
               0,
               (const enum wil_ReportingKind *)v32,

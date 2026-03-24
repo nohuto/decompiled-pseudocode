@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpRealtimeRestoreBuffer @ 0x14084BFF4
+ * XREFs of EtwpRealtimeRestoreBuffer @ 0x1407BE620
  * Callers:
- *     EtwpRealtimeFlushSavedBuffers @ 0x14079A870 (EtwpRealtimeFlushSavedBuffers.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x1406B31D0 (EtwpRealtimeFlushSavedBuffers.c)
  * Callees:
- *     ZwReadFile @ 0x14041B820 (ZwReadFile.c)
+ *     ZwReadFile @ 0x1403FA460 (ZwReadFile.c)
  */
 
 int __fastcall EtwpRealtimeRestoreBuffer(__int64 a1, _DWORD *Buffer)
@@ -18,12 +18,12 @@ int __fastcall EtwpRealtimeRestoreBuffer(__int64 a1, _DWORD *Buffer)
   __int64 v11; // r14
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-18h] BYREF
 
-  ByteOffset = (LARGE_INTEGER *)(a1 + 392);
-  QuadPart = *(_QWORD *)(a1 + 392) + 72LL;
+  ByteOffset = (LARGE_INTEGER *)(a1 + 408);
+  QuadPart = *(_QWORD *)(a1 + 408) + 72LL;
   IoStatusBlock = 0LL;
-  if ( QuadPart > *(_QWORD *)(a1 + 400) )
+  if ( QuadPart > *(_QWORD *)(a1 + 416) )
     return -1073741566;
-  result = ZwReadFile(*(HANDLE *)(a1 + 360), 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0x48u, ByteOffset, 0LL);
+  result = ZwReadFile(*(HANDLE *)(a1 + 376), 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0x48u, ByteOffset, 0LL);
   if ( result < 0 )
     return result;
   if ( IoStatusBlock.Status < 0 )
@@ -43,9 +43,9 @@ int __fastcall EtwpRealtimeRestoreBuffer(__int64 a1, _DWORD *Buffer)
   if ( !v9 )
   {
     v11 = (unsigned int)Length;
-    if ( Length + QuadPart <= *(_QWORD *)(a1 + 400) )
+    if ( Length + QuadPart <= *(_QWORD *)(a1 + 416) )
     {
-      result = ZwReadFile(*(HANDLE *)(a1 + 360), 0LL, 0LL, 0LL, &IoStatusBlock, Buffer + 18, Length, ByteOffset, 0LL);
+      result = ZwReadFile(*(HANDLE *)(a1 + 376), 0LL, 0LL, 0LL, &IoStatusBlock, Buffer + 18, Length, ByteOffset, 0LL);
       if ( result >= 0 )
       {
         result = IoStatusBlock.Status;
@@ -59,7 +59,7 @@ int __fastcall EtwpRealtimeRestoreBuffer(__int64 a1, _DWORD *Buffer)
     return -1073741566;
   }
 LABEL_15:
-  if ( QuadPart >= *(_QWORD *)(a1 + 400) )
+  if ( QuadPart >= *(_QWORD *)(a1 + 416) )
     ByteOffset->QuadPart = 72LL;
   return result;
 }

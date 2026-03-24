@@ -1,9 +1,9 @@
 /*
- * XREFs of ??$make_unique@VCRectangleVolumeSpawner@EmitterShapes@@AEAMAEAMAEAMAEAM$0A@@std@@YA?AV?$unique_ptr@VCRectangleVolumeSpawner@EmitterShapes@@U?$default_delete@VCRectangleVolumeSpawner@EmitterShapes@@@std@@@0@AEAM000@Z @ 0x1802433E0
+ * XREFs of ??$make_unique@VCRectangleVolumeSpawner@EmitterShapes@@AEAMAEAMAEAMAEAM$0A@@std@@YA?AV?$unique_ptr@VCRectangleVolumeSpawner@EmitterShapes@@U?$default_delete@VCRectangleVolumeSpawner@EmitterShapes@@@std@@@0@AEAM000@Z @ 0x1801DDCE8
  * Callers:
- *     ?EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ @ 0x18024510C (-EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ.c)
+ *     ?EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ @ 0x1801DFB34 (-EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
  */
 
 _QWORD *__fastcall std::make_unique<EmitterShapes::CRectangleVolumeSpawner,float &,float &,float &,float &,0>(

@@ -1,32 +1,15 @@
 /*
- * XREFs of ?ReleaseD2DResources@CD2DBitmap@@MEAAXXZ @ 0x18029FB40
+ * XREFs of ?ReleaseD2DResources@CD2DBitmap@@MEAAXXZ @ 0x1800E0180
  * Callers:
- *     ?ReleaseD2DResources@CDeviceTextureTarget@@MEAAXXZ @ 0x18029FDF0 (-ReleaseD2DResources@CDeviceTextureTarget@@MEAAXXZ.c)
+ *     ?ReleaseD2DResources@CDeviceTextureTarget@@MEAAXXZ @ 0x180020040 (-ReleaseD2DResources@CDeviceTextureTarget@@MEAAXXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D0818 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
  */
 
 void __fastcall CD2DBitmap::ReleaseD2DResources(CD2DBitmap *this)
 {
-  __int64 v2; // rcx
-  __int64 v3; // rcx
-  __int64 v4; // rcx
-  __int64 v5; // rcx
-
-  v2 = *((_QWORD *)this + 15);
-  *((_QWORD *)this + 15) = 0LL;
-  if ( v2 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 16LL))(v2);
-  v3 = *((_QWORD *)this + 16);
-  *((_QWORD *)this + 16) = 0LL;
-  if ( v3 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 16LL))(v3);
-  v4 = *((_QWORD *)this + 17);
-  *((_QWORD *)this + 17) = 0LL;
-  if ( v4 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
-  v5 = *((_QWORD *)this + 18);
-  *((_QWORD *)this + 18) = 0LL;
-  if ( v5 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+  wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((__int64 *)this + 15);
+  wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((__int64 *)this + 16);
+  wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((__int64 *)this + 17);
+  wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((__int64 *)this + 18);
 }

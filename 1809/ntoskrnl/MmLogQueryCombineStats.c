@@ -1,12 +1,12 @@
 /*
- * XREFs of MmLogQueryCombineStats @ 0x14085F02C
+ * XREFs of MmLogQueryCombineStats @ 0x14085F00C
  * Callers:
  *     PfQuerySuperfetchInformation @ 0x140629AD0 (PfQuerySuperfetchInformation.c)
- *     EtwpKernelTraceRundown @ 0x140726194 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140726174 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     EtwTraceSiloDcEvent @ 0x140310480 (EtwTraceSiloDcEvent.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwTraceSiloDcEvent @ 0x140310580 (EtwTraceSiloDcEvent.c)
  */
 
 void __fastcall MmLogQueryCombineStats(__int64 a1, unsigned int *a2, _BYTE *a3)

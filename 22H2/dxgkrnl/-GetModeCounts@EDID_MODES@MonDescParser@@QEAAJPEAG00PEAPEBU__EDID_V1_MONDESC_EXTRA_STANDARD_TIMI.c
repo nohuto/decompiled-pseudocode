@@ -1,16 +1,16 @@
 /*
- * XREFs of ?GetModeCounts@EDID_MODES@MonDescParser@@QEAAJPEAG00PEAPEBU__EDID_V1_MONDESC_EXTRA_STANDARD_TIMINGS@@00@Z @ 0x1C001E8B0
+ * XREFs of ?GetModeCounts@EDID_MODES@MonDescParser@@QEAAJPEAG00PEAPEBU__EDID_V1_MONDESC_EXTRA_STANDARD_TIMINGS@@00@Z @ 0x1C001F824
  * Callers:
- *     ?ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z @ 0x1C001E0B0 (-ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z.c)
+ *     ?ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z @ 0x1C001ECC8 (-ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z.c)
  * Callees:
- *     ?Is18ByteDetTim@EDID_PARSER@MonDescParser@@QEBA_NH@Z @ 0x1C0010E3C (-Is18ByteDetTim@EDID_PARSER@MonDescParser@@QEBA_NH@Z.c)
- *     ?IsUnused@EDID_PARSER_STANDARD_TIMING@MonDescParser@@QEBA_NXZ @ 0x1C001EAE8 (-IsUnused@EDID_PARSER_STANDARD_TIMING@MonDescParser@@QEBA_NXZ.c)
- *     ?DenseOnesBitCount@MonDescParser@@YAEE@Z @ 0x1C001EE50 (-DenseOnesBitCount@MonDescParser@@YAEE@Z.c)
- *     ?Is18ByteDispDesc@EDID_PARSER@MonDescParser@@QEBA_NH@Z @ 0x1C001EF5C (-Is18ByteDispDesc@EDID_PARSER@MonDescParser@@QEBA_NH@Z.c)
- *     ?GetBlockType@EDID_PARSER@MonDescParser@@QEBA?AW4EDID_V1_BLOCK_TYPE@2@I@Z @ 0x1C001F11C (-GetBlockType@EDID_PARSER@MonDescParser@@QEBA-AW4EDID_V1_BLOCK_TYPE@2@I@Z.c)
- *     ?ChangeCEABlock@EDID_PARSER_CEA_861_EXT@MonDescParser@@QEAAXPEAT_EDID_V1_BLOCK@@@Z @ 0x1C0074300 (-ChangeCEABlock@EDID_PARSER_CEA_861_EXT@MonDescParser@@QEAAXPEAT_EDID_V1_BLOCK@@@Z.c)
- *     ?GetDataBlock@EDID_PARSER_CEA_861_EXT@MonDescParser@@QEAA_NIPEAPEAU_EDID_V1_CEA_861_DATA_HEADER@@@Z @ 0x1C00743D8 (-GetDataBlock@EDID_PARSER_CEA_861_EXT@MonDescParser@@QEAA_NIPEAPEAU_EDID_V1_CEA_861_DATA_HEADER@.c)
- *     ?GetDetTimParser@EDID_PARSER_CEA_861_EXT@MonDescParser@@QEAA_NHAEAVEDID_PARSER_DETAILED_TIMING@2@@Z @ 0x1C0074438 (-GetDetTimParser@EDID_PARSER_CEA_861_EXT@MonDescParser@@QEAA_NHAEAVEDID_PARSER_DETAILED_TIMING@2.c)
+ *     ?Is18ByteDetTim@EDID_PARSER@MonDescParser@@QEBA_NH@Z @ 0x1C000D650 (-Is18ByteDetTim@EDID_PARSER@MonDescParser@@QEBA_NH@Z.c)
+ *     ?Is18ByteDispDesc@EDID_PARSER@MonDescParser@@QEBA_NH@Z @ 0x1C000D77C (-Is18ByteDispDesc@EDID_PARSER@MonDescParser@@QEBA_NH@Z.c)
+ *     ?IsUnused@EDID_PARSER_STANDARD_TIMING@MonDescParser@@QEBA_NXZ @ 0x1C001FA50 (-IsUnused@EDID_PARSER_STANDARD_TIMING@MonDescParser@@QEBA_NXZ.c)
+ *     ?DenseOnesBitCount@MonDescParser@@YAEE@Z @ 0x1C001FA74 (-DenseOnesBitCount@MonDescParser@@YAEE@Z.c)
+ *     ?GetBlockType@EDID_PARSER@MonDescParser@@QEBA?AW4EDID_V1_BLOCK_TYPE@2@I@Z @ 0x1C001FA8C (-GetBlockType@EDID_PARSER@MonDescParser@@QEBA-AW4EDID_V1_BLOCK_TYPE@2@I@Z.c)
+ *     ?ChangeCEABlock@EDID_PARSER_CEA_861_EXT@MonDescParser@@QEAAXPEAT_EDID_V1_BLOCK@@@Z @ 0x1C0061348 (-ChangeCEABlock@EDID_PARSER_CEA_861_EXT@MonDescParser@@QEAAXPEAT_EDID_V1_BLOCK@@@Z.c)
+ *     ?GetDataBlock@EDID_PARSER_CEA_861_EXT@MonDescParser@@QEAA_NIPEAPEAU_EDID_V1_CEA_861_DATA_HEADER@@@Z @ 0x1C0061418 (-GetDataBlock@EDID_PARSER_CEA_861_EXT@MonDescParser@@QEAA_NIPEAPEAU_EDID_V1_CEA_861_DATA_HEADER@.c)
+ *     ?GetDetTimParser@EDID_PARSER_CEA_861_EXT@MonDescParser@@QEAA_NHAEAVEDID_PARSER_DETAILED_TIMING@2@@Z @ 0x1C0061478 (-GetDetTimParser@EDID_PARSER_CEA_861_EXT@MonDescParser@@QEAA_NHAEAVEDID_PARSER_DETAILED_TIMING@2.c)
  */
 
 __int64 __fastcall MonDescParser::EDID_MODES::GetModeCounts(
@@ -24,7 +24,7 @@ __int64 __fastcall MonDescParser::EDID_MODES::GetModeCounts(
 {
   MonDescParser **v7; // rbx
   MonDescParser **v12; // r10
-  const struct __EDID_V1_MONDESC_EXTRA_STANDARD_TIMINGS **v13; // r14
+  const struct __EDID_V1_MONDESC_EXTRA_STANDARD_TIMINGS **v13; // rsi
   MonDescParser *v14; // r12
   MonDescParser *v15; // rcx
   MonDescParser *v16; // rcx
@@ -33,8 +33,8 @@ __int64 __fastcall MonDescParser::EDID_MODES::GetModeCounts(
   unsigned __int8 v19; // r11
   __int16 v20; // r10
   __int64 v21; // r11
-  __int64 v22; // r10
-  MonDescParser *v23; // r9
+  MonDescParser *v22; // r9
+  __int64 v23; // r10
   unsigned __int16 i; // dx
   unsigned int *v25; // r8
   __int64 v26; // rcx
@@ -42,28 +42,27 @@ __int64 __fastcall MonDescParser::EDID_MODES::GetModeCounts(
   __int16 v28; // dx
   unsigned __int16 v29; // r9
   unsigned __int16 v30; // r9
-  __int16 v31; // r10
-  unsigned __int16 v32; // r11
-  const struct __EDID_V1_MONDESC_EXTRA_STANDARD_TIMINGS *v33; // r8
+  unsigned __int16 v31; // r11
+  const struct __EDID_V1_MONDESC_EXTRA_STANDARD_TIMINGS *v32; // r8
   unsigned __int16 j; // cx
-  __int16 v35; // dx
+  __int16 v34; // dx
   int k; // r10d
-  char v37; // al
-  unsigned __int8 v38; // r9
-  int v39; // r10d
-  _WORD *v40; // r11
-  unsigned __int8 v41; // dl
-  unsigned __int16 *v42; // rdi
-  unsigned int v43; // esi
-  int v45; // ecx
-  MonDescParser **v46; // rdx
+  char v36; // al
+  unsigned __int8 v37; // r9
+  int v38; // r10d
+  _WORD *v39; // r11
+  unsigned __int8 v40; // dl
+  unsigned __int16 *v41; // rdi
+  unsigned int v42; // esi
+  int v44; // ecx
+  MonDescParser **v45; // rdx
   unsigned __int8 m; // r10
-  unsigned __int8 v48; // r10
-  unsigned int v49; // r14d
-  unsigned int v50; // ebx
-  char *v51; // [rsp+20h] [rbp-10h] BYREF
-  unsigned int v52; // [rsp+28h] [rbp-8h] BYREF
-  __int16 v53; // [rsp+60h] [rbp+30h]
+  unsigned __int8 v47; // r10
+  unsigned int v48; // r14d
+  unsigned int v49; // ebx
+  char *v50; // [rsp+20h] [rbp-10h] BYREF
+  unsigned int v51; // [rsp+28h] [rbp-8h] BYREF
+  __int16 v52; // [rsp+60h] [rbp+30h]
 
   v7 = *this;
   v12 = *this;
@@ -77,34 +76,34 @@ __int64 __fastcall MonDescParser::EDID_MODES::GetModeCounts(
   {
     v15 = *v7;
     LOBYTE(v15) = *(_WORD *)((char *)*v7 + 35);
-    v53 = *(_WORD *)((char *)*v7 + 35);
+    v52 = *(_WORD *)((char *)*v7 + 35);
     MonDescParser::DenseOnesBitCount(v15, (unsigned __int8)a2);
-    LOBYTE(v16) = HIBYTE(v53);
+    LOBYTE(v16) = HIBYTE(v52);
     v18 = MonDescParser::DenseOnesBitCount(v16, v17);
     *a2 = (v19 >> 7) + v18 + v20;
   }
   v21 = 4LL;
-  v22 = 1LL;
   if ( a3 )
   {
-    v23 = *v7;
+    v22 = *v7;
     *a3 = 0;
-    for ( i = 0; i < 8u; i = v22 + v28 )
+    v23 = 1LL;
+    for ( i = 0; i < 8u; i = v23 + v28 )
     {
-      v25 = &v52;
-      v51 = (char *)v23 + 2 * i + 38;
+      v25 = &v51;
+      v50 = (char *)v22 + 2 * i + 38;
       v26 = 0LL;
       do
       {
-        v27 = *((unsigned __int8 *)v23 + v26 + 18);
-        v26 += v22;
+        v27 = *((unsigned __int8 *)v22 + v26 + 18);
+        v26 += v23;
         *v25 = v27;
         v25 = (unsigned int *)((char *)v25 + v21);
       }
       while ( v26 < 2 );
-      if ( MonDescParser::EDID_PARSER_STANDARD_TIMING::IsUnused((MonDescParser::EDID_PARSER_STANDARD_TIMING *)&v51) )
+      if ( MonDescParser::EDID_PARSER_STANDARD_TIMING::IsUnused((MonDescParser::EDID_PARSER_STANDARD_TIMING *)&v50) )
         break;
-      *a3 += v22;
+      *a3 += v23;
     }
     v13 = a5;
   }
@@ -114,99 +113,99 @@ __int64 __fastcall MonDescParser::EDID_MODES::GetModeCounts(
   while ( !MonDescParser::EDID_PARSER::Is18ByteDispDesc((MonDescParser::EDID_PARSER *)v7, v29)
        || *((_BYTE *)*v7 + 18 * v30 + 57) != 0xFA )
   {
-    v29 = v31 + v30;
-    if ( v29 >= v32 )
-      goto LABEL_26;
+    v29 = v30 + 1;
+    if ( v29 >= v31 )
+      goto LABEL_28;
   }
-  v33 = (MonDescParser *)((char *)v14 + 18 * v30 + 59);
+  v32 = (MonDescParser *)((char *)v14 + 18 * v30 + 59);
   if ( a4 )
   {
-    for ( j = 0; j < 6u; j += v31 )
+    for ( j = 0; j < 6u; ++j )
     {
-      v35 = *((_WORD *)v33 + j);
-      if ( v35 == 257 )
+      v34 = *((_WORD *)v32 + j);
+      if ( v34 == 257 )
         break;
-      if ( !v35 )
+      if ( !v34 )
         break;
-      *a4 += v31;
+      ++*a4;
     }
   }
   if ( v13 )
-    *v13 = v33;
-LABEL_26:
+    *v13 = v32;
+LABEL_28:
   if ( a6 )
   {
-    for ( k = 0; k < 4; k = v39 + 1 )
+    for ( k = 0; k < 4; k = v38 + 1 )
     {
-      v37 = MonDescParser::EDID_PARSER::Is18ByteDetTim((MonDescParser::EDID_PARSER *)v7, k);
-      v41 = v38 + 1;
-      if ( !v37 )
-        v41 = v38;
+      v36 = MonDescParser::EDID_PARSER::Is18ByteDetTim((MonDescParser::EDID_PARSER *)v7, k);
+      v40 = v37 + 1;
+      if ( !v36 )
+        v40 = v37;
     }
-    *v40 = v41;
+    *v39 = v40;
   }
-  v42 = a7;
+  v41 = a7;
   if ( a7 )
   {
-    v43 = 0;
+    v42 = 0;
     *a7 = 0;
     if ( *((_DWORD *)v7 + 20) )
     {
       do
       {
-        if ( (unsigned int)MonDescParser::EDID_PARSER::GetBlockType(v7, v43) == 2 )
+        if ( (unsigned int)MonDescParser::EDID_PARSER::GetBlockType(v7, v42) == 2 )
         {
-          v45 = 0;
-          v46 = &v7[(_QWORD)v7[10]];
-          if ( v7 == v46 )
+          v44 = 0;
+          v45 = &v7[(_QWORD)v7[10]];
+          if ( v7 == v45 )
           {
 LABEL_42:
             v7 = 0LL;
           }
           else
           {
-            while ( v45 != v43 )
+            while ( v44 != v42 )
             {
-              ++v45;
-              if ( ++v7 == v46 )
+              ++v44;
+              if ( ++v7 == v45 )
                 goto LABEL_42;
             }
           }
-          MonDescParser::EDID_PARSER_CEA_861_EXT::ChangeCEABlock((MonDescParser::EDID_PARSER_CEA_861_EXT *)&v51, *v7);
+          MonDescParser::EDID_PARSER_CEA_861_EXT::ChangeCEABlock((MonDescParser::EDID_PARSER_CEA_861_EXT *)&v50, *v7);
           for ( m = 0;
                 MonDescParser::EDID_PARSER_CEA_861_EXT::GetDetTimParser(
-                  (MonDescParser::EDID_PARSER_CEA_861_EXT *)&v51,
+                  (MonDescParser::EDID_PARSER_CEA_861_EXT *)&v50,
                   m,
                   (struct MonDescParser::EDID_PARSER_DETAILED_TIMING *)&a5);
-                m = v48 + 1 )
+                m = v47 + 1 )
           {
             ;
           }
-          v49 = v52;
-          v50 = 0;
-          *v42 += v48;
-          if ( v49 )
+          v48 = v51;
+          v49 = 0;
+          *v41 += v47;
+          if ( v48 )
           {
             do
             {
               a5 = 0LL;
               if ( MonDescParser::EDID_PARSER_CEA_861_EXT::GetDataBlock(
-                     (MonDescParser::EDID_PARSER_CEA_861_EXT *)&v51,
-                     v50,
+                     (MonDescParser::EDID_PARSER_CEA_861_EXT *)&v50,
+                     v49,
                      (struct _EDID_V1_CEA_861_DATA_HEADER **)&a5)
                 && (*(_BYTE *)a5 & 0xE0) == 0x40 )
               {
-                *v42 += *(_BYTE *)a5 & 0x1F;
+                *v41 += *(_BYTE *)a5 & 0x1F;
               }
-              ++v50;
+              ++v49;
             }
-            while ( v50 < v49 );
+            while ( v49 < v48 );
           }
         }
         v7 = *this;
-        ++v43;
+        ++v42;
       }
-      while ( v43 < *((_DWORD *)*this + 20) );
+      while ( v42 < *((_DWORD *)*this + 20) );
     }
   }
   return 0LL;

@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlpAcknowledgeOplockBreak @ 0x14026F858
+ * XREFs of FsRtlpAcknowledgeOplockBreak @ 0x14026F958
  * Callers:
  *     FsRtlpOplockFsctrlInternal @ 0x1405DC640 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
@@ -7,12 +7,12 @@
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     FsRtlpModifyThreadPriorities @ 0x140107D80 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpClearOwner @ 0x14012171C (FsRtlpClearOwner.c)
- *     FsRtlpCancelReadOnlyOplockIrp @ 0x14026FA88 (FsRtlpCancelReadOnlyOplockIrp.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14026FFD0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140107DA0 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpClearOwner @ 0x14012173C (FsRtlpClearOwner.c)
+ *     FsRtlpCancelReadOnlyOplockIrp @ 0x14026FB88 (FsRtlpCancelReadOnlyOplockIrp.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402700D0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
  *     FsRtlpOplockUpperLowerCompatible @ 0x1405DCC54 (FsRtlpOplockUpperLowerCompatible.c)
  */
 

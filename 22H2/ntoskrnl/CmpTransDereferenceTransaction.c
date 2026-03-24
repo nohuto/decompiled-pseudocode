@@ -1,22 +1,24 @@
 /*
- * XREFs of CmpTransDereferenceTransaction @ 0x140768F38
+ * XREFs of CmpTransDereferenceTransaction @ 0x14066E000
  * Callers:
- *     NtCreateKeyTransacted @ 0x140692240 (NtCreateKeyTransacted.c)
- *     CmpCleanupRollbackPacket @ 0x140693528 (CmpCleanupRollbackPacket.c)
- *     CmpCleanupTransactionState @ 0x14069831C (CmpCleanupTransactionState.c)
- *     CmpTransInitializeTransaction @ 0x14069846C (CmpTransInitializeTransaction.c)
- *     CmpAbortRollbackPacket @ 0x140699F88 (CmpAbortRollbackPacket.c)
- *     CmpTransSearchAddTrans @ 0x140768A4C (CmpTransSearchAddTrans.c)
- *     CmpTransSearchAddLightWeightTrans @ 0x140768DAC (CmpTransSearchAddLightWeightTrans.c)
- *     CmpCleanupLightWeightTransaction @ 0x1407D0F34 (CmpCleanupLightWeightTransaction.c)
- *     NtOpenKeyTransactedEx @ 0x1407D3A80 (NtOpenKeyTransactedEx.c)
- *     CmRmFinalizeRecovery @ 0x1407E8CA8 (CmRmFinalizeRecovery.c)
- *     CmpRollbackTransactionArray @ 0x140A1E7B0 (CmpRollbackTransactionArray.c)
+ *     CmpCreateKeyBody @ 0x140649DB0 (CmpCreateKeyBody.c)
+ *     CmpCleanupLightWeightTransaction @ 0x14066DB30 (CmpCleanupLightWeightTransaction.c)
+ *     NtOpenKeyTransactedEx @ 0x14066DC10 (NtOpenKeyTransactedEx.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x14066DE54 (CmpTransSearchAddLightWeightTrans.c)
+ *     CmRmFinalizeRecovery @ 0x1406A24AC (CmRmFinalizeRecovery.c)
+ *     CmpDeleteKeyObject @ 0x1406E03B0 (CmpDeleteKeyObject.c)
+ *     CmpCleanupRollbackPacket @ 0x14071B8E8 (CmpCleanupRollbackPacket.c)
+ *     CmpTransSearchAddTrans @ 0x14076644C (CmpTransSearchAddTrans.c)
+ *     CmpTransInitializeTransaction @ 0x1407666DC (CmpTransInitializeTransaction.c)
+ *     NtCreateKeyTransacted @ 0x140769120 (NtCreateKeyTransacted.c)
+ *     CmpCleanupTransactionState @ 0x140770144 (CmpCleanupTransactionState.c)
+ *     CmpAbortRollbackPacket @ 0x14077A7CC (CmpAbortRollbackPacket.c)
+ *     CmpRollbackTransactionArray @ 0x1408750C8 (CmpRollbackTransactionArray.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
  */
 
-LONG_PTR __fastcall CmpTransDereferenceTransaction(__int64 a1)
+void __fastcall CmpTransDereferenceTransaction(__int64 a1)
 {
-  return ObfDereferenceObject((PVOID)(a1 & 0xFFFFFFFFFFFFFFFEuLL));
+  HalPutDmaAdapter((PADAPTER_OBJECT)(a1 & 0xFFFFFFFFFFFFFFFEuLL));
 }

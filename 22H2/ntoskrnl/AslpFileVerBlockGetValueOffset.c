@@ -1,17 +1,17 @@
 /*
- * XREFs of AslpFileVerBlockGetValueOffset @ 0x14022BE8C
+ * XREFs of AslpFileVerBlockGetValueOffset @ 0x1403BD1F8
  * Callers:
- *     AslpFileVerQueryBlock @ 0x1406D48F0 (AslpFileVerQueryBlock.c)
- *     AslpFileMakeStringVersionAttributes @ 0x14075978C (AslpFileMakeStringVersionAttributes.c)
- *     AslpFileVerStringBlockGetValue @ 0x1407BE9C4 (AslpFileVerStringBlockGetValue.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x1407B2DFC (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileVerStringBlockGetValue @ 0x1407B31F4 (AslpFileVerStringBlockGetValue.c)
+ *     AslpFileVerQueryBlock @ 0x1407B33D0 (AslpFileVerQueryBlock.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14022BF00 (RtlStringCbLengthW.c)
+ *     RtlStringCbLengthW @ 0x1403224DC (RtlStringCbLengthW.c)
  */
 
 NTSTATUS __fastcall AslpFileVerBlockGetValueOffset(_QWORD *a1, __int64 a2, __int64 a3)
 {
   NTSTATUS result; // eax
-  size_t *v4; // r10
+  size_t *v4; // r11
   size_t pcbLength; // [rsp+30h] [rbp+8h] BYREF
 
   pcbLength = 0LL;

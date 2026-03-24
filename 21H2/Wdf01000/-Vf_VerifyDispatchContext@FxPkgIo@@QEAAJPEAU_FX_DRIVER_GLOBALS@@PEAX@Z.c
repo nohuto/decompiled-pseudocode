@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Vf_VerifyDispatchContext@FxPkgIo@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00C80A4
+ * XREFs of ?Vf_VerifyDispatchContext@FxPkgIo@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00C6FC0
  * Callers:
- *     ?DispatchStep1@FxPkgIo@@QEAAJPEAU_IRP@@PEAX@Z @ 0x1C0007B50 (-DispatchStep1@FxPkgIo@@QEAAJPEAU_IRP@@PEAX@Z.c)
+ *     ?DispatchStep1@FxPkgIo@@QEAAJPEAU_IRP@@PEAX@Z @ 0x1C00071B0 (-DispatchStep1@FxPkgIo@@QEAAJPEAU_IRP@@PEAX@Z.c)
  * Callees:
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 __int64 __fastcall FxPkgIo::Vf_VerifyDispatchContext(
@@ -14,23 +14,33 @@ __int64 __fastcall FxPkgIo::Vf_VerifyDispatchContext(
 {
   _LIST_ENTRY *p_m_DynamicDispatchInfoListHead; // r9
   unsigned int v4; // ebx
-  _LIST_ENTRY *Flink; // rax
-  bool v7; // cl
+  _LIST_ENTRY *Flink; // rcx
+  bool v7; // al
 
   p_m_DynamicDispatchInfoListHead = &this->m_DynamicDispatchInfoListHead;
   v4 = 0;
   Flink = this->m_DynamicDispatchInfoListHead.Flink;
-  v7 = DispatchContext == &this->m_DynamicDispatchInfoListHead;
+  v7 = DispatchContext == p_m_DynamicDispatchInfoListHead;
   while ( Flink != p_m_DynamicDispatchInfoListHead )
   {
     if ( DispatchContext == Flink )
-      return v4;
+    {
+      v7 = 1;
+      break;
+    }
     Flink = Flink->Flink;
   }
   if ( !v7 )
   {
     v4 = -1073741811;
-    WPP_IFR_SF_qL(FxDriverGlobals, 2u, 0xDu, 0xDu, WPP_FxPkgIo_cpp_Traceguids, DispatchContext, 0xC000000D);
+    WPP_IFR_SF_qL(
+      FxDriverGlobals,
+      2u,
+      0xDu,
+      0xDu,
+      (const _GUID *)&WPP_FxPkgIo_cpp_Traceguids,
+      DispatchContext,
+      0xC000000D);
     FxVerifierDbgBreakPoint(FxDriverGlobals);
   }
   return v4;

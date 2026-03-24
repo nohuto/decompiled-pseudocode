@@ -1,15 +1,15 @@
 /*
- * XREFs of KeFlushIoBuffers @ 0x14011CB20
+ * XREFs of KeFlushIoBuffers @ 0x14011CB40
  * Callers:
  *     ViMapDoubleBuffer @ 0x14092E13C (ViMapDoubleBuffer.c)
  * Callees:
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E900 (EtwGetKernelTraceTimestamp.c)
- *     KeInvalidateAllCaches @ 0x140177030 (KeInvalidateAllCaches.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     KiFlushRangeAllCaches @ 0x140293E40 (KiFlushRangeAllCaches.c)
- *     EtwTraceCpuCacheFlush @ 0x14030FA98 (EtwTraceCpuCacheFlush.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
+ *     KeInvalidateAllCaches @ 0x140177050 (KeInvalidateAllCaches.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KiFlushRangeAllCaches @ 0x140293F40 (KiFlushRangeAllCaches.c)
+ *     EtwTraceCpuCacheFlush @ 0x14030FB98 (EtwTraceCpuCacheFlush.c)
  */
 
 char __fastcall KeFlushIoBuffers(ULONG_PTR BugCheckParameter4, char a2, char a3, __int64 a4)

@@ -1,78 +1,64 @@
 /*
- * XREFs of ?UMPDDrvQueryFontData@@YAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C02BC600
+ * XREFs of ?UMPDDrvQueryFontData@@YAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C02AB3E0
  * Callers:
  *     <none>
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C0298EE8 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
- *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C029955C (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
- *     ?pfo@UMPDOBJ@@QEAAHPEAPEAU_FONTOBJ@@@Z @ 0x1C0299BD8 (-pfo@UMPDOBJ@@QEAAHPEAPEAU_FONTOBJ@@@Z.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C02B7860 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C02B78D8 (--1XUMPDOBJ@@QEAA@XZ.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02B8264 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
- *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C02BFC6C (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
- *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C02BFF40 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
+ *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C001ECD8 (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F0E8 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A16C0 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C00A190C (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C00A1984 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
+ *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C013C6B4 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
+ *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C013C88C (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
+ *     ?pfo@UMPDOBJ@@QEAAHPEAPEAU_FONTOBJ@@@Z @ 0x1C013CA98 (-pfo@UMPDOBJ@@QEAAHPEAPEAU_FONTOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall UMPDDrvQueryFontData(
         struct DHPDEV__ *a1,
         struct _FONTOBJ *a2,
-        int a3,
+        unsigned int a3,
         int a4,
         struct _GLYPHDATA *a5,
         unsigned __int64 a6,
         size_t Size)
 {
   struct UMPDOBJ *v9; // rbx
-  void *v10; // r14
+  void *v10; // r15
   int v11; // eax
-  unsigned int v12; // r15d
+  unsigned int v12; // r14d
   char *KernelPtr; // rax
   size_t v15; // [rsp+20h] [rbp-91h]
   struct _FONTOBJ *v16; // [rsp+30h] [rbp-81h] BYREF
   unsigned int v17; // [rsp+38h] [rbp-79h] BYREF
-  int v18; // [rsp+3Ch] [rbp-75h]
-  struct UMPDOBJ *v19[2]; // [rsp+40h] [rbp-71h] BYREF
-  _DWORD v20[2]; // [rsp+50h] [rbp-61h] BYREF
-  __int64 v21; // [rsp+58h] [rbp-59h]
-  __int64 v22; // [rsp+60h] [rbp-51h]
-  struct DHPDEV__ *v23; // [rsp+68h] [rbp-49h]
-  struct _FONTOBJ *v24; // [rsp+70h] [rbp-41h] BYREF
-  int v25; // [rsp+78h] [rbp-39h]
-  int v26; // [rsp+7Ch] [rbp-35h]
-  void *v27; // [rsp+80h] [rbp-31h] BYREF
-  void *v28; // [rsp+88h] [rbp-29h] BYREF
-  int v29; // [rsp+90h] [rbp-21h]
-  int v30; // [rsp+94h] [rbp-1Dh]
+  unsigned int v18; // [rsp+3Ch] [rbp-75h]
+  UMPDOBJ *v19[2]; // [rsp+40h] [rbp-71h] BYREF
+  _QWORD v20[10]; // [rsp+50h] [rbp-61h] BYREF
 
-  v21 = 0LL;
-  v30 = 0;
   v17 = 0;
   LODWORD(v16) = a4;
   v18 = a3;
   XUMPDOBJ::XUMPDOBJ((XUMPDOBJ *)v19);
+  memset(v20, 0, 0x48uLL);
   v9 = v19[0];
-  v21 = 0LL;
-  v30 = 0;
   if ( !v19[0] )
     goto LABEL_12;
-  v20[0] = 72;
-  v20[1] = 28;
-  v22 = *(_QWORD *)v19[0];
-  v23 = a1;
-  v25 = v18;
+  v20[0] = 0x1C00000048LL;
+  v20[2] = *(_QWORD *)v19[0];
+  v20[3] = a1;
+  v20[5] = __PAIR64__((unsigned int)v16, v18);
   v10 = (void *)(a6 & -(__int64)((_DWORD)Size != 0));
-  v28 = v10;
-  v24 = a2;
-  v26 = (int)v16;
-  v27 = a5;
-  v29 = Size;
-  if ( !(unsigned int)UMPDOBJ::ThunkMemBlock(v19[0], (const void **)&v27, 0x40u) )
+  v20[7] = v10;
+  v20[4] = a2;
+  v20[6] = a5;
+  LODWORD(v20[8]) = Size;
+  if ( !(unsigned int)UMPDOBJ::ThunkMemBlock(v19[0], (const void **)&v20[6], 0x40u) )
     goto LABEL_12;
-  if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v9, (const void **)&v28, Size)
-    && (unsigned int)UMPDOBJ::pfo(v9, (__m128i **)&v24) )
+  if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v9, (const void **)&v20[7], Size)
+    && (unsigned int)UMPDOBJ::pfo(v9, (__m128i **)&v20[4]) )
   {
     v16 = a2;
     UMPDReleaseRFONTSem((struct RFONTOBJ *)&v16, v9, 0LL, 0LL, 0LL);
@@ -88,11 +74,11 @@ __int64 __fastcall UMPDDrvQueryFontData(
     {
       if ( v10 )
       {
-        KernelPtr = UMPDOBJ::GetKernelPtr((char **)v9, (char *)v28);
+        KernelPtr = UMPDOBJ::GetKernelPtr(v9, (char *)v20[7]);
         memmove(v10, KernelPtr, (unsigned int)Size);
       }
       if ( a5 )
-        *a5 = *(struct _GLYPHDATA *)UMPDOBJ::GetKernelPtr((char **)v9, (char *)v27);
+        *a5 = *(struct _GLYPHDATA *)UMPDOBJ::GetKernelPtr(v9, (char *)v20[6]);
     }
   }
   else

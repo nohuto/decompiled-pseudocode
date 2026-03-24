@@ -1,23 +1,22 @@
 /*
- * XREFs of SepCreateClientSecurityEx @ 0x14071D960
+ * XREFs of SepCreateClientSecurityEx @ 0x1406D6F20
  * Callers:
- *     SeCreateClientSecurityFromSubjectContextEx @ 0x1405B90F0 (SeCreateClientSecurityFromSubjectContextEx.c)
- *     SeCreateClientSecurityEx @ 0x14071D220 (SeCreateClientSecurityEx.c)
- *     SeCreateClientSecurity @ 0x14071D3C0 (SeCreateClientSecurity.c)
- *     SeCreateClientSecurityFromSubjectContext @ 0x1407E63B0 (SeCreateClientSecurityFromSubjectContext.c)
+ *     SeCreateClientSecurityFromSubjectContextEx @ 0x140597000 (SeCreateClientSecurityFromSubjectContextEx.c)
+ *     SeCreateClientSecurityFromSubjectContext @ 0x1406A1230 (SeCreateClientSecurityFromSubjectContext.c)
+ *     SeCreateClientSecurity @ 0x1406D6B30 (SeCreateClientSecurity.c)
+ *     SeCreateClientSecurityEx @ 0x1406D6D20 (SeCreateClientSecurityEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329A0 (PsReferencePrimaryTokenWithTag.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     PsIsHostSilo @ 0x1402AF8D0 (PsIsHostSilo.c)
- *     SepGetAnonymousToken @ 0x140370BA8 (SepGetAnonymousToken.c)
- *     ObpPushStackInfo @ 0x140582C68 (ObpPushStackInfo.c)
- *     SeCopyClientToken @ 0x14071DD30 (SeCopyClientToken.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     SeQueryServerSiloToken @ 0x1407DEF60 (SeQueryServerSiloToken.c)
- *     SepCopyClientTokenAndSetSilo @ 0x1409C95C0 (SepCopyClientTokenAndSetSilo.c)
- *     SeGetTokenControlInformation @ 0x1409CF2A0 (SeGetTokenControlInformation.c)
+ *     PsGetCurrentServerSilo @ 0x14025C220 (PsGetCurrentServerSilo.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402D19C0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsHostSilo @ 0x1402D5230 (PsIsHostSilo.c)
+ *     SepGetAnonymousToken @ 0x14035F51C (SepGetAnonymousToken.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
+ *     PsReferencePrimaryToken @ 0x140654390 (PsReferencePrimaryToken.c)
+ *     SeQueryServerSiloToken @ 0x140693660 (SeQueryServerSiloToken.c)
+ *     SeCopyClientToken @ 0x1406DAAF4 (SeCopyClientToken.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x14091C81C (SepCopyClientTokenAndSetSilo.c)
+ *     SeGetTokenControlInformation @ 0x140922B34 (SeGetTokenControlInformation.c)
  */
 
 __int64 __fastcall SepCreateClientSecurityEx(
@@ -28,153 +27,153 @@ __int64 __fastcall SepCreateClientSecurityEx(
         char a5,
         unsigned int a6,
         char a7,
-        __int64 a8,
+        struct _KTHREAD *a8,
         unsigned __int8 a9,
         __int64 a10,
         __int64 a11)
 {
-  char v12; // dl
-  _QWORD *v14; // r14
-  unsigned int v15; // eax
-  __int64 v16; // rbx
-  char v17; // al
+  __int64 v11; // rdi
+  PADAPTER_OBJECT v13; // rbp
+  unsigned int v14; // eax
+  __int64 v15; // rbx
+  char v16; // al
   __int64 result; // rax
-  bool v19; // al
-  int v20; // r8d
+  bool v18; // al
+  int v19; // r8d
   struct _KTHREAD *CurrentThread; // rcx
-  __int64 Process; // rcx
-  ULONG_PTR v23; // rax
-  void *v24; // r14
-  __int64 v25; // rcx
-  int AnonymousToken; // edi
-  __int64 v27; // rdi
+  struct _KPROCESS *Process; // rcx
+  struct _DMA_ADAPTER *v22; // rax
+  struct _DMA_ADAPTER *v23; // r14
+  __int64 v24; // rcx
+  int AnonymousToken; // ebp
+  __int64 v26; // rcx
+  _DMA_OPERATIONS *DmaOperations; // r14
   int v28; // r8d
+  __int64 v29; // rdx
+  __int64 v30; // rcx
   __int64 CurrentServerSilo; // rax
-  _QWORD v30[5]; // [rsp+40h] [rbp-28h] BYREF
-  PVOID Object; // [rsp+78h] [rbp+10h] BYREF
+  struct _DMA_ADAPTER *v32; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v33[4]; // [rsp+48h] [rbp-20h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+78h] [rbp+10h] BYREF
 
-  v12 = 0;
-  v30[0] = 0LL;
-  Object = 0LL;
-  v14 = (_QWORD *)a1;
-  if ( *(_BYTE *)(a2 + 8) >= 2u )
+  v11 = a2;
+  LOBYTE(a2) = 0;
+  v32 = 0LL;
+  DmaAdapter = 0LL;
+  v13 = (PADAPTER_OBJECT)a1;
+  if ( *(_BYTE *)(v11 + 8) >= 2u )
     return 3221225485LL;
-  v15 = *(_DWORD *)(a2 + 4);
-  if ( v15 > 3 )
+  v14 = *(_DWORD *)(v11 + 4);
+  if ( v14 > 3 )
     return 3221225637LL;
   if ( a4 == 2 )
   {
-    if ( (int)v15 > (int)a6 )
+    a1 = a6;
+    if ( (int)v14 > (int)a6 )
     {
       if ( !a7 )
         return 3221225637LL;
-      v12 = 1;
+      LOBYTE(a2) = 1;
     }
     if ( a6 > 1 && (!a3 || a6 == 3) )
     {
-      v19 = a5 || *(_BYTE *)(a2 + 9);
-      v16 = a11;
-      *(_BYTE *)(a11 + 25) = v19;
-      if ( !v12 )
+      v18 = a5 || *(_BYTE *)(v11 + 9);
+      v15 = a11;
+      *(_BYTE *)(a11 + 25) = v18;
+      if ( !(_BYTE)a2 )
         goto LABEL_5;
-LABEL_29:
-      if ( (*(_DWORD *)(a1 + 200) & 0x4000) == 0 )
+LABEL_28:
+      if ( ((__int64)v13[12].DmaOperations & 0x4000) != 0 )
+      {
+        v26 = (__int64)v13;
+      }
+      else
       {
         if ( a8 )
         {
           CurrentThread = KeGetCurrentThread();
-          if ( (struct _KTHREAD *)a8 == CurrentThread )
-            Process = (__int64)CurrentThread->ApcState.Process;
+          if ( a8 == CurrentThread )
+            Process = CurrentThread->ApcState.Process;
           else
-            Process = *(_QWORD *)(a8 + 544);
-          v23 = PsReferencePrimaryTokenWithTag(Process, 0x746C6644u);
-          v24 = (void *)v23;
-          if ( (*(_DWORD *)(v23 + 200) & 0x4000) != 0 )
-            v25 = v23;
+            Process = a8->Process;
+          v22 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
+          v23 = v22;
+          if ( ((__int64)v22[12].DmaOperations & 0x4000) != 0 )
+            v24 = (__int64)v22;
           else
-            v25 = 0LL;
-          AnonymousToken = SepGetAnonymousToken(v25, &Object);
-          ObfDereferenceObject(v24);
-LABEL_36:
+            v24 = 0LL;
+          AnonymousToken = SepGetAnonymousToken(v24, &DmaAdapter);
+          HalPutDmaAdapter(v23);
+LABEL_35:
           if ( AnonymousToken < 0 )
             return (unsigned int)AnonymousToken;
-          v14 = Object;
-          result = ObInsertObjectEx(Object, 0LL, 0, 0LL, 0LL);
+          v13 = DmaAdapter;
+          result = ObInsertObjectEx(DmaAdapter, 0LL, 0, 0, 0, 0LL, 0LL);
           if ( (int)result >= 0 )
           {
-            if ( ObpTraceFlags )
-            {
-              ObpPushStackInfo((__int64)(v14 - 6), 0, 1u, 0x746C6644u);
-              ObpPushStackInfo((__int64)(v14 - 6), 1, 1u, 0x63436553u);
-            }
-            *(_QWORD *)v16 = 12LL;
-            *(_BYTE *)(v16 + 8) = 0;
-            v17 = *(_BYTE *)(a2 + 9);
-            *(_BYTE *)(v16 + 24) = 0;
+            *(_QWORD *)v15 = 12LL;
+            *(_BYTE *)(v15 + 8) = 0;
+            v16 = *(_BYTE *)(v11 + 9);
+            *(_BYTE *)(v15 + 24) = 0;
             goto LABEL_9;
           }
           return result;
         }
-        a1 = 0LL;
+        v26 = 0LL;
       }
-      AnonymousToken = SepGetAnonymousToken(a1, &Object);
-      goto LABEL_36;
+      AnonymousToken = SepGetAnonymousToken(v26, &DmaAdapter);
+      goto LABEL_35;
     }
     if ( a7 )
     {
-      v16 = a11;
-      goto LABEL_29;
+      v15 = a11;
+      goto LABEL_28;
     }
     return 3221225637LL;
   }
-  v16 = a11;
-  *(_BYTE *)(a11 + 25) = *(_BYTE *)(a2 + 9);
+  v15 = a11;
+  *(_BYTE *)(a11 + 25) = *(_BYTE *)(v11 + 9);
 LABEL_5:
-  if ( *(_BYTE *)(a2 + 8) )
+  if ( *(_BYTE *)(v11 + 8) )
   {
-    *(_BYTE *)(v16 + 24) = 1;
+    *(_BYTE *)(v15 + 24) = 1;
     if ( a3 )
-      SeGetTokenControlInformation(a1, v16 + 28);
+      SeGetTokenControlInformation(v13, v15 + 28);
 LABEL_8:
-    *(_DWORD *)v16 = 12;
-    *(_DWORD *)(v16 + 4) = *(_DWORD *)(a2 + 4);
-    *(_BYTE *)(v16 + 8) = *(_BYTE *)(a2 + 8);
-    v17 = *(_BYTE *)(a2 + 9);
+    *(_DWORD *)v15 = 12;
+    *(_DWORD *)(v15 + 4) = *(_DWORD *)(v11 + 4);
+    *(_BYTE *)(v15 + 8) = *(_BYTE *)(v11 + 8);
+    v16 = *(_BYTE *)(v11 + 9);
 LABEL_9:
-    *(_QWORD *)(v16 + 16) = v14;
-    *(_BYTE *)(v16 + 9) = v17;
+    *(_QWORD *)(v15 + 16) = v13;
+    *(_BYTE *)(v15 + 9) = v16;
     result = 0LL;
-    *(_BYTE *)(v16 + 26) = a3;
+    *(_BYTE *)(v15 + 26) = a3;
     return result;
   }
-  *(_BYTE *)(v16 + 24) = 0;
-  if ( PsIsCurrentThreadInServerSilo() )
+  *(_BYTE *)(v15 + 24) = 0;
+  if ( PsIsCurrentThreadInServerSilo(a1, a2) )
   {
-    v27 = v14[3];
-    Object = 0LL;
-    if ( (int)SeQueryServerSiloToken(v14, &Object) >= 0 && PsIsHostSilo((__int64)Object) && v27 == 999 )
+    DmaOperations = v13[1].DmaOperations;
+    v33[0] = 0LL;
+    if ( (int)SeQueryServerSiloToken((__int64)v13, (__int64)v33) >= 0
+      && PsIsHostSilo(v33[0])
+      && DmaOperations == (_DMA_OPERATIONS *)999 )
     {
-      CurrentServerSilo = PsGetCurrentServerSilo();
-      result = SepCopyClientTokenAndSetSilo(v14, *(unsigned int *)(a2 + 4), CurrentServerSilo, v30);
+      CurrentServerSilo = PsGetCurrentServerSilo(v30, v29);
+      result = SepCopyClientTokenAndSetSilo(v13, *(unsigned int *)(v11 + 4), CurrentServerSilo, &v32);
     }
     else
     {
-      result = SeCopyClientToken((_DWORD)v14, *(_DWORD *)(a2 + 4), v28, 0, 0LL, (__int64)v30);
+      result = SeCopyClientToken((_DWORD)v13, *(_DWORD *)(v11 + 4), v28, 0, 0LL, (__int64)&v32);
     }
   }
   else
   {
-    result = SeCopyClientToken((_DWORD)v14, *(_DWORD *)(a2 + 4), v20, a9, a10, (__int64)v30);
+    result = SeCopyClientToken((_DWORD)v13, *(_DWORD *)(v11 + 4), v19, a9, a10, (__int64)&v32);
   }
+  v13 = v32;
   if ( (int)result >= 0 )
-  {
-    v14 = (_QWORD *)v30[0];
-    if ( ObpTraceFlags )
-    {
-      ObpPushStackInfo(v30[0] - 48LL, 0, 1u, 0x746C6644u);
-      ObpPushStackInfo((__int64)(v14 - 6), 1, 1u, 0x63436553u);
-    }
     goto LABEL_8;
-  }
   return result;
 }

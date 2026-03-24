@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmCompareAndApplyPolicySettings @ 0x14099788C
+ * XREFs of PpmCompareAndApplyPolicySettings @ 0x1408F07C0
  * Callers:
- *     PpmApplyProfile @ 0x14099D500 (PpmApplyProfile.c)
- *     PpmProfileAcDcUpdate @ 0x14099DAA8 (PpmProfileAcDcUpdate.c)
+ *     PpmApplyProfile @ 0x1408F5AFC (PpmApplyProfile.c)
+ *     PpmProfileAcDcUpdate @ 0x1408F604C (PpmProfileAcDcUpdate.c)
  * Callees:
- *     PpmReleaseLock @ 0x140224C00 (PpmReleaseLock.c)
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     RtlCompareMemory @ 0x14042A1E0 (RtlCompareMemory.c)
- *     PpmReapplyPerfPolicy @ 0x140849940 (PpmReapplyPerfPolicy.c)
- *     PpmGetPolicyAction @ 0x140854A90 (PpmGetPolicyAction.c)
- *     PpmReapplyIdlePolicy @ 0x14098B1A8 (PpmReapplyIdlePolicy.c)
+ *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BA700 (PpmReapplyPerfPolicy.c)
+ *     PpmGetPolicyAction @ 0x1407C4E80 (PpmGetPolicyAction.c)
+ *     PpmReapplyIdlePolicy @ 0x1408E28EC (PpmReapplyIdlePolicy.c)
  */
 
-void __fastcall PpmCompareAndApplyPolicySettings(__int64 *a1, __int64 a2, __int64 a3)
+char __fastcall PpmCompareAndApplyPolicySettings(__int64 *a1, __int64 a2, __int64 a3)
 {
   int v3; // ebx
   __int64 v4; // rsi
@@ -28,38 +28,38 @@ void __fastcall PpmCompareAndApplyPolicySettings(__int64 *a1, __int64 a2, __int6
   unsigned int v14; // r12d
   __int64 v15; // r14
   char *v16; // r8
-  unsigned __int64 v17; // [rsp+20h] [rbp-58h]
-  int v18; // [rsp+80h] [rbp+8h] BYREF
-  __int64 v19; // [rsp+88h] [rbp+10h]
-  __int64 v20; // [rsp+90h] [rbp+18h]
-  __int64 v21; // [rsp+98h] [rbp+20h] BYREF
+  unsigned __int64 v18; // [rsp+20h] [rbp-58h]
+  int v19; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v20; // [rsp+88h] [rbp+10h]
+  __int64 v21; // [rsp+90h] [rbp+18h]
+  __int64 v22; // [rsp+98h] [rbp+20h] BYREF
 
-  v20 = a3;
-  v19 = a2;
+  v21 = a3;
+  v20 = a2;
   v3 = 0;
-  v18 = 0;
-  LODWORD(v21) = 0;
+  v19 = 0;
+  LODWORD(v22) = 0;
   if ( PopHeteroSystem && PpmPerfSchedulerDirectedPerfStatesSupported )
   {
     v3 = 4098;
-    v18 = 4098;
+    v19 = 4098;
   }
   v4 = *a1;
-  v21 = 0LL;
+  v22 = 0LL;
   v5 = 0LL;
-  v6 = v4 & 0x3CFFFFD8030FC0LL;
+  v6 = v4 & 0x1CFFFFD8030FC0LL;
   if ( v6 )
   {
     v7 = !_BitScanForward64((unsigned __int64 *)&v8, v6);
     if ( !v7 )
     {
-      v9 = v20;
+      v9 = v21;
       do
       {
         v10 = 5 * v8;
-        v17 = v6 & ~(1LL << v8);
+        v18 = v6 & ~(1LL << v8);
         v11 = 0;
-        v12 = v19;
+        v12 = v20;
         v13 = 1LL << *((_BYTE *)&PpmPolicyConfigTable + 40 * v8 + 36);
         v14 = ((*((_BYTE *)&PpmPolicyConfigTable + 40 * v8 + 37) & 4) != 0) + 1;
         do
@@ -71,16 +71,16 @@ void __fastcall PpmCompareAndApplyPolicySettings(__int64 *a1, __int64 a2, __int6
           ++v11;
         }
         while ( v11 < v14 );
-        v6 = v17;
-        v7 = !_BitScanForward64((unsigned __int64 *)&v8, v17);
-        v21 = v5;
+        v6 = v18;
+        v7 = !_BitScanForward64((unsigned __int64 *)&v8, v18);
+        v22 = v5;
       }
       while ( !v7 );
-      v3 = v18;
+      v3 = v19;
       if ( v5 )
       {
-        PpmGetPolicyAction(&v21, &v18);
-        v3 = v18;
+        PpmGetPolicyAction(&v22, &v19);
+        v3 = v19;
       }
     }
   }
@@ -88,11 +88,11 @@ void __fastcall PpmCompareAndApplyPolicySettings(__int64 *a1, __int64 a2, __int6
   {
     PpmReapplyIdlePolicy();
     v3 &= ~1u;
-    v18 = v3;
+    v19 = v3;
   }
   PopReleaseRwLock((ULONG_PTR)&PpmIdlePolicyLock);
   if ( (_WORD)v3 )
-    PpmReapplyPerfPolicy(&v18);
+    return PpmReapplyPerfPolicy(&v19);
   else
-    PpmReleaseLock(&PpmPerfPolicyLock);
+    return PpmReleaseLock(&PpmPerfPolicyLock);
 }

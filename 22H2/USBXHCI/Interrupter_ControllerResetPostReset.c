@@ -1,12 +1,12 @@
 /*
- * XREFs of Interrupter_ControllerResetPostReset @ 0x1C003DB84
+ * XREFs of Interrupter_ControllerResetPostReset @ 0x1C003B850
  * Callers:
- *     Controller_InternalReset @ 0x1C0033C04 (Controller_InternalReset.c)
+ *     Controller_InternalReset @ 0x1C00322D8 (Controller_InternalReset.c)
  * Callees:
- *     Controller_IsControllerAccessible @ 0x1C000A914 (Controller_IsControllerAccessible.c)
- *     Interrupter_InterrupterRegisterIntialize @ 0x1C0014BA4 (Interrupter_InterrupterRegisterIntialize.c)
- *     Interrupter_Initialize @ 0x1C0014D0C (Interrupter_Initialize.c)
- *     Interrupter_InterruptEnable @ 0x1C0018978 (Interrupter_InterruptEnable.c)
+ *     Controller_IsControllerAccessible @ 0x1C0007380 (Controller_IsControllerAccessible.c)
+ *     Interrupter_InterruptEnable @ 0x1C0010F5C (Interrupter_InterruptEnable.c)
+ *     Interrupter_InterrupterRegisterIntialize @ 0x1C00143C4 (Interrupter_InterrupterRegisterIntialize.c)
+ *     Interrupter_Initialize @ 0x1C00146A8 (Interrupter_Initialize.c)
  */
 
 char __fastcall Interrupter_ControllerResetPostReset(__int64 a1)

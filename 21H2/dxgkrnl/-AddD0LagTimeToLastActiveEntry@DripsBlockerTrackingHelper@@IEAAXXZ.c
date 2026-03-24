@@ -1,14 +1,14 @@
 /*
- * XREFs of ?AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C02FAAA0
+ * XREFs of ?AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C02BF934
  * Callers:
- *     ?SetPDCIdleResiliencyEngaged@DXGGLOBAL@@QEAAXH@Z @ 0x1C0222FF4 (-SetPDCIdleResiliencyEngaged@DXGGLOBAL@@QEAAXH@Z.c)
- *     ?AddProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C02FADA0 (-AddProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@.c)
- *     ?EngageDFx@DripsBlockerTrackingHelper@@QEAAX_N@Z @ 0x1C02FBD34 (-EngageDFx@DripsBlockerTrackingHelper@@QEAAX_N@Z.c)
- *     DpiReportDevicePowerStateWorkItemCallback @ 0x1C03879A0 (DpiReportDevicePowerStateWorkItemCallback.c)
+ *     ?SetPDCIdleResiliencyEngaged@DXGGLOBAL@@QEAAXH@Z @ 0x1C02BF678 (-SetPDCIdleResiliencyEngaged@DXGGLOBAL@@QEAAXH@Z.c)
+ *     ?AddProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C02BFC34 (-AddProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@.c)
+ *     ?EngageDFx@DripsBlockerTrackingHelper@@QEAAX_N@Z @ 0x1C02C0B8C (-EngageDFx@DripsBlockerTrackingHelper@@QEAAX_N@Z.c)
+ *     DpiReportDevicePowerStateWorkItemCallback @ 0x1C02C7080 (DpiReportDevicePowerStateWorkItemCallback.c)
  * Callees:
- *     McTemplateK0qqqszq_EtwWriteTransfer @ 0x1C004F988 (McTemplateK0qqqszq_EtwWriteTransfer.c)
- *     ?EtwProfilerTypeName@DripsBlockerTrackingHelper@@KAPEAGW4_DXGKETW_PROFILER_TYPE@@PEAI@Z @ 0x1C02FBDF0 (-EtwProfilerTypeName@DripsBlockerTrackingHelper@@KAPEAGW4_DXGKETW_PROFILER_TYPE@@PEAI@Z.c)
- *     ?GetElapsed@TimeInterval@DripsBlockerTrackingHelper@@SA_K_K@Z @ 0x1C02FE840 (-GetElapsed@TimeInterval@DripsBlockerTrackingHelper@@SA_K_K@Z.c)
+ *     McTemplateK0qqqszq_EtwWriteTransfer @ 0x1C004EBF4 (McTemplateK0qqqszq_EtwWriteTransfer.c)
+ *     ?EtwProfilerTypeName@DripsBlockerTrackingHelper@@KAPEAGW4_DXGKETW_PROFILER_TYPE@@PEAI@Z @ 0x1C02C0C48 (-EtwProfilerTypeName@DripsBlockerTrackingHelper@@KAPEAGW4_DXGKETW_PROFILER_TYPE@@PEAI@Z.c)
+ *     ?GetElapsed@TimeInterval@DripsBlockerTrackingHelper@@SA_K_K@Z @ 0x1C02C3634 (-GetElapsed@TimeInterval@DripsBlockerTrackingHelper@@SA_K_K@Z.c)
  */
 
 void __fastcall DripsBlockerTrackingHelper::AddD0LagTimeToLastActiveEntry(DripsBlockerTrackingHelper *this)
@@ -38,7 +38,7 @@ void __fastcall DripsBlockerTrackingHelper::AddD0LagTimeToLastActiveEntry(DripsB
       v7 = (const wchar_t *)DripsBlockerTrackingHelper::EtwProfilerTypeName(
                               *((unsigned int *)this + 1180 * *((unsigned int *)this + 75536) + 18 * v6 + 43),
                               &v8);
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
         McTemplateK0qqqszq_EtwWriteTransfer(
           *((unsigned __int8 *)this + 302153),
           &DripsBlockerTracking_AddD0LagTime,

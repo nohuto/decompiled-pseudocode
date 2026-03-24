@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringCopyWorkerA @ 0x1C0018A60
+ * XREFs of RtlStringCopyWorkerA @ 0x1C0015314
  * Callers:
- *     Controller_Create @ 0x1C00702D4 (Controller_Create.c)
+ *     Controller_Create @ 0x1C006B314 (Controller_Create.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?TmpGetLock@CBaseInput@@QEAAAEAUCInpPushLock@@XZ @ 0x1C00976D0
+ * XREFs of ?TmpGetLock@CBaseInput@@QEAAAEAUCInpPushLock@@XZ @ 0x1C00A9860
  * Callers:
  *     <none>
  * Callees:

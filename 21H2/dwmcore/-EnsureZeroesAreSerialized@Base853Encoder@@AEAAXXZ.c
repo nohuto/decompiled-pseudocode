@@ -1,16 +1,15 @@
 /*
- * XREFs of ?EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ @ 0x180076B48
+ * XREFs of ?EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ @ 0x18004D21C
  * Callers:
- *     _anonymous_namespace_::SendFramesReport @ 0x1800751DC (_anonymous_namespace_--SendFramesReport.c)
- *     ?EncodeStringsList@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$set@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@2@@Z @ 0x180075DD4 (-EncodeStringsList@@YA-AV-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@AEBV-$set@.c)
- *     _anonymous_namespace_::ProcessAttributionResourceCountersEncoder::Serialize @ 0x18007601C (_anonymous_namespace_--ProcessAttributionResourceCountersEncoder--Serialize.c)
- *     ?AppendByte@Base853Encoder@@QEAAXE@Z @ 0x180076214 (-AppendByte@Base853Encoder@@QEAAXE@Z.c)
- *     _anonymous_namespace_::SequenceEncoder::Serialize @ 0x180076268 (_anonymous_namespace_--SequenceEncoder--Serialize.c)
- *     ?AppendVarInt@Base853Encoder@@QEAAXI@Z @ 0x180076AC0 (-AppendVarInt@Base853Encoder@@QEAAXI@Z.c)
- *     _anonymous_namespace_::GlobalResourceCountersEncoder::Serialize @ 0x1800F4130 (_anonymous_namespace_--GlobalResourceCountersEncoder--Serialize.c)
+ *     _anonymous_namespace_::GlobalResourceCountersEncoder::Serialize @ 0x18004B6D4 (_anonymous_namespace_--GlobalResourceCountersEncoder--Serialize.c)
+ *     _anonymous_namespace_::SendFramesReport @ 0x18004B7F8 (_anonymous_namespace_--SendFramesReport.c)
+ *     _anonymous_namespace_::ProcessAttributionResourceCountersEncoder::Serialize @ 0x18004C2FC (_anonymous_namespace_--ProcessAttributionResourceCountersEncoder--Serialize.c)
+ *     ?EncodeStringsList@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$set@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@2@@Z @ 0x18004C444 (-EncodeStringsList@@YA-AV-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@AEBV-$set@.c)
+ *     _anonymous_namespace_::SequenceEncoder::Serialize @ 0x18004C6D8 (_anonymous_namespace_--SequenceEncoder--Serialize.c)
+ *     ?AppendByte@Base853Encoder@@QEAAXE@Z @ 0x18004D1C8 (-AppendByte@Base853Encoder@@QEAAXE@Z.c)
  * Callees:
- *     ?AppendVarInt@Base853Encoder@@QEAAXI@Z @ 0x180076AC0 (-AppendVarInt@Base853Encoder@@QEAAXI@Z.c)
- *     ?push_back@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAXD@Z @ 0x180076CAC (-push_back@-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@QEAAXD@Z.c)
+ *     ?AppendVarInt@Base853Encoder@@QEAAXI@Z @ 0x18004CF18 (-AppendVarInt@Base853Encoder@@QEAAXI@Z.c)
+ *     ?push_back@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAXD@Z @ 0x18004D278 (-push_back@-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@QEAAXD@Z.c)
  */
 
 void __fastcall Base853Encoder::EnsureZeroesAreSerialized(Base853Encoder *this, __int64 a2)

@@ -1,24 +1,21 @@
 /*
- * XREFs of MiCollapseRunTopDown @ 0x1403BAF70
+ * XREFs of MiCollapseRunTopDown @ 0x14028271C
  * Callers:
- *     MiFindContiguousPagesEx @ 0x1403BA9B8 (MiFindContiguousPagesEx.c)
- *     MiFindRebuildCandidate @ 0x14046E012 (MiFindRebuildCandidate.c)
+ *     MiFindContiguousPages @ 0x140281D60 (MiFindContiguousPages.c)
+ *     MiFindRebuildCandidate @ 0x140551D4C (MiFindRebuildCandidate.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiCollapseRunTopDown(__int64 a1)
 {
-  unsigned __int64 v1; // r9
+  unsigned __int64 v1; // r8
   unsigned __int64 v3; // rcx
-  unsigned __int64 v4; // r8
+  unsigned __int64 v4; // r9
   unsigned __int64 v5; // rax
-  __int64 v6; // rcx
-  char v7; // bl
-  __int64 v8; // r11
-  __int64 v10; // r10
-  unsigned __int64 v11; // rcx
-  __int64 v12; // rax
+  char v6; // bl
+  __int64 v7; // r11
+  __int64 v9; // r10
 
   v1 = *(_QWORD *)(a1 + 8);
   v3 = *(_QWORD *)(a1 + 24);
@@ -34,37 +31,24 @@ __int64 __fastcall MiCollapseRunTopDown(__int64 a1)
     *(_QWORD *)a1 = v5;
     v4 = v5;
   }
-  v6 = *(_QWORD *)(a1 + 48);
-  if ( v6 )
-  {
-    v12 = ~(v6 - 1);
-    v4 = v12 & (v6 + v4 - 1);
-    *(_QWORD *)a1 = v4;
-    v1 &= v12;
-    *(_QWORD *)(a1 + 8) = v1;
-  }
   if ( v4 < v1 )
   {
-    v7 = *(_BYTE *)(a1 + 56);
-    while ( v7 || *(_QWORD *)(a1 + 40) <= v1 - v4 )
+    v6 = *(_BYTE *)(a1 + 48);
+    while ( v6 || *(_QWORD *)(a1 + 40) <= v1 - v4 )
     {
-      v8 = *(_QWORD *)(a1 + 32);
-      if ( !v8 )
+      v7 = *(_QWORD *)(a1 + 32);
+      if ( !v7 )
         return 1LL;
-      v10 = ~(v8 - 1);
-      if ( (((v1 - 1) ^ (v1 - *(_QWORD *)(a1 + 40))) & v10) == 0 )
+      v9 = ~(v7 - 1);
+      if ( (((v1 - 1) ^ (v1 - *(_QWORD *)(a1 + 40))) & v9) == 0 )
         return 1LL;
-      v11 = v1;
-      if ( (v10 & v1) != v1 )
-      {
-        *(_QWORD *)(a1 + 8) = v10 & v1;
-        v11 = v10 & v1;
-      }
-      if ( (v10 & v4) == v4 || (*(_QWORD *)a1 = v10 & (v4 + v8 - 1), (v10 & (v4 + v8 - 1)) != 0) )
+      if ( (v9 & v1) != v1 )
+        *(_QWORD *)(a1 + 8) = v9 & v1;
+      if ( (v9 & v4) == v4 || (*(_QWORD *)a1 = v9 & (v4 + v7 - 1), (v9 & (v4 + v7 - 1)) != 0) )
       {
         v4 = *(_QWORD *)a1;
-        v1 = v11;
-        if ( *(_QWORD *)a1 < v11 )
+        v1 = *(_QWORD *)(a1 + 8);
+        if ( *(_QWORD *)a1 < v1 )
           continue;
       }
       return 0LL;

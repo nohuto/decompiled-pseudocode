@@ -1,7 +1,7 @@
 /*
- * XREFs of KiClockTimerOneShotReady @ 0x1403546D4
+ * XREFs of KiClockTimerOneShotReady @ 0x140293704
  * Callers:
- *     KePrepareClockTimerForIdle @ 0x140353FB0 (KePrepareClockTimerForIdle.c)
+ *     KePrepareClockTimerForIdle @ 0x140293310 (KePrepareClockTimerForIdle.c)
  * Callees:
  *     <none>
  */

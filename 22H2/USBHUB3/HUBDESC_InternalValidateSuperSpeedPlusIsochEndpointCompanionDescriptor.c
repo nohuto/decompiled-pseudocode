@@ -1,16 +1,16 @@
 /*
- * XREFs of HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor @ 0x1C0037F1C
+ * XREFs of HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor @ 0x1C0034EA8
  * Callers:
- *     HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C0038CA8 (HUBDESC_ValidateConfigurationDescriptorSet.c)
+ *     HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C0035C28 (HUBDESC_ValidateConfigurationDescriptorSet.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_dD @ 0x1C0002668 (WPP_RECORDER_SF_dD.c)
- *     WPP_RECORDER_SF_DDD @ 0x1C001484C (WPP_RECORDER_SF_DDD.c)
- *     WPP_RECORDER_SF_DDDD @ 0x1C0029678 (WPP_RECORDER_SF_DDDD.c)
- *     WPP_RECORDER_SF_Dddd @ 0x1C003559C (WPP_RECORDER_SF_Dddd.c)
- *     HUBDESC_ShouldEnforceWin8ValidationMutable @ 0x1C0035854 (HUBDESC_ShouldEnforceWin8ValidationMutable.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C0026A64 (WPP_RECORDER_SF_DDD.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C00322CC (WPP_RECORDER_SF_DDDD.c)
+ *     WPP_RECORDER_SF_Dddd @ 0x1C003252C (WPP_RECORDER_SF_Dddd.c)
+ *     HUBDESC_ShouldEnforceWin8ValidationMutable @ 0x1C00327E4 (HUBDESC_ShouldEnforceWin8ValidationMutable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor(
@@ -21,33 +21,33 @@ __int64 __fastcall HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionD
         __int64 a5)
 {
   __int64 v7; // r9
-  __int64 v10; // r12
-  int v11; // r14d
-  bool v12; // zf
-  unsigned int v13; // eax
+  int v9; // r15d
+  bool v10; // zf
+  unsigned int v11; // eax
+  __int64 v12; // r12
   __int64 result; // rax
-  unsigned int v15; // ecx
-  __int64 v16; // r8
-  __int64 v17; // r10
-  int v18; // eax
-  __int64 v19; // rdx
-  int v20; // [rsp+20h] [rbp-68h]
-  __int64 v21; // [rsp+28h] [rbp-60h]
-  int v22; // [rsp+28h] [rbp-60h]
-  int v23; // [rsp+28h] [rbp-60h]
-  int v24; // [rsp+28h] [rbp-60h]
-  __int64 v25; // [rsp+30h] [rbp-58h]
-  int v26; // [rsp+30h] [rbp-58h]
-  int v27; // [rsp+30h] [rbp-58h]
-  __int64 v28; // [rsp+38h] [rbp-50h]
-  int v29; // [rsp+38h] [rbp-50h]
-  int v30; // [rsp+38h] [rbp-50h]
-  unsigned int v31; // [rsp+40h] [rbp-48h]
-  unsigned int v32; // [rsp+90h] [rbp+8h]
-  int v33; // [rsp+98h] [rbp+10h] BYREF
+  unsigned int v14; // ecx
+  __int64 v15; // r8
+  int v16; // eax
+  int v17; // [rsp+20h] [rbp-68h]
+  __int64 v18; // [rsp+28h] [rbp-60h]
+  int v19; // [rsp+28h] [rbp-60h]
+  int v20; // [rsp+28h] [rbp-60h]
+  int v21; // [rsp+28h] [rbp-60h]
+  __int64 v22; // [rsp+30h] [rbp-58h]
+  int v23; // [rsp+30h] [rbp-58h]
+  int v24; // [rsp+30h] [rbp-58h]
+  __int64 v25; // [rsp+38h] [rbp-50h]
+  int v26; // [rsp+38h] [rbp-50h]
+  int v27; // [rsp+38h] [rbp-50h]
+  unsigned int v28; // [rsp+40h] [rbp-48h]
+  unsigned int v29; // [rsp+90h] [rbp+8h]
+  int v30; // [rsp+98h] [rbp+10h] BYREF
+  unsigned int *v31; // [rsp+A0h] [rbp+18h]
 
+  v31 = a3;
   v7 = 0LL;
-  v33 = 0;
+  v30 = 0;
   if ( a4 )
   {
     if ( *(_BYTE *)(a2 + 48) )
@@ -55,49 +55,57 @@ __int64 __fastcall HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionD
   }
   else
   {
-    a4 = &v33;
+    a4 = &v30;
   }
-  v10 = a5;
-  v11 = (_DWORD)a1 - *(_DWORD *)(a2 + 56);
-  v12 = *(_DWORD *)(a2 + 4) == 3;
-  v32 = *(_DWORD *)(a2 + 72) - v11;
-  v13 = *a1;
-  *a3 = v13;
-  if ( !v12 || !*(_DWORD *)(a2 + 16) )
+  v9 = (_DWORD)a1 - *(_DWORD *)(a2 + 56);
+  v10 = *(_DWORD *)(a2 + 4) == 3;
+  v29 = *(_DWORD *)(a2 + 72) - v9;
+  v11 = *a1;
+  *a3 = v11;
+  if ( !v10 || !*(_DWORD *)(a2 + 16) )
   {
+    v12 = a5;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v24 = v11;
-      WPP_RECORDER_SF_d(v10, 2u, 5u, 0x61u, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids, v24);
+      v21 = v9;
+      WPP_RECORDER_SF_d(a5, 2u, 5u, 0x5Fu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v21);
     }
     result = (*(__int64 (__fastcall **)(_QWORD, __int64))(a2 + 24))(*(_QWORD *)(a2 + 40), 205LL);
     *a4 = 2;
     goto LABEL_48;
   }
-  if ( (unsigned __int8)v13 < 8u )
+  v12 = a5;
+  if ( (unsigned __int8)v11 < 8u )
   {
-    result = (*(__int64 (__fastcall **)(_QWORD, __int64))(a2 + 24))(*(_QWORD *)(a2 + 40), 208LL);
-    if ( v32 >= 8 )
-      *a3 = 8;
-    v15 = *a3;
+    (*(void (__fastcall **)(_QWORD, __int64))(a2 + 24))(*(_QWORD *)(a2 + 40), 208LL);
+    result = (__int64)v31;
+    if ( v29 < 8 )
+    {
+      v14 = *v31;
+    }
+    else
+    {
+      *v31 = 8;
+      v14 = 8;
+    }
     *a4 = 2;
-    if ( v15 < 8 )
+    if ( v14 < 8 )
     {
       *a4 = 1;
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return result;
-      v29 = 8;
-      v26 = v11;
-      v22 = *a1;
+      v26 = 8;
+      v23 = v9;
+      v19 = *a1;
       result = WPP_RECORDER_SF_DDD(
-                 v10,
+                 v12,
                  2u,
                  (__int64)a3,
-                 0x62u,
-                 (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids,
-                 v22,
-                 v26,
-                 v29);
+                 0x60u,
+                 (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
+                 v19,
+                 v23,
+                 v26);
 LABEL_48:
       if ( !*a4 )
         return result;
@@ -105,20 +113,20 @@ LABEL_48:
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v31 = v15;
-      v30 = 8;
-      v27 = v11;
-      v23 = *a1;
+      v28 = v14;
+      v27 = 8;
+      v24 = v9;
+      v20 = *a1;
       WPP_RECORDER_SF_DDDD(
-        v10,
+        v12,
         2u,
         5u,
-        0x63u,
-        (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids,
-        v23,
+        0x61u,
+        (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
+        v20,
+        v24,
         v27,
-        v30,
-        v31);
+        v28);
     }
   }
   if ( *a1 > 8u )
@@ -127,18 +135,18 @@ LABEL_48:
       *a4 = 2;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LODWORD(v28) = 8;
-      LODWORD(v25) = v11;
-      LODWORD(v21) = *a1;
-      WPP_RECORDER_SF_DDD(v10, 2u, v16, 0x64u, v17, v21, v25, v28);
+      LODWORD(v25) = 8;
+      LODWORD(v22) = v9;
+      LODWORD(v18) = *a1;
+      WPP_RECORDER_SF_DDD(v12, 2u, v15, 0x62u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v18, v22, v25);
     }
     (*(void (__fastcall **)(_QWORD, __int64))(a2 + 24))(*(_QWORD *)(a2 + 40), 207LL);
   }
-  v18 = *(_DWORD *)(a2 + 256);
-  if ( (v18 & 8) != 0 )
+  v16 = *(_DWORD *)(a2 + 256);
+  if ( (v16 & 8) != 0 )
   {
-    *(_DWORD *)(a2 + 256) = v18 & 0xFFFFFFD7 | 0x20;
-    if ( *a3 <= v32 )
+    *(_DWORD *)(a2 + 256) = v16 & 0xFFFFFFD7 | 0x20;
+    if ( *v31 <= v29 )
     {
       if ( *((_WORD *)a1 + 1) )
       {
@@ -146,20 +154,21 @@ LABEL_48:
           *a4 = 2;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          LODWORD(v25) = *((unsigned __int16 *)a1 + 1);
-          LODWORD(v21) = v11;
-          WPP_RECORDER_SF_dD(v10, 2u, 5u, 0x67u, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids, v21, v25);
+          LODWORD(v22) = *((unsigned __int16 *)a1 + 1);
+          LODWORD(v18) = v9;
+          WPP_RECORDER_SF_dD(v12, 2u, 5u, 0x65u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v18, v22);
         }
         (*(void (__fastcall **)(_QWORD, __int64))(a2 + 24))(*(_QWORD *)(a2 + 40), 210LL);
       }
       result = (unsigned int)(*((_DWORD *)a1 + 1) - 49153);
-      if ( (unsigned int)result <= 0xFF3FFE )
-        goto LABEL_48;
-      if ( *(_BYTE *)(a2 + 15) )
-        *a4 = 2;
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_Dddd(v10, a2, (__int64)a3, v7, v20);
-      v19 = 211LL;
+      if ( (unsigned int)result > 0xFF3FFE )
+      {
+        if ( *(_BYTE *)(a2 + 15) )
+          *a4 = 2;
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_Dddd(v12, a2, (__int64)a3, v7, v17);
+        result = (*(__int64 (__fastcall **)(_QWORD, __int64))(a2 + 24))(*(_QWORD *)(a2 + 40), 211LL);
+      }
     }
     else
     {
@@ -167,23 +176,22 @@ LABEL_48:
         *a4 = 2;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LODWORD(v21) = v11;
-        WPP_RECORDER_SF_d(v10, 2u, 5u, 0x66u, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids, v21);
+        LODWORD(v18) = v9;
+        WPP_RECORDER_SF_d(v12, 2u, 5u, 0x64u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v18);
       }
-      v19 = 209LL;
+      result = (*(__int64 (__fastcall **)(_QWORD, __int64))(a2 + 24))(*(_QWORD *)(a2 + 40), 209LL);
     }
-    result = (*(__int64 (__fastcall **)(_QWORD, __int64))(a2 + 24))(*(_QWORD *)(a2 + 40), v19);
     goto LABEL_48;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LODWORD(v21) = v11;
-    WPP_RECORDER_SF_d(v10, 2u, 5u, 0x65u, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids, v21);
+    LODWORD(v18) = v9;
+    WPP_RECORDER_SF_d(v12, 2u, 5u, 0x63u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v18);
   }
   result = (*(__int64 (__fastcall **)(_QWORD, __int64))(a2 + 24))(*(_QWORD *)(a2 + 40), 206LL);
   *a4 = 2;
 LABEL_49:
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    return WPP_RECORDER_SF_(v10, 2u, 5u, 0x69u, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids);
+    return WPP_RECORDER_SF_(v12, 2u, 5u, 0x67u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
   return result;
 }

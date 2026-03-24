@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierFsRtlFastCheckLockForRead @ 0x140ACF4F0
+ * XREFs of VerifierFsRtlFastCheckLockForRead @ 0x1409D20D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierFsRtlFastCheckLockForRead(__int64 a1, __int64 a2)

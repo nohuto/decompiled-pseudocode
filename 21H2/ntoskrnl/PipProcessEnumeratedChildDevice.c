@@ -1,23 +1,23 @@
 /*
- * XREFs of PipProcessEnumeratedChildDevice @ 0x14076FAB0
+ * XREFs of PipProcessEnumeratedChildDevice @ 0x14074555C
  * Callers:
- *     PipEnumerateCompleted @ 0x14076F8AC (PipEnumerateCompleted.c)
+ *     PipEnumerateCompleted @ 0x140745380 (PipEnumerateCompleted.c)
  * Callees:
- *     PpDevNodeInsertIntoTree @ 0x14024D9D8 (PpDevNodeInsertIntoTree.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     PipAllocateDeviceNode @ 0x1406CFCE0 (PipAllocateDeviceNode.c)
- *     PipSetDevNodeProblem @ 0x140765114 (PipSetDevNodeProblem.c)
- *     PipSetDevNodeFlags @ 0x14076FB70 (PipSetDevNodeFlags.c)
- *     PpProfileCancelTransitioningDock @ 0x14094FC28 (PpProfileCancelTransitioningDock.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     PpDevNodeInsertIntoTree @ 0x140370C30 (PpDevNodeInsertIntoTree.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     PipSetDevNodeProblem @ 0x1407394EC (PipSetDevNodeProblem.c)
+ *     PipSetDevNodeFlags @ 0x14074561C (PipSetDevNodeFlags.c)
+ *     PipAllocateDeviceNode @ 0x14074E8E0 (PipAllocateDeviceNode.c)
+ *     PpProfileCancelTransitioningDock @ 0x1408AB430 (PpProfileCancelTransitioningDock.c)
  */
 
 void __fastcall PipProcessEnumeratedChildDevice(__int64 a1, ULONG_PTR a2)
 {
   __int64 v2; // rsi
   __int64 v5; // rsi
-  int DeviceNode; // eax
+  int v6; // eax
   __int64 v7; // rsi
   int v8; // ebp
   __int64 v9; // rcx
@@ -91,13 +91,13 @@ void __fastcall PipProcessEnumeratedChildDevice(__int64 a1, ULONG_PTR a2)
       PpProfileCancelTransitioningDock(v5);
     goto LABEL_5;
   }
-  DeviceNode = PipAllocateDeviceNode(a2, (__int64)&v18);
+  v6 = PipAllocateDeviceNode(a2, &v18);
   v7 = v18;
-  v8 = DeviceNode;
+  v8 = v6;
   if ( !v18 )
   {
 LABEL_5:
-    ObfDereferenceObject((PVOID)a2);
+    HalPutDmaAdapter((PADAPTER_OBJECT)a2);
     return;
   }
   PipSetDevNodeFlags(v18, 16LL);

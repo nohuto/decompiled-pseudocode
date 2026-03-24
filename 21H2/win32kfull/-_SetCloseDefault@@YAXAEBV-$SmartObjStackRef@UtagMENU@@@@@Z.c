@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_SetCloseDefault@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C00BC70C
+ * XREFs of ?_SetCloseDefault@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C01110C0
  * Callers:
- *     xxxSetSysMenu @ 0x1C00BC268 (xxxSetSysMenu.c)
- *     ?SetupFakeMDIAppStuff@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0239A8C (-SetupFakeMDIAppStuff@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     xxxSetSysMenu @ 0x1C0046D10 (xxxSetSysMenu.c)
+ *     ?SetupFakeMDIAppStuff@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C023F4CC (-SetupFakeMDIAppStuff@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
  * Callees:
- *     _SetMenuDefaultItem @ 0x1C00BC748 (_SetMenuDefaultItem.c)
+ *     _SetMenuDefaultItem @ 0x1C01110FC (_SetMenuDefaultItem.c)
  */
 
 __int64 __fastcall _SetCloseDefault(_QWORD **a1)

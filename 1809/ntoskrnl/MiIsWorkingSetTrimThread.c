@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIsWorkingSetTrimThread @ 0x1400E94A0
+ * XREFs of MiIsWorkingSetTrimThread @ 0x1400E94C0
  * Callers:
- *     MiSystemFault @ 0x1400E88E0 (MiSystemFault.c)
- *     MiFlushAllFilesystemPages @ 0x1402AAEF0 (MiFlushAllFilesystemPages.c)
- *     MmAddRangeToCrashDump @ 0x1402AE110 (MmAddRangeToCrashDump.c)
+ *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
+ *     MiFlushAllFilesystemPages @ 0x1402AAFF0 (MiFlushAllFilesystemPages.c)
+ *     MmAddRangeToCrashDump @ 0x1402AE210 (MmAddRangeToCrashDump.c)
  * Callees:
  *     <none>
  */

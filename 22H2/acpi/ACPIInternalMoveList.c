@@ -1,12 +1,11 @@
 /*
- * XREFs of ACPIInternalMoveList @ 0x1C002EC24
+ * XREFs of ACPIInternalMoveList @ 0x1C00318C8
  * Callers:
- *     ACPIBuildDeviceDpc @ 0x1C000BE30 (ACPIBuildDeviceDpc.c)
- *     ACPIBuildMissingEjectionRelations @ 0x1C000D9B4 (ACPIBuildMissingEjectionRelations.c)
- *     ACPIInitDeleteDeviceExtension @ 0x1C002CD28 (ACPIInitDeleteDeviceExtension.c)
- *     ACPIInitRemoveDeviceExtension @ 0x1C002D5D4 (ACPIInitRemoveDeviceExtension.c)
- *     ACPIInternalMovePowerList @ 0x1C002EC54 (ACPIInternalMovePowerList.c)
- *     ACPITableLoadCallBack @ 0x1C003F3E0 (ACPITableLoadCallBack.c)
+ *     ACPIInitRemoveDeviceExtension @ 0x1C00105E8 (ACPIInitRemoveDeviceExtension.c)
+ *     ACPIBuildDeviceDpc @ 0x1C001CDD0 (ACPIBuildDeviceDpc.c)
+ *     ACPITableLoadCallBack @ 0x1C0030360 (ACPITableLoadCallBack.c)
+ *     ACPIBuildMissingEjectionRelations @ 0x1C004BB44 (ACPIBuildMissingEjectionRelations.c)
+ *     ACPIInitDeleteDeviceExtension @ 0x1C0056438 (ACPIInitDeleteDeviceExtension.c)
  * Callees:
  *     <none>
  */

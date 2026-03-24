@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DetachFromParent@CVisualMarshaler@DirectComposition@@MEAA_NPEAVCApplicationChannel@2@@Z @ 0x1C00A1040
+ * XREFs of ?DetachFromParent@CVisualMarshaler@DirectComposition@@MEAA_NPEAVCApplicationChannel@2@@Z @ 0x1C0093D60
  * Callers:
  *     <none>
  * Callees:

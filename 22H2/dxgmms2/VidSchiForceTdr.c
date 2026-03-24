@@ -1,10 +1,10 @@
 /*
- * XREFs of VidSchiForceTdr @ 0x1C0047294
+ * XREFs of VidSchiForceTdr @ 0x1C003CE9C
  * Callers:
- *     VidSchEscape @ 0x1C003F550 (VidSchEscape.c)
+ *     VidSchEscape @ 0x1C00CFDC0 (VidSchEscape.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
- *     VidSchDdiNotifyDpcWorker @ 0x1C0039F74 (VidSchDdiNotifyDpcWorker.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     VidSchDdiNotifyDpcWorker @ 0x1C002ED78 (VidSchDdiNotifyDpcWorker.c)
  */
 
 void __fastcall VidSchiForceTdr(__int64 a1)
@@ -28,8 +28,7 @@ void __fastcall VidSchiForceTdr(__int64 a1)
   v7[8] = 6;
   v8 = 0;
   DpSynchronizeExecution(v4, VidSchiCallNotifyInterruptAtISR, v5, v3, &v8);
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1752), &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1736), &LockHandle);
   VidSchDdiNotifyDpcWorker(*(_QWORD *)(a1 + 8), 0);
   KeReleaseInStackQueuedSpinLock(&LockHandle);
 }

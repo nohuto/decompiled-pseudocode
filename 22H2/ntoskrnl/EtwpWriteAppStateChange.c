@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpWriteAppStateChange @ 0x1407E35F8
+ * XREFs of EtwpWriteAppStateChange @ 0x140604EFC
  * Callers:
- *     EtwTraceAppStateChange @ 0x140751F08 (EtwTraceAppStateChange.c)
- *     EtwTraceProcess @ 0x14075540C (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x14060330C (EtwTraceProcess.c)
+ *     EtwTraceAppStateChange @ 0x14062B3BC (EtwTraceAppStateChange.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void EtwpWriteAppStateChange()
@@ -17,14 +17,20 @@ void EtwpWriteAppStateChange()
   int v3; // [rsp+58h] [rbp-20h]
   int v4; // [rsp+5Ch] [rbp-1Ch]
 
-  if ( (unsigned int)dword_140C042E8 > 5 )
+  if ( (unsigned int)dword_140C02BB8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C042E8, 0x200000000001LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02BB8, 0x200000000001LL) )
     {
       v4 = 0;
       v2 = v0;
       v3 = 98;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C042E8, (unsigned __int8 *)byte_140034CB9, 0LL, 0LL, 3u, &v1);
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140C02BB8,
+        (unsigned __int8 *)&dword_14002C744,
+        0LL,
+        0LL,
+        3u,
+        &v1);
     }
   }
 }

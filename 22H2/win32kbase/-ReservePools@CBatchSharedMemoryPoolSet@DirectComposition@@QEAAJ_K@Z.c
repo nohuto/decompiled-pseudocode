@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReservePools@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAJ_K@Z @ 0x1C0025818
+ * XREFs of ?ReservePools@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAJ_K@Z @ 0x1C005C744
  * Callers:
- *     ?Initialize@CApplicationChannel@DirectComposition@@IEAAJPEAIPEAPEAX@Z @ 0x1C0025500 (-Initialize@CApplicationChannel@DirectComposition@@IEAAJPEAIPEAPEAX@Z.c)
- *     ?Connect@CConnection@DirectComposition@@QEAAJPEAX@Z @ 0x1C0086654 (-Connect@CConnection@DirectComposition@@QEAAJPEAX@Z.c)
+ *     ?Initialize@CApplicationChannel@DirectComposition@@IEAAJPEAIPEAPEAX@Z @ 0x1C005CA50 (-Initialize@CApplicationChannel@DirectComposition@@IEAAJPEAIPEAPEAX@Z.c)
+ *     ?Connect@CConnection@DirectComposition@@QEAAJPEAX@Z @ 0x1C00AAC9C (-Connect@CConnection@DirectComposition@@QEAAJPEAX@Z.c)
  * Callees:
- *     ?Create@CBatchSharedMemoryPool@DirectComposition@@SAJPEAVCBatchSharedMemoryPoolSet@2@_NPEAPEAV12@@Z @ 0x1C0025DCC (-Create@CBatchSharedMemoryPool@DirectComposition@@SAJPEAVCBatchSharedMemoryPoolSet@2@_NPEAPEAV12.c)
+ *     ?Create@CBatchSharedMemoryPool@DirectComposition@@SAJPEAVCBatchSharedMemoryPoolSet@2@_NPEAPEAV12@@Z @ 0x1C005C7C4 (-Create@CBatchSharedMemoryPool@DirectComposition@@SAJPEAVCBatchSharedMemoryPoolSet@2@_NPEAPEAV12.c)
  */
 
 __int64 __fastcall DirectComposition::CBatchSharedMemoryPoolSet::ReservePools(
@@ -20,22 +20,26 @@ __int64 __fastcall DirectComposition::CBatchSharedMemoryPoolSet::ReservePools(
 
   v2 = 0;
   v4 = 0;
-  while ( v4 < a2 )
+  do
   {
+    if ( v4 >= a2 )
+      break;
     v6 = *((_BYTE *)this + 24);
     v10 = 0LL;
     v2 = DirectComposition::CBatchSharedMemoryPool::Create(this, v6, &v10);
-    if ( v2 < 0 )
-      break;
-    v7 = *(_QWORD *)this;
-    if ( *(DirectComposition::CBatchSharedMemoryPoolSet **)(*(_QWORD *)this + 8LL) != this )
-      __fastfail(3u);
-    v8 = v10;
+    if ( v2 >= 0 )
+    {
+      v7 = *(_QWORD *)this;
+      if ( *(DirectComposition::CBatchSharedMemoryPoolSet **)(*(_QWORD *)this + 8LL) != this )
+        __fastfail(3u);
+      v8 = v10;
+      *(_QWORD *)v10 = v7;
+      *((_QWORD *)v8 + 1) = this;
+      *(_QWORD *)(v7 + 8) = v8;
+      *(_QWORD *)this = v8;
+    }
     ++v4;
-    *(_QWORD *)v10 = v7;
-    *((_QWORD *)v8 + 1) = this;
-    *(_QWORD *)(v7 + 8) = v8;
-    *(_QWORD *)this = v8;
   }
+  while ( v2 >= 0 );
   return (unsigned int)v2;
 }

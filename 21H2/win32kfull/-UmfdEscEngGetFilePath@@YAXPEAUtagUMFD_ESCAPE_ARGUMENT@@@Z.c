@@ -1,14 +1,14 @@
 /*
- * XREFs of ?UmfdEscEngGetFilePath@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C029D38C
+ * XREFs of ?UmfdEscEngGetFilePath@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C029EAAC
  * Callers:
- *     UmfdDispatchEscape @ 0x1C0010B54 (UmfdDispatchEscape.c)
+ *     UmfdDispatchEscape @ 0x1C00A7800 (UmfdDispatchEscape.c)
  * Callees:
- *     ?LookUp@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBIPEAPEAU_FONTFILEVIEW@@@Z @ 0x1C0010648 (-LookUp@-$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBIPEAPEAU_FONTFILEVIEW@@.c)
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C002393C (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ??1AutoSharedUmfdLookupLock@@QEAA@XZ @ 0x1C015DD8C (--1AutoSharedUmfdLookupLock@@QEAA@XZ.c)
- *     ??0AutoSharedUmfdLookupLock@@QEAA@XZ @ 0x1C015E120 (--0AutoSharedUmfdLookupLock@@QEAA@XZ.c)
- *     EngGetFilePath @ 0x1C027B660 (EngGetFilePath.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0049A6C (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?LookUp@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBIPEAPEAU_FONTFILEVIEW@@@Z @ 0x1C00A70D4 (-LookUp@-$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBIPEAPEAU_FONTFILEVIEW@@.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ??1AutoSharedUmfdLookupLock@@QEAA@XZ @ 0x1C016B840 (--1AutoSharedUmfdLookupLock@@QEAA@XZ.c)
+ *     ??0AutoSharedUmfdLookupLock@@QEAA@XZ @ 0x1C016BAB0 (--0AutoSharedUmfdLookupLock@@QEAA@XZ.c)
+ *     EngGetFilePath @ 0x1C027DAF0 (EngGetFilePath.c)
  */
 
 void __fastcall UmfdEscEngGetFilePath(struct tagUMFD_ESCAPE_ARGUMENT *a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmNotifyConsoleUserPresent @ 0x1409A42C4
+ * XREFs of TtmNotifyConsoleUserPresent @ 0x1408FE934
  * Callers:
- *     PopNotifyConsoleUserPresent @ 0x1407D3CC4 (PopNotifyConsoleUserPresent.c)
+ *     PopNotifyConsoleUserPresent @ 0x140772DC0 (PopNotifyConsoleUserPresent.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionById @ 0x1409A4FE0 (TtmpAcquireSessionById.c)
- *     TtmiLogConsoleUserPresent @ 0x1409A72D0 (TtmiLogConsoleUserPresent.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
- *     TtmiResetTerminalTimeouts @ 0x1409AB2BC (TtmiResetTerminalTimeouts.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     TtmiResetTerminalTimeouts @ 0x1408FD938 (TtmiResetTerminalTimeouts.c)
+ *     TtmpAcquireSessionById @ 0x1408FF640 (TtmpAcquireSessionById.c)
+ *     TtmiLogConsoleUserPresent @ 0x1409019F0 (TtmiLogConsoleUserPresent.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmNotifyConsoleUserPresent(unsigned int a1, unsigned int a2)
@@ -28,7 +28,7 @@ __int64 __fastcall TtmNotifyConsoleUserPresent(unsigned int a1, unsigned int a2)
   }
   else
   {
-    TtmiLogError("TtmNotifyConsoleUserPresent", 3336LL, (unsigned int)v4, 0xFFFFFFFFLL);
+    TtmiLogError("TtmNotifyConsoleUserPresent", 3340LL, (unsigned int)v4, 0xFFFFFFFFLL);
   }
   return TtmiLogConsoleUserPresent(a1, a2, v5);
 }

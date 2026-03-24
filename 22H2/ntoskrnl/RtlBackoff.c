@@ -1,16 +1,14 @@
 /*
- * XREFs of RtlBackoff @ 0x1402FD2B0
+ * XREFs of RtlBackoff @ 0x140273780
  * Callers:
- *     KiRetireDpcList @ 0x1402459D0 (KiRetireDpcList.c)
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
- *     KiCheckForTimerExpiration @ 0x1402C8110 (KiCheckForTimerExpiration.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiSetDpcRequestFlag @ 0x140318724 (KiSetDpcRequestFlag.c)
- *     RtlReleaseSwapReference @ 0x14035CBF4 (RtlReleaseSwapReference.c)
- *     RtlAcquireSwapReference @ 0x14035CC9C (RtlAcquireSwapReference.c)
- *     RtlpFcAddFeatureUsageDataToBuffer @ 0x1404114F4 (RtlpFcAddFeatureUsageDataToBuffer.c)
- *     RtlpFcAddDelayedUsageReportToBuffer @ 0x1405B4BE0 (RtlpFcAddDelayedUsageReportToBuffer.c)
+ *     KiInsertQueueDpc @ 0x14021FD20 (KiInsertQueueDpc.c)
+ *     KiCheckForTimerExpiration @ 0x1402247B0 (KiCheckForTimerExpiration.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x140273310 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140273540 (ExfAcquirePushLockSharedEx.c)
+ *     KiSetDpcRequestFlag @ 0x14035E8AC (KiSetDpcRequestFlag.c)
+ *     RtlAcquireSwapReference @ 0x1403A62B8 (RtlAcquireSwapReference.c)
+ *     RtlReleaseSwapReference @ 0x1403A6688 (RtlReleaseSwapReference.c)
+ *     RtlpFcAddDelayedUsageReportToBuffer @ 0x14058F17C (RtlpFcAddDelayedUsageReportToBuffer.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +18,7 @@ __int64 __fastcall RtlBackoff(unsigned int *a1)
   unsigned int v1; // r8d
   __int64 result; // rax
   unsigned __int64 v3; // rax
-  unsigned int i; // ecx
+  unsigned int v4; // [rsp+8h] [rbp+8h]
 
   v1 = *a1;
   if ( *a1 )
@@ -37,8 +35,16 @@ __int64 __fastcall RtlBackoff(unsigned int *a1)
   }
   *a1 = v1;
   v3 = __rdtsc();
+  v4 = 0;
   result = 10 * (((v1 - 1) & (unsigned int)v3) + v1) / MEMORY[0xFFFFF780000002D6];
-  for ( i = 0; i < (unsigned int)result; ++i )
-    _mm_pause();
+  if ( (_DWORD)result )
+  {
+    do
+    {
+      _mm_pause();
+      ++v4;
+    }
+    while ( v4 < (unsigned int)result );
+  }
   return result;
 }

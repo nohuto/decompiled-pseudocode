@@ -1,19 +1,19 @@
 /*
- * XREFs of ?_Create@FxIoTargetRemote@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDeviceBase@@PEAPEAV1@@Z @ 0x1C002DEA4
+ * XREFs of ?_Create@FxIoTargetRemote@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDeviceBase@@PEAPEAV1@@Z @ 0x1C00676A8
  * Callers:
- *     imp_WdfIoTargetCreate @ 0x1C002DDF0 (imp_WdfIoTargetCreate.c)
+ *     imp_WdfIoTargetCreate @ 0x1C00633F0 (imp_WdfIoTargetCreate.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C0005B30 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z @ 0x1C00193BC (-_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z.c)
- *     ??0FxIoTargetRemote@@IEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E008 (--0FxIoTargetRemote@@IEAA@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_qqqd @ 0x1C00532C0 (WPP_IFR_SF_qqqd.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C000B520 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     ?_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z @ 0x1C0013F60 (-_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qqqd @ 0x1C002EB50 (WPP_IFR_SF_qqqd.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
+ *     ??0FxIoTargetRemote@@IEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0066A60 (--0FxIoTargetRemote@@IEAA@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 __int64 __fastcall FxIoTargetRemote::_Create(
@@ -22,30 +22,29 @@ __int64 __fastcall FxIoTargetRemote::_Create(
         FxDeviceBase *Device,
         FxIoTargetRemote **Target)
 {
-  FxIoTargetRemote *v8; // rax
-  FxIoTarget *v9; // rax
-  FxIoTargetRemote *v10; // rbx
-  int _a1; // eax
-  unsigned int v12; // esi
   void *ParentObject; // rdx
-  FxDeviceBase *v15; // rax
-  FxObject *v16; // r8
+  FxDeviceBase *v9; // rax
+  unsigned int v10; // ebx
+  FxObject *v12; // r8
   const void *_a2; // rax
-  unsigned int v18; // ebx
   __int64 _a3; // rdx
-  FxPoolTypeOrPoolFlags v20; // [rsp+50h] [rbp-38h] BYREF
-  FxObject *pParent; // [rsp+98h] [rbp+10h] BYREF
-  void *hTarget; // [rsp+A8h] [rbp+20h] BYREF
+  FxIoTargetRemote *v15; // rax
+  FxIoTargetRemote *v16; // rax
+  FxIoTargetRemote *v17; // rbx
+  int _a1; // eax
+  unsigned int v19; // esi
+  FxObject *pParent; // [rsp+88h] [rbp+10h] BYREF
+  void *hTarget; // [rsp+98h] [rbp+20h] BYREF
 
   pParent = 0LL;
   *Target = 0LL;
   if ( Attributes && (ParentObject = Attributes->ParentObject) != 0LL )
   {
     FxObjectHandleGetPtr(FxDriverGlobals, (unsigned __int64)ParentObject, 0x1000u, (void **)&pParent);
-    v15 = FxDeviceBase::_SearchForDevice(pParent, 0LL);
-    if ( !v15 )
+    v9 = FxDeviceBase::_SearchForDevice(pParent, 0LL);
+    if ( !v9 )
     {
-      v18 = -1073741808;
+      v10 = -1073741808;
       WPP_IFR_SF_qL(
         FxDriverGlobals,
         2u,
@@ -54,13 +53,13 @@ __int64 __fastcall FxIoTargetRemote::_Create(
         WPP_FxIoTargetRemote_cpp_Traceguids,
         Attributes->ParentObject,
         0xC0000010);
-      return v18;
+      return v10;
     }
-    if ( v15 != Device )
+    if ( v9 != Device )
     {
       FxObject::GetObjectHandleUnchecked(Device);
-      _a2 = (const void *)FxObject::GetObjectHandleUnchecked(v16);
-      v18 = -1073741808;
+      _a2 = (const void *)FxObject::GetObjectHandleUnchecked(v12);
+      v10 = -1073741808;
       WPP_IFR_SF_qqqd(
         FxDriverGlobals,
         2u,
@@ -71,44 +70,51 @@ __int64 __fastcall FxIoTargetRemote::_Create(
         _a2,
         _a3,
         -1073741808);
-      return v18;
+      return v10;
     }
   }
   else
   {
     pParent = Device;
   }
-  *(_QWORD *)&v20.UsePoolType = 0LL;
-  v20.u.PoolFlags = 64LL;
-  v8 = (FxIoTargetRemote *)FxObjectHandleAllocCommon(
-                             FxDriverGlobals,
-                             &v20,
-                             0x1F8uLL,
-                             0,
-                             Attributes,
-                             0,
-                             FxObjectTypeExternal);
-  if ( !v8 || (FxIoTargetRemote::FxIoTargetRemote(v8, FxDriverGlobals), (v10 = (FxIoTargetRemote *)v9) == 0LL) )
+  v15 = (FxIoTargetRemote *)FxObjectHandleAlloc(
+                              FxDriverGlobals,
+                              ExDefaultNonPagedPoolType,
+                              0x1F8uLL,
+                              0,
+                              Attributes,
+                              0,
+                              FxObjectTypeExternal);
+  if ( v15 )
   {
-    v18 = -1073741670;
-    WPP_IFR_SF_d(FxDriverGlobals, 2u, 0xEu, 0xCu, WPP_FxIoTargetRemote_cpp_Traceguids, -1073741670);
-    return v18;
-  }
-  v9->m_Driver = Device->m_Driver;
-  v9->m_DeviceBase = Device;
-  v9->m_InStackDevice = Device->m_DeviceObject.m_DeviceObject;
-  Device->AddIoTarget(Device, v9);
-  _a1 = FxObject::Commit(v10, (_FX_DRIVER_GLOBALS *)Attributes, &hTarget, pParent, 1u);
-  v12 = _a1;
-  if ( _a1 < 0 )
-  {
-    WPP_IFR_SF_d(FxDriverGlobals, 2u, 0xEu, 0xDu, WPP_FxIoTargetRemote_cpp_Traceguids, _a1);
-    FxObject::ClearEvtCallbacks(v10);
-    v10->DeleteObject(v10);
+    FxIoTargetRemote::FxIoTargetRemote(v15, FxDriverGlobals);
+    v17 = v16;
   }
   else
   {
-    *Target = v10;
+    v17 = 0LL;
   }
-  return v12;
+  if ( !v17 )
+  {
+    v10 = -1073741670;
+    WPP_IFR_SF_d(FxDriverGlobals, 2u, 0xEu, 0xCu, WPP_FxIoTargetRemote_cpp_Traceguids, -1073741670);
+    return v10;
+  }
+  v17->m_Driver = Device->m_Driver;
+  v17->m_DeviceBase = Device;
+  v17->m_InStackDevice = Device->m_DeviceObject.m_DeviceObject;
+  Device->AddIoTarget(Device, v17);
+  _a1 = FxObject::Commit(v17, (_FX_DRIVER_GLOBALS *)Attributes, &hTarget, pParent, 1u);
+  v19 = _a1;
+  if ( _a1 < 0 )
+  {
+    WPP_IFR_SF_d(FxDriverGlobals, 2u, 0xEu, 0xDu, WPP_FxIoTargetRemote_cpp_Traceguids, _a1);
+    FxObject::ClearEvtCallbacks(v17);
+    v17->DeleteObject(v17);
+  }
+  else
+  {
+    *Target = v17;
+  }
+  return v19;
 }

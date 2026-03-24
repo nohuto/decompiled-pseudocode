@@ -1,12 +1,12 @@
 /*
- * XREFs of IoCancelThreadIo @ 0x14076E9F4
+ * XREFs of IoCancelThreadIo @ 0x1406C5770
  * Callers:
- *     PspExitThread @ 0x14076DF3C (PspExitThread.c)
+ *     PspExitThread @ 0x1406C35F8 (PspExitThread.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     IoCancelIrp @ 0x140351890 (IoCancelIrp.c)
- *     IopDisassociateThreadIrp @ 0x1405551D4 (IopDisassociateThreadIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     IoCancelIrp @ 0x140314120 (IoCancelIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopDisassociateThreadIrp @ 0x1405003AC (IopDisassociateThreadIrp.c)
  */
 
 struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)
@@ -19,12 +19,12 @@ struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)
   unsigned int v6; // r14d
   unsigned __int8 v7; // di
   unsigned int v8; // eax
-  unsigned __int8 v9; // cl
+  unsigned __int8 v9; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v12; // eax
   bool v13; // zf
-  unsigned __int8 v14; // cl
+  unsigned __int8 v14; // al
   struct _KPRCB *v15; // r10
   _DWORD *v16; // r9
   int v17; // eax
@@ -48,16 +48,19 @@ struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)
     Interval.QuadPart = -100000LL;
     if ( KiIrqlFlags )
     {
-      v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v13 = (v12 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v12;
-        if ( v13 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        v9 = KeGetCurrentIrql();
+        if ( v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v13 = (v12 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v12;
+          if ( v13 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(CurrentIrql);
@@ -69,16 +72,19 @@ struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)
         break;
       if ( KiIrqlFlags )
       {
-        v14 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && v7 <= 0xFu && v14 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          v15 = KeGetCurrentPrcb();
-          v16 = v15->SchedulerAssist;
-          v17 = ~(unsigned __int16)(-1LL << (v7 + 1));
-          v13 = (v17 & v16[5]) == 0;
-          v16[5] &= v17;
-          if ( v13 )
-            KiRemoveSystemWorkPriorityKick((__int64)v15);
+          v14 = KeGetCurrentIrql();
+          if ( v14 <= 0xFu && v7 <= 0xFu && v14 >= 2u )
+          {
+            v15 = KeGetCurrentPrcb();
+            v16 = v15->SchedulerAssist;
+            v17 = ~(unsigned __int16)(-1LL << (v7 + 1));
+            v13 = (v17 & v16[5]) == 0;
+            v16[5] &= v17;
+            if ( v13 )
+              KiRemoveSystemWorkPriorityKick((__int64)v15);
+          }
         }
       }
       __writecr8(v7);
@@ -89,16 +95,19 @@ struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)
     }
     if ( KiIrqlFlags )
     {
-      v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v7 <= 0xFu && v18 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v19 = KeGetCurrentPrcb();
-        v20 = v19->SchedulerAssist;
-        v21 = ~(unsigned __int16)(-1LL << (v7 + 1));
-        v13 = (v21 & v20[5]) == 0;
-        v20[5] &= v21;
-        if ( v13 )
-          KiRemoveSystemWorkPriorityKick((__int64)v19);
+        v18 = KeGetCurrentIrql();
+        if ( v18 <= 0xFu && v7 <= 0xFu && v18 >= 2u )
+        {
+          v19 = KeGetCurrentPrcb();
+          v20 = v19->SchedulerAssist;
+          v21 = ~(unsigned __int16)(-1LL << (v7 + 1));
+          v13 = (v21 & v20[5]) == 0;
+          v20[5] &= v21;
+          if ( v13 )
+            KiRemoveSystemWorkPriorityKick((__int64)v19);
+        }
       }
     }
     result = (struct _KTHREAD *)v7;

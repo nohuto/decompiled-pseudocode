@@ -1,29 +1,29 @@
 /*
- * XREFs of PnpDriverLoadingFailed @ 0x140862BA0
+ * XREFs of PnpDriverLoadingFailed @ 0x1407D2C50
  * Callers:
- *     IopLoadDriver @ 0x14074A178 (IopLoadDriver.c)
- *     IopInitializeBuiltinDriver @ 0x140B11EBC (IopInitializeBuiltinDriver.c)
+ *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140A5E618 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     PipSetDevNodeState @ 0x1402DE844 (PipSetDevNodeState.c)
- *     PipIsDevNodeDNStarted @ 0x1402DEAB0 (PipIsDevNodeDNStarted.c)
- *     RtlStringCchPrintfExW @ 0x1402DFBC4 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     PipOpenServiceEnumKeys @ 0x14067B470 (PipOpenServiceEnumKeys.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     PipSetDevNodeProblem @ 0x140765114 (PipSetDevNodeProblem.c)
- *     IopReleaseDeviceResources @ 0x140766A5C (IopReleaseDeviceResources.c)
- *     PoFxAbandonDevice @ 0x140766E4C (PoFxAbandonDevice.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140779C10 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PipServiceInstanceToDeviceInstance @ 0x140946900 (PipServiceInstanceToDeviceInstance.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     PipIsDevNodeDNStarted @ 0x1402651F8 (PipIsDevNodeDNStarted.c)
+ *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406386D0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     IopReleaseDeviceResources @ 0x140738748 (IopReleaseDeviceResources.c)
+ *     PoFxAbandonDevice @ 0x140738B04 (PoFxAbandonDevice.c)
+ *     PipSetDevNodeProblem @ 0x1407394EC (PipSetDevNodeProblem.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     PipOpenServiceEnumKeys @ 0x140742BEC (PipOpenServiceEnumKeys.c)
+ *     PipServiceInstanceToDeviceInstance @ 0x1408A17A0 (PipServiceInstanceToDeviceInstance.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall PnpDriverLoadingFailed(HANDLE Handle, UNICODE_STRING *a2)
@@ -34,9 +34,9 @@ NTSTATUS __fastcall PnpDriverLoadingFailed(HANDLE Handle, UNICODE_STRING *a2)
   unsigned int v6; // edi
   NTSTATUS RegistryValue; // esi
   unsigned int v8; // r14d
-  _QWORD *v9; // rax
-  _QWORD *v10; // rsi
-  __int64 v11; // rcx
+  struct _DMA_ADAPTER *v9; // rax
+  struct _DMA_ADAPTER *v10; // rsi
+  __int64 FlushAdapterBuffers; // rcx
   __int64 v12; // rcx
   struct _KTHREAD *CurrentThread; // rax
   __int64 v14; // rbx
@@ -47,42 +47,44 @@ NTSTATUS __fastcall PnpDriverLoadingFailed(HANDLE Handle, UNICODE_STRING *a2)
   signed __int64 v19; // rax
   unsigned int *v20; // rsi
   signed __int64 v21; // rax
-  __int64 v22; // [rsp+30h] [rbp-89h]
-  UNICODE_STRING ValueName; // [rsp+40h] [rbp-79h] BYREF
-  HANDLE KeyHandle; // [rsp+50h] [rbp-69h] BYREF
-  unsigned int Data; // [rsp+58h] [rbp-61h] BYREF
-  int v26; // [rsp+5Ch] [rbp-5Dh]
-  NTSTRSAFE_PWSTR ppszDestEnd; // [rsp+60h] [rbp-59h] BYREF
-  PVOID P; // [rsp+68h] [rbp-51h] BYREF
-  HANDLE v29; // [rsp+70h] [rbp-49h] BYREF
-  ULONG dwFlags; // [rsp+78h] [rbp-41h] BYREF
-  PVOID v31[2]; // [rsp+80h] [rbp-39h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-29h] BYREF
-  wchar_t pszDest[20]; // [rsp+C0h] [rbp+7h] BYREF
+  __int64 v22; // [rsp+30h] [rbp-99h]
+  UNICODE_STRING ValueName; // [rsp+40h] [rbp-89h] BYREF
+  HANDLE KeyHandle; // [rsp+50h] [rbp-79h] BYREF
+  unsigned int Data; // [rsp+58h] [rbp-71h] BYREF
+  int v26; // [rsp+5Ch] [rbp-6Dh]
+  PVOID P; // [rsp+60h] [rbp-69h] BYREF
+  HANDLE v28; // [rsp+68h] [rbp-61h] BYREF
+  ULONG dwFlags; // [rsp+70h] [rbp-59h] BYREF
+  NTSTRSAFE_PWSTR ppszDestEnd; // [rsp+78h] [rbp-51h] BYREF
+  NTSTRSAFE_PWSTR v31; // [rsp+80h] [rbp-49h] BYREF
+  PVOID v32[2]; // [rsp+88h] [rbp-41h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-31h] BYREF
+  wchar_t pszDest[20]; // [rsp+C8h] [rbp-1h] BYREF
 
   P = 0LL;
   v2 = 0;
   KeyHandle = 0LL;
   *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
-  v29 = Handle;
+  v28 = Handle;
   v4 = Handle;
   v26 = 0;
-  *(_OWORD *)v31 = 0LL;
+  *(_OWORD *)v32 = 0LL;
   if ( Handle )
   {
+    *(&ObjectAttributes.Length + 1) = 0;
     memset(&ObjectAttributes.Attributes + 1, 0, 20);
     ValueName.Buffer = L"Enum";
-    *(_QWORD *)&ObjectAttributes.Length = 48LL;
     ObjectAttributes.RootDirectory = Handle;
     ObjectAttributes.ObjectName = &ValueName;
     *(_DWORD *)&ValueName.Length = 655368;
+    ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 576;
     result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   }
   else
   {
-    result = PipOpenServiceEnumKeys(a2, 0x20019u, &v29, &KeyHandle, 0);
-    v4 = v29;
+    result = PipOpenServiceEnumKeys(a2, 0x20019u, &v28, &KeyHandle, 0);
+    v4 = v28;
     v2 = 1;
     v26 = 1;
   }
@@ -105,16 +107,16 @@ NTSTATUS __fastcall PnpDriverLoadingFailed(HANDLE Handle, UNICODE_STRING *a2)
       Data = v6;
       do
       {
-        if ( (int)PipServiceInstanceToDeviceInstance(v4, a2, v8, v31) >= 0 )
+        if ( (int)PipServiceInstanceToDeviceInstance(v4, a2, v8, v32) >= 0 )
         {
-          v9 = PnpDeviceObjectFromDeviceInstanceWithTag((__int64)v31, 0x746C6644u);
+          v9 = (struct _DMA_ADAPTER *)PnpDeviceObjectFromDeviceInstanceWithTag((__int64)v32, 0x746C6644u);
           v10 = v9;
           if ( v9 )
           {
-            v11 = *(_QWORD *)(v9[39] + 40LL);
-            if ( v11 )
+            FlushAdapterBuffers = (__int64)v9[19].DmaOperations->FlushAdapterBuffers;
+            if ( FlushAdapterBuffers )
             {
-              if ( !PipIsDevNodeDNStarted(v11) )
+              if ( !PipIsDevNodeDNStarted(FlushAdapterBuffers) )
                 IopReleaseDeviceResources(v12, 1);
             }
           }
@@ -123,19 +125,19 @@ NTSTATUS __fastcall PnpDriverLoadingFailed(HANDLE Handle, UNICODE_STRING *a2)
           ExAcquireResourceSharedLite(&PnpRegistryDeviceResource, 1u);
           if ( v10 )
           {
-            v14 = *(_QWORD *)(v10[39] + 40LL);
-            if ( v14 && (*(_DWORD *)(v14 + 396) & 1) != 0 && (unsigned int)(*(_DWORD *)(v14 + 300) - 777) <= 1 )
+            v14 = (__int64)v10[19].DmaOperations->FlushAdapterBuffers;
+            if ( v14 && (*(_DWORD *)(v14 + 396) & 1) != 0 && (unsigned int)(*(_DWORD *)(v14 + 300) - 775) <= 1 )
             {
-              PoFxAbandonDevice((ULONG_PTR *)v14);
-              PipSetDevNodeState(v14, 788);
+              PoFxAbandonDevice(v14);
+              PipSetDevNodeState(v14, 786);
               PipSetDevNodeProblem(v14, 24, 0);
             }
-            ObfDereferenceObject(v10);
+            HalPutDmaAdapter(v10);
           }
-          ExFreePoolWithTag(v31[1], 0);
+          ExFreePoolWithTag(v32[1], 0);
           ExReleaseResourceLite(&PnpRegistryDeviceResource);
-          KeLeaveCriticalRegion();
-          v4 = v29;
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          v4 = v28;
         }
         ++v8;
       }
@@ -168,10 +170,10 @@ NTSTATUS __fastcall PnpDriverLoadingFailed(HANDLE Handle, UNICODE_STRING *a2)
               {
                 ZwDeleteValueKey(KeyHandle, &ValueName);
                 LODWORD(v22) = v17;
-                ppszDestEnd = pszDest;
-                RtlStringCchPrintfExW(pszDest, 0xAuLL, &ppszDestEnd, 0LL, 0, L"%u", v22);
+                v31 = pszDest;
+                RtlStringCchPrintfExW(pszDest, 0xAuLL, &v31, 0LL, 0, L"%u", v22);
                 ValueName.MaximumLength = 20;
-                v21 = ppszDestEnd - pszDest;
+                v21 = v31 - pszDest;
                 if ( (_DWORD)v21 == -1 )
                   ValueName.Length = 20;
                 else
@@ -192,8 +194,8 @@ NTSTATUS __fastcall PnpDriverLoadingFailed(HANDLE Handle, UNICODE_STRING *a2)
         *(_DWORD *)&ValueName.Length = 1703960;
         ZwSetValueKey(KeyHandle, &ValueName, 0, 4u, &Data, 4u);
         ExReleaseResourceLite(&PnpRegistryDeviceResource);
-        KeLeaveCriticalRegion();
-        v4 = v29;
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        v4 = v28;
       }
       ZwClose(KeyHandle);
       if ( v15 )

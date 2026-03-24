@@ -1,33 +1,34 @@
 /*
- * XREFs of FsRtlSetKernelEaFile @ 0x1407D5EE0
+ * XREFs of FsRtlSetKernelEaFile @ 0x140669B30
  * Callers:
- *     CmpAdjustFileCFSafety @ 0x140419130 (CmpAdjustFileCFSafety.c)
- *     SPCallServerHandleFileIntegrityUpdate @ 0x1407FEDE4 (SPCallServerHandleFileIntegrityUpdate.c)
+ *     CmpAdjustFileCFSafety @ 0x1403EFE7C (CmpAdjustFileCFSafety.c)
+ *     SPCallServerHandleFileIntegrityUpdate @ 0x1407288C4 (SPCallServerHandleFileIntegrityUpdate.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoFreeIrp @ 0x1402AF1E0 (IoFreeIrp.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     IoAllocateIrpEx @ 0x140310DD0 (IoAllocateIrpEx.c)
- *     IoCancelIrp @ 0x140351890 (IoCancelIrp.c)
- *     FsRtlCancellableWaitForMultipleObjects @ 0x140773CD0 (FsRtlCancellableWaitForMultipleObjects.c)
- *     FsRtlpFreeMdlChain @ 0x14093EFB8 (FsRtlpFreeMdlChain.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     IoFreeIrp @ 0x1402D3CF0 (IoFreeIrp.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     IoAllocateIrpEx @ 0x1402F9A50 (IoAllocateIrpEx.c)
+ *     IoCancelIrp @ 0x140314120 (IoCancelIrp.c)
+ *     FsRtlCancellableWaitForMultipleObjects @ 0x1405FCB60 (FsRtlCancellableWaitForMultipleObjects.c)
+ *     FsRtlpFreeMdlChain @ 0x14088C4B0 (FsRtlpFreeMdlChain.c)
  */
 
-__int64 __fastcall FsRtlSetKernelEaFile(PFILE_OBJECT FileObject, void *a2, int a3)
+__int64 __fastcall FsRtlSetKernelEaFile(PFILE_OBJECT FileObject, void *a2, ULONG a3)
 {
   IRP *v6; // rbx
   __int64 v7; // rdx
-  PSLIST_ENTRY v8; // rax
-  __int64 *v9; // rcx
-  __int64 v10; // rax
-  __int64 v11; // rax
+  IRP *v8; // rax
+  union _IRP::$::$::$665C8370128C04AB892B069E6FB086E8::$8B5CD6CDFBAAB114E6B0B83ED2C2A4E9 *p_CurrentStackLocation; // rcx
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  struct _IO_STACK_LOCATION *v11; // rax
   unsigned int Status; // edi
   struct _MDL *MdlAddress; // rcx
-  PIRP Irp; // [rsp+30h] [rbp-28h]
-  struct _KEVENT Object; // [rsp+38h] [rbp-20h] BYREF
-  PDEVICE_OBJECT DeviceObject; // [rsp+78h] [rbp+20h] BYREF
+  PIRP Irp; // [rsp+30h] [rbp-38h]
+  PVOID ObjectArray; // [rsp+38h] [rbp-30h] BYREF
+  struct _KEVENT Object; // [rsp+40h] [rbp-28h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+88h] [rbp+20h]
 
   v6 = 0LL;
   memset(&Object, 0, sizeof(Object));
@@ -40,32 +41,32 @@ __int64 __fastcall FsRtlSetKernelEaFile(PFILE_OBJECT FileObject, void *a2, int a
   {
     DeviceObject = IoGetRelatedDeviceObject(FileObject);
     LOBYTE(v7) = DeviceObject->StackSize;
-    v8 = IoAllocateIrpEx((__int64)DeviceObject, v7, 0LL);
-    v6 = (IRP *)v8;
-    Irp = (PIRP)v8;
+    v8 = (IRP *)IoAllocateIrpEx((__int64)DeviceObject, v7, 0LL);
+    v6 = v8;
+    Irp = v8;
     if ( v8 )
     {
-      v9 = (__int64 *)(&v8[11].Next + 1);
-      v10 = *((_QWORD *)&v8[11].Next + 1);
-      *(_WORD *)(v10 - 72) = 1032;
-      *(_QWORD *)(v10 - 24) = FileObject;
+      p_CurrentStackLocation = (union _IRP::$::$::$665C8370128C04AB892B069E6FB086E8::$8B5CD6CDFBAAB114E6B0B83ED2C2A4E9 *)&v8->Tail.Overlay.CurrentStackLocation;
+      CurrentStackLocation = v8->Tail.Overlay.CurrentStackLocation;
+      *(_WORD *)&CurrentStackLocation[-1].MajorFunction = 1032;
+      CurrentStackLocation[-1].FileObject = FileObject;
       v6->UserBuffer = a2;
-      *(_DWORD *)(v10 - 64) = a3;
+      CurrentStackLocation[-1].Parameters.Read.Length = a3;
       v6 = Irp;
       Irp->Tail.Overlay.Thread = KeGetCurrentThread();
       Irp->Flags = 4;
       Irp->RequestorMode = 0;
-      v11 = *v9;
-      *(_QWORD *)(v11 - 16) = CmpCompleteFlushAndPurgeIrp;
-      *(_QWORD *)(v11 - 8) = &Object;
-      *(_BYTE *)(v11 - 69) = 0;
-      *(_BYTE *)(v11 - 69) = 64;
-      *(_BYTE *)(v11 - 69) = -64;
-      *(_BYTE *)(v11 - 69) = -32;
+      v11 = p_CurrentStackLocation->CurrentStackLocation;
+      v11[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)SmKmGenericCompletion;
+      v11[-1].Context = &Object;
+      v11[-1].Control = 0;
+      v11[-1].Control = 64;
+      v11[-1].Control = -64;
+      v11[-1].Control = -32;
       if ( IofCallDriver(DeviceObject, Irp) == 259 )
       {
-        DeviceObject = (PDEVICE_OBJECT)&Object;
-        if ( FsRtlCancellableWaitForMultipleObjects(1u, (PVOID *)&DeviceObject, WaitAll, 0LL, 0LL, 0LL) == -1073741749 )
+        ObjectArray = &Object;
+        if ( FsRtlCancellableWaitForMultipleObjects(1u, &ObjectArray, WaitAll, 0LL, 0LL, 0LL) == -1073741749 )
         {
           IoCancelIrp(Irp);
           KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);

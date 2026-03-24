@@ -1,11 +1,10 @@
 /*
- * XREFs of ??$move@V?$move_iterator@PEAG@std@@V?$checked_array_iterator@PEAG@stdext@@@std@@YA?AV?$checked_array_iterator@PEAG@stdext@@V?$move_iterator@PEAG@0@0V12@@Z @ 0x1801FA2A0
+ * XREFs of ??$move@V?$move_iterator@PEAG@std@@V?$checked_array_iterator@PEAG@stdext@@@std@@YA?AV?$checked_array_iterator@PEAG@stdext@@V?$move_iterator@PEAG@0@0V12@@Z @ 0x18019C270
  * Callers:
- *     ?clear_region@?$vector_facade@GV?$buffer_impl@G$0GE@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800B3164 (-clear_region@-$vector_facade@GV-$buffer_impl@G$0GE@$00Vliberal_expansion_policy@detail@@@detail.c)
- *     ?resize@?$vector_facade@GV?$buffer_impl@G$0KO@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAX_KAEBG@Z @ 0x1800B3280 (-resize@-$vector_facade@GV-$buffer_impl@G$0KO@$00Vliberal_expansion_policy@detail@@@detail@@@det.c)
- *     ?clear_region@?$vector_facade@GV?$buffer_impl@G$0KO@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1801FB33C (-clear_region@-$vector_facade@GV-$buffer_impl@G$0KO@$00Vliberal_expansion_policy@detail@@@detail.c)
+ *     ?resize@?$vector_facade@GV?$buffer_impl@G$0BO@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAX_KAEBG@Z @ 0x180061ACC (-resize@-$vector_facade@GV-$buffer_impl@G$0BO@$00Vliberal_expansion_policy@detail@@@detail@@@det.c)
+ *     ?clear_region@?$vector_facade@GV?$buffer_impl@G$0BO@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18019CFB8 (-clear_region@-$vector_facade@GV-$buffer_impl@G$0BO@$00Vliberal_expansion_policy@detail@@@detail.c)
  * Callees:
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
  */
 
 __int64 __fastcall std::move<std::move_iterator<unsigned short *>,stdext::checked_array_iterator<unsigned short *>>(
@@ -14,34 +13,27 @@ __int64 __fastcall std::move<std::move_iterator<unsigned short *>,stdext::checke
         __int64 a3,
         __int64 *a4)
 {
-  __int64 *v4; // rsi
-  __int64 v5; // rbp
-  __int64 v8; // r10
-  __int64 v9; // rbx
-  void *v10; // rdi
+  size_t v5; // rbp
+  __int64 v7; // r10
+  __int64 v8; // rbx
+  void *v9; // rdi
   __int64 result; // rax
-  __int64 v12; // xmm1_8
+  __int64 v11; // xmm1_8
 
-  v4 = a4 + 2;
   v5 = a3 - (_QWORD)a2;
-  v8 = (a3 - (__int64)a2) >> 1;
-  if ( v8 < 0 )
+  v7 = (a3 - (__int64)a2) >> 1;
+  if ( v7 < 0 && a4[2] < (unsigned __int64)-v7 || v7 > 0 && a4[1] - a4[2] < (unsigned __int64)v7 )
   {
-    if ( *v4 >= (unsigned __int64)-v8 )
-      goto LABEL_3;
-LABEL_6:
-    _invalid_parameter_noinfo_noreturn();
+    _o__invalid_parameter_noinfo_noreturn(a1, a2);
+    __debugbreak();
   }
-  if ( v8 > 0 && a4[1] - *v4 < (unsigned __int64)v8 )
-    goto LABEL_6;
-LABEL_3:
-  v9 = *a4;
-  v10 = (void *)(*a4 + 2 * *v4);
-  memmove_0(v10, a2, a3 - (_QWORD)a2);
+  v8 = *a4;
+  v9 = (void *)(*a4 + 2 * a4[2]);
+  memmove_0(v9, a2, v5);
   result = a1;
-  *v4 = ((__int64)v10 + v5 - v9) >> 1;
-  v12 = a4[2];
+  a4[2] = (__int64)((__int64)v9 + v5 - v8) >> 1;
+  v11 = a4[2];
   *(_OWORD *)a1 = *(_OWORD *)a4;
-  *(_QWORD *)(a1 + 16) = v12;
+  *(_QWORD *)(a1 + 16) = v11;
   return result;
 }

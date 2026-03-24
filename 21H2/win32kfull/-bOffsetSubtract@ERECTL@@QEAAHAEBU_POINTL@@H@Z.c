@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C026C238
+ * XREFs of ?bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C026E544
  * Callers:
- *     NtGdiAlphaBlend @ 0x1C0039BB0 (NtGdiAlphaBlend.c)
+ *     NtGdiAlphaBlend @ 0x1C00851E0 (NtGdiAlphaBlend.c)
  * Callees:
- *     LongLongToLong @ 0x1C010EC34 (LongLongToLong.c)
+ *     LongLongToLong @ 0x1C0158BB0 (LongLongToLong.c)
  */
 
 __int64 __fastcall ERECTL::bOffsetSubtract(ERECTL *this, const struct _POINTL *a2, int a3)

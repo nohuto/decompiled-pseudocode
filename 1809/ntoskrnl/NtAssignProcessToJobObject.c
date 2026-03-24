@@ -8,7 +8,7 @@
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     PsAssignProcessToJobObject @ 0x140605DB0 (PsAssignProcessToJobObject.c)
- *     EtwTraceJobAssignProcess @ 0x1408B7588 (EtwTraceJobAssignProcess.c)
+ *     EtwTraceJobAssignProcess @ 0x1408B7568 (EtwTraceJobAssignProcess.c)
  */
 
 NTSTATUS __stdcall NtAssignProcessToJobObject(HANDLE JobHandle, HANDLE ProcessHandle)

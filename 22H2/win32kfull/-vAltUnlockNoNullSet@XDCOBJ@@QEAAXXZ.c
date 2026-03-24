@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vAltUnlockNoNullSet@XDCOBJ@@QEAAXXZ @ 0x1C013E6D4
+ * XREFs of ?vAltUnlockNoNullSet@XDCOBJ@@QEAAXXZ @ 0x1C0169FEC
  * Callers:
- *     NtGdiDdDDICreateDCFromMemory @ 0x1C0006FD0 (NtGdiDdDDICreateDCFromMemory.c)
- *     ?OnUnexpectedThreadTerminationStatic@?$UnexpectedThreadTerminationHandler@VDCOBJA@@@@SAXPEAX@Z @ 0x1C013E610 (-OnUnexpectedThreadTerminationStatic@-$UnexpectedThreadTerminationHandler@VDCOBJA@@@@SAXPEAX@Z.c)
+ *     NtGdiDdDDICreateDCFromMemory @ 0x1C0017990 (NtGdiDdDDICreateDCFromMemory.c)
+ *     ?OnUnexpectedThreadTerminationStatic@?$UnexpectedThreadTerminationHandler@VDCOBJA@@@@SAXPEAX@Z @ 0x1C0169F80 (-OnUnexpectedThreadTerminationStatic@-$UnexpectedThreadTerminationHandler@VDCOBJA@@@@SAXPEAX@Z.c)
  * Callees:
  *     <none>
  */
@@ -20,6 +20,6 @@ void __fastcall XDCOBJ::vAltUnlockNoNullSet(__int64 **this)
     v2 = *v1;
     HmgDecrementShareReferenceCountEx(v1, &v3);
     if ( v3 )
-      GrepDeleteDC(v2, 0x2000000LL);
+      bDeleteDCInternalEx(v2, 0LL);
   }
 }

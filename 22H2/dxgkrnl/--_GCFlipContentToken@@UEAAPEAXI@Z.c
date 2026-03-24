@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCFlipContentToken@@UEAAPEAXI@Z @ 0x1C0089EC0
+ * XREFs of ??_GCFlipContentToken@@UEAAPEAXI@Z @ 0x1C006FCE0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CFlipContentToken@@UEAA@XZ @ 0x1C0089E80 (--1CFlipContentToken@@UEAA@XZ.c)
+ *     ??1CFlipContentToken@@UEAA@XZ @ 0x1C006FCA0 (--1CFlipContentToken@@UEAA@XZ.c)
  */
 
 CFlipContentToken *__fastcall CFlipContentToken::`scalar deleting destructor'(CFlipContentToken *P, char a2)

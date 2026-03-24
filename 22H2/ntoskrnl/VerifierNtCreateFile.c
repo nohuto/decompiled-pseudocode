@@ -1,14 +1,14 @@
 /*
- * XREFs of VerifierNtCreateFile @ 0x140AE4BA0
+ * XREFs of VerifierNtCreateFile @ 0x1409E76E0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCbPrintfA @ 0x140383768 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     VfUtilDbgPrint @ 0x1405CE364 (VfUtilDbgPrint.c)
- *     ViErrorDisplayDescription @ 0x140AD46D0 (ViErrorDisplayDescription.c)
- *     ViErrorFinishReport @ 0x140AD4724 (ViErrorFinishReport.c)
+ *     RtlStringCbPrintfA @ 0x1403A83E4 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VfUtilDbgPrint @ 0x1405A0634 (VfUtilDbgPrint.c)
+ *     ViErrorDisplayDescription @ 0x1409D8218 (ViErrorDisplayDescription.c)
+ *     ViErrorFinishReport @ 0x1409D826C (ViErrorFinishReport.c)
  */
 
 __int64 __fastcall VerifierNtCreateFile(

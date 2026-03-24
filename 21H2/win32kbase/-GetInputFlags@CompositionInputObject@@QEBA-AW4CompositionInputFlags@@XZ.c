@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetInputFlags@CompositionInputObject@@QEBA?AW4CompositionInputFlags@@XZ @ 0x1C0141270
+ * XREFs of ?GetInputFlags@CompositionInputObject@@QEBA?AW4CompositionInputFlags@@XZ @ 0x1C0113190
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CompositionInputObject::GetInputFlags(__int64 a1)
 {
-  return *(unsigned int *)(a1 + 184);
+  return *(unsigned int *)(a1 + 192);
 }

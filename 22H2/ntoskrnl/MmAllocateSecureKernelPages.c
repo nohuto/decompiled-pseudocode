@@ -1,270 +1,171 @@
 /*
- * XREFs of MmAllocateSecureKernelPages @ 0x14065781C
+ * XREFs of MmAllocateSecureKernelPages @ 0x140553314
  * Callers:
- *     PspIumAllocatePhysicalPages @ 0x1405A5B90 (PspIumAllocatePhysicalPages.c)
+ *     PspIumAllocatePartitionState @ 0x140583634 (PspIumAllocatePartitionState.c)
+ *     PspIumAllocatePhysicalPages @ 0x140583794 (PspIumAllocatePhysicalPages.c)
  * Callees:
- *     MiGetSlabPage @ 0x14023BD50 (MiGetSlabPage.c)
- *     MiUpdatePageFileHighInPte @ 0x14028551C (MiUpdatePageFileHighInPte.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     MiReplenishSlabAllocator @ 0x1402E6AC4 (MiReplenishSlabAllocator.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402F87A0 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     MiPartitionObjectToPartition @ 0x1402F8AA4 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     MiCheckSlabPfnBitmap @ 0x140324550 (MiCheckSlabPfnBitmap.c)
- *     MiInitializeMdlPfn @ 0x140389D10 (MiInitializeMdlPfn.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiMakeProtectionMask @ 0x14021A9E0 (MiMakeProtectionMask.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     PsDereferencePartition @ 0x140303F4C (PsDereferencePartition.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x140354850 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MiInitializeMdlPfn @ 0x140354D24 (MiInitializeMdlPfn.c)
+ *     MiPartitionObjectToPartition @ 0x1403574E0 (MiPartitionObjectToPartition.c)
+ *     MiGetSlabPage @ 0x14035959C (MiGetSlabPage.c)
+ *     MiReplenishSlabAllocator @ 0x140392114 (MiReplenishSlabAllocator.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmFreeSecureKernelPages @ 0x140553644 (MmFreeSecureKernelPages.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void ***__fastcall MmAllocateSecureKernelPages(
-        void **BugCheckParameter2,
-        unsigned __int64 a2,
-        int a3,
-        __int64 a4,
-        _DWORD *a5)
+ULONG_PTR *__fastcall MmAllocateSecureKernelPages(ULONG_PTR **a1, __int64 a2, unsigned int a3, int a4, _DWORD *a5)
 {
-  unsigned __int64 v5; // r14
-  void **v6; // r13
-  unsigned __int64 v7; // rsi
-  signed __int32 v8; // eax
-  unsigned int v9; // r12d
-  void ***result; // rax
-  void ***v11; // rbp
-  _QWORD *Pool; // rax
-  _QWORD *PartitionNodePagesForMdl; // r15
-  _QWORD *v14; // r13
-  __int64 v15; // r12
-  __int64 *v16; // r14
-  __int64 v17; // rax
+  __int64 v6; // rsi
+  ULONG_PTR *result; // rax
+  __int64 v8; // r13
+  struct _MDL *Pool; // rax
+  struct _MDL *PartitionNodePagesForMdl; // r14
+  struct _MDL *v11; // rbp
+  __int64 v12; // r12
+  __int64 *v13; // r15
+  unsigned __int64 v14; // rax
+  unsigned __int64 v15; // r14
   __int64 SlabPage; // rax
-  __int64 v19; // r13
-  unsigned __int8 v20; // al
-  __int64 v21; // rcx
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  _DWORD *v19; // r9
+  unsigned int v20; // eax
+  __int64 v21; // rsi
+  unsigned __int8 v22; // al
+  __int64 v23; // rcx
   unsigned __int8 CurrentIrql; // al
+  unsigned __int8 v25; // si
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v25; // eax
-  bool v26; // zf
-  __int64 v27; // rdx
-  __int64 v28; // r14
-  unsigned __int64 v29; // r14
-  unsigned __int64 v30; // rax
-  struct _KPRCB *v31; // r8
-  __int64 CachedResidentAvailable; // rdx
-  signed __int32 v33; // eax
-  struct _KPRCB *v34; // r8
-  __int64 v35; // rdx
-  signed __int32 v36; // eax
-  char v37[4]; // [rsp+40h] [rbp-88h] BYREF
-  int v38; // [rsp+44h] [rbp-84h]
-  unsigned int v39; // [rsp+48h] [rbp-80h]
-  _QWORD *v40; // [rsp+50h] [rbp-78h] BYREF
-  unsigned __int64 v41; // [rsp+58h] [rbp-70h]
-  unsigned __int64 v42; // [rsp+60h] [rbp-68h]
-  __int128 v43; // [rsp+68h] [rbp-60h] BYREF
-  unsigned __int8 v47; // [rsp+E8h] [rbp+20h]
+  int v28; // eax
+  bool v29; // zf
+  unsigned __int8 v30; // [rsp+40h] [rbp-58h]
+  char v31[3]; // [rsp+41h] [rbp-57h] BYREF
+  int v32; // [rsp+44h] [rbp-54h]
+  unsigned int ProtectionMask; // [rsp+48h] [rbp-50h]
+  __int64 v34; // [rsp+50h] [rbp-48h] BYREF
+  __int64 *v35; // [rsp+58h] [rbp-40h]
+  PVOID P; // [rsp+60h] [rbp-38h]
 
-  v40 = 0LL;
-  v5 = a2;
-  v6 = BugCheckParameter2;
-  v37[0] = 0;
-  v41 = 0LL;
-  v43 = 0LL;
-  v7 = 0LL;
+  v34 = 0LL;
+  v31[0] = 0;
+  v6 = a2;
   *a5 = 0;
-  MiInitializePageColorBase(0LL, 0, (__int64)&v43);
-  v8 = _InterlockedExchangeAdd((volatile signed __int32 *)v43, 1u);
-  v9 = DWORD2(v43) & v8 | HIDWORD(v43);
-  v39 = v9;
-  result = MiPartitionObjectToPartition(v6, 0, v37);
-  v11 = result;
+  result = MiPartitionObjectToPartition(a1, 0, v31);
+  v8 = (__int64)result;
   if ( !result )
     return result;
-  if ( (*((_DWORD *)result + 1) & 8) == 0 || (int)MiAcquireNonPagedResources((unsigned __int64)result, v5, 0LL, 2u) < 0 )
-    goto LABEL_46;
-  v7 = v5;
-  Pool = MiAllocatePool(64, 8 * v5 + 48, 0x69646D4Du);
+  if ( (*((_DWORD *)result + 1) & 8) == 0 )
+    goto LABEL_32;
+  ProtectionMask = MiMakeProtectionMask(a3);
+  Pool = (struct _MDL *)MiAllocatePool(64, 8 * v6 + 48, 0x69646D4Du);
+  P = Pool;
   PartitionNodePagesForMdl = Pool;
   if ( !Pool )
-    goto LABEL_30;
-  v14 = Pool + 6;
-  v38 = 64;
-  v15 = v5;
-  v16 = Pool + 6;
-  v42 = (unsigned __int64)&Pool[v15 + 6];
-  if ( (unsigned __int64)(Pool + 6) < v42 )
+    goto LABEL_32;
+  v32 = 64;
+  v11 = Pool + 1;
+  v12 = 8 * v6;
+  v13 = (__int64 *)v11;
+  v14 = (unsigned __int64)&Pool[1] + 8 * v6;
+  v35 = (__int64 *)v14;
+  if ( (unsigned __int64)v11 >= v14 )
+    goto LABEL_31;
+  v15 = v14;
+  do
   {
-    v17 = a3;
-    do
+    SlabPage = MiGetSlabPage(v8, ProtectionMask, 0, &v34, 0);
+    *v13 = SlabPage;
+    if ( SlabPage == -1 )
     {
-      SlabPage = MiGetSlabPage((__int64)v11, *((_DWORD *)MmSlabTypeToMiSlabType + v17), v39, 10LL, (__int64 *)&v40);
-      *v16 = SlabPage;
-      if ( SlabPage == -1 )
+      if ( !v34 )
+        break;
+      v20 = v32;
+      while ( !(unsigned int)MiReplenishSlabAllocator(v34, v8, v12 >> 3, v20) )
       {
-        if ( !v40 )
-          break;
-        while ( !(unsigned int)MiReplenishSlabAllocator(v40, (v15 * 8) >> 3) )
+        if ( v13 != (__int64 *)v11 && !a4 || (v32 & 0x40) == 0 )
+          goto LABEL_25;
+        v20 = v32 & 0xFFFFFFBF;
+        v32 &= ~0x40u;
+      }
+      --v13;
+      v12 += 8LL;
+    }
+    else
+    {
+      v21 = 48 * SlabPage - 0x58000000000LL;
+      v22 = MiLockPageInline(v21, v17, v18, v19);
+      v23 = *(_QWORD *)(v21 + 40);
+      *(_QWORD *)v21 = 0LL;
+      v30 = v22;
+      *(_QWORD *)(v21 + 40) = v23 & 0xFFFFFFF000000000uLL | 0xFFFFFFFFDLL;
+      *(_QWORD *)(v21 + 16) = ZeroPte;
+      MiInitializeMdlPfn(v21, 512);
+      _InterlockedAnd64((volatile signed __int64 *)(v21 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
+      {
+        v25 = v30;
+        if ( v30 <= 0xFu && CurrentIrql >= 2u )
         {
-          if ( v16 != PartitionNodePagesForMdl + 6 )
-            goto LABEL_26;
-          if ( (v38 & 0x40) == 0 )
-            break;
-          v38 &= ~0x40u;
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v28 = ~(unsigned __int16)(-1LL << (v30 + 1));
+          v29 = (v28 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v28;
+          if ( v29 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
-        --v16;
-        ++v15;
       }
       else
       {
-        v19 = 48 * SlabPage - 0x220000000000LL;
-        v20 = MiLockPageInline(v19);
-        v21 = *(_QWORD *)(v19 + 40);
-        v47 = v20;
-        *(_QWORD *)v19 = 0LL;
-        *(_QWORD *)(v19 + 40) = v21 & 0xFFFFFF0000000000uLL | 0x3FFFFFFFFELL;
-        *(_QWORD *)(v19 + 16) = ZeroPte;
-        MiInitializeMdlPfn(v19, 512);
-        _InterlockedAnd64((volatile signed __int64 *)(v19 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
-        {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v47 <= 0xFu && CurrentIrql >= 2u )
-          {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v25 = ~(unsigned __int16)(-1LL << (v47 + 1));
-            v26 = (v25 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v25;
-            if ( v26 )
-              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-          }
-        }
-        __writecr8(v47);
-        if ( (unsigned int)MiCheckSlabPfnBitmap(v19, 1LL, 1) )
-        {
-          v27 = 7LL;
-        }
-        else
-        {
-          --v7;
-          v27 = 3LL;
-          ++v41;
-        }
-        *(_QWORD *)(v19 + 16) = MiUpdatePageFileHighInPte(*(_QWORD *)(v19 + 16), v27);
+        v25 = v30;
       }
-      v17 = a3;
-      ++v16;
-      --v15;
+      __writecr8(v25);
     }
-    while ( (unsigned __int64)v16 < v42 );
-LABEL_26:
-    v14 = PartitionNodePagesForMdl + 6;
+    ++v13;
+    v12 -= 8LL;
   }
-  v28 = v16 - v14;
-  if ( !v28 )
+  while ( (unsigned __int64)v13 < v15 );
+LABEL_25:
+  PartitionNodePagesForMdl = (struct _MDL *)P;
+  if ( v13 == (__int64 *)v11 )
   {
-    v5 = a2;
-    v9 = v39;
-    v6 = BugCheckParameter2;
-LABEL_30:
-    if ( !v7 )
-      goto LABEL_44;
-    MiReturnCommit((__int64)v11, v7);
-    if ( v11 != (void ***)MiSystemPartition )
-      goto LABEL_42;
-    v31 = KeGetCurrentPrcb();
-    CachedResidentAvailable = (int)v31->CachedResidentAvailable;
-    if ( (_DWORD)CachedResidentAvailable == -1 )
-      goto LABEL_42;
-    if ( v7 + CachedResidentAvailable <= 0x100 && v7 < 0x80000 )
-    {
-      do
-      {
-        v33 = _InterlockedCompareExchange(
-                (volatile signed __int32 *)&v31->CachedResidentAvailable,
-                v7 + CachedResidentAvailable,
-                CachedResidentAvailable);
-        v26 = (_DWORD)CachedResidentAvailable == v33;
-        LODWORD(CachedResidentAvailable) = v33;
-        if ( v26 )
-          goto LABEL_43;
-      }
-      while ( v33 != -1 && v7 + v33 <= 0x100 );
-    }
-    if ( (int)CachedResidentAvailable > 192
-      && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
-                                              (volatile signed __int32 *)&v31->CachedResidentAvailable,
-                                              192,
-                                              CachedResidentAvailable) )
-    {
-      v7 += (int)CachedResidentAvailable - 192;
-    }
-    if ( v7 )
-LABEL_42:
-      _InterlockedExchangeAdd64((volatile signed __int64 *)v11 + 2160, v7);
-LABEL_43:
-    v7 = 0LL;
-LABEL_44:
-    if ( PartitionNodePagesForMdl )
-      ExFreePoolWithTag(PartitionNodePagesForMdl, 0);
-LABEL_46:
-    PartitionNodePagesForMdl = (_QWORD *)MmAllocatePartitionNodePagesForMdlEx(
-                                           0,
-                                           -1,
-                                           0LL,
-                                           v5 << 12,
-                                           1,
-                                           v9 >> byte_140C65B8D,
-                                           513,
-                                           (ULONG_PTR)v6);
-    goto LABEL_47;
+    v6 = a2;
+LABEL_31:
+    ExFreePoolWithTag(PartitionNodePagesForMdl, 0);
+    goto LABEL_32;
   }
-  v29 = v28 << 12;
-  *PartitionNodePagesForMdl = 0LL;
-  PartitionNodePagesForMdl[4] = 0LL;
-  *((_WORD *)PartitionNodePagesForMdl + 4) = 8 * ((v29 >> 12) + 6);
-  *((_WORD *)PartitionNodePagesForMdl + 5) = 2;
-  v30 = v41;
-  PartitionNodePagesForMdl[5] = (unsigned int)v29;
-  _InterlockedExchangeAdd64((volatile signed __int64 *)v11 + 2235, v30);
+  *(_QWORD *)P = 0LL;
+  PartitionNodePagesForMdl->StartVa = 0LL;
+  PartitionNodePagesForMdl->ByteOffset = 0;
+  PartitionNodePagesForMdl->ByteCount = (unsigned int)(((char *)v13 - (char *)v11) >> 3) << 12;
+  PartitionNodePagesForMdl->Size = 8 * ((((char *)v13 - (char *)v11) >> 3) + 6);
+  PartitionNodePagesForMdl->MdlFlags = 2;
+  if ( a4 && v13 != v35 )
+  {
+    MmFreeSecureKernelPages(PartitionNodePagesForMdl);
+    ExFreePoolWithTag(PartitionNodePagesForMdl, 0);
+    v6 = a2;
+LABEL_32:
+    PartitionNodePagesForMdl = (struct _MDL *)MmAllocatePartitionNodePagesForMdlEx(
+                                                0,
+                                                -1,
+                                                0LL,
+                                                v6 << 12,
+                                                1,
+                                                0,
+                                                a4 != 0 ? 517 : 513,
+                                                (ULONG_PTR)a1);
+    goto LABEL_33;
+  }
   *a5 = 1;
-LABEL_47:
-  if ( v7 )
-  {
-    MiReturnCommit((__int64)v11, v7);
-    if ( v11 != (void ***)MiSystemPartition )
-      goto LABEL_59;
-    v34 = KeGetCurrentPrcb();
-    v35 = (int)v34->CachedResidentAvailable;
-    if ( (_DWORD)v35 == -1 )
-      goto LABEL_59;
-    if ( v7 + v35 <= 0x100 && v7 < 0x80000 )
-    {
-      do
-      {
-        v36 = _InterlockedCompareExchange((volatile signed __int32 *)&v34->CachedResidentAvailable, v7 + v35, v35);
-        v26 = (_DWORD)v35 == v36;
-        LODWORD(v35) = v36;
-        if ( v26 )
-          goto LABEL_60;
-      }
-      while ( v36 != -1 && v7 + v36 <= 0x100 );
-    }
-    if ( (int)v35 > 192
-      && (_DWORD)v35 == _InterlockedCompareExchange((volatile signed __int32 *)&v34->CachedResidentAvailable, 192, v35) )
-    {
-      v7 += (int)v35 - 192;
-    }
-    if ( v7 )
-LABEL_59:
-      _InterlockedExchangeAdd64((volatile signed __int64 *)v11 + 2160, v7);
-  }
-LABEL_60:
-  if ( v37[0] )
-    PsDereferencePartition((__int64)v11[25]);
-  return (void ***)PartitionNodePagesForMdl;
+LABEL_33:
+  if ( v31[0] )
+    PsDereferencePartition(*(_QWORD *)(v8 + 176));
+  return (ULONG_PTR *)PartitionNodePagesForMdl;
 }

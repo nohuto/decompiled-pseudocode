@@ -1,39 +1,43 @@
 /*
- * XREFs of DestroyMonitor @ 0x1C0050630
+ * XREFs of DestroyMonitor @ 0x1C0007AD0
  * Callers:
- *     CleanupGDI @ 0x1C00514B8 (CleanupGDI.c)
- *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0063D18 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     CleanupGDI @ 0x1C000763C (CleanupGDI.c)
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C00C7464 (-zzzUpdateUserScreen@@YAJXZ.c)
  * Callees:
- *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z @ 0x1C002DC3C (-LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z.c)
- *     ?GetKernelHandleToRimObj@CHidInput@@QEAAJPEAPEAX@Z @ 0x1C004A840 (-GetKernelHandleToRimObj@CHidInput@@QEAAJPEAPEAX@Z.c)
- *     HMFreeObject @ 0x1C004E3F0 (HMFreeObject.c)
- *     ?HMMarkObjectDestroyWorker@@YAHPEAX@Z @ 0x1C004E6D0 (-HMMarkObjectDestroyWorker@@YAHPEAX@Z.c)
- *     ??0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z @ 0x1C004E70C (--0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z.c)
- *     ApiSetEditionHandleMoveSizeDataOnDestroyMonitor @ 0x1C0050738 (ApiSetEditionHandleMoveSizeDataOnDestroyMonitor.c)
- *     ApiSetzzzUpdateCursorSizes @ 0x1C005083C (ApiSetzzzUpdateCursorSizes.c)
- *     ??4?$SharedMixedObjectPointerFieldpMonitorPrimary@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUtagMONITOR@@PEAU2@@Z @ 0x1C005201C (--4-$SharedMixedObjectPointerFieldpMonitorPrimary@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUta.c)
- *     ??4?$SharedMixedObjectPointerFieldpMonitorFirst@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUtagMONITOR@@PEAU2@@Z @ 0x1C0052044 (--4-$SharedMixedObjectPointerFieldpMonitorFirst@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUtagM.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?rimOnCheckPointerDeviceMonitors@@YAXPEAXPEAUtagMONITOR@@@Z @ 0x1C017FAEC (-rimOnCheckPointerDeviceMonitors@@YAXPEAXPEAUtagMONITOR@@@Z.c)
+ *     HMFreeObject @ 0x1C0007F10 (HMFreeObject.c)
+ *     ?HMMarkObjectDestroyWorker@@YAHPEAX@Z @ 0x1C0008348 (-HMMarkObjectDestroyWorker@@YAHPEAX@Z.c)
+ *     ApiSetEditionHandleMoveSizeDataOnDestroyMonitor @ 0x1C000A4E8 (ApiSetEditionHandleMoveSizeDataOnDestroyMonitor.c)
+ *     ?GetKernelHandleToRimObj@CHidInput@@QEAAJPEAPEAX@Z @ 0x1C000A5A0 (-GetKernelHandleToRimObj@CHidInput@@QEAAJPEAPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0031C90 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
+ *     GreDeleteObject @ 0x1C0038500 (GreDeleteObject.c)
+ *     ApiSetzzzUpdateCursorSizes @ 0x1C00CDC30 (ApiSetzzzUpdateCursorSizes.c)
+ *     ?rimOnCheckPointerDeviceMonitors@@YAXPEAXPEAUtagMONITOR@@@Z @ 0x1C0152DB8 (-rimOnCheckPointerDeviceMonitors@@YAXPEAXPEAUtagMONITOR@@@Z.c)
  */
 
 __int64 __fastcall DestroyMonitor(struct tagMONITOR *a1)
 {
-  struct tagMONITOR *v2; // rcx
-  _DWORD *v3; // rax
-  _DWORD *v4; // rdx
-  const struct tagDomLock *v5; // rcx
+  __int64 v2; // rax
+  struct tagMONITOR *v3; // rcx
+  __int64 v4; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rax
+  __int64 v7; // rcx
+  __int64 v8; // rdx
+  _DWORD *v9; // rax
+  _DWORD *v10; // rcx
   __int64 result; // rax
-  char **v7; // rcx
+  HBRUSH v12; // rcx
+  unsigned int v13; // esi
+  HBRUSH *v14; // rdi
   struct tagMONITOR **i; // rcx
-  struct tagMONITOR *v9; // rax
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  signed __int32 v12[10]; // [rsp+0h] [rbp-28h] BYREF
-  char v13; // [rsp+30h] [rbp+8h] BYREF
-  HANDLE Handle; // [rsp+38h] [rbp+10h] BYREF
+  struct tagMONITOR *v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // r8
+  signed __int32 v19[8]; // [rsp+0h] [rbp-38h] BYREF
+  _BYTE v20[24]; // [rsp+20h] [rbp-18h] BYREF
+  HANDLE Handle; // [rsp+40h] [rbp+8h] BYREF
 
-  IdentifyPrimaryDestroyTarget::IdentifyPrimaryDestroyTarget((IdentifyPrimaryDestroyTarget *)&v13, a1);
   Handle = 0LL;
   if ( (int)CHidInput::GetKernelHandleToRimObj(gpHidInput, &Handle) >= 0 )
   {
@@ -42,61 +46,90 @@ __int64 __fastcall DestroyMonitor(struct tagMONITOR *a1)
   }
   if ( a1 == (struct tagMONITOR *)gpMonitorMouse )
     gpMonitorMouse = 0LL;
-  v2 = (struct tagMONITOR *)*((_QWORD *)gpDispInfo + 13);
-  if ( v2 )
+  v2 = gpDispInfo;
+  v3 = *(struct tagMONITOR **)(gpDispInfo + 104);
+  if ( v3 )
   {
-    if ( v2 == a1 )
+    if ( v3 == a1 )
     {
-      tagKERNELDISPLAYINFO::SharedMixedObjectPointerFieldpMonitorFirst<tagMONITOR>::operator=(
-        (char *)gpDispInfo + 104,
-        *((_QWORD *)a1 + 7));
+      v4 = *((_QWORD *)a1 + 7);
+      if ( v4 )
+        v5 = *(_QWORD *)(v4 + 48);
+      else
+        v5 = 0LL;
+      *(_QWORD *)(*(_QWORD *)gpDispInfo + 16LL) = v5;
+      *(_QWORD *)(v2 + 104) = v4;
     }
     else
     {
-      for ( i = (struct tagMONITOR **)((char *)v2 + 56); ; i = (struct tagMONITOR **)((char *)v9 + 56) )
+      for ( i = (struct tagMONITOR **)((char *)v3 + 56); ; i = (struct tagMONITOR **)((char *)v16 + 56) )
       {
-        v9 = *i;
+        v16 = *i;
         if ( !*i )
           break;
-        if ( v9 == a1 )
+        if ( v16 == a1 )
         {
-          v10 = *((_QWORD *)a1 + 7);
-          v11 = (__int64)*(i - 2);
-          if ( v10 )
-            *(_QWORD *)(v11 + 16) = *(_QWORD *)(v10 + 48);
+          v17 = *((_QWORD *)a1 + 7);
+          if ( v17 )
+            v18 = *(_QWORD *)(v17 + 48);
           else
-            *(_QWORD *)(v11 + 16) = 0LL;
-          *i = (struct tagMONITOR *)v10;
+            v18 = 0LL;
+          *((_QWORD *)*(i - 2) + 2) = v18;
+          *i = (struct tagMONITOR *)v17;
           break;
         }
       }
     }
   }
-  if ( a1 == *((struct tagMONITOR **)gpDispInfo + 12) )
-    tagKERNELDISPLAYINFO::SharedMixedObjectPointerFieldpMonitorPrimary<tagMONITOR>::operator=(
-      (char *)gpDispInfo + 96,
-      *((_QWORD *)gpDispInfo + 13));
+  v6 = gpDispInfo;
+  if ( a1 == *(struct tagMONITOR **)(gpDispInfo + 96) )
+  {
+    v7 = *(_QWORD *)(gpDispInfo + 104);
+    if ( v7 )
+      v8 = *(_QWORD *)(v7 + 48);
+    else
+      v8 = 0LL;
+    *(_QWORD *)(*(_QWORD *)gpDispInfo + 8LL) = v8;
+    *(_QWORD *)(v6 + 96) = v7;
+  }
   *(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL) = 0LL;
   *((_QWORD *)a1 + 7) = 0LL;
-  v3 = (_DWORD *)*((_QWORD *)a1 + 16);
-  if ( v3 )
+  v9 = (_DWORD *)*((_QWORD *)a1 + 39);
+  if ( v9 )
   {
-    --*v3;
-    v4 = (_DWORD *)*((_QWORD *)a1 + 16);
-    if ( !*v4 && v4 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        v4);
-    *((_QWORD *)a1 + 16) = 0LL;
+    --*v9;
+    v10 = (_DWORD *)*((_QWORD *)a1 + 39);
+    if ( !*v10 )
+      Win32FreePool(v10);
+    *((_QWORD *)a1 + 39) = 0LL;
   }
   ApiSetzzzUpdateCursorSizes();
-  _InterlockedOr(v12, 0);
+  _InterlockedOr(v19, 0);
   ApiSetEditionHandleMoveSizeDataOnDestroyMonitor(a1);
-  LockRefactorStagingAssertOwned(v5);
+  CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>(v20);
   result = HMMarkObjectDestroyWorker(a1);
   if ( (_DWORD)result )
-    result = HMFreeObject(v7);
-  if ( v13 )
-    gphePrimaryDestroyTarget = 0LL;
+  {
+    v12 = (HBRUSH)*((_QWORD *)a1 + 9);
+    if ( v12 )
+    {
+      GreDeleteObject(v12);
+      *((_QWORD *)a1 + 9) = 0LL;
+    }
+    v13 = 0;
+    v14 = (HBRUSH *)((char *)a1 + 80);
+    do
+    {
+      if ( *v14 )
+      {
+        GreDeleteObject(*v14);
+        *v14 = 0LL;
+      }
+      ++v13;
+      ++v14;
+    }
+    while ( v13 < 0x12 );
+    return HMFreeObject(a1);
+  }
   return result;
 }

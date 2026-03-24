@@ -1,20 +1,21 @@
 /*
- * XREFs of KiDecrementProcessStackCount @ 0x140222D14
+ * XREFs of KiDecrementProcessStackCount @ 0x140207A40
  * Callers:
- *     KiOutSwapKernelStacks @ 0x140222874 (KiOutSwapKernelStacks.c)
- *     PspReaper @ 0x140222AA0 (PspReaper.c)
- *     KiCommitThreadWait @ 0x140241F00 (KiCommitThreadWait.c)
- *     KiSuspendThread @ 0x140309DEC (KiSuspendThread.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiCommitThreadWait @ 0x1402C6640 (KiCommitThreadWait.c)
+ *     KiSuspendThread @ 0x140343334 (KiSuspendThread.c)
+ *     KiOutSwapKernelStacks @ 0x140355CA0 (KiOutSwapKernelStacks.c)
+ *     KeDeleteThread @ 0x1403560D8 (KeDeleteThread.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KiAcquireKobjectLockSafe @ 0x140251F10 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024BE10 (KiAcquireKobjectLockSafe.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiDecrementProcessStackCount(__int64 a1)
 {
   __int64 result; // rax
-  char v3; // bp
+  char v3; // si
   unsigned __int8 CurrentIrql; // di
   unsigned __int32 v5; // eax
   unsigned __int32 v6; // ett
@@ -22,12 +23,11 @@ __int64 __fastcall KiDecrementProcessStackCount(__int64 a1)
   signed __int64 v8; // rax
   signed __int64 v9; // rcx
   _DWORD *SchedulerAssist; // r9
-  __int64 v11; // rax
-  unsigned __int8 v12; // al
+  unsigned __int8 v11; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v14; // r8
-  int v15; // eax
-  bool v16; // zf
+  _DWORD *v13; // r8
+  int v14; // eax
+  bool v15; // zf
 
   result = _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 840), 0xFFFFFFF8) & 0xFFFFFFF8;
   if ( (_DWORD)result == 8 )
@@ -38,10 +38,7 @@ __int64 __fastcall KiDecrementProcessStackCount(__int64 a1)
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      LODWORD(v11) = 4;
-      if ( CurrentIrql != 2 )
-        v11 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v11;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     KiAcquireKobjectLockSafe(a1);
     v5 = *(_DWORD *)(a1 + 840);
@@ -76,16 +73,19 @@ __int64 __fastcall KiDecrementProcessStackCount(__int64 a1)
     }
     if ( KiIrqlFlags )
     {
-      v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v14 = CurrentPrcb->SchedulerAssist;
-        v15 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v16 = (v15 & v14[5]) == 0;
-        v14[5] &= v15;
-        if ( v16 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v11 = KeGetCurrentIrql();
+        if ( v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v13 = CurrentPrcb->SchedulerAssist;
+          v14 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v15 = (v14 & v13[5]) == 0;
+          v13[5] &= v14;
+          if ( v15 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     result = CurrentIrql;

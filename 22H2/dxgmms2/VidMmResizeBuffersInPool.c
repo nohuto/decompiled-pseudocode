@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmResizeBuffersInPool @ 0x1C002D310
+ * XREFs of VidMmResizeBuffersInPool @ 0x1C0022FF0
  * Callers:
  *     <none>
  * Callees:
- *     ?ResizeBuffersInPool@VIDMM_DMA_POOL@@QEAAJ_KII@Z @ 0x1C00EFFB4 (-ResizeBuffersInPool@VIDMM_DMA_POOL@@QEAAJ_KII@Z.c)
+ *     ?ResizeBuffersInPool@VIDMM_DMA_POOL@@QEAAJ_KII@Z @ 0x1C00B9B70 (-ResizeBuffersInPool@VIDMM_DMA_POOL@@QEAAJ_KII@Z.c)
  */
 
 __int64 __fastcall VidMmResizeBuffersInPool(VIDMM_DMA_POOL *a1, unsigned __int64 a2, unsigned int a3, unsigned int a4)

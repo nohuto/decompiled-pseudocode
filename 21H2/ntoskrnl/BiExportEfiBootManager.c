@@ -1,30 +1,30 @@
 /*
- * XREFs of BiExportEfiBootManager @ 0x140A1FB1C
+ * XREFs of BiExportEfiBootManager @ 0x140971BC0
  * Callers:
- *     BiExportStoreAlterationsToEfi @ 0x140A1FE8C (BiExportStoreAlterationsToEfi.c)
+ *     BiExportStoreAlterationsToEfi @ 0x140971F30 (BiExportStoreAlterationsToEfi.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memcmp @ 0x1403E1D90 (memcmp.c)
- *     BcdOpenObject @ 0x140812B74 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140812D00 (BcdCloseObject.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
- *     BiGetElement @ 0x140A1D4A4 (BiGetElement.c)
- *     BiDeleteEfiVariable @ 0x140A1F7E0 (BiDeleteEfiVariable.c)
- *     BiHandleFirmwareDefaultEntry @ 0x140A204C4 (BiHandleFirmwareDefaultEntry.c)
- *     BiQueryBootEntryOrder @ 0x140A207C4 (BiQueryBootEntryOrder.c)
- *     BiQueryBootOptions @ 0x140A2089C (BiQueryBootOptions.c)
- *     BiSetBootEntryOrder @ 0x140A20A2C (BiSetBootEntryOrder.c)
- *     BiSetBootOptions @ 0x140A20AA4 (BiSetBootOptions.c)
- *     BiTranslateDisplayOrder @ 0x140A20C08 (BiTranslateDisplayOrder.c)
- *     BiTranslateObjectIdentifier @ 0x140A20D6C (BiTranslateObjectIdentifier.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     BcdOpenObject @ 0x140783A40 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140783BCC (BcdCloseObject.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
+ *     BiGetElement @ 0x14096F540 (BiGetElement.c)
+ *     BiDeleteEfiVariable @ 0x140971884 (BiDeleteEfiVariable.c)
+ *     BiHandleFirmwareDefaultEntry @ 0x14097255C (BiHandleFirmwareDefaultEntry.c)
+ *     BiQueryBootEntryOrder @ 0x14097285C (BiQueryBootEntryOrder.c)
+ *     BiQueryBootOptions @ 0x140972934 (BiQueryBootOptions.c)
+ *     BiSetBootEntryOrder @ 0x140972AC4 (BiSetBootEntryOrder.c)
+ *     BiSetBootOptions @ 0x140972B3C (BiSetBootOptions.c)
+ *     BiTranslateDisplayOrder @ 0x140972CA0 (BiTranslateDisplayOrder.c)
+ *     BiTranslateObjectIdentifier @ 0x140972E04 (BiTranslateObjectIdentifier.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiExportEfiBootManager(__int64 a1, __int64 a2)
 {
   unsigned int v3; // edi
-  GUID *v4; // r15
+  void *v4; // r15
   void *v5; // r14
   void *v6; // rsi
   int v7; // eax
@@ -36,7 +36,7 @@ __int64 __fastcall BiExportEfiBootManager(__int64 a1, __int64 a2)
   void *v13; // r13
   unsigned int v14; // ebx
   int v15; // eax
-  unsigned int Data1; // eax
+  int v16; // eax
   int v17; // eax
   PVOID v18; // r14
   int v19; // eax
@@ -51,7 +51,7 @@ __int64 __fastcall BiExportEfiBootManager(__int64 a1, __int64 a2)
   int v29; // [rsp+50h] [rbp-19h] BYREF
   void *Buf1; // [rsp+58h] [rbp-11h] BYREF
   PVOID v31; // [rsp+60h] [rbp-9h] BYREF
-  GUID *v32; // [rsp+68h] [rbp-1h] BYREF
+  _DWORD *v32; // [rsp+68h] [rbp-1h] BYREF
   _DWORD *v33; // [rsp+70h] [rbp+7h] BYREF
   __int64 v34; // [rsp+78h] [rbp+Fh]
   __int128 v35; // [rsp+80h] [rbp+17h] BYREF
@@ -84,7 +84,7 @@ __int64 __fastcall BiExportEfiBootManager(__int64 a1, __int64 a2)
       v8 = 0;
     goto LABEL_47;
   }
-  Element = BiGetElement(v25, 0x24000001u, (GUID **)&v31, &v22);
+  Element = BiGetElement(v25, 0x24000001u, &v31, &v22);
   v8 = Element;
   if ( Element >= 0 )
   {
@@ -126,13 +126,13 @@ LABEL_10:
     }
     else
     {
-      Data1 = -1;
+      v16 = -1;
       v3 = 1;
-      if ( *(_QWORD *)&v32->Data1 <= 0xFFFFFFFFuLL )
-        Data1 = v32->Data1;
-      DWORD2(v35) = Data1;
+      if ( *(_QWORD *)v32 <= 0xFFFFFFFFuLL )
+        v16 = *v32;
+      DWORD2(v35) = v16;
     }
-    v17 = BiGetElement(v25, 0x24000002u, (GUID **)&P, &v24);
+    v17 = BiGetElement(v25, 0x24000002u, &P, &v24);
     v8 = v17;
     if ( v17 >= 0 )
     {

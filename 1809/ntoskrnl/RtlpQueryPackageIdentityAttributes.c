@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpQueryPackageIdentityAttributes @ 0x1400A5B1C
+ * XREFs of RtlpQueryPackageIdentityAttributes @ 0x1400A5B3C
  * Callers:
- *     RtlQueryPackageClaims @ 0x1400A5570 (RtlQueryPackageClaims.c)
- *     EtwpQueryPsmKey @ 0x1408B4F04 (EtwpQueryPsmKey.c)
+ *     RtlQueryPackageClaims @ 0x1400A5590 (RtlQueryPackageClaims.c)
+ *     EtwpQueryPsmKey @ 0x1408B4EE4 (EtwpQueryPsmKey.c)
  * Callees:
  *     SeQuerySecurityAttributesToken @ 0x140625740 (SeQuerySecurityAttributesToken.c)
  */

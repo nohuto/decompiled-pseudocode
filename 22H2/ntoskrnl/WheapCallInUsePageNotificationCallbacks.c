@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapCallInUsePageNotificationCallbacks @ 0x140A08480
+ * XREFs of WheapCallInUsePageNotificationCallbacks @ 0x14095D8C4
  * Callers:
- *     WheapAttemptPhysicalPageOffline @ 0x140A0824C (WheapAttemptPhysicalPageOffline.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x14095D6EC (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x140273310 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall WheapCallInUsePageNotificationCallbacks(__int64 a1, char a2, char a3)
@@ -21,13 +21,13 @@ __int64 __fastcall WheapCallInUsePageNotificationCallbacks(__int64 a1, char a2, 
 
   if ( WheapInUsePageOfflineNotifyInit != 1 )
     return 3221225473LL;
-  v7 = KeAbPreAcquire((__int64)&WheapInUsePageOfflineNotifyLock, 0LL);
+  v7 = KeAbPreAcquire((ULONG_PTR)&WheapInUsePageOfflineNotifyLock, 0LL, 0LL);
   v10 = _interlockedbittestandset64((volatile signed __int32 *)&WheapInUsePageOfflineNotifyLock, 0LL);
   v11 = v7;
   if ( v10 )
-    ExfAcquirePushLockExclusiveEx(&WheapInUsePageOfflineNotifyLock, v7, (__int64)&WheapInUsePageOfflineNotifyLock);
+    ExfAcquirePushLockExclusiveEx(&WheapInUsePageOfflineNotifyLock, v7, (ULONG_PTR)&WheapInUsePageOfflineNotifyLock);
   if ( v11 )
-    *(_BYTE *)(v11 + 18) = 1;
+    *(_BYTE *)(v11 + 26) |= 1u;
   for ( i = (PVOID *)WheapInUsePageOfflineNotifyList; i != &WheapInUsePageOfflineNotifyList; i = (PVOID *)*i )
   {
     LOBYTE(v9) = a3;

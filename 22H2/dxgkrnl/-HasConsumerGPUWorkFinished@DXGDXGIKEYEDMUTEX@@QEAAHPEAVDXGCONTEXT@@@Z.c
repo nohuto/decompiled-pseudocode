@@ -1,37 +1,29 @@
 /*
- * XREFs of ?HasConsumerGPUWorkFinished@DXGDXGIKEYEDMUTEX@@QEAAHPEAVDXGCONTEXT@@@Z @ 0x1C032C614
+ * XREFs of ?HasConsumerGPUWorkFinished@DXGDXGIKEYEDMUTEX@@QEAAHPEAVDXGCONTEXT@@@Z @ 0x1C029AA98
  * Callers:
- *     ?ProcessUpdateHighLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@@Z @ 0x1C03334AC (-ProcessUpdateHighLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@@Z.c)
+ *     ?ProcessUpdateHighLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@@Z @ 0x1C02A24F4 (-ProcessUpdateHighLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsFenceObjectSignaled@@YAJIPEAVDXGPROCESS@@PEAVDXGCONTEXT@@PEAH@Z @ 0x1C03501D0 (-IsFenceObjectSignaled@@YAJIPEAVDXGPROCESS@@PEAVDXGCONTEXT@@PEAH@Z.c)
+ *     ?IsFenceObjectSignaled@@YAJIPEAVDXGPROCESS@@PEAVDXGCONTEXT@@PEAH@Z @ 0x1C0291540 (-IsFenceObjectSignaled@@YAJIPEAVDXGPROCESS@@PEAVDXGCONTEXT@@PEAH@Z.c)
  */
 
 __int64 __fastcall DXGDXGIKEYEDMUTEX::HasConsumerGPUWorkFinished(DXGDXGIKEYEDMUTEX *this, struct DXGCONTEXT *a2)
 {
-  __int64 v4; // rdx
-  int v5; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v3; // rax
+  __int64 v5; // rdx
+  int v6; // [rsp+38h] [rbp+10h] BYREF
 
   if ( a2 )
   {
-    v4 = *((_QWORD *)a2 + 2);
-    v5 = 0;
-    IsFenceObjectSignaled(*((_DWORD *)this + 24), *(struct DXGPROCESS **)(v4 + 40), a2, &v5);
-    return (unsigned int)v5;
+    v5 = *((_QWORD *)a2 + 2);
+    v6 = 0;
+    IsFenceObjectSignaled(*((_DWORD *)this + 24), *(struct DXGPROCESS **)(v5 + 40), a2, &v6);
+    return (unsigned int)v6;
   }
   else
   {
-    WdLogSingleEntry1(1LL, 702LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"Should be called with a non-NULL DXGCONTEXT",
-      702LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v3 = WdLogNewEntry5_WdAssertion(this, 0LL);
+    *(_QWORD *)(v3 + 24) = 706LL;
+    WdLogEvent5_WdAssertion(v3);
     return 0LL;
   }
 }

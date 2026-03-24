@@ -1,15 +1,12 @@
 /*
- * XREFs of GreLddmProcessLockScreen @ 0x1C000F650
+ * XREFs of GreLddmProcessLockScreen @ 0x1C0005BD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall GreLddmProcessLockScreen(unsigned int a1)
+__int64 GreLddmProcessLockScreen()
 {
-  __int64 DxgkWin32kInterface; // rax
-
-  DxgkWin32kInterface = DxDdGetDxgkWin32kInterface();
-  return (*(__int64 (__fastcall **)(_QWORD))(DxgkWin32kInterface + 584))(a1);
+  return ((__int64 (*)(void))qword_1C0250AE0)();
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?PartitionSetCurrentMmTask@CChannel@@UEAAJAEBUDWM_MMTASK@@@Z @ 0x1800EF4F0
+ * XREFs of ?PartitionSetCurrentMmTask@CChannel@@UEAAJAEBUDWM_MMTASK@@@Z @ 0x1800DBD20
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
-__int64 __fastcall CChannel::PartitionSetCurrentMmTask(CDataStreamWriter **this, const struct DWM_MMTASK *a2)
+__int64 __fastcall CChannel::PartitionSetCurrentMmTask(CChannel *this, const struct DWM_MMTASK *a2)
 {
   __int128 v4; // xmm1
   __int128 v5; // xmm0
@@ -21,9 +21,9 @@ __int64 __fastcall CChannel::PartitionSetCurrentMmTask(CDataStreamWriter **this,
   _OWORD v13[10]; // [rsp+28h] [rbp-A0h] BYREF
   struct _RTL_CRITICAL_SECTION *v14; // [rsp+D0h] [rbp+8h] BYREF
 
-  v14 = (struct _RTL_CRITICAL_SECTION *)(this + 21);
-  EnterCriticalSection((LPCRITICAL_SECTION)(this + 21));
-  v12 = 274;
+  v14 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
+  v12 = 281;
   memset_0(v13, 0, 0x90uLL);
   v4 = *((_OWORD *)a2 + 1);
   v13[0] = *(_OWORD *)a2;

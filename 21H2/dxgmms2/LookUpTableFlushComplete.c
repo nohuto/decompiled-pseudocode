@@ -1,16 +1,16 @@
 /*
- * XREFs of LookUpTableFlushComplete @ 0x1C00B88CC
+ * XREFs of LookUpTableFlushComplete @ 0x1C0099C68
  * Callers:
- *     ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C00B8880 (-TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIP.c)
- *     ?TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C00B8950 (-TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z.c)
- *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x1C00F7260 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
- *     TlgUnregisterAggregateProvider @ 0x1C00F7338 (TlgUnregisterAggregateProvider.c)
+ *     ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C008B380 (-TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIP.c)
+ *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x1C00D49F0 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
+ *     ?TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C00D4A80 (-TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z.c)
+ *     TlgUnregisterAggregateProvider @ 0x1C00D4B30 (TlgUnregisterAggregateProvider.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0014BA0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     ??$Write@U?$_tlgWrapperByRef@$0BA@@@U?$_tlgWrapperByVal@$07@@U2@U2@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByRef@$0BA@@@AEBU?$_tlgWrapperByVal@$07@@44AEBU?$_tlgWrapperByVal@$03@@5555@Z @ 0x1C00466FC (--$Write@U-$_tlgWrapperByRef@$0BA@@@U-$_tlgWrapperByVal@$07@@U2@U2@U-$_tlgWrapperByVal@$03@@U3@U.c)
- *     FlushLookUpTableBucket @ 0x1C0046CD0 (FlushLookUpTableBucket.c)
- *     UpdateInternalStatsOnFlush @ 0x1C00F72EC (UpdateInternalStatsOnFlush.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C0026C14 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByRef@$0BA@@@U?$_tlgWrapperByVal@$07@@U2@U2@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByRef@$0BA@@@AEBU?$_tlgWrapperByVal@$07@@44AEBU?$_tlgWrapperByVal@$03@@5555@Z @ 0x1C003DB00 (--$Write@U-$_tlgWrapperByRef@$0BA@@@U-$_tlgWrapperByVal@$07@@U2@U2@U-$_tlgWrapperByVal@$03@@U3@U.c)
+ *     FlushLookUpTableBucket @ 0x1C003E0DC (FlushLookUpTableBucket.c)
+ *     UpdateInternalStatsOnFlush @ 0x1C00D4AE8 (UpdateInternalStatsOnFlush.c)
  */
 
 void __fastcall LookUpTableFlushComplete(__int64 a1)
@@ -39,7 +39,7 @@ void __fastcall LookUpTableFlushComplete(__int64 a1)
     UpdateInternalStatsOnFlush();
     if ( *(_QWORD *)(v3 + 288) )
     {
-      if ( (unsigned int)dword_1C006E080 > 5 && tlgKeywordOn((__int64)&dword_1C006E080, 0x200000000000LL) )
+      if ( (unsigned int)dword_1C0050080 > 5 && tlgKeywordOn((__int64)&dword_1C0050080, 0x400000000000LL) )
       {
         v6 = *(_QWORD *)(*(_QWORD *)(a1 + 344) + 8LL);
         v7 = *(_OWORD *)(v6 - 16);
@@ -55,7 +55,7 @@ void __fastcall LookUpTableFlushComplete(__int64 a1)
         v13 = v4;
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByRef<16>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
           v6,
-          byte_1C0052206,
+          byte_1C004429C,
           v4,
           v5,
           v16,

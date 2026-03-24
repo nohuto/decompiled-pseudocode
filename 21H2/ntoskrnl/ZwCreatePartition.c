@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCreatePartition @ 0x14041CEA0
+ * XREFs of ZwCreatePartition @ 0x1403FBA80
  * Callers:
- *     ExpInitializeMemoryMirroring @ 0x140B1CC30 (ExpInitializeMemoryMirroring.c)
+ *     <none>
  * Callees:
  *     <none>
  */

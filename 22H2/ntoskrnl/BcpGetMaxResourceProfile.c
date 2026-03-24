@@ -1,9 +1,9 @@
 /*
- * XREFs of BcpGetMaxResourceProfile @ 0x140392F90
+ * XREFs of BcpGetMaxResourceProfile @ 0x1403BC55C
  * Callers:
- *     BgpBcInitializeCriticalMode @ 0x140B9D3E8 (BgpBcInitializeCriticalMode.c)
+ *     BgpBcInitializeCriticalMode @ 0x140A96A10 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     BcpGetCharacterMaxResourceProfile @ 0x140393054 (BcpGetCharacterMaxResourceProfile.c)
+ *     BcpGetCharacterMaxResourceProfile @ 0x1403BC620 (BcpGetCharacterMaxResourceProfile.c)
  */
 
 __int64 __fastcall BcpGetMaxResourceProfile(__int64 a1, _OWORD *a2)
@@ -18,13 +18,13 @@ __int64 __fastcall BcpGetMaxResourceProfile(__int64 a1, _OWORD *a2)
   unsigned __int16 *i; // r14
 
   CharacterMaxResourceProfile = 0;
-  v3 = &qword_140008A68;
+  v3 = &qword_1400088B8;
   v4 = 0;
   *a2 = 0LL;
   do
   {
     v7 = (__int64 *)*(v3 - 1);
-    if ( v7 != &qword_1400056E8 || (dword_140C0E4B0 & 0x20000) == 0 )
+    if ( v7 != &qword_140005A10 || (dword_140C134F0 & 0x20000) == 0 )
     {
       CharacterMaxResourceProfile = 0;
       v8 = *(unsigned __int16 *)v7 >> 1;

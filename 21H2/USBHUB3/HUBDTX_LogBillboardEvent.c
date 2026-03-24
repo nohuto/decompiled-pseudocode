@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBDTX_LogBillboardEvent @ 0x1C002A548
+ * XREFs of HUBDTX_LogBillboardEvent @ 0x1C0029E78
  * Callers:
- *     HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried @ 0x1C00200E0 (HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried.c)
- *     HUBDSM_ValidatingAndLoggingBillboardStringDescriptor @ 0x1C00209C0 (HUBDSM_ValidatingAndLoggingBillboardStringDescriptor.c)
+ *     HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried @ 0x1C001FCD0 (HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried.c)
+ *     HUBDSM_ValidatingAndLoggingBillboardStringDescriptor @ 0x1C00205B0 (HUBDSM_ValidatingAndLoggingBillboardStringDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C0002204 (WPP_RECORDER_SF_DD.c)
- *     McTemplateK0puuhz_EtwWriteTransfer @ 0x1C0026E3C (McTemplateK0puuhz_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     memmove @ 0x1C0043840 (memmove.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     McTemplateK0puuhz_EtwWriteTransfer @ 0x1C002698C (McTemplateK0puuhz_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 int __fastcall HUBDTX_LogBillboardEvent(__int64 a1, _BYTE *a2)
@@ -35,12 +35,12 @@ int __fastcall HUBDTX_LogBillboardEvent(__int64 a1, _BYTE *a2)
   {
     v12 = *(unsigned __int8 *)(v4 + 5);
     v10 = *(unsigned __int8 *)(v4 + 4);
-    LODWORD(v6) = WPP_RECORDER_SF_DD(
+    LODWORD(v6) = WPP_RECORDER_SF_dD(
                     *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
                     4u,
                     5u,
-                    0x58u,
-                    (__int64)&WPP_54051f9f773a359161ccd48cdf39bc09_Traceguids,
+                    0x57u,
+                    (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
                     v10,
                     v12);
   }

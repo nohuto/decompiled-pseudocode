@@ -1,14 +1,14 @@
 /*
- * XREFs of ?GetDestToTexSpaceTransform@CTreeEffectLayer@@QEAA?AVMatrix3x3@@I@Z @ 0x1801D9590
+ * XREFs of ?GetDestToTexSpaceTransform@CTreeEffectLayer@@QEAA?AVMatrix3x3@@I@Z @ 0x18000604C
  * Callers:
- *     ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAVCDrawListCache@@@Z @ 0x18005464C (-RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBr.c)
+ *     ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAVCDrawListCache@@@Z @ 0x180056A18 (-RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBr.c)
  * Callees:
- *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x1800AEAE0 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
- *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x1800AEBA8 (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
- *     ?GetAutomaticBoundsExpansion@CLayerVisual@@QEBA_NXZ @ 0x1800F3278 (-GetAutomaticBoundsExpansion@CLayerVisual@@QEBA_NXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Invert@Matrix3x2F@D2D1@@QEAA_NXZ @ 0x1801D9CB8 (-Invert@Matrix3x2F@D2D1@@QEAA_NXZ.c)
+ *     ?GetAutomaticBoundsExpansion@CLayerVisual@@QEBA_NXZ @ 0x180005F64 (-GetAutomaticBoundsExpansion@CLayerVisual@@QEBA_NXZ.c)
+ *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x1800072B8 (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
+ *     ?Invert@Matrix3x2F@D2D1@@QEAA_NXZ @ 0x1800185B4 (-Invert@Matrix3x2F@D2D1@@QEAA_NXZ.c)
+ *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x1800583B4 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 _DWORD *__fastcall CTreeEffectLayer::GetDestToTexSpaceTransform(__int64 a1, _DWORD *a2, unsigned int a3)
@@ -51,8 +51,8 @@ _DWORD *__fastcall CTreeEffectLayer::GetDestToTexSpaceTransform(__int64 a1, _DWO
     v8 = *(float *)(a1 + 228) - (float)*(int *)(a1 + 16);
     v9 = *(float *)(a1 + 232) - (float)*(int *)(a1 + 20);
   }
-  v10 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(a1 + 248) + 112LL) + 24LL))(
-          *(_QWORD *)(*(_QWORD *)(a1 + 248) + 112LL),
+  v10 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(a1 + 248) + 104LL) + 24LL))(
+          *(_QWORD *)(*(_QWORD *)(a1 + 248) + 104LL),
           a3);
   v28 = *(_OWORD *)v10;
   v29 = *(_QWORD *)(v10 + 16);
@@ -76,7 +76,7 @@ _DWORD *__fastcall CTreeEffectLayer::GetDestToTexSpaceTransform(__int64 a1, _DWO
     (const struct D2D1::Matrix3x2F *)&v28);
   *(float *)&v29 = v8 / v12;
   *((float *)&v29 + 1) = v9 / v11;
-  v28 = *(_OWORD *)&_xmm;
+  v28 = _xmm;
   D2D1::Matrix3x2F::SetProduct(
     (D2D1::Matrix3x2F *)&v22,
     (const struct D2D1::Matrix3x2F *)v30,

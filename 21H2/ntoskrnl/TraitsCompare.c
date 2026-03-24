@@ -1,9 +1,9 @@
 /*
- * XREFs of TraitsCompare @ 0x1406B4704
+ * XREFs of TraitsCompare @ 0x1406955C0
  * Callers:
- *     EtwpSetProviderTraitsCommon @ 0x14079781C (EtwpSetProviderTraitsCommon.c)
+ *     EtwpSetProviderTraitsCommon @ 0x14064323C (EtwpSetProviderTraitsCommon.c)
  * Callees:
- *     memcmp @ 0x1403E1D90 (memcmp.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
  */
 
 int __fastcall TraitsCompare(__int64 a1, __int64 a2)

@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwDuplicateObject @ 0x14041AE20
+ * XREFs of ZwDuplicateObject @ 0x1403FA1A0
  * Callers:
- *     SepReferenceCachedTokenHandles @ 0x140370B18 (SepReferenceCachedTokenHandles.c)
- *     DifZwDuplicateObjectWrapper @ 0x1405EFBD0 (DifZwDuplicateObjectWrapper.c)
- *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
- *     SeAuditHandleCreation @ 0x1407DCE08 (SeAuditHandleCreation.c)
- *     _SysCtxOpenMachine @ 0x140855F00 (_SysCtxOpenMachine.c)
- *     SmKmFileInfoDuplicate @ 0x1409D8AD4 (SmKmFileInfoDuplicate.c)
+ *     SepReferenceCachedTokenHandles @ 0x14035F8E4 (SepReferenceCachedTokenHandles.c)
+ *     ObpCreateHandle @ 0x140643C70 (ObpCreateHandle.c)
+ *     SeAuditHandleCreation @ 0x140694128 (SeAuditHandleCreation.c)
+ *     _SysCtxOpenMachine @ 0x1407A4D24 (_SysCtxOpenMachine.c)
+ *     SmKmFileInfoDuplicate @ 0x14092B36C (SmKmFileInfoDuplicate.c)
  * Callees:
  *     <none>
  */

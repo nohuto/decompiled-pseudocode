@@ -1,11 +1,11 @@
 /*
- * XREFs of KiScanBugCheckCallbackList @ 0x140292D8C
+ * XREFs of KiScanBugCheckCallbackList @ 0x140292E8C
  * Callers:
- *     IopWriteTriageDumpToFirmware @ 0x1402824BC (IopWriteTriageDumpToFirmware.c)
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
+ *     IopWriteTriageDumpToFirmware @ 0x1402825BC (IopWriteTriageDumpToFirmware.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
  * Callees:
  *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 void KiScanBugCheckCallbackList()

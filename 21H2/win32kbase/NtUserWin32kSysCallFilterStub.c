@@ -1,98 +1,91 @@
 /*
- * XREFs of NtUserWin32kSysCallFilterStub @ 0x1C0164A30
+ * XREFs of NtUserWin32kSysCallFilterStub @ 0x1C0136E40
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     ??$GenerateNonTerminatingUserModeWerReport@$02@@YAXKPEAXAEAY02_K@Z @ 0x1C0152668 (--$GenerateNonTerminatingUserModeWerReport@$02@@YAXKPEAXAEAY02_K@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@U?$_tlgWrapSz@G@@U3@U?$_tlgWrapperByVal@$03@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapSz@G@@4AEBU?$_tlgWrapperByVal@$03@@2@Z @ 0x1C015283C (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@D@@U-$_tlgWrapSz@G@@U3@U-$_tlgWrapperByVal@$03@@.c)
- *     ?GetProcessAppContainerSid@@YAPEAGXZ @ 0x1C0152AA4 (-GetProcessAppContainerSid@@YAPEAGXZ.c)
- *     ?GetProcessCommandLine@@YAPEAGXZ @ 0x1C0152CEC (-GetProcessCommandLine@@YAPEAGXZ.c)
- *     ?_ShouldCaptureWerReport@@YAHK@Z @ 0x1C01535B4 (-_ShouldCaptureWerReport@@YAHK@Z.c)
- *     EtwSyscallFilterMessage @ 0x1C0178720 (EtwSyscallFilterMessage.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@U?$_tlgWrapSz@G@@U3@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapSz@G@@4AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C01281E4 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@D@@U-$_tlgWrapSz@G@@U3@U-$_tlgWrapperByVal@$03@@.c)
+ *     ?GetProcessAppContainerSid@@YAPEAGXZ @ 0x1C012849C (-GetProcessAppContainerSid@@YAPEAGXZ.c)
+ *     ?GetProcessCommandLine@@YAPEAGXZ @ 0x1C01285C4 (-GetProcessCommandLine@@YAPEAGXZ.c)
+ *     ?_ShouldCaptureWerReport@@YAHK@Z @ 0x1C0128974 (-_ShouldCaptureWerReport@@YAHK@Z.c)
+ *     EtwSyscallFilterMessage @ 0x1C014C420 (EtwSyscallFilterMessage.c)
  */
 
-void __fastcall NtUserWin32kSysCallFilterStub(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall NtUserWin32kSysCallFilterStub(const char *a1, unsigned int a2)
 {
-  unsigned int v4; // r14d
-  const char *v5; // r12
-  char *ProcessAppContainerSid; // rsi
-  char *ProcessCommandLine; // rdi
-  __int64 Win32KFilterSet; // r15
-  const WCHAR *v9; // r13
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  unsigned __int16 *ProcessAppContainerSid; // rsi
+  unsigned __int16 *ProcessCommandLine; // rdi
+  __int64 Win32KFilterSet; // r14
+  const WCHAR *v9; // r12
   const WCHAR *v10; // rax
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
+  const char *v11; // r13
+  __int64 v12; // rdx
+  __int64 v13; // rcx
   __int64 CurrentProcess; // rax
   const char *ProcessImageFileName; // rax
-  __int64 v17; // rcx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  int v20; // [rsp+50h] [rbp-29h] BYREF
-  const WCHAR *v21; // [rsp+58h] [rbp-21h] BYREF
-  __int64 v22; // [rsp+60h] [rbp-19h] BYREF
-  const WCHAR *v23; // [rsp+68h] [rbp-11h] BYREF
-  const char *v24; // [rsp+70h] [rbp-9h] BYREF
-  __int64 v25; // [rsp+78h] [rbp-1h] BYREF
-  __int128 v26; // [rsp+80h] [rbp+7h] BYREF
-  __int64 v27; // [rsp+90h] [rbp+17h]
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  int v18; // [rsp+40h] [rbp-C0h] BYREF
+  const WCHAR *v19; // [rsp+48h] [rbp-B8h] BYREF
+  const WCHAR *v20; // [rsp+50h] [rbp-B0h] BYREF
+  const char *v21; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v22; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD v23[20]; // [rsp+70h] [rbp-90h] BYREF
 
-  v4 = a2;
-  v5 = (const char *)a1;
-  ProcessAppContainerSid = GetProcessAppContainerSid(a1, a2, a3, a4);
+  memset(v23, 0, 0x98uLL);
+  ProcessAppContainerSid = GetProcessAppContainerSid(v5, v4);
   ProcessCommandLine = GetProcessCommandLine();
   Win32KFilterSet = (unsigned int)PsGetWin32KFilterSet();
-  v9 = &word_1C0251294;
-  v10 = &word_1C0251294;
+  v9 = &word_1C0210C64;
+  v10 = &word_1C0210C64;
+  v11 = (const char *)&unk_1C0225490;
   if ( ProcessAppContainerSid )
-    v10 = (const WCHAR *)ProcessAppContainerSid;
-  v21 = v10;
+    v10 = ProcessAppContainerSid;
+  v19 = v10;
   if ( ProcessCommandLine )
-    v9 = (const WCHAR *)ProcessCommandLine;
-  if ( !v5 )
-    v5 = (const char *)&unk_1C0268818;
-  EtwSyscallFilterMessage(v5, v10, v9, Win32KFilterSet);
-  CurrentProcess = PsGetCurrentProcess(v12, v11, v13, v14);
+    v9 = ProcessCommandLine;
+  if ( a1 )
+    v11 = a1;
+  EtwSyscallFilterMessage(v11, v10, v9, Win32KFilterSet);
+  CurrentProcess = PsGetCurrentProcess(v13, v12);
   ProcessImageFileName = (const char *)PsGetProcessImageFileName(CurrentProcess);
-  DbgPrintEx(0x70u, 4u, "NtUserWin32kSysCallFilterStub: SyscallName='%s', Process='%s'\n", v5, ProcessImageFileName);
+  DbgPrintEx(0x70u, 4u, "NtUserWin32kSysCallFilterStub: SyscallName='%s', Process='%s'\n", v11, ProcessImageFileName);
   if ( (unsigned __int8)PsIsWin32KFilterAuditEnabled() )
   {
-    if ( !HIDWORD(qword_1C0295AD8[2 * (unsigned int)Win32KFilterSet]) && (unsigned int)_ShouldCaptureWerReport(v4) )
+    if ( !HIDWORD(qword_1C0250CC8[2 * (unsigned int)Win32KFilterSet]) && (unsigned int)_ShouldCaptureWerReport(a2) )
     {
-      *(_QWORD *)&v26 = 41LL;
-      *((_QWORD *)&v26 + 1) = v4;
-      v27 = Win32KFilterSet;
-      GenerateNonTerminatingUserModeWerReport<3>(v17, v4, &v26);
+      LODWORD(v23[0]) = -1073740791;
+      LODWORD(v23[3]) = 3;
+      v23[2] = a2;
+      v23[4] = 41LL;
+      v23[5] = a2;
+      v23[6] = Win32KFilterSet;
+      WerSubmitUserCrashReport(-2LL, v23, 0LL, 30LL, 3);
     }
-    if ( (unsigned int)dword_1C028D680 > 5 && tlgKeywordOn((__int64)&dword_1C028D680, 0x800000000000LL) )
+    if ( (unsigned int)dword_1C024A1E0 > 5 && tlgKeywordOn((__int64)&dword_1C024A1E0, 0x800000000000LL) )
     {
-      v22 = 0x1000000LL;
-      v20 = Win32KFilterSet;
-      v23 = v9;
-      v24 = v5;
-      v25 = 1LL;
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
-        v18,
-        byte_1C025B965,
-        v19,
-        (__int64)&v25,
-        (void **)&v24,
-        &v21,
-        &v23,
-        (__int64)&v20,
-        (__int64)&v22);
+      v18 = Win32KFilterSet;
+      v20 = v9;
+      v21 = v11;
+      v22 = 1LL;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>>(
+        v16,
+        byte_1C0219C5B,
+        v17,
+        (__int64)&v22,
+        (void **)&v21,
+        &v19,
+        &v20,
+        (__int64)&v18);
     }
   }
   if ( ProcessAppContainerSid )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      ProcessAppContainerSid);
+    Win32FreePool((__int64)ProcessAppContainerSid);
   if ( ProcessCommandLine )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      ProcessCommandLine);
+    Win32FreePool((__int64)ProcessCommandLine);
 }

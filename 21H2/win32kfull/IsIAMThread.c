@@ -1,10 +1,10 @@
 /*
- * XREFs of IsIAMThread @ 0x1C00A9A2C
+ * XREFs of IsIAMThread @ 0x1C003CEF8
  * Callers:
- *     NtUserSetActivationFilter @ 0x1C0004220 (NtUserSetActivationFilter.c)
- *     IsAdaptiveQueueDetachExempted @ 0x1C00A9974 (IsAdaptiveQueueDetachExempted.c)
- *     ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C00F1804 (-_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z.c)
- *     ?HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z @ 0x1C01E5944 (-HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z.c)
+ *     NtUserSetActivationFilter @ 0x1C00080B0 (NtUserSetActivationFilter.c)
+ *     IsAdaptiveQueueDetachExempted @ 0x1C003CE40 (IsAdaptiveQueueDetachExempted.c)
+ *     ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C00D7770 (-_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z.c)
+ *     ?HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z @ 0x1C01EACE0 (-HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -17,6 +17,6 @@ bool __fastcall IsIAMThread(__int64 a1)
   v1 = *(_QWORD *)(a1 + 456);
   result = 0;
   if ( v1 )
-    return *(_QWORD *)(v1 + 280) == a1;
+    return *(_QWORD *)(v1 + 288) == a1;
   return result;
 }

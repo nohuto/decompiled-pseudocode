@@ -1,8 +1,8 @@
 /*
- * XREFs of ?WantImeWindow@@YAHPEAUtagWND@@0@Z @ 0x1C009AF94
+ * XREFs of ?WantImeWindow@@YAHPEAUtagWND@@0@Z @ 0x1C00318F8
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     ?zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z @ 0x1C0065CE8 (-zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z.c)
+ *     zzzImeSetFutureOwner @ 0x1C0033FA4 (zzzImeSetFutureOwner.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall WantImeWindow(struct tagWND *a1, struct tagWND *a2)
   __int16 v4; // r10
   __int64 v5; // rdx
   __int64 v6; // rax
-  __int64 v7; // r8
+  __int64 v8; // r8
 
   if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x2000000) != 0 )
     return 0LL;
@@ -35,8 +35,8 @@ __int64 __fastcall WantImeWindow(struct tagWND *a1, struct tagWND *a2)
   {
     if ( a1 == *(struct tagWND **)(v5 + 104) )
       return 0LL;
-    v7 = *(_QWORD *)(*((_QWORD *)a1 + 17) + 8LL);
-    if ( *(_WORD *)v7 == v4 || (*(_BYTE *)(v7 + 10) & 1) != 0 )
+    v8 = *(_QWORD *)(*((_QWORD *)a1 + 17) + 8LL);
+    if ( *(_WORD *)v8 == v4 || (*(_BYTE *)(v8 + 10) & 1) != 0 )
       return 0LL;
     a1 = (struct tagWND *)*((_QWORD *)a1 + 13);
   }

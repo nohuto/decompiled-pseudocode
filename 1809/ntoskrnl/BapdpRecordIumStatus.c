@@ -3,10 +3,10 @@
  * Callers:
  *     BootApplicationPersistentDataProcess @ 0x1409D1004 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     BapdRegisterEtwProvider @ 0x140178AB4 (BapdRegisterEtwProvider.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     EtwUnregister @ 0x140707390 (EtwUnregister.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     BapdRegisterEtwProvider @ 0x140178AD4 (BapdRegisterEtwProvider.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwUnregister @ 0x140707370 (EtwUnregister.c)
  */
 
 int BapdpRecordIumStatus()

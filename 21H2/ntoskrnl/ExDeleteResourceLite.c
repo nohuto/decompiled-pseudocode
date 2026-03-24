@@ -1,76 +1,80 @@
 /*
- * XREFs of ExDeleteResourceLite @ 0x14028A7C0
+ * XREFs of ExDeleteResourceLite @ 0x1402F50A0
  * Callers:
- *     PspJobDelete @ 0x140207100 (PspJobDelete.c)
- *     CcDeallocateBcb @ 0x14028A78C (CcDeallocateBcb.c)
- *     DifExDeleteResourceLiteWrapper @ 0x140607F60 (DifExDeleteResourceLiteWrapper.c)
- *     CmpDelayFreeRMWorker @ 0x1406E5950 (CmpDelayFreeRMWorker.c)
- *     RtlDestroyHeap @ 0x1406E9E30 (RtlDestroyHeap.c)
- *     SepTokenDeleteMethod @ 0x1406FE720 (SepTokenDeleteMethod.c)
- *     CmpInitCmRM @ 0x140742E3C (CmpInitCmRM.c)
- *     PnpDereferenceNotify @ 0x14078D340 (PnpDereferenceNotify.c)
- *     RtlCreateHeap @ 0x1407F3B40 (RtlCreateHeap.c)
- *     DrvDbOpenContext @ 0x140827238 (DrvDbOpenContext.c)
- *     MUIInitializeResourceLock @ 0x14085F65C (MUIInitializeResourceLock.c)
- *     PiDrvDbDestroyNode @ 0x14095BDAC (PiDrvDbDestroyNode.c)
- *     TtmpDeleteQueue @ 0x1409AB5A0 (TtmpDeleteQueue.c)
- *     _PnpCtxCloseMachine @ 0x140A2296C (_PnpCtxCloseMachine.c)
- *     DrvDbDestroyDatabaseNode @ 0x140A30510 (DrvDbDestroyDatabaseNode.c)
+ *     PspJobDelete @ 0x140287530 (PspJobDelete.c)
+ *     CcDeallocateBcb @ 0x1402F5060 (CcDeallocateBcb.c)
+ *     CmpDelayFreeRMWorker @ 0x1406BF540 (CmpDelayFreeRMWorker.c)
+ *     PnpDereferenceNotify @ 0x1406E5E00 (PnpDereferenceNotify.c)
+ *     SepTokenDeleteMethod @ 0x1406E7CF0 (SepTokenDeleteMethod.c)
+ *     CmpInitCmRM @ 0x140716078 (CmpInitCmRM.c)
+ *     RtlCreateHeap @ 0x140768B60 (RtlCreateHeap.c)
+ *     RtlDestroyHeap @ 0x140772B30 (RtlDestroyHeap.c)
+ *     DrvDbOpenContext @ 0x1407A400C (DrvDbOpenContext.c)
+ *     DrvDbCreateDatabaseNode @ 0x1407A4268 (DrvDbCreateDatabaseNode.c)
+ *     MUIInitializeResourceLock @ 0x1407CFB6C (MUIInitializeResourceLock.c)
+ *     PiDrvDbDestroyNode @ 0x1408B5CF4 (PiDrvDbDestroyNode.c)
+ *     TtmpDeleteQueue @ 0x1409058C0 (TtmpDeleteQueue.c)
+ *     _PnpCtxCloseMachine @ 0x140974534 (_PnpCtxCloseMachine.c)
+ *     DrvDbDestroyDatabaseNode @ 0x14097E86C (DrvDbDestroyDatabaseNode.c)
  * Callees:
- *     ExpOwnerEntryToThread @ 0x14021A758 (ExpOwnerEntryToThread.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140220C30 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     PsBoostThreadIoEx @ 0x1402ACD80 (PsBoostThreadIoEx.c)
- *     ExpResourceEnforcesOwnershipTransfer @ 0x1402AF060 (ExpResourceEnforcesOwnershipTransfer.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     ObDereferenceObjectDeferDelete @ 0x140348920 (ObDereferenceObjectDeferDelete.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140461A66 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14063D8B0 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402315C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     PsBoostThreadIoQoS @ 0x140287458 (PsBoostThreadIoQoS.c)
+ *     ExpOwnerEntryToThread @ 0x1402F7A88 (ExpOwnerEntryToThread.c)
+ *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExpResourceEnforcesOwnershipTransfer @ 0x14034D1A0 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5BA8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5D8C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 NTSTATUS __stdcall ExDeleteResourceLite(PERESOURCE Resource)
 {
-  unsigned __int8 CurrentIrql; // di
+  __int64 v1; // r8
   _DWORD *SchedulerAssist; // r9
-  struct _KPRCB *CurrentPrcb; // rbx
-  _DWORD *v5; // rcx
-  int v6; // eax
-  _DWORD *v7; // rcx
-  int v8; // eax
-  LONG i; // ecx
-  struct _LIST_ENTRY *Flink; // rcx
+  unsigned __int8 CurrentIrql; // bp
+  struct _KPRCB *CurrentPrcb; // rsi
+  _DWORD *v6; // rcx
+  __int64 v7; // rdx
+  struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *Blink; // rax
-  struct _KPRCB *v12; // rcx
-  _DWORD *v13; // rdx
-  int v14; // eax
-  unsigned __int8 v15; // al
-  struct _KPRCB *v16; // r9
-  _DWORD *v17; // r8
-  int v18; // eax
-  bool v19; // zf
-  ERESOURCE_THREAD OwnerThread; // rbx
-  __int64 v21; // rdx
-  struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710 TableSize; // eax
+  struct _KPRCB *v10; // rcx
+  _DWORD *v11; // rdx
+  ERESOURCE_THREAD OwnerThread; // rdi
   POWNER_ENTRY OwnerTable; // rcx
-  unsigned int v24; // ebp
-  __int64 *j; // rdi
-  ULONG_PTR v26; // rbx
-  __int64 v27; // rdx
-  int v28; // eax
+  __int64 v15; // rdx
+  struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710 TableSize; // eax
+  unsigned int v17; // edi
+  ULONG *i; // rsi
+  struct _KTHREAD *v19; // rbp
+  _DWORD *v20; // rcx
+  int v21; // eax
+  int v22; // eax
+  bool v23; // zf
+  unsigned __int32 v24; // eax
+  int v25; // eax
+  unsigned __int8 v26; // al
+  struct _KPRCB *v27; // r9
+  _DWORD *v28; // r8
+  int v29; // eax
+  __int64 v30; // rdx
+  ULONG v31; // eax
   void *retaddr; // [rsp+48h] [rbp+0h]
-  int v31; // [rsp+50h] [rbp+8h] BYREF
+  int v33; // [rsp+58h] [rbp+10h] BYREF
 
   if ( (Resource->ReservedLowFlags & 1) != 0 )
     KeBugCheckEx(0x1C6u, 0xEuLL, (ULONG_PTR)Resource, 0LL, 0LL);
-  __incgsdword(0x8A60u);
+  __incgsdword(0x8660u);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+    v1 = (-1 << (CurrentIrql + 1)) & 4u | SchedulerAssist[5];
+    SchedulerAssist[5] = v1;
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
   {
@@ -79,38 +83,54 @@ NTSTATUS __stdcall ExDeleteResourceLite(PERESOURCE Resource)
   else
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    v31 = 0;
-    v5 = CurrentPrcb->SchedulerAssist;
-    if ( v5 )
+    v33 = 0;
+    v6 = CurrentPrcb->SchedulerAssist;
+    if ( v6 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v6 = v5[6];
-        v5[6] = v6 + 1;
-        if ( v6 == -1 )
+        v21 = v6[6];
+        v6[6] = v21 + 1;
+        if ( v21 == -1 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     if ( _interlockedbittestandset(&ExpResourceSpinLock, 0x1Fu) )
     {
-      v7 = CurrentPrcb->SchedulerAssist;
-      if ( v7 )
+      v20 = CurrentPrcb->SchedulerAssist;
+      if ( v20 )
       {
         if ( CurrentPrcb->NestingLevel <= 1u )
         {
-          v8 = v7[6] - 1;
-          v7[6] = v8;
-          if ( !v8 )
+          v22 = v20[6] - 1;
+          v20[6] = v22;
+          if ( !v22 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
-      v31 = ExpWaitForSpinLockExclusiveAndAcquire(&ExpResourceSpinLock, CurrentIrql);
+      v33 = ExpWaitForSpinLockExclusiveAndAcquire(
+              (unsigned __int64)&ExpResourceSpinLock,
+              CurrentIrql,
+              v1,
+              SchedulerAssist);
     }
-    for ( i = ExpResourceSpinLock; (ExpResourceSpinLock & 0xBFFFFFFF) != 0x80000000; i = ExpResourceSpinLock )
+    v7 = (unsigned int)ExpResourceSpinLock;
+    if ( (ExpResourceSpinLock & 0xBFFFFFFF) != 0x80000000 )
     {
-      if ( (i & 0x40000000) == 0 )
-        _InterlockedOr(&ExpResourceSpinLock, 0x40000000u);
-      KeYieldProcessorEx(&v31);
+      do
+      {
+        if ( (v7 & 0x40000000) == 0 )
+        {
+          v24 = _InterlockedCompareExchange(&ExpResourceSpinLock, v7 | 0x40000000, v7);
+          v23 = (_DWORD)v7 == v24;
+          v7 = v24;
+          if ( !v23 )
+            continue;
+        }
+        KeYieldProcessorEx(&v33, v7, v1, (__int64)SchedulerAssist);
+        v7 = (unsigned int)ExpResourceSpinLock;
+      }
+      while ( (v7 & 0xBFFFFFFF) != 0x80000000 );
     }
   }
   Flink = Resource->SystemResourcesList.Flink;
@@ -123,32 +143,32 @@ NTSTATUS __stdcall ExDeleteResourceLite(PERESOURCE Resource)
     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&ExpResourceSpinLock, retaddr);
   else
     ExpResourceSpinLock = 0;
-  v12 = KeGetCurrentPrcb();
-  v13 = v12->SchedulerAssist;
-  if ( v13 )
+  v10 = KeGetCurrentPrcb();
+  v11 = v10->SchedulerAssist;
+  if ( v11 )
   {
-    if ( v12->NestingLevel <= 1u )
+    if ( v10->NestingLevel <= 1u )
     {
-      v14 = v13[6] - 1;
-      v13[6] = v14;
-      if ( !v14 )
-        KiRemoveSystemWorkPriorityKick(v12);
+      v25 = v11[6] - 1;
+      v11[6] = v25;
+      if ( !v25 )
+        KiRemoveSystemWorkPriorityKick(v10);
     }
   }
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v15 = KeGetCurrentIrql();
-      if ( v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      v26 = KeGetCurrentIrql();
+      if ( v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
       {
-        v16 = KeGetCurrentPrcb();
-        v17 = v16->SchedulerAssist;
-        v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v19 = (v18 & v17[5]) == 0;
-        v17[5] &= v18;
-        if ( v19 )
-          KiRemoveSystemWorkPriorityKick(v16);
+        v27 = KeGetCurrentPrcb();
+        v28 = v27->SchedulerAssist;
+        v29 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v23 = (v29 & v28[5]) == 0;
+        v28[5] &= v29;
+        if ( v23 )
+          KiRemoveSystemWorkPriorityKick(v27);
       }
     }
   }
@@ -162,7 +182,7 @@ NTSTATUS __stdcall ExDeleteResourceLite(PERESOURCE Resource)
   }
   else if ( (OwnerThread & 3) != 0 )
   {
-    goto LABEL_51;
+    goto LABEL_16;
   }
   if ( OwnerThread )
   {
@@ -175,53 +195,53 @@ NTSTATUS __stdcall ExDeleteResourceLite(PERESOURCE Resource)
     TableSize = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)Resource->OwnerEntry.TableSize;
     if ( (*(_BYTE *)&TableSize & 1) != 0 )
     {
-      LOBYTE(v21) = 1;
-      PsBoostThreadIoEx(OwnerThread, v21, 0LL, 0LL);
+      LOBYTE(v15) = 1;
+      PsBoostThreadIoEx(OwnerThread, v15, 0LL, 0LL);
       TableSize = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)Resource->OwnerEntry.TableSize;
     }
     if ( (*(_BYTE *)&TableSize & 4) != 0 )
     {
-      _InterlockedDecrement((volatile signed __int32 *)(OwnerThread + 1444));
+      PsBoostThreadIoQoS(OwnerThread, 1LL);
       TableSize = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)Resource->OwnerEntry.TableSize;
     }
     if ( (*(_BYTE *)&TableSize & 2) != 0 )
-      ObDereferenceObjectDeferDelete((PVOID)OwnerThread);
+      ObDereferenceObjectDeferDeleteWithTag((PVOID)OwnerThread, 0x746C6644u);
   }
-LABEL_51:
+LABEL_16:
   OwnerTable = Resource->OwnerTable;
   if ( OwnerTable )
   {
-    v24 = 1;
-    for ( j = (__int64 *)&OwnerTable->0; v24 < OwnerTable->TableSize; ++v24 )
+    v17 = 1;
+    for ( i = &OwnerTable->TableSize; v17 < OwnerTable->TableSize; ++v17 )
     {
-      j += 2;
-      v26 = ExpOwnerEntryToThread(j - 1);
-      if ( v26 )
+      i += 4;
+      v19 = (struct _KTHREAD *)ExpOwnerEntryToThread(i - 2);
+      if ( v19 )
       {
         if ( (unsigned __int8)ExpResourceEnforcesOwnershipTransfer(Resource)
-          && (*(_DWORD *)j & 2) == 0
-          && (struct _KTHREAD *)v26 != KeGetCurrentThread() )
+          && (*i & 2) == 0
+          && v19 != KeGetCurrentThread() )
         {
-          KeBugCheckEx(0x16Eu, (ULONG_PTR)Resource, (ULONG_PTR)KeGetCurrentThread(), v26, 2uLL);
+          KeBugCheckEx(0x16Eu, (ULONG_PTR)Resource, (ULONG_PTR)KeGetCurrentThread(), (ULONG_PTR)v19, 2uLL);
         }
-        v28 = *(_DWORD *)j;
-        if ( (*(_DWORD *)j & 1) != 0 )
+        v31 = *i;
+        if ( (*i & 1) != 0 )
         {
-          LOBYTE(v27) = 1;
-          PsBoostThreadIoEx(v26, v27, 0LL, 0LL);
-          v28 = *(_DWORD *)j;
+          LOBYTE(v30) = 1;
+          PsBoostThreadIoEx(v19, v30, 0LL, 0LL);
+          v31 = *i;
         }
-        if ( (v28 & 4) != 0 )
+        if ( (v31 & 4) != 0 )
         {
-          _InterlockedDecrement((volatile signed __int32 *)(v26 + 1444));
-          v28 = *(_DWORD *)j;
+          PsBoostThreadIoQoS((__int64)v19, 1LL);
+          v31 = *i;
         }
-        if ( (v28 & 2) != 0 )
-          ObDereferenceObjectDeferDelete((PVOID)v26);
+        if ( (v31 & 2) != 0 )
+          ObDereferenceObjectDeferDeleteWithTag(v19, 0x746C6644u);
       }
       OwnerTable = Resource->OwnerTable;
     }
-    ExFreePoolWithTag(OwnerTable, 0);
+    ExFreeHeapPool((ULONG_PTR)OwnerTable);
   }
   return 0;
 }

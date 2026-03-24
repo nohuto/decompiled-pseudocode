@@ -1,10 +1,9 @@
 /*
- * XREFs of ?NotifyPendingFlipPresent@CFlipExBuffer@@UEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N1@Z @ 0x1C007E560
+ * XREFs of ?NotifyPendingFlipPresent@CFlipExBuffer@@UEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N1@Z @ 0x1C0018630
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N@Z @ 0x1C007DA78 (-CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@.c)
- *     ?UpdatePendingFlipValues@CFlipExBuffer@@QEAAX_K0@Z @ 0x1C007F0B4 (-UpdatePendingFlipValues@CFlipExBuffer@@QEAAX_K0@Z.c)
+ *     ?CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N@Z @ 0x1C0018678 (-CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@.c)
  */
 
 void __fastcall CFlipExBuffer::NotifyPendingFlipPresent(
@@ -13,10 +12,15 @@ void __fastcall CFlipExBuffer::NotifyPendingFlipPresent(
         bool *a3,
         bool *a4)
 {
-  const struct _D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN *v5; // r10
+  UINT64 PresentLimitSemaphoreId; // r10
 
-  v5 = a2;
   if ( (a2->Flags.Value & 0x2000000) == 0 )
-    CFlipExBuffer::UpdatePendingFlipValues(this, a2->FenceValue, a2->PresentLimitSemaphoreId);
-  *a3 = CFlipExBuffer::CheckIndependentFlipAttributes(this, v5, a4);
+  {
+    PresentLimitSemaphoreId = a2->PresentLimitSemaphoreId;
+    if ( a2->FenceValue )
+      *((_QWORD *)this + 40) = a2->FenceValue;
+    if ( PresentLimitSemaphoreId )
+      ++*((_DWORD *)this + 76);
+  }
+  *a3 = CFlipExBuffer::CheckIndependentFlipAttributes(this, a2, a4);
 }

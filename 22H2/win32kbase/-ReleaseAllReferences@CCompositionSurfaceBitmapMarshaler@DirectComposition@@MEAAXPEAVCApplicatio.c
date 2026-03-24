@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ReleaseAllReferences@CCompositionSurfaceBitmapMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00B78C0
+ * XREFs of ?ReleaseAllReferences@CCompositionSurfaceBitmapMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00A77B0
  * Callers:
  *     <none>
  * Callees:

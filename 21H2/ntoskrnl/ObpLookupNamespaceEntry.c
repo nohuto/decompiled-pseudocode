@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpLookupNamespaceEntry @ 0x1406C12F4
+ * XREFs of ObpLookupNamespaceEntry @ 0x1406E5668
  * Callers:
- *     NtOpenPrivateNamespace @ 0x1406C0720 (NtOpenPrivateNamespace.c)
- *     ObpRegisterPrivateNamespace @ 0x1406C1234 (ObpRegisterPrivateNamespace.c)
+ *     NtOpenPrivateNamespace @ 0x1406E4CB0 (NtOpenPrivateNamespace.c)
+ *     ObpRegisterPrivateNamespace @ 0x1406E55A8 (ObpRegisterPrivateNamespace.c)
  * Callees:
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x1406C1068 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x14067362C (RtlEnumerateBoundaryDescriptorEntries.c)
  */
 
 __int64 *__fastcall ObpLookupNamespaceEntry(__int64 a1, __int64 a2)

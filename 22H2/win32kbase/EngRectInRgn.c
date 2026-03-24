@@ -1,11 +1,11 @@
 /*
- * XREFs of EngRectInRgn @ 0x1C016AB60
+ * XREFs of EngRectInRgn @ 0x1C014BDC0
  * Callers:
  *     <none>
  * Callees:
- *     ??0EngModeState@@QEAA@XZ @ 0x1C008A354 (--0EngModeState@@QEAA@XZ.c)
- *     GreGetObjectOwner @ 0x1C008A450 (GreGetObjectOwner.c)
- *     GreRectInRegion @ 0x1C0098880 (GreRectInRegion.c)
+ *     GreGetObjectOwner @ 0x1C00328C0 (GreGetObjectOwner.c)
+ *     GreRectInRegion @ 0x1C0081E00 (GreRectInRegion.c)
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C00CB83C (--0EngModeState@@QEAA@XZ.c)
  */
 
 BOOL __stdcall EngRectInRgn(HANDLE hrgn, LPRECT prcl)
@@ -14,11 +14,11 @@ BOOL __stdcall EngRectInRgn(HANDLE hrgn, LPRECT prcl)
   __int64 v5; // [rsp+40h] [rbp+18h] BYREF
 
   EngModeState::EngModeState((EngModeState *)&v5);
-  if ( (unsigned int)GreGetObjectOwner((__int64)hrgn, 4) )
+  if ( (unsigned int)GreGetObjectOwner((unsigned int)hrgn, 4) )
     result = 0;
   else
     result = GreRectInRegion((HRGN)hrgn, (struct _RECTL *)prcl);
   if ( v5 )
-    *(_DWORD *)(v5 + 328) &= ~0x10u;
+    *(_DWORD *)(v5 + 328) &= ~0x20u;
   return result;
 }

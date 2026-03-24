@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpInitBackupHive @ 0x140A1AD84
+ * XREFs of CmpInitBackupHive @ 0x14087137C
  * Callers:
- *     CmpLoadHiveThread @ 0x1408283D0 (CmpLoadHiveThread.c)
- *     CmpFlushBackupHive @ 0x140A1A998 (CmpFlushBackupHive.c)
+ *     CmpLoadHiveThread @ 0x14079F180 (CmpLoadHiveThread.c)
+ *     CmpFlushBackupHive @ 0x140870F90 (CmpFlushBackupHive.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwCreateFile @ 0x14041B140 (ZwCreateFile.c)
- *     RtlAppendStringToString @ 0x1407DD6F0 (RtlAppendStringToString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwCreateFile @ 0x1403FA4C0 (ZwCreateFile.c)
+ *     RtlAppendStringToString @ 0x14076D290 (RtlAppendStringToString.c)
  */
 
 NTSTATUS __fastcall CmpInitBackupHive(__int64 a1, const WCHAR *a2)
@@ -35,7 +35,7 @@ NTSTATUS __fastcall CmpInitBackupHive(__int64 a1, const WCHAR *a2)
   ObjectAttributes.Attributes = 576;
   ObjectAttributes.SecurityQualityOfService = 0LL;
   return ZwCreateFile(
-           (PHANDLE)(a1 + 1568),
+           (PHANDLE)(a1 + 1560),
            0x10003u,
            &ObjectAttributes,
            &IoStatusBlock,

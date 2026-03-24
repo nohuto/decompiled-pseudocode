@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCGlobalMit@@UEAAPEAXI@Z @ 0x180190130
+ * XREFs of ??_GCGlobalMit@@UEAAPEAXI@Z @ 0x180233470
  * Callers:
- *     ?Create@CGlobalMit@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x18002DD10 (-Create@CGlobalMit@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
+ *     ?Create@CGlobalMit@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x1800B5228 (-Create@CGlobalMit@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??1CGlobalMit@@UEAA@XZ @ 0x1801900BC (--1CGlobalMit@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CGlobalMit@@UEAA@XZ @ 0x180233408 (--1CGlobalMit@@UEAA@XZ.c)
  */
 
 wil::details **__fastcall CGlobalMit::`scalar deleting destructor'(wil::details **this, char a2)

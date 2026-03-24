@@ -1,8 +1,8 @@
 /*
- * XREFs of HvlGetEncryptedDataDomains @ 0x140193E5C
+ * XREFs of HvlGetEncryptedDataDomains @ 0x140193E7C
  * Callers:
- *     IopLoadCrashdumpDriver @ 0x14017815C (IopLoadCrashdumpDriver.c)
- *     IopLiveDumpAllocAndInitResources @ 0x14081F720 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLoadCrashdumpDriver @ 0x14017817C (IopLoadCrashdumpDriver.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x14081F700 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
  *     <none>
  */

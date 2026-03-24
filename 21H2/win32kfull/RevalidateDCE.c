@@ -1,23 +1,23 @@
 /*
- * XREFs of RevalidateDCE @ 0x1C00DC650
+ * XREFs of RevalidateDCE @ 0x1C00D5600
  * Callers:
- *     DeleteHrgnClip @ 0x1C00DC270 (DeleteHrgnClip.c)
- *     UpdateRedirectedDCE @ 0x1C00DC330 (UpdateRedirectedDCE.c)
- *     ?RecalcDCVisRgn@@YAXPEAUHDC__@@@Z @ 0x1C02473A4 (-RecalcDCVisRgn@@YAXPEAUHDC__@@@Z.c)
+ *     DeleteHrgnClip @ 0x1C00D5220 (DeleteHrgnClip.c)
+ *     UpdateRedirectedDCE @ 0x1C00D52E0 (UpdateRedirectedDCE.c)
+ *     ?RecalcDCVisRgn@@YAXPEAUHDC__@@@Z @ 0x1C024BF78 (-RecalcDCVisRgn@@YAXPEAUHDC__@@@Z.c)
  * Callees:
- *     InvalidateDCE @ 0x1C0026C64 (InvalidateDCE.c)
- *     SpbCheckDce @ 0x1C00DC6F0 (SpbCheckDce.c)
+ *     InvalidateDCE @ 0x1C00D5694 (InvalidateDCE.c)
+ *     SpbCheckDce @ 0x1C00D5700 (SpbCheckDce.c)
  */
 
 __int64 __fastcall RevalidateDCE(__int64 a1)
 {
   int v1; // edx
   __int64 v3; // r8
-  __int64 v4; // r9
+  __int64 v4; // r10
   __int64 v5; // r9
   int v6; // ecx
   bool v7; // zf
-  __int64 v9; // r10
+  __int64 v9; // r9
   unsigned __int8 v10; // cl
 
   v1 = *(_DWORD *)(a1 + 64);

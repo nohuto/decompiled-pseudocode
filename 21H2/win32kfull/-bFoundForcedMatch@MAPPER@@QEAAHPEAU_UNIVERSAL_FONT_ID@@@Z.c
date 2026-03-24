@@ -1,79 +1,79 @@
 /*
- * XREFs of ?bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C013AE1C
+ * XREFs of ?bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C014EC64
  * Callers:
- *     ?ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z @ 0x1C001D14C (-ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z.c)
+ *     ?ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z @ 0x1C005F930 (-ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z.c)
  * Callees:
- *     ?pPFFGet@DEVICE_PFTOBJ@@QEAAPEAVPFF@@PEAUHDEV__@@PEAPEAPEAV2@@Z @ 0x1C000F69C (-pPFFGet@DEVICE_PFTOBJ@@QEAAPEAVPFF@@PEAUHDEV__@@PEAPEAPEAV2@@Z.c)
- *     ?bCalculateWishCell@MAPPER@@AEAAHXZ @ 0x1C001E92C (-bCalculateWishCell@MAPPER@@AEAAHXZ.c)
- *     ?pvSimBold@IFIOBJ@@QEAAPEAXXZ @ 0x1C001ED70 (-pvSimBold@IFIOBJ@@QEAAPEAXXZ.c)
- *     ?ppfeGetPFEFromUFIInternal@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C013AF74 (-ppfeGetPFEFromUFIInternal@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
- *     ?bWin31BitmapHeightScaling@MAPPER@@QEAAHJJPEAJ@Z @ 0x1C014A7F8 (-bWin31BitmapHeightScaling@MAPPER@@QEAAHJJPEAJ@Z.c)
- *     ??$SafeDivide@JJJ@@YAJJJPEAJ@Z @ 0x1C014A834 (--$SafeDivide@JJJ@@YAJJJPEAJ@Z.c)
- *     ?bSimItalic@IFIOBJ@@QEAAHXZ @ 0x1C014AA04 (-bSimItalic@IFIOBJ@@QEAAHXZ.c)
- *     ??$SafeDivide@KKK@@YAJKKPEAK@Z @ 0x1C014D158 (--$SafeDivide@KKK@@YAJKKPEAK@Z.c)
- *     ?ppfeFirst@ENUMFHOBJ@@QEAAPEAVPFE@@XZ @ 0x1C016EEB6 (-ppfeFirst@ENUMFHOBJ@@QEAAPEAVPFE@@XZ.c)
- *     ?bWin31BitmapWidthScaling@MAPPER@@QEAAHJJPEAJ@Z @ 0x1C0291CEC (-bWin31BitmapWidthScaling@MAPPER@@QEAAHJJPEAJ@Z.c)
- *     ?ppfeNext@ENUMFHOBJ@@QEAAPEAVPFE@@XZ @ 0x1C0291D34 (-ppfeNext@ENUMFHOBJ@@QEAAPEAVPFE@@XZ.c)
+ *     ?bCalculateWishCell@MAPPER@@AEAAHXZ @ 0x1C00631C4 (-bCalculateWishCell@MAPPER@@AEAAHXZ.c)
+ *     ?pPFFGet@DEVICE_PFTOBJ@@QEAAPEAVPFF@@PEAUHDEV__@@PEAPEAPEAV2@@Z @ 0x1C00BAF70 (-pPFFGet@DEVICE_PFTOBJ@@QEAAPEAVPFF@@PEAUHDEV__@@PEAPEAPEAV2@@Z.c)
+ *     ?pvSimBold@IFIOBJ@@QEAAPEAXXZ @ 0x1C010DB38 (-pvSimBold@IFIOBJ@@QEAAPEAXXZ.c)
+ *     ?bWin31BitmapHeightScaling@MAPPER@@QEAAHJJPEAJ@Z @ 0x1C011F5A4 (-bWin31BitmapHeightScaling@MAPPER@@QEAAHJJPEAJ@Z.c)
+ *     ??$SafeDivide@JJJ@@YAJJJPEAJ@Z @ 0x1C011F5E0 (--$SafeDivide@JJJ@@YAJJJPEAJ@Z.c)
+ *     ??$SafeDivide@KKK@@YAJKKPEAK@Z @ 0x1C012567C (--$SafeDivide@KKK@@YAJKKPEAK@Z.c)
+ *     ?ppfeGetPFEFromUFIInternal@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C014EDC0 (-ppfeGetPFEFromUFIInternal@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
+ *     ?bSimItalic@IFIOBJ@@QEAAHXZ @ 0x1C0155D3C (-bSimItalic@IFIOBJ@@QEAAHXZ.c)
+ *     ?bWin31BitmapWidthScaling@MAPPER@@QEAAHJJPEAJ@Z @ 0x1C01617FC (-bWin31BitmapWidthScaling@MAPPER@@QEAAHJJPEAJ@Z.c)
+ *     ?ppfeFirst@ENUMFHOBJ@@QEAAPEAVPFE@@XZ @ 0x1C02942E4 (-ppfeFirst@ENUMFHOBJ@@QEAAPEAVPFE@@XZ.c)
+ *     ?ppfeNext@ENUMFHOBJ@@QEAAPEAVPFE@@XZ @ 0x1C029431C (-ppfeNext@ENUMFHOBJ@@QEAAPEAVPFE@@XZ.c)
  */
 
 __int64 __fastcall MAPPER::bFoundForcedMatch(MAPPER *this, struct _UNIVERSAL_FONT_ID *a2)
 {
   unsigned int v2; // edi
-  __int64 v4; // rcx
+  __int64 v5; // rcx
   struct PFE *PFEFromUFIInternal; // rsi
-  __int64 *v6; // r15
-  __int64 v7; // r8
-  int v8; // edx
-  __int64 v9; // r10
-  int v10; // r9d
-  struct PFF *v12; // rax
-  _QWORD *v13; // rax
-  int *v14; // r11
-  int v15; // r10d
+  __int64 *v7; // r15
+  __int64 v8; // r8
+  int v9; // edx
+  __int64 v10; // r10
+  int v11; // r9d
+  int v12; // eax
+  struct PFF *v14; // rax
+  _QWORD *v15; // rax
   int v16; // r10d
-  int v17; // r11d
-  int v18; // eax
-  int v20; // r14d
-  int v21; // edx
-  unsigned int v22; // eax
-  int v23; // r10d
-  int v24; // r11d
-  int v25; // r10d
-  unsigned int v26; // r11d
-  _QWORD v27[2]; // [rsp+20h] [rbp-20h] BYREF
-  __int128 v28; // [rsp+30h] [rbp-10h]
-  struct PFT *v29; // [rsp+88h] [rbp+48h] BYREF
-  unsigned int v30; // [rsp+90h] [rbp+50h] BYREF
-  unsigned int v31; // [rsp+98h] [rbp+58h] BYREF
+  signed int v17; // r10d
+  int v18; // r11d
+  int v19; // eax
+  int v21; // r14d
+  int v22; // edx
+  unsigned int v23; // eax
+  int v24; // r10d
+  int v25; // r11d
+  int v26; // r10d
+  int v27; // r11d
+  _QWORD v28[2]; // [rsp+20h] [rbp-20h] BYREF
+  __int128 v29; // [rsp+30h] [rbp-10h]
+  struct PFT *v30; // [rsp+88h] [rbp+48h] BYREF
+  int v31; // [rsp+90h] [rbp+50h] BYREF
+  unsigned int v32; // [rsp+98h] [rbp+58h] BYREF
 
   v2 = 0;
   if ( !*(_DWORD *)a2 )
     return 0LL;
   if ( *(_DWORD *)a2 == 1 )
   {
-    v29 = gpPFTDevice;
-    v12 = DEVICE_PFTOBJ::pPFFGet((DEVICE_PFTOBJ *)&v29, *(_QWORD *)(**(_QWORD **)this + 48LL), 0LL);
-    if ( !v12 )
+    v30 = gpPFTDevice;
+    v14 = DEVICE_PFTOBJ::pPFFGet((DEVICE_PFTOBJ *)&v30, *(_QWORD *)(**(_QWORD **)this + 48LL), 0LL);
+    if ( !v14 )
       return 0LL;
-    v13 = (_QWORD *)((char *)v12 + 112);
-    if ( !v13 )
+    v15 = (_QWORD *)((char *)v14 + 112);
+    if ( !v15 )
       return 0LL;
-    v27[0] = v13;
-    v27[1] = *v13;
-    v28 = 0LL;
-    PFEFromUFIInternal = ENUMFHOBJ::ppfeFirst((ENUMFHOBJ *)v27);
+    v28[0] = v15;
+    v28[1] = *v15;
+    v29 = 0LL;
+    PFEFromUFIInternal = ENUMFHOBJ::ppfeFirst((ENUMFHOBJ *)v28);
     if ( !PFEFromUFIInternal )
       return 0LL;
-    v15 = *v14;
+    v16 = *(_DWORD *)a2;
     do
     {
-      if ( *((_DWORD *)PFEFromUFIInternal + 21) == v15
-        && *((_DWORD *)PFEFromUFIInternal + 22) == v14[1]
+      if ( *((_DWORD *)PFEFromUFIInternal + 21) == v16
+        && *((_DWORD *)PFEFromUFIInternal + 22) == *((_DWORD *)a2 + 1)
         && (*((_DWORD *)PFEFromUFIInternal + 3) & 2) == 0 )
       {
         break;
       }
-      PFEFromUFIInternal = ENUMFHOBJ::ppfeNext((ENUMFHOBJ *)v27);
+      PFEFromUFIInternal = ENUMFHOBJ::ppfeNext((ENUMFHOBJ *)v28);
     }
     while ( PFEFromUFIInternal );
   }
@@ -84,52 +84,53 @@ __int64 __fastcall MAPPER::bFoundForcedMatch(MAPPER *this, struct _UNIVERSAL_FON
   if ( PFEFromUFIInternal )
   {
     *((_DWORD *)this + 48) = 1;
-    v6 = (__int64 *)((char *)this + 256);
+    v7 = (__int64 *)((char *)this + 256);
     *((_DWORD *)this + 49) = 1;
     *((_DWORD *)this + 47) = 0;
-    v7 = *((_QWORD *)PFEFromUFIInternal + 4);
-    *((_QWORD *)this + 32) = v7;
-    v8 = *(_DWORD *)(v7 + 48);
-    if ( (v8 & 0x3000010) == 0 )
+    v8 = *((_QWORD *)PFEFromUFIInternal + 4);
+    *((_QWORD *)this + 32) = v8;
+    v9 = *(_DWORD *)(v8 + 48);
+    if ( (v9 & 0x3000010) == 0 )
     {
-      v4 = *((unsigned int *)this + 63);
-      v16 = (v4 & 2) != 0 ? *(__int16 *)(v7 + 56) : *(__int16 *)(v7 + 60) + *(__int16 *)(v7 + 62);
-      v17 = *((_DWORD *)this + 41);
-      if ( v16 < v17 )
+      v5 = *((unsigned int *)this + 63);
+      v17 = (v5 & 2) != 0 ? *(__int16 *)(v8 + 56) : *(__int16 *)(v8 + 60) + *(__int16 *)(v8 + 62);
+      v18 = *((_DWORD *)this + 41);
+      if ( v17 < v18 )
       {
-        LOBYTE(v4) = (*((_DWORD *)this + 63) & 0x8000) == 0;
-        if ( ((unsigned __int8)v4 & ((v8 & 0x100000) != 0)) != 0 && v17 > 7 * v16 / 4 )
+        LOBYTE(v5) = (*((_DWORD *)this + 63) & 0x8000) == 0;
+        if ( ((unsigned __int8)v5 & ((v9 & 0x100000) != 0)) != 0 && v18 > 7 * v17 / 4 )
         {
-          LODWORD(v29) = 0;
-          if ( !(unsigned int)MAPPER::bWin31BitmapHeightScaling((MAPPER *)v4, v17, v16, (int *)&v29) )
+          LODWORD(v30) = 0;
+          if ( !MAPPER::bWin31BitmapHeightScaling((MAPPER *)v5, v18, v17, (int *)&v30) )
             return v2;
-          v18 = (int)v29;
-          v4 = 8LL;
-          v7 = *v6;
-          if ( (unsigned int)v29 > 8 )
-            v18 = 8;
-          *((_DWORD *)this + 49) = v18;
+          v19 = (int)v30;
+          v5 = 8LL;
+          v8 = *v7;
+          if ( (unsigned int)v30 > 8 )
+            v19 = 8;
+          *((_DWORD *)this + 49) = v19;
         }
       }
     }
-    v9 = *((_QWORD *)this + 1);
-    if ( *(_BYTE *)(v9 + 20) )
+    v10 = *((_QWORD *)this + 1);
+    if ( *(_BYTE *)(v10 + 20) )
     {
-      if ( (*(_BYTE *)(v7 + 52) & 1) == 0 )
+      if ( (*(_BYTE *)(v8 + 52) & 1) == 0 )
       {
         if ( (unsigned int)IFIOBJ::bSimItalic((MAPPER *)((char *)this + 256)) )
-          *((_DWORD *)this + 47) |= 0x4000u;
+          *((_DWORD *)this + 47) = 0x4000;
       }
     }
-    v10 = *((_DWORD *)this + 63);
-    if ( (v10 & 0x200000) == 0
-      && *(unsigned __int16 *)(v7 + 46) - *((_DWORD *)this + 43) < 0
-      && *((_DWORD *)this + 43) - *(unsigned __int16 *)(v7 + 46) > 150
+    v11 = *((_DWORD *)this + 63);
+    if ( (v11 & 0x200000) == 0
+      && *(unsigned __int16 *)(v8 + 46) - *((_DWORD *)this + 43) < 0
+      && *((_DWORD *)this + 43) - *(unsigned __int16 *)(v8 + 46) > 150
       && IFIOBJ::pvSimBold((MAPPER *)((char *)this + 256)) )
     {
       *((_DWORD *)this + 47) |= 0x2000u;
     }
-    if ( (*(_DWORD *)(v7 + 48) & 0x2000010) != 0 )
+    v12 = *(_DWORD *)(v8 + 48);
+    if ( (v12 & 0x2000010) != 0 )
     {
 LABEL_10:
       v2 = 1;
@@ -140,63 +141,62 @@ LABEL_10:
       *((_QWORD *)this + 25) = PFEFromUFIInternal;
       return v2;
     }
-    v20 = *(__int16 *)(v7 + 76);
-    *((_DWORD *)this + 48) = 1;
-    if ( *(_DWORD *)(v9 + 4) )
+    v21 = *(__int16 *)(v8 + 76);
+    if ( *(_DWORD *)(v10 + 4) )
     {
-      if ( (v10 & 4) == 0 )
+      if ( (v11 & 4) == 0 )
       {
         MAPPER::bCalculateWishCell(this);
-        v7 = *v6;
-        v10 = *((_DWORD *)this + 63);
+        v8 = *v7;
+        v11 = *((_DWORD *)this + 63);
       }
-      LOBYTE(v4) = (*(_DWORD *)(v7 + 48) & 0x100000) != 0;
-      if ( ((unsigned __int8)v4 & ((v10 & 0x8000) == 0)) == 0 )
+      LOBYTE(v5) = (*(_DWORD *)(v8 + 48) & 0x100000) != 0;
+      if ( ((unsigned __int8)v5 & ((v11 & 0x8000) == 0)) == 0 )
         goto LABEL_10;
-      v21 = *((_DWORD *)this + 42);
-      if ( v21 <= v20 )
+      v22 = *((_DWORD *)this + 42);
+      if ( v22 <= v21 )
         goto LABEL_10;
-      LODWORD(v29) = 0;
-      if ( !(unsigned int)MAPPER::bWin31BitmapWidthScaling((MAPPER *)v4, v21, v20, (int *)&v29) )
+      LODWORD(v30) = 0;
+      if ( !(unsigned int)MAPPER::bWin31BitmapWidthScaling((MAPPER *)v5, v22, v21, (int *)&v30) )
         return v2;
-      v22 = (unsigned int)v29;
+      v23 = (unsigned int)v30;
     }
     else
     {
-      if ( (v10 & 0x8000) != 0 || (*(_DWORD *)(v7 + 48) & 0x100000) == 0 )
+      if ( (v12 & 0x100000) == 0 || (v11 & 0x8000) != 0 )
         goto LABEL_10;
-      v23 = *(_DWORD *)(v7 + 128);
-      v24 = *(_DWORD *)(v7 + 132);
-      LODWORD(v29) = 0;
+      v24 = *(_DWORD *)(v8 + 128);
+      v25 = *(_DWORD *)(v8 + 132);
+      LODWORD(v30) = 0;
+      v32 = 0;
       v31 = 0;
-      v30 = 0;
-      if ( v23 == v24 && *((_DWORD *)this + 61) == *((_DWORD *)this + 62) )
+      if ( v24 == v25 && *((_DWORD *)this + 61) == *((_DWORD *)this + 62) )
       {
-        v22 = *((_DWORD *)this + 49);
-        if ( v22 == 1 )
+        v23 = *((_DWORD *)this + 49);
+        if ( v23 == 1 )
           goto LABEL_10;
       }
       else
       {
         if ( (unsigned int)SafeDivide<unsigned long,unsigned long,unsigned long>(
-                             (unsigned int)(100 * *((_DWORD *)this + 62)),
-                             *((unsigned int *)this + 61),
-                             &v29)
-          || (unsigned int)SafeDivide<long,long,long>((unsigned int)(100 * v25), v26, &v30)
-          || (unsigned int)SafeDivide<long,long,long>(v30, *((unsigned int *)this + 49), &v31) )
+                             100 * *((_DWORD *)this + 62),
+                             *((_DWORD *)this + 61),
+                             (int *)&v30)
+          || (unsigned int)SafeDivide<long,long,long>(100 * v26, v27, &v31)
+          || (unsigned int)SafeDivide<long,long,long>(v31, *((_DWORD *)this + 49), (int *)&v32) )
         {
           return v2;
         }
-        if ( (unsigned int)v29 <= (3 * v31) >> 1 )
+        if ( (unsigned int)v30 <= (3 * v32) >> 1 )
           goto LABEL_10;
-        if ( !v31 )
+        if ( !v32 )
           return v2;
-        v22 = (unsigned int)v29 / v31;
+        v23 = (unsigned int)v30 / v32;
       }
     }
-    if ( v22 > 5 )
-      v22 = 5;
-    *((_DWORD *)this + 48) = v22;
+    if ( v23 > 5 )
+      v23 = 5;
+    *((_DWORD *)this + 48) = v23;
     goto LABEL_10;
   }
   return 0LL;

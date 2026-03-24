@@ -1,20 +1,20 @@
 /*
- * XREFs of UsbhIoctlResetStuckHub @ 0x1C00404C8
+ * XREFs of UsbhIoctlResetStuckHub @ 0x1C00416D4
  * Callers:
- *     UsbhFdoDeviceControl @ 0x1C0029C60 (UsbhFdoDeviceControl.c)
+ *     UsbhFdoDeviceControl @ 0x1C002AFB0 (UsbhFdoDeviceControl.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
- *     Usb_Disconnected @ 0x1C0028F5C (Usb_Disconnected.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhAcquireApiLock @ 0x1C003D610 (UsbhAcquireApiLock.c)
- *     UsbhIoctlTraceOutput @ 0x1C0040730 (UsbhIoctlTraceOutput.c)
- *     UsbhReleaseApiLock @ 0x1C0040CE8 (UsbhReleaseApiLock.c)
- *     UsbhVerifyCallerIsAdmin @ 0x1C0040D50 (UsbhVerifyCallerIsAdmin.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     Usb_Disconnected @ 0x1C001CEB4 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhAcquireApiLock @ 0x1C003E7F0 (UsbhAcquireApiLock.c)
+ *     UsbhIoctlTraceOutput @ 0x1C004193C (UsbhIoctlTraceOutput.c)
+ *     UsbhReleaseApiLock @ 0x1C0041F04 (UsbhReleaseApiLock.c)
+ *     UsbhVerifyCallerIsAdmin @ 0x1C0041F6C (UsbhVerifyCallerIsAdmin.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 __int64 __fastcall UsbhIoctlResetStuckHub(__int64 a1, PIRP Irp, __int64 a3)
@@ -24,12 +24,13 @@ __int64 __fastcall UsbhIoctlResetStuckHub(__int64 a1, PIRP Irp, __int64 a3)
   int v7; // ebx
   __int64 v8; // rdx
   __int64 v10; // [rsp+28h] [rbp-50h]
-  int v11; // [rsp+88h] [rbp+10h] BYREF
-  __int64 v12; // [rsp+90h] [rbp+18h] BYREF
-  int v13; // [rsp+98h] [rbp+20h] BYREF
+  int v11; // [rsp+48h] [rbp-30h]
+  int v12; // [rsp+88h] [rbp+10h] BYREF
+  __int64 v13; // [rsp+90h] [rbp+18h] BYREF
+  int v14; // [rsp+98h] [rbp+20h] BYREF
 
-  v12 = a3;
-  LOBYTE(v12) = 0;
+  v13 = a3;
+  LOBYTE(v13) = 0;
   Log(a1, 32, 1768898097, (__int64)Irp, 0LL);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     WPP_RECORDER_SF_(
@@ -38,17 +39,18 @@ __int64 __fastcall UsbhIoctlResetStuckHub(__int64 a1, PIRP Irp, __int64 a3)
       2u,
       0x11u,
       (__int64)&WPP_1cc12751aa963e921be10b52612de601_Traceguids);
-  v13 = 275;
+  v14 = 275;
   Log(a1, 32, 1768898098, (__int64)Irp, 0LL);
-  LOBYTE(v11) = UsbhVerifyCallerIsAdmin();
+  LOBYTE(v12) = UsbhVerifyCallerIsAdmin();
   v5 = FdoExt(a1);
   v6 = (_QWORD *)UsbhIncHubBusy(a1, (__int64)(v5 + 434), (__int64)Irp, 1430414185, 1);
   if ( v6 )
   {
-    v7 = UsbhAcquireApiLock(a1, 0xF00D0275, &v12);
+    v7 = UsbhAcquireApiLock(a1, 0xF00D0275, &v13);
     if ( (v7 & 0xC0000000) != 0xC0000000 )
     {
-      UsbhException(a1, 0, 132, (int)&v11, 1, v7, 0, usbfile_ioctl_c, 452, 0);
+      LOBYTE(v11) = 0;
+      UsbhException(a1, 0, 132, (int)&v12, 1, v7, 0, usbfile_ioctl_c, 452, v11);
       Irp->IoStatus.Information = 0LL;
     }
   }
@@ -69,8 +71,11 @@ __int64 __fastcall UsbhIoctlResetStuckHub(__int64 a1, PIRP Irp, __int64 a3)
       v10);
   }
   if ( (v7 & 0xC0000000) == 0xC0000000 && !Usb_Disconnected(v7) )
-    UsbhException(a1, 0, 91, (int)&v13, 4, v7, 0, usbfile_ioctl_c, 465, 0);
-  if ( (_BYTE)v12 )
+  {
+    LOBYTE(v11) = 0;
+    UsbhException(a1, 0, 91, (int)&v14, 4, v7, 0, usbfile_ioctl_c, 465, v11);
+  }
+  if ( (_BYTE)v13 )
     UsbhReleaseApiLock(a1, 4027384437LL);
   UsbhIoctlTraceOutput(a1, Irp);
   FdoExt(a1);

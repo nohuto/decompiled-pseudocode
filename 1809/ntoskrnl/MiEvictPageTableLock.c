@@ -4,17 +4,17 @@
  *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
  *     MiDeleteVa @ 0x140069700 (MiDeleteVa.c)
  *     MiTerminateWsle @ 0x14007ACA0 (MiTerminateWsle.c)
- *     MiDeleteNonPagedPoolPte @ 0x140111590 (MiDeleteNonPagedPoolPte.c)
- *     MiDeleteSystemPageTable @ 0x14011F030 (MiDeleteSystemPageTable.c)
- *     MiDeleteAwePageTable @ 0x1402B0134 (MiDeleteAwePageTable.c)
+ *     MiDeleteNonPagedPoolPte @ 0x1401115B0 (MiDeleteNonPagedPoolPte.c)
+ *     MiDeleteSystemPageTable @ 0x14011F050 (MiDeleteSystemPageTable.c)
+ *     MiDeleteAwePageTable @ 0x1402B0234 (MiDeleteAwePageTable.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
  *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
  *     MiUnlockNestedPageTableWritePte @ 0x1400984D4 (MiUnlockNestedPageTableWritePte.c)
  *     MiGetUsedPtesHandle @ 0x140098700 (MiGetUsedPtesHandle.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     RtlCompareMemoryUlong @ 0x1401C5C30 (RtlCompareMemoryUlong.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     RtlCompareMemoryUlong @ 0x1401C5C50 (RtlCompareMemoryUlong.c)
  */
 
 __int64 __fastcall MiEvictPageTableLock(__int64 a1, unsigned __int64 a2, __int64 a3, char a4)

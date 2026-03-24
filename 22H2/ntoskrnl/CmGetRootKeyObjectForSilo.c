@@ -1,30 +1,29 @@
 /*
- * XREFs of CmGetRootKeyObjectForSilo @ 0x14077A8E0
+ * XREFs of CmGetRootKeyObjectForSilo @ 0x1405D263C
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A578 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     PsGetPermanentSiloContext @ 0x14031C660 (PsGetPermanentSiloContext.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     PsGetPermanentSiloContext @ 0x1402EDF20 (PsGetPermanentSiloContext.c)
  */
 
-__int64 CmGetRootKeyObjectForSilo()
+PVOID __fastcall CmGetRootKeyObjectForSilo(__int64 a1)
 {
-  __int64 v0; // r9
-  void *v1; // rcx
-  __int64 v2; // r8
-  __int64 v4[3]; // [rsp+20h] [rbp-18h] BYREF
-  unsigned __int64 v5; // [rsp+48h] [rbp+10h] BYREF
+  unsigned __int64 v1; // rbx
+  void *v2; // rcx
+  unsigned __int64 v4; // [rsp+38h] [rbp+10h] BYREF
 
-  *(_OWORD *)v4 = 0LL;
-  CmpInitializeThreadInfo((__int64)v4);
-  v5 = 0LL;
-  PsGetPermanentSiloContext(v0, CmpSiloContextSlot, &v5);
-  if ( v5 && (v1 = *(void **)(v5 + 32)) != 0LL )
-    ObfReferenceObject(v1);
+  v4 = 0LL;
+  PsGetPermanentSiloContext(a1, CmpSiloContextSlot, &v4);
+  v1 = v4;
+  if ( v4 && (v2 = *(void **)(v4 + 32)) != 0LL )
+  {
+    ObfReferenceObject(v2);
+    return *(PVOID *)(v1 + 32);
+  }
   else
+  {
     ObfReferenceObject(CmpRegistryRootObject);
-  CmCleanupThreadInfo(v4);
-  return v2;
+    return CmpRegistryRootObject;
+  }
 }

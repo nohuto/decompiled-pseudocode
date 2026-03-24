@@ -1,26 +1,30 @@
 /*
- * XREFs of ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0079B78
+ * XREFs of ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00E3DCC
  * Callers:
- *     NtGdiExtEscape @ 0x1C0076E90 (NtGdiExtEscape.c)
- *     GreTextInitialized @ 0x1C007A410 (GreTextInitialized.c)
- *     FinishStockFontInit @ 0x1C00863A0 (FinishStockFontInit.c)
- *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z @ 0x1C010CB90 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093A30 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     GreGetTextFaceW @ 0x1C0097590 (GreGetTextFaceW.c)
+ *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C009B854 (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     NtGdiExtEscape @ 0x1C00A7450 (NtGdiExtEscape.c)
+ *     GreTextInitialized @ 0x1C00E31F8 (GreTextInitialized.c)
+ *     DereferenceW32Thread @ 0x1C00E39A0 (DereferenceW32Thread.c)
+ *     W32pProcessCallout @ 0x1C00E3A50 (W32pProcessCallout.c)
+ *     W32pThreadCallout @ 0x1C00E3CD0 (W32pThreadCallout.c)
+ *     FinishStockFontInit @ 0x1C00E44C0 (FinishStockFontInit.c)
  * Callees:
- *     ??0UmfdHostSharedReadyLock@UmfdHostLifeTimeManager@@QEAA@XZ @ 0x1C0079BC0 (--0UmfdHostSharedReadyLock@UmfdHostLifeTimeManager@@QEAA@XZ.c)
- *     ?IsCurrentProcessUmfdHostNoLock@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0079C18 (-IsCurrentProcessUmfdHostNoLock@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     <none>
  */
 
 bool UmfdHostLifeTimeManager::IsCurrentProcessUmfdHost(void)
 {
-  bool IsCurrentProcessUmfdHostNoLock; // bl
-  __int64 v2; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v0; // rdx
+  __int64 v1; // rcx
+  __int64 v2; // r8
+  bool v3; // bl
 
-  UmfdHostLifeTimeManager::UmfdHostSharedReadyLock::UmfdHostSharedReadyLock((UmfdHostLifeTimeManager::UmfdHostSharedReadyLock *)&v2);
-  IsCurrentProcessUmfdHostNoLock = UmfdHostLifeTimeManager::IsCurrentProcessUmfdHostNoLock();
-  if ( v2 )
-  {
-    GreReleasePushLockShared(v2);
-    KeLeaveCriticalRegion();
-  }
-  return IsCurrentProcessUmfdHostNoLock;
+  KeEnterCriticalRegion();
+  GreAcquirePushLockShared(&UmfdHostLifeTimeManager::s_ReadyLock);
+  v3 = UmfdHostLifeTimeManager::s_UmfdHostProcess == (PVOID)PsGetCurrentProcess(v1, v0, v2);
+  GreReleasePushLockShared(&UmfdHostLifeTimeManager::s_ReadyLock);
+  KeLeaveCriticalRegion();
+  return v3;
 }

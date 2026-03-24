@@ -1,14 +1,14 @@
 /*
- * XREFs of MmIsFileObjectAPagingFile @ 0x1400DE968
+ * XREFs of MmIsFileObjectAPagingFile @ 0x1400DE988
  * Callers:
- *     IoPageReadEx @ 0x1400DE720 (IoPageReadEx.c)
- *     IoSynchronousPageWriteEx @ 0x1400DEA00 (IoSynchronousPageWriteEx.c)
- *     IoAsynchronousPageWrite @ 0x140134FF4 (IoAsynchronousPageWrite.c)
- *     FsRtlIsSystemPagingFile @ 0x14013F0A0 (FsRtlIsSystemPagingFile.c)
+ *     IoPageReadEx @ 0x1400DE740 (IoPageReadEx.c)
+ *     IoSynchronousPageWriteEx @ 0x1400DEA20 (IoSynchronousPageWriteEx.c)
+ *     IoAsynchronousPageWrite @ 0x140135014 (IoAsynchronousPageWrite.c)
+ *     FsRtlIsSystemPagingFile @ 0x14013F0C0 (FsRtlIsSystemPagingFile.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmIsFileObjectAPagingFile(unsigned __int64 a1)

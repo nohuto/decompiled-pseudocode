@@ -1,10 +1,10 @@
 /*
- * XREFs of IovUtilRelateDeviceObjects @ 0x140AD3D4C
+ * XREFs of IovUtilRelateDeviceObjects @ 0x1409D6C94
  * Callers:
- *     IovpExamineDevObjForwarding @ 0x140ACDF60 (IovpExamineDevObjForwarding.c)
+ *     IovpExamineDevObjForwarding @ 0x1409D0AE0 (IovpExamineDevObjForwarding.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
  */
 
 void __fastcall IovUtilRelateDeviceObjects(__int64 a1, __int64 a2, _DWORD *a3)

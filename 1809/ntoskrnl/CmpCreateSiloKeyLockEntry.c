@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpCreateSiloKeyLockEntry @ 0x14068E758
+ * XREFs of CmpCreateSiloKeyLockEntry @ 0x14068E738
  * Callers:
- *     CmLockKeyForWrite @ 0x14068E380 (CmLockKeyForWrite.c)
+ *     CmLockKeyForWrite @ 0x14068E360 (CmLockKeyForWrite.c)
  * Callees:
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpDereferenceKeyControlBlockUnsafe @ 0x1405AFFE0 (CmpDereferenceKeyControlBlockUnsafe.c)
  *     CmpReferenceKeyControlBlockUnsafe @ 0x1405D8ADC (CmpReferenceKeyControlBlockUnsafe.c)
  */

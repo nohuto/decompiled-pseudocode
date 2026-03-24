@@ -6,8 +6,8 @@
  *     CcFlushCachePriv @ 0x14001EA90 (CcFlushCachePriv.c)
  *     MmFlushSection @ 0x14001FFD8 (MmFlushSection.c)
  *     MiLockSectionControlArea @ 0x140020210 (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)

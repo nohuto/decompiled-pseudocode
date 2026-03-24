@@ -1,10 +1,10 @@
 /*
- * XREFs of imp_WdfInterruptQueueDpcForIsr @ 0x1C00028C0
+ * XREFs of imp_WdfInterruptQueueDpcForIsr @ 0x1C0003CD0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0005DAC (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0003F34 (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
  */
 
 BOOLEAN __fastcall imp_WdfInterruptQueueDpcForIsr(_WDF_DRIVER_GLOBALS *DriverGlobals, unsigned __int64 Interrupt)
@@ -16,7 +16,7 @@ BOOLEAN __fastcall imp_WdfInterruptQueueDpcForIsr(_WDF_DRIVER_GLOBALS *DriverGlo
   LOWORD(Offset) = 0;
   pFxInterrupt = 0LL;
   if ( !Interrupt )
-    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], WDF_INVALID_HANDLE, 0LL, 0x1027uLL);
+    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, WDF_INVALID_HANDLE, 0LL, 0x1027uLL);
   v3 = (FxInterrupt *)(~Interrupt & 0xFFFFFFFFFFFFFFF8uLL);
   if ( (Interrupt & 1) != 0 )
   {

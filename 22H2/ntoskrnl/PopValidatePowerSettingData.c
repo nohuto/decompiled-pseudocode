@@ -1,7 +1,7 @@
 /*
- * XREFs of PopValidatePowerSettingData @ 0x1407834D8
+ * XREFs of PopValidatePowerSettingData @ 0x1406F3CA4
  * Callers:
- *     PopSetPowerSettingValue @ 0x140782F08 (PopSetPowerSettingValue.c)
+ *     PopSetPowerSettingValue @ 0x1406F36C8 (PopSetPowerSettingValue.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall PopValidatePowerSettingData(_QWORD *a1, int a2, _DWORD *a3)
   v5 = *(_QWORD *)&GUID_DISK_POWERDOWN_TIMEOUT.Data1 - *a1;
   if ( *(_QWORD *)&GUID_DISK_POWERDOWN_TIMEOUT.Data1 == *a1 )
     v5 = *(_QWORD *)GUID_DISK_POWERDOWN_TIMEOUT.Data4 - a1[1];
-  if ( !v5 && a2 == 4 && a3 && *a3 && *a3 < 0xFu && !PopPlatformAoAc )
+  if ( !v5 && a2 == 4 && a3 && *a3 && !PopPlatformAoAc && *a3 < 0xFu )
   {
     *a3 = 15;
     v4 = 0;

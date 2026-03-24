@@ -1,41 +1,41 @@
 /*
- * XREFs of ?Grow@?$CDynamicArray@PEAVIInputQueue@@$0HHHAHDFF@@@IEAAJI@Z @ 0x1C00E26F8
+ * XREFs of ?Grow@?$CDynamicArray@PEAVIInputQueue@@$0HHHAHDFF@@@IEAAJI@Z @ 0x1C010ABD8
  * Callers:
- *     ?AttachInputQueue@CInputQueueProp@@QEAAJPEAVIInputQueue@@@Z @ 0x1C00E27A4 (-AttachInputQueue@CInputQueueProp@@QEAAJPEAVIInputQueue@@@Z.c)
+ *     ?AttachInputQueue@CInputQueueProp@@QEAAJPEAVIInputQueue@@@Z @ 0x1C010AB4C (-AttachInputQueue@CInputQueueProp@@QEAAJPEAVIInputQueue@@@Z.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-__int64 __fastcall CDynamicArray<IInputQueue *,2003858261>::Grow(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall CDynamicArray<IInputQueue *,2003858261>::Grow(__int64 a1)
 {
-  unsigned int v5; // esi
-  unsigned int v6; // ebx
-  void *v7; // rax
-  void *v8; // rbp
+  unsigned int v2; // esi
+  unsigned int v3; // ebx
+  void *v4; // rax
+  void *v5; // rbp
 
-  v5 = *(_DWORD *)(a1 + 8) + 1;
+  v2 = *(_DWORD *)(a1 + 8) + 1;
   if ( *(_DWORD *)(a1 + 8) == -1 )
     return (unsigned int)-1073741675;
-  v6 = 0;
-  if ( v5 <= *(_DWORD *)(a1 + 12) )
-    return v6;
-  if ( !is_mul_ok(v5, 8uLL) )
+  v3 = 0;
+  if ( v2 <= *(_DWORD *)(a1 + 12) )
+    return v3;
+  if ( !is_mul_ok(v2, 8uLL) )
     return (unsigned int)-1073741675;
-  v7 = (void *)Win32AllocPool(8LL * v5, 2003858261LL, a3, a4);
-  v8 = v7;
-  if ( v7 )
+  v4 = (void *)Win32AllocPool(8LL * v2, 2003858261LL);
+  v5 = v4;
+  if ( v4 )
   {
     if ( *(_QWORD *)a1 )
     {
-      memmove(v7, *(const void **)a1, 8LL * *(unsigned int *)(a1 + 8));
+      memmove(v4, *(const void **)a1, 8LL * *(unsigned int *)(a1 + 8));
       Win32FreePool(*(void **)a1);
     }
-    *(_QWORD *)a1 = v8;
-    *(_DWORD *)(a1 + 12) = v5;
+    *(_QWORD *)a1 = v5;
+    *(_DWORD *)(a1 + 12) = v2;
   }
   else
   {
     return (unsigned int)-1073741801;
   }
-  return v6;
+  return v3;
 }

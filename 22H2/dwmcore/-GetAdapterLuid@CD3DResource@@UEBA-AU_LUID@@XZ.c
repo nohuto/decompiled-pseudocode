@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAdapterLuid@CD3DResource@@UEBA?AU_LUID@@XZ @ 0x180108170
+ * XREFs of ?GetAdapterLuid@CD3DResource@@UEBA?AU_LUID@@XZ @ 0x1800E31D0
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 struct _LUID __fastcall CD3DResource::GetAdapterLuid(CD3DResource *this, _QWORD *a2)
 {
-  *a2 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 3) + 80LL) + 896LL);
+  *a2 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this - 1) + 80LL) + 936LL);
   return (struct _LUID)a2;
 }

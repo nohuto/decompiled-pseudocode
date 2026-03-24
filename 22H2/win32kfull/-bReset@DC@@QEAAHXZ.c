@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bReset@DC@@QEAAHXZ @ 0x1C000997C
+ * XREFs of ?bReset@DC@@QEAAHXZ @ 0x1C0019094
  * Callers:
- *     GreBeginGdiRenderingToDxSurface @ 0x1C00097F8 (GreBeginGdiRenderingToDxSurface.c)
+ *     GreBeginGdiRenderingToDxSurface @ 0x1C0017F88 (GreBeginGdiRenderingToDxSurface.c)
  * Callees:
  *     <none>
  */
@@ -16,8 +16,8 @@ __int64 __fastcall DC::bReset(DC *this)
   if ( v1 )
   {
     v5 = *((_QWORD *)this + 21);
-    --*(_DWORD *)(v1 + 76);
-    if ( !*(_DWORD *)(v5 + 76) )
+    --*(_DWORD *)(v1 + 32);
+    if ( !*(_DWORD *)(v5 + 32) )
       RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v5);
     *((_QWORD *)this + 21) = 0LL;
     DC::vReleaseRao(this);
@@ -26,8 +26,8 @@ __int64 __fastcall DC::bReset(DC *this)
   if ( v3 )
   {
     v5 = *((_QWORD *)this + 20);
-    --*(_DWORD *)(v3 + 76);
-    if ( !*(_DWORD *)(v5 + 76) )
+    --*(_DWORD *)(v3 + 32);
+    if ( !*(_DWORD *)(v5 + 32) )
       RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v5);
     *((_QWORD *)this + 20) = 0LL;
     DC::vReleaseRao(this);

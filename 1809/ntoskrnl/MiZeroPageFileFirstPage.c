@@ -1,13 +1,13 @@
 /*
- * XREFs of MiZeroPageFileFirstPage @ 0x14074CE9C
+ * XREFs of MiZeroPageFileFirstPage @ 0x14074CE7C
  * Callers:
- *     MiCreatePagingFile @ 0x14074BFD8 (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x14074BFB8 (MiCreatePagingFile.c)
  * Callees:
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     MiSynchronousPageWrite @ 0x1401883E4 (MiSynchronousPageWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     MiSynchronousPageWrite @ 0x140188404 (MiSynchronousPageWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiZeroPageFileFirstPage(struct _FILE_OBJECT *a1)

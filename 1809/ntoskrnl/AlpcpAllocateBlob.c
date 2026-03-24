@@ -7,13 +7,13 @@
  *     AlpcpCreateView @ 0x140617D0C (AlpcpCreateView.c)
  *     AlpcpCreateSecurityContext @ 0x14061801C (AlpcpCreateSecurityContext.c)
  *     AlpcpCreateSection @ 0x14061AF74 (AlpcpCreateSection.c)
- *     AlpcpCreateReserve @ 0x1406A3FD8 (AlpcpCreateReserve.c)
- *     AlpcpCaptureHandleAttributeInternal @ 0x1406A5684 (AlpcpCaptureHandleAttributeInternal.c)
- *     AlpcpCreateConnectionPort @ 0x1406B66C8 (AlpcpCreateConnectionPort.c)
+ *     AlpcpCreateReserve @ 0x1406A3FB8 (AlpcpCreateReserve.c)
+ *     AlpcpCaptureHandleAttributeInternal @ 0x1406A5664 (AlpcpCaptureHandleAttributeInternal.c)
+ *     AlpcpCreateConnectionPort @ 0x1406B66A8 (AlpcpCreateConnectionPort.c)
  * Callees:
  *     ExAllocateFromNPagedLookasideList @ 0x140018B38 (ExAllocateFromNPagedLookasideList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

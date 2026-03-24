@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIFilterIrpStopDeviceCompletion @ 0x1C0055CE0
+ * XREFs of ACPIFilterIrpStopDeviceCompletion @ 0x1C0055860
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
- *     ACPIInternalDecrementIrpReferenceCount @ 0x1C000575C (ACPIInternalDecrementIrpReferenceCount.c)
- *     ACPIInitStopDevice @ 0x1C00AEFEC (ACPIInitStopDevice.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIInternalDecrementIrpReferenceCount @ 0x1C000E778 (ACPIInternalDecrementIrpReferenceCount.c)
+ *     ACPIInitStopDevice @ 0x1C0090C3C (ACPIInitStopDevice.c)
  */
 
 __int64 __fastcall ACPIFilterIrpStopDeviceCompletion(ULONG_PTR a1, __int64 a2)
@@ -22,18 +22,18 @@ __int64 __fastcall ACPIFilterIrpStopDeviceCompletion(ULONG_PTR a1, __int64 a2)
   v2 = *(_DWORD *)(a2 + 48);
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   v5 = 0;
-  v6 = (const char *)&unk_1C006FB8B;
+  v6 = (const char *)&unk_1C00701BA;
   v7 = DeviceExtension;
-  v8 = (const char *)&unk_1C006FB8B;
+  v8 = (const char *)&unk_1C00701BA;
   if ( DeviceExtension )
   {
     v5 = DeviceExtension;
     v9 = *(_QWORD *)(DeviceExtension + 8);
     if ( (v9 & 0x200000000000LL) != 0 )
     {
-      v6 = *(const char **)(v7 + 608);
+      v6 = *(const char **)(v7 + 568);
       if ( (v9 & 0x400000000000LL) != 0 )
-        v8 = *(const char **)(v7 + 616);
+        v8 = *(const char **)(v7 + 576);
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -42,9 +42,9 @@ __int64 __fastcall ACPIFilterIrpStopDeviceCompletion(ULONG_PTR a1, __int64 a2)
       4u,
       5u,
       0x1Eu,
-      (__int64)&WPP_e895f2808a1832dc95c5c4714d739d11_Traceguids,
+      (__int64)&WPP_22c0b63b2f1d30c22e2e761bc8912dea_Traceguids,
       a2,
-      off_1C007E030[0],
+      off_1C007F030[0],
       v2,
       v5,
       v6,
@@ -53,7 +53,7 @@ __int64 __fastcall ACPIFilterIrpStopDeviceCompletion(ULONG_PTR a1, __int64 a2)
     *(_BYTE *)(*(_QWORD *)(a2 + 184) + 3LL) |= 1u;
   if ( v2 >= 0 )
   {
-    *(_DWORD *)(v7 + 368) = 0;
+    *(_DWORD *)(v7 + 328) = 0;
     ACPIInitStopDevice(v7, 0LL);
   }
   ACPIInternalDecrementIrpReferenceCount(v7);

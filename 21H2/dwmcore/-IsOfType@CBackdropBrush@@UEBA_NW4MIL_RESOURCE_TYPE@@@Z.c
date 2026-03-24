@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CBackdropBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E67F0
+ * XREFs of ?IsOfType@CBackdropBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C9340
  * Callers:
  *     <none>
  * Callees:
@@ -14,7 +14,7 @@ bool __fastcall CBackdropBrush::IsOfType(__int64 a1, unsigned __int64 a2)
   result = 0;
   if ( (unsigned int)a2 <= 0x2D )
   {
-    v2 = 0x200000008100LL;
+    v2 = 0x200000004100LL;
     if ( _bittest64(&v2, a2) )
       return 1;
   }

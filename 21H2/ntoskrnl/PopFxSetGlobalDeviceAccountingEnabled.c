@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxSetGlobalDeviceAccountingEnabled @ 0x1405CE21C
+ * XREFs of PopFxSetGlobalDeviceAccountingEnabled @ 0x14056CCA4
  * Callers:
- *     PopFxPauseDeviceAccounting @ 0x1405CCECC (PopFxPauseDeviceAccounting.c)
- *     PopFxResumeDeviceAccounting @ 0x1405CDBB4 (PopFxResumeDeviceAccounting.c)
+ *     PopFxPauseDeviceAccounting @ 0x14056B764 (PopFxPauseDeviceAccounting.c)
+ *     PopFxResumeDeviceAccounting @ 0x14056C640 (PopFxResumeDeviceAccounting.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x1405CE63C (PopFxUpdateGlobalDeviceAccountingInfo.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x14056D650 (PopFxUpdateGlobalDeviceAccountingInfo.c)
  */
 
 __int64 __fastcall PopFxSetGlobalDeviceAccountingEnabled(char a1)
@@ -22,15 +22,15 @@ __int64 __fastcall PopFxSetGlobalDeviceAccountingEnabled(char a1)
   if ( a1 )
   {
     if ( PopFxGlobalDeviceAccountingInfo )
-      qword_140C23D28 = MEMORY[0xFFFFF78000000008];
+      qword_140C248E8 = MEMORY[0xFFFFF78000000008];
     else
-      *(_QWORD *)&xmmword_140C23D40 = xmmword_140C23D40 + 1;
+      *(_QWORD *)&xmmword_140C24900 = xmmword_140C24900 + 1;
   }
   else if ( PopFxGlobalDeviceAccountingInfo )
   {
     PopFxUpdateGlobalDeviceAccountingInfo(MEMORY[0xFFFFF78000000008], 1200000000LL);
   }
-  byte_140C23D21 = a1;
+  byte_140C248E1 = a1;
   KxReleaseSpinLock(&PopFxGlobalDeviceAccountingLock);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )

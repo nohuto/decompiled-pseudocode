@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PnpEventStartingFromStopped@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C0084A30
+ * XREFs of ?PnpEventStartingFromStopped@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007B2B0
  * Callers:
  *     <none>
  * Callees:
- *     ?PnpPrepareHardware@FxPkgPnp@@IEAAJPEAEPEAW4FxCxCallbackProgress@@@Z @ 0x1C00217C0 (-PnpPrepareHardware@FxPkgPnp@@IEAAJPEAEPEAW4FxCxCallbackProgress@@@Z.c)
+ *     ?PnpPrepareHardware@FxPkgPnp@@IEAAJPEAEPEAW4FxCxCallbackProgress@@@Z @ 0x1C007BAA8 (-PnpPrepareHardware@FxPkgPnp@@IEAAJPEAEPEAW4FxCxCallbackProgress@@@Z.c)
  */
 
 __int64 __fastcall FxPkgPnp::PnpEventStartingFromStopped(FxPkgPnp *This)
@@ -13,7 +13,7 @@ __int64 __fastcall FxPkgPnp::PnpEventStartingFromStopped(FxPkgPnp *This)
 
   matched = 0;
   progress = FxCxCallbackProgressInitialized;
-  if ( (int)FxPkgPnp::PnpPrepareHardware(This, &matched, &progress) >= 0 )
+  if ( FxPkgPnp::PnpPrepareHardware(This, &matched, &progress) >= 0 )
     return 280LL;
   if ( matched && progress )
     return 298LL;

@@ -1,8 +1,8 @@
 /*
- * XREFs of exp @ 0x1801018D4
+ * XREFs of exp @ 0x1800E818C
  * Callers:
- *     ?EvaluateCurve@XamlElasticInterpolation@@MEAANN@Z @ 0x180257430 (-EvaluateCurve@XamlElasticInterpolation@@MEAANN@Z.c)
- *     ?EvaluateCurve@XamlExponentialInterpolation@@MEAANN@Z @ 0x1802574F0 (-EvaluateCurve@XamlExponentialInterpolation@@MEAANN@Z.c)
+ *     ?EvaluateCurve@XamlExponentialInterpolation@@MEAANN@Z @ 0x180004910 (-EvaluateCurve@XamlExponentialInterpolation@@MEAANN@Z.c)
+ *     ?EvaluateCurve@XamlElasticInterpolation@@MEAANN@Z @ 0x180206D90 (-EvaluateCurve@XamlElasticInterpolation@@MEAANN@Z.c)
  * Callees:
  *     <none>
  */

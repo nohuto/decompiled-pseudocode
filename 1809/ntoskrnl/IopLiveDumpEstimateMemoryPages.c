@@ -1,13 +1,13 @@
 /*
  * XREFs of IopLiveDumpEstimateMemoryPages @ 0x140578B0C
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x14081F720 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x14081F700 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     RtlClearAllBitsEx @ 0x1401102F0 (RtlClearAllBitsEx.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     HvlCalculateLivedumpSize @ 0x1402776D0 (HvlCalculateLivedumpSize.c)
- *     IopLiveDumpTraceBufferEstimation @ 0x140285BE8 (IopLiveDumpTraceBufferEstimation.c)
- *     RtlNumberOfSetBitsEx @ 0x1402EF070 (RtlNumberOfSetBitsEx.c)
+ *     RtlClearAllBitsEx @ 0x140110310 (RtlClearAllBitsEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     HvlCalculateLivedumpSize @ 0x1402777D0 (HvlCalculateLivedumpSize.c)
+ *     IopLiveDumpTraceBufferEstimation @ 0x140285CE8 (IopLiveDumpTraceBufferEstimation.c)
+ *     RtlNumberOfSetBitsEx @ 0x1402EF170 (RtlNumberOfSetBitsEx.c)
  *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
  *     IopLiveDumpCallRemovePagesCallbacks @ 0x140578168 (IopLiveDumpCallRemovePagesCallbacks.c)
  *     IopLiveDumpUncorralProcessors @ 0x140579628 (IopLiveDumpUncorralProcessors.c)

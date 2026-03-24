@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpWow64GetContextOnAmd64 @ 0x1407A1270
+ * XREFs of RtlpWow64GetContextOnAmd64 @ 0x14067A874
  * Callers:
- *     PspWow64GetContextThread @ 0x1407A069C (PspWow64GetContextThread.c)
+ *     PspWow64GetContextThread @ 0x14067A4EC (PspWow64GetContextThread.c)
  * Callees:
- *     RtlpWow64CtxFromAmd64 @ 0x1407A1444 (RtlpWow64CtxFromAmd64.c)
+ *     RtlpWow64CtxFromAmd64 @ 0x14067AA48 (RtlpWow64CtxFromAmd64.c)
  */
 
 __int64 __fastcall RtlpWow64GetContextOnAmd64(__int64 a1, __int64 a2, int *a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetCurrentRealization@CFlipExBuffer@@UEBAJPEAPEAVCBufferRealization@@@Z @ 0x1C0013580
+ * XREFs of ?GetCurrentRealization@CFlipExBuffer@@UEBAJPEAPEAVCBufferRealization@@@Z @ 0x1C0018520
  * Callers:
  *     <none>
  * Callees:
@@ -15,18 +15,18 @@ __int64 __fastcall CFlipExBuffer::GetCurrentRealization(CFlipExBuffer *this, str
   int v6; // r8d
   char *v7; // rcx
 
-  v2 = *((_DWORD *)this + 95);
+  v2 = *((_DWORD *)this + 87);
   v3 = 0LL;
   v4 = 0;
-  if ( v2 >= *((_DWORD *)this + 68) )
+  if ( v2 >= *((_DWORD *)this + 60) )
   {
     v4 = -1073741275;
   }
   else
   {
-    v5 = (char *)this + 256;
+    v5 = (char *)this + 224;
     v6 = 0;
-    v7 = (char *)*((_QWORD *)this + 32);
+    v7 = (char *)*((_QWORD *)this + 28);
     while ( v7 != v5 )
     {
       if ( v6 == v2 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of IvtInitializeIdentityMappings @ 0x14052EC78
+ * XREFs of IvtInitializeIdentityMappings @ 0x1404E01F0
  * Callers:
- *     IvtInitializeIommu @ 0x140A63CE0 (IvtInitializeIommu.c)
+ *     IvtInitializeIommu @ 0x1409A9950 (IvtInitializeIommu.c)
  * Callees:
- *     KeInvalidateRangeAllCachesNoIpi @ 0x140268B50 (KeInvalidateRangeAllCachesNoIpi.c)
- *     HalMapIoSpace @ 0x1403BE7F0 (HalMapIoSpace.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IvtInitializeLargePagePte @ 0x14052EE54 (IvtInitializeLargePagePte.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x1403038F0 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     HalMapIoSpace @ 0x1403AC2D0 (HalMapIoSpace.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IvtInitializeLargePagePte @ 0x1404E03CC (IvtInitializeLargePagePte.c)
  */
 
 __int64 __fastcall IvtInitializeIdentityMappings(__int64 a1)
@@ -28,14 +28,14 @@ __int64 __fastcall IvtInitializeIdentityMappings(__int64 a1)
   __int64 v15; // rcx
   __int64 v16; // rcx
 
-  v2 = *(_DWORD *)(a1 + 248);
-  v3 = (*(_QWORD *)(a1 + 216) & 0x800000000LL) != 0 ? 30 : 21;
+  v2 = *(_DWORD *)(a1 + 208);
+  v3 = (*(_QWORD *)(a1 + 176) & 0x800000000LL) != 0 ? 30 : 21;
   v4.QuadPart = ((__int64 (__fastcall *)(__int64, __int64))IvtPhysicalMemoryApi)(-1LL, 1LL);
-  *(LARGE_INTEGER *)(a1 + 328) = v4;
+  *(LARGE_INTEGER *)(a1 + 272) = v4;
   if ( !v4.QuadPart )
     return 3221225473LL;
   v5 = HalMapIoSpace(v4, 0x1000uLL, MmCached);
-  *(_QWORD *)(a1 + 336) = v5;
+  *(_QWORD *)(a1 + 280) = v5;
   memset(v5, 0, 0x1000uLL);
   if ( (v2 != 0 ? 48 : 39) - v3 > 9 )
   {
@@ -43,7 +43,7 @@ __int64 __fastcall IvtInitializeIdentityMappings(__int64 a1)
     v7 = 0LL;
     while ( 1 )
     {
-      v8 = *(_QWORD *)(a1 + 336);
+      v8 = *(_QWORD *)(a1 + 280);
       v9.QuadPart = ((__int64 (__fastcall *)(__int64, __int64))IvtPhysicalMemoryApi)(-1LL, 1LL);
       v10 = v9;
       if ( !v9.QuadPart )
@@ -65,7 +65,7 @@ __int64 __fastcall IvtInitializeIdentityMappings(__int64 a1)
       }
       while ( v14 );
       *(_QWORD *)(v7 + v8) = v16 ^ (v10.QuadPart ^ v16) & 0xFFFFFFFFFF000LL;
-      if ( (*(_BYTE *)(a1 + 224) & 1) == 0 )
+      if ( (*(_BYTE *)(a1 + 184) & 1) == 0 )
         KeInvalidateRangeAllCachesNoIpi(v12, 0x1000u);
       ++v6;
       v7 += 8LL;
@@ -73,9 +73,9 @@ __int64 __fastcall IvtInitializeIdentityMappings(__int64 a1)
         goto LABEL_13;
     }
   }
-  IvtInitializeLargePagePte(*(_QWORD *)(a1 + 336), 0LL, v3);
+  IvtInitializeLargePagePte(*(_QWORD *)(a1 + 280), 0LL, v3);
 LABEL_13:
-  if ( (*(_BYTE *)(a1 + 224) & 1) == 0 )
-    KeInvalidateRangeAllCachesNoIpi(*(_QWORD *)(a1 + 336), 0x1000u);
+  if ( (*(_BYTE *)(a1 + 184) & 1) == 0 )
+    KeInvalidateRangeAllCachesNoIpi(*(_QWORD *)(a1 + 280), 0x1000u);
   return 0LL;
 }

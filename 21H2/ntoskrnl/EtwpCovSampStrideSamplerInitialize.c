@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCovSampStrideSamplerInitialize @ 0x1409F25A8
+ * XREFs of EtwpCovSampStrideSamplerInitialize @ 0x14094605C
  * Callers:
- *     EtwpCovSampCaptureContextStart @ 0x1409EEA80 (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1409422B8 (EtwpCovSampCaptureContextStart.c)
  * Callees:
- *     ExGenRandom @ 0x140363220 (ExGenRandom.c)
+ *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
  */
 
 __int64 __fastcall EtwpCovSampStrideSamplerInitialize(__int64 a1, unsigned int a2, unsigned int a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseAllReferences@CSharedHostProjectedShadowCasterMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C023B840
+ * XREFs of ?ReleaseAllReferences@CSharedHostProjectedShadowCasterMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F9ED0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseAllReferences@CProjectedShadowCasterMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00096F0 (-ReleaseAllReferences@CProjectedShadowCasterMarshaler@DirectComposition@@MEAAXPEAVCApplicationCh.c)
+ *     ?ReleaseAllReferences@CProjectedShadowCasterMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0005740 (-ReleaseAllReferences@CProjectedShadowCasterMarshaler@DirectComposition@@MEAAXPEAVCApplicationCh.c)
  */
 
 void __fastcall DirectComposition::CSharedHostProjectedShadowCasterMarshaler::ReleaseAllReferences(
@@ -13,11 +13,11 @@ void __fastcall DirectComposition::CSharedHostProjectedShadowCasterMarshaler::Re
   __int64 v3; // rax
 
   DirectComposition::CProjectedShadowCasterMarshaler::ReleaseAllReferences(this, a2);
-  v3 = *((_QWORD *)this + 14);
+  v3 = *((_QWORD *)this + 13);
   if ( v3 )
   {
     *(_DWORD *)(v3 + 32) = 0;
-    ObfDereferenceObject((PVOID)(*((_QWORD *)this + 14) - 24LL));
-    *((_QWORD *)this + 14) = 0LL;
+    ObfDereferenceObject((PVOID)(*((_QWORD *)this + 13) - 24LL));
+    *((_QWORD *)this + 13) = 0LL;
   }
 }

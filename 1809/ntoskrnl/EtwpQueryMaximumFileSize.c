@@ -2,8 +2,8 @@
  * XREFs of EtwpQueryMaximumFileSize @ 0x140014A4C
  * Callers:
  *     EtwpFlushBufferToLogfile @ 0x1405C0784 (EtwpFlushBufferToLogfile.c)
- *     EtwpUpdateFileHeader @ 0x140699E3C (EtwpUpdateFileHeader.c)
- *     EtwpFinalizeHeader @ 0x14069A41C (EtwpFinalizeHeader.c)
+ *     EtwpUpdateFileHeader @ 0x140699E1C (EtwpUpdateFileHeader.c)
+ *     EtwpFinalizeHeader @ 0x14069A3FC (EtwpFinalizeHeader.c)
  * Callees:
  *     <none>
  */

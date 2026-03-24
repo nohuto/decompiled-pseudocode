@@ -1,13 +1,13 @@
 /*
- * XREFs of vIFIMetricsToEnumLogFontExDvW @ 0x1C00C86F8
+ * XREFs of vIFIMetricsToEnumLogFontExDvW @ 0x1C00E4D28
  * Callers:
- *     bInitOneStockFontInternal @ 0x1C03906EC (bInitOneStockFontInternal.c)
- *     bInitSystemFont @ 0x1C039242C (bInitSystemFont.c)
+ *     bInitOneStockFontInternal @ 0x1C0393720 (bInitOneStockFontInternal.c)
+ *     bInitSystemFont @ 0x1C039534C (bInitSystemFont.c)
  * Callees:
- *     ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C000F010 (-IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z.c)
- *     ?vIFIMetricsToEnumLogFontW@@YAXPEAUtagENUMLOGFONTW@@PEAU_IFIMETRICS@@@Z @ 0x1C000F1EC (-vIFIMetricsToEnumLogFontW@@YAXPEAUtagENUMLOGFONTW@@PEAU_IFIMETRICS@@@Z.c)
- *     ?vLookupScript@@YAXKPEAGK@Z @ 0x1C00C8768 (-vLookupScript@@YAXKPEAGK@Z.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C00623E8 (-IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z.c)
+ *     ?vLookupScript@@YAXKPEAGK@Z @ 0x1C00E4D98 (-vLookupScript@@YAXKPEAGK@Z.c)
+ *     ?vIFIMetricsToEnumLogFontW@@YAXPEAUtagENUMLOGFONTW@@PEAU_IFIMETRICS@@@Z @ 0x1C00E4E10 (-vIFIMetricsToEnumLogFontW@@YAXPEAUtagENUMLOGFONTW@@PEAU_IFIMETRICS@@@Z.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 void __fastcall vIFIMetricsToEnumLogFontExDvW(__int64 a1, struct _IFIMETRICS *a2)

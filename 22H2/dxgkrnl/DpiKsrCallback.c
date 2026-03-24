@@ -1,50 +1,28 @@
 /*
- * XREFs of DpiKsrCallback @ 0x1C03A5F20
+ * XREFs of DpiKsrCallback @ 0x1C02D2FE0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     Feature_KsrDisplay__private_ReportDeviceUsage @ 0x1C0026EA8 (Feature_KsrDisplay__private_ReportDeviceUsage.c)
- *     DxgkStopAdapters @ 0x1C0316460 (DxgkStopAdapters.c)
- *     ?DpiKsrCancel@@YAXPEAX@Z @ 0x1C03A5794 (-DpiKsrCancel@@YAXPEAX@Z.c)
- *     ?DpiKsrComplete@@YAXPEAX@Z @ 0x1C03A583C (-DpiKsrComplete@@YAXPEAX@Z.c)
- *     ?DpiKsrFinalize@@YAXPEAJ@Z @ 0x1C03A5978 (-DpiKsrFinalize@@YAXPEAJ@Z.c)
+ *     ?DpIterateFdoContexts@@YAXP6AJPEAU_FDO_CONTEXT@@PEAX@Z1@Z @ 0x1C02D231C (-DpIterateFdoContexts@@YAXP6AJPEAU_FDO_CONTEXT@@PEAX@Z1@Z.c)
+ *     ?DpiKsrCancel@@YAXPEAX@Z @ 0x1C02D29E0 (-DpiKsrCancel@@YAXPEAX@Z.c)
  */
 
-void __fastcall DpiKsrCallback(_BYTE *CallbackContext, PVOID Argument1, int *Argument2)
+void __fastcall DpiKsrCallback(_BYTE *CallbackContext, PVOID Argument1, PVOID Argument2)
 {
   int v3; // edx
-  int v4; // edx
-  int v5; // edx
 
   if ( (_DWORD)Argument1 )
   {
     v3 = (_DWORD)Argument1 - 1;
     if ( v3 )
     {
-      v4 = v3 - 1;
-      if ( v4 )
+      if ( v3 == 1 )
       {
-        v5 = v4 - 3;
-        if ( v5 )
+        if ( qword_1C00B3018 )
         {
-          if ( v5 == 10 )
-          {
-            if ( CallbackContext[1305] )
-            {
-              Feature_KsrDisplay__private_ReportDeviceUsage();
-              DxgkStopAdapters();
-            }
-          }
+          DpIterateFdoContexts((__int64 (__fastcall *)(__int64 *, void *))DpiKsrRestoreMemoryCallback, 0LL);
+          *(_BYTE *)(qword_1C00B3018 + 28) = 1;
         }
-        else
-        {
-          DpiKsrFinalize(Argument2);
-        }
-      }
-      else
-      {
-        DpiKsrComplete(CallbackContext);
       }
     }
     else
@@ -54,17 +32,6 @@ void __fastcall DpiKsrCallback(_BYTE *CallbackContext, PVOID Argument1, int *Arg
   }
   else
   {
-    CallbackContext[1305] = 1;
-    *((_DWORD *)CallbackContext + 331) = 0;
-    DxgkLogInternalTriageEvent(
-      0LL,
-      65537,
-      -1,
-      (__int64)L"KSR Prepare was called - will defer save until all VMs have quiesced",
-      0LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    CallbackContext[1297] = 1;
   }
 }

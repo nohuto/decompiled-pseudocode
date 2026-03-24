@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetDrvType@FontManagementRequest@@UEBA?AW4FontDriverType@@XZ @ 0x1C0306040
+ * XREFs of ?GetDrvType@FontManagementRequest@@UEBA?AW4FontDriverType@@XZ @ 0x1C02DE1E0
  * Callers:
- *     UmfdFontManagement @ 0x1C0306170 (UmfdFontManagement.c)
+ *     UmfdFontManagement @ 0x1C02DE310 (UmfdFontManagement.c)
  * Callees:
  *     <none>
  */

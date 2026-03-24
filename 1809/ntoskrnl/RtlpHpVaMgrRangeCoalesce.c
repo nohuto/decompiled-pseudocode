@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpHpVaMgrFree @ 0x140009C60 (RtlpHpVaMgrFree.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrRangeCoalesce(__int64 a1, unsigned __int64 a2)

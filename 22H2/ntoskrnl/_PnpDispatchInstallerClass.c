@@ -1,26 +1,26 @@
 /*
- * XREFs of _PnpDispatchInstallerClass @ 0x14069AE50
+ * XREFs of _PnpDispatchInstallerClass @ 0x14073B280
  * Callers:
  *     <none>
  * Callees:
- *     _PnpMapCmStatusToDispatchStatus @ 0x14022B204 (_PnpMapCmStatusToDispatchStatus.c)
- *     _CmGetInstallerClassMappedProperty @ 0x14069AF98 (_CmGetInstallerClassMappedProperty.c)
- *     _CmOpenInstallerClassRegKey @ 0x140787D44 (_CmOpenInstallerClassRegKey.c)
- *     _CmValidateInstallerClassName @ 0x140787D8C (_CmValidateInstallerClassName.c)
- *     _CmGetMatchingCommonClassList @ 0x14082C26C (_CmGetMatchingCommonClassList.c)
- *     _CmCreateInstallerClass @ 0x140A60E44 (_CmCreateInstallerClass.c)
- *     _CmDeleteInstallerClass @ 0x140A62A64 (_CmDeleteInstallerClass.c)
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x140A68D1C (_CmGetInstallerClassMappedPropertyKeys.c)
- *     _CmGetInstallerClassMappedPropertyLocales @ 0x140A69020 (_CmGetInstallerClassMappedPropertyLocales.c)
- *     _CmSetInstallerClassMappedProperty @ 0x140A69994 (_CmSetInstallerClassMappedProperty.c)
+ *     _PnpMapCmStatusToDispatchStatus @ 0x14032E4C8 (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmValidateInstallerClassName @ 0x14069BFB8 (_CmValidateInstallerClassName.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1406BE9AC (_CmOpenInstallerClassRegKey.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x14073144C (_CmSetInstallerClassMappedProperty.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x14073B410 (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetMatchingCommonClassList @ 0x1407B0B7C (_CmGetMatchingCommonClassList.c)
+ *     _CmCreateInstallerClass @ 0x140974B30 (_CmCreateInstallerClass.c)
+ *     _CmDeleteInstallerClass @ 0x1409751E8 (_CmDeleteInstallerClass.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x14097AEF0 (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedPropertyLocales @ 0x14097B2A0 (_CmGetInstallerClassMappedPropertyLocales.c)
  */
 
-__int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3, int a4, _DWORD *a5)
+__int64 __fastcall PnpDispatchInstallerClass(__int64 a1, const WCHAR *a2, __int64 a3, int a4, _DWORD *a5)
 {
   __int64 (__fastcall *v5)(); // r8
   __int128 *v6; // rbx
   int v7; // r9d
-  int v8; // r9d
+  __int64 v8; // r9
   int v9; // r9d
   int v10; // r9d
   int v11; // r9d
@@ -36,8 +36,8 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
   v7 = a4 - 1;
   if ( v7 )
   {
-    v8 = v7 - 1;
-    if ( v8 )
+    v8 = (unsigned int)(v7 - 1);
+    if ( (_DWORD)v8 )
     {
       v9 = v8 - 1;
       if ( v9 )
@@ -60,7 +60,9 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
                   if ( v14 == 1 )
                     InstallerClassMappedProperty = CmSetInstallerClassMappedProperty(
                                                      a1,
-                                                     a2,
+                                                     (__int64)a2,
+                                                     *(_QWORD *)a5,
+                                                     *((_QWORD *)a5 + 1),
                                                      *((_QWORD *)a5 + 2),
                                                      a5[6],
                                                      *((_QWORD *)a5 + 4),
@@ -72,7 +74,7 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
                 {
                   InstallerClassMappedProperty = CmGetInstallerClassMappedProperty(
                                                    a1,
-                                                   a2,
+                                                   (_DWORD)a2,
                                                    *(_QWORD *)a5,
                                                    *((_QWORD *)a5 + 1),
                                                    *((_QWORD *)a5 + 2),
@@ -86,7 +88,7 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
               {
                 InstallerClassMappedProperty = CmGetInstallerClassMappedPropertyLocales(
                                                  a1,
-                                                 a2,
+                                                 (_DWORD)a2,
                                                  0,
                                                  *((_QWORD *)a5 + 1),
                                                  *((_QWORD *)a5 + 2),
@@ -98,7 +100,7 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
             {
               InstallerClassMappedProperty = CmGetInstallerClassMappedPropertyKeys(
                                                a1,
-                                               a2,
+                                               (_DWORD)a2,
                                                *(_QWORD *)a5,
                                                0,
                                                *((_QWORD *)a5 + 3),
@@ -135,7 +137,7 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
       {
         InstallerClassMappedProperty = CmCreateInstallerClass(
                                          a1,
-                                         a2,
+                                         (_DWORD)a2,
                                          *a5,
                                          (int)a5 + 8,
                                          (__int64)(a5 + 4),
@@ -147,17 +149,17 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
       InstallerClassMappedProperty = CmOpenInstallerClassRegKey(
                                        a1,
                                        a2,
-                                       0,
-                                       0,
+                                       0LL,
+                                       v8,
                                        *a5,
                                        *((_BYTE *)a5 + 4),
                                        *((_QWORD *)a5 + 1),
-                                       (__int64)(a5 + 4));
+                                       a5 + 4);
     }
   }
   else
   {
-    InstallerClassMappedProperty = CmValidateInstallerClassName();
+    InstallerClassMappedProperty = CmValidateInstallerClassName(a1, a2);
   }
   return PnpMapCmStatusToDispatchStatus(InstallerClassMappedProperty);
 }

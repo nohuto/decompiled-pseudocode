@@ -2,22 +2,22 @@
  * XREFs of ExUuidCreate @ 0x1406062C0
  * Callers:
  *     NtCreateJobObject @ 0x140605F80 (NtCreateJobObject.c)
- *     EtwpStartLogger @ 0x1406591C0 (EtwpStartLogger.c)
- *     CmpUuidCreate @ 0x140680A8C (CmpUuidCreate.c)
- *     PipGenerateContainerID @ 0x140700980 (PipGenerateContainerID.c)
- *     CmpCloneHwProfile @ 0x1407FB5FC (CmpCloneHwProfile.c)
- *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x140816C60 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
- *     IoGetDeviceDirectory @ 0x140824A10 (IoGetDeviceDirectory.c)
- *     PiDevCfgResolveVariableGenerateGuid @ 0x140830660 (PiDevCfgResolveVariableGenerateGuid.c)
- *     BiCreateObject @ 0x1408F0BC0 (BiCreateObject.c)
+ *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
+ *     CmpUuidCreate @ 0x140680A6C (CmpUuidCreate.c)
+ *     PipGenerateContainerID @ 0x140700960 (PipGenerateContainerID.c)
+ *     CmpCloneHwProfile @ 0x1407FB5DC (CmpCloneHwProfile.c)
+ *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x140816C40 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
+ *     IoGetDeviceDirectory @ 0x1408249F0 (IoGetDeviceDirectory.c)
+ *     PiDevCfgResolveVariableGenerateGuid @ 0x140830640 (PiDevCfgResolveVariableGenerateGuid.c)
+ *     BiCreateObject @ 0x1408F0BA0 (BiCreateObject.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpUuidSaveSequenceNumberIf @ 0x1406C608C (ExpUuidSaveSequenceNumberIf.c)
- *     ExpAllocateUuids @ 0x1406C60B8 (ExpAllocateUuids.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExpUuidSaveSequenceNumberIf @ 0x1406C606C (ExpUuidSaveSequenceNumberIf.c)
+ *     ExpAllocateUuids @ 0x1406C6098 (ExpAllocateUuids.c)
  */
 
 NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)

@@ -1,14 +1,14 @@
 /*
- * XREFs of GetAttributeName @ 0x1408A7390
+ * XREFs of GetAttributeName @ 0x1408A7370
  * Callers:
- *     GetOperandValue @ 0x1408A7858 (GetOperandValue.c)
+ *     GetOperandValue @ 0x1408A7838 (GetOperandValue.c)
  * Callees:
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
- *     iswalnum @ 0x140196010 (iswalnum.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     SddlpAlloc @ 0x1406B0594 (SddlpAlloc.c)
- *     DecodeAttributeName @ 0x1408A6FB0 (DecodeAttributeName.c)
- *     IsLegalAttributeChar2 @ 0x1408A8B8C (IsLegalAttributeChar2.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
+ *     iswalnum @ 0x140196030 (iswalnum.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     SddlpAlloc @ 0x1406B0574 (SddlpAlloc.c)
+ *     DecodeAttributeName @ 0x1408A6F90 (DecodeAttributeName.c)
+ *     IsLegalAttributeChar2 @ 0x1408A8B6C (IsLegalAttributeChar2.c)
  */
 
 __int64 __fastcall GetAttributeName(wchar_t *Str1, __int64 *a2, unsigned int *a3)

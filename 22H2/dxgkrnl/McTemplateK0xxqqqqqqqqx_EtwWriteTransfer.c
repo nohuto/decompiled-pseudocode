@@ -1,15 +1,15 @@
 /*
- * XREFs of McTemplateK0xxqqqqqqqqx_EtwWriteTransfer @ 0x1C0020580
+ * XREFs of McTemplateK0xxqqqqqqqqx_EtwWriteTransfer @ 0x1C0001A64
  * Callers:
- *     ?GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z @ 0x1C021D210 (-GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z.c)
+ *     ?GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z @ 0x1C00E12BC (-GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
-NTSTATUS McTemplateK0xxqqqqqqqqx_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
+__int64 McTemplateK0xxqqqqqqqqx_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
-  struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-C9h] BYREF
+  _BYTE v4[16]; // [rsp+30h] [rbp-C9h] BYREF
   va_list v5; // [rsp+40h] [rbp-B9h]
   __int64 v6; // [rsp+48h] [rbp-B1h]
   va_list v7; // [rsp+50h] [rbp-A9h]
@@ -106,5 +106,5 @@ NTSTATUS McTemplateK0xxqqqqqqqqx_EtwWriteTransfer(__int64 a1, __int64 a2, __int6
   v22 = 4LL;
   v24 = 4LL;
   v26 = 8LL;
-  return McGenEventWrite_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, &DMM_SnapPerfCounters, a3, 0xCu, &v4);
+  return McGenEventWrite_EtwWriteTransfer(&DxgkControlGuid_Context, &DMM_SnapPerfCounters, a3, 12LL, v4);
 }

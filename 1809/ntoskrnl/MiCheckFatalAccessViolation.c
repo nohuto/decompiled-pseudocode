@@ -5,7 +5,7 @@
  *     MiInPagePageTable @ 0x1400987E0 (MiInPagePageTable.c)
  * Callees:
  *     MiIsStoreProcess @ 0x1400837EC (MiIsStoreProcess.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckFatalAccessViolation(ULONG_PTR BugCheckParameter2, __int64 a2, char a3, __int64 a4)

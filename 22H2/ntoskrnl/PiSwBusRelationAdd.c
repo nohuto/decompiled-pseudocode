@@ -1,109 +1,95 @@
 /*
- * XREFs of PiSwBusRelationAdd @ 0x14081C248
+ * XREFs of PiSwBusRelationAdd @ 0x14074D19C
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x14081B5CC (PiSwIrpStartCreateWorker.c)
- *     PiSwProcessRemove @ 0x140967780 (PiSwProcessRemove.c)
+ *     PiSwProcessRemove @ 0x140732F28 (PiSwProcessRemove.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074CF08 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x14031EA50 (RtlInsertElementGenericTableAvl.c)
- *     McTemplateK0zzz_EtwWriteTransfer @ 0x140563D00 (McTemplateK0zzz_EtwWriteTransfer.c)
- *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140563E28 (McTemplateK0zzzd_EtwWriteTransfer.c)
- *     PnpAllocatePWSTR @ 0x1406CCCEC (PnpAllocatePWSTR.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInsertElementGenericTableAvl @ 0x14032DC80 (RtlInsertElementGenericTableAvl.c)
+ *     PnpAllocatePWSTR @ 0x1406B0F08 (PnpAllocatePWSTR.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiSwBusRelationAdd(NTSTRSAFE_PCWSTR pszSrc, __int64 a2, __int64 a3)
+__int64 __fastcall PiSwBusRelationAdd(const wchar_t *a1, __int64 a2)
 {
-  int v5; // eax
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  PVOID v8; // rdi
-  signed int v9; // ebx
-  _WORD *v10; // rax
+  int v3; // eax
+  PVOID v4; // rbx
+  signed int v5; // edi
+  __int64 v6; // rdx
+  _WORD *v7; // rax
+  __int64 v8; // rcx
   _QWORD *inserted; // rax
-  __int64 *v12; // rdx
-  char *v13; // rax
-  _OWORD Buffer[2]; // [rsp+40h] [rbp-20h] BYREF
-  BOOLEAN NewElement; // [rsp+B0h] [rbp+50h] BYREF
-  PVOID P; // [rsp+B8h] [rbp+58h] BYREF
+  char *v10; // rcx
+  char **v11; // rdx
+  char *v12; // rax
+  _OWORD Buffer[2]; // [rsp+20h] [rbp-20h] BYREF
+  BOOLEAN NewElement; // [rsp+70h] [rbp+30h] BYREF
+  PVOID P; // [rsp+78h] [rbp+38h] BYREF
 
   P = 0LL;
-  memset(Buffer, 0, sizeof(Buffer));
   NewElement = 0;
-  if ( (byte_140C0E20C & 8) != 0 )
-    McTemplateK0zzz_EtwWriteTransfer(
-      (__int64)pszSrc,
-      (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_RelationAdd_Start,
-      a3,
-      *(const wchar_t **)(a2 + 8),
-      *(const wchar_t **)(a2 + 16),
-      pszSrc);
-  v5 = PnpAllocatePWSTR(pszSrc, 0xC8uLL, 0x57706E50u, &P);
-  v8 = P;
-  v9 = v5;
-  if ( v5 >= 0 )
+  memset(Buffer, 0, sizeof(Buffer));
+  v3 = PnpAllocatePWSTR(a1, 0xC8uLL, 0x57706E50u, &P);
+  v4 = P;
+  v5 = v3;
+  if ( v3 >= 0 )
   {
-    v9 = 0;
+    v5 = 0;
     if ( P )
     {
-      v10 = P;
       v6 = 0x7FFFLL;
-      v7 = 2LL;
+      v7 = P;
       do
       {
-        if ( !*v10 )
+        if ( !*v7 )
           break;
-        ++v10;
+        ++v7;
         --v6;
       }
       while ( v6 );
-      v9 = v6 == 0 ? 0xC000000D : 0;
+      v8 = (0x7FFF - v6) & -(__int64)(v6 != 0);
+      v5 = v6 == 0 ? 0xC000000D : 0;
       if ( v6 )
       {
         *((_QWORD *)&Buffer[0] + 1) = P;
-        LOWORD(Buffer[0]) = 2 * (0x7FFF - v6);
-        WORD1(Buffer[0]) = LOWORD(Buffer[0]) + 2;
+        LOWORD(Buffer[0]) = 2 * v8;
+        WORD1(Buffer[0]) = 2 * v8 + 2;
       }
     }
-    if ( v9 >= 0 )
+    if ( v5 >= 0 )
     {
       inserted = RtlInsertElementGenericTableAvl(&PiSwBusRelationsTable, Buffer, 0x20u, &NewElement);
       if ( inserted )
       {
         if ( NewElement )
         {
-          P = 0LL;
+          v4 = 0LL;
           inserted[3] = inserted + 2;
           inserted[2] = inserted + 2;
+          P = 0LL;
         }
-        *(_QWORD *)(a2 + 112) = inserted;
-        v6 = a2 + 96;
-        v12 = (__int64 *)inserted[3];
-        v13 = (char *)(inserted + 2);
-        if ( (char *)*v12 != v13 )
-          __fastfail(3u);
-        *(_QWORD *)v6 = v13;
-        *(_QWORD *)(a2 + 104) = v12;
-        *v12 = v6;
-        *((_QWORD *)v13 + 1) = v6;
-        _InterlockedIncrement((volatile signed __int32 *)a2);
-        v8 = P;
       }
       else
       {
-        v9 = -1073741670;
+        v5 = -1073741670;
+      }
+      if ( v5 >= 0 )
+      {
+        *(_QWORD *)(a2 + 112) = inserted;
+        v10 = (char *)(a2 + 96);
+        v11 = (char **)inserted[3];
+        v12 = (char *)(inserted + 2);
+        if ( *v11 != v12 )
+          __fastfail(3u);
+        *(_QWORD *)v10 = v12;
+        *(_QWORD *)(a2 + 104) = v11;
+        *v11 = v10;
+        *((_QWORD *)v12 + 1) = v10;
+        _InterlockedIncrement((volatile signed __int32 *)a2);
+        v4 = P;
       }
     }
   }
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0x57706E50u);
-  if ( (byte_140C0E20C & 8) != 0 )
-    McTemplateK0zzzd_EtwWriteTransfer(
-      v6,
-      (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_RelationAdd_Stop,
-      v7,
-      *(const wchar_t **)(a2 + 8),
-      *(const wchar_t **)(a2 + 16),
-      pszSrc,
-      v9);
-  return (unsigned int)v9;
+  if ( v4 )
+    ExFreePoolWithTag(v4, 0x57706E50u);
+  return (unsigned int)v5;
 }

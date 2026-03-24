@@ -1,84 +1,89 @@
 /*
- * XREFs of MiInitializeLargePageNodeLists @ 0x140839478
+ * XREFs of MiInitializeLargePageNodeLists @ 0x140797BAC
  * Callers:
- *     MiInitializePartition @ 0x140838DF0 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x1407974EC (MiInitializePartition.c)
  * Callees:
- *     MiInitializeColorTable @ 0x14039617C (MiInitializeColorTable.c)
+ *     MiInitializeColorTable @ 0x1403ABB3C (MiInitializeColorTable.c)
  */
 
-unsigned __int64 __fastcall MiInitializeLargePageNodeLists(__int64 a1)
+__int64 __fastcall MiInitializeLargePageNodeLists(__int64 a1)
 {
-  unsigned __int64 result; // rax
+  _QWORD *v1; // rdi
   unsigned int v2; // ebx
-  unsigned int i; // edx
-  __int64 v4; // r14
-  _DWORD *v5; // rdi
-  int *v6; // rdx
-  __int64 v7; // r10
-  _QWORD *v8; // r8
-  __int64 v9; // rbp
-  _QWORD *v10; // rax
-  __int64 v11; // rsi
-  __int64 v12; // r11
-  __int64 v13; // r9
-  __int64 v14; // rcx
+  __int64 result; // rax
+  _DWORD *v4; // rsi
+  int *v5; // rdx
+  __int64 v6; // r10
+  _QWORD *v7; // r8
+  __int64 v8; // r14
+  _QWORD *v9; // rax
+  __int64 v10; // rbp
+  __int64 v11; // r11
+  __int64 v12; // r9
+  __int64 v13; // rcx
 
-  result = *(_QWORD *)(a1 + 16040);
+  v1 = *(_QWORD **)(a1 + 5096);
   v2 = 0;
-  for ( i = 0; i < dword_140C673E0; result += 24LL )
+  result = 0LL;
+  if ( dword_140C4E5E0 )
   {
-    *(_QWORD *)(result + 8) = result;
-    ++i;
-    *(_QWORD *)result = result;
-  }
-  v4 = *(_QWORD *)(a1 + 16040);
-  if ( KeNumberNodes )
-  {
-    v5 = (_DWORD *)(*(_QWORD *)(a1 + 16) + 23120LL);
     do
     {
-      v6 = dword_140C65C80;
-      v7 = 3LL;
-      v8 = v5 - 5640;
+      v1[1] = v1;
+      result = (unsigned int)(result + 1);
+      *v1 = v1;
+      v1 += 3;
+    }
+    while ( (unsigned int)result < dword_140C4E5E0 );
+    v1 = *(_QWORD **)(a1 + 5096);
+  }
+  if ( KeNumberNodes )
+  {
+    v4 = (_DWORD *)(*(_QWORD *)(a1 + 16) + 4336LL);
+    do
+    {
+      v5 = dword_140C4DF80;
+      v6 = 3LL;
+      v7 = v4 - 944;
       do
       {
-        v9 = 2LL;
-        v10 = v8;
-        v11 = 24LL * (unsigned int)*v6;
+        v8 = 2LL;
+        v9 = v7;
+        v10 = 24LL * (unsigned int)*v5;
         do
         {
-          v12 = 2LL;
+          v11 = 2LL;
           do
           {
-            v13 = 4LL;
+            v12 = 4LL;
             do
             {
-              v14 = 4LL;
+              v13 = 4LL;
               do
               {
-                *v10 = v4;
-                v4 += v11;
-                ++v10;
-                --v14;
+                *v9 = v1;
+                v1 = (_QWORD *)((char *)v1 + v10);
+                ++v9;
+                --v13;
               }
-              while ( v14 );
-              --v13;
+              while ( v13 );
+              --v12;
             }
-            while ( v13 );
-            --v12;
+            while ( v12 );
+            --v11;
           }
-          while ( v12 );
-          --v9;
+          while ( v11 );
+          --v8;
         }
-        while ( v9 );
-        ++v6;
-        v8 += 134;
-        --v7;
+        while ( v8 );
+        ++v5;
+        v7 += 134;
+        --v6;
       }
-      while ( v7 );
-      MiInitializeColorTable(v5, v2);
+      while ( v6 );
+      MiInitializeColorTable(v4, v2);
       result = (unsigned __int16)KeNumberNodes;
-      v5 += 6352;
+      v4 += 1136;
       ++v2;
     }
     while ( v2 < (unsigned __int16)KeNumberNodes );

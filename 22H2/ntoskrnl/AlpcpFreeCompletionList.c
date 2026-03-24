@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpFreeCompletionList @ 0x140979774
+ * XREFs of AlpcpFreeCompletionList @ 0x1406A6214
  * Callers:
- *     AlpcpDoPortCleanup @ 0x140718D90 (AlpcpDoPortCleanup.c)
- *     NtAlpcSetInformation @ 0x140785D00 (NtAlpcSetInformation.c)
+ *     AlpcpDoPortCleanup @ 0x1405E20E8 (AlpcpDoPortCleanup.c)
+ *     NtAlpcSetInformation @ 0x1406FF480 (NtAlpcSetInformation.c)
  * Callees:
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     AlpcpUnregisterCompletionListDatabase @ 0x14097A060 (AlpcpUnregisterCompletionListDatabase.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
+ *     AlpcpUnregisterCompletionListDatabase @ 0x1406A6270 (AlpcpUnregisterCompletionListDatabase.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AlpcpFreeCompletionList(__int64 a1)

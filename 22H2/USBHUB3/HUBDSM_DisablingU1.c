@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDSM_DisablingU1 @ 0x1C0025060
+ * XREFs of HUBDSM_DisablingU1 @ 0x1C0022880
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBMISC_ControlTransfer @ 0x1C0032554 (HUBMISC_ControlTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
  */
 
 __int64 __fastcall HUBDSM_DisablingU1(__int64 a1)
@@ -38,8 +38,8 @@ __int64 __fastcall HUBDSM_DisablingU1(__int64 a1)
         *(_QWORD *)(*(_QWORD *)(v1 + 8) + 1432LL),
         2u,
         5u,
-        0x63u,
-        (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+        0x61u,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         v4);
     }
     HUBSM_AddEvent(v1 + 504, 4004);

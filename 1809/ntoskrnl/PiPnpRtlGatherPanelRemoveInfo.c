@@ -1,11 +1,11 @@
 /*
- * XREFs of PiPnpRtlGatherPanelRemoveInfo @ 0x140829420
+ * XREFs of PiPnpRtlGatherPanelRemoveInfo @ 0x140829400
  * Callers:
  *     PiPnpRtlCmActionCallback @ 0x140599080 (PiPnpRtlCmActionCallback.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     PiDmGetObject @ 0x1405989C8 (PiDmGetObject.c)
- *     PiPnpRtlFreePanelRemoveInfo @ 0x140828F00 (PiPnpRtlFreePanelRemoveInfo.c)
+ *     PiPnpRtlFreePanelRemoveInfo @ 0x140828EE0 (PiPnpRtlFreePanelRemoveInfo.c)
  */
 
 __int64 __fastcall PiPnpRtlGatherPanelRemoveInfo(__int64 a1, __int64 a2, unsigned int ***a3)

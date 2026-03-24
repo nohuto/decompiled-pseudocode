@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ProcessUpdateConfiguration@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPDATECONFIGURATION@@PEBXI@Z @ 0x18006D6C8
+ * XREFs of ?ProcessUpdateConfiguration@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPDATECONFIGURATION@@PEBXI@Z @ 0x180061D58
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?NotifyUpdateConfiguration@CManipulationManager@@QEAAJPEAVCInteraction@@W4Enum@InteractionConfigurationUpdateType@@W43InteractionInputType@@IPEBXI@Z @ 0x18006D7CC (-NotifyUpdateConfiguration@CManipulationManager@@QEAAJPEAVCInteraction@@W4Enum@InteractionConfig.c)
- *     ?GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z @ 0x18006D8F4 (-GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z.c)
- *     ?TraceUpdatedConfiguration@CInteraction@@QEAAXW4Enum@InteractionConfigurationUpdateType@@W42InteractionInputType@@IPEBX@Z @ 0x18006D958 (-TraceUpdatedConfiguration@CInteraction@@QEAAXW4Enum@InteractionConfigurationUpdateType@@W42Inte.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?NotifyUpdateConfiguration@CManipulationManager@@QEAAJPEAVCInteraction@@W4Enum@InteractionConfigurationUpdateType@@W43InteractionInputType@@IPEBXI@Z @ 0x180061E5C (-NotifyUpdateConfiguration@CManipulationManager@@QEAAJPEAVCInteraction@@W4Enum@InteractionConfig.c)
+ *     ?GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z @ 0x1800625D8 (-GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z.c)
+ *     ?TraceUpdatedConfiguration@CInteraction@@QEAAXW4Enum@InteractionConfigurationUpdateType@@W42InteractionInputType@@IPEBX@Z @ 0x18006262C (-TraceUpdatedConfiguration@CInteraction@@QEAAXW4Enum@InteractionConfigurationUpdateType@@W42Inte.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
  */
 
 __int64 __fastcall CInteraction::ProcessUpdateConfiguration(
@@ -43,11 +43,11 @@ LABEL_4:
     if ( v6 != 5 )
     {
       v15 = -2147024809;
-      v19 = 312;
+      v19 = 344;
 LABEL_15:
       v17 = v15;
 LABEL_20:
-      MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, v17, v19, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v17, v19, 0LL);
       goto LABEL_9;
     }
     goto LABEL_4;
@@ -59,25 +59,25 @@ LABEL_5:
   if ( !is_mul_ok(*((unsigned int *)a3 + 2), v11) )
   {
     v15 = -2147024362;
-    v19 = 315;
+    v19 = 347;
     goto LABEL_15;
   }
   v12 = a5;
   if ( v10 != a5 )
   {
     v15 = -2003303421;
-    v19 = 319;
+    v19 = 351;
     goto LABEL_15;
   }
   v18[1] = HIDWORD(a4);
   CInteraction::TraceUpdatedConfiguration(this, *((unsigned int *)a3 + 3));
-  v13 = this[2];
+  v13 = this[3];
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v20);
   ManipulationManager = CComposition::GetManipulationManager(v13, &v20);
   v15 = ManipulationManager;
   if ( ManipulationManager < 0 )
   {
-    v19 = 327;
+    v19 = 359;
     goto LABEL_19;
   }
   v18[0] = *((_DWORD *)a3 + 2);
@@ -92,7 +92,7 @@ LABEL_5:
   v15 = ManipulationManager;
   if ( ManipulationManager < 0 )
   {
-    v19 = 329;
+    v19 = 361;
 LABEL_19:
     v17 = ManipulationManager;
     goto LABEL_20;

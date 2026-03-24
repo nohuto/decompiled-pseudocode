@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCreateMdl @ 0x140101F2C
+ * XREFs of MiCreateMdl @ 0x140101F4C
  * Callers:
  *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
  * Callees:
- *     IoAllocateMdl @ 0x1400DFCB0 (IoAllocateMdl.c)
- *     MmBuildMdlForNonPagedPool @ 0x140101FA0 (MmBuildMdlForNonPagedPool.c)
+ *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140101FC0 (MmBuildMdlForNonPagedPool.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

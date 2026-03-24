@@ -1,83 +1,74 @@
 /*
- * XREFs of CcReEngageWorkerThreads @ 0x14025A794
+ * XREFs of CcReEngageWorkerThreads @ 0x140380480
  * Callers:
- *     CcAdjustWriteBehindThreadPool @ 0x14029D344 (CcAdjustWriteBehindThreadPool.c)
- *     CcWorkerThread @ 0x14035D970 (CcWorkerThread.c)
+ *     CcWorkerThread @ 0x1402F31F0 (CcWorkerThread.c)
+ *     CcAdjustWriteBehindThreadPool @ 0x140381928 (CcAdjustWriteBehindThreadPool.c)
  * Callees:
- *     ExQueueWorkItemToPartition @ 0x1402EF060 (ExQueueWorkItemToPartition.c)
+ *     ExQueueWorkItemToPartition @ 0x1402F78AC (ExQueueWorkItemToPartition.c)
  */
 
-void __fastcall CcReEngageWorkerThreads(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
+void __fastcall CcReEngageWorkerThreads(__int64 a1, unsigned int a2, unsigned int a3)
 {
-  __int64 v4; // rsi
-  unsigned int v5; // ebp
-  _QWORD **v10; // rdi
-  _QWORD *v11; // r10
-  _QWORD *v12; // rax
-  unsigned int v13; // ebp
-  _QWORD **v14; // rdi
-  _QWORD *v15; // r10
-  _QWORD *v16; // rax
+  unsigned int v3; // esi
+  _QWORD **v7; // rdi
+  _QWORD *v8; // r10
+  _QWORD *v9; // rax
+  unsigned int v10; // esi
+  _QWORD **v11; // rdi
+  _QWORD *v12; // r10
+  _QWORD *v13; // rax
 
-  v4 = *(_QWORD *)(a2 + 16);
-  v5 = 0;
-  if ( a3 )
+  v3 = 0;
+  if ( a2 )
   {
-    v10 = (_QWORD **)(a2 + 56);
+    v7 = (_QWORD **)(a1 + 208);
     do
     {
-      v11 = *v10;
-      if ( *v10 == v10 )
+      v8 = *v7;
+      if ( *v7 == v7 )
         break;
-      if ( (_QWORD **)v11[1] == v10 )
+      if ( (_QWORD **)v8[1] == v7 )
       {
-        v12 = (_QWORD *)*v11;
-        if ( *(_QWORD **)(*v11 + 8LL) == v11 )
+        v9 = (_QWORD *)*v8;
+        if ( *(_QWORD **)(*v8 + 8LL) == v8 )
           continue;
       }
-LABEL_24:
+LABEL_17:
       __fastfail(3u);
-      *v10 = v12;
-      v12[1] = v10;
-      ++*(_DWORD *)(a2 + 48);
-      if ( _InterlockedIncrement64((volatile signed __int64 *)(a1 + 1232)) <= 1 )
+      *v7 = v9;
+      v9[1] = v7;
+      ++*(_DWORD *)(a1 + 204);
+      if ( _InterlockedIncrement64((volatile signed __int64 *)(a1 + 968)) <= 1 )
         __fastfail(0xEu);
-      if ( v4 && _InterlockedIncrement64((volatile signed __int64 *)(v4 + 8)) <= 1 )
-        __fastfail(0xEu);
-      *v11 = 0LL;
-      ExQueueWorkItemToPartition((ULONG_PTR)v11);
-      ++v5;
+      *v8 = 0LL;
+      ExQueueWorkItemToPartition(v8, 0, 0xFFFFFFFF, *(_QWORD *)(a1 + 8));
+      ++v3;
     }
-    while ( v5 < a3 );
+    while ( v3 < a2 );
   }
-  v13 = 0;
-  if ( a4 )
+  v10 = 0;
+  if ( a3 )
   {
-    v14 = (_QWORD **)(a2 + 136);
+    v11 = (_QWORD **)(a1 + 304);
     do
     {
-      v15 = *v14;
-      if ( *v14 == v14 )
+      v12 = *v11;
+      if ( *v11 == v11 )
         break;
-      if ( (_QWORD **)v15[1] != v14 )
-        goto LABEL_24;
-      v16 = (_QWORD *)*v15;
-      if ( *(_QWORD **)(*v15 + 8LL) != v15 )
-        goto LABEL_24;
-      *v14 = v16;
-      v16[1] = v14;
-      ++*(_DWORD *)(a2 + 152);
-      if ( _InterlockedIncrement64((volatile signed __int64 *)(a1 + 1232)) <= 1 )
+      if ( (_QWORD **)v12[1] != v11 )
+        goto LABEL_17;
+      v13 = (_QWORD *)*v12;
+      if ( *(_QWORD **)(*v12 + 8LL) != v12 )
+        goto LABEL_17;
+      *v11 = v13;
+      v13[1] = v11;
+      ++*(_DWORD *)(a1 + 320);
+      if ( _InterlockedIncrement64((volatile signed __int64 *)(a1 + 968)) <= 1 )
         __fastfail(0xEu);
-      if ( v4 )
-      {
-        if ( _InterlockedIncrement64((volatile signed __int64 *)(v4 + 8)) <= 1 )
-          __fastfail(0xEu);
-      }
-      *v15 = 0LL;
-      ExQueueWorkItemToPartition((ULONG_PTR)v15);
-      ++v13;
+      *v12 = 0LL;
+      ExQueueWorkItemToPartition(v12, 0, 0xFFFFFFFF, *(_QWORD *)(a1 + 8));
+      ++v10;
     }
-    while ( v13 < a4 );
+    while ( v10 < a3 );
   }
 }

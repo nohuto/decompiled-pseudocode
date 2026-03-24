@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CheckOcclusionState@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@@Z @ 0x1800DCB7C
+ * XREFs of ?CheckOcclusionState@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@@Z @ 0x1800C3DD0
  * Callers:
- *     ?CheckOcclusionState@CLegacySwapChain@@UEBAJXZ @ 0x1800DCB34 (-CheckOcclusionState@CLegacySwapChain@@UEBAJXZ.c)
+ *     ?CheckOcclusionState@CLegacySwapChain@@UEBAJXZ @ 0x1800C3D88 (-CheckOcclusionState@CLegacySwapChain@@UEBAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD3DDevice::CheckOcclusionState(CD3DDevice *this, struct IDXGISwapChainDWM1 *a2)
@@ -13,10 +13,10 @@ __int64 __fastcall CD3DDevice::CheckOcclusionState(CD3DDevice *this, struct IDXG
   int v4; // eax
   __int64 v5; // rcx
 
-  v2 = *((_DWORD *)this + 272);
+  v2 = *((_DWORD *)this + 282);
   if ( v2 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, v2, 0x2DAu);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v2, 0xBDCu, 0LL);
   }
   else
   {
@@ -26,7 +26,7 @@ __int64 __fastcall CD3DDevice::CheckOcclusionState(CD3DDevice *this, struct IDXG
            1LL);
     v2 = v4;
     if ( v4 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, v4, 0x2E4u);
+      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0xBE6u, 0LL);
   }
   return CD3DDevice::TranslateDXGIorD3DErrorInContext((__int64)this, v2, 1u);
 }

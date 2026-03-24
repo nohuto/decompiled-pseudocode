@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpNumaQueryProximityId @ 0x1403DE810
+ * XREFs of HalpNumaQueryProximityId @ 0x1403CF5C0
  * Callers:
  *     <none>
  * Callees:

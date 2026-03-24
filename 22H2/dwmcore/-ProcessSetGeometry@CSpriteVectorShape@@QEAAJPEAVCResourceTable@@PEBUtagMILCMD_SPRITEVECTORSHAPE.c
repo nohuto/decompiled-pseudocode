@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ProcessSetGeometry@CSpriteVectorShape@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SPRITEVECTORSHAPE_SETGEOMETRY@@@Z @ 0x1800BBE24
+ * XREFs of ?ProcessSetGeometry@CSpriteVectorShape@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SPRITEVECTORSHAPE_SETGEOMETRY@@@Z @ 0x1801ED7A4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x180049524 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18004A8DC (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800BC160 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180037460 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D9B0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A1010 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CSpriteVectorShape::ProcessSetGeometry(
@@ -19,24 +19,19 @@ __int64 __fastcall CSpriteVectorShape::ProcessSetGeometry(
   unsigned int v4; // ebx
   struct CResource *ResourceWithoutType; // rax
   struct CResource *v6; // rsi
-  unsigned int v7; // ecx
+  __int64 v7; // rcx
   int v8; // eax
-  unsigned int v9; // ecx
+  __int64 v9; // rcx
 
   v4 = 0;
   ResourceWithoutType = CResourceTable::GetResourceWithoutType(a2, *((_DWORD *)a3 + 2));
   v6 = ResourceWithoutType;
-  if ( ResourceWithoutType != this[15] )
+  if ( ResourceWithoutType != this[14] )
   {
-    if ( ResourceWithoutType
-      && !(*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)ResourceWithoutType + 56LL))(
-            ResourceWithoutType,
-            67LL) )
-    {
-      v4 = -2003303421;
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2003303421, 0x9Bu, 0LL);
-    }
-    else
+    if ( !ResourceWithoutType
+      || (*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)ResourceWithoutType + 56LL))(
+           ResourceWithoutType,
+           65LL) )
     {
       v8 = CResource::RegisterNotifier((CResource *)this, v6);
       v4 = v8;
@@ -46,10 +41,15 @@ __int64 __fastcall CSpriteVectorShape::ProcessSetGeometry(
       }
       else
       {
-        CResource::UnRegisterNotifierInternal((CResource *)this, this[15]);
-        this[15] = v6;
-        CResource::NotifyOnChanged(this, 0LL, 0LL);
+        CResource::UnRegisterNotifierInternal((CResource *)this, this[14]);
+        this[14] = v6;
+        CResource::NotifyOnChanged((__int64)this, 0, 0LL);
       }
+    }
+    else
+    {
+      v4 = -2003303421;
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2003303421, 0x9Bu, 0LL);
     }
   }
   return v4;

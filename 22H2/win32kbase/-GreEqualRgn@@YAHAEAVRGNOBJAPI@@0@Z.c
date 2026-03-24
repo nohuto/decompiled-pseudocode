@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z @ 0x1C00A0AF4
+ * XREFs of ?GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z @ 0x1C0094BAC
  * Callers:
- *     GreEqualRgn @ 0x1C000AE90 (GreEqualRgn.c)
- *     EngEqualRgn @ 0x1C016A930 (EngEqualRgn.c)
+ *     GreEqualRgn @ 0x1C0094B40 (GreEqualRgn.c)
+ *     EngEqualRgn @ 0x1C014BB20 (EngEqualRgn.c)
  * Callees:
- *     ?bEqual@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C00A0B20 (-bEqual@RGNOBJ@@QEAAHAEAV1@@Z.c)
+ *     ?bEqual@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C0094BD0 (-bEqual@RGNOBJ@@QEAAHAEAV1@@Z.c)
  */
 
 __int64 __fastcall GreEqualRgn(struct RGNOBJAPI *a1, struct RGNOBJAPI *a2)

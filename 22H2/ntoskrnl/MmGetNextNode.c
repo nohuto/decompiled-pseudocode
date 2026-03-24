@@ -1,31 +1,23 @@
 /*
- * XREFs of MmGetNextNode @ 0x14034E6C0
+ * XREFs of MmGetNextNode @ 0x1402F0F74
  * Callers:
- *     KiSelectIdealProcessorSetForGroup @ 0x140224860 (KiSelectIdealProcessorSetForGroup.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x1402AD220 (ExpAllocatePoolWithTagFromNode.c)
- *     ExpQueueWorkItem @ 0x1402B7670 (ExpQueueWorkItem.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     ExpTryQueueWorkItem @ 0x1402B990C (ExpTryQueueWorkItem.c)
- *     PoAllProcessorsDeepIdle @ 0x1402C1AF0 (PoAllProcessorsDeepIdle.c)
- *     PoIdle @ 0x1402C4B30 (PoIdle.c)
- *     PpmIdleSelectStates @ 0x1403B6E10 (PpmIdleSelectStates.c)
- *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x140570948 (KiEnumerateNextSchedulerSubNodeInSystem.c)
- *     KeInitializeProcess @ 0x1406B66E8 (KeInitializeProcess.c)
- *     MmAllocateMemoryRanges @ 0x140A2E330 (MmAllocateMemoryRanges.c)
+ *     PoIdle @ 0x140221E90 (PoIdle.c)
+ *     PpmIdlePrepare @ 0x140224F50 (PpmIdlePrepare.c)
+ *     ExpTryQueueWorkItem @ 0x14023B73C (ExpTryQueueWorkItem.c)
+ *     ExpQueueWorkItem @ 0x140240E10 (ExpQueueWorkItem.c)
+ *     KiSearchForNewThread @ 0x140256518 (KiSearchForNewThread.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402BC810 (ExpAllocatePoolWithTagFromNode.c)
+ *     KiChooseTargetProcessor @ 0x1402C5470 (KiChooseTargetProcessor.c)
+ *     PoAllProcessorsDeepIdle @ 0x1402F0EB8 (PoAllProcessorsDeepIdle.c)
+ *     PpmIdleSelectStates @ 0x140394E80 (PpmIdleSelectStates.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall MmGetNextNode(int a1, int *a2)
+__int64 __fastcall MmGetNextNode(int a1, _DWORD *a2)
 {
-  int v2; // eax
-  int v3; // r8d
-
-  v2 = (unsigned __int16)KeNumberNodes;
-  v3 = *a2 + 1;
-  *a2 = v3;
-  if ( v3 == v2 )
+  if ( ++*a2 == (unsigned __int16)KeNumberNodes )
     return 0xFFFFFFFFLL;
   else
-    return *(unsigned int *)(qword_140C65B98 + 4LL * (unsigned int)(v3 + v2 * a1));
+    return *(unsigned int *)(qword_140C4DE98 + 4LL * (*a2 + (unsigned int)(unsigned __int16)KeNumberNodes * a1));
 }

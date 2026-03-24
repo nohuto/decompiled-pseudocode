@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProperty@?$CParticleAttractorGeneratedT@VCParticleAttractor@@VCResource@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C4810
+ * XREFs of ?GetProperty@?$CParticleAttractorGeneratedT@VCParticleAttractor@@VCResource@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18016E780
  * Callers:
  *     <none>
  * Callees:
@@ -25,19 +25,19 @@ __int64 __fastcall CParticleAttractorGeneratedT<CParticleAttractor,CResource>::G
     {
       if ( v4 != 1 )
         return 2147942487LL;
-      v5 = *(_DWORD *)(a1 + 80);
+      v5 = *(_DWORD *)(a1 + 72);
     }
     else
     {
-      v5 = *(_DWORD *)(a1 + 76);
+      v5 = *(_DWORD *)(a1 + 68);
     }
     *(_DWORD *)a3 = v5;
     *(_DWORD *)(a3 + 72) = 18;
   }
   else
   {
-    v6 = *(_QWORD *)(a1 + 64);
-    v7 = *(_DWORD *)(a1 + 72);
+    v6 = *(_QWORD *)(a1 + 56);
+    v7 = *(_DWORD *)(a1 + 64);
     *(_QWORD *)a3 = v6;
     *(_DWORD *)(a3 + 8) = v7;
     *(_DWORD *)(a3 + 72) = 52;

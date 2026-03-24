@@ -1,15 +1,15 @@
 /*
- * XREFs of PiSwQueuedCreateInfoCreate @ 0x140835DCC
+ * XREFs of PiSwQueuedCreateInfoCreate @ 0x140835DAC
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x1406D6E78 (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x1406D6E58 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     PnpAllocatePWSTR @ 0x14059A42C (PnpAllocatePWSTR.c)
- *     PnpCopyDevPropertyArray @ 0x1406D7250 (PnpCopyDevPropertyArray.c)
- *     PiSwPnPInfoInit @ 0x1406D7EF4 (PiSwPnPInfoInit.c)
- *     PiSwQueuedCreateInfoFree @ 0x140835EE0 (PiSwQueuedCreateInfoFree.c)
+ *     PnpCopyDevPropertyArray @ 0x1406D7230 (PnpCopyDevPropertyArray.c)
+ *     PiSwPnPInfoInit @ 0x1406D7ED4 (PiSwPnPInfoInit.c)
+ *     PiSwQueuedCreateInfoFree @ 0x140835EC0 (PiSwQueuedCreateInfoFree.c)
  */
 
 __int64 __fastcall PiSwQueuedCreateInfoCreate(PVOID **a1, __int64 a2)

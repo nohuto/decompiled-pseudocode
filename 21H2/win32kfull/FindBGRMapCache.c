@@ -1,11 +1,11 @@
 /*
- * XREFs of FindBGRMapCache @ 0x1C025F284
+ * XREFs of FindBGRMapCache @ 0x1C02623F4
  * Callers:
- *     AAHalftoneBitmap @ 0x1C0093280 (AAHalftoneBitmap.c)
- *     CreateDyesColorMappingTable @ 0x1C0093DC8 (CreateDyesColorMappingTable.c)
+ *     AAHalftoneBitmap @ 0x1C001AD68 (AAHalftoneBitmap.c)
+ *     CreateDyesColorMappingTable @ 0x1C001B8B0 (CreateDyesColorMappingTable.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
- *     TrimBGRMapCache @ 0x1C025F768 (TrimBGRMapCache.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     TrimBGRMapCache @ 0x1C02628D8 (TrimBGRMapCache.c)
  */
 
 __int64 __fastcall FindBGRMapCache(__int64 a1, int a2)
@@ -21,13 +21,13 @@ __int64 __fastcall FindBGRMapCache(__int64 a1, int a2)
   __int128 v12; // xmm6
 
   v4 = 0LL;
-  EngAcquireSemaphore(qword_1C0336428);
+  EngAcquireSemaphore(qword_1C033AF88);
   if ( Src )
   {
-    v5 = dword_1C0336448;
-    if ( dword_1C0336448 )
+    v5 = dword_1C033AFA8;
+    if ( dword_1C033AFA8 )
     {
-      v6 = (char *)Src + 16 * dword_1C0336448 - 16;
+      v6 = (char *)Src + 16 * dword_1C033AFA8 - 16;
       v7 = 0;
       do
       {
@@ -42,7 +42,7 @@ __int64 __fastcall FindBGRMapCache(__int64 a1, int a2)
             v9 = v8 - 1;
             v6[2] = v9;
             if ( !v9 )
-              ++HIDWORD(qword_1C033644C);
+              ++HIDWORD(qword_1C033AFAC);
           }
         }
         else if ( v6[3] == a2 )
@@ -51,9 +51,9 @@ __int64 __fastcall FindBGRMapCache(__int64 a1, int a2)
           v4 = *(_QWORD *)v6;
           v6[2] = v10 + 1;
           if ( !v10 )
-            --HIDWORD(qword_1C033644C);
-          v11 = dword_1C0336448;
-          if ( v5 < dword_1C0336448 )
+            --HIDWORD(qword_1C033AFAC);
+          v11 = dword_1C033AFA8;
+          if ( v5 < dword_1C033AFA8 )
           {
             v12 = *(_OWORD *)v6;
             memmove(v6, v6 + 4, 16LL * v7);
@@ -67,8 +67,8 @@ __int64 __fastcall FindBGRMapCache(__int64 a1, int a2)
       while ( v5 );
     }
   }
-  if ( dword_1C0336448 > 5 && HIDWORD(qword_1C033644C) )
+  if ( dword_1C033AFA8 > 5 && HIDWORD(qword_1C033AFAC) )
     TrimBGRMapCache();
-  EngReleaseSemaphore(qword_1C0336428);
+  EngReleaseSemaphore(qword_1C033AF88);
   return v4;
 }

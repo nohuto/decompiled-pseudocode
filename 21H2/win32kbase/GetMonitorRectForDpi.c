@@ -1,23 +1,25 @@
 /*
- * XREFs of GetMonitorRectForDpi @ 0x1C006DCC8
+ * XREFs of GetMonitorRectForDpi @ 0x1C006EE58
  * Callers:
- *     ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C002A8D0 (-ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z.c)
- *     PhysicalToLogicalDPIPoint @ 0x1C006DA50 (PhysicalToLogicalDPIPoint.c)
- *     CreateMonitorRegionForDpi @ 0x1C006DB60 (CreateMonitorRegionForDpi.c)
- *     LogicalToPhysicalDPIPoint @ 0x1C006DBB0 (LogicalToPhysicalDPIPoint.c)
- *     GetMonitorRect @ 0x1C006ECBC (GetMonitorRect.c)
- *     GetScreenRectForDpi @ 0x1C006ED5C (GetScreenRectForDpi.c)
+ *     ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C00362B0 (-ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z.c)
+ *     ?GetMonitorRegionForDpi@@YAPEAUHRGN__@@PEAUtagMONITOR@@G@Z @ 0x1C006F9E0 (-GetMonitorRegionForDpi@@YAPEAUHRGN__@@PEAUtagMONITOR@@G@Z.c)
+ *     GetScreenRectForDpi @ 0x1C0071430 (GetScreenRectForDpi.c)
  * Callees:
- *     CalculateLogicalMonitorRect @ 0x1C006E324 (CalculateLogicalMonitorRect.c)
+ *     ExpandMonitorSpaceVertex @ 0x1C006FA78 (ExpandMonitorSpaceVertex.c)
+ *     ScaleDPIRect @ 0x1C0070BE8 (ScaleDPIRect.c)
  */
 
-__int64 __fastcall GetMonitorRectForDpi(__int64 a1, __int64 a2, unsigned __int16 a3)
+__int64 *__fastcall GetMonitorRectForDpi(__int64 *a1, __int64 a2, unsigned __int16 a3)
 {
-  CalculateLogicalMonitorRect(
-    a1,
-    *(_QWORD *)(a2 + 40) + 28,
-    *(unsigned __int16 *)(*(_QWORD *)(a2 + 40) + 60LL),
-    a3,
-    *(_WORD *)(*(_QWORD *)(a2 + 40) + 62LL));
+  __int64 v6; // rbx
+  __int64 v7; // rax
+
+  *(_OWORD *)a1 = *(_OWORD *)(*(_QWORD *)(a2 + 40) + 28LL);
+  if ( a3 )
+  {
+    v6 = *(_QWORD *)(a2 + 40);
+    v7 = ExpandMonitorSpaceVertex(a3, *(unsigned __int16 *)(v6 + 66), *a1);
+    ScaleDPIRect((_DWORD)a1, (_DWORD)a1, a3, *(unsigned __int16 *)(v6 + 64), v7, *a1);
+  }
   return a1;
 }

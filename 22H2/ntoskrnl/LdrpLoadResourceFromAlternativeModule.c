@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpLoadResourceFromAlternativeModule @ 0x1402F7700
+ * XREFs of LdrpLoadResourceFromAlternativeModule @ 0x140301D18
  * Callers:
- *     LdrpSearchResourceSection_U @ 0x140756220 (LdrpSearchResourceSection_U.c)
+ *     LdrpSearchResourceSection_U @ 0x140672884 (LdrpSearchResourceSection_U.c)
  * Callees:
- *     LdrpFindMessageInAlternateModule @ 0x1402F6D64 (LdrpFindMessageInAlternateModule.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1402F77DC (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpSearchResourceSection_U @ 0x140756220 (LdrpSearchResourceSection_U.c)
+ *     LdrpFindMessageInAlternateModule @ 0x140301428 (LdrpFindMessageInAlternateModule.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x140301DF4 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpSearchResourceSection_U @ 0x140672884 (LdrpSearchResourceSection_U.c)
  */
 
 __int64 __fastcall LdrpLoadResourceFromAlternativeModule(int a1, __int64 a2, int a3, int a4, unsigned int **a5)

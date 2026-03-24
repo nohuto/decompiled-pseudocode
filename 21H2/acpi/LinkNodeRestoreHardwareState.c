@@ -1,16 +1,16 @@
 /*
- * XREFs of LinkNodeRestoreHardwareState @ 0x1C006C22C
+ * XREFs of LinkNodeRestoreHardwareState @ 0x1C006BF7C
  * Callers:
- *     ACPIDevicePowerProcessPhase2SystemSubPhase2 @ 0x1C0050680 (ACPIDevicePowerProcessPhase2SystemSubPhase2.c)
+ *     ACPIDevicePowerProcessPhase2SystemSubPhase2 @ 0x1C0051320 (ACPIDevicePowerProcessPhase2SystemSubPhase2.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     LinkNodepRestoreIrqRoutingWorker @ 0x1C006C300 (LinkNodepRestoreIrqRoutingWorker.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     LinkNodepRestoreIrqRoutingWorker @ 0x1C006C060 (LinkNodepRestoreIrqRoutingWorker.c)
  */
 
 __int64 __fastcall LinkNodeRestoreHardwareState(__int64 a1, __int64 a2)
 {
-  __int64 Pool2; // rax
-  __int64 v5; // rbx
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v5; // rbx
 
   if ( (*(unsigned __int8 (**)(void))(PmHalDispatchTable + 32))() )
     return 0LL;
@@ -19,14 +19,18 @@ __int64 __fastcall LinkNodeRestoreHardwareState(__int64 a1, __int64 a2)
     (*(void (**)(void))(PmHalDispatchTable + 40))();
     return 0LL;
   }
-  Pool2 = ExAllocatePool2(64LL, 48LL, 1097884481LL);
-  v5 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x41706341u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *(_DWORD *)(Pool2 + 28) = -1;
-  *(_QWORD *)(Pool2 + 40) = a2;
-  *(_QWORD *)(Pool2 + 32) = ACPIDeviceCompleteGenericPhase;
-  *(_QWORD *)Pool2 = LinkNodeListHead - 56;
-  KeInitializeSpinLock((PKSPIN_LOCK)(Pool2 + 16));
-  return LinkNodepRestoreIrqRoutingWorker(*(_QWORD *)(*(_QWORD *)v5 + 600LL), 0LL, 0LL, v5);
+  *PoolWithTag = 0LL;
+  PoolWithTag[1] = 0LL;
+  PoolWithTag[2] = 0LL;
+  *((_DWORD *)PoolWithTag + 6) = 0;
+  *((_DWORD *)PoolWithTag + 7) = -1;
+  PoolWithTag[4] = ACPIDeviceCompleteGenericPhase;
+  PoolWithTag[5] = a2;
+  *PoolWithTag = LinkNodeListHead - 56;
+  KeInitializeSpinLock(PoolWithTag + 2);
+  return LinkNodepRestoreIrqRoutingWorker(*(_QWORD *)(*v5 + 560LL), 0LL, 0LL, v5);
 }

@@ -1,133 +1,168 @@
 /*
- * XREFs of UpdateWindowMonitor @ 0x1C006BAD0
+ * XREFs of UpdateWindowMonitor @ 0x1C0070270
  * Callers:
- *     UpdateMonitorForWindowAndChildren @ 0x1C006A424 (UpdateMonitorForWindowAndChildren.c)
- *     ?xxxForceUpdateWindowTreeDpiAwarenessContext@@YAXPEAUtagWND@@KH@Z @ 0x1C0238684 (-xxxForceUpdateWindowTreeDpiAwarenessContext@@YAXPEAUtagWND@@KH@Z.c)
+ *     xxxInheritWindowMonitor @ 0x1C006C878 (xxxInheritWindowMonitor.c)
+ *     UpdateMonitorForWindowAndChildren @ 0x1C00F160C (UpdateMonitorForWindowAndChildren.c)
+ *     ?xxxForceUpdateWindowTreeDpiAwarenessContext@@YAXPEAUtagWND@@KH@Z @ 0x1C01E448C (-xxxForceUpdateWindowTreeDpiAwarenessContext@@YAXPEAUtagWND@@KH@Z.c)
  * Callees:
- *     ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C001F3A8 (-FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z.c)
- *     UpdateWindowSpriteMonitor @ 0x1C0022AF0 (UpdateWindowSpriteMonitor.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     xxxInternalInvalidate @ 0x1C004A420 (xxxInternalInvalidate.c)
- *     ?ShouldUseLogPixelsForWindowMetrics@@YA_NPEAUtagWND@@@Z @ 0x1C006A534 (-ShouldUseLogPixelsForWindowMetrics@@YA_NPEAUtagWND@@@Z.c)
- *     ?IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z @ 0x1C006A59C (-IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z.c)
- *     _IsTopLevelWindow @ 0x1C006D904 (_IsTopLevelWindow.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     _GetTopLevelWindow @ 0x1C0075BF0 (_GetTopLevelWindow.c)
- *     RecreateRedirectionBitmap @ 0x1C008F778 (RecreateRedirectionBitmap.c)
- *     UpdateTopLevelWindowDPITransform @ 0x1C009AF58 (UpdateTopLevelWindowDPITransform.c)
- *     _SetDeferredDpiStateForWindowAndChildren @ 0x1C009C90C (_SetDeferredDpiStateForWindowAndChildren.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ComposeWindow @ 0x1C00B37D8 (ComposeWindow.c)
- *     ?IsChildWindowCoordinateSpaceBoundary@@YA_NPEBUtagWND@@@Z @ 0x1C0118D5C (-IsChildWindowCoordinateSpaceBoundary@@YA_NPEBUtagWND@@@Z.c)
+ *     _SetDeferredDpiStateForWindowAndChildren @ 0x1C0013BBC (_SetDeferredDpiStateForWindowAndChildren.c)
+ *     ComposeWindow @ 0x1C00353BC (ComposeWindow.c)
+ *     UpdateTopLevelWindowDPITransform @ 0x1C0042710 (UpdateTopLevelWindowDPITransform.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     ShouldUseLogPixelsForWindowMetrics @ 0x1C006FC28 (ShouldUseLogPixelsForWindowMetrics.c)
+ *     _GetTopLevelWindow @ 0x1C006FCC0 (_GetTopLevelWindow.c)
+ *     _GetDesktopWindow @ 0x1C00704C0 (_GetDesktopWindow.c)
+ *     IsChildWindowDpiBoundary @ 0x1C00706BC (IsChildWindowDpiBoundary.c)
+ *     ?IsChildWindowCoordinateSpaceBoundary@@YAHPEAUtagWND@@@Z @ 0x1C0070760 (-IsChildWindowCoordinateSpaceBoundary@@YAHPEAUtagWND@@@Z.c)
+ *     xxxInternalInvalidate @ 0x1C0072580 (xxxInternalInvalidate.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C00BC1E8 (-FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z.c)
+ *     UpdateWindowSpriteDPI @ 0x1C00BD938 (UpdateWindowSpriteDPI.c)
+ *     RecreateRedirectionBitmap @ 0x1C00F18E8 (RecreateRedirectionBitmap.c)
  */
 
-void __fastcall UpdateWindowMonitor(ShellWindowManagement *this, _QWORD *a2)
+void __fastcall UpdateWindowMonitor(struct tagWND *a1, _QWORD *a2)
 {
-  int v4; // r8d
-  _DWORD *v5; // rax
-  _DWORD *v6; // rcx
-  _DWORD *v7; // rax
-  __int64 v8; // rbx
-  int v9; // ebx
-  __int64 v10; // rax
-  __int64 v11; // rcx
+  __int64 v4; // rdx
+  int v5; // ecx
+  __int16 v6; // r8
+  int v7; // eax
+  __int64 DesktopWindow; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rdx
+  __int16 v11; // cx
+  _DWORD *v12; // rax
+  _DWORD *v13; // rcx
+  _DWORD *v14; // rax
+  __int64 v15; // rbx
+  int v16; // eax
+  __int64 v17; // rcx
+  int v18; // ebx
+  __int64 v19; // rax
+  __int64 v20; // rdx
+  void *v21; // rcx
   struct tagSHADOW *Shadow; // rax
-  __int64 v13; // rcx
-  int v14; // ebx
-  char v15; // [rsp+58h] [rbp+10h] BYREF
-  char v16; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v23; // rcx
+  int v24; // ebx
+  char v25; // [rsp+58h] [rbp+10h] BYREF
+  char v26; // [rsp+60h] [rbp+18h] BYREF
 
   while ( a2 )
   {
-    *(_QWORD *)(*((_QWORD *)this + 5) + 256LL) = *a2;
-    v4 = *((_DWORD *)this + 80);
-    if ( (v4 & 0x40000) == 0 && *(_WORD *)(a2[5] + 60LL) != *(_WORD *)(*((_QWORD *)this + 5) + 284LL) )
-      *((_DWORD *)this + 80) = v4 | 0x40000;
-    if ( (unsigned int)IsTopLevelWindow(this) && (*(_DWORD *)(*((_QWORD *)this + 5) + 288LL) & 0xF) == 2 )
-      SetDeferredDpiStateForWindowAndChildren(this);
-    *(_WORD *)(*((_QWORD *)this + 5) + 284LL) = *(_WORD *)(a2[5] + 60LL);
-    v5 = (_DWORD *)*((_QWORD *)this + 36);
-    if ( v5 )
+    *(_QWORD *)(*((_QWORD *)a1 + 5) + 256LL) = *a2;
+    v4 = *((_QWORD *)a1 + 5);
+    v5 = *(_DWORD *)(v4 + 232);
+    if ( (v5 & 0x4000000) != 0
+      || ((*(_DWORD *)(v4 + 288) & 0xF) == 2 && (*(_DWORD *)(v4 + 288) & 0x20000000) != 0
+        ? (v6 = *(_WORD *)(a2[5] + 68LL))
+        : (v6 = *(_WORD *)(a2[5] + 64LL)),
+          v6 != *(_WORD *)(v4 + 284)) )
     {
-      --*v5;
-      v6 = (_DWORD *)*((_QWORD *)this + 36);
-      if ( !*v6 )
-        Win32FreePool(v6);
-      *((_QWORD *)this + 36) = 0LL;
+      v7 = 0x4000000;
     }
-    v7 = (_DWORD *)a2[16];
-    *((_QWORD *)this + 36) = v7;
-    ++*v7;
-    v8 = *((_QWORD *)this + 5);
-    *(_DWORD *)(v8 + 232) = *(_DWORD *)(v8 + 232) & 0xFFFFFBFF | ((unsigned __int8)ShouldUseLogPixelsForWindowMetrics(this) << 10);
-    v9 = (unsigned __int8)IsChildWindowDpiBoundary(this);
-    v10 = *((_QWORD *)this + 5);
-    if ( v9 )
+    else
     {
-      if ( (*(_BYTE *)(v10 + 26) & 8) == 0 )
-        ComposeWindow(this);
+      v7 = 0;
     }
-    else if ( (*(_DWORD *)(v10 + 232) & 2) != 0 && IsChildWindowCoordinateSpaceBoundary(this) )
+    *(_DWORD *)(v4 + 232) = v7 | v5 & 0xFBFFFFFF;
+    if ( *((_QWORD *)a1 + 13) )
     {
-      ComposeWindow(this);
-      if ( GetTopLevelWindow(this) )
+      DesktopWindow = GetDesktopWindow(a1);
+      if ( v9 == DesktopWindow && (*(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL) & 0xF) == 2 )
+        SetDeferredDpiStateForWindowAndChildren(a1, 1, 0);
+    }
+    v10 = *((_QWORD *)a1 + 5);
+    if ( (*(_DWORD *)(v10 + 288) & 0xF) == 2 && (*(_DWORD *)(v10 + 288) & 0x20000000) != 0 )
+      v11 = *(_WORD *)(a2[5] + 68LL);
+    else
+      v11 = *(_WORD *)(a2[5] + 64LL);
+    *(_WORD *)(v10 + 284) = v11;
+    v12 = (_DWORD *)*((_QWORD *)a1 + 36);
+    if ( v12 )
+    {
+      --*v12;
+      v13 = (_DWORD *)*((_QWORD *)a1 + 36);
+      if ( !*v13 )
+        Win32FreePool(v13);
+      *((_QWORD *)a1 + 36) = 0LL;
+    }
+    v14 = (_DWORD *)a2[39];
+    *((_QWORD *)a1 + 36) = v14;
+    ++*v14;
+    v15 = *((_QWORD *)a1 + 5);
+    *(_DWORD *)(v15 + 232) ^= (*(_DWORD *)(v15 + 232) ^ ((unsigned int)ShouldUseLogPixelsForWindowMetrics((__int64)a1) << 27)) & 0x8000000;
+    v16 = IsChildWindowDpiBoundary(a1);
+    v17 = *((_QWORD *)a1 + 5);
+    v18 = v16;
+    if ( v16 )
+    {
+      if ( (*(_BYTE *)(v17 + 26) & 8) == 0 )
+        ComposeWindow(a1, 1);
+    }
+    else if ( (*(_DWORD *)(v17 + 232) & 0x20) != 0 )
+    {
+      if ( (unsigned int)IsChildWindowCoordinateSpaceBoundary(a1) )
       {
-        AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v15);
-        xxxInternalInvalidate(*((struct tagWND **)this + 13), (HRGN)1, 0x485u);
-        AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v15);
-      }
-    }
-    if ( !(unsigned int)IsTopLevelWindow(this) && !v9 )
-    {
-      v11 = *((_QWORD *)this + 27);
-      if ( v11 )
-      {
-        Win32FreePool(v11);
-        *((_QWORD *)this + 27) = 0LL;
-      }
-      if ( (*(_BYTE *)(*((_QWORD *)this + 5) + 26LL) & 8) != 0 )
-        UpdateWindowSpriteMonitor((__int64)this, a2);
-      return;
-    }
-    if ( (*((_DWORD *)this + 80) & 0x40000) != 0 )
-    {
-      if ( W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) )
-      {
-        if ( *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456) )
+        ComposeWindow(a1, 2);
+        if ( GetTopLevelWindow((__int64)a1) )
         {
-          if ( (*(_DWORD *)(**(_QWORD **)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456) + 8LL)
-                          + 64LL) & 1) != 0 )
+          UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v25);
+          xxxInternalInvalidate(*((struct tagWND **)a1 + 13), (HRGN)1, 0x485u);
+          UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v25);
+        }
+      }
+    }
+    if ( !*((_QWORD *)a1 + 13) || (v19 = GetDesktopWindow(a1), v20 != v19) )
+    {
+      if ( !v18 )
+      {
+        v21 = (void *)*((_QWORD *)a1 + 27);
+        if ( v21 )
+        {
+          Win32FreePool(v21);
+          *((_QWORD *)a1 + 27) = 0LL;
+        }
+        if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 26LL) & 8) != 0 )
+          UpdateWindowSpriteDPI(a1, a2);
+        return;
+      }
+    }
+    if ( (*(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) & 0x4000000) != 0 )
+    {
+      if ( W32GetThreadWin32Thread(KeGetCurrentThread()) )
+      {
+        if ( *(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 456) )
+        {
+          if ( (*(_DWORD *)(**(_QWORD **)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 456) + 8LL) + 64LL) & 1) != 0 )
           {
-            v13 = *((_QWORD *)this + 5);
-            if ( (*(_DWORD *)(v13 + 288) & 0x4000000F) == 0x40000000
-              && (*(_BYTE *)(v13 + 27) & 0x20) != 0
-              && (*(_BYTE *)(v13 + 26) & 0x20) == 0 )
+            v23 = *((_QWORD *)a1 + 5);
+            if ( (*(_DWORD *)(v23 + 288) & 0x4000000F) == 0x40000000
+              && (*(_BYTE *)(v23 + 27) & 0x20) != 0
+              && (*(_BYTE *)(v23 + 26) & 0x20) == 0 )
             {
               GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-              v14 = RecreateRedirectionBitmap(this, 0, 0LL);
+              v24 = RecreateRedirectionBitmap(a1, 0, 0LL);
               GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-              if ( v14 >= 0 )
+              if ( v24 >= 0 )
               {
-                AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v16);
-                xxxInternalInvalidate(this, (HRGN)1, 0x85u);
-                AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v16);
+                UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v26);
+                xxxInternalInvalidate(a1, (HRGN)1, 0x85u);
+                UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v26);
               }
             }
           }
         }
       }
     }
-    UpdateWindowSpriteMonitor((__int64)this, a2);
-    UpdateTopLevelWindowDPITransform(this, a2);
-    if ( (*(_BYTE *)(*(_QWORD *)(*((_QWORD *)this + 17) + 8LL) + 10LL) & 2) != 0 )
+    UpdateWindowSpriteDPI(a1, a2);
+    UpdateTopLevelWindowDPITransform((__int64)a1, (__int64)a2);
+    if ( (*(_BYTE *)(*(_QWORD *)(*((_QWORD *)a1 + 17) + 8LL) + 10LL) & 2) != 0 )
     {
-      Shadow = FindShadow(this);
-      if ( Shadow )
-      {
-        this = (ShellWindowManagement *)*((_QWORD *)Shadow + 1);
-        if ( this )
-          continue;
-      }
+      Shadow = FindShadow(a1);
+      a1 = Shadow ? (struct tagWND *)*((_QWORD *)Shadow + 1) : 0LL;
+      if ( a1 )
+        continue;
     }
     return;
   }

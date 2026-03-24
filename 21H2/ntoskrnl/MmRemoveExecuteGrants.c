@@ -1,41 +1,43 @@
 /*
- * XREFs of MmRemoveExecuteGrants @ 0x140258CE0
+ * XREFs of MmRemoveExecuteGrants @ 0x14037ED20
  * Callers:
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402CF4F0 (MiLockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14030CF90 (MiWalkPageTables.c)
- *     MiFlushTbList @ 0x14032F1B0 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
+ *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 MmRemoveExecuteGrants()
+void MmRemoveExecuteGrants()
 {
   _KPROCESS *Process; // rbx
   __int64 v1; // rdx
-  _QWORD v3[22]; // [rsp+20h] [rbp-E0h] BYREF
-  _QWORD v4[24]; // [rsp+D0h] [rbp-30h] BYREF
+  __int64 v2; // r8
+  _DWORD *v3; // r9
+  _KPROCESS *v4; // rdx
+  _QWORD v5[22]; // [rsp+20h] [rbp-E0h] BYREF
+  _QWORD v6[24]; // [rsp+D0h] [rbp-30h] BYREF
 
-  memset(v4, 0, 0xB8uLL);
-  memset(v3, 0, sizeof(v3));
+  memset(v6, 0, 0xB8uLL);
+  memset(v5, 0, sizeof(v5));
   Process = KeGetCurrentThread()->ApcState.Process;
-  v3[21] = v4;
+  LOWORD(v5[0]) = -32762;
   Process = (_KPROCESS *)((char *)Process + 1664);
-  LODWORD(v3[0]) = 32774;
-  v3[19] = MiRevokeExecutePte;
-  v3[3] = Process;
-  v3[20] = HalSystemVectorDispatchEntry;
-  v3[5] = 0xFFFF7FFFFFFFFFFFuLL;
-  WORD2(v4[0]) = 0;
-  v4[2] = 0LL;
-  v4[3] = 0LL;
-  LODWORD(v4[0]) = 1;
-  LODWORD(v4[1]) = 20;
-  HIBYTE(v3[0]) = MiLockWorkingSetShared(Process);
-  MiWalkPageTables(v3);
-  LOBYTE(v1) = HIBYTE(v3[0]);
-  MiUnlockWorkingSetShared(Process, v1);
-  return MiFlushTbList(v4);
+  v5[3] = Process;
+  v5[21] = v6;
+  LODWORD(v6[0]) = 1;
+  v5[19] = MiRevokeExecutePte;
+  v5[20] = HalSystemVectorDispatchEntry;
+  v5[5] = 0xFFFF7FFFFFFFFFFFuLL;
+  WORD2(v6[0]) = 0;
+  v6[2] = 0LL;
+  v6[3] = 0LL;
+  LODWORD(v6[1]) = 20;
+  BYTE6(v5[0]) = MiLockWorkingSetShared((__int64)Process, v1, v2, v3);
+  MiWalkPageTables((__int64)v5);
+  MiUnlockWorkingSetShared((__int64)Process, BYTE6(v5[0]));
+  MiFlushTbList((__int64)v6, v4);
 }

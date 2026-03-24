@@ -1,32 +1,30 @@
 /*
- * XREFs of MiInitializeDecayPfns @ 0x140B63554
+ * XREFs of MiInitializeDecayPfns @ 0x140A68188
  * Callers:
- *     MiInitNucleus @ 0x140B44F88 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42364 (MiInitNucleus.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY MiInitializeDecayPfns()
 {
-  __int64 v0; // rdi
-  ULONG_PTR v1; // rbx
+  ULONG_PTR v0; // rbx
+  __int64 v1; // rdi
   PSLIST_ENTRY result; // rax
 
-  v0 = 2048LL;
-  BitMapHeader.SizeOfBitMap = 2048;
-  BitMapHeader.Buffer = (unsigned int *)&unk_140C68298;
-  if ( ((unsigned __int8)&ListHead & 0xF) != 0 )
-    RtlRaiseStatus(-2147483646);
-  ListHead = 0LL;
-  v1 = 48 * qword_140C68260 - 0x21FFFFFE8030LL;
-  *(_QWORD *)(v1 + 40) = *(_QWORD *)(v1 + 40) & 0xFFFFFF0000000000uLL | 1;
+  if ( ((unsigned __int8)&stru_140C4E9B0 & 0xF) != 0 )
+    RtlRaiseStatus(0x80000002);
+  stru_140C4E9B0 = 0LL;
+  v0 = 48 * qword_140C4E9A0 - 0x57FFFFE8030LL;
+  v1 = 2048LL;
+  *(_QWORD *)(v0 + 40) = *(_QWORD *)(v0 + 40) & 0xFFFFFFF000000000uLL | 1;
   do
   {
-    result = RtlpInterlockedPushEntrySList(&ListHead, (PSLIST_ENTRY)v1);
-    v1 -= 48LL;
-    --v0;
+    result = RtlpInterlockedPushEntrySList(&stru_140C4E9B0, (PSLIST_ENTRY)v0);
+    v0 -= 48LL;
+    --v1;
   }
-  while ( v0 );
+  while ( v1 );
   return result;
 }

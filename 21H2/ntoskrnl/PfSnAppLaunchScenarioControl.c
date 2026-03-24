@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnAppLaunchScenarioControl @ 0x140988EE4
+ * XREFs of PfSnAppLaunchScenarioControl @ 0x1408E08C0
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x1407D7634 (PfSnSetPrefetcherInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x1406DC36C (PfSnSetPrefetcherInformation.c)
  * Callees:
- *     KeStackAttachProcess @ 0x140203630 (KeStackAttachProcess.c)
- *     KeUnstackDetachProcess @ 0x1402037B0 (KeUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140732CC0 (ObReferenceObjectByHandleWithTag.c)
- *     PfSnBeginAppLaunch @ 0x1407DCCD8 (PfSnBeginAppLaunch.c)
+ *     KeUnstackDetachProcess @ 0x1402075C0 (KeUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14025C110 (KeStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PfSnBeginAppLaunch @ 0x1406CC0AC (PfSnBeginAppLaunch.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall PfSnAppLaunchScenarioControl(__int64 a1, KPROCESSOR_MODE a2)
@@ -48,7 +48,7 @@ __int64 __fastcall PfSnAppLaunchScenarioControl(__int64 a1, KPROCESSOR_MODE a2)
           v2 = 1;
           KeStackAttachProcess((PRKPROCESS)Object, &ApcState);
         }
-        PfSnBeginAppLaunch((__int64)v5, 0LL, 17);
+        PfSnBeginAppLaunch((__int64)v5, 0LL, 9);
         v4 = 0;
         if ( v2 )
           KeUnstackDetachProcess(&ApcState);

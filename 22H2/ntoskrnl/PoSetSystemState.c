@@ -1,24 +1,23 @@
 /*
- * XREFs of PoSetSystemState @ 0x14058DE00
+ * XREFs of PoSetSystemState @ 0x14056EF30
  * Callers:
- *     PoRegisterSystemState @ 0x14058DD30 (PoRegisterSystemState.c)
+ *     PoRegisterSystemState @ 0x14056EE50 (PoRegisterSystemState.c)
  * Callees:
- *     PopSetSystemState @ 0x14058DFAC (PopSetSystemState.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PopSetSystemState @ 0x1403A57C0 (PopSetSystemState.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 void __stdcall PoSetSystemState(EXECUTION_STATE Flags)
 {
-  char v2; // bl
+  unsigned __int8 CurrentIrql; // bl
+  __int64 v3; // rdx
+  __int64 v4; // rcx
 
-  v2 = 0;
-  if ( KeGetCurrentIrql() < 2u )
-  {
+  CurrentIrql = KeGetCurrentIrql();
+  if ( CurrentIrql < 2u )
     PopAcquirePolicyLock(Flags);
-    v2 = 1;
-  }
-  PopSetSystemState(Flags, 7LL);
-  if ( v2 )
-    PopReleasePolicyLock();
+  PopSetSystemState(Flags, 7u);
+  if ( CurrentIrql < 2u )
+    PopReleasePolicyLock(v4, v3);
 }

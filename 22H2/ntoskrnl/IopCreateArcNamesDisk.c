@@ -1,17 +1,17 @@
 /*
- * XREFs of IopCreateArcNamesDisk @ 0x140B3D164
+ * XREFs of IopCreateArcNamesDisk @ 0x140A61CE8
  * Callers:
- *     IopCreateArcNames @ 0x140B3D704 (IopCreateArcNames.c)
+ *     IopCreateArcNames @ 0x140A61BAC (IopCreateArcNames.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IoGetDeviceObjectPointer @ 0x14075B770 (IoGetDeviceObjectPointer.c)
- *     IopCreateArcName @ 0x14086FCF8 (IopCreateArcName.c)
- *     IoGetConfigurationInformation @ 0x140875CF0 (IoGetConfigurationInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     IopFetchConfigurationInformation @ 0x140B3D434 (IopFetchConfigurationInformation.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IoGetDeviceObjectPointer @ 0x140621240 (IoGetDeviceObjectPointer.c)
+ *     IopCreateArcName @ 0x140780218 (IopCreateArcName.c)
+ *     IoGetConfigurationInformation @ 0x140781A10 (IoGetConfigurationInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     IopFetchConfigurationInformation @ 0x140A61FB8 (IopFetchConfigurationInformation.c)
  */
 
 __int64 IopCreateArcNamesDisk()

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GrowUMPDHeap@UMPDOBJ@@AEAAHPEAU_UMPDHEAP@@K@Z @ 0x1C0299054
+ * XREFs of ?GrowUMPDHeap@UMPDOBJ@@AEAAHPEAU_UMPDHEAP@@K@Z @ 0x1C0139FA0
  * Callers:
- *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C0299658 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C001DE74 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
  * Callees:
  *     <none>
  */
@@ -27,9 +27,9 @@ __int64 __fastcall UMPDOBJ::GrowUMPDHeap(UMPDOBJ *this, struct _UMPDHEAP *a2, un
   if ( Size > 0x400000 )
     return 0LL;
   Address = *(PVOID *)a2;
-  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &Address, 0LL, &Size, 0x1000u, 4u) < 0 )
-    return 0LL;
-  v6 = MmSecureVirtualMemory(Address, Size, 4u);
+  v6 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &Address, 0LL, &Size, 0x1000u, 4u) < 0
+     ? 0LL
+     : MmSecureVirtualMemory(Address, Size, 4u);
   if ( !v6 )
     return 0LL;
   v7 = (void *)*((_QWORD *)a2 + 1);

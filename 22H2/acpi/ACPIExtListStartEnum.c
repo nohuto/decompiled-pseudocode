@@ -1,18 +1,16 @@
 /*
- * XREFs of ACPIExtListStartEnum @ 0x1C0026518
+ * XREFs of ACPIExtListStartEnum @ 0x1C001AD98
  * Callers:
- *     ACPIDockFindCorrespondingDock @ 0x1C0009314 (ACPIDockFindCorrespondingDock.c)
- *     ACPIBuildProcessRunMethodPhaseRecurse @ 0x1C0011C70 (ACPIBuildProcessRunMethodPhaseRecurse.c)
- *     ACPIBuildSurpriseRemovedExtension @ 0x1C0013960 (ACPIBuildSurpriseRemovedExtension.c)
- *     ACPIDetectDockDevices @ 0x1C0019FF0 (ACPIDetectDockDevices.c)
- *     ACPIDetectDuplicateHID @ 0x1C001A3EC (ACPIDetectDuplicateHID.c)
- *     ACPIDetectEjectDevices @ 0x1C001A6E0 (ACPIDetectEjectDevices.c)
- *     ACPIFilterRemoveNonPresentDevices @ 0x1C0029008 (ACPIFilterRemoveNonPresentDevices.c)
- *     ACPIGpeBuildWakeMasks @ 0x1C002C000 (ACPIGpeBuildWakeMasks.c)
- *     ACPIInitDeleteChildDeviceList @ 0x1C002CCA8 (ACPIInitDeleteChildDeviceList.c)
- *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C002E774 (ACPIInternalFindDeviceExtensionNoLock.c)
- *     EnableDisableDeviceTreeRegionSpace @ 0x1C00399C0 (EnableDisableDeviceTreeRegionSpace.c)
- *     ACPISystemPowerDetermineSupportedDeviceStates @ 0x1C003DB00 (ACPISystemPowerDetermineSupportedDeviceStates.c)
+ *     EnableDisableDeviceTreeRegionSpace @ 0x1C0018210 (EnableDisableDeviceTreeRegionSpace.c)
+ *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C001A750 (ACPIInternalFindDeviceExtensionNoLock.c)
+ *     ACPIDetectDockDevices @ 0x1C001A800 (ACPIDetectDockDevices.c)
+ *     ACPIFilterRemoveNonPresentDevices @ 0x1C001A974 (ACPIFilterRemoveNonPresentDevices.c)
+ *     ACPISystemPowerDetermineSupportedDeviceStates @ 0x1C001AAF0 (ACPISystemPowerDetermineSupportedDeviceStates.c)
+ *     ACPIDetectDuplicateHID @ 0x1C001ADF4 (ACPIDetectDuplicateHID.c)
+ *     ACPIBuildSurpriseRemovedExtension @ 0x1C002CAA0 (ACPIBuildSurpriseRemovedExtension.c)
+ *     ACPIInitDeleteChildDeviceList @ 0x1C002D204 (ACPIInitDeleteChildDeviceList.c)
+ *     ACPIDockFindCorrespondingDock @ 0x1C002D274 (ACPIDockFindCorrespondingDock.c)
+ *     ACPIDetectEjectDevices @ 0x1C004F600 (ACPIDetectEjectDevices.c)
  * Callees:
  *     <none>
  */

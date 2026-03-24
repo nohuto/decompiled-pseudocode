@@ -1,75 +1,75 @@
 /*
- * XREFs of KiBeginThreadAccountingPeriod @ 0x1402ECA00
+ * XREFs of KiBeginThreadAccountingPeriod @ 0x140288A40
  * Callers:
- *     KiChainedDispatch @ 0x140420C10 (KiChainedDispatch.c)
- *     KiInterruptDispatch @ 0x1404215E0 (KiInterruptDispatch.c)
- *     KiInterruptDispatchNoLock @ 0x140421A20 (KiInterruptDispatchNoLock.c)
- *     KiInterruptDispatchNoLockNoEtw @ 0x140421E60 (KiInterruptDispatchNoLockNoEtw.c)
- *     KiInterruptDispatchNoEOI @ 0x1404222A0 (KiInterruptDispatchNoEOI.c)
- *     KiSpuriousDispatchNoEOI @ 0x1404226D0 (KiSpuriousDispatchNoEOI.c)
- *     KxIsrLinkage @ 0x140423360 (KxIsrLinkage.c)
- *     KiHvInterruptDispatch @ 0x140426820 (KiHvInterruptDispatch.c)
- *     KiVmbusInterruptDispatch @ 0x140426C70 (KiVmbusInterruptDispatch.c)
- *     KiSwInterrupt @ 0x140427360 (KiSwInterrupt.c)
- *     KiIpiInterrupt @ 0x140428220 (KiIpiInterrupt.c)
- *     SwapContext @ 0x140428D90 (SwapContext.c)
+ *     KiChainedDispatch @ 0x1403FF5C0 (KiChainedDispatch.c)
+ *     KiInterruptDispatch @ 0x1403FFF40 (KiInterruptDispatch.c)
+ *     KiInterruptDispatchNoLock @ 0x140400330 (KiInterruptDispatchNoLock.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x140400720 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatchNoEOI @ 0x140400B10 (KiInterruptDispatchNoEOI.c)
+ *     KiSpuriousDispatchNoEOI @ 0x140400F00 (KiSpuriousDispatchNoEOI.c)
+ *     KxIsrLinkage @ 0x140401B40 (KxIsrLinkage.c)
+ *     KiHvInterruptDispatch @ 0x1404044B0 (KiHvInterruptDispatch.c)
+ *     KiVmbusInterruptDispatch @ 0x1404048B0 (KiVmbusInterruptDispatch.c)
+ *     KiSwInterrupt @ 0x140404F60 (KiSwInterrupt.c)
+ *     KiIpiInterrupt @ 0x140405CF0 (KiIpiInterrupt.c)
+ *     SwapContext @ 0x1404067C0 (SwapContext.c)
  * Callees:
- *     KiInsertDeferredPreemptionApc @ 0x1402EDFE8 (KiInsertDeferredPreemptionApc.c)
- *     KiBeginCounterAccumulation @ 0x140571770 (KiBeginCounterAccumulation.c)
+ *     KiInsertDeferredPreemptionApc @ 0x14027A5E4 (KiInsertDeferredPreemptionApc.c)
+ *     KiBeginCounterAccumulation @ 0x14051BDB0 (KiBeginCounterAccumulation.c)
  */
 
-void __fastcall KiBeginThreadAccountingPeriod(__int64 a1, struct _KTHREAD *a2, __int64 a3)
+void __fastcall KiBeginThreadAccountingPeriod(__int64 a1, struct _KTHREAD *a2, __int64 a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rbx
-  char v6; // r9
   __int64 Size; // r8
   __int64 v8; // rdx
   __int64 v9; // rax
   unsigned int v10; // ecx
   unsigned int v11; // edx
-  unsigned __int8 v12; // al
-  int v13; // eax
+  int v12; // eax
   _KSCHEDULING_GROUP *volatile SchedulingGroup; // rcx
-  char *v15; // rcx
+  char *v14; // rcx
   _BYTE *SchedulerAssist; // rax
 
   CurrentThread = a2;
   if ( a2 )
   {
-    v6 = 1;
+    LOBYTE(a4) = 1;
   }
   else
   {
     CurrentThread = KeGetCurrentThread();
-    v6 = 0;
+    LOBYTE(a4) = 0;
   }
   Size = CurrentThread->Header.Size;
+  if ( (Size & 0x10) != 0 )
+    *(_QWORD *)(a1 + 32456) = *(_QWORD *)(a1 + 32448);
   if ( (Size & 0x20) != 0 )
   {
-    v8 = *(_QWORD *)(a1 + 33968);
-    v9 = *(_QWORD *)(a1 + 33976);
-    if ( !v8 || !v9 )
-      goto LABEL_10;
-    if ( *(_BYTE *)(v9 + 100) )
+    v8 = *(_QWORD *)(a1 + 33128);
+    v9 = *(_QWORD *)(a1 + 33136);
+    if ( v8 && v9 )
     {
-      v10 = *(_DWORD *)(v9 + 116);
+      if ( *(_BYTE *)(v9 + 100) )
+      {
+        v10 = *(_DWORD *)(v9 + 116);
+      }
+      else
+      {
+        v10 = *(_DWORD *)(v9 + 72);
+        if ( v10 >= *(_DWORD *)(v8 + 368) )
+          v10 = *(_DWORD *)(v8 + 368);
+      }
     }
     else
     {
-      v10 = *(_DWORD *)(v9 + 72);
-      if ( v10 >= *(_DWORD *)(v8 + 512) )
-        v10 = *(_DWORD *)(v8 + 512);
+      v10 = 100;
     }
     if ( v10 < 0x4B )
       v11 = v10 / 0x19;
     else
-LABEL_10:
       v11 = 3;
-    if ( KeHeteroSystem )
-      v12 = *(_BYTE *)(a1 + 34056);
-    else
-      v12 = *(_BYTE *)(a1 + 34059);
-    a2 = (struct _KTHREAD *)(a1 + 8 * (v12 + 2 * (v11 + 2088LL)));
+    a2 = (struct _KTHREAD *)(a1 + 8 * (*(unsigned __int8 *)(a1 + 33208) + 4072LL + 2LL * v11));
     *(_QWORD *)&a2->Header.Lock += a3;
   }
   if ( (Size & 0x40) != 0 )
@@ -79,51 +79,45 @@ LABEL_10:
       SchedulerAssist[64] = 1;
   }
   *(_BYTE *)(a1 + 32) = 0;
-  if ( v6 )
+  if ( (_BYTE)a4 )
   {
-    if ( (Size & 0xB6) != 0 )
+    if ( (Size & 0x36) == 0 )
     {
-      if ( CurrentThread->WaitBlock[0].SparePtr )
-      {
-        LOBYTE(a2) = 1;
-        KiBeginCounterAccumulation(CurrentThread, a2);
-      }
       _enable();
-      if ( (CurrentThread->Header.Size & 4) == 0 )
-        goto LABEL_20;
-      v13 = *(&CurrentThread->MiscFlags + 1);
-      if ( (v13 & 0x800) == 0 )
+      return;
+    }
+    if ( CurrentThread->WaitBlock[0].SparePtr )
+    {
+      LOBYTE(a2) = 1;
+      KiBeginCounterAccumulation(CurrentThread, a2);
+    }
+    _enable();
+    if ( (CurrentThread->Header.Size & 4) != 0 )
+    {
+      v12 = *(&CurrentThread->MiscFlags + 1);
+      if ( (v12 & 0x800) == 0 )
       {
-        if ( (v13 & 0x600) != 0 )
-          goto LABEL_20;
+        if ( (v12 & 0x600) != 0 )
+          return;
         SchedulingGroup = CurrentThread->SchedulingGroup;
         if ( !SchedulingGroup )
-          goto LABEL_20;
-        v15 = (char *)SchedulingGroup + *(unsigned int *)(a1 + 216);
-        if ( !v15 )
-          goto LABEL_20;
-        while ( (v15[112] & 2) == 0 )
+          return;
+        v14 = (char *)SchedulingGroup + *(unsigned int *)(a1 + 216);
+        if ( !v14 )
+          return;
+        while ( (v14[112] & 2) == 0 )
         {
-          v15 = (char *)*((_QWORD *)v15 + 51);
-          if ( !v15 )
-            goto LABEL_20;
+          v14 = (char *)*((_QWORD *)v14 + 51);
+          if ( !v14 )
+            return;
         }
       }
       LOBYTE(Size) = 1;
-      KiInsertDeferredPreemptionApc(a1, CurrentThread, Size);
+      KiInsertDeferredPreemptionApc(a1, (__int64)CurrentThread, Size, a4);
     }
-    else
-    {
-      _enable();
-    }
-LABEL_20:
-    if ( KiHgsPlusEnabled )
-    {
-      CurrentThread->HgsFeedbackCycles = 0LL;
-      CurrentThread->HgsFeedbackStartTime = __rdtsc();
-    }
-    return;
   }
-  if ( (Size & 2) != 0 )
+  else if ( (Size & 2) != 0 )
+  {
     KiBeginCounterAccumulation(CurrentThread, 0LL);
+  }
 }

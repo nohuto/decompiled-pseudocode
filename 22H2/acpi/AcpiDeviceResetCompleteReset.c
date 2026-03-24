@@ -1,5 +1,5 @@
 /*
- * XREFs of AcpiDeviceResetCompleteReset @ 0x1C0023520
+ * XREFs of AcpiDeviceResetCompleteReset @ 0x1C0052710
  * Callers:
  *     <none>
  * Callees:

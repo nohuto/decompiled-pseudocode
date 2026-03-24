@@ -1,19 +1,19 @@
 /*
- * XREFs of ??1CLightStack@@QEAA@XZ @ 0x180049AB0
+ * XREFs of ??1CLightStack@@QEAA@XZ @ 0x180062880
  * Callers:
- *     ??1CPreComputeContext@@QEAA@XZ @ 0x180019C48 (--1CPreComputeContext@@QEAA@XZ.c)
- *     ??1CDrawingContext@@MEAA@XZ @ 0x1800499A8 (--1CDrawingContext@@MEAA@XZ.c)
- *     ??1COcclusionContext@@QEAA@XZ @ 0x1800644D8 (--1COcclusionContext@@QEAA@XZ.c)
+ *     ??1CDrawingContext@@EEAA@XZ @ 0x18003E334 (--1CDrawingContext@@EEAA@XZ.c)
+ *     ??1COcclusionContext@@QEAA@XZ @ 0x18003EF58 (--1COcclusionContext@@QEAA@XZ.c)
+ *     ??1CPreComputeContext@@QEAA@XZ @ 0x180044824 (--1CPreComputeContext@@QEAA@XZ.c)
  * Callees:
- *     ??$ReleaseInterface@VCHwLightCollectionBuffer@@@@YAXAEAPEAVCHwLightCollectionBuffer@@@Z @ 0x180046E5C (--$ReleaseInterface@VCHwLightCollectionBuffer@@@@YAXAEAPEAVCHwLightCollectionBuffer@@@Z.c)
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ?Clear@CLightStack@@QEAAXXZ @ 0x18008C2EC (-Clear@CLightStack@@QEAAXXZ.c)
+ *     ??$ReleaseInterface@VCHwLightCollectionBuffer@@@@YAXAEAPEAVCHwLightCollectionBuffer@@@Z @ 0x1800648B4 (--$ReleaseInterface@VCHwLightCollectionBuffer@@@@YAXAEAPEAVCHwLightCollectionBuffer@@@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?Clear@CLightStack@@QEAAXXZ @ 0x18008F06C (-Clear@CLightStack@@QEAAXXZ.c)
  */
 
 void __fastcall CLightStack::~CLightStack(CLightStack *this)
 {
   CLightStack::Clear(this);
-  ReleaseInterface<CHwLightCollectionBuffer>((__int64 *)this + 13);
-  DynArrayImpl<1>::~DynArrayImpl<1>((char *)this + 184);
-  DynArrayImpl<1>::~DynArrayImpl<1>(this);
+  ReleaseInterface<CHwLightCollectionBuffer>((char *)this + 104);
+  DynArrayImpl<0>::~DynArrayImpl<0>((char *)this + 184);
+  DynArrayImpl<0>::~DynArrayImpl<0>(this);
 }

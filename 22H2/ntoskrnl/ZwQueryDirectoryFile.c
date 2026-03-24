@@ -1,9 +1,8 @@
 /*
- * XREFs of ZwQueryDirectoryFile @ 0x14041AD40
+ * XREFs of ZwQueryDirectoryFile @ 0x1403FA0C0
  * Callers:
- *     DifZwQueryDirectoryFileWrapper @ 0x1405F3D50 (DifZwQueryDirectoryFileWrapper.c)
- *     IopFileUtilWalkDirectoryTreeHelper @ 0x1408847A4 (IopFileUtilWalkDirectoryTreeHelper.c)
- *     AslPathWildcardFindNext @ 0x140A55B1C (AslPathWildcardFindNext.c)
+ *     IopFileUtilWalkDirectoryTreeHelper @ 0x14077C750 (IopFileUtilWalkDirectoryTreeHelper.c)
+ *     AslPathWildcardFindNext @ 0x140969114 (AslPathWildcardFindNext.c)
  * Callees:
  *     <none>
  */

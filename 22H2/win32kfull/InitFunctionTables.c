@@ -1,37 +1,22 @@
 /*
- * XREFs of InitFunctionTables @ 0x1C03B49B0
+ * XREFs of InitFunctionTables @ 0x1C0393850
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
  */
 
-__int64 (__fastcall *InitFunctionTables())(struct tagWND *a1, unsigned int a2, unsigned __int64 a3, __int64 a4, ULONG64 a5)
+__int64 (__fastcall *__fastcall InitFunctionTables(int a1))(struct tagWND *a1, int a2, int a3, int a4, ULONG64 a5)
 {
-  __int64 v0; // rbx
-  char v1; // dl
-  __int64 v2; // rdx
+  __int64 v1; // rdx
+  __int64 v2; // r8
   __int64 v3; // rcx
   __int64 v4; // rax
-  __int64 (__fastcall *result)(struct tagWND *, unsigned int, unsigned __int64, __int64, ULONG64); // rax
+  __int64 (__fastcall *result)(struct tagWND *, int, int, int, ULONG64); // rax
 
-  v0 = 0LL;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) == 0
-    || (v1 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    v1 = 0;
-  }
-  if ( v1 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v1,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      11,
-      4,
-      3,
-      11,
-      (__int64)&WPP_1c171ce113663c9ff9c000b7a1ac03c0_Traceguids);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_(a1, 4, 3, 11, (__int64)&WPP_5beb818f3182338190d7890059714f79_Traceguids);
+  v1 = 0LL;
   v2 = 304LL;
   *(_QWORD *)(gpsi + 272LL) = 4LL;
   *(_QWORD *)(gpsi + 280LL) = 0LL;
@@ -43,36 +28,36 @@ __int64 (__fastcall *InitFunctionTables())(struct tagWND *a1, unsigned int a2, u
     v2 += 8LL;
   }
   while ( v2 < 320 );
-  *(_WORD *)(gpsi + 334LL) = 328;
-  *(_WORD *)(gpsi + 340LL) = 344;
-  *(_WORD *)(gpsi + 328LL) = 408;
-  *(_WORD *)(gpsi + 332LL) = 352;
-  *(_WORD *)(gpsi + 384LL) = 384;
+  *(_WORD *)(gpsi + 334LL) = 320;
+  *(_WORD *)(gpsi + 340LL) = 336;
+  *(_WORD *)(gpsi + 328LL) = 400;
+  *(_WORD *)(gpsi + 332LL) = 344;
+  *(_WORD *)(gpsi + 384LL) = 376;
   v3 = 32LL;
-  *(_WORD *)(gpsi + 330LL) = 328;
+  *(_WORD *)(gpsi + 330LL) = 320;
   do
   {
-    v4 = v0++ & 0x1F;
-    *((_QWORD *)&WPP_MAIN_CB.SectorSize + v4) = IsMulDestroyBrushInternalSupported;
+    v4 = v1++ & 0x1F;
+    mpFnidPfn[v4] = (__int64)IsMulDestroyBrushInternalSupported;
     --v3;
   }
   while ( v3 );
-  *(_QWORD *)&WPP_MAIN_CB.SectorSize = xxxWrapSBWndProc;
-  WPP_MAIN_CB.DeviceObjectExtension = (struct _DEVOBJ_EXTENSION *)xxxWrapRealDefWindowProc;
-  WPP_MAIN_CB.Reserved = xxxWrapMenuWindowProc;
-  *((_QWORD *)&WPP_MAIN_CB.Reserved + 1) = xxxWrapDesktopWndProc;
-  qword_1C035DED8 = (__int64)xxxWrapSendMessage;
-  qword_1C035DEA8 = (__int64)fnHkINLPCWPEXSTRUCT;
-  qword_1C035DEB0 = (__int64)fnHkINLPCWPRETEXSTRUCT;
-  qword_1C035DEE0 = (__int64)xxxSendMessageFF;
-  qword_1C035DEE8 = (__int64)xxxSendMessageEx;
-  qword_1C035DEF0 = (__int64)xxxWrapCallWindowProc;
-  qword_1C035DEF8 = (__int64)xxxWrapSendMessageBSM;
-  qword_1C035DE50 = (__int64)xxxWrapSwitchWndProc;
-  qword_1C035DF08 = (__int64)xxxWrapSendNotifyMessage;
+  mpFnidPfn[0] = (__int64)xxxWrapSBWndProc;
+  qword_1C0339018 = (__int64)xxxWrapRealDefWindowProc;
+  qword_1C0339020 = (__int64)xxxWrapMenuWindowProc;
+  qword_1C0339028 = (__int64)xxxWrapDesktopWndProc;
+  qword_1C03390C8 = (__int64)xxxWrapSendMessage;
+  qword_1C0339098 = (__int64)fnHkINLPCWPEXSTRUCT;
+  qword_1C03390A0 = (__int64)fnHkINLPCWPRETEXSTRUCT;
+  qword_1C03390D0 = (__int64)xxxSendMessageFF;
+  qword_1C03390D8 = (__int64)xxxSendMessageEx;
+  qword_1C03390E0 = (__int64)xxxWrapCallWindowProc;
+  qword_1C03390E8 = (__int64)xxxWrapSendMessageBSM;
+  qword_1C0339040 = (__int64)xxxWrapSwitchWndProc;
+  qword_1C03390F8 = (__int64)xxxWrapSendNotifyMessage;
   result = xxxWrapSendMessageCallback;
-  qword_1C035DF10 = (__int64)xxxWrapSendMessageCallback;
-  qword_1C035DE40 = (__int64)xxxWrapRealDefWindowProc;
-  qword_1C035DE48 = (__int64)xxxWrapRealDefWindowProc;
+  qword_1C0339100 = (__int64)xxxWrapSendMessageCallback;
+  qword_1C0339030 = (__int64)xxxWrapRealDefWindowProc;
+  qword_1C0339038 = (__int64)xxxWrapRealDefWindowProc;
   return result;
 }

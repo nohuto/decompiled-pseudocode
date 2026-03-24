@@ -1,24 +1,25 @@
 /*
- * XREFs of ?LockForRead@CompositionInputObject@@QEBAJPEAPEBVCInputSink@@@Z @ 0x1C0032930
+ * XREFs of ?LockForRead@CompositionInputObject@@QEBAJPEAPEBVCInputSink@@@Z @ 0x1C005DE40
  * Callers:
- *     ?QueryInputQueueForInputType@CompositionInputObject@@QEBAJW4CompositionInputType@@PEAUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C0032880 (-QueryInputQueueForInputType@CompositionInputObject@@QEBAJW4CompositionInputType@@PEAUCOMPOSITIO.c)
- *     ?QueryTransform@CompositionInputObject@@QEBAJPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C0032A34 (-QueryTransform@CompositionInputObject@@QEBAJPEAUtagINPUT_TRANSFORM@@@Z.c)
+ *     ?QueryTransform@CompositionInputObject@@QEBAJPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C005DC90 (-QueryTransform@CompositionInputObject@@QEBAJPEAUtagINPUT_TRANSFORM@@@Z.c)
+ *     ?QueryInputQueueForInputType@CompositionInputObject@@QEBAJW4CompositionInputType@@PEAUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C005DCF8 (-QueryInputQueueForInputType@CompositionInputObject@@QEBAJW4CompositionInputType@@PEAUCOMPOSITIO.c)
  * Callees:
- *     <none>
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C005DEB0 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
  */
 
-__int64 __fastcall CompositionInputObject::LockForRead(CompositionInputObject *this, const struct CInputSink **a2)
+__int64 __fastcall CompositionInputObject::LockForRead(char *Object, const struct CInputSink **a2)
 {
-  NTSTATUS v4; // r8d
+  NTSTATUS v4; // edi
 
   *a2 = 0LL;
-  v4 = ObReferenceObjectByPointer(this, 3u, ExCompositionObjectType, 0);
+  v4 = ObReferenceObjectByPointer(Object, 3u, ExCompositionObjectType, 0);
   if ( v4 >= 0 )
   {
-    KeEnterCriticalRegion();
-    ExAcquirePushLockSharedEx((char *)this + 32, 0LL);
-    v4 = 0;
-    *a2 = (CompositionInputObject *)((char *)this + 24);
+    v4 = CPushLock::AcquireLockShared((CPushLock *)(Object + 32));
+    if ( v4 < 0 )
+      ObfDereferenceObject(Object);
+    else
+      *a2 = (const struct CInputSink *)(Object + 24);
   }
   return (unsigned int)v4;
 }

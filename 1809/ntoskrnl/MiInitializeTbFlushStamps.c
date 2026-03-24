@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeTbFlushStamps @ 0x14011185C
+ * XREFs of MiInitializeTbFlushStamps @ 0x14011187C
  * Callers:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
- *     MiDeleteNonPagedPoolPte @ 0x140111590 (MiDeleteNonPagedPoolPte.c)
+ *     MiDeleteNonPagedPoolPte @ 0x1401115B0 (MiDeleteNonPagedPoolPte.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 struct _KTHREAD *__fastcall MiInitializeTbFlushStamps(unsigned __int64 a1)

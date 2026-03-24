@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpTryQueueWorkItem @ 0x1402EEE7C
+ * XREFs of ExpTryQueueWorkItem @ 0x14023BDCC
  * Callers:
- *     IoTryQueueWorkItem @ 0x140255440 (IoTryQueueWorkItem.c)
- *     ExTryQueueWorkItem @ 0x1402EEE50 (ExTryQueueWorkItem.c)
+ *     ExTryQueueWorkItem @ 0x14023BDA0 (ExTryQueueWorkItem.c)
+ *     IoTryQueueWorkItem @ 0x14037C9B0 (IoTryQueueWorkItem.c)
  * Callees:
- *     ExpPartitionCreateThreadIfNecessary @ 0x1402EF2BC (ExpPartitionCreateThreadIfNecessary.c)
- *     ExpTypeToPriority @ 0x1402EF304 (ExpTypeToPriority.c)
- *     MmGetNextNode @ 0x14030B3F0 (MmGetNextNode.c)
- *     ExpValidateWorkItem @ 0x140346210 (ExpValidateWorkItem.c)
- *     KeInsertPriQueue @ 0x1403462B0 (KeInsertPriQueue.c)
- *     ExpIsPoolReadyForWork @ 0x140346770 (ExpIsPoolReadyForWork.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeInsertPriQueue @ 0x14023BF70 (KeInsertPriQueue.c)
+ *     ExpValidateWorkItem @ 0x14023E6E8 (ExpValidateWorkItem.c)
+ *     ExpTypeToPriority @ 0x14023E730 (ExpTypeToPriority.c)
+ *     ExpIsPoolReadyForWork @ 0x1402428E0 (ExpIsPoolReadyForWork.c)
+ *     MmGetNextNode @ 0x1402936D4 (MmGetNextNode.c)
+ *     ExpPartitionCreateThreadIfNecessary @ 0x1402BFB8C (ExpPartitionCreateThreadIfNecessary.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall ExpTryQueueWorkItem(__int64 a1, ULONG_PTR a2, unsigned int a3, unsigned int a4)
@@ -20,7 +20,7 @@ char __fastcall ExpTryQueueWorkItem(__int64 a1, ULONG_PTR a2, unsigned int a3, u
   __int64 CurrentIrql; // rbx
   unsigned int v9; // esi
   unsigned __int16 NextNode; // ax
-  unsigned __int16 *v11; // r14
+  __int64 v11; // r14
   int v12; // r9d
   int v13; // r10d
   __int64 v14; // rdi
@@ -47,18 +47,18 @@ char __fastcall ExpTryQueueWorkItem(__int64 a1, ULONG_PTR a2, unsigned int a3, u
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
-  v9 = KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0];
+  v9 = KeGetCurrentPrcb()->ParentNode->Affinity.Reserved[0];
   NextNode = v9;
   if ( (unsigned __int16)v9 < (unsigned __int16)KeNumberNodes )
   {
     while ( 1 )
     {
-      v11 = (unsigned __int16 *)KeNodeBlock[NextNode];
-      if ( v11 == (unsigned __int16 *)((char *)&KiNodeInit + 280 * NextNode) )
+      v11 = KeNodeBlock[NextNode];
+      if ( (_UNKNOWN *)v11 == (_UNKNOWN *)((char *)&KiNodeInit + 384 * NextNode) )
         v11 = 0LL;
       if ( (unsigned __int8)ExpIsPoolReadyForWork(a1, v11, a4) )
       {
-        v14 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL * *v11) + 8LL * (int)a4);
+        v14 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL * *(unsigned __int16 *)(v11 + 146)) + 8LL * (int)a4);
         if ( (v14 & 1) != 0 )
           v14 = 0LL;
         inserted = KeInsertPriQueue(v14, v4, v22, v12, v13);

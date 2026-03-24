@@ -1,58 +1,57 @@
 /*
- * XREFs of PnpNotifyDriverCallback @ 0x14078D3DC
+ * XREFs of PnpNotifyDriverCallback @ 0x1406E5CC4
  * Callers:
- *     IoRegisterPlugPlayNotification @ 0x140768390 (IoRegisterPlugPlayNotification.c)
- *     PnpNotifyTargetDeviceChange @ 0x14078B7C4 (PnpNotifyTargetDeviceChange.c)
- *     PnpNotifyDeviceClassChange @ 0x14078D5D8 (PnpNotifyDeviceClassChange.c)
- *     PnpNotifyHwProfileChange @ 0x14094488C (PnpNotifyHwProfileChange.c)
- *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x140944ADC (PnpNotifyTargetDeviceChangeNotifyEntry.c)
- *     PipKsrNotifyDrivers @ 0x140958B94 (PipKsrNotifyDrivers.c)
+ *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x1405CEDD8 (PnpNotifyTargetDeviceChangeNotifyEntry.c)
+ *     IoRegisterPlugPlayNotification @ 0x1406C4890 (IoRegisterPlugPlayNotification.c)
+ *     PnpNotifyTargetDeviceChange @ 0x1406E6FA0 (PnpNotifyTargetDeviceChange.c)
+ *     PnpNotifyDeviceClassChange @ 0x14073D5D8 (PnpNotifyDeviceClassChange.c)
+ *     PnpNotifyHwProfileChange @ 0x14089FAC8 (PnpNotifyHwProfileChange.c)
+ *     PipKsrNotifyDrivers @ 0x1408B2F78 (PipKsrNotifyDrivers.c)
  * Callees:
- *     MmDetachSession @ 0x140231240 (MmDetachSession.c)
- *     MmAttachSession @ 0x1402312E0 (MmAttachSession.c)
- *     PsGetCurrentProcessSessionId @ 0x140287F00 (PsGetCurrentProcessSessionId.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     MmGetSessionById @ 0x1402DF880 (MmGetSessionById.c)
- *     MmIsSessionAddress @ 0x140359DE0 (MmIsSessionAddress.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     MmGetSessionById @ 0x140206410 (MmGetSessionById.c)
+ *     PsGetCurrentProcessSessionId @ 0x14025F5C0 (PsGetCurrentProcessSessionId.c)
+ *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
+ *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     MmIsSessionAddress @ 0x140349110 (MmIsSessionAddress.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnpNotifyDriverCallback(__int64 a1, __int64 a2, _DWORD *a3)
 {
   __int64 (__fastcall *v3)(__int64, _QWORD); // rdi
-  BOOL IsSessionAddress; // eax
   unsigned __int8 CurrentIrql; // r13
-  unsigned __int8 v9; // r15
+  unsigned __int8 v8; // r15
   LONG SpareLong; // r12d
   unsigned int CombinedApcDisable; // ebp
+  __int64 v11; // rdx
   int v12; // eax
   int v13; // edi
-  ULONG_PTR SessionById; // rax
-  void *v16; // rsi
+  _KPROCESS *SessionById; // rax
+  struct _DMA_ADAPTER *v16; // rsi
   int v17; // eax
   ULONG_PTR v18; // r8
   _OWORD v20[3]; // [rsp+38h] [rbp-70h] BYREF
 
   v3 = *(__int64 (__fastcall **)(__int64, _QWORD))(a1 + 32);
   memset(v20, 0, sizeof(v20));
-  IsSessionAddress = MmIsSessionAddress((__int64)v3);
-  if ( !IsSessionAddress || *(_QWORD *)(a1 + 24) )
+  if ( !MmIsSessionAddress((unsigned __int64)v3) || *(_QWORD *)(a1 + 24) )
   {
     CurrentIrql = 0;
-    v9 = 0;
+    v8 = 0;
     SpareLong = 0;
     CombinedApcDisable = 0;
-    if ( !IsSessionAddress
+    if ( !MmIsSessionAddress((unsigned __int64)v3)
       || (KeGetCurrentThread()->ApcState.Process[1].DirectoryTableBase & 0x1000000000000LL) != 0
       && *(_DWORD *)(a1 + 20) == (unsigned int)PsGetCurrentProcessSessionId() )
     {
       CurrentIrql = KeGetCurrentIrql();
       SpareLong = KeGetCurrentThread()->WaitBlock[3].SpareLong;
       v12 = v3(a2, *(_QWORD *)(a1 + 40));
-      v9 = KeGetCurrentIrql();
+      v8 = KeGetCurrentIrql();
       CombinedApcDisable = KeGetCurrentThread()->CombinedApcDisable;
       if ( a3 )
         *a3 = v12;
@@ -60,25 +59,25 @@ __int64 __fastcall PnpNotifyDriverCallback(__int64 a1, __int64 a2, _DWORD *a3)
     }
     else
     {
-      SessionById = MmGetSessionById(*(_DWORD *)(a1 + 20));
-      v16 = (void *)SessionById;
+      SessionById = (_KPROCESS *)MmGetSessionById(*(unsigned int *)(a1 + 20), v11);
+      v16 = (struct _DMA_ADAPTER *)SessionById;
       if ( !SessionById )
         return (unsigned int)-1073741823;
-      v13 = MmAttachSession(SessionById);
+      v13 = MmAttachSession(SessionById, (__int64)v20);
       if ( v13 >= 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
         SpareLong = KeGetCurrentThread()->WaitBlock[3].SpareLong;
         v17 = (*(__int64 (__fastcall **)(__int64, _QWORD))(a1 + 32))(a2, *(_QWORD *)(a1 + 40));
-        v9 = KeGetCurrentIrql();
+        v8 = KeGetCurrentIrql();
         CombinedApcDisable = KeGetCurrentThread()->CombinedApcDisable;
         if ( a3 )
           *a3 = v17;
         v13 = MmDetachSession((__int64)v16, (__int64)v20);
       }
-      ObfDereferenceObject(v16);
+      HalPutDmaAdapter(v16);
     }
-    if ( CurrentIrql != v9 || SpareLong != CombinedApcDisable )
+    if ( CurrentIrql != v8 || SpareLong != CombinedApcDisable )
     {
       v18 = *(_QWORD *)(a1 + 48);
       if ( v18 )
@@ -94,7 +93,7 @@ __int64 __fastcall PnpNotifyDriverCallback(__int64 a1, __int64 a2, _DWORD *a3)
           v18 = *(_QWORD *)(a1 + 48);
         }
       }
-      KeBugCheckEx(0xCAu, 0xAuLL, v18, v9, CombinedApcDisable);
+      KeBugCheckEx(0xCAu, 0xAuLL, v18, v8, CombinedApcDisable);
     }
     return (unsigned int)v13;
   }

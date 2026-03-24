@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiGetIntegratedDisplayOrientationOverrides @ 0x1C0397438
+ * XREFs of DpiGetIntegratedDisplayOrientationOverrides @ 0x1C02D8DC0
  * Callers:
- *     ?_PrepareDefaultMonitorConfiguration@DXGMONITOR@@AEAAXXZ @ 0x1C0209040 (-_PrepareDefaultMonitorConfiguration@DXGMONITOR@@AEAAXXZ.c)
+ *     ?_PrepareDefaultMonitorConfiguration@DXGMONITOR@@AEAAXXZ @ 0x1C01906C0 (-_PrepareDefaultMonitorConfiguration@DXGMONITOR@@AEAAXXZ.c)
  * Callees:
- *     DpiFdoGetChildDescriptor @ 0x1C001E234 (DpiFdoGetChildDescriptor.c)
+ *     DpiFdoGetChildDescriptor @ 0x1C001A270 (DpiFdoGetChildDescriptor.c)
  */
 
 __int64 __fastcall DpiGetIntegratedDisplayOrientationOverrides(__int64 a1, int a2, int *a3, _DWORD *a4)

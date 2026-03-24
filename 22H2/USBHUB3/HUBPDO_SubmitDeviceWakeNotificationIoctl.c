@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBPDO_SubmitDeviceWakeNotificationIoctl @ 0x1C001C460
+ * XREFs of HUBPDO_SubmitDeviceWakeNotificationIoctl @ 0x1C0019BF0
  * Callers:
- *     HUBPDO_EvtDeviceEnableWakeAtBus @ 0x1C001C6B0 (HUBPDO_EvtDeviceEnableWakeAtBus.c)
+ *     HUBPDO_EvtDeviceEnableWakeAtBus @ 0x1C0019E40 (HUBPDO_EvtDeviceEnableWakeAtBus.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0044EC0 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBPDO_SubmitDeviceWakeNotificationIoctl(_QWORD *a1)
@@ -38,19 +38,19 @@ __int64 __fastcall HUBPDO_SubmitDeviceWakeNotificationIoctl(_QWORD *a1)
     v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
            WdfDriverGlobals,
            WdfDriverGlobals->Driver,
-           off_1C00691E8);
+           off_1C00661C0);
     WPP_RECORDER_SF_d(
       *(_QWORD *)(v7 + 64),
       2u,
       2u,
       0x3Bu,
-      (__int64)&WPP_f96a94952a6932bc87af489d3d93d325_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       v6);
   }
   v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          v5,
-         off_1C0069310);
+         off_1C00662B8);
   *(_OWORD *)v8 = 0LL;
   *(_QWORD *)(v8 + 16) = 0LL;
   *(_WORD *)(v8 + 2) = 24;
@@ -84,8 +84,8 @@ __int64 __fastcall HUBPDO_SubmitDeviceWakeNotificationIoctl(_QWORD *a1)
         *(_QWORD *)(a1[1] + 1432LL),
         4u,
         5u,
-        0x96u,
-        (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+        0x82u,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         v11);
     }
   }

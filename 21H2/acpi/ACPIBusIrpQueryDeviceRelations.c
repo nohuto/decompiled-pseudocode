@@ -1,16 +1,16 @@
 /*
- * XREFs of ACPIBusIrpQueryDeviceRelations @ 0x1C008E540
+ * XREFs of ACPIBusIrpQueryDeviceRelations @ 0x1C008F4A0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C0001908 (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
- *     WPP_RECORDER_SF_qsdqss @ 0x1C0029A54 (WPP_RECORDER_SF_qsdqss.c)
- *     ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C004BEC8 (ACPIBusAndFilterIrpQueryRemovalRelations.c)
- *     ACPIBusIrpQueryTargetRelation @ 0x1C008E490 (ACPIBusIrpQueryTargetRelation.c)
- *     ACPIBusIrpQueryBusRelations @ 0x1C00A0C78 (ACPIBusIrpQueryBusRelations.c)
- *     ACPIBusAndFilterIrpQueryEjectRelations @ 0x1C00AC5AC (ACPIBusAndFilterIrpQueryEjectRelations.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_qsdqss @ 0x1C002B5AC (WPP_RECORDER_SF_qsdqss.c)
+ *     ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C004D120 (ACPIBusAndFilterIrpQueryRemovalRelations.c)
+ *     ACPIBusIrpQueryTargetRelation @ 0x1C008F638 (ACPIBusIrpQueryTargetRelation.c)
+ *     ACPIBusIrpQueryBusRelations @ 0x1C00A2AC0 (ACPIBusIrpQueryBusRelations.c)
+ *     ACPIBusAndFilterIrpQueryEjectRelations @ 0x1C00AD9B0 (ACPIBusAndFilterIrpQueryEjectRelations.c)
  */
 
 __int64 __fastcall ACPIBusIrpQueryDeviceRelations(PVOID Object, PIRP Irp)
@@ -18,21 +18,20 @@ __int64 __fastcall ACPIBusIrpQueryDeviceRelations(PVOID Object, PIRP Irp)
   _IO_STACK_LOCATION *CurrentStackLocation; // rbx
   unsigned __int8 MinorFunction; // r12
   __int64 DeviceExtension; // rax
-  __int64 v7; // rcx
   unsigned int Length; // ebx
-  const char *v9; // r15
-  char v10; // bp
-  __int64 v11; // rsi
+  const char *v8; // r15
+  char v9; // bp
+  __int64 v10; // rsi
   int RemovalRelations; // eax
   unsigned int Status; // ebx
-  __int64 v14; // rcx
-  char *v15; // rax
-  const char *v16; // r8
+  __int64 v13; // rcx
+  char *v14; // rax
+  const char *v15; // r8
   char *IrpText; // rax
-  __int64 v19; // rdx
-  const char *v20; // r8
-  char v21; // r10
-  const char *v22; // r11
+  __int64 v18; // rdx
+  const char *v19; // r8
+  char v20; // r10
+  const char *v21; // r11
   unsigned __int64 Information; // [rsp+98h] [rbp+10h] BYREF
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
@@ -40,9 +39,9 @@ __int64 __fastcall ACPIBusIrpQueryDeviceRelations(PVOID Object, PIRP Irp)
   MinorFunction = CurrentStackLocation->MinorFunction;
   DeviceExtension = ACPIInternalGetDeviceExtension((ULONG_PTR)Object);
   Length = CurrentStackLocation->Parameters.Read.Length;
-  v9 = (const char *)&unk_1C006FB8B;
-  v10 = 0;
-  v11 = DeviceExtension;
+  v8 = byte_1C00701BA;
+  v9 = 0;
+  v10 = DeviceExtension;
   if ( Length )
   {
     switch ( Length )
@@ -54,24 +53,24 @@ __int64 __fastcall ACPIBusIrpQueryDeviceRelations(PVOID Object, PIRP Irp)
         RemovalRelations = ACPIBusAndFilterIrpQueryRemovalRelations((ULONG_PTR)Object, (PVOID *)&Information);
         break;
       case 4u:
-        RemovalRelations = ACPIBusIrpQueryTargetRelation(Object, (char)Irp, (PVOID *)&Information);
+        RemovalRelations = ACPIBusIrpQueryTargetRelation(Object);
         break;
       default:
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          IrpText = ACPIDebugGetIrpText(v7, MinorFunction);
+          IrpText = ACPIDebugGetIrpText(0x200000000000LL, MinorFunction);
           WPP_RECORDER_SF_qsdqss(
             (__int64)WPP_GLOBAL_Control->DeviceExtension,
-            v19,
-            (__int64)v20,
+            v18,
+            (__int64)v19,
             0x24u,
-            (__int64)&WPP_e0390298aa1f3c0f48cd552b2cad3fe8_Traceguids,
+            (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
             (char)Irp,
             IrpText,
             Length,
+            v20,
             v21,
-            v22,
-            v20);
+            v19);
         }
         goto LABEL_22;
     }
@@ -97,27 +96,31 @@ LABEL_22:
   Irp->IoStatus.Information = Information;
 LABEL_5:
   IofCompleteRequest(Irp, 0);
-  if ( v11 )
+  if ( v10 )
   {
-    v10 = v11;
-    if ( (*(_QWORD *)(v11 + 8) & 0x200000000000LL) != 0 )
-      v9 = *(const char **)(v11 + 608);
+    v13 = 0x200000000000LL;
+    v9 = v10;
+    if ( (*(_QWORD *)(v10 + 8) & 0x200000000000LL) != 0 )
+    {
+      v8 = *(const char **)(v10 + 568);
+      v13 = 0x400000000000LL;
+    }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v15 = ACPIDebugGetIrpText(v14, MinorFunction);
+    v14 = ACPIDebugGetIrpText(v13, MinorFunction);
     WPP_RECORDER_SF_qsLqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       5u,
       0x25u,
-      (__int64)&WPP_e0390298aa1f3c0f48cd552b2cad3fe8_Traceguids,
+      (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
       (char)Irp,
-      v15,
+      v14,
       Status,
-      v10,
       v9,
-      v16);
+      v8,
+      v15);
   }
   return Status;
 }

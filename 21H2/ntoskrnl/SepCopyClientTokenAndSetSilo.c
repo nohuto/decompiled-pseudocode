@@ -1,33 +1,35 @@
 /*
- * XREFs of SepCopyClientTokenAndSetSilo @ 0x1409C61B0
+ * XREFs of SepCopyClientTokenAndSetSilo @ 0x14091C7CC
  * Callers:
- *     SepCreateClientSecurityEx @ 0x140727350 (SepCreateClientSecurityEx.c)
- *     SepUpdateSiloInClientSecurity @ 0x1409CC028 (SepUpdateSiloInClientSecurity.c)
+ *     SepCreateClientSecurityEx @ 0x14065E160 (SepCreateClientSecurityEx.c)
+ *     SepUpdateSiloInClientSecurity @ 0x140922668 (SepUpdateSiloInClientSecurity.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PsGetServerSiloServiceSessionId @ 0x1402DF7B0 (PsGetServerSiloServiceSessionId.c)
- *     SeCopyClientToken @ 0x14072295C (SeCopyClientToken.c)
- *     SeSetSessionIdToken @ 0x1407530D0 (SeSetSessionIdToken.c)
- *     SepSetServerSiloToken @ 0x1409C664C (SepSetServerSiloToken.c)
+ *     PsGetServerSiloServiceSessionId @ 0x140264460 (PsGetServerSiloServiceSessionId.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     SeCopyClientToken @ 0x140661D04 (SeCopyClientToken.c)
+ *     SeSetSessionIdToken @ 0x1406BA010 (SeSetSessionIdToken.c)
+ *     SepSetServerSiloToken @ 0x14091CC64 (SepSetServerSiloToken.c)
  */
 
-__int64 __fastcall SepCopyClientTokenAndSetSilo(int a1, int a2, __int64 a3, PVOID *a4)
+__int64 __fastcall SepCopyClientTokenAndSetSilo(int a1, int a2, __int64 a3, PADAPTER_OBJECT *a4)
 {
   __int64 result; // rax
+  NTSTATUS v7; // ebx
   ULONG ServerSiloServiceSessionId; // eax
-  NTSTATUS v8; // ebx
 
   result = SeCopyClientToken(a1, a2, a3, 0, 0LL, a4);
+  v7 = result;
   if ( (int)result >= 0 )
   {
     ServerSiloServiceSessionId = PsGetServerSiloServiceSessionId(a3);
-    if ( ServerSiloServiceSessionId != -1 && (v8 = SeSetSessionIdToken(*a4, ServerSiloServiceSessionId), v8 < 0)
-      || (v8 = SepSetServerSiloToken(*a4, a3), v8 < 0) )
+    if ( ServerSiloServiceSessionId != -1 )
+      v7 = SeSetSessionIdToken(*a4, ServerSiloServiceSessionId);
+    if ( v7 < 0 || (v7 = SepSetServerSiloToken(*a4, a3), v7 < 0) )
     {
-      ObfDereferenceObject(*a4);
+      HalPutDmaAdapter(*a4);
       *a4 = 0LL;
     }
-    return (unsigned int)v8;
+    return (unsigned int)v7;
   }
   return result;
 }

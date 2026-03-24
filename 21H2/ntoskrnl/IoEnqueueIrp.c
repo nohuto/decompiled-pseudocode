@@ -1,9 +1,9 @@
 /*
- * XREFs of IoEnqueueIrp @ 0x1409363B0
+ * XREFs of IoEnqueueIrp @ 0x140893B60
  * Callers:
  *     <none>
  * Callees:
- *     IopQueueThreadIrp @ 0x1402AE1B0 (IopQueueThreadIrp.c)
+ *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
  */
 
 __int64 __fastcall IoEnqueueIrp(__int64 a1)

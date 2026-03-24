@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserSetDialogControlDpiChangeBehavior @ 0x1C01FCF30
+ * XREFs of NtUserSetDialogControlDpiChangeBehavior @ 0x1C0201CB0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserSetDialogControlDpiChangeBehavior(__int64 a1, char a2, unsigned __int8 a3)
@@ -21,7 +21,7 @@ __int64 __fastcall NtUserSetDialogControlDpiChangeBehavior(__int64 a1, char a2, 
 
   v15 = 0LL;
   v16 = 0LL;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v6 = ValidateHwnd(a1);
   v8 = 0LL;
   v9 = v6;
@@ -39,9 +39,9 @@ __int64 __fastcall NtUserSetDialogControlDpiChangeBehavior(__int64 a1, char a2, 
     }
     else
     {
-      UserSetLastError(5LL, v11);
+      UserSetLastError(5LL, v11, v12);
     }
-    ThreadUnlock1(v13, v11, v12);
+    ThreadUnlock1(v13);
   }
   UserSessionSwitchLeaveCrit(v7);
   return v8;

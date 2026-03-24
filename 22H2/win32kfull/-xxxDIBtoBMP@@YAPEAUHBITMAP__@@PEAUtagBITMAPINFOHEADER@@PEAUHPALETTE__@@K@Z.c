@@ -1,14 +1,14 @@
 /*
- * XREFs of ?xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z @ 0x1C01FCAD4
+ * XREFs of ?xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z @ 0x1C021E8F8
  * Callers:
- *     ?xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FCE8C (-xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021EA7C (-xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
  * Callees:
- *     ?GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z @ 0x1C0097424 (-GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z.c)
- *     GreGetBitmapBitsSize @ 0x1C00E0B68 (GreGetBitmapBitsSize.c)
- *     _SelectPalette @ 0x1C0131050 (_SelectPalette.c)
- *     ?CreateScreenBitmap@@YAPEAUHBITMAP__@@HHI@Z @ 0x1C01FBEB8 (-CreateScreenBitmap@@YAPEAUHBITMAP__@@HHI@Z.c)
- *     xxxRealizePalette @ 0x1C0214E58 (xxxRealizePalette.c)
- *     GreSetDIBits @ 0x1C02DE7F8 (GreSetDIBits.c)
+ *     ?GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z @ 0x1C0080254 (-GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z.c)
+ *     GreGetBitmapBitsSize @ 0x1C00ABCE4 (GreGetBitmapBitsSize.c)
+ *     _SelectPalette @ 0x1C01013B4 (_SelectPalette.c)
+ *     xxxRealizePalette @ 0x1C011B890 (xxxRealizePalette.c)
+ *     ?CreateScreenBitmap@@YAPEAUHBITMAP__@@HHI@Z @ 0x1C021E580 (-CreateScreenBitmap@@YAPEAUHBITMAP__@@HHI@Z.c)
+ *     GreSetDIBits @ 0x1C02C0758 (GreSetDIBits.c)
  */
 
 HSURF __fastcall xxxDIBtoBMP(const struct tagBITMAPINFO *a1, __int64 a2, unsigned int a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of PiSwBusRelationsCompareInstancePath @ 0x1406DAF30
+ * XREFs of PiSwBusRelationsCompareInstancePath @ 0x1406DAF10
  * Callers:
  *     <none>
  * Callees:

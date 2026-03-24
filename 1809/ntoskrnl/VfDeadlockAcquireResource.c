@@ -22,11 +22,11 @@
  *     VerifierExAcquireFastMutexUnsafe @ 0x140942110 (VerifierExAcquireFastMutexUnsafe.c)
  *     VerifierExTryToAcquireFastMutex @ 0x140942300 (VerifierExTryToAcquireFastMutex.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1400CCC90 (RtlCaptureStackBackTrace.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
- *     ViLowerIrql @ 0x14030B40C (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x14030B468 (ViRaiseIrqlToDpcLevel.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
+ *     ViLowerIrql @ 0x14030B50C (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x14030B568 (ViRaiseIrqlToDpcLevel.c)
  *     ViDeadlockAddResource @ 0x14093C74C (ViDeadlockAddResource.c)
  *     ViDeadlockAddThread @ 0x14093C98C (ViDeadlockAddThread.c)
  *     ViDeadlockAllocate @ 0x14093CA4C (ViDeadlockAllocate.c)
@@ -201,10 +201,10 @@ LABEL_25:
     if ( ((unsigned int)(v5 - 3) > 1 || (unsigned int)(v22 - 3) > 1) && (v22 != 7 || (unsigned int)(v5 - 5) > 1) )
     {
       ViDeadlockPreprocessOptions(
-        byte_140405540,
+        byte_140405534,
         "Acquiring lock 0x%p using mismatched API for this lock type.",
         (const void *)0x1008);
-      VfReportIssueWithOptions(0xC4u, 0x1008uLL, a1, *v20, v5, byte_140405540);
+      VfReportIssueWithOptions(0xC4u, 0x1008uLL, a1, *v20, v5, byte_140405534);
 LABEL_36:
       v18 = v52;
       v19 = 0;

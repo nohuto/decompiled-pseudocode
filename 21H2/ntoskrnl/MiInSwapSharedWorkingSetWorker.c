@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInSwapSharedWorkingSetWorker @ 0x14097FF40
+ * XREFs of MiInSwapSharedWorkingSetWorker @ 0x1408D9B00
  * Callers:
  *     <none>
  * Callees:
- *     MiProcessWsInSwapSupport @ 0x14025EC08 (MiProcessWsInSwapSupport.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     MiGetProcessPartition @ 0x14032A72C (MiGetProcessPartition.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MiFreeWorkingSetSwapContext @ 0x1406EC158 (MiFreeWorkingSetSwapContext.c)
- *     EtwTraceWorkingSetSwap @ 0x1406EC338 (EtwTraceWorkingSetSwap.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     MiGetProcessPartition @ 0x14021AD40 (MiGetProcessPartition.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     MiProcessWsInSwapSupport @ 0x14035CFC8 (MiProcessWsInSwapSupport.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiFreeWorkingSetSwapContext @ 0x140710620 (MiFreeWorkingSetSwapContext.c)
+ *     EtwTraceWorkingSetSwap @ 0x14071071C (EtwTraceWorkingSetSwap.c)
  */
 
 LONG_PTR __fastcall MiInSwapSharedWorkingSetWorker(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -29,11 +29,11 @@ LONG_PTR __fastcall MiInSwapSharedWorkingSetWorker(__int64 a1, __int64 a2, __int
   LODWORD(v8[0]) = 1;
   EtwTraceWorkingSetSwap((PEPROCESS)v4, 3, (__int64)v8);
   _InterlockedExchange((volatile __int32 *)(v4 + 2272), 1000);
-  MiProcessWsInSwapSupport(*(_QWORD *)(a1 + 8), 1);
+  MiProcessWsInSwapSupport(*(_QWORD *)(a1 + 8), 1u);
   _InterlockedExchange((volatile __int32 *)(v4 + 2272), 0);
   LODWORD(v9) = -1;
   EtwTraceWorkingSetSwap((PEPROCESS)v4, 1, (__int64)v8);
-  KiUnstackDetachProcess((__int64)v10, 0LL);
+  KiUnstackDetachProcess((__int64)v10, 0);
   ProcessPartition = MiGetProcessPartition(v4);
   *(_QWORD *)(a1 + 48) = 0LL;
   MiFreeWorkingSetSwapContext(ProcessPartition, a1);

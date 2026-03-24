@@ -1,22 +1,24 @@
 /*
- * XREFs of KiPreprocessFlushTb @ 0x1402EB29C
+ * XREFs of KiPreprocessFlushTb @ 0x140231050
  * Callers:
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     KeFlushMultipleRangeTb @ 0x14038E834 (KeFlushMultipleRangeTb.c)
+ *     KeFlushTb @ 0x14022FA90 (KeFlushTb.c)
+ *     KeFlushSingleTb @ 0x140334A18 (KeFlushSingleTb.c)
+ *     KeFlushEntireTb @ 0x1403B6A90 (KeFlushEntireTb.c)
  * Callees:
- *     KiAffinityContainsProcessorsOtherThanSelf @ 0x14034E7B0 (KiAffinityContainsProcessorsOtherThanSelf.c)
- *     KiIsFlushEntire @ 0x14045FF3C (KiIsFlushEntire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAffinityContainsProcessorsOtherThanSelf @ 0x1402C9710 (KiAffinityContainsProcessorsOtherThanSelf.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIsFlushEntire @ 0x1405199CC (KiIsFlushEntire.c)
  */
 
 char __fastcall KiPreprocessFlushTb(char a1, unsigned int a2, int a3, _BYTE *a4, unsigned __int8 *a5)
 {
+  char result; // al
+  unsigned __int8 CurrentIrql; // r10
   struct _KPRCB *CurrentPrcb; // rcx
   _KTHREAD *CurrentThread; // rax
-  unsigned __int8 CurrentIrql; // r8
-  _DWORD *SchedulerAssist; // r10
-  __int64 v11; // rdx
-  unsigned __int64 v12; // rdi
+  unsigned __int8 *v10; // r11
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int64 v12; // rsi
   unsigned __int8 v13; // al
   struct _KPRCB *v14; // r9
   int v15; // eax
@@ -27,15 +29,17 @@ char __fastcall KiPreprocessFlushTb(char a1, unsigned int a2, int a3, _BYTE *a4,
   if ( (HvlEnlightenments & 4) == 0 )
     goto LABEL_2;
   if ( (HvlEnlightenments & 2) != 0 )
-    goto LABEL_9;
+    goto LABEL_15;
   if ( a1 )
   {
     if ( (HvlEnlightenments & 0x800000) != 0 && (unsigned __int8)KiIsFlushEntire(a2) )
-      goto LABEL_9;
+      goto LABEL_15;
   }
   else if ( (KiFlushPcid & 3) == 1 )
   {
-    goto LABEL_9;
+LABEL_15:
+    *a4 = 1;
+    return 0;
   }
   if ( (_DWORD)KeNumberProcessors_0 == 1 )
   {
@@ -44,22 +48,14 @@ LABEL_2:
     return 0;
   }
   if ( a3 )
-  {
-LABEL_9:
-    *a4 = 1;
-    return 0;
-  }
+    goto LABEL_15;
   _InterlockedOr(v18, 0);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 12 )
-      LODWORD(v11) = 4096;
-    else
-      v11 = (-1LL << (CurrentIrql + 1)) & 0x1FFC;
-    SchedulerAssist[5] |= v11;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x1FFC;
   }
   CurrentPrcb = KeGetCurrentPrcb();
   CurrentThread = CurrentPrcb->CurrentThread;
@@ -68,25 +64,32 @@ LABEL_9:
                        CurrentPrcb,
                        &CurrentThread->ApcState.Process->ActiveProcessors) )
   {
-    v12 = *a5;
+    v12 = *v10;
     if ( KiIrqlFlags )
     {
-      v13 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v13 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v14 = KeGetCurrentPrcb();
-        v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
-        v16 = v14->SchedulerAssist;
-        v17 = (v15 & v16[5]) == 0;
-        v16[5] &= v15;
-        if ( v17 )
-          KiRemoveSystemWorkPriorityKick(v14);
+        v13 = KeGetCurrentIrql();
+        if ( v13 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v13 >= 2u )
+        {
+          v14 = KeGetCurrentPrcb();
+          v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+          v16 = v14->SchedulerAssist;
+          v17 = (v15 & v16[5]) == 0;
+          v16[5] &= v15;
+          if ( v17 )
+            KiRemoveSystemWorkPriorityKick(v14);
+        }
       }
     }
     __writecr8(v12);
+    result = 0;
     *a4 = 1;
-    return 0;
   }
-  *a4 = 0;
-  return 1;
+  else
+  {
+    *a4 = 0;
+    return 1;
+  }
+  return result;
 }

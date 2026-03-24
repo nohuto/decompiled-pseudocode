@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmHeteroGetHgsEnablementStatus @ 0x14013E3C0
+ * XREFs of PpmHeteroGetHgsEnablementStatus @ 0x14013E3E0
  * Callers:
  *     <none>
  * Callees:

@@ -1,5 +1,5 @@
 /*
- * XREFs of PspIsJobMovable @ 0x140889D94
+ * XREFs of PspIsJobMovable @ 0x140889D74
  * Callers:
  *     PspAssignProcessToJob @ 0x140605664 (PspAssignProcessToJob.c)
  *     PspGetJobAssignmentDisposition @ 0x140605BD4 (PspGetJobAssignmentDisposition.c)

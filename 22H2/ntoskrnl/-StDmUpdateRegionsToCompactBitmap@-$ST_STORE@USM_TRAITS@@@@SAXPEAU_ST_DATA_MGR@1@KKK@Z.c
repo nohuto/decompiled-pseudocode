@@ -1,39 +1,38 @@
 /*
- * XREFs of ?StDmUpdateRegionsToCompactBitmap@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KKK@Z @ 0x1405C79F8
+ * XREFs of ?StDmUpdateRegionsToCompactBitmap@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KKK@Z @ 0x14026A608
  * Callers:
- *     ?StDmCurrentRegionSet@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x140345794 (-StDmCurrentRegionSet@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
- *     ?StDmpUpdateRegionState@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KJK@Z @ 0x1405C85FC (-StDmpUpdateRegionState@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KJK@Z.c)
+ *     ?StDmpUpdateRegionState@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KJK@Z @ 0x140268CBC (-StDmpUpdateRegionState@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KJK@Z.c)
+ *     ?StDmCurrentRegionSet@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x14034EC64 (-StDmCurrentRegionSet@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
  * Callees:
  *     <none>
  */
 
-unsigned int __fastcall ST_STORE<SM_TRAITS>::StDmUpdateRegionsToCompactBitmap(
+signed __int32 *__fastcall ST_STORE<SM_TRAITS>::StDmUpdateRegionsToCompactBitmap(
         __int64 a1,
         unsigned int a2,
         unsigned int a3,
         unsigned int a4)
 {
-  unsigned int result; // eax
-  _BYTE *v6; // rcx
-  _BYTE *v7; // rcx
+  signed __int32 *result; // rax
 
-  result = (unsigned int)(*(_DWORD *)(a1 + 808) + 1) >> 1;
-  if ( a3 < result && a3 )
+  result = (signed __int32 *)((unsigned int)(*(_DWORD *)(a1 + 808) + 1) >> 1);
+  if ( a3 < (unsigned int)result && a3 )
   {
-    if ( a4 >= result || !a4 )
+    if ( a4 >= (unsigned int)result || !a4 )
     {
+      result = *(signed __int32 **)(a1 + 1080);
       --*(_DWORD *)(a1 + 1088);
-      v6 = (_BYTE *)(*(_QWORD *)(a1 + 1080) + ((unsigned __int64)a2 >> 3));
-      result = (char)*v6 | (1 << (a2 & 7));
-      *v6 = result;
+      _bittestandset(result, a2);
     }
   }
-  else if ( a4 < result && a4 )
+  else if ( a4 < (unsigned int)result )
   {
-    v7 = (_BYTE *)(*(_QWORD *)(a1 + 1080) + ((unsigned __int64)a2 >> 3));
-    result = (char)*v7 & ~(1 << (a2 & 7));
-    *v7 = result;
-    ++*(_DWORD *)(a1 + 1088);
+    if ( a4 )
+    {
+      result = *(signed __int32 **)(a1 + 1080);
+      _bittestandreset(result, a2);
+      ++*(_DWORD *)(a1 + 1088);
+    }
   }
   return result;
 }

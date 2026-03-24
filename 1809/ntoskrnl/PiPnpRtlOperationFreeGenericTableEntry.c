@@ -1,5 +1,5 @@
 /*
- * XREFs of PiPnpRtlOperationFreeGenericTableEntry @ 0x1406BE4C0
+ * XREFs of PiPnpRtlOperationFreeGenericTableEntry @ 0x1406BE4A0
  * Callers:
  *     <none>
  * Callees:

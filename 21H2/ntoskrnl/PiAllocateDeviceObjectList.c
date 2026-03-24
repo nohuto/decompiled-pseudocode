@@ -1,11 +1,11 @@
 /*
- * XREFs of PiAllocateDeviceObjectList @ 0x140767594
+ * XREFs of PiAllocateDeviceObjectList @ 0x1407392E8
  * Callers:
- *     IopAllocateRelationList @ 0x140767538 (IopAllocateRelationList.c)
- *     PipGrowDeviceObjectList @ 0x14095846C (PipGrowDeviceObjectList.c)
+ *     IopAllocateRelationList @ 0x14073928C (IopAllocateRelationList.c)
+ *     PipGrowDeviceObjectList @ 0x1408B28D0 (PipGrowDeviceObjectList.c)
  * Callees:
- *     PiClearDeviceObjectList @ 0x140767650 (PiClearDeviceObjectList.c)
- *     PnpAllocateCriticalMemory @ 0x140767730 (PnpAllocateCriticalMemory.c)
+ *     PiClearDeviceObjectList @ 0x1407393A0 (PiClearDeviceObjectList.c)
+ *     PnpAllocateCriticalMemory @ 0x14073947C (PnpAllocateCriticalMemory.c)
  */
 
 _DWORD *__fastcall PiAllocateDeviceObjectList(__int64 a1, int a2)
@@ -15,7 +15,7 @@ _DWORD *__fastcall PiAllocateDeviceObjectList(__int64 a1, int a2)
   _DWORD *v5; // rbx
 
   v3 = a1;
-  CriticalMemory = (_DWORD *)PnpAllocateCriticalMemory(a1, 256LL, 24 * a2 - 8 + 24LL, 1416654416LL);
+  CriticalMemory = (_DWORD *)PnpAllocateCriticalMemory(a1, 1LL, 24 * a2 + 16LL, 1416654416LL);
   v5 = CriticalMemory;
   if ( CriticalMemory )
   {

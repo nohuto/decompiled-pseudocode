@@ -1,31 +1,32 @@
 /*
- * XREFs of ?cKernPairs@PFEOBJ@@QEAAKPEAPEAU_FD_KERNINGPAIR@@@Z @ 0x1C01306B8
+ * XREFs of ?cKernPairs@PFEOBJ@@QEAAKPEAPEAU_FD_KERNINGPAIR@@@Z @ 0x1C01404B8
  * Callers:
- *     GreGetKerningPairs @ 0x1C01301E4 (GreGetKerningPairs.c)
+ *     GreGetKerningPairs @ 0x1C013FFE4 (GreGetKerningPairs.c)
  * Callees:
- *     ?QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z @ 0x1C000B54C (-QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z.c)
+ *     ?QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z @ 0x1C009F488 (-QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z.c)
  */
 
-unsigned __int64 __fastcall PFEOBJ::cKernPairs(PFEOBJ *this, struct _FD_KERNINGPAIR **a2)
+__int64 __fastcall PFEOBJ::cKernPairs(PFEOBJ *this, struct _FD_KERNINGPAIR **a2)
 {
   struct _FD_KERNINGPAIR *v4; // r8
-  __int64 v5; // rdx
-  unsigned __int64 result; // rax
+  __int64 v5; // rcx
   __int64 FontTree; // rax
-  __int64 v8; // rcx
-  _WORD *i; // rax
-  _QWORD v10[4]; // [rsp+38h] [rbp-20h] BYREF
+  __int64 v8; // rdx
+  _WORD *i; // rdx
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // rdx
+  _QWORD v12[4]; // [rsp+38h] [rbp-20h] BYREF
 
   v4 = *(struct _FD_KERNINGPAIR **)(*(_QWORD *)this + 48LL);
   *a2 = v4;
   v5 = *(_QWORD *)this;
   if ( v4 )
     return *(unsigned int *)(v5 + 64);
-  v10[0] = *(_QWORD *)v5;
+  v12[0] = *(_QWORD *)v5;
   FontTree = PFFOBJ::QueryFontTree(
-               (PFFOBJ *)v10,
-               *(struct DHPDEV__ **)(v10[0] + 96LL),
-               *(_QWORD *)(v10[0] + 80LL),
+               (PFFOBJ *)v12,
+               *(struct DHPDEV__ **)(v12[0] + 96LL),
+               *(_QWORD *)(v12[0] + 80LL),
                *(_DWORD *)(v5 + 8),
                2u,
                (unsigned __int64 *)(v5 + 56));
@@ -36,8 +37,10 @@ unsigned __int64 __fastcall PFEOBJ::cKernPairs(PFEOBJ *this, struct _FD_KERNINGP
     for ( i = *(_WORD **)(v8 + 48); *i || i[1] || i[2]; i += 3 )
       ;
     *a2 = *(struct _FD_KERNINGPAIR **)(*(_QWORD *)this + 48LL);
-    result = 0xAAAAAAAAAAAAAAABuLL * (((__int64)i - *(_QWORD *)(*(_QWORD *)this + 48LL)) >> 1);
-    *(_DWORD *)(*(_QWORD *)this + 64LL) = result;
+    v10 = (unsigned __int128)(((__int64)i - *(_QWORD *)(*(_QWORD *)this + 48LL)) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
+    v11 = (v10 >> 63) + v10;
+    *(_DWORD *)(*(_QWORD *)this + 64LL) = v11;
+    return (unsigned int)v11;
   }
   else
   {
@@ -45,5 +48,4 @@ unsigned __int64 __fastcall PFEOBJ::cKernPairs(PFEOBJ *this, struct _FD_KERNINGP
     *(_DWORD *)(*(_QWORD *)this + 64LL) = 0;
     return 0LL;
   }
-  return result;
 }

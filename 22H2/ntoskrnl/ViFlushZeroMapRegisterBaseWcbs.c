@@ -1,65 +1,65 @@
 /*
- * XREFs of ViFlushZeroMapRegisterBaseWcbs @ 0x1405CE9EC
+ * XREFs of ViFlushZeroMapRegisterBaseWcbs @ 0x1405A1008
  * Callers:
- *     VfPutDmaAdapter @ 0x140AC8280 (VfPutDmaAdapter.c)
+ *     VfPutDmaAdapter @ 0x1409CCC40 (VfPutDmaAdapter.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140AC558C (SUBTRACT_MAP_REGISTERS.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x1409C9FDC (SUBTRACT_MAP_REGISTERS.c)
  */
 
 __int64 __fastcall ViFlushZeroMapRegisterBaseWcbs(__int64 a1)
 {
-  volatile signed __int64 *v1; // rbp
+  KSPIN_LOCK *v1; // rbp
   unsigned __int64 v3; // rdi
   _QWORD *v4; // rdx
   _QWORD *v5; // rbx
-  _QWORD *v6; // rcx
-  bool v7; // zf
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  _QWORD *v11; // rax
+  bool v9; // zf
+  __int64 v10; // rdx
+  _QWORD *v11; // rcx
 
-  v1 = (volatile signed __int64 *)(a1 + 176);
-  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 176));
-  v4 = *(_QWORD **)(a1 + 160);
-  while ( v4 != (_QWORD *)(a1 + 160) )
+  v1 = (KSPIN_LOCK *)(a1 + 144);
+  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 144));
+  v4 = *(_QWORD **)(a1 + 128);
+  while ( v4 != (_QWORD *)(a1 + 128) )
   {
     v5 = v4 - 9;
-    v6 = v4;
-    v7 = v4[2] == 0LL;
     v4 = (_QWORD *)*v4;
-    if ( v7 && !v5[12] && *((_DWORD *)v5 + 13) == 3 )
+    if ( !v5[11] && !v5[12] && *((_DWORD *)v5 + 13) == 3 )
     {
-      v11 = (_QWORD *)v6[1];
-      if ( (_QWORD *)v4[1] != v6 || (_QWORD *)*v11 != v6 )
+      v10 = v5[9];
+      v11 = (_QWORD *)v5[10];
+      if ( *(_QWORD **)(v10 + 8) != v5 + 9 || (_QWORD *)*v11 != v5 + 9 )
         __fastfail(3u);
-      *v11 = v4;
-      v4[1] = v11;
+      *v11 = v10;
+      *(_QWORD *)(v10 + 8) = v11;
       SUBTRACT_MAP_REGISTERS(a1, *((unsigned int *)v5 + 12));
       ExFreeToNPagedLookasideList(&ViHalWaitBlockLookaside, v5);
       break;
     }
   }
-  result = KxReleaseSpinLock(v1);
+  KxReleaseSpinLock(v1);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v3 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v7 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v3 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+        v9 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v9 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v3);

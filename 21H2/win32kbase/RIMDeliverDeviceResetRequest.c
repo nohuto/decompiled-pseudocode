@@ -1,81 +1,62 @@
 /*
- * XREFs of RIMDeliverDeviceResetRequest @ 0x1C00BEAB0
+ * XREFs of RIMDeliverDeviceResetRequest @ 0x1C00AE4EC
  * Callers:
- *     rimOnPnpArrived @ 0x1C004A09C (rimOnPnpArrived.c)
- *     rimDeviceResetApc @ 0x1C01B88C0 (rimDeviceResetApc.c)
+ *     rimOnPnpArrived @ 0x1C0055904 (rimOnPnpArrived.c)
+ *     rimDeviceResetApc @ 0x1C00AE420 (rimDeviceResetApc.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C0033A6C (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C004DAC0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0047360 (WPP_RECORDER_SF_q.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C008F428 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RIMDeliverDeviceResetRequest(char *OutputBuffer)
+__int64 __fastcall RIMDeliverDeviceResetRequest(char *ApcContext)
 {
-  bool v2; // dl
-  NTSTATUS v3; // edi
-  int v4; // edx
-  int v5; // r8d
-  char *v7; // [rsp+50h] [rbp-58h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v8; // [rsp+58h] [rbp-50h] BYREF
-  char **v9; // [rsp+78h] [rbp-30h]
-  int v10; // [rsp+80h] [rbp-28h]
-  int v11; // [rsp+84h] [rbp-24h]
+  NTSTATUS v2; // edi
+  int v3; // edx
+  char *v5; // [rsp+50h] [rbp-48h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+58h] [rbp-40h] BYREF
+  char **v7; // [rsp+78h] [rbp-20h]
+  int v8; // [rsp+80h] [rbp-18h]
+  int v9; // [rsp+84h] [rbp-14h]
 
-  if ( (unsigned int)dword_1C028EE70 > 4 && tlgKeywordOn((__int64)&dword_1C028EE70, 256LL) )
+  if ( (unsigned int)dword_1C024BA90 > 4 && tlgKeywordOn((__int64)&dword_1C024BA90, 256LL) )
   {
-    v11 = 0;
-    v9 = &v7;
-    v7 = OutputBuffer;
-    v10 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C028EE70, (unsigned __int8 *)dword_1C025FF07, 0LL, 0LL, 3u, &v8);
+    v9 = 0;
+    v7 = &v5;
+    v5 = ApcContext;
+    v8 = 8;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C024BA90, (unsigned __int8 *)dword_1C021DD12, 0LL, 0LL, 3u, &v6);
   }
-  v2 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( v2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_q(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v2,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_q(
       (_DWORD)gRimLog,
       4,
       1,
       10,
-      (__int64)&WPP_65d7bcb466db3ec3acd35854a27b9a54_Traceguids,
-      (char)OutputBuffer);
-  ObfReferenceObject(*((PVOID *)OutputBuffer + 4));
-  v3 = ZwDeviceIoControlFile(
-         *((HANDLE *)OutputBuffer + 28),
+      (__int64)&WPP_a1cd941ed8813a57445e216c28be9b1b_Traceguids,
+      (char)ApcContext);
+  ObfReferenceObject(*((PVOID *)ApcContext + 4));
+  v2 = ZwDeviceIoControlFile(
+         *((HANDLE *)ApcContext + 28),
          0LL,
-         rimDeviceResetApc,
-         OutputBuffer,
-         (PIO_STATUS_BLOCK)(OutputBuffer + 168),
+         (PIO_APC_ROUTINE)rimDeviceResetApc,
+         ApcContext,
+         (PIO_STATUS_BLOCK)(ApcContext + 168),
          0xB0233u,
          0LL,
          0,
          0LL,
          0);
-  if ( v3 < 0 )
+  if ( v2 < 0 )
   {
-    ObfDereferenceObject(*((PVOID *)OutputBuffer + 4));
-    LOBYTE(v4) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-    if ( (_BYTE)v4 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    ObfDereferenceObject(*((PVOID *)ApcContext + 4));
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v5) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v4,
-        v5,
-        (_DWORD)gRimLog,
-        3,
-        1,
-        11,
-        (__int64)&WPP_65d7bcb466db3ec3acd35854a27b9a54_Traceguids);
+      LOBYTE(v3) = 3;
+      WPP_RECORDER_SF_((_DWORD)gRimLog, v3, 1, 11, (__int64)&WPP_a1cd941ed8813a57445e216c28be9b1b_Traceguids);
     }
   }
-  return (unsigned int)v3;
+  return (unsigned int)v2;
 }

@@ -1,38 +1,38 @@
 /*
- * XREFs of xxxSendNotifyMessage @ 0x1C004D370
+ * XREFs of xxxSendNotifyMessage @ 0x1C00402D0
  * Callers:
- *     xxxSetModernAppWindow @ 0x1C000EF44 (xxxSetModernAppWindow.c)
- *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C0020C7C (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
- *     xxxSetDeskWallpaper @ 0x1C0049544 (xxxSetDeskWallpaper.c)
- *     ?xxxNotifyShellOfWallpaperChange@@YAHXZ @ 0x1C00496AC (-xxxNotifyShellOfWallpaperChange@@YAHXZ.c)
- *     xxxDesktopsRecalcAndBroadcastDisplayChange @ 0x1C004A500 (xxxDesktopsRecalcAndBroadcastDisplayChange.c)
- *     xxxDWP_UpdateUIState @ 0x1C004AAD8 (xxxDWP_UpdateUIState.c)
- *     _anonymous_namespace_::xxxSendFocusMessages @ 0x1C004B720 (_anonymous_namespace_--xxxSendFocusMessages.c)
- *     xxxBroadcastMessageEx @ 0x1C004C8D0 (xxxBroadcastMessageEx.c)
- *     ?xxxWrapSendNotifyMessage@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C004D2D0 (-xxxWrapSendNotifyMessage@@YA_JPEAUtagWND@@I_K_J1@Z.c)
- *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C0065F18 (_anonymous_namespace_--xxxLocalActivateWindow.c)
- *     _anonymous_namespace_::xxxSendNCActivateMessage @ 0x1C0066A48 (_anonymous_namespace_--xxxSendNCActivateMessage.c)
- *     ?xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z @ 0x1C00F1BB8 (-xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z.c)
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
- *     _NotifyOverlayWindow @ 0x1C01C8800 (_NotifyOverlayWindow.c)
- *     xxxMetricsRecalc @ 0x1C01C88FC (xxxMetricsRecalc.c)
- *     NtUserNavigateFocus @ 0x1C01D7B90 (NtUserNavigateFocus.c)
- *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FCDAC (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
- *     ?xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C01FD6B0 (-xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z.c)
- *     xxxMNLoop @ 0x1C02146AC (xxxMNLoop.c)
- *     xxxBroadcastPaletteChanged @ 0x1C0214D8C (xxxBroadcastPaletteChanged.c)
- *     xxxSendMenuSelect @ 0x1C023FDCC (xxxSendMenuSelect.c)
+ *     xxxSetModernAppWindow @ 0x1C00058B0 (xxxSetModernAppWindow.c)
+ *     NtUserNavigateFocus @ 0x1C00077E0 (NtUserNavigateFocus.c)
+ *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C002D410 (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     _anonymous_namespace_::xxxSendFocusMessages @ 0x1C00346D4 (_anonymous_namespace_--xxxSendFocusMessages.c)
+ *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C0039E68 (_anonymous_namespace_--xxxLocalActivateWindow.c)
+ *     _anonymous_namespace_::xxxSendNCActivateMessage @ 0x1C003A690 (_anonymous_namespace_--xxxSendNCActivateMessage.c)
+ *     ?xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z @ 0x1C003ECB8 (-xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z.c)
+ *     xxxBroadcastMessageEx @ 0x1C003FDE8 (xxxBroadcastMessageEx.c)
+ *     ?xxxWrapSendNotifyMessage@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C0040200 (-xxxWrapSendNotifyMessage@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00462FC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
+ *     xxxDWP_UpdateUIState @ 0x1C00E0B94 (xxxDWP_UpdateUIState.c)
+ *     xxxFullScreenCleanup @ 0x1C0119760 (xxxFullScreenCleanup.c)
+ *     ?xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C0123A94 (-xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z.c)
+ *     xxxSetDeskWallpaper @ 0x1C012E7EC (xxxSetDeskWallpaper.c)
+ *     ?xxxNotifyShellOfWallpaperChange@@YAHXZ @ 0x1C012E960 (-xxxNotifyShellOfWallpaperChange@@YAHXZ.c)
+ *     _NotifyOverlayWindow @ 0x1C01D75E0 (_NotifyOverlayWindow.c)
+ *     xxxNextWindow @ 0x1C01F3B6C (xxxNextWindow.c)
+ *     xxxMNLoop @ 0x1C0234488 (xxxMNLoop.c)
+ *     xxxBroadcastPaletteChanged @ 0x1C0234BE0 (xxxBroadcastPaletteChanged.c)
+ *     xxxSendMenuSelect @ 0x1C0250E4C (xxxSendMenuSelect.c)
  * Callees:
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0024460 (PopAndFreeAlwaysW32ThreadLock.c)
- *     xxxSendMessageCallback @ 0x1C004D5BC (xxxSendMessageCallback.c)
- *     ?CaptureBroadcastString@@YAHPEAU_LARGE_UNICODE_STRING@@PEAU_LARGE_STRING@@@Z @ 0x1C0050894 (-CaptureBroadcastString@@YAHPEAU_LARGE_UNICODE_STRING@@PEAU_LARGE_STRING@@@Z.c)
- *     ?xxxSystemBroadcastMessage@@YAXI_K_JIPEATtagBROADCASTMSG@@HI@Z @ 0x1C0060E90 (-xxxSystemBroadcastMessage@@YAXI_K_JIPEATtagBROADCASTMSG@@HI@Z.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
+ *     xxxSendMessageCallback @ 0x1C0040544 (xxxSendMessageCallback.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BF9A0 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     ?xxxSystemBroadcastMessage@@YAXI_K_JIPEATtagBROADCASTMSG@@HI@Z @ 0x1C012D100 (-xxxSystemBroadcastMessage@@YAXI_K_JIPEATtagBROADCASTMSG@@HI@Z.c)
+ *     ?CaptureBroadcastString@@YAHPEAU_LARGE_UNICODE_STRING@@PEAU_LARGE_STRING@@@Z @ 0x1C0132FA0 (-CaptureBroadcastString@@YAHPEAU_LARGE_UNICODE_STRING@@PEAU_LARGE_STRING@@@Z.c)
  */
 
 __int64 __fastcall xxxSendNotifyMessage(
-        struct tagWND *a1,
+        __int64 a1,
         unsigned int a2,
         unsigned __int64 a3,
         struct _LARGE_STRING *a4,
@@ -45,29 +45,31 @@ __int64 __fastcall xxxSendNotifyMessage(
   __int64 v12; // [rsp+70h] [rbp-18h]
 
   v5 = a4;
-  if ( a1 != (struct tagWND *)-1LL )
-    return xxxSendMessageCallback(a1, a2, a3, 0LL, 0LL, 0, a5, 0);
-  v12 = 0LL;
+  if ( a1 != -1 )
+    return xxxSendMessageCallback(a1, a2, a3, (int)a4, 0LL, 0LL, 0, a5, 0);
   v9 = 0;
+  v12 = 0LL;
   v11 = 0LL;
   v10 = 0LL;
-  if ( a2 == 26 || a2 == 27 )
+  if ( a2 < 0x1A )
+    return xxxSendMessageCallback(a1, a2, a3, (int)a4, 0LL, 0LL, 0, a5, 0);
+  if ( a2 > 0x1B )
   {
-    if ( a4 )
-    {
-      if ( !(unsigned int)CaptureBroadcastString((struct _LARGE_UNICODE_STRING *)&v10, a4) )
-        return 0LL;
-      PushW32ThreadLock(*((_QWORD *)&v10 + 1), &v11, Win32FreePool);
-      v5 = (struct _LARGE_STRING *)&v10;
-      v9 = 1;
-    }
+    if ( a2 == 42 )
+      goto LABEL_8;
+    return xxxSendMessageCallback(a1, a2, a3, (int)a4, 0LL, 0LL, 0, a5, 0);
   }
-  else if ( a2 != 42 )
+  if ( a4 )
   {
-    return xxxSendMessageCallback(a1, a2, a3, 0LL, 0LL, 0, a5, 0);
+    if ( !(unsigned int)CaptureBroadcastString((struct _LARGE_UNICODE_STRING *)&v10, a4) )
+      return 0LL;
+    PushW32ThreadLock(*((_QWORD *)&v10 + 1), &v11, Win32FreePool);
+    v5 = (struct _LARGE_STRING *)&v10;
+    v9 = 1;
   }
+LABEL_8:
   xxxSystemBroadcastMessage(a2, a3, (__int64)v5, 1u, 0LL, a5, 0);
   if ( v9 )
-    PopAndFreeAlwaysW32ThreadLock((__int64)&v11);
+    PopAndFreeAlwaysW32ThreadLock(&v11);
   return 1LL;
 }

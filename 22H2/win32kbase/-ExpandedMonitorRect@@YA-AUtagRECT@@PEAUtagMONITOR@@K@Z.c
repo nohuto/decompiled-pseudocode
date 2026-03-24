@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ExpandedMonitorRect@@YA?AUtagRECT@@PEAUtagMONITOR@@K@Z @ 0x1C000DF60
+ * XREFs of ?ExpandedMonitorRect@@YA?AUtagRECT@@PEAUtagMONITOR@@K@Z @ 0x1C0071E58
  * Callers:
- *     TransformRectBetweenCoordinateSpaces @ 0x1C0062C80 (TransformRectBetweenCoordinateSpaces.c)
- *     FindAdjacentMonitor @ 0x1C013F420 (FindAdjacentMonitor.c)
+ *     TransformRectBetweenCoordinateSpaces @ 0x1C0070D00 (TransformRectBetweenCoordinateSpaces.c)
+ *     FindAdjacentMonitor @ 0x1C00C0D38 (FindAdjacentMonitor.c)
  * Callees:
- *     ExpandMonitorSpaceVertex @ 0x1C000DFE8 (ExpandMonitorSpaceVertex.c)
+ *     ExpandMonitorSpaceVertex @ 0x1C0070528 (ExpandMonitorSpaceVertex.c)
  */
 
 struct tagRECT *__fastcall ExpandedMonitorRect(
@@ -20,7 +20,7 @@ struct tagRECT *__fastcall ExpandedMonitorRect(
   *retstr = *(struct tagRECT *)(*((_QWORD *)a2 + 5) + 28LL);
   if ( (a3 & 0xF) != 2 )
   {
-    v5 = *(_WORD *)(*(_QWORD *)(*((_QWORD *)gpDispInfo + 12) + 40LL) + 62LL);
+    v5 = *(_WORD *)(*(_QWORD *)(*(_QWORD *)(gpDispInfo + 96) + 40LL) + 66LL);
     v6 = (a3 >> 8) & 0x1FF;
     v7 = ExpandMonitorSpaceVertex(v6, v5, *(_QWORD *)&retstr->left);
     v8 = *(_QWORD *)&retstr->right;

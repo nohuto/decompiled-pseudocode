@@ -1,10 +1,10 @@
 /*
- * XREFs of VidMmReportContextAllocList @ 0x1C00F17B0
+ * XREFs of VidMmReportContextAllocList @ 0x1C00BAF70
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0ppppppppppppq_EtwWriteTransfer @ 0x1C002E430 (McTemplateK0ppppppppppppq_EtwWriteTransfer.c)
- *     ?VidMmReportGlobalAlloc@@YAXPEAVDXGDEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAVDXGSHAREDRESOURCE@@@Z @ 0x1C00C3F60 (-VidMmReportGlobalAlloc@@YAXPEAVDXGDEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAVDXGSHAREDRESOURCE@@@Z.c)
+ *     McTemplateK0pppppppppppp_EtwWriteTransfer @ 0x1C0023F90 (McTemplateK0pppppppppppp_EtwWriteTransfer.c)
+ *     ?VidMmReportGlobalAlloc@@YAXPEAVDXGDEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAVDXGSHAREDRESOURCE@@@Z @ 0x1C00BA9E8 (-VidMmReportGlobalAlloc@@YAXPEAVDXGDEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAVDXGSHAREDRESOURCE@@@Z.c)
  */
 
 void __fastcall VidMmReportContextAllocList(struct DXGDEVICE *a1, _QWORD *a2)
@@ -15,7 +15,6 @@ void __fastcall VidMmReportContextAllocList(struct DXGDEVICE *a1, _QWORD *a2)
   struct _VIDMM_GLOBAL_ALLOC **v7; // rsi
   struct _VIDMM_GLOBAL_ALLOC *v8; // rdx
   __int64 v9; // r8
-  __int64 v10; // rcx
 
   v2 = (_QWORD *)*a2;
   while ( v2 != a2 )
@@ -28,18 +27,16 @@ void __fastcall VidMmReportContextAllocList(struct DXGDEVICE *a1, _QWORD *a2)
     if ( bTracingEnabled )
     {
       v8 = *v7;
-      if ( (**((_DWORD **)*v7 + 67) & 8) != 0 )
-        v9 = *((_QWORD *)v8 + 49);
+      if ( (**((_DWORD **)*v7 + 62) & 8) != 0 )
+        v9 = *((_QWORD *)v8 + 45);
       else
         v9 = (__int64)v7[2];
-      if ( (byte_1C0076981 & 8) != 0 )
-      {
-        v10 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 5) + 64LL) + 80LL);
-        McTemplateK0ppppppppppppq_EtwWriteTransfer(
-          v10,
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+        McTemplateK0pppppppppppp_EtwWriteTransfer(
+          (__int64)v7[3],
           &EventReportDeviceAllocation,
           v9,
-          v10,
+          *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 5) + 64LL) + 72LL),
           a1,
           *(_QWORD *)(*((_QWORD *)a1 + 2) + 16LL),
           *v5,
@@ -51,7 +48,6 @@ void __fastcall VidMmReportContextAllocList(struct DXGDEVICE *a1, _QWORD *a2)
           0LL,
           v9,
           v7[3]);
-      }
     }
   }
 }

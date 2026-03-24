@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CNineGridBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00B1970
+ * XREFs of ?SetIntegerProperty@CNineGridBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00A28A0
  * Callers:
  *     <none>
  * Callees:
@@ -19,10 +19,10 @@ __int64 __fastcall DirectComposition::CNineGridBrushMarshaler::SetIntegerPropert
   *a5 = 0;
   if ( a3 != 2 )
     return 3221225485LL;
-  if ( (a4 != 0) != *((_BYTE *)this + 120) )
+  if ( (a4 != 0) != *((_BYTE *)this + 112) )
   {
     *((_DWORD *)this + 4) |= 0x4000u;
-    *((_BYTE *)this + 120) = a4 != 0;
+    *((_BYTE *)this + 112) = a4 != 0;
     *a5 = 1;
   }
   return result;

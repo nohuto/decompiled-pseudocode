@@ -1,31 +1,31 @@
 /*
- * XREFs of NtGdiGetRegionData @ 0x1C005A8F0
+ * XREFs of NtGdiGetRegionData @ 0x1C00209C0
  * Callers:
  *     <none>
  * Callees:
- *     GreGetRegionData @ 0x1C005AA00 (GreGetRegionData.c)
- *     AllocFreeTmpBuffer @ 0x1C005AB80 (AllocFreeTmpBuffer.c)
- *     FreeTmpBuffer @ 0x1C005AD30 (FreeTmpBuffer.c)
- *     EngSetLastError @ 0x1C00AADD0 (EngSetLastError.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     GreGetRegionData @ 0x1C0020AD0 (GreGetRegionData.c)
+ *     AllocFreeTmpBuffer @ 0x1C0023990 (AllocFreeTmpBuffer.c)
+ *     FreeTmpBuffer @ 0x1C0023BF0 (FreeTmpBuffer.c)
+ *     EngSetLastError @ 0x1C009F430 (EngSetLastError.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
-__int64 __fastcall NtGdiGetRegionData(HRGN a1, __int64 a2, volatile void *a3)
+__int64 __fastcall NtGdiGetRegionData(HRGN a1, unsigned int a2, volatile void *a3)
 {
   unsigned int v5; // esi
   _BYTE *v6; // rdi
   unsigned int RegionData; // eax
-  _BYTE v9[464]; // [rsp+30h] [rbp-208h] BYREF
+  _BYTE v9[448]; // [rsp+30h] [rbp-1F8h] BYREF
 
   v5 = 1;
   v6 = 0LL;
   if ( a3 )
   {
-    if ( (unsigned int)a2 > 0x1D0 )
+    if ( a2 > 0x1C0 )
     {
-      if ( (unsigned int)a2 <= 0x2710000 )
-        v6 = (_BYTE *)AllocFreeTmpBuffer((unsigned int)a2);
+      if ( a2 <= 0x2710000 )
+        v6 = (_BYTE *)AllocFreeTmpBuffer(a2);
     }
     else
     {
@@ -51,6 +51,6 @@ __int64 __fastcall NtGdiGetRegionData(HRGN a1, __int64 a2, volatile void *a3)
     }
   }
   if ( v6 && v6 != v9 )
-    FreeTmpBuffer(v6, a2);
+    FreeTmpBuffer(v6);
   return v5;
 }

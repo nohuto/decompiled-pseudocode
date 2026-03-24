@@ -1,23 +1,23 @@
 /*
- * XREFs of VrpPreOpenOrCreate @ 0x14080C300
+ * XREFs of VrpPreOpenOrCreate @ 0x14080C2E0
  * Callers:
- *     VrpRegistryCallback @ 0x140808010 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140807FF0 (VrpRegistryCallback.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     EtwActivityIdControl @ 0x1400A3B50 (EtwActivityIdControl.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     CmAllocateExtraParameter @ 0x1407EC528 (CmAllocateExtraParameter.c)
- *     CmpFindExtraParameterInBlock @ 0x1407EC5C4 (CmpFindExtraParameterInBlock.c)
- *     CmpFreeExtraParameter @ 0x1407EC5FC (CmpFreeExtraParameter.c)
- *     VrpTranslatePath @ 0x14080CB90 (VrpTranslatePath.c)
- *     VrpBuildKeyPath @ 0x14080DFFC (VrpBuildKeyPath.c)
- *     VrpGetNextToken @ 0x14080E23C (VrpGetNextToken.c)
+ *     CmAllocateExtraParameter @ 0x1407EC508 (CmAllocateExtraParameter.c)
+ *     CmpFindExtraParameterInBlock @ 0x1407EC5A4 (CmpFindExtraParameterInBlock.c)
+ *     CmpFreeExtraParameter @ 0x1407EC5DC (CmpFreeExtraParameter.c)
+ *     VrpTranslatePath @ 0x14080CB70 (VrpTranslatePath.c)
+ *     VrpBuildKeyPath @ 0x14080DFDC (VrpBuildKeyPath.c)
+ *     VrpGetNextToken @ 0x14080E21C (VrpGetNextToken.c)
  */
 
 __int64 __fastcall VrpPreOpenOrCreate(PCUNICODE_STRING **a1, void *a2)
@@ -223,7 +223,7 @@ LABEL_11:
       v46 = v13;
       v47 = 0;
       v49 = 4LL;
-      TlgWrite(&stru_1403FFAD8, &unk_14036CB28, &ActivityId, 0LL, 5u, &pData);
+      TlgWrite(&stru_1403FFAD8, &unk_14036CC38, &ActivityId, 0LL, 5u, &pData);
     }
     goto LABEL_15;
   }
@@ -244,7 +244,7 @@ LABEL_46:
     v46 = v32;
     v47 = 0;
     v49 = 4LL;
-    TlgWrite(&stru_1403FFAD8, &unk_14036CC84, &ActivityId, 0LL, 5u, &pData);
+    TlgWrite(&stru_1403FFAD8, &unk_14036CD94, &ActivityId, 0LL, 5u, &pData);
   }
 LABEL_15:
   if ( v4 )

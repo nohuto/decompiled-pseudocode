@@ -1,14 +1,14 @@
 /*
- * XREFs of MmQueryProcessWorkingSetSwapPages @ 0x1402A188C
+ * XREFs of MmQueryProcessWorkingSetSwapPages @ 0x1402D59A4
  * Callers:
- *     PfpPrivSourceEnum @ 0x140711614 (PfpPrivSourceEnum.c)
- *     SmStoreCompressionStop @ 0x1407F575C (SmStoreCompressionStop.c)
- *     SmStoreCompressionStart @ 0x1407F584C (SmStoreCompressionStart.c)
+ *     PfpPrivSourceEnum @ 0x1406CE0D0 (PfpPrivSourceEnum.c)
+ *     SmStoreCompressionStop @ 0x14070F040 (SmStoreCompressionStop.c)
+ *     SmStoreCompressionStart @ 0x14070F13C (SmStoreCompressionStart.c)
  * Callees:
- *     MiGetWorkingSetSwapSupport @ 0x1402829A8 (MiGetWorkingSetSwapSupport.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiGetWorkingSetSwapSupport @ 0x1402D5F60 (MiGetWorkingSetSwapSupport.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmQueryProcessWorkingSetSwapPages(__int64 a1, _QWORD *a2)
@@ -28,15 +28,15 @@ __int64 __fastcall MmQueryProcessWorkingSetSwapPages(__int64 a1, _QWORD *a2)
   if ( (unsigned __int64)MiGetWorkingSetSwapSupport(a1 + 1664) <= 2 )
     return 3221226021LL;
   v5 = -1073741275;
-  v6 = *(_QWORD *)(qword_140C51F48 + 8LL * *(unsigned __int16 *)(v2 + 174));
-  v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v6 + 1160));
+  v6 = *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(v2 + 174));
+  v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v6 + 1136));
   WorkingSetSwapSupport = MiGetWorkingSetSwapSupport(v2);
   if ( WorkingSetSwapSupport > 2 )
   {
     v5 = 0;
     *a2 = *(_QWORD *)(*(_QWORD *)WorkingSetSwapSupport + 24LL);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v6 + 1160));
+  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v6 + 1136));
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

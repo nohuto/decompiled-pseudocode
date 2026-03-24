@@ -1,72 +1,64 @@
 /*
- * XREFs of MxCreatePfn @ 0x140B5B93C
+ * XREFs of MxCreatePfn @ 0x140A56F34
  * Callers:
- *     MxCreatePfnsForPtes @ 0x140B5B650 (MxCreatePfnsForPtes.c)
+ *     MxCreatePfns @ 0x140A56C60 (MxCreatePfns.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x140285680 (MiSwizzleInvalidPte.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
+ *     MiSwizzleInvalidPte @ 0x1402AA620 (MiSwizzleInvalidPte.c)
+ *     MiSetResidentPageMemberInPfn @ 0x1403F4018 (MiSetResidentPageMemberInPfn.c)
  */
 
-__int64 __fastcall MxCreatePfn(__int64 a1, __int64 a2, char a3, __int64 a4, int a5, int a6)
+unsigned __int64 __fastcall MxCreatePfn(__int64 a1, __int64 a2, char a3, __int64 a4, int a5, int a6)
 {
-  __int64 v9; // rdi
-  __int64 v10; // rax
-  char v11; // dl
-  __int64 v12; // rcx
-  char v13; // al
-  __int64 v14; // rax
-  int v15; // edx
-  int v16; // r8d
-  __int64 v17; // rcx
-  __int64 result; // rax
+  __int64 v6; // r10
+  __int64 v7; // rax
+  char v8; // dl
+  __int64 v9; // rax
+  int v10; // edx
+  int v11; // r9d
+  __int64 v12; // r10
+  __int64 v13; // r11
+  unsigned __int64 result; // rax
+  __int16 v15; // r9
+  __int64 v16; // r10
 
-  v9 = 48 * a1 - 0x220000000000LL;
-  if ( a6 )
+  v6 = 48 * a1 - 0x58000000000LL;
+  if ( a6 == 1 )
   {
-    *(_OWORD *)v9 = 0LL;
-    *(_OWORD *)(v9 + 16) = 0LL;
-    *(_OWORD *)(v9 + 32) = 0LL;
+    *(_OWORD *)v6 = 0LL;
+    *(_OWORD *)(v6 + 16) = 0LL;
+    *(_OWORD *)(v6 + 32) = 0LL;
   }
-  MiSetPfnPteFrame(48 * a1 - 0x220000000000LL, a4);
-  v10 = *(_QWORD *)(v9 + 24);
-  *(_QWORD *)(v9 + 8) = a2;
-  v11 = 1;
-  v12 = v10 ^ (v10 ^ (v10 + 1)) & 0x3FFFFFFFFFFFFFFFLL;
-  *(_WORD *)(v9 + 32) = 1;
-  LOBYTE(v10) = *(_BYTE *)(v9 + 34) & 0xFE;
-  *(_QWORD *)(v9 + 24) = v12;
-  v13 = v10 | 6;
-  *(_BYTE *)(v9 + 34) = v13;
-  if ( (a3 & 0x10) != 0 )
+  v7 = a4 ^ *(_QWORD *)(v6 + 40);
+  *(_QWORD *)(v6 + 8) = a2;
+  *(_WORD *)(v6 + 32) = 1;
+  *(_QWORD *)(v6 + 40) ^= v7 & 0xFFFFFFFFFLL;
+  LOBYTE(v7) = *(_BYTE *)(v6 + 34) & 0xFE;
+  *(_QWORD *)(v6 + 24) ^= (*(_QWORD *)(v6 + 24) ^ (*(_QWORD *)(v6 + 24) + 1LL)) & 0x3FFFFFFFFFFFFFFFLL;
+  *(_BYTE *)(v6 + 34) = v7 | 6;
+  if ( (a3 & 0x10) != 0 || (a3 & 8) == 0 )
+    v8 = (a3 & 0x10) == 0;
+  else
+    v8 = 2;
+  *(_BYTE *)(v6 + 34) = *(_BYTE *)(v6 + 34) & 0x3F | (v8 << 6);
+  v9 = MiSwizzleInvalidPte(128LL);
+  if ( v10 == v11 )
   {
-    v11 = 0;
+    v9 |= 0x300uLL;
   }
-  else if ( (a3 & 8) != 0 )
+  else if ( !v10 )
   {
-    v11 = 2;
+    v9 |= 0x100uLL;
   }
-  *(_BYTE *)(v9 + 34) = v13 & 0x3F | (v11 << 6);
-  v14 = MiSwizzleInvalidPte(128LL);
-  if ( v15 == v16 )
+  *(_QWORD *)(v12 + 16) = v9;
+  *(_BYTE *)(v12 + 34) |= 0x10u;
+  result = 0x4000000000000LL;
+  *(_QWORD *)(v12 + 40) |= 0x4000000000000uLL;
+  if ( a5 == 1 )
   {
-    v14 |= 0x300uLL;
-  }
-  else if ( !v15 )
-  {
-    v14 |= 0x100uLL;
-  }
-  v17 = *(_QWORD *)(v9 + 40);
-  *(_QWORD *)(v9 + 16) = v14;
-  *(_BYTE *)(v9 + 34) |= 0x10u;
-  result = v17 | 0x40000000000000LL;
-  *(_QWORD *)(v9 + 40) = v17 | 0x40000000000000LL;
-  if ( a5 )
-  {
-    if ( a1 == (a1 & 0xFFFFFFFFFFFFFE00uLL) )
-      *(_BYTE *)(v9 + 36) = v16 | *(_BYTE *)(v9 + 36) & 0xFE;
-    *(_WORD *)(v9 + 32) = v16;
-    result = 0x40010000000000LL;
-    *(_QWORD *)(v9 + 40) = v17 | 0x40010000000000LL;
+    if ( v13 == (v13 & 0xFFFFFFFFFFFFFE00uLL) )
+      *(_BYTE *)(v12 + 39) = v11 | *(_BYTE *)(v12 + 39) & 0xFE;
+    result = MiSetResidentPageMemberInPfn(v12, 1u);
+    *(_WORD *)(v16 + 32) = v15;
   }
   return result;
 }

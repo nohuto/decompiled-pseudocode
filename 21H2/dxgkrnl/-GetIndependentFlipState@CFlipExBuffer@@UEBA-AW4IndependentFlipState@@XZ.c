@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetIndependentFlipState@CFlipExBuffer@@UEBA?AW4IndependentFlipState@@XZ @ 0x1C0020790
+ * XREFs of ?GetIndependentFlipState@CFlipExBuffer@@UEBA?AW4IndependentFlipState@@XZ @ 0x1C001BB60
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CFlipExBuffer::GetIndependentFlipState(__int64 a1)
 {
-  return *(unsigned int *)(a1 + 384);
+  return *(unsigned int *)(a1 + 352);
 }

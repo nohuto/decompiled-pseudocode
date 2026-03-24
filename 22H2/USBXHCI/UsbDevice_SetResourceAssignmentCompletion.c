@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbDevice_SetResourceAssignmentCompletion @ 0x1C0049A90
+ * XREFs of UsbDevice_SetResourceAssignmentCompletion @ 0x1C0047110
  * Callers:
  *     <none>
  * Callees:
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008988 (UsbDevice_QueueConfigureEndpointEvent.c)
- *     Controller_IncrementNumberOfEndpointsOffloaded @ 0x1C0033778 (Controller_IncrementNumberOfEndpointsOffloaded.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     Controller_IncrementNumberOfEndpointsOffloaded @ 0x1C0031E60 (Controller_IncrementNumberOfEndpointsOffloaded.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
  */
 
 void __fastcall UsbDevice_SetResourceAssignmentCompletion(__int64 a1, int a2, int a3, int a4)
@@ -14,7 +14,7 @@ void __fastcall UsbDevice_SetResourceAssignmentCompletion(__int64 a1, int a2, in
   __int64 v5; // rbx
   int v6; // ecx
   __int64 v7; // rcx
-  int v8; // edx
+  __int64 v8; // rdx
 
   v4 = *(_QWORD *)(a1 + 48);
   v5 = *(_QWORD *)(v4 + 16);
@@ -23,7 +23,7 @@ void __fastcall UsbDevice_SetResourceAssignmentCompletion(__int64 a1, int a2, in
   {
     if ( *(_DWORD *)(v5 + 600) == 8 )
     {
-      v6 = *(_DWORD *)(v4 + 1360);
+      v6 = *(_DWORD *)(v4 + 1352);
       if ( v6 == 2 )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -33,7 +33,7 @@ void __fastcall UsbDevice_SetResourceAssignmentCompletion(__int64 a1, int a2, in
       }
       else
       {
-        if ( *(_DWORD *)(*(_QWORD *)v4 + 636LL) == 2 && v6 != 1 )
+        if ( *(_DWORD *)(*(_QWORD *)v4 + 588LL) == 2 && v6 != 1 )
         {
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, a2, a3, a4);
@@ -41,8 +41,8 @@ void __fastcall UsbDevice_SetResourceAssignmentCompletion(__int64 a1, int a2, in
             __debugbreak();
         }
         v7 = *(_QWORD *)v4;
-        *(_DWORD *)(v4 + 1360) = 2;
-        Controller_IncrementNumberOfEndpointsOffloaded(v7);
+        *(_DWORD *)(v4 + 1352) = 2;
+        Controller_IncrementNumberOfEndpointsOffloaded(v7, a2, a3, a4);
       }
     }
   }
@@ -54,9 +54,9 @@ void __fastcall UsbDevice_SetResourceAssignmentCompletion(__int64 a1, int a2, in
   }
   if ( !*(_DWORD *)(v5 + 580) )
   {
-    v8 = 1;
+    v8 = 1LL;
     if ( *(_BYTE *)(v5 + 584) )
-      v8 = 2;
+      v8 = 2LL;
     UsbDevice_QueueConfigureEndpointEvent(v5, v8);
   }
 }

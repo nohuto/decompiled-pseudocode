@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetTouchProcessorLock@CTouchProcessor@@QEAAAEAUCInpLockGuard@@XZ @ 0x1C000F780
+ * XREFs of ?GetTouchProcessorLock@CTouchProcessor@@QEAAAEAUCInpLockGuard@@XZ @ 0x1C0195DA0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct CInpLockGuard *__fastcall CTouchProcessor::GetTouchProcessorLock(CTouchProcessor *this)
 {
-  return (CTouchProcessor *)((char *)this + 32);
+  return (CTouchProcessor *)((char *)this + 40);
 }

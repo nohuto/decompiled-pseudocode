@@ -1,49 +1,49 @@
 /*
- * XREFs of SpbCheckRect @ 0x1C000BF1C
+ * XREFs of SpbCheckRect @ 0x1C021A284
  * Callers:
- *     SpbCheckPwnd @ 0x1C001390C (SpbCheckPwnd.c)
- *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00317F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
- *     xxxInternalInvalidate @ 0x1C0032FD0 (xxxInternalInvalidate.c)
- *     SpbCheckDce @ 0x1C008F1F0 (SpbCheckDce.c)
- *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C00F7B60 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
- *     _ScrollDC @ 0x1C022EC60 (_ScrollDC.c)
- *     xxxScrollWindowEx @ 0x1C022EE20 (xxxScrollWindowEx.c)
+ *     xxxScrollWindowEx @ 0x1C00677EC (xxxScrollWindowEx.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C006DF90 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     ?BltValidInit@@YAHPEAUtagSMWP@@@Z @ 0x1C006EBC4 (-BltValidInit@@YAHPEAUtagSMWP@@@Z.c)
+ *     xxxInternalInvalidate @ 0x1C00724E0 (xxxInternalInvalidate.c)
+ *     SpbCheckDce @ 0x1C00D53B0 (SpbCheckDce.c)
+ *     _ScrollDC @ 0x1C00FCB24 (_ScrollDC.c)
+ *     SpbCheckPwnd @ 0x1C021A1E4 (SpbCheckPwnd.c)
  * Callees:
- *     ?SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z @ 0x1C000BF9C (-SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z.c)
- *     ?IsSpbPresentOrNull@@YA_NPEAUtagSPB@@@Z @ 0x1C000C15C (-IsSpbPresentOrNull@@YA_NPEAUtagSPB@@@Z.c)
- *     IsVisible @ 0x1C00C719C (IsVisible.c)
+ *     IsVisible @ 0x1C00680C4 (IsVisible.c)
+ *     ?IsSpbPresentOrNull@@YA_NPEAUtagSPB@@@Z @ 0x1C0169088 (-IsSpbPresentOrNull@@YA_NPEAUtagSPB@@@Z.c)
+ *     ?SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z @ 0x1C0219AE0 (-SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z.c)
  */
 
-char __fastcall SpbCheckRect(struct tagWND *a1, struct tagRECT *a2, unsigned int a3)
+char __fastcall SpbCheckRect(struct tagWND *a1, struct tagRECT *a2)
 {
-  int v6; // eax
-  struct tagSPB *v7; // rcx
-  struct tagSPB *v8; // rbx
+  int v4; // eax
+  struct tagSPB *v5; // rcx
+  struct tagSPB *v6; // rbx
 
-  v6 = IsVisible(a1);
-  if ( v6 )
+  v4 = IsVisible((__int64)a1);
+  if ( v4 )
   {
     while ( 1 )
     {
-      LOBYTE(v6) = gpDispInfo;
-      v7 = *(struct tagSPB **)(gpDispInfo + 32LL);
-      if ( !v7 )
+      LOBYTE(v4) = gpDispInfo;
+      v5 = *(struct tagSPB **)(gpDispInfo + 32LL);
+      if ( !v5 )
         break;
       while ( 1 )
       {
-        v8 = *(struct tagSPB **)v7;
-        v6 = SpbCheckRect2(v7, a1, a2, a3);
-        if ( !v6 )
+        v6 = *(struct tagSPB **)v5;
+        v4 = SpbCheckRect2(v5, a1, a2);
+        if ( !v4 )
         {
-          LOBYTE(v6) = IsSpbPresentOrNull(v8);
-          if ( !(_BYTE)v6 )
+          LOBYTE(v4) = IsSpbPresentOrNull(v6);
+          if ( !(_BYTE)v4 )
             break;
         }
-        v7 = v8;
-        if ( !v8 )
-          return v6;
+        v5 = v6;
+        if ( !v6 )
+          return v4;
       }
     }
   }
-  return v6;
+  return v4;
 }

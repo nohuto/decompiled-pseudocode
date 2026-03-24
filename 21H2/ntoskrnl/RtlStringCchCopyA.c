@@ -1,57 +1,61 @@
 /*
- * XREFs of RtlStringCchCopyA @ 0x14024F6E4
+ * XREFs of RtlStringCchCopyA @ 0x1402C8734
  * Callers:
- *     EtwpCoverageAddToStringBuffer @ 0x14024F6A4 (EtwpCoverageAddToStringBuffer.c)
- *     CarCopyRuleViolationDetails @ 0x1406033F0 (CarCopyRuleViolationDetails.c)
- *     EtwpCoverageRecordAtHighIrql @ 0x1406310E4 (EtwpCoverageRecordAtHighIrql.c)
- *     WheaHwErrorReportSetSectionNameDeviceDriver @ 0x140644360 (WheaHwErrorReportSetSectionNameDeviceDriver.c)
- *     WheaReportFatalHwErrorDeviceDriverEx @ 0x140644510 (WheaReportFatalHwErrorDeviceDriverEx.c)
- *     WheaReportHwErrorDeviceDriverEx @ 0x140644630 (WheaReportHwErrorDeviceDriverEx.c)
- *     WheapInitErrorReportDeviceDriver @ 0x140644930 (WheapInitErrorReportDeviceDriver.c)
- *     WheapCreateRecordFromGenericErrorData @ 0x140645708 (WheapCreateRecordFromGenericErrorData.c)
- *     WheaRemoveErrorSourceDeviceDriver @ 0x140A08A50 (WheaRemoveErrorSourceDeviceDriver.c)
- *     AslpFileQueryExportName @ 0x140A19B28 (AslpFileQueryExportName.c)
- *     HalpInitGenericErrorSourceEntry @ 0x140A5AEB0 (HalpInitGenericErrorSourceEntry.c)
- *     HalpInitGenericErrorSourceEntryV2 @ 0x140A61D50 (HalpInitGenericErrorSourceEntryV2.c)
- *     EmpParseStrings @ 0x140B0CB80 (EmpParseStrings.c)
+ *     EtwpCoverageAddToStringBuffer @ 0x1402C86E8 (EtwpCoverageAddToStringBuffer.c)
+ *     EtwpCoverageRecordAtHighIrql @ 0x1405A69F4 (EtwpCoverageRecordAtHighIrql.c)
+ *     WheaHwErrorReportSetSectionNameDeviceDriver @ 0x1405BBEF0 (WheaHwErrorReportSetSectionNameDeviceDriver.c)
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x1405BC090 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x1405BC1B0 (WheaReportHwErrorDeviceDriverEx.c)
+ *     WheapInitErrorReportDeviceDriver @ 0x1405BC480 (WheapInitErrorReportDeviceDriver.c)
+ *     WheapCreateRecordFromGenericErrorData @ 0x1405BCCF0 (WheapCreateRecordFromGenericErrorData.c)
+ *     AslpFileQueryExportName_Vb @ 0x1405D226C (AslpFileQueryExportName_Vb.c)
+ *     WheaRemoveErrorSourceDeviceDriver @ 0x14095D110 (WheaRemoveErrorSourceDeviceDriver.c)
+ *     HalpInitGenericErrorSourceEntry @ 0x1409A76E0 (HalpInitGenericErrorSourceEntry.c)
+ *     HalpInitGenericErrorSourceEntryV2 @ 0x1409A7978 (HalpInitGenericErrorSourceEntryV2.c)
+ *     EmpParseStrings @ 0x140A4689C (EmpParseStrings.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall RtlStringCchCopyA(NTSTRSAFE_PSTR pszDest, size_t cchDest, NTSTRSAFE_PCSTR pszSrc)
 {
-  size_t v3; // r9
-  signed __int64 v4; // r8
-  char v5; // al
-  NTSTRSAFE_PSTR v6; // rax
-  NTSTATUS result; // eax
+  NTSTATUS v3; // r9d
+  size_t v4; // r10
+  signed __int64 v5; // r8
+  char v6; // al
+  NTSTRSAFE_PSTR v7; // rax
 
+  v3 = 0;
   if ( cchDest - 1 > 0x7FFFFFFE )
+    v3 = -1073741811;
+  if ( v3 < 0 )
   {
-    result = -1073741811;
     if ( cchDest )
       *pszDest = 0;
   }
   else
   {
-    v3 = 2147483646 - cchDest;
-    v4 = pszSrc - pszDest;
-    do
-    {
-      if ( !(v3 + cchDest) )
-        break;
-      v5 = pszDest[v4];
-      if ( !v5 )
-        break;
-      *pszDest++ = v5;
-      --cchDest;
-    }
-    while ( cchDest );
-    v6 = pszDest - 1;
     if ( cchDest )
-      v6 = pszDest;
-    *v6 = 0;
-    return cchDest == 0 ? 0x80000005 : 0;
+    {
+      v4 = 2147483646 - cchDest;
+      v5 = pszSrc - pszDest;
+      do
+      {
+        if ( !(v4 + cchDest) )
+          break;
+        v6 = pszDest[v5];
+        if ( !v6 )
+          break;
+        *pszDest++ = v6;
+        --cchDest;
+      }
+      while ( cchDest );
+    }
+    v7 = pszDest - 1;
+    if ( cchDest )
+      v7 = pszDest;
+    v3 = cchDest == 0 ? 0x80000005 : 0;
+    *v7 = 0;
   }
-  return result;
+  return v3;
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpCreateHashTable @ 0x14036F050
+ * XREFs of RtlpCreateHashTable @ 0x140376250
  * Callers:
- *     RtlCreateHashTable @ 0x14036F030 (RtlCreateHashTable.c)
- *     SepBuildCapPolicyTable @ 0x1403ADEDC (SepBuildCapPolicyTable.c)
- *     RtlCreateHashTableEx @ 0x1403C72E0 (RtlCreateHashTableEx.c)
- *     SepInitializeSingletonAttributesStructures @ 0x140B57C90 (SepInitializeSingletonAttributesStructures.c)
+ *     RtlCreateHashTable @ 0x140376230 (RtlCreateHashTable.c)
+ *     RtlCreateHashTableEx @ 0x14039A910 (RtlCreateHashTableEx.c)
+ *     SepBuildCapPolicyTable @ 0x1403CB46C (SepBuildCapPolicyTable.c)
+ *     SepInitializeSingletonAttributesStructures @ 0x140A47A00 (SepInitializeSingletonAttributesStructures.c)
  * Callees:
- *     RtlpAllocateSecondLevelDir @ 0x14036F1BC (RtlpAllocateSecondLevelDir.c)
- *     RtlpInitializeSecondLevelDir @ 0x14036F1E8 (RtlpInitializeSecondLevelDir.c)
- *     RtlDeleteHashTable @ 0x1403C14B0 (RtlDeleteHashTable.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlpAllocateSecondLevelDir @ 0x140317AB0 (RtlpAllocateSecondLevelDir.c)
+ *     RtlpInitializeSecondLevelDir @ 0x1403763C0 (RtlpInitializeSecondLevelDir.c)
+ *     RtlDeleteHashTable @ 0x140378E20 (RtlDeleteHashTable.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-char __fastcall RtlpCreateHashTable(__int64 *a1, unsigned int a2, int a3, int a4)
+char __fastcall RtlpCreateHashTable(PVOID *a1, unsigned int a2, int a3, int a4)
 {
   unsigned int v4; // esi
-  __int64 Pool2; // rbx
+  char *PoolWithTag; // rbx
   int v10; // eax
-  __int64 v11; // rax
+  PVOID v11; // rax
   __int64 v12; // r8
   unsigned int v14; // ebp
   char v15; // cl
@@ -27,46 +27,46 @@ char __fastcall RtlpCreateHashTable(__int64 *a1, unsigned int a2, int a3, int a4
   _QWORD *v18; // rax
   _QWORD *v19; // rsi
   __int64 v20; // rdi
-  __int64 SecondLevelDir; // rax
+  PVOID SecondLevelDir; // rax
   __int64 v22; // rdx
   __int64 v23; // r8
 
   v4 = a2 - 1;
   if ( ((a2 - 1) & a2) != 0 || a2 - 128 > 0x7FFF00 )
     return 0;
-  Pool2 = *a1;
+  PoolWithTag = (char *)*a1;
   v10 = 0;
   if ( !*a1 )
   {
-    Pool2 = ExAllocatePool2(64LL, 40LL, 1650545736LL);
-    if ( !Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x62615448u);
+    if ( !PoolWithTag )
       return 0;
     v10 = 1;
   }
-  *(_QWORD *)(Pool2 + 20) = 0LL;
-  *(_QWORD *)(Pool2 + 28) = 0LL;
-  *(_DWORD *)(Pool2 + 36) = 0;
-  *(_DWORD *)(Pool2 + 12) = 0;
-  *(_DWORD *)Pool2 = a4 | v10;
-  *(_DWORD *)(Pool2 + 8) = a2;
-  *(_DWORD *)(Pool2 + 16) = v4;
-  *(_DWORD *)(Pool2 + 4) = a3;
+  *(_QWORD *)(PoolWithTag + 20) = 0LL;
+  *(_QWORD *)(PoolWithTag + 28) = 0LL;
+  *((_DWORD *)PoolWithTag + 9) = 0;
+  *((_DWORD *)PoolWithTag + 3) = 0;
+  *(_DWORD *)PoolWithTag = a4 | v10;
+  *((_DWORD *)PoolWithTag + 2) = a2;
+  *((_DWORD *)PoolWithTag + 4) = v4;
+  *((_DWORD *)PoolWithTag + 1) = a3;
   if ( a2 > 0x80 )
   {
     _BitScanReverse(&v14, a2 + 127);
     v15 = v14;
     v16 = v14 - 7;
     v17 = (a2 + 127) ^ (1 << v15);
-    v18 = (_QWORD *)ExAllocatePool2(64LL, 128LL, 1650545736LL);
+    v18 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x80uLL, 0x62615448u);
     v19 = v18;
     if ( v18 )
     {
       memset(v18, 0, 0x80uLL);
       v20 = 0LL;
-      *(_QWORD *)(Pool2 + 32) = v19;
+      *((_QWORD *)PoolWithTag + 4) = v19;
       while ( 1 )
       {
-        SecondLevelDir = RtlpAllocateSecondLevelDir((unsigned int)v20);
+        SecondLevelDir = RtlpAllocateSecondLevelDir(v20);
         if ( !SecondLevelDir )
           break;
         if ( (unsigned int)v20 >= v16 )
@@ -82,16 +82,16 @@ char __fastcall RtlpCreateHashTable(__int64 *a1, unsigned int a2, int a3, int a4
     }
     goto LABEL_18;
   }
-  v11 = RtlpAllocateSecondLevelDir(0LL);
+  v11 = RtlpAllocateSecondLevelDir(0);
   if ( !v11 )
   {
 LABEL_18:
-    RtlDeleteHashTable((PRTL_DYNAMIC_HASH_TABLE)Pool2);
+    RtlDeleteHashTable((PRTL_DYNAMIC_HASH_TABLE)PoolWithTag);
     return 0;
   }
-  RtlpInitializeSecondLevelDir(v11, *(unsigned int *)(Pool2 + 8));
-  *(_QWORD *)(Pool2 + 32) = v12;
+  RtlpInitializeSecondLevelDir(v11, *((unsigned int *)PoolWithTag + 2));
+  *((_QWORD *)PoolWithTag + 4) = v12;
 LABEL_7:
-  *a1 = Pool2;
+  *a1 = PoolWithTag;
   return 1;
 }

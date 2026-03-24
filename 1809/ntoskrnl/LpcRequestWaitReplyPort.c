@@ -1,9 +1,9 @@
 /*
- * XREFs of LpcRequestWaitReplyPort @ 0x1406DACD0
+ * XREFs of LpcRequestWaitReplyPort @ 0x1406DACB0
  * Callers:
  *     <none>
  * Callees:
- *     LpcpRequestWaitReplyPort @ 0x1406A44C8 (LpcpRequestWaitReplyPort.c)
+ *     LpcpRequestWaitReplyPort @ 0x1406A44A8 (LpcpRequestWaitReplyPort.c)
  */
 
 __int64 __fastcall LpcRequestWaitReplyPort(__int64 a1, __int128 *a2, unsigned __int64 a3)

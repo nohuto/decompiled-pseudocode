@@ -1,32 +1,37 @@
 /*
- * XREFs of EtwTraceBeginRetrieveSendMessage @ 0x1C009A3B0
+ * XREFs of EtwTraceBeginRetrieveSendMessage @ 0x1C00815C0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0cppppqq_EtwWriteTransfer @ 0x1C00E5516 (McTemplateK0cppppqq_EtwWriteTransfer.c)
- *     ?GetCallbackCount@@YACXZ @ 0x1C014C390 (-GetCallbackCount@@YACXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     McTemplateK0cppppqq_EtwWriteTransfer @ 0x1C01248E4 (McTemplateK0cppppqq_EtwWriteTransfer.c)
  */
 
 void __fastcall EtwTraceBeginRetrieveSendMessage(__int64 a1)
 {
-  char v1; // bl
   __int64 *v2; // rax
-  int v3; // esi
-  __int64 v4; // rdi
-  int v5; // r9d
-  int v6; // ecx
-  int v7; // r8d
+  __int64 v3; // rdi
+  int v4; // r9d
+  int v5; // r8d
 
-  v1 = a1;
   if ( (Microsoft_Windows_Win32kEnableBits & 0x800) != 0 )
   {
     v2 = *(__int64 **)(a1 + 112);
-    v3 = *(_DWORD *)(a1 + 80);
     if ( v2 )
-      v4 = *v2;
+      v3 = *v2;
     else
-      LOBYTE(v4) = 0;
-    LOBYTE(v5) = GetCallbackCount();
-    McTemplateK0cppppqq_EtwWriteTransfer(v6, (unsigned int)&BeginRetrieveSendMessage, v7, v5, v1, v4, 0, 0, 0, v3);
+      LOBYTE(v3) = 0;
+    LOBYTE(v4) = *(_BYTE *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1248);
+    McTemplateK0cppppqq_EtwWriteTransfer(
+      *(_DWORD *)(a1 + 80),
+      (unsigned int)&BeginRetrieveSendMessage,
+      v5,
+      v4,
+      a1,
+      v3,
+      0,
+      0,
+      0,
+      *(_DWORD *)(a1 + 80));
   }
 }

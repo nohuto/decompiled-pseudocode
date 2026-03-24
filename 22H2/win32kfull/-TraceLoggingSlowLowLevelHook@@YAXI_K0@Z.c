@@ -1,18 +1,14 @@
 /*
- * XREFs of ?TraceLoggingSlowLowLevelHook@@YAXI_K0@Z @ 0x1C02025E8
+ * XREFs of ?TraceLoggingSlowLowLevelHook@@YAXI_K0@Z @ 0x1C0225150
  * Callers:
- *     ??1CCheckLLHookTime@@QEAA@XZ @ 0x1C015775E (--1CCheckLLHookTime@@QEAA@XZ.c)
+ *     ??1CCheckLLHookTime@@QEAA@XZ @ 0x1C0246BC4 (--1CCheckLLHookTime@@QEAA@XZ.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0040C00 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1C0041D94 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D1C24 (_tlgWriteTransfer_EtwWriteTransfer.c)
  */
 
-void __fastcall TraceLoggingSlowLowLevelHook()
+void __fastcall TraceLoggingSlowLowLevelHook(int a1, __int64 a2, __int64 a3)
 {
-  __int64 v0; // r9
-  __int64 v1; // r10
-  int v2; // r11d
   int v3; // [rsp+30h] [rbp-39h] BYREF
   __int64 v4; // [rsp+38h] [rbp-31h] BYREF
   __int64 v5; // [rsp+40h] [rbp-29h] BYREF
@@ -27,29 +23,22 @@ void __fastcall TraceLoggingSlowLowLevelHook()
   __int64 *v14; // [rsp+A0h] [rbp+37h]
   __int64 v15; // [rsp+A8h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_1C0354098 > 5 )
+  if ( (unsigned int)dword_1C032A3D8 > 5
+    && (qword_1C032A3E8 & 0x400000000000LL) != 0
+    && (qword_1C032A3F0 & 0x400000000000LL) == qword_1C032A3F0 )
   {
-    if ( tlgKeywordOn((__int64)&dword_1C0354098, 0x400000000000LL) )
-    {
-      v4 = v0;
-      v14 = &v4;
-      v5 = v1;
-      v12 = &v5;
-      v3 = v2;
-      v10 = &v3;
-      v6 = 0x1000000LL;
-      v8 = &v6;
-      v15 = 8LL;
-      v13 = 8LL;
-      v11 = 4LL;
-      v9 = 8LL;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_1C0354098,
-        (unsigned __int8 *)dword_1C031C42A,
-        0LL,
-        0LL,
-        6u,
-        &v7);
-    }
+    v4 = a3;
+    v14 = &v4;
+    v5 = a2;
+    v12 = &v5;
+    v3 = a1;
+    v10 = &v3;
+    v6 = 0x1000000LL;
+    v8 = &v6;
+    v15 = 8LL;
+    v13 = 8LL;
+    v11 = 4LL;
+    v9 = 8LL;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C032A3D8, (unsigned __int8 *)dword_1C02F1F78, 0LL, 0LL, 6u, &v7);
   }
 }

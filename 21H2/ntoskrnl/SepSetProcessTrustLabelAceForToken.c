@@ -1,23 +1,23 @@
 /*
- * XREFs of SepSetProcessTrustLabelAceForToken @ 0x14041A13C
+ * XREFs of SepSetProcessTrustLabelAceForToken @ 0x1403F8C44
  * Callers:
- *     SepFinalizeTokenAcls @ 0x140659D50 (SepFinalizeTokenAcls.c)
+ *     SepFinalizeTokenAcls @ 0x1405D00A0 (SepFinalizeTokenAcls.c)
  * Callees:
- *     RtlGetAce @ 0x1402A4750 (RtlGetAce.c)
- *     RtlEqualSid @ 0x1402A6DB0 (RtlEqualSid.c)
- *     RtlFindAceByType @ 0x140349610 (RtlFindAceByType.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlSetSaclSecurityDescriptor @ 0x1406CCBA0 (RtlSetSaclSecurityDescriptor.c)
- *     ObReleaseObjectSecurity @ 0x1406E14B0 (ObReleaseObjectSecurity.c)
- *     ObGetObjectSecurity @ 0x1406E5110 (ObGetObjectSecurity.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlQueryInformationAcl @ 0x140724B00 (RtlQueryInformationAcl.c)
- *     RtlAddAce @ 0x140724BB0 (RtlAddAce.c)
- *     ObSetSecurityObjectByPointer @ 0x140724D30 (ObSetSecurityObjectByPointer.c)
- *     RtlAddProcessTrustLabelAce @ 0x140848A40 (RtlAddProcessTrustLabelAce.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
+ *     RtlGetAce @ 0x14027EA10 (RtlGetAce.c)
+ *     RtlFindAceByType @ 0x140352210 (RtlFindAceByType.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1405DADB0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlAddAce @ 0x14065F130 (RtlAddAce.c)
+ *     ObReleaseObjectSecurity @ 0x14065F410 (ObReleaseObjectSecurity.c)
+ *     RtlQueryInformationAcl @ 0x14065FAA0 (RtlQueryInformationAcl.c)
+ *     ObSetSecurityObjectByPointer @ 0x140660460 (ObSetSecurityObjectByPointer.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     ObGetObjectSecurity @ 0x1406C0710 (ObGetObjectSecurity.c)
+ *     RtlAddProcessTrustLabelAce @ 0x14079DD90 (RtlAddProcessTrustLabelAce.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SepSetProcessTrustLabelAceForToken(_QWORD *a1)

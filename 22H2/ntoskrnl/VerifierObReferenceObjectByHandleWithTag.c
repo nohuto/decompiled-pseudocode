@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierObReferenceObjectByHandleWithTag @ 0x140AE5FA0
+ * XREFs of VerifierObReferenceObjectByHandleWithTag @ 0x1409E7C30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierObReferenceObjectByHandleWithTag(__int64 a1, __int64 a2, __int64 a3)

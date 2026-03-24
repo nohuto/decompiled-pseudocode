@@ -1,55 +1,56 @@
 /*
- * XREFs of ?GetTargetPartitionId@DXGVIRTUALGPUMANAGER@@QEAAJIPEAI@Z @ 0x1C03687C8
+ * XREFs of ?GetTargetPartitionId@DXGVIRTUALGPUMANAGER@@QEAAJIPEAI@Z @ 0x1C02308DC
  * Callers:
- *     ?CreateVirtualGpu@DXGVIRTUALGPUMANAGER_PARAV@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@EEEPEAX@Z @ 0x1C036EAE0 (-CreateVirtualGpu@DXGVIRTUALGPUMANAGER_PARAV@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@EEEPEAX@Z.c)
- *     ?CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@EEEPEAX@Z @ 0x1C0370490 (-CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@EEEPEAX@Z.c)
+ *     ?CreateVirtualGpu@DXGVIRTUALGPUMANAGER_PARAV@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@E@Z @ 0x1C0235D70 (-CreateVirtualGpu@DXGVIRTUALGPUMANAGER_PARAV@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@E@Z.c)
+ *     ?CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@E@Z @ 0x1C0236F90 (-CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@E@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-__int64 __fastcall DXGVIRTUALGPUMANAGER::GetTargetPartitionId(DXGVIRTUALGPUMANAGER *this, __int64 a2, unsigned int *a3)
+__int64 __fastcall DXGVIRTUALGPUMANAGER::GetTargetPartitionId(
+        DXGVIRTUALGPUMANAGER *this,
+        unsigned int a2,
+        unsigned int *a3)
 {
-  unsigned int v3; // r9d
-  __int64 v5; // rbx
-  __int64 v7; // rcx
+  __int64 v3; // rbx
+  DXGVIRTUALGPUMANAGER *v4; // rdi
+  __int64 v5; // rdx
+  __int64 v6; // rax
+  __int64 v8; // rax
 
-  v3 = *((_DWORD *)this + 3);
-  if ( (_DWORD)a2 == 0xFFFF )
+  v3 = a2;
+  v4 = this;
+  v5 = *((unsigned int *)this + 3);
+  if ( (_DWORD)v3 == 0xFFFF )
   {
-    a2 = 0LL;
-    if ( v3 )
+    v3 = 0LL;
+    if ( (_DWORD)v5 )
     {
-      v7 = *((_QWORD *)this + 3);
+      this = (DXGVIRTUALGPUMANAGER *)*((_QWORD *)this + 3);
       do
       {
-        if ( !*(_QWORD *)(v7 + 8 * a2) )
+        if ( !*((_QWORD *)this + v3) )
           break;
-        a2 = (unsigned int)(a2 + 1);
+        v3 = (unsigned int)(v3 + 1);
       }
-      while ( (unsigned int)a2 < v3 );
+      while ( (unsigned int)v3 < (unsigned int)v5 );
     }
-    if ( (_DWORD)a2 == *((_DWORD *)this + 3) )
+    if ( (_DWORD)v3 == (_DWORD)v5 )
     {
-      WdLogSingleEntry1(4LL, 2073LL);
+      v8 = WdLogNewEntry5_WdEvent(this, v5);
+      *(_QWORD *)(v8 + 24) = 1847LL;
+      WdLogEvent5_WdEvent(v8);
       return 2147483674LL;
     }
   }
-  else if ( (unsigned int)a2 >= v3 )
+  else if ( (unsigned int)v3 >= (unsigned int)v5 )
   {
-    v5 = (unsigned int)a2;
-    WdLogSingleEntry2(2LL, (unsigned int)a2, v3);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"PartitionId is greater that the number of available GPU partitions: 0x%I64x 0x%I64x",
-      v5,
-      *((unsigned int *)this + 3),
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdError(this, v5);
+    *(_QWORD *)(v6 + 24) = v3;
+    *(_QWORD *)(v6 + 32) = *((unsigned int *)v4 + 3);
+    WdLogEvent5_WdError(v6);
     return 3221225485LL;
   }
-  *a3 = a2;
+  *a3 = v3;
   return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?crSpGetShapePixel@@YAKPEAU_SURFOBJ@@HHH@Z @ 0x1C026C79C
+ * XREFs of ?crSpGetShapePixel@@YAKPEAU_SURFOBJ@@HHH@Z @ 0x1C026EAAC
  * Callers:
- *     GrePtInSprite @ 0x1C0021164 (GrePtInSprite.c)
+ *     GrePtInSprite @ 0x1C0016F2C (GrePtInSprite.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall crSpGetShapePixel(struct _SURFOBJ *a1, int a2, int a3, int a4)
@@ -31,10 +31,10 @@ __int64 __fastcall crSpGetShapePixel(struct _SURFOBJ *a1, int a2, int a3, int a4
       if ( hdev )
       {
         si128 = _mm_load_si128((const __m128i *)&_xmm);
-        v11 = *(unsigned int **)(*((_QWORD *)hdev + 138) + 56LL);
-        v12 = (unsigned int (__fastcall *)(__int64, struct _SURFOBJ *, _QWORD, _QWORD, __m128i *, _DWORD *))*((_QWORD *)hdev + 352);
+        v11 = *(unsigned int **)(*((_QWORD *)hdev + 139) + 56LL);
+        v12 = (unsigned int (__fastcall *)(__int64, struct _SURFOBJ *, _QWORD, _QWORD, __m128i *, _DWORD *))*((_QWORD *)hdev + 355);
         *v11 = 0;
-        v13 = *((_QWORD *)hdev + 138);
+        v13 = *((_QWORD *)hdev + 139);
         v18 = si128;
         v16[0] = a2;
         v16[1] = a3;

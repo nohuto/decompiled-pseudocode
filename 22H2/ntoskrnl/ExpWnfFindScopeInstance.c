@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWnfFindScopeInstance @ 0x140714878
+ * XREFs of ExpWnfFindScopeInstance @ 0x14061089C
  * Callers:
- *     ExpWnfResolveScopeInstance @ 0x140713418 (ExpWnfResolveScopeInstance.c)
- *     ExpWnfDeleteScopeById @ 0x1407CCDEC (ExpWnfDeleteScopeById.c)
+ *     ExpWnfResolveScopeInstance @ 0x14060F914 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfDeleteScopeById @ 0x140613A18 (ExpWnfDeleteScopeById.c)
  * Callees:
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
  */
 
 _QWORD *__fastcall ExpWnfFindScopeInstance(_QWORD **a1, const void *a2, unsigned int a3)

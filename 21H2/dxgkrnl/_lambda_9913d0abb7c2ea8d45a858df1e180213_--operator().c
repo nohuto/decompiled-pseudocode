@@ -1,7 +1,7 @@
 /*
- * XREFs of _lambda_9913d0abb7c2ea8d45a858df1e180213_::operator() @ 0x1C039F6CC
+ * XREFs of _lambda_9913d0abb7c2ea8d45a858df1e180213_::operator() @ 0x1C02E55B4
  * Callers:
- *     ?BuildDynamicVideoPresentTargetChildRelations@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C039F7D8 (-BuildDynamicVideoPresentTargetChildRelations@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAKPEAIPEAW4_CONN.c)
+ *     ?BuildDynamicVideoPresentTargetChildRelations@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C02E5668 (-BuildDynamicVideoPresentTargetChildRelations@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAKPEAIPEAW4_CONN.c)
  * Callees:
  *     <none>
  */

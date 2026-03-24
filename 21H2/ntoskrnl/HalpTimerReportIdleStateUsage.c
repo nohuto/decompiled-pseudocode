@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerReportIdleStateUsage @ 0x1403DCE20
+ * XREFs of HalpTimerReportIdleStateUsage @ 0x1403CDBC0
  * Callers:
  *     <none>
  * Callees:
- *     HalpTscFallbackToPlatformSource @ 0x14050DC38 (HalpTscFallbackToPlatformSource.c)
+ *     HalpTscFallbackToPlatformSource @ 0x1404C1698 (HalpTscFallbackToPlatformSource.c)
  */
 
 char __fastcall HalpTimerReportIdleStateUsage(unsigned __int8 a1)

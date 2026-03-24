@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAccessCheckByTypeResultListAndAuditAlarmByHandle @ 0x14041C420
+ * XREFs of ZwAccessCheckByTypeResultListAndAuditAlarmByHandle @ 0x1403FB060
  * Callers:
  *     <none>
  * Callees:

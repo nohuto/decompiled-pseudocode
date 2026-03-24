@@ -1,13 +1,13 @@
 /*
- * XREFs of Normalization__IsNormalized @ 0x1409C0B6C
+ * XREFs of Normalization__IsNormalized @ 0x140917D64
  * Callers:
- *     RtlIsNormalizedString @ 0x1409C1C70 (RtlIsNormalizedString.c)
+ *     RtlIsNormalizedString @ 0x140918E40 (RtlIsNormalizedString.c)
  * Callees:
- *     CanComposeHangul @ 0x1405B03FC (CanComposeHangul.c)
- *     Normalization__CanCombinableCharactersCombine @ 0x1409C05C0 (Normalization__CanCombinableCharactersCombine.c)
- *     Normalization__CanCombineWithStartBase @ 0x1409C0738 (Normalization__CanCombineWithStartBase.c)
- *     Normalization__CanCombineWithStartFirstPair @ 0x1409C0784 (Normalization__CanCombineWithStartFirstPair.c)
- *     Normalization__GetLastChar @ 0x1409C08B8 (Normalization__GetLastChar.c)
+ *     CanComposeHangul @ 0x14058D87C (CanComposeHangul.c)
+ *     Normalization__CanCombinableCharactersCombine @ 0x1409177C8 (Normalization__CanCombinableCharactersCombine.c)
+ *     Normalization__CanCombineWithStartBase @ 0x14091792C (Normalization__CanCombineWithStartBase.c)
+ *     Normalization__CanCombineWithStartFirstPair @ 0x140917978 (Normalization__CanCombineWithStartFirstPair.c)
+ *     Normalization__GetLastChar @ 0x140917AAC (Normalization__GetLastChar.c)
  */
 
 __int64 __fastcall Normalization__IsNormalized(__int64 a1, unsigned __int16 *a2, int a3, _BYTE *a4)

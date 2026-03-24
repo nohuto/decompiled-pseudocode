@@ -1,41 +1,33 @@
 /*
- * XREFs of KeIntSteerGetSteeringMode @ 0x1403201A8
+ * XREFs of KeIntSteerGetSteeringMode @ 0x140377B90
  * Callers:
- *     KiIntSteerChooseInitialTargetProcessors @ 0x14031FF50 (KiIntSteerChooseInitialTargetProcessors.c)
- *     ExpQueryInterruptSteeringInformation @ 0x14084D474 (ExpQueryInterruptSteeringInformation.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x140377A84 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     ExpQueryInterruptSteeringInformation @ 0x1407CF4C4 (ExpQueryInterruptSteeringInformation.c)
  * Callees:
- *     IntPartIsInterruptSteerable @ 0x1403202C8 (IntPartIsInterruptSteerable.c)
+ *     <none>
  */
 
-__int64 __fastcall KeIntSteerGetSteeringMode(char a1, __int64 a2, char a3, int a4, __int64 a5)
+__int64 __fastcall KeIntSteerGetSteeringMode(__int64 a1, __int64 a2, char a3, int a4, __int64 a5)
 {
-  unsigned int v5; // ebx
-  int IsInterruptSteerable; // eax
-  char v8; // cl
-  char v10; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v5; // edx
+  __int64 v6; // rcx
 
-  v10 = a1;
   v5 = 0;
-  if ( KiIntSteerEnabled && a3 )
+  if ( KiIntSteerEnabled && a3 && !*(_WORD *)(a5 + 8) )
   {
-    v10 = 0;
-    IsInterruptSteerable = IntPartIsInterruptSteerable(a5, &v10);
-    v8 = v10;
-    if ( IsInterruptSteerable < 0 )
-      v8 = 0;
-    if ( v8 )
+    v6 = 0LL;
+    if ( KeActiveProcessors[0] )
+      v6 = qword_140CFC848[0];
+    if ( *(_QWORD *)a5 == v6 )
     {
       if ( (KiInterruptControllerInfo & 1) != 0 && !a4 )
         return 1;
-      if ( (KiInterruptControllerInfo & 2) != 0 )
-      {
-        if ( a4 == 1 )
-          return 1;
-      }
-      else if ( a4 == 1 && (KiInterruptControllerInfo & 1) != 0 && (KiInterruptControllerInfo & 2) == 0 )
-      {
+      if ( a4 != 1 )
+        return v5;
+      if ( (((unsigned int)KiInterruptControllerInfo >> 1) & 1) != 0 )
+        return 1;
+      if ( (KiInterruptControllerInfo & 1) != 0 )
         return 2;
-      }
     }
   }
   return v5;

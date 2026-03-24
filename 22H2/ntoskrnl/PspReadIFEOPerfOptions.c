@@ -1,28 +1,29 @@
 /*
- * XREFs of PspReadIFEOPerfOptions @ 0x1409B145C
+ * XREFs of PspReadIFEOPerfOptions @ 0x140691CC0
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     RtlQueryImageFileKeyOption @ 0x1406B6070 (RtlQueryImageFileKeyOption.c)
- *     RtlUnicodeStringToInteger @ 0x14079EA50 (RtlUnicodeStringToInteger.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlUnicodeStringToInteger @ 0x1406638D0 (RtlUnicodeStringToInteger.c)
+ *     RtlQueryImageFileKeyOption @ 0x140691EB0 (RtlQueryImageFileKeyOption.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall PspReadIFEOPerfOptions(HANDLE KeyHandle, __int64 a2)
+void __fastcall PspReadIFEOPerfOptions(HANDLE KeyHandle, __int64 a2)
 {
   ULONG v2; // r12d
+  NTSTATUS inited; // ebx
   __int128 *p_KeyValueInformation; // rsi
-  NTSTATUS v6; // eax
-  NTSTATUS v7; // edi
-  void *Pool2; // r14
+  NTSTATUS v7; // eax
+  void *v8; // r14
   int v9; // ecx
-  NTSTATUS v10; // eax
-  ULONG Length; // edi
-  NTSTATUS result; // eax
+  ULONG Length; // ebx
+  PVOID PoolWithQuotaTag; // rax
+  NTSTATUS v12; // eax
   ULONG ResultLength; // [rsp+30h] [rbp-40h] BYREF
   ULONG Value[3]; // [rsp+34h] [rbp-3Ch] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-30h] BYREF
@@ -31,98 +32,113 @@ NTSTATUS __fastcall PspReadIFEOPerfOptions(HANDLE KeyHandle, __int64 a2)
 
   v2 = 0;
   Value[0] = 0;
-  if ( RtlQueryImageFileKeyOption(KeyHandle, L"IoPriority", 4, (ULONG *)(a2 + 8), 4u, 0LL) >= 0 )
+  if ( (int)RtlQueryImageFileKeyOption(KeyHandle, 4, 0LL) >= 0 )
     *(_DWORD *)a2 |= 1u;
-  if ( RtlQueryImageFileKeyOption(KeyHandle, L"PagePriority", 4, (ULONG *)(a2 + 12), 4u, 0LL) >= 0 )
+  if ( (int)RtlQueryImageFileKeyOption(KeyHandle, 4, 0LL) >= 0 )
     *(_DWORD *)a2 |= 2u;
-  if ( RtlQueryImageFileKeyOption(KeyHandle, L"CpuPriorityClass", 4, (ULONG *)(a2 + 16), 4u, 0LL) >= 0 )
+  if ( (int)RtlQueryImageFileKeyOption(KeyHandle, 4, 0LL) >= 0 )
     *(_DWORD *)a2 |= 4u;
   ResultLength = 0;
   v17 = 0;
   DestinationString = 0LL;
   KeyValueInformation = 0LL;
-  if ( RtlInitUnicodeStringEx(&DestinationString, L"WorkingSetLimitInKB") >= 0 )
+  inited = RtlInitUnicodeStringEx(&DestinationString, L"WorkingSetLimitInKB");
+  if ( inited < 0 )
+    goto LABEL_10;
+  p_KeyValueInformation = &KeyValueInformation;
+  v7 = ZwQueryValueKey(
+         KeyHandle,
+         &DestinationString,
+         KeyValuePartialInformation,
+         &KeyValueInformation,
+         0x14u,
+         &ResultLength);
+  inited = v7;
+  if ( v7 >= 0 )
   {
-    p_KeyValueInformation = &KeyValueInformation;
-    v6 = ZwQueryValueKey(
-           KeyHandle,
-           &DestinationString,
-           KeyValuePartialInformation,
-           &KeyValueInformation,
-           0x14u,
-           &ResultLength);
-    v7 = v6;
-    if ( v6 >= 0 )
+    v8 = 0LL;
+LABEL_14:
+    v9 = *((_DWORD *)p_KeyValueInformation + 1);
+    if ( ((v9 - 3) & 0xFFFFFFFB) != 0 )
     {
-      Pool2 = 0LL;
-LABEL_10:
-      v9 = *((_DWORD *)p_KeyValueInformation + 1);
-      if ( ((v9 - 3) & 0xFFFFFFFB) != 0 )
+      if ( v9 == 4 )
       {
-        if ( v9 == 4 )
+        if ( *((_DWORD *)p_KeyValueInformation + 2) == 4 )
         {
-          if ( *((_DWORD *)p_KeyValueInformation + 2) == 4 )
-          {
-            ResultLength = 4;
-            v2 = *((_DWORD *)p_KeyValueInformation + 3);
-          }
-          else
-          {
-            v7 = -1073741820;
-          }
-          goto LABEL_27;
+          ResultLength = 4;
+          v2 = *((_DWORD *)p_KeyValueInformation + 3);
         }
-        if ( v9 == 1 )
+        else
         {
-          if ( ((unsigned __int8)Value & 3) != 0 )
-          {
-            v7 = -2147483646;
-          }
-          else
-          {
-            ResultLength = 4;
-            DestinationString.Buffer = (wchar_t *)p_KeyValueInformation + 6;
-            DestinationString.Length = *((_WORD *)p_KeyValueInformation + 4);
-            DestinationString.MaximumLength = *((_WORD *)p_KeyValueInformation + 4);
-            v7 = RtlUnicodeStringToInteger(&DestinationString, 0, Value);
-            v2 = Value[0];
-          }
-          goto LABEL_27;
+          inited = -1073741820;
         }
+LABEL_21:
+        if ( v8 )
+          ExFreePoolWithTag(v8, 0);
+        goto LABEL_10;
       }
-      v7 = -1073741788;
-LABEL_27:
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0);
-      if ( v7 >= 0 )
+      if ( v9 != 1 )
       {
-        *(_DWORD *)(a2 + 4) |= 1u;
-        *(_QWORD *)(a2 + 24) = (unsigned __int64)v2 >> 2;
+LABEL_24:
+        inited = -1073741788;
+        goto LABEL_21;
       }
-      goto LABEL_31;
+      if ( ((unsigned __int8)Value & 3) != 0 )
+      {
+        inited = -2147483646;
+        goto LABEL_21;
+      }
+      ResultLength = 4;
+      DestinationString.Buffer = (wchar_t *)p_KeyValueInformation + 6;
+      DestinationString.Length = *((_WORD *)p_KeyValueInformation + 4);
+      DestinationString.MaximumLength = *((_WORD *)p_KeyValueInformation + 4);
+      inited = RtlUnicodeStringToInteger(&DestinationString, 0, Value);
     }
-    if ( v6 == -2147483643 )
+    else
     {
-      while ( 1 )
+      if ( v9 != 4 )
+        goto LABEL_24;
+      ResultLength = *((_DWORD *)p_KeyValueInformation + 2);
+      if ( *((_DWORD *)p_KeyValueInformation + 2) > 4u )
       {
-        Length = ResultLength;
-        Pool2 = (void *)ExAllocatePool2(65LL, ResultLength, 1799976018LL);
-        if ( !Pool2 )
-          break;
-        p_KeyValueInformation = (__int128 *)Pool2;
-        v10 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, Pool2, Length, &ResultLength);
-        v7 = v10;
-        if ( v10 >= 0 )
-          goto LABEL_10;
-        if ( v10 != -2147483643 )
-          goto LABEL_27;
-        ExFreePoolWithTag(Pool2, 0);
+        inited = -2147483643;
+        goto LABEL_21;
       }
+      memmove(Value, (char *)p_KeyValueInformation + 12, *((unsigned int *)p_KeyValueInformation + 2));
     }
+    v2 = Value[0];
+    goto LABEL_21;
   }
-LABEL_31:
-  result = RtlQueryImageFileKeyOption(KeyHandle, L"ExpectedConcurrencyCount", 4, (ULONG *)(a2 + 32), 4u, 0LL);
-  if ( result >= 0 )
-    *(_DWORD *)(a2 + 4) |= 2u;
-  return result;
+  if ( v7 != -2147483643 )
+  {
+LABEL_10:
+    if ( inited >= 0 )
+    {
+      *(_DWORD *)(a2 + 4) |= 1u;
+      *(_QWORD *)(a2 + 24) = (unsigned __int64)v2 >> 2;
+    }
+    return;
+  }
+  while ( 1 )
+  {
+    Length = ResultLength;
+    PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, ResultLength, 0x6B497452u);
+    v8 = PoolWithQuotaTag;
+    if ( !PoolWithQuotaTag )
+      break;
+    p_KeyValueInformation = (__int128 *)PoolWithQuotaTag;
+    v12 = ZwQueryValueKey(
+            KeyHandle,
+            &DestinationString,
+            KeyValuePartialInformation,
+            PoolWithQuotaTag,
+            Length,
+            &ResultLength);
+    inited = v12;
+    if ( v12 >= 0 )
+      goto LABEL_14;
+    if ( v12 != -2147483643 )
+      goto LABEL_21;
+    ExFreePoolWithTag(v8, 0);
+  }
 }

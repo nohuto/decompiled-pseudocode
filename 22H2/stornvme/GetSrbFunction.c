@@ -1,7 +1,7 @@
 /*
- * XREFs of GetSrbFunction @ 0x1C0007C40
+ * XREFs of GetSrbFunction @ 0x1C000A660
  * Callers:
- *     MdlToPrp @ 0x1C0001A70 (MdlToPrp.c)
+ *     MdlToPrp @ 0x1C0005410 (MdlToPrp.c)
  * Callees:
  *     <none>
  */

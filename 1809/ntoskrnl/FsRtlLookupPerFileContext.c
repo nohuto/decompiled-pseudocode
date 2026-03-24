@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlLookupPerFileContext @ 0x140112190
+ * XREFs of FsRtlLookupPerFileContext @ 0x1401121B0
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlLookupPerFileContext(

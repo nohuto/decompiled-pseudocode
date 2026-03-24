@@ -1,20 +1,20 @@
 /*
- * XREFs of ?FullySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00B4D1C
+ * XREFs of ?FullySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00B6820
  * Callers:
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00B5730 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
- *     ?SuspendAllDevices@VIDMM_PROCESS_ADAPTER_INFO@@QEAA_N_N@Z @ 0x1C00EDA38 (-SuspendAllDevices@VIDMM_PROCESS_ADAPTER_INFO@@QEAA_N_N@Z.c)
- *     ?SuspendDevices@VIDMM_WORKER_THREAD@@AEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_PAGE_IN_POLICY_PER_COMBINATION@@W4VIDMM_BUDGET_PRIORITY_BAND@@W4_VIDMM_PLACEMENT_RESTRICTION@@PEAPEAV3@@Z @ 0x1C00EDB1C (-SuspendDevices@VIDMM_WORKER_THREAD@@AEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008C500 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ *     ?SuspendAllDevices@VIDMM_PROCESS_ADAPTER_INFO@@QEAA_N_N@Z @ 0x1C00B8644 (-SuspendAllDevices@VIDMM_PROCESS_ADAPTER_INFO@@QEAA_N_N@Z.c)
+ *     ?SuspendDevices@VIDMM_WORKER_THREAD@@AEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_PAGE_IN_POLICY_PER_COMBINATION@@W4VIDMM_BUDGET_PRIORITY_BAND@@W4_VIDMM_PLACEMENT_RESTRICTION@@PEA_NPEAPEAV3@@Z @ 0x1C00B8728 (-SuspendDevices@VIDMM_WORKER_THREAD@@AEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_P.c)
  * Callees:
- *     VidSchDeviceQueuesNotEmpty @ 0x1C0001EA0 (VidSchDeviceQueuesNotEmpty.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00052B8 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005408 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0005468 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C002EDF4 (McTemplateK0pq_EtwWriteTransfer.c)
- *     ?SuspendPagingQueues@VIDMM_DEVICE@@QEAAXXZ @ 0x1C0088F94 (-SuspendPagingQueues@VIDMM_DEVICE@@QEAAXXZ.c)
- *     ?RecordVaPagingHistorySuspendResumeDevice@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAVVIDMM_DEVICE@@E@Z @ 0x1C00892B4 (-RecordVaPagingHistorySuspendResumeDevice@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAVVIDMM_DEVICE.c)
- *     ?MoveToPenaltyBoxBandNoLock@VIDMM_DEVICE@@IEAAXW4VIDMM_PENALTY_BOX_BAND@@@Z @ 0x1C0089504 (-MoveToPenaltyBoxBandNoLock@VIDMM_DEVICE@@IEAAXW4VIDMM_PENALTY_BOX_BAND@@@Z.c)
- *     ?SuspendSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ @ 0x1C0089A04 (-SuspendSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ.c)
- *     ?LogDeviceInPenaltyBoxEvent@VIDMM_COMMIT_TELEMETRY@@QEAAXPEAVVIDMM_DEVICE@@_N@Z @ 0x1C00B4ECC (-LogDeviceInPenaltyBoxEvent@VIDMM_COMMIT_TELEMETRY@@QEAAXPEAVVIDMM_DEVICE@@_N@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001B54 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001BCC (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001D2C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     VidSchDeviceQueuesNotEmpty @ 0x1C0012AA8 (VidSchDeviceQueuesNotEmpty.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0024930 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     ?SuspendSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ @ 0x1C0082E10 (-SuspendSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ.c)
+ *     ?MoveToPenaltyBoxBandNoLock@VIDMM_DEVICE@@IEAAXW4VIDMM_PENALTY_BOX_BAND@@@Z @ 0x1C0082F94 (-MoveToPenaltyBoxBandNoLock@VIDMM_DEVICE@@IEAAXW4VIDMM_PENALTY_BOX_BAND@@@Z.c)
+ *     ?SuspendPagingQueues@VIDMM_DEVICE@@QEAAXXZ @ 0x1C0082FE0 (-SuspendPagingQueues@VIDMM_DEVICE@@QEAAXXZ.c)
+ *     ?RecordVaPagingHistorySuspendResumeDevice@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAVVIDMM_DEVICE@@E@Z @ 0x1C0083114 (-RecordVaPagingHistorySuspendResumeDevice@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAVVIDMM_DEVICE.c)
+ *     ?LogDeviceInPenaltyBoxEvent@VIDMM_COMMIT_TELEMETRY@@QEAAXPEAVVIDMM_DEVICE@@_N@Z @ 0x1C00BE70C (-LogDeviceInPenaltyBoxEvent@VIDMM_COMMIT_TELEMETRY@@QEAAXPEAVVIDMM_DEVICE@@_N@Z.c)
  */
 
 void __fastcall VIDMM_DEVICE::FullySuspend(VIDMM_GLOBAL **this)
@@ -35,20 +35,20 @@ void __fastcall VIDMM_DEVICE::FullySuspend(VIDMM_GLOBAL **this)
 
   VIDMM_GLOBAL::RecordVaPagingHistorySuspendResumeDevice(*this, this[1], (struct VIDMM_DEVICE *)this, 0);
   v2 = 4;
-  v3 = *((_DWORD *)this + 15) & 7;
+  v3 = *((_DWORD *)this + 13) & 7;
   if ( !v3 )
     VIDMM_DEVICE::SuspendSchedulerDevice((VIDMM_DEVICE *)this);
   VIDMM_DEVICE::SuspendPagingQueues((VIDMM_DEVICE *)this);
-  this[30] = (VIDMM_GLOBAL *)qword_1C0076508;
+  this[29] = (VIDMM_GLOBAL *)qword_1C0050458;
   v4 = *(_QWORD *)*this;
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx(v4 + 144, 0LL);
   *(_QWORD *)(v4 + 152) = KeGetCurrentThread();
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v12, (struct _KTHREAD **)*this + 5564, 0);
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v12, (struct _KTHREAD **)*this + 5559, 0);
   DXGPUSHLOCK::AcquireExclusive(v13);
   v5 = (__int64)this[4];
   v14 = 2;
-  if ( VidSchDeviceQueuesNotEmpty(v5) || *((_DWORD *)this + 18) )
+  if ( VidSchDeviceQueuesNotEmpty(v5) || *((_DWORD *)this + 16) )
     v2 = 3;
   VIDMM_DEVICE::MoveToPenaltyBoxBandNoLock((__int64)this, v2);
   v6 = *(_QWORD *)*this + 144LL;
@@ -56,15 +56,15 @@ void __fastcall VIDMM_DEVICE::FullySuspend(VIDMM_GLOBAL **this)
   ExReleasePushLockExclusiveEx(v6, 0LL);
   KeLeaveCriticalRegion();
   DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v12);
-  if ( (*((_BYTE *)this + 58) & 4) != 0 )
+  if ( (*((_BYTE *)this + 50) & 4) != 0 )
   {
-    --*((_DWORD *)*this + 11164);
-    *((_BYTE *)this + 58) &= ~4u;
+    --*((_DWORD *)*this + 11154);
+    *((_BYTE *)this + 50) &= ~4u;
   }
   v7 = MEMORY[0xFFFFF78000000320];
   TimeIncrement = KeQueryTimeIncrement();
-  v10 = qword_1C00764F8 + TimeIncrement * v7;
-  this[28] = (VIDMM_GLOBAL *)v10;
+  v10 = qword_1C0050448 + TimeIncrement * v7;
+  this[27] = (VIDMM_GLOBAL *)v10;
   if ( g_IsInternalReleaseOrDbg )
   {
     v11 = (_QWORD *)WdLogNewEntry5_WdTrace(TimeIncrement);
@@ -74,9 +74,9 @@ void __fastcall VIDMM_DEVICE::FullySuspend(VIDMM_GLOBAL **this)
     v11[3] = this;
     v11[6] = v10;
   }
-  if ( (byte_1C0076982 & 0x40) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100000) != 0 )
     McTemplateK0pq_EtwWriteTransfer(TimeIncrement, &EventVidMmSuspendDevice, v9, this[3], v2);
-  if ( (*(_DWORD *)(*((_QWORD *)this[3] + 5) + 424LL) & 4) != 0 )
+  if ( *(_BYTE *)(*((_QWORD *)this[3] + 5) + 346LL) )
     VIDMM_COMMIT_TELEMETRY::LogDeviceInPenaltyBoxEvent(
       (VIDMM_COMMIT_TELEMETRY *)(*(_QWORD *)*this + 208LL),
       (struct VIDMM_DEVICE *)this,

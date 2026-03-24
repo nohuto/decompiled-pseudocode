@@ -1,12 +1,12 @@
 /*
- * XREFs of DeviceSlot_Initialize @ 0x1C00148D8
+ * XREFs of DeviceSlot_Initialize @ 0x1C00144D8
  * Callers:
- *     DeviceSlot_D0Entry @ 0x1C001487C (DeviceSlot_D0Entry.c)
- *     DeviceSlot_ControllerResetPostReset @ 0x1C0037AD0 (DeviceSlot_ControllerResetPostReset.c)
+ *     DeviceSlot_D0Entry @ 0x1C0014754 (DeviceSlot_D0Entry.c)
+ *     DeviceSlot_ControllerResetPostReset @ 0x1C0036010 (DeviceSlot_ControllerResetPostReset.c)
  * Callees:
- *     Controller_IsControllerAccessible @ 0x1C000A914 (Controller_IsControllerAccessible.c)
- *     XilCoreDeviceSlot_Initialize @ 0x1C00149DC (XilCoreDeviceSlot_Initialize.c)
- *     XilDeviceSlot_InitializeSecureResources @ 0x1C0038128 (XilDeviceSlot_InitializeSecureResources.c)
+ *     Controller_IsControllerAccessible @ 0x1C0007380 (Controller_IsControllerAccessible.c)
+ *     XilCoreDeviceSlot_Initialize @ 0x1C00141B0 (XilCoreDeviceSlot_Initialize.c)
+ *     XilDeviceSlot_InitializeSecureResources @ 0x1C0036668 (XilDeviceSlot_InitializeSecureResources.c)
  */
 
 __int64 __fastcall DeviceSlot_Initialize(__int64 a1)
@@ -15,5 +15,5 @@ __int64 __fastcall DeviceSlot_Initialize(__int64 a1)
     return 3221225666LL;
   if ( *(_BYTE *)(a1 + 80) )
     return XilDeviceSlot_InitializeSecureResources();
-  return XilCoreDeviceSlot_Initialize();
+  return XilCoreDeviceSlot_Initialize(a1 + 16);
 }

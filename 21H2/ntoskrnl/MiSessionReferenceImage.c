@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSessionReferenceImage @ 0x1402DC164
+ * XREFs of MiSessionReferenceImage @ 0x1403A7974
  * Callers:
- *     MmChangeImageProtection @ 0x1406F5800 (MmChangeImageProtection.c)
- *     MiResolveImageReferences @ 0x140757FFC (MiResolveImageReferences.c)
+ *     MmChangeImageProtection @ 0x1406D0DD0 (MmChangeImageProtection.c)
+ *     MiResolveImageReferences @ 0x14075D20C (MiResolveImageReferences.c)
  * Callees:
- *     MiSessionLookupImage @ 0x1402DBF3C (MiSessionLookupImage.c)
+ *     MiSessionLookupImage @ 0x1402CF668 (MiSessionLookupImage.c)
  */
 
 __int64 __fastcall MiSessionReferenceImage(unsigned __int64 a1)

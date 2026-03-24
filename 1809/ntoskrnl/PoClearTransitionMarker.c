@@ -1,20 +1,20 @@
 /*
- * XREFs of PoClearTransitionMarker @ 0x140744FE0
+ * XREFs of PoClearTransitionMarker @ 0x140744FC0
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x1407455D4 (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1407455B4 (CmCompleteRegistryInitialization.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     RtlComputeCrc32 @ 0x14015B4F0 (RtlComputeCrc32.c)
- *     ExIsSoftBoot @ 0x140186390 (ExIsSoftBoot.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlUnlockBootStatusData @ 0x140718BC0 (RtlUnlockBootStatusData.c)
- *     RtlLockBootStatusData @ 0x140718CA0 (RtlLockBootStatusData.c)
- *     RtlpSystemBootStatusRequest @ 0x14071C4F4 (RtlpSystemBootStatusRequest.c)
- *     PopRecordLongPowerButtonPressDetected @ 0x140745168 (PopRecordLongPowerButtonPressDetected.c)
- *     RtlInitializeBootStatusDataBlackBox @ 0x140745234 (RtlInitializeBootStatusDataBlackBox.c)
+ *     RtlComputeCrc32 @ 0x14015B510 (RtlComputeCrc32.c)
+ *     ExIsSoftBoot @ 0x1401863B0 (ExIsSoftBoot.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlUnlockBootStatusData @ 0x140718BA0 (RtlUnlockBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x140718C80 (RtlLockBootStatusData.c)
+ *     RtlpSystemBootStatusRequest @ 0x14071C4D4 (RtlpSystemBootStatusRequest.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x140745148 (PopRecordLongPowerButtonPressDetected.c)
+ *     RtlInitializeBootStatusDataBlackBox @ 0x140745214 (RtlInitializeBootStatusDataBlackBox.c)
  */
 
 __int64 PoClearTransitionMarker()

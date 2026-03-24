@@ -1,37 +1,36 @@
 /*
- * XREFs of SmProcessStatsRequest @ 0x1409D43FC
+ * XREFs of SmProcessStatsRequest @ 0x14092A038
  * Callers:
- *     SmQueryStoreInformation @ 0x1407FA644 (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x1406C2DB8 (SmQueryStoreInformation.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     MmSizeOfMdl @ 0x140231480 (MmSizeOfMdl.c)
- *     SmAlloc @ 0x140260C2C (SmAlloc.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     MmProbeAndLockPages @ 0x140319E90 (MmProbeAndLockPages.c)
- *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x140376B48 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     MmSizeOfMdl @ 0x1402986E0 (MmSizeOfMdl.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x14035BA24 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessStatsRequest(__int64 a1, _OWORD *a2, int a3, _DWORD *a4, KPROCESSOR_MODE PreviousMode)
 {
-  struct _MDL *v7; // r14
-  struct _PRIVILEGE_SET *v8; // rsi
+  struct _MDL *NonPaged; // r14
+  __int64 v8; // rsi
   int v9; // r12d
   int v10; // ebx
   unsigned __int8 v11; // r15^1
   unsigned int v12; // eax
   _OWORD *v13; // rax
-  ULONG PrivilegeCount; // eax
+  int v14; // eax
   PVOID Base[2]; // [rsp+40h] [rbp-68h]
   __int128 v17; // [rsp+50h] [rbp-58h] BYREF
   struct _KEVENT Object[3]; // [rsp+60h] [rbp-48h] BYREF
 
-  memset(Object, 0, 24);
   v17 = 0LL;
-  v7 = 0LL;
+  NonPaged = 0LL;
   v8 = 0LL;
   v9 = 0;
   KeInitializeEvent(Object, NotificationEvent, 0);
@@ -46,34 +45,35 @@ __int64 __fastcall SmProcessStatsRequest(__int64 a1, _OWORD *a2, int a3, _DWORD 
       if ( v11 <= 1u || SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, PreviousMode) )
       {
         if ( (!HIDWORD(Base[0])
-           || (v12 = MmSizeOfMdl(Base[1], HIDWORD(Base[0])), (v7 = (struct _MDL *)SmAlloc(v12, 0x444D6D73u)) != 0LL))
-          && (v13 = SmAlloc(0x28uLL, 0x69576D73u), (v8 = (struct _PRIVILEGE_SET *)v13) != 0LL) )
+           || (v12 = MmSizeOfMdl(Base[1], HIDWORD(Base[0])),
+               (NonPaged = (struct _MDL *)SSHSupportAllocateNonPaged(v12, 0x444D6D73u)) != 0LL))
+          && (v13 = SSHSupportAllocateNonPaged(0x28uLL, 0x69576D73u), (v8 = (__int64)v13) != 0) )
         {
           *v13 = 0LL;
           v13[1] = 0LL;
           *((_QWORD *)v13 + 4) = 0LL;
-          PrivilegeCount = 0;
+          v14 = 0;
           if ( HIDWORD(Base[0]) )
           {
-            v7->Next = 0LL;
-            v7->Size = 8 * (((((__int64)Base[1] & 0xFFF) + (unsigned __int64)HIDWORD(Base[0]) + 4095) >> 12) + 6);
-            v7->MdlFlags = 0;
-            v7->StartVa = (PVOID)((unsigned __int64)Base[1] & 0xFFFFFFFFFFFFF000uLL);
-            v7->ByteOffset = (__int64)Base[1] & 0xFFF;
-            v7->ByteCount = HIDWORD(Base[0]);
+            NonPaged->Next = 0LL;
+            NonPaged->Size = 8 * (((((__int64)Base[1] & 0xFFF) + (unsigned __int64)HIDWORD(Base[0]) + 4095) >> 12) + 6);
+            NonPaged->MdlFlags = 0;
+            NonPaged->StartVa = (PVOID)((unsigned __int64)Base[1] & 0xFFFFFFFFFFFFF000uLL);
+            NonPaged->ByteOffset = (__int64)Base[1] & 0xFFF;
+            NonPaged->ByteCount = HIDWORD(Base[0]);
             v9 = 1;
-            MmProbeAndLockPages(v7, PreviousMode, IoWriteAccess);
-            PrivilegeCount = v8->PrivilegeCount;
+            MmProbeAndLockPages(NonPaged, PreviousMode, IoWriteAccess);
+            v14 = *(_DWORD *)v8;
           }
-          v8->PrivilegeCount = PrivilegeCount & 0xFFFFFFF8 | 3;
-          v8->Privilege[0].Luid.LowPart = v11;
-          v8->Privilege[0].Luid.HighPart = HIDWORD(Base[0]);
-          *(_QWORD *)&v8->Privilege[0].Attributes = v7;
+          *(_DWORD *)v8 = v14 & 0xFFFFFFF8 | 3;
+          *(_DWORD *)(v8 + 8) = v11;
+          *(_DWORD *)(v8 + 12) = HIDWORD(Base[0]);
+          *(_QWORD *)(v8 + 16) = NonPaged;
           v10 = SMKM_STORE_MGR<SM_TRAITS>::SmStoreRequest(
                   (__int64)&SmGlobals,
                   HIWORD(LODWORD(Base[0])),
-                  (int)v8,
-                  (int)Object,
+                  v8,
+                  (__int64)Object,
                   (__int64)&v17);
           if ( v10 >= 0 )
           {
@@ -103,10 +103,10 @@ __int64 __fastcall SmProcessStatsRequest(__int64 a1, _OWORD *a2, int a3, _DWORD 
     v10 = -1073741306;
   }
   if ( v8 )
-    CmSiFreeMemory(v8);
+    CmSiFreeMemory((PPRIVILEGE_SET)v8);
   if ( v9 )
-    MmUnlockPages(v7);
-  if ( v7 )
-    CmSiFreeMemory((PPRIVILEGE_SET)v7);
+    MmUnlockPages(NonPaged);
+  if ( NonPaged )
+    CmSiFreeMemory((PPRIVILEGE_SET)NonPaged);
   return (unsigned int)v10;
 }

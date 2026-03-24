@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBMISC_GenerateControllerSuffix @ 0x1C0031978
+ * XREFs of HUBMISC_GenerateControllerSuffix @ 0x1C0031298
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C00173D0 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
- *     HUBID_BuildClassCompatibleID @ 0x1C001C060 (HUBID_BuildClassCompatibleID.c)
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0016F00 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ *     HUBID_BuildClassCompatibleID @ 0x1C001BB18 (HUBID_BuildClassCompatibleID.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     RtlStringCbPrintfW @ 0x1C0012E78 (RtlStringCbPrintfW.c)
- *     WPP_RECORDER_SF_H @ 0x1C002B460 (WPP_RECORDER_SF_H.c)
- *     WPP_RECORDER_SF_HH @ 0x1C002B50C (WPP_RECORDER_SF_HH.c)
- *     memmove @ 0x1C0043840 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     RtlStringCbPrintfW @ 0x1C0012978 (RtlStringCbPrintfW.c)
+ *     WPP_RECORDER_SF_H @ 0x1C002AD80 (WPP_RECORDER_SF_H.c)
+ *     WPP_RECORDER_SF_HH @ 0x1C002AE2C (WPP_RECORDER_SF_HH.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
  */
 
 __int64 __fastcall HUBMISC_GenerateControllerSuffix(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -63,8 +63,8 @@ __int64 __fastcall HUBMISC_GenerateControllerSuffix(__int64 *a1, __int64 a2, __i
           *(_QWORD *)(a1[1] + 1432),
           2u,
           5u,
-          0x7Du,
-          (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+          0x7Cu,
+          (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
           v9);
       }
     }

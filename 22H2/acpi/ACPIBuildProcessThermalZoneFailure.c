@@ -1,53 +1,67 @@
 /*
- * XREFs of ACPIBuildProcessThermalZoneFailure @ 0x1C0012A90
+ * XREFs of ACPIBuildProcessThermalZoneFailure @ 0x1C004C030
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildProcessGenericComplete @ 0x1C0010C40 (ACPIBuildProcessGenericComplete.c)
- *     WPP_RECORDER_SF_LLqss @ 0x1C0014D18 (WPP_RECORDER_SF_LLqss.c)
+ *     ACPIBuildProcessGenericComplete @ 0x1C001D510 (ACPIBuildProcessGenericComplete.c)
+ *     WPP_RECORDER_SF_LLqss @ 0x1C0020B00 (WPP_RECORDER_SF_LLqss.c)
  */
 
-__int64 __fastcall ACPIBuildProcessThermalZoneFailure(_QWORD *Entry)
+__int64 __fastcall ACPIBuildProcessThermalZoneFailure(PSLIST_ENTRY ListEntry)
 {
   __int64 v1; // rbx
-  int v2; // r8d
-  void *v4; // rdx
-  __int64 v5; // rcx
-  void *v6; // rcx
+  void *v2; // rax
+  __int64 v3; // r8
+  void *v5; // rdx
+  __int64 v6; // rcx
+  void *v7; // rcx
+  int v9; // [rsp+20h] [rbp-38h]
 
-  v1 = Entry[5];
-  v2 = 0;
-  v4 = &unk_1C00622D0;
+  v1 = *((_QWORD *)&ListEntry[2].Next + 1);
+  v2 = &unk_1C00701BA;
+  v3 = 0LL;
+  v5 = &unk_1C00701BA;
   if ( v1 )
   {
-    v5 = *(_QWORD *)(v1 + 8);
-    v2 = v1;
-    if ( (v5 & 0x200000000000LL) != 0 && (v5 & 0x400000000000LL) != 0 )
-      v4 = *(void **)(v1 + 616);
+    v6 = *(_QWORD *)(v1 + 8);
+    v3 = v1;
+    if ( (v6 & 0x200000000000LL) != 0 )
+    {
+      v2 = *(void **)(v1 + 568);
+      if ( (v6 & 0x400000000000LL) != 0 )
+        v5 = *(void **)(v1 + 576);
+    }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v4) = 4;
-    WPP_RECORDER_SF_LLqss(WPP_GLOBAL_Control->DeviceExtension, (_DWORD)v4, v2, 72);
-  }
+    WPP_RECORDER_SF_LLqss(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      v3,
+      0x48u,
+      v9,
+      (char)ListEntry[2].Next,
+      0,
+      v3,
+      (__int64)v2,
+      (__int64)v5);
   _InterlockedOr64((volatile signed __int64 *)(v1 + 8), 0x2000000000000uLL);
-  if ( *(_QWORD *)(v1 + 616) )
+  if ( *(_QWORD *)(v1 + 576) )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v1 + 8), 0xFFFEBFFFFFFFFFFFuLL);
-    ExFreePoolWithTag(*(PVOID *)(v1 + 616), 0);
-    *(_QWORD *)(v1 + 616) = 0LL;
+    ExFreePoolWithTag(*(PVOID *)(v1 + 576), 0);
+    *(_QWORD *)(v1 + 576) = 0LL;
   }
-  if ( *(_QWORD *)(v1 + 608) )
+  if ( *(_QWORD *)(v1 + 568) )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v1 + 8), 0xFFFF5FFFFFFFFFFFuLL);
-    ExFreePoolWithTag(*(PVOID *)(v1 + 608), 0);
-    *(_QWORD *)(v1 + 608) = 0LL;
+    ExFreePoolWithTag(*(PVOID *)(v1 + 568), 0);
+    *(_QWORD *)(v1 + 568) = 0LL;
   }
-  v6 = *(void **)(v1 + 200);
-  if ( v6 )
+  v7 = *(void **)(v1 + 200);
+  if ( v7 )
   {
-    ExFreePoolWithTag(v6, 0);
+    ExFreePoolWithTag(v7, 0);
     *(_QWORD *)(v1 + 200) = 0LL;
   }
-  return ACPIBuildProcessGenericComplete(Entry);
+  return ACPIBuildProcessGenericComplete(ListEntry);
 }

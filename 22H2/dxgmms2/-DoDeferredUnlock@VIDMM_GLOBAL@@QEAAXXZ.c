@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DoDeferredUnlock@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B5500
+ * XREFs of ?DoDeferredUnlock@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00ADB1C
  * Callers:
- *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C008ACF0 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
- *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00DFE3C (--1VIDMM_GLOBAL@@QEAA@XZ.c)
+ *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C0067150 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
+ *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00AC37C (--1VIDMM_GLOBAL@@QEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0005500 (--3@YAXPEAX@Z.c)
- *     ?VidMmiUnlockAllocation@@YAXPEAU_VIDMM_MDL@@@Z @ 0x1C009287C (-VidMmiUnlockAllocation@@YAXPEAU_VIDMM_MDL@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     ?VidMmiUnlockAllocation@@YAXPEAU_VIDMM_MDL@@@Z @ 0x1C00627D4 (-VidMmiUnlockAllocation@@YAXPEAU_VIDMM_MDL@@@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::DoDeferredUnlock(VIDMM_GLOBAL *this, __int64 a2, __int64 a3)
@@ -15,7 +15,7 @@ void __fastcall VIDMM_GLOBAL::DoDeferredUnlock(VIDMM_GLOBAL *this, __int64 a2, _
   PMDL *v5; // rax
   PMDL *v6; // rcx
 
-  v3 = (char *)this + 40008;
+  v3 = (char *)this + 40000;
   while ( 1 )
   {
     v4 = *(PMDL ***)v3;

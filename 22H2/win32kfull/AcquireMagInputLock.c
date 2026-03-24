@@ -1,18 +1,19 @@
 /*
- * XREFs of AcquireMagInputLock @ 0x1C01F6B30
+ * XREFs of AcquireMagInputLock @ 0x1C010FAF8
  * Callers:
- *     _SetMagnificationInputTransform @ 0x1C005AE40 (_SetMagnificationInputTransform.c)
- *     TransformForInputMagnification @ 0x1C014E870 (TransformForInputMagnification.c)
- *     ApplyMagInputTransform @ 0x1C01A5470 (ApplyMagInputTransform.c)
- *     EditionMagnificationMousePosition @ 0x1C01F6B70 (EditionMagnificationMousePosition.c)
+ *     _SetMagnificationInputTransform @ 0x1C00EB340 (_SetMagnificationInputTransform.c)
+ *     AddMagnificationOutputTransform @ 0x1C010FAA0 (AddMagnificationOutputTransform.c)
+ *     ApplyMagInputTransform @ 0x1C01CECF0 (ApplyMagInputTransform.c)
+ *     TransformForInputMagnification @ 0x1C01CF0D0 (TransformForInputMagnification.c)
+ *     EditionMagnificationMousePosition @ 0x1C0213930 (EditionMagnificationMousePosition.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall AcquireMagInputLock()
+signed __int64 AcquireMagInputLock()
 {
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 result; // rax
+  signed __int64 result; // rax
 
   CurrentThread = KeGetCurrentThread();
   while ( 1 )

@@ -3,12 +3,12 @@
  * Callers:
  *     SepInitializationPhase0 @ 0x1409AD8C0 (SepInitializationPhase0.c)
  * Callees:
- *     RtlDeriveCapabilitySidsFromName @ 0x1400DCE00 (RtlDeriveCapabilitySidsFromName.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x1400DCE20 (RtlDeriveCapabilitySidsFromName.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     RtlLengthRequiredSid @ 0x1405BD5C0 (RtlLengthRequiredSid.c)
- *     RtlInitializeSid @ 0x140655690 (RtlInitializeSid.c)
- *     SepInitializeSharedSidMap @ 0x140726F08 (SepInitializeSharedSidMap.c)
+ *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
+ *     SepInitializeSharedSidMap @ 0x140726EE8 (SepInitializeSharedSidMap.c)
  *     SepInitSystemDacls @ 0x1409AD07C (SepInitSystemDacls.c)
  */
 
@@ -784,7 +784,7 @@ bool SepVariableInitialization()
   qword_14096ED40 = 34LL;
   v34 = 5LL;
   qword_14096ED48 = 35LL;
-  v35 = (char *)&unk_14041A298;
+  v35 = (char *)&unk_14041A258;
   qword_14096EC28 = 23LL;
   qword_14096EC30 = 24LL;
   qword_14096ECE8 = 25LL;

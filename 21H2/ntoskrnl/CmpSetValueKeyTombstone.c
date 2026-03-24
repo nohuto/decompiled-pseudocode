@@ -1,49 +1,45 @@
 /*
- * XREFs of CmpSetValueKeyTombstone @ 0x140914BEC
+ * XREFs of CmpSetValueKeyTombstone @ 0x14086E9FC
  * Callers:
- *     CmDeleteValueKey @ 0x140714E58 (CmDeleteValueKey.c)
+ *     CmDeleteValueKey @ 0x140666544 (CmDeleteValueKey.c)
  * Callees:
- *     HvpMarkCellDirty @ 0x14071F300 (HvpMarkCellDirty.c)
- *     CmpFreeValue @ 0x14079B22C (CmpFreeValue.c)
- *     CmpAddValueToListEx @ 0x14079B920 (CmpAddValueToListEx.c)
- *     CmpAddValueKeyTombstone @ 0x140914214 (CmpAddValueKeyTombstone.c)
+ *     CmpFreeValue @ 0x14066B438 (CmpFreeValue.c)
+ *     CmpAddValueKeyTombstone @ 0x14086E4EC (CmpAddValueKeyTombstone.c)
+ *     CmpAddValueToList @ 0x14087B3B8 (CmpAddValueToList.c)
+ *     HvMarkCellDirty @ 0x14087BCE8 (HvMarkCellDirty.c)
  */
 
-__int64 __fastcall CmpSetValueKeyTombstone(
-        ULONG_PTR a1,
-        __int64 a2,
-        unsigned __int16 *a3,
-        unsigned int a4,
-        unsigned int a5)
+__int64 __fastcall CmpSetValueKeyTombstone(ULONG_PTR a1, __int64 a2, unsigned __int16 *a3, int a4, int a5)
 {
-  unsigned int *v5; // rbx
-  int v9; // edi
-  unsigned int v10; // ebx
-  unsigned int *v12; // [rsp+20h] [rbp-28h]
-  unsigned int v13; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v5; // rbx
+  int v9; // ebx
+  unsigned int v10; // eax
+  unsigned int v11; // edi
 
-  v13 = -1;
-  v5 = (unsigned int *)(a2 + 36);
-  if ( !*(_DWORD *)(a2 + 36) || (v9 = HvpMarkCellDirty(a1, *(unsigned int *)(a2 + 40), 0), v9 >= 0) )
+  v5 = a2 + 36;
+  if ( !*(_DWORD *)(a2 + 36) || (unsigned __int8)HvMarkCellDirty(a1, *(unsigned int *)(a2 + 40), 0LL) )
   {
-    v9 = CmpAddValueKeyTombstone(a1, a3, a5, (int *)&v13);
-    if ( v9 < 0 )
+    v10 = CmpAddValueKeyTombstone(a1, a3);
+    v11 = v10;
+    if ( v10 == -1 )
     {
-      v10 = v13;
+      return (unsigned int)-1073741670;
     }
     else
     {
-      v12 = v5;
-      v10 = v13;
-      v9 = CmpAddValueToListEx(a1, v13, a4, a5, v12, 1);
+      v9 = CmpAddValueToList(a1, v10, a4, a5, v5);
       if ( v9 >= 0 )
       {
-        v10 = -1;
+        v11 = -1;
         v9 = 0;
       }
+      if ( v11 != -1 )
+        CmpFreeValue(a1, v11);
     }
-    if ( v10 != -1 )
-      CmpFreeValue(a1, v10);
+  }
+  else
+  {
+    return (unsigned int)-1073741443;
   }
   return (unsigned int)v9;
 }

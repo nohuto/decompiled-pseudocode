@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOverlayCompatible@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x18010C770
+ * XREFs of ?IsOverlayCompatible@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F9250
  * Callers:
  *     <none>
  * Callees:

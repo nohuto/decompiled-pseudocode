@@ -1,11 +1,11 @@
 /*
- * XREFs of PsChargePoolQuota @ 0x1402331B0
+ * XREFs of PsChargePoolQuota @ 0x1402AA6E0
  * Callers:
- *     FsRtlNotifyFilterReportChange @ 0x1406AA510 (FsRtlNotifyFilterReportChange.c)
- *     FsRtlNotifyFilterReportChangeLiteEx @ 0x1406AB670 (FsRtlNotifyFilterReportChangeLiteEx.c)
+ *     FsRtlNotifyFilterReportChange @ 0x14068FB50 (FsRtlNotifyFilterReportChange.c)
+ *     FsRtlNotifyFilterReportChangeLiteEx @ 0x1406907E0 (FsRtlNotifyFilterReportChangeLiteEx.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     PsChargeProcessPoolQuota @ 0x140367C40 (PsChargeProcessPoolQuota.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     PsChargeProcessPoolQuota @ 0x1402AA710 (PsChargeProcessPoolQuota.c)
  */
 
 void __stdcall PsChargePoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PTR Amount)
@@ -14,5 +14,5 @@ void __stdcall PsChargePoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PT
 
   v3 = PsChargeProcessPoolQuota(Process, PoolType, Amount);
   if ( v3 < 0 )
-    RtlRaiseStatus((unsigned int)v3);
+    RtlRaiseStatus(v3);
 }

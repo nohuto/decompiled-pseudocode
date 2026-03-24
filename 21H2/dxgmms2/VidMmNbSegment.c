@@ -1,5 +1,5 @@
 /*
- * XREFs of VidMmNbSegment @ 0x1C0019020
+ * XREFs of VidMmNbSegment @ 0x1C0016290
  * Callers:
  *     <none>
  * Callees:

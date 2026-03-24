@@ -1,30 +1,35 @@
 /*
- * XREFs of ?bSecureBits@@YAHPEAXKPEAPEAX@Z @ 0x1C02B098C
+ * XREFs of ?bSecureBits@@YAHPEAXKPEAPEAX@Z @ 0x1C02B1E54
  * Callers:
- *     NtGdiEngCreatePalette @ 0x1C01430B0 (NtGdiEngCreatePalette.c)
+ *     NtGdiEngCreatePalette @ 0x1C0129060 (NtGdiEngCreatePalette.c)
  * Callees:
- *     <none>
+ *     Feature_2249667896__private_IsEnabledDeviceUsage @ 0x1C016B1FC (Feature_2249667896__private_IsEnabledDeviceUsage.c)
  */
 
-__int64 __fastcall bSecureBits(char *a1, unsigned int a2, void **a3)
+__int64 __fastcall bSecureBits(char *Address, SIZE_T Size, void **a3)
 {
-  unsigned int v4; // ebx
-  char *v5; // r8
-  HANDLE v6; // rax
+  SIZE_T v4; // r14
+  unsigned int v6; // ebx
+  char *v7; // rcx
+  HANDLE v8; // rax
 
-  v4 = 1;
+  v4 = (unsigned int)Size;
+  v6 = 1;
   *a3 = 0LL;
-  if ( a1 )
+  if ( Address )
   {
-    if ( a2 )
+    if ( (_DWORD)Size )
     {
-      v5 = &a1[a2];
-      if ( (unsigned __int64)v5 > MmUserProbeAddress || v5 < a1 )
+      v7 = &Address[(unsigned int)Size];
+      if ( (unsigned __int64)v7 > MmUserProbeAddress || v7 < Address )
         *(_BYTE *)MmUserProbeAddress = 0;
     }
-    v6 = MmSecureVirtualMemory(a1, a2, 2u);
-    *a3 = v6;
-    return v6 != 0LL;
+    if ( (unsigned int)Feature_2249667896__private_IsEnabledDeviceUsage() )
+      v8 = (HANDLE)GrepSecureVirtualMemory(Address, v4, 2LL);
+    else
+      v8 = MmSecureVirtualMemory(Address, v4, 2u);
+    *a3 = v8;
+    return v8 != 0LL;
   }
-  return v4;
+  return v6;
 }

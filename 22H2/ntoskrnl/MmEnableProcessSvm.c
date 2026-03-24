@@ -1,25 +1,23 @@
 /*
- * XREFs of MmEnableProcessSvm @ 0x140619854
+ * XREFs of MmEnableProcessSvm @ 0x14052CBD0
  * Callers:
- *     ExpShareAddressSpaceWithDevice @ 0x14060DC10 (ExpShareAddressSpaceWithDevice.c)
+ *     ExShareAddressSpaceWithDevice @ 0x1405B71C0 (ExShareAddressSpaceWithDevice.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
  */
 
 void MmEnableProcessSvm()
 {
   _KPROCESS *Process; // rdi
-  volatile LONG *SharedVm; // rbx
+  LONG *SharedVm; // rbx
   KIRQL v2; // al
-  __int64 v3; // r8
-  __int64 v4; // r9
 
   Process = KeGetCurrentThread()->ApcState.Process;
-  SharedVm = (volatile LONG *)MiGetSharedVm((__int64)&Process[1].ActiveProcessors.StaticBitmap[26]);
+  SharedVm = MiGetSharedVm((__int64)&Process[1].ActiveProcessorsPadding[6]);
   v2 = ExAcquireSpinLockExclusive(SharedVm);
-  *((_DWORD *)SharedVm + 1) = 0;
-  HIBYTE(Process[1].IdealProcessor[31]) |= 2u;
-  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessors.StaticBitmap[26], v2, v3, v4);
+  SharedVm[1] = 0;
+  HIBYTE(Process[1].IdealProcessorPadding[11]) |= 2u;
+  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessorsPadding[6], v2);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PoFxEnableDStateReporting @ 0x1409847C0
+ * XREFs of PoFxEnableDStateReporting @ 0x1408E42C0
  * Callers:
  *     <none>
  * Callees:
- *     PoFxStartDevicePowerManagement @ 0x140395E40 (PoFxStartDevicePowerManagement.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     PopFxRegisterDevice @ 0x14083806C (PopFxRegisterDevice.c)
+ *     PoFxStartDevicePowerManagement @ 0x1403BD9C0 (PoFxStartDevicePowerManagement.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopFxRegisterDevice @ 0x1407B517C (PopFxRegisterDevice.c)
  */
 
-__int64 __fastcall PoFxEnableDStateReporting(_QWORD *Object, ULONG_PTR *a2)
+__int64 __fastcall PoFxEnableDStateReporting(PDEVICE_OBJECT DeviceObject, ULONG_PTR *a2)
 {
   int v4; // ebx
   _BYTE v6[80]; // [rsp+40h] [rbp-59h] BYREF
@@ -20,7 +20,7 @@ __int64 __fastcall PoFxEnableDStateReporting(_QWORD *Object, ULONG_PTR *a2)
   __int128 v11; // [rsp+C8h] [rbp+2Fh] BYREF
   __int64 v12; // [rsp+D8h] [rbp+3Fh]
 
-  if ( Object && a2 )
+  if ( DeviceObject && a2 )
   {
     memset(v6, 0, sizeof(v6));
     v10 = 0LL;
@@ -30,7 +30,7 @@ __int64 __fastcall PoFxEnableDStateReporting(_QWORD *Object, ULONG_PTR *a2)
     v9 = (unsigned __int64)&v11;
     v7 = 0LL;
     v11 = 0LL;
-    v4 = PopFxRegisterDevice(Object, (int)v6, (int)&v7, 1, 0LL, 0LL, a2);
+    v4 = PopFxRegisterDevice(DeviceObject, (int)v6, (int)&v7, 1, 0LL, 0LL, a2);
     if ( v4 >= 0 )
     {
       *(_DWORD *)(*a2 + 824) |= 1u;

@@ -1,16 +1,18 @@
 /*
- * XREFs of NtUserGetRawInputBuffer @ 0x1C01D3540
+ * XREFs of NtUserGetRawInputBuffer @ 0x1C01FB000
  * Callers:
  *     <none>
  * Callees:
- *     FreeHidData @ 0x1C000E960 (FreeHidData.c)
- *     ?ClearWakeBit@@YAXPEAUtagTHREADINFO@@IH@Z @ 0x1C0017090 (-ClearWakeBit@@YAXPEAUtagTHREADINFO@@IH@Z.c)
- *     HMValidateHandle @ 0x1C002D0F8 (HMValidateHandle.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     DelQEntry @ 0x1C01184CC (DelQEntry.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     FreeHidData @ 0x1C00065B0 (FreeHidData.c)
+ *     DelQEntry @ 0x1C00667AC (DelQEntry.c)
+ *     HMValidateHandle @ 0x1C0067040 (HMValidateHandle.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ??0?$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00C14A0 (--0-$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z.c)
+ *     LeaveEditionCrit @ 0x1C0132580 (LeaveEditionCrit.c)
+ *     ?ClearWakeBit@@YAXPEAUtagTHREADINFO@@IH@Z @ 0x1C01665F8 (-ClearWakeBit@@YAXPEAUtagTHREADINFO@@IH@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall NtUserGetRawInputBuffer(char *a1, unsigned int *a2, int a3)
@@ -22,104 +24,101 @@ __int64 __fastcall NtUserGetRawInputBuffer(char *a1, unsigned int *a2, int a3)
   unsigned int *v9; // rax
   unsigned int v10; // ebx
   __int64 v11; // rsi
-  __int64 i; // r14
-  __int64 v13; // rax
-  __int64 v14; // rax
-  char *v15; // rsi
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  unsigned int v21; // [rsp+20h] [rbp-A8h]
-  unsigned int v22; // [rsp+24h] [rbp-A4h]
-  unsigned int v23; // [rsp+38h] [rbp-90h]
-  char *v24; // [rsp+50h] [rbp-78h]
-  __int64 v25; // [rsp+68h] [rbp-60h]
-  __int64 v26; // [rsp+70h] [rbp-58h]
-  char v28; // [rsp+E0h] [rbp+18h] BYREF
-  int v29; // [rsp+E8h] [rbp+20h]
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 *i; // r14
+  __int64 *v15; // rax
+  __int64 v16; // rax
+  char *v17; // rsi
+  __int64 v18; // rcx
+  unsigned int v20; // [rsp+20h] [rbp-C8h]
+  unsigned int v21; // [rsp+24h] [rbp-C4h]
+  unsigned int v22; // [rsp+30h] [rbp-B8h]
+  __int64 v23; // [rsp+48h] [rbp-A0h]
+  __int64 v24; // [rsp+60h] [rbp-88h]
+  __int64 *v25; // [rsp+68h] [rbp-80h]
+  _BYTE v26[32]; // [rsp+70h] [rbp-78h] BYREF
+  char v27[88]; // [rsp+90h] [rbp-58h] BYREF
 
-  v22 = 0;
-  v5 = 0;
   v21 = 0;
+  v5 = 0;
+  v20 = 0;
   v6 = -1;
-  v29 = -1;
-  EnterCrit(0LL, 0LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v28);
-  if ( a3 != 24 )
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v26);
+  if ( a3 == 24 )
   {
-    UserSetLastError(87);
-    goto LABEL_30;
-  }
-  v9 = a2;
-  if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-    v9 = (unsigned int *)MmUserProbeAddress;
-  v10 = *v9;
-  v23 = *v9;
-  v11 = *(_QWORD *)(gptiCurrent + 432LL);
-  v25 = v11;
-  for ( i = *(_QWORD *)(v11 + 24); i; i = v13 )
-  {
-    v13 = *(_QWORD *)i;
-    v26 = *(_QWORD *)i;
-    if ( *(_DWORD *)(i + 24) == 255 )
+    v9 = a2;
+    if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+      v9 = (unsigned int *)MmUserProbeAddress;
+    v10 = *v9;
+    v22 = *v9;
+    v11 = *(_QWORD *)(gptiCurrent + 432LL);
+    v24 = v11;
+    CLockExclusiveAllowRecursion<DLT_QUEUE>::CLockExclusiveAllowRecursion<DLT_QUEUE>((__int64)v27, v11);
+    for ( i = *(__int64 **)(v11 + 24); i; i = v15 )
     {
-      v14 = HMValidateHandle(*(_QWORD *)(i + 40), 0x12u);
-      v24 = (char *)v14;
-      if ( v14 )
+      v15 = (__int64 *)*i;
+      v25 = (__int64 *)*i;
+      if ( *((_DWORD *)i + 6) == 255 )
       {
-        v5 = (*(_DWORD *)(v14 + 36) + 7) & 0xFFFFFFF8;
-        if ( v5 + v22 <= v22 )
-          goto LABEL_30;
-        v15 = a1;
-        if ( !a1 || v5 + v22 > v10 )
-          goto LABEL_18;
-        ProbeForWrite(a1, v5, 4u);
-        memmove(a1, v24 + 32, *((unsigned int *)v24 + 9));
-        ++v21;
-        a1 += v5;
-        v22 += v5;
-        FreeHidData(v24);
-        v11 = v25;
+        v16 = HMValidateHandle(i[5], 0x12u);
+        v23 = v16;
+        if ( v16 )
+        {
+          v5 = (*(_DWORD *)(v16 + 36) + 7) & 0xFFFFFFF8;
+          if ( v5 + v21 <= v21 )
+            goto LABEL_29;
+          v17 = a1;
+          if ( !a1 || v5 + v21 > v10 )
+            goto LABEL_18;
+          ProbeForWrite(a1, v5, 4u);
+          memmove(a1, (const void *)(v23 + 32), *(unsigned int *)(v23 + 36));
+          ++v20;
+          a1 += v5;
+          v21 += v5;
+          FreeHidData(v23);
+          v11 = v24;
+        }
+        *(_DWORD *)(gptiCurrent + 568LL) = *((_DWORD *)i + 12);
+        if ( *(__int64 **)(v11 + 80) == i )
+          *(_QWORD *)(v11 + 80) = 0LL;
+        DelQEntry((unsigned int **)(v11 + 24), (unsigned int *)i, 1);
+        EtwTraceInputProcessDelay(gptiCurrent);
+        *(_DWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 416LL) = (MEMORY[0xFFFFF78000000320]
+                                                               * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+        v10 = v22;
+        v15 = v25;
       }
-      *(_DWORD *)(gptiCurrent + 568LL) = *(_DWORD *)(i + 48);
-      if ( *(_QWORD *)(v11 + 88) == i )
-        *(_QWORD *)(v11 + 88) = 0LL;
-      DelQEntry(v11 + 24, i, 1);
-      EtwTraceInputProcessDelay(gptiCurrent);
-      *(_DWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 416LL) = (MEMORY[0xFFFFF78000000320]
-                                                             * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-      v10 = v23;
-      v13 = v26;
     }
-  }
-  v15 = a1;
+    v17 = a1;
 LABEL_18:
-  if ( !i && v15 )
-    ClearWakeBit(gptiCurrent, 1024, 0);
-  if ( v10 <= v5 )
-  {
-    if ( v15 )
+    if ( !i && v17 )
+      ClearWakeBit(gptiCurrent, 1024, 0);
+    if ( v10 <= v5 )
     {
-      UserSetLastError(122);
-      goto LABEL_27;
+      if ( v17 )
+        UserSetLastError(122LL, v12, v13);
     }
+    else if ( v17 )
+    {
+      _InterlockedExchange(
+        (volatile __int32 *)(*(_QWORD *)(gptiCurrent + 448LL) + 12LL),
+        (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24);
+      v6 = v20;
+      goto LABEL_29;
+    }
+    v6 = -(v17 != 0LL);
+    if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+      a2 = (unsigned int *)MmUserProbeAddress;
+    *a2 = v5;
   }
-  else if ( v15 )
+  else
   {
-    _InterlockedExchange(
-      (volatile __int32 *)(*(_QWORD *)(gptiCurrent + 448LL) + 20LL),
-      (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24);
-    v6 = v21;
-    goto LABEL_30;
+    UserSetLastError(87LL, v7, v8);
   }
-  v6 = 0;
-LABEL_27:
-  if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-    a2 = (unsigned int *)MmUserProbeAddress;
-  *a2 = v5;
-LABEL_30:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v28, v7, v8);
-  UserSessionSwitchLeaveCrit(v17, v16, v18, v19);
+LABEL_29:
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v26);
+  LeaveEditionCrit(v18);
   return v6;
 }

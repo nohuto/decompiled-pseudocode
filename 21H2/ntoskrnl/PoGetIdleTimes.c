@@ -1,19 +1,19 @@
 /*
- * XREFs of PoGetIdleTimes @ 0x140293444
+ * XREFs of PoGetIdleTimes @ 0x14027BD3C
  * Callers:
- *     ExpQueryProcessorInformationCounters @ 0x1406D14BC (ExpQueryProcessorInformationCounters.c)
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQueryProcessorInformationCounters @ 0x14064E480 (ExpQueryProcessorInformationCounters.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopGetIdleTimesCallback @ 0x140293600 (PopGetIdleTimesCallback.c)
- *     PopExecuteOnTargetProcessors @ 0x140293A88 (PopExecuteOnTargetProcessors.c)
- *     KeAddProcessorAffinityEx @ 0x140294460 (KeAddProcessorAffinityEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
+ *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
+ *     PopGetIdleTimesCallback @ 0x14027BED0 (PopGetIdleTimesCallback.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall PoGetIdleTimes(PPROCESSOR_NUMBER ProcNumber, __int64 a2, __int64 a3)
@@ -24,16 +24,16 @@ __int64 __fastcall PoGetIdleTimes(PPROCESSOR_NUMBER ProcNumber, __int64 a2, __in
   __int64 v9; // rsi
   unsigned __int8 CurrentIrql; // bl
   int IdleTimesCallback; // esi
-  ULONG v12; // eax
+  ULONG v13; // eax
   _DWORD *SchedulerAssist; // r9
   unsigned __int8 v15; // cl
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *v17; // r8
   int v18; // eax
   bool v19; // zf
-  _DWORD v20[68]; // [rsp+20h] [rbp-158h] BYREF
+  _DWORD v20[44]; // [rsp+20h] [rbp-F8h] BYREF
 
-  memset(v20, 0, 0x108uLL);
+  memset(v20, 0, 0xA8uLL);
   ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(ProcNumber);
   Prcb = KeGetPrcb(ProcessorIndexFromNumber);
   CurrentThread = KeGetCurrentThread();
@@ -68,11 +68,11 @@ __int64 __fastcall PoGetIdleTimes(PPROCESSOR_NUMBER ProcNumber, __int64 a2, __in
   __writecr8(CurrentIrql);
   if ( IdleTimesCallback < 0 )
   {
-    v20[0] = 2097153;
-    memset(&v20[1], 0, 0x104uLL);
-    v12 = KeGetProcessorIndexFromNumber(ProcNumber);
-    KeAddProcessorAffinityEx(v20, v12);
-    PopExecuteOnTargetProcessors(v20, PopGetIdleTimesCallback, a2, a3);
+    v20[0] = 1310721;
+    memset(&v20[1], 0, 0xA4uLL);
+    v13 = KeGetProcessorIndexFromNumber(ProcNumber);
+    KeAddProcessorAffinityEx(v20, v13);
+    PopExecuteOnTargetProcessors((__int64)v20, (__int64)PopGetIdleTimesCallback, a2, a3);
   }
   return PopReleaseRwLock(&PpmIdlePolicyLock);
 }

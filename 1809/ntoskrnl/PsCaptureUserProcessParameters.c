@@ -1,5 +1,5 @@
 /*
- * XREFs of PsCaptureUserProcessParameters @ 0x1406CEE10
+ * XREFs of PsCaptureUserProcessParameters @ 0x1406CEDF0
  * Callers:
  *     <none>
  * Callees:

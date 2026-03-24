@@ -1,21 +1,12 @@
 /*
- * XREFs of ?GDIEngUserMemAllocNodeAlloc@@YAPEAXPEAU_RTL_AVL_TABLE@@K@Z @ 0x1C0169A10
+ * XREFs of ?GDIEngUserMemAllocNodeAlloc@@YAPEAXPEAU_RTL_AVL_TABLE@@K@Z @ 0x1C00A2430
  * Callers:
  *     <none>
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
  */
 
 PVOID __fastcall GDIEngUserMemAllocNodeAlloc(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
 {
-  PVOID result; // rax
-
-  result = 0LL;
-  if ( ByteSize )
-    return (PVOID)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                    gpLeakTrackingAllocator,
-                    260LL,
-                    ByteSize,
-                    0x616D5547u);
-  return result;
+  return PALLOCMEM2(ByteSize, 1634555207LL, 0);
 }

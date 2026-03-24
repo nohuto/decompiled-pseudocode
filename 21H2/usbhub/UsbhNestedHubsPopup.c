@@ -1,24 +1,24 @@
 /*
- * XREFs of UsbhNestedHubsPopup @ 0x1C004AA10
+ * XREFs of UsbhNestedHubsPopup @ 0x1C004BDF0
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhBuildWmiConnectionNotification @ 0x1C0048514 (UsbhBuildWmiConnectionNotification.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhBuildWmiConnectionNotification @ 0x1C0049894 (UsbhBuildWmiConnectionNotification.c)
  */
 
 int __fastcall UsbhNestedHubsPopup(PDEVICE_OBJECT DeviceObject, __int64 a2)
 {
-  _DWORD *v4; // rax
+  _QWORD *v4; // rax
   PVOID EventData; // r10
 
   Log((__int64)DeviceObject, 128, 1817531202, a2, 0LL);
   FdoExt((__int64)DeviceObject);
-  v4 = (_DWORD *)UsbhBuildWmiConnectionNotification((__int64)DeviceObject, *(_WORD *)(a2 + 20));
+  v4 = UsbhBuildWmiConnectionNotification((__int64)DeviceObject, *(_WORD *)(a2 + 20));
   if ( v4 )
   {
-    *v4 = 10;
+    *(_DWORD *)v4 = 10;
     Log((__int64)DeviceObject, 128, 2003659084, a2, (__int64)v4);
     LODWORD(v4) = WmiFireEvent(DeviceObject, &GUID_USB_WMI_STD_NOTIFICATION, 0, 0x18u, EventData);
   }

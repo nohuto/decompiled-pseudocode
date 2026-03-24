@@ -1,9 +1,9 @@
 /*
- * XREFs of EmMatchDate @ 0x14092CE90
+ * XREFs of EmMatchDate @ 0x14088A460
  * Callers:
  *     <none>
  * Callees:
- *     EmpCheckOperator @ 0x14084D8D0 (EmpCheckOperator.c)
+ *     EmpCheckOperator @ 0x1407BCF00 (EmpCheckOperator.c)
  */
 
 __int64 __fastcall EmMatchDate(__int64 a1, __int64 a2, unsigned __int8 **a3, int a4, _DWORD *a5, int a6)
@@ -24,7 +24,7 @@ __int64 __fastcall EmMatchDate(__int64 a1, __int64 a2, unsigned __int8 **a3, int
           if ( (unsigned int)EmpCheckOperator(
                                v7,
                                EmpCachedBiosDate,
-                               (a5[2] < 0x80u ? 0x20000000 : 419430400) + a5[1] + ((*a5 + (a5[2] << 8)) << 8)) )
+                               a5[1] + (a5[2] < 0x80u ? 0x20000000 : 419430400) + ((*a5 + (a5[2] << 8)) << 8)) )
             return 2;
         }
       }

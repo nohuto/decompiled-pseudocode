@@ -1,15 +1,15 @@
 /*
- * XREFs of DrvDbGetDriverDatabaseMappedProperty @ 0x14075395C
+ * XREFs of DrvDbGetDriverDatabaseMappedProperty @ 0x14075393C
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x1406D27A0 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbLoadDatabaseNode @ 0x1406D3170 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1406D2780 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbLoadDatabaseNode @ 0x1406D3150 (DrvDbLoadDatabaseNode.c)
  * Callees:
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     DrvDbOpenObjectRegKey @ 0x1406D2C98 (DrvDbOpenObjectRegKey.c)
- *     DrvDbGetRegValueMappedProperty @ 0x1406D3A9C (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbFindDatabaseNode @ 0x1406D3B98 (DrvDbFindDatabaseNode.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140753ADC (DrvDbOpenDriverDatabaseRegKey.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406D2C78 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x1406D3A7C (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbFindDatabaseNode @ 0x1406D3B78 (DrvDbFindDatabaseNode.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140753ABC (DrvDbOpenDriverDatabaseRegKey.c)
  */
 
 __int64 __fastcall DrvDbGetDriverDatabaseMappedProperty(
@@ -202,7 +202,7 @@ LABEL_14:
   else
   {
     v33 = 0LL;
-    v34 = &off_140356500;
+    v34 = &off_140356510;
     while ( 1 )
     {
       v35 = *v34;
@@ -219,7 +219,7 @@ LABEL_14:
       if ( (unsigned int)v33 >= 2 )
         goto LABEL_75;
     }
-    v17 = &off_140356500 + 5 * v33;
+    v17 = &off_140356510 + 5 * v33;
 LABEL_75:
     if ( v17 )
     {

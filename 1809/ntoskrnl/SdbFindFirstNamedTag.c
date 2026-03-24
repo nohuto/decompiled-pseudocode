@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbFindFirstNamedTag @ 0x1407228F8
+ * XREFs of SdbFindFirstNamedTag @ 0x1407228D8
  * Callers:
- *     SdbpSearchDB @ 0x14067D58C (SdbpSearchDB.c)
- *     SdbQueryDataExTagID @ 0x1407229A4 (SdbQueryDataExTagID.c)
+ *     SdbpSearchDB @ 0x14067D56C (SdbpSearchDB.c)
+ *     SdbQueryDataExTagID @ 0x140722984 (SdbQueryDataExTagID.c)
  * Callees:
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
  *     SdbGetTagFromTagID @ 0x1405C82BC (SdbGetTagFromTagID.c)
- *     SdbFindFirstTag @ 0x14067D1A0 (SdbFindFirstTag.c)
- *     SdbGetNextChild @ 0x14067D214 (SdbGetNextChild.c)
- *     SdbGetFirstChild @ 0x14067D404 (SdbGetFirstChild.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
- *     SdbGetStringTagPtr @ 0x140721730 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x14067D180 (SdbFindFirstTag.c)
+ *     SdbGetNextChild @ 0x14067D1F4 (SdbGetNextChild.c)
+ *     SdbGetFirstChild @ 0x14067D3E4 (SdbGetFirstChild.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140721710 (SdbGetStringTagPtr.c)
  */
 
 __int64 __fastcall SdbFindFirstNamedTag(__int64 a1, __int64 a2, __int16 a3, __int16 a4, wchar_t *Str1)

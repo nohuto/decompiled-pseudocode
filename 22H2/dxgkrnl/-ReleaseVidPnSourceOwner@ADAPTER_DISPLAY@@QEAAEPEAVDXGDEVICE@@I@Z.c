@@ -1,95 +1,82 @@
 /*
- * XREFs of ?ReleaseVidPnSourceOwner@ADAPTER_DISPLAY@@QEAAEPEAVDXGDEVICE@@I@Z @ 0x1C02BEF88
+ * XREFs of ?ReleaseVidPnSourceOwner@ADAPTER_DISPLAY@@QEAAEPEAVDXGDEVICE@@I@Z @ 0x1C02148A4
  * Callers:
- *     ?SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@PEBQEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0188C5C (-SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAG.c)
- *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C0307E5C (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     ?SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@PEBQEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00E3A58 (-SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAG.c)
  * Callees:
- *     ?IsEmulatedVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@I@Z @ 0x1C0004278 (-IsEmulatedVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@I@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@I@Z @ 0x1C0005070 (-IsVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@I@Z.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0005BA8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C0173924 (-UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z.c)
- *     ?RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C01E944C (-RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z.c)
- *     ?IsVidPnSourcePrimaryValid@DXGDEVICE@@QEAAEI@Z @ 0x1C01EA5E4 (-IsVidPnSourcePrimaryValid@DXGDEVICE@@QEAAEI@Z.c)
- *     ?DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z @ 0x1C02BC360 (-DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0002910 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsEmulatedVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@I@Z @ 0x1C0002E9C (-IsEmulatedVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@I@Z.c)
+ *     ?IsVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@I@Z @ 0x1C0002F54 (-IsVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@I@Z.c)
+ *     ?RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C00E0528 (-RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z.c)
+ *     ?UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C00EABA0 (-UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     ?IsVidPnSourcePrimaryValid@DXGDEVICE@@QEAAEI@Z @ 0x1C016D7B8 (-IsVidPnSourcePrimaryValid@DXGDEVICE@@QEAAEI@Z.c)
+ *     ?DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z @ 0x1C0212318 (-DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z.c)
  */
 
 char __fastcall ADAPTER_DISPLAY::ReleaseVidPnSourceOwner(PERESOURCE **this, struct DXGDEVICE *a2, unsigned int a3)
 {
   __int64 v4; // r14
-  char v6; // di
-  PERESOURCE *v7; // rcx
-  __int64 v8; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  char v8; // bp
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  __int64 v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rax
+  PERESOURCE *v18; // rcx
+  __int64 v19; // rax
 
   v4 = a3;
-  v6 = 0;
+  v8 = 0;
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(*((_QWORD *)a2 + 2) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 3243LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pDevice->GetRenderCore()->IsCoreResourceExclusiveOwner()",
-      3243LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v9 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v9 + 24) = 3054LL;
+    WdLogEvent5_WdAssertion(v9);
   }
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 3244LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceExclusiveOwner()", 3244LL, 0LL, 0LL, 0LL, 0LL);
+    v12 = WdLogNewEntry5_WdAssertion(v11, v10);
+    *(_QWORD *)(v12 + 24) = 3055LL;
+    WdLogEvent5_WdAssertion(v12);
   }
-  if ( this[2] != *((PERESOURCE **)a2 + 235) )
+  if ( this[2] != *((PERESOURCE **)a2 + 231) )
   {
-    WdLogSingleEntry1(1LL, 3245LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"this->GetAdapter() == pDevice->GetDisplayAdapter(VidPnSourceId)",
-      3245LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v13 = WdLogNewEntry5_WdAssertion(v11, v10);
+    *(_QWORD *)(v13 + 24) = 3056LL;
+    WdLogEvent5_WdAssertion(v13);
   }
   if ( !ADAPTER_DISPLAY::IsVidPnSourceOwner((DXGADAPTER **)this, a2, v4)
     && !ADAPTER_DISPLAY::IsEmulatedVidPnSourceOwner((DXGADAPTER **)this, a2, v4) )
   {
-    WdLogSingleEntry1(1LL, 3246LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"IsVidPnSourceOwner(pDevice, VidPnSourceId) || IsEmulatedVidPnSourceOwner(pDevice, VidPnSourceId)",
-      3246LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v16 = WdLogNewEntry5_WdAssertion(v15, v14);
+    *(_QWORD *)(v16 + 24) = 3057LL;
+    WdLogEvent5_WdAssertion(v16);
   }
-  WdLogSingleEntry2(4LL, a2, v4);
-  v7 = this[16];
-  v8 = 500 * v4;
-  if ( a2 == (struct DXGDEVICE *)v7[500 * v4 + 93] )
+  v17 = WdLogNewEntry5_WdEvent(v15, v14);
+  *(_QWORD *)(v17 + 24) = a2;
+  *(_QWORD *)(v17 + 32) = v4;
+  WdLogEvent5_WdEvent(v17);
+  v18 = this[14];
+  v19 = 496 * v4;
+  if ( a2 == (struct DXGDEVICE *)v18[496 * v4 + 88] )
   {
-    v7[v8 + 93] = 0LL;
+    v18[v19 + 88] = 0LL;
 LABEL_17:
     ADAPTER_DISPLAY::UpdateGammaRamp((DXGADAPTER **)this, v4);
-    return v6;
+    return v8;
   }
-  if ( a2 == (struct DXGDEVICE *)v7[v8 + 91] )
+  if ( a2 == (struct DXGDEVICE *)v18[v19 + 86] )
   {
-    if ( *((_QWORD *)a2 + 235) == *(_QWORD *)(*((_QWORD *)a2 + 2) + 16LL) )
+    if ( *((_QWORD *)a2 + 231) == *(_QWORD *)(*((_QWORD *)a2 + 2) + 16LL)
+      && DXGDEVICE::IsVidPnSourcePrimaryValid(a2, v4) )
     {
-      if ( DXGDEVICE::IsVidPnSourcePrimaryValid(a2, v4) )
-      {
-        v6 = 1;
-        ADAPTER_DISPLAY::DisablePrimaryOnDevice((ADAPTER_DISPLAY *)this, a2, v4, 0);
-      }
+      v8 = 1;
+      ADAPTER_DISPLAY::DisablePrimaryOnDevice(this, a2, v4, 0);
     }
     ADAPTER_DISPLAY::RemoveVidPnOwnership((ADAPTER_DISPLAY *)this, v4);
     goto LABEL_17;

@@ -1,32 +1,34 @@
 /*
- * XREFs of VidSchSubmitWaitToHwQueue @ 0x1C0044E00
+ * XREFs of VidSchSubmitWaitToHwQueue @ 0x1C003A8E0
  * Callers:
- *     VidSchWaitForPagingFence @ 0x1C0108E0C (VidSchWaitForPagingFence.c)
+ *     VidSchWaitForPagingFence @ 0x1C00D1BF0 (VidSchWaitForPagingFence.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ?VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001CC9C (-VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     VidSchiSubmitCommandPacketToHwQueue @ 0x1C001DB3E (VidSchiSubmitCommandPacketToHwQueue.c)
- *     ?VidSchiAcquireSyncObjectForHwQueue@@YAJPEAU_VIDSCH_SYNC_OBJECT@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0041388 (-VidSchiAcquireSyncObjectForHwQueue@@YAJPEAU_VIDSCH_SYNC_OBJECT@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     VidSchiAllocateHwQueuePacket @ 0x1C00C4732 (VidSchiAllocateHwQueuePacket.c)
+ *     ?VidSchiAcquireSyncObjectForHwQueue@@YAJPEAU_VIDSCH_SYNC_OBJECT@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0036130 (-VidSchiAcquireSyncObjectForHwQueue@@YAJPEAU_VIDSCH_SYNC_OBJECT@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0037A00 (-VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     VidSchiSubmitCommandPacketToHwQueue @ 0x1C003C024 (VidSchiSubmitCommandPacketToHwQueue.c)
+ *     VidSchiAllocateHwQueuePacket @ 0x1C00D209C (VidSchiAllocateHwQueuePacket.c)
  */
 
 __int64 __fastcall VidSchSubmitWaitToHwQueue(struct VIDSCH_HW_QUEUE *a1, struct _VIDSCH_SYNC_OBJECT *a2, __int64 a3)
 {
-  bool v3; // zf
-  __int64 v7; // r14
+  __int64 v6; // r14
   __int64 HwQueuePacket; // rax
-  __int64 v10; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // rbx
+  __int64 v13; // rax
   struct _KTHREAD *CurrentThread; // rax
-  int v12; // esi
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+50h] [rbp-28h] BYREF
+  _QWORD *v15; // rax
+  __int64 v16; // r8
+  int v17; // esi
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  v3 = *((_DWORD *)a2 + 12) == 5;
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  v7 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL) + 24LL);
-  if ( v3 && *((_BYTE *)a2 + 28) )
+  v6 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL) + 24LL);
+  if ( *((_DWORD *)a2 + 11) == 5 && *((_BYTE *)a2 + 28) )
     return 3221225760LL;
   HwQueuePacket = VidSchiAllocateHwQueuePacket(a1, 0LL);
-  v10 = HwQueuePacket;
+  v12 = HwQueuePacket;
   if ( HwQueuePacket )
   {
     *(_DWORD *)HwQueuePacket = 895576406;
@@ -35,40 +37,37 @@ __int64 __fastcall VidSchSubmitWaitToHwQueue(struct VIDSCH_HW_QUEUE *a1, struct 
     *(_DWORD *)(HwQueuePacket + 52) = 2;
     *(_QWORD *)(HwQueuePacket + 96) = a1;
     CurrentThread = KeGetCurrentThread();
-    *(_QWORD *)(v10 + 72) = 0LL;
-    *(_DWORD *)(v10 + 272) &= ~1u;
-    *(_QWORD *)(v10 + 104) = CurrentThread;
-    *(_QWORD *)(v10 + 304) = a3;
-    WdLogSingleEntry3(4LL, a2, a3, a1);
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v7 + 1728), &LockHandle);
-    *(_QWORD *)(v10 + 280) = a2;
-    v12 = VidSchiAcquireSyncObjectForHwQueue(a2, (struct _VIDSCH_QUEUE_PACKET *)v10);
-    if ( v12 < 0 || (*(_DWORD *)(v10 + 272) & 1) != 0 )
+    *(_QWORD *)(v12 + 72) = 0LL;
+    *(_DWORD *)(v12 + 272) &= ~1u;
+    *(_QWORD *)(v12 + 104) = CurrentThread;
+    *(_QWORD *)(v12 + 304) = a3;
+    v15 = (_QWORD *)WdLogNewEntry5_WdEvent(v10, v9);
+    v15[3] = a2;
+    v15[4] = a3;
+    v15[5] = a1;
+    WdLogEvent5_WdEvent(v15);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v6 + 1712), &LockHandle);
+    *(_QWORD *)(v12 + 280) = a2;
+    v17 = VidSchiAcquireSyncObjectForHwQueue(a2, (struct _VIDSCH_QUEUE_PACKET *)v12, v16);
+    if ( v17 < 0 || (*(_DWORD *)(v12 + 272) & 1) != 0 )
     {
-      VidSchiFreeQueuePacket(a1, (struct _VIDSCH_QUEUE_PACKET *)v10);
+      VidSchiFreeQueuePacket(a1, (struct _VIDSCH_QUEUE_PACKET *)v12);
       KeReleaseInStackQueuedSpinLock(&LockHandle);
-      return (unsigned int)v12;
+      return (unsigned int)v17;
     }
     else
     {
       KeReleaseInStackQueuedSpinLock(&LockHandle);
-      VidSchiSubmitCommandPacketToHwQueue((struct _VIDSCH_QUEUE_PACKET *)v10);
+      VidSchiSubmitCommandPacketToHwQueue((struct _VIDSCH_QUEUE_PACKET *)v12);
       return 0LL;
     }
   }
   else
   {
-    WdLogSingleEntry2(1LL, -1073741801LL, 4495LL);
-    ((void (*)(_QWORD, __int64, __int64, const wchar_t *, ...))DxgCoreInterface[86])(
-      0LL,
-      0x40000LL,
-      0xFFFFFFFFLL,
-      L"Failed to allocate queue packet, returning 0x%I64x",
-      -1073741801LL,
-      4495LL,
-      0LL,
-      0LL,
-      0LL);
+    v13 = WdLogNewEntry5_WdAssertion(v10, v9, v11);
+    *(_QWORD *)(v13 + 24) = -1073741801LL;
+    *(_QWORD *)(v13 + 32) = 4185LL;
+    WdLogEvent5_WdAssertion(v13);
     return 3221225495LL;
   }
 }

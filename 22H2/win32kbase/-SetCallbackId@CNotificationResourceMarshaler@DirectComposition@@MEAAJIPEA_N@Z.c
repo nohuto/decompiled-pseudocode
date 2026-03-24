@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetCallbackId@CNotificationResourceMarshaler@DirectComposition@@MEAAJIPEA_N@Z @ 0x1C0099E50
+ * XREFs of ?SetCallbackId@CNotificationResourceMarshaler@DirectComposition@@MEAAJIPEA_N@Z @ 0x1C0087EC0
  * Callers:
  *     <none>
  * Callees:

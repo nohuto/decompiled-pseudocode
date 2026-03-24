@@ -1,18 +1,18 @@
 /*
- * XREFs of MI_PROTO_FORMAT_COMBINED @ 0x1402802DC
+ * XREFs of MI_PROTO_FORMAT_COMBINED @ 0x14028D248
  * Callers:
- *     MiDeleteSystemPagableVm @ 0x14027E810 (MiDeleteSystemPagableVm.c)
- *     MiComputePageCommitment @ 0x14028EDD0 (MiComputePageCommitment.c)
- *     MiDecommitPages @ 0x1402CE240 (MiDecommitPages.c)
- *     MiCountSystemImageCommitment @ 0x1402DBA28 (MiCountSystemImageCommitment.c)
- *     MiGetPageProtection @ 0x140319160 (MiGetPageProtection.c)
- *     MiSharedVaToPartition @ 0x14033D80C (MiSharedVaToPartition.c)
- *     MiWalkVaRange @ 0x14033E5D0 (MiWalkVaRange.c)
- *     MiResolvePageFileFault @ 0x1403927C4 (MiResolvePageFileFault.c)
- *     MiCheckCommitReleaseFromVad @ 0x14057FA8C (MiCheckCommitReleaseFromVad.c)
- *     MiBuildForkPte @ 0x1405B88D8 (MiBuildForkPte.c)
+ *     MiWalkVaRange @ 0x14023C0F0 (MiWalkVaRange.c)
+ *     MiSharedVaToPartition @ 0x14024144C (MiSharedVaToPartition.c)
+ *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
+ *     MiDeleteSystemPagableVm @ 0x140305A80 (MiDeleteSystemPagableVm.c)
+ *     MiComputePageCommitment @ 0x14030CB60 (MiComputePageCommitment.c)
+ *     MiGetPageProtection @ 0x140330DA0 (MiGetPageProtection.c)
+ *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
+ *     MiCountSystemImageCommitment @ 0x14039EC94 (MiCountSystemImageCommitment.c)
+ *     MiCheckCommitReleaseFromVad @ 0x14052B10C (MiCheckCommitReleaseFromVad.c)
+ *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
  * Callees:
- *     MiIsPrototypePteVadLookup @ 0x1402806A0 (MiIsPrototypePteVadLookup.c)
+ *     MiIsPrototypePteVadLookup @ 0x14028D4D0 (MiIsPrototypePteVadLookup.c)
  */
 
 bool __fastcall MI_PROTO_FORMAT_COMBINED(__int64 a1)

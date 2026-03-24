@@ -1,18 +1,18 @@
 /*
- * XREFs of PpDeviceRegistration @ 0x14076B554
+ * XREFs of PpDeviceRegistration @ 0x14074BD60
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x1406CF970 (IopInitializeDeviceInstanceKey.c)
- *     PnpCleanupDeviceRegistryValues @ 0x140768024 (PnpCleanupDeviceRegistryValues.c)
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
- *     IoReportDetectedDevice @ 0x14081EB20 (IoReportDetectedDevice.c)
- *     PpDevCfgProcessDevices @ 0x140827F54 (PpDevCfgProcessDevices.c)
- *     PiCMCreateDevice @ 0x140954434 (PiCMCreateDevice.c)
- *     PiCMDeleteDevice @ 0x140954E2C (PiCMDeleteDevice.c)
+ *     PiCMDeleteDevice @ 0x14072B66C (PiCMDeleteDevice.c)
+ *     PnpCleanupDeviceRegistryValues @ 0x140736390 (PnpCleanupDeviceRegistryValues.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074ED50 (IopInitializeDeviceInstanceKey.c)
+ *     PpDevCfgProcessDevices @ 0x1407A32BC (PpDevCfgProcessDevices.c)
+ *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
+ *     PiCMCreateDevice @ 0x1408AF440 (PiCMCreateDevice.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PiDeviceRegistration @ 0x14076B5DC (PiDeviceRegistration.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PiDeviceRegistration @ 0x14074BDF0 (PiDeviceRegistration.c)
  */
 
 __int64 __fastcall PpDeviceRegistration(__int64 a1, __int64 a2, __int64 a3, char a4)
@@ -33,7 +33,7 @@ __int64 __fastcall PpDeviceRegistration(__int64 a1, __int64 a2, __int64 a3, char
   if ( !a4 )
   {
     ExReleaseResourceLite(&PnpRegistryDeviceResource);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return v9;
 }

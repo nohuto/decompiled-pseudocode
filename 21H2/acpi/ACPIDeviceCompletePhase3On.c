@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIDeviceCompletePhase3On @ 0x1C002B230
+ * XREFs of ACPIDeviceCompletePhase3On @ 0x1C002D6C0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qD @ 0x1C0007340 (WPP_RECORDER_SF_qD.c)
- *     ACPIDeviceCompletePhase3Common @ 0x1C00080D4 (ACPIDeviceCompletePhase3Common.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     ACPIDeviceCompletePhase3Common @ 0x1C001CD30 (ACPIDeviceCompletePhase3Common.c)
  */
 
 void __fastcall ACPIDeviceCompletePhase3On(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -18,7 +18,7 @@ void __fastcall ACPIDeviceCompletePhase3On(__int64 a1, int a2, __int64 a3, __int
       4u,
       0xAu,
       0x10u,
-      (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       a4,
       a2);
   v6 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?IsCasterInBetweenLightAndReceiver@CProjectedShadowScene@@AEBA_NPEBVCVisualTree@@PEBUCasterEntry@1@PEBUReceiverEntry@1@M@Z @ 0x1802364F8
+ * XREFs of ?IsCasterInBetweenLightAndReceiver@CProjectedShadowScene@@AEBA_NPEBVCVisualTree@@PEBUCasterEntry@1@PEBUReceiverEntry@1@M@Z @ 0x180009888
  * Callers:
- *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x180236944 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
+ *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x18000A760 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
  * Callees:
- *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x1800A6570 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
- *     ?GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z @ 0x1800E8734 (-GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ??0CVisualDepthGeometry@@QEAA@AEBUfloat2@Numerics@Foundation@Windows@@AEBVCMILMatrix@@@Z @ 0x18025A290 (--0CVisualDepthGeometry@@QEAA@AEBUfloat2@Numerics@Foundation@Windows@@AEBVCMILMatrix@@@Z.c)
- *     ??0CVisualDepthGeometry@@QEAA@PEAVCVisual@@AEBVCMILMatrix@@@Z @ 0x18025A2EC (--0CVisualDepthGeometry@@QEAA@PEAVCVisual@@AEBVCMILMatrix@@@Z.c)
- *     ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x18025A904 (-GetRelativeOrder@CVisualDepthGeometry@@QEBA-AW4RelativeOrder@@AEBV1@@Z.c)
+ *     ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x180009A44 (-GetRelativeOrder@CVisualDepthGeometry@@QEBA-AW4RelativeOrder@@AEBV1@@Z.c)
+ *     ??0CVisualDepthGeometry@@QEAA@AEBUfloat2@Numerics@Foundation@Windows@@AEBVCMILMatrix@@@Z @ 0x180009EFC (--0CVisualDepthGeometry@@QEAA@AEBUfloat2@Numerics@Foundation@Windows@@AEBVCMILMatrix@@@Z.c)
+ *     ??0CVisualDepthGeometry@@QEAA@PEAVCVisual@@AEBVCMILMatrix@@@Z @ 0x180009F58 (--0CVisualDepthGeometry@@QEAA@PEAVCVisual@@AEBVCMILMatrix@@@Z.c)
+ *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180041AC8 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
+ *     ?GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z @ 0x1800BF7A8 (-GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 bool __fastcall CProjectedShadowScene::IsCasterInBetweenLightAndReceiver(
@@ -24,60 +24,52 @@ bool __fastcall CProjectedShadowScene::IsCasterInBetweenLightAndReceiver(
   __int128 v10; // xmm1
   __int128 v11; // xmm0
   __int128 v12; // xmm1
-  __int64 v13; // r8
-  __int64 v14; // r8
-  __int64 v15; // r9
-  float v17; // [rsp+28h] [rbp-E0h] BYREF
-  float v18[13]; // [rsp+2Ch] [rbp-DCh] BYREF
-  __int128 v19; // [rsp+68h] [rbp-A0h]
-  int v20; // [rsp+78h] [rbp-90h]
-  _OWORD v21[4]; // [rsp+88h] [rbp-80h] BYREF
-  int v22; // [rsp+C8h] [rbp-40h]
-  _OWORD v23[4]; // [rsp+D8h] [rbp-30h] BYREF
-  int v24; // [rsp+118h] [rbp+10h]
-  _BYTE v25[32]; // [rsp+128h] [rbp+20h] BYREF
-  int v26; // [rsp+148h] [rbp+40h]
-  _BYTE v27[32]; // [rsp+1D8h] [rbp+D0h] BYREF
-  int v28; // [rsp+1F8h] [rbp+F0h]
+  float v14; // [rsp+28h] [rbp-E0h] BYREF
+  float v15[13]; // [rsp+2Ch] [rbp-DCh] BYREF
+  __int128 v16; // [rsp+68h] [rbp-A0h]
+  int v17; // [rsp+78h] [rbp-90h]
+  _OWORD v18[4]; // [rsp+88h] [rbp-80h] BYREF
+  int v19; // [rsp+C8h] [rbp-40h]
+  _OWORD v20[4]; // [rsp+D8h] [rbp-30h] BYREF
+  int v21; // [rsp+118h] [rbp+10h]
+  _BYTE v22[32]; // [rsp+128h] [rbp+20h] BYREF
+  int v23; // [rsp+148h] [rbp+40h]
+  _BYTE v24[32]; // [rsp+1D8h] [rbp+D0h] BYREF
+  int v25; // [rsp+1F8h] [rbp+F0h]
 
-  CVisual::GetEffectiveSize(*(CVisual **)(*(_QWORD *)a3 + 64LL), &v17, v18);
-  v20 = 5888;
+  CVisual::GetEffectiveSize(*(CVisual **)(*(_QWORD *)a3 + 56LL), &v14, v15);
   v8 = *(_DWORD *)(v7 + 96);
-  LODWORD(v19) = a5 ^ _xmm;
-  *(_QWORD *)((char *)&v19 + 4) = a5 ^ (unsigned __int64)(unsigned int)_xmm;
-  v17 = v17 + (float)(*(float *)&a5 + *(float *)&a5);
-  v18[0] = v18[0] + (float)(*(float *)&a5 + *(float *)&a5);
+  v17 = 15700;
+  LODWORD(v16) = a5 ^ _xmm;
+  *(_QWORD *)((char *)&v16 + 4) = a5 ^ (unsigned __int64)(unsigned int)_xmm;
+  v19 = v8;
+  v14 = v14 + (float)(*(float *)&a5 + *(float *)&a5);
+  v15[0] = v15[0] + (float)(*(float *)&a5 + *(float *)&a5);
   v9 = *(_OWORD *)(v7 + 32);
-  LOBYTE(v20) = 84;
-  HIDWORD(v19) = (_DWORD)FLOAT_1_0;
+  HIDWORD(v16) = (_DWORD)FLOAT_1_0;
   v10 = *(_OWORD *)(v7 + 48);
-  v22 = v8;
-  v21[0] = v9;
+  v18[0] = v9;
   v11 = *(_OWORD *)(v7 + 64);
-  v21[1] = v10;
+  v18[1] = v10;
   v12 = *(_OWORD *)(v7 + 80);
-  v21[2] = v11;
-  v21[3] = v12;
-  CMILMatrix::Multiply((CMILMatrix *)v21, (const struct CProjectedShadowScene::CasterEntry *)((char *)a3 + 84), v13, v7);
-  v23[3] = v19;
-  v23[0] = _xmm;
-  v23[1] = _xmm;
-  v23[2] = _xmm;
-  v24 = v20;
-  CMILMatrix::Multiply(
-    (CMILMatrix *)v23,
-    (const struct CProjectedShadowScene::CasterEntry *)((char *)a3 + 16),
-    v14,
-    v15);
+  v18[2] = v11;
+  v18[3] = v12;
+  CMILMatrix::Multiply((CMILMatrix *)v18, (const struct CProjectedShadowScene::CasterEntry *)((char *)a3 + 84));
+  v20[3] = v16;
+  v20[0] = _xmm;
+  v20[1] = _xmm;
+  v20[2] = _xmm;
+  v21 = v17;
+  CMILMatrix::Multiply((CMILMatrix *)v20, (const struct CProjectedShadowScene::CasterEntry *)((char *)a3 + 16));
   CVisualDepthGeometry::CVisualDepthGeometry(
-    (CVisualDepthGeometry *)v25,
-    *(struct CVisual **)(*(_QWORD *)a4 + 64LL),
-    (const struct CMILMatrix *)v21);
+    (CVisualDepthGeometry *)v22,
+    *(struct CVisual **)(*(_QWORD *)a4 + 56LL),
+    (const struct CMILMatrix *)v18);
   CVisualDepthGeometry::CVisualDepthGeometry(
-    (CVisualDepthGeometry *)v27,
-    (const struct Windows::Foundation::Numerics::float2 *)&v17,
-    (const struct CMILMatrix *)v23);
-  v26 = 2;
-  v28 = 1;
-  return (unsigned int)CVisualDepthGeometry::GetRelativeOrder(v27, v25) == 0;
+    (CVisualDepthGeometry *)v24,
+    (const struct Windows::Foundation::Numerics::float2 *)&v14,
+    (const struct CMILMatrix *)v20);
+  v23 = 2;
+  v25 = 1;
+  return (unsigned int)CVisualDepthGeometry::GetRelativeOrder(v24, v22) == 0;
 }

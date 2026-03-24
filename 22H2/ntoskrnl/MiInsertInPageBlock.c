@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInsertInPageBlock @ 0x1402BD368
+ * XREFs of MiInsertInPageBlock @ 0x14027CFDC
  * Callers:
- *     MiFreeInPageSupportBlock @ 0x1402BD2CC (MiFreeInPageSupportBlock.c)
- *     MiInitializePageFaultResources @ 0x140375EE0 (MiInitializePageFaultResources.c)
+ *     MiFreeInPageSupportBlock @ 0x14027CF5C (MiFreeInPageSupportBlock.c)
+ *     MiInitializePageFaultResources @ 0x1403CA0A8 (MiInitializePageFaultResources.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall MiInsertInPageBlock(PSLIST_ENTRY ListEntry)
@@ -13,17 +13,17 @@ __int64 __fastcall MiInsertInPageBlock(PSLIST_ENTRY ListEntry)
   union _SLIST_HEADER *v3; // rcx
 
   v2 = ((unsigned int)~LODWORD(ListEntry[12].Next) >> 6) & 1;
-  if ( (unsigned __int64)ListEntry >= MiState[v2 + 2117] && (unsigned __int64)ListEntry < MiState[v2 + 2119] )
+  if ( (unsigned __int64)ListEntry >= MiState[v2 + 1163] && (unsigned __int64)ListEntry < MiState[v2 + 1165] )
   {
-    v3 = (union _SLIST_HEADER *)((char *)&unk_140C69780 + 16 * v2);
-    goto LABEL_5;
-  }
-  if ( (unsigned int)LOWORD(MiState[2 * v2 + 2108]) < *((unsigned __int8 *)&MiState[2116] + v2) )
-  {
-    v3 = (union _SLIST_HEADER *)&MiState[2 * v2 + 2108];
-LABEL_5:
+    v3 = (union _SLIST_HEADER *)((char *)&unk_140C4ECF0 + 16 * v2);
+LABEL_4:
     RtlpInterlockedPushEntrySList(v3, ListEntry);
     return 1LL;
+  }
+  if ( (unsigned int)LOWORD(MiState[2 * v2 + 1154]) < *((unsigned __int8 *)&MiState[1162] + v2) )
+  {
+    v3 = (union _SLIST_HEADER *)&MiState[2 * v2 + 1154];
+    goto LABEL_4;
   }
   return 0LL;
 }

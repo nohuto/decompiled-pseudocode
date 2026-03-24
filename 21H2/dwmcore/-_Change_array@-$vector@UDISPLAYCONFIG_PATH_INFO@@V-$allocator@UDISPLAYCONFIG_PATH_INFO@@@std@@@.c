@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_Change_array@?$vector@UDISPLAYCONFIG_PATH_INFO@@V?$allocator@UDISPLAYCONFIG_PATH_INFO@@@std@@@std@@AEAAXQEAUDISPLAYCONFIG_PATH_INFO@@_K1@Z @ 0x1801EAD7C
+ * XREFs of ?_Change_array@?$vector@UDISPLAYCONFIG_PATH_INFO@@V?$allocator@UDISPLAYCONFIG_PATH_INFO@@@std@@@std@@AEAAXQEAUDISPLAYCONFIG_PATH_INFO@@_K1@Z @ 0x1801A5784
  * Callers:
- *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@UDISPLAYCONFIG_PATH_INFO@@V?$allocator@UDISPLAYCONFIG_PATH_INFO@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1801E9090 (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@UDISPLAYCONFIG_PATH_INFO@@V-$allocator@UDI.c)
+ *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@UDISPLAYCONFIG_PATH_INFO@@V?$allocator@UDISPLAYCONFIG_PATH_INFO@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1801A3E54 (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@UDISPLAYCONFIG_PATH_INFO@@V-$allocator@UDI.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
  */
 
 __int64 __fastcall std::vector<DISPLAYCONFIG_PATH_INFO>::_Change_array(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -13,10 +13,10 @@ __int64 __fastcall std::vector<DISPLAYCONFIG_PATH_INFO>::_Change_array(__int64 a
 
   v6 = *(void **)a1;
   if ( v6 )
-    std::_Deallocate<16,0>(v6, 8 * ((__int64)(*(_QWORD *)(a1 + 16) - (_QWORD)v6) >> 3));
+    std::_Deallocate<16,0>(v6, 72 * ((*(_QWORD *)(a1 + 16) - (_QWORD)v6) / 72LL));
   *(_QWORD *)a1 = a2;
-  *(_QWORD *)(a1 + 8) = a2 + 72 * a3;
   result = 9 * a4;
+  *(_QWORD *)(a1 + 8) = a2 + 72 * a3;
   *(_QWORD *)(a1 + 16) = a2 + 72 * a4;
   return result;
 }

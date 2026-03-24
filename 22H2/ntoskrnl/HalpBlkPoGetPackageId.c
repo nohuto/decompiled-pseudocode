@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkPoGetPackageId @ 0x14052A880
+ * XREFs of HalpBlkPoGetPackageId @ 0x1404DE840
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpBlkPoGetPackageId(ULONG_PTR BugCheckParameter2)

@@ -1,1 +1,54 @@
-/*\n * XREFs of MouseClassPlugPlayNotification @ 0x1C000F280\n * Callers:\n *     <none>\n * Callees:\n *     MouseClassEnableGlobalPort @ 0x1C000EFC0 (MouseClassEnableGlobalPort.c)\n */\n\n__int64 __fastcall MouseClassPlugPlayNotification(char *NotificationStructure, PVOID Context)\n{\n  __int64 result; // rax\n  __int64 v5; // rcx\n  char v6; // dl\n  __int64 v7; // rcx\n  void *v8; // rcx\n  __int64 v9; // rcx\n  void *v10; // rcx\n\n  result = 0LL;\n  v5 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_QUERY_REMOVE.Data1;\n  if ( !v5 )\n    v5 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_QUERY_REMOVE.Data4;\n  if ( !v5 )\n  {\nLABEL_4:\n    v6 = 0;\n    return MouseClassEnableGlobalPort((PVOID *)Context, v6);\n  }\n  v7 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data1;\n  if ( !v7 )\n    v7 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data4;\n  if ( !v7 )\n  {\n    v8 = (void *)_InterlockedExchange64((volatile __int64 *)Context + 39, 0LL);\n    if ( !v8 )\n      return result;\n    IoUnregisterPlugPlayNotification(v8);\n    goto LABEL_4;\n  }\n  v9 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_REMOVE_CANCELLED.Data1;\n  if ( !v9 )\n    v9 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_REMOVE_CANCELLED.Data4;\n  if ( !v9 )\n  {\n    v10 = (void *)_InterlockedExchange64((volatile __int64 *)Context + 39, 0LL);\n    if ( v10 )\n    {\n      IoUnregisterPlugPlayNotification(v10);\n      v6 = 1;\n      return MouseClassEnableGlobalPort((PVOID *)Context, v6);\n    }\n  }\n  return result;\n}\n
+/*
+ * XREFs of MouseClassPlugPlayNotification @ 0x1C000F280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MouseClassEnableGlobalPort @ 0x1C000EFC0 (MouseClassEnableGlobalPort.c)
+ */
+
+__int64 __fastcall MouseClassPlugPlayNotification(char *NotificationStructure, PVOID Context)
+{
+  __int64 result; // rax
+  __int64 v5; // rcx
+  char v6; // dl
+  __int64 v7; // rcx
+  void *v8; // rcx
+  __int64 v9; // rcx
+  void *v10; // rcx
+
+  result = 0LL;
+  v5 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_QUERY_REMOVE.Data1;
+  if ( !v5 )
+    v5 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_QUERY_REMOVE.Data4;
+  if ( !v5 )
+  {
+LABEL_4:
+    v6 = 0;
+    return MouseClassEnableGlobalPort((PVOID *)Context, v6);
+  }
+  v7 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data1;
+  if ( !v7 )
+    v7 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data4;
+  if ( !v7 )
+  {
+    v8 = (void *)_InterlockedExchange64((volatile __int64 *)Context + 39, 0LL);
+    if ( !v8 )
+      return result;
+    IoUnregisterPlugPlayNotification(v8);
+    goto LABEL_4;
+  }
+  v9 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_REMOVE_CANCELLED.Data1;
+  if ( !v9 )
+    v9 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_REMOVE_CANCELLED.Data4;
+  if ( !v9 )
+  {
+    v10 = (void *)_InterlockedExchange64((volatile __int64 *)Context + 39, 0LL);
+    if ( v10 )
+    {
+      IoUnregisterPlugPlayNotification(v10);
+      v6 = 1;
+      return MouseClassEnableGlobalPort((PVOID *)Context, v6);
+    }
+  }
+  return result;
+}

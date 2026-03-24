@@ -1,5 +1,5 @@
 /*
- * XREFs of NtCreatePrivateNamespace @ 0x140654380
+ * XREFs of NtCreatePrivateNamespace @ 0x140654360
  * Callers:
  *     <none>
  * Callees:
@@ -7,16 +7,16 @@
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     ObpRegisterPrivateNamespace @ 0x1406545CC (ObpRegisterPrivateNamespace.c)
- *     ObpVerifyCreatorAccessCheck @ 0x140654724 (ObpVerifyCreatorAccessCheck.c)
- *     ObpCaptureBoundaryDescriptor @ 0x1406548B8 (ObpCaptureBoundaryDescriptor.c)
+ *     ObpRegisterPrivateNamespace @ 0x1406545AC (ObpRegisterPrivateNamespace.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x140654704 (ObpVerifyCreatorAccessCheck.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x140654898 (ObpCaptureBoundaryDescriptor.c)
  */
 
 __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, unsigned int a2, int a3, void *a4)

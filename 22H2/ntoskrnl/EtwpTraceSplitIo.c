@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpTraceSplitIo @ 0x1405FEA70
+ * XREFs of EtwpTraceSplitIo @ 0x1405A9FB0
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall EtwpTraceSplitIo(__int64 a1, __int64 a2, __int16 a3)
+void __fastcall EtwpTraceSplitIo(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
-  __int64 v4; // [rsp+30h] [rbp-38h] BYREF
-  int v5; // [rsp+38h] [rbp-30h]
-  int v6; // [rsp+3Ch] [rbp-2Ch]
-  __int64 v7; // [rsp+40h] [rbp-28h]
-  int v8; // [rsp+48h] [rbp-20h]
-  int v9; // [rsp+4Ch] [rbp-1Ch]
+  __int64 v3; // [rsp+30h] [rbp-38h] BYREF
+  int v4; // [rsp+38h] [rbp-30h]
+  int v5; // [rsp+3Ch] [rbp-2Ch]
+  __int64 v6; // [rsp+40h] [rbp-28h]
+  int v7; // [rsp+48h] [rbp-20h]
+  int v8; // [rsp+4Ch] [rbp-1Ch]
 
-  v6 = 0;
-  v9 = 0;
-  v4 = a1;
-  v7 = a2;
-  v5 = 8;
-  v8 = 8;
-  return EtwTraceKernelEvent((int)&v4, 2, 0x200000u, a3, 4200450);
+  v5 = 0;
+  v8 = 0;
+  v3 = a1;
+  v6 = a2;
+  v4 = 8;
+  v7 = 8;
+  EtwTraceKernelEvent((__int64)&v3, 2u, 0x200000u, a3, 0x401802u);
 }

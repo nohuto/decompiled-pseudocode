@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@BamoDataSourceProxy@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180106D70
+ * XREFs of ?QueryInterface@BamoDataSourceProxy@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F5880
  * Callers:
  *     <none>
  * Callees:

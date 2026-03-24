@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCovSampEnumerateDriver @ 0x1409F2400
+ * XREFs of EtwpCovSampEnumerateDriver @ 0x140944A70
  * Callers:
  *     <none>
  * Callees:
- *     EtwpCovSampImageNotify @ 0x1408A9D00 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampImageNotify @ 0x1409450A0 (EtwpCovSampImageNotify.c)
  */
 
 __int64 __fastcall EtwpCovSampEnumerateDriver(__int64 a1)
@@ -18,6 +18,6 @@ __int64 __fastcall EtwpCovSampEnumerateDriver(__int64 a1)
   v3[0] = 1280LL;
   v3[1] = v1;
   v3[3] = *(unsigned int *)(a1 + 64);
-  EtwpCovSampImageNotify((PUNICODE_STRING)(a1 + 72), 0LL, (char *)v3);
+  EtwpCovSampImageNotify((PUNICODE_STRING)(a1 + 72), 0LL, (PIMAGE_INFO)v3);
   return 0LL;
 }

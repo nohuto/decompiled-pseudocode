@@ -1,12 +1,12 @@
 /*
- * XREFs of IopInsertPassiveInterruptBlock @ 0x1402885DC
+ * XREFs of IopInsertPassiveInterruptBlock @ 0x1402886DC
  * Callers:
- *     IopAllocatePassiveInterruptBlock @ 0x140827490 (IopAllocatePassiveInterruptBlock.c)
+ *     IopAllocatePassiveInterruptBlock @ 0x140827470 (IopAllocatePassiveInterruptBlock.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     IopAcquireGlobalPassiveInterruptListLock @ 0x140288358 (IopAcquireGlobalPassiveInterruptListLock.c)
- *     IopFindPassiveInterruptBlockLocked @ 0x1402885A4 (IopFindPassiveInterruptBlockLocked.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopAcquireGlobalPassiveInterruptListLock @ 0x140288458 (IopAcquireGlobalPassiveInterruptListLock.c)
+ *     IopFindPassiveInterruptBlockLocked @ 0x1402886A4 (IopFindPassiveInterruptBlockLocked.c)
  */
 
 __int64 __fastcall IopInsertPassiveInterruptBlock(__int64 a1, _BYTE *a2)

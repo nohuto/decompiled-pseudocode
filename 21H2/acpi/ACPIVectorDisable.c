@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIVectorDisable @ 0x1C0061AC0
+ * XREFs of ACPIVectorDisable @ 0x1C0060D00
  * Callers:
- *     ACPIEcMaskInterrupt @ 0x1C0052E98 (ACPIEcMaskInterrupt.c)
- *     ACPIVectorDisable2 @ 0x1C0061B90 (ACPIVectorDisable2.c)
+ *     ACPIEcMaskInterrupt @ 0x1C00537B8 (ACPIEcMaskInterrupt.c)
+ *     ACPIVectorDisable2 @ 0x1C0060DD0 (ACPIVectorDisable2.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     ACPIGpeIndexToGpeRegister @ 0x1C001D5CC (ACPIGpeIndexToGpeRegister.c)
- *     ACPIGpeEnableDisableEvents @ 0x1C00200A4 (ACPIGpeEnableDisableEvents.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     ACPIGpeIndexToGpeRegister @ 0x1C001A108 (ACPIGpeIndexToGpeRegister.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C00265D0 (ACPIGpeEnableDisableEvents.c)
  */
 
 __int64 __fastcall ACPIVectorDisable(__int64 a1, unsigned int *a2)

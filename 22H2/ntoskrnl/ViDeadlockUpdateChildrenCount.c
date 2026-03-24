@@ -1,28 +1,27 @@
 /*
- * XREFs of ViDeadlockUpdateChildrenCount @ 0x140ADAF60
+ * XREFs of ViDeadlockUpdateChildrenCount @ 0x1409DFF24
  * Callers:
- *     VfDeadlockAcquireResource @ 0x140AD7DAC (VfDeadlockAcquireResource.c)
- *     ViDeadlockMergeNodes @ 0x140ADA5B4 (ViDeadlockMergeNodes.c)
- *     ViDeadlockRemoveNode @ 0x140ADA934 (ViDeadlockRemoveNode.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5D8 (VfDeadlockAcquireResource.c)
+ *     ViDeadlockMergeNodes @ 0x1409DF624 (ViDeadlockMergeNodes.c)
+ *     ViDeadlockRemoveNode @ 0x1409DF924 (ViDeadlockRemoveNode.c)
  * Callees:
  *     <none>
  */
 
-PVOID __fastcall ViDeadlockUpdateChildrenCount(__int64 **a1, int a2)
+PVOID __fastcall ViDeadlockUpdateChildrenCount(__int64 *a1, int a2)
 {
-  __int64 *i; // r8
+  int v2; // r8d
   PVOID result; // rax
-  int v4; // edx
 
-  *((_DWORD *)a1 + 19) += a2;
-  for ( i = *a1; i; i = (__int64 *)*i )
+  do
   {
-    *((_DWORD *)i + 19) += a2;
-    a1 = (__int64 **)i;
+    v2 = a2 + *((_DWORD *)a1 + 19);
+    *((_DWORD *)a1 + 19) = v2;
+    a1 = (__int64 *)*a1;
   }
+  while ( a1 );
   result = ViDeadlockGlobals;
-  v4 = *((_DWORD *)a1 + 19);
-  if ( v4 > *((_DWORD *)ViDeadlockGlobals + 8282) )
-    *((_DWORD *)ViDeadlockGlobals + 8282) = v4;
+  if ( v2 > *((_DWORD *)ViDeadlockGlobals + 8282) )
+    *((_DWORD *)ViDeadlockGlobals + 8282) = v2;
   return result;
 }

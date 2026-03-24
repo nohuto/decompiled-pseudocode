@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessUpdate@?$TValueResource@UMilRectF@@UtagMILCMD_RECTRESOURCE@@$0IM@@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_RECTRESOURCE@@@Z @ 0x18001BF10
+ * XREFs of ?ProcessUpdate@?$TValueResource@UMilRectF@@UtagMILCMD_RECTRESOURCE@@$0IM@@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_RECTRESOURCE@@@Z @ 0x18001EDBC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall TValueResource<MilRectF,tagMILCMD_RECTRESOURCE,140>::ProcessUpdate(
@@ -14,7 +14,7 @@ __int64 __fastcall TValueResource<MilRectF,tagMILCMD_RECTRESOURCE,140>::ProcessU
   __int64 v3; // rax
 
   v3 = *a1;
-  *((_OWORD *)a1 + 4) = *(_OWORD *)(a3 + 8);
+  *(_OWORD *)(a1 + 7) = *(_OWORD *)(a3 + 8);
   (*(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(v3 + 72))(a1, 0LL, 0LL);
   return 0LL;
 }

@@ -1,17 +1,26 @@
 /*
- * XREFs of KeReenterRetpolinedCode @ 0x140410160
+ * XREFs of KeReenterRetpolinedCode @ 0x1403F2830
  * Callers:
  *     <none>
  * Callees:
- *     KxReenterRetpolinedCode @ 0x140573E54 (KxReenterRetpolinedCode.c)
+ *     <none>
  */
 
-unsigned __int8 KeReenterRetpolinedCode()
+char KeReenterRetpolinedCode()
 {
-  unsigned __int8 result; // al
+  struct _KPRCB *CurrentPrcb; // rax
+  __int16 v1; // cx
+  __int16 v3; // [rsp+0h] [rbp-8h]
 
-  result = KeGetPcr()->Prcb.BpbRetpolineState;
-  if ( (result & 1) != 0 )
-    return KxReenterRetpolinedCode();
-  return result;
+  LOBYTE(CurrentPrcb) = KeGetPcr()->Prcb.BpbRetpolineState;
+  if ( ((unsigned __int8)CurrentPrcb & 1) != 0 )
+  {
+    v1 = v3;
+    _disable();
+    CurrentPrcb = KeGetCurrentPrcb();
+    CurrentPrcb->BpbRetpolineState &= ~1u;
+    if ( (v1 & 0x200) != 0 )
+      _enable();
+  }
+  return (char)CurrentPrcb;
 }

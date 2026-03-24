@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhPdoPower_QueryPower @ 0x1C000B2D0
+ * XREFs of UsbhPdoPower_QueryPower @ 0x1C0011060
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     WPP_RECORDER_SF_dD @ 0x1C002DCEC (WPP_RECORDER_SF_dD.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C002F0C8 (WPP_RECORDER_SF_dD.c)
  */
 
 __int64 __fastcall UsbhPdoPower_QueryPower(__int64 a1, IRP *a2)

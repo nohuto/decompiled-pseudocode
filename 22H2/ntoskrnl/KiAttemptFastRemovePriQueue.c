@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAttemptFastRemovePriQueue @ 0x1402BF710
+ * XREFs of KiAttemptFastRemovePriQueue @ 0x1402F7A60
  * Callers:
- *     KeRemovePriQueue @ 0x1402BF080 (KeRemovePriQueue.c)
- *     KiActivateWaiterPriQueue @ 0x14030BB1C (KiActivateWaiterPriQueue.c)
+ *     KeRemovePriQueue @ 0x140241B40 (KeRemovePriQueue.c)
+ *     KiActivateWaiterPriQueue @ 0x1402F79E4 (KiActivateWaiterPriQueue.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall KiAttemptFastRemovePriQueue(ULONG_PTR BugCheckParameter2, int *a2, int a3)

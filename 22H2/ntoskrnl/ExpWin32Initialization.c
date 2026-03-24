@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpWin32Initialization @ 0x140B4DD44
+ * XREFs of ExpWin32Initialization @ 0x140A3CE48
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140B4D6E4 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140A3C2EC (ExpInitSystemPhase1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObCreateObjectType @ 0x140821750 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObCreateObjectType @ 0x140790760 (ObCreateObjectType.c)
  */
 
 bool ExpWin32Initialization()
@@ -59,7 +59,7 @@ bool ExpWin32Initialization()
     return 0;
   RtlInitUnicodeString(&DestinationString, L"ActivationObject");
   v3[10] = 0LL;
-  HIDWORD(v3[4]) = 1;
+  HIDWORD(v3[4]) = 545;
   BYTE2(v3[0]) = BYTE2(v3[0]) & 0xB9 | 6;
   *(_OWORD *)((char *)&v3[1] + 4) = ExpActivationObjectMapping;
   return (int)ObCreateObjectType(&DestinationString, (__int64)v3, 0LL, (__int64)&ExActivationObjectType) >= 0;

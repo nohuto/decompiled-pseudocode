@@ -1,11 +1,11 @@
 /*
- * XREFs of ?OpenLifetimeDirtyRegion@CCompositionSurface@@QEBAJ_KAEBUCSM_REALIZATION_INFO@@PEAPEAUHRGN__@@@Z @ 0x1C0005554
+ * XREFs of ?OpenLifetimeDirtyRegion@CCompositionSurface@@QEBAJ_KAEBUCSM_REALIZATION_INFO@@PEAPEAUHRGN__@@@Z @ 0x1C000FF38
  * Callers:
- *     NtOpenCompositionSurfaceDirtyRegion @ 0x1C00052D0 (NtOpenCompositionSurfaceDirtyRegion.c)
+ *     NtOpenCompositionSurfaceDirtyRegion @ 0x1C000F7A0 (NtOpenCompositionSurfaceDirtyRegion.c)
  * Callees:
- *     ?OpenLifetimeDirtyRegion@CBufferRealization@@QEBAJPEAPEAUHRGN__@@@Z @ 0x1C00055AC (-OpenLifetimeDirtyRegion@CBufferRealization@@QEBAJPEAPEAUHRGN__@@@Z.c)
- *     ?FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@Z @ 0x1C000564C (-FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@.c)
- *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C00070D4 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     ?OpenLifetimeDirtyRegion@CBufferRealization@@QEBAJPEAPEAUHRGN__@@@Z @ 0x1C000FF90 (-OpenLifetimeDirtyRegion@CBufferRealization@@QEBAJPEAPEAUHRGN__@@@Z.c)
+ *     ?FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@Z @ 0x1C0010030 (-FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@.c)
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C0010F60 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
  */
 
 __int64 __fastcall CCompositionSurface::OpenLifetimeDirtyRegion(
@@ -17,7 +17,7 @@ __int64 __fastcall CCompositionSurface::OpenLifetimeDirtyRegion(
   __int64 result; // rax
   const struct CSM_REALIZATION_INFO *v6; // r11
   struct CCompositionBuffer *v7; // [rsp+20h] [rbp-18h] BYREF
-  struct CBufferRealization *v8; // [rsp+28h] [rbp-10h] BYREF
+  CBufferRealization *v8; // [rsp+28h] [rbp-10h] BYREF
 
   v7 = 0LL;
   result = CCompositionSurface::FindBuffer(this, a2, &v7);

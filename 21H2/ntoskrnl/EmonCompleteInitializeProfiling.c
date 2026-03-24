@@ -1,11 +1,11 @@
 /*
- * XREFs of EmonCompleteInitializeProfiling @ 0x140A5B400
+ * XREFs of EmonCompleteInitializeProfiling @ 0x14099FC70
  * Callers:
  *     <none>
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403B3BA0 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     KeAllocateProcessorProfileStructures @ 0x1403D83A0 (KeAllocateProcessorProfileStructures.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A2374 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     KeAllocateProcessorProfileStructures @ 0x1403B64D0 (KeAllocateProcessorProfileStructures.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void __fastcall EmonCompleteInitializeProfiling()

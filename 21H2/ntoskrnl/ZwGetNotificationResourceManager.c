@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwGetNotificationResourceManager @ 0x14041D760
+ * XREFs of ZwGetNotificationResourceManager @ 0x1403FC300
  * Callers:
- *     DifZwGetNotificationResourceManagerWrapper @ 0x140620D40 (DifZwGetNotificationResourceManagerWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

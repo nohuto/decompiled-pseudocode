@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwIsSystemResumeAutomatic @ 0x14041C7C0
+ * XREFs of ZwIsSystemResumeAutomatic @ 0x1403FBA80
  * Callers:
  *     <none>
  * Callees:

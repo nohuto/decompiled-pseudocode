@@ -1,16 +1,16 @@
 /*
- * XREFs of NtAlpcImpersonateClientContainerOfPort @ 0x140849F40
+ * XREFs of NtAlpcImpersonateClientContainerOfPort @ 0x140849F20
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     PsImpersonateContainerOfThread @ 0x14005AE90 (PsImpersonateContainerOfThread.c)
- *     PsGetWorkOnBehalfThread @ 0x1400ACCF4 (PsGetWorkOnBehalfThread.c)
- *     PsEncodeThreadWorkOnBehalfTicket @ 0x1400ACDA0 (PsEncodeThreadWorkOnBehalfTicket.c)
- *     IoThreadToProcess @ 0x1400ACF00 (IoThreadToProcess.c)
- *     PoEnergyEstimationEnabled @ 0x1400ACF60 (PoEnergyEstimationEnabled.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ObDereferenceObjectDeferDelete @ 0x1400C1040 (ObDereferenceObjectDeferDelete.c)
+ *     PsGetWorkOnBehalfThread @ 0x1400ACD14 (PsGetWorkOnBehalfThread.c)
+ *     PsEncodeThreadWorkOnBehalfTicket @ 0x1400ACDC0 (PsEncodeThreadWorkOnBehalfTicket.c)
+ *     IoThreadToProcess @ 0x1400ACF20 (IoThreadToProcess.c)
+ *     PoEnergyEstimationEnabled @ 0x1400ACF80 (PoEnergyEstimationEnabled.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
  *     AlpcpLookupMessage @ 0x140636970 (AlpcpLookupMessage.c)

@@ -1,12 +1,12 @@
 /*
- * XREFs of KIsUnlockSettingEnabled @ 0x1406C30F0
+ * XREFs of KIsUnlockSettingEnabled @ 0x1406C30D0
  * Callers:
- *     ExQueryFastCacheDevLicense @ 0x1406C30A0 (ExQueryFastCacheDevLicense.c)
- *     KIsSideloadingEnabled @ 0x1408DDBB4 (KIsSideloadingEnabled.c)
+ *     ExQueryFastCacheDevLicense @ 0x1406C3080 (ExQueryFastCacheDevLicense.c)
+ *     KIsSideloadingEnabled @ 0x1408DDB94 (KIsSideloadingEnabled.c)
  * Callees:
- *     AppModelFreeUnicodeString @ 0x1401345D0 (AppModelFreeUnicodeString.c)
- *     KGetUnlockSetting @ 0x1406C3228 (KGetUnlockSetting.c)
- *     KGetAppModelStateSeparatedRegKeyPath @ 0x1406C7B78 (KGetAppModelStateSeparatedRegKeyPath.c)
+ *     AppModelFreeUnicodeString @ 0x1401345F0 (AppModelFreeUnicodeString.c)
+ *     KGetUnlockSetting @ 0x1406C3208 (KGetUnlockSetting.c)
+ *     KGetAppModelStateSeparatedRegKeyPath @ 0x1406C7B58 (KGetAppModelStateSeparatedRegKeyPath.c)
  */
 
 __int64 __fastcall KIsUnlockSettingEnabled(__int64 a1, _DWORD *a2)

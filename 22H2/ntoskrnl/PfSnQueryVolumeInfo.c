@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnQueryVolumeInfo @ 0x1406869B4
+ * XREFs of PfSnQueryVolumeInfo @ 0x1406342E4
  * Callers:
- *     PfSnOpenVolumesForPrefetch @ 0x140686328 (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x140634420 (PfSnOpenVolumesForPrefetch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     NtQueryVolumeInformationFile @ 0x140686AF0 (NtQueryVolumeInformationFile.c)
- *     PfpOpenHandleCreate @ 0x14075D594 (PfpOpenHandleCreate.c)
- *     PfpOpenHandleClose @ 0x14075D734 (PfpOpenHandleClose.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PfpOpenHandleCreate @ 0x140633828 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x1406339C0 (PfpOpenHandleClose.c)
+ *     NtQueryVolumeInformationFile @ 0x1406C9680 (NtQueryVolumeInformationFile.c)
  */
 
 __int64 __fastcall PfSnQueryVolumeInfo(__int64 a1, const WCHAR *a2, _OWORD *a3, _QWORD *a4, _DWORD *a5)
 {
   __int64 v6; // rdi
-  NTSTATUS v9; // ebx
+  int v9; // ebx
   __int128 v10; // xmm0
   __int128 v11; // xmm1
   __m256i FileHandle; // [rsp+40h] [rbp-41h] BYREF
@@ -30,7 +30,7 @@ __int64 __fastcall PfSnQueryVolumeInfo(__int64 a1, const WCHAR *a2, _OWORD *a3, 
   DestinationString = 0LL;
   IoStatusBlock = 0LL;
   RtlInitUnicodeString(&DestinationString, a2);
-  v9 = PfpOpenHandleCreate((unsigned int)&FileHandle, a1, (unsigned int)&DestinationString, 0, 1048960, 0, 0, 0LL);
+  v9 = PfpOpenHandleCreate((__int64)&FileHandle, a1, (__int64)&DestinationString, 0LL, 1048960, 0, 0, 0LL);
   if ( v9 < 0
     || (v9 = NtQueryVolumeInformationFile(
                (HANDLE)FileHandle.m256i_i64[0],

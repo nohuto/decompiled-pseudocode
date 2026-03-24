@@ -1,7 +1,7 @@
 /*
- * XREFs of fromIV_HIDP_CAPS @ 0x1C017EC5C
+ * XREFs of fromIV_HIDP_CAPS @ 0x1C0160EB4
  * Callers:
- *     RIMVirtCreateHidDesc @ 0x1C0184200 (RIMVirtCreateHidDesc.c)
+ *     RIMVirtCreateHidDesc @ 0x1C0162C3C (RIMVirtCreateHidDesc.c)
  * Callees:
  *     <none>
  */

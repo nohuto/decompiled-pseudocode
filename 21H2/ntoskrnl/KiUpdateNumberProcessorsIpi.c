@@ -1,9 +1,9 @@
 /*
- * XREFs of KiUpdateNumberProcessorsIpi @ 0x140A69710
+ * XREFs of KiUpdateNumberProcessorsIpi @ 0x1409AF630
  * Callers:
  *     <none>
  * Callees:
- *     KiUpdateProcessorCount @ 0x140A59C88 (KiUpdateProcessorCount.c)
+ *     KiUpdateProcessorCount @ 0x14099F584 (KiUpdateProcessorCount.c)
  */
 
 ULONG_PTR __fastcall KiUpdateNumberProcessorsIpi(volatile signed __int32 *Argument)
@@ -15,7 +15,7 @@ ULONG_PTR __fastcall KiUpdateNumberProcessorsIpi(volatile signed __int32 *Argume
   {
     while ( *((_DWORD *)Argument + 2) )
       _mm_pause();
-    KiUpdateProcessorCount(v2, KiProcessorIndexToNumberMappingTable[v2] >> 6);
+    KiUpdateProcessorCount(v2, (unsigned int)KiProcessorIndexToNumberMappingTable[v2] >> 6);
     *((_DWORD *)Argument + 4) = 1;
     while ( *((_DWORD *)Argument + 3) )
       _mm_pause();

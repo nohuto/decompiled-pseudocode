@@ -1,59 +1,56 @@
 /*
- * XREFs of HalSocRequestConfigurationData @ 0x140378418
+ * XREFs of HalSocRequestConfigurationData @ 0x1403A179C
  * Callers:
- *     HalpHpetDiscover @ 0x140377E30 (HalpHpetDiscover.c)
- *     HalpApicSetupRegisterAccess @ 0x14037826C (HalpApicSetupRegisterAccess.c)
- *     HalpTscGetAttributes @ 0x140378914 (HalpTscGetAttributes.c)
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403A3BEC (HalpTimerRegisterBuiltinPlugins.c)
- *     HalpHvDiscover @ 0x1403A3CCC (HalpHvDiscover.c)
+ *     HalpTscGetAttributes @ 0x1403A12B0 (HalpTscGetAttributes.c)
+ *     HalpApicSetupRegisterAccess @ 0x1403A1654 (HalpApicSetupRegisterAccess.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403B174C (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpHpetDiscover @ 0x1403B25CC (HalpHpetDiscover.c)
+ *     HalpHvDiscover @ 0x1403B36BC (HalpHvDiscover.c)
  * Callees:
- *     HalpIsPartitionCpuManager @ 0x140378548 (HalpIsPartitionCpuManager.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x14037858C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpIsHvPresent @ 0x1403785CC (HalpIsHvPresent.c)
- *     HalpInterruptGetX2ApicPolicy @ 0x140378BFC (HalpInterruptGetX2ApicPolicy.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1898 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsHvPresent @ 0x1403A18D8 (HalpIsHvPresent.c)
+ *     HalpInterruptGetX2ApicPolicy @ 0x1403A194C (HalpInterruptGetX2ApicPolicy.c)
+ *     HalpIsPartitionCpuManager @ 0x1403AF37C (HalpIsPartitionCpuManager.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalSocRequestConfigurationData(int a1, __int64 a2, char *a3)
 {
-  unsigned int v3; // edi
+  unsigned int v3; // r11d
   int v5; // ecx
   int v6; // ecx
   __int64 v7; // rcx
   __int64 v8; // rcx
-  int v9; // ecx
-  __int64 v10; // rcx
-  __int64 v11; // rcx
+  __int64 v9; // rcx
+  char v10; // al
   char *p_IsPartitionCpuManager; // rax
+  __int64 v13; // rcx
   __int64 v14; // rcx
-  char v15; // al
-  bool v21; // cf
-  __int64 v27; // rax
-  bool v28; // r11
-  bool v34; // al
-  bool v35; // [rsp+20h] [rbp-30h] BYREF
-  char IsPartitionCpuManager; // [rsp+21h] [rbp-2Fh] BYREF
-  char IsHvPresent; // [rsp+22h] [rbp-2Eh] BYREF
-  char IsMicrosoftCompatibleHvLoaded; // [rsp+23h] [rbp-2Dh] BYREF
-  char v39; // [rsp+24h] [rbp-2Ch] BYREF
-  char v40; // [rsp+25h] [rbp-2Bh] BYREF
-  char X2ApicPolicy; // [rsp+26h] [rbp-2Ah] BYREF
-  char v42; // [rsp+27h] [rbp-29h] BYREF
-  char v43; // [rsp+28h] [rbp-28h] BYREF
-  int v44; // [rsp+30h] [rbp-20h]
-  int v45; // [rsp+34h] [rbp-1Ch]
-  __int64 v46; // [rsp+38h] [rbp-18h]
+  bool v20; // cf
+  __int64 v26; // rax
+  bool v27; // si
+  char v33; // al
+  bool v34; // [rsp+20h] [rbp-20h] BYREF
+  char IsPartitionCpuManager; // [rsp+21h] [rbp-1Fh] BYREF
+  char IsHvPresent; // [rsp+22h] [rbp-1Eh] BYREF
+  char IsMicrosoftCompatibleHvLoaded; // [rsp+23h] [rbp-1Dh] BYREF
+  char v38; // [rsp+24h] [rbp-1Ch] BYREF
+  char X2ApicPolicy; // [rsp+25h] [rbp-1Bh] BYREF
+  char v40; // [rsp+26h] [rbp-1Ah] BYREF
+  char v41; // [rsp+27h] [rbp-19h] BYREF
+  int v42; // [rsp+28h] [rbp-18h]
+  int v43; // [rsp+2Ch] [rbp-14h]
+  __int64 v44; // [rsp+30h] [rbp-10h]
 
   v3 = 0;
   IsPartitionCpuManager = 0;
-  v42 = 0;
+  v40 = 0;
   IsHvPresent = 0;
   IsMicrosoftCompatibleHvLoaded = 0;
-  v43 = 0;
-  v35 = 0;
-  v39 = 0;
+  v41 = 0;
+  v34 = 0;
+  v38 = 0;
   X2ApicPolicy = 0;
-  v40 = 0;
   v5 = a1 - 1;
   if ( v5 )
   {
@@ -66,103 +63,95 @@ __int64 __fastcall HalSocRequestConfigurationData(int a1, __int64 a2, char *a3)
         v8 = (unsigned int)(v7 - 1);
         if ( (_DWORD)v8 )
         {
-          v9 = v8 - 1;
-          if ( v9 )
+          v9 = (unsigned int)(v8 - 1);
+          if ( (_DWORD)v9 )
           {
-            v10 = (unsigned int)(v9 - 1);
-            if ( (_DWORD)v10 )
+            v13 = (unsigned int)(v9 - 1);
+            if ( (_DWORD)v13 )
             {
-              v11 = (unsigned int)(v10 - 1);
-              if ( (_DWORD)v11 )
+              v14 = (unsigned int)(v13 - 1);
+              if ( (_DWORD)v14 )
               {
-                v14 = (unsigned int)(v11 - 1);
-                if ( (_DWORD)v14 )
+                if ( (_DWORD)v14 != 1 )
                 {
-                  if ( (_DWORD)v14 != 1 )
-                  {
-                    v3 = -1073741811;
-                    HalpTimerLastProblem = 30;
-                    return v3;
-                  }
-                  IsPartitionCpuManager = HalpIsPartitionCpuManager(v14, a2);
-                  p_IsPartitionCpuManager = &IsPartitionCpuManager;
+                  v3 = -1073741811;
+                  HalpTimerLastProblem = 30;
+                  return v3;
                 }
-                else
-                {
-                  IsHvPresent = HalpIsHvPresent(v14, a2);
-                  p_IsPartitionCpuManager = &IsHvPresent;
-                }
+                IsPartitionCpuManager = HalpIsPartitionCpuManager(v14, a2);
+                p_IsPartitionCpuManager = &IsPartitionCpuManager;
               }
               else
               {
-                IsMicrosoftCompatibleHvLoaded = HalpIsMicrosoftCompatibleHvLoaded(v11, a2);
-                p_IsPartitionCpuManager = &IsMicrosoftCompatibleHvLoaded;
+                IsHvPresent = HalpIsHvPresent(v14);
+                p_IsPartitionCpuManager = &IsHvPresent;
               }
             }
             else
             {
-              if ( !(unsigned __int8)HalpIsMicrosoftCompatibleHvLoaded(v10, a2) )
-                goto LABEL_16;
-              _RAX = 1073741828LL;
-              __asm { cpuid }
-              v21 = (_RAX & 0x100) != 0;
-              v15 = 1;
-              if ( !v21 )
-LABEL_16:
-                v15 = 0;
-              v39 = v15;
-              p_IsPartitionCpuManager = &v39;
+              IsMicrosoftCompatibleHvLoaded = HalpIsMicrosoftCompatibleHvLoaded(v13);
+              p_IsPartitionCpuManager = &IsMicrosoftCompatibleHvLoaded;
             }
           }
           else
           {
-            v40 = HalpIommuX2ApicSupport;
-            p_IsPartitionCpuManager = &v40;
+            if ( !(unsigned __int8)HalpIsMicrosoftCompatibleHvLoaded(v9) )
+              goto LABEL_7;
+            _RAX = 1073741828LL;
+            __asm { cpuid }
+            v20 = (_RAX & 0x100) != 0;
+            v10 = 1;
+            if ( !v20 )
+LABEL_7:
+              v10 = v3;
+            v38 = v10;
+            p_IsPartitionCpuManager = &v38;
           }
         }
         else
         {
-          X2ApicPolicy = HalpInterruptGetX2ApicPolicy(v8, a2);
+          X2ApicPolicy = HalpInterruptGetX2ApicPolicy(v8);
           p_IsPartitionCpuManager = &X2ApicPolicy;
         }
       }
       else
       {
-        if ( (unsigned __int8)HalpIsMicrosoftCompatibleHvLoaded(v7, a2) )
+        if ( (unsigned __int8)HalpIsMicrosoftCompatibleHvLoaded(v7) )
         {
           _RAX = 1073741827LL;
           __asm { cpuid }
-          v46 = 0LL;
-          v44 = _RAX;
-          v45 = _RBX;
-          v27 = _RAX & 0xE;
-          v35 = v27 == 14;
-          if ( v27 == 14 )
+          v44 = 0LL;
+          v42 = _RAX;
+          v43 = _RBX;
+          v26 = _RAX & 0xE;
+          v27 = v26 == 14;
+          v34 = v26 == 14;
+          if ( v26 == 14 )
           {
             if ( (unsigned __int8)HalpIsPartitionCpuManager(_RCX, _RDX) )
             {
               _RAX = 1073741830LL;
               __asm { cpuid }
-              v21 = (_RAX & 0x200) != 0;
-              v34 = v28;
-              if ( v21 )
-                v34 = 0;
-              v35 = v34;
+              v20 = (_RAX & 0x200) != 0;
+              v33 = v27;
+              if ( v20 )
+                v33 = v3;
+              v34 = v33;
             }
           }
         }
-        p_IsPartitionCpuManager = (char *)&v35;
+        p_IsPartitionCpuManager = (char *)&v34;
       }
     }
     else
     {
-      p_IsPartitionCpuManager = &v43;
+      p_IsPartitionCpuManager = &v41;
     }
   }
   else
   {
-    p_IsPartitionCpuManager = &v42;
-    v42 = HalpTimerPlatformSourceForced;
+    p_IsPartitionCpuManager = &v40;
+    v40 = HalpTimerPlatformSourceForced;
   }
   *a3 = *p_IsPartitionCpuManager;
   return v3;

@@ -1,21 +1,21 @@
 /*
- * XREFs of ??_EBamoDataProviderRegistrarStubImpl@BamoImpl@@UEAAPEAXI@Z @ 0x1801E0B30
+ * XREFs of ??_EBamoDataProviderRegistrarStubImpl@BamoImpl@@UEAAPEAXI@Z @ 0x18017E2A0
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 BamoImpl::BamoDataProviderRegistrarStubImpl *__fastcall BamoImpl::BamoDataProviderRegistrarStubImpl::`vector deleting destructor'(
         BamoImpl::BamoDataProviderRegistrarStubImpl *this,
         char a2)
 {
-  __int64 v4; // rcx
+  void (__fastcall ***v4)(_QWORD); // rcx
 
-  v4 = *((_QWORD *)this + 4);
+  v4 = (void (__fastcall ***)(_QWORD))*((_QWORD *)this + 5);
   if ( v4 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4);
+    (**v4)(v4);
   if ( (a2 & 1) != 0 )
     operator delete(this);
   return this;

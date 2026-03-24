@@ -1,9 +1,9 @@
 /*
- * XREFs of DwmSyncNotifyMinimizing @ 0x1C00CBD30
+ * XREFs of DwmSyncNotifyMinimizing @ 0x1C002C59C
  * Callers:
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00CA7B4 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
+ *     xxxMinMaximizeEx @ 0x1C002B73C (xxxMinMaximizeEx.c)
  * Callees:
- *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C00CCA80 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
+ *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C002EB28 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
  */
 
 __int64 __fastcall DwmSyncNotifyMinimizing(PVOID Object, __int64 a2)
@@ -18,6 +18,7 @@ __int64 __fastcall DwmSyncNotifyMinimizing(PVOID Object, __int64 a2)
   v3 = -1073741823;
   if ( Object )
   {
+    v3 = gbInVideoPnpCallout != 0 ? 0xC0000001 : 0;
     if ( !gbInVideoPnpCallout )
     {
       memset(&v6, 0, sizeof(v6));

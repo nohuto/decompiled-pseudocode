@@ -3,10 +3,10 @@
  * Callers:
  *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     KiInitializeMutant @ 0x1400DD358 (KiInitializeMutant.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     ObCreateObjectType @ 0x1407289E0 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     KiInitializeMutant @ 0x1400DD378 (KiInitializeMutant.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
  */
 
 __int64 __fastcall EtwpInitializeRegistration(__int64 a1, __int64 a2, __int64 a3)
@@ -17,7 +17,7 @@ __int64 __fastcall EtwpInitializeRegistration(__int64 a1, __int64 a2, __int64 a3
   LOBYTE(a3) = 1;
   KiInitializeMutant((__int64)&EtwpGlobalMutex, 0LL, a3);
   EtwpReplyListLock = 0LL;
-  qword_140409EA8 = (__int64)&EtwpReplyListHead;
+  qword_140409E68 = (__int64)&EtwpReplyListHead;
   EtwpReplyListHead = (__int64)&EtwpReplyListHead;
   memset(v5, 0, 0x78uLL);
   BYTE2(v5[0]) |= 0x18u;

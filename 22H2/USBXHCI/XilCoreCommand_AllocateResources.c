@@ -1,10 +1,10 @@
 /*
- * XREFs of XilCoreCommand_AllocateResources @ 0x1C001BC80
+ * XREFs of XilCoreCommand_AllocateResources @ 0x1C0015B4C
  * Callers:
- *     XilCommand_AllocateResources @ 0x1C001BC30 (XilCommand_AllocateResources.c)
+ *     XilCommand_AllocateResources @ 0x1C0015AFC (XilCommand_AllocateResources.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     CommonBuffer_AcquireBuffer @ 0x1C0013090 (CommonBuffer_AcquireBuffer.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     CommonBuffer_AcquireBuffer @ 0x1C000E440 (CommonBuffer_AcquireBuffer.c)
  */
 
 __int64 __fastcall XilCoreCommand_AllocateResources(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall XilCoreCommand_AllocateResources(__int64 a1)
 
   v2 = *(_QWORD *)(*(_QWORD *)a1 + 8LL);
   v3 = *(_QWORD *)(v2 + 88);
-  v4 = CommonBuffer_AcquireBuffer(*(struct _KEVENT **)(v2 + 120), 512, a1, 828665155);
+  v4 = CommonBuffer_AcquireBuffer(*(PVOID *)(v2 + 120), 512, a1, 828665155);
   *(_QWORD *)(a1 + 16) = v4;
   result = 0LL;
   if ( v4 )

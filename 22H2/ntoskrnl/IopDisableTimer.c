@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDisableTimer @ 0x1405550D4
+ * XREFs of IopDisableTimer @ 0x1403CE41C
  * Callers:
- *     IoStopTimer @ 0x140557560 (IoStopTimer.c)
+ *     IoStopTimer @ 0x1403CE400 (IoStopTimer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeCancelTimer @ 0x140252980 (KeCancelTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceIoTimerEvent @ 0x1405FCF20 (EtwTraceIoTimerEvent.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeCancelTimer @ 0x14025FAA0 (KeCancelTimer.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceIoTimerEvent @ 0x1405A7884 (EtwTraceIoTimerEvent.c)
  */
 
 char __fastcall IopDisableTimer(__int64 a1)
@@ -26,22 +26,23 @@ char __fastcall IopDisableTimer(__int64 a1)
     *(_WORD *)(a1 + 2) = 0;
     v2 = --IopTimerCount == 0;
   }
-  LOBYTE(v4) = KxReleaseSpinLock((volatile signed __int64 *)&IopTimerLock);
+  KxReleaseSpinLock(&IopTimerLock);
+  LOBYTE(v4) = KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    LOBYTE(v4) = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)v4 <= 0xFu
-      && (unsigned __int8)v3 <= 0xFu
-      && (unsigned __int8)v4 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v4 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v7 = (v4 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v4;
-      if ( v7 )
-        LOBYTE(v4) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      LOBYTE(v4) = KeGetCurrentIrql();
+      if ( (unsigned __int8)v4 <= 0xFu && (unsigned __int8)v3 <= 0xFu && (unsigned __int8)v4 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v4 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+        v7 = (v4 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v4;
+        if ( v7 )
+          LOBYTE(v4) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v3);

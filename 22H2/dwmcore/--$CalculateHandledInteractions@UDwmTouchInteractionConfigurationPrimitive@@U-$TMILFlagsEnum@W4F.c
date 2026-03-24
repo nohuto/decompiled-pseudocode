@@ -1,15 +1,15 @@
 /*
- * XREFs of ??$CalculateHandledInteractions@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@CInteractionProcessor@@QEAAJPEAV?$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@AEBUInteractionAxis@@PEAUInteractionAxisGroup@@PEAUIInteractionContextWrapper@@PEAW4InteractionState@@PEAU2@PEAUD2DMatrix@@66@Z @ 0x1801A8E84
+ * XREFs of ??$CalculateHandledInteractions@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@CInteractionProcessor@@QEAAJPEAV?$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@AEBUInteractionAxis@@PEAUInteractionAxisGroup@@PEAUIInteractionContextWrapper@@PEAW4InteractionState@@PEAU2@PEAUD2DMatrix@@66@Z @ 0x180229228
  * Callers:
- *     ?CalculateHandledInteractions@CInteractionProcessor@@QEAAJAEBUInteractionAxis@@PEAUInteractionAxisGroup@@1AEBV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@PEAUIInteractionContextWrapper@@PEAW4InteractionState@@PEAU2@@Z @ 0x1801ABC04 (-CalculateHandledInteractions@CInteractionProcessor@@QEAAJAEBUInteractionAxis@@PEAUInteractionAx.c)
+ *     ?CalculateHandledInteractions@CInteractionProcessor@@QEAAJAEBUInteractionAxis@@PEAUInteractionAxisGroup@@1AEBV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@PEAUIInteractionContextWrapper@@PEAW4InteractionState@@PEAU2@@Z @ 0x18022B878 (-CalculateHandledInteractions@CInteractionProcessor@@QEAAJAEBUInteractionAxis@@PEAUInteractionAx.c)
  * Callees:
- *     ?GetD3DMatrix@CMILMatrix@@QEBA?AU_D3DMATRIX@@XZ @ 0x1800E5900 (-GetD3DMatrix@CMILMatrix@@QEBA-AU_D3DMATRIX@@XZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     _anonymous_namespace_::AxisContainsMotion @ 0x1801AB720 (_anonymous_namespace_--AxisContainsMotion.c)
- *     ?ComputeHandledInteractionsFromLocal@CInteractionProcessor@@AEAA?AUInteractionAxis@@AEBUD2DVector3@@PEAUD2DMatrix@@@Z @ 0x1801AC9C0 (-ComputeHandledInteractionsFromLocal@CInteractionProcessor@@AEAA-AUInteractionAxis@@AEBUD2DVecto.c)
- *     ?ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA?AUD2DMatrix@@PEAV?$DynArray@UAxisWithType@@$0A@@@@Z @ 0x1801ADAC0 (-ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA-AUD2DMatrix@@PEAV-$DynArray@UAxisWi.c)
- *     ?ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA?AUD2DVector3@@AEBUInteractionMotion@@AEBUD2DMatrix@@PEAU4@2@Z @ 0x1801ADCF0 (-ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA-AUD2DVector3@@AEBUInteractionMotio.c)
+ *     ?GetD3DMatrix@CMILMatrix@@QEBA?AU_D3DMATRIX@@XZ @ 0x1800E100C (-GetD3DMatrix@CMILMatrix@@QEBA-AU_D3DMATRIX@@XZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     _anonymous_namespace_::AxisContainsMotion @ 0x18022B364 (_anonymous_namespace_--AxisContainsMotion.c)
+ *     ?ComputeHandledInteractionsFromLocal@CInteractionProcessor@@AEAA?AUInteractionAxis@@AEBUD2DVector3@@PEAUD2DMatrix@@@Z @ 0x18022C4D8 (-ComputeHandledInteractionsFromLocal@CInteractionProcessor@@AEAA-AUInteractionAxis@@AEBUD2DVecto.c)
+ *     ?ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA?AUD2DMatrix@@PEAV?$DynArray@UAxisWithType@@$0A@@@@Z @ 0x18022CA8C (-ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA-AUD2DMatrix@@PEAV-$DynArray@UAxisWi.c)
+ *     ?ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA?AUD2DVector3@@AEBUInteractionMotion@@AEBUD2DMatrix@@PEAU4@2@Z @ 0x18022CCC8 (-ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA-AUD2DVector3@@AEBUInteractionMotio.c)
  */
 
 __int64 __fastcall CInteractionProcessor::CalculateHandledInteractions<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>(
@@ -20,7 +20,7 @@ __int64 __fastcall CInteractionProcessor::CalculateHandledInteractions<DwmTouchI
         __int64 a5,
         _DWORD *a6,
         _BYTE *a7,
-        _OWORD *a8,
+        __int64 a8,
         __int64 a9,
         __int64 a10)
 {
@@ -28,64 +28,66 @@ __int64 __fastcall CInteractionProcessor::CalculateHandledInteractions<DwmTouchI
   __int128 v14; // xmm1
   __int128 v15; // xmm2
   __int128 v16; // xmm3
-  struct _D3DMATRIX *v17; // rcx
-  struct _D3DMATRIX *v18; // rax
-  __int128 v19; // xmm1
-  __int128 v20; // xmm2
-  __int128 v21; // xmm3
-  _OWORD *v22; // r8
-  __m512 *v23; // r9
-  unsigned int v24; // edx
-  __int64 v25; // rax
-  char v26; // al
-  char v27; // cl
-  _QWORD v30[2]; // [rsp+40h] [rbp-C0h] BYREF
-  __int128 v31; // [rsp+50h] [rbp-B0h] BYREF
-  int v32; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v33; // [rsp+68h] [rbp-98h] BYREF
-  int v34; // [rsp+70h] [rbp-90h]
-  _D3DMATRIX v35; // [rsp+A0h] [rbp-60h] BYREF
-  _DWORD v36[16]; // [rsp+E0h] [rbp-20h] BYREF
+  _OWORD *v17; // r8
+  struct _D3DMATRIX *v18; // rcx
+  struct _D3DMATRIX *v19; // rax
+  unsigned int v20; // ebx
+  __int128 v21; // xmm1
+  __int128 v22; // xmm2
+  __int128 v23; // xmm3
+  _OWORD *v24; // r9
+  __m512 *v25; // r10
+  __int64 v26; // rax
+  char v27; // al
+  char v28; // cl
+  _QWORD v31[2]; // [rsp+48h] [rbp-B8h] BYREF
+  __int128 v32; // [rsp+58h] [rbp-A8h] BYREF
+  int v33; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v34; // [rsp+70h] [rbp-90h] BYREF
+  int v35; // [rsp+78h] [rbp-88h]
+  struct _D3DMATRIX v36; // [rsp+B0h] [rbp-50h] BYREF
+  _DWORD v37[16]; // [rsp+F0h] [rbp-10h] BYREF
 
-  v30[0] = a9;
-  D3DMatrix = CMILMatrix::GetD3DMatrix((struct _D3DMATRIX *)&CMILMatrix::Identity, &v35);
+  v31[0] = a8;
+  D3DMatrix = CMILMatrix::GetD3DMatrix(&CMILMatrix::Identity, &v36);
   v14 = *(_OWORD *)&D3DMatrix->_21;
   v15 = *(_OWORD *)&D3DMatrix->_31;
   v16 = *(_OWORD *)&D3DMatrix->_41;
-  *a8 = *(_OWORD *)&D3DMatrix->_11;
-  a8[1] = v14;
-  a8[2] = v15;
-  a8[3] = v16;
-  v18 = CMILMatrix::GetD3DMatrix(v17, &v35);
-  v19 = *(_OWORD *)&v18->_21;
-  v20 = *(_OWORD *)&v18->_31;
-  v21 = *(_OWORD *)&v18->_41;
-  *v22 = *(_OWORD *)&v18->_11;
-  v22[1] = v19;
-  v22[2] = v20;
-  v22[3] = v21;
-  *v23 = zmmword_180377FC0;
+  *v17 = *(_OWORD *)&D3DMatrix->_11;
+  v17[1] = v14;
+  v17[2] = v15;
+  v17[3] = v16;
+  v19 = CMILMatrix::GetD3DMatrix(v18, &v36);
+  v20 = 0;
+  v21 = *(_OWORD *)&v19->_21;
+  v22 = *(_OWORD *)&v19->_31;
+  v23 = *(_OWORD *)&v19->_41;
+  *v24 = *(_OWORD *)&v19->_11;
+  v24[1] = v21;
+  v24[2] = v22;
+  v24[3] = v23;
+  *v25 = zmmword_1802DF980;
   if ( !*(_QWORD *)a2 )
     return (unsigned int)-2147019873;
-  (*(void (__fastcall **)(_QWORD, int *))(**(_QWORD **)a2 + 40LL))(*(_QWORD *)a2, &v32);
-  v25 = (*(__int64 (__fastcall **)(_QWORD, __int128 *))(**(_QWORD **)a2 + 48LL))(*(_QWORD *)a2, &v31);
-  v33 = *(_QWORD *)v25;
-  v34 = *(_DWORD *)(v25 + 8);
-  (*(void (__fastcall **)(__int64, _DWORD *))(*(_QWORD *)a5 + 40LL))(a5, v36);
-  v31 = *a3;
+  (*(void (__fastcall **)(_QWORD, int *))(**(_QWORD **)a2 + 40LL))(*(_QWORD *)a2, &v33);
+  v26 = (*(__int64 (__fastcall **)(_QWORD, __int128 *))(**(_QWORD **)a2 + 48LL))(*(_QWORD *)a2, &v32);
+  v34 = *(_QWORD *)v26;
+  v35 = *(_DWORD *)(v26 + 8);
+  (*(void (__fastcall **)(__int64, _DWORD *))(*(_QWORD *)a5 + 40LL))(a5, v37);
+  v32 = *a3;
   if ( *(_QWORD *)a2 == a5 )
   {
-    v26 = 0;
     v27 = 0;
+    v28 = 0;
   }
   else
   {
-    v27 = BYTE1(v31);
-    v26 = v31;
+    v28 = BYTE1(v32);
+    v27 = v32;
   }
-  if ( v36[0] == 2 )
+  if ( v37[0] == 2 )
   {
-    if ( !v26 )
+    if ( !v27 )
     {
       if ( (a2[16] & 0x40) != 0 )
       {
@@ -93,27 +95,28 @@ __int64 __fastcall CInteractionProcessor::CalculateHandledInteractions<DwmTouchI
         *a6 = 2;
         *(_BYTE *)(a1 + 1248) = 1;
       }
-      return 0;
+      return v20;
     }
+    goto LABEL_14;
   }
-  else if ( v36[0] == 4 && !v27 )
+  if ( v37[0] != 4 || v28 )
   {
-    if ( (char)a2[16] < 0 )
+LABEL_14:
+    if ( v33 == 1 && !a4[1] && !*a4 )
     {
-      a7[1] = 1;
-      *a6 = 2;
-      *(_BYTE *)(a1 + 1249) = 1;
+      CInteractionProcessor::ConstructLocalToGlobalTransform(a1, &v36, a4 + 8);
+      CInteractionProcessor::ConvertGlobalMotionToLocalMotion(a1, v31, &v34, &v36, v31[0], a9);
+      *(_OWORD *)a7 = *(_OWORD *)CInteractionProcessor::ComputeHandledInteractionsFromLocal(a1, &v32, v31, a10);
+      if ( (unsigned __int8)anonymous_namespace_::AxisContainsMotion(a7) )
+        *a6 = 2;
     }
-    return 0;
+    return v20;
   }
-  v24 = 0;
-  if ( v32 == 1 && !a4[1] && !*a4 )
+  if ( (char)a2[16] < 0 )
   {
-    CInteractionProcessor::ConstructLocalToGlobalTransform(a1, &v35, a4 + 8);
-    CInteractionProcessor::ConvertGlobalMotionToLocalMotion(a1, v30, &v33, &v35, a8, v30[0]);
-    *(_OWORD *)a7 = *(_OWORD *)CInteractionProcessor::ComputeHandledInteractionsFromLocal(a1, &v31, v30, a10);
-    if ( (unsigned __int8)anonymous_namespace_::AxisContainsMotion(a7, 0LL) )
-      *a6 = 2;
+    a7[1] = 1;
+    *a6 = 2;
+    *(_BYTE *)(a1 + 1249) = 1;
   }
-  return v24;
+  return v20;
 }

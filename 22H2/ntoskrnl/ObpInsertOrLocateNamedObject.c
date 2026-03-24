@@ -1,93 +1,91 @@
 /*
- * XREFs of ObpInsertOrLocateNamedObject @ 0x1406C0B0C
+ * XREFs of ObpInsertOrLocateNamedObject @ 0x1406DB6F0
  * Callers:
- *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x140643C70 (ObpCreateHandle.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14022E220 (PsGetCurrentSilo.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     RtlGetDaclSecurityDescriptor @ 0x140297520 (RtlGetDaclSecurityDescriptor.c)
- *     ObpReferenceNamedObject @ 0x14035B938 (ObpReferenceNamedObject.c)
- *     ObpDereferenceNamedObject @ 0x14035B978 (ObpDereferenceNamedObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObpDeleteDirectoryEntry @ 0x140697854 (ObpDeleteDirectoryEntry.c)
- *     RtlGetControlSecurityDescriptor @ 0x14069E2C0 (RtlGetControlSecurityDescriptor.c)
- *     ObReleaseObjectSecurityEx @ 0x1406C3160 (ObReleaseObjectSecurityEx.c)
- *     ObpUnlockDirectory @ 0x1406C32F8 (ObpUnlockDirectory.c)
- *     ObpIncrementHandleCountEx @ 0x1406E7110 (ObpIncrementHandleCountEx.c)
- *     ObpLookupObjectName @ 0x1406ED7D0 (ObpLookupObjectName.c)
- *     ObpGetObjectSecurity @ 0x140736720 (ObpGetObjectSecurity.c)
- *     SeReleaseSecurityDescriptor @ 0x1407378D0 (SeReleaseSecurityDescriptor.c)
- *     ObpDecrementHandleCount @ 0x140740464 (ObpDecrementHandleCount.c)
- *     ObpGrantAccess @ 0x1407B6794 (ObpGrantAccess.c)
- *     ObpAssignSecurity @ 0x1407BCC80 (ObpAssignSecurity.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x1402526B0 (RtlGetDaclSecurityDescriptor.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObpReferenceNamedObject @ 0x14031A044 (ObpReferenceNamedObject.c)
+ *     PsGetCurrentSilo @ 0x140345940 (PsGetCurrentSilo.c)
+ *     ObpReleaseLookupContext @ 0x140347AE0 (ObpReleaseLookupContext.c)
+ *     ObpDereferenceNamedObject @ 0x14034C1A8 (ObpDereferenceNamedObject.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObpGrantAccess @ 0x1405D97B4 (ObpGrantAccess.c)
+ *     ObpLookupObjectName @ 0x140641640 (ObpLookupObjectName.c)
+ *     ObpIncrementHandleCountEx @ 0x140643680 (ObpIncrementHandleCountEx.c)
+ *     SeReleaseSecurityDescriptor @ 0x1406D5510 (SeReleaseSecurityDescriptor.c)
+ *     ObReleaseObjectSecurity @ 0x1406D81D0 (ObReleaseObjectSecurity.c)
+ *     ObpGetObjectSecurity @ 0x1406D85C0 (ObpGetObjectSecurity.c)
+ *     ObpAssignSecurity @ 0x1406DBD9C (ObpAssignSecurity.c)
+ *     RtlGetControlSecurityDescriptor @ 0x1406F00C0 (RtlGetControlSecurityDescriptor.c)
+ *     ObpDecrementHandleCount @ 0x1406F6CE4 (ObpDecrementHandleCount.c)
+ *     ObpDeleteDirectoryEntry @ 0x1406F82C0 (ObpDeleteDirectoryEntry.c)
  */
 
 __int64 __fastcall ObpInsertOrLocateNamedObject(
-        ULONG_PTR BugCheckParameter1,
+        struct _KPROCESS *BugCheckParameter1,
         char *a2,
-        __int64 a3,
+        ACCESS_MASK *a3,
         __int64 a4,
         char a5,
-        _DWORD *a6,
-        PVOID *a7)
+        __int64 a6,
+        PADAPTER_OBJECT *a7)
 {
-  ULONG_PTR v9; // r12
-  char *v11; // r13
+  char *v11; // r14
   char *v12; // rdi
   char v13; // bl
   struct _LIST_ENTRY *CurrentSilo; // rax
-  int v15; // eax
-  __int64 v16; // r9
+  int v15; // r8d
+  char v16; // cl
+  __m128i *v17; // rdx
+  struct _DMA_ADAPTER *v18; // rdi
   int ObjectSecurity; // ebx
-  __int64 v18; // rcx
-  __int64 v19; // r14
-  char v20; // r12
-  _OWORD *v21; // rcx
-  int v22; // eax
-  __int64 v23; // rdx
-  char *v25; // rdi
-  __int64 v26; // r9
-  int v27; // eax
-  PVOID v28; // rdx
-  void *v29; // rcx
-  __int128 v30; // xmm1
-  __int128 v31; // xmm0
+  bool v20; // zf
+  PADAPTER_OBJECT v21; // rdi
+  __int64 *v22; // rax
+  BOOLEAN v23; // r12
+  __int64 v24; // rcx
+  char v25; // bl
+  _OWORD *v26; // rcx
+  __int64 v28; // r9
+  int v29; // eax
+  PADAPTER_OBJECT v30; // rdx
+  void *v31; // rcx
   __int128 v32; // xmm1
   __int128 v33; // xmm0
   __int128 v34; // xmm1
   __int128 v35; // xmm0
   __int128 v36; // xmm1
   __int128 v37; // xmm0
-  _QWORD *v38; // r8
-  _QWORD *v39; // rcx
-  char v40; // [rsp+70h] [rbp-90h] BYREF
+  __int128 v38; // xmm1
+  __int128 v39; // xmm0
+  __int64 v40; // [rsp+20h] [rbp-E0h]
+  BOOLEAN DaclDefaulted; // [rsp+70h] [rbp-90h] BYREF
   BOOLEAN DaclPresent[3]; // [rsp+71h] [rbp-8Fh] BYREF
-  __int16 v42; // [rsp+74h] [rbp-8Ch] BYREF
-  BOOLEAN DaclDefaulted[4]; // [rsp+78h] [rbp-88h] BYREF
-  int v44; // [rsp+7Ch] [rbp-84h]
-  PVOID Object; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v46; // [rsp+88h] [rbp-78h] BYREF
-  PVOID v47; // [rsp+90h] [rbp-70h]
-  ULONG_PTR v48; // [rsp+98h] [rbp-68h]
-  __int64 v49[2]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v50; // [rsp+B0h] [rbp-50h]
-  PACL Dacl; // [rsp+B8h] [rbp-48h] BYREF
-  unsigned __int64 v52; // [rsp+C0h] [rbp-40h]
-  PVOID *v53; // [rsp+C8h] [rbp-38h]
-  _OWORD v54[10]; // [rsp+D0h] [rbp-30h] BYREF
+  __int16 v43; // [rsp+74h] [rbp-8Ch] BYREF
+  __int64 *v44; // [rsp+78h] [rbp-88h] BYREF
+  int v45; // [rsp+80h] [rbp-80h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+88h] [rbp-78h] BYREF
+  struct _DMA_ADAPTER *v47; // [rsp+90h] [rbp-70h] BYREF
+  PACL Dacl; // [rsp+98h] [rbp-68h] BYREF
+  PVOID Object; // [rsp+A0h] [rbp-60h]
+  __int64 v50[2]; // [rsp+A8h] [rbp-58h] BYREF
+  __int128 v51; // [rsp+B8h] [rbp-48h]
+  __int64 v52; // [rsp+C8h] [rbp-38h]
+  unsigned __int64 v53; // [rsp+D0h] [rbp-30h]
+  PADAPTER_OBJECT *v54; // [rsp+D8h] [rbp-28h]
+  _OWORD v55[10]; // [rsp+E0h] [rbp-20h] BYREF
 
-  v46 = a3;
-  v47 = a2;
-  v9 = BugCheckParameter1;
-  v48 = BugCheckParameter1;
-  v53 = a7;
-  v42 = 0;
+  Object = a2;
+  v54 = a7;
+  v43 = 0;
   DaclPresent[0] = 0;
-  Object = 0LL;
-  *(_OWORD *)v49 = 0LL;
-  v50 = 0LL;
-  memset(v54, 0, sizeof(v54));
+  DmaAdapter = 0LL;
+  v52 = 0LL;
+  *(_OWORD *)v50 = 0LL;
+  v51 = 0LL;
+  memset(v55, 0, sizeof(v55));
   *a7 = 0LL;
   Dacl = 0LL;
   v11 = a2 - 48;
@@ -96,170 +94,178 @@ __int64 __fastcall ObpInsertOrLocateNamedObject(
   else
     v12 = 0LL;
   v13 = v11[27];
+  v44 = (__int64 *)v12;
   CurrentSilo = PsGetCurrentSilo();
-  v52 = (unsigned __int64)v11 >> 8;
-  v15 = ObpLookupObjectName(
-          *((_QWORD *)a6 + 1),
-          (v13 & 2) == 0,
-          0,
-          *((_QWORD *)a6 + 5),
-          v47,
-          (__int64)CurrentSilo,
-          a4,
-          (__int64)v49,
-          0LL,
-          (__int64)&Object);
-  v16 = 0LL;
-  ObjectSecurity = v15;
-  if ( v15 < 0 )
+  v15 = *(_DWORD *)a6;
+  v16 = BYTE1(v11) ^ v11[24];
+  v53 = (unsigned __int64)v11 >> 8;
+  v17 = (__m128i *)(v12 + 8);
+  v18 = (struct _DMA_ADAPTER *)Object;
+  ObjectSecurity = ObpLookupObjectName(
+                     *(_QWORD *)(a6 + 8),
+                     v17,
+                     v15,
+                     (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)(ObHeaderCookie ^ v16)],
+                     (v13 & 2) == 0,
+                     0LL,
+                     *(_QWORD *)(a6 + 40),
+                     (char *)Object,
+                     (__int64)CurrentSilo,
+                     a4,
+                     (__int64)v50,
+                     0LL,
+                     &DmaAdapter);
+  if ( ObjectSecurity < 0 )
+    goto LABEL_45;
+  v20 = DmaAdapter == v18;
+  v21 = 0LL;
+  if ( !v20 )
   {
-LABEL_46:
-    ObpDecrementHandleCount(v9);
-    return (unsigned int)ObjectSecurity;
-  }
-  if ( Object != v47 )
-  {
-    v25 = 0LL;
-    if ( v49[0] )
+    if ( BYTE14(v51) )
     {
-      v25 = (char *)Object - 48;
-      ObpReferenceNamedObject((__int64)Object - 48);
-      if ( v49[0] )
-        ObpUnlockDirectory(v49);
+      v21 = DmaAdapter - 3;
+      ObpReferenceNamedObject((__int64)&DmaAdapter[-3]);
     }
-    ObpDecrementHandleCount(v9);
-    if ( (*a6 & 0x80u) == 0 )
+    ObpReleaseLookupContext((__int64)v50);
+    ObpDecrementHandleCount((ULONG_PTR)BugCheckParameter1);
+    if ( (*(_DWORD *)a6 & 0x80u) == 0 )
     {
-      if ( v25 )
-        ObpDereferenceNamedObject((__int64)v25);
+      if ( v21 )
+        ObpDereferenceNamedObject((__int64)v21);
       ObjectSecurity = -1073741771;
     }
     else
     {
-      v27 = *(_DWORD *)(a4 + 24);
+      v29 = *(_DWORD *)(a4 + 24);
       *(_DWORD *)(a4 + 20) = 0;
-      v28 = Object;
-      *(_DWORD *)(a4 + 16) = v27;
-      LOBYTE(v26) = a5;
-      ObjectSecurity = ObpGrantAccess(1LL, v28, a4, v26, *a6, a3);
+      v30 = DmaAdapter;
+      LOBYTE(v28) = a5;
+      *(_DWORD *)(a4 + 16) = v29;
+      LODWORD(v40) = *(_DWORD *)a6;
+      ObjectSecurity = ObpGrantAccess(1, v30, (struct _ACCESS_STATE *)a4, v28, v40, a3);
       if ( ObjectSecurity < 0 )
       {
-        if ( v25 )
-          ObpDereferenceNamedObject((__int64)v25);
+        if ( v21 )
+          ObpDereferenceNamedObject((__int64)v21);
       }
       else
       {
-        ObjectSecurity = ObpIncrementHandleCountEx(1, v46, v9, (_DWORD)Object, a5, *a6, 0LL);
-        if ( v25 )
-          ObpDereferenceNamedObject((__int64)v25);
+        ObjectSecurity = ObpIncrementHandleCountEx(
+                           1u,
+                           (__int64)a3,
+                           BugCheckParameter1,
+                           (__int64)DmaAdapter,
+                           a5,
+                           *(_DWORD *)a6,
+                           0LL);
+        if ( v21 )
+          ObpDereferenceNamedObject((__int64)v21);
         if ( ObjectSecurity >= 0 )
           goto LABEL_19;
       }
     }
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter(DmaAdapter);
     return (unsigned int)ObjectSecurity;
   }
-  v18 = *(_QWORD *)v12;
-  v19 = 0LL;
-  v46 = 0LL;
-  v40 = 0;
-  v44 = 0;
-  if ( v18 )
+  v22 = v44;
+  v23 = 0;
+  v47 = 0LL;
+  DaclDefaulted = 0;
+  v45 = 0;
+  v24 = *v44;
+  if ( *v44 )
   {
-    if ( (*(_DWORD *)(v18 + 336) & 8) != 0 || ObpObjectSecurityInheritance )
-      v44 = 3;
-    LOBYTE(v16) = a5;
-    ObjectSecurity = ObpGetObjectSecurity(v18, &v46, &v40, v16);
+    if ( (*(_DWORD *)(v24 + 336) & 8) != 0 || ObpObjectSecurityInheritance )
+      v45 = 3;
+    ObjectSecurity = ObpGetObjectSecurity(v24, (PVOID *)&v47, &DaclDefaulted, a5);
     if ( ObjectSecurity < 0 )
-      goto LABEL_53;
-    v19 = v46;
+      goto LABEL_52;
+    v21 = v47;
+    v23 = DaclDefaulted;
+    v22 = v44;
   }
-  v20 = 0;
-  if ( !*(_QWORD *)v12 || (*(_DWORD *)(*(_QWORD *)v12 + 336LL) & 8) == 0 && !ObpObjectSecurityInheritance )
+  v25 = 0;
+  if ( !*v22 || (*(_DWORD *)(*v22 + 336) & 8) == 0 && !ObpObjectSecurityInheritance )
     goto LABEL_13;
-  v29 = *(void **)(a4 + 64);
-  if ( !v29 )
+  v31 = *(void **)(a4 + 64);
+  if ( !v31 )
     goto LABEL_13;
-  ObjectSecurity = RtlGetDaclSecurityDescriptor(v29, DaclPresent, &Dacl, DaclDefaulted);
-  if ( ObjectSecurity < 0
-    || (ObjectSecurity = RtlGetControlSecurityDescriptor(*(unsigned __int8 **)(a4 + 64), &v42, &v46), ObjectSecurity < 0) )
+  LODWORD(v44) = RtlGetDaclSecurityDescriptor(v31, DaclPresent, &Dacl, &DaclDefaulted);
+  if ( (int)v44 >= 0 )
   {
-    if ( v19 )
-      goto LABEL_16;
-    goto LABEL_49;
-  }
-  if ( !Dacl && (v42 & 0x1000) == 0 )
-  {
-    v30 = *(_OWORD *)(a4 + 16);
-    v54[0] = *(_OWORD *)a4;
-    v31 = *(_OWORD *)(a4 + 32);
-    v54[1] = v30;
-    v32 = *(_OWORD *)(a4 + 48);
-    v54[2] = v31;
-    v33 = *(_OWORD *)(a4 + 64);
-    v54[3] = v32;
-    v34 = *(_OWORD *)(a4 + 80);
-    v54[4] = v33;
-    v35 = *(_OWORD *)(a4 + 96);
-    v54[5] = v34;
-    v36 = *(_OWORD *)(a4 + 128);
-    v54[6] = v35;
-    v54[7] = *(_OWORD *)(a4 + 112);
-    v37 = *(_OWORD *)(a4 + 144);
-    v54[8] = v36;
-    v54[9] = v37;
-    *(_QWORD *)&v54[4] = 0LL;
-    v21 = v54;
-  }
-  else
-  {
+    LODWORD(v44) = RtlGetControlSecurityDescriptor(*(_QWORD *)(a4 + 64), &v43, &v44);
+    if ( (int)v44 >= 0 )
+    {
+      if ( !Dacl && (v43 & 0x1000) == 0 )
+      {
+        v32 = *(_OWORD *)(a4 + 16);
+        v55[0] = *(_OWORD *)a4;
+        v33 = *(_OWORD *)(a4 + 32);
+        v55[1] = v32;
+        v34 = *(_OWORD *)(a4 + 48);
+        v55[2] = v33;
+        v35 = *(_OWORD *)(a4 + 64);
+        v55[3] = v34;
+        v36 = *(_OWORD *)(a4 + 80);
+        v55[4] = v35;
+        v37 = *(_OWORD *)(a4 + 96);
+        v55[5] = v36;
+        v38 = *(_OWORD *)(a4 + 128);
+        v55[6] = v37;
+        v55[7] = *(_OWORD *)(a4 + 112);
+        v39 = *(_OWORD *)(a4 + 144);
+        v55[8] = v38;
+        v55[9] = v39;
+        *(_QWORD *)&v55[4] = 0LL;
+        v26 = v55;
+        goto LABEL_14;
+      }
 LABEL_13:
-    v21 = (_OWORD *)a4;
-  }
-  if ( !*((_QWORD *)v21 + 8) && v44 )
-    v20 = 1;
-  v22 = ObpAssignSecurity(
-          (_DWORD)v21,
-          v19,
-          (_DWORD)v47,
-          ObTypeIndexTable[(unsigned __int8)(ObHeaderCookie ^ v11[24] ^ v52)],
-          v44,
-          v20);
-  ObjectSecurity = v22;
-  if ( v19 )
-  {
-LABEL_16:
-    LOBYTE(v23) = v40;
-    ObReleaseObjectSecurityEx(v19, v23, *(_QWORD *)v12);
-    if ( ObjectSecurity >= 0 )
-      goto LABEL_17;
-    goto LABEL_49;
-  }
-  if ( v22 < 0 )
-  {
-LABEL_49:
-    v9 = v48;
-LABEL_53:
-    v38 = (_QWORD *)v49[1];
-    v39 = *(_QWORD **)v49[1];
-    *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v49[1] + 8LL)
-              - 48LL
-              - ObpInfoMaskToOffset[*(_BYTE *)(*(_QWORD *)(*(_QWORD *)v49[1] + 8LL) - 48LL + 26) & 3]) = 0LL;
-    *v38 = *v39;
-    *v39 = 0LL;
-    ObpDeleteDirectoryEntry(v39, (void **)v49);
-    if ( v49[0] )
-      ObpUnlockDirectory(v49);
-    goto LABEL_46;
-  }
-  LOBYTE(v23) = *((_BYTE *)a6 + 16);
-  SeReleaseSecurityDescriptor(*((_QWORD *)a6 + 4), v23, 1LL, 0LL);
-  *((_QWORD *)a6 + 4) = 0LL;
-  *(_QWORD *)(a4 + 64) = 0LL;
+      v26 = (_OWORD *)a4;
+LABEL_14:
+      if ( !*((_QWORD *)v26 + 8) )
+      {
+        if ( v45 )
+          v25 = 1;
+      }
+      ObjectSecurity = ObpAssignSecurity(
+                         (_DWORD)v26,
+                         (_DWORD)v21,
+                         (_DWORD)Object,
+                         ObTypeIndexTable[(unsigned __int8)(ObHeaderCookie ^ v53 ^ *((char *)Object - 24))],
+                         v45,
+                         v25);
+      if ( v21 )
+      {
+        ObReleaseObjectSecurity(v21, v23);
+        goto LABEL_17;
+      }
+      if ( ObjectSecurity >= 0 )
+      {
+        SeReleaseSecurityDescriptor(*(void **)(a6 + 32), *(_BYTE *)(a6 + 16), 1);
+        *(_QWORD *)(a6 + 32) = 0LL;
+        *(_QWORD *)(a4 + 64) = 0LL;
 LABEL_17:
-  if ( v49[0] )
-    ObpUnlockDirectory(v49);
+        if ( ObjectSecurity >= 0 )
+        {
+          ObpReleaseLookupContext((__int64)v50);
 LABEL_19:
-  *v53 = Object;
-  return (unsigned int)ObjectSecurity;
+          *v54 = DmaAdapter;
+          return (unsigned int)ObjectSecurity;
+        }
+      }
+LABEL_52:
+      ObpDeleteDirectoryEntry(v50);
+      ObpReleaseLookupContext((__int64)v50);
+LABEL_45:
+      ObpDecrementHandleCount((ULONG_PTR)BugCheckParameter1);
+      return (unsigned int)ObjectSecurity;
+    }
+  }
+  if ( v21 )
+    ObReleaseObjectSecurity(v21, v23);
+  ObpDeleteDirectoryEntry(v50);
+  ObpReleaseLookupContext((__int64)v50);
+  ObpDecrementHandleCount((ULONG_PTR)BugCheckParameter1);
+  return (unsigned int)v44;
 }

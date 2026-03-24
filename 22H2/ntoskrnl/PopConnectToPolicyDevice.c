@@ -1,100 +1,99 @@
 /*
- * XREFs of PopConnectToPolicyDevice @ 0x14084DFB0
+ * XREFs of PopConnectToPolicyDevice @ 0x1407C4B28
  * Callers:
- *     PopNotifyPolicyDevice @ 0x14084DF30 (PopNotifyPolicyDevice.c)
- *     PopPolicyDeviceTargetChange @ 0x140994A80 (PopPolicyDeviceTargetChange.c)
+ *     PopNotifyPolicyDevice @ 0x1407C4AA0 (PopNotifyPolicyDevice.c)
+ *     PopPolicyDeviceTargetChange @ 0x1408F1620 (PopPolicyDeviceTargetChange.c)
  * Callees:
- *     IoAllocateIrp @ 0x14022E630 (IoAllocateIrp.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     IoFreeIrp @ 0x1402AF1E0 (IoFreeIrp.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     IoRegisterPlugPlayNotification @ 0x140687F00 (IoRegisterPlugPlayNotification.c)
- *     RtlCompareUnicodeString @ 0x1406DA1F0 (RtlCompareUnicodeString.c)
- *     PopGetPolicyDeviceObject @ 0x14084E120 (PopGetPolicyDeviceObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     IoFreeIrp @ 0x1402D3CF0 (IoFreeIrp.c)
+ *     IoAllocateIrp @ 0x1403616C0 (IoAllocateIrp.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     IoRegisterPlugPlayNotification @ 0x14069BFE0 (IoRegisterPlugPlayNotification.c)
+ *     PopGetPolicyDeviceObject @ 0x1407C4CB4 (PopGetPolicyDeviceObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PopConnectToPolicyDevice(int a1, const UNICODE_STRING *a2)
 {
   unsigned int *v4; // rsi
-  const UNICODE_STRING **v5; // rax
-  const UNICODE_STRING *v6; // rbx
-  UNICODE_STRING *Pool2; // rax
+  const UNICODE_STRING **v5; // rdi
+  const UNICODE_STRING *i; // rbx
+  SIZE_T v7; // rbx
+  PVOID *PoolWithTag; // rax
   PVOID *Context; // rdi
   __int64 PolicyDeviceObject; // rax
-  PDRIVER_OBJECT *v10; // rbx
+  PDRIVER_OBJECT *v11; // rbx
   PIRP Irp; // rax
-  PVOID v12; // rbp
-  IRP *v13; // r14
-  PVOID *v14; // rax
-  PVOID **v15; // rdx
+  PVOID v13; // r14
+  IRP *v14; // rbp
+  PVOID *v15; // rax
+  PVOID **v16; // rdx
   PVOID EventCategoryData; // [rsp+70h] [rbp+18h] BYREF
 
   EventCategoryData = 0LL;
   v4 = (unsigned int *)((char *)&PopPolicyDeviceParameters + 32 * a1);
   v5 = (const UNICODE_STRING **)*((_QWORD *)v4 + 1);
-  v6 = *v5;
-  if ( *v5 == (const UNICODE_STRING *)v5 )
+  for ( i = *v5; i != (const UNICODE_STRING *)v5; i = *(const UNICODE_STRING **)&i->Length )
   {
-LABEL_4:
-    Pool2 = (UNICODE_STRING *)ExAllocatePool2(64LL, *v4 + a2->Length, v4[1]);
-    Context = (PVOID *)Pool2;
-    if ( !Pool2 )
+    if ( !RtlCompareUnicodeString(i + 2, a2, 1u) )
       return;
-    Pool2[2].Buffer = (unsigned __int16 *)((char *)&Pool2->Length + *v4);
-    Pool2[2].MaximumLength = a2->Length;
-    RtlCopyUnicodeString(Pool2 + 2, a2);
+  }
+  v7 = *v4 + a2->Length;
+  PoolWithTag = (PVOID *)ExAllocatePoolWithTag(NonPagedPoolNx, v7, v4[1]);
+  Context = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    memset(PoolWithTag, 0, (unsigned int)v7);
+    Context[5] = (char *)Context + *v4;
+    *((_WORD *)Context + 17) = a2->Length;
+    RtlCopyUnicodeString((PUNICODE_STRING)Context + 2, a2);
     *((_DWORD *)Context + 4) = a1;
     PolicyDeviceObject = PopGetPolicyDeviceObject(Context + 4, &EventCategoryData);
-    v10 = (PDRIVER_OBJECT *)PolicyDeviceObject;
-    if ( !PolicyDeviceObject )
-      goto LABEL_17;
-    Irp = IoAllocateIrp(*(_BYTE *)(PolicyDeviceObject + 76), 0);
-    v12 = EventCategoryData;
-    v13 = Irp;
-    if ( Irp )
+    v11 = (PDRIVER_OBJECT *)PolicyDeviceObject;
+    if ( PolicyDeviceObject )
     {
-      if ( IoRegisterPlugPlayNotification(
-             EventCategoryTargetDeviceChange,
-             0,
-             EventCategoryData,
-             v10[1],
-             PopPolicyDeviceTargetChange,
-             Context,
-             Context + 3) >= 0 )
+      Irp = IoAllocateIrp(*(_BYTE *)(PolicyDeviceObject + 76), 0);
+      v13 = EventCategoryData;
+      v14 = Irp;
+      if ( Irp )
       {
-        Context[6] = v10;
-        Context[7] = v13;
-        (*((void (__fastcall **)(PVOID *))v4 + 2))(Context);
-        v14 = (PVOID *)*((_QWORD *)v4 + 1);
-        v15 = (PVOID **)v14[1];
-        if ( *v15 != v14 )
-          __fastfail(3u);
-        *Context = v14;
-        Context[1] = v15;
-        *v15 = Context;
-        v14[1] = Context;
-        Context = 0LL;
-LABEL_10:
-        if ( v12 )
-          ObfDereferenceObjectWithTag(v12, 0x64506F50u);
-        if ( !Context )
-          return;
-LABEL_17:
-        ExFreePoolWithTag(Context, v4[1]);
-        return;
+        if ( IoRegisterPlugPlayNotification(
+               EventCategoryTargetDeviceChange,
+               0,
+               EventCategoryData,
+               v11[1],
+               PopPolicyDeviceTargetChange,
+               Context,
+               Context + 3) >= 0 )
+        {
+          Context[6] = v11;
+          Context[7] = v14;
+          (*((void (__fastcall **)(PVOID *))v4 + 2))(Context);
+          v15 = (PVOID *)*((_QWORD *)v4 + 1);
+          v16 = (PVOID **)v15[1];
+          if ( *v16 != v15 )
+            __fastfail(3u);
+          *Context = v15;
+          v14 = 0LL;
+          Context[1] = v16;
+          v11 = 0LL;
+          *v16 = Context;
+          v15[1] = Context;
+          Context = 0LL;
+        }
+        if ( v14 )
+          IoFreeIrp(v14);
       }
-      IoFreeIrp(v13);
+      if ( v11 )
+        ObfDereferenceObjectWithTag(v11, 0x64506F50u);
+      if ( v13 )
+        ObfDereferenceObjectWithTag(v13, 0x64506F50u);
     }
-    ObfDereferenceObjectWithTag(v10, 0x64506F50u);
-    goto LABEL_10;
-  }
-  while ( RtlCompareUnicodeString(v6 + 2, a2, 1u) )
-  {
-    v6 = *(const UNICODE_STRING **)&v6->Length;
-    if ( v6 == *((const UNICODE_STRING **)v4 + 1) )
-      goto LABEL_4;
+    if ( Context )
+      ExFreePoolWithTag(Context, v4[1]);
   }
 }

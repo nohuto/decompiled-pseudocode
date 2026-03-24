@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaInitializeServices @ 0x140B26BAC
+ * XREFs of WheaInitializeServices @ 0x140A6C554
  * Callers:
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
  * Callees:
- *     WheapInitializeInUsePageOfflineNotifications @ 0x140857B64 (WheapInitializeInUsePageOfflineNotifications.c)
+ *     WheapInitializeInUsePageOfflineNotifications @ 0x1407C7E28 (WheapInitializeInUsePageOfflineNotifications.c)
  */
 
 PVOID *WheaInitializeServices()
@@ -12,7 +12,7 @@ PVOID *WheaInitializeServices()
   __int64 v1; // rcx
   signed __int32 v3[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  v0 = (__int64 (**)())&unk_140D00C60;
+  v0 = (__int64 (**)())&unk_140CF4740;
   v1 = 17LL;
   do
   {
@@ -28,28 +28,28 @@ PVOID *WheaInitializeServices()
   }
   while ( v1 );
   WheapConfigTableLock = 0LL;
-  qword_140D010A0 = (__int64)&WheapPfaList;
+  qword_140CF4B80 = (__int64)&WheapPfaList;
   WheapPfaList = &WheapPfaList;
   WheapPfaLock = 0LL;
   _InterlockedOr(v3, 0);
   WheapPfaInitialized = 1;
-  WheapDispatchPtr.DeviceExtension = &WheapDispatchPtr.Vpb;
-  WheapDispatchPtr.Vpb = (PVPB)&WheapDispatchPtr.Vpb;
-  *(_QWORD *)&WheapDispatchPtr.Queue.Wcb.NumberOfChannels = &WheapDispatchPtr.Queue.ListEntry.Blink;
-  WheapDispatchPtr.Queue.ListEntry.Blink = (struct _LIST_ENTRY *)&WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink;
-  qword_140C10B58 = (__int64)WheapDeferredRecoveryServiceDpcRoutine;
+  WheapDispatchPtr.Queue.ListEntry.Flink = (struct _LIST_ENTRY *)&WheapDispatchPtr.DeviceType;
+  *(_QWORD *)&WheapDispatchPtr.DeviceType = &WheapDispatchPtr.DeviceType;
+  WheapDispatchPtr.NextDevice = (struct _DEVICE_OBJECT *)&WheapDispatchPtr.DriverObject;
+  WheapDispatchPtr.DriverObject = (struct _DRIVER_OBJECT *)&WheapDispatchPtr.DriverObject;
+  qword_140C16038 = (__int64)WheapDeferredRecoveryServiceDpcRoutine;
   WheaDrsWorkItem.WorkerRoutine = (void (__fastcall *)(void *))WheapDeferredRecoveryServiceWorker;
-  LODWORD(WheapDispatchPtr.AttachedDevice) = 1;
-  WheapDispatchPtr.CurrentIrp = 0LL;
-  LODWORD(WheapDispatchPtr.Timer) = 0;
-  LOWORD(WheapDispatchPtr.Flags) = 1;
-  BYTE2(WheapDispatchPtr.Flags) = 6;
-  WheapDispatchPtr.Characteristics = 0;
+  LODWORD(WheapDispatchPtr.Timer) = 1;
+  *(_QWORD *)&WheapDispatchPtr.Flags = 0LL;
+  LODWORD(WheapDispatchPtr.Vpb) = 0;
+  LOWORD(WheapDispatchPtr.DeviceExtension) = 1;
+  BYTE2(WheapDispatchPtr.DeviceExtension) = 6;
+  HIDWORD(WheapDispatchPtr.DeviceExtension) = 0;
   WheaPassiveDrsListLock = 0LL;
   LODWORD(WheaDrsDpc) = 275;
-  qword_140C10B60 = 0LL;
-  qword_140C10B78 = 0LL;
-  qword_140C10B50 = 0LL;
+  qword_140C16040 = 0LL;
+  qword_140C16058 = 0LL;
+  qword_140C16030 = 0LL;
   WheaDrsWorkItem.Parameter = 0LL;
   WheaDrsWorkItem.List.Flink = 0LL;
   _InterlockedOr(v3, 0);

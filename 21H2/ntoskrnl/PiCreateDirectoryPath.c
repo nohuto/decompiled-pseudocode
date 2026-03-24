@@ -1,13 +1,13 @@
 /*
- * XREFs of PiCreateDirectoryPath @ 0x140943B34
+ * XREFs of PiCreateDirectoryPath @ 0x14089EDF4
  * Callers:
- *     PiOpenDirectoryWithRoot @ 0x140944390 (PiOpenDirectoryWithRoot.c)
+ *     PiOpenDirectoryWithRoot @ 0x14089F630 (PiOpenDirectoryWithRoot.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateFile @ 0x14041C200 (ZwCreateFile.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     PnpConcatenateUnicodeStrings @ 0x1407690BC (PnpConcatenateUnicodeStrings.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     PnpConcatenateUnicodeStrings @ 0x140749024 (PnpConcatenateUnicodeStrings.c)
  */
 
 __int64 __fastcall PiCreateDirectoryPath(UNICODE_STRING *SourceString, void *a2, HANDLE *a3)
@@ -26,7 +26,7 @@ __int64 __fastcall PiCreateDirectoryPath(UNICODE_STRING *SourceString, void *a2,
 
   FileHandle = 0LL;
   IoStatusBlock = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   if ( SourceString && a3 && SourceString->Length >= 4u && (v6 = SourceString->Buffer, *v6 == 92) && v6[1] != 92 )
@@ -55,49 +55,47 @@ LABEL_8:
         Length = DestinationString.Length;
         v11 = DestinationString.Length >> 1;
         v12 = DestinationString.Buffer + 2;
-        if ( (unsigned __int16)(DestinationString.Length >> 1) <= 2u )
-          goto LABEL_22;
-        do
+        if ( (unsigned __int16)(DestinationString.Length >> 1) > 2u )
         {
-          if ( !*v12 )
-            break;
-          if ( *v12 == 92 )
+          while ( *v12 )
           {
-            *v12 = 0;
-            ObjectAttributes.Length = 48;
-            ObjectAttributes.RootDirectory = 0LL;
-            DestinationString.Length = 2 * (v12 - DestinationString.Buffer);
-            ObjectAttributes.ObjectName = &DestinationString;
-            ObjectAttributes.Attributes = 576;
-            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-            v8 = ZwCreateFile(
-                   &FileHandle,
-                   0x100001u,
-                   &ObjectAttributes,
-                   &IoStatusBlock,
-                   0LL,
-                   0x80u,
-                   3u,
-                   3u,
-                   0x21u,
-                   0LL,
-                   0);
-            *v12 = 92;
-            if ( v8 != -1073741788 && v8 != -1073741811 && v8 < 0 )
-              goto LABEL_25;
-            if ( FileHandle )
+            if ( *v12 == 92 )
             {
-              ZwClose(FileHandle);
-              FileHandle = 0LL;
+              *v12 = 0;
+              ObjectAttributes.Length = 48;
+              ObjectAttributes.RootDirectory = 0LL;
+              DestinationString.Length = 2 * (v12 - DestinationString.Buffer);
+              ObjectAttributes.ObjectName = &DestinationString;
+              ObjectAttributes.Attributes = 576;
+              *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+              v8 = ZwCreateFile(
+                     &FileHandle,
+                     0x100001u,
+                     &ObjectAttributes,
+                     &IoStatusBlock,
+                     0LL,
+                     0x80u,
+                     3u,
+                     3u,
+                     0x21u,
+                     0LL,
+                     0);
+              *v12 = 92;
+              if ( v8 != -1073741788 && v8 != -1073741811 && v8 < 0 )
+                goto LABEL_25;
+              if ( FileHandle )
+              {
+                ZwClose(FileHandle);
+                FileHandle = 0LL;
+              }
+              Buffer = DestinationString.Buffer;
             }
-            Buffer = DestinationString.Buffer;
+            if ( (unsigned __int16)(++v12 - Buffer) >= v11 )
+              break;
           }
-          ++v12;
         }
-        while ( (unsigned __int16)(v12 - Buffer) < v11 );
         if ( v8 >= 0 )
         {
-LABEL_22:
           ObjectAttributes.ObjectName = &DestinationString;
           DestinationString.Length = Length;
           ObjectAttributes.Length = 48;
@@ -131,7 +129,7 @@ LABEL_22:
     v8 = -1073741811;
   }
 LABEL_25:
-  RtlFreeUnicodeString(&DestinationString);
+  RtlFreeAnsiString(&DestinationString);
   if ( FileHandle )
     ZwClose(FileHandle);
   return (unsigned int)v8;

@@ -1,7 +1,7 @@
 /*
- * XREFs of Simulator_GetChildNode @ 0x1C00492E4
+ * XREFs of Simulator_GetChildNode @ 0x1C0063C18
  * Callers:
- *     Simulator_CallbackWorker @ 0x1C0048FD0 (Simulator_CallbackWorker.c)
+ *     Simulator_CallbackWorker @ 0x1C0063910 (Simulator_CallbackWorker.c)
  * Callees:
  *     <none>
  */
@@ -9,20 +9,21 @@
 __int64 __fastcall Simulator_GetChildNode(__int64 a1)
 {
   KIRQL v2; // al
-  __int64 v3; // rcx
-  _QWORD *v4; // rcx
+  _QWORD *v3; // r9
+  __int64 v4; // rdx
+  _QWORD *v5; // rdx
 
   v2 = ExAcquireSpinLockShared(&ACPINamespaceLock);
+  v3 = 0LL;
   if ( a1 )
   {
-    v3 = *(_QWORD *)(a1 + 16);
-    if ( v3 )
+    v4 = *(_QWORD *)(a1 + 16);
+    if ( v4 )
     {
-      v4 = (_QWORD *)(v3 + 24);
-      if ( (_QWORD *)*v4 == v4 )
-        *(_QWORD *)(a1 + 24) = 0LL;
-      else
-        *(_QWORD *)(a1 + 24) = *v4;
+      v5 = (_QWORD *)(v4 + 24);
+      if ( (_QWORD *)*v5 != v5 )
+        v3 = (_QWORD *)*v5;
+      *(_QWORD *)(a1 + 24) = v3;
     }
   }
   ExReleaseSpinLockShared(&ACPINamespaceLock, v2);

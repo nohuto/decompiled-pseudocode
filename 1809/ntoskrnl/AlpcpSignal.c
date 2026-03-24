@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpSignal @ 0x1400D37D0
+ * XREFs of AlpcpSignal @ 0x1400D37F0
  * Callers:
  *     AlpcpCompleteDeferSignalRequest @ 0x140614128 (AlpcpCompleteDeferSignalRequest.c)
  *     NtAlpcSendWaitReceivePort @ 0x140632020 (NtAlpcSendWaitReceivePort.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KeReleaseSemaphoreEx @ 0x1400D2950 (KeReleaseSemaphoreEx.c)
- *     AlpcpQueueIoCompletionPort @ 0x1400D3880 (AlpcpQueueIoCompletionPort.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeReleaseSemaphoreEx @ 0x1400D2970 (KeReleaseSemaphoreEx.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1400D38A0 (AlpcpQueueIoCompletionPort.c)
  */
 
 int __fastcall AlpcpSignal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

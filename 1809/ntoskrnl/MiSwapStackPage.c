@@ -1,5 +1,5 @@
 /*
- * XREFs of MiSwapStackPage @ 0x14012D160
+ * XREFs of MiSwapStackPage @ 0x14012D180
  * Callers:
  *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
  * Callees:
@@ -16,23 +16,23 @@
  *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     KeExpandKernelStackAndCalloutInternal @ 0x1400C99E0 (KeExpandKernelStackAndCalloutInternal.c)
- *     KiReleaseThreadStateLock @ 0x1400D8044 (KiReleaseThreadStateLock.c)
- *     MiReleaseFreshPage @ 0x1400E0FE4 (MiReleaseFreshPage.c)
- *     KeFlushSingleTb @ 0x1400ECDD4 (KeFlushSingleTb.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KeGenericCallDpc @ 0x1401203D0 (KeGenericCallDpc.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiCanStealKernelStack @ 0x14012D5AC (MiCanStealKernelStack.c)
- *     MiSwapStackPageNoDpc @ 0x14012D654 (MiSwapStackPageNoDpc.c)
- *     MiGetPteFromCopyList @ 0x14012D7E8 (MiGetPteFromCopyList.c)
- *     MiGetLeafPfnBuddy @ 0x14015E8B4 (MiGetLeafPfnBuddy.c)
- *     MiSwitchKstackPages @ 0x14015EB74 (MiSwitchKstackPages.c)
- *     MiCopyKstack @ 0x14015EBE0 (MiCopyKstack.c)
- *     KeTryToFreezeThreadStack @ 0x140160E04 (KeTryToFreezeThreadStack.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x1400C9A00 (KeExpandKernelStackAndCalloutInternal.c)
+ *     KiReleaseThreadStateLock @ 0x1400D8064 (KiReleaseThreadStateLock.c)
+ *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
+ *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KeGenericCallDpc @ 0x1401203F0 (KeGenericCallDpc.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiCanStealKernelStack @ 0x14012D5CC (MiCanStealKernelStack.c)
+ *     MiSwapStackPageNoDpc @ 0x14012D674 (MiSwapStackPageNoDpc.c)
+ *     MiGetPteFromCopyList @ 0x14012D808 (MiGetPteFromCopyList.c)
+ *     MiGetLeafPfnBuddy @ 0x14015E8D4 (MiGetLeafPfnBuddy.c)
+ *     MiSwitchKstackPages @ 0x14015EB94 (MiSwitchKstackPages.c)
+ *     MiCopyKstack @ 0x14015EC00 (MiCopyKstack.c)
+ *     KeTryToFreezeThreadStack @ 0x140160E24 (KeTryToFreezeThreadStack.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSwapStackPage(__int64 a1, __int64 a2, __int64 a3, ULONG_PTR *a4, _DWORD *a5)

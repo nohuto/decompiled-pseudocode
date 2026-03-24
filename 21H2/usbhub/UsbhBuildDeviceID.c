@@ -1,18 +1,19 @@
 /*
- * XREFs of UsbhBuildDeviceID @ 0x1C004F128
+ * XREFs of UsbhBuildDeviceID @ 0x1C005068C
  * Callers:
- *     UsbhSetupDevice @ 0x1C0038CE8 (UsbhSetupDevice.c)
- *     UsbhCreatePdo @ 0x1C0052C50 (UsbhCreatePdo.c)
- *     UsbhUpdateUxdSettings @ 0x1C005A420 (UsbhUpdateUxdSettings.c)
+ *     UsbhSetupDevice @ 0x1C0039FD8 (UsbhSetupDevice.c)
+ *     UsbhCreatePdo @ 0x1C00542B4 (UsbhCreatePdo.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005BAE4 (UsbhUpdateUxdSettings.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhMakeId @ 0x1C0050478 (UsbhMakeId.c)
- *     WPP_RECORDER_SF_DD @ 0x1C0050704 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_Sd @ 0x1C00507CC (WPP_RECORDER_SF_Sd.c)
- *     WPP_RECORDER_SF_Sqd @ 0x1C0050930 (WPP_RECORDER_SF_Sqd.c)
- *     UsbhBuildUxdPnpId @ 0x1C0058FF0 (UsbhBuildUxdPnpId.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     Feature_2473223486__private_IsEnabledDeviceUsage @ 0x1C001CFD8 (Feature_2473223486__private_IsEnabledDeviceUsage.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhMakeId @ 0x1C0051A64 (UsbhMakeId.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0051D54 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_Sd @ 0x1C0051E1C (WPP_RECORDER_SF_Sd.c)
+ *     WPP_RECORDER_SF_Sqd @ 0x1C0051F80 (WPP_RECORDER_SF_Sqd.c)
+ *     UsbhBuildUxdPnpId @ 0x1C005A6C0 (UsbhBuildUxdPnpId.c)
  */
 
 __int64 __fastcall UsbhBuildDeviceID(__int64 a1, __int64 a2, __int64 a3)
@@ -30,7 +31,7 @@ __int64 __fastcall UsbhBuildDeviceID(__int64 a1, __int64 a2, __int64 a3)
   int v16; // r9d
   unsigned __int16 v17; // r10
   __int16 v18; // r11
-  __int64 Pool2; // rax
+  _WORD *PoolWithTag; // r8
   _WORD *v20; // rcx
   __int64 Id; // rdx
   int v22; // r8d
@@ -57,7 +58,7 @@ __int64 __fastcall UsbhBuildDeviceID(__int64 a1, __int64 a2, __int64 a3)
             *(_QWORD *)(a3 + 8),
             v9,
             v10 + 10,
-            (__int64)&WPP_864ab6fa16ac30e9f4a04b6140161349_Traceguids,
+            (__int64)&WPP_702859756c5835a51fae8c331fd03d9d_Traceguids,
             *(_QWORD *)(a3 + 8),
             *(_QWORD *)(a3 + 8),
             *(_DWORD *)(a3 + 4));
@@ -73,7 +74,7 @@ __int64 __fastcall UsbhBuildDeviceID(__int64 a1, __int64 a2, __int64 a3)
           0,
           1u,
           0xBu,
-          (__int64)&WPP_864ab6fa16ac30e9f4a04b6140161349_Traceguids);
+          (__int64)&WPP_702859756c5835a51fae8c331fd03d9d_Traceguids);
       }
     }
     v12 = *((_WORD *)v7 + 704);
@@ -91,19 +92,22 @@ __int64 __fastcall UsbhBuildDeviceID(__int64 a1, __int64 a2, __int64 a3)
   {
     WPP_RECORDER_SF_DD(WPP_GLOBAL_Control->DeviceExtension, v17, v15, v16, v27, v17, v13);
   }
-  Pool2 = ExAllocatePool2(64LL, 24LL, 1112885333LL);
-  if ( Pool2 )
+  Feature_2473223486__private_IsEnabledDeviceUsage();
+  PoolWithTag = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 0x18uLL, 0x42554855u);
+  if ( PoolWithTag )
   {
-    v20 = (_WORD *)Pool2;
     v28 = 24;
-    *(_OWORD *)Pool2 = *(_OWORD *)L"USB\\VID_nnnn";
-    for ( *(_QWORD *)(Pool2 + 16) = *(_QWORD *)L"nnnn"; *v20 != 110; ++v20 )
+    v20 = PoolWithTag;
+    *(_OWORD *)PoolWithTag = 0LL;
+    *((_QWORD *)PoolWithTag + 2) = 0LL;
+    *(_OWORD *)PoolWithTag = *(_OWORD *)L"USB\\VID_nnnn";
+    for ( *((_QWORD *)PoolWithTag + 2) = *(_QWORD *)L"nnnn"; *v20 != 110; ++v20 )
       ;
     *v20 = (unsigned __int8)Nibble[v14 >> 12];
     v20[1] = (unsigned __int8)Nibble[(v14 >> 8) & 0xF];
     v20[2] = (unsigned __int8)Nibble[(unsigned __int8)v14 >> 4];
     v20[3] = (unsigned __int8)Nibble[v14 & 0xF];
-    Id = UsbhMakeId(0, (unsigned int)L"&PID_nnnn", Pool2, (unsigned int)&v28, 2, 4, v13, 0LL);
+    Id = UsbhMakeId(0, (int)L"&PID_nnnn", (int)PoolWithTag, (int)&v28, 2, 4, v13, 0LL);
     if ( Id )
     {
       v24 = v28;
@@ -115,7 +119,7 @@ __int64 __fastcall UsbhBuildDeviceID(__int64 a1, __int64 a2, __int64 a3)
           0,
           v22,
           13,
-          (__int64)&WPP_864ab6fa16ac30e9f4a04b6140161349_Traceguids,
+          (__int64)&WPP_702859756c5835a51fae8c331fd03d9d_Traceguids,
           Id,
           v24);
       return 0LL;

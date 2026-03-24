@@ -1,41 +1,51 @@
 /*
- * XREFs of ?IsHDRSourceModeAvailableForPinnedSourceMode@@YA_NPEBVDXGADAPTER@@PEBVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C03AB970
+ * XREFs of ?IsHDRSourceModeAvailableForPinnedSourceMode@@YA_NPEBVDXGADAPTER@@PEBVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C02EC548
  * Callers:
- *     ?BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDMMVIDPN@@@Z @ 0x1C01BD518 (-BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDM.c)
+ *     ?BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDMMVIDPN@@@Z @ 0x1C013DE38 (-BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDM.c)
  * Callees:
- *     ?GetNextMode@DMMVIDPNSOURCEMODESET@@QEBAPEBVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x1C00690EC (-GetNextMode@DMMVIDPNSOURCEMODESET@@QEBAPEBVDMMVIDPNSOURCEMODE@@QEBV2@@Z.c)
- *     ?GetPreferredHdrPixelFormat@ADAPTER_DISPLAY@@QEBA?AW4_DISPLAYCONFIG_HDR_PIXEL_FORMAT@@XZ @ 0x1C01E7CF0 (-GetPreferredHdrPixelFormat@ADAPTER_DISPLAY@@QEBA-AW4_DISPLAYCONFIG_HDR_PIXEL_FORMAT@@XZ.c)
+ *     ?GetNextMode@DMMVIDPNSOURCEMODESET@@QEBAPEBVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x1C005C17C (-GetNextMode@DMMVIDPNSOURCEMODESET@@QEBAPEBVDMMVIDPNSOURCEMODE@@QEBV2@@Z.c)
  */
 
 char __fastcall IsHDRSourceModeAvailableForPinnedSourceMode(
         const struct DXGADAPTER *a1,
         const struct DMMVIDPNSOURCEMODESET *a2)
 {
-  int PreferredHdrPixelFormat; // eax
-  __int64 v4; // rdx
+  bool v2; // si
+  bool v3; // di
   __int64 v5; // rbx
-  int v6; // esi
-  __int64 v7; // rbx
-  __int64 v8; // r8
+  __int64 v6; // rbx
+  const struct DMMVIDPNSOURCEMODESET *v7; // rcx
   const struct DMMVIDPNSOURCEMODE *NextMode; // rcx
 
-  PreferredHdrPixelFormat = ADAPTER_DISPLAY::GetPreferredHdrPixelFormat(*((_QWORD *)a1 + 349));
-  v5 = *(_QWORD *)(v4 + 144);
-  v6 = PreferredHdrPixelFormat;
+  v2 = 0;
+  v3 = 0;
+  if ( *((int *)a1 + 649) < 2500 )
+  {
+    if ( *((_DWORD *)a1 + 81) == 32902 )
+      v3 = 1;
+    else
+      v2 = 1;
+  }
+  else
+  {
+    v2 = (*((_DWORD *)a1 + 644) & 4) != 0;
+    v3 = (*((_DWORD *)a1 + 644) & 8) != 0;
+  }
+  v5 = *((_QWORD *)a2 + 18);
   if ( !v5 )
     return 0;
-  v7 = *(_QWORD *)(v5 + 76);
-  v8 = *(_QWORD *)(v4 + 48);
-  if ( v8 == v4 + 48 )
+  v6 = *(_QWORD *)(v5 + 76);
+  v7 = (const struct DMMVIDPNSOURCEMODESET *)*((_QWORD *)a2 + 6);
+  if ( v7 == (const struct DMMVIDPNSOURCEMODESET *)((char *)a2 + 48) )
     return 0;
-  NextMode = (const struct DMMVIDPNSOURCEMODE *)(v8 - 8);
-  if ( v8 == 8 )
+  NextMode = (const struct DMMVIDPNSOURCEMODESET *)((char *)v7 - 8);
+  if ( !NextMode )
     return 0;
-  while ( (*((_DWORD *)NextMode + 18) != 1
-        || v7 != *(_QWORD *)((char *)NextMode + 76)
-        || v6 != 2
+  while ( (!v2
+        || *((_DWORD *)NextMode + 18) != 1
+        || v6 != *(_QWORD *)((char *)NextMode + 76)
         || *((_DWORD *)NextMode + 24) != 113)
-       && (v6 != 1 || *((_DWORD *)NextMode + 24) != 35) )
+       && (!v3 || *((_DWORD *)NextMode + 24) != 35) )
   {
     NextMode = DMMVIDPNSOURCEMODESET::GetNextMode(a2, NextMode);
     if ( !NextMode )

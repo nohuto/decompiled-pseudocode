@@ -1,71 +1,43 @@
 /*
- * XREFs of ?bCopy@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C007DD60
+ * XREFs of ?bCopy@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C0034DB0
  * Callers:
- *     ?bCompute@DC@@QEAAHXZ @ 0x1C003A080 (-bCompute@DC@@QEAAHXZ.c)
- *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C007D990 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
- *     ?vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z @ 0x1C015D110 (-vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z.c)
- *     EngUpdateDeviceSurface @ 0x1C015F100 (EngUpdateDeviceSurface.c)
+ *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0033EC0 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
+ *     ?bCompute@DC@@QEAAHXZ @ 0x1C003BFE0 (-bCompute@DC@@QEAAHXZ.c)
+ *     ?vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z @ 0x1C0140CD8 (-vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z.c)
+ *     EngUpdateDeviceSurface @ 0x1C0142300 (EngUpdateDeviceSurface.c)
  * Callees:
- *     ?vSwap@RGNOBJ@@QEAAXPEAV1@@Z @ 0x1C003C880 (-vSwap@RGNOBJ@@QEAAXPEAV1@@Z.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C003D9E0 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C003E0F4 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
- *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C004C7D0 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C002C4A8 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C002CBC0 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C002CCE4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vSwap@RGNOBJ@@QEAAXPEAV1@@Z @ 0x1C002D230 (-vSwap@RGNOBJ@@QEAAXPEAV1@@Z.c)
+ *     ?vCopy@RGNOBJ@@QEAAXAEAV1@@Z @ 0x1C0034E60 (-vCopy@RGNOBJ@@QEAAXAEAV1@@Z.c)
+ *     ?bIsResizeRequiredBeforeCopyingRegion@RGNOBJ@@IEAAHAEAV1@PEAK@Z @ 0x1C0034EDC (-bIsResizeRequiredBeforeCopyingRegion@RGNOBJ@@IEAAHAEAV1@PEAK@Z.c)
  */
 
 __int64 __fastcall RGNOBJ::bCopy(RGNOBJ *this, struct RGNOBJ *a2)
 {
-  __int64 v3; // rbx
-  unsigned int v4; // edx
-  unsigned int v5; // ecx
-  unsigned int v6; // eax
-  __int64 v7; // rsi
-  __int64 v8; // rcx
-  __int64 v9; // rdi
-  __int64 v10; // rcx
-  __int64 v11; // rax
-  __int64 v12; // rax
-  PVOID v14; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v4; // r8
+  REGION *v6; // [rsp+20h] [rbp-10h] BYREF
+  int v7; // [rsp+28h] [rbp-8h]
+  unsigned int v8; // [rsp+50h] [rbp+20h] BYREF
 
-  v3 = (*(_QWORD *)a2 + 24LL) & -(__int64)(*(_QWORD *)a2 != 0LL);
-  v4 = 112;
-  v5 = *(_DWORD *)((*(_QWORD *)this + 24LL) & -(__int64)(*(_QWORD *)this != 0LL));
-  v6 = *(_DWORD *)(v3 + 24);
-  if ( v5 < v6 && *(_DWORD *)v3 > 0x70u || v5 > 0x70 && *(_DWORD *)v3 <= 0x70u )
+  v8 = 0;
+  if ( !(unsigned int)RGNOBJ::bIsResizeRequiredBeforeCopyingRegion(this, a2, &v8) )
   {
-    if ( v6 > 0x70 )
-      v4 = *(_DWORD *)(v3 + 24);
-    v14 = 0LL;
-    RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v14, v4);
-    RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v14);
-    if ( !v14 )
-    {
-      RGNMEMOBJTMP::~RGNMEMOBJTMP(&v14);
-      return 0LL;
-    }
-    RGNOBJ::vSwap(this, (struct RGNOBJ *)&v14);
-    RGNMEMOBJTMP::~RGNMEMOBJTMP(&v14);
+    RGNOBJ::vCopy(this, a2);
+    return 1LL;
   }
-  v7 = *(_QWORD *)this;
-  v8 = v7 + 48;
-  if ( !v7 )
-    v8 = 24LL;
-  v9 = v7 + 32;
-  *(_DWORD *)v8 = *(_DWORD *)(v3 + 24);
-  v10 = v7 + 52;
-  if ( !v7 )
-    v10 = 28LL;
-  *(_DWORD *)v10 = *(_DWORD *)(v3 + 28);
-  v11 = v7 + 56;
-  if ( !v7 )
-    v11 = 32LL;
-  *(_OWORD *)v11 = *(_OWORD *)(v3 + 32);
-  if ( !v7 )
-    v9 = 8LL;
-  memmove(*(void **)v9, *(const void **)(v3 + 8), *(unsigned int *)(v3 + 24));
-  v12 = v7 + 40;
-  if ( !v7 )
-    v12 = 16LL;
-  *(_QWORD *)v12 = *(_QWORD *)v9 + *(_DWORD *)(v3 + 16) - *(_DWORD *)(v3 + 8);
-  return 1LL;
+  v6 = 0LL;
+  v7 = 0;
+  RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v6, v8, v4);
+  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v6);
+  if ( v6 )
+  {
+    RGNOBJ::vCopy((RGNOBJ *)&v6, a2);
+    RGNOBJ::vSwap(this, (struct RGNOBJ *)&v6);
+    RGNMEMOBJTMP::~RGNMEMOBJTMP(&v6);
+    return 1LL;
+  }
+  RGNMEMOBJTMP::~RGNMEMOBJTMP(&v6);
+  return 0LL;
 }

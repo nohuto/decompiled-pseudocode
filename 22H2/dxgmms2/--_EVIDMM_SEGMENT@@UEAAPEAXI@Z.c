@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_EVIDMM_SEGMENT@@UEAAPEAXI@Z @ 0x1C00327E0
+ * XREFs of ??_EVIDMM_SEGMENT@@UEAAPEAXI@Z @ 0x1C0028540
  * Callers:
  *     <none>
  * Callees:
- *     ??1VIDMM_SEGMENT@@UEAA@XZ @ 0x1C00FBF80 (--1VIDMM_SEGMENT@@UEAA@XZ.c)
+ *     ??1VIDMM_SEGMENT@@UEAA@XZ @ 0x1C00C4A20 (--1VIDMM_SEGMENT@@UEAA@XZ.c)
  */
 
 VIDMM_SEGMENT *__fastcall VIDMM_SEGMENT::`vector deleting destructor'(VIDMM_SEGMENT *P, char a2)

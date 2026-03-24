@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReturnCrossPartitionControlAreaCharges @ 0x1402A3134
+ * XREFs of MiReturnCrossPartitionControlAreaCharges @ 0x1402A3234
  * Callers:
  *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
  *     MiRemoveMappedPtes @ 0x1400855D0 (MiRemoveMappedPtes.c)
- *     MiSessionInsertImage @ 0x14017600C (MiSessionInsertImage.c)
+ *     MiSessionInsertImage @ 0x14017602C (MiSessionInsertImage.c)
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiUnmapImageInSystemSpace @ 0x1406508AC (MiUnmapImageInSystemSpace.c)
- *     MiMapImageInSystemSpace @ 0x140650E60 (MiMapImageInSystemSpace.c)
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1408543E8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiUnmapImageInSystemSpace @ 0x14065088C (MiUnmapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x140650E40 (MiMapImageInSystemSpace.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408543C8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
  *     MiDecrementSubsectionViewCount @ 0x1400794C0 (MiDecrementSubsectionViewCount.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4BB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiReturnCrossPartitionControlAreaCharges(__int64 a1)

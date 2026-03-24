@@ -2,14 +2,14 @@
  * XREFs of MiLockPagableImageSection @ 0x14009ABB0
  * Callers:
  *     MmUnlockPagableImageSection @ 0x140097F00 (MmUnlockPagableImageSection.c)
- *     PoRunDownDeviceObject @ 0x1400DAB60 (PoRunDownDeviceObject.c)
- *     IopLiveDumpUnLockPages @ 0x140286174 (IopLiveDumpUnLockPages.c)
+ *     PoRunDownDeviceObject @ 0x1400DAB80 (PoRunDownDeviceObject.c)
+ *     IopLiveDumpUnLockPages @ 0x140286274 (IopLiveDumpUnLockPages.c)
  *     MmLockPagableSectionByHandle @ 0x14061F240 (MmLockPagableSectionByHandle.c)
- *     MmLockPagableDataSection @ 0x140651680 (MmLockPagableDataSection.c)
- *     IopLiveDumpLockPages @ 0x140820390 (IopLiveDumpLockPages.c)
- *     PnprLockPagesForReplace @ 0x140835460 (PnprLockPagesForReplace.c)
- *     KiStartDynamicProcessor @ 0x140842DE8 (KiStartDynamicProcessor.c)
- *     MiApplyImageHotPatch @ 0x1408546A8 (MiApplyImageHotPatch.c)
+ *     MmLockPagableDataSection @ 0x140651660 (MmLockPagableDataSection.c)
+ *     IopLiveDumpLockPages @ 0x140820370 (IopLiveDumpLockPages.c)
+ *     PnprLockPagesForReplace @ 0x140835440 (PnprLockPagesForReplace.c)
+ *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
+ *     MiApplyImageHotPatch @ 0x140854688 (MiApplyImageHotPatch.c)
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  *     MiLockPagableSections @ 0x1409BCE2C (MiLockPagableSections.c)
  *     KiInitializeMTRR @ 0x1409C56F4 (KiInitializeMTRR.c)
@@ -20,8 +20,8 @@
  *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D150 (ExAcquireSpinLockSharedAtDpcLevel.c)
  *     RtlImageNtHeaderEx @ 0x14009D860 (RtlImageNtHeaderEx.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     MiLockImageSection @ 0x14061F25C (MiLockImageSection.c)
  */
 

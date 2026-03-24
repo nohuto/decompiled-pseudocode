@@ -1,32 +1,27 @@
 /*
- * XREFs of CmpValidateComponents @ 0x14068FC38
+ * XREFs of CmpValidateComponents @ 0x140649380
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
  * Callees:
- *     CmpGetComponentNameAtIndex @ 0x140690A1C (CmpGetComponentNameAtIndex.c)
+ *     <none>
  */
 
 __int64 __fastcall CmpValidateComponents(unsigned int a1, __int64 a2)
 {
-  __int64 v2; // r8
-  __int64 v3; // r10
-  __int64 v4; // r9
-  __int64 v5; // rdx
-  int v6; // edx
+  unsigned int v2; // r8d
+  _WORD *v3; // rax
 
-  v2 = 0LL;
-  v3 = a2;
-  v4 = a1;
-  v5 = 0LL;
-  if ( a1 )
+  v2 = 0;
+  if ( !a1 )
+    return 0LL;
+  while ( 1 )
   {
-    while ( *(_WORD *)CmpGetComponentNameAtIndex(v3, v5, v2, v4) <= 0x200u )
-    {
-      v5 = (unsigned int)(v6 + 1);
-      if ( (unsigned int)v5 >= (unsigned int)v4 )
-        return (unsigned int)v2;
-    }
-    LODWORD(v2) = -1073741811;
+    v3 = (_WORD *)(v2 >= 8 ? *(_QWORD *)(a2 + 160) + 16 * (v2 - 8 + 6LL) : a2 + 16 * (v2 + 2LL));
+    if ( *v3 > 0x200u )
+      break;
+    if ( ++v2 >= a1 )
+      return 0LL;
   }
-  return (unsigned int)v2;
+  return 3221225485LL;
 }

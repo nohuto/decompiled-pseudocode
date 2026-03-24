@@ -1,5 +1,5 @@
 /*
- * XREFs of PiDmAllocateGenericTableEntry @ 0x140701180
+ * XREFs of PiDmAllocateGenericTableEntry @ 0x140701160
  * Callers:
  *     <none>
  * Callees:

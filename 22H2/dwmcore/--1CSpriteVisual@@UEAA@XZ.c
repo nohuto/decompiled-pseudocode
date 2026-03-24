@@ -1,25 +1,37 @@
 /*
- * XREFs of ??1CSpriteVisual@@UEAA@XZ @ 0x1800EADD4
+ * XREFs of ??1CSpriteVisual@@UEAA@XZ @ 0x1800B7614
  * Callers:
- *     ??_GCSpriteVisual@@UEAAPEAXI@Z @ 0x1800EAD90 (--_GCSpriteVisual@@UEAAPEAXI@Z.c)
+ *     ??_GCSpriteVisual@@UEAAPEAXI@Z @ 0x1800B75D0 (--_GCSpriteVisual@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?GetDropShadow@CSpriteVisual@@IEBAPEAVCDropShadow@@XZ @ 0x1801338AA (-GetDropShadow@CSpriteVisual@@IEBAPEAVCDropShadow@@XZ.c)
- *     ?RemoveVisualFromCache@CDropShadow@@QEAAXPEAVCVisual@@@Z @ 0x18022A8F8 (-RemoveVisualFromCache@CDropShadow@@QEAAXPEAVCVisual@@@Z.c)
- *     ?SetDropShadow@CSpriteVisual@@IEAAXPEAVCDropShadow@@@Z @ 0x180252650 (-SetDropShadow@CSpriteVisual@@IEAAXPEAVCDropShadow@@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?RemoveVisualFromCache@CDropShadow@@QEAAXPEAVCVisual@@@Z @ 0x1800B76A4 (-RemoveVisualFromCache@CDropShadow@@QEAAXPEAVCVisual@@@Z.c)
+ *     ?GetDropShadow@CSpriteVisual@@AEBAPEAVCDropShadow@@XZ @ 0x1800B80DC (-GetDropShadow@CSpriteVisual@@AEBAPEAVCDropShadow@@XZ.c)
+ *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x1800C64BC (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
  */
 
 void __fastcall CSpriteVisual::~CSpriteVisual(CSpriteVisual *this)
 {
   CDropShadow *DropShadow; // rbx
+  _DWORD *v3; // r10
+  __int64 v4; // rcx
+  unsigned int Slot; // eax
+  __int64 v6; // r10
 
   *(_QWORD *)this = &CSpriteVisual::`vftable';
-  if ( (**((_DWORD **)this + 29) & 0x10000) != 0 )
+  if ( (**((_DWORD **)this + 28) & 0x10000) != 0 )
   {
     DropShadow = CSpriteVisual::GetDropShadow(this);
     CDropShadow::RemoveVisualFromCache(DropShadow, this);
     CResource::UnRegisterNotifierInternal(this, DropShadow);
-    CSpriteVisual::SetDropShadow(this, 0LL);
+    v3 = (_DWORD *)*((_QWORD *)this + 28);
+    if ( (*v3 & 0x10000) != 0 )
+    {
+      v4 = *((_QWORD *)this + 28);
+      *v3 &= ~0x10000u;
+      Slot = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v4, 16LL);
+      if ( Slot < *(_DWORD *)(v6 + 4) )
+        *(_BYTE *)(Slot + v6 + 8) = 0;
+    }
   }
   CVisual::~CVisual(this);
 }

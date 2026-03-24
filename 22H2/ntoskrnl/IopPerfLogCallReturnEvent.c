@@ -1,24 +1,24 @@
 /*
- * XREFs of IopPerfLogCallReturnEvent @ 0x14055938C
+ * XREFs of IopPerfLogCallReturnEvent @ 0x14050816C
  * Callers:
- *     IopPerfCallDriver @ 0x14045F22A (IopPerfCallDriver.c)
+ *     IopPerfCallDriver @ 0x140507C40 (IopPerfCallDriver.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall IopPerfLogCallReturnEvent(__int64 a1, int a2)
+void __fastcall IopPerfLogCallReturnEvent(__int64 a1, int a2)
 {
-  __int64 v3; // [rsp+30h] [rbp-38h] BYREF
-  int v4; // [rsp+38h] [rbp-30h]
-  __int64 *v5; // [rsp+40h] [rbp-28h] BYREF
-  int v6; // [rsp+48h] [rbp-20h]
-  int v7; // [rsp+4Ch] [rbp-1Ch]
+  __int64 v2; // [rsp+30h] [rbp-38h] BYREF
+  int v3; // [rsp+38h] [rbp-30h]
+  __int64 *v4; // [rsp+40h] [rbp-28h] BYREF
+  int v5; // [rsp+48h] [rbp-20h]
+  int v6; // [rsp+4Ch] [rbp-1Ch]
 
-  v3 = a1;
-  v5 = &v3;
-  v7 = 0;
-  v4 = a2;
-  v6 = 12;
-  return EtwTraceKernelEvent((int)&v5, 1, 0x20000010u, 291, 4200450);
+  v2 = a1;
+  v4 = &v2;
+  v6 = 0;
+  v3 = a2;
+  v5 = 12;
+  EtwTraceKernelEvent((__int64)&v4, 1u, 0x20000010u, 0x123u, 0x401802u);
 }

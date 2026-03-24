@@ -1,15 +1,15 @@
 /*
- * XREFs of ?GetPrevMTNodeTarget@CTouchProcessor@@AEAA?AUtagINPUTDEST@@PEAUCPointerInfoNode@@PEAUCPointerInputFrame@@@Z @ 0x1C01CBDF0
+ * XREFs of ?GetPrevMTNodeTarget@CTouchProcessor@@AEAA?AUtagINPUTDEST@@PEAUCPointerInfoNode@@PEAUCPointerInputFrame@@@Z @ 0x1C0195700
  * Callers:
- *     ?CleanupManipulationThreadData@CTouchProcessor@@QEAAXXZ @ 0x1C00B9450 (-CleanupManipulationThreadData@CTouchProcessor@@QEAAXXZ.c)
+ *     ?CleanupManipulationThreadData@CTouchProcessor@@QEAAXXZ @ 0x1C0189AB0 (-CleanupManipulationThreadData@CTouchProcessor@@QEAAXXZ.c)
  * Callees:
- *     INPUTDEST_FROM_PWND @ 0x1C0052FA0 (INPUTDEST_FROM_PWND.c)
- *     HMValidateHandleNoSecure @ 0x1C00590FC (HMValidateHandleNoSecure.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ?FindValidNodeInFrame@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@PEBUCPointerInputFrame@@GPEAK@Z @ 0x1C01C2CB8 (-FindValidNodeInFrame@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@PEBUCPointerInputFrame@@GPEAK@Z.c)
- *     ?ReferencePreviousFrameByDeviceInt@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@PEBU2@@Z @ 0x1C01D2874 (-ReferencePreviousFrameByDeviceInt@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@PEBU2@@Z.c)
- *     ?UnreferenceFrameInt@CTouchProcessor@@AEAAKPEAUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C01D86C8 (-UnreferenceFrameInt@CTouchProcessor@@AEAAKPEAUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C0046930 (HMValidateHandleNoSecure.c)
+ *     INPUTDEST_FROM_PWND @ 0x1C009F310 (INPUTDEST_FROM_PWND.c)
+ *     ?UnreferenceFrameInt@CTouchProcessor@@AEAAKPEAUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00CD33C (-UnreferenceFrameInt@CTouchProcessor@@AEAAKPEAUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     ?FindValidNodeInFrame@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@PEBUCPointerInputFrame@@GPEAK@Z @ 0x1C018E8C8 (-FindValidNodeInFrame@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@PEBUCPointerInputFrame@@GPEAK@Z.c)
+ *     ?ReferencePreviousFrameByDeviceInt@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@PEBU2@@Z @ 0x1C019B0B0 (-ReferencePreviousFrameByDeviceInt@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@PEBU2@@Z.c)
  */
 
 _OWORD *__fastcall CTouchProcessor::GetPrevMTNodeTarget(
@@ -19,9 +19,9 @@ _OWORD *__fastcall CTouchProcessor::GetPrevMTNodeTarget(
         const struct CPointerInputFrame *a4)
 {
   const struct CPointerInputFrame *v8; // rax
-  const struct CPointerInputFrame *v9; // rbx
+  __int64 v9; // rbp
   struct CPointerInfoNode *ValidNodeInFrame; // rax
-  struct CPointerInfoNode *v11; // rbp
+  struct CPointerInfoNode *v11; // rbx
   __int64 v12; // rax
   _OWORD *v13; // rax
   __int128 v14; // xmm1
@@ -34,7 +34,7 @@ _OWORD *__fastcall CTouchProcessor::GetPrevMTNodeTarget(
 
   memset(a2, 0, 0x70uLL);
   v8 = CTouchProcessor::ReferencePreviousFrameByDeviceInt(a1, a4);
-  v9 = v8;
+  v9 = (__int64)v8;
   if ( v8 )
   {
     ValidNodeInFrame = CTouchProcessor::FindValidNodeInFrame((struct _KTHREAD **)a1, v8, *(_WORD *)(a3 + 172), 0LL);
@@ -42,7 +42,7 @@ _OWORD *__fastcall CTouchProcessor::GetPrevMTNodeTarget(
     if ( ValidNodeInFrame )
     {
       if ( *((_WORD *)ValidNodeInFrame + 86) != *(_WORD *)(a3 + 172) )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 10729);
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10103);
       v12 = HMValidateHandleNoSecure(*((_QWORD *)v11 + 24), 1);
       v13 = INPUTDEST_FROM_PWND(v21, v12);
       v14 = v13[1];

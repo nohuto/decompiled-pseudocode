@@ -1,238 +1,222 @@
 /*
- * XREFs of InitUserScreen @ 0x1C005CD6C
+ * XREFs of InitUserScreen @ 0x1C006B23C
  * Callers:
- *     InitVideo @ 0x1C0016804 (InitVideo.c)
+ *     InitVideo @ 0x1C009A7D8 (InitVideo.c)
  * Callees:
- *     ?CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ @ 0x1C0012948 (-CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ.c)
- *     GreCreateCompatibleDC @ 0x1C003BC40 (GreCreateCompatibleDC.c)
- *     GreCreateDisplayDC @ 0x1C003BFE0 (GreCreateDisplayDC.c)
- *     GreSetDCOwnerEx @ 0x1C004BDD0 (GreSetDCOwnerEx.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C004C624 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     GreLockVisRgn @ 0x1C0051080 (GreLockVisRgn.c)
- *     GreUnlockVisRgn @ 0x1C0051170 (GreUnlockVisRgn.c)
- *     CreateCacheDC @ 0x1C005BC20 (CreateCacheDC.c)
- *     CreateEmptyRgnPublic @ 0x1C005CAC0 (CreateEmptyRgnPublic.c)
- *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0060D08 (-zzzUpdateUserScreen@@YAJXZ.c)
- *     xxxODI_ColorInit @ 0x1C0061B50 (xxxODI_ColorInit.c)
- *     CreateProfileUserName @ 0x1C0091D90 (CreateProfileUserName.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009CB48 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     GreGetSystemFont @ 0x1C00BEE80 (GreGetSystemFont.c)
- *     GreMarkDCUnreadable @ 0x1C00C2748 (GreMarkDCUnreadable.c)
- *     ApiSetEditionInitGlobalCursorSizes @ 0x1C00C98E0 (ApiSetEditionInitGlobalCursorSizes.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     CreateProfileUserName @ 0x1C000DC60 (CreateProfileUserName.c)
+ *     xxxODI_ColorInit @ 0x1C00100D0 (xxxODI_ColorInit.c)
+ *     ?CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ @ 0x1C00170C8 (-CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ.c)
+ *     GreSetDCOwnerEx @ 0x1C0038F20 (GreSetDCOwnerEx.c)
+ *     GreUnlockVisRgn @ 0x1C0039F20 (GreUnlockVisRgn.c)
+ *     GreLockVisRgn @ 0x1C003A140 (GreLockVisRgn.c)
+ *     GreCreateCompatibleDC @ 0x1C003C7B0 (GreCreateCompatibleDC.c)
+ *     GreCreateDisplayDC @ 0x1C003CAC0 (GreCreateDisplayDC.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0043DC4 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0043E10 (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     CreateEmptyRgnPublic @ 0x1C006B840 (CreateEmptyRgnPublic.c)
+ *     CreateCacheDC @ 0x1C006B8B0 (CreateCacheDC.c)
+ *     GreGetSystemFont @ 0x1C006BB10 (GreGetSystemFont.c)
+ *     ApiSetEditionInitGlobalCursorSizes @ 0x1C00B6E20 (ApiSetEditionInitGlobalCursorSizes.c)
+ *     GreMarkDCUnreadable @ 0x1C00B7148 (GreMarkDCUnreadable.c)
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C00C77F4 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 InitUserScreen()
 {
-  __int64 v0; // rdx
-  __int64 v1; // rbp
-  __int64 v2; // r8
-  _DWORD *v3; // rbx
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // rcx
-  __int64 v7; // rcx
-  bool v8; // bl
-  unsigned int v9; // edi
-  __int64 v10; // rcx
-  __int64 v11; // rcx
-  __int16 v12; // bx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v14; // rcx
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  unsigned int v18; // ebx
-  bool v19; // di
-  char v20; // di
-  bool v21; // bl
-  char v22; // bl
-  bool v23; // di
-  char v24; // di
-  bool v25; // bl
-  char v26; // bl
-  bool v27; // di
-  char v28; // di
-  bool v29; // bl
-  char v30; // bl
-  bool v31; // di
-  char v32; // di
-  bool v33; // bl
-  char v34; // bl
-  bool v35; // si
-  char v36; // si
-  __int64 v37; // rbx
-  __int128 v39; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v40; // [rsp+50h] [rbp-28h]
-  char v41; // [rsp+80h] [rbp+8h] BYREF
+  int v0; // edx
+  __int64 ProfileUserName; // rbp
+  _DWORD *v2; // rbx
+  __int64 v3; // rcx
+  __int64 v4; // rcx
+  bool v5; // bl
+  unsigned int v6; // edi
+  void *v7; // rcx
+  _WORD *v8; // rbx
+  unsigned int v9; // ebx
+  bool v10; // di
+  char v11; // di
+  bool v12; // bl
+  char v13; // bl
+  bool v14; // di
+  char v15; // di
+  bool v16; // bl
+  char v17; // bl
+  bool v18; // di
+  char v19; // di
+  bool v20; // bl
+  char v21; // bl
+  bool v22; // di
+  char v23; // di
+  bool v24; // bl
+  char v25; // bl
+  bool v26; // si
+  char v27; // si
+  int v28; // edx
+  int v29; // r8d
+  __int64 v30; // rbx
+  __int64 v31; // rdx
+  int v32; // r8d
+  int v33; // eax
+  __int128 v35; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v36; // [rsp+40h] [rbp-28h]
+  char v37; // [rsp+70h] [rbp+8h] BYREF
 
-  v39 = 0LL;
-  v40 = 0LL;
-  v1 = CreateProfileUserName(&v39);
-  LOBYTE(v0) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x2000) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  LOBYTE(v2) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)v0 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v0,
-      v2,
+  v35 = 0LL;
+  v36 = 0LL;
+  ProfileUserName = CreateProfileUserName((__int64)&v35);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v0) = 4;
+    WPP_RECORDER_SF_(
       WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
+      v0,
       14,
       11,
-      (__int64)&WPP_a7da67abce9c330eea32ee74e85516b9_Traceguids);
-  v3 = gpsi;
+      (__int64)&WPP_6c8a7949f294354c3e3996abc6998fe2_Traceguids);
+  }
+  v2 = gpsi;
   *((_DWORD *)gpsi + 1275) = 1;
-  v3[1301] = 1;
-  *((_QWORD *)v3 + 640) = GreGetSystemFont(1LL, v0, v2);
-  *((_QWORD *)v3 + 653) = GreGetSystemFont(0LL, v4, v5);
-  *((_QWORD *)gpDispInfo + 7) = GreCreateDisplayDC(*((HDEV *)gpDispInfo + 5), 0, 0);
-  v6 = *((_QWORD *)gpDispInfo + 7);
-  if ( !v6 )
-    goto LABEL_48;
-  if ( qword_1C0294EB0 )
-    qword_1C0294EB0(v6, *((_QWORD *)v3 + 640));
-  GreSetDCOwnerEx(*((_QWORD *)gpDispInfo + 7), 0, 0, 0);
-  *((_QWORD *)gpDispInfo + 8) = GreCreateCompatibleDC(*((HDC *)gpDispInfo + 7));
-  v7 = *((_QWORD *)gpDispInfo + 8);
-  if ( !v7 )
-    goto LABEL_48;
-  if ( qword_1C0294EB0 )
-    qword_1C0294EB0(v7, *((_QWORD *)v3 + 640));
-  GreSetDCOwnerEx(*((_QWORD *)gpDispInfo + 8), 0, 0, 0);
-  ghdcMem = GreCreateCompatibleDC(*((HDC *)gpDispInfo + 7));
-  v8 = ghdcMem != 0LL;
-  ghdcMem2 = GreCreateCompatibleDC(*((HDC *)gpDispInfo + 7));
-  v9 = v8 && ghdcMem2 != 0LL;
-  if ( v9 )
+  v2[1301] = 1;
+  *((_QWORD *)v2 + 640) = GreGetSystemFont(1LL);
+  *((_QWORD *)v2 + 653) = GreGetSystemFont(0LL);
+  *(_QWORD *)(gpDispInfo + 56) = GreCreateDisplayDC(*(HDEV *)(gpDispInfo + 40), 0, 0);
+  v3 = *(_QWORD *)(gpDispInfo + 56);
+  if ( !v3 )
+    goto LABEL_43;
+  if ( qword_1C0255AB8 )
+    qword_1C0255AB8(v3, *((_QWORD *)v2 + 640));
+  GreSetDCOwnerEx(*(_QWORD *)(gpDispInfo + 56), 0, 0, 0);
+  *(_QWORD *)(gpDispInfo + 64) = GreCreateCompatibleDC(*(HDC *)(gpDispInfo + 56));
+  v4 = *(_QWORD *)(gpDispInfo + 64);
+  if ( !v4 )
+    goto LABEL_43;
+  if ( qword_1C0255AB8 )
+    qword_1C0255AB8(v4, *((_QWORD *)v2 + 640));
+  GreSetDCOwnerEx(*(_QWORD *)(gpDispInfo + 64), 0, 0, 0);
+  ghdcMem = GreCreateCompatibleDC(*(HDC *)(gpDispInfo + 56));
+  v5 = ghdcMem != 0LL;
+  ghdcMem2 = GreCreateCompatibleDC(*(HDC *)(gpDispInfo + 56));
+  v6 = v5 && ghdcMem2 != 0LL;
+  if ( v6 )
   {
     GreSetDCOwnerEx((__int64)ghdcMem, 0, 0, 0);
     GreSetDCOwnerEx((__int64)ghdcMem2, 0, 0, 0);
     if ( CreateCachedMonitor() )
     {
-      v11 = *(_QWORD *)(SGDGetSessionState(v10) + 24);
-      *((_WORD *)gpsi + 3499) = *(_WORD *)(v11 + 1248);
+      v7 = gpsi;
+      *((_WORD *)gpsi + 3499) = gdmLogPixels;
       ++*((_WORD *)gpsi + 3507);
-      v12 = *((_WORD *)gpsi + 3499);
-      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v11);
-      if ( CurrentProcessWin32Process )
+      v8 = gpsi;
+      *(_WORD *)(PsGetCurrentProcessWin32Process(v7) + 284) = v8[3499];
+      if ( (unsigned int)ApiSetEditionInitGlobalCursorSizes() )
       {
-        v14 = -*(_QWORD *)CurrentProcessWin32Process;
-        CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-      }
-      *(_WORD *)(CurrentProcessWin32Process + 284) = v12;
-      if ( (unsigned int)ApiSetEditionInitGlobalCursorSizes(v14) )
-      {
-        AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v41, v15, v16, v17);
+        UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v37);
         if ( (int)zzzUpdateUserScreen() < 0 )
         {
-          v9 = 0;
-          AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v41);
+          v6 = 0;
+          UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v37);
         }
         else
         {
-          AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v41);
+          UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v37);
           ghrgnInv0 = (HRGN)CreateEmptyRgnPublic();
-          v18 = ghrgnInv0 != 0LL ? v9 : 0;
+          v9 = ghrgnInv0 != 0LL ? v6 : 0;
           ghrgnInv1 = (HRGN)CreateEmptyRgnPublic();
-          v19 = ghrgnInv1 != 0LL;
+          v10 = ghrgnInv1 != 0LL;
           ghrgnInv2 = (HRGN)CreateEmptyRgnPublic();
           if ( ghrgnInv2 )
-            v20 = v18 & v19;
+            v11 = v9 & v10;
           else
-            v20 = 0;
+            v11 = 0;
           ghrgnSPB1 = (HRGN)CreateEmptyRgnPublic();
-          v21 = ghrgnSPB1 != 0LL;
+          v12 = ghrgnSPB1 != 0LL;
           ghrgnSPB2 = (HRGN)CreateEmptyRgnPublic();
           if ( ghrgnSPB2 )
-            v22 = v20 & v21;
+            v13 = v11 & v12;
           else
-            v22 = 0;
+            v13 = 0;
           ghrgnSCR = (HRGN)CreateEmptyRgnPublic();
-          v23 = ghrgnSCR != 0LL;
+          v14 = ghrgnSCR != 0LL;
           ghrgnSW = (HRGN)CreateEmptyRgnPublic();
           if ( ghrgnSW )
-            v24 = v22 & v23;
+            v15 = v13 & v14;
           else
-            v24 = 0;
+            v15 = 0;
           ghrgnScrl1 = (HRGN)CreateEmptyRgnPublic();
-          v25 = ghrgnScrl1 != 0LL;
+          v16 = ghrgnScrl1 != 0LL;
           ghrgnScrl2 = (HRGN)CreateEmptyRgnPublic();
           if ( ghrgnScrl2 )
-            v26 = v24 & v25;
+            v17 = v15 & v16;
           else
-            v26 = 0;
+            v17 = 0;
           ghrgnScrlVis = (HRGN)CreateEmptyRgnPublic();
-          v27 = ghrgnScrlVis != 0LL;
+          v18 = ghrgnScrlVis != 0LL;
           ghrgnScrlSrc = (HRGN)CreateEmptyRgnPublic();
           if ( ghrgnScrlSrc )
-            v28 = v26 & v27;
+            v19 = v17 & v18;
           else
-            v28 = 0;
+            v19 = 0;
           ghrgnScrlDst = (HRGN)CreateEmptyRgnPublic();
-          v29 = ghrgnScrlDst != 0LL;
+          v20 = ghrgnScrlDst != 0LL;
           ghrgnScrlValid = (HRGN)CreateEmptyRgnPublic();
           if ( ghrgnScrlValid )
-            v30 = v28 & v29;
+            v21 = v19 & v20;
           else
-            v30 = 0;
+            v21 = 0;
           ghrgnInvalidSum = (HRGN)CreateEmptyRgnPublic();
-          v31 = ghrgnInvalidSum != 0LL;
+          v22 = ghrgnInvalidSum != 0LL;
           ghrgnVisNew = (HRGN)CreateEmptyRgnPublic();
           if ( ghrgnVisNew )
-            v32 = v30 & v31;
+            v23 = v21 & v22;
           else
-            v32 = 0;
+            v23 = 0;
           ghrgnSWP1 = (HRGN)CreateEmptyRgnPublic();
-          v33 = ghrgnSWP1 != 0LL;
+          v24 = ghrgnSWP1 != 0LL;
           ghrgnValid = (HRGN)CreateEmptyRgnPublic();
           if ( ghrgnValid )
-            v34 = v32 & v33;
+            v25 = v23 & v24;
           else
-            v34 = 0;
+            v25 = 0;
           ghrgnValidSum = (HRGN)CreateEmptyRgnPublic();
-          v35 = ghrgnValidSum != 0LL;
+          v26 = ghrgnValidSum != 0LL;
           ghrgnInvalid = (HRGN)CreateEmptyRgnPublic();
           if ( ghrgnInvalid )
-            v36 = v34 & v35;
+            v27 = v25 & v26;
           else
-            v36 = 0;
+            v27 = 0;
           ghrgnGDC = (HRGN)CreateEmptyRgnPublic();
-          LOBYTE(v9) = v36 & (ghrgnGDC != 0LL);
-          GreLockVisRgn(*((_QWORD *)gpDispInfo + 5));
-          v37 = 5LL;
+          LOBYTE(v6) = v27 & (ghrgnGDC != 0LL);
+          GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40), v28, v29);
+          v30 = 5LL;
           do
           {
-            v9 = (CreateCacheDC(0LL, 0x802u, 0LL) != 0) & (unsigned __int8)v9;
-            --v37;
+            v6 = (CreateCacheDC(0LL, 2050LL, 0LL) != 0) & (unsigned __int8)v6;
+            --v30;
           }
-          while ( v37 );
-          GreUnlockVisRgn(*((_QWORD *)gpDispInfo + 5));
-          if ( v9 )
+          while ( v30 );
+          GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40), v31, v32);
+          if ( v6 )
           {
-            GreMarkDCUnreadable(*((_QWORD *)gpDispInfo + 7));
+            GreMarkDCUnreadable(*(_QWORD *)(gpDispInfo + 56));
             *((_DWORD *)gpsi + 496) = 0;
             *((_DWORD *)gpsi + 541) = InitSafeBootMode;
             *((_DWORD *)gpsi + 547) = 0;
-            xxxODI_ColorInit(v1);
-            if ( qword_1C0295F28 )
-            {
-              if ( (int)qword_1C0295F28() >= 0 && qword_1C0295F30 )
-                qword_1C0295F30();
-            }
+            xxxODI_ColorInit(ProfileUserName);
+            v33 = qword_1C0256B18 ? qword_1C0256B18() : -1073741637;
+            if ( v33 >= 0 && qword_1C0256B20 )
+              qword_1C0256B20();
           }
         }
-        goto LABEL_44;
+        goto LABEL_39;
       }
     }
-LABEL_48:
-    v9 = 0;
+LABEL_43:
+    v6 = 0;
   }
-LABEL_44:
-  if ( v1 && qword_1C0295558 )
-    qword_1C0295558(&v39);
-  return v9;
+LABEL_39:
+  if ( ProfileUserName && qword_1C02560E8 )
+    qword_1C02560E8(&v35);
+  return v6;
 }

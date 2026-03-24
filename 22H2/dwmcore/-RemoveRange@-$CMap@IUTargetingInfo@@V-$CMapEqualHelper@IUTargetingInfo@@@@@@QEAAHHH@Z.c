@@ -1,12 +1,12 @@
 /*
- * XREFs of ?RemoveRange@?$CMap@IUTargetingInfo@@V?$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHHH@Z @ 0x1801A5774
+ * XREFs of ?RemoveRange@?$CMap@IUTargetingInfo@@V?$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHHH@Z @ 0x180235240
  * Callers:
- *     ?RemoveKey@?$CMap@IUTargetingInfo@@V?$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHAEBI@Z @ 0x1801A5714 (-RemoveKey@-$CMap@IUTargetingInfo@@V-$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHAEBI@Z.c)
- *     ?SetLastPointerTarget@CManipulationContext@@UEAAJIPEAUTargetingInfo@@@Z @ 0x1801A6C70 (-SetLastPointerTarget@CManipulationContext@@UEAAJIPEAUTargetingInfo@@@Z.c)
+ *     ?RemoveKey@?$CMap@IUTargetingInfo@@V?$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHAEBI@Z @ 0x1802351E0 (-RemoveKey@-$CMap@IUTargetingInfo@@V-$CMapEqualHelper@IUTargetingInfo@@@@@@QEAAHAEBI@Z.c)
+ *     ?SetLastPointerTarget@CManipulationContext@@UEAAJIPEAUTargetingInfo@@@Z @ 0x180236620 (-SetLastPointerTarget@CManipulationContext@@UEAAJIPEAUTargetingInfo@@@Z.c)
  * Callees:
- *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x180027730 (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
- *     ??_GTargetingInfo@@QEAAPEAXI@Z @ 0x18012D7C0 (--_GTargetingInfo@@QEAAPEAXI@Z.c)
+ *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x18004610C (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
+ *     ??_GTargetingInfo@@QEAAPEAXI@Z @ 0x180233714 (--_GTargetingInfo@@QEAAPEAXI@Z.c)
  */
 
 __int64 __fastcall CMap<unsigned int,TargetingInfo,CMapEqualHelper<unsigned int,TargetingInfo>>::RemoveRange(
@@ -14,7 +14,7 @@ __int64 __fastcall CMap<unsigned int,TargetingInfo,CMapEqualHelper<unsigned int,
         int a2)
 {
   __int64 v2; // rdi
-  __int64 v4; // r14
+  __int64 v4; // rsi
   int v5; // ecx
   LPVOID v6; // rax
   LPVOID v7; // rax
@@ -32,8 +32,9 @@ __int64 __fastcall CMap<unsigned int,TargetingInfo,CMapEqualHelper<unsigned int,
       (void *)(v4 + *(_QWORD *)(a1 + 8)),
       (const void *)(v4 + *(_QWORD *)(a1 + 8) + 16LL),
       16LL * (*(_DWORD *)(a1 + 16) - (int)v2 - 1));
+    v5 = *(_DWORD *)(a1 + 16);
   }
-  v6 = DefaultHeap::Realloc(*(void **)a1, 4LL * (*(_DWORD *)(a1 + 16) - 1));
+  v6 = DefaultHeap::Realloc(*(void **)a1, 4LL * (v5 - 1));
   if ( v6 )
     *(_QWORD *)a1 = v6;
   v7 = DefaultHeap::Realloc(*(void **)(a1 + 8), 16LL * (*(_DWORD *)(a1 + 16) - 1));

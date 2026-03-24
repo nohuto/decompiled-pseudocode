@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlNumberOfClearBitsInRange @ 0x1405E6510
+ * XREFs of RtlNumberOfClearBitsInRange @ 0x140587E80
  * Callers:
  *     <none>
  * Callees:
- *     RtlNumberOfSetBitsInRange @ 0x1405E66E0 (RtlNumberOfSetBitsInRange.c)
+ *     RtlNumberOfSetBitsInRange @ 0x140588050 (RtlNumberOfSetBitsInRange.c)
  */
 
 __int64 __fastcall RtlNumberOfClearBitsInRange(__int64 a1, __int64 a2, int a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?PrepareForSingleTransfer@FxDmaTransactionBase@@AEAAJXZ @ 0x1C0059930
+ * XREFs of ?PrepareForSingleTransfer@FxDmaTransactionBase@@AEAAJXZ @ 0x1C0036CA4
  * Callers:
- *     ?Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_DMA_DIRECTION@@PEAU_SCATTER_GATHER_LIST@@@Z3PEAU_MDL@@_KK@Z @ 0x1C0059728 (-Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_.c)
+ *     ?Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_DMA_DIRECTION@@PEAU_SCATTER_GATHER_LIST@@@Z3PEAU_MDL@@_KK@Z @ 0x1C0036AA0 (-Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_qLd @ 0x1C002C4F0 (WPP_IFR_SF_qLd.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_qLLd @ 0x1C0055760 (WPP_IFR_SF_qLLd.c)
- *     WPP_IFR_SF_qDPq @ 0x1C0059E7C (WPP_IFR_SF_qDPq.c)
- *     WPP_IFR_SF_qDPqd @ 0x1C0059F88 (WPP_IFR_SF_qDPqd.c)
- *     WPP_IFR_SF_qPPd @ 0x1C005A0C4 (WPP_IFR_SF_qPPd.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qDd @ 0x1C002F728 (WPP_IFR_SF_qDd.c)
+ *     WPP_IFR_SF_qLLd @ 0x1C0032784 (WPP_IFR_SF_qLLd.c)
+ *     WPP_IFR_SF_qDPq @ 0x1C00372F0 (WPP_IFR_SF_qDPq.c)
+ *     WPP_IFR_SF_qDPqd @ 0x1C00373FC (WPP_IFR_SF_qDPqd.c)
+ *     WPP_IFR_SF_qPPd @ 0x1C0037538 (WPP_IFR_SF_qPPd.c)
  */
 
 __int64 __fastcall FxDmaTransactionBase::PrepareForSingleTransfer(FxDmaTransactionBase *this)

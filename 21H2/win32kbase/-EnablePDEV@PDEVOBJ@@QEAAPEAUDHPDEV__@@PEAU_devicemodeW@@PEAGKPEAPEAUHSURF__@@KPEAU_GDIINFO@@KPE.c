@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EnablePDEV@PDEVOBJ@@QEAAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C00BC138
+ * XREFs of ?EnablePDEV@PDEVOBJ@@QEAAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C00AAC30
  * Callers:
- *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C00C8640 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
+ *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C00B8D20 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 struct DHPDEV__ *__fastcall PDEVOBJ::EnablePDEV(
@@ -20,7 +20,7 @@ struct DHPDEV__ *__fastcall PDEVOBJ::EnablePDEV(
         unsigned __int16 *a11,
         void *a12)
 {
-  return (struct DHPDEV__ *)(*(__int64 (__fastcall **)(struct _devicemodeW *, unsigned __int16 *, __int64, HSURF *, int, struct _GDIINFO *, int, struct tagDEVINFO *, HDEV, unsigned __int16 *, void *))(*(_QWORD *)this + 2664LL))(
+  return (struct DHPDEV__ *)(*(__int64 (__fastcall **)(struct _devicemodeW *, unsigned __int16 *, __int64, HSURF *, int, struct _GDIINFO *, int, struct tagDEVINFO *, HDEV, unsigned __int16 *, void *))(*(_QWORD *)this + 2688LL))(
                               a2,
                               a3,
                               6LL,

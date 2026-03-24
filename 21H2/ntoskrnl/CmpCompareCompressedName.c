@@ -1,20 +1,17 @@
 /*
- * XREFs of CmpCompareCompressedName @ 0x1407C45A0
+ * XREFs of CmpCompareCompressedName @ 0x1405EE720
  * Callers:
- *     CmpCompareKeysByName @ 0x14065C51C (CmpCompareKeysByName.c)
- *     CmpCheckLexicographicalOrder @ 0x14069B700 (CmpCheckLexicographicalOrder.c)
- *     CmpFindKcbInHashEntryByName @ 0x1406D2154 (CmpFindKcbInHashEntryByName.c)
- *     CmpFindNameInListCellWithStatus @ 0x140722280 (CmpFindNameInListCellWithStatus.c)
- *     CmpCreateKeyControlBlock @ 0x1407C3850 (CmpCreateKeyControlBlock.c)
- *     CmpCompareInIndex @ 0x1407C4180 (CmpCompareInIndex.c)
- *     CmpDoCompareKeyName @ 0x1407C4460 (CmpDoCompareKeyName.c)
- *     CmpCheckValueList @ 0x1407C4990 (CmpCheckValueList.c)
- *     CmpFindSubKeyInRoot @ 0x1407C5F80 (CmpFindSubKeyInRoot.c)
- *     CmpFindKcbInHashEntryByCompressedName @ 0x14091514C (CmpFindKcbInHashEntryByCompressedName.c)
- *     CmpSortedValueEnumStackValueCompareFunction @ 0x140921EA0 (CmpSortedValueEnumStackValueCompareFunction.c)
+ *     CmpDoCompareKeyName @ 0x1405EE600 (CmpDoCompareKeyName.c)
+ *     CmpFindKcbInHashEntryByName @ 0x1405EFB44 (CmpFindKcbInHashEntryByName.c)
+ *     CmpGetNameControlBlock @ 0x1405EFC10 (CmpGetNameControlBlock.c)
+ *     CmpCheckValueList @ 0x1405F0460 (CmpCheckValueList.c)
+ *     CmpCheckLexicographicalOrder @ 0x1405F2E10 (CmpCheckLexicographicalOrder.c)
+ *     CmpFindNameInListCellWithStatus @ 0x140666030 (CmpFindNameInListCellWithStatus.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x14086EF30 (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpCompareKeysByName @ 0x140875D54 (CmpCompareKeysByName.c)
+ *     CmpSortedValueEnumStackValueCompareFunction @ 0x14087BA10 (CmpSortedValueEnumStackValueCompareFunction.c)
  * Callees:
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
  */
 
 __int64 __fastcall CmpCompareCompressedName(__int64 a1, unsigned __int8 *a2, unsigned __int16 a3, char a4)
@@ -22,10 +19,8 @@ __int64 __fastcall CmpCompareCompressedName(__int64 a1, unsigned __int8 *a2, uns
   unsigned __int16 v5; // r11
   unsigned __int16 v6; // r10
   unsigned __int16 *v7; // rbx
-  unsigned __int16 v9; // bp
+  unsigned __int16 v9; // r9
   unsigned int v10; // esi
-  _QWORD *CurrentServerSiloGlobals; // rax
-  _QWORD *v13; // rax
 
   v5 = *(_WORD *)a1 >> 1;
   v6 = a3;
@@ -41,26 +36,16 @@ __int64 __fastcall CmpCompareCompressedName(__int64 a1, unsigned __int8 *a2, uns
         if ( (a4 & 1) == 0 && v9 >= 0x61u )
         {
           if ( v9 > 0x7Au )
-          {
-            CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-            v9 = NLS_UPCASE(CurrentServerSiloGlobals[154], v9);
-          }
+            v9 = NLS_UPCASE(v9);
           else
-          {
             v9 -= 32;
-          }
         }
         if ( (a4 & 2) == 0 && v10 >= 0x61 )
         {
           if ( v10 > 0x7A )
-          {
-            v13 = PsGetCurrentServerSiloGlobals();
-            LOWORD(v10) = NLS_UPCASE(v13[154], v10);
-          }
+            LOWORD(v10) = NLS_UPCASE(v10);
           else
-          {
             LOWORD(v10) = v10 - 32;
-          }
         }
         if ( v9 != (unsigned __int16)v10 )
           return v9 - (unsigned int)(unsigned __int16)v10;

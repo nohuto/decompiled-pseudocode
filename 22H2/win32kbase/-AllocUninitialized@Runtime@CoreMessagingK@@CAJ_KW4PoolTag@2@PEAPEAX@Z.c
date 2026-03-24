@@ -1,17 +1,18 @@
 /*
- * XREFs of ?AllocUninitialized@Runtime@CoreMessagingK@@CAJ_KW4PoolTag@2@PEAPEAX@Z @ 0x1C006C7E0
+ * XREFs of ?AllocUninitialized@Runtime@CoreMessagingK@@CAJ_KW4PoolTag@2@PEAPEAX@Z @ 0x1C0074F8C
  * Callers:
- *     ?AllocUninitialized@BufferCache@CoreMessagingK@@CAJGPEAPEAX@Z @ 0x1C006A56C (-AllocUninitialized@BufferCache@CoreMessagingK@@CAJGPEAPEAX@Z.c)
- *     ?CopyString@Runtime@CoreMessagingK@@SAJPEBGW4PoolTag@2@PEAPEAG@Z @ 0x1C00B1154 (-CopyString@Runtime@CoreMessagingK@@SAJPEBGW4PoolTag@2@PEAPEAG@Z.c)
+ *     ?AllocUninitialized@BufferCache@CoreMessagingK@@CAJGPEAPEAX@Z @ 0x1C004E478 (-AllocUninitialized@BufferCache@CoreMessagingK@@CAJGPEAPEAX@Z.c)
+ *     ?CopyString@Runtime@CoreMessagingK@@SAJPEBGW4PoolTag@2@PEAPEAG@Z @ 0x1C0074DBC (-CopyString@Runtime@CoreMessagingK@@SAJPEBGW4PoolTag@2@PEAPEAG@Z.c)
+ *     ?Alloc@Runtime@CoreMessagingK@@CAJ_KW4PoolTag@2@PEAPEAX@Z @ 0x1C0074F44 (-Alloc@Runtime@CoreMessagingK@@CAJ_KW4PoolTag@2@PEAPEAX@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CoreMessagingK::Runtime::AllocUninitialized(__int64 a1, unsigned int a2, __int64 *a3)
+__int64 __fastcall CoreMessagingK::Runtime::AllocUninitialized(SIZE_T a1, ULONG a2, _QWORD *a3)
 {
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
 
-  Pool2 = ExAllocatePool2(258LL, a1, a2);
-  *a3 = Pool2;
-  return Pool2 == 0 ? 0xC0000017 : 0;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, a1, a2);
+  *a3 = PoolWithTag;
+  return PoolWithTag == 0LL ? 0xC0000017 : 0;
 }

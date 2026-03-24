@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Pid@HANDLELOCK@@QEAAXK@Z @ 0x1C001F14C
+ * XREFs of ?Pid@HANDLELOCK@@QEAAXK@Z @ 0x1C003209C
  * Callers:
- *     HmgSetOwner @ 0x1C0028640 (HmgSetOwner.c)
- *     GreSetDCOwnerEx @ 0x1C002C0D0 (GreSetDCOwnerEx.c)
- *     GreSetBrushOwner @ 0x1C00630E0 (GreSetBrushOwner.c)
+ *     GreSetBrushOwner @ 0x1C001C970 (GreSetBrushOwner.c)
+ *     HmgSetOwner @ 0x1C0035470 (HmgSetOwner.c)
+ *     GreSetDCOwnerEx @ 0x1C0037AB0 (GreSetDCOwnerEx.c)
  * Callees:
- *     ?GetEtwGdiHandleType@@YA?AW4EtwGdiHandleType@@E@Z @ 0x1C001F220 (-GetEtwGdiHandleType@@YA-AW4EtwGdiHandleType@@E@Z.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C0022C40 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0150614 (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C002FF80 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?GetEtwGdiHandleType@@YA?AW4EtwGdiHandleType@@E@Z @ 0x1C0032170 (-GetEtwGdiHandleType@@YA-AW4EtwGdiHandleType@@E@Z.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0125FD8 (McTemplateK0pqqq_EtwWriteTransfer.c)
  */
 
 void __fastcall HANDLELOCK::Pid(HANDLELOCK *this, int a2)
@@ -27,7 +27,7 @@ void __fastcall HANDLELOCK::Pid(HANDLELOCK *this, int a2)
   *(_DWORD *)(*(_QWORD *)this + 8LL) = a2 ^ (a2 ^ *(_DWORD *)(*(_QWORD *)this + 8LL)) & 1;
   v2 = *(_QWORD *)this;
   v3 = gpHandleManager;
-  v4 = GdiHandleManager::DecodeIndex(gpHandleManager, **(_DWORD **)this & 0xFFFFFF);
+  v4 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)gpHandleManager, **(_DWORD **)this & 0xFFFFFF);
   v5 = *((_QWORD *)v3 + 2);
   v6 = v4;
   v7 = *(_DWORD *)(v5 + 2056);

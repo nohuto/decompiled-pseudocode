@@ -1,13 +1,13 @@
 /*
- * XREFs of IrqPolicyGetDevicePolicy @ 0x1C009AB50
+ * XREFs of IrqPolicyGetDevicePolicy @ 0x1C0094A38
  * Callers:
- *     ProcessorpFindIdtEntriesApic @ 0x1C0099330 (ProcessorpFindIdtEntriesApic.c)
+ *     ProcessorpFindIdtEntriesApic @ 0x1C0092F20 (ProcessorpFindIdtEntriesApic.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     OSGetRegistryValue @ 0x1C009B014 (OSGetRegistryValue.c)
- *     IrqPolicyGetSubKey @ 0x1C009B108 (IrqPolicyGetSubKey.c)
- *     IrqTraceAffinityPolicy @ 0x1C009CEC0 (IrqTraceAffinityPolicy.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     OSGetRegistryValue @ 0x1C0094F04 (OSGetRegistryValue.c)
+ *     IrqPolicyGetSubKey @ 0x1C0094FF8 (IrqPolicyGetSubKey.c)
+ *     IrqTraceAffinityPolicy @ 0x1C0096174 (IrqTraceAffinityPolicy.c)
  */
 
 __int64 __fastcall IrqPolicyGetDevicePolicy(
@@ -25,11 +25,11 @@ __int64 __fastcall IrqPolicyGetDevicePolicy(
   int RegistryValues; // eax
   __int16 v14; // dx
   int v15; // r14d
-  int *v16; // rcx
-  bool v17; // zf
-  _BYTE *v18; // rcx
-  int v19; // eax
-  int v20; // r8d
+  int v16; // eax
+  int v17; // r8d
+  int *v18; // rcx
+  bool v19; // zf
+  _BYTE *v20; // rcx
   _DWORD *v21; // r8
   __int64 v22; // rdx
   _WORD v23[2]; // [rsp+30h] [rbp-D0h] BYREF
@@ -122,16 +122,16 @@ __int64 __fastcall IrqPolicyGetDevicePolicy(
     }
     if ( a2 && (*(_BYTE *)(a2 + 4) & 4) != 0 )
     {
-      v19 = *(_DWORD *)(a2 + 20);
-      v20 = *(unsigned __int16 *)(a2 + 18);
+      v16 = *(_DWORD *)(a2 + 20);
+      v17 = *(unsigned __int16 *)(a2 + 18);
       v11 = *(_QWORD *)(a2 + 24);
       v23[0] = *(_WORD *)(a2 + 16);
       v14 = v23[0];
-      v26 = v19;
+      v26 = v16;
       if ( v23[0] == 4 )
       {
-        v10 = v20;
-        if ( v20 == 0xFFFF )
+        v10 = v17;
+        if ( v17 == 0xFFFF )
           v10 = 0;
         v24 = v10;
       }
@@ -140,7 +140,7 @@ __int64 __fastcall IrqPolicyGetDevicePolicy(
         v10 = 0;
         v11 = 0LL;
         v24 = 0;
-        v25 = (_WORD)v20 == 0xFFFF;
+        v25 = (_WORD)v17 == 0xFFFF;
       }
     }
     else
@@ -155,7 +155,7 @@ __int64 __fastcall IrqPolicyGetDevicePolicy(
         v9 = v11;
         IrqTraceAffinityPolicy(Pdo);
         v14 = v23[0];
-        goto LABEL_15;
+        goto LABEL_18;
       }
     }
     else
@@ -167,15 +167,15 @@ __int64 __fastcall IrqPolicyGetDevicePolicy(
         LOWORD(v10) = v24;
       }
       if ( v14 )
-        goto LABEL_14;
+        goto LABEL_17;
     }
     v14 = IrqMachinePolicy;
     v23[0] = IrqMachinePolicy;
-LABEL_14:
+LABEL_17:
     v9 = v11;
     v15 = 0;
   }
-LABEL_15:
+LABEL_18:
   if ( Handle )
   {
     ZwClose(Handle);
@@ -183,15 +183,15 @@ LABEL_15:
   }
   if ( v15 >= 0 )
   {
-    v16 = v30;
-    v17 = !v25;
+    v18 = v30;
+    v19 = !v25;
     *v29 = v14;
-    *v16 = v26;
-    v18 = (_BYTE *)v31;
+    *v18 = v26;
+    v20 = (_BYTE *)v31;
     *(_OWORD *)a3 = 0LL;
     *(_WORD *)(a3 + 8) = v10;
     *(_QWORD *)a3 = v9;
-    *v18 = !v17;
+    *v20 = !v19;
   }
   return (unsigned int)v15;
 }

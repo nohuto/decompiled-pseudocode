@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDestroySection @ 0x14038868C
+ * XREFs of MiDestroySection @ 0x14037F32C
  * Callers:
- *     MiCleanSection @ 0x1403885EC (MiCleanSection.c)
- *     MiDeleteCachedSegment @ 0x14058A4E8 (MiDeleteCachedSegment.c)
- *     MiDeleteCachedSubsection @ 0x14058A6D4 (MiDeleteCachedSubsection.c)
- *     MiProcessDeleteOnClose @ 0x14058B784 (MiProcessDeleteOnClose.c)
+ *     MiCleanSection @ 0x14037F28C (MiCleanSection.c)
+ *     MiDeleteCachedSegment @ 0x140528BB8 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x140528DAC (MiDeleteCachedSubsection.c)
+ *     MiProcessDeleteOnClose @ 0x140529F98 (MiProcessDeleteOnClose.c)
  * Callees:
- *     MiClearFilePointer @ 0x140220A44 (MiClearFilePointer.c)
- *     MiDrainControlAreaWrites @ 0x140270228 (MiDrainControlAreaWrites.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiSegmentDelete @ 0x1406F4904 (MiSegmentDelete.c)
- *     FsRtlReleaseFileForCcFlush @ 0x1407F0748 (FsRtlReleaseFileForCcFlush.c)
+ *     MiClearFilePointer @ 0x140263CF8 (MiClearFilePointer.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     MiDrainControlAreaWrites @ 0x1402F7DAC (MiDrainControlAreaWrites.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x140647024 (FsRtlReleaseFileForCcFlush.c)
+ *     MiSegmentDelete @ 0x1406E8110 (MiSegmentDelete.c)
  */
 
 __int64 __fastcall MiDestroySection(__int64 a1, KIRQL a2, struct _FILE_OBJECT *a3)
@@ -50,7 +50,7 @@ __int64 __fastcall MiDestroySection(__int64 a1, KIRQL a2, struct _FILE_OBJECT *a
   if ( a3 )
   {
     FsRtlReleaseFileForCcFlush(a3);
-    ObfDereferenceObjectWithTag(a3, 0x63536D4Du);
+    HalPutDmaAdapter((PADAPTER_OBJECT)a3);
   }
   return MiSegmentDelete(a1);
 }

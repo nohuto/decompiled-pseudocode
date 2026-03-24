@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetSize@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AUD2D_SIZE_U@@XZ @ 0x18010C670
+ * XREFs of ?GetSize@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F91F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-struct D2D_SIZE_U __fastcall CDxHandleYUVBitmapRealization::GetSize(__int64 a1)
+struct D2D_SIZE_U __fastcall CDxHandleYUVBitmapRealization::GetSize(__int64 a1, _DWORD *a2)
 {
-  return CDxHandleYUVBitmapRealization::GetSize((CDxHandleYUVBitmapRealization *)(a1 - *(int *)(a1 - 4)));
+  return CDxHandleYUVBitmapRealization::GetSize((CDxHandleYUVBitmapRealization *)(a1 - *(int *)(a1 - 4)), a2);
 }

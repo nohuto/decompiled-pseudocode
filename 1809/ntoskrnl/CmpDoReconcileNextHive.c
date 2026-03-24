@@ -8,7 +8,7 @@
  *     CmpIsHiveEligibleForLazyReconcile @ 0x1405B0ED8 (CmpIsHiveEligibleForLazyReconcile.c)
  *     CmpGetNextActiveHive @ 0x1405B1474 (CmpGetNextActiveHive.c)
  *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     CmpFlushUnsupportedOperationTelemetry @ 0x1406C772C (CmpFlushUnsupportedOperationTelemetry.c)
+ *     CmpFlushUnsupportedOperationTelemetry @ 0x1406C770C (CmpFlushUnsupportedOperationTelemetry.c)
  */
 
 char __fastcall CmpDoReconcileNextHive(_BYTE *a1, unsigned __int64 *a2)

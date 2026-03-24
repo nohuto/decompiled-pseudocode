@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlDeleteKeyFromTunnelCache @ 0x140694660
+ * XREFs of FsRtlDeleteKeyFromTunnelCache @ 0x140688920
  * Callers:
  *     <none>
  * Callees:
- *     RtlRealSuccessor @ 0x14021D710 (RtlRealSuccessor.c)
- *     FsRtlRemoveNodeFromTunnel @ 0x14021D754 (FsRtlRemoveNodeFromTunnel.c)
- *     FsRtlEmptyFreePoolList @ 0x14021D85C (FsRtlEmptyFreePoolList.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     RtlRealSuccessor @ 0x14029FD70 (RtlRealSuccessor.c)
+ *     FsRtlRemoveNodeFromTunnel @ 0x14029FE0C (FsRtlRemoveNodeFromTunnel.c)
+ *     FsRtlEmptyFreePoolList @ 0x14029FF14 (FsRtlEmptyFreePoolList.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
  */
 
 void __stdcall FsRtlDeleteKeyFromTunnelCache(TUNNEL *Cache, ULONGLONG DirectoryKey)
@@ -20,7 +20,7 @@ void __stdcall FsRtlDeleteKeyFromTunnelCache(TUNNEL *Cache, ULONGLONG DirectoryK
 
   v2 = 0LL;
   v8 = 1;
-  if ( !*(_DWORD *)((char *)&NlsMbCodePageTag + 1) )
+  if ( !TunnelMaxEntries )
     return;
   v7[1] = v7;
   v7[0] = v7;

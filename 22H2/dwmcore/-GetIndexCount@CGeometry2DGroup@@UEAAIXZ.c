@@ -1,18 +1,19 @@
 /*
- * XREFs of ?GetIndexCount@CGeometry2DGroup@@UEAAIXZ @ 0x18021DF00
+ * XREFs of ?GetIndexCount@CGeometry2DGroup@@UEAAIXZ @ 0x1801B4920
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGeometry2DGroup::GetIndexCount(CGeometry2DGroup *this)
 {
-  unsigned int v1; // esi
+  unsigned int v1; // edi
   unsigned int v3; // edx
-  _QWORD *v4; // rbp
-  int v5; // r14d
-  _QWORD *v6; // rdi
+  int v4; // eax
+  unsigned int v5; // esi
+  unsigned int v6; // ebp
+  __int64 v7; // rcx
   __int64 result; // rax
 
   v1 = 0;
@@ -20,26 +21,32 @@ __int64 __fastcall CGeometry2DGroup::GetIndexCount(CGeometry2DGroup *this)
   *((_DWORD *)this + 8) = v3;
   if ( (v3 & 6) == 2 )
   {
-    if ( (*((_BYTE *)this + 168) & 4) != 0 )
+    v4 = *((_DWORD *)this + 38);
+    if ( (v4 & 4) != 0 )
     {
-      v4 = (_QWORD *)*((_QWORD *)this + 11);
       v5 = 0;
-      v6 = (_QWORD *)*((_QWORD *)this + 10);
-      if ( v6 != v4 )
+      v6 = 0;
+      if ( *((_DWORD *)this + 24) )
       {
         do
         {
-          if ( *v6 )
-            v5 += (*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)*v6 + 192LL))(*v6);
+          v7 = *(_QWORD *)(*((_QWORD *)this + 13) + 8LL * v6);
+          if ( v7 )
+            v5 += (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v7 + 208LL))(v7);
           ++v6;
         }
-        while ( v6 != v4 );
+        while ( v6 < *((_DWORD *)this + 24) );
+        v4 = *((_DWORD *)this + 38);
         v3 = *((_DWORD *)this + 8);
       }
-      *((_DWORD *)this + 42) &= ~4u;
-      *((_DWORD *)this + 32) = v5;
+      *((_DWORD *)this + 28) = v5;
+      *((_DWORD *)this + 38) = v4 & 0xFFFFFFFB;
     }
-    v1 = *((_DWORD *)this + 32);
+    else
+    {
+      v5 = *((_DWORD *)this + 28);
+    }
+    v1 = v5;
   }
   result = v1;
   *((_DWORD *)this + 8) = v3 ^ ((unsigned __int8)v3 ^ (unsigned __int8)(2 * (v3 >> 1) - 2)) & 6;

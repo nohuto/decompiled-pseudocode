@@ -1,10 +1,9 @@
 /*
- * XREFs of NtUserfnPOPTINLPUINT @ 0x1C02039B0
+ * XREFs of NtUserfnPOPTINLPUINT @ 0x1C0206A60
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtUserfnPOPTINLPUINT(
@@ -15,7 +14,6 @@ __int64 __fastcall NtUserfnPOPTINLPUINT(
         __int64 a5,
         char a6)
 {
-  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   if ( a4 )
   {
     if ( a3 > 0x1FFFFFFFFFFFFFFFLL )

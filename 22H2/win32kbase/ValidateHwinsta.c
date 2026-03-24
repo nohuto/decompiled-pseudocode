@@ -1,39 +1,38 @@
 /*
- * XREFs of ValidateHwinsta @ 0x1C00B7CD0
+ * XREFs of ValidateHwinsta @ 0x1C00A23B0
  * Callers:
- *     NtUserCloseWindowStation @ 0x1C00B7C10 (NtUserCloseWindowStation.c)
+ *     NtUserCloseWindowStation @ 0x1C00A2270 (NtUserCloseWindowStation.c)
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
  */
 
 __int64 __fastcall ValidateHwinsta(void *a1, KPROCESSOR_MODE a2, ACCESS_MASK a3, PVOID *a4)
 {
   int v5; // eax
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  PVOID v9; // rcx
-  unsigned int v10; // ebx
-  ULONG v12; // eax
-  ULONG v13; // eax
-  PVOID v14; // [rsp+58h] [rbp+20h] BYREF
+  _DWORD *v6; // rcx
+  unsigned int v7; // ebx
+  ULONG v9; // eax
+  __int64 v10; // rdx
+  ULONG v11; // eax
+  __int64 v12; // rdx
+  _DWORD *v13; // [rsp+58h] [rbp+20h] BYREF
 
-  v14 = 0LL;
-  v5 = ObReferenceObjectByHandle(a1, a3, ExWindowStationObjectType, a2, &v14, 0LL);
-  v9 = v14;
-  v10 = v5;
-  *a4 = v14;
+  v13 = 0LL;
+  v5 = ObReferenceObjectByHandle(a1, a3, ExWindowStationObjectType, a2, (PVOID *)&v13, 0LL);
+  v6 = v13;
+  v7 = v5;
+  *a4 = v13;
   if ( v5 < 0 )
   {
-    v12 = RtlNtStatusToDosError(v5);
-    UserSetLastError(v12);
+    v9 = RtlNtStatusToDosError(v5);
+    UserSetLastError(v9, v10);
   }
-  else if ( *(_DWORD *)*a4 != *(_DWORD *)SGDGetUserSessionState(v9, v6, v7, v8) )
+  else if ( *v6 != gSessionId )
   {
-    v10 = -1073741816;
-    v13 = RtlNtStatusToDosError(-1073741816);
-    UserSetLastError(v13);
+    v7 = -1073741816;
+    v11 = RtlNtStatusToDosError(-1073741816);
+    UserSetLastError(v11, v12);
     ObfDereferenceObject(*a4);
   }
-  return v10;
+  return v7;
 }

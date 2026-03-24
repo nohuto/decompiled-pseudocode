@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiAnyLinkedFonts @ 0x1C010AC80
+ * XREFs of NtGdiAnyLinkedFonts @ 0x1C01208E0
  * Callers:
  *     <none>
  * Callees:

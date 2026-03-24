@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmpCalloutDestroyWatchdog @ 0x1409A33FC
+ * XREFs of TtmpCalloutDestroyWatchdog @ 0x1408FCA30
  * Callers:
- *     TtmpStopCallout @ 0x1409A3E1C (TtmpStopCallout.c)
+ *     TtmpStopCallout @ 0x1408FD458 (TtmpStopCallout.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  */
 
 NTSTATUS __fastcall TtmpCalloutDestroyWatchdog(__int64 a1)

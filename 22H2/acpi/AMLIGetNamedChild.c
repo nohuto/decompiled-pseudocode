@@ -1,103 +1,107 @@
 /*
- * XREFs of AMLIGetNamedChild @ 0x1C00486B8
+ * XREFs of AMLIGetNamedChild @ 0x1C0020D50
  * Callers:
- *     ACPIDevicePowerProcessPhase1DeviceSubPhase3 @ 0x1C00028E0 (ACPIDevicePowerProcessPhase1DeviceSubPhase3.c)
- *     ACPIBuildMissingEjectionRelations @ 0x1C000D9B4 (ACPIBuildMissingEjectionRelations.c)
- *     ACPIBuildProcessDeviceGenericEval @ 0x1C000E740 (ACPIBuildProcessDeviceGenericEval.c)
- *     ACPIBuildProcessDeviceGenericEvalStrict @ 0x1C000E8D0 (ACPIBuildProcessDeviceGenericEvalStrict.c)
- *     ACPIBuildProcessDevicePhaseAdr @ 0x1C000EA70 (ACPIBuildProcessDevicePhaseAdr.c)
- *     ACPIBuildProcessDevicePhaseCls @ 0x1C000EF00 (ACPIBuildProcessDevicePhaseCls.c)
- *     ACPIBuildProcessDevicePhaseDep @ 0x1C000F130 (ACPIBuildProcessDevicePhaseDep.c)
- *     ACPIBuildProcessDevicePhaseHid @ 0x1C000F4D0 (ACPIBuildProcessDevicePhaseHid.c)
- *     ACPIBuildProcessDevicePhaseHrv @ 0x1C000F6A0 (ACPIBuildProcessDevicePhaseHrv.c)
- *     ACPIBuildProcessDevicePhasePr3 @ 0x1C000F930 (ACPIBuildProcessDevicePhasePr3.c)
- *     ACPIBuildProcessDevicePhasePrr @ 0x1C000FB40 (ACPIBuildProcessDevicePhasePrr.c)
- *     ACPIBuildProcessDevicePhasePrw @ 0x1C000FDA0 (ACPIBuildProcessDevicePhasePrw.c)
- *     ACPIBuildProcessDevicePhasePrx @ 0x1C0010300 (ACPIBuildProcessDevicePhasePrx.c)
- *     ACPIBuildProcessDevicePhasePsc @ 0x1C0010470 (ACPIBuildProcessDevicePhasePsc.c)
- *     ACPIBuildProcessDevicePhaseSub @ 0x1C0010890 (ACPIBuildProcessDevicePhaseSub.c)
- *     ACPIBuildProcessDevicePhaseUid @ 0x1C00109B0 (ACPIBuildProcessDevicePhaseUid.c)
- *     ACPIBuildProcessDevicePhaseUidOrHid @ 0x1C0010B20 (ACPIBuildProcessDevicePhaseUidOrHid.c)
- *     ACPIBuildProcessPowerResourcePhaseDep @ 0x1C0010EE0 (ACPIBuildProcessPowerResourcePhaseDep.c)
- *     ACPIBuildProcessPowerResourcePhaseSetupOnOff @ 0x1C0011120 (ACPIBuildProcessPowerResourcePhaseSetupOnOff.c)
- *     ACPIBuildProcessRunMethodPhaseCheckDep @ 0x1C0011540 (ACPIBuildProcessRunMethodPhaseCheckDep.c)
- *     ACPIBuildProcessRunMethodPhaseRunMethod @ 0x1C0011DE0 (ACPIBuildProcessRunMethodPhaseRunMethod.c)
- *     ACPIBuildProcessThermalZoneCheckType @ 0x1C00124A0 (ACPIBuildProcessThermalZoneCheckType.c)
- *     ACPIBuildProcessThermalZoneDep @ 0x1C0012930 (ACPIBuildProcessThermalZoneDep.c)
- *     ACPIBuildProcessThermalZoneUid @ 0x1C0012E40 (ACPIBuildProcessThermalZoneUid.c)
- *     EnableDisableCMOSRegions @ 0x1C0019EB4 (EnableDisableCMOSRegions.c)
- *     ACPIDevicePowerProcessPhase1DeviceSubPhase1 @ 0x1C001F120 (ACPIDevicePowerProcessPhase1DeviceSubPhase1.c)
- *     ACPIDevicePowerProcessPhase2SystemSubPhase1 @ 0x1C001F7A0 (ACPIDevicePowerProcessPhase2SystemSubPhase1.c)
- *     ACPIDevicePowerProcessPhase2SystemSubPhase4 @ 0x1C001FC80 (ACPIDevicePowerProcessPhase2SystemSubPhase4.c)
- *     ACPIDevicePowerProcessPhase5DeviceSubPhase2 @ 0x1C00208A0 (ACPIDevicePowerProcessPhase5DeviceSubPhase2.c)
- *     ACPIDevicePowerProcessPhase5DeviceSubPhase3 @ 0x1C0020B30 (ACPIDevicePowerProcessPhase5DeviceSubPhase3.c)
- *     ACPIDevicePowerProcessPhase5SystemSubPhase3 @ 0x1C00212D0 (ACPIDevicePowerProcessPhase5SystemSubPhase3.c)
- *     ACPIDevicePowerProcessPhase5SystemSubPhase4 @ 0x1C0021470 (ACPIDevicePowerProcessPhase5SystemSubPhase4.c)
- *     ACPIEcRunQueryMethod @ 0x1C0025AE4 (ACPIEcRunQueryMethod.c)
- *     ACPIFilterIrpSetPower @ 0x1C0028B30 (ACPIFilterIrpSetPower.c)
- *     ACPIGet @ 0x1C00293A4 (ACPIGet.c)
- *     ACPIGetConvertToDevicePresence @ 0x1C0029F6C (ACPIGetConvertToDevicePresence.c)
- *     ACPIGetProcessorStatus @ 0x1C002B0C4 (ACPIGetProcessorStatus.c)
- *     ACPIInitDosDeviceName @ 0x1C002D160 (ACPIInitDosDeviceName.c)
- *     ACPIInitStartDevice @ 0x1C002DA4C (ACPIInitStartDevice.c)
- *     ACPIInternalEvaluateOST @ 0x1C002E580 (ACPIInternalEvaluateOST.c)
- *     IsPciBusAsyncWorker @ 0x1C0035370 (IsPciBusAsyncWorker.c)
- *     IsPciDeviceWorker @ 0x1C00359A0 (IsPciDeviceWorker.c)
- *     EnableDisableDeviceRegionSpace @ 0x1C0039920 (EnableDisableDeviceRegionSpace.c)
- *     ACPIProcessorContainerEvaluateLpiObject @ 0x1C003A634 (ACPIProcessorContainerEvaluateLpiObject.c)
- *     ACPIThermalGetSensorDevice @ 0x1C0040BD0 (ACPIThermalGetSensorDevice.c)
- *     LinkNodeCrackPrt @ 0x1C005CEBC (LinkNodeCrackPrt.c)
- *     LinkNodepRestoreIrqRoutingWorker @ 0x1C005D960 (LinkNodepRestoreIrqRoutingWorker.c)
- *     LinkNodepRunSrsWorker @ 0x1C005DB60 (LinkNodepRunSrsWorker.c)
- *     ACPIDockIrpEject @ 0x1C007AAD0 (ACPIDockIrpEject.c)
- *     ACPIAmliEvaluateDsm @ 0x1C007C66C (ACPIAmliEvaluateDsm.c)
- *     ACPIAmliEvaluateOsc @ 0x1C007C7E8 (ACPIAmliEvaluateOsc.c)
- *     ACPIAmliEvaluatePcch @ 0x1C007C978 (ACPIAmliEvaluatePcch.c)
- *     ACPIBusAndFilterIrpQueryCapabilities @ 0x1C007D7B0 (ACPIBusAndFilterIrpQueryCapabilities.c)
- *     ACPIQueryCacheCoherencyAttribute @ 0x1C0081C18 (ACPIQueryCacheCoherencyAttribute.c)
- *     AcpiGetIdleWakeInfo @ 0x1C0082BE0 (AcpiGetIdleWakeInfo.c)
- *     ACPIEcGetGpeVector @ 0x1C00835D4 (ACPIEcGetGpeVector.c)
- *     ACPIEcGetUid @ 0x1C0083678 (ACPIEcGetUid.c)
- *     ACPIFanStartDevice @ 0x1C0085280 (ACPIFanStartDevice.c)
- *     ACPIInitStopDevice @ 0x1C0087AF4 (ACPIInitStopDevice.c)
- *     EnableDisableIPMIRegions @ 0x1C00887AC (EnableDisableIPMIRegions.c)
- *     ACPIGetUniqueId @ 0x1C00891A0 (ACPIGetUniqueId.c)
- *     ACPIModuleGetSpareProperties @ 0x1C0089270 (ACPIModuleGetSpareProperties.c)
- *     ACPIModuleIsValidSpare @ 0x1C0089350 (ACPIModuleIsValidSpare.c)
- *     ACPIQuerySpareDsm @ 0x1C0089428 (ACPIQuerySpareDsm.c)
- *     EnableDisableRegions @ 0x1C008A58C (EnableDisableRegions.c)
- *     ACPIRootInitialize @ 0x1C0093778 (ACPIRootInitialize.c)
- *     ACPIThermalStartDevice @ 0x1C0095DE0 (ACPIThermalStartDevice.c)
- *     ACPIThermalWorker @ 0x1C00962F0 (ACPIThermalWorker.c)
- *     LinkNodeWriteStateToHardware @ 0x1C00995E0 (LinkNodeWriteStateToHardware.c)
- *     LinkNodepAddLinkNodeWorker @ 0x1C0099730 (LinkNodepAddLinkNodeWorker.c)
+ *     ACPIInitStartDevice @ 0x1C000D968 (ACPIInitStartDevice.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
+ *     ACPIThermalGetSensorDevice @ 0x1C0011B70 (ACPIThermalGetSensorDevice.c)
+ *     ACPIDevicePowerProcessPhase1DeviceSubPhase3 @ 0x1C0011F20 (ACPIDevicePowerProcessPhase1DeviceSubPhase3.c)
+ *     ACPIBuildProcessPowerResourcePhaseSetupOnOff @ 0x1C00120A0 (ACPIBuildProcessPowerResourcePhaseSetupOnOff.c)
+ *     ACPIBuildProcessDevicePhaseHid @ 0x1C0014FF0 (ACPIBuildProcessDevicePhaseHid.c)
+ *     ACPIBuildProcessDevicePhaseAdr @ 0x1C00151E0 (ACPIBuildProcessDevicePhaseAdr.c)
+ *     ACPIBuildProcessDevicePhaseCls @ 0x1C00153C0 (ACPIBuildProcessDevicePhaseCls.c)
+ *     ACPIBuildProcessDevicePhaseDep @ 0x1C0015460 (ACPIBuildProcessDevicePhaseDep.c)
+ *     ACPIBuildProcessDevicePhaseHrv @ 0x1C0015580 (ACPIBuildProcessDevicePhaseHrv.c)
+ *     ACPIBuildProcessDevicePhasePr3 @ 0x1C00155F0 (ACPIBuildProcessDevicePhasePr3.c)
+ *     ACPIBuildProcessDevicePhasePrr @ 0x1C00157E0 (ACPIBuildProcessDevicePhasePrr.c)
+ *     ACPIBuildProcessDevicePhasePrw @ 0x1C0015900 (ACPIBuildProcessDevicePhasePrw.c)
+ *     ACPIBuildProcessDevicePhaseSub @ 0x1C0015CF0 (ACPIBuildProcessDevicePhaseSub.c)
+ *     EnableDisableCMOSRegions @ 0x1C0016500 (EnableDisableCMOSRegions.c)
+ *     IsPciDeviceWorker @ 0x1C00166E0 (IsPciDeviceWorker.c)
+ *     ACPIInitDosDeviceName @ 0x1C0016A68 (ACPIInitDosDeviceName.c)
+ *     IsPciBusAsyncWorker @ 0x1C0017710 (IsPciBusAsyncWorker.c)
+ *     ACPIBuildProcessDevicePhasePsc @ 0x1C001A170 (ACPIBuildProcessDevicePhasePsc.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase2 @ 0x1C001B550 (ACPIDevicePowerProcessPhase5DeviceSubPhase2.c)
+ *     ACPIDevicePowerProcessPhase1DeviceSubPhase1 @ 0x1C001BE00 (ACPIDevicePowerProcessPhase1DeviceSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase3 @ 0x1C001C080 (ACPIDevicePowerProcessPhase5DeviceSubPhase3.c)
+ *     ACPIBuildProcessRunMethodPhaseCheckDep @ 0x1C001FB30 (ACPIBuildProcessRunMethodPhaseCheckDep.c)
+ *     ACPIGetWorkerForInteger @ 0x1C0026CF0 (ACPIGetWorkerForInteger.c)
+ *     ACPIGetProcessorStatus @ 0x1C00270F4 (ACPIGetProcessorStatus.c)
+ *     ACPIBuildProcessDevicePhaseUidOrHid @ 0x1C002BDB0 (ACPIBuildProcessDevicePhaseUidOrHid.c)
+ *     ACPIBuildProcessDevicePhaseUid @ 0x1C002BF90 (ACPIBuildProcessDevicePhaseUid.c)
+ *     ACPIFilterIrpSetPower @ 0x1C002D790 (ACPIFilterIrpSetPower.c)
+ *     ACPIBuildProcessThermalZoneCheckType @ 0x1C00300B0 (ACPIBuildProcessThermalZoneCheckType.c)
+ *     ACPIBuildProcessPowerResourcePhaseDep @ 0x1C0030770 (ACPIBuildProcessPowerResourcePhaseDep.c)
+ *     ACPIBuildProcessThermalZoneDep @ 0x1C0030F90 (ACPIBuildProcessThermalZoneDep.c)
+ *     ACPIBuildMissingEjectionRelations @ 0x1C004BB44 (ACPIBuildMissingEjectionRelations.c)
+ *     ACPIBuildProcessThermalZoneUid @ 0x1C004C250 (ACPIBuildProcessThermalZoneUid.c)
+ *     ACPIDevicePowerProcessPhase2SystemSubPhase1 @ 0x1C0050FF0 (ACPIDevicePowerProcessPhase2SystemSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase3 @ 0x1C00516B0 (ACPIDevicePowerProcessPhase5SystemSubPhase3.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase4 @ 0x1C0051860 (ACPIDevicePowerProcessPhase5SystemSubPhase4.c)
+ *     ACPIEcRunQueryMethod @ 0x1C0054084 (ACPIEcRunQueryMethod.c)
+ *     ACPIInternalEvaluateOST @ 0x1C0056CB4 (ACPIInternalEvaluateOST.c)
+ *     EnableDisableDeviceRegionSpace @ 0x1C005C880 (EnableDisableDeviceRegionSpace.c)
+ *     ACPIProcessorContainerEvaluateLpiObject @ 0x1C005D200 (ACPIProcessorContainerEvaluateLpiObject.c)
+ *     LinkNodepRestoreIrqRoutingWorker @ 0x1C006C060 (LinkNodepRestoreIrqRoutingWorker.c)
+ *     LinkNodepRunSrsWorker @ 0x1C006C280 (LinkNodepRunSrsWorker.c)
+ *     ACPIInitStopDevice @ 0x1C0090C3C (ACPIInitStopDevice.c)
+ *     ACPIFanStartDevice @ 0x1C0091310 (ACPIFanStartDevice.c)
+ *     LinkNodepAddLinkNodeWorker @ 0x1C0091AF0 (LinkNodepAddLinkNodeWorker.c)
+ *     LinkNodeWriteStateToHardware @ 0x1C0095F18 (LinkNodeWriteStateToHardware.c)
+ *     ACPIRootInitialize @ 0x1C0097FAC (ACPIRootInitialize.c)
+ *     ACPIAmliEvaluatePcch @ 0x1C0098400 (ACPIAmliEvaluatePcch.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C0099F08 (ACPIAmliEvaluateDsm.c)
+ *     ACPIQueryCacheCoherencyAttribute @ 0x1C009A070 (ACPIQueryCacheCoherencyAttribute.c)
+ *     ACPIAmliEvaluateOsc @ 0x1C009A3A0 (ACPIAmliEvaluateOsc.c)
+ *     ACPIThermalStartDevice @ 0x1C009A540 (ACPIThermalStartDevice.c)
+ *     ACPIThermalWorker @ 0x1C009AB00 (ACPIThermalWorker.c)
+ *     AcpiGetIdleWakeInfo @ 0x1C009CB40 (AcpiGetIdleWakeInfo.c)
+ *     EnableDisableRegions @ 0x1C009D934 (EnableDisableRegions.c)
+ *     ACPIBusAndFilterIrpQueryCapabilities @ 0x1C009EB30 (ACPIBusAndFilterIrpQueryCapabilities.c)
+ *     ACPIDockIrpEject @ 0x1C00AB550 (ACPIDockIrpEject.c)
+ *     ACPIEcGetGpeVector @ 0x1C00AEA1C (ACPIEcGetGpeVector.c)
+ *     ACPIEcGetUid @ 0x1C00AEAC0 (ACPIEcGetUid.c)
+ *     EnableDisableIPMIRegions @ 0x1C00B0090 (EnableDisableIPMIRegions.c)
+ *     ACPIGetUniqueId @ 0x1C00B0440 (ACPIGetUniqueId.c)
+ *     ACPIModuleGetSpareProperties @ 0x1C00B0510 (ACPIModuleGetSpareProperties.c)
+ *     ACPIModuleIsValidSpare @ 0x1C00B05F0 (ACPIModuleIsValidSpare.c)
+ *     ACPIQuerySpareDsm @ 0x1C00B06C8 (ACPIQuerySpareDsm.c)
  * Callees:
  *     <none>
  */
 
-__int64 *__fastcall AMLIGetNamedChild(_QWORD *a1, int a2)
+__int64 *__fastcall AMLIGetNamedChild(__int64 *a1, int a2)
 {
   KIRQL v4; // al
-  __int64 **v5; // r8
-  __int64 *i; // rbx
+  __int64 v5; // r8
+  __int64 *v6; // rbx
+  __int64 *v7; // r8
+  __int64 *result; // rax
 
   v4 = ExAcquireSpinLockShared(&ACPINamespaceLock);
-  v5 = (__int64 **)(*a1 + 24LL);
-  for ( i = *v5; v5 != (__int64 **)i; i = (__int64 *)*i )
+  v5 = *a1;
+  v6 = *(__int64 **)(*a1 + 24);
+  v7 = (__int64 *)(v5 + 24);
+  if ( v7 == v6 )
   {
-    if ( a2 == *((_DWORD *)i + 10) )
-      goto LABEL_6;
+LABEL_4:
+    v6 = 0LL;
   }
-  i = 0LL;
-LABEL_6:
+  else
+  {
+    while ( a2 != *((_DWORD *)v6 + 10) )
+    {
+      v6 = (__int64 *)*v6;
+      if ( v7 == v6 )
+        goto LABEL_4;
+    }
+  }
   ExReleaseSpinLockShared(&ACPINamespaceLock, v4);
-  if ( i )
-  {
-    dword_1C006F938 = 0;
-    i += 15;
-    pszDest = 0;
-    if ( (gdwfAMLI & 4) != 0 )
-      _InterlockedIncrement((volatile signed __int32 *)i + 2);
-  }
-  return i;
+  if ( !v6 )
+    return 0LL;
+  result = v6 + 15;
+  dword_1C0082908 = 0;
+  pszDest = 0;
+  if ( (gdwfAMLI & 4) != 0 )
+    _InterlockedIncrement((volatile signed __int32 *)v6 + 32);
+  return result;
 }

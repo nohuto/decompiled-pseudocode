@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwDeviceInterfaceSetState @ 0x140754344
+ * XREFs of PiSwDeviceInterfaceSetState @ 0x140754324
  * Callers:
- *     PiSwIrpInterfaceSetState @ 0x140753E44 (PiSwIrpInterfaceSetState.c)
- *     PiSwIrpInterfaceRegister @ 0x140753FCC (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpInterfaceSetState @ 0x140753E24 (PiSwIrpInterfaceSetState.c)
+ *     PiSwIrpInterfaceRegister @ 0x140753FAC (PiSwIrpInterfaceRegister.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PnpAllocatePWSTR @ 0x14059A42C (PnpAllocatePWSTR.c)
  *     _CmSetDeviceInterfacePathFormat @ 0x14059EAFC (_CmSetDeviceInterfacePathFormat.c)
- *     IoSetDeviceInterfaceState @ 0x14070F8A0 (IoSetDeviceInterfaceState.c)
+ *     IoSetDeviceInterfaceState @ 0x14070F880 (IoSetDeviceInterfaceState.c)
  */
 
 __int64 __fastcall PiSwDeviceInterfaceSetState(__int64 a1, __int64 a2, BOOLEAN a3)

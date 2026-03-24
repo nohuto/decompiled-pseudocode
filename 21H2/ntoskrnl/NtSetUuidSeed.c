@@ -1,43 +1,43 @@
 /*
- * XREFs of NtSetUuidSeed @ 0x140855FA0
+ * XREFs of NtSetUuidSeed @ 0x1407C7300
  * Callers:
  *     <none>
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     RtlSubAuthoritySid @ 0x1402EF430 (RtlSubAuthoritySid.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     RtlInitializeSid @ 0x14078DDC0 (RtlInitializeSid.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall NtSetUuidSeed(__int64 a1)
 {
   PVOID PoolWithTag; // rax
   void *v3; // r15
-  int v4; // eax
+  NTSTATUS v4; // eax
   ULONG v5; // r14d
   ULONG v6; // ebx
   ULONG v7; // r14d
   ACL *v8; // rax
   ACL *v9; // rbx
-  int Acl; // eax
-  NTSTATUS v11; // eax
-  int v12; // eax
-  int v13; // eax
+  NTSTATUS Acl; // eax
+  int v11; // eax
+  NTSTATUS v12; // eax
+  NTSTATUS v13; // eax
   struct _KTHREAD *CurrentThread; // r15
   __int64 v15; // rax
   __int64 v16; // rbx
@@ -75,7 +75,7 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
   v3 = PoolWithTag;
   P = PoolWithTag;
   if ( !PoolWithTag )
-    RtlRaiseStatus(-1073741670);
+    RtlRaiseStatus(0xC000009A);
   v4 = RtlInitializeSid(PoolWithTag, &IdentifierAuthority, 6u);
   AccessStatus = v4;
   if ( v4 < 0 )
@@ -94,7 +94,7 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
   v9 = v8;
   v28 = v8;
   if ( !v8 )
-    RtlRaiseStatus(-1073741670);
+    RtlRaiseStatus(0xC000009A);
   Acl = RtlCreateAcl(v8, v7, 2u);
   AccessStatus = Acl;
   if ( Acl < 0 )
@@ -122,7 +122,7 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
           1,
           &GrantedAccess,
           &AccessStatus) )
-    RtlRaiseStatus(-1073741790);
+    RtlRaiseStatus(0xC0000022);
   v23 = *(_DWORD *)a1;
   v24 = *(_WORD *)(a1 + 4);
   AccessStatus = 0;
@@ -134,20 +134,20 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v15 = KeAbPreAcquire((__int64)&ExpUuidLock, 0LL);
+    v15 = KeAbPreAcquire((ULONG_PTR)&ExpUuidLock, 0LL, 0);
     v16 = v15;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpUuidLock, 0LL) )
-      ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v15, (__int64)&ExpUuidLock);
+      ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v15, (ULONG_PTR)&ExpUuidLock);
     if ( v16 )
-      *(_BYTE *)(v16 + 18) = 1;
-    *(int *)((char *)&dword_140D3B26C + 2) = v23;
-    HIWORD(dword_140D3B270) = v24;
-    ExpUuidCacheValid = (unsigned __int8)v23 >> 7 == 0;
+      *(_BYTE *)(v16 + 26) |= 1u;
+    *(int *)((char *)&dword_140D2D2C4 + 2) = v23;
+    word_140D2D2CA = v24;
+    BYTE5(NlsMbCodePageTag) = (unsigned __int8)v23 >> 7 == 0;
     v18 = _InterlockedExchangeAdd64((volatile signed __int64 *)&ExpUuidLock, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v18 & 2) != 0 && (v18 & 4) == 0 )
       ExfTryToWakePushLock(&ExpUuidLock);
     KeAbPostRelease((ULONG_PTR)&ExpUuidLock);
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
   }
   SeReleaseSubjectContext(&SubjectSecurityContext);
   return (unsigned int)AccessStatus;

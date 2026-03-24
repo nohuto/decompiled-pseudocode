@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCovSampCaptureApc @ 0x1403160B0
+ * XREFs of EtwpCovSampCaptureApc @ 0x1403161B0
  * Callers:
  *     <none>
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x140316D50 (EtwpCovSampCaptureReleaseToLookaside.c)
- *     EtwpCovSampSafeForUserAddressCapture @ 0x140317398 (EtwpCovSampSafeForUserAddressCapture.c)
- *     EtwpCovSampCaptureUserAddresses @ 0x1408C4418 (EtwpCovSampCaptureUserAddresses.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x140316E50 (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     EtwpCovSampSafeForUserAddressCapture @ 0x140317498 (EtwpCovSampSafeForUserAddressCapture.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x1408C43F8 (EtwpCovSampCaptureUserAddresses.c)
  */
 
 struct _KTHREAD *__fastcall EtwpCovSampCaptureApc(__int64 a1, _QWORD *a2, __int64 *a3, __int64 *a4)
@@ -45,7 +45,7 @@ struct _KTHREAD *__fastcall EtwpCovSampCaptureApc(__int64 a1, _QWORD *a2, __int6
     }
     __writecr8(v8);
   }
-  v10 = qword_140409E28;
+  v10 = qword_140409DE8;
   memset((void *)(v5 + 56), 0, 0x58uLL);
   v11 = *(_QWORD *)(v5 + 48);
   *(_DWORD *)(v5 + 144) = 0;

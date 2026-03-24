@@ -1,5 +1,5 @@
 /*
- * XREFs of ??1TargetInfo@CHwndTargetProp@@QEAA@XZ @ 0x1C0179880
+ * XREFs of ??1TargetInfo@CHwndTargetProp@@QEAA@XZ @ 0x1C014D8E0
  * Callers:
  *     <none>
  * Callees:

@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDevCfgFindDeviceDriver @ 0x1406F4B5C
+ * XREFs of PiDevCfgFindDeviceDriver @ 0x1406F4B3C
  * Callers:
- *     PiDevCfgProcessDevice @ 0x1406F4444 (PiDevCfgProcessDevice.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14082B57C (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x140831A64 (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgProcessDevice @ 0x1406F4424 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14082B55C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x140831A44 (PpDevCfgProcessDeviceExtensions.c)
  * Callees:
- *     PnpMultiSzContainsString @ 0x14016B764 (PnpMultiSzContainsString.c)
- *     PiDevCfgCompareDrivers @ 0x1401929B4 (PiDevCfgCompareDrivers.c)
- *     wcschr @ 0x1401976B0 (wcschr.c)
- *     PiDevCfgMatchDriverConfigurationId @ 0x1402891EC (PiDevCfgMatchDriverConfigurationId.c)
+ *     PnpMultiSzContainsString @ 0x14016B784 (PnpMultiSzContainsString.c)
+ *     PiDevCfgCompareDrivers @ 0x1401929D4 (PiDevCfgCompareDrivers.c)
+ *     wcschr @ 0x1401976D0 (wcschr.c)
+ *     PiDevCfgMatchDriverConfigurationId @ 0x1402892EC (PiDevCfgMatchDriverConfigurationId.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PnpIsNullGuid @ 0x1405901B0 (PnpIsNullGuid.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     PiDevCfgQueryDriverNode @ 0x1406F5BD0 (PiDevCfgQueryDriverNode.c)
- *     DrvDbSplitDeviceIdDriverInfMatch @ 0x1406F65E0 (DrvDbSplitDeviceIdDriverInfMatch.c)
- *     PiDevCfgFreeDriverNode @ 0x1406F67C0 (PiDevCfgFreeDriverNode.c)
+ *     PiDevCfgQueryDriverNode @ 0x1406F5BB0 (PiDevCfgQueryDriverNode.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x1406F65C0 (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     PiDevCfgFreeDriverNode @ 0x1406F67A0 (PiDevCfgFreeDriverNode.c)
  */
 
 __int64 __fastcall PiDevCfgFindDeviceDriver(__int64 a1, wchar_t *a2, __int64 *a3)
@@ -478,9 +478,9 @@ LABEL_129:
       {
         if ( v85 )
         {
-          v58 = *v85 - asc_140766B40[0];
+          v58 = *v85 - asc_140766B20[0];
           if ( !v58 )
-            v58 = v85[1] - asc_140766B40[1];
+            v58 = v85[1] - asc_140766B20[1];
           if ( !v58 )
             goto LABEL_145;
           v59 = v85;

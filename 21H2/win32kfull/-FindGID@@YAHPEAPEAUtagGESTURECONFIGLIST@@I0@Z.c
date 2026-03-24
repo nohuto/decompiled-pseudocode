@@ -1,8 +1,8 @@
 /*
- * XREFs of ?FindGID@@YAHPEAPEAUtagGESTURECONFIGLIST@@I0@Z @ 0x1C0220F6C
+ * XREFs of ?FindGID@@YAHPEAPEAUtagGESTURECONFIGLIST@@I0@Z @ 0x1C0227474
  * Callers:
- *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C01168D0 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
- *     GetGestureConfigSettings @ 0x1C0221144 (GetGestureConfigSettings.c)
+ *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C012B390 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
+ *     GetGestureConfigSettings @ 0x1C0227648 (GetGestureConfigSettings.c)
  * Callees:
  *     <none>
  */

@@ -1,39 +1,28 @@
 /*
- * XREFs of ?RemoveResourceNotifier@CD3DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800293B0
+ * XREFs of ?RemoveResourceNotifier@CD3DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x180047FF0
  * Callers:
- *     ??1?$CDeviceResourceTable@VCD3DPixelShader@@VCLinkedShader@@@@QEAA@XZ @ 0x180020300 (--1-$CDeviceResourceTable@VCD3DPixelShader@@VCLinkedShader@@@@QEAA@XZ.c)
- *     ?ReleaseResources@?$CDeviceResourceTable@VCD3DConstantBuffer@@VCRenderingTechnique@@@@AEAAXXZ @ 0x180029E80 (-ReleaseResources@-$CDeviceResourceTable@VCD3DConstantBuffer@@VCRenderingTechnique@@@@AEAAXXZ.c)
- *     ?PreRender@CComposition@@IEAAJXZ @ 0x18004F2D0 (-PreRender@CComposition@@IEAAJXZ.c)
- *     ?NotifyInvalidResource@?$CDeviceResourceTable@VCD3DPixelShader@@VCLinkedShader@@@@EEAAXPEBVIDeviceResource@@@Z @ 0x1800F0B90 (-NotifyInvalidResource@-$CDeviceResourceTable@VCD3DPixelShader@@VCLinkedShader@@@@EEAAXPEBVIDevi.c)
- *     ?ReleaseSceneCompositor@CSceneResourceManager@@AEAAXXZ @ 0x1801BD41C (-ReleaseSceneCompositor@CSceneResourceManager@@AEAAXXZ.c)
- *     ?NotifyInvalidResource@CCompositionMipmapSurface@@UEAAXPEBVIDeviceResource@@@Z @ 0x180224110 (-NotifyInvalidResource@CCompositionMipmapSurface@@UEAAXPEBVIDeviceResource@@@Z.c)
- *     ?ReleaseResources@CCompositionMipmapSurface@@AEAAXXZ @ 0x180224690 (-ReleaseResources@CCompositionMipmapSurface@@AEAAXXZ.c)
- *     ?NotifyInvalidResource@?$CDeviceResourceTable@VCD3DConstantBuffer@@VCRenderingTechnique@@@@EEAAXPEBVIDeviceResource@@@Z @ 0x180263650 (-NotifyInvalidResource@-$CDeviceResourceTable@VCD3DConstantBuffer@@VCRenderingTechnique@@@@EEAAX.c)
- *     ?ReleaseTexture@CDxHandleYUVBitmapRealization@@IEAAXXZ @ 0x1802B4740 (-ReleaseTexture@CDxHandleYUVBitmapRealization@@IEAAXXZ.c)
+ *     ?ReleaseResourcesNoAddRef@?$CDeviceResourceTable@VCD3DConstantBuffer@@VCRenderingTechnique@@@@IEAAXXZ @ 0x18004A2AC (-ReleaseResourcesNoAddRef@-$CDeviceResourceTable@VCD3DConstantBuffer@@VCRenderingTechnique@@@@IE.c)
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x180072020 (-PreRender@CComposition@@IEAAJXZ.c)
+ *     ?ReleaseResourcesNoAddRef@?$CDeviceResourceTable@VCD3DPixelShader@@VCLinkedShader@@@@IEAAXXZ @ 0x1800DB67C (-ReleaseResourcesNoAddRef@-$CDeviceResourceTable@VCD3DPixelShader@@VCLinkedShader@@@@IEAAXXZ.c)
+ *     ?ReleaseSceneCompositor@CSceneResourceManager@@AEAAXXZ @ 0x1801687F0 (-ReleaseSceneCompositor@CSceneResourceManager@@AEAAXXZ.c)
+ *     ?NotifyInvalidResource@CCompositionMipmapSurface@@UEAAXPEBVIDeviceResource@@@Z @ 0x1801BA1E0 (-NotifyInvalidResource@CCompositionMipmapSurface@@UEAAXPEBVIDeviceResource@@@Z.c)
+ *     ?ReleaseResources@CCompositionMipmapSurface@@AEAAXXZ @ 0x1801BA734 (-ReleaseResources@CCompositionMipmapSurface@@AEAAXXZ.c)
+ *     ?ReleaseTexture@CDxHandleYUVBitmapRealization@@IEAAXXZ @ 0x1802662AC (-ReleaseTexture@CDxHandleYUVBitmapRealization@@IEAAXXZ.c)
  * Callees:
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
  */
 
 void __fastcall CD3DResource::RemoveResourceNotifier(CD3DResource *this, const struct IDeviceResourceNotify *a2)
 {
   const struct IDeviceResourceNotify **v2; // r8
-  const struct IDeviceResourceNotify **v4; // rcx
-  const struct IDeviceResourceNotify **v6; // rdx
+  const struct IDeviceResourceNotify **i; // rcx
 
-  v2 = (const struct IDeviceResourceNotify **)*((_QWORD *)this + 10);
-  v4 = (const struct IDeviceResourceNotify **)*((_QWORD *)this + 9);
-  if ( v4 != v2 )
+  v2 = (const struct IDeviceResourceNotify **)*((_QWORD *)this + 9);
+  for ( i = (const struct IDeviceResourceNotify **)*((_QWORD *)this + 8); i != v2 && *i != a2; ++i )
+    ;
+  if ( i != v2 )
   {
-    while ( 1 )
-    {
-      v6 = v4 + 1;
-      if ( *v4 == a2 )
-        break;
-      ++v4;
-      if ( v6 == v2 )
-        return;
-    }
-    memmove_0(v4, v6, (char *)v2 - (char *)v6);
-    *((_QWORD *)this + 10) -= 8LL;
+    memmove_0(i, i + 1, (char *)v2 - (char *)(i + 1));
+    *((_QWORD *)this + 9) -= 8LL;
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlAcquireSwapReference @ 0x1403C79D4
+ * XREFs of RtlAcquireSwapReference @ 0x1403A69B8
  * Callers:
- *     RtlpFcBufferManagerReferenceBuffers @ 0x1403C7984 (RtlpFcBufferManagerReferenceBuffers.c)
- *     CmFcManagerNotifyFeatureUsage @ 0x14053FE50 (CmFcManagerNotifyFeatureUsage.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1403A6968 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     CmFcManagerNotifyFeatureUsage @ 0x1404ED834 (CmFcManagerNotifyFeatureUsage.c)
  * Callees:
- *     RtlBackoff @ 0x14029F5C0 (RtlBackoff.c)
+ *     RtlBackoff @ 0x1402F3100 (RtlBackoff.c)
  */
 
 unsigned __int64 __fastcall RtlAcquireSwapReference(__int64 *a1)

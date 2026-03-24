@@ -1,10 +1,10 @@
 /*
- * XREFs of NtGdiGetStringBitmapW @ 0x1C02979C0
+ * XREFs of NtGdiGetStringBitmapW @ 0x1C0299140
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ?GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@I@Z @ 0x1C0295CB8 (-GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@I@Z.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ?GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@I@Z @ 0x1C02981E4 (-GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@I@Z.c)
  */
 
 __int64 __fastcall NtGdiGetStringBitmapW(

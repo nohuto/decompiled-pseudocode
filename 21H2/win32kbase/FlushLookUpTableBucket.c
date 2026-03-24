@@ -1,11 +1,11 @@
 /*
- * XREFs of FlushLookUpTableBucket @ 0x1C00BB74C
+ * XREFs of FlushLookUpTableBucket @ 0x1C01FFBB8
  * Callers:
- *     LookUpTableFlushComplete @ 0x1C02C87EC (LookUpTableFlushComplete.c)
- *     LookUpTableFlushPartial @ 0x1C02C968C (LookUpTableFlushPartial.c)
+ *     LookUpTableFlushComplete @ 0x1C027FA34 (LookUpTableFlushComplete.c)
+ *     LookUpTableFlushPartial @ 0x1C0280610 (LookUpTableFlushPartial.c)
  * Callees:
- *     FlattenEventEntryTree @ 0x1C00BB83C (FlattenEventEntryTree.c)
- *     FlushEventEntryList @ 0x1C02C897C (FlushEventEntryList.c)
+ *     FlattenEventEntryTree @ 0x1C01FFB70 (FlattenEventEntryTree.c)
+ *     FlushEventEntryList @ 0x1C0280570 (FlushEventEntryList.c)
  */
 
 __int64 __fastcall FlushLookUpTableBucket(__int64 a1, unsigned int a2)
@@ -27,7 +27,7 @@ __int64 __fastcall FlushLookUpTableBucket(__int64 a1, unsigned int a2)
     v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 280));
   v7 = *(const EVENT_DESCRIPTOR **)(a1 + 8 * v2);
   *(_QWORD *)(a1 + 8 * v2) = 0LL;
-  v8 = FlattenEventEntryTree(v7);
+  v8 = FlattenEventEntryTree((__int64)v7);
   *(_DWORD *)(a1 + 256) -= v8;
   v9 = v8;
   if ( !*(_BYTE *)(a1 + 373) )

@@ -2,8 +2,8 @@
  * XREFs of PiDqQueryGetNextIoctlInfo @ 0x1405901DC
  * Callers:
  *     PiDqIrpQueryCreate @ 0x140590B08 (PiDqIrpQueryCreate.c)
- *     PiDqIrpQueryGetResult @ 0x1406BE1FC (PiDqIrpQueryGetResult.c)
- *     PiDqQueryCompletePendedIrp @ 0x1406DB9B0 (PiDqQueryCompletePendedIrp.c)
+ *     PiDqIrpQueryGetResult @ 0x1406BE1DC (PiDqIrpQueryGetResult.c)
+ *     PiDqQueryCompletePendedIrp @ 0x1406DB990 (PiDqQueryCompletePendedIrp.c)
  * Callees:
  *     <none>
  */

@@ -1,46 +1,44 @@
 /*
- * XREFs of ?TimerStatistics@@YAXPEBUtagTIMER@@@Z @ 0x1C005C1E4
+ * XREFs of ?TimerStatistics@@YAXPEBUtagTIMER@@@Z @ 0x1C010B84C
  * Callers:
- *     DoTimer @ 0x1C005BF94 (DoTimer.c)
- *     TimersProc @ 0x1C005D710 (TimersProc.c)
- *     ?ReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C01E5DD4 (-ReadyTimer@@YAXPEAUtagTIMER@@K@Z.c)
+ *     ?xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C01687A0 (-xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void __fastcall TimerStatistics(const struct tagTIMER *a1)
 {
-  __int64 v2; // r11
+  __int64 v2; // rdi
   int v3; // r8d
-  unsigned int *v4; // rcx
+  const wchar_t *v4; // rcx
   unsigned int v5; // edx
   __int64 v6; // rax
   unsigned __int64 v7; // rbx
   int v8; // r10d
   __int64 v9; // rdx
   int v10; // eax
-  _DWORD *v11; // rdx
-  __int64 v12; // rdi
+  int *v11; // r10
+  __int64 v12; // r11
   __int64 v13; // rax
 
   if ( (gdwExtraInstrumentations & 2) != 0 )
   {
     v2 = 0LL;
-    v3 = dword_1C033BE34;
-    v4 = (unsigned int *)&unk_1C02F3EF8;
+    v3 = dword_1C033B0E4;
+    v4 = L"\n";
     v5 = *((_DWORD *)a1 + 10);
     v6 = 0LL;
     v7 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
     v8 = v7 - *((_DWORD *)a1 + 32);
-    if ( !dword_1C033BE34 )
+    if ( !dword_1C033B0E4 )
       v3 = v7;
-    dword_1C033BE34 = v3;
+    dword_1C033B0E4 = v3;
     do
     {
-      if ( v5 <= *v4 )
+      if ( v5 <= *(_DWORD *)v4 )
         break;
       v6 = (unsigned int)(v6 + 1);
-      ++v4;
+      v4 += 2;
     }
     while ( (unsigned int)v6 < 7 );
     v9 = v6 + 8LL * gTimerCoalCurrentState;
@@ -49,7 +47,7 @@ void __fastcall TimerStatistics(const struct tagTIMER *a1)
     gaTimerDeliveryDistribution[2 * v9 + 1] = v10;
     if ( gaTimerDeliveryDistribution[2 * v9] >= 0x7FFFFFFFu || v10 >= 0x3FFFFFFF || (unsigned int)(v7 - v3) >= 0xEA60 )
     {
-      v11 = &unk_1C0337E78;
+      v11 = &dword_1C0339C98;
       v12 = 4LL;
       do
       {
@@ -60,8 +58,8 @@ void __fastcall TimerStatistics(const struct tagTIMER *a1)
         --v12;
       }
       while ( v12 );
-      EtwTraceTimerDelayStatistics(gSessionId, 8LL, 4LL, &unk_1C02F3EF8, 32, 8, gaTimerDeliveryDistribution);
-      dword_1C033BE34 = v7;
+      EtwTraceTimerDelayStatistics((unsigned int)gSessionId, 8LL, 4LL, L"\n");
+      dword_1C033B0E4 = v7;
       memset(gaTimerDeliveryDistribution, 0, 0x100uLL);
     }
   }

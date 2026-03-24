@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPIGetConvertToString @ 0x1C002A928
+ * XREFs of ACPIGetConvertToString @ 0x1C0055BDC
  * Callers:
- *     ACPIGetWorkerForString @ 0x1C002B880 (ACPIGetWorkerForString.c)
+ *     ACPIGetWorkerForString @ 0x1C000C4F0 (ACPIGetWorkerForString.c)
  * Callees:
- *     ACPIGetConvertToStringWide @ 0x1C002A994 (ACPIGetConvertToStringWide.c)
- *     ACPIWideStringToAnsiHelper @ 0x1C0043C78 (ACPIWideStringToAnsiHelper.c)
+ *     ACPIWideStringToAnsiHelper @ 0x1C00281A0 (ACPIWideStringToAnsiHelper.c)
+ *     ACPIGetConvertToStringWide @ 0x1C0055C48 (ACPIGetConvertToStringWide.c)
  */
 
-__int64 __fastcall ACPIGetConvertToString(__int64 a1, int a2, int a3, int a4, _QWORD *a5, unsigned int *a6)
+__int64 __fastcall ACPIGetConvertToString(__int64 a1, int a2, int a3, int a4, _BYTE **a5, unsigned int *a6)
 {
-  _QWORD *v6; // rsi
+  _BYTE **v6; // rsi
   int v7; // edi
   unsigned int v8; // ebx
   unsigned int v10; // [rsp+40h] [rbp+8h] BYREF

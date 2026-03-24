@@ -1,15 +1,15 @@
 /*
- * XREFs of PopCoalescingNotify @ 0x14098F180
+ * XREFs of PopCoalescingNotify @ 0x1408E68B0
  * Callers:
- *     PopPolicyWorkerThread @ 0x140250220 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x1402C4F30 (PopPolicyWorkerThread.c)
  * Callees:
- *     PopDiagTraceEventNoPayload @ 0x140256CA0 (PopDiagTraceEventNoPayload.c)
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
- *     PopPrintEx @ 0x140369B48 (PopPrintEx.c)
- *     PopCoalescingSetTimer @ 0x1405CFBF0 (PopCoalescingSetTimer.c)
- *     PopEnsureCoalescingWorkerWillRun @ 0x1405CFC70 (PopEnsureCoalescingWorkerWillRun.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     PopPrintEx @ 0x14028411C (PopPrintEx.c)
+ *     PopDiagTraceEventNoPayload @ 0x1402CD1D4 (PopDiagTraceEventNoPayload.c)
+ *     PopCoalescingSetTimer @ 0x14056EC64 (PopCoalescingSetTimer.c)
+ *     PopEnsureCoalescingWorkerWillRun @ 0x14056ECF0 (PopEnsureCoalescingWorkerWillRun.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopCoalescingNotify(int a1)

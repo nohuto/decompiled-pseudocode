@@ -1,11 +1,11 @@
 /*
- * XREFs of Controller_WdfEvtPreprocessSetPowerIrp @ 0x1C000C440
+ * XREFs of Controller_WdfEvtPreprocessSetPowerIrp @ 0x1C000A3C0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Crashdump_ProcessSystemPowerAction @ 0x1C004AB84 (Crashdump_ProcessSystemPowerAction.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Crashdump_ProcessSystemPowerAction @ 0x1C004A0F4 (Crashdump_ProcessSystemPowerAction.c)
  */
 
 __int64 __fastcall Controller_WdfEvtPreprocessSetPowerIrp(__int64 a1, __int64 a2)
@@ -25,7 +25,7 @@ __int64 __fastcall Controller_WdfEvtPreprocessSetPowerIrp(__int64 a1, __int64 a2
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00613D8);
+         off_1C00603D8);
   v5 = *(_QWORD *)(a2 + 184);
   v6 = v4;
   v7 = *(_QWORD *)(v4 + 8);
@@ -66,8 +66,8 @@ LABEL_10:
       *(_QWORD *)(v6 + 16),
       v9,
       4,
-      208,
-      (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+      207,
+      (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
       *(_DWORD *)(v7 + 420));
   }
   v11 = *(_QWORD *)(v7 + 424);
@@ -84,7 +84,7 @@ LABEL_14:
   if ( v12 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v13) = 2;
-    WPP_RECORDER_SF_d(*(_QWORD *)(v6 + 16), v13, 4, 209, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, v12);
+    WPP_RECORDER_SF_d(*(_QWORD *)(v6 + 16), v13, 4, 208, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v12);
   }
   return v14;
 }

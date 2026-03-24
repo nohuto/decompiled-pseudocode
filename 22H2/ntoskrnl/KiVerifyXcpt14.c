@@ -1,10 +1,10 @@
 /*
- * XREFs of KiVerifyXcpt14 @ 0x140B5F860
+ * XREFs of KiVerifyXcpt14 @ 0x140A66860
  * Callers:
  *     <none>
  * Callees:
- *     _local_unwind @ 0x1403D8EB0 (_local_unwind.c)
- *     KiVerifyXcptFilter @ 0x140B5FBF4 (KiVerifyXcptFilter.c)
+ *     _local_unwind @ 0x1403D1490 (_local_unwind.c)
+ *     KiVerifyXcptFilter @ 0x140A668BC (KiVerifyXcptFilter.c)
  */
 
 __int64 __fastcall KiVerifyXcpt14(__int64 a1)
@@ -16,13 +16,15 @@ __int64 __fastcall KiVerifyXcpt14(__int64 a1)
   if ( *(_DWORD *)(a1 + 8) == 1 )
   {
     ++**(_DWORD **)a1;
+    LODWORD(result) = *(_DWORD *)(a1 + 12);
   }
   else
   {
+    LODWORD(result) = -1;
     *(_DWORD *)(a1 + 12) = -1;
     *(_DWORD *)(a1 + 16) = 1;
   }
-  result = *(int *)(a1 + 12);
-  *(_QWORD *)(a1 + 24) += result;
+  result = (int)result;
+  *(_QWORD *)(a1 + 24) += (int)result;
   return result;
 }

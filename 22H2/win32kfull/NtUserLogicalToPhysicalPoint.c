@@ -1,60 +1,84 @@
 /*
- * XREFs of NtUserLogicalToPhysicalPoint @ 0x1C01D64C0
+ * XREFs of NtUserLogicalToPhysicalPoint @ 0x1C00FB2E0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?DCEPtInRect@@YA_NPEBUtagRECT@@UtagPOINT@@@Z @ 0x1C0151814 (-DCEPtInRect@@YA_NPEBUtagRECT@@UtagPOINT@@@Z.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005B960 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     DCEPtInRect @ 0x1C00FB848 (DCEPtInRect.c)
  */
 
-__int64 __fastcall NtUserLogicalToPhysicalPoint(__int64 a1, struct tagPOINT *a2, __int64 a3)
+// write access to const memory has been detected, the output may be wrong!
+__int64 __fastcall NtUserLogicalToPhysicalPoint(__int64 a1, __int64 *a2)
 {
-  int v5; // edi
-  _BYTE *v6; // rdx
-  ULONG64 v7; // rcx
-  __int64 v8; // rbx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  struct tagPOINT *v11; // rax
-  unsigned int CurrentThreadDpiAwarenessContext; // eax
-  bool v13; // r14
-  struct tagPOINT v15; // [rsp+90h] [rbp+18h] BYREF
-  struct tagPOINT v16; // [rsp+98h] [rbp+20h] BYREF
+  int v4; // edi
+  ULONG64 v5; // rcx
+  __int64 v6; // rsi
+  __int64 *v7; // rax
+  __int64 v8; // rcx
+  unsigned int v9; // ebx
+  __int64 v10; // rcx
+  int v11; // ebx
+  __int64 v12; // rcx
+  int v13; // eax
+  int v14; // ebx
+  _QWORD *v15; // rdx
+  bool v17; // cf
+  __int64 v18; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v19; // [rsp+98h] [rbp+20h] BYREF
 
-  v5 = 0;
-  v15 = 0LL;
-  EnterSharedCrit(a1, a2, a3);
-  v8 = ValidateHwnd(a1);
-  if ( v8 )
+  v4 = 0;
+  v18 = 0LL;
+  EnterCrit(0LL, 1LL);
+  gbValidateHandleForIL = 0;
+  v6 = ValidateHwnd(a1);
+  if ( v6 )
   {
-    v11 = a2;
+    v7 = a2;
     if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-      v11 = (struct tagPOINT *)MmUserProbeAddress;
-    v15 = *v11;
-    CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(MmUserProbeAddress);
-    if ( (unsigned __int8)ShouldVirtualizeWindowRect(v8, CurrentThreadDpiAwarenessContext) )
+      v7 = (__int64 *)MmUserProbeAddress;
+    v18 = *v7;
+    if ( (*(_BYTE *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 480) + 224LL) & 1) != 0 )
+      goto LABEL_12;
+    v8 = *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 480);
+    if ( (*(_BYTE *)(v8 + 224) & 0x20) != 0 )
+      goto LABEL_12;
+    v9 = *(_DWORD *)(*(_QWORD *)(v6 + 40) + 288LL);
+    if ( (((unsigned __int16)(v9 >> 8) ^ (unsigned __int16)((unsigned int)W32GetCurrentThreadDpiAwarenessContext(v8) >> 8)) & 0x1FF) != 0 )
+      goto LABEL_18;
+    v10 = *(unsigned int *)(*(_QWORD *)(v6 + 40) + 288LL);
+    if ( (*(_DWORD *)(*(_QWORD *)(v6 + 40) + 288LL) & 0xF) != 2 || (v11 = 1, (v10 & 0x20000000) == 0) )
+      v11 = 0;
+    if ( (W32GetCurrentThreadDpiAwarenessContext(v10) & 0xF) != 2
+      || (v17 = (W32GetCurrentThreadDpiAwarenessContext(v12) & 0x20000000) != 0, v13 = 1, !v17) )
     {
-      v16 = 0LL;
-      TransformPointBetweenCoordinateSpaces(&v16, &v15, v8, 0LL);
-      v13 = DCEPtInRect((const struct tagRECT *)(*(_QWORD *)(v8 + 40) + 88LL), v16);
+      v13 = 0;
+    }
+    if ( v11 == v13 )
+    {
+LABEL_12:
+      v14 = DCEPtInRect(*(_QWORD *)(v6 + 40) + 88LL, v18);
+      TransformPointBetweenCoordinateSpaces(&v18, &v18, 0LL, v6);
     }
     else
     {
-      v13 = DCEPtInRect((const struct tagRECT *)(*(_QWORD *)(v8 + 40) + 88LL), v15);
-      TransformPointBetweenCoordinateSpaces(&v15, &v15, 0LL, v8);
+LABEL_18:
+      v19 = 0LL;
+      TransformPointBetweenCoordinateSpaces(&v19, &v18, v6, 0LL);
+      v14 = DCEPtInRect(*(_QWORD *)(v6 + 40) + 88LL, v19);
     }
-    if ( v13 )
+    if ( v14 )
     {
-      v7 = MmUserProbeAddress;
-      v6 = a2;
+      v5 = MmUserProbeAddress;
+      v15 = a2;
       if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-        v6 = (_BYTE *)MmUserProbeAddress;
-      *v6 = *v6;
-      v6[7] = v6[7];
-      *a2 = v15;
-      v5 = 1;
+        v15 = (_QWORD *)MmUserProbeAddress;
+      *v15 = *v15;
+      *a2 = v18;
+      v4 = 1;
     }
   }
-  UserSessionSwitchLeaveCrit(v7, v6, v9, v10);
-  return v5;
+  UserSessionSwitchLeaveCrit(v5);
+  return v4;
 }

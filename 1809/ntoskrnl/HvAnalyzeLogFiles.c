@@ -1,20 +1,20 @@
 /*
- * XREFs of HvAnalyzeLogFiles @ 0x1408060F4
+ * XREFs of HvAnalyzeLogFiles @ 0x1408060D4
  * Callers:
  *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     HvpHeaderCheckSum @ 0x1405A64F0 (HvpHeaderCheckSum.c)
- *     HvpDetermineIncrementalLogFileMaximums @ 0x140806BD0 (HvpDetermineIncrementalLogFileMaximums.c)
- *     HvpDetermineLatestLogFile @ 0x140806C74 (HvpDetermineLatestLogFile.c)
- *     HvpIsReadErrorTransient @ 0x140806DCC (HvpIsReadErrorTransient.c)
- *     HvpLogIneligibleLogHeader @ 0x140806EC0 (HvpLogIneligibleLogHeader.c)
- *     HvpLogInvalidLogHeader @ 0x140806F64 (HvpLogInvalidLogHeader.c)
- *     HvpLogUnreadableLog @ 0x1408070D0 (HvpLogUnreadableLog.c)
+ *     HvpDetermineIncrementalLogFileMaximums @ 0x140806BB0 (HvpDetermineIncrementalLogFileMaximums.c)
+ *     HvpDetermineLatestLogFile @ 0x140806C54 (HvpDetermineLatestLogFile.c)
+ *     HvpIsReadErrorTransient @ 0x140806DAC (HvpIsReadErrorTransient.c)
+ *     HvpLogIneligibleLogHeader @ 0x140806EA0 (HvpLogIneligibleLogHeader.c)
+ *     HvpLogInvalidLogHeader @ 0x140806F44 (HvpLogInvalidLogHeader.c)
+ *     HvpLogUnreadableLog @ 0x1408070B0 (HvpLogUnreadableLog.c)
  */
 
 __int64 __fastcall HvAnalyzeLogFiles(
@@ -192,7 +192,7 @@ LABEL_24:
   {
 LABEL_59:
     if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
-      TlgWrite(&stru_1403FFAA0, &unk_14036C6BD, 0LL, 0LL, 2u, &v92);
+      TlgWrite(&stru_1403FFAA0, &unk_14036C7CD, 0LL, 0LL, 2u, &v92);
     return (unsigned int)-1073741492;
   }
   if ( v79 )
@@ -288,7 +288,7 @@ LABEL_59:
     v87 = 1LL;
     v89 = 4LL;
     v91 = 4LL;
-    TlgWrite(&stru_1403FFAA0, &unk_14036C660, 0LL, 0LL, 7u, &pData);
+    TlgWrite(&stru_1403FFAA0, &unk_14036C770, 0LL, 0LL, 7u, &pData);
     LevelPlus1 = stru_1403FFAA0.LevelPlus1;
   }
   if ( v35 == 1 )
@@ -358,7 +358,7 @@ LABEL_45:
     else
     {
       if ( LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
-        TlgWrite(&stru_1403FFAA0, &unk_14036C633, 0LL, 0LL, 2u, &v92);
+        TlgWrite(&stru_1403FFAA0, &unk_14036C743, 0LL, 0LL, 2u, &v92);
       v53 = v74;
       v54 = *((_QWORD *)v51 + 2);
       *(_OWORD *)v25 = *(_OWORD *)v51;

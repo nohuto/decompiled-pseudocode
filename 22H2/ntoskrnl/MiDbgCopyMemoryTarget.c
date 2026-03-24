@@ -1,118 +1,132 @@
 /*
- * XREFs of MiDbgCopyMemoryTarget @ 0x140643AA0
+ * XREFs of MiDbgCopyMemoryTarget @ 0x140545A80
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWriteValidPteNewProtection @ 0x1402846E0 (MiWriteValidPteNewProtection.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     MiFillPteHierarchy @ 0x14028ADD0 (MiFillPteHierarchy.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiCopyFromUntrustedMemory @ 0x1402E60F0 (MiCopyFromUntrustedMemory.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     MiCopyToUntrustedMemory @ 0x140396AC0 (MiCopyToUntrustedMemory.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiFillPteHierarchy @ 0x14028CAF0 (MiFillPteHierarchy.c)
+ *     MiWriteValidPteNewProtection @ 0x140290080 (MiWriteValidPteNewProtection.c)
+ *     MiGetLeafVa @ 0x1402AD4F0 (MiGetLeafVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     KeFlushSingleTb @ 0x140334A18 (KeFlushSingleTb.c)
+ *     MiCopyFromUntrustedMemory @ 0x140545580 (MiCopyFromUntrustedMemory.c)
+ *     MiCopyToUntrustedMemory @ 0x1405456AC (MiCopyToUntrustedMemory.c)
  */
 
 __int64 __fastcall MiDbgCopyMemoryTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
 {
+  __int64 v6; // rsi
   signed __int32 v7; // eax
-  unsigned int v8; // ebx
-  _BYTE *v9; // r14
+  unsigned int v8; // edi
+  int v9; // eax
+  int v10; // edi
+  _BYTE *v11; // r14
   __int64 i; // rbp
-  unsigned __int64 v11; // r15
-  __int64 v12; // rax
+  unsigned __int64 v13; // r15
+  __int64 v14; // rax
   unsigned __int64 LeafVa; // rax
   int SystemRegionType; // eax
-  unsigned int v15; // r8d
-  unsigned int v16; // edx
-  unsigned int v17; // r9d
-  unsigned int v18; // r8d
-  int v19; // eax
-  int v20; // ebx
+  unsigned int v17; // r8d
+  unsigned int v18; // edx
+  unsigned int v19; // r9d
+  unsigned int v20; // r8d
+  int v21; // eax
+  signed __int32 v22; // eax
+  unsigned int v23; // edi
   __int64 result; // rax
-  unsigned int v22; // ebx
-  int j; // [rsp+30h] [rbp-58h] BYREF
-  unsigned __int64 v24[5]; // [rsp+38h] [rbp-50h] BYREF
-  int v25; // [rsp+A8h] [rbp+20h] BYREF
+  int j; // [rsp+20h] [rbp-58h] BYREF
+  unsigned __int64 v26[5]; // [rsp+28h] [rbp-50h] BYREF
+  int v27; // [rsp+98h] [rbp+20h] BYREF
 
-  memset(v24, 0, 32);
+  v27 = 0;
+  memset(v26, 0, 32);
+  v6 = a2;
   v7 = _InterlockedDecrement((volatile signed __int32 *)a4);
   v8 = ~v7 & 0x80000000;
   if ( (v7 & 0x7FFFFFFF) != 0 )
   {
-    v25 = 0;
     while ( (*(_DWORD *)a4 & 0x80000000) != v8 )
-      KeYieldProcessorEx(&v25);
+      KeYieldProcessorEx(&v27, a2, (__int64)a3, a4);
+    goto LABEL_25;
   }
-  else
+  v9 = v8 | *(_DWORD *)(a4 + 4);
+  v10 = 0;
+  *(_DWORD *)a4 = v9;
+  v11 = *(_BYTE **)a2;
+  MiFillPteHierarchy(*(_QWORD *)a2, v26);
+  for ( i = 3LL; ; --i )
   {
-    *(_DWORD *)a4 = *(_DWORD *)(a4 + 4) | v8;
-    v9 = *(_BYTE **)a2;
-    MiFillPteHierarchy(*(_QWORD *)a2, v24);
-    for ( i = 3LL; ; --i )
+    v13 = v26[i];
+    v14 = MI_READ_PTE_LOCK_FREE(v13);
+    a2 = 3221225477LL;
+    if ( (v14 & 1) == 0 )
+      break;
+    if ( (v14 & 0x80u) != 0LL || !i )
+      goto LABEL_8;
+  }
+  v10 = -1073741819;
+LABEL_8:
+  if ( (v14 & 1) != 0 )
+  {
+    if ( (*(_DWORD *)(v6 + 24) & 1) != 0 )
     {
-      v11 = v24[i];
-      v12 = MI_READ_PTE_LOCK_FREE(v11);
-      if ( (v12 & 1) == 0 )
-        goto LABEL_20;
-      if ( (v12 & 0x80u) != 0LL || !i )
-        break;
-    }
-    if ( (*(_DWORD *)(a2 + 24) & 1) != 0 )
-    {
-      if ( (v12 & 0x800) == 0 )
+      if ( (v14 & 0x800) == 0 )
       {
-LABEL_20:
-        v20 = -1073741819;
-        goto LABEL_21;
+        v10 = -1073741819;
+        goto LABEL_24;
       }
-      if ( (v12 & 0x42) == 0 )
+      if ( (v14 & 0x42) == 0 )
       {
-        MiWriteValidPteNewProtection(v11, v12 | 0x42);
-        LeafVa = MiGetLeafVa((unsigned __int64)v9);
+        MiWriteValidPteNewProtection(v13, v14 | 0x42);
+        LeafVa = MiGetLeafVa((unsigned __int64)v11);
         SystemRegionType = MiGetSystemRegionType(LeafVa);
-        v15 = 2;
+        v17 = 2;
         if ( SystemRegionType == 1 )
         {
-          v16 = 2;
+          v18 = 2;
         }
         else if ( SystemRegionType == 2 )
         {
-          v16 = 1;
-          v15 = 0;
+          v18 = 1;
+          v17 = 0;
         }
         else
         {
-          v16 = 0;
+          v18 = 0;
         }
-        KeFlushSingleTb((unsigned __int64)v9, v16, v15);
+        KeFlushSingleTb((unsigned __int64)v11, v18, v17);
       }
     }
-    v17 = *(_DWORD *)(a2 + 20);
-    v18 = *(_DWORD *)(a2 + 16);
-    if ( (*(_DWORD *)(a2 + 24) & 1) != 0 )
-      v19 = MiCopyToUntrustedMemory(v9, *(_BYTE **)(a2 + 8), v18, v17);
-    else
-      v19 = MiCopyFromUntrustedMemory(*(_BYTE **)(a2 + 8), v9, v18, v17);
-    v20 = v19;
-LABEL_21:
-    *(_DWORD *)(a2 + 28) = v20;
+    if ( v10 >= 0 )
+    {
+      v19 = *(_DWORD *)(v6 + 20);
+      v20 = *(_DWORD *)(v6 + 16);
+      if ( (*(_DWORD *)(v6 + 24) & 1) != 0 )
+        v21 = MiCopyToUntrustedMemory(v11, *(_BYTE **)(v6 + 8), v20, v19);
+      else
+        v21 = MiCopyFromUntrustedMemory(*(_BYTE **)(v6 + 8), v11, v20, v19);
+      v10 = v21;
+    }
   }
-  result = (unsigned int)_InterlockedDecrement((volatile signed __int32 *)a4);
-  v22 = ~(_DWORD)result & 0x80000000;
-  if ( (result & 0x7FFFFFFF) != 0 )
+LABEL_24:
+  *(_DWORD *)(v6 + 28) = v10;
+LABEL_25:
+  v22 = _InterlockedDecrement((volatile signed __int32 *)a4);
+  v23 = ~v22 & 0x80000000;
+  if ( (v22 & 0x7FFFFFFF) != 0 )
   {
-    for ( j = 0; ; KeYieldProcessorEx(&j) )
+    for ( j = 0; ; KeYieldProcessorEx(&j, a2, (__int64)a3, a4) )
     {
       result = *(_DWORD *)a4 & 0x80000000;
-      if ( (_DWORD)result == v22 )
+      if ( (_DWORD)result == v23 )
         break;
     }
   }
   else
   {
-    *(_DWORD *)a4 = *(_DWORD *)(a4 + 4) | v22;
+    result = v23 | *(_DWORD *)(a4 + 4);
+    *(_DWORD *)a4 = result;
   }
   _InterlockedDecrement(a3);
   return result;

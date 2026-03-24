@@ -1,119 +1,137 @@
 /*
- * XREFs of MiClearNonPagedPtes @ 0x140212478
+ * XREFs of MiClearNonPagedPtes @ 0x1402E9388
  * Callers:
- *     MmFreePoolMemory @ 0x140212244 (MmFreePoolMemory.c)
- *     MiCommitPoolMemory @ 0x140285D10 (MiCommitPoolMemory.c)
- *     MmFreeSecurePoolMemory @ 0x140641AC8 (MmFreeSecurePoolMemory.c)
+ *     MmFreePoolMemory @ 0x14027AEC8 (MmFreePoolMemory.c)
+ *     MiCommitPoolMemory @ 0x14028B8AC (MiCommitPoolMemory.c)
+ *     MmFreeSecurePoolMemory @ 0x140544E48 (MmFreeSecurePoolMemory.c)
  * Callees:
- *     MiDeleteNonPagedPoolTail @ 0x140210A00 (MiDeleteNonPagedPoolTail.c)
- *     MiDeleteNonPagedPoolPte @ 0x140212710 (MiDeleteNonPagedPoolPte.c)
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     MiFastLockLeafPageTable @ 0x140237260 (MiFastLockLeafPageTable.c)
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14025BBE0 (MiWalkPageTables.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     MiFillPteHierarchy @ 0x14028ADD0 (MiFillPteHierarchy.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
- *     MiReturnPhysicalPoolPages @ 0x14034000C (MiReturnPhysicalPoolPages.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiLogNonPagedPoolReleaseEvent @ 0x1406417B0 (MiLogNonPagedPoolReleaseEvent.c)
+ *     MiWalkPageTables @ 0x140209280 (MiWalkPageTables.c)
+ *     MiFastLockLeafPageTable @ 0x14020E690 (MiFastLockLeafPageTable.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     MiGetAnyMultiplexedVm @ 0x14027D77C (MiGetAnyMultiplexedVm.c)
+ *     MiFillPteHierarchy @ 0x14028CAF0 (MiFillPteHierarchy.c)
+ *     MiGetLeafVa @ 0x1402AD4F0 (MiGetLeafVa.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiUnlockPageTableInternal @ 0x1402DB460 (MiUnlockPageTableInternal.c)
+ *     MiDeleteNonPagedPoolPte @ 0x1402E9620 (MiDeleteNonPagedPoolPte.c)
+ *     MiDeleteNonPagedPoolTail @ 0x1402E99A0 (MiDeleteNonPagedPoolTail.c)
+ *     MiReturnPhysicalPoolPages @ 0x1402E9A84 (MiReturnPhysicalPoolPages.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiLogNonPagedPoolReleaseEvent @ 0x140544B68 (MiLogNonPagedPoolReleaseEvent.c)
  */
 
-__int64 __fastcall MiClearNonPagedPtes(unsigned __int64 LeafVa, __int64 a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall MiClearNonPagedPtes(ULONG_PTR LeafVa, __int64 a2, unsigned int a3, unsigned int a4)
 {
-  unsigned int v7; // esi
-  char v8; // r12
-  __int64 AnyMultiplexedVm; // r15
+  char v8; // r15
+  char *AnyMultiplexedVm; // r12
   unsigned __int64 v10; // r13
   __int64 v11; // rdx
-  __int64 v12; // rdx
-  __int64 v13; // r10
-  unsigned __int64 v14; // rbx
-  __int64 v15; // r10
+  __int64 v12; // r8
+  _DWORD *v13; // r9
+  __int64 v14; // r10
+  unsigned __int64 v15; // rsi
   unsigned __int64 v16; // rdi
-  __int64 v17; // rax
-  __int64 v18; // rcx
-  char v20; // [rsp+20h] [rbp-E0h]
-  __int64 v21; // [rsp+28h] [rbp-D8h]
-  _OWORD v22[2]; // [rsp+30h] [rbp-D0h] BYREF
-  ULONG_PTR BugCheckParameter2[22]; // [rsp+50h] [rbp-B0h] BYREF
-  _QWORD v24[28]; // [rsp+100h] [rbp+0h] BYREF
+  __int64 v17; // r10
+  unsigned __int64 v18; // rbx
+  __int64 v19; // rax
+  unsigned __int64 v20; // rbx
+  __int64 v21; // rcx
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v24; // rax
+  __int64 v25; // rdx
+  _OWORD v26[2]; // [rsp+20h] [rbp-E0h] BYREF
+  ULONG_PTR BugCheckParameter2[22]; // [rsp+40h] [rbp-C0h] BYREF
+  _QWORD v28[28]; // [rsp+F0h] [rbp-10h] BYREF
 
-  v20 = a4;
-  v7 = a4;
   memset(BugCheckParameter2, 0, sizeof(BugCheckParameter2));
-  memset(v24, 0, sizeof(v24));
+  memset(v28, 0, sizeof(v28));
   v8 = 0;
-  AnyMultiplexedVm = MiGetAnyMultiplexedVm(5LL);
-  LODWORD(BugCheckParameter2[0]) = 2183;
-  BugCheckParameter2[19] = (ULONG_PTR)MiDeleteNonPagedPoolPte;
+  AnyMultiplexedVm = MiGetAnyMultiplexedVm(5);
   BugCheckParameter2[4] = LeafVa;
-  BugCheckParameter2[20] = (ULONG_PTR)MiDeleteNonPagedPoolTail;
+  LOWORD(BugCheckParameter2[0]) = 2183;
+  v28[25] = __PAIR64__(a4, a3);
+  BugCheckParameter2[19] = (ULONG_PTR)MiDeleteNonPagedPoolPte;
   v10 = (a2 << 12) + LeafVa - 1;
   BugCheckParameter2[5] = v10;
-  BugCheckParameter2[21] = (ULONG_PTR)v24;
-  v24[25] = __PAIR64__(v7, a3);
-  v24[1] = 20LL;
-  LODWORD(v24[0]) = v11;
-  WORD2(v24[0]) = v11;
-  v24[2] = v11;
-  v24[3] = v11;
-  BugCheckParameter2[3] = AnyMultiplexedVm;
-  HIBYTE(BugCheckParameter2[0]) = MiLockWorkingSetShared(AnyMultiplexedVm);
+  BugCheckParameter2[20] = (ULONG_PTR)MiDeleteNonPagedPoolTail;
+  BugCheckParameter2[21] = (ULONG_PTR)v28;
+  v28[1] = 20LL;
+  LODWORD(v28[0]) = v11;
+  WORD2(v28[0]) = v11;
+  v28[2] = v11;
+  v28[3] = v11;
+  BugCheckParameter2[3] = (ULONG_PTR)AnyMultiplexedVm;
+  BYTE6(BugCheckParameter2[0]) = MiLockWorkingSetShared((__int64)AnyMultiplexedVm, v11, v12, v13);
   if ( LeafVa <= v10 )
   {
     do
     {
-      memset(v22, 0, sizeof(v22));
-      if ( !(unsigned int)MiFastLockLeafPageTable(AnyMultiplexedVm, LeafVa, 0LL) )
+      memset(v26, 0, sizeof(v26));
+      if ( !(unsigned int)MiFastLockLeafPageTable((__int64)AnyMultiplexedVm, LeafVa, 0) )
         break;
-      MiFillPteHierarchy(LeafVa, v22);
-      v21 = *((_QWORD *)v22 + v13);
-      v14 = *((_QWORD *)v22 + (int)v13 - 1);
-      MiFillPteHierarchy(v10, v22);
-      v16 = *((_QWORD *)v22 + v15);
-      if ( v16 > (v14 & 0xFFFFFFFFFFFFF000uLL | 0xFF8) )
-        v16 = v14 & 0xFFFFFFFFFFFFF000uLL | 0xFF8;
-      while ( v14 <= v16 )
+      MiFillPteHierarchy(LeafVa, (unsigned __int64 *)v26);
+      v15 = *((_QWORD *)v26 + v14);
+      v16 = *((_QWORD *)v26 + (int)v14 - 1);
+      MiFillPteHierarchy(v10, (unsigned __int64 *)v26);
+      v18 = *((_QWORD *)v26 + v17);
+      if ( v18 > (v16 & 0xFFFFFFFFFFFFF000uLL | 0xFF8) )
+        v18 = v16 & 0xFFFFFFFFFFFFF000uLL | 0xFF8;
+      while ( v16 <= v18 )
       {
         MiDeleteNonPagedPoolPte((ULONG_PTR)BugCheckParameter2);
-        v17 = (unsigned int)(LODWORD(BugCheckParameter2[1]) + 1);
-        LODWORD(BugCheckParameter2[1]) = 0;
-        v14 += 8 * v17;
+        v19 = (unsigned int)BYTE3(BugCheckParameter2[0]) + 1;
+        BYTE3(BugCheckParameter2[0]) = 0;
+        v16 += 8 * v19;
       }
-      MiDeleteNonPagedPoolTail((__int64)BugCheckParameter2);
-      if ( (*(_QWORD *)(48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(v21) >> 12) & 0xFFFFFFFFFFLL) - 0x21FFFFFFFFE8LL) & 0x3FFFFFFFFFFFFFFFLL) == 1 )
+      MiDeleteNonPagedPoolTail(BugCheckParameter2);
+      v20 = *(_QWORD *)v15;
+      if ( MiPteInShadowRange(v15)
+        && (MiFlags & 0xC00000) != 0
+        && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+        && (v20 & 1) != 0
+        && ((v20 & 0x20) == 0 || (v20 & 0x42) == 0) )
+      {
+        Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        if ( Flink )
+        {
+          v24 = *((_QWORD *)&Flink->Flink + ((v15 >> 3) & 0x1FF));
+          v25 = v20 | 0x20;
+          if ( (v24 & 0x20) == 0 )
+            v25 = v20;
+          v20 = v25;
+          if ( (v24 & 0x42) != 0 )
+            v20 = v25 | 0x42;
+        }
+      }
+      if ( (*(_QWORD *)(48 * ((v20 >> 12) & 0xFFFFFFFFFLL) - 0x57FFFFFFFE8LL) & 0x3FFFFFFFFFFFFFFFLL) == 1 )
         v8 = 1;
-      MiUnlockPageTableInternal(AnyMultiplexedVm, v21);
-      LeafVa = MiGetLeafVa(v14);
+      MiUnlockPageTableInternal((__int64)AnyMultiplexedVm, v15);
+      LeafVa = MiGetLeafVa(v16);
     }
     while ( LeafVa <= v10 );
-    LOBYTE(v7) = v20;
     if ( !v8 )
     {
       if ( LeafVa > v10 )
-        goto LABEL_13;
+        goto LABEL_14;
       BugCheckParameter2[4] = LeafVa;
     }
-    MiWalkPageTables(BugCheckParameter2);
+    MiWalkPageTables((__int64)BugCheckParameter2);
   }
-LABEL_13:
-  LOBYTE(v12) = HIBYTE(BugCheckParameter2[0]);
-  MiUnlockWorkingSetShared(AnyMultiplexedVm, v12);
-  v18 = v24[23];
-  if ( v24[23] )
+LABEL_14:
+  MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, BYTE6(BugCheckParameter2[0]));
+  v21 = v28[23];
+  if ( v28[23] )
   {
     if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
     {
       MiLogNonPagedPoolReleaseEvent();
-      v18 = v24[23];
+      v21 = v28[23];
     }
-    MiReturnPhysicalPoolPages(v18, 2LL);
+    MiReturnPhysicalPoolPages(v21, 2LL);
   }
-  if ( v24[24] )
-    MiReturnPhysicalPoolPages(v24[24], (2 * (v7 & 2)) | 3);
-  return HIDWORD(v24[26]);
+  if ( v28[24] )
+    MiReturnPhysicalPoolPages(v28[24], 3LL);
+  return HIDWORD(v28[26]);
 }

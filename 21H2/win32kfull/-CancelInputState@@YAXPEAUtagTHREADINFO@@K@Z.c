@@ -1,104 +1,100 @@
 /*
- * XREFs of ?CancelInputState@@YAXPEAUtagTHREADINFO@@K@Z @ 0x1C01DB90C
+ * XREFs of ?CancelInputState@@YAXPEAUtagTHREADINFO@@K@Z @ 0x1C01E00E0
  * Callers:
- *     ?zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z @ 0x1C00A898C (-zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z.c)
+ *     zzzAttachToQueue @ 0x1C0011EF4 (zzzAttachToQueue.c)
  * Callees:
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     ?xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z @ 0x1C00A25A8 (-xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ?xxxFocusSetInputContext@@YAXPEAUtagWND@@HH@Z @ 0x1C00A80EC (-xxxFocusSetInputContext@@YAXPEAUtagWND@@HH@Z.c)
- *     zzzInputFocusLostWindowEvent @ 0x1C00A8748 (zzzInputFocusLostWindowEvent.c)
- *     ?QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z @ 0x1C00C9AD0 (-QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z.c)
- *     UnlockCaptureWindow @ 0x1C0102730 (UnlockCaptureWindow.c)
+ *     xxxFocusSetInputContext @ 0x1C0034A7C (xxxFocusSetInputContext.c)
+ *     zzzInputFocusLostWindowEvent @ 0x1C003501C (zzzInputFocusLostWindowEvent.c)
+ *     ?xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z @ 0x1C003C920 (-xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     ?QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z @ 0x1C00F59B8 (-QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z.c)
+ *     UnlockCaptureWindow @ 0x1C010B2B0 (UnlockCaptureWindow.c)
  */
 
 void __fastcall CancelInputState(struct tagTHREADINFO *a1, int a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  int v6; // edi
+  int v4; // edi
+  struct tagWND *v5; // rdi
+  struct tagWND **v6; // rcx
   struct tagWND *v7; // rdi
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  tagQ *v10; // rcx
-  struct tagWND *v11; // rdi
-  struct tagWND *v12; // rdi
-  struct tagWND **v13; // rcx
-  PETHREAD *v14; // [rsp+30h] [rbp-30h] BYREF
+  __int64 v8; // rdi
+  _QWORD *v9; // rcx
+  PETHREAD *v10; // [rsp+30h] [rbp-30h] BYREF
   unsigned int ThreadId; // [rsp+38h] [rbp-28h]
-  int v16; // [rsp+3Ch] [rbp-24h]
-  __int128 v17; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v18; // [rsp+50h] [rbp-10h]
-  char v19; // [rsp+88h] [rbp+28h] BYREF
+  int v12; // [rsp+3Ch] [rbp-24h]
+  __int128 v13; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v14; // [rsp+50h] [rbp-10h]
+  char v15; // [rsp+90h] [rbp+30h] BYREF
 
-  v17 = 0LL;
-  v18 = 0LL;
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v19);
+  v13 = 0LL;
+  v14 = 0LL;
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v15);
   if ( !a2 )
   {
-    v12 = *(struct tagWND **)(*((_QWORD *)a1 + 54) + 120LL);
-    *(_QWORD *)&v17 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v17;
-    *((_QWORD *)&v17 + 1) = v12;
-    if ( v12 )
-      HMLockObject(v12);
-    QueueNotifyTransformableMessage(v12, 0x86u, 0LL, 0LL, 0, 0);
+    v8 = *(_QWORD *)(*((_QWORD *)a1 + 54) + 120LL);
+    *(_QWORD *)&v13 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v13;
+    *((_QWORD *)&v13 + 1) = v8;
+    if ( v8 )
+      HMLockObject(v8);
+    QueueNotifyTransformableMessage((struct tagWND *)v8, 0x86u, 0LL, 0LL, 0, 0);
     QueueNotifyTransformableMessage(
-      v12,
+      (struct tagWND *)v8,
       6u,
-      (unsigned __int64)(*(_BYTE *)(*((_QWORD *)v12 + 5) + 31LL) & 0x20) << 16,
+      (unsigned __int64)(*(_BYTE *)(*(_QWORD *)(v8 + 40) + 31LL) & 0x20) << 16,
       0LL,
       0,
       0);
-    v13 = (struct tagWND **)(*((_QWORD *)a1 + 54) + 120LL);
-    if ( v12 == *v13 )
-      HMAssignmentUnlock(v13);
-    v14 = (PETHREAD *)*((_QWORD *)v12 + 2);
-    ThreadId = (unsigned int)PsGetThreadId(*v14);
-    v16 = 2;
-    xxxSendActivateAppMessage((const struct tagAAS *)&v14);
+    v9 = (_QWORD *)(*((_QWORD *)a1 + 54) + 120LL);
+    if ( v8 == *v9 )
+      HMAssignmentUnlock(v9);
+    v10 = *(PETHREAD **)(v8 + 16);
+    ThreadId = (unsigned int)PsGetThreadId(*v10);
+    v12 = 2;
+    xxxSendActivateAppMessage((const struct tagAAS *)&v10);
     goto LABEL_21;
   }
-  v6 = a2 - 1;
-  if ( !v6 )
+  v4 = a2 - 1;
+  if ( !v4 )
   {
-    v11 = *(struct tagWND **)(*((_QWORD *)a1 + 54) + 112LL);
-    *(_QWORD *)&v17 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v17;
-    *((_QWORD *)&v17 + 1) = v11;
-    if ( v11 )
-      HMLockObject(v11);
-    QueueNotifyTransformableMessage(v11, 8u, 0LL, 0LL, 0, 0);
+    v7 = *(struct tagWND **)(*((_QWORD *)a1 + 54) + 112LL);
+    *(_QWORD *)&v13 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v13;
+    *((_QWORD *)&v13 + 1) = v7;
+    if ( v7 )
+      HMLockObject(v7);
+    QueueNotifyTransformableMessage(v7, 8u, 0LL, 0LL, 0, 0);
     if ( (*gpsi & 4) != 0 )
-      xxxFocusSetInputContext(v11, 0, 1);
-    v10 = (tagQ *)*((_QWORD *)a1 + 54);
-    if ( v11 == *((struct tagWND **)v10 + 14) )
+      xxxFocusSetInputContext((__int64 *)v7, 0, 1);
+    v6 = (struct tagWND **)(*((_QWORD *)a1 + 54) + 112LL);
+    if ( v7 == *v6 )
     {
-      tagQ::UnlockFocusWnd(v10);
-      if ( v11 )
+      HMAssignmentUnlock(v6);
+      if ( v7 )
       {
-        v10 = (tagQ *)gpqForeground;
+        v6 = (struct tagWND **)gpqForeground;
         if ( *((_QWORD *)a1 + 54) == gpqForeground )
-          zzzInputFocusLostWindowEvent(0LL, 5u);
+          zzzInputFocusLostWindowEvent(0LL);
       }
     }
     goto LABEL_21;
   }
-  if ( v6 == 1 )
+  if ( v4 == 1 )
   {
     *(_DWORD *)(*((_QWORD *)a1 + 54) + 388LL) &= ~0x100000u;
-    v7 = *(struct tagWND **)(*((_QWORD *)a1 + 54) + 104LL);
-    *(_QWORD *)&v17 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v17;
-    *((_QWORD *)&v17 + 1) = v7;
-    if ( v7 )
-      HMLockObject(v7);
-    QueueNotifyTransformableMessage(v7, 0x1Fu, 0LL, 0LL, 0, 0);
-    v10 = (tagQ *)*((_QWORD *)a1 + 54);
-    if ( v7 == *((struct tagWND **)v10 + 13) )
-      UnlockCaptureWindow((__int64)v10);
+    v5 = *(struct tagWND **)(*((_QWORD *)a1 + 54) + 104LL);
+    *(_QWORD *)&v13 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v13;
+    *((_QWORD *)&v13 + 1) = v5;
+    if ( v5 )
+      HMLockObject(v5);
+    QueueNotifyTransformableMessage(v5, 0x1Fu, 0LL, 0LL, 0, 0);
+    v6 = (struct tagWND **)*((_QWORD *)a1 + 54);
+    if ( v5 == v6[13] )
+      UnlockCaptureWindow((__int64)v6);
 LABEL_21:
-    ThreadUnlock1(v10, v8, v9);
+    ThreadUnlock1(v6);
   }
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v19, v4, v5);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v15);
 }

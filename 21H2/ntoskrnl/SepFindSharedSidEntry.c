@@ -1,12 +1,12 @@
 /*
- * XREFs of SepFindSharedSidEntry @ 0x1409CECAC
+ * XREFs of SepFindSharedSidEntry @ 0x1409253C4
  * Callers:
- *     SepDeReferenceSharedSidEntries @ 0x1409CE7E8 (SepDeReferenceSharedSidEntries.c)
- *     SepInsertOrReferenceSharedSidEntries @ 0x1409CED4C (SepInsertOrReferenceSharedSidEntries.c)
+ *     SepDeReferenceSharedSidEntries @ 0x140924F0C (SepDeReferenceSharedSidEntries.c)
+ *     SepInsertOrReferenceSharedSidEntries @ 0x140925464 (SepInsertOrReferenceSharedSidEntries.c)
  * Callees:
- *     RtlLookupEntryHashTable @ 0x14021F920 (RtlLookupEntryHashTable.c)
- *     RtlGetNextEntryHashTable @ 0x14022DEA0 (RtlGetNextEntryHashTable.c)
- *     RtlEqualSid @ 0x1402A6DB0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
+ *     RtlGetNextEntryHashTable @ 0x1402A2500 (RtlGetNextEntryHashTable.c)
+ *     RtlLookupEntryHashTable @ 0x140360330 (RtlLookupEntryHashTable.c)
  */
 
 PRTL_DYNAMIC_HASH_TABLE_ENTRY __fastcall SepFindSharedSidEntry(unsigned int *Sid1)

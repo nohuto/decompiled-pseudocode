@@ -1,10 +1,10 @@
 /*
- * XREFs of __GSHandlerCheck_SEH @ 0x1C0160194
+ * XREFs of __GSHandlerCheck_SEH @ 0x1C016E3F4
  * Callers:
  *     <none>
  * Callees:
- *     __C_specific_handler_0 @ 0x1C0159AA2 (__C_specific_handler_0.c)
- *     __GSHandlerCheckCommon @ 0x1C016012C (__GSHandlerCheckCommon.c)
+ *     __C_specific_handler_0 @ 0x1C0166462 (__C_specific_handler_0.c)
+ *     __GSHandlerCheckCommon @ 0x1C016E38C (__GSHandlerCheckCommon.c)
  */
 
 EXCEPTION_DISPOSITION __fastcall _GSHandlerCheck_SEH(

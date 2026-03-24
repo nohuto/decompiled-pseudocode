@@ -1,27 +1,27 @@
 /*
- * XREFs of Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C0046EFC
+ * XREFs of Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C004445C
  * Callers:
- *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DAF4 (Bulk_ProcessTransferEventWithED0.c)
- *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011354 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C000BEB4 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DBF8 (Bulk_ProcessTransferEventWithED0.c)
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     StageQueue_Release @ 0x1C0011870 (StageQueue_Release.c)
- *     TR_ReleaseSegments @ 0x1C00118AC (TR_ReleaseSegments.c)
- *     Bulk_Stage_FreeScatterGatherList @ 0x1C00118F4 (Bulk_Stage_FreeScatterGatherList.c)
- *     Bulk_Transfer_CompleteCancelable @ 0x1C0012F88 (Bulk_Transfer_CompleteCancelable.c)
- *     memmove @ 0x1C0020300 (memmove.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033674 (Controller_HwVerifierBreakIfEnabled.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     Bulk_Transfer_CompleteCancelable @ 0x1C000C124 (Bulk_Transfer_CompleteCancelable.c)
+ *     StageQueue_Release @ 0x1C000C574 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C000C5AC (TR_ReleaseSegments.c)
+ *     Bulk_Stage_FreeScatterGatherList @ 0x1C000DBA8 (Bulk_Stage_FreeScatterGatherList.c)
+ *     memmove @ 0x1C001B000 (memmove.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
  */
 
 void __fastcall Bulk_ProcessTransferEventWithHaltedCompletion(__int64 a1, __int64 a2, int a3, unsigned int a4)
 {
-  KSPIN_LOCK *v4; // r14
-  size_t v5; // rbp
+  KSPIN_LOCK *v4; // rbp
+  size_t v5; // r14
   KIRQL v9; // al
   __int64 v10; // r10
   __int64 v11; // rsi
   __int64 v12; // rax
-  __int64 v13; // rbp
+  __int64 v13; // r14
   KIRQL v14; // dl
   int v15; // ebx
   __int64 v16; // rdx
@@ -46,7 +46,7 @@ void __fastcall Bulk_ProcessTransferEventWithHaltedCompletion(__int64 a1, __int6
       0LL,
       0LL);
   else
-    ESM_AddEvent((KSPIN_LOCK *)(v10 + 296), 154);
+    ESM_AddEvent((KSPIN_LOCK *)(v10 + 288), 154);
   v11 = *(_QWORD *)a2;
   *(_DWORD *)(v11 + 108) += v5;
   v12 = *(_QWORD *)(v11 + 48);
@@ -62,11 +62,11 @@ void __fastcall Bulk_ProcessTransferEventWithHaltedCompletion(__int64 a1, __int6
     *(_QWORD *)(a2 + 48) = 0LL;
     *(_BYTE *)(a2 + 44) = 0;
   }
-  TR_ReleaseSegments(a1, (const signed __int64 **)(a2 + 8), 1);
-  TR_ReleaseSegments(a1, (const signed __int64 **)(a2 + 24), 0);
+  TR_ReleaseSegments(a1, (unsigned __int64 *)(a2 + 8), 1);
+  TR_ReleaseSegments(a1, (unsigned __int64 *)(a2 + 24), 0);
   StageQueue_Release((unsigned __int8 *)(v13 + 128), (unsigned __int8 *)a2);
   ++*(_DWORD *)(v11 + 116);
-  Bulk_Transfer_CompleteCancelable(a1, v11, 0xFFFFFFFF, 0);
+  Bulk_Transfer_CompleteCancelable(a1, (__int64 *)v11, 0xFFFFFFFF, 0);
   v14 = *(_BYTE *)(a1 + 104);
   --*(_DWORD *)(a1 + 348);
   --*(_DWORD *)(a1 + 352);
@@ -79,7 +79,7 @@ void __fastcall Bulk_ProcessTransferEventWithHaltedCompletion(__int64 a1, __int6
       || (v17 = *(_QWORD *)(v16 + 136),
           _InterlockedIncrement((volatile signed __int32 *)(v17 + 20)) == *(_DWORD *)(v17 + 8)) )
     {
-      ESM_AddEvent((KSPIN_LOCK *)(v16 + 296), 150);
+      ESM_AddEvent((KSPIN_LOCK *)(v16 + 288), 150);
     }
   }
 }

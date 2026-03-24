@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierExpInterlockedPushEntrySList @ 0x14045F680
+ * XREFs of VerifierExpInterlockedPushEntrySList @ 0x1405A19E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierExpInterlockedPushEntrySList()

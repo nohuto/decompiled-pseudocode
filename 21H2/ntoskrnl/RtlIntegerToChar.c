@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlIntegerToChar @ 0x14075ACF0
+ * XREFs of RtlIntegerToChar @ 0x14062CDE0
  * Callers:
- *     CmLogMcUpdateStatus @ 0x14053F1A8 (CmLogMcUpdateStatus.c)
- *     RtlIntegerToUnicodeString @ 0x14075AC60 (RtlIntegerToUnicodeString.c)
- *     CmpInitializeRegistryNode @ 0x140837AD4 (CmpInitializeRegistryNode.c)
+ *     CmLogMcUpdateStatus @ 0x1404ECA98 (CmLogMcUpdateStatus.c)
+ *     RtlIntegerToUnicodeString @ 0x14062C070 (RtlIntegerToUnicodeString.c)
+ *     CmpInitializeRegistryNode @ 0x1407A6CEC (CmpInitializeRegistryNode.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall RtlIntegerToChar(unsigned int a1, unsigned int a2, int a3, char *a4)

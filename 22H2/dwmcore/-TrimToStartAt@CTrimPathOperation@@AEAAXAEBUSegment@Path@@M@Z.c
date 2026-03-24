@@ -1,12 +1,12 @@
 /*
- * XREFs of ?TrimToStartAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z @ 0x1802AFAD8
+ * XREFs of ?TrimToStartAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z @ 0x18025F2EC
  * Callers:
- *     ?SplitSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z @ 0x1800151D0 (-SplitSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z.c)
+ *     ?SplitSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z @ 0x18025EDF8 (-SplitSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z.c)
  * Callees:
- *     ?TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z @ 0x1800153E0 (-TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z.c)
- *     ?ShouldSplitCurrentSegment@CTrimPathOperation@@AEBA_NXZ @ 0x180015834 (-ShouldSplitCurrentSegment@CTrimPathOperation@@AEBA_NXZ.c)
- *     ?AppendSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z @ 0x180015858 (-AppendSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z.c)
- *     ?InterpolateSegment@CTrimPathOperation@@AEAAPEAUSegment@Path@@AEBU23@MMPEAUD2D_POINT_2F@@@Z @ 0x180015A34 (-InterpolateSegment@CTrimPathOperation@@AEAAPEAUSegment@Path@@AEBU23@MMPEAUD2D_POINT_2F@@@Z.c)
+ *     ?AppendSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z @ 0x18025E1EC (-AppendSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z.c)
+ *     ?InterpolateSegment@CTrimPathOperation@@AEAAPEAUSegment@Path@@AEBU23@MMPEAUD2D_POINT_2F@@@Z @ 0x18025EB28 (-InterpolateSegment@CTrimPathOperation@@AEAAPEAUSegment@Path@@AEBU23@MMPEAUD2D_POINT_2F@@@Z.c)
+ *     ?ShouldSplitCurrentSegment@CTrimPathOperation@@AEBA_NXZ @ 0x18025EDD4 (-ShouldSplitCurrentSegment@CTrimPathOperation@@AEBA_NXZ.c)
+ *     ?TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z @ 0x18025F240 (-TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z.c)
  */
 
 void __fastcall CTrimPathOperation::TrimToStartAt(CTrimPathOperation *this, const struct Path::Segment *a2, double a3)
@@ -19,7 +19,7 @@ void __fastcall CTrimPathOperation::TrimToStartAt(CTrimPathOperation *this, cons
   _DWORD *v10; // rdi
   int v11; // xmm7_4
   int v12; // xmm6_4
-  struct Path::Segment *v13; // rbx
+  float *v13; // rbx
   CTrimPathOperation *v14; // rcx
 
   v4 = *((_DWORD *)this + 8);
@@ -37,12 +37,17 @@ void __fastcall CTrimPathOperation::TrimToStartAt(CTrimPathOperation *this, cons
   v10 = (_DWORD *)(v8 + 56);
   v11 = *(_DWORD *)(v8 + 56);
   v12 = *(_DWORD *)(v8 + 60);
-  v13 = CTrimPathOperation::InterpolateSegment((CTrimPathOperation *)v8, a2, a3, v9, (struct D2D_POINT_2F *)(v8 + 56));
+  v13 = (float *)CTrimPathOperation::InterpolateSegment(
+                   (CTrimPathOperation *)v8,
+                   a2,
+                   a3,
+                   v9,
+                   (struct D2D_POINT_2F *)(v8 + 56));
   CTrimPathOperation::AppendSegment(this, (CTrimPathOperation *)((char *)this + 48));
   *v10 = v11;
   v10[1] = v12;
-  *((float *)v13 + 1) = (float)(v9 - *(float *)&a3) * *((float *)a2 + 1);
-  CTrimPathOperation::AppendSegment(this, v13);
+  v13[1] = (float)(v9 - *(float *)&a3) * *((float *)a2 + 1);
+  CTrimPathOperation::AppendSegment(this, (const struct Path::Segment *)v13);
   if ( CTrimPathOperation::ShouldSplitCurrentSegment(this) )
     CTrimPathOperation::TrimToEndAt(v14, a2, 0.0);
 }

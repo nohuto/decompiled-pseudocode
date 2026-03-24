@@ -1,5 +1,5 @@
 /*
- * XREFs of MiInsertLargeVadMapping @ 0x1402BC134
+ * XREFs of MiInsertLargeVadMapping @ 0x1402BC234
  * Callers:
  *     MiInPagePageTable @ 0x1400987E0 (MiInPagePageTable.c)
  * Callees:
@@ -9,8 +9,8 @@
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiInsertLargeVadMapping(unsigned __int64 a1, unsigned __int64 a2, int a3, __int64 *a4)

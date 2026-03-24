@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UnregisterReaderForDataSource@DataProviderManager@@QEAAJ_K0PEAVCDataSourceReader@@@Z @ 0x1801B7EB8
+ * XREFs of ?UnregisterReaderForDataSource@DataProviderManager@@QEAAJ_K0PEAVCDataSourceReader@@@Z @ 0x180164CA0
  * Callers:
- *     ??1CDataSourceReader@@UEAA@XZ @ 0x18022907C (--1CDataSourceReader@@UEAA@XZ.c)
+ *     ??_ECDataSourceReader@@UEAAPEAXI@Z @ 0x1801BE930 (--_ECDataSourceReader@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?GetDataSourceProxy@DataProviderManager@@QEAAPEAVBamoDataSourceProxy@@_K0@Z @ 0x1801B7B6C (-GetDataSourceProxy@DataProviderManager@@QEAAPEAVBamoDataSourceProxy@@_K0@Z.c)
- *     ?UnregisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z @ 0x1801E3B2C (-UnregisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?GetDataSourceProxy@DataProviderManager@@QEAAPEAVBamoDataSourceProxy@@_K0@Z @ 0x18016491C (-GetDataSourceProxy@DataProviderManager@@QEAAPEAVBamoDataSourceProxy@@_K0@Z.c)
+ *     ?UnregisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z @ 0x180180D8C (-UnregisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z.c)
  */
 
 __int64 __fastcall DataProviderManager::UnregisterReaderForDataSource(
@@ -14,7 +14,7 @@ __int64 __fastcall DataProviderManager::UnregisterReaderForDataSource(
         unsigned __int64 a3,
         struct CDataSourceReader *a4)
 {
-  struct BamoDataSourceProxy *DataSourceProxy; // rax
+  DataSourceProxy *DataSourceProxy; // rax
   int v6; // ebx
   __int64 v7; // rdx
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
@@ -28,7 +28,7 @@ LABEL_3:
     wil::details::in1diag3::Return_Hr(
       retaddr,
       (void *)v7,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\dataprovidermanager.cpp",
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\dataprovidermanager.cpp",
       (const char *)(unsigned int)v6);
     return (unsigned int)v6;
   }

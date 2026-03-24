@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSelectIdealProcessorForProcess @ 0x140223BFC
+ * XREFs of KiSelectIdealProcessorForProcess @ 0x14035ACF4
  * Callers:
- *     KiSetIdealNodeProcessByGroup @ 0x140223B74 (KiSetIdealNodeProcessByGroup.c)
+ *     KiSetIdealNodeProcessByGroup @ 0x14035AC64 (KiSetIdealNodeProcessByGroup.c)
  * Callees:
  *     <none>
  */
@@ -9,38 +9,37 @@
 __int64 __fastcall KiSelectIdealProcessorForProcess(__int64 a1, __int64 *a2)
 {
   __int64 v2; // rbx
-  unsigned __int64 v3; // rdi
-  int v5; // r8d
-  unsigned __int64 v6; // rax
-  __int64 v7; // r10
-  unsigned __int64 v8; // rdx
-  __int64 v9; // rax
-  unsigned __int64 v10; // rcx
+  __int64 v3; // rdi
+  int v4; // r8d
+  unsigned __int64 v5; // rax
+  __int64 v6; // r10
+  unsigned __int64 v7; // rdx
+  __int64 v8; // rax
 
   v2 = *a2;
-  v3 = *(_QWORD *)(a1 + 168);
-  v5 = *((unsigned __int16 *)a2 + 4);
-  v6 = *a2 & *(_QWORD *)(a1 + 128);
+  v3 = *(_QWORD *)(a1 + 376);
+  v4 = *((unsigned __int16 *)a2 + 4);
+  v5 = *a2 & *(_QWORD *)(a1 + 136);
   if ( v3 )
   {
-    LOBYTE(v7) = *(_BYTE *)(a1 + 116) & 0x3F;
-    v8 = ~((1LL << v7) - 1) & v3;
+    LOWORD(v6) = *(_WORD *)(a1 + 110) & 0x3F;
+    v7 = ~((1LL << (*(_WORD *)(a1 + 110) & 0x3F)) - 1) & v3;
     do
     {
-      v9 = v8 & ~(1LL << v7);
-      v8 = v3;
-      if ( v9 )
-        v8 = v9;
-      _BitScanForward64((unsigned __int64 *)&v7, v8);
-      v10 = *(_QWORD *)(KiProcessorBlock[KiProcessorNumberToIndexMappingTable[(unsigned int)((v5 << 6) + v7)]] + 34928) & v2;
+      v8 = v7 & ~(1LL << v6);
+      v7 = *(_QWORD *)(a1 + 376);
+      if ( v8 )
+        v7 = v8;
+      _BitScanForward64((unsigned __int64 *)&v6, v7);
+      v5 = KiProcessorBlock[KiProcessorNumberToIndexMappingTable[(unsigned int)((v4 << 6) + v6)]];
     }
-    while ( !v10 );
-    _BitScanForward64(&v6, v10);
-    *(_BYTE *)(a1 + 116) = v6;
+    while ( (v2 & *(_QWORD *)(v5 + 33896)) == 0 );
+    _BitScanForward64(&v5, v2 & *(_QWORD *)(v5 + 33896));
+    *(_WORD *)(a1 + 110) = v5;
   }
   else
   {
-    _BitScanForward64(&v6, v6);
+    _BitScanForward64(&v5, v5);
   }
-  return LOWORD(KiProcessorNumberToIndexMappingTable[(unsigned int)(v6 + (v5 << 6))]);
+  return LOWORD(KiProcessorNumberToIndexMappingTable[(unsigned int)(v5 + (v4 << 6))]);
 }

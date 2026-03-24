@@ -1,1103 +1,1083 @@
 /*
- * XREFs of RootHub_UcxEvtClearPortFeature @ 0x1C0015740
+ * XREFs of RootHub_UcxEvtClearPortFeature @ 0x1C00120A0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     Controller_IsControllerAccessible @ 0x1C000A914 (Controller_IsControllerAccessible.c)
- *     RootHub_WaitForPendingU3TransitionCompletion @ 0x1C0010600 (RootHub_WaitForPendingU3TransitionCompletion.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0018000 (WPP_RECORDER_SF_ddd.c)
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     WPP_RECORDER_SF_D @ 0x1C0018114 (WPP_RECORDER_SF_D.c)
- *     RootHub_ReleaseReadModifyWriteLock @ 0x1C0018300 (RootHub_ReleaseReadModifyWriteLock.c)
- *     RootHub_AcquireReadModifyWriteLock @ 0x1C0018344 (RootHub_AcquireReadModifyWriteLock.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Controller_ReportFatalError @ 0x1C0034670 (Controller_ReportFatalError.c)
- *     Controller_SetControllerGone @ 0x1C00346AC (Controller_SetControllerGone.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     WPP_RECORDER_SF_DDDDDDDD @ 0x1C0040998 (WPP_RECORDER_SF_DDDDDDDD.c)
+ *     Controller_IsControllerAccessible @ 0x1C0007380 (Controller_IsControllerAccessible.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     RootHub_WaitForPendingU3TransitionCompletion @ 0x1C0011CC0 (RootHub_WaitForPendingU3TransitionCompletion.c)
+ *     RootHub_ReleaseReadModifyWriteLock @ 0x1C0011EE0 (RootHub_ReleaseReadModifyWriteLock.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     RootHub_AcquireReadModifyWriteLock @ 0x1C0013DD0 (RootHub_AcquireReadModifyWriteLock.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_SetControllerGone @ 0x1C0032D48 (Controller_SetControllerGone.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     WPP_RECORDER_SF_DDDDDDDD @ 0x1C003E404 (WPP_RECORDER_SF_DDDDDDDD.c)
  */
 
 __int64 __fastcall RootHub_UcxEvtClearPortFeature(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rbp
-  __int64 v4; // rcx
-  __int64 v5; // r15
-  int v6; // edx
-  int v7; // r8d
-  int v8; // r9d
+  int v3; // edx
+  __int64 v4; // rbp
+  int v5; // r8d
+  int v6; // r9d
+  __int64 v7; // rcx
+  __int64 v8; // r15
   __int64 v9; // r14
   int v10; // edx
-  __int64 v11; // r8
   int Ulong; // eax
-  __int64 v13; // rdx
-  unsigned int v14; // r11d
-  unsigned int v15; // r8d
-  int v16; // ebx
-  unsigned int v17; // r12d
-  __int64 v18; // r13
-  unsigned int v19; // edx
-  __int64 v20; // r9
-  int v21; // r9d
-  int v22; // edx
-  int v23; // r8d
+  __int64 v12; // rdx
+  unsigned int v13; // r11d
+  unsigned int v14; // r8d
+  int v15; // ebx
+  unsigned int v16; // r12d
+  __int64 v17; // r13
+  unsigned int v18; // edx
+  __int64 v19; // r9
+  int v20; // ebx
+  int v21; // ebx
+  int v22; // ebx
+  int v23; // ebx
   int v24; // ebx
   int v25; // ebx
   int v26; // ebx
   int v27; // ebx
-  int v28; // ebx
+  int v28; // edx
   int v29; // ebx
-  int v30; // ebx
-  int v31; // ebx
-  int v32; // edx
-  int v33; // ebx
-  unsigned int v34; // ebx
-  char v35; // al
-  int v36; // edx
-  int v37; // r9d
-  int v38; // edx
+  unsigned int v30; // ebx
+  int v31; // r8d
+  int v32; // r9d
+  char v33; // al
+  int v34; // edx
+  int v35; // r9d
+  __int64 v36; // r8
+  int v38; // ebx
   int v39; // ebx
-  unsigned int v40; // ebx
-  int v41; // edx
+  int v40; // ebx
+  int v41; // ebx
   int v42; // ebx
-  unsigned int v43; // ebx
-  int v44; // edx
-  int v45; // ebx
-  unsigned int v46; // ebx
-  int v47; // edx
-  int v48; // ebx
-  unsigned int v49; // ebx
-  int v50; // edx
-  int v51; // ebx
-  unsigned int v52; // ebx
-  int v53; // eax
-  int v54; // eax
-  int v55; // ebx
-  _UNKNOWN **v56; // rdx
-  unsigned int v57; // ebx
-  char v58; // al
-  int v59; // edx
-  __int64 v60; // rdx
-  unsigned __int16 v61; // ax
-  int v62; // eax
-  int v63; // ebx
-  _UNKNOWN **v64; // rdx
-  __int64 v65; // r10
-  unsigned int v66; // ebx
-  int v67; // r9d
-  __int64 v68; // rcx
-  int v69; // edx
-  int v70; // ebx
-  unsigned int v71; // ebx
-  int v72; // ebx
-  int v73; // ebx
-  int v74; // ebx
-  int v75; // ebx
-  int v76; // ebx
-  int v77; // ebx
+  int v43; // ebx
+  int v44; // ebx
+  int v45; // edx
+  int v46; // ebx
+  unsigned int v47; // ebx
+  int v48; // r8d
+  int v49; // r9d
+  char v50; // al
+  int v51; // edx
+  int v52; // r9d
+  int v53; // edx
+  int v54; // ebx
+  unsigned int v55; // ebx
+  int v56; // r8d
+  int v57; // r9d
+  int v58; // edx
+  int v59; // ebx
+  unsigned int v60; // ebx
+  int v61; // r8d
+  int v62; // r9d
+  int v63; // eax
+  int v64; // eax
+  int v65; // ebx
+  _UNKNOWN **v66; // rdx
+  unsigned int v67; // ebx
+  int v68; // r8d
+  int v69; // r9d
+  char v70; // al
+  int v71; // edx
+  __int64 v72; // rdx
+  unsigned __int16 v73; // ax
+  int v74; // r9d
+  int v75; // edx
+  int v76; // r8d
+  int v77; // edx
   int v78; // ebx
-  int v79; // eax
-  int v80; // edx
-  int v81; // ebx
-  unsigned int v82; // ebx
-  int v83; // edx
-  int v84; // ebx
-  unsigned int v85; // ebx
-  int v86; // edx
-  int v87; // ebx
-  unsigned int v88; // ebx
-  int v89; // edx
-  int v90; // ebx
-  unsigned int v91; // ebx
-  int v92; // eax
-  int v93; // edx
-  int v94; // ebx
-  bool v95; // zf
-  __int64 v96; // rbx
-  __int64 v97; // rax
-  int v98; // r9d
-  int v99; // edx
-  int v100; // ebx
+  unsigned int v79; // ebx
+  int v80; // r8d
+  int v81; // r9d
+  int v82; // edx
+  int v83; // ebx
+  unsigned int v84; // ebx
+  int v85; // r8d
+  int v86; // r9d
+  int v87; // edx
+  int v88; // ebx
+  unsigned int v89; // ebx
+  int v90; // r8d
+  int v91; // r9d
+  int v92; // edx
+  int v93; // ebx
+  unsigned int v94; // ebx
+  int v95; // r8d
+  int v96; // r9d
+  int v97; // eax
+  int v98; // ebx
+  _UNKNOWN **v99; // rdx
+  __int64 v100; // r10
   unsigned int v101; // ebx
-  int v102; // edx
-  int v103; // ebx
-  unsigned int v104; // ebx
-  int v105; // edx
-  int v106; // ebx
-  unsigned int v107; // ebx
-  int v108; // eax
-  int v109; // ebx
+  int v102; // r9d
+  __int64 v103; // rcx
+  int v104; // r8d
+  int v105; // r9d
+  int v106; // eax
+  int v107; // edx
+  int v108; // ebx
+  unsigned int v109; // ebx
   int v110; // edx
   int v111; // ebx
   unsigned int v112; // ebx
-  unsigned int v114; // [rsp+70h] [rbp-88h]
-  int v115; // [rsp+70h] [rbp-88h]
-  int v116; // [rsp+70h] [rbp-88h]
-  unsigned int v117; // [rsp+74h] [rbp-84h]
-  __int64 v118; // [rsp+78h] [rbp-80h]
-  __int64 v119; // [rsp+80h] [rbp-78h]
-  _OWORD v121[2]; // [rsp+90h] [rbp-68h] BYREF
-  __int64 v122; // [rsp+B0h] [rbp-48h]
+  int v113; // r8d
+  int v114; // r9d
+  int v115; // edx
+  int v116; // ebx
+  unsigned int v117; // ebx
+  int v118; // r8d
+  int v119; // r9d
+  int v120; // edx
+  int v121; // ebx
+  unsigned int v122; // ebx
+  int v123; // r8d
+  int v124; // r9d
+  int v125; // edx
+  int v126; // ebx
+  unsigned int v127; // ebx
+  int v128; // r8d
+  int v129; // r9d
+  int v130; // edx
+  int v131; // ebx
+  unsigned int v132; // ebx
+  int v133; // r8d
+  int v134; // r9d
+  int v135; // edx
+  int v136; // ebx
+  unsigned int v137; // ebx
+  int v138; // r8d
+  int v139; // r9d
+  unsigned int v140; // [rsp+70h] [rbp-88h]
+  unsigned int v141; // [rsp+74h] [rbp-84h]
+  __int64 v142; // [rsp+78h] [rbp-80h]
+  __int64 v143; // [rsp+80h] [rbp-78h]
+  _OWORD v145[2]; // [rsp+90h] [rbp-68h] BYREF
+  __int64 v146; // [rsp+B0h] [rbp-48h]
 
-  v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+  v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0063248);
-  v4 = *(_QWORD *)(v3 + 8);
-  v5 = *(_QWORD *)(v4 + 88);
-  if ( *(_BYTE *)(v4 + 601) && KeGetCurrentIrql() )
+         off_1C0060248);
+  v7 = *(_QWORD *)(v4 + 8);
+  v8 = *(_QWORD *)(v7 + 88);
+  if ( *(_BYTE *)(v7 + 553) && KeGetCurrentIrql() )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v6, v7, v8);
+      WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v3, v5, v6);
     if ( !KdRefreshDebuggerNotPresent() )
       __debugbreak();
   }
-  v122 = 0LL;
-  memset(v121, 0, sizeof(v121));
-  LOWORD(v121[0]) = 40;
+  v146 = 0LL;
+  memset(v145, 0, sizeof(v145));
+  LOWORD(v145[0]) = 40;
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _OWORD *))(WdfFunctions_01023 + 2128))(
     WdfDriverGlobals,
     a2,
-    v121);
-  v9 = *((_QWORD *)&v121[0] + 1);
-  if ( !Controller_IsControllerAccessible(*(_QWORD *)(v3 + 8)) )
+    v145);
+  v9 = *((_QWORD *)&v145[0] + 1);
+  if ( !Controller_IsControllerAccessible(*(_QWORD *)(v4 + 8)) )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v10) = 2;
       WPP_RECORDER_SF_(
-        *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
+        *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
         v10,
         11,
         38,
-        (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids);
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids);
     }
-LABEL_10:
-    *(_DWORD *)(v9 + 4) = -1073713152;
-    v11 = 3221225486LL;
-    return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64))(WdfFunctions_01023 + 2104))(
-             WdfDriverGlobals,
-             a2,
-             v11);
+    goto LABEL_84;
   }
-  Ulong = XilRegister_ReadUlong(v5, *(_QWORD *)(v3 + 32) + 4LL);
+  Ulong = XilRegister_ReadUlong(v8, *(_QWORD *)(v4 + 32) + 4LL);
   if ( Ulong == -1 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v13) = 2;
+      LOBYTE(v12) = 2;
       WPP_RECORDER_SF_(
-        *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-        v13,
+        *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+        v12,
         11,
         39,
-        (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids);
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids);
     }
-    LOBYTE(v13) = 1;
-    Controller_SetControllerGone(*(_QWORD *)(v3 + 8), v13);
-    goto LABEL_10;
+    LOBYTE(v12) = 1;
+    Controller_SetControllerGone(*(_QWORD *)(v4 + 8), v12);
+LABEL_84:
+    *(_DWORD *)(v9 + 4) = -1073713152;
+    v36 = 3221225486LL;
+    return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64))(WdfFunctions_01023 + 2104))(
+             WdfDriverGlobals,
+             a2,
+             v36);
   }
   if ( (Ulong & 1) == 0 )
   {
-    v14 = *(unsigned __int8 *)(v9 + 132);
-    v15 = *(unsigned __int8 *)(v9 + 133);
-    v16 = *(unsigned __int16 *)(v9 + 130);
-    v114 = v14;
-    v117 = v15;
-    if ( *(_WORD *)(v9 + 128) != 291 || !*(_BYTE *)(v9 + 132) || v14 > *(_DWORD *)(v3 + 16) || *(_WORD *)(v9 + 134) )
+    v13 = *(unsigned __int8 *)(v9 + 132);
+    v14 = *(unsigned __int8 *)(v9 + 133);
+    v15 = *(unsigned __int16 *)(v9 + 130);
+    v141 = v13;
+    v140 = v14;
+    if ( *(_WORD *)(v9 + 128) != 291 || !*(_BYTE *)(v9 + 132) || v13 > *(_DWORD *)(v4 + 16) || *(_WORD *)(v9 + 134) )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v22 = *(unsigned __int8 *)(v9 + 134);
-        v21 = 41;
-        v23 = *(unsigned __int8 *)(v9 + 131);
-        goto LABEL_199;
+        v75 = *(unsigned __int8 *)(v9 + 134);
+        v74 = 41;
+        v76 = *(unsigned __int8 *)(v9 + 131);
+        goto LABEL_191;
       }
-      goto LABEL_200;
+      goto LABEL_192;
     }
-    v17 = v14 - 1;
-    v19 = v14 - 1;
-    v18 = *(_QWORD *)(v3 + 40) + 16LL * (v14 - 1);
-    v118 = 120LL * (v14 - 1);
-    LOBYTE(v19) = *(_BYTE *)(v118 + *(_QWORD *)(v3 + 48) + 13);
-    v20 = v18 + 4;
-    v119 = v18 + 4;
-    if ( (_BYTE)v19 == 2 )
+    v16 = v13 - 1;
+    v18 = v13 - 1;
+    v17 = *(_QWORD *)(v4 + 40) + 16LL * (v13 - 1);
+    v142 = 112LL * (v13 - 1);
+    LOBYTE(v18) = *(_BYTE *)(*(_QWORD *)(v4 + 48) + v142 + 13);
+    v19 = v17 + 4;
+    v143 = v17 + 4;
+    if ( (_BYTE)v18 == 2 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v19) = 4;
+        LOBYTE(v18) = 4;
         WPP_RECORDER_SF_ddd(
-          *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-          v19,
+          *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+          v18,
           11,
           42,
-          (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-          v14,
-          v16,
-          v15);
-        v14 = v114;
-        v15 = v117;
+          (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+          v13,
+          v15,
+          v14);
+        v13 = v141;
+        v14 = v140;
       }
-      if ( v16 == 22 )
+      if ( v15 != 22 && v14 )
       {
-        if ( v15 > 3 )
-        {
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            v21 = 56;
-            goto LABEL_30;
-          }
-          goto LABEL_200;
-        }
-LABEL_111:
-        RootHub_AcquireReadModifyWriteLock(v3, v17);
-        v70 = XilRegister_ReadUlong(v5, v18);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          LOBYTE(v69) = 4;
-          WPP_RECORDER_SF_D(
-            *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-            v69,
-            11,
-            57,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-            v70);
+          v74 = 43;
+LABEL_92:
+          v75 = *(unsigned __int8 *)(v9 + 134);
+          v76 = *(unsigned __int8 *)(v9 + 133);
+LABEL_191:
+          WPP_RECORDER_SF_DDDDDDDD(*(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL), v75, v76, v74);
         }
-        v71 = v70 & 0xE000200;
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v69) = 4;
-          WPP_RECORDER_SF_D(
-            *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-            v69,
-            11,
-            58,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-            v71);
-        }
-        XilRegister_WriteUlong(v5, v18, v71);
-        RootHub_ReleaseReadModifyWriteLock(v3, v17);
-        v35 = XilRegister_ReadUlong(v5, v18);
-        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_194;
-        v37 = 59;
+LABEL_192:
+        v36 = 3221225473LL;
         goto LABEL_193;
       }
-      if ( v15 )
+      v20 = v15 - 1;
+      if ( v20 )
       {
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        v21 = v20 - 1;
+        if ( !v21 )
         {
-          v21 = 43;
-LABEL_30:
-          v22 = *(unsigned __int8 *)(v9 + 134);
-          v23 = *(unsigned __int8 *)(v9 + 133);
-LABEL_199:
-          WPP_RECORDER_SF_DDDDDDDD(*(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL), v22, v23, v21);
-          goto LABEL_200;
-        }
-        goto LABEL_200;
-      }
-      v24 = v16 - 1;
-      if ( v24 )
-      {
-        v25 = v24 - 1;
-        if ( v25 )
-        {
-          v26 = v25 - 6;
-          if ( v26 )
+          v63 = RootHub_WaitForPendingU3TransitionCompletion((_QWORD *)v4, v13, 0);
+          v36 = (unsigned int)v63;
+          if ( v63 >= 0 )
           {
-            v27 = v26 - 8;
-            if ( v27 )
+            RootHub_AcquireReadModifyWriteLock(v4, v16);
+            v64 = XilRegister_ReadUlong(v8, v17);
+            v65 = v64;
+            v66 = &WPP_RECORDER_INITIALIZED;
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             {
-              v28 = v27 - 1;
-              if ( v28 )
-              {
-                v29 = v28 - 1;
-                if ( v29 )
-                {
-                  v30 = v29 - 1;
-                  if ( v30 )
-                  {
-                    v31 = v30 - 1;
-                    if ( v31 )
-                    {
-                      if ( v31 != 2 )
-                      {
-                        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                        {
-                          v21 = 75;
-                          goto LABEL_30;
-                        }
-LABEL_200:
-                        v11 = 3221225473LL;
-                        goto LABEL_201;
-                      }
-                      goto LABEL_111;
-                    }
-                    RootHub_AcquireReadModifyWriteLock(v3, v17);
-                    v33 = XilRegister_ReadUlong(v5, v18);
-                    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                    {
-                      LOBYTE(v32) = 4;
-                      WPP_RECORDER_SF_D(
-                        *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-                        v32,
-                        11,
-                        63,
-                        (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-                        v33);
-                    }
-                    v34 = v33 & 0xE00C200 | 0x200000;
-                    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                    {
-                      LOBYTE(v32) = 4;
-                      WPP_RECORDER_SF_D(
-                        *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-                        v32,
-                        11,
-                        64,
-                        (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-                        v34);
-                    }
-                    XilRegister_WriteUlong(v5, v18, v34);
-                    RootHub_ReleaseReadModifyWriteLock(v3, v17);
-                    v35 = XilRegister_ReadUlong(v5, v18);
-                    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                      goto LABEL_194;
-                    v37 = 65;
-                  }
-                  else
-                  {
-                    RootHub_AcquireReadModifyWriteLock(v3, v17);
-                    v39 = XilRegister_ReadUlong(v5, v18);
-                    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                    {
-                      LOBYTE(v38) = 4;
-                      WPP_RECORDER_SF_D(
-                        *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-                        v38,
-                        11,
-                        72,
-                        (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-                        v39);
-                    }
-                    v40 = v39 & 0xE00C200 | 0x100000;
-                    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                    {
-                      LOBYTE(v38) = 4;
-                      WPP_RECORDER_SF_D(
-                        *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-                        v38,
-                        11,
-                        73,
-                        (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-                        v40);
-                    }
-                    XilRegister_WriteUlong(v5, v18, v40);
-                    RootHub_ReleaseReadModifyWriteLock(v3, v17);
-                    v35 = XilRegister_ReadUlong(v5, v18);
-                    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                      goto LABEL_194;
-                    v37 = 74;
-                  }
-                }
-                else
-                {
-                  RootHub_AcquireReadModifyWriteLock(v3, v17);
-                  v42 = XilRegister_ReadUlong(v5, v18);
-                  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                  {
-                    LOBYTE(v41) = 4;
-                    WPP_RECORDER_SF_D(
-                      *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-                      v41,
-                      11,
-                      69,
-                      (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-                      v42);
-                  }
-                  v43 = v42 & 0xE00C200 | 0x400000;
-                  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                  {
-                    LOBYTE(v41) = 4;
-                    WPP_RECORDER_SF_D(
-                      *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-                      v41,
-                      11,
-                      70,
-                      (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-                      v43);
-                  }
-                  XilRegister_WriteUlong(v5, v18, v43);
-                  RootHub_ReleaseReadModifyWriteLock(v3, v17);
-                  v35 = XilRegister_ReadUlong(v5, v18);
-                  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                    goto LABEL_194;
-                  v37 = 71;
-                }
-              }
-              else
-              {
-                RootHub_AcquireReadModifyWriteLock(v3, v17);
-                v45 = XilRegister_ReadUlong(v5, v18);
-                if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                {
-                  LOBYTE(v44) = 4;
-                  WPP_RECORDER_SF_D(
-                    *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-                    v44,
-                    11,
-                    66,
-                    (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-                    v45);
-                }
-                v46 = v45 & 0xE00C200 | 0x40000;
-                if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                {
-                  LOBYTE(v44) = 4;
-                  WPP_RECORDER_SF_D(
-                    *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-                    v44,
-                    11,
-                    67,
-                    (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-                    v46);
-                }
-                XilRegister_WriteUlong(v5, v18, v46);
-                RootHub_ReleaseReadModifyWriteLock(v3, v17);
-                v35 = XilRegister_ReadUlong(v5, v18);
-                if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                  goto LABEL_194;
-                v37 = 68;
-              }
+              LOBYTE(v66) = 4;
+              WPP_RECORDER_SF_d(
+                *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                (_DWORD)v66,
+                11,
+                49,
+                (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                v64);
+              v66 = &WPP_RECORDER_INITIALIZED;
             }
+            if ( ((v65 & 2) == 0 || (v65 & 0x1E0) != 0x60 && (v65 & 0x1E0) != 0x1E0)
+              && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              LOBYTE(v66) = 2;
+              WPP_RECORDER_SF_(
+                *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                (_DWORD)v66,
+                11,
+                50,
+                (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids);
+            }
+            v67 = v65 & 0xE00C200 | 0x101E0;
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              LOBYTE(v66) = 4;
+              WPP_RECORDER_SF_d(
+                *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                (_DWORD)v66,
+                11,
+                51,
+                (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                v67);
+            }
+            XilRegister_WriteUlong(v8, v17, v67);
+            RootHub_ReleaseReadModifyWriteLock(v4, v16, v68, v69);
+            v70 = XilRegister_ReadUlong(v8, v17);
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              LOBYTE(v71) = 4;
+              WPP_RECORDER_SF_d(
+                *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                v71,
+                11,
+                52,
+                (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                v70);
+            }
+            v72 = *(_QWORD *)(v4 + 48);
+            if ( *(int *)(v72 + v142 + 48) > 0 )
+              v73 = *(_WORD *)(v72 + v142 + 52);
             else
-            {
-              RootHub_AcquireReadModifyWriteLock(v3, v17);
-              v48 = XilRegister_ReadUlong(v5, v18);
-              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              {
-                LOBYTE(v47) = 4;
-                WPP_RECORDER_SF_D(
-                  *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-                  v47,
-                  11,
-                  60,
-                  (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-                  v48);
-              }
-              v49 = v48 & 0xE00C200 | 0x20000;
-              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              {
-                LOBYTE(v47) = 4;
-                WPP_RECORDER_SF_D(
-                  *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-                  v47,
-                  11,
-                  61,
-                  (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-                  v49);
-              }
-              XilRegister_WriteUlong(v5, v18, v49);
-              RootHub_ReleaseReadModifyWriteLock(v3, v17);
-              v35 = XilRegister_ReadUlong(v5, v18);
-              if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                goto LABEL_194;
-              v37 = 62;
-            }
-          }
-          else
-          {
-            RootHub_AcquireReadModifyWriteLock(v3, v17);
-            v51 = XilRegister_ReadUlong(v5, v18);
-            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            {
-              LOBYTE(v50) = 4;
-              WPP_RECORDER_SF_D(
-                *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-                v50,
-                11,
-                53,
-                (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-                v51);
-            }
-            v52 = v51 & 0xE00C000;
-            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            {
-              LOBYTE(v50) = 4;
-              WPP_RECORDER_SF_D(
-                *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-                v50,
-                11,
-                54,
-                (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-                v52);
-            }
-            XilRegister_WriteUlong(v5, v18, v52);
-            RootHub_ReleaseReadModifyWriteLock(v3, v17);
-            v35 = XilRegister_ReadUlong(v5, v18);
-            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              goto LABEL_194;
-            v37 = 55;
+              v73 = 50;
+            (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64))(WdfFunctions_01023 + 2552))(
+              WdfDriverGlobals,
+              *(_QWORD *)(v72 + v142 + 40),
+              -10000LL * v73);
+            goto LABEL_29;
           }
 LABEL_193:
-          LOBYTE(v36) = 4;
-          WPP_RECORDER_SF_D(
-            *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-            v36,
-            11,
-            v37,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-            v35);
-          goto LABEL_194;
-        }
-        v53 = RootHub_WaitForPendingU3TransitionCompletion((_QWORD *)v3, v14, 0);
-        v11 = (unsigned int)v53;
-        if ( v53 < 0 )
-        {
-LABEL_201:
           *(_DWORD *)(v9 + 4) = -1073741820;
           return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64))(WdfFunctions_01023 + 2104))(
                    WdfDriverGlobals,
                    a2,
-                   v11);
+                   v36);
         }
-        RootHub_AcquireReadModifyWriteLock(v3, v17);
-        v54 = XilRegister_ReadUlong(v5, v18);
-        v55 = v54;
-        v56 = &WPP_RECORDER_INITIALIZED;
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        v22 = v21 - 6;
+        if ( v22 )
         {
-          LOBYTE(v56) = 4;
-          WPP_RECORDER_SF_D(
-            *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-            (_DWORD)v56,
-            11,
-            49,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-            v54);
-          v56 = &WPP_RECORDER_INITIALIZED;
+          v23 = v22 - 8;
+          if ( v23 )
+          {
+            v24 = v23 - 1;
+            if ( v24 )
+            {
+              v25 = v24 - 1;
+              if ( v25 )
+              {
+                v26 = v25 - 1;
+                if ( v26 )
+                {
+                  v27 = v26 - 1;
+                  if ( !v27 )
+                  {
+                    RootHub_AcquireReadModifyWriteLock(v4, v16);
+                    v29 = XilRegister_ReadUlong(v8, v17);
+                    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                    {
+                      LOBYTE(v28) = 4;
+                      WPP_RECORDER_SF_d(
+                        *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                        v28,
+                        11,
+                        63,
+                        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                        v29);
+                    }
+                    v30 = v29 & 0xE00C200 | 0x200000;
+                    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                    {
+                      LOBYTE(v28) = 4;
+                      WPP_RECORDER_SF_d(
+                        *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                        v28,
+                        11,
+                        64,
+                        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                        v30);
+                    }
+                    XilRegister_WriteUlong(v8, v17, v30);
+                    RootHub_ReleaseReadModifyWriteLock(v4, v16, v31, v32);
+                    v33 = XilRegister_ReadUlong(v8, v17);
+                    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                      goto LABEL_29;
+                    v35 = 65;
+                    goto LABEL_28;
+                  }
+                  if ( v27 != 2 )
+                  {
+                    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                    {
+                      v74 = 75;
+                      goto LABEL_92;
+                    }
+                    goto LABEL_192;
+                  }
+                  if ( v14 > 3 )
+                  {
+                    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                    {
+                      v74 = 56;
+                      goto LABEL_92;
+                    }
+                    goto LABEL_192;
+                  }
+                  RootHub_AcquireReadModifyWriteLock(v4, v16);
+                  v78 = XilRegister_ReadUlong(v8, v17);
+                  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                  {
+                    LOBYTE(v77) = 4;
+                    WPP_RECORDER_SF_d(
+                      *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                      v77,
+                      11,
+                      57,
+                      (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                      v78);
+                  }
+                  v79 = v78 & 0xE000200;
+                  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                  {
+                    LOBYTE(v77) = 4;
+                    WPP_RECORDER_SF_d(
+                      *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                      v77,
+                      11,
+                      58,
+                      (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                      v79);
+                  }
+                  XilRegister_WriteUlong(v8, v17, v79);
+                  RootHub_ReleaseReadModifyWriteLock(v4, v16, v80, v81);
+                  v33 = XilRegister_ReadUlong(v8, v17);
+                  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                    goto LABEL_29;
+                  v35 = 59;
+                }
+                else
+                {
+                  RootHub_AcquireReadModifyWriteLock(v4, v16);
+                  v83 = XilRegister_ReadUlong(v8, v17);
+                  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                  {
+                    LOBYTE(v82) = 4;
+                    WPP_RECORDER_SF_d(
+                      *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                      v82,
+                      11,
+                      72,
+                      (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                      v83);
+                  }
+                  v84 = v83 & 0xE00C200 | 0x100000;
+                  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                  {
+                    LOBYTE(v82) = 4;
+                    WPP_RECORDER_SF_d(
+                      *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                      v82,
+                      11,
+                      73,
+                      (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                      v84);
+                  }
+                  XilRegister_WriteUlong(v8, v17, v84);
+                  RootHub_ReleaseReadModifyWriteLock(v4, v16, v85, v86);
+                  v33 = XilRegister_ReadUlong(v8, v17);
+                  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                    goto LABEL_29;
+                  v35 = 74;
+                }
+              }
+              else
+              {
+                RootHub_AcquireReadModifyWriteLock(v4, v16);
+                v59 = XilRegister_ReadUlong(v8, v17);
+                if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                {
+                  LOBYTE(v58) = 4;
+                  WPP_RECORDER_SF_d(
+                    *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                    v58,
+                    11,
+                    69,
+                    (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                    v59);
+                }
+                v60 = v59 & 0xE00C200 | 0x400000;
+                if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                {
+                  LOBYTE(v58) = 4;
+                  WPP_RECORDER_SF_d(
+                    *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                    v58,
+                    11,
+                    70,
+                    (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                    v60);
+                }
+                XilRegister_WriteUlong(v8, v17, v60);
+                RootHub_ReleaseReadModifyWriteLock(v4, v16, v61, v62);
+                v33 = XilRegister_ReadUlong(v8, v17);
+                if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                  goto LABEL_29;
+                v35 = 71;
+              }
+            }
+            else
+            {
+              RootHub_AcquireReadModifyWriteLock(v4, v16);
+              v88 = XilRegister_ReadUlong(v8, v17);
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              {
+                LOBYTE(v87) = 4;
+                WPP_RECORDER_SF_d(
+                  *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                  v87,
+                  11,
+                  66,
+                  (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                  v88);
+              }
+              v89 = v88 & 0xE00C200 | 0x40000;
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              {
+                LOBYTE(v87) = 4;
+                WPP_RECORDER_SF_d(
+                  *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                  v87,
+                  11,
+                  67,
+                  (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                  v89);
+              }
+              XilRegister_WriteUlong(v8, v17, v89);
+              RootHub_ReleaseReadModifyWriteLock(v4, v16, v90, v91);
+              v33 = XilRegister_ReadUlong(v8, v17);
+              if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                goto LABEL_29;
+              v35 = 68;
+            }
+          }
+          else
+          {
+            RootHub_AcquireReadModifyWriteLock(v4, v16);
+            v54 = XilRegister_ReadUlong(v8, v17);
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              LOBYTE(v53) = 4;
+              WPP_RECORDER_SF_d(
+                *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                v53,
+                11,
+                60,
+                (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                v54);
+            }
+            v55 = v54 & 0xE00C200 | 0x20000;
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              LOBYTE(v53) = 4;
+              WPP_RECORDER_SF_d(
+                *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                v53,
+                11,
+                61,
+                (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                v55);
+            }
+            XilRegister_WriteUlong(v8, v17, v55);
+            RootHub_ReleaseReadModifyWriteLock(v4, v16, v56, v57);
+            v33 = XilRegister_ReadUlong(v8, v17);
+            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              goto LABEL_29;
+            v35 = 62;
+          }
         }
-        if ( ((v55 & 2) == 0 || (v55 & 0x1E0) != 0x60 && (v55 & 0x1E0) != 0x1E0)
-          && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v56) = 2;
-          WPP_RECORDER_SF_(
-            *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-            (_DWORD)v56,
-            11,
-            50,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids);
-        }
-        v57 = v55 & 0xE00C200 | 0x101E0;
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v56) = 4;
-          WPP_RECORDER_SF_D(
-            *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-            (_DWORD)v56,
-            11,
-            51,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-            v57);
-        }
-        XilRegister_WriteUlong(v5, v18, v57);
-        RootHub_ReleaseReadModifyWriteLock(v3, v17);
-        v58 = XilRegister_ReadUlong(v5, v18);
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v59) = 4;
-          WPP_RECORDER_SF_D(
-            *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-            v59,
-            11,
-            52,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-            v58);
-        }
-        v60 = *(_QWORD *)(v3 + 48);
-        if ( *(int *)(v60 + v118 + 48) <= 0 )
-          v61 = 50;
         else
-          v61 = *(_WORD *)(v60 + v118 + 52);
-        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64))(WdfFunctions_01023 + 2552))(
-          WdfDriverGlobals,
-          *(_QWORD *)(v60 + v118 + 40),
-          -10000LL * v61);
-        goto LABEL_194;
-      }
-      RootHub_AcquireReadModifyWriteLock(v3, v17);
-      v62 = XilRegister_ReadUlong(v5, v18);
-      v63 = v62;
-      v64 = &WPP_RECORDER_INITIALIZED;
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v64) = 4;
-        WPP_RECORDER_SF_D(
-          *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-          (_DWORD)v64,
-          11,
-          44,
-          (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-          v62);
-        v64 = &WPP_RECORDER_INITIALIZED;
-      }
-      v65 = *(_QWORD *)(v3 + 8);
-      if ( (*(_QWORD *)(v65 + 336) & 0x2000000LL) != 0 )
-      {
-        if ( ((v63 & 2) == 0 || (v63 & 0x1E0u) >= 0x60)
-          && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          LOBYTE(v64) = 3;
-          WPP_RECORDER_SF_(
-            *(_QWORD *)(v65 + 72),
-            (_DWORD)v64,
-            11,
-            45,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids);
-        }
-        v66 = v63 & 0xE00C200 | 0x10060;
-        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-LABEL_106:
-          XilRegister_WriteUlong(v5, v18, v66);
-          RootHub_ReleaseReadModifyWriteLock(v3, v17);
-          v35 = XilRegister_ReadUlong(v5, v18);
+          RootHub_AcquireReadModifyWriteLock(v4, v16);
+          v93 = XilRegister_ReadUlong(v8, v17);
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            v37 = 48;
-            goto LABEL_193;
+            LOBYTE(v92) = 4;
+            WPP_RECORDER_SF_d(
+              *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+              v92,
+              11,
+              53,
+              (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+              v93);
           }
-LABEL_194:
-          *(_DWORD *)(v9 + 4) = 0;
-          v11 = 0LL;
-          return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64))(WdfFunctions_01023 + 2104))(
-                   WdfDriverGlobals,
-                   a2,
-                   v11);
+          v94 = v93 & 0xE00C000;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v92) = 4;
+            WPP_RECORDER_SF_d(
+              *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+              v92,
+              11,
+              54,
+              (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+              v94);
+          }
+          XilRegister_WriteUlong(v8, v17, v94);
+          RootHub_ReleaseReadModifyWriteLock(v4, v16, v95, v96);
+          v33 = XilRegister_ReadUlong(v8, v17);
+          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            goto LABEL_29;
+          v35 = 55;
         }
-        v67 = 46;
-        v68 = *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL);
+LABEL_28:
+        LOBYTE(v34) = 4;
+        WPP_RECORDER_SF_d(
+          *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+          v34,
+          11,
+          v35,
+          (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+          v33);
+LABEL_29:
+        *(_DWORD *)(v9 + 4) = 0;
+LABEL_30:
+        v36 = 0LL;
+        return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64))(WdfFunctions_01023 + 2104))(
+                 WdfDriverGlobals,
+                 a2,
+                 v36);
+      }
+      RootHub_AcquireReadModifyWriteLock(v4, v16);
+      v97 = XilRegister_ReadUlong(v8, v17);
+      v98 = v97;
+      v99 = &WPP_RECORDER_INITIALIZED;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v99) = 4;
+        WPP_RECORDER_SF_d(
+          *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+          (_DWORD)v99,
+          11,
+          44,
+          (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+          v97);
+        v99 = &WPP_RECORDER_INITIALIZED;
+      }
+      v100 = *(_QWORD *)(v4 + 8);
+      if ( (*(_QWORD *)(v100 + 336) & 0x2000000LL) != 0 )
+      {
+        if ( ((v98 & 2) == 0 || (v98 & 0x1E0u) >= 0x60)
+          && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v99) = 3;
+          WPP_RECORDER_SF_(
+            *(_QWORD *)(v100 + 72),
+            (_DWORD)v99,
+            11,
+            45,
+            (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids);
+        }
+        v101 = v98 & 0xE00C200 | 0x10060;
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          goto LABEL_138;
+        v102 = 46;
+        v103 = *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL);
       }
       else
       {
-        v66 = v63 & 0xE00C200 | 2;
+        v101 = v98 & 0xE00C200 | 2;
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_106;
-        v68 = *(_QWORD *)(v65 + 72);
-        v67 = 47;
+        {
+LABEL_138:
+          XilRegister_WriteUlong(v8, v17, v101);
+          RootHub_ReleaseReadModifyWriteLock(v4, v16, v104, v105);
+          v33 = XilRegister_ReadUlong(v8, v17);
+          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            goto LABEL_29;
+          v35 = 48;
+          goto LABEL_28;
+        }
+        v103 = *(_QWORD *)(v100 + 72);
+        v102 = 47;
       }
-      LOBYTE(v64) = 4;
-      WPP_RECORDER_SF_D(v68, (_DWORD)v64, 11, v67, (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids, v66);
-      goto LABEL_106;
+      LOBYTE(v99) = 4;
+      WPP_RECORDER_SF_d(v103, (_DWORD)v99, 11, v102, (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids, v101);
+      goto LABEL_138;
     }
-    if ( (_BYTE)v19 != 3 )
+    if ( (_BYTE)v18 != 3 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v21 = 105;
-        v22 = *(unsigned __int8 *)(v9 + 134);
-        v23 = *(unsigned __int8 *)(v9 + 131);
-        goto LABEL_199;
+        v74 = 103;
+        v75 = *(unsigned __int8 *)(v9 + 134);
+        v76 = *(unsigned __int8 *)(v9 + 131);
+        goto LABEL_191;
       }
-      goto LABEL_200;
+      goto LABEL_192;
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v19) = 4;
+      LOBYTE(v18) = 4;
       WPP_RECORDER_SF_ddd(
-        *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-        v19,
+        *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+        v18,
         11,
         76,
-        (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-        v14,
-        v16,
-        v15);
-      v15 = v117;
-      v20 = v18 + 4;
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+        v13,
+        v15,
+        v14);
+      v14 = v140;
+      v19 = v17 + 4;
     }
-    if ( v15 )
+    if ( v14 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v21 = 77;
-        goto LABEL_30;
+        v74 = 77;
+        goto LABEL_92;
       }
-      goto LABEL_200;
+      goto LABEL_192;
     }
-    v72 = v16 - 8;
-    if ( !v72 )
+    v38 = v15 - 8;
+    if ( v38 )
     {
-      RootHub_AcquireReadModifyWriteLock(v3, v17);
-      v111 = XilRegister_ReadUlong(v5, v18);
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      v39 = v38 - 8;
+      if ( v39 )
       {
-        LOBYTE(v110) = 4;
-        WPP_RECORDER_SF_D(
-          *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-          v110,
-          11,
-          78,
-          (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-          v111);
-      }
-      v112 = v111 & 0xE00C000;
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v110) = 4;
-        WPP_RECORDER_SF_D(
-          *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-          v110,
-          11,
-          79,
-          (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-          v112);
-      }
-      XilRegister_WriteUlong(v5, v18, v112);
-      RootHub_ReleaseReadModifyWriteLock(v3, v17);
-      v35 = XilRegister_ReadUlong(v5, v18);
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_194;
-      v37 = 80;
-      goto LABEL_193;
-    }
-    v73 = v72 - 8;
-    if ( v73 )
-    {
-      v74 = v73 - 3;
-      if ( !v74 )
-      {
-        RootHub_AcquireReadModifyWriteLock(v3, v17);
-        v103 = XilRegister_ReadUlong(v5, v18);
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        v40 = v39 - 3;
+        if ( v40 )
         {
-          LOBYTE(v102) = 4;
-          WPP_RECORDER_SF_D(
-            *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-            v102,
-            11,
-            88,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-            v103);
+          v41 = v40 - 1;
+          if ( v41 )
+          {
+            v42 = v41 - 5;
+            if ( v42 )
+            {
+              v43 = v42 - 1;
+              if ( v43 )
+              {
+                v44 = v43 - 3;
+                if ( v44 )
+                {
+                  if ( v44 != 1 )
+                  {
+                    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                    {
+                      v74 = 102;
+                      goto LABEL_92;
+                    }
+                    goto LABEL_192;
+                  }
+                  v106 = XilRegister_ReadUlong(v8, v19);
+                  v108 = v106;
+                  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                  {
+                    LOBYTE(v107) = 4;
+                    WPP_RECORDER_SF_d(
+                      *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                      v107,
+                      11,
+                      99,
+                      (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                      v106);
+                  }
+                  v109 = v108 & 0xFFFEFFFF;
+                  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                  {
+                    LOBYTE(v107) = 4;
+                    WPP_RECORDER_SF_d(
+                      *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                      v107,
+                      11,
+                      100,
+                      (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                      v109);
+                  }
+                  XilRegister_WriteUlong(v8, v143, v109);
+                  v50 = XilRegister_ReadUlong(v8, v143);
+                  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                  {
+LABEL_50:
+                    *(_DWORD *)(v9 + 4) = 0;
+                    goto LABEL_30;
+                  }
+                  v52 = 101;
+                }
+                else
+                {
+                  RootHub_AcquireReadModifyWriteLock(v4, v16);
+                  v46 = XilRegister_ReadUlong(v8, v17);
+                  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                  {
+                    LOBYTE(v45) = 4;
+                    WPP_RECORDER_SF_d(
+                      *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                      v45,
+                      11,
+                      96,
+                      (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                      v46);
+                  }
+                  v47 = v46 & 0xE00C200 | 0x80000;
+                  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                  {
+                    LOBYTE(v45) = 4;
+                    WPP_RECORDER_SF_d(
+                      *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                      v45,
+                      11,
+                      97,
+                      (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                      v47);
+                  }
+                  XilRegister_WriteUlong(v8, v17, v47);
+                  RootHub_ReleaseReadModifyWriteLock(v4, v16, v48, v49);
+                  v50 = XilRegister_ReadUlong(v8, v17);
+                  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                    goto LABEL_50;
+                  v52 = 98;
+                }
+              }
+              else
+              {
+                RootHub_AcquireReadModifyWriteLock(v4, v16);
+                v111 = XilRegister_ReadUlong(v8, v17);
+                if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                {
+                  LOBYTE(v110) = 4;
+                  WPP_RECORDER_SF_d(
+                    *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                    v110,
+                    11,
+                    93,
+                    (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                    v111);
+                }
+                v112 = v111 & 0xE00C200 | 0x800000;
+                if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                {
+                  LOBYTE(v110) = 4;
+                  WPP_RECORDER_SF_d(
+                    *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                    v110,
+                    11,
+                    94,
+                    (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                    v112);
+                }
+                XilRegister_WriteUlong(v8, v17, v112);
+                RootHub_ReleaseReadModifyWriteLock(v4, v16, v113, v114);
+                v50 = XilRegister_ReadUlong(v8, v17);
+                if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                  goto LABEL_50;
+                v52 = 95;
+              }
+            }
+            else
+            {
+              RootHub_AcquireReadModifyWriteLock(v4, v16);
+              v116 = XilRegister_ReadUlong(v8, v17);
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              {
+                LOBYTE(v115) = 4;
+                WPP_RECORDER_SF_d(
+                  *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                  v115,
+                  11,
+                  90,
+                  (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                  v116);
+              }
+              v117 = v116 & 0xE00C200 | 0x400000;
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              {
+                LOBYTE(v115) = 4;
+                WPP_RECORDER_SF_d(
+                  *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                  v115,
+                  11,
+                  91,
+                  (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                  v117);
+              }
+              XilRegister_WriteUlong(v8, v17, v117);
+              RootHub_ReleaseReadModifyWriteLock(v4, v16, v118, v119);
+              v50 = XilRegister_ReadUlong(v8, v17);
+              if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                goto LABEL_50;
+              v52 = 92;
+            }
+          }
+          else
+          {
+            RootHub_AcquireReadModifyWriteLock(v4, v16);
+            v121 = XilRegister_ReadUlong(v8, v17);
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              LOBYTE(v120) = 4;
+              WPP_RECORDER_SF_d(
+                *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                v120,
+                11,
+                84,
+                (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                v121);
+            }
+            v122 = v121 & 0xE00C200 | 0x200000;
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              LOBYTE(v120) = 4;
+              WPP_RECORDER_SF_d(
+                *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+                v120,
+                11,
+                85,
+                (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                v122);
+            }
+            XilRegister_WriteUlong(v8, v17, v122);
+            RootHub_ReleaseReadModifyWriteLock(v4, v16, v123, v124);
+            v50 = XilRegister_ReadUlong(v8, v17);
+            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              goto LABEL_50;
+            v52 = 86;
+          }
         }
-        v104 = v103 & 0xE00C200 | 0x100000;
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        else
         {
-          LOBYTE(v102) = 4;
-          WPP_RECORDER_SF_D(
-            *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-            v102,
-            11,
-            89,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-            v104);
-        }
-        XilRegister_WriteUlong(v5, v18, v104);
-        RootHub_ReleaseReadModifyWriteLock(v3, v17);
-        v35 = XilRegister_ReadUlong(v5, v18);
-        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_194;
-        v37 = 90;
-        goto LABEL_193;
-      }
-      v75 = v74 - 1;
-      if ( !v75 )
-      {
-        RootHub_AcquireReadModifyWriteLock(v3, v17);
-        v100 = XilRegister_ReadUlong(v5, v18);
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v99) = 4;
-          WPP_RECORDER_SF_D(
-            *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-            v99,
-            11,
-            85,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-            v100);
-        }
-        v101 = v100 & 0xE00C200 | 0x200000;
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v99) = 4;
-          WPP_RECORDER_SF_D(
-            *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-            v99,
-            11,
-            86,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-            v101);
-        }
-        XilRegister_WriteUlong(v5, v18, v101);
-        RootHub_ReleaseReadModifyWriteLock(v3, v17);
-        v35 = XilRegister_ReadUlong(v5, v18);
-        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_194;
-        v37 = 87;
-        goto LABEL_193;
-      }
-      v76 = v75 - 5;
-      if ( v76 )
-      {
-        v77 = v76 - 1;
-        if ( !v77 )
-        {
-          RootHub_AcquireReadModifyWriteLock(v3, v17);
-          v87 = XilRegister_ReadUlong(v5, v18);
+          RootHub_AcquireReadModifyWriteLock(v4, v16);
+          v126 = XilRegister_ReadUlong(v8, v17);
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            LOBYTE(v86) = 4;
-            WPP_RECORDER_SF_D(
-              *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-              v86,
+            LOBYTE(v125) = 4;
+            WPP_RECORDER_SF_d(
+              *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+              v125,
               11,
-              95,
-              (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-              v87);
+              87,
+              (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+              v126);
           }
-          v88 = v87 & 0xE00C200 | 0x800000;
+          v127 = v126 & 0xE00C200 | 0x100000;
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            LOBYTE(v86) = 4;
-            WPP_RECORDER_SF_D(
-              *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-              v86,
+            LOBYTE(v125) = 4;
+            WPP_RECORDER_SF_d(
+              *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+              v125,
               11,
-              96,
-              (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-              v88);
+              88,
+              (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+              v127);
           }
-          XilRegister_WriteUlong(v5, v18, v88);
-          RootHub_ReleaseReadModifyWriteLock(v3, v17);
-          v35 = XilRegister_ReadUlong(v5, v18);
+          XilRegister_WriteUlong(v8, v17, v127);
+          RootHub_ReleaseReadModifyWriteLock(v4, v16, v128, v129);
+          v50 = XilRegister_ReadUlong(v8, v17);
           if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            goto LABEL_194;
-          v37 = 97;
-          goto LABEL_193;
+            goto LABEL_50;
+          v52 = 89;
         }
-        v78 = v77 - 3;
-        if ( !v78 )
-        {
-          RootHub_AcquireReadModifyWriteLock(v3, v17);
-          v84 = XilRegister_ReadUlong(v5, v18);
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LOBYTE(v83) = 4;
-            WPP_RECORDER_SF_D(
-              *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-              v83,
-              11,
-              98,
-              (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-              v84);
-          }
-          v85 = v84 & 0xE00C200 | 0x80000;
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LOBYTE(v83) = 4;
-            WPP_RECORDER_SF_D(
-              *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-              v83,
-              11,
-              99,
-              (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-              v85);
-          }
-          XilRegister_WriteUlong(v5, v18, v85);
-          RootHub_ReleaseReadModifyWriteLock(v3, v17);
-          v35 = XilRegister_ReadUlong(v5, v18);
-          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            goto LABEL_194;
-          v37 = 100;
-          goto LABEL_193;
-        }
-        if ( v78 != 1 )
-        {
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            v21 = 104;
-            goto LABEL_30;
-          }
-          goto LABEL_200;
-        }
-        v79 = XilRegister_ReadUlong(v5, v20);
-        v81 = v79;
+      }
+      else
+      {
+        RootHub_AcquireReadModifyWriteLock(v4, v16);
+        v131 = XilRegister_ReadUlong(v8, v17);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          LOBYTE(v80) = 4;
-          WPP_RECORDER_SF_D(
-            *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-            v80,
+          LOBYTE(v130) = 4;
+          WPP_RECORDER_SF_d(
+            *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+            v130,
             11,
-            101,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-            v79);
+            81,
+            (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+            v131);
         }
-        v82 = v81 & 0xFFFEFFFF;
+        v132 = v131 & 0xE00C200 | 0x20000;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          LOBYTE(v80) = 4;
-          WPP_RECORDER_SF_D(
-            *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-            v80,
+          LOBYTE(v130) = 4;
+          WPP_RECORDER_SF_d(
+            *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+            v130,
             11,
-            102,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-            v82);
+            82,
+            (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+            v132);
         }
-        XilRegister_WriteUlong(v5, v119, v82);
-        v35 = XilRegister_ReadUlong(v5, v119);
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          v37 = 103;
-          goto LABEL_193;
-        }
-        goto LABEL_194;
-      }
-      RootHub_AcquireReadModifyWriteLock(v3, v17);
-      v90 = XilRegister_ReadUlong(v5, v18);
-      v115 = v90;
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v89) = 4;
-        WPP_RECORDER_SF_D(
-          *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-          v89,
-          11,
-          91,
-          (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-          v90);
-      }
-      v91 = v90 & 0xE00C200 | 0x400000;
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v89) = 4;
-        WPP_RECORDER_SF_D(
-          *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-          v89,
-          11,
-          92,
-          (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-          v91);
-      }
-      XilRegister_WriteUlong(v5, v18, v91);
-      RootHub_ReleaseReadModifyWriteLock(v3, v17);
-      v92 = XilRegister_ReadUlong(v5, v18);
-      v94 = v92;
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v93) = 4;
-        WPP_RECORDER_SF_D(
-          *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-          v93,
-          11,
-          93,
-          (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-          v92);
-      }
-      if ( (_mm_srli_si128(*(__m128i *)(*(_QWORD *)(v3 + 8) + 336LL), 8).m128i_u64[0] & 0x1000000) == 0 )
-        goto LABEL_194;
-      v95 = v115 == v94;
-      v96 = 120LL * v17;
-      v97 = *(_QWORD *)(v3 + 48);
-      if ( v95 )
-      {
-        ++*(_DWORD *)(v97 + v118 + 112);
+        XilRegister_WriteUlong(v8, v17, v132);
+        RootHub_ReleaseReadModifyWriteLock(v4, v16, v133, v134);
+        v50 = XilRegister_ReadUlong(v8, v17);
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_185;
-        v98 = 94;
-LABEL_183:
-        LOBYTE(v93) = 2;
-        WPP_RECORDER_SF_(
-          *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-          v93,
-          11,
-          v98,
-          (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids);
-        goto LABEL_185;
+          goto LABEL_50;
+        v52 = 83;
       }
     }
     else
     {
-      RootHub_AcquireReadModifyWriteLock(v3, v17);
-      v106 = XilRegister_ReadUlong(v5, v18);
-      v116 = v106;
+      RootHub_AcquireReadModifyWriteLock(v4, v16);
+      v136 = XilRegister_ReadUlong(v8, v17);
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v105) = 4;
-        WPP_RECORDER_SF_D(
-          *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-          v105,
+        LOBYTE(v135) = 4;
+        WPP_RECORDER_SF_d(
+          *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+          v135,
           11,
-          81,
-          (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-          v106);
+          78,
+          (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+          v136);
       }
-      v107 = v106 & 0xE00C200 | 0x20000;
+      v137 = v136 & 0xE00C000;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v105) = 4;
-        WPP_RECORDER_SF_D(
-          *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-          v105,
+        LOBYTE(v135) = 4;
+        WPP_RECORDER_SF_d(
+          *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+          v135,
           11,
-          82,
-          (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-          v107);
+          79,
+          (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+          v137);
       }
-      XilRegister_WriteUlong(v5, v18, v107);
-      RootHub_ReleaseReadModifyWriteLock(v3, v17);
-      v108 = XilRegister_ReadUlong(v5, v18);
-      v109 = v108;
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v93) = 4;
-        WPP_RECORDER_SF_D(
-          *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-          v93,
-          11,
-          83,
-          (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-          v108);
-      }
-      if ( (_mm_srli_si128(*(__m128i *)(*(_QWORD *)(v3 + 8) + 336LL), 8).m128i_u64[0] & 0x1000000) == 0 )
-        goto LABEL_194;
-      v95 = v116 == v109;
-      v96 = 120LL * v17;
-      v97 = *(_QWORD *)(v3 + 48);
-      if ( v95 )
-      {
-        ++*(_DWORD *)(v97 + v118 + 112);
-        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_185;
-        v98 = 84;
-        goto LABEL_183;
-      }
+      XilRegister_WriteUlong(v8, v17, v137);
+      RootHub_ReleaseReadModifyWriteLock(v4, v16, v138, v139);
+      v50 = XilRegister_ReadUlong(v8, v17);
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        goto LABEL_50;
+      v52 = 80;
     }
-    *(_DWORD *)(v97 + v96 + 112) = 0;
-LABEL_185:
-    if ( *(_DWORD *)(*(_QWORD *)(v3 + 48) + v96 + 112) == 10 )
-      Controller_ReportFatalError(*(_QWORD *)(v3 + 8), 64, 4144, 0, 0LL, 0LL, 0LL);
-    goto LABEL_194;
+    LOBYTE(v51) = 4;
+    WPP_RECORDER_SF_d(
+      *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+      v51,
+      11,
+      v52,
+      (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+      v50);
+    goto LABEL_50;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v13) = 2;
+    LOBYTE(v12) = 2;
     WPP_RECORDER_SF_(
-      *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
-      v13,
+      *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+      v12,
       11,
       40,
-      (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids);
+      (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids);
   }
   *(_DWORD *)(v9 + 4) = -1073741807;
-  v11 = 3221225666LL;
+  v36 = 3221225666LL;
   return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64))(WdfFunctions_01023 + 2104))(
            WdfDriverGlobals,
            a2,
-           v11);
+           v36);
 }

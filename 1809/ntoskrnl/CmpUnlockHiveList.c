@@ -2,8 +2,8 @@
  * XREFs of CmpUnlockHiveList @ 0x1405B0118
  * Callers:
  *     CmpLoadKeyCommon @ 0x140010994 (CmpLoadKeyCommon.c)
- *     CmpJoinClassOfTrust @ 0x1401B3170 (CmpJoinClassOfTrust.c)
- *     CmpUnJoinClassOfTrust @ 0x1401B320C (CmpUnJoinClassOfTrust.c)
+ *     CmpJoinClassOfTrust @ 0x1401B3190 (CmpJoinClassOfTrust.c)
+ *     CmpUnJoinClassOfTrust @ 0x1401B322C (CmpUnJoinClassOfTrust.c)
  * Callees:
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  */

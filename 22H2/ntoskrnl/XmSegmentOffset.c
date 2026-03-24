@@ -1,34 +1,34 @@
 /*
- * XREFs of XmSegmentOffset @ 0x1403A4910
+ * XREFs of XmSegmentOffset @ 0x1403C8B70
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmGetLongImmediate @ 0x1403999E8 (XmGetLongImmediate.c)
- *     XmGetOffsetAddress @ 0x1403A497C (XmGetOffsetAddress.c)
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
- *     XmSetDataType @ 0x1403B8E88 (XmSetDataType.c)
- *     XmGetWordImmediate @ 0x1403B9010 (XmGetWordImmediate.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
+ *     XmSetDataType @ 0x140396CC8 (XmSetDataType.c)
+ *     XmGetWordImmediate @ 0x140396D40 (XmGetWordImmediate.c)
+ *     XmGetLongImmediate @ 0x1403C4B34 (XmGetLongImmediate.c)
+ *     XmGetOffsetAddress @ 0x1403C8BDC (XmGetOffsetAddress.c)
  */
 
 __int64 __fastcall XmSegmentOffset(__int64 a1)
 {
   unsigned int LongImmediate; // eax
-  __int64 OffsetAddress; // rax
+  unsigned __int16 *OffsetAddress; // rax
   __int64 v4; // rdx
-  __int64 v5; // r8
+  unsigned __int16 *v5; // r8
 
   XmSetDataType(a1);
   if ( *(_BYTE *)(a1 + 137) )
     LongImmediate = XmGetLongImmediate(a1);
   else
     LongImmediate = (unsigned __int16)XmGetWordImmediate(a1);
-  OffsetAddress = XmGetOffsetAddress(a1, LongImmediate);
+  OffsetAddress = (unsigned __int16 *)XmGetOffsetAddress(a1, LongImmediate);
   v4 = a1 + 24;
   v5 = OffsetAddress;
   if ( (*(_DWORD *)(a1 + 112) & 2) != 0 )
   {
-    OffsetAddress = a1 + 24;
-    v4 = v5;
+    OffsetAddress = (unsigned __int16 *)(a1 + 24);
+    v4 = (__int64)v5;
   }
   *(_QWORD *)(a1 + 88) = v4;
   XmSetSourceValue(a1, OffsetAddress);

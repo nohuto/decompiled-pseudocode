@@ -1,5 +1,5 @@
 /*
- * XREFs of NtRecoverResourceManager @ 0x1403DFD40
+ * XREFs of NtRecoverResourceManager @ 0x1403D0A40
  * Callers:
  *     <none>
  * Callees:

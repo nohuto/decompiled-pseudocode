@@ -1,8 +1,9 @@
 /*
- * XREFs of ??1?$AutoBuffer@I@DMM@@UEAA@XZ @ 0x1C00283BC
+ * XREFs of ??1?$AutoBuffer@I@DMM@@UEAA@XZ @ 0x1C0008C04
  * Callers:
- *     ??_E?$AutoBuffer@I@DMM@@UEAAPEAXI@Z @ 0x1C00682C0 (--_E-$AutoBuffer@I@DMM@@UEAAPEAXI@Z.c)
- *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C0211BD0 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
+ *     ??1DMMVIDPNSOURCE@@UEAA@XZ @ 0x1C0008B04 (--1DMMVIDPNSOURCE@@UEAA@XZ.c)
+ *     ??_G?$AutoBuffer@U_D3DDDI_MULTISAMPLINGMETHOD@@@DMM@@UEAAPEAXI@Z @ 0x1C005B680 (--_G-$AutoBuffer@U_D3DDDI_MULTISAMPLINGMETHOD@@@DMM@@UEAAPEAXI@Z.c)
+ *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C0193CC0 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +13,7 @@ void **__fastcall DMM::AutoBuffer<unsigned int>::~AutoBuffer<unsigned int>(_QWOR
   void *v2; // rcx
   void **result; // rax
 
-  *a1 = &DMM::AutoBuffer<unsigned int>::`vftable'{for `SetElement'};
+  *a1 = &DMM::AutoBuffer<_D3DDDI_MULTISAMPLINGMETHOD>::`vftable'{for `SetElement'};
   a1[3] = &DMM::AutoBuffer<unsigned int>::`vftable'{for `NonReferenceCounted'};
   v2 = (void *)a1[4];
   if ( v2 )

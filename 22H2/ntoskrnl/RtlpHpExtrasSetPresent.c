@@ -1,24 +1,33 @@
 /*
- * XREFs of RtlpHpExtrasSetPresent @ 0x1405B6624
+ * XREFs of RtlpHpExtrasSetPresent @ 0x14059491C
  * Callers:
- *     RtlpHpExtrasAppend @ 0x1405B6500 (RtlpHpExtrasAppend.c)
+ *     RtlpHpExtrasAppend @ 0x1405947F8 (RtlpHpExtrasAppend.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x1403235AC (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpSegSetExtraPresent @ 0x1405B6BD0 (RtlpHpSegSetExtraPresent.c)
- *     RtlpHpLargeAllocSetExtraPresent @ 0x1405B7044 (RtlpHpLargeAllocSetExtraPresent.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140289A94 (RtlpHpEnvGetHeapManager.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x1402FABD0 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpSegSetExtraPresent @ 0x140594F88 (RtlpHpSegSetExtraPresent.c)
+ *     RtlpHpLargeAllocSetExtraPresent @ 0x140595250 (RtlpHpLargeAllocSetExtraPresent.c)
  */
 
-__int64 __fastcall RtlpHpExtrasSetPresent(__int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall RtlpHpExtrasSetPresent(__int128 *a1, __int64 a2, unsigned int a3)
 {
   int v3; // ebx
-  __int64 v7; // rax
+  _QWORD *HeapManager; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rax
+  __int128 v11; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = 0;
-  if ( (_WORD)a2 )
-    return RtlpHpSegSetExtraPresent(a1 + 192LL * v3 + 320, a2);
-  v7 = RtlCSparseBitmapBitmaskRead((__int64)&unk_140C711D0, 2 * ((unsigned __int64)(a2 - qword_140C711C8) >> 20));
-  if ( v7 && (v3 = v7 - 1, (_DWORD)v7 != 3) )
-    return RtlpHpSegSetExtraPresent(a1 + 192LL * v3 + 320, a2);
-  else
+  if ( !(_WORD)a2 )
+  {
+    v11 = *a1;
+    HeapManager = RtlpHpEnvGetHeapManager(&v11);
+    v9 = RtlCSparseBitmapBitmaskRead((__int64)(HeapManager + 2), 2 * ((unsigned __int64)(v8 - HeapManager[1]) >> 20));
+    if ( !v9 )
+      return RtlpHpLargeAllocSetExtraPresent(a1, a2, a3);
+    v3 = v9 - 1;
+  }
+  if ( v3 == 2 )
     return RtlpHpLargeAllocSetExtraPresent(a1, a2, a3);
+  return RtlpHpSegSetExtraPresent(&a1[12 * v3 + 16], a2);
 }

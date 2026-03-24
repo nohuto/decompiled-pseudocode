@@ -1,17 +1,17 @@
 /*
- * XREFs of ?PeekRequest@FxIoQueue@@QEAAJPEAVFxRequest@@PEAU_FILE_OBJECT@@PEAU_WDF_REQUEST_PARAMETERS@@PEAPEAV2@@Z @ 0x1C00056A4
+ * XREFs of ?PeekRequest@FxIoQueue@@QEAAJPEAVFxRequest@@PEAU_FILE_OBJECT@@PEAU_WDF_REQUEST_PARAMETERS@@PEAPEAV2@@Z @ 0x1C000C2CC
  * Callers:
- *     imp_WdfIoQueueFindRequest @ 0x1C0005330 (imp_WdfIoQueueFindRequest.c)
+ *     imp_WdfIoQueueFindRequest @ 0x1C000C1F0 (imp_WdfIoQueueFindRequest.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?PeekRequest@FxIrpQueue@@QEAAJPEAU_IO_CSQ_IRP_CONTEXT@@PEAU_FILE_OBJECT@@PEAPEAVFxRequest@@@Z @ 0x1C00057FC (-PeekRequest@FxIrpQueue@@QEAAJPEAU_IO_CSQ_IRP_CONTEXT@@PEAU_FILE_OBJECT@@PEAPEAVFxRequest@@@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?GetParameters@FxRequest@@QEAAJPEAU_WDF_REQUEST_PARAMETERS@@@Z @ 0x1C0013B50 (-GetParameters@FxRequest@@QEAAJPEAU_WDF_REQUEST_PARAMETERS@@@Z.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?SetVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0064138 (-SetVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
- *     ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C006D914 (-Lock@FxVerifierLock@@QEAAXPEAEE@Z.c)
- *     ?Unlock@FxVerifierLock@@QEAAXEE@Z @ 0x1C006DC28 (-Unlock@FxVerifierLock@@QEAAXEE@Z.c)
- *     ?Vf_VerifyPeekRequest@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequest@@@Z @ 0x1C00C8784 (-Vf_VerifyPeekRequest@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequest@@@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     ?GetParameters@FxRequest@@QEAAJPEAU_WDF_REQUEST_PARAMETERS@@@Z @ 0x1C0019A40 (-GetParameters@FxRequest@@QEAAJPEAU_WDF_REQUEST_PARAMETERS@@@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?SetVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0049D8C (-SetVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
+ *     ?Vf_VerifyPeekRequest@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequest@@@Z @ 0x1C00C76B0 (-Vf_VerifyPeekRequest@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequest@@@Z.c)
  */
 
 int __fastcall FxIoQueue::PeekRequest(
@@ -21,80 +21,100 @@ int __fastcall FxIoQueue::PeekRequest(
         _WDF_REQUEST_PARAMETERS *Parameters,
         FxRequest **pOutRequest)
 {
-  _FX_DRIVER_GLOBALS *m_Globals; // rsi
-  bool v6; // zf
-  unsigned __int8 v11; // r14
-  int v12; // eax
-  unsigned __int8 v13; // r8
-  FxRequest *v14; // r15
-  int v15; // edi
+  _FX_DRIVER_GLOBALS *m_Globals; // rbp
+  FxRequest *p_Blink; // rsi
+  bool v7; // zf
+  unsigned __int64 v12; // r8
+  FxIoQueue *Flink; // rcx
+  bool v14; // dl
+  int v15; // ebx
   int result; // eax
+  _LIST_ENTRY *Blink; // r9
+  int v18; // r8d
   const void *_a1; // rax
-  FxVerifierLock *v18; // rcx
-  FxVerifierLock *v19; // rcx
-  FxRequest *pRequest; // [rsp+40h] [rbp-38h] BYREF
-  unsigned __int8 irql; // [rsp+80h] [rbp+8h] BYREF
+  unsigned __int8 irql; // [rsp+70h] [rbp+8h] BYREF
 
   m_Globals = this->m_Globals;
-  v6 = this->m_Type == WdfIoQueueDispatchManual;
-  pRequest = 0LL;
+  p_Blink = 0LL;
+  v7 = this->m_Type == WdfIoQueueDispatchManual;
   irql = 0;
-  if ( !v6 )
+  if ( !v7 )
   {
     _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this);
+    v15 = -1073741808;
     WPP_IFR_SF_qL(m_Globals, 2u, 0xDu, 0x1Fu, WPP_FxIoQueue_cpp_Traceguids, _a1, 0xC0000010);
     FxVerifierDbgBreakPoint(m_Globals);
-    return -1073741808;
+    return v15;
   }
   if ( !TagRequest
-    || !m_Globals->FxVerifierOn
-    || (result = FxIoQueue::Vf_VerifyPeekRequest(this, m_Globals, TagRequest), result >= 0) )
+    || (!m_Globals->FxVerifierOn
+      ? (result = 0)
+      : (result = FxIoQueue::Vf_VerifyPeekRequest(this, m_Globals, TagRequest)),
+        result >= 0) )
   {
-    if ( SLOBYTE(this->m_ObjectFlags) < 0
-      && (v18 = *(FxVerifierLock **)&this[-1].m_PowerIdle.m_DbgFlagIsInitialized) != 0LL )
+    FxNonPagedObject::Lock(this, &irql);
+    v12 = (unsigned __int64)&TagRequest->120 & -(__int64)(TagRequest != 0LL);
+    Flink = (FxIoQueue *)this->m_Queue.m_Queue.Flink;
+    v14 = v12 == 0;
+    while ( 1 )
     {
-      FxVerifierLock::Lock(v18, &irql, (unsigned __int8)FileObject);
-      v11 = irql;
-    }
-    else
-    {
-      v11 = KeAcquireSpinLockRaiseToDpc(&this->m_NPLock.m_Lock);
-      irql = v11;
-    }
-    v12 = FxIrpQueue::PeekRequest(
-            &this->m_Queue,
-            (_IO_CSQ_IRP_CONTEXT *)((unsigned __int64)&TagRequest->120 & -(__int64)(TagRequest != 0LL)),
-            FileObject,
-            &pRequest);
-    v14 = pRequest;
-    v15 = v12;
-    if ( v12 >= 0 )
-    {
-      if ( !Parameters )
+      if ( Flink == (FxIoQueue *)&this->m_Queue )
       {
-LABEL_11:
-        if ( SLOBYTE(this->m_ObjectFlags) < 0
-          && (v19 = *(FxVerifierLock **)&this[-1].m_PowerIdle.m_DbgFlagIsInitialized) != 0LL )
+        if ( v12 && !v14 )
         {
-          FxVerifierLock::Unlock(v19, v11, v13);
+          v15 = -1073741275;
+          goto LABEL_11;
+        }
+        v15 = -2147483622;
+        goto LABEL_7;
+      }
+      if ( !BYTE4(Flink[-1].m_Dpc.SystemArgument1) )
+      {
+        Blink = Flink[-1].m_IoPkgListNode.m_ListEntry.Blink;
+        if ( v14 )
+        {
+          if ( !FileObject )
+          {
+            v18 = 447;
+            goto LABEL_18;
+          }
+          if ( *(_FILE_OBJECT **)&Flink->m_Globals->DestroyEvent.m_DbgFlagIsInitialized == FileObject )
+          {
+            v18 = 432;
+LABEL_18:
+            p_Blink = (FxRequest *)&Blink[-8].Blink;
+            FxObject::AddRef(
+              (FxObject *)&Blink[-8].Blink,
+              0LL,
+              v18,
+              "minkernel\\wdf\\framework\\shared\\core\\fxirpqueue.cpp");
+            v15 = 0;
+            if ( !Parameters )
+              goto LABEL_11;
+            v15 = FxRequest::GetParameters(p_Blink, Parameters);
+            if ( v15 != -2147483622 )
+              goto LABEL_11;
+LABEL_7:
+            if ( !FileObject && !TagRequest && this->m_Queue.m_RequestCount > 0 )
+              this->m_ForceTransitionFromEmptyWhenAddingNewRequest = 1;
+LABEL_11:
+            FxNonPagedObject::Unlock(this, irql);
+            if ( v15 >= 0 )
+            {
+              if ( m_Globals->FxVerifierOn )
+                FxRequestBase::SetVerifierFlags(p_Blink, 2);
+              *pOutRequest = p_Blink;
+            }
+            return v15;
+          }
         }
         else
         {
-          KeReleaseSpinLock(&this->m_NPLock.m_Lock, v11);
+          v14 = Blink == (_LIST_ENTRY *)v12;
         }
-        if ( v15 >= 0 )
-        {
-          if ( m_Globals->FxVerifierOn )
-            FxRequestBase::SetVerifierFlags(v14, 2);
-          *pOutRequest = v14;
-        }
-        return v15;
       }
-      v15 = FxRequest::GetParameters(pRequest, Parameters);
+      Flink = (FxIoQueue *)Flink->FxNonPagedObject::FxObject::__vftable;
     }
-    if ( v15 == -2147483622 && !FileObject && !TagRequest && this->m_Queue.m_RequestCount > 0 )
-      this->m_ForceTransitionFromEmptyWhenAddingNewRequest = 1;
-    goto LABEL_11;
   }
   return result;
 }

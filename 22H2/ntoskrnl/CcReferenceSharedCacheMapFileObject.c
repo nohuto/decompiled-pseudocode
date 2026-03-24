@@ -1,26 +1,26 @@
 /*
- * XREFs of CcReferenceSharedCacheMapFileObject @ 0x1402A13B0
+ * XREFs of CcReferenceSharedCacheMapFileObject @ 0x140275E50
  * Callers:
- *     CcUnmapAndPurge @ 0x140299E18 (CcUnmapAndPurge.c)
- *     CcWriteBehindPostProcess @ 0x14029AF18 (CcWriteBehindPostProcess.c)
- *     CcPurgeAndClearCacheSection @ 0x1402F12D4 (CcPurgeAndClearCacheSection.c)
- *     CcIsFatalWriteError @ 0x1402F42A8 (CcIsFatalWriteError.c)
- *     CcGetDirtyPagesHelper @ 0x1403386A0 (CcGetDirtyPagesHelper.c)
- *     CcUnpinRepinnedBcb @ 0x140392610 (CcUnpinRepinnedBcb.c)
- *     CcPerfLogFlushSection @ 0x140392784 (CcPerfLogFlushSection.c)
- *     CcPerfLogFlushCache @ 0x14039286C (CcPerfLogFlushCache.c)
- *     CcPerfLogWorkItemEnqueue @ 0x1403939D4 (CcPerfLogWorkItemEnqueue.c)
- *     CcUnmapVacb @ 0x140721E80 (CcUnmapVacb.c)
+ *     CcWriteBehindInternal @ 0x14022D3E0 (CcWriteBehindInternal.c)
+ *     CcPurgeAndClearCacheSection @ 0x14026F814 (CcPurgeAndClearCacheSection.c)
+ *     CcUnmapAndPurge @ 0x1402746F0 (CcUnmapAndPurge.c)
+ *     CcGetDirtyPagesHelper @ 0x140274880 (CcGetDirtyPagesHelper.c)
+ *     CcIsFatalWriteError @ 0x14031B100 (CcIsFatalWriteError.c)
+ *     CcPerfLogFlushCache @ 0x1403BCA38 (CcPerfLogFlushCache.c)
+ *     CcPerfLogFlushSection @ 0x1403BCB3C (CcPerfLogFlushSection.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x1403BCF4C (CcPerfLogWorkItemEnqueue.c)
+ *     CcUnpinRepinnedBcb @ 0x1404EA6A0 (CcUnpinRepinnedBcb.c)
+ *     CcUnmapVacb @ 0x140637A98 (CcUnmapVacb.c)
  * Callees:
- *     ObFastReferenceObject @ 0x1402A1530 (ObFastReferenceObject.c)
- *     CcSlowReferenceSharedCacheMapFileObject @ 0x1402A1C28 (CcSlowReferenceSharedCacheMapFileObject.c)
+ *     CcSlowReferenceSharedCacheMapFileObject @ 0x140275E80 (CcSlowReferenceSharedCacheMapFileObject.c)
+ *     ObFastReferenceObject @ 0x1403456F0 (ObFastReferenceObject.c)
  */
 
 __int64 __fastcall CcReferenceSharedCacheMapFileObject(__int64 a1)
 {
   __int64 result; // rax
 
-  result = ObFastReferenceObject(a1 + 96, 1666409283LL);
+  result = ObFastReferenceObject(a1 + 96);
   if ( !result )
     return CcSlowReferenceSharedCacheMapFileObject(a1);
   return result;

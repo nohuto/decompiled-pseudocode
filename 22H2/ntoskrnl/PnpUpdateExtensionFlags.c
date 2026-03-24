@@ -1,23 +1,26 @@
 /*
- * XREFs of PnpUpdateExtensionFlags @ 0x1403D3DE4
+ * XREFs of PnpUpdateExtensionFlags @ 0x140370F60
  * Callers:
- *     PnpIsChainDereferenced @ 0x1403D3C80 (PnpIsChainDereferenced.c)
+ *     PnpIsChainDereferenced @ 0x140370E28 (PnpIsChainDereferenced.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall PnpUpdateExtensionFlags(__int64 *a1, __int64 a2, __int64 a3, int a4)
+void __fastcall PnpUpdateExtensionFlags(__int64 *a1, __int64 a2, __int64 a3, int a4)
 {
-  __int64 result; // rax
-  __int64 v5; // rcx
+  __int64 i; // rdx
+  __int64 v5; // rax
+  int v6; // ecx
+  unsigned int v7; // ecx
 
-  for ( result = *a1; result; result = *(_QWORD *)(result + 24) )
+  for ( i = *a1; i; i = *(_QWORD *)(i + 24) )
   {
-    v5 = *(_QWORD *)(result + 312);
+    v5 = *(_QWORD *)(i + 312);
+    v6 = *(_DWORD *)(v5 + 32);
     if ( a4 )
-      *(_DWORD *)(v5 + 32) |= 4u;
+      v7 = v6 | 4;
     else
-      *(_DWORD *)(v5 + 32) &= ~4u;
+      v7 = v6 & 0xFFFFFFFB;
+    *(_DWORD *)(v5 + 32) = v7;
   }
-  return result;
 }

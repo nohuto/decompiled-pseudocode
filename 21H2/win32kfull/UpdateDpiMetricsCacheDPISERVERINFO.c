@@ -1,11 +1,11 @@
 /*
- * XREFs of UpdateDpiMetricsCacheDPISERVERINFO @ 0x1C00C7450
+ * XREFs of UpdateDpiMetricsCacheDPISERVERINFO @ 0x1C00E21C0
  * Callers:
- *     xxxSetNCFonts @ 0x1C00C3874 (xxxSetNCFonts.c)
- *     ?UserReinitializeStockFonts@@YAXKH@Z @ 0x1C00EF7F8 (-UserReinitializeStockFonts@@YAXKH@Z.c)
+ *     xxxSetNCFonts @ 0x1C00E2C88 (xxxSetNCFonts.c)
+ *     ?UserReinitializeStockFonts@@YAXKH@Z @ 0x1C00E5230 (-UserReinitializeStockFonts@@YAXKH@Z.c)
  * Callees:
- *     ?ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z @ 0x1C00C74E8 (-ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z.c)
- *     GetDPIServerInfoForDpi @ 0x1C00C76E0 (GetDPIServerInfoForDpi.c)
+ *     GetDPIServerInfoForDpi @ 0x1C0044EF8 (GetDPIServerInfoForDpi.c)
+ *     ?ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z @ 0x1C00E2258 (-ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z.c)
  */
 
 void UpdateDpiMetricsCacheDPISERVERINFO()

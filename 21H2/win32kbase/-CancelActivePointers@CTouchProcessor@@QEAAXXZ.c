@@ -1,29 +1,29 @@
 /*
- * XREFs of ?CancelActivePointers@CTouchProcessor@@QEAAXXZ @ 0x1C0088B10
+ * XREFs of ?CancelActivePointers@CTouchProcessor@@QEAAXXZ @ 0x1C007B2A0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C0088D40 (--1CInpLockGuardExclusive@@QEAA@XZ.c)
- *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C0088D80 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     ?CancelActivePointer@CTouchProcessor@@AEAAXPEAUCInputPointerNode@@@Z @ 0x1C01BF98C (-CancelActivePointer@CTouchProcessor@@AEAAXPEAUCInputPointerNode@@@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C007B3E0 (--1CInpLockGuardExclusive@@QEAA@XZ.c)
+ *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCAC0 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?CancelActivePointer@CTouchProcessor@@AEAAXPEAUCInputPointerNode@@@Z @ 0x1C01894F0 (-CancelActivePointer@CTouchProcessor@@AEAAXPEAUCInputPointerNode@@@Z.c)
  */
 
-void __fastcall CTouchProcessor::CancelActivePointers(struct _KTHREAD **this, __int64 a2, __int64 a3)
+void __fastcall CTouchProcessor::CancelActivePointers(struct _KTHREAD **this)
 {
-  CTouchProcessor *v4; // rdi
-  struct CInputPointerNode *v5; // rdx
-  _BYTE v6[56]; // [rsp+20h] [rbp-38h] BYREF
+  CTouchProcessor *v2; // rdi
+  struct CInputPointerNode *v3; // rdx
+  _BYTE v4[56]; // [rsp+20h] [rbp-38h] BYREF
 
-  if ( this[5] == KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(this, a2, a3);
-  CInpLockGuardExclusive::CInpLockGuardExclusive((CInpLockGuardExclusive *)v6, (struct CInpLockGuard *)(this + 4), 0LL);
-  v4 = this[10];
-  while ( v4 != (CTouchProcessor *)(this + 10) )
+  if ( this[6] == KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 15125LL);
+  CInpLockGuardExclusive::CInpLockGuardExclusive((CInpLockGuardExclusive *)v4, (struct CInpLockGuard *)(this + 5), 0LL);
+  v2 = this[11];
+  while ( v2 != (CTouchProcessor *)(this + 11) )
   {
-    v5 = (CTouchProcessor *)((char *)v4 - 16);
-    v4 = *(CTouchProcessor **)v4;
-    CTouchProcessor::CancelActivePointer((CTouchProcessor *)this, v5);
+    v3 = (CTouchProcessor *)((char *)v2 - 16);
+    v2 = *(CTouchProcessor **)v2;
+    CTouchProcessor::CancelActivePointer((CTouchProcessor *)this, v3);
   }
-  CInpLockGuardExclusive::~CInpLockGuardExclusive((CInpLockGuardExclusive *)v6);
+  CInpLockGuardExclusive::~CInpLockGuardExclusive((CInpLockGuardExclusive *)v4);
 }

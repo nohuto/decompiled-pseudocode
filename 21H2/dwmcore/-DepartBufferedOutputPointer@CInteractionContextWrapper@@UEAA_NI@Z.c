@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DepartBufferedOutputPointer@CInteractionContextWrapper@@UEAA_NI@Z @ 0x1802732E0
+ * XREFs of ?DepartBufferedOutputPointer@CInteractionContextWrapper@@UEAA_NI@Z @ 0x180230560
  * Callers:
  *     <none>
  * Callees:
- *     ?FindBufferedOutputPointer@CInteractionContextWrapper@@AEBAPEAVCBufferedOutputPointer@@I@Z @ 0x180273368 (-FindBufferedOutputPointer@CInteractionContextWrapper@@AEBAPEAVCBufferedOutputPointer@@I@Z.c)
+ *     ?FindBufferedOutputPointer@CInteractionContextWrapper@@AEBAPEAVCBufferedOutputPointer@@I@Z @ 0x1802305E8 (-FindBufferedOutputPointer@CInteractionContextWrapper@@AEBAPEAVCBufferedOutputPointer@@I@Z.c)
  */
 
 bool __fastcall CInteractionContextWrapper::DepartBufferedOutputPointer(

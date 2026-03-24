@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCovSampCaptureUserAddresses @ 0x140883A50
+ * XREFs of EtwpCovSampCaptureUserAddresses @ 0x1409429BC
  * Callers:
- *     EtwpCovSampCaptureApc @ 0x140635A00 (EtwpCovSampCaptureApc.c)
- *     EtwpCovSampCaptureSample @ 0x140636520 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureApc @ 0x1405AE420 (EtwpCovSampCaptureApc.c)
+ *     EtwpCovSampCaptureSample @ 0x1405AF1D8 (EtwpCovSampCaptureSample.c)
  * Callees:
- *     EtwpCovSampCaptureBufferAddIP @ 0x140460BA4 (EtwpCovSampCaptureBufferAddIP.c)
- *     EtwpCovSampCaptureBufferGet @ 0x140460BDC (EtwpCovSampCaptureBufferGet.c)
- *     EtwpCovSampCaptureUserStack @ 0x140883ABA (EtwpCovSampCaptureUserStack.c)
- *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1409EE8FC (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampCaptureBufferAddIP @ 0x1405AE598 (EtwpCovSampCaptureBufferAddIP.c)
+ *     EtwpCovSampCaptureBufferGet @ 0x1405AE5D0 (EtwpCovSampCaptureBufferGet.c)
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x14094207C (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampCaptureUserStack @ 0x140942A28 (EtwpCovSampCaptureUserStack.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureUserAddresses(__int64 a1, unsigned __int64 a2)

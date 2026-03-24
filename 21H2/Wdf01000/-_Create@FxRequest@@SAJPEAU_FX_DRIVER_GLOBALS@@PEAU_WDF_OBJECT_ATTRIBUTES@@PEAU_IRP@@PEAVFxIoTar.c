@@ -1,23 +1,22 @@
 /*
- * XREFs of ?_Create@FxRequest@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_IRP@@PEAVFxIoTarget@@W4FxRequestIrpOwnership@@W4FxRequestConstructorCaller@@PEAPEAV1@@Z @ 0x1C00063C4
+ * XREFs of ?_Create@FxRequest@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_IRP@@PEAVFxIoTarget@@W4FxRequestIrpOwnership@@W4FxRequestConstructorCaller@@PEAPEAV1@@Z @ 0x1C000B22C
  * Callers:
- *     imp_WdfRequestCreate @ 0x1C00061C0 (imp_WdfRequestCreate.c)
- *     imp_WdfRequestCreateFromIrp @ 0x1C0064480 (imp_WdfRequestCreateFromIrp.c)
- *     ?Config@FxUsbPipeContinuousReader@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z @ 0x1C008078C (-Config@FxUsbPipeContinuousReader@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z.c)
+ *     imp_WdfRequestCreate @ 0x1C000B870 (imp_WdfRequestCreate.c)
+ *     imp_WdfRequestCreateFromIrp @ 0x1C004A1C0 (imp_WdfRequestCreateFromIrp.c)
+ *     ?Config@FxUsbPipeContinuousReader@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z @ 0x1C006BDCC (-Config@FxUsbPipeContinuousReader@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z.c)
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C00062C0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
- *     ?AssignParentObject@FxObject@@QEAAJPEAV1@@Z @ 0x1C00065CC (-AssignParentObject@FxObject@@QEAAJPEAV1@@Z.c)
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ?ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z @ 0x1C0006F0C (-ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z.c)
- *     ??0FxRequest@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAU_IRP@@W4FxRequestIrpOwnership@@W4FxRequestConstructorCaller@@G@Z @ 0x1C0006FF0 (--0FxRequest@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAU_IRP@@W4FxRequestIrpOwnership@@W4FxRequestConstru.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_qLqd @ 0x1C0068AE4 (WPP_IFR_SF_qLqd.c)
- *     ?SetSubmitIrp@FxRequestBase@@QEAAPEAU_IRP@@PEAU2@E@Z @ 0x1C0069AC8 (-SetSubmitIrp@FxRequestBase@@QEAAPEAU_IRP@@PEAU2@E@Z.c)
- *     ?MarkPassiveCallbacks@FxObject@@QEAAXW4FxObjectLockState@@@Z @ 0x1C0069E70 (-MarkPassiveCallbacks@FxObject@@QEAAXW4FxObjectLockState@@@Z.c)
- *     ?Vf_VerifyLeakDetectionConsiderObject@FxObject@@AEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C7E0C (-Vf_VerifyLeakDetectionConsiderObject@FxObject@@AEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ??0FxRequest@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAU_IRP@@W4FxRequestIrpOwnership@@W4FxRequestConstructorCaller@@G@Z @ 0x1C0005548 (--0FxRequest@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAU_IRP@@W4FxRequestIrpOwnership@@W4FxRequestConstru.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000A0E0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?FxCalculateObjectTotalSize2@@YAJPEAU_FX_DRIVER_GLOBALS@@GG_KPEA_K@Z @ 0x1C000B440 (-FxCalculateObjectTotalSize2@@YAJPEAU_FX_DRIVER_GLOBALS@@GG_KPEA_K@Z.c)
+ *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C000B520 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
+ *     ?ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z @ 0x1C000B79C (-ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     WPP_IFR_SF_qLqd @ 0x1C004F4F0 (WPP_IFR_SF_qLqd.c)
+ *     ?SetSubmitIrp@FxRequestBase@@QEAAPEAU_IRP@@PEAU2@E@Z @ 0x1C005374C (-SetSubmitIrp@FxRequestBase@@QEAAPEAU_IRP@@PEAU2@E@Z.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxRequest::_Create(
@@ -29,121 +28,116 @@ __int64 __fastcall FxRequest::_Create(
         FxRequestConstructorCaller Caller,
         FxRequest **Request)
 {
-  const void **v7; // r14
+  const void **v7; // r12
   __int64 result; // rax
-  FxRequest *v13; // rax
-  FxRequestBase *v14; // rax
-  FxRequestBase *v15; // rbx
   int _a4; // edi
-  FxRequest **Driver; // rdx
-  __int64 m_ObjectSize; // rax
-  char *v19; // rax
-  void (__fastcall *EvtDestroyCallback)(void *); // rcx
-  void (__fastcall *EvtCleanupCallback)(void *); // rcx
-  _FX_DRIVER_GLOBALS *v22; // rax
-  _FX_DRIVER_GLOBALS *m_Globals; // rax
-  unsigned __int8 v24; // r8
-  unsigned __int16 _a1; // [rsp+28h] [rbp-60h]
-  FxPoolTypeOrPoolFlags v26; // [rsp+50h] [rbp-38h] BYREF
+  unsigned __int64 ContextSizeOverride; // r9
+  _POOL_TYPE v15; // ebx
+  ULONG Tag; // r14d
+  const _WDF_OBJECT_CONTEXT_TYPE_INFO *ContextTypeInfo; // rax
+  void *v18; // rax
+  FX_POOL **v19; // rax
+  FX_POOL **v20; // rbx
+  const _WDF_OBJECT_CONTEXT_TYPE_INFO *v21; // rax
+  FxRequestIrpOwnership _a2; // r14d
+  FxRequestBase *v23; // rax
+  FxRequestBase *v24; // rbx
+  unsigned __int64 ContextSize; // r8
+  unsigned __int8 v26; // r8
+  void *retaddr; // [rsp+78h] [rbp+0h]
 
   v7 = (const void **)Request;
   *Request = 0LL;
   result = FxValidateObjectAttributes(FxDriverGlobals, RequestAttributes, 0);
-  if ( (int)result < 0 )
-    return result;
-  *(_QWORD *)&v26.UsePoolType = 0LL;
-  v26.u.PoolFlags = 64LL;
-  v13 = (FxRequest *)FxObjectHandleAllocCommon(
-                       FxDriverGlobals,
-                       &v26,
-                       0x168uLL,
-                       0,
-                       RequestAttributes,
-                       0,
-                       FxObjectTypeExternal);
-  if ( v13 )
+  _a4 = result;
+  if ( (int)result >= 0 )
   {
-    FxRequest::FxRequest(v13, FxDriverGlobals, Irp, Ownership, Caller, _a1);
-    v15 = v14;
-    if ( v14 )
+    Request = 0LL;
+    ContextSizeOverride = 0LL;
+    v15 = ExDefaultNonPagedPoolType;
+    Tag = FxDriverGlobals->Tag;
+    if ( RequestAttributes )
     {
-      if ( !Target || (_a4 = FxRequestBase::ValidateTarget(v14, Target), _a4 >= 0) )
+      ContextTypeInfo = RequestAttributes->ContextTypeInfo;
+      if ( ContextTypeInfo )
       {
-        Driver = 0LL;
-        Request = 0LL;
-        if ( v15->m_ObjectSize )
-        {
-          if ( !RequestAttributes )
-            goto LABEL_40;
-          if ( RequestAttributes->ExecutionLevel == WdfExecutionLevelPassive )
-          {
-            FxObject::MarkPassiveCallbacks(v15, ObjectLock);
-            Driver = Request;
-          }
-          if ( RequestAttributes->ParentObject )
-          {
-            FxObjectHandleGetPtr(
-              v15->m_Globals,
-              (unsigned __int64)RequestAttributes->ParentObject,
-              0x1000u,
-              (void **)&Request);
-            Driver = Request;
-          }
-          else
-          {
-LABEL_40:
-            if ( !v15->m_ParentObject )
-            {
-              m_Globals = v15->m_Globals;
-              if ( (FxRequestBase *)m_Globals->Driver != v15 )
-                Driver = (FxRequest **)m_Globals->Driver;
-              Request = Driver;
-            }
-          }
-          if ( !Driver || (_a4 = FxObject::AssignParentObject(v15, (FxObject *)Driver), _a4 >= 0) )
-          {
-            if ( RequestAttributes )
-            {
-              m_ObjectSize = v15->m_ObjectSize;
-              if ( (_WORD)m_ObjectSize )
-                v19 = (char *)v15 + m_ObjectSize;
-              else
-                v19 = 0LL;
-              EvtDestroyCallback = RequestAttributes->EvtDestroyCallback;
-              if ( EvtDestroyCallback )
-                *((_QWORD *)v19 + 3) = EvtDestroyCallback;
-              EvtCleanupCallback = RequestAttributes->EvtCleanupCallback;
-              if ( EvtCleanupCallback )
-              {
-                *((_QWORD *)v19 + 2) = EvtCleanupCallback;
-                v15->m_ObjectFlags |= 0x400u;
-              }
-            }
-            v22 = v15->m_Globals;
-            v15->m_ObjectFlags |= 8u;
-            if ( v22->FxVerifierOn )
-              FxObject::Vf_VerifyLeakDetectionConsiderObject(v15, (_FX_DRIVER_GLOBALS *)Driver);
-            *v7 = v15;
-            _a4 = 0;
-            goto LABEL_24;
-          }
-        }
-        else
-        {
-          _a4 = -1073741816;
-        }
+        ContextSizeOverride = RequestAttributes->ContextSizeOverride;
+        if ( !ContextSizeOverride )
+          ContextSizeOverride = ContextTypeInfo->ContextSize;
       }
-      WPP_IFR_SF_d(FxDriverGlobals, 2u, 0x10u, 0xCu, WPP_FxRequest_cpp_Traceguids, _a4);
-      if ( Irp )
-        FxRequestBase::SetSubmitIrp(v15, 0LL, v24);
-      FxObject::ClearEvtCallbacks(v15);
-      ((void (*)(void))v15->DeleteObject)();
-      goto LABEL_24;
     }
+    if ( FxCalculateObjectTotalSize2(FxDriverGlobals, 0x168u, 0, ContextSizeOverride, (unsigned __int64 *)&Request) < 0 )
+      goto LABEL_31;
+    if ( FxDriverGlobals->FxPoolTrackingOn )
+      v18 = retaddr;
+    else
+      v18 = 0LL;
+    v19 = FxPoolAllocator(FxDriverGlobals, &FxDriverGlobals->FxPoolFrameworks, v15, (unsigned __int64)Request, Tag, v18);
+    v20 = v19;
+    if ( v19 )
+    {
+      if ( FxDriverGlobals->FxVerifierHandle )
+      {
+        v20 = v19 + 6;
+        *(_OWORD *)v19 = 0LL;
+        *((_OWORD *)v19 + 1) = 0LL;
+        *((_OWORD *)v19 + 2) = 0LL;
+        *((_DWORD *)v19 + 8) = 1146058822;
+      }
+      *((_OWORD *)v20 + 23) = 0LL;
+      *((_OWORD *)v20 + 24) = 0LL;
+      *((_OWORD *)v20 + 25) = 0LL;
+      v20[46] = (FX_POOL *)v20;
+      if ( RequestAttributes )
+      {
+        v21 = RequestAttributes->ContextTypeInfo;
+        if ( v21 )
+        {
+          ContextSize = RequestAttributes->ContextSizeOverride;
+          if ( !ContextSize )
+            ContextSize = v21->ContextSize;
+          memset(v20 + 52, 0, (ContextSize + 7) & 0xFFFFFFFFFFFFFFF8uLL);
+          v21 = RequestAttributes->ContextTypeInfo;
+        }
+        v20[50] = (FX_POOL *)v21;
+      }
+    }
+    if ( v20 )
+    {
+      _a2 = Ownership;
+      FxRequest::FxRequest((FxRequest *)v20, FxDriverGlobals, Irp, Ownership, Caller);
+      v24 = v23;
+    }
+    else
+    {
+LABEL_31:
+      _a2 = Ownership;
+      v24 = 0LL;
+    }
+    if ( v24 )
+    {
+      if ( Target )
+        _a4 = FxRequestBase::ValidateTarget(v24, Target);
+      if ( _a4 < 0 || (_a4 = FxObject::Commit(v24, RequestAttributes, (void **)&Request, 0LL, 1u), _a4 < 0) )
+      {
+        WPP_IFR_SF_d(FxDriverGlobals, 2u, 0x10u, 0xCu, WPP_FxRequest_cpp_Traceguids, _a4);
+        if ( Irp )
+          FxRequestBase::SetSubmitIrp(v24, 0LL, v26);
+        FxObject::ClearEvtCallbacks(v24);
+        v24->DeleteObject(v24);
+      }
+      else
+      {
+        *v7 = v24;
+      }
+    }
+    else
+    {
+      _a4 = -1073741670;
+    }
+    if ( FxDriverGlobals->FxVerboseOn )
+      WPP_IFR_SF_qLqd(FxDriverGlobals, 5u, 0x10u, 0xDu, WPP_FxRequest_cpp_Traceguids, Irp, _a2, *v7, _a4);
+    return (unsigned int)_a4;
   }
-  _a4 = -1073741670;
-LABEL_24:
-  if ( FxDriverGlobals->FxVerboseOn )
-    WPP_IFR_SF_qLqd(FxDriverGlobals, 5u, 0x10u, 0xDu, WPP_FxRequest_cpp_Traceguids, Irp, Ownership, *v7, _a4);
-  return (unsigned int)_a4;
+  return result;
 }

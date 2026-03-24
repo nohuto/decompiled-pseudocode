@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTrimUnusedPageFileRegionsApc @ 0x14059D070
+ * XREFs of MiTrimUnusedPageFileRegionsApc @ 0x1402D3AC0
  * Callers:
  *     <none>
  * Callees:
- *     MiFindFreePageFileSpace @ 0x14025F6B0 (MiFindFreePageFileSpace.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     MiSwizzleInvalidPte @ 0x1402CCC50 (MiSwizzleInvalidPte.c)
+ *     MiFindFreePageFileSpace @ 0x14026A714 (MiFindFreePageFileSpace.c)
+ *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
  */
 
 LONG __fastcall MiTrimUnusedPageFileRegionsApc(PRKEVENT Event)
@@ -23,23 +23,23 @@ LONG __fastcall MiTrimUnusedPageFileRegionsApc(PRKEVENT Event)
   unsigned __int64 v13; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)&Event[1].Header.Lock;
-  v3 = *(_QWORD *)(v1 + 8LL * LODWORD(Event[1].Header.WaitListHead.Flink) + 16736);
+  v3 = *(_QWORD *)(v1 + 8LL * LODWORD(Event[1].Header.WaitListHead.Flink) + 6944);
   v4 = MiSwizzleInvalidPte((unsigned __int64)LODWORD(Event[1].Header.WaitListHead.Blink) << 32);
   Flink_high = HIDWORD(Event[1].Header.WaitListHead.Flink);
   v13 = ((unsigned __int64)(*(_WORD *)(v3 + 204) & 0xF) << 12) | v4 & 0xFFFFFFFFFFFF0FFFuLL;
-  FreePageFileSpace = MiFindFreePageFileSpace(v1, &v13, Flink_high, 0xABu);
+  FreePageFileSpace = MiFindFreePageFileSpace(v1, (__int64)&v13, Flink_high, 0xABu);
   v7 = FreePageFileSpace;
   if ( FreePageFileSpace >= HIDWORD(Event[1].Header.WaitListHead.Flink) )
   {
     v8 = v13;
-    if ( qword_140C50780 && (v13 & 0x10) == 0 )
-      v8 = v13 & ~qword_140C50780;
+    if ( qword_140C4DF40 && (v13 & 0x10) == 0 )
+      v8 = v13 & ~qword_140C4DF40;
     v9 = HIDWORD(v8);
     LODWORD(Event[1].Header.WaitListHead.Blink) = v9;
     v10 = MiSwizzleInvalidPte((unsigned __int64)(FreePageFileSpace + (unsigned int)v9) << 32);
     v11 = *(_QWORD *)v3;
     v13 = ((unsigned __int64)(*(_WORD *)(v3 + 204) & 0xF) << 12) | v10 & 0xFFFFFFFFFFFF0FFFuLL;
-    HIDWORD(Event[1].Header.WaitListHead.Blink) = v7 + MiFindFreePageFileSpace(v1, &v13, v11, 0x6Bu);
+    HIDWORD(Event[1].Header.WaitListHead.Blink) = v7 + MiFindFreePageFileSpace(v1, (__int64)&v13, v11, 0x6Bu);
   }
   return KeSetEvent(Event, 0, 0);
 }

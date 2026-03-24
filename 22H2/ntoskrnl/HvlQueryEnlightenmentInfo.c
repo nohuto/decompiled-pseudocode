@@ -1,32 +1,37 @@
 /*
- * XREFs of HvlQueryEnlightenmentInfo @ 0x1408633E0
+ * XREFs of HvlQueryEnlightenmentInfo @ 0x1407D2DDC
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall HvlQueryEnlightenmentInfo(_OWORD *a1, int a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall HvlQueryEnlightenmentInfo(_OWORD *a1, int a2, char a3, _DWORD *a4)
 {
   __int64 result; // rax
   __int128 v5; // [rsp+0h] [rbp-18h]
 
-  if ( a2 == 16 )
+  if ( a3 )
   {
-    DWORD1(v5) = 0;
-    LOBYTE(v5) = HvlHypervisorConnected != 0;
-    BYTE1(v5) = (HvlpRootFlags & 8) != 0;
-    BYTE2(v5) = (HvlpFlags & 0x1000) != 0;
-    BYTE3(v5) = HvlpSchedulerType;
-    *((_QWORD *)&v5 + 1) = (unsigned int)HvlEnlightenments;
-    result = 0LL;
-    *a1 = v5;
-    *a4 = 16;
+    result = 3221225506LL;
   }
   else
   {
+    if ( a2 == 16 )
+    {
+      DWORD1(v5) = 0;
+      LOBYTE(v5) = HvlHypervisorConnected != 0;
+      BYTE1(v5) = (HvlpRootFlags & 8) != 0;
+      BYTE2(v5) = (HvlpFlags & 0x1000) != 0;
+      BYTE3(v5) = HvlpSchedulerType;
+      *((_QWORD *)&v5 + 1) = (unsigned int)HvlEnlightenments;
+      result = 0LL;
+      *a1 = v5;
+      *a4 = 16;
+      return result;
+    }
     result = 3221225712LL;
-    *a4 = 0;
   }
+  *a4 = 0;
   return result;
 }

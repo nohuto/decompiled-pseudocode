@@ -1,40 +1,43 @@
 /*
- * XREFs of ?CheckPrimaryContentState@DISPLAYSTATECHECKER@@QEAAJXZ @ 0x1C02F6FD0
+ * XREFs of ?CheckPrimaryContentState@DISPLAYSTATECHECKER@@QEAAJXZ @ 0x1C02BA1B4
  * Callers:
- *     DxgkCheckDisplayState @ 0x1C02F9800 (DxgkCheckDisplayState.c)
+ *     DxgkCheckDisplayState @ 0x1C02BC530 (DxgkCheckDisplayState.c)
  * Callees:
- *     ?GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z @ 0x1C004A860 (-GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z.c)
- *     ?CheckPrimaryContent@VIDPNSOURCEINFO@@QEAAJXZ @ 0x1C02F6DB8 (-CheckPrimaryContent@VIDPNSOURCEINFO@@QEAAJXZ.c)
+ *     ?GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z @ 0x1C004DF10 (-GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z.c)
+ *     ?CheckPrimaryContent@VIDPNSOURCEINFO@@QEAAJXZ @ 0x1C02BA00C (-CheckPrimaryContent@VIDPNSOURCEINFO@@QEAAJXZ.c)
  */
 
 __int64 __fastcall DISPLAYSTATECHECKER::CheckPrimaryContentState(DISPLAYSTATECHECKER *this)
 {
   unsigned int i; // ebx
   struct DISPLAYDIAGNOSTICADAPTERDATA *DisplayAdapterDiagData; // rax
-  struct DISPLAYDIAGNOSTICADAPTERDATA *v4; // rsi
-  unsigned int v5; // edi
-  VIDPNSOURCEINFO *v6; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  struct DISPLAYDIAGNOSTICADAPTERDATA *v7; // rbp
+  unsigned int v8; // edi
+  VIDPNSOURCEINFO *v9; // rcx
 
-  for ( i = 0; i < *((_DWORD *)this + 3522); ++i )
+  for ( i = 0; i < *((_DWORD *)this + 3514); ++i )
   {
     DisplayAdapterDiagData = DISPLAYSTATECHECKER::GetDisplayAdapterDiagData(this, i);
-    v4 = DisplayAdapterDiagData;
+    v7 = DisplayAdapterDiagData;
     if ( DisplayAdapterDiagData )
     {
-      v5 = 0;
+      v8 = 0;
       if ( *((_DWORD *)DisplayAdapterDiagData + 240) )
       {
         do
         {
-          if ( v5 < 4 )
-          {
-            v6 = (struct DISPLAYDIAGNOSTICADAPTERDATA *)((char *)v4 + 224 * v5 + 64);
-            if ( v6 )
-              VIDPNSOURCEINFO::CheckPrimaryContent(v6);
-          }
-          ++v5;
+          if ( v8 >= 4 )
+            v9 = 0LL;
+          else
+            v9 = (struct DISPLAYDIAGNOSTICADAPTERDATA *)((char *)v7 + 224 * v8 + 64);
+          if ( v9 )
+            VIDPNSOURCEINFO::CheckPrimaryContent(v9, v4, v5, v6);
+          ++v8;
         }
-        while ( v5 < *((_DWORD *)v4 + 240) );
+        while ( v8 < *((_DWORD *)v7 + 240) );
       }
     }
   }

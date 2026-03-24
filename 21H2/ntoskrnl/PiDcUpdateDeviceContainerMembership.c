@@ -1,82 +1,90 @@
 /*
- * XREFs of PiDcUpdateDeviceContainerMembership @ 0x14076C764
+ * XREFs of PiDcUpdateDeviceContainerMembership @ 0x140758F6C
  * Callers:
- *     PipProcessStartPhase3 @ 0x14076BE08 (PipProcessStartPhase3.c)
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x14074AB70 (PipProcessStartPhase3.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     wcscmp @ 0x1403E32F0 (wcscmp.c)
- *     _CmAddDeviceToContainer @ 0x14076C91C (_CmAddDeviceToContainer.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x14076CE48 (_CmGetDeviceContainerIdFromBase.c)
- *     PiDcContainerRequiresConfiguration @ 0x14076DAF0 (PiDcContainerRequiresConfiguration.c)
- *     _CmSetDeviceRegProp @ 0x14076FE20 (_CmSetDeviceRegProp.c)
- *     PiPnpRtlEndOperation @ 0x140779A50 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140779DC4 (PiPnpRtlBeginOperation.c)
- *     _CmGetDeviceRegProp @ 0x14077CD90 (_CmGetDeviceRegProp.c)
- *     PiDcResetChildDeviceContainers @ 0x1409496C0 (PiDcResetChildDeviceContainers.c)
- *     _CmRemoveDeviceFromContainer @ 0x140A26854 (_CmRemoveDeviceFromContainer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     wcscmp @ 0x1403D3F40 (wcscmp.c)
+ *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
+ *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
+ *     _CmRemoveDeviceFromContainer @ 0x14072BAEC (_CmRemoveDeviceFromContainer.c)
+ *     _CmSetDeviceRegProp @ 0x140744010 (_CmSetDeviceRegProp.c)
+ *     _CmAddDeviceToContainer @ 0x140759124 (_CmAddDeviceToContainer.c)
+ *     PiDcContainerRequiresConfiguration @ 0x140759668 (PiDcContainerRequiresConfiguration.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x14075A97C (_CmGetDeviceContainerIdFromBase.c)
+ *     PiDcResetChildDeviceContainers @ 0x1408A38D8 (PiDcResetChildDeviceContainers.c)
  */
 
-__int64 __fastcall PiDcUpdateDeviceContainerMembership(__int64 a1, int a2, const wchar_t *a3)
+__int64 __fastcall PiDcUpdateDeviceContainerMembership(__int64 a1, __int64 a2, const wchar_t *a3)
 {
-  int DeviceContainerIdFromBase; // ebx
-  int DeviceRegProp; // eax
-  __int64 v8; // rax
-  _BYTE v10[4]; // [rsp+40h] [rbp-C0h] BYREF
-  int v11; // [rsp+44h] [rbp-BCh] BYREF
-  int v12; // [rsp+48h] [rbp-B8h] BYREF
+  int DeviceRegProp; // ebx
+  __int64 v7; // rax
+  _BYTE v9[4]; // [rsp+40h] [rbp-C0h] BYREF
+  int v10; // [rsp+44h] [rbp-BCh] BYREF
+  int v11; // [rsp+48h] [rbp-B8h] BYREF
   PVOID P[2]; // [rsp+50h] [rbp-B0h] BYREF
   wchar_t Str2[40]; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v15[80]; // [rsp+B0h] [rbp-50h] BYREF
-  wchar_t v16[40]; // [rsp+100h] [rbp+0h] BYREF
+  _BYTE v14[80]; // [rsp+B0h] [rbp-50h] BYREF
+  wchar_t v15[40]; // [rsp+100h] [rbp+0h] BYREF
 
-  v10[0] = 0;
+  v9[0] = 0;
   P[0] = 0LL;
-  v12 = 0;
   v11 = 0;
-  DeviceContainerIdFromBase = PiPnpRtlBeginOperation(P);
-  if ( DeviceContainerIdFromBase >= 0 )
+  v10 = 0;
+  DeviceRegProp = PiPnpRtlBeginOperation(P);
+  if ( DeviceRegProp >= 0 )
   {
-    v11 = 78;
-    DeviceRegProp = CmGetDeviceRegProp(PiPnpRtlCtx, a1, a2, 37, (__int64)&v12, (__int64)Str2, (__int64)&v11, 0);
-    DeviceContainerIdFromBase = DeviceRegProp;
-    if ( DeviceRegProp < 0 )
+    v10 = 78;
+    DeviceRegProp = CmGetDeviceRegProp(
+                      *(__int64 *)&PiPnpRtlCtx,
+                      a1,
+                      a2,
+                      37,
+                      (__int64)&v11,
+                      (__int64)Str2,
+                      (__int64)&v10,
+                      0);
+    if ( DeviceRegProp >= 0 && wcsicmp(a3, Str2) )
     {
-      if ( DeviceRegProp != -1073741275 )
-        goto LABEL_12;
+      DeviceRegProp = CmGetDeviceContainerIdFromBase(*(_QWORD *)&PiPnpRtlCtx, a1, Str2, v14);
+      if ( DeviceRegProp < 0 )
+        goto LABEL_15;
+      DeviceRegProp = CmRemoveDeviceFromContainer(*(__int64 *)&PiPnpRtlCtx, (__int64)v14, (__int64)Str2, a1);
+      if ( DeviceRegProp < 0 )
+        goto LABEL_15;
+      PiDcResetChildDeviceContainers(a1, v14);
     }
-    else if ( wcsicmp(a3, Str2) )
+    else if ( DeviceRegProp == -1073741275 )
     {
-      DeviceContainerIdFromBase = CmGetDeviceContainerIdFromBase(*(_QWORD *)&PiPnpRtlCtx, a1, Str2, v15);
-      if ( DeviceContainerIdFromBase < 0 )
-        goto LABEL_12;
-      DeviceContainerIdFromBase = CmRemoveDeviceFromContainer(*(_QWORD *)&PiPnpRtlCtx, v15, Str2, a1);
-      if ( DeviceContainerIdFromBase < 0 )
-        goto LABEL_12;
-      PiDcResetChildDeviceContainers(a1, v15);
+      DeviceRegProp = 0;
     }
-    DeviceContainerIdFromBase = CmGetDeviceContainerIdFromBase(*(_QWORD *)&PiPnpRtlCtx, a1, a3, v16);
-    if ( DeviceContainerIdFromBase >= 0 )
+    if ( DeviceRegProp >= 0 )
     {
-      v8 = -1LL;
-      do
-        ++v8;
-      while ( a3[v8] );
-      DeviceContainerIdFromBase = CmSetDeviceRegProp(PiPnpRtlCtx, a1, a2, 37, 1, (__int64)a3, 2 * (int)v8 + 2, 0);
-      if ( DeviceContainerIdFromBase >= 0 )
+      DeviceRegProp = CmGetDeviceContainerIdFromBase(*(_QWORD *)&PiPnpRtlCtx, a1, a3, v15);
+      if ( DeviceRegProp >= 0 )
       {
-        if ( wcscmp(L"{00000000-0000-0000-0000-000000000000}", a3) )
+        v7 = -1LL;
+        do
+          ++v7;
+        while ( a3[v7] );
+        DeviceRegProp = CmSetDeviceRegProp(*(__int64 *)&PiPnpRtlCtx, a1, a2, 0x25u, 1u, (__int64)a3, 2 * (int)v7 + 2, 0);
+        if ( DeviceRegProp >= 0 )
         {
-          DeviceContainerIdFromBase = CmAddDeviceToContainer(PiPnpRtlCtx, (unsigned int)v16, (__int64)v10);
-          if ( DeviceContainerIdFromBase >= 0 && !v10[0] )
-            PiDcContainerRequiresConfiguration(v16);
+          if ( wcscmp(L"{00000000-0000-0000-0000-000000000000}", a3) )
+          {
+            DeviceRegProp = CmAddDeviceToContainer(PiPnpRtlCtx, (unsigned int)v15, (__int64)v9);
+            if ( DeviceRegProp >= 0 && !v9[0] )
+              PiDcContainerRequiresConfiguration(v15);
+          }
         }
       }
     }
   }
-LABEL_12:
+LABEL_15:
   if ( P[0] )
-    PiPnpRtlEndOperation(P[0]);
-  return (unsigned int)DeviceContainerIdFromBase;
+    PiPnpRtlEndOperation((PVOID **)P[0]);
+  return (unsigned int)DeviceRegProp;
 }

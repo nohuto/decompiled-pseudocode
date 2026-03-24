@@ -1,89 +1,86 @@
 /*
- * XREFs of ?ProcessDirtyRectAgainstDirtyList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z @ 0x1C03328C0
+ * XREFs of ?ProcessDirtyRectAgainstDirtyList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z @ 0x1C02A1B34
  * Callers:
- *     ?ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C0332E8C (-ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z.c)
+ *     ?ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C02A2008 (-ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?AddToDirtyList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z @ 0x1C03313D8 (-AddToDirtyList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z.c)
- *     ?ConvertExistingDirtryRectsToGDIRegion@DDAMetaData@@AEAAHXZ @ 0x1C03318C4 (-ConvertExistingDirtryRectsToGDIRegion@DDAMetaData@@AEAAHXZ.c)
- *     ?DoesRectOverlapWithExistingDirty@DDAMetaData@@AEAA?AW4RECT_OVERLAP@@PEAUtagRECT@@0@Z @ 0x1C0331C88 (-DoesRectOverlapWithExistingDirty@DDAMetaData@@AEAA-AW4RECT_OVERLAP@@PEAUtagRECT@@0@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?AddToDirtyList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z @ 0x1C02A0A34 (-AddToDirtyList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z.c)
+ *     ?ConvertExistingDirtryRectsToGDIRegion@DDAMetaData@@AEAAHXZ @ 0x1C02A0E28 (-ConvertExistingDirtryRectsToGDIRegion@DDAMetaData@@AEAAHXZ.c)
+ *     ?DoesRectOverlapWithExistingDirty@DDAMetaData@@AEAA?AW4RECT_OVERLAP@@PEAUtagRECT@@0@Z @ 0x1C02A111C (-DoesRectOverlapWithExistingDirty@DDAMetaData@@AEAA-AW4RECT_OVERLAP@@PEAUtagRECT@@0@Z.c)
  */
 
 __int64 __fastcall DDAMetaData::ProcessDirtyRectAgainstDirtyList(DDAMetaData *this, struct tagRECT *a2)
 {
-  struct tagRECT *v2; // rdi
+  struct tagRECT *v2; // rbx
   int DoesRectOverlapWithExistingDirty; // eax
-  __int64 v5; // rdi
-  const wchar_t *v6; // r9
-  unsigned int v8; // r14d
-  __int128 v9; // [rsp+50h] [rbp-38h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  unsigned int v13; // ebx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int128 v18; // [rsp+30h] [rbp-28h] BYREF
 
   v2 = a2;
   if ( a2->left == a2->right || a2->top == a2->bottom )
   {
-    WdLogSingleEntry1(1LL, 741LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"DWM is passing in a NULL rect, DWM needs to investigate!!",
-      741LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v17 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v17 + 24) = 738LL;
+    WdLogEvent5_WdAssertion(v17);
   }
   else
   {
-    v9 = 0LL;
+    v18 = 0LL;
     while ( !*((_QWORD *)this + 8) )
     {
       DoesRectOverlapWithExistingDirty = DDAMetaData::DoesRectOverlapWithExistingDirty(
                                            (__int64)this,
                                            (unsigned int *)v2,
-                                           (__int64)&v9);
+                                           (__int64)&v18);
       switch ( DoesRectOverlapWithExistingDirty )
       {
         case 1:
           return 1LL;
         case 2:
-          v2 = (struct tagRECT *)&v9;
+          v2 = (struct tagRECT *)&v18;
           break;
         case 3:
           if ( !(unsigned int)DDAMetaData::ConvertExistingDirtryRectsToGDIRegion(this) )
           {
-            v5 = 778LL;
-            WdLogSingleEntry1(2LL, 778LL);
-            v6 = L"Failed to convert dirty rects to GDI region";
+            v7 = WdLogNewEntry5_WdError(v6, v5);
+            *(_QWORD *)(v7 + 24) = 775LL;
 LABEL_11:
-            DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v6, v5, 0LL, 0LL, 0LL, 0LL);
+            WdLogEvent5_WdError(v7);
             return 0LL;
           }
           break;
         default:
           if ( !(unsigned int)DDAMetaData::AddToDirtyList(this, v2) )
           {
-            v5 = 793LL;
-            WdLogSingleEntry1(2LL, 793LL);
-            v6 = L"Failed to process dirty against move list";
+            v7 = WdLogNewEntry5_WdError(v10, v9);
+            *(_QWORD *)(v7 + 24) = 790LL;
             goto LABEL_11;
           }
           return 1LL;
       }
     }
-    v8 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, LONG))(*((_QWORD *)this + 7) + 96LL))(
-           *((_QWORD *)this + 9),
-           (unsigned int)v2->left,
-           (unsigned int)v2->top,
-           (unsigned int)v2->right,
-           v2->bottom);
-    if ( !v8 )
+    v13 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, LONG))(*((_QWORD *)this + 7) + 96LL))(
+            *((_QWORD *)this + 9),
+            (unsigned int)v2->left,
+            (unsigned int)v2->top,
+            (unsigned int)v2->right,
+            v2->bottom);
+    if ( !v13 )
     {
-      v5 = 804LL;
-      WdLogSingleEntry1(2LL, 804LL);
-      v6 = L"Failed to set tmp region to current dirty rect";
+      v7 = WdLogNewEntry5_WdError(v12, v11);
+      *(_QWORD *)(v7 + 24) = 801LL;
       goto LABEL_11;
     }
     if ( !(*(unsigned int (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(*((_QWORD *)this + 7) + 104LL))(
@@ -92,18 +89,10 @@ LABEL_11:
             *((_QWORD *)this + 9),
             2LL) )
     {
-      WdLogSingleEntry1(2LL, 810LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to combine move rect with dirty region",
-        810LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      return v8;
+      v16 = WdLogNewEntry5_WdError(v15, v14);
+      *(_QWORD *)(v16 + 24) = 807LL;
+      WdLogEvent5_WdError(v16);
+      return v13;
     }
   }
   return 1LL;

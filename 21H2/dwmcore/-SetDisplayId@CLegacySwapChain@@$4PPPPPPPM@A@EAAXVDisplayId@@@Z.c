@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetDisplayId@CLegacySwapChain@@$4PPPPPPPM@A@EAAXVDisplayId@@@Z @ 0x1801091B0
+ * XREFs of ?SetDisplayId@CLegacySwapChain@@$4PPPPPPPM@A@EAAXVDisplayId@@@Z @ 0x1800F76D0
  * Callers:
  *     <none>
  * Callees:

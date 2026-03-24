@@ -3,8 +3,8 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     VslpIumPhase4Initialize @ 0x140192FF0 (VslpIumPhase4Initialize.c)
- *     VslpIumPhase0Initialize @ 0x1409F45F8 (VslpIumPhase0Initialize.c)
+ *     VslpIumPhase4Initialize @ 0x140193010 (VslpIumPhase4Initialize.c)
+ *     VslpIumPhase0Initialize @ 0x1409F4600 (VslpIumPhase0Initialize.c)
  */
 
 NTSTATUS __fastcall VslInitSystem(int a1, __int64 a2)

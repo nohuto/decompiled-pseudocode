@@ -1,11 +1,11 @@
 /*
- * XREFs of KseKPSOHookDriverTargeted @ 0x14057F1F0
+ * XREFs of KseKPSOHookDriverTargeted @ 0x1403F3810
  * Callers:
  *     <none>
  * Callees:
- *     KsepLogError @ 0x140368C88 (KsepLogError.c)
- *     KsepDebugPrint @ 0x14057D738 (KsepDebugPrint.c)
- *     RtlWriteRegistryValue @ 0x1406D76C0 (RtlWriteRegistryValue.c)
+ *     KsepLogError @ 0x140371F74 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
+ *     RtlWriteRegistryValue @ 0x1406B4930 (RtlWriteRegistryValue.c)
  */
 
 __int64 KseKPSOHookDriverTargeted()
@@ -25,7 +25,7 @@ __int64 KseKPSOHookDriverTargeted()
     KsepHistoryErrors[2 * v1] = 1179791;
     if ( (v2 & 2) != 0 )
       KsepDebugPrint(12LL, "KernelPadSectionsOverride shim: failed to set KernelPadSectionsOverride value.\n");
-    KsepLogError(12LL, (__int64)"KernelPadSectionsOverride shim: failed to set KernelPadSectionsOverride value.\n");
+    KsepLogError(12, "KernelPadSectionsOverride shim: failed to set KernelPadSectionsOverride value.\n");
   }
   return 3221226348LL;
 }

@@ -1,41 +1,57 @@
 /*
- * XREFs of ?DmmResetModeState@@YAJQEAXK@Z @ 0x1C01F30D0
+ * XREFs of ?DmmResetModeState@@YAJQEAXK@Z @ 0x1C0177BFC
  * Callers:
- *     ?DmmEnablePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IEPEAVCOREDEVICEACCESS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01E7138 (-DmmEnablePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IEPEAVCOREDEVICEACCESS@@PEAU_DXGK_DISPLAY_SCEN.c)
- *     DpiPowerArbiterThread @ 0x1C021E730 (DpiPowerArbiterThread.c)
- *     DpiFdoDestroyRelatedObjects @ 0x1C039B124 (DpiFdoDestroyRelatedObjects.c)
+ *     ?DmmEnablePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IEPEAVCOREDEVICEACCESS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00E0278 (-DmmEnablePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IEPEAVCOREDEVICEACCESS@@PEAU_DXGK_DISPLAY_SCEN.c)
+ *     DpiPowerArbiterThread @ 0x1C019C8E0 (DpiPowerArbiterThread.c)
+ *     DpiFdoDestroyRelatedObjects @ 0x1C02C91B4 (DpiFdoDestroyRelatedObjects.c)
  * Callees:
- *     ?MarkCommitVidPnOnModeChange@ADAPTER_DISPLAY@@QEAAXIE@Z @ 0x1C0005320 (-MarkCommitVidPnOnModeChange@ADAPTER_DISPLAY@@QEAAXIE@Z.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0005BA8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?MarkCommitVidPnOnModeChange@ADAPTER_DISPLAY@@QEAAXIE@Z @ 0x1C00024E8 (-MarkCommitVidPnOnModeChange@ADAPTER_DISPLAY@@QEAAXIE@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0002910 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
-__int64 __fastcall DmmResetModeState(PERESOURCE *a1, int a2)
+__int64 __fastcall DmmResetModeState(PERESOURCE *a1, __int64 a2)
 {
   unsigned int v2; // ebx
-  PERESOURCE v5; // rax
+  int v3; // esi
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  PERESOURCE v7; // rcx
+  PERESOURCE v8; // rax
+  __int64 v10; // rax
+  __int64 v11; // rax
 
   v2 = 0;
+  v3 = a2;
   if ( a1 )
   {
     if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(a1) )
-      WdLogSingleEntry0(1LL);
-    v5 = a1[365];
-    if ( v5 && LODWORD(v5->SpinLock) )
+    {
+      v11 = WdLogNewEntry5_WdAssertion(v6, v5);
+      WdLogEvent5_WdAssertion(v11);
+    }
+    v7 = a1[337];
+    if ( v7 && LODWORD(v7->Reserved2) )
     {
       do
       {
-        if ( _bittest(&a2, v2) )
-          ADAPTER_DISPLAY::MarkCommitVidPnOnModeChange((DXGADAPTER **)v5, v2, 1);
-        v5 = a1[365];
+        v8 = v7;
+        if ( _bittest(&v3, v2) )
+        {
+          ADAPTER_DISPLAY::MarkCommitVidPnOnModeChange((DXGADAPTER **)v7, v2, 1);
+          v8 = a1[337];
+        }
         ++v2;
+        v7 = v8;
       }
-      while ( v2 < LODWORD(v5->SpinLock) );
+      while ( v2 < LODWORD(v8->Reserved2) );
     }
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v10 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v10 + 24) = 0LL;
+    WdLogEvent5_WdError(v10);
     return 3223191554LL;
   }
 }

@@ -1,19 +1,20 @@
 /*
- * XREFs of ConvertToAndFromWideChar @ 0x1C00E7F50
+ * XREFs of ConvertToAndFromWideChar @ 0x1C00A4AF4
  * Callers:
- *     cUnicodeRangesSupported @ 0x1C00E7E10 (cUnicodeRangesSupported.c)
- *     WCSToMBEx @ 0x1C014E8DC (WCSToMBEx.c)
- *     RtlWCSMessageWParamCharToMB @ 0x1C014FA38 (RtlWCSMessageWParamCharToMB.c)
- *     RtlMBMessageWParamCharToWCS @ 0x1C025A63C (RtlMBMessageWParamCharToWCS.c)
- *     EngMultiByteToWideChar @ 0x1C027B6A0 (EngMultiByteToWideChar.c)
- *     EngWideCharToMultiByte @ 0x1C027B810 (EngWideCharToMultiByte.c)
- *     ?bExtendGlyphSet@@YA_NPEAPEAU_FD_GLYPHSET@@0@Z @ 0x1C02B9ED0 (-bExtendGlyphSet@@YA_NPEAPEAU_FD_GLYPHSET@@0@Z.c)
+ *     cUnicodeRangesSupported @ 0x1C00A49B4 (cUnicodeRangesSupported.c)
+ *     WCSToMBEx @ 0x1C00D3558 (WCSToMBEx.c)
+ *     RtlWCSMessageWParamCharToMB @ 0x1C012DA10 (RtlWCSMessageWParamCharToMB.c)
+ *     RtlMBMessageWParamCharToWCS @ 0x1C025DA60 (RtlMBMessageWParamCharToWCS.c)
+ *     EngMultiByteToWideChar @ 0x1C027DB30 (EngMultiByteToWideChar.c)
+ *     EngWideCharToMultiByte @ 0x1C027DCA0 (EngWideCharToMultiByte.c)
+ *     ?bExtendGlyphSet@@YA_NPEAPEAU_FD_GLYPHSET@@0@Z @ 0x1C02BBB70 (-bExtendGlyphSet@@YA_NPEAPEAU_FD_GLYPHSET@@0@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ConvertToAndFromWideCharSymCP @ 0x1C027B31C (ConvertToAndFromWideCharSymCP.c)
- *     GetNlsTablePath @ 0x1C027B834 (GetNlsTablePath.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ConvertToAndFromWideCharSymCP @ 0x1C027D7AC (ConvertToAndFromWideCharSymCP.c)
+ *     GetNlsTablePath @ 0x1C027DCC4 (GetNlsTablePath.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -26,14 +27,14 @@ __int64 __fastcall ConvertToAndFromWideChar(
         int a6)
 {
   struct _CPTABLEINFO *p_CodePageTable; // rdi
-  USHORT *v11; // rbx
+  void *v11; // rbx
   NTSTATUS v12; // eax
   ULONG v14; // edi
-  USHORT *v15; // rax
+  void *v15; // rax
   NTSTATUS v16; // eax
   int v17; // edx
   ULONG v18; // eax
-  USHORT *v19; // rdi
+  void *v19; // rdi
   ULONG BytesInUnicodeString; // [rsp+60h] [rbp-A0h] BYREF
   USHORT AnsiCodePage; // [rsp+64h] [rbp-9Ch] BYREF
   USHORT OemCodePage; // [rsp+68h] [rbp-98h] BYREF
@@ -96,7 +97,7 @@ __int64 __fastcall ConvertToAndFromWideChar(
         v14 = DWORD2(FileInformation);
         if ( DWORD2(FileInformation) )
         {
-          v15 = (USHORT *)Win32AllocPoolZInit(DWORD2(FileInformation), 1668768583LL);
+          v15 = PALLOCMEM2(DWORD2(FileInformation), 1668768583LL, 1);
           v11 = v15;
           if ( v15 )
           {
@@ -111,7 +112,7 @@ __int64 __fastcall ConvertToAndFromWideChar(
       ZwClose(FileHandle);
       if ( !v11 )
         return 0xFFFFFFFFLL;
-      RtlInitCodePageTable(v11, &CodePageTable);
+      RtlInitCodePageTable((PUSHORT)v11, &CodePageTable);
       p_CodePageTable = &CodePageTable;
     }
     if ( a6 )
@@ -135,7 +136,7 @@ __int64 __fastcall ConvertToAndFromWideChar(
         LastCodePageTranslated = a1;
         memmove(&LastCPTableInfo, p_CodePageTable, 0x40uLL);
         gfLastCPTableInfoInitialized = 1;
-        v19 = (USHORT *)LastNlsTableBuffer;
+        v19 = (void *)LastNlsTableBuffer;
         LastNlsTableBuffer = v11;
       }
       GreReleaseFastMutex(ghfmMemory);

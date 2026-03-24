@@ -1,13 +1,13 @@
 /*
- * XREFs of ?UpdateHistoryWithTarget@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@AEBVCInputDest@@HPEBUtagPOINT@@HHH@Z @ 0x1C01D94A4
+ * XREFs of ?UpdateHistoryWithTarget@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@AEBVCInputDest@@HPEBUtagPOINT@@HHH@Z @ 0x1C01A02E0
  * Callers:
- *     ?SetPointerInfoNodeTarget@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KAEBVCInputDest@@HPEBUtagPOINT@@HHHH@Z @ 0x1C01D6E88 (-SetPointerInfoNodeTarget@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KAEBVCInputDest@@HPEBUta.c)
+ *     ?SetPointerInfoNodeTarget@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KAEBVCInputDest@@HPEBUtagPOINT@@HHHH@Z @ 0x1C019E288 (-SetPointerInfoNodeTarget@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KAEBVCInputDest@@HPEBUta.c)
  * Callees:
- *     ?IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00DC7A4 (-IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
- *     ?GetHistoryCount@CPointerInfoNode@@QEBAKXZ @ 0x1C01C9028 (-GetHistoryCount@CPointerInfoNode@@QEBAKXZ.c)
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01CE868 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
- *     ?SetPointerInfoNodeTargetInt@CTouchProcessor@@AEAAXPEAUCPointerInfoNode@@AEBVCInputDest@@HPEBUtagPOINT@@HHHH@Z @ 0x1C01D6F90 (-SetPointerInfoNodeTargetInt@CTouchProcessor@@AEAAXPEAUCPointerInfoNode@@AEBVCInputDest@@HPEBUta.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00CCF60 (-IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?GetHistoryCount@CPointerInfoNode@@QEBAKXZ @ 0x1C019197C (-GetHistoryCount@CPointerInfoNode@@QEBAKXZ.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01971B4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?SetPointerInfoNodeTargetInt@CTouchProcessor@@AEAAXPEAUCPointerInfoNode@@AEBVCInputDest@@HPEBUtagPOINT@@HHHH@Z @ 0x1C019E390 (-SetPointerInfoNodeTargetInt@CTouchProcessor@@AEAAXPEAUCPointerInfoNode@@AEBVCInputDest@@HPEBUta.c)
  */
 
 void __fastcall CTouchProcessor::UpdateHistoryWithTarget(
@@ -21,58 +21,50 @@ void __fastcall CTouchProcessor::UpdateHistoryWithTarget(
         int a8,
         int a9)
 {
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // rdx
-  __int64 v16; // rcx
   unsigned int HistoryCount; // edi
-  __int64 v18; // r8
-  unsigned int v19; // r15d
-  char *v20; // r12
-  char *v21; // rsi
-  char *v22; // r14
-  bool v23; // zf
-  __int64 v24; // rbx
-  __int64 v25; // rdx
-  CTouchProcessor *v26; // rcx
-  __int64 v27; // r8
+  unsigned int v13; // r15d
+  char *v14; // r12
+  char *v15; // rsi
+  char *v16; // rbp
+  bool v17; // zf
+  __int64 v18; // rbx
+  CTouchProcessor *v19; // rcx
 
-  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced((__int64)this, (__int64)a2, (__int64)a3) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v13, v12, v14);
+  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced((__int64)this, (__int64)a2) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 11365);
   HistoryCount = CPointerInfoNode::GetHistoryCount(a3);
   if ( HistoryCount <= 1 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v16, v15, v18);
-  v19 = *((_DWORD *)a3 + 86);
-  v20 = (char *)this + 48;
-  v21 = (char *)*((_QWORD *)a2 + 1);
-  while ( v21 != v20 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 11368);
+  v13 = *((_DWORD *)a3 + 86);
+  v14 = (char *)this + 56;
+  v15 = (char *)*((_QWORD *)a2 + 1);
+  while ( v15 != v14 )
   {
-    v22 = v21;
-    v23 = HistoryCount == 1;
+    v16 = v15;
+    v17 = HistoryCount == 1;
     if ( HistoryCount <= 1 )
       goto LABEL_21;
-    v21 = *(char **)v21;
-    if ( *((_QWORD *)v22 + 7) == *((_QWORD *)a2 + 8) )
+    v15 = *(char **)v15;
+    if ( *((_QWORD *)v16 + 7) == *((_QWORD *)a2 + 8) )
     {
-      if ( v19 >= *((_DWORD *)v22 + 10) )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(v16, v15, v18);
-      v24 = *((_QWORD *)v22 + 29) + 480LL * v19;
-      if ( !(unsigned int)CPointerInfoNode::IsValid((CPointerInfoNode *)v24) )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(v26, v25, v27);
-      if ( *(_WORD *)(v24 + 172) != *((_WORD *)a3 + 86) )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(v26, v25, v27);
-      if ( *(_QWORD *)(v24 + 16) != *((_QWORD *)a3 + 2) )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(v26, v25, v27);
-      if ( (*(_DWORD *)v24 & 2) == 0 )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(v26, v25, v27);
-      CTouchProcessor::SetPointerInfoNodeTargetInt(v26, (struct CPointerInfoNode *)v24, a4, a5, a6, a7, 0, a8, a9);
-      v19 = *(_DWORD *)(v24 + 344);
+      if ( v13 >= *((_DWORD *)v16 + 10) )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 11388);
+      v18 = *((_QWORD *)v16 + 16) + 480LL * v13;
+      if ( !(unsigned int)CPointerInfoNode::IsValid((CPointerInfoNode *)v18) )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 11390);
+      if ( *(_WORD *)(v18 + 172) != *((_WORD *)a3 + 86) )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 11392);
+      if ( *(_QWORD *)(v18 + 16) != *((_QWORD *)a3 + 2) )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 11393);
+      if ( (*(_DWORD *)v18 & 2) == 0 )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 11394);
+      CTouchProcessor::SetPointerInfoNodeTargetInt(v19, (struct CPointerInfoNode *)v18, a4, a5, a6, a7, 0, a8, a9);
+      v13 = *(_DWORD *)(v18 + 344);
       --HistoryCount;
     }
   }
-  v23 = HistoryCount == 1;
+  v17 = HistoryCount == 1;
 LABEL_21:
-  if ( !v23 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v16, v15, v18);
+  if ( !v17 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 11416);
 }

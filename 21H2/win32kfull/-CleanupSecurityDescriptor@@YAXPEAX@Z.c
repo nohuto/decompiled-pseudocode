@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CleanupSecurityDescriptor@@YAXPEAX@Z @ 0x1C00053F0
+ * XREFs of ?CleanupSecurityDescriptor@@YAXPEAX@Z @ 0x1C0135310
  * Callers:
  *     <none>
  * Callees:

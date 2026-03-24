@@ -1,29 +1,29 @@
 /*
- * XREFs of IopRemoveCurrentRelationFromList @ 0x14096CBCC
+ * XREFs of IopRemoveCurrentRelationFromList @ 0x1408B2864
  * Callers:
- *     PnpUnlinkDeviceRemovalRelations @ 0x140868334 (PnpUnlinkDeviceRemovalRelations.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x14074AADC (PnpUnlinkDeviceRemovalRelations.c)
  * Callees:
- *     PipDeviceObjectListElementAt @ 0x1408727D8 (PipDeviceObjectListElementAt.c)
- *     PipDeviceObjectListRemove @ 0x140884CA4 (PipDeviceObjectListRemove.c)
+ *     PipDeviceObjectListElementAt @ 0x14076E2EC (PipDeviceObjectListElementAt.c)
+ *     PipDeviceObjectListRemove @ 0x14077CE90 (PipDeviceObjectListRemove.c)
  */
 
 __int64 __fastcall IopRemoveCurrentRelationFromList(unsigned int **a1, __int64 a2, _DWORD *a3)
 {
+  unsigned int v5; // edi
+  unsigned int **v6; // r11
   __int64 result; // rax
-  unsigned int v6; // edi
-  unsigned int **v7; // r11
   __int64 v8; // [rsp+50h] [rbp+18h] BYREF
 
   v8 = 0LL;
   if ( *a3 > 1u )
     return 3221225659LL;
-  v6 = a3[1] - 1;
-  PipDeviceObjectListElementAt(*a1, v6, &v8, 0LL, 0LL);
+  v5 = a3[1] - 1;
+  PipDeviceObjectListElementAt(*a1, v5, &v8, 0LL, 0LL);
   if ( v8 != a2 )
     return 3221225486LL;
-  result = PipDeviceObjectListRemove(*v7, v6);
+  result = PipDeviceObjectListRemove(*v6, v5);
   if ( *a3 > 1u )
     return 3221225659LL;
-  a3[1] = v6;
+  a3[1] = v5;
   return result;
 }

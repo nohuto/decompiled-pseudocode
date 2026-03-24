@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpUpdateStateSeparationHiveOptions @ 0x1409F3C7C
+ * XREFs of CmpUpdateStateSeparationHiveOptions @ 0x1409F3C84
  * Callers:
  *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
  * Callees:

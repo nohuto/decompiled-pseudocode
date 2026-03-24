@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetWsAndMakePageTablesNx @ 0x140191B80
+ * XREFs of MiGetWsAndMakePageTablesNx @ 0x140191BA0
  * Callers:
- *     MmInitializeHandBuiltProcess2 @ 0x140760640 (MmInitializeHandBuiltProcess2.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x140760620 (MmInitializeHandBuiltProcess2.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
  *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiPerformSafePdeWrite @ 0x1401604F8 (MiPerformSafePdeWrite.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiPerformSafePdeWrite @ 0x140160518 (MiPerformSafePdeWrite.c)
  */
 
 __int64 MiGetWsAndMakePageTablesNx()

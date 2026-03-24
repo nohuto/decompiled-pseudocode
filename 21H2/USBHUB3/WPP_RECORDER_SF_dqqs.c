@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_dqqs @ 0x1C002B6F4
+ * XREFs of WPP_RECORDER_SF_dqqs @ 0x1C002B014
  * Callers:
- *     HUBMISC_WaitForSignal @ 0x1C0030194 (HUBMISC_WaitForSignal.c)
+ *     HUBMISC_WaitForSignal @ 0x1C002FAF4 (HUBMISC_WaitForSignal.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_dqqs(
@@ -46,7 +46,7 @@ __int64 __fastcall WPP_RECORDER_SF_dqqs(
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, char *, __int64, char *, __int64, char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_f631619360663f684a1deb181f774097_Traceguids,
+      &WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       85LL,
       &a6,
       4LL,
@@ -65,5 +65,5 @@ __int64 __fastcall WPP_RECORDER_SF_dqqs(
     while ( *(_BYTE *)(v9 + v10) );
   }
   LOWORD(v16) = 85;
-  return WppAutoLogTrace(a1, 2LL, 2LL, &WPP_f631619360663f684a1deb181f774097_Traceguids, v16, &a6);
+  return WppAutoLogTrace(a1, 2LL, 2LL, &WPP_fa1f6120722133e233e88879adbd68f0_Traceguids, v16, &a6);
 }

@@ -1,29 +1,34 @@
 /*
- * XREFs of DbgkWerCaptureLiveKernelDump @ 0x1408839B0
+ * XREFs of DbgkWerCaptureLiveKernelDump @ 0x140888B80
  * Callers:
- *     PopIdlePhaseWatchdogCallback @ 0x1403D51B0 (PopIdlePhaseWatchdogCallback.c)
- *     PopFxEnforceDirectedPowerTransition @ 0x14058A3A0 (PopFxEnforceDirectedPowerTransition.c)
- *     PopUserPresentSet @ 0x14058DFF4 (PopUserPresentSet.c)
- *     PopPowerButtonWorkCallback @ 0x140599180 (PopPowerButtonWorkCallback.c)
- *     CarLiveDump @ 0x1405D5B20 (CarLiveDump.c)
- *     ExHandleLogBadReference @ 0x140606A98 (ExHandleLogBadReference.c)
- *     ExpResourceTimeoutCaptureLiveDump @ 0x140610000 (ExpResourceTimeoutCaptureLiveDump.c)
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     PopWin32CalloutWatchdogCallback @ 0x14099BD20 (PopWin32CalloutWatchdogCallback.c)
- *     PopDripsWatchdogCheckHwDivergence @ 0x14099C44C (PopDripsWatchdogCheckHwDivergence.c)
- *     PopDeepSleepWatchdogTakeAction @ 0x1409A10D4 (PopDeepSleepWatchdogTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x1409A125C (PopDripsWatchdogTakeAction.c)
- *     TtmpCalloutWatchdogCallback @ 0x1409A3480 (TtmpCalloutWatchdogCallback.c)
- *     ExpIoPoolDeadlockWorker @ 0x140A00830 (ExpIoPoolDeadlockWorker.c)
- *     MiForceCrashForInvalidAccess @ 0x140A2B198 (MiForceCrashForInvalidAccess.c)
- *     VfPtGenerateTraceInformation @ 0x140ADF7D8 (VfPtGenerateTraceInformation.c)
+ *     PopUserPresentSet @ 0x1403A5804 (PopUserPresentSet.c)
+ *     PopFxEnforceDirectedPowerTransition @ 0x14056AA4C (PopFxEnforceDirectedPowerTransition.c)
+ *     PopIdlePhaseWatchdogCallback @ 0x140576510 (PopIdlePhaseWatchdogCallback.c)
+ *     ExpResourceTimeoutCaptureLiveDump @ 0x1405B9A40 (ExpResourceTimeoutCaptureLiveDump.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     MiForceCrashForInvalidAccess @ 0x1408C42F4 (MiForceCrashForInvalidAccess.c)
+ *     PopDripsWatchdogCheckHwDivergence @ 0x1408EF1A8 (PopDripsWatchdogCheckHwDivergence.c)
+ *     PopWin32CalloutWatchdogCallbackLiveDump @ 0x1408F5540 (PopWin32CalloutWatchdogCallbackLiveDump.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x1408FA568 (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x1408FA6F0 (PopDripsWatchdogTakeAction.c)
+ *     TtmpCalloutWatchdogCallback @ 0x1408FCAB0 (TtmpCalloutWatchdogCallback.c)
+ *     ExpIoPoolDeadlockWorker @ 0x140955D50 (ExpIoPoolDeadlockWorker.c)
  * Callees:
- *     DbgkWerCaptureLiveKernelDump2 @ 0x140883A30 (DbgkWerCaptureLiveKernelDump2.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     RtlStringCchLengthW @ 0x14032DFD4 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x140371E80 (RtlStringCchCopyW.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     DbgkpWerCleanupContext @ 0x1408890F0 (DbgkpWerCleanupContext.c)
+ *     DbgkpWerIsFullLiveDumpDisabled @ 0x140889618 (DbgkpWerIsFullLiveDumpDisabled.c)
+ *     DbgkpWerProcessPolicyResult @ 0x14088971C (DbgkpWerProcessPolicyResult.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall DbgkWerCaptureLiveKernelDump(
-        const wchar_t *a1,
-        __int64 a2,
+        NTSTRSAFE_PCWSTR pszSrc,
+        int a2,
         __int64 a3,
         __int64 a4,
         __int64 a5,
@@ -32,19 +37,92 @@ __int64 __fastcall DbgkWerCaptureLiveKernelDump(
         __int64 a8,
         int a9)
 {
-  _DWORD v10[2]; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v11; // [rsp+48h] [rbp-30h]
-  __int64 v12; // [rsp+50h] [rbp-28h]
-  int v13; // [rsp+58h] [rbp-20h]
-  __int64 v14; // [rsp+5Ch] [rbp-1Ch]
-  int v15; // [rsp+64h] [rbp-14h]
+  struct _KTHREAD *CurrentThread; // rax
+  NTSTATUS v15; // edi
+  wchar_t *PoolWithTag; // rax
+  wchar_t *v17; // rsi
+  unsigned int v18; // r11d
+  int v19; // ecx
+  int v20; // eax
+  char v21[4]; // [rsp+20h] [rbp-38h] BYREF
+  unsigned int v22; // [rsp+24h] [rbp-34h] BYREF
+  __int64 v23[6]; // [rsp+28h] [rbp-30h] BYREF
 
-  v14 = 0LL;
-  v15 = 0;
-  v10[0] = 1;
-  v10[1] = 40;
-  v11 = a8;
-  v12 = a7;
-  v13 = a9;
-  return DbgkWerCaptureLiveKernelDump2(a1, a5, a6, (__int64)v10);
+  v21[0] = 1;
+  v22 = 0;
+  v23[0] = 0LL;
+  if ( KeGetCurrentIrql() )
+  {
+    DbgPrintEx(5u, 1u, "DBGK: DbgkWerCaptureLiveKernelDump: called at IRQL > PASSIVE_LEVEL\n");
+    return 3221225800LL;
+  }
+  if ( !DbgkpWerInitialized )
+  {
+    DbgPrintEx(5u, 1u, "DBGK: DbgkWerCaptureLiveKernelDump: called before initialization.\n");
+    return 3221225635LL;
+  }
+  if ( (unsigned __int8)DbgkpWerIsFullLiveDumpDisabled() )
+  {
+    DbgPrintEx(5u, 1u, "DBGK: Full Live Kernel Dumps are disabled. Failing request.\n");
+    return 3221227524LL;
+  }
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  if ( _InterlockedExchange(&DbgkpBusy, 1) != 1 )
+  {
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0xB8uLL, 0x57676244u);
+    v17 = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      memset(PoolWithTag, 0, 0xB8uLL);
+      v15 = RtlStringCchLengthW(pszSrc, 0x10uLL, 0LL);
+      if ( v15 >= 0 )
+      {
+        v15 = RtlStringCchCopyW(v17, v18, pszSrc);
+        if ( v15 >= 0 )
+        {
+          v19 = DbgkpWerDefaultPolicy;
+          if ( (a9 & 2) != 0 )
+            v19 = 1;
+          v22 = v19;
+          *((_QWORD *)v17 + 7) = a5;
+          *((_QWORD *)v17 + 8) = a6;
+          *((_QWORD *)v17 + 9) = a7;
+          *((_QWORD *)v17 + 10) = a8;
+          *((_DWORD *)v17 + 8) = a2;
+          *((_QWORD *)v17 + 5) = a3;
+          *((_QWORD *)v17 + 6) = a4;
+          *((_DWORD *)v17 + 22) = a9;
+          v20 = WerLiveKernelCreateReport(v17, &v22, v23);
+          v15 = v20;
+          if ( v20 >= 0 )
+          {
+            v15 = DbgkpWerProcessPolicyResult(v17, v22, v23[0], v21);
+            if ( !v21[0] )
+              goto LABEL_20;
+          }
+          else
+          {
+            DbgPrintEx(
+              5u,
+              0,
+              "DBGK: DbgkWerCaptureLiveKernelDump: WerLiveKernelCreateReport failed, status 0x%x.\n\n",
+              v20);
+          }
+        }
+      }
+      DbgkpWerCleanupContext(v17);
+      ExFreePoolWithTag(v17, 0x57676244u);
+    }
+    else
+    {
+      v15 = -1073741670;
+    }
+    _InterlockedExchange(&DbgkpBusy, 0);
+    goto LABEL_20;
+  }
+  v15 = -1073741267;
+LABEL_20:
+  KeLeaveCriticalRegion();
+  return (unsigned int)v15;
 }

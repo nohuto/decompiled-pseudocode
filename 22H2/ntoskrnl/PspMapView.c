@@ -1,62 +1,47 @@
 /*
- * XREFs of PspMapView @ 0x1405A64FC
+ * XREFs of PspMapView @ 0x14058411C
  * Callers:
- *     PsDispatchIumService @ 0x1405A4EF4 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     MiMapViewOfSectionExCommon @ 0x1407A3A00 (MiMapViewOfSectionExCommon.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     MmMapViewOfSection @ 0x1406128D0 (MmMapViewOfSection.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall PspMapView(__int64 a1)
 {
-  PVOID v2; // rdi
-  KPROCESSOR_MODE v3; // r9
-  ACCESS_MASK v4; // edx
-  void *v5; // rcx
+  KPROCESSOR_MODE v1; // r9
+  ACCESS_MASK v2; // edx
+  void *v4; // rcx
   NTSTATUS result; // eax
+  struct _DMA_ADAPTER *v6; // rdi
   int v7; // esi
-  ULONGLONG v8; // [rsp+48h] [rbp-30h]
-  PVOID Object; // [rsp+80h] [rbp+8h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+60h] [rbp+8h] BYREF
 
-  if ( *(_BYTE *)(a1 + 61) )
+  v1 = *(_BYTE *)(a1 + 52);
+  v2 = *(_DWORD *)(a1 + 48);
+  v4 = *(void **)(a1 + 16);
+  DmaAdapter = 0LL;
+  result = ObReferenceObjectByHandle(v4, v2, MmSectionObjectType, v1, (PVOID *)&DmaAdapter, 0LL);
+  if ( result >= 0 )
   {
-    v2 = *(PVOID *)(a1 + 24);
+    v6 = DmaAdapter;
+    v7 = MmMapViewOfSection(
+           DmaAdapter,
+           KeGetCurrentThread()->ApcState.Process,
+           a1 + 24,
+           0LL,
+           0LL,
+           a1 + 32,
+           a1 + 40,
+           1,
+           *(_DWORD *)(a1 + 8),
+           *(_DWORD *)(a1 + 12));
+    if ( v7 < 0 )
+      HalPutDmaAdapter(v6);
+    else
+      *(_QWORD *)(a1 + 16) = v6;
+    return v7;
   }
-  else
-  {
-    v3 = *(_BYTE *)(a1 + 60);
-    v4 = *(_DWORD *)(a1 + 56);
-    v5 = *(void **)(a1 + 24);
-    Object = 0LL;
-    result = ObReferenceObjectByHandle(v5, v4, MmSectionObjectType, v3, &Object, 0LL);
-    v2 = Object;
-    if ( result < 0 )
-      return result;
-  }
-  LODWORD(v8) = 0;
-  v7 = MiMapViewOfSectionExCommon(
-         (int)v2,
-         *(_QWORD *)(a1 + 16),
-         1,
-         (int)a1 + 32,
-         a1 + 40,
-         a1 + 48,
-         *(_DWORD *)(a1 + 8),
-         *(_DWORD *)(a1 + 12),
-         0LL,
-         v8,
-         0,
-         0LL,
-         0,
-         0x2000000);
-  if ( v7 >= 0 && *(_BYTE *)(a1 + 62) )
-  {
-    *(_QWORD *)(a1 + 24) = v2;
-  }
-  else if ( !*(_BYTE *)(a1 + 61) )
-  {
-    ObfDereferenceObject(v2);
-  }
-  return v7;
+  return result;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of FxUsbTargetDeviceCreate @ 0x1C0077950
+ * XREFs of FxUsbTargetDeviceCreate @ 0x1C006A510
  * Callers:
- *     imp_WdfUsbTargetDeviceCreate @ 0x1C0078080 (imp_WdfUsbTargetDeviceCreate.c)
- *     imp_WdfUsbTargetDeviceCreateWithParameters @ 0x1C0078190 (imp_WdfUsbTargetDeviceCreateWithParameters.c)
+ *     imp_WdfUsbTargetDeviceCreate @ 0x1C006AC30 (imp_WdfUsbTargetDeviceCreate.c)
+ *     imp_WdfUsbTargetDeviceCreateWithParameters @ 0x1C006AD40 (imp_WdfUsbTargetDeviceCreateWithParameters.c)
  * Callees:
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C0005B30 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
- *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C00062C0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ?Init@FxIoTarget@@QEAAJPEAVFxDeviceBase@@@Z @ 0x1C0026D34 (-Init@FxIoTarget@@QEAAJPEAVFxDeviceBase@@@Z.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
- *     ??0FxUsbDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C007BBAC (--0FxUsbDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?CreateInterfaces@FxUsbDevice@@QEAAJXZ @ 0x1C007C358 (-CreateInterfaces@FxUsbDevice@@QEAAJXZ.c)
- *     ?InitDevice@FxUsbDevice@@QEAAJK@Z @ 0x1C007F964 (-InitDevice@FxUsbDevice@@QEAAJK@Z.c)
+ *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000A0E0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
+ *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C000B520 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
+ *     ?Init@FxIoTarget@@QEAAJPEAVFxDeviceBase@@@Z @ 0x1C006567C (-Init@FxIoTarget@@QEAAJPEAVFxDeviceBase@@@Z.c)
+ *     ??0FxUsbDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C006F374 (--0FxUsbDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?CreateInterfaces@FxUsbDevice@@QEAAJXZ @ 0x1C006FBD8 (-CreateInterfaces@FxUsbDevice@@QEAAJXZ.c)
+ *     ?InitDevice@FxUsbDevice@@QEAAJK@Z @ 0x1C0073130 (-InitDevice@FxUsbDevice@@QEAAJK@Z.c)
  */
 
 __int64 __fastcall FxUsbTargetDeviceCreate(
@@ -27,11 +27,10 @@ __int64 __fastcall FxUsbTargetDeviceCreate(
   WDFUSBDEVICE__ **v5; // rsi
   __int64 result; // rax
   FxUsbDevice *v11; // rax
-  FxIoTarget *v12; // rax
-  FxUsbDevice *v13; // rdi
-  int inited; // ebx
-  FxPoolTypeOrPoolFlags v15; // [rsp+40h] [rbp-28h] BYREF
-  ULONG_PTR retaddr; // [rsp+68h] [rbp+0h]
+  FxUsbDevice *v12; // rax
+  FxUsbDevice *v13; // rbx
+  int inited; // edi
+  ULONG_PTR retaddr; // [rsp+58h] [rbp+0h]
 
   v5 = UsbDevice;
   if ( !UsbDevice )
@@ -43,19 +42,26 @@ __int64 __fastcall FxUsbTargetDeviceCreate(
     result = FxValidateObjectAttributes(FxDriverGlobals, Attributes, 1);
     if ( (int)result >= 0 )
     {
-      *(_QWORD *)&v15.UsePoolType = 0LL;
-      v15.u.PoolFlags = 64LL;
-      v11 = (FxUsbDevice *)FxObjectHandleAllocCommon(
+      v11 = (FxUsbDevice *)FxObjectHandleAlloc(
                              FxDriverGlobals,
-                             &v15,
+                             ExDefaultNonPagedPoolType,
                              0x1F0uLL,
                              0,
                              Attributes,
                              0,
                              FxObjectTypeExternal);
-      if ( v11 && (FxUsbDevice::FxUsbDevice(v11, FxDriverGlobals), (v13 = (FxUsbDevice *)v12) != 0LL) )
+      if ( v11 )
       {
-        inited = FxIoTarget::Init(v12, Device);
+        FxUsbDevice::FxUsbDevice(v11, FxDriverGlobals);
+        v13 = v12;
+      }
+      else
+      {
+        v13 = 0LL;
+      }
+      if ( v13 )
+      {
+        inited = FxIoTarget::Init(v13, Device);
         if ( inited < 0
           || (UsbDevice = 0LL, inited = FxUsbDevice::InitDevice(v13, USBDClientContractVersion), inited < 0)
           || (inited = FxUsbDevice::CreateInterfaces(v13), inited < 0)

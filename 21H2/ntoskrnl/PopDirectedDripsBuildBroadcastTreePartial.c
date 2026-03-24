@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsBuildBroadcastTreePartial @ 0x14099F5D8
+ * XREFs of PopDirectedDripsBuildBroadcastTreePartial @ 0x1408F8CF0
  * Callers:
- *     PopDirectedDripsInitializeBroadcast @ 0x14098BDD4 (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x1408E334C (PopDirectedDripsInitializeBroadcast.c)
  * Callees:
- *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x14099E2B4 (PopDirectedDripsDiagBroadcastTreeBegin.c)
- *     PopDirectedDripsDiagBroadcastTreeEnd @ 0x14099E420 (PopDirectedDripsDiagBroadcastTreeEnd.c)
- *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099F3A0 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x1408F6B38 (PopDirectedDripsDiagBroadcastTreeBegin.c)
+ *     PopDirectedDripsDiagBroadcastTreeEnd @ 0x1408F6CB8 (PopDirectedDripsDiagBroadcastTreeEnd.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x1408F8AC0 (PopDirectedDripsBuildBroadcastTreeFull.c)
  */
 
 __int64 __fastcall PopDirectedDripsBuildBroadcastTreePartial(__int64 a1, char a2, _DWORD *a3)
@@ -21,11 +21,7 @@ __int64 __fastcall PopDirectedDripsBuildBroadcastTreePartial(__int64 a1, char a2
   v13 = 0LL;
   v3 = 0;
   v12 = 0;
-  if ( (*(_DWORD *)(a1 + 760) & 0x30000) != 0 )
-  {
-    v7 = 0;
-  }
-  else
+  if ( (*(_DWORD *)(a1 + 760) & 0x30000) == 0 )
   {
     PopDirectedDripsDiagBroadcastTreeBegin(a1, a2, &v13);
     v8 = 0;
@@ -33,37 +29,43 @@ __int64 __fastcall PopDirectedDripsBuildBroadcastTreePartial(__int64 a1, char a2
     while ( (*(_DWORD *)(v9 + 760) & 2) != 0 )
     {
       if ( !*(_QWORD *)(v9 + 8) || (*(_DWORD *)(v9 + 760) & 4) != 0 )
-        goto LABEL_14;
+        goto LABEL_7;
       v9 = *(_QWORD *)(v9 + 8);
-LABEL_17:
+LABEL_16:
       if ( v9 == a1 )
+      {
+LABEL_17:
+        *a3 |= v12;
+        v7 = v8 == 0 ? 0xC00000BB : 0;
         goto LABEL_18;
+      }
     }
     v10 = PopDirectedDripsBuildBroadcastTreeFull(v9, v13, a2, &v12);
     v7 = v10;
     if ( v10 >= 0 )
     {
       ++v8;
-      goto LABEL_14;
     }
-    v3 = 1;
-    if ( v10 == -1073741637 )
+    else
     {
-LABEL_14:
-      while ( v9 != a1 )
-      {
-        if ( *(_QWORD *)v9 )
-        {
-          v9 = *(_QWORD *)v9;
-          goto LABEL_17;
-        }
-        v9 = *(_QWORD *)(v9 + 16);
-      }
-LABEL_18:
-      *a3 |= v12;
-      v7 = v8 == 0 ? 0xC00000BB : 0;
+      v3 = 1;
+      if ( v10 != -1073741637 )
+        goto LABEL_18;
     }
+LABEL_7:
+    if ( v9 == a1 )
+      goto LABEL_17;
+    while ( !*(_QWORD *)v9 )
+    {
+      v9 = *(_QWORD *)(v9 + 16);
+      if ( v9 == a1 )
+        goto LABEL_16;
+    }
+    v9 = *(_QWORD *)v9;
+    goto LABEL_16;
   }
+  v7 = 0;
+LABEL_18:
   PopDirectedDripsDiagBroadcastTreeEnd(v13, v7, v12, v3);
   return v7;
 }

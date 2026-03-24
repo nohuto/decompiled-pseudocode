@@ -4,9 +4,9 @@
  *     ObpCheckObjectReference @ 0x1405C9050 (ObpCheckObjectReference.c)
  * Callees:
  *     SepAdtAuditThisEventWithContext @ 0x1405BBA50 (SepAdtAuditThisEventWithContext.c)
- *     SepAdtObjectReferenceAuditAlarm @ 0x14089E4CC (SepAdtObjectReferenceAuditAlarm.c)
- *     SeExamineSacl @ 0x1408A06B0 (SeExamineSacl.c)
- *     SeExamineGlobalSacl @ 0x1408A390C (SeExamineGlobalSacl.c)
+ *     SepAdtObjectReferenceAuditAlarm @ 0x14089E4AC (SepAdtObjectReferenceAuditAlarm.c)
+ *     SeExamineSacl @ 0x1408A0690 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x1408A38EC (SeExamineGlobalSacl.c)
  */
 
 void __fastcall SeObjectReferenceAuditAlarm(

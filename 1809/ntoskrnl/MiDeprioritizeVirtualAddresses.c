@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDeprioritizeVirtualAddresses @ 0x1402AB5BC
+ * XREFs of MiDeprioritizeVirtualAddresses @ 0x1402AB6BC
  * Callers:
- *     MiDeprioritizeVad @ 0x140136D9C (MiDeprioritizeVad.c)
- *     HvTrimHive @ 0x1406BDD40 (HvTrimHive.c)
+ *     MiDeprioritizeVad @ 0x140136DBC (MiDeprioritizeVad.c)
+ *     HvTrimHive @ 0x1406BDD20 (HvTrimHive.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
@@ -14,11 +14,11 @@
  *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
  *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
  *     MI_WSLE_LOG_ACCESS @ 0x140088044 (MI_WSLE_LOG_ACCESS.c)
- *     MiFreeWsleList @ 0x1400B2A90 (MiFreeWsleList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiTbFlushType @ 0x1400EDB84 (MiTbFlushType.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiDeprioritizeVirtualAddresses(unsigned __int64 a1, __int64 a2, __int64 a3, char a4)

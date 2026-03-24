@@ -1,47 +1,34 @@
 /*
- * XREFs of HvHiveConvertLockedPagesToCowByPolicy @ 0x140751744
+ * XREFs of HvHiveConvertLockedPagesToCowByPolicy @ 0x14071BD50
  * Callers:
- *     CmpDoLocalizeNextHive @ 0x140751870 (CmpDoLocalizeNextHive.c)
+ *     CmpDoLocalizeNextHive @ 0x14071BCA0 (CmpDoLocalizeNextHive.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x1407C3A7C (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140724E58 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
  */
 
 __int64 __fastcall HvHiveConvertLockedPagesToCowByPolicy(__int64 a1)
 {
-  __int64 v1; // r14
+  __int64 v1; // rsi
   signed __int64 *v5; // rdi
-  unsigned __int64 v6; // rbp
-  unsigned __int64 *v7; // rsi
-  __int64 v8; // rax
-  __int64 v9; // rbp
-  int locked; // ebp
+  volatile signed __int64 *v6; // rbx
+  int locked; // esi
 
-  v1 = a1 + 224;
-  if ( (*(_DWORD *)(a1 + 256) & 4) != 0 )
+  v1 = a1 + 216;
+  if ( (*(_DWORD *)(a1 + 248) & 4) != 0 )
   {
     v5 = (signed __int64 *)(a1 + 72);
-    v6 = KeAbPreAcquire(a1 + 72, 0LL);
-    if ( _InterlockedCompareExchange64(v5, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx(v5, 0LL, v6, (__int64)v5);
-    if ( v6 )
-      *(_BYTE *)(v6 + 18) = 1;
-    v7 = (unsigned __int64 *)(a1 + 80);
-    v8 = KeAbPreAcquire((__int64)v7, 0LL);
-    v9 = v8;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v7, v8, (__int64)v7);
-    if ( v9 )
-      *(_BYTE *)(v9 + 18) = 1;
+    ExAcquirePushLockSharedEx(a1 + 72, 0LL);
+    v6 = (volatile signed __int64 *)(a1 + 80);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)v6, 0LL);
     locked = HvpViewMapConvertLockedPagesToCOWByPolicy(v1);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)v7);
-    KeAbPostRelease((ULONG_PTR)v7);
+    if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v6);
+    KeAbPostRelease((ULONG_PTR)v6);
     if ( _InterlockedCompareExchange64(v5, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared(v5);
     KeAbPostRelease((ULONG_PTR)v5);

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceBatteryAlarmStatus @ 0x14098CA24
+ * XREFs of PopDiagTraceBatteryAlarmStatus @ 0x1408E82F4
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140870950 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FB1C (PopBatteryApplyCompositeState.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x1403C3CBC (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x14034B7DC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceBatteryAlarmStatus(__int64 a1, __int64 a2, unsigned int *a3)
@@ -19,7 +19,7 @@ char __fastcall PopDiagTraceBatteryAlarmStatus(__int64 a1, __int64 a2, unsigned 
   char *v8; // r10
   __int64 v9; // r11
   __int64 v10; // rbx
-  int v11; // r10d
+  int v11; // r9d
   char v13; // [rsp+38h] [rbp-D0h] BYREF
   char v14; // [rsp+39h] [rbp-CFh] BYREF
   int v15; // [rsp+3Ch] [rbp-CCh] BYREF
@@ -63,11 +63,11 @@ char __fastcall PopDiagTraceBatteryAlarmStatus(__int64 a1, __int64 a2, unsigned 
   if ( (unsigned int)v3 <= 1 )
   {
     v4 = IndexToActionName[v3];
-    v5 = dword_140C3D28C;
+    v5 = dword_140C23DAC;
     v6 = 0;
-    if ( (unsigned int)dword_140C03950 > 5 )
+    if ( (unsigned int)dword_140C02228 > 5 )
     {
-      LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL);
+      LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL);
       if ( (_BYTE)v3 )
       {
         tlgCreate1Sz_char((__int64)v26, v4);
@@ -75,7 +75,7 @@ char __fastcall PopDiagTraceBatteryAlarmStatus(__int64 a1, __int64 a2, unsigned 
         v27 = (int *)&v13;
         v28 = 1LL;
         v29 = &v20;
-        v21 = unk_140C3D120;
+        v21 = unk_140C23C60;
         v20 = v5;
         v31 = &v21;
         v14 = *v8;
@@ -94,7 +94,7 @@ char __fastcall PopDiagTraceBatteryAlarmStatus(__int64 a1, __int64 a2, unsigned 
         v45 = &v17;
         v18 = *(_DWORD *)(v9 + 16);
         v47 = &v18;
-        v19 = (unsigned __int8)byte_140C3D220;
+        v19 = (unsigned __int8)byte_140C23D40;
         v49 = &v19;
         v30 = 4LL;
         v32 = 4LL;
@@ -108,52 +108,52 @@ char __fastcall PopDiagTraceBatteryAlarmStatus(__int64 a1, __int64 a2, unsigned 
         v48 = 4LL;
         v50 = 4LL;
         LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
-                       (__int64)&dword_140C03950,
-                       (unsigned __int8 *)&byte_14002E7EF,
+                       (__int64)&dword_140C02228,
+                       (unsigned __int8 *)&dword_140027994,
                        0LL,
                        0LL,
                        0xFu,
                        v25);
       }
     }
-    if ( (unsigned int)dword_140C3D0F4 > 1 )
+    if ( (unsigned int)dword_140C23C34 > 1 )
     {
-      v10 = qword_140C3D110;
-      v3 = (unsigned __int64)&qword_140C3D110;
-      while ( (__int64 *)v10 != &qword_140C3D110 )
+      v10 = qword_140C23C50;
+      v3 = (unsigned __int64)&qword_140C23C50;
+      while ( (__int64 *)v10 != &qword_140C23C50 )
       {
         ++v6;
         if ( *(_DWORD *)(v10 + 64) )
-          v3 = (unsigned __int64)&qword_140C3D110;
-        if ( (unsigned int)dword_140C03950 > 5 )
+          v3 = (unsigned __int64)&qword_140C23C50;
+        if ( (unsigned int)dword_140C02228 > 5 )
         {
-          if ( tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
+          if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
           {
             tlgCreate1Sz_char((__int64)v26, v4);
-            v19 = v6;
+            v16 = v11;
             v27 = &v19;
             v18 = *(_DWORD *)(v10 + 64);
-            v28 = 4LL;
+            v19 = v6;
             v29 = &v18;
             v17 = *(_DWORD *)(v10 + 88);
             v31 = &v17;
             v33 = &v16;
             v15 = *(_DWORD *)(v10 + 68);
             v35 = &v15;
+            v28 = 4LL;
             v30 = 4LL;
             v32 = 4LL;
-            v16 = v11;
             v34 = 4LL;
             v36 = 4LL;
             tlgWriteTransfer_EtwWriteTransfer(
-              (__int64)&dword_140C03950,
-              (unsigned __int8 *)byte_14002E75B,
+              (__int64)&dword_140C02228,
+              (unsigned __int8 *)word_140027732,
               0LL,
               0LL,
               8u,
               v25);
           }
-          v3 = (unsigned __int64)&qword_140C3D110;
+          v3 = (unsigned __int64)&qword_140C23C50;
         }
         v10 = *(_QWORD *)v10;
       }

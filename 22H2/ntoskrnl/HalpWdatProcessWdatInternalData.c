@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpWdatProcessWdatInternalData @ 0x14051F1E8
+ * XREFs of HalpWdatProcessWdatInternalData @ 0x1404D4EE8
  * Callers:
- *     HalpWdatDiscover @ 0x1403A4388 (HalpWdatDiscover.c)
+ *     HalpWdatDiscover @ 0x1403B3240 (HalpWdatDiscover.c)
  * Callees:
  *     <none>
  */

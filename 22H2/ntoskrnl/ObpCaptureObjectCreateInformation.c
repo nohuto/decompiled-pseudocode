@@ -1,18 +1,17 @@
 /*
- * XREFs of ObpCaptureObjectCreateInformation @ 0x1406EEFC0
+ * XREFs of ObpCaptureObjectCreateInformation @ 0x1406CF200
  * Callers:
- *     ObOpenObjectByNameEx @ 0x1406ED090 (ObOpenObjectByNameEx.c)
- *     ObReferenceObjectByNameEx @ 0x1407153CC (ObReferenceObjectByNameEx.c)
- *     SepDuplicateToken @ 0x140729BF0 (SepDuplicateToken.c)
- *     IopAllocRealFileObject @ 0x14072F370 (IopAllocRealFileObject.c)
- *     CmpCreateKeyBody @ 0x14072F7D0 (CmpCreateKeyBody.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
+ *     ObReferenceObjectByNameEx @ 0x1405DE69C (ObReferenceObjectByNameEx.c)
+ *     CmpCreateKeyBody @ 0x140649DB0 (CmpCreateKeyBody.c)
+ *     IopAllocRealFileObject @ 0x140650820 (IopAllocRealFileObject.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
+ *     ObOpenObjectByNameEx @ 0x1406CEA90 (ObOpenObjectByNameEx.c)
  * Callees:
- *     ObpCaptureObjectName @ 0x1406EF250 (ObpCaptureObjectName.c)
- *     SeComputeQuotaInformationSize @ 0x140728BF0 (SeComputeQuotaInformationSize.c)
- *     SeCaptureSecurityDescriptor @ 0x140737050 (SeCaptureSecurityDescriptor.c)
- *     SeReleaseSecurityDescriptor @ 0x1407378D0 (SeReleaseSecurityDescriptor.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     ObpCaptureObjectName @ 0x1406CF470 (ObpCaptureObjectName.c)
+ *     SeCaptureSecurityDescriptor @ 0x1406D4920 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x1406D5510 (SeReleaseSecurityDescriptor.c)
+ *     SeComputeQuotaInformationSize @ 0x1406D8990 (SeComputeQuotaInformationSize.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall ObpCaptureObjectCreateInformation(
@@ -23,25 +22,25 @@ __int64 __fastcall ObpCaptureObjectCreateInformation(
         __int64 a5,
         unsigned int a6)
 {
-  _OWORD *v6; // r14
+  _OWORD *v6; // r15
   int v8; // eax
-  __int64 v9; // r15
+  __int64 v9; // r14
   __int64 v10; // r10
-  __int64 v11; // rsi
+  __int64 v11; // rdi
   int v12; // r12d
-  __int64 v14; // rcx
-  int v15; // [rsp+34h] [rbp-74h] BYREF
-  int v16; // [rsp+38h] [rbp-70h]
-  int v17; // [rsp+3Ch] [rbp-6Ch]
-  __int64 v18; // [rsp+40h] [rbp-68h]
-  __int64 v19; // [rsp+48h] [rbp-60h]
-  __int64 v20; // [rsp+50h] [rbp-58h]
-  __int64 v21; // [rsp+60h] [rbp-48h]
-  struct _KTHREAD *CurrentThread; // [rsp+68h] [rbp-40h]
-  struct _KTHREAD *v23; // [rsp+70h] [rbp-38h]
+  _QWORD *v14; // r13
+  __int64 v15; // rcx
+  int v16; // [rsp+34h] [rbp-64h] BYREF
+  int v17; // [rsp+38h] [rbp-60h]
+  int v18; // [rsp+3Ch] [rbp-5Ch]
+  __int64 v19; // [rsp+40h] [rbp-58h]
+  __int64 v20; // [rsp+48h] [rbp-50h]
+  __int64 v21; // [rsp+50h] [rbp-48h]
+  struct _KTHREAD *CurrentThread; // [rsp+60h] [rbp-38h]
+  struct _KTHREAD *v23; // [rsp+68h] [rbp-30h]
 
   v6 = a4;
-  v15 = 0;
+  v16 = 0;
   *a4 = 0LL;
   *(_OWORD *)a5 = 0LL;
   *(_OWORD *)(a5 + 16) = 0LL;
@@ -49,7 +48,6 @@ __int64 __fastcall ObpCaptureObjectCreateInformation(
   *(_OWORD *)(a5 + 48) = 0LL;
   if ( !a3 )
     return 0LL;
-  v21 = a5 + 16;
   *(_BYTE *)(a5 + 16) = a1;
   if ( a1 )
   {
@@ -63,30 +61,30 @@ __int64 __fastcall ObpCaptureObjectCreateInformation(
   if ( *(_DWORD *)a3 != 48 )
   {
     v12 = -1073741811;
-    v16 = -1073741811;
+    v17 = -1073741811;
     goto LABEL_33;
   }
   *(_QWORD *)(a5 + 8) = *(_QWORD *)(a3 + 8);
   v8 = *(_DWORD *)(a3 + 24);
-  v17 = v8;
+  v18 = v8;
   if ( a2 )
   {
     v8 &= ~0x200u;
-    v17 = v8;
+    v18 = v8;
   }
   if ( (v8 & 0xFFFEE00D) != 0 )
   {
     v12 = -1073741811;
-    v16 = -1073741811;
+    v17 = -1073741811;
     goto LABEL_33;
   }
   *(_DWORD *)a5 = v8;
   v9 = *(_QWORD *)(a3 + 16);
-  v19 = v9;
+  v20 = v9;
   v10 = *(_QWORD *)(a3 + 32);
-  v20 = v10;
+  v21 = v10;
   v11 = *(_QWORD *)(a3 + 40);
-  v18 = v11;
+  v19 = v11;
   if ( v11 )
   {
     if ( !a1 )
@@ -97,11 +95,11 @@ LABEL_14:
       goto LABEL_19;
     }
     v23 = KeGetCurrentThread();
-    if ( !v23->PreviousMode || (v18 & 3) == 0 )
+    if ( !v23->PreviousMode || (v19 & 3) == 0 )
     {
-      v11 = v18;
-      v10 = v20;
-      v9 = v19;
+      v11 = v19;
+      v10 = v21;
+      v9 = v20;
       goto LABEL_14;
     }
 LABEL_18:
@@ -110,15 +108,16 @@ LABEL_18:
 LABEL_19:
   if ( v10 )
   {
+    v14 = (_QWORD *)(a5 + 32);
     LOBYTE(a4) = 1;
     v12 = SeCaptureSecurityDescriptor(v10, a1, 1, (_DWORD)a4, a5 + 32);
     if ( v12 < 0 )
     {
-      *(_QWORD *)(a5 + 32) = 0LL;
+      *v14 = 0LL;
       goto LABEL_33;
     }
-    SeComputeQuotaInformationSize(*(_QWORD *)(a5 + 32), &v15);
-    *(_DWORD *)(a5 + 28) = v15;
+    SeComputeQuotaInformationSize(*v14, &v16);
+    *(_DWORD *)(a5 + 28) = v16;
   }
   if ( !v11 )
     goto LABEL_21;
@@ -150,11 +149,11 @@ LABEL_21:
     }
   }
 LABEL_33:
-  v14 = *(_QWORD *)(a5 + 32);
-  if ( v14 )
+  v15 = *(_QWORD *)(a5 + 32);
+  if ( v15 )
   {
     LOBYTE(a3) = 1;
-    SeReleaseSecurityDescriptor(v14, *(unsigned __int8 *)(a5 + 16), a3, a4);
+    SeReleaseSecurityDescriptor(v15, *(unsigned __int8 *)(a5 + 16), a3, a4);
     *(_QWORD *)(a5 + 32) = 0LL;
   }
   return (unsigned int)v12;

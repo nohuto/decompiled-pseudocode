@@ -1,9 +1,9 @@
 /*
- * XREFs of CcIsThereDirtyData @ 0x140269F40
+ * XREFs of CcIsThereDirtyData @ 0x14026A040
  * Callers:
  *     <none>
  * Callees:
- *     CcForEachPartition @ 0x140120060 (CcForEachPartition.c)
+ *     CcForEachPartition @ 0x140120080 (CcForEachPartition.c)
  */
 
 BOOLEAN __stdcall CcIsThereDirtyData(PVPB Vpb)

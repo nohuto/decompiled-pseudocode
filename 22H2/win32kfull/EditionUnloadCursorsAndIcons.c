@@ -1,78 +1,56 @@
 /*
- * XREFs of EditionUnloadCursorsAndIcons @ 0x1C00B47D0
+ * XREFs of EditionUnloadCursorsAndIcons @ 0x1C012C140
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
  */
 
-void EditionUnloadCursorsAndIcons()
+void __fastcall EditionUnloadCursorsAndIcons(__int64 a1)
 {
-  PDEVICE_OBJECT v0; // rcx
-  bool v1; // dl
-  __int64 *v2; // rbx
-  __int64 v3; // rsi
-  char *v4; // rdi
-  __int64 v5; // rbp
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v7; // rbx
-  __int64 v8; // rdi
-  __int64 v9; // rsi
-  __int64 v10; // rbp
-  __int64 v11; // rax
+  __int64 *v1; // rbx
+  __int64 v2; // rsi
+  char *v3; // rdi
+  __int64 v4; // rbp
+  __int64 v5; // rbx
+  __int64 v6; // rdi
+  __int64 v7; // rsi
+  __int64 v8; // rbp
 
-  v0 = WPP_GLOBAL_Control;
-  v1 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) != 0
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( v1 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v1,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      10,
-      4,
-      3,
-      10,
-      (__int64)&WPP_cb4df25abbe7376502e8579dc12f3901_Traceguids);
-  v2 = (__int64 *)&unk_1C0359228;
-  v3 = 7LL;
-  v4 = (char *)&unk_1C0359228;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_(a1, 4, 9, 10, (__int64)&WPP_fa2cb857af273f1c9fc7df7b6f9bea47_Traceguids);
+  v1 = (__int64 *)&unk_1C032FD08;
+  v2 = 7LL;
+  v3 = (char *)&unk_1C032FD08;
   do
   {
-    v5 = *v2;
-    if ( *v2 )
+    if ( *v1 )
     {
-      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v0);
-      if ( CurrentProcessWin32Process )
-        CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-      *(_QWORD *)(v5 + 24) = CurrentProcessWin32Process;
-      HMAssignmentUnlock(v4);
+      v4 = *v1;
+      *(_QWORD *)(v4 + 24) = PsGetCurrentProcessWin32Process(a1);
+      HMAssignmentUnlock(v3);
     }
-    v4 += 552;
-    v2 += 69;
-    --v3;
+    v3 += 552;
+    v1 += 69;
+    --v2;
   }
-  while ( v3 );
-  v7 = 0LL;
-  v8 = 0LL;
-  v9 = 19LL;
+  while ( v2 );
+  v5 = 0LL;
+  v6 = 0LL;
+  v7 = 19LL;
   do
   {
-    v10 = *(_QWORD *)(v7 + gasyscur[0] + 8);
-    if ( v10 )
+    v8 = *(_QWORD *)(v5 + gasyscur[0] + 8);
+    if ( v8 )
     {
-      v11 = PsGetCurrentProcessWin32Process(v0);
-      if ( v11 )
-        v11 &= -(__int64)(*(_QWORD *)v11 != 0LL);
-      *(_QWORD *)(v10 + 24) = v11;
-      HMAssignmentUnlock(&gasyscur[v8 + 1]);
+      *(_QWORD *)(v8 + 24) = PsGetCurrentProcessWin32Process(a1);
+      HMAssignmentUnlock(&gasyscur[v6 + 1]);
     }
-    v8 += 69LL;
-    v7 += 552LL;
-    --v9;
+    v6 += 69LL;
+    v5 += 552LL;
+    --v7;
   }
-  while ( v9 );
+  while ( v7 );
   if ( gpCursorSizes )
     Win32FreePool(gpCursorSizes);
   gpCursorSizes = 0LL;

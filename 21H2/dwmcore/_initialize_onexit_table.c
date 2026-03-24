@@ -1,7 +1,7 @@
 /*
- * XREFs of _initialize_onexit_table @ 0x180101832
+ * XREFs of _initialize_onexit_table @ 0x1800E8132
  * Callers:
- *     __scrt_initialize_onexit_tables @ 0x180100A08 (__scrt_initialize_onexit_tables.c)
+ *     __scrt_initialize_onexit_tables @ 0x1800E71D0 (__scrt_initialize_onexit_tables.c)
  * Callees:
  *     <none>
  */

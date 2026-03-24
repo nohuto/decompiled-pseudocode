@@ -1,367 +1,404 @@
 /*
- * XREFs of KiAbEntryGetLockedHeadEntry @ 0x14024C730
+ * XREFs of KiAbEntryGetLockedHeadEntry @ 0x1402726C0
  * Callers:
- *     KiSwapThread @ 0x14023F3D0 (KiSwapThread.c)
- *     KiDispatchInterrupt @ 0x140249510 (KiDispatchInterrupt.c)
- *     KiAbProcessThreadLocks @ 0x1402BC320 (KiAbProcessThreadLocks.c)
- *     KiAbForceProcessLockEntry @ 0x1403CC428 (KiAbForceProcessLockEntry.c)
+ *     KiAbProcessThreadLocks @ 0x140271744 (KiAbProcessThreadLocks.c)
+ *     KiAbProcessContextSwitch @ 0x1402C82E0 (KiAbProcessContextSwitch.c)
+ *     KiAbForceProcessLockEntry @ 0x14038F384 (KiAbForceProcessLockEntry.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     RtlRbInsertNodeEx @ 0x14024CCA0 (RtlRbInsertNodeEx.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025ABF0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CAB0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiAbOwnerComputeCpuPriorityKey @ 0x1403190CC (KiAbOwnerComputeCpuPriorityKey.c)
- *     KiAbCompareSnappedEntryState @ 0x14035F95C (KiAbCompareSnappedEntryState.c)
- *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x14046AFE8 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiAbCompareSnappedEntryState @ 0x14026EF14 (KiAbCompareSnappedEntryState.c)
+ *     KiAbOwnerComputeCpuPriorityKey @ 0x140272EAC (KiAbOwnerComputeCpuPriorityKey.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140295410 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14029CF60 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x1402C0B10 (RtlRbInsertNodeEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x1405B5E54 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
  */
 
-__int128 *__fastcall KiAbEntryGetLockedHeadEntry(__int128 *a1, int a2, struct _KLOCK_QUEUE_HANDLE *a3)
+__int64 __fastcall KiAbEntryGetLockedHeadEntry(__int64 a1, int a2, struct _KLOCK_QUEUE_HANDLE *a3)
 {
-  bool v3; // zf
-  unsigned __int64 v7; // rcx
-  volatile LONG *v8; // r14
-  unsigned __int64 v9; // rsi
-  __int64 v10; // r8
-  int v11; // r15d
-  unsigned __int64 v12; // rax
-  unsigned __int64 v13; // rcx
-  unsigned int v14; // ecx
-  unsigned __int64 v15; // rcx
-  volatile LONG i; // ecx
-  unsigned __int64 v17; // rdx
-  unsigned __int8 v18; // al
-  unsigned __int64 v19; // rax
-  unsigned int v20; // eax
-  unsigned __int64 v21; // rax
-  __int128 *v22; // rdi
-  _BYTE *v23; // rsi
-  __int128 *v24; // rbx
-  char v26; // cl
-  unsigned __int64 v27; // r10
-  __int64 v28; // r8
-  unsigned __int64 v29; // rdx
-  unsigned __int8 v30; // al
-  int v31; // r8d
-  unsigned __int64 v32; // rax
-  char v33; // al
-  char v34; // cl
-  __int64 v35; // rax
-  unsigned __int64 v36; // r9
-  int v37; // r8d
-  unsigned __int64 v38; // rax
-  unsigned __int64 v39; // [rsp+20h] [rbp-68h] BYREF
-  int v40; // [rsp+28h] [rbp-60h]
-  int v41; // [rsp+2Ch] [rbp-5Ch]
-  __int128 v42; // [rsp+30h] [rbp-58h]
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-48h] BYREF
-  void *retaddr; // [rsp+88h] [rbp+0h]
-  int v45; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v3; // r14
+  bool v4; // zf
+  __int64 v7; // rsi
+  int v8; // r12d
+  unsigned __int64 v9; // rcx
+  volatile LONG *v10; // rbp
+  unsigned __int64 v11; // r15
+  __int64 v12; // r8
+  __int64 v13; // r9
+  __int64 v14; // rax
+  __int64 v15; // rbx
+  int v16; // edx
+  unsigned __int64 v17; // rax
+  unsigned int v18; // eax
+  __int64 v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rdx
+  unsigned __int8 v22; // al
+  unsigned __int64 v23; // rax
+  unsigned int v24; // eax
+  __int64 v25; // rax
+  __int64 v26; // rdi
+  __int64 v27; // r8
+  __int64 v28; // rcx
+  __int64 v30; // rdx
+  __int64 v31; // r8
+  char v32; // cl
+  __int64 *v33; // rbx
+  __int64 v34; // rax
+  int v35; // edx
+  __int64 v36; // rax
+  char v37; // al
+  char v38; // cl
+  __int64 v39; // rax
+  int v40; // edx
+  __int64 v41; // rax
+  __int64 v42; // r8
+  unsigned __int32 v43; // eax
+  unsigned __int64 v44; // [rsp+20h] [rbp-78h] BYREF
+  int v45; // [rsp+28h] [rbp-70h]
+  int v46; // [rsp+2Ch] [rbp-6Ch]
+  __int128 v47; // [rsp+30h] [rbp-68h]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-58h] BYREF
+  void *retaddr; // [rsp+98h] [rbp+0h]
+  int v52; // [rsp+B8h] [rbp+20h] BYREF
 
-  v41 = 0;
-  v3 = (*((_BYTE *)a1 + 19) & 1) == 0;
+  v3 = 0LL;
+  v4 = (*(_BYTE *)(a1 + 27) & 1) == 0;
+  v46 = 0;
+  v7 = a1;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( !v3 )
+  if ( !v4 )
   {
-    KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)a1 + 10, a3);
-    if ( (*((_BYTE *)a1 + 19) & 1) != 0 )
-      return a1;
-    KxReleaseQueuedSpinLock(a3);
+    a3->LockQueue.Next = 0LL;
+    a3->LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 80);
+    KxAcquireQueuedSpinLock(a3, a1 + 80, a3);
+    if ( (*(_BYTE *)(v7 + 27) & 1) != 0 )
+      return v7;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(a3);
   }
-  v42 = *a1;
-  if ( (__int64)v42 >= 0 && !a2 )
+  v47 = *(_OWORD *)(v7 + 32);
+  if ( (__int64)v47 >= 0 && !a2 )
     return 0LL;
-  v39 = v42 & 0x7FFFFFFFFFFFFFFCLL;
-  v40 = DWORD2(v42);
-  v7 = ((((unsigned __int64)v42 & 0x7FFFFFFFFFFFFFFCLL) >> 4) & 0x3FF) << 6;
-  v8 = (volatile LONG *)((char *)&KiAbTreeArray + v7 + 16);
-  v9 = (unsigned __int64)&KiAbTreeArray + v7;
-  ExAcquireSpinLockSharedAtDpcLevel(v8);
-  v11 = 0;
+  v8 = 0;
+  v44 = v47 & 0x7FFFFFFFFFFFFFFCLL;
+  v9 = ((((unsigned __int64)v47 & 0x7FFFFFFFFFFFFFFCLL) >> 4) & 0x3FF) << 6;
+  v45 = DWORD2(v47);
+  v10 = (volatile LONG *)((char *)&KiAbTreeArray + v9 + 16);
+  v11 = (unsigned __int64)&KiAbTreeArray + v9;
   while ( 1 )
   {
-    v12 = *(_QWORD *)v9;
-    if ( (*(_QWORD *)(v9 + 8) & 1) != 0 )
+    if ( v8 )
+      ExAcquireSpinLockExclusiveAtDpcLevel(v10);
+    else
+      ExAcquireSpinLockSharedAtDpcLevel(v10);
+    v14 = *(_QWORD *)(v11 + 8);
+    v15 = *(_QWORD *)v11;
+    if ( (v14 & 1) != 0 )
     {
-      if ( !v12 )
-        goto LABEL_16;
-      v12 ^= v9;
+      if ( v15 )
+        v15 ^= v11;
+      else
+        v15 = 0LL;
     }
-    v10 = *(_QWORD *)(v9 + 8) & 1LL;
-    while ( v12 )
+    v16 = v14 & 1;
+    if ( v15 )
     {
-      v13 = *(_QWORD *)(v12 - 24) & 0x7FFFFFFFFFFFFFFCLL;
-      if ( v13 < v39 )
-        goto LABEL_33;
-      if ( v13 > v39 )
-        goto LABEL_13;
-      v14 = *(_DWORD *)(v12 - 16);
-      if ( v14 == DWORD2(v42) )
-        break;
-      if ( v14 < DWORD2(v42) )
+      while ( 1 )
       {
-LABEL_33:
-        v15 = *(_QWORD *)(v12 + 8);
-        if ( (_DWORD)v10 && v15 )
+        v17 = *(_QWORD *)(v15 + 32) & 0x7FFFFFFFFFFFFFFCLL;
+        if ( v17 < v44 )
+          goto LABEL_37;
+        if ( v17 > v44 )
+          goto LABEL_16;
+        v18 = *(_DWORD *)(v15 + 40);
+        if ( v18 == DWORD2(v47) )
+          goto LABEL_19;
+        if ( v18 < DWORD2(v47) )
         {
 LABEL_37:
-          v12 ^= v15;
-          continue;
+          v19 = *(_QWORD *)(v15 + 8);
+          if ( v16 && v19 )
+          {
+LABEL_41:
+            v15 ^= v19;
+            goto LABEL_18;
+          }
+        }
+        else
+        {
+LABEL_16:
+          v19 = *(_QWORD *)v15;
+          if ( v16 && v19 )
+            goto LABEL_41;
+        }
+        v15 = v19;
+LABEL_18:
+        if ( !v15 )
+        {
+LABEL_19:
+          v7 = a1;
+          break;
         }
       }
-      else
-      {
-LABEL_13:
-        v15 = *(_QWORD *)v12;
-        if ( (_DWORD)v10 && v15 )
-          goto LABEL_37;
-      }
-      v12 = v15;
     }
-LABEL_16:
     if ( !a2 )
     {
-      if ( v12 )
+      if ( v15 )
       {
-        v22 = (__int128 *)(v12 - 24);
-        KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v12 - 24 + 80), a3);
-        if ( v11 )
-          ExReleaseSpinLockExclusiveFromDpcLevel(v8);
+        v26 = v15;
+        a3->LockQueue.Lock = (unsigned __int64 *volatile)(v15 + 80);
+        a3->LockQueue.Next = 0LL;
+        KxAcquireQueuedSpinLock(a3, v15 + 80, v12);
+        if ( v8 )
+          ExReleaseSpinLockExclusiveFromDpcLevel(v10);
         else
-          ExReleaseSpinLockSharedFromDpcLevel(v8);
-        if ( a1 == v22 )
-          return v22;
-        KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)a1 + 10, &LockHandle);
-        KxReleaseQueuedSpinLock(&LockHandle);
-        if ( (unsigned int)KiAbCompareSnappedEntryState(a1, &v39) )
-          return v22;
-        KxReleaseQueuedSpinLock(a3);
+          ExReleaseSpinLockSharedFromDpcLevel(v10);
+        if ( v7 == v15 )
+          return v26;
+        LockHandle.LockQueue.Next = 0LL;
+        LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v7 + 80);
+        KxAcquireQueuedSpinLock(&LockHandle, v7 + 80, v42);
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+        if ( KiAbCompareSnappedEntryState((__m128i *)v7, (__int64)&v44) )
+          return v26;
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(a3);
       }
-      else if ( v11 )
+      else if ( v8 )
       {
-        ExReleaseSpinLockExclusiveFromDpcLevel(v8);
+        ExReleaseSpinLockExclusiveFromDpcLevel(v10);
       }
       else
       {
-        ExReleaseSpinLockSharedFromDpcLevel(v8);
+        ExReleaseSpinLockSharedFromDpcLevel(v10);
       }
       return 0LL;
     }
-    if ( v12 )
+    if ( v15 )
+      break;
+    if ( v8 )
+      goto LABEL_26;
+    v8 = 1;
+    v52 = 0;
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
     {
-      v22 = (__int128 *)(v12 - 24);
-      KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v12 - 24 + 80), a3);
-      if ( v11 )
-        ExReleaseSpinLockExclusiveFromDpcLevel(v8);
-      else
-        ExReleaseSpinLockSharedFromDpcLevel(v8);
-      if ( *(__int64 *)a1 < 0 )
-        return v22;
-      v23 = (char *)a1 + 17;
-      if ( *((_BYTE *)a1 + 17) != *(__int64 *)a1 < 0 )
+      if ( (unsigned int)ExpTryConvertSharedSpinLockExclusiveInstrumented(v10, retaddr) )
+        goto LABEL_26;
+    }
+    else if ( !_interlockedbittestandset(v10, 0x1Fu) )
+    {
+      v20 = *(unsigned int *)v10;
+      if ( (*v10 & 0xBFFFFFFF) != 0x80000001 )
       {
-        v26 = *((_BYTE *)&a1[-6 * *((unsigned __int8 *)a1 + 16) - 93] - 13);
-        if ( v26 > 30 )
-          v26 = 30;
-        v27 = (unsigned __int64)(v22 + 4);
-        *((_BYTE *)a1 + 48) = v26;
-        v28 = *((_QWORD *)v22 + 9);
-        v29 = *((_QWORD *)v22 + 8);
-        if ( (v28 & 1) == 0 )
-          goto LABEL_58;
-        if ( v29 )
+        do
         {
-          v29 ^= v27;
-LABEL_58:
-          v30 = 0;
-          v31 = v28 & 1;
-          if ( v29 )
+          if ( (v20 & 0x40000000) == 0 )
           {
-            while ( 1 )
-            {
-              if ( *(char *)(v29 + 24) < v26 )
-              {
-                v32 = *(_QWORD *)v29;
-                if ( v31 )
-                {
-                  if ( !v32 )
-                    goto LABEL_71;
-                  v32 ^= v29;
-                }
-                if ( !v32 )
-                  goto LABEL_71;
-              }
-              else
-              {
-                v32 = *(_QWORD *)(v29 + 8);
-                if ( v31 )
-                {
-                  if ( !v32 )
-                    goto LABEL_64;
-                  v32 ^= v29;
-                }
-                if ( !v32 )
-                  goto LABEL_64;
-              }
-              v29 = v32;
-            }
+            v43 = _InterlockedCompareExchange(v10, v20 | 0x40000000, v20);
+            v4 = (_DWORD)v20 == v43;
+            v20 = v43;
+            if ( !v4 )
+              continue;
           }
-LABEL_72:
-          RtlRbInsertNodeEx(v27, v29, v30, (char *)a1 + 24);
-          *((_BYTE *)a1 + 7) |= 0x80u;
-          goto LABEL_45;
+          KeYieldProcessorEx(&v52, v20, v12, v13);
+          v20 = *(unsigned int *)v10;
         }
-LABEL_71:
-        v30 = 0;
-        goto LABEL_72;
+        while ( (v20 & 0xBFFFFFFF) != 0x80000001 );
       }
-      v33 = KiAbOwnerComputeCpuPriorityKey(a1);
-      v27 = (unsigned __int64)(v22 + 3);
-      *((_BYTE *)a1 + 48) = v33;
-      v34 = v33;
-      v35 = *((_QWORD *)v22 + 7);
-      if ( (v35 & 1) != 0 )
+LABEL_26:
+      v21 = *(_QWORD *)v11;
+      if ( (*(_QWORD *)(v11 + 8) & 1) != 0 )
       {
-        v29 = *(_QWORD *)v27;
-        if ( !*(_QWORD *)v27 )
-          goto LABEL_71;
-        v36 = v29 ^ v27;
+        if ( v21 )
+          v21 ^= v11;
+        else
+          v21 = 0LL;
       }
-      else
-      {
-        v36 = *(_QWORD *)v27;
-      }
-      v29 = v36;
-      v37 = v35 & 1;
-      v30 = 0;
-      if ( v36 )
+      v22 = 0;
+      if ( v21 )
       {
         while ( 1 )
         {
-          if ( *(char *)(v29 + 24) > v34 )
+          v23 = *(_QWORD *)(v21 + 32) & 0x7FFFFFFFFFFFFFFCLL;
+          if ( v23 < v44 || v23 <= v44 && ((v24 = *(_DWORD *)(v21 + 40), v24 == DWORD2(v47)) || v24 < DWORD2(v47)) )
           {
-            v38 = *(_QWORD *)v29;
-            if ( v37 )
+            v25 = *(_QWORD *)(v21 + 8);
+            if ( (*(_QWORD *)(v11 + 8) & 1) != 0 )
             {
-              if ( !v38 )
-                goto LABEL_71;
-              v38 ^= v29;
+              if ( !v25 )
+                goto LABEL_46;
+              v25 ^= v21;
             }
-            if ( !v38 )
-              goto LABEL_71;
+            if ( !v25 )
+            {
+LABEL_46:
+              v22 = 1;
+              break;
+            }
           }
           else
           {
-            v38 = *(_QWORD *)(v29 + 8);
-            if ( v37 )
+            v25 = *(_QWORD *)v21;
+            if ( (*(_QWORD *)(v11 + 8) & 1) != 0 )
             {
-              if ( !v38 )
-                goto LABEL_64;
-              v38 ^= v29;
+              if ( !v25 )
+                goto LABEL_47;
+              v25 ^= v21;
             }
-            if ( !v38 )
+            if ( !v25 )
             {
-LABEL_64:
-              v30 = 1;
-              goto LABEL_72;
+LABEL_47:
+              v22 = 0;
+              break;
             }
           }
-          v29 = v38;
+          v21 = v25;
         }
       }
-      goto LABEL_72;
+      RtlRbInsertNodeEx(v11, v21, v22, v7);
+      v26 = v7;
+      a3->LockQueue.Lock = (unsigned __int64 *volatile)(v7 + 80);
+      a3->LockQueue.Next = 0LL;
+      KxAcquireQueuedSpinLock(a3, v7 + 80, v27);
+      ExReleaseSpinLockExclusiveFromDpcLevel(v10);
+      *(_BYTE *)(v7 + 39) |= 0x80u;
+      *(_BYTE *)(v7 + 27) |= 1u;
+      *(_QWORD *)(v7 + 48) = 0LL;
+      *(_QWORD *)(v7 + 56) = 0LL;
+      *(_QWORD *)(v7 + 64) = 0LL;
+      *(_QWORD *)(v7 + 72) = 0LL;
+      *(_WORD *)(v7 + 90) &= 1u;
+LABEL_49:
+      v28 = v7 - 16LL * *(unsigned __int8 *)(v7 + 24);
+      if ( (*(_BYTE *)(v7 + 25) & 1) != 0 )
+        ++*(_BYTE *)(v28 + 793);
+      else
+        _InterlockedExchangeAdd8((volatile signed __int8 *)(v28 + 871), 1u);
+      return v26;
     }
-    if ( v11 )
-      goto LABEL_22;
-    v11 = 1;
-    v45 = 0;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 )
-      break;
-    if ( (unsigned int)ExpTryConvertSharedSpinLockExclusiveInstrumented(v8, retaddr, v10) )
-      goto LABEL_22;
-LABEL_108:
-    ExReleaseSpinLockSharedFromDpcLevel(v8);
-    ExAcquireSpinLockExclusiveAtDpcLevel(v8);
+    ExReleaseSpinLockSharedFromDpcLevel(v10);
   }
-  if ( _interlockedbittestandset(v8, 0x1Fu) )
-    goto LABEL_108;
-  for ( i = *v8; (*v8 & 0xBFFFFFFF) != 0x80000001; i = *v8 )
+  v26 = v15;
+  a3->LockQueue.Lock = (unsigned __int64 *volatile)(v15 + 80);
+  a3->LockQueue.Next = 0LL;
+  KxAcquireQueuedSpinLock(a3, v15 + 80, v12);
+  if ( v8 )
+    ExReleaseSpinLockExclusiveFromDpcLevel(v10);
+  else
+    ExReleaseSpinLockSharedFromDpcLevel(v10);
+  if ( *(__int64 *)(v7 + 32) >= 0 )
   {
-    if ( (i & 0x40000000) == 0 )
-      _InterlockedOr(v8, 0x40000000u);
-    KeYieldProcessorEx(&v45);
-  }
-LABEL_22:
-  v17 = *(_QWORD *)v9;
-  if ( (*(_QWORD *)(v9 + 8) & 1) == 0 )
-  {
-LABEL_23:
-    v18 = 0;
-    if ( !v17 )
-      goto LABEL_44;
-    while ( 1 )
+    if ( (*(_BYTE *)(v7 + 25) & 1) != 0 )
     {
-      v19 = *(_QWORD *)(v17 - 24) & 0x7FFFFFFFFFFFFFFCLL;
-      if ( v19 < v39 || v19 <= v39 && ((v20 = *(_DWORD *)(v17 - 16), v20 == DWORD2(v42)) || v20 < DWORD2(v42)) )
+      v32 = *(_BYTE *)(v7 - 16LL * *(unsigned __int8 *)(v7 + 24) + 195);
+      if ( v32 > 15 )
+        v32 = 15;
+      v33 = (__int64 *)(v15 + 64);
+      *(_BYTE *)(v7 + 48) = v32;
+      v34 = v33[1];
+      if ( (v34 & 1) != 0 )
       {
-        v21 = *(_QWORD *)(v17 + 8);
-        if ( (*(_QWORD *)(v9 + 8) & 1) != 0 )
-        {
-          if ( !v21 )
-            goto LABEL_42;
-          v21 ^= v17;
-        }
-        if ( !v21 )
-        {
-LABEL_42:
-          v18 = 1;
-          goto LABEL_44;
-        }
+        if ( *v33 )
+          v3 = *v33 ^ (unsigned __int64)v33;
       }
       else
       {
-        v21 = *(_QWORD *)v17;
-        if ( (*(_QWORD *)(v9 + 8) & 1) != 0 )
-        {
-          if ( !v21 )
-            goto LABEL_43;
-          v21 ^= v17;
-        }
-        if ( !v21 )
-          goto LABEL_43;
+        v3 = *v33;
       }
-      v17 = v21;
+      LOBYTE(v31) = 0;
+      v35 = v34 & 1;
+      if ( v3 )
+      {
+        while ( 1 )
+        {
+          if ( *(char *)(v3 + 48) < v32 )
+          {
+            v36 = *(_QWORD *)v3;
+            if ( v35 )
+            {
+              if ( !v36 )
+                break;
+              v36 ^= v3;
+            }
+            if ( !v36 )
+              break;
+          }
+          else
+          {
+            v36 = *(_QWORD *)(v3 + 8);
+            if ( v35 )
+            {
+              if ( !v36 )
+                goto LABEL_70;
+              v36 ^= v3;
+            }
+            if ( !v36 )
+              goto LABEL_70;
+          }
+          v3 = v36;
+        }
+      }
     }
+    else
+    {
+      v37 = KiAbOwnerComputeCpuPriorityKey(v7, v30, v31);
+      v33 = (__int64 *)(v15 + 48);
+      *(_BYTE *)(v7 + 48) = v37;
+      v38 = v37;
+      v39 = v33[1];
+      if ( (v39 & 1) != 0 )
+      {
+        if ( *v33 )
+          v3 = *v33 ^ (unsigned __int64)v33;
+      }
+      else
+      {
+        v3 = *v33;
+      }
+      LOBYTE(v31) = 0;
+      v40 = v39 & 1;
+      if ( v3 )
+      {
+        while ( 1 )
+        {
+          if ( *(char *)(v3 + 48) > v38 )
+          {
+            v41 = *(_QWORD *)v3;
+            if ( v40 )
+            {
+              if ( !v41 )
+                break;
+              v41 ^= v3;
+            }
+            if ( !v41 )
+              break;
+          }
+          else
+          {
+            v41 = *(_QWORD *)(v3 + 8);
+            if ( v40 )
+            {
+              if ( !v41 )
+                goto LABEL_70;
+              v41 ^= v3;
+            }
+            if ( !v41 )
+            {
+LABEL_70:
+              v31 = 1LL;
+              break;
+            }
+          }
+          v3 = v41;
+        }
+      }
+    }
+    RtlRbInsertNodeEx(v33, v3, v31, v7);
+    *(_BYTE *)(v7 + 39) |= 0x80u;
+    goto LABEL_49;
   }
-  if ( v17 )
-  {
-    v17 ^= v9;
-    goto LABEL_23;
-  }
-LABEL_43:
-  v18 = 0;
-LABEL_44:
-  RtlRbInsertNodeEx(v9, v17, v18, (char *)a1 + 24);
-  v22 = a1;
-  KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)a1 + 10, a3);
-  ExReleaseSpinLockExclusiveFromDpcLevel(v8);
-  v23 = (char *)a1 + 17;
-  *((_BYTE *)a1 + 7) |= 0x80u;
-  *((_BYTE *)a1 + 19) |= 1u;
-  *((_QWORD *)a1 + 6) = 0LL;
-  *((_QWORD *)a1 + 7) = 0LL;
-  *((_QWORD *)a1 + 8) = 0LL;
-  *((_QWORD *)a1 + 9) = 0LL;
-  *((_BYTE *)a1 + 92) = 0;
-  *((_DWORD *)a1 + 23) &= 0xFFFF80FF;
-LABEL_45:
-  v24 = &a1[-6 * *((unsigned __int8 *)a1 + 16)];
-  if ( *v23 )
-    ++*((_BYTE *)v24 - 903);
-  else
-    _InterlockedExchangeAdd8((volatile signed __int8 *)v24 - 825, 1u);
-  return v22;
+  return v26;
 }

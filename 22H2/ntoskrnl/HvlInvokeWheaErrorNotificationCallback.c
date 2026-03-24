@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlInvokeWheaErrorNotificationCallback @ 0x1405447F0
+ * XREFs of HvlInvokeWheaErrorNotificationCallback @ 0x1404F51F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 HvlInvokeWheaErrorNotificationCallback()

@@ -1,19 +1,19 @@
 /*
- * XREFs of PhysicalToLogicalInPlaceRgnWorker @ 0x1C0032864
+ * XREFs of PhysicalToLogicalInPlaceRgnWorker @ 0x1C0073000
  * Callers:
- *     PhysicalToLogicalInPlaceRgn @ 0x1C003284C (PhysicalToLogicalInPlaceRgn.c)
- *     ?CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C0033750 (-CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z.c)
+ *     PhysicalToLogicalInPlaceRgn @ 0x1C0072FE8 (PhysicalToLogicalInPlaceRgn.c)
+ *     ?CalcVisRgnWorker@@YAHQEAUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C0073B10 (-CalcVisRgnWorker@@YAHQEAUtagWND@@PEAPEAUHRGN__@@K@Z.c)
  * Callees:
- *     ?GetTopLevelOrDpiBoundaryWindow@@YAPEBUtagWND@@PEBU1@@Z @ 0x1C00D1C5C (-GetTopLevelOrDpiBoundaryWindow@@YAPEBUtagWND@@PEBU1@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?TransformRgn@@YAPEAUHRGN__@@PEAU1@PEAUtagXFORM@@@Z @ 0x1C015195C (-TransformRgn@@YAPEAUHRGN__@@PEAU1@PEAUtagXFORM@@@Z.c)
+ *     ?GetTopLevelOrDpiBoundaryWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00F1544 (-GetTopLevelOrDpiBoundaryWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?TransformRgn@@YAPEAUHRGN__@@PEAU1@PEAUtagXFORM@@@Z @ 0x1C01E3E14 (-TransformRgn@@YAPEAUHRGN__@@PEAU1@PEAUtagXFORM@@@Z.c)
  */
 
-__int64 __fastcall PhysicalToLogicalInPlaceRgnWorker(const struct tagWND *a1, HRGN *a2, int a3)
+__int64 __fastcall PhysicalToLogicalInPlaceRgnWorker(struct tagWND *a1, HRGN *a2, int a3)
 {
   unsigned int v3; // ebx
-  const struct tagWND *TopLevelOrDpiBoundaryWindow; // rdi
-  __int64 v7; // rax
+  struct tagWND *TopLevelOrDpiBoundaryWindow; // rdi
+  float *v7; // rax
   float v8; // xmm6_4
   float v9; // xmm2_4
   float v10; // xmm3_4
@@ -34,13 +34,13 @@ __int64 __fastcall PhysicalToLogicalInPlaceRgnWorker(const struct tagWND *a1, HR
         {
           v12[1] = 0.0;
           v12[2] = 0.0;
-          v7 = *((_QWORD *)TopLevelOrDpiBoundaryWindow + 27);
-          v12[0] = 1.0 / *(float *)v7;
-          v8 = 1.0 / *(float *)(v7 + 20);
+          v7 = (float *)*((_QWORD *)TopLevelOrDpiBoundaryWindow + 27);
+          v12[0] = 1.0 / *v7;
+          v8 = 1.0 / v7[5];
           v12[3] = v8;
-          v9 = COERCE_FLOAT(*(_DWORD *)(v7 + 48) ^ _xmm) / *(float *)v7;
+          LODWORD(v9) = COERCE_UNSIGNED_INT(v7[12] / *v7) ^ _xmm;
           v12[4] = v9;
-          v10 = COERCE_FLOAT(*(_DWORD *)(v7 + 52) ^ _xmm) / *(float *)(v7 + 20);
+          LODWORD(v10) = COERCE_UNSIGNED_INT(v7[13] / v7[5]) ^ _xmm;
           v12[5] = v10;
           if ( v12[0] != 1.0 || v8 != 1.0 || v9 != 0.0 || v10 != 0.0 )
           {

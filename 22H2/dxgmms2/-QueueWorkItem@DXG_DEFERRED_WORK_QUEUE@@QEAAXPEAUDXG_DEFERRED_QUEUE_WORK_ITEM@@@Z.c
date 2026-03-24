@@ -1,7 +1,7 @@
 /*
- * XREFs of ?QueueWorkItem@DXG_DEFERRED_WORK_QUEUE@@QEAAXPEAUDXG_DEFERRED_QUEUE_WORK_ITEM@@@Z @ 0x1C0032664
+ * XREFs of ?QueueWorkItem@DXG_DEFERRED_WORK_QUEUE@@QEAAXPEAUDXG_DEFERRED_QUEUE_WORK_ITEM@@@Z @ 0x1C0028384
  * Callers:
- *     ?TransferToSystem@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EPEAU_VIDMM_LOCAL_ALLOC@@_N@Z @ 0x1C00FAFC8 (-TransferToSystem@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EPEAU_VIDMM_LOCAL_ALLOC@@_.c)
+ *     ?TransferToSystem@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EPEAU_VIDMM_LOCAL_ALLOC@@_N@Z @ 0x1C0063620 (-TransferToSystem@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EPEAU_VIDMM_LOCAL_ALLOC@@_.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ void __fastcall DXG_DEFERRED_WORK_QUEUE::QueueWorkItem(
   if ( ++*((_DWORD *)this + 10) == 1 )
   {
     KeResetEvent((PRKEVENT)this + 2);
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)((char *)this + 72), *((WORK_QUEUE_TYPE *)this + 26));
+    ExQueueWorkItem((PWORK_QUEUE_ITEM)((char *)this + 72), DelayedWorkQueue);
   }
   *((_QWORD *)this + 1) = 0LL;
   ExReleasePushLockExclusiveEx(this, 0LL);

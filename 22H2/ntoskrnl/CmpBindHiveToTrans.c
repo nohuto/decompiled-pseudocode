@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpBindHiveToTrans @ 0x140768F54
+ * XREFs of CmpBindHiveToTrans @ 0x14066E10C
  * Callers:
- *     CmpTransSearchAddTrans @ 0x140768A4C (CmpTransSearchAddTrans.c)
- *     CmpTransSearchAddLightWeightTrans @ 0x140768DAC (CmpTransSearchAddLightWeightTrans.c)
- *     CmpTransAllocateTrans @ 0x1407DB594 (CmpTransAllocateTrans.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x14066DE54 (CmpTransSearchAddLightWeightTrans.c)
+ *     CmpTransAllocateTrans @ 0x14066E01C (CmpTransAllocateTrans.c)
+ *     CmpTransSearchAddTrans @ 0x14076644C (CmpTransSearchAddTrans.c)
  * Callees:
  *     <none>
  */

@@ -8,9 +8,9 @@
  *     MiDeletePagablePteRange @ 0x140067FE0 (MiDeletePagablePteRange.c)
  *     MiReturnFullProcessCharges @ 0x14007FF10 (MiReturnFullProcessCharges.c)
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiUpdateChargedWsles @ 0x1402CB58C (MiUpdateChargedWsles.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiUpdateChargedWsles @ 0x1402CB68C (MiUpdateChargedWsles.c)
  *     MiReturnFullProcessCommitment @ 0x1405F2998 (MiReturnFullProcessCommitment.c)
  */
 

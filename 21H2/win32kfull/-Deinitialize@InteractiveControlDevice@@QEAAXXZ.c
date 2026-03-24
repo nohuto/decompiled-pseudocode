@@ -1,19 +1,19 @@
 /*
- * XREFs of ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0253B4C
+ * XREFs of ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0256DD4
  * Callers:
- *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C024F594 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
- *     ?RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z @ 0x1C024F9A0 (-RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z.c)
- *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0254100 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C02525A8 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z @ 0x1C02529B4 (-RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z.c)
+ *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0257390 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
- *     FindTimer @ 0x1C01041A4 (FindTimer.c)
- *     ??_GInteractiveControlInput@@QEAAPEAXI@Z @ 0x1C02537C0 (--_GInteractiveControlInput@@QEAAPEAXI@Z.c)
- *     ??_GSimpleHapticsController@@QEAAPEAXI@Z @ 0x1C0253800 (--_GSimpleHapticsController@@QEAAPEAXI@Z.c)
- *     ?DestroyDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C0253C90 (-DestroyDeadzone@InteractiveControlDevice@@QEAAJXZ.c)
- *     ?SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z @ 0x1C0254A34 (-SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z.c)
- *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C0254F34 (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
- *     ?SetTargetWindow@InteractiveControlDevice@@IEAAXPEAUtagWND@@@Z @ 0x1C02551E0 (-SetTargetWindow@InteractiveControlDevice@@IEAAXPEAUtagWND@@@Z.c)
- *     ?DeInitialize@SimpleHapticsController@@QEAAJXZ @ 0x1C02569EC (-DeInitialize@SimpleHapticsController@@QEAAJXZ.c)
- *     ?FreeDeviceCapabilities@InteractiveControlParser@@SAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z @ 0x1C0259164 (-FreeDeviceCapabilities@InteractiveControlParser@@SAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     ??_GInteractiveControlInput@@QEAAPEAXI@Z @ 0x1C0256A30 (--_GInteractiveControlInput@@QEAAPEAXI@Z.c)
+ *     ??_GSimpleHapticsController@@QEAAPEAXI@Z @ 0x1C0256A88 (--_GSimpleHapticsController@@QEAAPEAXI@Z.c)
+ *     ?DestroyDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C0256F18 (-DestroyDeadzone@InteractiveControlDevice@@QEAAJXZ.c)
+ *     ?SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z @ 0x1C0257D08 (-SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z.c)
+ *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C02581F8 (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
+ *     ?SetTargetWindow@InteractiveControlDevice@@IEAAXPEAUtagWND@@@Z @ 0x1C02584A4 (-SetTargetWindow@InteractiveControlDevice@@IEAAXPEAUtagWND@@@Z.c)
+ *     ?DeInitialize@SimpleHapticsController@@QEAAJXZ @ 0x1C0259C68 (-DeInitialize@SimpleHapticsController@@QEAAJXZ.c)
+ *     ?FreeDeviceCapabilities@InteractiveControlParser@@SAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z @ 0x1C025C3DC (-FreeDeviceCapabilities@InteractiveControlParser@@SAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z.c)
  */
 
 void __fastcall InteractiveControlDevice::Deinitialize(InteractiveControlDevice *this)
@@ -21,7 +21,7 @@ void __fastcall InteractiveControlDevice::Deinitialize(InteractiveControlDevice 
   __int64 v1; // rdx
   SimpleHapticsController *v3; // rcx
   SimpleHapticsController *v4; // rcx
-  __int64 v5; // rcx
+  void *v5; // rcx
   InteractiveControlInput **v6; // rsi
   InteractiveControlInput *v7; // rdi
   InteractiveControlInput *v8; // rax
@@ -42,7 +42,7 @@ void __fastcall InteractiveControlDevice::Deinitialize(InteractiveControlDevice 
       SimpleHapticsController::`scalar deleting destructor'(v4);
     *((_QWORD *)this + 48) = 0LL;
   }
-  v5 = *((_QWORD *)this + 32);
+  v5 = (void *)*((_QWORD *)this + 32);
   if ( v5 )
   {
     Win32FreePool(v5);

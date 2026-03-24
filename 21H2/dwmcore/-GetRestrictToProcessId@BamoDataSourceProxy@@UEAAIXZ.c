@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetRestrictToProcessId@BamoDataSourceProxy@@UEAAIXZ @ 0x1801BC9D0
+ * XREFs of ?GetRestrictToProcessId@BamoDataSourceProxy@@UEAAIXZ @ 0x180180950
  * Callers:
  *     <none>
  * Callees:
- *     ??1InternalLock@BamoImpl@Microsoft@@QEAA@XZ @ 0x180026A28 (--1InternalLock@BamoImpl@Microsoft@@QEAA@XZ.c)
- *     ??0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z @ 0x180026A5C (--0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z.c)
+ *     ??1InternalLock@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800D73B0 (--1InternalLock@BamoImpl@Microsoft@@QEAA@XZ.c)
+ *     ??0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z @ 0x1800D73E4 (--0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z.c)
  */
 
 __int64 __fastcall BamoDataSourceProxy::GetRestrictToProcessId(BamoDataSourceProxy *this)

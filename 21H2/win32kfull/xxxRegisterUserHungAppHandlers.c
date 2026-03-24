@@ -1,7 +1,7 @@
 /*
- * XREFs of xxxRegisterUserHungAppHandlers @ 0x1C023EC98
+ * XREFs of xxxRegisterUserHungAppHandlers @ 0x1C02431F0
  * Callers:
- *     NtUserRegisterUserHungAppHandlers @ 0x1C01FBCD0 (NtUserRegisterUserHungAppHandlers.c)
+ *     <none>
  * Callees:
  *     <none>
  */

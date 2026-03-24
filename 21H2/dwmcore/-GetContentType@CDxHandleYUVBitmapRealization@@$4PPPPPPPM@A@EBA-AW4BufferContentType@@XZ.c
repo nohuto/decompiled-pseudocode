@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetContentType@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AW4BufferContentType@@XZ @ 0x18010C490
+ * XREFs of ?GetContentType@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AW4BufferContentType@@XZ @ 0x1800F9140
  * Callers:
  *     <none>
  * Callees:

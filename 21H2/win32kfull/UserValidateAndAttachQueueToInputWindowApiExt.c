@@ -1,12 +1,12 @@
 /*
- * XREFs of UserValidateAndAttachQueueToInputWindowApiExt @ 0x1C00FF310
+ * XREFs of UserValidateAndAttachQueueToInputWindowApiExt @ 0x1C010AD20
  * Callers:
  *     <none>
  * Callees:
- *     ?ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@@Z @ 0x1C00FF328 (-ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@@Z.c)
+ *     ?ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@PEAPEAUtagWND@@@Z @ 0x1C010AD38 (-ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@PEAPEAUtagWND@@@Z.c)
  */
 
-int __fastcall UserValidateAndAttachQueueToInputWindowApiExt(HWND a1, struct IInputQueue *a2)
+int __fastcall UserValidateAndAttachQueueToInputWindowApiExt(HWND a1, struct IInputQueue *a2, struct tagWND **a3)
 {
-  return ValidateAndAttachQueueToInputWindow(a1, a2);
+  return ValidateAndAttachQueueToInputWindow(a1, a2, a3);
 }

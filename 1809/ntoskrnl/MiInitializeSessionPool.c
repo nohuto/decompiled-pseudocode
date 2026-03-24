@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeSessionPool @ 0x1407156A4
+ * XREFs of MiInitializeSessionPool @ 0x140715684
  * Callers:
- *     MiSessionCreate @ 0x140715028 (MiSessionCreate.c)
+ *     MiSessionCreate @ 0x140715008 (MiSessionCreate.c)
  * Callees:
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiInitializeDynamicBitmap @ 0x140715740 (MiInitializeDynamicBitmap.c)
- *     ExInitializePoolDescriptor @ 0x140715A6C (ExInitializePoolDescriptor.c)
+ *     MiInitializeDynamicBitmap @ 0x140715720 (MiInitializeDynamicBitmap.c)
+ *     ExInitializePoolDescriptor @ 0x140715A4C (ExInitializePoolDescriptor.c)
  */
 
 __int64 MiInitializeSessionPool()

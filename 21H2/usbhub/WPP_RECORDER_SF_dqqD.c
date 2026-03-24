@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_dqqD @ 0x1C0058178
+ * XREFs of WPP_RECORDER_SF_dqqD @ 0x1C0059848
  * Callers:
- *     UsbhIdleIrp_ReleaseIrp @ 0x1C0057B74 (UsbhIdleIrp_ReleaseIrp.c)
+ *     UsbhIdleIrp_ReleaseIrp @ 0x1C0059244 (UsbhIdleIrp_ReleaseIrp.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_dqqD(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -27,7 +27,7 @@ __int64 WPP_RECORDER_SF_dqqD(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int
   va_copy(va3, va2);
   v12 = va_arg(va3, _QWORD);
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 )
-    pfnWppTraceMessage(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))WPP_MAIN_CB.SecurityDescriptor)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
       &WPP_20a1a4b3b64f3a3fd9fa92029fc64dd2_Traceguids,

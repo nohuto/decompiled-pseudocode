@@ -1,161 +1,172 @@
 /*
- * XREFs of ExRemovePoolTag @ 0x1403C31AC
+ * XREFs of ExRemovePoolTag @ 0x1402EAE78
  * Callers:
- *     MmFreeContiguousMemory @ 0x1403C2FA0 (MmFreeContiguousMemory.c)
+ *     MmFreeContiguousMemory @ 0x1402E9070 (MmFreeContiguousMemory.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExpPoolTrackerReturnLimit @ 0x1402AC320 (ExpPoolTrackerReturnLimit.c)
- *     ExpFreePoolChecks @ 0x1402AC370 (ExpFreePoolChecks.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     ExpRemovePoolTrackerExpansion @ 0x14046AB3A (ExpRemovePoolTrackerExpansion.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTracePool @ 0x1405FD220 (EtwTracePool.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExpFreePoolChecks @ 0x1402EB05C (ExpFreePoolChecks.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x14030F6D0 (ExpRemovePoolTrackerExpansion.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     EtwTracePool @ 0x1405A7C04 (EtwTracePool.c)
  */
 
-__int64 __fastcall ExRemovePoolTag(ULONG_PTR BugCheckParameter2, unsigned int *a2, __int64 *a3, int *a4)
+__int64 __fastcall ExRemovePoolTag(ULONG_PTR BugCheckParameter2, _DWORD *a2, __int64 *a3, int a4)
 {
+  ULONG_PTR v4; // r12
   KIRQL v8; // al
-  int v9; // r10d
-  unsigned __int64 v10; // r14
-  unsigned int v11; // ecx
+  int v9; // r9d
+  unsigned __int64 v10; // r13
+  unsigned int v11; // r8d
   unsigned int v12; // ebx
   __int64 v13; // rdx
-  char *v14; // rdx
-  unsigned int v15; // ecx
-  __int64 v16; // rbp
-  unsigned int v17; // r15d
-  unsigned __int8 v18; // r12
-  unsigned int v19; // r15d
-  int v20; // edi
-  __int64 v21; // r14
-  __int64 v22; // rax
-  int v23; // r10d
-  unsigned int v24; // edi
-  __int64 v25; // r13
-  unsigned int v26; // edx
-  unsigned int v27; // r11d
-  __int64 v28; // r8
+  int v14; // eax
+  __int64 v15; // rdi
+  unsigned __int8 v16; // r14
+  int v17; // r15d
+  __int64 v18; // rsi
+  __int64 v19; // rax
+  __int64 v20; // r8
+  int v21; // r10d
+  __int64 v22; // r13
+  unsigned int v23; // edx
+  __int64 v24; // r11
+  _DWORD *v25; // rcx
+  int v26; // eax
+  __int64 v27; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
-  int v32; // eax
+  int v31; // eax
   _DWORD *SchedulerAssist; // r8
-  bool v34; // zf
-  int v35; // r9d
-  __int64 v36; // r9
-  _BYTE *v37; // r9
-  int v38; // [rsp+70h] [rbp+8h]
+  bool v33; // zf
+  int v34; // r11d
+  _BYTE *v35; // r9
+  int v37; // [rsp+88h] [rbp+20h]
 
-  v38 = *a4 & 1;
+  v4 = a4;
+  v37 = a4 & 1;
   v8 = ExAcquireSpinLockShared(&ExpLargePoolTableLock);
   v9 = 1;
   v10 = v8;
   v11 = (((40543 * (unsigned __int64)(unsigned int)(BugCheckParameter2 >> 12)) >> 32) ^ (40543
                                                                                        * (BugCheckParameter2 >> 12))) & (PoolBigPageTableSize - 1);
   v12 = 0;
-  while ( 1 )
+  while ( *(_QWORD *)(PoolBigPageTable + 24LL * v11) != BugCheckParameter2 )
   {
-    v13 = 32LL * v11;
-    if ( *(_QWORD *)((char *)PoolBigPageTable + v13) == BugCheckParameter2 )
-      break;
     if ( ++v11 >= (unsigned __int64)PoolBigPageTableSize )
     {
       if ( !v9 )
-        goto LABEL_20;
+        goto LABEL_23;
       v11 = 0;
       v9 = 0;
     }
   }
-  v14 = (char *)PoolBigPageTable + v13;
-  if ( !v14 )
-LABEL_20:
-    KeBugCheckEx(0x19u, 0x22uLL, BugCheckParameter2, *a4, 0LL);
-  v15 = *((_DWORD *)v14 + 2);
-  v16 = *((_QWORD *)v14 + 2);
-  *a2 = v15;
-  v17 = *((_DWORD *)v14 + 3);
-  *a3 = v16;
-  *a4 = (v17 >> 8) & 0xFFF;
-  if ( v15 == 1819242320 )
+  v13 = PoolBigPageTable + 24LL * v11;
+  if ( !v13 )
+LABEL_23:
+    KeBugCheckEx(0x19u, 0x22uLL, BugCheckParameter2, v4, 0LL);
+  v14 = *(_DWORD *)(v13 + 8);
+  *a2 = v14;
+  v15 = *(_QWORD *)(v13 + 16);
+  *a3 = v15;
+  if ( v14 == 1819242320 )
   {
-    v18 = 0;
-    LOWORD(v19) = 0;
+    v16 = 0;
+    LOWORD(v17) = 0;
   }
   else
   {
-    v18 = v17;
-    v19 = v17 >> 20;
+    v16 = *(_BYTE *)(v13 + 12);
+    v17 = *(_DWORD *)(v13 + 12) >> 20;
   }
   _InterlockedAdd(&ExpPoolBigEntriesInUse, 0xFFFFFFFF);
-  _InterlockedIncrement64((volatile signed __int64 *)v14);
+  _InterlockedIncrement64((volatile signed __int64 *)v13);
   ExReleaseSpinLockSharedFromDpcLevel(&ExpLargePoolTableLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v32 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v34 = (v32 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v32;
-      if ( v34 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v33 = (v31 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v31;
+        if ( v33 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v10);
-  v20 = *a4;
-  v21 = *a2;
-  if ( (_DWORD)v21 == PoolHitTag )
+  v18 = (unsigned int)*a2;
+  if ( (_DWORD)v18 == PoolHitTag )
     __debugbreak();
-  v22 = DWORD1(PerfGlobalGroupMask);
+  v19 = DWORD1(PerfGlobalGroupMask);
   if ( (BYTE4(PerfGlobalGroupMask) & 0x41) != 0 )
-    v22 = EtwTracePool(3618, v20, v21, BugCheckParameter2, v16);
-  LODWORD(v22) = KeGetPcr()->Prcb.Number;
-  v23 = PoolTrackTableMask;
-  v24 = v20 & 0xFFFFFFDF;
-  v25 = (__int64)*(&ExPoolTagTables + v22);
-  v26 = PoolTrackTableMask & ((40543 * v21) ^ ((unsigned __int64)(40543 * v21) >> 32));
-  v27 = v26;
-  do
+    v19 = EtwTracePool(3618, v4, v18, BugCheckParameter2, v15);
+  v20 = 8LL;
+  if ( (v4 & 0x20) != 0 )
   {
-    while ( 1 )
-    {
-      v28 = v25 + 80LL * v26;
-      if ( *(_DWORD *)v28 == (_DWORD)v21 )
-      {
-        ExpPoolTrackerReturnLimit((v24 & 1) == 0, v16, v28);
-        goto LABEL_16;
-      }
-      if ( *(_DWORD *)v28 )
-        break;
-      v35 = *(_DWORD *)(PoolTrackTable + 80LL * v26);
-      if ( !v35 )
-        break;
-      *(_DWORD *)v28 = v35;
-      v36 = *(_QWORD *)(PoolTrackTable + 80LL * v26 + 72);
-      if ( v36 )
-        *(_QWORD *)(v28 + 72) = v36;
-    }
-    v26 = v23 & (v26 + 1);
+    v22 = ExpSessionPoolTrackTable;
+    v21 = ExpSessionPoolTrackTableMask;
   }
-  while ( v26 != v27 );
-  ExpRemovePoolTrackerExpansion((unsigned int)v21, v16, v24);
-LABEL_16:
-  if ( v18 )
+  else
   {
-    v37 = (_BYTE *)(BugCheckParameter2 + v16 - (unsigned __int16)v19);
-    if ( (_WORD)v19 )
+    LODWORD(v19) = KeGetPcr()->Prcb.Number;
+    v21 = PoolTrackTableMask;
+    v22 = (__int64)*(&ExPoolTagTables + v19);
+  }
+  v23 = v21 & ((40543 * v18) ^ ((unsigned __int64)(40543 * v18) >> 32));
+  while ( 1 )
+  {
+    v24 = 56LL * v23;
+    v25 = (_DWORD *)(v24 + v22);
+    v26 = *(_DWORD *)(v24 + v22);
+    if ( v26 == (_DWORD)v18 )
+      break;
+    if ( v26 || (v4 & 0x20) != 0 || (v34 = *(_DWORD *)(v24 + PoolTrackTable)) == 0 )
+    {
+      v23 = v21 & (v23 + 1);
+      if ( v23 == (v21 & ((40543 * (int)v18) ^ ((unsigned __int64)(40543 * v18) >> 32))) )
+      {
+        ExpRemovePoolTrackerExpansion((unsigned int)v18, v15, (unsigned int)v4);
+        goto LABEL_18;
+      }
+    }
+    else
+    {
+      *v25 = v34;
+    }
+  }
+  if ( v37 )
+  {
+    v27 = 12LL;
+  }
+  else
+  {
+    v27 = 6LL;
+    v20 = 2LL;
+  }
+  _InterlockedIncrement64((volatile signed __int64 *)&v25[v27]);
+  _InterlockedExchangeAdd64((volatile signed __int64 *)&v25[v20], -v15);
+LABEL_18:
+  if ( v16 )
+  {
+    v35 = (_BYTE *)(BugCheckParameter2 + v15 - (unsigned __int16)v17);
+    if ( (_WORD)v17 )
     {
       do
       {
-        if ( *v37 != v18 )
-          KeBugCheckEx(0xC2u, 0x62uLL, BugCheckParameter2, (ULONG_PTR)v37, v18);
-        ++v37;
+        if ( *v35 != v16 )
+          KeBugCheckEx(0xC2u, 0x62uLL, BugCheckParameter2, (ULONG_PTR)v35, v16);
+        ++v35;
         ++v12;
       }
-      while ( v12 < (unsigned __int16)v19 );
+      while ( v12 < (unsigned __int16)v17 );
     }
   }
-  return ExpFreePoolChecks(BugCheckParameter2, *a2, v16, v38, BugCheckParameter2);
+  return ExpFreePoolChecks(BugCheckParameter2);
 }

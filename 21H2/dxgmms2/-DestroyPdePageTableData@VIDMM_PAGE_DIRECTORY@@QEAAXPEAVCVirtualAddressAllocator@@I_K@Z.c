@@ -1,32 +1,49 @@
 /*
- * XREFs of ?DestroyPdePageTableData@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@I_K@Z @ 0x1C00A6DEC
+ * XREFs of ?DestroyPdePageTableData@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@I_K@Z @ 0x1C0088CA8
  * Callers:
- *     ?HandleFullPageTableCoverage@VIDMM_PAGE_DIRECTORY@@QEAAEPEAVCVirtualAddressAllocator@@PEBU_DXGK_GPUMMUCAPS@@PEBUCOMMIT_VA_STATE@@PEBUVIDMM_PAGE_TABLE_LEVEL_DESC@@III_KPEAE5@Z @ 0x1C00A6D04 (-HandleFullPageTableCoverage@VIDMM_PAGE_DIRECTORY@@QEAAEPEAVCVirtualAddressAllocator@@PEBU_DXGK_.c)
+ *     ?HandleFullPageTableCoverage@VIDMM_PAGE_DIRECTORY@@QEAAEPEAVCVirtualAddressAllocator@@PEBU_DXGK_GPUMMUCAPS@@PEBUCOMMIT_VA_STATE@@PEBUVIDMM_PAGE_TABLE_LEVEL_DESC@@III_KPEAE5@Z @ 0x1C0088A58 (-HandleFullPageTableCoverage@VIDMM_PAGE_DIRECTORY@@QEAAEPEAVCVirtualAddressAllocator@@PEBU_DXGK_.c)
  * Callees:
- *     ExFreeToPagedLookasideList @ 0x1C001E5D2 (ExFreeToPagedLookasideList.c)
+ *     ExFreeToPagedLookasideList @ 0x1C00260FC (ExFreeToPagedLookasideList.c)
+ *     ?DestroyPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C0088228 (-DestroyPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
+ *     ?DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C0088D2C (-DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
  */
 
 void __fastcall VIDMM_PAGE_DIRECTORY::DestroyPdePageTableData(
         VIDMM_PAGE_DIRECTORY *this,
         struct CVirtualAddressAllocator *a2,
-        unsigned int a3)
+        unsigned int a3,
+        unsigned __int64 a4)
 {
-  __int64 v4; // rcx
-  __int64 v5; // rdi
-  __int64 v6; // rsi
+  __int64 v4; // rax
+  __int64 v6; // rdi
+  __int64 v7; // rsi
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  VIDMM_PAGE_TABLE *v10; // rcx
 
   v4 = *((_QWORD *)this + 5);
-  v5 = 2LL * a3;
-  v6 = a3;
-  if ( (*(_DWORD *)(v4 + 16LL * a3) & 0x402) == 0x400LL )
+  v6 = 2LL * a3;
+  v7 = a3;
+  v8 = *(_QWORD *)(v4 + 16LL * a3);
+  if ( (v8 & 2) == 0 )
   {
-    ExFreeToPagedLookasideList(
-      (PPAGED_LOOKASIDE_LIST)(*((_QWORD *)a2 + 11) + 40256LL),
-      *(PVOID *)(*((_QWORD *)this + 6) + 8LL * a3));
-    *(_QWORD *)(*((_QWORD *)this + 6) + 8 * v6) = 0LL;
+    v9 = *((_QWORD *)this + 6);
+    if ( (v8 & 0x400) != 0 )
+    {
+      ExFreeToPagedLookasideList((PPAGED_LOOKASIDE_LIST)(*((_QWORD *)a2 + 11) + 40256LL), *(PVOID *)(v9 + 8LL * a3));
+    }
+    else
+    {
+      v10 = *(VIDMM_PAGE_TABLE **)(v9 + 8LL * a3);
+      if ( (*(_DWORD *)this & 0x20) != 0 )
+        VIDMM_PAGE_TABLE::DestroyPageTable(v10, a2, a4);
+      else
+        VIDMM_PAGE_DIRECTORY::DestroyPageDirectory(v10, a2, a4, a4);
+    }
+    *(_QWORD *)(*((_QWORD *)this + 6) + 8 * v7) = 0LL;
     v4 = *((_QWORD *)this + 5);
   }
-  *(_QWORD *)(v4 + 8 * v5) = 0LL;
-  *(_QWORD *)(v4 + 8 * v5 + 8) = 0LL;
+  *(_QWORD *)(v4 + 8 * v6) = 0LL;
+  *(_QWORD *)(v4 + 8 * v6 + 8) = 0LL;
   --*((_DWORD *)this + 1);
 }

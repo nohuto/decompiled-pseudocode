@@ -1,75 +1,82 @@
 /*
- * XREFs of RtlMergeRangeLists @ 0x1409B8D00
+ * XREFs of RtlMergeRangeLists @ 0x14090FE40
  * Callers:
  *     <none>
  * Callees:
- *     RtlpAddRange @ 0x140816F84 (RtlpAddRange.c)
- *     RtlCopyRangeList @ 0x140817400 (RtlCopyRangeList.c)
- *     RtlpCopyRangeListEntry @ 0x140817490 (RtlpCopyRangeListEntry.c)
- *     RtlFreeRangeList @ 0x140817B80 (RtlFreeRangeList.c)
+ *     RtlCopyRangeList @ 0x140760820 (RtlCopyRangeList.c)
+ *     RtlpCopyRangeListEntry @ 0x1407608B0 (RtlpCopyRangeListEntry.c)
+ *     RtlFreeRangeList @ 0x140760BB0 (RtlFreeRangeList.c)
+ *     RtlpAddRange @ 0x140763AD4 (RtlpAddRange.c)
  */
 
 __int64 __fastcall RtlMergeRangeLists(__int64 a1, __int64 *a2, __int64 a3, unsigned int a4)
 {
   int v7; // ebx
-  __int64 v8; // rsi
-  __int64 i; // rax
-  __int64 *v10; // rax
-  unsigned int v11; // r8d
-  __int64 v12; // r13
-  __int64 *v13; // rax
-  unsigned int v14; // r8d
-  __int64 v15; // rax
+  __int64 v8; // rbp
+  int v9; // esi
+  __int64 v10; // rsi
+  __int64 *v11; // rax
+  unsigned int v12; // r8d
+  int v13; // eax
+  __int64 v14; // rsi
+  __int64 *v15; // rax
+  unsigned int v16; // r8d
+  __int64 v17; // rax
 
   v7 = RtlCopyRangeList(a1, a2);
   if ( v7 < 0 )
   {
-LABEL_18:
-    RtlFreeRangeList(a1);
+LABEL_19:
+    RtlFreeRangeList((_QWORD *)a1);
   }
   else
   {
     v8 = *(_QWORD *)a3 - 40LL;
     if ( a3 != *(_QWORD *)a3 )
     {
+      v9 = a4 | 1;
       do
       {
         if ( (*(_BYTE *)(v8 + 34) & 1) != 0 )
         {
-          for ( i = *(_QWORD *)(v8 + 16); ; i = *(_QWORD *)(v12 + 40) )
+          v10 = *(_QWORD *)(v8 + 16);
+          while ( 1 )
           {
-            v12 = i - 40;
-            if ( v8 + 16 == i )
+            v14 = v10 - 40;
+            if ( v8 == v14 + 24 )
               break;
-            v10 = (__int64 *)RtlpCopyRangeListEntry(i - 40);
-            if ( !v10 )
-              goto LABEL_17;
-            v11 = a4 | 1;
-            if ( (*(_BYTE *)(v12 + 33) & 2) == 0 )
-              v11 = a4;
-            v7 = RtlpAddRange((_QWORD *)a1, v10, v11);
+            v11 = RtlpCopyRangeListEntry(v14);
+            if ( !v11 )
+              goto LABEL_18;
+            v12 = a4 | 1;
+            if ( (*(_BYTE *)(v14 + 33) & 2) == 0 )
+              v12 = a4;
+            v13 = RtlpAddRange((_QWORD *)a1, v11, v12);
+            v10 = *(_QWORD *)(v14 + 40);
+            v7 = v13;
           }
+          v9 = a4 | 1;
         }
         else
         {
-          v13 = (__int64 *)RtlpCopyRangeListEntry(v8);
-          if ( !v13 )
+          v15 = RtlpCopyRangeListEntry(v8);
+          if ( !v15 )
           {
-LABEL_17:
+LABEL_18:
             v7 = -1073741670;
-            goto LABEL_18;
+            goto LABEL_19;
           }
-          v14 = a4 | 1;
+          v16 = v9;
           if ( (*(_BYTE *)(v8 + 33) & 2) == 0 )
-            v14 = a4;
-          v7 = RtlpAddRange((_QWORD *)a1, v13, v14);
+            v16 = a4;
+          v7 = RtlpAddRange((_QWORD *)a1, v15, v16);
           if ( v7 < 0 )
-            goto LABEL_18;
+            goto LABEL_19;
         }
-        v15 = *(_QWORD *)(v8 + 40);
-        v8 = v15 - 40;
+        v17 = *(_QWORD *)(v8 + 40);
+        v8 = v17 - 40;
       }
-      while ( a3 != v15 );
+      while ( a3 != v17 );
     }
     *(_DWORD *)(a1 + 20) += *(_DWORD *)(a3 + 20);
     *(_DWORD *)(a1 + 24) += *(_DWORD *)(a3 + 20);

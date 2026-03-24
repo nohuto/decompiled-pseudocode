@@ -1,180 +1,151 @@
 /*
- * XREFs of MiReturnPhysicalPoolPages @ 0x1402287C8
+ * XREFs of MiReturnPhysicalPoolPages @ 0x140296934
  * Callers:
- *     MiClearNonPagedPtes @ 0x140227ED0 (MiClearNonPagedPtes.c)
- *     MiGetPoolPages @ 0x140284A20 (MiGetPoolPages.c)
- *     MiReturnExcessPoolCommit @ 0x140352D04 (MiReturnExcessPoolCommit.c)
- *     MiAddExpansionNonPagedPool @ 0x1403C3290 (MiAddExpansionNonPagedPool.c)
+ *     MiGetPoolPages @ 0x140274A0C (MiGetPoolPages.c)
+ *     MiClearNonPagedPtes @ 0x140296238 (MiClearNonPagedPtes.c)
+ *     MiReturnExcessPoolCommit @ 0x14030B894 (MiReturnExcessPoolCommit.c)
+ *     MiAddExpansionNonPagedPool @ 0x1403B6234 (MiAddExpansionNonPagedPool.c)
  * Callees:
- *     MiReturnPoolCharges @ 0x140228AA0 (MiReturnPoolCharges.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402C6EB0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiSwizzleInvalidPte @ 0x1402CCC50 (MiSwizzleInvalidPte.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiReturnPoolCharges @ 0x140296DB0 (MiReturnPoolCharges.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiReturnPhysicalPoolPages(volatile signed __int32 *a1, unsigned int a2)
+__int64 __fastcall MiReturnPhysicalPoolPages(unsigned __int64 a1, char a2)
 {
-  volatile signed __int32 *v2; // r13
-  char v3; // r14
-  volatile signed __int32 *v4; // rsi
-  __int64 v5; // rdx
-  __int64 v6; // rdi
-  int v7; // r10d
-  __int64 v8; // rbx
-  volatile signed __int32 *v9; // r11
-  unsigned __int8 CurrentIrql; // r15
-  volatile signed __int32 *v11; // r14
-  _DWORD *SchedulerAssist; // r9
-  unsigned __int64 v14; // rax
-  _QWORD *v15; // rbx
+  unsigned __int64 v2; // rdi
+  unsigned __int64 *v3; // r13
+  __int64 v4; // r12
+  __int64 v6; // r8
+  unsigned __int64 v7; // r15
+  unsigned __int64 v8; // rsi
+  unsigned __int64 v10; // rcx
+  union _SLIST_HEADER *v11; // rbx
   unsigned __int64 OldIrql; // rbx
-  unsigned __int8 v17; // al
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v19; // r9
-  int v20; // eax
-  bool v21; // zf
-  unsigned __int8 v22; // al
-  struct _KPRCB *v23; // r9
-  _DWORD *v24; // r8
-  int v25; // eax
-  __int64 v26; // [rsp+20h] [rbp-69h]
-  unsigned int v27; // [rsp+28h] [rbp-61h]
-  volatile signed __int32 *v28; // [rsp+30h] [rbp-59h]
-  volatile signed __int32 *v29; // [rsp+40h] [rbp-49h]
-  volatile signed __int32 *v30; // [rsp+48h] [rbp-41h]
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+50h] [rbp-39h] BYREF
-  _OWORD v32[2]; // [rsp+68h] [rbp-21h] BYREF
-  __int128 v33; // [rsp+88h] [rbp-1h]
-  __int64 v34; // [rsp+98h] [rbp+Fh]
-  int v35; // [rsp+F0h] [rbp+67h]
-  int v37; // [rsp+100h] [rbp+77h] BYREF
-  int v38; // [rsp+108h] [rbp+7Fh]
+  _DWORD *SchedulerAssist; // r9
+  int v16; // eax
+  bool v17; // zf
+  unsigned __int8 v18; // al
+  struct _KPRCB *v19; // r9
+  _DWORD *v20; // r8
+  int v21; // eax
+  unsigned __int64 *v22; // [rsp+20h] [rbp-49h]
+  unsigned __int64 *v23; // [rsp+28h] [rbp-41h]
+  unsigned __int64 v24; // [rsp+30h] [rbp-39h]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-31h] BYREF
+  __int128 v26; // [rsp+50h] [rbp-19h] BYREF
+  __int128 v27; // [rsp+60h] [rbp-9h]
+  __int128 v28; // [rsp+70h] [rbp+7h]
+  int v29; // [rsp+D0h] [rbp+67h]
+  int v30; // [rsp+D8h] [rbp+6Fh]
+  unsigned int v31; // [rsp+E0h] [rbp+77h]
+  unsigned __int64 v32; // [rsp+E8h] [rbp+7Fh]
 
-  v34 = 0LL;
+  v2 = a1;
+  v32 = 0LL;
+  v3 = 0LL;
+  v4 = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v28 = 0LL;
-  v2 = 0LL;
-  memset(v32, 0, sizeof(v32));
   v26 = 0LL;
-  v3 = a2;
-  v4 = a1;
-  v33 = 0LL;
-  v27 = *(_DWORD *)(MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((__int64)(a1 + 0x88000000000LL) >> 4)) + 8);
-  v6 = MiSwizzleInvalidPte(128LL, v5);
-  v7 = v3 & 1;
-  v38 = v3 & 2;
-  v35 = v7;
-  v8 = 0LL;
+  v27 = 0LL;
+  v28 = 0LL;
+  v31 = *(_DWORD *)(MiSearchNumaNodeTable((__int64)(a1 + 0x58000000000LL) / 48) + 8);
+  v30 = a2 & 1;
+  v29 = a2 & 2;
   do
   {
-    v9 = v2;
-    v30 = *(volatile signed __int32 **)v4;
-    v29 = v2;
-    CurrentIrql = KeGetCurrentIrql();
-    __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    v24 = *(_QWORD *)v2;
+    v23 = v3;
+    v22 = v3;
+    v7 = (unsigned __int8)MiLockPageInline(
+                            v2,
+                            (unsigned __int128)((__int64)(v2 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64,
+                            v6);
+    if ( !v29 )
     {
-      SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      SchedulerAssist[5] |= (-1LL << (CurrentIrql + 1)) & 4;
+      v10 = *(_QWORD *)(v2 + 24) & 0xC000000000000001uLL;
+      *(_WORD *)(v2 + 32) = 1;
+      *(_QWORD *)(v2 + 24) = v10 | 1;
     }
-    v37 = 0;
-    if ( _interlockedbittestandset64(v4 + 6, 0x3FuLL) )
+    if ( !v30 && (*(_BYTE *)(v2 + 35) & 0x10) != 0 )
     {
-      do
-      {
-        do
-          KeYieldProcessorEx(&v37);
-        while ( *((__int64 *)v4 + 3) < 0 );
-      }
-      while ( _interlockedbittestandset64(v4 + 6, 0x3FuLL) );
-      v8 = v26;
-      v9 = v2;
-      v7 = v35;
-    }
-    if ( !v38 )
-    {
-      v14 = *((_QWORD *)v4 + 3) & 0xC000000000000000uLL | 1;
-      *((_WORD *)v4 + 16) = 1;
-      *((_QWORD *)v4 + 3) = v14;
-    }
-    if ( !v7 && (*((_BYTE *)v4 + 35) & 0x10) != 0 )
-    {
-      v26 = ++v8;
-      v2 = v4;
-      *((_BYTE *)v4 + 34) = *((_BYTE *)v4 + 34) & 0xF8 | 5;
-      v11 = v4;
-      *((_WORD *)v4 + 16) = 0;
-      *((_QWORD *)v4 + 3) &= 0xC000000000000000uLL;
-      *((_QWORD *)v4 + 1) = -8LL;
-      if ( v9 )
-        v2 = v29;
-      *((_QWORD *)v4 + 2) = v6;
-      *(_QWORD *)v4 = v28;
-      v28 = v4;
+      ++v4;
+      v3 = (unsigned __int64 *)v2;
+      v8 = v2;
+      *(_BYTE *)(v2 + 34) = *(_BYTE *)(v2 + 34) & 0xF8 | 5;
+      *(_QWORD *)(v2 + 24) &= 0xC000000000000000uLL;
+      *(_WORD *)(v2 + 32) = 0;
+      if ( v22 )
+        v3 = v23;
+      *(_QWORD *)(v2 + 8) = -8LL;
+      *(_QWORD *)v2 = v32;
+      v32 = v2;
     }
     else
     {
-      *((_WORD *)v4 + 16) = 0;
-      *((_QWORD *)v4 + 3) &= 0xC000000000000000uLL;
-      MiInsertPageInFreeOrZeroedList(0xAAAAAAAAAAAAAAABuLL * ((__int64)(v4 + 0x88000000000LL) >> 4));
-      v11 = v28;
-      ++*(_QWORD *)&v32[0];
-      *(_QWORD *)&v33 = v33 + 1;
+      *(_WORD *)(v2 + 32) = 0;
+      *(_QWORD *)(v2 + 24) &= 0xC000000000000000uLL;
+      MiInsertPageInFreeOrZeroedList((__int64)(v2 + 0x58000000000LL) / 48, 2);
+      v8 = v32;
+      *(_QWORD *)&v26 = v26 + 1;
+      ++*((_QWORD *)&v27 + 1);
     }
-    _InterlockedAnd64((volatile signed __int64 *)v4 + 3, 0x7FFFFFFFFFFFFFFFuLL);
+    _InterlockedAnd64((volatile signed __int64 *)(v2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v17 = KeGetCurrentIrql();
-        if ( v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v19 = CurrentPrcb->SchedulerAssist;
-          v20 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v21 = (v20 & v19[5]) == 0;
-          v19[5] &= v20;
-          if ( v21 )
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+          v17 = (v16 & SchedulerAssist[5]) == 0;
+          v6 = (unsigned int)v16 & SchedulerAssist[5];
+          SchedulerAssist[5] = v6;
+          if ( v17 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }
-    __writecr8(CurrentIrql);
-    v7 = v35;
-    v4 = v30;
+    __writecr8(v7);
+    v2 = v24;
   }
-  while ( v30 );
-  if ( v8 )
+  while ( v24 );
+  if ( v4 )
   {
-    v15 = (_QWORD *)(qword_140C506E0 + 120LL * v27);
-    KeAcquireInStackQueuedSpinLock(v15 + 10, &LockHandle);
-    *(_QWORD *)v2 = v15[11];
-    v15[9] += v26;
-    v15[11] = v11;
+    v11 = &SListHead[11 * v31];
+    KeAcquireInStackQueuedSpinLock(&v11[9].Alignment, &LockHandle);
+    *v3 = v11[9].Region;
+    v11[8].Region += v4;
+    v11[9].Region = v8;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v22 = KeGetCurrentIrql();
-        if ( v22 <= 0xFu && LockHandle.OldIrql <= 0xFu && v22 >= 2u )
+        v18 = KeGetCurrentIrql();
+        if ( v18 <= 0xFu && LockHandle.OldIrql <= 0xFu && v18 >= 2u )
         {
-          v23 = KeGetCurrentPrcb();
-          v24 = v23->SchedulerAssist;
-          v25 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v21 = (v25 & v24[5]) == 0;
-          v24[5] &= v25;
-          if ( v21 )
-            KiRemoveSystemWorkPriorityKick(v23);
+          v19 = KeGetCurrentPrcb();
+          v20 = v19->SchedulerAssist;
+          v21 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v17 = (v21 & v20[5]) == 0;
+          v20[5] &= v21;
+          if ( v17 )
+            KiRemoveSystemWorkPriorityKick(v19);
         }
       }
     }
     __writecr8(OldIrql);
   }
-  return MiReturnPoolCharges(v32, (unsigned int)(2 * v35), a2);
+  return MiReturnPoolCharges(&v26, (unsigned int)(2 * v30));
 }

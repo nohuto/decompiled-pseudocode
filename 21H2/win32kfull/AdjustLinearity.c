@@ -1,5 +1,5 @@
 /*
- * XREFs of AdjustLinearity @ 0x1C01CB7E0
+ * XREFs of AdjustLinearity @ 0x1C01CEEC0
  * Callers:
  *     <none>
  * Callees:
@@ -16,14 +16,14 @@ void __fastcall AdjustLinearity(__int64 a1, INT *a2, INT *a3, int *a4)
   int v12; // ebp
   int v13; // r10d
   int v14; // r12d
-  int v15; // r8d
-  int v16; // edx
+  int v15; // edx
+  int v16; // r8d
   int v17; // edi
   int v18; // r9d
-  __int64 v19; // rcx
-  __int64 v20; // rax
-  int v21; // edx
-  int v22; // r10d
+  __int64 v19; // rax
+  __int64 v20; // rcx
+  int v21; // r10d
+  int v22; // edx
   int v23; // r8d
   int v24; // r9d
   int v25; // edi
@@ -92,33 +92,33 @@ void __fastcall AdjustLinearity(__int64 a1, INT *a2, INT *a3, int *a4)
       v16 = v14 + v13 * (v11 + 1);
     }
     while ( v12 <= v13 + *(unsigned __int16 *)(a1 + 14) );
-    v19 = v16;
-    v20 = v15;
+    v19 = v15;
+    v20 = v16;
     v42 = v16;
     v41 = v15;
-    v21 = *(unsigned __int16 *)(a1 + 8LL * v16 + 22);
-    v22 = *(unsigned __int16 *)(a1 + 8LL * v15 + 22);
-    if ( (_WORD)v21 != (_WORD)v22 )
+    v21 = *(unsigned __int16 *)(a1 + 8LL * v15 + 22);
+    v22 = *(unsigned __int16 *)(a1 + 8LL * v16 + 22);
+    if ( (_WORD)v22 != (_WORD)v21 )
     {
-      v37 = *(_WORD *)(a1 + 8 * v19 + 30);
-      v36 = *(_WORD *)(a1 + 8LL * v15 + 30);
+      v37 = *(_WORD *)(a1 + 8LL * v16 + 30);
+      v36 = *(_WORD *)(a1 + 8 * v19 + 30);
       if ( v37 != v36 )
       {
-        v23 = *(unsigned __int16 *)(a1 + 8LL * v15 + 28);
-        v24 = *(unsigned __int16 *)(a1 + 8 * v20 + 20);
+        v23 = *(unsigned __int16 *)(a1 + 8 * v19 + 28);
+        v24 = *(unsigned __int16 *)(a1 + 8 * v19 + 20);
         if ( (_WORD)v23 != (_WORD)v24 )
         {
-          v25 = *(unsigned __int16 *)(a1 + 8 * v19 + 28);
-          v26 = *(unsigned __int16 *)(a1 + 8 * v19 + 20);
+          v25 = *(unsigned __int16 *)(a1 + 8 * v20 + 28);
+          v26 = *(unsigned __int16 *)(a1 + 8 * v20 + 20);
           if ( (_WORD)v25 != (_WORD)v26 )
           {
-            v27 = *(unsigned __int16 *)(a1 + 8 * v19 + 20);
+            v27 = *(unsigned __int16 *)(a1 + 8 * v20 + 20);
             *(_WORD *)(a1 + 8) = v14;
             *(_WORD *)(a1 + 10) = v11;
-            v40 = v24 + (v26 - v24) * (v10 - v22) / (v21 - v22);
+            v40 = v24 + (v26 - v24) * (v10 - v21) / (v22 - v21);
             v38 = v23 + (v10 - v36) * (v25 - v23) / (v37 - v36);
-            v28 = v22 + (v36 - v22) * (v39 - v24) / (v23 - v24);
-            v29 = v21 + (v37 - v21) * (v39 - v27) / (v25 - v27);
+            v28 = v21 + (v36 - v21) * (v39 - v24) / (v23 - v24);
+            v29 = v22 + (v37 - v22) * (v39 - v27) / (v25 - v27);
             if ( v38 != v40 && v29 != v28 )
             {
               v30 = *(unsigned __int16 *)(a1 + 8 * v41 + 16);

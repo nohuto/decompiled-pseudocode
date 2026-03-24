@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBindId@CHolographicInteropTexture@@UEAAIXZ @ 0x180108980
+ * XREFs of ?GetBindId@CHolographicInteropTexture@@UEAAIXZ @ 0x1800E35D0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CHolographicInteropTexture::GetBindId(CHolographicInteropTexture *this)
 {
-  return *((unsigned int *)this + 36);
+  return *((unsigned int *)this + 34);
 }

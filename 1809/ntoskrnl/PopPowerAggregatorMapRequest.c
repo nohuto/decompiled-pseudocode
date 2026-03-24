@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPowerAggregatorMapRequest @ 0x140875C98
+ * XREFs of PopPowerAggregatorMapRequest @ 0x140875C78
  * Callers:
- *     PopPowerAggregatorWorker @ 0x140875F30 (PopPowerAggregatorWorker.c)
+ *     PopPowerAggregatorWorker @ 0x140875F10 (PopPowerAggregatorWorker.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of KeSpecialUserApcKernelRoutine @ 0x140975490
+ * XREFs of KeSpecialUserApcKernelRoutine @ 0x1408BCC30
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeApc @ 0x1402BE6A0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeInsertQueueApc @ 0x14025F120 (KeInsertQueueApc.c)
+ *     KeInitializeApc @ 0x140341E70 (KeInitializeApc.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall KeSpecialUserApcKernelRoutine(__int64 a1, __int64 *a2, __int64 *a3, __int64 *a4, _DWORD **a5)
+char __fastcall KeSpecialUserApcKernelRoutine(__int64 a1, __int64 *a2, __int64 *a3, __int64 *a4, __int64 *a5)
 {
   __int64 (__fastcall *v6)(__int64); // rsi
   __int64 v8; // r10
   char v9; // bl
-  __int64 result; // rax
+  char result; // al
 
   v6 = *(__int64 (__fastcall **)(__int64))(a1 + 40);
   if ( *(_BYTE *)(a1 + 81) )
@@ -25,7 +25,7 @@ __int64 __fastcall KeSpecialUserApcKernelRoutine(__int64 a1, __int64 *a2, __int6
   if ( (v9 & 1) != 0 )
     *(_BYTE *)(a1 + 1) |= 1u;
   result = KeInsertQueueApc(a1, *a4, *a5, 0);
-  if ( !(_BYTE)result )
+  if ( !result )
     return v6(a1);
   return result;
 }

@@ -1,50 +1,41 @@
 /*
- * XREFs of rimConvertCoordinatesWithRounding @ 0x1C0199020
+ * XREFs of rimConvertCoordinatesWithRounding @ 0x1C0165570
  * Callers:
- *     RIMUpdatePointerDeviceScalingInfo @ 0x1C00A23DC (RIMUpdatePointerDeviceScalingInfo.c)
- *     RIMConvertPointCoordinates @ 0x1C019800C (RIMConvertPointCoordinates.c)
+ *     RIMUpdatePointerDeviceScalingInfo @ 0x1C006EA58 (RIMUpdatePointerDeviceScalingInfo.c)
+ *     RIMConvertPointCoordinates @ 0x1C0164530 (RIMConvertPointCoordinates.c)
  * Callees:
- *     LongLongToLong @ 0x1C003C44C (LongLongToLong.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     LongLongToLong @ 0x1C007FFEC (LongLongToLong.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall rimConvertCoordinatesWithRounding(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        int a4,
-        int a5,
-        LONG *plResult)
+__int64 __fastcall rimConvertCoordinatesWithRounding(int a1, int a2, int a3, int a4, int a5, LONG *plResult)
 {
-  __int64 v6; // rdi
-  int v8; // esi
-  int v9; // ebp
-  int v10; // esi
-  __int64 v11; // rcx
-  __int64 v12; // rax
+  unsigned int v6; // ebx
+  __int64 v7; // rsi
+  int v11; // ebp
+  __int64 v12; // rcx
   __int64 v13; // rax
-  int *v14; // rdx
-  unsigned int v15; // r9d
+  __int64 v14; // rax
+  int *v15; // rdx
 
-  v6 = (int)a3;
-  v8 = a2;
-  v9 = a1;
-  if ( (int)a1 >= (int)a2 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  if ( (int)v6 >= a4 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  v10 = v8 - v9;
-  v11 = (a4 - (int)v6) * (__int64)(a5 - v9);
-  v12 = 2 * v11;
-  if ( v11 <= 0 )
-    v13 = v12 - v10;
+  v6 = 0;
+  v7 = a3;
+  if ( a1 >= a2 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 63);
+  if ( (int)v7 >= a4 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 64);
+  v11 = a2 - a1;
+  v12 = (a4 - (int)v7) * (__int64)(a5 - a1);
+  v13 = 2 * v12;
+  if ( v12 <= 0 )
+    v14 = v13 - v11;
   else
-    v13 = v10 + v12;
-  if ( !LongLongToLong(v6 + v13 / (2LL * v10), plResult) )
+    v14 = v11 + v13;
+  if ( !LongLongToLong(v7 + v14 / (2LL * v11), plResult) )
   {
-    if ( *v14 >= a4 )
-      *v14 = a4 - 1;
+    if ( *v15 >= a4 )
+      *v15 = a4 - 1;
     return 1;
   }
-  return v15;
+  return v6;
 }

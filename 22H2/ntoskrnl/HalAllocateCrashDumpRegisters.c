@@ -1,75 +1,71 @@
 /*
- * XREFs of HalAllocateCrashDumpRegisters @ 0x140501250
+ * XREFs of HalAllocateCrashDumpRegisters @ 0x1404B8C90
  * Callers:
- *     DifHalAllocateCrashDumpRegistersWrapper @ 0x1405DA8F0 (DifHalAllocateCrashDumpRegistersWrapper.c)
+ *     VfAllocateCrashDumpRegisters @ 0x1409CADA0 (VfAllocateCrashDumpRegisters.c)
  * Callees:
- *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1403AE970 (HalpDmaExtractFromVerifierShadowAdapter.c)
- *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x1405105C4 (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x1404C6C2C (HalpDmaAllocateMapRegistersAtHighLevel.c)
  */
 
 PVOID __stdcall HalAllocateCrashDumpRegisters(PADAPTER_OBJECT AdapterObject, PULONG NumberOfMapRegisters)
 {
-  __int64 v3; // rax
-  _DWORD *v4; // rdx
-  ULONG v5; // edi
-  __int64 v6; // rbx
-  int v7; // edx
-  __int64 v8; // rcx
+  ULONG v2; // edi
+  int v5; // edx
+  __int64 v6; // rcx
   PVOID result; // rax
-  __int64 MapRegistersAtHighLevel; // rax
-  int v11; // edx
-  __int64 v12; // rcx
+  _DMA_OPERATIONS *MapRegistersAtHighLevel; // rax
+  int v9; // edx
+  __int64 v10; // rcx
 
-  v3 = HalpDmaExtractFromVerifierShadowAdapter((__int64)AdapterObject);
-  v5 = 0;
-  v6 = v3;
-  if ( *(_BYTE *)(v3 + 440) || !*(_BYTE *)(v3 + 445) )
+  v2 = 0;
+  if ( LOBYTE(AdapterObject[27].Version) || !*((_BYTE *)&AdapterObject[27].Size + 3) )
   {
     if ( HalpDmaHibernateRegisterPhase == 1 )
     {
-      v7 = HalpDmaHibernatePhase1RegisterSetIndex;
-      v8 = 2LL * (unsigned int)HalpDmaHibernatePhase1RegisterSetIndex;
+      v5 = HalpDmaHibernatePhase1RegisterSetIndex;
+      v6 = 2LL * (unsigned int)HalpDmaHibernatePhase1RegisterSetIndex;
       *NumberOfMapRegisters = *((_DWORD *)&HalpDmaHibernateRegisterSets
                               + 4 * (unsigned int)HalpDmaHibernatePhase1RegisterSetIndex
                               + 2);
-      result = (PVOID)*((_QWORD *)&HalpDmaHibernateRegisterSets + v8);
-      *(_QWORD *)(v6 + 240) = result;
-      *(_DWORD *)(v6 + 248) = *NumberOfMapRegisters;
-      HalpDmaHibernatePhase1RegisterSetIndex = v7 + 1;
+      result = (PVOID)*((_QWORD *)&HalpDmaHibernateRegisterSets + v6);
+      AdapterObject[14].DmaOperations = (_DMA_OPERATIONS *)result;
+      *(_DWORD *)&AdapterObject[15].Version = *NumberOfMapRegisters;
+      HalpDmaHibernatePhase1RegisterSetIndex = v5 + 1;
       return result;
     }
-    if ( *v4 > *(_DWORD *)(v3 + 232) )
+    if ( *NumberOfMapRegisters > *(_DWORD *)&AdapterObject[14].Version )
     {
-      *(_DWORD *)(v3 + 248) = 0;
+      *(_DWORD *)&AdapterObject[15].Version = 0;
       result = 0LL;
-      *v4 = 0;
+      *NumberOfMapRegisters = 0;
       return result;
     }
-    MapRegistersAtHighLevel = HalpDmaAllocateMapRegistersAtHighLevel(v3, v4);
-    *(_QWORD *)(v6 + 240) = MapRegistersAtHighLevel;
+    MapRegistersAtHighLevel = (_DMA_OPERATIONS *)HalpDmaAllocateMapRegistersAtHighLevel(
+                                                   AdapterObject,
+                                                   NumberOfMapRegisters);
+    AdapterObject[14].DmaOperations = MapRegistersAtHighLevel;
     if ( MapRegistersAtHighLevel )
     {
-      v11 = HalpDmaHibernateRegisterSetIndex;
+      v9 = HalpDmaHibernateRegisterSetIndex;
       if ( (unsigned int)HalpDmaHibernateRegisterSetIndex < 4 )
       {
-        v12 = 2LL * (unsigned int)HalpDmaHibernateRegisterSetIndex;
-        *((_QWORD *)&HalpDmaHibernateRegisterSets + v12) = MapRegistersAtHighLevel;
-        *((_DWORD *)&HalpDmaHibernateRegisterSets + 2 * v12 + 2) = *NumberOfMapRegisters;
-        HalpDmaHibernateRegisterSetIndex = v11 + 1;
+        v10 = 2LL * (unsigned int)HalpDmaHibernateRegisterSetIndex;
+        *((_QWORD *)&HalpDmaHibernateRegisterSets + v10) = MapRegistersAtHighLevel;
+        *((_DWORD *)&HalpDmaHibernateRegisterSets + 2 * v10 + 2) = *NumberOfMapRegisters;
+        HalpDmaHibernateRegisterSetIndex = v9 + 1;
       }
     }
     else
     {
       *NumberOfMapRegisters = 0;
     }
-    v5 = *NumberOfMapRegisters;
+    v2 = *NumberOfMapRegisters;
   }
   else
   {
-    *(_QWORD *)(v3 + 240) = 0LL;
+    AdapterObject[14].DmaOperations = 0LL;
   }
-  *(_DWORD *)(v6 + 248) = v5;
-  result = *(PVOID *)(v6 + 240);
-  HalpDmaHibernateAdapter = (PVOID)v6;
+  *(_DWORD *)&AdapterObject[15].Version = v2;
+  result = AdapterObject[14].DmaOperations;
+  HalpDmaHibernateAdapter = AdapterObject;
   return result;
 }

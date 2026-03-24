@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSystemVaToDynamicBitmap @ 0x1400F71E0
+ * XREFs of MiSystemVaToDynamicBitmap @ 0x1400F7200
  * Callers:
  *     MiMakeSystemRangeAvailable @ 0x1400280B0 (MiMakeSystemRangeAvailable.c)
- *     MiObtainSystemVa @ 0x1400F6944 (MiObtainSystemVa.c)
+ *     MiObtainSystemVa @ 0x1400F6964 (MiObtainSystemVa.c)
  *     MiInitializeKernelStacks @ 0x1409B5C54 (MiInitializeKernelStacks.c)
  *     MiInitializeSystemPtes @ 0x1409B68BC (MiInitializeSystemPtes.c)
  *     MiBuildPagedPool @ 0x1409B6A44 (MiBuildPagedPool.c)

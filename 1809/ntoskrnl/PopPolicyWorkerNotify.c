@@ -1,10 +1,10 @@
 /*
  * XREFs of PopPolicyWorkerNotify @ 0x1405B01A0
  * Callers:
- *     PopPolicyWorkerThread @ 0x140130580 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x1401305A0 (PopPolicyWorkerThread.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 PopPolicyWorkerNotify()

@@ -1,180 +1,177 @@
 /*
- * XREFs of ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C029F4D4
+ * XREFs of ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C00FEBD4
  * Callers:
- *     bAddAllFlEntry @ 0x1C00897FC (bAddAllFlEntry.c)
- *     ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C008A44C (-vInitializeFontAssocStatus@@YAXXZ.c)
- *     ?pql@PFEOBJ@@QEAAPEAU_QUICKLOOKUP@@XZ @ 0x1C015D164 (-pql@PFEOBJ@@QEAAPEAU_QUICKLOOKUP@@XZ.c)
- *     GreEudcLoadLinkW @ 0x1C029E958 (GreEudcLoadLinkW.c)
+ *     ?pql@PFEOBJ@@QEAAPEAU_QUICKLOOKUP@@XZ @ 0x1C006407C (-pql@PFEOBJ@@QEAAPEAU_QUICKLOOKUP@@XZ.c)
+ *     ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C00E67D4 (-vInitializeFontAssocStatus@@YAXXZ.c)
+ *     bAddAllFlEntry @ 0x1C00E6908 (bAddAllFlEntry.c)
+ *     GreEudcLoadLinkW @ 0x1C0297780 (GreEudcLoadLinkW.c)
  * Callees:
- *     ?vFreepfdg@PFEOBJ@@QEAAXXZ @ 0x1C0080F14 (-vFreepfdg@PFEOBJ@@QEAAXXZ.c)
- *     ?pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ @ 0x1C0081018 (-pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?pql@PFEOBJ@@QEAAPEAU_QUICKLOOKUP@@XZ @ 0x1C015D164 (-pql@PFEOBJ@@QEAAPEAU_QUICKLOOKUP@@XZ.c)
+ *     ?pql@PFEOBJ@@QEAAPEAU_QUICKLOOKUP@@XZ @ 0x1C006407C (-pql@PFEOBJ@@QEAAPEAU_QUICKLOOKUP@@XZ.c)
+ *     ?pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ @ 0x1C009EC80 (-pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ.c)
+ *     ?vFreepfdg@PFEOBJ@@QEAAXXZ @ 0x1C009EDA0 (-vFreepfdg@PFEOBJ@@QEAAXXZ.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall bComputeQuickLookup(struct _QUICKLOOKUP *a1, struct PFE *a2, int a3)
 {
+  ULONG v3; // ebx
   struct _QUICKLOOKUP *v5; // r14
-  unsigned int v6; // edi
-  unsigned __int16 v7; // bp
-  unsigned __int16 v8; // si
-  __int64 *v9; // rbx
-  struct _FD_GLYPHSET *v11; // rax
-  struct _FD_GLYPHSET *v12; // r13
-  WCRUN *awcrun; // rdx
+  unsigned __int16 v6; // bp
+  unsigned __int16 v7; // di
+  struct _FD_GLYPHSET *v8; // rax
+  struct _FD_GLYPHSET *v9; // r15
   ULONG cRuns; // eax
-  __int64 v15; // r10
+  WCRUN *awcrun; // rdx
+  __int64 v12; // r10
   int wcLow; // r9d
-  int cGlyphs; // r11d
-  unsigned __int16 v18; // r8
-  void *v19; // rcx
-  unsigned int v20; // eax
-  __int64 v21; // rax
-  int v22; // r10d
-  WCRUN *v23; // r11
-  USHORT v24; // r14
-  int v25; // r9d
-  __int64 v26; // r12
-  int v27; // eax
+  unsigned __int16 v14; // r8
+  int cGlyphs; // edi
+  void **v16; // r14
+  int v17; // r8d
+  USHORT v18; // bp
+  __int64 v19; // r12
+  int v20; // r10d
+  int v21; // eax
+  _DWORD *v22; // r8
+  unsigned int v23; // eax
+  int v24; // r11d
+  __int64 v25; // r9
+  char v27; // cl
   __int64 v28; // r10
-  int v29; // esi
-  __int64 v30; // rbp
-  int v31; // edx
-  __int64 v32; // r9
-  unsigned int v33; // r8d
-  unsigned int v34; // esi
-  unsigned int v35; // eax
-  __int64 v36; // rdx
-  __int64 v37; // rcx
-  __int64 v38; // [rsp+20h] [rbp-48h]
-  int v39; // [rsp+78h] [rbp+10h]
-  __int64 *v40; // [rsp+88h] [rbp+20h] BYREF
+  unsigned int v29; // edi
+  unsigned int v30; // r8d
+  unsigned int v31; // eax
+  _DWORD *v32; // rdi
+  unsigned __int64 i; // rcx
+  __int64 v34; // rcx
+  __int64 v35; // rdx
+  __int64 v36; // [rsp+20h] [rbp-48h]
+  int v37; // [rsp+78h] [rbp+10h]
+  __int64 *v38; // [rsp+88h] [rbp+20h] BYREF
 
+  v3 = 0;
+  v38 = (__int64 *)a2;
   v5 = a1;
-  SGDGetSessionState(a1);
   v6 = 0;
-  v40 = (__int64 *)a2;
-  v7 = 0;
-  v8 = -1;
-  if ( !a2 )
-    return 0LL;
-  if ( !v5 )
-    v5 = PFEOBJ::pql((struct PFE **)&v40);
-  v9 = (__int64 *)((char *)v5 + 8);
-  if ( !a3 && *v9 )
-    return 1LL;
-  v11 = PFEOBJ::pfdg((PFEOBJ *)&v40);
-  v12 = v11;
-  if ( !v11 )
-    return 0LL;
-  awcrun = v11->awcrun;
-  cRuns = v11->cRuns;
-  if ( cRuns )
+  v7 = -1;
+  if ( a2 )
   {
-    v15 = cRuns;
-    do
+    if ( !a1 )
+      v5 = PFEOBJ::pql((struct PFE **)&v38);
+    if ( !a3 && *((_QWORD *)v5 + 1) )
     {
-      wcLow = awcrun->wcLow;
-      cGlyphs = awcrun->cGlyphs;
-      v18 = wcLow;
-      if ( v8 <= (unsigned __int16)wcLow )
-        v18 = v8;
-      if ( v7 < (unsigned int)(wcLow + cGlyphs) )
-        v7 = wcLow + cGlyphs - 1;
-      ++awcrun;
-      v8 = v18;
-      --v15;
+      return 1;
     }
-    while ( v15 );
-  }
-  *(_WORD *)v5 = v8;
-  *((_WORD *)v5 + 1) = v7;
-  if ( a3 )
-  {
-    v19 = (void *)*((_QWORD *)v5 + 1);
-    if ( v19 )
-      memset_0(v19, 0, 0x2000uLL);
     else
-      *((_QWORD *)v5 + 1) = Win32AllocPoolZInit(0x2000LL, 1802400071LL);
-    v8 = 0;
-  }
-  else
-  {
-    v20 = 4 * ((v7 - v8 + 32) / 32);
-    if ( v20 )
-      v21 = Win32AllocPoolZInit(v20, 1802400071LL);
-    else
-      v21 = 0LL;
-    *v9 = v21;
-  }
-  if ( !*v9 )
-  {
-    PFEOBJ::vFreepfdg(&v40);
-    return 0LL;
-  }
-  if ( v12->cRuns )
-  {
-    v22 = v8;
-    v23 = v12->awcrun;
-    v39 = v8;
-    while ( 1 )
     {
-      v38 = v6;
-      v24 = v23[v38].cGlyphs;
-      v25 = v23[v38].wcLow - v22;
-      v26 = (unsigned int)(v25 / 32);
-      v27 = v24 - v22;
-      v28 = *v9;
-      v29 = *(_DWORD *)(*v9 + 4 * v26);
-      v30 = (unsigned int)((v23[v38].wcLow + v27 - 1) / 32);
-      v31 = v25 % 32;
-      if ( (_DWORD)v26 != (_DWORD)v30 )
-        break;
-      *(_DWORD *)(v28 + 4 * v26) = v29 | ((unsigned int)(-1 << (32 - v24)) >> v31);
-      v22 = v39;
-LABEL_42:
-      if ( ++v6 >= v12->cRuns )
-        goto LABEL_43;
-    }
-    v32 = (unsigned int)(v26 + 1);
-    v33 = v30 - v32;
-    *(_DWORD *)(v28 + 4 * v26) = v29 | (0xFFFFFFFF >> v31);
-    v34 = v26 + 1;
-    if ( (unsigned int)v32 < (unsigned int)v30 )
-    {
-      if ( v33 < 4
-        || *v9 + 4 * v32 <= (unsigned __int64)v9
-        && *v9 + 4 * (unsigned __int64)(unsigned int)(v30 - 1) >= (unsigned __int64)v9 )
+      v8 = PFEOBJ::pfdg(&v38);
+      v9 = v8;
+      if ( v8 )
       {
-        goto LABEL_39;
+        cRuns = v8->cRuns;
+        if ( cRuns )
+        {
+          awcrun = v9->awcrun;
+          v12 = cRuns;
+          do
+          {
+            wcLow = awcrun->wcLow;
+            v14 = wcLow;
+            if ( v7 <= (unsigned __int16)wcLow )
+              v14 = v7;
+            cGlyphs = awcrun->cGlyphs;
+            if ( v6 < (unsigned int)(wcLow + cGlyphs) )
+              v6 = wcLow + cGlyphs - 1;
+            ++awcrun;
+            v7 = v14;
+            --v12;
+          }
+          while ( v12 );
+        }
+        *(_WORD *)v5 = v7;
+        *((_WORD *)v5 + 1) = v6;
+        v16 = (void **)((char *)v5 + 8);
+        if ( a3 )
+        {
+          if ( *v16 )
+            memset(*v16, 0, 0x2000uLL);
+          else
+            *v16 = PALLOCMEM2(0x2000uLL, 1802400071LL, 1);
+          v7 = 0;
+        }
+        else
+        {
+          *v16 = PALLOCMEM2((unsigned int)(4 * ((v6 - v7 + 32) / 32)), 1802400071LL, 1);
+        }
+        if ( *v16 )
+        {
+          if ( v9->cRuns )
+          {
+            v17 = v7;
+            v37 = v7;
+            do
+            {
+              v36 = v3;
+              v18 = v9->awcrun[v36].cGlyphs;
+              v19 = (unsigned int)((v9->awcrun[v36].wcLow - v17) / 32);
+              v20 = (v9->awcrun[v36].wcLow - v17) % 32;
+              v21 = v18 - v17;
+              v22 = *v16;
+              v23 = (v9->awcrun[v36].wcLow - 1 + v21) / 32;
+              v24 = *((_DWORD *)*v16 + v19);
+              v25 = v23;
+              if ( (_DWORD)v19 == v23 )
+              {
+                v22[v19] = v24 | ((unsigned int)(-1 << (32 - v18)) >> v20);
+              }
+              else
+              {
+                v27 = v20;
+                v28 = (unsigned int)(v19 + 1);
+                v29 = v23 - v28;
+                v22[v19] = v24 | (0xFFFFFFFF >> v27);
+                v30 = v19 + 1;
+                if ( (unsigned int)v28 < v23
+                  && v29 >= 4
+                  && ((char *)*v16 + 4 * v28 > (char *)v16 || (char *)*v16 + 4 * v23 - 4 < (char *)v16) )
+                {
+                  v31 = v23 - (v29 & 3);
+                  do
+                    v30 += 4;
+                  while ( v30 < v31 );
+                  v32 = (char *)*v16 + 4 * v28;
+                  for ( i = (16 * ((unsigned __int64)(v31 - (unsigned int)v28 + 3) >> 2)) >> 2; i; --i )
+                    *v32++ = -1;
+                }
+                if ( v30 < (unsigned int)v25 )
+                {
+                  v34 = 4LL * v30;
+                  v35 = (unsigned int)v25 - v30;
+                  do
+                  {
+                    *(_DWORD *)((char *)*v16 + v34) = -1;
+                    v34 += 4LL;
+                    --v35;
+                  }
+                  while ( v35 );
+                }
+                *((_DWORD *)*v16 + v25) |= -1 << (31 - (v9->awcrun[v36].wcLow - v37 - 1 + v9->awcrun[v36].cGlyphs) % 32);
+              }
+              v17 = v37;
+              ++v3;
+            }
+            while ( v3 < v9->cRuns );
+          }
+          PFEOBJ::vFreepfdg(&v38);
+          return 1;
+        }
+        else
+        {
+          PFEOBJ::vFreepfdg(&v38);
+        }
       }
-      v35 = v30 - (v33 & 3);
-      do
-        v34 += 4;
-      while ( v34 < v35 );
-      memset_0((void *)(*v9 + 4 * v32), -1, 16 * ((unsigned __int64)(v35 - (unsigned int)v32 + 3) >> 2));
-      v23 = v12->awcrun;
     }
-    if ( v34 >= (unsigned int)v30 )
-    {
-LABEL_41:
-      v22 = v39;
-      *(_DWORD *)(*v9 + 4 * v30) |= -1 << (31 - (v23[v38].cGlyphs - v39 - 1 + v23[v38].wcLow) % 32);
-      goto LABEL_42;
-    }
-LABEL_39:
-    v36 = (unsigned int)v30 - v34;
-    v37 = 4LL * v34;
-    do
-    {
-      *(_DWORD *)(v37 + *v9) = -1;
-      v37 += 4LL;
-      --v36;
-    }
-    while ( v36 );
-    goto LABEL_41;
   }
-LABEL_43:
-  PFEOBJ::vFreepfdg(&v40);
-  return 1LL;
+  return v3;
 }

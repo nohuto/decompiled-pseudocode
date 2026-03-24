@@ -1,73 +1,74 @@
 /*
- * XREFs of PiDcResetChildDeviceContainerCallback @ 0x14095B2E0
+ * XREFs of PiDcResetChildDeviceContainerCallback @ 0x1408A36C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCbCopyW @ 0x14022B024 (RtlStringCbCopyW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBF54 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     _CmIsRootDevice @ 0x14079A9A8 (_CmIsRootDevice.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlStringCbCopyW @ 0x14032E038 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     _CmIsRootDevice @ 0x140693D04 (_CmIsRootDevice.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406B14B0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDcResetChildDeviceContainerCallback(__int64 a1, const wchar_t *a2, __int64 a3)
 {
-  __int64 Pool2; // rbx
-  const WCHAR *i; // rdi
-  _QWORD *v8; // rax
-  __int64 v9; // rax
-  _QWORD *v10; // r11
-  _QWORD *v11; // rcx
-  int v13; // [rsp+60h] [rbp-59h] BYREF
-  int v14; // [rsp+64h] [rbp-55h] BYREF
-  int v15; // [rsp+68h] [rbp-51h] BYREF
-  int v16; // [rsp+6Ch] [rbp-4Dh] BYREF
+  char v3; // r14
+  WCHAR *PoolWithTag; // rdi
+  const WCHAR *i; // rbx
+  struct _DMA_ADAPTER *v9; // rax
+  PVOID v10; // rax
+  _QWORD *v11; // rbx
+  _QWORD *v12; // rcx
+  int v14; // [rsp+60h] [rbp-59h] BYREF
+  int v15; // [rsp+64h] [rbp-55h] BYREF
+  int v16; // [rsp+68h] [rbp-51h] BYREF
+  int v17; // [rsp+6Ch] [rbp-4Dh] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-49h] BYREF
   wchar_t Str1[40]; // [rsp+80h] [rbp-39h] BYREF
 
-  DestinationString = 0LL;
-  v14 = 0;
-  Pool2 = 0LL;
-  v13 = 0;
   v15 = 0;
+  v3 = 0;
+  v14 = 0;
+  DestinationString = 0LL;
+  PoolWithTag = 0LL;
   v16 = 0;
-  for ( i = a2; !CmIsRootDevice(i) && RtlInitUnicodeStringEx(&DestinationString, i) >= 0; i = (const WCHAR *)Pool2 )
+  v17 = 0;
+  for ( i = a2; !CmIsRootDevice(i); i = PoolWithTag )
   {
-    v8 = PnpDeviceObjectFromDeviceInstanceWithTag((__int64)&DestinationString, 0x746C6644u);
-    if ( v8 )
+    if ( RtlInitUnicodeStringEx(&DestinationString, i) < 0 )
+      goto LABEL_26;
+    v9 = (struct _DMA_ADAPTER *)PnpDeviceObjectFromDeviceInstanceWithTag((__int64)&DestinationString, 0x746C6644u);
+    if ( v9 )
     {
-      ObfDereferenceObject(v8);
+      HalPutDmaAdapter(v9);
       break;
     }
     if ( i != a2 )
     {
-      v13 = 78;
+      v14 = 78;
       if ( (int)CmGetDeviceRegProp(
                   *(__int64 *)&PiPnpRtlCtx,
                   (__int64)i,
                   0LL,
                   37,
-                  (__int64)&v14,
+                  (__int64)&v15,
                   (__int64)Str1,
-                  (__int64)&v13,
-                  0) < 0
-        || v14 != 1
-        || v13 != 78
-        || wcsicmp(Str1, *(const wchar_t **)(a3 + 8)) )
-      {
+                  (__int64)&v14,
+                  0) < 0 )
+        goto LABEL_26;
+      if ( v15 != 1 || v14 != 78 || wcsicmp(Str1, *(const wchar_t **)(a3 + 8)) )
         break;
-      }
     }
-    if ( !Pool2 )
+    if ( !PoolWithTag )
     {
-      Pool2 = ExAllocatePool2(256LL, 400LL, 1198550608LL);
-      if ( !Pool2 )
+      PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, 0x190uLL, 0x47706E50u);
+      if ( !PoolWithTag )
         return 0LL;
     }
     if ( (int)PnpGetObjectProperty(
@@ -77,41 +78,45 @@ __int64 __fastcall PiDcResetChildDeviceContainerCallback(__int64 a1, const wchar
                 0LL,
                 0LL,
                 (__int64)DEVPKEY_Device_LastKnownParent,
-                (__int64)&v15,
-                Pool2,
-                400,
                 (__int64)&v16,
-                0) < 0 )
-      goto LABEL_24;
-    if ( v15 != 18 )
-      break;
-    *(_WORD *)(Pool2 + 398) = 0;
-    if ( !wcsicmp((const wchar_t *)Pool2, *(const wchar_t **)a3) )
+                (__int64)PoolWithTag,
+                400,
+                (__int64)&v17,
+                0) < 0
+      || v16 != 18 )
     {
-      v9 = ExAllocatePool2(256LL, 416LL, 1198550608LL);
-      if ( v9 )
-      {
-        if ( RtlStringCbCopyW((NTSTRSAFE_PWSTR)(v9 + 16), 0x190uLL, a2) < 0 )
-        {
-          ExFreePoolWithTag(v10, 0x47706E50u);
-        }
-        else
-        {
-          v11 = *(_QWORD **)(a3 + 24);
-          if ( *v11 != a3 + 16 )
-            __fastfail(3u);
-          *v10 = a3 + 16;
-          v10[1] = v11;
-          *v11 = v10;
-          *(_QWORD *)(a3 + 24) = v10;
-        }
-      }
+      goto LABEL_26;
+    }
+    PoolWithTag[199] = 0;
+    if ( !wcsicmp(PoolWithTag, *(const wchar_t **)a3) )
+    {
+      v3 = 1;
       break;
     }
   }
-  if ( !Pool2 )
-    return 0LL;
-LABEL_24:
-  ExFreePoolWithTag((PVOID)Pool2, 0x47706E50u);
+  if ( v3 )
+  {
+    v10 = ExAllocatePoolWithTag(PagedPool, 0x1A0uLL, 0x47706E50u);
+    v11 = v10;
+    if ( v10 )
+    {
+      if ( RtlStringCbCopyW((NTSTRSAFE_PWSTR)v10 + 8, 0x190uLL, a2) >= 0 )
+      {
+        v12 = *(_QWORD **)(a3 + 24);
+        if ( *v12 != a3 + 16 )
+          __fastfail(3u);
+        *v11 = a3 + 16;
+        v11[1] = v12;
+        *v12 = v11;
+        *(_QWORD *)(a3 + 24) = v11;
+        v11 = 0LL;
+      }
+      if ( v11 )
+        ExFreePoolWithTag(v11, 0x47706E50u);
+    }
+  }
+LABEL_26:
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x47706E50u);
   return 0LL;
 }

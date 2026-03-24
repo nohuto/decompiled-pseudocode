@@ -1,17 +1,16 @@
 /*
- * XREFs of PopPepGetComponentPreferedIdleState @ 0x140310838
+ * XREFs of PopPepGetComponentPreferedIdleState @ 0x140261DF8
  * Callers:
- *     PopPepUpdateIdleState @ 0x1403107D8 (PopPepUpdateIdleState.c)
+ *     PopPepUpdateIdleState @ 0x140261D98 (PopPepUpdateIdleState.c)
  * Callees:
- *     PopPepArmIdleTimer @ 0x140354EF4 (PopPepArmIdleTimer.c)
+ *     PopPepArmIdleTimer @ 0x140573F14 (PopPepArmIdleTimer.c)
  */
 
 __int64 __fastcall PopPepGetComponentPreferedIdleState(_DWORD *a1)
 {
-  unsigned int v1; // eax
-  __int64 v2; // r9
-  __int64 v4; // r8
-  unsigned int v5; // ebx
+  __int64 v1; // r9
+  unsigned int v3; // r8d
+  unsigned int v4; // ebx
   unsigned int *v6; // r10
   __int64 v7; // r11
   unsigned int v8; // ecx
@@ -20,13 +19,12 @@ __int64 __fastcall PopPepGetComponentPreferedIdleState(_DWORD *a1)
   bool v11; // cl
   int v12; // eax
 
-  v1 = a1[41];
-  LODWORD(v2) = 0;
-  v4 = (unsigned int)(a1[47] - 1);
-  if ( (unsigned int)v4 >= v1 )
-    v4 = v1;
-  v5 = v4;
-  if ( (_DWORD)v4 )
+  LODWORD(v1) = 0;
+  v3 = a1[47] - 1;
+  if ( v3 >= a1[41] )
+    v3 = a1[41];
+  v4 = v3;
+  if ( v3 )
   {
     v6 = a1 + 38;
     v7 = 6LL;
@@ -34,34 +32,31 @@ __int64 __fastcall PopPepGetComponentPreferedIdleState(_DWORD *a1)
     {
       v8 = *v6;
       v9 = *v6++;
-      if ( v8 >= v5 )
-        v9 = v5;
-      v5 = v9;
-      v10 = v2 + 1;
-      if ( v8 != (_DWORD)v4 )
-        v10 = v2;
-      v2 = v10;
+      if ( v8 >= v4 )
+        v9 = v4;
+      v4 = v9;
+      v10 = v1 + 1;
+      if ( v8 != v3 )
+        v10 = v1;
+      v1 = v10;
       --v7;
     }
     while ( v7 );
     v11 = 0;
     if ( v10 == 5 )
-      v11 = a1[40] < (unsigned int)v4;
+      v11 = a1[40] < v3;
     v12 = a1[1];
-    if ( (v12 & 4) != 0 )
-    {
-      if ( !v11 )
-      {
-        a1[1] = v12 & 0xFFFFFFFB;
-        _InterlockedDecrement(&PopPepPoweredIdleComponentCount);
-      }
-    }
-    else if ( v11 )
+    if ( (v12 & 4) == 0 && v11 )
     {
       a1[1] = v12 | 4;
-      if ( !_InterlockedExchangeAdd(&PopPepPoweredIdleComponentCount, 1u) )
-        PopPepArmIdleTimer(0LL, a1, v4, v2);
+      if ( _InterlockedIncrement(&PopPepPoweredIdleComponentCount) == 1 )
+        PopPepArmIdleTimer(0LL, a1, v12 & 4, v1);
+    }
+    else if ( (v12 & 4) != 0 && !v11 )
+    {
+      a1[1] = v12 & 0xFFFFFFFB;
+      _InterlockedDecrement(&PopPepPoweredIdleComponentCount);
     }
   }
-  return v5;
+  return v4;
 }

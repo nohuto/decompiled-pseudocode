@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwTerminateJobObject @ 0x14041F0C0
+ * XREFs of ZwTerminateJobObject @ 0x1403FDBC0
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCheckLoggerAccessAndDoRundown @ 0x1409EE9E4
+ * XREFs of EtwpCheckLoggerAccessAndDoRundown @ 0x14093D8D4
  * Callers:
- *     EtwpEnableDisableSpecialGuids @ 0x14078128C (EtwpEnableDisableSpecialGuids.c)
- *     EtwpCheckGuidAccessAndDoRundown @ 0x1409EE89C (EtwpCheckGuidAccessAndDoRundown.c)
+ *     EtwpEnableDisableSpecialGuids @ 0x1407166EC (EtwpEnableDisableSpecialGuids.c)
+ *     EtwpCheckGuidAccessAndDoRundown @ 0x14093D79C (EtwpCheckGuidAccessAndDoRundown.c)
  * Callees:
- *     EtwpStackRundown @ 0x140468C80 (EtwpStackRundown.c)
- *     EtwpCheckLoggerControlAccess @ 0x1406BDB0C (EtwpCheckLoggerControlAccess.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpLogKernelTraceRundown @ 0x1409EED34 (EtwpLogKernelTraceRundown.c)
- *     EtwpLogPmcCounterRundown @ 0x1409EEE0C (EtwpLogPmcCounterRundown.c)
+ *     EtwpStackRundown @ 0x1405ADA68 (EtwpStackRundown.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1406BBBBC (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpLogKernelTraceRundown @ 0x14093DC30 (EtwpLogKernelTraceRundown.c)
+ *     EtwpLogPmcCounterRundown @ 0x14093DD08 (EtwpLogPmcCounterRundown.c)
  */
 
 __int64 __fastcall EtwpCheckLoggerAccessAndDoRundown(__int64 a1, unsigned int a2, unsigned int a3, char a4)
@@ -18,6 +18,7 @@ __int64 __fastcall EtwpCheckLoggerAccessAndDoRundown(__int64 a1, unsigned int a2
   unsigned int *v8; // rbx
   int v9; // edi
   int v10; // r9d
+  unsigned int v11; // eax
 
   v7 = EtwpAcquireLoggerContextByLoggerId(a1, a2, 1);
   v8 = v7;
@@ -29,12 +30,16 @@ __int64 __fastcall EtwpCheckLoggerAccessAndDoRundown(__int64 a1, unsigned int a2
       if ( (v8[3] & 0x2000000) != 0 )
       {
         LOBYTE(v10) = a4;
-        EtwpLogKernelTraceRundown(a1, a3, 32 * *((unsigned __int8 *)v8 + 818) + a1 + 4284, v10, 0LL, 0);
+        EtwpLogKernelTraceRundown(a1, a3, 32 * *((unsigned __int8 *)v8 + 834) + a1 + 4260, v10, 0LL, 0);
       }
-      if ( (v8[204] & 0x800) != 0 )
+      v11 = v8[208];
+      if ( (v11 & 0x800) != 0 )
+      {
         EtwpLogPmcCounterRundown(v8, a3);
-      if ( (v8[204] & 0x1000000) != 0 )
-        EtwpStackRundown(*((_QWORD *)v8 + 126), a1, a3);
+        v11 = v8[208];
+      }
+      if ( (v11 & 0x1000000) != 0 )
+        EtwpStackRundown(*((_QWORD *)v8 + 124), a1, a3);
     }
     EtwpReleaseLoggerContext(v8, 1);
   }

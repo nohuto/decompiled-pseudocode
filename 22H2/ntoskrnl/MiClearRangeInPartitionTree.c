@@ -1,99 +1,105 @@
 /*
- * XREFs of MiClearRangeInPartitionTree @ 0x14065928C
+ * XREFs of MiClearRangeInPartitionTree @ 0x1405616B0
  * Callers:
- *     MiAddMdlToPartitionTree @ 0x140658AA0 (MiAddMdlToPartitionTree.c)
+ *     MiAddMdlToPartitionTree @ 0x140560FC0 (MiAddMdlToPartitionTree.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14028AE30 (RtlAvlRemoveNode.c)
- *     RtlClearBitsEx @ 0x14028BA00 (RtlClearBitsEx.c)
- *     MiDeletePartitionPageNode @ 0x140659438 (MiDeletePartitionPageNode.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     RtlClearBitsEx @ 0x14027E980 (RtlClearBitsEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiClearRangeInPartitionTree(unsigned __int64 *a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall MiClearRangeInPartitionTree(unsigned __int64 *a1, __int64 a2, unsigned __int64 a3)
 {
-  __int64 v3; // rdi
-  unsigned __int64 v4; // rsi
+  unsigned __int64 v3; // r15
+  __int64 v4; // rdi
   __int64 v5; // rbp
-  unsigned __int64 v7; // rbx
-  unsigned __int64 v8; // rdx
-  unsigned __int64 v9; // rcx
-  unsigned __int64 *v10; // r14
-  unsigned __int64 v11; // r15
-  unsigned __int64 v12; // rcx
-  __int64 *v13; // r8
-  __int64 v14; // r9
-  __int64 *v15; // rdx
-  bool v16; // zf
+  __int64 result; // rax
+  unsigned __int64 v8; // rsi
+  unsigned __int64 v9; // rbx
+  unsigned __int64 v10; // rcx
+  unsigned __int64 v11; // rax
+  unsigned __int64 *v12; // r14
+  unsigned __int64 v13; // r12
+  unsigned __int64 v14; // rcx
+  __int64 *v15; // r8
+  __int64 v16; // r9
+  __int64 *v17; // rdx
+  bool v18; // zf
   bool i; // zf
 
-  if ( a3 )
+  v3 = a3;
+  v4 = a2 & 0x7FFFFFFFFFFC0000LL;
+  v5 = a2;
+  result = a2 - (a2 & 0x7FFFFFFFFFFC0000LL);
+  v8 = (result + a3 + 0x3FFFF) >> 18;
+  if ( v8 )
   {
-    v3 = a2 & 0x3FFFFFFFFFFC0000LL;
-    v4 = a3;
-    v5 = a2;
     while ( 1 )
     {
-      v7 = *a1;
+      v9 = *a1;
       if ( *a1 )
       {
-        v8 = v3 & 0x3FFFFFFFFFFFFFFFLL;
+        v10 = v4 & 0x7FFFFFFFFFFFFFFFLL;
         do
         {
-          v9 = *(_QWORD *)(v7 + 24) & 0x3FFFFFFFFFFFFFFFLL;
-          if ( v8 >= v9 )
+          v11 = *(_QWORD *)(v9 + 24) & 0x7FFFFFFFFFFFFFFFLL;
+          if ( v10 < v11 )
           {
-            if ( v8 < *(_QWORD *)(v7 + 32) + v9 )
-              break;
-            v7 = *(_QWORD *)(v7 + 8);
+            v9 = *(_QWORD *)v9;
           }
           else
           {
-            v7 = *(_QWORD *)v7;
+            if ( v10 <= v11 )
+              break;
+            v9 = *(_QWORD *)(v9 + 8);
           }
         }
-        while ( v7 );
+        while ( v9 );
       }
-      v10 = (unsigned __int64 *)(v7 + 32);
-      v11 = v4;
-      if ( *(_QWORD *)(v7 + 32) + (*(_QWORD *)(v7 + 24) & 0x3FFFFFFFFFFFFFFFuLL) - v5 <= v4 )
-        v11 = *(_QWORD *)(v7 + 32) + (*(_QWORD *)(v7 + 24) & 0x3FFFFFFFFFFFFFFFLL) - v5;
-      RtlClearBitsEx(v7 + 32, v5 - (*(_QWORD *)(v7 + 24) & 0x3FFFFFFFFFFFFFFFLL), v11);
-      *(_QWORD *)(v7 + 24) &= ~0x8000000000000000uLL;
-      v12 = *v10;
-      if ( !*v10 )
-        goto LABEL_26;
-      if ( v12 <= 1 )
+      v12 = (unsigned __int64 *)(v9 + 32);
+      v13 = v3;
+      if ( (*(_QWORD *)(v9 + 24) & 0x7FFFFFFFFFFFFFFFuLL) - v5 + 0x40000 <= v3 )
+        v13 = (*(_QWORD *)(v9 + 24) & 0x7FFFFFFFFFFFFFFFLL) - v5 + 0x40000;
+      RtlClearBitsEx(v9 + 32, v5 - (*(_QWORD *)(v9 + 24) & 0x7FFFFFFFFFFFFFFFLL), v13);
+      v14 = *v12;
+      if ( !*v12 )
+        goto LABEL_24;
+      if ( v14 <= 1 )
         break;
-      v13 = *(__int64 **)(v7 + 40);
-      v14 = *v13;
-      v15 = &v13[(v12 - 1) >> 6];
-      if ( v13 != v15 )
+      v15 = *(__int64 **)(v9 + 40);
+      v16 = *v15;
+      v17 = &v15[(v14 - 1) >> 6];
+      if ( v15 != v17 )
       {
-        for ( i = v14 == 0; i; i = *v13 == 0 )
+        for ( i = v16 == 0; i; i = *v15 == 0 )
         {
-          if ( ++v13 == v15 )
+          if ( ++v15 == v17 )
           {
-            v16 = ((0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v12 - 1)) & *v13) == 0;
-            goto LABEL_24;
+            v18 = ((0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v14 - 1)) & *v15) == 0;
+            goto LABEL_22;
           }
         }
-        goto LABEL_26;
+        goto LABEL_24;
       }
-      v16 = (v14 & (0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v12))) == 0;
+      v18 = (v16 & (0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v14))) == 0;
+LABEL_22:
+      if ( v18 )
+        goto LABEL_23;
 LABEL_24:
-      if ( v16 )
-        goto LABEL_25;
-LABEL_26:
-      v5 += v11;
-      v3 ^= (v5 ^ v3) & 0x3FFFFFFFFFFFFFFFLL;
-      v4 -= v11;
-      if ( !v4 )
-        return;
+      v5 += v13;
+      result = (v4 ^ (v4 + 0x40000)) & 0x7FFFFFFFFFFFFFFFLL;
+      v3 -= v13;
+      v4 ^= result;
+      if ( !--v8 )
+        return result;
     }
-    if ( v12 != 1 || _bittest64(*(const signed __int64 **)(v7 + 40), 0) )
-      goto LABEL_26;
-LABEL_25:
-    RtlAvlRemoveNode(a1, (unsigned __int64 *)v7);
-    MiDeletePartitionPageNode((PVOID)v7);
-    goto LABEL_26;
+    if ( _bittest64(*(const signed __int64 **)(v9 + 40), 0) )
+      goto LABEL_24;
+LABEL_23:
+    RtlAvlRemoveNode(a1, (unsigned __int64 *)v9);
+    ExFreePoolWithTag(*(PVOID *)(v9 + 40), 0);
+    ExFreePoolWithTag((PVOID)v9, 0);
+    goto LABEL_24;
   }
+  return result;
 }

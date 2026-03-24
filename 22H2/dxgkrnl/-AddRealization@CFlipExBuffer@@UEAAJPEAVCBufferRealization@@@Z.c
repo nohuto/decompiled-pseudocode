@@ -1,7 +1,7 @@
 /*
- * XREFs of ?AddRealization@CFlipExBuffer@@UEAAJPEAVCBufferRealization@@@Z @ 0x1C000FB00
+ * XREFs of ?AddRealization@CFlipExBuffer@@UEAAJPEAVCBufferRealization@@@Z @ 0x1C0011F60
  * Callers:
- *     ?AddRealization@CCompositionSwapchainBuffer@@UEAAJPEAVCBufferRealization@@@Z @ 0x1C008A1C0 (-AddRealization@CCompositionSwapchainBuffer@@UEAAJPEAVCBufferRealization@@@Z.c)
+ *     <none>
  * Callees:
  *     <none>
  */
@@ -21,21 +21,21 @@ __int64 __fastcall CFlipExBuffer::AddRealization(CFlipExBuffer *this, struct CBu
   }
   else
   {
-    v4 = (char *)this + 256;
-    v5 = (CFlipExBuffer **)*((_QWORD *)this + 33);
+    v4 = (char *)this + 224;
+    v5 = (CFlipExBuffer **)*((_QWORD *)this + 29);
     v6 = (struct CBufferRealization *)((char *)a2 + 8);
-    if ( *v5 != (CFlipExBuffer *)((char *)this + 256) )
+    if ( *v5 != (CFlipExBuffer *)((char *)this + 224) )
       __fastfail(3u);
     *(_QWORD *)v6 = v4;
     *((_QWORD *)a2 + 2) = v5;
     *v5 = v6;
-    *((_QWORD *)this + 33) = v6;
-    if ( ++*((_DWORD *)this + 68) == 1 )
+    *((_QWORD *)this + 29) = v6;
+    if ( ++*((_DWORD *)this + 60) == 1 )
     {
       v7 = 0LL;
       if ( (unsigned int)(*((_DWORD *)a2 + 6) - 2) <= 2 )
         v7 = *((_QWORD *)a2 + 5);
-      *((_QWORD *)this + 45) = v7;
+      *((_QWORD *)this + 41) = v7;
     }
   }
   return v2;

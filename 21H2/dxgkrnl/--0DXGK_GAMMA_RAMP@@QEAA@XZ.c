@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0DXGK_GAMMA_RAMP@@QEAA@XZ @ 0x1C0012D64
+ * XREFs of ??0DXGK_GAMMA_RAMP@@QEAA@XZ @ 0x1C000A7C4
  * Callers:
- *     DxgkSetGammaRamp @ 0x1C02EAB70 (DxgkSetGammaRamp.c)
+ *     DxgkSetGammaRamp @ 0x1C0259E30 (DxgkSetGammaRamp.c)
  * Callees:
  *     <none>
  */

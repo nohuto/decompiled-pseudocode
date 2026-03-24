@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCleanCoolingExtension @ 0x14098B48C
+ * XREFs of PopCleanCoolingExtension @ 0x1408E2ABC
  * Callers:
- *     PopAssociateThermalRequest @ 0x1408294F0 (PopAssociateThermalRequest.c)
- *     PopDeactiveThermalRequest @ 0x14098B5B8 (PopDeactiveThermalRequest.c)
+ *     PopAssociateThermalRequest @ 0x140790A20 (PopAssociateThermalRequest.c)
+ *     PopDeactiveThermalRequest @ 0x1408E2BE8 (PopDeactiveThermalRequest.c)
  * Callees:
- *     PnpUnregisterPlugPlayNotification @ 0x14025AA04 (PnpUnregisterPlugPlayNotification.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x14037FC30 (PnpUnregisterPlugPlayNotification.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopCleanCoolingExtension(_QWORD *P)

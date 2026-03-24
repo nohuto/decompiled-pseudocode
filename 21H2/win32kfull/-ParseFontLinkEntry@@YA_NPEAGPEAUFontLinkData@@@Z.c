@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ParseFontLinkEntry@@YA_NPEAGPEAUFontLinkData@@@Z @ 0x1C0014F84
+ * XREFs of ?ParseFontLinkEntry@@YA_NPEAGPEAUFontLinkData@@@Z @ 0x1C00A0FB4
  * Callers:
- *     bAddFlEntry @ 0x1C0014B64 (bAddFlEntry.c)
- *     bDeleteFlEntry @ 0x1C02961A8 (bDeleteFlEntry.c)
+ *     bAddFlEntry @ 0x1C00A0C38 (bAddFlEntry.c)
+ *     bDeleteFlEntry @ 0x1C0298670 (bDeleteFlEntry.c)
  * Callees:
- *     ?ParseFontScaleFactor@@YA_NPEBGPEAJ@Z @ 0x1C00151F8 (-ParseFontScaleFactor@@YA_NPEBGPEAJ@Z.c)
+ *     ?ParseFontScaleFactor@@YA_NPEBGPEAJ@Z @ 0x1C00A313C (-ParseFontScaleFactor@@YA_NPEBGPEAJ@Z.c)
  */
 
 char __fastcall ParseFontLinkEntry(unsigned __int16 *a1, struct FontLinkData *a2)

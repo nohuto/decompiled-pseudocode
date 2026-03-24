@@ -1,38 +1,35 @@
 /*
- * XREFs of ?MapScancode@@YAHPEAUtagKE@@PEAEPEAUDEVICEINFO@@@Z @ 0x1C01EA41C
+ * XREFs of ?MapScancode@@YAHPEAUtagKE@@PEAEPEAUDEVICEINFO@@@Z @ 0x1C01B01E4
  * Callers:
- *     ProcessKeyboardInputWorker @ 0x1C01EA900 (ProcessKeyboardInputWorker.c)
+ *     ProcessKeyboardInputWorker @ 0x1C01B0810 (ProcessKeyboardInputWorker.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z @ 0x1C01E9F78 (-MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z @ 0x1C01AFF00 (-MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z.c)
  */
 
-__int64 __fastcall MapScancode(struct tagKE *a1, unsigned __int8 *a2, struct DEVICEINFO *a3, __int64 a4)
+__int64 __fastcall MapScancode(struct tagKE *a1, char *a2, struct DEVICEINFO *a3)
 {
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int16 v12; // si
+  int v3; // eax
   __int16 *i; // rcx
-  __int16 v14; // ax
+  __int16 v9; // ax
 
-  if ( qword_1C02962C0 && (unsigned int)qword_1C02962C0(a1) )
+  v3 = (int)qword_1C0257050;
+  if ( qword_1C0257050 )
+    v3 = qword_1C0257050(a1, a2);
+  if ( v3 )
     return 1LL;
-  if ( *(_QWORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 12640) )
+  if ( gpScancodeMap )
   {
-    v12 = *(unsigned __int8 *)a1 | (*a2 << 8);
-    for ( i = (__int16 *)(*(_QWORD *)(SGDGetUserSessionState(v9, v8, v10, v11) + 12640) + 12LL); *(_DWORD *)i; i += 2 )
+    for ( i = (__int16 *)(gpScancodeMap + 12); *(_DWORD *)i; i += 2 )
     {
-      if ( HIWORD(*(_DWORD *)i) == v12 )
+      if ( HIWORD(*(_DWORD *)i) == (*(unsigned __int8 *)a1 | (unsigned __int16)((unsigned __int8)*a2 << 8)) )
       {
-        v14 = *i;
+        v9 = *i;
         *(_BYTE *)a1 = *i;
-        *a2 = HIBYTE(v14);
-        break;
+        *a2 = HIBYTE(v9);
+        return MapFlexibleKeys(a1, *a2, a3);
       }
     }
   }
-  LOBYTE(v8) = *a2;
-  return MapFlexibleKeys(a1, v8, a3, v11);
+  return MapFlexibleKeys(a1, *a2, a3);
 }

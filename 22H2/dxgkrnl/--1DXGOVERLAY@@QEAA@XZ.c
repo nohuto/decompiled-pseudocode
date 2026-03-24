@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1DXGOVERLAY@@QEAA@XZ @ 0x1C03347E4
+ * XREFs of ??1DXGOVERLAY@@QEAA@XZ @ 0x1C027A62C
  * Callers:
- *     ??_GDXGOVERLAY@@QEAAPEAXI@Z @ 0x1C0049850 (--_GDXGOVERLAY@@QEAAPEAXI@Z.c)
+ *     ??_GDXGOVERLAY@@QEAAPEAXI@Z @ 0x1C0043578 (--_GDXGOVERLAY@@QEAAPEAXI@Z.c)
  * Callees:
- *     ?FreeHandleSafe@DXGPROCESS@@QEAAXI@Z @ 0x1C000481C (-FreeHandleSafe@DXGPROCESS@@QEAAXI@Z.c)
- *     ?Destroy@DXGOVERLAY@@QEAAXXZ @ 0x1C0334828 (-Destroy@DXGOVERLAY@@QEAAXXZ.c)
+ *     ?FreeResourceHandleNoRefSafe@DXGPROCESS@@QEAAXI@Z @ 0x1C0003148 (-FreeResourceHandleNoRefSafe@DXGPROCESS@@QEAAXI@Z.c)
+ *     ?Destroy@DXGOVERLAY@@QEAAXXZ @ 0x1C027A668 (-Destroy@DXGOVERLAY@@QEAAXXZ.c)
  */
 
 void __fastcall DXGOVERLAY::~DXGOVERLAY(DXGOVERLAY *this)
@@ -14,7 +14,7 @@ void __fastcall DXGOVERLAY::~DXGOVERLAY(DXGOVERLAY *this)
   v1 = *((_DWORD *)this + 6);
   if ( v1 )
   {
-    DXGPROCESS::FreeHandleSafe(*(DXGPROCESS **)(*((_QWORD *)this + 2) + 40LL), v1);
+    DXGPROCESS::FreeResourceHandleNoRefSafe(*(DXGPROCESS **)(*((_QWORD *)this + 2) + 40LL), v1);
     *((_DWORD *)this + 6) = 0;
   }
   DXGOVERLAY::Destroy(this);

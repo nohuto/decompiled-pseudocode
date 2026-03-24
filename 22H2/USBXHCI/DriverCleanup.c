@@ -1,14 +1,13 @@
 /*
- * XREFs of DriverCleanup @ 0x1C00798D0
+ * XREFs of DriverCleanup @ 0x1C0076110
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     McGenEventUnregister_EtwUnregister @ 0x1C0038A48 (McGenEventUnregister_EtwUnregister.c)
- *     UninitializeTelemetryAssertsKM @ 0x1C0053A08 (UninitializeTelemetryAssertsKM.c)
- *     wil_UninitializeFeatureStaging @ 0x1C006D008 (wil_UninitializeFeatureStaging.c)
- *     TraceLoggingUnregister_EtwUnregister @ 0x1C00799B0 (TraceLoggingUnregister_EtwUnregister.c)
- *     WppCleanupKm @ 0x1C00799DC (WppCleanupKm.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     McGenEventUnregister_EtwUnregister @ 0x1C0036F88 (McGenEventUnregister_EtwUnregister.c)
+ *     UninitializeTelemetryAssertsKM @ 0x1C0050B14 (UninitializeTelemetryAssertsKM.c)
+ *     wil_UninitializeFeatureStaging @ 0x1C006A008 (wil_UninitializeFeatureStaging.c)
+ *     WppCleanupKm @ 0x1C00761C4 (WppCleanupKm.c)
  */
 
 __int64 __fastcall DriverCleanup(__int64 a1)
@@ -19,13 +18,11 @@ __int64 __fastcall DriverCleanup(__int64 a1)
   WppCleanupKm(v1);
   if ( *(_QWORD *)(g_WdfDriverUsbXhciContext + 32) )
   {
-    if ( qword_1C0064AE8 )
-      qword_1C0064AE8();
+    SleepstudyHelper_Uninitialize();
     *(_QWORD *)(g_WdfDriverUsbXhciContext + 32) = 0LL;
   }
   UninitializeTelemetryAssertsKM();
   McGenEventUnregister_EtwUnregister();
-  TraceLoggingUnregister_EtwUnregister(&dword_1C0063748);
   if ( *(_BYTE *)(g_WdfDriverUsbXhciContext + 28) )
   {
     PcwUnregister(Ctr_Interrupter);

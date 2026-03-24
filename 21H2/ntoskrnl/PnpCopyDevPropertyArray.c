@@ -1,72 +1,83 @@
 /*
- * XREFs of PnpCopyDevPropertyArray @ 0x140764604
+ * XREFs of PnpCopyDevPropertyArray @ 0x14074DF9C
  * Callers:
- *     PiSwInterfaceCreate @ 0x140763500 (PiSwInterfaceCreate.c)
- *     PiSwCompleteCreate @ 0x14076426C (PiSwCompleteCreate.c)
- *     PiSwIrpStartCreateWorker @ 0x140765DC0 (PiSwIrpStartCreateWorker.c)
- *     PiSwQueuedCreateInfoCreate @ 0x1409539A8 (PiSwQueuedCreateInfoCreate.c)
+ *     PiSwInterfaceCreate @ 0x14074D504 (PiSwInterfaceCreate.c)
+ *     PiSwCompleteCreate @ 0x14074D690 (PiSwCompleteCreate.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074DBB8 (PiSwIrpStartCreateWorker.c)
+ *     PiSwQueuedCreateInfoCreate @ 0x1408AEB34 (PiSwQueuedCreateInfoCreate.c)
  * Callees:
- *     PnpCopyDevProperty @ 0x1407646C0 (PnpCopyDevProperty.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PnpCopyDevProperty @ 0x14074E074 (PnpCopyDevProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PnpCopyDevPropertyArray(unsigned int a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 *a5)
+__int64 __fastcall PnpCopyDevPropertyArray(ULONGLONG ullMultiplicand, __int64 a2, __int64 a3, _DWORD *a4, void **a5)
 {
-  unsigned int v5; // edi
-  __int64 Pool2; // rax
-  __int64 v10; // rdx
-  __int64 v11; // r14
-  void *v13; // rcx
-  __int64 v14; // rbp
+  void **v5; // rbx
+  NTSTATUS v6; // esi
+  unsigned int v9; // ebp
+  PVOID PoolWithTag; // rax
+  __int64 v11; // rdx
+  __int64 v12; // r14
+  void *v14; // rcx
+  __int64 v15; // rbp
+  SIZE_T NumberOfBytes; // [rsp+48h] [rbp+10h] BYREF
 
-  v5 = 0;
+  v5 = a5;
+  v6 = 0;
   *a4 = 0;
-  *a5 = 0LL;
-  if ( a2 && a1 )
+  NumberOfBytes = 0LL;
+  v9 = ullMultiplicand;
+  *v5 = 0LL;
+  if ( a2 && (_DWORD)ullMultiplicand )
   {
-    if ( !is_mul_ok(a1, 0x30uLL) )
-      return (unsigned int)-1073741675;
-    Pool2 = ExAllocatePool2(256LL, 48LL * a1, 1466986064LL);
-    *a5 = Pool2;
-    if ( Pool2 )
+    v6 = RtlULongLongMult((unsigned int)ullMultiplicand, 0x30uLL, &NumberOfBytes);
+    if ( v6 >= 0 )
     {
-      v11 = 0LL;
-      if ( !a1 )
-        return v5;
-      while ( 1 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, NumberOfBytes, 0x57706E50u);
+      *v5 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        v5 = PnpCopyDevProperty(a2 + 48 * v11, v10, 48 * v11 + *a5);
-        if ( (v5 & 0x80000000) != 0 )
-          break;
-        ++*a4;
-        v11 = (unsigned int)(v11 + 1);
-        if ( (unsigned int)v11 >= a1 )
-          return v5;
+        memset(PoolWithTag, 0, NumberOfBytes);
+        v12 = 0LL;
+        if ( !v9 )
+          return (unsigned int)v6;
+        while ( 1 )
+        {
+          v6 = PnpCopyDevProperty(a2 + 48 * v12, v11, (char *)*v5 + 48 * v12);
+          if ( v6 < 0 )
+            break;
+          ++*a4;
+          v12 = (unsigned int)(v12 + 1);
+          if ( (unsigned int)v12 >= v9 )
+            return (unsigned int)v6;
+        }
+      }
+      else
+      {
+        v6 = -1073741670;
       }
     }
-    else
+    v14 = *v5;
+    if ( *v5 )
     {
-      v5 = -1073741670;
-    }
-    v13 = (void *)*a5;
-    if ( *a5 )
-    {
-      v14 = 0LL;
+      v15 = 0LL;
       if ( *a4 )
       {
         do
         {
-          ExFreePoolWithTag(*(PVOID *)(*a5 + 48 * v14 + 40), 0x57706E50u);
-          v14 = (unsigned int)(v14 + 1);
+          ExFreePoolWithTag(*((PVOID *)*v5 + 6 * v15 + 5), 0x57706E50u);
+          v15 = (unsigned int)(v15 + 1);
         }
-        while ( (unsigned int)v14 < *a4 );
-        v13 = (void *)*a5;
+        while ( (unsigned int)v15 < *a4 );
+        v14 = *v5;
       }
-      ExFreePoolWithTag(v13, 0x57706E50u);
+      ExFreePoolWithTag(v14, 0x57706E50u);
       *a4 = 0;
-      *a5 = 0LL;
+      *v5 = 0LL;
     }
   }
-  return v5;
+  return (unsigned int)v6;
 }

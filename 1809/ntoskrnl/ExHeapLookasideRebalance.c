@@ -1,9 +1,9 @@
 /*
- * XREFs of ExHeapLookasideRebalance @ 0x1401B748C
+ * XREFs of ExHeapLookasideRebalance @ 0x1401B74AC
  * Callers:
- *     ExpScanSystemLookasideList @ 0x1401071D8 (ExpScanSystemLookasideList.c)
+ *     ExpScanSystemLookasideList @ 0x1401071F8 (ExpScanSystemLookasideList.c)
  * Callees:
- *     RtlpDynamicLookasideRebalance @ 0x1401B7BCC (RtlpDynamicLookasideRebalance.c)
+ *     RtlpDynamicLookasideRebalance @ 0x1401B7BEC (RtlpDynamicLookasideRebalance.c)
  */
 
 __int64 ExHeapLookasideRebalance()

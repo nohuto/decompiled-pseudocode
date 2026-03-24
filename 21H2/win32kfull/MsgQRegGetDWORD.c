@@ -1,9 +1,9 @@
 /*
- * XREFs of MsgQRegGetDWORD @ 0x1C01D9C54
+ * XREFs of MsgQRegGetDWORD @ 0x1C01D3134
  * Callers:
- *     ?InitLogQMsg@@YAXXZ @ 0x1C011FC5C (-InitLogQMsg@@YAXXZ.c)
+ *     ?InitLogQMsg@@YAXXZ @ 0x1C01342E4 (-InitLogQMsg@@YAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall MsgQRegGetDWORD(HANDLE KeyHandle, const WCHAR *a2, _DWORD *a3)

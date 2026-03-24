@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InitializeClient@CHolographicManager@@AEAAXXZ @ 0x180296188
+ * XREFs of ?InitializeClient@CHolographicManager@@AEAAXXZ @ 0x180253D18
  * Callers:
- *     ?AddHolographicComposition@CHolographicManager@@QEAA_NPEAVCHolographicComposition@@@Z @ 0x180295104 (-AddHolographicComposition@CHolographicManager@@QEAA_NPEAVCHolographicComposition@@@Z.c)
+ *     ?AddHolographicComposition@CHolographicManager@@QEAA_NPEAVCHolographicComposition@@@Z @ 0x180252B18 (-AddHolographicComposition@CHolographicManager@@QEAA_NPEAVCHolographicComposition@@@Z.c)
  * Callees:
- *     ?PublishPresentData@CHolographicExclusiveView@@QEAAXXZ @ 0x1802995D4 (-PublishPresentData@CHolographicExclusiveView@@QEAAXXZ.c)
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18029CF8C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?PublishPresentData@CHolographicExclusiveView@@QEAAXXZ @ 0x180257600 (-PublishPresentData@CHolographicExclusiveView@@QEAAXXZ.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A950 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 void __fastcall CHolographicManager::InitializeClient(CHolographicManager *this)
@@ -26,7 +26,7 @@ void __fastcall CHolographicManager::InitializeClient(CHolographicManager *this)
     CHolographicInteropTaskQueue::PostMessageW(
       *((CHolographicInteropTaskQueue **)this + 6),
       6u,
-      (struct IUnknown *)((v3 + 72) & -(__int64)(v3 != 0)),
+      (struct IUnknown *)((v3 + 64) & -(__int64)(v3 != 0)),
       0LL,
       0LL,
       0LL,
@@ -38,7 +38,7 @@ void __fastcall CHolographicManager::InitializeClient(CHolographicManager *this)
     CHolographicInteropTaskQueue::PostMessageW(
       *((CHolographicInteropTaskQueue **)this + 6),
       0x18u,
-      (struct IUnknown *)((v5 + 64) & -(__int64)(v5 != 0)),
+      (struct IUnknown *)((v5 + 56) & -(__int64)(v5 != 0)),
       0LL,
       0LL,
       0LL,
@@ -50,16 +50,16 @@ void __fastcall CHolographicManager::InitializeClient(CHolographicManager *this)
     CHolographicInteropTaskQueue::PostMessageW(
       *((CHolographicInteropTaskQueue **)this + 6),
       2u,
-      (struct IUnknown *)((*k + 80) & -(__int64)(*k != 0)),
+      (struct IUnknown *)((*k + 72) & -(__int64)(*k != 0)),
       0LL,
       0LL,
       0LL,
       0LL);
-    if ( *(_BYTE *)(v7 + 241) )
+    if ( *(_BYTE *)(v7 + 225) )
       CHolographicInteropTaskQueue::PostMessageW(
         *((CHolographicInteropTaskQueue **)this + 6),
         1u,
-        (struct IUnknown *)(v7 + 80),
+        (struct IUnknown *)(v7 + 72),
         0LL,
         0LL,
         0LL,
@@ -82,7 +82,7 @@ void __fastcall CHolographicManager::InitializeClient(CHolographicManager *this)
     CHolographicInteropTaskQueue::PostMessageW(
       *((CHolographicInteropTaskQueue **)this + 6),
       0x1Du,
-      (struct IUnknown *)((*n + 64LL) & -(__int64)(*n != 0LL)),
+      (struct IUnknown *)((*n + 56LL) & -(__int64)(*n != 0LL)),
       0LL,
       0LL,
       0LL,

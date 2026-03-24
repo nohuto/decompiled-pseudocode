@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSetThreadExecutionState @ 0x1406DBD7C
+ * XREFs of PopDiagTraceSetThreadExecutionState @ 0x1406DBD5C
  * Callers:
  *     NtSetThreadExecutionState @ 0x1405872F0 (NtSetThreadExecutionState.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceSetThreadExecutionState(__int64 a1, int a2)

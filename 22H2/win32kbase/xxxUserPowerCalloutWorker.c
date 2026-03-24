@@ -1,121 +1,81 @@
 /*
- * XREFs of xxxUserPowerCalloutWorker @ 0x1C009E490
+ * XREFs of xxxUserPowerCalloutWorker @ 0x1C0077FA0
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ @ 0x1C009E720 (-UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ.c)
- *     IsxxxSetInformationThreadSupported @ 0x1C009E7CC (IsxxxSetInformationThreadSupported.c)
- *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C009E7F8 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
- *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C009F448 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
- *     EtwTraceCompletePowerRequest @ 0x1C009FFE0 (EtwTraceCompletePowerRequest.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ @ 0x1C0078140 (-UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ.c)
+ *     IsxxxSetInformationThreadSupported @ 0x1C00781C4 (IsxxxSetInformationThreadSupported.c)
+ *     EtwTraceCompletePowerRequest @ 0x1C00781F0 (EtwTraceCompletePowerRequest.c)
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C0078210 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C00C1188 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall xxxUserPowerCalloutWorker(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 xxxUserPowerCalloutWorker()
 {
-  int v4; // esi
-  __int64 v5; // rdi
-  struct _KTHREAD *CurrentThread; // rbx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  struct tagPOWERREQUEST *v9; // rbx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  int v12; // r14d
-  __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  struct _WIN32_POWEREVENT_PARAMETERS *v17; // rcx
-  int v18; // eax
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // r8
-  __int64 v22; // r9
-  _DWORD InputBuffer[4]; // [rsp+38h] [rbp-39h] BYREF
-  __int64 CurrentProcess; // [rsp+48h] [rbp-29h]
-  struct _KTHREAD *v26; // [rsp+50h] [rbp-21h]
-  __int64 v27; // [rsp+58h] [rbp-19h]
-  __int128 v28; // [rsp+60h] [rbp-11h] BYREF
-  __int64 v29; // [rsp+70h] [rbp-1h]
-  __int128 v30; // [rsp+78h] [rbp+7h] BYREF
-  __int64 v31; // [rsp+88h] [rbp+17h]
-  _OWORD v32[2]; // [rsp+90h] [rbp+1Fh] BYREF
-  __int64 v33; // [rsp+B0h] [rbp+3Fh]
+  int v0; // esi
+  __int64 v1; // rdi
+  int v2; // eax
+  struct tagPOWERREQUEST *v3; // rbx
+  struct _WIN32_POWEREVENT_PARAMETERS *v4; // rcx
+  int v5; // eax
+  __int128 v7; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v8; // [rsp+40h] [rbp-28h]
+  __int128 v9; // [rsp+48h] [rbp-20h] BYREF
+  __int64 v10; // [rsp+58h] [rbp-10h]
 
-  v4 = 0;
-  v30 = 0LL;
-  v31 = 0LL;
-  v5 = 1LL;
+  v0 = 0;
+  v9 = 0LL;
+  v10 = 0LL;
+  v1 = 1LL;
   if ( grpdeskRitInput )
   {
-    if ( (int)IsxxxSetInformationThreadSupported() < 0
-      || qword_1C0295A18 && (int)qword_1C0295A18(-2LL, 7LL, &v30, 24LL) < 0 )
-    {
-      v5 = 0LL;
-    }
+    if ( (int)IsxxxSetInformationThreadSupported() < 0 )
+      goto LABEL_26;
+    v2 = (int)qword_1C0256608;
+    if ( qword_1C0256608 )
+      v2 = qword_1C0256608(-2LL, 7LL, &v9, 24LL);
+    if ( v2 < 0 )
+LABEL_26:
+      v1 = 0LL;
     else
-    {
-      v4 = 1;
-    }
+      v0 = 1;
   }
-  CurrentThread = KeGetCurrentThread();
-  *(_QWORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 720) = CurrentThread;
+  gpPowerThread = KeGetCurrentThread();
   while ( 1 )
   {
-    v9 = UnqueuePowerRequest();
-    if ( !v9 )
+    v3 = UnqueuePowerRequest();
+    if ( !v3 )
       break;
-    v12 = 0;
-    if ( v5 )
+    if ( v1 )
     {
-      v28 = 0LL;
-      v29 = 0LL;
-      if ( *((_BYTE *)v9 + 44) && !*((_QWORD *)v9 + 8) )
-      {
-        v13 = SGDGetUserSessionState(v8, v7, v10, v11);
-        InputBuffer[1] = 0;
-        InputBuffer[3] = 0;
-        InputBuffer[2] = 0;
-        v27 = *(unsigned int *)(v13 + 3224);
-        InputBuffer[0] = 88;
-        v26 = KeGetCurrentThread();
-        CurrentProcess = PsGetCurrentProcess(v15, v14, v16);
-        LOBYTE(v12) = ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x28u, 0LL, 0) >= 0;
-      }
-      if ( qword_1C0295450 )
-        qword_1C0295450(v9, &v28, CancelPowerRequest);
-      *(_QWORD *)(SGDGetUserSessionState(v8, v7, v10, v11) + 672) = v9;
-      v17 = (struct _WIN32_POWEREVENT_PARAMETERS *)*((_QWORD *)v9 + 8);
-      if ( v17 )
-        v18 = xxxUserPowerEventCalloutWorker(v17);
+      v8 = 0LL;
+      v7 = 0LL;
+      if ( qword_1C0255FC0 )
+        qword_1C0255FC0(v3, &v7, CancelPowerRequest);
+      gpPowerRequestCurrent = v3;
+      v4 = (struct _WIN32_POWEREVENT_PARAMETERS *)*((_QWORD *)v3 + 8);
+      if ( v4 )
+        v5 = xxxUserPowerEventCalloutWorker(v4);
       else
-        v18 = xxxUserPowerStateCalloutWorker();
-      *((_DWORD *)v9 + 10) = v18;
-      *(_QWORD *)(SGDGetUserSessionState(v20, v19, v21, v22) + 672) = 0LL;
-      if ( qword_1C0295460 )
-        qword_1C0295460(&v28);
+        v5 = xxxUserPowerStateCalloutWorker();
+      *((_DWORD *)v3 + 14) = v5;
+      gpPowerRequestCurrent = 0LL;
+      if ( qword_1C0255FD0 )
+        qword_1C0255FD0(&v7);
     }
-    if ( *((_BYTE *)v9 + 44) )
+    if ( *((_BYTE *)v3 + 72) )
     {
-      if ( v12 )
-      {
-        memset(v32, 0, sizeof(v32));
-        v33 = 0LL;
-        DWORD2(v32[0]) = 1;
-        LODWORD(v32[0]) = 88;
-        ZwPowerInformation(SystemPowerStateLogging|0x40, v32, 0x28u, 0LL, 0);
-      }
-      KeSetEvent((PRKEVENT)((char *)v9 + 16), 1, 0);
+      KeSetEvent((PRKEVENT)((char *)v3 + 16), 1, 0);
     }
     else
     {
-      EtwTraceCompletePowerRequest(v9, *((unsigned int *)v9 + 10));
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)v9);
+      EtwTraceCompletePowerRequest(v3, *((unsigned int *)v3 + 14));
+      Win32FreePool((__int64)v3);
     }
   }
-  if ( v4 && (int)IsxxxSetInformationThreadSupported() >= 0 && qword_1C0295A18 )
-    qword_1C0295A18(-2LL, 9LL, &v30, 24LL);
+  if ( v0 && (int)IsxxxSetInformationThreadSupported() >= 0 && qword_1C0256608 )
+    qword_1C0256608(-2LL, 9LL, &v9, 24LL);
   return 1LL;
 }

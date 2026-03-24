@@ -1,10 +1,11 @@
 /*
- * XREFs of InvalidateDCE @ 0x1C008F178
+ * XREFs of InvalidateDCE @ 0x1C00D5344
  * Callers:
- *     RevalidateDCE @ 0x1C008F0E0 (RevalidateDCE.c)
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00726C4 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
+ *     RevalidateDCE @ 0x1C00D52B0 (RevalidateDCE.c)
  * Callees:
- *     GreSelectRedirectionBitmap @ 0x1C002F2A0 (GreSelectRedirectionBitmap.c)
+ *     GreSelectRedirectionBitmap @ 0x1C0083440 (GreSelectRedirectionBitmap.c)
  */
 
 __int64 __fastcall InvalidateDCE(__int64 a1)

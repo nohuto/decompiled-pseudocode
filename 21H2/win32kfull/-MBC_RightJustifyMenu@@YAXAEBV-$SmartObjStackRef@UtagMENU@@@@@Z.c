@@ -1,21 +1,21 @@
 /*
- * XREFs of ?MBC_RightJustifyMenu@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C00C2000
+ * XREFs of ?MBC_RightJustifyMenu@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C010274C
  * Callers:
- *     xxxMenuBarCompute @ 0x1C00C2488 (xxxMenuBarCompute.c)
+ *     xxxMenuBarCompute @ 0x1C01025D4 (xxxMenuBarCompute.c)
  * Callees:
- *     MNIsOwnerDrawItem @ 0x1C00BF45C (MNIsOwnerDrawItem.c)
- *     IsMDIItem @ 0x1C0249DFC (IsMDIItem.c)
+ *     MNIsOwnerDrawItem @ 0x1C0048C58 (MNIsOwnerDrawItem.c)
+ *     IsMDIItem @ 0x1C024EB10 (IsMDIItem.c)
  */
 
 __int64 __fastcall MBC_RightJustifyMenu(__int64 **a1)
 {
-  unsigned int v1; // r9d
+  int v1; // r9d
   __int64 **v2; // r8
   __int64 result; // rax
   int v4; // r11d
   _DWORD **v5; // r10
   __int64 j; // rdx
-  __int64 v7; // rcx
+  __int64 *v7; // rax
   __int64 v8; // rbx
   int v9; // eax
   __int64 v10; // rcx
@@ -64,7 +64,7 @@ __int64 __fastcall MBC_RightJustifyMenu(__int64 **a1)
           v10 = **v2;
         if ( (**v5 & 4) == 0 )
         {
-          v9 = MNIsOwnerDrawItem(v10, v5);
+          v9 = MNIsOwnerDrawItem(v10, v5, (__int64)v2);
           goto LABEL_19;
         }
         if ( *((_QWORD *)*v5 + 12) > 0xCuLL )
@@ -153,7 +153,7 @@ LABEL_33:
           v15 = **v2;
         if ( (**i & 4) != 0 )
           goto LABEL_31;
-        v14 = MNIsOwnerDrawItem(v15, i);
+        v14 = MNIsOwnerDrawItem(v15, i, (__int64)v2);
       }
       if ( !v14 )
         goto LABEL_33;
@@ -166,17 +166,18 @@ LABEL_31:
     return result;
   for ( j = 0LL; ; j += 96LL )
   {
-    v7 = **v2;
-    if ( (**(_DWORD **)(j + *(_QWORD *)(v7 + 88)) & 0x4000) != 0 )
+    v7 = *a1;
+    if ( (**(_DWORD **)(j + *(_QWORD *)(**a1 + 88)) & 0x4000) != 0 )
       break;
-    result = *(_QWORD *)(v7 + 40);
-    if ( (signed int)++v1 >= *(_DWORD *)(result + 44) )
+    ++v1;
+    result = *(_QWORD *)(*v7 + 40);
+    if ( v1 >= *(_DWORD *)(result + 44) )
       return result;
   }
-  v31 = *(_DWORD *)(**v2 + 64) + *(_DWORD *)(**(_QWORD **)(v7 + 88) + 64LL);
-  v32 = *(_DWORD *)(*(_QWORD *)(**v2 + 40) + 44LL) - 1;
-  result = (int)v1;
-  if ( v32 >= (__int64)(int)v1 )
+  v31 = *(_DWORD *)(*v7 + 64) + *(_DWORD *)(**(_QWORD **)(**a1 + 88) + 64LL);
+  v32 = *(_DWORD *)(*(_QWORD *)(**a1 + 40) + 44LL) - 1;
+  result = v1;
+  if ( v32 >= (__int64)v1 )
   {
     v33 = 96LL * v32;
     v34 = v32 - result + 1;

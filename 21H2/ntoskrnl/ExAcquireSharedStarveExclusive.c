@@ -1,37 +1,45 @@
 /*
- * XREFs of ExAcquireSharedStarveExclusive @ 0x1402339A0
+ * XREFs of ExAcquireSharedStarveExclusive @ 0x14031E520
  * Callers:
- *     CcPinFileData @ 0x14032AD00 (CcPinFileData.c)
- *     DifExAcquireSharedStarveExclusiveWrapper @ 0x140606CD0 (DifExAcquireSharedStarveExclusiveWrapper.c)
- *     CcPinMappedData @ 0x1407BEEB0 (CcPinMappedData.c)
+ *     CcPinFileData @ 0x14031F630 (CcPinFileData.c)
+ *     CcPinMappedData @ 0x1406EF380 (CcPinMappedData.c)
  * Callees:
- *     ExpAcquireSharedStarveExclusive @ 0x14032BD70 (ExpAcquireSharedStarveExclusive.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14063CD9C (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x14031E750 (ExpAcquireSharedStarveExclusive.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x1405B491C (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
  */
 
+// local variable allocation has failed, the output may be wrong!
 BOOLEAN __stdcall ExAcquireSharedStarveExclusive(PERESOURCE Resource, BOOLEAN Wait)
 {
-  USHORT Flag; // cx
-  unsigned __int8 v4; // r9
-  unsigned __int8 CurrentIrql; // cl
-  struct _KTHREAD *CurrentThread; // rdx
+  USHORT Flag; // r9
+  BOOLEAN v3; // bl
+  BOOLEAN v4; // r11
+  __int16 v5; // r9
+  struct _KTHREAD *CurrentThread; // r8
 
   Flag = Resource->Flag;
+  v3 = Wait;
   v4 = 2 - (Wait != 0);
   if ( (Flag & 0x41) == 1 )
     KeBugCheckEx(0x1C6u, 0xFuLL, (ULONG_PTR)Resource, 0LL, 0LL);
-  if ( (Flag & 1) == 0 )
-    return ExpAcquireSharedStarveExclusive(Resource);
-  CurrentIrql = KeGetCurrentIrql();
-  CurrentThread = KeGetCurrentThread();
-  if ( CurrentIrql > v4 )
-    KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, v4, 0LL);
-  if ( CurrentIrql >= 2u && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
-    KeBugCheckEx(0x1C6u, 5uLL, 0LL, 0LL, 0LL);
-  if ( (CurrentThread->ApcState.InProgressFlags & 2) != 0 )
-    KeBugCheckEx(0x1C6u, 6uLL, 0LL, 0LL, 0LL);
-  if ( !CurrentIrql && (CurrentThread->MiscFlags & 0x400) == 0 && !CurrentThread->WaitBlock[3].SpareLong )
-    KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
-  return ExpFastResourceLegacyAcquireSharedStarveExclusive((ULONG_PTR)Resource);
+  v5 = Flag & 1;
+  if ( v5 )
+  {
+    *(_QWORD *)&Wait = KeGetCurrentIrql();
+    CurrentThread = KeGetCurrentThread();
+    if ( Wait > v4 )
+      KeBugCheckEx(0x1C6u, 0LL, Wait, v4, 0LL);
+    if ( Wait >= 2u && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
+      KeBugCheckEx(0x1C6u, 5uLL, 0LL, 0LL, 0LL);
+    if ( (CurrentThread->ApcState.InProgressFlags & 2) != 0 )
+      KeBugCheckEx(0x1C6u, 6uLL, 0LL, 0LL, 0LL);
+    if ( !Wait && (CurrentThread->MiscFlags & 0x400) == 0 && !CurrentThread->WaitBlock[3].SpareLong )
+      KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
+  }
+  Wait = v3;
+  if ( v5 )
+    return ExpFastResourceLegacyAcquireSharedStarveExclusive((ULONG_PTR)Resource);
+  else
+    return ExpAcquireSharedStarveExclusive(Resource, Wait);
 }

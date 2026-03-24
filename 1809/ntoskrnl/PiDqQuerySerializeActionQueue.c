@@ -2,11 +2,11 @@
  * XREFs of PiDqQuerySerializeActionQueue @ 0x140591044
  * Callers:
  *     PiDqIrpQueryCreate @ 0x140590B08 (PiDqIrpQueryCreate.c)
- *     PiDqIrpQueryGetResult @ 0x1406BE1FC (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpQueryGetResult @ 0x1406BE1DC (PiDqIrpQueryGetResult.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiDqQueryGetObjectManager @ 0x140590290 (PiDqQueryGetObjectManager.c)
  *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1405902D0 (PiDqObjectManagerEnumerateAndRegisterQuery.c)

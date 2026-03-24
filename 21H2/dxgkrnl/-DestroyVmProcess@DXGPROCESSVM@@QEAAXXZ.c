@@ -1,59 +1,46 @@
 /*
- * XREFs of ?DestroyVmProcess@DXGPROCESSVM@@QEAAXXZ @ 0x1C033534C
+ * XREFs of ?DestroyVmProcess@DXGPROCESSVM@@QEAAXXZ @ 0x1C02847BC
  * Callers:
- *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0186C8C (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C011665C (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
  * Callees:
- *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C000C1D8 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
- *     ?FreeHandleSafe@DXGPROCESS@@QEAAXI@Z @ 0x1C000ED3C (-FreeHandleSafe@DXGPROCESS@@QEAAXI@Z.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?DecrementNumVmProcesses@DXGPROCESSVMWP@@QEAAXXZ @ 0x1C00578B8 (-DecrementNumVmProcesses@DXGPROCESSVMWP@@QEAAXXZ.c)
- *     McTemplateK0ppqqpppz_EtwWriteTransfer @ 0x1C0057D24 (McTemplateK0ppqqpppz_EtwWriteTransfer.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?FreeResourceHandleNoRefSafe@DXGPROCESS@@QEAAXI@Z @ 0x1C0006860 (-FreeResourceHandleNoRefSafe@DXGPROCESS@@QEAAXI@Z.c)
+ *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C00069B4 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ?DecrementNumVmProcesses@DXGPROCESSVMWP@@QEAAXXZ @ 0x1C0048A98 (-DecrementNumVmProcesses@DXGPROCESSVMWP@@QEAAXXZ.c)
  */
 
 void __fastcall DXGPROCESSVM::DestroyVmProcess(DXGPROCESSVM *this)
 {
-  _QWORD *v2; // rdi
+  __int64 *v1; // rdi
   __int64 v3; // rsi
   __int64 v4; // rax
-  _QWORD *v5; // rcx
+  __int64 **v5; // rcx
   unsigned int v6; // edx
+  __int64 v7; // rdx
 
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-    McTemplateK0ppqqpppz_EtwWriteTransfer(
-      (__int64)this,
-      &EventDestroyDxgProcessVm,
-      *((_QWORD *)this + 8),
-      this,
-      *(_QWORD *)(*((_QWORD *)this + 8) + 80LL),
-      *((_DWORD *)this + 126),
-      *((_DWORD *)this + 106),
-      *((_QWORD *)this + 82),
-      *((_QWORD *)this + 77),
-      *(_QWORD *)(*((_QWORD *)this + 76) + 608LL),
-      *((_QWORD *)this + 80));
-  v2 = (_QWORD *)((char *)this + 624);
-  v3 = *(_QWORD *)(*((_QWORD *)this + 76) + 608LL);
-  DXGPUSHLOCK::AcquireExclusive((DXGPUSHLOCK *)(v3 + 128));
-  v4 = *((_QWORD *)this + 78);
-  if ( v4 )
+  v1 = (__int64 *)((char *)this + 512);
+  v3 = *(_QWORD *)(*((_QWORD *)this + 62) + 496LL);
+  DXGPUSHLOCK::AcquireExclusive((DXGPUSHLOCK *)(v3 + 96));
+  v4 = *v1;
+  if ( *v1 )
   {
-    if ( *(_QWORD **)(v4 + 8) != v2 || (v5 = (_QWORD *)*((_QWORD *)this + 79), (_QWORD *)*v5 != v2) )
+    if ( *(__int64 **)(v4 + 8) != v1 || (v5 = (__int64 **)v1[1], *v5 != v1) )
       __fastfail(3u);
-    *v5 = v4;
+    *v5 = (__int64 *)v4;
     *(_QWORD *)(v4 + 8) = v5;
-    *((_QWORD *)this + 79) = 0LL;
-    *v2 = 0LL;
+    v1[1] = 0LL;
+    *v1 = 0LL;
   }
-  *(_QWORD *)(v3 + 136) = 0LL;
-  ExReleasePushLockExclusiveEx(v3 + 128, 0LL);
+  *(_QWORD *)(v3 + 104) = 0LL;
+  ExReleasePushLockExclusiveEx(v3 + 96, 0LL);
   KeLeaveCriticalRegion();
-  v6 = *((_DWORD *)this + 163);
+  v6 = *((_DWORD *)this + 135);
   if ( v6 )
   {
-    DXGPROCESS::FreeHandleSafe(*((DXGPROCESS **)this + 76), v6);
-    *((_DWORD *)this + 163) = 0;
+    DXGPROCESS::FreeResourceHandleNoRefSafe(*((DXGPROCESS **)this + 62), v6);
+    *((_DWORD *)this + 135) = 0;
   }
-  DXGPROCESSVMWP::DecrementNumVmProcesses(*((DXGVIRTUALMACHINE ***)this + 76));
-  DXGPROCESS::ReleaseReference(*((DXGPROCESS **)this + 76));
-  *((_QWORD *)this + 76) = 0LL;
+  DXGPROCESSVMWP::DecrementNumVmProcesses(*((DXGVIRTUALMACHINE ***)this + 62));
+  DXGPROCESS::ReleaseReference(*((DXGPROCESS **)this + 62), v7);
+  *((_QWORD *)this + 62) = 0LL;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bOpaqueArea@ESTROBJ@@QEAAHPEAU_POINTFIX@@PEAU_RECTL@@@Z @ 0x1C0032E5C
+ * XREFs of ?bOpaqueArea@ESTROBJ@@QEAAHPEAU_POINTFIX@@PEAU_RECTL@@@Z @ 0x1C0094FF4
  * Callers:
- *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0032FD0 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
+ *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0092390 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
  * Callees:
- *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0017E64 (-bIsZero@EFLOAT@@QEBAHXZ.c)
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C002F5C4 (-vOrder@ERECTL@@QEAAXXZ.c)
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0098748 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00B79F8 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
  */
 
 __int64 __fastcall ESTROBJ::bOpaqueArea(ESTROBJ *this, struct _POINTFIX *a2, struct _RECTL *a3)
@@ -91,7 +91,7 @@ __int64 __fastcall ESTROBJ::bOpaqueArea(ESTROBJ *this, struct _POINTFIX *a2, str
   v12 = (EFLOAT *)(*v11 + 400LL);
   v13 = *v11 + 416LL;
   v15 = 0LL;
-  if ( EFLOAT::bIsZero(v12) && EFLOAT::bIsZero((EFLOAT *)v13) )
+  if ( (unsigned int)EFLOAT::bIsZero(v12) && (unsigned int)EFLOAT::bIsZero((EFLOAT *)v13) )
   {
     v16 = (*((_DWORD *)this + 18) + 8) >> 4;
     if ( *(float *)v14 < 0.0 )
@@ -120,7 +120,7 @@ __int64 __fastcall ESTROBJ::bOpaqueArea(ESTROBJ *this, struct _POINTFIX *a2, str
     ++a3->right;
     return 0LL;
   }
-  if ( EFLOAT::bIsZero(v14) && EFLOAT::bIsZero((EFLOAT *)(v13 + 4)) )
+  if ( (unsigned int)EFLOAT::bIsZero(v14) && (unsigned int)EFLOAT::bIsZero((EFLOAT *)(v13 + 4)) )
   {
     v21 = (*((_DWORD *)this + 18) + 8) >> 4;
     if ( *(float *)v13 >= 0.0 )

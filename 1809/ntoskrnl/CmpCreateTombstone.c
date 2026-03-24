@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCreateTombstone @ 0x14026D05C
+ * XREFs of CmpCreateTombstone @ 0x14026D15C
  * Callers:
- *     CmDeleteLayeredKey @ 0x14026CBCC (CmDeleteLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x14026CCCC (CmDeleteLayeredKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpRebuildKcbCacheFromNode @ 0x1405AC984 (CmpRebuildKcbCacheFromNode.c)
  *     CmpCleanUpSubKeyInfo @ 0x1405ACA60 (CmpCleanUpSubKeyInfo.c)
  *     CmpFreeKeyByCell @ 0x1405AD6F8 (CmpFreeKeyByCell.c)
@@ -14,15 +14,15 @@
  *     CmpUpdateKeyNodeAccessBits @ 0x1405CF3BC (CmpUpdateKeyNodeAccessBits.c)
  *     CmpGetKcbAtLayerHeight @ 0x1405D8AC0 (CmpGetKcbAtLayerHeight.c)
  *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
- *     CmUnlockHiveSecurity @ 0x1406D0B28 (CmUnlockHiveSecurity.c)
- *     CmpGetPhaseAccessBit @ 0x1407F01D8 (CmpGetPhaseAccessBit.c)
- *     CmpIncrementKcbSequenceNumber @ 0x1407F1154 (CmpIncrementKcbSequenceNumber.c)
- *     CmpAssignSecurityDescriptor @ 0x1407F47D0 (CmpAssignSecurityDescriptor.c)
- *     CmpGetSecurityDescriptorForKcbStack @ 0x1407F54E4 (CmpGetSecurityDescriptorForKcbStack.c)
- *     CmLockHiveSecurityExclusive @ 0x1407F952C (CmLockHiveSecurityExclusive.c)
- *     HvpGetCellContextInitialize @ 0x1407F96A8 (HvpGetCellContextInitialize.c)
- *     CmpAddSubKey @ 0x1407FEAA0 (CmpAddSubKey.c)
- *     HvMarkCellDirty @ 0x140800FD4 (HvMarkCellDirty.c)
+ *     CmUnlockHiveSecurity @ 0x1406D0B08 (CmUnlockHiveSecurity.c)
+ *     CmpGetPhaseAccessBit @ 0x1407F01B8 (CmpGetPhaseAccessBit.c)
+ *     CmpIncrementKcbSequenceNumber @ 0x1407F1134 (CmpIncrementKcbSequenceNumber.c)
+ *     CmpAssignSecurityDescriptor @ 0x1407F47B0 (CmpAssignSecurityDescriptor.c)
+ *     CmpGetSecurityDescriptorForKcbStack @ 0x1407F54C4 (CmpGetSecurityDescriptorForKcbStack.c)
+ *     CmLockHiveSecurityExclusive @ 0x1407F950C (CmLockHiveSecurityExclusive.c)
+ *     HvpGetCellContextInitialize @ 0x1407F9688 (HvpGetCellContextInitialize.c)
+ *     CmpAddSubKey @ 0x1407FEA80 (CmpAddSubKey.c)
+ *     HvMarkCellDirty @ 0x140800FB4 (HvMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpCreateTombstone(__int64 a1, __int64 a2)

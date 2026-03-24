@@ -1,9 +1,9 @@
 /*
- * XREFs of DXGADAPTER_DdiControlInterrupt @ 0x1C0005500
+ * XREFs of DXGADAPTER_DdiControlInterrupt @ 0x1C0007EB0
  * Callers:
  *     <none>
  * Callees:
- *     ?DdiControlInterrupt@DXGADAPTER@@QEAAJW4_DXGK_INTERRUPT_TYPE@@EI@Z @ 0x1C01974CC (-DdiControlInterrupt@DXGADAPTER@@QEAAJW4_DXGK_INTERRUPT_TYPE@@EI@Z.c)
+ *     ?DdiControlInterrupt@DXGADAPTER@@QEAAJW4_DXGK_INTERRUPT_TYPE@@EI@Z @ 0x1C0121EEC (-DdiControlInterrupt@DXGADAPTER@@QEAAJW4_DXGK_INTERRUPT_TYPE@@EI@Z.c)
  */
 
 __int64 __fastcall DXGADAPTER_DdiControlInterrupt(

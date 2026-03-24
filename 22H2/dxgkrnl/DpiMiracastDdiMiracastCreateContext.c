@@ -1,37 +1,49 @@
 /*
- * XREFs of DpiMiracastDdiMiracastCreateContext @ 0x1C039EBC4
+ * XREFs of DpiMiracastDdiMiracastCreateContext @ 0x1C02CE204
  * Callers:
- *     DxgkMiracastStartMiracastSession @ 0x1C00621E4 (DxgkMiracastStartMiracastSession.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C00557C0 (DxgkMiracastStartMiracastSession.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pxqt_EtwWriteTransfer @ 0x1C0054BF8 (McTemplateK0pxqt_EtwWriteTransfer.c)
+ *     McTemplateK0pxqt_EtwWriteTransfer @ 0x1C0026914 (McTemplateK0pxqt_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DpiMiracastDdiMiracastCreateContext(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
 {
-  _QWORD *v4; // rbx
-  unsigned int v9; // eax
-  __int64 v10; // r8
-  unsigned int v11; // edi
-  __int64 v13; // [rsp+28h] [rbp-20h]
-  int v14; // [rsp+28h] [rbp-20h]
-  __int64 v15; // [rsp+30h] [rbp-18h]
-  int v16; // [rsp+30h] [rbp-18h]
+  unsigned int v8; // eax
+  __int64 v9; // r8
+  unsigned int v10; // edi
+  __int64 v12; // [rsp+28h] [rbp-20h]
+  int v13; // [rsp+28h] [rbp-20h]
+  __int64 v14; // [rsp+30h] [rbp-18h]
+  int v15; // [rsp+30h] [rbp-18h]
 
-  v4 = (_QWORD *)(a1 + 48);
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400000000LL) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x20000000) != 0 )
   {
-    v16 = 0;
-    v14 = -1;
-    McTemplateK0pxqt_EtwWriteTransfer(a1, &EventEnterDxgkDdiMiracastCreateContext, (__int64)a3, *v4, 0LL, v14, v16);
+    v15 = 0;
+    v13 = -1;
+    McTemplateK0pxqt_EtwWriteTransfer(
+      a1,
+      &EventEnterDxgkDdiMiracastCreateContext,
+      (__int64)a3,
+      *(_QWORD *)(a1 + 48),
+      0LL,
+      v13,
+      v15);
   }
-  v9 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64 *, _DWORD *))(a1 + 3208))(*v4, a2, a3, a4);
-  v11 = v9;
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400000000LL) != 0 )
+  v8 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64 *, _DWORD *))(a1 + 3192))(*(_QWORD *)(a1 + 48), a2, a3, a4);
+  v10 = v8;
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x20000000) != 0 )
   {
-    LODWORD(v15) = v9;
-    LODWORD(v13) = *a4;
-    McTemplateK0pxqt_EtwWriteTransfer(*a3, &EventLeaveDxgkDdiMiracastCreateContext, v10, *v4, *a3, v13, v15);
+    LODWORD(v14) = v8;
+    LODWORD(v12) = *a4;
+    McTemplateK0pxqt_EtwWriteTransfer(
+      *a3,
+      &EventLeaveDxgkDdiMiracastCreateContext,
+      v9,
+      *(_QWORD *)(a1 + 48),
+      *a3,
+      v12,
+      v14);
   }
-  return v11;
+  return v10;
 }

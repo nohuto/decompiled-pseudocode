@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLogFailureToGetFileSize @ 0x1407FAAE0
+ * XREFs of CmpLogFailureToGetFileSize @ 0x1407FAAC0
  * Callers:
  *     CmpInitializeActualFileSizes @ 0x1405A6144 (CmpInitializeActualFileSizes.c)
- *     CmpLoadHiveThread @ 0x140735B50 (CmpLoadHiveThread.c)
+ *     CmpLoadHiveThread @ 0x140735B30 (CmpLoadHiveThread.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void CmpLogFailureToGetFileSize()
@@ -35,7 +35,7 @@ void CmpLogFailureToGetFileSize()
       v3 = v0;
       v6 = 1;
       v9 = 4;
-      TlgWrite(&stru_1403FFAA0, &unk_14036C4EF, 0LL, 0LL, 4u, &pData);
+      TlgWrite(&stru_1403FFAA0, &unk_14036C5FF, 0LL, 0LL, 4u, &pData);
     }
   }
 }

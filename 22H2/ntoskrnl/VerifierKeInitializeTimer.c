@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierKeInitializeTimer @ 0x140AD6520
+ * XREFs of VerifierKeInitializeTimer @ 0x1409DAD00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     VerifierKeInitializeTimerEx @ 0x1409DAD20 (VerifierKeInitializeTimerEx.c)
  */
 
-__int64 __fastcall VerifierKeInitializeTimer(__int64 a1)
+__int64 __fastcall VerifierKeInitializeTimer(ULONG_PTR a1)
 {
-  return ((__int64 (__fastcall *)(__int64, _QWORD))pXdvKeInitializeTimerEx)(a1, 0LL);
+  return VerifierKeInitializeTimerEx(a1);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_QueueingAttachSuccessToPort @ 0x1C001FA50
+ * XREFs of HUBDSM_QueueingAttachSuccessToPort @ 0x1C001D040
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_QueueingAttachSuccessToPort(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall HUBDSM_QueueingAttachSuccessToPort(__int64 a1)
     WdfDriverGlobals,
     v2,
     "DSM Tag",
-    8592LL,
+    8406LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
   _InterlockedOr((volatile signed __int32 *)(v1 + 1636), 1u);
   return 4077LL;

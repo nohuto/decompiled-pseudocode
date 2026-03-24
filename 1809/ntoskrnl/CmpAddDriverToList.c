@@ -5,12 +5,12 @@
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     CmpFindValueByName @ 0x14073D878 (CmpFindValueByName.c)
- *     CmpValueToData @ 0x14073D8A8 (CmpValueToData.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     CmpFindValueByName @ 0x14073D858 (CmpFindValueByName.c)
+ *     CmpValueToData @ 0x14073D888 (CmpValueToData.c)
  *     CmpFindTagIndex @ 0x1409CD830 (CmpFindTagIndex.c)
  *     CmpGetNodeName @ 0x1409CEA0C (CmpGetNodeName.c)
  */

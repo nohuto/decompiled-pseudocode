@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetAlphaMode@CDeviceTextureTarget@@$4PPPPPPPM@BEI@EAAXW4DXGI_ALPHA_MODE@@@Z @ 0x180109BB0
+ * XREFs of ?SetAlphaMode@CDeviceTextureTarget@@$4PPPPPPPM@BEI@EAAXW4DXGI_ALPHA_MODE@@@Z @ 0x1800F8360
  * Callers:
  *     <none>
  * Callees:

@@ -1,28 +1,22 @@
 /*
- * XREFs of EditionIsRIMInjectionBlocked @ 0x1C000D2C0
+ * XREFs of EditionIsRIMInjectionBlocked @ 0x1C01E9240
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall EditionIsRIMInjectionBlocked(__int64 a1)
+__int64 __fastcall EditionIsRIMInjectionBlocked(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned int v1; // ebx
+  unsigned int v3; // ebx
 
-  if ( (*(_DWORD *)(a1 + 184) & 0x4000) == 0 )
+  v3 = 0;
+  if ( grpdeskRitInput
+    && (*(_QWORD *)(gptiCurrent + 456LL) != grpdeskRitInput
+     || PsGetCurrentProcess(gptiCurrent, grpdeskRitInput, a3) != gpepCSRSS
+     && !RtlAreAllAccessesGranted(*(_DWORD *)(gptiCurrent + 888LL), 0x20u)) )
   {
-    v1 = 0;
-    if ( grpdeskRitInput )
-    {
-      if ( *(_QWORD *)(gptiCurrent + 456LL) != grpdeskRitInput )
-        return 1LL;
-      if ( PsGetCurrentProcess() != gpepCSRSS )
-      {
-        LOBYTE(v1) = RtlAreAllAccessesGranted(*(_DWORD *)(gptiCurrent + 896LL), 0x20u) == 0;
-        return v1;
-      }
-    }
+    return 1;
   }
-  return 0LL;
+  return v3;
 }

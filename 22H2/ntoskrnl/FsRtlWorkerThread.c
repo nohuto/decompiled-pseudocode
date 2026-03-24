@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlWorkerThread @ 0x1403B3760
+ * XREFs of FsRtlWorkerThread @ 0x1403CE110
  * Callers:
  *     <none>
  * Callees:
- *     KeSetPriorityThread @ 0x1402B0310 (KeSetPriorityThread.c)
- *     KeRemoveQueue @ 0x14031CB10 (KeRemoveQueue.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeRemoveQueue @ 0x140202D90 (KeRemoveQueue.c)
+ *     KeSetPriorityThread @ 0x140257340 (KeSetPriorityThread.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall __noreturn FsRtlWorkerThread(PVOID StartContext)
@@ -14,6 +14,7 @@ void __fastcall __noreturn FsRtlWorkerThread(PVOID StartContext)
   __int64 v1; // rdi
   struct _KQUEUE *v2; // rdi
   PLIST_ENTRY BugCheckParameter4; // rbx
+  unsigned __int8 CurrentIrql; // cl
 
   v1 = (unsigned int)StartContext;
   KeSetPriorityThread(KeGetCurrentThread(), (_DWORD)StartContext + 16);
@@ -24,9 +25,10 @@ void __fastcall __noreturn FsRtlWorkerThread(PVOID StartContext)
     ((void (__fastcall *)(struct _LIST_ENTRY *))BugCheckParameter4[1].Flink)(BugCheckParameter4[1].Blink);
   }
   while ( !KeGetCurrentIrql() );
+  CurrentIrql = KeGetCurrentIrql();
   KeBugCheckEx(
     0xC8u,
-    ((unsigned __int64)KeGetCurrentIrql() << 16) | 2,
+    ((unsigned __int64)CurrentIrql << 16) | 2,
     (ULONG_PTR)BugCheckParameter4[1].Flink,
     (ULONG_PTR)BugCheckParameter4[1].Blink,
     (ULONG_PTR)BugCheckParameter4);

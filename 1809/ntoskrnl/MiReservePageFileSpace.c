@@ -1,18 +1,18 @@
 /*
  * XREFs of MiReservePageFileSpace @ 0x140081320
  * Callers:
- *     MiWsleFlush @ 0x1400B32F0 (MiWsleFlush.c)
- *     MiFillNoReservationCluster @ 0x140150D28 (MiFillNoReservationCluster.c)
+ *     MiWsleFlush @ 0x1400B3310 (MiWsleFlush.c)
+ *     MiFillNoReservationCluster @ 0x140150D48 (MiFillNoReservationCluster.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MiReservePageFileSpaceForPage @ 0x140081800 (MiReservePageFileSpaceForPage.c)
  *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14011B994 (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     MiFindFreePageFileSpace @ 0x14012411C (MiFindFreePageFileSpace.c)
- *     MiGetPageFileSectionForReservation @ 0x1401576BC (MiGetPageFileSectionForReservation.c)
- *     MiReleasePageFileSectionInfo @ 0x140157C7C (MiReleasePageFileSectionInfo.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14011B9B4 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiFindFreePageFileSpace @ 0x14012413C (MiFindFreePageFileSpace.c)
+ *     MiGetPageFileSectionForReservation @ 0x1401576DC (MiGetPageFileSectionForReservation.c)
+ *     MiReleasePageFileSectionInfo @ 0x140157C9C (MiReleasePageFileSectionInfo.c)
  */
 
 __int64 __fastcall MiReservePageFileSpace(__int64 a1, __int64 a2, __int64 a3)

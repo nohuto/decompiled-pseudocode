@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreateLargePageVad @ 0x140982DE4
+ * XREFs of MiCreateLargePageVad @ 0x1408D9F64
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MiReserveUserMemory @ 0x1407B8B60 (MiReserveUserMemory.c)
- *     MiAllocateChildVads @ 0x1409800F4 (MiAllocateChildVads.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
+ *     MiAllocateChildVads @ 0x1408D8A90 (MiAllocateChildVads.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     MiInsertVadEvent @ 0x14030BA20 (MiInsertVadEvent.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14030EA00 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14030EB30 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiChargeFullProcessCommitment @ 0x1407BE280 (MiChargeFullProcessCommitment.c)
- *     MiChargeProcessPhysicalPages @ 0x14097F200 (MiChargeProcessPhysicalPages.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14025B210 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiInsertVadEvent @ 0x14025B9BC (MiInsertVadEvent.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140348790 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiChargeFullProcessCommitment @ 0x1405F90D0 (MiChargeFullProcessCommitment.c)
+ *     MiChargeProcessPhysicalPages @ 0x1408D7334 (MiChargeProcessPhysicalPages.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiCreateLargePageVad(ULONG_PTR a1, __int64 a2, void *a3)
+__int64 __fastcall MiCreateLargePageVad(__int64 a1, __int64 a2, void *a3)
 {
   int v3; // r12d
   __int64 Pool; // rbx
@@ -28,7 +28,7 @@ __int64 __fastcall MiCreateLargePageVad(ULONG_PTR a1, __int64 a2, void *a3)
 
   v3 = 1;
   Pool = 1LL;
-  if ( (*(_DWORD *)(a2 + 48) & 0x200000) != 0 )
+  if ( (*(_DWORD *)(a2 + 48) & 0x100000) != 0 )
     Pool = -(__int64)(a3 != 0LL) & 1;
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
@@ -76,7 +76,7 @@ LABEL_24:
   if ( Pool )
   {
     *(_DWORD *)(Pool + 64) = 16;
-    MiInsertVadEvent(a2, (unsigned __int64 *)Pool, 0);
+    MiInsertVadEvent(a2, (_QWORD *)Pool, 0);
   }
   return 0LL;
 }

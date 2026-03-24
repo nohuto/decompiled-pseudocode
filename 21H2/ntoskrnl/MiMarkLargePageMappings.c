@@ -1,29 +1,32 @@
 /*
- * XREFs of MiMarkLargePageMappings @ 0x140AF4588
+ * XREFs of MiMarkLargePageMappings @ 0x140A42CD0
  * Callers:
- *     MiMarkLargePageRanges @ 0x140AF463C (MiMarkLargePageRanges.c)
+ *     MiMarkLargePageRanges @ 0x140A42D88 (MiMarkLargePageRanges.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402CF4F0 (MiLockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14030CF90 (MiWalkPageTables.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
+ *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 MiMarkLargePageMappings()
 {
   char *AnyMultiplexedVm; // rbx
-  __m128i v2[11]; // [rsp+20h] [rbp-C8h] BYREF
+  __int64 v1; // rdx
+  __int64 v2; // r8
+  _DWORD *v3; // r9
+  _OWORD v5[11]; // [rsp+20h] [rbp-C8h] BYREF
 
-  memset(v2, 0, sizeof(v2));
+  memset(v5, 0, sizeof(v5));
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(3);
-  v2[0].m128i_i32[0] = 2567;
-  v2[2] = _mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffff800000000000);
-  v2[0].m128i_i8[4] = v2[0].m128i_i8[4] & 0xE3 | 4;
-  v2[9].m128i_i64[1] = (__int64)MiMarkLargePagePte;
-  v2[1].m128i_i64[1] = (__int64)AnyMultiplexedVm;
-  v2[0].m128i_i8[7] = MiLockWorkingSetShared((__int64)AnyMultiplexedVm);
-  MiWalkPageTables(v2);
-  return MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v2[0].m128i_u8[7]);
+  v5[2] = _mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffff800000000000);
+  BYTE2(v5[0]) = BYTE2(v5[0]) & 0xE3 | 4;
+  LOWORD(v5[0]) = 2567;
+  *((_QWORD *)&v5[1] + 1) = AnyMultiplexedVm;
+  *((_QWORD *)&v5[9] + 1) = MiMarkLargePagePte;
+  BYTE6(v5[0]) = MiLockWorkingSetShared((__int64)AnyMultiplexedVm, v1, v2, v3);
+  MiWalkPageTables((__int64)v5);
+  return MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, BYTE6(v5[0]));
 }

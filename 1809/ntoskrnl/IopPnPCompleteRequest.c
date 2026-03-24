@@ -1,9 +1,9 @@
 /*
- * XREFs of IopPnPCompleteRequest @ 0x140160F80
+ * XREFs of IopPnPCompleteRequest @ 0x140160FA0
  * Callers:
- *     IopPnPDispatch @ 0x140702B50 (IopPnPDispatch.c)
+ *     IopPnPDispatch @ 0x140702B30 (IopPnPDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
  */
 
 void __fastcall IopPnPCompleteRequest(IRP *a1, NTSTATUS a2, ULONG_PTR a3)

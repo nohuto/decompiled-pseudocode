@@ -1,12 +1,11 @@
 /*
- * XREFs of ?DispBrokerUpdateKernelDisplayPolicies@@YAXXZ @ 0x1C006863C
+ * XREFs of ?DispBrokerUpdateKernelDisplayPolicies@@YAXXZ @ 0x1C0099EF4
  * Callers:
- *     InitVideo @ 0x1C0068398 (InitVideo.c)
- *     ?DispBrokerAsyncSessionSwitched@@YAJXZ @ 0x1C0068550 (-DispBrokerAsyncSessionSwitched@@YAJXZ.c)
- *     xxxRemoteConnect @ 0x1C007EDC0 (xxxRemoteConnect.c)
+ *     InitVideo @ 0x1C0099A18 (InitVideo.c)
+ *     ?DispBrokerAsyncSessionSwitched@@YAJXZ @ 0x1C0099E00 (-DispBrokerAsyncSessionSwitched@@YAJXZ.c)
  * Callees:
- *     ?LoadRegistrySettings@DispBrokerClient@DispBroker@@QEAAXXZ @ 0x1C0068700 (-LoadRegistrySettings@DispBrokerClient@DispBroker@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?LoadRegistrySettings@DispBrokerClient@DispBroker@@QEAAXXZ @ 0x1C0099FA0 (-LoadRegistrySettings@DispBrokerClient@DispBroker@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void DispBrokerUpdateKernelDisplayPolicies(void)
@@ -21,14 +20,11 @@ void DispBrokerUpdateKernelDisplayPolicies(void)
   if ( *((_BYTE *)DispBroker::DispBrokerClient::s_pSessionBroker + 8) )
     v0 = (unsigned int *)((char *)DispBroker::DispBrokerClient::s_pSessionBroker + 4);
   v2 = *v0;
-  ((void (__fastcall *)(__int64, bool))qword_1C0296950)(1LL, *v0 != 0);
-  ((void (__fastcall *)(__int64, bool))qword_1C0296950)(2LL, v2 == 0);
+  ((void (__fastcall *)(__int64, bool))qword_1C0251B80)(1LL, *v0 != 0);
+  ((void (__fastcall *)(__int64, bool))qword_1C0251B80)(2LL, v2 == 0);
   LOBYTE(v1) = v2 <= 1;
-  ((void (__fastcall *)(__int64, _QWORD))qword_1C0296950)(3LL, v1);
-  ((void (__fastcall *)(__int64, _QWORD))qword_1C0296950)(
+  ((void (__fastcall *)(__int64, _QWORD))qword_1C0251B80)(3LL, v1);
+  ((void (__fastcall *)(__int64, _QWORD))qword_1C0251B80)(
     4LL,
     *((unsigned __int8 *)DispBroker::DispBrokerClient::s_pSessionBroker + 8));
-  ((void (__fastcall *)(__int64, _QWORD))qword_1C0296950)(
-    5LL,
-    *((unsigned __int8 *)DispBroker::DispBrokerClient::s_pSessionBroker + 9));
 }

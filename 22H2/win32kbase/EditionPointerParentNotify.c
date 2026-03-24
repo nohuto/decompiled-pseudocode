@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionPointerParentNotify @ 0x1C0232CE0
+ * XREFs of EditionPointerParentNotify @ 0x1C01FBF00
  * Callers:
- *     ApiSetEditionPointerParentNotify @ 0x1C0207068 (ApiSetEditionPointerParentNotify.c)
+ *     ApiSetEditionPointerParentNotify @ 0x1C01CCBC0 (ApiSetEditionPointerParentNotify.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall EditionPointerParentNotify(_OWORD *a1))(_QWORD)
@@ -17,8 +17,8 @@ __int64 (__fastcall *__fastcall EditionPointerParentNotify(_OWORD *a1))(_QWORD)
   __int128 v7; // xmm0
   _OWORD v8[7]; // [rsp+20h] [rbp-78h] BYREF
 
-  result = qword_1C02968F8;
-  if ( qword_1C02968F8 )
+  result = qword_1C0257650;
+  if ( qword_1C0257650 )
   {
     v2 = a1[1];
     v8[0] = *a1;
@@ -33,7 +33,7 @@ __int64 (__fastcall *__fastcall EditionPointerParentNotify(_OWORD *a1))(_QWORD)
     v7 = a1[6];
     v8[5] = v6;
     v8[6] = v7;
-    return (__int64 (__fastcall *)(_QWORD))qword_1C02968F8(v8);
+    return (__int64 (__fastcall *)(_QWORD))qword_1C0257650(v8);
   }
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByVal@$07@@U2@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapperByVal@$07@@4AEBU?$_tlgWrapSz@D@@@Z @ 0x180228650
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByVal@$07@@U2@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapperByVal@$07@@4AEBU?$_tlgWrapSz@D@@@Z @ 0x1801D9C34
  * Callers:
- *     ?LogSetOutputValue@CBaseExpression@@AEAAXXZ @ 0x180228A1C (-LogSetOutputValue@CBaseExpression@@AEAAXXZ.c)
+ *     ?LogSetOutputValue@CBaseExpression@@AEAAXXZ @ 0x1801D9F08 (-LogSetOutputValue@CBaseExpression@@AEAAXXZ.c)
  * Callees:
- *     _tlgWriteTransfer_EventWriteTransfer @ 0x180025194 (_tlgWriteTransfer_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180152D40 (_tlgWriteTransfer_EventWriteTransfer.c)
  */
 
 ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>>(
@@ -16,9 +16,9 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
         __int64 a6,
         __int64 a7,
         __int64 a8,
-        const char **a9)
+        const unsigned __int16 **a9)
 {
-  const char *v9; // rcx
+  const unsigned __int16 *v9; // rcx
   __int64 v10; // rax
   int v11; // eax
   struct _EVENT_DATA_DESCRIPTOR v13; // [rsp+30h] [rbp-51h] BYREF
@@ -30,7 +30,7 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
   __int64 v19; // [rsp+78h] [rbp-9h]
   __int64 v20; // [rsp+80h] [rbp-1h]
   __int64 v21; // [rsp+88h] [rbp+7h]
-  const char *v22; // [rsp+90h] [rbp+Fh]
+  const unsigned __int16 *v22; // [rsp+90h] [rbp+Fh]
   int v23; // [rsp+98h] [rbp+17h]
   int v24; // [rsp+9Ch] [rbp+1Bh]
 
@@ -40,12 +40,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v10 = -1LL;
     do
       ++v10;
-    while ( v9[v10] );
+    while ( *((_BYTE *)v9 + v10) );
     v11 = v10 + 1;
   }
   else
   {
-    v9 = &byte_18032C47F;
+    v9 = &word_1802CE406;
     v11 = 1;
   }
   v23 = v11;
@@ -59,5 +59,5 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
   v19 = 8LL;
   v17 = 4LL;
   v15 = 4LL;
-  return tlgWriteTransfer_EventWriteTransfer((__int64)&dword_1803D0EF0, a2, 0LL, 0LL, 7u, &v13);
+  return tlgWriteTransfer_EventWriteTransfer((__int64)&dword_180344EF0, a2, 0LL, 0LL, 7u, &v13);
 }

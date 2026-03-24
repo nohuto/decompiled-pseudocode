@@ -1,13 +1,13 @@
 /*
- * XREFs of PoTraceForceIdleReset @ 0x1405D0B58
+ * XREFs of PoTraceForceIdleReset @ 0x14056FCC8
  * Callers:
- *     KiResetForceIdle @ 0x14057A428 (KiResetForceIdle.c)
+ *     KiResetForceIdle @ 0x140523620 (KiResetForceIdle.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall PoTraceForceIdleReset(int a1)
@@ -23,15 +23,15 @@ void __fastcall PoTraceForceIdleReset(int a1)
   int v9; // [rsp+A0h] [rbp+67h] BYREF
 
   v9 = a1;
-  if ( (unsigned int)dword_140C03A00 > 5 && tlgKeywordOn((__int64)&dword_140C03A00, 0x400000000000LL) )
+  if ( (unsigned int)dword_140C02228 > 5 && tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
   {
     v8 = 0;
     v6 = &v3;
     v3 = v1;
     v7 = 4;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C03A00,
-      (unsigned __int8 *)byte_14002F1F5,
+      (__int64)&dword_140C02228,
+      (unsigned __int8 *)byte_140027C71,
       0LL,
       0LL,
       3u,

@@ -1,87 +1,74 @@
 /*
- * XREFs of FxpGetImageBase @ 0x1C0027CF0
+ * XREFs of FxpGetImageBase @ 0x1C0090BF8
  * Callers:
- *     FxRegisterBugCheckCallback @ 0x1C0027A6C (FxRegisterBugCheckCallback.c)
+ *     FxRegisterBugCheckCallback @ 0x1C009086C (FxRegisterBugCheckCallback.c)
  * Callees:
- *     AuxKlibQueryModuleInformation @ 0x1C00BD500 (AuxKlibQueryModuleInformation.c)
- *     AuxKlibInitialize @ 0x1C00BD5A8 (AuxKlibInitialize.c)
+ *     AuxKlibInitialize @ 0x1C00BE188 (AuxKlibInitialize.c)
+ *     AuxKlibQueryModuleInformation @ 0x1C00BE1F8 (AuxKlibQueryModuleInformation.c)
  */
 
 __int64 __fastcall FxpGetImageBase(_DRIVER_OBJECT *DriverObject, void **ImageBase, unsigned int *ImageSize)
 {
+  unsigned int *v3; // rdi
   char *DriverStart; // rbp
-  unsigned int v6; // edx
-  int v7; // ebx
-  unsigned int v8; // esi
-  unsigned int *Pool2; // rax
-  unsigned int v10; // edx
-  unsigned int *v11; // rdi
+  unsigned int v7; // edx
+  int v8; // ebx
+  unsigned int v9; // esi
+  unsigned int *PoolWithTag; // rax
+  unsigned int v11; // edx
   int v12; // r8d
   unsigned int *v13; // rcx
   char *v14; // rdx
-  __int64 v15; // r9
   unsigned int modulesSize; // [rsp+40h] [rbp+8h] BYREF
 
   modulesSize = 0;
+  v3 = 0LL;
   if ( DriverObject && ImageBase && ImageSize )
   {
     DriverStart = (char *)DriverObject->DriverStart;
-    v7 = AuxKlibInitialize();
-    if ( v7 >= 0 )
+    v8 = AuxKlibInitialize();
+    if ( v8 < 0 )
+      return (unsigned int)v8;
+    v8 = AuxKlibQueryModuleInformation(&modulesSize, v7, 0LL);
+    if ( v8 < 0 || !modulesSize )
+      return (unsigned int)v8;
+    v9 = modulesSize / 0x110;
+    PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, modulesSize, 0x33304C57u);
+    v3 = PoolWithTag;
+    if ( !PoolWithTag )
+      return (unsigned int)-1073741670;
+    v8 = AuxKlibQueryModuleInformation(&modulesSize, v11, PoolWithTag);
+    if ( v8 >= 0 )
     {
-      v7 = AuxKlibQueryModuleInformation(&modulesSize, v6, 0LL);
-      if ( v7 >= 0 )
+      v12 = 0;
+      v13 = v3;
+      if ( v9 )
       {
-        if ( modulesSize )
+        while ( 1 )
         {
-          v8 = modulesSize / 0x110;
-          Pool2 = (unsigned int *)ExAllocatePool2(256LL, modulesSize, 858803287LL);
-          v11 = Pool2;
-          if ( Pool2 )
-          {
-            v7 = AuxKlibQueryModuleInformation(&modulesSize, v10, Pool2);
-            if ( v7 >= 0 )
-            {
-              v12 = 0;
-              v13 = v11;
-              if ( v8 )
-              {
-                while ( 1 )
-                {
-                  v14 = *(char **)v13;
-                  if ( (unsigned __int64)DriverStart >= *(_QWORD *)v13 )
-                  {
-                    v15 = v13[2];
-                    if ( DriverStart < &v14[v15] )
-                      break;
-                  }
-                  v13 += 68;
-                  if ( ++v12 >= v8 )
-                    goto LABEL_13;
-                }
-                *ImageBase = v14;
-                v7 = 0;
-                *ImageSize = v15;
-              }
-              else
-              {
-LABEL_13:
-                v7 = -1073741275;
-              }
-            }
-            ExFreePoolWithTag(v11, 0);
-          }
-          else
-          {
-            return (unsigned int)-1073741670;
-          }
+          v14 = *(char **)v13;
+          if ( (unsigned __int64)DriverStart >= *(_QWORD *)v13 && DriverStart < &v14[v13[2]] )
+            break;
+          v13 += 68;
+          if ( ++v12 >= v9 )
+            goto LABEL_14;
         }
+        *ImageBase = v14;
+        v8 = 0;
+        *ImageSize = v13[2];
+      }
+      else
+      {
+LABEL_14:
+        v8 = -1073741275;
       }
     }
   }
   else
   {
-    return (unsigned int)-1073741811;
+    v8 = -1073741811;
   }
-  return (unsigned int)v7;
+  if ( v3 )
+    ExFreePoolWithTag(v3, 0);
+  return (unsigned int)v8;
 }

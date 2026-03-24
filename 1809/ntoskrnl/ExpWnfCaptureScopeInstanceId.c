@@ -3,8 +3,8 @@
  * Callers:
  *     NtUpdateWnfStateData @ 0x14060EBB0 (NtUpdateWnfStateData.c)
  *     NtQueryWnfStateData @ 0x14060F3C0 (NtQueryWnfStateData.c)
- *     NtQueryWnfStateNameInformation @ 0x1406B4EF0 (NtQueryWnfStateNameInformation.c)
- *     NtDeleteWnfStateData @ 0x14075E540 (NtDeleteWnfStateData.c)
+ *     NtQueryWnfStateNameInformation @ 0x1406B4ED0 (NtQueryWnfStateNameInformation.c)
+ *     NtDeleteWnfStateData @ 0x14075E520 (NtDeleteWnfStateData.c)
  * Callees:
  *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)

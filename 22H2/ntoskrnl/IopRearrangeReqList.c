@@ -1,56 +1,48 @@
 /*
- * XREFs of IopRearrangeReqList @ 0x1408541EC
+ * XREFs of IopRearrangeReqList @ 0x1407506EC
  * Callers:
- *     PnpGetResourceRequirementsForAssignTable @ 0x14078FD74 (PnpGetResourceRequirementsForAssignTable.c)
- *     PnpRestoreResourcesInternal @ 0x14096D7E4 (PnpRestoreResourcesInternal.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x14074F8BC (PnpGetResourceRequirementsForAssignTable.c)
+ *     PnpRestoreResourcesInternal @ 0x1408B3398 (PnpRestoreResourcesInternal.c)
  * Callees:
- *     qsort @ 0x1403D9DD0 (qsort.c)
+ *     qsort @ 0x1403D23C0 (qsort.c)
  */
 
 unsigned __int64 __fastcall IopRearrangeReqList(__int64 a1)
 {
-  unsigned __int64 *v1; // rdi
-  unsigned __int64 *v3; // rsi
   unsigned __int64 result; // rax
-  unsigned __int64 *v5; // rcx
-  unsigned __int64 v6; // rdx
-  unsigned int v7; // edx
+  unsigned __int64 *v2; // rdi
+  unsigned __int64 *v4; // rsi
+  unsigned __int64 v5; // rdx
+  unsigned __int64 *j; // rcx
+  unsigned int i; // edx
   unsigned int v8; // eax
 
-  v1 = 0LL;
-  if ( *(_DWORD *)(a1 + 32) > 1u )
+  result = *(unsigned int *)(a1 + 32);
+  v2 = 0LL;
+  if ( (unsigned int)result > 1 )
   {
-    v7 = 0;
-    do
+    for ( i = 0; i < v8; ++i )
     {
-      *(_DWORD *)(*(_QWORD *)(a1 + 8LL * v7 + 40) + 4LL) = v7;
-      ++v7;
+      *(_DWORD *)(*(_QWORD *)(a1 + 8LL * i + 40) + 4LL) = i;
       v8 = *(_DWORD *)(a1 + 32);
     }
-    while ( v7 < v8 );
-    v3 = (unsigned __int64 *)(a1 + 40);
+    v4 = (unsigned __int64 *)(a1 + 40);
     qsort((void *)(a1 + 40), v8, 8uLL, IopCompareReqAlternativePriority);
+    result = *(unsigned int *)(a1 + 32);
   }
   else
   {
-    v3 = (unsigned __int64 *)(a1 + 40);
+    v4 = (unsigned __int64 *)(a1 + 40);
   }
-  result = *(unsigned int *)(a1 + 32);
-  v5 = v3;
-  v6 = (unsigned __int64)&v3[result];
-  if ( (unsigned __int64)v3 < v6 )
+  v5 = (unsigned __int64)&v4[result];
+  for ( j = v4; (unsigned __int64)j < v5; ++j )
   {
-    do
-    {
-      result = *v5;
-      if ( *(_DWORD *)*v5 > 0x7FFFu )
-        break;
-      ++v5;
-    }
-    while ( (unsigned __int64)v5 < v6 );
+    result = *j;
+    if ( *(_DWORD *)*j > 0x7FFFu )
+      break;
   }
-  if ( v5 != v3 )
-    v1 = v5;
-  *(_QWORD *)(a1 + 24) = v1;
+  if ( j != v4 )
+    v2 = j;
+  *(_QWORD *)(a1 + 24) = v2;
   return result;
 }

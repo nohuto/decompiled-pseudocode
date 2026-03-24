@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCancelTraceImageUnloadApc @ 0x1405FD9F0
+ * XREFs of EtwpCancelTraceImageUnloadApc @ 0x1405A8390
  * Callers:
  *     <none>
  * Callees:
- *     EtwpTraceImageUnload @ 0x140211D88 (EtwpTraceImageUnload.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwpTraceImageUnload @ 0x140259F1C (EtwpTraceImageUnload.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCancelTraceImageUnloadApc(PVOID P)
@@ -18,8 +18,8 @@ void __fastcall EtwpCancelTraceImageUnloadApc(PVOID P)
   __int64 v6; // [rsp+70h] [rbp+8h] BYREF
 
   v6 = 0LL;
-  v2 = *((_QWORD *)P + 11);
   v5 = 0LL;
+  v2 = *((_QWORD *)P + 11);
   if ( FltMgrCallbacks )
     v3 = (*(__int64 (__fastcall **)(__int64, __int64, __int128 *, __int64 *))(FltMgrCallbacks + 24))(
            v2,

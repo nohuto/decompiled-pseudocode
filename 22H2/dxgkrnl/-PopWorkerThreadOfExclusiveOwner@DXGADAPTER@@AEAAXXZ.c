@@ -1,44 +1,34 @@
 /*
- * XREFs of ?PopWorkerThreadOfExclusiveOwner@DXGADAPTER@@AEAAXXZ @ 0x1C00051EC
+ * XREFs of ?PopWorkerThreadOfExclusiveOwner@DXGADAPTER@@AEAAXXZ @ 0x1C0002AC0
  * Callers:
- *     ??1ADAPTEROWNERTRACKER@@QEAA@XZ @ 0x1C0016EA4 (--1ADAPTEROWNERTRACKER@@QEAA@XZ.c)
- *     ?DxgkCddPopWorkerThreadOfOwner@@YAXQEAX0@Z @ 0x1C01EA8C0 (-DxgkCddPopWorkerThreadOfOwner@@YAXQEAX0@Z.c)
+ *     ??1ADAPTEROWNERTRACKER@@QEAA@XZ @ 0x1C0001E6C (--1ADAPTEROWNERTRACKER@@QEAA@XZ.c)
+ *     ?DxgkCddPopWorkerThreadOfOwner@@YAXQEAX0@Z @ 0x1C016D440 (-DxgkCddPopWorkerThreadOfOwner@@YAXQEAX0@Z.c)
  * Callees:
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0005BA8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0002910 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
-void __fastcall DXGADAPTER::PopWorkerThreadOfExclusiveOwner(DXGADAPTER *this)
+void __fastcall DXGADAPTER::PopWorkerThreadOfExclusiveOwner(PERESOURCE *this)
 {
-  __int64 v2; // rax
-  int v3; // edx
-  int v4; // ecx
-  int v5; // r8d
+  struct _ERESOURCE *v2; // rax
+  __int64 v3; // rax
+  __int64 v4; // rax
 
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this) )
   {
-    WdLogSingleEntry1(1LL, 3056LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v4,
-          v3,
-          v5,
-          0,
-          2,
-          -1,
-          (__int64)L"IsCoreResourceExclusiveOwner()",
-          240,
-          0,
-          0,
-          0,
-          0);
-    }
+    v3 = WdLogNewEntry5_WdAssertion();
+    *(_QWORD *)(v3 + 24) = 3004LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  if ( !*((_QWORD *)this + 23) )
-    WdLogSingleEntry5(0LL, 275LL, 17LL, this, 0LL, 0LL);
-  v2 = *((_QWORD *)this + 24);
-  *((_QWORD *)this + 24) = 0LL;
-  *((_QWORD *)this + 23) = v2;
+  if ( !this[23] )
+  {
+    v4 = WdLogNewEntry5_WdCriticalError();
+    *(_QWORD *)(v4 + 24) = 275LL;
+    *(_QWORD *)(v4 + 32) = 17LL;
+    *(_QWORD *)(v4 + 40) = this;
+    *(_OWORD *)(v4 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v4);
+  }
+  v2 = this[24];
+  this[24] = 0LL;
+  this[23] = v2;
 }

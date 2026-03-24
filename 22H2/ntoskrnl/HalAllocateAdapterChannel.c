@@ -1,25 +1,21 @@
 /*
- * XREFs of HalAllocateAdapterChannel @ 0x14045ACA0
+ * XREFs of HalAllocateAdapterChannel @ 0x1404B89F0
  * Callers:
- *     <none>
+ *     HalBuildScatterGatherListV2 @ 0x1402E4240 (HalBuildScatterGatherListV2.c)
+ *     HalRealAllocateAdapterChannelV2 @ 0x1404CC8A0 (HalRealAllocateAdapterChannelV2.c)
  * Callees:
- *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1403AE970 (HalpDmaExtractFromVerifierShadowAdapter.c)
- *     HalpDmaGetAdapterVersion @ 0x1403B91D4 (HalpDmaGetAdapterVersion.c)
- *     HalAllocateAdapterChannelV2 @ 0x14045CA88 (HalAllocateAdapterChannelV2.c)
- *     HalpAllocateAdapterChannel @ 0x140514D80 (HalpAllocateAdapterChannel.c)
+ *     HalpDmaGetAdapterVersion @ 0x14030DA00 (HalpDmaGetAdapterVersion.c)
+ *     HalpAllocateAdapterChannel @ 0x1404CA310 (HalpAllocateAdapterChannel.c)
+ *     HalAllocateAdapterChannelV2 @ 0x1404CC624 (HalAllocateAdapterChannelV2.c)
  */
 
 __int64 __fastcall HalAllocateAdapterChannel(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v5; // rax
-  __int64 v6; // r8
-  __int64 v7; // r9
-  __int64 v8; // r10
-  __int64 v9; // r11
+  __int64 v5; // r10
+  struct _DMA_ADAPTER *v6; // r11
 
-  v5 = HalpDmaExtractFromVerifierShadowAdapter(a1);
-  if ( (unsigned int)HalpDmaGetAdapterVersion(v5) == 2 )
-    return HalAllocateAdapterChannelV2(v9, v8, v6, v7);
-  *(_DWORD *)(v8 + 20) &= ~2u;
-  return HalpAllocateAdapterChannel(v9, v8, v6, *(_DWORD *)(v9 + 252) >> 12, 0, a4);
+  if ( (unsigned int)HalpDmaGetAdapterVersion(a1) == 2 )
+    return HalAllocateAdapterChannelV2(v6, (PKDEVICE_QUEUE_ENTRY)v5);
+  *(_DWORD *)(v5 + 20) &= ~2u;
+  return HalpAllocateAdapterChannel(v6, 0, a4);
 }

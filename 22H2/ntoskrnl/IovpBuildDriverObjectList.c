@@ -1,24 +1,24 @@
 /*
- * XREFs of IovpBuildDriverObjectList @ 0x140AC28F8
+ * XREFs of IovpBuildDriverObjectList @ 0x1409C5420
  * Callers:
- *     ObEnumerateObjectsByType @ 0x14097B904 (ObEnumerateObjectsByType.c)
+ *     ObEnumerateObjectsByType @ 0x1408DD3FC (ObEnumerateObjectsByType.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x140337570 (ObReferenceObjectSafe.c)
- *     PnpIsLegacyDriver @ 0x14068F830 (PnpIsLegacyDriver.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObReferenceObjectSafe @ 0x1402F1E80 (ObReferenceObjectSafe.c)
+ *     PnpIsLegacyDriver @ 0x14073C78C (PnpIsLegacyDriver.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall IovpBuildDriverObjectList(__int64 a1)
 {
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v3; // rbx
 
-  if ( !(unsigned int)PnpIsLegacyDriver(a1) )
+  if ( !PnpIsLegacyDriver(a1) )
     goto LABEL_6;
-  Pool2 = ExAllocatePool2(64LL, 0x10uLL, 0x6F7649u);
-  v3 = (_QWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x6F7649u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
     if ( ObReferenceObjectSafe(a1) )
     {
@@ -31,7 +31,7 @@ char __fastcall IovpBuildDriverObjectList(__int64 a1)
       ExFreePoolWithTag(v3, 0);
     }
 LABEL_6:
-    LOBYTE(Pool2) = 1;
+    LOBYTE(PoolWithTag) = 1;
   }
-  return Pool2;
+  return (char)PoolWithTag;
 }

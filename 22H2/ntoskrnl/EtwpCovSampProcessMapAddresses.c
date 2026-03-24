@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCovSampProcessMapAddresses @ 0x1408A9F32
+ * XREFs of EtwpCovSampProcessMapAddresses @ 0x140945890
  * Callers:
- *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408A899C (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
- *     EtwpCovSampContextAddAddresses @ 0x1408A8F56 (EtwpCovSampContextAddAddresses.c)
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1409420CC (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampContextAddAddresses @ 0x140942D40 (EtwpCovSampContextAddAddresses.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     EtwpCovSampProcessUpperBoundModule @ 0x1408AA1EE (EtwpCovSampProcessUpperBoundModule.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     EtwpCovSampProcessUpperBoundModule @ 0x140945B44 (EtwpCovSampProcessUpperBoundModule.c)
  */
 
 __int64 __fastcall EtwpCovSampProcessMapAddresses(
@@ -20,118 +20,119 @@ __int64 __fastcall EtwpCovSampProcessMapAddresses(
         unsigned int a6,
         unsigned int *a7)
 {
-  unsigned int *v7; // r14
-  volatile signed __int64 *v8; // r15
+  unsigned int *v7; // r15
   __int64 v9; // rdi
+  int v11; // eax
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v13; // r8d
-  unsigned __int64 v14; // r9
-  unsigned __int64 *v15; // r13
-  unsigned __int64 *v16; // r15
-  unsigned __int64 v17; // r12
-  unsigned __int64 v18; // rdx
-  unsigned int v19; // eax
-  _QWORD *v20; // rcx
-  bool v21; // zf
-  __int64 v22; // rcx
-  __int64 v23; // rcx
-  volatile signed __int32 *v24; // rax
-  int v26; // [rsp+20h] [rbp-58h]
-  int v27; // [rsp+28h] [rbp-50h]
-  unsigned __int64 v28; // [rsp+30h] [rbp-48h]
-  unsigned int v29; // [rsp+80h] [rbp+8h]
+  volatile signed __int64 *v13; // r14
+  unsigned __int64 v14; // r8
+  __int64 v15; // r12
+  unsigned __int64 *v16; // r13
+  unsigned __int64 *v17; // rcx
+  unsigned __int64 v18; // r15
+  unsigned __int64 v19; // rdx
+  unsigned int v20; // eax
+  _QWORD *v21; // rcx
+  bool v22; // zf
+  int v23; // eax
+  __int64 v24; // rcx
+  volatile signed __int32 *v25; // rax
+  int v27; // [rsp+20h] [rbp-48h]
+  unsigned __int64 v28; // [rsp+28h] [rbp-40h]
+  unsigned int v29; // [rsp+70h] [rbp+8h]
 
   v7 = a7;
-  v8 = (volatile signed __int64 *)(a1 + 8);
   v9 = a2;
+  v11 = MEMORY[0xFFFFF78000000320];
   *a7 = 0;
-  v27 = MEMORY[0xFFFFF78000000320];
+  v27 = v11;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
+  v13 = (volatile signed __int64 *)(a1 + 8);
   ExAcquirePushLockExclusiveEx(a1 + 8, 0LL);
   *(_QWORD *)(a1 + 16) = KeGetCurrentThread();
   if ( v9 != *(_QWORD *)a1 || !a6 )
     goto LABEL_22;
-  v13 = 0;
   v14 = 0LL;
-  v26 = 0;
   v15 = 0LL;
   v29 = 0;
+  v16 = 0LL;
   v28 = 0LL;
   if ( !a4 )
     goto LABEL_21;
-  v16 = a3;
+  v17 = a3;
   while ( 1 )
   {
-    v17 = *v16;
-    if ( v15 )
+    v18 = *v17;
+    v19 = 0LL;
+    if ( v16 )
     {
-      if ( v17 < v14 || v17 >= *v15 )
-      {
-        v15 = 0LL;
-      }
+      if ( v18 < v14 || v18 >= *v16 )
+        v16 = 0LL;
       else
-      {
-        v18 = v15[1];
-        if ( v18 )
-          goto LABEL_14;
-      }
+        v19 = v16[1];
+      if ( v19 )
+        break;
     }
-    v19 = EtwpCovSampProcessUpperBoundModule(a1, *v16);
-    v13 = v29;
-    if ( v19 >= *(_DWORD *)(a1 + 32) )
+    v20 = EtwpCovSampProcessUpperBoundModule(a1, *v17);
+    if ( v20 >= *(_DWORD *)(a1 + 32) )
     {
       v14 = v28;
-      goto LABEL_19;
     }
-    v20 = (_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL * v19);
-    v18 = v20[1];
-    v14 = *v20 - *(_QWORD *)(v18 + 40);
-    v28 = v14;
-    if ( v17 >= v14 )
-      break;
+    else
+    {
+      v21 = (_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL * v20);
+      v19 = v21[1];
+      v14 = *v21 - *(_QWORD *)(v19 + 40);
+      v28 = v14;
+      if ( v18 >= v14 )
+      {
+        v16 = (unsigned __int64 *)(*(_QWORD *)(a1 + 24) + 16LL * v20);
+        break;
+      }
+    }
 LABEL_19:
-    ++v16;
-    if ( ++v26 >= a4 )
+    v17 = a3 + 1;
+    ++v29;
+    ++a3;
+    if ( v29 >= a4 )
       goto LABEL_20;
   }
-  v15 = (unsigned __int64 *)(*(_QWORD *)(a1 + 24) + 16LL * v19);
-LABEL_14:
-  v21 = *(_DWORD *)(v18 + 132) == 0;
-  *(_DWORD *)(v18 + 136) = v27;
-  if ( v21 )
-    _InterlockedExchange((volatile __int32 *)(v18 + 132), 1);
-  v22 = v13++;
-  v29 = v13;
-  *(_DWORD *)(a5 + 8 * v22) = *(_DWORD *)(v18 + 124);
-  *(_DWORD *)(a5 + 8 * v22 + 4) = v17 - v14;
-  if ( v13 < a6 )
+  v22 = *(_DWORD *)(v19 + 132) == 0;
+  *(_DWORD *)(v19 + 136) = v27;
+  if ( v22 )
+    _InterlockedExchange((volatile __int32 *)(v19 + 132), 1);
+  v23 = *(_DWORD *)(v19 + 124);
+  *(_DWORD *)(a5 + 8 * v15 + 4) = v18 - v14;
+  *(_DWORD *)(a5 + 8 * v15) = v23;
+  v15 = (unsigned int)(v15 + 1);
+  if ( (unsigned int)v15 < a6 )
     goto LABEL_19;
 LABEL_20:
   v9 = a2;
-  v8 = (volatile signed __int64 *)(a1 + 8);
+  v13 = (volatile signed __int64 *)(a1 + 8);
   v7 = a7;
 LABEL_21:
-  *v7 = v13;
+  *v7 = v15;
 LABEL_22:
   if ( *(struct _KTHREAD **)(a1 + 16) == KeGetCurrentThread() )
   {
     *(_QWORD *)(a1 + 16) = 0LL;
-    if ( (_InterlockedExchangeAdd64(v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v8);
-    KeAbPostRelease((ULONG_PTR)v8);
+    if ( (_InterlockedExchangeAdd64(v13, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v13);
+    KeAbPostRelease((ULONG_PTR)v13);
     KeLeaveCriticalRegion();
   }
-  if ( a1 == v9 + 1248 )
+  if ( a1 == v9 + 736 )
   {
-    v23 = 1140LL;
-    v24 = (volatile signed __int32 *)(v9 + 1136);
+    v24 = 624LL;
+    v25 = (volatile signed __int32 *)(v9 + 620);
   }
   else
   {
-    v23 = 1132LL;
-    v24 = (volatile signed __int32 *)(v9 + 1128);
+    v24 = 616LL;
+    v25 = (volatile signed __int32 *)(v9 + 612);
   }
-  _InterlockedExchangeAdd(v24, a4);
-  return (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(v9 + v23), *v7);
+  _InterlockedExchangeAdd(v25, a4);
+  return (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(v9 + v24), *v7);
 }

@@ -1,316 +1,313 @@
 /*
- * XREFs of ?CalculateDetectedInteractions@CInteractionProcessor@@QEAAJPEAUIInteractionContextWrapper@@PEAUInteractionAxisGroup@@PEAH12PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@2@Z @ 0x18018A1CC
+ * XREFs of ?CalculateDetectedInteractions@CInteractionProcessor@@QEAAJPEAUIInteractionContextWrapper@@PEAUInteractionAxisGroup@@PEAH12PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@2@Z @ 0x18022B68C
  * Callers:
- *     ?CalculateDetectedInteractions@CInteractionRoot@@UEAAJPEAUIInteractionContextWrapper@@PEAUInteractionAxisGroup@@PEAH12PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@2@Z @ 0x180182440 (-CalculateDetectedInteractions@CInteractionRoot@@UEAAJPEAUIInteractionContextWrapper@@PEAUIntera.c)
- *     ?CalculateDetectedInteractions@CInteraction@@UEAAJPEAUIInteractionContextWrapper@@PEAUInteractionAxisGroup@@PEAH12PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@2@Z @ 0x1801F1F20 (-CalculateDetectedInteractions@CInteraction@@UEAAJPEAUIInteractionContextWrapper@@PEAUInteractio.c)
+ *     ?CalculateDetectedInteractions@CInteraction@@UEAAJPEAUIInteractionContextWrapper@@PEAUInteractionAxisGroup@@PEAH12PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@2@Z @ 0x1801C6060 (-CalculateDetectedInteractions@CInteraction@@UEAAJPEAUIInteractionContextWrapper@@PEAUInteractio.c)
+ *     ?CalculateDetectedInteractions@CInteractionRoot@@UEAAJPEAUIInteractionContextWrapper@@PEAUInteractionAxisGroup@@PEAH12PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@2@Z @ 0x180233F00 (-CalculateDetectedInteractions@CInteractionRoot@@UEAAJPEAUIInteractionContextWrapper@@PEAUIntera.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArray@UDwmMousewheelInteractionConfigurationPrimitive@@$0A@@@QEAAJPEFBUDwmMousewheelInteractionConfigurationPrimitive@@I@Z @ 0x1800CB0CC (-AddMultipleAndSet@-$DynArray@UDwmMousewheelInteractionConfigurationPrimitive@@$0A@@@QEAAJPEFBUD.c)
- *     ?AddMultipleAndSet@?$DynArray@UDwmTouchpadInteractionConfigurationPrimitive@@$0A@@@QEAAJPEFBUDwmTouchpadInteractionConfigurationPrimitive@@I@Z @ 0x1800CB12C (-AddMultipleAndSet@-$DynArray@UDwmTouchpadInteractionConfigurationPrimitive@@$0A@@@QEAAJPEFBUDwm.c)
- *     ?AddMultipleAndSet@?$DynArray@UDwmTouchInteractionConfigurationPrimitive@@$0A@@@QEAAJPEFBUDwmTouchInteractionConfigurationPrimitive@@I@Z @ 0x1800CB1A8 (-AddMultipleAndSet@-$DynArray@UDwmTouchInteractionConfigurationPrimitive@@$0A@@@QEAAJPEFBUDwmTou.c)
- *     ?AddMultipleAndSet@?$DynArray@UDwmPenInteractionConfigurationPrimitive@@$0A@@@QEAAJPEFBUDwmPenInteractionConfigurationPrimitive@@I@Z @ 0x1800CB224 (-AddMultipleAndSet@-$DynArray@UDwmPenInteractionConfigurationPrimitive@@$0A@@@QEAAJPEFBUDwmPenIn.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800CB358 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     _anonymous_namespace_::GetTemporaryConfigWithMask @ 0x1800DFFA4 (_anonymous_namespace_--GetTemporaryConfigWithMask.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     ??_GInteractionConfigurationGroup@@QEAAPEAXI@Z @ 0x180185F7C (--_GInteractionConfigurationGroup@@QEAAPEAXI@Z.c)
- *     ??$CalculateDetectedInteractions@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@CInteractionProcessor@@QEAAJPEAV?$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@PEAUIInteractionContextWrapper@@PEAUInteractionAxisGroup@@PEAH23@Z @ 0x18018716C (--$CalculateDetectedInteractions@UDwmTouchInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@W4.c)
- *     ?AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ @ 0x18018A118 (-AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ?AddMultipleAndSet@?$DynArray@UDwmMousewheelInteractionConfigurationPrimitive@@$0A@@@QEAAJPEFBUDwmMousewheelInteractionConfigurationPrimitive@@I@Z @ 0x1800B86C8 (-AddMultipleAndSet@-$DynArray@UDwmMousewheelInteractionConfigurationPrimitive@@$0A@@@QEAAJPEFBUD.c)
+ *     ?AddMultipleAndSet@?$DynArray@UDwmPenInteractionConfigurationPrimitive@@$0A@@@QEAAJPEFBUDwmPenInteractionConfigurationPrimitive@@I@Z @ 0x1800B8960 (-AddMultipleAndSet@-$DynArray@UDwmPenInteractionConfigurationPrimitive@@$0A@@@QEAAJPEFBUDwmPenIn.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8AF4 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     _anonymous_namespace_::GetTemporaryConfigWithMask @ 0x1800C9B14 (_anonymous_namespace_--GetTemporaryConfigWithMask.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     ??$CalculateDetectedInteractions@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@CInteractionProcessor@@QEAAJPEAV?$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@PEAUIInteractionContextWrapper@@PEAUInteractionAxisGroup@@PEAH23@Z @ 0x180228FB0 (--$CalculateDetectedInteractions@UDwmTouchInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@W4.c)
+ *     ??_GInteractionConfigurationGroup@@QEAAPEAXI@Z @ 0x18022B51C (--_GInteractionConfigurationGroup@@QEAAPEAXI@Z.c)
+ *     ?AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ @ 0x18022B5D8 (-AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ.c)
  */
 
 __int64 __fastcall CInteractionProcessor::CalculateDetectedInteractions(
         CInteractionProcessor *this,
         __int64 a2,
         __int64 a3,
-        int *a4,
-        InteractionConfigurationGroup *a5,
-        _DWORD *a6,
-        unsigned __int64 a7,
+        unsigned int *a4,
+        __int64 a5,
+        int *a6,
+        __int64 a7,
         _DWORD *a8)
 {
-  InteractionConfigurationGroup *v10; // rax
-  int v13; // edi
-  int v14; // ecx
-  int v15; // eax
-  bool v16; // zf
-  _QWORD *v17; // rax
-  _QWORD *v18; // rdi
+  int v12; // esi
+  int v13; // eax
+  int v14; // eax
+  _DWORD *v15; // rax
+  _DWORD *v16; // rdi
+  __int64 v17; // rcx
+  int v18; // ebx
   int v19; // eax
-  __int64 v20; // rcx
-  int v21; // ebx
-  InteractionConfigurationGroup *v22; // r9
-  unsigned int v23; // r10d
-  int v24; // eax
-  int v25; // edi
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  unsigned int v29; // r10d
-  __int64 v30; // rdx
-  __int64 v31; // rcx
-  __int64 v32; // r8
-  unsigned int v33; // r10d
-  __int64 v34; // rdx
-  __int64 v35; // rcx
-  __int64 v36; // r8
-  unsigned int v37; // r8d
-  int v38; // r10d
-  int v39; // ebx
-  int v40; // r10d
-  __int64 v41; // rax
+  int v20; // eax
+  int v21; // eax
+  unsigned int v22; // r9d
+  int v23; // eax
+  int v24; // r11d
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  unsigned int v28; // r9d
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // r8
+  unsigned int v32; // r9d
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // r8
+  unsigned int v36; // r8d
+  int v37; // r9d
+  int v38; // ebx
+  int v39; // r9d
+  __int64 v40; // rax
+  __int64 v41; // r10
   unsigned int v42; // eax
   unsigned int v43; // edx
   int v44; // eax
   __int64 v45; // rcx
-  InteractionConfigurationGroup *v47; // [rsp+40h] [rbp-38h] BYREF
-  int v48; // [rsp+48h] [rbp-30h] BYREF
-  int v49; // [rsp+4Ch] [rbp-2Ch] BYREF
-  _DWORD *v50; // [rsp+50h] [rbp-28h]
-  int v51; // [rsp+58h] [rbp-20h] BYREF
-  int v52; // [rsp+5Ch] [rbp-1Ch]
-  int v53; // [rsp+60h] [rbp-18h]
+  _DWORD *v47; // [rsp+40h] [rbp-41h] BYREF
+  int v48; // [rsp+48h] [rbp-39h] BYREF
+  int v49; // [rsp+4Ch] [rbp-35h] BYREF
+  __int64 v50; // [rsp+50h] [rbp-31h]
+  _DWORD *v51; // [rsp+58h] [rbp-29h]
+  int v52; // [rsp+60h] [rbp-21h] BYREF
+  int v53; // [rsp+64h] [rbp-1Dh]
+  int v54; // [rsp+68h] [rbp-19h]
 
-  v10 = a5;
   *a4 = 0;
+  v50 = a7;
+  v12 = 0;
   *a6 = 0;
-  v13 = 0;
+  v51 = a8;
   *a8 = 0;
-  v50 = a8;
-  v14 = *((_DWORD *)this + 197);
-  v47 = a5;
-  if ( v14 == 2 )
+  v13 = *((_DWORD *)this + 197);
+  if ( v13 == 2 )
   {
-    v15 = CInteractionProcessor::CalculateDetectedInteractions<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>(
+    v14 = CInteractionProcessor::CalculateDetectedInteractions<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>(
             (__int64)this,
             (char *)this,
             a2,
             a3,
             a4,
-            (__int64)a5,
+            a5,
             a6);
   }
-  else if ( v14 == 3 )
+  else if ( v13 == 3 )
   {
-    v15 = CInteractionProcessor::CalculateDetectedInteractions<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>(
+    v14 = CInteractionProcessor::CalculateDetectedInteractions<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>(
             (__int64)this,
             (char *)this + 160,
             a2,
             a3,
             a4,
-            (__int64)a5,
+            a5,
             a6);
   }
-  else if ( v14 != 4 || (v16 = !CInteractionProcessor::AllowPenGestureDetection(this), v10 = v47, v16) )
+  else if ( v13 == 4 && CInteractionProcessor::AllowPenGestureDetection(this) )
   {
-    if ( *((_DWORD *)this + 197) != 6 )
-      goto LABEL_11;
-    v15 = CInteractionProcessor::CalculateDetectedInteractions<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>(
-            (__int64)this,
-            (char *)this + 480,
-            a2,
-            a3,
-            a4,
-            (__int64)v10,
-            a6);
-  }
-  else
-  {
-    v15 = CInteractionProcessor::CalculateDetectedInteractions<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>(
+    v14 = CInteractionProcessor::CalculateDetectedInteractions<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>(
             (__int64)this,
             (char *)this + 320,
             a2,
             a3,
             a4,
-            (__int64)v47,
+            a5,
             a6);
-  }
-  v13 = v15;
-  if ( v15 < 0 )
-    return (unsigned int)v13;
-LABEL_11:
-  if ( (*((_BYTE *)this + 1264) & 3) == 0 )
-    return (unsigned int)v13;
-  v17 = operator new(0x88uLL);
-  v18 = v17;
-  if ( v17 )
-  {
-    memset_0(v17, 0, 0x88uLL);
-    v18[3] = 0LL;
-    v18[2] = 0LL;
-    *((_DWORD *)v18 + 8) = 0;
-    v18[7] = 0LL;
-    v18[5] = 0LL;
-    v18[6] = 0LL;
-    *((_DWORD *)v18 + 16) = 0;
-    v18[11] = 0LL;
-    v18[9] = 0LL;
-    v18[10] = 0LL;
-    *((_DWORD *)v18 + 24) = 0;
-    v18[15] = 0LL;
-    v18[13] = 0LL;
-    v18[14] = 0LL;
-    *((_DWORD *)v18 + 32) = 0;
-    v19 = *((_DWORD *)this + 162);
-    v47 = (InteractionConfigurationGroup *)v18;
-    *(_DWORD *)v18 = v19;
-    DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)v47 + 8, 0xCu, *((_DWORD *)this + 170), *((_QWORD *)this + 82));
-    DynArrayImpl<0>::AddMultipleAndSet(
-      (unsigned __int64)v47 + 40,
-      0xCu,
-      *((_DWORD *)this + 178),
-      *((_QWORD *)this + 86));
-    DynArrayImpl<0>::AddMultipleAndSet(
-      (unsigned __int64)v47 + 72,
-      0xCu,
-      *((_DWORD *)this + 186),
-      *((_QWORD *)this + 90));
-    DynArrayImpl<0>::AddMultipleAndSet(
-      (unsigned __int64)v47 + 104,
-      0xCu,
-      *((_DWORD *)this + 194),
-      *((_QWORD *)this + 94));
-    anonymous_namespace_::GetTemporaryConfigWithMask((__int64)this + 1308, &v49, &v48);
-    v21 = v48;
-    v22 = v47;
-    if ( !v48 )
-      goto LABEL_36;
-    if ( !*((_DWORD *)v47 + 24) )
-    {
-      v51 = 1;
-      v52 = -1;
-      v53 = 0;
-      v13 = DynArray<DwmTouchInteractionConfigurationPrimitive,0>::AddMultipleAndSet((__int64)v47 + 72, &v51, 1LL);
-      if ( v13 < 0 )
-        goto LABEL_44;
-      v22 = v47;
-    }
-    if ( !*((_DWORD *)v22 + 32) )
-    {
-      v51 = 1;
-      v52 = -1;
-      v53 = 0;
-      v13 = DynArray<DwmTouchpadInteractionConfigurationPrimitive,0>::AddMultipleAndSet((__int64)v22 + 104, &v51, 1LL);
-      if ( v13 < 0 )
-        goto LABEL_44;
-      v22 = v47;
-    }
-    if ( !*((_DWORD *)v22 + 16) )
-    {
-      v51 = 1;
-      v52 = -1;
-      v53 = 0;
-      v13 = DynArray<DwmPenInteractionConfigurationPrimitive,0>::AddMultipleAndSet((__int64)v22 + 40, &v51, 1LL);
-      if ( v13 < 0 )
-        goto LABEL_44;
-      v22 = v47;
-    }
-    if ( *((_DWORD *)v22 + 8) )
-    {
-LABEL_26:
-      v23 = 0;
-      v24 = v49;
-      if ( *((_DWORD *)v22 + 24) )
-      {
-        v25 = v49 & v21;
-        do
-        {
-          v26 = *((_QWORD *)v22 + 9);
-          v27 = v23++;
-          v28 = 3 * v27;
-          v20 = v25 | (unsigned int)~v21 & *(_DWORD *)(v26 + 12 * v27 + 8);
-          *(_DWORD *)(v26 + 4 * v28 + 8) = v20;
-          v22 = v47;
-        }
-        while ( v23 < *((_DWORD *)v47 + 24) );
-      }
-      v29 = 0;
-      if ( *((_DWORD *)v22 + 32) )
-      {
-        do
-        {
-          v30 = *((_QWORD *)v22 + 13);
-          v31 = v29++;
-          v32 = 3 * v31;
-          v20 = v24 & v21 | *(_DWORD *)(v30 + 12 * v31 + 8) & (unsigned int)~v21;
-          *(_DWORD *)(v30 + 4 * v32 + 8) = v20;
-          v22 = v47;
-        }
-        while ( v29 < *((_DWORD *)v47 + 32) );
-      }
-      v33 = 0;
-      if ( *((_DWORD *)v22 + 16) )
-      {
-        do
-        {
-          v34 = *((_QWORD *)v22 + 5);
-          v35 = v33++;
-          v36 = 3 * v35;
-          v20 = v24 & v21 | (unsigned int)~v21 & *(_DWORD *)(v34 + 12 * v35 + 8);
-          *(_DWORD *)(v34 + 4 * v36 + 8) = v20;
-          v22 = v47;
-        }
-        while ( v33 < *((_DWORD *)v47 + 16) );
-      }
-      v37 = 0;
-      if ( *((_DWORD *)v22 + 8) )
-      {
-        v38 = v21;
-        v39 = v24 & v21;
-        v40 = ~v38;
-        do
-        {
-          v20 = *((_QWORD *)v22 + 1);
-          v41 = v37++;
-          *(_DWORD *)(v20 + 12 * v41 + 8) = v39 | v40 & *(_DWORD *)(v20 + 12 * v41 + 8);
-          v22 = v47;
-        }
-        while ( v37 < *((_DWORD *)v47 + 8) );
-      }
-LABEL_36:
-      v42 = *(_DWORD *)(a7 + 24);
-      v43 = v42 + 1;
-      if ( v42 + 1 < v42 )
-      {
-        v13 = -2147024362;
-        MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0LL, -2147024362, 0xB5u);
-      }
-      else
-      {
-        if ( v43 <= *(_DWORD *)(a7 + 20) )
-        {
-          v13 = 0;
-          *(_QWORD *)(*(_QWORD *)a7 + 8LL * v42) = v22;
-          *(_DWORD *)(a7 + 24) = v43;
-LABEL_39:
-          ++*v50;
-          return (unsigned int)v13;
-        }
-        v44 = DynArrayImpl<0>::AddMultipleAndSet(a7, 8u, 1, &v47);
-        v13 = v44;
-        if ( v44 >= 0 )
-          goto LABEL_39;
-        MilInstrumentationCheckHR_MaybeFailFast(v45, 0LL, 0LL, v44, 0xC0u);
-      }
-      goto LABEL_44;
-    }
-    v51 = 1;
-    v52 = -1;
-    v53 = 0;
-    v13 = DynArray<DwmMousewheelInteractionConfigurationPrimitive,0>::AddMultipleAndSet((__int64)v22 + 8, &v51, 1LL);
-    if ( v13 >= 0 )
-    {
-      v22 = v47;
-      goto LABEL_26;
-    }
   }
   else
   {
-    v47 = 0LL;
-    v13 = -2147024882;
+    if ( *((_DWORD *)this + 197) != 6 )
+      goto LABEL_11;
+    v14 = CInteractionProcessor::CalculateDetectedInteractions<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>(
+            (__int64)this,
+            (char *)this + 480,
+            a2,
+            a3,
+            a4,
+            a5,
+            a6);
   }
-LABEL_44:
-  if ( v47 )
-    InteractionConfigurationGroup::`scalar deleting destructor'((void **)v47);
-  return (unsigned int)v13;
+  v12 = v14;
+  if ( v14 < 0 )
+    return (unsigned int)v12;
+LABEL_11:
+  if ( (*((_BYTE *)this + 1264) & 3) == 0 )
+    return (unsigned int)v12;
+  v15 = operator new(0x88uLL);
+  v16 = v15;
+  if ( v15 )
+  {
+    memset_0(v15, 0, 0x88uLL);
+    *((_QWORD *)v16 + 3) = 0LL;
+    *((_QWORD *)v16 + 2) = 0LL;
+    v16[8] = 0;
+    *((_QWORD *)v16 + 7) = 0LL;
+    *((_QWORD *)v16 + 5) = 0LL;
+    *((_QWORD *)v16 + 6) = 0LL;
+    v16[16] = 0;
+    *((_QWORD *)v16 + 11) = 0LL;
+    *((_QWORD *)v16 + 9) = 0LL;
+    *((_QWORD *)v16 + 10) = 0LL;
+    v16[24] = 0;
+    *((_QWORD *)v16 + 15) = 0LL;
+    *((_QWORD *)v16 + 13) = 0LL;
+    *((_QWORD *)v16 + 14) = 0LL;
+    v16[32] = 0;
+  }
+  else
+  {
+    v16 = 0LL;
+  }
+  v47 = v16;
+  if ( !v16 )
+    v12 = -2147024882;
+  if ( v12 < 0 )
+    goto LABEL_50;
+  *v16 = *((_DWORD *)this + 162);
+  DynArrayImpl<0>::AddMultipleAndSet((__int64)(v47 + 2), 12, *((_DWORD *)this + 170), *((_QWORD *)this + 82));
+  DynArrayImpl<0>::AddMultipleAndSet((__int64)(v47 + 10), 12, *((_DWORD *)this + 178), *((_QWORD *)this + 86));
+  DynArrayImpl<0>::AddMultipleAndSet((__int64)(v47 + 18), 12, *((_DWORD *)this + 186), *((_QWORD *)this + 90));
+  DynArrayImpl<0>::AddMultipleAndSet((__int64)(v47 + 26), 12, *((_DWORD *)this + 194), *((_QWORD *)this + 94));
+  anonymous_namespace_::GetTemporaryConfigWithMask((__int64)this + 1308, &v49, &v48);
+  v18 = v48;
+  v16 = v47;
+  if ( !v48 )
+    goto LABEL_41;
+  if ( !v47[24] )
+  {
+    v52 = 1;
+    v53 = -1;
+    v54 = 0;
+    v16 = v47;
+    v12 = DynArray<DwmPenInteractionConfigurationPrimitive,0>::AddMultipleAndSet((__int64)(v47 + 18), &v52, 1LL);
+  }
+  if ( v12 >= 0 )
+  {
+    if ( !v16[32] )
+    {
+      v52 = 1;
+      v53 = -1;
+      v54 = 0;
+      v19 = DynArray<DwmPenInteractionConfigurationPrimitive,0>::AddMultipleAndSet((__int64)(v16 + 26), &v52, 1LL);
+      v16 = v47;
+      v12 = v19;
+    }
+    if ( v12 >= 0 )
+    {
+      if ( !v16[16] )
+      {
+        v52 = 1;
+        v53 = -1;
+        v54 = 0;
+        v20 = DynArray<DwmPenInteractionConfigurationPrimitive,0>::AddMultipleAndSet((__int64)(v16 + 10), &v52, 1LL);
+        v16 = v47;
+        v12 = v20;
+      }
+      if ( v12 >= 0 )
+      {
+        if ( !v16[8] )
+        {
+          v52 = 1;
+          v53 = -1;
+          v54 = 0;
+          v21 = DynArray<DwmMousewheelInteractionConfigurationPrimitive,0>::AddMultipleAndSet(
+                  (__int64)(v16 + 2),
+                  &v52,
+                  1LL);
+          v16 = v47;
+          v12 = v21;
+        }
+        if ( v12 >= 0 )
+        {
+          v22 = 0;
+          v23 = v49;
+          if ( v16[24] )
+          {
+            v24 = v49 & v18;
+            do
+            {
+              v25 = *((_QWORD *)v16 + 9);
+              v26 = v22++;
+              v27 = 3 * v26;
+              v17 = v24 | (unsigned int)~v18 & *(_DWORD *)(v25 + 12 * v26 + 8);
+              *(_DWORD *)(v25 + 4 * v27 + 8) = v17;
+              v16 = v47;
+            }
+            while ( v22 < v47[24] );
+          }
+          v28 = 0;
+          if ( v16[32] )
+          {
+            do
+            {
+              v29 = *((_QWORD *)v16 + 13);
+              v30 = v28++;
+              v31 = 3 * v30;
+              v17 = v23 & v18 | *(_DWORD *)(v29 + 12 * v30 + 8) & (unsigned int)~v18;
+              *(_DWORD *)(v29 + 4 * v31 + 8) = v17;
+              v16 = v47;
+            }
+            while ( v28 < v47[32] );
+          }
+          v32 = 0;
+          if ( v16[16] )
+          {
+            do
+            {
+              v33 = *((_QWORD *)v16 + 5);
+              v34 = v32++;
+              v35 = 3 * v34;
+              v17 = v23 & v18 | (unsigned int)~v18 & *(_DWORD *)(v33 + 12 * v34 + 8);
+              *(_DWORD *)(v33 + 4 * v35 + 8) = v17;
+              v16 = v47;
+            }
+            while ( v32 < v47[16] );
+          }
+          v36 = 0;
+          if ( v16[8] )
+          {
+            v37 = v18;
+            v38 = v23 & v18;
+            v39 = ~v37;
+            do
+            {
+              v17 = *((_QWORD *)v16 + 1);
+              v40 = v36++;
+              *(_DWORD *)(v17 + 12 * v40 + 8) = v38 | v39 & *(_DWORD *)(v17 + 12 * v40 + 8);
+              v16 = v47;
+            }
+            while ( v36 < v47[8] );
+          }
+LABEL_41:
+          v41 = v50;
+          v42 = *(_DWORD *)(v50 + 24);
+          v43 = v42 + 1;
+          if ( v42 + 1 >= v42 )
+          {
+            if ( v43 <= *(_DWORD *)(v50 + 20) )
+            {
+              v12 = 0;
+              *(_QWORD *)(*(_QWORD *)v50 + 8LL * *(unsigned int *)(v50 + 24)) = v16;
+              *(_DWORD *)(v41 + 24) = v43;
+LABEL_48:
+              ++*v51;
+              return (unsigned int)v12;
+            }
+            v44 = DynArrayImpl<0>::AddMultipleAndSet(v50, 8, 1, &v47);
+            v12 = v44;
+            if ( v44 < 0 )
+              MilInstrumentationCheckHR_MaybeFailFast(v45, 0LL, 0, v44, 0xC0u, 0LL);
+          }
+          else
+          {
+            v12 = -2147024362;
+            MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, -2147024362, 0xB5u, 0LL);
+          }
+          if ( v12 >= 0 )
+            goto LABEL_48;
+          v16 = v47;
+        }
+      }
+    }
+  }
+LABEL_50:
+  if ( v16 )
+    InteractionConfigurationGroup::`scalar deleting destructor'((InteractionConfigurationGroup *)v16);
+  return (unsigned int)v12;
 }

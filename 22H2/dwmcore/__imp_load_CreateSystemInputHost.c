@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_CreateSystemInputHost @ 0x180110CC2
+ * XREFs of __imp_load_CreateSystemInputHost @ 0x1800E8F47
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 load_CreateSystemInputHost()
 {
-  return _tailMerge_ext_ms_win_mininput_systeminputhost_l1_2_0_dll();
+  return _tailMerge_ext_ms_win_mininput_systeminputhost_l1_1_0_dll();
 }

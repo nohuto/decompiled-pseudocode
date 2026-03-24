@@ -1,5 +1,5 @@
 /*
- * XREFs of ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@JA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x18010BB90
+ * XREFs of ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@JA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800F8CF0
  * Callers:
  *     <none>
  * Callees:

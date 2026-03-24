@@ -2,13 +2,13 @@
  * XREFs of MiPageToChannel @ 0x14009CFEC
  * Callers:
  *     MiInsertLargePageInNodeListHelper @ 0x14009BAC0 (MiInsertLargePageInNodeListHelper.c)
- *     MiDescribePageRun @ 0x14017EF64 (MiDescribePageRun.c)
- *     MiInitializeUnusablePfns @ 0x14017F02C (MiInitializeUnusablePfns.c)
+ *     MiDescribePageRun @ 0x14017EF84 (MiDescribePageRun.c)
+ *     MiInitializeUnusablePfns @ 0x14017F04C (MiInitializeUnusablePfns.c)
  *     MiSwitchToPfns @ 0x1409BA954 (MiSwitchToPfns.c)
  *     MxCreateFreePfns @ 0x1409BAD10 (MxCreateFreePfns.c)
  *     MxCreatePfn @ 0x1409C0310 (MxCreatePfn.c)
  *     MiFreeBootPageTable @ 0x1409D3228 (MiFreeBootPageTable.c)
- *     MiInitializeSystemChannelOrdering @ 0x1409F7AC0 (MiInitializeSystemChannelOrdering.c)
+ *     MiInitializeSystemChannelOrdering @ 0x1409F7AD0 (MiInitializeSystemChannelOrdering.c)
  * Callees:
  *     <none>
  */

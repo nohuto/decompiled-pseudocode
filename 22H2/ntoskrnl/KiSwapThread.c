@@ -1,840 +1,970 @@
 /*
- * XREFs of KiSwapThread @ 0x14023F3D0
+ * XREFs of KiSwapThread @ 0x1402C6D60
  * Callers:
- *     KiCommitThreadWait @ 0x140241F00 (KiCommitThreadWait.c)
- *     KeTerminateThread @ 0x14030A438 (KeTerminateThread.c)
- *     KiInSwapSingleProcess @ 0x14034D5B4 (KiInSwapSingleProcess.c)
- *     KiExecuteDpcDelegate @ 0x14038F990 (KiExecuteDpcDelegate.c)
+ *     KiCommitThreadWait @ 0x1402C6640 (KiCommitThreadWait.c)
+ *     KiInSwapSingleProcess @ 0x1402F27D0 (KiInSwapSingleProcess.c)
+ *     KeTerminateThread @ 0x140341500 (KeTerminateThread.c)
  * Callees:
- *     KiRemoveSchedulingGroupQueue @ 0x140206878 (KiRemoveSchedulingGroupQueue.c)
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     KiSearchForNewThread @ 0x140240330 (KiSearchForNewThread.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246750 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     PoGetFrequencyBucket @ 0x140249C00 (PoGetFrequencyBucket.c)
- *     KiReadyDeferredReadyList @ 0x140249C70 (KiReadyDeferredReadyList.c)
- *     KiAbEntryGetLockedHeadEntry @ 0x14024C730 (KiAbEntryGetLockedHeadEntry.c)
- *     KiProcessThreadWaitList @ 0x140253CA0 (KiProcessThreadWaitList.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     KiAbTryIncrementIoWaiterCounts @ 0x1402A8350 (KiAbTryIncrementIoWaiterCounts.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8BC0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KiStartThreadCycleAccumulation @ 0x1402B2D10 (KiStartThreadCycleAccumulation.c)
- *     KiAbProcessThreadLocks @ 0x1402BC320 (KiAbProcessThreadLocks.c)
- *     KiAbDetermineMaxWaiterPriority @ 0x1402BC6F0 (KiAbDetermineMaxWaiterPriority.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3620 (ObReferenceObjectSafeWithTag.c)
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     KiComputeGroupSchedulingRank @ 0x140305708 (KiComputeGroupSchedulingRank.c)
- *     KiCheckMaxOverQuotaTransition @ 0x140305858 (KiCheckMaxOverQuotaTransition.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140307790 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiInsertDeferredPreemptionApc @ 0x140308FF4 (KiInsertDeferredPreemptionApc.c)
- *     KiDeliverApc @ 0x14030F6B0 (KiDeliverApc.c)
- *     KiAbIoBoostOwners @ 0x140318A44 (KiAbIoBoostOwners.c)
- *     KiAbCpuBoostOwners @ 0x140318B48 (KiAbCpuBoostOwners.c)
- *     KiAbSetMinimumThreadPriority @ 0x140318C48 (KiAbSetMinimumThreadPriority.c)
- *     KiAbEntryUpdateWaiterTreePosition @ 0x140318EE4 (KiAbEntryUpdateWaiterTreePosition.c)
- *     KiAbEntryGetCpuPriorityKey @ 0x140318FC0 (KiAbEntryGetCpuPriorityKey.c)
- *     KiAbEntryUpdateOwnerTreePosition @ 0x140319010 (KiAbEntryUpdateOwnerTreePosition.c)
- *     KiAbOwnerComputeCpuPriorityKey @ 0x1403190CC (KiAbOwnerComputeCpuPriorityKey.c)
- *     IoBoostThreadIoPriority @ 0x14031B140 (IoBoostThreadIoPriority.c)
- *     KiUpdateVPBackingThreadPriority @ 0x14034DCD8 (KiUpdateVPBackingThreadPriority.c)
- *     KiRecomputeGroupSchedulingRank @ 0x140364F20 (KiRecomputeGroupSchedulingRank.c)
- *     EtwTraceContextSwap @ 0x140388080 (EtwTraceContextSwap.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiSwapContext @ 0x140427C20 (KiSwapContext.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiSendHeteroRescheduleIntRequest @ 0x140461B06 (KiSendHeteroRescheduleIntRequest.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KiEndCounterAccumulation @ 0x140574364 (KiEndCounterAccumulation.c)
- *     KiUpdateThreadHgsFeedback @ 0x140578770 (KiUpdateThreadHgsFeedback.c)
+ *     KiReadyDeferredReadyList @ 0x1402306D0 (KiReadyDeferredReadyList.c)
+ *     KiStartThreadCycleAccumulation @ 0x140230BD0 (KiStartThreadCycleAccumulation.c)
+ *     KiEnterDeferredReadyState @ 0x1402480F0 (KiEnterDeferredReadyState.c)
+ *     KiDeliverApc @ 0x14024A0C0 (KiDeliverApc.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiProcessThreadWaitList @ 0x14024AC40 (KiProcessThreadWaitList.c)
+ *     KiIsThreadRankNonZero @ 0x14024CDC0 (KiIsThreadRankNonZero.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x140258670 (KiUpdateVPBackingThreadPriority.c)
+ *     KiComputeGroupSchedulingRank @ 0x1402594A0 (KiComputeGroupSchedulingRank.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x1402C7A00 (KiSearchForNewThreadOnProcessor.c)
+ *     KiSelectReadyThread @ 0x1402C7F90 (KiSelectReadyThread.c)
+ *     KiAbProcessContextSwitch @ 0x1402C82E0 (KiAbProcessContextSwitch.c)
+ *     KiCancelTimer @ 0x1402C8960 (KiCancelTimer.c)
+ *     KiSetVpThreadSpinLockCount @ 0x1402CBCA0 (KiSetVpThreadSpinLockCount.c)
+ *     KiReleaseThreadLockSafe @ 0x1402F1590 (KiReleaseThreadLockSafe.c)
+ *     KiCheckMaxOverQuotaTransition @ 0x14030DA40 (KiCheckMaxOverQuotaTransition.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1403435F4 (KiInsertDeferredPreemptionApc.c)
+ *     KiSelectThreadFromSchedulingGroup @ 0x14035CC9C (KiSelectThreadFromSchedulingGroup.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x14035CD9C (KiRemoveSchedulingGroupQueue.c)
+ *     KiRecomputeGroupSchedulingRank @ 0x14035DE50 (KiRecomputeGroupSchedulingRank.c)
+ *     EtwTraceContextSwap @ 0x1403A9B60 (EtwTraceContextSwap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSwapContext @ 0x140405AF0 (KiSwapContext.c)
+ *     KiEndCounterAccumulation @ 0x14051BE90 (KiEndCounterAccumulation.c)
+ *     KiSendHeteroRescheduleIntRequest @ 0x14051FE70 (KiSendHeteroRescheduleIntRequest.c)
+ *     KiSetSchedulerAssistPriority @ 0x140520894 (KiSetSchedulerAssistPriority.c)
+ *     KiUpdateVpBackingRequiresPriorityKickState @ 0x140520A30 (KiUpdateVpBackingRequiresPriorityKickState.c)
  */
 
-struct _KPRCB *__fastcall KiSwapThread(ULONG_PTR BugCheckParameter1, __int64 a2, _QWORD *a3, __int64 a4)
+__int64 __fastcall KiSwapThread(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  bool v4; // zf
-  __int64 i; // rdi
-  int v7; // r15d
-  int v8; // ecx
-  __int64 p_AbSelfIoBoostsList; // r12
-  int v10; // ecx
-  unsigned int v11; // r14d
-  __int64 v12; // rcx
-  __int64 v13; // rcx
-  ULONG_PTR v14; // rbx
-  __int64 v15; // rax
-  char v16; // cl
-  __int64 LockedHeadEntry; // rax
-  __int64 v18; // rsi
-  __int64 v19; // rax
-  char v20; // r14
-  char v21; // al
-  char v22; // dl
-  int v23; // r10d
-  char CpuPriorityKey; // r12
-  __int64 v25; // r14
-  _DWORD *v26; // rbx
-  __int64 ExtensionTable; // rax
-  _QWORD *v28; // rcx
-  volatile signed __int16 *v29; // rbx
-  unsigned __int64 v30; // r8
-  unsigned __int64 v31; // rsi
-  __int64 v32; // rdx
-  __int64 v33; // rax
-  unsigned __int64 v34; // rcx
-  char v35; // bl
-  unsigned __int64 v36; // rax
-  unsigned int v37; // eax
-  unsigned int v38; // ecx
-  int v39; // edx
-  __int64 v40; // rcx
-  unsigned int FrequencyBucket; // eax
-  char v42; // cl
-  __int64 v43; // r8
-  _BOOL8 v44; // r10
-  unsigned int v45; // ecx
-  unsigned int v46; // ecx
-  int v47; // eax
-  __int64 v48; // rax
-  __int64 v49; // r9
-  unsigned int v50; // r8d
-  int v51; // ecx
-  unsigned int v52; // edx
-  __int64 v53; // rcx
-  __int64 v54; // rcx
-  _QWORD *j; // rcx
-  struct _KPRCB *v56; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  signed __int32 v58; // eax
-  signed __int32 v59; // ett
-  int v60; // ecx
-  __int64 v61; // rbx
-  __int64 v62; // rsi
-  __int64 v63; // rbx
-  __int64 v64; // rbx
-  char v65; // al
-  unsigned __int64 v66; // r9
-  unsigned __int64 v67; // r9
-  unsigned __int64 *v68; // r8
-  int v69; // edx
-  unsigned __int8 v70; // si
-  struct _KPRCB *v71; // rcx
-  signed __int32 *v72; // r8
-  signed __int32 v73; // eax
-  signed __int32 v74; // ett
-  char v75; // di
-  struct _KPRCB *v76; // rbx
-  unsigned __int8 v77; // cf
-  volatile signed __int32 *v78; // rbx
-  char v79; // r14
-  unsigned int v80; // esi
-  __int64 v81; // r10
-  __int64 v82; // rax
-  __int64 v83; // r11
-  unsigned __int64 v84; // rax
-  __int64 v85; // r12
-  volatile signed __int32 *v86; // rdi
-  char v87; // al
-  __int64 v88; // r9
-  unsigned __int16 v89; // r8
-  _QWORD *v90; // rcx
-  unsigned __int64 v91; // r14
-  _QWORD *v92; // rax
-  __int64 v93; // r15
-  volatile signed __int32 *v94; // rsi
-  __int64 v95; // rcx
-  unsigned int v96; // edx
-  volatile signed __int32 *v97; // rcx
+  __int64 v5; // r9
+  unsigned __int64 v6; // rax
+  unsigned __int64 v7; // r10
+  unsigned __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // rdx
+  __int64 v12; // rax
+  unsigned int v13; // ecx
+  unsigned int v14; // edx
+  __int64 v15; // rdi
+  __int64 v16; // r11
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  unsigned int v19; // eax
+  unsigned int v20; // ecx
+  unsigned int v21; // ecx
+  int v22; // ecx
+  struct _KPRCB *CurrentPrcb; // rdi
+  _DWORD *SchedulerAssist; // rcx
+  __int64 v25; // rdi
+  __int64 v26; // rbp
+  __int64 ready; // rdi
+  __int64 v28; // rcx
+  __int64 v29; // rax
+  __int64 v30; // r8
+  __int64 v31; // r9
+  __int64 v32; // rcx
+  int v33; // r10d
+  int v34; // edx
+  __int64 v35; // rax
+  BOOL v36; // ebp
+  int v37; // edx
+  unsigned __int64 v38; // rdx
+  __int64 v39; // rdi
+  char v40; // cl
+  int v41; // edi
+  struct _KPRCB *v42; // rcx
+  unsigned __int64 v43; // rdx
+  __int64 v44; // r15
+  unsigned __int64 v45; // r13
+  char v46; // r10
+  __int64 v47; // r14
+  __int64 v48; // r12
+  __int64 v49; // r14
+  struct _KPRCB *v50; // rdi
+  _DWORD *v51; // rcx
+  char v52; // cl
+  __int64 v53; // rdx
+  unsigned __int64 v54; // rbp
+  char v55; // bl
+  __int64 v56; // rdx
+  char v57; // r14
+  __int64 v58; // rbx
+  unsigned __int64 v60; // rbp
+  int v61; // edx
+  unsigned __int64 v62; // rcx
+  __int64 v63; // r8
+  __int64 v64; // rdx
+  unsigned __int64 v65; // rbp
+  int v66; // edx
+  unsigned __int64 v67; // rcx
+  int v68; // ecx
+  __int64 v69; // rax
+  char v70; // cl
+  __int64 v71; // rax
+  unsigned __int64 v72; // rdx
+  __int64 v73; // rcx
+  _QWORD *i; // rcx
+  char v75; // cl
+  __int64 v76; // rdi
+  int v77; // r14d
+  __int64 v78; // r8
+  _DWORD *v79; // rcx
+  _DWORD *v80; // rcx
+  bool v81; // al
+  __int64 v82; // rbp
+  _DWORD *v83; // rcx
+  _DWORD *v84; // rcx
+  bool v85; // al
+  struct _KPRCB *v86; // rcx
+  _DWORD *v87; // rdx
+  __int64 v88; // rdx
+  __int64 v89; // r8
+  __int64 v90; // r9
+  struct _KPRCB *v91; // rdi
+  _DWORD *v92; // rcx
+  bool v93; // al
+  __int64 v94; // rax
+  int v95; // eax
+  int v96; // eax
+  int v97; // eax
+  unsigned __int64 v98; // rcx
+  __int64 v99; // rcx
+  __int64 v100; // rax
+  unsigned __int64 v101; // rcx
+  unsigned __int64 v102; // rax
+  __int64 v103; // rax
+  __int64 v104; // rcx
+  int v105; // eax
+  int v106; // eax
+  _DWORD *v107; // rcx
+  int v108; // eax
+  _DWORD *v109; // rcx
+  int v110; // eax
+  bool IsThreadRankNonZero; // al
+  __int64 v112; // rdx
+  int v113; // eax
+  __int64 v114; // rdx
+  int v115; // eax
+  int v116; // eax
+  int v117; // eax
+  struct _KPRCB *v118; // rcx
+  _DWORD *v119; // rdx
+  int v120; // eax
+  __int64 v121; // rdx
+  __int64 v122; // r8
+  __int64 v123; // r9
+  struct _KPRCB *v124; // rbp
+  _DWORD *v125; // rcx
+  int v126; // eax
+  _DWORD *v127; // rcx
+  int v128; // eax
+  _DWORD *v129; // rcx
+  int v130; // eax
+  __int64 v131; // rdx
+  __int64 v132; // rdx
+  struct _KPRCB *v133; // r14
+  __int64 v134; // rdx
+  __int64 v135; // r8
+  __int64 v136; // r9
+  ULONG_PTR v137; // rcx
+  struct _KPRCB *v138; // rcx
+  _DWORD *v139; // rdx
+  bool v140; // zf
   unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *v99; // rcx
-  _DWORD *v100; // rdx
-  unsigned __int8 v101; // cl
-  struct _KPRCB *v102; // r10
-  _DWORD *v103; // r9
-  int v104; // edx
-  signed __int32 v106[8]; // [rsp+0h] [rbp-100h] BYREF
-  char v107; // [rsp+40h] [rbp-C0h]
-  unsigned __int8 v108; // [rsp+41h] [rbp-BFh]
-  int v109; // [rsp+44h] [rbp-BCh] BYREF
-  unsigned int v110; // [rsp+48h] [rbp-B8h]
-  __int64 v111; // [rsp+50h] [rbp-B0h]
-  int v112; // [rsp+58h] [rbp-A8h] BYREF
-  _QWORD *v113; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v114; // [rsp+68h] [rbp-98h]
-  int v115; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v116; // [rsp+78h] [rbp-88h] BYREF
-  unsigned __int64 v117; // [rsp+80h] [rbp-80h] BYREF
-  struct _KPRCB *CurrentPrcb; // [rsp+88h] [rbp-78h]
-  __int64 v119; // [rsp+90h] [rbp-70h] BYREF
-  int v120; // [rsp+98h] [rbp-68h]
-  int v121; // [rsp+9Ch] [rbp-64h] BYREF
-  int v122; // [rsp+A0h] [rbp-60h] BYREF
-  int v123; // [rsp+A4h] [rbp-5Ch] BYREF
-  int v124; // [rsp+A8h] [rbp-58h] BYREF
-  int v125; // [rsp+ACh] [rbp-54h] BYREF
-  int v126; // [rsp+B0h] [rbp-50h] BYREF
-  int v127; // [rsp+B4h] [rbp-4Ch] BYREF
-  unsigned __int64 v128; // [rsp+B8h] [rbp-48h] BYREF
-  __int64 v129; // [rsp+C0h] [rbp-40h]
-  _QWORD *v130; // [rsp+C8h] [rbp-38h]
-  __int128 v131; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 v132; // [rsp+E0h] [rbp-20h]
-  __int128 v133; // [rsp+E8h] [rbp-18h]
-  _QWORD v134[2]; // [rsp+F8h] [rbp-8h] BYREF
+  struct _KPRCB *v142; // rax
+  _DWORD *v143; // r9
+  int v144; // edx
+  int v145; // [rsp+20h] [rbp-88h]
+  int v146; // [rsp+20h] [rbp-88h]
+  int v147; // [rsp+24h] [rbp-84h]
+  __int64 v148; // [rsp+28h] [rbp-80h]
+  int v149; // [rsp+30h] [rbp-78h] BYREF
+  int v150; // [rsp+34h] [rbp-74h]
+  int v151; // [rsp+38h] [rbp-70h] BYREF
+  int v152; // [rsp+3Ch] [rbp-6Ch]
+  int v153; // [rsp+40h] [rbp-68h] BYREF
+  int v154; // [rsp+44h] [rbp-64h] BYREF
+  int v155; // [rsp+48h] [rbp-60h] BYREF
+  __int64 v156; // [rsp+50h] [rbp-58h]
+  _QWORD *v157; // [rsp+58h] [rbp-50h] BYREF
+  char v158; // [rsp+B0h] [rbp+8h]
+  __int64 v159; // [rsp+B0h] [rbp+8h]
+  unsigned int v161; // [rsp+C8h] [rbp+20h]
 
-  v4 = *(_QWORD *)(a2 + 11528) == 0LL;
-  i = a2;
-  v130 = a3;
-  v119 = a2;
-  if ( !v4 )
-    KiProcessThreadWaitList(a2, 1LL, 0LL, 2LL);
-  v7 = 0;
-  v8 = *(unsigned __int8 *)(BugCheckParameter1 + 792) | *(unsigned __int8 *)(BugCheckParameter1 + 870);
-  v116 = 0LL;
-  if ( v8 == 63 )
-    goto LABEL_59;
-  CurrentPrcb = KeGetCurrentPrcb();
-  v113 = 0LL;
-  v110 = 0;
-  p_AbSelfIoBoostsList = (__int64)&CurrentPrcb->AbSelfIoBoostsList;
-  v10 = *(unsigned __int8 *)(BugCheckParameter1 + 792) | *(unsigned __int8 *)(BugCheckParameter1 + 870);
-  v114 = (__int64)&CurrentPrcb->AbSelfIoBoostsList;
-  if ( v10 == 63 )
-    goto LABEL_58;
-  v11 = (*(unsigned __int8 *)(BugCheckParameter1 + 792) | *(unsigned __int8 *)(BugCheckParameter1 + 870)) ^ 0x3F;
-  v4 = !_BitScanForward((unsigned int *)&v12, v11);
-  v110 = v12;
-  if ( v4 )
-    goto LABEL_58;
-  do
-  {
-    v11 &= v11 - 1;
-    v13 = 96 * v12;
-    v14 = v13 + BugCheckParameter1 + 1696;
-    v110 = v11;
-    v133 = 0LL;
-    v15 = *(_QWORD *)v14;
-    *(_QWORD *)&v133 = v15;
-    if ( v15 && (v15 & 2) == 0 && (v15 & 1) == 0 )
-    {
-      if ( v15 >= 0 )
-        goto LABEL_17;
-      if ( (*(_BYTE *)(v14 + 19) & 1) != 0 )
-        goto LABEL_53;
-      if ( *(_BYTE *)(v14 + 17) )
-      {
-        v16 = *(_BYTE *)(v14 - 96LL * *(unsigned __int8 *)(v14 + 16) - 1501);
-        if ( v16 > 30 )
-          v16 = 30;
-        if ( v16 != *(_BYTE *)(v14 + 48) )
-        {
-LABEL_17:
-          v109 = 0;
-          v132 = 0LL;
-          v112 = 0;
-          v131 = 0LL;
-          LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v14, 1LL, &v131);
-          v18 = LockedHeadEntry;
-          if ( !LockedHeadEntry )
-            goto LABEL_52;
-          if ( !*(_BYTE *)(v14 + 17) )
-          {
-            if ( v14 != LockedHeadEntry )
-              KiAbEntryUpdateOwnerTreePosition(v14, LockedHeadEntry);
-            KiAbDetermineMaxWaiterPriority(v18, &v109);
-            if ( v109 )
-            {
-              if ( (unsigned int)KiAbSetMinimumThreadPriority(
-                                   v14,
-                                   (unsigned int)&v109,
-                                   (unsigned int)&v116,
-                                   (unsigned int)&v113,
-                                   p_AbSelfIoBoostsList,
-                                   (__int64)&v112)
-                && v14 != v18 )
-              {
-                KiAbEntryUpdateOwnerTreePosition(v14, v18);
-              }
-              v7 = v112;
-LABEL_43:
-              KxReleaseQueuedSpinLock(&v131);
-              if ( v7 )
-              {
-                v26 = (_DWORD *)(v14 - 96LL * *(unsigned __int8 *)(v14 + 16) - 1696);
-                if ( (unsigned __int8)ObReferenceObjectSafeWithTag(v26, 1953261124LL) )
-                {
-                  if ( (v7 & 1) != 0 )
-                    IoBoostThreadIoPriority(v26, 2LL, 0x80000000LL);
-                  if ( (v7 & 2) != 0 )
-                  {
-                    if ( v26[362] )
-                    {
-                      ExtensionTable = ExGetExtensionTable(IopIoRateExtensionHost);
-                      if ( ExtensionTable )
-                      {
-                        (*(void (__fastcall **)(_DWORD *))(ExtensionTable + 16))(v26);
-                        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(IopIoRateExtensionHost + 64));
-                      }
-                    }
-                  }
-                  ObDereferenceObjectDeferDeleteWithTag(v26, 0x746C6644u);
-                }
-              }
-LABEL_52:
-              v7 = 0;
-              goto LABEL_53;
-            }
-LABEL_38:
-            KxReleaseQueuedSpinLock(&v131);
-            goto LABEL_52;
-          }
-          if ( v14 != LockedHeadEntry )
-            KiAbEntryUpdateWaiterTreePosition(v14, LockedHeadEntry);
-          v19 = *(_QWORD *)(v18 + 56);
-          if ( v19 )
-            v20 = *(_BYTE *)(v19 + 24);
-          else
-            v20 = 30;
-          v4 = *(_BYTE *)(v18 + 17) == 0;
-          LOBYTE(v109) = v20;
-          if ( v4 )
-          {
-            v21 = KiAbOwnerComputeCpuPriorityKey(v18);
-            v22 = v20;
-            if ( v21 < v20 )
-              v22 = v21;
-            v20 = v22;
-            LOBYTE(v109) = v22;
-          }
-          KiAbTryIncrementIoWaiterCounts(v14, v18);
-          CpuPriorityKey = KiAbEntryGetCpuPriorityKey(v14);
-          if ( v20 < CpuPriorityKey )
-          {
-            if ( v23 )
-              goto LABEL_40;
-            v25 = v114;
-          }
-          else
-          {
-            if ( !v23 )
-            {
-              v11 = v110;
-              p_AbSelfIoBoostsList = v114;
-              goto LABEL_38;
-            }
-LABEL_40:
-            v25 = v114;
-            KiAbIoBoostOwners(v18, v23, (unsigned int)&v116, (unsigned int)&v113, v114);
-          }
-          KiAbCpuBoostOwners(v18, (unsigned __int8)CpuPriorityKey, (unsigned int)&v116, (unsigned int)&v113, v25);
-          v11 = v110;
-          p_AbSelfIoBoostsList = v114;
-          goto LABEL_43;
-        }
-      }
-      else if ( (unsigned __int8)KiAbOwnerComputeCpuPriorityKey(v13 + BugCheckParameter1 + 1696) != *(_BYTE *)(v14 + 48) )
-      {
-        goto LABEL_17;
-      }
-    }
-LABEL_53:
-    v4 = !_BitScanForward((unsigned int *)&v12, v11);
-    v110 = v12;
-  }
-  while ( !v4 );
-  v28 = v113;
-  for ( i = v119; v113; v28 = v113 )
-  {
-    v29 = (volatile signed __int16 *)(v28 - 101);
-    v113 = (_QWORD *)*v28;
-    *v28 = 1LL;
-    _InterlockedOr(v106, 0);
-    if ( *((_BYTE *)v28 - 15) )
-      KiAbProcessThreadLocks((_DWORD)v28 - 808, 0, 1, 0, (__int64)&v116, (__int64)&v113, p_AbSelfIoBoostsList);
-    _InterlockedDecrement16(v29 + 434);
-  }
-LABEL_58:
-  KiReadyDeferredReadyList(CurrentPrcb, &v116);
-LABEL_59:
+  if ( *(_QWORD *)(a2 + 11528) )
+    KiProcessThreadWaitList(a2, 1u, 0, 2u);
+  KiAbProcessContextSwitch(a1, 0LL);
   _disable();
-  *(_BYTE *)(i + 32) = 1;
-  v30 = __rdtsc();
-  v31 = v30 - *(_QWORD *)(i + 33152);
-  v32 = v31 + *(_QWORD *)(BugCheckParameter1 + 72);
-  *(_QWORD *)(BugCheckParameter1 + 72) = v32;
-  v33 = *(unsigned int *)(BugCheckParameter1 + 80);
-  v34 = v31 * *(unsigned int *)(i + 33208);
-  *(_QWORD *)(i + 33152) = v30;
-  v35 = *(_BYTE *)(BugCheckParameter1 + 2);
-  v36 = (v34 >> 16) + v33;
-  if ( v36 > 0xFFFFFFFF )
-    LODWORD(v36) = -1;
-  *(_DWORD *)(BugCheckParameter1 + 80) = v36;
-  if ( (v35 & 0xBE) != 0 )
+  *(_BYTE *)(a2 + 32) = 1;
+  v6 = __rdtsc();
+  v7 = v6 - *(_QWORD *)(a2 + 32448);
+  v8 = v7 + *(unsigned int *)(a1 + 80);
+  *(_QWORD *)(a1 + 72) += v7;
+  v9 = 0xFFFFFFFFLL;
+  if ( v8 > 0xFFFFFFFF )
+    LODWORD(v8) = -1;
+  *(_QWORD *)(a2 + 32448) = v6;
+  v10 = *(unsigned __int8 *)(a1 + 2);
+  *(_DWORD *)(a1 + 80) = v8;
+  if ( (v10 & 0x3E) != 0 )
   {
-    if ( v35 < 0 )
+    if ( (v10 & 0x10) != 0 )
     {
-      v30 = *(_QWORD *)(i + 34480);
-      a4 = (*(_QWORD *)(*(_QWORD *)(BugCheckParameter1 + 544) + 1024LL) >> 4) & 0x1FFLL;
-      v37 = ((unsigned int)*(_QWORD *)(*(_QWORD *)(BugCheckParameter1 + 544) + 1024LL) >> 13) & 0x3FFFF;
-      _BitScanReverse(&v38, v37);
-      v39 = 1 << v38;
-      v40 = v38 - 2;
-      v120 = v40;
-      v32 = *(_QWORD *)(*(_QWORD *)(v30 + 8 * v40) + 8LL * (v37 ^ v39) + 8);
-      *(_QWORD *)(v32 + 8 * a4) += v31;
-      v35 &= ~0x80u;
+      v9 = *(_QWORD *)(a2 + 32448) - *(_QWORD *)(a2 + 32456);
+      *(_QWORD *)(a2 + 8LL * *(unsigned __int8 *)(a1 + 124) + 32464) += v9;
+      LOBYTE(v10) = v10 & 0xEF;
+      *(_QWORD *)(a2 + 32456) = 0LL;
     }
-    if ( (v35 & 0x10) != 0 )
+    if ( (v10 & 0x20) != 0 )
     {
-      v32 = i + 8LL * *(unsigned __int8 *)(BugCheckParameter1 + 124);
-      *(_QWORD *)(v32 + 33160) += v31;
-      v35 &= ~0x10u;
-    }
-    if ( (v35 & 0x20) != 0 )
-    {
-      a4 = *(_QWORD *)(BugCheckParameter1 + 1608);
-      if ( a4 )
+      v5 = *(_QWORD *)(a1 + 1528);
+      if ( v5 )
       {
-        FrequencyBucket = PoGetFrequencyBucket(i, v32, v30, a4);
-        if ( KeHeteroSystem )
-          v42 = *(_BYTE *)(i + 34056);
-        else
-          v42 = *(_BYTE *)(i + 34059);
-        v43 = FrequencyBucket;
-        v44 = v42 != 0;
-        *(_QWORD *)(a4 + 8 * (v44 + 2LL * FrequencyBucket)) += v31;
-        v45 = *(_DWORD *)(a4 + 192);
-        if ( KiTimelineBitmapTime <= v45 )
+        v11 = *(_QWORD *)(a2 + 33128);
+        v12 = *(_QWORD *)(a2 + 33136);
+        if ( v11 && v12 )
         {
-          v46 = v45 - KiTimelineBitmapTime;
-          if ( v46 < 0x20 )
-            *(_DWORD *)(a4 + 196) |= 1 << v46;
-        }
-        else
-        {
-          LODWORD(v111) = KiTimelineBitmapTime;
-          if ( KiTimelineBitmapTime - v45 >= 0x20 )
-            HIDWORD(v111) = 1;
+          if ( *(_BYTE *)(v12 + 100) )
+          {
+            v13 = *(_DWORD *)(v12 + 116);
+          }
           else
-            HIDWORD(v111) = (*(_DWORD *)(a4 + 196) << (KiTimelineBitmapTime - v45)) | 1;
-          *(_QWORD *)(a4 + 192) = v111;
+          {
+            v13 = *(_DWORD *)(v12 + 72);
+            if ( v13 >= *(_DWORD *)(v11 + 368) )
+              v13 = *(_DWORD *)(v11 + 368);
+          }
         }
-        if ( !KiEfficiencyClassSystem )
+        else
         {
-          v47 = (unsigned __int8)*(_DWORD *)(BugCheckParameter1 + 512);
-          if ( v47 == 2 || (unsigned int)(v47 - 5) <= 1 )
-            *(_QWORD *)(a4 + 16 * v43 + 8) += v31;
+          v13 = 100;
         }
-        if ( *(_QWORD *)(BugCheckParameter1 + 1552) )
+        if ( v13 < 0x4B )
+          v14 = v13 / 0x19;
+        else
+          v14 = 3;
+        v15 = *(unsigned __int8 *)(a2 + 33208);
+        v16 = v14;
+        v17 = v15 + 2LL * v14;
+        v18 = *(_QWORD *)(v5 + 8 * v17);
+        v9 = v5 + 8 * v17;
+        v19 = KiTimelineBitmapTime;
+        *(_QWORD *)v9 = v7 + v18;
+        v20 = *(_DWORD *)(v5 + 192);
+        if ( v19 > v20 )
         {
-          *(_QWORD *)(a4 + 8 * (v44 + 2 * (v43 + 8))) += v31;
-          _InterlockedExchangeAdd64(
-            (volatile signed __int64 *)(*(_QWORD *)(*(_QWORD *)(BugCheckParameter1 + 1552) + 1608LL)
-                                      + 8 * (v44 + 2 * (v43 + 4))),
-            v31);
+          LODWORD(v159) = v19;
+          v9 = v19 - v20;
+          if ( (unsigned int)v9 >= 0x20 )
+            HIDWORD(v159) = 1;
+          else
+            HIDWORD(v159) = (*(_DWORD *)(v5 + 196) << (v19 - v20)) | 1;
+          *(_QWORD *)(v5 + 192) = v159;
         }
-      }
-      v35 &= ~0x20u;
-    }
-    if ( (v35 & 0x40) != 0 )
-    {
-      v48 = *(_QWORD *)(BugCheckParameter1 + 968);
-      if ( v48 )
-        *(_BYTE *)(v48 + 64) = 0;
-    }
-    if ( KiHgsPlusEnabled )
-    {
-      LOBYTE(a4) = 1;
-      KiUpdateThreadHgsFeedback(i, BugCheckParameter1, v31, a4);
-    }
-    v49 = *(_QWORD *)(i + 33200);
-    if ( v49 )
-    {
-      if ( *(_BYTE *)(BugCheckParameter1 + 125) )
-      {
-        v50 = (unsigned __int8)*(_DWORD *)(BugCheckParameter1 + 512);
-        if ( v50 < 7 )
+        else
         {
-          v51 = 0;
-          v52 = *(_DWORD *)(BugCheckParameter1 + 80);
-          if ( v52 <= *(_DWORD *)(BugCheckParameter1 + 84) )
-            v52 = *(_DWORD *)(BugCheckParameter1 + 84);
-          LOBYTE(v51) = v52 >= KiDynamicHeteroCpuPolicyExpectedCycles;
-          v53 = *(unsigned __int8 *)(BugCheckParameter1 + 516) + (unsigned int)KiHgsPlusConfiguration * (v51 + 2 * v50);
-          *(_QWORD *)(v49 + 8 * v53) += v31;
+          v21 = v20 - v19;
+          if ( v21 < 0x20 )
+            *(_DWORD *)(v5 + 196) |= 1 << v21;
+        }
+        if ( !KiEfficiencyClassSystem && (unsigned __int8)*(_DWORD *)(a1 + 512) == 2 )
+        {
+          v9 = 2 * v16;
+          *(_QWORD *)(v5 + 16 * v16 + 8) += v7;
+        }
+        if ( *(_QWORD *)(a1 + 1472) )
+        {
+          *(_QWORD *)(v5 + 8 * (v15 + 16 + 2 * v16)) += v7;
+          v9 = *(_QWORD *)(*(_QWORD *)(a1 + 1472) + 1528LL) + 8 * (v15 + 8 + 2 * v16);
+          _InterlockedExchangeAdd64((volatile signed __int64 *)v9, v7);
         }
       }
+      LOBYTE(v10) = v10 & 0xDF;
     }
-    if ( (v35 & 0xBE) != 0 )
+    if ( (v10 & 0x40) != 0 )
     {
-      v54 = *(_QWORD *)(BugCheckParameter1 + 104);
-      if ( v54 )
-      {
-        for ( j = (_QWORD *)(*(unsigned int *)(i + 216) + v54); j; j = (_QWORD *)j[51] )
-          *j += v31;
-      }
-      if ( (*(_BYTE *)(BugCheckParameter1 + 2) & 8) != 0
-        && (*(_QWORD *)(*(_QWORD *)(i + 192) + 128LL) & *(_QWORD *)(*(_QWORD *)(BugCheckParameter1 + 576)
-                                                                  + 8LL
-                                                                  * *(unsigned __int16 *)(*(_QWORD *)(i + 192) + 136LL)
-                                                                  + 8)) != *(_QWORD *)(*(_QWORD *)(i + 192) + 128LL) )
-      {
-        *(_QWORD *)(i + 33192) += v31;
-      }
-      if ( *(_QWORD *)(BugCheckParameter1 + 360) )
-        KiEndCounterAccumulation(BugCheckParameter1);
+      v94 = *(_QWORD *)(a1 + 968);
+      if ( v94 )
+        *(_BYTE *)(v94 + 64) = 0;
+      LOBYTE(v10) = v10 & 0xBF;
     }
-  }
-  v56 = KeGetCurrentPrcb();
-  SchedulerAssist = (signed __int32 *)v56->SchedulerAssist;
-  if ( SchedulerAssist )
-  {
-    _m_prefetchw(SchedulerAssist);
-    v58 = *SchedulerAssist;
-    do
+    if ( (v10 & 0x3E) != 0 )
     {
-      v59 = v58;
-      v58 = _InterlockedCompareExchange(SchedulerAssist, v58 & 0xFFDFFFFF, v58);
+      v73 = *(_QWORD *)(a1 + 104);
+      if ( v73 )
+      {
+        for ( i = (_QWORD *)(*(unsigned int *)(a2 + 216) + v73); i; i = (_QWORD *)i[51] )
+          *i += v7;
+      }
+      if ( (*(_BYTE *)(a1 + 2) & 8) != 0 )
+      {
+        v9 = *(_QWORD *)(*(_QWORD *)(a2 + 192) + 136LL);
+        if ( (*(_QWORD *)(a1 + 576) & v9) != v9 )
+          *(_QWORD *)(a2 + 32488) += v7;
+      }
+      if ( *(_BYTE *)(a1 + 125) )
+      {
+        if ( (unsigned __int8)*(_DWORD *)(a1 + 512) == 2 )
+          *(_QWORD *)(a2 + 32504) += v7;
+        else
+          *(_QWORD *)(a2 + 32496) += v7;
+      }
+      if ( *(_QWORD *)(a1 + 360) )
+        KiEndCounterAccumulation(a1);
     }
-    while ( v59 != v58 );
-    if ( (v58 & 0x200000) != 0 )
-      KiRemoveSystemWorkPriorityKick(v56);
   }
   _enable();
-  v60 = (*(_DWORD *)(BugCheckParameter1 + 80) >> 1) + (*(_DWORD *)(BugCheckParameter1 + 84) >> 1);
-  *(_DWORD *)(BugCheckParameter1 + 80) = 0;
-  *(_DWORD *)(BugCheckParameter1 + 84) = v60;
-  v121 = 0;
-  v117 = i & 0xFFFFFFFFFFFFFFFEuLL;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)(i + 48), 0LL) )
+  v22 = (*(_DWORD *)(a1 + 80) >> 1) + (*(_DWORD *)(a1 + 84) >> 1);
+  *(_DWORD *)(a1 + 80) = 0;
+  *(_DWORD *)(a1 + 84) = v22;
+  CurrentPrcb = KeGetCurrentPrcb();
+  v149 = 0;
+  SchedulerAssist = CurrentPrcb->SchedulerAssist;
+  if ( SchedulerAssist )
   {
-    do
-      KeYieldProcessorEx(&v121);
-    while ( *(_QWORD *)(i + 48) );
-  }
-  v61 = *(_QWORD *)(BugCheckParameter1 + 104);
-  v62 = v61;
-  if ( v61 )
-  {
-    v63 = *(unsigned int *)(i + 216) + v61;
-    if ( v63 )
+    if ( CurrentPrcb->NestingLevel <= 1u )
     {
+      v95 = SchedulerAssist[6];
+      SchedulerAssist[6] = v95 + 1;
+      if ( v95 == -1 )
+LABEL_193:
+        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+    }
+  }
+  while ( _interlockedbittestandset64((volatile signed __int32 *)(a2 + 48), 0LL) )
+  {
+    v83 = CurrentPrcb->SchedulerAssist;
+    if ( v83 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v96 = v83[6] - 1;
+        v83[6] = v96;
+        if ( !v96 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
+    }
+    do
+      KeYieldProcessorEx(&v149, v9, v10, v5);
+    while ( *(_QWORD *)(a2 + 48) );
+    v84 = CurrentPrcb->SchedulerAssist;
+    if ( v84 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v97 = v84[6];
+        v84[6] = v97 + 1;
+        if ( v97 == -1 )
+          goto LABEL_193;
+      }
+    }
+  }
+  v25 = *(_QWORD *)(a1 + 104);
+  v156 = v25;
+  v26 = v25;
+  if ( v25 )
+  {
+    v76 = *(unsigned int *)(a2 + 216) + v25;
+    if ( v76 )
+    {
+      v77 = 0;
       while ( 1 )
       {
-        if ( (*(_BYTE *)(v63 + 112) & 4) != 0 )
+        if ( (*(_BYTE *)(v76 + 112) & 4) != 0 )
         {
-          if ( (unsigned __int8)KiCheckMaxOverQuotaTransition(v63, v62) )
+          if ( (unsigned __int8)KiCheckMaxOverQuotaTransition(v76, v26) )
           {
-            if ( (*(_BYTE *)(v63 + 112) & 1) != 0 )
-              KiRemoveSchedulingGroupQueue(i, v63, 1);
+            if ( (*(_BYTE *)(v76 + 112) & 1) != 0 )
+            {
+              LOBYTE(v78) = 1;
+              KiRemoveSchedulingGroupQueue(a2, v76, v78);
+            }
           }
-          else if ( *(_QWORD *)v63 >= *(_QWORD *)(v63 + 24) && (*(_BYTE *)(v63 + 112) & 2) == 0 )
+          else if ( *(_QWORD *)v76 >= *(_QWORD *)(v76 + 24) && (*(_BYTE *)(v76 + 112) & 2) == 0 )
           {
-            KiRecomputeGroupSchedulingRank(v62, v63, i);
+            KiRecomputeGroupSchedulingRank(v26, v76, a2);
           }
         }
         else
         {
-          KiComputeGroupSchedulingRank(v62, i, SchedulerAssist, v63);
+          KiComputeGroupSchedulingRank(v26, a2, (__int64 *)v76);
         }
-        v63 = *(_QWORD *)(v63 + 408);
-        if ( !v63 )
+        v77 += *(_DWORD *)(v76 + 116);
+        v76 = *(_QWORD *)(v76 + 408);
+        if ( !v76 )
           break;
-        v62 = v63 - *(unsigned int *)(i + 216);
+        v26 = v76 - *(unsigned int *)(a2 + 216);
+        v156 = v26;
       }
     }
   }
-  v64 = KiSearchForNewThread(i, 0LL, &v117);
-  if ( v64 == *(_QWORD *)(i + 24) && KeHeteroSystem && !KeHeteroSystemVirtual )
+  ready = *(_QWORD *)(a2 + 16);
+  if ( ready )
   {
-    KiReleasePrcbLocksForIsolationUnit(&v117);
-    KiSendHeteroRescheduleIntRequest(i);
-    KiAcquirePrcbLocksForIsolationUnit(i, 0LL, &v117);
-    v64 = *(_QWORD *)(i + 16);
+LABEL_127:
+    *(_QWORD *)(a2 + 16) = 0LL;
+    *(_QWORD *)(a2 + 8) = ready;
+    if ( *(_BYTE *)(ready + 388) == 1 )
+      goto LABEL_134;
+    goto LABEL_128;
   }
-  if ( v64 == *(_QWORD *)(i + 24) || v64 == BugCheckParameter1 || !*(_BYTE *)(v64 + 113) )
-    *(_QWORD *)(i + 16) = 0LL;
-  else
-    v64 = *(_QWORD *)(i + 24);
-  *(_QWORD *)(i + 8) = v64;
-  if ( *(_BYTE *)(v64 + 388) == 1 )
-    *(_DWORD *)(v64 + 132) = *(_DWORD *)(v64 + 132) - *(_DWORD *)(v64 + 436) + MEMORY[0xFFFFF78000000320];
-  v65 = v117;
-  v66 = v117;
-  *(_BYTE *)(v64 + 388) = 2;
-  v67 = v66 & 0xFFFFFFFFFFFFFFFEuLL;
-  v128 = v67;
-  if ( (v65 & 1) != 0 )
+  while ( 1 )
   {
-    v68 = (unsigned __int64 *)(*(_QWORD *)(v67 + 34904) + 8LL);
-    v69 = **(unsigned __int8 **)(v67 + 34904);
-    if ( **(_BYTE **)(v67 + 34904) )
-      goto LABEL_141;
-  }
-  else
-  {
-    v68 = &v128;
-    v69 = 1;
-    do
-LABEL_141:
-      _InterlockedAnd64((volatile signed __int64 *)(v68[--v69] + 48), 0LL);
-    while ( v69 );
-  }
-  v70 = *(_BYTE *)(BugCheckParameter1 + 390);
-  v108 = v70;
-  v117 = 0LL;
-  if ( BugCheckParameter1 == v64 )
-  {
-    if ( !*(_BYTE *)(v64 + 193) || *(_WORD *)(v64 + 486) || (v107 = 1, v70) )
-      v107 = 0;
-    _disable();
-    KiStartThreadCycleAccumulation(i, v64, 0LL);
-    v71 = KeGetCurrentPrcb();
-    v72 = (signed __int32 *)v71->SchedulerAssist;
-    if ( v72 )
+    ready = KiSelectReadyThread(1LL, a2);
+    if ( ready )
+      goto LABEL_129;
+    v150 = 0;
+    if ( !KiPerfIsoEnabled
+      || (v98 = **(_QWORD **)(a2 + 192) - ((**(_QWORD **)(a2 + 192) >> 1) & 0x5555555555555555LL),
+          (unsigned int)((0x101010101010101LL
+                        * (((v98 & 0x3333333333333333LL)
+                          + ((v98 >> 2) & 0x3333333333333333LL)
+                          + (((v98 & 0x3333333333333333LL) + ((v98 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24 >= KiPerfIsoEnabled)
+      && ((v99 = *(_QWORD *)(a2 + 200), v100 = *(_QWORD *)(a2 + 33880), v99 == v100)
+       || (v101 = v100 & ~v99, (*(_QWORD *)(*(_QWORD *)(a2 + 192) + 24LL) & v101) != 0)
+       || (_BitScanForward64(&v102, v101),
+           v103 = (unsigned int)KiProcessorNumberToIndexMappingTable[64 * *(unsigned __int8 *)(a2 + 208) + (int)v102],
+           v150 = v103,
+           (*(_DWORD *)(KiProcessorBlock[v103] + 236) & 0x400) != 0)) )
     {
-      _m_prefetchw(v72);
-      v73 = *v72;
-      do
+      ready = 0LL;
+      v28 = *(_QWORD *)(a2 + 31864);
+      if ( (v28 & 1) == 0 )
       {
-        v74 = v73;
-        v73 = _InterlockedCompareExchange(v72, v73 & 0xFFDFFFFF, v73);
+        v29 = *(_QWORD *)(a2 + 31864);
+        goto LABEL_36;
       }
-      while ( v74 != v73 );
-      if ( (v73 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick(v71);
+      if ( v28 != 1 )
+      {
+        v29 = v28 ^ ((a2 + 31856) | 1);
+LABEL_36:
+        while ( v29 )
+        {
+          v82 = v29 - 88;
+          ready = KiSelectThreadFromSchedulingGroup(a2, v29 - 88, 0LL);
+          if ( ready )
+            break;
+          v104 = *(_QWORD *)(v82 + 400);
+          if ( (v104 & 1) != 0 )
+          {
+            if ( v104 == 1 )
+              goto LABEL_38;
+            v29 = v104 ^ ((v82 + 392) | 1);
+          }
+          else
+          {
+            v29 = *(_QWORD *)(v82 + 400);
+          }
+        }
+        if ( ready )
+          goto LABEL_129;
+      }
     }
-    _enable();
-    if ( (*(_DWORD *)(v64 + 120) & 0x800) != 0 )
+LABEL_38:
+    ready = KiSelectReadyThread(0LL, a2);
+    if ( !ready )
     {
-      _interlockedbittestandreset((volatile signed __int32 *)(v64 + 120), 0xBu);
-      KiInsertDeferredPreemptionApc(i, v64, 0LL);
+      v32 = *(_QWORD *)(a2 + 192);
+      v33 = 1;
+      v34 = *(unsigned __int8 *)(a2 + 35);
+      v35 = *(_QWORD *)(a2 + 33976);
+      v36 = *(_BYTE *)(a2 + 35) == 7;
+      if ( v35 )
+        *(_BYTE *)(v35 + 16) = 1;
+      *(_BYTE *)(a2 + 12587) = 0;
+      if ( (v34 & 1) != 0 )
+      {
+        v37 = v34 - 1;
+        *(_BYTE *)(a2 + 35) = v37;
+        if ( !v37 )
+          _interlockedbittestandset64((volatile signed __int32 *)v32, *(unsigned __int8 *)(a2 + 209));
+        _interlockedbittestandset64((volatile signed __int32 *)(v32 + 24), *(unsigned __int8 *)(a2 + 209));
+        v38 = *(_QWORD *)(a2 + 33880);
+        if ( (*(_QWORD *)(v32 + 24) & v38) == v38 )
+        {
+          _InterlockedOr64((volatile signed __int64 *)(v32 + 8), v38);
+        }
+        else
+        {
+          v72 = *(_QWORD *)(a2 + 33880) & ~*(_QWORD *)(v32 + 24);
+          if ( ((v72 - 1) & v72) == 0 )
+            _InterlockedOr64((volatile signed __int64 *)(v32 + 16), v72);
+        }
+        _interlockedbittestandreset64((volatile signed __int32 *)(v32 + 16), *(unsigned __int8 *)(a2 + 209));
+      }
+      v39 = *(_QWORD *)(a2 + 24);
+      if ( (*(_BYTE *)(v39 + 2) & 4) != 0 )
+      {
+        IsThreadRankNonZero = KiIsThreadRankNonZero(*(_QWORD *)(a2 + 24), (struct _KPRCB *)a2);
+        v40 = 1;
+        if ( !IsThreadRankNonZero )
+          v40 = *(_BYTE *)(v39 + 195);
+        v33 = 1;
+      }
+      else
+      {
+        v40 = *(_BYTE *)(v39 + 195);
+      }
+      **(_BYTE **)(a2 + 56) = v40;
+      if ( *(_QWORD *)(a2 + 33976) )
+      {
+        v112 = (unsigned int)KiVpThreadSystemWorkPriority;
+        if ( v39 != *(_QWORD *)(a2 + 24) )
+          v112 = (unsigned int)v40;
+        KiSetSchedulerAssistPriority(*(_QWORD *)(a2 + 33976), v112, 0LL);
+      }
+      v41 = 0;
+      if ( (*(_BYTE *)(a2 + 35) & 2) != 0 )
+        v41 = v33;
+      _InterlockedAnd64((volatile signed __int64 *)(a2 + 48), 0LL);
+      v42 = KeGetCurrentPrcb();
+      v43 = (unsigned __int64)v42->SchedulerAssist;
+      if ( v43 )
+      {
+        if ( v42->NestingLevel <= 1u )
+        {
+          v113 = *(_DWORD *)(v43 + 24) - 1;
+          *(_DWORD *)(v43 + 24) = v113;
+          if ( !v113 )
+            KiRemoveSystemWorkPriorityKick(v42);
+        }
+      }
+      if ( !v41 || v36 )
+      {
+        v44 = *(_QWORD *)(a2 + 192);
+        v147 = 0;
+        LODWORD(v45) = *(_DWORD *)(v44 + 128);
+        v152 = *(unsigned __int16 *)(v44 + 146);
+LABEL_55:
+        v46 = *(_BYTE *)(a2 + 209);
+        v43 = *(unsigned __int8 *)(a2 + 208);
+        v47 = *(_QWORD *)(v44 + 136);
+        v31 = *(_QWORD *)(v44 + 152);
+        v48 = v47;
+        v158 = v46;
+        v161 = *(unsigned __int8 *)(a2 + 208);
+        v148 = v31;
+        if ( v44 == *(_QWORD *)(a2 + 192) )
+        {
+          v31 ^= *(_QWORD *)(a2 + 33856);
+          v47 ^= *(_QWORD *)(a2 + 200);
+          v148 = v31;
+          if ( (KiCacheAwareScheduling & 2) != 0 )
+            v48 &= *(_QWORD *)(a2 + 33896);
+        }
+        v49 = ~*(_QWORD *)(v44 + 24) & v47;
+        while ( 1 )
+        {
+          if ( !v49 && !v31 )
+          {
+            v45 = (unsigned int)v45 & (unsigned __int64)~(1LL << *(_WORD *)(v44 + 146));
+            if ( (_DWORD)v45 )
+            {
+              v30 = (unsigned __int16)KeNumberNodes;
+              while ( 1 )
+              {
+                v68 = v147 + 1;
+                v147 = v68;
+                if ( v68 == (unsigned __int16)KeNumberNodes )
+                  break;
+                v43 = *(unsigned int *)(qword_140C4DE98
+                                      + 4LL * ((unsigned int)(unsigned __int16)KeNumberNodes * v152 + v68));
+                if ( (_DWORD)v43 == -1 )
+                  break;
+                v69 = (unsigned int)v45;
+                if ( _bittest64(&v69, v43) )
+                {
+                  v44 = KeNodeBlock[v43];
+                  goto LABEL_55;
+                }
+              }
+            }
+            goto LABEL_62;
+          }
+          if ( (v31 & v48) != 0 )
+            break;
+LABEL_88:
+          if ( (v49 & v48) != 0 )
+          {
+            v65 = __ROR8__(v49 & v48, v46);
+            v66 = (_DWORD)v43 << 6;
+            v146 = v66;
+            do
+            {
+              _BitScanForward64(&v67, v65);
+              v65 ^= 1LL << v67;
+              ready = KiSearchForNewThreadOnProcessor(
+                        a2,
+                        KiProcessorBlock[KiProcessorNumberToIndexMappingTable[v66 + (((_BYTE)v67 + v46) & 0x3F)]],
+                        0LL);
+              if ( ready )
+                goto LABEL_72;
+              v66 = v146;
+              v46 = v158;
+            }
+            while ( v65 );
+          }
+          v31 = v148;
+          v46 = v158;
+          v49 &= ~v48;
+          v48 = *(_QWORD *)(v44 + 136);
+          v43 = v161;
+        }
+        v60 = __ROR8__(v31 & v48, v46);
+        v61 = (_DWORD)v43 << 6;
+        v145 = v61;
+        while ( 1 )
+        {
+          _BitScanForward64(&v62, v60);
+          v63 = KiProcessorBlock[KiProcessorNumberToIndexMappingTable[v61 + ((v46 + (_BYTE)v62) & 0x3F)]];
+          v64 = *(_QWORD *)(v63 + 33856);
+          v148 = ~v64 & v31;
+          v60 &= __ROR8__(~v64, v46);
+          ready = KiSearchForNewThreadOnProcessor(a2, 0LL, *(_QWORD *)(v63 + 33864));
+          if ( ready )
+            goto LABEL_72;
+          v31 = v148;
+          v61 = v145;
+          v46 = v158;
+          if ( !v60 )
+          {
+            LODWORD(v43) = v161;
+            goto LABEL_88;
+          }
+        }
+      }
+LABEL_62:
+      v50 = KeGetCurrentPrcb();
+      v153 = 0;
+      v51 = v50->SchedulerAssist;
+      if ( v51 )
+      {
+        if ( v50->NestingLevel <= 1u )
+        {
+          v115 = v51[6];
+          v51[6] = v115 + 1;
+          if ( v115 == -1 )
+LABEL_245:
+            KiRemoveSystemWorkPriorityKick(v50);
+        }
+      }
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(a2 + 48), 0LL) )
+      {
+        v79 = v50->SchedulerAssist;
+        if ( v79 )
+        {
+          if ( v50->NestingLevel <= 1u )
+          {
+            v116 = v79[6] - 1;
+            v79[6] = v116;
+            if ( !v116 )
+              KiRemoveSystemWorkPriorityKick(v50);
+          }
+        }
+        do
+          KeYieldProcessorEx(&v153, v43, v30, v31);
+        while ( *(_QWORD *)(a2 + 48) );
+        v80 = v50->SchedulerAssist;
+        if ( v80 )
+        {
+          if ( v50->NestingLevel <= 1u )
+          {
+            v117 = v80[6];
+            v80[6] = v117 + 1;
+            if ( v117 == -1 )
+              goto LABEL_245;
+          }
+        }
+      }
+      ready = *(_QWORD *)(a2 + 16);
+      if ( !ready )
+      {
+        ready = *(_QWORD *)(a2 + 24);
+        if ( !KeHeteroSystem || KeHeteroSystemVirtual )
+          goto LABEL_66;
+        _InterlockedAnd64((volatile signed __int64 *)(a2 + 48), 0LL);
+        v118 = KeGetCurrentPrcb();
+        v119 = v118->SchedulerAssist;
+        if ( v119 )
+        {
+          if ( v118->NestingLevel <= 1u )
+          {
+            v120 = v119[6] - 1;
+            v119[6] = v120;
+            if ( !v120 )
+              KiRemoveSystemWorkPriorityKick(v118);
+          }
+        }
+        KiSendHeteroRescheduleIntRequest(a2);
+        v124 = KeGetCurrentPrcb();
+        v154 = 0;
+        v125 = v124->SchedulerAssist;
+        if ( v125 )
+        {
+          if ( v124->NestingLevel <= 1u )
+          {
+            v126 = v125[6];
+            v125[6] = v126 + 1;
+            if ( v126 == -1 )
+LABEL_260:
+              KiRemoveSystemWorkPriorityKick(v124);
+          }
+        }
+        while ( _interlockedbittestandset64((volatile signed __int32 *)(a2 + 48), 0LL) )
+        {
+          v127 = v124->SchedulerAssist;
+          if ( v127 )
+          {
+            if ( v124->NestingLevel <= 1u )
+            {
+              v128 = v127[6] - 1;
+              v127[6] = v128;
+              if ( !v128 )
+                KiRemoveSystemWorkPriorityKick(v124);
+            }
+          }
+          do
+            KeYieldProcessorEx(&v154, v121, v122, v123);
+          while ( *(_QWORD *)(a2 + 48) );
+          v129 = v124->SchedulerAssist;
+          if ( v129 )
+          {
+            if ( v124->NestingLevel <= 1u )
+            {
+              v130 = v129[6];
+              v129[6] = v130 + 1;
+              if ( v130 == -1 )
+                goto LABEL_260;
+            }
+          }
+        }
+        if ( !*(_QWORD *)(a2 + 16) )
+          goto LABEL_66;
+        ready = *(_QWORD *)(a2 + 16);
+      }
+      *(_QWORD *)(a2 + 16) = 0LL;
+LABEL_66:
+      if ( (*(_BYTE *)(ready + 2) & 4) == 0 || (v85 = KiIsThreadRankNonZero(ready, (struct _KPRCB *)a2), v52 = 1, !v85) )
+        v52 = *(_BYTE *)(ready + 195);
+      **(_BYTE **)(a2 + 56) = v52;
+      if ( *(_QWORD *)(a2 + 33976) )
+      {
+        v131 = (unsigned int)KiVpThreadSystemWorkPriority;
+        if ( ready != *(_QWORD *)(a2 + 24) )
+          v131 = (unsigned int)v52;
+        KiSetSchedulerAssistPriority(*(_QWORD *)(a2 + 33976), v131, 0LL);
+      }
+      *(_QWORD *)(a2 + 8) = ready;
+      if ( *(_BYTE *)(ready + 388) == 1 )
+        *(_DWORD *)(ready + 132) = *(_DWORD *)(ready + 132) - *(_DWORD *)(ready + 436) + MEMORY[0xFFFFF78000000320];
+      *(_BYTE *)(ready + 388) = 2;
+      goto LABEL_72;
+    }
+LABEL_129:
+    if ( *(_QWORD *)(ready + 568) == KiCpuSetSequence || (*(_DWORD *)(ready + 116) & 8) != 0 )
+      break;
+    KiEnterDeferredReadyState(ready);
+    _InterlockedAnd64((volatile signed __int64 *)(a2 + 48), 0LL);
+    v86 = KeGetCurrentPrcb();
+    v87 = v86->SchedulerAssist;
+    if ( v87 )
+    {
+      if ( v86->NestingLevel <= 1u )
+      {
+        v105 = v87[6] - 1;
+        v87[6] = v105;
+        if ( !v105 )
+          KiRemoveSystemWorkPriorityKick(v86);
+      }
+    }
+    *(_QWORD *)(ready + 216) = 0LL;
+    v157 = (_QWORD *)(ready + 216);
+    KiReadyDeferredReadyList(a2, &v157);
+    v91 = KeGetCurrentPrcb();
+    v151 = 0;
+    v92 = v91->SchedulerAssist;
+    if ( v92 )
+    {
+      if ( v91->NestingLevel <= 1u )
+      {
+        v106 = v92[6];
+        v92[6] = v106 + 1;
+        if ( v106 == -1 )
+LABEL_219:
+          KiRemoveSystemWorkPriorityKick(v91);
+      }
+    }
+    while ( _interlockedbittestandset64((volatile signed __int32 *)(a2 + 48), 0LL) )
+    {
+      v107 = v91->SchedulerAssist;
+      if ( v107 )
+      {
+        if ( v91->NestingLevel <= 1u )
+        {
+          v108 = v107[6] - 1;
+          v107[6] = v108;
+          if ( !v108 )
+            KiRemoveSystemWorkPriorityKick(v91);
+        }
+      }
+      do
+        KeYieldProcessorEx(&v151, v88, v89, v90);
+      while ( *(_QWORD *)(a2 + 48) );
+      v109 = v91->SchedulerAssist;
+      if ( v109 )
+      {
+        if ( v91->NestingLevel <= 1u )
+        {
+          v110 = v109[6];
+          v109[6] = v110 + 1;
+          if ( v110 == -1 )
+            goto LABEL_219;
+        }
+      }
+    }
+    ready = *(_QWORD *)(a2 + 16);
+    if ( ready )
+      goto LABEL_127;
+  }
+  if ( (*(_BYTE *)(ready + 2) & 4) == 0 || (v81 = KiIsThreadRankNonZero(ready, (struct _KPRCB *)a2), v75 = 1, !v81) )
+    v75 = *(_BYTE *)(ready + 195);
+  **(_BYTE **)(a2 + 56) = v75;
+  if ( *(_QWORD *)(a2 + 33976) )
+  {
+    v114 = (unsigned int)KiVpThreadSystemWorkPriority;
+    if ( ready != *(_QWORD *)(a2 + 24) )
+      v114 = (unsigned int)v75;
+    KiSetSchedulerAssistPriority(*(_QWORD *)(a2 + 33976), v114, 0LL);
+  }
+  *(_QWORD *)(a2 + 8) = ready;
+  if ( *(_BYTE *)(ready + 388) == 1 )
+LABEL_134:
+    *(_DWORD *)(ready + 132) = *(_DWORD *)(ready + 132) - *(_DWORD *)(ready + 436) + MEMORY[0xFFFFF78000000320];
+LABEL_128:
+  *(_BYTE *)(ready + 388) = 2;
+LABEL_72:
+  if ( ready != *(_QWORD *)(a2 + 24) && ready != a1 && *(_BYTE *)(ready + 113) )
+  {
+    if ( (*(_BYTE *)(ready + 2) & 4) == 0 || (v93 = KiIsThreadRankNonZero(ready, (struct _KPRCB *)a2), v70 = 1, !v93) )
+      v70 = *(_BYTE *)(ready + 195);
+    **(_BYTE **)(a2 + 56) = v70;
+    v71 = *(_QWORD *)(a2 + 33976);
+    if ( v71 )
+    {
+      v132 = (unsigned int)KiVpThreadSystemWorkPriority;
+      if ( ready != *(_QWORD *)(a2 + 24) )
+        v132 = (unsigned int)v70;
+      KiSetSchedulerAssistPriority(*(_QWORD *)(a2 + 33976), v132, 0LL);
+      v71 = *(_QWORD *)(a2 + 33976);
+    }
+    *(_QWORD *)(a2 + 16) = ready;
+    if ( v71 )
+      *(_BYTE *)(v71 + 16) = ready == *(_QWORD *)(a2 + 24);
+    if ( *(_BYTE *)(ready + 388) == 1 )
+      *(_DWORD *)(ready + 132) = *(_DWORD *)(ready + 132) - *(_DWORD *)(ready + 436) + MEMORY[0xFFFFF78000000320];
+    *(_BYTE *)(ready + 388) = 3;
+    ready = *(_QWORD *)(a2 + 24);
+    *(_QWORD *)(a2 + 8) = ready;
+    if ( *(_BYTE *)(ready + 388) == 1 )
+      *(_DWORD *)(ready + 132) = *(_DWORD *)(ready + 132) - *(_DWORD *)(ready + 436) + MEMORY[0xFFFFF78000000320];
+    *(_BYTE *)(ready + 388) = 2;
+  }
+  _InterlockedAnd64((volatile signed __int64 *)(a2 + 48), 0LL);
+  KiSetVpThreadSpinLockCount(KeGetCurrentPrcb(), 0LL);
+  v54 = *(unsigned __int8 *)(a1 + 390);
+  if ( a1 == ready )
+  {
+    v57 = *(_BYTE *)(ready + 193) && !*(_WORD *)(ready + 486) && !(_BYTE)v54;
+    _disable();
+    KiStartThreadCycleAccumulation(a2, ready, 0);
+    _enable();
+    if ( (*(_DWORD *)(ready + 120) & 0x800) != 0 )
+    {
+      _interlockedbittestandreset((volatile signed __int32 *)(ready + 120), 0xBu);
+      KiInsertDeferredPreemptionApc(a2, ready, 0LL);
     }
     if ( (BYTE4(PerfGlobalGroupMask) & 4) != 0 )
-      EtwTraceContextSwap(BugCheckParameter1, BugCheckParameter1);
+      EtwTraceContextSwap(a1, a1);
   }
   else
   {
-    v75 = 0;
-    if ( (*(_DWORD *)(BugCheckParameter1 + 120) & 0x400000) != 0 && *(_BYTE *)(BugCheckParameter1 + 388) == 5 )
+    v55 = 0;
+    if ( (*(_DWORD *)(a1 + 120) & 0x400000) != 0 && *(_BYTE *)(a1 + 388) == 5 && *(_BYTE *)(a1 + 793) )
     {
-      if ( !*(_BYTE *)(BugCheckParameter1 + 793) )
+      v133 = KeGetCurrentPrcb();
+      v155 = 0;
+      while ( 1 )
       {
-        v107 = KiSwapContext(BugCheckParameter1, v64, v70);
-        goto LABEL_172;
-      }
-      v122 = 0;
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter1 + 64), 0LL) )
-      {
+        LOBYTE(v53) = 1;
+        KiSetVpThreadSpinLockCount(v133, v53);
+        if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
+          break;
+        KiSetVpThreadSpinLockCount(v133, 0LL);
         do
-          KeYieldProcessorEx(&v122);
-        while ( *(_QWORD *)(BugCheckParameter1 + 64) );
+          KeYieldProcessorEx(&v155, v53, v135, v136);
+        while ( *(_QWORD *)(a1 + 64) );
       }
-      if ( (*(_DWORD *)(BugCheckParameter1 + 120) & 0x400000) != 0 && *(_BYTE *)(BugCheckParameter1 + 388) == 5 )
+      if ( (*(_DWORD *)(a1 + 120) & 0x400000) != 0 && *(_BYTE *)(a1 + 388) == 5 )
       {
-        if ( (*(_DWORD *)(BugCheckParameter1 + 120) & 0x400000) != 0 )
-          _InterlockedOr(*(volatile signed __int32 **)(BugCheckParameter1 + 968), 0x40000u);
-        KiUpdateVPBackingThreadPriority(BugCheckParameter1);
-        v75 = 1;
+        LOBYTE(v134) = 1;
+        KiUpdateVpBackingRequiresPriorityKickState(a1, v134);
+        KiUpdateVPBackingThreadPriority(v137, 0LL, 0);
+        v55 = 1;
       }
-      *(_QWORD *)(BugCheckParameter1 + 64) = 0LL;
+      KiReleaseThreadLockSafe(a1);
     }
-    v107 = KiSwapContext(BugCheckParameter1, v64, v70);
-    if ( v75 && (*(_DWORD *)(BugCheckParameter1 + 120) & 0x400000) != 0 )
-      _InterlockedAnd(*(volatile signed __int32 **)(BugCheckParameter1 + 968), 0xFFFBFFFF);
+    v57 = KiSwapContext(a1, ready, (unsigned __int8)v54);
+    if ( v55 )
+      KiUpdateVpBackingRequiresPriorityKickState(a1, 0LL);
   }
-LABEL_172:
-  v76 = *(struct _KPRCB **)(BugCheckParameter1 + 200);
-  v77 = _bittestandreset((signed __int32 *)(BugCheckParameter1 + 116), 9u);
-  CurrentPrcb = v76;
-  if ( v77 )
+  v58 = *(_QWORD *)(a1 + 200);
+  if ( _bittestandreset((signed __int32 *)(a1 + 116), 9u) )
   {
-    v78 = (volatile signed __int32 *)(BugCheckParameter1 + 256);
-    v119 = 0LL;
-    v115 = 0;
-    v79 = 0;
-    v80 = -129;
-    while ( 1 )
+    LOBYTE(v56) = 1;
+    if ( !(unsigned __int8)KiCancelTimer(a1 + 256, v56) )
     {
-      v123 = 0;
-      while ( _interlockedbittestandset(v78, 7u) )
-      {
-        do
-          KeYieldProcessorEx(&v123);
-        while ( (*v78 & 0x80u) != 0 );
-      }
-      if ( (*(_BYTE *)(BugCheckParameter1 + 259) & 0xC0) == 0 )
-        break;
-      v81 = *(unsigned __int8 *)(BugCheckParameter1 + 258);
-      v82 = *(unsigned __int16 *)(BugCheckParameter1 + 312);
-      LODWORD(v114) = *(unsigned __int8 *)(BugCheckParameter1 + 258);
-      v111 = v81;
-      v124 = 0;
-      v83 = KiProcessorBlock[v82];
-      v84 = (unsigned __int64)*(unsigned __int16 *)(BugCheckParameter1 + 314) << 8;
-      v129 = v83;
-      v85 = v83 + 15360;
-      v86 = (volatile signed __int32 *)(v83 + 15360 + 32 * (v84 + v81 + 16));
-      while ( _interlockedbittestandset64(v86, 0LL) )
-      {
-        do
-          KeYieldProcessorEx(&v124);
-        while ( *(_QWORD *)v86 );
-      }
-      if ( *(char *)(BugCheckParameter1 + 259) >= 0 )
-      {
-        v88 = v111;
-        v89 = *(_WORD *)(BugCheckParameter1 + 314);
-        v90 = *(_QWORD **)(BugCheckParameter1 + 288);
-        v91 = 32 * (((unsigned __int64)v89 << 8) + v111 + 16);
-        v92 = *(_QWORD **)(BugCheckParameter1 + 296);
-        v93 = 32 * (((v89 ^ 1LL) << 8) + v111 + 16);
-        if ( v90[1] != BugCheckParameter1 + 288 || *v92 != BugCheckParameter1 + 288 )
-          __fastfail(3u);
-        *v92 = v90;
-        v90[1] = v92;
-        if ( v92 == v90 )
-        {
-          *(_DWORD *)(v91 + v85 + 28) = -1;
-          if ( !v89 )
-          {
-            v125 = 0;
-            v94 = (volatile signed __int32 *)(v85 + 32 * (v88 + 272));
-            while ( _interlockedbittestandset64(v94, 0LL) )
-            {
-              do
-                KeYieldProcessorEx(&v125);
-              while ( *(_QWORD *)v94 );
-            }
-            goto LABEL_211;
-          }
-          v94 = (volatile signed __int32 *)(v85 + 32 * (v88 + 16));
-          if ( _interlockedbittestandset64(v94, 0LL) )
-          {
-            _mm_pause();
-            goto LABEL_203;
-          }
-          if ( !v94 )
-          {
-LABEL_203:
-            _InterlockedAnd64((volatile signed __int64 *)v86, 0LL);
-            v126 = 0;
-            while ( _interlockedbittestandset64(v94, 0LL) )
-            {
-              do
-                KeYieldProcessorEx(&v126);
-              while ( *(_QWORD *)v94 );
-            }
-            v127 = 0;
-            v86 = (volatile signed __int32 *)(v85 + 32 * (v111 + 272));
-            while ( _interlockedbittestandset64(v86, 0LL) )
-            {
-              do
-                KeYieldProcessorEx(&v127);
-              while ( *(_QWORD *)v86 );
-            }
-LABEL_211:
-            v88 = v111;
-          }
-          if ( *(_DWORD *)(v91 + v85 + 28) == -1 && *(_DWORD *)(v93 + v85 + 28) == -1 )
-          {
-            v95 = qword_140D20278[2 * *(unsigned __int8 *)(v129 + 208)];
-            if ( KiSerializeTimerExpiration )
-            {
-              v96 = v114 & 0x3F;
-              v97 = (volatile signed __int32 *)(v95 + 8LL * ((unsigned int)v114 >> 6));
-            }
-            else
-            {
-              v96 = *(unsigned __int8 *)(v129 + 209);
-              v97 = (volatile signed __int32 *)((v88 << 6) + v95);
-            }
-            _interlockedbittestandreset64(v97, v96);
-          }
-          _InterlockedAnd64((volatile signed __int64 *)v94, 0LL);
-        }
-        _InterlockedAnd64((volatile signed __int64 *)v86, 0LL);
-        v79 = 1;
-        v80 = -1073741953;
-        break;
-      }
-      _InterlockedAnd64((volatile signed __int64 *)v86, 0LL);
-      if ( _InterlockedExchange64((volatile __int64 *)(v85 + 8LL * (*(_BYTE *)(BugCheckParameter1 + 259) & 0x3F)), 0LL) )
-      {
-        v79 = 1;
-        v80 = 16777087;
-        break;
-      }
-      _InterlockedAnd(v78, 0xFFFFFF7F);
-      v87 = *(_BYTE *)(BugCheckParameter1 + 259);
-      v115 = 0;
-      if ( v87 < 0 )
-      {
-        do
-          KeYieldProcessorEx(&v115);
-        while ( *(char *)(BugCheckParameter1 + 259) < 0 );
-      }
+      *(_BYTE *)(a1 + 481) = 4;
+      *(_QWORD *)(a1 + 264) = a1 + 464;
+      *(_QWORD *)(a1 + 272) = a1 + 464;
     }
-    _InterlockedAnd(v78, v80);
-    if ( (DWORD2(PerfGlobalGroupMask) & 0x20000) != 0 )
-    {
-      if ( v79 )
-      {
-        v119 = BugCheckParameter1 + 256;
-        v134[0] = &v119;
-        v134[1] = 8LL;
-        EtwTraceKernelEvent((int)v134, 1, 0x40020000u, 3925, 1538);
-        v70 = v108;
-        v76 = CurrentPrcb;
-        goto LABEL_224;
-      }
-LABEL_222:
-      *(_BYTE *)(BugCheckParameter1 + 481) = 4;
-      *(_QWORD *)(BugCheckParameter1 + 264) = BugCheckParameter1 + 464;
-      *(_QWORD *)(BugCheckParameter1 + 272) = BugCheckParameter1 + 464;
-    }
-    else if ( !v79 )
-    {
-      goto LABEL_222;
-    }
-    v76 = CurrentPrcb;
-    v70 = v108;
   }
-LABEL_224:
-  if ( v130 )
-    *v130 = *(_QWORD *)(BugCheckParameter1 + 976);
-  if ( v107 )
+  if ( a3 )
+    *a3 = *(_QWORD *)(a1 + 976);
+  if ( v57 )
   {
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
       {
-        v99 = KeGetCurrentPrcb();
-        v100 = v99->SchedulerAssist;
-        v4 = (v100[5] & 0xFFFF0003) == 0;
-        v100[5] &= 0xFFFF0003;
-        if ( v4 )
-          KiRemoveSystemWorkPriorityKick(v99);
+        v138 = KeGetCurrentPrcb();
+        v139 = v138->SchedulerAssist;
+        v140 = (v139[5] & 0xFFFF0003) == 0;
+        v139[5] &= 0xFFFF0003;
+        if ( v140 )
+          KiRemoveSystemWorkPriorityKick(v138);
       }
     }
     __writecr8(1uLL);
-    KiDeliverApc(0LL, 0LL, 0LL);
+    KiDeliverApc(0, 0, 0LL);
   }
   if ( KiIrqlFlags )
   {
-    v101 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v101 <= 0xFu && v70 <= 0xFu && v101 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v102 = KeGetCurrentPrcb();
-      v103 = v102->SchedulerAssist;
-      v104 = ~(unsigned __int16)(-1LL << (v70 + 1));
-      v4 = (v104 & v103[5]) == 0;
-      v103[5] &= v104;
-      if ( v4 )
-        KiRemoveSystemWorkPriorityKick(v102);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v54 <= 0xFu && CurrentIrql >= 2u )
+      {
+        v142 = KeGetCurrentPrcb();
+        v143 = v142->SchedulerAssist;
+        v144 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v54 + 1));
+        v140 = (v144 & v143[5]) == 0;
+        v143[5] &= v144;
+        if ( v140 )
+          KiRemoveSystemWorkPriorityKick(v142);
+      }
     }
   }
-  __writecr8(v70);
-  return v76;
+  __writecr8(v54);
+  return v58;
 }

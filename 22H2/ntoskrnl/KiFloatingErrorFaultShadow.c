@@ -1,5 +1,5 @@
 /*
- * XREFs of KiFloatingErrorFaultShadow @ 0x140AF78C0
+ * XREFs of KiFloatingErrorFaultShadow @ 0x140A148C0
  * Callers:
  *     <none>
  * Callees:
@@ -19,7 +19,7 @@ void __fastcall __noreturn KiFloatingErrorFaultShadow()
   {
     __asm { swapgs }
     _mm_lfence();
-    if ( !_bittest(MK_FP(__GS__, 40984LL), 1u) )
+    if ( !_bittest(MK_FP(__GS__, 36888LL), 1u) )
       __writecr3((unsigned __int64)&v4);
     __writegsqword(0x10u, v0);
     v3 = KeGetPcr()->IdtBase + 1056;

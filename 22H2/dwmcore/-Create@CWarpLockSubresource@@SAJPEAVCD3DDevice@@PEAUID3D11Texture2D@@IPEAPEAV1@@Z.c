@@ -1,15 +1,15 @@
 /*
- * XREFs of ?Create@CWarpLockSubresource@@SAJPEAVCD3DDevice@@PEAUID3D11Texture2D@@IPEAPEAV1@@Z @ 0x1800A8B2C
+ * XREFs of ?Create@CWarpLockSubresource@@SAJPEAVCD3DDevice@@PEAUID3D11Texture2D@@IPEAPEAV1@@Z @ 0x18003B8A0
  * Callers:
- *     ?CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVIBitmapDest@@HH@Z @ 0x1800A5970 (-CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV-$TMilRect@IUMilR.c)
- *     ?TryFastWarpLock@CD2DBitmap@@IEBA_NPEAPEAEPEAI1PEAPEAUIUnknown@@@Z @ 0x1800A89D8 (-TryFastWarpLock@CD2DBitmap@@IEBA_NPEAPEAEPEAI1PEAPEAUIUnknown@@@Z.c)
+ *     ?TryFastWarpLock@CD2DBitmap@@IEBA_NPEAPEAEPEAI1PEAPEAUIUnknown@@@Z @ 0x18003B75C (-TryFastWarpLock@CD2DBitmap@@IEBA_NPEAPEAEPEAI1PEAPEAUIUnknown@@@Z.c)
+ *     ?CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVIBitmapDest@@HH@Z @ 0x180044A20 (-CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV-$TMilRect@IUMilR.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F334 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ??0CWarpLockSubresource@@IEAA@PEAVIWarpPrivateAPI@@@Z @ 0x1800A8BD4 (--0CWarpLockSubresource@@IEAA@PEAVIWarpPrivateAPI@@@Z.c)
- *     ?Initialize@CWarpLockSubresource@@IEAAJPEAUID3D11Texture2D@@I@Z @ 0x1800A8CF0 (-Initialize@CWarpLockSubresource@@IEAAJPEAUID3D11Texture2D@@I@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Initialize@CWarpLockSubresource@@IEAAJPEAUID3D11Texture2D@@I@Z @ 0x18003B948 (-Initialize@CWarpLockSubresource@@IEAAJPEAUID3D11Texture2D@@I@Z.c)
+ *     ??0CWarpLockSubresource@@IEAA@PEAVIWarpPrivateAPI@@@Z @ 0x18003BA20 (--0CWarpLockSubresource@@IEAA@PEAVIWarpPrivateAPI@@@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C07A0 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
  */
 
 __int64 __fastcall CWarpLockSubresource::Create(
@@ -21,42 +21,45 @@ __int64 __fastcall CWarpLockSubresource::Create(
   struct IWarpPrivateAPI *v5; // rbx
   CWarpLockSubresource *v8; // rax
   unsigned int v9; // ecx
-  CWarpLockSubresource *v10; // rax
-  CWarpLockSubresource *v11; // rdi
-  int v12; // eax
-  unsigned int v13; // ecx
-  unsigned int v14; // ebx
+  CMILCOMBase *v10; // rdi
+  int v11; // eax
+  unsigned int v12; // ecx
+  unsigned int v13; // ebx
 
   *a4 = 0LL;
-  v5 = (struct IWarpPrivateAPI *)*((_QWORD *)a1 + 71);
+  v5 = (struct IWarpPrivateAPI *)*((_QWORD *)a1 + 76);
   if ( v5 )
   {
     v8 = (CWarpLockSubresource *)DefaultHeap::Alloc(0x38uLL);
-    if ( v8 && (v10 = CWarpLockSubresource::CWarpLockSubresource(v8, v5), (v11 = v10) != 0LL) )
+    if ( v8 )
+      v10 = CWarpLockSubresource::CWarpLockSubresource(v8, v5);
+    else
+      v10 = 0LL;
+    if ( v10 )
     {
-      CMILRefCountImpl::AddReference((CWarpLockSubresource *)((char *)v10 + 8));
-      v12 = CWarpLockSubresource::Initialize(v11, a2, a3);
-      v14 = v12;
-      if ( v12 < 0 )
+      CMILCOMBase::InternalAddRef(v10);
+      v11 = CWarpLockSubresource::Initialize(v10, a2, a3);
+      v13 = v11;
+      if ( v11 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x1Cu, 0LL);
-        CMILRefCountBaseT<IUnknown>::InternalRelease((volatile signed __int32 *)v11);
+        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x1Cu, 0LL);
+        CRenderTargetBitmap::Release(v10);
       }
       else
       {
-        *a4 = v11;
+        *a4 = v10;
       }
     }
     else
     {
-      v14 = -2147024882;
+      v13 = -2147024882;
       MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024882, 0x1Au, 0LL);
     }
   }
   else
   {
-    v14 = -2003292287;
+    v13 = -2003292287;
     MilInstrumentationCheckHR_MaybeFailFast((unsigned int)a1, 0LL, 0, -2003292287, 0x22u, 0LL);
   }
-  return v14;
+  return v13;
 }

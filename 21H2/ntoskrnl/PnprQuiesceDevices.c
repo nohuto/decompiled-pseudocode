@@ -1,15 +1,15 @@
 /*
- * XREFs of PnprQuiesceDevices @ 0x140A68674
+ * XREFs of PnprQuiesceDevices @ 0x1409AE210
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140950E30 (PnpReplacePartitionUnit.c)
- *     PnprQuiesceWorker @ 0x140A69140 (PnprQuiesceWorker.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC270 (PnpReplacePartitionUnit.c)
+ *     PnprQuiesceWorker @ 0x1409AEC60 (PnprQuiesceWorker.c)
  * Callees:
- *     PoStartPowerStateTasks @ 0x1407FE79C (PoStartPowerStateTasks.c)
- *     PoBlockConsoleSwitch @ 0x1407FE7DC (PoBlockConsoleSwitch.c)
- *     PoInitializeBroadcast @ 0x140802640 (PoInitializeBroadcast.c)
- *     PoStartPartitionReplace @ 0x14098FDA8 (PoStartPartitionReplace.c)
- *     PoBroadcastSystemState @ 0x140A4A768 (PoBroadcastSystemState.c)
- *     PnprGetMillisecondCounter @ 0x140A67C14 (PnprGetMillisecondCounter.c)
+ *     PoBlockConsoleSwitch @ 0x14067E978 (PoBlockConsoleSwitch.c)
+ *     PoStartPowerStateTasks @ 0x1407741A4 (PoStartPowerStateTasks.c)
+ *     PoInitializeBroadcast @ 0x140778238 (PoInitializeBroadcast.c)
+ *     PoStartPartitionReplace @ 0x1408E76B8 (PoStartPartitionReplace.c)
+ *     PoBroadcastSystemState @ 0x1409922E0 (PoBroadcastSystemState.c)
+ *     PnprGetMillisecondCounter @ 0x1409AD79C (PnprGetMillisecondCounter.c)
  */
 
 __int64 __fastcall PnprQuiesceDevices(__int64 a1)
@@ -29,7 +29,7 @@ __int64 __fastcall PnprQuiesceDevices(__int64 a1)
   int v14; // eax
   int v15; // eax
 
-  *(_DWORD *)(PnprContext + 33312) = PnprGetMillisecondCounter(0);
+  *(_DWORD *)(PnprContext + 21024) = PnprGetMillisecondCounter(0);
   *(_OWORD *)a1 = 0LL;
   *(_OWORD *)(a1 + 16) = 0LL;
   *(_OWORD *)(a1 + 32) = 0LL;
@@ -40,7 +40,7 @@ __int64 __fastcall PnprQuiesceDevices(__int64 a1)
   *(_DWORD *)(a1 + 40) = 2;
   *(_DWORD *)(a1 + 44) = 5;
   *(_DWORD *)(a1 + 32) = PoBlockConsoleSwitch(a1 + 36);
-  started = PoStartPowerStateTasks(a1 + 36);
+  started = PoStartPowerStateTasks((_DWORD *)(a1 + 36));
   if ( started >= 0 )
   {
     PoStartPartitionReplace((_DWORD *)(a1 + 36), *(_DWORD *)(a1 + 32));
@@ -59,35 +59,35 @@ __int64 __fastcall PnprQuiesceDevices(__int64 a1)
       started = PoBroadcastSystemState(a1 + 4, v10, v11, v12);
       if ( started >= 0 )
         goto LABEL_16;
-      v9 = 2005;
+      v9 = 2012;
     }
     else
     {
-      v9 = 1987;
+      v9 = 1994;
     }
     v13 = PnprContext;
-    v14 = *(_DWORD *)(PnprContext + 33272);
+    v14 = *(_DWORD *)(PnprContext + 20984);
     if ( !v14 )
       v14 = v9;
-    *(_DWORD *)(PnprContext + 33272) = v14;
-    v15 = *(_DWORD *)(v13 + 33276);
+    *(_DWORD *)(PnprContext + 20984) = v14;
+    v15 = *(_DWORD *)(v13 + 20988);
     if ( !v15 )
       v15 = 7;
-    *(_DWORD *)(v13 + 33276) = v15;
+    *(_DWORD *)(v13 + 20988) = v15;
   }
   else
   {
     v3 = PnprContext;
-    v4 = *(_DWORD *)(PnprContext + 33272);
+    v4 = *(_DWORD *)(PnprContext + 20984);
     if ( !v4 )
-      v4 = 1964;
-    v5 = *(_DWORD *)(PnprContext + 33276);
-    *(_DWORD *)(PnprContext + 33272) = v4;
+      v4 = 1971;
+    v5 = *(_DWORD *)(PnprContext + 20988);
+    *(_DWORD *)(PnprContext + 20984) = v4;
     if ( !v5 )
       v5 = 7;
-    *(_DWORD *)(v3 + 33276) = v5;
+    *(_DWORD *)(v3 + 20988) = v5;
   }
 LABEL_16:
-  *(_DWORD *)(PnprContext + 33316) = PnprGetMillisecondCounter(0);
+  *(_DWORD *)(PnprContext + 21028) = PnprGetMillisecondCounter(0);
   return (unsigned int)started;
 }

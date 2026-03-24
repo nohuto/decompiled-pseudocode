@@ -1,8 +1,7 @@
 /*
- * XREFs of WheapSetPolicyValue @ 0x140A09AA8
+ * XREFs of WheapSetPolicyValue @ 0x14095E088
  * Callers:
- *     WheapWmiExecutePolicyManagementMethod @ 0x14061430C (WheapWmiExecutePolicyManagementMethod.c)
- *     WheapResetPolicyDefaults @ 0x140A09A60 (WheapResetPolicyDefaults.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x1405BDE20 (WheapWmiExecutePolicyManagementMethod.c)
  * Callees:
  *     <none>
  */
@@ -10,10 +9,10 @@
 __int64 __fastcall WheapSetPolicyValue(unsigned int a1, unsigned int *a2)
 {
   unsigned int v2; // r8d
-  __int64 v3; // rax
-  __int64 v4; // r10
-  int *v5; // r9
-  int v6; // edx
+  __int64 v3; // r10
+  int *v4; // r9
+  int v5; // edx
+  unsigned int v6; // ecx
   unsigned int v7; // ecx
   unsigned int v8; // ecx
   unsigned int v9; // ecx
@@ -24,95 +23,20 @@ __int64 __fastcall WheapSetPolicyValue(unsigned int a1, unsigned int *a2)
   unsigned int v14; // ecx
   unsigned int v15; // ecx
   unsigned int v16; // ecx
-  unsigned int v17; // ecx
-  unsigned int v18; // ecx
-  unsigned int v19; // ecx
-  unsigned int v20; // ecx
-  unsigned int v21; // ecx
-  unsigned int v22; // ecx
 
-  if ( a1 < 0x14 )
+  if ( a1 < 0xD )
   {
     v2 = *a2;
-    v3 = 4LL * a1;
-    v4 = a1;
-    if ( *a2 >= LODWORD(qword_140A7A160[v3]) && v2 <= HIDWORD(qword_140A7A160[v3]) )
+    v3 = a1;
+    if ( *a2 >= dword_140985080[6 * a1] && v2 <= dword_140985084[6 * a1] )
     {
       _mm_lfence();
-      v5 = (&off_140A7A158)[v3];
-      if ( *v5 != -1 )
+      v4 = (&off_140985078)[3 * a1];
+      if ( *v4 == -1 )
       {
-        if ( *v5 == v2 )
-          return 0LL;
-        goto LABEL_49;
-      }
-      if ( a1 > 0xA )
-      {
-        v15 = a1 - 11;
-        if ( !v15 )
+        if ( a1 > 6 )
         {
-          v10 = v2 == WheapRegPolicyCmciThresholdTime;
-          goto LABEL_48;
-        }
-        v16 = v15 - 1;
-        if ( !v16 )
-        {
-          v10 = v2 == WheapRegPolicyCmciThresholdPollCount;
-          goto LABEL_48;
-        }
-        v17 = v16 - 1;
-        if ( !v17 )
-        {
-          v10 = v2 == WheapRegPolicyPendingPageListSz;
-          goto LABEL_48;
-        }
-        v18 = v17 - 1;
-        if ( !v18 )
-        {
-          v10 = v2 == WheaRegPolicyBadPageListMaxSize;
-          goto LABEL_48;
-        }
-        v19 = v18 - 1;
-        if ( !v19 )
-        {
-          v10 = v2 == WheaRegPolicyBadPageListLocation;
-          goto LABEL_48;
-        }
-        v20 = v19 - 1;
-        if ( v20 )
-        {
-          v21 = v20 - 1;
-          if ( !v21 )
-          {
-            v10 = v2 == WheapPolicyRowFailCheckExtent;
-            goto LABEL_48;
-          }
-          v22 = v21 - 1;
-          if ( v22 )
-          {
-            if ( v22 != 1 )
-              goto LABEL_49;
-            v10 = v2 == WheapPolicyRowFailCheckThreshold;
-            goto LABEL_48;
-          }
-          v11 = (unsigned __int8)WheapPolicyRowFailCheckEnable;
-        }
-        else
-        {
-          v11 = (unsigned __int8)WheapPolicyNotifyAllOfflines;
-        }
-        v6 = 0;
-      }
-      else
-      {
-        if ( a1 == 10 )
-        {
-          v10 = v2 == WheapRegPolicyCmciThresholdCount;
-          goto LABEL_48;
-        }
-        if ( a1 > 5 )
-        {
-          v12 = a1 - 6;
+          v12 = a1 - 7;
           if ( v12 )
           {
             v13 = v12 - 1;
@@ -121,57 +45,81 @@ __int64 __fastcall WheapSetPolicyValue(unsigned int a1, unsigned int *a2)
               v14 = v13 - 1;
               if ( v14 )
               {
-                if ( v14 != 1 )
-                  goto LABEL_49;
-                v10 = v2 == WheapRegPolicyRestoreCmciErrorLimit;
+                v15 = v14 - 1;
+                if ( v15 )
+                {
+                  v16 = v15 - 1;
+                  if ( v16 )
+                  {
+                    if ( v16 != 1 )
+                      goto LABEL_36;
+                    v10 = v2 == WheapRegPolicyCmciThresholdPollCount;
+                  }
+                  else
+                  {
+                    v10 = v2 == WheapRegPolicyCmciThresholdTime;
+                  }
+                }
+                else
+                {
+                  v10 = v2 == WheapRegPolicyCmciThresholdCount;
+                }
               }
               else
               {
-                v10 = v2 == WheapRegPolicyRestoreCmciMaxAttempts;
+                v10 = v2 == WheapRegPolicyRestoreCmciErrorLimit;
               }
             }
             else
             {
-              v10 = v2 == WheapRegPolicyRestoreCmciEnabled;
+              v10 = v2 == WheapRegPolicyRestoreCmciMaxAttempts;
             }
           }
           else
           {
-            v10 = v2 == WheaRegPolicyIgnoreDummyWrite;
+            v10 = v2 == WheapRegPolicyRestoreCmciEnabled;
           }
-          goto LABEL_48;
+          goto LABEL_34;
         }
-        if ( a1 == 5 )
+        if ( a1 == 6 )
         {
-          v10 = v2 == (unsigned int)(WheapPolicyMemPfaTimeout / 0x989680uLL);
-          goto LABEL_48;
+          v10 = v2 == WheaRegPolicyIgnoreDummyWrite;
+          goto LABEL_34;
         }
-        v6 = 0;
+        v5 = 0;
         if ( a1 )
         {
-          v7 = a1 - 1;
-          if ( v7 )
+          v6 = a1 - 1;
+          if ( v6 )
           {
-            v8 = v7 - 1;
-            if ( v8 )
+            v7 = v6 - 1;
+            if ( v7 )
             {
-              v9 = v8 - 1;
-              if ( v9 )
+              v8 = v7 - 1;
+              if ( v8 )
               {
-                if ( v9 != 1 )
-                  goto LABEL_49;
-                v10 = v2 == WheapPolicyMemPfaThreshold;
+                v9 = v8 - 1;
+                if ( v9 )
+                {
+                  if ( v9 != 1 )
+                    goto LABEL_36;
+                  v10 = v2 == (unsigned int)(WheapPolicyMemPfaTimeout / 0x989680uLL);
+                }
+                else
+                {
+                  v10 = v2 == WheapPolicyMemPfaThreshold;
+                }
               }
               else
               {
                 v10 = v2 == WheapPolicyMemPfaPageCount;
               }
-LABEL_48:
+LABEL_34:
               if ( v10 )
                 return 0LL;
-LABEL_49:
-              *v5 = v2;
-              WheaRegPolicyTableChanged[v4] = 1;
+LABEL_36:
+              *v4 = v2;
+              WheaRegPolicyTableChanged[v3] = 1;
               return 0LL;
             }
             v11 = (unsigned __int8)WheapPolicyMemPfaDisable;
@@ -185,10 +133,12 @@ LABEL_49:
         {
           v11 = (unsigned __int8)WheapPolicyDisableOffline;
         }
+        LOBYTE(v5) = v2 != 0;
+        v10 = v5 == v11;
+        goto LABEL_34;
       }
-      LOBYTE(v6) = v2 != 0;
-      v10 = v6 == v11;
-      goto LABEL_48;
+      v10 = *v4 == v2;
+      goto LABEL_34;
     }
   }
   return 3221225485LL;

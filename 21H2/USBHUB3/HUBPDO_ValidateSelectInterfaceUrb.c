@@ -1,32 +1,32 @@
 /*
- * XREFs of HUBPDO_ValidateSelectInterfaceUrb @ 0x1C0015DFC
+ * XREFs of HUBPDO_ValidateSelectInterfaceUrb @ 0x1C0015930
  * Callers:
- *     HUBDSM_ValidatingSelectInterfaceUrbFromConfigured @ 0x1C001E0E0 (HUBDSM_ValidatingSelectInterfaceUrbFromConfigured.c)
+ *     HUBDSM_ValidatingSelectInterfaceUrbFromConfigured @ 0x1C001DBA0 (HUBDSM_ValidatingSelectInterfaceUrbFromConfigured.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_DD @ 0x1C0002204 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_dq @ 0x1C0013B2C (WPP_RECORDER_SF_dq.c)
- *     HUBPDO_InitializeInterfaceInformation @ 0x1C0015BA8 (HUBPDO_InitializeInterfaceInformation.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0013564 (WPP_RECORDER_SF_dq.c)
+ *     HUBPDO_InitializeInterfaceInformation @ 0x1C00156D4 (HUBPDO_InitializeInterfaceInformation.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_ValidateSelectInterfaceUrb(__int64 a1)
 {
-  __int64 v1; // r12
+  __int64 v1; // r13
   __int64 v2; // rdx
   unsigned __int16 *v4; // rbx
   int v5; // edi
   __int64 v6; // rcx
   __int64 v7; // r10
   unsigned __int16 *v8; // r10
-  int v9; // r13d
+  int v9; // r12d
   int v10; // ebx
   __int64 result; // rax
   unsigned __int16 v12; // r9
   __int64 v13; // r8
-  unsigned int v14; // edx
-  unsigned int *v15; // rcx
+  unsigned int *v14; // rcx
+  unsigned int v15; // edx
   unsigned __int16 v16; // r9
   __int64 v17; // [rsp+40h] [rbp-78h]
   unsigned __int16 *v18; // [rsp+48h] [rbp-70h]
@@ -68,7 +68,7 @@ LABEL_29:
         2u,
         5u,
         v12,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids);
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
       goto LABEL_30;
     }
   }
@@ -80,7 +80,7 @@ LABEL_29:
         3u,
         5u,
         0x24u,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids);
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
     v17 = *(_QWORD *)(a1 + 48);
     *((_QWORD *)v4 + 3) = v17;
   }
@@ -95,36 +95,34 @@ LABEL_29:
     v13 = *((unsigned int *)v4 + 8);
     if ( (_DWORD)v13 )
     {
-      v14 = 0;
-      v15 = (unsigned int *)*((_QWORD *)v4 + 5);
-      while ( (char *)v15 + *v15 <= (char *)v4 + *v4 )
+      v14 = (unsigned int *)*((_QWORD *)v4 + 5);
+      v15 = 0;
+      while ( (char *)v14 + *v14 <= (char *)v4 + *v4 )
       {
-        if ( !*((_WORD *)v15 + 2) )
+        if ( !*((_WORD *)v14 + 2) )
         {
           if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             goto LABEL_30;
           v16 = 42;
-          goto LABEL_41;
+          goto LABEL_43;
         }
-        ++v14;
-        v15 = (unsigned int *)((char *)v15 + *v15);
-        if ( v14 >= (unsigned int)v13 )
+        ++v15;
+        v14 = (unsigned int *)((char *)v14 + *v14);
+        if ( v15 >= (unsigned int)v13 )
           goto LABEL_13;
       }
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        v16 = 41;
-LABEL_41:
-        WPP_RECORDER_SF_dq(
-          *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
-          2u,
-          v13,
-          v16,
-          (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
-          v14,
-          v4);
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         goto LABEL_30;
-      }
+      v16 = 41;
+LABEL_43:
+      WPP_RECORDER_SF_dq(
+        *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
+        2u,
+        v13,
+        v16,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
+        v15,
+        v4);
       goto LABEL_30;
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -141,12 +139,12 @@ LABEL_30:
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      WPP_RECORDER_SF_DD(
+      WPP_RECORDER_SF_dD(
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
         3u,
         5u,
         0x27u,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         *v4,
         *v8 + 32);
       v8 = v18;
@@ -163,7 +161,7 @@ LABEL_13:
         3u,
         5u,
         0x2Bu,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids);
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
 LABEL_16:
     *(_DWORD *)(a1 + 1564) = v10;
     result = 4065LL;

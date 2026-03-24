@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhValidateMsOs20DescriptorSet @ 0x1C0052150
+ * XREFs of UsbhValidateMsOs20DescriptorSet @ 0x1C00537A0
  * Callers:
- *     UsbhSetupDevice @ 0x1C0038CE8 (UsbhSetupDevice.c)
+ *     UsbhSetupDevice @ 0x1C0039FD8 (UsbhSetupDevice.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     UsbhGetNextMsOs20Descriptor @ 0x1C0032D1C (UsbhGetNextMsOs20Descriptor.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     UsbhGetNextMsOs20Descriptor @ 0x1C003405C (UsbhGetNextMsOs20Descriptor.c)
  */
 
 char __fastcall UsbhValidateMsOs20DescriptorSet(__int64 a1, __int64 a2, unsigned int *a3)
@@ -69,7 +69,7 @@ LABEL_3:
     v15 = v10[1];
     if ( v15 < 9 )
     {
-      v8 = ((unsigned __int8 (__fastcall *)(__int64, _DWORD *, unsigned __int16 *, unsigned __int64))MsOs20DispatchTable[2 * v10[1]])(
+      v8 = ((unsigned __int8 (__fastcall *)(__int64, _DWORD *, unsigned __int16 *, unsigned __int64))*(&MsOs20DispatchTable + 2 * v10[1]))(
              a1,
              v7 + 706,
              v10,

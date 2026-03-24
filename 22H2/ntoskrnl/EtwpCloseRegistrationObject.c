@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCloseRegistrationObject @ 0x1407C1510
+ * XREFs of EtwpCloseRegistrationObject @ 0x1406F9E50
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     EtwpEventWriteTemplateSessAndProv @ 0x1408A6F4A (EtwpEventWriteTemplateSessAndProv.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwpEventWriteTemplateSessAndProv @ 0x140939DF0 (EtwpEventWriteTemplateSessAndProv.c)
  */
 
 void __fastcall EtwpCloseRegistrationObject(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

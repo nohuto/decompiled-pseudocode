@@ -1,8 +1,8 @@
 /*
  * XREFs of CmpWalkOneLevel @ 0x1405D4560
  * Callers:
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
- *     CmpDoBuildVirtualStack @ 0x1407F2A38 (CmpDoBuildVirtualStack.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpDoBuildVirtualStack @ 0x1407F2A18 (CmpDoBuildVirtualStack.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -10,8 +10,8 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmEqualTrans @ 0x1405A94E8 (CmEqualTrans.c)
  *     CmpDeleteHive @ 0x1405AFDEC (CmpDeleteHive.c)
  *     CmpDereferenceKeyControlBlockUnsafe @ 0x1405AFFE0 (CmpDereferenceKeyControlBlockUnsafe.c)
@@ -25,13 +25,13 @@
  *     CmpCreateKeyControlBlock @ 0x1405D5EB0 (CmpCreateKeyControlBlock.c)
  *     CmpFindKcbInHashEntryByName @ 0x1405D639C (CmpFindKcbInHashEntryByName.c)
  *     CmpGetKcbAtLayerHeight @ 0x1405D8AC0 (CmpGetKcbAtLayerHeight.c)
- *     CmpPopulateKcbStack @ 0x1406440B0 (CmpPopulateKcbStack.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406441C0 (CmpDereferenceKeyControlBlock.c)
- *     CmpReferenceKeyControlBlockLockNotHeld @ 0x140691C8C (CmpReferenceKeyControlBlockLockNotHeld.c)
- *     CmpFreeKeyControlBlock @ 0x140692C14 (CmpFreeKeyControlBlock.c)
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
- *     CmpRecordParseFailure @ 0x140698280 (CmpRecordParseFailure.c)
- *     CmpLockHashEntryShared @ 0x1406F8390 (CmpLockHashEntryShared.c)
+ *     CmpPopulateKcbStack @ 0x140644090 (CmpPopulateKcbStack.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406441A0 (CmpDereferenceKeyControlBlock.c)
+ *     CmpReferenceKeyControlBlockLockNotHeld @ 0x140691C6C (CmpReferenceKeyControlBlockLockNotHeld.c)
+ *     CmpFreeKeyControlBlock @ 0x140692BF4 (CmpFreeKeyControlBlock.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
+ *     CmpRecordParseFailure @ 0x140698260 (CmpRecordParseFailure.c)
+ *     CmpLockHashEntryShared @ 0x1406F8370 (CmpLockHashEntryShared.c)
  */
 
 __int64 __fastcall CmpWalkOneLevel(

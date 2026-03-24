@@ -1,14 +1,14 @@
 /*
- * XREFs of KeHwPolicyLocateResource @ 0x140B63F00
+ * XREFs of KeHwPolicyLocateResource @ 0x140A65230
  * Callers:
- *     KiLoadPolicyFromImage @ 0x140A90900 (KiLoadPolicyFromImage.c)
- *     HalpWheaInitDiscard @ 0x140B63D70 (HalpWheaInitDiscard.c)
+ *     KiLoadPolicyFromImage @ 0x1409A0990 (KiLoadPolicyFromImage.c)
+ *     HalpWheaInitDiscard @ 0x140A63B9C (HalpWheaInitDiscard.c)
  * Callees:
- *     LdrResSearchResource @ 0x14075A150 (LdrResSearchResource.c)
- *     KiHwPolicyFindDriverImage @ 0x140B63FA8 (KiHwPolicyFindDriverImage.c)
+ *     LdrResSearchResource @ 0x140670CE0 (LdrResSearchResource.c)
+ *     KiHwPolicyFindDriverImage @ 0x140A652D8 (KiHwPolicyFindDriverImage.c)
  */
 
-__int64 __fastcall KeHwPolicyLocateResource(__int64 a1, __int64 a2, __int64 a3, unsigned int **a4, __int64 *a5)
+__int64 __fastcall KeHwPolicyLocateResource(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, __int64 *a5)
 {
   ULONGLONG v7; // rcx
   _QWORD v11[5]; // [rsp+40h] [rbp-28h] BYREF

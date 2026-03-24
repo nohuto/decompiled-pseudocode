@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CEffectBrushMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C021C940
+ * XREFs of ?SetRemarshalingFlags@CEffectBrushMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01E6200
  * Callers:
  *     <none>
  * Callees:
@@ -9,10 +9,10 @@
 char __fastcall DirectComposition::CEffectBrushMarshaler::SetRemarshalingFlags(
         DirectComposition::CEffectBrushMarshaler *this)
 {
-  if ( *((_QWORD *)this + 10) )
+  if ( *((_QWORD *)this + 9) )
     *((_DWORD *)this + 4) |= 0x20u;
-  if ( *((_QWORD *)this + 11) )
+  if ( *((_QWORD *)this + 10) )
     *((_DWORD *)this + 4) |= 0x40u;
-  *((_DWORD *)this + 27) = 0;
+  *((_DWORD *)this + 25) = 0;
   return 1;
 }

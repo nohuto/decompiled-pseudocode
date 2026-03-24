@@ -1,59 +1,67 @@
 /*
- * XREFs of MiCompressTbFlushList @ 0x14033E1D8
+ * XREFs of MiCompressTbFlushList @ 0x1402FBB30
  * Callers:
- *     MiTerminateWsleCluster @ 0x140279080 (MiTerminateWsleCluster.c)
- *     MiDeleteVa @ 0x14027A4A0 (MiDeleteVa.c)
- *     MiClearPteAccessed @ 0x14027C4B0 (MiClearPteAccessed.c)
- *     MiInsertTbFlushEntry @ 0x14027F450 (MiInsertTbFlushEntry.c)
- *     MmUnmapViewInSystemCache @ 0x1402D9FB0 (MmUnmapViewInSystemCache.c)
+ *     MiZeroPage @ 0x140232C80 (MiZeroPage.c)
+ *     MmUnmapViewInSystemCache @ 0x140294160 (MmUnmapViewInSystemCache.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140297B10 (MiMoveDirtyBitsToPfns.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
+ *     MiDeleteVa @ 0x1402B8110 (MiDeleteVa.c)
+ *     MiClearPteAccessed @ 0x1402BA490 (MiClearPteAccessed.c)
+ *     MiTerminateWsleCluster @ 0x1402BB3B0 (MiTerminateWsleCluster.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall MiCompressTbFlushList(__int64 a1)
+__int64 *__fastcall MiCompressTbFlushList(__int64 a1)
 {
-  int v1; // r11d
-  _QWORD *v2; // r8
-  unsigned int v3; // ebx
-  unsigned __int64 v4; // r10
-  __int64 v5; // rsi
-  __int64 v6; // rdx
-  unsigned int v7; // eax
+  int v1; // ebp
+  __int64 *result; // rax
+  unsigned int v3; // r9d
+  __int64 v5; // rbx
+  unsigned __int64 v6; // r11
+  __int64 v7; // rsi
+  __int64 v8; // rdi
+  __int64 v9; // r8
+  unsigned int v10; // ecx
 
   v1 = 0;
-  v2 = (_QWORD *)(a1 + 24);
+  result = (__int64 *)(a1 + 24);
   v3 = 1;
   if ( *(_DWORD *)(a1 + 12) > 1u )
   {
     do
     {
-      v4 = *(_QWORD *)(a1 + 8LL * v3 + 24);
-      v5 = 4096LL << (9 * ((unsigned __int8)(v4 >> 10) & 3u));
-      if ( ((v4 >> 10) & 3) == ((*v2 >> 10) & 3LL)
-        && (v6 = *v2 & 0x3FFLL, (v4 & 0xFFFFFFFFFFFFF000uLL) - v5 * (v6 + 1) == (*v2 & 0xFFFFFFFFFFFFF000uLL))
-        && v6 != 1023 )
+      v5 = *result;
+      v6 = *(_QWORD *)(a1 + 8LL * v3 + 24);
+      v7 = a1 + 8LL * v3;
+      v8 = 4096LL << (9 * ((unsigned __int8)(v6 >> 10) & 3u));
+      if ( ((v6 >> 10) & 3) == (((unsigned __int64)*result >> 10) & 3)
+        && (v9 = *result & 0x3FF, (v6 & 0xFFFFFFFFFFFFF000uLL) - v8 * (v9 + 1) == (v5 & 0xFFFFFFFFFFFFF000uLL))
+        && v9 != 1023 )
       {
-        if ( v6 + (v4 & 0x3FF) + 1 > 0x3FF )
+        if ( v9 + (v6 & 0x3FF) + 1 > 0x3FF )
         {
-          *(_QWORD *)(a1 + 8LL * v3 + 24) = (1023 - v6) * v5 + (v4 ^ (v4 ^ (v4 - (1023 - v6))) & 0x3FF);
-          *v2++ |= 0x3FFuLL;
-          *v2 = *(_QWORD *)(a1 + 8LL * v3 + 24);
+          *(_QWORD *)(v7 + 24) = (1023 - v9) * v8
+                               + (v6 ^ ((unsigned __int16)v6 ^ (unsigned __int16)(v6 - (1023 - v9))) & 0x3FF);
+          *result++ |= 0x3FFuLL;
+          *result = *(_QWORD *)(v7 + 24);
         }
         else
         {
-          *v2 ^= (*v2 ^ (v4 + *v2 + 1LL)) & 0x3FF;
+          *result = v5 ^ ((unsigned __int16)v5 ^ (unsigned __int16)(v6 + v5 + 1)) & 0x3FF;
           ++v1;
         }
       }
       else
       {
-        *++v2 = v4;
+        *++result = v6;
       }
-      v7 = *(_DWORD *)(a1 + 12);
+      v10 = *(_DWORD *)(a1 + 12);
       ++v3;
     }
-    while ( v3 < v7 );
+    while ( v3 < v10 );
     if ( v1 )
-      *(_DWORD *)(a1 + 12) = v7 - v1;
+      *(_DWORD *)(a1 + 12) = v10 - v1;
   }
+  return result;
 }

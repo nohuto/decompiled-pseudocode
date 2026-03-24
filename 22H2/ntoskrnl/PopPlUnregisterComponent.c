@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPlUnregisterComponent @ 0x1405A1E14
+ * XREFs of PopPlUnregisterComponent @ 0x1408F9B1C
  * Callers:
- *     PopPlUnregisterDevice @ 0x1405A1EC0 (PopPlUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x1407B495C (PopFxUnregisterDevice.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopPlUnregisterComponent(__int64 a1)
@@ -19,7 +19,7 @@ NTSTATUS __fastcall PopPlUnregisterComponent(__int64 a1)
   int v9; // [rsp+78h] [rbp-20h]
   int v10; // [rsp+7Ch] [rbp-1Ch]
 
-  if ( (unsigned int)dword_140C03950 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
     v3 = 1;
     v5 = &v3;
@@ -29,8 +29,8 @@ NTSTATUS __fastcall PopPlUnregisterComponent(__int64 a1)
     v10 = 0;
     v9 = 16;
     result = tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140C03950,
-               (unsigned __int8 *)&byte_140032527,
+               (__int64)&dword_140C02228,
+               (unsigned __int8 *)byte_14002A2C0,
                0LL,
                0LL,
                4u,

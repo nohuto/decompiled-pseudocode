@@ -1,18 +1,18 @@
 /*
- * XREFs of IoWriteErrorLogEntry @ 0x14016CC50
+ * XREFs of IoWriteErrorLogEntry @ 0x14016CC70
  * Callers:
- *     IopDisassociateThreadIrp @ 0x14027E9F8 (IopDisassociateThreadIrp.c)
- *     FsRtlLogCcFlushError @ 0x140814640 (FsRtlLogCcFlushError.c)
- *     IopLogBlockedDriverEvent @ 0x14081A418 (IopLogBlockedDriverEvent.c)
- *     PnpLogEvent @ 0x140827E0C (PnpLogEvent.c)
- *     MiLogFailedDriverLoad @ 0x14084E988 (MiLogFailedDriverLoad.c)
- *     MiBadMemoryLogger @ 0x14085B860 (MiBadMemoryLogger.c)
+ *     IopDisassociateThreadIrp @ 0x14027EAF8 (IopDisassociateThreadIrp.c)
+ *     FsRtlLogCcFlushError @ 0x140814620 (FsRtlLogCcFlushError.c)
+ *     IopLogBlockedDriverEvent @ 0x14081A3F8 (IopLogBlockedDriverEvent.c)
+ *     PnpLogEvent @ 0x140827DEC (PnpLogEvent.c)
+ *     MiLogFailedDriverLoad @ 0x14084E968 (MiLogFailedDriverLoad.c)
+ *     MiBadMemoryLogger @ 0x14085B840 (MiBadMemoryLogger.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

@@ -1,14 +1,14 @@
 /*
- * XREFs of SmcCacheAdd @ 0x1408AE8B4
+ * XREFs of SmcCacheAdd @ 0x1408AE894
  * Callers:
- *     SmcProcessCreateRequest @ 0x1408ABD28 (SmcProcessCreateRequest.c)
+ *     SmcProcessCreateRequest @ 0x1408ABD08 (SmcProcessCreateRequest.c)
  * Callees:
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  */
 
 __int64 __fastcall SmcCacheAdd(__int64 a1, int *a2, int *a3)

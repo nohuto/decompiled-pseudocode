@@ -1,11 +1,11 @@
 /*
- * XREFs of DxgkEngGetRedirBitmapSharedHandle @ 0x1C015A330
+ * XREFs of DxgkEngGetRedirBitmapSharedHandle @ 0x1C02773B0
  * Callers:
  *     <none>
  * Callees:
- *     GreGetDxSharedSurface @ 0x1C000AE98 (GreGetDxSharedSurface.c)
- *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C00A6820 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C00F2608 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
+ *     GreGetDxSharedSurface @ 0x1C0118B5C (GreGetDxSharedSurface.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall DxgkEngGetRedirBitmapSharedHandle(HDC a1, _QWORD *a2)
@@ -35,7 +35,7 @@ __int64 __fastcall DxgkEngGetRedirBitmapSharedHandle(HDC a1, _QWORD *a2)
       v5 = *v8;
       HmgDecrementShareReferenceCountEx(v8, &v10);
       if ( (_DWORD)v10 )
-        GrepDeleteDC(v5, 0x2000000LL);
+        bDeleteDCInternalEx(v5, 0LL);
     }
   }
   return UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v9);

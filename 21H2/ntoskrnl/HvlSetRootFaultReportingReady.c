@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlSetRootFaultReportingReady @ 0x1405484D0
+ * XREFs of HvlSetRootFaultReportingReady @ 0x1403F0D70
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x14039DD80 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HvlpHvToNtStatus @ 0x14054CA70 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
  */
 
 __int64 HvlSetRootFaultReportingReady()
@@ -17,6 +17,6 @@ __int64 HvlSetRootFaultReportingReady()
   memset(v2, 0, sizeof(v2));
   v3 = 0LL;
   LODWORD(v2[0]) = 32;
-  v0 = HvcallFastExtended(65647LL, (__int64)v2, 0x28u, 0LL, 0);
+  v0 = HvcallFastExtended(65647LL, (__int64)v2, 0x28u, 0, 0);
   return HvlpHvToNtStatus(v0);
 }

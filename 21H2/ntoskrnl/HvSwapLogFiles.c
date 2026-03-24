@@ -1,12 +1,12 @@
 /*
- * XREFs of HvSwapLogFiles @ 0x1406DFF64
+ * XREFs of HvSwapLogFiles @ 0x140725538
  * Callers:
- *     CmpFlushHive @ 0x1406885A4 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x140689BB8 (HvGetEffectiveLogSizeCapForHive.c)
- *     HvpLogTypeToLogArrayIndex @ 0x140689DAC (HvpLogTypeToLogArrayIndex.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1407245F0 (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x14072465C (HvpLogTypeToLogArrayIndex.c)
  */
 
 __int64 __fastcall HvSwapLogFiles(__int64 a1)
@@ -53,17 +53,17 @@ __int64 __fastcall HvSwapLogFiles(__int64 a1)
   int v41; // [rsp+104h] [rbp-4h]
 
   HvGetEffectiveLogSizeCapForHive((unsigned int *)a1);
-  v2 = HvpLogTypeToLogArrayIndex(*(_DWORD *)(a1 + 168));
-  v5 = *(_DWORD *)(a1 + 172) - *(_DWORD *)(a1 + 176);
+  v2 = HvpLogTypeToLogArrayIndex(*(_DWORD *)(a1 + 164));
+  v5 = *(_DWORD *)(a1 + 168) - *(_DWORD *)(a1 + 172);
   v6 = MEMORY[0xFFFFF78000000014];
-  if ( (unsigned int)dword_140C03868 > 5 )
+  if ( (unsigned int)dword_140C02130 > 5 )
   {
-    v14 = *(_DWORD *)(a1 + 8LL * v2 + 1808);
+    v14 = *(_DWORD *)(a1 + 8LL * v2 + 1800);
     v18 = &v9;
-    v10 = *(_DWORD *)(a1 + 280);
+    v10 = *(_DWORD *)(a1 + 272);
     v21 = &v10;
     LOBYTE(v9) = v3 == 0;
-    v7 = *(_DWORD *)(a1 + 188);
+    v7 = *(_DWORD *)(a1 + 184);
     v20 = 0;
     v23 = 0;
     v26 = 0;
@@ -75,11 +75,11 @@ __int64 __fastcall HvSwapLogFiles(__int64 a1)
     v11 = v7;
     v24 = &v11;
     v27 = &v12;
-    v13 = *(_DWORD *)(a1 + 180);
+    v13 = *(_DWORD *)(a1 + 176);
     v30 = &v13;
     v33 = &v14;
     v36 = &v15;
-    v16 = MEMORY[0xFFFFF78000000014] - *(_QWORD *)(a1 + 200);
+    v16 = MEMORY[0xFFFFF78000000014] - *(_QWORD *)(a1 + 192);
     v39 = &v16;
     LODWORD(v15) = v5;
     v19 = 1;
@@ -92,16 +92,16 @@ __int64 __fastcall HvSwapLogFiles(__int64 a1)
     v37 = 4;
     v40 = 8;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C03868,
-      (unsigned __int8 *)byte_14002A093,
+      (__int64)&dword_140C02130,
+      (unsigned __int8 *)&dword_140023B07 + 3,
       0LL,
       0LL,
       0xAu,
       &v17);
   }
-  *(_DWORD *)(a1 + 168) = 5 - (*(_DWORD *)(a1 + 168) != 4);
-  result = *(unsigned int *)(a1 + 172);
-  *(_QWORD *)(a1 + 176) = (unsigned int)result;
-  *(_QWORD *)(a1 + 200) = v6;
+  *(_DWORD *)(a1 + 164) = 5 - (*(_DWORD *)(a1 + 164) != 4);
+  result = *(unsigned int *)(a1 + 168);
+  *(_QWORD *)(a1 + 172) = (unsigned int)result;
+  *(_QWORD *)(a1 + 192) = v6;
   return result;
 }

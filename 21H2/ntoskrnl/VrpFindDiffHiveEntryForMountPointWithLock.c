@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpFindDiffHiveEntryForMountPointWithLock @ 0x1406915F0
+ * XREFs of VrpFindDiffHiveEntryForMountPointWithLock @ 0x1405D683C
  * Callers:
- *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x140691444 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
- *     VrpUnloadDifferencingHive @ 0x1407F6200 (VrpUnloadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x1405D6264 (VrpUnloadDifferencingHive.c)
+ *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x1405D6690 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1407CD620 (RtlUpcaseUnicodeChar.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     RtlUpcaseUnicodeChar @ 0x140601D90 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall VrpFindDiffHiveEntryForMountPointWithLock(PCUNICODE_STRING String1)
@@ -13,9 +13,9 @@ __int64 __fastcall VrpFindDiffHiveEntryForMountPointWithLock(PCUNICODE_STRING St
   __int64 v1; // rdi
   wchar_t *Buffer; // rbx
   unsigned __int64 v3; // rax
-  __int64 v5; // rsi
-  wchar_t *v6; // r14
-  __int64 v7; // r11
+  __int64 v5; // rbp
+  wchar_t *v6; // rsi
+  __int64 v7; // rsi
   __int64 v8; // r10
   __int64 v9; // rbx
   UNICODE_STRING String2; // [rsp+20h] [rbp-28h] BYREF
@@ -33,12 +33,12 @@ __int64 __fastcall VrpFindDiffHiveEntryForMountPointWithLock(PCUNICODE_STRING St
     v12 = RtlUpcaseUnicodeChar(*Buffer++);
     v5 = HIBYTE(v12) + 37 * ((unsigned __int8)v12 + 37 * v5);
   }
-  v7 = -1LL << (dword_140C48D04 & 0x1F);
+  v7 = -1LL << (dword_140C47964 & 0x1F);
   v8 = v5 & v7;
-  if ( (unsigned int)dword_140C48D04 >> 5 )
+  if ( (unsigned int)dword_140C47964 >> 5 )
   {
     v13 = v5 & v7;
-    v9 = qword_140C48D08
+    v9 = qword_140C47968
        + 8LL
        * ((37
          * (BYTE6(v13)
@@ -47,37 +47,33 @@ __int64 __fastcall VrpFindDiffHiveEntryForMountPointWithLock(PCUNICODE_STRING St
            + 37
            * (BYTE4(v13)
             + 37 * (BYTE3(v13) + 37 * (BYTE2(v13) + 37 * (BYTE1(v13) + 37 * ((unsigned __int8)v8 + 11623883)))))))
-         + HIBYTE(v13)) & (((unsigned int)dword_140C48D04 >> 5) - 1));
+         + HIBYTE(v13)) & (((unsigned int)dword_140C47964 >> 5) - 1));
     while ( 1 )
     {
       v9 = *(_QWORD *)v9;
       if ( (v9 & 1) != 0 )
         break;
       if ( v8 == (v7 & *(_QWORD *)(v9 + 8)) )
-      {
+        goto LABEL_8;
+    }
+    while ( 1 )
+    {
+      v9 = 0LL;
 LABEL_8:
-        if ( v9 )
-        {
-          String2.Buffer = (wchar_t *)(v9 + 68);
-          String2.Length = *(_WORD *)(v9 + 64);
-          String2.MaximumLength = String2.Length;
-          if ( RtlEqualUnicodeString(String1, &String2, 1u) )
-          {
-            return v9;
-          }
-          else
-          {
-            while ( 1 )
-            {
-              v9 = *(_QWORD *)v9;
-              if ( (v9 & 1) != 0 )
-                break;
-              if ( (v5 & (-1LL << (dword_140C48D04 & 0x1F))) == ((-1LL << (dword_140C48D04 & 0x1F)) & *(_QWORD *)(v9 + 8)) )
-                goto LABEL_8;
-            }
-          }
-        }
-        return v1;
+      if ( !v9 )
+        break;
+      String2.Buffer = (wchar_t *)(v9 + 68);
+      String2.Length = *(_WORD *)(v9 + 64);
+      String2.MaximumLength = String2.Length;
+      if ( RtlEqualUnicodeString(String1, &String2, 1u) )
+        return v9;
+      while ( 1 )
+      {
+        v9 = *(_QWORD *)v9;
+        if ( (v9 & 1) != 0 )
+          break;
+        if ( (v5 & v7) == (v7 & *(_QWORD *)(v9 + 8)) )
+          goto LABEL_8;
       }
     }
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpQueryApicIdAndNumaNode @ 0x1405449CC
+ * XREFs of HvlpQueryApicIdAndNumaNode @ 0x1404F3364
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x1403DEDD0 (HvlStartBootLogicalProcessors.c)
- *     HvlpSelectLpSet @ 0x140544A9C (HvlpSelectLpSet.c)
+ *     HvlStartBootLogicalProcessors @ 0x1403B6948 (HvlStartBootLogicalProcessors.c)
+ *     HvlpSelectLpSet @ 0x1404F3514 (HvlpSelectLpSet.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HvlpQueryApicIdAndNumaNode(__int64 a1, _DWORD *a2, _WORD *a3)
@@ -19,7 +19,7 @@ __int64 __fastcall HvlpQueryApicIdAndNumaNode(__int64 a1, _DWORD *a2, _WORD *a3)
   v4 = a3;
   if ( !v3 )
   {
-    v3 = off_140C01E18[0];
+    v3 = off_140C007C8[0];
     a3 = 0LL;
   }
   result = ((__int64 (__fastcall *)(__int64, _DWORD *, _WORD *))v3)(a1, a2, a3);

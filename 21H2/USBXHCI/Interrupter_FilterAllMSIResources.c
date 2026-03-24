@@ -1,13 +1,13 @@
 /*
- * XREFs of Interrupter_FilterAllMSIResources @ 0x1C00779A0
+ * XREFs of Interrupter_FilterAllMSIResources @ 0x1C00765A0
  * Callers:
- *     Controller_WdfEvtDeviceFilterRemoveResourceRequirements @ 0x1C006F3C0 (Controller_WdfEvtDeviceFilterRemoveResourceRequirements.c)
+ *     Controller_WdfEvtDeviceFilterRemoveResourceRequirements @ 0x1C006E660 (Controller_WdfEvtDeviceFilterRemoveResourceRequirements.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Interrupter_FilterAllMSIResources(__int64 a1, __int64 a2)
@@ -63,12 +63,12 @@ __int64 __fastcall Interrupter_FilterAllMSIResources(__int64 a1, __int64 a2)
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
           LOBYTE(v12) = 4;
-          WPP_RECORDER_SF_DD(
+          WPP_RECORDER_SF_dd(
             *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
             v12,
             9,
-            56,
-            (__int64)&WPP_84765f96df013c20a94fd65d5e9532b8_Traceguids,
+            55,
+            (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
             v5,
             v9);
         }
@@ -87,12 +87,12 @@ __int64 __fastcall Interrupter_FilterAllMSIResources(__int64 a1, __int64 a2)
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
           LOBYTE(v14) = 4;
-          WPP_RECORDER_SF_DD(
+          WPP_RECORDER_SF_dd(
             *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
             v14,
             9,
-            57,
-            (__int64)&WPP_84765f96df013c20a94fd65d5e9532b8_Traceguids,
+            56,
+            (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
             v5,
             v9);
         }
@@ -120,8 +120,8 @@ LABEL_6:
           *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
           v15,
           9,
-          58,
-          (__int64)&WPP_84765f96df013c20a94fd65d5e9532b8_Traceguids,
+          57,
+          (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
           v5);
       }
     }
@@ -135,8 +135,8 @@ LABEL_6:
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
         v7,
         9,
-        59,
-        (__int64)&WPP_84765f96df013c20a94fd65d5e9532b8_Traceguids);
+        58,
+        (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids);
     }
     return (unsigned int)-1073741823;
   }

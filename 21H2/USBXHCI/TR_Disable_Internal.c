@@ -1,14 +1,11 @@
 /*
- * XREFs of TR_Disable_Internal @ 0x1C0001578
+ * XREFs of TR_Disable_Internal @ 0x1C000A330
  * Callers:
- *     Endpoint_Disable_Internal @ 0x1C0004DBC (Endpoint_Disable_Internal.c)
- *     Endpoint_EndpointStaticStreamsDisableCompletion @ 0x1C00384A0 (Endpoint_EndpointStaticStreamsDisableCompletion.c)
- *     Endpoint_EndpointStaticStreamsEnableCompletion @ 0x1C00386E0 (Endpoint_EndpointStaticStreamsEnableCompletion.c)
- *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003B3B0 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
+ *     Endpoint_Disable_Internal @ 0x1C000ABD4 (Endpoint_Disable_Internal.c)
  * Callees:
- *     XilCoreCommonBuffer_ReleaseBuffers @ 0x1C0001468 (XilCoreCommonBuffer_ReleaseBuffers.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     TR_FreeSecureTransferSegments @ 0x1C003FAF0 (TR_FreeSecureTransferSegments.c)
+ *     XilCoreCommonBuffer_ReleaseBuffers @ 0x1C000A2A0 (XilCoreCommonBuffer_ReleaseBuffers.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     TR_FreeSecureTransferSegments @ 0x1C003F2DC (TR_FreeSecureTransferSegments.c)
  */
 
 void __fastcall TR_Disable_Internal(__int64 a1, char a2)

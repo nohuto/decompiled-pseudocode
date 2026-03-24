@@ -1,16 +1,15 @@
 /*
- * XREFs of ?Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800FCEE4
+ * XREFs of ?Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800B3F44
  * Callers:
- *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800AEC50 (-Initialize@CComposition@@MEAAJXZ.c)
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800B46F0 (-Initialize@CComposition@@MEAAJXZ.c)
  * Callees:
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038D40 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??0CMessageConversationHost@@AEAA@PEAUIMessageSession@@@Z @ 0x1800FCF54 (--0CMessageConversationHost@@AEAA@PEAUIMessageSession@@@Z.c)
- *     ?Initialize@CMessageConversationHost@@AEAAJXZ @ 0x1800FCFB0 (-Initialize@CMessageConversationHost@@AEAAJXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Disconnect@CMessageConversationHost@@QEAAXXZ @ 0x1801B7624 (-Disconnect@CMessageConversationHost@@QEAAXXZ.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?Initialize@CMessageConversationHost@@AEAAJXZ @ 0x1800B3FB4 (-Initialize@CMessageConversationHost@@AEAAJXZ.c)
+ *     ??0CMessageConversationHost@@AEAA@PEAUIMessageSession@@@Z @ 0x1800B4178 (--0CMessageConversationHost@@AEAA@PEAUIMessageSession@@@Z.c)
+ *     ?Disconnect@CMessageConversationHost@@QEAAXXZ @ 0x180164348 (-Disconnect@CMessageConversationHost@@QEAAXXZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CMessageConversationHost::Create(struct IMessageSession *a1, struct CMessageConversationHost **a2)
@@ -18,18 +17,17 @@ __int64 __fastcall CMessageConversationHost::Create(struct IMessageSession *a1, 
   CMessageConversationHost *v4; // rax
   CMessageConversationHost *v5; // rax
   __int64 v6; // rcx
-  volatile signed __int32 *v7; // rdi
+  CMessageConversationHost *v7; // rdi
   int v8; // eax
   __int64 v9; // rcx
   unsigned int v10; // ebx
-  volatile signed __int32 *v12; // rsi
   void *retaddr; // [rsp+38h] [rbp+0h]
 
-  v4 = (CMessageConversationHost *)DefaultHeap::AllocClear(0x30uLL);
+  v4 = (CMessageConversationHost *)DefaultHeap::AllocClear(0x38uLL);
   if ( !v4 )
     ModuleFailFastForHRESULT(2147942414LL, retaddr);
   v5 = CMessageConversationHost::CMessageConversationHost(v4, a1);
-  v7 = (volatile signed __int32 *)v5;
+  v7 = v5;
   if ( v5 )
   {
     v8 = CMessageConversationHost::Initialize(v5);
@@ -37,22 +35,12 @@ __int64 __fastcall CMessageConversationHost::Create(struct IMessageSession *a1, 
     if ( v8 < 0 )
     {
       MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x1Cu, 0LL);
-      CMessageConversationHost::Disconnect((CMessageConversationHost *)v7);
-      v12 = v7 + 2;
-      if ( _InterlockedExchangeAdd(v7 + 2, 0xFFFFFFFF) == 1 )
-      {
-        CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v7 + 2));
-        (*(void (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v7 + 72LL))(v7);
-        if ( _InterlockedExchangeAdd(v12, 0xFFFFFFFF) == 1 )
-        {
-          --*v12;
-          (*(void (__fastcall **)(volatile signed __int32 *, __int64))(*(_QWORD *)v7 + 64LL))(v7, 1LL);
-        }
-      }
+      CMessageConversationHost::Disconnect(v7);
+      CRenderTargetBitmap::Release(v7);
     }
     else
     {
-      *a2 = (struct CMessageConversationHost *)v7;
+      *a2 = v7;
     }
   }
   else

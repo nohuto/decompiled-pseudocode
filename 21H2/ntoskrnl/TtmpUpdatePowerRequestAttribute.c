@@ -1,45 +1,45 @@
 /*
- * XREFs of TtmpUpdatePowerRequestAttribute @ 0x1409A6100
+ * XREFs of TtmpUpdatePowerRequestAttribute @ 0x140900520
  * Callers:
- *     TtmNotifySessionPowerRequestPresent @ 0x1409A4934 (TtmNotifySessionPowerRequestPresent.c)
+ *     TtmNotifySessionPowerRequestPresent @ 0x1408FED50 (TtmNotifySessionPowerRequestPresent.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionById @ 0x1409A5200 (TtmpAcquireSessionById.c)
- *     TtmpFindPowerRequestEntryById @ 0x1409A556C (TtmpFindPowerRequestEntryById.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     TtmpAcquireSessionById @ 0x1408FF5F0 (TtmpAcquireSessionById.c)
+ *     TtmpFindPowerRequestEntryById @ 0x1408FF96C (TtmpFindPowerRequestEntryById.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
  */
 
-char __fastcall TtmpUpdatePowerRequestAttribute(int a1, int a2, int a3, __int64 a4, __int64 a5)
+char __fastcall TtmpUpdatePowerRequestAttribute(int a1, int a2, int a3, __int64 a4, __int64 a5, int a6)
 {
-  char v8; // bl
-  int v9; // eax
-  __int64 v11; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v12; // [rsp+28h] [rbp-10h] BYREF
+  char v9; // bl
+  int v10; // eax
+  __int64 v12; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v13; // [rsp+28h] [rbp-10h] BYREF
 
-  v11 = 0LL;
   v12 = 0LL;
-  v8 = 0;
-  v9 = TtmpAcquireSessionById(&v11, a1);
-  if ( v9 >= 0 )
+  v13 = 0LL;
+  v9 = 0;
+  v10 = TtmpAcquireSessionById(&v12, a1);
+  if ( v10 >= 0 )
   {
-    if ( TtmpFindPowerRequestEntryById(v11, a2, &v12)
-      && *(_DWORD *)(v12 + 20) == a3
-      && *(_QWORD *)(v12 + 24) == a4
-      && !*(_DWORD *)(v12 + 40) )
+    if ( TtmpFindPowerRequestEntryById(v12, a2, &v13)
+      && *(_DWORD *)(v13 + 20) == a3
+      && *(_QWORD *)(v13 + 24) == a4
+      && *(_DWORD *)(v13 + 40) == a6 )
     {
-      v8 = 1;
-      *(_QWORD *)(v12 + 32) = a5;
+      v9 = 1;
+      *(_QWORD *)(v13 + 32) = a5;
     }
   }
   else
   {
-    TtmiLogError("TtmpUpdatePowerRequestAttribute", 3530LL, (unsigned int)v9, 0xFFFFFFFFLL);
+    TtmiLogError("TtmpUpdatePowerRequestAttribute", 3534LL, (unsigned int)v10, 0xFFFFFFFFLL);
   }
-  if ( v11 )
+  if ( v12 )
   {
     ExReleaseResourceLite(&TtmpSessionLock);
     KeLeaveCriticalRegion();
   }
-  return v8;
+  return v9;
 }

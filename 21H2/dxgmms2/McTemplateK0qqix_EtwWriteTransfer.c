@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0qqix_EtwWriteTransfer @ 0x1C0038028
+ * XREFs of McTemplateK0qqix_EtwWriteTransfer @ 0x1C002EB50
  * Callers:
- *     VidSchiProcessPeriodicNotificationCookie @ 0x1C0038FAC (VidSchiProcessPeriodicNotificationCookie.c)
+ *     VidSchiProcessPeriodicNotificationCookie @ 0x1C0030484 (VidSchiProcessPeriodicNotificationCookie.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C002E360 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023F6C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqix_EtwWriteTransfer(

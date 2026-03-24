@@ -1,53 +1,51 @@
 /*
- * XREFs of RimDeviceTypeToRimInputTypeString @ 0x1C004DC2C
+ * XREFs of RimDeviceTypeToRimInputTypeString @ 0x1C00AC634
  * Callers:
- *     rimProcessDeviceBufferAndStartRead @ 0x1C0003B78 (rimProcessDeviceBufferAndStartRead.c)
- *     RIMStartDeviceSpecificRead @ 0x1C004AF3C (RIMStartDeviceSpecificRead.c)
- *     RIMOpenDevWorker @ 0x1C004B0E0 (RIMOpenDevWorker.c)
- *     ?ReportRimDevice@RimTelemetry@@SAXHHQEAURIMDEV@@@Z @ 0x1C004B44C (-ReportRimDevice@RimTelemetry@@SAXHHQEAURIMDEV@@@Z.c)
- *     rimInputApc @ 0x1C00C06F0 (rimInputApc.c)
- *     RIMLogDeviceHealthTelemetry @ 0x1C018509C (RIMLogDeviceHealthTelemetry.c)
- *     RIMDeliverConfigRequest @ 0x1C018AB6C (RIMDeliverConfigRequest.c)
- *     RIMCreatePointerDeviceInfo @ 0x1C0190190 (RIMCreatePointerDeviceInfo.c)
- *     RIMVirtCreatePointerDeviceInfo @ 0x1C0196000 (RIMVirtCreatePointerDeviceInfo.c)
+ *     RIMStartDeviceSpecificRead @ 0x1C006A2E8 (RIMStartDeviceSpecificRead.c)
+ *     ?ReportRimDevice@RimTelemetry@@SAXHHQEAURIMDEV@@@Z @ 0x1C00AC460 (-ReportRimDevice@RimTelemetry@@SAXHHQEAURIMDEV@@@Z.c)
+ *     RIMOpenDev @ 0x1C00AD020 (RIMOpenDev.c)
+ *     RIMLogDeviceHealthTelemetry @ 0x1C01575F0 (RIMLogDeviceHealthTelemetry.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015C02C (RIMCreatePointerDeviceInfo.c)
+ *     RIMVirtCreatePointerDeviceInfo @ 0x1C0160150 (RIMVirtCreatePointerDeviceInfo.c)
+ *     RIMDeliverConfigRequest @ 0x1C0161484 (RIMDeliverConfigRequest.c)
+ *     rimInputApc @ 0x1C01746A0 (rimInputApc.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175130 (rimProcessDeviceBufferAndStartRead.c)
  * Callees:
  *     <none>
  */
 
 const wchar_t *__fastcall RimDeviceTypeToRimInputTypeString(__int64 a1, int a2)
 {
-  const wchar_t *result; // rax
+  int v2; // edx
   int v3; // edx
-  int v4; // edx
+  const wchar_t *result; // rax
   int v5; // ecx
 
   if ( !a2 )
     return L"RIM_INPUT_TYPE_MOUSE";
-  v3 = a2 - 1;
-  if ( !v3 )
+  v2 = a2 - 1;
+  if ( !v2 )
     return L"RIM_INPUT_TYPE_KEYBOARD";
-  v4 = v3 - 1;
-  if ( !v4 )
+  v3 = v2 - 1;
+  if ( !v3 )
   {
     if ( (*(_DWORD *)(a1 + 200) & 0x80u) == 0 )
     {
       if ( *(_BYTE *)(a1 + 48) != 3 )
         return L"RIM_INPUT_TYPE_HID_GEN";
+      return &word_1C0210C64;
     }
-    else
-    {
-      v5 = *(_DWORD *)(*(_QWORD *)(a1 + 472) + 24LL);
-      if ( v5 == 7 )
-        return L"RIM_INPUT_TYPE_HID_PTP";
-      if ( (unsigned int)(v5 - 5) <= 1 )
-        return L"RIM_INPUT_TYPE_HID_PEN";
-      if ( (unsigned int)(v5 - 1) <= 3 )
-        return L"RIM_INPUT_TYPE_HID_TCH";
-    }
-    return &word_1C0251294;
+    v5 = *(_DWORD *)(*(_QWORD *)(a1 + 480) + 24LL);
+    if ( v5 == 7 )
+      return L"RIM_INPUT_TYPE_HID_PTP";
+    if ( (unsigned int)(v5 - 5) <= 1 )
+      return L"RIM_INPUT_TYPE_HID_PEN";
+    if ( (unsigned int)(v5 - 1) <= 3 )
+      return L"RIM_INPUT_TYPE_HID_TCH";
+    return &word_1C0210C64;
   }
-  if ( v4 != 1 )
-    return &word_1C0251294;
+  if ( v3 != 1 )
+    return &word_1C0210C64;
   result = L"RIM_INPUT_TYPE_PTP_CONFIG";
   if ( (*(_DWORD *)(a1 + 184) & 0x1000) == 0 )
     return L"RIM_INPUT_TYPE_TCH_CONFIG";

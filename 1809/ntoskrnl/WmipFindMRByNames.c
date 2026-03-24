@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipFindMRByNames @ 0x140751BD4
+ * XREFs of WmipFindMRByNames @ 0x140751BB4
  * Callers:
- *     WmipAddMofResource @ 0x14075199C (WmipAddMofResource.c)
+ *     WmipAddMofResource @ 0x14075197C (WmipAddMofResource.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)

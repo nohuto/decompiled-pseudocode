@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpAcpiInitializePmRegisters @ 0x140AFA864
+ * XREFs of HalpAcpiInitializePmRegisters @ 0x140A64ED8
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140AF968C (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     HalpAcpiSetupPmRegisterLegacy @ 0x140AFAA0C (HalpAcpiSetupPmRegisterLegacy.c)
- *     HalpAcpiSetupPmRegister @ 0x140AFAA68 (HalpAcpiSetupPmRegister.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     HalpAcpiSetupPmRegisterLegacy @ 0x140A65080 (HalpAcpiSetupPmRegisterLegacy.c)
+ *     HalpAcpiSetupPmRegister @ 0x140A650DC (HalpAcpiSetupPmRegister.c)
  */
 
 __int64 __fastcall HalpAcpiInitializePmRegisters(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall HalpAcpiInitializePmRegisters(__int64 a1)
               a1 + 172,
               *(unsigned __int8 *)(a1 + 89),
               2,
-              &byte_140C4A4D0) < 0 )
+              &byte_140C49090) < 0 )
     KeBugCheckEx(0x5Cu, 0x8200uLL, 1uLL, (ULONG_PTR)"minkernel\\hals\\lib\\acpi\\pmregs.c", 0xD1uLL);
   HalpAcpiSetupPmRegisterLegacy(
     a1,
@@ -34,28 +34,28 @@ __int64 __fastcall HalpAcpiInitializePmRegisters(__int64 a1)
     a1 + 208,
     *(unsigned __int8 *)(a1 + 91),
     4,
-    &unk_140C4A500);
+    &unk_140C490C0);
   HalpAcpiSetupPmRegisterLegacy(
     a1,
     *(unsigned int *)(a1 + 60),
     a1 + 160,
     *(unsigned __int8 *)(a1 + 88),
     2,
-    &byte_140C4A530);
+    &byte_140C490F0);
   HalpAcpiSetupPmRegisterLegacy(
     a1,
     *(unsigned int *)(a1 + 68),
     a1 + 184,
     *(unsigned __int8 *)(a1 + 89),
     2,
-    &byte_140C4A560);
+    &byte_140C49120);
   HalpAcpiSetupPmRegisterLegacy(
     a1,
     *(unsigned int *)(a1 + 72),
     a1 + 196,
     *(unsigned __int8 *)(a1 + 90),
     1,
-    &unk_140C4A590);
+    &unk_140C49150);
   if ( *(_BYTE *)(a1 + 8) > 1u && (*(_DWORD *)(a1 + 112) & 0x400) != 0 )
     HalpAcpiSetupPmRegister(1uLL);
   HalpAcpiSetupPmRegisterLegacy(
@@ -64,12 +64,12 @@ __int64 __fastcall HalpAcpiInitializePmRegisters(__int64 a1)
     a1 + 220,
     *(unsigned __int8 *)(a1 + 92),
     1,
-    &unk_140C4A5C0);
+    &unk_140C49180);
   return HalpAcpiSetupPmRegisterLegacy(
            a1,
            *(unsigned int *)(a1 + 84),
            a1 + 232,
            *(unsigned __int8 *)(a1 + 93),
            1,
-           &unk_140C4A5F0);
+           &unk_140C491B0);
 }

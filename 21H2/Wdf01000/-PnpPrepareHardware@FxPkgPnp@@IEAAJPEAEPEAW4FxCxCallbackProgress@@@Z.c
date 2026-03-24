@@ -1,19 +1,19 @@
 /*
- * XREFs of ?PnpPrepareHardware@FxPkgPnp@@IEAAJPEAEPEAW4FxCxCallbackProgress@@@Z @ 0x1C00217C0
+ * XREFs of ?PnpPrepareHardware@FxPkgPnp@@IEAAJPEAEPEAW4FxCxCallbackProgress@@@Z @ 0x1C007BAA8
  * Callers:
- *     ?PnpEventHardwareAvailable@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C0021720 (-PnpEventHardwareAvailable@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
- *     ?PnpEventRestartHardwareAvailable@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C0084930 (-PnpEventRestartHardwareAvailable@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
- *     ?PnpEventStartingFromStopped@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C0084A30 (-PnpEventStartingFromStopped@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
+ *     ?PnpEventHardwareAvailable@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007A730 (-PnpEventHardwareAvailable@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
+ *     ?PnpEventRestartHardwareAvailable@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007B140 (-PnpEventRestartHardwareAvailable@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
+ *     ?PnpEventStartingFromStopped@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007B2B0 (-PnpEventStartingFromStopped@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?InvokeStateful@FxPrePostCallback@@QEAAJPEAW4FxCxCallbackProgress@@W4FxCxCallbackCleanupAction@@@Z @ 0x1C001120C (-InvokeStateful@FxPrePostCallback@@QEAAJPEAW4FxCxCallbackProgress@@W4FxCxCallbackCleanupAction@@.c)
- *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0019824 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
- *     ?PnpAssignInterruptsSyncIrql@FxPkgPnp@@IEAAXXZ @ 0x1C00218D0 (-PnpAssignInterruptsSyncIrql@FxPkgPnp@@IEAAXXZ.c)
- *     ?PnpMatchResources@FxPkgPnp@@IEAAJXZ @ 0x1C0021924 (-PnpMatchResources@FxPkgPnp@@IEAAJXZ.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C00150E8 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     ?InvokeStateful@FxPrePostCallback@@QEAAJPEAW4FxCxCallbackProgress@@W4FxCxCallbackCleanupAction@@@Z @ 0x1C0016E78 (-InvokeStateful@FxPrePostCallback@@QEAAJPEAW4FxCxCallbackProgress@@W4FxCxCallbackCleanupAction@@.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     ?PnpAssignInterruptsSyncIrql@FxPkgPnp@@IEAAXXZ @ 0x1C0079F18 (-PnpAssignInterruptsSyncIrql@FxPkgPnp@@IEAAXXZ.c)
+ *     ?PnpMatchResources@FxPkgPnp@@IEAAJXZ @ 0x1C007B7F8 (-PnpMatchResources@FxPkgPnp@@IEAAJXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PnpPrepareHardware(
@@ -26,20 +26,20 @@ __int64 __fastcall FxPkgPnp::PnpPrepareHardware(
   unsigned __int8 v8; // r8
   FxDeviceBase *m_DeviceBase; // rbp
   unsigned int v10; // ebx
-  unsigned __int8 v11; // dl
-  unsigned __int8 v12; // r8
-  unsigned __int64 ObjectHandleUnchecked; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r9
-  __int64 v16; // r8
-  int v17; // eax
-  FxDeviceBase *v18; // rbx
-  int v19; // esi
-  unsigned __int8 v20; // r8
-  unsigned __int8 v21; // dl
-  unsigned __int8 v22; // r8
-  __int64 result; // rax
   _DEVICE_OBJECT *m_DeviceObject; // rcx
+  __int64 result; // rax
+  unsigned __int8 v13; // dl
+  unsigned __int8 v14; // r8
+  unsigned __int64 ObjectHandleUnchecked; // rax
+  __int64 v16; // rdx
+  __int64 v17; // r9
+  __int64 v18; // r8
+  int v19; // eax
+  FxDeviceBase *v20; // rbx
+  int v21; // esi
+  unsigned __int8 v22; // r8
+  unsigned __int8 v23; // dl
+  unsigned __int8 v24; // r8
   unsigned int v25; // edx
   _FX_DRIVER_GLOBALS *m_Globals; // rcx
   _FX_DRIVER_GLOBALS *v27; // rcx
@@ -53,40 +53,36 @@ __int64 __fastcall FxPkgPnp::PnpPrepareHardware(
   matched = FxPkgPnp::PnpMatchResources(this);
   m_DeviceBase = this->m_DeviceBase;
   v10 = matched;
-  if ( matched < 0 )
-  {
-    this->m_InternalFailure = 1;
-    m_DeviceObject = m_DeviceBase->m_PhysicalDevice.m_DeviceObject;
-    *ResourcesMatched = 0;
-    IoInvalidateDeviceState(m_DeviceObject);
-    result = v10;
-    this->m_PendingPnPIrp->IoStatus.Status = v10;
-  }
-  else
+  if ( matched >= 0 )
   {
     *ResourcesMatched = 1;
     PreviousIrql = 0;
     FxNonPagedObject::Lock(m_DeviceBase, &PreviousIrql, v8);
-    v11 = PreviousIrql;
+    v13 = PreviousIrql;
     LOBYTE(m_DeviceBase[1].m_Globals) |= 1u;
-    FxNonPagedObject::Unlock(m_DeviceBase, v11, v12);
+    FxNonPagedObject::Unlock(m_DeviceBase, v13, v14);
     FxObject::GetObjectHandleUnchecked(this->m_Resources);
     FxObject::GetObjectHandleUnchecked(this->m_ResourcesRaw);
     ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
-    *(_QWORD *)(v15 + 40) = v14;
-    *(_QWORD *)(v15 + 48) = v16;
-    *(_QWORD *)(v15 + 32) = ObjectHandleUnchecked;
-    v17 = FxPrePostCallback::InvokeStateful((FxPrePostCallback *)v15, Progress, FxCxCleanupAfterPreFailure);
-    v18 = this->m_DeviceBase;
+    *(_QWORD *)(v17 + 40) = v16;
+    *(_QWORD *)(v17 + 48) = v18;
+    *(_QWORD *)(v17 + 32) = ObjectHandleUnchecked;
+    v19 = FxPrePostCallback::InvokeStateful((FxPrePostCallback *)v17, Progress, FxCxCleanupAfterPreFailure);
+    v20 = this->m_DeviceBase;
     PreviousIrql = 0;
-    v19 = v17;
-    FxNonPagedObject::Lock(v18, &PreviousIrql, v20);
-    v21 = PreviousIrql;
-    LOBYTE(v18[1].m_Globals) &= ~1u;
-    FxNonPagedObject::Unlock(v18, v21, v22);
-    if ( v19 < 0 )
+    v21 = v19;
+    FxNonPagedObject::Lock(v20, &PreviousIrql, v22);
+    v23 = PreviousIrql;
+    LOBYTE(v20[1].m_Globals) &= ~1u;
+    FxNonPagedObject::Unlock(v20, v23, v24);
+    if ( v21 >= 0 )
     {
-      if ( v19 == -1073741637 )
+      FxPkgPnp::PnpAssignInterruptsSyncIrql(this);
+      return 0;
+    }
+    else
+    {
+      if ( v21 == -1073741637 )
       {
         WPP_IFR_SF_(this->m_Globals, 2u, 0xCu, 0x1Au, WPP_PnpStateMachine_cpp_Traceguids);
         m_Globals = this->m_Globals;
@@ -99,14 +95,18 @@ __int64 __fastcall FxPkgPnp::PnpPrepareHardware(
       v28 = this->m_DeviceBase;
       this->m_InternalFailure = 1;
       IoInvalidateDeviceState(v28->m_PhysicalDevice.m_DeviceObject);
-      this->m_PendingPnPIrp->IoStatus.Status = v19;
+      this->m_PendingPnPIrp->IoStatus.Status = v21;
     }
-    else
-    {
-      FxPkgPnp::PnpAssignInterruptsSyncIrql(this);
-      return 0;
-    }
-    return (unsigned int)v19;
+    return (unsigned int)v21;
+  }
+  else
+  {
+    this->m_InternalFailure = 1;
+    m_DeviceObject = m_DeviceBase->m_PhysicalDevice.m_DeviceObject;
+    *ResourcesMatched = 0;
+    IoInvalidateDeviceState(m_DeviceObject);
+    result = v10;
+    this->m_PendingPnPIrp->IoStatus.Status = v10;
   }
   return result;
 }

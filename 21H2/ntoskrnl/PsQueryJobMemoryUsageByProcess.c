@@ -1,7 +1,7 @@
 /*
- * XREFs of PsQueryJobMemoryUsageByProcess @ 0x1409AFCD0
+ * XREFs of PsQueryJobMemoryUsageByProcess @ 0x1409088B8
  * Callers:
- *     MiLogCommitRequestFailed @ 0x14097F2B0 (MiLogCommitRequestFailed.c)
+ *     MiLogCommitRequestFailed @ 0x1408D73E4 (MiLogCommitRequestFailed.c)
  * Callees:
  *     <none>
  */
@@ -17,10 +17,10 @@ __int64 __fastcall PsQueryJobMemoryUsageByProcess(__int64 a1, _QWORD *a2, _QWORD
   if ( *(_QWORD *)(a1 + 1296) )
   {
     v9 = *(_QWORD **)(a1 + 1296);
-    v5 = v9[86];
-    *a5 = v9[191];
-    result = v9[85];
-    v7 = v9[146];
+    v5 = v9[74];
+    *a5 = v9[167];
+    result = v9[73];
+    v7 = v9[122];
   }
   else
   {

@@ -1,69 +1,71 @@
 /*
- * XREFs of ??0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z @ 0x1C007FA70
+ * XREFs of ??0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z @ 0x1C0099684
  * Callers:
- *     ?bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z @ 0x1C007DDB4 (-bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z.c)
- *     ?QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z @ 0x1C007EB2C (-QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z.c)
- *     ?QueryGlyphMetricsPlusBits@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAPEAU_GLYPHDATA@@PEAPEAU_GLYPHBITS@@@Z @ 0x1C007F8F4 (-QueryGlyphMetricsPlusBits@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAPEAU_GLYPHDATA@@PEAPEAU.c)
- *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C0080E54 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
- *     ?QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z @ 0x1C0081158 (-QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z.c)
- *     ?FontManagement@PFFOBJ@@QEAAHPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z @ 0x1C02E1204 (-FontManagement@PFFOBJ@@QEAAHPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z.c)
- *     ?GetTrueTypeFile@PFFOBJ@@QEAAPEAX_KPEAK@Z @ 0x1C02E12E4 (-GetTrueTypeFile@PFFOBJ@@QEAAPEAX_KPEAK@Z.c)
- *     ?QueryGlyphAttrs@PFFOBJ@@QEAAPEAU_FD_GLYPHATTR@@PEAU_FONTOBJ@@K@Z @ 0x1C02E142C (-QueryGlyphAttrs@PFFOBJ@@QEAAPEAU_FD_GLYPHATTR@@PEAU_FONTOBJ@@K@Z.c)
- *     ?QueryTrueTypeOutline@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KHPEAU_GLYPHDATA@@KPEAUtagTTPOLYGONHEADER@@@Z @ 0x1C02E1498 (-QueryTrueTypeOutline@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KHPEAU_GLYPHDATA@@KPEAUtagTTPOLYG.c)
+ *     ?bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z @ 0x1C0098F30 (-bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z.c)
+ *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C009A248 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
+ *     ?QueryGlyphMetricsPlusBits@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAPEAU_GLYPHDATA@@PEAPEAU_GLYPHBITS@@@Z @ 0x1C009A308 (-QueryGlyphMetricsPlusBits@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAPEAU_GLYPHDATA@@PEAPEAU.c)
+ *     ?ulGetFontData2@@YAKAEAVDCOBJ@@KKPEAXK@Z @ 0x1C009AB1C (-ulGetFontData2@@YAKAEAVDCOBJ@@KKPEAXK@Z.c)
+ *     ?QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z @ 0x1C009F3F8 (-QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z.c)
+ *     ?QueryTrueTypeOutline@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KHPEAU_GLYPHDATA@@KPEAUtagTTPOLYGONHEADER@@@Z @ 0x1C01520A4 (-QueryTrueTypeOutline@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KHPEAU_GLYPHDATA@@KPEAUtagTTPOLYG.c)
+ *     ?FontManagement@PFFOBJ@@QEAAHPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z @ 0x1C02C1D80 (-FontManagement@PFFOBJ@@QEAAHPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z.c)
+ *     ?GetTrueTypeFile@PFFOBJ@@QEAAPEAX_KPEAK@Z @ 0x1C02C1E60 (-GetTrueTypeFile@PFFOBJ@@QEAAPEAX_KPEAK@Z.c)
+ *     ?QueryGlyphAttrs@PFFOBJ@@QEAAPEAU_FD_GLYPHATTR@@PEAU_FONTOBJ@@K@Z @ 0x1C02C1ED8 (-QueryGlyphAttrs@PFFOBJ@@QEAAPEAU_FD_GLYPHATTR@@PEAU_FONTOBJ@@K@Z.c)
+ *     ?QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z @ 0x1C02C1F50 (-QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z.c)
  * Callees:
- *     ?MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z @ 0x1C007945C (-MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0307678 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z @ 0x1C00A4D8C (-MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C02DF0F0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
  */
 
 ATTACHOBJ *__fastcall ATTACHOBJ::ATTACHOBJ(ATTACHOBJ *this, struct PFFOBJ *a2)
 {
   __int64 v4; // r8
-  unsigned int v5; // ebx
+  unsigned int v5; // r10d
   __int64 v6; // rcx
-  struct _FONTFILEVIEW **v7; // r10
-  struct _FONTFILEVIEW *v8; // rdx
-  int v9; // eax
-  unsigned int v11[2]; // [rsp+20h] [rbp-38h] BYREF
-  int v12; // [rsp+28h] [rbp-30h]
-  void *v13[2]; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v14; // [rsp+40h] [rbp-18h]
+  __int64 v7; // rdx
+  __int64 v9; // rax
+  unsigned int v10[2]; // [rsp+20h] [rbp-38h] BYREF
+  int v11; // [rsp+28h] [rbp-30h]
+  void *v12[2]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v13; // [rsp+40h] [rbp-18h]
 
   *(_QWORD *)this = 0LL;
   *((_DWORD *)this + 2) = 0;
   v4 = *(_QWORD *)a2;
-  if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 88LL) + 40LL) & 0x2000) != 0 )
+  if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 88LL) + 40LL) & 0x2000) != 0 && *(_DWORD *)(v4 + 36) <= 3u )
   {
-    v5 = *(_DWORD *)(v4 + 36);
-    if ( v5 <= 3 )
+    if ( (*(_DWORD *)(v4 + 52) & 0x1000) != 0 )
     {
-      if ( (*(_DWORD *)(v4 + 52) & 0x1000) != 0 )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM();
-      if ( (*(_DWORD *)(*(_QWORD *)a2 + 52LL) & 0x2000) != 0 )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM();
-      v6 = 0LL;
-      if ( v5 )
+      MicrosoftTelemetryAssertTriggeredNoArgsKM();
+      v4 = *(_QWORD *)a2;
+    }
+    if ( (*(_DWORD *)(v4 + 52) & 0x2000) != 0 )
+    {
+      MicrosoftTelemetryAssertTriggeredNoArgsKM();
+      v4 = *(_QWORD *)a2;
+    }
+    v5 = *(_DWORD *)(v4 + 36);
+    v6 = 0LL;
+    if ( v5 )
+    {
+      while ( 1 )
       {
-        v7 = *(struct _FONTFILEVIEW ***)(*(_QWORD *)a2 + 200LL);
-        while ( 1 )
-        {
-          v8 = v7[v6];
-          v9 = *((_DWORD *)v8 + 10);
-          if ( (v9 & 0x10) == 0 && (v9 & 8) != 0 && !*((_QWORD *)v8 + 6) )
-            break;
-          v6 = (unsigned int)(v6 + 1);
-          if ( (unsigned int)v6 >= v5 )
-            return this;
-        }
-        v14 = 0LL;
-        *(_QWORD *)v11 = 0LL;
-        v12 = 0;
-        *(_OWORD *)v13 = 0LL;
-        if ( MapFontFiles(v5, v7, v13, v11) )
-        {
-          *(_QWORD *)this = *(_QWORD *)(*(_QWORD *)a2 + 200LL);
-          *((_DWORD *)this + 2) = v5;
-        }
+        v7 = *(_QWORD *)(*(_QWORD *)(v4 + 200) + 8 * v6);
+        if ( (*(_DWORD *)(v7 + 40) & 0x18) == 8 && !*(_QWORD *)(v7 + 48) )
+          break;
+        v6 = (unsigned int)(v6 + 1);
+        if ( (unsigned int)v6 >= v5 )
+          return this;
+      }
+      v13 = 0LL;
+      *(_QWORD *)v10 = 0LL;
+      v11 = 0;
+      v9 = *(_QWORD *)a2;
+      *(_OWORD *)v12 = 0LL;
+      if ( MapFontFiles(v5, *(struct _FONTFILEVIEW ***)(v9 + 200), v12, v10) )
+      {
+        *(_QWORD *)this = *(_QWORD *)(*(_QWORD *)a2 + 200LL);
+        *((_DWORD *)this + 2) = *(_DWORD *)(*(_QWORD *)a2 + 36LL);
       }
     }
   }

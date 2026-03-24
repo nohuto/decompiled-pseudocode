@@ -1,21 +1,21 @@
 /*
- * XREFs of _CmValidateDeviceName @ 0x14077FAC0
+ * XREFs of _CmValidateDeviceName @ 0x140642270
  * Callers:
- *     PiCMDeviceAction @ 0x14065F3BC (PiCMDeviceAction.c)
- *     PiCMQueryRemove @ 0x14065F7D4 (PiCMQueryRemove.c)
- *     _CmGetDeviceRegKeyPath @ 0x14077F934 (_CmGetDeviceRegKeyPath.c)
- *     _PnpDispatchDevice @ 0x1407855F0 (_PnpDispatchDevice.c)
- *     _CmGetDeviceInterfaceName @ 0x140789718 (_CmGetDeviceInterfaceName.c)
- *     PiCMGetRelatedDeviceInstance @ 0x14078A748 (PiCMGetRelatedDeviceInstance.c)
- *     _CmEnumSubkeyCallback @ 0x14083E410 (_CmEnumSubkeyCallback.c)
- *     PiCMCreateDevice @ 0x140954434 (PiCMCreateDevice.c)
- *     PiCMDeleteDevice @ 0x140954E2C (PiCMDeleteDevice.c)
- *     PiCMGenerateDeviceInstance @ 0x140955848 (PiCMGenerateDeviceInstance.c)
- *     PiCMGetDeviceDepth @ 0x140955BAC (PiCMGetDeviceDepth.c)
- *     PiCMRegisterDeviceInterface @ 0x140955EF8 (PiCMRegisterDeviceInterface.c)
- *     PiCMSetDeviceProblem @ 0x14095618C (PiCMSetDeviceProblem.c)
+ *     _PnpDispatchDevice @ 0x14063C410 (_PnpDispatchDevice.c)
+ *     _CmGetDeviceRegKeyPath @ 0x1406420EC (_CmGetDeviceRegKeyPath.c)
+ *     PiCMDeleteDevice @ 0x14072B66C (PiCMDeleteDevice.c)
+ *     PiCMSetDeviceProblem @ 0x14072EC10 (PiCMSetDeviceProblem.c)
+ *     PiCMQueryRemove @ 0x14072ED1C (PiCMQueryRemove.c)
+ *     PiCMDeviceAction @ 0x14072EF74 (PiCMDeviceAction.c)
+ *     PiCMGetDeviceDepth @ 0x140733DF8 (PiCMGetDeviceDepth.c)
+ *     _CmGetDeviceInterfaceName @ 0x140748C70 (_CmGetDeviceInterfaceName.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1407687E4 (PiCMGetRelatedDeviceInstance.c)
+ *     _CmEnumSubkeyCallback @ 0x1407B0D10 (_CmEnumSubkeyCallback.c)
+ *     PiCMCreateDevice @ 0x1408AF440 (PiCMCreateDevice.c)
+ *     PiCMGenerateDeviceInstance @ 0x1408B0590 (PiCMGenerateDeviceInstance.c)
+ *     PiCMRegisterDeviceInterface @ 0x1408B0D1C (PiCMRegisterDeviceInterface.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x1402DF9D0 (RtlUnalignedStringCchLengthW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x1402659E4 (RtlUnalignedStringCchLengthW.c)
  */
 
 __int64 __fastcall CmValidateDeviceName(__int64 a1, const wchar_t *a2)

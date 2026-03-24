@@ -1,66 +1,69 @@
 /*
- * XREFs of ?SetCastingVisual@CProjectedShadowCaster@@QEAAXPEAVCVisual@@@Z @ 0x180008F4C
+ * XREFs of ?SetCastingVisual@CProjectedShadowCaster@@QEAAXPEAVCVisual@@@Z @ 0x18001010C
  * Callers:
- *     ??1CProjectedShadowCaster@@MEAA@XZ @ 0x180007640 (--1CProjectedShadowCaster@@MEAA@XZ.c)
- *     ?ProcessSetCastingVisual@CProjectedShadowCaster@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWCASTER_SETCASTINGVISUAL@@@Z @ 0x180009C5C (-ProcessSetCastingVisual@CProjectedShadowCaster@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTE.c)
+ *     ?ProcessSetCastingVisual@CProjectedShadowCaster@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWCASTER_SETCASTINGVISUAL@@@Z @ 0x1800100B8 (-ProcessSetCastingVisual@CProjectedShadowCaster@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTE.c)
+ *     ??1CProjectedShadowCaster@@MEAA@XZ @ 0x1801E3DC0 (--1CProjectedShadowCaster@@MEAA@XZ.c)
  * Callees:
- *     ?DiscardCachesForCaster@CProjectedShadowScene@@QEAAXPEAVCProjectedShadowCaster@@@Z @ 0x180004DAC (-DiscardCachesForCaster@CProjectedShadowScene@@QEAAXPEAVCProjectedShadowCaster@@@Z.c)
- *     ?AddProjectedShadowCaster@CVisual@@QEAAXPEAVCProjectedShadowCaster@@@Z @ 0x180008E9C (-AddProjectedShadowCaster@CVisual@@QEAAXPEAVCProjectedShadowCaster@@@Z.c)
- *     ?InvalidateMaskContent@CProjectedShadowCaster@@QEAAXXZ @ 0x18000976C (-InvalidateMaskContent@CProjectedShadowCaster@@QEAAXXZ.c)
- *     ?GetProjectedShadowCasters@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@XZ @ 0x18000986C (-GetProjectedShadowCasters@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowCaster@@V-$allocator@PE.c)
- *     ?clear@?$_Tree@V?$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U?$less@PEBVCVisualTree@@@std@@V?$allocator@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@@5@$0A@@std@@@std@@QEAAXXZ @ 0x1800098CC (-clear@-$_Tree@V-$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U-$l.c)
- *     ?RemoveProjectedShadowCasterVisual@CComposition@@QEAAXPEAVCVisual@@@Z @ 0x18000A3B8 (-RemoveProjectedShadowCasterVisual@CComposition@@QEAAXPEAVCVisual@@@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
+ *     ?DiscardCachesForCaster@CProjectedShadowScene@@QEAAXPEAVCProjectedShadowCaster@@@Z @ 0x18000C950 (-DiscardCachesForCaster@CProjectedShadowScene@@QEAAXPEAVCProjectedShadowCaster@@@Z.c)
+ *     ?AddProjectedShadowCaster@CVisual@@QEAAXPEAVCProjectedShadowCaster@@@Z @ 0x18001017C (-AddProjectedShadowCaster@CVisual@@QEAAXPEAVCProjectedShadowCaster@@@Z.c)
+ *     ?InvalidateMaskContent@CProjectedShadowCaster@@QEAAXXZ @ 0x1800102C0 (-InvalidateMaskContent@CProjectedShadowCaster@@QEAAXXZ.c)
+ *     ?GetProjectedShadowCasters@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@XZ @ 0x180011D40 (-GetProjectedShadowCasters@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowCaster@@V-$allocator@PE.c)
+ *     ?clear@?$_Tree@V?$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U?$less@PEBVCVisualTree@@@std@@V?$allocator@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@@5@$0A@@std@@@std@@QEAAXXZ @ 0x180011DA0 (-clear@-$_Tree@V-$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U-$l.c)
+ *     ?RemoveProjectedShadowCasterVisual@CComposition@@QEAAXPEAVCVisual@@@Z @ 0x1800A00E8 (-RemoveProjectedShadowCasterVisual@CComposition@@QEAAXPEAVCVisual@@@Z.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
  */
 
-void __fastcall CProjectedShadowCaster::SetCastingVisual(CProjectedShadowScene ***this, CComposition **a2)
+void __fastcall CProjectedShadowCaster::SetCastingVisual(CProjectedShadowScene ***this, CProjectedShadowScene **a2)
 {
-  CProjectedShadowScene **v4; // rbp
-  CProjectedShadowScene **i; // rdi
-  CProjectedShadowScene **v6; // rdi
+  CProjectedShadowScene **v4; // r14
+  __int64 v5; // rbp
+  unsigned __int64 v6; // rsi
+  CProjectedShadowScene **v7; // rsi
   __int64 ProjectedShadowCasters; // r14
-  _BYTE *v8; // r8
-  CProjectedShadowCaster **v9; // rcx
-  _BYTE *v10; // rdx
+  CProjectedShadowCaster **v9; // r8
+  CProjectedShadowCaster **i; // rcx
 
-  if ( a2 != this[8] )
+  if ( a2 != this[7] )
   {
-    if ( this[8] )
+    if ( this[7] )
     {
       CProjectedShadowCaster::InvalidateMaskContent((CProjectedShadowCaster *)this);
-      v4 = this[13];
-      for ( i = this[12]; i != v4; ++i )
-        CProjectedShadowScene::DiscardCachesForCaster(*i, (struct CProjectedShadowCaster *)this);
-      std::_Tree<std::_Tmap_traits<CVisualTree const *,CProjectedShadowCaster::VisualPropertyData,std::less<CVisualTree const *>,std::allocator<std::pair<CVisualTree const * const,CProjectedShadowCaster::VisualPropertyData>>,0>>::clear(this + 10);
-      v6 = this[8];
-      if ( (*(_DWORD *)v6[29] & 0x40000) != 0 )
+      v4 = this[11];
+      v5 = 0LL;
+      v6 = (unsigned __int64)((char *)this[12] - (char *)v4 + 7) >> 3;
+      if ( v4 > this[12] )
+        v6 = 0LL;
+      if ( v6 )
       {
-        ProjectedShadowCasters = CVisual::GetProjectedShadowCasters(this[8]);
-        v8 = *(_BYTE **)(ProjectedShadowCasters + 8);
-        v9 = *(CProjectedShadowCaster ***)ProjectedShadowCasters;
-        if ( *(_BYTE **)ProjectedShadowCasters != v8 )
+        do
         {
-          while ( 1 )
-          {
-            v10 = v9 + 1;
-            if ( *v9 == (CProjectedShadowCaster *)this )
-              break;
-            ++v9;
-            if ( v10 == v8 )
-              goto LABEL_3;
-          }
-          memmove_0(v9, v10, v8 - v10);
+          CProjectedShadowScene::DiscardCachesForCaster(*v4, (struct CProjectedShadowCaster *)this);
+          ++v5;
+          ++v4;
+        }
+        while ( v5 != v6 );
+      }
+      std::_Tree<std::_Tmap_traits<CVisualTree const *,CProjectedShadowCaster::VisualPropertyData,std::less<CVisualTree const *>,std::allocator<std::pair<CVisualTree const * const,CProjectedShadowCaster::VisualPropertyData>>,0>>::clear(this + 9);
+      v7 = this[7];
+      if ( (*(_DWORD *)v7[28] & 0x40000) != 0 )
+      {
+        ProjectedShadowCasters = CVisual::GetProjectedShadowCasters(this[7]);
+        v9 = *(CProjectedShadowCaster ***)(ProjectedShadowCasters + 8);
+        for ( i = *(CProjectedShadowCaster ***)ProjectedShadowCasters; i != v9 && *i != (CProjectedShadowCaster *)this; ++i )
+          ;
+        if ( i != v9 )
+        {
+          memmove_0(i, i + 1, (char *)v9 - (char *)(i + 1));
           *(_QWORD *)(ProjectedShadowCasters + 8) -= 8LL;
           if ( ((*(_QWORD *)(ProjectedShadowCasters + 8) - *(_QWORD *)ProjectedShadowCasters) & 0xFFFFFFFFFFFFFFF8uLL) == 0 )
-            CComposition::RemoveProjectedShadowCasterVisual(v6[2], (struct CVisual *)v6);
+            CComposition::RemoveProjectedShadowCasterVisual(v7[2], (struct CVisual *)v7);
         }
       }
     }
-LABEL_3:
-    this[8] = a2;
+    this[7] = a2;
     if ( a2 )
     {
-      CVisual::AddProjectedShadowCaster(a2, (struct CProjectedShadowCaster *)this);
+      CVisual::AddProjectedShadowCaster((CVisual *)a2, (struct CProjectedShadowCaster *)this);
       CProjectedShadowCaster::InvalidateMaskContent((CProjectedShadowCaster *)this);
     }
   }

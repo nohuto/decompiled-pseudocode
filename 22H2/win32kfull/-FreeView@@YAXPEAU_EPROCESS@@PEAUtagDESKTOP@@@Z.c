@@ -1,61 +1,57 @@
 /*
- * XREFs of ?FreeView@@YAXPEAU_EPROCESS@@PEAUtagDESKTOP@@@Z @ 0x1C009C2A0
+ * XREFs of ?FreeView@@YAXPEAU_EPROCESS@@PEAUtagDESKTOP@@@Z @ 0x1C004C868
  * Callers:
- *     FreeDesktop @ 0x1C009C0D0 (FreeDesktop.c)
- *     UnmapDesktop @ 0x1C009C1E0 (UnmapDesktop.c)
+ *     UnmapDesktop @ 0x1C004EAD0 (UnmapDesktop.c)
+ *     FreeDesktop @ 0x1C012BE30 (FreeDesktop.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ??0?$CLockDomainExclusiveLeaf@VDLT_DESKTOP@@@@QEAA@XZ @ 0x1C004E944 (--0-$CLockDomainExclusiveLeaf@VDLT_DESKTOP@@@@QEAA@XZ.c)
+ *     GetDesktopView @ 0x1C004EFA0 (GetDesktopView.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 void __fastcall FreeView(PRKPROCESS PROCESS, struct tagDESKTOP *a2)
 {
-  _QWORD *ProcessWin32Process; // rax
-  _QWORD *v5; // rsi
-  int v6; // ebp
-  struct tagDESKTOP ***v7; // rsi
-  struct tagDESKTOP **i; // rbx
-  struct tagDESKTOP **j; // rcx
-  struct _KAPC_STATE ApcState; // [rsp+20h] [rbp-58h] BYREF
+  __int64 ProcessWin32Process; // rsi
+  int v5; // ebp
+  _QWORD *DesktopView; // rdi
+  _QWORD **v7; // rsi
+  _QWORD *i; // rcx
+  _BYTE v9[8]; // [rsp+20h] [rbp-58h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+28h] [rbp-50h] BYREF
 
   if ( PROCESS )
   {
-    ProcessWin32Process = (_QWORD *)PsGetProcessWin32Process(PROCESS);
-    v5 = ProcessWin32Process;
+    ProcessWin32Process = PsGetProcessWin32Process(PROCESS);
     if ( ProcessWin32Process )
     {
-      if ( *ProcessWin32Process )
+      memset(&ApcState, 0, sizeof(ApcState));
+      if ( (unsigned int)PsGetProcessSessionId(PROCESS) == *(_DWORD *)a2 )
       {
-        memset(&ApcState, 0, sizeof(ApcState));
-        if ( (unsigned int)PsGetProcessSessionId(PROCESS) == *(_DWORD *)a2 )
-        {
-          v6 = 0;
-        }
-        else
-        {
-          KeStackAttachProcess(PROCESS, &ApcState);
-          v6 = 1;
-        }
-        v7 = (struct tagDESKTOP ***)(v5 + 87);
-        for ( i = *v7; i; i = (struct tagDESKTOP **)*i )
-        {
-          if ( i[1] == a2 )
-          {
-            PsGetProcessSessionId(PROCESS);
-            MmUnmapViewOfSection(PROCESS, i[2]);
-            for ( j = *v7; j; j = (struct tagDESKTOP **)*j )
-            {
-              if ( j == i )
-                break;
-              v7 = (struct tagDESKTOP ***)j;
-            }
-            *v7 = (struct tagDESKTOP **)*i;
-            Win32FreePool(i);
-            break;
-          }
-        }
-        if ( v6 )
-          KeUnstackDetachProcess(&ApcState);
+        v5 = 0;
       }
+      else
+      {
+        KeStackAttachProcess(PROCESS, &ApcState);
+        v5 = 1;
+      }
+      DesktopView = (_QWORD *)GetDesktopView(ProcessWin32Process, a2);
+      if ( DesktopView )
+      {
+        PsGetProcessSessionId(PROCESS);
+        MmUnmapViewOfSection(PROCESS, DesktopView[2]);
+        CLockDomainExclusiveLeaf<DLT_DESKTOP>::CLockDomainExclusiveLeaf<DLT_DESKTOP>(v9);
+        v7 = (_QWORD **)(ProcessWin32Process + 704);
+        for ( i = *v7; i; i = (_QWORD *)*i )
+        {
+          if ( i == DesktopView )
+            break;
+          v7 = (_QWORD **)i;
+        }
+        *v7 = (_QWORD *)*DesktopView;
+        Win32FreePool(DesktopView);
+      }
+      if ( v5 )
+        KeUnstackDetachProcess(&ApcState);
     }
   }
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiCombineIdenticalPages @ 0x1406D1598
+ * XREFs of MiCombineIdenticalPages @ 0x1406D1578
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
- *     MmManagePartitionCombineMemory @ 0x140860934 (MmManagePartitionCombineMemory.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
+ *     MmManagePartitionCombineMemory @ 0x140860914 (MmManagePartitionCombineMemory.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiGetNextPageColor @ 0x140031260 (MiGetNextPageColor.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     MiDeleteUltraThreadContext @ 0x1400E17EC (MiDeleteUltraThreadContext.c)
- *     MiCombiningInProgress @ 0x14013C3BC (MiCombiningInProgress.c)
- *     MiCreateUltraThreadContext @ 0x14013CAC4 (MiCreateUltraThreadContext.c)
- *     MiCombineWorkingSet @ 0x14013DB60 (MiCombineWorkingSet.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     MiDeleteUltraThreadContext @ 0x1400E180C (MiDeleteUltraThreadContext.c)
+ *     MiCombiningInProgress @ 0x14013C3DC (MiCombiningInProgress.c)
+ *     MiCreateUltraThreadContext @ 0x14013CAE4 (MiCreateUltraThreadContext.c)
+ *     MiCombineWorkingSet @ 0x14013DB80 (MiCombineWorkingSet.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     MiCombineAllPhysicalMemory @ 0x1406D41D0 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406D41B0 (MiCombineAllPhysicalMemory.c)
  */
 
 __int64 __fastcall MiCombineIdenticalPages(

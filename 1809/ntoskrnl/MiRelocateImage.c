@@ -1,8 +1,8 @@
 /*
- * XREFs of MiRelocateImage @ 0x14064FEE4
+ * XREFs of MiRelocateImage @ 0x14064FEC4
  * Callers:
  *     MiCreateNewSection @ 0x14061B7E0 (MiCreateNewSection.c)
- *     MiGetSystemAddressForImage @ 0x140682F60 (MiGetSystemAddressForImage.c)
+ *     MiGetSystemAddressForImage @ 0x140682F40 (MiGetSystemAddressForImage.c)
  * Callees:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
@@ -14,31 +14,31 @@
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     MiGetControlAreaPartition @ 0x1400938A8 (MiGetControlAreaPartition.c)
  *     MiUpdateControlAreaCommitCount @ 0x140095F94 (MiUpdateControlAreaCommitCount.c)
- *     MiOffsetToProtos @ 0x1400AF810 (MiOffsetToProtos.c)
- *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1400D92BC (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1400D94BC (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MiLegacyImageArchitecture @ 0x1400DA40C (MiLegacyImageArchitecture.c)
- *     PsRevertToUserPagePriorityThread @ 0x1400DA430 (PsRevertToUserPagePriorityThread.c)
- *     PsSetSystemPagePriorityThread @ 0x1400DA498 (PsSetSystemPagePriorityThread.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiSetDeleteOnClose @ 0x1402A320C (MiSetDeleteOnClose.c)
- *     MiSetLeafPfnBuddy @ 0x1402BFCD0 (MiSetLeafPfnBuddy.c)
- *     MiMakeUnusedImageExtentsCold @ 0x1402C3C9C (MiMakeUnusedImageExtentsCold.c)
+ *     MiOffsetToProtos @ 0x1400AF830 (MiOffsetToProtos.c)
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1400D92DC (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1400D94DC (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MiLegacyImageArchitecture @ 0x1400DA42C (MiLegacyImageArchitecture.c)
+ *     PsRevertToUserPagePriorityThread @ 0x1400DA450 (PsRevertToUserPagePriorityThread.c)
+ *     PsSetSystemPagePriorityThread @ 0x1400DA4B8 (PsSetSystemPagePriorityThread.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiSetDeleteOnClose @ 0x1402A330C (MiSetDeleteOnClose.c)
+ *     MiSetLeafPfnBuddy @ 0x1402BFDD0 (MiSetLeafPfnBuddy.c)
+ *     MiMakeUnusedImageExtentsCold @ 0x1402C3D9C (MiMakeUnusedImageExtentsCold.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiUpdateCfgSystemWideBitmap @ 0x14064F764 (MiUpdateCfgSystemWideBitmap.c)
- *     MiSelectImageBase @ 0x14064F81C (MiSelectImageBase.c)
- *     MiScanRelocationPage @ 0x1406506A0 (MiScanRelocationPage.c)
- *     MiLogRelocationFaults @ 0x140650824 (MiLogRelocationFaults.c)
- *     MiUnmapImageInSystemSpace @ 0x1406508AC (MiUnmapImageInSystemSpace.c)
- *     MiParseImageLoadConfig @ 0x1406508FC (MiParseImageLoadConfig.c)
- *     MiMapImageInSystemSpace @ 0x140650E60 (MiMapImageInSystemSpace.c)
- *     MiCompressRelocations @ 0x140650FF0 (MiCompressRelocations.c)
- *     MiFreeRelocations @ 0x1406FD220 (MiFreeRelocations.c)
- *     MiFreeImageLoadConfig @ 0x1406FD2BC (MiFreeImageLoadConfig.c)
+ *     MiUpdateCfgSystemWideBitmap @ 0x14064F744 (MiUpdateCfgSystemWideBitmap.c)
+ *     MiSelectImageBase @ 0x14064F7FC (MiSelectImageBase.c)
+ *     MiScanRelocationPage @ 0x140650680 (MiScanRelocationPage.c)
+ *     MiLogRelocationFaults @ 0x140650804 (MiLogRelocationFaults.c)
+ *     MiUnmapImageInSystemSpace @ 0x14065088C (MiUnmapImageInSystemSpace.c)
+ *     MiParseImageLoadConfig @ 0x1406508DC (MiParseImageLoadConfig.c)
+ *     MiMapImageInSystemSpace @ 0x140650E40 (MiMapImageInSystemSpace.c)
+ *     MiCompressRelocations @ 0x140650FD0 (MiCompressRelocations.c)
+ *     MiFreeRelocations @ 0x1406FD200 (MiFreeRelocations.c)
+ *     MiFreeImageLoadConfig @ 0x1406FD29C (MiFreeImageLoadConfig.c)
  */
 
 __int64 __fastcall MiRelocateImage(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5, unsigned int a6)
@@ -511,8 +511,8 @@ LABEL_55:
     MiSetDeleteOnClose(v16, 0);
   if ( (MiFlags & 0x4000) == 0
     || (*(_DWORD *)(v16 + 92) & 0x180000) == 0
-    || (qword_14040DE00
-      ? (Config = qword_14040DE00(*(_QWORD *)(v48 + 40) & 0xFFFFFFFFFFFFFFF8uLL, v47))
+    || (qword_14040DDE0
+      ? (Config = qword_14040DDE0(*(_QWORD *)(v48 + 40) & 0xFFFFFFFFFFFFFFF8uLL, v47))
       : (Config = -1073741637),
         Config >= 0) )
   {

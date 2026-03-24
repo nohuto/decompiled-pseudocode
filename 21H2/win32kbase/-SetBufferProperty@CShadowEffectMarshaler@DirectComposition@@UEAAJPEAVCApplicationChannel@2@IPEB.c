@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CShadowEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0216E90
+ * XREFs of ?SetBufferProperty@CShadowEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E0CF0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0215D20 (-SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
+ *     ?SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DFED0 (-SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
  */
 
 __int64 __fastcall DirectComposition::CShadowEffectMarshaler::SetBufferProperty(
@@ -23,12 +23,12 @@ __int64 __fastcall DirectComposition::CShadowEffectMarshaler::SetBufferProperty(
   {
     if ( a4 && a5 == 16 )
     {
-      v8 = *(_QWORD *)((char *)this + 124) - *a4;
+      v8 = *(_QWORD *)((char *)this + 116) - *a4;
       if ( !v8 )
-        v8 = *(_QWORD *)((char *)this + 132) - a4[1];
+        v8 = *(_QWORD *)((char *)this + 124) - a4[1];
       if ( v8 )
       {
-        *(_OWORD *)((char *)this + 124) = *(_OWORD *)a4;
+        *(_OWORD *)((char *)this + 116) = *(_OWORD *)a4;
         *a6 = 1;
       }
     }

@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpReleaseDisownedFastResourceExclusive @ 0x14016471C
+ * XREFs of ExpReleaseDisownedFastResourceExclusive @ 0x14016473C
  * Callers:
- *     ExReleaseDisownedFastResource @ 0x140164BB0 (ExReleaseDisownedFastResource.c)
- *     ExReleaseDisownedFastResourceExclusive @ 0x14031B0C0 (ExReleaseDisownedFastResourceExclusive.c)
- *     ExReleaseDisownedFastResourceShared @ 0x14031B1D0 (ExReleaseDisownedFastResourceShared.c)
+ *     ExReleaseDisownedFastResource @ 0x140164BD0 (ExReleaseDisownedFastResource.c)
+ *     ExReleaseDisownedFastResourceExclusive @ 0x14031B1C0 (ExReleaseDisownedFastResourceExclusive.c)
+ *     ExReleaseDisownedFastResourceShared @ 0x14031B2D0 (ExReleaseDisownedFastResourceShared.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeWakeWaitChain @ 0x140125BB8 (KeWakeWaitChain.c)
- *     KeAbCrossThreadRelease @ 0x140164E20 (KeAbCrossThreadRelease.c)
- *     ExpRotateFastOwnerEntrySublistHead @ 0x140165124 (ExpRotateFastOwnerEntrySublistHead.c)
- *     ExpPrepareToWakeResourceExclusive @ 0x140166544 (ExpPrepareToWakeResourceExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeWakeWaitChain @ 0x140125BD8 (KeWakeWaitChain.c)
+ *     KeAbCrossThreadRelease @ 0x140164E40 (KeAbCrossThreadRelease.c)
+ *     ExpRotateFastOwnerEntrySublistHead @ 0x140165144 (ExpRotateFastOwnerEntrySublistHead.c)
+ *     ExpPrepareToWakeResourceExclusive @ 0x140166564 (ExpPrepareToWakeResourceExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG_PTR __fastcall ExpReleaseDisownedFastResourceExclusive(__int64 a1, __int64 *a2, __int64 a3)

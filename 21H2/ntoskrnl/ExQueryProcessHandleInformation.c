@@ -1,11 +1,11 @@
 /*
- * XREFs of ExQueryProcessHandleInformation @ 0x1409F8FB8
+ * XREFs of ExQueryProcessHandleInformation @ 0x14094C8A4
  * Callers:
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
  * Callees:
- *     ExLockHandleTableEntry @ 0x1402F344C (ExLockHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x14041AC40 (ExfUnblockPushLock.c)
- *     ExpGetNextHandleTableEntry @ 0x14066B42C (ExpGetNextHandleTableEntry.c)
+ *     ExLockHandleTableEntry @ 0x140348860 (ExLockHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
+ *     ExpGetNextHandleTableEntry @ 0x140685B90 (ExpGetNextHandleTableEntry.c)
  */
 
 __int64 __fastcall ExQueryProcessHandleInformation(__int64 a1, _QWORD *a2, int a3, int *a4)
@@ -15,9 +15,9 @@ __int64 __fastcall ExQueryProcessHandleInformation(__int64 a1, _QWORD *a2, int a
   int v7; // esi
   unsigned int v8; // r15d
   __int64 v9; // rdx
-  _QWORD *NextHandleTableEntry; // rax
+  signed __int64 *NextHandleTableEntry; // rax
   unsigned int v11; // r11d
-  _QWORD *v12; // r14
+  signed __int64 *v12; // r14
   __int64 *v13; // rdx
   int v14; // r9d
   int v15; // r8d
@@ -45,7 +45,7 @@ __int64 __fastcall ExQueryProcessHandleInformation(__int64 a1, _QWORD *a2, int a
   v9 = 0LL;
   while ( 1 )
   {
-    NextHandleTableEntry = (_QWORD *)ExpGetNextHandleTableEntry(a1, v9, v25);
+    NextHandleTableEntry = (signed __int64 *)ExpGetNextHandleTableEntry(a1, v9, v25);
     v12 = NextHandleTableEntry;
     if ( !NextHandleTableEntry )
       break;
@@ -59,14 +59,14 @@ __int64 __fastcall ExQueryProcessHandleInformation(__int64 a1, _QWORD *a2, int a
     }
     else if ( ExLockHandleTableEntry(v28, NextHandleTableEntry) )
     {
-      v13 = (__int64 *)(((__int64)*v12 >> 16) & 0xFFFFFFFFFFFFFFF0uLL);
+      v13 = (__int64 *)((*v12 >> 16) & 0xFFFFFFFFFFFFFFF0uLL);
       v14 = *((_DWORD *)v12 + 2);
-      v15 = ((__int64)*v12 >> 17) & 7 | 8;
+      v15 = (*v12 >> 17) & 7 | 8;
       if ( (v14 & 0x2000000) == 0 )
-        LOBYTE(v15) = ((__int64)*v12 >> 17) & 7;
+        LOBYTE(v15) = (*v12 >> 17) & 7;
       v16 = v15 & 7;
       v30 = v16;
-      v17 = *(unsigned __int8 *)(ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)((((__int64)*v12 >> 16) & 0xFFFFFFFFFFFFFFF0uLL) + 0x18) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(WORD1(*v12) & 0xFFF0) >> 8)]
+      v17 = *(unsigned __int8 *)(ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(((*v12 >> 16) & 0xFFFFFFFFFFFFFFF0uLL) + 0x18) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(WORD1(*v12) & 0xFFF0) >> 8)]
                                + 40);
       v24 = v17;
       v18 = *v13;

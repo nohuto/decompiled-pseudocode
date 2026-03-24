@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBREG_WriteStringToDeviceHardwareKey @ 0x1C008599C
+ * XREFs of HUBREG_WriteStringToDeviceHardwareKey @ 0x1C007FED0
  * Callers:
- *     HUBPDO_EvtDevicePrepareHardware @ 0x1C007BF50 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0077CC0 (HUBPDO_EvtDevicePrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_WriteStringToDeviceHardwareKey(__int64 a1, __int64 a2, __int64 a3)
@@ -48,7 +48,7 @@ LABEL_7:
       2u,
       5u,
       v7,
-      (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
+      (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
       v9);
   }
 LABEL_8:

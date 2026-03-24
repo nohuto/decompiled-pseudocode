@@ -1,25 +1,25 @@
 /*
- * XREFs of PiPnpRtlApplyMandatoryFilters @ 0x140741948
+ * XREFs of PiPnpRtlApplyMandatoryFilters @ 0x1406AD0D8
  * Callers:
- *     PiUEventApplyAdditionalFilters @ 0x14077E9F0 (PiUEventApplyAdditionalFilters.c)
- *     PiDqQueryApplyObjectEvent @ 0x1407871A4 (PiDqQueryApplyObjectEvent.c)
- *     IopGetDeviceInterfaces @ 0x140787900 (IopGetDeviceInterfaces.c)
- *     PiDqQueryEnumObject @ 0x140788744 (PiDqQueryEnumObject.c)
- *     PiCMValidateDeviceInstance @ 0x14079A3C8 (PiCMValidateDeviceInstance.c)
- *     IoGetDeviceInterfaceAlias @ 0x1407C5A60 (IoGetDeviceInterfaceAlias.c)
- *     IopDeviceInterfaceFilterCallback @ 0x1407CE8D0 (IopDeviceInterfaceFilterCallback.c)
- *     PiCMMandatoryFilterCallback @ 0x1407CF810 (PiCMMandatoryFilterCallback.c)
+ *     PiCMValidateDeviceInstance @ 0x140684800 (PiCMValidateDeviceInstance.c)
+ *     IopDeviceInterfaceFilterCallback @ 0x14068FCA0 (IopDeviceInterfaceFilterCallback.c)
+ *     PiCMMandatoryFilterCallback @ 0x14069AE80 (PiCMMandatoryFilterCallback.c)
+ *     PiDqQueryEnumObject @ 0x1406AC914 (PiDqQueryEnumObject.c)
+ *     IopGetDeviceInterfaces @ 0x1406B32E8 (IopGetDeviceInterfaces.c)
+ *     PiUEventApplyAdditionalFilters @ 0x14071B414 (PiUEventApplyAdditionalFilters.c)
+ *     IoGetDeviceInterfaceAlias @ 0x14072BED0 (IoGetDeviceInterfaceAlias.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140762AE4 (PiDqQueryApplyObjectEvent.c)
  * Callees:
- *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1406C9818 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140740D40 (PiPnpRtlApplyMandatoryDeviceFilters.c)
- *     SeQuerySessionIdTokenEx @ 0x1407422E0 (SeQuerySessionIdTokenEx.c)
- *     PiAuVerifyAccessToObject @ 0x14079ADDC (PiAuVerifyAccessToObject.c)
- *     PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1407E6B24 (PiPnpRtlApplyMandatoryDeviceContainerFilters.c)
+ *     PiAuVerifyAccessToObject @ 0x140684DD8 (PiAuVerifyAccessToObject.c)
+ *     PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1406A2378 (PiPnpRtlApplyMandatoryDeviceContainerFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1406ACEB8 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1406ACF7C (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     SeQuerySessionIdTokenEx @ 0x1406AD220 (SeQuerySessionIdTokenEx.c)
  */
 
 __int64 __fastcall PiPnpRtlApplyMandatoryFilters(
         __int64 a1,
-        __int64 a2,
+        const wchar_t *a2,
         int a3,
         __int64 a4,
         struct _SECURITY_SUBJECT_CONTEXT *SessionId,
@@ -27,12 +27,12 @@ __int64 __fastcall PiPnpRtlApplyMandatoryFilters(
 {
   struct _SECURITY_SUBJECT_CONTEXT *v6; // rdi
   PACCESS_TOKEN ClientToken; // rcx
-  NTSTATUS SessionIdToken; // ecx
+  int SessionIdToken; // ecx
   __int64 v13; // r8
   _BYTE *v14; // rax
   int v15; // ebx
-  int v18; // ebx
-  BOOLEAN IsServiceSession[24]; // [rsp+30h] [rbp-18h] BYREF
+  int v16; // ebx
+  BOOLEAN IsServiceSession[40]; // [rsp+30h] [rbp-28h] BYREF
 
   v6 = SessionId;
   IsServiceSession[0] = 0;
@@ -50,13 +50,13 @@ __int64 __fastcall PiPnpRtlApplyMandatoryFilters(
                          PiAuLocalSystemSecurityObject,
                          (PGENERIC_MAPPING)&PiAuLocalSystemSecurityMapping,
                          v6,
-                         (__int64)&SessionId);
+                         (BOOLEAN *)&SessionId);
       if ( SessionIdToken < 0 )
         return (unsigned int)SessionIdToken;
       if ( (_BYTE)SessionId )
       {
         v14 = a6;
-LABEL_14:
+LABEL_13:
         *v14 = 1;
         return (unsigned int)SessionIdToken;
       }
@@ -65,21 +65,21 @@ LABEL_14:
     v15 = a3 - 1;
     if ( v15 )
     {
-      v18 = v15 - 2;
-      if ( v18 )
+      v16 = v15 - 2;
+      if ( v16 )
       {
-        if ( v18 != 2 )
-          goto LABEL_14;
-        return (unsigned int)PiPnpRtlApplyMandatoryDeviceContainerFilters(a1, a2, v13, v6, a6);
+        if ( v16 != 2 )
+          goto LABEL_13;
+        return (unsigned int)PiPnpRtlApplyMandatoryDeviceContainerFilters(a1, a2, v13, (__int64)v6, a6);
       }
       else
       {
-        return (unsigned int)PiPnpRtlApplyMandatoryDeviceInterfaceFilters(a1, a2, a4, (int)v6, (__int64)a6);
+        return (unsigned int)PiPnpRtlApplyMandatoryDeviceInterfaceFilters(a1, (__int64)a2, a4, (int)v6, (__int64)a6);
       }
     }
     else
     {
-      return (unsigned int)PiPnpRtlApplyMandatoryDeviceFilters(a1, a2, a4, v6, a6);
+      return (unsigned int)PiPnpRtlApplyMandatoryDeviceFilters(a1, (__int64)a2, a4, (__int64)v6, a6);
     }
   }
   return (unsigned int)SessionIdToken;

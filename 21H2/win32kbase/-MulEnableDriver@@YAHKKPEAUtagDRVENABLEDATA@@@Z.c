@@ -1,47 +1,52 @@
 /*
- * XREFs of ?MulEnableDriver@@YAHKKPEAUtagDRVENABLEDATA@@@Z @ 0x1C016E3B0
+ * XREFs of ?MulEnableDriver@@YAHKKPEAUtagDRVENABLEDATA@@@Z @ 0x1C01414F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall MulEnableDriver(__int64 a1, __int64 a2, struct tagDRVENABLEDATA *a3)
 {
-  unsigned int v4; // ecx
-  _OWORD *v5; // rax
-  char *v6; // rdx
-  __int64 v7; // r8
+  int v4; // eax
+  unsigned int v5; // ecx
+  _OWORD *v6; // rax
+  char *v7; // rdx
+  __int64 v8; // r8
   __int64 result; // rax
-  unsigned int v9; // [rsp+40h] [rbp+18h] BYREF
-  _OWORD *v10; // [rsp+48h] [rbp+20h] BYREF
+  unsigned int v10; // [rsp+40h] [rbp+18h] BYREF
+  _OWORD *v11; // [rsp+48h] [rbp+20h] BYREF
 
   if ( RtlRunOnceBeginInitialize(&gMulEnableDriverInit, 0, 0LL) == 259 )
   {
-    if ( ext_ms_win_moderncore_win32k_base_ntgdi_l1 && (int)ext_ms_win_moderncore_win32k_base_ntgdi_l1() >= 0 )
+    if ( ext_ms_win_moderncore_win32k_base_ntgdi_l1 )
+      v4 = ext_ms_win_moderncore_win32k_base_ntgdi_l1();
+    else
+      v4 = -1073741637;
+    if ( v4 >= 0 )
     {
-      v10 = 0LL;
-      v4 = 0;
-      v9 = 0;
-      if ( qword_1C029AD98 )
+      v11 = 0LL;
+      v5 = 0;
+      v10 = 0;
+      if ( qword_1C0256018 )
       {
-        qword_1C029AD98(&v10, &v9);
-        v4 = v9;
-        if ( v9 )
+        qword_1C0256018(&v11, &v10);
+        v5 = v10;
+        if ( v10 )
         {
-          v5 = v10;
-          v6 = (char *)(&unk_1C028EB90 - (_UNKNOWN *)v10);
-          v7 = v9;
+          v6 = v11;
+          v7 = (char *)(&unk_1C024B7B0 - (_UNKNOWN *)v11);
+          v8 = v10;
           do
           {
-            *(_OWORD *)((char *)v5 + (_QWORD)v6) = *v5;
-            ++v5;
-            --v7;
+            *(_OWORD *)((char *)v6 + (_QWORD)v7) = *v6;
+            ++v6;
+            --v8;
           }
-          while ( v7 );
+          while ( v8 );
         }
       }
-      gcdrvfnMulti += v4;
+      gcdrvfnMulti += v5;
     }
     RtlRunOnceComplete(&gMulEnableDriverInit, 0, 0LL);
   }

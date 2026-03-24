@@ -1,18 +1,18 @@
 /*
- * XREFs of SdbpCheckPackageAttributes @ 0x1408E6F60
+ * XREFs of SdbpCheckPackageAttributes @ 0x1408E6F40
  * Callers:
  *     <none>
  * Callees:
- *     ULongLongMult @ 0x14026D6E8 (ULongLongMult.c)
- *     SdbReadDWORDTag @ 0x14067CDB8 (SdbReadDWORDTag.c)
- *     SdbFindFirstTag @ 0x14067D1A0 (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
- *     SdbpCheckUptoVersion @ 0x14071F450 (SdbpCheckUptoVersion.c)
- *     SdbReadQWORDTag @ 0x140721108 (SdbReadQWORDTag.c)
- *     AslStringPatternMatchW @ 0x1407213B4 (AslStringPatternMatchW.c)
- *     SdbGetStringTagPtr @ 0x140721730 (SdbGetStringTagPtr.c)
- *     SdbpCheckFromVersion @ 0x1408E90B8 (SdbpCheckFromVersion.c)
- *     SdbpCheckVersion @ 0x1408E90F8 (SdbpCheckVersion.c)
+ *     ULongLongMult @ 0x14026D7E8 (ULongLongMult.c)
+ *     SdbReadDWORDTag @ 0x14067CD98 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x14067D180 (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbpCheckUptoVersion @ 0x14071F430 (SdbpCheckUptoVersion.c)
+ *     SdbReadQWORDTag @ 0x1407210E8 (SdbReadQWORDTag.c)
+ *     AslStringPatternMatchW @ 0x140721394 (AslStringPatternMatchW.c)
+ *     SdbGetStringTagPtr @ 0x140721710 (SdbGetStringTagPtr.c)
+ *     SdbpCheckFromVersion @ 0x1408E9098 (SdbpCheckFromVersion.c)
+ *     SdbpCheckVersion @ 0x1408E90D8 (SdbpCheckVersion.c)
  */
 
 __int64 __fastcall SdbpCheckPackageAttributes(
@@ -48,7 +48,7 @@ __int64 __fastcall SdbpCheckPackageAttributes(
   *a1 = 0;
   while ( 1 )
   {
-    FirstTag = SdbFindFirstTag(*(_QWORD *)(a2 + 8), a5, *(_WORD *)((char *)&unk_1404055A8 + v10));
+    FirstTag = SdbFindFirstTag(*(_QWORD *)(a2 + 8), a5, *(_WORD *)((char *)&unk_1404055A0 + v10));
     if ( FirstTag )
       break;
 LABEL_35:
@@ -63,7 +63,7 @@ LABEL_35:
   v14 = 0LL;
   if ( v13 )
   {
-    v15 = (char *)&unk_1404055A8;
+    v15 = (char *)&unk_1404055A0;
     do
     {
       v16 = 0LL;

@@ -1,7 +1,7 @@
 /*
- * XREFs of CcCopyWrite @ 0x140269650
+ * XREFs of CcCopyWrite @ 0x140269750
  * Callers:
- *     FsRtlCopyWrite @ 0x1408140F0 (FsRtlCopyWrite.c)
+ *     FsRtlCopyWrite @ 0x1408140D0 (FsRtlCopyWrite.c)
  * Callees:
  *     CcCopyWriteEx @ 0x1400312D0 (CcCopyWriteEx.c)
  */

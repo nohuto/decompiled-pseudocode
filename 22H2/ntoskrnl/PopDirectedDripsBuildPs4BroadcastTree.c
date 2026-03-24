@@ -1,28 +1,28 @@
 /*
- * XREFs of PopDirectedDripsBuildPs4BroadcastTree @ 0x14099FF4C
+ * XREFs of PopDirectedDripsBuildPs4BroadcastTree @ 0x1408F8E40
  * Callers:
- *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099FC00 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x1408F8B10 (PopDirectedDripsBuildBroadcastTreeFull.c)
  * Callees:
- *     PopDirectedDripsDiagTraceProblemDevice @ 0x14099F4EC (PopDirectedDripsDiagTraceProblemDevice.c)
- *     PopDirectedDripsFlushDeviceQueue @ 0x1409A00D4 (PopDirectedDripsFlushDeviceQueue.c)
- *     PopDirectedDripsInsertQueueDevice @ 0x1409A010C (PopDirectedDripsInsertQueueDevice.c)
- *     PopDirectedDripsVisitDevice @ 0x1409A02C0 (PopDirectedDripsVisitDevice.c)
- *     PopDirectedDripsVisitPs4Device @ 0x1409A0314 (PopDirectedDripsVisitPs4Device.c)
+ *     PopDirectedDripsDiagTraceProblemDevice @ 0x1408F83DC (PopDirectedDripsDiagTraceProblemDevice.c)
+ *     PopDirectedDripsFlushDeviceQueue @ 0x1408F8FD0 (PopDirectedDripsFlushDeviceQueue.c)
+ *     PopDirectedDripsInsertQueueDevice @ 0x1408F9008 (PopDirectedDripsInsertQueueDevice.c)
+ *     PopDirectedDripsVisitDevice @ 0x1408F91C0 (PopDirectedDripsVisitDevice.c)
+ *     PopDirectedDripsVisitPs4Device @ 0x1408F9214 (PopDirectedDripsVisitPs4Device.c)
  */
 
 __int64 __fastcall PopDirectedDripsBuildPs4BroadcastTree(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v5; // rdi
+  __int64 v5; // rbx
   __int64 v6; // rax
-  __int64 *v7; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  unsigned int v10; // r8d
-  int v11; // eax
-  __int64 *v12; // rax
-  __int64 *v13; // rdi
-  int v14; // eax
-  __int64 *v15; // rax
+  __int64 v7; // rdi
+  int v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  _QWORD *v11; // rax
+  _QWORD *v12; // rbx
+  int v13; // eax
+  _QWORD *v14; // rax
+  unsigned int v15; // r8d
   _QWORD v17[2]; // [rsp+20h] [rbp-10h] BYREF
 
   v17[1] = v17;
@@ -42,53 +42,56 @@ __int64 __fastcall PopDirectedDripsBuildPs4BroadcastTree(__int64 a1, __int64 a2,
     if ( (*(_DWORD *)(v5 + 32) & 0x20000) == 0 )
     {
       PopDirectedDripsVisitDevice(a2, v5, a3, 4LL);
-      v7 = (__int64 *)(v5 - 728);
+      v7 = v5 - 728;
       if ( v5 == 728 )
+        goto LABEL_22;
+      do
       {
-LABEL_9:
+        if ( (*(_DWORD *)(v7 + 760) & 1) != 0 )
+          break;
+        v7 = *(_QWORD *)(v7 + 16);
+      }
+      while ( v7 );
+      if ( !v7 )
+      {
+LABEL_22:
         *(_DWORD *)(v5 + 32) |= 0x40000u;
         PopDirectedDripsDiagTraceProblemDevice(v5 - 728, a3, 3);
-        v9 = 3221225659LL;
-LABEL_10:
-        PopDirectedDripsFlushDeviceQueue(v17, v8, v9);
-        return v10;
+        v10 = 3221225659LL;
+LABEL_23:
+        PopDirectedDripsFlushDeviceQueue(v17, v9, v10);
+        return v15;
       }
-      while ( (v7[95] & 1) == 0 )
+      v8 = PopDirectedDripsVisitPs4Device(v7, v17, a2, a3);
+      v10 = (unsigned int)v8;
+      if ( v8 < 0 )
+        goto LABEL_23;
+      v11 = *(_QWORD **)(v7 + 8);
+      v12 = (_QWORD *)v7;
+      while ( v11 )
       {
-        v7 = (__int64 *)v7[2];
-        if ( !v7 )
-          goto LABEL_9;
+        v12 = v11;
+        v11 = (_QWORD *)v11[1];
       }
-      v11 = PopDirectedDripsVisitPs4Device(v7, v17, a2, a3);
-      v9 = (unsigned int)v11;
-      if ( v11 < 0 )
-        goto LABEL_10;
-      v12 = (__int64 *)v7[1];
-      v13 = v7;
-      while ( v12 )
+      while ( v12 != (_QWORD *)v7 )
       {
-        v7 = v12;
-        v12 = (__int64 *)v12[1];
-      }
-      while ( v7 != v13 )
-      {
-        v14 = PopDirectedDripsVisitPs4Device(v7, v17, a2, a3);
-        v9 = (unsigned int)v14;
-        if ( v14 < 0 )
-          goto LABEL_10;
-        v15 = (__int64 *)*v7;
-        if ( *v7 )
+        v13 = PopDirectedDripsVisitPs4Device(v12, v17, a2, a3);
+        v10 = (unsigned int)v13;
+        if ( v13 < 0 )
+          goto LABEL_23;
+        v14 = (_QWORD *)*v12;
+        if ( *v12 )
         {
           do
           {
-            v7 = v15;
-            v15 = (__int64 *)v15[1];
+            v12 = v14;
+            v14 = (_QWORD *)v14[1];
           }
-          while ( v15 );
+          while ( v14 );
         }
         else
         {
-          v7 = (__int64 *)v7[2];
+          v12 = (_QWORD *)v12[2];
         }
       }
     }

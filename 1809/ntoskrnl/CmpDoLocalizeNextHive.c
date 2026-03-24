@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpDoLocalizeNextHive @ 0x1407086D0
+ * XREFs of CmpDoLocalizeNextHive @ 0x1407086B0
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     CmpGetNextActiveHive @ 0x1405B1474 (CmpGetNextActiveHive.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     HvHiveConvertLockedPagesToCowByPolicy @ 0x14070877C (HvHiveConvertLockedPagesToCowByPolicy.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     HvHiveConvertLockedPagesToCowByPolicy @ 0x14070875C (HvHiveConvertLockedPagesToCowByPolicy.c)
  */
 
 char __fastcall CmpDoLocalizeNextHive(_BYTE *a1, _QWORD *a2)

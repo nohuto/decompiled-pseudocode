@@ -1,29 +1,32 @@
 /*
- * XREFs of ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x1801138DE
+ * XREFs of ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x1801B5DF8
  * Callers:
- *     ??0CTrimPathOperation@@QEAA@XZ @ 0x1801F8B7C (--0CTrimPathOperation@@QEAA@XZ.c)
- *     ?AddArc@CPathData@@EEAAXPEBUD2D1_ARC_SEGMENT@@@Z @ 0x18026F9F0 (-AddArc@CPathData@@EEAAXPEBUD2D1_ARC_SEGMENT@@@Z.c)
- *     ?AddBezier@CPathData@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@@Z @ 0x18026FA70 (-AddBezier@CPathData@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@@Z.c)
- *     ?AddBeziers@CPathData@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x18026FAC0 (-AddBeziers@CPathData@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
- *     ?AddLine@CPathData@@EEAAXUD2D_POINT_2F@@@Z @ 0x18026FB40 (-AddLine@CPathData@@EEAAXUD2D_POINT_2F@@@Z.c)
- *     ?AddLines@CPathData@@EEAAXPEBUD2D_POINT_2F@@I@Z @ 0x18026FB90 (-AddLines@CPathData@@EEAAXPEBUD2D_POINT_2F@@I@Z.c)
- *     ?AddQuadraticBezier@CPathData@@EEAAXPEBUD2D1_QUADRATIC_BEZIER_SEGMENT@@@Z @ 0x18026FC00 (-AddQuadraticBezier@CPathData@@EEAAXPEBUD2D1_QUADRATIC_BEZIER_SEGMENT@@@Z.c)
- *     ?AddQuadraticBeziers@CPathData@@EEAAXPEBUD2D1_QUADRATIC_BEZIER_SEGMENT@@I@Z @ 0x18026FC60 (-AddQuadraticBeziers@CPathData@@EEAAXPEBUD2D1_QUADRATIC_BEZIER_SEGMENT@@I@Z.c)
- *     ?BeginFigure@CPathData@@EEAAXUD2D_POINT_2F@@W4D2D1_FIGURE_BEGIN@@@Z @ 0x18026FDA0 (-BeginFigure@CPathData@@EEAAXUD2D_POINT_2F@@W4D2D1_FIGURE_BEGIN@@@Z.c)
- *     ?EndFigure@CPathData@@EEAAXW4D2D1_FIGURE_END@@@Z @ 0x18026FE10 (-EndFigure@CPathData@@EEAAXW4D2D1_FIGURE_END@@@Z.c)
- *     ?Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z @ 0x1802A0C90 (-Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z.c)
- *     ?TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z @ 0x1802A100C (-TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z.c)
+ *     ??0CTrimPathOperation@@QEAA@XZ @ 0x1801B5D84 (--0CTrimPathOperation@@QEAA@XZ.c)
+ *     ?AddArc@CPathData@@EEAAXPEBUD2D1_ARC_SEGMENT@@@Z @ 0x180220960 (-AddArc@CPathData@@EEAAXPEBUD2D1_ARC_SEGMENT@@@Z.c)
+ *     ?AddBezier@CPathData@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@@Z @ 0x1802209E0 (-AddBezier@CPathData@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@@Z.c)
+ *     ?AddBeziers@CPathData@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x180220A30 (-AddBeziers@CPathData@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     ?AddLine@CPathData@@EEAAXUD2D_POINT_2F@@@Z @ 0x180220AB0 (-AddLine@CPathData@@EEAAXUD2D_POINT_2F@@@Z.c)
+ *     ?AddLines@CPathData@@EEAAXPEBUD2D_POINT_2F@@I@Z @ 0x180220B00 (-AddLines@CPathData@@EEAAXPEBUD2D_POINT_2F@@I@Z.c)
+ *     ?AddQuadraticBezier@CPathData@@EEAAXPEBUD2D1_QUADRATIC_BEZIER_SEGMENT@@@Z @ 0x180220B70 (-AddQuadraticBezier@CPathData@@EEAAXPEBUD2D1_QUADRATIC_BEZIER_SEGMENT@@@Z.c)
+ *     ?AddQuadraticBeziers@CPathData@@EEAAXPEBUD2D1_QUADRATIC_BEZIER_SEGMENT@@I@Z @ 0x180220BD0 (-AddQuadraticBeziers@CPathData@@EEAAXPEBUD2D1_QUADRATIC_BEZIER_SEGMENT@@I@Z.c)
+ *     ?BeginFigure@CPathData@@EEAAXUD2D_POINT_2F@@W4D2D1_FIGURE_BEGIN@@@Z @ 0x180220CD0 (-BeginFigure@CPathData@@EEAAXUD2D_POINT_2F@@W4D2D1_FIGURE_BEGIN@@@Z.c)
+ *     ?EndFigure@CPathData@@EEAAXW4D2D1_FIGURE_END@@@Z @ 0x180220D40 (-EndFigure@CPathData@@EEAAXW4D2D1_FIGURE_END@@@Z.c)
+ *     ?Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z @ 0x18025F1D0 (-Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z.c)
+ *     ?TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z @ 0x18025F530 (-TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z.c)
  * Callees:
- *     ?GetSize@Segment@Path@@SAIW4SegmentType@2@@Z @ 0x1800EA63C (-GetSize@Segment@Path@@SAIW4SegmentType@2@@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     ?GetSize@Segment@Path@@SAIW4SegmentType@2@@Z @ 0x18021FCE8 (-GetSize@Segment@Path@@SAIW4SegmentType@2@@Z.c)
  */
 
-char *__fastcall Path::Segment::Segment(char *a1, char a2)
+_BYTE *__fastcall Path::Segment::Segment(_BYTE *a1, char a2)
 {
+  _BYTE *v2; // rdi
   unsigned int Size; // eax
 
-  Size = Path::Segment::GetSize(a2);
-  memset_0(a1, 0, Size);
-  *a1 = a2;
-  return a1;
+  v2 = a1;
+  LOBYTE(a1) = a2;
+  Size = Path::Segment::GetSize(a1);
+  memset_0(v2, 0, Size);
+  *v2 = a2;
+  return v2;
 }

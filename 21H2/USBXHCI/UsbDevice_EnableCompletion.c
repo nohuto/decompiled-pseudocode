@@ -1,25 +1,25 @@
 /*
- * XREFs of UsbDevice_EnableCompletion @ 0x1C00109B0
+ * XREFs of UsbDevice_EnableCompletion @ 0x1C000E630
  * Callers:
  *     <none>
  * Callees:
- *     Command_SendCommand @ 0x1C0003D94 (Command_SendCommand.c)
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     Endpoint_Disable @ 0x1C0004D70 (Endpoint_Disable.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     XilDeviceSlot_SetDeviceContext @ 0x1C00105E0 (XilDeviceSlot_SetDeviceContext.c)
- *     Endpoint_SetLogIdentifier @ 0x1C0010DE8 (Endpoint_SetLogIdentifier.c)
- *     WPP_RECORDER_SF_dq @ 0x1C0010E7C (WPP_RECORDER_SF_dq.c)
- *     UsbDevice_SetAddress @ 0x1C00111BC (UsbDevice_SetAddress.c)
- *     WPP_RECORDER_SF_i @ 0x1C00156C4 (WPP_RECORDER_SF_i.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031C54 (Controller_HwVerifierBreakIfEnabled.c)
- *     Controller_ReportFatalError @ 0x1C0032C20 (Controller_ReportFatalError.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
+ *     Endpoint_Disable @ 0x1C000AB88 (Endpoint_Disable.c)
+ *     Endpoint_SetLogIdentifier @ 0x1C000E75C (Endpoint_SetLogIdentifier.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     XilDeviceSlot_SetDeviceContext @ 0x1C000F634 (XilDeviceSlot_SetDeviceContext.c)
+ *     UsbDevice_SetAddress @ 0x1C001086C (UsbDevice_SetAddress.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0010CB0 (WPP_RECORDER_SF_dq.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
  */
 
-__int64 __fastcall UsbDevice_EnableCompletion(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall UsbDevice_EnableCompletion(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx
   _QWORD *v6; // r10
@@ -30,7 +30,7 @@ __int64 __fastcall UsbDevice_EnableCompletion(__int64 a1, __int64 a2, __int64 a3
   unsigned int v11; // edi
   __int64 v12; // rcx
   __int64 v13; // rdx
-  __int64 result; // rax
+  int v14; // eax
   char v15; // si
   int v16; // edx
   int v17; // edx
@@ -50,7 +50,7 @@ __int64 __fastcall UsbDevice_EnableCompletion(__int64 a1, __int64 a2, __int64 a3
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(a2) = 4;
-      WPP_RECORDER_SF_i(v6[9], a2, 12, 15, (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids, *(_QWORD *)v3);
+      WPP_RECORDER_SF_i(v6[9], a2, 12, 15, (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids, *(_QWORD *)v3);
     }
     v15 = 1;
     v11 = *(_BYTE *)(v3 + 432) == 0 ? 0xC0000001 : 0;
@@ -68,7 +68,7 @@ __int64 __fastcall UsbDevice_EnableCompletion(__int64 a1, __int64 a2, __int64 a3
           a2,
           12,
           16,
-          (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
+          (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
           *(_BYTE *)(a1 + 61),
           *(_QWORD *)v3);
       }
@@ -86,27 +86,27 @@ __int64 __fastcall UsbDevice_EnableCompletion(__int64 a1, __int64 a2, __int64 a3
           v13 = 0LL;
         *(_QWORD *)(v3 + 160) = v13;
         LOBYTE(v13) = 1;
-        result = UsbDevice_SetAddress(v3, v13);
-        if ( (int)result < 0 )
+        v14 = UsbDevice_SetAddress(v3, v13);
+        if ( v14 < 0 )
         {
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
             v17 = *(unsigned __int8 *)(v3 + 135);
             LOBYTE(v17) = 2;
-            WPP_RECORDER_SF_DD(
+            WPP_RECORDER_SF_dd(
               *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
               v17,
               12,
               18,
-              (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
+              (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
               *(_BYTE *)(v3 + 135),
-              result);
+              v14);
           }
           v18 = *(_QWORD *)(*(_QWORD *)(v3 + 8) + 144LL);
           memset((void *)(v3 + 456), 0, 0x60uLL);
           if ( *(_BYTE *)(v3 + 432) )
           {
-            return Controller_ReportFatalError(*(_QWORD *)(v3 + 8), 2, 4117, 0, 0LL, 0LL, 0LL);
+            Controller_ReportFatalError(*(_QWORD *)(v3 + 8), 2, 4117, 0, 0LL, 0LL, 0LL);
           }
           else
           {
@@ -118,21 +118,21 @@ __int64 __fastcall UsbDevice_EnableCompletion(__int64 a1, __int64 a2, __int64 a3
             *(_DWORD *)(v3 + 492) = v19 | 0x2800;
             *(_BYTE *)(v3 + 495) = *(_BYTE *)(v3 + 135);
             *(_QWORD *)(v3 + 544) = 0LL;
-            return Command_SendCommand(v18, v3 + 456);
+            Command_SendCommand(v18, v3 + 456);
           }
         }
-        return result;
+        return;
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
         v16 = *(unsigned __int8 *)(v3 + 135);
         LOBYTE(v16) = 2;
-        WPP_RECORDER_SF_DD(
+        WPP_RECORDER_SF_dd(
           *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
           v16,
           12,
           17,
-          (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
+          (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
           *(_BYTE *)(v3 + 135),
           v10);
       }
@@ -152,7 +152,7 @@ __int64 __fastcall UsbDevice_EnableCompletion(__int64 a1, __int64 a2, __int64 a3
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
         LOBYTE(a2) = 3;
-        WPP_RECORDER_SF_d(v6[9], a2, 12, 19, (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids, v9);
+        WPP_RECORDER_SF_d(v6[9], a2, 12, 19, (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids, v9);
         v9 = *(_BYTE *)(a1 + 60);
       }
       if ( v9 == 9 )
@@ -180,15 +180,14 @@ __int64 __fastcall UsbDevice_EnableCompletion(__int64 a1, __int64 a2, __int64 a3
     }
   }
   LOBYTE(a2) = 1;
-  result = Endpoint_Disable(*(_QWORD *)(v3 + 176), a2);
+  Endpoint_Disable(*(_QWORD *)(v3 + 176), a2);
   if ( v15 )
   {
     v21 = *(_QWORD *)(v3 + 424);
     *(_QWORD *)(v3 + 424) = 0LL;
-    return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01023 + 2104))(
-             WdfDriverGlobals,
-             v21,
-             v11);
+    (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01023 + 2104))(
+      WdfDriverGlobals,
+      v21,
+      v11);
   }
-  return result;
 }

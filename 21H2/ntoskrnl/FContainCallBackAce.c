@@ -1,10 +1,10 @@
 /*
- * XREFs of FContainCallBackAce @ 0x1406C46B4
+ * XREFs of FContainCallBackAce @ 0x140788064
  * Callers:
- *     LocalGetSDDLDeliminator @ 0x1406C4594 (LocalGetSDDLDeliminator.c)
- *     LocalGetAceCount @ 0x1406C4600 (LocalGetAceCount.c)
+ *     LocalGetSDDLDeliminator @ 0x140787F28 (LocalGetSDDLDeliminator.c)
+ *     LocalGetAceCount @ 0x140787F94 (LocalGetAceCount.c)
  * Callees:
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
  */
 
 __int64 __fastcall FContainCallBackAce(wchar_t *Str1)

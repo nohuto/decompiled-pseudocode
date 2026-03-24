@@ -3,14 +3,14 @@
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiCloneVads @ 0x1402C8A68 (MiCloneVads.c)
+ *     MiCloneVads @ 0x1402C8B68 (MiCloneVads.c)
  *     MiReturnPageTablePageCommitment @ 0x1405EC380 (MiReturnPageTablePageCommitment.c)
  *     MiRemoveVadCharges @ 0x1405EC820 (MiRemoveVadCharges.c)
  *     MiReturnFullProcessCommitment @ 0x1405F2998 (MiReturnFullProcessCommitment.c)
  *     MiDeleteVadBitmap @ 0x140608CFC (MiDeleteVadBitmap.c)
  * Callees:
  *     PsReturnProcessPageFileQuota @ 0x1405F29D4 (PsReturnProcessPageFileQuota.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x14068C750 (PspChangeJobMemoryUsageByProcess.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x14068C730 (PspChangeJobMemoryUsageByProcess.c)
  */
 
 __int64 __fastcall MiReturnFullProcessCharges(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GammaConvert_128bppABGR_64bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BD890
+ * XREFs of ?GammaConvert_128bppABGR_64bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021AAE0
  * Callers:
  *     <none>
  * Callees:
- *     ?Convert_scRGB_float_To_sRGB_UINT16@@YAGM@Z @ 0x18027FC24 (-Convert_scRGB_float_To_sRGB_UINT16@@YAGM@Z.c)
+ *     ?Convert_scRGB_float_To_sRGB_UINT16@@YAGM@Z @ 0x18021ECFC (-Convert_scRGB_float_To_sRGB_UINT16@@YAGM@Z.c)
  */
 
 void __fastcall GammaConvert_128bppABGR_64bppABGR(const struct PipelineParams *a1, const struct ScanOpParams *a2)

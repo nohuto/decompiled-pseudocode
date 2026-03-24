@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ReleaseD3DResources@CD3DConstantBuffer@@MEAAXXZ @ 0x1800F83B0
+ * XREFs of ?ReleaseD3DResources@CD3DConstantBuffer@@MEAAXXZ @ 0x1800DDF40
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall CD3DConstantBuffer::ReleaseD3DResources(CD3DConstantBuffer *this)
 {
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease((__int64 *)this + 12);
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease((__int64 *)this + 14);
 }

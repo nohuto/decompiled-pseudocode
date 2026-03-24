@@ -1,120 +1,129 @@
 /*
- * XREFs of HalpInterruptStartProcessor @ 0x140A895A0
+ * XREFs of HalpInterruptStartProcessor @ 0x140999F64
  * Callers:
- *     HalStartNextProcessor @ 0x140377100 (HalStartNextProcessor.c)
- *     HalStartDynamicProcessor @ 0x140504D00 (HalStartDynamicProcessor.c)
- *     HalpDpStartProcessor @ 0x140A97C34 (HalpDpStartProcessor.c)
- *     HalpBlkStartBlockedProcessor @ 0x140A9878C (HalpBlkStartBlockedProcessor.c)
+ *     HalStartNextProcessor @ 0x1403A0DA0 (HalStartNextProcessor.c)
+ *     HalStartDynamicProcessor @ 0x1404BC230 (HalStartDynamicProcessor.c)
+ *     HalpDpStartProcessor @ 0x1409A8B94 (HalpDpStartProcessor.c)
+ *     HalpBlkStartBlockedProcessor @ 0x1409A96E4 (HalpBlkStartBlockedProcessor.c)
  * Callees:
- *     HalpSetProcessorStateByNtIndex @ 0x140376E6C (HalpSetProcessorStateByNtIndex.c)
- *     HalpInterruptSetProcessorStartContext @ 0x140376EC0 (HalpInterruptSetProcessorStartContext.c)
- *     HalpInterruptWaitForProcessorStartUp @ 0x140376F34 (HalpInterruptWaitForProcessorStartUp.c)
- *     HalpInterruptGetNextProcessorLocalId @ 0x140376FA8 (HalpInterruptGetNextProcessorLocalId.c)
- *     HalpHvVpStartEnabled @ 0x140377BA0 (HalpHvVpStartEnabled.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpInterruptSetProblemEx @ 0x14051AAC8 (HalpInterruptSetProblemEx.c)
- *     HalpHvStartProcessor @ 0x14051B428 (HalpHvStartProcessor.c)
- *     HalpMmUpdateTiledMemoryMapTargetStub @ 0x14051B608 (HalpMmUpdateTiledMemoryMapTargetStub.c)
+ *     HalSystemVectorDispatchEntry @ 0x1402526A0 (HalSystemVectorDispatchEntry.c)
+ *     HalpInterruptWaitForProcessorStartUp @ 0x1403A0E0C (HalpInterruptWaitForProcessorStartUp.c)
+ *     HalpInterruptBuildStartupStub @ 0x1403A0E80 (HalpInterruptBuildStartupStub.c)
+ *     HalpHvVpStartEnabled @ 0x1403A1280 (HalpHvVpStartEnabled.c)
+ *     HalpInterruptGetNextProcessorLocalId @ 0x1403A1BB4 (HalpInterruptGetNextProcessorLocalId.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x1404D19C8 (HalpInterruptSetProblemEx.c)
+ *     HalpHvStartProcessor @ 0x1404D1FCC (HalpHvStartProcessor.c)
+ *     HalpMmFreeTiledMemoryMap @ 0x14099A140 (HalpMmFreeTiledMemoryMap.c)
+ *     HalpMmBuildTiledMemoryMap @ 0x14099A1AC (HalpMmBuildTiledMemoryMap.c)
  */
 
-__int64 __fastcall HalpInterruptStartProcessor(unsigned int a1, int a2, char a3, const void *a4)
+__int64 __fastcall HalpInterruptStartProcessor(unsigned int a1, unsigned int a2, char a3, const void *a4)
 {
-  unsigned int v4; // edi
+  unsigned int v7; // esi
+  __int64 *v8; // rbp
   int NextProcessorLocalId; // ecx
-  char started; // bp
-  _BYTE *v10; // r15
-  unsigned int v11; // ebx
-  unsigned int v12; // edi
-  bool v13; // si
-  char v14; // r8
-  __int64 v15; // rdx
-  int v16; // eax
-  __int16 v18; // [rsp+60h] [rbp-8h]
-  int v19; // [rsp+78h] [rbp+10h] BYREF
+  __int64 v10; // rdx
+  char started; // di
+  __int64 v12; // r14
+  bool v13; // bl
+  __int64 v14; // rdx
+  int v15; // eax
+  int v17; // edx
+  __int64 v18; // [rsp+30h] [rbp-58h] BYREF
+  PHYSICAL_ADDRESS v19; // [rsp+38h] [rbp-50h] BYREF
+  __int64 v20; // [rsp+40h] [rbp-48h] BYREF
+  int v21; // [rsp+80h] [rbp-8h]
+  unsigned int v22; // [rsp+98h] [rbp+10h] BYREF
 
-  v19 = a2;
-  v4 = 0;
+  v22 = a2;
+  v19.QuadPart = 0LL;
+  v7 = 0;
+  v18 = 0LL;
+  v8 = 0LL;
   if ( HalpInterruptProcessorCap && HalpInterruptProcessorsStarted >= (unsigned int)HalpInterruptProcessorCap )
     return 2LL;
-  NextProcessorLocalId = HalpInterruptGetNextProcessorLocalId(a3, &v19);
+  NextProcessorLocalId = HalpInterruptGetNextProcessorLocalId(a3, &v22);
   if ( HalpHiberInProgress || (a3 & 2) != 0 )
   {
     HalpInterruptProcessorRestarting = 1;
     if ( NextProcessorLocalId == -1073740024 )
-      goto LABEL_6;
+      NextProcessorLocalId = 0;
   }
   else
   {
     HalpInterruptProcessorRestarting = 0;
   }
-  if ( NextProcessorLocalId >= 0 )
+  if ( NextProcessorLocalId < 0 )
+    return 2LL;
+  HalpInterruptProcessorHidden = (a3 & 4) != 0;
+  started = HalpHvVpStartEnabled();
+  v12 = HalpLowStub;
+  v20 = HalpLowStub;
+  if ( !HalpInterruptProcessorRestarting && !HalpInterruptProcessorHidden )
   {
-LABEL_6:
-    HalpInterruptProcessorHidden = (a3 & 4) != 0;
-    started = HalpHvVpStartEnabled();
-    v10 = HalpInterruptGlobalStartupBlock;
-    v11 = HalpInterruptGlobalStartupCodePhysical;
-    if ( !HalpTiledMemoryMapActive || (a3 & 3) == 0 || (int)HalpMmUpdateTiledMemoryMapTargetStub() >= 0 )
+    if ( (int)HalpMmBuildTiledMemoryMap(&v18, v10, a1) >= 0 )
     {
-      v12 = v19;
-      if ( a1 == -1 || (int)HalpSetProcessorStateByNtIndex(a1, v19) >= 0 )
-      {
-        v13 = 0;
-        if ( !started )
-        {
-          _disable();
-          v13 = (v18 & 0x200) != 0;
-        }
-        v14 = HalpInterruptProcessorHidden;
-        v10[4] = 0;
-        if ( (int)HalpInterruptSetProcessorStartContext(a1, a4, v14) >= 0 )
-        {
-          if ( started )
-          {
-            v16 = HalpHvStartProcessor(v12, v15, (__int64)v10);
-          }
-          else
-          {
-            v16 = -1073741823;
-            if ( !*(_QWORD *)(HalpInterruptController + 128) )
-              goto LABEL_31;
-            v16 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _BYTE *, _QWORD))(HalpInterruptController + 128))(
-                    *(_QWORD *)(HalpInterruptController + 16),
-                    v12,
-                    v10,
-                    v11);
-          }
-          if ( v16 >= 0 )
-          {
-            v4 = HalpInterruptWaitForProcessorStartUp(v10 + 4, started);
-            if ( v4 != 4 )
-              HalpInterruptSetProblemEx(
-                HalpInterruptController,
-                14,
-                0,
-                (__int64)"minkernel\\hals\\lib\\interrupts\\common\\start.c",
-                0x564u);
-            goto LABEL_19;
-          }
-LABEL_31:
-          v4 = 2;
-          HalpInterruptSetProblemEx(
-            HalpInterruptController,
-            13,
-            v16,
-            (__int64)"minkernel\\hals\\lib\\interrupts\\common\\start.c",
-            0x56Au);
-LABEL_19:
-          if ( !started && v13 )
-            _enable();
-          goto LABEL_22;
-        }
-      }
-      v4 = 2;
+      v8 = &v18;
+      goto LABEL_10;
     }
-LABEL_22:
-    HalpInterruptProcessorHidden = 0;
-    return v4;
+    return 2LL;
   }
-  return 2LL;
+LABEL_10:
+  HalpInterruptBuildStartupStub((PVOID *)&v20, &v19, a4, (__int64)v8);
+  v13 = 0;
+  if ( !started )
+  {
+    _disable();
+    v13 = (v21 & 0x200) != 0;
+  }
+  *(_BYTE *)(v12 + 4) = 0;
+  if ( (int)HalSystemVectorDispatchEntry() < 0 )
+    goto LABEL_22;
+  if ( started )
+  {
+    v15 = HalpHvStartProcessor(v22, v14, v12);
+  }
+  else
+  {
+    v15 = -1073741823;
+    if ( !*(_QWORD *)(HalpInterruptController + 128) )
+      goto LABEL_33;
+    v15 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, _QWORD))(HalpInterruptController + 128))(
+            *(_QWORD *)(HalpInterruptController + 16),
+            v22,
+            v12,
+            v19.LowPart);
+  }
+  if ( v15 >= 0 )
+  {
+    v7 = HalpInterruptWaitForProcessorStartUp((_BYTE *)(v12 + 4), started);
+    if ( v7 != 4 )
+      HalpInterruptSetProblemEx(
+        HalpInterruptController,
+        14,
+        0,
+        (__int64)"minkernel\\hals\\lib\\interrupts\\common\\start.c",
+        0x4A7u);
+    goto LABEL_19;
+  }
+LABEL_33:
+  HalpInterruptSetProblemEx(
+    HalpInterruptController,
+    13,
+    v15,
+    (__int64)"minkernel\\hals\\lib\\interrupts\\common\\start.c",
+    0x4ADu);
+  v7 = v17 - 11;
+LABEL_19:
+  if ( !started && v13 )
+    _enable();
+LABEL_22:
+  if ( !HalpInterruptProcessorRestarting && !HalpInterruptProcessorHidden )
+  {
+    if ( v8 )
+      HalpMmFreeTiledMemoryMap(v8);
+  }
+  HalpInterruptProcessorHidden = 0;
+  return v7;
 }

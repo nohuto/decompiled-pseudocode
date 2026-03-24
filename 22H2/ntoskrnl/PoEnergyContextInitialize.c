@@ -1,8 +1,8 @@
 /*
- * XREFs of PoEnergyContextInitialize @ 0x1407E04C0
+ * XREFs of PoEnergyContextInitialize @ 0x14069777C
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     PopEtInit @ 0x140B6B730 (PopEtInit.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
+ *     PopEtInit @ 0x140A6D9A4 (PopEtInit.c)
  * Callees:
  *     <none>
  */
@@ -16,8 +16,8 @@ __int64 __fastcall PoEnergyContextInitialize(_QWORD *a1)
   result = PopEtGlobals;
   if ( PopEtGlobals )
   {
-    result = PopEtGlobals + 784;
-    a1[56] = PopEtGlobals + 784;
+    result = PopEtGlobals + 768;
+    a1[56] = PopEtGlobals + 768;
   }
   return result;
 }

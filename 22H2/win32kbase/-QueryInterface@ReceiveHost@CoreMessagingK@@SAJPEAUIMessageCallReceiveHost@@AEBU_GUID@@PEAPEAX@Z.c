@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@ReceiveHost@CoreMessagingK@@SAJPEAUIMessageCallReceiveHost@@AEBU_GUID@@PEAPEAX@Z @ 0x1C00CA140
+ * XREFs of ?QueryInterface@ReceiveHost@CoreMessagingK@@SAJPEAUIMessageCallReceiveHost@@AEBU_GUID@@PEAPEAX@Z @ 0x1C00BC6C0
  * Callers:
  *     <none>
  * Callees:

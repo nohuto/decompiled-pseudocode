@@ -1,154 +1,141 @@
 /*
- * XREFs of ?TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01B5C70
+ * XREFs of ?TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01E0D5C
  * Callers:
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
  * Callees:
- *     zzzInputFocusReceivedWindowEvent @ 0x1C004C1E8 (zzzInputFocusReceivedWindowEvent.c)
- *     zzzAttachThreadInput @ 0x1C005BB64 (zzzAttachThreadInput.c)
- *     LockW32Thread @ 0x1C0061F84 (LockW32Thread.c)
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     _PostMessage @ 0x1C00B6CD0 (_PostMessage.c)
- *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C00E4DF4 (WPP_RECORDER_AND_TRACE_SF_qq.c)
- *     DelQEntry @ 0x1C01184CC (DelQEntry.c)
- *     WPP_RECORDER_AND_TRACE_SF_qqq @ 0x1C012B370 (WPP_RECORDER_AND_TRACE_SF_qqq.c)
- *     DisassociateShellFrameAppThreads @ 0x1C01B30C8 (DisassociateShellFrameAppThreads.c)
- *     FindShellFrameThreadFromAssociation @ 0x1C01B31E4 (FindShellFrameThreadFromAssociation.c)
+ *     zzzAttachThreadInput @ 0x1C00115F8 (zzzAttachThreadInput.c)
+ *     _PostMessage @ 0x1C002DBA0 (_PostMessage.c)
+ *     DisassociateShellFrameAppThreads @ 0x1C0030C9C (DisassociateShellFrameAppThreads.c)
+ *     zzzInputFocusReceivedWindowEvent @ 0x1C0034FEC (zzzInputFocusReceivedWindowEvent.c)
+ *     LockW32Thread @ 0x1C003D9CC (LockW32Thread.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C004F2B4 (WPP_RECORDER_SF_qq.c)
+ *     DelQEntry @ 0x1C00667AC (DelQEntry.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ??0?$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00C14A0 (--0-$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C00C1CCC (WPP_RECORDER_SF_qqq.c)
+ *     FindShellFrameThreadFromAssociation @ 0x1C01D288C (FindShellFrameThreadFromAssociation.c)
  */
 
 void __fastcall TryAttachShellFrame(struct tagTHREADINFO *a1)
 {
-  __int64 v1; // rdi
-  struct tagTHREADINFO *v2; // rbx
+  __int64 v2; // rdi
   __int64 ShellFrameThreadFromAssociation; // rax
-  __int64 v4; // r14
-  char v5; // si
-  __int64 v6; // rcx
-  int v7; // ebp
-  __int64 *v8; // r15
-  __int64 v9; // rax
-  __int64 v10; // rax
-  char v11; // dl
-  char v12; // r8
-  __int64 v13; // rdi
+  __int64 v4; // rsi
+  __int64 v5; // rcx
+  int v6; // r15d
+  unsigned int **v7; // r14
+  unsigned int *v8; // rax
+  unsigned int *v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rdi
+  __int64 ThreadWin32Thread; // rax
+  int v13; // edi
   __int64 v14; // rcx
-  unsigned __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // rax
-  struct tagWND *v18; // rcx
-  __int128 v19; // [rsp+60h] [rbp-68h] BYREF
-  __int64 v20; // [rsp+70h] [rbp-58h]
-  __int128 v21; // [rsp+78h] [rbp-50h] BYREF
-  __int64 v22; // [rsp+88h] [rbp-40h]
-  __int64 v24; // [rsp+E0h] [rbp+18h]
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  __int64 v17; // rcx
+  _QWORD v18[2]; // [rsp+48h] [rbp-39h] BYREF
+  _QWORD v19[3]; // [rsp+58h] [rbp-29h] BYREF
+  __int128 v20; // [rsp+70h] [rbp-11h] BYREF
+  __int64 v21; // [rsp+80h] [rbp-1h]
+  _BYTE v22[24]; // [rsp+88h] [rbp+7h] BYREF
+  _BYTE v23[24]; // [rsp+A0h] [rbp+1Fh] BYREF
 
-  v1 = *((_QWORD *)a1 + 54);
-  v2 = a1;
-  if ( *(_DWORD *)(v1 + 40) < 0x14u )
+  CLockExclusiveAllowRecursion<DLT_QUEUE>::CLockExclusiveAllowRecursion<DLT_QUEUE>((__int64)v22, *((_QWORD *)a1 + 54));
+  v2 = *((_QWORD *)a1 + 54);
+  if ( *(_DWORD *)(v2 + 40) < 0x14u )
   {
     ShellFrameThreadFromAssociation = FindShellFrameThreadFromAssociation(a1);
-    v24 = ShellFrameThreadFromAssociation;
     v4 = ShellFrameThreadFromAssociation;
     if ( ShellFrameThreadFromAssociation )
     {
-      v5 = 1;
       if ( (*(_DWORD *)(ShellFrameThreadFromAssociation + 488) & 1) == 0 )
       {
-        v6 = *(_QWORD *)(ShellFrameThreadFromAssociation + 672);
-        if ( !v6 || (*(_DWORD *)(v6 + 200) & 0x80000) == 0 )
+        v5 = *(_QWORD *)(ShellFrameThreadFromAssociation + 672);
+        if ( !v5 || (*(_DWORD *)(v5 + 196) & 0x100000) == 0 )
         {
-          v7 = *((_DWORD *)v2 + 318);
-          v22 = 0LL;
-          v20 = 0LL;
-          *((_DWORD *)v2 + 318) = v7 & 0xFFE7FFFF | 0x100000;
+          v6 = *((_DWORD *)a1 + 308);
           v21 = 0LL;
-          v19 = 0LL;
-          DisassociateShellFrameAppThreads(v2);
-          v8 = (__int64 *)(v1 + 24);
-          v9 = *(_QWORD *)(v1 + 24);
-          if ( v9 )
+          v19[2] = 0LL;
+          *((_DWORD *)a1 + 308) = v6 & 0xFFE7FFFF | 0x100000;
+          v20 = 0LL;
+          DisassociateShellFrameAppThreads(a1);
+          CLockExclusiveAllowRecursion<DLT_QUEUE>::CLockExclusiveAllowRecursion<DLT_QUEUE>((__int64)v23, v2);
+          v7 = (unsigned int **)(v2 + 24);
+          v8 = *(unsigned int **)(v2 + 24);
+          if ( v8 )
           {
             do
             {
-              if ( !(unsigned int)IsMiPMouseMessage(*(unsigned int *)(v9 + 24)) )
+              if ( !(unsigned int)IsMiPMouseMessage(v8[6]) )
                 break;
-              v10 = *v8;
-              if ( *v8 == *(_QWORD *)(v1 + 80) )
-                *(_QWORD *)(v1 + 80) = 0LL;
-              if ( v10 == *(_QWORD *)(v1 + 88) )
+              v9 = *v7;
+              if ( *v7 == *(unsigned int **)(v2 + 72) )
+                *(_QWORD *)(v2 + 72) = 0LL;
+              v10 = *(_QWORD *)(v2 + 80);
+              if ( v9 == (unsigned int *)v10 )
               {
-                if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                  || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) == 0
-                  || (v11 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+                if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
+                  && LOWORD(WPP_GLOBAL_Control->DeviceType) )
                 {
-                  v11 = 0;
-                }
-                if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-                  || (v12 = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-                {
-                  v12 = 0;
-                }
-                if ( v11 || v12 )
-                  WPP_RECORDER_AND_TRACE_SF_qq(
-                    (__int64)WPP_GLOBAL_Control->AttachedDevice,
-                    v11,
-                    v12,
-                    (__int64)gFullLog,
+                  WPP_RECORDER_SF_qq(
+                    v10,
                     5u,
                     0x12u,
-                    0x12u,
-                    (__int64)&WPP_0bd01f6e78ca3341e624bb2278b12953_Traceguids,
-                    v1,
-                    *(_QWORD *)(v1 + 88));
-                *(_QWORD *)(v1 + 88) = 0LL;
+                    0xDu,
+                    (__int64)&WPP_aa0cdaa0f1c33ddef9256642731d7c5d_Traceguids,
+                    v2,
+                    *(_QWORD *)(v2 + 80));
+                  v9 = *(unsigned int **)(v2 + 24);
+                }
+                *(_QWORD *)(v2 + 80) = 0LL;
               }
-              DelQEntry(v1 + 24, *v8, 1);
-              v9 = *v8;
+              DelQEntry((unsigned int **)(v2 + 24), v9, 1);
+              v8 = *v7;
             }
-            while ( *v8 );
-            v2 = a1;
-            v4 = v24;
+            while ( *v7 );
           }
-          if ( *(struct tagTHREADINFO **)(v1 + 72) == v2 )
+          if ( *(struct tagTHREADINFO **)(v2 + 64) == a1 )
           {
-            if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) == 0
-              || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-            {
-              v5 = 0;
-            }
-            if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              WPP_RECORDER_AND_TRACE_SF_qqq(
-                (__int64)WPP_GLOBAL_Control->AttachedDevice,
-                v5,
-                WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-                (__int64)gFullLog,
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              WPP_RECORDER_SF_qqq(
+                (__int64)&WPP_RECORDER_INITIALIZED,
                 4u,
                 0x12u,
-                0x13u,
-                (__int64)&WPP_0bd01f6e78ca3341e624bb2278b12953_Traceguids,
-                v1,
+                0xEu,
+                (__int64)&WPP_aa0cdaa0f1c33ddef9256642731d7c5d_Traceguids,
                 v2,
-                *(_QWORD *)(v1 + 72));
-            *(_QWORD *)(v1 + 72) = 0LL;
+                a1,
+                *(_QWORD *)(v2 + 64));
+            *(_QWORD *)(v2 + 64) = 0LL;
           }
-          ThreadLock(*(_QWORD *)(v1 + 120), &v21);
-          LockW32Thread(v4, &v19);
-          v13 = (int)zzzAttachThreadInput((__int64)v2, v4, 32769);
-          v14 = *((_QWORD *)v2 + 54);
-          v15 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-          *(_DWORD *)(v14 + 428) = v15;
-          v17 = ThreadUnlock1(v14, v15, v16);
-          tagQ::LockFocusWnd(*((_QWORD *)v2 + 54), v17, 0LL);
-          v18 = *(struct tagWND **)(v4 + 1432);
-          if ( v18 )
-            PostMessage(v18, 0x348u, 2uLL, v13);
-          if ( gpqForeground == *((_QWORD *)v2 + 54) )
+          v11 = *(_QWORD *)(v2 + 112);
+          ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+          v19[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+          *(_QWORD *)(ThreadWin32Thread + 416) = v19;
+          v19[1] = v11;
+          if ( v11 )
+            HMLockObject(v11);
+          LockW32Thread(v4, (__int64)&v20);
+          v13 = zzzAttachThreadInput((__int64)a1, v4, 32769);
+          v14 = *((_QWORD *)a1 + 54);
+          *(_DWORD *)(v14 + 480) = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+          v15 = ThreadUnlock1(v14);
+          v16 = *((_QWORD *)a1 + 54);
+          v18[1] = v15;
+          v18[0] = v16 + 112;
+          HMAssignmentLock(v18);
+          v17 = *(_QWORD *)(v4 + 1392);
+          if ( v17 )
+            PostMessage(v17, 840, 2, v13);
+          if ( gpqForeground == *((_QWORD *)a1 + 54) )
           {
-            if ( *(_QWORD *)(gpqForeground + 120LL) )
-              zzzInputFocusReceivedWindowEvent(2u);
+            if ( *(_QWORD *)(gpqForeground + 112LL) )
+              zzzInputFocusReceivedWindowEvent();
           }
-          PopAndFreeW32ThreadLock((__int64)&v19);
-          *((_DWORD *)v2 + 318) ^= (*((_DWORD *)v2 + 318) ^ v7) & 0x100000;
+          PopAndFreeW32ThreadLock((__int64)&v20);
+          *((_DWORD *)a1 + 308) ^= (v6 ^ *((_DWORD *)a1 + 308)) & 0x100000;
         }
       }
     }

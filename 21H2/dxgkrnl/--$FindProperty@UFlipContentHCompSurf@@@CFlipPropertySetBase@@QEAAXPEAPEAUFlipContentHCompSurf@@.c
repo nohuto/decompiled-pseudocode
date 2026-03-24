@@ -1,7 +1,7 @@
 /*
- * XREFs of ??$FindProperty@UFlipContentHCompSurf@@@CFlipPropertySetBase@@QEAAXPEAPEAUFlipContentHCompSurf@@@Z @ 0x1C0080F88
+ * XREFs of ??$FindProperty@UFlipContentHCompSurf@@@CFlipPropertySetBase@@QEAAXPEAPEAUFlipContentHCompSurf@@@Z @ 0x1C006DE88
  * Callers:
- *     ?Initialize@CContentResource@@IEAAJXZ @ 0x1C008124C (-Initialize@CContentResource@@IEAAJXZ.c)
+ *     ?Initialize@CContentResource@@IEAAJXZ @ 0x1C006E0E0 (-Initialize@CContentResource@@IEAAJXZ.c)
  * Callees:
  *     <none>
  */

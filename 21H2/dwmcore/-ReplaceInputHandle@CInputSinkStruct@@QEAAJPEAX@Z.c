@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ReplaceInputHandle@CInputSinkStruct@@QEAAJPEAX@Z @ 0x1800E0DB0
+ * XREFs of ?ReplaceInputHandle@CInputSinkStruct@@QEAAJPEAX@Z @ 0x1800E134C
  * Callers:
- *     ?UpdateInputSink@CInteraction@@QEAAJPEAX@Z @ 0x1800E0D28 (-UpdateInputSink@CInteraction@@QEAAJPEAX@Z.c)
+ *     ?UpdateInputSink@CInteraction@@QEAAJPEAX@Z @ 0x1800E12C0 (-UpdateInputSink@CInteraction@@QEAAJPEAX@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InitializeQueues@CInputSinkStruct@@AEAAXXZ @ 0x1800E0E8C (-InitializeQueues@CInputSinkStruct@@AEAAXXZ.c)
- *     ?SetCompositionInputHandle@CInputSinkStruct@@AEAAXPEAX@Z @ 0x1800E0FA0 (-SetCompositionInputHandle@CInputSinkStruct@@AEAAXPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeQueues@CInputSinkStruct@@AEAAXXZ @ 0x1800E1428 (-InitializeQueues@CInputSinkStruct@@AEAAXXZ.c)
+ *     ?SetCompositionInputHandle@CInputSinkStruct@@AEAAXPEAX@Z @ 0x1800E153C (-SetCompositionInputHandle@CInputSinkStruct@@AEAAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CInputSinkStruct::ReplaceInputHandle(CInputSinkStruct *this, void *a2)
@@ -40,7 +40,7 @@ __int64 __fastcall CInputSinkStruct::ReplaceInputHandle(CInputSinkStruct *this, 
     if ( CompositionInputSink < 0 )
     {
       v3 = CompositionInputSink | 0x10000000;
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, CompositionInputSink | 0x10000000, 0x34u);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, CompositionInputSink | 0x10000000, 0x34u, 0LL);
     }
     else
     {
@@ -52,7 +52,7 @@ __int64 __fastcall CInputSinkStruct::ReplaceInputHandle(CInputSinkStruct *this, 
       if ( CompositionInputSinkLuid < 0 )
       {
         v3 = CompositionInputSinkLuid | 0x10000000;
-        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, CompositionInputSinkLuid | 0x10000000, 0x37u);
+        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, CompositionInputSinkLuid | 0x10000000, 0x37u, 0LL);
       }
       else
       {

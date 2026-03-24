@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpFreeGuidEntry @ 0x1407D9A14
+ * XREFs of EtwpFreeGuidEntry @ 0x140695B4C
  * Callers:
- *     EtwpUnreferenceGuidEntry @ 0x1406BF9A4 (EtwpUnreferenceGuidEntry.c)
- *     EtwpAddGuidEntry @ 0x140781D88 (EtwpAddGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpAddGuidEntry @ 0x140717450 (EtwpAddGuidEntry.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     EtwpUnreferenceGuidEntry @ 0x1406BF9A4 (EtwpUnreferenceGuidEntry.c)
- *     ObDereferenceSecurityDescriptor @ 0x140728AC0 (ObDereferenceSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1406D8460 (ObDereferenceSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeGuidEntry(char *P)
@@ -17,7 +17,7 @@ void __fastcall EtwpFreeGuidEntry(char *P)
   void *v2; // rcx
   struct _KTHREAD *CurrentThread; // rax
   char **v4; // rdx
-  PVOID *v5; // rax
+  PVOID *v5; // rcx
 
   if ( *((_QWORD *)P + 50) )
   {
@@ -31,14 +31,14 @@ void __fastcall EtwpFreeGuidEntry(char *P)
     *v5 = v4;
     v4[1] = (char *)v5;
     *(_QWORD *)(*((_QWORD *)P + 50) + 416LL) = 0LL;
-    ExReleasePushLockEx((__int64 *)(*((_QWORD *)P + 50) + 408LL), 0LL);
+    ExReleasePushLockEx(*((_QWORD *)P + 50) + 408LL, 0LL);
     KeLeaveCriticalRegion();
     EtwpUnreferenceGuidEntry(*((__int64 **)P + 50));
   }
-  ObDereferenceSecurityDescriptor(*((_QWORD *)P + 9), 1u);
+  ObDereferenceSecurityDescriptor(*((_QWORD *)P + 9), 1LL);
   v2 = (void *)*((_QWORD *)P + 48);
   if ( v2 )
     ExFreePoolWithTag(v2, 0);
-  _InterlockedAdd((volatile signed __int32 *)(*((_QWORD *)P + 49) + 4120LL), 0xFFFFFFFF);
+  _InterlockedAdd((volatile signed __int32 *)(*((_QWORD *)P + 49) + 4112LL), 0xFFFFFFFF);
   ExFreePoolWithTag(P, 0);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpTimerPerformanceCounterPowerChange @ 0x14050C764
+ * XREFs of HalpTimerPerformanceCounterPowerChange @ 0x1404BFCA0
  * Callers:
- *     HalpTimerPowerChange @ 0x14050CD98 (HalpTimerPowerChange.c)
+ *     HalpTimerPowerChange @ 0x1404C02D4 (HalpTimerPowerChange.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     HalpTimerScaleCounter @ 0x1403A572C (HalpTimerScaleCounter.c)
- *     HalpTimerCalibratePerformanceCounter @ 0x1403B53D4 (HalpTimerCalibratePerformanceCounter.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     HalpTimerScaleCounter @ 0x1403962F0 (HalpTimerScaleCounter.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x1403A5C64 (HalpTimerCalibratePerformanceCounter.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 _UNKNOWN **__fastcall HalpTimerPerformanceCounterPowerChange(ULONG_PTR BugCheckParameter3, char a2)
@@ -31,8 +31,8 @@ _UNKNOWN **__fastcall HalpTimerPerformanceCounterPowerChange(ULONG_PTR BugCheckP
   __int64 v18; // rdx
   __int64 v19; // rax
   __int64 v20; // rax
-  unsigned __int64 v21; // rax
-  __int64 v22; // r11
+  ULONG_PTR v21; // rbx
+  unsigned __int64 v22; // rax
   unsigned __int64 v23; // rdx
   __int64 v24; // rbp
   ULONG_PTR v25; // r13
@@ -83,8 +83,8 @@ _UNKNOWN **__fastcall HalpTimerPerformanceCounterPowerChange(ULONG_PTR BugCheckP
   __int64 v70; // rdx
   __int64 v71; // rax
   __int64 v72; // rax
-  unsigned __int64 v73; // rax
-  __int64 v74; // r11
+  __int64 v73; // rbx
+  unsigned __int64 v74; // rax
   int v75; // eax
   signed __int32 v76[8]; // [rsp+0h] [rbp-48h] BYREF
   _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h] BYREF
@@ -154,13 +154,14 @@ _UNKNOWN **__fastcall HalpTimerPerformanceCounterPowerChange(ULONG_PTR BugCheckP
           v17 = v10 | v8 & ~v18;
         }
       }
-      v21 = HalpTimerScaleCounter(
+      v21 = HalpTimerSavedPerformanceCounter;
+      v22 = HalpTimerScaleCounter(
               v7 + v17,
               *(_QWORD *)(HalpPerformanceCounter + 192),
               *(_QWORD *)(HalpTimerSavedPerformanceCounter + 192));
-      v23 = *(_QWORD *)(v22 + 16);
-      if ( v21 >= v23 )
-        v23 = v21;
+      v23 = *(_QWORD *)(v21 + 16);
+      if ( v22 >= v23 )
+        v23 = v22;
       result = (_UNKNOWN **)HalpTimerCalibratePerformanceCounter(v3, v23);
       if ( (int)result < 0 )
         KeBugCheckEx(0x5Cu, 0x113uLL, 0x26uLL, v3, (int)result);
@@ -338,11 +339,12 @@ _UNKNOWN **__fastcall HalpTimerPerformanceCounterPowerChange(ULONG_PTR BugCheckP
             v69 = v64 | v62 & ~v70;
           }
         }
-        v73 = HalpTimerScaleCounter(
+        v73 = HalpAlwaysOnCounter;
+        v74 = HalpTimerScaleCounter(
                 v61 + v69,
                 *(_QWORD *)(HalpPerformanceCounter + 192),
                 *(_QWORD *)(HalpAlwaysOnCounter + 192));
-        v75 = HalpTimerCalibratePerformanceCounter(v74, v73);
+        v75 = HalpTimerCalibratePerformanceCounter(v73, v74);
         if ( v75 < 0 )
           KeBugCheckEx(0x5Cu, 0x113uLL, 0x26uLL, HalpAlwaysOnCounter, v75);
       }

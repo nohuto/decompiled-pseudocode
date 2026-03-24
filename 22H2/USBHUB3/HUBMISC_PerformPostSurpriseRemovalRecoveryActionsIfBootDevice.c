@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBMISC_PerformPostSurpriseRemovalRecoveryActionsIfBootDevice @ 0x1C0033A20
+ * XREFs of HUBMISC_PerformPostSurpriseRemovalRecoveryActionsIfBootDevice @ 0x1C00307FC
  * Callers:
- *     HUBMISC_IsBootDeviceReady @ 0x1C003379C (HUBMISC_IsBootDeviceReady.c)
+ *     HUBMISC_IsBootDeviceReady @ 0x1C00305AC (HUBMISC_IsBootDeviceReady.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBMISC_PerformPostSurpriseRemovalRecoveryActionsIfBootDevice(__int64 a1)
@@ -23,8 +23,6 @@ __int64 __fastcall HUBMISC_PerformPostSurpriseRemovalRecoveryActionsIfBootDevice
 
   v12 = 0LL;
   v2 = *(_QWORD *)(a1 + 8);
-  DWORD1(v7) = 0;
-  HIDWORD(v6[0]) = 0;
   result = *(unsigned int *)(v2 + 1336);
   if ( (result & 0x10) != 0 )
   {
@@ -61,7 +59,7 @@ __int64 __fastcall HUBMISC_PerformPostSurpriseRemovalRecoveryActionsIfBootDevice
                2u,
                2u,
                0x70u,
-               (__int64)&WPP_f96a94952a6932bc87af489d3d93d325_Traceguids,
+               (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
                v5);
     }
   }

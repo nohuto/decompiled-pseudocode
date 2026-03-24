@@ -1,137 +1,151 @@
 /*
- * XREFs of EtwpExpandFileName @ 0x1406F0FCC
+ * XREFs of EtwpExpandFileName @ 0x140681A58
  * Callers:
- *     EtwpCreateLogFile @ 0x1406F0614 (EtwpCreateLogFile.c)
- *     EtwpRealtimeCreateLogfile @ 0x14079AADC (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeCreateLogfile @ 0x140681844 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpCreateLogFile @ 0x1406DFAAC (EtwpCreateLogFile.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
- *     EtwpGetDriverDataDosPath @ 0x14062CAEC (EtwpGetDriverDataDosPath.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlCompareUnicodeStrings @ 0x140681C90 (RtlCompareUnicodeStrings.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpExpandFileName(char a1, UNICODE_STRING *a2, unsigned int a3, unsigned __int16 *a4, char a5)
+__int64 __fastcall EtwpExpandFileName(char a1, UNICODE_STRING *a2, unsigned int a3, unsigned __int16 *a4)
 {
-  __int64 v5; // r12
-  char v8; // r15
-  char v9; // r13
-  __int64 Length; // rax
-  __int64 v11; // r10
-  unsigned __int16 *v12; // rdi
-  unsigned int v13; // esi
-  size_t v14; // rbx
-  __int64 result; // rax
-  __int64 v16; // rax
-  wchar_t *Pool2; // rax
-  const WCHAR *v18; // rsi
-  const WCHAR *v19; // r9
-  const WCHAR *v20; // rdx
-  NTSTATUS v21; // eax
-  unsigned int v22; // edi
-  __int64 v23; // rcx
-  __int64 v24; // rax
-  size_t v25; // rbx
-  unsigned __int16 *v26; // [rsp+88h] [rbp+10h] BYREF
-  unsigned int v27; // [rsp+90h] [rbp+18h]
+  char v6; // r15
+  char v7; // r14
+  int Length; // edi
+  __int64 v11; // rbx
+  unsigned __int64 v12; // rdx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  unsigned __int16 *CurrentServerSiloGlobals; // rax
+  unsigned __int64 v16; // rdx
+  __int64 v17; // r8
+  SIZE_T v18; // rax
+  SIZE_T v19; // rbx
+  wchar_t *PoolWithTag; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  wchar_t *v23; // rdi
+  const wchar_t *v24; // rsi
+  _QWORD *v25; // rax
+  NTSTATUS v26; // eax
+  unsigned int v27; // esi
+  __int64 v29; // rcx
+  __int64 v30; // rax
+  size_t v31; // rbx
+  _QWORD *v32; // rax
+  const wchar_t *v33; // rsi
+  UNICODE_STRING v34; // [rsp+40h] [rbp-38h] BYREF
+  unsigned __int64 v35; // [rsp+88h] [rbp+10h]
 
-  v27 = a3;
-  v5 = 0LL;
-  v26 = 0LL;
-  v8 = 0;
-  v9 = 0;
-  Length = a2->Length;
-  v11 = a3 != 0 ? 8 : 0;
-  v12 = 0LL;
-  v13 = 0;
-  if ( a1 )
+  v6 = 0;
+  v7 = 0;
+  v34 = 0LL;
+  RtlInitUnicodeString(&v34, L"%SystemRoot%");
+  Length = v34.Length;
+  v11 = a2->Length;
+  v12 = v34.Length;
+  v35 = (unsigned __int64)v34.Length >> 1;
+  if ( (unsigned int)v11 <= v34.Length )
+    v12 = a2->Length;
+  if ( RtlCompareUnicodeStrings(a2->Buffer, v12 >> 1, v34.Buffer, (unsigned __int64)v34.Length >> 1, 1u) )
   {
-    v8 = 1;
-    v14 = Length + v11 + 2 + *a4;
+    if ( !a3 && !a1 )
+      return 0LL;
+    v17 = v11 + 2;
   }
   else
   {
-    v14 = Length + v11 + 2;
-  }
-  if ( !wcsnicmp(a2->Buffer, L"%SystemRoot%", 0xCuLL) )
-  {
-    if ( a2->Length == 24 )
+    v6 = 1;
+    CurrentServerSiloGlobals = (unsigned __int16 *)PsGetCurrentServerSiloGlobals(v14, v13);
+    if ( (_WORD)v11 == (_WORD)Length )
     {
-      v9 = 1;
-      v16 = *a4 + 54LL;
+      v17 = *a4 + 56LL + CurrentServerSiloGlobals[536];
     }
     else
     {
-      if ( a2->Buffer[((unsigned __int64)a2->Length >> 1) - 1] != 92 )
+      v16 = a2->Length;
+      v17 = (unsigned int)CurrentServerSiloGlobals[536] - Length + (_DWORD)v16 + 2;
+      if ( a2->Buffer[(v16 >> 1) - 1] == 92 )
       {
-LABEL_15:
-        v12 = (unsigned __int16 *)((char *)PsGetCurrentServerSiloGlobals() + 1264);
-LABEL_16:
-        v5 = 12LL;
-        v14 += *v12 - 24LL;
-        goto LABEL_6;
+        v7 = 1;
+        v17 += *a4;
       }
-      v16 = *a4;
-      v8 = 1;
     }
-    v14 += v16;
-    goto LABEL_15;
   }
-  if ( a5 && !wcsnicmp(a2->Buffer, L"%DriverData%", 0xCuLL) )
+  v18 = v17 + 8;
+  if ( !a3 )
+    v18 = v17;
+  v19 = v18;
+  if ( a1 && !v6 )
   {
-    result = EtwpGetDriverDataDosPath(&v26);
-    v13 = result;
-    if ( (int)result < 0 )
-      return result;
-    v12 = v26;
-    goto LABEL_16;
+    v7 = 1;
+    v19 = v18 + *a4;
   }
-LABEL_6:
-  if ( !v27 && !v8 && !v12 )
-    return v13;
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, v14, 1350005829LL);
-  v18 = Pool2;
-  if ( !Pool2 )
-    return 3221225495LL;
-  if ( v9 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v19, 0x50777445u);
+  v23 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v21 = RtlStringCbPrintfW(
-            Pool2,
-            v14,
-            L"%ws%ws%ws%ws",
-            *((_QWORD *)v12 + 1),
-            L"\\system32\\Logfiles\\WMI\\",
-            *((_QWORD *)a4 + 1),
-            L".etl");
+    if ( v6 )
+    {
+      if ( a2->Length == v34.Length )
+      {
+        v32 = PsGetCurrentServerSiloGlobals(v22, v21);
+        v26 = RtlStringCbPrintfW(
+                v23,
+                v19,
+                L"%ws%ws%ws%ws",
+                v32[135],
+                L"\\system32\\Logfiles\\WMI\\",
+                *((_QWORD *)a4 + 1),
+                L".etl");
+      }
+      else
+      {
+        if ( v7 )
+          v24 = (const wchar_t *)*((_QWORD *)a4 + 1);
+        else
+          v24 = &word_1407D7BA0;
+        v25 = PsGetCurrentServerSiloGlobals(v22, v21);
+        v26 = RtlStringCbPrintfW(v23, v19, L"%ws%ws%ws", v25[135], &a2->Buffer[v35], v24);
+      }
+    }
+    else if ( a1 )
+    {
+      if ( v7 )
+        v33 = (const wchar_t *)*((_QWORD *)a4 + 1);
+      else
+        v33 = &word_1407D7BA0;
+      v26 = RtlStringCbPrintfW(PoolWithTag, v19, L"%ws%ws", a2->Buffer, v33);
+    }
+    else
+    {
+      v26 = RtlStringCbPrintfW(PoolWithTag, v19, L"%ws", a2->Buffer);
+    }
+    v27 = v26;
+    if ( a3 )
+    {
+      v29 = -1LL;
+      v30 = -1LL;
+      do
+        ++v30;
+      while ( v23[v30] );
+      v31 = v19 - 2 * v30;
+      do
+        ++v29;
+      while ( v23[v29] );
+      v27 = RtlStringCbPrintfW(&v23[v29], v31, L".%03d", a3);
+    }
+    RtlFreeAnsiString(a2);
+    RtlInitUnicodeString(a2, v23);
   }
   else
   {
-    v19 = &word_140867F00;
-    if ( v8 )
-      v20 = (const WCHAR *)*((_QWORD *)a4 + 1);
-    else
-      v20 = &word_140867F00;
-    if ( v12 )
-      v19 = (const WCHAR *)*((_QWORD *)v12 + 1);
-    v21 = RtlStringCbPrintfW(Pool2, v14, L"%ws%ws%ws", v19, &a2->Buffer[v5], v20);
+    return (unsigned int)-1073741801;
   }
-  v22 = v21;
-  if ( v27 )
-  {
-    v23 = -1LL;
-    v24 = -1LL;
-    do
-      ++v24;
-    while ( v18[v24] );
-    v25 = v14 - 2 * v24;
-    do
-      ++v23;
-    while ( v18[v23] );
-    v22 = RtlStringCbPrintfW((NTSTRSAFE_PWSTR)&v18[v23], v25, L".%03d", v27);
-  }
-  RtlFreeUnicodeString(a2);
-  RtlInitUnicodeString(a2, v18);
-  return v22;
+  return v27;
 }

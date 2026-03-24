@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CMaskBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D5CD0
+ * XREFs of ?IsOfType@CMaskBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800BDC00
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CMaskBrush::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 17 || a2 == 107 || a2 == 47;
+  return a2 == 14 || a2 == 105 || a2 == 45;
 }

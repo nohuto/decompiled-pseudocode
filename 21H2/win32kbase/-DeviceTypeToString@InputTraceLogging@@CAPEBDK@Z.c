@@ -1,8 +1,8 @@
 /*
- * XREFs of ?DeviceTypeToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C01E9324
+ * XREFs of ?DeviceTypeToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C01AFDFC
  * Callers:
- *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C003ADD4 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
- *     xxxKeyEventEx @ 0x1C003D9F0 (xxxKeyEventEx.c)
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C0040F54 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ *     xxxKeyEventEx @ 0x1C004BFD0 (xxxKeyEventEx.c)
  * Callees:
  *     <none>
  */

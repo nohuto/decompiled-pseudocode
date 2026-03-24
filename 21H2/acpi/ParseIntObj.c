@@ -1,17 +1,16 @@
 /*
- * XREFs of ParseIntObj @ 0x1C000B2AC
+ * XREFs of ParseIntObj @ 0x1C0022724
  * Callers:
- *     ParseArg @ 0x1C000B10C (ParseArg.c)
- *     ParseOpcode @ 0x1C000B180 (ParseOpcode.c)
- *     ParsePackage @ 0x1C0012D00 (ParsePackage.c)
- *     ParseScope @ 0x1C0014A90 (ParseScope.c)
- *     ParseFieldConnection @ 0x1C006BCC4 (ParseFieldConnection.c)
+ *     ParseScope @ 0x1C0008890 (ParseScope.c)
+ *     ParseArg @ 0x1C0022094 (ParseArg.c)
+ *     ParseOpcode @ 0x1C0022530 (ParseOpcode.c)
+ *     ParseFieldConnection @ 0x1C006BA34 (ParseFieldConnection.c)
  * Callees:
- *     IsCompatableDSDTRevision @ 0x1C0019BAC (IsCompatableDSDTRevision.c)
- *     ConPrintf @ 0x1C00290CC (ConPrintf.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
  */
 
 __int64 __fastcall ParseIntObj(__int64 a1, _WORD **a2, __int64 a3, char a4)
@@ -52,17 +51,16 @@ LABEL_24:
     case 12:
       *(_DWORD *)(a3 + 16) = *(_DWORD *)*a2;
       *a2 += 2;
-      goto LABEL_5;
-    case 14:
-      *(_QWORD *)(a3 + 16) = *(_QWORD *)*a2;
-      *a2 += 4;
 LABEL_5:
       if ( (gDebugger & 0xD0) != 0 )
         ConPrintf("0x%I64x");
       return v4;
+    case 14:
+      *(_QWORD *)(a3 + 16) = *(_QWORD *)*a2;
+      *a2 += 4;
+      goto LABEL_5;
     case 255:
-      *(_QWORD *)(a3 + 16) = (-(__int64)((unsigned __int8)IsCompatableDSDTRevision() != 0) & 0xFFFFFFFF00000000uLL)
-                           + 0xFFFFFFFF;
+      *(_QWORD *)(a3 + 16) = (-(__int64)IsCompatableDSDTRevision() & 0xFFFFFFFF00000000uLL) + 0xFFFFFFFF;
       if ( (gDebugger & 0xD0) == 0 )
         return v4;
       v9 = "Ones";

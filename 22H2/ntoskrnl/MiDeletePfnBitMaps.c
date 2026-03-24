@@ -1,53 +1,49 @@
 /*
- * XREFs of MiDeletePfnBitMaps @ 0x140A43018
+ * XREFs of MiDeletePfnBitMaps @ 0x1408D869C
  * Callers:
- *     MiDeletePartitionResources @ 0x1406594F8 (MiDeletePartitionResources.c)
- *     MiCreatePfnBitMaps @ 0x14081E81C (MiCreatePfnBitMaps.c)
+ *     MiDeletePartitionResources @ 0x140561858 (MiDeletePartitionResources.c)
+ *     MiCreatePfnBitMaps @ 0x1407B9CA4 (MiCreatePfnBitMaps.c)
  * Callees:
- *     MiDeleteSparseRange @ 0x140A4318C (MiDeleteSparseRange.c)
+ *     MiDeleteSparseRange @ 0x1408D87A0 (MiDeleteSparseRange.c)
  */
 
-__int64 __fastcall MiDeletePfnBitMaps(__int64 a1)
+__int64 __fastcall MiDeletePfnBitMaps(ULONG_PTR *a1)
 {
-  __int64 *v1; // r14
-  unsigned __int64 v2; // rbp
-  unsigned int i; // edi
-  unsigned __int64 v5; // r8
-  __int64 v6; // rbx
-  _QWORD *v7; // rbx
+  __int64 *v2; // r14
+  unsigned int i; // esi
+  unsigned __int64 v4; // rcx
+  ULONG_PTR *v5; // rdi
+  ULONG_PTR v6; // rcx
   __int64 result; // rax
 
-  v1 = MiLargePageSizes;
-  v2 = qword_140C65CA0 + 1;
-  for ( i = 0; i < 4; ++i )
+  v2 = MiLargePageSizes;
+  for ( i = 0; i < 3; ++i )
   {
     if ( i >= 2 )
     {
-      if ( (unsigned __int16 *)a1 != MiSystemPartition )
+      if ( a1 != &MiSystemPartition )
         goto LABEL_7;
-      v5 = 512LL;
-      v6 = i + 1009LL;
+      v4 = 512LL;
+      v5 = a1 + 769;
     }
     else
     {
-      v5 = *v1;
-      v6 = i + 1001LL;
+      v4 = *v2;
+      v5 = &a1[2 * i + 634];
     }
-    v7 = (_QWORD *)(a1 + 16 * v6);
-    MiDeleteSparseRange(*v7, (unsigned int)((((v2 / v5 + (v2 % v5 != 0) + 7LL) >> 3) + 4095) >> 12));
-    *v7 = 0LL;
+    MiDeleteSparseRange(
+      *v5,
+      (unsigned int)((((0x1000000000LL / v4 + (0x1000000000LL % v4 != 0) + 7LL) >> 3) + 4095) >> 12));
+    *v5 = 0LL;
 LABEL_7:
-    ++v1;
+    ++v2;
   }
-  MiDeleteSparseRange(
-    *(_QWORD *)(a1 + 16064),
-    (unsigned int)((((((v2 & 0x3FFFF) != 0) + (v2 >> 18) + 7) >> 3) + 4095) >> 12));
-  *(_QWORD *)(a1 + 16064) = 0LL;
-  MiDeleteSparseRange(*(_QWORD *)(a1 + 16072), (unsigned int)((2 * ((v2 >> 18) + ((v2 & 0x3FFFF) != 0)) + 4095) >> 12));
-  *(_QWORD *)(a1 + 16072) = 0LL;
-  result = MiDeleteSparseRange(
-             *(_QWORD *)(a1 + 16048),
-             (unsigned int)(((v2 >> 9) + ((v2 & 0x1FF) != 0) + 4095LL) >> 12));
-  *(_QWORD *)(a1 + 16048) = 0LL;
+  MiDeleteSparseRange(a1[640], 8LL);
+  a1[640] = 0LL;
+  MiDeleteSparseRange(a1[641], 128LL);
+  v6 = a1[638];
+  a1[641] = 0LL;
+  result = MiDeleteSparseRange(v6, 0x8000LL);
+  a1[638] = 0LL;
   return result;
 }

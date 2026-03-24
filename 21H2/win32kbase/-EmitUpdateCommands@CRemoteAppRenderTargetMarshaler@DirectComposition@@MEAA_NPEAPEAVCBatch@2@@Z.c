@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdateCommands@CRemoteAppRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022C830
+ * XREFs of ?EmitUpdateCommands@CRemoteAppRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01ECB10
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall DirectComposition::CRemoteAppRenderTargetMarshaler::EmitUpdateCommands(
@@ -25,9 +25,6 @@ char __fastcall DirectComposition::CRemoteAppRenderTargetMarshaler::EmitUpdateCo
          a2)
     && (*(unsigned __int8 (__fastcall **)(DirectComposition::CRemoteAppRenderTargetMarshaler *, struct DirectComposition::CBatch ***))(*(_QWORD *)this + 248LL))(
          this,
-         a2)
-    && (*(unsigned __int8 (__fastcall **)(DirectComposition::CRemoteAppRenderTargetMarshaler *, struct DirectComposition::CBatch ***))(*(_QWORD *)this + 256LL))(
-         this,
          a2) )
   {
     if ( (*((_DWORD *)this + 4) & 0x100) == 0 )
@@ -38,8 +35,8 @@ char __fastcall DirectComposition::CRemoteAppRenderTargetMarshaler::EmitUpdateCo
       v5 = (char *)v7;
       *(_DWORD *)v7 = 12;
       *(_QWORD *)(v5 + 4) = 0LL;
-      *((_DWORD *)v5 + 1) = 337;
-      *((_DWORD *)v5 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v5 + 1) = 344;
+      *((_DWORD *)v5 + 2) = *((_DWORD *)this + 6);
       *((_DWORD *)this + 4) &= ~0x100u;
       return 1;
     }

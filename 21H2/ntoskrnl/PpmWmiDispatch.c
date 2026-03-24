@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmWmiDispatch @ 0x1408553A0
+ * XREFs of PpmWmiDispatch @ 0x1407C5F20
  * Callers:
  *     <none>
  * Callees:
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
- *     PpmWmiRegisterInfo @ 0x140855418 (PpmWmiRegisterInfo.c)
- *     PpmWmiGetAllData @ 0x1409980BC (PpmWmiGetAllData.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     PpmWmiRegisterInfo @ 0x1407C5F98 (PpmWmiRegisterInfo.c)
+ *     PpmWmiGetAllData @ 0x1408F17EC (PpmWmiGetAllData.c)
  */
 
 __int64 __fastcall PpmWmiDispatch(int a1, __int64 *a2, int a3, int a4, __int64 a5, _DWORD *a6)
@@ -37,7 +37,7 @@ __int64 __fastcall PpmWmiDispatch(int a1, __int64 *a2, int a3, int a4, __int64 a
   if ( !v8 )
   {
 LABEL_45:
-    result = PpmWmiGetAllData((int)a5 - 232, (_DWORD)a2, a3, a4, (__int64)a6, v7);
+    result = PpmWmiGetAllData((int)a5 - 224, (_DWORD)a2, a3, a4, (__int64)a6, v7);
     goto LABEL_9;
   }
   v9 = v8 - 3;
@@ -111,7 +111,7 @@ LABEL_12:
     if ( v6 )
     {
       if ( _InterlockedIncrement(v14) == 1 && v14 == (volatile signed __int32 *)&WmiIdleAccntEventEnabled )
-        KiSetTimerEx((unsigned __int64)&PpmWmiIdleAccountingTimer, 0LL, 10000, 0, (__int64)&PpmWmiIdleAccountingDpc);
+        KiSetTimerEx((__int64)&PpmWmiIdleAccountingTimer, 0LL, 10000, 0, (__int64)&PpmWmiIdleAccountingDpc);
     }
     else if ( _InterlockedExchangeAdd(v14, 0xFFFFFFFF) == 1
            && v14 == (volatile signed __int32 *)&WmiIdleAccntEventEnabled )
@@ -125,7 +125,7 @@ LABEL_12:
     *a6 = 0;
     return 3221225488LL;
   }
-  result = PpmWmiRegisterInfo(*(unsigned int *)(a5 - 33796));
+  result = PpmWmiRegisterInfo(*(unsigned int *)(a5 - 32956));
 LABEL_9:
   if ( (int)result >= 0 )
     return 0LL;

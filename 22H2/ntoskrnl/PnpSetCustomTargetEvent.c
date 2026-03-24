@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpSetCustomTargetEvent @ 0x14079473C
+ * XREFs of PnpSetCustomTargetEvent @ 0x14071A048
  * Callers:
- *     IoReportTargetDeviceChangeAsynchronous @ 0x14031D550 (IoReportTargetDeviceChangeAsynchronous.c)
- *     IoReportTargetDeviceChange @ 0x1408821E0 (IoReportTargetDeviceChange.c)
- *     PnpReportTargetDeviceChangeAsyncWorker @ 0x140956A70 (PnpReportTargetDeviceChangeAsyncWorker.c)
+ *     IoReportTargetDeviceChangeAsynchronous @ 0x140360A10 (IoReportTargetDeviceChangeAsynchronous.c)
+ *     IoReportTargetDeviceChange @ 0x14076CEC0 (IoReportTargetDeviceChange.c)
+ *     PnpReportTargetDeviceChangeAsyncWorker @ 0x14089FD90 (PnpReportTargetDeviceChangeAsyncWorker.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PnpInsertEventInQueue @ 0x140786840 (PnpInsertEventInQueue.c)
- *     PnpCreateDeviceEventEntry @ 0x14079487C (PnpCreateDeviceEventEntry.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PnpInsertEventInQueue @ 0x140634C88 (PnpInsertEventInQueue.c)
+ *     PnpCreateDeviceEventEntry @ 0x14071B5A8 (PnpCreateDeviceEventEntry.c)
  */
 
 __int64 __fastcall PnpSetCustomTargetEvent(
@@ -19,39 +19,39 @@ __int64 __fastcall PnpSetCustomTargetEvent(
         __int64 a5,
         unsigned __int16 *Src)
 {
-  __int64 v10; // rdi
-  unsigned int v11; // ebp
+  __int64 v9; // rdi
+  unsigned int v10; // ebp
   __int64 DeviceEventEntry; // rbx
-  const void *v13; // rdx
-  void *v14; // rcx
+  const void *v12; // rdx
+  void *v13; // rcx
 
   if ( a2 )
     *a3 = 259;
   if ( PnpShutdownEvent.Header.SignalState )
     return 3221225865LL;
   if ( Object )
-    v10 = *(_QWORD *)(Object[39] + 40LL);
+    v9 = *(_QWORD *)(Object[39] + 40LL);
   else
-    v10 = 0LL;
-  v11 = Src[1] + ((*(unsigned __int16 *)(v10 + 40) + 89) & 0xFFFFFFF8);
-  DeviceEventEntry = PnpCreateDeviceEventEntry(v11 + 112);
+    v9 = 0LL;
+  v10 = Src[1] + ((*(unsigned __int16 *)(v9 + 40) + 89) & 0xFFFFFFF8);
+  DeviceEventEntry = PnpCreateDeviceEventEntry(v10 + 112);
   if ( !DeviceEventEntry )
     return 3221225626LL;
   ObfReferenceObjectWithTag(Object, 0x56706E50u);
+  *(_QWORD *)(DeviceEventEntry + 32) = a4;
   *(_QWORD *)(DeviceEventEntry + 40) = a5;
   *(_QWORD *)(DeviceEventEntry + 24) = a2;
-  *(_QWORD *)(DeviceEventEntry + 32) = a4;
   *(_DWORD *)(DeviceEventEntry + 144) = 0;
   *(_DWORD *)(DeviceEventEntry + 128) = 3;
   *(GUID *)(DeviceEventEntry + 112) = GUID_PNP_CUSTOM_NOTIFICATION;
   *(_QWORD *)(DeviceEventEntry + 136) = a3;
-  *(_DWORD *)(DeviceEventEntry + 148) = v11;
+  *(_DWORD *)(DeviceEventEntry + 148) = v10;
   *(_QWORD *)(DeviceEventEntry + 152) = Object;
-  v13 = *(const void **)(v10 + 48);
-  if ( v13 )
-    memmove((void *)(DeviceEventEntry + 168), v13, *(unsigned __int16 *)(v10 + 40));
-  v14 = (void *)(DeviceEventEntry + v11 + 112 - (unsigned __int64)Src[1]);
-  *(_QWORD *)(DeviceEventEntry + 160) = v14;
-  memmove(v14, Src, Src[1]);
+  v12 = *(const void **)(v9 + 48);
+  if ( v12 )
+    memmove((void *)(DeviceEventEntry + 168), v12, *(unsigned __int16 *)(v9 + 40));
+  v13 = (void *)(DeviceEventEntry + v10 + 112 - (unsigned __int64)Src[1]);
+  *(_QWORD *)(DeviceEventEntry + 160) = v13;
+  memmove(v13, Src, Src[1]);
   return PnpInsertEventInQueue(DeviceEventEntry);
 }

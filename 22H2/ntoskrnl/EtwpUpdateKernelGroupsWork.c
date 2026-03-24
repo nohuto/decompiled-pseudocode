@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpUpdateKernelGroupsWork @ 0x1407D53D0
+ * XREFs of EtwpUpdateKernelGroupsWork @ 0x140791EC0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpUpdateGlobalGroupMasks @ 0x1407D53FC (EtwpUpdateGlobalGroupMasks.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x140792E60 (EtwpUpdateGlobalGroupMasks.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpUpdateKernelGroupsWork(void *a1)

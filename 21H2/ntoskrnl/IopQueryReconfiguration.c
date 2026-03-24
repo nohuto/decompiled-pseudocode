@@ -1,12 +1,12 @@
 /*
- * XREFs of IopQueryReconfiguration @ 0x1409588F0
+ * XREFs of IopQueryReconfiguration @ 0x1408B2D20
  * Callers:
- *     PnpCancelStopDeviceNode @ 0x140959B60 (PnpCancelStopDeviceNode.c)
- *     PnpQueryStopDeviceNode @ 0x140959F9C (PnpQueryStopDeviceNode.c)
- *     PnpStopDeviceSubtree @ 0x14095A388 (PnpStopDeviceSubtree.c)
+ *     PnpCancelStopDeviceNode @ 0x1408B82E4 (PnpCancelStopDeviceNode.c)
+ *     PnpQueryStopDeviceNode @ 0x1408B8714 (PnpQueryStopDeviceNode.c)
+ *     PnpStopDeviceSubtree @ 0x1408B8AE8 (PnpStopDeviceSubtree.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     IopSynchronousCall @ 0x14074CA9C (IopSynchronousCall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopSynchronousCall @ 0x14071DFF0 (IopSynchronousCall.c)
  */
 
 __int64 __fastcall IopQueryReconfiguration(char a1, struct _DEVICE_OBJECT *a2)
@@ -18,17 +18,17 @@ __int64 __fastcall IopQueryReconfiguration(char a1, struct _DEVICE_OBJECT *a2)
   DeviceNode = a2->DeviceObjectExtension->DeviceNode;
   if ( a1 == 4 )
   {
-    v6 = DeviceNode[75] == 779;
+    v6 = DeviceNode[75] == 777;
   }
   else
   {
     if ( a1 != 5 )
     {
-      if ( a1 == 6 && (unsigned int)(DeviceNode[75] - 778) <= 1 )
+      if ( a1 == 6 && (unsigned int)(DeviceNode[75] - 776) <= 1 )
         goto LABEL_5;
       return 3221225473LL;
     }
-    v6 = DeviceNode[75] == 778;
+    v6 = DeviceNode[75] == 776;
   }
   if ( v6 )
   {

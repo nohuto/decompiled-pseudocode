@@ -1,46 +1,46 @@
 /*
- * XREFs of ObpRegisterPrivateNamespace @ 0x1406C1234
+ * XREFs of ObpRegisterPrivateNamespace @ 0x1406E55A8
  * Callers:
- *     NtCreatePrivateNamespace @ 0x1406C08F0 (NtCreatePrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x1406E4E80 (NtCreatePrivateNamespace.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     ObpLookupNamespaceEntry @ 0x1406C12F4 (ObpLookupNamespaceEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     ObpLookupNamespaceEntry @ 0x1406E5668 (ObpLookupNamespaceEntry.c)
  */
 
-__int64 __fastcall ObpRegisterPrivateNamespace(__int64 a1)
+__int64 __fastcall ObpRegisterPrivateNamespace(__int64 a1, __int64 a2)
 {
-  unsigned int v2; // esi
+  unsigned int v3; // esi
   char *CurrentServerSiloGlobals; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR v5; // rbp
-  char *v6; // rbx
-  char *v7; // rax
-  char **v8; // rcx
+  ULONG_PTR v6; // rbp
+  char *v7; // rbx
+  char *v8; // rax
+  __int64 *v9; // rcx
 
-  v2 = -1073741771;
-  CurrentServerSiloGlobals = (char *)PsGetCurrentServerSiloGlobals();
+  v3 = -1073741771;
+  CurrentServerSiloGlobals = (char *)PsGetCurrentServerSiloGlobals(a1, a2);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = (ULONG_PTR)(CurrentServerSiloGlobals + 720);
+  v6 = (ULONG_PTR)(CurrentServerSiloGlobals + 720);
   ExAcquirePushLockExclusiveEx((ULONG_PTR)(CurrentServerSiloGlobals + 720), 0LL);
-  v6 = CurrentServerSiloGlobals + 128;
-  if ( !ObpLookupNamespaceEntry(v6, a1) )
+  v7 = CurrentServerSiloGlobals + 128;
+  if ( !ObpLookupNamespaceEntry(v7, a1) )
   {
-    v7 = &v6[16 * *(unsigned __int8 *)(a1 + 40)];
-    v8 = (char **)*((_QWORD *)v7 + 1);
-    if ( *v8 != v7 )
+    v8 = &v7[16 * *(unsigned __int8 *)(a1 + 40)];
+    v9 = (__int64 *)*((_QWORD *)v8 + 1);
+    if ( (char *)*v9 != v8 )
       __fastfail(3u);
-    *(_QWORD *)a1 = v7;
-    *(_QWORD *)(a1 + 8) = v8;
-    *v8 = (char *)a1;
-    *((_QWORD *)v7 + 1) = a1;
-    ++*((_DWORD *)v6 + 150);
-    v2 = 0;
+    *(_QWORD *)a1 = v8;
+    *(_QWORD *)(a1 + 8) = v9;
+    *v9 = a1;
+    *((_QWORD *)v8 + 1) = a1;
+    ++*((_DWORD *)v7 + 150);
+    v3 = 0;
   }
-  ExReleasePushLockEx(v5, 0LL);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return v2;
+  ExReleasePushLockEx(v6, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return v3;
 }

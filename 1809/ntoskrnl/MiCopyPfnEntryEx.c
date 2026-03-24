@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCopyPfnEntryEx @ 0x14010DFE0
+ * XREFs of MiCopyPfnEntryEx @ 0x14010E000
  * Callers:
  *     MiMigratePfn @ 0x14003C640 (MiMigratePfn.c)
  *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
- *     MiStealPage @ 0x1400EBF24 (MiStealPage.c)
- *     MiReplaceTransitionPage @ 0x14011844C (MiReplaceTransitionPage.c)
- *     MiSwapStackPageNoDpc @ 0x14012D654 (MiSwapStackPageNoDpc.c)
- *     MiTradeActivePage @ 0x14012DF04 (MiTradeActivePage.c)
- *     MiSwitchKstackPages @ 0x14015EB74 (MiSwitchKstackPages.c)
- *     MiSplitDirectMapPage @ 0x1402B6C24 (MiSplitDirectMapPage.c)
- *     MiSwapNumaStandbyPage @ 0x1402C0F10 (MiSwapNumaStandbyPage.c)
- *     MiSwapHardFaultPage @ 0x1402CFE5C (MiSwapHardFaultPage.c)
+ *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
+ *     MiReplaceTransitionPage @ 0x14011846C (MiReplaceTransitionPage.c)
+ *     MiSwapStackPageNoDpc @ 0x14012D674 (MiSwapStackPageNoDpc.c)
+ *     MiTradeActivePage @ 0x14012DF24 (MiTradeActivePage.c)
+ *     MiSwitchKstackPages @ 0x14015EB94 (MiSwitchKstackPages.c)
+ *     MiSplitDirectMapPage @ 0x1402B6D24 (MiSplitDirectMapPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1402C1010 (MiSwapNumaStandbyPage.c)
+ *     MiSwapHardFaultPage @ 0x1402CFF5C (MiSwapHardFaultPage.c)
  *     MiTradeBootImagePage @ 0x1409B86AC (MiTradeBootImagePage.c)
  *     MxSwapPages @ 0x1409C04C8 (MxSwapPages.c)
  * Callees:

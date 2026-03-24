@@ -1,11 +1,11 @@
 /*
- * XREFs of ?_WatchdogDpc@FxWatchdog@@SAXPEAU_KDPC@@PEAX11@Z @ 0x1C0088FC0
+ * XREFs of ?_WatchdogDpc@FxWatchdog@@SAXPEAU_KDPC@@PEAX11@Z @ 0x1C00834C0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
  */
 
 void __fastcall __noreturn FxWatchdog::_WatchdogDpc(
@@ -23,6 +23,6 @@ void __fastcall __noreturn FxWatchdog::_WatchdogDpc(
   data.PowerPolicyState = *(_DWORD *)(v5 + 208);
   data.DeviceObject = *(_DEVICE_OBJECT **)(v5 + 144);
   data.Device = (WDFDEVICE__ *)FxObject::GetObjectHandleUnchecked((FxObject *)v5);
-  data.TimedOutThread = (_KTHREAD *)*((_QWORD *)Context + 20);
+  data.TimedOutThread = (struct _KTHREAD *)*((_QWORD *)Context + 20);
   FxVerifierBugCheckWorker(*(_FX_DRIVER_GLOBALS **)(v5 + 16), WDF_POWER_ROUTINE_TIMED_OUT, (ULONG_PTR)&data, 0LL);
 }

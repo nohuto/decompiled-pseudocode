@@ -1,24 +1,24 @@
 /*
- * XREFs of HalpDmaSyncMapBuffers @ 0x14045C492
+ * XREFs of HalpDmaSyncMapBuffers @ 0x1404C8134
  * Callers:
- *     HalpDmaFlushContiguousTransferV2 @ 0x14045D916 (HalpDmaFlushContiguousTransferV2.c)
- *     HalpDmaFlushScatterTransferV2 @ 0x14045DA2C (HalpDmaFlushScatterTransferV2.c)
- *     HalpDmaMapContiguousTransferV2 @ 0x14045DB88 (HalpDmaMapContiguousTransferV2.c)
- *     HalpDmaMapScatterTransferV2 @ 0x14045DCC8 (HalpDmaMapScatterTransferV2.c)
- *     HalpDmaFlushContiguousTransferV3 @ 0x1404FFB34 (HalpDmaFlushContiguousTransferV3.c)
- *     HalpDmaFlushScatterTransferV3 @ 0x1404FFC84 (HalpDmaFlushScatterTransferV3.c)
- *     HalpDmaMapContiguousTransferV3 @ 0x1405000CC (HalpDmaMapContiguousTransferV3.c)
- *     HalpDmaMapScatterTransferV3 @ 0x1405001F0 (HalpDmaMapScatterTransferV3.c)
+ *     HalpDmaFlushContiguousTransferV3 @ 0x1404B753C (HalpDmaFlushContiguousTransferV3.c)
+ *     HalpDmaFlushScatterTransferV3 @ 0x1404B768C (HalpDmaFlushScatterTransferV3.c)
+ *     HalpDmaMapContiguousTransferV3 @ 0x1404B7A1C (HalpDmaMapContiguousTransferV3.c)
+ *     HalpDmaMapScatterTransferV3 @ 0x1404B7B40 (HalpDmaMapScatterTransferV3.c)
+ *     HalpDmaFlushContiguousTransferV2 @ 0x1404CD76C (HalpDmaFlushContiguousTransferV2.c)
+ *     HalpDmaFlushScatterTransferV2 @ 0x1404CD888 (HalpDmaFlushScatterTransferV2.c)
+ *     HalpDmaMapContiguousTransferV2 @ 0x1404CD9EC (HalpDmaMapContiguousTransferV2.c)
+ *     HalpDmaMapScatterTransferV2 @ 0x1404CDB44 (HalpDmaMapScatterTransferV2.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     HalpDmaAcquireBufferMappings @ 0x14045B704 (HalpDmaAcquireBufferMappings.c)
- *     HalpDmaReleaseBufferMappings @ 0x14045C178 (HalpDmaReleaseBufferMappings.c)
- *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x1405115E4 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
- *     HalpFlushMapBuffers @ 0x140511B40 (HalpFlushMapBuffers.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     HalpDmaAcquireBufferMappings @ 0x1404C64E8 (HalpDmaAcquireBufferMappings.c)
+ *     HalpDmaReleaseBufferMappings @ 0x1404C7DCC (HalpDmaReleaseBufferMappings.c)
+ *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x1404C84AC (HalpDmaSyncMapBuffersWithEmergencyResources.c)
+ *     HalpFlushMapBuffers @ 0x1404C89FC (HalpFlushMapBuffers.c)
  */
 
 void __fastcall HalpDmaSyncMapBuffers(
@@ -32,33 +32,32 @@ void __fastcall HalpDmaSyncMapBuffers(
         char a8)
 {
   unsigned __int8 CurrentIrql; // bl
-  char *v13; // rsi
+  char *v13; // rdi
   __int64 v14; // rcx
   unsigned __int64 v15; // r12
   unsigned int v16; // edx
   _QWORD *i; // rcx
   _DWORD *SchedulerAssist; // r9
-  __int64 v19; // rax
-  char *v20; // rsi
-  __int64 v21; // rcx
-  int v22; // r15d
-  unsigned int v23; // edi
-  _QWORD *v24; // r12
-  unsigned int v25; // r15d
-  const void *v26; // r9
-  unsigned __int8 v27; // al
+  char *v19; // rdi
+  __int64 v20; // rcx
+  int v21; // r15d
+  unsigned int v22; // esi
+  _QWORD *v23; // r12
+  unsigned int v24; // r15d
+  const void *v25; // r9
+  unsigned __int8 v26; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v29; // r8
-  int v30; // eax
-  bool v31; // zf
-  int v32; // [rsp+48h] [rbp-70h]
-  int v33; // [rsp+50h] [rbp-68h]
-  _OWORD v34[3]; // [rsp+58h] [rbp-60h] BYREF
-  __int64 v35; // [rsp+88h] [rbp-30h]
-  char v36; // [rsp+C8h] [rbp+10h]
+  _DWORD *v28; // r8
+  int v29; // eax
+  bool v30; // zf
+  int v31; // [rsp+48h] [rbp-70h]
+  int v32; // [rsp+50h] [rbp-68h]
+  _OWORD v33[3]; // [rsp+58h] [rbp-60h] BYREF
+  __int64 v34; // [rsp+88h] [rbp-30h]
+  char v35; // [rsp+C8h] [rbp+10h]
 
-  memset(v34, 0, sizeof(v34));
-  v35 = 0LL;
+  memset(v33, 0, sizeof(v33));
+  v34 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   if ( (*(_BYTE *)(a2 + 10) & 5) != 0 )
     v13 = *(char **)(a2 + 24);
@@ -66,10 +65,10 @@ void __fastcall HalpDmaSyncMapBuffers(
     v13 = (char *)MmMapLockedPagesSpecifyCache((PMDL)a2, 0, MmCached, 0LL, 0, 0x40000020u);
   if ( v13 )
   {
-    v36 = 0;
+    v35 = 0;
     v14 = a3 & 0xFFF;
     v15 = (v14 + (unsigned __int64)a5 + 4095) >> 12;
-    v32 = v15;
+    v31 = v15;
     if ( CurrentIrql <= 2u )
     {
       if ( CurrentIrql < 2u )
@@ -78,18 +77,13 @@ void __fastcall HalpDmaSyncMapBuffers(
         __writecr8(2uLL);
         if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
+          v14 = (unsigned int)CurrentIrql + 1;
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-          LODWORD(v19) = 4;
-          if ( CurrentIrql != 2 )
-          {
-            v14 = (unsigned int)CurrentIrql + 1;
-            v19 = (-1LL << (CurrentIrql + 1)) & 4;
-          }
-          SchedulerAssist[5] |= v19;
+          SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
         }
-        v36 = 1;
+        v35 = 1;
       }
-      HalpDmaAcquireBufferMappings(v14, a4, v15, (__int64)v34);
+      HalpDmaAcquireBufferMappings(v14, a4, v15, (__int64)v33);
     }
     else
     {
@@ -101,59 +95,62 @@ void __fastcall HalpDmaSyncMapBuffers(
         i = (_QWORD *)i[1];
       }
     }
-    v20 = &v13[a3 - *(unsigned int *)(a2 + 44) - *(_QWORD *)(a2 + 32)];
-    v33 = (int)v20;
-    v21 = (unsigned __int16)v20 & 0xFFF;
-    v22 = (int)v20;
-    if ( !*(_BYTE *)(a1 + 445) && !a6 )
+    v19 = &v13[a3 - *(unsigned int *)(a2 + 44) - *(_QWORD *)(a2 + 32)];
+    v32 = (int)v19;
+    v20 = (unsigned __int16)v19 & 0xFFF;
+    v21 = (int)v19;
+    if ( !*(_BYTE *)(a1 + 437) && !a6 )
     {
-      HalpFlushMapBuffers(a1, (_DWORD)v20, (_DWORD)a4, a5, 0, a8);
-      v21 = (unsigned __int16)v20 & 0xFFF;
+      HalpFlushMapBuffers(a1, (_DWORD)v19, (_DWORD)a4, a5, 0, a8);
+      v20 = (unsigned __int16)v19 & 0xFFF;
     }
     if ( a5 )
     {
-      v23 = a5;
-      v24 = a4;
+      v22 = a5;
+      v23 = a4;
       do
       {
-        v25 = v23;
-        if ( v23 >= 4096 - (int)v21 )
-          v25 = 4096 - v21;
-        v26 = (const void *)((v24[6] & 0xFFFFFFFFFFFFF000uLL) + (unsigned int)v21);
+        v24 = v22;
+        if ( v22 >= 4096 - (int)v20 )
+          v24 = 4096 - v20;
+        v25 = (const void *)((v23[6] & 0xFFFFFFFFFFFFF000uLL) + (unsigned int)v20);
         if ( !a7 )
         {
           if ( a6 )
-            ((void (__fastcall *)(const void *, char *, _QWORD))HalpMoveMemory[0])(v26, v20, v25);
+            ((void (__fastcall *)(const void *, char *, _QWORD))HalpMoveMemory)(v25, v19, v24);
           else
-            memmove(v20, v26, v25);
+            memmove(v19, v25, v24);
         }
-        v24 = (_QWORD *)v24[1];
-        v21 = 0LL;
-        v20 += v25;
-        v23 -= v25;
+        v23 = (_QWORD *)v23[1];
+        v20 = 0LL;
+        v19 += v24;
+        v22 -= v24;
       }
-      while ( v23 );
-      LODWORD(v15) = v32;
-      v22 = v33;
+      while ( v22 );
+      LODWORD(v15) = v31;
+      v21 = v32;
     }
-    if ( !*(_BYTE *)(a1 + 445) && a6 )
-      HalpFlushMapBuffers(a1, v22, (_DWORD)a4, a5, a6, a8);
+    if ( !*(_BYTE *)(a1 + 437) && a6 )
+      HalpFlushMapBuffers(a1, v21, (_DWORD)a4, a5, a6, a8);
     if ( CurrentIrql <= 2u )
-      HalpDmaReleaseBufferMappings(v21, (__int64)a4, v15, (__int64)v34);
-    if ( v36 )
+      HalpDmaReleaseBufferMappings(v20, (__int64)a4, v15, (__int64)v33);
+    if ( v35 )
     {
       if ( KiIrqlFlags )
       {
-        v27 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v29 = CurrentPrcb->SchedulerAssist;
-          v30 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v31 = (v30 & v29[5]) == 0;
-          v29[5] &= v30;
-          if ( v31 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          v26 = KeGetCurrentIrql();
+          if ( v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v28 = CurrentPrcb->SchedulerAssist;
+            v29 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v30 = (v29 & v28[5]) == 0;
+            v28[5] &= v29;
+            if ( v30 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(CurrentIrql);

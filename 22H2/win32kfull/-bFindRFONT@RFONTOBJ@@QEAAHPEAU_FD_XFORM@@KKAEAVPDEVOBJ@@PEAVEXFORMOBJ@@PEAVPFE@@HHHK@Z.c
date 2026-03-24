@@ -1,20 +1,20 @@
 /*
- * XREFs of ?bFindRFONT@RFONTOBJ@@QEAAHPEAU_FD_XFORM@@KKAEAVPDEVOBJ@@PEAVEXFORMOBJ@@PEAVPFE@@HHHK@Z @ 0x1C01315E4
+ * XREFs of ?bFindRFONT@RFONTOBJ@@QEAAHPEAU_FD_XFORM@@KKAEAVPDEVOBJ@@PEAVEXFORMOBJ@@PEAVPFE@@HHHK@Z @ 0x1C00E85E8
  * Callers:
- *     ?vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z @ 0x1C015C6AE (-vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z.c)
- *     ?bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z @ 0x1C02B6B38 (-bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z.c)
+ *     ?vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z @ 0x1C00E8260 (-vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z.c)
+ *     ?bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z @ 0x1C02A7D6C (-bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z.c)
  * Callees:
- *     ?vInsert@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C008473C (-vInsert@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
- *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C00847AC (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
- *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C0084804 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
- *     ?vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C0087AF0 (-vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
- *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C0087B88 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
- *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C0087BA8 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
- *     ?cInactive@PDEVOBJ@@QEAAIXZ @ 0x1C0087C30 (-cInactive@PDEVOBJ@@QEAAIXZ.c)
- *     ??0PUBLIC_PFTOBJ@@QEAA@PEAVPFT@@@Z @ 0x1C013E724 (--0PUBLIC_PFTOBJ@@QEAA@PEAVPFT@@@Z.c)
- *     ??1RFONTTMPOBJ@@QEAA@XZ @ 0x1C013E734 (--1RFONTTMPOBJ@@QEAA@XZ.c)
- *     ?bMatchRealization@RFONTOBJ@@AEAAHPEAU_FD_XFORM@@KKPEAVEXFORMOBJ@@PEAVPFE@@HHHK@Z @ 0x1C015CA5C (-bMatchRealization@RFONTOBJ@@AEAAHPEAU_FD_XFORM@@KKPEAVEXFORMOBJ@@PEAVPFE@@HHHK@Z.c)
- *     ??1SEMOBJ@@QEAA@XZ @ 0x1C026572C (--1SEMOBJ@@QEAA@XZ.c)
+ *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C009D600 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     ?vInsert@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C009E3C0 (-vInsert@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
+ *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C009E430 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
+ *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C009E458 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     ?vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C009F0E4 (-vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
+ *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C009F3D0 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
+ *     ??1RFONTTMPOBJ@@QEAA@XZ @ 0x1C00E7978 (--1RFONTTMPOBJ@@QEAA@XZ.c)
+ *     ?bMatchRealization@RFONTOBJ@@AEAAHPEAU_FD_XFORM@@KKPEAVEXFORMOBJ@@PEAVPFE@@HHHK@Z @ 0x1C00E883C (-bMatchRealization@RFONTOBJ@@AEAAHPEAU_FD_XFORM@@KKPEAVEXFORMOBJ@@PEAVPFE@@HHHK@Z.c)
+ *     ?cInactive@PDEVOBJ@@QEAAIXZ @ 0x1C00E8AA0 (-cInactive@PDEVOBJ@@QEAAIXZ.c)
+ *     ??0PUBLIC_PFTOBJ@@QEAA@PEAVPFT@@@Z @ 0x1C016A238 (--0PUBLIC_PFTOBJ@@QEAA@PEAVPFT@@@Z.c)
+ *     ??1SEMOBJ@@QEAA@XZ @ 0x1C026D1FC (--1SEMOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall RFONTOBJ::bFindRFONT(
@@ -39,14 +39,14 @@ __int64 __fastcall RFONTOBJ::bFindRFONT(
   __int64 v21; // rcx
   struct RFONT *v22; // rax
   struct PFT *v23; // rdx
-  int v25; // eax
+  unsigned int v25; // eax
   __int64 v26; // rdx
-  int v27; // eax
+  unsigned int v27; // ecx
   __int64 v28; // [rsp+50h] [rbp-10h] BYREF
   struct RFONT *v29; // [rsp+90h] [rbp+30h] BYREF
 
-  v28 = *((_QWORD *)Gre::Base::Globals(this) + 3);
-  GreAcquireSemaphore(v28);
+  v28 = ghsemRFONTList;
+  GreAcquireSemaphore(ghsemRFONTList);
   v15 = a5;
   v16 = PDEVOBJ::prfntActive(a5);
   v17 = a11;
@@ -73,7 +73,7 @@ __int64 __fastcall RFONTOBJ::bFindRFONT(
     v29 = PDEVOBJ::prfntActive(v15);
     if ( v29 != *(struct RFONT **)this )
     {
-      RFONTOBJ::vRemove((__int64)this, &v29, 1);
+      RFONTOBJ::vRemove((__int64)this, (unsigned __int64 *)&v29, 1);
       RFONTOBJ::vInsert((unsigned __int64 *)this, (unsigned __int64 *)&v29, 1);
       PDEVOBJ::prfntActive(v15, v29);
     }
@@ -99,15 +99,15 @@ LABEL_4:
       }
       v18 = 1;
       v29 = PDEVOBJ::prfntInactive(v15);
-      RFONTOBJ::vRemove((__int64)this, &v29, 1);
+      RFONTOBJ::vRemove((__int64)this, (unsigned __int64 *)&v29, 1);
       PDEVOBJ::prfntInactive(v15, v29);
       v25 = PDEVOBJ::cInactive(v15);
       v26 = *(_QWORD *)v15;
       v27 = v25 - 1;
       if ( (*(_DWORD *)(*(_QWORD *)v15 + 40LL) & 0x800000) != 0 )
-        *(_DWORD *)(*(_QWORD *)(v26 + 3496) + 1528LL) = v27;
+        *(_DWORD *)(*(_QWORD *)(v26 + 3520) + 1536LL) = v27;
       else
-        *(_DWORD *)(v26 + 1528) = v27;
+        *(_DWORD *)(v26 + 1536) = v27;
       v29 = PDEVOBJ::prfntActive(v15);
       RFONTOBJ::vInsert((unsigned __int64 *)this, (unsigned __int64 *)&v29, 1);
       PDEVOBJ::prfntActive(v15, v29);

@@ -1,259 +1,292 @@
 /*
- * XREFs of KiAdjustGroupConfiguration @ 0x1403C2F70
+ * XREFs of KiAdjustGroupConfiguration @ 0x140515578
  * Callers:
- *     KiAllocateProcessorNumber @ 0x1403C2638 (KiAllocateProcessorNumber.c)
+ *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     qsort @ 0x1403E1E70 (qsort.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-void __fastcall KiAdjustGroupConfiguration(__int64 a1)
+char __fastcall KiAdjustGroupConfiguration(__int64 a1)
 {
-  __int64 v2; // rcx
-  int *v3; // rdi
-  int v4; // eax
-  __int64 v5; // rdi
-  unsigned __int16 *v6; // rdx
-  __int64 v7; // r8
-  unsigned __int16 v8; // r9
-  __int64 v9; // rdi
-  int v10; // ecx
-  int v11; // eax
-  unsigned __int16 v12; // r10
-  unsigned int v13; // ecx
-  __int16 v14; // cx
-  __int64 v15; // rcx
-  int *v16; // rdi
-  int v17; // eax
-  __int64 v18; // rdi
-  _QWORD *v19; // rdx
-  char v20; // al
-  _QWORD *Pool2; // rbx
-  unsigned __int16 v22; // di
-  __int64 v23; // r8
-  _QWORD *v24; // rdx
-  __int64 v25; // rax
-  __int64 v26; // r14
-  __int64 *v27; // rdx
-  __int64 v28; // r8
-  __int64 v29; // rcx
-  char v30; // r15
-  unsigned __int16 i; // bp
-  unsigned int v32; // edx
-  unsigned int v33; // eax
-  unsigned __int16 v34; // cx
-  __int64 v35; // r9
-  unsigned __int16 v36; // r10
-  unsigned __int16 v37; // dx
-  unsigned int v38; // r11d
-  unsigned int *v39; // rax
-  unsigned int v40; // r8d
-  __int64 *v41; // rdi
-  __int64 v42; // rdx
-  _DWORD v43[32]; // [rsp+20h] [rbp-138h] BYREF
-  _DWORD Src[32]; // [rsp+A0h] [rbp-B8h] BYREF
+  __int64 v2; // rax
+  unsigned __int16 v3; // r14
+  __int64 v4; // rcx
+  int *v5; // rdi
+  int v6; // eax
+  __int64 *v7; // r9
+  __int64 *v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r10
+  unsigned __int16 v11; // r11
+  __int64 v12; // r8
+  unsigned __int16 v13; // si
+  int v14; // edi
+  int v15; // edx
+  unsigned int v16; // ecx
+  __int64 v17; // rcx
+  int *v18; // rdi
+  int v19; // eax
+  __int64 *v20; // rdx
+  __int64 v21; // rdi
+  __int64 v22; // rax
+  char v23; // cl
+  __int64 v24; // rdi
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  unsigned __int16 v27; // cx
+  __int64 v28; // rsi
+  _QWORD *v29; // rdx
+  __int64 v30; // r9
+  __int64 v31; // r11
+  __int64 *v32; // rdx
+  __int64 v33; // r8
+  __int64 v34; // rcx
+  char v35; // r14
+  unsigned __int16 v36; // si
+  unsigned int v37; // edx
+  unsigned __int16 i; // dx
+  __int64 v39; // r8
+  __int16 v40; // r10
+  unsigned __int16 v41; // cx
+  unsigned int v42; // r9d
+  __int64 *v43; // r8
+  __int64 v44; // rdx
+  _DWORD v46[20]; // [rsp+20h] [rbp-E0h] BYREF
+  _DWORD Src[20]; // [rsp+70h] [rbp-90h] BYREF
+  _QWORD v48[64]; // [rsp+C0h] [rbp-40h] BYREF
 
-  memset(v43, 0, sizeof(v43));
-  if ( (*(_BYTE *)(a1 + 5) & 4) == 0 )
+  memset(v48, 0, sizeof(v48));
+  LOBYTE(v2) = (unsigned __int8)memset(v46, 0, sizeof(v46));
+  if ( (*(_BYTE *)(a1 + 181) & 8) == 0 && !*(_QWORD *)(a1 + 136) )
   {
-    if ( KiMaximumGroups )
+    v3 = *(_WORD *)(a1 + 144);
+    if ( v3 >= (unsigned __int16)KiActiveGroups )
     {
-      v2 = (unsigned __int16)KiMaximumGroups;
-      v3 = v43;
-      v4 = KiMaximumGroupSize;
-      while ( v2 )
-      {
-        *v3++ = v4;
-        --v2;
-      }
-    }
-    if ( KiSubNodeCount )
-    {
-      v5 = (unsigned __int16)KiSubNodeCount;
-      v6 = (unsigned __int16 *)(KiSubNodeConfigBlock + 6);
-      do
-      {
-        if ( (*((_BYTE *)v6 - 1) & 1) != 0 )
-          v43[*v6] -= *((unsigned __int8 *)v6 - 2);
-        v6 += 12;
-        --v5;
-      }
-      while ( v5 );
-    }
-    v7 = (unsigned __int16)KiSubNodeCount;
-    v8 = 0;
-    if ( KiSubNodeCount )
-    {
-      while ( 1 )
-      {
-        v9 = KiSubNodeConfigBlock;
-        if ( (*(_BYTE *)(KiSubNodeConfigBlock + 24LL * v8 + 5) & 7) == 3
-          && !*(_QWORD *)(KiSubNodeConfigBlock + 24LL * v8 + 16) )
-        {
-          v10 = *(unsigned __int8 *)(KiSubNodeConfigBlock + 24LL * v8 + 4);
-          v11 = *(unsigned __int8 *)(a1 + 4);
-          if ( (unsigned __int8)v10 <= (unsigned __int8)v11 )
-          {
-            v12 = *(_WORD *)(KiSubNodeConfigBlock + 24LL * v8 + 6);
-            v13 = v11 - v10;
-          }
-          else
-          {
-            v12 = *(_WORD *)(a1 + 6);
-            v13 = v10 - v11;
-          }
-          if ( v43[v12] >= v13 )
-            break;
-        }
-        if ( ++v8 >= (unsigned __int16)KiSubNodeCount )
-          goto LABEL_21;
-      }
-      v14 = *(_WORD *)(KiSubNodeConfigBlock + 24LL * v8 + 6);
-      *(_WORD *)(KiSubNodeConfigBlock + 24LL * v8 + 6) = *(_WORD *)(a1 + 6);
-      *(_BYTE *)(a1 + 5) |= 2u;
-      *(_WORD *)(a1 + 6) = v14;
-      *(_BYTE *)(v9 + 24LL * v8 + 5) &= ~2u;
-    }
-    else
-    {
-LABEL_21:
       if ( KiMaximumGroups )
       {
-        v15 = (unsigned __int16)KiMaximumGroups;
-        v16 = Src;
-        v17 = KiMaximumGroupSize;
-        while ( v15 )
+        v4 = (unsigned __int16)KiMaximumGroups;
+        v5 = v46;
+        v6 = KiMaximumGroupSize;
+        while ( v4 )
         {
-          *v16++ = v17;
-          --v15;
+          *v5++ = v6;
+          --v4;
         }
       }
-      if ( (_WORD)v7 )
+      v7 = KeNodeBlock;
+      if ( KeNumberNodes )
       {
-        v18 = v7;
-        v19 = (_QWORD *)(KiSubNodeConfigBlock + 16);
+        v8 = KeNodeBlock;
+        v9 = (unsigned __int16)KeNumberNodes;
         do
         {
-          v20 = *((_BYTE *)v19 - 11);
-          if ( (v20 & 1) != 0 && ((v20 & 4) != 0 || *v19) )
-            Src[*((unsigned __int16 *)v19 - 5)] -= *((unsigned __int8 *)v19 - 12);
-          v19 += 3;
-          --v18;
+          if ( (*(_BYTE *)(*v8 + 181) & 2) != 0 )
+            v46[*(unsigned __int16 *)(*v8 + 144)] -= *(unsigned __int8 *)(*v8 + 180);
+          ++v8;
+          --v9;
         }
-        while ( v18 );
+        while ( v9 );
       }
-      Pool2 = (_QWORD *)ExAllocatePool2(64LL, 8LL * (unsigned __int16)KiSubNodeCount, 1128743243LL);
-      if ( Pool2 )
+      v10 = (unsigned __int16)KeNumberNodes;
+      v11 = 0;
+      if ( KeNumberNodes )
       {
-        v22 = 0;
-        if ( KiSubNodeCount )
+        while ( 1 )
         {
-          v23 = (unsigned __int16)KiSubNodeCount;
-          v24 = (_QWORD *)(KiSubNodeConfigBlock + 16);
-          do
+          v12 = KeNodeBlock[v11];
+          if ( (*(_BYTE *)(v12 + 181) & 0xA) == 2 && !*(_QWORD *)(v12 + 136) )
           {
-            if ( (*((_BYTE *)v24 - 11) & 5) == 1 && !*v24 )
+            v13 = *(_WORD *)(v12 + 144);
+            if ( v13 < (unsigned __int16)KiActiveGroups )
             {
-              v25 = v22++;
-              Pool2[v25] = v24 - 2;
+              v14 = *(unsigned __int8 *)(v12 + 180);
+              v15 = *(unsigned __int8 *)(a1 + 180);
+              v16 = v14 - v15;
+              if ( (unsigned __int8)v14 <= (unsigned __int8)v15 )
+                v16 = *(unsigned __int8 *)(a1 + 180) - v14;
+              LOWORD(v2) = v3;
+              if ( (unsigned __int8)v14 <= (unsigned __int8)v15 )
+                LOWORD(v2) = *(_WORD *)(v12 + 144);
+              if ( v46[(unsigned __int16)v2] >= v16 )
+                break;
             }
-            v24 += 3;
-            --v23;
           }
-          while ( v23 );
+          if ( ++v11 >= (unsigned __int16)KeNumberNodes )
+            goto LABEL_23;
         }
-        v26 = v22;
-        qsort(Pool2, v22, 8uLL, KiCompareSubNodeConfigurationCapacity);
-        if ( v22 )
+        *(_WORD *)(v12 + 144) = v3;
+        *(_BYTE *)(v12 + 181) &= ~4u;
+        *(_BYTE *)(a1 + 181) |= 4u;
+        *(_WORD *)(a1 + 144) = v13;
+      }
+      else
+      {
+LABEL_23:
+        if ( KiMaximumGroups )
         {
-          v27 = Pool2;
-          v28 = v22;
+          v17 = (unsigned __int16)KiMaximumGroups;
+          v18 = Src;
+          v19 = KiMaximumGroupSize;
+          while ( v17 )
+          {
+            *v18++ = v19;
+            --v17;
+          }
+        }
+        if ( (_WORD)v10 )
+        {
+          v20 = KeNodeBlock;
+          v21 = v10;
           do
           {
-            v29 = *v27++;
-            *(_WORD *)(v29 + 8) = *(_WORD *)(v29 + 6);
-            --v28;
+            v22 = *v20;
+            v23 = *(_BYTE *)(*v20 + 181);
+            if ( (v23 & 2) != 0 && ((v23 & 8) != 0 || *(_QWORD *)(v22 + 136)) )
+              Src[*(unsigned __int16 *)(v22 + 144)] -= *(unsigned __int8 *)(v22 + 180);
+            ++v20;
+            --v21;
           }
-          while ( v28 );
+          while ( v21 );
         }
-        v30 = 0;
-        for ( i = 0; i < (unsigned __int16)KiActiveGroups; ++i )
+        LOBYTE(v2) = KeNumberNodes;
+        LOWORD(v24) = 0;
+        if ( KeNumberNodes )
         {
-          if ( KiMaximumGroups )
-            memmove(v43, Src, 4LL * (unsigned __int16)KiMaximumGroups);
-          v32 = *(unsigned __int8 *)(a1 + 4);
-          v33 = v43[i];
-          if ( v33 >= v32 )
+          v25 = (unsigned __int16)KeNumberNodes;
+          do
           {
-            *(_WORD *)(a1 + 6) = i;
-            v43[i] = v33 - v32;
-            v34 = 0;
-            if ( v22 )
+            v26 = *v7;
+            LOBYTE(v2) = *(_BYTE *)(*v7 + 181) & 0xA;
+            if ( (_BYTE)v2 == 2 && !*(_QWORD *)(v26 + 136) )
             {
-              while ( 1 )
+              v2 = (unsigned __int16)v24;
+              LOWORD(v24) = v24 + 1;
+              v48[v2] = v26;
+            }
+            ++v7;
+            --v25;
+          }
+          while ( v25 );
+        }
+        if ( (unsigned __int16)v24 - 1 > 0 )
+        {
+          v27 = 1;
+          do
+          {
+            if ( v27 < (unsigned __int16)v24 )
+            {
+              v28 = (unsigned __int16)(v27 - 1);
+              v29 = &v48[v27];
+              v30 = (unsigned __int16)(v24 - v27);
+              do
               {
-                v35 = Pool2[v34];
-                if ( v35 != a1 )
+                v31 = v48[v28];
+                if ( *(_BYTE *)(v31 + 180) < *(_BYTE *)(*v29 + 180LL) )
                 {
-                  v36 = KiMaximumGroups;
-                  v37 = 0;
+                  v48[v28] = *v29;
+                  *v29 = v31;
+                }
+                ++v29;
+                --v30;
+              }
+              while ( v30 );
+            }
+            LODWORD(v2) = v27++;
+          }
+          while ( (int)v2 < (unsigned __int16)v24 - 1 );
+        }
+        if ( (_WORD)v24 )
+        {
+          v32 = v48;
+          v33 = (unsigned __int16)v24;
+          do
+          {
+            v34 = *v32++;
+            LOWORD(v2) = *(_WORD *)(v34 + 144);
+            *(_WORD *)(v34 + 146) = v2;
+            --v33;
+          }
+          while ( v33 );
+        }
+        v35 = 0;
+        v36 = 0;
+        if ( KiActiveGroups )
+        {
+          while ( 1 )
+          {
+            if ( KiMaximumGroups )
+              memmove(v46, Src, 4LL * (unsigned __int16)KiMaximumGroups);
+            v37 = *(unsigned __int8 *)(a1 + 180);
+            LODWORD(v2) = v46[v36];
+            if ( (unsigned int)v2 >= v37 )
+            {
+              LODWORD(v2) = v2 - v37;
+              *(_WORD *)(a1 + 144) = v36;
+              v46[v36] = v2;
+              for ( i = 0; i < (unsigned __int16)v24; ++i )
+              {
+                LOBYTE(v2) = i;
+                v39 = v48[i];
+                if ( v39 != a1 )
+                {
+                  v40 = KiMaximumGroups;
+                  v41 = 0;
                   if ( KiMaximumGroups )
                   {
-                    v38 = *(unsigned __int8 *)(v35 + 4);
-                    v39 = v43;
-                    do
+                    LODWORD(v2) = *(unsigned __int8 *)(v39 + 180);
+                    while ( 1 )
                     {
-                      v40 = *v39;
-                      if ( *v39 >= v38 )
-                      {
-                        *(_WORD *)(v35 + 6) = v37;
-                        *v39 = v40 - v38;
-                      }
-                      ++v37;
-                      ++v39;
+                      v42 = v46[v41];
+                      if ( v42 >= (unsigned int)v2 )
+                        break;
+                      if ( ++v41 >= (unsigned __int16)KiMaximumGroups )
+                        goto LABEL_64;
                     }
-                    while ( v37 < v36 );
+                    *(_WORD *)(v39 + 144) = v41;
+                    LODWORD(v2) = *(unsigned __int8 *)(v39 + 180);
+                    v46[v41] = v42 - v2;
                   }
-                  if ( v37 == v36 )
+LABEL_64:
+                  if ( v41 == v40 )
                     break;
                 }
-                if ( ++v34 >= v22 )
-                  goto LABEL_55;
               }
+              if ( i == (_WORD)v24 )
+                break;
+            }
+            if ( ++v36 >= (unsigned __int16)KiActiveGroups )
+              goto LABEL_70;
+          }
+          v35 = 1;
+        }
+LABEL_70:
+        if ( (_WORD)v24 )
+        {
+          v43 = v48;
+          v24 = (unsigned __int16)v24;
+          do
+          {
+            v44 = *v43;
+            if ( v35 )
+            {
+              LOBYTE(v2) = (*(_WORD *)(v44 + 144) < (unsigned __int16)KiActiveGroups ? 4 : 0) | *(_BYTE *)(v44 + 181) & 0xFB;
+              *(_BYTE *)(v44 + 181) = v2;
             }
             else
             {
-LABEL_55:
-              if ( v34 == v22 )
-              {
-                v30 = 1;
-                break;
-              }
+              LOWORD(v2) = *(_WORD *)(v44 + 146);
+              *(_WORD *)(v44 + 144) = v2;
             }
+            ++v43;
+            *(_WORD *)(v44 + 146) = 0;
+            --v24;
           }
+          while ( v24 );
         }
-        if ( v22 )
-        {
-          v41 = Pool2;
-          do
-          {
-            v42 = *v41;
-            if ( v30 )
-              *(_BYTE *)(v42 + 5) = (*(_WORD *)(v42 + 6) < (unsigned __int16)KiActiveGroups ? 2 : 0) | *(_BYTE *)(v42 + 5) & 0xFD;
-            else
-              *(_WORD *)(v42 + 6) = *(_WORD *)(v42 + 8);
-            ++v41;
-            *(_WORD *)(v42 + 8) = 0;
-            --v26;
-          }
-          while ( v26 );
-        }
-        ExFreePoolWithTag(Pool2, 0);
       }
     }
   }
+  return v2;
 }

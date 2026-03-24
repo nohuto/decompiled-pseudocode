@@ -1,27 +1,33 @@
 /*
- * XREFs of ViThunkReplaceAllSharedExports @ 0x140A942C0
+ * XREFs of ViThunkReplaceAllSharedExports @ 0x1409D92C8
  * Callers:
- *     VfThunkApplyThunksCurrentSession @ 0x140A93724 (VfThunkApplyThunksCurrentSession.c)
+ *     ViThunkApplyThunksCurrentSession @ 0x1409D8EBC (ViThunkApplyThunksCurrentSession.c)
  * Callees:
- *     RtlNumberOfClearBits @ 0x140209930 (RtlNumberOfClearBits.c)
- *     ViThunkReplaceSharedExports @ 0x140A94590 (ViThunkReplaceSharedExports.c)
+ *     RtlNumberOfClearBits @ 0x140253800 (RtlNumberOfClearBits.c)
+ *     ViThunkReplaceSharedExports @ 0x1409D96B8 (ViThunkReplaceSharedExports.c)
  */
 
-__int64 __fastcall ViThunkReplaceAllSharedExports(_QWORD *a1)
+__int64 __fastcall ViThunkReplaceAllSharedExports(_QWORD *a1, int a2)
 {
-  ULONG v2; // eax
-  __int64 result; // rax
   ULONG v4; // eax
-  ULONG v5; // eax
+  __int64 result; // rax
+  ULONG v6; // eax
+  ULONG v7; // eax
+  ULONG v8; // eax
 
-  v2 = RtlNumberOfClearBits(&VfPoolThunksBitMapHeader);
-  result = ViThunkReplaceSharedExports(a1[4], v2);
+  v4 = RtlNumberOfClearBits(&VfPoolThunksBitMapHeader);
+  result = ViThunkReplaceSharedExports(a1[4], v4);
   if ( !KernelVerifier )
   {
-    v4 = RtlNumberOfClearBits(&VfRegularThunksBitMapHeader);
-    ViThunkReplaceSharedExports(a1[3], v4);
-    v5 = RtlNumberOfClearBits(&VfDifThunksBitMapHeader);
-    return ViThunkReplaceSharedExports(a1[5], v5);
+    v6 = RtlNumberOfClearBits(&VfRegularThunksBitMapHeader);
+    result = ViThunkReplaceSharedExports(a1[3], v6);
+    if ( !a2 )
+    {
+      v7 = RtlNumberOfClearBits(&VfOrderDependentThunksBitMapHeader);
+      ViThunkReplaceSharedExports(a1[5], v7);
+      v8 = RtlNumberOfClearBits(&VfXdvThunksBitMapHeader);
+      return ViThunkReplaceSharedExports(a1[6], v8);
+    }
   }
   return result;
 }

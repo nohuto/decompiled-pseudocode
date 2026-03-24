@@ -1,14 +1,14 @@
 /*
- * XREFs of ViAllocateMapRegistersFromFile @ 0x140AC8E8C
+ * XREFs of ViAllocateMapRegistersFromFile @ 0x1409CD7E8
  * Callers:
- *     ViMapDoubleBuffer @ 0x140ACA78C (ViMapDoubleBuffer.c)
+ *     ViMapDoubleBuffer @ 0x1409CF0A4 (ViMapDoubleBuffer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     VfReportIssueWithOptions @ 0x1405CFD90 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140ACA2F4 (ViHalPreprocessOptions.c)
- *     ViTagBuffer @ 0x140ACB1B4 (ViTagBuffer.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfReportIssueWithOptions @ 0x1405A1D34 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x1409CEC70 (ViHalPreprocessOptions.c)
+ *     ViTagBuffer @ 0x1409CFAC0 (ViTagBuffer.c)
  */
 
 __int64 __fastcall ViAllocateMapRegistersFromFile(__int64 a1, ULONG_PTR a2, unsigned int a3, char a4, _DWORD *a5)
@@ -23,7 +23,7 @@ __int64 __fastcall ViAllocateMapRegistersFromFile(__int64 a1, ULONG_PTR a2, unsi
   KIRQL v12; // bp
   unsigned int v13; // r9d
   ULONG_PTR *v14; // r15
-  const void *v15; // rax
+  const void *v15; // rcx
   ULONG_PTR *v16; // r14
   const void *v17; // r13
   ULONG_PTR v18; // rax
@@ -42,13 +42,13 @@ __int64 __fastcall ViAllocateMapRegistersFromFile(__int64 a1, ULONG_PTR a2, unsi
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
   int v34; // eax
-  volatile signed __int64 *v35; // [rsp+40h] [rbp-58h]
+  KSPIN_LOCK *SpinLock; // [rsp+40h] [rbp-58h]
 
   v5 = (ULONG_PTR *)(a1 + 88);
   v6 = a1;
   v7 = 0;
   v8 = ((a2 & 0xFFF) + a3 + 4095LL) >> 12;
-  v35 = (volatile signed __int64 *)(a1 + 80);
+  SpinLock = (KSPIN_LOCK *)(a1 + 80);
   v9 = a2;
   v10 = 0;
   v11 = 0;
@@ -72,12 +72,12 @@ LABEL_10:
       if ( *v16 && v18 >= a2 && v18 < (unsigned __int64)v17 )
       {
         ViHalPreprocessOptions(
-          byte_140C0DE08,
+          byte_140C12ED0,
           "Driver is trying to map an address range(%p-%p) that is already mapped    at %p",
           (const void *)0x1D,
           (const void *)a2,
           v17);
-        VfReportIssueWithOptions(0xE6u, 0x1DuLL, a2, (ULONG_PTR)v17, *v16, byte_140C0DE08);
+        VfReportIssueWithOptions(0xE6u, 0x1DuLL, a2, (ULONG_PTR)v17, *v16, byte_140C12ED0);
       }
       v16 += 4;
     }
@@ -104,21 +104,24 @@ LABEL_11:
       if ( v11 >= (unsigned int)v8 )
         goto LABEL_16;
     }
-    ViHalPreprocessOptions(byte_140C0DE0C, "Map registers needed: %x available: %x", 0x10000000, 2);
-    VfReportIssueWithOptions(0xE6u, 0LL, 2uLL, (unsigned int)v8, v11, byte_140C0DE0C);
-    KxReleaseSpinLock(v35);
+    ViHalPreprocessOptions(byte_140C12E8C, "Map registers needed: %x available: %x", 0x10000000, 2);
+    VfReportIssueWithOptions(0xE6u, 0LL, 2uLL, (unsigned int)v8, v11, byte_140C12E8C);
+    KxReleaseSpinLock(SpinLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v12 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v34 = ~(unsigned __int16)(-1LL << (v12 + 1));
-        v29 = (v34 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v34;
-        if ( v29 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && v12 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v34 = ~(unsigned __int16)(-1LL << (v12 + 1));
+          v29 = (v34 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v34;
+          if ( v29 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
   }
@@ -149,19 +152,22 @@ LABEL_16:
       }
       while ( (_DWORD)v8 );
     }
-    KxReleaseSpinLock(v35);
+    KxReleaseSpinLock(SpinLock);
     if ( KiIrqlFlags )
     {
-      v25 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v12 <= 0xFu && v25 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v26 = KeGetCurrentPrcb();
-        v27 = v26->SchedulerAssist;
-        v28 = ~(unsigned __int16)(-1LL << (v12 + 1));
-        v29 = (v28 & v27[5]) == 0;
-        v27[5] &= v28;
-        if ( v29 )
-          KiRemoveSystemWorkPriorityKick((__int64)v26);
+        v25 = KeGetCurrentIrql();
+        if ( v25 <= 0xFu && v12 <= 0xFu && v25 >= 2u )
+        {
+          v26 = KeGetCurrentPrcb();
+          v27 = v26->SchedulerAssist;
+          v28 = ~(unsigned __int16)(-1LL << (v12 + 1));
+          v29 = (v28 & v27[5]) == 0;
+          v27[5] &= v28;
+          if ( v29 )
+            KiRemoveSystemWorkPriorityKick((__int64)v26);
+        }
       }
     }
     v7 = 1;

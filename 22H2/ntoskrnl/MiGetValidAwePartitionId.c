@@ -1,30 +1,51 @@
 /*
- * XREFs of MiGetValidAwePartitionId @ 0x14064AA5C
+ * XREFs of MiGetValidAwePartitionId @ 0x14054C440
  * Callers:
- *     MiGetPageProtection @ 0x140272900 (MiGetPageProtection.c)
+ *     MiGetPageProtection @ 0x1402B1430 (MiGetPageProtection.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiGetValidAwePartitionId(unsigned __int64 a1)
 {
-  unsigned __int64 v1; // rax
-  unsigned __int64 v2; // rax
-  unsigned __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 v1; // rbx
+  struct _LIST_ENTRY *Flink; // r8
+  __int64 v4; // rax
+  __int64 v5; // rbx
+  unsigned __int64 v8; // [rsp+30h] [rbp+8h] BYREF
 
-  v5 = a1;
+  v8 = a1;
   v1 = a1;
   if ( (a1 & 1) != 0 )
   {
-    v1 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v5);
+    if ( MiPteInShadowRange((unsigned __int64)&v8)
+      && (MiFlags & 0xC00000) != 0
+      && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+      && ((v1 & 0x20) == 0 || (v1 & 0x42) == 0) )
+    {
+      Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( Flink )
+      {
+        v1 |= 0x20uLL;
+        v4 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v8 >> 3) & 0x1FF));
+        if ( (v4 & 0x20) == 0 )
+          v1 = a1;
+        if ( (v4 & 0x42) != 0 )
+          v1 |= 0x42uLL;
+      }
+      else
+      {
+        v1 = v8;
+      }
+    }
   }
-  else if ( qword_140C65C40 && (a1 & 0x10) == 0 )
+  else if ( qword_140C4DF40 && (a1 & 0x10) == 0 )
   {
-    v1 = a1 & ~qword_140C65C40;
+    v1 = a1 & ~qword_140C4DF40;
   }
-  v2 = (v1 >> 12) & 0xFFFFFFFFFFLL;
-  if ( v2 <= qword_140C65CA0 && ((*(_QWORD *)(48 * v2 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
-    return (*(_QWORD *)(48 * v2 - 0x21FFFFFFFFD8LL) >> 43) & 0x3FF;
+  v5 = (v1 >> 12) & 0xFFFFFFFFFLL;
+  if ( ((*(_QWORD *)(48 * v5 - 0x57FFFFFFFD8LL) >> 50) & 1) != 0 )
+    return (*(_QWORD *)(48 * v5 - 0x57FFFFFFFD8LL) >> 39) & 0x3FF;
   else
     return 0;
 }

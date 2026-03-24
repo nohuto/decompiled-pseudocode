@@ -1,15 +1,15 @@
 /*
- * XREFs of VhdiVerifyBootDisk @ 0x140A739E0
+ * XREFs of VhdiVerifyBootDisk @ 0x14098038C
  * Callers:
- *     IopCreateArcName @ 0x14086FCF8 (IopCreateArcName.c)
+ *     IopCreateArcName @ 0x140780218 (IopCreateArcName.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x140251430 (IoBuildDeviceIoControlRequest.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14022BAA0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 bool __fastcall VhdiVerifyBootDisk(PDEVICE_OBJECT DeviceObject)
@@ -17,7 +17,7 @@ bool __fastcall VhdiVerifyBootDisk(PDEVICE_OBJECT DeviceObject)
   bool v1; // bl
   __int64 v3; // rax
   ULONG OutputBufferLength; // ebp
-  void *OutputBuffer; // rdi
+  PVOID OutputBuffer; // rdi
   IRP *v6; // rax
   NTSTATUS Status; // eax
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-38h] BYREF
@@ -35,7 +35,7 @@ bool __fastcall VhdiVerifyBootDisk(PDEVICE_OBJECT DeviceObject)
         ++v3;
       while ( *(_WORD *)(NtVhdBootFile + 2 * v3) );
       OutputBufferLength = 2 * v3 + 2;
-      OutputBuffer = (void *)ExAllocatePool2(64LL, OutputBufferLength, 1113876566LL);
+      OutputBuffer = ExAllocatePoolWithTag(NonPagedPoolNx, OutputBufferLength, 0x42646856u);
       if ( OutputBuffer )
       {
         KeInitializeEvent(&Event, SynchronizationEvent, 0);

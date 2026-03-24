@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessUpdateSDRToHDRMultiplier@CLegacyRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LEGACYRENDERTARGET_UPDATESDRTOHDRMULTIPLIER@@@Z @ 0x1801C5FE4
+ * XREFs of ?ProcessUpdateSDRToHDRMultiplier@CLegacyRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LEGACYRENDERTARGET_UPDATESDRTOHDRMULTIPLIER@@@Z @ 0x18016FD54
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?SetSDRBoost@CLegacyRenderTarget@@IEAAXM@Z @ 0x180103530 (-SetSDRBoost@CLegacyRenderTarget@@IEAAXM@Z.c)
+ *     ?SetSDRBoost@CLegacyRenderTarget@@IEAAXM@Z @ 0x1800DF60C (-SetSDRBoost@CLegacyRenderTarget@@IEAAXM@Z.c)
  */
 
 __int64 __fastcall CLegacyRenderTarget::ProcessUpdateSDRToHDRMultiplier(

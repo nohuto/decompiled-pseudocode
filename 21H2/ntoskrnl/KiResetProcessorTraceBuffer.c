@@ -1,9 +1,9 @@
 /*
- * XREFs of KiResetProcessorTraceBuffer @ 0x14056ADA0
+ * XREFs of KiResetProcessorTraceBuffer @ 0x140514D90
  * Callers:
- *     SwapContext @ 0x140428D90 (SwapContext.c)
+ *     SwapContext @ 0x1404067C0 (SwapContext.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 KiResetProcessorTraceBuffer()

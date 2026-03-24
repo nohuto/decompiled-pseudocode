@@ -1,20 +1,18 @@
 /*
- * XREFs of VerifierKeAcquireInStackQueuedSpinLockForDpc @ 0x140A95B80
+ * XREFs of VerifierKeAcquireInStackQueuedSpinLockForDpc @ 0x1409DA720
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ViTargetIncrementCounter @ 0x140A8B2AC (ViTargetIncrementCounter.c)
- *     VfDeadlockAcquireResource @ 0x140A97900 (VfDeadlockAcquireResource.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockForDpcCommon @ 0x1409DA768 (VerifierKeAcquireInStackQueuedSpinLockForDpcCommon.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
  */
 
 __int64 __fastcall VerifierKeAcquireInStackQueuedSpinLockForDpc(__int64 a1, __int64 a2)
 {
+  int v2; // ebx
   __int64 retaddr; // [rsp+38h] [rbp+0h]
 
-  ++dword_140C29FC8;
-  if ( (MmVerifierData & 0x1000) != 0 )
-    ViTargetIncrementCounter(retaddr, 164LL);
-  ((void (__fastcall *)(__int64, __int64))pXdvKeAcquireInStackQueuedSpinLockForDpc)(a1, a2);
-  return VfDeadlockAcquireResource(a1, retaddr);
+  v2 = a1;
+  VerifierKeAcquireInStackQueuedSpinLockForDpcCommon(a1, retaddr, a2);
+  return VfDeadlockAcquireResource(v2, retaddr);
 }

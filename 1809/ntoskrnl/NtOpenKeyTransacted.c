@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenKeyTransacted @ 0x1407E9450
+ * XREFs of NtOpenKeyTransacted @ 0x1407E9430
  * Callers:
  *     <none>
  * Callees:
- *     NtOpenKeyTransactedEx @ 0x140693B30 (NtOpenKeyTransactedEx.c)
+ *     NtOpenKeyTransactedEx @ 0x140693B10 (NtOpenKeyTransactedEx.c)
  */
 
 __int64 __fastcall NtOpenKeyTransacted(HANDLE *a1, int a2, __int64 a3, void *Handle)

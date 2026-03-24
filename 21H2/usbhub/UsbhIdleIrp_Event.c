@@ -1,22 +1,22 @@
 /*
- * XREFs of UsbhIdleIrp_Event @ 0x1C00576A8
+ * XREFs of UsbhIdleIrp_Event @ 0x1C0058D78
  * Callers:
- *     UsbhCompletePdoIdleIrp @ 0x1C0001330 (UsbhCompletePdoIdleIrp.c)
- *     UsbhPdoInternalDeviceControl @ 0x1C0017C10 (UsbhPdoInternalDeviceControl.c)
- *     UsbhFdoSubmitPdoIdleNotification @ 0x1C0030998 (UsbhFdoSubmitPdoIdleNotification.c)
- *     UsbhCompleteCanceledPdoIdleIrp @ 0x1C0057190 (UsbhCompleteCanceledPdoIdleIrp.c)
- *     UsbhPdoIdleCC_Worker @ 0x1C0057E60 (UsbhPdoIdleCC_Worker.c)
+ *     UsbhPdoInternalDeviceControl @ 0x1C0009690 (UsbhPdoInternalDeviceControl.c)
+ *     UsbhCompletePdoIdleIrp @ 0x1C0018D98 (UsbhCompletePdoIdleIrp.c)
+ *     UsbhFdoSubmitPdoIdleNotification @ 0x1C0031D40 (UsbhFdoSubmitPdoIdleNotification.c)
+ *     UsbhCompleteCanceledPdoIdleIrp @ 0x1C0058860 (UsbhCompleteCanceledPdoIdleIrp.c)
+ *     UsbhPdoIdleCC_Worker @ 0x1C0059530 (UsbhPdoIdleCC_Worker.c)
  * Callees:
- *     UsbhSetIdleIrpState @ 0x1C0001418 (UsbhSetIdleIrpState.c)
- *     UsbhGetIdleIrpState @ 0x1C0001488 (UsbhGetIdleIrpState.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhIdleExIrp_IdleReady @ 0x1C00571C4 (UsbhIdleExIrp_IdleReady.c)
- *     UsbhIdleIrp_CB_Canceled @ 0x1C0057338 (UsbhIdleIrp_CB_Canceled.c)
- *     UsbhIdleIrp_CB_Complete @ 0x1C0057434 (UsbhIdleIrp_CB_Complete.c)
- *     UsbhIdleIrp_CB_Pending @ 0x1C005755C (UsbhIdleIrp_CB_Pending.c)
- *     UsbhIdleIrp_NoIrp @ 0x1C0057830 (UsbhIdleIrp_NoIrp.c)
- *     UsbhIdleIrp_WaitWorker @ 0x1C0057C88 (UsbhIdleIrp_WaitWorker.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSetIdleIrpState @ 0x1C0018E80 (UsbhSetIdleIrpState.c)
+ *     UsbhGetIdleIrpState @ 0x1C0018EF0 (UsbhGetIdleIrpState.c)
+ *     UsbhIdleExIrp_IdleReady @ 0x1C0058894 (UsbhIdleExIrp_IdleReady.c)
+ *     UsbhIdleIrp_CB_Canceled @ 0x1C0058A08 (UsbhIdleIrp_CB_Canceled.c)
+ *     UsbhIdleIrp_CB_Complete @ 0x1C0058B04 (UsbhIdleIrp_CB_Complete.c)
+ *     UsbhIdleIrp_CB_Pending @ 0x1C0058C2C (UsbhIdleIrp_CB_Pending.c)
+ *     UsbhIdleIrp_NoIrp @ 0x1C0058F00 (UsbhIdleIrp_NoIrp.c)
+ *     UsbhIdleIrp_WaitWorker @ 0x1C0059358 (UsbhIdleIrp_WaitWorker.c)
  */
 
 __int64 __fastcall UsbhIdleIrp_Event(ULONG_PTR a1, __int64 a2, IRP *a3, unsigned int a4, int a5)

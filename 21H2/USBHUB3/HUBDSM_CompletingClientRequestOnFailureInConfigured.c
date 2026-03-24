@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_CompletingClientRequestOnFailureInConfigured @ 0x1C001CDA0
+ * XREFs of HUBDSM_CompletingClientRequestOnFailureInConfigured @ 0x1C001C860
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_CompleteClientSerialRequestWithLastStatus @ 0x1C0014944 (HUBPDO_CompleteClientSerialRequestWithLastStatus.c)
+ *     HUBPDO_CompleteClientSerialRequestWithLastStatus @ 0x1C0014490 (HUBPDO_CompleteClientSerialRequestWithLastStatus.c)
  */
 
 __int64 __fastcall HUBDSM_CompletingClientRequestOnFailureInConfigured(__int64 a1)

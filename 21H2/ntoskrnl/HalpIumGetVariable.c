@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIumGetVariable @ 0x140523840
+ * XREFs of HalpIumGetVariable @ 0x1404D6540
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall HalpIumGetVariable(_WORD *Src, __int128 *a2, _DWORD *a3, size_t *a4, void *a5)
@@ -15,8 +15,8 @@ unsigned __int64 __fastcall HalpIumGetVariable(_WORD *Src, __int128 *a2, _DWORD 
   size_t v11; // rbx
   unsigned __int64 v12; // rdx
   unsigned __int64 v13; // rcx
-  unsigned __int64 v14; // rsi
-  __int64 *Pool2; // rax
+  SIZE_T v14; // rsi
+  __int64 *PoolWithTag; // rax
   __int64 *v16; // rdi
   __int64 v17; // rcx
   __int128 v18; // xmm0
@@ -24,7 +24,7 @@ unsigned __int64 __fastcall HalpIumGetVariable(_WORD *Src, __int128 *a2, _DWORD 
   unsigned __int64 v20; // rbx
   size_t v21; // r8
 
-  if ( !qword_140C4C550 )
+  if ( !qword_140C4A250 )
     return 0x8000000000000003uLL;
   v10 = -1LL;
   do
@@ -39,19 +39,19 @@ unsigned __int64 __fastcall HalpIumGetVariable(_WORD *Src, __int128 *a2, _DWORD 
     v13 = 2072576 - v12;
   *a4 = v13;
   v14 = (v13 + 2 * v10 + 4153) & 0xFFFFFFFFFFFFF000uLL;
-  Pool2 = (__int64 *)ExAllocatePool2(64LL, v14, 2001103699LL);
-  v16 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (__int64 *)ExAllocatePoolWithTag(NonPagedPoolNx, v14, 0x77466B53u);
+  v16 = PoolWithTag;
+  if ( !PoolWithTag )
     return 0x8000000000000009uLL;
-  *Pool2 = (__int64)(Pool2 + 7);
-  memmove(Pool2 + 7, Src, v11);
+  *PoolWithTag = (__int64)(PoolWithTag + 7);
+  memmove(PoolWithTag + 7, Src, v11);
   v17 = *v16;
   v16[1] = v11;
   v18 = *a2;
   v16[6] = v11 + v17;
   *((_OWORD *)v16 + 1) = v18;
   v16[5] = *a4;
-  v19 = ((__int64 (__fastcall *)(__int64, __int64 *, unsigned __int64))qword_140C4C550)(3LL, v16, v14);
+  v19 = ((__int64 (__fastcall *)(__int64, __int64 *, SIZE_T))qword_140C4A250)(3LL, v16, v14);
   v20 = v19;
   if ( a3 )
     *a3 = *((_DWORD *)v16 + 8);

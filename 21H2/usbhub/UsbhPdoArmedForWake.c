@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhPdoArmedForWake @ 0x1C003C108
+ * XREFs of UsbhPdoArmedForWake @ 0x1C003D2EC
  * Callers:
- *     UsbhFdoSetPowerDx_Action @ 0x1C0009A20 (UsbhFdoSetPowerDx_Action.c)
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000F880 (UsbhFdoSetPowerDx_Action.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
  */
 
 bool __fastcall UsbhPdoArmedForWake(__int64 a1)

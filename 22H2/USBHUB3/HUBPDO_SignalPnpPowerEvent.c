@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBPDO_SignalPnpPowerEvent @ 0x1C0019754
+ * XREFs of HUBPDO_SignalPnpPowerEvent @ 0x1C001810C
  * Callers:
- *     HUBDSM_FlushingPnpEventsForBootDevice @ 0x1C001EE60 (HUBDSM_FlushingPnpEventsForBootDevice.c)
- *     HUBDSM_ConfiguredSuspended @ 0x1C001F400 (HUBDSM_ConfiguredSuspended.c)
- *     HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff @ 0x1C001F540 (HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff.c)
- *     HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupAfterDetach @ 0x1C001F5A0 (HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupAfterDetach.c)
- *     HUBDSM_RequestingCyclePortAndCompletingPnpEventOnFailureInUnconfigured @ 0x1C001F8B0 (HUBDSM_RequestingCyclePortAndCompletingPnpEventOnFailureInUnconfigured.c)
- *     HUBDSM_SignalingPnpPowerEventOnStopEnable @ 0x1C0020460 (HUBDSM_SignalingPnpPowerEventOnStopEnable.c)
+ *     HUBDSM_FlushingPnpEventsForBootDevice @ 0x1C001C450 (HUBDSM_FlushingPnpEventsForBootDevice.c)
+ *     HUBDSM_ConfiguredSuspended @ 0x1C001C9F0 (HUBDSM_ConfiguredSuspended.c)
+ *     HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff @ 0x1C001CB30 (HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff.c)
+ *     HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupAfterDetach @ 0x1C001CB90 (HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupAfterDetach.c)
+ *     HUBDSM_RequestingCyclePortAndCompletingPnpEventOnFailureInUnconfigured @ 0x1C001CEA0 (HUBDSM_RequestingCyclePortAndCompletingPnpEventOnFailureInUnconfigured.c)
+ *     HUBDSM_SignalingPnpPowerEventOnStopEnable @ 0x1C001DA40 (HUBDSM_SignalingPnpPowerEventOnStopEnable.c)
  * Callees:
  *     <none>
  */

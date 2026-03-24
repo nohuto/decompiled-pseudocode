@@ -1,13 +1,11 @@
 /*
- * XREFs of ?InvalidateInertiaInfo@CInertiaManager@@QEAA_N_K0@Z @ 0x1C000E904
+ * XREFs of ?InvalidateInertiaInfo@CInertiaManager@@QEAA_N_K0@Z @ 0x1C00042D0
  * Callers:
- *     NtUserReportInertia @ 0x1C000E690 (NtUserReportInertia.c)
- *     ?EndInertia@CInertiaManager@@QEAA_NXZ @ 0x1C00D5060 (-EndInertia@CInertiaManager@@QEAA_NXZ.c)
- *     ?EndInertiaAtPoint@CInertiaManager@@QEAA_NUtagPOINT@@0W4INERTIA_SOURCE@@@Z @ 0x1C00D5148 (-EndInertiaAtPoint@CInertiaManager@@QEAA_NUtagPOINT@@0W4INERTIA_SOURCE@@@Z.c)
- *     ?CacheInertia@CPTPProcessor@@AEAAXXZ @ 0x1C01DE780 (-CacheInertia@CPTPProcessor@@AEAAXXZ.c)
+ *     NtUserReportInertia @ 0x1C0004160 (NtUserReportInertia.c)
+ *     ?CacheInertia@CPTPProcessor@@AEAAXXZ @ 0x1C01A5500 (-CacheInertia@CPTPProcessor@@AEAAXXZ.c)
  * Callees:
- *     ?RemoveInertiaInfo@Inertia@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C00D5320 (-RemoveInertiaInfo@Inertia@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     ?RemoveInertiaInfo@Inertia@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C00CD8B8 (-RemoveInertiaInfo@Inertia@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 char __fastcall CInertiaManager::InvalidateInertiaInfo(CInertiaManager *this, __int64 a2, __int64 a3)

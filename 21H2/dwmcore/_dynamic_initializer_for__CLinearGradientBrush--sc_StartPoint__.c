@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CLinearGradientBrush::sc_StartPoint__ @ 0x1800026C0
+ * XREFs of _dynamic_initializer_for__CLinearGradientBrush::sc_StartPoint__ @ 0x180002250
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CLinearGradientBrush::sc_StartPoint__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D2090 = (unsigned __int64)CDropShadow::SetAnimatedProperty;
-  qword_1803D20A0 = v1;
+  xmmword_1803461A0 = (unsigned __int64)CBrush::SetAnimatedProperty;
+  qword_1803461B0 = v1;
   return result;
 }

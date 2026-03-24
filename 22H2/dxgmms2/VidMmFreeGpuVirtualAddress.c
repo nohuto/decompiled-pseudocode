@@ -1,12 +1,12 @@
 /*
- * XREFs of VidMmFreeGpuVirtualAddress @ 0x1C002D0B0
+ * XREFs of VidMmFreeGpuVirtualAddress @ 0x1C0012C70
  * Callers:
  *     <none>
  * Callees:
- *     ?VidMmFreeGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAU_D3DKMT_FREEGPUVIRTUALADDRESS@@E@Z @ 0x1C0087A5C (-VidMmFreeGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAU_D3DKMT_FREEGPUVIRTUALADDR.c)
+ *     ?VidMmFreeGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAU_D3DKMT_FREEGPUVIRTUALADDRESS@@E@Z @ 0x1C00847B4 (-VidMmFreeGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAU_D3DKMT_FREEGPUVIRTUALADDR.c)
  */
 
-int __fastcall VidMmFreeGpuVirtualAddress(VIDMM_GLOBAL *a1, __int64 a2, struct _D3DKMT_FREEGPUVIRTUALADDRESS *a3)
+__int64 __fastcall VidMmFreeGpuVirtualAddress(VIDMM_GLOBAL *a1, __int64 a2, struct _D3DKMT_FREEGPUVIRTUALADDRESS *a3)
 {
   __int64 v3; // rax
   struct VIDMM_PROCESS *v4; // rdx

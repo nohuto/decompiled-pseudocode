@@ -1,16 +1,18 @@
 /*
- * XREFs of ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C0022E08
+ * XREFs of ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00302E8
  * Callers:
- *     GreOffsetRgn @ 0x1C001B040 (GreOffsetRgn.c)
- *     ?vUpdate_VisRect@DC@@QEAAXPEAVREGION@@@Z @ 0x1C00201E0 (-vUpdate_VisRect@DC@@QEAAXPEAVREGION@@@Z.c)
- *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0024B20 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
- *     GreExtCreateRegion @ 0x1C00311B0 (GreExtCreateRegion.c)
- *     GreCombineRgn @ 0x1C006EFF0 (GreCombineRgn.c)
- *     ?IsEmpty@CRegion@@UEBA_NXZ @ 0x1C009CF30 (-IsEmpty@CRegion@@UEBA_NXZ.c)
- *     GreCopyVisRgn @ 0x1C00CA430 (GreCopyVisRgn.c)
- *     ?iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z @ 0x1C00CC88C (-iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z.c)
- *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C016D4E0 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
- *     EngUpdateDeviceSurface @ 0x1C016EED0 (EngUpdateDeviceSurface.c)
+ *     GreExtCreateRegion @ 0x1C0022DA0 (GreExtCreateRegion.c)
+ *     ?vUpdate_VisRect@DC@@QEAAXPEAVREGION@@@Z @ 0x1C002CBA0 (-vUpdate_VisRect@DC@@QEAAXPEAVREGION@@@Z.c)
+ *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0032A50 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
+ *     GreOffsetRgn @ 0x1C0039190 (GreOffsetRgn.c)
+ *     GreCombineRgn @ 0x1C0039860 (GreCombineRgn.c)
+ *     ?UpdateUserRgn@RGNOBJ@@QEAAXXZ @ 0x1C0066670 (-UpdateUserRgn@RGNOBJ@@QEAAXXZ.c)
+ *     GreGetRgnBox @ 0x1C00849A0 (GreGetRgnBox.c)
+ *     ?IsEmpty@CRegion@@UEBA_NXZ @ 0x1C0093710 (-IsEmpty@CRegion@@UEBA_NXZ.c)
+ *     GreCopyVisRgn @ 0x1C00BB990 (GreCopyVisRgn.c)
+ *     ?iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z @ 0x1C00BDADC (-iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z.c)
+ *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C01405B0 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
+ *     EngUpdateDeviceSurface @ 0x1C0141FB0 (EngUpdateDeviceSurface.c)
  * Callees:
  *     <none>
  */

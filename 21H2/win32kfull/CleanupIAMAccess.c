@@ -1,12 +1,12 @@
 /*
- * XREFs of CleanupIAMAccess @ 0x1C00F1920
+ * XREFs of CleanupIAMAccess @ 0x1C00D78F0
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C00F099C (-InitiateWin32kCleanup@@YAHXZ.c)
- *     xxxSetShellWindow @ 0x1C00F1340 (xxxSetShellWindow.c)
- *     FreeDesktop @ 0x1C011D500 (FreeDesktop.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C000ADD4 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     xxxSetShellWindow @ 0x1C00D6FA0 (xxxSetShellWindow.c)
+ *     FreeDesktop @ 0x1C012C1E0 (FreeDesktop.c)
  * Callees:
- *     ?CleanupShellWindowManagement@@YAXPEAUtagDESKTOP@@@Z @ 0x1C00F199C (-CleanupShellWindowManagement@@YAXPEAUtagDESKTOP@@@Z.c)
+ *     ?CleanupShellWindowManagement@@YAXPEAUtagDESKTOP@@@Z @ 0x1C00D796C (-CleanupShellWindowManagement@@YAXPEAUtagDESKTOP@@@Z.c)
  */
 
 void __fastcall CleanupIAMAccess(struct tagDESKTOP *this)

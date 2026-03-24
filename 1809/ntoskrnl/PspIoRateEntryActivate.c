@@ -2,18 +2,18 @@
  * XREFs of PspIoRateEntryActivate @ 0x140585150
  * Callers:
  *     PspSetJobIoRateControl @ 0x140584F0C (PspSetJobIoRateControl.c)
- *     PspSetJobIoRateControlForVolume @ 0x14088A234 (PspSetJobIoRateControlForVolume.c)
+ *     PspSetJobIoRateControlForVolume @ 0x14088A214 (PspSetJobIoRateControlForVolume.c)
  * Callees:
  *     IoStartIoRateControl @ 0x1400015D8 (IoStartIoRateControl.c)
  *     IoStopIoRateControl @ 0x140001814 (IoStopIoRateControl.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     IoStartDiskIoAttributionForContext @ 0x1401052A8 (IoStartDiskIoAttributionForContext.c)
- *     IoDiskIoAttributionDereference @ 0x140105834 (IoDiskIoAttributionDereference.c)
- *     IoStopDiskIoAttributionForContext @ 0x140105C3C (IoStopDiskIoAttributionForContext.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateFile @ 0x1401B8C10 (ZwCreateFile.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     IoStartDiskIoAttributionForContext @ 0x1401052C8 (IoStartDiskIoAttributionForContext.c)
+ *     IoDiskIoAttributionDereference @ 0x140105854 (IoDiskIoAttributionDereference.c)
+ *     IoStopDiskIoAttributionForContext @ 0x140105C5C (IoStopDiskIoAttributionForContext.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
  *     PspIoRateEntryDeactivate @ 0x140585238 (PspIoRateEntryDeactivate.c)
- *     IoDiskIoAttributionAllocate @ 0x14068CD60 (IoDiskIoAttributionAllocate.c)
+ *     IoDiskIoAttributionAllocate @ 0x14068CD40 (IoDiskIoAttributionAllocate.c)
  */
 
 __int64 __fastcall PspIoRateEntryActivate(__int64 a1, __int64 a2, __int64 a3, _BYTE *a4)

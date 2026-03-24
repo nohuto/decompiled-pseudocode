@@ -1,14 +1,14 @@
 /*
- * XREFs of IopReplaceCompletionPort @ 0x1403989FC
+ * XREFs of IopReplaceCompletionPort @ 0x14038D12C
  * Callers:
- *     NtSetInformationFile @ 0x1402F72B0 (NtSetInformationFile.c)
+ *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopReplaceCompletionPort(__int64 a1, void *a2, __int64 a3)
@@ -43,6 +43,7 @@ __int64 __fastcall IopReplaceCompletionPort(__int64 a1, void *a2, __int64 a3)
     {
       ExFreePoolWithTag(*(PVOID *)(a1 + 176), 0);
       *(_QWORD *)(a1 + 176) = 0LL;
+      *(_DWORD *)(a1 + 80) |= 0x400u;
     }
     v7 = 0;
   }

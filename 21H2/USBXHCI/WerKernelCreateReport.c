@@ -1,10 +1,10 @@
 /*
- * XREFs of WerKernelCreateReport @ 0x1C0051B7C
+ * XREFs of WerKernelCreateReport @ 0x1C0050F80
  * Callers:
- *     TelemetryData_SubmitReport @ 0x1C0078BE8 (TelemetryData_SubmitReport.c)
+ *     TelemetryData_SubmitReport @ 0x1C00777C8 (TelemetryData_SubmitReport.c)
  * Callees:
- *     CheckSpaceAvailable @ 0x1C0051978 (CheckSpaceAvailable.c)
- *     WerpCreateRegistryKey @ 0x1C0052734 (WerpCreateRegistryKey.c)
+ *     CheckSpaceAvailable @ 0x1C0050D60 (CheckSpaceAvailable.c)
+ *     WerpCreateRegistryKey @ 0x1C0051B38 (WerpCreateRegistryKey.c)
  */
 
 __int64 __fastcall WerKernelCreateReport(__int64 a1, __int64 a2, HANDLE *a3)

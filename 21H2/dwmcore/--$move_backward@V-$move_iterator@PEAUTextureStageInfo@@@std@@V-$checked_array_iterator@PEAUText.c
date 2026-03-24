@@ -1,7 +1,7 @@
 /*
- * XREFs of ??$move_backward@V?$move_iterator@PEAUTextureStageInfo@@@std@@V?$checked_array_iterator@PEAUTextureStageInfo@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUTextureStageInfo@@@stdext@@V?$move_iterator@PEAUTextureStageInfo@@@0@0V12@@Z @ 0x1801E2BE8
+ * XREFs of ??$move_backward@V?$move_iterator@PEAUTextureStageInfo@@@std@@V?$checked_array_iterator@PEAUTextureStageInfo@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUTextureStageInfo@@@stdext@@V?$move_iterator@PEAUTextureStageInfo@@@0@0V12@@Z @ 0x18019CA60
  * Callers:
- *     ?ComputeColorAndUV@CDrawListEntryBuilder@@AEBAXPEBUPrimitiveVertexAttributesDesc@@V?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@V?$StridedSpan@UVertexAAFixup_UVxN@@@@@Z @ 0x1800A4C20 (-ComputeColorAndUV@CDrawListEntryBuilder@@AEBAXPEBUPrimitiveVertexAttributesDesc@@V-$StridedSpan.c)
+ *     ?TransformHWGeometryAndComputeUV@CDrawListEntryBuilder@@AEAAXPEBUPrimitiveVertexAttributesDesc@@AEBVMatrix3x2F@D2D1@@1I@Z @ 0x180096B80 (-TransformHWGeometryAndComputeUV@CDrawListEntryBuilder@@AEAAXPEBUPrimitiveVertexAttributesDesc@@.c)
  * Callees:
  *     <none>
  */
@@ -12,43 +12,37 @@ __int64 __fastcall std::move_backward<std::move_iterator<TextureStageInfo *>,std
         __int64 a3,
         _QWORD *a4)
 {
-  signed __int64 v4; // r10
-  bool v5; // cf
-  __int64 v6; // rax
+  __int64 v4; // r10
+  __int64 v5; // r11
+  unsigned __int64 v6; // rdx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
   __int64 result; // rax
-  __int64 v8; // xmm1_8
+  __int64 v10; // xmm1_8
 
-  v4 = 0x9249249249249249uLL * ((a3 - a2) >> 3);
-  if ( v4 >= 0 )
+  v4 = a2;
+  v5 = a1;
+  v6 = (__int64)((unsigned __int128)((a3 - a2) * (__int128)(__int64)0xB6DB6DB6DB6DB6DBuLL) >> 64) >> 4;
+  v7 = (v6 >> 63) + v6;
+  if ( v7 < 0 && a4[2] < (unsigned __int64)-v7 || v7 > 0 && a4[1] - a4[2] < (unsigned __int64)v7 )
   {
-    if ( v4 <= 0 )
-      goto LABEL_7;
-    v5 = a4[1] - a4[2] < (unsigned __int64)v4;
-  }
-  else
-  {
-    v5 = a4[2] < (unsigned __int64)(0x6DB6DB6DB6DB6DB7LL * ((a3 - a2) >> 3));
-  }
-  if ( v5 )
-  {
-    _o__invalid_parameter_noinfo_noreturn(a1);
+    _o__invalid_parameter_noinfo_noreturn(a1, v7);
     __debugbreak();
   }
-LABEL_7:
-  v6 = *a4 + 56LL * a4[2];
-  while ( a2 != a3 )
+  v8 = *a4 + 56LL * a4[2];
+  while ( v4 != a3 )
   {
-    v6 -= 56LL;
+    v8 -= 56LL;
     a3 -= 56LL;
-    *(_OWORD *)v6 = *(_OWORD *)a3;
-    *(_OWORD *)(v6 + 16) = *(_OWORD *)(a3 + 16);
-    *(_OWORD *)(v6 + 32) = *(_OWORD *)(a3 + 32);
-    *(_QWORD *)(v6 + 48) = *(_QWORD *)(a3 + 48);
+    *(_OWORD *)v8 = *(_OWORD *)a3;
+    *(_OWORD *)(v8 + 16) = *(_OWORD *)(a3 + 16);
+    *(_OWORD *)(v8 + 32) = *(_OWORD *)(a3 + 32);
+    *(_QWORD *)(v8 + 48) = *(_QWORD *)(a3 + 48);
   }
-  a4[2] = 0x6DB6DB6DB6DB6DB7LL * ((v6 - *a4) >> 3);
-  result = a1;
-  v8 = a4[2];
-  *(_OWORD *)a1 = *(_OWORD *)a4;
-  *(_QWORD *)(a1 + 16) = v8;
+  result = v5;
+  a4[2] = (v8 - *a4) / 56;
+  v10 = a4[2];
+  *(_OWORD *)v5 = *(_OWORD *)a4;
+  *(_QWORD *)(v5 + 16) = v10;
   return result;
 }

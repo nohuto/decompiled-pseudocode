@@ -1,11 +1,11 @@
 /*
- * XREFs of FONTOBJ_vGetInfo @ 0x1C0298980
+ * XREFs of FONTOBJ_vGetInfo @ 0x1C0293190
  * Callers:
- *     NtGdiFONTOBJ_vGetInfo @ 0x1C02CCFC0 (NtGdiFONTOBJ_vGetInfo.c)
+ *     NtGdiFONTOBJ_vGetInfo @ 0x1C02B46A0 (NtGdiFONTOBJ_vGetInfo.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?vGetInfo@RFONTOBJ@@QEBAXPEAU_FONTINFO@@@Z @ 0x1C02B72FC (-vGetInfo@RFONTOBJ@@QEBAXPEAU_FONTINFO@@@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ?vGetInfo@RFONTOBJ@@QEBAXPEAU_FONTINFO@@@Z @ 0x1C02A84D8 (-vGetInfo@RFONTOBJ@@QEBAXPEAU_FONTINFO@@@Z.c)
  */
 
 void __stdcall FONTOBJ_vGetInfo(FONTOBJ *pfo, ULONG cjSize, FONTINFO *pfi)

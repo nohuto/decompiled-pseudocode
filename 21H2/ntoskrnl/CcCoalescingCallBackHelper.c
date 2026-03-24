@@ -1,122 +1,107 @@
 /*
- * XREFs of CcCoalescingCallBackHelper @ 0x140538930
+ * XREFs of CcCoalescingCallBackHelper @ 0x1404E96C0
  * Callers:
  *     <none>
  * Callees:
- *     CcRescheduleLazyWriteScan @ 0x140248B24 (CcRescheduleLazyWriteScan.c)
- *     CcScheduleLazyWriteScan @ 0x140276758 (CcScheduleLazyWriteScan.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     CcRescheduleLazyWriteScanOnVolume @ 0x14053D99C (CcRescheduleLazyWriteScanOnVolume.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcRescheduleLazyWriteScan @ 0x140260454 (CcRescheduleLazyWriteScan.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     CcScheduleLazyWriteScan @ 0x1402F6D5C (CcScheduleLazyWriteScan.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall CcCoalescingCallBackHelper(__int64 a1, __int64 a2, int *a3)
+char __fastcall CcCoalescingCallBackHelper(__int64 a1, int *a2)
 {
-  _BYTE *v3; // rsi
+  int v3; // ecx
+  int v4; // ecx
   int v5; // ecx
-  int v7; // ecx
-  int v8; // ecx
-  __int64 v9; // r8
   unsigned __int64 OldIrql; // rbx
-  unsigned __int8 v11; // al
-  struct _KPRCB *v12; // r9
-  _DWORD *v13; // r8
-  int v14; // eax
-  bool v15; // zf
-  __int64 v16; // rcx
-  __int64 v17; // r8
+  unsigned __int8 v7; // al
+  struct _KPRCB *v8; // r9
+  _DWORD *v9; // r8
+  int v10; // eax
+  bool v11; // zf
+  __int64 v12; // rcx
+  bool v13; // cf
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r11
   _DWORD *SchedulerAssist; // r9
-  int v21; // edx
+  int v17; // edx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-20h] BYREF
 
-  v3 = (_BYTE *)(a2 + 1172);
-  v5 = *a3;
+  v3 = *a2;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( CcEnablePerVolumeLazyWriter != 1 )
-    v3 = (_BYTE *)(a1 + 1228);
-  v7 = v5 - 1;
-  if ( !v7 )
+  v4 = v3 - 1;
+  if ( !v4 )
   {
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 704), &LockHandle);
-    v15 = CcEnablePerVolumeLazyWriter == 1;
-    *v3 = 1;
-    if ( v15 )
-      *(_BYTE *)(a2 + 985) = 0;
-    else
-      *(_BYTE *)(a1 + 985) = 0;
-    if ( *(_QWORD *)(a1 + 992) >= 0x2000uLL )
-    {
-      LOBYTE(v17) = 1;
-      CcScheduleLazyWriteScan((_BYTE *)a1, a2, v17, 0);
-    }
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 128), &LockHandle);
+    v13 = *(_QWORD *)(a1 + 640) < 0x2000uLL;
+    *(_BYTE *)(a1 + 964) = 1;
+    *(_BYTE *)(a1 + 632) = 0;
+    if ( !v13 )
+      CcScheduleLazyWriteScan(a1, 1, 0);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( !KiIrqlFlags )
-      goto LABEL_30;
+      goto LABEL_23;
     if ( (KiIrqlFlags & 1) == 0 )
-      goto LABEL_30;
+      goto LABEL_23;
     CurrentIrql = KeGetCurrentIrql();
     if ( CurrentIrql > 0xFu )
-      goto LABEL_30;
+      goto LABEL_23;
     if ( LockHandle.OldIrql > 0xFu )
-      goto LABEL_30;
+      goto LABEL_23;
     if ( CurrentIrql < 2u )
-      goto LABEL_30;
+      goto LABEL_23;
     CurrentPrcb = KeGetCurrentPrcb();
     SchedulerAssist = CurrentPrcb->SchedulerAssist;
-    v21 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-    v15 = (v21 & SchedulerAssist[5]) == 0;
-    SchedulerAssist[5] &= v21;
-    if ( !v15 )
-      goto LABEL_30;
-    v16 = (__int64)CurrentPrcb;
-    goto LABEL_29;
+    v17 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+    v11 = (v17 & SchedulerAssist[5]) == 0;
+    SchedulerAssist[5] &= v17;
+    if ( !v11 )
+      goto LABEL_23;
+    v12 = (__int64)CurrentPrcb;
+    goto LABEL_22;
   }
-  v8 = v7 - 1;
-  if ( !v8 )
+  v5 = v4 - 1;
+  if ( !v5 )
   {
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 704), &LockHandle);
-    *v3 = 0;
-    if ( CcEnablePerVolumeLazyWriter == 1 )
-      CcRescheduleLazyWriteScanOnVolume(a2, 0LL);
-    else
-      CcRescheduleLazyWriteScan(a1, 0LL);
-    goto LABEL_7;
-  }
-  if ( v8 == 1 )
-  {
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 704), &LockHandle);
-    LOBYTE(v9) = 1;
-    CcScheduleLazyWriteScan((_BYTE *)a1, a2, v9, 0);
-LABEL_7:
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 128), &LockHandle);
+    *(_BYTE *)(a1 + 964) = 0;
+    CcRescheduleLazyWriteScan(a1, 0LL);
+LABEL_5:
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( !KiIrqlFlags )
-      goto LABEL_30;
+      goto LABEL_23;
     if ( (KiIrqlFlags & 1) == 0 )
-      goto LABEL_30;
-    v11 = KeGetCurrentIrql();
-    if ( v11 > 0xFu )
-      goto LABEL_30;
+      goto LABEL_23;
+    v7 = KeGetCurrentIrql();
+    if ( v7 > 0xFu )
+      goto LABEL_23;
     if ( LockHandle.OldIrql > 0xFu )
-      goto LABEL_30;
-    if ( v11 < 2u )
-      goto LABEL_30;
-    v12 = KeGetCurrentPrcb();
-    v13 = v12->SchedulerAssist;
-    v14 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-    v15 = (v14 & v13[5]) == 0;
-    v13[5] &= v14;
-    if ( !v15 )
-      goto LABEL_30;
-    v16 = (__int64)v12;
-LABEL_29:
-    KiRemoveSystemWorkPriorityKick(v16);
-LABEL_30:
+      goto LABEL_23;
+    if ( v7 < 2u )
+      goto LABEL_23;
+    v8 = KeGetCurrentPrcb();
+    v9 = v8->SchedulerAssist;
+    v10 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+    v11 = (v10 & v9[5]) == 0;
+    v9[5] &= v10;
+    if ( !v11 )
+      goto LABEL_23;
+    v12 = (__int64)v8;
+LABEL_22:
+    KiRemoveSystemWorkPriorityKick(v12);
+LABEL_23:
     __writecr8(OldIrql);
+    return 1;
+  }
+  if ( v5 == 1 )
+  {
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 128), &LockHandle);
+    CcScheduleLazyWriteScan(a1, 1, 0);
+    goto LABEL_5;
   }
   return 1;
 }

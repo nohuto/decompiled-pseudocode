@@ -1,112 +1,110 @@
 /*
- * XREFs of CitProcessCallout @ 0x1C00362EC
+ * XREFs of CitProcessCallout @ 0x1C0047420
  * Callers:
- *     xxxInitProcessInfo @ 0x1C0036A38 (xxxInitProcessInfo.c)
- *     DestroyProcessInfo @ 0x1C00C5EA0 (DestroyProcessInfo.c)
+ *     DestroyProcessInfo @ 0x1C0046DC0 (DestroyProcessInfo.c)
+ *     xxxInitProcessInfo @ 0x1C00B8BC4 (xxxInitProcessInfo.c)
  * Callees:
- *     ?CitpProcessInfoIsValid@@YA_NPEAU_CIT_PROCESS@@@Z @ 0x1C0033BE4 (-CitpProcessInfoIsValid@@YA_NPEAU_CIT_PROCESS@@@Z.c)
- *     ?CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z @ 0x1C00791EC (-CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z.c)
- *     ?CitpInteractionSummaryDelete@@YAXPEAPEAU_CIT_INTERACTION_SUMMARY@@@Z @ 0x1C0079224 (-CitpInteractionSummaryDelete@@YAXPEAPEAU_CIT_INTERACTION_SUMMARY@@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?CitpCleanup@@YAXXZ @ 0x1C00A3AD4 (-CitpCleanup@@YAXXZ.c)
- *     ?CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C00A3B84 (-CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
- *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C00A3D44 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
- *     ?CitpContextUserLogon@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_LUID@@@Z @ 0x1C00B5F24 (-CitpContextUserLogon@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_LUID@@@Z.c)
- *     ?CitpInitialize@@YAJPEBG@Z @ 0x1C00B6140 (-CitpInitialize@@YAJPEBG@Z.c)
- *     ?CitpAudioStatDecrementStreams@@YAXPEAU_CIT_AUDIO_STATS@@E@Z @ 0x1C00B885C (-CitpAudioStatDecrementStreams@@YAXPEAU_CIT_AUDIO_STATS@@E@Z.c)
- *     ?CitpClearDelegation@@YAXPEAU_CIT_PROCESS@@@Z @ 0x1C00CA074 (-CitpClearDelegation@@YAXPEAU_CIT_PROCESS@@@Z.c)
- *     ?CitpInteractionSummaryGetOutstanding@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_PROCESS@@G@Z @ 0x1C0233D74 (-CitpInteractionSummaryGetOutstanding@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_PROCESS@@G@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?CitpProcessInfoIsValid@@YA_NPEAU_CIT_PROCESS@@@Z @ 0x1C0047934 (-CitpProcessInfoIsValid@@YA_NPEAU_CIT_PROCESS@@@Z.c)
+ *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C004B234 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
+ *     ?CitpContextUserLogon@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_LUID@@@Z @ 0x1C008C67C (-CitpContextUserLogon@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_LUID@@@Z.c)
+ *     ?CitpInitialize@@YAJPEBG@Z @ 0x1C008C848 (-CitpInitialize@@YAJPEBG@Z.c)
+ *     ?CitpCleanup@@YAXXZ @ 0x1C008CCEC (-CitpCleanup@@YAXXZ.c)
+ *     ?CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z @ 0x1C008F0EC (-CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z.c)
+ *     ?CitpInteractionSummaryDelete@@YAXPEAPEAU_CIT_INTERACTION_SUMMARY@@@Z @ 0x1C008F128 (-CitpInteractionSummaryDelete@@YAXPEAPEAU_CIT_INTERACTION_SUMMARY@@@Z.c)
+ *     ?CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C0090C9C (-CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
+ *     ?CitpAudioStatDecrementStreams@@YAXPEAU_CIT_AUDIO_STATS@@E@Z @ 0x1C00C06E8 (-CitpAudioStatDecrementStreams@@YAXPEAU_CIT_AUDIO_STATS@@E@Z.c)
+ *     ?CitpInteractionSummaryGetOutstanding@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_PROCESS@@G@Z @ 0x1C01FDEF8 (-CitpInteractionSummaryGetOutstanding@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_PROCESS@@G@Z.c)
  */
 
 void __fastcall CitProcessCallout(__int64 a1, char a2)
 {
-  __int64 i; // rax
-  struct _LUID v4; // rax
-  __int64 v5; // rbx
-  unsigned __int16 v6; // dx
+  __int64 v3; // rbx
+  unsigned __int16 v4; // dx
   char IsStateSeparationEnabled; // al
-  const unsigned __int16 *v8; // rcx
-  struct _CIT_IMPACT_CONTEXT *v9; // rsi
+  const WCHAR *v6; // rcx
+  struct _CIT_IMPACT_CONTEXT *v7; // rsi
+  __int64 i; // rax
+  struct _LUID v9; // rax
   struct _CIT_INTERACTION_SUMMARY *Outstanding; // rsi
   struct _LUID v11; // [rsp+60h] [rbp+18h] BYREF
 
   if ( a2 )
   {
-    *(_QWORD *)(a1 + 936) = 52976LL;
-    if ( gppiList && !*(_QWORD *)(gppiList + 368) && !(_BYTE)g_CompatImpact )
+    *(_QWORD *)(a1 + 928) = 52976LL;
+    if ( gppiList && !*(_QWORD *)(gppiList + 376) && !(_BYTE)g_CompatImpact )
     {
       IsStateSeparationEnabled = RtlIsStateSeparationEnabled();
-      v8 = L"\\Registry\\Machine\\OSDATA\\Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\CIT";
+      v6 = L"\\Registry\\Machine\\OSDATA\\Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\CIT";
       if ( !IsStateSeparationEnabled )
-        v8 = L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\CIT";
-      CitpInitialize(v8);
+        v6 = L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\CIT";
+      CitpInitialize(v6);
     }
-    if ( xmmword_1C0293D30 && !*((_QWORD *)xmmword_1C0293D30 + 12) )
+    if ( xmmword_1C0254590 && !*((_QWORD *)xmmword_1C0254590 + 12) )
     {
       for ( i = grpWinStaList; i; i = *(_QWORD *)(i + 8) )
       {
         if ( *(_UNKNOWN **)(i + 56) == &gTermIO )
         {
-          v4 = *(struct _LUID *)(i + 184);
-          goto LABEL_10;
+          v9 = *(struct _LUID *)(i + 184);
+          goto LABEL_28;
         }
       }
-      v4 = 0LL;
-LABEL_10:
-      v11 = v4;
-      if ( v4 )
-        CitpContextUserLogon(xmmword_1C0293D30, &v11);
+      v9 = *(struct _LUID *)&DOUBLE_0_0;
+LABEL_28:
+      v11 = v9;
+      if ( v9 != *(_QWORD *)&DOUBLE_0_0 )
+        CitpContextUserLogon(xmmword_1C0254590, &v11);
     }
   }
   else
   {
-    v5 = *(_QWORD *)(a1 + 936);
-    if ( CitpProcessInfoIsValid((struct _CIT_PROCESS *)v5) )
+    v3 = *(_QWORD *)(a1 + 928);
+    if ( CitpProcessInfoIsValid((struct _CIT_PROCESS *)v3) )
     {
-      v9 = xmmword_1C0293D30;
-      if ( xmmword_1C0293D30 )
+      v7 = xmmword_1C0254590;
+      if ( xmmword_1C0254590 )
       {
-        if ( a1 == *((_QWORD *)xmmword_1C0293D30 + 15) )
+        if ( a1 == *((_QWORD *)xmmword_1C0254590 + 15) )
           CitpSetForegroundProcess(
-            xmmword_1C0293D30,
+            xmmword_1C0254590,
             (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24,
             0LL,
             0LL,
             0LL);
-        if ( a1 == *((_QWORD *)v9 + 16) )
-          *((_QWORD *)v9 + 16) = 0LL;
-        CitpClearDelegation((struct _CIT_PROCESS *)v5);
+        if ( a1 == *((_QWORD *)v7 + 16) )
+          *((_QWORD *)v7 + 16) = 0LL;
       }
-      if ( *(_BYTE *)(v5 + 104) || *(_BYTE *)(v5 + 105) )
+      if ( *(_BYTE *)(v3 + 88) || *(_BYTE *)(v3 + 89) )
       {
-        Outstanding = CitpInteractionSummaryGetOutstanding((struct _CIT_PROCESS *)v5, v6);
-        if ( *(_BYTE *)(v5 + 104) )
+        Outstanding = CitpInteractionSummaryGetOutstanding((struct _CIT_PROCESS *)v3, v4);
+        if ( *(_BYTE *)(v3 + 88) )
         {
-          PsUpdateComponentPower(**(_QWORD **)(v5 + 8), 10LL);
+          PsUpdateComponentPower(**(_QWORD **)(v3 + 8), 10LL);
           if ( Outstanding )
             CitpAudioStatDecrementStreams(
               (struct _CIT_INTERACTION_SUMMARY *)((char *)Outstanding + 116),
-              *(_BYTE *)(v5 + 104));
+              *(_BYTE *)(v3 + 88));
         }
-        if ( *(_BYTE *)(v5 + 105) )
+        if ( *(_BYTE *)(v3 + 89) )
         {
-          PsUpdateComponentPower(**(_QWORD **)(v5 + 8), 11LL);
+          PsUpdateComponentPower(**(_QWORD **)(v3 + 8), 11LL);
           if ( Outstanding )
             CitpAudioStatDecrementStreams(
               (struct _CIT_INTERACTION_SUMMARY *)((char *)Outstanding + 124),
-              *(_BYTE *)(v5 + 105));
+              *(_BYTE *)(v3 + 89));
         }
       }
-      CitpInteractionSummaryDelete((struct _CIT_INTERACTION_SUMMARY **)(v5 + 32));
-      CitpProgramIdCleanup((struct _CIT_PROGRAM_ID *)(v5 + 48));
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (void *)v5);
+      CitpInteractionSummaryDelete((struct _CIT_INTERACTION_SUMMARY **)(v3 + 16));
+      CitpProgramIdCleanup((struct _CIT_PROGRAM_ID *)(v3 + 32));
+      Win32FreePool(v3);
     }
-    *(_QWORD *)(a1 + 936) = 52977LL;
-    if ( gppiList && !*(_QWORD *)(gppiList + 368) )
+    *(_QWORD *)(a1 + 928) = 52977LL;
+    if ( gppiList && !*(_QWORD *)(gppiList + 376) )
     {
-      if ( xmmword_1C0293D30 )
+      if ( xmmword_1C0254590 )
         CitpContextFlush(
-          xmmword_1C0293D30,
+          xmmword_1C0254590,
           (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24);
       CitpCleanup();
     }

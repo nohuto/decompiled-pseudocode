@@ -1,13 +1,13 @@
 /*
- * XREFs of rimTransformGeometry @ 0x1C01B2990
+ * XREFs of rimTransformGeometry @ 0x1C017CF74
  * Callers:
- *     rimPopulateContactFrameData @ 0x1C01B1588 (rimPopulateContactFrameData.c)
+ *     rimPopulateContactFrameData @ 0x1C017BE68 (rimPopulateContactFrameData.c)
  * Callees:
- *     EtwTracePointerDeviceTransformationStart @ 0x1C014E3D0 (EtwTracePointerDeviceTransformationStart.c)
- *     EtwTracePointerDeviceTransformationStop @ 0x1C014E400 (EtwTracePointerDeviceTransformationStop.c)
- *     RIMApplyPTPTranslation @ 0x1C0197DB0 (RIMApplyPTPTranslation.c)
- *     RIMApplyTransforms @ 0x1C0197E64 (RIMApplyTransforms.c)
- *     rimComputeHimetricGeometry @ 0x1C01AE5F0 (rimComputeHimetricGeometry.c)
+ *     EtwTracePointerDeviceTransformationStart @ 0x1C01237B0 (EtwTracePointerDeviceTransformationStart.c)
+ *     EtwTracePointerDeviceTransformationStop @ 0x1C01237E0 (EtwTracePointerDeviceTransformationStop.c)
+ *     RIMApplyPTPTranslation @ 0x1C01642BC (RIMApplyPTPTranslation.c)
+ *     RIMApplyTransforms @ 0x1C0164388 (RIMApplyTransforms.c)
+ *     rimComputeHimetricGeometry @ 0x1C0179264 (rimComputeHimetricGeometry.c)
  */
 
 __int64 __fastcall rimTransformGeometry(
@@ -18,20 +18,19 @@ __int64 __fastcall rimTransformGeometry(
         _DWORD *a5)
 {
   int v8; // ebp
-  __int64 v9; // r8
-  __int64 v10; // rdx
-  __int64 v11; // r8
+  __int64 v9; // rdx
+  __int64 v10; // r8
 
   v8 = a2;
   EtwTracePointerDeviceTransformationStart(*a3, a2, (__int64)a3);
   if ( *((_DWORD *)a1 + 6) == 7 )
   {
-    RIMApplyPTPTranslation(a1, (__int64)a3, v9);
+    RIMApplyPTPTranslation(a1, (__int64)a3);
   }
   else
   {
     RIMApplyTransforms((__int64)a1, v8, (__int64)a3, a4, a5);
-    rimComputeHimetricGeometry((__int64)a1, a3, a3 + 8);
+    rimComputeHimetricGeometry((__int64)a1, (__int64)a3, (__int64)(a3 + 8));
   }
-  return EtwTracePointerDeviceTransformationStop(*a3, v10, v11);
+  return EtwTracePointerDeviceTransformationStop(*a3, v9, v10);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_AckingPortEventInD3Cold @ 0x1C0021950
+ * XREFs of HUBDSM_AckingPortEventInD3Cold @ 0x1C0021500
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_CompleteWaitWake @ 0x1C0019FC4 (HUBPDO_CompleteWaitWake.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     HUBPDO_CompleteWaitWake @ 0x1C0019A74 (HUBPDO_CompleteWaitWake.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_AckingPortEventInD3Cold(__int64 a1)

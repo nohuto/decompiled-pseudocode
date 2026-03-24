@@ -1,27 +1,34 @@
 /*
- * XREFs of GreWatchVisRgnChange @ 0x1C029DF48
+ * XREFs of GreWatchVisRgnChange @ 0x1C029F640
  * Callers:
- *     ?xxxRedrawHungWindow@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C0151FD0 (-xxxRedrawHungWindow@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
+ *     xxxRedrawHungWindow @ 0x1C02412D4 (xxxRedrawHungWindow.c)
  * Callees:
- *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C00907C4 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00920F0 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C00F2958 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreWatchVisRgnChange(HDC a1, int a2)
 {
-  __int64 *v4[2]; // [rsp+20h] [rbp-38h] BYREF
-  _BYTE v5[40]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v3; // rbx
+  __int64 *v5; // [rsp+20h] [rbp-38h] BYREF
+  _BYTE v6[40]; // [rsp+30h] [rbp-28h] BYREF
+  int v7; // [rsp+70h] [rbp+18h] BYREF
 
-  DCOBJA::DCOBJA((DCOBJA *)v4, a1);
-  if ( v4[0] )
+  DCOBJA::DCOBJA((DCOBJA *)&v5, a1);
+  if ( v5 )
   {
     if ( a2 )
-      *((_DWORD *)v4[0] + 9) |= 0x20000u;
+      *((_DWORD *)v5 + 9) |= 0x20000u;
     else
-      *((_DWORD *)v4[0] + 9) &= ~0x20000u;
-    if ( v4[0] )
-      XDCOBJ::vAltUnlockFast(v4);
+      *((_DWORD *)v5 + 9) &= ~0x20000u;
+    if ( v5 )
+    {
+      v7 = 0;
+      v3 = *v5;
+      HmgDecrementShareReferenceCountEx(v5, &v7);
+      if ( v7 )
+        bDeleteDCInternalEx(v3, 0LL);
+    }
   }
-  return UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v5);
+  return UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v6);
 }

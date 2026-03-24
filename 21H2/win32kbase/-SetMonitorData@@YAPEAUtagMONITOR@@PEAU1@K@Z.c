@@ -1,153 +1,161 @@
 /*
- * XREFs of ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C00C7F94
+ * XREFs of ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C011E658
  * Callers:
- *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0063D18 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C00C7464 (-zzzUpdateUserScreen@@YAJXZ.c)
  * Callees:
- *     Win32FreePool @ 0x1C0026670 (Win32FreePool.c)
- *     GreCreateDisplayDC @ 0x1C002F6A0 (GreCreateDisplayDC.c)
- *     HMDestroyObject @ 0x1C004E3A0 (HMDestroyObject.c)
- *     GreDeleteDC @ 0x1C00518D0 (GreDeleteDC.c)
- *     ??4?$SharedMixedObjectPointerFieldpMonitorPrimary@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUtagMONITOR@@PEAU2@@Z @ 0x1C005201C (--4-$SharedMixedObjectPointerFieldpMonitorPrimary@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUta.c)
- *     GreGetDeviceCaps @ 0x1C00642D0 (GreGetDeviceCaps.c)
- *     ?CreateMonitor@@YAPEAUtagMONITOR@@XZ @ 0x1C0068314 (-CreateMonitor@@YAPEAUtagMONITOR@@XZ.c)
- *     IntersectRect @ 0x1C006EC48 (IntersectRect.c)
- *     Win32AllocPoolZInit @ 0x1C00869F0 (Win32AllocPoolZInit.c)
- *     DrvIsUniformSpaceMapping @ 0x1C00B1D90 (DrvIsUniformSpaceMapping.c)
- *     ?GetMonitorDpiInfo@@YAXPEAUHDEV__@@HPEAUtagRECT@@PEAU_DPI_INFORMATION@@@Z @ 0x1C00C1708 (-GetMonitorDpiInfo@@YAXPEAUHDEV__@@HPEAUtagRECT@@PEAU_DPI_INFORMATION@@@Z.c)
- *     ?GetMonitorPhysicalDPI@@YAGPEAUHDEV__@@@Z @ 0x1C00C2CE4 (-GetMonitorPhysicalDPI@@YAGPEAUHDEV__@@@Z.c)
- *     ?GetMonitorLogicalDPI@@YAGPEAUHDEV__@@@Z @ 0x1C00C2D44 (-GetMonitorLogicalDPI@@YAGPEAUHDEV__@@@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     GreDeleteDC @ 0x1C0007A60 (GreDeleteDC.c)
+ *     HMDestroyObject @ 0x1C0007ED0 (HMDestroyObject.c)
+ *     DrvIsUniformSpaceMapping @ 0x1C000FCA0 (DrvIsUniformSpaceMapping.c)
+ *     Win32AllocPoolZInit @ 0x1C0028440 (Win32AllocPoolZInit.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     GreCreateDisplayDC @ 0x1C003B650 (GreCreateDisplayDC.c)
+ *     IntersectRect @ 0x1C0071334 (IntersectRect.c)
+ *     GreGetDeviceCaps @ 0x1C0091480 (GreGetDeviceCaps.c)
+ *     ?GetMonitorDpiInfo@@YAXPEAUHDEV__@@HPEAUtagRECT@@PEAU_DPI_INFORMATION@@@Z @ 0x1C00B1E08 (-GetMonitorDpiInfo@@YAXPEAUHDEV__@@HPEAUtagRECT@@PEAU_DPI_INFORMATION@@@Z.c)
+ *     ?CreateMonitor@@YAPEAUtagMONITOR@@XZ @ 0x1C00B3B10 (-CreateMonitor@@YAPEAUtagMONITOR@@XZ.c)
+ *     ?GetMonitorPhysicalDPI@@YAGPEAUHDEV__@@@Z @ 0x1C00B3E28 (-GetMonitorPhysicalDPI@@YAGPEAUHDEV__@@@Z.c)
+ *     ?GetMonitorLogicalDPI@@YAGPEAUHDEV__@@@Z @ 0x1C00B3E88 (-GetMonitorLogicalDPI@@YAGPEAUHDEV__@@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 struct tagMONITOR *__fastcall SetMonitorData(struct tagMONITOR *Monitor, unsigned int a2)
 {
-  int v2; // edi
-  __int16 MonitorLogicalDPI; // r14
-  int v5; // r13d
-  __int64 v6; // rcx
-  HDEV v7; // rbp
-  int v8; // r12d
-  int v9; // r15d
-  HDC DisplayDC; // rax
-  __int64 v11; // rsi
-  __int64 v12; // rsi
-  __int64 v13; // rcx
-  _DWORD *v14; // rax
-  char *v15; // rcx
-  __int64 v16; // rax
+  int v3; // edi
+  __int64 v4; // r13
+  __int16 MonitorLogicalDPI; // bp
+  HDEV v6; // rsi
+  int v7; // r12d
+  int v8; // r15d
+  HDC DisplayDC; // r14
+  int v10; // eax
+  char *v11; // r14
+  _DWORD *v12; // rax
+  _DWORD *v13; // rcx
+  __int64 v14; // rcx
+  int v15; // eax
+  unsigned int v16; // eax
   __int64 v17; // rcx
   HDEV v18; // rax
   int *v19; // r8
   int v20; // eax
   int v21; // eax
   _DWORD *v22; // rdx
-  __int16 MonitorPhysicalDPI; // [rsp+20h] [rbp-68h]
-  __int64 v25; // [rsp+28h] [rbp-60h]
-  __int64 v26; // [rsp+30h] [rbp-58h]
-  __int128 v27; // [rsp+38h] [rbp-50h]
+  __int64 v23; // rdx
+  __int16 MonitorPhysicalDPI; // [rsp+20h] [rbp-78h]
+  int v26; // [rsp+24h] [rbp-74h]
+  __int64 v27; // [rsp+38h] [rbp-60h]
+  __int128 v28; // [rsp+40h] [rbp-58h]
 
-  v2 = 0;
+  v3 = 0;
+  v26 = 1;
+  v4 = *(_QWORD *)(gpDispInfo + 16);
   MonitorLogicalDPI = 96;
-  v5 = 1;
-  v6 = *((_QWORD *)gpDispInfo + 2);
-  v25 = v6;
   MonitorPhysicalDPI = 96;
-  v26 = v6 + 56LL * a2;
-  v7 = *(HDEV *)(v26 + 40);
+  v27 = v4 + 56LL * a2;
+  v6 = *(HDEV *)(v27 + 40);
+  v7 = 0;
   v8 = 0;
-  v9 = 0;
-  v27 = *(_OWORD *)(((unsigned int)DrvIsUniformSpaceMapping(v6) != 0 ? 0x14 : 0) + v26 + 56);
-  DisplayDC = GreCreateDisplayDC(v7, 0, 0);
-  v11 = (__int64)DisplayDC;
-  if ( !DisplayDC
-    || ((GreGetDeviceCaps(DisplayDC, 94) & 0x4000) == 0
-      ? (MonitorLogicalDPI = GetMonitorLogicalDPI((__int64)v7), MonitorPhysicalDPI = GetMonitorPhysicalDPI((__int64)v7))
-      : (v5 = 0),
-        GreDeleteDC(v11),
-        v5) )
+  v28 = *(_OWORD *)(((unsigned int)DrvIsUniformSpaceMapping(v4) != 0 ? 0x14 : 0) + v27 + 56);
+  DisplayDC = GreCreateDisplayDC(v6, 0, 0);
+  v10 = v28;
+  if ( DisplayDC )
   {
-    if ( !(_QWORD)v27 )
-      v2 = 1;
+    if ( (GreGetDeviceCaps(DisplayDC, 94) & 0x4000) != 0 )
+    {
+      v26 = 0;
+    }
+    else
+    {
+      MonitorLogicalDPI = GetMonitorLogicalDPI((__int64)v6);
+      MonitorPhysicalDPI = GetMonitorPhysicalDPI((__int64)v6);
+    }
+    GreDeleteDC((__int64)DisplayDC);
+    if ( !v26 )
+      goto LABEL_10;
+    v10 = v28;
   }
+  if ( !DWORD1(v28) && !v10 )
+    v3 = 1;
+LABEL_10:
   if ( !Monitor )
   {
-    if ( v2 )
+    if ( v3 )
     {
       Monitor = gpMonitorCached;
-      v9 = 1;
+      v8 = 1;
       gpMonitorCached = 0LL;
     }
     else
     {
       Monitor = CreateMonitor();
-      v8 = 1;
+      v7 = 1;
     }
     if ( !Monitor )
       return 0LL;
   }
-  v12 = Win32AllocPoolZInit(0x64uLL, 1886872661);
-  if ( !v12 )
+  v11 = (char *)Win32AllocPoolZInit(0x64uLL, 1886872661LL);
+  if ( !v11 )
   {
-    if ( v9 )
+    if ( v8 )
     {
       gpMonitorCached = Monitor;
     }
-    else if ( v8 )
+    else if ( v7 )
     {
       HMDestroyObject(Monitor);
     }
     return 0LL;
   }
+  *(_WORD *)(*((_QWORD *)Monitor + 5) + 68LL) = MonitorLogicalDPI;
+  if ( (unsigned int)DrvIsUniformSpaceMapping(v4) )
+    MonitorLogicalDPI = *(_WORD *)(v4 + 32);
   *(_WORD *)(*((_QWORD *)Monitor + 5) + 64LL) = MonitorLogicalDPI;
-  if ( (unsigned int)DrvIsUniformSpaceMapping(v25) )
-    MonitorLogicalDPI = *(_WORD *)(v25 + 32);
-  *(_WORD *)(*((_QWORD *)Monitor + 5) + 60LL) = MonitorLogicalDPI;
-  v13 = *((_QWORD *)Monitor + 5);
-  *((_WORD *)Monitor + 36) = MonitorPhysicalDPI;
-  *(_WORD *)(v13 + 84) = *(_WORD *)(v26 + 92);
-  v14 = (_DWORD *)*((_QWORD *)Monitor + 16);
-  if ( v14 )
+  *((_WORD *)Monitor + 112) = MonitorPhysicalDPI;
+  v12 = (_DWORD *)*((_QWORD *)Monitor + 39);
+  if ( v12 )
   {
-    --*v14;
-    v15 = (char *)*((_QWORD *)Monitor + 16);
-    if ( !*(_DWORD *)v15 )
-      Win32FreePool(v15);
-    *((_QWORD *)Monitor + 16) = 0LL;
+    --*v12;
+    v13 = (_DWORD *)*((_QWORD *)Monitor + 39);
+    if ( !*v13 )
+      Win32FreePool((__int64)v13);
+    *((_QWORD *)Monitor + 39) = 0LL;
   }
   GetMonitorDpiInfo(
-    (__int64)v7,
-    v2,
+    (__int64)v6,
+    v3,
     (struct tagRECT *)(*((_QWORD *)Monitor + 5) + 28LL),
-    (struct _DPI_INFORMATION *)(v12 + 4));
-  *(_DWORD *)v12 = 1;
-  *((_QWORD *)Monitor + 16) = v12;
-  v16 = *((_QWORD *)Monitor + 5);
-  if ( v5 )
-    *(_DWORD *)(v16 + 24) |= 1u;
+    (struct _DPI_INFORMATION *)(v11 + 4));
+  *(_DWORD *)v11 = 1;
+  *((_QWORD *)Monitor + 39) = v11;
+  v14 = *((_QWORD *)Monitor + 5);
+  v15 = *(_DWORD *)(v14 + 24);
+  if ( v26 )
+    v16 = v15 | 1;
   else
-    *(_DWORD *)(v16 + 24) &= ~1u;
+    v16 = v15 & 0xFFFFFFFE;
+  *(_DWORD *)(v14 + 24) = v16;
   v17 = *((_QWORD *)Monitor + 5);
-  if ( *(_OWORD *)(v17 + 28) != v27 )
+  if ( *(_OWORD *)(v17 + 28) != v28 )
   {
-    *(_DWORD *)(v17 + 44) += v27 - *(_DWORD *)(v17 + 28);
-    *(_DWORD *)(*((_QWORD *)Monitor + 5) + 48LL) += DWORD1(v27) - *(_DWORD *)(*((_QWORD *)Monitor + 5) + 32LL);
-    *(_DWORD *)(*((_QWORD *)Monitor + 5) + 52LL) += DWORD2(v27) - *(_DWORD *)(*((_QWORD *)Monitor + 5) + 36LL);
-    *(_DWORD *)(*((_QWORD *)Monitor + 5) + 56LL) += HIDWORD(v27) - *(_DWORD *)(*((_QWORD *)Monitor + 5) + 40LL);
+    *(_DWORD *)(v17 + 44) += v28 - *(_DWORD *)(v17 + 28);
+    *(_DWORD *)(*((_QWORD *)Monitor + 5) + 48LL) += DWORD1(v28) - *(_DWORD *)(*((_QWORD *)Monitor + 5) + 32LL);
+    *(_DWORD *)(*((_QWORD *)Monitor + 5) + 52LL) += DWORD2(v28) - *(_DWORD *)(*((_QWORD *)Monitor + 5) + 36LL);
+    *(_DWORD *)(*((_QWORD *)Monitor + 5) + 56LL) += HIDWORD(v28) - *(_DWORD *)(*((_QWORD *)Monitor + 5) + 40LL);
     v17 = *((_QWORD *)Monitor + 5);
   }
-  *(_DWORD *)(v17 + 28) = v27;
-  *(_QWORD *)(*((_QWORD *)Monitor + 5) + 32LL) = *(_QWORD *)((char *)&v27 + 4);
-  *(_DWORD *)(*((_QWORD *)Monitor + 5) + 40LL) = HIDWORD(v27);
-  *(_DWORD *)(*((_QWORD *)Monitor + 5) + 68LL) = *(_DWORD *)(v26 + 56);
-  *(_DWORD *)(*((_QWORD *)Monitor + 5) + 72LL) = *(_DWORD *)(v26 + 60);
-  *(_DWORD *)(*((_QWORD *)Monitor + 5) + 76LL) = *(_DWORD *)(v26 + 64);
-  *(_DWORD *)(*((_QWORD *)Monitor + 5) + 80LL) = *(_DWORD *)(v26 + 68);
-  v18 = v7;
-  if ( !v5 )
-    v18 = *(HDEV *)v25;
+  *(_DWORD *)(v17 + 28) = v28;
+  *(_QWORD *)(*((_QWORD *)Monitor + 5) + 32LL) = *(_QWORD *)((char *)&v28 + 4);
+  *(_DWORD *)(*((_QWORD *)Monitor + 5) + 40LL) = HIDWORD(v28);
+  *(_DWORD *)(*((_QWORD *)Monitor + 5) + 72LL) = *(_DWORD *)(v27 + 56);
+  *(_DWORD *)(*((_QWORD *)Monitor + 5) + 76LL) = *(_DWORD *)(v27 + 60);
+  *(_DWORD *)(*((_QWORD *)Monitor + 5) + 80LL) = *(_DWORD *)(v27 + 64);
+  *(_DWORD *)(*((_QWORD *)Monitor + 5) + 84LL) = *(_DWORD *)(v27 + 68);
+  v18 = v6;
+  if ( !v26 )
+    v18 = *(HDEV *)v4;
   v19 = (int *)*((_QWORD *)Monitor + 5);
-  *((_QWORD *)Monitor + 10) = v18;
-  *((_QWORD *)Monitor + 11) = v7;
+  *((_QWORD *)Monitor + 29) = v18;
+  *((_QWORD *)Monitor + 30) = v6;
   v20 = v19[11];
   if ( v19[13] < v20 )
   {
@@ -168,9 +176,12 @@ struct tagMONITOR *__fastcall SetMonitorData(struct tagMONITOR *Monitor, unsigne
     *(_DWORD *)(*((_QWORD *)Monitor + 5) + 52LL) = v22[9];
     *(_DWORD *)(*((_QWORD *)Monitor + 5) + 56LL) = v22[10];
   }
-  if ( v2 )
-    tagKERNELDISPLAYINFO::SharedMixedObjectPointerFieldpMonitorPrimary<tagMONITOR>::operator=(
-      (_QWORD *)gpDispInfo + 12,
-      (__int64)Monitor);
+  if ( v3 )
+  {
+    v23 = gpDispInfo;
+    *(_QWORD *)(*(_QWORD *)gpDispInfo + 8LL) = *((_QWORD *)Monitor + 6);
+    *(_QWORD *)(v23 + 96) = Monitor;
+  }
+  *(_DWORD *)(struct HDEV__ *)(*((_QWORD *)Monitor + 5) + 60LL) = v6[661];
   return Monitor;
 }

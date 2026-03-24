@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0DXGVAILOBJECT@@QEAA@XZ @ 0x1C034FD34
+ * XREFs of ??0DXGVAILOBJECT@@QEAA@XZ @ 0x1C02B3F84
  * Callers:
- *     ?ObjectInit@DXGVAILOBJECT@@SAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z @ 0x1C0351800 (-ObjectInit@DXGVAILOBJECT@@SAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z.c)
+ *     ?ObjectInit@DXGVAILOBJECT@@SAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z @ 0x1C02B5A40 (-ObjectInit@DXGVAILOBJECT@@SAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -10,19 +10,19 @@ DXGVAILOBJECT *__fastcall DXGVAILOBJECT::DXGVAILOBJECT(DXGVAILOBJECT *this)
 {
   *(_QWORD *)this = &DXGVAILOBJECT::`vftable';
   *((_QWORD *)this + 4) = &DXGVAIL::`vftable';
+  *((_DWORD *)this + 17) = -1;
+  *((_QWORD *)this + 5) = 0LL;
   *((_QWORD *)this + 6) = 0LL;
-  *((_DWORD *)this + 19) = -1;
   *((_QWORD *)this + 7) = 0LL;
-  *((_QWORD *)this + 8) = 0LL;
-  *((_DWORD *)this + 18) = 0;
-  *((_DWORD *)this + 20) = 64;
-  *((_DWORD *)this + 34) = -1;
+  *((_DWORD *)this + 16) = 0;
+  *((_DWORD *)this + 18) = 53;
+  *((_DWORD *)this + 32) = -1;
+  *((_QWORD *)this + 11) = 0LL;
   *((_QWORD *)this + 12) = 0LL;
   *((_QWORD *)this + 13) = 0LL;
   *((_QWORD *)this + 14) = 0LL;
   *((_QWORD *)this + 15) = 0LL;
-  *((_QWORD *)this + 16) = 0LL;
-  ExInitializeRundownProtection((PEX_RUNDOWN_REF)this + 11);
-  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)this + 11);
+  ExInitializeRundownProtection((PEX_RUNDOWN_REF)this + 10);
+  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)this + 10);
   return this;
 }

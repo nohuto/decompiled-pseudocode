@@ -1,70 +1,69 @@
 /*
- * XREFs of PiBuildDeviceNodeInstancePath @ 0x14078EAF8
+ * XREFs of PiBuildDeviceNodeInstancePath @ 0x14076B22C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     PnpFreeDeviceInstancePath @ 0x14078EC18 (PnpFreeDeviceInstancePath.c)
- *     PnpCleanupDeviceRegistryValues @ 0x14088507C (PnpCleanupDeviceRegistryValues.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     PnpCleanupDeviceRegistryValues @ 0x14074A844 (PnpCleanupDeviceRegistryValues.c)
+ *     PnpFreeDeviceInstancePath @ 0x14076B380 (PnpFreeDeviceInstancePath.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiBuildDeviceNodeInstancePath(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v8; // rax
-  __int64 v9; // rcx
-  __int64 v10; // rdx
-  int v11; // ecx
-  __int64 v12; // r15
-  wchar_t *Pool2; // rax
-  WCHAR *v14; // rsi
-  NTSTATUS v15; // edi
+  WCHAR *v8; // rdi
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  int v12; // ecx
+  SIZE_T v13; // r15
+  wchar_t *PoolWithTag; // rax
+  NTSTATUS v15; // esi
   const wchar_t *v16; // rcx
 
+  v8 = 0LL;
   if ( a2 && a3 && a4 )
   {
     if ( *(_QWORD *)(a1 + 48) && ((*(_DWORD *)(a1 + 396) & 0x2000) == 0 || *(_DWORD *)(a1 + 404) != 42) )
       PnpCleanupDeviceRegistryValues(a1 + 40);
-    v8 = -1LL;
     v9 = -1LL;
-    do
-      ++v9;
-    while ( *(_WORD *)(a2 + 2 * v9) );
     v10 = -1LL;
     do
       ++v10;
-    while ( *(_WORD *)(a3 + 2 * v10) );
-    v11 = v10 + v9;
+    while ( *(_WORD *)(a2 + 2 * v10) );
+    v11 = -1LL;
     do
-      ++v8;
-    while ( *(_WORD *)(a4 + 2 * v8) );
-    v12 = (unsigned int)(2 * (v8 + v11) + 6);
-    Pool2 = (wchar_t *)ExAllocatePool2(64LL, v12, 1232105040LL);
-    v14 = Pool2;
-    if ( Pool2 )
+      ++v11;
+    while ( *(_WORD *)(a3 + 2 * v11) );
+    v12 = v11 + v10;
+    do
+      ++v9;
+    while ( *(_WORD *)(a4 + 2 * v9) );
+    v13 = (unsigned int)(2 * (v9 + v12) + 6);
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, v13, 0x49706E50u);
+    v8 = PoolWithTag;
+    if ( !PoolWithTag )
+      return (unsigned int)-1073741670;
+    v15 = RtlStringCbPrintfW(PoolWithTag, (unsigned int)v13, L"%s\\%s\\%s", a2, a3, a4);
+    if ( v15 >= 0 )
     {
-      v15 = RtlStringCbPrintfW(Pool2, (unsigned int)v12, L"%s\\%s\\%s", a2, a3, a4);
-      if ( v15 >= 0 && ((v16 = *(const wchar_t **)(a1 + 48)) == 0LL || wcsicmp(v16, v14)) )
+      v16 = *(const wchar_t **)(a1 + 48);
+      if ( !v16 || wcsicmp(v16, v8) )
       {
         PnpFreeDeviceInstancePath(a1);
-        RtlInitUnicodeString((PUNICODE_STRING)(a1 + 40), v14);
+        RtlInitUnicodeString((PUNICODE_STRING)(a1 + 40), v8);
+        return (unsigned int)v15;
       }
-      else
-      {
-        ExFreePoolWithTag(v14, 0x49706E50u);
-      }
-    }
-    else
-    {
-      return (unsigned int)-1073741670;
     }
   }
   else
   {
-    return (unsigned int)-1073741823;
+    v15 = -1073741823;
   }
+  if ( v8 )
+    ExFreePoolWithTag(v8, 0x49706E50u);
   return (unsigned int)v15;
 }

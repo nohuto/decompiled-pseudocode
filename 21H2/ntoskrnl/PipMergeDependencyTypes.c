@@ -1,11 +1,11 @@
 /*
- * XREFs of PipMergeDependencyTypes @ 0x14055FD38
+ * XREFs of PipMergeDependencyTypes @ 0x14050C874
  * Callers:
- *     PipAddRequestToEdge @ 0x140942760 (PipAddRequestToEdge.c)
+ *     PipAddRequestToEdge @ 0x14089D95C (PipAddRequestToEdge.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PipMergeDependencyTypes(__int64 a1, int a2)

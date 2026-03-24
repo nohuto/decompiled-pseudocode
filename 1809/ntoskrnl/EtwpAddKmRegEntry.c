@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpAddKmRegEntry @ 0x1406BE958
+ * XREFs of EtwpAddKmRegEntry @ 0x1406BE938
  * Callers:
- *     EtwpRegisterProvider @ 0x1406BE5CC (EtwpRegisterProvider.c)
+ *     EtwpRegisterProvider @ 0x1406BE5AC (EtwpRegisterProvider.c)
  * Callees:
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     EtwpReferenceGuidEntry @ 0x1405C4288 (EtwpReferenceGuidEntry.c)
  */

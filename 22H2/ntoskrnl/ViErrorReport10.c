@@ -1,16 +1,16 @@
 /*
- * XREFs of ViErrorReport10 @ 0x1405CFF38
+ * XREFs of ViErrorReport10 @ 0x1405A1EDC
  * Callers:
- *     IovpCallDriver2 @ 0x140ACD6CC (IovpCallDriver2.c)
- *     VfPnpVerifyIrpStackUpward @ 0x140AE8140 (VfPnpVerifyIrpStackUpward.c)
- *     ViPnpVerifyMinorWasProcessedProperly @ 0x140AE8430 (ViPnpVerifyMinorWasProcessedProperly.c)
- *     VfWmiVerifyIrpStackUpward @ 0x140AE8A70 (VfWmiVerifyIrpStackUpward.c)
+ *     IovpCallDriver2 @ 0x1409D0154 (IovpCallDriver2.c)
+ *     VfPnpVerifyIrpStackUpward @ 0x1409E2D80 (VfPnpVerifyIrpStackUpward.c)
+ *     ViPnpVerifyMinorWasProcessedProperly @ 0x1409E3050 (ViPnpVerifyMinorWasProcessedProperly.c)
+ *     VfWmiVerifyIrpStackUpward @ 0x1409E3630 (VfWmiVerifyIrpStackUpward.c)
  * Callees:
- *     RtlStringCbPrintfA @ 0x140383768 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     VfUtilDbgPrint @ 0x1405CE364 (VfUtilDbgPrint.c)
- *     ViErrorDisplayDescription @ 0x140AD46D0 (ViErrorDisplayDescription.c)
- *     ViErrorFinishReport @ 0x140AD4724 (ViErrorFinishReport.c)
+ *     RtlStringCbPrintfA @ 0x1403A83E4 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     VfUtilDbgPrint @ 0x1405A0634 (VfUtilDbgPrint.c)
+ *     ViErrorDisplayDescription @ 0x1409D8218 (ViErrorDisplayDescription.c)
+ *     ViErrorFinishReport @ 0x1409D826C (ViErrorFinishReport.c)
  */
 
 __int64 __fastcall ViErrorReport10(unsigned int a1, const void *a2, const void *a3, const void *a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbpCheckMatchingDevice @ 0x140A4F5D0
+ * XREFs of SdbpCheckMatchingDevice @ 0x1409642F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbGetStringTagPtr @ 0x140757878 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140755D70 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingDevice(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, __int64 a6)
@@ -15,14 +15,15 @@ __int64 __fastcall SdbpCheckMatchingDevice(_DWORD *a1, __int64 a2, __int64 a3, _
   unsigned int v7; // ebx
   unsigned int FirstTag; // eax
   __int64 v11; // r8
+  __int64 v12; // r9
   __int64 StringTagPtr; // rax
 
-  v6 = *(__int64 (__fastcall **)(__int64))(a2 + 1744);
+  v6 = *(__int64 (__fastcall **)(__int64))(a2 + 1736);
   v7 = 0;
   *a1 = 0;
   if ( v6
-    && (FirstTag = SdbFindFirstTag(a3, a5, 24577LL)) != 0
-    && (StringTagPtr = SdbGetStringTagPtr(a3, FirstTag, v11)) != 0 )
+    && (FirstTag = SdbFindFirstTag(a3, a5, 24577)) != 0
+    && (StringTagPtr = SdbGetStringTagPtr(a3, FirstTag, v11, v12)) != 0 )
   {
     v7 = 1;
     *a1 = v6(StringTagPtr);

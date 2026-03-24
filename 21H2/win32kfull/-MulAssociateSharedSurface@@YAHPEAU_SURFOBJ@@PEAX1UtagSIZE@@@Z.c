@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MulAssociateSharedSurface@@YAHPEAU_SURFOBJ@@PEAX1UtagSIZE@@@Z @ 0x1C016F050
+ * XREFs of ?MulAssociateSharedSurface@@YAHPEAU_SURFOBJ@@PEAX1UtagSIZE@@@Z @ 0x1C02A1D00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall MulAssociateSharedSurface(struct _SURFOBJ *a1, void *a2, void *a3, struct tagSIZE a4)
@@ -14,7 +14,7 @@ __int64 __fastcall MulAssociateSharedSurface(struct _SURFOBJ *a1, void *a2, void
 
   v4 = 0;
   v5 = *(_QWORD *)(*((_QWORD *)a1->dhsurf + 1) + 8LL * *((unsigned int *)a1->dhsurf + 4));
-  v6 = *(unsigned int (__fastcall **)(__int64, void *, void *, struct tagSIZE))(*(_QWORD *)(v5 + 24) + 3432LL);
+  v6 = *(unsigned int (__fastcall **)(__int64, void *, void *, struct tagSIZE))(*(_QWORD *)(v5 + 24) + 3456LL);
   if ( v6 )
     return ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))v6)(v5, a2, a3, a4);
   return v4;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PsQueryActivityModerationUserSettings @ 0x1405A3E10
+ * XREFs of PsQueryActivityModerationUserSettings @ 0x140581310
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExGetExtensionTable @ 0x1402F7618 (ExGetExtensionTable.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PsQueryActivityModerationUserSettings(_QWORD *a1)
@@ -21,7 +21,7 @@ __int64 __fastcall PsQueryActivityModerationUserSettings(_QWORD *a1)
     v3 = (*(__int64 (__fastcall **)(__int64 *))(ExtensionTable + 32))(&v5);
     if ( v3 >= 0 )
       *a1 = v5;
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(PspBamExtensionHost + 64));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(PspBamExtensionHost + 64));
   }
   else
   {

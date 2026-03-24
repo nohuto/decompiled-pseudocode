@@ -1,9 +1,9 @@
 /*
- * XREFs of IopRemovePageFromPageMap @ 0x1405537D4
+ * XREFs of IopRemovePageFromPageMap @ 0x140504260
  * Callers:
- *     IoFreeDumpRange @ 0x140550520 (IoFreeDumpRange.c)
+ *     IoFreeDumpRange @ 0x140501FE0 (IoFreeDumpRange.c)
  * Callees:
- *     RtlClearBitsEx @ 0x14028BA00 (RtlClearBitsEx.c)
+ *     RtlClearBitsEx @ 0x14027E980 (RtlClearBitsEx.c)
  */
 
 __int64 __fastcall IopRemovePageFromPageMap(
@@ -26,75 +26,77 @@ __int64 __fastcall IopRemovePageFromPageMap(
   unsigned __int64 v18; // rdx
 
   v5 = a3;
-  if ( !a4 )
-    return 0LL;
-  v8 = *a1;
-  v9 = a3 + a4 - 1;
-  if ( a3 < *a1 )
+  if ( a4 )
   {
-    if ( v9 >= v8 )
+    v8 = *a1;
+    v9 = a3 + a4 - 1;
+    if ( a3 < *a1 )
     {
-      if ( !a5 )
-        return 3221225793LL;
-      v9 = v8 - 1;
-      a4 = v8 - a3;
-    }
-    if ( a4 )
-    {
-      if ( a2 )
+      if ( v9 >= v8 )
       {
-        do
+        if ( !a5 )
+          return 3221225793LL;
+        v9 = v8 - 1;
+        a4 = v8 - a3;
+      }
+      if ( a4 )
+      {
+        if ( a2 )
         {
-          v11 = a1[1];
-          v12 = v5 & -(__int64)(v5 < *a1);
-          v13 = *a1 - 1;
-          while ( 1 )
+          do
           {
-            if ( v13 - v12 == -1LL )
-              goto LABEL_14;
-            v15 = (_QWORD *)(v11 + 8 * (v12 >> 6));
-            for ( i = ~*v15 | ((1LL << (v12 & 0x3F)) - 1); i == -1; i = ~*v15 )
+            v11 = a1[1];
+            v12 = v5 & -(__int64)(v5 < *a1);
+            v13 = *a1 - 1;
+            while ( 1 )
             {
-              if ( (unsigned __int64)++v15 > v11 + 8 * (v13 >> 6) )
+              if ( v13 - v12 == -1LL )
                 goto LABEL_14;
-            }
-            _BitScanForward64(&v17, ~i);
-            v14 = v17 + ((__int64)((__int64)v15 - v11) >> 3 << 6);
-            if ( v14 > v13 )
-            {
+              v15 = (_QWORD *)(v11 + 8 * (v12 >> 6));
+              for ( i = ~*v15 | ((1LL << (v12 & 0x3F)) - 1); i == -1; i = ~*v15 )
+              {
+                if ( (unsigned __int64)++v15 > v11 + 8 * (v13 >> 6) )
+                  goto LABEL_14;
+              }
+              _BitScanForward64(&v17, ~i);
+              v14 = v17 + ((__int64)((__int64)v15 - v11) >> 3 << 6);
+              if ( v14 > v13 )
+              {
 LABEL_14:
-              v14 = -1LL;
+                v14 = -1LL;
+              }
+              else if ( v14 != -1LL )
+              {
+                break;
+              }
+              if ( !v12 )
+                break;
+              v18 = v5 + 1;
+              if ( v5 + 1 > *a1 )
+                v18 = *a1;
+              v13 = v18 - 1;
+              v12 = 0LL;
             }
-            else if ( v14 != -1LL )
-            {
+            if ( v14 < v5 )
               break;
-            }
-            if ( !v12 )
+            if ( v14 == -1LL )
               break;
-            v18 = v5 + 1;
-            if ( v5 + 1 > *a1 )
-              v18 = *a1;
-            v13 = v18 - 1;
-            v12 = 0LL;
+            RtlClearBitsEx((__int64)a1, v14, 1uLL);
+            ++*a2;
+            v5 = v14 + 1;
           }
-          if ( v14 < v5 )
-            break;
-          if ( v14 == -1LL )
-            break;
-          RtlClearBitsEx((__int64)a1, v14, 1uLL);
-          ++*a2;
-          v5 = v14 + 1;
+          while ( v14 + 1 <= v9 );
         }
-        while ( v14 + 1 <= v9 );
-      }
-      else
-      {
-        RtlClearBitsEx((__int64)a1, a3, a4);
+        else
+        {
+          RtlClearBitsEx((__int64)a1, a3, a4);
+        }
       }
     }
-    return 0LL;
+    else if ( !a5 )
+    {
+      return 3221225793LL;
+    }
   }
-  if ( !a5 )
-    return 3221225793LL;
   return 0LL;
 }

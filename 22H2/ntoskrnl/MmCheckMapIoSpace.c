@@ -1,39 +1,35 @@
 /*
- * XREFs of MmCheckMapIoSpace @ 0x140AE936C
+ * XREFs of MmCheckMapIoSpace @ 0x1409C5EB8
  * Callers:
- *     VerifierMmMapIoSpace @ 0x140AE3FF0 (VerifierMmMapIoSpace.c)
+ *     VerifierMmMapIoSpace @ 0x1409E69B0 (VerifierMmMapIoSpace.c)
  * Callees:
- *     MiIsPfn @ 0x14023F0A0 (MiIsPfn.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
+ *     MiIsPfn @ 0x1402C9840 (MiIsPfn.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall MmCheckMapIoSpace(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
-  ULONG_PTR v2; // rsi
-  ULONG_PTR v4; // rbp
-  signed __int64 v6; // rdi
+  ULONG_PTR v2; // rdi
+  ULONG_PTR v3; // rbp
+  signed __int64 v6; // rsi
   __int64 result; // rax
 
   v2 = BugCheckParameter2 >> 12;
-  v4 = ((BugCheckParameter2 & 0xFFF) + BugCheckParameter3 + 4095) >> 12;
+  v3 = ((BugCheckParameter2 & 0xFFF) + BugCheckParameter3 + 4095) >> 12;
   v6 = 48 * (BugCheckParameter2 >> 12);
   do
   {
     result = MiIsPfn(v2);
-    if ( (_DWORD)result )
+    if ( (_DWORD)result == 1 )
     {
-      if ( !*(_WORD *)(v6 - 0x21FFFFFFFFE0LL) )
-        result = VerifierBugCheckIfAppropriate(
-                   0xC4u,
-                   0x83uLL,
-                   BugCheckParameter2,
-                   BugCheckParameter3,
-                   0xAAAAAAAAAAAAAAABuLL * (v6 >> 4));
+      result = 0xFFFFFA8000000020uLL;
+      if ( !*(_WORD *)(v6 - 0x57FFFFFFFE0LL) )
+        result = VerifierBugCheckIfAppropriate(0xC4u, 0x83uLL, BugCheckParameter2, BugCheckParameter3, v6 / 48);
     }
     v6 += 48LL;
     ++v2;
-    --v4;
+    --v3;
   }
-  while ( v4 );
+  while ( v3 );
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?RecordVaPagingHistoryUpdateGpuVaOp@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_VIDSCH_CONTEXT@@PEAUVIDMM_ALLOC@@PEAU_D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION@@@Z @ 0x1C00E3C64
+ * XREFs of ?RecordVaPagingHistoryUpdateGpuVaOp@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_VIDSCH_CONTEXT@@PEAUVIDMM_ALLOC@@PEAU_D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION@@@Z @ 0x1C00BEA74
  * Callers:
- *     ?UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00DACE0 (-UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@.c)
- *     ?VidMmUpdateGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAU_D3DKMT_UPDATEGPUVIRTUALADDRESS@@PEAUVIDMM_COMPANION_CONTEXT@@IPEAPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDSCH_SYNC_OBJECT@@PEAPEAU_KSEMAPHORE@@@Z @ 0x1C00DC7D4 (-VidMmUpdateGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAU_D3DKMT_UPDATEGPUVIRTUALADDRESS@@PEAUVIDMM_.c)
+ *     ?UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00B4F68 (-UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@.c)
+ *     ?VidMmUpdateGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAU_D3DKMT_UPDATEGPUVIRTUALADDRESS@@PEAUVIDMM_COMPANION_CONTEXT@@IPEAPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDSCH_SYNC_OBJECT@@PEAPEAU_KSEMAPHORE@@@Z @ 0x1C00B6CC8 (-VidMmUpdateGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAU_D3DKMT_UPDATEGPUVIRTUALADDRESS@@PEAUVIDMM_.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0001904 (--3@YAXPEAX@Z.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001618 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryUpdateGpuVaOp(
@@ -15,21 +15,21 @@ void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryUpdateGpuVaOp(
         struct VIDMM_ALLOC *a4,
         struct _D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION *a5)
 {
-  __int64 v9; // rdi
+  _QWORD *v9; // rdi
   unsigned int v10; // ecx
   void *v11; // rcx
   __int128 v12; // xmm1
 
   if ( *((_QWORD *)this + 5123) )
   {
-    v9 = operator new(96LL, 0x32356956u, 256LL);
+    v9 = operator new[](0x60uLL, 0x32356956u, PagedPool);
     if ( v9 )
     {
       KeEnterCriticalRegion();
       ExAcquirePushLockExclusiveEx((char *)this + 41000, 0LL);
       *((_QWORD *)this + 5126) = KeGetCurrentThread();
       v10 = *((_DWORD *)this + 10248);
-      if ( v10 == dword_1C006E41C )
+      if ( v10 == dword_1C00503AC )
       {
         *((_DWORD *)this + 10248) = 0;
         v10 = 0;
@@ -37,15 +37,15 @@ void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryUpdateGpuVaOp(
       v11 = *(void **)(*((_QWORD *)this + 5123) + 24LL * v10 + 16);
       if ( v11 )
         operator delete(v11);
-      *(_QWORD *)v9 = *(_QWORD *)a2;
-      *(_QWORD *)(v9 + 8) = *((_QWORD *)a2 + 4);
-      *(_QWORD *)(v9 + 16) = a3;
-      *(_OWORD *)(v9 + 32) = *(_OWORD *)&a5->OperationType;
-      *(_OWORD *)(v9 + 48) = *(_OWORD *)&a5->Copy.SizeInBytes;
-      *(_OWORD *)(v9 + 64) = *(_OWORD *)(&a5->Copy + 1);
+      *v9 = *(_QWORD *)a2;
+      v9[1] = *((_QWORD *)a2 + 4);
+      v9[2] = a3;
+      *((_OWORD *)v9 + 2) = *(_OWORD *)&a5->OperationType;
+      *((_OWORD *)v9 + 3) = *(_OWORD *)&a5->Copy.SizeInBytes;
+      *((_OWORD *)v9 + 4) = *(_OWORD *)(&a5->Copy + 1);
       v12 = *(_OWORD *)((char *)&a5->Copy + 40);
-      *(_QWORD *)(v9 + 24) = a4;
-      *(_OWORD *)(v9 + 80) = v12;
+      v9[3] = a4;
+      *((_OWORD *)v9 + 5) = v12;
       *(_QWORD *)(*((_QWORD *)this + 5123) + 24LL * *((unsigned int *)this + 10248)) = MEMORY[0xFFFFF78000000014];
       *(_QWORD *)(*((_QWORD *)this + 5123) + 24LL * *((unsigned int *)this + 10248) + 16) = v9;
       *(_DWORD *)(*((_QWORD *)this + 5123) + 24LL * (unsigned int)(*((_DWORD *)this + 10248))++ + 8) = 18;

@@ -1,32 +1,32 @@
 /*
- * XREFs of ?CaptureBroadcastString@@YAHPEAU_LARGE_UNICODE_STRING@@PEAU_LARGE_STRING@@@Z @ 0x1C0113118
+ * XREFs of ?CaptureBroadcastString@@YAHPEAU_LARGE_UNICODE_STRING@@PEAU_LARGE_STRING@@@Z @ 0x1C0133350
  * Callers:
- *     xxxBroadcastMessageEx @ 0x1C00A9E58 (xxxBroadcastMessageEx.c)
- *     xxxSendNotifyMessage @ 0x1C00ACBA0 (xxxSendNotifyMessage.c)
+ *     xxxBroadcastMessageEx @ 0x1C003FE88 (xxxBroadcastMessageEx.c)
+ *     xxxSendNotifyMessage @ 0x1C0040370 (xxxSendNotifyMessage.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall CaptureBroadcastString(struct _LARGE_UNICODE_STRING *a1, struct _LARGE_STRING *a2)
 {
-  int v4; // ecx
+  int v4; // eax
   bool v5; // zf
-  __int64 v6; // rcx
+  ULONG v6; // eax
   WCHAR *v7; // rax
   ULONG v8; // edx
   ULONG BytesInMultiByteString; // ecx
   NTSTATUS v10; // edx
   ULONG BytesInUnicodeString; // [rsp+58h] [rbp+10h] BYREF
 
-  v4 = 2 * *(_DWORD *)a2;
-  if ( *((int *)a2 + 1) >= 0 )
-    v4 = *(_DWORD *)a2;
+  v4 = *(_DWORD *)a2;
+  if ( *((int *)a2 + 1) < 0 )
+    v4 *= 2;
   v5 = v4 == -2;
-  v6 = (unsigned int)(v4 + 2);
+  v6 = v4 + 2;
   BytesInUnicodeString = v6;
   if ( !v5 )
   {
-    v7 = (WCHAR *)Win32AllocPoolWithQuotaZInit(v6, 1936946005LL);
+    v7 = (WCHAR *)Win32AllocPoolWithQuota(v6, 1936946005LL);
     *((_QWORD *)a1 + 1) = v7;
     if ( v7 )
     {
@@ -47,7 +47,7 @@ __int64 __fastcall CaptureBroadcastString(struct _LARGE_UNICODE_STRING *a1, stru
       *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * ((unsigned __int64)*(unsigned int *)a1 >> 1)) = 0;
       if ( v10 >= 0 )
         return 1LL;
-      Win32FreePool(*((_QWORD *)a1 + 1));
+      Win32FreePool(*((void **)a1 + 1));
     }
   }
   return 0LL;

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpGetHandleExtraInfo @ 0x1408CE130
+ * XREFs of ExpGetHandleExtraInfo @ 0x1408CE110
  * Callers:
  *     ObpReferenceProcessObjectByHandle @ 0x1405D11B0 (ObpReferenceProcessObjectByHandle.c)
  *     ObCloseHandleTableEntry @ 0x1405E6360 (ObCloseHandleTableEntry.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     ExpFreeHandleTableEntry @ 0x1405FB378 (ExpFreeHandleTableEntry.c)
- *     ExDupHandleTable @ 0x1406965A0 (ExDupHandleTable.c)
- *     ObpAuditObjectAccess @ 0x1408613B4 (ObpAuditObjectAccess.c)
+ *     ExDupHandleTable @ 0x140696580 (ExDupHandleTable.c)
+ *     ObpAuditObjectAccess @ 0x140861394 (ObpAuditObjectAccess.c)
  * Callees:
  *     ExpLookupHandleTableEntry @ 0x1405E8990 (ExpLookupHandleTableEntry.c)
  */

@@ -1,29 +1,27 @@
 /*
- * XREFs of MiArePageContentsZero @ 0x1405AD468
+ * XREFs of MiArePageContentsZero @ 0x14054EBC8
  * Callers:
- *     MiGetPageSlist @ 0x140220360 (MiGetPageSlist.c)
- *     MiSlistGetFreePage @ 0x14022FFB8 (MiSlistGetFreePage.c)
- *     MiReplenishPageSlist @ 0x140264720 (MiReplenishPageSlist.c)
- *     MiGetLargePage @ 0x140267060 (MiGetLargePage.c)
- *     MiInitializeSystemPageTable @ 0x14027C784 (MiInitializeSystemPageTable.c)
- *     MiCreateSystemPageTable @ 0x14027CE40 (MiCreateSystemPageTable.c)
- *     MiInsertLargePageInNodeList @ 0x1402BEEA0 (MiInsertLargePageInNodeList.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402C6AA0 (MiConvertEntireLargePageToSmall.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402C6EB0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402C8740 (MiUnlinkFreeOrZeroedPage.c)
- *     MiUnlinkNodeLargePageHelper @ 0x1402CB2D0 (MiUnlinkNodeLargePageHelper.c)
- *     MiLargePageFreeToZero @ 0x1402E86F0 (MiLargePageFreeToZero.c)
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
- *     MiCreateSharedZeroPages @ 0x14033C5F0 (MiCreateSharedZeroPages.c)
- *     MiIdealClusterPage @ 0x1405C3C6C (MiIdealClusterPage.c)
+ *     MiGetPage @ 0x140213610 (MiGetPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x1402363C0 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiCreateSharedZeroPages @ 0x140241770 (MiCreateSharedZeroPages.c)
+ *     MiSlistGetFreePage @ 0x1402993D0 (MiSlistGetFreePage.c)
+ *     MiCreateSystemPageTable @ 0x1402E5210 (MiCreateSystemPageTable.c)
+ *     MiInsertLargePageInNodeList @ 0x1402FEA50 (MiInsertLargePageInNodeList.c)
+ *     MiGetLargePage @ 0x140303A34 (MiGetLargePage.c)
+ *     MiLargePageFreeToZero @ 0x140303D40 (MiLargePageFreeToZero.c)
+ *     MiReplenishPageSlist @ 0x140318700 (MiReplenishPageSlist.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x140318F30 (MiUnlinkNodeLargePageHelper.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1403F5C28 (MiConvertEntireLargePageToSmall.c)
+ *     MiIdealClusterPage @ 0x140555E14 (MiIdealClusterPage.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x140222100 (KeShouldYieldProcessor.c)
- *     MiIsPageOnBadList @ 0x140273354 (MiIsPageOnBadList.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x1402BEDD0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMapPageInHyperSpaceWorker @ 0x1402CC7C0 (MiMapPageInHyperSpaceWorker.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeCheckForZeroPage @ 0x140424E70 (KeCheckForZeroPage.c)
- *     MiPageNotZero @ 0x1405ADB14 (MiPageNotZero.c)
+ *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
+ *     MiIsPageOnBadList @ 0x14030356C (MiIsPageOnBadList.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140331AB0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140348910 (MiUnmapPageInHyperSpaceWorker.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeCheckForZeroPage @ 0x140402D00 (KeCheckForZeroPage.c)
+ *     MiPageNotZero @ 0x14054F170 (MiPageNotZero.c)
  */
 
 __int64 __fastcall MiArePageContentsZero(ULONG_PTR BugCheckParameter2, unsigned __int64 a2)
@@ -33,19 +31,20 @@ __int64 __fastcall MiArePageContentsZero(ULONG_PTR BugCheckParameter2, unsigned 
   unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
   int v7; // eax
-  unsigned __int64 v8; // rbp
+  _QWORD *v8; // rbp
+  __int64 v9; // rdx
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v10; // r9
-  int v11; // eax
-  bool v12; // zf
-  unsigned __int8 v13; // al
-  struct _KPRCB *v14; // r9
-  _DWORD *v15; // r8
-  int v16; // eax
+  _DWORD *v11; // r9
+  int v12; // eax
+  bool v13; // zf
+  unsigned __int8 v14; // al
+  struct _KPRCB *v15; // r9
+  _DWORD *v16; // r8
+  int v17; // eax
   __int64 result; // rax
 
   v3 = BugCheckParameter2;
-  v4 = 48 * BugCheckParameter2 - 0x220000000000LL;
+  v4 = 48 * BugCheckParameter2 - 0x58000000000LL;
 LABEL_2:
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
@@ -69,10 +68,11 @@ LABEL_2:
     {
       if ( (*(_BYTE *)(v4 + 35) & 0x40) == 0 && !MiIsPageOnBadList(v4) )
       {
-        v8 = MiMapPageInHyperSpaceWorker(v3, 0LL, 0x20000000);
+        v8 = (_QWORD *)MiMapPageInHyperSpaceWorker(v3, 0LL, 0x20000000);
         if ( KeCheckForZeroPage(v8) )
-          MiPageNotZero(v8, v3);
-        MiUnmapPageInHyperSpaceWorker(v8, 0x11u);
+          MiPageNotZero((ULONG_PTR)v8, v3);
+        LOBYTE(v9) = 17;
+        MiUnmapPageInHyperSpaceWorker((unsigned __int64)v8, v9, 0);
       }
       v4 += 48LL;
       ++v3;
@@ -81,11 +81,11 @@ LABEL_2:
         if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v10 = CurrentPrcb->SchedulerAssist;
-          v11 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v12 = (v11 & v10[5]) == 0;
-          v10[5] &= v11;
-          if ( v12 )
+          v11 = CurrentPrcb->SchedulerAssist;
+          v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v13 = (v12 & v11[5]) == 0;
+          v11[5] &= v12;
+          if ( v13 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
         __writecr8(CurrentIrql);
@@ -97,16 +97,16 @@ LABEL_2:
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v13 = KeGetCurrentIrql();
-      if ( v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+      v14 = KeGetCurrentIrql();
+      if ( v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
       {
-        v14 = KeGetCurrentPrcb();
-        v15 = v14->SchedulerAssist;
-        v16 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v12 = (v16 & v15[5]) == 0;
-        v15[5] &= v16;
-        if ( v12 )
-          KiRemoveSystemWorkPriorityKick((__int64)v14);
+        v15 = KeGetCurrentPrcb();
+        v16 = v15->SchedulerAssist;
+        v17 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v13 = (v17 & v16[5]) == 0;
+        v16[5] &= v17;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick((__int64)v15);
       }
     }
   }

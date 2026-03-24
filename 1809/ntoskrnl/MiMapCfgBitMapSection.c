@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMapCfgBitMapSection @ 0x14067ABF0
+ * XREFs of MiMapCfgBitMapSection @ 0x14067ABD0
  * Callers:
- *     MiCfgInitializeProcess @ 0x140677D70 (MiCfgInitializeProcess.c)
+ *     MiCfgInitializeProcess @ 0x140677D50 (MiCfgInitializeProcess.c)
  * Callees:
- *     MmMapViewOfSectionEx @ 0x1400F2918 (MmMapViewOfSectionEx.c)
+ *     MmMapViewOfSectionEx @ 0x1400F2938 (MmMapViewOfSectionEx.c)
  */
 
 __int64 __fastcall MiMapCfgBitMapSection(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)

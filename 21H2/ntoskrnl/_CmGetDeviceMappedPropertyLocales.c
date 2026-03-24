@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmGetDeviceMappedPropertyLocales @ 0x1406C72AC
+ * XREFs of _CmGetDeviceMappedPropertyLocales @ 0x14097A670
  * Callers:
- *     _PnpDispatchDevice @ 0x1407855F0 (_PnpDispatchDevice.c)
+ *     _PnpDispatchDevice @ 0x14063C410 (_PnpDispatchDevice.c)
  * Callees:
  *     <none>
  */
@@ -19,15 +19,15 @@ __int64 __fastcall CmGetDeviceMappedPropertyLocales(
   unsigned int v8; // r11d
   unsigned int v9; // r10d
   DEVPROPKEY *v10; // rdx
-  unsigned int v11; // r10d
-  DEVPROPKEY **v12; // r8
-  DEVPROPKEY *v13; // rdx
-  DEVPROPKEY **v14; // rdx
-  unsigned int v15; // r8d
-  DEVPROPKEY *v16; // r10
-  __int64 v18; // rcx
+  __int64 v11; // rcx
+  unsigned int v12; // r10d
+  DEVPROPKEY **v13; // r8
+  DEVPROPKEY *v14; // rdx
+  __int64 v15; // rcx
+  DEVPROPKEY **v16; // rdx
+  unsigned int v17; // r8d
+  DEVPROPKEY *v18; // r10
   __int64 v19; // rcx
-  __int64 v20; // rcx
 
   v7 = &CmDeviceRegPropMap;
   v8 = -1073741802;
@@ -38,57 +38,57 @@ __int64 __fastcall CmGetDeviceMappedPropertyLocales(
     v10 = *v7;
     if ( *v7 && *(_DWORD *)(a4 + 16) == v10->pid )
     {
-      v19 = *(_QWORD *)a4 - *(_QWORD *)&v10->fmtid.Data1;
+      v11 = *(_QWORD *)a4 - *(_QWORD *)&v10->fmtid.Data1;
       if ( *(_QWORD *)a4 == *(_QWORD *)&v10->fmtid.Data1 )
-        v19 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v10->fmtid.Data4;
-      if ( !v19 )
+        v11 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v10->fmtid.Data4;
+      if ( !v11 )
         break;
     }
     ++v9;
     v7 += 3;
     if ( v9 >= 0x21 )
     {
-      v11 = 0;
-      v12 = &off_140A38610;
+      v12 = 0;
+      v13 = &off_140983DC0;
       while ( 1 )
       {
-        v13 = *v12;
-        if ( *v12 && *(_DWORD *)(a4 + 16) == v13->pid )
+        v14 = *v13;
+        if ( *v13 && *(_DWORD *)(a4 + 16) == v14->pid )
         {
-          v20 = *(_QWORD *)a4 - *(_QWORD *)&v13->fmtid.Data1;
-          if ( *(_QWORD *)a4 == *(_QWORD *)&v13->fmtid.Data1 )
-            v20 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v13->fmtid.Data4;
-          if ( !v20 )
-            goto LABEL_20;
+          v15 = *(_QWORD *)a4 - *(_QWORD *)&v14->fmtid.Data1;
+          if ( *(_QWORD *)a4 == *(_QWORD *)&v14->fmtid.Data1 )
+            v15 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v14->fmtid.Data4;
+          if ( !v15 )
+            goto LABEL_22;
         }
-        ++v11;
-        v12 += 4;
-        if ( v11 >= 2 )
+        ++v12;
+        v13 += 4;
+        if ( v12 >= 2 )
         {
-          v14 = &off_140A3A8C0;
-          v15 = 0;
+          v16 = &off_140985DB0;
+          v17 = 0;
           while ( 1 )
           {
-            v16 = *v14;
-            if ( *(_DWORD *)(a4 + 16) == (*v14)->pid )
+            v18 = *v16;
+            if ( *(_DWORD *)(a4 + 16) == (*v16)->pid )
             {
-              v18 = *(_QWORD *)a4 - *(_QWORD *)&v16->fmtid.Data1;
-              if ( *(_QWORD *)a4 == *(_QWORD *)&v16->fmtid.Data1 )
-                v18 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v16->fmtid.Data4;
-              if ( !v18 )
+              v19 = *(_QWORD *)a4 - *(_QWORD *)&v18->fmtid.Data1;
+              if ( *(_QWORD *)a4 == *(_QWORD *)&v18->fmtid.Data1 )
+                v19 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v18->fmtid.Data4;
+              if ( !v19 )
                 break;
             }
-            ++v15;
-            v14 += 2;
-            if ( v15 >= 0x1C )
+            ++v17;
+            v16 += 2;
+            if ( v17 >= 0x1B )
               return v8;
           }
-          goto LABEL_20;
+          goto LABEL_22;
         }
       }
     }
   }
-LABEL_20:
+LABEL_22:
   *a7 = 1;
   if ( a6 )
   {

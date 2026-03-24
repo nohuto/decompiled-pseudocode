@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetCcAccessLog @ 0x1407494A0
+ * XREFs of MiGetCcAccessLog @ 0x1406901BC
  * Callers:
- *     MmPrefetchForCacheManager @ 0x14073F12C (MmPrefetchForCacheManager.c)
+ *     MmPrefetchForCacheManager @ 0x1406360AC (MmPrefetchForCacheManager.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiInitializePageAccessLogging @ 0x1402E6508 (MiInitializePageAccessLogging.c)
- *     MiQueuePageAccessLog @ 0x1402F54F0 (MiQueuePageAccessLog.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiQueuePageAccessLog @ 0x14025B88C (MiQueuePageAccessLog.c)
+ *     MiGetAnyMultiplexedVm @ 0x14027D77C (MiGetAnyMultiplexedVm.c)
+ *     MiInitializePageAccessLogging @ 0x14033DE30 (MiInitializePageAccessLogging.c)
  */
 
 PVOID __fastcall MiGetCcAccessLog(__int64 a1, __int64 a2)
@@ -14,47 +14,58 @@ PVOID __fastcall MiGetCcAccessLog(__int64 a1, __int64 a2)
   __int64 v4; // r10
   unsigned __int64 v5; // r8
   __int64 v6; // rax
-  __int64 v7; // r8
-  unsigned __int64 v8; // rdx
-  _QWORD *i; // rcx
+  unsigned __int64 v7; // rdx
+  __int64 v8; // r8
+  _QWORD *v9; // rcx
   PVOID result; // rax
   unsigned __int64 v11; // rbx
   char *AnyMultiplexedVm; // rax
   __int64 v13; // r10
 
-  if ( qword_140C680C0 )
+  if ( !qword_140C4E800 )
+    goto LABEL_12;
+  v4 = _InterlockedExchange64(&qword_140C4E800, 0LL);
+  if ( !v4 )
+    goto LABEL_12;
+  v5 = *(_QWORD *)(v4 + 40);
+  if ( *(_QWORD *)(v4 + 32) + 8 * a2 > v5 || (__int64)((*(_QWORD *)(v4 + 48) - v5) & 0xFFFFFFFFFFFFFFF8uLL) >= 4096 )
   {
-    v4 = _InterlockedExchange64(&qword_140C680C0, 0LL);
-    if ( v4 )
-    {
-      v5 = *(_QWORD *)(v4 + 40);
-      if ( *(_QWORD *)(v4 + 32) + 8 * a2 <= v5 && (__int64)((*(_QWORD *)(v4 + 48) - v5) & 0xFFFFFFFFFFFFFFF8uLL) < 4096 )
-        goto LABEL_5;
-      MiQueuePageAccessLog((struct _SLIST_ENTRY *)v4);
-    }
+    MiQueuePageAccessLog((struct _SLIST_ENTRY *)v4);
+    v4 = 0LL;
   }
-  v11 = (8 * a2 + 4183) & 0xFFFFFFFFFFFFF000uLL;
-  result = MiAllocatePool(64, v11, 0x63416D4Du);
-  if ( !result )
-    return result;
-  AnyMultiplexedVm = MiGetAnyMultiplexedVm(0);
-  MiInitializePageAccessLogging((__int64)AnyMultiplexedVm, v13, v11);
-  *(_DWORD *)(v4 + 8) = 1;
-LABEL_5:
+  if ( !v4 )
+  {
+LABEL_12:
+    v11 = (8 * a2 + 4183) & 0xFFFFFFFFFFFFF000uLL;
+    result = MiAllocatePool(64, v11, 0x63416D4Du);
+    if ( !result )
+      return result;
+    AnyMultiplexedVm = MiGetAnyMultiplexedVm(0);
+    MiInitializePageAccessLogging((__int64)AnyMultiplexedVm, v13, v11);
+    *(_DWORD *)(v4 + 8) = 1;
+  }
   v6 = *(_QWORD *)(v4 + 40);
-  v7 = *(_QWORD *)(a1 + 24);
-  v8 = *(_QWORD *)(v4 + 48);
-  for ( i = (_QWORD *)(v6 + 8); (unsigned __int64)i < v8; ++i )
+  v7 = *(_QWORD *)(v4 + 48);
+  v8 = *(_QWORD *)(a1 + 24);
+  v9 = (_QWORD *)(v6 + 8);
+  if ( v6 + 8 >= v7 )
+    goto LABEL_11;
+  do
   {
-    if ( *i == v7 )
-      goto LABEL_10;
+    if ( *v9 == v8 )
+      break;
+    ++v9;
   }
-  i = *(_QWORD **)(v4 + 40);
-  *(_QWORD *)(v4 + 40) = v6 - 8;
-  *i = v7;
-LABEL_10:
+  while ( (unsigned __int64)v9 < v7 );
+  if ( (unsigned __int64)v9 >= v7 )
+  {
+LABEL_11:
+    v9 = *(_QWORD **)(v4 + 40);
+    *(_QWORD *)(v4 + 40) = v6 - 8;
+    *v9 = v8;
+  }
   *(_QWORD *)(v4 + 24) = *(_QWORD *)(v4 + 32);
   result = (PVOID)v4;
-  *(_DWORD *)(v4 + 12) = (__int64)(v8 - (_QWORD)i) >> 3;
+  *(_DWORD *)(v4 + 12) = (__int64)(v7 - (_QWORD)v9) >> 3;
   return result;
 }

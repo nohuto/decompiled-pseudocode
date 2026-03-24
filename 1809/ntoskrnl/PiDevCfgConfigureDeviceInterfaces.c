@@ -1,23 +1,23 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceInterfaces @ 0x1406F9FC4
+ * XREFs of PiDevCfgConfigureDeviceInterfaces @ 0x1406F9FA4
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x1406F9C28 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1406F9C08 (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     PiDevCfgParseVariableName @ 0x14015D070 (PiDevCfgParseVariableName.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x1401B87B0 (ZwEnumerateKey.c)
- *     PiDevCfgParseInterfaceKeyName @ 0x140289290 (PiDevCfgParseInterfaceKeyName.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     PiDevCfgParseVariableName @ 0x14015D090 (PiDevCfgParseVariableName.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1401B87D0 (ZwEnumerateKey.c)
+ *     PiDevCfgParseInterfaceKeyName @ 0x140289390 (PiDevCfgParseInterfaceKeyName.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x14059ED20 (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     PiDevCfgResolveVariable @ 0x1406F341C (PiDevCfgResolveVariable.c)
- *     IopRegisterDeviceInterface @ 0x140709AF4 (IopRegisterDeviceInterface.c)
- *     PiDevCfgConfigureDeviceInterface @ 0x14082C034 (PiDevCfgConfigureDeviceInterface.c)
+ *     PiDevCfgResolveVariable @ 0x1406F33FC (PiDevCfgResolveVariable.c)
+ *     IopRegisterDeviceInterface @ 0x140709AD4 (IopRegisterDeviceInterface.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x14082C014 (PiDevCfgConfigureDeviceInterface.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureDeviceInterfaces(__int64 a1, void *a2, __int64 a3)

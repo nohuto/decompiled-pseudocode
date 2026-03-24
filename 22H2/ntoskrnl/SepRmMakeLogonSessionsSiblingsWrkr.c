@@ -1,9 +1,9 @@
 /*
- * XREFs of SepRmMakeLogonSessionsSiblingsWrkr @ 0x1409D0500
+ * XREFs of SepRmMakeLogonSessionsSiblingsWrkr @ 0x140923D40
  * Callers:
- *     SepRmCommandServerThread @ 0x14082D2D0 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x1407AD670 (SepRmCommandServerThread.c)
  * Callees:
- *     SepMakeLogonSessionsSiblings @ 0x1409D0170 (SepMakeLogonSessionsSiblings.c)
+ *     SepMakeLogonSessionsSiblings @ 0x1409239CC (SepMakeLogonSessionsSiblings.c)
  */
 
 __int64 __fastcall SepRmMakeLogonSessionsSiblingsWrkr(__int64 a1, __int64 a2)

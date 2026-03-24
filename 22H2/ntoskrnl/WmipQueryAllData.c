@@ -1,266 +1,252 @@
 /*
- * XREFs of WmipQueryAllData @ 0x1406C7B2C
+ * XREFs of WmipQueryAllData @ 0x1406B1EB4
  * Callers:
- *     WmipIoControl @ 0x1407D66F0 (WmipIoControl.c)
- *     IoWMIQueryAllData @ 0x14085DB80 (IoWMIQueryAllData.c)
- *     WmipQueryAllDataMultiple @ 0x1409E0D24 (WmipQueryAllDataMultiple.c)
+ *     WmipIoControl @ 0x14068B1D0 (WmipIoControl.c)
+ *     IoWMIQueryAllData @ 0x1407CE7E0 (IoWMIQueryAllData.c)
+ *     WmipQueryAllDataMultiple @ 0x140932B28 (WmipQueryAllDataMultiple.c)
  * Callees:
- *     ObReferenceObjectByPointer @ 0x14022A9A0 (ObReferenceObjectByPointer.c)
- *     WmipAlign @ 0x14022AE50 (WmipAlign.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     WmipUnreferenceEntry @ 0x1406C7090 (WmipUnreferenceEntry.c)
- *     WmipSendWmiIrp @ 0x1406C7448 (WmipSendWmiIrp.c)
- *     WmipForwardWmiIrp @ 0x1406C7530 (WmipForwardWmiIrp.c)
- *     WmipPrepareForWnodeAD @ 0x1406C7F60 (WmipPrepareForWnodeAD.c)
- *     WmipStaticInstanceNameSize @ 0x1406C8078 (WmipStaticInstanceNameSize.c)
- *     WmipInsertStaticNames @ 0x1406C8104 (WmipInsertStaticNames.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     WmipAlign @ 0x14032E0C0 (WmipAlign.c)
+ *     ObReferenceObjectByPointer @ 0x14035F490 (ObReferenceObjectByPointer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     WmipInsertStaticNames @ 0x1406B1C50 (WmipInsertStaticNames.c)
+ *     WmipStaticInstanceNameSize @ 0x1406B1E2C (WmipStaticInstanceNameSize.c)
+ *     WmipUnreferenceEntry @ 0x1406B23F8 (WmipUnreferenceEntry.c)
+ *     WmipForwardWmiIrp @ 0x1406B24CC (WmipForwardWmiIrp.c)
+ *     WmipPrepareForWnodeAD @ 0x1406B6E50 (WmipPrepareForWnodeAD.c)
+ *     WmipSendWmiIrp @ 0x140756D0C (WmipSendWmiIrp.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipQueryAllData(PVOID Object, IRP *a2, KPROCESSOR_MODE a3, __int64 a4, unsigned int a5, _DWORD *a6)
 {
-  PVOID v7; // rdi
-  void *v9; // rcx
-  NTSTATUS v10; // eax
-  unsigned int v11; // ebx
+  char v9; // r15
+  void *v10; // rcx
+  NTSTATUS v11; // edi
   int v12; // eax
-  _BYTE *v13; // rdi
-  unsigned int v14; // r15d
-  char v15; // r14
-  _BYTE *v16; // r12
-  char v17; // r9
+  unsigned int v13; // ebx
+  char v14; // r9
+  unsigned int v15; // r12d
+  _BYTE *v16; // rsi
+  _BYTE *v17; // r13
   __int128 v18; // xmm6
-  volatile signed __int64 **v19; // rcx
-  int v20; // r12d
-  _BYTE *v21; // rsi
-  volatile signed __int64 *v22; // r13
-  int v23; // r13d
-  char *v24; // rax
-  __int64 v25; // rdx
-  IRP *v26; // rax
-  int v27; // eax
+  __int64 v19; // r14
+  __int64 *v20; // rcx
+  int v21; // r13d
+  __int64 v22; // rax
+  char *v23; // rax
+  __int64 v24; // rdx
+  IRP *v25; // rax
+  int v26; // eax
+  int *v27; // rax
   int v28; // ecx
   bool v29; // zf
-  volatile signed __int64 *v30; // r13
-  unsigned int *v31; // rax
-  unsigned int v32; // ecx
-  _DWORD *v33; // rsi
-  unsigned int v35; // eax
-  int v36; // eax
-  _DWORD *v37; // rax
-  __int128 v38; // xmm0
-  char v39; // [rsp+38h] [rbp-D0h] BYREF
-  unsigned int v40; // [rsp+3Ch] [rbp-CCh] BYREF
-  volatile signed __int64 *v41; // [rsp+40h] [rbp-C8h]
-  _BYTE *v42; // [rsp+48h] [rbp-C0h]
-  PVOID P; // [rsp+50h] [rbp-B8h] BYREF
-  PVOID v44; // [rsp+58h] [rbp-B0h]
-  char *v45; // [rsp+60h] [rbp-A8h]
-  __int64 v46; // [rsp+68h] [rbp-A0h]
-  _QWORD v47[4]; // [rsp+70h] [rbp-98h] BYREF
+  _DWORD *v30; // r14
+  unsigned int v32; // eax
+  int v33; // eax
+  _DWORD *v34; // rax
+  __int128 v35; // xmm0
+  int v36; // [rsp+38h] [rbp-D0h] BYREF
+  int v37; // [rsp+3Ch] [rbp-CCh] BYREF
+  __int64 v38; // [rsp+40h] [rbp-C8h] BYREF
+  _BYTE *v39; // [rsp+48h] [rbp-C0h]
+  __int64 v40; // [rsp+50h] [rbp-B8h]
+  PVOID v41; // [rsp+58h] [rbp-B0h] BYREF
+  char *v42; // [rsp+60h] [rbp-A8h]
+  PVOID P; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 v44; // [rsp+70h] [rbp-98h]
+  _QWORD v45[3]; // [rsp+78h] [rbp-90h] BYREF
   PIRP Irp; // [rsp+90h] [rbp-78h]
-  _DWORD *v49; // [rsp+98h] [rbp-70h]
-  _BYTE v50[80]; // [rsp+A8h] [rbp-60h] BYREF
-  _BYTE v51[128]; // [rsp+F8h] [rbp-10h] BYREF
+  _DWORD *v47; // [rsp+98h] [rbp-70h]
+  _BYTE v48[80]; // [rsp+A8h] [rbp-60h] BYREF
+  _BYTE v49[128]; // [rsp+F8h] [rbp-10h] BYREF
 
   Irp = a2;
-  v7 = Object;
-  v44 = Object;
-  v47[0] = a6;
-  v49 = (_DWORD *)a4;
-  memset(v51, 0, sizeof(v51));
-  memset(v50, 0, 0x48uLL);
-  v39 = 0;
-  *(_OWORD *)&v47[1] = 0LL;
-  if ( v7 )
+  v41 = Object;
+  v45[0] = a6;
+  v47 = (_DWORD *)a4;
+  memset(v49, 0, sizeof(v49));
+  memset(v48, 0, 0x48uLL);
+  v9 = 0;
+  LOBYTE(v36) = 0;
+  *(_OWORD *)&v45[1] = 0LL;
+  if ( Object )
   {
-    v10 = ObReferenceObjectByPointer(v7, 1u, WmipGuidObjectType, a3);
+    v11 = ObReferenceObjectByPointer(Object, 1u, WmipGuidObjectType, a3);
   }
   else
   {
-    v9 = *(void **)(a4 + 16);
-    P = 0LL;
-    v10 = ObReferenceObjectByHandle(v9, 1u, WmipGuidObjectType, a3, &P, 0LL);
-    v7 = P;
-    v44 = P;
+    v10 = *(void **)(a4 + 16);
+    v41 = 0LL;
+    v11 = ObReferenceObjectByHandle(v10, 1u, WmipGuidObjectType, a3, &v41, 0LL);
   }
-  v11 = v10;
-  if ( v10 < 0 )
-    return v11;
-  v40 = 16;
-  P = v51;
-  v11 = WmipPrepareForWnodeAD((_DWORD)v7, (unsigned int)&v47[1], (unsigned int)&v40, (unsigned int)&P, (__int64)&v39);
-  if ( (v11 & 0x80000000) != 0 )
+  if ( v11 < 0 )
+    return (unsigned int)v11;
+  LODWORD(v38) = 16;
+  P = v49;
+  v11 = WmipPrepareForWnodeAD((_DWORD)v41, (unsigned int)&v45[1], (unsigned int)&v38, (unsigned int)&P, (__int64)&v36);
+  if ( v11 < 0 )
     goto LABEL_35;
-  v11 = 0;
   v12 = *(_DWORD *)(a4 + 44);
-  LODWORD(v41) = v12;
-  if ( v39 )
+  v37 = v12;
+  if ( (_BYTE)v36 )
   {
-    v38 = *(_OWORD *)&v47[1];
     *(_DWORD *)(a4 + 12) = 0;
+    v35 = *(_OWORD *)&v45[1];
     *(_DWORD *)(a4 + 44) = v12 | 0x100;
-    *(_OWORD *)(a4 + 24) = v38;
+    v11 = 0;
+    *(_OWORD *)(a4 + 24) = v35;
     *a6 = 48;
     goto LABEL_35;
   }
-  v13 = (_BYTE *)a4;
-  v14 = a5;
-  v15 = 0;
-  v16 = P;
-  v17 = 0;
-  v42 = (_BYTE *)a4;
-  v39 = 0;
-  v47[3] = 0LL;
-  if ( !v40 )
-  {
-LABEL_60:
-    v11 = -1073741163;
-    goto LABEL_31;
-  }
-  v18 = *(_OWORD *)&v47[1];
-  v19 = (volatile signed __int64 **)P;
-  v46 = v40;
-  v20 = (int)v41;
-  v21 = 0LL;
-  v45 = (char *)P;
+  v13 = 0;
+  v40 = 0LL;
+  v14 = 0;
+  v15 = a5;
+  v16 = (_BYTE *)a4;
+  v17 = P;
+  v11 = -1073741163;
+  v39 = (_BYTE *)a4;
+  LOBYTE(v36) = 0;
+  if ( !(_DWORD)v38 )
+    goto LABEL_34;
+  v18 = *(_OWORD *)&v45[1];
+  v19 = v40;
+  v20 = (__int64 *)P;
+  v21 = v37;
+  v42 = (char *)P;
+  v44 = (unsigned int)v38;
   do
   {
-    v22 = *v19;
-    v41 = *v19;
-    if ( v15 || v17 || v14 < 0x48 )
+    v22 = *v20;
+    v40 = *v20;
+    if ( v9 || v14 || v15 < 0x48 )
     {
-      v14 = 72;
-      v13 = v50;
-      memset(v50, 0, 0x48uLL);
-      v39 = 1;
+      v15 = 72;
+      v16 = v48;
+      memset(v48, 0, 0x48uLL);
+      v22 = v40;
+      LOBYTE(v36) = 1;
     }
-    *(_DWORD *)v13 = 48;
-    v23 = v22[2] & 3;
-    v24 = v45;
-    *((_DWORD *)v13 + 11) = v20 | (v23 != 0 ? 0x80 : 0);
-    *(_OWORD *)(v13 + 24) = v18;
-    v25 = *(unsigned int *)(*(_QWORD *)v24 + 80LL);
-    *((_DWORD *)v13 + 3) = 0;
-    v26 = Irp;
-    *((_DWORD *)v13 + 1) = v25;
-    if ( v26 )
-      v27 = WmipForwardWmiIrp(v26, 0, v25, (UNICODE_STRING *)(v13 + 24), v14, (__int64)v13);
+    *(_DWORD *)v16 = 48;
+    LODWORD(v38) = *(_DWORD *)(v22 + 16) & 3;
+    v23 = v42;
+    *((_DWORD *)v16 + 11) = v21 | ((_DWORD)v38 != 0 ? 0x80 : 0);
+    *(_OWORD *)(v16 + 24) = v18;
+    v24 = *(unsigned int *)(*(_QWORD *)v23 + 80LL);
+    *((_DWORD *)v16 + 3) = 0;
+    v25 = Irp;
+    *((_DWORD *)v16 + 1) = v24;
+    if ( v25 )
+      v26 = WmipForwardWmiIrp(v25, v15, (__int64)v16);
     else
-      v27 = WmipSendWmiIrp(0LL, v25, (__int64)(v13 + 24), v14, (__int64)v13, &v47[1]);
-    v28 = v27;
-    *((_DWORD *)v13 + 1) = 0;
-    if ( v27 < 0 )
-      goto LABEL_59;
-    if ( (*((_DWORD *)v13 + 11) & 0x20) != 0 )
+      v26 = WmipSendWmiIrp(0LL, v24, v16 + 24, v15, v16, &v45[1]);
+    *((_DWORD *)v16 + 1) = 0;
+    if ( v26 < 0 )
+      goto LABEL_48;
+    if ( (*((_DWORD *)v16 + 11) & 0x20) != 0 )
     {
-      if ( *((_DWORD *)v13 + 12) <= v14 )
-        v28 = -1073741823;
-      if ( v28 < 0 )
-      {
-LABEL_59:
-        v30 = v41;
-        goto LABEL_46;
-      }
-      v35 = *((_DWORD *)v13 + 12);
-LABEL_41:
-      if ( v35 < 0x48 )
-        v35 = 72;
-      v40 = v35 + v11;
-      if ( v23 )
-      {
-        WmipAlign(4, (int *)&v40);
-        v30 = v41;
-        v36 = WmipStaticInstanceNameSize(v41);
-        v40 += v36;
-      }
-      else
-      {
-        v30 = v41;
-      }
-      WmipAlign(8, (int *)&v40);
-      v11 = v40;
-      v15 = 1;
-      goto LABEL_46;
+      if ( *((_DWORD *)v16 + 12) <= v15 )
+        v26 = -1073741823;
     }
-    if ( !*((_DWORD *)v13 + 13) )
-      goto LABEL_59;
-    if ( v39 )
+    else if ( !*((_DWORD *)v16 + 13) )
     {
-      v35 = *(_DWORD *)v13;
-      goto LABEL_41;
+      v26 = -1073741163;
     }
-    if ( v21 )
-      *((_DWORD *)v21 + 3) = (_DWORD)v13 - (_DWORD)v21;
-    v29 = v23 == 0;
-    v21 = v13;
-    v30 = v41;
-    if ( v29 )
+    if ( v26 < 0 )
+      goto LABEL_48;
+    if ( (*((_DWORD *)v16 + 11) & 0x20) != 0 )
     {
-      v32 = *(_DWORD *)v13;
+      v32 = *((_DWORD *)v16 + 12);
     }
     else
     {
-      WmipInsertStaticNames(v13, v14, v41);
-      if ( (*((_DWORD *)v13 + 11) & 0x20) != 0 )
+      if ( !(_BYTE)v36 )
       {
-        v15 = 1;
-        v31 = (unsigned int *)(v13 + 48);
+        if ( v19 )
+          *(_DWORD *)(v19 + 12) = (_DWORD)v16 - v19;
+        v19 = (__int64)v16;
+        if ( (_DWORD)v38 )
+        {
+          WmipInsertStaticNames((int *)v16, v15, v40);
+          if ( (*((_DWORD *)v16 + 11) & 0x20) != 0 )
+          {
+            v9 = 1;
+            v27 = (int *)(v16 + 48);
+          }
+          else
+          {
+            v27 = (int *)v16;
+          }
+          v28 = *v27;
+        }
+        else
+        {
+          v28 = *(_DWORD *)v16;
+        }
+        LODWORD(v38) = v28;
+        WmipAlign(8, (int *)&v38);
+        v13 += v38;
+        if ( !v9 && v15 >= (unsigned int)v38 )
+        {
+          v15 -= v38;
+          v16 = &v39[(unsigned int)v38];
+          v39 = v16;
+          goto LABEL_29;
+        }
+        goto LABEL_47;
       }
-      else
-      {
-        v31 = (unsigned int *)v13;
-      }
-      v32 = *v31;
+      v32 = *(_DWORD *)v16;
     }
-    v40 = v32;
-    WmipAlign(8, (int *)&v40);
-    v11 += v40;
-    if ( !v15 && v14 >= v40 )
+    if ( v32 < 0x48 )
+      v32 = 72;
+    v37 = v32 + v13;
+    if ( (_DWORD)v38 )
     {
-      v14 -= v40;
-      v13 = &v42[v40];
-      v42 = v13;
-      goto LABEL_26;
+      WmipAlign(4, &v37);
+      v33 = WmipStaticInstanceNameSize(v40);
+      v37 += v33;
     }
-    v15 = 1;
-LABEL_46:
-    v13 = v42;
-LABEL_26:
-    WmipUnreferenceEntry((__int64)&WmipISChunkInfo, v30);
-    v17 = v39;
-    v19 = (volatile signed __int64 **)(v45 + 8);
-    v29 = v46-- == 1;
-    v45 += 8;
+    WmipAlign(8, &v37);
+    v13 = v37;
+LABEL_47:
+    v9 = 1;
+LABEL_48:
+    v16 = v39;
+LABEL_29:
+    WmipUnreferenceEntry(&WmipISChunkInfo, v40);
+    v14 = v36;
+    v20 = (__int64 *)(v42 + 8);
+    v29 = v44-- == 1;
+    v42 += 8;
   }
   while ( !v29 );
-  v33 = v49;
-  v16 = P;
-  if ( !v11 )
-    goto LABEL_60;
-  if ( v15 )
+  v30 = v47;
+  v17 = P;
+  if ( v13 )
   {
-    if ( v11 <= a5 )
-      v11 = a5 + 64;
-    v37 = (_DWORD *)v47[0];
-    *v49 = 56;
-    v33[11] = 32;
-    v33[12] = v11;
-    *v37 = 56;
+    if ( v9 )
+    {
+      if ( v13 <= a5 )
+        v13 = a5 + 64;
+      v34 = (_DWORD *)v45[0];
+      *v47 = 56;
+      v30[11] = 32;
+      v30[12] = v13;
+      *v34 = 56;
+    }
+    else
+    {
+      *(_DWORD *)v45[0] = v13;
+    }
+    v11 = 0;
   }
-  else
-  {
-    *(_DWORD *)v47[0] = v11;
-  }
-  v11 = 0;
-LABEL_31:
-  if ( v16 != v51 && v16 )
-    ExFreePoolWithTag(v16, 0);
-  v7 = v44;
+LABEL_34:
+  if ( v17 != v49 && v17 )
+    ExFreePoolWithTag(v17, 0);
 LABEL_35:
-  ObfDereferenceObject(v7);
-  return v11;
+  HalPutDmaAdapter((PADAPTER_OBJECT)v41);
+  return (unsigned int)v11;
 }

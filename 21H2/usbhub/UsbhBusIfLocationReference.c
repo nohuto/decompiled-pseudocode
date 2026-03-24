@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhBusIfLocationReference @ 0x1C004B770
+ * XREFs of UsbhBusIfLocationReference @ 0x1C004CB70
  * Callers:
- *     UsbhBusifGetLocationInterface @ 0x1C004BA3C (UsbhBusifGetLocationInterface.c)
+ *     UsbhBusifGetLocationInterface @ 0x1C004CE3C (UsbhBusifGetLocationInterface.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 _DWORD *__fastcall UsbhBusIfLocationReference(__int64 a1)

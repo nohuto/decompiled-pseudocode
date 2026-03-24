@@ -1,148 +1,334 @@
 /*
- * XREFs of ?WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18007A258
+ * XREFs of ?WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18006F99C
  * Callers:
- *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18007A020 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
+ *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18006DBD0 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetOcclusionEvent@CDisplayManager@@QEAAPEAXXZ @ 0x18007A4A0 (-GetOcclusionEvent@CDisplayManager@@QEAAPEAXXZ.c)
- *     ?ForceFullRender@CRenderTargetManager@@QEAAXXZ @ 0x1800EE630 (-ForceFullRender@CRenderTargetManager@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0qqqqq_EventWriteTransfer @ 0x180112284 (McTemplateU0qqqqq_EventWriteTransfer.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x180030F44 (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     ?ForceFullRender@CRenderTargetManager@@QEAAXXZ @ 0x1800DB984 (-ForceFullRender@CRenderTargetManager@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0qqqqq_EventWriteTransfer @ 0x1801541B8 (McTemplateU0qqqqq_EventWriteTransfer.c)
+ *     ?CurrentTime@CDebugFrameCounter@@IEAA_KXZ @ 0x180162CC8 (-CurrentTime@CDebugFrameCounter@@IEAA_KXZ.c)
+ *     ?UpdateGlitchList@CDebugFrameCounter@@IEAAXAEA_K@Z @ 0x180162EEC (-UpdateGlitchList@CDebugFrameCounter@@IEAAXAEA_K@Z.c)
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18021698C (-IsKernelDebuggerPresent@@YAHXZ.c)
  */
 
-void __fastcall CPartitionVerticalBlankScheduler::WaitForWork(HANDLE *this)
+void __fastcall CPartitionVerticalBlankScheduler::WaitForWork(
+        CPartitionVerticalBlankScheduler *this,
+        __int64 a2,
+        __int64 a3)
 {
-  __int64 v2; // rbx
-  void *OcclusionEvent; // rax
-  __int64 v4; // r8
-  HANDLE *v5; // r14
+  unsigned int v4; // r14d
+  char *v5; // rbx
   HANDLE v6; // rcx
-  __m128i *p_si128; // rsi
-  int v8; // edx
-  int v9; // ecx
-  DWORD v10; // r8d
-  char v11; // r15
-  char v12; // r14
-  UCHAR v13; // si
-  int v14; // eax
-  int v15; // eax
-  __int64 v16; // rcx
-  unsigned int v17; // eax
-  int v18; // eax
-  __int64 v19; // rcx
-  signed int LastError; // eax
-  DWORD v21; // [rsp+40h] [rbp-30h] BYREF
-  __m128i si128; // [rsp+48h] [rbp-28h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v23; // [rsp+58h] [rbp-18h] BYREF
-  void *retaddr; // [rsp+88h] [rbp+18h]
+  HANDLE *v7; // rsi
+  int v8; // eax
+  __int64 v9; // r8
+  int v10; // r12d
+  DWORD *v11; // rdi
+  unsigned int i; // ebx
+  DWORD v13; // eax
+  int v14; // edx
+  int v15; // ecx
+  __int64 v16; // r8
+  int v17; // r15d
+  int v18; // r14d
+  int v19; // esi
+  int v20; // edi
+  char v21; // bl
+  int v22; // eax
+  char *EventW; // rax
+  char *v24; // rbx
+  void *RemoteSessionOcclusionEvent; // rax
+  unsigned __int64 v26; // rax
+  int v27; // ecx
+  __int64 v28; // rdx
+  unsigned int v29; // ecx
+  int v30; // eax
+  unsigned __int64 v31; // r9
+  __int64 v32; // r8
+  int v33; // ecx
+  __int64 v34; // rdx
+  int v35; // eax
+  int v36; // ebx
+  BOOL v37; // eax
+  CHAR v38; // cl
+  HANDLE CurrentThread; // rax
+  HANDLE CurrentProcess; // rax
+  CHAR Response[4]; // [rsp+68h] [rbp+7h] BYREF
+  int v42; // [rsp+6Ch] [rbp+Bh] BYREF
+  unsigned __int64 v43[2]; // [rsp+70h] [rbp+Fh] BYREF
+  __int128 v44; // [rsp+80h] [rbp+1Fh] BYREF
 
-  v2 = 4LL;
-  OcclusionEvent = CDisplayManager::GetOcclusionEvent((CDisplayManager *)this);
-  if ( OcclusionEvent )
-    this[4] = OcclusionEvent;
-  else
-    v2 = 3LL;
+  v44 = 0LL;
+  v4 = 4;
   if ( (Microsoft_Windows_Dwm_CoreEnableBits & 4) != 0 )
     McGenEventWrite_EventWriteTransfer(
-      Microsoft_Windows_Dwm_Core_Provider_Context,
+      &Microsoft_Windows_Dwm_Core_Provider_Context,
       &EVTDESC_SCHEDULE_WFW_Start,
-      v4,
-      1u,
-      (PEVENT_DATA_DESCRIPTOR)&si128);
-  v5 = this + 1;
-  v21 = WaitForMultipleObjects(v2, this + 1, 0, 0);
-  if ( v21 >= (unsigned int)v2 )
+      a3,
+      1LL,
+      v43);
+  v5 = (char *)this + 11200;
+  if ( *((_BYTE *)this + 11224) && *((_BYTE *)this + 11225) )
   {
-    while ( 1 )
+    v26 = CDebugFrameCounter::CurrentTime((CPartitionVerticalBlankScheduler *)((char *)this + 11200));
+    v43[0] = v26;
+    if ( *((_BYTE *)this + 11226) )
     {
-      v15 = (*(__int64 (__fastcall **)(HANDLE, _QWORD, char *, __int64, _DWORD, DWORD *))(*(_QWORD *)this[17] + 32LL))(
-              this[17],
-              (unsigned int)v2,
-              (char *)this + 8,
-              0xFFFFFFFFLL,
-              0,
-              &v21);
-      if ( v15 < 0 )
+      if ( *((_DWORD *)this + 2804) == -1 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0LL, v15, 0x135u);
-        v17 = -1;
-        v21 = -1;
+        *((_QWORD *)this + 1402) = 0LL;
+        v27 = 0;
       }
       else
       {
-        v17 = v21;
+        v27 = *((_DWORD *)this + 2805);
       }
-      if ( v17 < (unsigned int)v2 )
-        break;
-      v18 = (*(__int64 (__fastcall **)(HANDLE, __int64))(*(_QWORD *)this[17] + 24LL))(this[17], 3LL);
-      if ( v18 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0LL, v18, 0x143u);
+      *((_QWORD *)this + 1406) = v26;
+      *(_OWORD *)&v5[16 * v27 + 56] = *(_OWORD *)((char *)this + 11240);
+      v28 = *((unsigned int *)this + 2804);
+      v29 = *((_DWORD *)this + 2805);
+      if ( (_DWORD)v28 != v29 )
+      {
+        v30 = *((_DWORD *)this + 2804);
+        do
+        {
+          v31 = *(_QWORD *)&v5[16 * v30 + 56];
+          if ( v31 >= *((_QWORD *)this + 1406) - 10000000LL )
+            break;
+          *((_QWORD *)this + 1404) += v31 - *(_QWORD *)&v5[16 * v30 + 64];
+          *(_QWORD *)&v5[16 * v30 + 64] = 0LL;
+          *(_QWORD *)&v5[16 * v30 + 56] = 0LL;
+          v28 = (unsigned __int8)(*((_DWORD *)this + 2804) + 1);
+          *((_DWORD *)this + 2804) = v28;
+          v30 = v28;
+          v29 = *((_DWORD *)this + 2805);
+        }
+        while ( (_DWORD)v28 != v29 );
+      }
+      v32 = *((_QWORD *)this + 1404) + *((_QWORD *)this + 2 * v29 + 1408) - *((_QWORD *)this + 2 * v29 + 1407);
+      v33 = (unsigned __int8)(v29 + 1);
+      *((_QWORD *)this + 1404) = v32;
+      *((_DWORD *)this + 2805) = v33;
+      if ( (_DWORD)v28 == v33 )
+      {
+        v34 = 2 * v28;
+        *((_QWORD *)this + 1404) = v32 + *((_QWORD *)this + v34 + 1407) - *((_QWORD *)this + v34 + 1408);
+        *(_QWORD *)&v5[8 * v34 + 64] = 0LL;
+        *(_QWORD *)&v5[8 * v34 + 56] = 0LL;
+        *((_DWORD *)this + 2804) = (unsigned __int8)(*((_DWORD *)this + 2804) + 1);
+      }
+    }
+    CDebugFrameCounter::UpdateGlitchList((CPartitionVerticalBlankScheduler *)((char *)this + 11200), v43);
+  }
+  v6 = hObject;
+  if ( (char *)hObject - 1 > (char *)0xFFFFFFFFFFFFFFFDLL )
+  {
+    if ( qword_18034B5F8 )
+    {
+      if ( byte_18034B60D )
+      {
+        RemoteSessionOcclusionEvent = (void *)DwmGetRemoteSessionOcclusionEvent();
+        wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
+          &hObject,
+          RemoteSessionOcclusionEvent);
+      }
+      else
+      {
+        EventW = (char *)CreateEventW(0LL, 0, 0, 0LL);
+        v24 = EventW;
+        if ( EventW )
+        {
+          if ( EventW != (char *)-1LL
+            && (*(int (__fastcall **)(CDisplayManager *, char *, int *))(*(_QWORD *)qword_18034B5F8 + 176LL))(
+                 qword_18034B5F8,
+                 EventW,
+                 &dword_18034B608) >= 0 )
+          {
+            wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
+              &hObject,
+              v24);
+            v24 = 0LL;
+          }
+          if ( (unsigned __int64)(v24 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+          {
+            v43[0] = (unsigned __int64)CloseHandle;
+            CloseHandle(v24);
+          }
+        }
+      }
+      v6 = hObject;
+    }
+    else
+    {
+      v6 = 0LL;
     }
   }
-  v6 = this[3];
-  si128 = _mm_load_si128((const __m128i *)&_xmm);
-  if ( !CancelWaitableTimer(v6) )
+  if ( v6 )
+    *((_QWORD *)this + 4) = v6;
+  else
+    v4 = 3;
+  v7 = (HANDLE *)((char *)this + 8);
+  v8 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, char *, __int64, _DWORD, int *))(**((_QWORD **)this + 18) + 32LL))(
+         *((_QWORD *)this + 18),
+         v4,
+         (char *)this + 8,
+         0xFFFFFFFFLL,
+         0,
+         &v42);
+  v10 = v42;
+  if ( v8 < 0 )
+    v10 = -1;
+  v42 = v10;
+  if ( v10 == 3 && v4 == 4 && (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+    McGenEventWrite_EventWriteTransfer(
+      &Microsoft_Windows_Dwm_Core_Provider_Context,
+      &EVTDESC_SCHEDULE_DXGI_OCCLUSION_EVENT,
+      v9,
+      1LL,
+      v43);
+  if ( CancelWaitableTimer(*((HANDLE *)this + 3)) )
+    goto LABEL_11;
+  while ( 1 )
   {
-    LastError = GetLastError();
-    if ( LastError > 0 )
-      LastError = (unsigned __int16)LastError | 0x80070000;
-    if ( LastError >= 0 )
-      LastError = -2003304445;
-    ModuleFailFastForHRESULT((unsigned int)LastError, retaddr);
+    while ( 1 )
+    {
+      v35 = IsKernelDebuggerPresent();
+      strcpy(Response, "?");
+      v36 = v35;
+      if ( !v35 )
+      {
+        v37 = IsDebuggerPresent();
+        v38 = Response[0];
+        if ( v37 )
+          v38 = 103;
+        Response[0] = v38;
+      }
+      DbgPrintEx(
+        0x65u,
+        0,
+        "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
+        word_1802CE8C0,
+        word_1802CE8C0,
+        L"false",
+        "Function: ",
+        L"CPartitionVerticalBlankScheduler::WaitForWork",
+        ", ",
+        L"onecoreuap\\windows\\dwm\\dwmcore\\engine\\partitionverticalblankscheduler.cpp",
+        312);
+      if ( v36 )
+      {
+        DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", Response, 2u);
+      }
+      else
+      {
+        DbgPrintEx(
+          0x65u,
+          0,
+          "(No kernel debugger is present.) Respond with:\n"
+          "  g                    -- Go (continue)\n"
+          "  eb 0x%p 'p';g  -- terminate Process\n"
+          "  eb 0x%p 't';g  -- terminate Thread\n"
+          " or regular debugging.\n",
+          Response,
+          Response);
+        __debugbreak();
+      }
+      if ( Response[0] <= 98 )
+        break;
+      if ( Response[0] == 103 )
+        goto LABEL_92;
+      if ( Response[0] == 105 )
+        goto LABEL_90;
+      if ( Response[0] != 112 )
+      {
+        if ( Response[0] != 116 )
+          goto LABEL_89;
+        goto LABEL_87;
+      }
+LABEL_88:
+      CurrentProcess = GetCurrentProcess();
+      TerminateProcess(CurrentProcess, 0xC0000001);
+LABEL_89:
+      DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
+    }
+    if ( Response[0] == 98 || Response[0] == 66 )
+      break;
+    if ( Response[0] == 71 )
+      goto LABEL_92;
+    if ( Response[0] != 73 )
+    {
+      if ( Response[0] != 80 )
+      {
+        if ( Response[0] != 84 )
+          goto LABEL_89;
+LABEL_87:
+        CurrentThread = GetCurrentThread();
+        TerminateThread(CurrentThread, 0xC0000001);
+        goto LABEL_89;
+      }
+      goto LABEL_88;
+    }
+LABEL_90:
+    DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
   }
-  *((_DWORD *)this + 3121) = -1;
-  p_si128 = &si128;
-  do
+  __debugbreak();
+LABEL_92:
+  RaiseFailFastException(0LL, 0LL, 0);
+LABEL_11:
+  v11 = (DWORD *)&v44;
+  *((_DWORD *)this + 2799) = -1;
+  for ( i = 0; i < v4; ++i )
   {
-    p_si128->m128i_i32[0] = WaitForSingleObject(*v5++, 0);
-    p_si128 = (__m128i *)((char *)p_si128 + 4);
-    --v2;
-  }
-  while ( v2 );
-  v10 = v21;
-  if ( !v21 || !si128.m128i_i32[0] )
-    LOBYTE(v2) = 1;
-  v11 = si128.m128i_i8[4];
-  if ( v21 == 1 || !si128.m128i_i32[1] )
-    LOBYTE(v2) = v2 | 2;
-  v12 = si128.m128i_i8[8];
-  if ( v21 == 2 || !si128.m128i_i32[2] )
-    LOBYTE(v2) = v2 | 4;
-  v13 = si128.m128i_u8[12];
-  if ( v21 == 3 || !si128.m128i_i32[3] )
-  {
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+    v13 = WaitForSingleObject(*v7, 0);
+    v42 = v13;
+    *v11 = v13;
+    if ( !v13 && i == 3 && (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
       McGenEventWrite_EventWriteTransfer(
-        Microsoft_Windows_Dwm_Core_Provider_Context,
+        &Microsoft_Windows_Dwm_Core_Provider_Context,
         &EVTDESC_SCHEDULE_DXGI_OCCLUSION_EVENT,
-        v21,
-        1u,
-        &v23);
-    CRenderTargetManager::ForceFullRender(*((CRenderTargetManager **)this[8] + 27));
-    v10 = v21;
-    LOBYTE(v2) = v2 | 8;
+        v16,
+        1LL,
+        v43);
+    ++v7;
+    ++v11;
   }
-  v14 = dword_1803D3338;
-  if ( (v2 & 1) != 0 )
-  {
-    v14 = dword_1803D3338 | 8;
-    dword_1803D3338 |= 8u;
-  }
-  if ( (v2 & 2) != 0 )
-  {
-    v14 |= 0x10u;
-    dword_1803D3338 = v14;
-  }
-  if ( (v2 & 4) != 0 )
-  {
-    v14 |= 2u;
-    dword_1803D3338 = v14;
-  }
-  if ( (v2 & 8) != 0 )
-    dword_1803D3338 = v14 | 4;
+  v17 = HIDWORD(v44);
+  v18 = DWORD2(v44);
+  v19 = DWORD1(v44);
+  v20 = v44;
   if ( (Microsoft_Windows_Dwm_CoreEnableBits & 4) != 0 )
-    McTemplateU0qqqqq_EventWriteTransfer(v9, v8, v10, si128.m128i_i32[0], v11, v12, v13);
+    McTemplateU0qqqqq_EventWriteTransfer(v15, v14, v10, v44, SBYTE4(v44), SBYTE8(v44), SBYTE12(v44));
+  v21 = 0;
+  if ( !v10 || !v20 )
+    v21 = 1;
+  if ( v10 == 1 || !v19 )
+    v21 |= 2u;
+  if ( v10 == 2 || !v18 )
+    v21 |= 4u;
+  if ( v10 == 3 || !v17 )
+  {
+    v21 |= 8u;
+    CRenderTargetManager::ForceFullRender(*(CRenderTargetManager **)(*((_QWORD *)this + 8) + 88LL));
+  }
+  v22 = dword_180347130;
+  if ( (v21 & 1) != 0 )
+  {
+    v22 = dword_180347130 | 8;
+    dword_180347130 |= 8u;
+  }
+  if ( (v21 & 2) != 0 )
+  {
+    v22 |= 0x10u;
+    dword_180347130 = v22;
+  }
+  if ( (v21 & 4) != 0 )
+  {
+    v22 |= 2u;
+    dword_180347130 = v22;
+  }
+  if ( (v21 & 8) != 0 )
+    dword_180347130 = v22 | 4;
 }

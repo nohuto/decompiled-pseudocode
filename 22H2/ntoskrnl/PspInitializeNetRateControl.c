@@ -1,9 +1,9 @@
 /*
- * XREFs of PspInitializeNetRateControl @ 0x140B549F0
+ * XREFs of PspInitializeNetRateControl @ 0x140A47E04
  * Callers:
- *     PspInitPhase1 @ 0x140B54658 (PspInitPhase1.c)
+ *     PspInitPhase1 @ 0x140A4B338 (PspInitPhase1.c)
  * Callees:
- *     ExRegisterHost @ 0x140823390 (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x14079DE50 (ExRegisterHost.c)
  */
 
 char __fastcall PspInitializeNetRateControl(__int64 a1, __int64 a2)

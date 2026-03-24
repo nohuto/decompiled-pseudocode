@@ -1,34 +1,38 @@
 /*
- * XREFs of SmcCacheManagerStart @ 0x1409DAD08
+ * XREFs of SmcCacheManagerStart @ 0x14092D594
  * Callers:
- *     SmcCacheCreatePrepare @ 0x1409D7E80 (SmcCacheCreatePrepare.c)
+ *     SmcCacheCreatePrepare @ 0x14092A764 (SmcCacheCreatePrepare.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     SmKmKeyGenStart @ 0x1409D940C (SmKmKeyGenStart.c)
- *     SmpUtilsGetControlDevice @ 0x1409DBE3C (SmpUtilsGetControlDevice.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     SmKmKeyGenStart @ 0x14092BCC0 (SmKmKeyGenStart.c)
+ *     SmpUtilsGetControlDevice @ 0x14092E71C (SmpUtilsGetControlDevice.c)
  */
 
 int __fastcall SmcCacheManagerStart(__int64 a1, __int64 a2)
 {
-  _DWORD *v2; // rbx
+  int *v2; // rbx
   unsigned int v5; // edi
+  int v6; // eax
   int result; // eax
-  __int64 v7; // rcx
-  const wchar_t *v8; // rax
+  __int64 v8; // r8
   const wchar_t *v9; // rax
-  __int64 v10; // rcx
-  struct _UNICODE_STRING v11; // [rsp+40h] [rbp-40h] BYREF
+  __int64 v10; // rdx
+  const wchar_t *v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  struct _UNICODE_STRING v14; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
-  HANDLE KeyHandle; // [rsp+B0h] [rbp+30h] BYREF
+  HANDLE KeyHandle; // [rsp+C0h] [rbp+40h] BYREF
 
-  v2 = (_DWORD *)(a1 - 240);
+  v2 = (int *)&unk_140D24110;
   KeyHandle = 0LL;
   v5 = 0;
-  v11 = 0LL;
+  v14 = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   do
   {
+    v6 = *v2;
     if ( (*v2 & 1) == 0 )
     {
       if ( !v5 )
@@ -36,26 +40,32 @@ int __fastcall SmcCacheManagerStart(__int64 a1, __int64 a2)
         result = SmpUtilsGetControlDevice(a1, v2 + 2, v2 + 4);
         if ( result < 0 )
           return result;
+        v6 = *v2;
       }
-      *v2 |= 1u;
+      *v2 = v6 | 1;
     }
     ++v5;
     v2 += 6;
   }
   while ( v5 < 2 );
-  v7 = 0x7FFFLL;
-  v8 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters";
-  while ( *v8 )
+  v8 = 0x7FFFLL;
+  v9 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters";
+  do
   {
-    ++v8;
-    if ( !--v7 )
-      goto LABEL_12;
+    if ( !*v9 )
+      break;
+    ++v9;
+    --v8;
   }
-  v11.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters";
-  v11.Length = 2 * (0x7FFF - v7);
-  v11.MaximumLength = v11.Length + 2;
-LABEL_12:
-  ObjectAttributes.ObjectName = &v11;
+  while ( v8 );
+  v10 = (0x7FFF - v8) & ((unsigned __int128)-(__int128)(unsigned __int64)v8 >> 64);
+  if ( v8 )
+  {
+    v14.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters";
+    v14.Length = 2 * v10;
+    v14.MaximumLength = 2 * v10 + 2;
+  }
+  ObjectAttributes.ObjectName = &v14;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -64,21 +74,26 @@ LABEL_12:
   if ( result >= 0 )
   {
     ZwClose(KeyHandle);
-    v11 = 0LL;
-    v9 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters\\CacheInfo";
-    v10 = 0x7FFFLL;
-    while ( *v9 )
+    v14 = 0LL;
+    v11 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters\\CacheInfo";
+    v12 = 0x7FFFLL;
+    do
     {
-      ++v9;
-      if ( !--v10 )
-        goto LABEL_18;
+      if ( !*v11 )
+        break;
+      ++v11;
+      --v12;
     }
-    v11.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParam"
-                  "eters\\CacheInfo";
-    v11.Length = 2 * (0x7FFF - v10);
-    v11.MaximumLength = v11.Length + 2;
-LABEL_18:
-    result = SmKmKeyGenStart(a1 + 512, &v11);
+    while ( v12 );
+    v13 = (0x7FFF - v12) & -(__int64)(v12 != 0);
+    if ( v12 )
+    {
+      v14.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StorePar"
+                    "ameters\\CacheInfo";
+      v14.Length = 2 * v13;
+      v14.MaximumLength = 2 * v13 + 2;
+    }
+    result = SmKmKeyGenStart(a1 + 512, &v14);
     if ( result >= 0 )
     {
       *(_QWORD *)(a1 + 552) = a2;

@@ -1,21 +1,23 @@
 /*
- * XREFs of ACPIBuildProcessDevicePhaseSta @ 0x1C0010780
+ * XREFs of ACPIBuildProcessDevicePhaseSta @ 0x1C001A380
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
- *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
- *     ACPIDetectDuplicateHID @ 0x1C001A3EC (ACPIDetectDuplicateHID.c)
- *     ACPIRegisterForDeviceNotificationsByDeviceExtension @ 0x1C0039768 (ACPIRegisterForDeviceNotificationsByDeviceExtension.c)
- *     LinkNodeAddLinkNode @ 0x1C005CE58 (LinkNodeAddLinkNode.c)
+ *     ACPIBuildCompleteCommon @ 0x1C001A6D0 (ACPIBuildCompleteCommon.c)
+ *     ACPIDetectDuplicateHID @ 0x1C001ADF4 (ACPIDetectDuplicateHID.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     LinkNodeAddLinkNode @ 0x1C00308D8 (LinkNodeAddLinkNode.c)
+ *     ACPIRegisterForDeviceNotificationsByDeviceExtension @ 0x1C005C688 (ACPIRegisterForDeviceNotificationsByDeviceExtension.c)
  */
 
 __int64 __fastcall ACPIBuildProcessDevicePhaseSta(__int64 a1)
 {
   ULONG_PTR v1; // rbx
-  const char *v3; // rax
+  void *v3; // rax
   __int64 v4; // rcx
-  const char *v5; // rdx
+  void *v5; // rdx
+  __int64 v6; // rdx
+  __int64 v8; // [rsp+40h] [rbp-18h]
 
   v1 = *(_QWORD *)(a1 + 40);
   if ( (*(_DWORD *)(v1 + 8) & 0x2000LL) != 0 )
@@ -25,29 +27,35 @@ __int64 __fastcall ACPIBuildProcessDevicePhaseSta(__int64 a1)
     ACPIRegisterForDeviceNotificationsByDeviceExtension(v1, ACPICMButtonNotifyByDeviceExtension, v1);
   }
   *(_DWORD *)(a1 + 32) = 14;
-  v3 = (const char *)&unk_1C00622D0;
+  v3 = &unk_1C00701BA;
   v4 = *(_QWORD *)(v1 + 8);
-  v5 = (const char *)&unk_1C00622D0;
+  v5 = &unk_1C00701BA;
   if ( (v4 & 0x200000000000LL) != 0 )
   {
-    v3 = *(const char **)(v1 + 608);
+    v3 = *(void **)(v1 + 568);
     if ( (v4 & 0x400000000000LL) != 0 )
-      v5 = *(const char **)(v1 + 616);
+      v5 = *(void **)(v1 + 576);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_dqss(
-      (__int64)WPP_GLOBAL_Control->DeviceExtension,
-      4u,
-      6u,
-      0x30u,
-      (__int64)&WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
+  {
+    v8 = (__int64)v5;
+    LOBYTE(v5) = 4;
+    WPP_RECORDER_SF_Lqss(
+      WPP_GLOBAL_Control->DeviceExtension,
+      (_DWORD)v5,
+      6,
+      48,
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       0,
       v1,
-      v3,
-      v5);
+      (__int64)v3,
+      v8);
+  }
   ACPIDetectDuplicateHID(v1);
   if ( (*(_DWORD *)(v1 + 8) & 0x10000000) != 0 )
     LinkNodeAddLinkNode((PVOID)v1);
-  ACPIBuildCompleteMustSucceed(0LL, 0, 0LL, a1);
+  v6 = *(unsigned int *)(a1 + 32);
+  *(_DWORD *)(a1 + 32) = 2;
+  ACPIBuildCompleteCommon(a1 + 24, v6);
   return 0LL;
 }

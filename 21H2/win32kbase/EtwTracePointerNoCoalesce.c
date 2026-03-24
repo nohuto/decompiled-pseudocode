@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTracePointerNoCoalesce @ 0x1C014E430
+ * XREFs of EtwTracePointerNoCoalesce @ 0x1C0123810
  * Callers:
- *     ?DelegateCoalescePointerMessage@CTouchProcessor@@QEAAH_KHHHI@Z @ 0x1C01C4340 (-DelegateCoalescePointerMessage@CTouchProcessor@@QEAAH_KHHHI@Z.c)
- *     ?TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z @ 0x1C01D82D4 (-TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z.c)
+ *     ?DelegateCoalescePointerMessage@CTouchProcessor@@QEAAH_KHHHI@Z @ 0x1C018CE90 (-DelegateCoalescePointerMessage@CTouchProcessor@@QEAAH_KHHHI@Z.c)
+ *     ?TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z @ 0x1C019F42C (-TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z.c)
  * Callees:
- *     McTemplateK0hhq_EtwWriteTransfer @ 0x1C014FD3C (McTemplateK0hhq_EtwWriteTransfer.c)
+ *     McTemplateK0hhq_EtwWriteTransfer @ 0x1C0125554 (McTemplateK0hhq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTracePointerNoCoalesce(int a1, char a2, int a3, int a4)

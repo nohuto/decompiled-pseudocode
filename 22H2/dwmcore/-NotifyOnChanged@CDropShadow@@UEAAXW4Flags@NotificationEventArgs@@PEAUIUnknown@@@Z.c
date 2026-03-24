@@ -1,9 +1,9 @@
 /*
- * XREFs of ?NotifyOnChanged@CDropShadow@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180100730
+ * XREFs of ?NotifyOnChanged@CDropShadow@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800DD900
  * Callers:
  *     <none>
  * Callees:
- *     ?OnChanged@ShadowIntermediates@CDropShadow@@QEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18022A7D4 (-OnChanged@ShadowIntermediates@CDropShadow@@QEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?OnChanged@ShadowIntermediates@CDropShadow@@QEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1801BF0F4 (-OnChanged@ShadowIntermediates@CDropShadow@@QEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
  */
 
 __int64 __fastcall CDropShadow::NotifyOnChanged(__int64 a1, unsigned int a2, __int64 a3)
@@ -15,7 +15,7 @@ __int64 __fastcall CDropShadow::NotifyOnChanged(__int64 a1, unsigned int a2, __i
   {
     if ( a3 != a1 )
     {
-      CDropShadow::ShadowIntermediates::OnChanged(a1 + 128);
+      CDropShadow::ShadowIntermediates::OnChanged(a1 + 136);
       v6 = *(_QWORD ***)(a1 + 208);
       for ( i = *v6; i != v6; i = (_QWORD *)*i )
         CDropShadow::ShadowIntermediates::OnChanged(i + 3);

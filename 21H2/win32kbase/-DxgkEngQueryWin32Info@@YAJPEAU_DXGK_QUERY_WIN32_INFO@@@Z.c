@@ -1,44 +1,49 @@
 /*
- * XREFs of ?DxgkEngQueryWin32Info@@YAJPEAU_DXGK_QUERY_WIN32_INFO@@@Z @ 0x1C006CE40
+ * XREFs of ?DxgkEngQueryWin32Info@@YAJPEAU_DXGK_QUERY_WIN32_INFO@@@Z @ 0x1C00ABB40
  * Callers:
- *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0073714 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0011478 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DxgkEngQueryWin32Info(struct _DXGK_QUERY_WIN32_INFO *a1)
+__int64 __fastcall DxgkEngQueryWin32Info(struct _DXGK_QUERY_WIN32_INFO *a1, __int64 a2)
 {
-  int v2; // edi
-  int v3; // ecx
-  int v4; // ecx
-  _DWORD *v5; // rax
+  int v3; // edi
+  __int64 v4; // rcx
+  int v5; // ecx
+  _DWORD *v6; // rax
+  unsigned int v7; // esi
   __int64 result; // rax
-  _DWORD *v7; // rsi
+  _DWORD *v9; // rsi
+  __int64 v10; // rax
 
-  v2 = 0;
-  v3 = *(_DWORD *)a1;
-  if ( !v3 )
+  v3 = 0;
+  v4 = *(unsigned int *)a1;
+  if ( !(_DWORD)v4 )
   {
-    v7 = (_DWORD *)*((_QWORD *)a1 + 1);
+    v9 = (_DWORD *)*((_QWORD *)a1 + 1);
     if ( *((_DWORD *)a1 + 1) != 4 )
-      WdLogSingleEntry0(1LL);
+    {
+      v10 = WdLogNewEntry5_WdAssertion(v4, a2);
+      WdLogEvent5_WdAssertion(v10);
+    }
     if ( gDrvDpiWin8Style )
-      v2 = gdmLogPixels;
-    *v7 = v2;
+      v3 = gdmLogPixels;
+    *v9 = v3;
     return 0LL;
   }
-  v4 = v3 - 2;
-  if ( !v4 )
+  v5 = v4 - 2;
+  if ( !v5 )
   {
     if ( *((_DWORD *)a1 + 1) == 4 )
     {
       if ( gProtocolType )
       {
-        v5 = (_DWORD *)*((_QWORD *)a1 + 1);
+        v6 = (_DWORD *)*((_QWORD *)a1 + 1);
         if ( gProtocolType == -1 )
-          *v5 = 0xFFFF;
+          *v6 = 0xFFFF;
         else
-          *v5 = 2;
+          *v6 = 2;
       }
       else
       {
@@ -48,7 +53,7 @@ __int64 __fastcall DxgkEngQueryWin32Info(struct _DXGK_QUERY_WIN32_INFO *a1)
     }
     return 3221225485LL;
   }
-  if ( v4 == 1 )
+  if ( v5 == 1 )
   {
     if ( *((_DWORD *)a1 + 1) == 1 )
     {
@@ -57,14 +62,16 @@ __int64 __fastcall DxgkEngQueryWin32Info(struct _DXGK_QUERY_WIN32_INFO *a1)
     }
     return 3221225485LL;
   }
-  if ( !qword_1C029AF40 )
-    return 3221225659LL;
-  result = qword_1C029AF40();
+  v7 = -1073741637;
+  if ( qword_1C02561C0 )
+    result = qword_1C02561C0();
+  else
+    result = 3221225659LL;
   if ( (int)result >= 0 )
   {
-    if ( qword_1C029AF48 )
-      return qword_1C029AF48(a1);
-    return 3221225659LL;
+    if ( qword_1C02561C8 )
+      return (unsigned int)qword_1C02561C8(a1);
+    return v7;
   }
   return result;
 }

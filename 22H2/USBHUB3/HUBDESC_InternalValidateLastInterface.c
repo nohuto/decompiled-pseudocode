@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBDESC_InternalValidateLastInterface @ 0x1C0036228
+ * XREFs of HUBDESC_InternalValidateLastInterface @ 0x1C0033158
  * Callers:
- *     HUBDESC_InternalValidateInterfaceDescriptor @ 0x1C00382D0 (HUBDESC_InternalValidateInterfaceDescriptor.c)
- *     HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C0038CA8 (HUBDESC_ValidateConfigurationDescriptorSet.c)
+ *     HUBDESC_InternalValidateInterfaceDescriptor @ 0x1C003525C (HUBDESC_InternalValidateInterfaceDescriptor.c)
+ *     HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C0035C28 (HUBDESC_ValidateConfigurationDescriptorSet.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_DDDD @ 0x1C0029678 (WPP_RECORDER_SF_DDDD.c)
- *     HUBDESC_InternalValidateLastEndpoint @ 0x1C0036114 (HUBDESC_InternalValidateLastEndpoint.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C00322CC (WPP_RECORDER_SF_DDDD.c)
+ *     HUBDESC_InternalValidateLastEndpoint @ 0x1C0033038 (HUBDESC_InternalValidateLastEndpoint.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall HUBDESC_InternalValidateLastInterface(__int64 a1, int *a2, __int64 a3)
@@ -42,8 +42,8 @@ char __fastcall HUBDESC_InternalValidateLastInterface(__int64 a1, int *a2, __int
           a3,
           2u,
           5u,
-          0x1Du,
-          (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids,
+          0x1Bu,
+          (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
           *(unsigned __int8 *)(a1 + 185),
           *(unsigned __int8 *)(a1 + 184),
           *(unsigned __int8 *)(a1 + 80),
@@ -59,7 +59,7 @@ char __fastcall HUBDESC_InternalValidateLastInterface(__int64 a1, int *a2, __int
   {
     v7 = 0;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(a3, 2u, 5u, 0x1Eu, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids);
+      WPP_RECORDER_SF_(a3, 2u, 5u, 0x1Cu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
   }
   return v7;
 }

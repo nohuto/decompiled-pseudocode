@@ -1,23 +1,23 @@
 /*
- * XREFs of UsbhOvercurrentResetWorker @ 0x1C002F330
+ * XREFs of UsbhOvercurrentResetWorker @ 0x1C0030700
  * Callers:
- *     UsbhAutoOvercurrentResetWorker @ 0x1C002F130 (UsbhAutoOvercurrentResetWorker.c)
- *     UsbhWmiResetOvercurrent @ 0x1C0049D50 (UsbhWmiResetOvercurrent.c)
+ *     UsbhAutoOvercurrentResetWorker @ 0x1C0030500 (UsbhAutoOvercurrentResetWorker.c)
+ *     UsbhWmiResetOvercurrent @ 0x1C004B120 (UsbhWmiResetOvercurrent.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhQueryPortState @ 0x1C0018E60 (UsbhQueryPortState.c)
- *     UsbhDispatch_HardResetEvent @ 0x1C001C920 (UsbhDispatch_HardResetEvent.c)
- *     Usb_Disconnected @ 0x1C0028F5C (Usb_Disconnected.c)
- *     UsbhSetPortPower @ 0x1C002D208 (UsbhSetPortPower.c)
- *     UsbhWait @ 0x1C002D834 (UsbhWait.c)
- *     UsbhDispatch_PindicatorEvent @ 0x1C002E6CC (UsbhDispatch_PindicatorEvent.c)
- *     Usbh_OvercurrentDerefHubBusy @ 0x1C002F890 (Usbh_OvercurrentDerefHubBusy.c)
- *     UsbhPCE_BusDisconnect @ 0x1C00338F4 (UsbhPCE_BusDisconnect.c)
- *     UsbhPCE_Enable @ 0x1C0033CC4 (UsbhPCE_Enable.c)
- *     UsbhPCE_Resume @ 0x1C0033F88 (UsbhPCE_Resume.c)
- *     UsbhQueueSoftConnectChange @ 0x1C00345D4 (UsbhQueueSoftConnectChange.c)
+ *     UsbhQueryPortState @ 0x1C000A080 (UsbhQueryPortState.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     UsbhWait @ 0x1C001853C (UsbhWait.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001A550 (UsbhDispatch_HardResetEvent.c)
+ *     Usb_Disconnected @ 0x1C001CEB4 (Usb_Disconnected.c)
+ *     UsbhSetPortPower @ 0x1C002E61C (UsbhSetPortPower.c)
+ *     UsbhDispatch_PindicatorEvent @ 0x1C002FAA8 (UsbhDispatch_PindicatorEvent.c)
+ *     Usbh_OvercurrentDerefHubBusy @ 0x1C0030C60 (Usbh_OvercurrentDerefHubBusy.c)
+ *     UsbhPCE_BusDisconnect @ 0x1C0034C58 (UsbhPCE_BusDisconnect.c)
+ *     UsbhPCE_Enable @ 0x1C0035028 (UsbhPCE_Enable.c)
+ *     UsbhPCE_Resume @ 0x1C00352EC (UsbhPCE_Resume.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0035938 (UsbhQueueSoftConnectChange.c)
  */
 
 __int64 __fastcall UsbhOvercurrentResetWorker(__int64 a1, unsigned int a2, __int64 a3, char a4)
@@ -60,7 +60,7 @@ __int64 __fastcall UsbhOvercurrentResetWorker(__int64 a1, unsigned int a2, __int
   }
   else
   {
-    UsbhWait(a1, HIDWORD(WPP_MAIN_CB.Dpc.DpcListEntry.Next));
+    UsbhWait(a1, dword_1C006C4F4);
     UsbhPCE_Resume(a1, a3, (unsigned __int16)v6);
     Log(a1, 0x4000, 1870025299, v10, (unsigned __int16)v6);
     v12 = UsbhQueryPortState(a1, v6, (__int64)&v20, &v21);

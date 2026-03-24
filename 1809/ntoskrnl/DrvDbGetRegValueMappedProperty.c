@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvDbGetRegValueMappedProperty @ 0x1406D3A9C
+ * XREFs of DrvDbGetRegValueMappedProperty @ 0x1406D3A7C
  * Callers:
- *     DrvDbGetDriverInfFileMappedProperty @ 0x1406D254C (DrvDbGetDriverInfFileMappedProperty.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x1406D2A04 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbGetDeviceIdMappedProperty @ 0x1406F511C (DrvDbGetDeviceIdMappedProperty.c)
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x14075395C (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbGetDriverFileMappedProperty @ 0x1409017DC (DrvDbGetDriverFileMappedProperty.c)
- *     DrvDbGetDriverPackageSignerName @ 0x140901E58 (DrvDbGetDriverPackageSignerName.c)
+ *     DrvDbGetDriverInfFileMappedProperty @ 0x1406D252C (DrvDbGetDriverInfFileMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1406D29E4 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbGetDeviceIdMappedProperty @ 0x1406F50FC (DrvDbGetDeviceIdMappedProperty.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x14075393C (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbGetDriverFileMappedProperty @ 0x1409017BC (DrvDbGetDriverFileMappedProperty.c)
+ *     DrvDbGetDriverPackageSignerName @ 0x140901E38 (DrvDbGetDriverPackageSignerName.c)
  * Callees:
  *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
  */

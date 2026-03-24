@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Create@CManipulationFrame@@SAJPEBUtagMANIPULATION_INPUT_INFO@@PEAPEAV1@@Z @ 0x1801A3064
+ * XREFs of ?Create@CManipulationFrame@@SAJPEBUtagMANIPULATION_INPUT_INFO@@PEAPEAV1@@Z @ 0x1802331F4
  * Callers:
- *     ?ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@@PEAX@Z @ 0x18019FEE8 (-ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@.c)
+ *     ?ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@@PEAX@Z @ 0x18022619C (-ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@.c)
  * Callees:
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038D40 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800F2B9C (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
- *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F3C10 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3444 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CManipulationFrame::Create(
@@ -17,11 +17,11 @@ __int64 __fastcall CManipulationFrame::Create(
   int v2; // eax
   unsigned __int64 v5; // rax
   unsigned int v6; // eax
-  void *v7; // rax
-  __int64 (__fastcall ***v8)(_QWORD); // rax
-  __int64 (__fastcall ***v9)(_QWORD); // rbx
-  int v10; // ecx
-  int v11; // edx
+  __int64 (__fastcall ***v7)(_QWORD); // rax
+  __int64 (__fastcall ***v8)(_QWORD); // rbx
+  __int64 (__fastcall ***v9)(_QWORD); // rdi
+  int v10; // eax
+  int v11; // ecx
   __int64 v12; // rcx
   unsigned int v13; // ebx
   unsigned int i; // r9d
@@ -32,30 +32,25 @@ __int64 __fastcall CManipulationFrame::Create(
   __int128 v19; // xmm1
   __int64 (__fastcall ***v21)(_QWORD); // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = *((_DWORD *)a1 + 37);
-  if ( !v2 || (v5 = 248LL * (unsigned int)(v2 - 1), v5 > 0xFFFFFFFF) || (v6 = v5 + 616, v6 < 0x268) )
+  v2 = *((_DWORD *)a1 + 11);
+  if ( !v2 || (v5 = 248LL * (unsigned int)(v2 - 1), v5 > 0xFFFFFFFF) || (v6 = v5 + 408, v6 < 0x198) )
     v6 = 0;
-  v7 = DefaultHeap::AllocClear(v6);
+  v7 = (__int64 (__fastcall ***)(_QWORD))DefaultHeap::AllocClear(v6);
   *a2 = 0LL;
-  v8 = (__int64 (__fastcall ***)(_QWORD))memset_0(v7, 0, 0x268uLL);
+  v8 = v7;
+  memset_0(v7, 0, 0x198uLL);
   v9 = v8;
   if ( v8 )
   {
-    v10 = *((_DWORD *)a1 + 37);
-    v11 = *((_DWORD *)a1 + 42);
-    *((_DWORD *)v8 + 2) = 0;
+    v10 = *((_DWORD *)a1 + 11);
+    v11 = *((_DWORD *)a1 + 16);
     *v8 = (__int64 (__fastcall **)(_QWORD))&CManipulationFrame::`vftable';
+    *((_DWORD *)v8 + 2) = 0;
     *((_DWORD *)v8 + 4) = v10;
     *((_DWORD *)v8 + 6) = v11;
     *((_OWORD *)v8 + 2) = *(_OWORD *)a1;
     *((_OWORD *)v8 + 3) = *((_OWORD *)a1 + 1);
-    *((_OWORD *)v8 + 4) = *((_OWORD *)a1 + 2);
-    *((_OWORD *)v8 + 5) = *((_OWORD *)a1 + 3);
-    *((_OWORD *)v8 + 6) = *((_OWORD *)a1 + 4);
-    *((_OWORD *)v8 + 7) = *((_OWORD *)a1 + 5);
-    *((_OWORD *)v8 + 8) = *((_OWORD *)a1 + 6);
-    *((_OWORD *)v8 + 9) = *((_OWORD *)a1 + 7);
-    *((_OWORD *)v8 + 10) = *((_OWORD *)a1 + 8);
+    v8[8] = (__int64 (__fastcall **)(_QWORD))*((_QWORD *)a1 + 4);
   }
   else
   {
@@ -65,12 +60,12 @@ __int64 __fastcall CManipulationFrame::Create(
   Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v21);
   if ( v9 )
   {
-    for ( i = 0; i < *((_DWORD *)a1 + 37); LOBYTE(v9[v15 + 76]) &= ~1u )
+    for ( i = 0; i < *((_DWORD *)a1 + 11); LOBYTE(v9[v15 + 50]) &= ~1u )
     {
       v15 = 31LL * i;
       v16 = 240LL * i++;
-      v17 = &v9[v15 + 46];
-      v18 = (_OWORD *)((char *)a1 + v16 + 160);
+      v17 = &v9[v15 + 20];
+      v18 = (_OWORD *)((char *)a1 + v16 + 56);
       *v17 = *v18;
       v17[1] = v18[1];
       v17[2] = v18[2];
@@ -89,17 +84,17 @@ __int64 __fastcall CManipulationFrame::Create(
       v17[4] = v18[4];
       v17[5] = v18[5];
       v17[6] = v18[6];
-      v9[v15 + 49] = (__int64 (__fastcall **)(_QWORD))*(unsigned int *)((char *)a1 + v16 + 352);
+      v9[v15 + 23] = (__int64 (__fastcall **)(_QWORD))*(unsigned int *)((char *)a1 + v16 + 248);
     }
     Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v21);
-    *a2 = (struct CManipulationFrame *)v9;
     v13 = 0;
+    *a2 = (struct CManipulationFrame *)v9;
+    (*v9)[1](v9);
   }
   else
   {
     v13 = -2147024882;
     MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147024882, 0x2Cu, 0LL);
   }
-  Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)&v21);
   return v13;
 }

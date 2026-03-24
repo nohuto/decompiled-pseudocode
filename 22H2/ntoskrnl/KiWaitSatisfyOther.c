@@ -1,9 +1,9 @@
 /*
- * XREFs of KiWaitSatisfyOther @ 0x14034ADB4
+ * XREFs of KiWaitSatisfyOther @ 0x1402EDB1C
  * Callers:
- *     KeRegisterObjectNotification @ 0x140250890 (KeRegisterObjectNotification.c)
- *     KiWaitForAllObjects @ 0x14034A8FC (KiWaitForAllObjects.c)
- *     KeRegisterObjectDpc @ 0x140568188 (KeRegisterObjectDpc.c)
+ *     KeRegisterObjectNotification @ 0x140202ED8 (KeRegisterObjectNotification.c)
+ *     KiWaitSatisfyAny @ 0x1402ED5CC (KiWaitSatisfyAny.c)
+ *     NtAssociateWaitCompletionPacket @ 0x1402ED670 (NtAssociateWaitCompletionPacket.c)
  * Callees:
  *     <none>
  */

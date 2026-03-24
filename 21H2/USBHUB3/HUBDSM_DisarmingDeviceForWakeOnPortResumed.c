@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_DisarmingDeviceForWakeOnPortResumed @ 0x1C0021B00
+ * XREFs of HUBDSM_DisarmingDeviceForWakeOnPortResumed @ 0x1C00216B0
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_DisarmDeviceForWakeUsingControlTransfer @ 0x1C0027F44 (HUBDTX_DisarmDeviceForWakeUsingControlTransfer.c)
+ *     HUBDTX_DisarmDeviceForWakeUsingControlTransfer @ 0x1C0027A94 (HUBDTX_DisarmDeviceForWakeUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBDSM_DisarmingDeviceForWakeOnPortResumed(__int64 a1)

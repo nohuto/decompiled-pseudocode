@@ -1,14 +1,14 @@
 /*
- * XREFs of ??1CLegacyAnimationTrigger@@UEAA@XZ @ 0x18019DD14
+ * XREFs of ??1CLegacyAnimationTrigger@@UEAA@XZ @ 0x18001ED64
  * Callers:
- *     ??_GCLegacyAnimationTrigger@@UEAAPEAXI@Z @ 0x18019EF60 (--_GCLegacyAnimationTrigger@@UEAAPEAXI@Z.c)
+ *     ??_GCLegacyAnimationTrigger@@UEAAPEAXI@Z @ 0x18001ED20 (--_GCLegacyAnimationTrigger@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
  */
 
-void __fastcall CLegacyAnimationTrigger::~CLegacyAnimationTrigger(void **this)
+void __fastcall CLegacyAnimationTrigger::~CLegacyAnimationTrigger(CLegacyAnimationTrigger *this)
 {
-  *this = &CLegacyAnimationTrigger::`vftable';
-  DynArrayImpl<1>::~DynArrayImpl<1>(this + 8);
-  CResource::~CResource((CResource *)this);
+  *(_QWORD *)this = &CLegacyAnimationTrigger::`vftable';
+  DynArrayImpl<0>::~DynArrayImpl<0>((char *)this + 56);
+  CResource::~CResource(this);
 }

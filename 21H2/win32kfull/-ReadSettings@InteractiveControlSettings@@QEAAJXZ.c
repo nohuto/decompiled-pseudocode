@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ReadSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C010C13C
+ * XREFs of ?ReadSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C00E46B8
  * Callers:
- *     RawInputThread @ 0x1C005CC60 (RawInputThread.c)
- *     ??0InteractiveControlManager@@AEAA@XZ @ 0x1C010C094 (--0InteractiveControlManager@@AEAA@XZ.c)
- *     ?GetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@@Z @ 0x1C024F068 (-GetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@@Z.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
+ *     ??0InteractiveControlManager@@AEAA@XZ @ 0x1C00E5DB8 (--0InteractiveControlManager@@AEAA@XZ.c)
+ *     ?GetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@@Z @ 0x1C0252078 (-GetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@@Z.c)
  * Callees:
- *     ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C010C288 (-_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C00E4510 (-_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
-__int64 __fastcall InteractiveControlSettings::ReadSettings(InteractiveControlSettings *this, __int64 a2, int a3)
+__int64 __fastcall InteractiveControlSettings::ReadSettings(InteractiveControlSettings *this, __int64 a2, __int64 a3)
 {
   unsigned int *v4; // rbx
   int v5; // r15d
@@ -32,7 +32,7 @@ __int64 __fastcall InteractiveControlSettings::ReadSettings(InteractiveControlSe
   ResultLength = 0;
   KeyHandle = 0LL;
   DestinationString = 0LL;
-  v4 = (unsigned int *)&unk_1C02DD838;
+  v4 = (unsigned int *)&unk_1C02E1BF8;
   v5 = InteractiveControlSettings::_OpenDeviceKey(this, 0x20019u, a3, &KeyHandle);
   v6 = 29LL;
   if ( v5 < 0 )

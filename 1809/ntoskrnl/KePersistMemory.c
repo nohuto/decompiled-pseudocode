@@ -1,7 +1,7 @@
 /*
- * XREFs of KePersistMemory @ 0x1401C0980
+ * XREFs of KePersistMemory @ 0x1401C09A0
  * Callers:
- *     MiPersistMemory @ 0x1402B64A0 (MiPersistMemory.c)
+ *     MiPersistMemory @ 0x1402B65A0 (MiPersistMemory.c)
  * Callees:
  *     <none>
  */

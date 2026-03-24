@@ -1,9 +1,9 @@
 /*
- * XREFs of VfAllocateDomainCommonBuffer @ 0x140309EA0
+ * XREFs of VfAllocateDomainCommonBuffer @ 0x140309FA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ViGetRealDmaOperation @ 0x14092DB34 (ViGetRealDmaOperation.c)

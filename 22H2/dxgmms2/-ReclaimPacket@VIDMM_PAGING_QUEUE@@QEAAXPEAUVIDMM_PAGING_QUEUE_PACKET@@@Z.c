@@ -1,48 +1,54 @@
 /*
- * XREFs of ?ReclaimPacket@VIDMM_PAGING_QUEUE@@QEAAXPEAUVIDMM_PAGING_QUEUE_PACKET@@@Z @ 0x1C00F0FA4
+ * XREFs of ?ReclaimPacket@VIDMM_PAGING_QUEUE@@QEAAXPEAUVIDMM_PAGING_QUEUE_PACKET@@@Z @ 0x1C00BA628
  * Callers:
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00B5730 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
- *     ?FlushEvictQueue@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_PAGING_QUEUE@@@Z @ 0x1C00ECFD0 (-FlushEvictQueue@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_PAGING_QUEUE@@@Z.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008C500 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ *     ?FlushEvictQueue@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_PAGING_QUEUE@@@Z @ 0x1C00B7AC4 (-FlushEvictQueue@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_PAGING_QUEUE@@@Z.c)
  * Callees:
- *     ?SetStatus@VIDMM_PAGING_QUEUE@@QEAAXW4VIDMM_PAGING_QUEUE_STATUS@@@Z @ 0x1C00890D0 (-SetStatus@VIDMM_PAGING_QUEUE@@QEAAXW4VIDMM_PAGING_QUEUE_STATUS@@@Z.c)
+ *     ?SetStatus@VIDMM_PAGING_QUEUE@@QEAAXW4VIDMM_PAGING_QUEUE_STATUS@@@Z @ 0x1C0073A44 (-SetStatus@VIDMM_PAGING_QUEUE@@QEAAXW4VIDMM_PAGING_QUEUE_STATUS@@@Z.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_PAGING_QUEUE::ReclaimPacket(VIDMM_PAGING_QUEUE *this, struct VIDMM_PAGING_QUEUE_PACKET *a2)
 {
   __int64 v2; // rbx
-  VIDMM_PAGING_QUEUE **v5; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // rcx
+  __int64 v5; // rdx
+  VIDMM_PAGING_QUEUE **v6; // rcx
+  __int64 v7; // rbx
+  _QWORD *v8; // rax
+  __int64 v9; // rcx
 
   v2 = *((_QWORD *)this + 10);
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx(v2 + 144, 0LL);
   *(_QWORD *)(v2 + 152) = KeGetCurrentThread();
-  v5 = (VIDMM_PAGING_QUEUE **)*((_QWORD *)this + 3);
-  if ( *v5 != (VIDMM_PAGING_QUEUE *)((char *)this + 16) )
+  v6 = (VIDMM_PAGING_QUEUE **)*((_QWORD *)this + 3);
+  if ( *v6 != (VIDMM_PAGING_QUEUE *)((char *)this + 16) )
     __fastfail(3u);
   *(_QWORD *)a2 = (char *)this + 16;
-  *((_QWORD *)a2 + 1) = v5;
-  *v5 = a2;
+  *((_QWORD *)a2 + 1) = v6;
+  *v6 = a2;
   *((_QWORD *)this + 3) = a2;
   if ( *((VIDMM_PAGING_QUEUE **)this + 4) == (VIDMM_PAGING_QUEUE *)((char *)this + 32) )
   {
-    v6 = *((int *)this + 28);
-    if ( (_DWORD)v6 )
+    v7 = *((int *)this + 28);
+    if ( (_DWORD)v7 )
     {
-      if ( (_DWORD)v6 != 1 )
+      if ( (_DWORD)v7 != 1 )
       {
-        g_DxgMmsBugcheckExportIndex = 1;
-        WdLogSingleEntry5(0LL, 270LL, 58LL, this, v6, 0LL);
+        v8 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v6, v5);
+        v8[7] = 0LL;
+        v8[3] = 270LL;
+        v8[4] = 58LL;
+        v8[5] = this;
+        v8[6] = v7;
+        WdLogEvent5_WdCriticalError(v8);
       }
       VIDMM_PAGING_QUEUE::SetStatus((__int64 *)this, 0);
     }
   }
-  --*(_DWORD *)(*((_QWORD *)this + 17) + 72LL);
+  --*(_DWORD *)(*((_QWORD *)this + 17) + 64LL);
   --*(_DWORD *)(*((_QWORD *)this + 10) + 168LL);
-  v7 = *((_QWORD *)this + 10) + 144LL;
-  *(_QWORD *)(v7 + 8) = 0LL;
-  ExReleasePushLockExclusiveEx(v7, 0LL);
+  v9 = *((_QWORD *)this + 10) + 144LL;
+  *(_QWORD *)(v9 + 8) = 0LL;
+  ExReleasePushLockExclusiveEx(v9, 0LL);
   KeLeaveCriticalRegion();
 }

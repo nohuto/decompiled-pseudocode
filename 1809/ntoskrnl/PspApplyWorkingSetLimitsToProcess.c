@@ -15,8 +15,8 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     MmEnforceWorkingSetLimit @ 0x14008FB50 (MmEnforceWorkingSetLimit.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MmAdjustWorkingSetSize @ 0x14018ED10 (MmAdjustWorkingSetSize.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MmAdjustWorkingSetSize @ 0x14018ED30 (MmAdjustWorkingSetSize.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PspApplyWorkingSetLimitsToProcess(ULONG_PTR BugCheckParameter1)

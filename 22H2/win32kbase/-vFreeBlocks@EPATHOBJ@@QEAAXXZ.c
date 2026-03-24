@@ -1,29 +1,32 @@
 /*
- * XREFs of ?vFreeBlocks@EPATHOBJ@@QEAAXXZ @ 0x1C0153F10
+ * XREFs of ?vFreeBlocks@EPATHOBJ@@QEAAXXZ @ 0x1C00233E0
  * Callers:
- *     ?bGarbageCollect@EPATHOBJGC@@QEAA_NXZ @ 0x1C00D1688 (-bGarbageCollect@EPATHOBJGC@@QEAA_NXZ.c)
- *     ?reinit@EPATHOBJ@@IEAAXXZ @ 0x1C0153E38 (-reinit@EPATHOBJ@@IEAAXXZ.c)
- *     ?vUnlock@EPATHOBJ@@QEAAXXZ @ 0x1C0154170 (-vUnlock@EPATHOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@EPATHOBJ@@QEAAXXZ @ 0x1C0023350 (-vUnlock@EPATHOBJ@@QEAAXXZ.c)
+ *     ?bGarbageCollect@EPATHOBJGC@@QEAA_NXZ @ 0x1C00C87BC (-bGarbageCollect@EPATHOBJGC@@QEAA_NXZ.c)
+ *     ?reinit@EPATHOBJ@@IEAAXXZ @ 0x1C013D380 (-reinit@EPATHOBJ@@IEAAXXZ.c)
  * Callees:
- *     freepathalloc @ 0x1C0154300 (freepathalloc.c)
+ *     freepathalloc @ 0x1C0023430 (freepathalloc.c)
  */
 
 void __fastcall EPATHOBJ::vFreeBlocks(EPATHOBJ *this)
 {
-  _DWORD *v2; // rcx
-  _DWORD *v3; // rbx
+  __int64 v1; // rax
+  __int64 *v3; // rcx
+  __int64 *v4; // rbx
 
-  v2 = *(_DWORD **)(*((_QWORD *)this + 1) + 24LL);
-  if ( v2 )
+  v1 = *((_QWORD *)this + 1);
+  v3 = *(__int64 **)(v1 + 24);
+  if ( v3 )
   {
     do
     {
-      v3 = *(_DWORD **)v2;
-      if ( v2[4] == 4032 )
-        freepathalloc(v2);
-      v2 = v3;
+      v4 = (__int64 *)*v3;
+      if ( *((_DWORD *)v3 + 4) == 4032 )
+        freepathalloc();
+      v3 = v4;
     }
-    while ( v3 );
+    while ( v4 );
+    v1 = *((_QWORD *)this + 1);
   }
-  *(_QWORD *)(*((_QWORD *)this + 1) + 24LL) = 0LL;
+  *(_QWORD *)(v1 + 24) = 0LL;
 }

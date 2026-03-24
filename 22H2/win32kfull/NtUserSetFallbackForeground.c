@@ -1,61 +1,68 @@
 /*
- * XREFs of NtUserSetFallbackForeground @ 0x1C01DBB30
+ * XREFs of NtUserSetFallbackForeground @ 0x1C0201980
  * Callers:
  *     <none>
  * Callees:
- *     IAMThreadAccessGranted @ 0x1C002731C (IAMThreadAccessGranted.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     _IsTopLevelWindow @ 0x1C0122310 (_IsTopLevelWindow.c)
- *     _SetFallbackForeground @ 0x1C01AE880 (_SetFallbackForeground.c)
+ *     IAMThreadAccessGranted @ 0x1C0037F54 (IAMThreadAccessGranted.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
+ *     _SetFallbackForeground @ 0x1C01D2574 (_SetFallbackForeground.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NtUserSetFallbackForeground(__int64 a1, int a2)
 {
-  int v4; // eax
-  int v5; // ebx
-  int v6; // ecx
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // rax
-  __int64 v10; // r8
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  char v16; // [rsp+40h] [rbp+18h] BYREF
+  int v4; // ebx
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  __int64 v9; // r9
+  __int64 v10; // rcx
+  char v12; // [rsp+40h] [rbp+18h] BYREF
 
   EnterCrit(0LL, 1LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v16);
-  LOBYTE(v4) = IAMThreadAccessGranted(gptiCurrent);
-  v5 = 0;
-  if ( v4 )
+  v4 = 0;
+  gbValidateHandleForIL = 0;
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v12);
+  if ( IAMThreadAccessGranted(gptiCurrent) )
   {
     if ( a1 )
     {
-      v9 = ValidateHwnd(a1);
-      if ( !v9 || (*(_WORD *)(*(_QWORD *)(v9 + 40) + 42LL) & 0x2FFF) == 0x29D || !IsTopLevelWindow(v9) || !a2 )
-        goto LABEL_9;
+      v8 = ValidateHwnd(a1);
+      if ( !v8 )
+        goto LABEL_8;
+      v5 = *(_WORD *)(*(_QWORD *)(v8 + 40) + 42LL) & 0x2FFF;
+      if ( (_DWORD)v5 == 669 || !(unsigned int)IsTopLevelWindow(v8) )
+        goto LABEL_8;
     }
     else
     {
-      v10 = 0LL;
-      if ( a2 )
+      v9 = 0LL;
+    }
+    if ( v9 )
+    {
+      if ( !a2 )
       {
-LABEL_9:
-        v6 = 87;
+LABEL_8:
+        v7 = 87LL;
         goto LABEL_3;
       }
     }
-    v5 = SetFallbackForeground(v10, a2);
-    goto LABEL_12;
+    else if ( a2 )
+    {
+      goto LABEL_8;
+    }
+    v4 = SetFallbackForeground(v9, a2);
+    goto LABEL_15;
   }
-  v6 = 5;
+  v7 = 5LL;
 LABEL_3:
-  UserSetLastError(v6);
-LABEL_12:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v16, v7, v8);
-  UserSessionSwitchLeaveCrit(v12, v11, v13, v14);
-  return v5;
+  UserSetLastError(v7, v5, v6);
+LABEL_15:
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v12);
+  UserSessionSwitchLeaveCrit(v10);
+  return v4;
 }

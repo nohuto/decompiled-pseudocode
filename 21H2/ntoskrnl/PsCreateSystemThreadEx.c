@@ -1,38 +1,39 @@
 /*
- * XREFs of PsCreateSystemThreadEx @ 0x1406F0360
+ * XREFs of PsCreateSystemThreadEx @ 0x1406D0190
  * Callers:
- *     MiZeroNodePages @ 0x1403D3960 (MiZeroNodePages.c)
- *     MiZeroBootLargePages @ 0x1403D9D88 (MiZeroBootLargePages.c)
- *     ExpWatchProductTypeWork @ 0x1406A5770 (ExpWatchProductTypeWork.c)
- *     NtGetMUIRegistryInfo @ 0x1406BE9A0 (NtGetMUIRegistryInfo.c)
- *     PsCreateSystemThread @ 0x1406F0310 (PsCreateSystemThread.c)
- *     ExpNodeCreateSystemThread @ 0x1406F2278 (ExpNodeCreateSystemThread.c)
- *     IoCreateSystemThread @ 0x1407FB2B0 (IoCreateSystemThread.c)
- *     PopInitSystemSleeperThread @ 0x140807FEC (PopInitSystemSleeperThread.c)
- *     KiStartDpcThread @ 0x140829870 (KiStartDpcThread.c)
- *     CmpCreateRegistryThread @ 0x1408339FC (CmpCreateRegistryThread.c)
- *     MmStoreRegister @ 0x14084A7D0 (MmStoreRegister.c)
- *     MiInsertPageFileInList @ 0x14084B418 (MiInsertPageFileInList.c)
- *     IopCreatePassiveInterruptRealtimeThreads @ 0x140859AD4 (IopCreatePassiveInterruptRealtimeThreads.c)
- *     PopFxCreateEmergencyWorkerThread @ 0x14085B500 (PopFxCreateEmergencyWorkerThread.c)
- *     IopStartApcHardError @ 0x140935DE0 (IopStartApcHardError.c)
- *     MiInitializePartitionThreads @ 0x14096C3A8 (MiInitializePartitionThreads.c)
- *     PfTStart @ 0x1409884F4 (PfTStart.c)
- *     EtwpCovSampCaptureContextStart @ 0x1409EEA80 (EtwpCovSampCaptureContextStart.c)
- *     ExpWatchLicenseInfoWork @ 0x1409F8680 (ExpWatchLicenseInfoWork.c)
- *     NtMapCMFModule @ 0x140A05860 (NtMapCMFModule.c)
+ *     MiZeroNodePages @ 0x1403B0220 (MiZeroNodePages.c)
+ *     MiZeroBootLargePages @ 0x1403CABF4 (MiZeroBootLargePages.c)
+ *     NtGetMUIRegistryInfo @ 0x14069C770 (NtGetMUIRegistryInfo.c)
+ *     ExpWatchProductTypeWork @ 0x1406B3870 (ExpWatchProductTypeWork.c)
+ *     ExpNodeCreateSystemThread @ 0x1406D0058 (ExpNodeCreateSystemThread.c)
+ *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
+ *     MiEnablePartitionMappedWrites @ 0x1406D3284 (MiEnablePartitionMappedWrites.c)
+ *     IoCreateSystemThread @ 0x14076DE10 (IoCreateSystemThread.c)
+ *     PopInitSystemSleeperThread @ 0x1407799D8 (PopInitSystemSleeperThread.c)
+ *     CmpCreateRegistryThread @ 0x14078F7D4 (CmpCreateRegistryThread.c)
+ *     KiStartDpcThread @ 0x14079F674 (KiStartDpcThread.c)
+ *     MmStoreRegister @ 0x1407B637C (MmStoreRegister.c)
+ *     MiInsertPageFileInList @ 0x1407B6FD0 (MiInsertPageFileInList.c)
+ *     PfTStart @ 0x1407BFA40 (PfTStart.c)
+ *     IopCreatePassiveInterruptRealtimeThreads @ 0x1407C9674 (IopCreatePassiveInterruptRealtimeThreads.c)
+ *     PopFxCreateEmergencyWorkerThread @ 0x1407CB520 (PopFxCreateEmergencyWorkerThread.c)
+ *     IopStartApcHardError @ 0x140892E70 (IopStartApcHardError.c)
+ *     MiInitializePartitionThreads @ 0x1408C7C54 (MiInitializePartitionThreads.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1409422B8 (EtwpCovSampCaptureContextStart.c)
+ *     ExpWatchLicenseInfoWork @ 0x14094BFD0 (ExpWatchLicenseInfoWork.c)
+ *     NtMapCMFModule @ 0x140959B20 (NtMapCMFModule.c)
  * Callees:
- *     KeQueryActiveGroupCount @ 0x1402622B0 (KeQueryActiveGroupCount.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PspCreateThread @ 0x140701B64 (PspCreateThread.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     KeQueryActiveGroupCount @ 0x1402E2F50 (KeQueryActiveGroupCount.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PspCreateThread @ 0x140648C4C (PspCreateThread.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall PsCreateSystemThreadEx(
-        int a1,
+        __int64 a1,
         int a2,
         __int128 *a3,
         ULONG_PTR a4,
@@ -44,11 +45,11 @@ __int64 __fastcall PsCreateSystemThreadEx(
 {
   __int128 *v10; // rsi
   char v13; // r12
-  _DWORD *v14; // rbx
+  __int64 v14; // rbx
   _DWORD *v15; // rdi
-  __int128 v16; // xmm0
-  __int128 v17; // xmm0
   int Thread; // edi
+  __int128 v18; // xmm0
+  __int128 v19; // xmm0
   unsigned int v20; // ebx
   __int128 v21; // xmm0
   int v22; // eax
@@ -61,19 +62,18 @@ __int64 __fastcall PsCreateSystemThreadEx(
   __int64 v29; // [rsp+B8h] [rbp-48h]
   __int64 v30; // [rsp+C0h] [rbp-40h]
   __int128 v31; // [rsp+C8h] [rbp-38h] BYREF
-  _OWORD v32[32]; // [rsp+E0h] [rbp-20h] BYREF
+  _OWORD v32[33]; // [rsp+E0h] [rbp-20h] BYREF
 
   v10 = a8;
   v30 = a5;
   v29 = a6;
   v24 = a2;
   v28 = a7;
-  memset(v32, 0, 0x1F5uLL);
-  *(_QWORD *)&v27 = 0LL;
-  v23 = 0LL;
+  memset(v32, 0, 0x208uLL);
   *(_OWORD *)v25 = 0LL;
-  DWORD2(v27) = 0;
+  v23 = 0LL;
   v26 = 0LL;
+  v27 = 0LL;
   v31 = 0LL;
   if ( KeGetCurrentIrql() > 1u )
     KeBugCheckEx(0xC8u, ((unsigned __int64)KeGetCurrentIrql() << 16) | 4, 0LL, 0LL, 0LL);
@@ -83,28 +83,30 @@ __int64 __fastcall PsCreateSystemThreadEx(
     Thread = ObpReferenceObjectByHandleWithTag(a4, 0x72437350u, (__int64)&v23, 0LL, 0LL);
     if ( Thread < 0 )
       return (unsigned int)Thread;
-    v14 = (_DWORD *)v23;
+    v14 = v23;
     v13 = 1;
   }
   else
   {
-    v14 = (_DWORD *)*((_QWORD *)PspSystemPartition + 13);
-    v23 = (__int64)v14;
+    v14 = *((_QWORD *)PspSystemPartition + 13);
+    v23 = v14;
   }
-  v15 = v14 + 543;
-  if ( (v14[543] & 0x1000) != 0 )
+  v15 = (_DWORD *)(v14 + 2172);
+  if ( (*(_DWORD *)(v14 + 2172) & 0x1000) != 0 )
   {
-    if ( !a8 && !a9 )
+    if ( a8 )
+      goto LABEL_17;
+    if ( !a9 )
     {
       v20 = (unsigned __int16)(_InterlockedExchangeAdd(&PspSystemThreadAssignment, 1u) + 1);
       v10 = &v31;
       WORD4(v31) = v20 % KeQueryActiveGroupCount();
-      v14 = (_DWORD *)v23;
-      *(_QWORD *)&v31 = qword_140D06E48[WORD4(v31)];
+      v14 = v23;
+      *(_QWORD *)&v31 = qword_140CFC848[WORD4(v31)];
     }
-    memset(v32, 0, 0x1F8uLL);
     if ( v10 )
     {
+LABEL_17:
       v21 = *v10;
       v22 = 4096;
       DWORD1(v32[0]) = 4096;
@@ -122,12 +124,12 @@ __int64 __fastcall PsCreateSystemThreadEx(
   }
   if ( a3 )
   {
-    v16 = *a3;
+    v18 = *a3;
     v26 = (__m128i)a3[1];
-    *(_OWORD *)v25 = v16;
-    v17 = a3[2];
+    *(_OWORD *)v25 = v18;
+    v19 = a3[2];
     v26.m128i_i32[2] = _mm_cvtsi128_si32(_mm_srli_si128(v26, 8)) | 0x200;
-    v27 = v17;
+    v27 = v19;
   }
   else
   {
@@ -140,9 +142,9 @@ __int64 __fastcall PsCreateSystemThreadEx(
   Thread = PspCreateThread(
              a1,
              v24,
-             (int)v25,
-             0,
-             v14,
+             (__int64)v25,
+             0LL,
+             (_KPROCESS *)v14,
              (unsigned __int64)v32 & -(__int64)((*v15 & 0x1000) != 0),
              v30,
              0LL,
@@ -152,6 +154,6 @@ __int64 __fastcall PsCreateSystemThreadEx(
              v28,
              0LL);
   if ( v13 )
-    ObfDereferenceObjectWithTag(v14, 0x72437350u);
+    ObfDereferenceObjectWithTag((PVOID)v14, 0x72437350u);
   return (unsigned int)Thread;
 }

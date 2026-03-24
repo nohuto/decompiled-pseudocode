@@ -1,64 +1,94 @@
 /*
- * XREFs of ?Initialize@OUTPUTDUPL_SESSION_MGR@@QEAAJXZ @ 0x1C01EB624
+ * XREFs of ?Initialize@OUTPUTDUPL_SESSION_MGR@@QEAAJXZ @ 0x1C016E1DC
  * Callers:
- *     ??0DXGSESSIONDATA@@QEAA@K@Z @ 0x1C01EB010 (--0DXGSESSIONDATA@@QEAA@K@Z.c)
+ *     ??0DXGSESSIONDATA@@QEAA@K@Z @ 0x1C016DC5C (--0DXGSESSIONDATA@@QEAA@K@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C01E93B0 (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C016D17C (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
  */
 
 __int64 __fastcall OUTPUTDUPL_SESSION_MGR::Initialize(OUTPUTDUPL_SESSION_MGR *this)
 {
-  int v1; // edi
-  unsigned int v3; // edi
-  __int64 v4; // rax
-  __int64 v5; // rcx
-  void **v6; // rbx
-  unsigned int v8; // eax
-  __int64 v9; // rcx
-  unsigned int v10; // eax
-  const wchar_t *v11; // r9
-  unsigned int CurrentProcessSessionId; // eax
-  __int64 v13; // rcx
+  int v1; // esi
+  unsigned int v3; // esi
+  void **v4; // rax
+  __int64 v5; // rdx
+  void *v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  void **v9; // rbx
+  _QWORD *v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  _QWORD *v15; // rax
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  __int64 v19; // rbx
+  __int64 v20; // rdx
+  __int64 v21; // rdx
+  __int64 v22; // rcx
 
   v1 = *(_DWORD *)this;
   *((_DWORD *)this + 1) = *(_DWORD *)this;
   v3 = 32 * v1;
-  v4 = operator new[](0x10uLL, 0x674D444Fu, 256LL);
-  v6 = (void **)v4;
+  v4 = (void **)operator new[](0x10uLL, 0x674D444Fu, PagedPool);
+  v9 = v4;
   if ( v4 )
   {
-    *(_QWORD *)v4 = 0LL;
-    *(_DWORD *)(v4 + 8) = 0;
-    *(_DWORD *)(v4 + 12) = 0;
-    AUTOEXPANDALLOCATION::GetBuffer((const void **)v4, v3, 0);
+    *v4 = 0LL;
+    *((_DWORD *)v4 + 2) = 0;
+    *((_DWORD *)v4 + 3) = 0;
+    AUTOEXPANDALLOCATION::GetBuffer((AUTOEXPANDALLOCATION *)v4, v3, 0);
   }
   else
   {
-    v6 = 0LL;
+    v9 = 0LL;
   }
-  *((_QWORD *)this + 7) = v6;
-  if ( v6 )
+  *((_QWORD *)this + 2) = v9;
+  if ( v9 && (v6 = *v9) != 0LL )
   {
-    if ( *v6 )
+    memset(v6, 0, v3);
+    v10 = operator new[](0x28uLL, 0x674D444Fu, (POOL_TYPE)512);
+    if ( v10 )
     {
-      memset(*v6, 0, v3);
-      return 0LL;
+      *v10 = 0LL;
+      v10[1] = 0LL;
+      v10[2] = 0LL;
+      *((_DWORD *)v10 + 6) = 0;
+      *((_DWORD *)v10 + 7) = 43;
+      *((_DWORD *)v10 + 8) = 53;
     }
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(0LL);
-    WdLogSingleEntry2(6LL, *((unsigned int *)this + 1), CurrentProcessSessionId);
-    v10 = PsGetCurrentProcessSessionId(v13);
-    v11 = L"Failed to get session data buffer for output duplication with 0x%I64x apps in session 0x%I64x.";
+    *((_QWORD *)this + 1) = v10;
+    if ( v10 )
+    {
+      v15 = operator new[](0x28uLL, 0x674D444Fu, (POOL_TYPE)512);
+      if ( v15 )
+      {
+        *v15 = 0LL;
+        v15[1] = 0LL;
+        v15[2] = 0LL;
+        *((_DWORD *)v15 + 6) = 0;
+        *((_DWORD *)v15 + 7) = 43;
+        *((_DWORD *)v15 + 8) = 53;
+      }
+      *((_QWORD *)this + 4) = v15;
+      if ( v15 )
+        return 0LL;
+    }
+    v19 = WdLogNewEntry5_WdLowResource(v12, v11, v13, v14);
+    *(_QWORD *)(v19 + 24) = (unsigned int)PsGetCurrentProcessSessionId(v22, v21);
   }
   else
   {
-    v8 = PsGetCurrentProcessSessionId(v5);
-    WdLogSingleEntry2(6LL, *((unsigned int *)this + 1), v8);
-    v10 = PsGetCurrentProcessSessionId(v9);
-    v11 = L"Failed to allocate session data for output duplication with 0x%I64x apps in session 0x%I64x.";
+    v17 = WdLogNewEntry5_WdLowResource(v6, v5, v7, v8);
+    v18 = *((unsigned int *)this + 1);
+    v19 = v17;
+    *(_QWORD *)(v17 + 24) = v18;
+    *(_QWORD *)(v17 + 32) = (unsigned int)PsGetCurrentProcessSessionId(v18, v20);
   }
-  DxgkLogInternalTriageEvent(0LL, 262145, -1, (__int64)v11, *((unsigned int *)this + 1), v10, 0LL, 0LL, 0LL);
+  WdLogEvent5_WdLowResource(v19);
   return 3221225495LL;
 }

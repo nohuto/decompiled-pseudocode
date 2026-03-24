@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DestroyState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C008A684
+ * XREFs of ?DestroyState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C00816D4
  * Callers:
- *     ??1VIDMM_DEVICE@@QEAA@XZ @ 0x1C008A340 (--1VIDMM_DEVICE@@QEAA@XZ.c)
+ *     ??1VIDMM_DEVICE@@QEAA@XZ @ 0x1C00813FC (--1VIDMM_DEVICE@@QEAA@XZ.c)
  * Callees:
- *     VidSchDestroyDeviceSyncObject @ 0x1C0003210 (VidSchDestroyDeviceSyncObject.c)
- *     ?UnmapGpuVA@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C008A654 (-UnmapGpuVA@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ.c)
- *     VidSchDestroySyncObject @ 0x1C008CB20 (VidSchDestroySyncObject.c)
+ *     VidSchDestroyDeviceSyncObject @ 0x1C0011D80 (VidSchDestroyDeviceSyncObject.c)
+ *     VidSchDestroySyncObject @ 0x1C0081B70 (VidSchDestroySyncObject.c)
+ *     ?UnmapGpuVA@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C008245C (-UnmapGpuVA@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ.c)
  */
 
 void __fastcall VIDMM_DEVICE_PAGING_QUEUE::DestroyState(VIDMM_DEVICE_PAGING_QUEUE *this)

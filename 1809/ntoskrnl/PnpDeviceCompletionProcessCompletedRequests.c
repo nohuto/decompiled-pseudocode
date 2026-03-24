@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDeviceCompletionProcessCompletedRequests @ 0x1406E6B10
+ * XREFs of PnpDeviceCompletionProcessCompletedRequests @ 0x1406E6AF0
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406E657C (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406E655C (PipProcessDevNodeTree.c)
  * Callees:
- *     PnpDeviceCompletionQueueIsEmpty @ 0x140159B1C (PnpDeviceCompletionQueueIsEmpty.c)
- *     PnpDeviceCompletionQueueGetCompletedRequest @ 0x14018D948 (PnpDeviceCompletionQueueGetCompletedRequest.c)
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x1406E7E44 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PnpDeviceCompletionQueueIsEmpty @ 0x140159B3C (PnpDeviceCompletionQueueIsEmpty.c)
+ *     PnpDeviceCompletionQueueGetCompletedRequest @ 0x14018D968 (PnpDeviceCompletionQueueGetCompletedRequest.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x1406E7E24 (PnpDeviceCompletionProcessCompletedRequest.c)
  */
 
 __int64 __fastcall PnpDeviceCompletionProcessCompletedRequests(int a1, int a2, _BYTE *a3)

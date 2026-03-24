@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIEcInternalControl @ 0x1C0083244
+ * XREFs of ACPIEcInternalControl @ 0x1C00AE690
  * Callers:
- *     ACPIEcOtherIrpDispatch @ 0x1C00832D0 (ACPIEcOtherIrpDispatch.c)
+ *     ACPIEcOtherIrpDispatch @ 0x1C00AE720 (ACPIEcOtherIrpDispatch.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     ACPIEcConnectHandler @ 0x1C0083860 (ACPIEcConnectHandler.c)
- *     ACPIEcDisconnectHandler @ 0x1C0083A90 (ACPIEcDisconnectHandler.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIEcConnectHandler @ 0x1C00AECB0 (ACPIEcConnectHandler.c)
+ *     ACPIEcDisconnectHandler @ 0x1C00AEEE0 (ACPIEcDisconnectHandler.c)
  */
 
 __int64 __fastcall ACPIEcInternalControl(ULONG_PTR a1, IRP *a2)

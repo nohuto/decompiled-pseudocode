@@ -1,251 +1,224 @@
 /*
- * XREFs of ?WaitForFences@VIDMM_GLOBAL@@QEAAXPEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI1@Z @ 0x1C00959C0
+ * XREFs of ?WaitForFences@VIDMM_GLOBAL@@QEAAXPEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI1@Z @ 0x1C006BB80
  * Callers:
- *     ?VidMmWaitForFences@@YAXPEAVVIDMM_GLOBAL@@PEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI@Z @ 0x1C00012B0 (-VidMmWaitForFences@@YAXPEAVVIDMM_GLOBAL@@PEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI@Z.c)
- *     ?WaitForFence@VIDMM_GLOBAL@@QEAAXPEAU_VIDSCH_SYNC_OBJECT@@_K@Z @ 0x1C0004F00 (-WaitForFence@VIDMM_GLOBAL@@QEAAXPEAU_VIDSCH_SYNC_OBJECT@@_K@Z.c)
- *     ?xWaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI1I@Z @ 0x1C008A9DC (-xWaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI1I@Z.c)
- *     ?QueueSystemCommandAndWaitInternal@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@AEAVVIDMM_PAGING_QUEUE@@PEAU_VIDSCH_SYNC_OBJECT@@_N@Z @ 0x1C0092BE0 (-QueueSystemCommandAndWaitInternal@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@AEAVVIDMM_PAGIN.c)
- *     ?WaitForAllPagingOperations@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00931CC (-WaitForAllPagingOperations@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?Lock@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@KPEAPEAX@Z @ 0x1C00943E0 (-Lock@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@KPEAPEAX@Z.c)
- *     ?EvictResource@VIDMM_SYSMEM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EEEPEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C0094EB0 (-EvictResource@VIDMM_SYSMEM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EEEPEAU_VIDMM_LOCAL_ALLOC@@@Z.c)
- *     ?ReclaimOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_ALLOC@@PEA_KPEAW4_D3DDDI_RECLAIM_RESULT@@@Z @ 0x1C00AF740 (-ReclaimOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_ALLOC@@PEA_KPEAW4_D3D.c)
- *     ?ForceDiscardOffer@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00E3474 (-ForceDiscardOffer@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
- *     ?VidMmEvictAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAU_D3DKMT_EVICTION_CRITERIA@@@Z @ 0x1C00E9CB8 (-VidMmEvictAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@.c)
+ *     ?VidMmWaitForFences@@YAXPEAVVIDMM_GLOBAL@@PEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI@Z @ 0x1C0022AF0 (-VidMmWaitForFences@@YAXPEAVVIDMM_GLOBAL@@PEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI@Z.c)
+ *     ?xWaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI1I@Z @ 0x1C006BAE0 (-xWaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI1I@Z.c)
+ *     ?QueueDeferredCommand@VIDMM_GLOBAL@@QEAAJAEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_DEFERRED_COMMAND@@_NPEA_K@Z @ 0x1C0073674 (-QueueDeferredCommand@VIDMM_GLOBAL@@QEAAJAEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_DEFERRED_COMMAND@@_N.c)
+ *     ?QueueSystemCommandAndWaitInternal@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@AEAVVIDMM_PAGING_QUEUE@@PEAU_VIDSCH_SYNC_OBJECT@@_N@Z @ 0x1C0073C88 (-QueueSystemCommandAndWaitInternal@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@AEAVVIDMM_PAGIN.c)
+ *     ?OpenOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAXHPEAVDXGALLOCATION@@PEAPEAUVIDMM_ALLOC@@PEAE@Z @ 0x1C00765B0 (-OpenOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAXHPEAVDXGALL.c)
+ *     ?ReclaimOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_ALLOC@@PEA_KPEAW4_D3DDDI_RECLAIM_RESULT@@@Z @ 0x1C007ACC0 (-ReclaimOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_ALLOC@@PEA_KPEAW4_D3D.c)
+ *     ?AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z @ 0x1C008B81C (-AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z.c)
+ *     ?ForceDiscardOffer@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00AE808 (-ForceDiscardOffer@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?VidMmEvictAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAU_D3DKMT_EVICTION_CRITERIA@@@Z @ 0x1C00B4B04 (-VidMmEvictAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@.c)
  * Callees:
- *     VidSchSubmitWaitFromCpu @ 0x1C0004F40 (VidSchSubmitWaitFromCpu.c)
- *     VidSchIsMonitoredFenceSignaled @ 0x1C00051A0 (VidSchIsMonitoredFenceSignaled.c)
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?AllocateElements@?$NonPagedPoolZeroedArray@_K$01$0DIGBGJFG@@@QEAAPEA_KI@Z @ 0x1C001BADE (-AllocateElements@-$NonPagedPoolZeroedArray@_K$01$0DIGBGJFG@@@QEAAPEA_KI@Z.c)
- *     ??1?$NonPagedPoolZeroedArray@PEAU_VIDSCH_SYNC_OBJECT@@$01$0DIGBGJFG@@@QEAA@XZ @ 0x1C002D670 (--1-$NonPagedPoolZeroedArray@PEAU_VIDSCH_SYNC_OBJECT@@$01$0DIGBGJFG@@@QEAA@XZ.c)
+ *     VidSchIsMonitoredFenceSignaled @ 0x1C0001730 (VidSchIsMonitoredFenceSignaled.c)
+ *     ?AllocateElements@?$NonPagedPoolZeroedArray@_K$01$0DIGBGJFG@@@QEAAPEA_KI@Z @ 0x1C0001864 (-AllocateElements@-$NonPagedPoolZeroedArray@_K$01$0DIGBGJFG@@@QEAAPEA_KI@Z.c)
+ *     VidSchSubmitWaitFromCpu @ 0x1C0001910 (VidSchSubmitWaitFromCpu.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0018D80 (memset.c)
  */
 
 void __fastcall VIDMM_GLOBAL::WaitForFences(
         VIDMM_GLOBAL *this,
         struct _VIDSCH_SYNC_OBJECT **a2,
-        const unsigned __int64 *a3,
+        unsigned __int64 *a3,
         unsigned int a4,
         const unsigned __int64 *a5)
 {
-  const unsigned __int64 *v5; // rsi
-  struct _VIDSCH_SYNC_OBJECT **v6; // rax
-  unsigned int v7; // ebx
-  unsigned int v9; // r14d
-  const unsigned __int64 *v10; // r15
-  char v11; // r12
-  unsigned int v12; // edi
-  unsigned __int64 *v13; // rbx
-  signed __int64 v14; // rsi
+  _BYTE *PoolWithTag; // rax
+  unsigned int v6; // esi
+  __int64 v7; // r14
+  __int64 *v8; // r15
+  struct _VIDSCH_SYNC_OBJECT **v9; // r13
+  unsigned int v10; // edi
+  unsigned __int64 *v11; // rbx
+  __int64 v12; // rcx
+  __int64 v13; // rbx
+  unsigned __int64 v14; // rdx
   __int64 v15; // rcx
-  int v16; // eax
-  __int64 v17; // rdi
-  int v18; // eax
-  __int64 Elements; // rdi
-  __int64 v20; // r9
-  char *v21; // r11
-  const unsigned __int64 *v22; // rdx
-  signed __int64 v23; // r10
-  signed __int64 v24; // rbx
-  unsigned __int64 v25; // r8
-  __int64 v26; // rax
-  __int64 v27; // rcx
-  __int64 v28; // rcx
-  __int64 v29; // rcx
+  char *v16; // rdi
+  __int64 v17; // r8
+  _BYTE *v18; // r11
+  const unsigned __int64 *v19; // rdx
+  signed __int64 v20; // r9
+  signed __int64 v21; // r10
+  unsigned __int64 v22; // r8
+  int v23; // eax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // rbx
+  int v28; // eax
+  char v29; // di
   __int64 v30; // rcx
-  __int64 v31; // [rsp+28h] [rbp-D8h]
-  __int64 v32; // [rsp+30h] [rbp-D0h]
-  __int64 v33; // [rsp+38h] [rbp-C8h]
-  PRKEVENT Event; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned int v35; // [rsp+58h] [rbp-A8h]
-  struct _VIDSCH_SYNC_OBJECT **v36; // [rsp+60h] [rbp-A0h]
-  PVOID P; // [rsp+68h] [rbp-98h] BYREF
-  _BYTE v38[16]; // [rsp+70h] [rbp-90h] BYREF
-  unsigned int v39; // [rsp+80h] [rbp-80h]
-  const unsigned __int64 *v40; // [rsp+88h] [rbp-78h]
-  struct _VIDSCH_SYNC_OBJECT **v41; // [rsp+90h] [rbp-70h]
-  union _LARGE_INTEGER Interval; // [rsp+98h] [rbp-68h] BYREF
-  _QWORD v43[4]; // [rsp+A0h] [rbp-60h] BYREF
-  __int128 v44; // [rsp+C0h] [rbp-40h]
-  PVOID v45; // [rsp+D0h] [rbp-30h] BYREF
-  _BYTE v46[16]; // [rsp+D8h] [rbp-28h] BYREF
-  int v47; // [rsp+E8h] [rbp-18h]
+  __int64 v31; // rax
+  __int64 v32; // rax
+  char v33; // [rsp+50h] [rbp-91h]
+  PRKEVENT Event; // [rsp+58h] [rbp-89h] BYREF
+  _BYTE *v36; // [rsp+60h] [rbp-81h]
+  _BYTE v37[16]; // [rsp+68h] [rbp-79h] BYREF
+  unsigned int v38; // [rsp+78h] [rbp-69h]
+  VIDMM_GLOBAL *v39; // [rsp+80h] [rbp-61h]
+  const unsigned __int64 *v40; // [rsp+88h] [rbp-59h]
+  struct _VIDSCH_SYNC_OBJECT **v41; // [rsp+90h] [rbp-51h]
+  union _LARGE_INTEGER Interval; // [rsp+98h] [rbp-49h] BYREF
+  _QWORD v43[4]; // [rsp+A0h] [rbp-41h] BYREF
+  __int128 v44; // [rsp+C0h] [rbp-21h]
+  PVOID P; // [rsp+D0h] [rbp-11h] BYREF
+  char v46; // [rsp+D8h] [rbp-9h] BYREF
+  int v47; // [rsp+E8h] [rbp+7h]
 
-  v5 = a5;
-  v6 = a2;
-  v41 = a2;
-  v7 = a4;
-  v35 = a4;
   Event = 0LL;
+  PoolWithTag = 0LL;
+  P = 0LL;
+  v6 = a4;
+  v47 = 0;
+  LODWORD(v7) = a4;
+  v36 = 0LL;
+  v8 = (__int64 *)a3;
+  v38 = 0;
+  v9 = a2;
   v40 = a3;
-  v9 = a4;
-  v10 = a3;
-  v36 = a2;
-  v11 = 1;
+  v41 = a2;
+  v39 = this;
+  v33 = 1;
   while ( 1 )
   {
-    v45 = 0LL;
-    v47 = 0;
-    P = 0LL;
-    v39 = 0;
-    if ( !v5 || *((_BYTE *)this + 4640) )
+    if ( !a5 || *((_BYTE *)this + 4624) )
       goto LABEL_4;
-    Elements = NonPagedPoolZeroedArray<unsigned __int64,2,945908054>::AllocateElements((__int64 *)&v45, v7);
-    if ( v7 <= 2 )
+    v13 = v6;
+    v16 = (char *)NonPagedPoolZeroedArray<unsigned __int64,2,945908054>::AllocateElements(&P, v6);
+    if ( v6 > 2 )
     {
-      P = v38;
-      if ( v7 )
-        memset(v38, 0, 8LL * v7);
+      v14 = 0xFFFFFFFFFFFFFFFFuLL % v6;
+      if ( 0xFFFFFFFFFFFFFFFFuLL / v6 < 8 )
+      {
+        PoolWithTag = v36;
+        v18 = 0LL;
+        goto LABEL_22;
+      }
+      PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 8LL * v6, 0x38616956u);
     }
     else
     {
-      v20 = v7;
-      if ( 0xFFFFFFFFFFFFFFFFuLL / v7 < 8 )
-      {
-        v21 = 0LL;
-        goto LABEL_31;
-      }
-      P = (PVOID)ExAllocatePool2(64LL, 8LL * v7, 945908054LL);
+      PoolWithTag = v37;
     }
-    v21 = (char *)P;
-    v39 = v7;
-    v20 = v7;
-LABEL_31:
-    if ( !Elements || !v21 )
+    v36 = PoolWithTag;
+    v38 = v6;
+    if ( PoolWithTag && v6 )
     {
-      LODWORD(v17) = -1073741801;
-      WdLogSingleEntry1(1LL, -1073741801LL);
-      HIDWORD(v33) = 0;
-      HIDWORD(v32) = 0;
-      HIDWORD(v31) = 0;
-      DxgkLogInternalTriageEvent(v28, 0x40000LL);
-      goto LABEL_14;
+      memset(PoolWithTag, 0, 8LL * v6);
+      PoolWithTag = v36;
     }
-    v9 = 0;
-    if ( v7 )
+    v18 = PoolWithTag;
+LABEL_22:
+    if ( v16 && v18 )
     {
-      v22 = v5;
-      v23 = (char *)v40 - (char *)v5;
-      v24 = (char *)v41 - (char *)v5;
-      do
+      v7 = 0LL;
+      if ( v6 )
       {
-        v25 = *(const unsigned __int64 *)((char *)v22 + v23);
-        if ( *v22 <= v25 || *v22 - v25 < 0x7FFFFFFF )
+        v19 = a5;
+        v20 = (char *)v40 - (char *)a5;
+        v21 = (char *)v41 - (char *)a5;
+        do
         {
-          v26 = v9++;
-          v27 = 8 * v26;
-          *(_QWORD *)(v27 + Elements) = v25;
-          *(_QWORD *)&v21[v27] = *(const unsigned __int64 *)((char *)v22 + v24);
+          v22 = *(const unsigned __int64 *)((char *)v19 + v20);
+          if ( *v19 <= v22 || *v19 - v22 < 0x7FFFFFFF )
+          {
+            v30 = 8 * v7;
+            v7 = (unsigned int)(v7 + 1);
+            *(_QWORD *)&v16[v30] = v22;
+            *(_QWORD *)&v18[v30] = *(const unsigned __int64 *)((char *)v19 + v21);
+          }
+          ++v19;
+          --v13;
         }
-        ++v22;
-        --v20;
+        while ( v13 );
+        PoolWithTag = v36;
       }
-      while ( v20 );
-    }
-    v6 = (struct _VIDSCH_SYNC_OBJECT **)P;
-    v10 = (const unsigned __int64 *)v45;
-    v36 = (struct _VIDSCH_SYNC_OBJECT **)P;
+      v8 = (__int64 *)P;
+      v9 = (struct _VIDSCH_SYNC_OBJECT **)PoolWithTag;
 LABEL_4:
-    v12 = 0;
-    if ( !v9 )
-    {
-LABEL_9:
-      NonPagedPoolZeroedArray<_VIDSCH_SYNC_OBJECT *,2,945908054>::~NonPagedPoolZeroedArray<_VIDSCH_SYNC_OBJECT *,2,945908054>((__int64)&P);
-      NonPagedPoolZeroedArray<_VIDSCH_SYNC_OBJECT *,2,945908054>::~NonPagedPoolZeroedArray<_VIDSCH_SYNC_OBJECT *,2,945908054>((__int64)&v45);
-      return;
-    }
-    v13 = (unsigned __int64 *)v10;
-    v14 = (char *)v6 - (char *)v10;
-    while ( 1 )
-    {
-      v15 = *(unsigned __int64 *)((char *)v13 + v14);
-      if ( v15 )
+      v10 = 0;
+      if ( !(_DWORD)v7 )
+        goto LABEL_10;
+      v11 = (unsigned __int64 *)v8;
+      while ( 1 )
       {
-        if ( !VidSchIsMonitoredFenceSignaled(v15, *v13) )
-          break;
+        v12 = *(unsigned __int64 *)((char *)v11 + (char *)v9 - (char *)v8);
+        if ( v12 )
+        {
+          if ( !VidSchIsMonitoredFenceSignaled(v12, *v11) )
+            break;
+        }
+        ++v10;
+        ++v11;
+        if ( v10 >= (unsigned int)v7 )
+          goto LABEL_9;
       }
-      ++v12;
-      ++v13;
-      if ( v12 >= v9 )
-        goto LABEL_9;
-    }
-    LODWORD(v33) = 0;
-    LODWORD(v32) = 0;
-    v43[0] = 48LL;
-    v43[3] = 512LL;
-    v43[1] = 0LL;
-    v43[2] = 0LL;
-    v44 = 0LL;
-    LODWORD(v31) = 24;
-    v16 = ObCreateObject(0LL, ExEventObjectType, v43, 0LL, 0LL, v31, v32, v33, &Event);
-    LODWORD(v17) = v16;
-    if ( v16 < 0 )
-    {
-      WdLogSingleEntry1(1LL, v16);
-      HIDWORD(v33) = 0;
-      HIDWORD(v32) = 0;
-      HIDWORD(v31) = 0;
-      DxgkLogInternalTriageEvent(v29, 0x40000LL);
-    }
-    else
-    {
-      KeInitializeEvent(Event, SynchronizationEvent, 0);
-      ObfReferenceObject(Event);
-      v18 = VidSchSubmitWaitFromCpu(
-              v9,
-              (__int64)v36,
-              (__int64)v10,
-              (__int64)Event,
-              0,
-              1,
-              *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 744LL) + 256LL),
-              0LL);
-      v17 = v18;
-      if ( v18 < 0 )
+      v43[0] = 48LL;
+      v43[3] = 512LL;
+      v43[1] = 0LL;
+      v43[2] = 0LL;
+      v44 = 0LL;
+      v23 = ObCreateObject(0LL, ExEventObjectType, v43, 0LL, 0LL, 24, 0, 0, &Event);
+      v27 = v23;
+      if ( v23 >= 0 )
       {
+        KeInitializeEvent(Event, SynchronizationEvent, 0);
+        ObfReferenceObject(Event);
+        v28 = VidSchSubmitWaitFromCpu(
+                v7,
+                (__int64)v9,
+                v8,
+                (__int64)Event,
+                0,
+                1,
+                *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v39 + 2) + 624LL) + 248LL),
+                0LL);
+        v27 = v28;
+        if ( v28 >= 0 )
+        {
+          v29 = 0;
+          v33 = 0;
+          LODWORD(v27) = KeWaitForSingleObject(Event, Executive, 0, 0, 0LL);
+LABEL_34:
+          v6 = a4;
+          goto LABEL_35;
+        }
         ObfDereferenceObject(Event);
-        WdLogSingleEntry1(1LL, v17);
-        HIDWORD(v33) = 0;
-        HIDWORD(v32) = 0;
-        HIDWORD(v31) = 0;
-        DxgkLogInternalTriageEvent(v30, 0x40000LL);
       }
-      else
-      {
-        v11 = 0;
-        LODWORD(v17) = KeWaitForSingleObject(Event, Executive, 0, 0, 0LL);
-      }
+      v32 = WdLogNewEntry5_WdAssertion(v25, v24, v26);
+      *(_QWORD *)(v32 + 24) = v27;
+      WdLogEvent5_WdAssertion(v32);
+      v29 = v33;
+      goto LABEL_34;
     }
-    v5 = a5;
-    v7 = v35;
-LABEL_14:
+    LODWORD(v27) = -1073741801;
+    v31 = WdLogNewEntry5_WdAssertion(v15, v14, v17);
+    *(_QWORD *)(v31 + 24) = -1073741801LL;
+    WdLogEvent5_WdAssertion(v31);
+    v29 = v33;
+LABEL_35:
     if ( Event )
-    {
       ObfDereferenceObject(Event);
-      Event = 0LL;
-    }
-    if ( (int)v17 >= 0 || !v11 )
+    if ( (int)v27 >= 0 || !v29 )
       break;
     Interval.QuadPart = 50000LL;
     KeDelayExecutionThread(0, 0, &Interval);
-    if ( P != v38 && P )
-      ExFreePoolWithTag(P, 0);
-    P = 0LL;
-    v6 = v36;
-    v39 = 0;
-    if ( v45 != v46 && v45 )
-    {
-      ExFreePoolWithTag(v45, 0);
-      v6 = v36;
-    }
+    PoolWithTag = v36;
+    this = v39;
   }
-  if ( P != v38 && P )
-    ExFreePoolWithTag(P, 0);
-  P = 0LL;
-  v39 = 0;
-  if ( v45 != v46 )
+LABEL_9:
+  PoolWithTag = v36;
+LABEL_10:
+  if ( PoolWithTag != v37 && PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
+  v36 = 0LL;
+  v38 = 0;
+  if ( P != &v46 )
   {
-    if ( v45 )
-      ExFreePoolWithTag(v45, 0);
+    if ( P )
+      ExFreePoolWithTag(P, 0);
   }
 }

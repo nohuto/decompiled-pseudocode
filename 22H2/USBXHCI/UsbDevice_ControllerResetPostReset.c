@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbDevice_ControllerResetPostReset @ 0x1C00483EC
+ * XREFs of UsbDevice_ControllerResetPostReset @ 0x1C0045A7C
  * Callers:
- *     DeviceSlot_ControllerResetPostReset @ 0x1C0037AD0 (DeviceSlot_ControllerResetPostReset.c)
+ *     DeviceSlot_ControllerResetPostReset @ 0x1C0036010 (DeviceSlot_ControllerResetPostReset.c)
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
  */
 
 NTSTATUS __fastcall UsbDevice_ControllerResetPostReset(__int64 a1)
@@ -21,7 +21,7 @@ NTSTATUS __fastcall UsbDevice_ControllerResetPostReset(__int64 a1)
     if ( *v1 )
     {
       KeClearEvent((PRKEVENT)(v3 + 40));
-      ESM_AddEvent((KSPIN_LOCK *)(v3 + 296), 103);
+      ESM_AddEvent((KSPIN_LOCK *)(v3 + 288), 103);
       result = KeWaitForSingleObject((PVOID)(v3 + 40), Executive, 0, 0, 0LL);
     }
     ++v1;

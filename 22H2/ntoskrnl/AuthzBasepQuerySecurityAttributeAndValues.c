@@ -1,15 +1,15 @@
 /*
- * XREFs of AuthzBasepQuerySecurityAttributeAndValues @ 0x14022C8A4
+ * XREFs of AuthzBasepQuerySecurityAttributeAndValues @ 0x14024E028
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x14022BF60 (AuthzBasepEvaluateAceCondition.c)
- *     SepCanTokenMatchAllPackageSid @ 0x14022C7BC (SepCanTokenMatchAllPackageSid.c)
- *     AuthzBasepRestartOperandValueEnumeration @ 0x14030BC44 (AuthzBasepRestartOperandValueEnumeration.c)
- *     AuthzBasepGetNextValue @ 0x14030BF44 (AuthzBasepGetNextValue.c)
- *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x14035B858 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14024D5F0 (AuthzBasepEvaluateAceCondition.c)
+ *     SepCanTokenMatchAllPackageSid @ 0x14024DF44 (SepCanTokenMatchAllPackageSid.c)
+ *     AuthzBasepGetNextValue @ 0x14024F904 (AuthzBasepGetNextValue.c)
+ *     AuthzBasepRestartOperandValueEnumeration @ 0x14024FDE4 (AuthzBasepRestartOperandValueEnumeration.c)
+ *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x140597658 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
  * Callees:
- *     AuthzBasepFindSecurityAttribute @ 0x14022D0E0 (AuthzBasepFindSecurityAttribute.c)
- *     AuthzBasepQueryTokenAttributeAndValues @ 0x14066ED98 (AuthzBasepQueryTokenAttributeAndValues.c)
- *     AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x1406B7714 (AuthzBasepQuerySystemSecurityAttributeAndValues.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x14024E560 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepQueryTokenAttributeAndValues @ 0x1405C139C (AuthzBasepQueryTokenAttributeAndValues.c)
+ *     AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x1406010AC (AuthzBasepQuerySystemSecurityAttributeAndValues.c)
  */
 
 __int64 __fastcall AuthzBasepQuerySecurityAttributeAndValues(__int64 a1)

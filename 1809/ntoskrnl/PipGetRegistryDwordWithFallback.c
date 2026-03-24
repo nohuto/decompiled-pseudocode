@@ -1,10 +1,10 @@
 /*
- * XREFs of PipGetRegistryDwordWithFallback @ 0x1406F08EC
+ * XREFs of PipGetRegistryDwordWithFallback @ 0x1406F08CC
  * Callers:
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x1406F05A8 (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x1406F0588 (PipChangeDeviceObjectFromRegistryProperties.c)
  * Callees:
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
- *     _CmGetInstallerClassRegProp @ 0x1406F1254 (_CmGetInstallerClassRegProp.c)
+ *     _CmGetInstallerClassRegProp @ 0x1406F1234 (_CmGetInstallerClassRegProp.c)
  */
 
 char __fastcall PipGetRegistryDwordWithFallback(int a1, __int64 a2, __int64 a3, int a4, __int64 a5, _DWORD *a6)

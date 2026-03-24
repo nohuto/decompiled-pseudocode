@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDsEventPnpIrp @ 0x14057EA2C
+ * XREFs of KsepDsEventPnpIrp @ 0x1405281DC
  * Callers:
- *     KseDsCallbackHookIrpPnpFunction @ 0x14057DD60 (KseDsCallbackHookIrpPnpFunction.c)
+ *     KseDsCallbackHookIrpPnpFunction @ 0x140527510 (KseDsCallbackHookIrpPnpFunction.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall KsepDsEventPnpIrp(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)

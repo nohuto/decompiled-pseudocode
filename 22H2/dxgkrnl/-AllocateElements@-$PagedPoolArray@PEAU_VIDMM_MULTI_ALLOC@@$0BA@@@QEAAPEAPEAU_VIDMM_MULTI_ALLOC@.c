@@ -1,45 +1,30 @@
 /*
- * XREFs of ?AllocateElements@?$PagedPoolArray@PEAU_VIDMM_MULTI_ALLOC@@$0BA@@@QEAAPEAPEAU_VIDMM_MULTI_ALLOC@@I@Z @ 0x1C034CAA8
+ * XREFs of ?AllocateElements@?$PagedPoolArray@PEAU_VIDMM_MULTI_ALLOC@@$0BA@@@QEAAPEAPEAU_VIDMM_MULTI_ALLOC@@I@Z @ 0x1C028F0A0
  * Callers:
- *     ?DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z @ 0x1C01C6A40 (-DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z.c)
+ *     ?DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z @ 0x1C00FB130 (-DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
-__int64 __fastcall PagedPoolArray<_VIDMM_MULTI_ALLOC *,16>::AllocateElements(__int64 *a1, __int64 a2)
+PVOID __fastcall PagedPoolArray<_VIDMM_MULTI_ALLOC *,16>::AllocateElements(__int64 a1, unsigned int a2)
 {
-  int v2; // edi
-  __int64 result; // rax
-  unsigned __int64 v5; // rax
-  __int64 v6; // rcx
+  PVOID result; // rax
+  SIZE_T v5; // rax
 
-  v2 = a2;
-  if ( (unsigned int)a2 <= 0x10 )
+  if ( a2 <= 0x10 )
   {
-    *a1 = (__int64)(a1 + 1);
-    v6 = 0LL;
-    if ( (_DWORD)a2 )
-    {
-      a2 = (unsigned int)a2;
-      do
-      {
-        *(_QWORD *)(v6 + *a1) = 0LL;
-        v6 += 8LL;
-        --a2;
-      }
-      while ( a2 );
-    }
+    result = (PVOID)(a1 + 8);
   }
   else
   {
-    if ( 0xFFFFFFFFFFFFFFFFuLL / (unsigned int)a2 < 8 )
+    if ( 0xFFFFFFFFFFFFFFFFuLL / a2 < 8 )
       return 0LL;
-    v5 = 8LL * (unsigned int)a2;
-    if ( !is_mul_ok((unsigned int)a2, 8uLL) )
+    v5 = 8LL * a2;
+    if ( !is_mul_ok(a2, 8uLL) )
       v5 = -1LL;
-    *a1 = operator new[](v5, 0x4B677844u, 256LL);
+    result = operator new[](v5, 0x4B677844u, PagedPool);
   }
-  result = *a1;
-  *((_DWORD *)a1 + 34) = v2;
+  *(_QWORD *)a1 = result;
+  *(_DWORD *)(a1 + 136) = a2;
   return result;
 }

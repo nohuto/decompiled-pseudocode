@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Initialize@DMMVIDPNSOURCEMODE@@QEAAJAEBU_D3DKMDT_GRAPHICS_RENDERING_FORMAT@@W4_D3DKMDT_VIDPN_SOURCE_MODE_TYPE@@@Z @ 0x1C00692E4
+ * XREFs of ?Initialize@DMMVIDPNSOURCEMODE@@QEAAJAEBU_D3DKMDT_GRAPHICS_RENDERING_FORMAT@@W4_D3DKMDT_VIDPN_SOURCE_MODE_TYPE@@@Z @ 0x1C005C46C
  * Callers:
- *     ??8DMMVIDPNSOURCEMODE@@QEBA_NAEBU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1C0068130 (--8DMMVIDPNSOURCEMODE@@QEBA_NAEBU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z.c)
+ *     ??8DMMVIDPNSOURCEMODE@@QEBA_NAEBU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1C005B4E8 (--8DMMVIDPNSOURCEMODE@@QEBA_NAEBU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,20 +11,38 @@ __int64 __fastcall DMMVIDPNSOURCEMODE::Initialize(
         const struct _D3DKMDT_GRAPHICS_RENDERING_FORMAT *a2,
         enum _D3DKMDT_VIDPN_SOURCE_MODE_TYPE a3)
 {
-  unsigned int v3; // ebx
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  unsigned int v8; // ebx
+  __int64 v9; // rax
   D3DKMDT_COLOR_BASIS ColorBasis; // eax
   D3DKMDT_PIXEL_VALUE_ACCESS_MODE PixelValueAccessMode; // eax
   __int64 result; // rax
+  __int64 v13; // rax
+  __int64 v14; // rax
+  _QWORD *v15; // rax
+  _QWORD *v16; // rax
+  __int64 v17; // rax
 
   if ( a2->PrimSurfSize.cx < 0x64 || a2->PrimSurfSize.cy < 0x64 )
   {
-    WdLogSingleEntry3(2LL, a2->PrimSurfSize.cx, a2->PrimSurfSize.cy, a2);
-    v3 = -1071774918;
+    v16 = (_QWORD *)WdLogNewEntry5_WdError(this, a2);
+    v16[3] = a2->PrimSurfSize.cx;
+    v16[4] = a2->PrimSurfSize.cy;
+    v16[5] = a2;
+    WdLogEvent5_WdError(v16);
+    v8 = -1071774918;
   }
   else if ( a2->VisibleRegionSize.cx < 0x64 || a2->VisibleRegionSize.cy < 0x64 )
   {
-    WdLogSingleEntry3(2LL, a2->VisibleRegionSize.cx, a2->VisibleRegionSize.cy, a2);
-    v3 = -1071774917;
+    v15 = (_QWORD *)WdLogNewEntry5_WdError(this, a2);
+    v15[3] = a2->VisibleRegionSize.cx;
+    v15[4] = a2->VisibleRegionSize.cy;
+    v15[5] = a2;
+    WdLogEvent5_WdError(v15);
+    v8 = -1071774917;
   }
   else if ( a2->Stride )
   {
@@ -41,26 +59,39 @@ __int64 __fastcall DMMVIDPNSOURCEMODE::Initialize(
           *(struct _D3DKMDT_GRAPHICS_RENDERING_FORMAT *)((char *)this + 76) = *a2;
           return result;
         }
-        WdLogSingleEntry2(2LL, a2->PixelValueAccessMode, a2);
-        v3 = -1071774913;
+        v13 = WdLogNewEntry5_WdError(this, a2);
+        *(_QWORD *)(v13 + 24) = a2->PixelValueAccessMode;
+        *(_QWORD *)(v13 + 32) = a2;
+        WdLogEvent5_WdError(v13);
+        v8 = -1071774913;
       }
       else
       {
-        WdLogSingleEntry2(2LL, a2->ColorBasis, a2);
-        v3 = -1071774914;
+        v14 = WdLogNewEntry5_WdError(this, a2);
+        *(_QWORD *)(v14 + 24) = a2->ColorBasis;
+        *(_QWORD *)(v14 + 32) = a2;
+        WdLogEvent5_WdError(v14);
+        v8 = -1071774914;
       }
     }
     else
     {
-      WdLogSingleEntry2(2LL, 0LL, a2);
-      v3 = -1071774915;
+      v9 = WdLogNewEntry5_WdError(this, a2);
+      *(_QWORD *)(v9 + 24) = a2->PixelFormat;
+      *(_QWORD *)(v9 + 32) = a2;
+      WdLogEvent5_WdError(v9);
+      v8 = -1071774915;
     }
   }
   else
   {
-    WdLogSingleEntry2(2LL, 0LL, a2);
-    v3 = -1071774916;
+    v4 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v4 + 24) = a2->Stride;
+    *(_QWORD *)(v4 + 32) = a2;
+    WdLogEvent5_WdError(v4);
+    v8 = -1071774916;
   }
-  WdLogSingleEntry0(3LL);
-  return v3;
+  v17 = WdLogNewEntry5_WdWarning(v6, v5, v7);
+  WdLogEvent5_WdWarning(v17);
+  return v8;
 }

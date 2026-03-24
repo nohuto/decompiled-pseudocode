@@ -1,9 +1,9 @@
 /*
- * XREFs of Crashdump_Register_StopController @ 0x1C004BED4
+ * XREFs of Crashdump_Register_StopController @ 0x1C004B454
  * Callers:
- *     Crashdump_Cleanup @ 0x1C0049CD0 (Crashdump_Cleanup.c)
- *     Crashdump_Register_BiosHandoff @ 0x1C004B5C8 (Crashdump_Register_BiosHandoff.c)
- *     Crashdump_Register_ResetController @ 0x1C004B964 (Crashdump_Register_ResetController.c)
+ *     Crashdump_Cleanup @ 0x1C0049210 (Crashdump_Cleanup.c)
+ *     Crashdump_Register_BiosHandoff @ 0x1C004AB54 (Crashdump_Register_BiosHandoff.c)
+ *     Crashdump_Register_ResetController @ 0x1C004AEEC (Crashdump_Register_ResetController.c)
  * Callees:
  *     <none>
  */

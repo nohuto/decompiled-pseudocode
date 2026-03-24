@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpComputeLookasideDepth @ 0x14032FC9C
+ * XREFs of ExpComputeLookasideDepth @ 0x1402EEA04
  * Callers:
- *     ExpScanSystemLookasideList @ 0x14032FAD8 (ExpScanSystemLookasideList.c)
+ *     ExpScanSystemLookasideList @ 0x1402EE840 (ExpScanSystemLookasideList.c)
  * Callees:
  *     <none>
  */

@@ -1,33 +1,28 @@
 /*
- * XREFs of MiDeleteRotateAndStopFaults @ 0x140632628
+ * XREFs of MiDeleteRotateAndStopFaults @ 0x1402EB774
  * Callers:
- *     MiRotateToFrameBuffer @ 0x140A31710 (MiRotateToFrameBuffer.c)
- *     MiRotateToFrameBufferNoCopy @ 0x140A31A14 (MiRotateToFrameBufferNoCopy.c)
+ *     MmRotatePhysicalView @ 0x14065FD60 (MmRotatePhysicalView.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiDeleteVirtualAddresses @ 0x1402896EC (MiDeleteVirtualAddresses.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiDeleteVirtualAddresses @ 0x14027EC00 (MiDeleteVirtualAddresses.c)
  */
 
-signed __int64 __fastcall MiDeleteRotateAndStopFaults(unsigned __int64 a1, __int64 a2, _QWORD *a3)
+signed __int64 __fastcall MiDeleteRotateAndStopFaults(int a1, int a2, _QWORD *a3)
 {
   _KPROCESS *Process; // rdi
-  volatile LONG *SharedVm; // rbx
+  LONG *SharedVm; // rbx
   KIRQL v8; // al
-  __int64 v9; // r8
-  __int64 v10; // r9
-  _OWORD v12[3]; // [rsp+30h] [rbp-58h] BYREF
-  __int64 v13; // [rsp+60h] [rbp-28h]
+  _BYTE v10[48]; // [rsp+20h] [rbp-48h] BYREF
 
-  memset(v12, 0, sizeof(v12));
-  v13 = 0LL;
+  memset(v10, 0, sizeof(v10));
   Process = KeGetCurrentThread()->ApcState.Process;
-  SharedVm = (volatile LONG *)MiGetSharedVm((__int64)&Process[1].ActiveProcessors.StaticBitmap[26]);
+  SharedVm = MiGetSharedVm((__int64)&Process[1].ActiveProcessorsPadding[6]);
   v8 = ExAcquireSpinLockExclusive(SharedVm);
-  *((_DWORD *)SharedVm + 1) = 0;
-  *a3 = Process[1].Affinity.StaticBitmap[9];
-  Process[1].Affinity.StaticBitmap[9] = (unsigned __int64)a3;
-  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessors.StaticBitmap[26], v8, v9, v10);
-  return MiDeleteVirtualAddresses(0LL, a1, a2, 0, v12);
+  SharedVm[1] = 0;
+  *a3 = Process[1].Affinity.Bitmap[9];
+  Process[1].Affinity.Bitmap[9] = (unsigned __int64)a3;
+  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessorsPadding[6], v8);
+  return MiDeleteVirtualAddresses(a1, a2, 0, (__int64)v10);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of W32kCddLineTo @ 0x1C0270350
+ * XREFs of W32kCddLineTo @ 0x1C014BEB0
  * Callers:
  *     <none>
  * Callees:
- *     EngLineTo @ 0x1C028D530 (EngLineTo.c)
+ *     EngLineTo @ 0x1C0149240 (EngLineTo.c)
  */
 
 BOOL __fastcall W32kCddLineTo(

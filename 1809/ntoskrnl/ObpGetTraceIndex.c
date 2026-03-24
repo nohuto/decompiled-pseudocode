@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpGetTraceIndex @ 0x140862FE8
+ * XREFs of ObpGetTraceIndex @ 0x140862FC8
  * Callers:
- *     ObpPushRefDerefInfo @ 0x1408633D4 (ObpPushRefDerefInfo.c)
+ *     ObpPushRefDerefInfo @ 0x1408633B4 (ObpPushRefDerefInfo.c)
  * Callees:
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

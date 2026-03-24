@@ -1,44 +1,42 @@
 /*
- * XREFs of PnpRequestDeviceAction @ 0x1402DCF44
+ * XREFs of PnpRequestDeviceAction @ 0x140370854
  * Callers:
- *     IopAttachDeviceToDeviceStackSafe @ 0x14024FC04 (IopAttachDeviceToDeviceStackSafe.c)
- *     IoInvalidateDeviceState @ 0x1402DCE00 (IoInvalidateDeviceState.c)
- *     IoInvalidateDeviceRelations @ 0x1402DCE90 (IoInvalidateDeviceRelations.c)
- *     PnpInitializeProcessor @ 0x14055F378 (PnpInitializeProcessor.c)
- *     PiQueueDeviceRequest @ 0x14065F5D4 (PiQueueDeviceRequest.c)
- *     PiProcessQueryDeviceState @ 0x140749F30 (PiProcessQueryDeviceState.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1407655BC (PnpProcessQueryRemoveAndEject.c)
- *     IopReleaseDeviceResources @ 0x140766A5C (IopReleaseDeviceResources.c)
- *     PiControlGetSetDeviceStatus @ 0x1407793D0 (PiControlGetSetDeviceStatus.c)
- *     PnpInvalidateRelationsInList @ 0x14080E8D0 (PnpInvalidateRelationsInList.c)
- *     IoReportRootDevice @ 0x14081F220 (IoReportRootDevice.c)
- *     PnpBootPhaseComplete @ 0x140827E8C (PnpBootPhaseComplete.c)
- *     PpDevCfgProcessDevices @ 0x140827F54 (PpDevCfgProcessDevices.c)
- *     IopReleaseFilteredBootResources @ 0x140831280 (IopReleaseFilteredBootResources.c)
- *     PiDevCfgProcessDeviceCallback @ 0x14084F060 (PiDevCfgProcessDeviceCallback.c)
- *     PiResetProblemDevicesWorker @ 0x140852BC0 (PiResetProblemDevicesWorker.c)
- *     IopDeleteDriver @ 0x14085D640 (IopDeleteDriver.c)
- *     PipAttemptDependentStart @ 0x1409428B8 (PipAttemptDependentStart.c)
- *     IoRequestDeviceRemovalForReset @ 0x140945420 (IoRequestDeviceRemovalForReset.c)
- *     PpSystemHiveLimitCallback @ 0x140946B60 (PpSystemHiveLimitCallback.c)
- *     PipDmgRequestRestartOnBlockedDevice @ 0x140956BF8 (PipDmgRequestRestartOnBlockedDevice.c)
- *     PipDmgRequestUpdateConsoleLockState @ 0x140956ED0 (PipDmgRequestUpdateConsoleLockState.c)
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
- *     PipInitializeCoreDriversByGroup @ 0x140B10D98 (PipInitializeCoreDriversByGroup.c)
- *     IopInitializeSystemDrivers @ 0x140B110B4 (IopInitializeSystemDrivers.c)
- *     IopInitializeBootDrivers @ 0x140B114E8 (IopInitializeBootDrivers.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x1402832F4 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IoInvalidateDeviceRelations @ 0x1403707A0 (IoInvalidateDeviceRelations.c)
+ *     IoInvalidateDeviceState @ 0x1403A5140 (IoInvalidateDeviceState.c)
+ *     PnpInitializeProcessor @ 0x14050C358 (PnpInitializeProcessor.c)
+ *     PiControlGetSetDeviceStatus @ 0x140639930 (PiControlGetSetDeviceStatus.c)
+ *     PiQueueDeviceRequest @ 0x14072F218 (PiQueueDeviceRequest.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpInvalidateRelationsInList @ 0x14073808C (PnpInvalidateRelationsInList.c)
+ *     IopReleaseDeviceResources @ 0x140738748 (IopReleaseDeviceResources.c)
+ *     IopReleaseFilteredBootResources @ 0x140753138 (IopReleaseFilteredBootResources.c)
+ *     PiResetProblemDevicesWorker @ 0x14076EC80 (PiResetProblemDevicesWorker.c)
+ *     IopDeleteDriver @ 0x140772070 (IopDeleteDriver.c)
+ *     PnpBootPhaseComplete @ 0x1407A31F4 (PnpBootPhaseComplete.c)
+ *     PpDevCfgProcessDevices @ 0x1407A32BC (PpDevCfgProcessDevices.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x1407BDD10 (PiDevCfgProcessDeviceCallback.c)
+ *     IoReportRootDevice @ 0x1407C7E60 (IoReportRootDevice.c)
+ *     PipAttemptDependentStart @ 0x14089DAB4 (PipAttemptDependentStart.c)
+ *     IopResourceRequirementsChanged @ 0x14089FA30 (IopResourceRequirementsChanged.c)
+ *     PpSystemHiveLimitCallback @ 0x1408A19F0 (PpSystemHiveLimitCallback.c)
+ *     PipDmgRequestRestartOnBlockedDevice @ 0x1408B1568 (PipDmgRequestRestartOnBlockedDevice.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140A5D42C (PipInitializeCoreDriversByGroup.c)
+ *     IopInitializeSystemDrivers @ 0x140A5D754 (IopInitializeSystemDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     PopDirectedDripsSetDisengageReason @ 0x14025013C (PopDirectedDripsSetDisengageReason.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     PnpDeviceActionWorker @ 0x1402DD320 (PnpDeviceActionWorker.c)
- *     PnpLogActionQueueEvent @ 0x1402DD9AC (PnpLogActionQueueEvent.c)
- *     PnpIsSafeToExamineUserModeTeb @ 0x1402E08F8 (PnpIsSafeToExamineUserModeTeb.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     PnpIsSafeToExamineUserModeTeb @ 0x1402EE838 (PnpIsSafeToExamineUserModeTeb.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
+ *     PnpLogActionQueueEvent @ 0x140370598 (PnpLogActionQueueEvent.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x14037A544 (PopDirectedDripsSetDisengageReason.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRequestDeviceAction(
@@ -48,9 +46,9 @@ __int64 __fastcall PnpRequestDeviceAction(
         __int64 a4,
         __int64 a5,
         __int64 a6,
-        __int64 *a7)
+        _QWORD *a7)
 {
-  __int64 Pool2; // rdi
+  char *PoolWithTag; // rdi
   char v12; // al
   struct _LIST_ENTRY *Flink; // rcx
   __int64 v14; // rcx
@@ -58,7 +56,7 @@ __int64 __fastcall PnpRequestDeviceAction(
   unsigned __int64 v16; // r13
   __int64 v17; // r8
   unsigned __int64 v18; // r13
-  __int64 *v19; // rax
+  _QWORD *v19; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -86,24 +84,24 @@ __int64 __fastcall PnpRequestDeviceAction(
   v43 = NullGuid;
   if ( PnpShutdownEvent.Header.SignalState )
     return 3221225865LL;
-  Pool2 = ExAllocatePool2(64LL, 96LL, 846229072LL);
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x60uLL, 0x32706E50u);
+  if ( !PoolWithTag )
     return 3221225626LL;
   if ( !Object )
     Object = (PVOID)*((_QWORD *)IopRootDeviceNode + 4);
   ObfReferenceObjectWithTag(Object, 0x746C6644u);
-  *(_QWORD *)(Pool2 + 16) = Object;
-  *(_DWORD *)(Pool2 + 24) = a2;
-  *(_BYTE *)(Pool2 + 28) = a3;
-  *(_QWORD *)(Pool2 + 32) = a4;
-  *(_QWORD *)(Pool2 + 40) = a5;
-  *(_QWORD *)(Pool2 + 48) = a6;
-  *(_DWORD *)(Pool2 + 72) = 1;
-  *(_BYTE *)(Pool2 + 76) = 0;
-  *(_BYTE *)(Pool2 + 88) = 0;
-  *(_QWORD *)(Pool2 + 80) = 0LL;
+  *((_QWORD *)PoolWithTag + 2) = Object;
+  *((_DWORD *)PoolWithTag + 6) = a2;
+  PoolWithTag[28] = a3;
+  *((_QWORD *)PoolWithTag + 4) = a4;
+  *((_QWORD *)PoolWithTag + 5) = a5;
+  *((_QWORD *)PoolWithTag + 6) = a6;
+  *((_DWORD *)PoolWithTag + 18) = 1;
+  PoolWithTag[76] = 0;
+  PoolWithTag[88] = 0;
+  *((_QWORD *)PoolWithTag + 10) = 0LL;
   if ( !a2 )
-    goto LABEL_33;
+    goto LABEL_42;
   if ( a2 != 6 )
   {
     if ( a2 <= 8 )
@@ -118,10 +116,10 @@ LABEL_9:
         {
           v43 = (GUID)*Flink;
         }
-        else if ( (unsigned __int8)PnpIsSafeToExamineUserModeTeb()
-               && KeGetPcr()->NtTib.$D930595FF9CFE8BC32A0A90C751D1401::$2ADFB250FDFF3378DEB06B8BF0B21A0F::Self )
+        else if ( PnpIsSafeToExamineUserModeTeb()
+               && KeGetPcr()->NtTib.$F9435DD2D5013AD282F92902EC38D096::$F6F33802D97B27D62ECE74CBF4C4A83B::Self )
         {
-          v43 = *(GUID *)&KeGetPcr()->NtTib.$D930595FF9CFE8BC32A0A90C751D1401::$2ADFB250FDFF3378DEB06B8BF0B21A0F::Self[105].SubSystemTib;
+          v43 = *(GUID *)&KeGetPcr()->NtTib.$F9435DD2D5013AD282F92902EC38D096::$F6F33802D97B27D62ECE74CBF4C4A83B::Self[105].SubSystemTib;
         }
       }
       goto LABEL_13;
@@ -130,23 +128,23 @@ LABEL_9:
     {
       if ( a2 <= 16 || a2 > 18 )
         goto LABEL_8;
-LABEL_33:
+LABEL_42:
       v12 = 0;
       goto LABEL_9;
     }
   }
 LABEL_13:
-  *(GUID *)(Pool2 + 56) = v43;
+  *(GUID *)(PoolWithTag + 56) = v43;
   if ( Object )
     v14 = *(_QWORD *)(*((_QWORD *)Object + 39) + 40LL);
   else
     v14 = 0LL;
-  PnpLogActionQueueEvent(v14, (unsigned int)a2, 0LL, 0LL);
-  v42 = *(_DWORD *)(Pool2 + 24);
-  v15 = KeAcquireSpinLockRaiseToDpc(&qword_140C24268);
-  if ( ++dword_140C24270 == 1 )
-    PopDirectedDripsSetDisengageReason(4);
-  KxReleaseSpinLock(&qword_140C24268);
+  PnpLogActionQueueEvent(v14, a2, 0LL, 0);
+  v42 = *((_DWORD *)PoolWithTag + 6);
+  v15 = KeAcquireSpinLockRaiseToDpc(&qword_140C24E48);
+  if ( ++dword_140C24E50 == 1 )
+    PopDirectedDripsSetDisengageReason(4LL);
+  KxReleaseSpinLock(&qword_140C24E48);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
@@ -165,17 +163,17 @@ LABEL_13:
     }
   }
   __writecr8(v15);
-  v16 = KeAcquireSpinLockRaiseToDpc(&qword_140C1CB90);
+  v16 = KeAcquireSpinLockRaiseToDpc(&qword_140C1EBB0);
   v17 = MEMORY[0xFFFFF78000000008];
-  ++dword_140C1CB98;
+  ++dword_140C1EBB8;
   ++*((_DWORD *)&PopDirectedDripsDiagSessionContext + v42 + 16);
-  if ( byte_140C1CC10 )
+  if ( byte_140C1EC28 )
   {
-    ++*((_DWORD *)&PopDirectedDripsDiagSessionContext + v42 + 108);
-    if ( dword_140C1CB98 == 1 )
-      qword_140C1CC20 = v17;
+    ++*((_DWORD *)&PopDirectedDripsDiagSessionContext + v42 + 102);
+    if ( dword_140C1EBB8 == 1 )
+      qword_140C1EC38 = v17;
   }
-  KxReleaseSpinLock(&qword_140C1CB90);
+  KxReleaseSpinLock(&qword_140C1EBB0);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
@@ -195,17 +193,17 @@ LABEL_13:
   }
   __writecr8(v16);
   v18 = KeAcquireSpinLockRaiseToDpc(&PnpSpinLock);
-  v19 = (__int64 *)qword_140C44A48;
-  if ( *(__int64 **)qword_140C44A48 != &PnpEnumerationRequestList )
+  v19 = (_QWORD *)qword_140C435D8;
+  if ( *(__int64 **)qword_140C435D8 != &PnpEnumerationRequestList )
     __fastfail(3u);
-  *(_QWORD *)Pool2 = &PnpEnumerationRequestList;
-  *(_QWORD *)(Pool2 + 8) = v19;
-  *v19 = Pool2;
-  qword_140C44A48 = Pool2;
+  *(_QWORD *)PoolWithTag = &PnpEnumerationRequestList;
+  *((_QWORD *)PoolWithTag + 1) = v19;
+  *v19 = PoolWithTag;
+  qword_140C435D8 = (__int64)PoolWithTag;
   if ( a7 )
   {
-    ++*(_DWORD *)(Pool2 + 72);
-    *a7 = Pool2;
+    ++*((_DWORD *)PoolWithTag + 18);
+    *a7 = PoolWithTag;
   }
   if ( a2 == 7 || a2 == 10 )
   {
@@ -230,7 +228,7 @@ LABEL_13:
       }
     }
     __writecr8(v18);
-    PnpDeviceActionWorker(0LL);
+    PnpDeviceActionWorker();
   }
   else if ( PnpEnumerationInProgress || !PnPBootDriversLoaded )
   {

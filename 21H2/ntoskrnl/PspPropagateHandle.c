@@ -1,21 +1,23 @@
 /*
- * XREFs of PspPropagateHandle @ 0x14066F1F0
+ * XREFs of PspPropagateHandle @ 0x14060CD2C
  * Callers:
- *     PspUpdateCreateInfo @ 0x14066EFE8 (PspUpdateCreateInfo.c)
+ *     PspUpdateCreateInfo @ 0x14060CB24 (PspUpdateCreateInfo.c)
  * Callees:
- *     ObDuplicateObject @ 0x1407A1F80 (ObDuplicateObject.c)
+ *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
  */
 
-__int64 __fastcall PspPropagateHandle(char a1, _QWORD *a2, _QWORD *a3)
+__int64 __fastcall PspPropagateHandle(char a1, void **a2, __int64 *a3)
 {
-  _KPROCESS *Process; // r11
+  void *v3; // r10
+  struct _KPROCESS *Process; // r11
   __int64 result; // rax
 
+  v3 = *a2;
   Process = KeGetCurrentThread()->ApcState.Process;
   result = 0LL;
   if ( a1 )
-    return ObDuplicateObject((ULONG_PTR)Process, 0, 0, 2, 0);
-  *a3 = *a2;
+    return ObDuplicateObject(Process, v3, Process, a3, 0, 0, 2, 0);
+  *a3 = (__int64)v3;
   *a2 = 0LL;
   return result;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x1403D525C
+ * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x14037F45C
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x1402D708C (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpGetRcConfig @ 0x1402D75FC (LdrpGetRcConfig.c)
- *     LdrResGetRCConfig @ 0x1406E3AE0 (LdrResGetRCConfig.c)
+ *     LdrpGetRcConfig @ 0x1402A92B4 (LdrpGetRcConfig.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1402A94D4 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrResGetRCConfig @ 0x14078BC7C (LdrResGetRCConfig.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     LdrpInitMuiCrits @ 0x1402D749C (LdrpInitMuiCrits.c)
- *     KeReleaseMutant @ 0x1402F91E0 (KeReleaseMutant.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MmUnmapViewInSystemSpace @ 0x1406DF130 (MmUnmapViewInSystemSpace.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     LdrpInitMuiCrits @ 0x1402A98E4 (LdrpInitMuiCrits.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     KeReleaseMutant @ 0x1403424B0 (KeReleaseMutant.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall LdrpSetAlternateResourceModuleHandle(

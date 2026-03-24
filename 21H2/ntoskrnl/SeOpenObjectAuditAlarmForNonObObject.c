@@ -1,13 +1,13 @@
 /*
- * XREFs of SeOpenObjectAuditAlarmForNonObObject @ 0x1408629D0
+ * XREFs of SeOpenObjectAuditAlarmForNonObObject @ 0x1407D2740
  * Callers:
  *     <none>
  * Callees:
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x1407241BC (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SepAdtAuditThisEventWithContext @ 0x140724320 (SepAdtAuditThisEventWithContext.c)
- *     SeExamineGlobalSacl @ 0x140882A70 (SeExamineGlobalSacl.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409C8EE8 (SepAdtOpenObjectAuditAlarm.c)
- *     SeExamineSacl @ 0x1409CAE50 (SeExamineSacl.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x14062792C (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091F498 (SepAdtOpenObjectAuditAlarm.c)
+ *     SeExamineSacl @ 0x140921420 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x140924A18 (SeExamineGlobalSacl.c)
  */
 
 void __fastcall SeOpenObjectAuditAlarmForNonObObject(
@@ -20,13 +20,13 @@ void __fastcall SeOpenObjectAuditAlarmForNonObObject(
         int a7,
         int a8,
         int *a9,
-        char GenerateAudit,
+        BOOLEAN GenerateAudit,
         _BYTE *a11)
 {
   BOOLEAN AccessGranted; // si
   __int64 *v12; // rdi
   unsigned __int16 *v14; // rbx
-  char v16; // al
+  BOOLEAN v16; // al
   int v17; // r12d
   void *v18; // r8
   __int64 v19; // rbx
@@ -51,7 +51,7 @@ void __fastcall SeOpenObjectAuditAlarmForNonObObject(
   v12 = (__int64 *)a6;
   v14 = a3;
   GenerateAlarm[0] = 0;
-  v16 = SepAdtAuditThisEventWithContext(118LL, GenerateAudit, GenerateAudit == 0, a6);
+  v16 = SepAdtAuditThisEventWithContext(119LL, GenerateAudit, GenerateAudit == 0, a6);
   v17 = a7;
   GenerateAudit = v16;
   if ( !v16 )
@@ -95,7 +95,7 @@ void __fastcall SeOpenObjectAuditAlarmForNonObObject(
 LABEL_18:
   v25 = a8;
   v26 = a8 | a7;
-  SeExamineSacl(v22, v21, v18, a8 | a7, AccessGranted, (PBOOLEAN)&GenerateAudit, GenerateAlarm);
+  SeExamineSacl(v22, v21, v18, a8 | a7, AccessGranted, &GenerateAudit, GenerateAlarm);
   v27 = (void *)*v12;
   v28 = 0LL;
   if ( !*v12 )
@@ -114,11 +114,11 @@ LABEL_18:
         v28 = (ACL *)(v19 + v30);
     }
   }
-  SeExamineGlobalSacl(ObjectType, v28, v27, v26, AccessGranted, (PBOOLEAN)&GenerateAudit, GenerateAlarm);
+  SeExamineGlobalSacl(ObjectType, v28, v27, v26, AccessGranted, &GenerateAudit, GenerateAlarm);
   if ( GenerateAudit )
   {
     SepAdtOpenObjectAuditAlarm(
-      118,
+      119,
       (int)ObjectType,
       (int)&v32,
       (int)v33,

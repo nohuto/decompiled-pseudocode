@@ -1,14 +1,14 @@
 /*
- * XREFs of PsRemoveCreateThreadNotifyRoutine @ 0x1409B2A60
+ * XREFs of PsRemoveCreateThreadNotifyRoutine @ 0x14090C3B0
  * Callers:
  *     <none>
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140281870 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x140281930 (ExDereferenceCallBackBlock.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402F0990 (ExWaitForRundownProtectionRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExCompareExchangeCallBack @ 0x1403C7678 (ExCompareExchangeCallBack.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReferenceCallBackBlock @ 0x14025A950 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14025AA10 (ExDereferenceCallBackBlock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
+ *     ExCompareExchangeCallBack @ 0x1403A7E6C (ExCompareExchangeCallBack.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall PsRemoveCreateThreadNotifyRoutine(PCREATE_THREAD_NOTIFY_ROUTINE NotifyRoutine)
@@ -32,7 +32,7 @@ LABEL_6:
     v3 = (unsigned int)(v3 + 1);
     if ( (unsigned int)v3 >= 0x40 )
     {
-      KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+      KeLeaveCriticalRegionThread((__int64)CurrentThread);
       return -1073741702;
     }
   }
@@ -47,7 +47,7 @@ LABEL_6:
     v7 = &PspCreateThreadNotifyRoutineCount;
   _InterlockedAdd(v7, 0xFFFFFFFF);
   ExDereferenceCallBackBlock((signed __int64 *)&PspCreateThreadNotifyRoutine.Ptr + v3, v5);
-  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread);
   ExWaitForRundownProtectionRelease(v5);
   ExFreePoolWithTag(v5, 0);
   return 0;

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessUpdate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET@@@Z @ 0x1801F094C
+ * XREFs of ?ProcessUpdate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET@@@Z @ 0x18018B910
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ReleaseRenderTargets@COffScreenRenderTarget@@MEAAXXZ @ 0x1801E9FD0 (-ReleaseRenderTargets@COffScreenRenderTarget@@MEAAXXZ.c)
- *     ?UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z @ 0x1801EA648 (-UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ReleaseRenderTargets@COffScreenRenderTarget@@MEAAXXZ @ 0x180185950 (-ReleaseRenderTargets@COffScreenRenderTarget@@MEAAXXZ.c)
+ *     ?UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z @ 0x180185A74 (-UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z.c)
  */
 
 __int64 __fastcall CMagnifierRenderTarget::ProcessUpdate(
@@ -19,19 +19,19 @@ __int64 __fastcall CMagnifierRenderTarget::ProcessUpdate(
   __int64 v8; // rcx
   _OWORD *v9; // rdi
 
-  v3 = (_OWORD *)((char *)this + 1864);
-  if ( *((_DWORD *)this + 466) <= 6u )
+  v3 = (_OWORD *)((char *)this + 1880);
+  if ( *((_DWORD *)this + 470) <= 6u )
   {
     updated = COffScreenRenderTarget::UpdatePixelFormatInfo(this, *((_DWORD *)a3 + 3));
     v6 = updated;
     if ( updated < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, updated, 0x34u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, updated, 0x35u, 0LL);
     }
     else
     {
-      *((_DWORD *)this + 26) = *((_DWORD *)a3 + 4);
-      *((_DWORD *)this + 27) = *((_DWORD *)a3 + 5);
+      *((_DWORD *)this + 20) = *((_DWORD *)a3 + 4);
+      *((_DWORD *)this + 21) = *((_DWORD *)a3 + 5);
       *v3 = *(_OWORD *)((char *)a3 + 8);
       v3[1] = *(_OWORD *)((char *)a3 + 24);
       v3[2] = *(_OWORD *)((char *)a3 + 40);
@@ -52,7 +52,7 @@ __int64 __fastcall CMagnifierRenderTarget::ProcessUpdate(
   else
   {
     v6 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x31u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x32u, 0LL);
   }
   return v6;
 }

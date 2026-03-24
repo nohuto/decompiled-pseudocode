@@ -1,29 +1,29 @@
 /*
- * XREFs of PiDevCfgFindDeviceMigrationNode @ 0x14082C68C
+ * XREFs of PiDevCfgFindDeviceMigrationNode @ 0x14082C66C
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x140700D30 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgMigrateDevice @ 0x140700D10 (PiDevCfgMigrateDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     PnpMultiSzContainsString @ 0x14016B764 (PnpMultiSzContainsString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     ZwEnumerateValueKey @ 0x1401B83D0 (ZwEnumerateValueKey.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PiDevCfgGetMigrationDeviceIdScore @ 0x14028903C (PiDevCfgGetMigrationDeviceIdScore.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     PnpMultiSzContainsString @ 0x14016B784 (PnpMultiSzContainsString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     ZwEnumerateValueKey @ 0x1401B83F0 (ZwEnumerateValueKey.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PiDevCfgGetMigrationDeviceIdScore @ 0x14028913C (PiDevCfgGetMigrationDeviceIdScore.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
  *     _CmIsRootEnumeratedDevice @ 0x14059C4CC (_CmIsRootEnumeratedDevice.c)
  *     RtlCompareUnicodeString @ 0x1405BFF20 (RtlCompareUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     NtQueryKey @ 0x14063FBB0 (NtQueryKey.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
- *     PiDevCfgGetDriverPackageId @ 0x1406F5694 (PiDevCfgGetDriverPackageId.c)
- *     PiDevCfgQueryObjectProperties @ 0x1406F6260 (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgClearDeviceMigrationNode @ 0x14082BC10 (PiDevCfgClearDeviceMigrationNode.c)
- *     PiDevCfgFreeDeviceMigrationNode @ 0x14082D058 (PiDevCfgFreeDeviceMigrationNode.c)
- *     PiDevCfgQueryDeviceMigrationNode @ 0x14082DC0C (PiDevCfgQueryDeviceMigrationNode.c)
+ *     NtQueryKey @ 0x14063FB90 (NtQueryKey.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
+ *     PiDevCfgGetDriverPackageId @ 0x1406F5674 (PiDevCfgGetDriverPackageId.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1406F6240 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgClearDeviceMigrationNode @ 0x14082BBF0 (PiDevCfgClearDeviceMigrationNode.c)
+ *     PiDevCfgFreeDeviceMigrationNode @ 0x14082D038 (PiDevCfgFreeDeviceMigrationNode.c)
+ *     PiDevCfgQueryDeviceMigrationNode @ 0x14082DBEC (PiDevCfgQueryDeviceMigrationNode.c)
  */
 
 __int64 __fastcall PiDevCfgFindDeviceMigrationNode(__int64 *a1, __int64 a2, void *a3, int a4, PVOID **a5)
@@ -304,7 +304,7 @@ LABEL_20:
       v20 = v15 + 7;
       v21 = v17 - (_QWORD)v15;
       v22 = 2LL;
-      v23 = &qword_140908D28;
+      v23 = &qword_140908D08;
       v24 = &v64;
       do
       {

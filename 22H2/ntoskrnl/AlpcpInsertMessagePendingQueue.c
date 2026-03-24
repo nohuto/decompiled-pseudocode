@@ -1,31 +1,32 @@
 /*
- * XREFs of AlpcpInsertMessagePendingQueue @ 0x14073DA20
+ * XREFs of AlpcpInsertMessagePendingQueue @ 0x1405E3C64
  * Callers:
- *     AlpcpSendLegacySynchronousRequest @ 0x14071AC80 (AlpcpSendLegacySynchronousRequest.c)
- *     AlpcpCompleteDispatchMessage @ 0x14073A390 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpReceiveMessagePort @ 0x14073B9A0 (AlpcpReceiveMessagePort.c)
- *     AlpcpReceiveSynchronousReply @ 0x14073E1F0 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpReceiveDirectMessagePort @ 0x1407BB524 (AlpcpReceiveDirectMessagePort.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x1405DFA58 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpReceiveSynchronousReply @ 0x1405E7560 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpReceiveDirectMessagePort @ 0x140677FB0 (AlpcpReceiveDirectMessagePort.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
-signed __int32 __fastcall AlpcpInsertMessagePendingQueue(__int64 a1, __int64 a2)
+char __fastcall AlpcpInsertMessagePendingQueue(__int64 a1, __int64 a2)
 {
-  int v4; // eax
+  volatile signed __int64 *v2; // rsi
+  int v5; // eax
 
+  v2 = (volatile signed __int64 *)(a1 + 176);
   ExAcquirePushLockExclusiveEx(a1 + 176, 0LL);
-  v4 = *(_DWORD *)(a2 + 40);
+  v5 = *(_DWORD *)(a2 + 40);
   *(_QWORD *)(a2 + 16) = a1;
-  *(_DWORD *)(a2 + 40) = v4 & 0xFFFFFF83 | (4 * (*(_DWORD *)(a1 + 416) & 6)) | 3;
+  *(_DWORD *)(a2 + 40) = v5 & 0xFFFFFF83 | (4 * (*(_DWORD *)(a1 + 416) & 6)) | 3;
   *(_QWORD *)(a2 + 8) = *(_QWORD *)(a1 + 192);
   *(_QWORD *)a2 = a1 + 184;
   **(_QWORD **)(a1 + 192) = a2;
   ++*(_DWORD *)(a1 + 456);
   *(_QWORD *)(a1 + 192) = a2;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 176), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 176));
-  return KeAbPostRelease(a1 + 176);
+  if ( (_InterlockedExchangeAdd64(v2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v2);
+  return KeAbPostRelease((ULONG_PTR)v2);
 }

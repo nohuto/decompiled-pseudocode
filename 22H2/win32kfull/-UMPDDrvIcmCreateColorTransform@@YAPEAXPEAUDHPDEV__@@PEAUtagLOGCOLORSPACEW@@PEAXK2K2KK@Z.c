@@ -1,13 +1,14 @@
 /*
- * XREFs of ?UMPDDrvIcmCreateColorTransform@@YAPEAXPEAUDHPDEV__@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2KK@Z @ 0x1C02BB2A0
+ * XREFs of ?UMPDDrvIcmCreateColorTransform@@YAPEAXPEAUDHPDEV__@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2KK@Z @ 0x1C02AA1F0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C029955C (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C02B7860 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C02B78D8 (--1XUMPDOBJ@@QEAA@XZ.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02B8264 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C001ECD8 (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F0E8 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A16C0 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C00A190C (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall UMPDDrvIcmCreateColorTransform(
@@ -23,63 +24,47 @@ __int64 __fastcall UMPDDrvIcmCreateColorTransform(
 {
   __int64 v10; // rdi
   UMPDOBJ *v14; // rbx
+  int v15; // eax
+  __int64 v16; // rcx
   size_t Size; // [rsp+20h] [rbp-A1h]
-  __int64 v17; // [rsp+30h] [rbp-91h] BYREF
-  UMPDOBJ *v18; // [rsp+38h] [rbp-89h] BYREF
-  void *v19; // [rsp+40h] [rbp-81h]
-  _DWORD v20[2]; // [rsp+50h] [rbp-71h] BYREF
-  __int64 v21; // [rsp+58h] [rbp-69h]
-  __int64 v22; // [rsp+60h] [rbp-61h]
-  struct DHPDEV__ *v23; // [rsp+68h] [rbp-59h]
-  void *v24; // [rsp+70h] [rbp-51h] BYREF
-  void *v25; // [rsp+78h] [rbp-49h] BYREF
-  unsigned int v26; // [rsp+80h] [rbp-41h]
-  int v27; // [rsp+84h] [rbp-3Dh]
-  void *v28; // [rsp+88h] [rbp-39h] BYREF
-  unsigned int v29; // [rsp+90h] [rbp-31h]
-  int v30; // [rsp+94h] [rbp-2Dh]
-  void *v31; // [rsp+98h] [rbp-29h] BYREF
-  unsigned int v32; // [rsp+A0h] [rbp-21h]
-  unsigned int v33; // [rsp+A4h] [rbp-1Dh]
+  __int64 v19; // [rsp+30h] [rbp-91h] BYREF
+  UMPDOBJ *v20; // [rsp+38h] [rbp-89h] BYREF
+  void *v21; // [rsp+40h] [rbp-81h]
+  _QWORD v22[12]; // [rsp+50h] [rbp-71h] BYREF
 
   v10 = 0LL;
-  v19 = a7;
-  v17 = 0LL;
-  XUMPDOBJ::XUMPDOBJ((XUMPDOBJ *)&v18);
-  v14 = v18;
-  v21 = 0LL;
-  v27 = 0;
-  v30 = 0;
-  if ( v18 )
+  v21 = a7;
+  v19 = 0LL;
+  XUMPDOBJ::XUMPDOBJ((XUMPDOBJ *)&v20);
+  memset(v22, 0, 0x58uLL);
+  v14 = v20;
+  if ( v20 )
   {
-    v20[0] = 88;
-    v20[1] = 64;
-    v22 = *(_QWORD *)v18;
-    v31 = v19;
-    v23 = a1;
-    v24 = a2;
-    v33 = a9;
-    v25 = a3;
-    v26 = a4;
-    v28 = a5;
-    v29 = a6;
-    v32 = a8;
-    if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v18, (const void **)&v24, 0x148u) )
+    v22[0] = 0x4000000058LL;
+    v22[2] = *(_QWORD *)v20;
+    v22[9] = v21;
+    v22[3] = a1;
+    v22[4] = a2;
+    v22[5] = a3;
+    LODWORD(v22[6]) = a4;
+    v22[7] = a5;
+    LODWORD(v22[8]) = a6;
+    v22[10] = __PAIR64__(a9, a8);
+    if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v20, (const void **)&v22[4], 0x148u) )
     {
-      if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v14, (const void **)&v25, a4) )
+      if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v14, (const void **)&v22[5], a4)
+        && (unsigned int)UMPDOBJ::ThunkMemBlock(v14, (const void **)&v22[7], a6)
+        && (unsigned int)UMPDOBJ::ThunkMemBlock(v14, (const void **)&v22[9], a8) )
       {
-        if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v14, (const void **)&v28, a6) )
-        {
-          if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v14, (const void **)&v31, a8) )
-          {
-            LODWORD(Size) = 8;
-            if ( (unsigned int)UMPDOBJ::Thunk(v14, v20, 0x58u, &v17, Size) != -1 )
-              v10 = v17;
-          }
-        }
+        LODWORD(Size) = 8;
+        v15 = UMPDOBJ::Thunk(v14, v22, 0x58u, &v19, Size);
+        v16 = v19;
+        if ( v15 == -1 )
+          v16 = 0LL;
+        v10 = v16;
       }
     }
   }
-  XUMPDOBJ::~XUMPDOBJ(&v18);
+  XUMPDOBJ::~XUMPDOBJ(&v20);
   return v10;
 }

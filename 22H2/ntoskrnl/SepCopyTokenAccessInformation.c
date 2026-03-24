@@ -1,18 +1,18 @@
 /*
- * XREFs of SepCopyTokenAccessInformation @ 0x1407F4034
+ * XREFs of SepCopyTokenAccessInformation @ 0x1405DBD68
  * Callers:
- *     SeQueryInformationToken @ 0x140719710 (SeQueryInformationToken.c)
- *     NtQueryInformationToken @ 0x140730A90 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x1406CF990 (SeQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x1406D0BB0 (NtQueryInformationToken.c)
  * Callees:
- *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x1402269B0 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
- *     RtlSidHashInitialize @ 0x140228430 (RtlSidHashInitialize.c)
- *     SeQueryMandatoryPolicyToken @ 0x1403706A4 (SeQueryMandatoryPolicyToken.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     Feature_1410919738__private_IsEnabledDeviceUsage @ 0x1404116EC (Feature_1410919738__private_IsEnabledDeviceUsage.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlCopySidAndAttributesArray @ 0x140714F60 (RtlCopySidAndAttributesArray.c)
- *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x1407F4710 (AuthzBasepQueryInternalSecurityAttributesToken.c)
+ *     SeQueryMandatoryPolicyToken @ 0x140202A4C (SeQueryMandatoryPolicyToken.c)
+ *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x140252060 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
+ *     RtlSidHashInitialize @ 0x1402D6590 (RtlSidHashInitialize.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     Feature_693672248__private_IsEnabledDeviceUsage @ 0x1403F81A0 (Feature_693672248__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlCopySidAndAttributesArray @ 0x1405DC280 (RtlCopySidAndAttributesArray.c)
+ *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x1405DC544 (AuthzBasepQueryInternalSecurityAttributesToken.c)
  */
 
 __int64 __fastcall SepCopyTokenAccessInformation(
@@ -54,7 +54,7 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   __int128 v37; // xmm1
   __int64 v38; // rbx
   __int64 v39; // r15
-  unsigned int v40; // ecx
+  int v40; // ecx
   int v41; // eax
   unsigned int v42; // edx
   __int64 *v43; // rcx
@@ -70,7 +70,7 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   __int128 v53; // xmm1
   __int64 v54; // rbx
   __int64 v55; // r15
-  unsigned int v56; // ecx
+  int v56; // ecx
   int v57; // eax
   unsigned int v58; // edx
   __int64 *v59; // rcx
@@ -115,13 +115,13 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   v18 = a3;
   v87 = a13;
   v88 = a4;
-  memset(v90, 0, 0x10CuLL);
-  Feature_1410919738__private_IsEnabledDeviceUsage();
+  memset(v90, 0, sizeof(v90));
+  Feature_693672248__private_IsEnabledDeviceUsage();
+  v89 = a2 + v18;
   *(_QWORD *)(a2 + 24) = *(_QWORD *)(a1 + 24);
   *(_DWORD *)(a2 + 32) = *(_DWORD *)(a1 + 192);
   *(_DWORD *)(a2 + 36) = *(_DWORD *)(a1 + 196);
   *(_DWORD *)(a2 + 44) = *(_DWORD *)(a1 + 200);
-  v89 = a2 + v18;
   SeQueryMandatoryPolicyToken(a1, (_DWORD *)(a2 + 40));
   v19 = *(_QWORD *)(a1 + 1080);
   v20 = 0LL;
@@ -139,10 +139,10 @@ __int64 __fastcall SepCopyTokenAccessInformation(
     *(_QWORD *)(a1 + 152),
     v22 - a6,
     a2 + 360,
-    (char *)(a2 + 360 + a6),
-    &v79,
-    (ULONG *)&v79);
-  IsEnabledDeviceUsage = Feature_1410919738__private_IsEnabledDeviceUsage();
+    (void *)(a2 + 360 + a6),
+    (__int64)&v79,
+    (__int64)&v79);
+  IsEnabledDeviceUsage = Feature_693672248__private_IsEnabledDeviceUsage();
   v25 = *(_DWORD *)(a1 + 124);
   v26 = 2LL;
   v27 = *(__int64 **)(a1 + 152);
@@ -195,10 +195,10 @@ __int64 __fastcall SepCopyTokenAccessInformation(
       *(_QWORD *)(a1 + 160),
       v81 - v84,
       v38 + 272,
-      (char *)(v39 + v84),
-      &v79,
-      (ULONG *)&v79);
-    v41 = Feature_1410919738__private_IsEnabledDeviceUsage();
+      (void *)(v39 + v84),
+      (__int64)&v79,
+      (__int64)&v79);
+    v41 = Feature_693672248__private_IsEnabledDeviceUsage();
     v42 = *(_DWORD *)(a1 + 128);
     v43 = *(__int64 **)(a1 + 160);
     if ( v41 )
@@ -251,10 +251,10 @@ __int64 __fastcall SepCopyTokenAccessInformation(
       *(_QWORD *)(a1 + 792),
       v82 - v85,
       v54 + 272,
-      (char *)(v55 + v85),
-      &v79,
-      (ULONG *)&v79);
-    v57 = Feature_1410919738__private_IsEnabledDeviceUsage();
+      (void *)(v55 + v85),
+      (__int64)&v79,
+      (__int64)&v79);
+    v57 = Feature_693672248__private_IsEnabledDeviceUsage();
     v58 = *(_DWORD *)(a1 + 800);
     v59 = *(__int64 **)(a1 + 792);
     if ( v57 )

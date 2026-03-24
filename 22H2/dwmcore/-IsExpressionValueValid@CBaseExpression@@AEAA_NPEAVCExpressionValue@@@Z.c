@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsExpressionValueValid@CBaseExpression@@AEAA_NPEAVCExpressionValue@@@Z @ 0x1800549A0
+ * XREFs of ?IsExpressionValueValid@CBaseExpression@@AEAA_NPEAVCExpressionValue@@@Z @ 0x180074F50
  * Callers:
- *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180053F60 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180073B10 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -10,45 +10,51 @@ char __fastcall CBaseExpression::IsExpressionValueValid(CBaseExpression *this, s
 {
   int v2; // eax
   float v4; // xmm0_4
-  __int128 v6; // [rsp+20h] [rbp-18h]
+  float v6[6]; // [rsp+20h] [rbp-18h]
   float v7[6]; // [rsp+20h] [rbp-18h]
-  float v8[6]; // [rsp+20h] [rbp-18h]
-  float v9; // [rsp+28h] [rbp-10h]
-  __int64 v10; // [rsp+40h] [rbp+8h]
+  float v8; // [rsp+28h] [rbp-10h]
+  __int64 v9; // [rsp+40h] [rbp+8h]
 
   v2 = *((_DWORD *)a2 + 18);
   if ( v2 == 18 )
   {
     v4 = *(float *)a2;
-    return _finite(v4) != 0;
   }
-  if ( v2 == 17 )
-    return 1;
-  if ( v2 != 35 )
+  else
   {
     switch ( v2 )
     {
       case 11:
+      case 17:
         return 1;
+      case 35:
+        v9 = *(_QWORD *)a2;
+        if ( !_finite(COERCE_FLOAT(*(_QWORD *)a2)) )
+          return 0;
+        v4 = *((float *)&v9 + 1);
+        return _finite(v4) != 0;
       case 42:
         return _finite(*(float *)a2) != 0;
       case 52:
         *(_QWORD *)v7 = *(_QWORD *)a2;
-        v9 = *((float *)a2 + 2);
+        v8 = *((float *)a2 + 2);
         if ( !_finite(COERCE_FLOAT(*(_QWORD *)a2)) || !_finite(v7[1]) )
           return 0;
-        v4 = v9;
+        v4 = v8;
         return _finite(v4) != 0;
       case 69:
       case 71:
-        *(_OWORD *)v8 = *(_OWORD *)a2;
-        return _finite(COERCE_FLOAT(*(_OWORD *)a2)) && _finite(v8[1]) && _finite(v8[2]) && _finite(v8[3]);
-      case 70:
-        v6 = *(_OWORD *)a2;
-        if ( !_finite(COERCE_FLOAT(*(_OWORD *)a2)) || !_finite(*((float *)&v6 + 1)) || !_finite(*((float *)&v6 + 2)) )
+        *(_OWORD *)v6 = *(_OWORD *)a2;
+        if ( !_finite(COERCE_FLOAT(*(_OWORD *)a2)) || !_finite(v6[1]) || !_finite(v6[2]) )
           return 0;
-        v4 = *((float *)&v6 + 3);
-        return _finite(v4) != 0;
+        goto LABEL_9;
+      case 70:
+        *(_OWORD *)v6 = *(_OWORD *)a2;
+        if ( !_finite(COERCE_FLOAT(*(_OWORD *)a2)) || !_finite(v6[1]) || !_finite(v6[2]) )
+          return 0;
+LABEL_9:
+        v4 = v6[3];
+        break;
       case 104:
         if ( !_finite(*(float *)a2)
           || !_finite(*((float *)a2 + 1))
@@ -59,7 +65,7 @@ char __fastcall CBaseExpression::IsExpressionValueValid(CBaseExpression *this, s
           return 0;
         }
         v4 = *((float *)a2 + 4);
-        return _finite(v4) != 0;
+        break;
       case 265:
         if ( !_finite(*(float *)a2)
           || !_finite(*((float *)a2 + 1))
@@ -80,16 +86,10 @@ char __fastcall CBaseExpression::IsExpressionValueValid(CBaseExpression *this, s
           return 0;
         }
         v4 = *((float *)a2 + 15);
-        return _finite(v4) != 0;
+        break;
       default:
         return 0;
     }
   }
-  v10 = *(_QWORD *)a2;
-  if ( _finite(COERCE_FLOAT(*(_QWORD *)a2)) )
-  {
-    v4 = *((float *)&v10 + 1);
-    return _finite(v4) != 0;
-  }
-  return 0;
+  return _finite(v4) != 0;
 }

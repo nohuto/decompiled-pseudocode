@@ -1,13 +1,12 @@
 /*
- * XREFs of ?SendMouseUpIfPending@CPTPEngine@@AEAAXPEAI@Z @ 0x1C0203E58
+ * XREFs of ?SendMouseUpIfPending@CPTPEngine@@AEAAXPEAI@Z @ 0x1C01C85A0
  * Callers:
- *     ?CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z @ 0x1C01FF118 (-CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z.c)
- *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C02008C8 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
- *     ?ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z @ 0x1C02024F0 (-ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z.c)
- *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C02028C8 (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
- *     ?SendMouseDownAtPoint@CPTPEngine@@AEAAXIUtagPOINT@@@Z @ 0x1C0203D68 (-SendMouseDownAtPoint@CPTPEngine@@AEAAXIUtagPOINT@@@Z.c)
+ *     ?CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z @ 0x1C01C3904 (-CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z.c)
+ *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C01C50D4 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
+ *     ?ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z @ 0x1C01C6BD8 (-ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z.c)
+ *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C01C6FCC (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
  * Callees:
- *     ?SendMouseOutput@CBasePTPEngine@@IEAAXW4Action@Mouse@Payload@PTPEngineOutput@@UtagPOINT@@@Z @ 0x1C0203E08 (-SendMouseOutput@CBasePTPEngine@@IEAAXW4Action@Mouse@Payload@PTPEngineOutput@@UtagPOINT@@@Z.c)
+ *     ?SendMouseOutput@CBasePTPEngine@@IEAAXW4Action@Mouse@Payload@PTPEngineOutput@@UtagPOINT@@@Z @ 0x1C01C8550 (-SendMouseOutput@CBasePTPEngine@@IEAAXW4Action@Mouse@Payload@PTPEngineOutput@@UtagPOINT@@@Z.c)
  */
 
 void __fastcall CPTPEngine::SendMouseUpIfPending(CPTPEngine *this, unsigned int *a2)
@@ -20,16 +19,16 @@ void __fastcall CPTPEngine::SendMouseUpIfPending(CPTPEngine *this, unsigned int 
   {
     if ( v2 == 4 )
     {
-      *((_DWORD *)this + 984) &= ~8u;
+      *((_DWORD *)this + 958) &= ~8u;
     }
     else if ( v2 == 16 )
     {
-      *((_DWORD *)this + 984) &= ~0x10u;
+      *((_DWORD *)this + 958) &= ~0x10u;
     }
     *a2 = 0;
     v3 = 2;
     if ( v2 != 4 )
       v3 = 4;
-    CBasePTPEngine::SendMouseOutput((__int64)this, v3, *((_QWORD *)this + 491));
+    CBasePTPEngine::SendMouseOutput((__int64)this, v3, *((_QWORD *)this + 478));
   }
 }

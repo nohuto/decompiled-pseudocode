@@ -1,9 +1,9 @@
 /*
- * XREFs of IsMouseButtonDown @ 0x1C01E7FE0
+ * XREFs of IsMouseButtonDown @ 0x1C01AEAC0
  * Callers:
  *     <none>
  * Callees:
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C003B2DC (_anonymous_namespace_--GetMouseProcessor.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0042A1C (_anonymous_namespace_--GetMouseProcessor.c)
  */
 
 char IsMouseButtonDown()
@@ -12,6 +12,6 @@ char IsMouseButtonDown()
 
   MouseProcessor = anonymous_namespace_::GetMouseProcessor();
   if ( MouseProcessor )
-    LOBYTE(MouseProcessor) = *(_DWORD *)(MouseProcessor + 3572) != 0;
+    LOBYTE(MouseProcessor) = *(_DWORD *)(MouseProcessor + 3564) != 0;
   return MouseProcessor;
 }

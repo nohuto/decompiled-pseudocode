@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PnpPassThroughQI@@YAJPEAVFxDevice@@PEAVFxIrp@@@Z @ 0x1C00344E0
+ * XREFs of ?PnpPassThroughQI@@YAJPEAVFxDevice@@PEAVFxIrp@@@Z @ 0x1C00819AC
  * Callers:
- *     ?HandleQueryInterface@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAE@Z @ 0x1C001C450 (-HandleQueryInterface@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAE@Z.c)
+ *     ?HandleQueryInterface@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAE@Z @ 0x1C00808A4 (-HandleQueryInterface@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAE@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
- *     ?PnpPassThroughQIWorker@@YAXPEAVMxDeviceObject@@PEAVFxIrp@@1@Z @ 0x1C00345AC (-PnpPassThroughQIWorker@@YAXPEAVMxDeviceObject@@PEAVFxIrp@@1@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
+ *     ?PnpPassThroughQIWorker@@YAXPEAVMxDeviceObject@@PEAVFxIrp@@1@Z @ 0x1C0084F94 (-PnpPassThroughQIWorker@@YAXPEAVMxDeviceObject@@PEAVFxIrp@@1@Z.c)
  */
 
 __int64 __fastcall PnpPassThroughQI(FxDevice *Device, FxIrp *Irp)
@@ -39,14 +39,14 @@ __int64 __fastcall PnpPassThroughQI(FxDevice *Device, FxIrp *Irp)
   {
     v8 = -1073741670;
     _a1 = (const void *)FxObject::GetObjectHandleUnchecked(Device);
-    WPP_IFR_SF_qqd(
+    WPP_IFR_SF_qid(
       Device->m_Globals,
       2u,
       0xCu,
       0x24u,
       (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids,
       _a1,
-      _a2,
+      (__int64)_a2,
       -1073741670);
   }
   ObfDereferenceObject(_a2);

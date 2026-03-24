@@ -1,32 +1,32 @@
 /*
- * XREFs of DwmAsyncChildDestroy @ 0x1C0098E78
+ * XREFs of DwmAsyncChildDestroy @ 0x1C00EA520
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C0098A20 (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
- *     _lambda_fcfb12fcc043a8c73fe9205729fe4b4e_::operator() @ 0x1C015C28C (_lambda_fcfb12fcc043a8c73fe9205729fe4b4e_--operator().c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C00EA0AC (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
+ *     _lambda_cd33d3260540cb20afcdcf97ba84ccae_::operator() @ 0x1C01698B8 (_lambda_cd33d3260540cb20afcdcf97ba84ccae_--operator().c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall DwmAsyncChildDestroy(PVOID Object, __int64 a2)
+__int64 __fastcall DwmAsyncChildDestroy(PVOID Object, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v3; // edi
-  _OWORD v5[2]; // [rsp+20h] [rbp-48h] BYREF
-  _QWORD v6[5]; // [rsp+40h] [rbp-28h]
+  unsigned int v5; // edi
+  _OWORD v7[2]; // [rsp+20h] [rbp-48h] BYREF
+  _QWORD v8[5]; // [rsp+40h] [rbp-28h]
 
-  v3 = -1073741823;
+  v5 = -1073741823;
   _InterlockedIncrement64(&g_cDWMWindowUniqueness);
   if ( Object )
   {
-    memset(v5, 0, sizeof(v5));
-    WORD2(v5[0]) = 0x8000;
-    v6[0] = 0LL;
-    LODWORD(v5[0]) = 3407884;
-    LODWORD(v6[1]) = 1073741844;
-    *(_QWORD *)((char *)&v6[1] + 4) = a2;
-    EtwUpdateEvent(a2);
-    v3 = LpcRequestPort(Object, v5);
+    memset(v7, 0, sizeof(v7));
+    WORD2(v7[0]) = 0x8000;
+    v8[0] = 0LL;
+    LODWORD(v7[0]) = 3407884;
+    LODWORD(v8[1]) = 1073741844;
+    *(_QWORD *)((char *)&v8[1] + 4) = a2;
+    EtwUpdateEvent(a2, 1073741844LL, a3, a4);
+    v5 = LpcRequestPort(Object, v7);
     ObfDereferenceObject(Object);
   }
-  return v3;
+  return v5;
 }

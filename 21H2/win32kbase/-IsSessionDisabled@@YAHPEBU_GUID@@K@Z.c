@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsSessionDisabled@@YAHPEBU_GUID@@K@Z @ 0x1C005B9B8
+ * XREFs of ?IsSessionDisabled@@YAHPEBU_GUID@@K@Z @ 0x1C00B1500
  * Callers:
- *     WinSqmStartSession @ 0x1C005B74C (WinSqmStartSession.c)
- *     ?RegisterWinSqmProvider@@YAKXZ @ 0x1C005B920 (-RegisterWinSqmProvider@@YAKXZ.c)
+ *     WinSqmStartSession @ 0x1C00B12C0 (WinSqmStartSession.c)
+ *     ?RegisterWinSqmProvider@@YAKXZ @ 0x1C00B146C (-RegisterWinSqmProvider@@YAKXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IsSessionDisabled(const struct _GUID *Source1, ULONG Value)
@@ -38,7 +38,7 @@ __int64 __fastcall IsSessionDisabled(const struct _GUID *Source1, ULONG Value)
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
-    if ( !Source1 || RtlCompareMemory(Source1, &unk_1C0267080, 0x10uLL) == 16 )
+    if ( !Source1 || RtlCompareMemory(Source1, &unk_1C020EFC8, 0x10uLL) == 16 )
     {
       RtlInitUnicodeString(&String, L"GlobalSession");
     }

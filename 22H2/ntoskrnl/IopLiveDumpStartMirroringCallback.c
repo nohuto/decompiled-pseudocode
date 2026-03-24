@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLiveDumpStartMirroringCallback @ 0x140A9C6B0
+ * XREFs of IopLiveDumpStartMirroringCallback @ 0x1409AD710
  * Callers:
  *     <none>
  * Callees:
- *     IopLiveDumpTraceMirroringStart @ 0x14055B320 (IopLiveDumpTraceMirroringStart.c)
+ *     IopLiveDumpTraceMirroringStart @ 0x140509B64 (IopLiveDumpTraceMirroringStart.c)
  */
 
 __int64 IopLiveDumpStartMirroringCallback()

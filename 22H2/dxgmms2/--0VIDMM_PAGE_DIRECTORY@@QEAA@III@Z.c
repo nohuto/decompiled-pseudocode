@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0VIDMM_PAGE_DIRECTORY@@QEAA@III@Z @ 0x1C009E5C0
+ * XREFs of ??0VIDMM_PAGE_DIRECTORY@@QEAA@III@Z @ 0x1C005FD98
  * Callers:
- *     ?CreatePageDirectory@@YAPEAVVIDMM_PAGE_DIRECTORY@@PEAVCVirtualAddressAllocator@@II@Z @ 0x1C009E520 (-CreatePageDirectory@@YAPEAVVIDMM_PAGE_DIRECTORY@@PEAVCVirtualAddressAllocator@@II@Z.c)
+ *     ?CreatePageDirectory@@YAPEAVVIDMM_PAGE_DIRECTORY@@PEAVCVirtualAddressAllocator@@II@Z @ 0x1C005FE0C (-CreatePageDirectory@@YAPEAVVIDMM_PAGE_DIRECTORY@@PEAVCVirtualAddressAllocator@@II@Z.c)
  * Callees:
  *     <none>
  */

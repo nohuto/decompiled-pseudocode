@@ -1,12 +1,12 @@
 /*
- * XREFs of AuthzBasepSetAccessReasons @ 0x14022D300
+ * XREFs of AuthzBasepSetAccessReasons @ 0x1402A2630
  * Callers:
- *     AuthzBasepAddAccessTypeList @ 0x14022D208 (AuthzBasepAddAccessTypeList.c)
- *     SepCommonAccessCheckEx @ 0x140383ABC (SepCommonAccessCheckEx.c)
- *     AuthzBasepSetTypeListAccessReasons @ 0x1403845A0 (AuthzBasepSetTypeListAccessReasons.c)
- *     SepMaximumAccessCheckEx @ 0x140384600 (SepMaximumAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x14038473C (SepNormalAccessCheckEx.c)
- *     AuthzBasepUpdateParentTypeList @ 0x14064A834 (AuthzBasepUpdateParentTypeList.c)
+ *     AuthzBasepAddAccessTypeList @ 0x1402A253C (AuthzBasepAddAccessTypeList.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     AuthzBasepSetTypeListAccessReasons @ 0x140373B64 (AuthzBasepSetTypeListAccessReasons.c)
+ *     SepMaximumAccessCheckEx @ 0x140373BC4 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheckEx @ 0x140373CEC (SepNormalAccessCheckEx.c)
+ *     AuthzBasepUpdateParentTypeList @ 0x1405C1758 (AuthzBasepUpdateParentTypeList.c)
  * Callees:
  *     <none>
  */

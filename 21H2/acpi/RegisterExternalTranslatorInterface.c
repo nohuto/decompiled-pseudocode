@@ -1,7 +1,7 @@
 /*
- * XREFs of RegisterExternalTranslatorInterface @ 0x1C009F2F0
+ * XREFs of RegisterExternalTranslatorInterface @ 0x1C009FBD4
  * Callers:
- *     QueryExternalTranslatorInterface @ 0x1C009EFFC (QueryExternalTranslatorInterface.c)
+ *     QueryExternalTranslatorInterface @ 0x1C009F8E4 (QueryExternalTranslatorInterface.c)
  * Callees:
  *     <none>
  */

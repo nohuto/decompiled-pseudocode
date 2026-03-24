@@ -1,14 +1,13 @@
 /*
- * XREFs of PspLockThreadSecurityExclusive @ 0x1402F7280
+ * XREFs of PspLockThreadSecurityExclusive @ 0x1402C0C04
  * Callers:
- *     NtSetInformationThread @ 0x14072EC80 (NtSetInformationThread.c)
- *     PsImpersonateClient @ 0x1407AF1B0 (PsImpersonateClient.c)
+ *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
-void __fastcall PspLockThreadSecurityExclusive(__int64 a1, __int64 a2)
+__int64 __fastcall PspLockThreadSecurityExclusive(__int64 a1, __int64 a2)
 {
   --*(_WORD *)(a2 + 484);
-  ExAcquirePushLockExclusiveEx(a1 + 1360, 0LL);
+  return ExAcquirePushLockExclusiveEx(a1 + 1280, 0LL);
 }

@@ -1,47 +1,43 @@
 /*
- * XREFs of RtlSetBits @ 0x1402E0530
+ * XREFs of RtlSetBits @ 0x1402D9750
  * Callers:
- *     MiReduceMappedFileReadAhead @ 0x140294524 (MiReduceMappedFileReadAhead.c)
- *     MiFindFreePageFileSpace @ 0x1402945B4 (MiFindFreePageFileSpace.c)
- *     RtlFindClearBitsAndSet @ 0x140295D80 (RtlFindClearBitsAndSet.c)
- *     MiBuildMdlForMappedFileFault @ 0x1402DFD70 (MiBuildMdlForMappedFileFault.c)
- *     MiDecayNodeNowEmpty @ 0x14034A440 (MiDecayNodeNowEmpty.c)
- *     MiReduceMappedFileReadBehind @ 0x140352D10 (MiReduceMappedFileReadBehind.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     HalpIommuProcessDeviceEntries @ 0x14052E454 (HalpIommuProcessDeviceEntries.c)
- *     HsaUpdateRemappingTableEntry @ 0x140531320 (HsaUpdateRemappingTableEntry.c)
- *     VslpVerifySessionSpace @ 0x14054D070 (VslpVerifySessionSpace.c)
- *     MiAttemptPageFileReductionApc @ 0x140637DE0 (MiAttemptPageFileReductionApc.c)
- *     MiExtendPagingFileMaximum @ 0x140639044 (MiExtendPagingFileMaximum.c)
- *     MiSetPageFileAllocationBits @ 0x14063B628 (MiSetPageFileAllocationBits.c)
- *     MiStoreSetPageFileRunEvicted @ 0x14065CA3C (MiStoreSetPageFileRunEvicted.c)
- *     MiGetPrototypePteRanges @ 0x1406698B0 (MiGetPrototypePteRanges.c)
- *     MiReserveDriverPtes @ 0x140696DF0 (MiReserveDriverPtes.c)
- *     SepAddLuidToIndexEntry @ 0x1406B781C (SepAddLuidToIndexEntry.c)
- *     MiLockdownSections @ 0x1407059B4 (MiLockdownSections.c)
- *     HvpRemoveFreeCellHint @ 0x14070A2D0 (HvpRemoveFreeCellHint.c)
- *     RtlMarkExceptionHandlingPages @ 0x140745AB0 (RtlMarkExceptionHandlingPages.c)
- *     HvCheckBin @ 0x140745C80 (HvCheckBin.c)
- *     HvpAddFreeCellHint @ 0x1407463C4 (HvpAddFreeCellHint.c)
- *     HvpMarkDirty @ 0x140747620 (HvpMarkDirty.c)
- *     SepGetLowBoxNumberEntry @ 0x1407F4F18 (SepGetLowBoxNumberEntry.c)
- *     HvpUpdateRecoveryVector @ 0x1407FEA88 (HvpUpdateRecoveryVector.c)
- *     HalpIrtAllocateIndex @ 0x140820818 (HalpIrtAllocateIndex.c)
- *     CmpLoadHiveThread @ 0x1408283D0 (CmpLoadHiveThread.c)
- *     HalpInitializeInterruptRemappingBspLate @ 0x14085E2E8 (HalpInitializeInterruptRemappingBspLate.c)
- *     CmpMountPreloadedHives @ 0x1408632CC (CmpMountPreloadedHives.c)
- *     KiTpBuildExcludedKernelTracepointBitmap @ 0x1409763D0 (KiTpBuildExcludedKernelTracepointBitmap.c)
- *     MiCheckPatchesInSupportedSections @ 0x140A36420 (MiCheckPatchesInSupportedSections.c)
- *     PnprMirrorMarkedPages @ 0x140A9D1EC (PnprMirrorMarkedPages.c)
- *     PopCloneRange @ 0x140AA1EA4 (PopCloneRange.c)
- *     PopDiscardRange @ 0x140AA28BC (PopDiscardRange.c)
- *     PopGenerateUnHibernatedMdl @ 0x140AA2BDC (PopGenerateUnHibernatedMdl.c)
- *     PopSetBootPhaseRange @ 0x140AA5394 (PopSetBootPhaseRange.c)
- *     ViAllocateContiguousMemory @ 0x140AC8A6C (ViAllocateContiguousMemory.c)
- *     MiReserveBootDriverPtes @ 0x140B613CC (MiReserveBootDriverPtes.c)
- *     MiInitializeTopLevelBitmap @ 0x140B636B4 (MiInitializeTopLevelBitmap.c)
+ *     MiBuildMdlForMappedFileFault @ 0x14023D740 (MiBuildMdlForMappedFileFault.c)
+ *     RtlFindClearBitsAndSet @ 0x1402509C0 (RtlFindClearBitsAndSet.c)
+ *     MiStoreSetPageFileRunEvicted @ 0x14031CF70 (MiStoreSetPageFileRunEvicted.c)
+ *     MiReduceMappedFileReadBehind @ 0x14031F27C (MiReduceMappedFileReadBehind.c)
+ *     MiReduceMappedFileReadAhead @ 0x1403225EC (MiReduceMappedFileReadAhead.c)
+ *     MiGetPrototypePteRanges @ 0x1403234A8 (MiGetPrototypePteRanges.c)
+ *     MiSetPageFileAllocationBits @ 0x140329EE8 (MiSetPageFileAllocationBits.c)
+ *     MiFindFreePageFileSpace @ 0x140333724 (MiFindFreePageFileSpace.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     HalpIommuProcessDeviceEntries @ 0x1404E1714 (HalpIommuProcessDeviceEntries.c)
+ *     HsaUpdateRemappingTableEntry @ 0x1404E4800 (HsaUpdateRemappingTableEntry.c)
+ *     MiAttemptPageFileReductionApc @ 0x140542A10 (MiAttemptPageFileReductionApc.c)
+ *     MiExtendPagingFileMaximum @ 0x140542FD0 (MiExtendPagingFileMaximum.c)
+ *     SepAddLuidToIndexEntry @ 0x140603C6C (SepAddLuidToIndexEntry.c)
+ *     HvpRemoveFreeCellHint @ 0x1406557C0 (HvpRemoveFreeCellHint.c)
+ *     HvpMarkDirty @ 0x140655BF0 (HvpMarkDirty.c)
+ *     HvpAddFreeCellHint @ 0x140656770 (HvpAddFreeCellHint.c)
+ *     HvCheckBin @ 0x140656820 (HvCheckBin.c)
+ *     SepGetLowBoxNumberEntry @ 0x14070F258 (SepGetLowBoxNumberEntry.c)
+ *     MiLockdownSections @ 0x14075DD54 (MiLockdownSections.c)
+ *     RtlMarkExceptionHandlingPages @ 0x14075DEE0 (RtlMarkExceptionHandlingPages.c)
+ *     MiReserveDriverPtes @ 0x14075F694 (MiReserveDriverPtes.c)
+ *     CmpLoadHiveThread @ 0x14079F180 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407AB024 (CmpMountPreloadedHives.c)
+ *     HalpInitializeInterruptRemappingBspLate @ 0x140865780 (HalpInitializeInterruptRemappingBspLate.c)
+ *     HalpIrtAllocateIndex @ 0x1408659D4 (HalpIrtAllocateIndex.c)
+ *     HvpUpdateRecoveryVector @ 0x140881E48 (HvpUpdateRecoveryVector.c)
+ *     PopSetBootPhaseRange @ 0x1409969A8 (PopSetBootPhaseRange.c)
+ *     PopDiscardRange @ 0x1409969EC (PopDiscardRange.c)
+ *     PopCloneRange @ 0x140996A08 (PopCloneRange.c)
+ *     PopGenerateUnHibernatedMdl @ 0x140996C70 (PopGenerateUnHibernatedMdl.c)
+ *     PnprMirrorMarkedPages @ 0x1409AE16C (PnprMirrorMarkedPages.c)
+ *     ViAllocateContiguousMemory @ 0x1409CD3BC (ViAllocateContiguousMemory.c)
+ *     MiInitializeTopLevelBitmap @ 0x140A50CF0 (MiInitializeTopLevelBitmap.c)
+ *     MiReserveBootDriverPtes @ 0x140A67334 (MiReserveBootDriverPtes.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 void __stdcall RtlSetBits(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG NumberToSet)
@@ -60,7 +56,7 @@ void __stdcall RtlSetBits(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG N
     v6 = NumberToSet;
     if ( (unsigned int)v4 + NumberToSet <= 8 )
     {
-      v7 = byte_140018F40[NumberToSet] << v4;
+      v7 = byte_14001E790[NumberToSet] << v4;
 LABEL_4:
       *v5 |= v7;
       return;
@@ -68,7 +64,7 @@ LABEL_4:
     if ( (_DWORD)v4 )
     {
       v6 = (unsigned int)v4 + NumberToSet - 8;
-      *v5++ |= byte_140016E48[v4];
+      *v5++ |= byte_14001B528[v4];
     }
     if ( (unsigned int)v6 > 8 )
     {
@@ -78,7 +74,7 @@ LABEL_4:
     }
     if ( (_DWORD)v6 )
     {
-      v7 = byte_140018F40[v6];
+      v7 = byte_14001E790[v6];
       goto LABEL_4;
     }
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceCsExitReason @ 0x1408713E8
+ * XREFs of PopDiagTraceCsExitReason @ 0x1408713C8
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DEFEC (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
@@ -350,7 +350,7 @@ void __fastcall PopDiagTraceCsExitReason(int *a1, char a2)
       v120 = 8LL;
       v122 = 8LL;
       v124 = 8LL;
-      TlgWrite(&pCallbackContext, &unk_1403709FF, 0LL, 0LL, 0x1Eu, &pData);
+      TlgWrite(&pCallbackContext, &unk_1403709B7, 0LL, 0LL, 0x1Eu, &pData);
     }
   }
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of DpiPendingIrpCancelQueueReleaseLock @ 0x1C0023DA0
+ * XREFs of DpiPendingIrpCancelQueueReleaseLock @ 0x1C0052E00
  * Callers:
  *     <none>
  * Callees:

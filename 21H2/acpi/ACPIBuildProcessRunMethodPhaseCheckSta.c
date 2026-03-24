@@ -1,24 +1,24 @@
 /*
- * XREFs of ACPIBuildProcessRunMethodPhaseCheckSta @ 0x1C000ECC0
+ * XREFs of ACPIBuildProcessRunMethodPhaseCheckSta @ 0x1C001EFD0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qss @ 0x1C00077E8 (WPP_RECORDER_SF_qss.c)
- *     ACPIBuildCompleteCommon @ 0x1C00095D8 (ACPIBuildCompleteCommon.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     ACPIGet @ 0x1C0010180 (ACPIGet.c)
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     ACPIDeviceHasFirmwareDependencies @ 0x1C00217F4 (ACPIDeviceHasFirmwareDependencies.c)
- *     ACPIVerifyAndCopyFirmwareDependencies @ 0x1C002A488 (ACPIVerifyAndCopyFirmwareDependencies.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     ACPIDeviceHasFirmwareDependencies @ 0x1C00147FC (ACPIDeviceHasFirmwareDependencies.c)
+ *     ACPIBuildCompleteCommon @ 0x1C001A6D0 (ACPIBuildCompleteCommon.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C001DAB8 (WPP_RECORDER_SF_qss.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     ACPIVerifyAndCopyFirmwareDependencies @ 0x1C002EB38 (ACPIVerifyAndCopyFirmwareDependencies.c)
  */
 
 __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckSta(__int64 a1)
 {
-  __int64 v1; // rsi
+  __int64 v1; // rdi
   const char *v2; // r14
-  int v3; // edi
+  int v3; // esi
   __int64 v5; // rdx
-  __int64 v6; // rdx
+  int v6; // edx
   signed __int32 v7; // ecx
   KIRQL v8; // bl
   int v9; // edx
@@ -36,32 +36,32 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckSta(__int64 a1)
   __int64 v22; // [rsp+38h] [rbp-40h]
 
   v1 = *(_QWORD *)(a1 + 40);
-  v2 = (const char *)&unk_1C006FB8B;
+  v2 = (const char *)&unk_1C00701BA;
   *(_DWORD *)(a1 + 32) = 6;
   v3 = 0;
-  v5 = *(_QWORD *)(v1 + 1000);
+  v5 = *(_QWORD *)(v1 + 960);
   if ( (v5 & 0x20) != 0 )
   {
-    if ( *(_QWORD *)(v1 + 648) && (v5 & 0x40) == 0 )
+    if ( *(_QWORD *)(v1 + 608) && (v5 & 0x40) == 0 )
       *(_DWORD *)(a1 + 20) |= 0x20u;
   }
   else
   {
-    v15 = ACPIVerifyAndCopyFirmwareDependencies(*(_QWORD *)(v1 + 760));
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
+    v15 = ACPIVerifyAndCopyFirmwareDependencies(*(_QWORD *)(v1 + 720));
+    dword_1C0082908 = 0;
+    pszDest = 0;
     v3 = v15;
-    FreeDataBuffs(a1 + 88, 1LL);
+    FreeDataBuffs(a1 + 88, 1u);
     if ( v3 < 0 )
     {
       v16 = *(_QWORD *)(v1 + 8);
-      v17 = &unk_1C006FB8B;
-      v18 = &unk_1C006FB8B;
+      v17 = &unk_1C00701BA;
+      v18 = &unk_1C00701BA;
       if ( (v16 & 0x200000000000LL) != 0 )
       {
-        v17 = *(void **)(v1 + 608);
+        v17 = *(void **)(v1 + 568);
         if ( (v16 & 0x400000000000LL) != 0 )
-          v18 = *(void **)(v1 + 616);
+          v18 = *(void **)(v1 + 576);
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
@@ -72,7 +72,7 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckSta(__int64 a1)
           (_DWORD)v17,
           6,
           62,
-          (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+          (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
           v3,
           v1,
           v22,
@@ -82,28 +82,28 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckSta(__int64 a1)
     else
     {
       *(_DWORD *)(a1 + 20) |= 0x20u;
-      _InterlockedOr64((volatile signed __int64 *)(v1 + 1000), 0x20uLL);
+      _InterlockedOr64((volatile signed __int64 *)(v1 + 960), 0x20uLL);
     }
   }
-  v6 = *(unsigned int *)(a1 + 84);
+  v6 = *(_DWORD *)(a1 + 84);
   if ( (v6 & 8) != 0 )
   {
-    if ( (*(_DWORD *)(v1 + 1000) & 0x2000LL) != 0 )
+    if ( (*(_DWORD *)(v1 + 960) & 0x2000LL) != 0 )
     {
-      _InterlockedAnd64((volatile signed __int64 *)(v1 + 1000), 0xFFFFFFFFFFFFCFFFuLL);
-      LODWORD(v6) = *(_DWORD *)(a1 + 84);
+      _InterlockedAnd64((volatile signed __int64 *)(v1 + 960), 0xFFFFFFFFFFFFCFFFuLL);
+      v6 = *(_DWORD *)(a1 + 84);
     }
-    else if ( (unsigned __int8)ACPIDeviceHasFirmwareDependencies(v1, v6, 0x400000000000LL) )
+    else if ( ACPIDeviceHasFirmwareDependencies(v1) )
     {
       *(_DWORD *)(a1 + 32) = 0;
-      _InterlockedOr64((volatile signed __int64 *)(v1 + 1000), 0x1000uLL);
+      _InterlockedOr64((volatile signed __int64 *)(v1 + 960), 0x1000uLL);
       v20 = *(_QWORD *)(v1 + 8);
-      v21 = (const char *)&unk_1C006FB8B;
+      v21 = (const char *)&unk_1C00701BA;
       if ( (v20 & 0x200000000000LL) != 0 )
       {
-        v2 = *(const char **)(v1 + 608);
+        v2 = *(const char **)(v1 + 568);
         if ( (v20 & v19) != 0 )
-          v21 = *(const char **)(v1 + 616);
+          v21 = *(const char **)(v1 + 576);
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_qss(
@@ -111,7 +111,7 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckSta(__int64 a1)
           4u,
           6u,
           0x3Fu,
-          (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+          (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
           v1,
           v2,
           v21);
@@ -120,15 +120,25 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckSta(__int64 a1)
   }
   if ( (v6 & 1) != 0 )
   {
-    v11 = ACPIGet(v1, 1096045407, -1610348542, 0, 0, (__int64)ACPIBuildCompleteMustSucceed, a1, a1 + 128, 0LL);
+    v11 = ACPIGet(
+            (__int64 *)v1,
+            1096045407,
+            -1610348542,
+            0LL,
+            0,
+            (__int64)ACPIBuildCompleteMustSucceed,
+            a1,
+            a1 + 128,
+            0LL);
     v13 = *(_QWORD *)(v1 + 8);
     v3 = v11;
-    v14 = &unk_1C006FB8B;
+    v14 = &unk_1C00701BA;
     if ( (v13 & 0x200000000000LL) != 0 )
     {
-      v2 = *(const char **)(v1 + 608);
+      v2 = *(const char **)(v1 + 568);
+      v12 = 0;
       if ( (v13 & 0x400000000000LL) != 0 )
-        v14 = *(void **)(v1 + 616);
+        v14 = *(void **)(v1 + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
@@ -138,7 +148,7 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckSta(__int64 a1)
         v12,
         6,
         64,
-        (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+        (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
         v3,
         v1,
         (__int64)v2,

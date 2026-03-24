@@ -1,23 +1,21 @@
 /*
- * XREFs of ?LeaveHardwareProtectionTeardown@CDeviceManager@@QEAAXXZ @ 0x18028601C
+ * XREFs of ?LeaveHardwareProtectionTeardown@CDeviceManager@@QEAAXXZ @ 0x180238A40
  * Callers:
- *     ?Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_FORCERENDER@@@Z @ 0x1800F9420 (-Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD.c)
+ *     ?Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_FORCERENDER@@@Z @ 0x1800DB75C (-Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD.c)
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034CA4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     McTemplateU0q_EventWriteTransfer @ 0x18012DEC4 (McTemplateU0q_EventWriteTransfer.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152674 (McTemplateU0q_EventWriteTransfer.c)
  */
 
 void __fastcall CDeviceManager::LeaveHardwareProtectionTeardown(CDeviceManager *this)
 {
-  struct _RTL_CRITICAL_SECTION *v1; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v1; // rcx
+  struct _RTL_CRITICAL_SECTION *v2; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = &stru_1803EA130;
-  EnterCriticalSection(&stru_1803EA130);
-  byte_1803EA170 = 0;
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
-    McTemplateU0q_EventWriteTransfer(
-      (__int64)&Microsoft_Windows_Dwm_Core_Provider_Context,
-      (__int64)&EVTDESC_ETWGUID_HW_PROTECTION_TEMPDISABLE,
-      0LL);
-  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v1);
+  v2 = &CriticalSection;
+  EnterCriticalSection(&CriticalSection);
+  byte_18034B630 = 0;
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+    McTemplateU0q_EventWriteTransfer(v1, &EVTDESC_ETWGUID_HW_PROTECTION_TEMPDISABLE, 0LL);
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v2);
 }

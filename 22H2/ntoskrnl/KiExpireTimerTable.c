@@ -1,15 +1,16 @@
 /*
- * XREFs of KiExpireTimerTable @ 0x14057C664
+ * XREFs of KiExpireTimerTable @ 0x140388DB0
  * Callers:
- *     KiTimerExpiration @ 0x14057C864 (KiTimerExpiration.c)
+ *     KiTimerExpiration @ 0x140388BF0 (KiTimerExpiration.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KiProcessExpiredTimerList @ 0x140252A30 (KiProcessExpiredTimerList.c)
- *     KiRemoveEntryTimer @ 0x1403C2808 (KiRemoveEntryTimer.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KiRemoveEntryTimer @ 0x140247100 (KiRemoveEntryTimer.c)
+ *     KiProcessExpiredTimerList @ 0x140247410 (KiProcessExpiredTimerList.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-void __fastcall KiExpireTimerTable(
+__int64 __fastcall KiExpireTimerTable(
         __int64 a1,
         __int64 a2,
         int a3,
@@ -19,93 +20,171 @@ void __fastcall KiExpireTimerTable(
         unsigned int a7,
         int *a8)
 {
-  unsigned int v9; // r13d
-  unsigned int v10; // r8d
-  int v11; // r9d
-  int v12; // ebp
-  __int64 v13; // r14
-  unsigned __int64 v14; // rcx
-  unsigned __int64 v16; // rbx
-  _QWORD *v17; // rdi
-  _QWORD *v18; // rsi
-  unsigned __int64 v19; // rax
-  ULONG_PTR v20; // rsi
-  ULONG_PTR BugCheckParameter4; // r15
-  volatile signed __int64 *v22; // [rsp+30h] [rbp-78h] BYREF
-  unsigned __int64 i; // [rsp+38h] [rbp-70h]
-  unsigned int v24; // [rsp+40h] [rbp-68h]
-  unsigned int v26; // [rsp+C0h] [rbp+18h]
-  int v27; // [rsp+C8h] [rbp+20h]
-  char v28[8]; // [rsp+D0h] [rbp+28h]
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 result; // rax
+  unsigned int v12; // esi
+  int v13; // r14d
+  __int64 v14; // r15
+  unsigned __int64 v15; // rcx
+  unsigned __int64 v17; // r12
+  __int64 v18; // rdx
+  unsigned __int64 v19; // rdi
+  _QWORD *v20; // rsi
+  struct _KPRCB *CurrentPrcb; // rbx
+  _DWORD *SchedulerAssist; // rcx
+  _QWORD *v23; // rbx
+  unsigned __int64 v24; // rax
+  ULONG_PTR v25; // rbx
+  struct _KPRCB *v26; // rcx
+  _DWORD *v27; // rdx
+  int v28; // eax
+  _DWORD *v29; // rcx
+  int v30; // eax
+  char v31; // al
+  ULONG_PTR BugCheckParameter4; // r12
+  struct _KPRCB *v33; // rcx
+  _DWORD *v34; // rdx
+  int v35; // eax
+  volatile signed __int64 *v36; // [rsp+30h] [rbp-48h] BYREF
+  unsigned __int64 v37; // [rsp+38h] [rbp-40h]
+  __int128 v38; // [rsp+40h] [rbp-38h]
+  __int64 v39; // [rsp+50h] [rbp-28h]
+  __int128 v40; // [rsp+58h] [rbp-20h]
+  __int64 v41; // [rsp+68h] [rbp-10h]
+  unsigned int v43; // [rsp+D0h] [rbp+58h]
+  int v44; // [rsp+D8h] [rbp+60h]
+  unsigned int v45; // [rsp+E0h] [rbp+68h]
 
-  v9 = 0;
-  v10 = a3 + a4 - 1;
-  v11 = v10 + a5;
-  v26 = v10;
-  v12 = a3 - 1;
-  v27 = v10 + a5;
-  v13 = 0LL;
-  v28[0] = -64;
-  v14 = (unsigned __int64)a7 << 8;
-  for ( i = v14; ; v14 = i )
+  v36 = 0LL;
+  v9 = (unsigned int)(a3 + a4 - 1);
+  v10 = (unsigned int)(v9 + a5);
+  v43 = v9;
+  result = 0LL;
+  v45 = v9 + a5;
+  v12 = 0;
+  v39 = 0LL;
+  v13 = a3 - 1;
+  v44 = 0;
+  v14 = 0LL;
+  v15 = (unsigned __int64)a7 << 8;
+  v38 = 0LL;
+  v37 = v15;
+  BYTE3(v38) = -64;
+  while ( 1 )
   {
-    v16 = a2 + 32 * ((unsigned __int8)++v12 + v14 + 16);
-    if ( v9 <= v10 || *(_QWORD *)(v16 + 24) <= a6 )
+    v17 = a6;
+    v18 = (unsigned __int8)++v13;
+    v19 = a2 + 32 * ((unsigned __int8)v13 + v15 + 16);
+    if ( v12 <= (unsigned int)v9 || *(_QWORD *)(v19 + 24) <= a6 )
     {
-      v17 = (_QWORD *)(v16 + 8);
-      if ( v17 != (_QWORD *)*v17 )
+      v20 = (_QWORD *)(v19 + 8);
+      if ( v20 != (_QWORD *)*v20 )
       {
-        while ( 2 )
+        do
         {
+          CurrentPrcb = KeGetCurrentPrcb();
           a7 = 0;
-          while ( _interlockedbittestandset64((volatile signed __int32 *)v16, 0LL) )
+          while ( 1 )
           {
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            if ( SchedulerAssist )
+            {
+              if ( CurrentPrcb->NestingLevel <= 1u )
+              {
+                v28 = SchedulerAssist[6];
+                SchedulerAssist[6] = v28 + 1;
+                if ( v28 == -1 )
+                  KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              }
+            }
+            if ( !_interlockedbittestandset64((volatile signed __int32 *)v19, 0LL) )
+              break;
+            v29 = CurrentPrcb->SchedulerAssist;
+            if ( v29 )
+            {
+              if ( CurrentPrcb->NestingLevel <= 1u )
+              {
+                v30 = v29[6] - 1;
+                v29[6] = v30;
+                if ( !v30 )
+                  KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              }
+            }
             do
-              KeYieldProcessorEx(&a7);
-            while ( *(_QWORD *)v16 );
+              KeYieldProcessorEx(&a7, v18, v9, v10);
+            while ( *(_QWORD *)v19 );
           }
-          v22 = (volatile signed __int64 *)v16;
+          v36 = (volatile signed __int64 *)v19;
           do
           {
-            v18 = (_QWORD *)*v17;
-            if ( v17 == (_QWORD *)*v17 )
-              goto LABEL_17;
-            v19 = *(v18 - 1);
-            v20 = (ULONG_PTR)(v18 - 4);
-            if ( v19 > a6 )
+            v23 = (_QWORD *)*v20;
+            if ( v20 == (_QWORD *)*v20 )
+              goto LABEL_14;
+            v24 = *(v23 - 1);
+            v25 = (ULONG_PTR)(v23 - 4);
+            if ( v24 > v17 )
             {
-              *(_QWORD *)(v16 + 24) = v19;
-LABEL_17:
-              _InterlockedAnd64(v22, 0LL);
-              goto LABEL_18;
+              *(_QWORD *)(v19 + 24) = v24;
+LABEL_14:
+              result = (__int64)v36;
+              _InterlockedAnd64(v36, 0LL);
+              v26 = KeGetCurrentPrcb();
+              v27 = v26->SchedulerAssist;
+              if ( v27 )
+              {
+                if ( v26->NestingLevel <= 1u )
+                {
+                  result = (unsigned int)(v27[6] - 1);
+                  v27[6] = result;
+                  if ( !(_DWORD)result )
+                    result = KiRemoveSystemWorkPriorityKick(v26);
+                }
+              }
+              goto LABEL_15;
             }
-            v24 = 0;
-            v28[0] ^= (v13 ^ v28[0]) & 0x3F;
-            HIBYTE(v24) = *(_BYTE *)(v20 + 3) ^ v28[0];
-            _InterlockedXor((volatile signed __int32 *)v20, v24);
-            BugCheckParameter4 = _InterlockedExchange64((volatile __int64 *)(a2 + 8 * v13), v20);
-            KiRemoveEntryTimer(a2, v20, (unsigned __int8)v12, &v22);
-            v13 = (unsigned int)(v13 + 1);
+            v41 = 0LL;
+            v31 = (BYTE3(v38) ^ v14) & 0x3F ^ BYTE3(v38) ^ *(_BYTE *)(v25 + 3);
+            BYTE3(v38) ^= (BYTE3(v38) ^ v14) & 0x3F;
+            v40 = 0LL;
+            BYTE3(v40) = v31;
+            _InterlockedXor((volatile signed __int32 *)v25, v40);
+            BugCheckParameter4 = _InterlockedExchange64((volatile __int64 *)(a2 + 8 * v14), v25);
+            KiRemoveEntryTimer(a2, v25, (unsigned __int8)v13, &v36);
+            v14 = (unsigned int)(v14 + 1);
             if ( BugCheckParameter4 )
-              KeBugCheckEx(0xC7u, 8uLL, 1uLL, v20, BugCheckParameter4);
+              KeBugCheckEx(0xC7u, 8uLL, 1uLL, v25, BugCheckParameter4);
+            v17 = a6;
           }
-          while ( (_DWORD)v13 != 64 );
-          _InterlockedAnd64(v22, 0LL);
-          KiProcessExpiredTimerList(a1, a8, a2, 0x40u);
-          v13 = 0LL;
-          if ( v17 != (_QWORD *)*v17 )
-            continue;
-          break;
+          while ( (_DWORD)v14 != 64 );
+          _InterlockedAnd64(v36, 0LL);
+          v33 = KeGetCurrentPrcb();
+          v34 = v33->SchedulerAssist;
+          if ( v34 )
+          {
+            if ( v33->NestingLevel <= 1u )
+            {
+              v35 = v34[6] - 1;
+              v34[6] = v35;
+              if ( !v35 )
+                KiRemoveSystemWorkPriorityKick(v33);
+            }
+          }
+          result = KiProcessExpiredTimerList(a1, a8, a2, 0x40u);
+          v14 = 0LL;
         }
-LABEL_18:
-        v11 = v27;
-        v10 = v26;
+        while ( v20 != (_QWORD *)*v20 );
+LABEL_15:
+        v9 = v43;
+        v10 = v45;
       }
-      ++v9;
+      v12 = ++v44;
     }
-    if ( v12 == v11 )
+    if ( v13 == (_DWORD)v10 )
       break;
+    v15 = v37;
   }
-  if ( (_DWORD)v13 )
-    KiProcessExpiredTimerList(a1, a8, a2, v13);
+  if ( (_DWORD)v14 )
+    return KiProcessExpiredTimerList(a1, a8, a2, v14);
+  return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpAssociateIoCompletionPort @ 0x140785F18
+ * XREFs of AlpcpAssociateIoCompletionPort @ 0x1406FF894
  * Callers:
- *     NtAlpcSetInformation @ 0x140785D00 (NtAlpcSetInformation.c)
+ *     NtAlpcSetInformation @ 0x1406FF480 (NtAlpcSetInformation.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     AlpcpQueueIoCompletionPort @ 0x14031A580 (AlpcpQueueIoCompletionPort.c)
- *     AlpcpFreeCompletionPacketLookaside @ 0x140363E6C (AlpcpFreeCompletionPacketLookaside.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     AlpcpAllocateCompletionPacketLookaside @ 0x140786418 (AlpcpAllocateCompletionPacketLookaside.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     AlpcpFreeCompletionPacketLookaside @ 0x1402DD778 (AlpcpFreeCompletionPacketLookaside.c)
+ *     AlpcpQueueIoCompletionPort @ 0x140304AE4 (AlpcpQueueIoCompletionPort.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     AlpcpAllocateCompletionPacketLookaside @ 0x1407023FC (AlpcpAllocateCompletionPacketLookaside.c)
  */
 
 __int64 __fastcall AlpcpAssociateIoCompletionPort(__int64 a1, void *a2, __int64 a3)
@@ -23,7 +23,7 @@ __int64 __fastcall AlpcpAssociateIoCompletionPort(__int64 a1, void *a2, __int64 
   __int64 v11; // rax
   __int64 CompletionPacketLookaside; // rax
   _QWORD *i; // r14
-  void *v15; // rcx
+  struct _DMA_ADAPTER *v15; // rcx
   KSPIN_LOCK *v16; // rcx
   PVOID Object; // [rsp+58h] [rbp+10h] BYREF
 
@@ -70,7 +70,7 @@ __int64 __fastcall AlpcpAssociateIoCompletionPort(__int64 a1, void *a2, __int64 
         {
           ExAcquirePushLockExclusiveEx(a1 + 136, 0LL);
           for ( i = *(_QWORD **)(a1 + 144); i != (_QWORD *)(a1 + 144); i = (_QWORD *)*i )
-            AlpcpQueueIoCompletionPort((_QWORD *)a1, 0, 0, 0, 0);
+            AlpcpQueueIoCompletionPort((__int64 *)a1, 0, 0, 0);
           if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 136), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
             ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 136));
           KeAbPostRelease(a1 + 136);
@@ -83,10 +83,10 @@ LABEL_16:
         }
         v9 = -1073741670;
       }
-      v15 = *(void **)(a1 + 32);
+      v15 = *(struct _DMA_ADAPTER **)(a1 + 32);
       if ( v15 )
       {
-        ObfDereferenceObject(v15);
+        HalPutDmaAdapter(v15);
         *(_QWORD *)(a1 + 32) = 0LL;
       }
       v16 = *(KSPIN_LOCK **)(a1 + 48);

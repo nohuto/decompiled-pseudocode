@@ -1,10 +1,10 @@
 /*
- * XREFs of InbvReleaseResources @ 0x140181794
+ * XREFs of InbvReleaseResources @ 0x1401817B4
  * Callers:
- *     DisplayBootBitmap @ 0x14018173C (DisplayBootBitmap.c)
- *     InbvRotateGuiBootDisplay @ 0x14027D4E0 (InbvRotateGuiBootDisplay.c)
+ *     DisplayBootBitmap @ 0x14018175C (DisplayBootBitmap.c)
+ *     InbvRotateGuiBootDisplay @ 0x14027D5E0 (InbvRotateGuiBootDisplay.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 (*InbvReleaseResources())(void)

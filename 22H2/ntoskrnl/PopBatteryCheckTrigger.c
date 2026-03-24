@@ -1,10 +1,10 @@
 /*
- * XREFs of PopBatteryCheckTrigger @ 0x140870C00
+ * XREFs of PopBatteryCheckTrigger @ 0x14077FE8C
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140870950 (PopBatteryApplyCompositeState.c)
- *     PopRecalculateCBTriggerLevels @ 0x1409960BC (PopRecalculateCBTriggerLevels.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FB1C (PopBatteryApplyCompositeState.c)
+ *     PopRecalculateCBTriggerLevels @ 0x1408EDD70 (PopRecalculateCBTriggerLevels.c)
  * Callees:
- *     PopBatteryCheckTriggerAllBatteries @ 0x1409950E8 (PopBatteryCheckTriggerAllBatteries.c)
+ *     PopBatteryCheckTriggerAllBatteries @ 0x1408ECED4 (PopBatteryCheckTriggerAllBatteries.c)
  */
 
 bool __fastcall PopBatteryCheckTrigger(__int64 a1)
@@ -12,7 +12,7 @@ bool __fastcall PopBatteryCheckTrigger(__int64 a1)
   char v1; // bl
 
   v1 = 0;
-  if ( qword_140C3D140 )
+  if ( qword_140C23C80 )
     return (unsigned __int8)PopBatteryCheckTriggerAllBatteries(a1, 0LL) != 0;
   return v1;
 }

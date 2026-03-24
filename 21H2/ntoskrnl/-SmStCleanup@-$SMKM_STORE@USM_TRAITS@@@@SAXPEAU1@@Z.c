@@ -1,59 +1,64 @@
 /*
- * XREFs of ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140237230
+ * XREFs of ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14035AA5C
  * Callers:
- *     ?SmStoreMgrCallback@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_LIST@@PEAXW4_SMKM_CALLBACK_TYPE@@@Z @ 0x140236EC0 (-SmStoreMgrCallback@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_LIST@@PEAXW4_SMKM_CALLBACK.c)
- *     SmProcessCreateRequest @ 0x1406ED528 (SmProcessCreateRequest.c)
+ *     ?SmStoreMgrCallback@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_LIST@@PEAXW4_SMKM_CALLBACK_TYPE@@@Z @ 0x14035A690 (-SmStoreMgrCallback@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_LIST@@PEAXW4_SMKM_CALLBACK.c)
+ *     SmProcessCreateRequest @ 0x140710D34 (SmProcessCreateRequest.c)
  * Callees:
- *     KiAbThreadRemoveBoostsSlow @ 0x14022B568 (KiAbThreadRemoveBoostsSlow.c)
- *     SmKmStoreHelperCleanup @ 0x1402375D8 (SmKmStoreHelperCleanup.c)
- *     SmKmStoreHelperCheckWaitCommand @ 0x1402376A4 (SmKmStoreHelperCheckWaitCommand.c)
- *     SmFpCleanup @ 0x1402376C4 (SmFpCleanup.c)
- *     ?StCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140237A0C (-StCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     ?SmStAcquireStoreLockExclusive@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140238A40 (-SmStAcquireStoreLockExclusive@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmAcquireReleaseCharges @ 0x140262ED4 (SmAcquireReleaseCharges.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     KiAbEntryRemoveFromTree @ 0x14034EE30 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406D9550 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     SmKmFileInfoCleanup @ 0x1409D57BC (SmKmFileInfoCleanup.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
+ *     ?SmStAcquireStoreLockExclusive@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1402DA478 (-SmStAcquireStoreLockExclusive@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmAcquireReleaseCharges @ 0x1402DE9C0 (SmAcquireReleaseCharges.c)
+ *     SmKmStoreHelperCheckWaitCommand @ 0x1402E02A0 (SmKmStoreHelperCheckWaitCommand.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     SmKmStoreHelperCleanup @ 0x14035AE74 (SmKmStoreHelperCleanup.c)
+ *     SmFpCleanup @ 0x14035AEC4 (SmFpCleanup.c)
+ *     ?StCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14035AF1C (-StCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406B7B50 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     SmKmFileInfoCleanup @ 0x14092B278 (SmKmFileInfoCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCleanup(__int64 a1)
 {
   void *v2; // rcx
-  char v3; // al
-  ULONG_PTR v4; // rcx
+  _DWORD *v3; // r9
+  char v4; // al
+  _KPROCESS *v5; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v6; // rbp
-  struct _KTHREAD *v7; // rsi
-  unsigned int SessionId; // ecx
-  char *p_Process; // rbx
-  __int64 v10; // r8
-  __int64 v11; // rdx
-  int v12; // r8d
-  struct _KTHREAD *v13; // rax
-  bool v14; // zf
-  char v15; // al
-  char v16; // cl
-  void *v17; // rbx
-  void *v18; // rcx
+  struct _KTHREAD *v7; // rdi
+  unsigned int SessionId; // edx
+  unsigned __int8 v9; // r15
+  _DWORD *v10; // r9
+  unsigned int v11; // r8d
+  bool v12; // zf
+  __int64 v13; // rcx
+  __int64 v14; // rsi
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  char v17; // al
+  char v18; // cl
+  void *v19; // rdi
+  void *v20; // rcx
   __int64 result; // rax
-  void **v20; // rbx
-  _OWORD v21[3]; // [rsp+30h] [rbp-58h] BYREF
+  PVOID *v22; // rdi
+  int v23; // [rsp+34h] [rbp-64h] BYREF
+  _OWORD v24[3]; // [rsp+38h] [rbp-60h] BYREF
 
   *(_BYTE *)(a1 + 6021) |= 1u;
   v2 = *(void **)(a1 + 6200);
-  memset(v21, 0, sizeof(v21));
+  memset(v24, 0, sizeof(v24));
   if ( v2 )
   {
     KeSetEvent((PRKEVENT)(a1 + 6152), 0, 1u);
@@ -62,31 +67,31 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCleanup(__int64 a1)
   }
   if ( v2 )
     ObfDereferenceObjectWithTag(v2, 0x746C6644u);
-  SmKmStoreHelperCheckWaitCommand(a1 + 6232, 1LL);
-  v3 = *(_BYTE *)(a1 + 6021);
-  if ( (v3 & 4) != 0 )
+  SmKmStoreHelperCheckWaitCommand(a1 + 6232, 1);
+  v4 = *(_BYTE *)(a1 + 6021);
+  if ( (v4 & 4) != 0 )
   {
     if ( *(_QWORD *)(a1 + 6488) )
     {
       KeSetEvent((PRKEVENT)(a1 + 6496), 0, 0);
       KeWaitForSingleObject(*(PVOID *)(a1 + 6488), Executive, 0, 0, 0LL);
       ObfDereferenceObjectWithTag(*(PVOID *)(a1 + 6488), 0x746C6644u);
-      v3 = *(_BYTE *)(a1 + 6021);
+      v4 = *(_BYTE *)(a1 + 6021);
     }
-    if ( (v3 & 4) != 0 )
+    if ( (v4 & 4) != 0 )
     {
-      v4 = *(_QWORD *)(a1 + 6584);
-      if ( v4 )
+      v5 = *(_KPROCESS **)(a1 + 6584);
+      if ( v5 )
       {
-        KiStackAttachProcess(v4);
-        v3 = *(_BYTE *)(a1 + 6021);
+        KiStackAttachProcess(v5, 0LL, (__int64)v24, v3);
+        v4 = *(_BYTE *)(a1 + 6021);
       }
-      if ( (v3 & 4) != 0 && *(_QWORD *)(a1 + 6568) )
+      if ( (v4 & 4) != 0 && *(_QWORD *)(a1 + 6568) )
       {
-        v20 = *(void ***)(a1 + 6568);
-        if ( *v20 )
-          SC_ENV::Free(*v20);
-        ExFreePoolWithTag(v20, 0);
+        v22 = *(PVOID **)(a1 + 6568);
+        if ( *v22 )
+          SC_ENV::Free(*v22);
+        ExFreePoolWithTag(v22, 0);
       }
     }
   }
@@ -96,87 +101,92 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCleanup(__int64 a1)
   ST_STORE<SM_TRAITS>::StCleanup(a1);
   if ( (*(_BYTE *)(a1 + 6021) & 4) != 0 )
   {
-    v6 = a1 + 6024;
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 6024), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(a1 + 6024);
+    v23 = 0;
     v7 = KeGetCurrentThread();
-    if ( (unsigned __int64)(v6 - qword_140C50630) < 0x8000000000LL )
-      SessionId = MmGetSessionIdEx(v7->ApcState.Process);
+    if ( (unsigned int)MiGetSystemRegionType(a1 + 6024) == 1 )
+      SessionId = MmGetSessionIdEx((__int64)v7->ApcState.Process);
     else
       SessionId = -1;
-    _disable();
-    p_Process = (char *)&v7[1].Process;
-    v10 = v6 & 0x7FFFFFFFFFFFFFFCLL;
-    v11 = 0LL;
-    while ( (*(_QWORD *)p_Process & 0x7FFFFFFFFFFFFFFCLL) != v10
-         || !p_Process[18]
-         || (*(_DWORD *)p_Process & 1) != 0
-         || *((_DWORD *)p_Process + 2) != SessionId )
+    --v7->SpecialApcDisable;
+    v9 = ++v7->AbAllocationRegionCount;
+    v10 = (_DWORD *)((a1 + 6024) & 0x7FFFFFFFFFFFFFFCLL);
+    v11 = ((char)v7->AbEntrySummary | (char)v7->AbOrphanedEntrySummary) ^ 0x3F;
+    while ( 1 )
     {
-      v11 = (unsigned int)(v11 + 1);
-      p_Process += 96;
-      if ( (unsigned int)v11 >= 6 )
-        goto LABEL_45;
-    }
-    p_Process[18] = 0;
-    if ( p_Process )
-    {
-      if ( *(__int64 *)p_Process < 0 )
-      {
-        *p_Process |= 2u;
-        _enable();
-        KiAbEntryRemoveFromTree(p_Process, v11, v10);
-        _disable();
-      }
-      v12 = *((_DWORD *)p_Process + 22);
-      *((_DWORD *)p_Process + 22) = 0;
-      p_Process[17] = 0;
-      *(_QWORD *)p_Process = 0LL;
-      v7->AbEntrySummary |= 1 << p_Process[16];
-      _enable();
+      v12 = !_BitScanReverse((unsigned int *)&v13, v11);
       if ( v12 )
-        KiAbThreadRemoveBoostsSlow((ULONG_PTR)v7, a1 + 6024, v12);
-      goto LABEL_28;
+        break;
+      v14 = (__int64)&v7->LockEntries[v13];
+      v11 &= ~(1 << v13);
+      if ( (*(_BYTE *)(v14 + 26) & 1) != 0
+        && (*(_DWORD *)(v14 + 32) & 1) == 0
+        && (_DWORD *)(*(_QWORD *)(v14 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v10
+        && *(_DWORD *)(v14 + 40) == SessionId )
+      {
+        *(_BYTE *)(v14 + 26) &= ~1u;
+        if ( *(_QWORD *)(v14 + 32) )
+        {
+          if ( v14 )
+          {
+            *(_BYTE *)(v14 + 32) |= 2u;
+            if ( *(__int64 *)(v14 + 32) < 0 )
+              KiAbEntryRemoveFromTree(v14);
+            v23 = *(_DWORD *)(v14 + 88) & 0x1FFFF;
+            *(_DWORD *)(v14 + 88) &= 0xFFFE0000;
+            *(_BYTE *)(v14 + 25) &= ~1u;
+            *(_QWORD *)(v14 + 32) = 0LL;
+            v15 = (signed __int64)(v14 - (unsigned __int64)v7->LockEntries) / 96;
+            if ( v9 == 1 )
+              v7->AbEntrySummary |= 1 << v15;
+            else
+              _InterlockedOr8((volatile signed __int8 *)&v7->AbOrphanedEntrySummary, 1 << v15);
+            goto LABEL_30;
+          }
+          break;
+        }
+      }
     }
-LABEL_45:
     if ( (*((_DWORD *)&v7->0 + 1) & 0x10000) == 0 )
       KeBugCheckEx(0x162u, (ULONG_PTR)v7, a1 + 6024, SessionId, 0LL);
-    _enable();
-LABEL_28:
-    v13 = KeGetCurrentThread();
-    v14 = v13->SpecialApcDisable++ == -1;
-    if ( v14 && ($CEA84C04E3712D858E5667A507841A2A *)v13->ApcState.ApcListHead[0].Flink != &v13->152 )
-      KiCheckForKernelApcDelivery();
+LABEL_30:
+    --v7->AbAllocationRegionCount;
+    KiAbThreadRemoveBoosts((ULONG_PTR)v7, a1 + 6024, (__int64)&v23, v10);
+    v12 = v7->SpecialApcDisable++ == -1;
+    if ( v12 && ($C459BD0D405E8E46662177FB3D0A143F *)v7->ApcState.ApcListHead[0].Flink != &v7->152 )
+      KiCheckForKernelApcDelivery(v16);
+    KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   }
-  KiLeaveCriticalRegionUnsafe(KeGetCurrentThread());
-  v15 = *(_BYTE *)(a1 + 6021);
-  if ( (v15 & 4) != 0 && *(_QWORD *)(a1 + 6584) )
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  v17 = *(_BYTE *)(a1 + 6021);
+  if ( (v17 & 4) != 0 && *(_QWORD *)(a1 + 6584) )
   {
-    KiUnstackDetachProcess(v21, 0LL);
-    v15 = *(_BYTE *)(a1 + 6021);
+    KiUnstackDetachProcess((__int64)v24, 0);
+    v17 = *(_BYTE *)(a1 + 6021);
   }
-  v16 = *(_BYTE *)(a1 + 6020);
-  if ( v16 )
+  v18 = *(_BYTE *)(a1 + 6020);
+  if ( v18 )
   {
-    if ( v16 == 1 )
+    if ( v18 == 1 )
       SmKmFileInfoCleanup(a1 + 6216);
   }
   else
   {
-    v17 = *(void **)(a1 + 6216);
-    if ( (v15 & 4) != 0 )
+    v19 = *(void **)(a1 + 6216);
+    if ( (v17 & 4) != 0 )
     {
-      v18 = *(void **)(a1 + 6224);
-      if ( v18 )
-        ExFreePoolWithTag(v18, 0);
+      v20 = *(void **)(a1 + 6224);
+      if ( v20 )
+        ExFreePoolWithTag(v20, 0);
       SmKmStoreHelperCleanup(a1 + 6232);
       SmKmStoreHelperCleanup(a1 + 6360);
     }
-    if ( v17 )
-      ExFreePoolWithTag(v17, 0);
+    if ( v19 )
+      ExFreePoolWithTag(v19, 0);
   }
   result = SmFpCleanup(a1 + 6608);
   if ( (*(_BYTE *)(a1 + 6021) & 0x10) != 0 )
-    return SmAcquireReleaseCharges(*(unsigned int *)(a1 + 6208), 1LL, 1LL);
+    return SmAcquireReleaseCharges(*(unsigned int *)(a1 + 6208), 1, 1);
   return result;
 }

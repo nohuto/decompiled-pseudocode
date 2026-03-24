@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UpdateAnimateValues@CScalar@@UEAAXXZ @ 0x18023B910
+ * XREFs of ?UpdateAnimateValues@CScalar@@UEAAXXZ @ 0x1801E8A90
  * Callers:
- *     ??1CScalar@@MEAA@XZ @ 0x18023B7CC (--1CScalar@@MEAA@XZ.c)
+ *     ??1CScalar@@MEAA@XZ @ 0x1801E895C (--1CScalar@@MEAA@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CScalar::UpdateAnimateValues(CScalar *this)
@@ -26,7 +26,7 @@ void __fastcall CScalar::UpdateAnimateValues(CScalar *this)
     }
     while ( v1 < v3 );
     if ( v3 )
-      *(_BYTE *)(*(_QWORD *)(*((_QWORD *)this - 6) + 424LL) + 448LL) |= 2u;
+      *(_BYTE *)(*(_QWORD *)(*((_QWORD *)this - 5) + 272LL) + 416LL) |= 2u;
   }
-  CBaseAnimation::UnregisterAnimateResource((CScalar *)((char *)this - 64));
+  CBaseAnimation::UnregisterAnimateResource((CComposition **)this - 7);
 }

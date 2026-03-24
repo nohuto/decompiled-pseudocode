@@ -9,8 +9,8 @@
  *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x140614368 (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)
  *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)
  *     AlpcpSetOwnerPortMessage @ 0x140636190 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406BCE10 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
- *     AlpcpLogClosePort @ 0x14084B7FC (AlpcpLogClosePort.c)
+ *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406BCDF0 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
+ *     AlpcpLogClosePort @ 0x14084B7DC (AlpcpLogClosePort.c)
  */
 
 __int64 __fastcall AlpcpDispatchCloseMessage(__int64 *a1)

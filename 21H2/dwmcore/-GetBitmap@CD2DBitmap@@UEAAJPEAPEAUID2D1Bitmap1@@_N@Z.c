@@ -1,12 +1,13 @@
 /*
- * XREFs of ?GetBitmap@CD2DBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z @ 0x1800D5620
+ * XREFs of ?GetBitmap@CD2DBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z @ 0x1800C3ED0
  * Callers:
- *     ?GetD2DBitmap@CD2DBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z @ 0x1800D5604 (-GetD2DBitmap@CD2DBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z.c)
+ *     ?GetD2DBitmap@CD2DBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z @ 0x1800C3EB4 (-GetD2DBitmap@CD2DBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z.c)
+ *     ?SaveOffOverdraw@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ @ 0x180264014 (-SaveOffOverdraw@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?EnsureBitmap@CD2DBitmap@@IEAAJXZ @ 0x1800D568C (-EnsureBitmap@CD2DBitmap@@IEAAJXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?EnsureIgnoreAlphaBitmap@CD2DBitmap@@IEAAJXZ @ 0x18028FF38 (-EnsureIgnoreAlphaBitmap@CD2DBitmap@@IEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EnsureBitmap@CD2DBitmap@@IEAAJXZ @ 0x1800C3F34 (-EnsureBitmap@CD2DBitmap@@IEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?EnsureIgnoreAlphaBitmap@CD2DBitmap@@IEAAJXZ @ 0x1802490B8 (-EnsureIgnoreAlphaBitmap@CD2DBitmap@@IEAAJXZ.c)
  */
 
 __int64 __fastcall CD2DBitmap::GetBitmap(CD2DBitmap *this, struct ID2D1Bitmap1 **a2, char a3)
@@ -29,7 +30,7 @@ __int64 __fastcall CD2DBitmap::GetBitmap(CD2DBitmap *this, struct ID2D1Bitmap1 *
     v8 = v12;
     if ( v12 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0x8Fu);
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x8Fu, 0LL);
       return v8;
     }
     v14 = (struct ID2D1Bitmap1 *)*((_QWORD *)this + 8);
@@ -42,7 +43,7 @@ __int64 __fastcall CD2DBitmap::GetBitmap(CD2DBitmap *this, struct ID2D1Bitmap1 *
     v8 = v6;
     if ( v6 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x88u);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x88u, 0LL);
       return v8;
     }
     v9 = (struct ID2D1Bitmap1 *)*((_QWORD *)this + 7);

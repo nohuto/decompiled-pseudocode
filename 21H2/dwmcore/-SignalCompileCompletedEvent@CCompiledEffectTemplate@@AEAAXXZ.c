@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ @ 0x18004188C
+ * XREFs of ?SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ @ 0x1800A9454
  * Callers:
- *     ??1CCompiledEffectTemplate@@MEAA@XZ @ 0x180040AD4 (--1CCompiledEffectTemplate@@MEAA@XZ.c)
- *     ?OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ @ 0x1800418D4 (-OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ.c)
- *     ?ProcessUpdate@CCompiledEffectTemplate@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPILEDEFFECTTEMPLATE@@@Z @ 0x1800DA2A8 (-ProcessUpdate@CCompiledEffectTemplate@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPILEDEFFECTTEM.c)
+ *     ??1CCompiledEffectTemplate@@MEAA@XZ @ 0x1800A91F4 (--1CCompiledEffectTemplate@@MEAA@XZ.c)
+ *     ?OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ @ 0x1800A937C (-OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ.c)
+ *     ?ProcessUpdate@CCompiledEffectTemplate@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPILEDEFFECTTEMPLATE@@@Z @ 0x1800CA8D8 (-ProcessUpdate@CCompiledEffectTemplate@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPILEDEFFECTTEM.c)
  * Callees:
  *     <none>
  */
@@ -13,15 +13,15 @@ void __fastcall CCompiledEffectTemplate::SignalCompileCompletedEvent(CCompiledEf
   void *v2; // rcx
   void *v3; // rcx
 
-  v2 = (void *)*((_QWORD *)this + 9);
+  v2 = (void *)*((_QWORD *)this + 8);
   if ( v2 )
   {
     SetEvent(v2);
-    v3 = (void *)*((_QWORD *)this + 9);
+    v3 = (void *)*((_QWORD *)this + 8);
     if ( v3 )
     {
       CloseHandle(v3);
-      *((_QWORD *)this + 9) = 0LL;
+      *((_QWORD *)this + 8) = 0LL;
     }
   }
 }

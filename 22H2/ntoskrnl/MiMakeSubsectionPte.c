@@ -1,12 +1,13 @@
 /*
- * XREFs of MiMakeSubsectionPte @ 0x14021BF1C
+ * XREFs of MiMakeSubsectionPte @ 0x140278A5C
  * Callers:
- *     MiBuildImageControlArea @ 0x1406A9D30 (MiBuildImageControlArea.c)
- *     MiParseImageSectionHeaders @ 0x1406B0AD0 (MiParseImageSectionHeaders.c)
- *     MiInitializePrototypePtes @ 0x1406B0EE4 (MiInitializePrototypePtes.c)
- *     MiAllocatePerSessionProtos @ 0x1407B6410 (MiAllocatePerSessionProtos.c)
+ *     MiInitializePrototypePtes @ 0x140635A1C (MiInitializePrototypePtes.c)
+ *     MiParseImageSectionHeaders @ 0x140635B30 (MiParseImageSectionHeaders.c)
+ *     MiAllocatePerSessionProtos @ 0x14069F848 (MiAllocatePerSessionProtos.c)
+ *     MiBuildImageControlArea @ 0x140702908 (MiBuildImageControlArea.c)
+ *     MiAllocateFileExtents @ 0x1408CF560 (MiAllocateFileExtents.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x140285680 (MiSwizzleInvalidPte.c)
+ *     MiSwizzleInvalidPte @ 0x1402AA620 (MiSwizzleInvalidPte.c)
  */
 
 __int64 __fastcall MiMakeSubsectionPte(__int64 a1)

@@ -1,18 +1,18 @@
 /*
- * XREFs of ViAdapterCallback @ 0x140AC8860
+ * XREFs of ViAdapterCallback @ 0x1409CD1B0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     VfUtilDbgPrint @ 0x1405CE364 (VfUtilDbgPrint.c)
- *     ViIsActiveChannelWcb @ 0x1405CEB00 (ViIsActiveChannelWcb.c)
- *     DECREMENT_ADAPTER_CHANNELS @ 0x140AC5290 (DECREMENT_ADAPTER_CHANNELS.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140AC558C (SUBTRACT_MAP_REGISTERS.c)
- *     ViFreeMapRegisterFile @ 0x140AC9A90 (ViFreeMapRegisterFile.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VfUtilDbgPrint @ 0x1405A0634 (VfUtilDbgPrint.c)
+ *     ViIsActiveChannelWcb @ 0x1405A111C (ViIsActiveChannelWcb.c)
+ *     DECREMENT_ADAPTER_CHANNELS @ 0x1409C9CE0 (DECREMENT_ADAPTER_CHANNELS.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x1409C9FDC (SUBTRACT_MAP_REGISTERS.c)
+ *     ViFreeMapRegisterFile @ 0x1409CE3D4 (ViFreeMapRegisterFile.c)
  */
 
 __int64 __fastcall ViAdapterCallback(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -25,7 +25,7 @@ __int64 __fastcall ViAdapterCallback(__int64 a1, __int64 a2, __int64 a3, _DWORD 
   unsigned int v12; // esi
   char v13; // al
   _DWORD *v15; // rdx
-  volatile signed __int64 *v16; // rbp
+  KSPIN_LOCK *v16; // rbp
   unsigned __int64 v17; // rbx
   __int64 v18; // r8
   _QWORD *v19; // rax
@@ -39,7 +39,7 @@ __int64 __fastcall ViAdapterCallback(__int64 a1, __int64 a2, __int64 a3, _DWORD 
   v6 = a3;
   if ( v4 )
   {
-    if ( *(_DWORD *)(v4 + 224) < 3u )
+    if ( *(_DWORD *)(v4 + 192) < 3u )
     {
       v9 = *((_QWORD *)a4 + 12);
       if ( v9 && *(_DWORD *)v9 == -1393569779 )
@@ -52,7 +52,7 @@ __int64 __fastcall ViAdapterCallback(__int64 a1, __int64 a2, __int64 a3, _DWORD 
         v6 = -559026163LL;
       }
     }
-    if ( *(_BYTE *)(v4 + 228) )
+    if ( *(_BYTE *)(v4 + 196) )
       DECREMENT_ADAPTER_CHANNELS(v4);
   }
   v10 = (__int64 (__fastcall *)(__int64, __int64, __int64, __int64))*((_QWORD *)a4 + 1);
@@ -62,7 +62,7 @@ __int64 __fastcall ViAdapterCallback(__int64 a1, __int64 a2, __int64 a3, _DWORD 
   if ( !v4 || !ViIsActiveChannelWcb(v4, (__int64)a4) )
     return v12;
   a4[13] = v12;
-  v13 = *(_BYTE *)(v4 + 228);
+  v13 = *(_BYTE *)(v4 + 196);
   if ( v12 != 1 )
   {
     if ( !v13 )
@@ -76,8 +76,8 @@ __int64 __fastcall ViAdapterCallback(__int64 a1, __int64 a2, __int64 a3, _DWORD 
       ViFreeMapRegisterFile(v4);
       *((_QWORD *)a4 + 12) = 0LL;
     }
-    v16 = (volatile signed __int64 *)(v4 + 176);
-    v17 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 176));
+    v16 = (KSPIN_LOCK *)(v4 + 144);
+    v17 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 144));
     v18 = *((_QWORD *)a4 + 9);
     v19 = (_QWORD *)*((_QWORD *)a4 + 10);
     if ( *(_DWORD **)(v18 + 8) != a4 + 18 || (_DWORD *)*v19 != a4 + 18 )
@@ -87,16 +87,19 @@ __int64 __fastcall ViAdapterCallback(__int64 a1, __int64 a2, __int64 a3, _DWORD 
     KxReleaseSpinLock(v16);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v17 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
-        v24 = (v23 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v23;
-        if ( v24 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v17 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
+          v24 = (v23 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v23;
+          if ( v24 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v17);
@@ -105,10 +108,10 @@ __int64 __fastcall ViAdapterCallback(__int64 a1, __int64 a2, __int64 a3, _DWORD 
   }
   if ( v13 )
   {
-    _InterlockedAdd((volatile signed __int32 *)(v4 + 216), 0xFFFFFFFF);
-    VfUtilDbgPrint("Driver at address %p has a problem\n", *(const void **)(v4 + 80));
+    _InterlockedAdd((volatile signed __int32 *)(v4 + 184), 0xFFFFFFFF);
+    VfUtilDbgPrint("Driver at address %p has a problem\n", *(const void **)(v4 + 40));
     VfUtilDbgPrint("Master devices should return DeallocateObjectKeepRegisters\n");
   }
-  *(_DWORD *)(v4 + 288) = a4[12];
+  *(_DWORD *)(v4 + 256) = a4[12];
   return 1LL;
 }

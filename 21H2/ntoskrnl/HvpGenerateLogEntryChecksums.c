@@ -1,13 +1,14 @@
 /*
- * XREFs of HvpGenerateLogEntryChecksums @ 0x1406884C4
+ * XREFs of HvpGenerateLogEntryChecksums @ 0x140721B08
  * Callers:
- *     HvpGenerateLogEntry @ 0x140688318 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogEntry @ 0x140721960 (HvpGenerateLogEntry.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     SymCryptMarvin32 @ 0x1403FADC8 (SymCryptMarvin32.c)
- *     SymCryptMarvin32Append @ 0x1403FAF40 (SymCryptMarvin32Append.c)
- *     SymCryptMarvin32Init @ 0x1403FB0EC (SymCryptMarvin32Init.c)
- *     SymCryptMarvin32Result @ 0x1403FB108 (SymCryptMarvin32Result.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     SymCryptMarvin32 @ 0x1403EBC28 (SymCryptMarvin32.c)
+ *     SymCryptMarvin32Append @ 0x1403EBDA0 (SymCryptMarvin32Append.c)
+ *     SymCryptMarvin32Init @ 0x1403EBF4C (SymCryptMarvin32Init.c)
+ *     SymCryptMarvin32Result @ 0x1403EBF68 (SymCryptMarvin32Result.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall HvpGenerateLogEntryChecksums(__int64 a1, unsigned int a2, char a3)
@@ -16,11 +17,9 @@ __int64 __fastcall HvpGenerateLogEntryChecksums(__int64 a1, unsigned int a2, cha
   size_t v7; // r8
   __int64 v9; // rbx
   __int64 v10; // rsi
-  _OWORD v11[3]; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v12; // [rsp+50h] [rbp-28h]
+  _BYTE v11[64]; // [rsp+20h] [rbp-58h] BYREF
 
   memset(v11, 0, sizeof(v11));
-  v12 = 0LL;
   v6 = *(_QWORD *)(a1 + 8) + 512LL;
   if ( !a3 )
     v6 = *(_QWORD *)(a1 + 8);

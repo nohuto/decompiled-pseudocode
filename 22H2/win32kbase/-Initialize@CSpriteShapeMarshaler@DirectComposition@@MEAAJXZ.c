@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CSpriteShapeMarshaler@DirectComposition@@MEAAJXZ @ 0x1C00AFFB0
+ * XREFs of ?Initialize@CSpriteShapeMarshaler@DirectComposition@@MEAAJXZ @ 0x1C01E7CB0
  * Callers:
  *     <none>
  * Callees:

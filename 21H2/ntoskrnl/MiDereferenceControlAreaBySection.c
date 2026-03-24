@@ -1,14 +1,13 @@
 /*
- * XREFs of MiDereferenceControlAreaBySection @ 0x140287574
+ * XREFs of MiDereferenceControlAreaBySection @ 0x140314A6C
  * Callers:
- *     MmGetImageFileSignatureInformation @ 0x140246FD0 (MmGetImageFileSignatureInformation.c)
- *     MiSectionDelete @ 0x1406FC070 (MiSectionDelete.c)
- *     MiCreateImageOrDataSection @ 0x1406FDCD0 (MiCreateImageOrDataSection.c)
- *     MiDereferenceFailedControlArea @ 0x1407F854C (MiDereferenceFailedControlArea.c)
- *     MiApplyImageHotPatchRequest @ 0x140971DC0 (MiApplyImageHotPatchRequest.c)
+ *     MmGetImageFileSignatureInformation @ 0x140274340 (MmGetImageFileSignatureInformation.c)
+ *     MiDereferenceFailedControlArea @ 0x1406C34F4 (MiDereferenceFailedControlArea.c)
+ *     MiSectionDelete @ 0x1406EAB00 (MiSectionDelete.c)
+ *     MiCreateImageOrDataSection @ 0x140706F10 (MiCreateImageOrDataSection.c)
  * Callees:
- *     MiCheckControlArea @ 0x140287660 (MiCheckControlArea.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiCheckControlArea @ 0x140314AB0 (MiCheckControlArea.c)
  */
 
 __int64 __fastcall MiDereferenceControlAreaBySection(__int64 a1, unsigned int a2)

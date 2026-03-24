@@ -1,8 +1,8 @@
 /*
- * XREFs of RIMFreeUserMem @ 0x1C01895C0
+ * XREFs of RIMFreeUserMem @ 0x1C015AC70
  * Callers:
- *     rimProcessInput @ 0x1C00CA6AC (rimProcessInput.c)
- *     RIMFreeInputBuffer @ 0x1C0183000 (RIMFreeInputBuffer.c)
+ *     RIMFreeInputBuffer @ 0x1C0155D60 (RIMFreeInputBuffer.c)
+ *     rimProcessInput @ 0x1C0175A18 (rimProcessInput.c)
  * Callees:
  *     <none>
  */
@@ -20,10 +20,10 @@ void __fastcall RIMFreeUserMem(__int64 a1, void *a2)
   if ( a2 )
   {
     BaseAddress = a2;
-    v2 = (struct _RTL_AVL_TABLE *)(a1 + 968);
+    v2 = (struct _RTL_AVL_TABLE *)(a1 + 744);
     Buffer = a2;
     v6 = 0LL;
-    v3 = RtlLookupElementGenericTableAvl((PRTL_AVL_TABLE)(a1 + 968), &Buffer);
+    v3 = RtlLookupElementGenericTableAvl((PRTL_AVL_TABLE)(a1 + 744), &Buffer);
     if ( v3 )
     {
       v4 = (void *)v3[2];

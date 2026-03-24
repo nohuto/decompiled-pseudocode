@@ -1,19 +1,19 @@
 /*
- * XREFs of PipChangeDeviceObjectFromRegistryProperties @ 0x1406F05A8
+ * XREFs of PipChangeDeviceObjectFromRegistryProperties @ 0x1406F0588
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406E6C6C (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x1406E6C4C (PipCallDriverAddDevice.c)
  * Callees:
  *     RtlGetDaclSecurityDescriptor @ 0x140092330 (RtlGetDaclSecurityDescriptor.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObSetSecurityObjectByPointer @ 0x1405CAD40 (ObSetSecurityObjectByPointer.c)
  *     RtlGetSaclSecurityDescriptor @ 0x14060DCC0 (RtlGetSaclSecurityDescriptor.c)
- *     IopCreateDefaultDeviceSecurityDescriptor @ 0x140652904 (IopCreateDefaultDeviceSecurityDescriptor.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x1406AD1E0 (RtlGetOwnerSecurityDescriptor.c)
- *     RtlGetGroupSecurityDescriptor @ 0x1406CC090 (RtlGetGroupSecurityDescriptor.c)
- *     PipGetRegistrySecurityWithFallback @ 0x1406F0344 (PipGetRegistrySecurityWithFallback.c)
- *     PipGetRegistryDwordWithFallback @ 0x1406F08EC (PipGetRegistryDwordWithFallback.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x1406528E4 (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x1406AD1C0 (RtlGetOwnerSecurityDescriptor.c)
+ *     RtlGetGroupSecurityDescriptor @ 0x1406CC070 (RtlGetGroupSecurityDescriptor.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x1406F0324 (PipGetRegistrySecurityWithFallback.c)
+ *     PipGetRegistryDwordWithFallback @ 0x1406F08CC (PipGetRegistryDwordWithFallback.c)
  */
 
 __int64 __fastcall PipChangeDeviceObjectFromRegistryProperties(__int64 a1, __int64 a2, ACL *a3, __int64 a4, char a5)

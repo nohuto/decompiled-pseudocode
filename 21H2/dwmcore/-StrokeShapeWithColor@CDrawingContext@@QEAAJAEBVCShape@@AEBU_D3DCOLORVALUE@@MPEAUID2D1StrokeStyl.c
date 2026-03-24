@@ -1,9 +1,9 @@
 /*
- * XREFs of ?StrokeShapeWithColor@CDrawingContext@@QEAAJAEBVCShape@@AEBU_D3DCOLORVALUE@@MPEAUID2D1StrokeStyle1@@@Z @ 0x1801B43F8
+ * XREFs of ?StrokeShapeWithColor@CDrawingContext@@QEAAJAEBVCShape@@AEBU_D3DCOLORVALUE@@MPEAUID2D1StrokeStyle1@@@Z @ 0x1801789B4
  * Callers:
- *     ?Render@CShapeDrawingContext@@QEAAJXZ @ 0x1800936E0 (-Render@CShapeDrawingContext@@QEAAJXZ.c)
+ *     ?Render@CShapeDrawingContext@@QEAAJXZ @ 0x1802619FC (-Render@CShapeDrawingContext@@QEAAJXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDrawingContext::StrokeShapeWithColor(
@@ -15,7 +15,7 @@ __int64 __fastcall CDrawingContext::StrokeShapeWithColor(
 {
   struct ID2D1Brush *v7; // rbx
 
-  v7 = *(struct ID2D1Brush **)(*((_QWORD *)this + 5) + 328LL);
+  v7 = *(struct ID2D1Brush **)(*((_QWORD *)this + 5) + 376LL);
   (*(void (__fastcall **)(struct ID2D1Brush *, const struct _D3DCOLORVALUE *))(*(_QWORD *)v7 + 64LL))(v7, a3);
   return CDrawingContext::StrokeShapeWithBrush(this, a2, v7, a4, a5);
 }

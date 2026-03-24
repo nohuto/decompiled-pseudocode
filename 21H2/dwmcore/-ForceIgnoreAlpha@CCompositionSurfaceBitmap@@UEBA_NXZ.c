@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ForceIgnoreAlpha@CCompositionSurfaceBitmap@@UEBA_NXZ @ 0x1800F9AF0
+ * XREFs of ?ForceIgnoreAlpha@CCompositionSurfaceBitmap@@UEBA_NXZ @ 0x1800E1E40
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CCompositionSurfaceBitmap::ForceIgnoreAlpha(CCompositionSurfaceBitmap *this)
 {
-  return *((_BYTE *)this + 120);
+  return *((_BYTE *)this + 128);
 }

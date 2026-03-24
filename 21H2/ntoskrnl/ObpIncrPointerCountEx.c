@@ -1,16 +1,11 @@
 /*
- * XREFs of ObpIncrPointerCountEx @ 0x1402F3424
+ * XREFs of ObpIncrPointerCountEx @ 0x1402BC014
  * Callers:
- *     ObFastReplaceObject @ 0x140276A48 (ObFastReplaceObject.c)
- *     ObpFastReplenishReference @ 0x1402F339C (ObpFastReplenishReference.c)
- *     MiMakeSystemCacheRangeValid @ 0x140333AC0 (MiMakeSystemCacheRangeValid.c)
- *     MiEmptyPageAccessLog @ 0x140334400 (MiEmptyPageAccessLog.c)
- *     ObInitializeFastReference @ 0x14070F2D8 (ObInitializeFastReference.c)
- *     ObReferenceFileObjectForWrite @ 0x14071E230 (ObReferenceFileObjectForWrite.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
- *     ObWaitForMultipleObjects @ 0x1407A1400 (ObWaitForMultipleObjects.c)
+ *     ObWaitForMultipleObjects @ 0x1405FCDC0 (ObWaitForMultipleObjects.c)
+ *     ObReferenceFileObjectForWrite @ 0x140650510 (ObReferenceFileObjectForWrite.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ObpIncrPointerCountEx(volatile signed __int64 *a1, int a2)

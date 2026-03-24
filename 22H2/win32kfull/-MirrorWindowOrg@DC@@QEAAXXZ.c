@@ -1,12 +1,12 @@
 /*
- * XREFs of ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C02CF8A8
+ * XREFs of ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C012CFC8
  * Callers:
- *     NtGdiMirrorWindowOrg @ 0x1C02C3EF0 (NtGdiMirrorWindowOrg.c)
- *     GreScaleWindowExtEx @ 0x1C02D0474 (GreScaleWindowExtEx.c)
- *     GreSetWindowOrg @ 0x1C02D075C (GreSetWindowOrg.c)
- *     NtGdiScaleViewportExtEx @ 0x1C02D0AC0 (NtGdiScaleViewportExtEx.c)
+ *     GreSetWindowOrg @ 0x1C010C2D0 (GreSetWindowOrg.c)
+ *     GreScaleWindowExtEx @ 0x1C0160EE8 (GreScaleWindowExtEx.c)
+ *     NtGdiMirrorWindowOrg @ 0x1C02AF410 (NtGdiMirrorWindowOrg.c)
+ *     NtGdiScaleViewportExtEx @ 0x1C02B6DC0 (NtGdiScaleViewportExtEx.c)
  * Callees:
- *     ??$SafeDivide@JJJ@@YAJJJPEAJ@Z @ 0x1C029AB74 (--$SafeDivide@JJJ@@YAJJJPEAJ@Z.c)
+ *     ??$SafeDivide@JJJ@@YAJJJPEAJ@Z @ 0x1C011F260 (--$SafeDivide@JJJ@@YAJJJPEAJ@Z.c)
  */
 
 void __fastcall DC::MirrorWindowOrg(DC *this)

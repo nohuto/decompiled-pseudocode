@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Scale@RollingStats@@QEAAXN@Z @ 0x1C0089240
+ * XREFs of ?Scale@RollingStats@@QEAAXN@Z @ 0x1C006F1F0
  * Callers:
- *     ?EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ @ 0x1C035DFA0 (-EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ.c)
+ *     ?EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ @ 0x1C02BCD10 (-EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ.c)
  * Callees:
  *     <none>
  */

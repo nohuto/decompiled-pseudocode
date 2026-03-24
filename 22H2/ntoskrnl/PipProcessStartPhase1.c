@@ -1,18 +1,18 @@
 /*
- * XREFs of PipProcessStartPhase1 @ 0x140791278
+ * XREFs of PipProcessStartPhase1 @ 0x14073A30C
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406CB740 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x14073D6A4 (PipProcessDevNodeTree.c)
  * Callees:
- *     McTemplateK0dz_EtwWriteTransfer @ 0x140564598 (McTemplateK0dz_EtwWriteTransfer.c)
- *     IopUncacheInterfaceInformation @ 0x140790DB0 (IopUncacheInterfaceInformation.c)
- *     PiDmaGuardProcessPreStart @ 0x140791224 (PiDmaGuardProcessPreStart.c)
- *     PnpStartDeviceNode @ 0x1407939E0 (PnpStartDeviceNode.c)
- *     PpProfileBeginHardwareProfileTransition @ 0x140963B10 (PpProfileBeginHardwareProfileTransition.c)
- *     PpProfileIncludeInHardwareProfileTransition @ 0x140963DC4 (PpProfileIncludeInHardwareProfileTransition.c)
- *     PpProfileQueryHardwareProfileChange @ 0x140963ED4 (PpProfileQueryHardwareProfileChange.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x14050FDC8 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     PnpStartDeviceNode @ 0x14073A3A4 (PnpStartDeviceNode.c)
+ *     PiDmaGuardProcessPreStart @ 0x14073A784 (PiDmaGuardProcessPreStart.c)
+ *     IopUncacheInterfaceInformation @ 0x14073A898 (IopUncacheInterfaceInformation.c)
+ *     PpProfileBeginHardwareProfileTransition @ 0x1408AB3C8 (PpProfileBeginHardwareProfileTransition.c)
+ *     PpProfileIncludeInHardwareProfileTransition @ 0x1408AB67C (PpProfileIncludeInHardwareProfileTransition.c)
+ *     PpProfileQueryHardwareProfileChange @ 0x1408AB78C (PpProfileQueryHardwareProfileChange.c)
  */
 
-__int64 __fastcall PipProcessStartPhase1(ULONG_PTR MaxDataSize, unsigned int a2, __int64 a3)
+__int64 __fastcall PipProcessStartPhase1(__int64 MaxDataSize, unsigned int a2, __int64 a3)
 {
   int v3; // edi
   int started; // edi
@@ -20,7 +20,7 @@ __int64 __fastcall PipProcessStartPhase1(ULONG_PTR MaxDataSize, unsigned int a2,
 
   v8 = 0;
   v3 = a3;
-  if ( (byte_140C0E20B & 0x10) != 0 )
+  if ( (byte_140C1327B & 0x10) != 0 )
     McTemplateK0dz_EtwWriteTransfer(
       MaxDataSize,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_ProcessDeviceStart_Start,
@@ -33,7 +33,7 @@ __int64 __fastcall PipProcessStartPhase1(ULONG_PTR MaxDataSize, unsigned int a2,
   }
   else
   {
-    IopUncacheInterfaceInformation(*(_QWORD *)(MaxDataSize + 32), 1);
+    IopUncacheInterfaceInformation(*(_QWORD *)(MaxDataSize + 32), 1LL);
     if ( !*(_DWORD *)(MaxDataSize + 568)
       || (PpProfileBeginHardwareProfileTransition(0LL),
           PpProfileIncludeInHardwareProfileTransition(MaxDataSize, 2LL),
@@ -44,7 +44,7 @@ __int64 __fastcall PipProcessStartPhase1(ULONG_PTR MaxDataSize, unsigned int a2,
       started = PnpStartDeviceNode(MaxDataSize, 0LL, a2);
     }
   }
-  if ( (byte_140C0E20B & 0x10) != 0 )
+  if ( (byte_140C1327B & 0x10) != 0 )
     McTemplateK0dz_EtwWriteTransfer(
       MaxDataSize,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_ProcessDeviceStart_Stop,

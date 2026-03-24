@@ -1,116 +1,66 @@
 /*
- * XREFs of MiDeletePagefile @ 0x140A32870
+ * XREFs of MiDeletePagefile @ 0x1408D04DC
  * Callers:
- *     MmStoreRegister @ 0x140834954 (MmStoreRegister.c)
- *     MiCreatePagingFile @ 0x140834C2C (MiCreatePagingFile.c)
- *     MiCreatePagefile @ 0x1408355E4 (MiCreatePagefile.c)
- *     MiDeletePagingFiles @ 0x140A32A18 (MiDeletePagingFiles.c)
- *     MiCreateSpecialPurposeMemoryPageFile @ 0x140A471CC (MiCreateSpecialPurposeMemoryPageFile.c)
+ *     MmStoreRegister @ 0x1407B6B30 (MmStoreRegister.c)
+ *     MiCreatePagingFile @ 0x1407B6DDC (MiCreatePagingFile.c)
+ *     MiCreatePagefile @ 0x1407B7A10 (MiCreatePagefile.c)
+ *     MiDeletePagingFiles @ 0x1408D05EC (MiDeletePagingFiles.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     MiFreePageFileHashPfns @ 0x14021D980 (MiFreePageFileHashPfns.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MiFreeModWriterEntry @ 0x1402F489C (MiFreeModWriterEntry.c)
- *     MiUpdatePageFileList @ 0x140394280 (MiUpdatePageFileList.c)
- *     MiReleasePageHash @ 0x140666CAC (MiReleasePageHash.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     PiPagePathSetState @ 0x140854B58 (PiPagePathSetState.c)
- *     MiDeletePageFileMemoryExtents @ 0x140A47284 (MiDeletePageFileMemoryExtents.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     MiFreeModWriterEntry @ 0x140255048 (MiFreeModWriterEntry.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     MiFreePageFileHashPfns @ 0x14033C274 (MiFreePageFileHashPfns.c)
+ *     MiUpdatePageFileList @ 0x1403BF708 (MiUpdatePageFileList.c)
+ *     MiReleasePageHash @ 0x14055D604 (MiReleasePageHash.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     PiPagePathSetState @ 0x1407C9D60 (PiPagePathSetState.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiDeletePagefile(char *P, int a2)
+void __fastcall MiDeletePagefile(__int64 P, int a2)
 {
-  __int64 i; // rsi
+  __int64 i; // rdi
   void *v5; // rcx
   struct _PRIVILEGE_SET *v6; // rcx
   unsigned __int64 v7; // rcx
-  unsigned __int64 v8; // rsi
-  unsigned __int64 v9; // rcx
-  int v10; // ebp
-  unsigned __int64 v11; // rax
-  _QWORD *v12; // rdx
-  unsigned __int64 v13; // rdi
-  char v14; // al
-  void *v15; // rcx
-  void *v16; // rcx
-  void *v17; // rcx
-  void *v18; // rcx
+  __int16 v8; // ax
+  void *v9; // rcx
+  struct _DMA_ADAPTER *v10; // rcx
+  void *v11; // rcx
+  void *v12; // rcx
 
-  for ( i = 0LL; (unsigned int)i < *((_DWORD *)P + 18); i = (unsigned int)(i + 1) )
-    MiFreeModWriterEntry(*(_QWORD **)(*((_QWORD *)P + 8) + 8 * i), 0);
-  v5 = (void *)*((_QWORD *)P + 8);
+  for ( i = 0LL; (unsigned int)i < *(_DWORD *)(P + 72); i = (unsigned int)(i + 1) )
+    MiFreeModWriterEntry(*(_QWORD **)(*(_QWORD *)(P + 64) + 8 * i), 0);
+  v5 = *(void **)(P + 64);
   if ( v5 )
     ExFreePoolWithTag(v5, 0);
-  v6 = (struct _PRIVILEGE_SET *)*((_QWORD *)P + 14);
+  v6 = *(struct _PRIVILEGE_SET **)(P + 112);
   if ( v6 )
     CmSiFreeMemory(v6);
-  v7 = *((_QWORD *)P + 27);
+  v7 = *(_QWORD *)(P + 216);
   if ( v7 )
-    MiReleasePageHash(v7, *((_DWORD *)P + 2));
-  MiFreePageFileHashPfns((union _SLIST_HEADER *)P);
-  if ( _bittest16((const signed __int16 *)P + 102, 8u) )
-    MiUpdatePageFileList((__int64)P, 0);
-  if ( _bittest16((const signed __int16 *)P + 102, 0xBu) )
+    MiReleasePageHash(v7, *(_DWORD *)(P + 8));
+  MiFreePageFileHashPfns(*(_QWORD *)(P + 248));
+  v8 = *(_WORD *)(P + 204);
+  if ( (v8 & 0x100) != 0 )
   {
-    v8 = (unsigned __int64)(P + 256);
-    v9 = *((_QWORD *)P + 32);
-    if ( (P[264] & 1) != 0 && v9 )
-      v9 ^= v8;
-    v10 = P[264] & 1;
-    if ( v9 )
-    {
-      while ( 1 )
-      {
-        v11 = *(_QWORD *)v9;
-        if ( *(_QWORD *)v9 )
-          break;
-        v12 = (_QWORD *)(v9 + 8);
-        v11 = *(_QWORD *)(v9 + 8);
-        if ( v11 )
-        {
-LABEL_19:
-          if ( v10 )
-            v9 ^= v11;
-          else
-            v9 = v11;
-          *v12 = 0LL;
-        }
-        else
-        {
-          v13 = *(_QWORD *)(v9 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( v10 && v13 )
-            v13 ^= v9;
-          MiDeletePageFileMemoryExtents((PVOID)v9);
-          if ( !v13 )
-            goto LABEL_28;
-          v9 = v13;
-        }
-      }
-      v12 = (_QWORD *)v9;
-      goto LABEL_19;
-    }
-LABEL_28:
-    v14 = P[264];
-    *(_QWORD *)v8 = 0LL;
-    *((_QWORD *)P + 33) = 0LL;
-    if ( (v14 & 1) != 0 )
-      P[264] = 1;
+    MiUpdatePageFileList(P, 0);
+    v8 = *(_WORD *)(P + 204);
   }
-  if ( _bittest16((const signed __int16 *)P + 102, 9u) )
-    PiPagePathSetState(*((struct _FILE_OBJECT **)P + 7), 0);
-  v15 = (void *)*((_QWORD *)P + 28);
-  if ( v15 )
-    ObCloseHandle(v15, 0);
-  v16 = (void *)*((_QWORD *)P + 7);
-  if ( v16 )
-    ObfDereferenceObject(v16);
-  v17 = (void *)*((_QWORD *)P + 13);
-  if ( v17 )
-    ExFreePoolWithTag(v17, 0);
-  v18 = (void *)*((_QWORD *)P + 24);
-  if ( v18 )
-    ExFreePoolWithTag(v18, 0);
+  if ( (v8 & 0x200) != 0 )
+    PiPagePathSetState(*(struct _FILE_OBJECT **)(P + 56), 0);
+  v9 = *(void **)(P + 224);
+  if ( v9 )
+    ObCloseHandle(v9, 0);
+  v10 = *(struct _DMA_ADAPTER **)(P + 56);
+  if ( v10 )
+    HalPutDmaAdapter(v10);
+  v11 = *(void **)(P + 104);
+  if ( v11 )
+    ExFreePoolWithTag(v11, 0);
+  v12 = *(void **)(P + 192);
+  if ( v12 )
+    ExFreePoolWithTag(v12, 0);
   if ( a2 )
-    ExFreePoolWithTag(P, 0);
+    ExFreePoolWithTag((PVOID)P, 0);
 }

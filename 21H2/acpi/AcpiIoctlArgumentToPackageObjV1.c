@@ -1,42 +1,41 @@
 /*
- * XREFs of AcpiIoctlArgumentToPackageObjV1 @ 0x1C002C0FC
+ * XREFs of AcpiIoctlArgumentToPackageObjV1 @ 0x1C000C2C8
  * Callers:
- *     ACPIIoctlEvalPreProcessingV1Ex @ 0x1C001BAFC (ACPIIoctlEvalPreProcessingV1Ex.c)
- *     ACPIIoctlEvalPreProcessingV1 @ 0x1C001C780 (ACPIIoctlEvalPreProcessingV1.c)
- *     AcpiIoctlArgumentToPackageObjV1 @ 0x1C002C0FC (AcpiIoctlArgumentToPackageObjV1.c)
+ *     ACPIIoctlEvalPreProcessingV1 @ 0x1C000B5F4 (ACPIIoctlEvalPreProcessingV1.c)
+ *     AcpiIoctlArgumentToPackageObjV1 @ 0x1C000C2C8 (AcpiIoctlArgumentToPackageObjV1.c)
+ *     ACPIIoctlEvalPreProcessingV1Ex @ 0x1C0029BB4 (ACPIIoctlEvalPreProcessingV1Ex.c)
  * Callees:
- *     AcpiIoctlArgumentToPackageObjV1 @ 0x1C002C0FC (AcpiIoctlArgumentToPackageObjV1.c)
+ *     AcpiIoctlArgumentToPackageObjV1 @ 0x1C000C2C8 (AcpiIoctlArgumentToPackageObjV1.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall AcpiIoctlArgumentToPackageObjV1(_WORD *a1, __int64 a2, char a3, unsigned int *a4, PVOID *a5)
+__int64 __fastcall AcpiIoctlArgumentToPackageObjV1(_WORD *a1, POOL_TYPE a2, char a3, unsigned int *a4, PVOID *a5)
 {
-  __int64 v7; // rbx
-  __int64 v8; // r10
-  unsigned int v9; // r14d
-  _WORD *v10; // rsi
-  unsigned __int64 v11; // r9
-  _WORD *v12; // rcx
-  unsigned int v13; // eax
-  unsigned int *Pool2; // rax
-  int v15; // r8d
+  __int64 v5; // rdi
+  POOL_TYPE v8; // ebx
+  __int64 v9; // r10
+  unsigned int v10; // r15d
+  _WORD *v11; // rsi
+  unsigned __int64 v12; // r9
+  _WORD *v13; // rcx
+  unsigned int v14; // eax
+  PVOID PoolWithTag; // rax
   unsigned int v16; // ebp
-  unsigned int v17; // ebx
+  int v17; // ebx
   unsigned __int16 v19; // dx
   __int64 v20; // rax
   __int64 v21; // r8
-  __int64 i; // rdi
+  int v22; // r8d
   char *v23; // rdx
   __int16 v24; // ax
   unsigned __int16 v25; // ax
   __int64 v26; // rax
-  int v27; // eax
-  int v28; // [rsp+68h] [rbp+10h]
 
-  v28 = a2;
+  v5 = 0LL;
   *a4 = 0;
-  v7 = a2;
+  v8 = a2;
   *a5 = 0LL;
-  if ( !a1 || (v8 = (unsigned __int16)a1[1], (unsigned __int16)(v8 - 1) <= 6u) || *a1 != 4 )
+  if ( !a1 || (v9 = (unsigned __int16)a1[1], (unsigned __int16)(v9 - 1) <= 6u) || *a1 != 4 )
   {
     v17 = -1073741811;
 LABEL_37:
@@ -46,89 +45,95 @@ LABEL_37:
       *a4 = 0;
       *a5 = 0LL;
     }
-    return v17;
+    return (unsigned int)v17;
   }
-  v9 = 0;
-  v10 = a1 + 2;
-  v11 = (unsigned __int64)a1 + v8 + 4;
-  v12 = v10;
-  if ( (unsigned __int64)v10 >= v11 )
+  v10 = 0;
+  v11 = a1 + 2;
+  v12 = (unsigned __int64)a1 + v9 + 4;
+  v13 = v11;
+  if ( (unsigned __int64)v11 >= v12 )
   {
 LABEL_5:
-    v13 = 40 * v9 + 8;
-    *a4 = v13;
-    Pool2 = (unsigned int *)ExAllocatePool2(v7, v13, 1097884481LL);
-    v15 = 0;
-    *a5 = Pool2;
-    if ( Pool2 )
+    v14 = 40 * v10 + 8;
+    *a4 = v14;
+    PoolWithTag = ExAllocatePoolWithTag(v8, v14, 0x41706341u);
+    *a5 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = v9;
+      memset(PoolWithTag, 0, *a4);
       v16 = 0;
-      if ( !v9 )
+      *(_DWORD *)*a5 = v10;
+      if ( !v10 )
         return 0;
-      for ( i = 0LL; ; i += 40LL )
+      v22 = 4;
+      while ( 1 )
       {
         v23 = (char *)*a5;
-        if ( *v10 == 4 )
+        if ( *v11 == 4 )
           v24 = 4;
         else
-          v24 = *v10 + 1;
-        *(_WORD *)&v23[i + 10] = v24;
-        v25 = *v10;
-        if ( *v10 )
+          v24 = *v11 + 1;
+        *(_WORD *)&v23[v5 + 10] = v24;
+        v25 = *v11;
+        if ( *v11 )
         {
           if ( v25 > 2u )
           {
             if ( v25 == 4 )
             {
-              LOBYTE(v15) = a3;
-              v27 = AcpiIoctlArgumentToPackageObjV1((_DWORD)v10, v7, v15, (int)i + (int)v23 + 32, (__int64)&v23[i + 40]);
-              v15 = 0;
-              v17 = v27;
-              if ( v27 < 0 )
+              LOBYTE(v22) = a3;
+              v17 = AcpiIoctlArgumentToPackageObjV1(
+                      (_DWORD)v11,
+                      v8,
+                      v22,
+                      (int)v5 + (int)v23 + 32,
+                      (__int64)&v23[v5 + 40]);
+              if ( v17 < 0 )
                 goto LABEL_37;
-              LODWORD(v7) = v28;
+              v8 = a2;
+              v22 = 4;
               goto LABEL_23;
             }
-            *(_WORD *)&v23[i + 10] = 3;
+            *(_WORD *)&v23[v5 + 10] = 3;
           }
-          *(_DWORD *)&v23[i + 32] = (unsigned __int16)v10[1];
-          *(_QWORD *)&v23[i + 40] = v10 + 2;
+          *(_DWORD *)&v23[v5 + 32] = (unsigned __int16)v11[1];
+          *(_QWORD *)&v23[v5 + 40] = v11 + 2;
         }
         else
         {
-          *(_DWORD *)&v23[i + 32] = a3 != 0 ? 8 : 4;
-          *(_QWORD *)&v23[i + 24] = *((unsigned int *)v10 + 1);
+          *(_DWORD *)&v23[v5 + 32] = a3 != 0 ? 8 : 4;
+          *(_QWORD *)&v23[v5 + 24] = *((unsigned int *)v11 + 1);
         }
 LABEL_23:
-        v26 = (unsigned __int16)v10[1];
+        v26 = (unsigned __int16)v11[1];
         if ( (unsigned __int16)v26 < 4u )
           v26 = 4LL;
         ++v16;
-        v10 = (_WORD *)((char *)v10 + v26 + 4);
-        if ( v16 >= v9 )
+        v11 = (_WORD *)((char *)v11 + v26 + 4);
+        v5 += 40LL;
+        if ( v16 >= v10 )
           return 0;
       }
     }
     v17 = -1073741670;
     goto LABEL_37;
   }
-  while ( *v12 <= 4u )
+  while ( *v13 <= 4u )
   {
-    v19 = v12[1];
-    if ( v19 > (unsigned __int16)v8 )
+    v19 = v13[1];
+    if ( v19 > (unsigned __int16)v9 )
       break;
-    v20 = 4LL;
-    if ( v19 >= 4u )
-      v20 = (unsigned __int16)v12[1];
-    v21 = (unsigned __int16)v12[1];
-    if ( (unsigned __int64)v12 + v20 + 4 > v11 )
+    v20 = (unsigned __int16)v13[1];
+    v21 = v20;
+    if ( v19 < 4u )
+      v20 = 4LL;
+    if ( (unsigned __int64)v13 + v20 + 4 > v12 )
       break;
-    ++v9;
+    ++v10;
     if ( v19 < 4u )
       v21 = 4LL;
-    v12 = (_WORD *)((char *)v12 + v21 + 4);
-    if ( (unsigned __int64)v12 >= v11 )
+    v13 = (_WORD *)((char *)v13 + v21 + 4);
+    if ( (unsigned __int64)v13 >= v12 )
       goto LABEL_5;
   }
   return (unsigned int)-1073741788;

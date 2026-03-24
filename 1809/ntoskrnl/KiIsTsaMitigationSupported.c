@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIsTsaMitigationSupported @ 0x1401B473C
+ * XREFs of KiIsTsaMitigationSupported @ 0x1401B475C
  * Callers:
- *     KeOptimizeSpecCtrlSettings @ 0x14018EDD0 (KeOptimizeSpecCtrlSettings.c)
- *     KiIsKvaShadowNeededForTsa @ 0x1401B455C (KiIsKvaShadowNeededForTsa.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x14018EDF0 (KeOptimizeSpecCtrlSettings.c)
+ *     KiIsKvaShadowNeededForTsa @ 0x1401B457C (KiIsKvaShadowNeededForTsa.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x140176B90 (HviIsAnyHypervisorPresent.c)
- *     KiIsHyperVCr3RspErrataPresent @ 0x1401B4C88 (KiIsHyperVCr3RspErrataPresent.c)
+ *     HviIsAnyHypervisorPresent @ 0x140176BB0 (HviIsAnyHypervisorPresent.c)
+ *     KiIsHyperVCr3RspErrataPresent @ 0x1401B4CA8 (KiIsHyperVCr3RspErrataPresent.c)
  */
 
 _BOOL8 __fastcall KiIsTsaMitigationSupported(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of UsbhDeleteUxdSettings @ 0x1C005932C
+ * XREFs of UsbhDeleteUxdSettings @ 0x1C005AA30
  * Callers:
- *     Usbh_PdoRemove_PdoEvent @ 0x1C003A7CC (Usbh_PdoRemove_PdoEvent.c)
- *     UsbhPortDisconnect @ 0x1C004CDA0 (UsbhPortDisconnect.c)
+ *     Usbh_PdoRemove_PdoEvent @ 0x1C003BADC (Usbh_PdoRemove_PdoEvent.c)
+ *     UsbhPortDisconnect @ 0x1C004E1B0 (UsbhPortDisconnect.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhDeleteUxdDeviceKey @ 0x1C005919C (UsbhDeleteUxdDeviceKey.c)
- *     UsbhDeleteUxdPortSettings @ 0x1C005925C (UsbhDeleteUxdPortSettings.c)
- *     UsbhGetGlobalUxdSettings @ 0x1C00595D4 (UsbhGetGlobalUxdSettings.c)
- *     UsbhOpenUxdPortHandle @ 0x1C0059E04 (UsbhOpenUxdPortHandle.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhDeleteUxdDeviceKey @ 0x1C005A8A0 (UsbhDeleteUxdDeviceKey.c)
+ *     UsbhDeleteUxdPortSettings @ 0x1C005A960 (UsbhDeleteUxdPortSettings.c)
+ *     UsbhGetGlobalUxdSettings @ 0x1C005ACF0 (UsbhGetGlobalUxdSettings.c)
+ *     UsbhOpenUxdPortHandle @ 0x1C005B4A4 (UsbhOpenUxdPortHandle.c)
  */
 
 __int64 __fastcall UsbhDeleteUxdSettings(__int64 a1, __int64 a2, int a3)

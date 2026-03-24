@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIsPageTableLocked @ 0x14012D9FC
+ * XREFs of MiIsPageTableLocked @ 0x14012DA1C
  * Callers:
  *     MiAgePte @ 0x14006ADD0 (MiAgePte.c)
  *     MiWalkVaCheckCommon @ 0x140087E1C (MiWalkVaCheckCommon.c)
- *     MiResetAccessBitPte @ 0x14016E810 (MiResetAccessBitPte.c)
+ *     MiResetAccessBitPte @ 0x14016E830 (MiResetAccessBitPte.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetPageTableLockBuffer @ 0x14006CE80 (MiGetPageTableLockBuffer.c)
  *     MiShouldLockPteDirectly @ 0x1400986C0 (MiShouldLockPteDirectly.c)
- *     PsGetCurrentProcess @ 0x1400F1310 (PsGetCurrentProcess.c)
+ *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
  */
 
 unsigned __int64 __fastcall MiIsPageTableLocked(__int64 a1, unsigned __int64 a2)

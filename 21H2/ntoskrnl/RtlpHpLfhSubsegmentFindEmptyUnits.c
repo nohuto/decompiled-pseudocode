@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentFindEmptyUnits @ 0x140365560
+ * XREFs of RtlpHpLfhSubsegmentFindEmptyUnits @ 0x140307C30
  * Callers:
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x1403650F0 (RtlpHpLfhSubsegmentDecommitPages.c)
- *     RtlpHpLfhSubsegmentFree @ 0x14036EB14 (RtlpHpLfhSubsegmentFree.c)
+ *     RtlpHpLfhSubsegmentFree @ 0x1402B1568 (RtlpHpLfhSubsegmentFree.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x140307730 (RtlpHpLfhSubsegmentDecommitPages.c)
  * Callees:
  *     <none>
  */
@@ -33,6 +33,8 @@ __int64 __fastcall RtlpHpLfhSubsegmentFindEmptyUnits(__int64 a1, unsigned int a2
       if ( (unsigned __int64)++v6 >= v5 )
         return 0xFFFFFFFFLL;
     }
+    if ( (unsigned __int64)v6 >= v5 )
+      return 0xFFFFFFFFLL;
     v4 = ((__int64)v6 - v3) >> 1;
   }
   else

@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhBuildUxdDeviceKey @ 0x1C0058FA0
+ * XREFs of UsbhBuildUxdDeviceKey @ 0x1C005A670
  * Callers:
- *     UsbhDeleteUxdDeviceKey @ 0x1C005919C (UsbhDeleteUxdDeviceKey.c)
- *     UsbhGetUxdDeviceKey @ 0x1C00599F0 (UsbhGetUxdDeviceKey.c)
+ *     UsbhDeleteUxdDeviceKey @ 0x1C005A8A0 (UsbhDeleteUxdDeviceKey.c)
+ *     UsbhGetUxdDeviceKey @ 0x1C005B10C (UsbhGetUxdDeviceKey.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     RtlStringCbPrintfW @ 0x1C004436C (RtlStringCbPrintfW.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     RtlStringCbPrintfW @ 0x1C004561C (RtlStringCbPrintfW.c)
  */
 
 NTSTATUS __fastcall UsbhBuildUxdDeviceKey(__int64 a1, __int64 a2, wchar_t *a3)

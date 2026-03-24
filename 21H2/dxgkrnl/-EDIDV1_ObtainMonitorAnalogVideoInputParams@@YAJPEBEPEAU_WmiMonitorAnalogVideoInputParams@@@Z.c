@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EDIDV1_ObtainMonitorAnalogVideoInputParams@@YAJPEBEPEAU_WmiMonitorAnalogVideoInputParams@@@Z @ 0x1C002AE64
+ * XREFs of ?EDIDV1_ObtainMonitorAnalogVideoInputParams@@YAJPEBEPEAU_WmiMonitorAnalogVideoInputParams@@@Z @ 0x1C00246DC
  * Callers:
- *     ?GetAnalogVideoInputParams@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_WmiMonitorAnalogVideoInputParams@@@Z @ 0x1C021B590 (-GetAnalogVideoInputParams@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_WmiMonitorAnalogVideoInpu.c)
+ *     ?_DispatchInternalIOCtrl@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z @ 0x1C01695C8 (-_DispatchInternalIOCtrl@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z.c)
  * Callees:
- *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C0018CC0 (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
- *     ?GetWmiAnalogVideoInputParams@EDID_PARSER@MonDescParser@@QEBAJAEAU_WmiMonitorAnalogVideoInputParams@@@Z @ 0x1C002AEB8 (-GetWmiAnalogVideoInputParams@EDID_PARSER@MonDescParser@@QEBAJAEAU_WmiMonitorAnalogVideoInputPar.c)
+ *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C000A26C (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
+ *     ?GetWmiAnalogVideoInputParams@EDID_PARSER@MonDescParser@@QEBAJAEAU_WmiMonitorAnalogVideoInputParams@@@Z @ 0x1C0024730 (-GetWmiAnalogVideoInputParams@EDID_PARSER@MonDescParser@@QEBAJAEAU_WmiMonitorAnalogVideoInputPar.c)
  */
 
 __int64 __fastcall EDIDV1_ObtainMonitorAnalogVideoInputParams(

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopMeasureEnergyChange @ 0x14086DB94
+ * XREFs of PopMeasureEnergyChange @ 0x14086DB74
  * Callers:
- *     PopCalculateCsSummary @ 0x1402DEA58 (PopCalculateCsSummary.c)
+ *     PopCalculateCsSummary @ 0x1402DEB58 (PopCalculateCsSummary.c)
  *     PopDiagTraceControlCallback @ 0x140587FE0 (PopDiagTraceControlCallback.c)
- *     PopTransitionTelemetryOsState @ 0x1407454E8 (PopTransitionTelemetryOsState.c)
+ *     PopTransitionTelemetryOsState @ 0x1407454C8 (PopTransitionTelemetryOsState.c)
  * Callees:
- *     PopGetEnergyCounter @ 0x14086DB48 (PopGetEnergyCounter.c)
+ *     PopGetEnergyCounter @ 0x14086DB28 (PopGetEnergyCounter.c)
  */
 
 __int64 __fastcall PopMeasureEnergyChange(__int64 a1, __int64 a2)

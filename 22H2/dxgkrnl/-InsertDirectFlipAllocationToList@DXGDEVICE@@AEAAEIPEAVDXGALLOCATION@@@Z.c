@@ -1,15 +1,15 @@
 /*
- * XREFs of ?InsertDirectFlipAllocationToList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z @ 0x1C02EB318
+ * XREFs of ?InsertDirectFlipAllocationToList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z @ 0x1C01722A8
  * Callers:
- *     ?PinDirectFlipResources@DXGDEVICE@@QEAAJIPEBVDXGRESOURCEREFERENCE@@_N@Z @ 0x1C02EBDB0 (-PinDirectFlipResources@DXGDEVICE@@QEAAJIPEBVDXGRESOURCEREFERENCE@@_N@Z.c)
+ *     ?PinDirectFlipResources@DXGDEVICE@@QEAAJIPEBVDXGRESOURCEREFERENCE@@_N@Z @ 0x1C0172088 (-PinDirectFlipResources@DXGDEVICE@@QEAAJIPEBVDXGRESOURCEREFERENCE@@_N@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     memmove @ 0x1C0028340 (memmove.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 char __fastcall DXGDEVICE::InsertDirectFlipAllocationToList(
@@ -17,132 +17,119 @@ char __fastcall DXGDEVICE::InsertDirectFlipAllocationToList(
         unsigned int a2,
         struct DXGALLOCATION *a3)
 {
-  __int64 v3; // rsi
-  char v6; // bl
-  bool v7; // zf
-  unsigned int v8; // ebp
-  __int64 v9; // r15
-  __int64 v10; // r14
-  unsigned __int64 v11; // rax
-  struct _KTHREAD *v12; // rax
-  struct _KTHREAD *v13; // r12
-  int v14; // edx
-  const wchar_t *v15; // r9
-  __int64 v16; // r15
-  unsigned int i; // r14d
-  char v19[8]; // [rsp+50h] [rbp-48h] BYREF
-  DXGPUSHLOCK *v20; // [rsp+58h] [rbp-40h]
-  int v21; // [rsp+60h] [rbp-38h]
+  __int64 v3; // rdi
+  struct _KTHREAD *v6; // rdx
+  __int64 v7; // rcx
+  bool v8; // zf
+  unsigned int v9; // ebp
+  __int64 v10; // rsi
+  char v11; // di
+  __int64 v12; // rcx
+  __int64 v13; // r14
+  SIZE_T v14; // rax
+  char *v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  void *v20; // r12
+  unsigned int v21; // r14d
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
+  _BYTE v28[8]; // [rsp+20h] [rbp-48h] BYREF
+  DXGPUSHLOCK *v29; // [rsp+28h] [rbp-40h]
+  int v30; // [rsp+30h] [rbp-38h]
 
   v3 = a2;
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v19, this + 46, 0);
-  DXGPUSHLOCK::AcquireExclusive(v20);
-  v6 = 0;
-  v7 = (*((_DWORD *)a3 + 18) & 0x7FE) == 0;
-  v21 = 2;
-  if ( !v7 )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v28, this + 46, 0);
+  DXGPUSHLOCK::AcquireExclusive(v29);
+  v8 = (*((_DWORD *)a3 + 18) & 0x7FE) == 0;
+  v30 = 2;
+  if ( !v8 )
   {
-    WdLogSingleEntry1(1LL, 9136LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"0 == pAllocation->m_DirectFlipIndex",
-      9136LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v23 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v23 + 24) = 9032LL;
+    WdLogEvent5_WdAssertion(v23);
   }
-  v8 = *((_DWORD *)this + v3 + 358);
-  if ( v8 == *((_DWORD *)this + v3 + 374) )
+  v9 = *((_DWORD *)this + v3 + 350);
+  v10 = v3;
+  v11 = 0;
+  v12 = v9;
+  if ( v9 == *((_DWORD *)this + v10 + 366) )
   {
-    v9 = v8;
-    if ( v8 )
+    v13 = v9;
+    if ( v9 )
     {
-      v8 *= 2;
-      if ( v8 > 0x300 )
+      v9 *= 2;
+      if ( v9 > 0x300 )
       {
-        v10 = 9152LL;
-        WdLogSingleEntry1(2LL, 9152LL);
-        v14 = 0x40000;
-        v15 = L"Reached maximum number of primary allocation, rejecting this request";
-        goto LABEL_10;
+        v24 = WdLogNewEntry5_WdError(v12, v6);
+        *(_QWORD *)(v24 + 24) = 9048LL;
+        WdLogEvent5_WdError(v24);
+        goto LABEL_21;
       }
     }
     else
     {
-      v8 = 4;
+      v9 = 4;
     }
-    v10 = v8;
-    v11 = 8LL * v8;
-    if ( !is_mul_ok(v8, 8uLL) )
-      v11 = -1LL;
-    v12 = (struct _KTHREAD *)operator new[](v11, 0x4B677844u, 256LL);
-    v13 = v12;
-    if ( !v12 )
+    v14 = 8LL * v9;
+    if ( !is_mul_ok(v9, 8uLL) )
+      v14 = -1LL;
+    v15 = (char *)operator new[](v14, 0x4B677844u, PagedPool);
+    v20 = v15;
+    if ( !v15 )
     {
-      WdLogSingleEntry1(6LL, v8);
-      v14 = 262145;
-      v15 = L"Failed to grow device primary allocation array to %d entries";
-LABEL_10:
-      DxgkLogInternalTriageEvent(0LL, v14, -1, (__int64)v15, v10, 0LL, 0LL, 0LL, 0LL);
-      goto LABEL_26;
+      v25 = WdLogNewEntry5_WdLowResource(v17, v16, v18, v19);
+      *(_QWORD *)(v25 + 24) = v9;
+      WdLogEvent5_WdLowResource(v25);
+      goto LABEL_21;
     }
-    if ( (_DWORD)v9 )
+    memset(&v15[8 * v13], 0, 8LL * (v9 - (unsigned int)v13));
+    if ( (_DWORD)v13 )
     {
-      memmove(v12, this[v3 + 163], 8 * v9);
-      operator delete(this[v3 + 163]);
+      memmove(v20, this[v10 + 159], 8 * v13);
+      operator delete[](this[v10 + 159]);
     }
-    v16 = v3 + 163;
-    this[v3 + 163] = v13;
-    *((_DWORD *)this + v3 + 358) = v8;
+    this[v10 + 159] = (struct _KTHREAD *)v20;
+    v12 = v9;
+    *((_DWORD *)this + v10 + 350) = v9;
   }
-  else
+  v21 = 0;
+  if ( (_DWORD)v12 )
   {
-    v16 = v3 + 163;
-  }
-  for ( i = 0; i < v8; ++i )
-  {
-    if ( !*((_QWORD *)this[v3 + 163] + i) )
-      break;
-  }
-  if ( i != v8 )
-  {
-    if ( *((_QWORD *)this[v16] + i) )
+    v6 = this[v10 + 159];
+    do
     {
-      WdLogSingleEntry1(1LL, 9196LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"m_DirectFlipAllocation[VidPnSourceId][PinIndex] == NULL",
-        9196LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      if ( !*((_QWORD *)v6 + v21) )
+        break;
+      ++v21;
     }
-    if ( *((_DWORD *)this + v3 + 358) < *((_DWORD *)this + v3 + 374) )
-    {
-      WdLogSingleEntry1(1LL, 9197LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"m_DirectFlipAllocationArraySize[VidPnSourceId] >= m_DirectFlipAllocationCount[VidPnSourceId]",
-        9197LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
-    v6 = 1;
-    *((_QWORD *)this[v16] + i) = a3;
-    ++*((_DWORD *)this + v3 + 374);
-    *((_DWORD *)a3 + 18) ^= (*((_DWORD *)a3 + 18) ^ (2 * i)) & 0x7FE;
+    while ( v21 < v9 );
   }
-LABEL_26:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v19);
-  return v6;
+  if ( v21 != (_DWORD)v12 )
+  {
+    if ( *((_QWORD *)this[v10 + 159] + v21) )
+    {
+      v26 = WdLogNewEntry5_WdAssertion(v12, v6);
+      *(_QWORD *)(v26 + 24) = 9093LL;
+      WdLogEvent5_WdAssertion(v26);
+    }
+    if ( *((_DWORD *)this + v10 + 350) < *((_DWORD *)this + v10 + 366) )
+    {
+      v27 = WdLogNewEntry5_WdAssertion(v12, v6);
+      *(_QWORD *)(v27 + 24) = 9094LL;
+      WdLogEvent5_WdAssertion(v27);
+    }
+    v11 = 1;
+    *((_QWORD *)this[v10 + 159] + v21) = a3;
+    ++*((_DWORD *)this + v10 + 366);
+    *((_DWORD *)a3 + 18) ^= (*((_DWORD *)a3 + 18) ^ (2 * v21)) & 0x7FE;
+  }
+LABEL_21:
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v28);
+  return v11;
 }

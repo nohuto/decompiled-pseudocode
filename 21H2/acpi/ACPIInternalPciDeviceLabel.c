@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIInternalPciDeviceLabel @ 0x1C00AF2DC
+ * XREFs of ACPIInternalPciDeviceLabel @ 0x1C00AFE34
  * Callers:
- *     AcpiQueryPciDeviceChassisLabel @ 0x1C0090240 (AcpiQueryPciDeviceChassisLabel.c)
+ *     AcpiQueryPciDeviceChassisLabel @ 0x1C0099E28 (AcpiQueryPciDeviceChassisLabel.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ int __fastcall ACPIInternalPciDeviceLabel(__int64 a1, __int64 a2)
   ULONG Size; // ecx
 
   result = IoSetDevicePropertyData(
-             *(PDEVICE_OBJECT *)(a1 + 784),
+             *(PDEVICE_OBJECT *)(a1 + 744),
              &DEVPKEY_PciDevice_Label_Id,
              0,
              0,
@@ -28,7 +28,7 @@ int __fastcall ACPIInternalPciDeviceLabel(__int64 a1, __int64 a2)
       {
         if ( *(_WORD *)(a2 + 50) == 3 )
           return IoSetDevicePropertyData(
-                   *(PDEVICE_OBJECT *)(a1 + 784),
+                   *(PDEVICE_OBJECT *)(a1 + 744),
                    &DEVPKEY_PciDevice_Label_String,
                    0,
                    0,

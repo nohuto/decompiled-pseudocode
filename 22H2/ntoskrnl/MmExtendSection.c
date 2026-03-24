@@ -1,190 +1,171 @@
 /*
- * XREFs of MmExtendSection @ 0x1407065B4
+ * XREFs of MmExtendSection @ 0x14066933C
  * Callers:
- *     CcSetFileSizesEx @ 0x1402F0FA0 (CcSetFileSizesEx.c)
- *     MiAllocateVirtualMemory @ 0x1406F72D0 (MiAllocateVirtualMemory.c)
- *     MiCreateSection @ 0x140722B70 (MiCreateSection.c)
- *     NtExtendSection @ 0x1407E5EC0 (NtExtendSection.c)
+ *     CcSetFileSizesEx @ 0x14022DA90 (CcSetFileSizesEx.c)
+ *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
+ *     MiCreateSection @ 0x140652DA0 (MiCreateSection.c)
+ *     NtExtendSection @ 0x140669290 (NtExtendSection.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiUnlockControlAreaSectionExtend @ 0x140292F50 (MiUnlockControlAreaSectionExtend.c)
- *     MiLockControlAreaSectionExtend @ 0x140293024 (MiLockControlAreaSectionExtend.c)
- *     MiFindLastSubsection @ 0x140293138 (MiFindLastSubsection.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     MiReferenceControlAreaFile @ 0x1402A22B4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A23C0 (MiDereferenceControlAreaFile.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     MiUpdateLastSubsectionSize @ 0x140365844 (MiUpdateLastSubsectionSize.c)
- *     MiSubsectionNeedsExtents @ 0x140635BB0 (MiSubsectionNeedsExtents.c)
- *     MiUpdateActiveSubsection @ 0x140635C50 (MiUpdateActiveSubsection.c)
- *     FsRtlGetFileSize @ 0x1406AA1A0 (FsRtlGetFileSize.c)
- *     MiExtendSection @ 0x140706884 (MiExtendSection.c)
- *     FsRtlSetFileSize @ 0x1407EAC14 (FsRtlSetFileSize.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x14029D540 (MiReferenceControlAreaFile.c)
+ *     MiControlAreaUsingExtents @ 0x1402B32E0 (MiControlAreaUsingExtents.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiDereferenceControlAreaFile @ 0x1402D7994 (MiDereferenceControlAreaFile.c)
+ *     MiUnlockControlAreaSectionExtend @ 0x1402F9584 (MiUnlockControlAreaSectionExtend.c)
+ *     MiLockControlAreaSectionExtend @ 0x1402F963C (MiLockControlAreaSectionExtend.c)
+ *     MiFindLastSubsection @ 0x1402F974C (MiFindLastSubsection.c)
+ *     MiUpdateLastSubsectionSize @ 0x1402F9A78 (MiUpdateLastSubsectionSize.c)
+ *     MiSubsectionNeedsExtents @ 0x14053CD80 (MiSubsectionNeedsExtents.c)
+ *     MiUpdateActiveSubsection @ 0x14053CE20 (MiUpdateActiveSubsection.c)
+ *     MiExtendSection @ 0x140669618 (MiExtendSection.c)
+ *     FsRtlSetFileSize @ 0x140669A10 (FsRtlSetFileSize.c)
+ *     FsRtlGetFileSize @ 0x140702130 (FsRtlGetFileSize.c)
  */
 
 __int64 __fastcall MmExtendSection(__int64 a1, LARGE_INTEGER *a2, int a3)
 {
   ULONG_PTR v6; // rax
   ULONG_PTR v7; // rbx
-  __int64 v8; // r15
+  __int64 v8; // r14
   unsigned __int64 v9; // r12
   unsigned __int64 v10; // r12
-  unsigned int v11; // r14d
-  __int64 LastSubsection; // rsi
+  NTSTATUS v11; // esi
+  __int64 LastSubsection; // r15
   unsigned __int64 v13; // rax
   unsigned __int64 v14; // r12
   int updated; // eax
-  struct _FILE_OBJECT *v17; // rsi
-  NTSTATUS v18; // esi
-  struct _KTHREAD *CurrentThread; // r14
-  __int64 v20; // rax
-  __int64 v21; // rsi
-  LARGE_INTEGER *v22; // rcx
-  bool v23; // zf
-  unsigned __int64 v24; // rax
-  ULONG_PTR v25; // r14
-  int v26; // eax
-  _OWORD v27[2]; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v28; // [rsp+50h] [rbp-10h]
+  ULONG_PTR v17; // rax
+  struct _FILE_OBJECT *v18; // r15
+  int v19; // eax
+  struct _KTHREAD *CurrentThread; // rsi
+  LARGE_INTEGER *v21; // rcx
+  unsigned __int64 v22; // rax
+  _OWORD v23[2]; // [rsp+30h] [rbp-30h] BYREF
+  __int64 v24; // [rsp+50h] [rbp-10h]
   LARGE_INTEGER FileSize; // [rsp+A0h] [rbp+40h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+B8h] [rbp+58h] BYREF
 
   FileSize.QuadPart = 0LL;
-  memset(v27, 0, sizeof(v27));
-  v28 = 0LL;
+  memset(v23, 0, sizeof(v23));
+  v24 = 0LL;
   v6 = MiSectionControlArea(a1);
   v7 = v6;
   if ( (*(_DWORD *)(v6 + 56) & 0x420) != 0 || !*(_QWORD *)(v6 + 64) )
     return 3221225607LL;
-  if ( a2->QuadPart > 0x3FFFFFFFFFF000uLL )
-    return 3221225536LL;
-  v8 = *(_QWORD *)v6;
-  v9 = a2->QuadPart + 4095;
-  DWORD2(v27[0]) = 16;
-  v10 = v9 >> 12;
-  MiLockControlAreaSectionExtend(v6, (__int64)v27);
-  if ( (*(_DWORD *)(v7 + 56) & 0x8000) == 0 )
+  if ( a2->QuadPart <= 0x3FFFFFFFFFF000uLL )
   {
-    v24 = *(_QWORD *)(a1 + 48);
-    if ( a2->QuadPart <= v24 )
+    v8 = *(_QWORD *)v6;
+    v9 = a2->QuadPart + 4095;
+    DWORD2(v23[0]) = 16;
+    v10 = v9 >> 12;
+    MiLockControlAreaSectionExtend(v6, (__int64)v23);
+    if ( (*(_DWORD *)(v7 + 56) & 0x8000) == 0 )
     {
-      a2->QuadPart = v24;
-      MiUnlockControlAreaSectionExtend(v7, (__int64)v27);
-      return 0LL;
+      v22 = *(_QWORD *)(a1 + 48);
+      if ( a2->QuadPart <= v22 )
+      {
+        a2->QuadPart = v22;
+        MiUnlockControlAreaSectionExtend(v7, (__int64)v23);
+        return 0LL;
+      }
     }
-  }
-  if ( !a3 )
-  {
-    MiUnlockControlAreaSectionExtend(v7, (__int64)v27);
-    BugCheckParameter2 = MiReferenceControlAreaFile(v7);
-    DWORD2(v27[0]) = 32;
-    v17 = (struct _FILE_OBJECT *)BugCheckParameter2;
-    MiLockControlAreaSectionExtend(v7, (__int64)v27);
-    v18 = FsRtlGetFileSize(v17, &FileSize);
-    if ( v18 < 0 )
-    {
-      v25 = BugCheckParameter2;
-    }
-    else
+    if ( a3 )
+      goto LABEL_6;
+    MiUnlockControlAreaSectionExtend(v7, (__int64)v23);
+    v17 = MiReferenceControlAreaFile(v7);
+    DWORD2(v23[0]) = 32;
+    v18 = (struct _FILE_OBJECT *)v17;
+    MiLockControlAreaSectionExtend(v7, (__int64)v23);
+    v11 = FsRtlGetFileSize(v18, &FileSize);
+    if ( v11 >= 0 )
     {
       if ( a2->QuadPart <= (unsigned __int64)FileSize.QuadPart )
       {
-LABEL_20:
+LABEL_18:
         if ( *(_QWORD *)(v8 + 32) )
         {
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->SpecialApcDisable;
-          v20 = KeAbPreAcquire((__int64)&qword_140C65650, 0LL);
-          v21 = v20;
-          if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140C65650, 0LL) )
-            ExfAcquirePushLockExclusiveEx(&qword_140C65650, v20, (__int64)&qword_140C65650);
+          ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4C990, 0LL);
+          v21 = *(LARGE_INTEGER **)(v8 + 32);
           if ( v21 )
-            *(_BYTE *)(v21 + 18) = 1;
-          v22 = *(LARGE_INTEGER **)(v8 + 32);
-          if ( v22 )
-            *v22 = FileSize;
-          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C65650, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C65650);
-          KeAbPostRelease((ULONG_PTR)&qword_140C65650);
-          v23 = CurrentThread->SpecialApcDisable++ == -1;
-          if ( v23
-            && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+            *v21 = FileSize;
+          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4C990, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+            ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C4C990);
+          KeAbPostRelease((ULONG_PTR)&qword_140C4C990);
+          KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+        }
+        MiUnlockControlAreaSectionExtend(v7, (__int64)v23);
+        MiDereferenceControlAreaFile(v7, (unsigned __int64)v18);
+        DWORD2(v23[0]) = 16;
+        MiLockControlAreaSectionExtend(v7, (__int64)v23);
+LABEL_6:
+        v11 = 0;
+        BugCheckParameter2 = 0LL;
+        LastSubsection = MiFindLastSubsection(v7, 0);
+        v13 = *(unsigned int *)(v8 + 8) | ((unsigned __int64)(*(_WORD *)(v8 + 12) & 0x3FF) << 32);
+        if ( v10 <= v13 )
+        {
+          *(LARGE_INTEGER *)(a1 + 48) = *a2;
+          if ( (unsigned __int64)_InterlockedCompareExchange64((volatile signed __int64 *)(v8 + 24), -1LL, -1LL) < a2->QuadPart )
           {
-            KiCheckForKernelApcDelivery();
+            _InterlockedExchange64((volatile __int64 *)(v8 + 24), a2->QuadPart);
+            MiUpdateLastSubsectionSize(LastSubsection, a2, 0);
           }
         }
-        MiUnlockControlAreaSectionExtend(v7, (__int64)v27);
-        MiDereferenceControlAreaFile(v7, BugCheckParameter2);
-        DWORD2(v27[0]) = 16;
-        MiLockControlAreaSectionExtend(v7, (__int64)v27);
-        goto LABEL_6;
+        else
+        {
+          v14 = v10 - v13;
+          if ( v14 <= (*(_DWORD *)(LastSubsection + 52) & 0x3FFFFFFFu) )
+          {
+            if ( MiControlAreaUsingExtents(v7) && *(_QWORD *)(LastSubsection + 8) )
+            {
+              MiSubsectionNeedsExtents((_DWORD *)LastSubsection);
+              BugCheckParameter2 = LastSubsection;
+            }
+            updated = MiUpdateLastSubsectionSize(LastSubsection, a2, v14);
+          }
+          else
+          {
+            updated = MiExtendSection(
+                        LastSubsection,
+                        (_DWORD)a2,
+                        *(_DWORD *)(LastSubsection + 52) & 0x3FFFFFFF,
+                        (unsigned int)v14 - (*(_DWORD *)(LastSubsection + 52) & 0x3FFFFFFF),
+                        (__int64)&BugCheckParameter2);
+          }
+          v11 = updated;
+          if ( updated >= 0 )
+          {
+            v11 = 0;
+            _InterlockedExchange64((volatile __int64 *)(v8 + 24), a2->QuadPart);
+            *(LARGE_INTEGER *)(a1 + 48) = *a2;
+          }
+        }
+        MiUnlockControlAreaSectionExtend(v7, (__int64)v23);
+        if ( BugCheckParameter2 )
+          return (unsigned int)MiUpdateActiveSubsection((_QWORD *)BugCheckParameter2);
+        return (unsigned int)v11;
       }
-      v25 = BugCheckParameter2;
       if ( (*(_DWORD *)(a1 + 60) & 0x44) != 0 )
       {
         FileSize = *a2;
-        v26 = FsRtlSetFileSize((PFILE_OBJECT)BugCheckParameter2);
-        if ( v26 >= 0 )
-          goto LABEL_20;
-        v18 = v26;
+        v19 = FsRtlSetFileSize(v18);
+        if ( v19 >= 0 )
+          goto LABEL_18;
+        v11 = v19;
       }
       else
       {
-        v18 = -1073741689;
+        v11 = -1073741689;
       }
     }
-    MiUnlockControlAreaSectionExtend(v7, (__int64)v27);
-    MiDereferenceControlAreaFile(v7, v25);
-    return (unsigned int)v18;
+    MiUnlockControlAreaSectionExtend(v7, (__int64)v23);
+    MiDereferenceControlAreaFile(v7, (unsigned __int64)v18);
+    return (unsigned int)v11;
   }
-LABEL_6:
-  v11 = 0;
-  BugCheckParameter2 = 0LL;
-  LastSubsection = MiFindLastSubsection(v7, 0);
-  v13 = *(unsigned int *)(v8 + 8) | ((unsigned __int64)(*(_WORD *)(v8 + 12) & 0x3FF) << 32);
-  if ( v10 <= v13 )
-  {
-    *(LARGE_INTEGER *)(a1 + 48) = *a2;
-    if ( (unsigned __int64)_InterlockedCompareExchange64((volatile signed __int64 *)(v8 + 24), -1LL, -1LL) < a2->QuadPart )
-    {
-      _InterlockedExchange64((volatile __int64 *)(v8 + 24), a2->QuadPart);
-      MiUpdateLastSubsectionSize(LastSubsection, a2, 0);
-    }
-  }
-  else
-  {
-    v14 = v10 - v13;
-    if ( v14 <= (*(_DWORD *)(LastSubsection + 52) & 0x3FFFFFFFu) )
-    {
-      if ( (*(_BYTE *)(v7 + 62) & 0xC) != 0 && *(_QWORD *)(LastSubsection + 8) )
-      {
-        MiSubsectionNeedsExtents((_DWORD *)LastSubsection);
-        BugCheckParameter2 = LastSubsection;
-      }
-      updated = MiUpdateLastSubsectionSize(LastSubsection, a2, v14);
-    }
-    else
-    {
-      updated = MiExtendSection(
-                  LastSubsection,
-                  (_DWORD)a2,
-                  *(_DWORD *)(LastSubsection + 52) & 0x3FFFFFFF,
-                  (unsigned int)v14 - (*(_DWORD *)(LastSubsection + 52) & 0x3FFFFFFF),
-                  (__int64)&BugCheckParameter2);
-    }
-    v11 = updated;
-    if ( updated >= 0 )
-    {
-      v11 = 0;
-      _InterlockedExchange64((volatile __int64 *)(v8 + 24), a2->QuadPart);
-      *(LARGE_INTEGER *)(a1 + 48) = *a2;
-    }
-  }
-  MiUnlockControlAreaSectionExtend(v7, (__int64)v27);
-  if ( BugCheckParameter2 )
-    return (unsigned int)MiUpdateActiveSubsection((_QWORD *)BugCheckParameter2);
-  return v11;
+  return 3221225536LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmiDevicesRundown @ 0x14087D5AC
+ * XREFs of TtmiDevicesRundown @ 0x14087D58C
  * Callers:
- *     TtmiSessionsRundown @ 0x140880274 (TtmiSessionsRundown.c)
+ *     TtmiSessionsRundown @ 0x140880254 (TtmiSessionsRundown.c)
  * Callees:
- *     TtmiLogDeviceRundown @ 0x140883924 (TtmiLogDeviceRundown.c)
+ *     TtmiLogDeviceRundown @ 0x140883904 (TtmiLogDeviceRundown.c)
  */
 
 __int64 __fastcall TtmiDevicesRundown(int *a1)

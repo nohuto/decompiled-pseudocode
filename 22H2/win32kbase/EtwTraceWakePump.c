@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwTraceWakePump @ 0x1C00573C0
+ * XREFs of EtwTraceWakePump @ 0x1C00462A0
  * Callers:
- *     ?DetectAndApplyMouseMovePostStrategy@CMouseProcessor@@AEAAXAEBVCInputDest@@AEBUtagLOGICALPOINT@@AEBVCMoveEvent@1@PEAU_mouseCursorEvent@@@Z @ 0x1C0056FE0 (-DetectAndApplyMouseMovePostStrategy@CMouseProcessor@@AEAAXAEBVCInputDest@@AEBUtagLOGICALPOINT@@.c)
- *     ?UpdateGlobalCursorOwner@CMouseProcessor@@QEAAXAEBVCInputDest@@AEBUtagPOINT@@PEBUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00575D0 (-UpdateGlobalCursorOwner@CMouseProcessor@@QEAAXAEBVCInputDest@@AEBUtagPOINT@@PEBUtagINPUT_MESSAG.c)
+ *     ?DetectAndApplyMouseMovePostStrategy@CMouseProcessor@@AEAAXAEBVCInputDest@@AEBUtagLOGICALPOINT@@AEBVCMoveEvent@1@PEAU_mouseCursorEvent@@@Z @ 0x1C0045EF8 (-DetectAndApplyMouseMovePostStrategy@CMouseProcessor@@AEAAXAEBVCInputDest@@AEBUtagLOGICALPOINT@@.c)
+ *     ?UpdateGlobalCursorOwner@CMouseProcessor@@QEAAXAEBVCInputDest@@AEBUtagPOINT@@PEBUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004657C (-UpdateGlobalCursorOwner@CMouseProcessor@@QEAAXAEBVCInputDest@@AEBUtagPOINT@@PEBUtagINPUT_MESSAG.c)
  * Callees:
- *     ?GetCallbackCount@@YACXZ @ 0x1C00DEF46 (-GetCallbackCount@@YACXZ.c)
- *     McTemplateK0cppppqq_EtwWriteTransfer @ 0x1C00DF44A (McTemplateK0cppppqq_EtwWriteTransfer.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     McTemplateK0cppppqq_EtwWriteTransfer @ 0x1C0124BB4 (McTemplateK0cppppqq_EtwWriteTransfer.c)
  */
 
 void __fastcall EtwTraceWakePump(char a1, __int64 *a2, char a3)
 {
   __int64 v5; // rbx
-  int v6; // r9d
-  int v7; // ecx
-  int v8; // r8d
+  int v6; // ecx
+  int v7; // r8d
+  int v8; // r9d
 
   if ( (Microsoft_Windows_Win32kEnableBits & 0x800) != 0 )
   {
@@ -21,7 +21,10 @@ void __fastcall EtwTraceWakePump(char a1, __int64 *a2, char a3)
       v5 = *a2;
     else
       LOBYTE(v5) = 0;
-    LOBYTE(v6) = GetCallbackCount();
-    McTemplateK0cppppqq_EtwWriteTransfer(v7, (unsigned int)&WakePump, v8, v6, a1, v5, 0, 0, a3, 0);
+    if ( W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) )
+      LOBYTE(v8) = *(_BYTE *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1248);
+    else
+      LOBYTE(v8) = -1;
+    McTemplateK0cppppqq_EtwWriteTransfer(v6, (unsigned int)&WakePump, v7, v8, a1, v5, 0, 0, a3, 0);
   }
 }

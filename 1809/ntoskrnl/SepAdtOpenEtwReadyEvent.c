@@ -1,10 +1,10 @@
 /*
- * XREFs of SepAdtOpenEtwReadyEvent @ 0x14073718C
+ * XREFs of SepAdtOpenEtwReadyEvent @ 0x14073716C
  * Callers:
- *     SepRmCallLsa @ 0x14012FB20 (SepRmCallLsa.c)
+ *     SepRmCallLsa @ 0x14012FB40 (SepRmCallLsa.c)
  *     SepAdtInitializeAuditingOptions @ 0x1409C6290 (SepAdtInitializeAuditingOptions.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     NtCreateEvent @ 0x14062CF50 (NtCreateEvent.c)
  */
 

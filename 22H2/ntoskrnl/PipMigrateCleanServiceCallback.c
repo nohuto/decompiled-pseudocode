@@ -1,59 +1,62 @@
 /*
- * XREFs of PipMigrateCleanServiceCallback @ 0x140B953C0
+ * XREFs of PipMigrateCleanServiceCallback @ 0x140A90380
  * Callers:
  *     <none>
  * Callees:
- *     _PnpCtxRegDeleteTree @ 0x140812FDC (_PnpCtxRegDeleteTree.c)
- *     _PnpCtxRegOpenKey @ 0x140814D40 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKey @ 0x140814D7C (_PnpCtxRegEnumKey.c)
- *     _PnpCtxRegCloseKey @ 0x140876DE4 (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegQueryValue @ 0x140877BAC (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140877FDC (_PnpCtxRegQueryInfoKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _PnpCtxRegQueryValue @ 0x14069E104 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegCloseKey @ 0x1406B4684 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1406B95FC (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406F9E0C (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpCtxRegDeleteTree @ 0x1407AC568 (_PnpCtxRegDeleteTree.c)
+ *     _PnpCtxRegEnumKey @ 0x1407C4404 (_PnpCtxRegEnumKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PipMigrateCleanServiceCallback(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall PipMigrateCleanServiceCallback(__int64 a1, int a2, int a3)
 {
-  void *Pool2; // rbx
+  unsigned int *PoolWithTag; // rbx
   __int64 v5; // rcx
-  int v6; // esi
-  int v7; // edi
-  int v9; // [rsp+40h] [rbp-20h] BYREF
-  unsigned int v10; // [rsp+44h] [rbp-1Ch] BYREF
-  int v11; // [rsp+48h] [rbp-18h] BYREF
-  int v12; // [rsp+4Ch] [rbp-14h] BYREF
-  unsigned int v13; // [rsp+50h] [rbp-10h] BYREF
-  void *v14; // [rsp+58h] [rbp-8h] BYREF
+  unsigned int v6; // esi
+  ULONG v7; // edi
+  ULONG i; // r8d
+  unsigned int v10; // [rsp+40h] [rbp-20h] BYREF
+  int v11; // [rsp+44h] [rbp-1Ch] BYREF
+  int v12; // [rsp+48h] [rbp-18h] BYREF
+  int v13; // [rsp+4Ch] [rbp-14h] BYREF
+  unsigned int v14; // [rsp+50h] [rbp-10h] BYREF
+  void *v15; // [rsp+58h] [rbp-8h] BYREF
 
-  v14 = 0LL;
-  v9 = 0;
-  Pool2 = 0LL;
-  v12 = 0;
+  v15 = 0LL;
+  v10 = 0;
+  PoolWithTag = 0LL;
   v13 = 0;
-  v11 = 0;
-  if ( (int)PnpCtxRegOpenKey(a1, a2, a3, 0, 0xF003Fu, (__int64)&v14) >= 0 )
+  v14 = 0;
+  v12 = 0;
+  if ( (int)PnpCtxRegOpenKey(a1, a2, a3, 0, 983103, (__int64)&v15) >= 0 )
   {
-    v10 = 4;
-    if ( (int)PnpCtxRegQueryValue(v5, v14, L"Clean", &v9, &v11, &v10) >= 0 && v9 == 4 && v10 == 4 )
+    v11 = 4;
+    if ( (int)PnpCtxRegQueryValue(v5, v15, (__int64)L"Clean", (__int64)&v10, (__int64)&v12, (__int64)&v11) >= 0
+      && v10 == 4
+      && v11 == 4 )
     {
-      if ( v11 )
+      if ( v12 )
       {
-        if ( (int)PnpCtxRegQueryInfoKey(v5, v14, &v12, &v13, 0LL, 0LL, 0LL) >= 0 )
+        if ( (int)PnpCtxRegQueryInfoKey(v5, v15, &v13, &v14, 0LL, 0LL, 0LL) >= 0 )
         {
-          if ( v12 )
+          if ( v13 )
           {
-            v6 = v13 + 1;
-            Pool2 = (void *)ExAllocatePool2(256LL, 2LL * (v13 + 1), 0x6E697050u);
-            if ( Pool2 )
+            v6 = v14 + 1;
+            PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, 2LL * (v14 + 1), 0x6E697050u);
+            if ( PoolWithTag )
             {
               v7 = 0;
-              while ( 1 )
+              for ( i = 0; ; i = v7 )
               {
-                v9 = v6;
-                if ( (int)PnpCtxRegEnumKey(v5, v14) < 0 )
+                v10 = v6;
+                if ( (int)PnpCtxRegEnumKey(v5, v15, i, PoolWithTag, &v10) < 0 )
                   break;
-                if ( (int)PnpCtxRegDeleteTree(a1, (__int64)v14, (__int64)Pool2) >= 0 )
+                if ( (int)PnpCtxRegDeleteTree(a1, (char *)v15, (const WCHAR *)PoolWithTag) >= 0 )
                   v7 = 0;
                 else
                   ++v7;
@@ -64,9 +67,9 @@ __int64 __fastcall PipMigrateCleanServiceCallback(__int64 a1, __int64 a2, __int6
       }
     }
   }
-  if ( v14 )
-    PnpCtxRegCloseKey(v5, v14);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( v15 )
+    PnpCtxRegCloseKey(v5, v15);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   return 0LL;
 }

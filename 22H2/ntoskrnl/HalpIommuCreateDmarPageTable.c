@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuCreateDmarPageTable @ 0x1403804F8
+ * XREFs of HalpIommuCreateDmarPageTable @ 0x1404DB8FC
  * Callers:
- *     HalpIommuAllocateDmaDomain @ 0x1403A91BC (HalpIommuAllocateDmaDomain.c)
- *     HalpIommuConstructReservedPageTable @ 0x140A8AD6C (HalpIommuConstructReservedPageTable.c)
+ *     HalpIommuAllocateDmaDomain @ 0x1403B3818 (HalpIommuAllocateDmaDomain.c)
+ *     HalpIommuConstructReservedPageTable @ 0x1409A75E8 (HalpIommuConstructReservedPageTable.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x14037E158 (HalpMmAllocateMemoryInternal.c)
- *     HalpIommuInitializeDmarPageTable @ 0x14037FD88 (HalpIommuInitializeDmarPageTable.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BAC58 (HalpMmAllocateMemoryInternal.c)
+ *     HalpIommuInitializeDmarPageTable @ 0x1404DBBDC (HalpIommuInitializeDmarPageTable.c)
  */
 
 __int64 __fastcall HalpIommuCreateDmarPageTable(
@@ -15,40 +15,38 @@ __int64 __fastcall HalpIommuCreateDmarPageTable(
         unsigned int a2,
         unsigned int a3,
         __int64 a4,
-        int a5,
+        __int64 a5,
         __int64 a6,
-        char **a7)
+        __int64 *a7)
 {
   int v9; // r14d
-  char *MemoryInternal; // rax
-  __int64 v11; // r9
-  char *v12; // rbx
-  __int64 v13; // rcx
-  int v14; // edi
-  __int64 v15; // r8
-  __int64 v16; // r9
-  int v18; // [rsp+20h] [rbp-28h]
+  void *MemoryInternal; // rax
+  int v11; // r9d
+  __int64 v12; // rbx
+  __int64 v14; // rcx
+  int v15; // edi
+  int v16; // [rsp+20h] [rbp-28h]
 
   v9 = a1;
   if ( a6 )
-    MemoryInternal = (char *)HalpMmAllocateMemoryInternal(96, 1u);
+    MemoryInternal = (void *)HalpMmAllocateMemoryInternal(96, 1u);
   else
-    MemoryInternal = (char *)HalpMmAllocCtxAlloc(a1, 96LL);
-  v12 = MemoryInternal;
+    MemoryInternal = (void *)HalpMmAllocCtxAlloc(a1, 96LL);
+  v12 = (__int64)MemoryInternal;
   if ( !MemoryInternal )
     return 3221225626LL;
   if ( a3 > 6 || a2 < 2 || a3 < a2 )
     return 3221225485LL;
-  v14 = HalpIommuInitializeDmarPageTable(v9, a2, a3, v11, v18, a6, MemoryInternal);
-  if ( v14 < 0 )
+  v15 = HalpIommuInitializeDmarPageTable(v9, a2, a3, v11, v16, a6, MemoryInternal);
+  if ( v15 < 0 )
   {
     *a7 = 0LL;
     if ( !a6 )
-      HalpMmAllocCtxFree(v13, v12, v15, v16);
+      HalpMmAllocCtxFree(v14, v12);
   }
   else
   {
     *a7 = v12;
   }
-  return (unsigned int)v14;
+  return (unsigned int)v15;
 }

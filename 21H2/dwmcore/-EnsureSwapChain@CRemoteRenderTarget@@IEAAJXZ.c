@@ -1,162 +1,146 @@
 /*
- * XREFs of ?EnsureSwapChain@CRemoteRenderTarget@@IEAAJXZ @ 0x1800FE2A8
+ * XREFs of ?EnsureSwapChain@CRemoteRenderTarget@@IEAAJXZ @ 0x1800E4050
  * Callers:
- *     ?CheckOcclusionState@CRemoteRenderTarget@@UEAAJXZ @ 0x1800FE23C (-CheckOcclusionState@CRemoteRenderTarget@@UEAAJXZ.c)
+ *     ?CheckOcclusionState@CRemoteRenderTarget@@UEAAJXZ @ 0x1800E3FF0 (-CheckOcclusionState@CRemoteRenderTarget@@UEAAJXZ.c)
  * Callees:
- *     ?InternalGetDXGIOutput@CDisplayManager@@AEAAJIPEAUHMONITOR__@@PEAPEAUIDXGIOutputDWM@@@Z @ 0x18001E884 (-InternalGetDXGIOutput@CDisplayManager@@AEAAJIPEAUHMONITOR__@@PEAPEAUIDXGIOutputDWM@@@Z.c)
- *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18006ACA0 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x18007E4B0 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x1800A7C48 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
- *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E98E4 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?CreateLegacyRemotingSwapChain@CD3DDevice@@QEAAJPEAUIDXGIOutputDWM@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVILegacyRemotingSwapChain@@@Z @ 0x1800FE0C4 (-CreateLegacyRemotingSwapChain@CD3DDevice@@QEAAJPEAUIDXGIOutputDWM@@AEBUD2D_SIZE_U@@AEBUPixelFor.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Create@CDummyRemotingSwapChain@@KAJPEAUIDXGIOutputDWM@@PEAPEAVILegacyRemotingSwapChain@@@Z @ 0x1802895FC (-Create@CDummyRemotingSwapChain@@KAJPEAUIDXGIOutputDWM@@PEAPEAVILegacyRemotingSwapChain@@@Z.c)
+ *     ?InternalGetDXGIOutput@CDisplayManager@@AEAAJIPEAUHMONITOR__@@PEAPEAUIDXGIOutputDWM@@@Z @ 0x18002E2B4 (-InternalGetDXGIOutput@CDisplayManager@@AEAAJIPEAUHMONITOR__@@PEAPEAUIDXGIOutputDWM@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18005F200 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FAE0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x18005FB10 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x180079DA4 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
+ *     ?CreateLegacyRemotingSwapChain@CD3DDevice@@QEAAJPEBGAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVILegacyRemotingSwapChain@@@Z @ 0x1800E4244 (-CreateLegacyRemotingSwapChain@CD3DDevice@@QEAAJPEBGAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRen.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRemoteRenderTarget::EnsureSwapChain(CRemoteRenderTarget *this)
 {
   struct ILegacyRemotingSwapChain **v1; // rbx
   unsigned int v3; // edi
-  __int64 v4; // rcx
+  CDisplayManager *v4; // rcx
   int (__fastcall ***v5)(_QWORD); // rcx
   struct ILegacyRemotingSwapChain *v7; // rdx
-  struct IDXGIOutputDWM **v8; // r14
-  CDisplayManager *v9; // rcx
+  HMONITOR v8; // r8
   int DXGIOutput; // eax
-  CDeviceManager *v11; // rcx
-  __int64 v12; // rax
-  struct _LUID v13; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rcx
+  int v12; // eax
+  __int64 v13; // rcx
+  CDeviceManager *v14; // rcx
   int Device; // eax
-  __int64 v15; // rcx
-  struct ILegacyRemotingSwapChain *v16; // rdx
-  CD3DDevice *v17; // rbx
+  __int64 v16; // rcx
+  struct ILegacyRemotingSwapChain *v17; // rdx
+  CD3DDevice *v18; // rbx
   int LegacyRemotingSwapChain; // eax
-  __int64 v19; // rcx
-  CD3DDevice *v20; // rcx
-  __int64 v21; // rcx
-  struct ILegacyRemotingSwapChain *v22; // rdx
+  __int64 v20; // rcx
+  CD3DDevice *v21; // rcx
+  __int64 v22; // rcx
   __int64 v23; // rcx
-  int v24; // eax
-  __int64 v25; // rcx
-  __int64 v26; // rcx
-  unsigned int v27; // [rsp+20h] [rbp-48h]
-  struct ILegacyRemotingSwapChain **v28; // [rsp+28h] [rbp-40h]
-  CD3DDevice *v29; // [rsp+30h] [rbp-38h] BYREF
-  int v30; // [rsp+38h] [rbp-30h] BYREF
-  __int64 v31; // [rsp+3Ch] [rbp-2Ch]
+  struct ILegacyRemotingSwapChain **v24; // [rsp+28h] [rbp-D8h]
+  unsigned int v25; // [rsp+30h] [rbp-D0h] BYREF
+  CD3DDevice *v26; // [rsp+38h] [rbp-C8h] BYREF
+  __int128 v27; // [rsp+40h] [rbp-C0h] BYREF
+  char v28; // [rsp+50h] [rbp-B0h]
+  char v29[40]; // [rsp+60h] [rbp-A0h] BYREF
+  int v30; // [rsp+88h] [rbp-78h]
+  int v31; // [rsp+8Ch] [rbp-74h]
+  unsigned __int16 v32[42]; // [rsp+BCh] [rbp-44h] BYREF
 
-  v1 = (struct ILegacyRemotingSwapChain **)((char *)this + 168);
+  v1 = (struct ILegacyRemotingSwapChain **)((char *)this + 160);
   v3 = 0;
-  v4 = *((_QWORD *)this + 21);
-  if ( v4 )
+  v4 = (CDisplayManager *)*((_QWORD *)this + 20);
+  if ( !v4
+    || (v5 = (int (__fastcall ***)(_QWORD))((char *)v4 + *(int *)(*((_QWORD *)v4 + 1) + 12LL) + 8), (**v5)(v5) < 0) )
   {
-    v5 = (int (__fastcall ***)(_QWORD))(*(int *)(*(_QWORD *)(v4 + 8) + 12LL) + v4 + 8);
-    if ( (**v5)(v5) >= 0 && (!*((_BYTE *)this + 386) || *(_DWORD *)(*((_QWORD *)this + 2) + 1104LL) == 6) )
-      return v3;
-  }
-  v7 = *v1;
-  *v1 = 0LL;
-  if ( v7 )
-  {
-    v21 = (__int64)v7 + *(int *)(*((_QWORD *)v7 + 1) + 4LL) + 8;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v21 + 16LL))(v21);
-  }
-  v8 = (struct IDXGIOutputDWM **)((char *)this + 160);
-  wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((__int64 *)this + 20);
-  DXGIOutput = CDisplayManager::InternalGetDXGIOutput(
-                 v9,
-                 0,
-                 *((HMONITOR *)this + 24),
-                 (struct IDXGIOutputDWM **)this + 20);
-  LODWORD(v29) = DXGIOutput;
-  v3 = DXGIOutput;
-  if ( DXGIOutput < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v11, &dword_180347468, 2LL, DXGIOutput, 0x8Cu);
-    TranslateDXGIorD3DErrorInContext(v3, 4, &v29);
-    v3 = (unsigned int)v29;
-  }
-  if ( (v3 & 0x80000000) != 0 )
-  {
-    v27 = 349;
-    goto LABEL_33;
-  }
-  *((_DWORD *)this + 73) = *((_DWORD *)this + 48);
-  v12 = *((_QWORD *)this + 2);
-  *((_QWORD *)this + 37) = 0LL;
-  *((_BYTE *)this + 304) = 0;
-  if ( *(_DWORD *)(v12 + 1104) == 6 )
-  {
-    v22 = *v1;
+    v7 = *v1;
     *v1 = 0LL;
-    if ( v22 )
+    if ( v7 )
     {
-      v23 = (__int64)v22 + *(int *)(*((_QWORD *)v22 + 1) + 4LL) + 8;
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v23 + 16LL))(v23);
+      v22 = (__int64)v7 + *(int *)(*((_QWORD *)v7 + 1) + 4LL) + 8;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v22 + 16LL))(v22);
     }
-    v24 = CDummyRemotingSwapChain::Create(*v8, v1);
-    v3 = v24;
-    if ( v24 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0LL, v24, 0x16Bu);
-    else
-      *((_BYTE *)this + 386) = 1;
-    return v3;
-  }
-  if ( !*((_DWORD *)this + 26) || !*((_DWORD *)this + 27) )
-  {
-    v3 = -2147024809;
-    v27 = 385;
-LABEL_33:
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v11, 0LL, 0LL, v3, v27);
-    return v3;
-  }
-  v30 = 87;
-  v13 = *(struct _LUID *)((char *)this + 284);
-  v31 = 3LL;
-  v29 = 0LL;
-  Device = CDeviceManager::GetDevice(v11, v13, &v29);
-  v3 = Device;
-  if ( Device < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, Device, 0x175u);
-    v20 = v29;
-    if ( !v29 )
-      return v3;
-    goto LABEL_20;
-  }
-  v16 = *v1;
-  *v1 = 0LL;
-  if ( v16 )
-  {
-    v26 = (__int64)v16 + *(int *)(*((_QWORD *)v16 + 1) + 4LL) + 8;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v26 + 16LL))(v26);
-  }
-  v28 = v1;
-  v17 = v29;
-  LegacyRemotingSwapChain = CD3DDevice::CreateLegacyRemotingSwapChain(
-                              v29,
-                              *v8,
-                              (const struct D2D_SIZE_U *)this + 13,
-                              (const struct PixelFormatInfo *)&v30,
-                              (CRemoteRenderTarget *)((char *)this + 284),
-                              v28);
-  v3 = LegacyRemotingSwapChain;
-  if ( LegacyRemotingSwapChain < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0LL, LegacyRemotingSwapChain, 0x17Bu);
-  }
-  else
-  {
-    *((_BYTE *)this + 141) = 1;
-    *((_BYTE *)this + 386) = 0;
-  }
-  if ( v17 )
-  {
-    v20 = v17;
-LABEL_20:
-    CD3DDevice::Release(v20);
+    if ( *((_DWORD *)this + 20) && *((_DWORD *)this + 21) )
+    {
+      v8 = (HMONITOR)*((_QWORD *)this + 25);
+      v27 = (unsigned __int64)this + 152;
+      v26 = 0LL;
+      v28 = 1;
+      DXGIOutput = CDisplayManager::InternalGetDXGIOutput(v4, 0, v8, (struct IDXGIOutputDWM **)&v27 + 1);
+      v25 = DXGIOutput;
+      v3 = DXGIOutput;
+      if ( DXGIOutput < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v10, &dword_1802DD050, 2u, DXGIOutput, 0xBEu, 0LL);
+        TranslateDXGIorD3DErrorInContext(v3, 4, &v25);
+        v3 = v25;
+      }
+      if ( v28 )
+      {
+        v10 = *(_QWORD *)v27;
+        *(_QWORD *)v27 = *((_QWORD *)&v27 + 1);
+        if ( v10 )
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 16LL))(v10);
+      }
+      if ( (v3 & 0x80000000) != 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v3, 0x195u, 0LL);
+        return v3;
+      }
+      v11 = *((_QWORD *)this + 19);
+      LODWORD(v27) = 87;
+      *(_QWORD *)((char *)&v27 + 4) = 3LL;
+      v12 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v11 + 32LL))(v11, v29);
+      v3 = v12;
+      if ( v12 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x19Cu, 0LL);
+        return v3;
+      }
+      *((_DWORD *)this + 75) = v30;
+      *((_DWORD *)this + 76) = v31;
+      *((_DWORD *)this + 54) = *((_DWORD *)this + 50);
+      *(_QWORD *)((char *)this + 220) = 0LL;
+      *((_BYTE *)this + 228) = 0;
+      wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(&v26);
+      Device = CDeviceManager::GetDevice(v14, *(struct _LUID *)((char *)this + 208), &v26);
+      v3 = Device;
+      if ( Device < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, Device, 0x1A7u, 0LL);
+        v21 = v26;
+        if ( !v26 )
+          return v3;
+        goto LABEL_22;
+      }
+      v17 = *v1;
+      *v1 = 0LL;
+      if ( v17 )
+      {
+        v23 = (__int64)v17 + *(int *)(*((_QWORD *)v17 + 1) + 4LL) + 8;
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v23 + 16LL))(v23);
+      }
+      v24 = v1;
+      v18 = v26;
+      LegacyRemotingSwapChain = CD3DDevice::CreateLegacyRemotingSwapChain(
+                                  v26,
+                                  v32,
+                                  (const struct D2D_SIZE_U *)this + 10,
+                                  (const struct PixelFormatInfo *)&v27,
+                                  (CRemoteRenderTarget *)((char *)this + 208),
+                                  v24);
+      v3 = LegacyRemotingSwapChain;
+      if ( LegacyRemotingSwapChain < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, LegacyRemotingSwapChain, 0x1ADu, 0LL);
+      else
+        *((_BYTE *)this + 129) = 1;
+      if ( v18 )
+      {
+        v21 = v18;
+LABEL_22:
+        CD3DDevice::Release(v21);
+      }
+    }
   }
   return v3;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of VidSchResetFlipQueueTimeout @ 0x1C01059B4
+ * XREFs of VidSchResetFlipQueueTimeout @ 0x1C00CE254
  * Callers:
- *     VidSchiCheckHwProgress @ 0x1C00AE3E0 (VidSchiCheckHwProgress.c)
- *     VidSchRestartAdapter @ 0x1C0108320 (VidSchRestartAdapter.c)
+ *     VidSchiCheckHwProgress @ 0x1C007EFE0 (VidSchiCheckHwProgress.c)
+ *     VidSchRestartAdapter @ 0x1C00D1010 (VidSchRestartAdapter.c)
  * Callees:
- *     ?GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ @ 0x1C0018398 (-GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ.c)
+ *     ?GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ @ 0x1C0029F04 (-GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ.c)
  */
 
 void __fastcall VidSchResetFlipQueueTimeout(__int64 a1)
@@ -29,14 +29,11 @@ void __fastcall VidSchResetFlipQueueTimeout(__int64 a1)
       for ( i = -1; ; i = v5 + 1 )
       {
         v8 = i;
-        if ( i == *(_DWORD *)(v2 + 152) )
+        if ( i == *(_DWORD *)(v2 + 144) )
           break;
         FlipQueue = VIDSCH_FLIP_QUEUE_ITERATOR::GetFlipQueue((VIDSCH_FLIP_QUEUE_ITERATOR *)&v6);
         if ( FlipQueue )
-        {
           *(_DWORD *)FlipQueue &= ~1u;
-          *((_DWORD *)VIDSCH_FLIP_QUEUE_ITERATOR::GetFlipQueue((VIDSCH_FLIP_QUEUE_ITERATOR *)&v6) + 10) = 0;
-        }
       }
       ++v1;
     }

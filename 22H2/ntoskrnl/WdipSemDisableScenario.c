@@ -1,87 +1,88 @@
 /*
- * XREFs of WdipSemDisableScenario @ 0x140831AF8
+ * XREFs of WdipSemDisableScenario @ 0x140789250
  * Callers:
- *     WdipStartEndScenario @ 0x1407E5A1C (WdipStartEndScenario.c)
+ *     WdipStartEndScenario @ 0x14078946C (WdipStartEndScenario.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     WdipSemGetLoggerIds @ 0x1407E5C34 (WdipSemGetLoggerIds.c)
- *     WdipSemDeleteTransitionalInstance @ 0x1408318C0 (WdipSemDeleteTransitionalInstance.c)
- *     WdipSemMarkInstanceForDeletion @ 0x140831C3C (WdipSemMarkInstanceForDeletion.c)
- *     WdipSemDisableContextProviders @ 0x140831E8C (WdipSemDisableContextProviders.c)
- *     WdipSemWriteSemActionsEvent @ 0x1408320E8 (WdipSemWriteSemActionsEvent.c)
- *     WdipSemValidateEndEvent @ 0x1408342F0 (WdipSemValidateEndEvent.c)
- *     WdipSemActivateInstance @ 0x140862C70 (WdipSemActivateInstance.c)
- *     WdipSemShutdown @ 0x1409DDCA0 (WdipSemShutdown.c)
- *     WdipSemWriteSemFailureEvent @ 0x1409DE61C (WdipSemWriteSemFailureEvent.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     WdipSemDeleteTransitionalInstance @ 0x140788620 (WdipSemDeleteTransitionalInstance.c)
+ *     WdipSemWriteSemActionsEvent @ 0x1407886A4 (WdipSemWriteSemActionsEvent.c)
+ *     WdipSemMarkInstanceForDeletion @ 0x1407893A0 (WdipSemMarkInstanceForDeletion.c)
+ *     WdipSemGetLoggerIds @ 0x14078968C (WdipSemGetLoggerIds.c)
+ *     WdipSemActivateInstance @ 0x1407897AC (WdipSemActivateInstance.c)
+ *     WdipSemDisableContextProviders @ 0x140789800 (WdipSemDisableContextProviders.c)
+ *     WdipSemValidateEndEvent @ 0x140789EAC (WdipSemValidateEndEvent.c)
+ *     WdipSemShutdown @ 0x14092FE60 (WdipSemShutdown.c)
+ *     WdipSemWriteSemFailureEvent @ 0x140930800 (WdipSemWriteSemFailureEvent.c)
  */
 
 __int64 __fastcall WdipSemDisableScenario(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v7; // rdi
-  char v8; // si
+  _QWORD *v4; // rdi
+  char v5; // r14
   int LoggerIds; // ebx
   __int64 v10; // rax
   struct _KTHREAD *v12; // rax
 
   CurrentThread = KeGetCurrentThread();
-  v7 = 0LL;
-  v8 = 0;
+  v4 = 0LL;
+  v5 = 0;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockSharedEx((ULONG_PTR)&WdipSemPushLock, 0LL);
   if ( !a1 || !a3 )
   {
     LoggerIds = -1073741811;
-    goto LABEL_13;
+    goto LABEL_15;
   }
   if ( !WdipSemEnabled )
-    goto LABEL_12;
+    goto LABEL_14;
   LoggerIds = WdipSemGetLoggerIds();
   if ( LoggerIds < 0 )
   {
-    v8 = 1;
-    goto LABEL_13;
+    v5 = 1;
+    goto LABEL_8;
   }
   v10 = WdipSemMarkInstanceForDeletion(a3);
-  v7 = (_QWORD *)v10;
-  if ( v10 )
+  v4 = (_QWORD *)v10;
+  if ( !v10 )
   {
-    LoggerIds = WdipSemValidateEndEvent(a1, a2, *(_QWORD *)(v10 + 32));
-    if ( LoggerIds >= 0 )
-    {
-      WdipSemDisableContextProviders(v7, 0LL);
-      if ( EtwEventEnabled(WdipSemRegHandle, &WDI_SEM_EVENT_SCENARIO_END) )
-        WdipSemWriteSemActionsEvent(&WDI_SEM_EVENT_SCENARIO_END, v7);
-      WdipSemDeleteTransitionalInstance(v7);
-      goto LABEL_10;
-    }
-  }
-  else
-  {
-LABEL_12:
+LABEL_14:
     LoggerIds = -1073741823;
+    goto LABEL_15;
   }
-LABEL_13:
+  LoggerIds = WdipSemValidateEndEvent(a1, a2, *(_QWORD *)(v10 + 32));
+  if ( LoggerIds < 0 )
+    goto LABEL_15;
+  WdipSemDisableContextProviders(v4, 0LL);
+LABEL_8:
+  if ( LoggerIds >= 0 )
+  {
+    if ( EtwEventEnabled(WdipSemRegHandle, &WDI_SEM_EVENT_SCENARIO_END) )
+      WdipSemWriteSemActionsEvent((__int64)&WDI_SEM_EVENT_SCENARIO_END, (__int64)v4);
+    WdipSemDeleteTransitionalInstance(v4);
+    goto LABEL_12;
+  }
+LABEL_15:
   if ( EtwEventEnabled(WdipSemRegHandle, &WDI_SEM_EVENT_SCENARIO_END_FAILED) )
     WdipSemWriteSemFailureEvent((unsigned int)&WDI_SEM_EVENT_SCENARIO_END_FAILED, a1, a2, a3, LoggerIds);
-  if ( v7 )
-    WdipSemActivateInstance(v7);
-LABEL_10:
-  ExReleasePushLockEx((__int64 *)&WdipSemPushLock, 0LL);
-  KeLeaveCriticalRegion();
-  if ( v8 )
+  if ( v4 )
+    WdipSemActivateInstance(v4);
+LABEL_12:
+  ExReleasePushLockEx((ULONG_PTR)&WdipSemPushLock, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( v5 )
   {
     v12 = KeGetCurrentThread();
     --v12->KernelApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&WdipSemPushLock, 0LL);
     if ( WdipSemEnabled )
       WdipSemShutdown();
-    ExReleasePushLockEx((__int64 *)&WdipSemPushLock, 0LL);
-    KeLeaveCriticalRegion();
+    ExReleasePushLockEx((ULONG_PTR)&WdipSemPushLock, 0LL);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return (unsigned int)LoggerIds;
 }

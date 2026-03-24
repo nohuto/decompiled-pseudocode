@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpBlockHiveWrites @ 0x1407F06C0
+ * XREFs of CmpBlockHiveWrites @ 0x1407F06A0
  * Callers:
- *     CmpVEExecuteOpenLogic @ 0x14063C020 (CmpVEExecuteOpenLogic.c)
- *     CmpVEExecuteRealStoreParseLogic @ 0x1407F3A08 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x1407F3BD0 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVEExecuteOpenLogic @ 0x14063C000 (CmpVEExecuteOpenLogic.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x1407F39E8 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x1407F3BB0 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     CmpDeleteHive @ 0x1405AFDEC (CmpDeleteHive.c)

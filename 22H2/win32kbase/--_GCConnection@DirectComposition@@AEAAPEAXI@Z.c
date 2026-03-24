@@ -1,24 +1,23 @@
 /*
- * XREFs of ??_GCConnection@DirectComposition@@AEAAPEAXI@Z @ 0x1C0083E50
+ * XREFs of ??_GCConnection@DirectComposition@@AEAAPEAXI@Z @ 0x1C00AB69C
  * Callers:
- *     NtDCompositionBeginFrame @ 0x1C0021CE0 (NtDCompositionBeginFrame.c)
- *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C002602C (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
- *     NtDCompositionGetFrameStatistics @ 0x1C004BB10 (NtDCompositionGetFrameStatistics.c)
- *     DCompositionSessionUninitialize @ 0x1C0083D38 (DCompositionSessionUninitialize.c)
- *     NtDCompositionConfirmFrame @ 0x1C0085100 (NtDCompositionConfirmFrame.c)
- *     NtDCompositionGetConnectionBatch @ 0x1C008BB80 (NtDCompositionGetConnectionBatch.c)
- *     NtDCompositionGetFrameLegacyTokens @ 0x1C0090220 (NtDCompositionGetFrameLegacyTokens.c)
- *     NtDCompositionGetFrameSurfaceUpdates @ 0x1C0090510 (NtDCompositionGetFrameSurfaceUpdates.c)
+ *     NtDCompositionBeginFrame @ 0x1C0059D40 (NtDCompositionBeginFrame.c)
+ *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C005D370 (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
+ *     NtDCompositionGetFrameSurfaceUpdates @ 0x1C005D470 (NtDCompositionGetFrameSurfaceUpdates.c)
+ *     NtDCompositionGetFrameLegacyTokens @ 0x1C005D6A0 (NtDCompositionGetFrameLegacyTokens.c)
+ *     NtDCompositionGetConnectionBatch @ 0x1C007BF60 (NtDCompositionGetConnectionBatch.c)
+ *     NtDCompositionDiscardFrame @ 0x1C007FF50 (NtDCompositionDiscardFrame.c)
+ *     NtDCompositionRetireFrame @ 0x1C00800A0 (NtDCompositionRetireFrame.c)
+ *     DCompositionSessionUninitialize @ 0x1C00AB5BC (DCompositionSessionUninitialize.c)
  * Callees:
- *     ??1CConnection@DirectComposition@@AEAA@XZ @ 0x1C0083968 (--1CConnection@DirectComposition@@AEAA@XZ.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ??1CConnection@DirectComposition@@AEAA@XZ @ 0x1C00AB6C4 (--1CConnection@DirectComposition@@AEAA@XZ.c)
  */
 
 DirectComposition::CConnection *__fastcall DirectComposition::CConnection::`scalar deleting destructor'(
         DirectComposition::CConnection *this)
 {
   DirectComposition::CConnection::~CConnection(this);
-  if ( this )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, this);
+  Win32FreePool((__int64)this);
   return this;
 }

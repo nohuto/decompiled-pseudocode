@@ -1,65 +1,70 @@
 /*
- * XREFs of xxxLW_LoadFonts @ 0x1C00EE740
+ * XREFs of xxxLW_LoadFonts @ 0x1C00E6470
  * Callers:
- *     UserOnGreTextReady @ 0x1C00EE588 (UserOnGreTextReady.c)
- *     NtUserLW_LoadFonts @ 0x1C00EE700 (NtUserLW_LoadFonts.c)
+ *     UserOnGreTextReady @ 0x1C00E62DC (UserOnGreTextReady.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C001C5FC (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
- *     ?xxxLoadPermanentFonts@@YAHXZ @ 0x1C00EE81C (-xxxLoadPermanentFonts@@YAHXZ.c)
- *     ?xxxLoadUserAndNetworkFonts@@YAXXZ @ 0x1C00EEA3C (-xxxLoadUserAndNetworkFonts@@YAXXZ.c)
- *     xxxAddFontResourceW @ 0x1C00EEFCC (xxxAddFontResourceW.c)
- *     EngCloseFNTCache @ 0x1C00EF2AC (EngCloseFNTCache.c)
- *     ClientLoadLocalT1Fonts @ 0x1C00EF424 (ClientLoadLocalT1Fonts.c)
- *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C00EF5D4 (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
+ *     xxxAddFontResourceW @ 0x1C0021E04 (xxxAddFontResourceW.c)
+ *     ?xxxLoadUserAndNetworkFonts@@YAXXZ @ 0x1C0025DD8 (-xxxLoadUserAndNetworkFonts@@YAXXZ.c)
+ *     ?xxxLoadPermanentFonts@@YAHXZ @ 0x1C0025F30 (-xxxLoadPermanentFonts@@YAHXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C009B8E4 (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     EngCloseFNTCache @ 0x1C00E6540 (EngCloseFNTCache.c)
+ *     ClientLoadLocalT1Fonts @ 0x1C00E66B8 (ClientLoadLocalT1Fonts.c)
  */
 
 __int64 __fastcall xxxLW_LoadFonts(__int64 a1)
 {
   int v1; // edi
-  unsigned int v2; // edi
-  unsigned int Count; // eax
-  __int64 v5; // rcx
-  union _LARGE_INTEGER Interval; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  const unsigned __int16 *v4; // r8
+  const unsigned __int16 *v5; // r9
+  unsigned int v6; // edi
+  union _LARGE_INTEGER Interval; // [rsp+48h] [rbp+10h] BYREF
 
   v1 = a1;
   UserSessionSwitchLeaveCrit(a1);
   if ( UmfdHostLifeTimeManager::WaitForSessionRasterizerInitialization() < 0 )
   {
-    EnterCrit(1LL, 0LL);
+    EnterCrit(0LL, 1LL);
     return 0LL;
   }
   else
   {
-    EnterCrit(1LL, 0LL);
+    EnterCrit(0LL, 1LL);
     if ( v1 )
     {
       Interval.QuadPart = 0LL;
-      v2 = 0;
-      while ( !gbPermanentFontsLoaded )
+      v6 = 0;
+      if ( gbPermanentFontsLoaded )
       {
-        if ( gbNonServiceSession && v2 >= 0x960 )
-          goto LABEL_10;
-        Count = AtomicExecutionCheck::GetCount();
-        if ( Count )
-        {
-          if ( (gdwExtraInstrumentations & 1) != 0 )
-            KeBugCheckEx(0x160u, Count, 0LL, 0LL, 0LL);
-          DbgkWerCaptureLiveKernelDump(L"NTUSER", 400LL, 37LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
-        }
-        UserSessionSwitchLeaveCrit(v5);
-        Interval.QuadPart = -2500000LL;
-        KeDelayExecutionThread(0, 0, &Interval);
-        EnterCrit(1LL, 0LL);
-        ++v2;
+LABEL_8:
+        xxxLoadUserAndNetworkFonts(v3, v2, v4, v5);
       }
-      xxxLoadUserAndNetworkFonts();
-LABEL_10:
+      else
+      {
+        while ( !gbNonServiceSession || v6 < 0x960 )
+        {
+          if ( gdwInAtomicOperation )
+          {
+            v3 = gdwExtraInstrumentations;
+            if ( (gdwExtraInstrumentations & 1) != 0 )
+              KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+          }
+          UserSessionSwitchLeaveCrit(v3);
+          Interval.QuadPart = -2500000LL;
+          KeDelayExecutionThread(0, 0, &Interval);
+          EnterCrit(0LL, 1LL);
+          ++v6;
+          if ( gbPermanentFontsLoaded )
+            goto LABEL_8;
+        }
+      }
       gbNetworkFontsLoaded = 1;
     }
     else
     {
-      xxxAddFontResourceW(L"marlett.ttf");
+      xxxAddFontResourceW(L"marlett.ttf", 1, 0LL);
       if ( (unsigned int)xxxLoadPermanentFonts() && !gbPermanentT1FontsLoaded )
       {
         if ( gbPermanentFontsLoaded )

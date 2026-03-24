@@ -1,101 +1,71 @@
 /*
- * XREFs of NtUserAcquireIAMKey @ 0x1C00BB250
+ * XREFs of NtUserAcquireIAMKey @ 0x1C0134220
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserAcquireIAMKey(_QWORD *Address)
 {
-  int v2; // r8d
-  __int64 v3; // rdi
-  __int64 v4; // rdx
-  __int64 v5; // rax
-  int v6; // ebx
-  __int64 v7; // rdx
+  int v2; // ecx
+  __int64 v3; // r8
+  __int64 v4; // rdi
+  __int64 v5; // rdx
+  __int64 v6; // rax
+  int v7; // ebx
   __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  PDEVICE_OBJECT v12; // r9
-  bool v13; // cl
-  int v14; // edx
-  __int16 v15; // [rsp+30h] [rbp-28h]
+  int v10; // r9d
 
-  EnterCrit(0LL, 0LL);
-  v3 = *(_QWORD *)(gptiCurrent + 456LL);
-  v4 = *(_QWORD *)(v3 + 8);
-  v5 = *(_QWORD *)(v4 + 176);
-  v6 = 0;
-  if ( !v5 || !*(_QWORD *)(v4 + 168) )
+  EnterCrit(0LL, 1LL);
+  v4 = *(_QWORD *)(gptiCurrent + 456LL);
+  v5 = *(_QWORD *)(v4 + 8);
+  v6 = *(_QWORD *)(v5 + 176);
+  v7 = 0;
+  if ( !v6 || !*(_QWORD *)(v5 + 168) )
   {
-    v12 = WPP_GLOBAL_Control;
-    v13 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-       && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-       && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    LOBYTE(v2) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v13 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_41;
-    v14 = 26;
-    goto LABEL_40;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v10 = 20;
+      goto LABEL_16;
+    }
+    goto LABEL_17;
   }
-  if ( *(_QWORD *)(gptiCurrent + 424LL) != v5 )
+  if ( *(_QWORD *)(gptiCurrent + 424LL) != v6 )
   {
-    v12 = WPP_GLOBAL_Control;
-    v13 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-       && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-       && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    LOBYTE(v2) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v13 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_41;
-    v14 = 27;
-    goto LABEL_40;
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_17;
+    v10 = 21;
+LABEL_16:
+    LOBYTE(v5) = 4;
+    WPP_RECORDER_SF_(v2, v5, 2, v10, (__int64)&WPP_6c283040767a3b01506b934f69f549d7_Traceguids);
+    goto LABEL_17;
   }
-  if ( *(_QWORD *)(v3 + 288) )
+  if ( *(_QWORD *)(v4 + 288) )
   {
-    v12 = WPP_GLOBAL_Control;
-    v13 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-       && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-       && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    LOBYTE(v2) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v13 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_41;
-    v14 = 28;
-    goto LABEL_40;
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_17;
+    v10 = 22;
+    goto LABEL_16;
   }
-  if ( !*(_DWORD *)(v3 + 272) )
+  if ( !*(_DWORD *)(v4 + 272) )
   {
-    v12 = WPP_GLOBAL_Control;
-    v13 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-       && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-       && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    LOBYTE(v2) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v13 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_41;
-    v14 = 29;
-LABEL_40:
-    v15 = v14;
-    LOBYTE(v14) = v13;
-    WPP_RECORDER_AND_TRACE_SF_(
-      v12->AttachedDevice,
-      v14,
-      v2,
-      (_DWORD)v12,
-      4,
-      2,
-      v15,
-      (__int64)&WPP_154c990b78bb386e6b2cbfec85a60616_Traceguids);
-LABEL_41:
-    UserSetLastError(5LL);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v10 = 23;
+      goto LABEL_16;
+    }
+LABEL_17:
+    UserSetLastError(5LL, v5, v3);
     goto LABEL_7;
   }
   ProbeForWrite(Address, 8uLL, 4u);
-  *Address = *(_QWORD *)(v3 + 280);
-  *(_DWORD *)(v3 + 272) = 0;
-  *(_QWORD *)(v3 + 288) = gptiCurrent;
-  v6 = 1;
+  *Address = *(_QWORD *)(v4 + 280);
+  *(_DWORD *)(v4 + 272) = 0;
+  *(_QWORD *)(v4 + 288) = gptiCurrent;
+  v7 = 1;
 LABEL_7:
-  UserSessionSwitchLeaveCrit(v8, v7, v9, v10);
-  return v6;
+  UserSessionSwitchLeaveCrit(v8);
+  return v7;
 }

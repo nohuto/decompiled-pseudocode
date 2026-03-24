@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAtom@CSwapChainProp@@MEAAGXZ @ 0x1C0123CE0
+ * XREFs of ?GetAtom@CSwapChainProp@@MEAAGXZ @ 0x1C0137B50
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CSwapChainProp::GetAtom(CSwapChainProp *this)
 {
-  return WORD2(WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+  return WORD2(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc);
 }

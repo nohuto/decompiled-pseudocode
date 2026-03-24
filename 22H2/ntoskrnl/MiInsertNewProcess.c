@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInsertNewProcess @ 0x14029266C
+ * XREFs of MiInsertNewProcess @ 0x140355B48
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x140705F00 (MmCreateProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess @ 0x14085D578 (MmInitializeHandBuiltProcess.c)
+ *     MmCreateProcessAddressSpace @ 0x1406FDDB4 (MmCreateProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess @ 0x1407CEF24 (MmInitializeHandBuiltProcess.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiInsertNewProcess(_QWORD *a1, __int64 a2)
@@ -23,15 +23,15 @@ __int64 __fastcall MiInsertNewProcess(_QWORD *a1, __int64 a2)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140C698C0, &LockHandle);
-  v4 = (_QWORD *)qword_140C65B20;
+  KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
+  v4 = (_QWORD *)qword_140C4DE30;
   v5 = a1 + 248;
-  if ( *(__int64 **)qword_140C65B20 != &qword_140C65B18 )
+  if ( *(__int64 **)qword_140C4DE30 != &qword_140C4DE28 )
     goto LABEL_7;
-  *v5 = &qword_140C65B18;
+  *v5 = &qword_140C4DE28;
   a1[249] = v4;
   *v4 = v5;
-  qword_140C65B20 = (__int64)(a1 + 248);
+  qword_140C4DE30 = (__int64)(a1 + 248);
   if ( a2 )
   {
     v6 = *(_QWORD **)(a2 + 24);
@@ -48,23 +48,24 @@ LABEL_7:
     __fastfail(3u);
   }
 LABEL_5:
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  result = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && LockHandle.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v12 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v12 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

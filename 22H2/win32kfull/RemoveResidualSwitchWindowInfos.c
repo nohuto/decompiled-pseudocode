@@ -1,10 +1,10 @@
 /*
- * XREFs of RemoveResidualSwitchWindowInfos @ 0x1C013BE00
+ * XREFs of RemoveResidualSwitchWindowInfos @ 0x1C0168DC0
  * Callers:
  *     <none>
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?SwitchWndCleanup@@YAXPEAPEAUtagSwitchWndInfo@@@Z @ 0x1C01C9428 (-SwitchWndCleanup@@YAXPEAPEAUtagSwitchWndInfo@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?SwitchWndCleanup@@YAXPEAPEAUtagSwitchWndInfo@@@Z @ 0x1C01F2A5C (-SwitchWndCleanup@@YAXPEAPEAUtagSwitchWndInfo@@@Z.c)
  */
 
 struct tagSwitchWndInfo *RemoveResidualSwitchWindowInfos()
@@ -15,7 +15,7 @@ struct tagSwitchWndInfo *RemoveResidualSwitchWindowInfos()
   if ( gpswiFirst )
   {
     LODWORD(v1) = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 1222LL);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 1220LL);
     while ( 1 )
     {
       result = gpswiFirst;

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_PenTapped_ReportUsage @ 0x1C00D40B4
+ * XREFs of Feature_PenTapped_ReportUsage @ 0x1C00CCB38
  * Callers:
- *     ?_Report@PalmTelemetry@@AEAAXK@Z @ 0x1C01B1588 (-_Report@PalmTelemetry@@AEAAXK@Z.c)
+ *     ?_Report@PalmTelemetry@@AEAAXK@Z @ 0x1C0180D8C (-_Report@PalmTelemetry@@AEAAXK@Z.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C012DA74 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0114434 (wil_details_FeatureReporting_ReportUsageToService.c)
  */
 
 __int64 Feature_PenTapped_ReportUsage()

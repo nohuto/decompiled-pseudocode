@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxReleasePowerIrp @ 0x1403B4E2C
+ * XREFs of PopFxReleasePowerIrp @ 0x1403A4D14
  * Callers:
- *     PopFreeIrp @ 0x1403A4DCC (PopFreeIrp.c)
+ *     PopFreeIrp @ 0x14037AA7C (PopFreeIrp.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     PopRequestPowerIrp @ 0x1403A3C90 (PopRequestPowerIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     PopRequestPowerIrp @ 0x14036DD20 (PopRequestPowerIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopFxReleasePowerIrp(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall PopFxReleasePowerIrp(__int64 a1)
   __int64 v3; // r15
   __int64 v4; // r12
   __int64 v5; // r13
-  ULONG v6; // ebx
+  int v6; // ebx
   signed __int32 v7; // eax
   signed __int32 v8; // ett
   char v9; // r14

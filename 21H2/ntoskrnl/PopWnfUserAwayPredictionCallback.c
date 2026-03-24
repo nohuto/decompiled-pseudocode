@@ -1,12 +1,12 @@
 /*
- * XREFs of PopWnfUserAwayPredictionCallback @ 0x14098CBC0
+ * XREFs of PopWnfUserAwayPredictionCallback @ 0x1408E41F0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueryWnfStateData @ 0x1407EEE10 (ExQueryWnfStateData.c)
- *     PopUpdateSmartUserPresencePredictions @ 0x14099D0FC (PopUpdateSmartUserPresencePredictions.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     ExQueryWnfStateData @ 0x1406BB180 (ExQueryWnfStateData.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x1408F570C (PopUpdateSmartUserPresencePredictions.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopWnfUserAwayPredictionCallback(__int64 a1)

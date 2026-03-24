@@ -1,111 +1,115 @@
 /*
- * XREFs of MmGetPageFileInformation @ 0x1408752E0
+ * XREFs of MmGetPageFileInformation @ 0x1406A1644
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     MiPartitionObjectToPartition @ 0x1402F8AA4 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     PsDereferencePartition @ 0x140303F4C (PsDereferencePartition.c)
+ *     MiPartitionObjectToPartition @ 0x1403574E0 (MiPartitionObjectToPartition.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall MmGetPageFileInformation(__int64 a1, __int64 a2, unsigned int a3, int a4, unsigned int *a5)
 {
-  unsigned int v6; // r12d
-  unsigned int *v7; // r13
-  void ***v8; // rax
-  void ***v9; // r14
+  unsigned int v6; // r13d
+  unsigned int *v7; // rbx
+  ULONG_PTR *v8; // rax
+  ULONG_PTR *v9; // r15
   unsigned int v10; // eax
-  unsigned int v11; // r15d
-  unsigned int v12; // esi
-  __int64 v13; // rbx
-  void **v14; // r9
-  unsigned int v15; // r8d
-  int v16; // edx
-  int v17; // eax
-  int v18; // ecx
-  int v19; // r11d
-  int v20; // r9d
-  unsigned __int64 v21; // rcx
-  unsigned int v22; // ebx
-  unsigned int v24; // [rsp+2Ch] [rbp-6Ch]
-  unsigned __int64 v26; // [rsp+38h] [rbp-60h]
-  __int128 v27; // [rsp+48h] [rbp-50h]
-  __int64 v28; // [rsp+A0h] [rbp+8h] BYREF
-  __int64 v29; // [rsp+A8h] [rbp+10h]
-  unsigned int v30; // [rsp+B0h] [rbp+18h]
-  int v31; // [rsp+B8h] [rbp+20h]
+  unsigned int v11; // r12d
+  unsigned int v12; // r14d
+  __int64 v13; // rsi
+  ULONG_PTR v14; // rax
+  unsigned int v15; // ecx
+  unsigned int v16; // edx
+  unsigned int v17; // r9d
+  int v18; // r14d
+  int v19; // r10d
+  int v20; // r11d
+  unsigned int v21; // r9d
+  unsigned __int64 v22; // rbx
+  unsigned int v23; // ebx
+  unsigned int v25; // [rsp+28h] [rbp-70h]
+  unsigned int v26; // [rsp+30h] [rbp-68h]
+  __int128 v28; // [rsp+48h] [rbp-50h]
+  __int64 v29; // [rsp+A0h] [rbp+8h] BYREF
+  __int64 v30; // [rsp+A8h] [rbp+10h]
+  unsigned int v31; // [rsp+B0h] [rbp+18h]
+  int v32; // [rsp+B8h] [rbp+20h]
 
-  v31 = a4;
-  v30 = a3;
-  v29 = a2;
-  v28 = a1;
-  LOBYTE(v28) = 0;
+  v32 = a4;
+  v31 = a3;
+  v30 = a2;
+  v29 = a1;
+  LOBYTE(v29) = 0;
   v6 = a4 != 0 ? 40 : 32;
   v7 = a5;
   *a5 = 0;
-  v8 = MiPartitionObjectToPartition((void **)0xFFFFFFFFFFFFFFFFLL, 0, &v28);
+  v8 = MiPartitionObjectToPartition((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, 0, &v29);
   v9 = v8;
   if ( !v8 )
     return 3221226656LL;
-  v10 = *((_DWORD *)v8 + 4262);
-  v24 = v10;
+  v10 = *((_DWORD *)v8 + 1734);
+  v26 = v10;
   *(_DWORD *)(a2 + 4) = 0;
   v11 = 0;
   v12 = 0;
   v13 = a2;
   while ( v11 < v10 )
   {
-    v14 = v9[v11 + 2132];
-    if ( (*((_BYTE *)v14 + 204) & 0x50) == 0 )
+    v14 = v9[v11 + 868];
+    if ( (*(_BYTE *)(v14 + 204) & 0x50) == 0 )
     {
-      v13 = v29 + v12;
-      v15 = v6 + v12;
-      if ( v6 + v12 <= v12 || v15 > v30 )
+      v13 = v30 + v12;
+      v15 = v12 + v6;
+      if ( v12 + v6 <= v12 || v15 > v31 )
       {
         *v7 = v15;
-        v22 = -1073741820;
-        goto LABEL_17;
+        v23 = -1073741820;
+        goto LABEL_18;
       }
       v16 = *(_DWORD *)v14;
-      v17 = *((_DWORD *)v14 + 6);
-      v18 = *((_DWORD *)v14 + 8);
-      v19 = *((_DWORD *)v14 + 4);
-      v20 = *((_DWORD *)v14 + 2);
+      v17 = *(_DWORD *)(v14 + 24);
+      v18 = *(_DWORD *)(v14 + 32);
+      v19 = *(_DWORD *)(v14 + 16);
+      v20 = *(_DWORD *)(v14 + 8);
+      while ( v17 >= v16 )
+        ;
       *(_DWORD *)(v13 + 4) = v16;
       *(_DWORD *)(v13 + 8) = v16 - v17 - 2;
       *(_DWORD *)(v13 + 12) = v18;
-      if ( v31 )
+      if ( v32 )
       {
         *(_DWORD *)(v13 + 32) = v19;
         *(_DWORD *)(v13 + 36) = v20;
       }
-      WORD3(v27) = 0;
-      v21 = *((unsigned __int16 *)v9[v11 + 2132] + 48);
-      v26 = v21;
-      LOWORD(v27) = *((_WORD *)v9[v11 + 2132] + 48);
-      *(_DWORD *)((char *)&v27 + 2) = (unsigned __int16)(v21 + 2);
-      *((_QWORD *)&v27 + 1) = v13 + v6;
-      *(_OWORD *)(v13 + 16) = v27;
-      LODWORD(a5) = (*(_DWORD *)((char *)&v27 + 2) + 7) & 0xFFFFFFF8;
-      v12 = (_DWORD)a5 + v15;
-      if ( (unsigned int)a5 + v15 <= v15 || v12 > v30 )
+      WORD3(v28) = 0;
+      v21 = *(unsigned __int16 *)(v9[v11 + 868] + 96);
+      LOWORD(v28) = v21;
+      *(_DWORD *)((char *)&v28 + 2) = (unsigned __int16)(v21 + 2);
+      *((_QWORD *)&v28 + 1) = v13 + v6;
+      *(_OWORD *)(v13 + 16) = v28;
+      v25 = (*(_DWORD *)((char *)&v28 + 2) + 7) & 0xFFFFFFF8;
+      v12 = v25 + v15;
+      if ( v25 + v15 > v31 || v12 <= v15 )
       {
         *v7 = v12;
-        v22 = -1073741820;
-        goto LABEL_17;
+        v23 = -1073741820;
+        goto LABEL_18;
       }
-      memmove((void *)(v13 + v6), v9[v11 + 2132][13], (unsigned int)v21);
-      *(_WORD *)(*((_QWORD *)&v27 + 1) + 2 * (v26 >> 1)) = 0;
-      *(_DWORD *)v13 = v6 + (_DWORD)a5;
+      v22 = v21;
+      memmove((void *)(v13 + v6), *(const void **)(v9[v11 + 868] + 104), v21);
+      *(_WORD *)(*((_QWORD *)&v28 + 1) + 2 * (v22 >> 1)) = 0;
+      *(_DWORD *)v13 = v6 + v25;
+      v7 = a5;
     }
     ++v11;
-    v10 = v24;
+    v10 = v26;
   }
   *(_DWORD *)v13 = 0;
   *v7 = v12;
-  v22 = 0;
-LABEL_17:
-  if ( (_BYTE)v28 )
-    PsDereferencePartition((__int64)v9[25]);
-  return v22;
+  v23 = 0;
+LABEL_18:
+  if ( (_BYTE)v29 )
+    PsDereferencePartition(v9[22]);
+  return v23;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of CcMmLogLostDelayedWriteError @ 0x140537924
+ * XREFs of CcMmLogLostDelayedWriteError @ 0x1404EA508
  * Callers:
- *     CcWriteBehindPostProcess @ 0x14029AF18 (CcWriteBehindPostProcess.c)
- *     MiLdwPopupWorker @ 0x140A2F8A0 (MiLdwPopupWorker.c)
+ *     CcWriteBehindInternal @ 0x14022D3E0 (CcWriteBehindInternal.c)
+ *     MiLdwPopupWorker @ 0x1408C7AA0 (MiLdwPopupWorker.c)
  * Callees:
- *     IoQueryFileDosDeviceName @ 0x14075ADD0 (IoQueryFileDosDeviceName.c)
- *     FsRtlLogCcFlushError @ 0x14093D190 (FsRtlLogCcFlushError.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     IoQueryFileDosDeviceName @ 0x140620880 (IoQueryFileDosDeviceName.c)
+ *     FsRtlLogCcFlushError @ 0x14088AE40 (FsRtlLogCcFlushError.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall CcMmLogLostDelayedWriteError(struct _FILE_OBJECT *a1, NTSTATUS a2)

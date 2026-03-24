@@ -1,32 +1,32 @@
 /*
- * XREFs of AslStringAnsiToUnicode @ 0x140A53E14
+ * XREFs of AslStringAnsiToUnicode @ 0x1409678D4
  * Callers:
- *     AslpFileGet16BitDescription @ 0x140A57B98 (AslpFileGet16BitDescription.c)
- *     AslpFileGet16BitModuleName @ 0x140A57C7C (AslpFileGet16BitModuleName.c)
- *     AslpFileGetClrVersionAttribute @ 0x140A581C8 (AslpFileGetClrVersionAttribute.c)
- *     AslpFileGetExportName @ 0x140A58594 (AslpFileGetExportName.c)
+ *     AslpFileGet16BitDescription @ 0x14096A794 (AslpFileGet16BitDescription.c)
+ *     AslpFileGet16BitModuleName @ 0x14096A878 (AslpFileGet16BitModuleName.c)
+ *     AslpFileGetClrVersionAttribute @ 0x14096ADD0 (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetExportName @ 0x14096B194 (AslpFileGetExportName.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x1407589A8 (AslAlloc.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     RtlxOemStringToUnicodeSize @ 0x1407741E0 (RtlxOemStringToUnicodeSize.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     RtlxAnsiStringToUnicodeSize @ 0x1406F6AB0 (RtlxAnsiStringToUnicodeSize.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075A888 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const char *a2)
 {
   ULONG v3; // eax
   __int64 v4; // rcx
-  unsigned __int16 v5; // si
-  NTSTATUS v6; // edi
-  wchar_t *Buffer; // rbx
+  unsigned __int16 v5; // di
+  NTSTATUS v6; // ebx
+  wchar_t *Buffer; // rcx
   UNICODE_STRING v9; // [rsp+30h] [rbp-20h] BYREF
   STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
 
   DestinationString = 0LL;
   RtlInitAnsiString(&DestinationString, a2);
-  v3 = RtlxOemStringToUnicodeSize(&DestinationString);
+  v3 = RtlxAnsiStringToUnicodeSize(&DestinationString);
   v5 = v3;
   *a1 = 0LL;
   v9 = 0LL;
@@ -39,23 +39,20 @@ LABEL_3:
     goto LABEL_8;
   }
   v9.Buffer = (wchar_t *)AslAlloc(v4, v3);
-  Buffer = v9.Buffer;
-  if ( v9.Buffer )
-  {
-    v9.MaximumLength = v5;
-    v9.Length = 0;
-    v6 = RtlAnsiStringToUnicodeString(&v9, &DestinationString, 0);
-    if ( v6 < 0 )
-      goto LABEL_3;
-    Buffer = 0LL;
-    *a1 = v9.Buffer;
-    v6 = 0;
-  }
-  else
+  if ( !v9.Buffer )
   {
     v6 = -1073741801;
     AslLogCallPrintf(1LL);
+    return (unsigned int)v6;
   }
+  v9.MaximumLength = v5;
+  v9.Length = 0;
+  v6 = RtlAnsiStringToUnicodeString(&v9, &DestinationString, 0);
+  if ( v6 < 0 )
+    goto LABEL_3;
+  Buffer = 0LL;
+  *a1 = v9.Buffer;
+  v6 = 0;
 LABEL_8:
   if ( Buffer )
     ExFreePoolWithTag(Buffer, 0x74705041u);

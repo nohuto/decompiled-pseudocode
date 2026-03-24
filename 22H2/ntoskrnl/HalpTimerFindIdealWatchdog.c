@@ -1,24 +1,24 @@
 /*
- * XREFs of HalpTimerFindIdealWatchdog @ 0x14037A4AC
+ * XREFs of HalpTimerFindIdealWatchdog @ 0x1403B169C
  * Callers:
- *     HalpTimerSelectRoles @ 0x14037A8FC (HalpTimerSelectRoles.c)
+ *     HalpTimerSelectRoles @ 0x1403B0F2C (HalpTimerSelectRoles.c)
  * Callees:
- *     HalpFindTimer @ 0x14037B658 (HalpFindTimer.c)
- *     HalpTimerGetClockRates @ 0x1403B3090 (HalpTimerGetClockRates.c)
+ *     HalpFindTimer @ 0x14039CD58 (HalpFindTimer.c)
+ *     HalpTimerGetClockRates @ 0x1403CDE44 (HalpTimerGetClockRates.c)
  */
 
-__int64 HalpTimerFindIdealWatchdog()
+ULONG_PTR *HalpTimerFindIdealWatchdog()
 {
   int v0; // edi
-  __int64 Timer; // rax
-  __int64 v2; // rbx
+  ULONG_PTR *Timer; // rax
+  ULONG_PTR *v2; // rbx
   ULONG_PTR *v3; // rcx
   ULONG_PTR *v4; // rax
   char v6; // [rsp+40h] [rbp+8h] BYREF
   unsigned __int64 v7; // [rsp+48h] [rbp+10h] BYREF
 
   v7 = 0LL;
-  v0 = 10;
+  v0 = 11;
   while ( 1 )
   {
     while ( 1 )
@@ -31,14 +31,11 @@ __int64 HalpTimerFindIdealWatchdog()
         goto LABEL_5;
       v0 = 0;
     }
-    if ( *(_QWORD *)(Timer + 192) )
+    if ( Timer[24] )
     {
       HalpTimerGetClockRates(Timer, &v7, &v6);
-      if ( v7 >= 0x11E1A300
-        && (v7 >= 0xB2D05E00 || *(_DWORD *)(v2 + 228) != 7 && (*(_DWORD *)(v2 + 224) & 0x80000) != 0) )
-      {
+      if ( v7 >= 0x11E1A300 && (v7 >= 0xB2D05E00 || *((_DWORD *)v2 + 57) != 8 && (v2[28] & 0x80000) != 0) )
         break;
-      }
     }
   }
 LABEL_5:

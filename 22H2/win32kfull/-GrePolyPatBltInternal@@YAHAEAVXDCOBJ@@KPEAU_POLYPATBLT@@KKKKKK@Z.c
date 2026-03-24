@@ -1,24 +1,23 @@
 /*
- * XREFs of ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C002C4E0
+ * XREFs of ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C00B30B0
  * Callers:
- *     GrePolyPatBlt @ 0x1C0029770 (GrePolyPatBlt.c)
- *     DrawEdge @ 0x1C002995C (DrawEdge.c)
- *     NtGdiPolyPatBlt @ 0x1C002C310 (NtGdiPolyPatBlt.c)
- *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C0106B60 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
+ *     GrePolyPatBlt @ 0x1C00456F4 (GrePolyPatBlt.c)
+ *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C008EF50 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
+ *     NtGdiPolyPatBlt @ 0x1C00B2E00 (NtGdiPolyPatBlt.c)
  * Callees:
- *     GreMaskBlt @ 0x1C001C9BC (GreMaskBlt.c)
- *     ??0DEVLOCKOBJ@@QEAA@XZ @ 0x1C001DEC4 (--0DEVLOCKOBJ@@QEAA@XZ.c)
- *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C001E590 (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
- *     ?GrePatBltLockedDC@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVERECTL@@KPEAVSURFACE@@KKKK@Z @ 0x1C002C900 (-GrePatBltLockedDC@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVERECTL@@KPEAVSURFACE@@KKKK@Z.c)
- *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C00E0C40 (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
- *     bCvtPts1 @ 0x1C00F7380 (bCvtPts1.c)
- *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C011C124 (--1DEVLOCKOBJ@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?bTightBoundsToRegion@DEVLOCKOBJ@@QEAAHXZ @ 0x1C013EBD0 (-bTightBoundsToRegion@DEVLOCKOBJ@@QEAAHXZ.c)
+ *     bCvtPts1 @ 0x1C0084C60 (bCvtPts1.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C008E8E0 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ??0DEVLOCKOBJ@@QEAA@XZ @ 0x1C00A9A2C (--0DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C00ACA04 (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
+ *     ?GrePatBltLockedDC@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVERECTL@@KPEAVSURFACE@@KKKK@Z @ 0x1C00B34A4 (-GrePatBltLockedDC@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVERECTL@@KPEAVSURFACE@@KKKK@Z.c)
+ *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C00B496C (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     GreMaskBlt @ 0x1C010941C (GreMaskBlt.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?bTightBoundsToRegion@DEVLOCKOBJ@@QEAAHXZ @ 0x1C016A77C (-bTightBoundsToRegion@DEVLOCKOBJ@@QEAAHXZ.c)
  */
 
 __int64 __fastcall GrePolyPatBltInternal(
-        struct XDCOBJ *this,
+        struct XDCOBJ *a1,
         int a2,
         struct _POLYPATBLT *a3,
         int a4,
@@ -30,165 +29,185 @@ __int64 __fastcall GrePolyPatBltInternal(
 {
   int v9; // ebx
   struct _POLYPATBLT *v10; // r14
-  unsigned int v12; // esi
-  __int64 v13; // rcx
-  __int64 v14; // rax
-  __int64 v15; // r15
-  __int64 v16; // rdx
-  int v18; // r15d
-  int v19; // r12d
-  int v20; // edx
-  int v21; // r9d
-  __int64 v22; // r13
-  int v23; // r8d
-  int v24; // ecx
-  unsigned __int64 v25; // rdx
-  unsigned int locked; // eax
-  __int64 v28; // rcx
-  int v30; // eax
-  unsigned int v31; // eax
-  unsigned int v32; // [rsp+70h] [rbp-128h]
-  int v33; // [rsp+74h] [rbp-124h]
-  int v34; // [rsp+78h] [rbp-120h]
-  __int64 v35; // [rsp+80h] [rbp-118h] BYREF
-  int v36; // [rsp+88h] [rbp-110h]
-  int v37; // [rsp+8Ch] [rbp-10Ch]
-  __int64 v38; // [rsp+90h] [rbp-108h]
-  int v39; // [rsp+98h] [rbp-100h]
-  int v40; // [rsp+9Ch] [rbp-FCh]
-  int v41; // [rsp+A0h] [rbp-F8h]
-  int v42; // [rsp+A4h] [rbp-F4h]
-  struct SURFACE *v43; // [rsp+A8h] [rbp-F0h]
-  __int64 v44; // [rsp+B0h] [rbp-E8h]
-  struct XDCOBJ *v45; // [rsp+B8h] [rbp-E0h]
-  __int64 v46; // [rsp+C0h] [rbp-D8h]
-  __int64 v47; // [rsp+C8h] [rbp-D0h]
-  _BYTE v48[112]; // [rsp+D0h] [rbp-C8h] BYREF
-  int v49; // [rsp+140h] [rbp-58h] BYREF
-  int v50; // [rsp+144h] [rbp-54h]
-  int v51; // [rsp+148h] [rbp-50h]
-  unsigned int v52; // [rsp+14Ch] [rbp-4Ch]
+  unsigned int v12; // r12d
+  unsigned int v13; // esi
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // r15
+  __int64 v17; // rdx
+  int v19; // r15d
+  int v20; // r12d
+  int v21; // r8d
+  int v22; // r9d
+  __int64 v23; // r13
+  int v24; // edx
+  int v25; // r8d
+  int v26; // r9d
+  struct EXFORMOBJ *v27; // rdx
+  int locked; // eax
+  __int64 v29; // rcx
+  int v31; // eax
+  int v32; // eax
+  int v33; // [rsp+70h] [rbp-128h]
+  int v34; // [rsp+74h] [rbp-124h]
+  int v35; // [rsp+78h] [rbp-120h]
+  __int64 v36; // [rsp+80h] [rbp-118h]
+  unsigned __int64 v37; // [rsp+88h] [rbp-110h] BYREF
+  int v38; // [rsp+90h] [rbp-108h]
+  int v39; // [rsp+94h] [rbp-104h]
+  int v40; // [rsp+98h] [rbp-100h]
+  int v41; // [rsp+9Ch] [rbp-FCh]
+  int v42; // [rsp+A0h] [rbp-F8h]
+  int v43; // [rsp+A4h] [rbp-F4h]
+  struct SURFACE *v44; // [rsp+A8h] [rbp-F0h]
+  __int64 v45; // [rsp+B0h] [rbp-E8h]
+  struct XDCOBJ *v46; // [rsp+B8h] [rbp-E0h]
+  __int64 v47; // [rsp+C0h] [rbp-D8h]
+  __int64 v48; // [rsp+C8h] [rbp-D0h]
+  _BYTE v49[112]; // [rsp+D0h] [rbp-C8h] BYREF
+  int v50; // [rsp+140h] [rbp-58h] BYREF
+  int v51; // [rsp+144h] [rbp-54h]
+  int v52; // [rsp+148h] [rbp-50h]
+  int v53; // [rsp+14Ch] [rbp-4Ch]
 
   v9 = a4;
   v10 = a3;
-  v45 = this;
-  v32 = 1;
-  if ( !a4 || !a3 || a5 )
-    return a4 == 0;
-  v12 = (BYTE2(a2) << 8) | BYTE2(a2);
-  if ( ((BYTE2(a2) ^ (unsigned __int8)(4 * BYTE2(a2))) & 0xCC) != 0 )
-    return 0LL;
-  v13 = *(_QWORD *)this;
-  if ( !v13 )
-    return 0LL;
-  v14 = *(_QWORD *)(v13 + 976);
-  v15 = *(_QWORD *)(v14 + 160);
-  v46 = v15;
-  v44 = v15;
-  if ( (*(_DWORD *)(v14 + 152) & 0x1000) != 0 )
-    GreDCSelectBrush(v13, v15);
-  DEVLOCKOBJ::DEVLOCKOBJ((DEVLOCKOBJ *)v48);
-  if ( DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v48, this, 0) )
+  v46 = a1;
+  v12 = 1;
+  v33 = 1;
+  if ( a4 && a3 && !a5 )
   {
-    v16 = *(_QWORD *)this;
-    v36 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 976LL) + 208LL);
-    v37 = *(_DWORD *)(*(_QWORD *)(v16 + 976) + 108LL) & 1;
-    if ( (*(_DWORD *)(*(_QWORD *)(v16 + 976) + 340LL) & 0x1E000) != 0 )
-      EXFORMOBJ::vInit((EXFORMOBJ *)&v35, this, 0x204u, 0);
-    else
-      v35 = v16 + 320;
-    v43 = *(struct SURFACE **)(*(_QWORD *)this + 496LL);
-    while ( 1 )
+    v13 = (BYTE2(a2) << 8) | BYTE2(a2);
+    if ( ((BYTE2(a2) ^ (unsigned __int8)(4 * BYTE2(a2))) & 0xCC) != 0 )
+      return 0;
+    v14 = *(_QWORD *)a1;
+    if ( !v14 )
     {
-      if ( !v9-- )
-      {
-        v15 = v46;
-        goto LABEL_37;
-      }
-      v38 = 0LL;
-      v18 = *(_DWORD *)v10;
-      v39 = *(_DWORD *)v10;
-      v19 = *((_DWORD *)v10 + 1);
-      v40 = v19;
-      v20 = *((_DWORD *)v10 + 2);
-      v33 = v20;
-      v41 = v20;
-      v21 = *((_DWORD *)v10 + 3);
-      v34 = v21;
-      v42 = v21;
-      v47 = *((_QWORD *)v10 + 2);
-      v22 = v47;
-      if ( v47 )
-      {
-        v38 = GreDCSelectBrush(*(_QWORD *)this, v47);
-        v20 = v33;
-        v21 = v34;
-      }
-      v23 = *(_DWORD *)(v35 + 32);
-      if ( (v23 & 1) == 0 )
-        break;
-      v49 = v18;
-      v50 = v19;
-      v24 = v20 + v18;
-      v51 = v20 + v18;
-      v25 = (unsigned int)(v21 + v19);
-      v52 = v21 + v19;
-      if ( (v23 & 0x43) != 0x43 )
-      {
-        bCvtPts1(v35, &v49, 2LL);
-        v25 = v52;
-        v24 = v51;
-        v19 = v50;
-        v18 = v49;
-      }
-      if ( v37 )
-      {
-        v49 = ++v18;
-        v51 = ++v24;
-      }
-      if ( v18 > v24 )
-      {
-        v30 = v18;
-        v18 = v24;
-        v49 = v24;
-        v24 = v30;
-        v51 = v30;
-      }
-      if ( v19 > (int)v25 )
-      {
-        v31 = v19;
-        v19 = v25;
-        v50 = v25;
-        v25 = v31;
-        v52 = v31;
-      }
-      if ( v18 != v24 && v19 != (_DWORD)v25 )
-      {
-        if ( (*(_DWORD *)(*(_QWORD *)this + 36LL) & 0xE0) != 0 )
-          XDCOBJ::vAccumulate(this, (struct ERECTL *)&v49);
-        if ( v43 )
-        {
-          locked = GrePatBltLockedDC(this, (struct EXFORMOBJ *)v25, (struct ERECTL *)&v49, v12, v43, a6, a7, a8, a9);
-LABEL_32:
-          v32 = locked;
-        }
-      }
-      if ( v22 )
-        GreDCSelectBrush(*(_QWORD *)this, v38);
-      DEVLOCKOBJ::bTightBoundsToRegion((DEVLOCKOBJ *)v48);
-      v10 = (struct _POLYPATBLT *)((char *)v10 + 24);
+      return 0;
     }
-    locked = GreMaskBlt(**(HDC **)this, v18, v19, v20, v21, 0LL, 0, 0, 0LL, 0, 0, v12 << 16, 0);
-    goto LABEL_32;
+    else
+    {
+      v15 = *(_QWORD *)(v14 + 976);
+      v16 = *(_QWORD *)(v15 + 160);
+      v47 = v16;
+      v45 = v16;
+      if ( (*(_DWORD *)(v15 + 152) & 0x1000) != 0 )
+        GreDCSelectBrush(v14, v16);
+      DEVLOCKOBJ::DEVLOCKOBJ((DEVLOCKOBJ *)v49);
+      if ( DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v49, a1, 0) )
+      {
+        v17 = *(_QWORD *)a1;
+        v38 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 976LL) + 208LL);
+        v39 = *(_DWORD *)(*(_QWORD *)(v17 + 976) + 108LL) & 1;
+        if ( (*(_DWORD *)(*(_QWORD *)(v17 + 976) + 340LL) & 0x1E000) != 0 )
+        {
+          EXFORMOBJ::vInit((EXFORMOBJ *)&v37, a1, 0x204u, 0);
+          v17 = *(_QWORD *)a1;
+        }
+        else
+        {
+          v37 = v17 + 320;
+        }
+        v44 = *(struct SURFACE **)(v17 + 496);
+        while ( 1 )
+        {
+          if ( !v9-- )
+          {
+            v16 = v47;
+            v12 = v33;
+            goto LABEL_35;
+          }
+          v36 = 0LL;
+          v19 = *(_DWORD *)v10;
+          v40 = *(_DWORD *)v10;
+          v20 = *((_DWORD *)v10 + 1);
+          v41 = v20;
+          v21 = *((_DWORD *)v10 + 2);
+          v34 = v21;
+          v42 = v21;
+          v22 = *((_DWORD *)v10 + 3);
+          v35 = v22;
+          v43 = v22;
+          v48 = *((_QWORD *)v10 + 2);
+          v23 = v48;
+          if ( v48 )
+          {
+            v36 = GreDCSelectBrush(*(_QWORD *)a1, v48);
+            v21 = v34;
+            v22 = v35;
+          }
+          v24 = *(_DWORD *)(v37 + 32);
+          if ( (v24 & 1) == 0 )
+            break;
+          v50 = v19;
+          v51 = v20;
+          v25 = v19 + v21;
+          v52 = v25;
+          v26 = v20 + v22;
+          v53 = v26;
+          v27 = (struct EXFORMOBJ *)(v24 & 0x43);
+          if ( (_BYTE)v27 != 67 )
+          {
+            bCvtPts1(v37, &v50, 2LL);
+            v26 = v53;
+            v25 = v52;
+            v20 = v51;
+            v19 = v50;
+          }
+          if ( v39 )
+          {
+            v50 = ++v19;
+            v52 = ++v25;
+          }
+          if ( v19 > v25 )
+          {
+            v32 = v19;
+            v19 = v25;
+            v50 = v25;
+            v25 = v32;
+            v52 = v32;
+          }
+          if ( v20 > v26 )
+          {
+            v31 = v20;
+            v20 = v26;
+            v51 = v26;
+            v26 = v31;
+            v53 = v31;
+          }
+          if ( v19 != v25 && v20 != v26 )
+          {
+            if ( (*(_DWORD *)(*(_QWORD *)a1 + 36LL) & 0xE0) != 0 )
+              XDCOBJ::vAccumulate(a1, (struct ERECTL *)&v50);
+            if ( v44 )
+            {
+              locked = GrePatBltLockedDC(a1, v27, (struct ERECTL *)&v50, v13, v44, a6, a7, a8, a9);
+LABEL_30:
+              v33 = locked;
+            }
+          }
+          if ( v23 )
+            GreDCSelectBrush(*(_QWORD *)a1, v36);
+          DEVLOCKOBJ::bTightBoundsToRegion((DEVLOCKOBJ *)v49);
+          v10 = (struct _POLYPATBLT *)((char *)v10 + 24);
+        }
+        locked = GreMaskBlt(**(HDC **)a1, v22, 0LL, 0, 0, 0LL, 0, 0, v13 << 16, 0);
+        goto LABEL_30;
+      }
+      v12 = XDCOBJ::bFullScreen(a1);
+LABEL_35:
+      v29 = *(_QWORD *)(*(_QWORD *)a1 + 976LL);
+      if ( *(_QWORD *)(v29 + 160) != v16 )
+      {
+        *(_QWORD *)(v29 + 160) = v16;
+        *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 976LL) + 152LL) |= 0x1000u;
+      }
+      DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)v49);
+    }
   }
-  v32 = XDCOBJ::bFullScreen(this);
-LABEL_37:
-  v28 = *(_QWORD *)(*(_QWORD *)this + 976LL);
-  if ( *(_QWORD *)(v28 + 160) != v15 )
+  else if ( a4 )
   {
-    *(_QWORD *)(v28 + 160) = v15;
-    *(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 976LL) + 152LL) |= 0x1000u;
+    return 0;
   }
-  DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)v48);
-  return v32;
+  return v12;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of SeQuerySecurityAttributesTokenAccessInformation @ 0x14024C270
+ * XREFs of SeQuerySecurityAttributesTokenAccessInformation @ 0x140250340
  * Callers:
  *     <none>
  * Callees:
- *     SepTokenFromAccessInformation @ 0x1402E1484 (SepTokenFromAccessInformation.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140300534 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14024E760 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepTokenFromAccessInformation @ 0x1402665D4 (SepTokenFromAccessInformation.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall SeQuerySecurityAttributesTokenAccessInformation(
         __int64 a1,
-        int a2,
-        int a3,
+        __int64 a2,
+        unsigned int a3,
         __int64 a4,
-        int a5,
+        unsigned int a5,
         __int64 a6)
 {
-  int v10; // edx
+  char v10; // dl
   _BYTE v12[1184]; // [rsp+40h] [rbp-4E8h] BYREF
 
   memset(v12, 0, 0x498uLL);
@@ -27,7 +27,7 @@ __int64 __fastcall SeQuerySecurityAttributesTokenAccessInformation(
     {
 LABEL_3:
       SepTokenFromAccessInformation(a1, v12);
-      return SepInternalQuerySecurityAttributesTokenEx((unsigned int)v12, v10, a2, a3, 0, a4, a5, a6);
+      return SepInternalQuerySecurityAttributesTokenEx((__int64)v12, v10, a2, a3, 0, a4, a5, a6);
     }
   }
   else if ( !a4 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CitpInputTimesAddTo@@YAXPEAU_CIT_INPUT_TIMES@@PEBU1@@Z @ 0x1C00A4378
+ * XREFs of ?CitpInputTimesAddTo@@YAXPEAU_CIT_INPUT_TIMES@@PEBU1@@Z @ 0x1C00488E4
  * Callers:
- *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C00A3D44 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
+ *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C004B234 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
  * Callees:
- *     ?CitpStatIncrement@@YAXPEAGG@Z @ 0x1C00331FC (-CitpStatIncrement@@YAXPEAGG@Z.c)
+ *     ?CitpStatIncrement@@YAXPEAGG@Z @ 0x1C004782C (-CitpStatIncrement@@YAXPEAGG@Z.c)
  */
 
 void __fastcall CitpInputTimesAddTo(struct _CIT_INPUT_TIMES *a1, const struct _CIT_INPUT_TIMES *a2)
@@ -35,8 +35,6 @@ void __fastcall CitpInputTimesAddTo(struct _CIT_INPUT_TIMES *a1, const struct _C
   __int64 v26; // r10
   __int64 v27; // r9
   __int64 v28; // r10
-  __int64 v29; // r9
-  __int64 v30; // r10
 
   v2 = *(_WORD *)a2;
   if ( v2 )
@@ -48,13 +46,12 @@ void __fastcall CitpInputTimesAddTo(struct _CIT_INPUT_TIMES *a1, const struct _C
     CitpStatIncrement((unsigned __int16 *)(v10 + 12), *(_WORD *)(v9 + 12));
     CitpStatIncrement((unsigned __int16 *)(v12 + 14), *(_WORD *)(v11 + 14));
     CitpStatIncrement((unsigned __int16 *)(v14 + 18), *(_WORD *)(v13 + 18));
-    CitpStatIncrement((unsigned __int16 *)(v16 + 26), *(_WORD *)(v15 + 26));
-    CitpStatIncrement((unsigned __int16 *)(v18 + 24), *(_WORD *)(v17 + 24));
+    CitpStatIncrement((unsigned __int16 *)(v16 + 24), *(_WORD *)(v15 + 24));
+    CitpStatIncrement((unsigned __int16 *)(v18 + 22), *(_WORD *)(v17 + 22));
     CitpStatIncrement((unsigned __int16 *)(v20 + 10), *(_WORD *)(v19 + 10));
     CitpStatIncrement((unsigned __int16 *)(v22 + 6), *(_WORD *)(v21 + 6));
     CitpStatIncrement((unsigned __int16 *)(v24 + 16), *(_WORD *)(v23 + 16));
     CitpStatIncrement((unsigned __int16 *)(v26 + 20), *(_WORD *)(v25 + 20));
-    CitpStatIncrement((unsigned __int16 *)(v28 + 28), *(_WORD *)(v27 + 28));
-    CitpStatIncrement((unsigned __int16 *)(v30 + 22), *(_WORD *)(v29 + 22));
+    CitpStatIncrement((unsigned __int16 *)(v28 + 26), *(_WORD *)(v27 + 26));
   }
 }

@@ -1,33 +1,29 @@
 /*
- * XREFs of EtwpCovSampTryAcquireBufferLock @ 0x14046A088
+ * XREFs of EtwpCovSampTryAcquireBufferLock @ 0x1405AFB70
  * Callers:
- *     EtwpCovSampSampleBufferReserve @ 0x140469D06 (EtwpCovSampSampleBufferReserve.c)
- *     EtwpCovSampCaptureFlushSampleBuffers @ 0x1406032E0 (EtwpCovSampCaptureFlushSampleBuffers.c)
+ *     EtwpCovSampCaptureFlushSampleBuffers @ 0x1405AEB70 (EtwpCovSampCaptureFlushSampleBuffers.c)
+ *     EtwpCovSampSampleBufferReserve @ 0x1405AF7EC (EtwpCovSampSampleBufferReserve.c)
  * Callees:
- *     KxTryToAcquireSpinLock @ 0x14020D904 (KxTryToAcquireSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x140329D48 (KxTryToAcquireSpinLock.c)
  */
 
 __int64 __fastcall EtwpCovSampTryAcquireBufferLock(volatile signed __int32 *SpinLock, unsigned __int8 *a2)
 {
-  unsigned __int8 CurrentIrql; // al
+  unsigned __int8 CurrentIrql; // r8
   unsigned __int8 v5; // cl
-  _DWORD *SchedulerAssist; // r10
-  int v7; // eax
+  _DWORD *SchedulerAssist; // r9
 
   CurrentIrql = KeGetCurrentIrql();
   *a2 = CurrentIrql;
-  if ( !CurrentIrql || CurrentIrql == 1 )
+  if ( CurrentIrql <= 1u )
   {
     v5 = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v5 <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      v7 = 4;
-      if ( v5 != 2 )
-        v7 = (-1LL << (v5 + 1)) & 4;
-      SchedulerAssist[5] |= v7;
+      SchedulerAssist[5] |= ~((unsigned __int8)(1LL << (v5 + 1)) - 1) & 4;
     }
   }
   else if ( CurrentIrql != 2 )

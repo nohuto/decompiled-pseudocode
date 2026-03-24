@@ -1,27 +1,34 @@
 /*
- * XREFs of DpiCancelAsyncRequest @ 0x1C005FAE8
+ * XREFs of DpiCancelAsyncRequest @ 0x1C00520D0
  * Callers:
- *     DpiRequestDevicePowerState @ 0x1C0023FC0 (DpiRequestDevicePowerState.c)
+ *     DpiRequestDevicePowerState @ 0x1C00517F4 (DpiRequestDevicePowerState.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall DpiCancelAsyncRequest(__int64 a1)
 {
-  __int64 *v2; // rbx
+  _QWORD *v2; // rax
+  __int64 v3; // rdx
+  __int64 *v4; // rbx
   __int64 result; // rax
-  __int64 **v4; // rcx
+  __int64 **v6; // rcx
 
-  WdLogSingleEntry3(9LL, a1, *(int *)(a1 + 4016), 0LL);
-  v2 = (__int64 *)(a1 + 3992);
-  result = *v2;
-  if ( *v2 )
+  v2 = (_QWORD *)WdLogNewEntry5_WdPower();
+  v2[3] = a1;
+  v3 = *(int *)(a1 + 4008);
+  v2[5] = 0LL;
+  v2[4] = v3;
+  WdLogEvent5_WdPower(v2);
+  v4 = (__int64 *)(a1 + 3984);
+  result = *v4;
+  if ( *v4 )
   {
-    if ( *(__int64 **)(result + 8) != v2 || (v4 = (__int64 **)v2[1], *v4 != v2) )
+    if ( *(__int64 **)(result + 8) != v4 || (v6 = (__int64 **)v4[1], *v6 != v4) )
       __fastfail(3u);
-    *v4 = (__int64 *)result;
-    *(_QWORD *)(result + 8) = v4;
-    *v2 = 0LL;
+    *v6 = (__int64 *)result;
+    *(_QWORD *)(result + 8) = v6;
+    *v4 = 0LL;
   }
   return result;
 }

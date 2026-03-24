@@ -1,11 +1,11 @@
 /*
- * XREFs of ?xxxWindowHitTestWithoutTargeting@@YAPEAUHWND__@@PEAUtagTHREADINFO@@PEAUtagWND@@I_K_JUtagPOINT@@PEAHKPEBUtagPOINTEREVENTINT@@PEAU4@@Z @ 0x1C01E6378
+ * XREFs of ?xxxWindowHitTestWithoutTargeting@@YAPEAUHWND__@@PEAUtagTHREADINFO@@PEAUtagWND@@I_K_JUtagPOINT@@PEAHKPEBUtagPOINTEREVENTINT@@PEAU4@@Z @ 0x1C0216A54
  * Callers:
- *     ?xxxPointerWindowHitTest@@YAPEAUHWND__@@PEAUtagTHREADINFO@@PEAUtagWND@@I_K_JUtagPOINT@@PEAHKPEBUtagPOINTEREVENTINT@@2PEAU4@@Z @ 0x1C01E4E40 (-xxxPointerWindowHitTest@@YAPEAUHWND__@@PEAUtagTHREADINFO@@PEAUtagWND@@I_K_JUtagPOINT@@PEAHKPEBU.c)
+ *     xxxPointerWindowHitTest @ 0x1C0217734 (xxxPointerWindowHitTest.c)
  * Callees:
- *     ?xxxWindowHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAHK@Z @ 0x1C0041920 (-xxxWindowHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAHK@Z.c)
- *     ?xxxDCEWindowHitTest@@YAPEAUHWND__@@PEAUtagWND@@I_K_JUtagPOINT@@PEAHK@Z @ 0x1C008C58C (-xxxDCEWindowHitTest@@YAPEAUHWND__@@PEAUtagWND@@I_K_JUtagPOINT@@PEAHK@Z.c)
- *     IsThreadDesktopComposed @ 0x1C00C4DDC (IsThreadDesktopComposed.c)
+ *     IsThreadDesktopComposed @ 0x1C006A378 (IsThreadDesktopComposed.c)
+ *     xxxDCEWindowHitTest @ 0x1C00C0FA4 (xxxDCEWindowHitTest.c)
+ *     xxxWindowHitTest @ 0x1C00D700C (xxxWindowHitTest.c)
  */
 
 HWND __fastcall xxxWindowHitTestWithoutTargeting(
@@ -22,7 +22,7 @@ HWND __fastcall xxxWindowHitTestWithoutTargeting(
   __int64 v10; // r11
 
   if ( (unsigned int)IsThreadDesktopComposed((__int64)a1) )
-    return xxxDCEWindowHitTest(v9, a3, v10, a5, a6, a7, a8);
+    return xxxDCEWindowHitTest(v9, a3, v10, a5, a6, (__int64)a7, a8);
   else
-    return xxxWindowHitTest(v9, a6, a7, a8);
+    return (HWND)xxxWindowHitTest((__int64)v9);
 }

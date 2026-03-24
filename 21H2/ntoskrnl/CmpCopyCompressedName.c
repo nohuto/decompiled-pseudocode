@@ -1,18 +1,19 @@
 /*
- * XREFs of CmpCopyCompressedName @ 0x140718AE8
+ * XREFs of CmpCopyCompressedName @ 0x140669F74
  * Callers:
- *     CmpInitializeValueNameString @ 0x14065DBC8 (CmpInitializeValueNameString.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x1406E137C (CmpConstructNameFromKcbNameBlocks.c)
- *     CmpMarkIndexDirty @ 0x140715A2C (CmpMarkIndexDirty.c)
- *     CmAddLogForAction @ 0x14071784C (CmAddLogForAction.c)
- *     CmpAddSubKeyToList @ 0x1407185B4 (CmpAddSubKeyToList.c)
- *     CmpQueryKeyValueData @ 0x1407C5730 (CmpQueryKeyValueData.c)
- *     CmpConstructNameFromKeyNodes @ 0x1407C8830 (CmpConstructNameFromKeyNodes.c)
- *     CmpLoadHiveVolatile @ 0x14090D4E8 (CmpLoadHiveVolatile.c)
- *     CmpInitializeKeyNameString @ 0x14091F960 (CmpInitializeKeyNameString.c)
- *     CmpPopulateKeyBasicInformation @ 0x140924594 (CmpPopulateKeyBasicInformation.c)
- *     CmpGetNodeName @ 0x140B14558 (CmpGetNodeName.c)
- *     CmSelectQualifiedInstallLanguage @ 0x140B146C4 (CmSelectQualifiedInstallLanguage.c)
+ *     CmpConstructNameFromKeyNodes @ 0x1405F3210 (CmpConstructNameFromKeyNodes.c)
+ *     CmpQueryKeyValueData @ 0x1405F7EB0 (CmpQueryKeyValueData.c)
+ *     CmpAddSubKeyToList @ 0x140669DA0 (CmpAddSubKeyToList.c)
+ *     CmpPopulateKeyNodeInformation @ 0x14066A590 (CmpPopulateKeyNodeInformation.c)
+ *     CmpMarkIndexDirty @ 0x14066C5EC (CmpMarkIndexDirty.c)
+ *     CmpInitializeValueNameString @ 0x1406A45C8 (CmpInitializeValueNameString.c)
+ *     CmAddLogForAction @ 0x1406AFE4C (CmAddLogForAction.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x140778C38 (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpInitializeKeyNameString @ 0x140879188 (CmpInitializeKeyNameString.c)
+ *     CmpLoadHiveVolatile @ 0x14087CF5C (CmpLoadHiveVolatile.c)
+ *     CmpPopulateKeyBasicInformation @ 0x140882644 (CmpPopulateKeyBasicInformation.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x140A5F7C0 (CmSelectQualifiedInstallLanguage.c)
+ *     CmpGetNodeName @ 0x140A61278 (CmpGetNodeName.c)
  * Callees:
  *     <none>
  */

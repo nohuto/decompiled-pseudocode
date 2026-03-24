@@ -1,9 +1,9 @@
 /*
- * XREFs of CHidInput_Destroy @ 0x1C005A9D0
+ * XREFs of CHidInput_Destroy @ 0x1C008AD80
  * Callers:
  *     <none>
  * Callees:
- *     ??_GCHidInput@@UEAAPEAXI@Z @ 0x1C005AA60 (--_GCHidInput@@UEAAPEAXI@Z.c)
+ *     ??_GCHidInput@@UEAAPEAXI@Z @ 0x1C008AE10 (--_GCHidInput@@UEAAPEAXI@Z.c)
  */
 
 void *CHidInput_Destroy()

@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpWnfSubscribeWnfStateChange @ 0x140712974
+ * XREFs of ExpWnfSubscribeWnfStateChange @ 0x14060EF54
  * Callers:
- *     NtSubscribeWnfStateChange @ 0x1407128A0 (NtSubscribeWnfStateChange.c)
- *     ExSubscribeWnfStateChange @ 0x1407DB2B0 (ExSubscribeWnfStateChange.c)
+ *     NtSubscribeWnfStateChange @ 0x14060EE80 (NtSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x140694970 (ExSubscribeWnfStateChange.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExpWnfLookupPermanentName @ 0x140710A1C (ExpWnfLookupPermanentName.c)
- *     ExpWnfNotifySubscription @ 0x140711148 (ExpWnfNotifySubscription.c)
- *     ExpWnfCreateNameInstance @ 0x1407118A4 (ExpWnfCreateNameInstance.c)
- *     ExpCaptureWnfStateName @ 0x14071313C (ExpCaptureWnfStateName.c)
- *     ExpWnfLookupNameInstance @ 0x140713240 (ExpWnfLookupNameInstance.c)
- *     ExpWnfResolveScopeInstance @ 0x140713418 (ExpWnfResolveScopeInstance.c)
- *     ExpWnfCheckCallerAccess @ 0x1407138E4 (ExpWnfCheckCallerAccess.c)
- *     ExpWnfSubscribeNameInstance @ 0x140713AA0 (ExpWnfSubscribeNameInstance.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExpWnfCreateNameInstance @ 0x14060DE94 (ExpWnfCreateNameInstance.c)
+ *     ExpCaptureWnfStateName @ 0x14060F7A4 (ExpCaptureWnfStateName.c)
+ *     ExpWnfLookupNameInstance @ 0x14060F814 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x14060F914 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfCheckCallerAccess @ 0x14060FF00 (ExpWnfCheckCallerAccess.c)
+ *     ExpWnfSubscribeNameInstance @ 0x140610198 (ExpWnfSubscribeNameInstance.c)
+ *     ExpWnfNotifySubscription @ 0x14068E4D4 (ExpWnfNotifySubscription.c)
+ *     ExpWnfLookupPermanentName @ 0x1406F6488 (ExpWnfLookupPermanentName.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfSubscribeWnfStateChange(
@@ -26,136 +26,133 @@ __int64 __fastcall ExpWnfSubscribeWnfStateChange(
         int a7,
         char a8)
 {
-  __int64 v8; // rax
-  ACCESS_MASK v9; // r14d
-  int v10; // esi
-  char v11; // r9
-  unsigned __int64 v12; // rbx
-  __int64 v13; // r15
-  int v14; // r13d
+  ACCESS_MASK v8; // r14d
+  int v9; // esi
+  char v10; // r8
+  unsigned __int64 v11; // rbx
+  __int64 v12; // r15
+  int v13; // r13d
   struct _KPROCESS *Process; // rax
-  int v16; // eax
-  int v17; // r15d
-  struct _EX_RUNDOWN_REF *v18; // rbx
-  BOOL v19; // ecx
-  int v20; // r8d
-  unsigned int v21; // r8d
-  struct _EX_RUNDOWN_REF *v23; // [rsp+68h] [rbp-70h] BYREF
-  int v24; // [rsp+70h] [rbp-68h] BYREF
+  int v15; // eax
+  int v16; // r15d
+  struct _EX_RUNDOWN_REF *v17; // rbx
+  BOOL v18; // ecx
+  int v19; // r8d
+  __int64 v20; // r8
+  struct _EX_RUNDOWN_REF *v22; // [rsp+68h] [rbp-70h] BYREF
+  int v23; // [rsp+70h] [rbp-68h] BYREF
   PVOID P; // [rsp+78h] [rbp-60h] BYREF
-  struct _KPROCESS *v26; // [rsp+80h] [rbp-58h]
-  int v27[2]; // [rsp+88h] [rbp-50h] BYREF
-  int v28; // [rsp+90h] [rbp-48h]
-  unsigned __int64 v29; // [rsp+98h] [rbp-40h] BYREF
-  struct _EX_RUNDOWN_REF *v30; // [rsp+A0h] [rbp-38h] BYREF
+  struct _KPROCESS *v25; // [rsp+80h] [rbp-58h]
+  int v26[2]; // [rsp+88h] [rbp-50h] BYREF
+  int v27; // [rsp+90h] [rbp-48h]
+  unsigned __int64 v28; // [rsp+98h] [rbp-40h] BYREF
+  struct _EX_RUNDOWN_REF *v29; // [rsp+A0h] [rbp-38h] BYREF
 
-  v8 = a3;
-  v29 = 0LL;
-  v24 = 0;
+  v28 = 0LL;
+  v23 = 0;
   P = 0LL;
-  *(_QWORD *)v27 = 0LL;
-  v23 = 0LL;
-  v30 = 0LL;
-  v9 = 0;
-  LOBYTE(a3) = a8;
-  v10 = ExpCaptureWnfStateName(v8, &v29, a3);
-  v28 = v10;
-  if ( v10 >= 0 )
+  *(_QWORD *)v26 = 0LL;
+  v22 = 0LL;
+  v29 = 0LL;
+  v8 = 0;
+  v9 = ExpCaptureWnfStateName(a3, &v28);
+  v27 = v9;
+  if ( v9 >= 0 )
   {
     if ( (a7 & 0xFFFFFFE0) != 0 )
     {
-      v10 = -1073741811;
+      v9 = -1073741811;
       goto LABEL_24;
     }
-    v12 = v29;
-    v13 = (v29 >> 4) & 3;
-    if ( v11 )
+    v11 = v28;
+    v12 = (v28 >> 4) & 3;
+    if ( v10 )
     {
-      v14 = 0;
-      v9 = (a7 & 0x11) != 0;
+      v13 = 0;
+      v8 = (a7 & 0x11) != 0;
       if ( (a7 & 0xFFFFFFEE) != 0 )
-        v9 |= 2u;
+        v8 |= 2u;
     }
     else
     {
-      v14 = 1;
+      v13 = 1;
     }
-    if ( v11 )
+    if ( v10 )
     {
       Process = KeGetCurrentThread()->ApcState.Process;
-      v12 = v29;
+      v11 = v28;
     }
     else
     {
       Process = PsInitialSystemProcess;
     }
-    v26 = Process;
-    v10 = ExpWnfResolveScopeInstance((int)v27, (int)Process, 0, (v29 >> 6) & 0xF, 0LL);
-    if ( v10 >= 0 )
+    v25 = Process;
+    v9 = ExpWnfResolveScopeInstance((int)v26, (int)Process, 0, (v28 >> 6) & 0xF, 0LL);
+    if ( v9 >= 0 )
     {
-      v16 = ExpWnfLookupNameInstance(*(_QWORD *)v27, v12, &v23);
-      v10 = v16;
-      if ( v16 != -1073741772 || (_DWORD)v13 == 3 )
+      v15 = ExpWnfLookupNameInstance(*(_QWORD *)v26, v11, &v22);
+      v9 = v15;
+      if ( v15 != -1073741772 || (_DWORD)v12 == 3 )
       {
-        if ( v16 < 0 )
+        if ( v15 < 0 )
           goto LABEL_24;
-        if ( !v14 )
+        if ( !v13 )
         {
-          v10 = ExpWnfCheckCallerAccess(v23[9].Ptr, v9);
-          if ( v10 < 0 )
+          v9 = ExpWnfCheckCallerAccess(v22[9].Ptr, v8);
+          if ( v9 < 0 )
             goto LABEL_24;
         }
-        v17 = (int)v26;
+        v16 = (int)v25;
       }
       else
       {
-        v10 = ExpWnfLookupPermanentName(v12, (PSECURITY_DESCRIPTOR **)&P);
-        if ( v10 < 0 )
+        v9 = ExpWnfLookupPermanentName(v11, &P);
+        if ( v9 < 0 )
           goto LABEL_24;
-        if ( !v14 )
+        if ( !v13 )
         {
-          v10 = ExpWnfCheckCallerAccess(*((PSECURITY_DESCRIPTOR *)P + 2), v9);
-          if ( v10 < 0 )
+          v9 = ExpWnfCheckCallerAccess(*((PSECURITY_DESCRIPTOR *)P + 2), v8);
+          if ( v9 < 0 )
             goto LABEL_24;
         }
-        v17 = (int)v26;
-        v10 = ExpWnfCreateNameInstance(*(unsigned __int64 *)v27, v12, (__int64)P, v26, &v23);
+        v16 = (int)v25;
+        v9 = ExpWnfCreateNameInstance(*(unsigned __int64 *)v26, v11, (__int64)P, v25, &v22);
         ExFreePoolWithTag(P, 0x20666E57u);
         P = 0LL;
-        if ( v10 < 0 )
+        if ( v9 < 0 )
           goto LABEL_24;
       }
-      v18 = v23;
-      v10 = ExpWnfSubscribeNameInstance((_DWORD)v23, v17, a5, a6, a4, a7, a8, a1, a2, (__int64)&v30, (__int64)&v24);
-      if ( v10 >= 0 )
+      v17 = v22;
+      v9 = ExpWnfSubscribeNameInstance((_DWORD)v22, v16, a5, a6, a4, a7, a8, a1, a2, (__int64)&v29, (__int64)&v23);
+      if ( v9 >= 0 )
       {
-        v19 = 0;
-        if ( a4 != LODWORD(v18[12].Count) )
-          v19 = v18[11].Count != 0;
-        v20 = v19 | 8;
-        if ( HIDWORD(v23[20].Ptr) )
-          v20 = v19;
-        if ( !v24 )
+        v18 = 0;
+        if ( a4 != LODWORD(v17[12].Count) )
+          v18 = v17[11].Count != 0;
+        v19 = v18 | 8;
+        if ( HIDWORD(v22[20].Ptr) )
+          v19 = v18;
+        if ( !v23 )
         {
-          if ( LODWORD(v23[20].Count) )
-            v20 |= 2u;
+          if ( LODWORD(v22[20].Count) )
+            v19 |= 2u;
           else
-            v20 |= 4u;
+            v19 |= 4u;
         }
-        v21 = a7 & v20;
-        if ( v21 )
-          ExpWnfNotifySubscription((__int64)v23, (__int64)v30, v21, a8 != 0);
+        v20 = a7 & (unsigned int)v19;
+        if ( (_DWORD)v20 )
+          ExpWnfNotifySubscription(v22, v29, v20, a8 != 0);
       }
     }
   }
 LABEL_24:
-  if ( v30 )
-    ExReleaseRundownProtection_0(v30 + 1);
-  if ( v23 )
-    ExReleaseRundownProtection_0(v23 + 1);
-  if ( *(_QWORD *)v27 )
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)v27 + 8LL));
+  if ( v29 )
+    ExReleaseRundownProtection(v29 + 1);
+  if ( v22 )
+    ExReleaseRundownProtection(v22 + 1);
+  if ( *(_QWORD *)v26 )
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)v26 + 8LL));
   if ( P )
     ExFreePoolWithTag(P, 0x20666E57u);
-  return (unsigned int)v10;
+  return (unsigned int)v9;
 }

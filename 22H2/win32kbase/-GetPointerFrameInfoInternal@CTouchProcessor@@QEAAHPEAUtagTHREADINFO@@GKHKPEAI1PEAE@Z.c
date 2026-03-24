@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetPointerFrameInfoInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GKHKPEAI1PEAE@Z @ 0x1C01C9184
+ * XREFs of ?GetPointerFrameInfoInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GKHKPEAI1PEAE@Z @ 0x1C019363C
  * Callers:
- *     NtUserGetPointerInfoList @ 0x1C0144EF0 (NtUserGetPointerInfoList.c)
+ *     NtUserGetPointerInfoList @ 0x1C012F460 (NtUserGetPointerInfoList.c)
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ?GetThreadPointerData@CTouchProcessor@@QEAA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C00E4550 (-GetThreadPointerData@CTouchProcessor@@QEAA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND.c)
- *     ?GetPointerFrameDataWithHistory@CTouchProcessor@@QEAAH_KKHKPEAI1PEAE@Z @ 0x1C01C8BF0 (-GetPointerFrameDataWithHistory@CTouchProcessor@@QEAAH_KKHKPEAI1PEAE@Z.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     ?GetPointerFrameDataWithHistory@CTouchProcessor@@QEAAH_KKHKPEAI1PEAE@Z @ 0x1C01931F0 (-GetPointerFrameDataWithHistory@CTouchProcessor@@QEAAH_KKHKPEAI1PEAE@Z.c)
+ *     ?GetThreadPointerData@CTouchProcessor@@QEAA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C0195D00 (-GetThreadPointerData@CTouchProcessor@@QEAA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND.c)
  */
 
 __int64 __fastcall CTouchProcessor::GetPointerFrameInfoInternal(
@@ -19,45 +19,50 @@ __int64 __fastcall CTouchProcessor::GetPointerFrameInfoInternal(
         unsigned int *a8,
         unsigned __int8 *a9)
 {
-  __int64 ThreadPointerData; // rdx
-  int v12; // ecx
-  unsigned int v14[6]; // [rsp+40h] [rbp-18h] BYREF
-  int v15; // [rsp+68h] [rbp+10h] BYREF
+  CTouchProcessor *v10; // rdi
+  __int64 v11; // rdx
+  __int64 ThreadPointerData; // rcx
+  __int64 v13; // rcx
+  int v15; // [rsp+50h] [rbp+8h] BYREF
+  int v16; // [rsp+54h] [rbp+Ch]
+  unsigned int v17; // [rsp+58h] [rbp+10h] BYREF
 
-  v14[0] = 0;
+  v16 = HIDWORD(this);
+  v10 = gpTouchProcessor;
+  v17 = 0;
   v15 = 0;
   ThreadPointerData = CTouchProcessor::GetThreadPointerData(
-                        this,
-                        (struct tagTHREADINFO *)((char *)a2 + 1128),
+                        gpTouchProcessor,
+                        (struct tagTHREADINFO *)((char *)a2 + 1088),
                         a3,
-                        v14,
+                        &v17,
                         &v15,
                         0LL);
   if ( !ThreadPointerData )
     goto LABEL_9;
   if ( v15 )
   {
-    if ( a4 != 1 && a4 != v14[0] )
+    if ( a4 != 1 && a4 != v17 )
     {
-      v12 = 1629;
+      v13 = 1629LL;
       goto LABEL_10;
     }
     if ( (unsigned int)CTouchProcessor::GetPointerFrameDataWithHistory(
-                         (struct _KTHREAD **)this,
+                         v10,
                          ThreadPointerData,
                          a4,
                          a5,
                          a6,
                          a7,
                          a8,
-                         a9) )
+                         (struct tagPOINTER_INFO *)a9) )
       return 1LL;
 LABEL_9:
-    v12 = 87;
+    v13 = 87LL;
     goto LABEL_10;
   }
-  v12 = 5;
+  v13 = 5LL;
 LABEL_10:
-  UserSetLastError(v12);
+  UserSetLastError(v13, v11);
   return 0LL;
 }

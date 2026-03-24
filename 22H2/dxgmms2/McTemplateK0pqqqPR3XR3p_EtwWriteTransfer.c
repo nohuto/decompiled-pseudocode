@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pqqqPR3XR3p_EtwWriteTransfer @ 0x1C0038AD8
+ * XREFs of McTemplateK0pqqqPR3XR3p_EtwWriteTransfer @ 0x1C002DEF8
  * Callers:
- *     VidSchiProfilePerformanceTick @ 0x1C000AA30 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C000B6D0 (VidSchiProfilePerformanceTick.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BD2C (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023ECC (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pqqqPR3XR3p_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
@@ -52,21 +52,21 @@ NTSTATUS McTemplateK0pqqqPR3XR3p_EtwWriteTransfer(__int64 a1, __int64 a2, __int6
   v27 = va_arg(va4, _QWORD);
   v29 = va_arg(va4, _QWORD);
   v30 = va_arg(va4, _QWORD);
-  v8 = 4LL;
-  v15 = 0;
-  v18 = 0;
   va_copy(v5, va);
-  v6 = 8LL;
   va_copy(v7, va1);
+  v14 = 8 * v27;
   va_copy(v9, va2);
   va_copy(v11, va3);
   v13 = v29;
+  v16 = v30;
+  va_copy(v19, va4);
+  v15 = 0;
+  v17 = 8 * v27;
+  v18 = 0;
+  v6 = 8LL;
+  v8 = 4LL;
   v10 = 4LL;
   v12 = 4LL;
   v20 = 8LL;
-  v16 = v30;
-  va_copy(v19, va4);
-  v14 = 8 * v27;
-  v17 = 8 * v27;
   return McGenEventWrite_EtwWriteTransfer(&DxgkControlGuid_Context, &EventSignalQueueSubmit, a3, 8u, &v4);
 }

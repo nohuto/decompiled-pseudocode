@@ -1,21 +1,21 @@
 /*
- * XREFs of MmUnmapReservedMapping @ 0x1402A9720
+ * XREFs of MmUnmapReservedMapping @ 0x1402A9820
  * Callers:
- *     SmFpFree @ 0x14014CA1C (SmFpFree.c)
- *     sub_1401AD750 @ 0x1401AD750 (sub_1401AD750.c)
- *     PnprCopyReservedMapping @ 0x140289E80 (PnprCopyReservedMapping.c)
- *     PnprSwap @ 0x14028A7D0 (PnprSwap.c)
- *     PspIumFreePhysicalPages @ 0x1402EB82C (PspIumFreePhysicalPages.c)
+ *     SmFpFree @ 0x14014CA3C (SmFpFree.c)
+ *     sub_1401AD770 @ 0x1401AD770 (sub_1401AD770.c)
+ *     PnprCopyReservedMapping @ 0x140289F80 (PnprCopyReservedMapping.c)
+ *     PnprSwap @ 0x14028A8D0 (PnprSwap.c)
+ *     PspIumFreePhysicalPages @ 0x1402EB92C (PspIumFreePhysicalPages.c)
  *     PnprMapPhysicalPages @ 0x140579BCC (PnprMapPhysicalPages.c)
- *     EtwpSavePersistedLogger @ 0x1408CA4FC (EtwpSavePersistedLogger.c)
+ *     EtwpSavePersistedLogger @ 0x1408CA4DC (EtwpSavePersistedLogger.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiRetardMdl @ 0x1402A82EC (MiRetardMdl.c)
- *     MiUnmapMdlCommon @ 0x1402A9324 (MiUnmapMdlCommon.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiRetardMdl @ 0x1402A83EC (MiRetardMdl.c)
+ *     MiUnmapMdlCommon @ 0x1402A9424 (MiUnmapMdlCommon.c)
  */
 
 void __stdcall MmUnmapReservedMapping(PVOID BaseAddress, ULONG PoolTag, PMDL MemoryDescriptorList)

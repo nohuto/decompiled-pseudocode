@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UmfdEscEngComputeGlyphSet@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00E7C7C
+ * XREFs of ?UmfdEscEngComputeGlyphSet@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A482C
  * Callers:
- *     UmfdDispatchEscape @ 0x1C0010B54 (UmfdDispatchEscape.c)
+ *     UmfdDispatchEscape @ 0x1C00A7800 (UmfdDispatchEscape.c)
  * Callees:
- *     EngComputeGlyphSet @ 0x1C00E7D30 (EngComputeGlyphSet.c)
- *     ?WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z @ 0x1C00E8224 (-WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z.c)
+ *     ?WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z @ 0x1C00A476C (-WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z.c)
+ *     EngComputeGlyphSet @ 0x1C00A48E0 (EngComputeGlyphSet.c)
  */
 
 void __fastcall UmfdEscEngComputeGlyphSet(struct tagUMFD_ESCAPE_ARGUMENT *a1)

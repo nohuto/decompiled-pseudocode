@@ -1,39 +1,48 @@
 /*
- * XREFs of ?vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z @ 0x1C007C20C
+ * XREFs of ?vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z @ 0x1C00A58B4
  * Callers:
- *     bKillPFFOBJ @ 0x1C007C1E0 (bKillPFFOBJ.c)
- *     ?vDeleteRFONTRef@PFFOBJ@@QEAAXXZ @ 0x1C0087CDC (-vDeleteRFONTRef@PFFOBJ@@QEAAXXZ.c)
- *     ?vPFFC_DeleteAndCleanup@PFFOBJ@@QEAAXXZ @ 0x1C02D6950 (-vPFFC_DeleteAndCleanup@PFFOBJ@@QEAAXXZ.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093A30 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     ?vDeleteRFONTRef@PFFOBJ@@QEAAXXZ @ 0x1C009F278 (-vDeleteRFONTRef@PFFOBJ@@QEAAXXZ.c)
+ *     bKillPFFOBJ @ 0x1C00A5888 (bKillPFFOBJ.c)
+ *     ?vPFFC_DeleteAndCleanup@PFFOBJ@@QEAAXXZ @ 0x1C02BB3A0 (-vPFFC_DeleteAndCleanup@PFFOBJ@@QEAAXXZ.c)
  * Callees:
- *     ?vDelete@PFEOBJ@@QEAAXXZ @ 0x1C007C384 (-vDelete@PFEOBJ@@QEAAXXZ.c)
- *     FreeFileView @ 0x1C007C5A8 (FreeFileView.c)
+ *     ?vDelete@PFEOBJ@@QEAAXXZ @ 0x1C00A5A2C (-vDelete@PFEOBJ@@QEAAXXZ.c)
+ *     FreeFileView @ 0x1C00A5B30 (FreeFileView.c)
  */
 
 void __fastcall PFFOBJ::vPFFC_Delete(void **this, struct PFFCLEANUP *a2)
 {
   _QWORD *v2; // r8
   __int64 v3; // rdi
-  void *i; // rbp
-  _QWORD *v7; // r10
+  void *v6; // rbp
+  _QWORD *v7; // r8
   __int64 v8; // rdx
   void *v9; // rcx
   __int64 v10; // rax
   _QWORD *v11; // rcx
-  __int64 v12; // r8
+  __int64 v12; // r9
   __int64 v13; // r11
-  __int64 v14; // r8
+  __int64 v14; // r9
   __int64 v15; // rcx
-  __int64 v16; // rdx
+  __int64 v16; // r8
   __int64 v17; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *this;
   v3 = 0LL;
-  for ( i = (void *)*((_QWORD *)*this + 27); (unsigned int)v3 < *((_DWORD *)*this + 52); v3 = (unsigned int)(v3 + 1) )
+  v6 = (void *)*((_QWORD *)*this + 27);
+  if ( *((_DWORD *)*this + 52) )
   {
-    v17 = v2[v3 + 27];
-    if ( v17 )
-      PFEOBJ::vDelete((PFEOBJ *)&v17);
-    v2 = *this;
+    do
+    {
+      v17 = v2[v3 + 27];
+      if ( v17 )
+      {
+        PFEOBJ::vDelete((PFEOBJ *)&v17);
+        v2 = *this;
+      }
+      v3 = (unsigned int)(v3 + 1);
+    }
+    while ( (unsigned int)v3 < *((_DWORD *)v2 + 52) );
   }
   *((_QWORD *)a2 + 1) = v2[10];
   *(_QWORD *)a2 = *((_QWORD *)*this + 11);
@@ -56,13 +65,12 @@ void __fastcall PFFOBJ::vPFFC_Delete(void **this, struct PFFCLEANUP *a2)
           {
             do
             {
-              v14 = v7[19];
+              v14 = *((_QWORD *)*this + 19);
               v15 = *(_QWORD *)(*(_QWORD *)(v14 + 200) + 8 * v13);
-              v16 = v14 + *(_QWORD *)(*(_QWORD *)(v7[25] + 8 * v13) + 80LL) - (_QWORD)v7;
+              v16 = v14 + *(_QWORD *)(*(_QWORD *)(*((_QWORD *)*this + 25) + 8 * v13) + 80LL) - (_QWORD)*this;
               v13 = (unsigned int)(v13 + 1);
               *(_QWORD *)(v15 + 80) = v16;
               v11 = *this;
-              v7 = *this;
             }
             while ( (unsigned int)v13 < *(_DWORD *)(*((_QWORD *)*this + 19) + 36LL) );
           }
@@ -74,13 +82,16 @@ void __fastcall PFFOBJ::vPFFC_Delete(void **this, struct PFFCLEANUP *a2)
   else
   {
     if ( v7[25] && *((_DWORD *)v7 + 9) )
+    {
       FreeFileView();
-    v9 = (void *)*((_QWORD *)*this + 24);
+      v7 = *this;
+    }
+    v9 = (void *)v7[24];
     if ( v9 )
       Win32FreePool(v9);
   }
-  if ( i )
-    Win32FreePool(i);
+  if ( v6 )
+    Win32FreePool(v6);
   Win32FreePool(*this);
   *this = 0LL;
 }

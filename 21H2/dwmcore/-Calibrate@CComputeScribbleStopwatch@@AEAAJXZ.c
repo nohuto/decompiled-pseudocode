@@ -1,15 +1,15 @@
 /*
- * XREFs of ?Calibrate@CComputeScribbleStopwatch@@AEAAJXZ @ 0x1801EC790
+ * XREFs of ?Calibrate@CComputeScribbleStopwatch@@AEAAJXZ @ 0x1801AA154
  * Callers:
- *     ?ResolveDelayedResources@CComputeScribbleStopwatch@@AEAAJXZ @ 0x1801ECC08 (-ResolveDelayedResources@CComputeScribbleStopwatch@@AEAAJXZ.c)
+ *     ?ResolveDelayedResources@CComputeScribbleStopwatch@@AEAAJXZ @ 0x1801AA598 (-ResolveDelayedResources@CComputeScribbleStopwatch@@AEAAJXZ.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CComputeScribbleStopwatch::Calibrate(CComputeScribbleStopwatch *this)
 {
-  int v2; // ebx
+  int v2; // edi
   __int64 v3; // rdx
   float v5; // xmm0_4
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
@@ -26,7 +26,7 @@ LABEL_3:
     wil::details::in1diag3::Return_Hr(
       retaddr,
       (void *)v3,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblestopwatch.cpp",
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblestopwatch.cpp",
       (const char *)(unsigned int)v2);
     return (unsigned int)v2;
   }

@@ -1,36 +1,49 @@
 /*
- * XREFs of PopPowerAggregatorModernStandbyExitStateHandler @ 0x140993B90
+ * XREFs of PopPowerAggregatorModernStandbyExitStateHandler @ 0x1408EE5D0
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x140874ED8 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140776C08 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorDisengageModernStandby @ 0x14099362C (PopPowerAggregatorDisengageModernStandby.c)
- *     PdcPoPerfOverride @ 0x140997A58 (PdcPoPerfOverride.c)
- *     PopPdcDisengagePhases @ 0x140998100 (PopPdcDisengagePhases.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x1408EE09C (PopPowerAggregatorDisengageModernStandby.c)
+ *     PdcPoPerfOverride @ 0x1408EF958 (PdcPoPerfOverride.c)
+ *     PopPdcDisengagePhases @ 0x1408F0070 (PopPdcDisengagePhases.c)
  */
 
 __int64 __fastcall PopPowerAggregatorModernStandbyExitStateHandler(__int64 a1)
 {
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
+  int v1; // eax
 
-  if ( *(_BYTE *)(a1 + 72) )
+  v1 = *(_DWORD *)(a1 + 88);
+  if ( !v1 )
+    goto LABEL_7;
+  if ( v1 == 1 )
   {
+LABEL_10:
     PopPowerAggregatorDisengageModernStandby(a1);
+    return 0LL;
   }
-  else
+  if ( v1 > 1 )
   {
-    PopReleaseRwLock(&PopPowerAggregatorLock);
-    PdcPoPerfOverride(v2, v1, v3, v4);
-    PopPdcDisengagePhases(v6, v5, v7, v8);
+    if ( v1 > 3 )
+    {
+      if ( v1 != 4 )
+        return 0LL;
+LABEL_8:
+      if ( *(_BYTE *)(a1 + 96) )
+      {
+        *(_DWORD *)(a1 + 88) = 1;
+        goto LABEL_10;
+      }
+      return 0LL;
+    }
+LABEL_7:
+    PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
+    PdcPoPerfOverride();
+    PopPdcDisengagePhases();
     PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
+    *(_DWORD *)(a1 + 88) = 4;
+    goto LABEL_8;
   }
   return 0LL;
 }

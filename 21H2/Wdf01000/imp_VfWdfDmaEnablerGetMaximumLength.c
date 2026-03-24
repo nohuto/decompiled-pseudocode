@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_VfWdfDmaEnablerGetMaximumLength @ 0x1C00C1430
+ * XREFs of imp_VfWdfDmaEnablerGetMaximumLength @ 0x1C00C0430
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 unsigned __int64 __fastcall imp_VfWdfDmaEnablerGetMaximumLength(

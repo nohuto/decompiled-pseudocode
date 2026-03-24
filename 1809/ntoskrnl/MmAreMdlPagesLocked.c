@@ -4,10 +4,10 @@
  *     VERIFY_BUFFER_LOCKED @ 0x140929614 (VERIFY_BUFFER_LOCKED.c)
  *     VerifierMmBuildMdlForNonPagedPool @ 0x140944540 (VerifierMmBuildMdlForNonPagedPool.c)
  * Callees:
- *     MiIsPfn @ 0x1400A88C0 (MiIsPfn.c)
- *     MiIsPfnLocked @ 0x14013B178 (MiIsPfnLocked.c)
- *     MiLockPage @ 0x1402BF5F0 (MiLockPage.c)
- *     MiUnlockPage @ 0x1402BF604 (MiUnlockPage.c)
+ *     MiIsPfn @ 0x1400A88E0 (MiIsPfn.c)
+ *     MiIsPfnLocked @ 0x14013B198 (MiIsPfnLocked.c)
+ *     MiLockPage @ 0x1402BF6F0 (MiLockPage.c)
+ *     MiUnlockPage @ 0x1402BF704 (MiUnlockPage.c)
  */
 
 __int64 __fastcall MmAreMdlPagesLocked(_DWORD *a1)

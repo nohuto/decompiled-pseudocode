@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmGetInterfaceClassMappedProperty @ 0x140787730
+ * XREFs of _CmGetInterfaceClassMappedProperty @ 0x14063B1B4
  * Callers:
- *     _PnpDispatchInterfaceClass @ 0x140787620 (_PnpDispatchInterfaceClass.c)
+ *     _PnpDispatchInterfaceClass @ 0x14063B450 (_PnpDispatchInterfaceClass.c)
  * Callees:
- *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x140787818 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmGetInterfaceClassMappedPropertyFromComposite @ 0x140A2BD78 (_CmGetInterfaceClassMappedPropertyFromComposite.c)
+ *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x14063B2A4 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmGetInterfaceClassMappedPropertyFromComposite @ 0x14097B380 (_CmGetInterfaceClassMappedPropertyFromComposite.c)
  */
 
 __int64 __fastcall CmGetInterfaceClassMappedProperty(
@@ -19,43 +19,66 @@ __int64 __fastcall CmGetInterfaceClassMappedProperty(
         _DWORD *a9)
 {
   unsigned int InterfaceClassMappedPropertyFromRegValue; // r10d
-  __int64 v13; // rcx
-  __int64 v15; // rdx
+  DEVPROPKEY **v13; // r8
+  DEVPROPKEY *v14; // rdx
+  __int64 v15; // rcx
+  DEVPROPKEY **v17; // r8
+  int v18; // r9d
+  DEVPROPKEY *v19; // rdx
+  __int64 v20; // rcx
 
   InterfaceClassMappedPropertyFromRegValue = -1073741802;
   *a9 = 0;
   if ( !a4 )
   {
-    if ( !&DEVPKEY_DeviceInterfaceClass_DefaultInterface
-      || *(_DWORD *)(a5 + 16) != DEVPKEY_DeviceInterfaceClass_DefaultInterface.pid )
+    v13 = &off_1409836A8;
+    while ( 1 )
     {
-      goto LABEL_9;
-    }
-    v13 = *(_QWORD *)a5 - *(_QWORD *)&DEVPKEY_DeviceInterfaceClass_DefaultInterface.fmtid.Data1;
-    if ( *(_QWORD *)a5 == *(_QWORD *)&DEVPKEY_DeviceInterfaceClass_DefaultInterface.fmtid.Data1 )
-      v13 = *(_QWORD *)(a5 + 8) - *(_QWORD *)DEVPKEY_DeviceInterfaceClass_DefaultInterface.fmtid.Data4;
-    if ( v13
-      || (InterfaceClassMappedPropertyFromRegValue = CmGetInterfaceClassMappedPropertyFromRegValue(
-                                                       a1,
-                                                       a2,
-                                                       a3,
-                                                       a5,
-                                                       a6,
-                                                       a7,
-                                                       a8,
-                                                       (__int64)a9),
-          InterfaceClassMappedPropertyFromRegValue == -1073741802) )
-    {
-LABEL_9:
-      if ( *(_DWORD *)(a5 + 16) == DEVPKEY_NAME.pid )
+      v14 = *v13;
+      if ( *v13 && *(_DWORD *)(a5 + 16) == v14->pid )
       {
-        v15 = *(_QWORD *)a5 - *(_QWORD *)&DEVPKEY_NAME.fmtid.Data1;
-        if ( *(_QWORD *)a5 == *(_QWORD *)&DEVPKEY_NAME.fmtid.Data1 )
-          v15 = *(_QWORD *)(a5 + 8) - *(_QWORD *)DEVPKEY_NAME.fmtid.Data4;
+        v15 = *(_QWORD *)a5 - *(_QWORD *)&v14->fmtid.Data1;
+        if ( *(_QWORD *)a5 == *(_QWORD *)&v14->fmtid.Data1 )
+          v15 = *(_QWORD *)(a5 + 8) - *(_QWORD *)v14->fmtid.Data4;
         if ( !v15 )
-          return (unsigned int)CmGetInterfaceClassMappedPropertyFromComposite(a1, a2, a3, a5, a6, a7, a8, (__int64)a9);
+          break;
       }
+      LODWORD(a4) = a4 + 1;
+      v13 += 2;
+      if ( (_DWORD)a4 )
+        goto LABEL_11;
     }
+    InterfaceClassMappedPropertyFromRegValue = CmGetInterfaceClassMappedPropertyFromRegValue(
+                                                 a1,
+                                                 a2,
+                                                 a3,
+                                                 a5,
+                                                 a6,
+                                                 a7,
+                                                 a8,
+                                                 (__int64)a9);
+    if ( InterfaceClassMappedPropertyFromRegValue != -1073741802 )
+      return InterfaceClassMappedPropertyFromRegValue;
+LABEL_11:
+    v17 = &off_140983758;
+    v18 = 0;
+    while ( 1 )
+    {
+      v19 = *v17;
+      if ( *(_DWORD *)(a5 + 16) == (*v17)->pid )
+      {
+        v20 = *(_QWORD *)a5 - *(_QWORD *)&v19->fmtid.Data1;
+        if ( *(_QWORD *)a5 == *(_QWORD *)&v19->fmtid.Data1 )
+          v20 = *(_QWORD *)(a5 + 8) - *(_QWORD *)v19->fmtid.Data4;
+        if ( !v20 )
+          break;
+      }
+      ++v18;
+      v17 += 2;
+      if ( v18 )
+        return InterfaceClassMappedPropertyFromRegValue;
+    }
+    return (unsigned int)CmGetInterfaceClassMappedPropertyFromComposite(a1, a2, a3, a5, a6, a7, a8, (__int64)a9);
   }
   return InterfaceClassMappedPropertyFromRegValue;
 }

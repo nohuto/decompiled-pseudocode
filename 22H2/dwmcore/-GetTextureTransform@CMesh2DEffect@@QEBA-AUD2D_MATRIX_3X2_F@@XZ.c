@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetTextureTransform@CMesh2DEffect@@QEBA?AUD2D_MATRIX_3X2_F@@XZ @ 0x180109260
+ * XREFs of ?GetTextureTransform@CMesh2DEffect@@QEBA?AUD2D_MATRIX_3X2_F@@XZ @ 0x1800E3A68
  * Callers:
- *     <none>
+ *     ??$ValueGetter@P8CMesh2DEffect@@EBA?AUD2D_MATRIX_3X2_F@@XZ$H?GetTextureTransform@1@QEBA?AU2@XZA@UID2D1EffectImpl@@@@YAJPEBUIUnknown@@PEAEIPEAI@Z @ 0x18026C400 (--$ValueGetter@P8CMesh2DEffect@@EBA-AUD2D_MATRIX_3X2_F@@XZ$H-GetTextureTransform@1@QEBA-AU2@XZA@.c)
  * Callees:
  *     <none>
  */

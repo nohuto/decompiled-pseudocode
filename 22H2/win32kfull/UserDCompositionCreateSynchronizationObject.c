@@ -1,7 +1,7 @@
 /*
- * XREFs of UserDCompositionCreateSynchronizationObject @ 0x1C01FE61C
+ * XREFs of UserDCompositionCreateSynchronizationObject @ 0x1C0220308
  * Callers:
- *     GreWindowResizeStarted @ 0x1C02686B0 (GreWindowResizeStarted.c)
+ *     GreWindowResizeStarted @ 0x1C02700B0 (GreWindowResizeStarted.c)
  * Callees:
  *     <none>
  */

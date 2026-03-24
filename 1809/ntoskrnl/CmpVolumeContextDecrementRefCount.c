@@ -2,14 +2,14 @@
  * XREFs of CmpVolumeContextDecrementRefCount @ 0x1405AFC04
  * Callers:
  *     CmpCompleteUnloadKey @ 0x1405AF61C (CmpCompleteUnloadKey.c)
- *     CmShutdownSystem @ 0x1407EC8D4 (CmShutdownSystem.c)
- *     CmpDestroyHive @ 0x1407F6798 (CmpDestroyHive.c)
+ *     CmShutdownSystem @ 0x1407EC8B4 (CmShutdownSystem.c)
+ *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     CmpVolumeContextCleanup @ 0x1407F6534 (CmpVolumeContextCleanup.c)
+ *     CmpVolumeContextCleanup @ 0x1407F6514 (CmpVolumeContextCleanup.c)
  */
 
 void __fastcall CmpVolumeContextDecrementRefCount(PPRIVILEGE_SET Privileges)

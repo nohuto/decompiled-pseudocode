@@ -1,20 +1,19 @@
 /*
- * XREFs of CcDeferWrite @ 0x140539E20
+ * XREFs of CcDeferWrite @ 0x1404EA040
  * Callers:
- *     DifCcDeferWriteWrapper @ 0x140605B10 (DifCcDeferWriteWrapper.c)
+ *     <none>
  * Callees:
- *     ExInterlockedInsertTailList @ 0x140223920 (ExInterlockedInsertTailList.c)
- *     ExInterlockedInsertHeadList @ 0x1402430F0 (ExInterlockedInsertHeadList.c)
- *     CcDereferencePartition @ 0x140276728 (CcDereferencePartition.c)
- *     CcScheduleLazyWriteScan @ 0x140276758 (CcScheduleLazyWriteScan.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcGetPrivateVolumeCacheMapFromFileObject @ 0x140284848 (CcGetPrivateVolumeCacheMapFromFileObject.c)
- *     CcGetPartitionFromFileObject @ 0x14029C124 (CcGetPartitionFromFileObject.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     CcPostDeferredWrites @ 0x14053A100 (CcPostDeferredWrites.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExInterlockedInsertHeadList @ 0x1402A0300 (ExInterlockedInsertHeadList.c)
+ *     ExInterlockedInsertTailList @ 0x1402A0380 (ExInterlockedInsertTailList.c)
+ *     CcGetPartitionFromFileObject @ 0x1402E86C4 (CcGetPartitionFromFileObject.c)
+ *     CcDereferencePartition @ 0x1402F6D2C (CcDereferencePartition.c)
+ *     CcScheduleLazyWriteScan @ 0x1402F6D5C (CcScheduleLazyWriteScan.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CcPostDeferredWrites @ 0x1404EA2F0 (CcPostDeferredWrites.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __stdcall CcDeferWrite(
@@ -27,36 +26,31 @@ void __stdcall CcDeferWrite(
 {
   char *PoolWithTag; // rdi
   __int64 PartitionFromFileObject; // rbx
-  _QWORD *v12; // rcx
-  _QWORD *PrivateVolumeCacheMapFromFileObject; // rsi
-  unsigned __int64 OldIrql; // r15
+  unsigned __int64 OldIrql; // r14
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v18; // eax
-  bool v19; // zf
-  KSPIN_LOCK *v20; // r8
-  struct _LIST_ENTRY *v21; // rdx
-  struct _LIST_ENTRY *v22; // rcx
-  struct _LIST_ENTRY *v23; // rcx
-  __int64 v24; // r8
-  unsigned __int64 v25; // rdi
-  unsigned __int8 v26; // al
-  struct _KPRCB *v27; // r9
-  _DWORD *v28; // r8
-  int v29; // eax
+  int v16; // eax
+  bool v17; // zf
+  KSPIN_LOCK *v18; // r8
+  struct _LIST_ENTRY *v19; // rdx
+  struct _LIST_ENTRY *v20; // rcx
+  unsigned __int64 v21; // rdi
+  unsigned __int8 v22; // al
+  struct _KPRCB *v23; // r9
+  _DWORD *v24; // r8
+  int v25; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-30h] BYREF
-  struct _KLOCK_QUEUE_HANDLE v31; // [rsp+38h] [rbp-18h] BYREF
+  struct _KLOCK_QUEUE_HANDLE v27; // [rsp+38h] [rbp-18h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  memset(&v31, 0, sizeof(v31));
-  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x68uLL, 0x77446343u);
+  memset(&v27, 0, sizeof(v27));
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x60uLL, 0x77446343u);
   if ( PoolWithTag )
   {
     KeAcquireInStackQueuedSpinLock(&CcMasterLock, &LockHandle);
     PartitionFromFileObject = CcGetPartitionFromFileObject((__int64)FileObject);
-    PrivateVolumeCacheMapFromFileObject = CcGetPrivateVolumeCacheMapFromFileObject(v12, PartitionFromFileObject);
-    if ( _InterlockedIncrement64((volatile signed __int64 *)(PartitionFromFileObject + 1232)) <= 1 )
+    if ( _InterlockedIncrement64((volatile signed __int64 *)(PartitionFromFileObject + 968)) <= 1 )
       __fastfail(0xEu);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
@@ -69,64 +63,57 @@ void __stdcall CcDeferWrite(
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v18 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v19 = (v18 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v18;
-          if ( v19 )
+          v16 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v17 = (v16 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v16;
+          if ( v17 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }
     __writecr8(OldIrql);
-    if ( _InterlockedIncrement64((volatile signed __int64 *)(PartitionFromFileObject + 1232)) <= 1 )
+    if ( _InterlockedIncrement64((volatile signed __int64 *)(PartitionFromFileObject + 968)) <= 1 )
       __fastfail(0xEu);
-    if ( PrivateVolumeCacheMapFromFileObject && _InterlockedIncrement64(PrivateVolumeCacheMapFromFileObject + 1) <= 1 )
-      __fastfail(0xEu);
-    v20 = (KSPIN_LOCK *)(PartitionFromFileObject + 1152);
+    v18 = (KSPIN_LOCK *)(PartitionFromFileObject + 832);
     *((_QWORD *)PoolWithTag + 5) = 0LL;
-    v21 = (struct _LIST_ENTRY *)(PoolWithTag + 24);
+    v19 = (struct _LIST_ENTRY *)(PoolWithTag + 24);
+    v20 = (struct _LIST_ENTRY *)(PartitionFromFileObject + 784);
     *((_QWORD *)PoolWithTag + 1) = FileObject;
-    v22 = (struct _LIST_ENTRY *)PrivateVolumeCacheMapFromFileObject;
     *((_DWORD *)PoolWithTag + 4) = BytesToWrite;
-    if ( !PrivateVolumeCacheMapFromFileObject )
-      v22 = (struct _LIST_ENTRY *)PartitionFromFileObject;
-    v23 = v22 + 69;
-    *((_QWORD *)PoolWithTag + 6) = PostRoutine;
     *((_QWORD *)PoolWithTag + 9) = PartitionFromFileObject;
-    *((_QWORD *)PoolWithTag + 10) = PrivateVolumeCacheMapFromFileObject;
-    *(_DWORD *)PoolWithTag = 6816508;
+    *(_DWORD *)PoolWithTag = 6292220;
+    *((_QWORD *)PoolWithTag + 6) = PostRoutine;
     *((_QWORD *)PoolWithTag + 7) = Context1;
     *((_QWORD *)PoolWithTag + 8) = Context2;
-    *((_QWORD *)PoolWithTag + 12) = MEMORY[0xFFFFF78000000320];
-    PoolWithTag[88] = 0;
+    *((_QWORD *)PoolWithTag + 11) = MEMORY[0xFFFFF78000000320];
+    PoolWithTag[80] = 0;
     if ( Retrying )
-      ExInterlockedInsertHeadList(v23, v21, v20);
+      ExInterlockedInsertHeadList(v20, v19, v18);
     else
-      ExInterlockedInsertTailList(v23, v21, v20);
-    CcPostDeferredWrites(PartitionFromFileObject, PrivateVolumeCacheMapFromFileObject);
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(PartitionFromFileObject + 704), &v31);
-    LOBYTE(v24) = 1;
-    CcScheduleLazyWriteScan((_BYTE *)PartitionFromFileObject, (__int64)PrivateVolumeCacheMapFromFileObject, v24, 0);
-    KeReleaseInStackQueuedSpinLockFromDpcLevel(&v31);
-    v25 = v31.OldIrql;
+      ExInterlockedInsertTailList(v20, v19, v18);
+    CcPostDeferredWrites(PartitionFromFileObject);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(PartitionFromFileObject + 128), &v27);
+    CcScheduleLazyWriteScan(PartitionFromFileObject, 1, 0);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&v27);
+    v21 = v27.OldIrql;
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v26 = KeGetCurrentIrql();
-        if ( v26 <= 0xFu && v31.OldIrql <= 0xFu && v26 >= 2u )
+        v22 = KeGetCurrentIrql();
+        if ( v22 <= 0xFu && v27.OldIrql <= 0xFu && v22 >= 2u )
         {
-          v27 = KeGetCurrentPrcb();
-          v28 = v27->SchedulerAssist;
-          v29 = ~(unsigned __int16)(-1LL << (v31.OldIrql + 1));
-          v19 = (v29 & v28[5]) == 0;
-          v28[5] &= v29;
-          if ( v19 )
-            KiRemoveSystemWorkPriorityKick((__int64)v27);
+          v23 = KeGetCurrentPrcb();
+          v24 = v23->SchedulerAssist;
+          v25 = ~(unsigned __int16)(-1LL << (v27.OldIrql + 1));
+          v17 = (v25 & v24[5]) == 0;
+          v24[5] &= v25;
+          if ( v17 )
+            KiRemoveSystemWorkPriorityKick((__int64)v23);
         }
       }
     }
-    __writecr8(v25);
+    __writecr8(v21);
     CcDereferencePartition(PartitionFromFileObject);
   }
   else

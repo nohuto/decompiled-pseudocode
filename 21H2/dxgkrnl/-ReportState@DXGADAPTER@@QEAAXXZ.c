@@ -1,229 +1,228 @@
 /*
- * XREFs of ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C02BD52C
+ * XREFs of ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C020EB6C
  * Callers:
- *     ?ReportState@DXGGLOBAL@@QEAAXXZ @ 0x1C030C1C8 (-ReportState@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?ReportState@DXGGLOBAL@@QEAAXXZ @ 0x1C026B2DC (-ReportState@DXGGLOBAL@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqpx_EtwWriteTransfer @ 0x1C0044A20 (McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqpx_EtwWriteTransfer.c)
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0044DE4 (McTemplateK0pqqq_EtwWriteTransfer.c)
- *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C0044E7C (McTemplateK0pqtqq_EtwWriteTransfer.c)
- *     McTemplateK0pqqqqjzqqx_EtwWriteTransfer @ 0x1C0044F24 (McTemplateK0pqqqqjzqqx_EtwWriteTransfer.c)
- *     McTemplateK0pqqqxx_EtwWriteTransfer @ 0x1C0045118 (McTemplateK0pqqqxx_EtwWriteTransfer.c)
- *     ?GetAdapterType@DXGADAPTER@@QEAA?AU_D3DKMT_ADAPTERTYPE@@XZ @ 0x1C0179770 (-GetAdapterType@DXGADAPTER@@QEAA-AU_D3DKMT_ADAPTERTYPE@@XZ.c)
- *     DpiReportAdapter @ 0x1C01FC5E0 (DpiReportAdapter.c)
- *     ?ReportNodeMetadata@DXGADAPTER@@QEBAXXZ @ 0x1C0219038 (-ReportNodeMetadata@DXGADAPTER@@QEBAXXZ.c)
- *     ?ReportState@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C02C20C8 (-ReportState@ADAPTER_DISPLAY@@QEAAXXZ.c)
- *     ?ReportState@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02C4420 (-ReportState@ADAPTER_RENDER@@QEAAXXZ.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqp_EtwWriteTransfer @ 0x1C003A024 (McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqp_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C003A3D8 (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C003A470 (McTemplateK0pqtqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqqjzqqx_EtwWriteTransfer @ 0x1C003A518 (McTemplateK0pqqqqjzqqx_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqxx_EtwWriteTransfer @ 0x1C003A70C (McTemplateK0pqqqxx_EtwWriteTransfer.c)
+ *     ?GetAdapterType@DXGADAPTER@@QEAA?AU_D3DKMT_ADAPTERTYPE@@XZ @ 0x1C00F7BC0 (-GetAdapterType@DXGADAPTER@@QEAA-AU_D3DKMT_ADAPTERTYPE@@XZ.c)
+ *     DpiReportAdapter @ 0x1C01825AC (DpiReportAdapter.c)
+ *     ?ReportNodeMetadata@DXGADAPTER@@QEBAXXZ @ 0x1C019D5FC (-ReportNodeMetadata@DXGADAPTER@@QEBAXXZ.c)
+ *     ?ReportState@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C0214304 (-ReportState@ADAPTER_DISPLAY@@QEAAXXZ.c)
+ *     ?ReportState@ADAPTER_RENDER@@QEAAXXZ @ 0x1C0216784 (-ReportState@ADAPTER_RENDER@@QEAAXXZ.c)
  */
 
 void __fastcall DXGADAPTER::ReportState(DXGADAPTER *this)
 {
-  __int64 v2; // rdi
-  __int64 v3; // rsi
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rdi
   int *AdapterType; // rax
-  unsigned int v5; // r9d
-  __int64 v6; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  wchar_t *v10; // r14
+  unsigned int v7; // r9d
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  wchar_t *v11; // r14
   unsigned int i; // esi
-  __int64 v12; // rdi
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  unsigned int j; // ebp
+  __int64 v13; // rdi
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 j; // rbp
   unsigned int k; // esi
-  __int64 v17; // rcx
-  __int64 v18; // rax
-  unsigned int *v19; // rdi
-  int v20; // r14d
-  unsigned int m; // ebp
-  __int64 v22; // rdi
-  __int64 v23; // rcx
-  int v24; // esi
-  __int64 v25; // rcx
-  ADAPTER_DISPLAY *v26; // rcx
-  ADAPTER_RENDER *v27; // rcx
-  __int64 v28; // [rsp+20h] [rbp-128h]
-  __int64 v29; // [rsp+20h] [rbp-128h]
-  __int64 v30; // [rsp+28h] [rbp-120h]
-  __int64 v31; // [rsp+28h] [rbp-120h]
-  __int64 v32; // [rsp+30h] [rbp-118h]
-  __int64 v33; // [rsp+30h] [rbp-118h]
-  __int64 v34; // [rsp+38h] [rbp-110h]
-  __int64 v35; // [rsp+50h] [rbp-F8h]
-  __int64 v36; // [rsp+58h] [rbp-F0h]
-  int v37; // [rsp+C0h] [rbp-88h]
-  int v38; // [rsp+D8h] [rbp-70h]
-  struct _UNICODE_STRING v39; // [rsp+100h] [rbp-48h] BYREF
-  struct _STRING DestinationString; // [rsp+110h] [rbp-38h] BYREF
-  int v41; // [rsp+150h] [rbp+8h] BYREF
+  __int64 v18; // rcx
+  __int64 v19; // rax
+  _DWORD *v20; // rdi
+  int v21; // r14d
+  __int64 m; // rbp
+  __int64 v23; // rdi
+  __int64 v24; // rcx
+  int v25; // esi
+  __int64 v26; // rcx
+  ADAPTER_DISPLAY *v27; // rcx
+  ADAPTER_RENDER *v28; // rcx
+  __int64 v29; // [rsp+20h] [rbp-118h]
+  __int64 v30; // [rsp+20h] [rbp-118h]
+  __int64 v31; // [rsp+28h] [rbp-110h]
+  __int64 v32; // [rsp+28h] [rbp-110h]
+  __int64 v33; // [rsp+30h] [rbp-108h]
+  __int64 v34; // [rsp+30h] [rbp-108h]
+  __int64 v35; // [rsp+38h] [rbp-100h]
+  __int64 v36; // [rsp+50h] [rbp-E8h]
+  __int64 v37; // [rsp+58h] [rbp-E0h]
+  int v38; // [rsp+C0h] [rbp-78h]
+  int v39; // [rsp+D8h] [rbp-60h]
+  struct _UNICODE_STRING v40; // [rsp+100h] [rbp-38h] BYREF
+  struct _STRING DestinationString; // [rsp+110h] [rbp-28h] BYREF
+  int v42; // [rsp+140h] [rbp+8h] BYREF
 
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner((PERESOURCE *)this) )
   {
-    WdLogSingleEntry1(1LL, 9786LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceExclusiveOwner()", 9786LL, 0LL, 0LL, 0LL, 0LL);
+    v4 = WdLogNewEntry5_WdAssertion(v3, v2);
+    *(_QWORD *)(v4 + 24) = 9394LL;
+    WdLogEvent5_WdAssertion(v4);
   }
   if ( bTracingEnabled )
   {
-    v2 = *(_QWORD *)((char *)this + 4452);
-    v3 = *((_QWORD *)this + 35);
-    AdapterType = DXGADAPTER::GetAdapterType(this, &v41);
-    v5 = *((_DWORD *)this + 535);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
+    v5 = *((_QWORD *)this + 34);
+    AdapterType = DXGADAPTER::GetAdapterType(this, &v42);
+    v7 = *((_DWORD *)this + 511);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
     {
-      v6 = v5 >> 14;
-      LOBYTE(v6) = v6 & 7;
-      McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqpx_EtwWriteTransfer(
-        v6,
+      v8 = v7 >> 14;
+      LOBYTE(v8) = v8 & 7;
+      McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqp_EtwWriteTransfer(
+        v8,
         &EventReportAdapter,
-        v5 >> 31,
+        v7 >> 31,
         *((_QWORD *)this + 27),
         (char)this,
-        *((_DWORD *)this + 386),
-        *((_QWORD *)this + 261),
-        *((_DWORD *)this + 524),
-        *((_QWORD *)this + 263),
-        *((_DWORD *)this + 528),
-        *((_DWORD *)this + 529),
-        *((_DWORD *)this + 531),
-        *((_DWORD *)this + 532),
-        *((_DWORD *)this + 533),
-        *((_DWORD *)this + 536),
-        *((_DWORD *)this + 530),
-        *((_DWORD *)this + 534),
-        v5,
-        (v5 >> 10) & 0xF,
-        v6,
-        (v5 >> 17) & 7,
-        (v5 & 0x80000000) != 0,
-        *((_DWORD *)this + 537),
-        *((_DWORD *)this + 538),
-        v37,
-        *((_DWORD *)this + 540),
-        *((_DWORD *)this + 541),
+        *((_DWORD *)this + 362),
+        *((_QWORD *)this + 249),
+        *((_DWORD *)this + 500),
+        *((_QWORD *)this + 251),
+        *((_DWORD *)this + 504),
+        *((_DWORD *)this + 505),
+        *((_DWORD *)this + 507),
+        *((_DWORD *)this + 508),
+        *((_DWORD *)this + 509),
+        *((_DWORD *)this + 512),
+        *((_DWORD *)this + 506),
+        *((_DWORD *)this + 510),
+        v7,
+        (v7 >> 10) & 0xF,
+        v8,
+        (v7 >> 17) & 7,
+        (v7 & 0x80000000) != 0,
+        *((_DWORD *)this + 513),
+        *((_DWORD *)this + 514),
         v38,
-        *((_DWORD *)this + 760),
+        *((_DWORD *)this + 516),
+        *((_DWORD *)this + 517),
+        v39,
+        *((_DWORD *)this + 736),
         *AdapterType,
-        v3,
-        v2);
+        v5);
     }
   }
   DpiReportAdapter(*((_QWORD *)this + 27), (__int64)this);
-  if ( bTracingEnabled && *((_DWORD *)this + 760) )
+  if ( bTracingEnabled && *((_DWORD *)this + 736) )
   {
-    v39 = 0LL;
-    v10 = (wchar_t *)operator new[](0x50uLL, 0x4B677844u, 256LL, v9);
-    if ( v10 )
+    v40 = 0LL;
+    v11 = (wchar_t *)operator new[](0x50uLL, 0x4B677844u, PagedPool);
+    if ( v11 )
     {
-      for ( i = 0; i < *((_DWORD *)this + 760); ++i )
+      for ( i = 0; i < *((_DWORD *)this + 736); ++i )
       {
         DestinationString = 0LL;
-        v12 = *((_QWORD *)this + 362) + 520LL * i;
-        RtlInitAnsiString(&DestinationString, (PCSZ)(v12 + 236));
-        *(_QWORD *)&v39.Length = 5242880LL;
-        v39.Buffer = v10;
-        if ( RtlAnsiStringToUnicodeString(&v39, &DestinationString, 0) < 0 )
-          RtlInitUnicodeString(&v39, L"Unknown");
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+        v13 = *((_QWORD *)this + 350) + 520LL * i;
+        RtlInitAnsiString(&DestinationString, (PCSZ)(v13 + 236));
+        *(_QWORD *)&v40.Length = 5242880LL;
+        v40.Buffer = v11;
+        if ( RtlAnsiStringToUnicodeString(&v40, &DestinationString, 0) < 0 )
+          RtlInitUnicodeString(&v40, L"Unknown");
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
         {
-          LODWORD(v36) = *(_DWORD *)(v12 + 344);
-          LODWORD(v35) = *(_DWORD *)(v12 + 216);
-          LODWORD(v34) = *(_DWORD *)(v12 + 8);
-          LODWORD(v32) = *(_DWORD *)(v12 + 212);
-          LODWORD(v30) = *(_DWORD *)(v12 + 208);
-          LODWORD(v28) = i;
+          LODWORD(v37) = *(_DWORD *)(v13 + 344);
+          LODWORD(v36) = *(_DWORD *)(v13 + 216);
+          LODWORD(v35) = *(_DWORD *)(v13 + 8);
+          LODWORD(v33) = *(_DWORD *)(v13 + 212);
+          LODWORD(v31) = *(_DWORD *)(v13 + 208);
+          LODWORD(v29) = i;
           McTemplateK0pqqqqjzqqx_EtwWriteTransfer(
-            v12 + 220,
-            v13,
+            v13 + 220,
             v14,
+            v15,
             this,
-            v28,
-            v30,
-            v32,
-            v34,
-            v12 + 220,
-            v39.Buffer,
+            v29,
+            v31,
+            v33,
             v35,
+            v13 + 220,
+            v40.Buffer,
             v36,
-            *(_QWORD *)(v12 + 368));
+            v37,
+            *(_QWORD *)(v13 + 368));
         }
-        for ( j = 0; j < *(_DWORD *)(v12 + 8); ++j )
+        for ( j = 0LL; (unsigned int)j < *(_DWORD *)(v13 + 8); j = (unsigned int)(j + 1) )
         {
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
           {
-            LODWORD(v32) = *(_DWORD *)(v12 + 24LL * j + 32);
-            LODWORD(v30) = j;
-            LODWORD(v28) = i;
+            LODWORD(v33) = *(_DWORD *)(v13 + 24 * j + 32);
+            LODWORD(v31) = j;
+            LODWORD(v29) = i;
             McTemplateK0pqqqxx_EtwWriteTransfer(
-              3LL * j,
-              v13,
+              3 * j,
               v14,
+              v15,
               this,
-              v28,
-              v30,
-              v32,
-              *(_QWORD *)(v12 + 24LL * j + 16),
-              *(_QWORD *)(v12 + 24LL * j + 24));
+              v29,
+              v31,
+              v33,
+              *(_QWORD *)(v13 + 24 * j + 16),
+              *(_QWORD *)(v13 + 24 * j + 24));
           }
         }
       }
-      operator delete[](v10);
+      operator delete[](v11);
     }
-    for ( k = 0; k < *((_DWORD *)this + 760); ++k )
+    for ( k = 0; k < *((_DWORD *)this + 736); ++k )
     {
-      v17 = 520LL * k;
-      v18 = *((_QWORD *)this + 362);
-      v19 = *(unsigned int **)(v17 + v18 + 512);
-      if ( v19 )
+      v18 = 520LL * k;
+      v19 = *((_QWORD *)this + 350);
+      v20 = *(_DWORD **)(v18 + v19 + 512);
+      if ( v20 )
       {
-        v20 = *(_DWORD *)(v17 + v18 + 212);
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+        v21 = *(_DWORD *)(v18 + v19 + 212);
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
         {
-          LODWORD(v34) = v19[48];
-          LODWORD(v32) = *v19;
-          LODWORD(v30) = *(_DWORD *)(v17 + v18 + 212);
-          LODWORD(v28) = k;
-          McTemplateK0pqtqq_EtwWriteTransfer(v17, &Dxgk_PowerPStateComponent, v8, this, v28, v30, v32, v34);
+          LODWORD(v35) = v20[48];
+          LODWORD(v33) = *v20;
+          LODWORD(v31) = *(_DWORD *)(v18 + v19 + 212);
+          LODWORD(v29) = k;
+          McTemplateK0pqtqq_EtwWriteTransfer(v18, &Dxgk_PowerPStateComponent, v10, this, v29, v31, v33, v35);
         }
-        for ( m = 0; m < *v19; ++m )
+        for ( m = 0LL; (unsigned int)m < *v20; m = (unsigned int)(m + 1) )
         {
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
           {
-            LODWORD(v32) = v19[m + 1];
-            LODWORD(v30) = m;
-            LODWORD(v28) = v20;
-            McTemplateK0pqqq_EtwWriteTransfer((unsigned int)v32, &Dxgk_PowerPState, v8, this, v28, v30, v32);
+            LODWORD(v33) = v20[m + 1];
+            LODWORD(v31) = m;
+            LODWORD(v29) = v21;
+            McTemplateK0pqqq_EtwWriteTransfer((unsigned int)v33, &Dxgk_PowerPState, v10, this, v29, v31, v33);
           }
         }
       }
     }
   }
-  v22 = *((_QWORD *)this + 27);
-  v23 = *(_QWORD *)(v22 + 64);
-  v24 = *(_DWORD *)(v23 + 4380);
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  v23 = *((_QWORD *)this + 27);
+  v24 = *(_QWORD *)(v23 + 64);
+  v25 = *(_DWORD *)(v24 + 4364);
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
   {
-    LODWORD(v32) = 0;
-    LODWORD(v30) = *(unsigned __int8 *)(v23 + 4384);
-    LODWORD(v28) = v30;
-    McTemplateK0pqqq_EtwWriteTransfer(v23, &EventBrightness, v8, v22, v28, v30, v32);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+    LODWORD(v33) = 0;
+    LODWORD(v31) = *(unsigned __int8 *)(v24 + 4368);
+    LODWORD(v29) = v31;
+    McTemplateK0pqqq_EtwWriteTransfer(v24, &EventBrightness, v10, v23, v29, v31, v33);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     {
-      LODWORD(v33) = 0;
-      LODWORD(v31) = v24;
-      LODWORD(v29) = v24;
-      McTemplateK0pqqq_EtwWriteTransfer(v25, &EventBacklightOptimizationLevel, v8, v22, v29, v31, v33);
+      LODWORD(v34) = 0;
+      LODWORD(v32) = v25;
+      LODWORD(v30) = v25;
+      McTemplateK0pqqq_EtwWriteTransfer(v26, &EventBacklightOptimizationLevel, v10, v23, v30, v32, v34);
     }
   }
-  v26 = (ADAPTER_DISPLAY *)*((_QWORD *)this + 349);
-  if ( v26 )
-    ADAPTER_DISPLAY::ReportState(v26);
-  v27 = (ADAPTER_RENDER *)*((_QWORD *)this + 350);
+  v27 = (ADAPTER_DISPLAY *)*((_QWORD *)this + 337);
   if ( v27 )
-    ADAPTER_RENDER::ReportState(v27);
-  DXGADAPTER::ReportNodeMetadata(this, v7, v8);
+    ADAPTER_DISPLAY::ReportState(v27);
+  v28 = (ADAPTER_RENDER *)*((_QWORD *)this + 338);
+  if ( v28 )
+    ADAPTER_RENDER::ReportState(v28);
+  DXGADAPTER::ReportNodeMetadata(this, v9, v10);
 }

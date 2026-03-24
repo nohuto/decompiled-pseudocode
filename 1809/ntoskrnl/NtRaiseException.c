@@ -1,16 +1,16 @@
 /*
- * XREFs of NtRaiseException @ 0x1401BC6F0
+ * XREFs of NtRaiseException @ 0x1401BC710
  * Callers:
  *     <none>
  * Callees:
- *     KiUpdateStibpPairing @ 0x1400F8BD0 (KiUpdateStibpPairing.c)
- *     KiRestoreDebugRegisterState @ 0x1401BC070 (KiRestoreDebugRegisterState.c)
- *     NtRaiseException @ 0x1401BC6F0 (NtRaiseException.c)
- *     KiRestoreSetContextState @ 0x1401BCD40 (KiRestoreSetContextState.c)
- *     KiInitiateUserApc @ 0x1401C1060 (KiInitiateUserApc.c)
- *     KiUmsExit @ 0x1401D0F00 (KiUmsExit.c)
- *     KiCopyCounters @ 0x140295DC0 (KiCopyCounters.c)
- *     KiRaiseException @ 0x14029A0B0 (KiRaiseException.c)
+ *     KiUpdateStibpPairing @ 0x1400F8BF0 (KiUpdateStibpPairing.c)
+ *     KiRestoreDebugRegisterState @ 0x1401BC090 (KiRestoreDebugRegisterState.c)
+ *     NtRaiseException @ 0x1401BC710 (NtRaiseException.c)
+ *     KiRestoreSetContextState @ 0x1401BCD60 (KiRestoreSetContextState.c)
+ *     KiInitiateUserApc @ 0x1401C1080 (KiInitiateUserApc.c)
+ *     KiUmsExit @ 0x1401D1000 (KiUmsExit.c)
+ *     KiCopyCounters @ 0x140295EC0 (KiCopyCounters.c)
+ *     KiRaiseException @ 0x14029A1B0 (KiRaiseException.c)
  */
 
 // positive sp value has been detected, the output may be wrong!
@@ -87,38 +87,38 @@ NTSTATUS __stdcall NtRaiseException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT 
     v10 = _bittestandreset16(MK_FP(__GS__, 2144LL), 5u);
     if ( v10 )
     {
-      v13[21] = 0x1401BC928LL;
-      v13[52] = 0x1401BCA3FLL;
-      v13[51] = 0x1401BCA36LL;
-      v13[50] = 0x1401BCA2DLL;
-      v13[49] = 0x1401BCA24LL;
-      v13[48] = 0x1401BCA1BLL;
-      v13[47] = 0x1401BCA12LL;
-      v13[46] = 0x1401BCA09LL;
-      v13[45] = 0x1401BCA00LL;
-      v13[44] = 0x1401BC9F7LL;
-      v13[43] = 0x1401BC9EELL;
-      v13[42] = 0x1401BC9E5LL;
-      v13[41] = 0x1401BC9DCLL;
-      v13[40] = 0x1401BC9D3LL;
-      v13[39] = 0x1401BC9CALL;
-      v13[38] = 0x1401BC9C1LL;
-      v13[37] = 0x1401BC9B8LL;
-      v13[36] = 0x1401BC9AFLL;
-      v13[35] = 0x1401BC9A6LL;
-      v13[34] = 0x1401BC99DLL;
-      v13[33] = 0x1401BC994LL;
-      v13[32] = 0x1401BC98BLL;
-      v13[31] = 0x1401BC982LL;
-      v13[30] = 0x1401BC979LL;
-      v13[29] = 0x1401BC970LL;
-      v13[28] = 0x1401BC967LL;
-      v13[27] = 0x1401BC95ELL;
-      v13[26] = 0x1401BC955LL;
-      v13[25] = 0x1401BC94CLL;
-      v13[24] = 0x1401BC943LL;
-      v13[23] = 0x1401BC93ALL;
-      v13[22] = 0x1401BC931LL;
+      v13[21] = 0x1401BC948LL;
+      v13[52] = 0x1401BCA5FLL;
+      v13[51] = 0x1401BCA56LL;
+      v13[50] = 0x1401BCA4DLL;
+      v13[49] = 0x1401BCA44LL;
+      v13[48] = 0x1401BCA3BLL;
+      v13[47] = 0x1401BCA32LL;
+      v13[46] = 0x1401BCA29LL;
+      v13[45] = 0x1401BCA20LL;
+      v13[44] = 0x1401BCA17LL;
+      v13[43] = 0x1401BCA0ELL;
+      v13[42] = 0x1401BCA05LL;
+      v13[41] = 0x1401BC9FCLL;
+      v13[40] = 0x1401BC9F3LL;
+      v13[39] = 0x1401BC9EALL;
+      v13[38] = 0x1401BC9E1LL;
+      v13[37] = 0x1401BC9D8LL;
+      v13[36] = 0x1401BC9CFLL;
+      v13[35] = 0x1401BC9C6LL;
+      v13[34] = 0x1401BC9BDLL;
+      v13[33] = 0x1401BC9B4LL;
+      v13[32] = 0x1401BC9ABLL;
+      v13[31] = 0x1401BC9A2LL;
+      v13[30] = 0x1401BC999LL;
+      v13[29] = 0x1401BC990LL;
+      v13[28] = 0x1401BC987LL;
+      v13[27] = 0x1401BC97ELL;
+      v13[26] = 0x1401BC975LL;
+      v13[25] = 0x1401BC96CLL;
+      v13[24] = 0x1401BC963LL;
+      v13[23] = 0x1401BC95ALL;
+      v13[22] = 0x1401BC951LL;
     }
     if ( (KiKvaShadow & 1) == 0 )
     {

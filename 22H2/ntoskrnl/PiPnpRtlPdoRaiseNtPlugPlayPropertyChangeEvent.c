@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14086F3AC
+ * XREFs of PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x140748CE4
  * Callers:
- *     PnpDeviceActionWorker @ 0x140358E30 (PnpDeviceActionWorker.c)
- *     PiQueryPowerRelations @ 0x14086F044 (PiQueryPowerRelations.c)
+ *     PnpDeviceActionWorker @ 0x14036F9F0 (PnpDeviceActionWorker.c)
+ *     PiQueryPowerRelations @ 0x140748844 (PiQueryPowerRelations.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140797720 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1407424E0 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
  */
 
 __int64 __fastcall PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent(ULONG_PTR MaxDataSize, int a2)
@@ -17,9 +17,11 @@ __int64 __fastcall PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent(ULONG_PTR MaxDa
   _WORD *v6; // rcx
   __int64 v7; // rcx
   unsigned __int16 *v8; // rdi
-  _WORD *v9; // rcx
-  __int64 v10; // rax
+  __int64 v9; // rdx
+  _WORD *v10; // rcx
   __int64 v11; // rcx
+  _WORD *v12; // rcx
+  __int64 v13; // rcx
 
   if ( !MaxDataSize )
     goto LABEL_18;
@@ -45,26 +47,32 @@ __int64 __fastcall PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent(ULONG_PTR MaxDa
     if ( v7 )
     {
       v8 = (unsigned __int16 *)(v7 + 40);
-      IoAddTriageDumpDataBlock(v7, (PVOID)0x388);
+      IoAddTriageDumpDataBlock(v7, (PVOID)0x310);
       if ( *v8 )
       {
         IoAddTriageDumpDataBlock((ULONG)v8, (PVOID)2);
         IoAddTriageDumpDataBlock(*((_QWORD *)v8 + 1), (PVOID)*v8);
       }
-      v9 = (_WORD *)(*(_QWORD *)(*(_QWORD *)(MaxDataSize + 312) + 40LL) + 56LL);
-      if ( *v9 )
+      v9 = *(_QWORD *)(MaxDataSize + 312);
+      v10 = (_WORD *)(*(_QWORD *)(v9 + 40) + 56LL);
+      if ( *v10 )
       {
-        IoAddTriageDumpDataBlock((ULONG)v9, (PVOID)2);
+        IoAddTriageDumpDataBlock((ULONG)v10, (PVOID)2);
         IoAddTriageDumpDataBlock(
           *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(MaxDataSize + 312) + 40LL) + 64LL),
           (PVOID)*(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(MaxDataSize + 312) + 40LL) + 56LL));
+        v9 = *(_QWORD *)(MaxDataSize + 312);
       }
-      v10 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(MaxDataSize + 312) + 40LL) + 16LL);
-      if ( v10 && *(_WORD *)(v10 + 56) )
+      v11 = *(_QWORD *)(*(_QWORD *)(v9 + 40) + 16LL);
+      if ( v11 )
       {
-        IoAddTriageDumpDataBlock(v10 + 56, (PVOID)2);
-        v11 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(MaxDataSize + 312) + 40LL) + 16LL);
-        IoAddTriageDumpDataBlock(*(_QWORD *)(v11 + 64), (PVOID)*(unsigned __int16 *)(v11 + 56));
+        v12 = (_WORD *)(v11 + 56);
+        if ( *v12 )
+        {
+          IoAddTriageDumpDataBlock((ULONG)v12, (PVOID)2);
+          v13 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(MaxDataSize + 312) + 40LL) + 16LL);
+          IoAddTriageDumpDataBlock(*(_QWORD *)(v13 + 64), (PVOID)*(unsigned __int16 *)(v13 + 56));
+        }
       }
     }
 LABEL_18:

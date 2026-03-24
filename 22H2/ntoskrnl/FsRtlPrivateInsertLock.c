@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlPrivateInsertLock @ 0x14032761C
+ * XREFs of FsRtlPrivateInsertLock @ 0x1402D93EC
  * Callers:
- *     FsRtlPrivateCheckWaitingLocks @ 0x140326B54 (FsRtlPrivateCheckWaitingLocks.c)
- *     FsRtlPrivateLock @ 0x140327350 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateLock @ 0x1402D8B40 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x1402F8104 (FsRtlPrivateCheckWaitingLocks.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B00 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     FsRtlPrivateInsertExclusiveLock @ 0x140326E24 (FsRtlPrivateInsertExclusiveLock.c)
- *     FsRtlPrivateInsertSharedLock @ 0x140327780 (FsRtlPrivateInsertSharedLock.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202C74 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x1402D9CF8 (FsRtlPrivateInsertSharedLock.c)
+ *     FsRtlPrivateInsertExclusiveLock @ 0x140305384 (FsRtlPrivateInsertExclusiveLock.c)
  */
 
 char __fastcall FsRtlPrivateInsertLock(_QWORD *a1, __int64 a2, _OWORD *a3)
@@ -26,7 +26,7 @@ char __fastcall FsRtlPrivateInsertLock(_QWORD *a1, __int64 a2, _OWORD *a3)
       *(_OWORD *)(v10 + 24) = *a3;
       *(_OWORD *)(v10 + 40) = a3[1];
       *(_OWORD *)(v10 + 56) = a3[2];
-      FsRtlPrivateInsertExclusiveLock((__int64)(a1 + 3), (_RTL_SPLAY_LINKS *)v10);
+      FsRtlPrivateInsertExclusiveLock(a1 + 3, v10);
       goto LABEL_4;
     }
     return 0;

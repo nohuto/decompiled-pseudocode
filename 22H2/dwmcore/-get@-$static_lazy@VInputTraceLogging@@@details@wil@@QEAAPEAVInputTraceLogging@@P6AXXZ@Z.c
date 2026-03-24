@@ -1,56 +1,44 @@
 /*
- * XREFs of ?get@?$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z @ 0x180032A40
+ * XREFs of ?get@?$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z @ 0x18004EC34
  * Callers:
- *     ?TraceInteractionConfiguration@GestureTargeting@InputTraceLogging@@SAXPEBVCInteraction@@@Z @ 0x180016FA0 (-TraceInteractionConfiguration@GestureTargeting@InputTraceLogging@@SAXPEBVCInteraction@@@Z.c)
- *     ?HitTestTreeWalkResult@DWM@InputTraceLogging@@SAXKW4DIT_HITTESTATTRIBUTES@@QEAXQEAUHWND__@@1PEBVCInteraction@@@Z @ 0x18003235C (-HitTestTreeWalkResult@DWM@InputTraceLogging@@SAXKW4DIT_HITTESTATTRIBUTES@@QEAXQEAUHWND__@@1PEBV.c)
- *     ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18003272C (-OnInteractionUpdate@CManipulationManager@@IEAAXXZ.c)
- *     ??1PerfRegion@InputTraceLogging@@QEAA@XZ @ 0x180032978 (--1PerfRegion@InputTraceLogging@@QEAA@XZ.c)
- *     ??0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1800329A8 (--0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
- *     ?Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z @ 0x180032A08 (-Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z.c)
- *     ?InteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x180035FB0 (-InteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CMa.c)
- *     ?TriggerMmcss@CKst@@QEAAJXZ @ 0x1800C8E54 (-TriggerMmcss@CKst@@QEAAJXZ.c)
- *     ?UpdateMMCSSTask@CKst@@EEAAJXZ @ 0x1800F9AC0 (-UpdateMMCSSTask@CKst@@EEAAJXZ.c)
- *     ?Run@CKstBase@@AEAAKXZ @ 0x1800FBA5C (-Run@CKstBase@@AEAAKXZ.c)
- *     ?DequeueFrame@GestureTargeting@InputTraceLogging@@SAXPEAVCManipulationFrame@@@Z @ 0x18019E0C4 (-DequeueFrame@GestureTargeting@InputTraceLogging@@SAXPEAVCManipulationFrame@@@Z.c)
- *     ?QueueFrame@GestureTargeting@InputTraceLogging@@SAX_K0KK@Z @ 0x1801A01D4 (-QueueFrame@GestureTargeting@InputTraceLogging@@SAX_K0KK@Z.c)
- *     ?QueueFrame@GestureTargeting@TelemetryDebug@InputTraceLogging@@SAXAEBUtagTELEMETRY_POINTER_FRAME_TIMES@@@Z @ 0x1801A027C (-QueueFrame@GestureTargeting@TelemetryDebug@InputTraceLogging@@SAXAEBUtagTELEMETRY_POINTER_FRAME.c)
- *     ?RoutePointer@GestureTargeting@InputTraceLogging@@SAX_K0KKPEAX@Z @ 0x1801A143C (-RoutePointer@GestureTargeting@InputTraceLogging@@SAX_K0KKPEAX@Z.c)
- *     ?SetPointerResult@GestureTargeting@InputTraceLogging@@SAX_K0KKAEBUTargetingInfo@@@Z @ 0x1801A1564 (-SetPointerResult@GestureTargeting@InputTraceLogging@@SAX_K0KKAEBUTargetingInfo@@@Z.c)
- *     ?TemporaryInteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x1801A2100 (-TemporaryInteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionU.c)
- *     ?UpdateCapture@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x1801A2654 (-UpdateCapture@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager.c)
- *     ?SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z @ 0x1801A6A1C (-SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z.c)
- *     ??$UpdateActiveConfig@UDwmMousewheelInteractionConfigurationPrimitive@@@GestureTargeting@InputTraceLogging@@SAXAEBUDwmMousewheelInteractionConfigurationPrimitive@@@Z @ 0x1801A97FC (--$UpdateActiveConfig@UDwmMousewheelInteractionConfigurationPrimitive@@@GestureTargeting@InputTr.c)
- *     ??$UpdateActiveConfig@UDwmPenInteractionConfigurationPrimitive@@@GestureTargeting@InputTraceLogging@@SAXAEBUDwmPenInteractionConfigurationPrimitive@@@Z @ 0x1801A9A1C (--$UpdateActiveConfig@UDwmPenInteractionConfigurationPrimitive@@@GestureTargeting@InputTraceLogg.c)
- *     ??$UpdateActiveConfig@UDwmTouchInteractionConfigurationPrimitive@@@GestureTargeting@InputTraceLogging@@SAXAEBUDwmTouchInteractionConfigurationPrimitive@@@Z @ 0x1801A9C3C (--$UpdateActiveConfig@UDwmTouchInteractionConfigurationPrimitive@@@GestureTargeting@InputTraceLo.c)
- *     ??$UpdateActiveConfig@UDwmTouchpadInteractionConfigurationPrimitive@@@GestureTargeting@InputTraceLogging@@SAXAEBUDwmTouchpadInteractionConfigurationPrimitive@@@Z @ 0x1801A9E5C (--$UpdateActiveConfig@UDwmTouchpadInteractionConfigurationPrimitive@@@GestureTargeting@InputTrac.c)
- *     ?ForcePalmRejection@GestureTargeting@InputTraceLogging@@SAXXZ @ 0x1801B1098 (-ForcePalmRejection@GestureTargeting@InputTraceLogging@@SAXXZ.c)
- *     ?InputTransparencyEvaluation@DWM@InputTraceLogging@@SAXPEBVCInteraction@@_N@Z @ 0x1801B110C (-InputTransparencyEvaluation@DWM@InputTraceLogging@@SAXPEBVCInteraction@@_N@Z.c)
- *     ?MarkForFurtherEvaluation@DWM@InputTraceLogging@@SAXPEBVCInteraction@@_N@Z @ 0x1801B12CC (-MarkForFurtherEvaluation@DWM@InputTraceLogging@@SAXPEBVCInteraction@@_N@Z.c)
- *     ?BlockInteractionResolution@GestureTargeting@InputTraceLogging@@SAXPEBVCInteraction@@_K@Z @ 0x18020BC20 (-BlockInteractionResolution@GestureTargeting@InputTraceLogging@@SAXPEBVCInteraction@@_K@Z.c)
- *     ?Stop@CKstBase@@QEAAXXZ @ 0x180285C20 (-Stop@CKstBase@@QEAAXXZ.c)
+ *     ?TraceInteractionConfiguration@GestureTargeting@InputTraceLogging@@SAXPEBVCInteraction@@@Z @ 0x180015C0C (-TraceInteractionConfiguration@GestureTargeting@InputTraceLogging@@SAXPEBVCInteraction@@@Z.c)
+ *     ?InteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x18004DC30 (-InteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CMa.c)
+ *     ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18004DE8C (-OnInteractionUpdate@CManipulationManager@@IEAAXXZ.c)
+ *     ?HitTestTreeWalkResult@DWM@InputTraceLogging@@SAXKW4DIT_HITTESTATTRIBUTES@@QEAXQEAUHWND__@@1PEBVCInteraction@@@Z @ 0x18004EAEC (-HitTestTreeWalkResult@DWM@InputTraceLogging@@SAXKW4DIT_HITTESTATTRIBUTES@@QEAXQEAUHWND__@@1PEBV.c)
+ *     ??0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x18004EB68 (--0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ??1PerfRegion@InputTraceLogging@@QEAA@XZ @ 0x18004EBCC (--1PerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     ?Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z @ 0x18004EBFC (-Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z.c)
+ *     ?DequeueFrame@GestureTargeting@InputTraceLogging@@SAXPEAVCManipulationFrame@@@Z @ 0x18022483C (-DequeueFrame@GestureTargeting@InputTraceLogging@@SAXPEAVCManipulationFrame@@@Z.c)
+ *     ?QueueFrame@GestureTargeting@InputTraceLogging@@SAX_K0KK@Z @ 0x180226458 (-QueueFrame@GestureTargeting@InputTraceLogging@@SAX_K0KK@Z.c)
+ *     ?RoutePointer@GestureTargeting@InputTraceLogging@@SAX_K0KKPEAX@Z @ 0x180226F84 (-RoutePointer@GestureTargeting@InputTraceLogging@@SAX_K0KKPEAX@Z.c)
+ *     ?SetPointerResult@GestureTargeting@InputTraceLogging@@SAX_K0KKAEBUTargetingInfo@@@Z @ 0x1802270A4 (-SetPointerResult@GestureTargeting@InputTraceLogging@@SAX_K0KKAEBUTargetingInfo@@@Z.c)
+ *     ?TemporaryInteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x180227A24 (-TemporaryInteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionU.c)
+ *     ?UpdateCapture@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x180227E94 (-UpdateCapture@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager.c)
+ *     ?EvaluateHitTestCandidate@DWM@InputTraceLogging@@SAXPEBVCInteraction@@_N@Z @ 0x180228A38 (-EvaluateHitTestCandidate@DWM@InputTraceLogging@@SAXPEBVCInteraction@@_N@Z.c)
+ *     ?ForcePalmRejection@GestureTargeting@InputTraceLogging@@SAXXZ @ 0x180228BBC (-ForcePalmRejection@GestureTargeting@InputTraceLogging@@SAXXZ.c)
+ *     ??$UpdateActiveConfig@UDwmMousewheelInteractionConfigurationPrimitive@@@GestureTargeting@InputTraceLogging@@SAXAEBUDwmMousewheelInteractionConfigurationPrimitive@@@Z @ 0x180229B94 (--$UpdateActiveConfig@UDwmMousewheelInteractionConfigurationPrimitive@@@GestureTargeting@InputTr.c)
+ *     ?SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z @ 0x1802363DC (-SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z.c)
  * Callees:
- *     ??1Completer@?$static_lazy@VCompositorTracing@@@details@wil@@QEAA@XZ @ 0x1800FB9C4 (--1Completer@-$static_lazy@VCompositorTracing@@@details@wil@@QEAA@XZ.c)
- *     atexit @ 0x18010F498 (atexit.c)
+ *     ?Register@TraceLoggingProvider@wil@@IEAAXQEBU_tlgProvider_t@@P6AXPEBU_GUID@@KE_K2PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z@Z @ 0x1800DAC00 (-Register@TraceLoggingProvider@wil@@IEAAXQEBU_tlgProvider_t@@P6AXPEBU_GUID@@KE_K2PEAU_EVENT_FILT.c)
+ *     atexit @ 0x1800E711C (atexit.c)
  */
 
-__int64 *__fastcall wil::details::static_lazy<InputTraceLogging>::get(__int64 a1, void (__cdecl *a2)())
+_QWORD *__fastcall wil::details::static_lazy<InputTraceLogging>::get(__int64 a1, void (__cdecl *a2)())
 {
-  union _RTL_RUN_ONCE *v4; // [rsp+20h] [rbp-18h] BYREF
-  int v5; // [rsp+28h] [rbp-10h]
-  __int64 v6; // [rsp+40h] [rbp+8h] BYREF
-  __int64 *v7; // [rsp+50h] [rbp+18h] BYREF
+  void (*v4)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *); // r8
+  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  _QWORD *v6; // [rsp+40h] [rbp+18h] BYREF
 
-  v6 = a1;
-  v7 = 0LL;
-  if ( InitOnceBeginInitialize(&`InputTraceLogging::Instance'::`2'::wrapper, 0, (PBOOL)&v6, (LPVOID *)&v7) && (_DWORD)v6 )
+  v5 = a1;
+  v6 = 0LL;
+  if ( InitOnceBeginInitialize(&`InputTraceLogging::Instance'::`2'::wrapper, 0, (PBOOL)&v5, (LPVOID *)&v6) && (_DWORD)v5 )
   {
-    v4 = &`InputTraceLogging::Instance'::`2'::wrapper;
-    v7 = &qword_1803E5EF8;
-    qword_1803E5EF8 = (__int64)&CompositorTracing::`vftable';
-    qword_1803E5F10 = (__int64)&`InputTraceLogging::StaticHandle::StaticHandle'::`2'::__hInner;
+    v6 = qword_18034B0E0;
+    qword_18034B0E0[0] = &CompositorTracing::`vftable';
+    qword_18034B0F8 = (struct _tlgProvider_t *)&`InputTraceLogging::StaticHandle::StaticHandle'::`2'::__hInner;
     atexit(a2);
-    v5 = 0;
-    wil::details::static_lazy<CompositorTracing>::Completer::~Completer(&v4);
+    wil::TraceLoggingProvider::Register((wil::TraceLoggingProvider *)qword_18034B0E0, qword_18034B0F8, v4);
+    InitOnceComplete(&`InputTraceLogging::Instance'::`2'::wrapper, 0, qword_18034B0E0);
   }
-  return v7;
+  return v6;
 }

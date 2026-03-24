@@ -1,11 +1,11 @@
 /*
- * XREFs of SepCheckCreateLowBox @ 0x1406E6DFC
+ * XREFs of SepCheckCreateLowBox @ 0x1406BF634
  * Callers:
- *     NtCreateLowBoxToken @ 0x14078DDF0 (NtCreateLowBoxToken.c)
+ *     NtCreateLowBoxToken @ 0x140676580 (NtCreateLowBoxToken.c)
  * Callees:
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     RtlIsParentOfChildAppContainer @ 0x1409B9218 (RtlIsParentOfChildAppContainer.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     RtlIsParentOfChildAppContainer @ 0x140673594 (RtlIsParentOfChildAppContainer.c)
  */
 
 __int64 __fastcall SepCheckCreateLowBox(PSID a1)

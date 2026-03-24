@@ -1,1 +1,29 @@
-/*\n * XREFs of WppClassicProviderCallback @ 0x1C0005EB0\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\nvoid __fastcall WppClassicProviderCallback(__int64 a1, unsigned __int8 a2, __int64 *a3, __int64 a4)\n{\n  __int64 v4; // rax\n\n  if ( a2 <= 1u )\n  {\n    v4 = 0LL;\n    if ( a2 )\n    {\n      *(_DWORD *)(a4 + 44) = *((_DWORD *)a3 + 1);\n      *(_BYTE *)(a4 + 41) = *((_BYTE *)a3 + 2);\n      v4 = *a3;\n    }\n    else\n    {\n      *(_BYTE *)(a4 + 41) = 0;\n      *(_DWORD *)(a4 + 44) = 0;\n    }\n    *(_QWORD *)(a4 + 24) = v4;\n  }\n}\n
+/*
+ * XREFs of WppClassicProviderCallback @ 0x1C0005EB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall WppClassicProviderCallback(__int64 a1, unsigned __int8 a2, __int64 *a3, __int64 a4)
+{
+  __int64 v4; // rax
+
+  if ( a2 <= 1u )
+  {
+    v4 = 0LL;
+    if ( a2 )
+    {
+      *(_DWORD *)(a4 + 44) = *((_DWORD *)a3 + 1);
+      *(_BYTE *)(a4 + 41) = *((_BYTE *)a3 + 2);
+      v4 = *a3;
+    }
+    else
+    {
+      *(_BYTE *)(a4 + 41) = 0;
+      *(_DWORD *)(a4 + 44) = 0;
+    }
+    *(_QWORD *)(a4 + 24) = v4;
+  }
+}

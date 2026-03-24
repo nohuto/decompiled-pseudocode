@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPSM20_ResettingHubOnFailureWhileWaitingForReconnect @ 0x1C0012A80
+ * XREFs of HUBPSM20_ResettingHubOnFailureWhileWaitingForReconnect @ 0x1C00115F0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C0010ED0 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FAA4 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPSM20_ResettingHubOnFailureWhileWaitingForReconnect(__int64 a1)

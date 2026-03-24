@@ -1,8 +1,8 @@
 /*
- * XREFs of MmGetMaximumNonPagedPoolInBytes @ 0x14013B7F4
+ * XREFs of MmGetMaximumNonPagedPoolInBytes @ 0x14013B814
  * Callers:
- *     EtwpGetSystemMaximumBufferCount @ 0x14065AED4 (EtwpGetSystemMaximumBufferCount.c)
- *     ExEnableHandleTracing @ 0x1408CDC94 (ExEnableHandleTracing.c)
+ *     EtwpGetSystemMaximumBufferCount @ 0x14065AEB4 (EtwpGetSystemMaximumBufferCount.c)
+ *     ExEnableHandleTracing @ 0x1408CDC74 (ExEnableHandleTracing.c)
  * Callees:
  *     <none>
  */

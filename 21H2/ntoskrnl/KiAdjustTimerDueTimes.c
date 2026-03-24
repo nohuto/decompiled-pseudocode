@@ -1,16 +1,16 @@
 /*
- * XREFs of KiAdjustTimerDueTimes @ 0x1403AD6AC
+ * XREFs of KiAdjustTimerDueTimes @ 0x14039E16C
  * Callers:
- *     KiSetSystemTimeDpc @ 0x1403AD4F0 (KiSetSystemTimeDpc.c)
- *     KiAdjustTimersAfterDripsExit @ 0x14056CDBC (KiAdjustTimersAfterDripsExit.c)
+ *     KiSetSystemTimeDpc @ 0x14039DFB0 (KiSetSystemTimeDpc.c)
+ *     KiAdjustTimersAfterDripsExit @ 0x140513F5C (KiAdjustTimersAfterDripsExit.c)
  * Callees:
- *     KiTimerWaitTest @ 0x1402A7FE0 (KiTimerWaitTest.c)
- *     KiInsertTimerTable @ 0x1402B7800 (KiInsertTimerTable.c)
- *     KiRemoveEntryTimer @ 0x1402E40E0 (KiRemoveEntryTimer.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiAdjustTimer2DueTimes @ 0x1403AD92C (KiAdjustTimer2DueTimes.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiTraceSetTimer @ 0x14057AAF8 (KiTraceSetTimer.c)
+ *     KiRemoveEntryTimer @ 0x140247790 (KiRemoveEntryTimer.c)
+ *     KiTimerWaitTest @ 0x140247DF0 (KiTimerWaitTest.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiInsertTimerTable @ 0x140348000 (KiInsertTimerTable.c)
+ *     KiAdjustTimer2DueTimes @ 0x14039E3F0 (KiAdjustTimer2DueTimes.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiTraceSetTimer @ 0x140523B5C (KiTraceSetTimer.c)
  */
 
 _QWORD *__fastcall KiAdjustTimerDueTimes(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -26,7 +26,7 @@ _QWORD *__fastcall KiAdjustTimerDueTimes(__int64 a1, __int64 a2, __int64 a3, __i
   _QWORD *v13; // rbx
   struct _KPRCB *v14; // rcx
   _QWORD *result; // rax
-  unsigned __int64 v16; // rbx
+  __int64 v16; // rbx
   __int64 v17; // rdx
   _QWORD *v18; // rcx
   __int64 v19; // rcx
@@ -152,7 +152,7 @@ _QWORD *__fastcall KiAdjustTimerDueTimes(__int64 a1, __int64 a2, __int64 a3, __i
   {
     while ( 1 )
     {
-      v16 = (unsigned __int64)(result - 4);
+      v16 = (__int64)(result - 4);
       v17 = *result;
       v18 = (_QWORD *)result[1];
       if ( *(_QWORD **)(*result + 8LL) != result || (_QWORD *)*v18 != result )
@@ -187,7 +187,7 @@ _QWORD *__fastcall KiAdjustTimerDueTimes(__int64 a1, __int64 a2, __int64 a3, __i
         inserted = KiInsertTimerTable(a1, v16, v24, v23, 0LL);
       if ( inserted )
       {
-        if ( _bittest((_DWORD *)&PerfGlobalGroupMask + 2, 0x11u) )
+        if ( (DWORD2(PerfGlobalGroupMask) & 0x20000) != 0 )
           KiTraceSetTimer(v16, v24, 0LL);
         else
           _InterlockedAnd((volatile signed __int32 *)v16, 0xFFFFFF7F);

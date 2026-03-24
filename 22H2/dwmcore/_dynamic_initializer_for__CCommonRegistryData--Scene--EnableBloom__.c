@@ -1,9 +1,9 @@
 /*
- * XREFs of _dynamic_initializer_for__CCommonRegistryData::Scene::EnableBloom__ @ 0x180003560
+ * XREFs of _dynamic_initializer_for__CCommonRegistryData::Scene::EnableBloom__ @ 0x180002BD0
  * Callers:
  *     <none>
  * Callees:
- *     ?Load@?$CRegistryKeyLoader@_N@details@@SA_NPEBG_NW4DwmRegistrySubkey@@@Z @ 0x1800AE8C8 (-Load@-$CRegistryKeyLoader@_N@details@@SA_NPEBG_NW4DwmRegistrySubkey@@@Z.c)
+ *     ?Load@?$CRegistryKeyLoader@_N@details@@SA_NPEBG_NW4DwmRegistrySubkey@@@Z @ 0x1800B3324 (-Load@-$CRegistryKeyLoader@_N@details@@SA_NPEBG_NW4DwmRegistrySubkey@@@Z.c)
  */
 
 __int64 dynamic_initializer_for__CCommonRegistryData::Scene::EnableBloom__()

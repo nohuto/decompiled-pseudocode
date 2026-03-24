@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbhBusPnpStart @ 0x1C0035FB0
+ * XREFs of UsbhBusPnpStart @ 0x1C0037270
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDispatch_BusEvent @ 0x1C000FC10 (UsbhDispatch_BusEvent.c)
- *     UsbhNumberOfPorts @ 0x1C0028F40 (UsbhNumberOfPorts.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhInitPortPindicator @ 0x1C002E8B0 (UsbhInitPortPindicator.c)
- *     UsbhInitPortChangeList @ 0x1C0033674 (UsbhInitPortChangeList.c)
- *     UsbhAllocateTimerObject @ 0x1C003AF94 (UsbhAllocateTimerObject.c)
- *     UsbhFreeTimerObject @ 0x1C003B1B0 (UsbhFreeTimerObject.c)
+ *     UsbhDispatch_BusEvent @ 0x1C0002AF0 (UsbhDispatch_BusEvent.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhInitPortPindicator @ 0x1C002FC8C (UsbhInitPortPindicator.c)
+ *     UsbhInitPortChangeList @ 0x1C00349D8 (UsbhInitPortChangeList.c)
+ *     UsbhAllocateTimerObject @ 0x1C003C2A4 (UsbhAllocateTimerObject.c)
+ *     UsbhFreeTimerObject @ 0x1C003C4DC (UsbhFreeTimerObject.c)
  */
 
 __int64 __fastcall UsbhBusPnpStart(PDEVICE_OBJECT DeviceObject, __int64 a2)
@@ -22,21 +22,24 @@ __int64 __fastcall UsbhBusPnpStart(PDEVICE_OBJECT DeviceObject, __int64 a2)
   _QWORD *v7; // r13
   __int64 TimerObject; // rax
   PIRP Irp; // rax
-  __int64 Pool2; // rax
-  unsigned int v11; // eax
-  __int64 v12; // rax
-  unsigned __int16 v13; // ax
+  POOL_TYPE ProcessorHistory_high; // ecx
+  PVOID PoolWithTag; // rax
+  unsigned int v12; // eax
+  PVOID v13; // rax
+  _DWORD *v14; // rax
+  PVOID v15; // rax
+  _DWORD *v16; // rax
   PIO_WORKITEM WorkItem; // rax
-  __int64 v15; // rsi
-  __int64 v16; // rsi
-  PIO_WORKITEM v17; // rax
-  struct _IO_WORKITEM *v19; // rcx
-  __int64 v20; // rsi
-  PIO_WORKITEM *v21; // rsi
-  IRP *v22; // rcx
-  void *v23; // rcx
-  void *v24; // rcx
-  void *v25; // rcx
+  _DWORD *v18; // r14
+  _DWORD *i; // rsi
+  PIO_WORKITEM v20; // rax
+  struct _IO_WORKITEM *v22; // rcx
+  __int64 v23; // rsi
+  PIO_WORKITEM *v24; // rsi
+  IRP *v25; // rcx
+  void *v26; // rcx
+  void *v27; // rcx
+  void *v28; // rcx
 
   v4 = FdoExt((__int64)DeviceObject);
   v5 = 0;
@@ -61,91 +64,105 @@ __int64 __fastcall UsbhBusPnpStart(PDEVICE_OBJECT DeviceObject, __int64 a2)
           Irp = IoAllocateIrp(*(_BYTE *)(*((_QWORD *)v4 + 151) + 76LL), 0);
           if ( Irp )
           {
+            ProcessorHistory_high = HIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory);
             *((_QWORD *)v4 + 333) = Irp;
-            Pool2 = ExAllocatePool2(64LL, 152LL, 1112885333LL);
-            *((_QWORD *)v4 + 334) = Pool2;
-            if ( Pool2 )
+            PoolWithTag = ExAllocatePoolWithTag(ProcessorHistory_high, 0x98uLL, 0x42554855u);
+            *((_QWORD *)v4 + 334) = PoolWithTag;
+            if ( PoolWithTag )
             {
-              v11 = *((unsigned __int16 *)v4 + 1316);
-              *((_QWORD *)v4 + 335) = 0LL;
-              if ( (_WORD)v11 )
+              memset(PoolWithTag, 0, 0x98uLL);
+              if ( *((_QWORD *)v4 + 334) )
               {
-                v12 = ExAllocatePool2(64LL, v11, 1112885333LL);
-                *((_QWORD *)v4 + 335) = v12;
-                if ( v12 )
+                v12 = *((unsigned __int16 *)v4 + 1316);
+                *((_QWORD *)v4 + 335) = 0LL;
+                if ( (_WORD)v12 )
                 {
-                  *((_QWORD *)v4 + 382) = 0LL;
-                  if ( (unsigned __int16)UsbhNumberOfPorts((__int64)DeviceObject) )
+                  v13 = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), v12, 0x42554855u);
+                  *((_QWORD *)v4 + 335) = v13;
+                  if ( v13 )
                   {
-                    v13 = UsbhNumberOfPorts((__int64)DeviceObject);
-                    *((_QWORD *)v4 + 382) = ExAllocatePool2(64LL, 2928LL * v13, 1112885333LL);
-                  }
-                  if ( *((_QWORD *)v4 + 382) )
-                  {
-                    v4[763] = (unsigned __int16)UsbhNumberOfPorts((__int64)DeviceObject);
-                    WorkItem = IoAllocateWorkItem(DeviceObject);
-                    *((_QWORD *)v4 + 148) = WorkItem;
-                    if ( WorkItem )
+                    memset(v13, 0, *((unsigned __int16 *)v4 + 1316));
+                    if ( *((_QWORD *)v4 + 335) )
                     {
-                      v15 = *((_QWORD *)v4 + 382);
-                      if ( !(unsigned __int16)UsbhNumberOfPorts((__int64)DeviceObject) )
+                      *((_QWORD *)v4 + 382) = 0LL;
+                      if ( *((_BYTE *)FdoExt((__int64)DeviceObject) + 2938) )
                       {
-LABEL_20:
-                        UsbhDispatch_BusEvent(DeviceObject, a2, 4);
-                        Log((__int64)DeviceObject, 4, 1045648466, 0LL, 0LL);
-                        return 0LL;
+                        v14 = FdoExt((__int64)DeviceObject);
+                        v15 = ExAllocatePoolWithTag(
+                                SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory),
+                                2928LL * *((unsigned __int8 *)v14 + 2938),
+                                0x42554855u);
+                        *((_QWORD *)v4 + 382) = v15;
+                        if ( v15 )
+                        {
+                          v16 = FdoExt((__int64)DeviceObject);
+                          memset(*((void **)v4 + 382), 0, 2928LL * *((unsigned __int8 *)v16 + 2938));
+                        }
                       }
-                      v16 = v15 + 28;
-                      while ( 1 )
+                      if ( *((_QWORD *)v4 + 382) )
                       {
-                        *(_DWORD *)(v16 + 372) = 0;
-                        *(_DWORD *)(v16 - 4) = 2017613128;
-                        *(_QWORD *)(v16 + 12) = v16 - 4;
-                        *(_DWORD *)(v16 - 28) = 1146120296;
-                        ++v5;
-                        *(_DWORD *)(v16 + 172) = 2017613128;
-                        *(_QWORD *)(v16 + 188) = v16 + 172;
-                        *(_DWORD *)v16 = 2;
-                        *(_QWORD *)(v16 + 4) = DeviceObject;
-                        *(_DWORD *)(v16 + 108) = 1734964085;
-                        *(_DWORD *)(v16 + 60) = 1734964085;
-                        *(_DWORD *)(v16 + 44) = 1734964085;
-                        *(_DWORD *)(v16 + 28) = 1734964085;
-                        *(_DWORD *)(v16 + 72) = 1734964085;
-                        *(_DWORD *)(v16 + 84) = 1734964085;
-                        *(_DWORD *)(v16 + 96) = 1734964085;
-                        *(_DWORD *)(v16 + 116) = 1734964085;
-                        *(_DWORD *)(v16 + 176) = 7;
-                        *(_QWORD *)(v16 + 180) = DeviceObject;
-                        *(_DWORD *)(v16 + 284) = 1734964085;
-                        *(_DWORD *)(v16 + 236) = 1734964085;
-                        *(_DWORD *)(v16 + 220) = 1734964085;
-                        *(_DWORD *)(v16 + 204) = 1734964085;
-                        *(_DWORD *)(v16 + 248) = 1734964085;
-                        *(_DWORD *)(v16 + 260) = 1734964085;
-                        *(_DWORD *)(v16 + 272) = 1734964085;
-                        *(_DWORD *)(v16 + 292) = 1734964085;
-                        *(_QWORD *)(v16 - 12) = DeviceObject;
-                        *(_WORD *)(v16 - 24) = v5;
-                        KeInitializeTimer((PKTIMER)(v16 + 524));
-                        KeInitializeDpc((PRKDPC)(v16 + 588), UsbhResetPortTimerDpc, (PVOID)(v16 - 28));
-                        KeInitializeEvent((PRKEVENT)(v16 + 740), NotificationEvent, 1u);
-                        KeInitializeEvent((PRKEVENT)(v16 + 2388), NotificationEvent, 0);
-                        *(_DWORD *)(v16 + 2384) = 0;
-                        *(_DWORD *)(v16 + 2412) = 1;
-                        KeInitializeSpinLock((PKSPIN_LOCK)(v16 + 2420));
-                        v17 = IoAllocateWorkItem(DeviceObject);
-                        *(_QWORD *)(v16 + 2428) = v17;
-                        if ( !v17 )
-                          break;
-                        UsbhInitPortChangeList((__int64)DeviceObject, v16 - 28);
-                        UsbhInitPortPindicator((__int64)DeviceObject, v16 - 28);
-                        v16 += 2928LL;
-                        if ( v5 >= (unsigned __int16)UsbhNumberOfPorts((__int64)DeviceObject) )
-                          goto LABEL_20;
+                        v4[763] = *((unsigned __int8 *)FdoExt((__int64)DeviceObject) + 2938);
+                        WorkItem = IoAllocateWorkItem(DeviceObject);
+                        *((_QWORD *)v4 + 148) = WorkItem;
+                        if ( WorkItem )
+                        {
+                          v18 = (_DWORD *)*((_QWORD *)v4 + 382);
+                          for ( i = v18 + 7; ; i += 732 )
+                          {
+                            if ( v5 >= *((unsigned __int8 *)FdoExt((__int64)DeviceObject) + 2938) )
+                            {
+                              UsbhDispatch_BusEvent(DeviceObject, a2, 4);
+                              Log((__int64)DeviceObject, 4, 1045648466, 0LL, 0LL);
+                              return 0LL;
+                            }
+                            i[93] = 0;
+                            *(_QWORD *)(i + 3) = i - 1;
+                            i[27] = 1734964085;
+                            *(i - 1) = 2017613128;
+                            ++v5;
+                            i[15] = 1734964085;
+                            i[11] = 1734964085;
+                            i[7] = 1734964085;
+                            i[18] = 1734964085;
+                            i[21] = 1734964085;
+                            i[24] = 1734964085;
+                            i[29] = 1734964085;
+                            i[71] = 1734964085;
+                            i[59] = 1734964085;
+                            i[55] = 1734964085;
+                            i[51] = 1734964085;
+                            i[62] = 1734964085;
+                            i[65] = 1734964085;
+                            i[68] = 1734964085;
+                            i[73] = 1734964085;
+                            i[43] = 2017613128;
+                            *(_QWORD *)(i + 47) = i + 43;
+                            *v18 = 1146120296;
+                            *i = 2;
+                            *(_QWORD *)(i + 1) = DeviceObject;
+                            i[44] = 7;
+                            *(_QWORD *)(i + 45) = DeviceObject;
+                            *(_QWORD *)(i - 3) = DeviceObject;
+                            *((_WORD *)i - 12) = v5;
+                            KeInitializeTimer((PKTIMER)(i + 131));
+                            KeInitializeDpc((PRKDPC)(i + 147), UsbhResetPortTimerDpc, v18);
+                            KeInitializeEvent((PRKEVENT)(i + 185), NotificationEvent, 1u);
+                            KeInitializeEvent((PRKEVENT)(i + 597), NotificationEvent, 0);
+                            i[596] = 0;
+                            i[603] = 1;
+                            KeInitializeSpinLock((PKSPIN_LOCK)(i + 605));
+                            v20 = IoAllocateWorkItem(DeviceObject);
+                            *(_QWORD *)(i + 607) = v20;
+                            if ( !v20 )
+                              break;
+                            UsbhInitPortChangeList((__int64)DeviceObject, (__int64)v18);
+                            UsbhInitPortPindicator((__int64)DeviceObject, (__int64)v18);
+                            v18 += 732;
+                          }
+                          v6 = v4 + 680;
+                          v5 = 0;
+                        }
                       }
-                      v6 = v4 + 680;
-                      v5 = 0;
                     }
                   }
                 }
@@ -156,55 +173,54 @@ LABEL_20:
       }
     }
   }
-  v19 = (struct _IO_WORKITEM *)*((_QWORD *)v4 + 148);
-  if ( v19 )
+  v22 = (struct _IO_WORKITEM *)*((_QWORD *)v4 + 148);
+  if ( v22 )
   {
-    IoFreeWorkItem(v19);
+    IoFreeWorkItem(v22);
     *((_QWORD *)v4 + 148) = 0LL;
   }
-  v20 = *((_QWORD *)v4 + 382);
-  if ( v20 && (unsigned __int16)UsbhNumberOfPorts((__int64)DeviceObject) )
+  v23 = *((_QWORD *)v4 + 382);
+  if ( v23 )
   {
-    v21 = (PIO_WORKITEM *)(v20 + 2456);
-    do
+    v24 = (PIO_WORKITEM *)(v23 + 2456);
+    while ( v5 < *((unsigned __int8 *)FdoExt((__int64)DeviceObject) + 2938) )
     {
-      if ( *v21 )
+      if ( *v24 )
       {
-        IoFreeWorkItem(*v21);
-        *v21 = 0LL;
+        IoFreeWorkItem(*v24);
+        *v24 = 0LL;
       }
-      v21 += 366;
+      v24 += 366;
       ++v5;
     }
-    while ( v5 < (unsigned __int16)UsbhNumberOfPorts((__int64)DeviceObject) );
     v7 = v4 + 692;
   }
   UsbhFreeTimerObject(DeviceObject, v6);
   UsbhFreeTimerObject(DeviceObject, v4 + 682);
   UsbhFreeTimerObject(DeviceObject, v7);
   UsbhFreeTimerObject(DeviceObject, v4 + 694);
-  v22 = (IRP *)*((_QWORD *)v4 + 333);
-  if ( v22 )
-  {
-    IoFreeIrp(v22);
-    *((_QWORD *)v4 + 333) = 0LL;
-  }
-  v23 = (void *)*((_QWORD *)v4 + 334);
-  if ( v23 )
-  {
-    ExFreePoolWithTag(v23, 0);
-    *((_QWORD *)v4 + 334) = 0LL;
-  }
-  v24 = (void *)*((_QWORD *)v4 + 335);
-  if ( v24 )
-  {
-    ExFreePoolWithTag(v24, 0);
-    *((_QWORD *)v4 + 335) = 0LL;
-  }
-  v25 = (void *)*((_QWORD *)v4 + 382);
+  v25 = (IRP *)*((_QWORD *)v4 + 333);
   if ( v25 )
   {
-    ExFreePoolWithTag(v25, 0);
+    IoFreeIrp(v25);
+    *((_QWORD *)v4 + 333) = 0LL;
+  }
+  v26 = (void *)*((_QWORD *)v4 + 334);
+  if ( v26 )
+  {
+    ExFreePoolWithTag(v26, 0);
+    *((_QWORD *)v4 + 334) = 0LL;
+  }
+  v27 = (void *)*((_QWORD *)v4 + 335);
+  if ( v27 )
+  {
+    ExFreePoolWithTag(v27, 0);
+    *((_QWORD *)v4 + 335) = 0LL;
+  }
+  v28 = (void *)*((_QWORD *)v4 + 382);
+  if ( v28 )
+  {
+    ExFreePoolWithTag(v28, 0);
     *((_QWORD *)v4 + 382) = 0LL;
   }
   return 3221225626LL;

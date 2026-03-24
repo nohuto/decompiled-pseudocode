@@ -1,22 +1,18 @@
 /*
- * XREFs of EraseBitmap @ 0x1C006EC78
+ * XREFs of EraseBitmap @ 0x1C0029604
  * Callers:
- *     xxxSwitchDesktop @ 0x1C006BB2C (xxxSwitchDesktop.c)
+ *     xxxSwitchDesktop @ 0x1C0029864 (xxxSwitchDesktop.c)
  * Callees:
- *     GreExtGetObjectW @ 0x1C002E520 (GreExtGetObjectW.c)
- *     NtGdiPatBlt @ 0x1C00DBEF0 (NtGdiPatBlt.c)
+ *     GreExtGetObjectW @ 0x1C0083078 (GreExtGetObjectW.c)
+ *     NtGdiPatBlt @ 0x1C00B3F50 (NtGdiPatBlt.c)
  */
 
-__int64 __fastcall EraseBitmap(HBRUSH a1)
+__int64 __fastcall EraseBitmap(HSURF a1)
 {
   __int64 v2; // rbx
-  int v4[4]; // [rsp+30h] [rbp-28h] BYREF
-  __int128 v5; // [rsp+40h] [rbp-18h]
 
-  *(_OWORD *)v4 = 0LL;
-  v5 = 0LL;
-  GreExtGetObjectW(a1, 32LL, (__int64)v4);
+  GreExtGetObjectW(a1);
   v2 = GreSelectBitmap(ghdcMem, a1);
-  NtGdiPatBlt(ghdcMem, v4[2], 66);
+  NtGdiPatBlt(ghdcMem, 0, 0, 0, 66);
   return GreSelectBitmap(ghdcMem, v2);
 }

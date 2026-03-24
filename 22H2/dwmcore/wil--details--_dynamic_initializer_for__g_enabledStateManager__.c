@@ -1,9 +1,9 @@
 /*
- * XREFs of wil::details::_dynamic_initializer_for__g_enabledStateManager__ @ 0x180001100
+ * XREFs of wil::details::_dynamic_initializer_for__g_enabledStateManager__ @ 0x180001210
  * Callers:
  *     <none>
  * Callees:
- *     ?construct@?$manually_managed_shutdown_aware_object@VEnabledStateManager@details@wil@@@wil@@QEAAXXZ @ 0x1800FFDD4 (-construct@-$manually_managed_shutdown_aware_object@VEnabledStateManager@details@wil@@@wil@@QEAA.c)
+ *     ?construct@?$manually_managed_shutdown_aware_object@VEnabledStateManager@details@wil@@@wil@@QEAAXXZ @ 0x1800AEAA8 (-construct@-$manually_managed_shutdown_aware_object@VEnabledStateManager@details@wil@@@wil@@QEAA.c)
  */
 
 int wil::details::_dynamic_initializer_for__g_enabledStateManager__()

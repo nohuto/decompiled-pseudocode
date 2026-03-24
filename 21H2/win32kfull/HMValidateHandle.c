@@ -1,158 +1,161 @@
 /*
- * XREFs of HMValidateHandle @ 0x1C0024F44
+ * XREFs of HMValidateHandle @ 0x1C00670E0
  * Callers:
- *     NtUserGetRawInputData @ 0x1C0001BE0 (NtUserGetRawInputData.c)
- *     NtUserDestroyCursor @ 0x1C0021300 (NtUserDestroyCursor.c)
- *     NtUserSetCursor @ 0x1C00232B0 (NtUserSetCursor.c)
- *     NtUserFindExistingCursorIcon @ 0x1C00236D0 (NtUserFindExistingCursorIcon.c)
- *     NtUserGetIconInfo @ 0x1C00240A0 (NtUserGetIconInfo.c)
- *     NtUserDeferWindowPosAndBand @ 0x1C0024310 (NtUserDeferWindowPosAndBand.c)
- *     NtUserUnhookWindowsHookEx @ 0x1C0024510 (NtUserUnhookWindowsHookEx.c)
- *     NtUserSetCursorIconDataEx @ 0x1C0025EE0 (NtUserSetCursorIconDataEx.c)
- *     ?_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z @ 0x1C0026768 (-_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z.c)
- *     xxxInterSendMsgEx @ 0x1C00517B0 (xxxInterSendMsgEx.c)
- *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0054A60 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
- *     xxxRealInternalGetMessage @ 0x1C0055460 (xxxRealInternalGetMessage.c)
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C0058FB0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     fnHkINLPMSG @ 0x1C0076120 (fnHkINLPMSG.c)
- *     _MapDesktopObject @ 0x1C007B8C0 (_MapDesktopObject.c)
- *     NtUserDrawIconEx @ 0x1C00BDC50 (NtUserDrawIconEx.c)
- *     NtUserUnhookWinEvent @ 0x1C00E5900 (NtUserUnhookWinEvent.c)
- *     NtUserCopyAcceleratorTable @ 0x1C00F6A80 (NtUserCopyAcceleratorTable.c)
- *     NtUserEndDeferWindowPosEx @ 0x1C00FB8A0 (NtUserEndDeferWindowPosEx.c)
- *     NtUserGetIconSize @ 0x1C00FB970 (NtUserGetIconSize.c)
- *     NtUserTranslateAccelerator @ 0x1C00FBDD0 (NtUserTranslateAccelerator.c)
- *     NtUserUpdateInputContext @ 0x1C0105800 (NtUserUpdateInputContext.c)
- *     NtUserQueryInputContext @ 0x1C0105AB0 (NtUserQueryInputContext.c)
- *     NtUserAssociateInputContext @ 0x1C0106D30 (NtUserAssociateInputContext.c)
- *     NtUserGetRequiredCursorSizes @ 0x1C0107FC0 (NtUserGetRequiredCursorSizes.c)
- *     NtUserDestroyAcceleratorTable @ 0x1C0110790 (NtUserDestroyAcceleratorTable.c)
- *     NtUserDestroyInputContext @ 0x1C0149860 (NtUserDestroyInputContext.c)
- *     NtUserGetCursorFrameInfo @ 0x1C014A720 (NtUserGetCursorFrameInfo.c)
- *     NtUserCreateLocalMemHandle @ 0x1C014D9F0 (NtUserCreateLocalMemHandle.c)
- *     ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C01505FC (-_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z.c)
- *     ?xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z @ 0x1C01E3498 (-xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z.c)
- *     NtUserDragObject @ 0x1C01F2820 (NtUserDragObject.c)
- *     NtUserDrawCaptionTemp @ 0x1C01F2C90 (NtUserDrawCaptionTemp.c)
- *     NtUserGetGestureExtArgs @ 0x1C01F4390 (NtUserGetGestureExtArgs.c)
- *     NtUserGetGestureInfo @ 0x1C01F44F0 (NtUserGetGestureInfo.c)
- *     NtUserGetRawInputBuffer @ 0x1C01F6020 (NtUserGetRawInputBuffer.c)
- *     NtUserGetRawInputDeviceInfo @ 0x1C01F6390 (NtUserGetRawInputDeviceInfo.c)
- *     NtUserGetTouchInputInfo @ 0x1C01F6A40 (NtUserGetTouchInputInfo.c)
- *     NtUserGetTouchValidationStatus @ 0x1C01F6BA0 (NtUserGetTouchValidationStatus.c)
- *     NtUserLinkDpiCursor @ 0x1C01F8CB0 (NtUserLinkDpiCursor.c)
- *     NtUserRegisterEdgy @ 0x1C01FB790 (NtUserRegisterEdgy.c)
- *     NtUserSetCalibrationData @ 0x1C01FC760 (NtUserSetCalibrationData.c)
- *     NtUserSetDisplayMapping @ 0x1C01FD040 (NtUserSetDisplayMapping.c)
- *     NtUserSetSystemCursor @ 0x1C01FE060 (NtUserSetSystemCursor.c)
- *     NtUserUserHandleGrantAccess @ 0x1C0200530 (NtUserUserHandleGrantAccess.c)
- *     ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021A200 (-xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     SfnGESTURE @ 0x1C0223030 (SfnGESTURE.c)
- *     SfnTOUCH @ 0x1C022A3D0 (SfnTOUCH.c)
- *     fnHkOPTINLPEVENTMSG @ 0x1C022B0C0 (fnHkOPTINLPEVENTMSG.c)
- *     ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C0244120 (-xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z.c)
+ *     NtUserGetRawInputData @ 0x1C00032C0 (NtUserGetRawInputData.c)
+ *     ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C0007F90 (-_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z.c)
+ *     NtUserUnhookWindowsHookEx @ 0x1C001FAA0 (NtUserUnhookWindowsHookEx.c)
+ *     NtUserUnhookWinEvent @ 0x1C0024200 (NtUserUnhookWinEvent.c)
+ *     NtUserDeferWindowPosAndBand @ 0x1C0032160 (NtUserDeferWindowPosAndBand.c)
+ *     NtUserDrawIconEx @ 0x1C0043E90 (NtUserDrawIconEx.c)
+ *     NtUserDestroyCursor @ 0x1C00483C0 (NtUserDestroyCursor.c)
+ *     NtUserSetCursor @ 0x1C0048730 (NtUserSetCursor.c)
+ *     NtUserFindExistingCursorIcon @ 0x1C00497E0 (NtUserFindExistingCursorIcon.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0054A40 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055720 (xxxRealInternalGetMessage.c)
+ *     xxxInterSendMsgEx @ 0x1C005A2F0 (xxxInterSendMsgEx.c)
+ *     fnHkINLPMSG @ 0x1C005D100 (fnHkINLPMSG.c)
+ *     ?_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z @ 0x1C00654F4 (-_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z.c)
+ *     NtUserSetCursorIconData @ 0x1C0065A40 (NtUserSetCursorIconData.c)
+ *     NtUserGetIconInfo @ 0x1C00672D0 (NtUserGetIconInfo.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C2120 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     NtUserTranslateAccelerator @ 0x1C010B310 (NtUserTranslateAccelerator.c)
+ *     NtUserCopyAcceleratorTable @ 0x1C010B890 (NtUserCopyAcceleratorTable.c)
+ *     NtUserGetIconSize @ 0x1C010F600 (NtUserGetIconSize.c)
+ *     NtUserEndDeferWindowPosEx @ 0x1C010F990 (NtUserEndDeferWindowPosEx.c)
+ *     NtUserUpdateInputContext @ 0x1C0116960 (NtUserUpdateInputContext.c)
+ *     NtUserQueryInputContext @ 0x1C0117330 (NtUserQueryInputContext.c)
+ *     _MapDesktopObject @ 0x1C0118920 (_MapDesktopObject.c)
+ *     NtUserAssociateInputContext @ 0x1C0118BA0 (NtUserAssociateInputContext.c)
+ *     NtUserGetRequiredCursorSizes @ 0x1C0119B10 (NtUserGetRequiredCursorSizes.c)
+ *     NtUserDestroyAcceleratorTable @ 0x1C0126660 (NtUserDestroyAcceleratorTable.c)
+ *     NtUserCreateLocalMemHandle @ 0x1C0127DB0 (NtUserCreateLocalMemHandle.c)
+ *     NtUserDestroyInputContext @ 0x1C01584D0 (NtUserDestroyInputContext.c)
+ *     NtUserGetCursorFrameInfo @ 0x1C0162370 (NtUserGetCursorFrameInfo.c)
+ *     ?xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z @ 0x1C01E8E2C (-xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z.c)
+ *     NtUserDragObject @ 0x1C01F7DE0 (NtUserDragObject.c)
+ *     NtUserDrawCaptionTemp @ 0x1C01F82A0 (NtUserDrawCaptionTemp.c)
+ *     NtUserGetGestureExtArgs @ 0x1C01F9990 (NtUserGetGestureExtArgs.c)
+ *     NtUserGetGestureInfo @ 0x1C01F9AF0 (NtUserGetGestureInfo.c)
+ *     NtUserGetRawInputBuffer @ 0x1C01FB5C0 (NtUserGetRawInputBuffer.c)
+ *     NtUserGetRawInputDeviceInfo @ 0x1C01FB930 (NtUserGetRawInputDeviceInfo.c)
+ *     NtUserGetTouchInputInfo @ 0x1C01FC170 (NtUserGetTouchInputInfo.c)
+ *     NtUserGetTouchValidationStatus @ 0x1C01FC2D0 (NtUserGetTouchValidationStatus.c)
+ *     NtUserLinkDpiCursor @ 0x1C01FE4C0 (NtUserLinkDpiCursor.c)
+ *     NtUserRegisterEdgy @ 0x1C0200A50 (NtUserRegisterEdgy.c)
+ *     NtUserSetCalibrationData @ 0x1C02017C0 (NtUserSetCalibrationData.c)
+ *     NtUserSetCursorContents @ 0x1C0201B00 (NtUserSetCursorContents.c)
+ *     NtUserSetDisplayMapping @ 0x1C0201DC0 (NtUserSetDisplayMapping.c)
+ *     NtUserSetSystemCursor @ 0x1C0202A90 (NtUserSetSystemCursor.c)
+ *     NtUserUserHandleGrantAccess @ 0x1C0204510 (NtUserUserHandleGrantAccess.c)
+ *     ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021F394 (-xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     SfnGESTURE @ 0x1C02290E0 (SfnGESTURE.c)
+ *     SfnTOUCH @ 0x1C0230620 (SfnTOUCH.c)
+ *     fnHkOPTINLPEVENTMSG @ 0x1C0231500 (fnHkOPTINLPEVENTMSG.c)
+ *     ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C02484C8 (-xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
-__int64 __fastcall HMValidateHandle(__int64 a1, unsigned __int8 a2)
+__int64 __fastcall HMValidateHandle(unsigned __int64 a1, unsigned __int8 a2)
 {
-  int v3; // r15d
-  __int64 v4; // rbx
-  __int64 v5; // rdi
-  __int64 *v6; // r14
-  __int16 v7; // ax
-  char v8; // al
-  __int64 v9; // rsi
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 v3; // rdi
+  int v4; // ebp
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  unsigned __int64 v9; // rcx
+  __int64 v10; // rbx
+  __int64 *v11; // rsi
+  char v12; // al
+  struct _KTHREAD *v13; // r15
+  __int64 v14; // rsi
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
   __int64 *ThreadWin32Thread; // rax
-  __int64 v12; // rcx
-  __int64 CurrentProcessWin32Process; // rdx
-  __int16 v14; // r8
-  __int64 v15; // rax
-  __int64 v16; // rax
+  __int64 v20; // rcx
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v23; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v25; // rax
+  int v26; // ebx
+  __int64 v27; // rcx
+  __int64 v28; // rax
 
-  v3 = a2;
-  v4 = 0LL;
-  PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( (unsigned __int64)(unsigned __int16)a1 >= *(_QWORD *)(gpsi + 8LL) )
-    goto LABEL_19;
-  v5 = *((_QWORD *)&gSharedInfo + 1) + (unsigned int)(unsigned __int16)a1 * *((_DWORD *)&gSharedInfo + 4);
-  v6 = (__int64 *)HMPkheFromPhe(v5);
-  v7 = WORD1(a1) & 0x7FFF;
-  if ( (WORD1(a1) & 0x7FFF) != *(_WORD *)(v5 + 26) && v7 != 0x7FFF && (v7 || !PsGetCurrentProcessWow64Process()) )
-    goto LABEL_19;
-  if ( (*(_BYTE *)(v5 + 25) & 1) == 0 )
+  CurrentThread = KeGetCurrentThread();
+  v3 = 0LL;
+  v4 = a2;
+  if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+    || (CurrentProcess = PsGetCurrentProcess(v7, v6, v8),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v23),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
   {
-    v8 = *(_BYTE *)(v5 + 24);
-    if ( v8 == (_BYTE)v3 || (_BYTE)v3 == 0xFF && v8 )
-      v4 = *v6;
+    PsGetThreadWin32Thread(CurrentThread);
   }
-  v9 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v9 = *ThreadWin32Thread;
-  if ( (*(_DWORD *)(v9 + 488) & 0x20000000) != 0 )
+  v9 = gpsi;
+  if ( (unsigned __int64)(unsigned __int16)a1 < *(_QWORD *)(gpsi + 8LL) )
+  {
+    v10 = gSharedInfo[1] + (unsigned int)(unsigned __int16)a1 * LODWORD(gSharedInfo[2]);
+    v11 = (__int64 *)HMPkheFromPhe(v10);
+    v9 = a1 >> 16;
+    if ( (WORD1(a1) == *(_WORD *)(v10 + 26) || WORD1(a1) == 0xFFFF || !WORD1(a1) && PsGetCurrentProcessWow64Process(v9))
+      && (*(_BYTE *)(v10 + 25) & 1) == 0 )
+    {
+      v12 = *(_BYTE *)(v10 + 24);
+      if ( v12 == (_BYTE)v4 || (_BYTE)v4 == 0xFF && v12 )
+        v3 = *v11;
+    }
+  }
+  v13 = KeGetCurrentThread();
+  v14 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(v9)
+    || (v25 = PsGetCurrentProcess(v16, v15, v17),
+        v26 = PsGetProcessSessionIdEx(v25),
+        v28 = PsGetCurrentThreadProcess(v27),
+        v26 == (unsigned int)PsGetProcessSessionIdEx(v28)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(v13);
+    if ( ThreadWin32Thread )
+      v14 = *ThreadWin32Thread;
+  }
+  if ( (*(_DWORD *)(v14 + 488) & 0x20000000) != 0 )
   {
     if ( !(unsigned int)ValidateHandleSecure(a1, 3LL) )
-      v4 = 0LL;
+      v3 = 0LL;
   }
   else
   {
-    v4 &= -(__int64)((unsigned int)ValidateHandleSecure(a1, 2LL) != 0);
+    v3 &= -(__int64)((unsigned int)ValidateHandleSecure(a1, 2LL) != 0);
   }
-  if ( *(char *)(v5 + 25) < 0 )
-  {
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process();
-    if ( CurrentProcessWin32Process )
-    {
-      v14 = gahti[12 * *(unsigned __int8 *)(v5 + 24) + 6];
-      if ( (v14 & 2) != 0 )
-      {
-        v15 = v6[1];
-LABEL_41:
-        if ( v15 && v15 != CurrentProcessWin32Process )
-          goto LABEL_19;
-        goto LABEL_11;
-      }
-      if ( (v14 & 1) != 0 )
-      {
-        v16 = v6[1];
-        if ( v16 )
-        {
-          v15 = *(_QWORD *)(v16 + 424);
-          goto LABEL_41;
-        }
-      }
-    }
-  }
-LABEL_11:
-  if ( v4 )
-    return v4;
-LABEL_19:
-  switch ( v3 )
+  if ( v3 )
+    return v3;
+  switch ( v4 )
   {
     case 1:
-      v12 = 1400LL;
+      v20 = 1400LL;
       break;
     case 2:
-      v12 = 1401LL;
+      v20 = 1401LL;
       break;
     case 3:
-      v12 = 1402LL;
+      v20 = 1402LL;
       break;
     case 4:
-      v12 = 1405LL;
+      v20 = 1405LL;
       break;
     case 5:
-      v12 = 1404LL;
+      v20 = 1404LL;
       break;
     case 8:
-      v12 = 1403LL;
+      v20 = 1403LL;
       break;
     default:
-      v12 = 6LL;
+      v20 = 6LL;
       break;
   }
-  UserSetLastError(v12);
+  UserSetLastError(v20);
   return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z @ 0x1C008AA88
+ * XREFs of ?HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z @ 0x1C00810F0
  * Callers:
- *     HmgAllocateObjectAttr @ 0x1C008A91C (HmgAllocateObjectAttr.c)
- *     HmgAllocateDcAttr @ 0x1C00E02F0 (HmgAllocateDcAttr.c)
+ *     HmgAllocateDcAttr @ 0x1C002C9D8 (HmgAllocateDcAttr.c)
+ *     HmgAllocateObjectAttr @ 0x1C0080F90 (HmgAllocateObjectAttr.c)
  * Callees:
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 PVOID __fastcall HmgAllocateSecureUserMemory(void **a1)

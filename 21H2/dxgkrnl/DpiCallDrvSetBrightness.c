@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiCallDrvSetBrightness @ 0x1C0390670
+ * XREFs of DpiCallDrvSetBrightness @ 0x1C02D1A3C
  * Callers:
- *     ?DpiBrightnessEscape@@YAJPEAU_DEVICE_OBJECT@@PEAU_D3DKMT_BRIGHTNESS_INFO@@@Z @ 0x1C038EE10 (-DpiBrightnessEscape@@YAJPEAU_DEVICE_OBJECT@@PEAU_D3DKMT_BRIGHTNESS_INFO@@@Z.c)
- *     ?DpiBrightnessIfSet@@YAJPEAXE@Z @ 0x1C038FD70 (-DpiBrightnessIfSet@@YAJPEAXE@Z.c)
+ *     ?DpiBrightnessEscape@@YAJPEAU_DEVICE_OBJECT@@PEAU_D3DKMT_BRIGHTNESS_INFO@@@Z @ 0x1C02D0054 (-DpiBrightnessEscape@@YAJPEAU_DEVICE_OBJECT@@PEAU_D3DKMT_BRIGHTNESS_INFO@@@Z.c)
+ *     ?DpiBrightnessIfSet@@YAJPEAXE@Z @ 0x1C02D1070 (-DpiBrightnessIfSet@@YAJPEAXE@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0044DE4 (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C003A3D8 (McTemplateK0pqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DpiCallDrvSetBrightness(__int64 a1, unsigned __int8 a2)
@@ -28,15 +28,15 @@ __int64 __fastcall DpiCallDrvSetBrightness(__int64 a1, unsigned __int8 a2)
   v3 = *(_QWORD *)(a1 + 64);
   v5 = 0LL;
   v6 = 0LL;
-  v7 = *(_WORD *)(v3 + 4666);
-  v8 = v3 + 4664;
+  v7 = *(_WORD *)(v3 + 4738);
+  v8 = v3 + 4736;
   if ( v7 == 2 )
-    v5 = (_QWORD *)(v3 + 4664);
+    v5 = (_QWORD *)(v3 + 4736);
   if ( v7 == 1 )
-    v6 = (_QWORD *)(v3 + 4664);
+    v6 = (_QWORD *)(v3 + 4736);
   if ( (!v5 || !v5[4]) && (!v6 || !v6[4]) )
     return 3221225659LL;
-  v9 = *(unsigned __int8 *)(v3 + 4384);
+  v9 = *(unsigned __int8 *)(v3 + 4368);
   if ( v5 && v5[4] )
   {
     v10 = (__int64 (__fastcall *)(__int64, __int64, __int64, _QWORD *))v5[5];
@@ -50,7 +50,7 @@ __int64 __fastcall DpiCallDrvSetBrightness(__int64 a1, unsigned __int8 a2)
   LOBYTE(v3) = v2;
   v12 = v10(v11, v3, v8, v6);
   v15 = v12;
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     McTemplateK0pqqq_EtwWriteTransfer(v13, &EventBrightness, v14, a1, v9, v2, v12);
   return v15;
 }

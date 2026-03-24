@@ -1,10 +1,11 @@
 /*
- * XREFs of ?DpiBrightnessStartDevice@@YAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C0204258
+ * XREFs of ?DpiBrightnessStartDevice@@YAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C018B94C
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C0200110 (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C0189268 (DpiFdoStartAdapter.c)
  * Callees:
- *     ?DpiBrightnessSetupInterfaceV2@@YAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C02020F8 (-DpiBrightnessSetupInterfaceV2@@YAJPEAU_DEVICE_OBJECT@@@Z.c)
- *     DpiQueryMiniportInterface @ 0x1C0204EAC (DpiQueryMiniportInterface.c)
+ *     Feature_Brightness3dxgkrnl__private_ReportDeviceUsage @ 0x1C00286A8 (Feature_Brightness3dxgkrnl__private_ReportDeviceUsage.c)
+ *     ?DpiBrightnessSetupInterfaceV2@@YAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C018B7F8 (-DpiBrightnessSetupInterfaceV2@@YAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     DpiQueryMiniportInterface @ 0x1C018E538 (DpiQueryMiniportInterface.c)
  */
 
 __int64 __fastcall DpiBrightnessStartDevice(struct _DEVICE_OBJECT *a1)
@@ -13,22 +14,11 @@ __int64 __fastcall DpiBrightnessStartDevice(struct _DEVICE_OBJECT *a1)
   __int64 result; // rax
 
   DeviceExtension = (char *)a1->DeviceExtension;
-  KeInitializeMutex((PRKMUTEX)(DeviceExtension + 4408), 0);
-  if ( *(_DWORD *)(*((_QWORD *)DeviceExtension + 5) + 28LL) >= 0x700Au
-    && (result = DpiQueryMiniportInterface((_DWORD)a1, (unsigned int)&GUID_DEVINTERFACE_BRIGHTNESS_3, 72, 3),
-        (int)result >= 0) )
-  {
-    *((_DWORD *)DeviceExtension + 1116) = 196680;
-    *((_QWORD *)DeviceExtension + 560) = DpiDoInterfaceReference;
-    *((_QWORD *)DeviceExtension + 561) = DXGGLOBAL::DereferenceObjectWork;
-    *((_QWORD *)DeviceExtension + 562) = DpiBrightness3Set;
-    *((_QWORD *)DeviceExtension + 563) = DpiBrightness3Get;
-    *((_QWORD *)DeviceExtension + 564) = DpiBrightness3GetCaps;
-    *((_QWORD *)DeviceExtension + 565) = DpiBrightness3GetNitRanges;
-    *((_QWORD *)DeviceExtension + 566) = DpiBrightness3SetBacklightOptimization;
-    *((_QWORD *)DeviceExtension + 559) = a1;
-  }
-  else
+  KeInitializeMutex((PRKMUTEX)(DeviceExtension + 4464), 0);
+  Feature_Brightness3dxgkrnl__private_ReportDeviceUsage();
+  if ( *(_DWORD *)(*((_QWORD *)DeviceExtension + 5) + 28LL) < 0x700Au
+    || (result = DpiQueryMiniportInterface((_DWORD)a1, (unsigned int)&GUID_DEVINTERFACE_BRIGHTNESS_3, 72, 3),
+        (int)result < 0) )
   {
     result = DpiBrightnessSetupInterfaceV2(a1);
     if ( (int)result < 0 )
@@ -36,15 +26,27 @@ __int64 __fastcall DpiBrightnessStartDevice(struct _DEVICE_OBJECT *a1)
       result = DpiQueryMiniportInterface((_DWORD)a1, (unsigned int)&GUID_DEVINTERFACE_BRIGHTNESS, 56, 1);
       if ( (int)result >= 0 )
       {
-        *((_QWORD *)DeviceExtension + 579) = a1;
-        *((_QWORD *)DeviceExtension + 580) = DpiDoInterfaceReference;
-        *((_QWORD *)DeviceExtension + 581) = DXGGLOBAL::DereferenceObjectWork;
-        *((_QWORD *)DeviceExtension + 582) = DpiBrightnessIfGetPossible;
-        *((_QWORD *)DeviceExtension + 583) = DpiBrightnessIfSet;
-        *((_QWORD *)DeviceExtension + 584) = DpiBrightnessIfGet;
-        *((_DWORD *)DeviceExtension + 1156) = 65592;
+        *((_QWORD *)DeviceExtension + 586) = a1;
+        *((_QWORD *)DeviceExtension + 587) = DpiDoInterfaceReference;
+        *((_QWORD *)DeviceExtension + 588) = DXGGLOBAL::DereferenceObjectWork;
+        *((_QWORD *)DeviceExtension + 589) = DpiBrightnessIfGetPossible;
+        *((_QWORD *)DeviceExtension + 590) = DpiBrightnessIfSet;
+        *((_QWORD *)DeviceExtension + 591) = DpiBrightnessIfGet;
+        *((_DWORD *)DeviceExtension + 1170) = 65592;
       }
     }
+  }
+  else
+  {
+    *((_DWORD *)DeviceExtension + 1130) = 196680;
+    *((_QWORD *)DeviceExtension + 567) = DpiDoInterfaceReference;
+    *((_QWORD *)DeviceExtension + 568) = DXGGLOBAL::DereferenceObjectWork;
+    *((_QWORD *)DeviceExtension + 569) = DpiBrightness3Set;
+    *((_QWORD *)DeviceExtension + 570) = DpiBrightness3Get;
+    *((_QWORD *)DeviceExtension + 571) = DpiBrightness3GetCaps;
+    *((_QWORD *)DeviceExtension + 572) = DpiBrightness3GetNitRanges;
+    *((_QWORD *)DeviceExtension + 573) = DpiBrightness3SetBacklightOptimization;
+    *((_QWORD *)DeviceExtension + 566) = a1;
   }
   return result;
 }

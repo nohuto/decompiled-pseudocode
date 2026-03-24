@@ -1,20 +1,20 @@
 /*
- * XREFs of MmCreatePeb @ 0x140678550
+ * XREFs of MmCreatePeb @ 0x140678530
  * Callers:
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MmGetSessionId @ 0x1400897B0 (MmGetSessionId.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F29E4 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
- *     KeQueryGroupAffinity @ 0x1400F3660 (KeQueryGroupAffinity.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A04 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
+ *     KeQueryGroupAffinity @ 0x1400F3680 (KeQueryGroupAffinity.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     MiCreatePebOrTeb @ 0x1405F8B40 (MiCreatePebOrTeb.c)
- *     MmMapViewOfSection @ 0x140678B80 (MmMapViewOfSection.c)
- *     MiInitializeWowPeb @ 0x14068B614 (MiInitializeWowPeb.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     MmMapViewOfSection @ 0x140678B60 (MmMapViewOfSection.c)
+ *     MiInitializeWowPeb @ 0x14068B5F4 (MiInitializeWowPeb.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MmCreatePeb(_KPROCESS *a1, char *a2, _QWORD *a3, _QWORD *a4)

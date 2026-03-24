@@ -1,46 +1,50 @@
 /*
- * XREFs of ?DestroyVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C0361A38
+ * XREFs of ?DestroyVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C02B585C
  * Callers:
- *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C01AB2B4 (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
- *     ??1DXGVAILOBJECT@@UEAA@XZ @ 0x1C03608AC (--1DXGVAILOBJECT@@UEAA@XZ.c)
- *     NtDxgkVailConnect @ 0x1C0364970 (NtDxgkVailConnect.c)
- *     NtDxgkVailDisconnect @ 0x1C0364E20 (NtDxgkVailDisconnect.c)
+ *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C0123260 (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
+ *     ??1DXGVAILOBJECT@@UEAA@XZ @ 0x1C02B4618 (--1DXGVAILOBJECT@@UEAA@XZ.c)
+ *     NtDxgkVailConnect @ 0x1C02B8ED0 (NtDxgkVailConnect.c)
+ *     NtDxgkVailDisconnect @ 0x1C02B92E0 (NtDxgkVailDisconnect.c)
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DXGVAILOBJECT::DestroyVmBusHostSubscribers(DXGVAILOBJECT *this)
 {
-  __int64 v2; // rcx
-  unsigned int v3; // ebx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
   __int64 v4; // rcx
-  _BYTE v6[24]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v5; // ebx
+  _BYTE v7[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v6, (DXGVAILOBJECT *)((char *)this + 40), 1);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v6);
-  v2 = *((_QWORD *)this + 15);
-  if ( v2 )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v7, (DXGVAILOBJECT *)((char *)this + 40), 1);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v7);
+  v3 = *((_QWORD *)this + 14);
+  if ( !v3 )
   {
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 56LL))(v2);
-    *((_QWORD *)this + 15) = 0LL;
+    v4 = *((_QWORD *)this + 15);
+    if ( !v4 )
+    {
+      v5 = -2147483611;
+      goto LABEL_7;
+    }
+    goto LABEL_5;
   }
-  else if ( !*((_QWORD *)this + 16) )
-  {
-    v3 = -2147483611;
-    goto LABEL_8;
-  }
-  v4 = *((_QWORD *)this + 16);
+  (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 56LL))(v3);
+  v4 = *((_QWORD *)this + 15);
+  *((_QWORD *)this + 14) = 0LL;
   if ( v4 )
   {
+LABEL_5:
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 56LL))(v4);
-    *((_QWORD *)this + 16) = 0LL;
+    *((_QWORD *)this + 15) = 0LL;
   }
-  v3 = 0;
-LABEL_8:
-  if ( v6[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v6);
-  return v3;
+  v5 = 0;
+LABEL_7:
+  if ( v7[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v7, v2);
+  return v5;
 }

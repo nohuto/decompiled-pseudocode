@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCDeviceResource@@MEAAPEAXI@Z @ 0x180288D10
+ * XREFs of ??_GCDeviceResource@@MEAAPEAXI@Z @ 0x18019B360
  * Callers:
  *     <none>
  * Callees:
- *     ??1CDeviceResource@@MEAA@XZ @ 0x18003C484 (--1CDeviceResource@@MEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??1CDeviceResource@@MEAA@XZ @ 0x18006194C (--1CDeviceResource@@MEAA@XZ.c)
  */
 
 CDeviceResource *__fastcall CDeviceResource::`scalar deleting destructor'(CDeviceResource *this, char a2)

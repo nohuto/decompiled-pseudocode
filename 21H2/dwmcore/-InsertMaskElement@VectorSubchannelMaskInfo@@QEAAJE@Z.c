@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InsertMaskElement@VectorSubchannelMaskInfo@@QEAAJE@Z @ 0x1802703B8
+ * XREFs of ?InsertMaskElement@VectorSubchannelMaskInfo@@QEAAJE@Z @ 0x18021F6DC
  * Callers:
- *     ?Initialize@CScrollAnimation@@IEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z @ 0x1802544DC (-Initialize@CScrollAnimation@@IEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z.c)
+ *     ?Initialize@CScrollAnimation@@IEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z @ 0x180203C58 (-Initialize@CScrollAnimation@@IEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z.c)
  * Callees:
  *     <none>
  */

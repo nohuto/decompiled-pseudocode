@@ -1,17 +1,17 @@
 /*
- * XREFs of EngDeleteSafeSemaphore @ 0x1C01772B0
+ * XREFs of EngDeleteSafeSemaphore @ 0x1C014AE60
  * Callers:
  *     <none>
  * Callees:
- *     GreAcquireHmgrSemaphore @ 0x1C002DF20 (GreAcquireHmgrSemaphore.c)
- *     GreReleaseHmgrSemaphore @ 0x1C002E900 (GreReleaseHmgrSemaphore.c)
- *     GreDeleteSemaphore @ 0x1C0044F30 (GreDeleteSemaphore.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C0038C20 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0038D70 (GreAcquireHmgrSemaphore.c)
+ *     GreDeleteSemaphore @ 0x1C005B290 (GreDeleteSemaphore.c)
  */
 
 void __stdcall EngDeleteSafeSemaphore(ENGSAFESEMAPHORE *pssem)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
+  int v1; // edx
+  int v2; // r8d
   __int64 v4; // rdx
   int v5; // ecx
   int v6; // r8d

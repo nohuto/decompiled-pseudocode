@@ -1,10 +1,10 @@
 /*
- * XREFs of NtUserAddClipboardFormatListener @ 0x1C00C9D10
+ * XREFs of NtUserAddClipboardFormatListener @ 0x1C0133480
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00CD268 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00304E8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserAddClipboardFormatListener(__int64 a1)
@@ -15,13 +15,15 @@ __int64 __fastcall NtUserAddClipboardFormatListener(__int64 a1)
   __int64 v5; // rdi
   __int64 CurrentProcessWin32Process; // rax
   __int64 v7; // rdx
-  struct tagWINDOWSTATION *v8; // rdx
-  char *v9; // rsi
-  __int64 v11; // rcx
-  char *v12; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v13; // [rsp+28h] [rbp-10h]
+  __int64 v8; // r8
+  struct tagWINDOWSTATION *v9; // rdx
+  __int64 v10; // r8
+  char *v11; // rsi
+  __int64 v13; // rcx
+  char *v14; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v15; // [rsp+28h] [rbp-10h]
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v2 = ValidateHwnd(a1);
   v4 = 0LL;
   v5 = v2;
@@ -34,34 +36,34 @@ __int64 __fastcall NtUserAddClipboardFormatListener(__int64 a1)
     v4 = 5LL;
     goto LABEL_9;
   }
-  if ( (*(_DWORD *)(v5 + 320) & 0x800000) != 0 )
+  if ( (*(_DWORD *)(*(_QWORD *)(v5 + 40) + 232LL) & 1) != 0 )
   {
-    v11 = 87LL;
+    v13 = 87LL;
 LABEL_13:
-    UserSetLastError(v11, v7);
+    UserSetLastError(v13, v7, v8);
     goto LABEL_9;
   }
-  v8 = CheckClipboardAccess();
-  if ( !v8 )
+  v9 = CheckClipboardAccess();
+  if ( !v9 )
     goto LABEL_9;
-  if ( *(struct tagWINDOWSTATION **)(*(_QWORD *)(*(_QWORD *)(v5 + 16) + 424LL) + 664LL) != v8 )
+  if ( *(struct tagWINDOWSTATION **)(*(_QWORD *)(*(_QWORD *)(v5 + 16) + 424LL) + 664LL) != v9 )
   {
-    UserSetLastError(87LL, (__int64)v8);
-    v11 = 0LL;
+    UserSetLastError(87LL, (__int64)v9, v10);
+    v13 = 0LL;
     goto LABEL_13;
   }
-  v9 = (char *)v8 + 152;
-  if ( *((_QWORD *)v8 + 19) )
+  v11 = (char *)v9 + 152;
+  if ( *((_QWORD *)v9 + 19) )
   {
-    v13 = *((_QWORD *)v8 + 19);
-    v12 = (char *)(v5 + 240);
-    HMAssignmentLock(&v12, 0LL);
+    v15 = *((_QWORD *)v9 + 19);
+    v14 = (char *)(v5 + 240);
+    HMAssignmentLock(&v14);
   }
-  v12 = v9;
-  v13 = v5;
-  HMAssignmentLock(&v12, 0LL);
-  *(_DWORD *)(v5 + 320) |= 0x800000u;
+  v14 = v11;
+  v15 = v5;
+  HMAssignmentLock(&v14);
   v4 = 1LL;
+  *(_DWORD *)(*(_QWORD *)(v5 + 40) + 232LL) |= 1u;
 LABEL_9:
   UserSessionSwitchLeaveCrit(v3);
   return v4;

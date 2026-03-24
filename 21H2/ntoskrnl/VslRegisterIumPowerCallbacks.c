@@ -1,11 +1,11 @@
 /*
- * XREFs of VslRegisterIumPowerCallbacks @ 0x140B31688
+ * XREFs of VslRegisterIumPowerCallbacks @ 0x140A74328
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140AFE7A0 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1406D1FA0 (ExSubscribeWnfStateChange.c)
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
- *     PoRegisterPowerSettingCallback @ 0x140762500 (PoRegisterPowerSettingCallback.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     PoRegisterPowerSettingCallback @ 0x14067BD00 (PoRegisterPowerSettingCallback.c)
+ *     ExSubscribeWnfStateChange @ 0x1406B17B0 (ExSubscribeWnfStateChange.c)
  */
 
 void VslRegisterIumPowerCallbacks()
@@ -18,8 +18,8 @@ void VslRegisterIumPowerCallbacks()
     if ( OutputBuffer )
     {
       ExSubscribeWnfStateChange(
-        (int)&VslpIumCsWnfSubscription,
-        (int)&WNF_PO_SCENARIO_CHANGE,
+        (__int64)&VslpIumCsWnfSubscription,
+        (__int64)&WNF_PO_SCENARIO_CHANGE,
         1,
         0,
         (__int64)VslpConnectedStandbyWnfCallback,

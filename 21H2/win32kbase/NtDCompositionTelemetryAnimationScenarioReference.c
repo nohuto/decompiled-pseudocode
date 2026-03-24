@@ -1,11 +1,11 @@
 /*
- * XREFs of NtDCompositionTelemetryAnimationScenarioReference @ 0x1C00088F0
+ * XREFs of NtDCompositionTelemetryAnimationScenarioReference @ 0x1C00A1690
  * Callers:
  *     <none>
  * Callees:
- *     ?AnimationScenarioReference@CTelemetryInfo@DirectComposition@@QEAAJPEBU_GUID@@PEA_K@Z @ 0x1C0008EEC (-AnimationScenarioReference@CTelemetryInfo@DirectComposition@@QEAAJPEBU_GUID@@PEA_K@Z.c)
- *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C0010268 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005DB28 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     ?AnimationScenarioReference@CTelemetryInfo@DirectComposition@@QEAAJPEBU_GUID@@PEA_K@Z @ 0x1C00A3A2C (-AnimationScenarioReference@CTelemetryInfo@DirectComposition@@QEAAJPEBU_GUID@@PEA_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtDCompositionTelemetryAnimationScenarioReference(
@@ -38,7 +38,7 @@ __int64 __fastcall NtDCompositionTelemetryAnimationScenarioReference(
     if ( v3 >= 0 )
     {
       v3 = DirectComposition::CTelemetryInfo::AnimationScenarioReference(
-             (struct DirectComposition::CApplicationChannel *)((char *)v7 + 1552),
+             (struct DirectComposition::CApplicationChannel *)((char *)v7 + 528),
              &v6,
              &v8);
       (**(void (__fastcall ***)(struct DirectComposition::CApplicationChannel *))v4)(v4);

@@ -1,56 +1,58 @@
 /*
- * XREFs of CmpSubtreeEnumeratorStart @ 0x140A207E0
+ * XREFs of CmpSubtreeEnumeratorStart @ 0x14072AF4C
  * Callers:
- *     CmpSubtreeEnumeratorStartForKcbStack @ 0x140A208E8 (CmpSubtreeEnumeratorStartForKcbStack.c)
- *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x140A20924 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
+ *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x14072AE74 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
+ *     CmpSubtreeEnumeratorStartForKcbStack @ 0x140876828 (CmpSubtreeEnumeratorStartForKcbStack.c)
  * Callees:
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     memset @ 0x140435400 (memset.c)
- *     CmpStartKcbStack @ 0x1406D7DD0 (CmpStartKcbStack.c)
- *     CmpStartKeyNodeStack @ 0x140A20348 (CmpStartKeyNodeStack.c)
- *     CmpKeyEnumStackInitialize @ 0x140A24184 (CmpKeyEnumStackInitialize.c)
- *     CmpKeyEnumStackStart @ 0x140A242EC (CmpKeyEnumStackStart.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpStartKcbStack @ 0x140648AA0 (CmpStartKcbStack.c)
+ *     CmpKeyEnumStackInitialize @ 0x14067E0DC (CmpKeyEnumStackInitialize.c)
+ *     CmpKeyEnumStackStart @ 0x14072B04C (CmpKeyEnumStackStart.c)
+ *     CmpStartKeyNodeStack @ 0x14072B0A8 (CmpStartKeyNodeStack.c)
  */
 
-__int64 __fastcall CmpSubtreeEnumeratorStart(__int64 a1, __int16 a2)
+__int64 __fastcall CmpSubtreeEnumeratorStart(__int64 a1, __int16 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
 {
-  __int64 Pool; // rax
+  PVOID TransientPoolWithTag; // rax
+  __int64 v6; // rsi
+  __int64 v7; // rbp
+  __int64 v8; // rbx
+  __int64 v9; // r8
+  struct _LOOKASIDE_LIST_EX *v10; // r9
+  __int16 v11; // bx
+  __int64 v12; // rsi
   __int64 result; // rax
-  __int64 v5; // rsi
-  __int64 v6; // rbp
-  _WORD *v7; // rbx
-  __int16 v8; // bx
-  __int64 v9; // rsi
 
   *(_WORD *)(a1 + 2) = a2;
-  Pool = CmpAllocatePool(256LL, 208896LL, 825838915LL);
-  *(_QWORD *)(a1 + 96) = Pool;
-  if ( !Pool )
+  TransientPoolWithTag = CmpAllocateTransientPoolWithTag(PagedPool, 0x33000uLL, 0x31394D43u, a4);
+  *(_QWORD *)(a1 + 96) = TransientPoolWithTag;
+  if ( !TransientPoolWithTag )
     return 3221225626LL;
-  v5 = 0LL;
-  v6 = 512LL;
+  v6 = 0LL;
+  v7 = 512LL;
   do
   {
-    v7 = (_WORD *)(v5 + *(_QWORD *)(a1 + 96));
-    memset(v7, 0, 0x198uLL);
-    v7[13] = -1;
-    CmpKeyEnumStackInitialize(v7 + 28);
-    v5 += 408LL;
-    --v6;
+    v8 = v6 + *(_QWORD *)(a1 + 96);
+    memset((void *)v8, 0, 0x198uLL);
+    *(_WORD *)(v8 + 26) = -1;
+    CmpKeyEnumStackInitialize((char *)(v8 + 56));
+    v6 += 408LL;
+    --v7;
   }
-  while ( v6 );
-  v8 = 0;
+  while ( v7 );
+  v11 = 0;
   while ( 1 )
   {
-    v9 = *(_QWORD *)(a1 + 96) + 408LL * v8;
-    result = CmpStartKcbStack(v9 + 24, *(_WORD *)(a1 + 2));
+    v12 = *(_QWORD *)(a1 + 96) + 408LL * v11;
+    result = CmpStartKcbStack(v12 + 24, *(_WORD *)(a1 + 2), v9, v10);
     if ( (int)result < 0 )
       break;
-    result = CmpKeyEnumStackStart(v9 + 56, *(unsigned __int16 *)(a1 + 2));
+    result = CmpKeyEnumStackStart(v12 + 56, *(unsigned __int16 *)(a1 + 2));
     if ( (int)result < 0 )
       break;
-    if ( ++v8 >= 512 )
-      return CmpStartKeyNodeStack(a1 + 16, *(_WORD *)(a1 + 2));
+    if ( ++v11 >= 512 )
+      return CmpStartKeyNodeStack(a1 + 16, *(unsigned __int16 *)(a1 + 2));
   }
   return result;
 }

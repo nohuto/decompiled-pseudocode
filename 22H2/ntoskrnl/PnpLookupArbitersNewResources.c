@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpLookupArbitersNewResources @ 0x140818570
+ * XREFs of PnpLookupArbitersNewResources @ 0x140752138
  * Callers:
- *     IopRetestConfiguration @ 0x1408181DC (IopRetestConfiguration.c)
- *     IopTestConfiguration @ 0x14081847C (IopTestConfiguration.c)
+ *     IopTestConfiguration @ 0x140752044 (IopTestConfiguration.c)
+ *     IopRetestConfiguration @ 0x1408A0AFC (IopRetestConfiguration.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpLookupArbitersNewResources(
@@ -12,7 +12,7 @@ __int64 __fastcall PnpLookupArbitersNewResources(
         unsigned int a2,
         __int64 a3,
         char a4,
-        __int64 *a5,
+        _QWORD *a5,
         unsigned int *a6)
 {
   unsigned int v6; // ebx
@@ -25,7 +25,7 @@ __int64 __fastcall PnpLookupArbitersNewResources(
   __int64 v15; // rdx
   __int64 v16; // r8
   char v17; // al
-  __int64 Pool2; // rdx
+  _DWORD *PoolWithTag; // rdx
   __int64 v19; // rax
   char v20; // cl
 
@@ -63,11 +63,11 @@ __int64 __fastcall PnpLookupArbitersNewResources(
     while ( v16 );
     if ( v11 )
     {
-      Pool2 = ExAllocatePool2(256LL, 20LL * v11, 538996816LL);
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 20LL * v11, 0x20207050u);
+      if ( !PoolWithTag )
         return 3221225626LL;
       *a6 = v11;
-      *a5 = Pool2;
+      *a5 = PoolWithTag;
       if ( *(_DWORD *)(v13 + 20) )
       {
         do
@@ -76,9 +76,9 @@ __int64 __fastcall PnpLookupArbitersNewResources(
           v20 = *(_BYTE *)(v19 + 136);
           if ( v20 == a4 || v20 == 7 && a4 == 3 )
           {
-            *(_OWORD *)Pool2 = *(_OWORD *)(v19 + 136);
-            *(_DWORD *)(Pool2 + 16) = *(_DWORD *)(v19 + 152);
-            Pool2 += 20LL;
+            *(_OWORD *)PoolWithTag = *(_OWORD *)(v19 + 136);
+            PoolWithTag[4] = *(_DWORD *)(v19 + 152);
+            PoolWithTag += 5;
           }
           ++v6;
         }

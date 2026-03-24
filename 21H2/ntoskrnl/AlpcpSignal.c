@@ -1,66 +1,65 @@
 /*
- * XREFs of AlpcpSignal @ 0x14035AA74
+ * XREFs of AlpcpSignal @ 0x140205730
  * Callers:
- *     AlpcpCompleteDeferSignalRequest @ 0x1407A7658 (AlpcpCompleteDeferSignalRequest.c)
- *     NtAlpcSendWaitReceivePort @ 0x1407AC6B0 (NtAlpcSendWaitReceivePort.c)
+ *     NtAlpcSendWaitReceivePort @ 0x1405E79F0 (NtAlpcSendWaitReceivePort.c)
+ *     AlpcpCompleteDeferSignalRequest @ 0x1405EABDC (AlpcpCompleteDeferSignalRequest.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     AlpcpQueueIoCompletionPort @ 0x14035AB2C (AlpcpQueueIoCompletionPort.c)
- *     KeReleaseSemaphoreEx @ 0x14035AD70 (KeReleaseSemaphoreEx.c)
+ *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1402ACB74 (AlpcpQueueIoCompletionPort.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
  */
 
-int __fastcall AlpcpSignal(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall AlpcpSignal(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  int v4; // ebx
-  __int64 v5; // rcx
-  __int64 v6; // rax
-  void *v7; // rcx
-  unsigned __int64 v8; // rcx
-  __int64 v9; // rcx
+  int v5; // ebx
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  int v8; // ecx
+  unsigned __int64 v9; // rcx
+  __int64 v10; // rcx
 
-  v4 = 0;
-  v5 = *(_QWORD *)(a1 + 32);
-  if ( v5 )
+  v5 = 0;
+  v6 = *(_QWORD *)(a1 + 32);
+  if ( v6 )
   {
     if ( *(_BYTE *)(a1 + 58) )
     {
       LOBYTE(a3) = 1;
       LOBYTE(a2) = *(_BYTE *)(a1 + 59);
-      LODWORD(v6) = AlpcpQueueIoCompletionPort(v5, a2, a3);
+      AlpcpQueueIoCompletionPort(v6, a2, a3);
     }
     else
     {
-      LOBYTE(v4) = (_BYTE)a2 != 0;
-      LODWORD(v6) = KeReleaseSemaphoreEx(*(PVOID *)(v5 + 248), v4);
+      LOBYTE(v5) = (_BYTE)a2 != 0;
+      KeReleaseSemaphoreEx(*(_QWORD *)(v6 + 248), 1, 1, a4, v5);
     }
   }
   else
   {
-    v6 = *(_QWORD *)(a1 + 24);
-    if ( v6 )
+    v7 = *(_QWORD *)(a1 + 24);
+    if ( v7 )
     {
-      v7 = (void *)(v6 + 1240);
+      v8 = v7 + 1160;
       if ( (_BYTE)a2 )
-        LODWORD(v6) = KeReleaseSemaphoreEx(v7, (_BYTE)a3 != 0 ? 1 : 5);
+        KeReleaseSemaphoreEx(v8, 1, 1, a4, (_BYTE)a3 != 0 ? 1 : 5);
       else
-        LODWORD(v6) = KeReleaseSemaphoreEx(v7, 2);
+        KeReleaseSemaphoreEx(v8, 1, 1, a4, 2);
     }
     else
     {
-      v8 = *(_QWORD *)(a1 + 40);
-      if ( (v8 & 1) != 0 )
+      v9 = *(_QWORD *)(a1 + 40);
+      if ( (v9 & 1) != 0 )
       {
-        if ( v8 >= 4 )
+        if ( v9 >= 4 )
         {
-          LODWORD(v6) = KeSetEvent((PRKEVENT)(v8 & 0xFFFFFFFFFFFFFFFCuLL), 0, a2);
-          v9 = *(_QWORD *)(a1 + 40);
-          if ( (v9 & 2) != 0 )
-            LODWORD(v6) = ObfDereferenceObject((PVOID)(v9 & 0xFFFFFFFFFFFFFFFCuLL));
+          KeSetEvent((PRKEVENT)(v9 & 0xFFFFFFFFFFFFFFFCuLL), 0, a2);
+          v10 = *(_QWORD *)(a1 + 40);
+          if ( (v10 & 2) != 0 )
+            HalPutDmaAdapter((PADAPTER_OBJECT)(v10 & 0xFFFFFFFFFFFFFFFCuLL));
         }
         *(_QWORD *)(a1 + 40) = 0LL;
       }
     }
   }
-  return v6;
 }

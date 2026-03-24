@@ -1,48 +1,45 @@
 /*
- * XREFs of AdtpBuildMacStrings @ 0x140A5A99C
+ * XREFs of AdtpBuildMacStrings @ 0x14096D36C
  * Callers:
- *     AdtpBuildSockAddrString @ 0x140A5B430 (AdtpBuildSockAddrString.c)
+ *     AdtpBuildSockAddrString @ 0x14096DDD8 (AdtpBuildSockAddrString.c)
  * Callees:
- *     RtlEthernetAddressToStringW @ 0x1403B5530 (RtlEthernetAddressToStringW.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlEthernetAddressToStringW @ 0x14058BFA0 (RtlEthernetAddressToStringW.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildMacStrings(__int64 a1, __int64 a2, _BYTE *a3)
 {
-  PVOID *v6; // rcx
-  unsigned int v7; // ebx
-  __int64 Pool2; // rax
-  PWSTR *v9; // rsi
+  unsigned int v6; // edi
+  PVOID PoolWithTag; // rax
 
-  if ( *(_WORD *)a1 != 33 )
+  if ( *(_WORD *)a1 == 33 )
   {
-    v6 = (PVOID *)(a2 + 8);
-    v7 = -1073741503;
-    if ( !a3 )
-      return v7;
-    goto LABEL_8;
-  }
-  if ( !a2 || !a3 )
+    if ( a2 && a3 )
+    {
+      *(_WORD *)(a2 + 2) = 36;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x24uLL, 0x6B416553u);
+      *(_QWORD *)(a2 + 8) = PoolWithTag;
+      if ( !PoolWithTag )
+      {
+        v6 = -1073741801;
+        goto LABEL_7;
+      }
+      *a3 = 1;
+      *(_WORD *)a2 = 2
+                   * ((__int64)((unsigned int)RtlEthernetAddressToStringW(
+                                                (const DL_EUI48 *)(a1 + 2),
+                                                *(PWSTR *)(a2 + 8))
+                              - *(_DWORD *)(a2 + 8)) >> 1);
+    }
     return 0;
-  *(_WORD *)(a2 + 2) = 36;
-  Pool2 = ExAllocatePool2(256LL, 36LL, 1799447891LL);
-  v9 = (PWSTR *)(a2 + 8);
-  *(_QWORD *)(a2 + 8) = Pool2;
-  if ( Pool2 )
-  {
-    *a3 = 1;
-    *(_WORD *)a2 = 2
-                 * ((__int64)((unsigned int)RtlEthernetAddressToStringW((const DL_EUI48 *)(a1 + 2), *v9) - *(_DWORD *)v9) >> 1);
-    return 0;
   }
-  v7 = -1073741801;
-  v6 = (PVOID *)v9;
-LABEL_8:
-  if ( *a3 )
+  v6 = -1073741503;
+LABEL_7:
+  if ( a3 && *a3 )
   {
     *a3 = 0;
-    ExFreePoolWithTag(*v6, 0);
+    ExFreePoolWithTag(*(PVOID *)(a2 + 8), 0);
   }
-  return v7;
+  return v6;
 }

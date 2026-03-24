@@ -1,7 +1,7 @@
 /*
- * XREFs of IdpValidateAcpiName @ 0x14084C8D8
+ * XREFs of IdpValidateAcpiName @ 0x1407C5A34
  * Callers:
- *     PipIommuValidateDeviceId @ 0x14084C850 (PipIommuValidateDeviceId.c)
+ *     PipIommuValidateDeviceId @ 0x140766104 (PipIommuValidateDeviceId.c)
  * Callees:
  *     <none>
  */

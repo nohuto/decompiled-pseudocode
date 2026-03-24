@@ -1,37 +1,38 @@
 /*
- * XREFs of ?Initialize@CDesktopTree@@MEAAJXZ @ 0x1800C77F0
+ * XREFs of ?Initialize@CDesktopTree@@MEAAJXZ @ 0x1800D85C0
  * Callers:
- *     ?Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z @ 0x18020FD08 (-Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z.c)
+ *     ?Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z @ 0x1801B1F2C (-Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??2CContent@@KAPEAX_K@Z @ 0x1800388C8 (--2CContent@@KAPEAX_K@Z.c)
- *     ??0CVisual@@IEAA@PEAVCComposition@@@Z @ 0x18009B648 (--0CVisual@@IEAA@PEAVCComposition@@@Z.c)
- *     ??4?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCVisual@@@Z @ 0x1800C7A54 (--4-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCVisual@@@Z.c)
- *     ?Initialize@CVisualTree@@MEAAJXZ @ 0x1800C7FA0 (-Initialize@CVisualTree@@MEAAJXZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??4?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorBrush@@@Z @ 0x180009404 (--4-$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorBrush@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CVisual@@IEAA@PEAVCComposition@@@Z @ 0x1800A1258 (--0CVisual@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??2KeyframeInterpolation@@SAPEAX_K@Z @ 0x1800AC800 (--2KeyframeInterpolation@@SAPEAX_K@Z.c)
+ *     ?SetVisualTree@CVisual@@IEAAJPEAVCVisualTree@@@Z @ 0x1800D8644 (-SetVisualTree@CVisual@@IEAAJPEAVCVisualTree@@@Z.c)
  */
 
-__int64 __fastcall CDesktopTree::Initialize(struct CComposition **this)
+__int64 __fastcall CDesktopTree::Initialize(CDesktopTree *this)
 {
   CVisual *v2; // rax
-  int v3; // eax
-  unsigned int v4; // ebx
-  int v6; // [rsp+20h] [rbp-8h]
-  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v3; // rcx
+  int v4; // eax
+  __int64 v5; // rcx
+  unsigned int v6; // ebx
 
-  v2 = (CVisual *)CContent::operator new(0x2C0uLL);
+  v2 = (CVisual *)KeyframeInterpolation::operator new(0x268uLL);
   if ( v2 )
-    v2 = CVisual::CVisual(v2, this[2]);
-  wil::com_ptr_t<CVisual,wil::err_returncode_policy>::operator=(this + 590, v2);
-  this[8] = this[590];
-  v3 = CVisualTree::Initialize((CVisualTree *)this);
-  v4 = v3;
-  if ( v3 >= 0 )
-    return 0LL;
-  wil::details::in1diag3::Return_Hr(
-    retaddr,
-    (void *)0x2E,
-    (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\desktoptree.cpp",
-    (const char *)(unsigned int)v3,
-    v6);
-  return v4;
+    v2 = CVisual::CVisual(v2, *((struct CComposition **)this + 2));
+  if ( v2 )
+  {
+    wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>::operator=((__int64 *)this + 7, (__int64)v2);
+    v4 = CVisual::SetVisualTree(*((CVisual **)this + 7), this);
+    v6 = v4;
+    if ( v4 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x2Fu, 0LL);
+  }
+  else
+  {
+    v6 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, -2147024882, 0x2Au, 0LL);
+  }
+  return v6;
 }

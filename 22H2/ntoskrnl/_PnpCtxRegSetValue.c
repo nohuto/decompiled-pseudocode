@@ -1,11 +1,12 @@
 /*
- * XREFs of _PnpCtxRegSetValue @ 0x140A60BF4
+ * XREFs of _PnpCtxRegSetValue @ 0x140974994
  * Callers:
- *     PipUpdateDeviceProducts @ 0x140375490 (PipUpdateDeviceProducts.c)
- *     IopInitializeBootDrivers @ 0x140B405B4 (IopInitializeBootDrivers.c)
- *     PipMigratePnpState @ 0x140B4324C (PipMigratePnpState.c)
+ *     PipUpdateDeviceProducts @ 0x1403C6D30 (PipUpdateDeviceProducts.c)
+ *     PiCMCreateDevice @ 0x1408AF490 (PiCMCreateDevice.c)
+ *     PipMigratePnpState @ 0x140A51084 (PipMigratePnpState.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     _RegRtlSetValue @ 0x1407D4F54 (_RegRtlSetValue.c)
+ *     _RegRtlSetValue @ 0x140768114 (_RegRtlSetValue.c)
  */
 
 int __fastcall PnpCtxRegSetValue(__int64 a1, void *a2, const WCHAR *a3, ULONG a4, void *a5, ULONG a6)

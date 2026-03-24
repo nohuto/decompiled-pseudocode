@@ -8,8 +8,8 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     MiMapViewInSystemSpace @ 0x1405DF3F4 (MiMapViewInSystemSpace.c)
  *     AlpcpLockForCachedReferenceBlob @ 0x140616E4C (AlpcpLockForCachedReferenceBlob.c)
  *     AlpcpInsertResourcePort @ 0x140617F98 (AlpcpInsertResourcePort.c)
@@ -18,7 +18,7 @@
  *     MmMapSecureViewOfSection @ 0x140618574 (MmMapSecureViewOfSection.c)
  *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
  *     AlpcpUnlockBlob @ 0x140637040 (AlpcpUnlockBlob.c)
- *     MmMapViewOfSection @ 0x140678B80 (MmMapViewOfSection.c)
+ *     MmMapViewOfSection @ 0x140678B60 (MmMapViewOfSection.c)
  */
 
 __int64 __fastcall AlpcpCreateView(ULONG_PTR BugCheckParameter2, _QWORD *Object, ULONG_PTR *a3)

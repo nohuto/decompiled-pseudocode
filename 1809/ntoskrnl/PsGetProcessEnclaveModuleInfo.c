@@ -1,14 +1,14 @@
 /*
- * XREFs of PsGetProcessEnclaveModuleInfo @ 0x1402EBDD0
+ * XREFs of PsGetProcessEnclaveModuleInfo @ 0x1402EBED0
  * Callers:
- *     DbgkpPostModuleMessages @ 0x14080F1C4 (DbgkpPostModuleMessages.c)
+ *     DbgkpPostModuleMessages @ 0x14080F1A4 (DbgkpPostModuleMessages.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     MmGetEnclaveModuleList @ 0x1402BEAC0 (MmGetEnclaveModuleList.c)
- *     PsFreeEnclaveModuleInfo @ 0x1402EBD74 (PsFreeEnclaveModuleInfo.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     MmGetEnclaveModuleList @ 0x1402BEBC0 (MmGetEnclaveModuleList.c)
+ *     PsFreeEnclaveModuleInfo @ 0x1402EBE74 (PsFreeEnclaveModuleInfo.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetHDR10MetaData@CGlobalCompositionSurfaceInfo@@UEBA_NPEAUDXGI_HDR_METADATA_HDR10@@@Z @ 0x180014CF0
+ * XREFs of ?GetHDR10MetaData@CGlobalCompositionSurfaceInfo@@UEBA_NPEAUDXGI_HDR_METADATA_HDR10@@@Z @ 0x1801F8AC0
  * Callers:
  *     <none>
  * Callees:
@@ -13,8 +13,8 @@ char __fastcall CGlobalCompositionSurfaceInfo::GetHDR10MetaData(
   char v2; // r8
 
   v2 = 1;
-  if ( *((_DWORD *)this + 58) != 1 )
+  if ( *((_DWORD *)this + 54) != 1 )
     return 0;
-  *a2 = *(struct DXGI_HDR_METADATA_HDR10 *)((char *)this + 236);
+  *a2 = *(struct DXGI_HDR_METADATA_HDR10 *)((char *)this + 220);
   return v2;
 }

@@ -1,13 +1,12 @@
 /*
- * XREFs of PnpDeviceCompletionQueueAddDispatchedRequest @ 0x1402D26E0
+ * XREFs of PnpDeviceCompletionQueueAddDispatchedRequest @ 0x14036FE8C
  * Callers:
- *     PiProcessNewDeviceNodeAsync @ 0x1406E60B0 (PiProcessNewDeviceNodeAsync.c)
- *     PnpStartDeviceNode @ 0x140749C4C (PnpStartDeviceNode.c)
- *     PipEnumerateDevice @ 0x14074B420 (PipEnumerateDevice.c)
+ *     PnpStartDeviceNode @ 0x14073DF04 (PnpStartDeviceNode.c)
+ *     PipEnumerateDevice @ 0x140746E28 (PipEnumerateDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _BOOL8 __fastcall PnpDeviceCompletionQueueAddDispatchedRequest(__int64 a1, _QWORD *a2)
@@ -21,17 +20,17 @@ _BOOL8 __fastcall PnpDeviceCompletionQueueAddDispatchedRequest(__int64 a1, _QWOR
   int v10; // edx
   bool v11; // zf
 
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C46008);
-  v4 = (_QWORD *)qword_140C45FC8;
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C44BA8);
+  v4 = (_QWORD *)qword_140C44B68;
   v5 = PnpDeviceCompletionQueue == (_QWORD)&PnpDeviceCompletionQueue;
-  if ( *(__int64 **)qword_140C45FC8 != &PnpDeviceCompletionQueue )
+  if ( *(__int64 **)qword_140C44B68 != &PnpDeviceCompletionQueue )
     __fastfail(3u);
   *a2 = &PnpDeviceCompletionQueue;
   a2[1] = v4;
   *v4 = a2;
-  ++dword_140C45FD0;
-  qword_140C45FC8 = (__int64)a2;
-  KxReleaseSpinLock(&qword_140C46008);
+  ++dword_140C44B70;
+  qword_140C44B68 = (__int64)a2;
+  KxReleaseSpinLock(&qword_140C44BA8);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

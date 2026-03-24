@@ -1,33 +1,30 @@
 /*
- * XREFs of CmpFindSubKeyByNumber @ 0x1406DAFB0
+ * XREFs of CmpFindSubKeyByNumber @ 0x1405F34E0
  * Callers:
- *     CmDeleteLayeredKey @ 0x14061695C (CmDeleteLayeredKey.c)
- *     CmpFindSubKeyByNumberEx @ 0x1406DB080 (CmpFindSubKeyByNumberEx.c)
- *     CmpClearKeyAccessBits @ 0x140885EBC (CmpClearKeyAccessBits.c)
- *     CmpEnumerateLayeredKey @ 0x140A164C4 (CmpEnumerateLayeredKey.c)
- *     CmpCopySyncTree2 @ 0x140A21558 (CmpCopySyncTree2.c)
- *     CmpPreserveSystemHiveData @ 0x140A225AC (CmpPreserveSystemHiveData.c)
- *     CmpSyncSubKeysAfterDelete @ 0x140A2314C (CmpSyncSubKeysAfterDelete.c)
- *     CmpMarkAllChildrenDirty @ 0x140A244FC (CmpMarkAllChildrenDirty.c)
- *     CmpUpdateParentForEachSon @ 0x140A24DE4 (CmpUpdateParentForEachSon.c)
- *     CmpDeleteTree @ 0x140A25C70 (CmpDeleteTree.c)
- *     CmpDoAccessCheckOnSubtree @ 0x140AF6B2C (CmpDoAccessCheckOnSubtree.c)
- *     CmSelectQualifiedInstallLanguage @ 0x140B5C4DC (CmSelectQualifiedInstallLanguage.c)
- *     CmpFindDrivers @ 0x140B5D88C (CmpFindDrivers.c)
+ *     CmDeleteLayeredKey @ 0x1404ECFB8 (CmDeleteLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1405F35A0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpClearKeyAccessBits @ 0x14068C5CC (CmpClearKeyAccessBits.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x140871B14 (CmpDoAccessCheckOnSubtree.c)
+ *     CmpCopySyncTree2 @ 0x1408785E0 (CmpCopySyncTree2.c)
+ *     CmpPreserveSystemHiveData @ 0x1408796BC (CmpPreserveSystemHiveData.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x14087A2B8 (CmpSyncSubKeysAfterDelete.c)
+ *     CmpMarkAllChildrenDirty @ 0x14087AE28 (CmpMarkAllChildrenDirty.c)
+ *     CmpUpdateParentForEachSon @ 0x14087B338 (CmpUpdateParentForEachSon.c)
+ *     CmpDeleteTree @ 0x14087E9EC (CmpDeleteTree.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x140A5F7C0 (CmSelectQualifiedInstallLanguage.c)
+ *     CmpFindDrivers @ 0x140A60F64 (CmpFindDrivers.c)
  * Callees:
- *     CmpDoFindSubKeyByNumber @ 0x1406DAE8C (CmpDoFindSubKeyByNumber.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpDoFindSubKeyByNumber @ 0x1405F2D00 (CmpDoFindSubKeyByNumber.c)
  */
 
-__int64 __fastcall CmpFindSubKeyByNumber(ULONG_PTR BugCheckParameter3, _DWORD *a2, unsigned int a3, _DWORD *a4)
+__int64 __fastcall CmpFindSubKeyByNumber(__int64 a1, _DWORD *a2, unsigned int a3, _DWORD *a4)
 {
   unsigned int v5; // eax
-  unsigned int v6; // edi
-  ULONG_PTR v8; // rdx
-  _WORD *CellFlat; // rax
+  unsigned int v6; // esi
+  __int64 v8; // rdx
+  __int16 *v9; // rax
   int v11; // [rsp+38h] [rbp+10h] BYREF
   int v12; // [rsp+3Ch] [rbp+14h]
 
@@ -38,7 +35,7 @@ __int64 __fastcall CmpFindSubKeyByNumber(ULONG_PTR BugCheckParameter3, _DWORD *a
   *a4 = -1;
   if ( a3 >= v5 )
   {
-    if ( *(_DWORD *)(BugCheckParameter3 + 216) <= 1u )
+    if ( *(_DWORD *)(a1 + 208) <= 1u )
       return 0LL;
     v6 = a3 - v5;
     if ( a3 - v5 >= a2[6] )
@@ -49,18 +46,12 @@ __int64 __fastcall CmpFindSubKeyByNumber(ULONG_PTR BugCheckParameter3, _DWORD *a
   {
     v8 = (unsigned int)a2[7];
   }
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    CellFlat = (_WORD *)HvpGetCellFlat(BugCheckParameter3, v8);
-  else
-    CellFlat = (_WORD *)HvpGetCellPaged(BugCheckParameter3);
-  if ( !CellFlat )
-    return 3221225626LL;
-  *a4 = CmpDoFindSubKeyByNumber(BugCheckParameter3, CellFlat, v6);
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) == 0 )
+  v9 = (__int16 *)(*(__int64 (__fastcall **)(__int64, __int64, int *))(a1 + 8))(a1, v8, &v11);
+  if ( v9 )
   {
-    HvpReleaseCellPaged(BugCheckParameter3, &v11);
+    *a4 = CmpDoFindSubKeyByNumber(a1, v9, v6);
+    (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v11);
     return 0LL;
   }
-  HvpReleaseCellFlat(BugCheckParameter3, &v11);
-  return 0LL;
+  return 3221225626LL;
 }

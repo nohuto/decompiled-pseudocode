@@ -1,9 +1,9 @@
 /*
- * XREFs of PspRateControlLimitFlag @ 0x1406859F8
+ * XREFs of PspRateControlLimitFlag @ 0x14061665C
  * Callers:
- *     NtQueryInformationJobObject @ 0x140684450 (NtQueryInformationJobObject.c)
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1406FFA80 (PspEnforceLimitsJobPostCallback.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140616880 (NtQueryInformationJobObject.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140618320 (PspEnforceLimitsJobPostCallback.c)
  * Callees:
  *     <none>
  */

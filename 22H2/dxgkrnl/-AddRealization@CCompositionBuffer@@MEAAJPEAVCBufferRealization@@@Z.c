@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRealization@CCompositionBuffer@@MEAAJPEAVCBufferRealization@@@Z @ 0x1C007D430
+ * XREFs of ?AddRealization@CCompositionBuffer@@MEAAJPEAVCBufferRealization@@@Z @ 0x1C0066790
  * Callers:
  *     <none>
  * Callees:
@@ -18,18 +18,18 @@ __int64 __fastcall CCompositionBuffer::AddRealization(CCompositionBuffer *this, 
   {
     return (unsigned int)-1073741811;
   }
-  else if ( !*((_DWORD *)this + 68) )
+  else if ( !*((_DWORD *)this + 60) )
   {
     v3 = (_QWORD *)((char *)a2 + 8);
-    v4 = (_QWORD *)((char *)this + 256);
-    v5 = *((_QWORD *)this + 32);
-    if ( *(CCompositionBuffer **)(v5 + 8) != (CCompositionBuffer *)((char *)this + 256) )
+    v4 = (_QWORD *)((char *)this + 224);
+    v5 = *((_QWORD *)this + 28);
+    if ( *(CCompositionBuffer **)(v5 + 8) != (CCompositionBuffer *)((char *)this + 224) )
       __fastfail(3u);
     *v3 = v5;
     v3[1] = v4;
     *(_QWORD *)(v5 + 8) = v3;
     *v4 = v3;
-    ++*((_DWORD *)this + 68);
+    ++*((_DWORD *)this + 60);
     return 0;
   }
   return v2;

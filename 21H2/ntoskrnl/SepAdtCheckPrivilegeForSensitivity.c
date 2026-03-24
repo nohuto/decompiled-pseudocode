@@ -1,7 +1,7 @@
 /*
- * XREFs of SepAdtCheckPrivilegeForSensitivity @ 0x1405F4E30
+ * XREFs of SepAdtCheckPrivilegeForSensitivity @ 0x140596E90
  * Callers:
- *     SepAdtAuditPrivilegeUseWithContext @ 0x14072427C (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x1406279F0 (SepAdtAuditPrivilegeUseWithContext.c)
  * Callees:
  *     <none>
  */
@@ -28,7 +28,7 @@ __int64 __fastcall SepAdtCheckPrivilegeForSensitivity(unsigned int *a1, _BYTE *a
           break;
         v6 = SepSensitivePrivileges;
         v7 = &SepSensitivePrivileges;
-        while ( 1 )
+        do
         {
           if ( a1[3 * v5 + 2] == v6->LowPart )
           {
@@ -37,17 +37,12 @@ __int64 __fastcall SepAdtCheckPrivilegeForSensitivity(unsigned int *a1, _BYTE *a
               break;
           }
           v6 = *++v7;
-          if ( !*v7 )
-            goto LABEL_10;
         }
-        if ( !v6 )
-        {
-LABEL_10:
+        while ( *v7 );
+        if ( v6 )
+          *a2 = 1;
+        else
           *a3 = 1;
-          goto LABEL_11;
-        }
-        *a2 = 1;
-LABEL_11:
         v5 = (unsigned int)(v5 + 1);
       }
       while ( (unsigned int)v5 < v4 );

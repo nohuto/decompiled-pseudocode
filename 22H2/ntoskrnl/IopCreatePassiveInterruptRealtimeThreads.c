@@ -1,13 +1,13 @@
 /*
- * XREFs of IopCreatePassiveInterruptRealtimeThreads @ 0x1408572B8
+ * XREFs of IopCreatePassiveInterruptRealtimeThreads @ 0x1407C9594
  * Callers:
- *     IopInitializePassiveInterruptServices @ 0x140B6B6E4 (IopInitializePassiveInterruptServices.c)
+ *     IopInitializePassiveInterruptServices @ 0x140A6D460 (IopInitializePassiveInterruptServices.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9630 (KeSetActualBasePriorityThread.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     PsCreateSystemThreadEx @ 0x140772B10 (PsCreateSystemThreadEx.c)
+ *     KeSetActualBasePriorityThread @ 0x14022FF20 (KeSetActualBasePriorityThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1406FDA60 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall IopCreatePassiveInterruptRealtimeThreads(void *a1)
@@ -24,8 +24,8 @@ __int64 __fastcall IopCreatePassiveInterruptRealtimeThreads(void *a1)
   HANDLE Handle; // [rsp+98h] [rbp+18h] BYREF
 
   Object = a1;
-  v7 = 0;
   v1 = 0;
+  v7 = 0;
   Handle = 0LL;
   v5 = 0LL;
   v4 = 0x30uLL;
@@ -52,8 +52,8 @@ __int64 __fastcall IopCreatePassiveInterruptRealtimeThreads(void *a1)
     ZwClose(Handle);
     if ( v3 >= 0 )
     {
-      KeSetActualBasePriorityThread((ULONG_PTR)Object, (unsigned __int8)PassiveInterruptRealtimeWorkerPriority);
-      ObfDereferenceObject(Object);
+      KeSetActualBasePriorityThread((__int64)Object, (unsigned __int8)PassiveInterruptRealtimeWorkerPriority);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     }
     if ( ++v1 >= (unsigned int)(unsigned __int8)PassiveInterruptRealtimeWorkerCount )
       return 0LL;

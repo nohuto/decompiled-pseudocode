@@ -1,9 +1,11 @@
 /*
- * XREFs of ?SetReferenceProperty@CProjectedShadowReceiverMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C000F070
+ * XREFs of ?SetReferenceProperty@CProjectedShadowReceiverMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C00057D0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicationChannel@2@PEAPEAV12@PEAV12@W4Optionality@12@W4MIL_RESOURCE_TYPE@@PEAKKW4MarshalingFlagSemantic@12@PEA_N@Z @ 0x1C002D3BC (-SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicati_ea_1C002D3BC.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CProjectedShadowReceiverMarshaler::SetReferenceProperty(
@@ -13,27 +15,48 @@ __int64 __fastcall DirectComposition::CProjectedShadowReceiverMarshaler::SetRefe
         struct DirectComposition::CResourceMarshaler *a4,
         bool *a5)
 {
-  if ( !a3 )
-    return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-             a2,
-             (char *)this + 72,
-             a4,
-             1LL,
-             17,
-             (char *)this + 16,
-             128,
-             0,
-             a5);
-  if ( a3 == 2 )
-    return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-             a2,
-             (char *)this + 88,
-             a4,
-             1LL,
-             196,
-             (char *)this + 16,
-             512,
-             0,
-             a5);
-  return 3221225485LL;
+  unsigned int v5; // ebx
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  int v11; // ebp
+  struct DirectComposition::CResourceMarshaler **v12; // r14
+
+  v5 = 0;
+  *a5 = 0;
+  if ( a3 )
+  {
+    if ( a3 != 2 )
+      return 3221225485LL;
+    v9 = 195LL;
+    v10 = 88LL;
+    v11 = 512;
+  }
+  else
+  {
+    v9 = 14LL;
+    v11 = 128;
+    v10 = 72LL;
+  }
+  v12 = (struct DirectComposition::CResourceMarshaler **)((char *)this + v10);
+  if ( (DirectComposition::CProjectedShadowReceiverMarshaler *)((char *)this + v10)
+    && (!a4
+     || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+          a4,
+          v9)) )
+  {
+    if ( *v12 != a4 )
+    {
+      DirectComposition::CApplicationChannel::ReleaseResource(a2, *v12);
+      *v12 = a4;
+      if ( a4 )
+        DirectComposition::CResourceMarshaler::AddRef(a4);
+      *((_DWORD *)this + 4) |= v11;
+      *a5 = 1;
+    }
+  }
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
+  return v5;
 }

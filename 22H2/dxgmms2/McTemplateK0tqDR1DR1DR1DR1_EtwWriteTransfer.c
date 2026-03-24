@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0tqDR1DR1DR1DR1_EtwWriteTransfer @ 0x1C0039D20
+ * XREFs of McTemplateK0tqDR1DR1DR1DR1_EtwWriteTransfer @ 0x1C002ECBC
  * Callers:
- *     ?VidSchiLogMmIoFlipMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_FLIP_QUEUE_ENTRY@@PEBU_VIDSCH_CALL_EXECUTE_FLIP@@W4_VIDSCH_FLIP_STATUS@@I_K@Z @ 0x1C000E3B0 (-VidSchiLogMmIoFlipMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_FLIP_QUEUE_ENTRY@@PEBU.c)
+ *     ?VidSchiLogMmIoFlipMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@PEAUVIDSCH_FLIP_QUEUE_ENTRY@@PEBU_VIDSCH_CALL_EXECUTE_FLIP@@W4_VIDSCH_FLIP_STATUS@@I@Z @ 0x1C002B1F8 (-VidSchiLogMmIoFlipMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@PEAUVIDSCH_FLIP_QUEUE_ENTRY@@PEBU_.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BD2C (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023ECC (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall McTemplateK0tqDR1DR1DR1DR1_EtwWriteTransfer(
@@ -38,21 +38,21 @@ NTSTATUS __fastcall McTemplateK0tqDR1DR1DR1DR1_EtwWriteTransfer(
   int v27; // [rsp+D8h] [rbp+57h] BYREF
 
   v27 = a4;
-  v12 = 4LL;
-  v17 = 0;
   v11 = &v27;
   v13 = &a5;
   v15 = a6;
-  v20 = 0;
-  v23 = 0;
-  v26 = 0;
-  v14 = 4LL;
   v18 = a7;
   v21 = a8;
   v24 = a9;
   v16 = 4 * a5;
+  v17 = 0;
   v19 = 4 * a5;
+  v20 = 0;
   v22 = 4 * a5;
+  v23 = 0;
   v25 = 4 * a5;
+  v26 = 0;
+  v12 = 4LL;
+  v14 = 4LL;
   return McGenEventWrite_EtwWriteTransfer(&DxgkControlGuid_Context, &MMIOFlipMultiPlaneOverlayDirtyRect, a3, 7u, &v10);
 }

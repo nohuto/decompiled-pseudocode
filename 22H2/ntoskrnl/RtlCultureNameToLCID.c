@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlCultureNameToLCID @ 0x140826300
+ * XREFs of RtlCultureNameToLCID @ 0x14078EC20
  * Callers:
- *     RtlpMuiRegLoadLicInformation @ 0x14038A978 (RtlpMuiRegLoadLicInformation.c)
- *     RtlpLoadInstallLanguageFallback @ 0x1408465DC (RtlpLoadInstallLanguageFallback.c)
- *     _RtlpMuiRegInitAnyLanguage @ 0x1408474F4 (_RtlpMuiRegInitAnyLanguage.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x140A743A4 (RtlpLoadPolicyLanguageSpec.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x140A746B4 (RtlpMuiRegConfigMatchesInstalled.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140A74AC4 (RtlpMuiRegGetInstalledLanguageIndex.c)
- *     RtlpMuiRegGetLanguageSpec @ 0x140A74D04 (RtlpMuiRegGetLanguageSpec.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x140A74E48 (RtlpMuiRegLangInfoMatchesSpec.c)
- *     _RtlMuiRegAddLIPParent @ 0x140A751F4 (_RtlMuiRegAddLIPParent.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x1403A76C0 (RtlpMuiRegLoadLicInformation.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x14078EDF0 (_RtlpMuiRegInitAnyLanguage.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x140790254 (RtlpLoadInstallLanguageFallback.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x140980D50 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x14098107C (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140981488 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpMuiRegGetLanguageSpec @ 0x1409816BC (RtlpMuiRegGetLanguageSpec.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x140981800 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     _RtlMuiRegAddLIPParent @ 0x140981BB0 (_RtlMuiRegAddLIPParent.c)
  * Callees:
- *     DownLevelLanguageNameToLangID @ 0x14038AD54 (DownLevelLanguageNameToLangID.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     __report_rangecheckfailure @ 0x1404FE1FC (__report_rangecheckfailure.c)
+ *     DownLevelLanguageNameToLangID @ 0x1403A7B18 (DownLevelLanguageNameToLangID.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     __report_rangecheckfailure @ 0x1404B63BC (__report_rangecheckfailure.c)
  */
 
 bool __fastcall RtlCultureNameToLCID(unsigned __int16 *a1, _DWORD *a2)

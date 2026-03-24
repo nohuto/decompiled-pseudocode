@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetContextThread @ 0x14088BA40
+ * XREFs of PsGetContextThread @ 0x14088BA20
  * Callers:
  *     <none>
  * Callees:

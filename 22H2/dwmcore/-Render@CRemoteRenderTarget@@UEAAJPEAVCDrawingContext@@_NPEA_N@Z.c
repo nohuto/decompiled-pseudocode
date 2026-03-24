@@ -1,29 +1,25 @@
 /*
- * XREFs of ?Render@CRemoteRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x18010A2F8
+ * XREFs of ?Render@CRemoteRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EE35C
  * Callers:
- *     ?Render@CRemoteRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x18011D1C0 (-Render@CRemoteRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CRemoteRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800F5040 (-Render@CRemoteRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
  * Callees:
- *     ?SubtractOverdraw@CComposeTop@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180014FBC (-SubtractOverdraw@CComposeTop@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@.c)
- *     ?HasNewContent@CComposeTop@@QEBA_NXZ @ 0x1800220D0 (-HasNewContent@CComposeTop@@QEBA_NXZ.c)
- *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180047C6C (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x18004B124 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     ?UpdateCVIRenderTargets@CDesktopTree@@QEBAXAEBVRenderTargetInfo@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18004CDFC (-UpdateCVIRenderTargets@CDesktopTree@@QEBAXAEBVRenderTargetInfo@@AEBV-$TMilRect_@MUMilRectF@@UMi.c)
- *     ?IsCurrent@COcclusionContext@@QEBA_NXZ @ 0x18004D0C4 (-IsCurrent@COcclusionContext@@QEBA_NXZ.c)
- *     ?GetOptimizedRect@CDirtyRegion@@QEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@IAEBV2@PEAVCRegion@@PEBVCMILMatrix@@_NAEBV?$span@PEBVCVisual@@$0?0@gsl@@PEBVCOcclusionContext@@@Z @ 0x180086240 (-GetOptimizedRect@CDirtyRegion@@QEBA-AV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@U.c)
- *     ?DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@PEBVCOcclusionContext@@W4Enum@ClearMode@@_NPEAVCVisual@@@Z @ 0x180087B2C (-DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV-$TMil3DRect@MV-$TMilRect_@MUMilRectF.c)
- *     ?EndFrame@CDrawingContext@@QEAAJXZ @ 0x18008C678 (-EndFrame@CDrawingContext@@QEAAJXZ.c)
- *     ?BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOverlayContext@@@Z @ 0x18008CC54 (-BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOv.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CalcOcclusion@CDirtyRegion@@QEBAJXZ @ 0x1800C2690 (-CalcOcclusion@CDirtyRegion@@QEBAJXZ.c)
- *     ?IsEmpty@CDirtyRegion@@QEBA_NXZ @ 0x1800C282C (-IsEmpty@CDirtyRegion@@QEBA_NXZ.c)
- *     ?GetBounds@CDirtyRegion@@QEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@XZ @ 0x1800C2874 (-GetBounds@CDirtyRegion@@QEBA-AV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeed.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ?IsPrimaryMonitor@CRemoteRenderTarget@@UEBA_NXZ @ 0x18010A5E0 (-IsPrimaryMonitor@CRemoteRenderTarget@@UEBA_NXZ.c)
- *     ?NotifyRenderedRect@CRemoteRenderTarget@@IEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_N@Z @ 0x18010A60C (-NotifyRenderedRect@CRemoteRenderTarget@@IEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoint.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?RenderComposeTop@CRemoteRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVCComposeTop@@_N@Z @ 0x1801F1064 (-RenderComposeTop@CRemoteRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVCComposeTop@@_N@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180058560 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@PEBVCOcclusionContext@@W4Enum@ClearMode@@_N@Z @ 0x1800754F0 (-DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV-$TMil3DRect@MV-$TMilRect_@MUMilRectF.c)
+ *     ?BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOverlayContext@@@Z @ 0x18007A778 (-BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOv.c)
+ *     ?GetDirtyRegion@CDesktopTree@@QEBAPEBVCDirtyRegion@@XZ @ 0x18008F460 (-GetDirtyRegion@CDesktopTree@@QEBAPEBVCDirtyRegion@@XZ.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x18008F604 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     ?EndFrame@CDrawingContext@@QEAAJXZ @ 0x18008FC84 (-EndFrame@CDrawingContext@@QEAAJXZ.c)
+ *     ?GetUnOccludedDirtyRect@CDirtyRegion@@QEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@IAEBV2@_NAEBV?$span@PEBVCVisual@@$0?0@gsl@@PEBVCOcclusionContext@@@Z @ 0x180091ED4 (-GetUnOccludedDirtyRect@CDirtyRegion@@QEBA-AV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSi.c)
+ *     ?UpdateCVIRenderTargets@CDesktopTree@@QEAAXPEBVCOcclusionContext@@AEBVRenderTargetInfo@@@Z @ 0x1800926DC (-UpdateCVIRenderTargets@CDesktopTree@@QEAAXPEBVCOcclusionContext@@AEBVRenderTargetInfo@@@Z.c)
+ *     ?CalcOcclusion@CDirtyRegion@@QEBAJXZ @ 0x1800D77D8 (-CalcOcclusion@CDirtyRegion@@QEBAJXZ.c)
+ *     ?GetOptimizedDirtyRects@CDirtyRegion@@QEBA?AV?$span@$$CBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0?0@gsl@@XZ @ 0x1800D787C (-GetOptimizedDirtyRects@CDirtyRegion@@QEBA-AV-$span@$$CBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UM.c)
+ *     ?NotifyRenderedRect@CRemoteRenderTarget@@IEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800DFDE8 (-NotifyRenderedRect@CRemoteRenderTarget@@IEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoint.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?HasNewContent@CComposeTop@@QEBA_NXZ @ 0x1801846F0 (-HasNewContent@CComposeTop@@QEBA_NXZ.c)
+ *     ?RenderComposeTop@CRemoteRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVCComposeTop@@_N@Z @ 0x18018D710 (-RenderComposeTop@CRemoteRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVCComposeTop@@_N@Z.c)
+ *     ?SubtractOverdraw@CComposeTop@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801F9C20 (-SubtractOverdraw@CComposeTop@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@.c)
  */
 
 __int64 __fastcall CRemoteRenderTarget::Render(
@@ -32,192 +28,178 @@ __int64 __fastcall CRemoteRenderTarget::Render(
         __int64 a3,
         bool *a4)
 {
-  unsigned int v4; // ebx
-  bool *v5; // r12
-  __int64 v8; // rsi
-  __int64 v9; // r15
-  char v10; // bl
-  CComposeTop *v11; // rsi
-  bool IsPrimaryMonitor; // r14
-  bool IsCurrent; // al
-  __int64 v14; // rcx
-  __int64 v15; // r12
-  struct IDeviceTarget *v16; // rax
-  int v17; // eax
-  __int64 v18; // rcx
-  struct CVisualTree *v19; // rbx
-  struct MilRectF *Bounds; // rax
+  int v4; // edi
+  bool *v5; // r15
+  int v8; // ebx
+  CDesktopTree *v9; // r12
+  float v10; // xmm1_4
+  __m128i v11; // xmm0
+  float v12; // xmm1_4
+  const struct CDirtyRegion *DirtyRegion; // rax
+  CComposeTop *v14; // r12
+  __int64 v15; // r14
+  const struct COcclusionContext *v16; // r15
+  struct IDeviceTarget *v17; // rax
+  int v18; // eax
+  __int64 v19; // rcx
+  CDesktopTree *v20; // rcx
   __int64 v21; // xmm1_8
-  unsigned int v22; // r12d
-  struct CVisualTree *v23; // rdx
-  int v24; // eax
-  __int64 v25; // rcx
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  char v24; // r9
+  int v25; // r9d
   int v26; // eax
-  int v27; // eax
-  __int64 v28; // rcx
-  int v30; // eax
-  __int64 v31; // rcx
-  int v32; // eax
-  __int64 v33; // rcx
-  __int64 (__fastcall ***v34)(_QWORD); // rcx
-  __int64 v35; // rax
-  __int64 v36; // rcx
-  int v37; // [rsp+20h] [rbp-B9h]
-  COcclusionContext *v38; // [rsp+50h] [rbp-89h]
-  __int128 v40; // [rsp+60h] [rbp-79h] BYREF
-  __int128 v41; // [rsp+70h] [rbp-69h] BYREF
-  __int64 v42; // [rsp+80h] [rbp-59h]
-  _QWORD v43[3]; // [rsp+88h] [rbp-51h] BYREF
-  int *v44; // [rsp+A0h] [rbp-39h] BYREF
-  int v45; // [rsp+A8h] [rbp-31h] BYREF
-  void *retaddr; // [rsp+138h] [rbp+5Fh]
+  __int64 v27; // rcx
+  __int64 (__fastcall ***v28)(_QWORD); // rcx
+  __int64 v29; // rax
+  __int64 v30; // rcx
+  int v32; // [rsp+20h] [rbp-59h]
+  unsigned int v33; // [rsp+20h] [rbp-59h]
+  __int128 v35; // [rsp+48h] [rbp-31h] BYREF
+  __int64 v36; // [rsp+58h] [rbp-21h]
+  __int128 v37; // [rsp+60h] [rbp-19h] BYREF
+  __int128 v38; // [rsp+70h] [rbp-9h] BYREF
+  int v39; // [rsp+80h] [rbp+7h]
+  int v40; // [rsp+84h] [rbp+Bh]
+  float v41[4]; // [rsp+88h] [rbp+Fh] BYREF
 
-  v4 = 0;
+  LOBYTE(v4) = 0;
   *a4 = 0;
   v5 = a4;
-  if ( !*((_QWORD *)this - 34) )
-    goto LABEL_21;
-  v8 = *((_QWORD *)this - 32);
-  if ( !v8 || *(int *)(*((_QWORD *)this - 54) + 1104LL) > 3 )
-    goto LABEL_21;
-  v9 = v8 + 104;
-  v10 = 1;
-  v11 = *(CComposeTop **)(v8 + 4744);
-  if ( v11 && CComposeTop::HasNewContent(v11) )
+  v8 = 0;
+  if ( !*((_QWORD *)this - 25) )
+    goto LABEL_42;
+  v9 = (CDesktopTree *)*((_QWORD *)this - 23);
+  if ( !v9 || *(int *)(*((_QWORD *)this - 43) + 952LL) > 3 )
+    goto LABEL_42;
+  v10 = (float)*((int *)this - 43);
+  v41[0] = (float)*((int *)this - 44);
+  v11 = _mm_cvtsi32_si128(*((_DWORD *)this - 42));
+  v41[1] = v10;
+  v12 = (float)*((int *)this - 41);
+  LODWORD(v41[2]) = _mm_cvtepi32_ps(v11).m128_u32[0];
+  v41[3] = v12;
+  DirtyRegion = CDesktopTree::GetDirtyRegion(v9);
+  v14 = (CComposeTop *)*((_QWORD *)v9 + 739);
+  v15 = (__int64)DirtyRegion;
+  if ( v14 && CComposeTop::HasNewContent(v14) )
   {
-    IsPrimaryMonitor = 0;
-    (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this - 34) + 24LL))(*((_QWORD *)this - 34));
+    LOBYTE(v8) = 1;
+    (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this - 25) + 24LL))(*((_QWORD *)this - 25));
   }
-  else
-  {
-    v10 = 0;
-    IsPrimaryMonitor = 0;
-  }
-  if ( CDirtyRegion::IsEmpty((CDirtyRegion *)v9) && !v10 )
-    goto LABEL_18;
-  CDirtyRegion::CalcOcclusion((CDirtyRegion *)v9);
-  IsCurrent = COcclusionContext::IsCurrent((COcclusionContext *)(v9 + 16));
-  v15 = v14 & -(__int64)IsCurrent;
-  v38 = (COcclusionContext *)v15;
-  v16 = (struct IDeviceTarget *)(***((__int64 (__fastcall ****)(_QWORD))this - 34))(*((_QWORD *)this - 34));
-  v17 = CDrawingContext::BeginFrame(
-          a2,
-          v16,
-          (CRemoteRenderTarget *)((char *)this - 224),
-          (const struct _D3DCOLORVALUE *)((char *)this - 324),
-          0LL);
-  v4 = v17;
-  if ( v17 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0xA2u, 0LL);
-    goto LABEL_21;
-  }
+  if ( !v15 && !(_BYTE)v8 )
+    goto LABEL_38;
+  v16 = 0LL;
   if ( v15 )
   {
-    v19 = (struct CVisualTree *)*((_QWORD *)this - 32);
-    Bounds = (struct MilRectF *)CDirtyRegion::GetBounds(v9, (__int64)v43);
-    v21 = *(_QWORD *)((char *)this - 140);
-    v41 = *(_OWORD *)((char *)this - 156);
-    v42 = v21;
-    CDesktopTree::UpdateCVIRenderTargets(v19, (struct RenderTargetInfo *)&v41, Bounds);
-  }
-  v22 = 0;
-  if ( !*(_DWORD *)(v9 + 2820) )
-  {
-LABEL_16:
-    if ( v11 )
+    if ( (int)CDirtyRegion::CalcOcclusion((CDirtyRegion *)v15) >= 0 )
     {
-      v32 = CRemoteRenderTarget::RenderComposeTop(
-              (CRemoteRenderTarget *)((char *)this - 448),
-              a2,
-              v11,
-              *(_BYTE *)(v9 + 4420));
-      v4 = v32;
-      if ( v32 < 0 )
+      v16 = (const struct COcclusionContext *)(v15 + 16);
+      if ( *(_QWORD *)(v15 + 32) != GetCurrentFrameId() )
+        v16 = 0LL;
+    }
+  }
+  v17 = (struct IDeviceTarget *)(***((__int64 (__fastcall ****)(_QWORD))this - 25))(*((_QWORD *)this - 25));
+  v18 = CDrawingContext::BeginFrame(
+          a2,
+          v17,
+          (CRemoteRenderTarget *)((char *)this - 128),
+          (const struct _D3DCOLORVALUE *)((char *)this - 248),
+          0LL);
+  v4 = 0;
+  v8 = v18;
+  if ( v18 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0xBCu, 0LL);
+    goto LABEL_42;
+  }
+  if ( v16 )
+  {
+    v20 = (CDesktopTree *)*((_QWORD *)this - 23);
+    v21 = *((_QWORD *)this - 17);
+    v35 = *(_OWORD *)((char *)this - 152);
+    v36 = v21;
+    CDesktopTree::UpdateCVIRenderTargets(v20, v16, (const struct RenderTargetInfo *)&v35);
+  }
+  if ( !v15 || !*(_DWORD *)CDirtyRegion::GetOptimizedDirtyRects(v15, &v35) )
+  {
+LABEL_24:
+    if ( v14 )
+    {
+      v24 = v15 ? *(_BYTE *)(v15 + 4456) : 0;
+      v26 = CRemoteRenderTarget::RenderComposeTop((CRemoteRenderTarget *)((char *)this - 360), a2, v14, v24);
+      v8 = v26;
+      if ( v26 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0, v32, 0xD2u, 0LL);
-        goto LABEL_36;
+        v25 = v26;
+        v33 = 235;
+        goto LABEL_33;
       }
     }
+    if ( !*((_DWORD *)this - 44) && !*((_DWORD *)this - 43) )
+      LOBYTE(v4) = 1;
     v5 = a4;
-    IsPrimaryMonitor = CRemoteRenderTarget::IsPrimaryMonitor((CRemoteRenderTarget *)((char *)this - 304));
-LABEL_18:
-    v27 = CDrawingContext::EndFrame(a2);
-    v4 = v27;
-    if ( v27 < 0 )
+LABEL_38:
+    v8 = CDrawingContext::EndFrame((CD3DDevice **)a2);
+    if ( v8 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, v27, 0xDCu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v8, 0xF5u, 0LL);
     }
-    else if ( *((_BYTE *)this - 56) || IsPrimaryMonitor )
+    else if ( *((_BYTE *)this - 52) || (_BYTE)v4 )
     {
       *v5 = 1;
     }
-    goto LABEL_21;
+    goto LABEL_42;
   }
   while ( 1 )
   {
-    v45 = 0;
-    v43[0] = 0LL;
-    v43[1] = 0LL;
-    v44 = &v45;
-    CDirtyRegion::GetOptimizedRect(
-      v9,
-      &v40,
-      v22,
-      (float *)this - 60,
-      (FastRegion::CRegion *)&v44,
-      (CRemoteRenderTarget *)((char *)this - 224),
-      0,
-      v43,
-      0LL);
-    if ( TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty((float *)&v40) )
-      goto LABEL_15;
-    v42 = 0LL;
-    v23 = (struct CVisualTree *)*((_QWORD *)this - 44);
-    v37 = *((_BYTE *)this - 308) != 0 ? 2 : 0;
-    v41 = v40;
-    v24 = CDrawingContext::DrawVisualTree(a2, v23, (float *)&v41, v38, v37, 0, 0LL);
-    v4 = v24;
-    if ( v24 < 0 )
+    v38 = 0LL;
+    CDirtyRegion::GetUnOccludedDirtyRect((_BYTE *)v15, (float *)&v37, v4, v41, 0, &v38, (__int64)v16);
+    if ( TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty((float *)&v37) )
+      goto LABEL_22;
+    v39 = 0;
+    v40 = 0;
+    v22 = *((_QWORD *)this - 32);
+    v32 = *((_BYTE *)this - 232) != 0 ? 2 : 0;
+    v38 = v37;
+    v8 = CDrawingContext::DrawVisualTree(a2, v22, (__int64)&v38, v16, v32, 0);
+    if ( v8 < 0 )
       break;
-    CRemoteRenderTarget::NotifyRenderedRect((char *)this - 448, &v40, 0LL);
-    v26 = FastRegion::CRegion::Union(
-            (const struct FastRegion::Internal::CRgnData **)this - 16,
-            (const struct FastRegion::Internal::CRgnData **)&v44);
-    if ( v26 < 0 )
-      ModuleFailFastForHRESULT((unsigned int)v26, retaddr);
-    if ( v11 )
+    CRemoteRenderTarget::NotifyRenderedRect((__int64)this - 360, (__int64)&v37);
+    if ( v14 )
     {
-      v30 = CComposeTop::SubtractOverdraw((__int64)v11);
-      v4 = v30;
-      if ( v30 < 0 )
+      v8 = CComposeTop::SubtractOverdraw(v14, &v37);
+      if ( v8 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0, v30, 0xC7u, 0LL);
-        goto LABEL_32;
+        v33 = 223;
+        goto LABEL_28;
       }
     }
-LABEL_15:
-    FastRegion::CRegion::FreeMemory((void **)&v44);
-    if ( ++v22 >= *(_DWORD *)(v9 + 2820) )
-      goto LABEL_16;
+LABEL_22:
+    if ( (unsigned int)++v4 >= *(_DWORD *)CDirtyRegion::GetOptimizedDirtyRects(v15, &v35) )
+    {
+      LOBYTE(v4) = 0;
+      goto LABEL_24;
+    }
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0xBBu, 0LL);
-LABEL_32:
-  FastRegion::CRegion::FreeMemory((void **)&v44);
-LABEL_36:
-  CDrawingContext::EndFrame(a2);
-LABEL_21:
+  v33 = 213;
+LABEL_28:
+  v25 = v8;
+LABEL_33:
+  MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v25, v33, 0LL);
+  CDrawingContext::EndFrame((CD3DDevice **)a2);
+LABEL_42:
   if ( g_LockAndReadTarget )
   {
-    v34 = (__int64 (__fastcall ***)(_QWORD))*((_QWORD *)this - 34);
-    if ( v34 )
+    v28 = (__int64 (__fastcall ***)(_QWORD))*((_QWORD *)this - 25);
+    if ( v28 )
     {
-      v35 = (**v34)(v34);
-      v36 = *(int *)(*(_QWORD *)(v35 + 8) + 16LL) + v35 + 8;
-      (*(void (__fastcall **)(__int64, unsigned __int64))(*(_QWORD *)v36 + 24LL))(
-        v36,
+      v29 = (**v28)(v28);
+      v30 = *(int *)(*(_QWORD *)(v29 + 8) + 16LL) + v29 + 8;
+      (*(void (__fastcall **)(__int64, unsigned __int64))(*(_QWORD *)v30 + 24LL))(
+        v30,
         ((unsigned __int64)a2 + 24) & -(__int64)(a2 != 0LL));
     }
   }
-  return v4;
+  return (unsigned int)v8;
 }

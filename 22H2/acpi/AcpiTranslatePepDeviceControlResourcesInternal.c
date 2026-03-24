@@ -1,111 +1,109 @@
 /*
- * XREFs of AcpiTranslatePepDeviceControlResourcesInternal @ 0x1C008B630
+ * XREFs of AcpiTranslatePepDeviceControlResourcesInternal @ 0x1C00B1730
  * Callers:
- *     AcpiTranslatePepDeviceControlResources @ 0x1C008B5F0 (AcpiTranslatePepDeviceControlResources.c)
+ *     AcpiTranslatePepDeviceControlResources @ 0x1C00B16F0 (AcpiTranslatePepDeviceControlResources.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     WPP_RECORDER_SF_qD @ 0x1C001B528 (WPP_RECORDER_SF_qD.c)
- *     WPP_RECORDER_SF_qqD @ 0x1C0038740 (WPP_RECORDER_SF_qqD.c)
- *     WPP_RECORDER_SF_sqqD @ 0x1C0038898 (WPP_RECORDER_SF_sqqD.c)
- *     AcpiValidatePepDeviceControlResources @ 0x1C008B814 (AcpiValidatePepDeviceControlResources.c)
- *     PnpBiosResourcesToNtResources @ 0x1C008EFEC (PnpBiosResourcesToNtResources.c)
- *     PnpIoResourceListToCmResourceList @ 0x1C008FD9C (PnpIoResourceListToCmResourceList.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     WPP_RECORDER_SF_qqD @ 0x1C005C244 (WPP_RECORDER_SF_qqD.c)
+ *     WPP_RECORDER_SF_sqqD @ 0x1C005C39C (WPP_RECORDER_SF_sqqD.c)
+ *     PnpIoResourceListToCmResourceList @ 0x1C009BAE0 (PnpIoResourceListToCmResourceList.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
+ *     AcpiValidatePepDeviceControlResources @ 0x1C00B1914 (AcpiValidatePepDeviceControlResources.c)
  */
 
 __int64 __fastcall AcpiTranslatePepDeviceControlResourcesInternal(
-        __int64 a1,
-        __int64 a2,
+        ULONG_PTR a1,
+        _BYTE *a2,
         int a3,
         __int64 a4,
         void *a5,
         unsigned int *a6)
 {
   _DWORD *v6; // rdi
-  char v7; // si
-  int v8; // edx
-  int v9; // ebx
+  int v8; // ebx
+  int v9; // edx
   int v10; // edx
-  int v11; // edx
-  unsigned int v12; // esi
-  unsigned int v13; // eax
-  unsigned int *v14; // r14
-  __int64 v16; // [rsp+20h] [rbp-40h]
+  unsigned int v11; // esi
+  unsigned int v12; // eax
+  unsigned int *v13; // r14
+  __int64 v15; // [rsp+20h] [rbp-40h]
+  int v16; // [rsp+30h] [rbp-30h]
   _DWORD *v17; // [rsp+50h] [rbp-10h] BYREF
   PVOID P; // [rsp+88h] [rbp+28h] BYREF
 
   v6 = 0LL;
-  v7 = a2;
   P = 0LL;
   v17 = 0LL;
   if ( !a2 || !a3 )
   {
-    v9 = -1073741808;
+    v8 = -1073741808;
     goto LABEL_23;
   }
-  v9 = PnpBiosResourcesToNtResources(a1, a2, 4LL, &P);
-  if ( v9 < 0 )
+  v8 = PnpBiosResourcesToNtResources(a1, a2, 4LL, (unsigned int **)&P);
+  if ( v8 < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v8) = 2;
+      v16 = v8;
       WPP_RECORDER_SF_qD(
-        WPP_GLOBAL_Control->DeviceExtension,
-        v8,
-        21,
-        30,
-        (__int64)&WPP_6b96f8ebb13c3b7665ec42abfcbc7cd5_Traceguids,
-        v7,
-        v9);
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        0x15u,
+        0x1Eu,
+        (__int64)&WPP_4ea83bc4352b3df9b35783bbf858603c_Traceguids,
+        a2,
+        v16);
     }
     goto LABEL_23;
   }
   if ( P )
   {
-    v9 = AcpiValidatePepDeviceControlResources();
-    if ( v9 < 0 )
+    v8 = AcpiValidatePepDeviceControlResources();
+    if ( v8 < 0 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_sqqD(
           (__int64)WPP_GLOBAL_Control->DeviceExtension,
-          v10,
+          v9,
           0x15u,
           0x1Fu,
-          v16,
+          v15,
           "AcpiTranslatePepDeviceControlResourcesInternal");
       goto LABEL_23;
     }
-    v9 = PnpIoResourceListToCmResourceList(P, &v17);
-    if ( v9 < 0 )
+    v8 = PnpIoResourceListToCmResourceList(P, &v17);
+    if ( v8 < 0 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_qqD(WPP_GLOBAL_Control->DeviceExtension, v11, 21, 32);
+        WPP_RECORDER_SF_qqD((__int64)WPP_GLOBAL_Control->DeviceExtension, v10, 0x15u, 0x20u, v15);
       v6 = v17;
       goto LABEL_23;
     }
     v6 = v17;
   }
-  v12 = 40;
+  v11 = 40;
   if ( v6 )
   {
-    v13 = v6[4];
-    if ( v13 > 1 )
-      v12 = 20 * (v13 + 1);
+    v12 = v6[4];
+    if ( v12 > 1 )
+      v11 = 20 * (v12 + 1);
   }
-  v14 = a6;
-  if ( *a6 >= v12 )
+  v13 = a6;
+  if ( *a6 >= v11 )
   {
-    memmove(a5, v6, v12);
-    v9 = 0;
+    memmove(a5, v6, v11);
+    v8 = 0;
   }
   else
   {
-    v9 = -1073741789;
+    v8 = -1073741789;
   }
-  *v14 = v12;
+  *v13 = v11;
 LABEL_23:
   if ( P )
     ExFreePoolWithTag(P, 0);
   if ( v6 )
     ExFreePoolWithTag(v6, 0);
-  return (unsigned int)v9;
+  return (unsigned int)v8;
 }

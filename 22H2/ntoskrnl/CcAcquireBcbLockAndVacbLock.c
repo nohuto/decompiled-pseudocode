@@ -1,19 +1,20 @@
 /*
- * XREFs of CcAcquireBcbLockAndVacbLock @ 0x1402A0F50
+ * XREFs of CcAcquireBcbLockAndVacbLock @ 0x140291424
  * Callers:
- *     CcUnmapVacbArray @ 0x14029ECA0 (CcUnmapVacbArray.c)
- *     CcExtendVacbArray @ 0x1402F2A44 (CcExtendVacbArray.c)
- *     CcDereferenceFileOffset @ 0x140537F94 (CcDereferenceFileOffset.c)
- *     CcReferenceFileOffset @ 0x140538160 (CcReferenceFileOffset.c)
- *     CcUnmapInactiveViewsInternal @ 0x140538490 (CcUnmapInactiveViewsInternal.c)
+ *     CcGetVacbMiss @ 0x140291040 (CcGetVacbMiss.c)
+ *     CcUnmapVacbArray @ 0x1402934F0 (CcUnmapVacbArray.c)
+ *     CcExtendVacbArray @ 0x1402F2054 (CcExtendVacbArray.c)
+ *     CcDereferenceFileOffset @ 0x1404EAF88 (CcDereferenceFileOffset.c)
+ *     CcReferenceFileOffset @ 0x1404EB154 (CcReferenceFileOffset.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1404EB484 (CcUnmapInactiveViewsInternal.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
-void __fastcall CcAcquireBcbLockAndVacbLock(int a1, __int64 a2)
+__int64 __fastcall CcAcquireBcbLockAndVacbLock(int a1, struct _FAST_MUTEX *a2)
 {
   if ( a1 )
-    ExAcquireFastMutex((PFAST_MUTEX)(a2 + 288));
-  ExAcquirePushLockExclusiveEx(a2 + 104, 0LL);
+    ExAcquireFastMutex(a2 + 5);
+  return ExAcquirePushLockExclusiveEx((ULONG_PTR)&a2[1].OldIrql, 0LL);
 }

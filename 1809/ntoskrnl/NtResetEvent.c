@@ -1,10 +1,10 @@
 /*
- * XREFs of NtResetEvent @ 0x14065CA60
+ * XREFs of NtResetEvent @ 0x14065CA40
  * Callers:
- *     PfSnPrefetchFileMetadata @ 0x14065CB04 (PfSnPrefetchFileMetadata.c)
+ *     PfSnPrefetchFileMetadata @ 0x14065CAE4 (PfSnPrefetchFileMetadata.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */
 

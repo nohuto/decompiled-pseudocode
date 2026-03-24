@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDripsWatchdogCallbackHandler @ 0x14099613C
+ * XREFs of PopDripsWatchdogCallbackHandler @ 0x1408EEDD8
  * Callers:
- *     PopDripsWatchdogCallbackWorker @ 0x1409962E0 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x1408EEF80 (PopDripsWatchdogCallbackWorker.c)
  * Callees:
- *     PopFxBuildDripsBlockingDeviceList @ 0x1405CB06C (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxIsDirectedPowerTransitionSupported @ 0x1405CC890 (PopFxIsDirectedPowerTransitionSupported.c)
- *     PopDripsWatchdogGetDeviceActiveTime @ 0x1405D69B0 (PopDripsWatchdogGetDeviceActiveTime.c)
- *     PopDeviceConstraintsEnforced @ 0x1405DF244 (PopDeviceConstraintsEnforced.c)
- *     PopDirectedDripsNotify @ 0x140811764 (PopDirectedDripsNotify.c)
- *     PopDirectedDripsMarkCandidateDevice @ 0x14098C094 (PopDirectedDripsMarkCandidateDevice.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x14098D024 (PopFxDestroyDripsBlockingDeviceList.c)
- *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x1409A08A8 (PopDripsWatchdogInvokeDeviceCallbacks.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x140569684 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxIsDirectedPowerTransitionSupported @ 0x14056B130 (PopFxIsDirectedPowerTransitionSupported.c)
+ *     PopDripsWatchdogGetDeviceActiveTime @ 0x1405762B0 (PopDripsWatchdogGetDeviceActiveTime.c)
+ *     PopDeviceConstraintsEnforced @ 0x14057F2E4 (PopDeviceConstraintsEnforced.c)
+ *     PopDirectedDripsNotify @ 0x14078DB18 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x1408E35C0 (PopDirectedDripsMarkCandidateDevice.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x1408E4684 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x1408FA5F0 (PopDripsWatchdogInvokeDeviceCallbacks.c)
  */
 
 void __fastcall PopDripsWatchdogCallbackHandler(
@@ -34,7 +34,7 @@ void __fastcall PopDripsWatchdogCallbackHandler(
   v7 = a1 & 0x100;
   v8 = 0;
   if ( PopDirectedDripsTimeout && a4 / 0x989680 >= (unsigned int)PopDirectedDripsTimeout || a6 )
-    v8 = (byte_140C54208 & 1) == 0 || (a1 & 1) != 0;
+    v8 = (byte_140C4FFC0 & 1) == 0 || (a1 & 1) != 0;
   if ( ((a1 & 0x80) != 0 || (a1 & 0x100) != 0 || v8)
     && PopDeviceConstraintsEnforced()
     && (int)PopFxBuildDripsBlockingDeviceList(a3, v15) >= 0 )
@@ -79,12 +79,12 @@ LABEL_33:
           }
           v14 = 3;
         }
-        PopDirectedDripsNotify(v14, &a5);
+        PopDirectedDripsNotify(v14, (char *)&a5);
         goto LABEL_33;
       }
       v10 = 2;
     }
-    PopDirectedDripsNotify(v10, &a5);
+    PopDirectedDripsNotify(v10, (char *)&a5);
     goto LABEL_17;
   }
 }

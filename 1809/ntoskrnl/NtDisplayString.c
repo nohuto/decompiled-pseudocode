@@ -1,10 +1,10 @@
 /*
- * XREFs of NtDisplayString @ 0x1408CDA40
+ * XREFs of NtDisplayString @ 0x1408CDA20
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     BgkDisplayStringEx @ 0x14027DA44 (BgkDisplayStringEx.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     BgkDisplayStringEx @ 0x14027DB44 (BgkDisplayStringEx.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)

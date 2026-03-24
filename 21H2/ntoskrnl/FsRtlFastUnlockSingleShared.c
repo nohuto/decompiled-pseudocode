@@ -1,33 +1,33 @@
 /*
- * XREFs of FsRtlFastUnlockSingleShared @ 0x14021E048
+ * XREFs of FsRtlFastUnlockSingleShared @ 0x140359208
  * Callers:
- *     FsRtlFastUnlockSingle @ 0x14021DDD0 (FsRtlFastUnlockSingle.c)
- *     FsRtlPrivateRemoveLock @ 0x140542018 (FsRtlPrivateRemoveLock.c)
+ *     FsRtlFastUnlockSingle @ 0x140358E80 (FsRtlFastUnlockSingle.c)
+ *     FsRtlPrivateRemoveLock @ 0x1404EFF40 (FsRtlPrivateRemoveLock.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     FsRtlFindFirstOverlappingSharedNode @ 0x14021E8B8 (FsRtlFindFirstOverlappingSharedNode.c)
- *     RtlDelete @ 0x14021EBA0 (RtlDelete.c)
- *     FsRtlPrivateResetLowestLockOffset @ 0x14021EF80 (FsRtlPrivateResetLowestLockOffset.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x14021F280 (FsRtlPrivateCheckWaitingLocks.c)
- *     FsRtlSplitLocks @ 0x14021F514 (FsRtlSplitLocks.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x14029FDB4 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlSplitLocks @ 0x1402A0228 (FsRtlSplitLocks.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     FsRtlFindFirstOverlappingSharedNode @ 0x140359430 (FsRtlFindFirstOverlappingSharedNode.c)
+ *     RtlDelete @ 0x140359960 (RtlDelete.c)
+ *     FsRtlPrivateResetLowestLockOffset @ 0x140359A00 (FsRtlPrivateResetLowestLockOffset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FsRtlFastUnlockSingleShared(
         __int64 a1,
-        __int64 a2,
-        unsigned __int64 *a3,
-        _QWORD *a4,
-        __int64 a5,
+        _RTL_SPLAY_LINKS *a2,
+        _RTL_SPLAY_LINKS **a3,
+        _RTL_SPLAY_LINKS **a4,
+        _RTL_SPLAY_LINKS *a5,
         int a6,
         __int64 a7,
         char a8,
         char a9)
 {
-  unsigned __int64 v9; // rbx
+  _RTL_SPLAY_LINKS *v9; // rbx
   KSPIN_LOCK *v10; // r15
   KIRQL v13; // al
   KSPIN_LOCK v14; // rcx
@@ -35,87 +35,86 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   unsigned __int64 v16; // rbp
   __int64 FirstOverlappingSharedNode; // rax
   RTL_SPLAY_LINKS *v18; // r9
-  _QWORD *v19; // rsi
-  unsigned __int64 v20; // rax
-  _QWORD *v21; // r14
-  _QWORD *v22; // r12
+  _RTL_SPLAY_LINKS *v19; // rsi
+  _RTL_SPLAY_LINKS *v20; // rax
+  _RTL_SPLAY_LINKS *Parent; // r14
+  _RTL_SPLAY_LINKS *v22; // r12
   bool v23; // cc
-  __int64 v24; // r8
-  unsigned __int64 v26; // rcx
+  _RTL_SPLAY_LINKS *v25; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v30; // eax
-  bool v31; // zf
-  unsigned __int8 v32; // al
-  struct _KPRCB *v33; // r9
-  _DWORD *v34; // r8
-  int v35; // eax
-  unsigned __int8 v36; // al
-  struct _KPRCB *v37; // r9
-  _DWORD *v38; // r8
-  int v39; // eax
-  unsigned __int64 v40; // [rsp+30h] [rbp-58h] BYREF
-  unsigned __int64 v41; // [rsp+90h] [rbp+8h] BYREF
-  __int64 v42; // [rsp+98h] [rbp+10h]
-  __int64 v43; // [rsp+A0h] [rbp+18h] BYREF
-  _QWORD *v44; // [rsp+A8h] [rbp+20h]
+  int v29; // eax
+  bool v30; // zf
+  unsigned __int8 v31; // al
+  struct _KPRCB *v32; // r9
+  _DWORD *v33; // r8
+  int v34; // eax
+  unsigned __int8 v35; // al
+  struct _KPRCB *v36; // r9
+  _DWORD *v37; // r8
+  int v38; // eax
+  _RTL_SPLAY_LINKS *v39; // [rsp+30h] [rbp-58h] BYREF
+  _RTL_SPLAY_LINKS *v40; // [rsp+90h] [rbp+8h] BYREF
+  _RTL_SPLAY_LINKS *v41; // [rsp+98h] [rbp+10h]
+  __int64 v42; // [rsp+A0h] [rbp+18h] BYREF
+  _RTL_SPLAY_LINKS **v43; // [rsp+A8h] [rbp+20h]
 
-  v44 = a4;
-  v42 = a2;
+  v43 = a4;
+  v41 = a2;
   v9 = *a3;
   v10 = (KSPIN_LOCK *)(a1 + 24);
-  v40 = *a3;
+  v39 = *a3;
   v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 24));
   v14 = v10[1];
   v15 = 0;
   v16 = v13;
   if ( v14 )
   {
-    v43 = *a4 + v9 - 1;
+    v42 = (__int64)v9 + (_QWORD)*a4 - 1;
     FirstOverlappingSharedNode = FsRtlFindFirstOverlappingSharedNode(
                                    v14,
-                                   (unsigned int)&v40,
-                                   (unsigned int)&v43,
+                                   (unsigned int)&v39,
+                                   (unsigned int)&v42,
                                    0,
                                    0LL);
     v18 = (RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
     if ( FirstOverlappingSharedNode )
     {
-      v19 = (_QWORD *)(FirstOverlappingSharedNode - 24);
+      v19 = (_RTL_SPLAY_LINKS *)(FirstOverlappingSharedNode - 24);
       v20 = 0LL;
-      v21 = (_QWORD *)*v19;
+      Parent = v19->Parent;
       v22 = v19;
-      v41 = 0LL;
-      if ( v21 )
+      v40 = 0LL;
+      if ( Parent )
       {
         while ( 1 )
         {
-          if ( v21[4] == v42 && v21[5] == a5 && *((_DWORD *)v21 + 7) == a6 )
+          if ( Parent[1].LeftChild == v41 && Parent[1].RightChild == a5 && HIDWORD(Parent[1].Parent) == a6 )
           {
-            v23 = v21[1] <= v9;
-            if ( v21[1] != v9 )
-              goto LABEL_30;
-            if ( v21[2] == *v44 )
+            v23 = Parent->LeftChild <= v9;
+            if ( Parent->LeftChild != v9 )
+              goto LABEL_28;
+            if ( Parent->RightChild == *v43 )
             {
-              if ( *(_QWORD **)(v42 + 120) == v21 + 1 )
-                *(_QWORD *)(v42 + 120) = 0LL;
-              if ( *v22 == v19[6] )
-                v19[6] = v22;
-              *v22 = *v21;
+              if ( v41[5].Parent == (_RTL_SPLAY_LINKS *)&Parent->LeftChild )
+                v41[5].Parent = 0LL;
+              if ( v22->Parent == v19[2].Parent )
+                v19[2].Parent = v22;
+              v22->Parent = Parent->Parent;
               if ( v22 == v19 )
               {
-                if ( !*v19 )
+                if ( !v19->Parent )
                 {
                   v10[1] = (KSPIN_LOCK)RtlDelete(v18);
                   ExFreeToNPagedLookasideList(&FsRtlLockTreeNodeLookasideList, v19);
                   v19 = 0LL;
                 }
-                if ( *(_QWORD *)a1 == v21[1] )
+                if ( *(_RTL_SPLAY_LINKS **)a1 == Parent->LeftChild )
                   FsRtlPrivateResetLowestLockOffset(a1);
               }
               if ( v19 )
-                FsRtlSplitLocks(v19, v22, v21 + 6, &v41);
+                FsRtlSplitLocks((__int64)v19, v22, (unsigned __int64 *)&Parent[2], &v40);
               if ( !a8 && *(_QWORD *)(a1 + 16) )
               {
                 KxReleaseSpinLock(v10);
@@ -128,56 +127,53 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
                     {
                       CurrentPrcb = KeGetCurrentPrcb();
                       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-                      v30 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
-                      v31 = (v30 & SchedulerAssist[5]) == 0;
-                      SchedulerAssist[5] &= v30;
-                      if ( v31 )
+                      v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
+                      v30 = (v29 & SchedulerAssist[5]) == 0;
+                      SchedulerAssist[5] &= v29;
+                      if ( v30 )
                         KiRemoveSystemWorkPriorityKick(CurrentPrcb);
                     }
                   }
                 }
                 __writecr8(v16);
-                (*(void (__fastcall **)(__int64, _QWORD *))(a1 + 16))(a7, v21 + 1);
+                (*(void (__fastcall **)(__int64, _RTL_SPLAY_LINKS **))(a1 + 16))(a7, &Parent->LeftChild);
                 LOBYTE(v16) = KeAcquireSpinLockRaiseToDpc(v10);
               }
-              ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, v21);
+              ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, Parent);
               if ( a9 && v10[3] )
-              {
-                LOBYTE(v24) = v16;
-                FsRtlPrivateCheckWaitingLocks(a1, v10, v24);
-              }
+                FsRtlPrivateCheckWaitingLocks(a1, v10, v16);
               KxReleaseSpinLock(v10);
               if ( KiIrqlFlags )
               {
                 if ( (KiIrqlFlags & 1) != 0 )
                 {
-                  v32 = KeGetCurrentIrql();
-                  if ( v32 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v32 >= 2u )
+                  v31 = KeGetCurrentIrql();
+                  if ( v31 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v31 >= 2u )
                   {
-                    v33 = KeGetCurrentPrcb();
-                    v34 = v33->SchedulerAssist;
-                    v35 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
-                    v31 = (v35 & v34[5]) == 0;
-                    v34[5] &= v35;
-                    if ( v31 )
-                      KiRemoveSystemWorkPriorityKick(v33);
+                    v32 = KeGetCurrentPrcb();
+                    v33 = v32->SchedulerAssist;
+                    v34 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
+                    v30 = (v34 & v33[5]) == 0;
+                    v33[5] &= v34;
+                    if ( v30 )
+                      KiRemoveSystemWorkPriorityKick(v32);
                   }
                 }
               }
               goto LABEL_26;
             }
           }
-          v23 = v21[1] <= v9;
-LABEL_30:
+          v23 = Parent->LeftChild <= v9;
+LABEL_28:
           if ( v23 )
           {
-            v26 = v21[6];
-            v22 = v21;
-            v21 = (_QWORD *)*v21;
-            if ( v20 < v26 )
-              v20 = v26;
-            v41 = v20;
-            if ( v21 )
+            v25 = Parent[2].Parent;
+            v22 = Parent;
+            Parent = Parent->Parent;
+            if ( v20 < v25 )
+              v20 = v25;
+            v40 = v20;
+            if ( Parent )
               continue;
           }
           break;
@@ -190,16 +186,16 @@ LABEL_30:
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v36 = KeGetCurrentIrql();
-      if ( v36 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v36 >= 2u )
+      v35 = KeGetCurrentIrql();
+      if ( v35 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v35 >= 2u )
       {
-        v37 = KeGetCurrentPrcb();
-        v38 = v37->SchedulerAssist;
-        v39 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
-        v31 = (v39 & v38[5]) == 0;
-        v38[5] &= v39;
-        if ( v31 )
-          KiRemoveSystemWorkPriorityKick(v37);
+        v36 = KeGetCurrentPrcb();
+        v37 = v36->SchedulerAssist;
+        v38 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
+        v30 = (v38 & v37[5]) == 0;
+        v37[5] &= v38;
+        if ( v30 )
+          KiRemoveSystemWorkPriorityKick(v36);
       }
     }
   }

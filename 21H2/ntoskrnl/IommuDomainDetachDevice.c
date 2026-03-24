@@ -1,14 +1,14 @@
 /*
- * XREFs of IommuDomainDetachDevice @ 0x140528160
+ * XREFs of IommuDomainDetachDevice @ 0x1404DA5F0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpIommuLeaveDmaDomain @ 0x14051B4F4 (HalpIommuLeaveDmaDomain.c)
- *     HalpIommuDeleteDevice @ 0x140908DD4 (HalpIommuDeleteDevice.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpIommuLeaveDmaDomain @ 0x1404C9994 (HalpIommuLeaveDmaDomain.c)
+ *     HalpIommuDeleteDevice @ 0x140864C50 (HalpIommuDeleteDevice.c)
  */
 
 __int64 __fastcall IommuDomainDetachDevice(ULONG_PTR a1, __int64 a2, int a3)
@@ -57,7 +57,7 @@ __int64 __fastcall IommuDomainDetachDevice(ULONG_PTR a1, __int64 a2, int a3)
     }
     v7 = *(_QWORD *)(v11 + 32);
     v3 = 1;
-    v4 = _InterlockedExchange((volatile __int32 *)(v7 + 16), 1);
+    v4 = _InterlockedExchange((volatile __int32 *)(v7 + 208), 1);
     v18 = *(_QWORD *)v11;
     v19 = *(__int64 **)(v11 + 8);
     if ( *(_QWORD *)(*(_QWORD *)v11 + 8LL) != v11 || *v19 != v11 )
@@ -87,7 +87,7 @@ LABEL_10:
   __writecr8(CurrentIrql);
   if ( v3 )
   {
-    v17 = HalpIommuLeaveDmaDomain(v7, a1);
+    v17 = HalpIommuLeaveDmaDomain((_QWORD *)v7, a1);
     if ( v17 >= 0 )
     {
       if ( v4 != 2 )

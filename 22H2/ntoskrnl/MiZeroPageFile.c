@@ -1,155 +1,152 @@
 /*
- * XREFs of MiZeroPageFile @ 0x140619BE0
+ * XREFs of MiZeroPageFile @ 0x14052D690
  * Callers:
- *     MiZeroAllPageFiles @ 0x140AABE34 (MiZeroAllPageFiles.c)
+ *     MiZeroAllPageFiles @ 0x1409B00B0 (MiZeroAllPageFiles.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MmZeroPageWrite @ 0x1403C1114 (MmZeroPageWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiTransferMemoryPagefileData @ 0x140660B18 (MiTransferMemoryPagefileData.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     MmZeroPageWrite @ 0x140319368 (MmZeroPageWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall MiZeroPageFile(PVOID P)
 {
   __int64 *v2; // r14
-  unsigned __int8 v3; // cf
+  bool v3; // zf
   unsigned int v4; // ebx
-  int v5; // r15d
-  unsigned int v6; // r12d
-  KIRQL v7; // al
-  __int64 v8; // rdx
-  unsigned int v9; // r8d
-  KIRQL v10; // si
-  unsigned __int64 v11; // rdi
-  unsigned int v12; // r9d
-  unsigned __int8 CurrentIrql; // cl
+  int v5; // edi
+  KIRQL v6; // al
+  __int64 v7; // rdx
+  KIRQL v8; // si
+  unsigned int v9; // r12d
+  unsigned __int64 v10; // r8
+  unsigned int v11; // eax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  int v16; // eax
-  bool v17; // zf
-  __int64 v18; // rcx
-  KIRQL v19; // al
-  unsigned __int8 v20; // al
-  struct _KPRCB *v21; // r8
-  _DWORD *v22; // rdi
-  int v23; // eax
-  int v25; // [rsp+28h] [rbp-A9h]
-  unsigned __int64 v26; // [rsp+30h] [rbp-A1h] BYREF
-  unsigned __int64 v27; // [rsp+38h] [rbp-99h] BYREF
+  int v15; // eax
+  __int64 v16; // rcx
+  unsigned __int8 v17; // al
+  struct _KPRCB *v18; // r8
+  _DWORD *v19; // rdi
+  int v20; // eax
+  unsigned int v22; // [rsp+28h] [rbp-A9h]
+  unsigned __int64 v23; // [rsp+30h] [rbp-A1h] BYREF
+  unsigned __int64 v24; // [rsp+38h] [rbp-99h] BYREF
   PRKEVENT Event; // [rsp+40h] [rbp-91h]
   _BYTE MemoryDescriptorList[176]; // [rsp+48h] [rbp-89h] BYREF
 
-  v27 = 0LL;
-  v26 = 0LL;
+  v24 = 0LL;
+  v23 = 0LL;
   memset(MemoryDescriptorList, 0, sizeof(MemoryDescriptorList));
   v2 = (__int64 *)*((_QWORD *)P + 4);
   Event = (PRKEVENT)*((_QWORD *)P + 5);
   ExFreePoolWithTag(P, 0);
-  v3 = _bittest16((const signed __int16 *)v2 + 102, 0xBu);
+  v3 = (*((_WORD *)v2 + 102) & 0x800) == 0;
   *(_QWORD *)&MemoryDescriptorList[32] = 0LL;
   *(_QWORD *)&MemoryDescriptorList[40] = 0LL;
   if ( v3 )
   {
-    *(_DWORD *)&MemoryDescriptorList[8] = 131120;
-    memset64(&MemoryDescriptorList[48], qword_140C69810, 0x10uLL);
+    *(_DWORD *)&MemoryDescriptorList[8] = 48;
   }
   else
   {
-    *(_DWORD *)&MemoryDescriptorList[8] = 48;
+    *(_DWORD *)&MemoryDescriptorList[8] = 131120;
+    memset64(&MemoryDescriptorList[48], qword_140C4ED80, 0x10uLL);
   }
+  v22 = 0;
   v4 = 0;
   v5 = 0;
-  v6 = 0;
-  v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)v2 + 58);
-  v8 = *v2;
+  v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)v2 + 58);
+  v7 = *v2;
+  v8 = v6;
   v9 = 1;
-  v25 = 1;
-  v10 = v7;
   if ( (unsigned __int64)*v2 > 1 )
   {
-    v11 = 1LL;
+    v10 = 1LL;
     do
     {
-      v12 = v6;
-      if ( _bittest64(*(const signed __int64 **)(v2[14] + 16), v11) )
+      if ( _bittest64(*(const signed __int64 **)(v2[14] + 16), v10) )
       {
         if ( v4 )
-          goto LABEL_14;
+          v5 = 1;
       }
       else
       {
-        v6 = v9;
+        v11 = v9;
         if ( v4 )
-          v6 = v12;
-        if ( ++v4 == 16 || v11 == v8 - 1 )
+          v11 = v22;
+        ++v4;
+        v22 = v11;
+        if ( v4 == 16 || v10 == v7 - 1 )
           v5 = 1;
       }
       if ( v5 )
       {
-LABEL_14:
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)v2 + 58);
         if ( KiIrqlFlags )
         {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v16 = ~(unsigned __int16)(-1LL << (v10 + 1));
-            v17 = (v16 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v16;
-            if ( v17 )
-              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            CurrentIrql = KeGetCurrentIrql();
+            if ( CurrentIrql <= 0xFu && v8 <= 0xFu && CurrentIrql >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v15 = ~(unsigned __int16)(-1LL << (v8 + 1));
+              v3 = (v15 & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= v15;
+              if ( v3 )
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            }
           }
         }
-        __writecr8(v10);
-        if ( _bittest16((const signed __int16 *)v2 + 102, 0xBu) )
+        __writecr8(v8);
+        if ( (*((_WORD *)v2 + 102) & 0x800) != 0 )
         {
           *(_DWORD *)&MemoryDescriptorList[40] = v4 << 12;
-          MiTransferMemoryPagefileData(v2, MemoryDescriptorList, v6, 0LL);
         }
         else
         {
-          v18 = v2[7];
-          v27 = (unsigned __int64)v6 << 12;
-          v26 = (unsigned __int64)v4 << 12;
-          MmZeroPageWrite(v18, (__int64)&v27, (__int64 *)&v26, 0);
+          v16 = v2[7];
+          v24 = (unsigned __int64)v22 << 12;
+          v23 = (unsigned __int64)v4 << 12;
+          MmZeroPageWrite(v16, (__int64)&v24, (__int64 *)&v23, 0);
         }
         v5 = 0;
-        v19 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)v2 + 58);
-        v9 = v25;
-        v10 = v19;
+        v8 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)v2 + 58);
         v4 = 0;
       }
-      v8 = *v2;
-      v11 = ++v9;
-      v25 = v9;
+      v7 = *v2;
+      v10 = ++v9;
     }
     while ( v9 < (unsigned __int64)*v2 );
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)v2 + 58);
   if ( KiIrqlFlags )
   {
-    v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && v10 <= 0xFu && v20 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v21 = KeGetCurrentPrcb();
-      v22 = v21->SchedulerAssist;
-      v23 = ~(unsigned __int16)(-1LL << (v10 + 1));
-      v17 = (v23 & v22[5]) == 0;
-      v22[5] &= v23;
-      if ( v17 )
-        KiRemoveSystemWorkPriorityKick((__int64)v21);
+      v17 = KeGetCurrentIrql();
+      if ( v17 <= 0xFu && v8 <= 0xFu && v17 >= 2u )
+      {
+        v18 = KeGetCurrentPrcb();
+        v19 = v18->SchedulerAssist;
+        v20 = ~(unsigned __int16)(-1LL << (v8 + 1));
+        v3 = (v20 & v19[5]) == 0;
+        v19[5] &= v20;
+        if ( v3 )
+          KiRemoveSystemWorkPriorityKick((__int64)v18);
+      }
     }
   }
-  __writecr8(v10);
-  if ( _bittest16((const signed __int16 *)v2 + 102, 0xBu) && (MemoryDescriptorList[10] & 1) != 0 )
+  __writecr8(v8);
+  if ( (*((_WORD *)v2 + 102) & 0x800) != 0 && (MemoryDescriptorList[10] & 1) != 0 )
     MmUnmapLockedPages(*(PVOID *)&MemoryDescriptorList[24], (PMDL)MemoryDescriptorList);
   return KeSetEvent(Event, 0, 0);
 }

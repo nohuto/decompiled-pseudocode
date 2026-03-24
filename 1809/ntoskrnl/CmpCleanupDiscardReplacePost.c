@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpCleanupDiscardReplacePost @ 0x1407F9950
+ * XREFs of CmpCleanupDiscardReplacePost @ 0x1407F9930
  * Callers:
  *     CmpCleanupDiscardReplaceContext @ 0x1405AA51C (CmpCleanupDiscardReplaceContext.c)
  * Callees:

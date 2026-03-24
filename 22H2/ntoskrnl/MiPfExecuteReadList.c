@@ -1,15 +1,14 @@
 /*
- * XREFs of MiPfExecuteReadList @ 0x140724164
+ * XREFs of MiPfExecuteReadList @ 0x140636824
  * Callers:
- *     MmPrefetchPagesEx @ 0x14073EBE8 (MmPrefetchPagesEx.c)
- *     MmPrefetchForCacheManager @ 0x14073F12C (MmPrefetchForCacheManager.c)
- *     MiPrefetchControlArea @ 0x1407DCE8C (MiPrefetchControlArea.c)
+ *     MmPrefetchPagesEx @ 0x14061C774 (MmPrefetchPagesEx.c)
+ *     MmPrefetchForCacheManager @ 0x1406360AC (MmPrefetchForCacheManager.c)
+ *     MiPrefetchControlArea @ 0x14066BF34 (MiPrefetchControlArea.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     MiReferenceInPageFile @ 0x1402A13E4 (MiReferenceInPageFile.c)
- *     MiPageRead @ 0x1402A3A8C (MiPageRead.c)
- *     SmPageRead @ 0x1405C9B90 (SmPageRead.c)
- *     MiReadFromMemoryPagefile @ 0x1406609B8 (MiReadFromMemoryPagefile.c)
+ *     MiPageRead @ 0x14027D14C (MiPageRead.c)
+ *     MiReferenceInPageFile @ 0x14029D328 (MiReferenceInPageFile.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     SmPageRead @ 0x1403070AC (SmPageRead.c)
  */
 
 int __fastcall MiPfExecuteReadList(__int64 a1, char a2, unsigned int a3, __int64 a4)
@@ -18,13 +17,12 @@ int __fastcall MiPfExecuteReadList(__int64 a1, char a2, unsigned int a3, __int64
   struct _KTHREAD *CurrentThread; // rbp
   __int64 v6; // r14
   __int64 v7; // rbx
-  int v8; // r15d
-  char v9; // r12
+  int v8; // r12d
+  char v9; // r15
   int v11; // edi
   __int64 v12; // rsi
-  unsigned __int64 v13; // rax
+  __int64 v13; // rax
   __int64 v14; // rcx
-  __int64 v15; // r9
   _UNKNOWN *retaddr; // [rsp+68h] [rbp+0h] BYREF
 
   v4 = &retaddr;
@@ -59,23 +57,17 @@ int __fastcall MiPfExecuteReadList(__int64 a1, char a2, unsigned int a3, __int64
         v9 = BYTE4(CurrentThread[1].Queue);
         BYTE4(CurrentThread[1].Queue) = 1;
       }
-      if ( v14 && _bittest16((const signed __int16 *)(v14 + 204), 0xBu) )
+      if ( v14 && (*(_WORD *)(v14 + 204) & 0x800) != 0 )
       {
-        MiReadFromMemoryPagefile(v14, v7);
         LODWORD(v4) = 0;
+      }
+      else if ( (*(_DWORD *)(v7 + 192) & 0x100) != 0 )
+      {
+        LODWORD(v4) = SmPageRead((union _MM_STORE_KEY *)(v7 + 96), (v7 + 272) | (v8 != 0 ? 1 : 3));
       }
       else
       {
-        v15 = v7 + 32;
-        if ( (*(_DWORD *)(v7 + 192) & 0x100) != 0 )
-          LODWORD(v4) = SmPageRead(
-                          *(_QWORD *)(*(_QWORD *)(v14 + 248) + 200LL),
-                          (union _MM_STORE_KEY *)(v7 + 96),
-                          (v7 + 272) | ((-(__int64)(v8 != 0) & 0xFFFFFFFFFFFFFFFEuLL) + 3),
-                          v15,
-                          (_SLIST_ENTRY *)(v7 + 80));
-        else
-          LODWORD(v4) = MiPageRead(*(struct _FILE_OBJECT **)(v7 + 200), v12, v7 + 96, v15, v7 + 80, 6, a4);
+        LODWORD(v4) = MiPageRead(*(struct _FILE_OBJECT **)(v7 + 200), v12, v7 + 96, v7 + 32, v7 + 80, 6, a4);
       }
       if ( v11 )
         BYTE4(CurrentThread[1].Queue) = v9;

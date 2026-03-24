@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_DeleteObject @ 0x1801109F9
+ * XREFs of __imp_load_DeleteObject @ 0x1800E8681
  * Callers:
  *     <none>
  * Callees:

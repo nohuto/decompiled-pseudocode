@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ShouldSkipForegroundActivation@CInputDest@@QEBA_NXZ @ 0x1C01B59C8
+ * XREFs of ?ShouldSkipForegroundActivation@CInputDest@@QEBA_NXZ @ 0x1C004CE94
  * Callers:
- *     ?ShouldForegroundActivate@CPointerInfoNode@@QEBAHXZ @ 0x1C00E4C54 (-ShouldForegroundActivate@CPointerInfoNode@@QEBAHXZ.c)
- *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C01F9484 (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
+ *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C004ABB0 (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
+ *     ?ShouldForegroundActivate@CPointerInfoNode@@QEBAHXZ @ 0x1C019EBE4 (-ShouldForegroundActivate@CPointerInfoNode@@QEBAHXZ.c)
  * Callees:
- *     ApiSetEditionIsAppForeground @ 0x1C02068E8 (ApiSetEditionIsAppForeground.c)
+ *     ApiSetEditionIsAppForeground @ 0x1C01CBF28 (ApiSetEditionIsAppForeground.c)
  */
 
 bool __fastcall CInputDest::ShouldSkipForegroundActivation(CInputDest *this)

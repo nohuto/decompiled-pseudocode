@@ -1,18 +1,18 @@
 /*
- * XREFs of CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x1406BC6A8
+ * XREFs of CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x14069FB60
  * Callers:
- *     CmQueryFeatureConfigurationSections @ 0x1406BC564 (CmQueryFeatureConfigurationSections.c)
+ *     CmQueryFeatureConfigurationSections @ 0x14069FA1C (CmQueryFeatureConfigurationSections.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CmFcpCopySectionState @ 0x1406BC8C0 (CmFcpCopySectionState.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     CmFcpCopySectionState @ 0x14069FD58 (CmFcpCopySectionState.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall CmFcManagerQueryFeatureConfigurationSectionInformation(
@@ -23,20 +23,20 @@ __int64 __fastcall CmFcManagerQueryFeatureConfigurationSectionInformation(
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v8; // r13
-  _QWORD *v9; // r14
-  NTSTATUS v10; // ebp
+  _QWORD *v9; // rsi
+  NTSTATUS v10; // r14d
   unsigned int v11; // ebx
-  __int64 v12; // rsi
-  PVOID *v13; // r14
+  __int64 v12; // rbp
+  PVOID *v13; // rsi
   unsigned int i; // edi
   __int128 *v15; // rdx
   _QWORD *v16; // rcx
   __int64 v17; // r10
   HANDLE *v18; // rbx
-  PVOID *v19; // rdi
-  __int128 v21; // [rsp+48h] [rbp-B0h] BYREF
-  __int64 v22; // [rsp+58h] [rbp-A0h]
-  _QWORD v23[10]; // [rsp+60h] [rbp-98h] BYREF
+  PADAPTER_OBJECT *v19; // rdi
+  __int128 v21; // [rsp+48h] [rbp-A0h] BYREF
+  __int64 v22; // [rsp+58h] [rbp-90h]
+  _QWORD v23[10]; // [rsp+60h] [rbp-88h] BYREF
 
   v22 = 0LL;
   v21 = 0LL;
@@ -44,8 +44,8 @@ __int64 __fastcall CmFcManagerQueryFeatureConfigurationSectionInformation(
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockSharedEx((ULONG_PTR)&RunOnce, 0LL);
-  v8 = qword_140C49458;
-  v9 = &unk_140C49468;
+  v8 = qword_140C480F8;
+  v9 = &unk_140C48108;
   v10 = 0;
   v11 = 0;
   v12 = 3LL;
@@ -61,7 +61,7 @@ __int64 __fastcall CmFcManagerQueryFeatureConfigurationSectionInformation(
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&RunOnce, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&RunOnce);
   KeAbPostRelease((ULONG_PTR)&RunOnce);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   v13 = (PVOID *)&v23[1];
   for ( i = 0; i < 3; ++i )
   {
@@ -69,7 +69,7 @@ __int64 __fastcall CmFcManagerQueryFeatureConfigurationSectionInformation(
     {
       v10 = ObOpenObjectByPointer(*v13, a4 == 0 ? 0x200 : 0, 0LL, 4u, MmSectionObjectType, a4, (PHANDLE)&v21 + i);
       if ( v10 < 0 )
-        goto LABEL_14;
+        goto LABEL_12;
       v10 = 0;
     }
     v13 += 3;
@@ -90,13 +90,13 @@ __int64 __fastcall CmFcManagerQueryFeatureConfigurationSectionInformation(
     --v17;
   }
   while ( v17 );
-LABEL_14:
+LABEL_12:
   v18 = (HANDLE *)&v21;
-  v19 = (PVOID *)&v23[1];
+  v19 = (PADAPTER_OBJECT *)&v23[1];
   do
   {
     if ( *v19 )
-      ObfDereferenceObject(*v19);
+      HalPutDmaAdapter(*v19);
     if ( *v18 )
       ObCloseHandle(*v18, a4);
     v19 += 3;

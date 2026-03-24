@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSetProcessSchedulingGroup @ 0x1400F358C
+ * XREFs of KeSetProcessSchedulingGroup @ 0x1400F35AC
  * Callers:
- *     PspTerminateProcess @ 0x14067789C (PspTerminateProcess.c)
- *     PspSetProcessSchedulingGroup @ 0x14068D5B8 (PspSetProcessSchedulingGroup.c)
+ *     PspTerminateProcess @ 0x14067787C (PspTerminateProcess.c)
+ *     PspSetProcessSchedulingGroup @ 0x14068D598 (PspSetProcessSchedulingGroup.c)
  * Callees:
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiSetThreadSchedulingGroup @ 0x1400F3A78 (KiSetThreadSchedulingGroup.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiSetThreadSchedulingGroup @ 0x1400F3A98 (KiSetThreadSchedulingGroup.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeSetProcessSchedulingGroup(__int64 a1, __int64 a2)

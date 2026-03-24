@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bTurnLeftRandom@@YAHPEAVEVECTORFX@@0@Z @ 0x1C015DB80
+ * XREFs of ?bTurnLeftRandom@@YAHPEAVEVECTORFX@@0@Z @ 0x1C01410B8
  * Callers:
- *     ?bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C02F1AFC (-bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
- *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C02F21F8 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
- *     ?vAddRoundJoin@WIDENER@@IEAAXH@Z @ 0x1C02F2418 (-vAddRoundJoin@WIDENER@@IEAAXH@Z.c)
+ *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C01409F0 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
+ *     ?bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C0141678 (-bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
+ *     ?vAddRoundJoin@WIDENER@@IEAAXH@Z @ 0x1C02CEC3C (-vAddRoundJoin@WIDENER@@IEAAXH@Z.c)
  * Callees:
  *     <none>
  */

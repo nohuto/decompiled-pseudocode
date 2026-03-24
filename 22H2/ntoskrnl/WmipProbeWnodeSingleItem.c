@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipProbeWnodeSingleItem @ 0x1409E173C
+ * XREFs of WmipProbeWnodeSingleItem @ 0x1409333E8
  * Callers:
- *     WmipIoControl @ 0x1407D66F0 (WmipIoControl.c)
+ *     WmipIoControl @ 0x14068B1D0 (WmipIoControl.c)
  * Callees:
- *     WmipProbeWnodeWorker @ 0x1407D6FC4 (WmipProbeWnodeWorker.c)
+ *     WmipProbeWnodeWorker @ 0x14072B864 (WmipProbeWnodeWorker.c)
  */
 
-__int64 __fastcall WmipProbeWnodeSingleItem(_DWORD *a1, unsigned int a2)
+__int64 __fastcall WmipProbeWnodeSingleItem(_DWORD *a1, ULONG a2)
 {
   __int64 result; // rax
   int v5; // eax

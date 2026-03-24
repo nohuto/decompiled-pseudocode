@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdateCfgSystemWideBitmap @ 0x14064F764
+ * XREFs of MiUpdateCfgSystemWideBitmap @ 0x14064F744
  * Callers:
- *     MiRelocateImageAgain @ 0x14064F5C0 (MiRelocateImageAgain.c)
- *     MiRelocateImage @ 0x14064FEE4 (MiRelocateImage.c)
+ *     MiRelocateImageAgain @ 0x14064F5A0 (MiRelocateImageAgain.c)
+ *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
  * Callees:
  *     MiUpdateCfgSystemWideBitmapWorker @ 0x1405F3130 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiSelectBitMapForImage @ 0x14064FAB8 (MiSelectBitMapForImage.c)
+ *     MiSelectBitMapForImage @ 0x14064FA98 (MiSelectBitMapForImage.c)
  */
 
 __int64 __fastcall MiUpdateCfgSystemWideBitmap(__int64 *a1, unsigned __int64 a2, __int64 a3)

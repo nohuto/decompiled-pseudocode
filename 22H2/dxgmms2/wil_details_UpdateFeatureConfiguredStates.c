@@ -1,11 +1,11 @@
 /*
- * XREFs of wil_details_UpdateFeatureConfiguredStates @ 0x1C008527C
+ * XREFs of wil_details_UpdateFeatureConfiguredStates @ 0x1C005EC5C
  * Callers:
- *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1C0085260 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
+ *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1C005EC40 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C0019A10 (wil_details_FeatureDescriptors_SkipPadding.c)
- *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C0085040 (wil_details_BuildFeatureStateCacheFromQueryResults.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C0017A4C (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C005EA20 (wil_details_BuildFeatureStateCacheFromQueryResults.c)
  */
 
 volatile signed __int32 **wil_details_UpdateFeatureConfiguredStates()
@@ -20,7 +20,7 @@ volatile signed __int32 **wil_details_UpdateFeatureConfiguredStates()
   __int64 v7; // [rsp+30h] [rbp-28h] BYREF
   int v8; // [rsp+38h] [rbp-20h]
 
-  for ( i = &wil_details_featureDescriptors_a; ; i = (int **)(v4 + 7) )
+  for ( i = &wil_details_featureDescriptors_a; ; i = (int **)(v4 + 5) )
   {
     result = (volatile signed __int32 **)wil_details_FeatureDescriptors_SkipPadding(i);
     v4 = result;
@@ -32,7 +32,12 @@ volatile signed __int32 **wil_details_UpdateFeatureConfiguredStates()
       v6 = 0LL;
       v7 = 0LL;
       v8 = 0;
-      v2 = RtlQueryFeatureConfiguration(v1, 1LL, &v6, &v7);
+      v2 = ((__int64 (__fastcall *)(__int64, __int64, __int64 *, __int64 *, __int64))RtlQueryFeatureConfiguration)(
+             v1,
+             1LL,
+             &v6,
+             &v7,
+             v5);
       v5 = 0LL;
       wil_details_BuildFeatureStateCacheFromQueryResults(v2, (__int64)&v7, &v5);
       _InterlockedXor(*v4, ((unsigned __int16)v5 ^ (unsigned __int16)**v4) & 0xF80);

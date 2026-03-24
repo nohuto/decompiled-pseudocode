@@ -1,87 +1,85 @@
 /*
- * XREFs of UserSetDCVisRgn @ 0x1C004C660
+ * XREFs of UserSetDCVisRgn @ 0x1C0039D90
  * Callers:
  *     <none>
  * Callees:
- *     GreDeleteObject @ 0x1C00472A0 (GreDeleteObject.c)
- *     ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C004A2E0 (-ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z.c)
- *     IsGetStyleWindowSupported @ 0x1C005BE50 (IsGetStyleWindowSupported.c)
- *     GreOffsetRgn @ 0x1C005BF60 (GreOffsetRgn.c)
- *     GreCombineRgn @ 0x1C005C1D0 (GreCombineRgn.c)
- *     CreateEmptyRgnPublic @ 0x1C005CAC0 (CreateEmptyRgnPublic.c)
- *     GreSetRectRgn @ 0x1C008A530 (GreSetRectRgn.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C0037720 (-ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z.c)
+ *     GreDeleteObject @ 0x1C0039970 (GreDeleteObject.c)
+ *     GreOffsetRgn @ 0x1C003A600 (GreOffsetRgn.c)
+ *     GreCombineRgn @ 0x1C003ACD0 (GreCombineRgn.c)
+ *     CreateEmptyRgnPublic @ 0x1C006B840 (CreateEmptyRgnPublic.c)
+ *     IsGetStyleWindowSupported @ 0x1C006BAD8 (IsGetStyleWindowSupported.c)
+ *     GreSetRectRgn @ 0x1C0080E90 (GreSetRectRgn.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall UserSetDCVisRgn(struct tagDCE *a1)
 {
-  _DWORD *v2; // rbx
-  _QWORD *v3; // rsi
-  HRGN EmptyRgnPublic; // rsi
-  int v5; // ebp
-  HRGN v6; // rcx
-  int v7; // r9d
-  HRGN v8; // [rsp+40h] [rbp+8h] BYREF
+  int v2; // eax
+  _DWORD *v3; // rbx
+  int v4; // eax
+  struct HOBJ__ *EmptyRgnPublic; // rsi
+  int v6; // ebp
+  HRGN v7; // rcx
+  int v8; // r9d
+  __int64 v9; // rbp
+  HRGN v10; // [rsp+40h] [rbp+8h] BYREF
 
-  v8 = 0LL;
-  if ( !qword_1C0295AA8 || (int)qword_1C0295AA8() < 0 )
-  {
-    v2 = (_DWORD *)((char *)a1 + 64);
-    v3 = (_QWORD *)((char *)a1 + 16);
-LABEL_12:
-    *v2 |= 0x10000000u;
-    goto LABEL_6;
-  }
-  v2 = (_DWORD *)((char *)a1 + 64);
-  v3 = (_QWORD *)((char *)a1 + 16);
-  if ( !qword_1C0295AB0
-    || !(unsigned int)qword_1C0295AB0(&v8, *((_QWORD *)a1 + 2), *((_QWORD *)a1 + 3), *((unsigned int *)a1 + 16)) )
-  {
-    goto LABEL_12;
-  }
-  *v2 &= ~0x10000000u;
-LABEL_6:
+  v10 = 0LL;
+  if ( qword_1C0256698 )
+    v2 = qword_1C0256698();
+  else
+    v2 = -1073741637;
+  v3 = (_DWORD *)((char *)a1 + 64);
+  if ( v2 < 0 )
+    goto LABEL_14;
+  v4 = (int)qword_1C02566A0;
+  if ( qword_1C02566A0 )
+    v4 = qword_1C02566A0(&v10, *((_QWORD *)a1 + 2), *((_QWORD *)a1 + 3), (unsigned int)*v3);
+  if ( v4 )
+    *v3 &= ~0x10000000u;
+  else
+LABEL_14:
+    *v3 |= 0x10000000u;
   if ( *((_QWORD *)a1 + 6) > 2uLL
     && (int)IsGetStyleWindowSupported() >= 0
-    && qword_1C0295AC0
-    && qword_1C0295AC0(*v3, 2848LL) )
+    && (!qword_1C02566B0 ? (v9 = 0LL) : (v9 = qword_1C02566B0(*((_QWORD *)a1 + 2), 2848LL)), v9) )
   {
-    EmptyRgnPublic = (HRGN)CreateEmptyRgnPublic();
-    GreCombineRgn(EmptyRgnPublic, *((HRGN *)a1 + 6), 0LL, 5);
-    GreOffsetRgn(EmptyRgnPublic);
-    v5 = 1;
-    v2 = (_DWORD *)((char *)a1 + 64);
+    EmptyRgnPublic = (struct HOBJ__ *)CreateEmptyRgnPublic();
+    GreCombineRgn((HRGN)EmptyRgnPublic, *((HRGN *)a1 + 6), 0LL, 5);
+    GreOffsetRgn((HRGN)EmptyRgnPublic);
+    v6 = 1;
   }
   else
   {
-    EmptyRgnPublic = (HRGN)*((_QWORD *)a1 + 6);
-    v5 = 0;
+    EmptyRgnPublic = (struct HOBJ__ *)*((_QWORD *)a1 + 6);
+    v6 = 0;
   }
-  if ( (*v2 & 0x80u) != 0 )
+  if ( (*v3 & 0x80u) != 0 )
   {
-    v6 = v8;
+    v7 = v10;
     if ( EmptyRgnPublic )
     {
-      v7 = 1;
-LABEL_19:
-      GreCombineRgn(v6, v6, EmptyRgnPublic, v7);
-      goto LABEL_10;
+      v8 = 1;
+LABEL_17:
+      GreCombineRgn(v7, v7, (HRGN)EmptyRgnPublic, v8);
+      goto LABEL_12;
     }
   }
   else
   {
-    if ( (*v2 & 0x40) == 0 )
-      goto LABEL_10;
-    v6 = v8;
-    if ( EmptyRgnPublic != (HRGN)1 )
+    if ( (*v3 & 0x40) == 0 )
+      goto LABEL_12;
+    v7 = v10;
+    if ( EmptyRgnPublic != (struct HOBJ__ *)1 )
     {
-      v7 = 4;
-      goto LABEL_19;
+      v8 = 4;
+      goto LABEL_17;
     }
   }
-  GreSetRectRgn(v6, 0);
-LABEL_10:
-  ResetOrg(v8, a1, 1);
-  if ( v5 )
-    GreDeleteObject((HPALETTE)EmptyRgnPublic);
+  GreSetRectRgn(v7, 0);
+LABEL_12:
+  ResetOrg(v10, (unsigned __int64)a1, 1);
+  if ( v6 )
+    GreDeleteObject(EmptyRgnPublic);
 }

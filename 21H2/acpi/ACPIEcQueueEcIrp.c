@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIEcQueueEcIrp @ 0x1C0052CB0
+ * XREFs of ACPIEcQueueEcIrp @ 0x1C00535D0
  * Callers:
- *     ACPIEcOpRegionHandler @ 0x1C0052C20 (ACPIEcOpRegionHandler.c)
- *     ACPIEcReadWrite @ 0x1C00AD3E0 (ACPIEcReadWrite.c)
+ *     ACPIEcOpRegionHandler @ 0x1C0053540 (ACPIEcOpRegionHandler.c)
+ *     ACPIEcReadWrite @ 0x1C00AE760 (ACPIEcReadWrite.c)
  * Callees:
- *     ACPIEcLogAction @ 0x1C0053808 (ACPIEcLogAction.c)
- *     ACPIEcServiceDevice @ 0x1C0053A64 (ACPIEcServiceDevice.c)
+ *     ACPIEcLogAction @ 0x1C0054134 (ACPIEcLogAction.c)
+ *     ACPIEcServiceDevice @ 0x1C0054390 (ACPIEcServiceDevice.c)
  */
 
 __int64 __fastcall ACPIEcQueueEcIrp(
@@ -22,10 +22,10 @@ __int64 __fastcall ACPIEcQueueEcIrp(
   KSPIN_LOCK *v11; // rsi
   KIRQL v12; // bp
   unsigned int v13; // ebx
-  __int64 Pool2; // rax
+  _BYTE *PoolWithTag; // rax
   __int64 v15; // r8
-  __int64 v16; // rdx
-  __int64 *v18; // rcx
+  _BYTE *v16; // rdx
+  _QWORD *v18; // rcx
   __int64 v19; // rbx
 
   v7 = a4;
@@ -41,26 +41,26 @@ LABEL_7:
     KeReleaseSpinLock(v11, v12);
     return v13;
   }
-  Pool2 = ExAllocatePool2(64LL, 48LL, 1164993345LL);
-  v16 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x45706341u);
+  v16 = PoolWithTag;
+  if ( !PoolWithTag )
   {
     v13 = -1073741670;
     goto LABEL_7;
   }
-  *(_BYTE *)(Pool2 + 16) = a2;
-  *(_QWORD *)(Pool2 + 32) = a6;
-  *(_QWORD *)(Pool2 + 40) = a7;
-  *(_QWORD *)(Pool2 + 24) = a5;
-  *(_BYTE *)(Pool2 + 17) = v8;
-  *(_WORD *)(Pool2 + 18) = v7;
-  v18 = *(__int64 **)(a1 + 472);
+  PoolWithTag[16] = a2;
+  *((_QWORD *)PoolWithTag + 4) = a6;
+  *((_QWORD *)PoolWithTag + 5) = a7;
+  *((_QWORD *)PoolWithTag + 3) = a5;
+  PoolWithTag[17] = v8;
+  *((_WORD *)PoolWithTag + 9) = v7;
+  v18 = *(_QWORD **)(a1 + 472);
   if ( *v18 != a1 + 464 )
     __fastfail(3u);
-  *(_QWORD *)(Pool2 + 8) = v18;
-  *(_QWORD *)Pool2 = a1 + 464;
-  *v18 = Pool2;
-  *(_QWORD *)(a1 + 472) = Pool2;
+  *((_QWORD *)PoolWithTag + 1) = v18;
+  *(_QWORD *)PoolWithTag = a1 + 464;
+  *v18 = PoolWithTag;
+  *(_QWORD *)(a1 + 472) = PoolWithTag;
   LOBYTE(v16) = -112;
   v19 = *(_QWORD *)(a1 + 480);
   LOBYTE(v15) = v19 == 0;

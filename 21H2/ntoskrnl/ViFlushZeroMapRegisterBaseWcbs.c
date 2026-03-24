@@ -1,13 +1,13 @@
 /*
- * XREFs of ViFlushZeroMapRegisterBaseWcbs @ 0x1405FE678
+ * XREFs of ViFlushZeroMapRegisterBaseWcbs @ 0x1405A10C8
  * Callers:
- *     VfPutDmaAdapter @ 0x140A868E0 (VfPutDmaAdapter.c)
+ *     VfPutDmaAdapter @ 0x1409CCC30 (VfPutDmaAdapter.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140A83B84 (SUBTRACT_MAP_REGISTERS.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x1409C9FCC (SUBTRACT_MAP_REGISTERS.c)
  */
 
 __int64 __fastcall ViFlushZeroMapRegisterBaseWcbs(__int64 a1)
@@ -20,7 +20,8 @@ __int64 __fastcall ViFlushZeroMapRegisterBaseWcbs(__int64 a1)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v9; // zf
-  _QWORD *v10; // rcx
+  __int64 v10; // rdx
+  _QWORD *v11; // rcx
 
   v1 = (KSPIN_LOCK *)(a1 + 144);
   v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 144));
@@ -31,11 +32,12 @@ __int64 __fastcall ViFlushZeroMapRegisterBaseWcbs(__int64 a1)
     v4 = (_QWORD *)*v4;
     if ( !v5[11] && !v5[12] && *((_DWORD *)v5 + 13) == 3 )
     {
-      v10 = (_QWORD *)v5[10];
-      if ( (_QWORD *)v4[1] != v5 + 9 || (_QWORD *)*v10 != v5 + 9 )
+      v10 = v5[9];
+      v11 = (_QWORD *)v5[10];
+      if ( *(_QWORD **)(v10 + 8) != v5 + 9 || (_QWORD *)*v11 != v5 + 9 )
         __fastfail(3u);
-      *v10 = v4;
-      v4[1] = v10;
+      *v11 = v10;
+      *(_QWORD *)(v10 + 8) = v11;
       SUBTRACT_MAP_REGISTERS(a1, *((unsigned int *)v5 + 12));
       ExFreeToNPagedLookasideList(&ViHalWaitBlockLookaside, v5);
       break;

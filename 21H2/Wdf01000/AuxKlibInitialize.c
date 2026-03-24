@@ -1,7 +1,7 @@
 /*
- * XREFs of AuxKlibInitialize @ 0x1C00BD5A8
+ * XREFs of AuxKlibInitialize @ 0x1C00BE188
  * Callers:
- *     FxpGetImageBase @ 0x1C0027CF0 (FxpGetImageBase.c)
+ *     FxpGetImageBase @ 0x1C0090BF8 (FxpGetImageBase.c)
  * Callees:
  *     <none>
  */
@@ -16,14 +16,14 @@ __int64 __fastcall AuxKlibInitialize()
   if ( !AuxpInitState )
   {
     PsGetVersion(&MajorVersion, 0LL, 0LL, 0LL);
-    if ( MajorVersion < 5 )
-    {
-      return (unsigned int)-1073741637;
-    }
-    else
+    if ( MajorVersion >= 5 )
     {
       AuxpKlibFns.QueryModuleInformationPtr = (int (__fastcall *)(unsigned int *, unsigned int, void *))MmGetSystemRoutineAddress(&QueryModuleInfoName);
       _InterlockedExchange((volatile __int32 *)&AuxpInitState, 1);
+    }
+    else
+    {
+      return (unsigned int)-1073741637;
     }
   }
   return v0;

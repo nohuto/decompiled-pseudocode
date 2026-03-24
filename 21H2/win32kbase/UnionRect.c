@@ -1,7 +1,7 @@
 /*
- * XREFs of UnionRect @ 0x1C0210408
+ * XREFs of UnionRect @ 0x1C01D15FC
  * Callers:
- *     ?CenterRectangles@@YAXPEAUtagRECT@@I@Z @ 0x1C02106E0 (-CenterRectangles@@YAXPEAUtagRECT@@I@Z.c)
+ *     ?CenterRectangles@@YAXPEAUtagRECT@@I@Z @ 0x1C01D18E8 (-CenterRectangles@@YAXPEAUtagRECT@@I@Z.c)
  * Callees:
  *     <none>
  */

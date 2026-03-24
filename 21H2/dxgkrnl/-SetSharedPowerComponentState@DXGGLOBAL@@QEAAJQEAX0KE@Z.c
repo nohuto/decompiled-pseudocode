@@ -1,17 +1,17 @@
 /*
- * XREFs of ?SetSharedPowerComponentState@DXGGLOBAL@@QEAAJQEAX0KE@Z @ 0x1C030C958
+ * XREFs of ?SetSharedPowerComponentState@DXGGLOBAL@@QEAAJQEAX0KE@Z @ 0x1C026B8F4
  * Callers:
- *     DxgSetSharedPowerComponentStateCB @ 0x1C02E2D00 (DxgSetSharedPowerComponentStateCB.c)
+ *     DxgSetSharedPowerComponentStateCB @ 0x1C0251790 (DxgSetSharedPowerComponentStateCB.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E350 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?SetPowerComponentActiveCB@DXGADAPTER@@QEAAXI@Z @ 0x1C0025B90 (-SetPowerComponentActiveCB@DXGADAPTER@@QEAAXI@Z.c)
- *     ?SetPowerComponentIdleCB@DXGADAPTER@@QEAAXI@Z @ 0x1C0025C78 (-SetPowerComponentIdleCB@DXGADAPTER@@QEAAXI@Z.c)
- *     ??_GDXGSHAREDPOWERREGISTRATIONOBJECT@@IEAAPEAXI@Z @ 0x1C00537E4 (--_GDXGSHAREDPOWERREGISTRATIONOBJECT@@IEAAPEAXI@Z.c)
- *     ?ValidateAdapterValidAndInRunningState@DXGGLOBAL@@QEAAEPEAVDXGADAPTER@@@Z @ 0x1C030D218 (-ValidateAdapterValidAndInRunningState@DXGGLOBAL@@QEAAEPEAVDXGADAPTER@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002A00 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?SetPowerComponentActiveCB@DXGADAPTER@@QEAAXI@Z @ 0x1C003910C (-SetPowerComponentActiveCB@DXGADAPTER@@QEAAXI@Z.c)
+ *     ?SetPowerComponentIdleCB@DXGADAPTER@@QEAAXI@Z @ 0x1C003978C (-SetPowerComponentIdleCB@DXGADAPTER@@QEAAXI@Z.c)
+ *     ??1DXGSHAREDPOWERINUSELISTOBJECT@@IEAA@XZ @ 0x1C0268858 (--1DXGSHAREDPOWERINUSELISTOBJECT@@IEAA@XZ.c)
+ *     ?ValidateAdapterValidAndInRunningState@DXGGLOBAL@@QEAAEPEAVDXGADAPTER@@@Z @ 0x1C026C048 (-ValidateAdapterValidAndInRunningState@DXGGLOBAL@@QEAAEPEAVDXGADAPTER@@@Z.c)
  */
 
 __int64 __fastcall DXGGLOBAL::SetSharedPowerComponentState(
@@ -21,54 +21,59 @@ __int64 __fastcall DXGGLOBAL::SetSharedPowerComponentState(
         unsigned int a4,
         unsigned __int8 a5)
 {
-  struct _KTHREAD **v5; // r12
-  unsigned int v10; // ebx
-  __int64 **v11; // rdi
-  __int64 v12; // r9
-  unsigned int v13; // ecx
-  __int64 *v14; // rdx
-  char v15; // al
+  unsigned int v9; // ebx
+  __int64 **v10; // rsi
+  unsigned int v11; // ecx
+  __int64 *v12; // rdx
+  char v13; // al
   __int64 *i; // rcx
-  __int64 v17; // rax
+  _QWORD *v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
   __int64 v18; // r8
-  __int64 *v19; // rcx
-  __int64 v20; // rdx
-  __int64 *v21; // rax
-  __int64 **v22; // rdx
-  unsigned __int16 v24; // [rsp+AAh] [rbp+22h]
+  __int64 v19; // r9
+  __int64 v20; // rax
+  __int64 *v21; // rcx
+  __int64 v22; // rdx
+  __int64 *v23; // rax
+  __int64 **v24; // rdx
+  void *v25; // rcx
+  __int64 v26; // rdx
+  struct _KTHREAD **v28; // [rsp+68h] [rbp+10h]
+  unsigned __int16 v29; // [rsp+7Ah] [rbp+22h]
 
-  v24 = HIWORD(a4);
-  v5 = (struct _KTHREAD **)((char *)this + 704);
-  v10 = 0;
-  DXGFASTMUTEX::Acquire((DXGGLOBAL *)((char *)this + 704));
-  DXGPUSHLOCK::AcquireShared((DXGGLOBAL *)((char *)this + 1824));
-  v11 = (__int64 **)*((_QWORD *)this + 232);
+  v29 = HIWORD(a4);
+  v28 = (struct _KTHREAD **)((char *)this + 584);
+  v9 = 0;
+  DXGFASTMUTEX::Acquire((DXGGLOBAL *)((char *)this + 584));
+  DXGPUSHLOCK::AcquireShared((DXGGLOBAL *)((char *)this + 1656));
+  v10 = (__int64 **)*((_QWORD *)this + 211);
   if ( DXGGLOBAL::ValidateAdapterValidAndInRunningState(this, a2) )
   {
-    v13 = (unsigned __int16)a4 + *((unsigned __int16 *)a2 + v24 + 1456);
-    if ( v13 >= *((_DWORD *)a2 + 760) || *(_DWORD *)(520LL * v13 + *((_QWORD *)a2 + 362) + 208) != 7 )
+    v11 = (unsigned __int16)a4 + *((unsigned __int16 *)a2 + v29 + 1408);
+    if ( v11 >= *((_DWORD *)a2 + 736) || *(_DWORD *)(520LL * v11 + *((_QWORD *)a2 + 350) + 208) != 7 )
     {
-LABEL_28:
-      v10 = -1073741811;
-      goto LABEL_29;
+LABEL_31:
+      v9 = -1073741811;
+      goto LABEL_32;
     }
     while ( 1 )
     {
-      if ( v11 == (__int64 **)((char *)this + 1856) || !v11 )
-        goto LABEL_28;
-      if ( v11[4] == (__int64 *)a2 && v11[3] == a3 )
+      if ( v10 == (__int64 **)((char *)this + 1688) || !v10 )
+        goto LABEL_31;
+      if ( v10[4] == (__int64 *)a2 && v10[3] == a3 )
         break;
-      v11 = (__int64 **)*v11;
+      v10 = (__int64 **)*v10;
     }
-    v14 = v11[8];
-    v15 = 0;
-    for ( i = (__int64 *)*v14; i != v14; i = (__int64 *)*i )
+    v12 = v10[8];
+    v13 = 0;
+    for ( i = (__int64 *)*v12; i != v12; i = (__int64 *)*i )
     {
       if ( !i )
         goto LABEL_17;
       if ( *((_DWORD *)i + 6) == a4 )
       {
-        v15 = 1;
+        v13 = 1;
         goto LABEL_17;
       }
     }
@@ -76,64 +81,64 @@ LABEL_28:
 LABEL_17:
     if ( a5 )
     {
+      if ( v13 )
+        goto LABEL_32;
+      v15 = operator new[](0x20uLL, 0x4B677844u, PagedPool);
       if ( v15 )
-        goto LABEL_29;
-      v17 = operator new[](0x20uLL, 0x4B677844u, 256LL, v12);
-      if ( !v17 )
       {
-        WdLogSingleEntry1(6LL, 6600LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262145,
-          -1,
-          (__int64)L"Out of memory allocating pNewListObj of type DXGSHAREDPOWERINUSELISTOBJECT",
-          6600LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        v10 = -1073741801;
-        goto LABEL_29;
+        v15[2] = this;
+        *(_OWORD *)v15 = 0LL;
+        *((_DWORD *)v15 + 6) = a4;
       }
-      *(_QWORD *)(v17 + 16) = this;
-      *(_OWORD *)v17 = 0LL;
-      *(_DWORD *)(v17 + 24) = a4;
-      v19 = v11[8];
-      v20 = *v19;
-      if ( *(__int64 **)(*v19 + 8) == v19 )
+      else
       {
-        *(_QWORD *)v17 = v20;
-        *(_QWORD *)(v17 + 8) = v19;
-        *(_QWORD *)(v20 + 8) = v17;
-        *v19 = v17;
-        DXGADAPTER::SetPowerComponentActiveCB(a2, a4, v18);
-        goto LABEL_29;
+        v15 = 0LL;
+      }
+      if ( !v15 )
+      {
+        v20 = WdLogNewEntry5_WdLowResource(v17, v16, v18, v19);
+        *(_QWORD *)(v20 + 24) = 5727LL;
+        WdLogEvent5_WdLowResource(v20);
+        v9 = -1073741801;
+        goto LABEL_32;
+      }
+      v21 = v10[8];
+      v22 = *v21;
+      if ( *(__int64 **)(*v21 + 8) == v21 )
+      {
+        *v15 = v22;
+        v15[1] = v21;
+        *(_QWORD *)(v22 + 8) = v15;
+        *v21 = (__int64)v15;
+        DXGADAPTER::SetPowerComponentActiveCB(a2, a4);
+        goto LABEL_32;
       }
     }
     else
     {
-      if ( !v15 )
-        goto LABEL_29;
-      v21 = (__int64 *)*i;
+      if ( !v13 )
+        goto LABEL_32;
+      v23 = (__int64 *)*i;
       if ( *(__int64 **)(*i + 8) == i )
       {
-        v22 = (__int64 **)i[1];
-        if ( *v22 == i )
+        v24 = (__int64 **)i[1];
+        if ( *v24 == i )
         {
-          *v22 = v21;
-          v21[1] = (__int64)v22;
-          DXGSHAREDPOWERREGISTRATIONOBJECT::`scalar deleting destructor'((DXGSHAREDPOWERINUSELISTOBJECT *)i);
+          *v24 = v23;
+          v23[1] = (__int64)v24;
+          DXGSHAREDPOWERINUSELISTOBJECT::~DXGSHAREDPOWERINUSELISTOBJECT((DXGSHAREDPOWERINUSELISTOBJECT *)i);
+          operator delete(v25);
           DXGADAPTER::SetPowerComponentIdleCB(a2, a4);
-          goto LABEL_29;
+          goto LABEL_32;
         }
       }
     }
     __fastfail(3u);
   }
-  v10 = -1073741130;
-LABEL_29:
-  ExReleasePushLockSharedEx((char *)this + 1824, 0LL);
+  v9 = -1073741130;
+LABEL_32:
+  ExReleasePushLockSharedEx((char *)this + 1656, 0LL);
   KeLeaveCriticalRegion();
-  DXGFASTMUTEX::Release(v5);
-  return v10;
+  DXGFASTMUTEX::Release(v28, v26);
+  return v9;
 }

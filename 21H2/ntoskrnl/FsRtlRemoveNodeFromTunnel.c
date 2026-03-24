@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlRemoveNodeFromTunnel @ 0x14021D754
+ * XREFs of FsRtlRemoveNodeFromTunnel @ 0x14029FE0C
  * Callers:
- *     FsRtlDeleteKeyFromTunnelCache @ 0x140694660 (FsRtlDeleteKeyFromTunnelCache.c)
- *     FsRtlPruneTunnelCache @ 0x140694FD0 (FsRtlPruneTunnelCache.c)
+ *     FsRtlDeleteKeyFromTunnelCache @ 0x140688920 (FsRtlDeleteKeyFromTunnelCache.c)
+ *     FsRtlPruneTunnelCache @ 0x140688E84 (FsRtlPruneTunnelCache.c)
  * Callees:
- *     FsRtlFreeTunnelNode @ 0x14021D8B4 (FsRtlFreeTunnelNode.c)
- *     RtlDeleteNoSplay @ 0x14021D900 (RtlDeleteNoSplay.c)
- *     RtlDelete @ 0x14021EBA0 (RtlDelete.c)
+ *     FsRtlFreeTunnelNode @ 0x14029FF6C (FsRtlFreeTunnelNode.c)
+ *     RtlDeleteNoSplay @ 0x14029FFC0 (RtlDeleteNoSplay.c)
+ *     RtlDelete @ 0x140359960 (RtlDelete.c)
  */
 
 __int64 __fastcall FsRtlRemoveNodeFromTunnel(__int64 a1, RTL_SPLAY_LINKS *a2, __int64 a3, _BYTE *a4)

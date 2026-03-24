@@ -1,27 +1,22 @@
 /*
- * XREFs of KiIsKvaShadowNeededForTsa @ 0x140410184
+ * XREFs of KiIsKvaShadowNeededForTsa @ 0x1403F299C
  * Callers:
- *     KiDetectKvaLeakage @ 0x140A8E578 (KiDetectKvaLeakage.c)
+ *     KiDetectKvaLeakage @ 0x14099CAB0 (KiDetectKvaLeakage.c)
  * Callees:
- *     KiDetectHardwareSpecControlFeatures @ 0x14038294C (KiDetectHardwareSpecControlFeatures.c)
- *     KiIsTsaMitigationDesired @ 0x140410324 (KiIsTsaMitigationDesired.c)
- *     KiIsTsaMitigationSupported @ 0x140410340 (KiIsTsaMitigationSupported.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1403A8B3C (KiDetectHardwareSpecControlFeatures.c)
+ *     KiIsTsaMitigationDesired @ 0x1403F2B40 (KiIsTsaMitigationDesired.c)
+ *     KiIsTsaMitigationSupported @ 0x1403F2B5C (KiIsTsaMitigationSupported.c)
  */
 
-__int64 __fastcall KiIsKvaShadowNeededForTsa(__int64 a1)
+_BOOL8 __fastcall KiIsKvaShadowNeededForTsa(__int64 a1)
 {
-  unsigned int v2; // ebx
-  __int128 v4; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v5; // [rsp+30h] [rbp-18h]
+  __int128 v3; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v4; // [rsp+30h] [rbp-18h]
 
-  v5 = 0LL;
   v4 = 0LL;
-  KiDetectHardwareSpecControlFeatures(a1, 0, (__int64)&v4, 0LL);
-  if ( (v4 & 0x2000000) == 0 )
-    return 0LL;
-  v2 = 0;
-  if ( !(unsigned int)KiIsTsaMitigationDesired() )
-    return 0LL;
-  LOBYTE(v2) = (unsigned int)KiIsTsaMitigationSupported(a1) != 0;
-  return v2;
+  v3 = 0LL;
+  KiDetectHardwareSpecControlFeatures(a1, 0, (__int64)&v3, 0LL);
+  return (v3 & 0x2000000) != 0
+      && (unsigned int)KiIsTsaMitigationDesired()
+      && (unsigned int)KiIsTsaMitigationSupported(a1);
 }

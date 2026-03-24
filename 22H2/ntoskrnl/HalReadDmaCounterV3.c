@@ -1,15 +1,15 @@
 /*
- * XREFs of HalReadDmaCounterV3 @ 0x140514D00
+ * XREFs of HalReadDmaCounterV3 @ 0x1404CA290
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaControllerReadDmaCounter @ 0x140516CF0 (HalpDmaControllerReadDmaCounter.c)
+ *     HalpDmaControllerReadDmaCounter @ 0x1404CEB50 (HalpDmaControllerReadDmaCounter.c)
  */
 
 __int64 __fastcall HalReadDmaCounterV3(__int64 a1)
 {
-  if ( *(_BYTE *)(a1 + 441) )
+  if ( *(_BYTE *)(a1 + 433) )
     return 0xFFFFFFFFLL;
   else
-    return HalpDmaControllerReadDmaCounter(*(_QWORD *)(a1 + 368), *(unsigned int *)(a1 + 380));
+    return HalpDmaControllerReadDmaCounter(*(_QWORD *)(a1 + 360), *(unsigned int *)(a1 + 372));
 }

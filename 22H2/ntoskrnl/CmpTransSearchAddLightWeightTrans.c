@@ -1,32 +1,36 @@
 /*
- * XREFs of CmpTransSearchAddLightWeightTrans @ 0x140768DAC
+ * XREFs of CmpTransSearchAddLightWeightTrans @ 0x14066DE54
  * Callers:
- *     CmpTransSearchAddTransFromHive @ 0x140768CB8 (CmpTransSearchAddTransFromHive.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140768D0C (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpTransSearchAddTransFromHive @ 0x14066DD60 (CmpTransSearchAddTransFromHive.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x14066DDB4 (CmpTransSearchAddTransFromKeyBody.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     CmpTransReferenceTransaction @ 0x140768EE0 (CmpTransReferenceTransaction.c)
- *     CmpTransDereferenceTransaction @ 0x140768F38 (CmpTransDereferenceTransaction.c)
- *     CmpBindHiveToTrans @ 0x140768F54 (CmpBindHiveToTrans.c)
- *     CmpTransAllocateTrans @ 0x1407DB594 (CmpTransAllocateTrans.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     CmpTransReferenceTransaction @ 0x14066DFA0 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x14066E000 (CmpTransDereferenceTransaction.c)
+ *     CmpTransAllocateTrans @ 0x14066E01C (CmpTransAllocateTrans.c)
+ *     CmpBindHiveToTrans @ 0x14066E10C (CmpBindHiveToTrans.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall CmpTransSearchAddLightWeightTrans(__int64 a1, __int64 a2, int a3, _QWORD *a4)
+__int64 __fastcall CmpTransSearchAddLightWeightTrans(__int64 a1, __int64 a2, int a3, __int64 *a4)
 {
   unsigned __int64 v5; // rbp
-  int v9; // r15d
+  __int64 v8; // rbx
+  int v9; // r14d
   unsigned int v10; // edi
   __int64 v11; // rax
   signed __int64 Trans; // rax
-  _QWORD *v14; // rsi
+  void *v14; // rsi
   signed __int64 v15; // rax
   struct _KTHREAD *CurrentThread; // rcx
-  _QWORD *v17; // rax
+  signed __int64 v17; // rdi
+  __int64 v18; // rdi
+  __int64 *v19; // rax
 
   v5 = a1 & 0xFFFFFFFFFFFFFFFEuLL;
+  v8 = a1;
   v9 = 0;
   v10 = CmpTransReferenceTransaction(a1);
   if ( (v10 & 0x80000000) != 0 )
@@ -36,57 +40,66 @@ __int64 __fastcall CmpTransSearchAddLightWeightTrans(__int64 a1, __int64 a2, int
   {
     *a4 = v11;
     v10 = 0;
-    goto LABEL_4;
   }
-  if ( !a3 )
+  else if ( a3 )
+  {
+    Trans = CmpTransAllocateTrans(v8, 0LL, 0LL, a2);
+    v14 = (void *)Trans;
+    if ( Trans )
+    {
+      v15 = _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 16), Trans, 0LL);
+      CurrentThread = KeGetCurrentThread();
+      v17 = v15;
+      if ( v15 )
+      {
+        --CurrentThread->KernelApcDisable;
+        v9 = 1;
+        ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
+        v10 = (unsigned int)CmpBindHiveToTrans(a2, v17) != 0 ? -1072103421 : -1072103423;
+      }
+      else
+      {
+        v18 = (__int64)v14;
+        v8 = 0LL;
+        v14 = 0LL;
+        --CurrentThread->KernelApcDisable;
+        ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
+        if ( (*(_DWORD *)(v18 + 48) & 7) != 0 )
+        {
+          v10 = -1072103422;
+LABEL_20:
+          ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          return v10;
+        }
+        *(_DWORD *)(v18 + 48) = 128;
+        v19 = (__int64 *)qword_140C47DA8;
+        if ( *(__int64 **)qword_140C47DA8 != &CmpLightTransactionList )
+          __fastfail(3u);
+        *(_QWORD *)v18 = &CmpLightTransactionList;
+        *(_QWORD *)(v18 + 8) = v19;
+        *v19 = v18;
+        qword_140C47DA8 = v18;
+        ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        *a4 = v18;
+        v10 = 0;
+      }
+      if ( v14 )
+        ExFreePoolWithTag(v14, 0x72544D43u);
+    }
+    else
+    {
+      v10 = -1073741670;
+    }
+  }
+  else
   {
     v10 = -1072103422;
-    goto LABEL_4;
   }
-  Trans = CmpTransAllocateTrans(a1, 0LL, 0LL, a2);
-  v14 = (_QWORD *)Trans;
-  if ( !Trans )
-  {
-    v10 = -1073741670;
-    goto LABEL_4;
-  }
-  v15 = _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 16), Trans, 0LL);
-  CurrentThread = KeGetCurrentThread();
-  if ( v15 )
-  {
-    --CurrentThread->KernelApcDisable;
-    v9 = 1;
-    ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
-    v10 = (unsigned int)CmpBindHiveToTrans(a2) != 0 ? -1072103421 : -1072103423;
-    ExFreePoolWithTag(v14, 0x72544D43u);
-LABEL_4:
-    if ( a1 )
-      CmpTransDereferenceTransaction(a1);
-    if ( !v9 )
-      return v10;
-LABEL_18:
-    ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-    KeLeaveCriticalRegion();
-    return v10;
-  }
-  --CurrentThread->KernelApcDisable;
-  ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
-  if ( (v14[6] & 7) != 0 )
-  {
-    v10 = -1072103422;
-    goto LABEL_18;
-  }
-  *((_DWORD *)v14 + 12) = 128;
-  v17 = (_QWORD *)qword_140C13C28;
-  if ( *(__int64 **)qword_140C13C28 != &CmpLightTransactionList )
-    __fastfail(3u);
-  *v14 = &CmpLightTransactionList;
-  v14[1] = v17;
-  *v17 = v14;
-  qword_140C13C28 = (__int64)v14;
-  ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-  KeLeaveCriticalRegion();
-  v10 = 0;
-  *a4 = v14;
+  if ( v8 )
+    CmpTransDereferenceTransaction(v8);
+  if ( v9 )
+    goto LABEL_20;
   return v10;
 }

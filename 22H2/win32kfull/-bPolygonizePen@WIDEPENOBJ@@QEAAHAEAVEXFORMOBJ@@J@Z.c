@@ -1,14 +1,14 @@
 /*
- * XREFs of ?bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C02F1AFC
+ * XREFs of ?bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C0141678
  * Callers:
- *     ??0WIDENER@@QEAA@AEAVEPATHOBJ@@AEAVEXFORMOBJ@@PEBU_LINEATTRS@@@Z @ 0x1C02F120C (--0WIDENER@@QEAA@AEAVEPATHOBJ@@AEAVEXFORMOBJ@@PEBU_LINEATTRS@@@Z.c)
+ *     ??0WIDENER@@QEAA@AEAVEPATHOBJ@@AEAVEXFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C01400E8 (--0WIDENER@@QEAA@AEAVEPATHOBJ@@AEAVEXFORMOBJ@@PEAU_LINEATTRS@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?bHobbyize@WIDEPENOBJ@@AEAAHQEAVEVECTORFX@@@Z @ 0x1C015D96A (-bHobbyize@WIDEPENOBJ@@AEAAHQEAVEVECTORFX@@@Z.c)
- *     ?bTurnLeftRandom@@YAHPEAVEVECTORFX@@0@Z @ 0x1C015DB80 (-bTurnLeftRandom@@YAHPEAVEVECTORFX@@0@Z.c)
- *     ?bPenFlatten@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z @ 0x1C02F1908 (-bPenFlatten@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z.c)
- *     ?bThicken@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z @ 0x1C02F1CF4 (-bThicken@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z.c)
- *     ?vHalve@@YAXAEAVEVECTORFX@@@Z @ 0x1C02F2938 (-vHalve@@YAXAEAVEVECTORFX@@@Z.c)
+ *     ?bPenFlatten@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z @ 0x1C013F038 (-bPenFlatten@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z.c)
+ *     ?bTurnLeftRandom@@YAHPEAVEVECTORFX@@0@Z @ 0x1C01410B8 (-bTurnLeftRandom@@YAHPEAVEVECTORFX@@0@Z.c)
+ *     ?bHobbyize@WIDEPENOBJ@@AEAAHQEAVEVECTORFX@@@Z @ 0x1C01414A0 (-bHobbyize@WIDEPENOBJ@@AEAAHQEAVEVECTORFX@@@Z.c)
+ *     ?bThicken@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z @ 0x1C0141860 (-bThicken@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z.c)
+ *     ?vHalve@@YAXAEAVEVECTORFX@@@Z @ 0x1C014194C (-vHalve@@YAXAEAVEVECTORFX@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall WIDEPENOBJ::bPolygonizePen(WIDEPENOBJ *this, struct EXFORMOBJ *a2, int a3)
@@ -17,10 +17,10 @@ __int64 __fastcall WIDEPENOBJ::bPolygonizePen(WIDEPENOBJ *this, struct EXFORMOBJ
   int v5; // edx
   int v6; // eax
   int v7; // r8d
-  int v9; // ebx
-  int v10; // r11d
-  int v11; // r10d
-  int v12; // r9d
+  int v8; // ebx
+  int v9; // r11d
+  int v10; // r10d
+  int v11; // r9d
   __int128 v13; // [rsp+20h] [rbp-50h] BYREF
   struct _POINTFIX v14; // [rsp+30h] [rbp-40h] BYREF
   int v15; // [rsp+38h] [rbp-38h]
@@ -78,21 +78,21 @@ __int64 __fastcall WIDEPENOBJ::bPolygonizePen(WIDEPENOBJ *this, struct EXFORMOBJ
   }
   vHalve((struct EVECTORFX *)&v13);
   vHalve((struct EVECTORFX *)((char *)&v13 + 8));
-  v9 = v13 - ((unsigned __int64)(1922922357LL * (int)v13) >> 32);
-  v10 = DWORD1(v13) - ((unsigned __int64)(1922922357LL * SDWORD1(v13)) >> 32);
+  v8 = v13 - ((unsigned __int64)(1922922357LL * (int)v13) >> 32);
+  v9 = DWORD1(v13) - ((unsigned __int64)(1922922357LL * SDWORD1(v13)) >> 32);
   v25 = -DWORD1(v13);
-  v21 = HIDWORD(v13) - v10;
-  v18 = v10 + HIDWORD(v13);
+  v21 = HIDWORD(v13) - v9;
+  v18 = v9 + HIDWORD(v13);
   v19 = *((_QWORD *)&v13 + 1);
-  v11 = DWORD2(v13) - ((unsigned __int64)(1922922357LL * SDWORD2(v13)) >> 32);
+  v10 = DWORD2(v13) - ((unsigned __int64)(1922922357LL * SDWORD2(v13)) >> 32);
   v14 = (struct _POINTFIX)v13;
-  v12 = HIDWORD(v13) - ((unsigned __int64)(1922922357LL * SHIDWORD(v13)) >> 32);
-  v16 = v12 + DWORD1(v13);
+  v11 = HIDWORD(v13) - ((unsigned __int64)(1922922357LL * SHIDWORD(v13)) >> 32);
+  v16 = v11 + DWORD1(v13);
   v24 = -(int)v13;
-  v23 = v12 - DWORD1(v13);
-  v22 = v11 - v13;
-  v20 = DWORD2(v13) - v9;
-  v17 = v9 + DWORD2(v13);
-  v15 = v11 + v13;
+  v23 = v11 - DWORD1(v13);
+  v22 = v10 - v13;
+  v20 = DWORD2(v13) - v8;
+  v17 = v8 + DWORD2(v13);
+  v15 = v10 + v13;
   return WIDEPENOBJ::bPenFlatten((struct _POINTFIX **)this, &v14);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of SeCloseObjectAuditAlarmForNonObObject @ 0x1409CE0F0
+ * XREFs of SeCloseObjectAuditAlarmForNonObObject @ 0x1409213B0
  * Callers:
  *     <none>
  * Callees:
- *     SepAdtCloseObjectAuditAlarm @ 0x1409CB888 (SepAdtCloseObjectAuditAlarm.c)
+ *     SepAdtCloseObjectAuditAlarm @ 0x14091EB48 (SepAdtCloseObjectAuditAlarm.c)
  */
 
 void __fastcall SeCloseObjectAuditAlarmForNonObObject(
         const UNICODE_STRING *a1,
-        __int64 a2,
+        unsigned __int64 a2,
         struct _SECURITY_SUBJECT_CONTEXT *a3,
         char a4)
 {

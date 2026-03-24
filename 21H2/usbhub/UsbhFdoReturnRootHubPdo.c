@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhFdoReturnRootHubPdo @ 0x1C00307E8
+ * XREFs of UsbhFdoReturnRootHubPdo @ 0x1C0031B90
  * Callers:
- *     UsbhPdoInternalDeviceControl @ 0x1C0017C10 (UsbhPdoInternalDeviceControl.c)
+ *     UsbhPdoInternalDeviceControl @ 0x1C0009690 (UsbhPdoInternalDeviceControl.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     UsbhFdoChainIrp @ 0x1C002996C (UsbhFdoChainIrp.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     UsbhFdoChainIrp @ 0x1C002ACBC (UsbhFdoChainIrp.c)
  */
 
 NTSTATUS __fastcall UsbhFdoReturnRootHubPdo(__int64 a1, ULONG_PTR a2, IRP *a3)

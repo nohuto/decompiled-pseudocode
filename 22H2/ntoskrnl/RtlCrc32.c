@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCrc32 @ 0x140463D10
+ * XREFs of RtlCrc32 @ 0x140588A50
  * Callers:
  *     <none>
  * Callees:
- *     RtlpComputeCrcInternal @ 0x1403BE040 (RtlpComputeCrcInternal.c)
+ *     RtlpComputeCrcInternal @ 0x140305D90 (RtlpComputeCrcInternal.c)
  */
 
 __int64 __fastcall RtlCrc32(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)

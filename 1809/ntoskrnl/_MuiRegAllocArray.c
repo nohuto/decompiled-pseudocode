@@ -1,14 +1,14 @@
 /*
- * XREFs of _MuiRegAllocArray @ 0x14018254C
+ * XREFs of _MuiRegAllocArray @ 0x14018256C
  * Callers:
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140182840 (RtlpMuiRegCreateKernelRegistryInfo.c)
- *     RtlpLoadInstallLanguageFallback @ 0x14073C9E4 (RtlpLoadInstallLanguageFallback.c)
- *     _RtlpMuiRegValidateInstalled @ 0x14073E4D0 (_RtlpMuiRegValidateInstalled.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x14073EB20 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x140906A38 (RtlpMuiRegConfigMatchesInstalled.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x1409071B0 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140182860 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x14073C9C4 (RtlpLoadInstallLanguageFallback.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x14073E4B0 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x14073EB00 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x140906A18 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x140907190 (RtlpMuiRegLangInfoMatchesSpec.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

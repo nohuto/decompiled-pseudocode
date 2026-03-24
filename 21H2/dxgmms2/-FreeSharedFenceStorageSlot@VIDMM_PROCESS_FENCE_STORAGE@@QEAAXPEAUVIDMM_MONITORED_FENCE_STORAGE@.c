@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FreeSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x1C001B3B4
+ * XREFs of ?FreeSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x1C0017118
  * Callers:
- *     ?FreeFenceStorageSlot@VIDMM_GLOBAL@@SAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N@Z @ 0x1C0017658 (-FreeFenceStorageSlot@VIDMM_GLOBAL@@SAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N@Z.c)
+ *     ?FreeFenceStorageSlot@VIDMM_GLOBAL@@SAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N@Z @ 0x1C00157C8 (-FreeFenceStorageSlot@VIDMM_GLOBAL@@SAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N@Z.c)
  * Callees:
- *     ??_GVIDMM_FENCE_STORAGE_PAGE@@QEAAPEAXI@Z @ 0x1C0018C24 (--_GVIDMM_FENCE_STORAGE_PAGE@@QEAAPEAXI@Z.c)
+ *     ??_GVIDMM_FENCE_STORAGE_PAGE@@QEAAPEAXI@Z @ 0x1C0015F78 (--_GVIDMM_FENCE_STORAGE_PAGE@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall VIDMM_PROCESS_FENCE_STORAGE::FreeSharedFenceStorageSlot(
@@ -15,7 +15,6 @@ void __fastcall VIDMM_PROCESS_FENCE_STORAGE::FreeSharedFenceStorageSlot(
   VIDMM_FENCE_STORAGE_PAGE **v5; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(this + 7, &LockHandle);
   v3 = *a2;
   *((_QWORD *)v3 + 12) = *((_QWORD *)*a2 + 12) & ~(1LL << ((unsigned __int64)*((unsigned int *)a2 + 4) >> 6));

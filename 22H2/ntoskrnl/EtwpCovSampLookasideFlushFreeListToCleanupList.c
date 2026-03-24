@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x140603928
+ * XREFs of EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1405AF2AC
  * Callers:
- *     EtwpCovSampCaptureCleanupLookasides @ 0x140602FD8 (EtwpCovSampCaptureCleanupLookasides.c)
- *     EtwpCovSampCaptureFreeLookasides @ 0x1409F1040 (EtwpCovSampCaptureFreeLookasides.c)
+ *     EtwpCovSampCaptureCleanupLookasides @ 0x1405AE868 (EtwpCovSampCaptureCleanupLookasides.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x140942958 (EtwpCovSampCaptureFreeLookasides.c)
  * Callees:
- *     RtlpInterlockedFlushSList @ 0x140428870 (RtlpInterlockedFlushSList.c)
- *     EtwpCovSampPushListSList @ 0x140469C1E (EtwpCovSampPushListSList.c)
+ *     RtlpInterlockedFlushSList @ 0x140407030 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampPushListSList @ 0x1405AF6D0 (EtwpCovSampPushListSList.c)
  */
 
 __int64 __fastcall EtwpCovSampLookasideFlushFreeListToCleanupList(union _SLIST_HEADER *a1)
 {
   unsigned __int64 Alignment; // rdi
   unsigned int v2; // ebx
-  struct _SLIST_ENTRY *v3; // rax
-  ULONG v5; // [rsp+30h] [rbp+8h] BYREF
+  PSLIST_ENTRY v3; // rax
+  unsigned int v5; // [rsp+30h] [rbp+8h] BYREF
 
   Alignment = a1[2].Alignment;
   v2 = 0;
@@ -21,7 +21,7 @@ __int64 __fastcall EtwpCovSampLookasideFlushFreeListToCleanupList(union _SLIST_H
   v3 = RtlpInterlockedFlushSList(a1);
   if ( v3 )
   {
-    EtwpCovSampPushListSList((union _SLIST_HEADER *)Alignment, v3, &v5);
+    EtwpCovSampPushListSList(Alignment, v3, &v5);
     _InterlockedExchangeAdd((volatile signed __int32 *)(Alignment + 76), v5);
     return v5;
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryAllFeatureConfigurations @ 0x1409B5E70
+ * XREFs of RtlQueryAllFeatureConfigurations @ 0x140918FB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x1403C78DC (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcValidateFeatureConfigurationType @ 0x1403C7970 (RtlpFcValidateFeatureConfigurationType.c)
- *     RtlpFcBufferManagerReferenceBuffers @ 0x1403C7984 (RtlpFcBufferManagerReferenceBuffers.c)
- *     RtlpFcQueryAllFeatureConfigurationsFromBuffers @ 0x1409BF67C (RtlpFcQueryAllFeatureConfigurationsFromBuffers.c)
+ *     RtlpFcValidateFeatureConfigurationType @ 0x14038C900 (RtlpFcValidateFeatureConfigurationType.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1403A6968 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x1403A6D4C (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcQueryAllFeatureConfigurationsFromBuffers @ 0x14091A26C (RtlpFcQueryAllFeatureConfigurationsFromBuffers.c)
  */
 
 __int64 __fastcall RtlQueryAllFeatureConfigurations(int a1, _QWORD *a2, __int64 a3, __int64 a4)
@@ -21,7 +21,7 @@ __int64 __fastcall RtlQueryAllFeatureConfigurations(int a1, _QWORD *a2, __int64 
   v13[0] = 0LL;
   v12 = 0LL;
   v6 = a1;
-  RtlpFcBufferManagerReferenceBuffers((__int64)qword_140C494B0, (__int64)v13, &v12);
+  RtlpFcBufferManagerReferenceBuffers((__int64)qword_140C48150, (__int64)v13, &v12);
   v8 = RtlpFcValidateFeatureConfigurationType(v6);
   v9 = v12;
   AllFeatureConfigurationsFromBuffers = v8;
@@ -39,6 +39,6 @@ __int64 __fastcall RtlQueryAllFeatureConfigurations(int a1, _QWORD *a2, __int64 
       *a2 = v13[0];
     AllFeatureConfigurationsFromBuffers = 0;
   }
-  RtlpFcBufferManagerDereferenceBuffers((__int64)qword_140C494B0, v9);
+  RtlpFcBufferManagerDereferenceBuffers((__int64)qword_140C48150, v9);
   return (unsigned int)AllFeatureConfigurationsFromBuffers;
 }

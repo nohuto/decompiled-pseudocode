@@ -1,66 +1,64 @@
 /*
- * XREFs of KdRegisterPowerHandler @ 0x1403B2640
+ * XREFs of KdRegisterPowerHandler @ 0x1405108E0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KdRegisterPowerHandler(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  __int64 Pool2; // rax
-  _QWORD *v7; // rdi
-  unsigned __int8 CurrentIrql; // bl
-  _QWORD *v9; // rax
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v7; // rbx
+  unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
-  __int64 v12; // rdx
-  unsigned __int8 v13; // al
+  _QWORD *v11; // rax
+  unsigned __int8 v12; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v15; // r8
-  int v16; // eax
-  bool v17; // zf
+  _DWORD *v14; // r8
+  int v15; // eax
+  bool v16; // zf
 
-  Pool2 = ExAllocatePool2(64LL, 32LL, 1867080779LL);
-  v7 = (_QWORD *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x6F49644Bu);
+  v7 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *(_QWORD *)(Pool2 + 16) = a1;
-  *(_QWORD *)(Pool2 + 24) = a2;
+  PoolWithTag[2] = a1;
+  PoolWithTag[3] = a2;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 15 )
-      LODWORD(v12) = 0x8000;
-    else
-      v12 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-    SchedulerAssist[5] |= v12;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
   KxAcquireSpinLock(&KdpPowerSpinLock);
-  v9 = (_QWORD *)qword_140C56F68;
-  if ( *(__int64 **)qword_140C56F68 != &KdpPowerListHead )
+  v11 = (_QWORD *)qword_140C40898;
+  if ( *(__int64 **)qword_140C40898 != &KdpPowerListHead )
     __fastfail(3u);
   *v7 = &KdpPowerListHead;
-  v7[1] = v9;
-  *v9 = v7;
-  qword_140C56F68 = (__int64)v7;
-  KxReleaseSpinLock((volatile signed __int64 *)&KdpPowerSpinLock);
+  v7[1] = v11;
+  *v11 = v7;
+  qword_140C40898 = (__int64)v7;
+  KxReleaseSpinLock(&KdpPowerSpinLock);
   if ( KiIrqlFlags )
   {
-    v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v15 = CurrentPrcb->SchedulerAssist;
-      v16 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v17 = (v16 & v15[5]) == 0;
-      v15[5] &= v16;
-      if ( v17 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v12 = KeGetCurrentIrql();
+      if ( v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v14 = CurrentPrcb->SchedulerAssist;
+        v15 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v16 = (v15 & v14[5]) == 0;
+        v14[5] &= v15;
+        if ( v16 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);

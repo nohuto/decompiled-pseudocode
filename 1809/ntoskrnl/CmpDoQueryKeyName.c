@@ -3,12 +3,12 @@
  * Callers:
  *     CmpQueryKeyName @ 0x1405D1AC0 (CmpQueryKeyName.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1401B2F98 (CmpIsRegistryLockAcquired.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpCallCallBacks @ 0x1405D1A60 (CmpCallCallBacks.c)
  *     CmPostCallbackNotification @ 0x1405D1A94 (CmPostCallbackNotification.c)
@@ -18,10 +18,10 @@
  *     CmpConstructName @ 0x1405D8B94 (CmpConstructName.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     CmpLockKcbShared @ 0x140644190 (CmpLockKcbShared.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmVirtualKCBToRealPath @ 0x1407F21C0 (CmVirtualKCBToRealPath.c)
+ *     CmpLockKcbShared @ 0x140644170 (CmpLockKcbShared.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmVirtualKCBToRealPath @ 0x1407F21A0 (CmVirtualKCBToRealPath.c)
  */
 
 __int64 __fastcall CmpDoQueryKeyName(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)

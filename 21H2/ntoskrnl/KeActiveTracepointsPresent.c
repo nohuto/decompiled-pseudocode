@@ -1,7 +1,7 @@
 /*
- * XREFs of KeActiveTracepointsPresent @ 0x14038D38C
+ * XREFs of KeActiveTracepointsPresent @ 0x14038DDC4
  * Callers:
- *     PopSaveHiberContext @ 0x140A4B9E0 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x1409937A0 (PopSaveHiberContext.c)
  * Callees:
  *     <none>
  */

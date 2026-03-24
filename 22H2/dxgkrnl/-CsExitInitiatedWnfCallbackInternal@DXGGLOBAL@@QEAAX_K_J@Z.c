@@ -1,132 +1,143 @@
 /*
- * XREFs of ?CsExitInitiatedWnfCallbackInternal@DXGGLOBAL@@QEAAX_K_J@Z @ 0x1C01F2CCC
+ * XREFs of ?CsExitInitiatedWnfCallbackInternal@DXGGLOBAL@@QEAAX_K_J@Z @ 0x1C0269258
  * Callers:
- *     ?CsExitInitiatedWnfCallback@@YAJPEAU_EX_WNF_SUBSCRIPTION@@PEBU_WNF_STATE_NAME@@KKPEBU_WNF_TYPE_ID@@PEAX@Z @ 0x1C01F2C00 (-CsExitInitiatedWnfCallback@@YAJPEAU_EX_WNF_SUBSCRIPTION@@PEBU_WNF_STATE_NAME@@KKPEBU_WNF_TYPE_I.c)
+ *     ?CsExitInitiatedWnfCallback@@YAJPEAU_EX_WNF_SUBSCRIPTION@@PEBU_WNF_STATE_NAME@@KKPEBU_WNF_TYPE_ID@@PEAX@Z @ 0x1C0269130 (-CsExitInitiatedWnfCallback@@YAJPEAU_EX_WNF_SUBSCRIPTION@@PEBU_WNF_STATE_NAME@@KKPEBU_WNF_TYPE_I.c)
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     _tlgKeywordOn @ 0x1C0003734 (_tlgKeywordOn.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C00076A0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z @ 0x1C000B4CC (-SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C001B63C (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapperByVal@$07@@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?ReleaseComponentReferencesHelper@DXGGLOBAL@@QEAAXXZ @ 0x1C01F2F78 (-ReleaseComponentReferencesHelper@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     _tlgKeywordOn @ 0x1C000C284 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z @ 0x1C0039288 (-SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C0046318 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapperByVal@$07@@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ *     ?ReleaseComponentReferencesHelper@DXGGLOBAL@@QEAAXXZ @ 0x1C026B750 (-ReleaseComponentReferencesHelper@DXGGLOBAL@@QEAAXXZ.c)
  */
 
 void __fastcall DXGGLOBAL::CsExitInitiatedWnfCallbackInternal(DXGGLOBAL *this, __int64 a2)
 {
   char v3; // r15
-  DXGGLOBAL *v4; // r14
-  DXGGLOBAL *v5; // rbx
-  signed __int64 v6; // rax
-  signed __int64 v7; // rtt
-  int v8; // eax
-  __int64 v9; // rsi
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  char v13; // dl
-  unsigned int v14; // esi
-  int v15; // [rsp+48h] [rbp-C0h] BYREF
-  int v16; // [rsp+4Ch] [rbp-BCh] BYREF
+  __int64 v4; // rdx
+  signed __int64 v5; // rcx
+  __int64 v6; // r8
+  DXGGLOBAL *v7; // r14
+  DXGGLOBAL *v8; // rbx
+  signed __int64 v9; // rax
+  signed __int64 v10; // rtt
+  int v11; // eax
+  __int64 v12; // rsi
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  unsigned int v17; // esi
+  __int64 v18; // rax
+  __int64 v19; // rax
+  int v20; // [rsp+48h] [rbp-C0h] BYREF
+  int v21; // [rsp+4Ch] [rbp-BCh] BYREF
   union _LARGE_INTEGER PerformanceFrequency; // [rsp+50h] [rbp-B8h] BYREF
-  _BYTE v18[16]; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v19; // [rsp+68h] [rbp-A0h] BYREF
-  _BYTE v20[144]; // [rsp+78h] [rbp-90h] BYREF
+  _BYTE v23[16]; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v24; // [rsp+68h] [rbp-A0h] BYREF
+  _BYTE v25[144]; // [rsp+78h] [rbp-90h] BYREF
 
-  if ( !_InterlockedCompareExchange((volatile signed __int32 *)this + 524, 1, 0) && *((_QWORD *)this + 241) != a2 )
+  if ( !_InterlockedCompareExchange((volatile signed __int32 *)this + 488, 1, 0) && *((_QWORD *)this + 223) != a2 )
   {
-    *((_QWORD *)this + 241) = a2;
+    *((_QWORD *)this + 223) = a2;
     v3 = 0;
-    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v18, (DXGGLOBAL *)((char *)this + 672), 0);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v18);
-    v4 = (DXGGLOBAL *)*((_QWORD *)this + 96);
-    while ( v4 != (DXGGLOBAL *)((char *)this + 768) && v4 )
+    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v23, (DXGGLOBAL *)((char *)this + 584), 0);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v23);
+    v7 = (DXGGLOBAL *)*((_QWORD *)this + 83);
+    while ( v7 != (DXGGLOBAL *)((char *)this + 664) && v7 )
     {
-      v5 = v4;
-      v4 = *(DXGGLOBAL **)v4;
-      if ( *((_QWORD *)v5 + 366) && *((_DWORD *)v5 + 795) && *((_DWORD *)v5 + 792) )
+      v8 = v7;
+      v7 = *(DXGGLOBAL **)v7;
+      if ( *((_QWORD *)v8 + 338) && *((_DWORD *)v8 + 739) && *((_DWORD *)v8 + 736) )
       {
-        _m_prefetchw((char *)v5 + 24);
-        v6 = *((_QWORD *)v5 + 3);
-        while ( v6 )
+        _m_prefetchw((char *)v8 + 24);
+        v9 = *((_QWORD *)v8 + 3);
+        while ( v9 )
         {
-          v7 = v6;
-          v6 = _InterlockedCompareExchange64((volatile signed __int64 *)v5 + 3, v6 + 1, v6);
-          if ( v7 == v6 )
+          v5 = v9 + 1;
+          v10 = v9;
+          v9 = _InterlockedCompareExchange64((volatile signed __int64 *)v8 + 3, v9 + 1, v9);
+          if ( v10 == v9 )
           {
-            LOBYTE(v6) = 1;
+            LOBYTE(v9) = 1;
             break;
           }
         }
-        if ( (_BYTE)v6 )
+        if ( (_BYTE)v9 )
         {
-          COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v20, v5, 0LL);
-          DXGADAPTER::ReleaseReference(v5);
-          v8 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v20, 0LL);
+          COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v25, v8, 0LL);
+          DXGADAPTER::ReleaseReference(v8);
+          v11 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v25, 0LL);
           PerformanceFrequency.QuadPart = 0LL;
-          v9 = v8;
+          v12 = v11;
           KeQueryPerformanceCounter(&PerformanceFrequency);
-          if ( (unsigned int)dword_1C013F918 > 5 && tlgKeywordOn((__int64)&dword_1C013F918, 0x400000000004LL) )
+          if ( (unsigned int)dword_1C00B1A90 > 5 && tlgKeywordOn((__int64)&dword_1C00B1A90, 0x400000000004LL) )
           {
-            v19 = 1000000 * v12 / PerformanceFrequency.QuadPart;
-            v15 = *((_DWORD *)v5 + 104);
-            v16 = *((_DWORD *)v5 + 103);
+            v24 = 1000000 * v16 / PerformanceFrequency.QuadPart;
+            v20 = *((_DWORD *)v8 + 82);
+            v21 = *((_DWORD *)v8 + 81);
             _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
-              v10,
-              byte_1C00A8ABF,
-              v11,
-              v12,
-              (__int64)&v16,
-              (__int64)&v15,
-              (__int64)&v19);
+              v14,
+              byte_1C007FAE4,
+              v15,
+              v16,
+              (__int64)&v21,
+              (__int64)&v20,
+              (__int64)&v24);
           }
-          if ( (int)v9 < 0 )
+          if ( (int)v12 < 0 )
           {
-            WdLogSingleEntry2(3LL, v5, v9);
+            v18 = WdLogNewEntry5_WdWarning(v14, v13, v15);
+            *(_QWORD *)(v18 + 24) = v8;
+            *(_QWORD *)(v18 + 32) = v12;
+            WdLogEvent5_WdWarning(v18);
           }
           else
           {
-            v13 = 0;
-            v14 = 0;
-            if ( *((_DWORD *)v5 + 792) )
+            LOBYTE(v13) = 0;
+            v17 = 0;
+            if ( *((_DWORD *)v8 + 736) )
             {
               do
               {
-                if ( !*(_DWORD *)(520LL * v14 + *((_QWORD *)v5 + 378) + 208) )
+                if ( !*(_DWORD *)(520LL * v17 + *((_QWORD *)v8 + 350) + 208) )
                 {
-                  DXGADAPTER::SetPowerComponentActiveCBInternal(v5, v14, 1u, 0);
-                  v13 = 1;
+                  DXGADAPTER::SetPowerComponentActiveCBInternal(v8, v17, 1u, 0);
+                  LOBYTE(v13) = 1;
                 }
-                ++v14;
+                ++v17;
               }
-              while ( v14 < *((_DWORD *)v5 + 792) );
-              if ( v13 )
+              while ( v17 < *((_DWORD *)v8 + 736) );
+              if ( (_BYTE)v13 )
               {
                 v3 = 1;
-                _InterlockedAdd((volatile signed __int32 *)v5 + 926, 1u);
+                _InterlockedAdd((volatile signed __int32 *)v8 + 870, 1u);
               }
             }
           }
-          COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v20);
+          COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v25, v13);
         }
         else
         {
-          WdLogSingleEntry1(3LL, v5);
+          v19 = WdLogNewEntry5_WdWarning(v5, v4, v6);
+          *(_QWORD *)(v19 + 24) = v8;
+          WdLogEvent5_WdWarning(v19);
         }
       }
     }
-    if ( v3 && KeSetTimer((PKTIMER)((char *)this + 1936), (LARGE_INTEGER)-10000000LL, (PKDPC)((char *)this + 2000)) )
+    if ( v3 && KeSetTimer((PKTIMER)this + 28, (LARGE_INTEGER)-10000000LL, (PKDPC)this + 29) )
     {
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v18);
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v23, v4);
       DXGGLOBAL::ReleaseComponentReferencesHelper(this);
     }
-    _InterlockedExchange((volatile __int32 *)this + 524, 0);
-    if ( v18[8] )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v18);
+    _InterlockedExchange((volatile __int32 *)this + 488, 0);
+    if ( v23[8] )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v23, v4);
   }
 }

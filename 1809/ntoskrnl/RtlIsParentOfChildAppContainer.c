@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlIsParentOfChildAppContainer @ 0x140654C54
+ * XREFs of RtlIsParentOfChildAppContainer @ 0x140654C34
  * Callers:
  *     SepSetTokenCapabilities @ 0x1405BCEA4 (SepSetTokenCapabilities.c)
  *     SeTokenCanImpersonate @ 0x1406380E0 (SeTokenCanImpersonate.c)
- *     SepSetTokenPackage @ 0x14065BD08 (SepSetTokenPackage.c)
- *     SepCheckCreateLowBox @ 0x1406CBE84 (SepCheckCreateLowBox.c)
- *     SepIsParentOfChildAppContainer @ 0x1408A453C (SepIsParentOfChildAppContainer.c)
+ *     SepSetTokenPackage @ 0x14065BCE8 (SepSetTokenPackage.c)
+ *     SepCheckCreateLowBox @ 0x1406CBE64 (SepCheckCreateLowBox.c)
+ *     SepIsParentOfChildAppContainer @ 0x1408A451C (SepIsParentOfChildAppContainer.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x1400DCAD0 (RtlSubAuthoritySid.c)
- *     RtlGetAppContainerSidType @ 0x140654B80 (RtlGetAppContainerSidType.c)
+ *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
+ *     RtlGetAppContainerSidType @ 0x140654B60 (RtlGetAppContainerSidType.c)
  */
 
 char __fastcall RtlIsParentOfChildAppContainer(PSID Sid, PSID a2)

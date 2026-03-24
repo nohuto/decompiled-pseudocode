@@ -1,29 +1,27 @@
 /*
- * XREFs of ?GetHitTestAttributes@CWheelEvent@CMouseProcessor@@UEBA?AW4DIT_HITTESTATTRIBUTES@@XZ @ 0x1C01F7140
+ * XREFs of ?GetHitTestAttributes@CWheelEvent@CMouseProcessor@@UEBA?AW4DIT_HITTESTATTRIBUTES@@XZ @ 0x1C01C0190
  * Callers:
  *     <none>
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-int __fastcall CMouseProcessor::CWheelEvent::GetHitTestAttributes(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+int __fastcall CMouseProcessor::CWheelEvent::GetHitTestAttributes(__int64 a1)
 {
-  int v4; // edi
-  int v6; // eax
-  unsigned int v7; // ebx
-  char v8; // cl
+  __int64 v1; // rax
+  int v3; // edi
+  unsigned int v4; // edx
   int result; // eax
 
-  v4 = *(__int16 *)(a1 + 32);
-  if ( !*(_WORD *)(a1 + 32) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 7527);
-  v6 = *(_DWORD *)(a1 + 28);
-  v7 = (((v4 >> 15) & 0xFFFFFFFE) + 3) | 4;
-  if ( v6 != 1 )
-    v7 = ((v4 >> 15) & 0xFFFFFFFE) + 3;
-  v8 = *(_BYTE *)(SGDGetUserSessionState(((v4 >> 15) & 0xFFFFFFFE) + 3, a2, a3, a4) + 13996);
-  result = v7 | 0x100;
-  if ( (v8 & 4) == 0 )
-    return v7;
+  v1 = *(_QWORD *)(a1 + 8);
+  v3 = *(__int16 *)(v1 + 30);
+  if ( !*(_WORD *)(v1 + 30) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 7213);
+  v4 = (((v3 >> 15) & 0xFFFFFFFE) + 3) | 4;
+  if ( *(_DWORD *)(a1 + 28) != 1 )
+    v4 = ((v3 >> 15) & 0xFFFFFFFE) + 3;
+  result = v4 | 0x100;
+  if ( (BYTE4(gafAsyncKeyState) & 4) == 0 )
+    return v4;
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of IoEnumerateEnvironmentVariablesEx @ 0x1408211CC
+ * XREFs of IoEnumerateEnvironmentVariablesEx @ 0x1408211AC
  * Callers:
- *     NtEnumerateBootEntries @ 0x1408D38F0 (NtEnumerateBootEntries.c)
- *     NtEnumerateDriverEntries @ 0x1408D3F40 (NtEnumerateDriverEntries.c)
- *     NtEnumerateSystemEnvironmentValuesEx @ 0x1408D43F0 (NtEnumerateSystemEnvironmentValuesEx.c)
+ *     NtEnumerateBootEntries @ 0x1408D38D0 (NtEnumerateBootEntries.c)
+ *     NtEnumerateDriverEntries @ 0x1408D3F20 (NtEnumerateDriverEntries.c)
+ *     NtEnumerateSystemEnvironmentValuesEx @ 0x1408D43D0 (NtEnumerateSystemEnvironmentValuesEx.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     IopOpenSystemVariableDevice @ 0x1408222D8 (IopOpenSystemVariableDevice.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     IopOpenSystemVariableDevice @ 0x1408222B8 (IopOpenSystemVariableDevice.c)
  */
 
 __int64 __fastcall IoEnumerateEnvironmentVariablesEx(unsigned int a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -69,7 +69,7 @@ __int64 __fastcall IoEnumerateEnvironmentVariablesEx(unsigned int a1, __int64 a2
     v21 = 4;
     v24 = 4;
     v27 = 1;
-    TlgWrite(&stru_140400AB0, &unk_14036D02F, 0LL, 0LL, 6u, &pData);
+    TlgWrite(&stru_140400AB0, &unk_14036D13F, 0LL, 0LL, 6u, &pData);
   }
   return (unsigned int)v8;
 }

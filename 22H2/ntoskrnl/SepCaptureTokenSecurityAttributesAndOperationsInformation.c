@@ -1,14 +1,14 @@
 /*
- * XREFs of SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x1407F0EA0
+ * XREFs of SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x1406EEAEC
  * Callers:
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
  * Callees:
- *     SepCaptureTokenSecurityOperations @ 0x140370508 (SepCaptureTokenSecurityOperations.c)
- *     SepCaptureTokenSecurityAttributesInformation @ 0x1407F1020 (SepCaptureTokenSecurityAttributesInformation.c)
- *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x1407F1650 (SepFreeCapturedTokenSecurityAttributesInformation.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     SepCaptureTokenSecurityOperations @ 0x140348314 (SepCaptureTokenSecurityOperations.c)
+ *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x1406EE9DC (SepFreeCapturedTokenSecurityAttributesInformation.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x1406EEC68 (SepCaptureTokenSecurityAttributesInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall SepCaptureTokenSecurityAttributesAndOperationsInformation(_QWORD *a1, char a2, _QWORD *a3)
@@ -20,8 +20,8 @@ NTSTATUS __fastcall SepCaptureTokenSecurityAttributesAndOperationsInformation(_Q
   NTSTATUS result; // eax
   int v10; // r9d
   int v11; // edi
-  _QWORD *Pool2; // rax
-  PVOID v13; // rbx
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v13; // rbx
   PVOID v14; // rcx
   PVOID P; // [rsp+80h] [rbp+18h] BYREF
   PVOID v16; // [rsp+88h] [rbp+20h] BYREF
@@ -74,17 +74,17 @@ LABEL_8:
     }
     else
     {
-      Pool2 = (_QWORD *)ExAllocatePool2(256LL, 16LL, 1866556755LL);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x6F416553u);
       v13 = v16;
       v14 = P;
-      if ( !Pool2 )
+      if ( !PoolWithTag )
       {
         v11 = -1073741801;
         goto LABEL_26;
       }
-      Pool2[1] = P;
-      *Pool2 = v13;
-      *a3 = Pool2;
+      PoolWithTag[1] = P;
+      *PoolWithTag = v13;
+      *a3 = PoolWithTag;
       v11 = 0;
     }
     if ( v11 >= 0 )

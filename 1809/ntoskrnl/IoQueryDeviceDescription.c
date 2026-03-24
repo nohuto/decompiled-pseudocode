@@ -1,14 +1,14 @@
 /*
- * XREFs of IoQueryDeviceDescription @ 0x1407194A0
+ * XREFs of IoQueryDeviceDescription @ 0x140719480
  * Callers:
  *     <none>
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopOpenRegistryKey @ 0x1406C68D0 (IopOpenRegistryKey.c)
- *     pIoQueryBusDescription @ 0x1407195B4 (pIoQueryBusDescription.c)
+ *     IopOpenRegistryKey @ 0x1406C68B0 (IopOpenRegistryKey.c)
+ *     pIoQueryBusDescription @ 0x140719594 (pIoQueryBusDescription.c)
  */
 
 NTSTATUS __stdcall IoQueryDeviceDescription(

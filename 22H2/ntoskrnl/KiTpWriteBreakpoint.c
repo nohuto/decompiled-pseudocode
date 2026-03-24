@@ -1,54 +1,49 @@
 /*
- * XREFs of KiTpWriteBreakpoint @ 0x14057EF5C
+ * XREFs of KiTpWriteBreakpoint @ 0x14051D3A8
  * Callers:
- *     KiTpHandleTrap @ 0x14057ED10 (KiTpHandleTrap.c)
- *     KeSetTracepoint @ 0x140975DE0 (KeSetTracepoint.c)
+ *     KiTpHandleTrap @ 0x14051D110 (KiTpHandleTrap.c)
+ *     KeSetTracepoint @ 0x1408BC3C0 (KeSetTracepoint.c)
  * Callees:
- *     KiTpWriteMemory @ 0x14057EFFC (KiTpWriteMemory.c)
- *     MmWriteSystemImageTracepoint @ 0x1406433DC (MmWriteSystemImageTracepoint.c)
+ *     KiTpWriteMemory @ 0x14051D43C (KiTpWriteMemory.c)
+ *     MmWriteSystemImageTracepoint @ 0x14053F638 (MmWriteSystemImageTracepoint.c)
  */
 
 __int64 __fastcall KiTpWriteBreakpoint(__int64 a1, __int64 a2, __int64 a3)
 {
-  char v3; // si
-  _BYTE *v5; // rdi
+  char v3; // di
   __int64 result; // rax
-  __int64 v7; // r8
-  __int64 v8; // rcx
-  int *v9; // r9
-  int v10; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v6; // r8
+  __int64 v7; // rcx
+  int *v8; // r9
+  int v9; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = a2;
   if ( *(_BYTE *)(a1 + 50) || !VslVsmEnabled )
     goto LABEL_12;
-  v5 = (_BYTE *)(a1 + 49);
-  if ( !(_BYTE)a2 || *v5 )
+  if ( !(_BYTE)a2 || *(_BYTE *)(a1 + 49) )
     a2 = 0LL;
   else
     LOBYTE(a2) = 1;
   LOBYTE(a3) = v3;
   result = MmWriteSystemImageTracepoint(*(_QWORD *)(a1 + 8), a2, a3);
-  if ( !*v5 && (int)result >= 0 )
-  {
-    *v5 = 1;
-    return result;
-  }
+  if ( !*(_BYTE *)(a1 + 49) && (int)result >= 0 )
+    *(_BYTE *)(a1 + 49) = 1;
   if ( (_DWORD)result == -1073741637 || (_DWORD)result == -1073741667 )
   {
 LABEL_12:
-    v7 = *(_QWORD *)(a1 + 8);
+    v6 = *(_QWORD *)(a1 + 8);
     LOBYTE(a2) = *(_BYTE *)(a1 + 50);
-    v8 = *(_QWORD *)(a1 + 16);
+    v7 = *(_QWORD *)(a1 + 16);
     if ( v3 )
     {
-      v10 = 204;
-      v9 = &v10;
+      v9 = 204;
+      v8 = &v9;
     }
     else
     {
-      v9 = (int *)(a1 + 51);
+      v8 = (int *)(a1 + 51);
     }
-    return KiTpWriteMemory(v8, a2, v7, v9);
+    return KiTpWriteMemory(v7, a2, v6, v8);
   }
   return result;
 }

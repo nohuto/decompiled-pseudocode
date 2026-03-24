@@ -1,28 +1,23 @@
 /*
- * XREFs of KiComputePriorityFloor @ 0x1402B0E0C
+ * XREFs of KiComputePriorityFloor @ 0x140230730
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14023A2B0 (KiDeferredReadySingleThread.c)
- *     KeYieldExecution @ 0x1402469D0 (KeYieldExecution.c)
- *     KiDirectSwitchThread @ 0x1402B1870 (KiDirectSwitchThread.c)
- *     KiRemoveBoostThread @ 0x1402BB220 (KiRemoveBoostThread.c)
- *     KiUpdateVPBackingThreadPriority @ 0x14034DCD8 (KiUpdateVPBackingThreadPriority.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056E73C (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KiSetPriorityThread @ 0x14022FC10 (KiSetPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x14022FF20 (KeSetActualBasePriorityThread.c)
+ *     KiDirectSwitchThread @ 0x14024C1B0 (KiDirectSwitchThread.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x140258670 (KiUpdateVPBackingThreadPriority.c)
+ *     KiDeferredReadySingleThread @ 0x1402C4550 (KiDeferredReadySingleThread.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall KiComputePriorityFloor(__int64 a1, char a2)
+__int64 __fastcall KiComputePriorityFloor(__int64 a1, unsigned __int8 a2)
 {
   unsigned int v2; // eax
-  char v3; // r9
+  int v4; // r8d
 
   v2 = *(_DWORD *)(a1 + 856);
-  v3 = a2;
-  if ( v2 )
-  {
-    _BitScanReverse(&v2, v2);
-    if ( a2 < (char)v2 )
-      return v2;
-  }
-  return v3;
+  if ( v2 && (_BitScanReverse((unsigned int *)&v4, v2), (char)a2 < v4) )
+    return (unsigned __int8)v4;
+  else
+    return a2;
 }

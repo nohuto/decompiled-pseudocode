@@ -1,29 +1,29 @@
 /*
- * XREFs of DbgUnicodeStringToAnsiString @ 0x14020AA14
+ * XREFs of DbgUnicodeStringToAnsiString @ 0x140372834
  * Callers:
- *     DbgLoadImageSymbolsUnicode @ 0x14020A9BC (DbgLoadImageSymbolsUnicode.c)
- *     DbgUnLoadImageSymbolsUnicode @ 0x14020B834 (DbgUnLoadImageSymbolsUnicode.c)
- *     MiLoadUserSymbols @ 0x140A30B64 (MiLoadUserSymbols.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x140372784 (DbgLoadImageSymbolsUnicode.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x14037312C (DbgUnLoadImageSymbolsUnicode.c)
+ *     MiLoadUserSymbols @ 0x1407D0D2C (MiLoadUserSymbols.c)
  * Callees:
- *     RtlxUnicodeStringToOemSize @ 0x1407561F0 (RtlxUnicodeStringToOemSize.c)
- *     RtlUnicodeStringToAnsiString @ 0x140758B90 (RtlUnicodeStringToAnsiString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
+ *     RtlxUnicodeStringToAnsiSize @ 0x14075D380 (RtlxUnicodeStringToAnsiSize.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall DbgUnicodeStringToAnsiString(PANSI_STRING DestinationString, PCUNICODE_STRING SourceString)
 {
   ULONG v4; // eax
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
 
-  v4 = RtlxUnicodeStringToOemSize(SourceString);
+  v4 = RtlxUnicodeStringToAnsiSize(SourceString);
   if ( v4 <= 0xFFFF )
   {
     DestinationString->MaximumLength = v4;
     DestinationString->Length = v4 - 1;
-    Pool2 = (char *)ExAllocatePool2(64LL, v4, 1682730317LL);
-    DestinationString->Buffer = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v4, 0x644C6D4Du);
+    DestinationString->Buffer = PoolWithTag;
+    if ( PoolWithTag )
     {
       if ( RtlUnicodeStringToAnsiString(DestinationString, SourceString, 0) >= 0 )
         return 1LL;

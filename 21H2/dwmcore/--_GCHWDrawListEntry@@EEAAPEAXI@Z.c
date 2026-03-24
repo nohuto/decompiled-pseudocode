@@ -1,70 +1,88 @@
 /*
- * XREFs of ??_GCHWDrawListEntry@@EEAAPEAXI@Z @ 0x1800B3DC0
+ * XREFs of ??_GCHWDrawListEntry@@EEAAPEAXI@Z @ 0x1800551A0
  * Callers:
- *     <none>
+ *     ??_ECHWDrawListEntry@@GBA@EAAPEAXI@Z @ 0x1800F6470 (--_ECHWDrawListEntry@@GBA@EAAPEAXI@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ??0CThreadContext@@AEAA@XZ @ 0x1800F1BC4 (--0CThreadContext@@AEAA@XZ.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?clear_region@?$vector_facade@UFrameData@CDrawListEntry@@V?$buffer_impl@UFrameData@CDrawListEntry@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18001A544 (-clear_region@-$vector_facade@UFrameData@CDrawListEntry@@V-$buffer_impl@UFrameData@CDrawListEntr.c)
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x180055FE8 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
-CHWDrawListEntry *__fastcall CHWDrawListEntry::`scalar deleting destructor'(CHWDrawListEntry *this, char a2)
+CHWDrawListEntry *__fastcall CHWDrawListEntry::`scalar deleting destructor'(
+        CHWDrawListEntry *this,
+        char a2,
+        unsigned int a3)
 {
-  __int64 v3; // rcx
-  void (__fastcall ***v5)(_QWORD, __int64); // rcx
-  __int64 v6; // rcx
-  _QWORD *Value; // rbx
-  CThreadContext *v9; // rax
+  __int64 v5; // rcx
+  void (__fastcall ***v6)(_QWORD, __int64); // rcx
+  __int64 v7; // rcx
+  CHWDrawListEntry **v8; // rsi
+  CHWDrawListEntry *v9; // rdi
   __int64 v10; // rcx
-  CThreadContext *v11; // rax
+  int Current; // eax
+  struct CThreadContext *v12; // rcx
+  HANDLE ProcessHeap; // rax
   void *retaddr; // [rsp+38h] [rbp+0h]
+  struct CThreadContext *v16; // [rsp+40h] [rbp+8h] BYREF
 
   --CHWDrawListEngineMetrics::s_cDrawListEntries;
-  *(_QWORD *)this = &CHWDrawListEntry::`vftable';
-  v3 = *((_QWORD *)this + 9);
-  if ( v3 )
-  {
-    *((_QWORD *)this + 9) = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 8LL))(v3);
-  }
-  v5 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 8);
+  *(_QWORD *)this = &CHWDrawListEntry::`vftable'{for `CMILRefCountBase'};
+  *((_QWORD *)this + 2) = &CHWDrawListEntry::`vftable'{for `CBaseDrawListEntry'};
+  v5 = *((_QWORD *)this + 24);
   if ( v5 )
-    (**v5)(v5, 1LL);
-  v6 = *((_QWORD *)this + 7);
+  {
+    *((_QWORD *)this + 24) = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 8LL))(v5);
+  }
+  v6 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 23);
   if ( v6 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
+    (**v6)(v6, 1LL);
+  v7 = *((_QWORD *)this + 22);
+  if ( v7 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+  v8 = (CHWDrawListEntry **)((char *)this + 64);
+  v9 = (CHWDrawListEntry *)*((_QWORD *)this + 8);
+  v10 = *((_QWORD *)this + 9) - (_QWORD)v9;
+  if ( v10 / 76 )
+  {
+    detail::vector_facade<CDrawListEntry::FrameData,detail::buffer_impl<CDrawListEntry::FrameData,1,1,detail::liberal_expansion_policy>>::clear_region(
+      (__int64 *)this + 8,
+      0LL,
+      v10 / 76);
+    v9 = *v8;
+  }
+  *v8 = 0LL;
+  if ( v9 == (CHWDrawListEntry *)((char *)this + 88) )
+    v9 = 0LL;
+  if ( v9 )
+  {
+    ProcessHeap = GetProcessHeap();
+    HeapFree(ProcessHeap, 0, v9);
+  }
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
     {
-      __global_delete(this, 0x50uLL);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0xC8, a3);
     }
     else
     {
-      Value = TlsGetValue(CThreadContext::s_dwTlsIndex);
-      if ( !Value )
+      Current = CThreadContext::GetCurrent(&v16);
+      if ( Current < 0 )
+        ModuleFailFastForHRESULT((unsigned int)Current, retaddr);
+      v12 = v16;
+      if ( *((_DWORD *)v16 + 19) >= *((_DWORD *)v16 + 18) )
       {
-        v9 = (CThreadContext *)operator new(0x150uLL);
-        if ( !v9 || (v11 = CThreadContext::CThreadContext(v9), (Value = v11) == 0LL) )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, -2147024882, 0x42u);
-          ModuleFailFastForHRESULT(2147942414LL, retaddr);
-        }
-        TlsSetValue(CThreadContext::s_dwTlsIndex, v11);
-      }
-      if ( *((_DWORD *)Value + 33) >= *((_DWORD *)Value + 32) )
-      {
-        DefaultHeap::Free(this);
+        operator delete(this);
       }
       else
       {
-        *(_QWORD *)this = Value[17];
-        ++*((_DWORD *)Value + 33);
-        Value[17] = this;
+        *(_QWORD *)this = *((_QWORD *)v16 + 10);
+        ++*((_DWORD *)v12 + 19);
+        *((_QWORD *)v12 + 10) = this;
       }
     }
   }

@@ -1,8 +1,7 @@
 /*
- * XREFs of ?DelegationResponseToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C01B54B0
+ * XREFs of ?DelegationResponseToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C01DFE48
  * Callers:
- *     ?HandleDelegatedInput@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@K@Z @ 0x1C01504FA (-HandleDelegatedInput@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@K@Z.c)
- *     ?ShellHandwritingDelegationHandleDelegatedInput@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@K@Z @ 0x1C01B5AAC (-ShellHandwritingDelegationHandleDelegatedInput@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@K@Z.c)
+ *     ?HandleDelegatedInput@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@K@Z @ 0x1C01E0334 (-HandleDelegatedInput@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@K@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of UpdatesLockedForDwm @ 0x1C009B210
+ * XREFs of UpdatesLockedForDwm @ 0x1C0086290
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall UpdatesLockedForDwm(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall UpdatesLockedForDwm(__int64 a1, __int64 a2)
 {
-  unsigned int v3; // ebx
+  unsigned int v2; // ebx
 
-  v3 = 0;
-  if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceRoutine) )
-    return PsGetCurrentProcess(a1, a2, a3) != *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels;
-  return v3;
+  v2 = 0;
+  if ( g_bLockUpdatesForDwm )
+    return PsGetCurrentProcess(a1, a2) != (_QWORD)g_pepDwm;
+  return v2;
 }

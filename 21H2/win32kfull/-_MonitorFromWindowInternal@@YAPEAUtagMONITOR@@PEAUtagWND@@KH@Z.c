@@ -1,22 +1,23 @@
 /*
- * XREFs of ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C007B464
+ * XREFs of ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C0042200
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     xxxInitSendValidateMinMaxInfoEx @ 0x1C0063E00 (xxxInitSendValidateMinMaxInfoEx.c)
- *     CalcWindowFullScreen @ 0x1C006C0E8 (CalcWindowFullScreen.c)
- *     GetNewMonitor @ 0x1C006F304 (GetNewMonitor.c)
- *     SelectWindowRgn @ 0x1C00847C0 (SelectWindowRgn.c)
- *     SkipWindowOnMonitor @ 0x1C00CDFE8 (SkipWindowOnMonitor.c)
- *     ?TraceLoggingProcessMonitorInfoUpdateHelper@@YAXQEAUtagWND@@H@Z @ 0x1C00FD850 (-TraceLoggingProcessMonitorInfoUpdateHelper@@YAXQEAUtagWND@@H@Z.c)
- *     IsSmallerThanScreen @ 0x1C014CE30 (IsSmallerThanScreen.c)
- *     ?FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z @ 0x1C01CC428 (-FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z.c)
- *     NtUserSetWindowShowState @ 0x1C01FE820 (NtUserSetWindowShowState.c)
- *     ?xxxMNPositionHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUtagMONITOR@@@Z @ 0x1C022F9FC (-xxxMNPositionHierarchy@@YAIAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUt.c)
- *     xxxMenuWindowProc @ 0x1C0234200 (xxxMenuWindowProc.c)
+ *     SkipWindowOnMonitor @ 0x1C00281D0 (SkipWindowOnMonitor.c)
+ *     IsSmallerThanScreen @ 0x1C002C4B0 (IsSmallerThanScreen.c)
+ *     ?TraceLoggingProcessMonitorInfoUpdateHelper@@YAXQEAUtagWND@@H@Z @ 0x1C003DF58 (-TraceLoggingProcessMonitorInfoUpdateHelper@@YAXQEAUtagWND@@H@Z.c)
+ *     xxxInitSendValidateMinMaxInfoEx @ 0x1C0064D40 (xxxInitSendValidateMinMaxInfoEx.c)
+ *     CalcWindowFullScreen @ 0x1C006AA64 (CalcWindowFullScreen.c)
+ *     GetNewMonitor @ 0x1C006BF5C (GetNewMonitor.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     SelectWindowRgn @ 0x1C0111AAC (SelectWindowRgn.c)
+ *     ?FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z @ 0x1C01CFFD0 (-FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z.c)
+ *     NtUserSetWindowShowState @ 0x1C0203380 (NtUserSetWindowShowState.c)
+ *     ?xxxEndSetWindowArrangement@@YA_NPEAUtagWND@@PEAUtagRECT@@1K@Z @ 0x1C020DF30 (-xxxEndSetWindowArrangement@@YA_NPEAUtagWND@@PEAUtagRECT@@1K@Z.c)
+ *     ?xxxMNPositionHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUtagMONITOR@@@Z @ 0x1C0236330 (-xxxMNPositionHierarchy@@YAIAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUt.c)
+ *     xxxMenuWindowProc @ 0x1C023BBA0 (xxxMenuWindowProc.c)
  * Callees:
- *     _GetProp @ 0x1C006B844 (_GetProp.c)
- *     _MonitorFromRect @ 0x1C007B570 (_MonitorFromRect.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     _MonitorFromRect @ 0x1C0042310 (_MonitorFromRect.c)
+ *     _GetProp @ 0x1C006B990 (_GetProp.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 struct tagMONITOR *__fastcall _MonitorFromWindowInternal(struct tagWND *a1, int a2, int a3)
@@ -33,7 +34,7 @@ struct tagMONITOR *__fastcall _MonitorFromWindowInternal(struct tagWND *a1, int 
   {
     if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0x20) == 0 )
       goto LABEL_6;
-    Prop = (struct tagRECT *)GetProp((__int64)a1, LOWORD(WPP_MAIN_CB.Dpc.TargetInfoAsUlong), 1u);
+    Prop = (struct tagRECT *)GetProp(a1, (unsigned __int16)WPP_MAIN_CB.DeviceQueue.Type, 1LL);
     v8 = Prop;
     if ( Prop )
     {
@@ -53,11 +54,7 @@ LABEL_6:
       v9 = *v8;
 LABEL_8:
       v11 = v9;
-      ((void (__fastcall *)(struct tagRECT *, struct tagRECT *, _QWORD, _QWORD))LogicalToPhysicalDPIRect)(
-        &v11,
-        &v11,
-        *(unsigned int *)(v7 + 288),
-        0LL);
+      LogicalToPhysicalDPIRect(&v11, &v11, *(unsigned int *)(v7 + 288), 0LL);
       v8 = &v11;
       return (struct tagMONITOR *)MonitorFromRect(v8);
     }

@@ -1,143 +1,75 @@
 /*
- * XREFs of ?CitpStart@@YAJXZ @ 0x1C00B6228
+ * XREFs of ?CitpStart@@YAJXZ @ 0x1C008C9CC
  * Callers:
- *     ?CitpInitialize@@YAJPEBG@Z @ 0x1C00B6140 (-CitpInitialize@@YAJPEBG@Z.c)
+ *     ?CitpInitialize@@YAJPEBG@Z @ 0x1C008C848 (-CitpInitialize@@YAJPEBG@Z.c)
  * Callees:
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     ?CitpContextCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00A44B0 (-CitpContextCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
- *     ?CitpIsInteractiveSession@@YAEXZ @ 0x1C00B6534 (-CitpIsInteractiveSession@@YAEXZ.c)
- *     ?CitpContextTrackingDataStart@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00B65E0 (-CitpContextTrackingDataStart@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
- *     ?CitpContextInitialize@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00B6634 (-CitpContextInitialize@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
- *     ?CitpLogFailureWorker@@YAXJPEBDI@Z @ 0x1C0233E40 (-CitpLogFailureWorker@@YAXJPEBDI@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     ?CitpContextTrackingDataStart@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008CA7C (-CitpContextTrackingDataStart@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpContextInitialize@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008CACC (-CitpContextInitialize@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpContextCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008CD8C (-CitpContextCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpUpdateBootStats@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008CF40 (-CitpUpdateBootStats@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpIsInteractiveSession@@YAEXZ @ 0x1C008D944 (-CitpIsInteractiveSession@@YAEXZ.c)
+ *     ?CitpPostUpdateUseInfoLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008D970 (-CitpPostUpdateUseInfoLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpDPDataLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008DCFC (-CitpDPDataLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpLogFailureWorker@@YAXJPEBDI@Z @ 0x1C01FDFC0 (-CitpLogFailureWorker@@YAXJPEBDI@Z.c)
  */
 
 __int64 CitpStart(void)
 {
-  unsigned int v0; // edi
-  NSInstrumentation::CLeakTrackingAllocator *v1; // rsi
-  int v2; // eax
-  __int64 v3; // rdx
-  __int64 Pool2; // rbx
-  struct _CIT_IMPACT_CONTEXT *v5; // rsi
-  int v6; // r14d
-  __int16 v7; // ax
-  _QWORD *v9; // rax
-  __int64 v10; // r10
-  _QWORD v11[2]; // [rsp+20h] [rbp-79h] BYREF
-  PVOID BackTrace[24]; // [rsp+30h] [rbp-69h] BYREF
-  unsigned int v13; // [rsp+100h] [rbp+67h] BYREF
-  unsigned __int64 v14; // [rsp+108h] [rbp+6Fh] BYREF
-  __int64 v15; // [rsp+110h] [rbp+77h] BYREF
-  __int64 v16; // [rsp+118h] [rbp+7Fh] BYREF
+  struct _CIT_IMPACT_CONTEXT *v0; // rax
+  const char *v1; // rdx
+  __int64 v2; // rdi
+  int v3; // ebx
+  __int16 v4; // ax
 
-  v0 = 0;
-  if ( byte_1C0293D11 )
+  if ( byte_1C0254561 )
+  {
     return (unsigned int)-1073741431;
-  if ( !CitpIsInteractiveSession() )
-    return (unsigned int)-1073741637;
-  v1 = gpLeakTrackingAllocator;
-  v15 = 260LL;
-  v13 = 1231254357;
-  v2 = *(_DWORD *)gpLeakTrackingAllocator;
-  v3 = 312LL;
-  v16 = 312LL;
-  if ( !v2 )
-  {
-    Pool2 = ExAllocatePool2(260LL, 312LL, 1231254357LL);
-    if ( Pool2 )
-      _InterlockedIncrement64((volatile signed __int64 *)v1 + 14);
-    goto LABEL_6;
   }
-  if ( v2 == 1 )
+  else if ( CitpIsInteractiveSession() )
   {
-    if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x49637355u) )
-      goto LABEL_30;
-    v9 = (_QWORD *)ExAllocatePool2(v15 & 0xFFFFFFFFFFFFFFFDuLL, 328LL, v13);
-    Pool2 = (__int64)v9;
-    if ( !v9
-      || (_InterlockedIncrement64((volatile signed __int64 *)v1 + 14),
-          *v9 = 1231254357LL,
-          Pool2 = (__int64)(v9 + 2),
-          v9 == (_QWORD *)-16LL) )
+    v0 = (struct _CIT_IMPACT_CONTEXT *)Win32AllocPool(896LL, 0x49637355u);
+    v2 = (__int64)v0;
+    if ( v0 )
     {
-      NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-        *((NSInstrumentation::CPointerHashTable **)v1 + 1),
-        (const void *)0x49637355);
+      CitpContextInitialize(v0);
+      v3 = CitpContextTrackingDataStart((struct _CIT_IMPACT_CONTEXT *)v2);
+      if ( v3 >= 0 )
+      {
+        v4 = MEMORY[0xFFFFF780000002C4];
+        if ( MEMORY[0xFFFFF780000002C4] > 0xFFFFu )
+          v4 = -1;
+        v3 = 0;
+        *(_WORD *)(v2 + 116) = v4;
+      }
+      if ( v3 >= 0 )
+      {
+        xmmword_1C0254590 = (struct _CIT_IMPACT_CONTEXT *)v2;
+        v2 = 0LL;
+        if ( !(unsigned __int8)RtlIsMultiSessionSku() )
+        {
+          CitpPostUpdateUseInfoLoad(xmmword_1C0254590);
+          CitpDPDataLoad(xmmword_1C0254590);
+          CitpUpdateBootStats(xmmword_1C0254590);
+        }
+        v3 = 0;
+      }
+      if ( v2 )
+      {
+        CitpContextCleanup((struct _CIT_IMPACT_CONTEXT *)v2);
+        Win32FreePool(v2);
+      }
     }
-LABEL_6:
-    v5 = (struct _CIT_IMPACT_CONTEXT *)Pool2;
-    if ( Pool2 )
-      goto LABEL_7;
-LABEL_30:
-    v0 = -1073741670;
-    CitpLogFailureWorker(-1073741670, (const char *)v3, 0x7Eu);
-    return v0;
-  }
-  if ( v2 != 2 )
-    goto LABEL_30;
-  v14 = 0LL;
-  if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 0x49637355u, &v14) )
-  {
-    v11[0] = &v15;
-    v11[1] = &v13;
-    Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-              (__int64)v1,
-              (__int64)v11,
-              &v16);
-    goto LABEL_6;
-  }
-  Pool2 = ExAllocatePool2(v10, 328LL, 1231254357LL);
-  if ( !Pool2 )
-    goto LABEL_30;
-  _InterlockedIncrement64((volatile signed __int64 *)v1 + 16);
-  NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-  if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-  {
-    if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                            v1,
-                            Pool2,
-                            v14,
-                            BackTrace) )
+    else
     {
-      Pool2 += 16LL;
-      goto LABEL_6;
+      v3 = -1073741670;
+      CitpLogFailureWorker(-1073741670, v1, 0xC9u);
     }
-LABEL_29:
-    _InterlockedIncrement64((volatile signed __int64 *)v1 + 17);
-    _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-    goto LABEL_30;
-  }
-  if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                           v1,
-                           Pool2,
-                           v14,
-                           BackTrace) )
-    goto LABEL_29;
-  v5 = (struct _CIT_IMPACT_CONTEXT *)Pool2;
-LABEL_7:
-  CitpContextInitialize((struct _CIT_IMPACT_CONTEXT *)Pool2);
-  v6 = CitpContextTrackingDataStart((struct _CIT_IMPACT_CONTEXT *)Pool2);
-  if ( v6 < 0 )
-  {
-    CitpContextCleanup(v5);
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)v5);
-    return (unsigned int)v6;
   }
   else
   {
-    v7 = MEMORY[0xFFFFF780000002C4];
-    if ( MEMORY[0xFFFFF780000002C4] > 0xFFFFu )
-      v7 = -1;
-    *(_WORD *)(Pool2 + 116) = v7;
-    xmmword_1C0293D30 = (struct _CIT_IMPACT_CONTEXT *)Pool2;
+    return (unsigned int)-1073741637;
   }
-  return v0;
+  return (unsigned int)v3;
 }

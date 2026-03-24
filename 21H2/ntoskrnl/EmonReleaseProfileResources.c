@@ -1,13 +1,13 @@
 /*
- * XREFs of EmonReleaseProfileResources @ 0x140521310
+ * XREFs of EmonReleaseProfileResources @ 0x1404D4100
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     EmonReleaseProfileResourcesInternal @ 0x1405213F0 (EmonReleaseProfileResourcesInternal.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     EmonReleaseProfileResourcesInternal @ 0x1404D41E0 (EmonReleaseProfileResourcesInternal.c)
  */
 
 __int64 __fastcall EmonReleaseProfileResources(_QWORD *a1)

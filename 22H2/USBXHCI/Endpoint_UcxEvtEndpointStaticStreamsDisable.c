@@ -1,123 +1,142 @@
 /*
- * XREFs of Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003CD40
+ * XREFs of Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003ABD0
  * Callers:
  *     <none>
  * Callees:
- *     TR_Enable_Internal @ 0x1C0007D94 (TR_Enable_Internal.c)
- *     TR_GetDequeuePointer @ 0x1C000CF30 (TR_GetDequeuePointer.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0018000 (WPP_RECORDER_SF_ddd.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     XilEndpoint_AllocateStreamContextArray @ 0x1C0038ADC (XilEndpoint_AllocateStreamContextArray.c)
- *     XilEndpoint_CommitStreamContextArrayUpdates @ 0x1C0038D24 (XilEndpoint_CommitStreamContextArrayUpdates.c)
- *     XilEndpoint_FreeStreamContextArray @ 0x1C003905C (XilEndpoint_FreeStreamContextArray.c)
- *     UsbDevice_ReconfigureEndpoint @ 0x1C00494EC (UsbDevice_ReconfigureEndpoint.c)
+ *     TR_Enable_Internal @ 0x1C00055F4 (TR_Enable_Internal.c)
+ *     TR_GetDequeuePointer @ 0x1C0008358 (TR_GetDequeuePointer.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     XilEndpoint_AllocateStreamContextArray @ 0x1C003701C (XilEndpoint_AllocateStreamContextArray.c)
+ *     XilEndpoint_CommitStreamContextArrayUpdates @ 0x1C0037290 (XilEndpoint_CommitStreamContextArrayUpdates.c)
+ *     XilEndpoint_FreeStreamContextArray @ 0x1C00375C0 (XilEndpoint_FreeStreamContextArray.c)
+ *     UsbDevice_ReconfigureEndpoint @ 0x1C0046B7C (UsbDevice_ReconfigureEndpoint.c)
  */
 
 __int64 __fastcall Endpoint_UcxEvtEndpointStaticStreamsDisable(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v5; // rbp
-  __int64 v6; // rdi
-  _QWORD *v7; // rbx
-  _DWORD *v8; // rsi
+  __int64 v5; // rsi
+  __int64 v6; // rax
+  __int64 v7; // rdi
+  __int64 v8; // rbx
   int v9; // edx
-  _QWORD *Pool2; // rax
+  __int64 *v10; // rax
+  POOL_TYPE SignalState; // ecx
+  PVOID PoolWithTag; // rax
   int StreamContextArray; // edi
-  _QWORD *v12; // rcx
   __int64 v14; // rcx
   __int64 v15; // rax
-  int v16; // edx
-  _OWORD v17[2]; // [rsp+40h] [rbp-58h] BYREF
-  __int64 v18; // [rsp+60h] [rbp-38h]
+  __int64 result; // rax
+  int v17; // edx
+  _QWORD *v18; // rcx
+  _OWORD v19[2]; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v20; // [rsp+60h] [rbp-38h]
 
-  v18 = 0LL;
-  memset(v17, 0, sizeof(v17));
-  LOWORD(v17[0]) = 40;
+  v20 = 0LL;
+  memset(v19, 0, sizeof(v19));
+  LOWORD(v19[0]) = 40;
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _OWORD *))(WdfFunctions_01023 + 2128))(
     WdfDriverGlobals,
     a3,
-    v17);
-  v5 = *((_QWORD *)&v17[0] + 1);
+    v19);
+  v5 = *((_QWORD *)&v19[0] + 1);
   v6 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a2,
-         off_1C0063338);
-  v7 = *(_QWORD **)v6;
-  v8 = (_DWORD *)(*(_QWORD *)v6 + 144LL);
+         off_1C0060338);
+  v7 = v6;
+  v8 = *(_QWORD *)v6;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v9 = *(unsigned __int8 *)(v7[2] + 135LL);
+    v9 = *(unsigned __int8 *)(*(_QWORD *)(v8 + 16) + 135LL);
     LOBYTE(v9) = 4;
     WPP_RECORDER_SF_ddd(
-      v7[10],
+      *(_QWORD *)(v8 + 80),
       v9,
       13,
       111,
-      (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
-      *(_BYTE *)(v7[2] + 135LL),
-      *v8,
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+      *(_BYTE *)(*(_QWORD *)(v8 + 16) + 135LL),
+      *(_DWORD *)(v8 + 144),
       *(_DWORD *)(v6 + 8));
   }
-  *(_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
-               WdfDriverGlobals,
-               a3,
-               off_1C0063090) = v6;
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 152LL, 1229146200LL);
-  v7[16] = Pool2;
-  if ( Pool2 )
+  v10 = (__int64 *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+                     WdfDriverGlobals,
+                     a3,
+                     off_1C0060090);
+  SignalState = WPP_MAIN_CB.DeviceLock.Header.SignalState;
+  *v10 = v7;
+  PoolWithTag = ExAllocatePoolWithTag(SignalState, 0x98uLL, 0x49434858u);
+  *(_QWORD *)(v8 + 128) = PoolWithTag;
+  if ( !PoolWithTag )
   {
-    *Pool2 = v7;
-    *(_DWORD *)(v7[16] + 8LL) = 1;
-    *(_DWORD *)(v7[16] + 12LL) = 1;
-    StreamContextArray = XilEndpoint_AllocateStreamContextArray(v7[16]);
-    if ( StreamContextArray >= 0 )
+    *(_DWORD *)(v5 + 4) = -1073737728;
+    StreamContextArray = -1073741670;
+LABEL_14:
+    v18 = *(_QWORD **)(v8 + 128);
+    if ( v18 )
     {
-      v14 = v7[16];
-      v15 = v7[11];
-      v7[17] = v14;
-      *(_QWORD *)(v14 + 48) = v15;
-      StreamContextArray = TR_Enable_Internal((_QWORD *)v7[11]);
-      if ( StreamContextArray >= 0 )
-      {
-        *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v7[17] + 32LL) + 16LL) + 16LL) = TR_GetDequeuePointer(v7[11]);
-        StreamContextArray = XilEndpoint_CommitStreamContextArrayUpdates(v7[17]);
-        if ( StreamContextArray >= 0 )
-          return UsbDevice_ReconfigureEndpoint(v7[2], v7, Endpoint_EndpointStaticStreamsDisableCompletion, a3);
-        *(_DWORD *)(v5 + 4) = -2147481600;
-      }
-      else
-      {
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v16) = 2;
-          WPP_RECORDER_SF_ddd(
-            v7[10],
-            v16,
-            13,
-            112,
-            (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
-            *(_BYTE *)(v7[2] + 135LL),
-            *v8,
-            StreamContextArray);
-        }
-        *(_DWORD *)(v5 + 4) = -1073737728;
-      }
+      XilEndpoint_FreeStreamContextArray(v18);
+      ExFreePoolWithTag(*(PVOID *)(v8 + 128), 0x49434858u);
+      *(_QWORD *)(v8 + 128) = 0LL;
+    }
+    return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01023 + 2104))(
+             WdfDriverGlobals,
+             a3,
+             (unsigned int)StreamContextArray);
+  }
+  memset(PoolWithTag, 0, 0x98uLL);
+  **(_QWORD **)(v8 + 128) = v8;
+  *(_DWORD *)(*(_QWORD *)(v8 + 128) + 8LL) = 1;
+  *(_DWORD *)(*(_QWORD *)(v8 + 128) + 12LL) = 1;
+  StreamContextArray = XilEndpoint_AllocateStreamContextArray(*(_QWORD *)(v8 + 128));
+  if ( StreamContextArray < 0 )
+    goto LABEL_14;
+  v14 = *(_QWORD *)(v8 + 128);
+  v15 = *(_QWORD *)(v8 + 88);
+  *(_QWORD *)(v8 + 136) = v14;
+  *(_QWORD *)(v14 + 48) = v15;
+  result = TR_Enable_Internal(*(_QWORD **)(v8 + 88));
+  StreamContextArray = result;
+  if ( (int)result >= 0 )
+  {
+    *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v8 + 136) + 32LL) + 16LL) + 16LL) = TR_GetDequeuePointer(*(_QWORD *)(v8 + 88));
+    result = XilEndpoint_CommitStreamContextArrayUpdates(*(_QWORD *)(v8 + 136));
+    StreamContextArray = result;
+    if ( (int)result >= 0 )
+    {
+      result = UsbDevice_ReconfigureEndpoint(
+                 *(_QWORD *)(v8 + 16),
+                 v8,
+                 Endpoint_EndpointStaticStreamsDisableCompletion,
+                 a3);
+      StreamContextArray = 0;
+    }
+    else
+    {
+      *(_DWORD *)(v5 + 4) = -2147481600;
     }
   }
   else
   {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v17) = 2;
+      result = WPP_RECORDER_SF_ddd(
+                 *(_QWORD *)(v8 + 80),
+                 v17,
+                 13,
+                 112,
+                 (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+                 *(_BYTE *)(*(_QWORD *)(v8 + 16) + 135LL),
+                 *(_DWORD *)(v8 + 144),
+                 result);
+    }
     *(_DWORD *)(v5 + 4) = -1073737728;
-    StreamContextArray = -1073741670;
   }
-  v12 = (_QWORD *)v7[16];
-  if ( v12 )
-  {
-    XilEndpoint_FreeStreamContextArray(v12);
-    ExFreePoolWithTag((PVOID)v7[16], 0x49434858u);
-    v7[16] = 0LL;
-  }
-  return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01023 + 2104))(
-           WdfDriverGlobals,
-           a3,
-           (unsigned int)StreamContextArray);
+  if ( StreamContextArray < 0 )
+    goto LABEL_14;
+  return result;
 }

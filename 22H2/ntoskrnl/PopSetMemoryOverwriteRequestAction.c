@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSetMemoryOverwriteRequestAction @ 0x140AA0A6C
+ * XREFs of PopSetMemoryOverwriteRequestAction @ 0x1409B0FEC
  * Callers:
- *     PopSaveHiberContext @ 0x140AA4A40 (PopSaveHiberContext.c)
- *     PopShutdownSystem @ 0x140AA8FD4 (PopShutdownSystem.c)
+ *     PopSaveHiberContext @ 0x140993F80 (PopSaveHiberContext.c)
+ *     PopShutdownSystem @ 0x1409B2764 (PopShutdownSystem.c)
  * Callees:
- *     HalGetEnvironmentVariableEx @ 0x14035E2D0 (HalGetEnvironmentVariableEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HalSetEnvironmentVariableEx @ 0x140504B70 (HalSetEnvironmentVariableEx.c)
+ *     HalGetEnvironmentVariableEx @ 0x1403BA5F0 (HalGetEnvironmentVariableEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HalSetEnvironmentVariableEx @ 0x1404BBCE0 (HalSetEnvironmentVariableEx.c)
  */
 
 void PopSetMemoryOverwriteRequestAction()

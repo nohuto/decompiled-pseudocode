@@ -1,11 +1,11 @@
 /*
- * XREFs of PdcPortSendMessageSynchronously @ 0x1402FE17C
+ * XREFs of PdcPortSendMessageSynchronously @ 0x1402FE27C
  * Callers:
- *     PdcTaskClientRequest @ 0x14089A708 (PdcTaskClientRequest.c)
+ *     PdcTaskClientRequest @ 0x14089A6E8 (PdcTaskClientRequest.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PdcPortSendMessageSynchronously(__int64 a1, __int64 a2)

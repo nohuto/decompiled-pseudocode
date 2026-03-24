@@ -1,62 +1,42 @@
 /*
- * XREFs of TraceDxgkFunctionProfiler @ 0x1C002B320
+ * XREFs of TraceDxgkFunctionProfiler @ 0x1C0024B80
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
  */
 
-char __fastcall TraceDxgkFunctionProfiler(int a1, char a2, __int64 a3)
+void __fastcall TraceDxgkFunctionProfiler(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v4; // rcx
-  char result; // al
-  const EVENT_DESCRIPTOR *v6; // rdx
-  int v7; // edx
+  int v3; // ebx
+  const EVENT_DESCRIPTOR *v4; // rdx
+  __int64 v5; // rax
 
-  v4 = 1LL;
-  if ( a2 == 1 )
+  v3 = a1;
+  if ( (_BYTE)a2 == 1 )
   {
-    result = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) == 0 )
-      return result;
-    v6 = (const EVENT_DESCRIPTOR *)&EventProfilerEnter;
-    return McTemplateK0q_EtwWriteTransfer(v4, v6, a3, a1);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) == 0 )
+      return;
+    v4 = (const EVENT_DESCRIPTOR *)&EventProfilerEnter;
+    goto LABEL_11;
   }
-  if ( a2 == 2 )
+  if ( (_BYTE)a2 == 2 )
   {
-    result = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) == 0 )
-      return result;
-    v6 = (const EVENT_DESCRIPTOR *)&EventProfilerExit;
-    return McTemplateK0q_EtwWriteTransfer(v4, v6, a3, a1);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) == 0 )
+      return;
+    v4 = (const EVENT_DESCRIPTOR *)&EventProfilerExit;
+    goto LABEL_11;
   }
-  if ( a2 )
+  if ( (_BYTE)a2 )
   {
-    WdLogSingleEntry1(1LL, 2657LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v4,
-          v7,
-          a3,
-          0,
-          2,
-          -1,
-          (__int64)L"EventType == EVENT_TRACE_TYPE_INFO",
-          2657LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v5 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v5 + 24) = 2609LL;
+    WdLogEvent5_WdAssertion(v5);
   }
-  result = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
   {
-    v6 = (const EVENT_DESCRIPTOR *)&EventProfilerInfo;
-    return McTemplateK0q_EtwWriteTransfer(v4, v6, a3, a1);
+    v4 = (const EVENT_DESCRIPTOR *)&EventProfilerInfo;
+LABEL_11:
+    McTemplateK0q_EtwWriteTransfer(a1, v4, a3, v3);
   }
-  return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiPrepareSegmentForDeletion @ 0x14021980C
+ * XREFs of MiPrepareSegmentForDeletion @ 0x140278384
  * Callers:
- *     MiSegmentDelete @ 0x1406B0954 (MiSegmentDelete.c)
+ *     MiSegmentDelete @ 0x140635830 (MiSegmentDelete.c)
  * Callees:
- *     MiDrainControlAreaWrites @ 0x1402198E4 (MiDrainControlAreaWrites.c)
- *     MiRemoveUnusedSegment @ 0x140219990 (MiRemoveUnusedSegment.c)
- *     MiRemoveUnusedSubsection @ 0x14021B994 (MiRemoveUnusedSubsection.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiIncrementSubsectionViewCount @ 0x1402890D0 (MiIncrementSubsectionViewCount.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiBuildWakeList @ 0x1402893C4 (MiBuildWakeList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiDrainControlAreaWrites @ 0x14027842C (MiDrainControlAreaWrites.c)
+ *     MiRemoveUnusedSubsection @ 0x140279184 (MiRemoveUnusedSubsection.c)
+ *     MiIncrementSubsectionViewCount @ 0x140296460 (MiIncrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveUnusedSegment @ 0x1402D7B58 (MiRemoveUnusedSegment.c)
+ *     MiBuildWakeList @ 0x1402D7C30 (MiBuildWakeList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPrepareSegmentForDeletion(__int64 a1, ULONG_PTR a2)
@@ -43,16 +43,19 @@ __int64 __fastcall MiPrepareSegmentForDeletion(__int64 a1, ULONG_PTR a2)
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-      v14 = (v13 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v13;
-      if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v14 = (v13 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v13;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v6);

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DxgkEngAdjustMonitorPosition@@YAHPEAUtagRECT@@II@Z @ 0x1C0077050
+ * XREFs of ?DxgkEngAdjustMonitorPosition@@YAHPEAUtagRECT@@II@Z @ 0x1C00134F0
  * Callers:
  *     <none>
  * Callees:
- *     AlignRects @ 0x1C0077068 (AlignRects.c)
+ *     AlignRects @ 0x1C0013508 (AlignRects.c)
  */
 
 __int64 __fastcall DxgkEngAdjustMonitorPosition(struct tagRECT *a1, unsigned int a2)

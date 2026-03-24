@@ -1,17 +1,17 @@
 /*
- * XREFs of XilCoreCommonBuffer_AcquireBuffers @ 0x1C000B4C0
+ * XREFs of XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009B00
  * Callers:
- *     CommonBuffer_WorkItem @ 0x1C00078D0 (CommonBuffer_WorkItem.c)
- *     CommonBuffer_AcquireBuffers @ 0x1C000B434 (CommonBuffer_AcquireBuffers.c)
- *     XilCoreDeviceSlot_AllocateResources @ 0x1C001CA4C (XilCoreDeviceSlot_AllocateResources.c)
+ *     CommonBuffer_AcquireBuffers @ 0x1C0009A94 (CommonBuffer_AcquireBuffers.c)
+ *     CommonBuffer_WorkItem @ 0x1C0015DF0 (CommonBuffer_WorkItem.c)
+ *     XilCoreDeviceSlot_AllocateResources @ 0x1C00161E8 (XilCoreDeviceSlot_AllocateResources.c)
  * Callees:
- *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0007A54 (XilCoreCommonBuffer_AllocateBuffers.c)
- *     XilCoreCommonBuffer_AcquireBuffersWithSegmenter @ 0x1C000B5D4 (XilCoreCommonBuffer_AcquireBuffersWithSegmenter.c)
+ *     XilCoreCommonBuffer_AcquireBuffersWithSegmenter @ 0x1C0009C0C (XilCoreCommonBuffer_AcquireBuffersWithSegmenter.c)
+ *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015F74 (XilCoreCommonBuffer_AllocateBuffers.c)
  */
 
 __int64 __fastcall XilCoreCommonBuffer_AcquireBuffers(
-        __int64 **a1,
-        int a2,
+        __int64 a1,
+        unsigned int a2,
         unsigned int a3,
         int a4,
         __int64 a5,
@@ -20,19 +20,19 @@ __int64 __fastcall XilCoreCommonBuffer_AcquireBuffers(
 {
   unsigned int *v8; // rax
   unsigned int i; // r10d
-  __int64 v12; // rsi
+  unsigned int *v12; // rsi
   int v13; // edi
-  int v15; // r8d
+  __int64 v15; // r8
 
-  v8 = (unsigned int *)(a1 + 4);
+  v8 = (unsigned int *)(a1 + 32);
   for ( i = 0; i < 2; ++i )
   {
-    v12 = (__int64)v8;
+    v12 = v8;
     if ( a3 <= *v8 )
       break;
     v8 += 16;
   }
-  v13 = XilCoreCommonBuffer_AcquireBuffersWithSegmenter((_DWORD)a1, v12, a2, a4, a5, a6, (__int64)a7);
+  v13 = XilCoreCommonBuffer_AcquireBuffersWithSegmenter(a1, (_DWORD)v12, a2, a4, a5, a6, (__int64)a7);
   if ( v13 < 0 || *a7 )
   {
     if ( KeGetCurrentIrql() )
@@ -41,17 +41,17 @@ __int64 __fastcall XilCoreCommonBuffer_AcquireBuffers(
     }
     else
     {
-      v15 = 0;
+      v15 = 0LL;
       if ( v13 < 0 )
         v15 = a2;
       if ( *a7 )
-        v15 += *(_DWORD *)(v12 + 16);
+        v15 = v12[4] + (unsigned int)v15;
       XilCoreCommonBuffer_AllocateBuffers(a1, v12, v15);
       *a7 = 0;
       if ( v13 < 0 )
         return (unsigned int)XilCoreCommonBuffer_AcquireBuffersWithSegmenter(
-                               (_DWORD)a1,
-                               v12,
+                               a1,
+                               (_DWORD)v12,
                                a2,
                                a4,
                                a5,

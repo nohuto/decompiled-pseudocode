@@ -1,20 +1,19 @@
 /*
- * XREFs of CmpMarkKeyUnbacked @ 0x1407108AC
+ * XREFs of CmpMarkKeyUnbacked @ 0x1406E5970
  * Callers:
- *     CmpRemoveHiveFromNamespace @ 0x140207A94 (CmpRemoveHiveFromNamespace.c)
- *     CmDeleteLayeredKey @ 0x14061695C (CmDeleteLayeredKey.c)
- *     CmpInvalidateSubtreeWorker @ 0x140682700 (CmpInvalidateSubtreeWorker.c)
- *     CmpCompleteUnloadKey @ 0x140688D18 (CmpCompleteUnloadKey.c)
- *     CmDeleteKey @ 0x14071009C (CmDeleteKey.c)
- *     CmpTransMgrFreeVolatileData @ 0x140769424 (CmpTransMgrFreeVolatileData.c)
- *     CmpRefreshWorkerRoutine @ 0x140A0CED0 (CmpRefreshWorkerRoutine.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmpCommitDiscardReplacePost @ 0x140A1F9B0 (CmpCommitDiscardReplacePost.c)
- *     CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x140A1FE30 (CmpInvalidateAllHigherLayerKcbsPostCallback.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x140A28218 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x140A28588 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpRemoveHiveFromNamespace @ 0x140360E58 (CmpRemoveHiveFromNamespace.c)
+ *     CmDeleteLayeredKey @ 0x1404ECFB8 (CmDeleteLayeredKey.c)
+ *     CmDeleteKey @ 0x1406E47E4 (CmDeleteKey.c)
+ *     CmpCompleteUnloadKey @ 0x14071BF04 (CmpCompleteUnloadKey.c)
+ *     CmpTransMgrFreeVolatileData @ 0x14071C8A0 (CmpTransMgrFreeVolatileData.c)
+ *     CmpInvalidateSubtreeWorker @ 0x140771C80 (CmpInvalidateSubtreeWorker.c)
+ *     CmpCommitDiscardReplacePost @ 0x140876070 (CmpCommitDiscardReplacePost.c)
+ *     CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x1408762F0 (CmpInvalidateAllHigherLayerKcbsPostCallback.c)
+ *     CmpRefreshWorkerRoutine @ 0x14087D890 (CmpRefreshWorkerRoutine.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x14087ED24 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x14087EF14 (CmpLightWeightCommitRenameKeyUoW.c)
  * Callees:
- *     CmpCleanUpKcbCachedSymlink @ 0x1406D0FB0 (CmpCleanUpKcbCachedSymlink.c)
+ *     CmpCleanUpKcbCachedSymlink @ 0x1405EE830 (CmpCleanUpKcbCachedSymlink.c)
  */
 
 __int64 __fastcall CmpMarkKeyUnbacked(__int64 a1)

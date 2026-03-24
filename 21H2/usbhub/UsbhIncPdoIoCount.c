@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhIncPdoIoCount @ 0x1C000EF40
+ * XREFs of UsbhIncPdoIoCount @ 0x1C0014F6C
  * Callers:
- *     UsbhPdoDevicePowerState @ 0x1C0005200 (UsbhPdoDevicePowerState.c)
- *     UsbhPdoPower_WaitWake @ 0x1C001EA50 (UsbhPdoPower_WaitWake.c)
- *     UsbhPdoPower_Sequence @ 0x1C003C230 (UsbhPdoPower_Sequence.c)
- *     UsbhCreatePdo @ 0x1C0052C50 (UsbhCreatePdo.c)
- *     UsbhPdoDeviceControl @ 0x1C0054380 (UsbhPdoDeviceControl.c)
- *     UsbhPdoSuccess @ 0x1C0056530 (UsbhPdoSuccess.c)
- *     UsbhPdoSystemControl @ 0x1C00565B0 (UsbhPdoSystemControl.c)
+ *     UsbhPdoDevicePowerState @ 0x1C00109A0 (UsbhPdoDevicePowerState.c)
+ *     UsbhPdoPower_WaitWake @ 0x1C0016DC0 (UsbhPdoPower_WaitWake.c)
+ *     UsbhPdoPower_Sequence @ 0x1C003D410 (UsbhPdoPower_Sequence.c)
+ *     UsbhCreatePdo @ 0x1C00542B4 (UsbhCreatePdo.c)
+ *     UsbhPdoDeviceControl @ 0x1C0055A10 (UsbhPdoDeviceControl.c)
+ *     UsbhPdoSuccess @ 0x1C0057BF0 (UsbhPdoSuccess.c)
+ *     UsbhPdoSystemControl @ 0x1C0057C70 (UsbhPdoSystemControl.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
  */
 
 __int64 __fastcall UsbhIncPdoIoCount(__int64 a1, __int64 a2, int a3, int a4)
@@ -18,10 +18,10 @@ __int64 __fastcall UsbhIncPdoIoCount(__int64 a1, __int64 a2, int a3, int a4)
   KSPIN_LOCK *v8; // rdi
   KIRQL v9; // al
   KIRQL v10; // si
-  __int64 Pool2; // rax
-  _DWORD *v13; // rbx
-  _QWORD *v14; // rax
-  _QWORD *v15; // rcx
+  char *PoolWithTag; // rdx
+  _DWORD *v12; // rbx
+  _QWORD *v13; // rax
+  _QWORD *v14; // rcx
   int v16; // [rsp+20h] [rbp-28h]
 
   v7 = (KSPIN_LOCK *)PdoExt(a1);
@@ -35,25 +35,29 @@ __int64 __fastcall UsbhIncPdoIoCount(__int64 a1, __int64 a2, int a3, int a4)
   }
   else
   {
-    Pool2 = ExAllocatePool2(64LL, 40LL, 1112885333LL);
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 0x28uLL, 0x42554855u);
+    if ( PoolWithTag )
     {
-      *(_QWORD *)(Pool2 + 24) = a2;
-      v13 = v7 + 153;
+      *(_QWORD *)(PoolWithTag + 4) = 0LL;
+      *(_QWORD *)(PoolWithTag + 12) = 0LL;
+      v12 = v7 + 153;
+      *((_DWORD *)PoolWithTag + 5) = 0;
+      *((_DWORD *)PoolWithTag + 9) = 0;
       LOBYTE(v16) = HIBYTE(a3);
       BYTE1(v16) = BYTE2(a3);
-      *(_DWORD *)(Pool2 + 32) = a4;
       BYTE2(v16) = BYTE1(a3);
+      *((_QWORD *)PoolWithTag + 3) = a2;
+      *((_DWORD *)PoolWithTag + 8) = a4;
       HIBYTE(v16) = a3;
-      *(_DWORD *)Pool2 = v16;
-      v14 = (_QWORD *)(Pool2 + 8);
-      v15 = (_QWORD *)*((_QWORD *)v13 + 1);
-      if ( (_DWORD *)*v15 != v13 )
+      *(_DWORD *)PoolWithTag = v16;
+      v13 = PoolWithTag + 8;
+      v14 = (_QWORD *)*((_QWORD *)v12 + 1);
+      if ( (_DWORD *)*v14 != v12 )
         __fastfail(3u);
+      *v13 = v12;
+      *((_QWORD *)PoolWithTag + 2) = v14;
       *v14 = v13;
-      v14[1] = v15;
-      *v15 = v14;
-      *((_QWORD *)v13 + 1) = v14;
+      *((_QWORD *)v12 + 1) = v13;
     }
     else
     {

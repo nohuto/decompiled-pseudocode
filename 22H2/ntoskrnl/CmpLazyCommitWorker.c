@@ -1,117 +1,127 @@
 /*
- * XREFs of CmpLazyCommitWorker @ 0x140A1C170
+ * XREFs of CmpLazyCommitWorker @ 0x140872B80
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     CmpCleanupTransactionState @ 0x14069831C (CmpCleanupTransactionState.c)
- *     UNLOCK_HIVE_LOAD @ 0x140752340 (UNLOCK_HIVE_LOAD.c)
- *     LOCK_HIVE_LOAD @ 0x1407523B8 (LOCK_HIVE_LOAD.c)
- *     CmpTransMgrCommit @ 0x140769178 (CmpTransMgrCommit.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140AF6008 (CmpReleaseHiveLoadUnloadRundown.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140AF602C (CmpAcquireHiveLoadUnloadRundown.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406EB3B0 (UNLOCK_HIVE_LOAD.c)
+ *     LOCK_HIVE_LOAD @ 0x1406EB544 (LOCK_HIVE_LOAD.c)
+ *     CmpTransMgrCommit @ 0x1407684C0 (CmpTransMgrCommit.c)
+ *     CmpCleanupTransactionState @ 0x140770144 (CmpCleanupTransactionState.c)
  */
 
-__int64 CmpLazyCommitWorker()
+_QWORD *CmpLazyCommitWorker()
 {
   char v0; // di
   struct _KTHREAD *CurrentThread; // rax
-  __int64 *v2; // rbx
-  __int64 v3; // rax
-  __int64 v4; // rcx
-  __int64 **v5; // rax
-  struct _KTHREAD *v6; // rax
-  _QWORD *v7; // rax
+  BOOLEAN v2; // al
+  struct _KTHREAD *v3; // rcx
+  struct _KTHREAD *v5; // rax
+  __int64 *v6; // rbx
+  __int64 v7; // rax
   __int64 v8; // rcx
-  _QWORD *v9; // rcx
-  _QWORD **v11; // [rsp+30h] [rbp-20h] BYREF
-  __int64 *v12; // [rsp+38h] [rbp-18h]
-  __int128 v13; // [rsp+40h] [rbp-10h] BYREF
-  int v14; // [rsp+78h] [rbp+28h] BYREF
+  _DWORD *v9; // r9
+  __int64 **v10; // rax
+  struct _KTHREAD *v11; // rax
+  _QWORD *v12; // rax
+  __int64 v13; // rcx
+  _QWORD *v14; // rcx
+  _QWORD **v15; // [rsp+30h] [rbp-10h] BYREF
+  __int64 *v16; // [rsp+38h] [rbp-8h]
+  int v17; // [rsp+68h] [rbp+28h] BYREF
 
-  v14 = 0;
+  v17 = 0;
+  v16 = (__int64 *)&v15;
   v0 = 1;
-  v13 = 0LL;
-  CmpInitializeThreadInfo((__int64)&v13);
-  v11 = &v11;
-  v12 = (__int64 *)&v11;
-  if ( (unsigned __int8)CmpAcquireHiveLoadUnloadRundown() )
+  v15 = &v15;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v2 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+  v3 = KeGetCurrentThread();
+  if ( v2 )
   {
+    --v3->KernelApcDisable;
+    ExAcquirePushLockSharedEx((ULONG_PTR)&CmpShutdownLock, 0LL);
     LOCK_HIVE_LOAD();
     while ( 1 )
     {
-      CurrentThread = KeGetCurrentThread();
-      --CurrentThread->KernelApcDisable;
+      v5 = KeGetCurrentThread();
+      --v5->KernelApcDisable;
       ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
-      v2 = (__int64 *)CmpLazyCommitListHead;
+      v6 = (__int64 *)CmpLazyCommitListHead;
       if ( *(__int64 **)(CmpLazyCommitListHead + 8) != &CmpLazyCommitListHead
-        || (v3 = *(_QWORD *)CmpLazyCommitListHead,
+        || (v7 = *(_QWORD *)CmpLazyCommitListHead,
             *(_QWORD *)(*(_QWORD *)CmpLazyCommitListHead + 8LL) != CmpLazyCommitListHead) )
       {
 LABEL_20:
         __fastfail(3u);
       }
       CmpLazyCommitListHead = *(_QWORD *)CmpLazyCommitListHead;
-      *(_QWORD *)(v3 + 8) = &CmpLazyCommitListHead;
-      if ( v2 == &CmpLazyCommitListHead )
+      *(_QWORD *)(v7 + 8) = &CmpLazyCommitListHead;
+      if ( v6 == &CmpLazyCommitListHead )
         break;
       ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-      KeLeaveCriticalRegion();
-      if ( (int)CmpTransMgrCommit(v4, (__int64)(v2 - 4), &v14) < 0 )
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      if ( (int)CmpTransMgrCommit(v8, (__int64)(v6 - 4), &v17, v9) < 0 )
       {
-        v5 = (__int64 **)v12;
-        if ( (_QWORD ***)*v12 != &v11 )
+        v10 = (__int64 **)v16;
+        if ( (_QWORD ***)*v16 != &v15 )
           goto LABEL_20;
-        v2[1] = (__int64)v12;
-        *v2 = (__int64)&v11;
+        v6[1] = (__int64)v16;
+        *v6 = (__int64)&v15;
         v0 = 0;
-        *v5 = v2;
-        v12 = v2;
+        *v10 = v6;
+        v16 = v6;
       }
       else
       {
-        CmpCleanupTransactionState(v2[4], v2 - 4, 4LL, 0);
+        CmpCleanupTransactionState(v6[4], v6 - 4, 4LL, 0LL);
       }
     }
     CmpLazyCommitWorkItemActive = v0 == 0;
     ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( !v0 )
     {
-      v6 = KeGetCurrentThread();
-      --v6->KernelApcDisable;
+      v11 = KeGetCurrentThread();
+      --v11->KernelApcDisable;
       ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
       while ( 1 )
       {
-        v7 = v11;
-        if ( v11[1] != &v11 )
+        v12 = v15;
+        if ( v15[1] != &v15 )
           goto LABEL_20;
-        v8 = (__int64)*v11;
-        if ( (_QWORD **)(*v11)[1] != v11 )
+        v13 = (__int64)*v15;
+        if ( (_QWORD **)(*v15)[1] != v15 )
           goto LABEL_20;
-        v11 = (_QWORD **)*v11;
-        *(_QWORD *)(v8 + 8) = &v11;
-        if ( v7 == &v11 )
+        v15 = (_QWORD **)*v15;
+        *(_QWORD *)(v13 + 8) = &v15;
+        if ( v12 == &v15 )
           break;
-        v9 = (_QWORD *)qword_140C13CC8;
-        if ( *(__int64 **)qword_140C13CC8 != &CmpLazyCommitListHead )
+        v14 = (_QWORD *)qword_140C47E88;
+        if ( *(__int64 **)qword_140C47E88 != &CmpLazyCommitListHead )
           goto LABEL_20;
-        *v7 = &CmpLazyCommitListHead;
-        v7[1] = v9;
-        *v9 = v7;
-        qword_140C13CC8 = (__int64)v7;
+        *v12 = &CmpLazyCommitListHead;
+        v12[1] = v14;
+        *v14 = v12;
+        qword_140C47E88 = (__int64)v12;
       }
       ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-      KeLeaveCriticalRegion();
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       KiSetTimerEx((__int64)&CmpLazyCommitTimer, -300000000LL, 0, 0, (__int64)&CmpLazyCommitDpc);
     }
     UNLOCK_HIVE_LOAD();
-    CmpReleaseHiveLoadUnloadRundown();
+    ExReleasePushLockEx((ULONG_PTR)&CmpShutdownLock, 0LL);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    v3 = KeGetCurrentThread();
   }
-  return CmCleanupThreadInfo((__int64 *)&v13);
+  return KeLeaveCriticalRegionThread((__int64)v3);
 }

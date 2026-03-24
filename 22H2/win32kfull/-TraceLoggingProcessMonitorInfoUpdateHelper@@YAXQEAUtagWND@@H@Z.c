@@ -1,22 +1,21 @@
 /*
- * XREFs of ?TraceLoggingProcessMonitorInfoUpdateHelper@@YAXQEAUtagWND@@H@Z @ 0x1C008E854
+ * XREFs of ?TraceLoggingProcessMonitorInfoUpdateHelper@@YAXQEAUtagWND@@H@Z @ 0x1C003DEB8
  * Callers:
- *     ?TraceLoggingProcessUsageDataAggregationHelper@@YAXQEAUtagWND@@@Z @ 0x1C0066EE8 (-TraceLoggingProcessUsageDataAggregationHelper@@YAXQEAUtagWND@@@Z.c)
- *     xxxNotifyMonitorChanged @ 0x1C008E76C (xxxNotifyMonitorChanged.c)
+ *     ?TraceLoggingProcessUsageDataAggregationHelper@@YAXQEAUtagWND@@@Z @ 0x1C003AE18 (-TraceLoggingProcessUsageDataAggregationHelper@@YAXQEAUtagWND@@@Z.c)
+ *     xxxNotifyMonitorChanged @ 0x1C006C5B4 (xxxNotifyMonitorChanged.c)
  * Callees:
- *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C00D003C (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
+ *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C0042160 (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
  */
 
 void __fastcall TraceLoggingProcessMonitorInfoUpdateHelper(struct tagWND *const a1, int a2)
 {
   __int64 v3; // rbx
   struct tagMONITOR *v4; // rax
-  struct tagMONITOR *v5; // r9
-  int *v6; // rdx
-  int v7; // r10d
-  int v8; // r8d
+  struct tagMONITOR *v5; // r8
+  int v6; // r9d
+  int v7; // edx
+  int v8; // ecx
   int v9; // eax
-  int v10; // ecx
 
   v3 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL);
   if ( v3 )
@@ -25,45 +24,44 @@ void __fastcall TraceLoggingProcessMonitorInfoUpdateHelper(struct tagWND *const 
     v5 = v4;
     if ( v4 )
     {
-      v6 = (int *)(v3 + 984);
-      *(_OWORD *)(v3 + 968) = *(_OWORD *)(*((_QWORD *)v4 + 5) + 28LL);
+      *(_OWORD *)(v3 + 960) = *(_OWORD *)(*((_QWORD *)v4 + 5) + 28LL);
       if ( a2 )
       {
-        v7 = *v6;
-        v8 = *(_DWORD *)(v3 + 996) | 1;
-        *(_DWORD *)(v3 + 996) = v8;
-        if ( v7 != *(unsigned __int16 *)(*((_QWORD *)v4 + 5) + 60LL) )
+        v6 = *(_DWORD *)(v3 + 976);
+        v7 = *(_DWORD *)(v3 + 988) | 1;
+        *(_DWORD *)(v3 + 988) = v7;
+        if ( v6 != *(unsigned __int16 *)(*((_QWORD *)v4 + 5) + 64LL) )
         {
-          *(_DWORD *)(v3 + 992) = v7;
-          *(_DWORD *)(v3 + 996) = v8 | 2;
+          *(_DWORD *)(v3 + 984) = v6;
+          *(_DWORD *)(v3 + 988) = v7 | 2;
         }
       }
       else
       {
-        v9 = *(unsigned __int16 *)(*((_QWORD *)v4 + 5) + 60LL);
-        if ( *(_DWORD *)(v3 + 944) )
+        v8 = *(unsigned __int16 *)(*((_QWORD *)v4 + 5) + 64LL);
+        if ( *(_DWORD *)(v3 + 936) )
         {
-          v10 = *v6;
-          if ( *v6 != v9 )
+          v9 = *(_DWORD *)(v3 + 976);
+          if ( v9 != v8 )
           {
-            *(_DWORD *)(v3 + 996) |= 4u;
-            *(_DWORD *)(v3 + 992) = v10;
+            *(_DWORD *)(v3 + 988) |= 4u;
+            *(_DWORD *)(v3 + 984) = v9;
           }
         }
         else
         {
-          *(_DWORD *)(v3 + 988) = v9;
+          *(_DWORD *)(v3 + 980) = v8;
         }
       }
-      *v6 = *(unsigned __int16 *)(*((_QWORD *)v5 + 5) + 60LL);
+      *(_DWORD *)(v3 + 976) = *(unsigned __int16 *)(*((_QWORD *)v5 + 5) + 64LL);
     }
     else
     {
-      *(_DWORD *)(v3 + 984) = 0;
+      *(_DWORD *)(v3 + 976) = 0;
+      *(_DWORD *)(v3 + 960) = 0;
+      *(_DWORD *)(v3 + 964) = 0;
       *(_DWORD *)(v3 + 968) = 0;
       *(_DWORD *)(v3 + 972) = 0;
-      *(_DWORD *)(v3 + 976) = 0;
-      *(_DWORD *)(v3 + 980) = 0;
     }
   }
 }

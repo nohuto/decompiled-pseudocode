@@ -1,8 +1,8 @@
 /*
- * XREFs of _GetTouchValidationStatus @ 0x1C01D92F8
+ * XREFs of _GetTouchValidationStatus @ 0x1C01DE5B8
  * Callers:
- *     ?_IsLegacyDevice@Edgy@@YAHPEAX@Z @ 0x1C016D61C (-_IsLegacyDevice@Edgy@@YAHPEAX@Z.c)
- *     NtUserGetTouchValidationStatus @ 0x1C01F6BA0 (NtUserGetTouchValidationStatus.c)
+ *     NtUserGetTouchValidationStatus @ 0x1C01FC2D0 (NtUserGetTouchValidationStatus.c)
+ *     ?_IsLegacyDevice@Edgy@@YAHPEAX@Z @ 0x1C0208620 (-_IsLegacyDevice@Edgy@@YAHPEAX@Z.c)
  * Callees:
  *     <none>
  */
@@ -21,10 +21,10 @@ __int64 __fastcall GetTouchValidationStatus(__int64 a1)
   {
     if ( *(_BYTE *)(a1 + 48) == 2 )
     {
-      v2 = *(_QWORD *)(a1 + 456);
+      v2 = *(_QWORD *)(a1 + 464);
       if ( *(_WORD *)(v2 + 42) == 13 && (unsigned __int16)(*(_WORD *)(v2 + 40) - 4) <= 1u )
       {
-        v3 = *(_DWORD *)(*(_QWORD *)(a1 + 472) + 360LL);
+        v3 = *(_DWORD *)(*(_QWORD *)(a1 + 480) + 312LL);
         if ( (v3 & 8) == 0 )
           return 2 - (unsigned int)((v3 & 0x100) != 0);
       }
@@ -42,10 +42,10 @@ __int64 __fastcall GetTouchValidationStatus(__int64 a1)
       goto LABEL_14;
     if ( (*((_DWORD *)DeviceList + 46) & 0x2000) != 0 )
       goto LABEL_14;
-    v6 = *((_QWORD *)DeviceList + 57);
+    v6 = *((_QWORD *)DeviceList + 58);
     if ( *(_WORD *)(v6 + 42) != 13 || *(_WORD *)(v6 + 40) != 4 )
       goto LABEL_14;
-    if ( (*(_DWORD *)(*((_QWORD *)DeviceList + 59) + 360LL) & 0x100) != 0 )
+    if ( (*(_DWORD *)(*((_QWORD *)DeviceList + 60) + 312LL) & 0x100) != 0 )
       break;
     v1 = 2;
 LABEL_14:

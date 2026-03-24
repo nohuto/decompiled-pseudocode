@@ -1,11 +1,11 @@
 /*
- * XREFs of ?InitializeCloned@CFlipToken@@IEAAJ_KPEBUtagCloneableFlipTokenData@@@Z @ 0x1C0076E78
+ * XREFs of ?InitializeCloned@CFlipToken@@IEAAJ_KPEBUtagCloneableFlipTokenData@@@Z @ 0x1C0064EB8
  * Callers:
- *     ?CreateCloned@CFlipToken@@SAJ_K0PEAVCompositionSurfaceObject@@PEBUtagCloneableFlipTokenData@@PEAPEAV1@@Z @ 0x1C0076C68 (-CreateCloned@CFlipToken@@SAJ_K0PEAVCompositionSurfaceObject@@PEBUtagCloneableFlipTokenData@@PEA.c)
+ *     ?CreateCloned@CFlipToken@@SAJ_K0PEAVCompositionSurfaceObject@@PEBUtagCloneableFlipTokenData@@PEAPEAV1@@Z @ 0x1C0064D28 (-CreateCloned@CFlipToken@@SAJ_K0PEAVCompositionSurfaceObject@@PEBUtagCloneableFlipTokenData@@PEA.c)
  * Callees:
- *     ?ValidateDXGIAlphaMode@@YAJW4DXGI_ALPHA_MODE@@@Z @ 0x1C0007E28 (-ValidateDXGIAlphaMode@@YAJW4DXGI_ALPHA_MODE@@@Z.c)
- *     ?Initialize@CToken@@MEAAJW4TokenState@CTokenBase@@@Z @ 0x1C0021C20 (-Initialize@CToken@@MEAAJW4TokenState@CTokenBase@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?ValidateDXGIAlphaMode@@YAJW4DXGI_ALPHA_MODE@@@Z @ 0x1C0011B2C (-ValidateDXGIAlphaMode@@YAJW4DXGI_ALPHA_MODE@@@Z.c)
+ *     ?Initialize@CToken@@MEAAJW4TokenState@CTokenBase@@@Z @ 0x1C001E270 (-Initialize@CToken@@MEAAJW4TokenState@CTokenBase@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CFlipToken::InitializeCloned(
@@ -21,7 +21,7 @@ __int64 __fastcall CFlipToken::InitializeCloned(
   unsigned int v11; // eax
 
   v6 = 0;
-  v7 = CToken::Initialize((__int64)this, 2);
+  v7 = CToken::Initialize((__int64)this, 2LL);
   if ( v7 >= 0 )
   {
     v7 = ValidateDXGIAlphaMode(*((_DWORD *)a3 + 9));
@@ -50,7 +50,7 @@ __int64 __fastcall CFlipToken::InitializeCloned(
       v9[1] = *((_OWORD *)a3 + 1);
       v9[2] = *((_OWORD *)a3 + 2);
       v9[3] = *((_OWORD *)a3 + 3);
-      *((_QWORD *)v9 + 8) = *((_QWORD *)a3 + 8);
+      *((_DWORD *)v9 + 16) = *((_DWORD *)a3 + 16);
       v11 = *((_DWORD *)this + 74);
       *((_BYTE *)this + 89) = 1;
       if ( v11 )

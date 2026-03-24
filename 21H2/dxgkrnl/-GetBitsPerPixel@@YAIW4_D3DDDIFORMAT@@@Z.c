@@ -1,10 +1,11 @@
 /*
- * XREFs of ?GetBitsPerPixel@@YAIW4_D3DDDIFORMAT@@@Z @ 0x1C0011EE8
+ * XREFs of ?GetBitsPerPixel@@YAIW4_D3DDDIFORMAT@@@Z @ 0x1C000A8D4
  * Callers:
- *     ?GetBitsPerPixel@DMMVIDPNSOURCEMODE@@QEBAIXZ @ 0x1C006902C (-GetBitsPerPixel@DMMVIDPNSOURCEMODE@@QEBAIXZ.c)
- *     BmlGetNextBestSourceMode @ 0x1C01B2338 (BmlGetNextBestSourceMode.c)
- *     ?SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z @ 0x1C01DECF4 (-SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z.c)
- *     DxgkCddVerifyCddDevMode @ 0x1C01E9530 (DxgkCddVerifyCddDevMode.c)
+ *     ?GetBitsPerPixel@DMMVIDPNSOURCEMODE@@QEBAIXZ @ 0x1C005C0A4 (-GetBitsPerPixel@DMMVIDPNSOURCEMODE@@QEBAIXZ.c)
+ *     BmlGetNextBestSourceMode @ 0x1C01393E0 (BmlGetNextBestSourceMode.c)
+ *     DxgkConvertDisplayConfigToDevMode @ 0x1C0149580 (DxgkConvertDisplayConfigToDevMode.c)
+ *     ?SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z @ 0x1C01601D4 (-SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z.c)
+ *     DxgkCddVerifyCddDevMode @ 0x1C016E7D0 (DxgkCddVerifyCddDevMode.c)
  * Callees:
  *     <none>
  */

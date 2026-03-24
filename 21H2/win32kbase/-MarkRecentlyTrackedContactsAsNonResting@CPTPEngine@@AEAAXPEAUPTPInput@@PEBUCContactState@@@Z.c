@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MarkRecentlyTrackedContactsAsNonResting@CPTPEngine@@AEAAXPEAUPTPInput@@PEBUCContactState@@@Z @ 0x1C0201940
+ * XREFs of ?MarkRecentlyTrackedContactsAsNonResting@CPTPEngine@@AEAAXPEAUPTPInput@@PEBUCContactState@@@Z @ 0x1C01C630C
  * Callers:
- *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C020273C (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
+ *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C01C709C (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
  * Callees:
- *     ?SetContactRestingState@CPTPEngine@@AEAAXPEAUCContactState@@H@Z @ 0x1C02040F4 (-SetContactRestingState@CPTPEngine@@AEAAXPEAUCContactState@@H@Z.c)
+ *     ?SetContactRestingState@CPTPEngine@@AEAAXPEAUCContactState@@H@Z @ 0x1C01C89A8 (-SetContactRestingState@CPTPEngine@@AEAAXPEAUCContactState@@H@Z.c)
  */
 
 void __fastcall CPTPEngine::MarkRecentlyTrackedContactsAsNonResting(
@@ -20,21 +20,21 @@ void __fastcall CPTPEngine::MarkRecentlyTrackedContactsAsNonResting(
 
   v3 = this;
   if ( a3 )
-    a2 = (const struct CContactState *)((char *)a3 + 80);
+    a2 = (const struct CContactState *)((char *)a3 + 72);
   v4 = *(_QWORD *)a2;
-  v5 = (char *)this + 1208;
-  v6 = (char *)this + 3608;
+  v5 = (char *)this + 1160;
+  v6 = (char *)this + 3512;
   while ( v5 != v6 )
   {
     if ( (*(_DWORD *)v5 & 1) != 0 && (*(_DWORD *)v5 & 0x80u) != 0 )
     {
-      v7 = *((_QWORD *)v5 + 10);
+      v7 = *((_QWORD *)v5 + 9);
       v8 = v4 - v7;
       if ( v4 <= v7 )
-        v8 = *((_QWORD *)v5 + 10) - v4;
-      if ( v8 < *((_QWORD *)v3 + 12) * (unsigned __int64)*((unsigned int *)v3 + 99) / 0x3E8 )
+        v8 = *((_QWORD *)v5 + 9) - v4;
+      if ( v8 < *((_QWORD *)v3 + 12) * (unsigned __int64)*((unsigned int *)v3 + 87) / 0x3E8 )
         CPTPEngine::SetContactRestingState(v3, (struct CContactState *)v5, 0);
     }
-    v5 += 400;
+    v5 += 392;
   }
 }

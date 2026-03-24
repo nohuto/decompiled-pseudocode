@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnCleanupPrefetchHeader @ 0x1407DFE00
+ * XREFs of PfSnCleanupPrefetchHeader @ 0x1406C9318
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x1407DC0D0 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x1406C62F0 (PfSnAsyncPrefetchWorker.c)
  * Callees:
- *     PfpPrefetchSharedDeref @ 0x1406AE46C (PfpPrefetchSharedDeref.c)
- *     PfpPrefetchSharedCleanup @ 0x1406AE49C (PfpPrefetchSharedCleanup.c)
- *     PfSnCleanupPrefetchSectionInfo @ 0x1407DFF0C (PfSnCleanupPrefetchSectionInfo.c)
- *     PfpOpenHandleClose @ 0x1407DFFD8 (PfpOpenHandleClose.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PfpPrefetchSharedDeref @ 0x1406C6C38 (PfpPrefetchSharedDeref.c)
+ *     PfpPrefetchSharedCleanup @ 0x1406C70A4 (PfpPrefetchSharedCleanup.c)
+ *     PfSnCleanupPrefetchSectionInfo @ 0x1406C9424 (PfSnCleanupPrefetchSectionInfo.c)
+ *     PfpOpenHandleClose @ 0x1406C9690 (PfpOpenHandleClose.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfSnCleanupPrefetchHeader(__int64 a1)

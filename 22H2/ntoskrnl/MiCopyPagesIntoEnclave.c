@@ -1,97 +1,97 @@
 /*
- * XREFs of MiCopyPagesIntoEnclave @ 0x140A3D034
+ * XREFs of MiCopyPagesIntoEnclave @ 0x1408D21D8
  * Callers:
- *     NtLoadEnclaveData @ 0x140A3F2E0 (NtLoadEnclaveData.c)
+ *     NtLoadEnclaveData @ 0x1408D44A0 (NtLoadEnclaveData.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     MmProbeAndLockPages @ 0x140238770 (MmProbeAndLockPages.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiMakeProtectionMask @ 0x140276860 (MiMakeProtectionMask.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     MiGetPteFromCopyList @ 0x140283F10 (MiGetPteFromCopyList.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     MiCreatePteCopyList @ 0x140360260 (MiCreatePteCopyList.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     KeAddEnclavePage @ 0x1405702D8 (KeAddEnclavePage.c)
- *     MiGetVmPartition @ 0x140629460 (MiGetVmPartition.c)
- *     MiCountCommittedPages @ 0x1406474CC (MiCountCommittedPages.c)
- *     MiGetPageForEnclave @ 0x1406480A8 (MiGetPageForEnclave.c)
- *     MiInitializeEnclavePfn @ 0x140648174 (MiInitializeEnclavePfn.c)
- *     MiReturnEnclavePage @ 0x140648A7C (MiReturnEnclavePage.c)
- *     MiWriteEnclavePte @ 0x140648BF8 (MiWriteEnclavePte.c)
- *     MiReleasePteCopyList @ 0x14066107C (MiReleasePteCopyList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MmProbeAndLockPages @ 0x1402096D0 (MmProbeAndLockPages.c)
+ *     MiMakeProtectionMask @ 0x14021A9E0 (MiMakeProtectionMask.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     MiGetPteFromCopyList @ 0x1402402F0 (MiGetPteFromCopyList.c)
+ *     MiCreatePteCopyList @ 0x1402404A8 (MiCreatePteCopyList.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     MiReleasePteCopyList @ 0x140323F44 (MiReleasePteCopyList.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KeAddEnclavePage @ 0x140514E98 (KeAddEnclavePage.c)
+ *     MiGetVmPartition @ 0x140535660 (MiGetVmPartition.c)
+ *     MiGetPageForEnclave @ 0x14054A904 (MiGetPageForEnclave.c)
+ *     MiInitializeEnclavePfn @ 0x14054A968 (MiInitializeEnclavePfn.c)
+ *     MiReturnEnclavePage @ 0x14054B360 (MiReturnEnclavePage.c)
+ *     MiWriteEnclavePte @ 0x14054B4DC (MiWriteEnclavePte.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCopyPagesIntoEnclave(
-        _KPROCESS *BugCheckParameter1,
+        _KPROCESS *a1,
         __int64 a2,
         char a3,
         unsigned __int64 a4,
-        unsigned __int64 a5,
+        void *Src,
         __int64 a6,
         int a7,
         _QWORD *a8,
         _DWORD *a9)
 {
+  unsigned __int64 v11; // rbx
   char *Pool; // r14
   unsigned int ProtectionMask; // eax
-  char v14; // r8
-  char v16; // cl
-  char v17; // cl
-  char v18; // r8
-  int v19; // ebx
-  signed int v20; // ebx
-  unsigned __int64 v21; // rdx
-  unsigned __int64 PteAddress; // rbx
-  unsigned __int64 v23; // r13
-  int v24; // esi
-  unsigned int v25; // r12d
+  int v14; // r8d
+  int v16; // ecx
+  int v17; // edx
+  unsigned __int64 v18; // rdx
+  unsigned __int64 v19; // r9
+  unsigned __int64 PteAddress; // r12
+  unsigned __int64 v21; // r13
+  int v22; // edi
+  _DWORD *v23; // r9
+  unsigned __int64 v24; // rax
+  unsigned int v25; // r13d
   char v26; // al
-  __int64 v27; // rbx
-  unsigned __int64 v28; // rcx
-  size_t v29; // rbx
+  unsigned __int64 v27; // rcx
+  char *v28; // r15
+  __int64 v29; // rbx
   char *v30; // r15
-  __int64 v31; // rbx
-  char *v32; // r15
-  unsigned __int64 PageForEnclave; // rax
-  ULONG_PTR v34; // r12
-  unsigned __int64 PteFromCopyList; // r13
-  unsigned __int64 v36; // rbx
+  __int64 PageForEnclave; // rax
+  ULONG_PTR v32; // r12
+  unsigned __int64 v33; // rbx
+  __int64 v34; // rdx
+  __int64 v35; // r8
+  _DWORD *v36; // r9
   __int64 v37; // r8
-  __int64 v38; // r8
+  __int64 v38; // r9
   unsigned __int64 ValidPte; // rax
-  int v41; // [rsp+34h] [rbp-1D4h]
-  unsigned int v42; // [rsp+38h] [rbp-1D0h]
-  unsigned int v43; // [rsp+3Ch] [rbp-1CCh]
-  unsigned __int64 v44; // [rsp+48h] [rbp-1C0h]
-  char v45; // [rsp+50h] [rbp-1B8h]
-  void *Src; // [rsp+58h] [rbp-1B0h]
-  ULONG_PTR v47; // [rsp+60h] [rbp-1A8h]
-  unsigned __int64 v49; // [rsp+78h] [rbp-190h]
-  __int64 VmPartition; // [rsp+90h] [rbp-178h]
-  __int64 v52; // [rsp+A8h] [rbp-160h]
-  __int128 v53; // [rsp+B0h] [rbp-158h] BYREF
-  __int64 v54; // [rsp+C0h] [rbp-148h]
-  $115DCDF994C6370D29323EAB0E0C9502 v55; // [rsp+C8h] [rbp-140h] BYREF
-  struct _MDL MemoryDescriptorList[4]; // [rsp+100h] [rbp-108h] BYREF
+  int v41; // [rsp+34h] [rbp-1C4h]
+  ULONG_PTR v42; // [rsp+38h] [rbp-1C0h]
+  int v43; // [rsp+48h] [rbp-1B0h]
+  unsigned int v44; // [rsp+4Ch] [rbp-1ACh]
+  unsigned __int64 v45; // [rsp+50h] [rbp-1A8h]
+  unsigned __int64 PteFromCopyList; // [rsp+60h] [rbp-198h]
+  _QWORD *VmPartition; // [rsp+80h] [rbp-178h]
+  __int64 v50; // [rsp+90h] [rbp-168h]
+  char *v51; // [rsp+98h] [rbp-160h]
+  unsigned __int64 v52; // [rsp+A0h] [rbp-158h]
+  __int128 v53; // [rsp+A8h] [rbp-150h] BYREF
+  __int64 v54; // [rsp+B8h] [rbp-140h]
+  _OWORD v55[3]; // [rsp+C0h] [rbp-138h] BYREF
+  struct _MDL MemoryDescriptorList[4]; // [rsp+F0h] [rbp-108h] BYREF
 
-  v44 = a4;
-  memset(&v55, 0, sizeof(v55));
+  v45 = a4;
+  v11 = (unsigned __int64)Src;
+  memset(v55, 0, sizeof(v55));
   v53 = 0LL;
   v54 = 0LL;
   memset(MemoryDescriptorList, 0, 0xB8uLL);
   Pool = 0LL;
   ProtectionMask = MiMakeProtectionMask(a7 & 0x5FFFFFFF);
-  v42 = ProtectionMask;
   if ( (ProtectionMask & 7) == 0 || ProtectionMask > 7 || (ProtectionMask & 5) == 5 )
     return 3221225541LL;
   if ( (ProtectionMask & 2) != 0 )
@@ -106,150 +106,135 @@ __int64 __fastcall MiCopyPagesIntoEnclave(
   v16 = v14 | 2;
   if ( (ProtectionMask & 4) == 0 )
     v16 = v14;
-  v17 = v16 | 1;
-  v18 = v17 | 0x40;
-  if ( (*(_DWORD *)(a2 + 64) & 2) == 0 )
-    v18 = v17;
-  v45 = v18;
-  if ( (*(_DWORD *)(a2 + 72) & 1) != 0 )
-    v42 = ProtectionMask & 2 | 4;
-  KiStackAttachProcess(BugCheckParameter1, 0, (__int64)&v55);
-  v19 = -(MiCountCommittedPages(a4, a4 + a6 - 1, a2, (__int64)&BugCheckParameter1[1].ActiveProcessors.StaticBitmap[26]) != 0);
-  KiUnstackDetachProcess(&v55);
-  v20 = v19 & 0xC0000018;
-  if ( v20 < 0 )
-    return (unsigned int)v20;
-  PteAddress = MiGetPteAddress(v44);
-  v47 = PteAddress;
-  v49 = PteAddress + 8 * (v21 - 1);
-  if ( v21 > 0x14 )
-    LODWORD(v21) = 20;
-  MiCreatePteCopyList(v21 + 1, (__int64)&v53);
+  v43 = (32 * (*(_DWORD *)(a2 + 64) & 2)) | v16 | 1;
+  v17 = ProtectionMask & 2 | 4;
+  if ( (*(_DWORD *)(a2 + 72) & 1) == 0 )
+    v17 = ProtectionMask;
+  v44 = v17;
+  PteAddress = MiGetPteAddress(a4);
+  v42 = PteAddress;
+  v21 = PteAddress + 8 * (v18 - 1);
+  v52 = v21;
+  if ( v18 > 0x14 )
+    v18 = 20LL;
+  MiCreatePteCopyList(v18 + 1, v18 + 1, (__int64)&v53, v19);
   if ( !DWORD1(v53) )
     return 3221225626LL;
-  v23 = a5;
-  if ( (a5 & 0xFFF) == 0 || (Pool = (char *)MiAllocatePool(256, 0x10000uLL, 0x44456D4Du)) != 0LL )
+  if ( ((unsigned __int16)Src & 0xFFF) == 0 || (Pool = (char *)MiAllocatePool(256, 0x10000uLL, 0x44456D4Du)) != 0LL )
   {
-    VmPartition = MiGetVmPartition((__int64)&BugCheckParameter1[1].ActiveProcessors.StaticBitmap[26]);
-    v24 = 0;
+    VmPartition = (_QWORD *)MiGetVmPartition((__int64)&a1[1].ActiveProcessorsPadding[6]);
+    v22 = 0;
     *a8 = 0LL;
-    v52 = (__int64)(*(_QWORD *)(a2 + 80) << 25) >> 16;
+    v50 = (__int64)(*(_QWORD *)(a2 + 80) << 25) >> 16;
     while ( 1 )
     {
-      if ( PteAddress > v49 )
-        goto LABEL_24;
+      if ( PteAddress > v21 )
+        goto LABEL_20;
+      v24 = (__int64)(v21 - PteAddress + 8) >> 3;
       v25 = 16;
-      if ( (unsigned __int64)((__int64)(v49 - PteAddress + 8) >> 3) < 0x10 )
-        v25 = (__int64)(v49 - PteAddress + 8) >> 3;
-      v43 = v25;
+      if ( v24 < 0x10 )
+        v25 = v24;
       v26 = a3;
       if ( a3 == 1 )
       {
-        v27 = v25;
-        if ( (unsigned __int64)v25 << 12 )
+        if ( v25 )
         {
-          v28 = v23 + ((unsigned __int64)v25 << 12);
-          if ( v28 > 0x7FFFFFFF0000LL || v28 < v23 )
+          v27 = ((unsigned __int64)v25 << 12) + v11;
+          if ( v27 > 0x7FFFFFFF0000LL || v27 < v11 )
             MEMORY[0x7FFFFFFF0000] = 0;
         }
         v26 = 1;
       }
-      else
-      {
-        v27 = v25;
-      }
       if ( Pool )
       {
-        v29 = v27 << 12;
-        memmove(Pool, (const void *)v23, v29);
-        v30 = Pool;
+        memmove(Pool, (const void *)v11, (unsigned __int64)v25 << 12);
+        v28 = Pool;
+      }
+      else if ( v26 == 1 )
+      {
+        MemoryDescriptorList[0].Next = 0LL;
+        MemoryDescriptorList[0].Size = 8 * (((((unsigned __int64)v25 << 12) + (v11 & 0xFFF) + 4095) >> 12) + 6);
+        MemoryDescriptorList[0].MdlFlags = 0;
+        MemoryDescriptorList[0].StartVa = (PVOID)(v11 & 0xFFFFFFFFFFFFF000uLL);
+        MemoryDescriptorList[0].ByteOffset = v11 & 0xFFF;
+        MemoryDescriptorList[0].ByteCount = v25 << 12;
+        MmProbeAndLockPages(MemoryDescriptorList, 0, IoReadAccess);
+        v28 = (char *)MmMapLockedPagesSpecifyCache(MemoryDescriptorList, 0, MmCached, 0LL, 0, 0xC0000000);
+        if ( !v28 )
+          break;
       }
       else
       {
-        v29 = v27 << 12;
-        if ( v26 == 1 )
-        {
-          MemoryDescriptorList[0].Next = 0LL;
-          MemoryDescriptorList[0].Size = 8 * (((v29 + (v23 & 0xFFF) + 4095) >> 12) + 6);
-          MemoryDescriptorList[0].MdlFlags = 0;
-          MemoryDescriptorList[0].StartVa = (PVOID)(v23 & 0xFFFFFFFFFFFFF000uLL);
-          MemoryDescriptorList[0].ByteOffset = v23 & 0xFFF;
-          MemoryDescriptorList[0].ByteCount = v29;
-          MmProbeAndLockPages(MemoryDescriptorList, 0, IoReadAccess);
-          v30 = (char *)MmMapLockedPagesSpecifyCache(MemoryDescriptorList, 0, MmCached, 0LL, 0, 0xC0000000);
-          if ( !v30 )
-            break;
-        }
-        else
-        {
-          v30 = (char *)v23;
-        }
+        v28 = (char *)v11;
       }
-      Src = (void *)(v29 + v23);
-      KiStackAttachProcess(BugCheckParameter1, 0, (__int64)&v55);
-      v31 = v44;
-      v32 = &v30[-v44];
+      v51 = (char *)(((unsigned __int64)v25 << 12) + v11);
+      KiStackAttachProcess(a1, 0LL, (__int64)v55, v23);
+      v29 = v45;
+      v30 = &v28[-v45];
       while ( v25 )
       {
         PageForEnclave = MiGetPageForEnclave(a2, VmPartition);
-        v34 = PageForEnclave;
-        if ( PageForEnclave == -1LL )
+        v32 = PageForEnclave;
+        if ( PageForEnclave == -1 )
         {
-          v24 = -1073741801;
-          break;
+          v22 = -1073741801;
+          goto LABEL_57;
         }
         PteFromCopyList = (unsigned __int64)MiGetPteFromCopyList((unsigned int *)&v53, PageForEnclave, -1LL);
-        v24 = KeAddEnclavePage(v52, (__int64)&v32[v31], (__int64)(PteFromCopyList << 25) >> 16, v31, v45, a9);
-        v36 = ZeroPte;
+        v22 = KeAddEnclavePage(v50, (__int64)&v30[v29], (__int64)(PteFromCopyList << 25) >> 16, v29, v43, a9);
+        v33 = ZeroPte;
         v41 = 0;
         if ( MiPteInShadowRange(PteFromCopyList) )
         {
-          if ( MiPteHasShadow() )
+          if ( (unsigned int)MiPteHasShadow() )
           {
             v41 = 1;
-            if ( HIBYTE(word_140C66DFC) )
-              goto LABEL_56;
+            if ( HIBYTE(word_140C4E008) )
+              goto LABEL_51;
           }
           else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
           {
-            goto LABEL_56;
+            goto LABEL_51;
           }
           if ( (ZeroPte & 1) != 0 )
-            v36 = ZeroPte | 0x8000000000000000uLL;
+            v33 = ZeroPte | 0x8000000000000000uLL;
         }
-LABEL_56:
-        *(_QWORD *)PteFromCopyList = v36;
+LABEL_51:
+        *(_QWORD *)PteFromCopyList = v33;
         if ( v41 )
-          MiWritePteShadow(PteFromCopyList, v36, v37);
-        if ( v24 < 0 )
+          MiWritePteShadow(PteFromCopyList, v33, v35);
+        if ( v22 < 0 )
         {
-          MiReturnEnclavePage(v34);
+          MiReturnEnclavePage(v32, v34, v35, v36);
+LABEL_57:
+          PteAddress = v42;
           break;
         }
-        MiInitializeEnclavePfn(v34, v47, v42);
-        v38 = v42;
-        LODWORD(v38) = v42 | 0x80000000;
-        ValidPte = MiMakeValidPte(v47, v34, v38);
-        MiWriteEnclavePte(v47, ValidPte, a2, 0, 1);
-        v31 = v44 + 4096;
-        v44 += 4096LL;
-        v47 += 8LL;
-        v25 = --v43;
+        MiInitializeEnclavePfn(v32, v42, v44, v36);
+        v37 = v44;
+        LODWORD(v37) = v44 | 0x80000000;
+        ValidPte = MiMakeValidPte(v42, v32, v37, v38);
+        MiWriteEnclavePte(v42, ValidPte, a2, 0LL, 1);
+        v29 = v45 + 4096;
+        v45 += 4096LL;
+        PteAddress = v42 + 8;
+        v42 += 8LL;
+        --v25;
         *a8 += 4096LL;
       }
       if ( (MemoryDescriptorList[0].MdlFlags & 2) != 0 )
         MmUnlockPages(MemoryDescriptorList);
-      KiUnstackDetachProcess(&v55);
-      v23 = (unsigned __int64)Src;
-      PteAddress = v47;
+      KiUnstackDetachProcess((__int64)v55, 0);
+      v11 = (unsigned __int64)v51;
+      v21 = v52;
     }
   }
-  v24 = -1073741670;
-LABEL_24:
+  v22 = -1073741670;
+LABEL_20:
   if ( (MemoryDescriptorList[0].MdlFlags & 2) != 0 )
     MmUnlockPages(MemoryDescriptorList);
   if ( Pool )
     ExFreePoolWithTag(Pool, 0);
   MiReleasePteCopyList((__int64)&v53);
-  return (unsigned int)v24;
+  return (unsigned int)v22;
 }

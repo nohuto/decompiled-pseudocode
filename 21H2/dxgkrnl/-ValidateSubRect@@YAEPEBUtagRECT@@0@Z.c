@@ -1,44 +1,51 @@
 /*
- * XREFs of ?ValidateSubRect@@YAEPEBUtagRECT@@0@Z @ 0x1C03668DC
+ * XREFs of ?ValidateSubRect@@YAEPEBUtagRECT@@0@Z @ 0x1C023B840
  * Callers:
- *     ?ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z @ 0x1C0366494 (-ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z.c)
+ *     ?ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z @ 0x1C023B500 (-ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?ValidateRect@@YAEPEBUtagRECT@@@Z @ 0x1C0366770 (-ValidateRect@@YAEPEBUtagRECT@@@Z.c)
+ *     ?ValidateRect@@YAEPEBUtagRECT@@@Z @ 0x1C023B740 (-ValidateRect@@YAEPEBUtagRECT@@@Z.c)
  */
 
 unsigned __int8 __fastcall ValidateSubRect(const struct tagRECT *a1, const struct tagRECT *a2)
 {
+  __int64 top; // rdx
+  __int64 v5; // rcx
   LONG left; // eax
-  LONG right; // r9d
-  LONG v6; // ecx
-  LONG top; // edx
+  int right; // r9d
   LONG bottom; // r10d
   LONG v9; // r8d
   LONG v10; // ebx
+  __int64 v12; // rax
 
-  if ( ValidateRect(a1) )
+  if ( ValidateRect(a1, (__int64)a2) )
   {
     left = a1->left;
     right = a2->right;
     if ( a1->left < right )
     {
-      v6 = a1->right;
-      if ( v6 > a2->left || v6 == left )
+      v5 = (unsigned int)a1->right;
+      if ( (int)v5 > a2->left || (_DWORD)v5 == left )
       {
-        top = a1->top;
+        top = (unsigned int)a1->top;
         bottom = a2->bottom;
-        if ( top < bottom )
+        if ( (int)top < bottom )
         {
           v9 = a1->bottom;
           v10 = a2->top;
-          if ( (v9 > v10 || top == v9) && left >= a2->left && v6 <= right && top >= v10 && v9 <= bottom )
+          if ( (v9 > v10 || (_DWORD)top == v9)
+            && left >= a2->left
+            && (int)v5 <= right
+            && (int)top >= v10
+            && v9 <= bottom )
+          {
             return 1;
+          }
         }
       }
     }
-    WdLogSingleEntry1(2LL, 2245LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Invalid bounding rect", 2245LL, 0LL, 0LL, 0LL, 0LL);
+    v12 = WdLogNewEntry5_WdError(v5, top);
+    *(_QWORD *)(v12 + 24) = 1919LL;
+    WdLogEvent5_WdError(v12);
   }
   return 0;
 }

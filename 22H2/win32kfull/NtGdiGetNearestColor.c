@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiGetNearestColor @ 0x1C0017BB0
+ * XREFs of NtGdiGetNearestColor @ 0x1C015C400
  * Callers:
  *     <none>
  * Callees:

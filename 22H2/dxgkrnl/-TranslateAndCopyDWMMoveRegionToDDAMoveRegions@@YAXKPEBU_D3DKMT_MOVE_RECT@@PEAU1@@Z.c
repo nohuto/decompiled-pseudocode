@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z @ 0x1C0340E0C
+ * XREFs of ?TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z @ 0x1C0283154
  * Callers:
- *     ?CopyPresentArgs@DXGPRESENT@@QEAAJPEAVDXGCONTEXT@@PEAU_D3DKMT_PRESENT@@@Z @ 0x1C01F21D0 (-CopyPresentArgs@DXGPRESENT@@QEAAJPEAVDXGCONTEXT@@PEAU_D3DKMT_PRESENT@@@Z.c)
- *     NtDxgkOutputDuplPresentToHwQueue @ 0x1C0320530 (NtDxgkOutputDuplPresentToHwQueue.c)
- *     DxgkOutputDuplPresent @ 0x1C0341710 (DxgkOutputDuplPresent.c)
+ *     ?CopyPresentArgs@DXGPRESENT@@QEAAJPEAVDXGCONTEXT@@PEAU_D3DKMT_PRESENT@@@Z @ 0x1C010D760 (-CopyPresentArgs@DXGPRESENT@@QEAAJPEAVDXGCONTEXT@@PEAU_D3DKMT_PRESENT@@@Z.c)
+ *     NtDxgkOutputDuplPresentToHwQueue @ 0x1C0275220 (NtDxgkOutputDuplPresentToHwQueue.c)
+ *     DxgkOutputDuplPresent @ 0x1C0283390 (DxgkOutputDuplPresent.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?FindSlotForData@CSparseStorage@@AEAAAEAVDataInfo@1@II@Z @ 0x180038B4C
+ * XREFs of ?FindSlotForData@CSparseStorage@@AEAAAEAVDataInfo@1@II@Z @ 0x180063A70
  * Callers:
- *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x180038ACC (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
+ *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x1800639F0 (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
  * Callees:
- *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x180027730 (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038D40 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
+ *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x18004610C (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
  */
 
 struct CSparseStorage::DataInfo *__fastcall CSparseStorage::FindSlotForData(
@@ -26,7 +26,7 @@ struct CSparseStorage::DataInfo *__fastcall CSparseStorage::FindSlotForData(
   struct CSparseStorage::DataInfo *result; // rax
   signed __int64 v16; // rbx
   unsigned __int64 v17; // rbp
-  LPVOID v18; // rax
+  char *v18; // rax
 
   v3 = *(unsigned int **)this;
   v5 = a3;
@@ -66,11 +66,14 @@ struct CSparseStorage::DataInfo *__fastcall CSparseStorage::FindSlotForData(
   }
   v16 = v10 - (char *)v3;
   v17 = v16 + v5 + 28;
-  v18 = DefaultHeap::Realloc(v3, v17);
+  v18 = (char *)DefaultHeap::Realloc(v3, v17);
   *(_QWORD *)this = v18;
   if ( !v18 )
+  {
     RaiseFailFastException(0LL, 0LL, 0);
-  memset_0((void *)(v9 + *(_QWORD *)this), 0, v17 - v9);
+    v18 = *(char **)this;
+  }
+  memset_0(&v18[v9], 0, v17 - v9);
   **(_DWORD **)this = v17;
   result = (struct CSparseStorage::DataInfo *)(v16 + *(_QWORD *)this);
   *(_DWORD *)result &= 0xFF000000;

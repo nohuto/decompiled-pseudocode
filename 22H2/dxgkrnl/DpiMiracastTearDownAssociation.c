@@ -1,26 +1,26 @@
 /*
- * XREFs of DpiMiracastTearDownAssociation @ 0x1C0061800
+ * XREFs of DpiMiracastTearDownAssociation @ 0x1C0054DA8
  * Callers:
- *     DpiMiracastStopMiracastSessionSync @ 0x1C0060D90 (DpiMiracastStopMiracastSessionSync.c)
- *     DpiMiracastTargetDeviceChange @ 0x1C0061330 (DpiMiracastTargetDeviceChange.c)
- *     DpiMiracastHandleStartSessionDone @ 0x1C039F3AC (DpiMiracastHandleStartSessionDone.c)
- *     DpiMiracastHandleStopSessionDone @ 0x1C039F824 (DpiMiracastHandleStopSessionDone.c)
- *     DpiMiracastStartSessionRequestCallback @ 0x1C039FF10 (DpiMiracastStartSessionRequestCallback.c)
- *     DpiMiracastStopSessionRequestCallback @ 0x1C03A0050 (DpiMiracastStopSessionRequestCallback.c)
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C00542F0 (DpiMiracastStopMiracastSessionSync.c)
+ *     DpiMiracastTargetDeviceChange @ 0x1C00548C0 (DpiMiracastTargetDeviceChange.c)
+ *     DpiMiracastHandleStartSessionDone @ 0x1C02CE9DC (DpiMiracastHandleStartSessionDone.c)
+ *     DpiMiracastHandleStopSessionDone @ 0x1C02CEE64 (DpiMiracastHandleStopSessionDone.c)
+ *     DpiMiracastStartSessionRequestCallback @ 0x1C02CF5F0 (DpiMiracastStartSessionRequestCallback.c)
+ *     DpiMiracastStopSessionRequestCallback @ 0x1C02CF730 (DpiMiracastStopSessionRequestCallback.c)
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0005C0C (DpiCheckForOutstandingD3Requests.c)
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0015C20 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     DpIndicateChildStatus @ 0x1C005DF90 (DpIndicateChildStatus.c)
- *     ??_GMIRACAST_CHUNK_LIST@@QEAAPEAXI@Z @ 0x1C005F998 (--_GMIRACAST_CHUNK_LIST@@QEAAPEAXI@Z.c)
- *     DpiMiracastEtwLogStopMiracastSessionStage @ 0x1C005FF8C (DpiMiracastEtwLogStopMiracastSessionStage.c)
- *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C0060B60 (DpiMiracastReleaseMiracastDeviceContext.c)
- *     McTemplateK0qqz_EtwWriteTransfer @ 0x1C006343C (McTemplateK0qqz_EtwWriteTransfer.c)
- *     TraceLoggingWriteMiracastSessionStop @ 0x1C0067754 (TraceLoggingWriteMiracastSessionStop.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C017CDCC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     DpiEnableD3Requests @ 0x1C01987EC (DpiEnableD3Requests.c)
- *     DpiMiracastBroadcastDeviceStateChange @ 0x1C039E7EC (DpiMiracastBroadcastDeviceStateChange.c)
- *     DpiMiracastDdiMiracastDestroyContext @ 0x1C039EC7C (DpiMiracastDdiMiracastDestroyContext.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000C8D0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001FC54 (DpiCheckForOutstandingD3Requests.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     DpIndicateChildStatus @ 0x1C0050C10 (DpIndicateChildStatus.c)
+ *     ??_GMIRACAST_CHUNK_LIST@@QEAAPEAXI@Z @ 0x1C0052EA8 (--_GMIRACAST_CHUNK_LIST@@QEAAPEAXI@Z.c)
+ *     DpiMiracastEtwLogStopMiracastSessionStage @ 0x1C005349C (DpiMiracastEtwLogStopMiracastSessionStage.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C00540A0 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     McTemplateK0qqz_EtwWriteTransfer @ 0x1C0056A6C (McTemplateK0qqz_EtwWriteTransfer.c)
+ *     TraceLoggingWriteMiracastSessionStop @ 0x1C005A994 (TraceLoggingWriteMiracastSessionStop.c)
+ *     DpiEnableD3Requests @ 0x1C00ECD4C (DpiEnableD3Requests.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C0145F7C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpiMiracastBroadcastDeviceStateChange @ 0x1C02CDE08 (DpiMiracastBroadcastDeviceStateChange.c)
+ *     DpiMiracastDdiMiracastDestroyContext @ 0x1C02CE2B4 (DpiMiracastDdiMiracastDestroyContext.c)
  */
 
 void __fastcall DpiMiracastTearDownAssociation(char *P, int a2, int a3, unsigned int a4, char a5)
@@ -57,16 +57,10 @@ void __fastcall DpiMiracastTearDownAssociation(char *P, int a2, int a3, unsigned
   if ( !a5 )
     AcquireMiniportListMutex();
   if ( *((_DWORD *)P + 110) != a2 && a2 != -2 )
-  {
-LABEL_43:
-    if ( a5 )
-      return;
-    goto LABEL_44;
-  }
+    goto LABEL_43;
   v9 = *((_QWORD *)P + 54);
   if ( v9 )
   {
-    memset(&LockHandle, 0, sizeof(LockHandle));
     v11 = *(_QWORD *)(v9 + 64);
     v26 = 0LL;
     if ( !a5 )
@@ -87,7 +81,7 @@ LABEL_43:
     }
     DpiMiracastDdiMiracastDestroyContext(v11, *((_QWORD *)P + 56));
     DpiMiracastEtwLogStopMiracastSessionStage((__int64)P, 1, v12);
-    if ( !P[590] && (Microsoft_Windows_DxgKrnlEnableBits & 0x800000000LL) != 0 )
+    if ( !P[590] && (Microsoft_Windows_DxgKrnlEnableBits & 0x40000000) != 0 )
       McTemplateK0qqz_EtwWriteTransfer(
         v13,
         (unsigned int)&EventMiracastPerfTrackStartMiracastSessionNoSend,
@@ -104,8 +98,8 @@ LABEL_43:
     *((_DWORD *)P + 114) = -1;
     KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
     *((_QWORD *)P + 54) = 0LL;
-    *(_QWORD *)(v11 + 3248) = 0LL;
-    *(_QWORD *)(v11 + 3256) = 0LL;
+    *(_QWORD *)(v11 + 3232) = 0LL;
+    *(_QWORD *)(v11 + 3240) = 0LL;
     *((_QWORD *)P + 47) = 0LL;
     *((_QWORD *)P + 48) = 0LL;
     KeReleaseInStackQueuedSpinLock(&LockHandle);
@@ -114,18 +108,18 @@ LABEL_43:
     if ( v16 )
       MIRACAST_CHUNK_LIST::`scalar deleting destructor'(v16);
     *((_QWORD *)P + 61) = 0LL;
-    v17 = *(MIRACAST_CHUNK_LIST **)(v11 + 3272);
+    v17 = *(MIRACAST_CHUNK_LIST **)(v11 + 3256);
     if ( v17 )
       MIRACAST_CHUNK_LIST::`scalar deleting destructor'(v17);
-    v18 = *(MIRACAST_CHUNK_LIST **)(v11 + 3280);
-    *(_QWORD *)(v11 + 3272) = 0LL;
+    v18 = *(MIRACAST_CHUNK_LIST **)(v11 + 3264);
+    *(_QWORD *)(v11 + 3256) = 0LL;
     if ( v18 )
       MIRACAST_CHUNK_LIST::`scalar deleting destructor'(v18);
-    v19 = *(MIRACAST_CHUNK_LIST **)(v11 + 3288);
-    *(_QWORD *)(v11 + 3280) = 0LL;
+    v19 = *(MIRACAST_CHUNK_LIST **)(v11 + 3272);
+    *(_QWORD *)(v11 + 3264) = 0LL;
     if ( v19 )
       MIRACAST_CHUNK_LIST::`scalar deleting destructor'(v19);
-    *(_QWORD *)(v11 + 3288) = 0LL;
+    *(_QWORD *)(v11 + 3272) = 0LL;
     v20 = (MIRACAST_CHUNK_LIST *)*((_QWORD *)P + 63);
     if ( v20 )
       MIRACAST_CHUNK_LIST::`scalar deleting destructor'(v20);
@@ -145,8 +139,8 @@ LABEL_43:
     if ( v23 )
       KeSetEvent(v23, 0, 0);
     KeSetEvent(*((PRKEVENT *)P + 58), 0, 0);
-    --dword_1C01408C0;
-    DpiMiracastReleaseMiracastDeviceContext((int *)P, (unsigned int)P);
+    --dword_1C00B2F38;
+    DpiMiracastReleaseMiracastDeviceContext((int *)P, (__int64)P);
     v24 = MEMORY[0xFFFFF78000000014];
     *((_QWORD *)P + 80) = MEMORY[0xFFFFF78000000014];
     TraceLoggingWriteMiracastSessionStop(P, a4, (v24 - *((_QWORD *)P + 79)) / 10000000);
@@ -177,7 +171,15 @@ LABEL_43:
     goto LABEL_43;
   }
   if ( a4 > 0x7F )
-    goto LABEL_43;
+  {
+LABEL_43:
+    if ( !a5 )
+    {
+      _InterlockedExchange64(&qword_1C00B2B50, 0LL);
+      KeReleaseMutex(Mutex, 0);
+    }
+    return;
+  }
   if ( !a5 )
   {
     ExEnterCriticalRegionAndAcquireFastMutexUnsafe(P + 32);
@@ -195,8 +197,6 @@ LABEL_43:
   {
     *((_QWORD *)P + 11) = 0LL;
     ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(P + 32);
-LABEL_44:
-    _InterlockedExchange64(&qword_1C01404D8, 0LL);
-    KeReleaseMutex(Mutex, 0);
+    goto LABEL_43;
   }
 }

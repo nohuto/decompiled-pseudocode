@@ -1,19 +1,19 @@
 /*
- * XREFs of ?InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C00A8DE0
+ * XREFs of ?InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C003DC5C
  * Callers:
- *     NtUserCheckProcessForClipboardAccess @ 0x1C0003FF0 (NtUserCheckProcessForClipboardAccess.c)
- *     CheckCursorClipAccess @ 0x1C00A8870 (CheckCursorClipAccess.c)
- *     NtUserGetClipboardData @ 0x1C014AAF0 (NtUserGetClipboardData.c)
+ *     NtUserCheckProcessForClipboardAccess @ 0x1C00084A0 (NtUserCheckProcessForClipboardAccess.c)
+ *     NtUserGetClipboardData @ 0x1C002CB70 (NtUserGetClipboardData.c)
+ *     CheckCursorClipAccess @ 0x1C003DCE0 (CheckCursorClipAccess.c)
  * Callees:
- *     IsDebuggerAttached @ 0x1C00A99EC (IsDebuggerAttached.c)
- *     ?ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C0110580 (-ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z.c)
+ *     IsDebuggerAttached @ 0x1C003CEB8 (IsDebuggerAttached.c)
+ *     ?ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C01266DC (-ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z.c)
  */
 
-_BOOL8 __fastcall InForegroundQueue(const struct tagTHREADINFO *a1, int a2)
+_BOOL8 __fastcall InForegroundQueue(__int64 **a1, int a2)
 {
-  return (unsigned int)IsDebuggerAttached(*((_QWORD *)a1 + 53))
+  return (unsigned int)IsDebuggerAttached(a1[53])
       || gpqForeground
-      && (*((_QWORD *)a1 + 54) == gpqForeground
-       || (*(_DWORD *)(*((_QWORD *)a1 + 53) + 12LL) & 0x4080000) == 0x4080000
-       || (unsigned int)ForegroundInputOwnerMatch(a1, a2));
+      && (a1[54] == (__int64 *)gpqForeground
+       || (*((_DWORD *)a1[53] + 3) & 0x4080000) == 0x4080000
+       || (unsigned int)ForegroundInputOwnerMatch((const struct tagTHREADINFO *)a1, a2));
 }

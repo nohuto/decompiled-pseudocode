@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Release@CDeviceTextureTarget@@WHA@EAAKXZ @ 0x180120300
+ * XREFs of ?Release@CDeviceTextureTarget@@WHA@EAAKXZ @ 0x1800F5BB0
  * Callers:
  *     <none>
  * Callees:

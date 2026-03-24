@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIDeviceIrpDeviceRequest @ 0x1C004F888
+ * XREFs of ACPIDeviceIrpDeviceRequest @ 0x1C002D984
  * Callers:
- *     ACPIFilterIrpSetPower @ 0x1C002E2B0 (ACPIFilterIrpSetPower.c)
- *     ACPIDockIrpSetDevicePower @ 0x1C0049450 (ACPIDockIrpSetDevicePower.c)
+ *     ACPIFilterIrpSetPower @ 0x1C002D790 (ACPIFilterIrpSetPower.c)
+ *     ACPIDockIrpSetDevicePower @ 0x1C002D924 (ACPIDockIrpSetDevicePower.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIDeviceInitializePowerRequest @ 0x1C0008B20 (ACPIDeviceInitializePowerRequest.c)
- *     WPP_RECORDER_SF_qdqss @ 0x1C000D718 (WPP_RECORDER_SF_qdqss.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001C9E4 (ACPIDeviceInitializePowerRequest.c)
+ *     WPP_RECORDER_SF_qdqss @ 0x1C001E11C (WPP_RECORDER_SF_qdqss.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ACPIDeviceIrpDeviceRequest(ULONG_PTR a1, __int64 a2, __int64 (__fastcall *a3)())
@@ -22,12 +22,12 @@ __int64 __fastcall ACPIDeviceIrpDeviceRequest(ULONG_PTR a1, __int64 a2, __int64 
   const char *v12; // rdx
   __int64 v13; // rax
   int v14; // esi
-  __int64 v16; // rax
-  KIRQL v17; // al
-  __int64 *v18; // rcx
-  KIRQL v19; // si
-  __int64 *Pool2; // rax
-  int v21; // eax
+  __int64 v15; // rax
+  int v16; // eax
+  KIRQL v18; // al
+  __int64 *v19; // rcx
+  KIRQL v20; // si
+  _QWORD *PoolWithTag; // rax
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   v6 = *(_QWORD *)(a2 + 184);
@@ -35,17 +35,17 @@ __int64 __fastcall ACPIDeviceIrpDeviceRequest(ULONG_PTR a1, __int64 a2, __int64 
   v8 = 0;
   v9 = *(_DWORD *)(v6 + 24);
   v10 = *(_DWORD *)(v6 + 32);
-  v11 = (const char *)&unk_1C006FB8B;
-  v12 = (const char *)&unk_1C006FB8B;
+  v11 = (const char *)&unk_1C00701BA;
+  v12 = (const char *)&unk_1C00701BA;
   if ( DeviceExtension )
   {
     v8 = DeviceExtension;
     v13 = *(_QWORD *)(DeviceExtension + 8);
     if ( (v13 & 0x200000000000LL) != 0 )
     {
-      v11 = *(const char **)(v7 + 608);
+      v11 = *(const char **)(v7 + 568);
       if ( (v13 & 0x400000000000LL) != 0 )
-        v12 = *(const char **)(v7 + 616);
+        v12 = *(const char **)(v7 + 576);
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -54,7 +54,7 @@ __int64 __fastcall ACPIDeviceIrpDeviceRequest(ULONG_PTR a1, __int64 a2, __int64 
       (__int64)v12,
       0xAu,
       0x1Fu,
-      (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       a2,
       v9 - 1,
       v8,
@@ -63,7 +63,7 @@ __int64 __fastcall ACPIDeviceIrpDeviceRequest(ULONG_PTR a1, __int64 a2, __int64 
   if ( *(_BYTE *)(a2 + 65) )
     *(_BYTE *)(*(_QWORD *)(a2 + 184) + 3LL) |= 1u;
   v14 = *(_DWORD *)(a2 + 48);
-  if ( v14 < 0 || v9 == *(_DWORD *)(v7 + 384) )
+  if ( v14 < 0 || v9 == *(_DWORD *)(v7 + 344) )
   {
     if ( a3 )
       ((void (__fastcall *)(__int64, __int64, _QWORD))a3)(v7, a2, (unsigned int)v14);
@@ -73,41 +73,41 @@ __int64 __fastcall ACPIDeviceIrpDeviceRequest(ULONG_PTR a1, __int64 a2, __int64 
   {
     if ( v9 == 1 )
     {
-      v16 = *(_QWORD *)(v7 + 8);
-      if ( (v16 & 0x102000000LL) != 0 )
+      v15 = *(_QWORD *)(v7 + 8);
+      if ( (v15 & 0x102000000LL) != 0 )
       {
-        if ( (v16 & 0x2000000) != 0
+        if ( (v15 & 0x2000000) != 0
           && (_InterlockedCompareExchange((volatile signed __int32 *)(v7 + 184), 0, 0) & 1) != 0 )
         {
           KeSetEvent((PRKEVENT)(v7 + 272), 0, 0);
         }
         else if ( (*(_QWORD *)(v7 + 8) & 0x800000000010000LL) == 0x800000000010000LL )
         {
-          v17 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
-          v18 = (__int64 *)AcpiPowerWaitWakeList;
-          v19 = v17;
-          while ( v18 != &AcpiPowerWaitWakeList )
+          v18 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
+          v19 = (__int64 *)AcpiPowerWaitWakeList;
+          v20 = v18;
+          while ( v19 != &AcpiPowerWaitWakeList )
           {
-            if ( v18[5] == v7 )
+            if ( v19[5] == v7 )
             {
-              Pool2 = (__int64 *)ExAllocatePool2(64LL, 16LL, 1349542721LL);
-              if ( Pool2 )
+              PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x50706341u);
+              if ( PoolWithTag )
               {
-                *Pool2 = a2;
-                a2 = (__int64)Pool2;
-                Pool2[1] = (__int64)a3;
+                *PoolWithTag = a2;
+                a2 = (__int64)PoolWithTag;
+                PoolWithTag[1] = a3;
                 a3 = ACPIWaitWakeEnableOnPowerUp;
               }
               break;
             }
-            v18 = (__int64 *)*v18;
+            v19 = (__int64 *)*v19;
           }
-          KeReleaseSpinLock(&AcpiPowerLock, v19);
+          KeReleaseSpinLock(&AcpiPowerLock, v20);
         }
       }
     }
-    if ( (unsigned int)(v10 - 4) <= 1 || (v21 = 0, v10 == 6) )
-      v21 = 1;
-    return ACPIDeviceInitializePowerRequest(v7, v9, (_SLIST_ENTRY *)a3, a2, v10, 0, 8 * v21);
+    if ( (unsigned int)(v10 - 4) <= 1 || (v16 = 0, v10 == 6) )
+      v16 = 1;
+    return ACPIDeviceInitializePowerRequest(v7, v9, (_SLIST_ENTRY *)a3, a2, v10, 0, 8 * v16);
   }
 }

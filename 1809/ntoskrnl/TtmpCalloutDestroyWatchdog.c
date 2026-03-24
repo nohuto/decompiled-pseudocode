@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpCalloutDestroyWatchdog @ 0x14087DD08
+ * XREFs of TtmpCalloutDestroyWatchdog @ 0x14087DCE8
  * Callers:
- *     TtmpStopCallout @ 0x14087E6EC (TtmpStopCallout.c)
+ *     TtmpStopCallout @ 0x14087E6CC (TtmpStopCallout.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  */
 

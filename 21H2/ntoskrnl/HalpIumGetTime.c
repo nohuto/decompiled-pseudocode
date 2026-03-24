@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIumGetTime @ 0x1405237B0
+ * XREFs of HalpIumGetTime @ 0x1404D64B0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIumGetTime(_OWORD *a1, __int64 a2)
@@ -15,9 +15,9 @@ __int64 __fastcall HalpIumGetTime(_OWORD *a1, __int64 a2)
   __int64 v7; // [rsp+40h] [rbp-28h]
   int v8; // [rsp+48h] [rbp-20h]
 
-  if ( !qword_140C4C550 )
+  if ( !qword_140C4A250 )
     return 0x8000000000000003uLL;
-  result = qword_140C4C550(0LL, 0LL, 0LL, &v6);
+  result = qword_140C4A250(0LL, 0LL, 0LL, &v6);
   *a1 = v6;
   if ( a2 )
   {

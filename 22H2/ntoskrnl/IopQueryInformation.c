@@ -1,14 +1,13 @@
 /*
- * XREFs of IopQueryInformation @ 0x1407ABEB0
+ * XREFs of IopQueryInformation @ 0x140668540
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
  * Callees:
- *     MmIsDriverVerifying @ 0x14020A590 (MmIsDriverVerifying.c)
- *     FsRtlGetSupportedFeatures @ 0x140337430 (FsRtlGetSupportedFeatures.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     FsRtlQueryOpen @ 0x1407AC0F4 (FsRtlQueryOpen.c)
- *     VfFastIoCheckState @ 0x140ACC204 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x140ACC2DC (VfFastIoSnapState.c)
+ *     FsRtlGetSupportedFeatures @ 0x1402F7D60 (FsRtlGetSupportedFeatures.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     FsRtlQueryOpen @ 0x1405D8FB0 (FsRtlQueryOpen.c)
+ *     VfFastIoCheckState @ 0x1409C99C4 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x1409C9A9C (VfFastIoSnapState.c)
  */
 
 __int64 __fastcall IopQueryInformation(__int64 a1, struct _DEVICE_OBJECT *a2, __int64 a3, __int64 a4, _BYTE *a5)
@@ -16,18 +15,48 @@ __int64 __fastcall IopQueryInformation(__int64 a1, struct _DEVICE_OBJECT *a2, __
   void *v8; // r14
   __int64 result; // rax
   int Open; // eax
-  unsigned int v11; // edi
-  bool v12; // zf
-  _BYTE *v13; // r13
+  unsigned int v11; // esi
+  _BYTE *v12; // r13
   PFAST_IO_DISPATCH FastIoDispatch; // rcx
   __int64 (__fastcall *FastIoQueryOpen)(_QWORD, _QWORD, _QWORD); // r12
-  int v16; // [rsp+60h] [rbp+8h] BYREF
+  int v15; // [rsp+60h] [rbp+8h] BYREF
 
   v8 = 0LL;
-  v16 = 0;
-  if ( !*(_BYTE *)(a1 + 208) )
+  v15 = 0;
+  if ( *(_BYTE *)(a1 + 208) )
   {
-    v13 = a5;
+    result = FsRtlGetSupportedFeatures((__int64)a2, &v15);
+    if ( (int)result < 0 )
+      return result;
+    if ( (v15 & 4) == 0 )
+    {
+      *a5 = 0;
+      return 0LL;
+    }
+    --*(_BYTE *)(a3 + 67);
+    *(_QWORD *)(a3 + 184) -= 72LL;
+    Open = FsRtlQueryOpen(a2, a3, *(_QWORD *)(a1 + 112), a1 + 204, *(_DWORD *)(a1 + 200));
+    v11 = Open;
+    ++*(_BYTE *)(a3 + 67);
+    *(_QWORD *)(a3 + 184) += 72LL;
+    *(_QWORD *)(a1 + 168) = *(_QWORD *)(a3 + 112);
+    if ( Open < 0 )
+    {
+      if ( Open == -1071906812 )
+      {
+        v11 = 0;
+        *a5 = 0;
+      }
+    }
+    else
+    {
+      *(_DWORD *)(a1 + 32) = -1096154543;
+      *a5 = 1;
+    }
+  }
+  else
+  {
+    v12 = a5;
     *a5 = 0;
     v11 = 0;
     FastIoDispatch = a2->DriverObject->FastIoDispatch;
@@ -41,13 +70,13 @@ __int64 __fastcall IopQueryInformation(__int64 a1, struct _DEVICE_OBJECT *a2, __
           --*(_BYTE *)(a3 + 67);
           *(_QWORD *)(a3 + 184) -= 72LL;
           *(_QWORD *)(a4 + 40) = a2;
-          if ( (MmVerifierData & 0x10) != 0 && MmIsDriverVerifying(a2->DriverObject) )
+          if ( (MmVerifierData & 0x10) != 0 )
             v8 = (void *)VfFastIoSnapState();
-          *v13 = FastIoQueryOpen(a3, *(_QWORD *)(a1 + 104), a2);
+          *v12 = FastIoQueryOpen(a3, *(_QWORD *)(a1 + 104), a2);
           if ( v8 )
             VfFastIoCheckState(v8);
           *(_QWORD *)(a1 + 168) = *(_QWORD *)(a3 + 112);
-          if ( *v13 )
+          if ( *v12 )
           {
             *(_DWORD *)(a1 + 32) = -1096154543;
             if ( !*(_BYTE *)(a1 + 139) )
@@ -67,48 +96,6 @@ __int64 __fastcall IopQueryInformation(__int64 a1, struct _DEVICE_OBJECT *a2, __
         }
       }
     }
-    return v11;
   }
-  result = FsRtlGetSupportedFeatures((__int64)a2, &v16);
-  if ( (int)result < 0 )
-    return result;
-  if ( (v16 & 4) == 0 )
-  {
-    *a5 = 0;
-    return 0LL;
-  }
-  --*(_BYTE *)(a3 + 67);
-  *(_QWORD *)(a3 + 184) -= 72LL;
-  Open = FsRtlQueryOpen(a2, *(_DWORD *)(a1 + 200));
-  v11 = Open;
-  ++*(_BYTE *)(a3 + 67);
-  *(_QWORD *)(a3 + 184) += 72LL;
-  *(_QWORD *)(a1 + 168) = *(_QWORD *)(a3 + 112);
-  if ( !FeatureDeveloperVolume )
-  {
-    if ( Open >= 0 )
-    {
-      *(_DWORD *)(a1 + 32) = -1096154543;
-      *a5 = 1;
-      return v11;
-    }
-    v12 = Open == -1071906812;
-    goto LABEL_13;
-  }
-  if ( Open < 0 )
-  {
-    if ( Open == -1071906812 )
-      goto LABEL_14;
-    v12 = Open == -1073741822;
-LABEL_13:
-    if ( !v12 )
-      return v11;
-LABEL_14:
-    v11 = 0;
-    *a5 = 0;
-    return v11;
-  }
-  *(_DWORD *)(a1 + 32) = -1096154543;
-  *a5 = 1;
   return v11;
 }

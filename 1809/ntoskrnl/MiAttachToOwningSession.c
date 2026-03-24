@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAttachToOwningSession @ 0x14011A4AC
+ * XREFs of MiAttachToOwningSession @ 0x14011A4CC
  * Callers:
  *     MiCapturePfnVm @ 0x140083648 (MiCapturePfnVm.c)
- *     MiLockStealSystemVm @ 0x1400E9958 (MiLockStealSystemVm.c)
+ *     MiLockStealSystemVm @ 0x1400E9978 (MiLockStealSystemVm.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiSelectSessionAttachProcess @ 0x14007E614 (MiSelectSessionAttachProcess.c)
  *     MiGetTopLevelPfn @ 0x140083820 (MiGetTopLevelPfn.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiTryToAcquireExpansionLockAtDpc @ 0x1400EDFF8 (MiTryToAcquireExpansionLockAtDpc.c)
- *     MmAttachSession @ 0x14011A630 (MmAttachSession.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiTryToAcquireExpansionLockAtDpc @ 0x1400EE018 (MiTryToAcquireExpansionLockAtDpc.c)
+ *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiAttachToOwningSession(__int64 a1, unsigned __int8 a2)

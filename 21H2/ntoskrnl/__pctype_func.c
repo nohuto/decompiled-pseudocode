@@ -1,9 +1,9 @@
 /*
- * XREFs of __pctype_func @ 0x1403E50E4
+ * XREFs of __pctype_func @ 0x1403D5D38
  * Callers:
- *     strtoxlX @ 0x1403E0640 (strtoxlX.c)
- *     strtoxq @ 0x1403E09CC (strtoxq.c)
- *     tolower @ 0x1403E30A0 (tolower.c)
+ *     strtoxlX @ 0x1403D1270 (strtoxlX.c)
+ *     strtoxq @ 0x1403D15FC (strtoxq.c)
+ *     tolower @ 0x1403D3CF0 (tolower.c)
  * Callees:
  *     <none>
  */

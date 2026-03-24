@@ -1,173 +1,186 @@
 /*
- * XREFs of ACPIThermalDeviceControl @ 0x1C0040430
+ * XREFs of ACPIThermalDeviceControl @ 0x1C0012510
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     ACPIIoctlEvalControlMethod @ 0x1C0004232 (ACPIIoctlEvalControlMethod.c)
- *     ACPIIoctlAsyncEvalControlMethod @ 0x1C002F488 (ACPIIoctlAsyncEvalControlMethod.c)
- *     ACPIIoctlEnumChildren @ 0x1C002FA30 (ACPIIoctlEnumChildren.c)
- *     ACPIThermalLoopEx @ 0x1C0041110 (ACPIThermalLoopEx.c)
- *     WPP_RECORDER_SF_qDDqssdddd @ 0x1C0042E5C (WPP_RECORDER_SF_qDDqssdddd.c)
- *     WPP_RECORDER_SF_qDqssdddd @ 0x1C0043134 (WPP_RECORDER_SF_qDqssdddd.c)
- *     WPP_RECORDER_SF_qqssdddd @ 0x1C00433D0 (WPP_RECORDER_SF_qqssdddd.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIIoctlEvalControlMethod @ 0x1C000BAC4 (ACPIIoctlEvalControlMethod.c)
+ *     WPP_RECORDER_SF_qDqssdddd @ 0x1C00121FC (WPP_RECORDER_SF_qDqssdddd.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
+ *     WPP_RECORDER_SF_qqssdddd @ 0x1C001317C (WPP_RECORDER_SF_qqssdddd.c)
+ *     ACPIIoctlEnumChildren @ 0x1C0013C10 (ACPIIoctlEnumChildren.c)
+ *     WPP_RECORDER_SF_qDDqssdddd @ 0x1C0014C3C (WPP_RECORDER_SF_qDDqssdddd.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ACPIIoctlAsyncEvalControlMethod @ 0x1C00572F4 (ACPIIoctlAsyncEvalControlMethod.c)
  */
 
 __int64 __fastcall ACPIThermalDeviceControl(ULONG_PTR a1, __int64 a2)
 {
-  unsigned int v4; // edi
-  union _LARGE_INTEGER v5; // r14
+  union _LARGE_INTEGER v4; // r12
   __int64 DeviceExtension; // rax
-  __int64 v7; // r13
-  __int64 v8; // rsi
-  _DWORD *v9; // r15
+  __int64 v6; // r14
+  __int64 v7; // rdi
+  _DWORD *v8; // r15
+  unsigned int v9; // eax
   unsigned int v10; // eax
   unsigned int v11; // eax
   unsigned int v12; // eax
   unsigned int v13; // eax
   unsigned int v14; // eax
   unsigned int v15; // eax
-  unsigned int v16; // eax
-  unsigned __int8 *v18; // rax
-  char *v19; // r14
-  unsigned int v20; // r12d
-  unsigned __int8 *v21; // rax
-  unsigned __int8 *v22; // rax
-  int v23; // r9d
-  KIRQL v24; // dl
-  __int64 v25; // rax
-  _QWORD *v26; // rbx
-  _QWORD *v27; // rax
+  unsigned int v16; // esi
+  int v17; // r9d
+  unsigned int v18; // r13d
+  KIRQL v19; // dl
+  __int64 v20; // rax
+  _QWORD *v21; // rbx
+  _QWORD *v22; // rax
+  unsigned __int8 *v24; // rax
+  unsigned __int8 *v25; // rax
+  unsigned __int8 *v26; // rax
+  unsigned int v27; // eax
   unsigned int v28; // eax
   unsigned int v29; // eax
   unsigned int v30; // eax
   unsigned int v31; // eax
-  unsigned int v32; // eax
+  int v33; // [rsp+20h] [rbp-E0h]
   int v34; // [rsp+80h] [rbp-80h]
-  union _LARGE_INTEGER Time; // [rsp+88h] [rbp-78h] BYREF
+  union _LARGE_INTEGER v35; // [rsp+88h] [rbp-78h] BYREF
   union _LARGE_INTEGER v36; // [rsp+90h] [rbp-70h] BYREF
   union _LARGE_INTEGER v37; // [rsp+98h] [rbp-68h] BYREF
   union _LARGE_INTEGER v38; // [rsp+A0h] [rbp-60h] BYREF
-  union _LARGE_INTEGER v39; // [rsp+A8h] [rbp-58h] BYREF
+  union _LARGE_INTEGER Time; // [rsp+A8h] [rbp-58h] BYREF
   _DWORD *v40; // [rsp+B0h] [rbp-50h]
-  struct _TIME_FIELDS TimeFields; // [rsp+B8h] [rbp-48h] BYREF
+  struct _TIME_FIELDS v41; // [rsp+B8h] [rbp-48h] BYREF
   struct _TIME_FIELDS v42; // [rsp+C8h] [rbp-38h] BYREF
   struct _TIME_FIELDS v43; // [rsp+D8h] [rbp-28h] BYREF
   struct _TIME_FIELDS v44; // [rsp+E8h] [rbp-18h] BYREF
-  struct _TIME_FIELDS v45; // [rsp+F8h] [rbp-8h] BYREF
+  struct _TIME_FIELDS TimeFields; // [rsp+F8h] [rbp-8h] BYREF
 
   if ( *(_BYTE *)(a2 + 64) )
   {
-    v4 = -1073741822;
+    v16 = -1073741822;
     *(_DWORD *)(a2 + 48) = -1073741822;
-LABEL_3:
-    IofCompleteRequest((PIRP)a2, 0);
-    return v4;
+    goto LABEL_13;
   }
-  v5.QuadPart = MEMORY[0xFFFFF78000000008];
+  v4.QuadPart = MEMORY[0xFFFFF78000000008];
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
-  v7 = *(_QWORD *)(a2 + 184);
-  v8 = DeviceExtension;
-  v9 = *(_DWORD **)(DeviceExtension + 200);
-  v10 = *(_DWORD *)(v7 + 24);
-  if ( v10 > 0x32C018 )
+  v6 = *(_QWORD *)(a2 + 184);
+  v7 = DeviceExtension;
+  v8 = *(_DWORD **)(DeviceExtension + 200);
+  v9 = *(_DWORD *)(v6 + 24);
+  if ( v9 > 0x32C018 )
   {
-    v28 = v10 - 3325980;
+    v27 = v9 - 3325980;
+    if ( !v27 )
+      return (unsigned int)ACPIIoctlAsyncEvalControlMethod(a1, a2, *(_QWORD *)(a2 + 184));
+    v28 = v27 - 4;
     if ( !v28 )
-      return (unsigned int)ACPIIoctlAsyncEvalControlMethod(a1, (IRP *)a2, *(_QWORD *)(a2 + 184));
-    v29 = v28 - 4;
+      return (unsigned int)ACPIIoctlEnumChildren(a1, a2, *(_QWORD *)(a2 + 184));
+    v29 = v28 - 28;
     if ( !v29 )
-      return (unsigned int)ACPIIoctlEnumChildren(a1, (IRP *)a2, *(_QWORD *)(a2 + 184));
-    v30 = v29 - 28;
-    if ( v30 )
+      return (unsigned int)ACPIIoctlEvalControlMethod(a1, (IRP *)a2, *(_QWORD *)(a2 + 184));
+    v30 = v29 - 4;
+    if ( !v30 )
+      return (unsigned int)ACPIIoctlAsyncEvalControlMethod(a1, a2, *(_QWORD *)(a2 + 184));
+    v31 = v30 - 4;
+    if ( v31 )
     {
-      v31 = v30 - 4;
-      if ( v31 )
-      {
-        v32 = v31 - 4;
-        if ( !v32 )
-          return (unsigned int)ACPIIoctlEvalControlMethod(a1, (IRP *)a2, *(_QWORD *)(a2 + 184));
-        if ( v32 != 4 )
-        {
-LABEL_44:
-          v4 = -1073741637;
-          goto LABEL_45;
-        }
-      }
-      return (unsigned int)ACPIIoctlAsyncEvalControlMethod(a1, (IRP *)a2, *(_QWORD *)(a2 + 184));
+      if ( v31 != 4 )
+        goto LABEL_11;
+      return (unsigned int)ACPIIoctlAsyncEvalControlMethod(a1, a2, *(_QWORD *)(a2 + 184));
     }
     return (unsigned int)ACPIIoctlEvalControlMethod(a1, (IRP *)a2, *(_QWORD *)(a2 + 184));
   }
-  if ( v10 == 3325976 )
+  if ( v9 == 3325976 )
     return (unsigned int)ACPIIoctlEvalControlMethod(a1, (IRP *)a2, *(_QWORD *)(a2 + 184));
-  v11 = v10 - 2703488;
-  if ( v11 )
+  v10 = v9 - 2703488;
+  if ( v10 )
   {
-    v12 = v11 - 24;
-    if ( v12 )
+    v11 = v10 - 24;
+    if ( v11 )
     {
-      v13 = v12 - 16364;
-      if ( v13 )
+      v12 = v11 - 16364;
+      if ( v12 )
       {
-        v14 = v13 - 4;
-        if ( v14 )
+        v13 = v12 - 4;
+        if ( v13 )
         {
-          v15 = v14 - 4;
-          if ( v15 )
+          v14 = v13 - 4;
+          if ( v14 )
           {
-            v16 = v15 - 606068;
-            if ( v16 )
+            v15 = v14 - 606068;
+            if ( v15 )
             {
-              if ( v16 == 4 )
-                return (unsigned int)ACPIIoctlEvalControlMethod(a1, (IRP *)a2, *(_QWORD *)(a2 + 184));
-              goto LABEL_44;
+              if ( v15 != 4 )
+              {
+LABEL_11:
+                v16 = -1073741637;
+LABEL_12:
+                *(_QWORD *)(a2 + 56) = 0LL;
+                *(_DWORD *)(a2 + 48) = v16;
+LABEL_13:
+                IofCompleteRequest((PIRP)a2, 0);
+                return v16;
+              }
+              return (unsigned int)ACPIIoctlEvalControlMethod(a1, (IRP *)a2, *(_QWORD *)(a2 + 184));
             }
-            return (unsigned int)ACPIIoctlAsyncEvalControlMethod(a1, (IRP *)a2, *(_QWORD *)(a2 + 184));
+            return (unsigned int)ACPIIoctlAsyncEvalControlMethod(a1, a2, *(_QWORD *)(a2 + 184));
           }
-          v18 = *(unsigned __int8 **)(a2 + 24);
-          Time = v5;
-          TimeFields = 0LL;
-          v9[24] = *v18;
-          RtlTimeToTimeFields(&Time, &TimeFields);
-          v19 = (char *)(v8 + 8);
+          v26 = *(unsigned __int8 **)(a2 + 24);
+          v35 = v4;
+          v41 = 0LL;
+          v8[24] = *v26;
+          RtlTimeToTimeFields(&v35, &v41);
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_qDqssdddd(WPP_GLOBAL_Control->DeviceExtension, TimeFields.Minute, TimeFields.Hour, 15);
-          v20 = 536871168;
+            WPP_RECORDER_SF_qDqssdddd(
+              (__int64)WPP_GLOBAL_Control->DeviceExtension,
+              (unsigned int)v41.Minute,
+              (unsigned int)v41.Hour,
+              0xFu,
+              v33);
+          v18 = 536871168;
         }
         else
         {
-          v21 = *(unsigned __int8 **)(a2 + 24);
-          v36 = v5;
+          v24 = *(unsigned __int8 **)(a2 + 24);
+          v36 = v4;
           v42 = 0LL;
-          v9[23] = *v21;
+          v8[23] = *v24;
           RtlTimeToTimeFields(&v36, &v42);
-          v19 = (char *)(v8 + 8);
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_qDqssdddd(WPP_GLOBAL_Control->DeviceExtension, v42.Minute, v42.Hour, 14);
-          v20 = 536870913;
+            WPP_RECORDER_SF_qDqssdddd(
+              (__int64)WPP_GLOBAL_Control->DeviceExtension,
+              (unsigned int)v42.Minute,
+              (unsigned int)v42.Hour,
+              0xEu,
+              v33);
+          v18 = 536870913;
         }
       }
       else
       {
-        v22 = *(unsigned __int8 **)(a2 + 24);
-        v37 = v5;
+        v25 = *(unsigned __int8 **)(a2 + 24);
+        v37 = v4;
         v43 = 0LL;
-        v9[25] = *v22;
+        v8[25] = *v25;
         RtlTimeToTimeFields(&v37, &v43);
-        v19 = (char *)(v8 + 8);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_qDqssdddd(WPP_GLOBAL_Control->DeviceExtension, v43.Minute, v43.Hour, 13);
-        v20 = 536870924;
+          WPP_RECORDER_SF_qDqssdddd(
+            (__int64)WPP_GLOBAL_Control->DeviceExtension,
+            (unsigned int)v43.Minute,
+            (unsigned int)v43.Hour,
+            0xDu,
+            v33);
+        v18 = 536870924;
       }
     }
     else
     {
-      v38 = v5;
-      v20 = 0x20000000;
+      v38 = v4;
+      v18 = 0x20000000;
       v44 = 0LL;
       RtlTimeToTimeFields(&v38, &v44);
-      v19 = (char *)(v8 + 8);
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_qqssdddd(WPP_GLOBAL_Control->DeviceExtension, v44.Minute, v44.Hour, 16);
     }
@@ -175,52 +188,48 @@ LABEL_44:
   else
   {
     v40 = *(_DWORD **)(a2 + 24);
-    v39 = v5;
-    v45 = 0LL;
-    v34 = *v9 != *v40 ? 0x20000002 : 0;
-    RtlTimeToTimeFields(&v39, &v45);
-    v19 = (char *)(v8 + 8);
+    Time = v4;
+    TimeFields = 0LL;
+    v34 = *v8 != *v40 ? 0x20000002 : 0;
+    RtlTimeToTimeFields(&Time, &TimeFields);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_qDDqssdddd(WPP_GLOBAL_Control->DeviceExtension, v45.Minute, v45.Hour, v23);
-    v20 = v34;
+      WPP_RECORDER_SF_qDDqssdddd(WPP_GLOBAL_Control->DeviceExtension, TimeFields.Minute, TimeFields.Hour, v17);
+    v18 = v34;
   }
-  v24 = KeAcquireSpinLockRaiseToDpc(&AcpiThermalLock);
-  if ( *v19 < 0 || (*(_DWORD *)(v8 + 192) & 0x8000000) != 0 )
+  v19 = KeAcquireSpinLockRaiseToDpc(&AcpiThermalLock);
+  if ( *(char *)(v7 + 8) < 0 || (*(_DWORD *)(v7 + 192) & 0x8000000) != 0 )
   {
-    KeReleaseSpinLock(&AcpiThermalLock, v24);
+    KeReleaseSpinLock(&AcpiThermalLock, v19);
     *(_QWORD *)(a2 + 56) = 0LL;
-    v4 = -1073741810;
+    v16 = -1073741810;
     *(_DWORD *)(a2 + 48) = -1073741810;
-    goto LABEL_3;
+    goto LABEL_13;
   }
-  if ( *(_DWORD *)(v7 + 24) == 2703488 )
+  if ( *(_DWORD *)(v6 + 24) == 2703488 )
   {
     _InterlockedExchange64((volatile __int64 *)(a2 + 104), (__int64)ACPIThermalCancelRequest);
     if ( *(_BYTE *)(a2 + 68) )
     {
       if ( _InterlockedExchange64((volatile __int64 *)(a2 + 104), 0LL) )
       {
-        KeReleaseSpinLock(&AcpiThermalLock, v24);
-        v4 = -1073741536;
-LABEL_45:
-        *(_QWORD *)(a2 + 56) = 0LL;
-        *(_DWORD *)(a2 + 48) = v4;
-        goto LABEL_3;
+        KeReleaseSpinLock(&AcpiThermalLock, v19);
+        v16 = -1073741536;
+        goto LABEL_12;
       }
     }
   }
-  v25 = *(_QWORD *)(a2 + 184);
-  v26 = (_QWORD *)(a2 + 168);
-  v4 = 259;
-  *(_BYTE *)(v25 + 3) |= 1u;
-  v27 = (_QWORD *)qword_1C006EA68;
-  if ( *(__int64 **)qword_1C006EA68 != &AcpiThermalList )
+  v20 = *(_QWORD *)(a2 + 184);
+  v21 = (_QWORD *)(a2 + 168);
+  v16 = 259;
+  *(_BYTE *)(v20 + 3) |= 1u;
+  v22 = (_QWORD *)qword_1C00819C8;
+  if ( *(__int64 **)qword_1C00819C8 != &AcpiThermalList )
     __fastfail(3u);
-  *v26 = &AcpiThermalList;
-  v26[1] = v27;
-  *v27 = v26;
-  qword_1C006EA68 = (__int64)v26;
-  KeReleaseSpinLock(&AcpiThermalLock, v24);
-  ACPIThermalLoopEx(v8, v20, 0LL);
-  return v4;
+  *v21 = &AcpiThermalList;
+  v21[1] = v22;
+  *v22 = v21;
+  qword_1C00819C8 = (__int64)v21;
+  KeReleaseSpinLock(&AcpiThermalLock, v19);
+  ACPIThermalLoopEx(v7, v18, 0LL);
+  return v16;
 }

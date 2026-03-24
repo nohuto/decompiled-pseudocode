@@ -1,79 +1,44 @@
 /*
- * XREFs of ?UpdateIndependentFlipStateUnsafe@DISPLAY_SOURCE@@QEAAXIE@Z @ 0x1C01D8334
+ * XREFs of ?UpdateIndependentFlipStateUnsafe@DISPLAY_SOURCE@@QEAAXIE@Z @ 0x1C01738D4
  * Callers:
- *     ?UpdateIndependentFlipState@ADAPTER_DISPLAY@@QEAAXIIE@Z @ 0x1C01ED3C0 (-UpdateIndependentFlipState@ADAPTER_DISPLAY@@QEAAXIIE@Z.c)
+ *     ?UpdateIndependentFlipState@ADAPTER_DISPLAY@@QEAAXIIE@Z @ 0x1C0173854 (-UpdateIndependentFlipState@ADAPTER_DISPLAY@@QEAAXIIE@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsDisplayPlaneConfigQueueEmpty@@YAEPEAU_DISPLAY_PLANE_CONFIG_QUEUE@@@Z @ 0x1C0195D10 (-IsDisplayPlaneConfigQueueEmpty@@YAEPEAU_DISPLAY_PLANE_CONFIG_QUEUE@@@Z.c)
+ *     ?GetLatestPlaneConfigInternal@DISPLAY_SOURCE@@QEAAPEAU_DISPLAY_PLANE_CONFIG@@I@Z @ 0x1C00E07E8 (-GetLatestPlaneConfigInternal@DISPLAY_SOURCE@@QEAAPEAU_DISPLAY_PLANE_CONFIG@@I@Z.c)
+ *     ?IsDisplayPlaneConfigQueueEmpty@@YAEPEAU_DISPLAY_PLANE_CONFIG_QUEUE@@@Z @ 0x1C00E0858 (-IsDisplayPlaneConfigQueueEmpty@@YAEPEAU_DISPLAY_PLANE_CONFIG_QUEUE@@@Z.c)
  */
 
-void __fastcall DISPLAY_SOURCE::UpdateIndependentFlipStateUnsafe(
-        DISPLAY_SOURCE *this,
-        unsigned int a2,
-        unsigned __int8 a3)
+void __fastcall DISPLAY_SOURCE::UpdateIndependentFlipStateUnsafe(DISPLAY_SOURCE *this, __int64 a2, unsigned __int8 a3)
 {
-  int v3; // r14d
-  __int64 v5; // rsi
-  char *v6; // rdi
-  char *v7; // rdx
+  int v4; // esi
+  __int64 v5; // rdi
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  struct _DISPLAY_PLANE_CONFIG *LatestPlaneConfigInternal; // rax
+  __int64 v10; // rax
+  __int64 v11; // rax
 
-  v3 = a3;
-  v5 = a2;
-  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 1) + 632LL) != KeGetCurrentThread() )
+  v4 = a3;
+  v5 = (unsigned int)a2;
+  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 1) + 544LL) != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 9508LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_DisplayCore->IsDisplayStateMutexOwner()",
-      9508LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v6 + 24) = 9373LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  if ( (unsigned int)v5 >= *((_DWORD *)this + 940) )
+  if ( (unsigned int)v5 >= *((_DWORD *)this + 934) )
   {
-    WdLogSingleEntry1(1LL, 9509LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"PlaneIndex < m_MaxPlanesUsed", 9509LL, 0LL, 0LL, 0LL, 0LL);
+    v10 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v10 + 24) = 9374LL;
+    WdLogEvent5_WdAssertion(v10);
   }
-  v6 = (char *)this + 168 * v5;
-  if ( *((_DWORD *)v6 + 286) == -1 )
+  if ( IsDisplayPlaneConfigQueueEmpty((DISPLAY_SOURCE *)((char *)this + 168 * v5 + 1120), a2) )
   {
-    if ( *((_DWORD *)v6 + 287) == -1
-      || (WdLogSingleEntry1(1LL, 9067LL),
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"(pQueue->HeadIndex != CONFIG_INDEX_INVALID) || (pQueue->TailIndex == CONFIG_INDEX_INVALID)",
-            9067LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL),
-          *((_DWORD *)v6 + 286) == -1) )
-    {
-      WdLogSingleEntry1(1LL, 9510LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"!IsDisplayPlaneConfigQueueEmpty(&m_PlaneConfigurationQueue[PlaneIndex])",
-        9510LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
+    v11 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v11 + 24) = 9375LL;
+    WdLogEvent5_WdAssertion(v11);
   }
-  if ( (unsigned int)v5 < *((_DWORD *)this + 940)
-    && !IsDisplayPlaneConfigQueueEmpty((struct _DISPLAY_PLANE_CONFIG_QUEUE *)(v6 + 1144)) )
-  {
-    _mm_lfence();
-    v7 = (char *)this + 168 * v5 + 80 * *((int *)v6 + 286) + 1152;
-    if ( v7 )
-      *((_DWORD *)v7 + 2) ^= (*((_DWORD *)v7 + 2) ^ (8 * v3)) & 8;
-  }
+  LatestPlaneConfigInternal = DISPLAY_SOURCE::GetLatestPlaneConfigInternal(this, v5);
+  if ( LatestPlaneConfigInternal )
+    *((_DWORD *)LatestPlaneConfigInternal + 2) ^= (*((_DWORD *)LatestPlaneConfigInternal + 2) ^ (8 * v4)) & 8;
 }

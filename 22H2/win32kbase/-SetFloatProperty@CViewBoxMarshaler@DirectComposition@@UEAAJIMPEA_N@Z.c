@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFloatProperty@CViewBoxMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C02156F0
+ * XREFs of ?SetFloatProperty@CViewBoxMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01E7520
  * Callers:
  *     <none>
  * Callees:

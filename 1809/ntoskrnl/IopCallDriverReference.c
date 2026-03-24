@@ -1,15 +1,15 @@
 /*
- * XREFs of IopCallDriverReference @ 0x1400B6B90
+ * XREFs of IopCallDriverReference @ 0x1400B6BB0
  * Callers:
- *     NtSetInformationFile @ 0x140100E70 (NtSetInformationFile.c)
+ *     NtSetInformationFile @ 0x140100E90 (NtSetInformationFile.c)
  *     NtQueryInformationFile @ 0x14063AA10 (NtQueryInformationFile.c)
  * Callees:
  *     ObpIncrPointerCount @ 0x14005B360 (ObpIncrPointerCount.c)
- *     PsGetBaseIoPriorityThread @ 0x1400B6DA0 (PsGetBaseIoPriorityThread.c)
- *     IofCallDriver @ 0x1400B8DD0 (IofCallDriver.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF990 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
+ *     PsGetBaseIoPriorityThread @ 0x1400B6DC0 (PsGetBaseIoPriorityThread.c)
+ *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF9B0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
  */
 
 __int64 __fastcall IopCallDriverReference(PDEVICE_OBJECT DeviceObject, PIRP Irp, char a3, _QWORD *a4, int a5)

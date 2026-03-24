@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDecompressFragmentEx @ 0x14036A650
+ * XREFs of RtlDecompressFragmentEx @ 0x1403297F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlDecompressFragmentEx(
@@ -19,7 +19,7 @@ __int64 __fastcall RtlDecompressFragmentEx(
 {
   if ( a1 < 2u )
     return 3221225485LL;
-  if ( a1 > 5u )
+  if ( a1 > 4u )
     return 3221226079LL;
   return ((__int64 (__fastcall *)(__int64, _QWORD, __int64, _QWORD, int, int, __int64, __int64))RtlDecompressFragmentProcs[a1])(
            a2,

@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpGetNormalization @ 0x14089A524
+ * XREFs of RtlpGetNormalization @ 0x14089A504
  * Callers:
- *     RtlIsNormalizedString @ 0x1408994C0 (RtlIsNormalizedString.c)
- *     RtlNormalizeString @ 0x140899550 (RtlNormalizeString.c)
+ *     RtlIsNormalizedString @ 0x1408994A0 (RtlIsNormalizedString.c)
+ *     RtlNormalizeString @ 0x140899530 (RtlNormalizeString.c)
  * Callees:
- *     ZwGetNlsSectionPtr @ 0x1401B9FD0 (ZwGetNlsSectionPtr.c)
- *     NormalizationListEntry_Alloc @ 0x1402FC504 (NormalizationListEntry_Alloc.c)
- *     NormalizationList__InsertTail @ 0x1402FC528 (NormalizationList__InsertTail.c)
- *     NormalizationList__Lock @ 0x1402FC55C (NormalizationList__Lock.c)
- *     NormalizationList__Lookup @ 0x1402FC58C (NormalizationList__Lookup.c)
- *     NormalizationList__Unlock @ 0x1402FC5BC (NormalizationList__Unlock.c)
+ *     ZwGetNlsSectionPtr @ 0x1401B9FF0 (ZwGetNlsSectionPtr.c)
+ *     NormalizationListEntry_Alloc @ 0x1402FC604 (NormalizationListEntry_Alloc.c)
+ *     NormalizationList__InsertTail @ 0x1402FC628 (NormalizationList__InsertTail.c)
+ *     NormalizationList__Lock @ 0x1402FC65C (NormalizationList__Lock.c)
+ *     NormalizationList__Lookup @ 0x1402FC68C (NormalizationList__Lookup.c)
+ *     NormalizationList__Unlock @ 0x1402FC6BC (NormalizationList__Unlock.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     Normalization__LoadTables @ 0x140898934 (Normalization__LoadTables.c)
+ *     Normalization__LoadTables @ 0x140898914 (Normalization__LoadTables.c)
  */
 
 __int64 __fastcall RtlpGetNormalization(unsigned int a1, char **a2)

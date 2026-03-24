@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpGetLpcbByLpIndex @ 0x14039E528
+ * XREFs of HvlpGetLpcbByLpIndex @ 0x140390CF8
  * Callers:
- *     HvlReadPerformanceStateCounters @ 0x14039E4D0 (HvlReadPerformanceStateCounters.c)
- *     HvlEnlightenProcessor @ 0x1403B6B58 (HvlEnlightenProcessor.c)
- *     HvlSharedIsr @ 0x140459B00 (HvlSharedIsr.c)
- *     HvlGetApicIdFromLpIndex @ 0x1405439E0 (HvlGetApicIdFromLpIndex.c)
- *     HvlQueryHypervisorProcessorNodeNumber @ 0x140543B00 (HvlQueryHypervisorProcessorNodeNumber.c)
- *     HvlQueryProcessorTopologyEx @ 0x140543CA0 (HvlQueryProcessorTopologyEx.c)
- *     HvlGetStatsUpdateCounter @ 0x1405499F8 (HvlGetStatsUpdateCounter.c)
- *     PpmHvSnapPerformanceAccumulation @ 0x1405DC4F8 (PpmHvSnapPerformanceAccumulation.c)
+ *     HvlReadPerformanceStateCounters @ 0x140390CA0 (HvlReadPerformanceStateCounters.c)
+ *     HvlEnlightenProcessor @ 0x1403A7998 (HvlEnlightenProcessor.c)
+ *     KiQueryProcessorNode @ 0x1403B5C9C (KiQueryProcessorNode.c)
+ *     HvlSharedIsr @ 0x1404F1F00 (HvlSharedIsr.c)
+ *     HvlQueryHypervisorProcessorNodeNumber @ 0x1404F22A0 (HvlQueryHypervisorProcessorNodeNumber.c)
+ *     HvlQueryProcessorTopologyEx @ 0x1404F2450 (HvlQueryProcessorTopologyEx.c)
+ *     HvlGetStatsUpdateCounter @ 0x1404F7D90 (HvlGetStatsUpdateCounter.c)
+ *     PpmHvSnapPerformanceAccumulation @ 0x14057C4E0 (PpmHvSnapPerformanceAccumulation.c)
  * Callees:
  *     <none>
  */

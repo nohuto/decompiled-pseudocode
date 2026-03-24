@@ -3,8 +3,8 @@
  * Callers:
  *     CmpLoadKeyCommon @ 0x140010994 (CmpLoadKeyCommon.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     CmpAddStringToMapping @ 0x14071E7A4 (CmpAddStringToMapping.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     CmpAddStringToMapping @ 0x14071E784 (CmpAddStringToMapping.c)
  */
 
 __int64 __fastcall CmpVEAddHiveToSIDMappingTable(__int64 a1, __int64 a2)

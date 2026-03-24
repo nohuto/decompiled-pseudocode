@@ -1,50 +1,75 @@
 /*
- * XREFs of MonitorIsMonitorVirtualModeDisabled @ 0x1C0193AA8
+ * XREFs of MonitorIsMonitorVirtualModeDisabled @ 0x1C02F43C0
  * Callers:
- *     ?BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSMODALITY@@GGW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C0178EE0 (-BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSM.c)
- *     ?DmmGetTargetIdFromCcdMonitorId@@YAJQEAXPEBU_UNICODE_STRING@@IPEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@3PEAE44@Z @ 0x1C017BE84 (-DmmGetTargetIdFromCcdMonitorId@@YAJQEAXPEBU_UNICODE_STRING@@IPEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TEC.c)
- *     ?_FindAnchorAdaptersCallback@_ANCHOR_INFO@BTL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01935B0 (-_FindAnchorAdaptersCallback@_ANCHOR_INFO@BTL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVDXGADAPTER@@PEAX@Z.c)
- *     IsVirtualizationDisabledForTarget @ 0x1C0193B60 (IsVirtualizationDisabledForTarget.c)
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01AD190 (DxgkDisplayConfigDeviceInfo.c)
- *     ?SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@PEAVSESSION_VIEW@@QEAXII_N55@Z @ 0x1C01F2970 (-SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_D.c)
- *     DxgkQueryMonitorTypeLockHeld @ 0x1C01F69F0 (DxgkQueryMonitorTypeLockHeld.c)
- *     ?OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z @ 0x1C022211C (-OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z.c)
- *     ?SetPointerPositionForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEAVSESSION_VIEW@@PEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C0339CD4 (-SetPointerPositionForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEAVSESSION_VIEW@@PEBU_DXGKARG_SETPO.c)
- *     ?AugmentTopology@BTL_CDS_JOURNAL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@_N@Z @ 0x1C03BECC0 (-AugmentTopology@BTL_CDS_JOURNAL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_C.c)
- *     ?_ExtendTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@AEBU_ENTRY@1@@Z @ 0x1C03BF7D8 (-_ExtendTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@AEBU_ENTRY@1@@Z.c)
- *     ?_AddExternalPathsToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJPEAVDXGADAPTER@@@Z @ 0x1C03C08A0 (-_AddExternalPathsToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJPEAVDXGADAPTER@@@Z.c)
- *     ?_AddSecondaryPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_NAEBU_LUID@@I@Z @ 0x1C03C1254 (-_AddSecondaryPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_NAEBU_LUID@@I@Z.c)
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C0135B50 (DxgkDisplayConfigDeviceInfo.c)
  * Callees:
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z @ 0x1C000882C (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z.c)
- *     ?_IsVirtualModeSupportDisabled@DXGMONITOR@@QEBA_NXZ @ 0x1C0193B3C (-_IsVirtualModeSupportDisabled@DXGMONITOR@@QEBA_NXZ.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0133648 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_IsVirtualModeSuportDisabled@DXGMONITOR@@QEAA_NXZ @ 0x1C0133DF8 (-_IsVirtualModeSuportDisabled@DXGMONITOR@@QEAA_NXZ.c)
  */
 
-__int64 __fastcall MonitorIsMonitorVirtualModeDisabled(__int64 a1, unsigned int a2, _BYTE *a3)
+__int64 __fastcall MonitorIsMonitorVirtualModeDisabled(__int64 a1, __int64 a2, char *a3)
 {
-  DXGMONITOR *v4; // rbx
-  unsigned int v5; // edi
-  DXGMONITOR *v7; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v3; // rdi
+  __int64 v6; // rax
+  __int64 v7; // rax
+  struct _FAST_MUTEX *v8; // rcx
+  __int64 v9; // rax
+  __int64 result; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  struct DXGMONITOR *v14; // rdi
+  __int64 v15; // rax
+  __int64 v16; // rax
+  struct DXGMONITOR *v17; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( !a1 || a2 == -1 || !a3 )
+  v3 = (unsigned int)a2;
+  if ( !a1 || (_DWORD)a2 == -1 || !a3 )
     return 3221225485LL;
-  MONITOR_MGR::AcquireMonitorShared(&v7, a1, a2);
-  v4 = v7;
-  if ( v7 )
+  v6 = *(_QWORD *)(a1 + 2696);
+  if ( !v6 )
   {
-    if ( *((_DWORD *)v7 + 78) != 1 )
-      WdLogSingleEntry0(1LL);
-    *a3 = DXGMONITOR::_IsVirtualModeSupportDisabled(v4);
-    v5 = 0;
+    v7 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v7);
+    v6 = *(_QWORD *)(a1 + 2696);
   }
-  else
+  v8 = *(struct _FAST_MUTEX **)(v6 + 96);
+  if ( !v8 )
   {
-    v5 = -1073741632;
-    WdLogSingleEntry1(2LL, -1073741632LL);
+    v9 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v9 + 24) = a1;
+    WdLogEvent5_WdError(v9);
+    return 3221225485LL;
   }
-  if ( v4 )
+  v17 = 0LL;
+  result = MONITOR_MGR::_GetMonitorInstance(v8, (unsigned int)v3, 1, &v17);
+  if ( (_DWORD)result == -1073741275 )
   {
-    ExReleaseResourceLite((PERESOURCE)((char *)v4 + 24));
+    v13 = WdLogNewEntry5_WdDmmEvent(v12);
+    *(_QWORD *)(v13 + 24) = v3;
+    *(_QWORD *)(v13 + 32) = a1;
+    WdLogEvent5_WdDmmEvent(v13);
+    return 3221225664LL;
+  }
+  else if ( (int)result >= 0 )
+  {
+    v14 = v17;
+    if ( !v17 || *((_DWORD *)v17 + 108) != 1 )
+    {
+      v15 = WdLogNewEntry5_WdAssertion(v12, v11);
+      WdLogEvent5_WdAssertion(v15);
+    }
+    if ( !v14 )
+    {
+      v16 = WdLogNewEntry5_WdAssertion(v12, v11);
+      WdLogEvent5_WdAssertion(v16);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite((PERESOURCE)((char *)v14 + 296), 1u);
+    *a3 = DXGMONITOR::_IsVirtualModeSuportDisabled(v14);
+    ExReleaseResourceLite((PERESOURCE)((char *)v14 + 296));
     KeLeaveCriticalRegion();
+    return 0LL;
   }
-  return v5;
+  return result;
 }

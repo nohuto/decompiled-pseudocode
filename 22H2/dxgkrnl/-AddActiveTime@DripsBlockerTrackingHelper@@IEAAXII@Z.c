@@ -1,11 +1,11 @@
 /*
- * XREFs of ?AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z @ 0x1C0303528
+ * XREFs of ?AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z @ 0x1C02BFDCC
  * Callers:
- *     ?EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z @ 0x1C0304818 (-EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z.c)
+ *     ?EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z @ 0x1C02C1068 (-EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z.c)
  * Callees:
- *     McTemplateK0qqqszq_EtwWriteTransfer @ 0x1C004D308 (McTemplateK0qqqszq_EtwWriteTransfer.c)
- *     ?EtwProfilerTypeName@DripsBlockerTrackingHelper@@KAPEAGW4_DXGKETW_PROFILER_TYPE@@PEAI@Z @ 0x1C0304970 (-EtwProfilerTypeName@DripsBlockerTrackingHelper@@KAPEAGW4_DXGKETW_PROFILER_TYPE@@PEAI@Z.c)
- *     ?GetElapsed@TimeInterval@DripsBlockerTrackingHelper@@SA_K_K@Z @ 0x1C03073D0 (-GetElapsed@TimeInterval@DripsBlockerTrackingHelper@@SA_K_K@Z.c)
+ *     McTemplateK0qqqszq_EtwWriteTransfer @ 0x1C004EC14 (McTemplateK0qqqszq_EtwWriteTransfer.c)
+ *     ?EtwProfilerTypeName@DripsBlockerTrackingHelper@@KAPEAGW4_DXGKETW_PROFILER_TYPE@@PEAI@Z @ 0x1C02C11D8 (-EtwProfilerTypeName@DripsBlockerTrackingHelper@@KAPEAGW4_DXGKETW_PROFILER_TYPE@@PEAI@Z.c)
+ *     ?GetElapsed@TimeInterval@DripsBlockerTrackingHelper@@SA_K_K@Z @ 0x1C02C3BC4 (-GetElapsed@TimeInterval@DripsBlockerTrackingHelper@@SA_K_K@Z.c)
  */
 
 void __fastcall DripsBlockerTrackingHelper::AddActiveTime(
@@ -38,7 +38,7 @@ void __fastcall DripsBlockerTrackingHelper::AddActiveTime(
       v10 = *(unsigned int *)((char *)this + v7 + 172);
       v12 = 0;
       v11 = (const wchar_t *)DripsBlockerTrackingHelper::EtwProfilerTypeName(v10, &v12);
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
         McTemplateK0qqqszq_EtwWriteTransfer(
           (__int64)this + v6 + 8,
           &DripsBlockerTracking_AddActiveTime,

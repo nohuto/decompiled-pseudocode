@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemEnableAllProviders @ 0x140744B00
+ * XREFs of WdipSemEnableAllProviders @ 0x140744AE0
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x140743DD8 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadScenarioTable @ 0x140743DB8 (WdipSemLoadScenarioTable.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     WdipSemEnableDisableTrace @ 0x140717D54 (WdipSemEnableDisableTrace.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     WdipSemEnableDisableTrace @ 0x140717D34 (WdipSemEnableDisableTrace.c)
  */
 
 void WdipSemEnableAllProviders()
@@ -20,7 +20,7 @@ void WdipSemEnableAllProviders()
   v0 = 0LL;
   v1 = _InterlockedExchange(&WdipDiagLoggerId, WdipDiagLoggerId);
   v2 = _InterlockedExchange(&WdipContextLoggerId, WdipContextLoggerId);
-  if ( dword_14040CF00 )
+  if ( dword_14040CAC0 )
   {
     while ( 1 )
     {
@@ -51,7 +51,7 @@ void WdipSemEnableAllProviders()
       }
 LABEL_9:
       v0 = (unsigned int)(v0 + 1);
-      if ( (unsigned int)v0 >= dword_14040CF00 )
+      if ( (unsigned int)v0 >= dword_14040CAC0 )
         return;
     }
     memset(v5, 0, 0x20uLL);

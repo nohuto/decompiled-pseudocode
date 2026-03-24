@@ -1,23 +1,24 @@
 /*
- * XREFs of TtmpTerminal0PowerSettingCallback @ 0x1409A5D30
+ * XREFs of TtmpTerminal0PowerSettingCallback @ 0x1409003D0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     TtmiTerminalSetDisplayTimeouts @ 0x1409AB68C (TtmiTerminalSetDisplayTimeouts.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     TtmiTerminalSetDisplayTimeouts @ 0x1408FDCBC (TtmiTerminalSetDisplayTimeouts.c)
  */
 
 __int64 __fastcall TtmpTerminal0PowerSettingCallback(
         LPCGUID SettingGuid,
-        int *Value,
+        unsigned int *Value,
         ULONG ValueLength,
         _DWORD *Context)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v9; // rax
-  int v10; // ecx
+  unsigned int v10; // r8d
+  unsigned int v11; // r9d
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -29,14 +30,17 @@ __int64 __fastcall TtmpTerminal0PowerSettingCallback(
     if ( *(_QWORD *)&SettingGuid->Data1 == *(_QWORD *)&GUID_VIDEO_DIM_TIMEOUT.Data1 )
       v9 = *(_QWORD *)SettingGuid->Data4 - *(_QWORD *)GUID_VIDEO_DIM_TIMEOUT.Data4;
     if ( v9 )
+    {
       Context[67] = v10;
+      v11 = v10;
+      v10 = Context[66];
+    }
     else
+    {
+      v11 = Context[67];
       Context[66] = v10;
-    TtmiTerminalSetDisplayTimeouts(
-      Context,
-      *((_QWORD *)Context + 4),
-      (unsigned int)Context[66],
-      (unsigned int)Context[67]);
+    }
+    TtmiTerminalSetDisplayTimeouts(Context, *((_QWORD *)Context + 4), v10, v11);
   }
   ExReleaseResourceLite(&TtmpSessionLock);
   KeLeaveCriticalRegion();

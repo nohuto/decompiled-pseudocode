@@ -1,43 +1,34 @@
 /*
- * XREFs of _anonymous_namespace_::ScrubDelegatedWindow_tagBWND___ @ 0x1C0149910
+ * XREFs of _anonymous_namespace_::ScrubDelegatedWindow_tagBWND___ @ 0x1C011DDD0
  * Callers:
- *     CleanupInputDelegation @ 0x1C0097BF0 (CleanupInputDelegation.c)
- *     ?ScrubDelegateThreadWindows@DelegationAPI@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C0097C70 (-ScrubDelegateThreadWindows@DelegationAPI@@YAXPEAUtagTHREADINFO@@@Z.c)
+ *     CleanupInputDelegation @ 0x1C0091270 (CleanupInputDelegation.c)
+ *     ?ScrubDelegateThreadWindows@DelegationAPI@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C00912B8 (-ScrubDelegateThreadWindows@DelegationAPI@@YAXPEAUtagTHREADINFO@@@Z.c)
  * Callees:
- *     _anonymous_namespace_::ScrubDelegateThread @ 0x1C0097D84 (_anonymous_namespace_--ScrubDelegateThread.c)
- *     IsClearDelegationCaptureSupported @ 0x1C0097DBC (IsClearDelegationCaptureSupported.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     IsClearDelegationCaptureSupported @ 0x1C0098044 (IsClearDelegationCaptureSupported.c)
+ *     ClearDelegationCapture @ 0x1C0099194 (ClearDelegationCapture.c)
+ *     _anonymous_namespace_::ScrubDelegateThread @ 0x1C00B0C64 (_anonymous_namespace_--ScrubDelegateThread.c)
  */
 
-char __fastcall anonymous_namespace_::ScrubDelegatedWindow_tagBWND___(__int64 a1, __int64 a2, __int64 a3)
+char __fastcall anonymous_namespace_::ScrubDelegatedWindow_tagBWND___(__int64 a1)
 {
-  __int64 v3; // rbx
-  __int64 v6; // rax
-  __int64 v7; // rcx
+  __int64 v1; // rbx
+  __int64 v3; // rax
 
-  v3 = *(_QWORD *)(a1 + 64);
-  if ( !v3 )
-  {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
+  v1 = *(_QWORD *)(a1 + 64);
+  if ( !v1 )
     return 0;
-  }
-  v6 = *(_QWORD *)(a1 + 16);
+  v3 = *(_QWORD *)(a1 + 16);
   *(_QWORD *)(a1 + 64) = 0LL;
   *(_DWORD *)(a1 + 72) = 0;
-  --*(_DWORD *)(v6 + 1304);
-  --*(_DWORD *)(v3 + 1304);
-  if ( (int)IsClearDelegationCaptureSupported() >= 0 )
+  --*(_DWORD *)(v3 + 1272);
+  --*(_DWORD *)(v1 + 1272);
+  if ( (int)IsClearDelegationCaptureSupported() >= 0
+    && *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 432LL) + 136LL) == a1 )
   {
-    v7 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 432LL);
-    if ( *(_QWORD *)(v7 + 136) == a1 )
-    {
-      if ( qword_1C029BE48 )
-        qword_1C029BE48(v7);
-    }
+    ClearDelegationCapture();
   }
-  if ( *(_DWORD *)(v3 + 1304) )
+  if ( *(_DWORD *)(v1 + 1272) )
     return 0;
-  anonymous_namespace_::ScrubDelegateThread(v3);
+  anonymous_namespace_::ScrubDelegateThread(v1);
   return 1;
 }

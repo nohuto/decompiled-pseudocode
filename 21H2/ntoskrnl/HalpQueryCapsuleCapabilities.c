@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpQueryCapsuleCapabilities @ 0x1405246D0
+ * XREFs of HalpQueryCapsuleCapabilities @ 0x1404D75C0
  * Callers:
  *     <none>
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HalEfiQueryCapsuleCapabilities @ 0x14050FF6C (HalEfiQueryCapsuleCapabilities.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalEfiQueryCapsuleCapabilities @ 0x1404C3AA8 (HalEfiQueryCapsuleCapabilities.c)
  */
 
 __int64 __fastcall HalpQueryCapsuleCapabilities(__int64 a1)

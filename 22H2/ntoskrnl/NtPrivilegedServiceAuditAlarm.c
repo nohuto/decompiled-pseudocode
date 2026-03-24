@@ -1,20 +1,20 @@
 /*
- * XREFs of NtPrivilegedServiceAuditAlarm @ 0x1407C87E0
+ * XREFs of NtPrivilegedServiceAuditAlarm @ 0x14069A6E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     SepProbeAndCaptureString_U @ 0x1406C2314 (SepProbeAndCaptureString_U.c)
- *     SeCheckAuditPrivilege @ 0x1406C3678 (SeCheckAuditPrivilege.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x1407C8A64 (SepAdtPrivilegedServiceAuditAlarm.c)
- *     SepAuditFailed @ 0x1409D1CF0 (SepAuditFailed.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SepProbeAndCaptureString_U @ 0x140627808 (SepProbeAndCaptureString_U.c)
+ *     SeCheckAuditPrivilege @ 0x1406279BC (SeCheckAuditPrivilege.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x140627C28 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     SepAuditFailed @ 0x140925950 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtPrivilegedServiceAuditAlarm(
@@ -26,11 +26,11 @@ NTSTATUS __stdcall NtPrivilegedServiceAuditAlarm(
 {
   char PreviousMode; // di
   NTSTATUS v10; // edi
-  PVOID v11; // r14
+  struct _DMA_ADAPTER *v11; // r14
   ULONG PrivilegeCount; // edi
-  unsigned int v13; // ecx
-  char *v14; // rdx
-  ULONG *Pool2; // rax
+  SIZE_T v13; // rdx
+  char *v14; // rcx
+  ULONG *PoolWithTag; // rax
   ULONG *v16; // rsi
   PVOID v17; // rdi
   PVOID v18; // r15
@@ -43,7 +43,7 @@ NTSTATUS __stdcall NtPrivilegedServiceAuditAlarm(
   PVOID P; // [rsp+60h] [rbp-48h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+68h] [rbp-40h] BYREF
   ULONG v28; // [rsp+88h] [rbp-20h]
-  unsigned int v29; // [rsp+8Ch] [rbp-1Ch]
+  int v29; // [rsp+8Ch] [rbp-1Ch]
 
   v24 = 0LL;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
@@ -71,10 +71,10 @@ LABEL_33:
     SepAuditFailed(v21);
     return v10;
   }
-  v11 = Object;
+  v11 = (struct _DMA_ADAPTER *)Object;
   if ( *((_DWORD *)Object + 48) == 2 && *((int *)Object + 49) < 1 )
   {
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     v20 = -1073741659;
     goto LABEL_36;
   }
@@ -99,19 +99,19 @@ LABEL_33:
     else
     {
       v13 = 12 * PrivilegeCount + 8;
-      v29 = v13;
+      v29 = 12 * PrivilegeCount + 8;
       if ( 12 * PrivilegeCount != -8 )
       {
-        v14 = (char *)Privileges + v13;
+        v14 = (char *)Privileges + (unsigned int)v13;
         if ( (unsigned __int64)v14 > 0x7FFFFFFF0000LL || v14 < (char *)Privileges )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
-      Pool2 = (ULONG *)ExAllocatePool2(256LL, v13, 1917871443LL);
-      v16 = Pool2;
-      v24 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (ULONG *)ExAllocatePoolWithTag(PagedPool, v13, 0x72506553u);
+      v16 = PoolWithTag;
+      v24 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memmove(Pool2, Privileges, 12 * PrivilegeCount + 8);
+        memmove(PoolWithTag, Privileges, 12 * PrivilegeCount + 8);
         *v16 = PrivilegeCount;
         v10 = v22;
       }
@@ -120,7 +120,7 @@ LABEL_33:
         v10 = -1073741670;
       }
     }
-    v11 = Object;
+    v11 = (struct _DMA_ADAPTER *)Object;
   }
   if ( v10 < 0 )
   {
@@ -131,7 +131,7 @@ LABEL_33:
     if ( v16 )
       ExFreePoolWithTag(v16, 0);
     SeReleaseSubjectContext(&SubjectContext);
-    ObfDereferenceObject(v11);
+    HalPutDmaAdapter(v11);
     if ( v10 != -1073741670 )
       return v10;
     v21 = 3221225626LL;
@@ -140,12 +140,12 @@ LABEL_33:
   v17 = v25;
   v18 = P;
   SepAdtPrivilegedServiceAuditAlarm(
-    (unsigned int)&SubjectContext,
-    (_DWORD)P,
-    (_DWORD)v25,
-    (_DWORD)v11,
+    (int)&SubjectContext,
+    (const int *)P,
+    (unsigned __int16 *)v25,
+    (__int64)v11,
     (__int64)SubjectContext.PrimaryToken,
-    (__int64)v16,
+    (int *)v16,
     AccessGranted);
   if ( v18 )
     ExFreePoolWithTag(v18, 0);
@@ -153,7 +153,7 @@ LABEL_33:
     ExFreePoolWithTag(v17, 0);
   if ( v16 )
     ExFreePoolWithTag(v16, 0);
-  ObfDereferenceObject(v11);
+  HalPutDmaAdapter(v11);
   SeReleaseSubjectContext(&SubjectContext);
   return 0;
 }

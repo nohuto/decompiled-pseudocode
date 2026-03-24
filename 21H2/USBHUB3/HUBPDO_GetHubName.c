@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBPDO_GetHubName @ 0x1C0014F9C
+ * XREFs of HUBPDO_GetHubName @ 0x1C0014ADC
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C00173D0 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0016F00 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_DD @ 0x1C0002204 (WPP_RECORDER_SF_DD.c)
- *     HUBPDO_GetHubSymbolicLinkName @ 0x1C0019160 (HUBPDO_GetHubSymbolicLinkName.c)
- *     HUBMISC_StripSymbolicNamePrefix @ 0x1C0030B3C (HUBMISC_StripSymbolicNamePrefix.c)
- *     memmove @ 0x1C0043840 (memmove.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     HUBPDO_GetHubSymbolicLinkName @ 0x1C0018C10 (HUBPDO_GetHubSymbolicLinkName.c)
+ *     HUBMISC_StripSymbolicNamePrefix @ 0x1C003049C (HUBMISC_StripSymbolicNamePrefix.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBPDO_GetHubName(__int64 a1, _QWORD *a2)
@@ -54,12 +54,12 @@ __int64 __fastcall HUBPDO_GetHubName(__int64 a1, _QWORD *a2)
     else
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_DD(
+        WPP_RECORDER_SF_dD(
           *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL) + 1432LL),
           3u,
           5u,
           0xDu,
-          (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+          (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
           v6,
           6);
       return (unsigned int)-1073741789;
@@ -73,7 +73,7 @@ __int64 __fastcall HUBPDO_GetHubName(__int64 a1, _QWORD *a2)
         3u,
         5u,
         0xCu,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids);
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
     return (unsigned int)-1073741811;
   }
   return v3;

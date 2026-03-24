@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDisplayOnState@CInputGlobals@@QEBA_NXZ @ 0x1C01DC7E0
+ * XREFs of ?GetDisplayOnState@CInputGlobals@@QEBA_NXZ @ 0x1C01A35D0
  * Callers:
  *     <none>
  * Callees:

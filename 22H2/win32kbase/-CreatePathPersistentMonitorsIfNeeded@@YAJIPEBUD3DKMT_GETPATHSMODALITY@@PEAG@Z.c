@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CreatePathPersistentMonitorsIfNeeded@@YAJIPEBUD3DKMT_GETPATHSMODALITY@@PEAG@Z @ 0x1C0011F08
+ * XREFs of ?CreatePathPersistentMonitorsIfNeeded@@YAJIPEBUD3DKMT_GETPATHSMODALITY@@PEAG@Z @ 0x1C00B1C24
  * Callers:
- *     DrvSetDisplayConfig @ 0x1C0014230 (DrvSetDisplayConfig.c)
+ *     DrvSetDisplayConfig @ 0x1C001A4C0 (DrvSetDisplayConfig.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CreatePathPersistentMonitorsIfNeeded(
@@ -11,51 +11,52 @@ __int64 __fastcall CreatePathPersistentMonitorsIfNeeded(
         const struct D3DKMT_GETPATHSMODALITY *a2,
         unsigned __int16 *a3)
 {
-  unsigned int v5; // ebp
+  __int64 v5; // rbp
   unsigned int i; // r14d
   __int64 v7; // rdi
   __int64 v8; // rcx
-  __int64 v10; // r9
-  __int64 v11; // r8
-  __int64 v12; // rdx
-  __int64 DxgkWin32kInterface; // rax
-  int v14; // eax
+  _QWORD *v10; // rax
+  _QWORD *v11; // rax
+  int v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  _QWORD *v15; // rax
+  _QWORD *v16; // rax
 
-  v5 = 0;
+  LODWORD(v5) = 0;
   if ( a3 )
     *a3 = 0;
   for ( i = 0; i < *((unsigned __int16 *)a2 + 10); ++i )
   {
-    v7 = 296LL * i;
-    v8 = *(_QWORD *)((char *)a2 + v7 + 56);
+    v7 = 272LL * i;
+    v8 = *(_QWORD *)((char *)a2 + v7 + 48);
     if ( (v8 & 0x1100000000000000LL) != 0x100000000000000LL )
     {
       if ( (v8 & 0x200000000000000LL) != 0 )
       {
-        DxgkWin32kInterface = DxDdGetDxgkWin32kInterface();
-        v14 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(DxgkWin32kInterface + 224))(
-                *(_QWORD *)((char *)a2 + v7 + 72),
-                *(unsigned int *)((char *)a2 + v7 + 84),
+        v12 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, __int64))qword_1C0250970)(
+                *(_QWORD *)((char *)a2 + v7 + 64),
+                *(unsigned int *)((char *)a2 + v7 + 76),
                 0LL,
                 2LL);
-        v5 = v14;
-        if ( v14 < 0 )
+        v5 = v12;
+        if ( v12 < 0 )
         {
-          WdLogSingleEntry4(
-            4LL,
-            *(int *)((char *)a2 + v7 + 76),
-            *(unsigned int *)((char *)a2 + v7 + 72),
-            *(unsigned int *)((char *)a2 + v7 + 84),
-            v14);
-          return v5;
+          v16 = (_QWORD *)WdLogNewEntry5_WdEvent(v14);
+          v16[3] = *(int *)((char *)a2 + v7 + 68);
+          v16[4] = *((unsigned int *)a2 + 68 * i + 16);
+          v16[5] = *((unsigned int *)a2 + 68 * i + 19);
+          v16[6] = v5;
+          WdLogEvent5_WdEvent(v16);
+          return (unsigned int)v5;
         }
-        if ( (*(_QWORD *)((_BYTE *)a2 + v7 + 56) & 0x1000000000000000LL) != 0 )
+        if ( (*(_QWORD *)((_BYTE *)a2 + v7 + 48) & 0x1000000000000000LL) != 0 )
         {
-          WdLogSingleEntry3(
-            5LL,
-            *(int *)((char *)a2 + v7 + 76),
-            *(unsigned int *)((char *)a2 + v7 + 72),
-            *(unsigned int *)((char *)a2 + v7 + 84));
+          v11 = (_QWORD *)WdLogNewEntry5_WdTrace(v14, v13);
+          v11[3] = *(int *)((char *)a2 + v7 + 68);
+          v11[4] = *(unsigned int *)((char *)a2 + v7 + 64);
+          v11[5] = *(unsigned int *)((char *)a2 + v7 + 76);
+          WdLogEvent5_WdTrace(v11);
         }
         else if ( a3 )
         {
@@ -64,17 +65,24 @@ __int64 __fastcall CreatePathPersistentMonitorsIfNeeded(
       }
       else
       {
-        v10 = *(unsigned int *)((char *)a2 + v7 + 72);
-        v11 = *(int *)((char *)a2 + v7 + 76);
-        v12 = *(unsigned int *)((char *)a2 + v7 + 84);
         if ( (v8 & 0x1000000000000000LL) == 0 )
         {
-          WdLogSingleEntry3(4LL, v12, v11, v10);
-          return (unsigned int)-1073741811;
+          v15 = (_QWORD *)WdLogNewEntry5_WdEvent(v8);
+          v15[3] = *(unsigned int *)((char *)a2 + v7 + 76);
+          v15[4] = *(int *)((char *)a2 + v7 + 68);
+          v15[5] = *(unsigned int *)((char *)a2 + v7 + 64);
+          WdLogEvent5_WdEvent(v15);
+          LODWORD(v5) = -1073741811;
+          return (unsigned int)v5;
         }
-        WdLogSingleEntry4(4LL, v12, v11, v10, 1LL);
+        v10 = (_QWORD *)WdLogNewEntry5_WdEvent(v8);
+        v10[3] = *(unsigned int *)((char *)a2 + v7 + 76);
+        v10[4] = *(int *)((char *)a2 + v7 + 68);
+        v10[5] = *(unsigned int *)((char *)a2 + v7 + 64);
+        v10[6] = 1LL;
+        WdLogEvent5_WdEvent(v10);
       }
     }
   }
-  return v5;
+  return (unsigned int)v5;
 }

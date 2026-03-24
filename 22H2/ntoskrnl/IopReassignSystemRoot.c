@@ -1,17 +1,17 @@
 /*
- * XREFs of IopReassignSystemRoot @ 0x140B70E7C
+ * XREFs of IopReassignSystemRoot @ 0x140A700D8
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlUnicodeStringToAnsiString @ 0x140758B90 (RtlUnicodeStringToAnsiString.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     NtQuerySymbolicLinkObject @ 0x1407AAB70 (NtQuerySymbolicLinkObject.c)
- *     NtOpenSymbolicLinkObject @ 0x1407AB090 (NtOpenSymbolicLinkObject.c)
- *     NtMakeTemporaryObject @ 0x1407E1190 (NtMakeTemporaryObject.c)
- *     NtCreateSymbolicLinkObject @ 0x1407F35D0 (NtCreateSymbolicLinkObject.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     NtOpenSymbolicLinkObject @ 0x140666020 (NtOpenSymbolicLinkObject.c)
+ *     NtQuerySymbolicLinkObject @ 0x140666310 (NtQuerySymbolicLinkObject.c)
+ *     NtCreateSymbolicLinkObject @ 0x14068EF10 (NtCreateSymbolicLinkObject.c)
+ *     NtMakeTemporaryObject @ 0x1406F7590 (NtMakeTemporaryObject.c)
  */
 
 char __fastcall IopReassignSystemRoot(__int64 a1, STRING *a2)

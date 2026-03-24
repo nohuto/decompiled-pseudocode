@@ -1,18 +1,18 @@
 /*
- * XREFs of EmpProviderDeregisterEntry @ 0x14053C850
+ * XREFs of EmpProviderDeregisterEntry @ 0x1404EEBF0
  * Callers:
- *     EmProviderDeregister @ 0x14093C760 (EmProviderDeregister.c)
- *     EmProviderDeregisterEntry @ 0x14093C910 (EmProviderDeregisterEntry.c)
+ *     EmProviderDeregister @ 0x14088A0B0 (EmProviderDeregister.c)
+ *     EmProviderDeregisterEntry @ 0x14088A260 (EmProviderDeregisterEntry.c)
  * Callees:
- *     EmpQueueRuleUpdateState @ 0x1403878C8 (EmpQueueRuleUpdateState.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EmpQueueRuleUpdateState @ 0x1403B3B68 (EmpQueueRuleUpdateState.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EmpProviderDeregisterEntry(char *P)
 {
   char *v1; // rax
-  __int64 v3; // rdx
-  char **v4; // rcx
+  __int64 v3; // rcx
+  char **v4; // rdx
   _QWORD **v5; // rdx
   PVOID *v6; // rcx
   _QWORD *i; // rdi
@@ -21,8 +21,8 @@ void __fastcall EmpProviderDeregisterEntry(char *P)
   {
     v1 = P + 24;
     v3 = *((_QWORD *)P + 3);
-    if ( *(char **)(v3 + 8) != P + 24
-      || (v4 = (char **)*((_QWORD *)P + 4), *v4 != v1)
+    if ( *(char **)(v3 + 8) != v1
+      || (v4 = (char **)*((_QWORD *)v1 + 1), *v4 != v1)
       || (*v4 = (char *)v3, *(_QWORD *)(v3 + 8) = v4, v5 = (_QWORD **)*((_QWORD *)P + 5), v5[1] != (_QWORD *)(P + 40))
       || (v6 = (PVOID *)*((_QWORD *)P + 6), *v6 != P + 40) )
     {

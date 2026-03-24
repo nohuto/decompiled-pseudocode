@@ -1,34 +1,57 @@
 /*
- * XREFs of ?vGarbageCollectObjects@@YAXXZ @ 0x1C0017AB0
+ * XREFs of ?vGarbageCollectObjects@@YAXXZ @ 0x1C00CBF38
  * Callers:
- *     ?NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z @ 0x1C0017B90 (-NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z.c)
+ *     ?NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z @ 0x1C007D6C8 (-NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z.c)
  * Callees:
- *     HmgIsProcessCleanupRequired @ 0x1C001B4E4 (HmgIsProcessCleanupRequired.c)
- *     ?Feature_1827749177__private_IsEnabled@@YAHXZ @ 0x1C00D8C50 (-Feature_1827749177__private_IsEnabled@@YAHXZ.c)
- *     ??$vGarbageCollectObject@VBRUSHSELOBJGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00DB8C8 (--$vGarbageCollectObject@VBRUSHSELOBJGC@@@@YAXPEAUHOBJ__@@@Z.c)
- *     ??$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00DB9B4 (--$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z.c)
- *     ??$vGarbageCollectObject@VEPATHOBJGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00DBAC4 (--$vGarbageCollectObject@VEPATHOBJGC@@@@YAXPEAUHOBJ__@@@Z.c)
- *     ??$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00DBBCC (--$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z.c)
- *     HmgNextGarbageCollectible @ 0x1C016C2DC (HmgNextGarbageCollectible.c)
- *     ??$vGarbageCollectObject@VSURFREFGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C0179210 (--$vGarbageCollectObject@VSURFREFGC@@@@YAXPEAUHOBJ__@@@Z.c)
+ *     HmgNextGarbageCollectible @ 0x1C000D864 (HmgNextGarbageCollectible.c)
+ *     HmgIsProcessCleanupRequired @ 0x1C00C9AAC (HmgIsProcessCleanupRequired.c)
+ *     ??$vGarbageCollectObject@VBRUSHSELOBJGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CB9F8 (--$vGarbageCollectObject@VBRUSHSELOBJGC@@@@YAXPEAUHOBJ__@@@Z.c)
+ *     ??$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CBAE4 (--$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z.c)
+ *     ??$vGarbageCollectObject@VEPATHOBJGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CBBFC (--$vGarbageCollectObject@VEPATHOBJGC@@@@YAXPEAUHOBJ__@@@Z.c)
+ *     ??$vGarbageCollectObject@VSURFREFGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CBD08 (--$vGarbageCollectObject@VSURFREFGC@@@@YAXPEAUHOBJ__@@@Z.c)
+ *     ??$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CBDF4 (--$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z.c)
  */
 
-void __fastcall vGarbageCollectObjects(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall vGarbageCollectObjects(__int64 a1)
 {
   __int64 CurrentProcessWin32Process; // rax
-  unsigned int i; // ecx
-  unsigned int GarbageCollectible; // ebx
+  unsigned int v2; // ecx
+  unsigned int v3; // ebx
+  char v4; // [rsp+30h] [rbp+10h] BYREF
+  unsigned __int64 v5; // [rsp+38h] [rbp+18h] BYREF
 
   if ( gGarbageCollectionPendingCount )
   {
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1, a2, a3, a4);
+    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
     if ( (unsigned int)HmgIsProcessCleanupRequired(CurrentProcessWin32Process) )
     {
-      for ( i = 0; ; i = GarbageCollectible )
+      v5 = 0LL;
+      v2 = 0;
+      v4 = 30;
+      while ( 1 )
       {
-        GarbageCollectible = HmgNextGarbageCollectible(i);
-        if ( !GarbageCollectible )
+        v3 = HmgNextGarbageCollectible(v2, &v5, &v4);
+        if ( !v3 )
           break;
+        switch ( v4 )
+        {
+          case 5:
+            vGarbageCollectObject<SURFREFGC>(v5);
+            break;
+          case 7:
+            vGarbageCollectObject<EPATHOBJGC>(v5);
+            break;
+          case 8:
+            vGarbageCollectObject<XEPALOBJ2>(v5);
+            break;
+          case 9:
+            vGarbageCollectObject<COLORSPACEGC>(v5);
+            break;
+          case 16:
+            vGarbageCollectObject<BRUSHSELOBJGC>(v5);
+            break;
+        }
+        v2 = v3;
       }
     }
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of KxIsrLinkageShadow @ 0x140AF8B00
+ * XREFs of KxIsrLinkageShadow @ 0x140A15B00
  * Callers:
- *     KiIsrThunkShadow @ 0x140AF82C0 (KiIsrThunkShadow.c)
+ *     KiIsrThunkShadow @ 0x140A152C0 (KiIsrThunkShadow.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 __fastcall KxIsrLinkageShadow(int a1, int a2, int a3, int a4, __int16 a5
   {
     __asm { swapgs }
     _mm_lfence();
-    if ( !_bittest(MK_FP(__GS__, 40984LL), 1u) )
+    if ( !_bittest(MK_FP(__GS__, 36888LL), 1u) )
       __writecr3((unsigned __int64)&v10);
     __writegsqword(0x10u, v5);
     v8 = KeGetPcr()->IdtBase + 1056;

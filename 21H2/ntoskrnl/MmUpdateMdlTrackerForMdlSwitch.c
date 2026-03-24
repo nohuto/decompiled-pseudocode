@@ -1,17 +1,17 @@
 /*
- * XREFs of MmUpdateMdlTrackerForMdlSwitch @ 0x14058503C
+ * XREFs of MmUpdateMdlTrackerForMdlSwitch @ 0x140531398
  * Callers:
- *     VmProbeAndLockPages @ 0x140628F90 (VmProbeAndLockPages.c)
- *     VmUnlockPages @ 0x140629030 (VmUnlockPages.c)
+ *     VmProbeAndLockPages @ 0x1405A2A70 (VmProbeAndLockPages.c)
+ *     VmUnlockPages @ 0x1405A2B10 (VmUnlockPages.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     MiValidateMdlTracker @ 0x140584C78 (MiValidateMdlTracker.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     MiValidateMdlTracker @ 0x140530FD8 (MiValidateMdlTracker.c)
  */
 
 __int64 __fastcall MmUpdateMdlTrackerForMdlSwitch(ULONG_PTR BugCheckParameter3, int a2)
@@ -41,7 +41,7 @@ __int64 __fastcall MmUpdateMdlTrackerForMdlSwitch(ULONG_PTR BugCheckParameter3, 
   v5 = *(PEPROCESS *)(BugCheckParameter3 + 16);
   if ( !v5 )
     v5 = PsInitialSystemProcess;
-  v6 = v5[1].ActiveProcessors.StaticBitmap[11];
+  v6 = v5[1].ActiveProcessors.Bitmap[11];
   if ( !v6 )
     return result;
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v6 + 24), &LockHandle);
@@ -52,18 +52,17 @@ __int64 __fastcall MmUpdateMdlTrackerForMdlSwitch(ULONG_PTR BugCheckParameter3, 
     {
 LABEL_22:
       if ( *(_DWORD *)(v6 + 32) )
-        KeBugCheckEx(
-          0x76u,
-          9uLL,
-          BugCheckParameter3,
-          v5[1].Affinity.StaticBitmap[14],
-          v5[1].ActiveProcessors.StaticBitmap[11]);
+        KeBugCheckEx(0x76u, 9uLL, BugCheckParameter3, v5[1].Affinity.Bitmap[14], v5[1].ActiveProcessors.Bitmap[11]);
       goto LABEL_30;
     }
     v12 = *(_QWORD *)(BugCheckParameter3 + 48);
     while ( 1 )
     {
-      if ( v12 >= i[8] )
+      if ( v12 < i[8] )
+      {
+        i = (unsigned __int64 *)*i;
+      }
+      else
       {
         if ( v12 <= i[8] )
         {
@@ -77,10 +76,6 @@ LABEL_22:
         }
         i = (unsigned __int64 *)i[1];
       }
-      else
-      {
-        i = (unsigned __int64 *)*i;
-      }
       if ( !i )
         goto LABEL_22;
     }
@@ -92,12 +87,7 @@ LABEL_22:
       if ( !i )
       {
         if ( *(_DWORD *)(v6 + 32) )
-          KeBugCheckEx(
-            0x76u,
-            8uLL,
-            BugCheckParameter3,
-            v5[1].Affinity.StaticBitmap[14],
-            v5[1].ActiveProcessors.StaticBitmap[11]);
+          KeBugCheckEx(0x76u, 8uLL, BugCheckParameter3, v5[1].Affinity.Bitmap[14], v5[1].ActiveProcessors.Bitmap[11]);
         goto LABEL_30;
       }
       if ( BugCheckParameter3 >= i[3] )

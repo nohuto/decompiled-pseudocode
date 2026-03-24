@@ -1,39 +1,31 @@
 /*
- * XREFs of SmpFpWaitForResource @ 0x1405CC51C
+ * XREFs of SmpFpWaitForResource @ 0x14059ED2C
  * Callers:
- *     SmFpAllocate @ 0x14046592E (SmFpAllocate.c)
+ *     SmFpAllocate @ 0x1403130C8 (SmFpAllocate.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     SmpFpAllocateResource @ 0x1405CC378 (SmpFpAllocateResource.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     SmpFpAllocateResource @ 0x14059EB8C (SmpFpAllocateResource.c)
  */
 
 __int64 __fastcall SmpFpWaitForResource(PEX_SPIN_LOCK SpinLock, int a2, struct _KTHREAD *a3)
 {
   struct _KTHREAD *CurrentThread; // rdi
-  int v6; // esi
   struct _KTHREAD *i; // rax
   __int64 result; // rax
 
   CurrentThread = a3;
-  if ( a3 )
-  {
-    v6 = 0;
-  }
-  else
-  {
+  if ( !a3 )
     CurrentThread = KeGetCurrentThread();
-    v6 = 1;
-  }
-  for ( i = (struct _KTHREAD *)*((_QWORD *)SpinLock + 14);
+  for ( i = (struct _KTHREAD *)*((_QWORD *)SpinLock + 13);
         CurrentThread != i
-     && (*((_QWORD *)SpinLock + 14)
-      || _InterlockedCompareExchange64((volatile signed __int64 *)SpinLock + 14, (signed __int64)CurrentThread, 0LL));
-        i = (struct _KTHREAD *)*((_QWORD *)SpinLock + 14) )
+     && (*((_QWORD *)SpinLock + 13)
+      || _InterlockedCompareExchange64((volatile signed __int64 *)SpinLock + 13, (signed __int64)CurrentThread, 0LL));
+        i = (struct _KTHREAD *)*((_QWORD *)SpinLock + 13) )
   {
     KeWaitForSingleObject((PVOID)(SpinLock + 2), Executive, 0, 0, 0LL);
   }
   result = SmpFpAllocateResource(SpinLock, a2);
-  if ( v6 )
-    _InterlockedExchange64((volatile __int64 *)SpinLock + 14, result);
+  if ( !a3 )
+    _InterlockedExchange64((volatile __int64 *)SpinLock + 13, result);
   return result;
 }

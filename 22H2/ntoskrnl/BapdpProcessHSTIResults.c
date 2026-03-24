@@ -1,48 +1,42 @@
 /*
- * XREFs of BapdpProcessHSTIResults @ 0x140B39164
+ * XREFs of BapdpProcessHSTIResults @ 0x140A4051C
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140B38D8C (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140A405AC (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     BapdpQueryData @ 0x140B39564 (BapdpQueryData.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     BapdpQueryData @ 0x140A40B64 (BapdpQueryData.c)
  */
 
 void __fastcall BapdpProcessHSTIResults(__int64 a1)
 {
-  int v1; // eax
-  __int64 v2; // rcx
-  void *Pool2; // rbx
-  unsigned int v4; // [rsp+30h] [rbp-20h] BYREF
+  PVOID PoolWithTag; // rbx
+  int v2; // eax
+  __int64 v3; // rcx
+  SIZE_T NumberOfBytes; // [rsp+30h] [rbp-20h] BYREF
   _DWORD v5[4]; // [rsp+38h] [rbp-18h] BYREF
 
-  v4 = 0;
   v5[0] = -1059463388;
+  PoolWithTag = 0LL;
+  LODWORD(NumberOfBytes) = 0;
   v5[1] = 1314116061;
   v5[2] = -657724523;
   v5[3] = -2040154073;
-  v1 = BapdpQueryData(a1, v5, 0LL, 0LL, &v4);
-  if ( v1 == -1073741789 )
+  v2 = BapdpQueryData(a1, v5, 0LL, 0LL, &NumberOfBytes);
+  if ( v2 == -1073741789 )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, v4, 0x49545348u);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x49545348u);
+    if ( !PoolWithTag )
       return;
+    v2 = 0;
   }
-  else
+  if ( v2 >= 0 && (int)BapdpQueryData(v3, v5, 0LL, PoolWithTag, &NumberOfBytes) >= 0 )
   {
-    Pool2 = 0LL;
-    if ( v1 < 0 )
-      return;
+    qword_140D41608 = PoolWithTag;
+    PoolWithTag = 0LL;
+    LODWORD(dword_140D41600) = NumberOfBytes;
   }
-  if ( (int)BapdpQueryData(v2, v5, 0LL, Pool2, &v4) < 0 )
-  {
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
-  }
-  else
-  {
-    LODWORD(dword_140D66110) = v4;
-    qword_140D66118 = Pool2;
-  }
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
 }

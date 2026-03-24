@@ -1,10 +1,10 @@
 /*
- * XREFs of MiApplyStraddleFixups @ 0x140241008
+ * XREFs of MiApplyStraddleFixups @ 0x1402BA60C
  * Callers:
- *     MiPerformFixups @ 0x1407BF2E0 (MiPerformFixups.c)
+ *     MiPerformFixups @ 0x1405FC5B8 (MiPerformFixups.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 void __fastcall MiApplyStraddleFixups(__int64 a1, char *a2, int a3, __int64 a4, __int64 a5, char a6)
@@ -38,7 +38,7 @@ LABEL_10:
         if ( v13 )
         {
           v16 = v6[3];
-          if ( (a6 & 8) != 0 )
+          if ( (a6 & 1) != 0 )
           {
             v18 = v16 + *(_QWORD *)(a1 + 48);
           }

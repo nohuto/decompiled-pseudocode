@@ -1,26 +1,26 @@
 /*
- * XREFs of ?StDeviceIoIssue@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_PF_QUEUE@@@Z @ 0x1405F8610
+ * XREFs of ?StDeviceIoIssue@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_PF_QUEUE@@@Z @ 0x14059A854
  * Callers:
- *     ?StDmEtaPerformIo@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x1405F8DD0 (-StDmEtaPerformIo@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
- *     ?StDmSinglePageRetrieveSync@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z @ 0x1405FA12C (-StDmSinglePageRetrieveSync@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z.c)
+ *     ?StDmEtaPerformIo@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x14059B208 (-StDmEtaPerformIo@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
+ *     ?StDmSinglePageRetrieveSync@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z @ 0x14059C53C (-StDmSinglePageRetrieveSync@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     StEtaIoStart @ 0x1405FAE14 (StEtaIoStart.c)
- *     SmIssueIo @ 0x1405FD31C (SmIssueIo.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     StEtaIoStart @ 0x14059D3E0 (StEtaIoStart.c)
+ *     SmIssueIo @ 0x14059FB1C (SmIssueIo.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDeviceIoIssue(__int64 a1, __int64 *a2)
 {
   int v4; // r8d
   __int64 *v5; // rdx
-  unsigned __int64 v6; // rdi
-  int *v7; // rsi
-  unsigned int v8; // r12d
+  unsigned __int64 v6; // rsi
+  int *v7; // rdi
+  unsigned int v8; // r13d
   unsigned int *v9; // r15
   int v10; // ebp
-  unsigned int v11; // r12d
+  unsigned int v11; // r13d
   unsigned int v12; // eax
-  unsigned int v13; // r13d
+  unsigned int v13; // r12d
   unsigned int v14; // ecx
   unsigned __int64 v15; // rax
 

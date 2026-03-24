@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetWaitForWinstaRundown@@YAXXZ @ 0x1C003A764
+ * XREFs of ?SetWaitForWinstaRundown@@YAXXZ @ 0x1C000A728
  * Callers:
- *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C003B554 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C000ADD4 (-InitiateWin32kCleanup@@YAHXZ.c)
  * Callees:
  *     <none>
  */
@@ -16,35 +16,29 @@ void SetWaitForWinstaRundown(void)
   ProcessHandle = 0LL;
   ThreadHandle = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
-  KernelEvent = (void *)CreateKernelEvent(1LL, 0LL);
-  if ( ObOpenObjectByPointer(gpepCSRSS, 0, 0LL, 2u, 0LL, 0, &ProcessHandle) < 0
-    || (memset(&ObjectAttributes.RootDirectory, 0, 20),
-        ObjectAttributes.Length = 48,
-        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL,
-        PsCreateSystemThread(
-          &ThreadHandle,
-          0x1FFFFFu,
-          &ObjectAttributes,
-          ProcessHandle,
-          0LL,
-          WaitForWinstaRundown,
-          KernelEvent) < 0) )
+  KernelEvent = (void *)CreateKernelEvent(1LL);
+  if ( ObOpenObjectByPointer(gpepCSRSS, 0, 0LL, 2u, 0LL, 0, &ProcessHandle) >= 0 )
   {
-    if ( KernelEvent )
-      goto LABEL_5;
-  }
-  else
-  {
-    if ( KernelEvent )
+    memset(&ObjectAttributes.RootDirectory, 0, 20);
+    ObjectAttributes.Length = 48;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( PsCreateSystemThread(
+           &ThreadHandle,
+           0x1FFFFFu,
+           &ObjectAttributes,
+           ProcessHandle,
+           0LL,
+           WaitForWinstaRundown,
+           KernelEvent) >= 0 )
     {
-      KeWaitForSingleObject(KernelEvent, WrUserRequest, 0, 0, 0LL);
-LABEL_5:
-      Win32FreePool(KernelEvent);
-      goto LABEL_6;
+      if ( KernelEvent )
+        KeWaitForSingleObject(KernelEvent, WrUserRequest, 0, 0, 0LL);
+      else
+        UserSleep(100LL);
     }
-    UserSleep(100LL);
   }
-LABEL_6:
+  if ( KernelEvent )
+    Win32FreePool(KernelEvent);
   if ( ProcessHandle )
     ZwClose(ProcessHandle);
   if ( ThreadHandle )

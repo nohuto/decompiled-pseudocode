@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxSetDripsBlockedByDeviceActivity @ 0x1405CE144
+ * XREFs of PopFxSetDripsBlockedByDeviceActivity @ 0x14056CBCC
  * Callers:
- *     PopFxPlatformStateAvailable @ 0x1405CD1FC (PopFxPlatformStateAvailable.c)
+ *     PopFxPlatformStateAvailable @ 0x14056BA8C (PopFxPlatformStateAvailable.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxUpdateDeviceIRPhaseAccounting @ 0x1405CE584 (PopFxUpdateDeviceIRPhaseAccounting.c)
- *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x1405CE63C (PopFxUpdateGlobalDeviceAccountingInfo.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxUpdateDeviceIRPhaseAccounting @ 0x14056D598 (PopFxUpdateDeviceIRPhaseAccounting.c)
+ *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x14056D650 (PopFxUpdateGlobalDeviceAccountingInfo.c)
  */
 
 __int64 __fastcall PopFxSetDripsBlockedByDeviceActivity(char a1)
@@ -20,13 +20,13 @@ __int64 __fastcall PopFxSetDripsBlockedByDeviceActivity(char a1)
   bool v7; // zf
 
   v3 = KeAcquireSpinLockRaiseToDpc(&PopFxGlobalDeviceAccountingLock);
-  if ( byte_140C23D21 )
+  if ( byte_140C248E1 )
   {
     if ( PopFxGlobalDeviceAccountingInfo == a1 )
       goto LABEL_8;
     v2 = MEMORY[0xFFFFF78000000008];
     if ( a1 )
-      qword_140C23D28 = MEMORY[0xFFFFF78000000008];
+      qword_140C248E8 = MEMORY[0xFFFFF78000000008];
     else
       PopFxUpdateGlobalDeviceAccountingInfo(MEMORY[0xFFFFF78000000008], 0LL);
   }

@@ -1,69 +1,78 @@
 /*
- * XREFs of ?xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C011E130
+ * XREFs of ?xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C0054060
  * Callers:
- *     xxxDrainQueueCompletions @ 0x1C008AFF0 (xxxDrainQueueCompletions.c)
- *     ?xxxHandleQueueCompletion@@YA?AW4QueueCompletionStatus@@PEAUtagTHREADINFO@@JQEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C011E074 (-xxxHandleQueueCompletion@@YA-AW4QueueCompletionStatus@@PEAUtagTHREADINFO@@JQEAU_FILE_IO_COMPLET.c)
- *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C0125FC0 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
+ *     _DrainThreadCoreMessagingCompletions @ 0x1C0053E10 (_DrainThreadCoreMessagingCompletions.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C0058830 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     xxxDrainQueueCompletions @ 0x1C00D5E04 (xxxDrainQueueCompletions.c)
+ *     ?xxxHandleQueueCompletion@@YA?AW4QueueCompletionStatus@@PEAUtagTHREADINFO@@JQEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C00D9FF0 (-xxxHandleQueueCompletion@@YA-AW4QueueCompletionStatus@@PEAUtagTHREADINFO@@JQEAU_FILE_IO_COMPLET.c)
+ *     NtUserGetQueueStatusReadonly @ 0x1C00F2D10 (NtUserGetQueueStatusReadonly.c)
  * Callees:
- *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C011E780 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
- *     xxxSendMessage @ 0x1C0127178 (xxxSendMessage.c)
+ *     _PostMessageExtended @ 0x1C0054290 (_PostMessageExtended.c)
+ *     xxxSendMessage @ 0x1C005D594 (xxxSendMessage.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
-ULONG64 __fastcall xxxHandleCoreMessagingQueueCompletion(__int64 a1, ULONG64 *a2, __int64 a3)
+ULONG64 __fastcall xxxHandleCoreMessagingQueueCompletion(__int64 a1, ULONG64 *a2, int a3)
 {
-  __int64 v5; // rdi
-  __int64 *v6; // rsi
-  __int64 *v7; // rcx
-  ULONG64 v8; // rdx
-  __int64 v9; // r14
-  struct tagQMSG *v10; // rax
-  ULONG64 v11; // rbx
+  __int64 v5; // rbx
+  __int64 *v6; // r14
+  ULONG64 v7; // rcx
+  __int64 *v8; // rax
+  __int64 v9; // r12
+  unsigned __int64 v10; // rax
+  ULONG64 v11; // rdi
   _QWORD *v12; // rcx
   ULONG64 result; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int128 v17; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v18; // [rsp+60h] [rbp-28h]
+  __int64 v14; // rsi
+  __int64 ThreadWin32Thread; // rax
+  __int64 v16; // rcx
+  __int128 v17; // [rsp+50h] [rbp-48h] BYREF
+  __int64 v18; // [rsp+60h] [rbp-38h]
 
   v17 = 0LL;
   v18 = 0LL;
   v5 = 0LL;
   v6 = (__int64 *)((char *)KeGetPcr()->NtTib.Self[45].StackLimit + 8);
-  v7 = v6;
-  v8 = MmUserProbeAddress;
+  v7 = MmUserProbeAddress;
+  v8 = v6;
   if ( (unsigned __int64)v6 >= MmUserProbeAddress )
-    v7 = (__int64 *)MmUserProbeAddress;
-  v9 = *v7;
-  if ( (_DWORD)a3 && !v9 )
+    v8 = (__int64 *)MmUserProbeAddress;
+  v9 = *v8;
+  if ( a3 && !v9 )
   {
-    v10 = _PostTransformableMessageExtended(*(struct tagWND **)(a1 + 1504), 0x60u, 1uLL, 0LL, 0LL, 1);
-    v7 = (__int64 *)MmSystemRangeStart;
-    if ( v10 < MmSystemRangeStart )
+    v10 = PostMessageExtended(*(_QWORD *)(a1 + 1464), 96, 1, 0, 0LL);
+    v7 = (ULONG64)MmSystemRangeStart;
+    if ( v10 >= (unsigned __int64)MmSystemRangeStart )
     {
-      if ( (_DWORD)v10 )
+      if ( v10 )
         goto LABEL_7;
+      LODWORD(v10) = 0;
     }
-    else if ( v10 )
+    if ( !(_DWORD)v10 )
     {
-      goto LABEL_7;
+      v14 = *(_QWORD *)(a1 + 1464);
+      ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+      *(_QWORD *)&v17 = *(_QWORD *)(ThreadWin32Thread + 416);
+      *(_QWORD *)(ThreadWin32Thread + 416) = &v17;
+      *((_QWORD *)&v17 + 1) = v14;
+      if ( v14 )
+        HMLockObject(v14);
+      xxxSendMessage(*(_QWORD *)(a1 + 1464), 96LL, 2LL, 0LL);
+      ThreadUnlock1(v16);
     }
-    ThreadLock(*(_QWORD *)(a1 + 1504), &v17);
-    xxxSendMessage(*(_QWORD *)(a1 + 1504), 96LL, 2LL, 0LL);
-    ThreadUnlock1(v15, v14, v16);
   }
 LABEL_7:
   v11 = *a2;
-  if ( !PsGetCurrentProcessWow64Process(v7, v8, a3) )
+  if ( !PsGetCurrentProcessWow64Process(v7) )
     v5 = 3LL;
   if ( (v5 & *a2) != 0 )
     ExRaiseDatatypeMisalignment();
   v12 = (_QWORD *)v11;
-  result = MmUserProbeAddress;
   if ( v11 >= MmUserProbeAddress )
     v12 = (_QWORD *)MmUserProbeAddress;
   *v12 = v9;
+  result = MmUserProbeAddress;
   if ( (unsigned __int64)v6 >= MmUserProbeAddress )
     v6 = (__int64 *)MmUserProbeAddress;
   *v6 = v11;

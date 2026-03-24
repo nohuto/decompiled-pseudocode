@@ -1,31 +1,35 @@
 /*
- * XREFs of ?Open@CPathData@@QEAAJPEAPEAUID2D1SimplifiedGeometrySink@@@Z @ 0x180270078
+ * XREFs of ?Open@CPathData@@QEAAJPEAPEAUID2D1SimplifiedGeometrySink@@@Z @ 0x180221028
  * Callers:
- *     ?GetSimplifiedPathDataInternal@CShape@@MEBAJPEAPEAVCPathData@@@Z @ 0x1801909C0 (-GetSimplifiedPathDataInternal@CShape@@MEBAJPEAPEAVCPathData@@@Z.c)
- *     ?GetShapeDataCore@CLineGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180224340 (-GetShapeDataCore@CLineGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ?Simplify@CPathData@@QEBAJPEAPEAV1@@Z @ 0x1802700F8 (-Simplify@CPathData@@QEBAJPEAPEAV1@@Z.c)
+ *     ?GetShapeDataCore@CLineGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1801D3600 (-GetShapeDataCore@CLineGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?Simplify@CPathData@@QEBAJPEAPEAV1@@Z @ 0x18022126C (-Simplify@CPathData@@QEBAJPEAPEAV1@@Z.c)
+ *     ?GetSimplifiedPathDataInternal@CShape@@MEBAJPEAPEAVCPathData@@@Z @ 0x18025DB80 (-GetSimplifiedPathDataInternal@CShape@@MEBAJPEAPEAVCPathData@@@Z.c)
  * Callees:
- *     ?Attach@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@QEAAXPEAUID2D1PathGeometry@@@Z @ 0x1800CF53C (-Attach@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@QEAAXPEAUID2D1PathGeometry@@@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Attach@?$ComPtr@VCScrollScaleKeyframeAnimation@@@WRL@Microsoft@@QEAAXPEAVCScrollScaleKeyframeAnimation@@@Z @ 0x1801C83B8 (-Attach@-$ComPtr@VCScrollScaleKeyframeAnimation@@@WRL@Microsoft@@QEAAXPEAVCScrollScaleKeyframeAn.c)
  */
 
 __int64 __fastcall CPathData::Open(CPathData *this, struct ID2D1SimplifiedGeometrySink **a2)
 {
-  volatile __int64 v4; // rax
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v4; // rax
+  volatile __int64 v5; // rax
+  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = 0LL;
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::Attach(&v6, _InterlockedExchange64((volatile __int64 *)this + 8, 0LL));
-  *((_QWORD *)this + 3) = *((_QWORD *)this + 2);
-  *((_DWORD *)this + 13) = 0;
-  *((_DWORD *)this + 14) = 0;
-  *((_BYTE *)this + 72) = 0;
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v6);
-  v4 = *(_QWORD *)this;
-  *((_WORD *)this + 24) = 0;
-  (*(void (__fastcall **)(CPathData *))(v4 + 8))(this);
-  *((_BYTE *)this + 72) = 1;
-  *a2 = this;
+  v7 = 0LL;
+  Microsoft::WRL::ComPtr<CScrollScaleKeyframeAnimation>::Attach(
+    &v7,
+    _InterlockedExchange64((volatile __int64 *)this + 9, 0LL));
+  v4 = *((_QWORD *)this + 3);
+  *((_DWORD *)this + 15) = 0;
+  *((_DWORD *)this + 16) = 0;
+  *((_QWORD *)this + 4) = v4;
+  *((_BYTE *)this + 80) = 0;
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v7);
+  v5 = *(_QWORD *)this;
+  *((_WORD *)this + 28) = 0;
+  (*(void (__fastcall **)(CPathData *))(v5 + 8))(this);
+  *((_BYTE *)this + 80) = 1;
+  *a2 = (CPathData *)((char *)this + 16);
   return 0LL;
 }

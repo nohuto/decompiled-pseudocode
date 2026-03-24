@@ -1,59 +1,54 @@
 /*
- * XREFs of MiSwapStackPageNoDpc @ 0x140399FDC
+ * XREFs of MiSwapStackPageNoDpc @ 0x14031FC90
  * Callers:
- *     MiSwapStackPage @ 0x140399C4C (MiSwapStackPage.c)
- *     MiJumpStackTarget @ 0x14062CFF0 (MiJumpStackTarget.c)
+ *     MiSwapStackPage @ 0x14031F4BC (MiSwapStackPage.c)
+ *     MiJumpStackTarget @ 0x140535F90 (MiJumpStackTarget.c)
  * Callees:
- *     MiSetPfnIdentity @ 0x1402194A8 (MiSetPfnIdentity.c)
- *     MiCopyPfnEntryEx @ 0x140219D80 (MiCopyPfnEntryEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCopyPage @ 0x140283CF0 (MiCopyPage.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402858B4 (MiSetOriginalPtePfnFromFreeList.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348380 (MiLockNestedPageAtDpcInline.c)
+ *     MiCopyPage @ 0x14023FB90 (MiCopyPage.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x1402AA5C0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140333FA0 (MiLockNestedPageAtDpcInline.c)
+ *     KeFlushSingleTb @ 0x140334A18 (KeFlushSingleTb.c)
+ *     MiCopyPfnEntryEx @ 0x140336A40 (MiCopyPfnEntryEx.c)
  */
 
-__int64 __fastcall MiSwapStackPageNoDpc(__int64 a1, __int64 a2)
+__int64 __fastcall MiSwapStackPageNoDpc(__int128 *a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v2; // r14
-  ULONG_PTR v5; // r12
-  signed __int64 v6; // rax
-  unsigned __int64 v7; // rdi
-  char v8; // al
+  unsigned __int64 v3; // r14
+  ULONG_PTR v7; // rbx
+  signed __int64 v8; // rax
+  unsigned __int64 v9; // rdi
+  char v11; // al
+  char v12; // al
 
-  v2 = *(_QWORD *)(a1 + 8) | 0x8000000000000000uLL;
-  v5 = 0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4);
-  v6 = MI_READ_PTE_LOCK_FREE(v2);
-  v7 = v6 & 0xFFFFFFFFFFFFFFDFuLL;
-  if ( (MiFlags & 0x2000000) != 0 )
-    _mm_lfence();
-  if ( v6 == _InterlockedCompareExchange64((volatile signed __int64 *)v2, v7, v6) )
+  v3 = *(_QWORD *)(a2 + 8) | 0x8000000000000000uLL;
+  v7 = (a3 + 0x58000000000LL) / 48;
+  v8 = MI_READ_PTE_LOCK_FREE(v3);
+  v9 = v8 & 0xFFFFFFFFFFFFFFDFuLL;
+  if ( v8 != _InterlockedCompareExchange64((volatile signed __int64 *)v3, v8 & 0xFFFFFFFFFFFFFFDFuLL, v8) )
+    return 0LL;
+  KeFlushSingleTb((__int64)(v3 << 25) >> 16, 0LL);
+  MiLockNestedPageAtDpcInline(a3);
+  MiCopyPfnEntryEx(a3, a2);
+  MiCopyPage(v7, (a2 + 0x58000000000LL) / 48, a1, 68);
+  if ( v9 != _InterlockedCompareExchange64(
+               (volatile signed __int64 *)v3,
+               v9 ^ (v9 ^ (v7 << 12)) & 0xFFFFFFFFF000LL | 0x20,
+               v9) )
   {
-    KeFlushSingleTb((__int64)(v2 << 25) >> 16, 0, 2u);
-    MiLockNestedPageAtDpcInline(a2);
-    MiCopyPfnEntryEx(a2, (__int128 *)a1);
-    MiCopyPage(0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4), v5, 68);
-    if ( (MiFlags & 0x2000000) != 0 )
-      _mm_lfence();
-    if ( v7 == _InterlockedCompareExchange64(
-                 (volatile signed __int64 *)v2,
-                 v7 ^ (v7 ^ (0xAAAAAAAAAAAAB000uLL * ((a2 + 0x220000000000LL) >> 4))) & 0xFFFFFFFFFF000LL | 0x20,
-                 v7) )
-    {
-      _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      *(_BYTE *)(a1 + 34) = *(_BYTE *)(a1 + 34) & 0xF8 | 5;
-      MiSetPfnIdentity(a1, 0);
-      v8 = *(_BYTE *)(a1 + 34);
-      *(_QWORD *)(a1 + 40) &= ~0x8000000000000000uLL;
-      *(_BYTE *)(a1 + 34) = v8 & 0xC7;
-      *(_BYTE *)(a1 + 35) &= ~0x20u;
-      *(_QWORD *)(a1 + 24) &= 0xC000000000000000uLL;
-      return 1LL;
-    }
-    *(_BYTE *)(a2 + 34) = *(_BYTE *)(a2 + 34) & 0xF8 | 5;
-    MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(a2 + 16));
-    MiSetPfnIdentity(a2, 0);
-    _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    *(_BYTE *)(a3 + 34) = *(_BYTE *)(a3 + 34) & 0xF8 | 5;
+    MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(a3 + 16));
+    *(_QWORD *)(a3 + 40) &= 0x8FFFFFFFFFFFFFFFuLL;
+    _InterlockedAnd64((volatile signed __int64 *)(a3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    return 0LL;
   }
-  return 0LL;
+  _InterlockedAnd64((volatile signed __int64 *)(a3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  v11 = *(_BYTE *)(a2 + 34);
+  *(_QWORD *)(a2 + 40) &= 0xFFFFFFFFFFFFFFFuLL;
+  v12 = v11 & 0xF8 | 5;
+  *(_BYTE *)(a2 + 34) = v12;
+  *(_BYTE *)(a2 + 34) = v12 & 0xC7;
+  *(_BYTE *)(a2 + 35) &= ~0x20u;
+  *(_QWORD *)(a2 + 24) &= 0xC000000000000000uLL;
+  return 1LL;
 }

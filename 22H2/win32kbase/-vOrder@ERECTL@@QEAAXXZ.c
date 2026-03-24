@@ -1,9 +1,11 @@
 /*
- * XREFs of ?vOrder@ERECTL@@QEAAXXZ @ 0x1C008AA5C
+ * XREFs of ?vOrder@ERECTL@@QEAAXXZ @ 0x1C0080F64
  * Callers:
- *     GreCreateRectRgn @ 0x1C008A630 (GreCreateRectRgn.c)
- *     NtGdiCreateRectRgn @ 0x1C008A780 (NtGdiCreateRectRgn.c)
- *     ?GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z @ 0x1C00D2BB8 (-GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z.c)
+ *     GreIntersectClipRect @ 0x1C0072520 (GreIntersectClipRect.c)
+ *     NtGdiCreateRectRgn @ 0x1C0080D10 (NtGdiCreateRectRgn.c)
+ *     GreSetRectRgn @ 0x1C0080E90 (GreSetRectRgn.c)
+ *     GreCreateRectRgn @ 0x1C00A07E0 (GreCreateRectRgn.c)
+ *     ?GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z @ 0x1C00CB878 (-GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z.c)
  * Callees:
  *     <none>
  */

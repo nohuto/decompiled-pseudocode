@@ -1,5 +1,5 @@
 /*
- * XREFs of AcpiKsrEnumeratePersistedMemory @ 0x1C007A570
+ * XREFs of AcpiKsrEnumeratePersistedMemory @ 0x1C0090440
  * Callers:
  *     <none>
  * Callees:

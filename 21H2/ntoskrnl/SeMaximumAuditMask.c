@@ -1,11 +1,11 @@
 /*
- * XREFs of SeMaximumAuditMask @ 0x1405F4040
+ * XREFs of SeMaximumAuditMask @ 0x140595E74
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x140669A90 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x1406B5B9C (SeSecurityDescriptorChangedAuditAlarm.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x1409CE4F8 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1405ECE20 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x140697800 (SeSecurityDescriptorChangedAuditAlarm.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x140924B38 (SeMaximumAuditMaskFromGlobalSacl.c)
  * Callees:
- *     SepSidInTokenSidHash @ 0x1402FD65C (SepSidInTokenSidHash.c)
+ *     SepSidInToken @ 0x14027EA84 (SepSidInToken.c)
  */
 
 unsigned __int64 __fastcall SeMaximumAuditMask(__int64 a1, int a2, __int64 a3, _DWORD *a4)
@@ -15,7 +15,7 @@ unsigned __int64 __fastcall SeMaximumAuditMask(__int64 a1, int a2, __int64 a3, _
   __int64 v9; // rbp
   unsigned __int8 v10; // cl
   int v11; // esi
-  _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h] BYREF
+  _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h] BYREF
 
   result = (unsigned __int64)&retaddr;
   *a4 = 0;
@@ -32,8 +32,11 @@ unsigned __int64 __fastcall SeMaximumAuditMask(__int64 a1, int a2, __int64 a3, _
         if ( (v10 & 8) == 0 && (*(_BYTE *)v8 == 2 || *(_BYTE *)v8 == 13) )
         {
           v11 = a2 & *(_DWORD *)(v8 + 4);
-          if ( ((v10 >> 6) & (v11 != 0)) != 0 && SepSidInTokenSidHash(a3 + 232, 0LL, (void *)(v8 + 8), 1, 0, 0) )
-            *a4 |= v11;
+          if ( ((v10 >> 6) & (v11 != 0)) != 0 )
+          {
+            if ( SepSidInToken(a3, 0LL, (void *)(v8 + 8), 1, 0, 0, 0) )
+              *a4 |= v11;
+          }
         }
         result = *(unsigned __int16 *)(v8 + 2);
         v8 += result;

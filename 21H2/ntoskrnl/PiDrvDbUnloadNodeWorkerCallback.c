@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDrvDbUnloadNodeWorkerCallback @ 0x140748E80
+ * XREFs of PiDrvDbUnloadNodeWorkerCallback @ 0x140725CE0
  * Callers:
  *     <none>
  * Callees:
- *     PiDrvDbUnloadNodeReset @ 0x14025CA98 (PiDrvDbUnloadNodeReset.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PnpDiagnosticTraceObject @ 0x1402D2774 (PnpDiagnosticTraceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpDiagnosticTraceObject @ 0x140364C6C (PnpDiagnosticTraceObject.c)
+ *     PiDrvDbUnloadNodeReset @ 0x140364EC8 (PiDrvDbUnloadNodeReset.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
  */
 
-char __fastcall PiDrvDbUnloadNodeWorkerCallback(__int64 a1)
+_QWORD *__fastcall PiDrvDbUnloadNodeWorkerCallback(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   void *v3; // rcx
@@ -38,5 +38,5 @@ char __fastcall PiDrvDbUnloadNodeWorkerCallback(__int64 a1)
     ExQueueWorkItem((PWORK_QUEUE_ITEM)(a1 + 440), DelayedWorkQueue);
   }
   ExReleaseResourceLite((PERESOURCE)(a1 + 88));
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of NtReleaseMutant @ 0x1407B3A50
+ * XREFs of NtReleaseMutant @ 0x140684910
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeReleaseMutant @ 0x1402F91E0 (KeReleaseMutant.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExpReleaseCrossVmMutant @ 0x140A0814C (ExpReleaseCrossVmMutant.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeReleaseMutant @ 0x1403424B0 (KeReleaseMutant.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExpReleaseCrossVmMutant @ 0x14095C97C (ExpReleaseCrossVmMutant.c)
  */
 
 __int64 __fastcall NtReleaseMutant(HANDLE Handle, LONG *a2)
 {
   KPROCESSOR_MODE PreviousMode; // r15
   NTSTATUS v5; // eax
-  NTSTATUS v6; // edi
-  PVOID v7; // rbx
+  NTSTATUS v6; // ebx
+  struct _DMA_ADAPTER *v7; // rdi
   LONG v8; // eax
   __int64 v10; // rcx
   PVOID v11; // [rsp+40h] [rbp-48h] BYREF
@@ -35,7 +35,7 @@ __int64 __fastcall NtReleaseMutant(HANDLE Handle, LONG *a2)
   Object = 0LL;
   v5 = ObReferenceObjectByHandle(Handle, 0, ExMutantObjectType, PreviousMode, &Object, 0LL);
   v6 = v5;
-  v7 = Object;
+  v7 = (struct _DMA_ADAPTER *)Object;
   v12 = Object;
   v14 = v5;
   if ( v5 < 0 )
@@ -46,7 +46,7 @@ __int64 __fastcall NtReleaseMutant(HANDLE Handle, LONG *a2)
       {
         v11 = 0LL;
         v6 = ObReferenceObjectByHandle(Handle, 0, ExCrossVmMutantObjectType, PreviousMode, &v11, 0LL);
-        v7 = v11;
+        v7 = (struct _DMA_ADAPTER *)v11;
         v12 = v11;
         v14 = v6;
         if ( v6 >= 0 )
@@ -66,6 +66,6 @@ __int64 __fastcall NtReleaseMutant(HANDLE Handle, LONG *a2)
   if ( v6 >= 0 && a2 )
     *a2 = v8;
   if ( v7 )
-    ObfDereferenceObject(v7);
+    HalPutDmaAdapter(v7);
   return (unsigned int)v6;
 }

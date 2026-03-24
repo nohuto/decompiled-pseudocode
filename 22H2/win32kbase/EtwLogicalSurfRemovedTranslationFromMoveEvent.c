@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwLogicalSurfRemovedTranslationFromMoveEvent @ 0x1C016B630
+ * XREFs of EtwLogicalSurfRemovedTranslationFromMoveEvent @ 0x1C014C6D0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pqqqq_EtwWriteTransfer @ 0x1C00DFB64 (McTemplateK0pqqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqq_EtwWriteTransfer @ 0x1C0126348 (McTemplateK0pqqqq_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall EtwLogicalSurfRemovedTranslationFromMoveEvent(__int64 a1, int a2, __int64 a3, int a4, int a5)

@@ -1,16 +1,16 @@
 /*
- * XREFs of HUBREG_AssignUsbflagsValueForDevice @ 0x1C0083330
+ * XREFs of HUBREG_AssignUsbflagsValueForDevice @ 0x1C007D8C8
  * Callers:
- *     HUBDSM_MarkingDeviceAsNotSupportingContainerIdBasedOnMSOSDescriptor @ 0x1C0021BD0 (HUBDSM_MarkingDeviceAsNotSupportingContainerIdBasedOnMSOSDescriptor.c)
- *     HUBPDO_EvtDevicePrepareHardware @ 0x1C007BF50 (HUBPDO_EvtDevicePrepareHardware.c)
- *     HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor @ 0x1C00820C4 (HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor.c)
- *     HUBMISC_StoreDeviceMSOSVendorCodeInRegsitry @ 0x1C00820FC (HUBMISC_StoreDeviceMSOSVendorCodeInRegsitry.c)
+ *     HUBDSM_MarkingDeviceAsNotSupportingContainerIdBasedOnMSOSDescriptor @ 0x1C001F330 (HUBDSM_MarkingDeviceAsNotSupportingContainerIdBasedOnMSOSDescriptor.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0077CC0 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor @ 0x1C007C644 (HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor.c)
+ *     HUBMISC_StoreDeviceMSOSVendorCodeInRegsitry @ 0x1C007C67C (HUBMISC_StoreDeviceMSOSVendorCodeInRegsitry.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C0033DDC (HUBMISC_ConvertUsbDeviceIdsToString.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     HUBREG_OpenCreateUsbflagsDeviceKey @ 0x1C0082918 (HUBREG_OpenCreateUsbflagsDeviceKey.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C0030EE4 (HUBMISC_ConvertUsbDeviceIdsToString.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_OpenCreateUsbflagsDeviceKey @ 0x1C007CEE0 (HUBREG_OpenCreateUsbflagsDeviceKey.c)
  */
 
 __int64 __fastcall HUBREG_AssignUsbflagsValueForDevice(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -53,7 +53,7 @@ __int64 __fastcall HUBREG_AssignUsbflagsValueForDevice(__int64 a1, __int64 a2, _
         2u,
         5u,
         0x13u,
-        (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
+        (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
         v11);
     }
   }

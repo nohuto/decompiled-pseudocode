@@ -1,5 +1,5 @@
 /*
- * XREFs of ExAllocatePool @ 0x14013A730
+ * XREFs of ExAllocatePool @ 0x14013A750
  * Callers:
  *     EtwTimLogRedirectionTrustPolicy @ 0x140582AF0 (EtwTimLogRedirectionTrustPolicy.c)
  *     VerifierExAllocatePool @ 0x140925260 (VerifierExAllocatePool.c)

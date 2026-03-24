@@ -1,90 +1,81 @@
 /*
- * XREFs of SepSecureBootUpdateBcdDataForRule @ 0x1409D0EA4
+ * XREFs of SepSecureBootUpdateBcdDataForRule @ 0x1409246A4
  * Callers:
- *     SepSecureBootCorrectBcd @ 0x1409D0A14 (SepSecureBootCorrectBcd.c)
+ *     SepSecureBootCorrectBcd @ 0x140924238 (SepSecureBootCorrectBcd.c)
  * Callees:
- *     BiDeleteElement @ 0x140805C00 (BiDeleteElement.c)
- *     BcdSetElementDataWithFlags @ 0x14080669C (BcdSetElementDataWithFlags.c)
- *     BcdGetElementDataWithFlags @ 0x14080723C (BcdGetElementDataWithFlags.c)
- *     SepSecureBootGetPolicyDefaultValue @ 0x1409D0D14 (SepSecureBootGetPolicyDefaultValue.c)
- *     SepSecureBootValidateBcdDataAgainstBcdRule @ 0x1409D1024 (SepSecureBootValidateBcdDataAgainstBcdRule.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     BiDeleteElement @ 0x14078309C (BiDeleteElement.c)
+ *     BcdSetElementDataWithFlags @ 0x140783EDC (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x1407840C0 (BcdGetElementDataWithFlags.c)
+ *     SepSecureBootGetPolicyDefaultValue @ 0x140924514 (SepSecureBootGetPolicyDefaultValue.c)
+ *     SepSecureBootValidateBcdDataAgainstBcdRule @ 0x140924804 (SepSecureBootValidateBcdDataAgainstBcdRule.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SepSecureBootUpdateBcdDataForRule(__int64 a1, void *a2, _BYTE *a3)
+__int64 __fastcall SepSecureBootUpdateBcdDataForRule(__int64 a1, void *a2, __int64 a3)
 {
   _WORD *v3; // rsi
-  __int64 *Pool2; // rdi
+  __int64 *PoolWithTag; // rdi
   int PolicyDefaultValue; // ebx
-  char v9; // al
-  int v10; // eax
-  unsigned int v11; // edx
-  __int64 *v12; // r13
+  unsigned int v8; // edx
+  __int64 *v9; // r12
   int ElementDataWithFlags; // eax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r8
-  __int64 v18; // [rsp+30h] [rbp-10h] BYREF
-  unsigned int v19; // [rsp+80h] [rbp+40h] BYREF
-  unsigned int v20; // [rsp+90h] [rbp+50h] BYREF
-  __int64 v21; // [rsp+98h] [rbp+58h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r8
+  __int64 v15; // [rsp+30h] [rbp-10h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+80h] [rbp+40h] BYREF
+  unsigned int v17; // [rsp+90h] [rbp+50h] BYREF
+  __int64 v18; // [rsp+98h] [rbp+58h] BYREF
 
-  v3 = (_WORD *)(qword_140D1BF90 + *(unsigned int *)(a1 + 8));
-  v21 = 0LL;
+  v3 = (_WORD *)(qword_140CFA3B0 + *(unsigned int *)(a1 + 8));
   v18 = 0LL;
-  Pool2 = 0LL;
-  v20 = 0;
+  PoolWithTag = 0LL;
+  v15 = 0LL;
+  v17 = 0;
   PolicyDefaultValue = 0;
-  v9 = *(_BYTE *)v3 & 0x1F;
-  *a3 = 0;
-  if ( v9 == 8 )
+  if ( (*(_BYTE *)v3 & 0x1F) == 8 )
   {
     if ( !v3[1] )
     {
-      v10 = BiDeleteElement(a2, *(_DWORD *)(a1 + 4));
-      PolicyDefaultValue = v10;
-      if ( v10 == -1073741275 )
-      {
+      PolicyDefaultValue = BiDeleteElement(a2, *(_DWORD *)(a1 + 4));
+      if ( PolicyDefaultValue == -1073741275 )
         return 0;
-      }
-      else if ( v10 >= 0 )
-      {
-        *a3 = 1;
-      }
     }
   }
   else
   {
-    v11 = *(_DWORD *)(a1 + 4);
-    v19 = 8;
-    v12 = &v21;
-    ElementDataWithFlags = BcdGetElementDataWithFlags((__int64)a2, v11, (__int64)a3, (__int64)&v21, &v19);
+    v8 = *(_DWORD *)(a1 + 4);
+    LODWORD(NumberOfBytes) = 8;
+    v9 = &v18;
+    ElementDataWithFlags = BcdGetElementDataWithFlags((__int64)a2, v8, a3, (__int64)&v18, &NumberOfBytes);
     PolicyDefaultValue = ElementDataWithFlags;
-    if ( ElementDataWithFlags == -1073741789 || ElementDataWithFlags == -2147483643 )
+    if ( ElementDataWithFlags != -1073741789 && ElementDataWithFlags != -2147483643 )
+      goto LABEL_19;
+    PoolWithTag = (__int64 *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x62536553u);
+    if ( !PoolWithTag )
+      return (unsigned int)-1073741670;
+    v9 = PoolWithTag;
+    PolicyDefaultValue = BcdGetElementDataWithFlags(
+                           (__int64)a2,
+                           *(_DWORD *)(a1 + 4),
+                           v12,
+                           (__int64)PoolWithTag,
+                           &NumberOfBytes);
+    if ( PolicyDefaultValue >= 0 )
     {
-      Pool2 = (__int64 *)ExAllocatePool2(256LL, v19, 1649632595LL);
-      if ( !Pool2 )
-        return (unsigned int)-1073741670;
-      v12 = Pool2;
-      PolicyDefaultValue = BcdGetElementDataWithFlags((__int64)a2, *(_DWORD *)(a1 + 4), v15, (__int64)Pool2, &v19);
-      if ( PolicyDefaultValue < 0 )
-        goto LABEL_18;
-    }
-    if ( PolicyDefaultValue < 0
-      || (PolicyDefaultValue = SepSecureBootValidateBcdDataAgainstBcdRule(a1, v12, v19), PolicyDefaultValue < 0) )
-    {
-      PolicyDefaultValue = SepSecureBootGetPolicyDefaultValue(v3, v14, &v18, (int *)&v20);
-      if ( PolicyDefaultValue >= 0 )
+LABEL_19:
+      if ( PolicyDefaultValue < 0
+        || (PolicyDefaultValue = SepSecureBootValidateBcdDataAgainstBcdRule(a1, v9, (unsigned int)NumberOfBytes),
+            PolicyDefaultValue < 0) )
       {
-        PolicyDefaultValue = BcdSetElementDataWithFlags(a2, *(_DWORD *)(a1 + 4), v16, v18, v20);
+        PolicyDefaultValue = SepSecureBootGetPolicyDefaultValue(v3, v11, &v15, (int *)&v17);
         if ( PolicyDefaultValue >= 0 )
-          *a3 = 1;
+          PolicyDefaultValue = BcdSetElementDataWithFlags(a2, *(_DWORD *)(a1 + 4), v13, v15, v17);
       }
     }
-    if ( Pool2 )
-LABEL_18:
-      ExFreePoolWithTag(Pool2, 0x62536553u);
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0x62536553u);
   }
   return (unsigned int)PolicyDefaultValue;
 }

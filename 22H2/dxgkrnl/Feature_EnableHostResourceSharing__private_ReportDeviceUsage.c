@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_EnableHostResourceSharing__private_ReportDeviceUsage @ 0x1C0026340
+ * XREFs of Feature_EnableHostResourceSharing__private_ReportDeviceUsage @ 0x1C0027C58
  * Callers:
- *     NtDxgkDuplicateHandle @ 0x1C0329B30 (NtDxgkDuplicateHandle.c)
+ *     NtDxgkDuplicateHandle @ 0x1C027A410 (NtDxgkDuplicateHandle.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C00245B0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0024828 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0024F04 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0025174 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_EnableHostResourceSharing__private_ReportDeviceUsage()

@@ -1,12 +1,12 @@
 /*
- * XREFs of NtFlipObjectConsumerEndProcessPresent @ 0x1C007A960
+ * XREFs of NtFlipObjectConsumerEndProcessPresent @ 0x1C0069230
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00069FC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0007EB4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C007C0E8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
- *     ?FreeCurrentUpdates@CFlipManager@@AEAAXXZ @ 0x1C007D6F8 (-FreeCurrentUpdates@CFlipManager@@AEAAXXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0010CC4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C006A888 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ?FreeCurrentUpdates@CFlipManager@@AEAAXXZ @ 0x1C006B424 (-FreeCurrentUpdates@CFlipManager@@AEAAXXZ.c)
  */
 
 __int64 __fastcall NtFlipObjectConsumerEndProcessPresent(void *a1)

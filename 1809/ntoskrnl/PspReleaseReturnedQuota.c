@@ -1,9 +1,9 @@
 /*
- * XREFs of PspReleaseReturnedQuota @ 0x1402E9904
+ * XREFs of PspReleaseReturnedQuota @ 0x1402E9A04
  * Callers:
- *     PspExpandQuota @ 0x14012A8E8 (PspExpandQuota.c)
+ *     PspExpandQuota @ 0x14012A908 (PspExpandQuota.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PspReleaseReturnedQuota(__int64 a1, __int64 a2)

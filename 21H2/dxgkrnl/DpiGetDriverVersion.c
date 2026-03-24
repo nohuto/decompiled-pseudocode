@@ -1,7 +1,7 @@
 /*
- * XREFs of DpiGetDriverVersion @ 0x1C021BE40
+ * XREFs of DpiGetDriverVersion @ 0x1C019FDA0
  * Callers:
- *     <none>
+ *     DxgEnumHandleChildrenCB @ 0x1C0257040 (DxgEnumHandleChildrenCB.c)
  * Callees:
  *     <none>
  */

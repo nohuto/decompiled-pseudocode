@@ -1,14 +1,14 @@
 /*
- * XREFs of ?vSpBigUnderlayCopy@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C028033C
+ * XREFs of ?vSpBigUnderlayCopy@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0282240
  * Callers:
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C01137BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F09BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
  * Callees:
- *     ??0ENUMAREAS@@QEAA@PEAU_SPRITESTATE@@PEAU_RECTL@@K1@Z @ 0x1C001B244 (--0ENUMAREAS@@QEAA@PEAU_SPRITESTATE@@PEAU_RECTL@@K1@Z.c)
- *     ??1ENUMAREAS@@QEAA@XZ @ 0x1C001B340 (--1ENUMAREAS@@QEAA@XZ.c)
- *     ?bEnum@ENUMAREAS@@QEAAHPEAPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C00F42E8 (-bEnum@ENUMAREAS@@QEAAHPEAPEAVSPRITE@@PEAU_RECTL@@@Z.c)
- *     ?INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z @ 0x1C00F55E8 (-INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02815EC (-vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z @ 0x1C0098730 (-INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z.c)
+ *     ??1ENUMAREAS@@QEAA@XZ @ 0x1C00EFCCC (--1ENUMAREAS@@QEAA@XZ.c)
+ *     ??0ENUMAREAS@@QEAA@PEAU_SPRITESTATE@@PEAU_RECTL@@K1@Z @ 0x1C00EFD34 (--0ENUMAREAS@@QEAA@PEAU_SPRITESTATE@@PEAU_RECTL@@K1@Z.c)
+ *     ?bEnum@ENUMAREAS@@QEAAHPEAPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C00EFF30 (-bEnum@ENUMAREAS@@QEAAHPEAPEAVSPRITE@@PEAU_RECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0283344 (-vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
  */
 
 void __fastcall vSpBigUnderlayCopy(struct _SPRITESTATE *a1, struct _POINTL *a2, struct _SURFOBJ *a3, struct _RECTL *a4)
@@ -21,23 +21,24 @@ void __fastcall vSpBigUnderlayCopy(struct _SPRITESTATE *a1, struct _POINTL *a2, 
   int hsurf; // eax
   __int64 v13; // rax
   __int64 v14; // rdi
-  int v15; // ecx
-  struct SPRITE *v16; // [rsp+40h] [rbp-C8h] BYREF
-  _BYTE v17[96]; // [rsp+50h] [rbp-B8h] BYREF
-  struct _RECTL v18; // [rsp+B0h] [rbp-58h] BYREF
+  struct _SURFOBJ *v15; // r9
+  int v16; // ecx
+  struct SPRITE *v17; // [rsp+40h] [rbp-C8h] BYREF
+  _BYTE v18[96]; // [rsp+50h] [rbp-B8h] BYREF
+  struct _RECTL v19; // [rsp+B0h] [rbp-58h] BYREF
 
   v4 = *(_QWORD *)a1;
-  v16 = 0LL;
-  v18 = 0LL;
+  v17 = 0LL;
+  v19 = 0LL;
   if ( (*(_DWORD *)(v4 + 40) & 0x400) == 0 )
   {
-    ENUMAREAS::ENUMAREAS((ENUMAREAS *)v17, a1, a4, 0, 0LL);
+    ENUMAREAS::ENUMAREAS((ENUMAREAS *)v18, a1, a4, 0, 0LL);
     do
     {
-      v8 = ENUMAREAS::bEnum((ENUMAREAS *)v17, &v16, &v18);
-      v9 = v16;
+      v8 = ENUMAREAS::bEnum((ENUMAREAS *)v18, &v17, &v19);
+      v9 = v17;
       v10 = v8;
-      if ( v16 )
+      if ( v17 )
       {
         p_pvScan0 = 0LL;
         if ( a3 )
@@ -51,24 +52,18 @@ void __fastcall vSpBigUnderlayCopy(struct _SPRITESTATE *a1, struct _POINTL *a2, 
         }
         v13 = *((_QWORD *)v9 + 20);
         v14 = 0LL;
+        v15 = (struct _SURFOBJ *)v13;
         if ( v13 )
         {
-          v15 = *(_DWORD *)(v13 + 88);
-          if ( (v15 & 0x80004000) != 0 && (v15 & 0x200) == 0 )
+          v16 = *(_DWORD *)(v13 + 88);
+          if ( (v16 & 0x80004000) != 0 && (v16 & 0x200) == 0 )
           {
             v14 = v13 - 24;
             GreLockDisplayDevice(*(_QWORD *)(v13 - 24 + 48));
+            v15 = (struct _SURFOBJ *)*((_QWORD *)v9 + 20);
           }
         }
-        INVOKEOFFCOPYBITS(
-          a2,
-          a3,
-          (struct _POINTL *)v9 + 21,
-          *((struct _SURFOBJ **)v9 + 20),
-          0LL,
-          0LL,
-          &v18,
-          (struct _POINTL *)&v18);
+        INVOKEOFFCOPYBITS(a2, a3, (struct _POINTL *)v9 + 21, v15, 0LL, 0LL, &v19, (struct _POINTL *)&v19);
         if ( v14 )
           GreUnlockDisplayDevice(*(_QWORD *)(v14 + 48));
         if ( p_pvScan0 )
@@ -76,10 +71,10 @@ void __fastcall vSpBigUnderlayCopy(struct _SPRITESTATE *a1, struct _POINTL *a2, 
       }
       else
       {
-        vSpReadFromScreen(a1, a2, a3, &v18);
+        vSpReadFromScreen(a1, a2, a3, &v19);
       }
     }
     while ( v10 );
-    ENUMAREAS::~ENUMAREAS((ENUMAREAS *)v17);
+    ENUMAREAS::~ENUMAREAS((ENUMAREAS *)v18);
   }
 }

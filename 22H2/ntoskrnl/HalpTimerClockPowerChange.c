@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpTimerClockPowerChange @ 0x1405084F4
+ * XREFs of HalpTimerClockPowerChange @ 0x1404BF450
  * Callers:
- *     HalpTimerPowerChange @ 0x1405092A0 (HalpTimerPowerChange.c)
+ *     HalpTimerPowerChange @ 0x1404C0214 (HalpTimerPowerChange.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     HalpTimerClockStop @ 0x14034D970 (HalpTimerClockStop.c)
- *     HalpTimerClockInitialize @ 0x1403509B0 (HalpTimerClockInitialize.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpSetTimerAnyMode @ 0x1405089D0 (HalpSetTimerAnyMode.c)
- *     KeGetNextClockTickDuration @ 0x14056F9B0 (KeGetNextClockTickDuration.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     HalpTimerClockStop @ 0x140324090 (HalpTimerClockStop.c)
+ *     HalpTimerClockInitialize @ 0x140325990 (HalpTimerClockInitialize.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpSetTimerAnyMode @ 0x1404BF8FC (HalpSetTimerAnyMode.c)
+ *     KeGetNextClockTickDuration @ 0x140513C20 (KeGetNextClockTickDuration.c)
  */
 
 __int64 __fastcall HalpTimerClockPowerChange(ULONG_PTR BugCheckParameter3, char a2)
@@ -40,12 +40,9 @@ __int64 __fastcall HalpTimerClockPowerChange(ULONG_PTR BugCheckParameter3, char 
       KeBugCheckEx(0x5Cu, 0x113uLL, 0x21uLL, BugCheckParameter3, 0LL);
     if ( v3 )
     {
-      if ( !KiClockTimerPerCpuTickScheduling )
-      {
-        result = (unsigned int)KiClockTimerOwner;
-        if ( KeGetCurrentPrcb()->Number != (_DWORD)KiClockTimerOwner )
-          return result;
-      }
+      result = (unsigned int)KiClockTimerOwner;
+      if ( KeGetCurrentPrcb()->Number != (_DWORD)KiClockTimerOwner )
+        return result;
     }
     else
     {

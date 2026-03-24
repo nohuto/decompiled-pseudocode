@@ -1,12 +1,13 @@
 /*
- * XREFs of RIMIDE_InitializeDeviceInjection @ 0x1C019FD60
+ * XREFs of RIMIDE_InitializeDeviceInjection @ 0x1C016B604
  * Callers:
- *     NtUserInitializeInputDeviceInjection @ 0x1C015BD40 (NtUserInitializeInputDeviceInjection.c)
+ *     NtUserInitializeInputDeviceInjection @ 0x1C0130320 (NtUserInitializeInputDeviceInjection.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     RIMIDECreatePseudoHIDDevice @ 0x1C019C4FC (RIMIDECreatePseudoHIDDevice.c)
- *     ?BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z @ 0x1C019F1F8 (-BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     RIMIDECreatePseudoHIDDevice @ 0x1C0168074 (RIMIDECreatePseudoHIDDevice.c)
+ *     ?BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z @ 0x1C016ADBC (-BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z.c)
  */
 
 __int64 __fastcall RIMIDE_InitializeDeviceInjection(
@@ -16,28 +17,37 @@ __int64 __fastcall RIMIDE_InitializeDeviceInjection(
         unsigned int a4,
         __int64 a5,
         unsigned int a6,
-        _QWORD *a7)
+        __int64 *a7)
 {
-  unsigned int v10; // ebx
-  unsigned int v12; // esi
-  _HIDP_DEVICE_DESC v14; // [rsp+70h] [rbp-90h] BYREF
-  _HIDP_DEVICE_DESC v15; // [rsp+B0h] [rbp-50h] BYREF
+  unsigned int v7; // ebx
+  unsigned int v12; // edi
+  __int64 v13; // rax
+  _HIDP_DEVICE_DESC v15; // [rsp+60h] [rbp-91h] BYREF
+  _HIDP_DEVICE_DESC v16; // [rsp+A0h] [rbp-51h] BYREF
 
-  v10 = 1;
-  v12 = -1073741823;
-  memset(&v15, 0, sizeof(v15));
+  v7 = 0;
+  v12 = 1;
+  memset(&v16, 0, sizeof(v16));
+  if ( !a7 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 222);
+  *a7 = 0LL;
   if ( a1 == 13 )
   {
-    v10 = 10;
+    v12 = 10;
     if ( a2 != 4 )
-      v10 = 1;
+      v12 = 1;
     if ( a2 == 5 )
-      v10 = 5;
+      v12 = 5;
   }
-  if ( (unsigned int)BuildReportDescriptor(a1, a2, a3, a4, v10, &v15) )
+  if ( (unsigned int)BuildReportDescriptor(a1, a2, a3, a4, v12, &v16) )
   {
-    v14 = v15;
-    return (unsigned int)RIMIDECreatePseudoHIDDevice(a1, a2, v10, a6, a5, (__int128 *)&v14, 1, 0, 0, 0LL, a7);
+    v15 = v16;
+    v13 = RIMIDECreatePseudoHIDDevice(a1, a2, v12, a6, a5, (__int128 *)&v15, 1, 0, 0, 0LL);
+    if ( v13 )
+    {
+      *a7 = v13;
+      return 1;
+    }
   }
-  return v12;
+  return v7;
 }

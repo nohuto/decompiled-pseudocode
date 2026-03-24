@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCombiningInProgress @ 0x14013C3BC
+ * XREFs of MiCombiningInProgress @ 0x14013C3DC
  * Callers:
- *     MiCombineIdenticalPages @ 0x1406D1598 (MiCombineIdenticalPages.c)
+ *     MiCombineIdenticalPages @ 0x1406D1578 (MiCombineIdenticalPages.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
  *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x1400EF360 (MiFlushEntireTbDueToAttributeChange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1400EF380 (MiFlushEntireTbDueToAttributeChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiCombiningInProgress(__int64 *a1, unsigned __int64 *a2, int a3)

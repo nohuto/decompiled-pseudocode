@@ -1,18 +1,18 @@
 /*
- * XREFs of NtSetDefaultLocale @ 0x14071A6E0
+ * XREFs of NtSetDefaultLocale @ 0x14071A6C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     CloseGlobalizationUserSettingsKey @ 0x140174A90 (CloseGlobalizationUserSettingsKey.c)
- *     OpenGlobalizationUserSettingsKey @ 0x140174AB4 (OpenGlobalizationUserSettingsKey.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     ExCheckFullProcessInformationAccess @ 0x140654314 (ExCheckFullProcessInformationAccess.c)
- *     ExpValidateLocale @ 0x1408CCE18 (ExpValidateLocale.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     CloseGlobalizationUserSettingsKey @ 0x140174AB0 (CloseGlobalizationUserSettingsKey.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x140174AD4 (OpenGlobalizationUserSettingsKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1406542F4 (ExCheckFullProcessInformationAccess.c)
+ *     ExpValidateLocale @ 0x1408CCDF8 (ExpValidateLocale.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

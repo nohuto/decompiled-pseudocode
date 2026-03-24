@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessInitializeTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AD8A0
+ * XREFs of ?ProcessInitializeTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025B854
  * Callers:
- *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x1802AD924 (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x18025B8BC (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CHolographicClient::ProcessInitializeTexture(CHolographicClient *this, struct IUnknown *a2)

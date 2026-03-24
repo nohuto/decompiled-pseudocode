@@ -1,22 +1,15 @@
 /*
- * XREFs of VfSuspectDriversIsLoaded @ 0x140B97D64
+ * XREFs of VfSuspectDriversIsLoaded @ 0x140A93DAC
  * Callers:
- *     ViDriverReApplyVerifierForAll @ 0x140ACB934 (ViDriverReApplyVerifierForAll.c)
+ *     ViDriverReApplyVerifierForAll @ 0x1409C8B18 (ViDriverReApplyVerifierForAll.c)
  * Callees:
- *     ViSuspectDriversLookupEntry @ 0x140ADBCE0 (ViSuspectDriversLookupEntry.c)
+ *     ViSuspectDriversLookupEntry @ 0x1409C2584 (ViSuspectDriversLookupEntry.c)
  */
 
-__int64 __fastcall VfSuspectDriversIsLoaded(const UNICODE_STRING *a1)
+_BOOL8 __fastcall VfSuspectDriversIsLoaded(const UNICODE_STRING *a1)
 {
-  __int64 result; // rax
-  unsigned int v2; // edx
+  __int64 v1; // rax
 
-  result = ViSuspectDriversLookupEntry(a1);
-  v2 = 0;
-  if ( result )
-  {
-    LOBYTE(v2) = *(_DWORD *)(result + 16) > *(_DWORD *)(result + 20);
-    return v2;
-  }
-  return result;
+  v1 = ViSuspectDriversLookupEntry(a1);
+  return v1 && *(_DWORD *)(v1 + 16) > *(_DWORD *)(v1 + 20);
 }

@@ -1,64 +1,69 @@
 /*
- * XREFs of RtlStringCbCatNA @ 0x1C003F094
+ * XREFs of RtlStringCbCatNA @ 0x1C003C1C4
  * Callers:
- *     HUBACPI_EvaluateDsmMethod @ 0x1C0088CAC (HUBACPI_EvaluateDsmMethod.c)
- *     HUBACPI_EvalAcpiMethodEx @ 0x1C00891B4 (HUBACPI_EvalAcpiMethodEx.c)
+ *     HUBACPI_EvaluateDsmMethod @ 0x1C0082C40 (HUBACPI_EvaluateDsmMethod.c)
+ *     HUBACPI_EvalAcpiMethodEx @ 0x1C0083130 (HUBACPI_EvalAcpiMethodEx.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall RtlStringCbCatNA(NTSTRSAFE_PSTR pszDest, size_t cbDest, STRSAFE_PCNZCH pszSrc, size_t cbToAppend)
 {
-  __int64 v4; // r10
-  NTSTRSAFE_PSTR v5; // rax
-  __int64 v6; // r11
+  __int64 v5; // r10
+  NTSTRSAFE_PSTR v6; // rax
   NTSTATUS result; // eax
-  char *v8; // rcx
-  __int64 v9; // rdx
-  const char *v10; // r8
-  char v11; // al
-  char *v12; // rax
+  __int64 v8; // r8
+  char *v9; // rcx
+  __int64 v10; // rdx
+  size_t v11; // r8
+  const char *v12; // r11
+  char v13; // al
+  char *v14; // rax
 
-  v4 = 256LL;
-  v5 = pszDest;
+  v5 = 256LL;
+  v6 = pszDest;
   do
   {
-    if ( !*v5 )
+    if ( !*v6 )
       break;
-    ++v5;
-    --v4;
+    ++v6;
+    --v5;
   }
-  while ( v4 );
-  v6 = (256 - v4) & -(__int64)(v4 != 0);
-  result = v4 == 0 ? 0xC000000D : 0;
-  if ( v4 )
+  while ( v5 );
+  result = v5 == 0 ? 0xC000000D : 0;
+  if ( v5 )
+    v8 = 256 - v5;
+  else
+    v8 = 0LL;
+  if ( v5 )
   {
     if ( cbToAppend <= 0x7FFFFFFE )
     {
-      v8 = &pszDest[v6];
-      v9 = 256 - v6;
-      if ( 256 != v6 )
+      v9 = &pszDest[v8];
+      v10 = 256 - v8;
+      if ( 256 != v8 )
       {
-        v10 = (const char *)(pszSrc - v8);
+        v11 = cbToAppend;
+        v12 = (const char *)(pszSrc - v9);
         do
         {
-          if ( !cbToAppend )
-            break;
-          v11 = v8[(_QWORD)v10];
           if ( !v11 )
             break;
-          *v8 = v11;
-          --cbToAppend;
-          ++v8;
-          --v9;
+          v13 = v9[(_QWORD)v12];
+          if ( !v13 )
+            break;
+          *v9 = v13;
+          --v11;
+          ++v9;
+          --v10;
         }
-        while ( v9 );
+        while ( v10 );
       }
-      v12 = v8 - 1;
-      if ( v9 )
-        v12 = v8;
-      *v12 = 0;
-      return v9 == 0 ? 0x80000005 : 0;
+      v14 = v9 - 1;
+      if ( v10 )
+        v14 = v9;
+      *v14 = 0;
+      return v10 == 0 ? 0x80000005 : 0;
     }
     else
     {

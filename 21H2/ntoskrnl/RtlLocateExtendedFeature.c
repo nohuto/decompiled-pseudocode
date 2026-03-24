@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlLocateExtendedFeature @ 0x1405E7C30
+ * XREFs of RtlLocateExtendedFeature @ 0x14058F520
  * Callers:
- *     PspAllocateThread @ 0x1407A34A0 (PspAllocateThread.c)
- *     PspSetupUserShadowStack @ 0x1409AFB7C (PspSetupUserShadowStack.c)
+ *     PspAllocateThread @ 0x14064B048 (PspAllocateThread.c)
+ *     PspSetupUserShadowStack @ 0x14090A5DC (PspSetupUserShadowStack.c)
  * Callees:
- *     RtlLocateExtendedFeature2 @ 0x14025CB30 (RtlLocateExtendedFeature2.c)
+ *     RtlLocateExtendedFeature2 @ 0x140381600 (RtlLocateExtendedFeature2.c)
  */
 
 char *__fastcall RtlLocateExtendedFeature(_DWORD *a1, unsigned int a2, _DWORD *a3)

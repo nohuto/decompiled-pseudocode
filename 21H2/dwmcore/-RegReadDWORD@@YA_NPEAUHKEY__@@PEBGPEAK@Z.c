@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RegReadDWORD@@YA_NPEAUHKEY__@@PEBGPEAK@Z @ 0x180261F08
+ * XREFs of ?RegReadDWORD@@YA_NPEAUHKEY__@@PEBGPEAK@Z @ 0x18020FBA4
  * Callers:
- *     ?Startup@@YAJXZ @ 0x180025540 (-Startup@@YAJXZ.c)
+ *     ?Startup@@YAJXZ @ 0x1800B2AF8 (-Startup@@YAJXZ.c)
  * Callees:
  *     <none>
  */

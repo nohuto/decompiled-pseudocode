@@ -1,13 +1,11 @@
 /*
- * XREFs of ?ProcessSetCallbackId@CNotificationResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NOTIFICATIONRESOURCE_SETCALLBACKID@@@Z @ 0x18009C2C8
+ * XREFs of ?ProcessSetCallbackId@CNotificationResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NOTIFICATIONRESOURCE_SETCALLBACKID@@@Z @ 0x1800A1F10
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?FlushCallbackId@CMessageConversationHost@@QEAAJII@Z @ 0x1800F650C (-FlushCallbackId@CMessageConversationHost@@QEAAJII@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18027C748 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FlushCallbackId@CMessageConversationHost@@QEAAJII@Z @ 0x1800DA2E0 (-FlushCallbackId@CMessageConversationHost@@QEAAJII@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CNotificationResource::ProcessSetCallbackId(
@@ -16,163 +14,71 @@ __int64 __fastcall CNotificationResource::ProcessSetCallbackId(
         const struct tagMILCMD_NOTIFICATIONRESOURCE_SETCALLBACKID *a3)
 {
   unsigned int v3; // eax
-  __int64 v5; // rcx
-  volatile signed __int32 *v7; // rbx
-  __int64 v8; // rcx
-  unsigned int *v9; // rsi
-  unsigned int v10; // edi
-  __int64 v11; // rax
-  volatile signed __int32 *v12; // rsi
-  int v14; // eax
-  int v15; // edi
-  BOOL v16; // eax
-  char v17; // cl
-  HANDLE CurrentThread; // rax
-  HANDLE CurrentProcess; // rax
-  unsigned int v20; // ecx
-  __int16 Response; // [rsp+90h] [rbp+8h] BYREF
+  volatile signed __int32 *v4; // rbx
+  __int64 v6; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  unsigned int v11; // edi
+  int v12; // eax
+  int v13; // eax
+  unsigned int v14; // r8d
+  __int64 v15; // rax
+  unsigned int v17; // edx
+  __int64 v18; // rcx
 
   v3 = *((_DWORD *)a2 + 12);
-  v5 = *((_QWORD *)this + 2);
-  if ( v3 >= 0x10000
-    || v3 >= *(_DWORD *)(v5 + 464)
-    || (v7 = *(volatile signed __int32 **)(*(_QWORD *)(v5 + 440) + 8LL * v3)) == 0LL )
+  v4 = 0LL;
+  v6 = *((_QWORD *)this + 2);
+  if ( v3 < 0x10000 && v3 < *(_DWORD *)(v6 + 320) && (v8 = v3, v9 = *(_QWORD *)(v6 + 296), *(_QWORD *)(v9 + 8 * v8)) )
   {
-    v10 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147024809, 0x741u, 0LL);
-    MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, -2147024809, 0x53u, 0LL);
-    return v10;
-  }
-  if ( *((int *)v7 + 2) < 0 && (IsDebuggerPresent() || (unsigned int)IsKernelDebuggerPresent()) )
-  {
-    while ( 1 )
+    v4 = *(volatile signed __int32 **)(v9 + 8 * v8);
+    _InterlockedIncrement(v4 + 2);
+    v10 = *((_QWORD *)this + 6);
+    v11 = 0;
+    if ( v10 )
+      v12 = *(_DWORD *)(v10 + 68);
+    else
+      v12 = 0;
+    if ( v12 && v4 != (volatile signed __int32 *)v10 )
     {
-      v14 = IsKernelDebuggerPresent();
-      Response = 63;
-      v15 = v14;
-      if ( !v14 )
-      {
-        v16 = IsDebuggerPresent();
-        v17 = Response;
-        if ( v16 )
-          v17 = 103;
-        LOBYTE(Response) = v17;
-      }
-      DbgPrintEx(
-        0x65u,
-        0,
-        "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
-        L"Tried to AddRef an object which has previously been freed (refcount went to 0).",
-        word_18033C310,
-        word_18033C310,
-        "Function: ",
-        L"CMILRefCountImpl::AddReference",
-        ", ",
-        L"onecoreuap\\windows\\dwm\\common\\shared\\refcountbase.cpp",
-        23);
-      if ( v15 )
-      {
-        DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", (PCH)&Response, 2u);
-      }
-      else
-      {
-        DbgPrintEx(
-          0x65u,
-          0,
-          "(No kernel debugger is present.) Respond with:\n"
-          "  g                    -- Go (continue)\n"
-          "  eb 0x%p 'p';g  -- terminate Process\n"
-          "  eb 0x%p 't';g  -- terminate Thread\n"
-          " or regular debugging.\n",
-          &Response,
-          &Response);
-        __debugbreak();
-      }
-      if ( (char)Response > 98 )
-      {
-        if ( (char)Response == 103 )
-          break;
-        if ( (char)Response == 105 )
-          goto LABEL_39;
-        if ( (char)Response != 112 )
-        {
-          if ( (char)Response != 116 )
-            goto LABEL_38;
-          goto LABEL_36;
-        }
-LABEL_37:
-        CurrentProcess = GetCurrentProcess();
-        TerminateProcess(CurrentProcess, 0xC0000001);
-LABEL_38:
-        DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
-      }
-      else
-      {
-        if ( (char)Response == 98 || (char)Response == 66 )
-        {
-          __debugbreak();
-          break;
-        }
-        if ( (char)Response == 71 )
-          break;
-        if ( (char)Response != 73 )
-        {
-          if ( (char)Response != 80 )
-          {
-            if ( (char)Response != 84 )
-              goto LABEL_38;
-LABEL_36:
-            CurrentThread = GetCurrentThread();
-            TerminateThread(CurrentThread, 0xC0000001);
-            goto LABEL_38;
-          }
-          goto LABEL_37;
-        }
-LABEL_39:
-        DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
-      }
+      v11 = -2147024891;
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2147024891, 0x5Bu, 0LL);
     }
-  }
-  _InterlockedIncrement(v7 + 2);
-  v8 = *((_QWORD *)this + 6);
-  if ( !v8 || !*(_DWORD *)(v8 + 76) )
-    goto LABEL_14;
-  if ( v7 != (volatile signed __int32 *)v8 )
-  {
-    v10 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2003303421, 0x5Bu, 0LL);
-    goto LABEL_12;
-  }
-  if ( *(_DWORD *)(v8 + 76) )
-  {
-    v9 = (unsigned int *)((char *)this + 64);
-    if ( *((_DWORD *)this + 16) )
-      CMessageConversationHost::FlushCallbackId(
-        *(CMessageConversationHost **)(*((_QWORD *)this + 2) + 1240LL),
-        *(_DWORD *)(v8 + 76),
-        *v9);
+    else
+    {
+      if ( v10 )
+        v13 = *(_DWORD *)(v10 + 68);
+      else
+        v13 = 0;
+      if ( v13 )
+      {
+        v14 = *((_DWORD *)this + 14);
+        if ( v14 )
+        {
+          if ( v10 )
+            v17 = *(_DWORD *)(v10 + 68);
+          else
+            v17 = 0;
+          CMessageConversationHost::FlushCallbackId(
+            *(CMessageConversationHost **)(*((_QWORD *)this + 2) + 1080LL),
+            v17,
+            v14);
+        }
+      }
+      *((_DWORD *)this + 14) = *((_DWORD *)a3 + 2);
+      v15 = *(_QWORD *)this;
+      *((_QWORD *)this + 6) = v4;
+      (*(void (__fastcall **)(CNotificationResource *))(v15 + 200))(this);
+    }
   }
   else
   {
-LABEL_14:
-    v9 = (unsigned int *)((char *)this + 64);
+    v11 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147024809, 0x76Cu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2147024809, 0x53u, 0LL);
   }
-  v10 = 0;
-  *v9 = *((_DWORD *)a3 + 2);
-  v11 = *(_QWORD *)this;
-  *((_QWORD *)this + 6) = v7;
-  (*(void (__fastcall **)(CNotificationResource *))(v11 + 184))(this);
-LABEL_12:
-  v12 = v7 + 2;
-  if ( _InterlockedExchangeAdd(v7 + 2, 0xFFFFFFFF) == 1 )
-  {
-    CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v7 + 2));
-    (*(void (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v7 + 24LL))(v7);
-    if ( _InterlockedExchangeAdd(v12, 0xFFFFFFFF) == 1 )
-    {
-      --*v12;
-      (*(void (__fastcall **)(volatile signed __int32 *, __int64))(*(_QWORD *)v7 + 16LL))(v7, 1LL);
-    }
-  }
-  return v10;
+  if ( v4 && _InterlockedExchangeAdd(v4 + 2, 0xFFFFFFFF) == 1 )
+    (*(void (__fastcall **)(volatile signed __int32 *, __int64))(*(_QWORD *)v4 + 16LL))(v4, 1LL);
+  return v11;
 }

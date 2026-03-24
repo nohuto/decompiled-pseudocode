@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPerformCombineScan @ 0x140101D40
+ * XREFs of MiPerformCombineScan @ 0x140101D60
  * Callers:
  *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
  *     MiCombinePte @ 0x140088F10 (MiCombinePte.c)
- *     MiCombineAllPhysicalMemory @ 0x1406D41D0 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406D41B0 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MiComputeHash64 @ 0x140101DD0 (MiComputeHash64.c)
+ *     MiComputeHash64 @ 0x140101DF0 (MiComputeHash64.c)
  */
 
 __int64 __fastcall MiPerformCombineScan(__int64 a1, __int64 a2)

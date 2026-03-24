@@ -1,125 +1,137 @@
 /*
- * XREFs of ?GetContentBounds@CWindowNode@@UEAAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180045630
+ * XREFs of ?GetContentBounds@CWindowNode@@UEAAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180067AE0
  * Callers:
  *     <none>
  * Callees:
- *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x180040530 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
- *     ?GetContentBounds@CVisual@@UEAAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800457E0 (-GetContentBounds@CVisual@@UEAAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNot.c)
- *     ?GetTightBounds@CShapePtr@@QEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x180045968 (-GetTightBounds@CShapePtr@@QEBAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNot.c)
- *     ?GetWindowClipShape@CWindowNode@@AEBAJPEAVCShapePtr@@@Z @ 0x1800459AC (-GetWindowClipShape@CWindowNode@@AEBAJPEAVCShapePtr@@@Z.c)
- *     ?GetEffectiveBounds@CWindowNode@@AEBAJPEBVCShape@@PEAV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@PEA_N@Z @ 0x180046084 (-GetEffectiveBounds@CWindowNode@@AEBAJPEBVCShape@@PEAV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@.c)
- *     ?EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ @ 0x18007A874 (-EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800DC518 (-Release@CShapePtr@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?GetDxClipShape@CWindowNode@@AEBA?AVCShapePtr@@XZ @ 0x180133ACA (-GetDxClipShape@CWindowNode@@AEBA-AVCShapePtr@@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetContentBounds@CVisual@@UEAAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180067CB0 (-GetContentBounds@CVisual@@UEAAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNot.c)
+ *     ?GetTightBounds@CShapePtr@@QEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x180067E94 (-GetTightBounds@CShapePtr@@QEBAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNot.c)
+ *     ?GetWindowClipShape@CWindowNode@@AEBAJPEAVCShapePtr@@@Z @ 0x180067ED0 (-GetWindowClipShape@CWindowNode@@AEBAJPEAVCShapePtr@@@Z.c)
+ *     ?GetEffectiveBounds@CWindowNode@@AEBAJPEBVCShape@@PEAV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@PEA_N2@Z @ 0x18006C120 (-GetEffectiveBounds@CWindowNode@@AEBAJPEBVCShape@@PEAV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@.c)
+ *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x18006C310 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
+ *     ?EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ @ 0x180076460 (-EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C876C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?HasContent@CCompositionSurfaceBitmap@@QEAA_NXZ @ 0x1801EE998 (-HasContent@CCompositionSurfaceBitmap@@QEAA_NXZ.c)
+ *     ?GetDxClipShape@CWindowNode@@AEBA?AVCShapePtr@@XZ @ 0x1801F369C (-GetDxClipShape@CWindowNode@@AEBA-AVCShapePtr@@XZ.c)
  */
 
-__int64 __fastcall CWindowNode::GetContentBounds(CWindowNode *this, float *a2)
+__int64 __fastcall CWindowNode::GetContentBounds(CWindowNode *this, __int64 a2)
 {
   int ContentBounds; // eax
-  unsigned int v5; // ecx
+  __int64 v5; // rcx
   unsigned int EffectiveBounds; // ebx
-  unsigned int v7; // xmm1_4
-  unsigned int v8; // xmm2_4
-  float v9; // xmm3_4
+  CCompositionSurfaceBitmap *v7; // rcx
+  int v8; // edx
+  int v9; // ecx
+  int v10; // eax
+  float v11; // xmm0_4
+  unsigned int v12; // eax
+  __m128i v13; // xmm0
+  int v14; // eax
   int WindowClipShape; // eax
-  unsigned int v12; // ecx
+  __int64 v17; // rcx
   int TightBounds; // eax
-  unsigned int v14; // ecx
+  __int64 v19; // rcx
   __int64 i; // rax
   _QWORD *DxClipShape; // rax
-  unsigned int v17; // ecx
+  __int64 v22; // rcx
   __int64 j; // rax
-  unsigned int v19; // [rsp+20h] [rbp-40h]
-  __int128 v20; // [rsp+30h] [rbp-30h] BYREF
-  __int128 v21; // [rsp+40h] [rbp-20h] BYREF
+  unsigned int v24; // [rsp+20h] [rbp-40h]
+  __int128 v25; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v26; // [rsp+40h] [rbp-20h] BYREF
 
   ContentBounds = CVisual::GetContentBounds();
   EffectiveBounds = ContentBounds;
   if ( ContentBounds < 0 )
   {
-    v19 = 886;
-    goto LABEL_30;
+    v24 = 984;
+    goto LABEL_31;
   }
-  if ( *((_BYTE *)this + 890) )
+  if ( *((_BYTE *)this + 914) )
     return EffectiveBounds;
-  v21 = 0LL;
-  if ( *((_BYTE *)this + 895) )
+  v26 = 0LL;
+  if ( *((_QWORD *)this + 90) )
   {
     ContentBounds = CWindowNode::EnsureEffectiveSpriteClip(this);
     EffectiveBounds = ContentBounds;
     if ( ContentBounds < 0 )
     {
-      v19 = 900;
+      v24 = 999;
     }
     else
     {
-      ContentBounds = CWindowNode::GetEffectiveBounds(this, *((_QWORD *)this + 110), &v21, 0LL);
+      ContentBounds = CWindowNode::GetEffectiveBounds(this, *((_QWORD *)this + 113), &v26, 0LL, 0LL);
       EffectiveBounds = ContentBounds;
       if ( ContentBounds >= 0 )
       {
         for ( i = 0LL; i < 16; i += 4LL )
-          *(float *)((char *)&v20 + i) = (float)*(int *)((char *)&v21 + i);
-        TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(a2, (float *)&v20);
+          *(float *)((char *)&v25 + i) = (float)*(int *)((char *)&v26 + i);
+        TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(a2, &v25);
         goto LABEL_4;
       }
-      v19 = 901;
+      v24 = 1002;
     }
-LABEL_30:
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, ContentBounds, v19, 0LL);
+LABEL_31:
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, ContentBounds, v24, 0LL);
     return EffectiveBounds;
   }
 LABEL_4:
-  if ( *((_BYTE *)this + 896) )
+  v7 = (CCompositionSurfaceBitmap *)*((_QWORD *)this + 108);
+  if ( v7 && CCompositionSurfaceBitmap::HasContent(v7) )
   {
-    DxClipShape = (_QWORD *)CWindowNode::GetDxClipShape(this, &v20);
-    EffectiveBounds = CWindowNode::GetEffectiveBounds(this, *DxClipShape, &v21, 0LL);
-    CShapePtr::Release((CShapePtr *)&v20);
+    DxClipShape = (_QWORD *)CWindowNode::GetDxClipShape(this, &v25);
+    EffectiveBounds = CWindowNode::GetEffectiveBounds(this, *DxClipShape, &v26, 0LL, 0LL);
+    CShapePtr::Release((CShapePtr *)&v25);
     if ( (EffectiveBounds & 0x80000000) != 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, EffectiveBounds, 0x38Bu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, EffectiveBounds, 0x3F2u, 0LL);
       return EffectiveBounds;
     }
     for ( j = 0LL; j < 16; j += 4LL )
-      *(float *)((char *)&v20 + j) = (float)*(int *)((char *)&v21 + j);
-    TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(a2, (float *)&v20);
+      *(float *)((char *)&v25 + j) = (float)*(int *)((char *)&v26 + j);
+    TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(a2, &v25);
   }
-  if ( !*((_BYTE *)this + 890) && *((_QWORD *)this + 88) )
+  if ( !*((_BYTE *)this + 914) && *((_QWORD *)this + 77) )
   {
-    v20 = 0LL;
-    if ( !*((_QWORD *)this + 99) )
+    v25 = 0LL;
+    if ( !*((_QWORD *)this + 97) )
     {
-      *(float *)&v7 = (float)*((int *)this + 183);
-      *(float *)&v8 = (float)*((int *)this + 184);
-      v9 = (float)*((int *)this + 185);
-      *(float *)&v20 = (float)*((int *)this + 182);
-      *(_QWORD *)((char *)&v20 + 4) = __PAIR64__(v8, v7);
-      *((float *)&v20 + 3) = v9;
+      v8 = *((_DWORD *)this + 172);
+      v9 = *((_DWORD *)this + 173);
+      v10 = *((_DWORD *)this + 161) - v9;
+      *(float *)&v25 = (float)(*((_DWORD *)this + 160) - v8);
+      v11 = (float)v10;
+      v12 = *((_DWORD *)this + 162) - v8;
+      *((float *)&v25 + 1) = v11;
+      v13 = _mm_cvtsi32_si128(v12);
+      v14 = *((_DWORD *)this + 163) - v9;
+      DWORD2(v25) = _mm_cvtepi32_ps(v13).m128_u32[0];
+      *((float *)&v25 + 3) = (float)v14;
 LABEL_9:
-      TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(a2, (float *)&v20);
+      TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(a2, &v25);
       return EffectiveBounds;
     }
-    *(_QWORD *)&v21 = 0LL;
-    BYTE8(v21) = 0;
-    WindowClipShape = CWindowNode::GetWindowClipShape(this, (struct CShapePtr *)&v21);
+    *(_QWORD *)&v26 = 0LL;
+    BYTE8(v26) = 0;
+    WindowClipShape = CWindowNode::GetWindowClipShape(this, (struct CShapePtr *)&v26);
     EffectiveBounds = WindowClipShape;
     if ( WindowClipShape < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, WindowClipShape, 0x3A2u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, WindowClipShape, 0x40Eu, 0LL);
     }
     else
     {
-      TightBounds = CShapePtr::GetTightBounds(&v21, &v20, 0LL);
+      TightBounds = CShapePtr::GetTightBounds(&v26, &v25, 0LL);
       EffectiveBounds = TightBounds;
       if ( TightBounds >= 0 )
       {
-        CShapePtr::Release((CShapePtr *)&v21);
+        CShapePtr::Release((CShapePtr *)&v26);
         goto LABEL_9;
       }
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, TightBounds, 0x3A3u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, TightBounds, 0x410u, 0LL);
     }
-    CShapePtr::Release((CShapePtr *)&v21);
+    CShapePtr::Release((CShapePtr *)&v26);
   }
   return EffectiveBounds;
 }

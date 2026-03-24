@@ -1,5 +1,5 @@
 /*
- * XREFs of CcCompleteAsyncReadWorker @ 0x1400E1D80
+ * XREFs of CcCompleteAsyncReadWorker @ 0x1400E1DA0
  * Callers:
  *     <none>
  * Callees:
@@ -7,8 +7,8 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     CcDereferencePartition @ 0x14007C998 (CcDereferencePartition.c)
  *     CcFreeWorkQueueEntry @ 0x14007EDF0 (CcFreeWorkQueueEntry.c)
- *     CcCompleteAsyncRead @ 0x1400DF314 (CcCompleteAsyncRead.c)
- *     CcFindNextWorkQueueEntry @ 0x14011FDDC (CcFindNextWorkQueueEntry.c)
+ *     CcCompleteAsyncRead @ 0x1400DF334 (CcCompleteAsyncRead.c)
+ *     CcFindNextWorkQueueEntry @ 0x14011FDFC (CcFindNextWorkQueueEntry.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

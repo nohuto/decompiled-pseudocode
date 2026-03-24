@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpAllocateAtom @ 0x14068A184
+ * XREFs of RtlpAllocateAtom @ 0x14068A164
  * Callers:
  *     RtlpLookupOrCreateLowBox @ 0x140088BBC (RtlpLookupOrCreateLowBox.c)
- *     RtlpAllocateAtomTableEntry @ 0x1400FD1BC (RtlpAllocateAtomTableEntry.c)
- *     RtlCreateAtomTableEx @ 0x1401112B0 (RtlCreateAtomTableEx.c)
+ *     RtlpAllocateAtomTableEntry @ 0x1400FD1DC (RtlpAllocateAtomTableEntry.c)
+ *     RtlCreateAtomTableEx @ 0x1401112D0 (RtlCreateAtomTableEx.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

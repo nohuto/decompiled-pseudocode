@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemSqmIncrementDword @ 0x1409DB664
+ * XREFs of WdipSemSqmIncrementDword @ 0x140930C30
  * Callers:
- *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1406D9FC8 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
+ *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1406B6128 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     WdipSemWriteEvent @ 0x14081549C (WdipSemWriteEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     WdipSemWriteEvent @ 0x1407889FC (WdipSemWriteEvent.c)
  */
 
 NTSTATUS __fastcall WdipSemSqmIncrementDword(__int64 a1, int a2)

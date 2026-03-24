@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpCoalesceFreeBlocks @ 0x1405ABC68
+ * XREFs of RtlpCoalesceFreeBlocks @ 0x1405893D0
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x1405AC8CC (RtlpDeCommitFreeBlock.c)
- *     RtlpExtendHeap @ 0x1405ACE88 (RtlpExtendHeap.c)
- *     RtlpFreeHeap @ 0x1405AD338 (RtlpFreeHeap.c)
+ *     RtlpDeCommitFreeBlock @ 0x14058A024 (RtlpDeCommitFreeBlock.c)
+ *     RtlpExtendHeap @ 0x14058A5F4 (RtlpExtendHeap.c)
+ *     RtlpFreeHeap @ 0x14058AAD4 (RtlpFreeHeap.c)
  * Callees:
- *     DbgPrint @ 0x14032A510 (DbgPrint.c)
- *     RtlCompareMemoryUlong @ 0x1404291E0 (RtlCompareMemoryUlong.c)
- *     RtlpLogHeapFailure @ 0x1405B4B5C (RtlpLogHeapFailure.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405B4D88 (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapRemoveListEntry @ 0x1405B5850 (RtlpHeapRemoveListEntry.c)
+ *     DbgPrint @ 0x140364360 (DbgPrint.c)
+ *     RtlCompareMemoryUlong @ 0x1404078B0 (RtlCompareMemoryUlong.c)
+ *     RtlpLogHeapFailure @ 0x1405934AC (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x140593500 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapRemoveListEntry @ 0x140593FC8 (RtlpHeapRemoveListEntry.c)
  */
 
 __int64 __fastcall RtlpCoalesceFreeBlocks(__int64 a1, __int64 a2, _QWORD *a3)
@@ -18,23 +18,23 @@ __int64 __fastcall RtlpCoalesceFreeBlocks(__int64 a1, __int64 a2, _QWORD *a3)
   unsigned __int64 v5; // r9
   __int64 v7; // rbx
   unsigned int v8; // ecx
-  __int64 *v9; // r15
+  __int64 *v9; // r14
   __int64 v10; // r8
-  __int64 v11; // rsi
+  __int64 v11; // rdi
   __int64 v12; // rax
   __int64 v13; // r9
   __int64 *v14; // rdx
   unsigned __int64 i; // rax
   __int64 *v16; // rax
-  int v17; // r9d
+  int v17; // ecx
   char v18; // al
-  SIZE_T v19; // rsi
+  SIZE_T v19; // rdi
   SIZE_T v20; // rax
   __int64 v21; // rax
   __int64 v22; // rbx
   int v23; // edx
-  __int64 *v24; // r15
-  __int64 v25; // rsi
+  __int64 *v24; // r14
+  __int64 v25; // rdi
   __int64 v26; // rax
   __int64 v27; // r9
   __int64 *v28; // rdx
@@ -42,7 +42,7 @@ __int64 __fastcall RtlpCoalesceFreeBlocks(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 *v30; // rax
   int v31; // r8d
   char v32; // al
-  SIZE_T v33; // rsi
+  SIZE_T v33; // rdi
   SIZE_T v34; // rax
   int v36; // [rsp+20h] [rbp-38h]
 
@@ -113,7 +113,7 @@ LABEL_14:
         *(_BYTE *)(v7 + 15) = 0;
         *a3 += v21;
         *(_WORD *)(v7 + 8) = *(_WORD *)a3;
-        *(_WORD *)(v7 + 16LL * *a3 + 12) = *(_WORD *)a3 ^ *(_WORD *)(a1 + 140);
+        *(_WORD *)(v7 + 16LL * *a3 + 12) = *(_WORD *)(a1 + 140) ^ *(_WORD *)a3;
       }
       else
       {
@@ -124,7 +124,7 @@ LABEL_14:
   v22 = v4 + 16LL * *a3;
   if ( *(_DWORD *)(a1 + 124) )
   {
-    v23 = *(_DWORD *)(a1 + 136) ^ *(_DWORD *)(v22 + 8);
+    v23 = *(_DWORD *)(v22 + 8) ^ *(_DWORD *)(a1 + 136);
     if ( HIBYTE(v23) != ((unsigned __int8)v23 ^ (unsigned __int8)(BYTE1(v23) ^ BYTE2(v23))) )
       RtlpLogHeapFailure(3, a1, v22, 0, 0LL, 0LL);
   }
@@ -178,7 +178,7 @@ LABEL_41:
           DbgPrint(
             "HEAP: Free Heap block %p modified at %p after it was freed\n",
             (const void *)v22,
-            (const void *)(v22 + v34 + 32));
+            (const void *)(v34 + v22 + 32));
           if ( (_BYTE)KdDebuggerEnabled )
             __debugbreak();
         }
@@ -187,7 +187,7 @@ LABEL_41:
       *(_BYTE *)(v4 + 15) = 0;
       *a3 += *(unsigned __int16 *)(v22 + 8);
       *(_WORD *)(v4 + 8) = *(_WORD *)a3;
-      *(_WORD *)(v4 + 16LL * *a3 + 12) = *(_WORD *)a3 ^ *(_WORD *)(a1 + 140);
+      *(_WORD *)(v4 + 16LL * *a3 + 12) = *(_WORD *)(a1 + 140) ^ *(_WORD *)a3;
       return v4;
     }
     RtlpLogHeapFailure(13, a1, v22 + 16, v27, v26, 0LL);

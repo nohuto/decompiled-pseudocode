@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnGetUnsafeProcessParameters @ 0x1407DC9A8
+ * XREFs of PfSnGetUnsafeProcessParameters @ 0x1406CB934
  * Callers:
- *     PfSnScanCommandLine @ 0x1407DC6F4 (PfSnScanCommandLine.c)
+ *     PfSnScanCommandLine @ 0x1406CB680 (PfSnScanCommandLine.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 PfSnGetUnsafeProcessParameters()
@@ -11,7 +11,7 @@ __int64 PfSnGetUnsafeProcessParameters()
   unsigned __int64 v0; // rdx
   __int64 result; // rax
 
-  v0 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[24];
+  v0 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[4];
   result = 0LL;
   if ( v0 )
   {

@@ -1,16 +1,16 @@
 /*
- * XREFs of UsbhAcquireFdoPnpLock @ 0x1C0031220
+ * XREFs of UsbhAcquireFdoPnpLock @ 0x1C0032554
  * Callers:
- *     UsbhFdoSystemPowerState @ 0x1C0007740 (UsbhFdoSystemPowerState.c)
- *     UsbhInstallMsOs20RegistryProperties @ 0x1C0032D88 (UsbhInstallMsOs20RegistryProperties.c)
- *     UsbhInstallMsOsExtendedProperties @ 0x1C0032E68 (UsbhInstallMsOsExtendedProperties.c)
- *     UsbhAcquireApiLock @ 0x1C003D610 (UsbhAcquireApiLock.c)
- *     UsbhIoctlGetDescriptorForPDO @ 0x1C003DE80 (UsbhIoctlGetDescriptorForPDO.c)
- *     UsbhAsyncStop @ 0x1C0041C0C (UsbhAsyncStop.c)
- *     Usbh_FDO_Pnp_State @ 0x1C0043A98 (Usbh_FDO_Pnp_State.c)
- *     UsbhEtwRundown @ 0x1C005B5E4 (UsbhEtwRundown.c)
+ *     UsbhFdoSystemPowerState @ 0x1C000E9B0 (UsbhFdoSystemPowerState.c)
+ *     UsbhInstallMsOs20RegistryProperties @ 0x1C00340C8 (UsbhInstallMsOs20RegistryProperties.c)
+ *     UsbhInstallMsOsExtendedProperties @ 0x1C00341A8 (UsbhInstallMsOsExtendedProperties.c)
+ *     UsbhAcquireApiLock @ 0x1C003E7F0 (UsbhAcquireApiLock.c)
+ *     UsbhIoctlGetDescriptorForPDO @ 0x1C003F070 (UsbhIoctlGetDescriptorForPDO.c)
+ *     UsbhAsyncStop @ 0x1C0042EBC (UsbhAsyncStop.c)
+ *     Usbh_FDO_Pnp_State @ 0x1C0044D48 (Usbh_FDO_Pnp_State.c)
+ *     UsbhEtwRundown @ 0x1C005CC90 (UsbhEtwRundown.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 __int64 __fastcall UsbhAcquireFdoPnpLock(__int64 a1, __int64 a2, int a3, int a4, int a5)

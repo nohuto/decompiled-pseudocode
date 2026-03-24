@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_WaitingForD0Entry @ 0x1C0008CE0
+ * XREFs of HUBHSM_WaitingForD0Entry @ 0x1C00089D0
  * Callers:
  *     <none>
  * Callees:
- *     HUBFDO_SignalPnpPowerEvent @ 0x1C000D1B4 (HUBFDO_SignalPnpPowerEvent.c)
+ *     HUBFDO_SignalPnpPowerEvent @ 0x1C000CDD4 (HUBFDO_SignalPnpPowerEvent.c)
  */
 
 __int64 __fastcall HUBHSM_WaitingForD0Entry(__int64 a1)

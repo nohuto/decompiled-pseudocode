@@ -1,18 +1,18 @@
 /*
- * XREFs of GreCreatePatternBrushInternal @ 0x1C00634C0
+ * XREFs of GreCreatePatternBrushInternal @ 0x1C001BA50
  * Callers:
- *     GreCreatePatternBrush @ 0x1C00C5B00 (GreCreatePatternBrush.c)
- *     bInitBRUSHOBJ @ 0x1C02E523C (bInitBRUSHOBJ.c)
+ *     GreCreatePatternBrush @ 0x1C00B8300 (GreCreatePatternBrush.c)
+ *     bInitBRUSHOBJ @ 0x1C02982A0 (bInitBRUSHOBJ.c)
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C001F08C (--1SURFREF@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002E8B8 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C0063670 (--1BRUSHMEMOBJ@@QEAA@XZ.c)
- *     ??0BRUSHMEMOBJ@@QEAA@PEAUHBITMAP__@@0HKKH@Z @ 0x1C0063970 (--0BRUSHMEMOBJ@@QEAA@PEAUHBITMAP__@@0HKKH@Z.c)
- *     ?bIsMonochrome@XEPALOBJ@@QEBAHXZ @ 0x1C0063A6C (-bIsMonochrome@XEPALOBJ@@QEBAHXZ.c)
- *     ?hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z @ 0x1C0063A90 (-hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0063C24 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
+ *     ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C001BC00 (--1BRUSHMEMOBJ@@QEAA@XZ.c)
+ *     ??0BRUSHMEMOBJ@@QEAA@PEAUHBITMAP__@@0HKKH@Z @ 0x1C001BE90 (--0BRUSHMEMOBJ@@QEAA@PEAUHBITMAP__@@0HKKH@Z.c)
+ *     ?bIsMonochrome@XEPALOBJ@@QEBAHXZ @ 0x1C001BF8C (-bIsMonochrome@XEPALOBJ@@QEBAHXZ.c)
+ *     ?hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z @ 0x1C001BFB0 (-hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C001C608 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002B724 (--1SURFREF@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0038BD8 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
  */
 
 __int64 __fastcall GreCreatePatternBrushInternal(HBITMAP a1, int a2, int a3)
@@ -71,7 +71,7 @@ LABEL_9:
   EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
   if ( ghsemDynamicModeChange )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemDynamicModeChange);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDynamicModeChange);
     PsLeavePriorityRegion();
   }
   return v6;

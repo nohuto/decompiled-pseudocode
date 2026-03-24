@@ -1,69 +1,111 @@
 /*
- * XREFs of MonitorDisableMonitorVirtualModeSupport @ 0x1C03C3E20
+ * XREFs of MonitorDisableMonitorVirtualModeSupport @ 0x1C02F3BA0
  * Callers:
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01AD190 (DxgkDisplayConfigDeviceInfo.c)
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C0135B50 (DxgkDisplayConfigDeviceInfo.c)
  * Callees:
- *     ?AcquireMonitorExclusive@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z @ 0x1C0014DEC (-AcquireMonitorExclusive@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?_IsVirtualModeSupportDisabled@DXGMONITOR@@QEBA_NXZ @ 0x1C0193B3C (-_IsVirtualModeSupportDisabled@DXGMONITOR@@QEBA_NXZ.c)
- *     ?FlushEventsWithContext@MonitorEventDeferral@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0207408 (-FlushEventsWithContext@MonitorEventDeferral@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     ??1MonitorEventDeferral@@UEAA@XZ @ 0x1C020AB18 (--1MonitorEventDeferral@@UEAA@XZ.c)
- *     ?_DisableVirtualModeSupport@DXGMONITOR@@QEAAX_NAEAVIMonitorDeferredEventSource@DxgMonitor@@@Z @ 0x1C03C94D0 (-_DisableVirtualModeSupport@DXGMONITOR@@QEAAX_NAEAVIMonitorDeferredEventSource@DxgMonitor@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0133648 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_IsVirtualModeSuportDisabled@DXGMONITOR@@QEAA_NXZ @ 0x1C0133DF8 (-_IsVirtualModeSuportDisabled@DXGMONITOR@@QEAA_NXZ.c)
+ *     ?RequestAsyncDisplaySwitchCallout@ADAPTER_DISPLAY@@QEAAJPEAU_DXGK_WIN32K_PARAM_DATA@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0214E58 (-RequestAsyncDisplaySwitchCallout@ADAPTER_DISPLAY@@QEAAJPEAU_DXGK_WIN32K_PARAM_DATA@@PEAU_DXGK_D.c)
+ *     ?_DisableVirtualModeSupport@DXGMONITOR@@QEAAJ_N@Z @ 0x1C02F934C (-_DisableVirtualModeSupport@DXGMONITOR@@QEAAJ_N@Z.c)
  */
 
 __int64 __fastcall MonitorDisableMonitorVirtualModeSupport(
-        __int64 a1,
+        DXGADAPTER ***a1,
         unsigned int a2,
         char a3,
         struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a4)
 {
-  __int64 v4; // rdi
-  DXGMONITOR *v8; // rbx
-  unsigned int v9; // edi
-  DXGMONITOR *v11; // [rsp+20h] [rbp-B8h] BYREF
-  _QWORD v12[14]; // [rsp+30h] [rbp-A8h] BYREF
-  int v13; // [rsp+A0h] [rbp-38h]
+  __int64 v4; // rbp
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  DXGADAPTER **v11; // rax
+  __int64 v12; // rax
+  struct _FAST_MUTEX *v13; // rcx
+  __int64 v14; // rax
+  __int64 result; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  int v18; // esi
+  __int64 v19; // rax
+  struct DXGMONITOR *v20; // rdi
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // rax
+  DXGMONITOR *v26; // rcx
+  bool v27; // zf
+  struct DXGMONITOR *v28; // [rsp+50h] [rbp+8h] BYREF
 
   v4 = a2;
-  if ( a1 && a2 != -1 )
+  if ( !a1 || a2 == -1 )
+    return 3221225485LL;
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner((DXGADAPTER *)a1) )
   {
-    v12[0] = &MonitorEventDeferral::`vftable';
-    memset(&v12[1], 0, 0x68uLL);
-    v13 = 0;
-    MONITOR_MGR::AcquireMonitorExclusive(&v11, a1, v4, 1u);
-    v8 = v11;
-    if ( v11 )
-    {
-      v12[1] = (*((_QWORD *)v11 + 21) + 8LL) & -(__int64)(*((_QWORD *)v11 + 21) != 0LL);
-      if ( *((_DWORD *)v11 + 78) != 1 )
-        WdLogSingleEntry0(1LL);
-      if ( (*((_BYTE *)v8 + 176) & 2) == 0 )
-      {
-        if ( DXGMONITOR::_IsVirtualModeSupportDisabled(v8) != (a3 != 0) )
-          DXGMONITOR::_DisableVirtualModeSupport(v8, a3 != 0, (struct DxgMonitor::IMonitorDeferredEventSource *)v12);
-        ExReleaseResourceLite((PERESOURCE)((char *)v8 + 24));
-        KeLeaveCriticalRegion();
-        MonitorEventDeferral::FlushEventsWithContext((MonitorEventDeferral *)v12, a4);
-        v9 = 0;
-        goto LABEL_14;
-      }
-      WdLogSingleEntry1(2LL, v4);
-      v9 = -1073741790;
-    }
-    else
-    {
-      v9 = -1073741632;
-      WdLogSingleEntry1(2LL, -1073741632LL);
-    }
-    if ( v8 )
-    {
-      ExReleaseResourceLite((PERESOURCE)((char *)v8 + 24));
-      KeLeaveCriticalRegion();
-    }
-LABEL_14:
-    MonitorEventDeferral::~MonitorEventDeferral((MonitorEventDeferral *)v12);
-    return v9;
+    v10 = WdLogNewEntry5_WdAssertion(v9, v8);
+    WdLogEvent5_WdAssertion(v10);
   }
-  return 3221225485LL;
+  v11 = a1[337];
+  if ( !v11 )
+  {
+    v12 = WdLogNewEntry5_WdAssertion(v9, v8);
+    WdLogEvent5_WdAssertion(v12);
+    v11 = a1[337];
+  }
+  v13 = (struct _FAST_MUTEX *)v11[12];
+  if ( !v13 )
+  {
+    v14 = WdLogNewEntry5_WdError(0LL, v8);
+    *(_QWORD *)(v14 + 24) = a1;
+    WdLogEvent5_WdError(v14);
+    return 3221225485LL;
+  }
+  v28 = 0LL;
+  result = MONITOR_MGR::_GetMonitorInstance(v13, (unsigned int)v4, 1, &v28);
+  v18 = result;
+  if ( (_DWORD)result == -1073741275 )
+  {
+    v19 = WdLogNewEntry5_WdError(v17, v16);
+    *(_QWORD *)(v19 + 24) = v4;
+    *(_QWORD *)(v19 + 32) = a1;
+    WdLogEvent5_WdError(v19);
+    return 3221225664LL;
+  }
+  else if ( (int)result >= 0 )
+  {
+    v20 = v28;
+    if ( !v28 || *((_DWORD *)v28 + 108) != 1 )
+    {
+      v21 = WdLogNewEntry5_WdAssertion(v17, v16);
+      WdLogEvent5_WdAssertion(v21);
+    }
+    if ( !v20 )
+    {
+      v22 = WdLogNewEntry5_WdAssertion(v17, v16);
+      WdLogEvent5_WdAssertion(v22);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite((PERESOURCE)((char *)v20 + 296), 1u);
+    if ( (*((_DWORD *)v20 + 10) & 2) != 0 )
+    {
+      v25 = WdLogNewEntry5_WdError(v24, v23);
+      *(_QWORD *)(v25 + 24) = v4;
+      *(_QWORD *)(v25 + 32) = a1;
+      WdLogEvent5_WdError(v25);
+      v18 = -1073741790;
+    }
+    else if ( DXGMONITOR::_IsVirtualModeSuportDisabled(v20) && (v27 = a3 == 0, !a3)
+           || !DXGMONITOR::_IsVirtualModeSuportDisabled(v26) && (v27 = a3 == 0, a3) )
+    {
+      v18 = DXGMONITOR::_DisableVirtualModeSupport(v20, !v27);
+      if ( v18 >= 0 )
+        ADAPTER_DISPLAY::RequestAsyncDisplaySwitchCallout(a1[337], 0LL, a4);
+    }
+    ExReleaseResourceLite((PERESOURCE)((char *)v20 + 296));
+    KeLeaveCriticalRegion();
+    return (unsigned int)v18;
+  }
+  return result;
 }

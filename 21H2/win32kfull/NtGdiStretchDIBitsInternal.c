@@ -1,15 +1,17 @@
 /*
- * XREFs of NtGdiStretchDIBitsInternal @ 0x1C0029900
+ * XREFs of NtGdiStretchDIBitsInternal @ 0x1C00ADDC0
  * Callers:
  *     <none>
  * Callees:
- *     GreStretchDIBitsInternal @ 0x1C0029B2C (GreStretchDIBitsInternal.c)
- *     ?bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z @ 0x1C002BBA0 (-bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z.c)
+ *     ?GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z @ 0x1C00802D8 (-GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z.c)
+ *     GreStretchDIBitsInternal @ 0x1C00AE0CC (GreStretchDIBitsInternal.c)
+ *     Feature_2249667896__private_IsEnabledDeviceUsage @ 0x1C016B1FC (Feature_2249667896__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtGdiStretchDIBitsInternal(
         HDC a1,
-        int a2,
+        __int64 a2,
         __int64 a3,
         __int64 a4,
         int a5,
@@ -18,69 +20,101 @@ __int64 __fastcall NtGdiStretchDIBitsInternal(
         int a8,
         int a9,
         char *Address,
-        struct tagBITMAPINFO *Src,
+        char *Src,
         unsigned int a12,
         int a13,
-        size_t a14,
-        SIZE_T Size,
+        size_t Size,
+        SIZE_T a15,
         __int64 a16)
 {
-  HDC v16; // r10
-  struct tagBITMAPINFO *v17; // r14
-  unsigned int v18; // ebx
-  HANDLE v19; // r15
-  __int64 v20; // rdi
-  int v21; // esi
-  struct tagBITMAPINFO *v23; // [rsp+88h] [rbp-50h] BYREF
-  HANDLE v24; // [rsp+90h] [rbp-48h]
-  int v26; // [rsp+E8h] [rbp+10h]
+  struct tagBITMAPINFO *v16; // rbx
+  unsigned int v17; // edi
+  void *v18; // rsi
+  __int64 v19; // r15
+  int v20; // r14d
+  ULONG64 v21; // rdx
+  unsigned int biSize; // r8d
+  char *v23; // rcx
+  int v24; // r12d
+  HANDLE v25; // rax
+  __int64 v26; // rcx
+  HDC v28; // [rsp+E0h] [rbp+8h]
+  unsigned int v29; // [rsp+E8h] [rbp+10h]
 
-  v26 = a2;
-  v16 = a1;
-  v17 = 0LL;
-  v23 = 0LL;
-  v18 = 1;
-  v19 = 0LL;
-  v24 = 0LL;
-  v20 = (__int64)Address;
-  if ( !Address || !Src || !(_DWORD)a14 )
+  v29 = a2;
+  v28 = a1;
+  v16 = 0LL;
+  v17 = 1;
+  v18 = 0LL;
+  v19 = (__int64)Address;
+  if ( !Address || !Src )
   {
-    v20 = 0LL;
-    v21 = Size;
-    goto LABEL_16;
+    v20 = Size;
+    goto LABEL_28;
   }
-  if ( (unsigned int)bCaptureBitmapInfo(Src, a12, (unsigned int)a14, &v23) )
+  v20 = Size;
+  if ( !(_DWORD)Size )
   {
-    v21 = Size;
-    if ( (_DWORD)Size )
+LABEL_28:
+    v19 = 0LL;
+    v24 = a15;
+    goto LABEL_29;
+  }
+  if ( (unsigned int)(Size - 4) <= 0x270FFFC )
+  {
+    v16 = (struct tagBITMAPINFO *)AllocThreadBufferWithTag((unsigned int)Size, 1886221383LL, 0LL, a4);
+    if ( v16 )
     {
-      if ( ((unsigned __int8)Address & 3) != 0 )
-        ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)&Address[(unsigned int)Size] > MmUserProbeAddress || &Address[(unsigned int)Size] < Address )
+      if ( &Src[(unsigned int)Size] < Src || (unsigned __int64)&Src[(unsigned int)Size] > MmUserProbeAddress )
         *(_BYTE *)MmUserProbeAddress = 0;
+      memmove(v16, Src, (unsigned int)Size);
+      biSize = v16->bmiHeader.biSize;
+      if ( v16->bmiHeader.biSize >= 0x28
+        && (unsigned int)Size >= biSize
+        && (_DWORD)Size == (unsigned int)GreGetBitmapSizeInternal(v16, a12, biSize) )
+      {
+        v24 = a15;
+        if ( (_DWORD)a15 )
+        {
+          if ( ((unsigned __int8)Address & 3) != 0 )
+            ExRaiseDatatypeMisalignment();
+          v23 = &Address[(unsigned int)a15];
+          v21 = MmUserProbeAddress;
+          if ( (unsigned __int64)v23 > MmUserProbeAddress || v23 < Address )
+            *(_BYTE *)MmUserProbeAddress = 0;
+        }
+        if ( (unsigned int)Feature_2249667896__private_IsEnabledDeviceUsage(v23, v21) )
+          v25 = (HANDLE)GrepSecureVirtualMemory(Address, (unsigned int)a15, 2LL);
+        else
+          v25 = MmSecureVirtualMemory(Address, (unsigned int)a15, 2u);
+        v18 = v25;
+        if ( v25 )
+          goto LABEL_26;
+        goto LABEL_25;
+      }
+      FreeThreadBufferWithTag(v16, v21);
+      v16 = 0LL;
     }
-    v19 = MmSecureVirtualMemory(Address, (unsigned int)Size, 2u);
-    v24 = v19;
-    if ( v19 )
-      goto LABEL_15;
   }
-  else
-  {
-    v21 = Size;
-  }
-  v18 = 0;
-LABEL_15:
-  v17 = v23;
-  a2 = v26;
-  v16 = a1;
-LABEL_16:
-  if ( v18 )
-  {
-    v18 = GreStretchDIBitsInternal(v16, a2, a5, a6, a7, a8, a9, v20, (__int64)v17, a12, a13, a14, v21, a16);
-    if ( v19 )
-      MmUnsecureVirtualMemory(v19);
-  }
+  v24 = a15;
+LABEL_25:
+  v17 = 0;
+LABEL_26:
+  a2 = v29;
+  a1 = v28;
+LABEL_29:
   if ( v17 )
-    FreeThreadBufferWithTag(v17);
-  return v18;
+  {
+    v17 = GreStretchDIBitsInternal(a1, a5, a6, a7, a8, a9, v19, (__int64)v16, a12, a13, v20, v24, a16);
+    if ( v18 )
+    {
+      if ( (unsigned int)Feature_2249667896__private_IsEnabledDeviceUsage(v26, a2) )
+        GrepUnsecureVirtualMemory(v18);
+      else
+        MmUnsecureVirtualMemory(v18);
+    }
+  }
+  if ( v16 )
+    FreeThreadBufferWithTag(v16, a2);
+  return v17;
 }

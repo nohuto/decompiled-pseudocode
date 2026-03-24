@@ -1,20 +1,20 @@
 /*
- * XREFs of xxxTrackCaptionButton @ 0x1C0243270
+ * XREFs of xxxTrackCaptionButton @ 0x1C0247A10
  * Callers:
- *     ?xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z @ 0x1C00C8EC0 (-xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z.c)
- *     xxxDCETrackCaptionButton @ 0x1C00C901C (xxxDCETrackCaptionButton.c)
+ *     xxxDCETrackCaptionButton @ 0x1C00D7CFC (xxxDCETrackCaptionButton.c)
+ *     ?xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z @ 0x1C00DB008 (-xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z.c)
  * Callees:
- *     xxxDispatchMessage @ 0x1C00429F0 (xxxDispatchMessage.c)
- *     xxxSleepThread2 @ 0x1C0052D3C (xxxSleepThread2.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     xxxWindowEvent @ 0x1C0073AB0 (xxxWindowEvent.c)
- *     PtInRect @ 0x1C0077984 (PtInRect.c)
- *     xxxInternalGetMessage @ 0x1C00A4B4C (xxxInternalGetMessage.c)
- *     xxxReleaseCapture @ 0x1C00AA35C (xxxReleaseCapture.c)
- *     xxxSetCapture @ 0x1C00AA44C (xxxSetCapture.c)
- *     BitBltSysBmp @ 0x1C00C2FD4 (BitBltSysBmp.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     xxxCalcCaptionButton @ 0x1C0242FA8 (xxxCalcCaptionButton.c)
+ *     PtInRect @ 0x1C004DEBC (PtInRect.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     xxxSleepThread2 @ 0x1C0058750 (xxxSleepThread2.c)
+ *     xxxDispatchMessage @ 0x1C006AE54 (xxxDispatchMessage.c)
+ *     xxxWindowEvent @ 0x1C00814D0 (xxxWindowEvent.c)
+ *     xxxInternalGetMessage @ 0x1C00D9FB0 (xxxInternalGetMessage.c)
+ *     xxxReleaseCapture @ 0x1C00DAE50 (xxxReleaseCapture.c)
+ *     xxxSetCapture @ 0x1C00DAF80 (xxxSetCapture.c)
+ *     BitBltSysBmp @ 0x1C010723C (BitBltSysBmp.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     xxxCalcCaptionButton @ 0x1C0247748 (xxxCalcCaptionButton.c)
  */
 
 __int64 __fastcall xxxTrackCaptionButton(struct tagWND *a1, int a2)
@@ -35,7 +35,7 @@ __int64 __fastcall xxxTrackCaptionButton(struct tagWND *a1, int a2)
   unsigned int v17; // [rsp+40h] [rbp-21h] BYREF
   int v18; // [rsp+44h] [rbp-1Dh]
   int v19; // [rsp+48h] [rbp-19h]
-  unsigned int v20; // [rsp+4Ch] [rbp-15h]
+  int v20; // [rsp+4Ch] [rbp-15h]
   BOOL v21; // [rsp+50h] [rbp-11h]
   __int128 v22; // [rsp+58h] [rbp-9h] BYREF
   _OWORD v23[2]; // [rsp+68h] [rbp+7h] BYREF
@@ -87,7 +87,7 @@ __int64 __fastcall xxxTrackCaptionButton(struct tagWND *a1, int a2)
     v9 = 2;
     v5 = 1344;
   }
-  v10 = xxxCalcCaptionButton(a1, v9, (__int16 *)v15, &v22, (int *)&v17, 0);
+  v10 = xxxCalcCaptionButton((__int64)a1, v9, (__int16 *)v15, &v22, (int *)&v17, 0);
   v19 = SHIWORD(v10);
   v20 = (__int16)v10;
   if ( v15[0] )
@@ -96,7 +96,7 @@ __int64 __fastcall xxxTrackCaptionButton(struct tagWND *a1, int a2)
     BitBltSysBmp(DCEx, v20, v19, v17 + 1, 1);
     _ReleaseDC(DCEx);
     v16 = 1;
-    SetOrClrWF(1, a1, v5, 1);
+    SetOrClrWF(1, (__int64)a1, v5, 1);
     xxxWindowEvent(0x800Au, a1, -2, v9, 0);
     v3 = 0;
   }
@@ -126,7 +126,7 @@ __int64 __fastcall xxxTrackCaptionButton(struct tagWND *a1, int a2)
             v12 = _GetDCEx(a1, 0LL, 65537LL);
             BitBltSysBmp(v12, v20, v19, v17 + (unsigned __int16)v16, 1);
             _ReleaseDC(v12);
-            SetOrClrWF(v21, a1, v5, 1);
+            SetOrClrWF(v21, (__int64)a1, v5, 1);
             xxxWindowEvent(0x800Au, a1, -2, v9, 0);
             v3 = v18;
           }
@@ -152,7 +152,7 @@ __int64 __fastcall xxxTrackCaptionButton(struct tagWND *a1, int a2)
       v13 = _GetDCEx(a1, 0LL, 65537LL);
       BitBltSysBmp(v13, v20, v19, v17, 1);
       _ReleaseDC(v13);
-      SetOrClrWF(0, a1, v5, 1);
+      SetOrClrWF(0, (__int64)a1, v5, 1);
       xxxWindowEvent(0x800Au, a1, -2, v9, 0);
     }
     if ( v18 && PtInRect(&v22, *(unsigned __int64 *)((char *)&v24 + 4)) )

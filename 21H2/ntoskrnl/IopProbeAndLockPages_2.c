@@ -1,15 +1,15 @@
 /*
- * XREFs of IopProbeAndLockPages_2 @ 0x14055A55C
+ * XREFs of IopProbeAndLockPages_2 @ 0x140508820
  * Callers:
- *     NtNotifyChangeDirectoryFileEx @ 0x1406C66B0 (NtNotifyChangeDirectoryFileEx.c)
- *     BuildQueryDirectoryIrp @ 0x1407563A0 (BuildQueryDirectoryIrp.c)
- *     NtQueryQuotaInformationFile @ 0x140939960 (NtQueryQuotaInformationFile.c)
+ *     BuildQueryDirectoryIrp @ 0x14064FCB0 (BuildQueryDirectoryIrp.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x1406AE6E0 (NtNotifyChangeDirectoryFileEx.c)
+ *     NtQueryQuotaInformationFile @ 0x140895B40 (NtQueryQuotaInformationFile.c)
  * Callees:
- *     MiProbeAndLockPages @ 0x14029C5B0 (MiProbeAndLockPages.c)
- *     MmUpdateMdlTracker @ 0x140584F10 (MmUpdateMdlTracker.c)
+ *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
+ *     MmUpdateMdlTracker @ 0x140531270 (MmUpdateMdlTracker.c)
  */
 
-__int64 __fastcall IopProbeAndLockPages_2(_DWORD *a1, char a2, __int64 a3, __int64 a4, unsigned int a5)
+__int64 __fastcall IopProbeAndLockPages_2(__int64 a1, char a2, __int64 a3, __int64 a4, unsigned int a5)
 {
   bool v7; // zf
   char v8; // dl
@@ -19,7 +19,7 @@ __int64 __fastcall IopProbeAndLockPages_2(_DWORD *a1, char a2, __int64 a3, __int
   v8 = 1;
   if ( v7 )
     v8 = a2;
-  MiProbeAndLockPages(a1, v8, 1);
+  MiProbeAndLockPages(a1, v8, 1u);
   result = (unsigned int)MmTrackLockedPages;
   if ( (MmTrackLockedPages & 1) != 0 )
     return MmUpdateMdlTracker(a1, *(_QWORD *)(*(_QWORD *)(a4 + 8) + 8LL * a5 + 112), a4);

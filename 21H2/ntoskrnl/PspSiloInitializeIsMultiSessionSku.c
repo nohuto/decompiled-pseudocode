@@ -1,11 +1,11 @@
 /*
- * XREFs of PspSiloInitializeIsMultiSessionSku @ 0x1409AC6C0
+ * XREFs of PspSiloInitializeIsMultiSessionSku @ 0x140906978
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1409AC180 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x140906470 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     PsDetachSiloFromCurrentThread @ 0x1402D7F90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x1402D7FB0 (PsAttachSiloToCurrentThread.c)
- *     ExIsMultiSessionSku @ 0x140861984 (ExIsMultiSessionSku.c)
+ *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
+ *     ExIsMultiSessionSku @ 0x1407D1BA8 (ExIsMultiSessionSku.c)
  */
 
 __int64 __fastcall PspSiloInitializeIsMultiSessionSku(struct _LIST_ENTRY *a1)
@@ -15,12 +15,12 @@ __int64 __fastcall PspSiloInitializeIsMultiSessionSku(struct _LIST_ENTRY *a1)
   int IsMultiSessionSku; // edi
   char v5; // [rsp+30h] [rbp+8h] BYREF
 
-  Blink = a1[91].Blink;
+  Blink = a1[79].Blink;
   v5 = 0;
   v2 = PsAttachSiloToCurrentThread(a1);
   IsMultiSessionSku = ExIsMultiSessionSku(&v5);
   PsDetachSiloFromCurrentThread(v2);
   if ( IsMultiSessionSku >= 0 )
-    BYTE4(Blink[82].Blink[1].Blink) = v5;
+    BYTE4(Blink[70].Blink[1].Blink) = v5;
   return (unsigned int)IsMultiSessionSku;
 }

@@ -1,41 +1,37 @@
 /*
- * XREFs of ?GetCddPrimaryShareResourceHandle@ADAPTER_DISPLAY@@QEBAII@Z @ 0x1C02C0CC4
+ * XREFs of ?GetCddPrimaryShareResourceHandle@ADAPTER_DISPLAY@@QEBAII@Z @ 0x1C0212848
  * Callers:
- *     DxgkGetSharedPrimaryHandle @ 0x1C02D1520 (DxgkGetSharedPrimaryHandle.c)
- *     ?OpenCddPrimaryHandle@DXGDEVICE@@QEAAIIEI@Z @ 0x1C0330DCC (-OpenCddPrimaryHandle@DXGDEVICE@@QEAAIIEI@Z.c)
+ *     DxgkGetSharedPrimaryHandle @ 0x1C02233E0 (DxgkGetSharedPrimaryHandle.c)
+ *     ?OpenCddPrimaryHandle@DXGDEVICE@@QEAAIIEI@Z @ 0x1C0280854 (-OpenCddPrimaryHandle@DXGDEVICE@@QEAAIIEI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
-__int64 __fastcall ADAPTER_DISPLAY::GetCddPrimaryShareResourceHandle(ADAPTER_DISPLAY *this, unsigned int a2)
+__int64 __fastcall ADAPTER_DISPLAY::GetCddPrimaryShareResourceHandle(DXGADAPTER **this, __int64 a2)
 {
   __int64 v3; // rdi
-  __int64 v4; // rdx
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rdx
 
-  v3 = a2;
-  if ( a2 >= *((_DWORD *)this + 24) )
+  v3 = (unsigned int)a2;
+  if ( (unsigned int)a2 >= *((_DWORD *)this + 20) )
   {
-    WdLogSingleEntry1(1LL, 1321LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"VidPnSourceId < m_NumVidPnSources",
-      1321LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 1279LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)this + 2)) )
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 1322LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 1322LL, 0LL, 0LL, 0LL, 0LL);
+    v7 = WdLogNewEntry5_WdAssertion(v6, v5);
+    *(_QWORD *)(v7 + 24) = 1280LL;
+    WdLogEvent5_WdAssertion(v7);
   }
-  v4 = *(_QWORD *)(4000 * v3 + *((_QWORD *)this + 16) + 88);
-  if ( !v4 || (*(_DWORD *)(*(_QWORD *)(v4 + 48) + 4LL) & 0x10) != 0 )
+  v8 = *((_QWORD *)this[14] + 496 * v3 + 11);
+  if ( !v8 || (*(_DWORD *)(*(_QWORD *)(v8 + 48) + 4LL) & 0x10) != 0 )
     return 0LL;
   else
-    return *(unsigned int *)(*(_QWORD *)(*(_QWORD *)(v4 + 40) + 56LL) + 24LL);
+    return *(unsigned int *)(*(_QWORD *)(*(_QWORD *)(v8 + 40) + 56LL) + 24LL);
 }

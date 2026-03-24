@@ -1,12 +1,12 @@
 /*
- * XREFs of CiSchedulerTaskIndexYield @ 0x1C00021C0
+ * XREFs of CiSchedulerTaskIndexYield @ 0x1C0001170
  * Callers:
- *     CiDispatchFastIoDeviceControl @ 0x1C000AA20 (CiDispatchFastIoDeviceControl.c)
+ *     CiDispatchFastIoDeviceControl @ 0x1C000A6C0 (CiDispatchFastIoDeviceControl.c)
  * Callees:
- *     CiSchedulerSetTaskIndexThreadTag @ 0x1C00029D0 (CiSchedulerSetTaskIndexThreadTag.c)
- *     CiSystemUpdateMediaBufferingState @ 0x1C0002F30 (CiSystemUpdateMediaBufferingState.c)
- *     CiLogSchedulerEvent @ 0x1C0003F10 (CiLogSchedulerEvent.c)
- *     CiLogTaskIndexYield @ 0x1C00042C4 (CiLogTaskIndexYield.c)
+ *     CiSchedulerSetTaskIndexThreadTag @ 0x1C0001010 (CiSchedulerSetTaskIndexThreadTag.c)
+ *     CiSystemUpdateMediaBufferingState @ 0x1C0002A30 (CiSystemUpdateMediaBufferingState.c)
+ *     CiLogSchedulerEvent @ 0x1C0003C60 (CiLogSchedulerEvent.c)
+ *     CiLogTaskIndexYield @ 0x1C0004014 (CiLogTaskIndexYield.c)
  */
 
 void __fastcall CiSchedulerTaskIndexYield(__int64 a1, ULONG a2, ULONG a3)
@@ -17,10 +17,10 @@ void __fastcall CiSchedulerTaskIndexYield(__int64 a1, ULONG a2, ULONG a3)
   __int64 v7; // r8
   unsigned __int64 v8; // rcx
   unsigned __int64 v9; // rdx
-  __int64 v10; // r8
+  unsigned __int64 v10; // rax
   unsigned __int64 v11; // rcx
   unsigned __int64 v12; // rdx
-  unsigned __int64 v13; // rax
+  unsigned __int8 v13; // al
   unsigned __int64 v14; // rax
   __int64 *i; // rdi
   __int64 v16; // rax
@@ -45,7 +45,7 @@ void __fastcall CiSchedulerTaskIndexYield(__int64 a1, ULONG a2, ULONG a3)
     if ( v3 >= ActiveThreadCount )
       v3 = -1;
   }
-  if ( byte_1C00073C0 )
+  if ( byte_1C0007370 )
     CiLogTaskIndexYield(a1, ActiveThreadCount, v3);
   v6 = KeQueryInterruptTimePrecise(&v24);
   KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
@@ -63,55 +63,49 @@ void __fastcall CiSchedulerTaskIndexYield(__int64 a1, ULONG a2, ULONG a3)
   v8 = v6 + ActiveThreadCount;
   *(_QWORD *)(a1 + 80) = v8;
   v9 = *(_QWORD *)&WPP_MAIN_CB.SectorSize;
-  if ( ((__int64)WPP_MAIN_CB.DeviceObjectExtension & 1) == 0 )
+  if ( ((__int64)WPP_MAIN_CB.DeviceObjectExtension & 1) != 0 )
   {
-LABEL_30:
-    LOBYTE(v7) = 0;
-    if ( v9 )
-    {
-      while ( 1 )
-      {
-        if ( *(_QWORD *)(v9 + 24) > v8 )
-        {
-          v14 = *(_QWORD *)v9;
-          if ( ((__int64)WPP_MAIN_CB.DeviceObjectExtension & 1) != 0 )
-          {
-            if ( !v14 )
-              goto LABEL_18;
-            v14 ^= v9;
-          }
-          if ( !v14 )
-            goto LABEL_18;
-        }
-        else
-        {
-          v14 = *(_QWORD *)(v9 + 8);
-          if ( ((__int64)WPP_MAIN_CB.DeviceObjectExtension & 1) != 0 )
-          {
-            if ( !v14 )
-              goto LABEL_77;
-            v14 ^= v9;
-          }
-          if ( !v14 )
-          {
-LABEL_77:
-            LOBYTE(v7) = 1;
-            goto LABEL_18;
-          }
-        }
-        v9 = v14;
-      }
-    }
-    goto LABEL_18;
+    if ( *(_QWORD *)&WPP_MAIN_CB.SectorSize )
+      v9 = (unsigned __int64)&WPP_MAIN_CB.SectorSize ^ *(_QWORD *)&WPP_MAIN_CB.SectorSize;
+    else
+      v9 = 0LL;
   }
-  if ( *(_QWORD *)&WPP_MAIN_CB.SectorSize )
-  {
-    v9 = (unsigned __int64)&WPP_MAIN_CB.SectorSize ^ *(_QWORD *)&WPP_MAIN_CB.SectorSize;
-    goto LABEL_30;
-  }
-  v9 = 0LL;
   LOBYTE(v7) = 0;
-LABEL_18:
+  if ( v9 )
+  {
+    while ( 1 )
+    {
+      if ( *(_QWORD *)(v9 + 24) > v8 )
+      {
+        v10 = *(_QWORD *)v9;
+        if ( ((__int64)WPP_MAIN_CB.DeviceObjectExtension & 1) != 0 )
+        {
+          if ( !v10 )
+            break;
+          v10 ^= v9;
+        }
+        if ( !v10 )
+          break;
+      }
+      else
+      {
+        v10 = *(_QWORD *)(v9 + 8);
+        if ( ((__int64)WPP_MAIN_CB.DeviceObjectExtension & 1) != 0 )
+        {
+          if ( !v10 )
+            goto LABEL_31;
+          v10 ^= v9;
+        }
+        if ( !v10 )
+        {
+LABEL_31:
+          LOBYTE(v7) = 1;
+          break;
+        }
+      }
+      v9 = v10;
+    }
+  }
   RtlRbInsertNodeEx(&WPP_MAIN_CB.SectorSize, v9, v7, a1 + 56);
   if ( *(_BYTE *)(a1 + 132) && *(_QWORD *)(a1 + 120) )
   {
@@ -125,56 +119,62 @@ LABEL_18:
   if ( v3 == -1 )
   {
     *(_BYTE *)(a1 + 132) = 0;
-    goto LABEL_49;
   }
-  *(_BYTE *)(a1 + 132) = 1;
-  v11 = v6 + v3;
-  *(_QWORD *)(a1 + 120) = v11;
-  v12 = *(_QWORD *)&WPP_MAIN_CB.SectorSize;
-  if ( ((__int64)WPP_MAIN_CB.DeviceObjectExtension & 1) != 0 )
+  else
   {
-    if ( !*(_QWORD *)&WPP_MAIN_CB.SectorSize )
-    {
-      v12 = 0LL;
-      LOBYTE(v10) = 0;
-      goto LABEL_48;
-    }
-    v12 = (unsigned __int64)&WPP_MAIN_CB.SectorSize ^ *(_QWORD *)&WPP_MAIN_CB.SectorSize;
-  }
-  LOBYTE(v10) = 0;
-  if ( !v12 )
-    goto LABEL_48;
-  while ( 1 )
-  {
-    if ( *(_QWORD *)(v12 + 24) > v11 )
-    {
-      v13 = *(_QWORD *)v12;
-      if ( ((__int64)WPP_MAIN_CB.DeviceObjectExtension & 1) != 0 )
-      {
-        if ( !v13 )
-          goto LABEL_48;
-        v13 ^= v12;
-      }
-      if ( !v13 )
-        goto LABEL_48;
-      goto LABEL_28;
-    }
-    v13 = *(_QWORD *)(v12 + 8);
+    v11 = v6 + v3;
+    *(_BYTE *)(a1 + 132) = 1;
+    *(_QWORD *)(a1 + 120) = v11;
+    v12 = *(_QWORD *)&WPP_MAIN_CB.SectorSize;
     if ( ((__int64)WPP_MAIN_CB.DeviceObjectExtension & 1) != 0 )
     {
-      if ( !v13 )
-        break;
-      v13 ^= v12;
+      if ( *(_QWORD *)&WPP_MAIN_CB.SectorSize )
+        v12 = (unsigned __int64)&WPP_MAIN_CB.SectorSize ^ *(_QWORD *)&WPP_MAIN_CB.SectorSize;
+      else
+        v12 = 0LL;
     }
-    if ( !v13 )
-      break;
-LABEL_28:
-    v12 = v13;
-  }
-  LOBYTE(v10) = 1;
+    v13 = 0;
+    if ( v12 )
+    {
+      while ( 1 )
+      {
+        if ( *(_QWORD *)(v12 + 24) > v11 )
+        {
+          v14 = *(_QWORD *)v12;
+          if ( ((__int64)WPP_MAIN_CB.DeviceObjectExtension & 1) != 0 )
+          {
+            if ( !v14 )
+              goto LABEL_47;
+            v14 ^= v12;
+          }
+          if ( !v14 )
+          {
+LABEL_47:
+            v13 = 0;
+            break;
+          }
+        }
+        else
+        {
+          v14 = *(_QWORD *)(v12 + 8);
+          if ( ((__int64)WPP_MAIN_CB.DeviceObjectExtension & 1) != 0 )
+          {
+            if ( !v14 )
+              goto LABEL_48;
+            v14 ^= v12;
+          }
+          if ( !v14 )
+          {
 LABEL_48:
-  RtlRbInsertNodeEx(&WPP_MAIN_CB.SectorSize, v12, v10, a1 + 96);
-LABEL_49:
+            v13 = 1;
+            break;
+          }
+        }
+        v12 = v14;
+      }
+    }
+    RtlRbInsertNodeEx(&WPP_MAIN_CB.SectorSize, v12, v13, a1 + 96);
+  }
   for ( i = *(__int64 **)(a1 + 32); i != (__int64 *)(a1 + 32); i = (__int64 *)*i )
   {
     if ( (*((_BYTE *)i + 68) & 1) == 0 )
@@ -201,7 +201,7 @@ LABEL_49:
       if ( *((unsigned __int8 *)i + 27) != v17 )
       {
         *((_BYTE *)i + 27) = v17;
-        if ( byte_1C00073C0 )
+        if ( byte_1C0007370 )
           CiLogSchedulerEvent(i - 10, v17);
         KeSetActualBasePriorityThread(i[2], v18);
       }
@@ -209,16 +209,15 @@ LABEL_49:
   }
   if ( ((__int64)WPP_MAIN_CB.DeviceObjectExtension & 1) != 0 )
   {
-    if ( WPP_MAIN_CB.DeviceObjectExtension != (struct _DEVOBJ_EXTENSION *)1 )
-    {
-      DeviceObjectExtension = (unsigned __int64)WPP_MAIN_CB.DeviceObjectExtension ^ ((unsigned __int64)&WPP_MAIN_CB.SectorSize
-                                                                                   + 1);
-      goto LABEL_63;
-    }
-    goto LABEL_90;
+    if ( WPP_MAIN_CB.DeviceObjectExtension == (struct _DEVOBJ_EXTENSION *)1 )
+      goto LABEL_90;
+    DeviceObjectExtension = (unsigned __int64)WPP_MAIN_CB.DeviceObjectExtension ^ ((unsigned __int64)&WPP_MAIN_CB.SectorSize
+                                                                                 + 1);
   }
-  DeviceObjectExtension = (__int64)WPP_MAIN_CB.DeviceObjectExtension;
-LABEL_63:
+  else
+  {
+    DeviceObjectExtension = (__int64)WPP_MAIN_CB.DeviceObjectExtension;
+  }
   if ( DeviceObjectExtension )
   {
     if ( DeviceObjectExtension != CiSchedulerTimerNode )
@@ -237,16 +236,15 @@ LABEL_63:
       CiSchedulerTimerNode = DeviceObjectExtension;
       ExSetTimer(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v21, 0LL, &WPP_MAIN_CB.Queue.Wcb.DeviceContext);
     }
+    goto LABEL_69;
   }
-  else
-  {
 LABEL_90:
-    if ( CiSchedulerTimerNode != 1 )
-    {
-      CiSchedulerTimerNode = 1LL;
-      ExCancelTimer(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, 0LL);
-    }
+  if ( CiSchedulerTimerNode != 1 )
+  {
+    CiSchedulerTimerNode = 1LL;
+    ExCancelTimer(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, 0LL);
   }
+LABEL_69:
   v22 = *(_DWORD *)(a1 + 184);
   if ( (v22 & 4) != 0 )
   {
@@ -258,11 +256,11 @@ LABEL_90:
       ++CiTotalTasksBuffering;
       *(_DWORD *)(a1 + 184) = v23 & 0xFFFFFFF5 | 2;
       CiSystemUpdateMediaBufferingState();
-      CiSchedulerSetTaskIndexThreadTag(a1, 1LL);
+      CiSchedulerSetTaskIndexThreadTag(a1, 1u);
     }
     else
     {
-      CiSchedulerSetTaskIndexThreadTag(a1, 3LL);
+      CiSchedulerSetTaskIndexThreadTag(a1, 0);
       CiSystemUpdateMediaBufferingState();
     }
   }

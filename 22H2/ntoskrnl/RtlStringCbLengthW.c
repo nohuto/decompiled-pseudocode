@@ -1,22 +1,24 @@
 /*
- * XREFs of RtlStringCbLengthW @ 0x14022BF00
+ * XREFs of RtlStringCbLengthW @ 0x1403224DC
  * Callers:
- *     AslpFileVerBlockGetValueOffset @ 0x14022BE8C (AslpFileVerBlockGetValueOffset.c)
- *     AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x14066E5EC (AuthzBasepConvertRelativeToAbsoluteTokenAttribute.c)
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     AslpFileVerStringBlockGetValue @ 0x1407BE9C4 (AslpFileVerStringBlockGetValue.c)
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
- *     PiSwIrpStartCreateWorker @ 0x14081B5CC (PiSwIrpStartCreateWorker.c)
- *     PiSwCompleteCreate @ 0x14081BD64 (PiSwCompleteCreate.c)
- *     IoReportDetectedDevice @ 0x140836920 (IoReportDetectedDevice.c)
- *     RtlpPopulateLanguageConfigList @ 0x14084729C (RtlpPopulateLanguageConfigList.c)
- *     PpmRegisterProfiles @ 0x14084AD78 (PpmRegisterProfiles.c)
- *     RtlpValidRelativeAttribute @ 0x14085B760 (RtlpValidRelativeAttribute.c)
- *     PopFxValidateReturnedUnicodeString @ 0x140986164 (PopFxValidateReturnedUnicodeString.c)
- *     PopIdleWakeGenerateDescriptionString @ 0x14099A44C (PopIdleWakeGenerateDescriptionString.c)
- *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x1409BB748 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
- *     RtlpGetTokenNamedObjectPath @ 0x1409BCC7C (RtlpGetTokenNamedObjectPath.c)
- *     LocalGetStringForRelativeAttribute @ 0x1409D5CCC (LocalGetStringForRelativeAttribute.c)
+ *     AslpFileVerBlockGetValueOffset @ 0x1403BD1F8 (AslpFileVerBlockGetValueOffset.c)
+ *     AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x1405C0C18 (AuthzBasepConvertRelativeToAbsoluteTokenAttribute.c)
+ *     _PnpRegQueryValueIndirect @ 0x14067DD50 (_PnpRegQueryValueIndirect.c)
+ *     RtlpValidRelativeAttribute @ 0x1406995F4 (RtlpValidRelativeAttribute.c)
+ *     _PnpValidatePropertyData @ 0x1406B309C (_PnpValidatePropertyData.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x1406F1BE4 (PopPowerInformationInternal.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074CF08 (PiSwIrpStartCreateWorker.c)
+ *     PiSwCompleteCreate @ 0x14074DC58 (PiSwCompleteCreate.c)
+ *     RtlpPopulateLanguageConfigList @ 0x14078FCBC (RtlpPopulateLanguageConfigList.c)
+ *     IoReportDetectedDevice @ 0x1407AED50 (IoReportDetectedDevice.c)
+ *     AslpFileVerStringBlockGetValue @ 0x1407B31F4 (AslpFileVerStringBlockGetValue.c)
+ *     PpmRegisterProfiles @ 0x1407C5F28 (PpmRegisterProfiles.c)
+ *     PopFxValidateReturnedUnicodeString @ 0x1408E59C4 (PopFxValidateReturnedUnicodeString.c)
+ *     PopIdleWakeGenerateDescriptionString @ 0x1408F41F0 (PopIdleWakeGenerateDescriptionString.c)
+ *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x140912A80 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x1409145B8 (RtlpGetTokenNamedObjectPath.c)
+ *     LocalGetStringForRelativeAttribute @ 0x140929264 (LocalGetStringForRelativeAttribute.c)
  * Callees:
  *     <none>
  */
@@ -24,34 +26,36 @@
 NTSTATUS __stdcall RtlStringCbLengthW(STRSAFE_PCNZWCH psz, size_t cbMax, size_t *pcbLength)
 {
   size_t v3; // rdx
-  size_t v4; // r9
   size_t v5; // rax
-  NTSTATUS result; // eax
+  size_t i; // r8
+  NTSTATUS v7; // ecx
 
   v3 = cbMax >> 1;
-  v4 = 0LL;
-  if ( psz && v3 <= 0x7FFFFFFF && (v5 = v3) != 0 )
+  v5 = 0LL;
+  if ( psz && v3 <= 0x7FFFFFFF )
   {
-    while ( *psz )
+    for ( i = v3; i; --i )
     {
+      if ( !*psz )
+        break;
       ++psz;
-      if ( !--v5 )
-        goto LABEL_6;
     }
-    v4 = v3 - v5;
-    result = 0;
+    v7 = i == 0 ? 0xC000000D : 0;
+    if ( i )
+      v5 = v3 - i;
+    else
+      v5 = 0LL;
   }
   else
   {
-LABEL_6:
-    result = -1073741811;
+    v7 = -1073741811;
   }
   if ( pcbLength )
   {
-    if ( result < 0 )
+    if ( v7 < 0 )
       *pcbLength = 0LL;
     else
-      *pcbLength = 2 * v4;
+      *pcbLength = 2 * v5;
   }
-  return result;
+  return v7;
 }

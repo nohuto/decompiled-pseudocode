@@ -1,10 +1,10 @@
 /*
- * XREFs of PpPagePathRelease @ 0x140945F80
+ * XREFs of PpPagePathRelease @ 0x1408A0FB8
  * Callers:
- *     MiCreatePagingFile @ 0x14084AA8C (MiCreatePagingFile.c)
- *     CmpVolumeContextCleanup @ 0x140863DA8 (CmpVolumeContextCleanup.c)
+ *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
+ *     CmpVolumeContextSendDeviceUsageNotification @ 0x1407C8E74 (CmpVolumeContextSendDeviceUsageNotification.c)
  * Callees:
- *     PiPagePathSetState @ 0x14084BB98 (PiPagePathSetState.c)
+ *     PiPagePathSetState @ 0x1407C9E40 (PiPagePathSetState.c)
  */
 
 __int64 __fastcall PpPagePathRelease(struct _FILE_OBJECT *a1)

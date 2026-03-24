@@ -1,20 +1,20 @@
 /*
- * XREFs of SepRmDbInitialization @ 0x140B6DDC4
+ * XREFs of SepRmDbInitialization @ 0x140A6E540
  * Callers:
- *     SepInitializationPhase0 @ 0x140B57104 (SepInitializationPhase0.c)
+ *     SepInitializationPhase0 @ 0x140A47920 (SepInitializationPhase0.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     memset @ 0x140435400 (memset.c)
- *     SepCreateLogonSessionTrack @ 0x1407BDA3C (SepCreateLogonSessionTrack.c)
- *     SepBuildDefaultCap @ 0x14085A4D4 (SepBuildDefaultCap.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SepCreateLogonSessionTrack @ 0x1406850AC (SepCreateLogonSessionTrack.c)
+ *     SepBuildDefaultCap @ 0x1407CCBA4 (SepBuildDefaultCap.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char SepRmDbInitialization()
 {
   struct _ERESOURCE *v0; // rbx
   __int64 v1; // rdi
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
 
   v0 = &SepRmDbLock;
   v1 = 4LL;
@@ -26,29 +26,29 @@ char SepRmDbInitialization()
   while ( v1 );
   ExInitializeResourceLite(&SepRmGlobalSaclLock);
   SepRmNotifyMutex.Count = 1;
-  SepRmNotifyMutex.Event.Header.WaitListHead.Blink = &SepRmNotifyMutex.Event.Header.WaitListHead;
-  SepRmNotifyMutex.Event.Header.WaitListHead.Flink = &SepRmNotifyMutex.Event.Header.WaitListHead;
   SepRmNotifyMutex.Owner = 0LL;
   SepRmNotifyMutex.Contention = 0;
   LOWORD(SepRmNotifyMutex.Event.Header.Lock) = 1;
   SepRmNotifyMutex.Event.Header.Size = 6;
   SepRmNotifyMutex.Event.Header.SignalState = 0;
-  Pool2 = (void *)ExAllocatePool2(256LL, 0x80uLL, 0x734C6553u);
-  SepLogonSessions = (__int64)Pool2;
-  if ( !Pool2 )
+  SepRmNotifyMutex.Event.Header.WaitListHead.Blink = &SepRmNotifyMutex.Event.Header.WaitListHead;
+  SepRmNotifyMutex.Event.Header.WaitListHead.Flink = &SepRmNotifyMutex.Event.Header.WaitListHead;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x80uLL, 0x734C6553u);
+  SepLogonSessions = (__int64)PoolWithTag;
+  if ( !PoolWithTag )
     return 0;
-  memset(Pool2, 0, 0x80uLL);
+  memset(PoolWithTag, 0, 0x80uLL);
   if ( (int)SepCreateLogonSessionTrack((__int64)&SeSystemAuthenticationId) < 0 )
     return 0;
   if ( (int)SepCreateLogonSessionTrack((__int64)&SeAnonymousAuthenticationId) < 0 )
     return 0;
   SepRmAuditingEnabled = 0;
   memset(SeAuditingState, 0, 0x78uLL);
-  byte_140C37464 = 1;
+  byte_140C1D604 = 1;
   SepRmCapTableLock = 0LL;
   SepRmEnforceCap = 0;
   if ( (int)SepBuildDefaultCap() < 0 )
     return 0;
-  dword_140D54EFC = 1;
+  dword_140D2EB7C = 1;
   return 1;
 }

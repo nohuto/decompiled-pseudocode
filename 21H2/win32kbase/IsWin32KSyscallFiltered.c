@@ -1,5 +1,5 @@
 /*
- * XREFs of IsWin32KSyscallFiltered @ 0x1C008EB00
+ * XREFs of IsWin32KSyscallFiltered @ 0x1C007A7B0
  * Callers:
  *     <none>
  * Callees:

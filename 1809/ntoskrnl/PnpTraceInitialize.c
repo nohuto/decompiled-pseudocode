@@ -3,8 +3,8 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     TlgRegisterAggregateProvider @ 0x140742FD8 (TlgRegisterAggregateProvider.c)
- *     TraceLoggingRegister @ 0x14080798C (TraceLoggingRegister.c)
+ *     TlgRegisterAggregateProvider @ 0x140742FB8 (TlgRegisterAggregateProvider.c)
+ *     TraceLoggingRegister @ 0x14080796C (TraceLoggingRegister.c)
  */
 
 TLG_STATUS PnpTraceInitialize()

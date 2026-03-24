@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceScreenSaverProcessEvent @ 0x1C014E59C
+ * XREFs of EtwTraceScreenSaverProcessEvent @ 0x1C012398C
  * Callers:
- *     DestroyProcessInfo @ 0x1C00188FC (DestroyProcessInfo.c)
- *     xxxCreateThreadInfo @ 0x1C003911C (xxxCreateThreadInfo.c)
+ *     xxxCreateThreadInfo @ 0x1C003D918 (xxxCreateThreadInfo.c)
+ *     DestroyProcessInfo @ 0x1C0045950 (DestroyProcessInfo.c)
  * Callees:
- *     McTemplateK0d_EtwWriteTransfer @ 0x1C014F9C8 (McTemplateK0d_EtwWriteTransfer.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x1C0125070 (McTemplateK0d_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceScreenSaverProcessEvent(__int64 a1, __int64 a2, __int64 a3)

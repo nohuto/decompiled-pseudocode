@@ -1,10 +1,10 @@
 /*
- * XREFs of FxVerifierQueryStateSeparationDetection @ 0x1C006BC74
+ * XREFs of FxVerifierQueryStateSeparationDetection @ 0x1C005838C
  * Callers:
- *     FxDriverGlobalsInitializeDebugExtension @ 0x1C006B864 (FxDriverGlobalsInitializeDebugExtension.c)
+ *     FxDriverGlobalsInitializeDebugExtension @ 0x1C0056E84 (FxDriverGlobalsInitializeDebugExtension.c)
  * Callees:
- *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C0014DF4 (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
+ *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C00184EC (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
  */
 
 void __fastcall FxVerifierQueryStateSeparationDetection(
@@ -19,7 +19,7 @@ void __fastcall FxVerifierQueryStateSeparationDetection(
   wcscpy(valueName_buffer, L"StateSeparationDetection");
   *(_QWORD *)&valueName.Length = 3276848LL;
   valueName.Buffer = valueName_buffer;
-  if ( FxRegKey::_QueryULong(Key, &valueName, &value) < 0 || value >= 3 )
+  if ( (int)FxRegKey::_QueryULong(Key, &valueName, &value) < 0 || value >= 3 )
     *StateSeparationDetection = FxStateSeparationDetectionNone;
   else
     *StateSeparationDetection = value;

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCheckIfNotNativeDriver @ 0x140819830
+ * XREFs of IopCheckIfNotNativeDriver @ 0x140819810
  * Callers:
- *     IopLoadDriver @ 0x14067FA54 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x14067FA34 (IopLoadDriver.c)
  * Callees:
- *     RtlStringCbCopyNW @ 0x140155DBC (RtlStringCbCopyNW.c)
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
- *     wcsstr @ 0x140197930 (wcsstr.c)
- *     IopIsNotNativeDriverImage @ 0x14081A238 (IopIsNotNativeDriverImage.c)
+ *     RtlStringCbCopyNW @ 0x140155DDC (RtlStringCbCopyNW.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
+ *     wcsstr @ 0x140197950 (wcsstr.c)
+ *     IopIsNotNativeDriverImage @ 0x14081A218 (IopIsNotNativeDriverImage.c)
  */
 
 char __fastcall IopCheckIfNotNativeDriver(int a1, __int64 a2)

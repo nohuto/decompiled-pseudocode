@@ -1,42 +1,41 @@
 /*
- * XREFs of PspApplyJobChainLimitsToProcess @ 0x1406A6FC4
+ * XREFs of PspApplyJobChainLimitsToProcess @ 0x14060514C
  * Callers:
- *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
- *     PspImplicitAssignProcessToJob @ 0x1407E653C (PspImplicitAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x140605FB0 (PspImplicitAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x14071E800 (PspAssignProcessToJob.c)
  * Callees:
- *     RtlInterlockedSetClearBits @ 0x14020CA60 (RtlInterlockedSetClearBits.c)
- *     PsUpdateComponentPower @ 0x14020E6C0 (PsUpdateComponentPower.c)
- *     PspNotifyProcessEffectiveIoLimitChanged @ 0x14031AF9C (PspNotifyProcessEffectiveIoLimitChanged.c)
- *     PspSetProcessSchedulingGroup @ 0x14068373C (PspSetProcessSchedulingGroup.c)
- *     PspApplyJobLimitsToProcess @ 0x1406A6EC4 (PspApplyJobLimitsToProcess.c)
- *     PspRequestProcessExecutionState @ 0x1406A70B8 (PspRequestProcessExecutionState.c)
- *     PspComputeExecutionState @ 0x1406A70DC (PspComputeExecutionState.c)
+ *     RtlInterlockedSetClearBits @ 0x1402517B0 (RtlInterlockedSetClearBits.c)
+ *     PsUpdateComponentPower @ 0x1402517F0 (PsUpdateComponentPower.c)
+ *     PspNotifyProcessBackgroundTransition @ 0x140271294 (PspNotifyProcessBackgroundTransition.c)
+ *     PspRequestProcessExecutionState @ 0x140605920 (PspRequestProcessExecutionState.c)
+ *     PspApplyJobLimitsToProcess @ 0x14060596C (PspApplyJobLimitsToProcess.c)
+ *     PspSetProcessSchedulingGroup @ 0x14068EEB0 (PspSetProcessSchedulingGroup.c)
  */
 
 __int64 __fastcall PspApplyJobChainLimitsToProcess(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // rdx
-  __int64 v7; // rcx
-  char v8; // r8
-  __int64 v9; // rdx
+  __int64 v7; // rdx
 
-  PspApplyJobLimitsToProcess(a3, 0);
-  if ( *(_QWORD *)(a1 + 1232) )
+  PspApplyJobLimitsToProcess(a3, 0LL);
+  v6 = *(_QWORD *)(a1 + 1016);
+  if ( v6 )
   {
-    if ( a2 && *(_QWORD *)(a2 + 1232) || PsCpuFairShareEnabled )
+    if ( a2 && *(_QWORD *)(a2 + 1016) || PsCpuFairShareEnabled )
+    {
       PspSetProcessSchedulingGroup(a3, 0LL);
-    PspSetProcessSchedulingGroup(a3, *(_QWORD *)(a1 + 1232));
+      v6 = *(_QWORD *)(a1 + 1016);
+    }
+    PspSetProcessSchedulingGroup(a3, v6);
   }
-  LOBYTE(v6) = PspComputeExecutionState(a1);
-  PspRequestProcessExecutionState(a3, v6, 0LL);
-  if ( a2 )
-    v9 = *(unsigned int *)(a2 + 1068);
-  else
-    v9 = 5LL;
-  if ( (_DWORD)v9 != *(_DWORD *)(a1 + 1068) )
-    PspNotifyProcessEffectiveIoLimitChanged(v7, v9, v8);
-  if ( (*(_DWORD *)(a1 + 1536) & 0x40000) != 0 )
+  v7 = (*(_DWORD *)(a1 + 864) != 0 ? 2 : 0) | 1u;
+  if ( !*(_DWORD *)(a1 + 856) )
+    v7 = *(_DWORD *)(a1 + 864) != 0 ? 2 : 0;
+  PspRequestProcessExecutionState(a3, v7, 0LL);
+  if ( *(_DWORD *)(a1 + 860) && (!a2 || !*(_DWORD *)(a2 + 860)) )
+    PspNotifyProcessBackgroundTransition(a3, 1);
+  if ( (*(_DWORD *)(a1 + 1320) & 0x40000) != 0 )
     _interlockedbittestandset((volatile signed __int32 *)(a3 + 632), 4u);
-  PsUpdateComponentPower((struct _KPROCESS *)a3, 8, *(_QWORD *)(a1 + 1792));
+  PsUpdateComponentPower((PEPROCESS)a3, 8, *(_QWORD *)(a1 + 1576));
   return RtlInterlockedSetClearBits((volatile signed __int32 *)(a3 + 1120), 4, 32);
 }

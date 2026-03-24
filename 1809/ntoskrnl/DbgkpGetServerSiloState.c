@@ -1,5 +1,5 @@
 /*
- * XREFs of DbgkpGetServerSiloState @ 0x140727D8C
+ * XREFs of DbgkpGetServerSiloState @ 0x140727D6C
  * Callers:
  *     DbgkpInitializePhase1 @ 0x1409AEA4C (DbgkpInitializePhase1.c)
  *     DbgkpInitializePhase0 @ 0x1409AEA9C (DbgkpInitializePhase0.c)

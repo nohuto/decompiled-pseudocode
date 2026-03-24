@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CDDisplayRenderTargetMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0227B40
+ * XREFs of ?Initialize@CDDisplayRenderTargetMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01EED10
  * Callers:
  *     <none>
  * Callees:
@@ -9,6 +9,6 @@
 __int64 __fastcall DirectComposition::CDDisplayRenderTargetMarshaler::Initialize(
         DirectComposition::CDDisplayRenderTargetMarshaler *this)
 {
-  *((_DWORD *)this + 36) = 1065353216;
+  *((_DWORD *)this + 33) = 1065353216;
   return 0LL;
 }

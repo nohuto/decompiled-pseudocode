@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCMSetProblem @ 0x140838DD8
+ * XREFs of PiCMSetProblem @ 0x140838DB8
  * Callers:
- *     PiCMDeviceAction @ 0x140837998 (PiCMDeviceAction.c)
- *     PiCMSetDeviceProblem @ 0x140838CF4 (PiCMSetDeviceProblem.c)
+ *     PiCMDeviceAction @ 0x140837978 (PiCMDeviceAction.c)
+ *     PiCMSetDeviceProblem @ 0x140838CD4 (PiCMSetDeviceProblem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwPlugPlayControl @ 0x1401BA6F0 (ZwPlugPlayControl.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwPlugPlayControl @ 0x1401BA710 (ZwPlugPlayControl.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     _CmGetDeviceStatus @ 0x14059E508 (_CmGetDeviceStatus.c)
  */
 

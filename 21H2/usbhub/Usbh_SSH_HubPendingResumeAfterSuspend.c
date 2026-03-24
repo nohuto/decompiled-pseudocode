@@ -1,18 +1,18 @@
 /*
- * XREFs of Usbh_SSH_HubPendingResumeAfterSuspend @ 0x1C0058DF8
+ * XREFs of Usbh_SSH_HubPendingResumeAfterSuspend @ 0x1C005A4C8
  * Callers:
- *     Usbh_SSH_Event @ 0x1C0004D80 (Usbh_SSH_Event.c)
- *     UsbhFdoReturnPortStatus @ 0x1C00186F0 (UsbhFdoReturnPortStatus.c)
+ *     UsbhFdoReturnPortStatus @ 0x1C00099C0 (UsbhFdoReturnPortStatus.c)
+ *     Usbh_SSH_Event @ 0x1C0012810 (Usbh_SSH_Event.c)
  * Callees:
- *     UsbhUnlockSSH @ 0x1C0002A5C (UsbhUnlockSSH.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhSshResumeDownstream @ 0x1C0009090 (UsbhSshResumeDownstream.c)
- *     UsbhSshResumeUpstream @ 0x1C000D344 (UsbhSshResumeUpstream.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhLockSSH @ 0x1C005873C (UsbhLockSSH.c)
+ *     UsbhSshResumeDownstream @ 0x1C000C0F0 (UsbhSshResumeDownstream.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhSshResumeUpstream @ 0x1C0013558 (UsbhSshResumeUpstream.c)
+ *     UsbhUnlockSSH @ 0x1C001CC84 (UsbhUnlockSSH.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhLockSSH @ 0x1C0059E0C (UsbhLockSSH.c)
  */
 
-__int64 __fastcall Usbh_SSH_HubPendingResumeAfterSuspend(__int64 a1, int a2, __int64 a3)
+__int64 __fastcall Usbh_SSH_HubPendingResumeAfterSuspend(struct _DEVICE_OBJECT *a1, int a2, __int64 a3)
 {
   unsigned int v6; // ebx
   _DWORD *v7; // r14
@@ -30,7 +30,7 @@ __int64 __fastcall Usbh_SSH_HubPendingResumeAfterSuspend(__int64 a1, int a2, __i
       1u,
       0xDu,
       (__int64)&WPP_03d34bb4a9b33093dcdc7450a7e79093_Traceguids);
-  v7 = FdoExt(a1);
+  v7 = FdoExt((__int64)a1);
   v8 = a2 - 1;
   if ( !v8 )
   {
@@ -65,6 +65,6 @@ LABEL_16:
   }
   UsbhUnlockSSH(a3, 1);
   if ( !*((_BYTE *)v7 + 3416) )
-    UsbhSshResumeDownstream(a1, a3, 0);
+    UsbhSshResumeDownstream((__int64)a1, a3, 0);
   return v6;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InvokeClient@FxPnpDeviceD0Entry@@MEAAJXZ @ 0x1C0013800
+ * XREFs of ?InvokeClient@FxPnpDeviceD0Entry@@MEAAJXZ @ 0x1C0018B30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_qqLd @ 0x1C0077C28 (WPP_IFR_SF_qqLd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qqLd @ 0x1C006A7CC (WPP_IFR_SF_qqLd.c)
  */
 
 int (__fastcall *__fastcall FxPnpDeviceD0Entry::InvokeClient(

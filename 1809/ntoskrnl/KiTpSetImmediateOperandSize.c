@@ -1,8 +1,8 @@
 /*
- * XREFs of KiTpSetImmediateOperandSize @ 0x14029F578
+ * XREFs of KiTpSetImmediateOperandSize @ 0x14029F678
  * Callers:
- *     KiTpEmulateInstruction @ 0x14029E7FC (KiTpEmulateInstruction.c)
- *     KiTpEmulateMovRegImm @ 0x14029EE60 (KiTpEmulateMovRegImm.c)
+ *     KiTpEmulateInstruction @ 0x14029E8FC (KiTpEmulateInstruction.c)
+ *     KiTpEmulateMovRegImm @ 0x14029EF60 (KiTpEmulateMovRegImm.c)
  * Callees:
  *     <none>
  */

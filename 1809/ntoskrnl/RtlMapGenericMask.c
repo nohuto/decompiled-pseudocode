@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlMapGenericMask @ 0x14063ED50
+ * XREFs of RtlMapGenericMask @ 0x14063ED30
  * Callers:
  *     SepCreateAccessStateFromSubjectContext @ 0x14004D710 (SepCreateAccessStateFromSubjectContext.c)
  *     CmpVEPerformOpenAccessCheck @ 0x140596A64 (CmpVEPerformOpenAccessCheck.c)
@@ -8,11 +8,11 @@
  *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
  *     AlpcpCheckConnectionSecurity @ 0x140613280 (AlpcpCheckConnectionSecurity.c)
  *     RtlpCopyEffectiveAce @ 0x140630400 (RtlpCopyEffectiveAce.c)
- *     IopParseDevice @ 0x14063CD00 (IopParseDevice.c)
- *     ObCaptureObjectStateForDuplication @ 0x1406A5948 (ObCaptureObjectStateForDuplication.c)
- *     IoCheckDesiredAccess @ 0x14081BF20 (IoCheckDesiredAccess.c)
- *     CMFCheckAccess @ 0x1408D8404 (CMFCheckAccess.c)
- *     CMFCreateSecurityDescriptor @ 0x1408D8630 (CMFCreateSecurityDescriptor.c)
+ *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
+ *     ObCaptureObjectStateForDuplication @ 0x1406A5928 (ObCaptureObjectStateForDuplication.c)
+ *     IoCheckDesiredAccess @ 0x14081BF00 (IoCheckDesiredAccess.c)
+ *     CMFCheckAccess @ 0x1408D83E4 (CMFCheckAccess.c)
+ *     CMFCreateSecurityDescriptor @ 0x1408D8610 (CMFCreateSecurityDescriptor.c)
  * Callees:
  *     <none>
  */

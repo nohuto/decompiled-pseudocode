@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmGetDeepSleepPlatformStateIndex @ 0x14058426C
+ * XREFs of PpmGetDeepSleepPlatformStateIndex @ 0x140565C2C
  * Callers:
- *     PopFxClearDeviceConstraints @ 0x140589310 (PopFxClearDeviceConstraints.c)
- *     PopFxEnablePlatformStates @ 0x14058A2C0 (PopFxEnablePlatformStates.c)
- *     PopPepInitializeVetoMasks @ 0x14059F354 (PopPepInitializeVetoMasks.c)
- *     PopPepUpdateDripsDeviceVetoMask @ 0x14059FEF4 (PopPepUpdateDripsDeviceVetoMask.c)
- *     PopCheckResiliencyScenarios @ 0x140700F30 (PopCheckResiliencyScenarios.c)
+ *     PopFxClearDeviceConstraints @ 0x140569D04 (PopFxClearDeviceConstraints.c)
+ *     PopFxEnablePlatformStates @ 0x14056A960 (PopFxEnablePlatformStates.c)
+ *     PopPepInitializeVetoMasks @ 0x140574CDC (PopPepInitializeVetoMasks.c)
+ *     PopPepUpdateDripsDeviceVetoMask @ 0x140576040 (PopPepUpdateDripsDeviceVetoMask.c)
+ *     PopCheckResiliencyScenarios @ 0x1406F2B90 (PopCheckResiliencyScenarios.c)
  * Callees:
  *     <none>
  */

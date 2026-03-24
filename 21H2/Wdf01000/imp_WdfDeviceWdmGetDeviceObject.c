@@ -1,36 +1,55 @@
 /*
- * XREFs of imp_WdfDeviceWdmGetDeviceObject @ 0x1C00107B0
+ * XREFs of imp_WdfDeviceWdmGetDeviceObject @ 0x1C0016790
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0005DAC (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qDqD @ 0x1C005696C (WPP_IFR_SF_qDqD.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
  */
 
 _DEVICE_OBJECT *__fastcall imp_WdfDeviceWdmGetDeviceObject(_WDF_DRIVER_GLOBALS *DriverGlobals, unsigned __int64 Device)
 {
-  __int64 Offset; // r8
-  FxDeviceBase *v3; // rcx
-  FxDeviceBase *pDevice; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v3; // rcx
+  FxDeviceBase *flags; // rbx
+  FxDeviceBase_vtbl *v5; // rax
+  unsigned __int8 v6; // dl
+  unsigned int v7; // r8d
+  unsigned __int16 v8; // r9
+  const _GUID *v10; // [rsp+20h] [rbp-48h]
+  FxDeviceBase **p_pDevice; // [rsp+50h] [rbp-18h] BYREF
+  __int16 v12; // [rsp+58h] [rbp-10h]
+  __int16 v13; // [rsp+5Ah] [rbp-Eh]
+  int v14; // [rsp+5Ch] [rbp-Ch]
+  FxDeviceBase *pDevice; // [rsp+78h] [rbp+10h] BYREF
 
-  LOWORD(Offset) = 0;
-  pDevice = 0LL;
   if ( !Device )
-    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], WDF_INVALID_HANDLE, 0LL, 0x1030uLL);
-  v3 = (FxDeviceBase *)(~Device & 0xFFFFFFFFFFFFFFF8uLL);
+    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, WDF_INVALID_HANDLE, 0LL, 0x1030uLL);
+  LOWORD(v3) = 0;
+  flags = (FxDeviceBase *)(~Device & 0xFFFFFFFFFFFFFFF8uLL);
   if ( (Device & 1) != 0 )
   {
-    Offset = LOWORD(v3->FxNonPagedObject::FxObject::__vftable);
-    v3 = (FxDeviceBase *)((char *)v3 - Offset);
+    v3 = LOWORD(flags->FxNonPagedObject::FxObject::__vftable);
+    flags = (FxDeviceBase *)((char *)flags - v3);
   }
-  if ( v3->m_Type == 4144 )
+  if ( flags->m_Type == 4144 )
   {
-    pDevice = v3;
+    pDevice = flags;
   }
   else
   {
-    FxObjectHandleGetPtrQI(v3, (void **)&pDevice, (void *)Device, 0x1030u, Offset);
-    v3 = pDevice;
+    pDevice = 0LL;
+    p_pDevice = &pDevice;
+    v13 = v3;
+    v14 = 0;
+    v5 = flags->FxNonPagedObject::FxObject::__vftable;
+    v12 = 4144;
+    if ( v5->QueryInterface(flags, (FxQueryInterfaceParams *)&p_pDevice) < 0 )
+    {
+      WPP_IFR_SF_qDqD(flags->m_Globals, v6, v7, v8, v10, (const void *)Device, 0x1030u, flags, flags->m_Type);
+      FxVerifierBugCheckWorker(flags->m_Globals, WDF_INVALID_HANDLE, Device, 0x1030uLL);
+    }
+    flags = pDevice;
   }
-  return v3->m_DeviceObject.m_DeviceObject;
+  return flags->m_DeviceObject.m_DeviceObject;
 }

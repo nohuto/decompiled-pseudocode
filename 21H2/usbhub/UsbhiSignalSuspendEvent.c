@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhiSignalSuspendEvent @ 0x1C0035C0C
+ * XREFs of UsbhiSignalSuspendEvent @ 0x1C0036EC8
  * Callers:
- *     Usbh_PCE_Suspend_Action @ 0x1C0008CC0 (Usbh_PCE_Suspend_Action.c)
- *     UsbhFreePortChangeQueueObject @ 0x1C000D6AC (UsbhFreePortChangeQueueObject.c)
- *     Usbh_PCE_Resume_Action @ 0x1C0010A20 (Usbh_PCE_Resume_Action.c)
- *     Usbh_PCE_Disable_Action @ 0x1C0011DA0 (Usbh_PCE_Disable_Action.c)
- *     Usbh_PCE_wChange_Action @ 0x1C0015F80 (Usbh_PCE_wChange_Action.c)
- *     UsbhRemoveQueuedSuspend @ 0x1C00347B8 (UsbhRemoveQueuedSuspend.c)
+ *     UsbhFreePortChangeQueueObject @ 0x1C0002648 (UsbhFreePortChangeQueueObject.c)
+ *     Usbh_PCE_Resume_Action @ 0x1C0004220 (Usbh_PCE_Resume_Action.c)
+ *     Usbh_PCE_Disable_Action @ 0x1C0004C90 (Usbh_PCE_Disable_Action.c)
+ *     Usbh_PCE_wChange_Action @ 0x1C0007A40 (Usbh_PCE_wChange_Action.c)
+ *     Usbh_PCE_Suspend_Action @ 0x1C000F4B0 (Usbh_PCE_Suspend_Action.c)
+ *     UsbhRemoveQueuedSuspend @ 0x1C0035B1C (UsbhRemoveQueuedSuspend.c)
  * Callees:
- *     UsbhLogSignalSuspendEvent @ 0x1C0033834 (UsbhLogSignalSuspendEvent.c)
- *     UsbhSetPcqEventStatus @ 0x1C00348C0 (UsbhSetPcqEventStatus.c)
+ *     UsbhLogSignalSuspendEvent @ 0x1C0034B98 (UsbhLogSignalSuspendEvent.c)
+ *     UsbhSetPcqEventStatus @ 0x1C0035C24 (UsbhSetPcqEventStatus.c)
  */
 
 void __fastcall UsbhiSignalSuspendEvent(__int64 a1, __int64 a2)

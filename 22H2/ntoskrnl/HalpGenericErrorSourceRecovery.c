@@ -1,79 +1,71 @@
 /*
- * XREFs of HalpGenericErrorSourceRecovery @ 0x140519760
+ * XREFs of HalpGenericErrorSourceRecovery @ 0x1404CFC58
  * Callers:
- *     HalpRequestGenericErrorRecovery @ 0x140519CB0 (HalpRequestGenericErrorRecovery.c)
+ *     HalpRequestGenericErrorRecovery @ 0x1404D0180 (HalpRequestGenericErrorRecovery.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     HalpGhesMemoryErrorHandler @ 0x14051988C (HalpGhesMemoryErrorHandler.c)
- *     HalpPmemErrorDeferredRecovery @ 0x140519BDC (HalpPmemErrorDeferredRecovery.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     HalpGhesMemoryErrorHandler @ 0x1404CFD78 (HalpGhesMemoryErrorHandler.c)
+ *     HalpPmemErrorDeferredRecovery @ 0x1404D0088 (HalpPmemErrorDeferredRecovery.c)
  */
 
 __int64 __fastcall HalpGenericErrorSourceRecovery(__int64 a1, _DWORD *a2)
 {
-  unsigned int *v2; // rbp
-  unsigned int v5; // ebx
-  int v6; // r14d
-  _DWORD *v7; // rdi
-  __int64 v8; // rcx
-  unsigned __int64 v9; // r8
+  unsigned int *v2; // r14
+  __int64 v5; // r15
+  _DWORD *v6; // rbp
+  unsigned int v7; // ebx
+  int v8; // r12d
+  _DWORD *v9; // rsi
   __int64 v10; // rdx
-  __int64 v11; // rcx
-  unsigned int v12; // eax
-  __int64 v13; // rcx
-  unsigned __int64 v14; // r8
-  _DWORD *v15; // rdx
-  _DWORD *v16; // rcx
+  unsigned int v11; // eax
+  __int64 v12; // rdx
 
   v2 = (unsigned int *)(a1 + 128);
-  v5 = -1073741637;
-  v6 = 0;
+  v5 = 0LL;
+  v6 = 0LL;
+  v7 = -1073741637;
+  v8 = 0;
   if ( *(_WORD *)(a1 + 10) )
   {
-    v7 = (_DWORD *)(a1 + 144);
+    v9 = (_DWORD *)(a1 + 144);
     while ( 1 )
     {
-      if ( (unsigned int)(v7[8] - 2) <= 1 )
+      if ( (unsigned int)(v9[8] - 2) <= 1 )
         goto LABEL_18;
-      if ( RtlCompareMemory(v7, &MEMORY_ERROR_SECTION_GUID, 0x10uLL) == 16 )
+      if ( RtlCompareMemory(v9, &MEMORY_ERROR_SECTION_GUID, 0x10uLL) == 16 )
         break;
-      if ( RtlCompareMemory(v7, PMEM_ERROR_SECTION_GUID, 0x10uLL) == 16 )
+      if ( RtlCompareMemory(v9, PMEM_ERROR_SECTION_GUID, 0x10uLL) == 16 )
       {
-        v13 = *v2;
-        v14 = v13 + (unsigned int)*(v7 - 3);
-        v15 = (_DWORD *)(v13 + a1);
-        v16 = 0LL;
-        if ( *(unsigned int *)(a1 + 20) >= v14 )
-          v16 = v15;
-        if ( !v16 || !v16[21] )
+        v12 = *v2;
+        if ( *(_DWORD *)(a1 + 20) >= (unsigned int)(v12 + *(v9 - 3)) )
+          v6 = (_DWORD *)(a1 + v12);
+        if ( !v6 || !v6[21] )
         {
-          v5 = -1073741637;
+          v7 = -1073741637;
           goto LABEL_16;
         }
-        v12 = HalpPmemErrorDeferredRecovery(v16);
+        v11 = HalpPmemErrorDeferredRecovery(v6);
         goto LABEL_14;
       }
 LABEL_16:
-      if ( (v5 & 0x80000000) == 0 )
+      if ( (v7 & 0x80000000) == 0 )
       {
         *a2 = 2;
-        return v5;
+        return v7;
       }
       v2 += 18;
-      v7 += 18;
+      v9 += 18;
 LABEL_18:
-      if ( ++v6 >= (unsigned int)*(unsigned __int16 *)(a1 + 10) )
-        return v5;
+      if ( ++v8 >= (unsigned int)*(unsigned __int16 *)(a1 + 10) )
+        return v7;
     }
-    v8 = *v2;
-    v9 = v8 + (unsigned int)*(v7 - 3);
-    v10 = v8 + a1;
-    v11 = 0LL;
-    if ( *(unsigned int *)(a1 + 20) >= v9 )
-      v11 = v10;
-    v12 = HalpGhesMemoryErrorHandler(v11);
+    v10 = *v2;
+    if ( *(_DWORD *)(a1 + 20) >= (unsigned int)(v10 + *(v9 - 3)) )
+      v5 = a1 + v10;
+    v11 = HalpGhesMemoryErrorHandler(v5);
 LABEL_14:
-    v5 = v12;
+    v7 = v11;
     goto LABEL_16;
   }
-  return v5;
+  return v7;
 }

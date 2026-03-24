@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Convert_D2D1_COLOR_F_scRGB_To_D2D1_COLOR_F_sRGB@@YA?AU_D3DCOLORVALUE@@AEBU1@@Z @ 0x18026F468
+ * XREFs of ?Convert_D2D1_COLOR_F_scRGB_To_D2D1_COLOR_F_sRGB@@YA?AU_D3DCOLORVALUE@@AEBU1@@Z @ 0x18021EEF8
  * Callers:
- *     InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___ @ 0x180256B48 (InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___.c)
- *     InterpolateInLinearGamma__lambda_d9ec8cec7b93f46268f106f2fd316fdd___ @ 0x180256C40 (InterpolateInLinearGamma__lambda_d9ec8cec7b93f46268f106f2fd316fdd___.c)
+ *     InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___ @ 0x180206510 (InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___.c)
+ *     InterpolateInLinearGamma__lambda_d9ec8cec7b93f46268f106f2fd316fdd___ @ 0x1802065F8 (InterpolateInLinearGamma__lambda_d9ec8cec7b93f46268f106f2fd316fdd___.c)
  * Callees:
- *     ?Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z @ 0x1800E1DE8 (-Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z.c)
+ *     ?Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z @ 0x1800D1948 (-Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z.c)
  */
 
 struct _D3DCOLORVALUE *__fastcall Convert_D2D1_COLOR_F_scRGB_To_D2D1_COLOR_F_sRGB(

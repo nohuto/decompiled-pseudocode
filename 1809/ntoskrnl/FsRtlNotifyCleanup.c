@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlNotifyCleanup @ 0x1406A1900
+ * XREFs of FsRtlNotifyCleanup @ 0x1406A18E0
  * Callers:
  *     <none>
  * Callees:
@@ -7,8 +7,8 @@
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     FsRtlIsNotifyOnList @ 0x1406A1990 (FsRtlIsNotifyOnList.c)
- *     FsRtlNotifyCleanupOneEntry @ 0x1406A19B4 (FsRtlNotifyCleanupOneEntry.c)
+ *     FsRtlIsNotifyOnList @ 0x1406A1970 (FsRtlIsNotifyOnList.c)
+ *     FsRtlNotifyCleanupOneEntry @ 0x1406A1994 (FsRtlNotifyCleanupOneEntry.c)
  */
 
 void __stdcall FsRtlNotifyCleanup(PNOTIFY_SYNC NotifySync, PLIST_ENTRY NotifyList, PVOID FsContext)

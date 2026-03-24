@@ -1,11 +1,11 @@
 /*
- * XREFs of RawInputManagerInputObserverObjectCreate @ 0x1C019A090
+ * XREFs of RawInputManagerInputObserverObjectCreate @ 0x1C01662B0
  * Callers:
- *     rimObsAddInputObserver @ 0x1C01B320C (rimObsAddInputObserver.c)
+ *     rimObsAddInputObserver @ 0x1C017D8AC (rimObsAddInputObserver.c)
  * Callees:
- *     rimAddToObTrackList @ 0x1C0044220 (rimAddToObTrackList.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     rimObsReadMaxQueueSize @ 0x1C01B553C (rimObsReadMaxQueueSize.c)
+ *     rimAddToObTrackList @ 0x1C005815C (rimAddToObTrackList.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     rimObsReadMaxQueueSize @ 0x1C017EEE0 (rimObsReadMaxQueueSize.c)
  */
 
 __int64 __fastcall RawInputManagerInputObserverObjectCreate(
@@ -15,36 +15,45 @@ __int64 __fastcall RawInputManagerInputObserverObjectCreate(
         __int64 a4,
         PHANDLE Handle)
 {
-  NTSTATUS Object; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
+  NTSTATUS inserted; // ebx
+  PVOID v6; // rcx
+  _QWORD *v7; // rax
+  __int64 v8; // rdx
+  __int64 CurrentProcess; // rax
+  _QWORD *v10; // rax
+  _QWORD *v11; // rax
+  _QWORD *v12; // rax
+  PVOID Object; // [rsp+68h] [rbp+18h] BYREF
 
-  Object = ObCreateObject(a1, ExRawInputManagerObjectType, 0LL);
-  if ( Object >= 0 )
+  Object = 0LL;
+  inserted = ObCreateObject(a1, ExRawInputManagerObjectType, 0LL, a4, 0LL, 192, 0, 0, &Object);
+  if ( inserted >= 0 )
   {
-    memset(0LL, 0, 0xC0uLL);
-    MEMORY[0] = gSessionId;
-    MEMORY[4] = 3;
-    MEMORY[0x18] = 16LL;
-    MEMORY[0x10] = 16LL;
-    MEMORY[0x20] = PsGetCurrentProcess(0LL, v6, v7, v8);
-    MEMORY[0x28] = KeGetCurrentThread();
-    MEMORY[0x88] = 128LL;
-    MEMORY[0x80] = 128LL;
-    MEMORY[0x98] = 144LL;
-    MEMORY[0x90] = 144LL;
-    MEMORY[0xA0] = 0;
-    MEMORY[0xA4] = 0;
-    MEMORY[0xA8] = rimObsReadMaxQueueSize(MEMORY[0x28], v9, v10, v11, 0LL);
-    MEMORY[0xB0] = 0LL;
-    MEMORY[0xB8] = 0LL;
-    Object = ObInsertObject(0LL, 0LL, 3u, 0, 0LL, Handle);
-    if ( Object >= 0 )
-      rimAddToObTrackList(0LL);
+    memset(Object, 0, 0xC0uLL);
+    v6 = Object;
+    *(_DWORD *)Object = gSessionId;
+    *((_DWORD *)Object + 1) = 3;
+    v7 = (char *)Object + 16;
+    *((_QWORD *)Object + 3) = (char *)Object + 16;
+    *v7 = v7;
+    CurrentProcess = PsGetCurrentProcess(v6, v8);
+    *((_QWORD *)Object + 4) = CurrentProcess;
+    *((_QWORD *)Object + 5) = KeGetCurrentThread();
+    v10 = (char *)Object + 128;
+    *((_QWORD *)Object + 17) = (char *)Object + 128;
+    *v10 = v10;
+    v11 = (char *)Object + 144;
+    *((_QWORD *)Object + 19) = (char *)Object + 144;
+    *v11 = v11;
+    *((_DWORD *)Object + 40) = 0;
+    *((_DWORD *)Object + 41) = 0;
+    *((_DWORD *)Object + 42) = rimObsReadMaxQueueSize();
+    v12 = Object;
+    *((_QWORD *)Object + 22) = 0LL;
+    v12[23] = 0LL;
+    inserted = ObInsertObject(Object, 0LL, 3u, 0, 0LL, Handle);
+    if ( inserted >= 0 )
+      rimAddToObTrackList((__int64)Object);
   }
-  return (unsigned int)Object;
+  return (unsigned int)inserted;
 }

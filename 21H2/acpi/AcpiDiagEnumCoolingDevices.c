@@ -1,7 +1,7 @@
 /*
- * XREFs of AcpiDiagEnumCoolingDevices @ 0x1C0047794
+ * XREFs of AcpiDiagEnumCoolingDevices @ 0x1C0049480
  * Callers:
- *     AcpiDiagTraceThermalZoneRundown @ 0x1C0048B0C (AcpiDiagTraceThermalZoneRundown.c)
+ *     AcpiDiagTraceThermalZoneRundown @ 0x1C004A12C (AcpiDiagTraceThermalZoneRundown.c)
  * Callees:
  *     <none>
  */

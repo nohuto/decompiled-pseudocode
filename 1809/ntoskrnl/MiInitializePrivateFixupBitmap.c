@@ -1,7 +1,7 @@
 /*
  * XREFs of MiInitializePrivateFixupBitmap @ 0x1405A8B60
  * Callers:
- *     MiAddPrivateFixupEntryForSystemImage @ 0x140176A4C (MiAddPrivateFixupEntryForSystemImage.c)
+ *     MiAddPrivateFixupEntryForSystemImage @ 0x140176A6C (MiAddPrivateFixupEntryForSystemImage.c)
  *     MiAllocateFixupVad @ 0x1405A8720 (MiAllocateFixupVad.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)

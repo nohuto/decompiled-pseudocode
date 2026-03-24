@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpDeviceBiosResourcesToNtResources @ 0x1C0022C8C
+ * XREFs of PnpDeviceBiosResourcesToNtResources @ 0x1C0016B88
  * Callers:
- *     PnpBiosGetDeviceResourceList @ 0x1C0097DD0 (PnpBiosGetDeviceResourceList.c)
+ *     PnpBiosGetDeviceResourceList @ 0x1C009C794 (PnpBiosGetDeviceResourceList.c)
  * Callees:
- *     PnpBiosResourcesToNtResources @ 0x1C009832C (PnpBiosResourcesToNtResources.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  */
 
 __int64 __fastcall PnpDeviceBiosResourcesToNtResources(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -24,7 +24,7 @@ __int64 __fastcall PnpDeviceBiosResourcesToNtResources(__int64 a1, __int64 a2, u
   v5 = a1;
   v6 = a3 | 2;
   v8 = (*(_QWORD *)(a1 + 8) & 0x10000000000LL) == 0;
-  v9 = *(_QWORD *)(a1 + 768);
+  v9 = *(_QWORD *)(a1 + 728);
   if ( v8 )
     v6 = a3;
   v10 = PnpBiosResourcesToNtResources(v9, a2, v6);
@@ -32,9 +32,9 @@ __int64 __fastcall PnpDeviceBiosResourcesToNtResources(__int64 a1, __int64 a2, u
   {
     v11 = 0;
     v12 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-    while ( !_bittest64((const signed __int64 *)(v5 + 8), 0x25u) )
+    while ( (*(_QWORD *)(v5 + 8) & 0x2000000000LL) == 0 )
     {
-      v5 = *(_QWORD *)(v5 + 792);
+      v5 = *(_QWORD *)(v5 + 752);
       if ( !v5 )
         goto LABEL_8;
     }

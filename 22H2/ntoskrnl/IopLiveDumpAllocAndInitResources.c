@@ -1,313 +1,281 @@
 /*
- * XREFs of IopLiveDumpAllocAndInitResources @ 0x14094C61C
+ * XREFs of IopLiveDumpAllocAndInitResources @ 0x140896C0C
  * Callers:
- *     IoCaptureLiveDump @ 0x14094BA98 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x1408962E8 (IoCaptureLiveDump.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlClearAllBitsEx @ 0x14033CFF0 (RtlClearAllBitsEx.c)
- *     VslIsSecureKernelRunning @ 0x14036E8E0 (VslIsSecureKernelRunning.c)
- *     IopGetPhysicalMemoryBlock @ 0x140394850 (IopGetPhysicalMemoryBlock.c)
- *     RtlSetAllBitsEx @ 0x1403B47E0 (RtlSetAllBitsEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x140559DDC (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpIsUnderMemoryPressure @ 0x140559E54 (IopLiveDumpIsUnderMemoryPressure.c)
- *     IopLiveDumpTraceBufferAllocation @ 0x14055A1F8 (IopLiveDumpTraceBufferAllocation.c)
- *     IopLiveDumpAllocateDumpBuffers @ 0x14094CCA4 (IopLiveDumpAllocateDumpBuffers.c)
- *     IopLiveDumpAllocateExtraBuffers @ 0x14094D250 (IopLiveDumpAllocateExtraBuffers.c)
- *     IopLiveDumpAllocateIptBuffers @ 0x14094DC58 (IopLiveDumpAllocateIptBuffers.c)
- *     IopLiveDumpAllocateMappingResources @ 0x14094DE38 (IopLiveDumpAllocateMappingResources.c)
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094DFC4 (IopLiveDumpDiscardVirtualAddressRange.c)
- *     IopLiveDumpExcludeProtectedProcesses @ 0x14094E058 (IopLiveDumpExcludeProtectedProcesses.c)
- *     IopLiveDumpReleaseResources @ 0x14094EEC8 (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x140A9B25C (IopLiveDumpEstimateMemoryPages.c)
- *     IopLiveDumpResetCorralContext @ 0x140A9C5D8 (IopLiveDumpResetCorralContext.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     RtlClearAllBitsEx @ 0x14031AD10 (RtlClearAllBitsEx.c)
+ *     VslIsSecureKernelRunning @ 0x14032D1FC (VslIsSecureKernelRunning.c)
+ *     IopGetPhysicalMemoryBlock @ 0x1403CAAA4 (IopGetPhysicalMemoryBlock.c)
+ *     RtlSetAllBitsEx @ 0x1403CAEF0 (RtlSetAllBitsEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x140508980 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     IopLiveDumpTraceBufferAllocation @ 0x140508AA4 (IopLiveDumpTraceBufferAllocation.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x1408972A4 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpAllocateExtraBuffers @ 0x1408976C4 (IopLiveDumpAllocateExtraBuffers.c)
+ *     IopLiveDumpAllocateIptBuffers @ 0x140897CB4 (IopLiveDumpAllocateIptBuffers.c)
+ *     IopLiveDumpAllocateMappingResources @ 0x140897EBC (IopLiveDumpAllocateMappingResources.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x140897FDC (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     IopLiveDumpReleaseResources @ 0x14089873C (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x1409AC3CC (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpResetCorralContext @ 0x1409AD678 (IopLiveDumpResetCorralContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopLiveDumpAllocAndInitResources(__int64 a1)
 {
-  __int64 MillisecondCounter; // rax
-  __int64 v3; // r14
-  _DWORD *PhysicalMemoryBlock; // rax
-  unsigned int v5; // r12d
-  _QWORD *v6; // rsi
+  unsigned int v2; // r12d
+  char *v3; // r13
   int MappingResources; // ebx
-  int v8; // eax
-  __int64 v9; // rdx
-  unsigned __int64 v10; // rbx
-  __int64 Pool2; // rax
-  __int64 v12; // rax
-  __int64 v13; // rcx
-  unsigned __int64 v14; // r14
-  __int64 v15; // rax
-  __int64 v16; // r13
-  __int64 v17; // rax
-  __int64 v18; // rax
-  __int64 v19; // rax
+  char *PhysicalMemoryBlock; // rax
+  int v6; // eax
+  __int64 v7; // rdx
+  unsigned __int64 v8; // rbx
+  PVOID PoolWithTag; // rax
+  __int64 v10; // r10
+  __int64 v11; // rcx
+  SIZE_T v12; // rsi
+  PVOID v13; // rax
+  void *v14; // r10
+  __int64 v15; // r15
+  __int64 v16; // rax
+  PVOID v17; // rax
+  __int64 v18; // r10
+  __int64 v19; // rcx
   __int64 v20; // rcx
-  __int64 v21; // rcx
-  __int64 v22; // rax
-  __int64 v23; // rax
+  PVOID v21; // rax
+  __int64 v22; // r10
   __int64 i; // rbx
-  unsigned int v25; // r15d
-  __int64 v26; // r13
+  __int64 v24; // r15
+  __int64 v25; // r14
+  PVOID v26; // rax
   __int64 v27; // rax
-  __int64 v28; // rax
-  unsigned __int64 v29; // rsi
-  __int64 v30; // r14
-  __int64 v31; // rax
-  __int64 v32; // rax
-  int v33; // ecx
-  char v34; // al
-  __int64 v35; // rax
-  _DWORD *v37; // [rsp+38h] [rbp-D0h] BYREF
-  __int64 v38; // [rsp+40h] [rbp-C8h] BYREF
-  char v39; // [rsp+48h] [rbp-C0h] BYREF
-  bool v40; // [rsp+49h] [rbp-BFh] BYREF
-  bool v41; // [rsp+4Ah] [rbp-BEh] BYREF
-  __int64 v42; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v43; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v44; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v45; // [rsp+68h] [rbp-A0h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v46; // [rsp+78h] [rbp-90h] BYREF
-  __int64 *v47; // [rsp+98h] [rbp-70h]
-  __int64 v48; // [rsp+A0h] [rbp-68h]
-  _QWORD *v49; // [rsp+A8h] [rbp-60h]
-  __int64 v50; // [rsp+B0h] [rbp-58h]
-  char *v51; // [rsp+B8h] [rbp-50h]
-  __int64 v52; // [rsp+C0h] [rbp-48h]
-  __int64 *v53; // [rsp+C8h] [rbp-40h]
-  __int64 v54; // [rsp+D0h] [rbp-38h]
-  __int64 *v55; // [rsp+D8h] [rbp-30h]
-  __int64 v56; // [rsp+E0h] [rbp-28h]
-  bool *v57; // [rsp+E8h] [rbp-20h]
-  __int64 v58; // [rsp+F0h] [rbp-18h]
-  __int64 *v59; // [rsp+F8h] [rbp-10h]
-  __int64 v60; // [rsp+100h] [rbp-8h]
-  bool *v61; // [rsp+108h] [rbp+0h]
-  __int64 v62; // [rsp+110h] [rbp+8h]
-  __int64 *v63; // [rsp+118h] [rbp+10h]
-  __int64 v64; // [rsp+120h] [rbp+18h]
+  SIZE_T v28; // rsi
+  __int64 v29; // r14
+  PVOID v30; // rax
+  PVOID v31; // rax
+  __int64 v32; // r10
+  char v33; // al
+  char v35; // [rsp+40h] [rbp-71h] BYREF
+  __int64 v36; // [rsp+48h] [rbp-69h] BYREF
+  __int64 v37; // [rsp+50h] [rbp-61h] BYREF
+  __int64 v38; // [rsp+58h] [rbp-59h] BYREF
+  unsigned __int64 v39; // [rsp+60h] [rbp-51h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v40; // [rsp+68h] [rbp-49h] BYREF
+  __int64 *v41; // [rsp+88h] [rbp-29h]
+  __int64 v42; // [rsp+90h] [rbp-21h]
+  char *v43; // [rsp+98h] [rbp-19h]
+  __int64 v44; // [rsp+A0h] [rbp-11h]
+  __int64 *v45; // [rsp+A8h] [rbp-9h]
+  __int64 v46; // [rsp+B0h] [rbp-1h]
+  __int64 *v47; // [rsp+B8h] [rbp+7h]
+  __int64 v48; // [rsp+C0h] [rbp+Fh]
+  unsigned __int64 *v49; // [rsp+C8h] [rbp+17h]
+  __int64 v50; // [rsp+D0h] [rbp+1Fh]
 
-  MillisecondCounter = IopLiveDumpGetMillisecondCounter(0);
-  v38 = MillisecondCounter;
-  *(_QWORD *)(a1 + 312) = a1;
-  v3 = MillisecondCounter;
-  IopLiveDumpResetCorralContext();
-  PhysicalMemoryBlock = (_DWORD *)IopGetPhysicalMemoryBlock();
-  v5 = 0;
-  v37 = PhysicalMemoryBlock;
-  v6 = PhysicalMemoryBlock;
-  if ( PhysicalMemoryBlock )
+  v2 = 0;
+  v3 = 0LL;
+  if ( IopLiveDumpIsUnderMemoryPressure(*(_QWORD *)(a1 + 824), *(_QWORD *)(a1 + 832), *(_QWORD *)(a1 + 840)) )
   {
-    v8 = *PhysicalMemoryBlock;
-    if ( !v8 )
-    {
-      MappingResources = -1073741595;
-      goto LABEL_46;
-    }
-    v9 = v6[2 * (unsigned int)(v8 - 1) + 2] + v6[2 * (unsigned int)(v8 - 1) + 3];
-    *(_QWORD *)(a1 + 88) = v9;
-    v10 = (((unsigned __int64)(v9 + 7) >> 3) + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-    Pool2 = ExAllocatePool2(64LL, (v10 + 4095) & 0xFFFFFFFFFFFFF000uLL, 1886217292LL);
-    *(_QWORD *)(a1 + 592) = Pool2;
-    if ( Pool2 )
-    {
-      if ( IopLiveDumpIsUnderMemoryPressure(a1) )
-      {
-        MappingResources = -1073741248;
-        goto LABEL_46;
-      }
-      v12 = *(_QWORD *)(a1 + 88);
-      *(_QWORD *)(a1 + 584) = *(_QWORD *)(a1 + 592);
-      *(_QWORD *)(a1 + 576) = v12;
-      RtlSetAllBitsEx((_QWORD *)(a1 + 576));
-      IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 592), (v10 + 4095) & 0xFFFFFFFFFFFFF000uLL);
-      if ( (*(_DWORD *)(a1 + 80) & 0x8000) != 0 && (*(_DWORD *)(a1 + 40) & 4) != 0 )
-        IopLiveDumpExcludeProtectedProcesses(a1);
-      if ( VslIsSecureKernelRunning() )
-        v13 += 2 * v10;
-      v14 = (v13 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-      v15 = ExAllocatePool2(64LL, v14, 1886217292LL);
-      *(_QWORD *)(a1 + 560) = v15;
-      if ( !v15 )
-        goto LABEL_14;
-      if ( IopLiveDumpIsUnderMemoryPressure(a1) )
-      {
-LABEL_16:
-        MappingResources = -1073741248;
-        goto LABEL_45;
-      }
-      v16 = *(_QWORD *)(a1 + 560);
-      *(_QWORD *)(a1 + 568) = v14;
-      *(_QWORD *)(v16 + 8224) = v14;
-      v17 = *(_QWORD *)(a1 + 88);
-      *(_QWORD *)(v16 + 8240) = v17;
-      *(_QWORD *)(a1 + 544) = v17;
-      *(_QWORD *)(a1 + 552) = v16 + 8248;
-      RtlClearAllBitsEx(a1 + 544);
-      IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 560), *(_QWORD *)(a1 + 568));
-      v18 = ExAllocatePool2(64LL, (v10 + 4095) & 0xFFFFFFFFFFFFF000uLL, 1886217292LL);
-      *(_QWORD *)(a1 + 648) = v18;
-      if ( v18 )
-      {
-        if ( IopLiveDumpIsUnderMemoryPressure(a1) )
-          goto LABEL_16;
-        v19 = *(_QWORD *)(a1 + 88);
-        *(_QWORD *)(a1 + 608) = *(_QWORD *)(a1 + 648);
-        *(_QWORD *)(a1 + 600) = v19;
-        IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 648), (v10 + 4095) & 0xFFFFFFFFFFFFF000uLL);
-        if ( VslIsSecureKernelRunning() )
-        {
-          *(_QWORD *)(a1 + 632) = v20;
-          *(_QWORD *)(a1 + 640) = v10 + v16 + 8248;
-          *(_QWORD *)(a1 + 616) = *(_QWORD *)(a1 + 88);
-          *(_QWORD *)(a1 + 624) = 2 * v10 + v16 + 8248;
-        }
-        else
-        {
-          *(_QWORD *)(a1 + 624) = *(_QWORD *)(a1 + 648);
-          *(_QWORD *)(a1 + 616) = v20;
-          v21 = *(_QWORD *)(a1 + 648);
-          *(_QWORD *)(a1 + 632) = *(_QWORD *)(a1 + 88);
-          *(_QWORD *)(a1 + 640) = v21;
-        }
-        v22 = ExAllocatePool2(64LL, (v10 + 4095) & 0xFFFFFFFFFFFFF000uLL, 1886217292LL);
-        *(_QWORD *)(a1 + 672) = v22;
-        if ( v22 )
-        {
-          if ( IopLiveDumpIsUnderMemoryPressure(a1) )
-            goto LABEL_16;
-          v23 = *(_QWORD *)(a1 + 88);
-          *(_QWORD *)(a1 + 664) = *(_QWORD *)(a1 + 672);
-          *(_QWORD *)(a1 + 656) = v23;
-          IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 672), (v10 + 4095) & 0xFFFFFFFFFFFFF000uLL);
-          for ( i = *(_QWORD *)(a1 + 56); i; i = *(_QWORD *)(i + 32) )
-            IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(i + 16), *(unsigned int *)(i + 24));
-          MappingResources = IopLiveDumpAllocateMappingResources(a1);
-          if ( MappingResources < 0 )
-            goto LABEL_45;
-          if ( IopLiveDumpIsUnderMemoryPressure(a1) )
-            goto LABEL_16;
-          MappingResources = IopLiveDumpEstimateMemoryPages(a1);
-          if ( MappingResources < 0 )
-            goto LABEL_45;
-          MappingResources = IopLiveDumpAllocateDumpBuffers(a1);
-          if ( MappingResources >= 0 )
-          {
-            MappingResources = IopLiveDumpAllocateExtraBuffers(a1);
-            if ( MappingResources >= 0 )
-            {
-              if ( !IptInterface || (MappingResources = IopLiveDumpAllocateIptBuffers(a1), MappingResources >= 0) )
-                IopLiveDumpTraceBufferAllocation();
-            }
-          }
-          v25 = KeNumberProcessors_0;
-          v26 = (unsigned int)KeNumberProcessors_0;
-          v27 = ExAllocatePool2(64LL, 8LL * (unsigned int)KeNumberProcessors_0, 1886217292LL);
-          *(_QWORD *)(a1 + 1120) = v27;
-          if ( v27 )
-          {
-            v28 = (unsigned int)BufferChunkSizeInPages;
-            *(_DWORD *)(a1 + 1112) = v25;
-            v29 = (8 * v28 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-            if ( v25 )
-            {
-              v30 = 0LL;
-              while ( 1 )
-              {
-                *(_QWORD *)(v30 + *(_QWORD *)(a1 + 1120)) = ExAllocatePool2(64LL, v29, 1886217292LL);
-                if ( !*(_QWORD *)(v30 + *(_QWORD *)(a1 + 1120)) )
-                  break;
-                ++v5;
-                v30 += 8LL;
-                if ( v5 >= v25 )
-                  goto LABEL_41;
-              }
-            }
-            else
-            {
-LABEL_41:
-              v31 = ExAllocatePool2(64LL, v29, 1886217292LL);
-              *(_QWORD *)(a1 + 1128) = v31;
-              if ( v31 )
-              {
-                v32 = ExAllocatePool2(64LL, v29, 1886217292LL);
-                *(_QWORD *)(a1 + 1136) = v32;
-                if ( v32 )
-                {
-                  if ( !IopLiveDumpIsUnderMemoryPressure(a1) )
-                  {
-                    IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 1120), v29 * v26);
-                    IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 1128), v29);
-                    IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 1136), v29);
-                    goto LABEL_45;
-                  }
-                  goto LABEL_16;
-                }
-              }
-            }
-          }
-          else
-          {
-            *(_DWORD *)(a1 + 1112) = 0;
-          }
-        }
-      }
-LABEL_14:
-      MappingResources = -1073741670;
-LABEL_45:
-      v6 = v37;
-      v3 = v38;
-      goto LABEL_46;
-    }
+    MappingResources = -1073741248;
+    goto LABEL_44;
   }
-  MappingResources = -1073741670;
-LABEL_46:
-  if ( (unsigned int)dword_140C03870 > 5 && tlgKeywordOn((__int64)&dword_140C03870, 0x400000000000LL) )
+  *(_QWORD *)(a1 + 304) = a1;
+  IopLiveDumpResetCorralContext();
+  PhysicalMemoryBlock = IopGetPhysicalMemoryBlock();
+  v3 = PhysicalMemoryBlock;
+  if ( !PhysicalMemoryBlock )
+    goto LABEL_4;
+  v6 = *(_DWORD *)PhysicalMemoryBlock;
+  if ( !v6 )
   {
-    v33 = *(_DWORD *)(a1 + 80);
+    MappingResources = -1073741595;
+    goto LABEL_44;
+  }
+  v7 = *(_QWORD *)&v3[16 * (v6 - 1) + 16] + *(_QWORD *)&v3[16 * (v6 - 1) + 24];
+  *(_QWORD *)(a1 + 88) = v7;
+  v8 = (((unsigned __int64)(v7 + 7) >> 3) + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL, 0x706D644Cu);
+  *(_QWORD *)(a1 + 592) = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_4;
+  if ( IopLiveDumpIsUnderMemoryPressure(*(_QWORD *)(a1 + 824), *(_QWORD *)(a1 + 832), *(_QWORD *)(a1 + 840)) )
+  {
+LABEL_9:
+    MappingResources = -1073741248;
+    goto LABEL_44;
+  }
+  *(_QWORD *)(a1 + 576) = *(_QWORD *)(a1 + 88);
+  *(_QWORD *)(a1 + 584) = v10;
+  RtlSetAllBitsEx((_QWORD *)(a1 + 576));
+  IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 592), (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL);
+  if ( VslIsSecureKernelRunning() )
+    v11 += 2 * v8;
+  v12 = (v11 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+  v13 = ExAllocatePoolWithTag(NonPagedPoolNx, v12, 0x706D644Cu);
+  *(_QWORD *)(a1 + 560) = v13;
+  if ( !v13 )
+    goto LABEL_4;
+  if ( IopLiveDumpIsUnderMemoryPressure(*(_QWORD *)(a1 + 824), *(_QWORD *)(a1 + 832), *(_QWORD *)(a1 + 840)) )
+    goto LABEL_9;
+  *(_QWORD *)(a1 + 568) = v12;
+  memset(v14, 0, v12);
+  v15 = *(_QWORD *)(a1 + 560);
+  *(_QWORD *)(v15 + 8224) = v12;
+  v16 = *(_QWORD *)(a1 + 88);
+  *(_QWORD *)(v15 + 8240) = v16;
+  *(_QWORD *)(a1 + 544) = v16;
+  *(_QWORD *)(a1 + 552) = v15 + 8248;
+  RtlClearAllBitsEx(a1 + 544);
+  IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 560), *(_QWORD *)(a1 + 568));
+  v17 = ExAllocatePoolWithTag(NonPagedPoolNx, (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL, 0x706D644Cu);
+  *(_QWORD *)(a1 + 648) = v17;
+  if ( !v17 )
+    goto LABEL_4;
+  if ( IopLiveDumpIsUnderMemoryPressure(*(_QWORD *)(a1 + 824), *(_QWORD *)(a1 + 832), *(_QWORD *)(a1 + 840)) )
+    goto LABEL_9;
+  *(_QWORD *)(a1 + 600) = *(_QWORD *)(a1 + 88);
+  *(_QWORD *)(a1 + 608) = v18;
+  RtlClearAllBitsEx(a1 + 600);
+  IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 648), (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL);
+  if ( VslIsSecureKernelRunning() )
+  {
+    *(_QWORD *)(a1 + 632) = v19;
+    *(_QWORD *)(a1 + 640) = v8 + v15 + 8248;
+    *(_QWORD *)(a1 + 616) = *(_QWORD *)(a1 + 88);
+    *(_QWORD *)(a1 + 624) = v15 + 8248 + 2 * v8;
+  }
+  else
+  {
+    *(_QWORD *)(a1 + 624) = *(_QWORD *)(a1 + 648);
+    *(_QWORD *)(a1 + 616) = v19;
+    v20 = *(_QWORD *)(a1 + 648);
+    *(_QWORD *)(a1 + 632) = *(_QWORD *)(a1 + 88);
+    *(_QWORD *)(a1 + 640) = v20;
+  }
+  v21 = ExAllocatePoolWithTag(NonPagedPoolNx, (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL, 0x706D644Cu);
+  *(_QWORD *)(a1 + 672) = v21;
+  if ( !v21 )
+  {
+LABEL_4:
+    MappingResources = -1073741670;
+    goto LABEL_44;
+  }
+  if ( IopLiveDumpIsUnderMemoryPressure(*(_QWORD *)(a1 + 824), *(_QWORD *)(a1 + 832), *(_QWORD *)(a1 + 840)) )
+    goto LABEL_9;
+  *(_QWORD *)(a1 + 656) = *(_QWORD *)(a1 + 88);
+  *(_QWORD *)(a1 + 664) = v22;
+  RtlClearAllBitsEx(a1 + 656);
+  IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 672), (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL);
+  for ( i = *(_QWORD *)(a1 + 56); i; i = *(_QWORD *)(i + 32) )
+    IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(i + 16), *(unsigned int *)(i + 24));
+  MappingResources = IopLiveDumpAllocateMappingResources(a1);
+  if ( MappingResources >= 0 )
+  {
+    if ( IopLiveDumpIsUnderMemoryPressure(*(_QWORD *)(a1 + 824), *(_QWORD *)(a1 + 832), *(_QWORD *)(a1 + 840)) )
+      goto LABEL_9;
+    MappingResources = IopLiveDumpEstimateMemoryPages(a1);
+    if ( MappingResources < 0 )
+      goto LABEL_44;
+    MappingResources = IopLiveDumpAllocateDumpBuffers(a1);
+    if ( MappingResources >= 0 )
+    {
+      MappingResources = IopLiveDumpAllocateExtraBuffers(a1);
+      if ( MappingResources >= 0 )
+      {
+        if ( IptInterface )
+          MappingResources = IopLiveDumpAllocateIptBuffers(a1);
+        if ( MappingResources >= 0 )
+          IopLiveDumpTraceBufferAllocation();
+      }
+    }
+    v24 = (unsigned int)KeNumberProcessors_0;
+    v25 = (unsigned int)KeNumberProcessors_0;
+    v26 = ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * (unsigned int)KeNumberProcessors_0, 0x706D644Cu);
+    *(_QWORD *)(a1 + 1016) = v26;
+    if ( v26 )
+    {
+      v27 = (unsigned int)BufferChunkSizeInPages;
+      *(_DWORD *)(a1 + 1008) = v24;
+      v28 = (8 * v27 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+      if ( (_DWORD)v24 )
+      {
+        v29 = 0LL;
+        while ( 1 )
+        {
+          *(_QWORD *)(v29 + *(_QWORD *)(a1 + 1016)) = ExAllocatePoolWithTag(NonPagedPoolNx, v28, 0x706D644Cu);
+          if ( !*(_QWORD *)(v29 + *(_QWORD *)(a1 + 1016)) )
+            break;
+          ++v2;
+          v29 += 8LL;
+          if ( v2 >= (unsigned int)v24 )
+          {
+            v25 = v24;
+            goto LABEL_40;
+          }
+        }
+      }
+      else
+      {
+LABEL_40:
+        v30 = ExAllocatePoolWithTag(NonPagedPoolNx, v28, 0x706D644Cu);
+        *(_QWORD *)(a1 + 1024) = v30;
+        if ( v30 )
+        {
+          v31 = ExAllocatePoolWithTag(NonPagedPoolNx, v28, 0x706D644Cu);
+          *(_QWORD *)(a1 + 1032) = v31;
+          if ( v31 )
+          {
+            if ( !IopLiveDumpIsUnderMemoryPressure(*(_QWORD *)(a1 + 824), *(_QWORD *)(a1 + 832), *(_QWORD *)(a1 + 840)) )
+            {
+              IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 1016), v28 * v25);
+              IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 1024), v28);
+              IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 1032), v28);
+              goto LABEL_44;
+            }
+            goto LABEL_9;
+          }
+        }
+      }
+    }
+    else
+    {
+      *(_DWORD *)(a1 + 1008) = 0;
+    }
+    goto LABEL_4;
+  }
+LABEL_44:
+  if ( (unsigned int)dword_140C044D8 > 5 && tlgKeywordOn((__int64)&dword_140C044D8, 0x200000000000LL) )
+  {
+    v36 = *(_QWORD *)(a1 + 680);
+    v42 = 8LL;
+    v41 = &v36;
+    v33 = *(_BYTE *)(a1 + 44) & 1;
+    v44 = 1LL;
+    v35 = v33;
+    v43 = &v35;
+    v37 = *(_QWORD *)(a1 + 696);
+    v45 = &v37;
+    v38 = *(_QWORD *)(a1 + 704);
     v47 = &v38;
-    v37 = *(_DWORD **)(a1 + 680);
-    v49 = &v37;
-    v34 = *(_BYTE *)(a1 + 44) & 1;
-    v38 = 0x1000000LL;
-    v39 = v34;
-    v51 = &v39;
-    v42 = *(_QWORD *)(a1 + 696);
-    v53 = &v42;
-    v43 = *(_QWORD *)(a1 + 704);
-    v55 = &v43;
-    v40 = (v33 & 0x200) != 0;
-    v41 = (v33 & 0x400) != 0;
-    v57 = &v40;
-    v44 = *(_QWORD *)(a1 + 1144);
-    v59 = &v44;
-    v61 = &v41;
+    v46 = 8LL;
     v48 = 8LL;
     v50 = 8LL;
-    v52 = 1LL;
-    v54 = 8LL;
-    v56 = 8LL;
-    v58 = 1LL;
-    v60 = 8LL;
-    v62 = 1LL;
-    v35 = IopLiveDumpGetMillisecondCounter(0);
-    v64 = 8LL;
-    v45 = v35 - v3;
-    v63 = &v45;
+    v49 = &v39;
+    v39 = (MEMORY[0xFFFFF78000000008] - v32) / 0x2710uLL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C03870,
-      (unsigned __int8 *)byte_14002BF83,
-      (const GUID *)(a1 + 968),
-      (const GUID *)(a1 + 952),
-      0xBu,
-      &v46);
+      (__int64)&dword_140C044D8,
+      (unsigned __int8 *)&word_140024CA6,
+      (const GUID *)(a1 + 864),
+      (const GUID *)(a1 + 848),
+      7u,
+      &v40);
   }
-  if ( v6 )
-    ExFreePoolWithTag(v6, 0);
+  if ( v3 )
+    ExFreePoolWithTag(v3, 0);
   if ( MappingResources < 0 )
     IopLiveDumpReleaseResources(a1);
   return (unsigned int)MappingResources;

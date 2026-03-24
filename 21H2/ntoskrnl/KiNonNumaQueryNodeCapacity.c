@@ -1,5 +1,5 @@
 /*
- * XREFs of KiNonNumaQueryNodeCapacity @ 0x14056DB10
+ * XREFs of KiNonNumaQueryNodeCapacity @ 0x1405159C0
  * Callers:
  *     <none>
  * Callees:

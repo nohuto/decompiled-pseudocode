@@ -1,18 +1,18 @@
 /*
- * XREFs of DbgkMapViewOfSection @ 0x140757090
+ * XREFs of DbgkMapViewOfSection @ 0x1407129A4
  * Callers:
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
- *     NtMapViewOfSection @ 0x1406FB000 (NtMapViewOfSection.c)
- *     MiMapViewOfSectionExCommon @ 0x140756C90 (MiMapViewOfSectionExCommon.c)
- *     NtLoadEnclaveData @ 0x14097B500 (NtLoadEnclaveData.c)
+ *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     NtMapViewOfSection @ 0x1406EAD00 (NtMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x1407125A8 (MiMapViewOfSectionExCommon.c)
+ *     NtLoadEnclaveData @ 0x1408D4450 (NtLoadEnclaveData.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     DbgkpSendApiMessage @ 0x14092A070 (DbgkpSendApiMessage.c)
- *     DbgkpSectionToFileHandle @ 0x14092AAC4 (DbgkpSectionToFileHandle.c)
- *     DbgkpSuppressDbgMsg @ 0x14092AB78 (DbgkpSuppressDbgMsg.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     DbgkpSendApiMessage @ 0x140887154 (DbgkpSendApiMessage.c)
+ *     DbgkpSectionToFileHandle @ 0x140887B94 (DbgkpSectionToFileHandle.c)
+ *     DbgkpSuppressDbgMsg @ 0x140887C48 (DbgkpSuppressDbgMsg.c)
  */
 
 int __fastcall DbgkMapViewOfSection(
@@ -39,7 +39,7 @@ int __fastcall DbgkMapViewOfSection(
     LODWORD(CurrentThread) = *((_DWORD *)&v11[1].SwapListEntry + 2);
     if ( ((unsigned __int8)CurrentThread & 4) == 0 )
     {
-      if ( Object[1].Affinity.StaticBitmap[29] )
+      if ( Object[1].AffinityPadding[9] )
       {
         v12 = KeGetCurrentThread();
         if ( (v12->MiscFlags & 0x400) != 0 || v12->ApcStateIndex == 1 )

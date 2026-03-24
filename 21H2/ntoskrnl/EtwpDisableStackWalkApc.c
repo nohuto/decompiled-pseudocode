@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpDisableStackWalkApc @ 0x14025B310
+ * XREFs of EtwpDisableStackWalkApc @ 0x1402D2D90
  * Callers:
  *     <none>
  * Callees:
@@ -15,6 +15,6 @@ __int64 EtwpDisableStackWalkApc()
   _m_prefetchw((char *)&CurrentThread->116 + 4);
   do
     v1 = *(&CurrentThread->MiscFlags + 1);
-  while ( v1 != _InterlockedCompareExchange((volatile signed __int32 *)&CurrentThread->116 + 1, v1 | 0xFF800000, v1) );
-  return v1 >> 23;
+  while ( v1 != _InterlockedCompareExchange((volatile signed __int32 *)&CurrentThread->116 + 1, v1 | 0xFF000000, v1) );
+  return HIBYTE(v1);
 }

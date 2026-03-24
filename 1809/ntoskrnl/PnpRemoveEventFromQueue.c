@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpRemoveEventFromQueue @ 0x140833258
+ * XREFs of PnpRemoveEventFromQueue @ 0x140833238
  * Callers:
- *     PnpQueueQueryAndRemoveEvent @ 0x14083C964 (PnpQueueQueryAndRemoveEvent.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14083C944 (PnpQueueQueryAndRemoveEvent.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)

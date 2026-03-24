@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x140ACF050
+ * XREFs of VerifierExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x1409D1B70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14046AD00 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x1405B5290 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
  */
 
 PVOID __fastcall VerifierExEnterCriticalRegionAndAcquireSharedWaitForExclusive(struct _ERESOURCE *a1)

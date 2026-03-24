@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpUmdfSidCheck @ 0x1408D32F0
+ * XREFs of ExpUmdfSidCheck @ 0x1408D32D0
  * Callers:
- *     NtQuerySystemEnvironmentValueEx @ 0x1406CAD20 (NtQuerySystemEnvironmentValueEx.c)
+ *     NtQuerySystemEnvironmentValueEx @ 0x1406CAD00 (NtQuerySystemEnvironmentValueEx.c)
  * Callees:
- *     RtlCheckTokenMembershipEx @ 0x1400DCB10 (RtlCheckTokenMembershipEx.c)
+ *     RtlCheckTokenMembershipEx @ 0x1400DCB30 (RtlCheckTokenMembershipEx.c)
  */
 
 char ExpUmdfSidCheck()

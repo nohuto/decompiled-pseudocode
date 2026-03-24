@@ -1,105 +1,111 @@
 /*
- * XREFs of IvtHandleInterrupt @ 0x14052EAA0
+ * XREFs of IvtHandleInterrupt @ 0x1404E0040
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KxTryToAcquireSpinLock @ 0x1402DA448 (KxTryToAcquireSpinLock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x1402D0788 (KxTryToAcquireSpinLock.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-char __fastcall IvtHandleInterrupt(ULONG_PTR BugCheckParameter2)
+char __fastcall IvtHandleInterrupt(__int64 a1)
 {
-  __int64 v1; // rdx
-  char v2; // r10
-  unsigned int v4; // ecx
-  unsigned int v5; // r9d
-  __int64 v6; // r8
-  unsigned int v7; // r11d
-  __int64 v8; // rdi
-  ULONG_PTR v9; // r14
-  __int64 v10; // r15
-  ULONG_PTR BugCheckParameter4; // rbp
-  char v13; // si
-  __int64 *v14; // rcx
-  ULONG_PTR v15; // rdi
-  __int64 v16; // r8
-  signed __int32 v17[8]; // [rsp+0h] [rbp-48h] BYREF
+  char v1; // r11
+  __int64 v3; // rdx
+  int v4; // eax
+  int v5; // ecx
+  unsigned int v6; // r9d
+  __int64 v7; // r8
+  unsigned int v8; // r10d
+  __int64 v9; // rdi
+  ULONG_PTR v10; // rbp
+  ULONG_PTR BugCheckParameter4; // r14
+  __int64 v12; // r15
+  ULONG_PTR v14; // rdi
+  char v15; // si
+  __int64 *v16; // rcx
+  __int64 v17; // rdx
+  signed __int32 v18[8]; // [rsp+0h] [rbp-58h] BYREF
 
-  v1 = *(_QWORD *)(BugCheckParameter2 + 8);
-  v2 = 0;
-  if ( *(_BYTE *)(BugCheckParameter2 + 316) && (*(_DWORD *)(v1 + 220) & 1) != 0 )
+  v1 = 0;
+  v3 = *(_QWORD *)(a1 + 8);
+  if ( *(_BYTE *)(a1 + 268) )
   {
-    v2 = 1;
-    *(_DWORD *)(v1 + 220) = 1;
-    _InterlockedOr(v17, 0);
+    v4 = *(_DWORD *)(v3 + 220);
+    if ( (v4 & 1) != 0 )
+    {
+      v1 = 1;
+      *(_DWORD *)(v3 + 220) = v4;
+      _InterlockedOr(v18, 0);
+    }
   }
-  v4 = *(_DWORD *)(v1 + 52);
-  if ( *(_BYTE *)(BugCheckParameter2 + 320) && (v4 & 0x10) != 0 )
-    KeBugCheckEx(0x5Cu, 0x502uLL, BugCheckParameter2, v4, 0LL);
-  if ( (v4 & 2) != 0 && v4 != -1 )
+  v5 = *(_DWORD *)(v3 + 52);
+  if ( (v5 & 2) != 0 && v5 != -1 )
   {
-    v5 = 0;
-    v6 = v1 + 16 * ((*(_QWORD *)(BugCheckParameter2 + 216) >> 24) & 0x3FFLL);
-    v7 = *(unsigned __int8 *)(BugCheckParameter2 + 221) + 1;
-    if ( *(unsigned __int8 *)(BugCheckParameter2 + 221) != -1 )
+    v6 = 0;
+    v7 = v3 + 16 * ((*(_QWORD *)(a1 + 176) >> 24) & 0x3FFLL);
+    v8 = *(unsigned __int8 *)(a1 + 181) + 1;
+    if ( *(unsigned __int8 *)(a1 + 181) != -1 )
     {
       do
       {
-        v8 = *(_QWORD *)(v6 + 16LL * ((v5 + BYTE1(v4)) % v7) + 8);
-        if ( v8 >= 0 )
+        v9 = *(_QWORD *)(v7 + 16LL * ((v6 + BYTE1(v5)) % v8) + 8);
+        if ( v9 >= 0 )
           break;
-        v9 = *(_QWORD *)(v6 + 16LL * ((v5 + BYTE1(v4)) % v7)) >> 12;
-        v10 = (unsigned __int16)v8;
-        BugCheckParameter4 = BYTE4(v8);
-        if ( *(_BYTE *)(BugCheckParameter2 + 320) || (unsigned int)BYTE4(v8) - 32 > 8 )
+        v10 = *(_QWORD *)(v7 + 16LL * ((v6 + BYTE1(v5)) % v8)) >> 12;
+        BugCheckParameter4 = BYTE4(v9);
+        v12 = (unsigned __int16)v9;
+        if ( (unsigned int)BYTE4(v9) - 32 > 8 )
         {
-          v13 = 0;
           v14 = 0LL;
-          v15 = 0LL;
+          v15 = 0;
+          v16 = 0LL;
           while ( 1 )
           {
-            if ( !v14 )
+            if ( !v16 )
             {
               if ( !KxTryToAcquireSpinLock((volatile signed __int32 *)&HalpDmaAdapterListLock) )
               {
-                if ( v13 )
-LABEL_30:
+                if ( v15 )
+LABEL_28:
                   KxReleaseSpinLock(&HalpDmaAdapterListLock);
-                KeBugCheckEx(0xE6u, 0x26uLL, v15, v9, BugCheckParameter4);
+                KeBugCheckEx(0xE6u, 0x26uLL, v14, v10, BugCheckParameter4);
               }
-              v14 = &HalpDmaAdapterList;
+              v16 = &HalpDmaAdapterList;
             }
-            v14 = (__int64 *)*v14;
-            if ( v14 == &HalpDmaAdapterList )
+            v16 = (__int64 *)*v16;
+            if ( v16 == &HalpDmaAdapterList )
             {
-              v15 = 0LL;
-              goto LABEL_30;
+              v16 = 0LL;
+              v17 = 0LL;
+              v14 = 0LL;
             }
-            v13 = 1;
-            v16 = v14[9];
-            v15 = v14[8];
-            if ( !v15 )
-              goto LABEL_30;
-            if ( v16 && *(_DWORD *)v16 == 1 )
+            else
             {
-              if ( *(unsigned __int16 *)(v16 + 12) == v10
-                && *(unsigned __int16 *)(v16 + 8) == *(_DWORD *)(BugCheckParameter2 + 252) )
-              {
-                goto LABEL_30;
-              }
-              v15 = v14[8];
+              v17 = v16[9];
+              v14 = v16[8];
+            }
+            v15 = 1;
+            if ( !v14
+              || v17
+              && *(_DWORD *)v17 == 1
+              && *(unsigned __int16 *)(v17 + 12) == v12
+              && *(unsigned __int16 *)(v17 + 8) == *(_DWORD *)(a1 + 212) )
+            {
+              goto LABEL_28;
             }
           }
         }
-        *(_QWORD *)(v6 + 16LL * ((v5 + BYTE1(v4)) % v7) + 8) = v8;
-        _InterlockedOr(v17, 0);
-        ++v5;
+        *(_QWORD *)(v7 + 16LL * ((v6 + BYTE1(v5)) % v8) + 8) = v9;
+        _InterlockedOr(v18, 0);
+        ++v6;
       }
-      while ( v5 < v7 );
+      while ( v6 < v8 );
     }
-    *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 8) + 52LL) = v4 | 1;
-    _InterlockedOr(v17, 0);
+    if ( *(_BYTE *)(a1 + 268) )
+      v5 &= ~0x80u;
+    *(_DWORD *)(*(_QWORD *)(a1 + 8) + 52LL) = v5 | 1;
+    _InterlockedOr(v18, 0);
   }
-  return v2;
+  return v1;
 }

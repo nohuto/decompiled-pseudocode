@@ -1,16 +1,16 @@
 /*
- * XREFs of ?SetBufferProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00ACBB0
+ * XREFs of ?SetBufferProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0021A50
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PEBUD2D_RECT_F@@PEA_N@Z @ 0x1C0038BB0 (-SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PE.c)
+ *     ?SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PEBUD2D_RECT_F@@PEA_N@Z @ 0x1C00235EC (-SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PE.c)
  */
 
 __int64 __fastcall DirectComposition::CRectangleClipMarshaler::SetBufferProperty(
         DirectComposition::CRectangleClipMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
-        const __m128i *a4,
+        const struct D2D_RECT_F *a4,
         unsigned __int64 a5,
         bool *a6)
 {
@@ -34,26 +34,26 @@ __int64 __fastcall DirectComposition::CRectangleClipMarshaler::SetBufferProperty
       {
         if ( v10 != 1 || a5 != 8 || !*((_BYTE *)this + 145) )
           return (unsigned int)-1073741811;
-        v12 = a4->m128i_i64[0];
+        v11 = *(_QWORD *)a4;
         *((_DWORD *)this + 4) &= ~0x800u;
-        *((_QWORD *)this + 14) = v12;
+        *((_QWORD *)this + 14) = v11;
       }
       else
       {
         if ( a5 != 8 || !*((_BYTE *)this + 145) )
           return (unsigned int)-1073741811;
-        v11 = a4->m128i_i64[0];
+        v13 = *(_QWORD *)a4;
         *((_DWORD *)this + 4) &= ~0x4000u;
-        *((_QWORD *)this + 13) = v11;
+        *((_QWORD *)this + 13) = v13;
       }
     }
     else
     {
       if ( a5 != 8 || !*((_BYTE *)this + 145) )
         return (unsigned int)-1073741811;
-      v13 = a4->m128i_i64[0];
+      v12 = *(_QWORD *)a4;
       *((_DWORD *)this + 4) &= ~0x1000u;
-      *((_QWORD *)this + 12) = v13;
+      *((_QWORD *)this + 12) = v12;
     }
     *a6 = 1;
     return v6;

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EmitUpdateCommands@CProjectedShadowReceiverMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0008450
+ * XREFs of ?EmitUpdateCommands@CProjectedShadowReceiverMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0004FE0
  * Callers:
  *     <none>
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_93f00451d229db504863bbd188ea0112___ @ 0x1C00084D4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_93f00451d229db504863bbd188ea011.c)
- *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010F54 (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_2646d8dfdaeffa67c2bd0b1cb7e2cfaf___ @ 0x1C0236AAC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_2646d8dfdaeffa67c2bd0b1cb7e2cfa.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_2d975dd13ea6294e845b115a50e80167___ @ 0x1C0236B30 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_2d975dd13ea6294e845b115a50e8016.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_14b6426968d6e6e9975b0046e06cc358___ @ 0x1C0005064 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_14b6426968d6e6e9975b0046e06cc35.c)
+ *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061DEC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_2d975dd13ea6294e845b115a50e80167___ @ 0x1C01F61FC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_2d975dd13ea6294e845b115a50e8016.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_fd947c69ce74862dc0f629f244fe8106___ @ 0x1C01F6270 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_fd947c69ce74862dc0f629f244fe810.c)
  */
 
 char __fastcall DirectComposition::CProjectedShadowReceiverMarshaler::EmitUpdateCommands(
@@ -24,7 +24,7 @@ char __fastcall DirectComposition::CProjectedShadowReceiverMarshaler::EmitUpdate
     v7 = this;
     if ( (v5 & 0x80u) != 0 )
     {
-      if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_2646d8dfdaeffa67c2bd0b1cb7e2cfaf___(
+      if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_fd947c69ce74862dc0f629f244fe8106___(
                                this,
                                a2,
                                &v7) )
@@ -46,7 +46,7 @@ char __fastcall DirectComposition::CProjectedShadowReceiverMarshaler::EmitUpdate
     v7 = this;
     if ( (v5 & 0x200) == 0 )
       return 1;
-    if ( (unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_93f00451d229db504863bbd188ea0112___(
+    if ( (unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_14b6426968d6e6e9975b0046e06cc358___(
                             this,
                             a2,
                             &v7) )

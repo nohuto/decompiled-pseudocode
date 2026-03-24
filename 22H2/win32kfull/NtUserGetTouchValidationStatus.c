@@ -1,34 +1,35 @@
 /*
- * XREFs of NtUserGetTouchValidationStatus @ 0x1C01D40C0
+ * XREFs of NtUserGetTouchValidationStatus @ 0x1C01FBD10
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandle @ 0x1C002D0F8 (HMValidateHandle.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     _GetTouchValidationStatus @ 0x1C01B2914 (_GetTouchValidationStatus.c)
+ *     HMValidateHandle @ 0x1C0067040 (HMValidateHandle.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _GetTouchValidationStatus @ 0x1C01DDFF8 (_GetTouchValidationStatus.c)
  */
 
-__int64 __fastcall NtUserGetTouchValidationStatus(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserGetTouchValidationStatus(unsigned __int64 a1)
 {
   unsigned int TouchValidationStatus; // ebx
-  __int64 v5; // rdi
+  __int64 v3; // rdi
+  __int64 v4; // rdx
+  __int64 v5; // r8
   __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
+  __int64 v7; // r8
+  __int64 v8; // rcx
 
   TouchValidationStatus = 0;
-  v5 = 0LL;
-  EnterSharedCrit(a1, a2, a3);
-  if ( !a1 || (v5 = HMValidateHandle(a1, 0x13u)) != 0 )
+  v3 = 0LL;
+  EnterCrit(0LL, 1LL);
+  if ( !a1 || (v3 = HMValidateHandle(a1, 0x13u)) != 0 )
   {
-    TouchValidationStatus = GetTouchValidationStatus(v5);
+    TouchValidationStatus = GetTouchValidationStatus(v3);
   }
   else
   {
-    UserSetLastError(6);
-    UserSetLastError(0);
+    UserSetLastError(6LL, v4, v5);
+    UserSetLastError(0LL, v6, v7);
   }
-  UserSessionSwitchLeaveCrit(v7, v6, v8, v9);
+  UserSessionSwitchLeaveCrit(v8);
   return TouchValidationStatus;
 }

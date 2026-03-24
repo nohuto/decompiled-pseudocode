@@ -1,9 +1,9 @@
 /*
- * XREFs of BiZwDeleteValueKey @ 0x140374614
+ * XREFs of BiZwDeleteValueKey @ 0x14039AF48
  * Callers:
- *     BiDeleteRegistryValue @ 0x1408097F4 (BiDeleteRegistryValue.c)
+ *     BiDeleteRegistryValue @ 0x1407820E4 (BiDeleteRegistryValue.c)
  * Callees:
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
  */
 
 NTSTATUS __fastcall BiZwDeleteValueKey(void *a1, UNICODE_STRING *a2)

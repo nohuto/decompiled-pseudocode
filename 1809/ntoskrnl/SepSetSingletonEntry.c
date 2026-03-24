@@ -1,13 +1,13 @@
 /*
- * XREFs of SepSetSingletonEntry @ 0x140300520
+ * XREFs of SepSetSingletonEntry @ 0x140300620
  * Callers:
- *     SeSetSecurityAttributesTokenEx @ 0x140300230 (SeSetSecurityAttributesTokenEx.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x140300330 (SeSetSecurityAttributesTokenEx.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8A74 (AuthzBasepSetSecurityAttributesToken.c)
- *     SepGetSingletonEntryFromIndexNumber @ 0x1400D9BB0 (SepGetSingletonEntryFromIndexNumber.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8A94 (AuthzBasepSetSecurityAttributesToken.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x1400D9BD0 (SepGetSingletonEntryFromIndexNumber.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

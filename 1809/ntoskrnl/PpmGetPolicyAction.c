@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmGetPolicyAction @ 0x140755E80
+ * XREFs of PpmGetPolicyAction @ 0x140755E60
  * Callers:
  *     PpmSetProfilePolicySetting @ 0x14058ABB4 (PpmSetProfilePolicySetting.c)
- *     PpmCompareAndApplyPolicySettings @ 0x140875754 (PpmCompareAndApplyPolicySettings.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x140875734 (PpmCompareAndApplyPolicySettings.c)
  * Callees:
  *     <none>
  */

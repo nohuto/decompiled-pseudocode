@@ -1,30 +1,35 @@
 /*
- * XREFs of DispBroker::DispBrokerClient::AsyncMessageNoAlloc_5__lambda_080e8f3c9a2b96fa8c06ab1b08e75502___ @ 0x1C012F04C
+ * XREFs of DispBroker::DispBrokerClient::AsyncMessageNoAlloc_5__lambda_080e8f3c9a2b96fa8c06ab1b08e75502___ @ 0x1C01157C0
  * Callers:
- *     ?DispBrokerAsyncRotationLockToggleKey@@YAJXZ @ 0x1C012F4D0 (-DispBrokerAsyncRotationLockToggleKey@@YAJXZ.c)
+ *     ?DispBrokerAsyncRotationLockToggleKey@@YAJXZ @ 0x1C01160A0 (-DispBrokerAsyncRotationLockToggleKey@@YAJXZ.c)
  * Callees:
- *     DrvDxgkSendDisplayBrokerMessage @ 0x1C000F88C (DrvDxgkSendDisplayBrokerMessage.c)
- *     DrvSampleDisplayState @ 0x1C001F260 (DrvSampleDisplayState.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     DrvSampleDisplayState @ 0x1C001CCD0 (DrvSampleDisplayState.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 DispBroker::DispBrokerClient::AsyncMessageNoAlloc_5__lambda_080e8f3c9a2b96fa8c06ab1b08e75502___()
 {
   __int64 result; // rax
-  __int64 v1; // r8
-  __int64 v2; // [rsp+28h] [rbp-70h]
-  _DWORD v3[16]; // [rsp+40h] [rbp-58h] BYREF
+  _DWORD v1[16]; // [rsp+40h] [rbp-58h] BYREF
 
-  memset(v3, 0, sizeof(v3));
-  v3[10] = 5;
-  v3[11] = 1;
-  result = DrvSampleDisplayState(&v3[12]);
+  memset(v1, 0, sizeof(v1));
+  v1[10] = 5;
+  v1[11] = 1;
+  result = DrvSampleDisplayState(&v1[12]);
   if ( (int)result >= 0 )
   {
-    LOWORD(v3[1]) = 0x8000;
-    v3[0] = 4194328;
-    return DrvDxgkSendDisplayBrokerMessage(0x10000u, (__int64)v3, v1, 0LL, 0LL, v2, 0LL);
+    v1[0] = 4194328;
+    LOWORD(v1[1]) = 0x8000;
+    return ((__int64 (__fastcall *)(__int64, _DWORD *, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))qword_1C0250BA8)(
+             0x10000LL,
+             v1,
+             0LL,
+             0LL,
+             0LL,
+             0LL,
+             0LL);
   }
   return result;
 }

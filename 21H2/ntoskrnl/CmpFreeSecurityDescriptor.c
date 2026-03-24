@@ -1,49 +1,63 @@
 /*
- * XREFs of CmpFreeSecurityDescriptor @ 0x140715D90
+ * XREFs of CmpFreeSecurityDescriptor @ 0x14066C518
  * Callers:
- *     CmpFreeKeyByCell @ 0x1407164DC (CmpFreeKeyByCell.c)
- *     CmpCreateChild @ 0x140719278 (CmpCreateChild.c)
- *     CmpCopySaclToVirtualKey @ 0x14091822C (CmpCopySaclToVirtualKey.c)
- *     CmpSyncKeyValues @ 0x1409207EC (CmpSyncKeyValues.c)
+ *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
+ *     CmpFreeKeyByCell @ 0x14066B280 (CmpFreeKeyByCell.c)
+ *     CmpCopySaclToVirtualKey @ 0x1408717C4 (CmpCopySaclToVirtualKey.c)
+ *     CmpSyncKeyValues @ 0x140879E2C (CmpSyncKeyValues.c)
  * Callees:
- *     CmpDereferenceSecurityNode @ 0x1402A2104 (CmpDereferenceSecurityNode.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     CmpRemoveSecurityCellList @ 0x1402CD674 (CmpRemoveSecurityCellList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
  */
 
-__int64 __fastcall CmpFreeSecurityDescriptor(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)
+__int64 __fastcall CmpFreeSecurityDescriptor(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
-  bool v2; // zf
+  __int64 v3; // rdi
   __int64 result; // rax
-  __int64 v5; // rdi
-  ULONG_PTR v6; // rdx
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
-  int v8; // [rsp+40h] [rbp+18h]
-  int v9; // [rsp+44h] [rbp+1Ch]
+  __int64 v5; // rbp
+  unsigned int v6; // esi
+  __int64 v7; // rax
+  int v8; // eax
+  int v9; // [rsp+40h] [rbp+8h] BYREF
+  int v10; // [rsp+44h] [rbp+Ch]
+  int v11; // [rsp+50h] [rbp+18h] BYREF
+  int v12; // [rsp+54h] [rbp+1Ch]
 
-  v7 = 0xFFFFFFFFLL;
-  v8 = -1;
-  v2 = (*(_BYTE *)(BugCheckParameter3 + 140) & 1) == 0;
-  v9 = 0;
-  if ( v2 )
-    result = HvpGetCellPaged(BugCheckParameter3);
-  else
-    result = HvpGetCellFlat(BugCheckParameter3, a2, &v7);
+  v11 = -1;
+  v9 = -1;
+  v12 = 0;
+  v10 = 0;
+  v3 = 0LL;
+  result = (*(__int64 (__fastcall **)(ULONG_PTR, __int64, int *))(BugCheckParameter2 + 8))(BugCheckParameter2, a2, &v11);
   v5 = result;
   if ( result )
   {
-    v6 = *(unsigned int *)(result + 44);
-    if ( (_DWORD)v6 != -1 )
+    v6 = *(_DWORD *)(result + 44);
+    if ( v6 != -1 )
     {
-      CmpDereferenceSecurityNode(BugCheckParameter3, v6);
-      *(_DWORD *)(v5 + 44) = -1;
+      v7 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, int *))(BugCheckParameter2 + 8))(BugCheckParameter2, v6, &v9);
+      v3 = v7;
+      if ( v7 )
+      {
+        v8 = *(_DWORD *)(v7 + 12);
+        if ( v8 == 1 )
+        {
+          (*(void (__fastcall **)(ULONG_PTR, int *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v9);
+          v3 = 0LL;
+          CmpRemoveSecurityCellList(BugCheckParameter2, v6);
+          HvFreeCell(BugCheckParameter2, v6);
+        }
+        else
+        {
+          *(_DWORD *)(v3 + 12) = v8 - 1;
+        }
+        *(_DWORD *)(v5 + 44) = -1;
+      }
     }
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      return HvpReleaseCellFlat(BugCheckParameter3, &v7);
-    else
-      return HvpReleaseCellPaged(BugCheckParameter3, &v7);
+    result = (*(__int64 (__fastcall **)(ULONG_PTR, int *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v11);
+    if ( v3 )
+      return (*(__int64 (__fastcall **)(ULONG_PTR, int *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v9);
   }
   return result;
 }

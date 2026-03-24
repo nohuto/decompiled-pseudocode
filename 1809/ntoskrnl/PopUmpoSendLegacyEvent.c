@@ -1,5 +1,5 @@
 /*
- * XREFs of PopUmpoSendLegacyEvent @ 0x1406DDDDC
+ * XREFs of PopUmpoSendLegacyEvent @ 0x1406DDDBC
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:

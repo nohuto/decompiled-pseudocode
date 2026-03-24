@@ -1,68 +1,70 @@
 /*
- * XREFs of ?HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ @ 0x180052F90
+ * XREFs of ?HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ @ 0x18006D978
  * Callers:
- *     ?ComputeOverlayConfigurationForAdapter@COverlayContext@@CAJAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@@Z @ 0x180052DE0 (-ComputeOverlayConfigurationForAdapter@COverlayContext@@CAJAEBV-$span@PEAVCOverlayContext@@$0-0@.c)
+ *     ?ComputeOverlayConfiguration@COverlayContext@@SAJAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@@Z @ 0x18006D330 (-ComputeOverlayConfiguration@COverlayContext@@SAJAEBV-$span@PEAVCOverlayContext@@$0-0@gsl@@@Z.c)
  * Callees:
- *     ??9@YA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0@Z @ 0x1800D454C (--9@YA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@.c)
- *     ?ComparePlaneAttributes@COverlayContext@@CAXAEBUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@0PEA_N1@Z @ 0x1801DCE34 (-ComparePlaneAttributes@COverlayContext@@CAXAEBUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@0PEA_N1@Z.c)
- *     ?IsEqualTo@CRgnData@Internal@FastRegion@@QEBA_NAEBV123@@Z @ 0x1801DDD94 (-IsEqualTo@CRgnData@Internal@FastRegion@@QEBA_NAEBV123@@Z.c)
+ *     ??9@YA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0@Z @ 0x1800C9630 (--9@YA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@.c)
+ *     ?ComparePlaneAttributes@COverlayContext@@CAXAEBUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@0PEA_N1@Z @ 0x18017B354 (-ComparePlaneAttributes@COverlayContext@@CAXAEBUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@0PEA_N1@Z.c)
+ *     ?IsEqualTo@CRgnData@Internal@FastRegion@@QEBA_NAEBV123@@Z @ 0x18017C1AC (-IsEqualTo@CRgnData@Internal@FastRegion@@QEBA_NAEBV123@@Z.c)
  */
 
 char __fastcall COverlayContext::HaveOverlayCandidatesChanged(COverlayContext *this)
 {
-  char v1; // bp
+  char v1; // r14
   __int64 v3; // rsi
-  unsigned int i; // r14d
-  __int64 v6; // rbx
-  __int64 v7; // r8
-  __int64 v8; // r8
-  FastRegion::Internal::CRgnData *v9; // rcx
-  const struct FastRegion::Internal::CRgnData *v10; // rdx
+  __int64 v4; // rdi
+  unsigned int i; // r15d
+  __int64 v7; // rbx
+  FastRegion::Internal::CRgnData *v8; // rcx
+  const struct FastRegion::Internal::CRgnData *v9; // rdx
   bool IsEqualTo; // al
 
   v1 = 0;
-  if ( *((_BYTE *)this + 11309) )
+  if ( *((_BYTE *)this + 11430) )
   {
     v1 = 1;
-    *((_BYTE *)this + 11309) = 0;
+    *((_BYTE *)this + 11430) = 0;
   }
-  v3 = *((_QWORD *)this + 11);
-  if ( *((_QWORD *)this + 12) - v3 != *((_QWORD *)this + 463) - *((_QWORD *)this + 462)
-    || *((_BYTE *)this + 11306) != *((_BYTE *)this + 11307) )
+  v3 = *((_QWORD *)this + 463);
+  v4 = *((_QWORD *)this + 12);
+  if ( (*((_QWORD *)this + 13) - v4) / 224 != (*((_QWORD *)this + 464) - v3) / 224
+    || *((_BYTE *)this + 11426) != *((_BYTE *)this + 11427) )
   {
     return 1;
   }
-  for ( i = 0; i < -1227133513 * (unsigned int)((*((_QWORD *)this + 12) - v3) >> 5); ++i )
+  for ( i = 0; i < (unsigned int)((*((_QWORD *)this + 13) - v4) / 224); ++i )
   {
-    v6 = 224LL * i;
+    v7 = 224LL * i;
     COverlayContext::ComparePlaneAttributes(
-      (const struct DXGI_MULTIPLANE_OVERLAY_ATTRIBUTES *)(v6 + v3 + 32),
-      (const struct DXGI_MULTIPLANE_OVERLAY_ATTRIBUTES *)(v6 + *((_QWORD *)this + 462) + 32LL),
-      (bool *)(v6 + v3 + 181),
-      (bool *)(v6 + v3 + 182));
-    v3 = *((_QWORD *)this + 11);
-    if ( *(_BYTE *)(v3 + v6 + 181) )
+      (const struct DXGI_MULTIPLANE_OVERLAY_ATTRIBUTES *)(v7 + v4 + 32),
+      (const struct DXGI_MULTIPLANE_OVERLAY_ATTRIBUTES *)(v7 + v3 + 32),
+      (bool *)(v7 + v4 + 217),
+      (bool *)(v7 + v4 + 218));
+    v4 = *((_QWORD *)this + 12);
+    if ( *(_BYTE *)(v7 + v4 + 217) )
       return 1;
-    v7 = *((_QWORD *)this + 462);
-    if ( *(_QWORD *)(v3 + v6 + 16) != *(_QWORD *)(v7 + v6 + 16)
-      || *(_QWORD *)(v3 + v6 + 24) != *(_QWORD *)(v7 + v6 + 24)
-      || *(_BYTE *)(v3 + v6 + 177) != *(_BYTE *)(v7 + v6 + 177)
-      || *(_BYTE *)(v3 + v6 + 179) != *(_BYTE *)(v7 + v6 + 179)
-      || (unsigned __int8)operator!=(v6 + v3 + 144, v6 + v7 + 144, v7) )
+    v3 = *((_QWORD *)this + 463);
+    if ( *(_QWORD *)(v7 + v4 + 16) != *(_QWORD *)(v7 + v3 + 16)
+      || *(_QWORD *)(v7 + v4 + 24) != *(_QWORD *)(v7 + v3 + 24)
+      || *(_BYTE *)(v7 + v4 + 177) != *(_BYTE *)(v7 + v3 + 177)
+      || *(_BYTE *)(v7 + v4 + 178) != *(_BYTE *)(v7 + v3 + 178)
+      || *(_BYTE *)(v7 + v4 + 179) != *(_BYTE *)(v7 + v3 + 179)
+      || *(_BYTE *)(v7 + v4 + 181) != *(_BYTE *)(v7 + v3 + 181)
+      || (unsigned __int8)operator!=(v7 + v4 + 144, v7 + v3 + 144) )
     {
       return 1;
     }
-    v9 = **(FastRegion::Internal::CRgnData ***)(v3 + v6 + 160);
-    v10 = **(const struct FastRegion::Internal::CRgnData ***)(v8 + v6 + 160);
-    if ( *(_DWORD *)v9 )
+    v8 = **(FastRegion::Internal::CRgnData ***)(v7 + v4 + 160);
+    v9 = **(const struct FastRegion::Internal::CRgnData ***)(v7 + v3 + 160);
+    if ( *(_DWORD *)v8 )
     {
-      if ( !*(_DWORD *)v10 )
+      if ( !*(_DWORD *)v9 )
         return 1;
-      IsEqualTo = FastRegion::Internal::CRgnData::IsEqualTo(v9, v10);
+      IsEqualTo = FastRegion::Internal::CRgnData::IsEqualTo(v8, v9);
     }
     else
     {
-      IsEqualTo = *(_DWORD *)v10 == 0;
+      IsEqualTo = *(_DWORD *)v9 == 0;
     }
     if ( !IsEqualTo )
       return 1;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?D2DMatrixRotationZ@@YAPEAUD2DMatrix@@PEAU1@M@Z @ 0x18026DA68
+ * XREFs of ?D2DMatrixRotationZ@@YAPEAUD2DMatrix@@PEAU1@M@Z @ 0x18021D66C
  * Callers:
- *     ?Matrix4x4FromRotationZ@CExpressionValueStack@@QEAAJI@Z @ 0x18024DB14 (-Matrix4x4FromRotationZ@CExpressionValueStack@@QEAAJI@Z.c)
+ *     ?Matrix4x4FromRotationZ@CExpressionValueStack@@QEAAJI@Z @ 0x1801FEE34 (-Matrix4x4FromRotationZ@CExpressionValueStack@@QEAAJI@Z.c)
  * Callees:
- *     cosf @ 0x1801018C8 (cosf.c)
- *     _o_sinf_0 @ 0x180101964 (_o_sinf_0.c)
+ *     cosf_0 @ 0x1800F4763 (cosf_0.c)
+ *     sinf_0 @ 0x1800F479F (sinf_0.c)
  */
 
 struct D2DMatrix *__fastcall D2DMatrixRotationZ(struct D2DMatrix *a1, float a2)
@@ -13,8 +13,8 @@ struct D2DMatrix *__fastcall D2DMatrixRotationZ(struct D2DMatrix *a1, float a2)
   float v4; // xmm0_4
   struct D2DMatrix *result; // rax
 
-  v3 = o_sinf_0(a2);
-  v4 = cosf(a2);
+  v3 = sinf_0(a2);
+  v4 = cosf_0(a2);
   *((float *)a1 + 1) = v3;
   *((_DWORD *)a1 + 4) = LODWORD(v3) ^ _xmm;
   *((_QWORD *)a1 + 5) = 1065353216LL;

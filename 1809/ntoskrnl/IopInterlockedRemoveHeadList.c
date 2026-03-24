@@ -1,12 +1,12 @@
 /*
- * XREFs of IopInterlockedRemoveHeadList @ 0x140135688
+ * XREFs of IopInterlockedRemoveHeadList @ 0x1401356A8
  * Callers:
  *     IoShutdownSystem @ 0x140577C68 (IoShutdownSystem.c)
- *     IopCallDriverReinitializationRoutines @ 0x1406C6810 (IopCallDriverReinitializationRoutines.c)
+ *     IopCallDriverReinitializationRoutines @ 0x1406C67F0 (IopCallDriverReinitializationRoutines.c)
  *     IopCallBootDriverReinitializationRoutines @ 0x1409DA5EC (IopCallBootDriverReinitializationRoutines.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
  */
 
 _QWORD *__fastcall IopInterlockedRemoveHeadList(_QWORD **a1)

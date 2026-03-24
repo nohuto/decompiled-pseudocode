@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRegisterNmiSxCallback @ 0x14028F454
+ * XREFs of KiRegisterNmiSxCallback @ 0x14028F554
  * Callers:
- *     HvlpInitializeHvCrashdump @ 0x140277D5C (HvlpInitializeHvCrashdump.c)
- *     KeRegisterNmiCallback @ 0x14028F030 (KeRegisterNmiCallback.c)
+ *     HvlpInitializeHvCrashdump @ 0x140277E5C (HvlpInitializeHvCrashdump.c)
+ *     KeRegisterNmiCallback @ 0x14028F130 (KeRegisterNmiCallback.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

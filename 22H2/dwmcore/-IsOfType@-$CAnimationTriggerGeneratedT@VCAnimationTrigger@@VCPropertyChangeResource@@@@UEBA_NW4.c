@@ -1,21 +1,21 @@
 /*
- * XREFs of ?IsOfType@?$CAnimationTriggerGeneratedT@VCAnimationTrigger@@VCPropertyChangeResource@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18001FCD0
+ * XREFs of ?IsOfType@?$CAnimationTriggerGeneratedT@VCAnimationTrigger@@VCPropertyChangeResource@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801B66E0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CPropertyChangeResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E0D30 (-IsOfType@CPropertyChangeResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CPropertyChangeResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C4FA0 (-IsOfType@CPropertyChangeResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall CAnimationTriggerGeneratedT<CAnimationTrigger,CPropertyChangeResource>::IsOfType(__int64 a1, int a2)
 {
-  char v2; // cl
-  char v4; // al
+  bool v2; // al
+  char v3; // cl
 
-  if ( a2 == 5 )
+  if ( a2 == 4 )
     return 1;
-  v4 = CPropertyChangeResource::IsOfType();
-  v2 = 0;
-  if ( v4 )
+  v2 = CPropertyChangeResource::IsOfType(a1, a2);
+  v3 = 0;
+  if ( v2 )
     return 1;
-  return v2;
+  return v3;
 }

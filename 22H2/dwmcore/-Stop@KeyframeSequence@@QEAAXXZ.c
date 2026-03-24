@@ -1,32 +1,23 @@
 /*
- * XREFs of ?Stop@KeyframeSequence@@QEAAXXZ @ 0x1800BD8E0
+ * XREFs of ?Stop@KeyframeSequence@@QEAAXXZ @ 0x1800AD008
  * Callers:
- *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x1800BD3F8 (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
+ *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x1800A9ECC (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
  * Callees:
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall KeyframeSequence::Stop(KeyframeSequence *this)
 {
-  __int64 v1; // r9
-  __int64 v2; // r10
+  __int64 i; // r8
+  int v2; // eax
   int v3; // eax
   void *retaddr; // [rsp+28h] [rbp+0h]
 
-  v1 = 0LL;
-  if ( *((_DWORD *)this + 28) )
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 28); i = (unsigned int)(i + 1) )
   {
-    v2 = *((_QWORD *)this + 13);
-    do
-    {
-      if ( *(_DWORD *)(*(_QWORD *)(v2 + 24 * v1 + 8) + 20LL) != 1
-        && (unsigned int)(*(_DWORD *)(*(_QWORD *)(v2 + 24 * v1 + 8) + 20LL) - 2) >= 2 )
-      {
-        ModuleFailFastForHRESULT(2147549183LL, retaddr);
-      }
-      v1 = (unsigned int)(v1 + 1);
-    }
-    while ( (unsigned int)v1 < *((_DWORD *)this + 28) );
+    v2 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 13) + 24 * i + 8) + 20LL);
+    if ( v2 != 1 && (unsigned int)(v2 - 2) > 1 )
+      ModuleFailFastForHRESULT(2147549183LL, retaddr);
   }
   v3 = *((_DWORD *)this + 20);
   *((_BYTE *)this + 140) &= 0xFCu;

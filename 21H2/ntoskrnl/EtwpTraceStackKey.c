@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpTraceStackKey @ 0x1406342C8
+ * XREFs of EtwpTraceStackKey @ 0x1405ADDAC
  * Callers:
- *     EtwpTraceStackWalk @ 0x140631A8C (EtwpTraceStackWalk.c)
+ *     EtwpTraceStackWalk @ 0x1405A7134 (EtwpTraceStackWalk.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     KxTryToAcquireSpinLock @ 0x1402DA448 (KxTryToAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     RtlCompareMemory @ 0x14042A1E0 (RtlCompareMemory.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     EtwpDereferenceStackEntry @ 0x14046087A (EtwpDereferenceStackEntry.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x1402D0788 (KxTryToAcquireSpinLock.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     EtwpDereferenceStackEntry @ 0x1405ADAB8 (EtwpDereferenceStackEntry.c)
  */
 
 char __fastcall EtwpTraceStackKey(
@@ -78,7 +78,7 @@ char __fastcall EtwpTraceStackKey(
   _SLIST_ENTRY *v59; // [rsp+70h] [rbp-58h]
   __int64 v60; // [rsp+78h] [rbp-50h]
 
-  v6 = *(_QWORD *)(a1 + 1008);
+  v6 = *(_QWORD *)(a1 + 992);
   v7 = 0;
   v56 = 0LL;
   v55 = v6;
@@ -321,8 +321,8 @@ LABEL_78:
     v56 = Next;
     *(_QWORD *)(a4 + 16) = &v56;
     *(_QWORD *)(a4 + 24) = 8LL;
-    EtwpLogKernelEvent(a4, *(_QWORD *)(a1 + 1096), *(_DWORD *)a1, 2u, a3, a2);
-    EtwpDereferenceStackEntry(v56, *(unsigned int ***)(a1 + 1008));
+    EtwpLogKernelEvent(a4, *(_QWORD *)(a1 + 1080), *(_DWORD *)a1, 2u, a3, a2);
+    EtwpDereferenceStackEntry(v56, *(unsigned int ***)(a1 + 992));
     return 1;
   }
   return v7;

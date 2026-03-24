@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PspQueryRateControlHistory @ 0x1405A7F5C (PspQueryRateControlHistory.c)
  */
 

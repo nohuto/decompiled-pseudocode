@@ -1,85 +1,87 @@
 /*
- * XREFs of NtGdiSelectClipPath @ 0x1C02C1490
+ * XREFs of NtGdiSelectClipPath @ 0x1C01445D0
  * Callers:
  *     <none>
  * Callees:
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00D5ED4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?iSelect@DC@@QEAAHPEAVREGION@@H@Z @ 0x1C011AC4C (-iSelect@DC@@QEAAHPEAVREGION@@H@Z.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C015A6C4 (--1XEPATHOBJ@@QEAA@XZ.c)
- *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C02651F8 (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
- *     ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C0284C7C (--0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z.c)
- *     ?bInactive@DC@@QEBAHXZ @ 0x1C02C0988 (-bInactive@DC@@QEBAHXZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2890 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?iSelect@DC@@QEAAHPEAVREGION@@H@Z @ 0x1C00B29A0 (-iSelect@DC@@QEAAHPEAVREGION@@H@Z.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B94F8 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C014475C (--1XEPATHOBJ@@QEAA@XZ.c)
+ *     ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C01447BC (--0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z.c)
+ *     ?bInactive@DC@@QEBAHXZ @ 0x1C01457E4 (-bInactive@DC@@QEBAHXZ.c)
+ *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C0169C4C (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
  */
 
 __int64 __fastcall NtGdiSelectClipPath(HDC a1, int a2)
 {
   unsigned int v3; // ebx
-  __int64 v4; // rax
-  unsigned int v5; // ecx
-  ULONG v6; // ecx
-  DC *v8; // rcx
-  unsigned int v9; // r8d
+  __int64 v4; // rdx
+  int v5; // edi
+  __int64 v6; // rax
+  unsigned int v7; // ecx
+  ULONG v8; // ecx
   DC *v10; // rcx
-  DC *v11[2]; // [rsp+30h] [rbp-59h] BYREF
-  _BYTE v12[32]; // [rsp+40h] [rbp-49h] BYREF
-  _BYTE v13[8]; // [rsp+60h] [rbp-29h] BYREF
-  __int64 v14; // [rsp+68h] [rbp-21h]
-  struct REGION *v15; // [rsp+100h] [rbp+77h] BYREF
+  unsigned int v11; // r8d
+  DC *v12; // rcx
+  struct REGION *v13; // [rsp+38h] [rbp-69h] BYREF
+  int v14; // [rsp+40h] [rbp-61h]
+  DC *v15[6]; // [rsp+48h] [rbp-59h] BYREF
+  _BYTE v16[8]; // [rsp+78h] [rbp-29h] BYREF
+  __int64 v17; // [rsp+80h] [rbp-21h]
 
-  DCOBJ::DCOBJ((DCOBJ *)v11, a1);
-  if ( !v11[0] || (unsigned int)(a2 - 1) > 4 )
+  DCOBJ::DCOBJ((DCOBJ *)v15, a1);
+  v3 = 0;
+  if ( !v15[0] || (unsigned int)(a2 - 1) > 4 )
   {
 LABEL_8:
-    v6 = 87;
+    v8 = 87;
 LABEL_9:
-    EngSetLastError(v6);
-LABEL_10:
-    DCOBJ::~DCOBJ((DCOBJ *)v11);
-    return 0LL;
-  }
-  v3 = 1;
-  if ( *((_WORD *)v11[0] + 6) > 1u )
-  {
-    v4 = *((_QWORD *)v11[0] + 6);
-    if ( v4 )
-      v5 = *(_DWORD *)(v4 + 40);
-    else
-      v5 = 0;
-    TraceLoggingWriteUnsupportedGdiUsage(14, v5, *((unsigned __int16 *)v11[0] + 6), 0LL, 0LL);
-    goto LABEL_8;
-  }
-  if ( !(unsigned int)DC::bInactive(v11[0]) )
-  {
-    v6 = 1003;
-    goto LABEL_9;
-  }
-  XEPATHOBJ::XEPATHOBJ((XEPATHOBJ *)v13, v11);
-  if ( !v14 )
-  {
-    EngSetLastError(8u);
-    v8 = v11[0];
-    *((_DWORD *)v11[0] + 62) &= ~1u;
-    DC::hpath(v8, 0LL);
-    XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v13);
+    EngSetLastError(v8);
     goto LABEL_10;
   }
-  v9 = *(unsigned __int8 *)(*((_QWORD *)v11[0] + 122) + 214LL);
-  v15 = 0LL;
-  RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v15, (struct EPATHOBJ *)v13, v9, 0LL);
-  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v15);
-  if ( !v15 || !(unsigned int)DC::iSelect(v11[0], v15, a2) )
-    v3 = 0;
-  v10 = v11[0];
-  *((_DWORD *)v11[0] + 62) &= ~1u;
-  DC::hpath(v10, 0LL);
-  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v15);
-  XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v13);
-  if ( v11[0] )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v11);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v12);
+  v4 = *((unsigned __int16 *)v15[0] + 6);
+  v5 = 1;
+  if ( (unsigned __int16)v4 > 1u )
+  {
+    v6 = *((_QWORD *)v15[0] + 6);
+    if ( v6 )
+      v7 = *(_DWORD *)(v6 + 40);
+    else
+      v7 = 0;
+    TraceLoggingWriteUnsupportedGdiUsage(14LL, v7, v4, 0LL, 0LL);
+    goto LABEL_8;
+  }
+  if ( !(unsigned int)DC::bInactive(v15[0]) )
+  {
+    v8 = 1003;
+    goto LABEL_9;
+  }
+  XEPATHOBJ::XEPATHOBJ((XEPATHOBJ *)v16, (struct XDCOBJ *)v15);
+  if ( v17 )
+  {
+    v11 = *(unsigned __int8 *)(*((_QWORD *)v15[0] + 122) + 214LL);
+    v13 = 0LL;
+    v14 = 0;
+    RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v13, (struct EPATHOBJ *)v16, v11, 0LL);
+    RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v13);
+    if ( !v13 || !(unsigned int)DC::iSelect(v15[0], v13, a2) )
+      v5 = 0;
+    v12 = v15[0];
+    *((_DWORD *)v15[0] + 62) &= ~1u;
+    DC::hpath(v12, 0LL);
+    v3 = v5;
+    RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v13);
+  }
+  else
+  {
+    EngSetLastError(8u);
+    v10 = v15[0];
+    *((_DWORD *)v15[0] + 62) &= ~1u;
+    DC::hpath(v10, 0LL);
+  }
+  XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v16);
+LABEL_10:
+  DCOBJ::~DCOBJ((DCOBJ *)v15);
   return v3;
 }

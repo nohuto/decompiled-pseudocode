@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddTriangles@CPathEmitterArea@EmitterShapes@@EEAAXPEBUD2D1_TRIANGLE@@I@Z @ 0x180258FF0
+ * XREFs of ?AddTriangles@CPathEmitterArea@EmitterShapes@@EEAAXPEBUD2D1_TRIANGLE@@I@Z @ 0x180208A60
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ??$_Emplace_reallocate@AEBUAreaTriangle@CPathEmitterArea@EmitterShapes@@@?$vector@UAreaTriangle@CPathEmitterArea@EmitterShapes@@V?$allocator@UAreaTriangle@CPathEmitterArea@EmitterShapes@@@std@@@std@@QEAAPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@QEAU234@AEBU234@@Z @ 0x180257EA4 (--$_Emplace_reallocate@AEBUAreaTriangle@CPathEmitterArea@EmitterShapes@@@-$vector@UAreaTriangle@.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ??$_Emplace_reallocate@AEBUAreaTriangle@CPathEmitterArea@EmitterShapes@@@?$vector@UAreaTriangle@CPathEmitterArea@EmitterShapes@@V?$allocator@UAreaTriangle@CPathEmitterArea@EmitterShapes@@@std@@@std@@QEAAPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@QEAU234@AEBU234@@Z @ 0x180207784 (--$_Emplace_reallocate@AEBUAreaTriangle@CPathEmitterArea@EmitterShapes@@@-$vector@UAreaTriangle@.c)
  */
 
 void __fastcall EmitterShapes::CPathEmitterArea::AddTriangles(
@@ -32,16 +32,16 @@ void __fastcall EmitterShapes::CPathEmitterArea::AddTriangles(
                           + (float)((float)(*p_y - p_y[2]) * *(p_y - 3)))
                   + (float)((float)(*(p_y - 2) - *p_y) * p_y[1]))
           * 0.5;
-      *((float *)this + 4) = v12 + *((float *)this + 4);
+      *((float *)this + 2) = v12 + *((float *)this + 2);
       v6 = *(_OWORD *)(p_y - 3);
-      v7 = *((_QWORD *)this + 4);
+      v7 = *((_QWORD *)this + 3);
       v8 = *(_QWORD *)(p_y + 1);
       v10 = v6;
       v11 = v8;
-      if ( v7 == *((_QWORD *)this + 5) )
+      if ( *((_QWORD *)this + 4) == v7 )
       {
         std::vector<EmitterShapes::CPathEmitterArea::AreaTriangle>::_Emplace_reallocate<EmitterShapes::CPathEmitterArea::AreaTriangle const &>(
-          (const void **)this + 3,
+          (const void **)this + 2,
           (_BYTE *)v7,
           (__int64)&v10);
       }
@@ -51,7 +51,7 @@ void __fastcall EmitterShapes::CPathEmitterArea::AddTriangles(
         *(_OWORD *)v7 = v6;
         *(_QWORD *)(v7 + 16) = v8;
         *(float *)(v7 + 24) = v9;
-        *((_QWORD *)this + 4) += 28LL;
+        *((_QWORD *)this + 3) += 28LL;
       }
       p_y += 6;
       --v4;

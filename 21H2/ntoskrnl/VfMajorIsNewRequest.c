@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMajorIsNewRequest @ 0x140A925E8
+ * XREFs of VfMajorIsNewRequest @ 0x1409D7A60
  * Callers:
- *     ViGenericVerifyIrpStackDownward @ 0x140A82730 (ViGenericVerifyIrpStackDownward.c)
- *     IovpCallDriver1 @ 0x140A8B840 (IovpCallDriver1.c)
+ *     ViGenericVerifyIrpStackDownward @ 0x1409C7540 (ViGenericVerifyIrpStackDownward.c)
+ *     IovpCallDriver1 @ 0x1409CFC4C (IovpCallDriver1.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VfMajorIsNewRequest(__int64 a1, _BYTE *a2)
@@ -17,11 +17,11 @@ __int64 __fastcall VfMajorIsNewRequest(__int64 a1, _BYTE *a2)
     v4 = (*a2 != 0xFF) + 28LL;
   else
     v4 = (unsigned __int8)*a2;
-  v5 = (unsigned int (__fastcall *)(__int64))*((_QWORD *)&unk_140D59788 + 12 * v4);
+  v5 = (unsigned int (__fastcall *)(__int64))*((_QWORD *)&unk_140D4C0F8 + 12 * v4);
   if ( v5 && v5(a1) )
     return 1LL;
-  result = (__int64)qword_140D5A208;
-  if ( qword_140D5A208 )
-    return qword_140D5A208(a1, a2);
+  result = (__int64)qword_140D4CB78;
+  if ( qword_140D4CB78 )
+    return qword_140D4CB78(a1, a2);
   return result;
 }

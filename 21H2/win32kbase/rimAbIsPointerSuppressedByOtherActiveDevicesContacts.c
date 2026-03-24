@@ -1,11 +1,11 @@
 /*
- * XREFs of rimAbIsPointerSuppressedByOtherActiveDevicesContacts @ 0x1C0186F84
+ * XREFs of rimAbIsPointerSuppressedByOtherActiveDevicesContacts @ 0x1C0158DCC
  * Callers:
- *     rimAbSuppressLowerRankActivityInFrame @ 0x1C0187C10 (rimAbSuppressLowerRankActivityInFrame.c)
- *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C0187FE0 (rimAbUpdateDeadzonesAndResurrectContacts.c)
+ *     rimAbSuppressLowerRankActivityInFrame @ 0x1C015999C (rimAbSuppressLowerRankActivityInFrame.c)
+ *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C0159CF4 (rimAbUpdateDeadzonesAndResurrectContacts.c)
  * Callees:
- *     rimAbIsPointerSuppressedByOtherDeviceContacts @ 0x1C0187010 (rimAbIsPointerSuppressedByOtherDeviceContacts.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimAbIsPointerSuppressedByOtherDeviceContacts @ 0x1C0158E64 (rimAbIsPointerSuppressedByOtherDeviceContacts.c)
  */
 
 __int64 __fastcall rimAbIsPointerSuppressedByOtherActiveDevicesContacts(__int64 a1, __int64 a2, __int64 a3)
@@ -18,7 +18,7 @@ __int64 __fastcall rimAbIsPointerSuppressedByOtherActiveDevicesContacts(__int64 
   v3 = 0;
   v4 = (_QWORD **)(a1 + 448);
   if ( !gDeviceArbitrationType )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 416);
   for ( i = *v4; i != v4; i = (_QWORD *)*i )
   {
     v8 = *(i - 1);

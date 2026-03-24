@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreatePagingFile @ 0x140834BF0
+ * XREFs of NtCreatePagingFile @ 0x1407B6DA0
  * Callers:
  *     <none>
  * Callees:
- *     MiCreatePagingFile @ 0x140834C2C (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x1407B6DDC (MiCreatePagingFile.c)
  */
 
 __int64 __fastcall NtCreatePagingFile(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -12,5 +12,5 @@ __int64 __fastcall NtCreatePagingFile(__int64 a1, __int64 a2, __int64 a3, __int6
 
   v4 = a4;
   LOBYTE(a4) = KeGetCurrentThread()->PreviousMode;
-  return MiCreatePagingFile(a1, a2, a3, a4, v4, MiSystemPartition);
+  return MiCreatePagingFile(a1, a2, a3, a4, v4, &MiSystemPartition);
 }

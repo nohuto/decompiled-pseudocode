@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlAnsiCharToUnicodeChar_0 @ 0x1C00D7C68
+ * XREFs of RtlAnsiCharToUnicodeChar_0 @ 0x1C00C6DF8
  * Callers:
- *     toupper @ 0x1C00D6190 (toupper.c)
- *     mbtowc @ 0x1C00D7AEC (mbtowc.c)
+ *     toupper @ 0x1C00C5454 (toupper.c)
+ *     mbtowc @ 0x1C00C6CB4 (mbtowc.c)
  * Callees:
  *     <none>
  */

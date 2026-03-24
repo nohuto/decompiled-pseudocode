@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpAddVetoInformation @ 0x1409502DC
+ * XREFs of PnpAddVetoInformation @ 0x1408ABABC
  * Callers:
- *     PnpCollectOpenHandlesCallBack @ 0x1409504C0 (PnpCollectOpenHandlesCallBack.c)
+ *     PnpCollectOpenHandlesCallBack @ 0x1408ABCA0 (PnpCollectOpenHandlesCallBack.c)
  * Callees:
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PnpAddVetoInformation(PVOID Object, _QWORD *a2, unsigned int a3)
@@ -19,9 +19,9 @@ void __fastcall PnpAddVetoInformation(PVOID Object, _QWORD *a2, unsigned int a3)
   _QWORD *v11; // rax
   PVOID *v12; // rcx
   _QWORD *v13; // rax
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v15; // rax
-  _QWORD *v16; // rcx
+  _QWORD *v16; // rdx
   _QWORD *v17; // rsi
   _QWORD *v18; // rax
   _QWORD *v19; // rcx
@@ -69,12 +69,12 @@ LABEL_14:
   if ( v9 )
   {
 LABEL_15:
-    Pool2 = ExAllocatePool2(256LL, 40LL, 1332768336LL);
-    v5 = (_QWORD *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x4F706E50u);
+    v5 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_DWORD *)(Pool2 + 16) = a3;
-      v15 = (_QWORD *)(Pool2 + 24);
+      *((_DWORD *)PoolWithTag + 4) = a3;
+      v15 = PoolWithTag + 3;
       v16 = (_QWORD *)v4[1];
       if ( (_QWORD *)*v16 == v4 )
       {
@@ -94,7 +94,7 @@ LABEL_24:
   else
   {
 LABEL_18:
-    v17 = (_QWORD *)ExAllocatePool2(64LL, 24LL, 1349545552LL);
+    v17 = ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x50706E50u);
     if ( v17 )
     {
       ObfReferenceObject(Object);

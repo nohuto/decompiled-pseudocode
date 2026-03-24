@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDispatchShutdownEvent @ 0x140994590
+ * XREFs of PopDispatchShutdownEvent @ 0x1408F14C0
  * Callers:
  *     <none>
  * Callees:
- *     PopEventCalloutDispatch @ 0x1403B5F0C (PopEventCalloutDispatch.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     PopEventCalloutDispatch @ 0x1403A707C (PopEventCalloutDispatch.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 struct _KTHREAD *PopDispatchShutdownEvent()

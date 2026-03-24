@@ -1,7 +1,7 @@
 /*
- * XREFs of _execute_onexit_table @ 0x18010180E
+ * XREFs of _execute_onexit_table @ 0x1800E810E
  * Callers:
- *     __scrt_dllmain_uninitialize_c @ 0x180100964 (__scrt_dllmain_uninitialize_c.c)
+ *     __scrt_dllmain_uninitialize_c @ 0x1800E712C (__scrt_dllmain_uninitialize_c.c)
  * Callees:
  *     <none>
  */

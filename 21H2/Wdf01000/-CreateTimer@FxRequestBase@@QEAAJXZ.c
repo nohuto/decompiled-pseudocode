@@ -1,56 +1,52 @@
 /*
- * XREFs of ?CreateTimer@FxRequestBase@@QEAAJXZ @ 0x1C00699AC
+ * XREFs of ?CreateTimer@FxRequestBase@@QEAAJXZ @ 0x1C0053654
  * Callers:
- *     ?SubmitLocked@FxIoTarget@@QEAAKPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@K@Z @ 0x1C000B1D0 (-SubmitLocked@FxIoTarget@@QEAAKPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@K@Z.c)
- *     imp_WdfRequestAllocateTimer @ 0x1C0038450 (imp_WdfRequestAllocateTimer.c)
+ *     ?SubmitLocked@FxIoTarget@@QEAAKPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@K@Z @ 0x1C0001F90 (-SubmitLocked@FxIoTarget@@QEAAKPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@K@Z.c)
+ *     imp_WdfRequestAllocateTimer @ 0x1C004A090 (imp_WdfRequestAllocateTimer.c)
  * Callees:
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     ?Initialize@MxTimer@@QEAAJPEAXP6AXPEAU_KDPC@@000@ZJ@Z @ 0x1C0013450 (-Initialize@MxTimer@@QEAAJPEAXP6AXPEAU_KDPC@@000@ZJ@Z.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     ??_GFxRequestTimer@@QEAAPEAXI@Z @ 0x1C00387A2 (--_GFxRequestTimer@@QEAAPEAXI@Z.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ?Initialize@MxTimer@@QEAAJPEAXP6AXPEAU_KDPC@@000@ZJ@Z @ 0x1C0014D64 (-Initialize@MxTimer@@QEAAJPEAXP6AXPEAU_KDPC@@000@ZJ@Z.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     ??_GFxRequestTimer@@QEAAPEAXI@Z @ 0x1C005355C (--_GFxRequestTimer@@QEAAPEAXI@Z.c)
  */
 
 __int64 __fastcall FxRequestBase::CreateTimer(FxRequestBase *this)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rsi
-  ULONG Tag; // ecx
-  void *v4; // rax
-  FX_POOL **v5; // rax
-  FxRequestTimer *v6; // rdi
-  __int64 v7; // rdx
-  int v8; // ebp
-  __int64 v9; // rdx
-  __m128i v11; // [rsp+30h] [rbp-28h]
-  __m128i v12; // [rsp+40h] [rbp-18h] BYREF
-  void *retaddr; // [rsp+58h] [rbp+0h]
+  FX_POOL **v3; // rax
+  FxRequestTimer *v4; // rbx
+  __int64 v6; // rdx
+  int v7; // ebp
+  __int64 v8; // rdx
+  void *retaddr; // [rsp+38h] [rbp+0h]
 
   m_Globals = this->m_Globals;
-  if ( this->m_Timer )
-    return 0LL;
-  Tag = m_Globals->Tag;
-  v11.m128i_i64[0] = 0LL;
-  v11.m128i_i64[1] = 64LL;
-  if ( m_Globals->FxPoolTrackingOn )
-    v4 = retaddr;
-  else
-    v4 = 0LL;
-  v12 = v11;
-  v5 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, &v12, 0x98uLL, Tag, v4);
-  v6 = (FxRequestTimer *)v5;
-  if ( v5 )
+  if ( !this->m_Timer )
   {
-    memset(v5, 0, 0x98uLL);
-    v8 = MxTimer::Initialize(&v6->Timer, this, FxRequestBase::_TimerDPC, 0);
-    if ( v8 < 0 )
+    v3 = FxPoolAllocator(
+           m_Globals,
+           &m_Globals->FxPoolFrameworks,
+           ExDefaultNonPagedPoolType,
+           0x98uLL,
+           m_Globals->Tag,
+           retaddr);
+    v4 = (FxRequestTimer *)v3;
+    if ( v3 )
+      memset(v3, 0, 0x98uLL);
+    else
+      v4 = 0LL;
+    if ( !v4 )
+      return 3221225626LL;
+    v7 = MxTimer::Initialize(&v4->Timer, this, FxRequestBase::_TimerDPC, 0);
+    if ( v7 < 0 )
     {
       WPP_IFR_SF_q(m_Globals, 2u, 0xDu, 0x13u, WPP_FxRequestBase_cpp_Traceguids, this);
-      FxRequestTimer::`scalar deleting destructor'(v6, v9);
-      return (unsigned int)v8;
+      FxRequestTimer::`scalar deleting destructor'(v4, v8);
+      return (unsigned int)v7;
     }
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&this->m_Timer, (signed __int64)v6, 0LL) )
-      FxRequestTimer::`scalar deleting destructor'(v6, v7);
-    return 0LL;
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&this->m_Timer, (signed __int64)v4, 0LL) )
+      FxRequestTimer::`scalar deleting destructor'(v4, v6);
   }
-  return 3221225626LL;
+  return 0LL;
 }

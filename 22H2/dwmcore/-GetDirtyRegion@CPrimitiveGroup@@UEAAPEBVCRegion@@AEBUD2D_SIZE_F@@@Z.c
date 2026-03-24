@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDirtyRegion@CPrimitiveGroup@@UEAAPEBVCRegion@@AEBUD2D_SIZE_F@@@Z @ 0x180105B60
+ * XREFs of ?GetDirtyRegion@CPrimitiveGroup@@UEAAPEBVCRegion@@AEBUD2D_SIZE_F@@@Z @ 0x1800E1E30
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 const struct CRegion *__fastcall CPrimitiveGroup::GetDirtyRegion(CPrimitiveGroup *this, const struct D2D_SIZE_F *a2)
 {
-  return (CPrimitiveGroup *)((char *)this + 472);
+  return (CPrimitiveGroup *)((char *)this + 520);
 }

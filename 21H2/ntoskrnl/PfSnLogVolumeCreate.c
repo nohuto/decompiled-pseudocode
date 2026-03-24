@@ -1,12 +1,11 @@
 /*
- * XREFs of PfSnLogVolumeCreate @ 0x1406CE4C4
+ * XREFs of PfSnLogVolumeCreate @ 0x1406B25A4
  * Callers:
- *     PfFileInfoNotify @ 0x1402CCCF0 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x14031D600 (PfFileInfoNotify.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     PfSnLogHelper @ 0x1407E5390 (PfSnLogHelper.c)
- *     RtlUpcaseUnicodeString @ 0x1407E5410 (RtlUpcaseUnicodeString.c)
- *     PfSnGetNLLogEntry @ 0x1407E5518 (PfSnGetNLLogEntry.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     PfSnLogHelper @ 0x1406CC79C (PfSnLogHelper.c)
+ *     RtlUpcaseUnicodeString @ 0x1406CC820 (RtlUpcaseUnicodeString.c)
  */
 
 __int64 __fastcall PfSnLogVolumeCreate(__int64 *a1)
@@ -16,16 +15,12 @@ __int64 __fastcall PfSnLogVolumeCreate(__int64 *a1)
   __int64 v4; // rcx
   int v5; // esi
   struct _EX_RUNDOWN_REF *v6; // r15
-  __int64 v7; // r8
-  __int64 *v8; // rcx
-  __int64 NLLogEntry; // rbx
-  int v10; // ecx
-  int v11; // ecx
-  int v12; // eax
-  int v13; // ecx
-  UNICODE_STRING SourceString; // [rsp+30h] [rbp-20h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
-  __int64 *v17; // [rsp+70h] [rbp+20h] BYREF
+  __int64 *v7; // rdx
+  unsigned __int64 v8; // rbx
+  int v9; // ecx
+  UNICODE_STRING SourceString; // [rsp+20h] [rbp-20h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
+  __int64 *v13; // [rsp+60h] [rbp+20h] BYREF
 
   v1 = *((unsigned __int16 *)a1 + 15);
   v2 = 0;
@@ -33,36 +28,36 @@ __int64 __fastcall PfSnLogVolumeCreate(__int64 *a1)
   v5 = 2 * v1;
   *(_DWORD *)(&DestinationString.MaximumLength + 1) = 0;
   *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;
-  v17 = 0LL;
-  v6 = (struct _EX_RUNDOWN_REF *)PfSnLogHelper(v4, (unsigned int)(v5 + 97) >> 4, &v17);
+  v13 = 0LL;
+  v6 = (struct _EX_RUNDOWN_REF *)PfSnLogHelper(v4, (unsigned int)(v5 + 97) >> 4, &v13);
   if ( v6 )
   {
-    v7 = a1[1];
-    v8 = v17;
-    *(_OWORD *)v17 = 0LL;
-    *v8 = (8LL * (((unsigned int)(v5 + 97) >> 4) - 1)) | 5;
-    v8[1] = v7;
-    NLLogEntry = PfSnGetNLLogEntry(v8, 2LL, (unsigned int)(v5 + 66), *((unsigned int *)a1 + 13), *((_DWORD *)a1 + 14));
+    v7 = v13;
     DestinationString.Length = 0;
     DestinationString.MaximumLength = v5;
-    DestinationString.Buffer = (wchar_t *)(NLLogEntry + 56);
-    v10 = *(_DWORD *)(NLLogEntry + 36);
-    SourceString.Buffer = (wchar_t *)a1[5];
-    *(_QWORD *)(NLLogEntry + 24) = a1[1];
-    v11 = (*((_DWORD *)a1 + 12) ^ v10) & 0xF;
+    *(_OWORD *)v13 = 0LL;
+    *v7 = (8LL * (((unsigned int)(v5 + 97) >> 4) - 1)) | 5;
+    v8 = ((unsigned __int64)v7 + 23) & 0xFFFFFFFFFFFFFFF8uLL;
+    v7[1] = a1[1];
     SourceString.Length = v5;
-    *(_DWORD *)(NLLogEntry + 36) ^= v11;
-    v12 = *(_DWORD *)(NLLogEntry + 36);
-    v13 = ((unsigned __int8)v12 ^ (unsigned __int8)*((_DWORD *)a1 + 12)) & 0xF0;
     SourceString.MaximumLength = v5;
-    *(_DWORD *)(NLLogEntry + 36) = v12 ^ v13;
-    *(_QWORD *)(NLLogEntry + 16) = a1[2];
-    *(_DWORD *)(NLLogEntry + 32) = *((_DWORD *)a1 + 6);
-    *(_WORD *)(NLLogEntry + 40) = v5;
-    *(_WORD *)(NLLogEntry + 42) = v5;
+    *(_QWORD *)v8 = 0LL;
+    v9 = *(_DWORD *)(v8 + 36);
+    DestinationString.Buffer = (wchar_t *)(v8 + 56);
+    SourceString.Buffer = (wchar_t *)a1[5];
+    *(_DWORD *)v8 = (8 * v5 + 528) | 2;
+    *(_DWORD *)(v8 + 4) = *((_DWORD *)a1 + 13);
+    *(_DWORD *)(v8 + 8) = *((_DWORD *)a1 + 14);
+    *(_QWORD *)(v8 + 24) = a1[1];
+    *(_DWORD *)(v8 + 36) ^= (*((_DWORD *)a1 + 12) ^ v9) & 0xF;
+    *(_DWORD *)(v8 + 36) ^= (*((_DWORD *)a1 + 12) ^ *(_DWORD *)(v8 + 36)) & 0xF0;
+    *(_QWORD *)(v8 + 16) = a1[2];
+    *(_DWORD *)(v8 + 32) = *((_DWORD *)a1 + 6);
+    *(_WORD *)(v8 + 40) = v5;
+    *(_WORD *)(v8 + 42) = v5;
     RtlUpcaseUnicodeString(&DestinationString, &SourceString, 0);
-    *(_WORD *)(NLLogEntry + 2LL * *((unsigned __int16 *)a1 + 15) + 56) = 0;
-    ExReleaseRundownProtection(v6 + 45);
+    *(_WORD *)(v8 + 2LL * *((unsigned __int16 *)a1 + 15) + 56) = 0;
+    ExReleaseRundownProtection_0(v6 + 45);
   }
   else
   {

@@ -1,17 +1,17 @@
 /*
- * XREFs of MmUpdateMdlTrackerForMdlSwitch @ 0x1402A8CA8
+ * XREFs of MmUpdateMdlTrackerForMdlSwitch @ 0x1402A8DA8
  * Callers:
- *     VmProbeAndLockPages @ 0x14030B880 (VmProbeAndLockPages.c)
- *     VmUnlockPages @ 0x14030B920 (VmUnlockPages.c)
+ *     VmProbeAndLockPages @ 0x14030B980 (VmProbeAndLockPages.c)
+ *     VmUnlockPages @ 0x14030BA20 (VmUnlockPages.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
  *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     MiValidateMdlTracker @ 0x1402A8918 (MiValidateMdlTracker.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MiValidateMdlTracker @ 0x1402A8A18 (MiValidateMdlTracker.c)
  */
 
 __int64 __fastcall MmUpdateMdlTrackerForMdlSwitch(ULONG_PTR BugCheckParameter3, int a2)

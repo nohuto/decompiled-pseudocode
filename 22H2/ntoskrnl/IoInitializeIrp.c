@@ -1,15 +1,15 @@
 /*
- * XREFs of IoInitializeIrp @ 0x140334680
+ * XREFs of IoInitializeIrp @ 0x1402FFCC0
  * Callers:
- *     IoInitializeIrpEx @ 0x1403D03F0 (IoInitializeIrpEx.c)
- *     IopAllocateBackpocketIrp @ 0x140554A80 (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x140554D18 (IopAllocateReserveIrp.c)
- *     WmipSendWmiIrpToTraceDeviceList @ 0x14084A0E4 (WmipSendWmiIrpToTraceDeviceList.c)
- *     SmStorePhysicalRequestIssue @ 0x1409D7C60 (SmStorePhysicalRequestIssue.c)
- *     ViIrpAllocateLockedPacket @ 0x140ACEC64 (ViIrpAllocateLockedPacket.c)
+ *     IoInitializeIrpEx @ 0x140391BC0 (IoInitializeIrpEx.c)
+ *     IopAllocateBackpocketIrp @ 0x1404FFD50 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x1404FFFF0 (IopAllocateReserveIrp.c)
+ *     WmipSendWmiIrpToTraceDeviceList @ 0x1407C1DF4 (WmipSendWmiIrpToTraceDeviceList.c)
+ *     SmStorePhysicalRequestIssue @ 0x14092A558 (SmStorePhysicalRequestIssue.c)
+ *     ViIrpAllocateLockedPacket @ 0x1409D1760 (ViIrpAllocateLockedPacket.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     IovInitializeIrp @ 0x140AC2758 (IovInitializeIrp.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IovInitializeIrp @ 0x1409C5268 (IovInitializeIrp.c)
  */
 
 void __stdcall IoInitializeIrp(PIRP Irp, USHORT PacketSize, CCHAR StackSize)

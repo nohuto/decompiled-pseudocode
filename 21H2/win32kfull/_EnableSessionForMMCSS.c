@@ -1,10 +1,10 @@
 /*
- * XREFs of _EnableSessionForMMCSS @ 0x1C00FD080
+ * XREFs of _EnableSessionForMMCSS @ 0x1C010BC30
  * Callers:
- *     NtUserEnableSessionForMMCSS @ 0x1C00FD040 (NtUserEnableSessionForMMCSS.c)
+ *     <none>
  * Callees:
- *     ?ToggleMMCSSForDT@@YAXXZ @ 0x1C00FD10C (-ToggleMMCSSForDT@@YAXXZ.c)
- *     WakeRIT @ 0x1C00FD22C (WakeRIT.c)
+ *     ?ToggleMMCSSForDT@@YAXXZ @ 0x1C010BCBC (-ToggleMMCSSForDT@@YAXXZ.c)
+ *     WakeRIT @ 0x1C010BE30 (WakeRIT.c)
  */
 
 __int64 __fastcall EnableSessionForMMCSS(int a1)
@@ -12,11 +12,12 @@ __int64 __fastcall EnableSessionForMMCSS(int a1)
   __int64 v2; // rbx
   __int64 v3; // rdx
   __int64 v4; // rcx
+  __int64 v5; // r8
   __int64 CurrentProcess; // rax
 
   GreLockDwmState();
   v2 = 0LL;
-  CurrentProcess = PsGetCurrentProcess(v4, v3);
+  CurrentProcess = PsGetCurrentProcess(v4, v3, v5);
   if ( (unsigned int)IsProcessDwm(CurrentProcess) )
   {
     if ( a1 )

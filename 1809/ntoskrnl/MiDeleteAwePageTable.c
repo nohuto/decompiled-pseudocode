@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDeleteAwePageTable @ 0x1402B0134
+ * XREFs of MiDeleteAwePageTable @ 0x1402B0234
  * Callers:
- *     MiWriteAwePtes @ 0x1402B2178 (MiWriteAwePtes.c)
+ *     MiWriteAwePtes @ 0x1402B2278 (MiWriteAwePtes.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
@@ -11,12 +11,12 @@
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
  *     MiEvictPageTableLock @ 0x1400983A0 (MiEvictPageTableLock.c)
  *     MiGetUsedPtesHandle @ 0x140098700 (MiGetUsedPtesHandle.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiDecreaseUsedPtesCount @ 0x14012F18C (MiDecreaseUsedPtesCount.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiDecreaseUsedPtesCount @ 0x14012F1AC (MiDecreaseUsedPtesCount.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiDeleteAwePageTable(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)

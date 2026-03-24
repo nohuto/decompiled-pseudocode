@@ -1,35 +1,35 @@
 /*
- * XREFs of SmcCacheRemove @ 0x1409DAF10
+ * XREFs of SmcCacheRemove @ 0x14092D7C8
  * Callers:
- *     SmcCacheDelete @ 0x1409DAC2C (SmcCacheDelete.c)
+ *     SmcCacheDelete @ 0x14092D4BC (SmcCacheDelete.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A210 (ExWaitForRundownProtectionRelease.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1403427F0 (ExWaitForRundownProtectionRelease.c)
  */
 
 struct _EX_RUNDOWN_REF __fastcall SmcCacheRemove(__int64 a1, unsigned int a2)
 {
   struct _KTHREAD *CurrentThread; // rax
+  struct _EX_RUNDOWN_REF v3; // r14
   struct _EX_RUNDOWN_REF *v4; // rsi
-  struct _EX_RUNDOWN_REF v5; // r14
 
   CurrentThread = KeGetCurrentThread();
+  v3.Count = 0LL;
   v4 = (struct _EX_RUNDOWN_REF *)(a1 + 32LL * (a2 & 0xF));
   --CurrentThread->KernelApcDisable;
-  v5.Count = 0LL;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&v4[2], 0LL);
   if ( a2 >> 4 == (v4[3].Count & 0xFFF) && v4->Count )
   {
     ExWaitForRundownProtectionRelease(v4 + 1);
-    v5.Count = v4->Count;
+    v3.Count = v4->Count;
     v4->Count = 0LL;
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&v4[2], 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&v4[2]);
   KeAbPostRelease((ULONG_PTR)&v4[2]);
   KeLeaveCriticalRegion();
-  return v5;
+  return v3;
 }

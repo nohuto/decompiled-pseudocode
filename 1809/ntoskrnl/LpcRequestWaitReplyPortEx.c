@@ -1,10 +1,10 @@
 /*
- * XREFs of LpcRequestWaitReplyPortEx @ 0x1406A43F0
+ * XREFs of LpcRequestWaitReplyPortEx @ 0x1406A43D0
  * Callers:
- *     DbgkpSendApiMessageLpc @ 0x140810CCC (DbgkpSendApiMessageLpc.c)
- *     ExpRaiseHardError @ 0x1408D6900 (ExpRaiseHardError.c)
+ *     DbgkpSendApiMessageLpc @ 0x140810CAC (DbgkpSendApiMessageLpc.c)
+ *     ExpRaiseHardError @ 0x1408D68E0 (ExpRaiseHardError.c)
  * Callees:
- *     LpcpRequestWaitReplyPort @ 0x1406A44C8 (LpcpRequestWaitReplyPort.c)
+ *     LpcpRequestWaitReplyPort @ 0x1406A44A8 (LpcpRequestWaitReplyPort.c)
  */
 
 __int64 __fastcall LpcRequestWaitReplyPortEx(int a1, int a2, __int64 a3)

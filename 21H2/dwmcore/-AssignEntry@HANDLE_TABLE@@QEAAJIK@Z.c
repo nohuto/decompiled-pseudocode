@@ -1,12 +1,11 @@
 /*
- * XREFs of ?AssignEntry@HANDLE_TABLE@@QEAAJIK@Z @ 0x1800BE02C
+ * XREFs of ?AssignEntry@HANDLE_TABLE@@QEAAJIK@Z @ 0x18005E800
  * Callers:
- *     ?AssignChannelEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x18002CFF0 (-AssignChannelEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
- *     ?AllocateEntryAtHandle@CResourceTable@@IEAAJIW4MIL_RESOURCE_TYPE@@PEAPEAUHANDLE_ENTRY@1@@Z @ 0x1800612DC (-AllocateEntryAtHandle@CResourceTable@@IEAAJIW4MIL_RESOURCE_TYPE@@PEAPEAUHANDLE_ENTRY@1@@Z.c)
- *     ?CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_CHANNEL_CREATERESOURCE@@PEAPEAVCResource@@@Z @ 0x1800BDEB8 (-CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_C.c)
+ *     ?AssignChannelEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x180027A38 (-AssignChannelEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
+ *     ?AllocateEntryAtHandle@CResourceTable@@IEAAJIW4MIL_RESOURCE_TYPE@@PEAPEAUHANDLE_ENTRY@1@@Z @ 0x18005E7B0 (-AllocateEntryAtHandle@CResourceTable@@IEAAJIW4MIL_RESOURCE_TYPE@@PEAPEAUHANDLE_ENTRY@1@@Z.c)
  * Callees:
- *     ?ResizeToFit@HANDLE_TABLE@@QEAAJI@Z @ 0x18003ADD0 (-ResizeToFit@HANDLE_TABLE@@QEAAJI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ResizeToFit@HANDLE_TABLE@@QEAAJI@Z @ 0x180046154 (-ResizeToFit@HANDLE_TABLE@@QEAAJI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall HANDLE_TABLE::AssignEntry(__int64 this, unsigned int a2, int a3)
@@ -31,7 +30,7 @@ __int64 __fastcall HANDLE_TABLE::AssignEntry(__int64 this, unsigned int a2, int 
     v3 = v9;
     if ( v9 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0x19Bu);
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x19Bu, 0LL);
       return v3;
     }
   }
@@ -42,7 +41,7 @@ __int64 __fastcall HANDLE_TABLE::AssignEntry(__int64 this, unsigned int a2, int 
     v11 = 426;
 LABEL_11:
     v3 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(this, 0LL, 0LL, -2147024809, v11);
+    MilInstrumentationCheckHR_MaybeFailFast(this, 0LL, 0, -2147024809, v11, 0LL);
     return v3;
   }
   *(_DWORD *)(this + v7) = a3;

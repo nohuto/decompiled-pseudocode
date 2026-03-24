@@ -1,11 +1,11 @@
 /*
- * XREFs of iswalnum @ 0x1403E1BB0
+ * XREFs of iswalnum @ 0x1403D27F0
  * Callers:
- *     PiDrvDbFindSystemFilePathToken @ 0x14095BE9C (PiDrvDbFindSystemFilePathToken.c)
- *     GetAttributeName @ 0x1409D0588 (GetAttributeName.c)
- *     IsEncodedAttributeChar @ 0x1409D1C58 (IsEncodedAttributeChar.c)
+ *     PiDrvDbFindSystemFilePathToken @ 0x1408B5DE4 (PiDrvDbFindSystemFilePathToken.c)
+ *     GetAttributeName @ 0x140927030 (GetAttributeName.c)
+ *     IsEncodedAttributeChar @ 0x140927E48 (IsEncodedAttributeChar.c)
  * Callees:
- *     iswctype @ 0x1403E3CE0 (iswctype.c)
+ *     iswctype @ 0x1403D496C (iswctype.c)
  */
 
 int __cdecl iswalnum(wint_t C)

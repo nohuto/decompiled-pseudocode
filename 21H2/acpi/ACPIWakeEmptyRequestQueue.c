@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIWakeEmptyRequestQueue @ 0x1C002ECA8
+ * XREFs of ACPIWakeEmptyRequestQueue @ 0x1C00257CC
  * Callers:
  *     ACPIDispatchIrp @ 0x1C0001010 (ACPIDispatchIrp.c)
  * Callees:
- *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C001FF34 (ACPIWakeRemoveDevicesAndUpdate.c)
- *     ACPIWakeCompleteRequestQueue @ 0x1C002ED3C (ACPIWakeCompleteRequestQueue.c)
+ *     ACPIWakeCompleteRequestQueue @ 0x1C0025860 (ACPIWakeCompleteRequestQueue.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398 (ACPIWakeRemoveDevicesAndUpdate.c)
  */
 
 __int64 __fastcall ACPIWakeEmptyRequestQueue(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall ACPIWakeEmptyRequestQueue(__int64 a1)
   v3[0] = v3;
   IoAcquireCancelSpinLock(&Irql);
   KeAcquireSpinLockAtDpcLevel(&AcpiPowerLock);
-  ACPIWakeRemoveDevicesAndUpdate(a1, (__int64)v3);
+  ACPIWakeRemoveDevicesAndUpdate(a1, v3);
   KeReleaseSpinLockFromDpcLevel(&AcpiPowerLock);
   IoReleaseCancelSpinLock(Irql);
   ACPIWakeCompleteRequestQueue(v3, 3221225486LL);

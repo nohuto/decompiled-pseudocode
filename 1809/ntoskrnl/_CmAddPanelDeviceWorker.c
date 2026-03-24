@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmAddPanelDeviceWorker @ 0x1408FB234
+ * XREFs of _CmAddPanelDeviceWorker @ 0x1408FB214
  * Callers:
- *     _CmAddPanelDevice @ 0x1408FB0F0 (_CmAddPanelDevice.c)
+ *     _CmAddPanelDevice @ 0x1408FB0D0 (_CmAddPanelDevice.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E5B04 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _PnpCtxRegCreateKey @ 0x1406E6484 (_PnpCtxRegCreateKey.c)
- *     _RegRtlSetValue @ 0x1406FCBC8 (_RegRtlSetValue.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140762160 (_RegRtlDeleteKeyTransacted.c)
- *     _CmCreateDevicePanel @ 0x1408FB3E8 (_CmCreateDevicePanel.c)
- *     _CmDeleteDevicePanel @ 0x1408FB5F8 (_CmDeleteDevicePanel.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E5AE4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpCtxRegCreateKey @ 0x1406E6464 (_PnpCtxRegCreateKey.c)
+ *     _RegRtlSetValue @ 0x1406FCBA8 (_RegRtlSetValue.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140762140 (_RegRtlDeleteKeyTransacted.c)
+ *     _CmCreateDevicePanel @ 0x1408FB3C8 (_CmCreateDevicePanel.c)
+ *     _CmDeleteDevicePanel @ 0x1408FB5D8 (_CmDeleteDevicePanel.c)
  */
 
 __int64 __fastcall CmAddPanelDeviceWorker(__int64 a1, __int64 a2, const WCHAR *a3, _BYTE *a4)

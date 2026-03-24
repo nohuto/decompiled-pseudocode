@@ -1,12 +1,12 @@
 /*
- * XREFs of IopFreeWaitCompletionPacket @ 0x1400F9BA8
+ * XREFs of IopFreeWaitCompletionPacket @ 0x1400F9BC8
  * Callers:
- *     IopDeleteIoCompletionInternal @ 0x1400FA83C (IopDeleteIoCompletionInternal.c)
+ *     IopDeleteIoCompletionInternal @ 0x1400FA85C (IopDeleteIoCompletionInternal.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG_PTR __fastcall IopFreeWaitCompletionPacket(_QWORD *Object, PVOID a2)

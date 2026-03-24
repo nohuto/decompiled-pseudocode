@@ -1,12 +1,12 @@
 /*
- * XREFs of TR_InitializeTransferSegment @ 0x1C004192C
+ * XREFs of TR_InitializeTransferSegment @ 0x1C003F418
  * Callers:
- *     TR_InitializeTransferRing @ 0x1C0007E2C (TR_InitializeTransferRing.c)
+ *     TR_InitializeTransferRing @ 0x1C0005758 (TR_InitializeTransferRing.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 char __fastcall TR_InitializeTransferSegment(__int64 a1, __int64 a2)
@@ -49,7 +49,7 @@ char __fastcall TR_InitializeTransferSegment(__int64 a1, __int64 a2)
           v6,
           14,
           29,
-          (__int64)&WPP_9ff532af533633cb75752ac9b9d63831_Traceguids,
+          (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
           v11);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v7, v8, v9);

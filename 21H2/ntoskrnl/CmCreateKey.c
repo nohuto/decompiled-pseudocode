@@ -1,26 +1,25 @@
 /*
- * XREFs of CmCreateKey @ 0x14067F8D0
+ * XREFs of CmCreateKey @ 0x14066F690
  * Callers:
- *     NtCreateKeyTransacted @ 0x14067EFD0 (NtCreateKeyTransacted.c)
- *     NtCreateKey @ 0x14067F860 (NtCreateKey.c)
+ *     NtCreateKey @ 0x14066F650 (NtCreateKey.c)
+ *     NtCreateKeyTransacted @ 0x140769B00 (NtCreateKeyTransacted.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     EtwGetKernelTraceTimestamp @ 0x140223A20 (EtwGetKernelTraceTimestamp.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PsGetCurrentSilo @ 0x140347D50 (PsGetCurrentSilo.c)
- *     CmpAllocateTransientPoolWithQuotaTag @ 0x140367AF0 (CmpAllocateTransientPoolWithQuotaTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CmpCleanupParseContext @ 0x14067FE98 (CmpCleanupParseContext.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     ObOpenObjectByNameEx @ 0x1407CAF90 (ObOpenObjectByNameEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     CmpReleaseShutdownRundown @ 0x140AB42A0 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140AB46D0 (CmpAcquireShutdownRundown.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithQuotaTag @ 0x14027EF58 (CmpAllocateTransientPoolWithQuotaTag.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     CmpReleaseShutdownRundown @ 0x140655680 (CmpReleaseShutdownRundown.c)
+ *     CmpCleanupParseContext @ 0x140655A80 (CmpCleanupParseContext.c)
+ *     ObOpenObjectByName @ 0x140655C50 (ObOpenObjectByName.c)
+ *     CmpAcquireShutdownRundown @ 0x140656AB0 (CmpAcquireShutdownRundown.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall CmCreateKey(
@@ -33,225 +32,216 @@ __int64 __fastcall CmCreateKey(
         _DWORD *a7,
         __int64 a8)
 {
-  HANDLE *v10; // rsi
-  unsigned int v11; // r12d
-  char v12; // r14
-  unsigned __int8 PreviousMode; // r14
-  size_t v14; // rax
-  __int64 v15; // rcx
-  void *v16; // rdx
-  __int64 v17; // rax
-  __int64 v18; // rcx
-  unsigned __int64 v19; // rcx
-  int v20; // eax
-  unsigned __int64 v21; // rcx
+  __int64 v11; // r14
+  unsigned int v12; // r13d
+  char PreviousMode; // dl
+  __int64 v14; // rcx
+  const void *v15; // r13
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  unsigned __int64 v18; // rcx
+  int v19; // eax
+  unsigned __int64 v20; // rcx
+  unsigned __int64 v21; // rdx
   unsigned __int64 v22; // rdx
-  unsigned __int64 v23; // r8
   struct _PRIVILEGE_SET *TransientPoolWithQuotaTag; // rax
-  struct _PRIVILEGE_SET *v25; // rsi
-  int v26; // ebx
-  void *v27; // rax
-  POBJECT_TYPE *v28; // rbx
-  struct _LIST_ENTRY *CurrentSilo; // rax
-  KPROCESSOR_MODE v31; // r9
-  __int64 v32; // rcx
-  char v33; // [rsp+40h] [rbp-238h]
-  HANDLE Handle; // [rsp+48h] [rbp-230h] BYREF
-  unsigned int v35; // [rsp+50h] [rbp-228h]
-  PVOID Object; // [rsp+58h] [rbp-220h] BYREF
-  PPRIVILEGE_SET Privileges; // [rsp+60h] [rbp-218h]
-  size_t Size; // [rsp+68h] [rbp-210h]
-  __int128 v39; // [rsp+70h] [rbp-208h] BYREF
-  __int64 v40; // [rsp+80h] [rbp-1F8h]
-  HANDLE *v41; // [rsp+88h] [rbp-1F0h]
-  __int128 v42; // [rsp+90h] [rbp-1E8h]
-  void *Src; // [rsp+A0h] [rbp-1D8h]
-  HANDLE *v44; // [rsp+A8h] [rbp-1D0h]
-  ULONG_PTR v45; // [rsp+B0h] [rbp-1C8h]
-  _DWORD *v46; // [rsp+B8h] [rbp-1C0h]
-  __int128 v47; // [rsp+C0h] [rbp-1B8h]
-  __int128 v48; // [rsp+D0h] [rbp-1A8h]
-  _OWORD v49[19]; // [rsp+E0h] [rbp-198h] BYREF
-  _OWORD v50[2]; // [rsp+210h] [rbp-68h] BYREF
+  struct _PRIVILEGE_SET *v24; // r14
+  int v25; // ebx
+  void *v26; // rax
+  KPROCESSOR_MODE v28; // r9
+  __int64 v29; // rcx
+  char v30; // [rsp+40h] [rbp-248h]
+  BOOLEAN v31; // [rsp+43h] [rbp-245h]
+  unsigned int v32; // [rsp+48h] [rbp-240h]
+  HANDLE Handle; // [rsp+50h] [rbp-238h] BYREF
+  PPRIVILEGE_SET Privileges; // [rsp+58h] [rbp-230h]
+  __int128 v35; // [rsp+60h] [rbp-228h] BYREF
+  PVOID Object; // [rsp+70h] [rbp-218h] BYREF
+  __int64 v37; // [rsp+78h] [rbp-210h]
+  __int128 v38; // [rsp+80h] [rbp-208h]
+  int v39; // [rsp+90h] [rbp-1F8h]
+  size_t Size; // [rsp+98h] [rbp-1F0h]
+  HANDLE *v41; // [rsp+A0h] [rbp-1E8h]
+  ULONG_PTR v42; // [rsp+A8h] [rbp-1E0h]
+  _DWORD *v43; // [rsp+B0h] [rbp-1D8h]
+  __int128 v44; // [rsp+C0h] [rbp-1C8h]
+  __int128 v45; // [rsp+D0h] [rbp-1B8h]
+  unsigned __int64 v46; // [rsp+E0h] [rbp-1A8h]
+  _OWORD v47[19]; // [rsp+F0h] [rbp-198h] BYREF
+  LARGE_INTEGER v48[4]; // [rsp+220h] [rbp-68h] BYREF
 
-  v10 = a1;
   v41 = a1;
-  v44 = a1;
-  v45 = a3;
-  Size = (size_t)a5;
-  v46 = a7;
+  v42 = a3;
+  v11 = (__int64)a5;
+  v43 = a7;
   Handle = 0LL;
-  v39 = 0LL;
-  v42 = 0LL;
+  v35 = 0LL;
+  v38 = 0LL;
   Privileges = 0LL;
-  LODWORD(Object) = 0;
-  memset(v50, 0, sizeof(v50));
-  v40 = 0LL;
-  if ( CmpTraceRoutine )
-    EtwGetKernelTraceTimestamp((unsigned __int64)v50, 0x20000uLL);
-  memset(v49, 0, 0x128uLL);
-  LODWORD(v49[6]) = -1;
-  *((_QWORD *)&v49[9] + 1) = &v49[9];
-  *(_QWORD *)&v49[9] = &v49[9];
-  memset((char *)&v49[13] + 8, 0, 0x50uLL);
-  HIDWORD(v49[1]) = a2 & 0x300;
-  v11 = a2 & 0xFFFFFCFF;
-  v35 = v11;
-  v12 = CmpAcquireShutdownRundown();
-  v33 = v12;
-  if ( v12 )
+  v39 = 0;
+  memset(v48, 0, sizeof(v48));
+  v37 = 0LL;
+  if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
+    EtwGetKernelTraceTimestamp(v48, 0x20000u);
+  memset(v47, 0, 0x128uLL);
+  LODWORD(v47[6]) = -1;
+  *((_QWORD *)&v47[9] + 1) = &v47[9];
+  *(_QWORD *)&v47[9] = &v47[9];
+  memset((char *)&v47[13] + 8, 0, 0x50uLL);
+  HIDWORD(v47[1]) = a2 & 0x300;
+  v12 = a2 & 0xFFFFFCFF;
+  v32 = v12;
+  v31 = CmpAcquireShutdownRundown();
+  if ( v31 )
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
+    v30 = PreviousMode;
     if ( PreviousMode == 1 )
     {
       if ( a5 )
       {
-        v47 = 0LL;
-        v14 = Size;
-        if ( Size >= 0x7FFFFFFF0000LL )
-          v14 = 0x7FFFFFFF0000LL;
-        v15 = *(unsigned int *)v14;
-        LODWORD(v47) = v15;
-        v16 = *(void **)(v14 + 8);
-        Src = v16;
-        *((_QWORD *)&v47 + 1) = v16;
-        v42 = v47;
-        if ( (_WORD)v15 )
+        v44 = 0LL;
+        if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+          v11 = 0x7FFFFFFF0000LL;
+        v14 = *(unsigned int *)v11;
+        LODWORD(v44) = v14;
+        v15 = *(const void **)(v11 + 8);
+        *((_QWORD *)&v44 + 1) = v15;
+        v38 = v44;
+        if ( (_WORD)v14 )
         {
-          if ( ((unsigned __int8)v16 & 1) != 0 )
+          if ( ((unsigned __int8)v15 & 1) != 0 )
             ExRaiseDatatypeMisalignment();
-          v23 = (unsigned __int64)v16 + (unsigned __int16)v15;
-          if ( v23 > 0x7FFFFFFF0000LL || v23 < (unsigned __int64)v16 )
+          v22 = (unsigned __int64)v15 + (unsigned __int16)v14;
+          if ( v22 > 0x7FFFFFFF0000LL || v22 < (unsigned __int64)v15 )
             MEMORY[0x7FFFFFFF0000] = 0;
         }
-        if ( (v15 & 1) != 0 )
+        if ( (v14 & 1) != 0 )
         {
-          v26 = -1073741811;
-          v12 = v33;
+          v25 = -1073741811;
           goto LABEL_45;
         }
-        if ( (_WORD)v15 )
+        if ( (_WORD)v14 )
         {
-          Size = (unsigned __int16)v15;
+          Size = (unsigned __int16)v14;
           TransientPoolWithQuotaTag = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithQuotaTag(
-                                                                 v15,
-                                                                 (unsigned __int16)v15,
+                                                                 v14,
+                                                                 (unsigned __int16)v14,
                                                                  0x78634D43u);
           Privileges = TransientPoolWithQuotaTag;
           if ( !TransientPoolWithQuotaTag )
           {
-            v26 = -1073741670;
-            v12 = v33;
+            v25 = -1073741670;
             goto LABEL_45;
           }
-          v25 = TransientPoolWithQuotaTag;
-          memmove(TransientPoolWithQuotaTag, Src, Size);
-          *((_QWORD *)&v42 + 1) = v25;
-          v10 = v41;
+          v24 = TransientPoolWithQuotaTag;
+          memmove(TransientPoolWithQuotaTag, v15, Size);
+          *((_QWORD *)&v38 + 1) = v24;
         }
+        v12 = v32;
       }
-      v17 = (__int64)v10;
-      if ( (unsigned __int64)v10 >= 0x7FFFFFFF0000LL )
-        v17 = 0x7FFFFFFF0000LL;
-      *(_QWORD *)v17 = 0LL;
+      v16 = (__int64)a1;
+      if ( (unsigned __int64)a1 >= 0x7FFFFFFF0000LL )
+        v16 = 0x7FFFFFFF0000LL;
+      *(_QWORD *)v16 = 0LL;
       if ( a7 )
       {
-        v18 = (__int64)a7;
+        v17 = (__int64)a7;
         if ( (unsigned __int64)a7 >= 0x7FFFFFFF0000LL )
-          v18 = 0x7FFFFFFF0000LL;
-        *(_DWORD *)v18 = *(_DWORD *)v18;
+          v17 = 0x7FFFFFFF0000LL;
+        *(_DWORD *)v17 = *(_DWORD *)v17;
       }
       if ( (a3 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v19 = *(_QWORD *)(a3 + 16);
-      v41 = (HANDLE *)v19;
-      v48 = 0LL;
-      if ( v19 >= 0x7FFFFFFF0000LL )
-        v19 = 0x7FFFFFFF0000LL;
-      v20 = *(_DWORD *)v19;
-      LODWORD(v48) = v20;
-      v21 = *(_QWORD *)(v19 + 8);
-      *((_QWORD *)&v48 + 1) = v21;
-      v39 = v48;
-      if ( (_WORD)v20 )
+      v18 = *(_QWORD *)(a3 + 16);
+      v46 = v18;
+      v45 = 0LL;
+      if ( v18 >= 0x7FFFFFFF0000LL )
+        v18 = 0x7FFFFFFF0000LL;
+      v19 = *(_DWORD *)v18;
+      LODWORD(v45) = v19;
+      v20 = *(_QWORD *)(v18 + 8);
+      *((_QWORD *)&v45 + 1) = v20;
+      v35 = v45;
+      if ( (_WORD)v19 )
       {
-        if ( (v21 & 1) != 0 )
+        if ( (v20 & 1) != 0 )
           ExRaiseDatatypeMisalignment();
-        v22 = v21 + (unsigned __int16)v20;
-        if ( v22 > 0x7FFFFFFF0000LL || v22 < v21 )
+        v21 = v20 + (unsigned __int16)v19;
+        if ( v21 > 0x7FFFFFFF0000LL || v21 < v20 )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
-      if ( (v39 & 1) != 0 )
+      if ( (v35 & 1) != 0 )
       {
-        v26 = -1073741811;
-        v12 = v33;
+        v25 = -1073741811;
         goto LABEL_45;
       }
-      v27 = *(void **)(a3 + 8);
-      Handle = v27;
+      v26 = *(void **)(a3 + 8);
+      Handle = v26;
+      PreviousMode = 1;
     }
     else
     {
       if ( a5 )
-        v42 = *a5;
-      v39 = *(_OWORD *)*(_QWORD *)(a3 + 16);
-      v27 = *(void **)(a3 + 8);
-      Handle = v27;
+        v38 = *a5;
+      v35 = *(_OWORD *)*(_QWORD *)(a3 + 16);
+      v26 = *(void **)(a3 + 8);
+      Handle = v26;
     }
-    if ( CmpTraceRoutine )
+    if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) && v26 )
     {
-      if ( v27 )
+      v28 = KeGetCurrentThread()->PreviousMode;
+      Object = 0LL;
+      if ( ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)CmKeyObjectType, v28, &Object, 0LL) >= 0 )
       {
-        v31 = KeGetCurrentThread()->PreviousMode;
-        Object = 0LL;
-        if ( ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)CmKeyObjectType, v31, &Object, 0LL) >= 0 )
-        {
-          v40 = *((_QWORD *)Object + 1);
-          ObfDereferenceObject(Object);
-        }
+        v37 = *((_QWORD *)Object + 1);
+        HalPutDmaAdapter((PADAPTER_OBJECT)Object);
       }
+      PreviousMode = v30;
     }
     if ( (a6 & 0x100001F) == a6 )
     {
-      DWORD2(v49[1]) = a6;
-      LODWORD(v49[0]) = 1;
-      *((_QWORD *)&v49[0] + 1) = *((_QWORD *)&v42 + 1);
-      WORD2(v49[0]) = v42;
-      *((_QWORD *)&v49[4] + 1) = a8;
-      v28 = CmKeyObjectType;
-      CurrentSilo = PsGetCurrentSilo();
-      v26 = ObOpenObjectByNameEx(a3, v28, PreviousMode, 0LL, v11, v49, CurrentSilo, &Handle);
-      if ( v26 >= 0 )
+      DWORD2(v47[1]) = a6;
+      LODWORD(v47[0]) = 1;
+      *((_QWORD *)&v47[0] + 1) = *((_QWORD *)&v38 + 1);
+      WORD2(v47[0]) = v38;
+      *((_QWORD *)&v47[4] + 1) = a8;
+      v25 = ObOpenObjectByName(a3, (__int64)CmKeyObjectType, PreviousMode, 0LL, v12, (__int64)v47, (__int64)&Handle);
+      if ( v25 >= 0 )
       {
-        *v10 = Handle;
+        *a1 = Handle;
         if ( a7 )
-          *a7 = v49[2];
+          *a7 = v47[2];
       }
-      v12 = v33;
     }
     else
     {
-      v26 = -1073741811;
-      v12 = v33;
+      v25 = -1073741811;
     }
   }
   else
   {
     if ( HvShutdownComplete && (PopShutdownCleanly & 8) != 0 )
       KeBugCheckEx(0x51u, 0xEuLL, 1uLL, a3, 0LL);
-    v26 = -1073741431;
+    v25 = -1073741431;
   }
 LABEL_45:
-  if ( CmpTraceRoutine )
+  if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
   {
-    v32 = v40;
-    LOBYTE(v32) = 10;
-    CmpTraceRoutine(v32, v50, (unsigned int)v26, 0LL, v40, &v39);
+    v29 = v37;
+    LOBYTE(v29) = 10;
+    (*(void (__fastcall **)(__int64, LARGE_INTEGER *, _QWORD, _QWORD, __int64, __int128 *))((char *)&NlsMbCodePageTag + 7))(
+      v29,
+      v48,
+      (unsigned int)v25,
+      0LL,
+      v37,
+      &v35);
   }
   if ( Privileges )
     CmSiFreeMemory(Privileges);
-  CmpCleanupParseContext(v49, 0LL);
-  if ( v12 )
+  CmpCleanupParseContext((__int64)v47, 0);
+  if ( v31 )
     CmpReleaseShutdownRundown();
-  return (unsigned int)v26;
+  return (unsigned int)v25;
 }

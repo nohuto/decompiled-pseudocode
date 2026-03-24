@@ -1,36 +1,33 @@
 /*
- * XREFs of GetNextFrameId @ 0x1C00E5970
+ * XREFs of GetNextFrameId @ 0x1C01AE7E0
  * Callers:
- *     ?CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z @ 0x1C01BE764 (-CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z.c)
+ *     <none>
  * Callees:
- *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C00B9418 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00B9500 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCC60 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C0187408 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ApiSetResetLastSeenFrameId @ 0x1C01D0290 (ApiSetResetLastSeenFrameId.c)
  */
 
-__int64 __fastcall GetNextFrameId(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 GetNextFrameId()
 {
-  _DWORD *v4; // rbx
-  unsigned int v5; // edi
-  struct tagDESKTOP *v6; // rbx
-  CInpLockGuard *v8[9]; // [rsp+20h] [rbp-48h] BYREF
+  struct A0xad387374::CFrameIdGenerator *v0; // rbx
+  unsigned int v1; // edi
+  int v2; // ecx
+  CInpLockGuard *v4[9]; // [rsp+20h] [rbp-48h] BYREF
 
-  v4 = *(_DWORD **)(SGDGetUserSessionState(a1, a2, a3, a4) + 16368);
+  v0 = `anonymous namespace'::CFrameIdGenerator::s_pInstance;
   CInpLockGuardExclusiveIfNeeded::CInpLockGuardExclusiveIfNeeded(
-    (CInpLockGuardExclusiveIfNeeded *)v8,
-    (struct CInpLockGuard *)(v4 + 2),
+    (CInpLockGuardExclusiveIfNeeded *)v4,
+    (struct A0xad387374::CFrameIdGenerator *)((char *)`anonymous namespace'::CFrameIdGenerator::s_pInstance + 8),
     0LL);
-  v5 = (*v4)++;
-  if ( v5 == -1 )
+  v1 = *(_DWORD *)v0;
+  v2 = *(_DWORD *)v0 + 1;
+  *(_DWORD *)v0 = v2;
+  if ( v1 == -1 )
   {
-    *v4 = 1;
-    v6 = grpdeskRitInput;
-    if ( qword_1C0296850 )
-    {
-      if ( (int)qword_1C0296850() >= 0 && qword_1C0296858 )
-        qword_1C0296858(v6);
-    }
+    *(_DWORD *)v0 = v2 + 1;
+    ApiSetResetLastSeenFrameId();
   }
-  CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v8);
-  return v5;
+  CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v4);
+  return v1;
 }

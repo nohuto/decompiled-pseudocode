@@ -1,7 +1,7 @@
 /*
- * XREFs of McGenEventUnregister_EtwUnregister @ 0x1C00C5E04
+ * XREFs of McGenEventUnregister_EtwUnregister @ 0x1C00B81A8
  * Callers:
- *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C01481B0 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C011B880 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
  *     <none>
  */

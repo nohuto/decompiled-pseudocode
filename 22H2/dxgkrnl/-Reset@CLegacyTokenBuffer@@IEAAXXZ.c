@@ -1,10 +1,9 @@
 /*
- * XREFs of ?Reset@CLegacyTokenBuffer@@IEAAXXZ @ 0x1C00190E8
+ * XREFs of ?Reset@CLegacyTokenBuffer@@IEAAXXZ @ 0x1C0012E88
  * Callers:
- *     ??_GCLegacyTokenBuffer@@AEAAPEAXI@Z @ 0x1C00178C4 (--_GCLegacyTokenBuffer@@AEAAPEAXI@Z.c)
- *     ?Create@CLegacyTokenBuffer@@KAJPEAPEAV1@@Z @ 0x1C0017B14 (-Create@CLegacyTokenBuffer@@KAJPEAPEAV1@@Z.c)
- *     ?ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z @ 0x1C0018038 (-ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z.c)
- *     ?ProcessDxgkAdapterTokens@CTokenManager@@IEAAJI@Z @ 0x1C0018430 (-ProcessDxgkAdapterTokens@CTokenManager@@IEAAJI@Z.c)
+ *     ?ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z @ 0x1C0012DCC (-ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z.c)
+ *     ?Create@CLegacyTokenBuffer@@KAJPEAPEAV1@@Z @ 0x1C0012F04 (-Create@CLegacyTokenBuffer@@KAJPEAPEAV1@@Z.c)
+ *     ??_GCLegacyTokenBuffer@@AEAAPEAXI@Z @ 0x1C0012F8C (--_GCLegacyTokenBuffer@@AEAAPEAXI@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of IopIrpStackProfilerDpcRoutine @ 0x140243B10
+ * XREFs of IopIrpStackProfilerDpcRoutine @ 0x14035FA80
  * Callers:
  *     <none>
  * Callees:
- *     IopProcessIrpStackProfiler @ 0x140243D5C (IopProcessIrpStackProfiler.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _local_unwind @ 0x1403E0F50 (_local_unwind.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     KiCustomAccessRoutine2 @ 0x14042BE50 (KiCustomAccessRoutine2.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     IopProcessIrpStackProfiler @ 0x14035FCCC (IopProcessIrpStackProfiler.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _local_unwind @ 0x1403D1B90 (_local_unwind.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine2 @ 0x140409DD0 (KiCustomAccessRoutine2.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void __fastcall IopIrpStackProfilerDpcRoutine(
@@ -52,9 +52,9 @@ void __fastcall IopIrpStackProfilerDpcRoutine(
     Prcb = KeGetPrcb(i);
     if ( Prcb )
     {
-      v8 += (unsigned int)(*(_DWORD *)(Prcb + 35856) - *(_DWORD *)(Prcb + 35940));
+      v8 += (unsigned int)(*(_DWORD *)(Prcb + 34832) - *(_DWORD *)(Prcb + 34916));
       v11 = 0LL;
-      v12 = (_DWORD *)(Prcb + 35776);
+      v12 = (_DWORD *)(Prcb + 34752);
       do
       {
         v19[v11++] += (unsigned int)(*v12 - v12[21]);
@@ -88,12 +88,12 @@ void __fastcall IopIrpStackProfilerDpcRoutine(
       v16 = KeGetPrcb(k);
       if ( v16 )
       {
-        *(_OWORD *)(v16 + 35860) = *(_OWORD *)(v16 + 35776);
-        *(_OWORD *)(v16 + 35876) = *(_OWORD *)(v16 + 35792);
-        *(_OWORD *)(v16 + 35892) = *(_OWORD *)(v16 + 35808);
-        *(_OWORD *)(v16 + 35908) = *(_OWORD *)(v16 + 35824);
-        *(_OWORD *)(v16 + 35924) = *(_OWORD *)(v16 + 35840);
-        *(_DWORD *)(v16 + 35940) = *(_DWORD *)(v16 + 35856);
+        *(_OWORD *)(v16 + 34836) = *(_OWORD *)(v16 + 34752);
+        *(_OWORD *)(v16 + 34852) = *(_OWORD *)(v16 + 34768);
+        *(_OWORD *)(v16 + 34868) = *(_OWORD *)(v16 + 34784);
+        *(_OWORD *)(v16 + 34884) = *(_OWORD *)(v16 + 34800);
+        *(_OWORD *)(v16 + 34900) = *(_OWORD *)(v16 + 34816);
+        *(_DWORD *)(v16 + 34916) = *(_DWORD *)(v16 + 34832);
       }
     }
   }

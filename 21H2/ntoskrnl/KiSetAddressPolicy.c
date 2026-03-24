@@ -1,15 +1,16 @@
 /*
- * XREFs of KiSetAddressPolicy @ 0x140347550
+ * XREFs of KiSetAddressPolicy @ 0x1402079D0
  * Callers:
- *     KiSynchronizeAddressPolicyTarget @ 0x14024AE10 (KiSynchronizeAddressPolicyTarget.c)
- *     KiSwapProcess @ 0x1402D0BA0 (KiSwapProcess.c)
- *     KiSwapDirectoryTableBaseTarget @ 0x1402F25C0 (KiSwapDirectoryTableBaseTarget.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     KiAttachProcess @ 0x140346E50 (KiAttachProcess.c)
- *     KiDetachProcess @ 0x1403470F0 (KiDetachProcess.c)
- *     KiEnableKvaShadowing @ 0x140A59FA4 (KiEnableKvaShadowing.c)
+ *     KiSwapProcess @ 0x140207230 (KiSwapProcess.c)
+ *     KiAttachProcess @ 0x140207340 (KiAttachProcess.c)
+ *     KiDetachProcess @ 0x140207600 (KiDetachProcess.c)
+ *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     KiSynchronizeAddressPolicyTarget @ 0x1402C25F0 (KiSynchronizeAddressPolicyTarget.c)
+ *     KiSwapDirectoryTableBaseTarget @ 0x1403884A0 (KiSwapDirectoryTableBaseTarget.c)
+ *     KiEnableKvaShadowing @ 0x14099F860 (KiEnableKvaShadowing.c)
  * Callees:
- *     KxSetAddressPolicy @ 0x140420AE0 (KxSetAddressPolicy.c)
+ *     KxSetAddressPolicy @ 0x1403FF500 (KxSetAddressPolicy.c)
  */
 
 __int64 KiSetAddressPolicy()

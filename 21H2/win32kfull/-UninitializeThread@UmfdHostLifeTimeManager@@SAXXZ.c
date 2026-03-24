@@ -1,17 +1,16 @@
 /*
- * XREFs of ?UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F77E8
+ * XREFs of ?UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F4628
  * Callers:
- *     UmfdDispatchEscape @ 0x1C0010B54 (UmfdDispatchEscape.c)
- *     UmfdUninitializeThread @ 0x1C00F77D0 (UmfdUninitializeThread.c)
+ *     ?UmfdEscHostUnhandledException@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00F4610 (-UmfdEscHostUnhandledException@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
  * Callees:
- *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C0011710 (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00228A4 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00228D8 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?Destroy@UmfdTls@@CAXPEAV1@@Z @ 0x1C00F78BC (-Destroy@UmfdTls@@CAXPEAV1@@Z.c)
- *     ?UmfdCancelServerOutstandingRequests@@YAJPEAX@Z @ 0x1C00F7958 (-UmfdCancelServerOutstandingRequests@@YAJPEAX@Z.c)
- *     ?UmfdGetServerPort@@YAPEAXW4FontDriverType@@@Z @ 0x1C00F799C (-UmfdGetServerPort@@YAPEAXW4FontDriverType@@@Z.c)
- *     ?Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ @ 0x1C02DC998 (-Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C00A8E80 (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BD148 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BD17C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?Destroy@UmfdTls@@CAXPEAV1@@Z @ 0x1C00F46FC (-Destroy@UmfdTls@@CAXPEAV1@@Z.c)
+ *     ?UmfdCancelServerOutstandingRequests@@YAJPEAX@Z @ 0x1C00F4798 (-UmfdCancelServerOutstandingRequests@@YAJPEAX@Z.c)
+ *     ?UmfdGetServerPort@@YAPEAXW4FontDriverType@@@Z @ 0x1C00F47CC (-UmfdGetServerPort@@YAPEAXW4FontDriverType@@@Z.c)
+ *     ?Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ @ 0x1C02DFC54 (-Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ.c)
  */
 
 void UmfdHostLifeTimeManager::UninitializeThread(void)

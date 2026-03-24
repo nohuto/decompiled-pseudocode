@@ -1,16 +1,16 @@
 /*
- * XREFs of PipCheckSystemFirmwareUpdated @ 0x140B3FC3C
+ * XREFs of PipCheckSystemFirmwareUpdated @ 0x140A5CA78
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     PipHardwareConfigOpenKey @ 0x140813018 (PipHardwareConfigOpenKey.c)
- *     IopOpenRegistryKeyEx @ 0x1408135F0 (IopOpenRegistryKeyEx.c)
- *     _PnpCtxRegCloseKey @ 0x140876DE4 (_PnpCtxRegCloseKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     _PnpCtxRegCloseKey @ 0x1406B4684 (_PnpCtxRegCloseKey.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     PipHardwareConfigOpenKey @ 0x1407AC760 (PipHardwareConfigOpenKey.c)
+ *     IopOpenRegistryKeyEx @ 0x1407ACA90 (IopOpenRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PipCheckSystemFirmwareUpdated(_BYTE *a1)

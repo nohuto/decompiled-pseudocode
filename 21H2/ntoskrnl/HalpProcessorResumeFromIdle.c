@@ -1,24 +1,24 @@
 /*
- * XREFs of HalpProcessorResumeFromIdle @ 0x140229830
+ * XREFs of HalpProcessorResumeFromIdle @ 0x14029C450
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-struct _KPRCB *HalpProcessorResumeFromIdle()
+unsigned __int64 HalpProcessorResumeFromIdle()
 {
-  struct _KPRCB *result; // rax
+  unsigned __int64 result; // rax
 
-  result = KeGetCurrentPrcb();
-  if ( SLODWORD(result->HalReserved[2]) > 0 )
+  result = (unsigned int)HalpPmuInUse;
+  if ( HalpPmuInUse )
   {
-    result = KeGetCurrentPrcb();
-    if ( (result->HalReserved[2] & 1) == 0 )
+    result = (unsigned int)HalpPmuInUse;
+    if ( (HalpPmuInUse & 1) == 0 )
     {
-      result = (struct _KPRCB *)HalpProfileInterface[10];
+      result = *((_QWORD *)HalpProfileInterface[0] + 9);
       if ( result )
-        return (struct _KPRCB *)((__int64 (*)(void))result)();
+        return ((__int64 (*)(void))result)();
     }
   }
   return result;

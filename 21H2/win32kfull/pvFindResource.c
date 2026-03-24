@@ -1,9 +1,9 @@
 /*
- * XREFs of pvFindResource @ 0x1C00EE1AC
+ * XREFs of pvFindResource @ 0x1C0102F7C
  * Callers:
- *     ?LOADSTRING@@YAHPEAXIPEAGH@Z @ 0x1C010AEE0 (-LOADSTRING@@YAHPEAXIPEAGH@Z.c)
- *     cParseFontResources @ 0x1C011B894 (cParseFontResources.c)
- *     EngFindResource @ 0x1C027B480 (EngFindResource.c)
+ *     ?LOADSTRING@@YAHPEAXIPEAGH@Z @ 0x1C0120E84 (-LOADSTRING@@YAHPEAXIPEAGH@Z.c)
+ *     cParseFontResources @ 0x1C0130674 (cParseFontResources.c)
+ *     EngFindResource @ 0x1C027D910 (EngFindResource.c)
  * Callees:
  *     <none>
  */

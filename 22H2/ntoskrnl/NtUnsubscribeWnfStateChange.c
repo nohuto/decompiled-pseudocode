@@ -1,12 +1,12 @@
 /*
- * XREFs of NtUnsubscribeWnfStateChange @ 0x14076CD70
+ * XREFs of NtUnsubscribeWnfStateChange @ 0x140611A40
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExpCaptureWnfStateName @ 0x14071313C (ExpCaptureWnfStateName.c)
- *     ExpWnfAcquireSubscriptionByName @ 0x14076CE2C (ExpWnfAcquireSubscriptionByName.c)
- *     ExpWnfDeleteSubscription @ 0x14076CF0C (ExpWnfDeleteSubscription.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExpCaptureWnfStateName @ 0x14060F7A4 (ExpCaptureWnfStateName.c)
+ *     ExpWnfAcquireSubscriptionByName @ 0x140611AFC (ExpWnfAcquireSubscriptionByName.c)
+ *     ExpWnfDeleteSubscription @ 0x140613588 (ExpWnfDeleteSubscription.c)
  */
 
 __int64 __fastcall NtUnsubscribeWnfStateChange(__int64 *a1)
@@ -24,7 +24,7 @@ __int64 __fastcall NtUnsubscribeWnfStateChange(__int64 *a1)
   v4 = ExpCaptureWnfStateName(a1, &v5, KeGetCurrentThread()->PreviousMode);
   if ( v4 >= 0 )
   {
-    v2 = KeGetCurrentThread()->ApcState.Process[1].EndPadding[0];
+    v2 = KeGetCurrentThread()->ApcState.Process[1].EndPadding[7];
     if ( v2 )
     {
       v4 = ExpWnfAcquireSubscriptionByName(v5, v2, &P);

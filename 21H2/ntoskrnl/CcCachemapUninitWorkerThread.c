@@ -1,76 +1,63 @@
 /*
- * XREFs of CcCachemapUninitWorkerThread @ 0x140275000
+ * XREFs of CcCachemapUninitWorkerThread @ 0x1402F38A0
  * Callers:
  *     <none>
  * Callees:
- *     CcFindNextWorkQueueEntry @ 0x140275290 (CcFindNextWorkQueueEntry.c)
- *     CcWriteBehind @ 0x140275FC0 (CcWriteBehind.c)
- *     CcFreeWorkQueueEntry @ 0x1402766A0 (CcFreeWorkQueueEntry.c)
- *     CcDereferencePartition @ 0x140276728 (CcDereferencePartition.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     CcFindNextWorkQueueEntry @ 0x1402F3AF8 (CcFindNextWorkQueueEntry.c)
+ *     CcWriteBehind @ 0x1402F6160 (CcWriteBehind.c)
+ *     CcFreeWorkQueueEntry @ 0x1402F6CBC (CcFreeWorkQueueEntry.c)
+ *     CcDereferencePartition @ 0x1402F6D2C (CcDereferencePartition.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-int __fastcall CcCachemapUninitWorkerThread(__int64 a1)
+__int64 __fastcall CcCachemapUninitWorkerThread(__int64 a1)
 {
-  __int64 v2; // r13
-  __int64 v3; // r14
-  __int64 v4; // r15
-  __int64 v5; // rcx
-  __int64 NextWorkQueueEntry; // rsi
-  unsigned __int64 OldIrql; // r13
-  _QWORD *v8; // rcx
-  unsigned __int64 v9; // rdi
-  signed __int64 v10; // rax
-  unsigned __int8 v11; // al
-  struct _KPRCB *v12; // r10
-  _DWORD *v13; // r9
-  int v14; // eax
-  bool v15; // zf
-  signed __int64 v16; // rax
-  bool v17; // cc
+  __int64 v2; // rdi
+  __int64 NextWorkQueueEntry; // r14
+  unsigned __int64 OldIrql; // r12
+  _QWORD *v5; // rcx
+  unsigned __int64 v6; // rsi
+  unsigned __int8 v8; // al
+  struct _KPRCB *v9; // r9
+  _DWORD *v10; // r8
+  int v11; // eax
+  bool v12; // zf
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v21; // eax
-  __int64 v23; // [rsp+50h] [rbp-C0h]
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+58h] [rbp-B8h] BYREF
-  _DWORD v25[2]; // [rsp+70h] [rbp-A0h] BYREF
-  __int64 v26; // [rsp+78h] [rbp-98h]
-  _QWORD v27[6]; // [rsp+80h] [rbp-90h] BYREF
-  _QWORD v28[3]; // [rsp+B0h] [rbp-60h] BYREF
-  _QWORD *v29; // [rsp+C8h] [rbp-48h] BYREF
-  int v30; // [rsp+D0h] [rbp-40h]
-  int v31; // [rsp+D4h] [rbp-3Ch]
-  _QWORD *v32; // [rsp+D8h] [rbp-38h] BYREF
-  int v33; // [rsp+E0h] [rbp-30h]
-  int v34; // [rsp+E4h] [rbp-2Ch]
+  int v16; // eax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+50h] [rbp-A0h] BYREF
+  _DWORD v18[2]; // [rsp+68h] [rbp-88h] BYREF
+  __int64 v19; // [rsp+70h] [rbp-80h]
+  _QWORD v20[5]; // [rsp+78h] [rbp-78h] BYREF
+  __int64 v21; // [rsp+A0h] [rbp-50h] BYREF
+  _QWORD *v22; // [rsp+B0h] [rbp-40h] BYREF
+  int v23; // [rsp+B8h] [rbp-38h]
+  int v24; // [rsp+BCh] [rbp-34h]
+  __int64 *v25; // [rsp+C0h] [rbp-30h] BYREF
+  int v26; // [rsp+C8h] [rbp-28h]
+  int v27; // [rsp+CCh] [rbp-24h]
 
-  v25[1] = 0;
-  v27[2] = a1;
+  v18[1] = 0;
+  v20[3] = a1;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v25[0] = 0;
-  v26 = 0LL;
+  v18[0] = 0;
+  v19 = 0LL;
   if ( *(_DWORD *)(a1 + 32) != 5 )
-    KeBugCheckEx(0x34u, 0x1CDFuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+    KeBugCheckEx(0x34u, 0x1A08uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   v2 = *(_QWORD *)(a1 + 56);
-  v23 = v2;
-  v27[3] = v2;
-  v3 = *(_QWORD *)(a1 + 72);
-  v27[4] = v3;
-  v4 = *(_QWORD *)(a1 + 64);
-  v27[5] = v4;
-  v28[1] = v3 + 120;
+  v20[4] = v2;
+  v20[1] = v2 + 288;
   while ( 1 )
   {
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v2 + 768), &LockHandle);
-    NextWorkQueueEntry = CcFindNextWorkQueueEntry(v5, v3);
-    v27[1] = NextWorkQueueEntry;
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v2 + 192), &LockHandle);
+    NextWorkQueueEntry = CcFindNextWorkQueueEntry(v2);
+    v20[2] = NextWorkQueueEntry;
     if ( !NextWorkQueueEntry )
       break;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -84,79 +71,65 @@ int __fastcall CcCachemapUninitWorkerThread(__int64 a1)
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v21 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v15 = (v21 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v21;
-          if ( v15 )
+          v16 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v12 = (v16 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v16;
+          if ( v12 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }
     __writecr8(OldIrql);
-    if ( (xmmword_140D06910 & 0x20000) != 0 )
+    if ( (xmmword_140CFC490 & 0x20000) != 0 )
     {
-      v27[0] = NextWorkQueueEntry;
-      v29 = v27;
-      v30 = 8;
-      v31 = 0;
-      EtwTraceKernelEvent((unsigned int)&v29, 1, -2147352576, 5633, 4200706);
+      v20[0] = NextWorkQueueEntry;
+      v22 = v20;
+      v23 = 8;
+      v24 = 0;
+      EtwTraceKernelEvent((int)&v22, 1, 0x80020000, 5633, 4200706);
     }
-    if ( *(_BYTE *)(NextWorkQueueEntry + 128) == 2 )
+    if ( *(_BYTE *)(NextWorkQueueEntry + 120) == 2 )
     {
-      v26 = NextWorkQueueEntry;
-      CcWriteBehind(*(_QWORD *)(NextWorkQueueEntry + 16), v25, v3);
+      v19 = NextWorkQueueEntry;
+      CcWriteBehind(*(_QWORD *)(NextWorkQueueEntry + 16), v18);
     }
-    v2 = v23;
-    if ( (xmmword_140D06910 & 0x20000) != 0 )
+    if ( (xmmword_140CFC490 & 0x20000) != 0 )
     {
-      v28[0] = NextWorkQueueEntry;
-      v32 = v28;
-      v33 = 8;
-      v34 = 0;
-      EtwTraceKernelEvent((unsigned int)&v32, 1, -2147352576, 5634, 4200706);
+      v21 = NextWorkQueueEntry;
+      v25 = &v21;
+      v26 = 8;
+      v27 = 0;
+      EtwTraceKernelEvent((int)&v25, 1, 0x80020000, 5634, 4200706);
     }
     CcFreeWorkQueueEntry((PSLIST_ENTRY)NextWorkQueueEntry);
   }
-  v8 = *(_QWORD **)(v3 + 168);
-  if ( *v8 != v3 + 160 )
+  v5 = *(_QWORD **)(v2 + 336);
+  if ( *v5 != v2 + 328 )
     __fastfail(3u);
-  *(_QWORD *)a1 = v3 + 160;
-  *(_QWORD *)(a1 + 8) = v8;
-  *v8 = a1;
-  *(_QWORD *)(v3 + 168) = a1;
-  --*(_DWORD *)(v3 + 176);
+  *(_QWORD *)a1 = v2 + 328;
+  *(_QWORD *)(a1 + 8) = v5;
+  *v5 = a1;
+  *(_QWORD *)(v2 + 336) = a1;
+  --*(_DWORD *)(v2 + 344);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  v9 = LockHandle.OldIrql;
+  v6 = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v11 = KeGetCurrentIrql();
-      if ( v11 <= 0xFu && LockHandle.OldIrql <= 0xFu && v11 >= 2u )
+      v8 = KeGetCurrentIrql();
+      if ( v8 <= 0xFu && LockHandle.OldIrql <= 0xFu && v8 >= 2u )
       {
-        v12 = KeGetCurrentPrcb();
-        v13 = v12->SchedulerAssist;
-        v14 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v15 = (v14 & v13[5]) == 0;
-        v13[5] &= v14;
-        if ( v15 )
-          KiRemoveSystemWorkPriorityKick(v12);
+        v9 = KeGetCurrentPrcb();
+        v10 = v9->SchedulerAssist;
+        v11 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v12 = (v11 & v10[5]) == 0;
+        v10[5] &= v11;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick(v9);
       }
     }
   }
-  __writecr8(v9);
-  LODWORD(v10) = CcDereferencePartition(v2);
-  if ( v4 )
-  {
-    v16 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v4 + 8), 0xFFFFFFFFFFFFFFFFuLL);
-    v17 = v16 <= 1;
-    v10 = v16 - 1;
-    if ( v17 )
-    {
-      if ( v10 )
-        __fastfail(0xEu);
-      LODWORD(v10) = KeSetEvent((PRKEVENT)(v4 + 1200), 0, 0);
-    }
-  }
-  return v10;
+  __writecr8(v6);
+  return CcDereferencePartition(v2);
 }

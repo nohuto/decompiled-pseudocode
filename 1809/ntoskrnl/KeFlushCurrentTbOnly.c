@@ -1,5 +1,5 @@
 /*
- * XREFs of KeFlushCurrentTbOnly @ 0x140173DE0
+ * XREFs of KeFlushCurrentTbOnly @ 0x140173E00
  * Callers:
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     MiMoveDirtyBitsToPfns @ 0x140074A40 (MiMoveDirtyBitsToPfns.c)
@@ -10,12 +10,12 @@
  *     MiInitializePfnsForValidMappings @ 0x1409BFBA0 (MiInitializePfnsForValidMappings.c)
  *     MiZeroBootMappings @ 0x1409D30A4 (MiZeroBootMappings.c)
  * Callees:
- *     KiFlushCurrentTbOnly @ 0x140173E34 (KiFlushCurrentTbOnly.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     HvlFlushAddressSpaceTb @ 0x1402794DC (HvlFlushAddressSpaceTb.c)
- *     KiIsFlushEntire @ 0x140293D00 (KiIsFlushEntire.c)
- *     KiPrepareFlushCurrentAffinity @ 0x140293D38 (KiPrepareFlushCurrentAffinity.c)
- *     KiPrepareFlushParameters @ 0x140293DA8 (KiPrepareFlushParameters.c)
+ *     KiFlushCurrentTbOnly @ 0x140173E54 (KiFlushCurrentTbOnly.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     HvlFlushAddressSpaceTb @ 0x1402795DC (HvlFlushAddressSpaceTb.c)
+ *     KiIsFlushEntire @ 0x140293E00 (KiIsFlushEntire.c)
+ *     KiPrepareFlushCurrentAffinity @ 0x140293E38 (KiPrepareFlushCurrentAffinity.c)
+ *     KiPrepareFlushParameters @ 0x140293EA8 (KiPrepareFlushParameters.c)
  */
 
 __int64 __fastcall KeFlushCurrentTbOnly(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMapExParametersInitialize @ 0x140756F2C
+ * XREFs of MiMapExParametersInitialize @ 0x140712858
  * Callers:
- *     MiMapViewOfSectionExCommon @ 0x140756C90 (MiMapViewOfSectionExCommon.c)
+ *     MiMapViewOfSectionExCommon @ 0x1407125A8 (MiMapViewOfSectionExCommon.c)
  * Callees:
- *     MiSectionControlArea @ 0x140287970 (MiSectionControlArea.c)
- *     MiGetUserReservationHighestAddress @ 0x1406FC9C4 (MiGetUserReservationHighestAddress.c)
+ *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     MiGetUserReservationHighestAddress @ 0x1406EC0BC (MiGetUserReservationHighestAddress.c)
  */
 
 __int64 __fastcall MiMapExParametersInitialize(__int64 a1, _QWORD *a2, __int64 a3)
@@ -18,7 +18,7 @@ __int64 __fastcall MiMapExParametersInitialize(__int64 a1, _QWORD *a2, __int64 a
   unsigned __int64 UserReservationHighestAddress; // rcx
   unsigned __int64 v12; // rax
   int v13; // edx
-  __int64 v14; // rax
+  unsigned int v14; // ecx
 
   v5 = MiSectionControlArea(a2[4]);
   v8 = 0;
@@ -29,8 +29,8 @@ __int64 __fastcall MiMapExParametersInitialize(__int64 a1, _QWORD *a2, __int64 a
   {
     if ( *v6 || v6[1] )
       return (unsigned int)-1073741811;
-    *(_DWORD *)(v7 + 64) |= 0x4000000u;
-    *(_DWORD *)(v7 + 60) |= 2u;
+    *(_DWORD *)(v7 + 60) |= 0x4000000u;
+    *(_DWORD *)(v7 + 72) |= 2u;
     *(_QWORD *)(v7 + 16) = 4096LL;
   }
   v10 = *v6;
@@ -55,27 +55,23 @@ LABEL_7:
       return (unsigned int)-1073741811;
   }
   v13 = *(_DWORD *)(v7 + 40);
-  if ( (v13 & 0x7F) != 0
-    || *(_DWORD *)(v7 + 52) != v8
-    || *(_DWORD *)(a3 + 32) > (unsigned int)(unsigned __int16)KeNumberNodes
-    || (v13 & 0x40000000) != 0 && (*(_DWORD *)(v9 + 56) & 0x420) != 0 )
-  {
+  if ( (v13 & 0x7F) != 0 )
     return (unsigned int)-1073741811;
-  }
-  if ( (v13 & 0x20000000) != 0 && (*(_DWORD *)(v9 + 56) & 0x20) != 0 && (*(_DWORD *)(v7 + 60) & 1) != 0 )
+  if ( *(_DWORD *)(v7 + 52) != v8 )
     return (unsigned int)-1073741811;
-  v14 = *(_QWORD *)(a3 + 56);
-  if ( (v14 & 0x20) != 0 )
+  v14 = *(_DWORD *)(a3 + 32);
+  if ( v14 > (unsigned __int16)KeNumberNodes || (v13 & 0x40000000) != 0 && (*(_DWORD *)(v9 + 56) & 0x420) != 0 )
+    return (unsigned int)-1073741811;
+  if ( (v13 & 0x20000000) != 0 && (*(_DWORD *)(v9 + 56) & 0x20) != 0 && (*(_DWORD *)(v7 + 72) & 1) != 0 )
+    return (unsigned int)-1073741811;
+  if ( (*(_BYTE *)(a3 + 56) & 0x20) != 0 )
   {
-    *(_DWORD *)(v7 + 64) |= 2u;
-    v14 = *(_QWORD *)(a3 + 56);
+    *(_DWORD *)(v7 + 60) |= 2u;
+    v14 = *(_DWORD *)(a3 + 32);
   }
-  if ( (v14 & 0x40) != 0 )
-    *(_DWORD *)(v7 + 120) |= 8u;
-  *(_DWORD *)(v7 + 52) = *(_DWORD *)(a3 + 32);
+  *(_DWORD *)(v7 + 52) = v14;
   *(_QWORD *)v7 = *(_QWORD *)a3;
   *(_QWORD *)(v7 + 8) = *(_QWORD *)(a3 + 8);
-  *(_WORD *)(v7 + 58) = *(_WORD *)(a3 + 50);
   *(_DWORD *)(v7 + 40) = v13 & 0xFFFFBFFF;
   return v8;
 }

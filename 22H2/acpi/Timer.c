@@ -1,5 +1,5 @@
 /*
- * XREFs of Timer @ 0x1C0058BF0
+ * XREFs of Timer @ 0x1C006A760
  * Callers:
  *     <none>
  * Callees:

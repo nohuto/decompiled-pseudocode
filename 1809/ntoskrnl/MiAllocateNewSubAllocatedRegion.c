@@ -1,5 +1,5 @@
 /*
- * XREFs of MiAllocateNewSubAllocatedRegion @ 0x140695EC0
+ * XREFs of MiAllocateNewSubAllocatedRegion @ 0x140695EA0
  * Callers:
  *     MiAllocateFromSubAllocatedRegion @ 0x1405F8BBC (MiAllocateFromSubAllocatedRegion.c)
  * Callees:
@@ -10,16 +10,16 @@
  *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1400769D4 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
  *     LOCK_PAGE_TABLE_COMMITMENT @ 0x140076BE8 (LOCK_PAGE_TABLE_COMMITMENT.c)
  *     MiUnlockVad @ 0x1400784B0 (MiUnlockVad.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiInsertVadCharges @ 0x1405F1E60 (MiInsertVadCharges.c)
  *     MiSelectUserAddress @ 0x1405F2360 (MiSelectUserAddress.c)
  *     MiAddSecureEntry @ 0x1405F3490 (MiAddSecureEntry.c)
- *     MiAdvanceVadHint @ 0x140695E30 (MiAdvanceVadHint.c)
- *     MiCreateVadEventBitmap @ 0x1406961A8 (MiCreateVadEventBitmap.c)
- *     MiGetUserReservationHighestAddress @ 0x14069626C (MiGetUserReservationHighestAddress.c)
- *     MiFreeVadEventBitmap @ 0x14084F494 (MiFreeVadEventBitmap.c)
+ *     MiAdvanceVadHint @ 0x140695E10 (MiAdvanceVadHint.c)
+ *     MiCreateVadEventBitmap @ 0x140696188 (MiCreateVadEventBitmap.c)
+ *     MiGetUserReservationHighestAddress @ 0x14069624C (MiGetUserReservationHighestAddress.c)
+ *     MiFreeVadEventBitmap @ 0x14084F474 (MiFreeVadEventBitmap.c)
  */
 
 __int64 __fastcall MiAllocateNewSubAllocatedRegion(int a1, unsigned __int64 a2)

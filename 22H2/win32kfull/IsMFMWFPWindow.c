@@ -1,28 +1,20 @@
 /*
- * XREFs of IsMFMWFPWindow @ 0x1C0216738
+ * XREFs of IsMFMWFPWindow @ 0x1C0236498
  * Callers:
- *     xxxHandleMenuMessages @ 0x1C0213DC8 (xxxHandleMenuMessages.c)
- *     LockMFMWFPWindow @ 0x1C021675C (LockMFMWFPWindow.c)
- *     UnlockMFMWFPWindow @ 0x1C0216A14 (UnlockMFMWFPWindow.c)
- *     xxxMNFindWindowFromPoint @ 0x1C0217C90 (xxxMNFindWindowFromPoint.c)
- *     xxxMNMouseMove @ 0x1C0218950 (xxxMNMouseMove.c)
- *     xxxMenuWindowProc @ 0x1C021A810 (xxxMenuWindowProc.c)
- *     xxxMNDragOver @ 0x1C0231868 (xxxMNDragOver.c)
- *     xxxMNSetGapState @ 0x1C0231A04 (xxxMNSetGapState.c)
- *     xxxMNUpdateDraggingInfo @ 0x1C0231BFC (xxxMNUpdateDraggingInfo.c)
+ *     xxxHandleMenuMessages @ 0x1C02339B8 (xxxHandleMenuMessages.c)
+ *     LockMFMWFPWindow @ 0x1C02364C4 (LockMFMWFPWindow.c)
+ *     UnlockMFMWFPWindow @ 0x1C02369E8 (UnlockMFMWFPWindow.c)
+ *     xxxMNFindWindowFromPoint @ 0x1C0238110 (xxxMNFindWindowFromPoint.c)
+ *     xxxMNMouseMove @ 0x1C023913C (xxxMNMouseMove.c)
+ *     xxxMenuWindowProc @ 0x1C023B5E0 (xxxMenuWindowProc.c)
+ *     xxxMNDragOver @ 0x1C024961C (xxxMNDragOver.c)
+ *     xxxMNSetGapState @ 0x1C024988C (xxxMNSetGapState.c)
+ *     xxxMNUpdateDraggingInfo @ 0x1C0249B78 (xxxMNUpdateDraggingInfo.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall IsMFMWFPWindow(__int64 a1)
+_BOOL8 __fastcall IsMFMWFPWindow(__int64 a1)
 {
-  bool result; // al
-
-  result = 0;
-  if ( a1 )
-  {
-    if ( a1 != 4294967291LL )
-      return a1 != 0xFFFFFFFFLL;
-  }
-  return result;
+  return a1 && a1 != 4294967291LL && a1 != 0xFFFFFFFFLL;
 }

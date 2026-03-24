@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CFlipToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z @ 0x1C0076B08
+ * XREFs of ??0CFlipToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z @ 0x1C0064BC8
  * Callers:
- *     ?CreateCloned@CFlipToken@@SAJ_K0PEAVCompositionSurfaceObject@@PEBUtagCloneableFlipTokenData@@PEAPEAV1@@Z @ 0x1C0076C68 (-CreateCloned@CFlipToken@@SAJ_K0PEAVCompositionSurfaceObject@@PEBUtagCloneableFlipTokenData@@PEA.c)
- *     ?CreateCompleted@CFlipToken@@SAJ_KPEAVCompositionSurfaceObject@@AEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEAPEAV1@@Z @ 0x1C0076D20 (-CreateCompleted@CFlipToken@@SAJ_KPEAVCompositionSurfaceObject@@AEBU_D3DKMT_FLIPMODEL_PRESENTHIS.c)
+ *     ?CreateCloned@CFlipToken@@SAJ_K0PEAVCompositionSurfaceObject@@PEBUtagCloneableFlipTokenData@@PEAPEAV1@@Z @ 0x1C0064D28 (-CreateCloned@CFlipToken@@SAJ_K0PEAVCompositionSurfaceObject@@PEBUtagCloneableFlipTokenData@@PEA.c)
+ *     ?CreateCompleted@CFlipToken@@SAJ_KPEAVCompositionSurfaceObject@@AEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEAPEAV1@@Z @ 0x1C0064DE4 (-CreateCompleted@CFlipToken@@SAJ_KPEAVCompositionSurfaceObject@@AEBU_D3DKMT_FLIPMODEL_PRESENTHIS.c)
  * Callees:
- *     ??0CToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z @ 0x1C0020AEC (--0CToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z.c)
+ *     ??0CToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z @ 0x1C001C030 (--0CToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z.c)
  */
 
 CFlipToken *__fastcall CFlipToken::CFlipToken(CFlipToken *this, __int64 a2, struct CompositionSurfaceObject *a3)
@@ -12,12 +12,12 @@ CFlipToken *__fastcall CFlipToken::CFlipToken(CFlipToken *this, __int64 a2, stru
   CFlipToken *result; // rax
 
   CToken::CToken(this, a2, a3);
-  *((_DWORD *)this + 140) = 0x1000000;
+  *((_DWORD *)this + 139) = 0x1000000;
   *((_WORD *)this + 44) = 0;
   *(_QWORD *)this = &CFlipToken::`vftable';
   result = this;
   *((_QWORD *)this + 12) = 0LL;
-  *((_WORD *)this + 282) = 0;
+  *((_BYTE *)this + 560) = 0;
   *((_QWORD *)this + 71) = 0LL;
   *((_QWORD *)this + 72) = 0LL;
   *(_QWORD *)((char *)this + 148) = 0LL;

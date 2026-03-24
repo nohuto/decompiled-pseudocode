@@ -1,35 +1,36 @@
 /*
- * XREFs of IvtAllocateContextTable @ 0x14052B2D0
+ * XREFs of IvtAllocateContextTable @ 0x1404DF290
  * Callers:
- *     IvtAllocateTranslationStructures @ 0x14052B82C (IvtAllocateTranslationStructures.c)
- *     IvtSetDeviceSvmCapabilities @ 0x14052D790 (IvtSetDeviceSvmCapabilities.c)
+ *     IvtAttachDeviceDomainInternal @ 0x1404DF508 (IvtAttachDeviceDomainInternal.c)
+ *     IvtProcessDeviceExceptions @ 0x1409AA2C8 (IvtProcessDeviceExceptions.c)
+ *     HalpIvtpInitializeReservedDomain @ 0x1409AADE8 (HalpIvtpInitializeReservedDomain.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CAB0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x14051F340 (ExtEnvAllocatePhysicalMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x14051F6AC (ExtEnvFreePhysicalMemory.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x1404D5080 (ExtEnvAllocatePhysicalMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x1404D533C (ExtEnvFreePhysicalMemory.c)
  */
 
 __int64 __fastcall IvtAllocateContextTable(__int64 a1, unsigned __int64 a2)
 {
-  char v2; // r9
-  __int64 v3; // rdi
+  __int64 v2; // rsi
+  __int64 v3; // r14
   unsigned __int64 v4; // rax
   unsigned int v5; // edx
   __int64 v6; // r8
   __int64 v7; // rax
-  void **v8; // r15
-  LONGLONG *v9; // r14
+  void **v8; // r12
+  LONGLONG *v9; // r15
+  MEMORY_CACHING_TYPE v10; // r14d
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
-  __int64 v13; // rdx
   __int64 v14; // rcx
   unsigned __int8 v15; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v17; // r9
+  struct _KPRCB *CurrentPrcb; // r9
+  _DWORD *v17; // r10
   int v18; // eax
   bool v19; // zf
   unsigned __int8 v20; // al
@@ -41,14 +42,14 @@ __int64 __fastcall IvtAllocateContextTable(__int64 a1, unsigned __int64 a2)
   LARGE_INTEGER v26; // [rsp+88h] [rbp+38h] BYREF
 
   v25 = 0LL;
+  *(_QWORD *)&LockHandle.OldIrql = 0LL;
   v26.QuadPart = 0LL;
-  v2 = *(_BYTE *)(a1 + 320);
-  v3 = a1;
+  v2 = a1;
+  v3 = *(_QWORD *)(a1 + 184);
   v4 = a2 >> 8;
   v5 = (unsigned __int8)a2 >> 3;
-  memset(&LockHandle, 0, sizeof(LockHandle));
   v6 = (unsigned int)(2 * v4);
-  if ( v2 )
+  if ( (v3 & 0x1000000) != 0 )
   {
     v7 = *(_QWORD *)(a1 + 32);
     a1 = v6 + (v5 >= 0x10);
@@ -60,70 +61,68 @@ __int64 __fastcall IvtAllocateContextTable(__int64 a1, unsigned __int64 a2)
   }
   if ( *v8 )
     return 0LL;
-  v9 = (LONGLONG *)(*(_QWORD *)(v3 + 16) + 8 * v6);
-  if ( v2 && v5 >= 0x10 )
+  v9 = (LONGLONG *)(*(_QWORD *)(v2 + 16) + 8 * v6);
+  if ( (v3 & 0x1000000) != 0 && v5 >= 0x10 )
     ++v9;
-  result = ExtEnvAllocatePhysicalMemory(
-             a1,
-             0x1000u,
-             0x1000u,
-             (MEMORY_CACHING_TYPE)*(_DWORD *)(v3 + 272),
-             &v26,
-             (__int64)&v25);
+  v10 = v3 & 1;
+  result = ExtEnvAllocatePhysicalMemory(a1, 0x1000u, 0x1000u, v10, &v26, (__int64)&v25);
   if ( (int)result >= 0 )
   {
-    memmove(v25, *(const void **)(v3 + 40), 0x1000uLL);
+    memmove(v25, *(const void **)(v2 + 40), 0x1000uLL);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == 15 )
-        LODWORD(v13) = 0x8000;
-      else
-        v13 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-      SchedulerAssist[5] |= v13;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
     }
-    KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v3 + 208), &LockHandle);
+    LockHandle.LockQueue.Next = 0LL;
+    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v2 + 168);
+    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(v2 + 168));
     if ( *v8 )
     {
-      KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-      v14 = (unsigned int)KiIrqlFlags;
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       if ( KiIrqlFlags )
       {
-        v15 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v14 = (unsigned int)CurrentIrql + 1;
-          v17 = CurrentPrcb->SchedulerAssist;
-          v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v19 = (v18 & v17[5]) == 0;
-          v17[5] &= v18;
-          if ( v19 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          v15 = KeGetCurrentIrql();
+          if ( v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v14 = (unsigned int)CurrentIrql + 1;
+            v17 = CurrentPrcb->SchedulerAssist;
+            v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v19 = (v18 & v17[5]) == 0;
+            v17[5] &= v18;
+            if ( v19 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(CurrentIrql);
-      ExtEnvFreePhysicalMemory(v14, v25, 0x1000u, *(_DWORD *)(v3 + 272));
+      ExtEnvFreePhysicalMemory(v14, v25, 0x1000u, v10);
     }
     else
     {
       *v8 = v25;
       *v9 = ((v26.QuadPart / 4096) << 12) | 1;
-      KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       if ( KiIrqlFlags )
       {
-        v20 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          v21 = KeGetCurrentPrcb();
-          v22 = v21->SchedulerAssist;
-          v23 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v19 = (v23 & v22[5]) == 0;
-          v22[5] &= v23;
-          if ( v19 )
-            KiRemoveSystemWorkPriorityKick(v21);
+          v20 = KeGetCurrentIrql();
+          if ( v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+          {
+            v21 = KeGetCurrentPrcb();
+            v22 = v21->SchedulerAssist;
+            v23 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v19 = (v23 & v22[5]) == 0;
+            v22[5] &= v23;
+            if ( v19 )
+              KiRemoveSystemWorkPriorityKick((__int64)v21);
+          }
         }
       }
       __writecr8(CurrentIrql);

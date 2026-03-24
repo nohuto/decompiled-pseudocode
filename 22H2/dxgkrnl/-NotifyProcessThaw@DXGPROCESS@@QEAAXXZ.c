@@ -1,98 +1,101 @@
 /*
- * XREFs of ?NotifyProcessThaw@DXGPROCESS@@QEAAXXZ @ 0x1C016AA90
+ * XREFs of ?NotifyProcessThaw@DXGPROCESS@@QEAAXXZ @ 0x1C00ECD78
  * Callers:
- *     ?DxgkNotifyProcessThawCallout@@YAXPEAU_EPROCESS@@@Z @ 0x1C016A940 (-DxgkNotifyProcessThawCallout@@YAXPEAU_EPROCESS@@@Z.c)
- *     ?VmBusNotifyProcessThaw@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0381AE0 (-VmBusNotifyProcessThaw@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?DxgkNotifyProcessThawCallout@@YAXPEAU_EPROCESS@@@Z @ 0x1C00ED090 (-DxgkNotifyProcessThawCallout@@YAXPEAU_EPROCESS@@@Z.c)
+ *     ?VmBusNotifyProcessThaw@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0244320 (-VmBusNotifyProcessThaw@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     ?UpdateLatencyTolerances@DXGADAPTER@@QEAAXXZ @ 0x1C00048D8 (-UpdateLatencyTolerances@DXGADAPTER@@QEAAXXZ.c)
- *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ @ 0x1C0007F58 (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?NotifyProcessThaw@DXGDEVICE@@QEAAXXZ @ 0x1C016AC04 (-NotifyProcessThaw@DXGDEVICE@@QEAAXXZ.c)
- *     ?NotifyProcessFreezeCoreDripsBlockerTracking@DXGGLOBAL@@QEAAX_KPEAU_EPROCESS@@_N@Z @ 0x1C01E5A58 (-NotifyProcessFreezeCoreDripsBlockerTracking@DXGGLOBAL@@QEAAX_KPEAU_EPROCESS@@_N@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ @ 0x1C0008E04 (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?UpdateLatencyTolerances@DXGADAPTER@@QEAAXXZ @ 0x1C0039DD4 (-UpdateLatencyTolerances@DXGADAPTER@@QEAAXXZ.c)
+ *     ?NotifyProcessFreezeCoreDripsBlockerTracking@DXGGLOBAL@@QEAAX_KPEAU_EPROCESS@@_N@Z @ 0x1C00ECA28 (-NotifyProcessFreezeCoreDripsBlockerTracking@DXGGLOBAL@@QEAAX_KPEAU_EPROCESS@@_N@Z.c)
+ *     ?NotifyProcessThaw@DXGDEVICE@@QEAAXXZ @ 0x1C00ECEF4 (-NotifyProcessThaw@DXGDEVICE@@QEAAXXZ.c)
  */
 
 void __fastcall DXGPROCESS::NotifyProcessThaw(DXGPROCESS *this, __int64 a2, __int64 a3)
 {
-  _QWORD *v4; // rdi
+  _QWORD *v4; // rsi
   _QWORD *v5; // rbx
   DXGDEVICE *Current; // rax
-  __int64 v7; // rsi
+  __int64 v7; // r15
   __int64 v8; // rax
-  __int64 v9; // rax
-  __int64 v10; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rdi
+  struct _EPROCESS *v13; // rbx
+  unsigned __int64 v14; // rdi
   DXGGLOBAL *Global; // rax
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  _QWORD v14[2]; // [rsp+20h] [rbp-40h] BYREF
-  _QWORD v15[2]; // [rsp+30h] [rbp-30h] BYREF
-  int v16; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v17; // [rsp+48h] [rbp-18h]
-  char v18; // [rsp+50h] [rbp-10h]
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  _QWORD v19[2]; // [rsp+20h] [rbp-40h] BYREF
+  _QWORD v20[2]; // [rsp+30h] [rbp-30h] BYREF
+  int v21; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v22; // [rsp+48h] [rbp-18h]
+  char v23; // [rsp+50h] [rbp-10h]
 
-  v16 = -1;
-  v17 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v21 = -1;
+  v22 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v18 = 1;
-    v16 = 2096;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v23 = 1;
+    v21 = 2096;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, a3, 2096);
   }
   else
   {
-    v18 = 0;
+    v23 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v16, 2096);
-  *((_BYTE *)this + 588) = 0;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v21, 2096LL);
+  *((_BYTE *)this + 476) = 0;
   KeEnterCriticalRegion();
-  ExAcquirePushLockExclusiveEx((char *)this + 216, 0LL);
-  v4 = (_QWORD *)((char *)this + 320);
-  *((_QWORD *)this + 28) = KeGetCurrentThread();
-  v5 = (_QWORD *)*((_QWORD *)this + 40);
-  v14[0] = (char *)this + 320;
+  ExAcquirePushLockExclusiveEx((char *)this + 176, 0LL);
+  v4 = (_QWORD *)((char *)this + 280);
+  *((_QWORD *)this + 23) = KeGetCurrentThread();
+  v5 = (_QWORD *)*((_QWORD *)this + 35);
+  v19[0] = (char *)this + 280;
   while ( 1 )
   {
-    v14[1] = v5;
-    Current = (DXGDEVICE *)DXGNODELIST<DXGPROCESS,DXGDEVICE>::ITERATOR::GetCurrent(v14);
+    v19[1] = v5;
+    Current = (DXGDEVICE *)DXGNODELIST<DXGPROCESS,DXGDEVICE>::ITERATOR::GetCurrent(v19);
     if ( !Current )
       break;
     DXGDEVICE::NotifyProcessThaw(Current);
     v5 = (_QWORD *)*v5;
   }
   v7 = 0LL;
-  v15[0] = (char *)this + 320;
+  v20[0] = (char *)this + 280;
   while ( 1 )
   {
     v4 = (_QWORD *)*v4;
-    v15[1] = v4;
-    v8 = DXGNODELIST<DXGPROCESS,DXGDEVICE>::ITERATOR::GetCurrent(v15);
+    v20[1] = v4;
+    v8 = DXGNODELIST<DXGPROCESS,DXGDEVICE>::ITERATOR::GetCurrent(v20);
     if ( !v8 )
       break;
-    v9 = *(_QWORD *)(v8 + 16);
-    v10 = *(_QWORD *)(v9 + 16);
-    if ( v10 != v7 )
+    v11 = *(_QWORD *)(v8 + 16);
+    v12 = *(_QWORD *)(v11 + 16);
+    if ( v12 != v7 )
     {
-      if ( !*(_BYTE *)(v10 + 209) && *(_QWORD *)(v10 + 2928) )
+      if ( !*(_BYTE *)(v12 + 209) && *(_QWORD *)(v12 + 2704) )
       {
-        if ( *(_QWORD *)(v10 + 3032) )
-          DXGADAPTER::UpdateLatencyTolerances(*(DXGADAPTER **)(v9 + 16));
+        if ( *(_QWORD *)(v12 + 2808) )
+          DXGADAPTER::UpdateLatencyTolerances(*(DXGADAPTER **)(v11 + 16));
       }
-      v7 = v10;
-      Global = DXGGLOBAL::GetGlobal();
-      DXGGLOBAL::NotifyProcessFreezeCoreDripsBlockerTracking(
-        Global,
-        *(_QWORD *)(v10 + 232),
-        *((struct _EPROCESS **)this + 7),
-        0);
+      v13 = (struct _EPROCESS *)*((_QWORD *)this + 7);
+      v7 = v12;
+      v14 = *(_QWORD *)(v12 + 224);
+      Global = DXGGLOBAL::GetGlobal(v10, v9);
+      DXGGLOBAL::NotifyProcessFreezeCoreDripsBlockerTracking(Global, v14, v13, 0);
     }
   }
-  *((_QWORD *)this + 28) = 0LL;
-  ExReleasePushLockExclusiveEx((char *)this + 216, 0LL);
+  *((_QWORD *)this + 23) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)this + 176, 0LL);
   KeLeaveCriticalRegion();
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v16);
-  if ( v18 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v12, &EventProfilerExit, v13, v16);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v21, v16);
+  if ( v23 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v17, &EventProfilerExit, v18, v21);
 }

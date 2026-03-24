@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwPrivilegedServiceAuditAlarm @ 0x14041DF60
+ * XREFs of ZwPrivilegedServiceAuditAlarm @ 0x1403FCAE0
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,15 @@
 /*
- * XREFs of ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C0299B94
+ * XREFs of ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C029B2BC
  * Callers:
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003FD70 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ?bUnMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C0042300 (-bUnMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ.c)
- *     ?bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00E9D00 (-bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ.c)
+ *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C008AFC0 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E9B0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF5A0 (GreSetDIBitsToDeviceInternal.c)
+ *     ?bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00FF1AC (-bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ.c)
+ *     ?bUnMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00FF74C (-bUnMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ?bBmpUndoMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C0299864 (-bBmpUndoMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
- *     ?vFindAndReplaceRFONT@@YAXAEAVPDEVOBJ@@00@Z @ 0x1C029C730 (-vFindAndReplaceRFONT@@YAXAEAVPDEVOBJ@@00@Z.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ?bBmpUndoMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C029AF88 (-bBmpUndoMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
+ *     ?vFindAndReplaceRFONT@@YAXAEAVPDEVOBJ@@00@Z @ 0x1C029DE44 (-vFindAndReplaceRFONT@@YAXAEAVPDEVOBJ@@00@Z.c)
  */
 
 __int64 __fastcall bUnHookBmpDrv(struct XDCOBJ *a1)
@@ -20,7 +22,7 @@ __int64 __fastcall bUnHookBmpDrv(struct XDCOBJ *a1)
   __int64 v7; // rdi
   __int64 v8; // rbx
   __int64 v9; // rdx
-  _OWORD *v10; // rcx
+  __int64 v10; // rcx
   _OWORD *v11; // rax
   __int128 v12; // xmm1
   __int64 result; // rax
@@ -39,41 +41,42 @@ __int64 __fastcall bUnHookBmpDrv(struct XDCOBJ *a1)
   do
     v5 = *(_DWORD *)(v3 + 40);
   while ( v5 != _InterlockedCompareExchange((volatile signed __int32 *)(v3 + 40), v5 & 0xFF7FFFFF, v5) );
-  *(_QWORD *)(v3 + 3496) = 0LL;
+  *(_QWORD *)(v3 + 3520) = 0LL;
   bBmpUndoMakeOpaque(v4);
   *(_QWORD *)(*(_QWORD *)a1 + 48LL) = v6;
   v7 = *(_QWORD *)(*(_QWORD *)a1 + 48LL);
   v14 = v7;
   vFindAndReplaceRFONT((struct PDEVOBJ *)&v14, (struct PDEVOBJ *)&v15, (struct PDEVOBJ *)&v14);
   v8 = v15;
-  memmove((void *)(v7 + 80), (const void *)(v15 + 80), 0x598uLL);
+  memmove((void *)(v7 + 88), (const void *)(v15 + 88), 0x598uLL);
   v9 = 8LL;
-  v10 = (_OWORD *)(v7 + 1536);
-  v11 = (_OWORD *)(v8 + 1536);
+  v10 = v7 + 1544;
+  v11 = (_OWORD *)(v8 + 1544);
   do
   {
-    *v10 = *v11;
-    v10[1] = v11[1];
-    v10[2] = v11[2];
-    v10[3] = v11[3];
-    v10[4] = v11[4];
-    v10[5] = v11[5];
-    v10[6] = v11[6];
-    v10 += 8;
+    *(_OWORD *)v10 = *v11;
+    *(_OWORD *)(v10 + 16) = v11[1];
+    *(_OWORD *)(v10 + 32) = v11[2];
+    *(_OWORD *)(v10 + 48) = v11[3];
+    *(_OWORD *)(v10 + 64) = v11[4];
+    *(_OWORD *)(v10 + 80) = v11[5];
+    *(_OWORD *)(v10 + 96) = v11[6];
+    v10 += 128LL;
     v12 = v11[7];
     v11 += 8;
-    *(v10 - 1) = v12;
+    *(_OWORD *)(v10 - 16) = v12;
     --v9;
   }
   while ( v9 );
-  *v10 = *v11;
-  v10[1] = v11[1];
-  v10[2] = v11[2];
-  v10[3] = v11[3];
-  v10[4] = v11[4];
-  v10[5] = v11[5];
-  *((_QWORD *)v10 + 12) = *((_QWORD *)v11 + 12);
+  *(_OWORD *)v10 = *v11;
+  *(_OWORD *)(v10 + 16) = v11[1];
+  *(_OWORD *)(v10 + 32) = v11[2];
+  *(_OWORD *)(v10 + 48) = v11[3];
+  *(_OWORD *)(v10 + 64) = v11[4];
+  *(_OWORD *)(v10 + 80) = v11[5];
+  *(_OWORD *)(v10 + 96) = v11[6];
+  *(_QWORD *)(v10 + 112) = *((_QWORD *)v11 + 14);
   result = 1LL;
-  *(_QWORD *)(v7 + 80) = v7;
+  *(_QWORD *)(v7 + 88) = v7;
   return result;
 }

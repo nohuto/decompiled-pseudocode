@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwAlpcDisconnectPort @ 0x14041C7E0
+ * XREFs of ZwAlpcDisconnectPort @ 0x1403FB420
  * Callers:
- *     DbgkRegisterErrorPort @ 0x140929940 (DbgkRegisterErrorPort.c)
+ *     DbgkRegisterErrorPort @ 0x140886A44 (DbgkRegisterErrorPort.c)
  * Callees:
  *     <none>
  */

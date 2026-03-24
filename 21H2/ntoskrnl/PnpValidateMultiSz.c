@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpValidateMultiSz @ 0x1407D4D5C
+ * XREFs of PnpValidateMultiSz @ 0x14062CF94
  * Callers:
- *     PiSwValidateCreateData @ 0x140767820 (PiSwValidateCreateData.c)
- *     PiDqQueryValidateQueryData @ 0x140776CFC (PiDqQueryValidateQueryData.c)
+ *     PiDqQueryValidateQueryData @ 0x14062EEF0 (PiDqQueryValidateQueryData.c)
+ *     PiSwValidateCreateData @ 0x14074E444 (PiSwValidateCreateData.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x1402E0AC4 (RtlStringCchLengthW.c)
+ *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
  */
 
 NTSTATUS __fastcall PnpValidateMultiSz(size_t a1, __int64 a2)

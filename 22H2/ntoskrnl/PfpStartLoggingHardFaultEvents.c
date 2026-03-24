@@ -1,51 +1,54 @@
 /*
- * XREFs of PfpStartLoggingHardFaultEvents @ 0x140AA06B4
+ * XREFs of PfpStartLoggingHardFaultEvents @ 0x140990FD4
  * Callers:
- *     PfPowerActionNotify @ 0x140A9FF34 (PfPowerActionNotify.c)
+ *     PfPowerActionNotify @ 0x140991198 (PfPowerActionNotify.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     KeInitializeTimerEx @ 0x1402BE630 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeInitializeTimerEx @ 0x140341AF0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PfpStartLoggingHardFaultEvents()
 {
-  __int64 Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   unsigned int v1; // edi
   __int64 v2; // rsi
   unsigned __int64 v3; // rbx
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v7; // eax
-  bool v8; // zf
+  int v8; // eax
+  bool v9; // zf
 
-  Pool2 = ExAllocatePool2(64LL, 168LL, 1146119760LL);
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0xA8uLL, 0x44506650u);
   v1 = 0;
-  v2 = Pool2;
-  if ( Pool2 )
+  v2 = (__int64)PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 160) = 0;
-    v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C65118);
-    *(_DWORD *)(v2 + 164) = ++dword_140C65124;
-    _InterlockedOr(&dword_140D0C254, 1u);
-    KxReleaseSpinLock((volatile signed __int64 *)&qword_140C65118);
+    PoolWithTag[40] = 0;
+    v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C50348);
+    *(_DWORD *)(v2 + 164) = ++dword_140C50354;
+    _InterlockedOr(&dword_140CEC354, 1u);
+    KxReleaseSpinLock(&qword_140C50348);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v7 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-        v8 = (v7 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v7;
-        if ( v8 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+          v9 = (v8 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v8;
+          if ( v9 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v3);

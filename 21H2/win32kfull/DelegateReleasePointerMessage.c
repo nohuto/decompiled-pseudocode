@@ -1,9 +1,9 @@
 /*
- * XREFs of DelegateReleasePointerMessage @ 0x1C01EA234
+ * XREFs of DelegateReleasePointerMessage @ 0x1C01EF99C
  * Callers:
- *     ?_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C016B120 (-_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
+ *     ?_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C01E1860 (-_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
  * Callees:
- *     DelegateCoalescePointerMessage @ 0x1C01EC898 (DelegateCoalescePointerMessage.c)
+ *     DelegateCoalescePointerMessage @ 0x1C01F1F38 (DelegateCoalescePointerMessage.c)
  */
 
 __int64 __fastcall DelegateReleasePointerMessage(__int64 a1, __int64 a2)

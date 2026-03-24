@@ -1,11 +1,11 @@
 /*
- * XREFs of EngRectInRgn @ 0x1C0177CB0
+ * XREFs of EngRectInRgn @ 0x1C014BAD0
  * Callers:
  *     <none>
  * Callees:
- *     GreGetObjectOwner @ 0x1C001F0C0 (GreGetObjectOwner.c)
- *     ??0EngModeState@@QEAA@XZ @ 0x1C008EA90 (--0EngModeState@@QEAA@XZ.c)
- *     GreRectInRegion @ 0x1C008F340 (GreRectInRegion.c)
+ *     GreGetObjectOwner @ 0x1C0031450 (GreGetObjectOwner.c)
+ *     GreRectInRegion @ 0x1C0080BB0 (GreRectInRegion.c)
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C00CB6DC (--0EngModeState@@QEAA@XZ.c)
  */
 
 BOOL __stdcall EngRectInRgn(HANDLE hrgn, LPRECT prcl)
@@ -19,6 +19,6 @@ BOOL __stdcall EngRectInRgn(HANDLE hrgn, LPRECT prcl)
   else
     result = GreRectInRegion((HRGN)hrgn, (struct _RECTL *)prcl);
   if ( v5 )
-    *(_DWORD *)(v5 + 328) &= ~0x10u;
+    *(_DWORD *)(v5 + 328) &= ~0x20u;
   return result;
 }

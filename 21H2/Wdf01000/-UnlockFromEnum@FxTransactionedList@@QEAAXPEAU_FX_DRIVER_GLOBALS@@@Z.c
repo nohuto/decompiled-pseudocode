@@ -1,21 +1,21 @@
 /*
- * XREFs of ?UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0018170
+ * XREFs of ?UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0010A9C
  * Callers:
- *     ?PowerDmaPowerDown@FxPkgPnp@@IEAAEXZ @ 0x1C000D200 (-PowerDmaPowerDown@FxPkgPnp@@IEAAEXZ.c)
- *     ?PowerDmaEnableAndScan@FxPkgPnp@@IEAAEXZ @ 0x1C0017578 (-PowerDmaEnableAndScan@FxPkgPnp@@IEAAEXZ.c)
- *     ?HandleQueryBusRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1C0017668 (-HandleQueryBusRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
- *     ?PowerPolicyPostParentToD0ToChildren@FxPkgPnp@@AEAAXXZ @ 0x1C0018020 (-PowerPolicyPostParentToD0ToChildren@FxPkgPnp@@AEAAXXZ.c)
- *     ?PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1C001C83C (-PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
- *     ?SetFilterIoType@FxDevice@@AEAAXXZ @ 0x1C003420C (-SetFilterIoType@FxDevice@@AEAAXXZ.c)
- *     imp_WdfDeviceClearRemovalRelationsDevices @ 0x1C00639C0 (imp_WdfDeviceClearRemovalRelationsDevices.c)
- *     ?ClearEjectionDevicesList@FxPkgPdo@@QEAAXXZ @ 0x1C00834B0 (-ClearEjectionDevicesList@FxPkgPdo@@QEAAXXZ.c)
- *     ?PnpEventRemoved@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C0084710 (-PnpEventRemoved@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
- *     ?PnpEventSurpriseRemovePendingOverload@FxPkgPnp@@MEAAXXZ @ 0x1C0084B70 (-PnpEventSurpriseRemovePendingOverload@FxPkgPnp@@MEAAXXZ.c)
- *     ?HandleQueryDeviceRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAVFxRelatedDeviceList@@@Z @ 0x1C0088464 (-HandleQueryDeviceRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAVFxRelatedDeviceList@@@Z.c)
- *     ?NotifyResourceobjectsToReleaseResources@FxPkgPnp@@AEAAXXZ @ 0x1C0088760 (-NotifyResourceobjectsToReleaseResources@FxPkgPnp@@AEAAXXZ.c)
- *     ?PowerPolicyDisarmWakeFromSx@FxPkgPnp@@AEAAXXZ @ 0x1C008C974 (-PowerPolicyDisarmWakeFromSx@FxPkgPnp@@AEAAXXZ.c)
+ *     ?PowerDmaPowerDown@FxPkgPnp@@IEAAEXZ @ 0x1C0004BD4 (-PowerDmaPowerDown@FxPkgPnp@@IEAAEXZ.c)
+ *     ?HandleQueryBusRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1C000F7E0 (-HandleQueryBusRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
+ *     ?PowerPolicyPostParentToD0ToChildren@FxPkgPnp@@AEAAXXZ @ 0x1C0010898 (-PowerPolicyPostParentToD0ToChildren@FxPkgPnp@@AEAAXXZ.c)
+ *     ?PowerDmaEnableAndScan@FxPkgPnp@@IEAAEXZ @ 0x1C001C194 (-PowerDmaEnableAndScan@FxPkgPnp@@IEAAEXZ.c)
+ *     imp_WdfDeviceClearRemovalRelationsDevices @ 0x1C0048F50 (imp_WdfDeviceClearRemovalRelationsDevices.c)
+ *     ?SetFilterIoType@FxDevice@@AEAAXXZ @ 0x1C005265C (-SetFilterIoType@FxDevice@@AEAAXXZ.c)
+ *     ?ClearEjectionDevicesList@FxPkgPdo@@QEAAXXZ @ 0x1C0078F70 (-ClearEjectionDevicesList@FxPkgPdo@@QEAAXXZ.c)
+ *     ?PnpEventRemoved@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007AF20 (-PnpEventRemoved@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
+ *     ?PnpEventSurpriseRemovePendingOverload@FxPkgPnp@@MEAAXXZ @ 0x1C007B3F0 (-PnpEventSurpriseRemovePendingOverload@FxPkgPnp@@MEAAXXZ.c)
+ *     ?HandleQueryDeviceRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAVFxRelatedDeviceList@@@Z @ 0x1C0080654 (-HandleQueryDeviceRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAVFxRelatedDeviceList@@@Z.c)
+ *     ?NotifyResourceobjectsToReleaseResources@FxPkgPnp@@AEAAXXZ @ 0x1C008102C (-NotifyResourceobjectsToReleaseResources@FxPkgPnp@@AEAAXXZ.c)
+ *     ?PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1C00810DC (-PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
+ *     ?PowerPolicyDisarmWakeFromSx@FxPkgPnp@@AEAAXXZ @ 0x1C0088900 (-PowerPolicyDisarmWakeFromSx@FxPkgPnp@@AEAAXXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxTransactionedList::UnlockFromEnum(FxTransactionedList *this, _FX_DRIVER_GLOBALS *FxDriverGlobals)

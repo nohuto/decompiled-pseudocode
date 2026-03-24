@@ -1,10 +1,9 @@
 /*
- * XREFs of ?GetOtherClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF_INFO@1@PEAPEAUSWAPCHAIN_CLIENT_SURF_INFO@1@@Z @ 0x1C00590E0
+ * XREFs of ?GetOtherClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF_INFO@1@PEAPEAUSWAPCHAIN_CLIENT_SURF_INFO@1@@Z @ 0x1C004BE64
  * Callers:
- *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z @ 0x1C03596D4 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z.c)
+ *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z @ 0x1C02AC574 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?SwitchClient@DXGSWAPCHAIN@@AEAA?AW4SWAPCHAIN_CLIENT_TYPE@1@W421@@Z @ 0x1C0059324 (-SwitchClient@DXGSWAPCHAIN@@AEAA-AW4SWAPCHAIN_CLIENT_TYPE@1@W421@@Z.c)
+ *     ?SwitchClient@DXGSWAPCHAIN@@AEAA?AW4SWAPCHAIN_CLIENT_TYPE@1@W421@@Z @ 0x1C004BFE0 (-SwitchClient@DXGSWAPCHAIN@@AEAA-AW4SWAPCHAIN_CLIENT_TYPE@1@W421@@Z.c)
  */
 
 void __fastcall DXGSWAPCHAIN::GetOtherClientSurfaceInfo(
@@ -15,38 +14,18 @@ void __fastcall DXGSWAPCHAIN::GetOtherClientSurfaceInfo(
         struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_SURF_INFO **a5)
 {
   __int64 v6; // rbx
-  DXGSWAPCHAIN *v8; // rdi
-  int v9; // edx
-  int v10; // r8d
-  __int64 v11; // rdx
-  struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *v12; // rbx
+  __int64 v9; // rax
 
   v6 = a3;
-  v8 = this;
-  if ( a3 >= *((_DWORD *)this + 14) )
+  if ( a3 >= *((_DWORD *)this + 12) )
   {
-    WdLogSingleEntry1(1LL, 446LL);
-    this = 0LL;
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          0,
-          v9,
-          v10,
-          0LL,
-          2,
-          -1,
-          L"SurfaceIdx < m_SurfaceTableSize",
-          446LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v9 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v9 + 24) = 443LL;
+    WdLogEvent5_WdAssertion(v9);
   }
-  v11 = *((unsigned int *)a2 + 7);
-  v12 = (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)(*((_QWORD *)v8 + 8) + 112 * v6);
-  *a4 = v12;
-  *a5 = (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)((char *)v12 + 32 * (int)DXGSWAPCHAIN::SwitchClient(this, v11) + 48);
+  *a4 = (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)(*((_QWORD *)this + 7) + 112 * v6);
+  *a5 = (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)((char *)*a4
+                                                   + 32
+                                                   * (int)DXGSWAPCHAIN::SwitchClient(this, *((unsigned int *)a2 + 7))
+                                                   + 48);
 }

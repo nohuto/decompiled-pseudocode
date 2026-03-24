@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwQueryDirectoryFileEx @ 0x14041D000
+ * XREFs of ZwQueryDirectoryFileEx @ 0x1403FC280
  * Callers:
- *     DifZwQueryDirectoryFileExWrapper @ 0x1405F3BB0 (DifZwQueryDirectoryFileExWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

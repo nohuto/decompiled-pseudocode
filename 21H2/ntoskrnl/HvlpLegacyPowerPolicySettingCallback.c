@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpLegacyPowerPolicySettingCallback @ 0x14054A150
+ * XREFs of HvlpLegacyPowerPolicySettingCallback @ 0x1404F8490
  * Callers:
  *     <none>
  * Callees:
- *     HvlpConfigureLegacyPowerPolicySetting @ 0x140549FDC (HvlpConfigureLegacyPowerPolicySetting.c)
+ *     HvlpConfigureLegacyPowerPolicySetting @ 0x1404F8320 (HvlpConfigureLegacyPowerPolicySetting.c)
  */
 
 __int64 __fastcall HvlpLegacyPowerPolicySettingCallback(

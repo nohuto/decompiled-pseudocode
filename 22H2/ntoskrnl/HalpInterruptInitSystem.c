@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpInterruptInitSystem @ 0x140A8A2E0
+ * XREFs of HalpInterruptInitSystem @ 0x14099EA00
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x14031F8FC (HalpInterruptModel.c)
- *     HalpInterruptInitializeGlobals @ 0x14036EAB0 (HalpInterruptInitializeGlobals.c)
- *     HalpInterruptEnableNmi @ 0x14037BC04 (HalpInterruptEnableNmi.c)
- *     HalpInterruptEnablePerformanceEvents @ 0x14037C3A8 (HalpInterruptEnablePerformanceEvents.c)
- *     HalpInitializeInterruptsPn @ 0x14037D7AC (HalpInitializeInterruptsPn.c)
- *     HalpInterruptInitPowerManagement @ 0x14039529C (HalpInterruptInitPowerManagement.c)
- *     HalpInterruptBuildGlobalStartupStub @ 0x1403A89F0 (HalpInterruptBuildGlobalStartupStub.c)
- *     HalpInitializeInterruptsBspLate @ 0x1403AEC6C (HalpInitializeInterruptsBspLate.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HalpInterruptInitDiscard @ 0x140B75224 (HalpInterruptInitDiscard.c)
- *     HalpPreAllocateKInterrupts @ 0x140B76804 (HalpPreAllocateKInterrupts.c)
+ *     HalSystemVectorDispatchEntry @ 0x1402526A0 (HalSystemVectorDispatchEntry.c)
+ *     HalpInterruptInitializeGlobals @ 0x14032D268 (HalpInterruptInitializeGlobals.c)
+ *     HalpInterruptModel @ 0x14037ADC4 (HalpInterruptModel.c)
+ *     HalpInterruptEnableNmi @ 0x1403A306C (HalpInterruptEnableNmi.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x1403A32A0 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpInitializeInterruptsPn @ 0x1403B0348 (HalpInitializeInterruptsPn.c)
+ *     HalpInterruptInitPowerManagement @ 0x1403BD770 (HalpInterruptInitPowerManagement.c)
+ *     HalpInitializeInterruptsBspLate @ 0x1403CD42C (HalpInitializeInterruptsBspLate.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HalpInterruptInitDiscard @ 0x140A72AD4 (HalpInterruptInitDiscard.c)
+ *     HalpPreAllocateKInterrupts @ 0x140A739EC (HalpPreAllocateKInterrupts.c)
  */
 
-__int64 __fastcall HalpInterruptInitSystem(__int64 a1, __int64 a2, __int64 a3, int a4)
+__int64 __fastcall HalpInterruptInitSystem(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx
   __int64 result; // rax
@@ -48,13 +48,13 @@ __int64 __fastcall HalpInterruptInitSystem(__int64 a1, __int64 a2, __int64 a3, i
     }
     else
     {
-      off_140C01BA0[0] = (__int64 (__fastcall *)())HaliAddInterruptRemapping;
-      off_140C01BA8[0] = (__int64 (__fastcall *)())HaliRemoveInterruptRemapping;
-      off_140C01BD8[0] = (__int64 (__fastcall *)())HalpInterruptGetIdentifiers;
-      off_140C01C18[0] = (__int64 (__fastcall *)())xHalQueryProcessorRestartEntryPoint;
-      off_140C01C78[0] = (__int64 (__fastcall *)())HalpInterruptSetDestination;
-      off_140C01D48[0] = (__int64 (__fastcall *)())HalpConnectThermalInterrupt;
-      off_140C01D88[0] = (__int64 (__fastcall *)())HalpPreprocessNmi;
+      off_140C00790[0] = (__int64 (__fastcall *)())HaliAddInterruptRemapping;
+      off_140C00798[0] = (__int64 (__fastcall *)())HaliRemoveInterruptRemapping;
+      off_140C007C8[0] = (__int64 (__fastcall *)())HalpInterruptGetIdentifiers;
+      off_140C00808[0] = (__int64 (__fastcall *)())xHalQueryProcessorRestartEntryPoint;
+      off_140C00868[0] = (__int64 (__fastcall *)())HalpInterruptSetDestination;
+      off_140C00938[0] = (__int64 (__fastcall *)())HalpConnectThermalInterrupt;
+      off_140C00978[0] = (__int64 (__fastcall *)())HalpPreprocessNmi;
     }
     return v4;
   }
@@ -68,7 +68,7 @@ __int64 __fastcall HalpInterruptInitSystem(__int64 a1, __int64 a2, __int64 a3, i
         KeBugCheckEx(
           0x5Cu,
           0x203uLL,
-          *(int *)(HalpInterruptController + 240),
+          *(int *)(HalpInterruptController + 216),
           HalpInterruptController,
           HalpInterruptLastProblem);
     }
@@ -80,7 +80,7 @@ __int64 __fastcall HalpInterruptInitSystem(__int64 a1, __int64 a2, __int64 a3, i
   }
   HalpPreAllocateKInterrupts();
   HalpInitializeInterruptsBspLate();
-  result = HalpInterruptBuildGlobalStartupStub();
+  result = HalSystemVectorDispatchEntry();
   v4 = result;
   if ( (int)result >= 0 )
   {

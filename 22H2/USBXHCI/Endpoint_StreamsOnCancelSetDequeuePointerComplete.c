@@ -1,11 +1,11 @@
 /*
- * XREFs of Endpoint_StreamsOnCancelSetDequeuePointerComplete @ 0x1C003C31C
+ * XREFs of Endpoint_StreamsOnCancelSetDequeuePointerComplete @ 0x1C003A330
  * Callers:
- *     Endpoint_OnCancelSetDequeuePointer @ 0x1C0010AA4 (Endpoint_OnCancelSetDequeuePointer.c)
- *     Endpoint_OnCancelSetDequeuePointerCompletion @ 0x1C0010BD0 (Endpoint_OnCancelSetDequeuePointerCompletion.c)
+ *     Endpoint_OnCancelSetDequeuePointer @ 0x1C00100F4 (Endpoint_OnCancelSetDequeuePointer.c)
+ *     Endpoint_OnCancelSetDequeuePointerCompletion @ 0x1C0010300 (Endpoint_OnCancelSetDequeuePointerCompletion.c)
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     WPP_RECORDER_SF_dddd @ 0x1C001A790 (WPP_RECORDER_SF_dddd.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C000E080 (WPP_RECORDER_SF_dddd.c)
  */
 
 void __fastcall Endpoint_StreamsOnCancelSetDequeuePointerComplete(__int64 a1, int a2)
@@ -25,12 +25,12 @@ void __fastcall Endpoint_StreamsOnCancelSetDequeuePointerComplete(__int64 a1, in
       a2,
       13,
       61,
-      (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
       *(_BYTE *)(*(_QWORD *)(a1 + 16) + 135LL),
       *(_DWORD *)(a1 + 144),
       v5,
       v4);
   }
   if ( v4 == *(_DWORD *)(v2 + 8) )
-    ESM_AddEvent((KSPIN_LOCK *)(a1 + 296), 16);
+    ESM_AddEvent((KSPIN_LOCK *)(a1 + 288), 16);
 }

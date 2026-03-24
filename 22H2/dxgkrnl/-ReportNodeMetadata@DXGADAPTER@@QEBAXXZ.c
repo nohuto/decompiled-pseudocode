@@ -1,67 +1,61 @@
 /*
- * XREFs of ?ReportNodeMetadata@DXGADAPTER@@QEBAXXZ @ 0x1C021B04C
+ * XREFs of ?ReportNodeMetadata@DXGADAPTER@@QEBAXXZ @ 0x1C0196180
  * Callers:
- *     ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0219510 (-CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS.c)
- *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C02B96C8 (-ReportState@DXGADAPTER@@QEAAXXZ.c)
+ *     ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C019450C (-CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS.c)
+ *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C020F5FC (-ReportState@DXGADAPTER@@QEAAXXZ.c)
  * Callees:
- *     McTemplateK0pqqz_EtwWriteTransfer @ 0x1C0041554 (McTemplateK0pqqz_EtwWriteTransfer.c)
+ *     McTemplateK0pqqz_EtwWriteTransfer @ 0x1C003A86C (McTemplateK0pqqz_EtwWriteTransfer.c)
  */
 
 void __fastcall DXGADAPTER::ReportNodeMetadata(DXGADAPTER *this, __int64 a2, __int64 a3)
 {
-  unsigned int v3; // ebx
+  unsigned int v4; // esi
   unsigned int v5; // ebp
-  __int64 v6; // rdi
+  __int64 v6; // rbx
   __int64 v7; // r12
-  __int64 v8; // rcx
-  unsigned int v9; // r13d
-  unsigned int v10; // r14d
-  __int64 v11; // r15
-  _DWORD *v12; // rdx
-  __int64 v13; // [rsp+20h] [rbp-48h]
-  __int64 v14; // [rsp+28h] [rbp-40h]
+  unsigned int v8; // r13d
+  unsigned int v9; // r14d
+  __int64 v10; // r15
+  __int64 v11; // rdx
+  __int64 v12; // [rsp+20h] [rbp-48h]
+  __int64 v13; // [rsp+28h] [rbp-40h]
 
-  v3 = 0;
-  if ( *((int *)this + 638) < 0x2000 )
-  {
-    v5 = 1;
-  }
+  if ( *((int *)this + 582) < 0x2000 )
+    v4 = 1;
   else
+    v4 = *((_DWORD *)this + 70);
+  v5 = 0;
+  if ( v4 )
   {
-    v5 = *((_DWORD *)this + 72);
-    if ( !v5 )
-      return;
-  }
-  v6 = 0LL;
-  do
-  {
-    v7 = *((_QWORD *)this + 351);
-    v8 = *(_QWORD *)(v6 + v7 + 32);
-    if ( v8 )
+    v6 = 0LL;
+    do
     {
-      v9 = *(unsigned __int16 *)(v6 + v7);
-      v10 = 0;
-      if ( *(_WORD *)(v6 + v7) )
+      v7 = *((_QWORD *)this + 323);
+      if ( *(_QWORD *)(v6 + v7 + 32) )
       {
-        v11 = 0LL;
-        do
+        v8 = *(unsigned __int16 *)(v6 + v7);
+        v9 = 0;
+        if ( *(_WORD *)(v6 + v7) )
         {
-          v12 = (_DWORD *)(v11 + v8);
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+          v10 = 0LL;
+          do
           {
-            LODWORD(v14) = *v12;
-            LODWORD(v13) = v10 | (v3 << 16);
-            McTemplateK0pqqz_EtwWriteTransfer((unsigned int)v13, (__int64)v12, a3, this, v13, v14, v12 + 1);
-            v8 = *(_QWORD *)(v6 + v7 + 32);
+            v11 = *(_QWORD *)(v6 + v7 + 32);
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+            {
+              LODWORD(v13) = *(_DWORD *)(v10 + v11);
+              LODWORD(v12) = v9 | (v5 << 16);
+              McTemplateK0pqqz_EtwWriteTransfer((unsigned int)v12, v11, a3, this, v12, v13, v10 + v11 + 4);
+            }
+            ++v9;
+            v10 += 74LL;
           }
-          ++v10;
-          v11 += 74LL;
+          while ( v9 < v8 );
         }
-        while ( v10 < v9 );
       }
+      ++v5;
+      v6 += 360LL;
     }
-    ++v3;
-    v6 += 344LL;
+    while ( v5 < v4 );
   }
-  while ( v3 < v5 );
 }

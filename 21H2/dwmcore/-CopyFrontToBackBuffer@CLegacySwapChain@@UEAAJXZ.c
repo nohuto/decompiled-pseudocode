@@ -1,89 +1,99 @@
 /*
- * XREFs of ?CopyFrontToBackBuffer@CLegacySwapChain@@UEAAJXZ @ 0x1800D6D50
+ * XREFs of ?CopyFrontToBackBuffer@CLegacySwapChain@@UEAAJXZ @ 0x18009D364
  * Callers:
- *     ?CopyFrontToBackBuffer@CLegacySwapChain@@$4PPPPPPPM@A@EAAJXZ @ 0x180108D90 (-CopyFrontToBackBuffer@CLegacySwapChain@@$4PPPPPPPM@A@EAAJXZ.c)
- *     ?CopyFrontToBackBuffer@CLegacyStereoSwapChain@@UEAAJXZ @ 0x18029075C (-CopyFrontToBackBuffer@CLegacyStereoSwapChain@@UEAAJXZ.c)
- *     ?CopyFrontToBackBuffer@CConversionSwapChain@@UEAAJXZ @ 0x18029245C (-CopyFrontToBackBuffer@CConversionSwapChain@@UEAAJXZ.c)
+ *     ?CopyFrontToBackBuffer@CLegacySwapChain@@$4PPPPPPPM@A@EAAJXZ @ 0x1800F74D0 (-CopyFrontToBackBuffer@CLegacySwapChain@@$4PPPPPPPM@A@EAAJXZ.c)
+ *     ?CopyFrontToBackBuffer@CLegacyStereoSwapChain@@UEAAJXZ @ 0x18024D9CC (-CopyFrontToBackBuffer@CLegacyStereoSwapChain@@UEAAJXZ.c)
+ *     ?CopyFrontToBackBuffer@CConversionSwapChain@@UEAAJXZ @ 0x18024F34C (-CopyFrontToBackBuffer@CConversionSwapChain@@UEAAJXZ.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800B4B40 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     ?GetRectangleCount@CRegion@FastRegion@@QEBAIXZ @ 0x1800B84E0 (-GetRectangleCount@CRegion@FastRegion@@QEBAIXZ.c)
- *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800D2754 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     ?CopySubresourceRegion@CD3DDevice@@QEAAXPEAUID3D11Resource@@IAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@0IIII@Z @ 0x1800D6E94 (-CopySubresourceRegion@CD3DDevice@@QEAAXPEAUID3D11Resource@@IAEBV-$TMilRect@IUMilRectU@@UMil3DRe.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     McTemplateU0qq_EventWriteTransfer @ 0x1801117F6 (McTemplateU0qq_EventWriteTransfer.c)
+ *     ?GetRectangleCount@CRegion@FastRegion@@QEBAIXZ @ 0x18009B318 (-GetRectangleCount@CRegion@FastRegion@@QEBAIXZ.c)
+ *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x18009B354 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800C4980 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0qq_EventWriteTransfer @ 0x180152A88 (McTemplateU0qq_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CLegacySwapChain::CopyFrontToBackBuffer(CLegacySwapChain *this, __int64 a2, __int64 a3)
 {
-  __int64 v4; // rdi
+  __int64 v4; // r15
   FastRegion::Internal::CRgnData *v5; // rcx
-  unsigned int v7; // esi
-  ULONG v8; // r8d
-  __int64 v9; // rcx
-  int v10; // edx
-  __int64 v11; // rax
-  __int64 v12; // rcx
-  FastRegion::Internal::CRgnData *v13; // rcx
+  unsigned int v7; // r12d
+  int v8; // esi
+  int v9; // r14d
+  __int64 v10; // r8
+  __int64 v11; // rcx
+  __int64 v12; // rdx
+  int v13; // ebx
+  int v14; // edi
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  FastRegion::Internal::CRgnData *v17; // rcx
   unsigned int RectangleCount; // eax
-  _BYTE v15[8]; // [rsp+58h] [rbp+7h] BYREF
-  unsigned __int64 v16; // [rsp+60h] [rbp+Fh]
-  _DWORD *v17; // [rsp+68h] [rbp+17h]
-  __int64 v18; // [rsp+70h] [rbp+1Fh]
-  int v19; // [rsp+78h] [rbp+27h]
-  struct _EVENT_DATA_DESCRIPTOR v20; // [rsp+88h] [rbp+37h] BYREF
+  _BYTE v19[8]; // [rsp+68h] [rbp-19h] BYREF
+  unsigned __int64 v20; // [rsp+70h] [rbp-11h]
+  int *v21; // [rsp+78h] [rbp-9h]
+  __int64 v22; // [rsp+80h] [rbp-1h]
+  int v23; // [rsp+88h] [rbp+7h]
+  _DWORD v24[6]; // [rsp+98h] [rbp+17h] BYREF
 
-  v4 = *(_QWORD *)(*((_QWORD *)this - 37) + 8LL * *((unsigned int *)this - 68));
+  v4 = *(_QWORD *)(*((_QWORD *)this - 31) + 8LL * *((unsigned int *)this - 56));
   v5 = *(FastRegion::Internal::CRgnData **)(v4 + 16);
   if ( *(_DWORD *)v5 )
   {
     v7 = 0;
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
     {
       McGenEventWrite_EventWriteTransfer(
-        Microsoft_Windows_Dwm_Core_Provider_Context,
+        &Microsoft_Windows_Dwm_Core_Provider_Context,
         &EVTDESC_ETWGUID_COPYFRONTTOBACKBUFFEREVENT_Start,
         a3,
-        1u,
-        &v20);
+        1LL,
+        v24);
       v5 = *(FastRegion::Internal::CRgnData **)(v4 + 16);
     }
-    FastRegion::Internal::CRgnData::BeginIterator(v5, (struct FastRegion::CRegion::Iterator *)v15);
-    while ( (unsigned __int64)v17 < v16 )
+    FastRegion::Internal::CRgnData::BeginIterator(v5, (struct FastRegion::CRegion::Iterator *)v19);
+    while ( (unsigned __int64)v21 < v20 )
     {
-      v8 = v17[2];
-      v9 = 2 * v19;
-      HIDWORD(v20.Ptr) = *v17;
-      v20.Reserved = v8;
-      v10 = *(_DWORD *)(v18 + 4 * v9);
-      v11 = *((_QWORD *)this - 39);
-      v20.Size = *(_DWORD *)(v18 + 4 * v9 + 4);
-      v12 = *((_QWORD *)this - 42);
-      LODWORD(v20.Ptr) = v10;
-      CD3DDevice::CopySubresourceRegion(
+      v8 = *v21;
+      v9 = v21[2];
+      v10 = *((_QWORD *)this - 32);
+      v24[2] = 0;
+      v11 = 2 * v23;
+      v12 = *((_QWORD *)this - 33);
+      v14 = *(_DWORD *)(v22 + 4 * v11 + 4);
+      v15 = *((_QWORD *)this - 36);
+      v24[0] = *(_DWORD *)(v22 + 4 * v11);
+      v13 = v24[0];
+      v16 = *(_QWORD *)(v15 + 600);
+      v24[1] = v8;
+      v24[3] = v14;
+      v24[4] = v9;
+      v24[5] = 1;
+      (*(void (__fastcall **)(__int64, __int64, _QWORD, _QWORD, int, _DWORD, __int64, _DWORD, _DWORD *, _DWORD))(*(_QWORD *)v16 + 920LL))(
+        v16,
         v12,
-        *((_QWORD *)this - 38),
-        0,
-        (unsigned int)&v20,
-        v11,
+        0LL,
+        v24[0],
+        v8,
         0,
         v10,
-        HIDWORD(v20.Ptr),
+        0,
+        v24,
         0);
-      v13 = (FastRegion::Internal::CRgnData *)((v20.Reserved - HIDWORD(v20.Ptr)) * (v20.Size - LODWORD(v20.Ptr)));
-      v7 += (unsigned int)v13;
-      FastRegion::Internal::CRgnData::StepIterator(v13, (struct FastRegion::CRegion::Iterator *)v15);
+      v7 += (v9 - v8) * (v14 - v13);
+      FastRegion::Internal::CRgnData::StepIterator(v17, (struct FastRegion::CRegion::Iterator *)v19);
     }
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
     {
       RectangleCount = FastRegion::CRegion::GetRectangleCount((int **)(v4 + 16));
       McTemplateU0qq_EventWriteTransfer(
-        Microsoft_Windows_Dwm_Core_Provider_Context,
+        &Microsoft_Windows_Dwm_Core_Provider_Context,
         &EVTDESC_ETWGUID_COPYFRONTTOBACKBUFFEREVENT_Stop,
         RectangleCount,
         v7);
     }
-    **(_DWORD **)(*(_QWORD *)(*((_QWORD *)this - 37) + 8LL * *((unsigned int *)this - 68)) + 16LL) = 0;
+    **(_DWORD **)(*(_QWORD *)(*((_QWORD *)this - 31) + 8LL * *((unsigned int *)this - 56)) + 16LL) = 0;
   }
   return 0LL;
 }

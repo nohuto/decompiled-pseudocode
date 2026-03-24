@@ -1,11 +1,11 @@
 /*
- * XREFs of VmpConvertPortionVpnRangeToGpnRange @ 0x14030BE54
+ * XREFs of VmpConvertPortionVpnRangeToGpnRange @ 0x14030BF54
  * Callers:
- *     VmpFillGpnRanges @ 0x14030C2E8 (VmpFillGpnRanges.c)
- *     VmpFlushTbVaRange @ 0x14030C544 (VmpFlushTbVaRange.c)
- *     VmpQueryAccessedState @ 0x14030D2F8 (VmpQueryAccessedState.c)
+ *     VmpFillGpnRanges @ 0x14030C3E8 (VmpFillGpnRanges.c)
+ *     VmpFlushTbVaRange @ 0x14030C644 (VmpFlushTbVaRange.c)
+ *     VmpQueryAccessedState @ 0x14030D3F8 (VmpQueryAccessedState.c)
  * Callees:
- *     VmpVaMemoryRangeGetNext @ 0x14030DBA4 (VmpVaMemoryRangeGetNext.c)
+ *     VmpVaMemoryRangeGetNext @ 0x14030DCA4 (VmpVaMemoryRangeGetNext.c)
  */
 
 unsigned __int64 __fastcall VmpConvertPortionVpnRangeToGpnRange(

@@ -1,7 +1,7 @@
 /*
- * XREFs of ExComputeTickCountMultiplier @ 0x140B531AC
+ * XREFs of ExComputeTickCountMultiplier @ 0x140A6EB00
  * Callers:
- *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A39F24 (InitBootProcessor.c)
  * Callees:
  *     <none>
  */

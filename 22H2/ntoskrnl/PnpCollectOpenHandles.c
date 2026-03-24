@@ -1,36 +1,40 @@
 /*
- * XREFs of PnpCollectOpenHandles @ 0x14096416C
+ * XREFs of PnpCollectOpenHandles @ 0x1408ABC54
  * Callers:
- *     PipRecordOpenHandleVeto @ 0x140971CC4 (PipRecordOpenHandleVeto.c)
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140971D4C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407329B0 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipRecordOpenHandleVeto @ 0x1408B911C (PipRecordOpenHandleVeto.c)
  * Callees:
- *     PnpHandleEnumerateHandlesAgainstPdoStack @ 0x140560FA8 (PnpHandleEnumerateHandlesAgainstPdoStack.c)
- *     IopDebugPrint @ 0x1405610DC (IopDebugPrint.c)
+ *     PnpHandleEnumerateHandlesAgainstPdoStack @ 0x14050CE60 (PnpHandleEnumerateHandlesAgainstPdoStack.c)
+ *     IopDebugPrint @ 0x14050D6D4 (IopDebugPrint.c)
  */
 
-__int64 __fastcall PnpCollectOpenHandles(PVOID **a1, __int64 a2, __int64 a3)
+char __fastcall PnpCollectOpenHandles(PVOID **a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rsi
-  __int64 result; // rax
+  char result; // al
 
   v4 = (unsigned int)a2;
   if ( *(_BYTE *)(a3 + 36) )
     IopDebugPrint(0x14u, "Beginning handle dump:\n");
   *(_DWORD *)(a3 + 32) = 0;
-  result = a3 + 16;
   *(_QWORD *)(a3 + 24) = a3 + 16;
   *(_QWORD *)(a3 + 16) = a3 + 16;
-  if ( (*(_BYTE *)(a3 + 36) || *(_BYTE *)(a3 + 37)) && (_DWORD)v4 )
+  result = *(_BYTE *)(a3 + 36);
+  if ( result || *(_BYTE *)(a3 + 37) )
   {
-    do
+    if ( (_DWORD)v4 )
     {
-      *(_QWORD *)a3 = *a1;
-      result = PnpHandleEnumerateHandlesAgainstPdoStack(*a1++, a2, a3);
-      --v4;
+      do
+      {
+        *(_QWORD *)a3 = *a1;
+        PnpHandleEnumerateHandlesAgainstPdoStack(*a1++, a2, a3);
+        --v4;
+      }
+      while ( v4 );
+      result = *(_BYTE *)(a3 + 36);
     }
-    while ( v4 );
+    if ( result )
+      return IopDebugPrint(0x14u, "Dump complete - %d total handles found.\n", *(_DWORD *)(a3 + 32));
   }
-  if ( *(_BYTE *)(a3 + 36) )
-    return IopDebugPrint(0x14u, "Dump complete - %d total handles found.\n", *(_DWORD *)(a3 + 32));
   return result;
 }

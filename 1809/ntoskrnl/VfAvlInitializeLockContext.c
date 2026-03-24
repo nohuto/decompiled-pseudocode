@@ -1,5 +1,5 @@
 /*
- * XREFs of VfAvlInitializeLockContext @ 0x14030B4B4
+ * XREFs of VfAvlInitializeLockContext @ 0x14030B5B4
  * Callers:
  *     VfDevObjIsDeviceRemoved @ 0x140933FC8 (VfDevObjIsDeviceRemoved.c)
  *     VfDevObjMarkDeviceRemoved @ 0x140934034 (VfDevObjMarkDeviceRemoved.c)

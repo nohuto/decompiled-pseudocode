@@ -1,10 +1,10 @@
 /*
- * XREFs of NtAlpcCreatePort @ 0x1406B6680
+ * XREFs of NtAlpcCreatePort @ 0x1406B6660
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     AlpcpCreateConnectionPort @ 0x1406B66C8 (AlpcpCreateConnectionPort.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     AlpcpCreateConnectionPort @ 0x1406B66A8 (AlpcpCreateConnectionPort.c)
  */
 
 __int64 __fastcall NtAlpcCreatePort(int a1, int a2, int a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFillActivePatchesQueryBuffer @ 0x140A36AF0
+ * XREFs of MiFillActivePatchesQueryBuffer @ 0x1408C9CA8
  * Callers:
- *     MiQueryProcessActivePatches @ 0x140A3B60C (MiQueryProcessActivePatches.c)
+ *     MiQueryProcessActivePatches @ 0x1408CDF38 (MiQueryProcessActivePatches.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
  */
 
-UNICODE_STRING *__fastcall MiFillActivePatchesQueryBuffer(
+unsigned __int16 *__fastcall MiFillActivePatchesQueryBuffer(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -14,37 +14,27 @@ UNICODE_STRING *__fastcall MiFillActivePatchesQueryBuffer(
         _QWORD **a5,
         UNICODE_STRING **a6,
         wchar_t **a7,
-        _DWORD **a8,
-        _QWORD *a9,
-        PCUNICODE_STRING SourceString,
-        int a11)
+        _QWORD *a8,
+        PCUNICODE_STRING SourceString)
 {
-  UNICODE_STRING *v13; // rcx
+  UNICODE_STRING *v11; // rcx
   unsigned __int16 Length; // ax
-  UNICODE_STRING *v15; // rcx
-  UNICODE_STRING *result; // rax
-  _DWORD *v17; // rcx
+  UNICODE_STRING *v13; // rcx
+  unsigned __int16 *result; // rax
 
-  v13 = *a6;
-  **a5 = *a9;
+  v11 = *a6;
+  **a5 = *a8;
   Length = SourceString->Length;
-  v13->Length = SourceString->Length;
-  v13->MaximumLength = Length;
-  v13->Buffer = *a7;
-  RtlCopyUnicodeString(v13, SourceString);
-  v15 = *a6;
+  v11->Length = SourceString->Length;
+  v11->MaximumLength = Length;
+  v11->Buffer = *a7;
+  RtlCopyUnicodeString(v11, SourceString);
+  v13 = *a6;
   ++*a5;
-  v15->Buffer = (wchar_t *)((char *)v15->Buffer - a4);
-  *a7 = (wchar_t *)((char *)*a7 + v15->Length);
-  result = v15 + 1;
-  v17 = *a8;
-  *a6 = result;
-  if ( v17 )
-  {
-    *v17 = a11;
-    result = (UNICODE_STRING *)(v17 + 1);
-    *a8 = v17 + 1;
-  }
+  v13->Buffer = (wchar_t *)((char *)v13->Buffer - a4);
+  *a7 = (wchar_t *)((char *)*a7 + v13->Length);
+  result = &v13[1].Length;
   ++*(_DWORD *)(a1 + 16);
+  *a6 = v13 + 1;
   return result;
 }

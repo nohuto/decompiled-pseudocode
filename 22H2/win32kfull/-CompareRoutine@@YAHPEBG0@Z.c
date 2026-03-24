@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CompareRoutine@@YAHPEBG0@Z @ 0x1C0131960
+ * XREFs of ?CompareRoutine@@YAHPEBG0@Z @ 0x1C0137B70
  * Callers:
  *     <none>
  * Callees:

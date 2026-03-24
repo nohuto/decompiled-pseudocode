@@ -1,31 +1,31 @@
 /*
- * XREFs of PnpUnicodeStringToWstr @ 0x140779CA0
+ * XREFs of PnpUnicodeStringToWstr @ 0x14063755C
  * Callers:
- *     IoGetDeviceInterfaceAlias @ 0x1406DB590 (IoGetDeviceInterfaceAlias.c)
- *     PnpGetDeviceInterfacePropertyData @ 0x1406EA694 (PnpGetDeviceInterfacePropertyData.c)
- *     IopDeviceObjectFromSymbolicName @ 0x140748FA4 (IopDeviceObjectFromSymbolicName.c)
- *     IopProcessSetInterfaceState @ 0x140769170 (IopProcessSetInterfaceState.c)
- *     IopBuildGlobalSymbolicLinkString @ 0x140769668 (IopBuildGlobalSymbolicLinkString.c)
- *     IoRegisterDeviceInterface @ 0x140769AD0 (IoRegisterDeviceInterface.c)
- *     PnpIsDeviceInstanceEnabled @ 0x14076B030 (PnpIsDeviceInstanceEnabled.c)
- *     PnpGetDeviceInstanceCsConfigFlags @ 0x14076B1A8 (PnpGetDeviceInstanceCsConfigFlags.c)
- *     PiDeviceRegistration @ 0x14076B5DC (PiDeviceRegistration.c)
- *     PpForEachDeviceInstanceDriver @ 0x14076B788 (PpForEachDeviceInstanceDriver.c)
- *     PiControlGetDeviceInterfaceEnabled @ 0x14077BB00 (PiControlGetDeviceInterfaceEnabled.c)
- *     IopGetDeviceInterfaces @ 0x1407879A8 (IopGetDeviceInterfaces.c)
- *     PnpSetDeviceInterfacePropertyData @ 0x14080D8A8 (PnpSetDeviceInterfacePropertyData.c)
- *     PnpDisableDeviceInterfaces @ 0x140810788 (PnpDisableDeviceInterfaces.c)
- *     IoReportDetectedDevice @ 0x14081EB20 (IoReportDetectedDevice.c)
- *     PipApplyFunctionToServiceInstances @ 0x140851A60 (PipApplyFunctionToServiceInstances.c)
- *     IoOpenDeviceInterfaceRegistryKey @ 0x1408549A0 (IoOpenDeviceInterfaceRegistryKey.c)
- *     PnpGetDeviceDependencyList @ 0x140942E94 (PnpGetDeviceDependencyList.c)
- *     PnpDeleteDeviceInterfaces @ 0x140944640 (PnpDeleteDeviceInterfaces.c)
- *     PiInitializeDevice @ 0x14095975C (PiInitializeDevice.c)
- *     PipInitComputerIds @ 0x140B0F20C (PipInitComputerIds.c)
- *     IopInitializeBootDrivers @ 0x140B114E8 (IopInitializeBootDrivers.c)
+ *     PiControlGetDeviceInterfaceEnabled @ 0x140635460 (PiControlGetDeviceInterfaceEnabled.c)
+ *     IopGetDeviceInterfaces @ 0x14063A508 (IopGetDeviceInterfaces.c)
+ *     IoGetDeviceInterfaceAlias @ 0x14072B010 (IoGetDeviceInterfaceAlias.c)
+ *     PnpDisableDeviceInterfaces @ 0x14073601C (PnpDisableDeviceInterfaces.c)
+ *     IopDeviceObjectFromSymbolicName @ 0x14073E140 (IopDeviceObjectFromSymbolicName.c)
+ *     IoRegisterDeviceInterface @ 0x140748ED0 (IoRegisterDeviceInterface.c)
+ *     IopProcessSetInterfaceState @ 0x1407490DC (IopProcessSetInterfaceState.c)
+ *     IopBuildGlobalSymbolicLinkString @ 0x140749594 (IopBuildGlobalSymbolicLinkString.c)
+ *     PiDeviceRegistration @ 0x14074BDF0 (PiDeviceRegistration.c)
+ *     PpForEachDeviceInstanceDriver @ 0x14074BFA4 (PpForEachDeviceInstanceDriver.c)
+ *     PnpIsDeviceInstanceEnabled @ 0x140752C1C (PnpIsDeviceInstanceEnabled.c)
+ *     PnpGetDeviceInstanceCsConfigFlags @ 0x140752D7C (PnpGetDeviceInstanceCsConfigFlags.c)
+ *     PnpSetDeviceInterfacePropertyData @ 0x14077DEA8 (PnpSetDeviceInterfacePropertyData.c)
+ *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
+ *     PipApplyFunctionToServiceInstances @ 0x1407C0F30 (PipApplyFunctionToServiceInstances.c)
+ *     IoOpenDeviceInterfaceRegistryKey @ 0x1407CCE10 (IoOpenDeviceInterfaceRegistryKey.c)
+ *     PnpGetDeviceDependencyList @ 0x14089E0D4 (PnpGetDeviceDependencyList.c)
+ *     PnpDeleteDeviceInterfaces @ 0x14089F8A8 (PnpDeleteDeviceInterfaces.c)
+ *     PnpGetDeviceInterfacePropertyData @ 0x1408A2960 (PnpGetDeviceInterfacePropertyData.c)
+ *     PiInitializeDevice @ 0x1408B3C6C (PiInitializeDevice.c)
+ *     PipInitComputerIds @ 0x140A5B730 (PipInitComputerIds.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpUnicodeStringToWstr(__int16 **a1, _DWORD *a2, unsigned __int16 *a3)
@@ -37,7 +37,7 @@ __int64 __fastcall PnpUnicodeStringToWstr(__int16 **a1, _DWORD *a2, unsigned __i
   __int16 v10; // ax
   unsigned __int64 v11; // r8
   int v12; // ebp
-  __int16 *Pool2; // rax
+  __int16 *PoolWithTag; // rax
   __int16 *v14; // r15
   unsigned __int64 v15; // rax
   __int16 *v17; // rax
@@ -67,11 +67,11 @@ __int64 __fastcall PnpUnicodeStringToWstr(__int16 **a1, _DWORD *a2, unsigned __i
     if ( v9 <= v7 - 2 && (!v8[v11 - 1] || !v8[v11]) )
       goto LABEL_17;
     v12 = v9 + 2;
-    Pool2 = (__int16 *)ExAllocatePool2(256LL, (unsigned int)(v9 + 2), 1970499664LL);
-    v14 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (__int16 *)ExAllocatePoolWithTag(PagedPool, (unsigned int)(v9 + 2), 0x75737050u);
+    v14 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memmove(Pool2, *((const void **)a3 + 1), *a3);
+      memmove(PoolWithTag, *((const void **)a3 + 1), *a3);
       v15 = (unsigned __int64)*a3 >> 1;
       *a1 = v14;
       v14[v15] = 0;
@@ -89,7 +89,7 @@ LABEL_17:
       *a2 = v7;
     return v3;
   }
-  v17 = (__int16 *)ExAllocatePool2(256LL, 2LL, 1970499664LL);
+  v17 = (__int16 *)ExAllocatePoolWithTag(PagedPool, 2uLL, 0x75737050u);
   if ( !v17 )
     return (unsigned int)-1073741670;
   *v17 = 0;

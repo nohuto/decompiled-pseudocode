@@ -1,15 +1,15 @@
 /*
- * XREFs of RawReadWriteDeviceControl @ 0x14064B398
+ * XREFs of RawReadWriteDeviceControl @ 0x14064B378
  * Callers:
- *     RawDispatch @ 0x14064B460 (RawDispatch.c)
+ *     RawDispatch @ 0x14064B440 (RawDispatch.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     IofCallDriver @ 0x1400B8DD0 (IofCallDriver.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     RawBeginOperation @ 0x1400D81B0 (RawBeginOperation.c)
- *     RawEndOperation @ 0x1400F97B8 (RawEndOperation.c)
- *     RawInitiateDeleteVolume @ 0x14010C61C (RawInitiateDeleteVolume.c)
+ *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     RawBeginOperation @ 0x1400D81D0 (RawBeginOperation.c)
+ *     RawEndOperation @ 0x1400F97D8 (RawEndOperation.c)
+ *     RawInitiateDeleteVolume @ 0x14010C63C (RawInitiateDeleteVolume.c)
  */
 
 NTSTATUS __fastcall RawReadWriteDeviceControl(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader, PIRP Irp, char *a3)

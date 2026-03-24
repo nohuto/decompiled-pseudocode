@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpTraceHiveSaveStart @ 0x1407EC270
+ * XREFs of CmpTraceHiveSaveStart @ 0x1407EC250
  * Callers:
- *     CmSaveKey @ 0x140801F50 (CmSaveKey.c)
+ *     CmSaveKey @ 0x140801F30 (CmSaveKey.c)
  * Callees:
  *     CmpFreeTransientPoolWithTag @ 0x140017768 (CmpFreeTransientPoolWithTag.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     CmpConstructNameWithStatus @ 0x1405D73A0 (CmpConstructNameWithStatus.c)
  */
 

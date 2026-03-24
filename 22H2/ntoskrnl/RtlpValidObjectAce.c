@@ -1,21 +1,20 @@
 /*
- * XREFs of RtlpValidObjectAce @ 0x1409BBD24
+ * XREFs of RtlpValidObjectAce @ 0x140913068
  * Callers:
- *     RtlValidAcl @ 0x140736D80 (RtlValidAcl.c)
+ *     RtlValidAcl @ 0x1406D5380 (RtlValidAcl.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall RtlpValidObjectAce(__int64 a1)
+char __fastcall RtlpValidObjectAce(__int64 a1)
 {
-  unsigned __int64 v1; // rdx
-  int v2; // r9d
+  unsigned __int64 v1; // r8
+  int v2; // edx
   unsigned int v3; // r10d
-  int v4; // r9d
+  int v4; // edx
   __int64 v5; // rax
-  __int64 v6; // r11
-  __int64 v7; // rax
-  __int64 v8; // rax
+  __int64 v6; // rcx
+  __int64 v7; // rcx
 
   if ( !a1 )
     return 0;
@@ -28,12 +27,12 @@ bool __fastcall RtlpValidObjectAce(__int64 a1)
   v5 = 16 * v3 + 16;
   if ( !v4 )
     v5 = 16 * v3;
-  v6 = (unsigned int)v5;
   if ( v1 >= v5 + 24
-    && (v7 = a1 + (v4 != 0 ? 28LL : 12LL), *(_BYTE *)(v7 + 16LL * v3) == 1)
-    && (v8 = *(unsigned __int8 *)(v7 + 16LL * v3 + 1), (unsigned __int8)v8 <= 0xFu) )
+    && (v6 = a1 + (v4 != 0 ? 28LL : 12LL), *(_BYTE *)(v6 + 16LL * v3) == 1)
+    && (v7 = *(unsigned __int8 *)(v6 + 16LL * v3 + 1), (unsigned __int8)v7 <= 0xFu)
+    && v1 >= (unsigned __int64)(unsigned int)v5 + 4 * (v7 + 5) )
   {
-    return v1 >= v6 + 4 * (v8 + 5);
+    return 1;
   }
   else
   {

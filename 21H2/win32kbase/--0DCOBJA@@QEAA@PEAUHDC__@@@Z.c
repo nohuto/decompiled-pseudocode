@@ -1,40 +1,35 @@
 /*
- * XREFs of ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C002BF28
+ * XREFs of ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C003796C
  * Callers:
- *     GreIsRendering @ 0x1C0018890 (GreIsRendering.c)
- *     ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C002A8D0 (-ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z.c)
- *     GreGetBounds @ 0x1C002AEA0 (GreGetBounds.c)
- *     _GetDCEx @ 0x1C002B0A0 (_GetDCEx.c)
- *     GreValidateVisrgn @ 0x1C002BFA8 (GreValidateVisrgn.c)
- *     GreSelectVisRgnShared @ 0x1C002FA90 (GreSelectVisRgnShared.c)
- *     GreLockVisRgnSharedOrExclusive @ 0x1C00302D0 (GreLockVisRgnSharedOrExclusive.c)
- *     GreSetDCOrg @ 0x1C0092E00 (GreSetDCOrg.c)
- *     GreGetDCOrgEx @ 0x1C00AB3F0 (GreGetDCOrgEx.c)
- *     GreCopyVisRgn @ 0x1C00CA430 (GreCopyVisRgn.c)
- *     GreIntersectVisRect @ 0x1C0177FE0 (GreIntersectVisRect.c)
+ *     GreSetDCOrg @ 0x1C00214D0 (GreSetDCOrg.c)
+ *     ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C00362B0 (-ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z.c)
+ *     GreGetBounds @ 0x1C0036A10 (GreGetBounds.c)
+ *     _GetDCEx @ 0x1C0036C00 (_GetDCEx.c)
+ *     GreValidateVisrgn @ 0x1C00379D0 (GreValidateVisrgn.c)
+ *     GreSelectVisRgnShared @ 0x1C0038E00 (GreSelectVisRgnShared.c)
+ *     GreLockVisRgnSharedOrExclusive @ 0x1C0038E80 (GreLockVisRgnSharedOrExclusive.c)
+ *     GreIsRendering @ 0x1C00397E0 (GreIsRendering.c)
+ *     GreGetDCOrgEx @ 0x1C0071790 (GreGetDCOrgEx.c)
+ *     GreCopyVisRgn @ 0x1C00BB990 (GreCopyVisRgn.c)
+ *     GreIntersectVisRect @ 0x1C014BF40 (GreIntersectVisRect.c)
  * Callees:
- *     HmgShareLockEx @ 0x1C0020870 (HmgShareLockEx.c)
- *     PushThreadGuardedObject @ 0x1C00232C0 (PushThreadGuardedObject.c)
- *     ?Feature_3101493560__private_IsEnabled@@YAHXZ @ 0x1C00D8CC0 (-Feature_3101493560__private_IsEnabled@@YAHXZ.c)
+ *     PushThreadGuardedObject @ 0x1C002CCA0 (PushThreadGuardedObject.c)
+ *     HmgShareLockEx @ 0x1C002D5E0 (HmgShareLockEx.c)
  */
 
 DCOBJA *__fastcall DCOBJA::DCOBJA(DCOBJA *this, HDC a2)
 {
-  _QWORD *v2; // rdi
-  unsigned int v3; // esi
+  unsigned int v3; // ebx
 
   *(_QWORD *)this = 0LL;
-  v2 = (_QWORD *)((char *)this + 16);
-  *((_DWORD *)this + 2) = 0;
-  *((_DWORD *)this + 3) = 0;
+  *((_QWORD *)this + 1) = 0LL;
   v3 = (unsigned int)a2;
   *((_OWORD *)this + 1) = 0LL;
   *((_OWORD *)this + 2) = 0LL;
-  if ( (unsigned int)Feature_3101493560__private_IsEnabled() )
-    PushThreadGuardedObject(
-      v2,
-      (unsigned __int64)this & ((unsigned __int128)-(__int128)(unsigned __int64)v2 >> 64),
-      (__int64)UnexpectedThreadTerminationHandler<DCOBJA>::OnUnexpectedThreadTerminationStatic);
+  PushThreadGuardedObject(
+    (_QWORD *)this + 2,
+    (unsigned __int64)this & ((unsigned __int128)-(__int128)((unsigned __int64)this + 16) >> 64),
+    (__int64)UnexpectedThreadTerminationHandler<DCOBJA>::OnUnexpectedThreadTerminationStatic);
   *(_QWORD *)this = HmgShareLockEx(v3, 1, 0);
   return this;
 }

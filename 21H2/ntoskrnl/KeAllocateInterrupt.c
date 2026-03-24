@@ -1,11 +1,11 @@
 /*
- * XREFs of KeAllocateInterrupt @ 0x1403AF228
+ * XREFs of KeAllocateInterrupt @ 0x14037771C
  * Callers:
- *     IopConnectInterrupt @ 0x140817258 (IopConnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1407621CC (IopConnectInterrupt.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     MmAllocateIndependentPages @ 0x140829AB0 (MmAllocateIndependentPages.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     MmAllocateIndependentPages @ 0x1407629F0 (MmAllocateIndependentPages.c)
  */
 
 PSLIST_ENTRY __fastcall KeAllocateInterrupt(union _SLIST_HEADER *a1)
@@ -17,9 +17,9 @@ PSLIST_ENTRY __fastcall KeAllocateInterrupt(union _SLIST_HEADER *a1)
   struct _SLIST_ENTRY *v6; // rbx
   __int64 v7; // rsi
 
-  v1 = a1 + 816;
-  v3 = *(unsigned __int16 *)(a1[12].Alignment + 138);
-  result = RtlpInterlockedPopEntrySList(a1 + 816);
+  v1 = a1 + 776;
+  v3 = *(unsigned __int16 *)(a1[12].Alignment + 146);
+  result = RtlpInterlockedPopEntrySList(a1 + 776);
   if ( result )
   {
 LABEL_2:

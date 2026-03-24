@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@?$CRegionGeometryGeneratedT@VCRegionGeometry@@VCGeometry@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D8220
+ * XREFs of ?IsOfType@?$CRegionGeometryGeneratedT@VCRegionGeometry@@VCGeometry@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C4F80
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CGeometry@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D8274 (-IsOfType@CGeometry@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CGeometry@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C4FDC (-IsOfType@CGeometry@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall CRegionGeometryGeneratedT<CRegionGeometry,CGeometry>::IsOfType(__int64 a1, int a2)
@@ -11,7 +11,7 @@ char __fastcall CRegionGeometryGeneratedT<CRegionGeometry,CGeometry>::IsOfType(_
   char v2; // cl
   char v4; // al
 
-  if ( a2 == 141 )
+  if ( a2 == 142 )
     return 1;
   v4 = CGeometry::IsOfType();
   v2 = 0;

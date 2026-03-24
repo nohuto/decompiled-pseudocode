@@ -1,98 +1,131 @@
 /*
- * XREFs of ?reserve_region@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAVOverlayPlaneInfo@COverlayContext@@_K0@Z @ 0x1801DEE38
+ * XREFs of ?reserve_region@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAVOverlayPlaneInfo@COverlayContext@@_K0@Z @ 0x18017D0EC
  * Callers:
- *     ??$move@V?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@V?$back_insert_iterator_unchecked@V?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@detail@@@std@@YA?AV?$back_insert_iterator_unchecked@V?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@detail@@V?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@0@0V12@@Z @ 0x1800CA4DC (--$move@V-$move_iterator@V-$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@V-$.c)
- *     ??$emplace@PEAVCOverlayContext@@PEAVCVisual@@PEAVCCompositionSurfaceInfo@@_KPEAUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$shared_ptr@VCRegion@@@std@@_N_N_N_N@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@1@V?$basic_iterator@$$CBVOverlayPlaneInfo@COverlayContext@@@1@PEAVCOverlayContext@@PEAVCVisual@@PEAVCCompositionSurfaceInfo@@_KPEAUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$shared_ptr@VCRegion@@@std@@_N888@Z @ 0x1801DB004 (--$emplace@PEAVCOverlayContext@@PEAVCVisual@@PEAVCCompositionSurfaceInfo@@_KPEAUDXGI_MULTIPLANE_.c)
- *     ??$emplace@VOverlayPlaneInfo@COverlayContext@@@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@1@V?$basic_iterator@$$CBVOverlayPlaneInfo@COverlayContext@@@1@VOverlayPlaneInfo@COverlayContext@@@Z @ 0x1801DB110 (--$emplace@VOverlayPlaneInfo@COverlayContext@@@-$vector_facade@VOverlayPlaneInfo@COverlayContext.c)
- *     ??$insert@V?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@X@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@1@V?$basic_iterator@$$CBVOverlayPlaneInfo@COverlayContext@@@1@V?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@1@Z @ 0x1801DB254 (--$insert@V-$move_iterator@V-$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@X.c)
+ *     ??$move@V?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@V?$back_insert_iterator_unchecked@V?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@detail@@@std@@YA?AV?$back_insert_iterator_unchecked@V?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@detail@@V?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@0@0V12@@Z @ 0x18002F7A4 (--$move@V-$move_iterator@V-$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@V-$.c)
+ *     ??$emplace@PEAVCOverlayContext@@PEAVCVisual@@PEAVCCompositionSurfaceInfo@@_KPEAUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$shared_ptr@VCRegion@@@std@@_N_N_N_N_N_N$$T@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@1@V?$basic_iterator@$$CBVOverlayPlaneInfo@COverlayContext@@@1@PEAVCOverlayContext@@PEAVCVisual@@PEAVCCompositionSurfaceInfo@@_KPEAUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$shared_ptr@VCRegion@@@std@@_N88888$$T@Z @ 0x1801793E8 (--$emplace@PEAVCOverlayContext@@PEAVCVisual@@PEAVCCompositionSurfaceInfo@@_KPEAUDXGI_MULTIPLANE_.c)
+ *     ??$emplace@VOverlayPlaneInfo@COverlayContext@@@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@1@V?$basic_iterator@$$CBVOverlayPlaneInfo@COverlayContext@@@1@VOverlayPlaneInfo@COverlayContext@@@Z @ 0x180179500 (--$emplace@VOverlayPlaneInfo@COverlayContext@@@-$vector_facade@VOverlayPlaneInfo@COverlayContext.c)
+ *     ??$insert@V?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@X@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@1@V?$basic_iterator@$$CBVOverlayPlaneInfo@COverlayContext@@@1@V?$move_iterator@V?$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@1@Z @ 0x180179650 (--$insert@V-$move_iterator@V-$basic_iterator@VOverlayPlaneInfo@COverlayContext@@@detail@@@std@@X.c)
  * Callees:
- *     ??$destruct_range@VOverlayPlaneInfo@COverlayContext@@@detail@@YAXPEAVOverlayPlaneInfo@COverlayContext@@0@Z @ 0x1800CA688 (--$destruct_range@VOverlayPlaneInfo@COverlayContext@@@detail@@YAXPEAVOverlayPlaneInfo@COverlayCo.c)
- *     ??0OverlayPlaneInfo@COverlayContext@@QEAA@$$QEAV01@@Z @ 0x18012F2C8 (--0OverlayPlaneInfo@COverlayContext@@QEAA@$$QEAV01@@Z.c)
- *     ??$move_backward@V?$move_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@std@@V?$checked_array_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@stdext@@V?$move_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@0@0V12@@Z @ 0x1801DB358 (--$move_backward@V-$move_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@std@@V-$checked_array_i.c)
- *     ?ensure_extra_capacity@?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x1801DECD4 (-ensure_extra_capacity@-$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansi.c)
+ *     ??$destruct_range@VOverlayPlaneInfo@COverlayContext@@@detail@@YAXPEAVOverlayPlaneInfo@COverlayContext@@0@Z @ 0x18002F910 (--$destruct_range@VOverlayPlaneInfo@COverlayContext@@@detail@@YAXPEAVOverlayPlaneInfo@COverlayCo.c)
+ *     ??$move_backward@V?$move_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@std@@V?$checked_array_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@stdext@@V?$move_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@0@0V12@@Z @ 0x180179778 (--$move_backward@V-$move_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@std@@V-$checked_array_i.c)
+ *     ??0OverlayPlaneInfo@COverlayContext@@QEAA@$$QEAV01@@Z @ 0x180179940 (--0OverlayPlaneInfo@COverlayContext@@QEAA@$$QEAV01@@Z.c)
+ *     ?ensure_extra_capacity@?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x18017CEF4 (-ensure_extra_capacity@-$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansi.c)
  */
 
 COverlayContext::OverlayPlaneInfo *__fastcall detail::vector_facade<COverlayContext::OverlayPlaneInfo,detail::buffer_impl<COverlayContext::OverlayPlaneInfo,16,1,detail::liberal_expansion_policy>>::reserve_region(
         __int64 *a1,
         __int64 a2,
-        unsigned __int64 a3)
+        signed __int64 a3)
 {
-  __int64 v6; // rbx
-  __int64 v7; // rdx
-  __int64 v8; // r9
-  unsigned __int64 v9; // rbp
-  unsigned __int64 v10; // rsi
-  unsigned __int64 v11; // rax
-  __int64 v12; // rdx
-  unsigned __int64 v13; // r10
-  unsigned __int64 v14; // r10
-  __int64 v15; // rdx
-  __int64 v16; // r11
-  __int64 v17; // rsi
-  COverlayContext::OverlayPlaneInfo *v18; // rdx
-  COverlayContext::OverlayPlaneInfo *v19; // rbx
+  __int64 *v5; // r14
+  __int64 v6; // rcx
+  __int64 v7; // rbx
+  __int64 v8; // rsi
+  __int64 v9; // rdx
+  __int64 v10; // r10
+  COverlayContext::OverlayPlaneInfo *v11; // r12
+  unsigned __int64 v12; // r15
+  bool v13; // sf
+  signed __int64 v14; // rax
+  signed __int64 v15; // r11
+  unsigned __int64 v16; // r11
+  __int64 v17; // r9
+  bool v18; // sf
+  COverlayContext::OverlayPlaneInfo *v19; // rdx
+  COverlayContext::OverlayPlaneInfo *v20; // rbx
   COverlayContext::OverlayPlaneInfo *result; // rax
-  _QWORD v21[4]; // [rsp+20h] [rbp-58h] BYREF
-  _BYTE v22[32]; // [rsp+40h] [rbp-38h] BYREF
+  __int128 v22; // [rsp+20h] [rbp-40h] BYREF
+  signed __int64 v23; // [rsp+30h] [rbp-30h]
+  __int128 v24; // [rsp+40h] [rbp-20h] BYREF
+  signed __int64 v25; // [rsp+50h] [rbp-10h]
 
+  v5 = a1;
   detail::buffer_impl<COverlayContext::OverlayPlaneInfo,16,1,detail::liberal_expansion_policy>::ensure_extra_capacity(
     a1,
     a3);
-  v6 = *a1;
-  v7 = a1[1];
-  v8 = 0x6DB6DB6DB6DB6DB7LL * ((v7 - *a1) >> 5);
-  v9 = *a1 + 32 * ((v7 - *a1) >> 5);
-  v10 = v8 - a2;
-  if ( a3 && (!v9 || (a3 & 0x8000000000000000uLL) != 0LL) )
-    goto LABEL_16;
-  v11 = 0x6DB6DB6DB6DB6DB7LL * ((a1[1] - *a1) >> 5) - a2;
-  if ( a3 < v10 )
-    v11 = a3;
-  if ( v7 != v7 - 224 * v11 )
+  v7 = *v5;
+  v8 = v5[1];
+  v23 = 0LL;
+  v9 = (unsigned __int128)((v8 - v7) * (__int128)0x4924924924924925LL) >> 64;
+  v25 = 0LL;
+  *((_QWORD *)&v22 + 1) = a3;
+  v10 = (v8 - v7) / 224;
+  v11 = (COverlayContext::OverlayPlaneInfo *)(v7 + 224 * v10);
+  v12 = v10 - a2;
+  *(_QWORD *)&v22 = v11;
+  v13 = a3 < 0;
+  if ( a3 )
   {
-    v12 = v7 - 224;
-    v13 = a3;
-    if ( v9 )
+    if ( !v11 )
+      goto LABEL_21;
+    v13 = a3 < 0;
+  }
+  if ( !v13 || !a3 )
+  {
+    v25 = a3;
+    v14 = a3;
+    if ( a3 >= v12 )
+      v14 = (v8 - v7) / 224 - a2;
+    v23 = a3;
+    if ( v8 != v8 - 224 * v14 )
     {
-      while ( v13 )
+      v5 = (__int64 *)v22;
+      v15 = v23;
+      while ( 1 )
       {
-        v14 = v13 - 1;
-        if ( v14 >= a3 )
+        v8 -= 224LL;
+        if ( !(_QWORD)v22 )
+          goto LABEL_21;
+        if ( !v15 )
+          goto LABEL_21;
+        v16 = v15 - 1;
+        if ( v16 >= *((_QWORD *)&v22 + 1) )
+          goto LABEL_21;
+        COverlayContext::OverlayPlaneInfo::OverlayPlaneInfo(v22 + 224 * v16, v8);
+        if ( v8 == v17 )
+        {
+          v5 = a1;
           break;
-        COverlayContext::OverlayPlaneInfo::OverlayPlaneInfo(v9 + 224 * v14, v12);
-        if ( v15 == v16 )
-          goto LABEL_12;
-        v12 = v15 - 224;
+        }
       }
     }
-LABEL_16:
-    _invalid_parameter_noinfo_noreturn();
+    if ( v12 <= a3 )
+      goto LABEL_23;
+    *(_QWORD *)&v22 = v7;
+    *((_QWORD *)&v22 + 1) = v10;
+    v18 = v10 < 0;
+    if ( !v10 )
+    {
+LABEL_19:
+      if ( !v18 || !v10 )
+        goto LABEL_22;
+      goto LABEL_21;
+    }
+    if ( v7 )
+    {
+      v18 = v10 < 0;
+      goto LABEL_19;
+    }
   }
-LABEL_12:
-  if ( v10 <= a3 )
-  {
-    v17 = 224 * a2;
-  }
-  else
-  {
-    if ( v8 && (!v6 || v8 < 0) )
-      goto LABEL_16;
-    v21[1] = v8;
-    v17 = 224 * a2;
-    v21[2] = v8;
-    v21[0] = v6;
-    std::move_backward<std::move_iterator<COverlayContext::OverlayPlaneInfo *>,stdext::checked_array_iterator<COverlayContext::OverlayPlaneInfo *>>(
-      (__int64)v22,
-      224 * a2 + v6,
-      v6 + 224 * (v8 - a3),
-      v21);
-  }
-  v18 = (COverlayContext::OverlayPlaneInfo *)(v6 + 224 * (a2 + a3));
-  if ( v9 < (unsigned __int64)v18 )
-    v18 = (COverlayContext::OverlayPlaneInfo *)v9;
-  v19 = (COverlayContext::OverlayPlaneInfo *)(v17 + v6);
-  detail::destruct_range<COverlayContext::OverlayPlaneInfo>(v19, v18);
-  result = v19;
-  a1[1] += 224 * a3;
+LABEL_21:
+  _o__invalid_parameter_noinfo_noreturn(v6, v9);
+  __debugbreak();
+LABEL_22:
+  v23 = v10;
+  v24 = v22;
+  v25 = v10;
+  std::move_backward<std::move_iterator<COverlayContext::OverlayPlaneInfo *>,stdext::checked_array_iterator<COverlayContext::OverlayPlaneInfo *>>(
+    (__int64)&v22,
+    v7 + 224 * a2,
+    v7 + 224 * (v10 - a3),
+    &v24);
+LABEL_23:
+  v19 = (COverlayContext::OverlayPlaneInfo *)(v7 + 224 * (a3 + a2));
+  if ( v11 < v19 )
+    v19 = v11;
+  v20 = (COverlayContext::OverlayPlaneInfo *)(224 * a2 + v7);
+  detail::destruct_range<COverlayContext::OverlayPlaneInfo>(v20, v19);
+  result = v20;
+  v5[1] += 224 * a3;
   return result;
 }

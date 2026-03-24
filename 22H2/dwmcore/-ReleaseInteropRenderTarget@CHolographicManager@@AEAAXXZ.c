@@ -1,31 +1,31 @@
 /*
- * XREFs of ?ReleaseInteropRenderTarget@CHolographicManager@@AEAAXXZ @ 0x1802A5DB0
+ * XREFs of ?ReleaseInteropRenderTarget@CHolographicManager@@AEAAXXZ @ 0x180253D94
  * Callers:
- *     CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_db6293ec4389496e05a5db7898b72386___ @ 0x1802A42AC (CHolographicInteropTaskQueue--ProcessPendingMessages__lambda_db6293ec4389496e05a5db7898b72386___.c)
- *     ??1CHolographicManager@@EEAA@XZ @ 0x1802A4664 (--1CHolographicManager@@EEAA@XZ.c)
+ *     CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_db6293ec4389496e05a5db7898b72386___ @ 0x1802522DC (CHolographicInteropTaskQueue--ProcessPendingMessages__lambda_db6293ec4389496e05a5db7898b72386___.c)
+ *     ??1CHolographicManager@@EEAA@XZ @ 0x1802524D4 (--1CHolographicManager@@EEAA@XZ.c)
  * Callees:
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ?RemoveRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z @ 0x1800C6CB4 (-RemoveRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z.c)
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x1802AC48C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?RemoveRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z @ 0x1800DE4C0 (-RemoveRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A660 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 void __fastcall CHolographicManager::ReleaseInteropRenderTarget(CHolographicManager *this)
 {
   struct CRenderTarget *v1; // rdx
   CHolographicInteropTaskQueue *v3; // rcx
-  CResource *v4; // rcx
+  CRenderTargetBitmap *v4; // rcx
 
   v1 = (struct CRenderTarget *)*((_QWORD *)this + 4);
   if ( v1 )
   {
-    CRenderTargetManager::RemoveRenderTarget(*(CRenderTargetManager **)(*((_QWORD *)this + 3) + 216LL), v1);
+    CRenderTargetManager::RemoveRenderTarget(*(CRenderTargetManager **)(*((_QWORD *)this + 3) + 88LL), v1);
     v3 = (CHolographicInteropTaskQueue *)*((_QWORD *)this + 6);
     if ( v3 )
       CHolographicInteropTaskQueue::PostMessageW(v3, 0x15u, 0LL, 0LL, 0LL, 0LL, 0LL);
-    v4 = (CResource *)*((_QWORD *)this + 4);
+    v4 = (CRenderTargetBitmap *)*((_QWORD *)this + 4);
     if ( v4 )
     {
-      CResource::InternalRelease(v4);
+      CRenderTargetBitmap::Release(v4);
       *((_QWORD *)this + 4) = 0LL;
     }
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSetupMobileHotspotNotification @ 0x140865E00
+ * XREFs of PopSetupMobileHotspotNotification @ 0x1407D4E4C
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1407DB2B0 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x140694970 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 PopSetupMobileHotspotNotification()

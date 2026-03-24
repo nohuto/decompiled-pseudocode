@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLockRetpolineStubs @ 0x1409F7170
+ * XREFs of MiLockRetpolineStubs @ 0x1409F7180
  * Callers:
  *     MiInitializeRetpoline @ 0x1409DEFC8 (MiInitializeRetpoline.c)
  * Callees:
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
- *     MmCreateMdl @ 0x140113C20 (MmCreateMdl.c)
+ *     MmCreateMdl @ 0x140113C40 (MmCreateMdl.c)
  */
 
 __int64 MiLockRetpolineStubs()

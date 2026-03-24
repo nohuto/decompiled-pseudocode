@@ -1,64 +1,42 @@
 /*
- * XREFs of KiProcessThreadWaitList @ 0x140253CA0
+ * XREFs of KiProcessThreadWaitList @ 0x14024AC40
  * Callers:
- *     KiSwapThread @ 0x14023F3D0 (KiSwapThread.c)
- *     KiCommitThreadWait @ 0x140241F00 (KiCommitThreadWait.c)
- *     KiTimer2Expiration @ 0x1402514C0 (KiTimer2Expiration.c)
- *     KiExpireTimer2 @ 0x140251960 (KiExpireTimer2.c)
- *     KiProcessExpiredTimerList @ 0x140252A30 (KiProcessExpiredTimerList.c)
- *     KeRemoveQueueEx @ 0x1402A9F20 (KeRemoveQueueEx.c)
- *     KiPriQueueThreadPriorityChanged @ 0x1402BAAC4 (KiPriQueueThreadPriorityChanged.c)
- *     KeRemovePriQueue @ 0x1402BF080 (KeRemovePriQueue.c)
- *     KeTerminateThread @ 0x14030A438 (KeTerminateThread.c)
+ *     KeRemoveQueueEx @ 0x140204790 (KeRemoveQueueEx.c)
+ *     KeRemovePriQueue @ 0x140241B40 (KeRemovePriQueue.c)
+ *     KiProcessExpiredTimerList @ 0x140247410 (KiProcessExpiredTimerList.c)
+ *     KiTimer2Expiration @ 0x140248150 (KiTimer2Expiration.c)
+ *     KiExpireTimer2 @ 0x14024AF30 (KiExpireTimer2.c)
+ *     KiCommitThreadWait @ 0x1402C6640 (KiCommitThreadWait.c)
+ *     KiSwapThread @ 0x1402C6D60 (KiSwapThread.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x1402F76C0 (KiPriQueueThreadPriorityChanged.c)
+ *     KeTerminateThread @ 0x140341500 (KeTerminateThread.c)
  * Callees:
- *     KiDeferredReadySingleThread @ 0x14023A2B0 (KiDeferredReadySingleThread.c)
- *     KiAcquireKobjectLockSafe @ 0x140251F10 (KiAcquireKobjectLockSafe.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252640 (KiFlushSoftwareInterruptBatch.c)
- *     HalRequestIpiSpecifyVector @ 0x140254570 (HalRequestIpiSpecifyVector.c)
- *     HalSendSoftwareInterrupt @ 0x140254610 (HalSendSoftwareInterrupt.c)
- *     KiInswapAndReadyThread @ 0x14034D43C (KiInswapAndReadyThread.c)
- *     memset @ 0x140435400 (memset.c)
- *     EtwTraceReadyThread @ 0x140466DFA (EtwTraceReadyThread.c)
+ *     KiReadyThread @ 0x140247FB0 (KiReadyThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024BE10 (KiAcquireKobjectLockSafe.c)
+ *     EtwTraceReadyThread @ 0x1405A7EB0 (EtwTraceReadyThread.c)
  */
 
-__int64 __fastcall KiProcessThreadWaitList(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
+int __fastcall KiProcessThreadWaitList(__int64 a1, unsigned __int8 a2, unsigned __int8 a3, unsigned int a4)
 {
-  _QWORD *v4; // rbx
-  _QWORD *v6; // rdi
-  _QWORD *v7; // r13
-  _QWORD *v8; // r15
-  _QWORD *v9; // r13
-  __int64 *v10; // rsi
-  __int64 *v11; // rbp
-  volatile signed __int32 *v12; // r12
-  __int64 *v13; // rcx
-  __int64 **v14; // rax
-  int v15; // eax
-  int v16; // r12d
-  __int64 result; // rax
-  bool v18; // zf
-  struct _KPRCB *CurrentPrcb; // rax
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  _QWORD *v22; // rbx
-  __int64 v23; // r8
-  _QWORD *v24; // rdx
-  _QWORD *v25; // [rsp+20h] [rbp-58h] BYREF
-  int v26; // [rsp+80h] [rbp+8h]
+  __int64 **v4; // r14
+  __int64 v8; // rax
+  __int64 v9; // rsi
+  __int64 *v10; // rbx
+  __int64 *v11; // rdi
+  volatile signed __int32 *v12; // rbp
+  __int64 *v13; // rax
+  int result; // eax
+  __int64 **v15; // rcx
 
-  v4 = *(_QWORD **)(a1 + 11528);
-  v26 = 0;
-  v25 = 0LL;
-  v6 = 0LL;
+  v4 = *(__int64 ***)(a1 + 11528);
   *(_QWORD *)(a1 + 11528) = 0LL;
-  while ( v4 )
+  do
   {
-    v7 = v4;
-    v8 = v4;
-    v4 = (_QWORD *)*v4;
-    v9 = v7 - 27;
-    v10 = (__int64 *)v9[26];
-    v11 = &v10[6 * *((unsigned __int8 *)v9 + 587)];
+    v8 = *((unsigned __int8 *)v4 + 371);
+    v9 = (__int64)(v4 - 27);
+    v10 = *(v4 - 1);
+    v4 = (__int64 **)*v4;
+    v11 = &v10[6 * v8];
     do
     {
       if ( *((_BYTE *)v10 + 17) < 5u )
@@ -68,79 +46,22 @@ __int64 __fastcall KiProcessThreadWaitList(__int64 a1, unsigned int a2, unsigned
         if ( *((_BYTE *)v10 + 17) == 4 )
         {
           v13 = (__int64 *)*v10;
-          v14 = (__int64 **)v10[1];
-          if ( *(__int64 **)(*v10 + 8) != v10 || *v14 != v10 )
+          if ( *(__int64 **)(*v10 + 8) != v10 || (v15 = (__int64 **)v10[1], *v15 != v10) )
             __fastfail(3u);
-          *v14 = v13;
-          v13[1] = (__int64)v14;
+          *v15 = v13;
+          v13[1] = (__int64)v15;
         }
         _InterlockedAnd(v12, 0xFFFFFF7F);
       }
       v10 += 6;
     }
     while ( v10 != v11 );
-    *((_BYTE *)v9 + 566) = a2;
-    *((_BYTE *)v9 + 567) = a3;
+    *(_BYTE *)(v9 + 566) = a2;
+    *(_BYTE *)(v9 + 567) = a3;
     if ( (WORD2(PerfGlobalGroupMask) & 0x200) != 0 )
       EtwTraceReadyThread(v9, a2, a3, a4);
-    v15 = *((_DWORD *)v9 + 30);
-    if ( (v15 & 0x20000) == 0 || (v15 & 0x100000) != 0 )
-    {
-      *v8 = v6;
-      v6 = v8;
-    }
-    else
-    {
-      v16 = v26;
-      *v8 = v25;
-      do
-      {
-        KiDeferredReadySingleThread(a1, (unsigned __int64)(v8 - 27), (__int64)&v25);
-        v8 = v25;
-        ++v16;
-        if ( v25 )
-          v25 = (_QWORD *)*v25;
-        if ( (v16 & 0xF) == 0 )
-          KiFlushSoftwareInterruptBatch((unsigned __int8 *)(a1 + 12760));
-      }
-      while ( v8 );
-      v26 = v16;
-    }
+    result = KiReadyThread(a1, v9);
   }
-  result = *(unsigned __int8 *)(a1 + 12761);
-  if ( (_BYTE)result )
-  {
-    v18 = (_BYTE)result == 1;
-    CurrentPrcb = KeGetCurrentPrcb();
-    if ( v18 )
-    {
-      v20 = *(unsigned __int8 *)(a1 + 12760);
-      v21 = *(unsigned int *)(a1 + 12764);
-      ++CurrentPrcb->SynchCounters.IpiSendSoftwareInterruptCount;
-      result = HalSendSoftwareInterrupt(v21, v20);
-      v22 = (_QWORD *)(a1 + 12768);
-    }
-    else
-    {
-      v22 = (_QWORD *)(a1 + 12768);
-      v23 = 47LL;
-      if ( *(_BYTE *)(a1 + 12760) == 1 )
-        v23 = 31LL;
-      ++CurrentPrcb->SynchCounters.IpiSendSoftwareInterruptCount;
-      result = HalRequestIpiSpecifyVector(0LL, a1 + 12768, v23);
-    }
-    if ( *(_BYTE *)(a1 + 12761) == 2 )
-    {
-      *v22 = 2097153LL;
-      result = (__int64)memset(v22 + 1, 0, 0x100uLL);
-    }
-    *(_BYTE *)(a1 + 12761) = 0;
-    *(_DWORD *)(a1 + 12764) = 0xFFFF;
-  }
-  for ( ; v6; result = KiInswapAndReadyThread(a1, v24 - 27) )
-  {
-    v24 = v6;
-    v6 = (_QWORD *)*v6;
-  }
+  while ( v4 );
   return result;
 }

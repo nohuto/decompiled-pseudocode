@@ -1,14 +1,14 @@
 /*
- * XREFs of BmlCompareRegionsWithPivot @ 0x1C01B2A10
+ * XREFs of BmlCompareRegionsWithPivot @ 0x1C0139968
  * Callers:
- *     BmlCompareSourceModesWithConstraint @ 0x1C01B281C (BmlCompareSourceModesWithConstraint.c)
- *     BmlCompareTargetModes @ 0x1C01B5A18 (BmlCompareTargetModes.c)
- *     BmlCompareTargetModesWithConstraint @ 0x1C01B5B6C (BmlCompareTargetModesWithConstraint.c)
- *     BmlGetRecommendedContentSizeForPath @ 0x1C03AB2AC (BmlGetRecommendedContentSizeForPath.c)
+ *     BmlCompareSourceModesWithConstraint @ 0x1C013931C (BmlCompareSourceModesWithConstraint.c)
+ *     BmlCompareTargetModes @ 0x1C013B4E4 (BmlCompareTargetModes.c)
+ *     BmlCompareTargetModesWithConstraint @ 0x1C013B62C (BmlCompareTargetModesWithConstraint.c)
+ *     BmlGetRecommendedContentSizeForPath @ 0x1C02EBD88 (BmlGetRecommendedContentSizeForPath.c)
  * Callees:
- *     ??$DIFF@H@@YAHHH@Z @ 0x1C0011F28 (--$DIFF@H@@YAHHH@Z.c)
- *     ?BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z @ 0x1C01B2AD0 (-BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z.c)
- *     ??$BmlCompareValues@H@@YA?AW4BML_COMPARISON_RESULT@@HH@Z @ 0x1C01B2B78 (--$BmlCompareValues@H@@YA-AW4BML_COMPARISON_RESULT@@HH@Z.c)
+ *     ??$DIFF@H@@YAHHH@Z @ 0x1C000B384 (--$DIFF@H@@YAHHH@Z.c)
+ *     ?BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z @ 0x1C0139A40 (-BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z.c)
+ *     ??$BmlCompareValues@H@@YA?AW4BML_COMPARISON_RESULT@@HH@Z @ 0x1C016E66C (--$BmlCompareValues@H@@YA-AW4BML_COMPARISON_RESULT@@HH@Z.c)
  */
 
 __int64 __fastcall BmlCompareRegionsWithPivot(
@@ -39,12 +39,12 @@ __int64 __fastcall BmlCompareRegionsWithPivot(
     v15 = DIFF<int>(v14, ScaledAspectRatio);
     return BmlCompareValues<int>(v15, v13);
   }
-  else if ( v7 < v9 )
+  else if ( v7 >= v9 )
   {
-    return 1LL;
+    return (unsigned int)(v9 >= v7) - 1;
   }
   else
   {
-    return (unsigned int)(v9 >= v7) - 1;
+    return 1LL;
   }
 }

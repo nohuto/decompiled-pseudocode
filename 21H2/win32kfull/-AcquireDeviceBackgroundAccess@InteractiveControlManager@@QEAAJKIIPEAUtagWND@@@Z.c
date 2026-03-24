@@ -1,11 +1,11 @@
 /*
- * XREFs of ?AcquireDeviceBackgroundAccess@InteractiveControlManager@@QEAAJKIIPEAUtagWND@@@Z @ 0x1C010BF84
+ * XREFs of ?AcquireDeviceBackgroundAccess@InteractiveControlManager@@QEAAJKIIPEAUtagWND@@@Z @ 0x1C00E5EAC
  * Callers:
- *     NtUserAcquireInteractiveControlBackgroundAccess @ 0x1C010BE70 (NtUserAcquireInteractiveControlBackgroundAccess.c)
+ *     NtUserAcquireInteractiveControlBackgroundAccess @ 0x1C00E5F70 (NtUserAcquireInteractiveControlBackgroundAccess.c)
  * Callees:
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C024E6A0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@U2@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@44AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C024E8CC (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@U2@U-$_tlgWrapperByVal@$07@@@-$_tlgWriteTe.c)
- *     ?SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z @ 0x1C0254A34 (-SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C02516B4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@U2@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@44AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C02518E0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@U2@U-$_tlgWrapperByVal@$07@@@-$_tlgWriteTe.c)
+ *     ?SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z @ 0x1C0257D08 (-SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z.c)
  */
 
 __int64 __fastcall InteractiveControlManager::AcquireDeviceBackgroundAccess(
@@ -15,11 +15,11 @@ __int64 __fastcall InteractiveControlManager::AcquireDeviceBackgroundAccess(
         unsigned int a4,
         struct tagWND *a5)
 {
-  struct tagWND *v5; // r12
+  struct tagWND *v5; // r15
   unsigned int v6; // esi
   unsigned int v8; // edi
   InteractiveControlDevice **v11; // rdi
-  __int64 v12; // r15
+  __int64 v12; // r12
   InteractiveControlDevice *v13; // rcx
   struct tagWND *v15; // [rsp+50h] [rbp-20h] BYREF
   __int64 v16[2]; // [rsp+60h] [rbp-10h] BYREF
@@ -30,7 +30,7 @@ __int64 __fastcall InteractiveControlManager::AcquireDeviceBackgroundAccess(
   v5 = a5;
   v6 = 0;
   v8 = a3;
-  if ( (unsigned int)dword_1C03262C0 > 4 )
+  if ( (unsigned int)dword_1C032B2F8 > 4 )
   {
     v15 = a5;
     v16[0] = (__int64)"InteractiveControlManager::AcquireDeviceBackgroundAccess entry";
@@ -39,7 +39,7 @@ __int64 __fastcall InteractiveControlManager::AcquireDeviceBackgroundAccess(
     v19 = a2;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
       (_DWORD)this,
-      (unsigned int)&unk_1C02F177B,
+      (unsigned int)&unk_1C02F4316,
       a3,
       a4,
       (__int64)v16,
@@ -72,15 +72,15 @@ __int64 __fastcall InteractiveControlManager::AcquireDeviceBackgroundAccess(
       *((_DWORD *)this + 6) = v6;
       v16[0] = (__int64)this + 16;
       v16[1] = (__int64)v5;
-      HMAssignmentLock(v16, 0LL);
+      HMAssignmentLock(v16);
     }
   }
-  if ( (unsigned int)dword_1C03262C0 > 4 )
+  if ( (unsigned int)dword_1C032B2F8 > 4 )
   {
     LODWORD(v17) = 0;
     v16[0] = (__int64)"InteractiveControlManager::AcquireDeviceBackgroundAccess exit";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (int)&dword_1C03262C0,
+      (int)&dword_1C032B2F8,
       (__int64)v16,
       (__int64)&v17);
   }

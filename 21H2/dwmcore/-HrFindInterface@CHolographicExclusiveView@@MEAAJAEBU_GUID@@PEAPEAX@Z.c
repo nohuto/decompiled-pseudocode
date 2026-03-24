@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CHolographicExclusiveView@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180299050
+ * XREFs of ?HrFindInterface@CHolographicExclusiveView@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180257110
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006BFF0 (-HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CHolographicExclusiveView::HrFindInterface(
@@ -20,7 +20,7 @@ __int64 __fastcall CHolographicExclusiveView::HrFindInterface(
     if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_92c14223_53b5_489b_b195_4227022eda18.Data1 )
       result = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_92c14223_53b5_489b_b195_4227022eda18.Data4;
     if ( result )
-      return 2147500034LL;
+      return CMILCOMBase::HrFindInterface(this, a2, a3);
     else
       *a3 = this;
   }

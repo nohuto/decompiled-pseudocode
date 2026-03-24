@@ -1,46 +1,54 @@
 /*
- * XREFs of ?DxgkpStopRenderAndSessionDisplayAdapters@@YAJAEAW4_DXGK_DIAG_BDD_FALLBACK_STAGE@@@Z @ 0x1C02B744C
+ * XREFs of ?DxgkpStopRenderAndSessionDisplayAdapters@@YAJAEAW4_DXGK_DIAG_BDD_FALLBACK_STAGE@@@Z @ 0x1C020D5EC
  * Callers:
- *     ?DxgkpProcessBddFallbackRequest@@YAJXZ @ 0x1C02B7170 (-DxgkpProcessBddFallbackRequest@@YAJXZ.c)
+ *     ?DxgkpProcessBddFallbackRequest@@YAJXZ @ 0x1C020D3AC (-DxgkpProcessBddFallbackRequest@@YAJXZ.c)
  * Callees:
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C00076A0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C017F1B0 (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
- *     ?ReferenceBddFallbackAdapter@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@PEA_K@Z @ 0x1C0314B44 (-ReferenceBddFallbackAdapter@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@PEA_K@Z.c)
- *     ?ReferenceWarpAdapter@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@PEA_K@Z @ 0x1C0314C30 (-ReferenceWarpAdapter@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@PEA_K@Z.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C013C28C (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
+ *     ?ReferenceBddFallbackAdapter@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@PEA_K@Z @ 0x1C026B544 (-ReferenceBddFallbackAdapter@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@PEA_K@Z.c)
+ *     ?ReferenceWarpAdapter@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@PEA_K@Z @ 0x1C026B608 (-ReferenceWarpAdapter@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@PEA_K@Z.c)
  */
 
-__int64 __fastcall DxgkpStopRenderAndSessionDisplayAdapters(enum _DXGK_DIAG_BDD_FALLBACK_STAGE *a1)
+__int64 __fastcall DxgkpStopRenderAndSessionDisplayAdapters(enum _DXGK_DIAG_BDD_FALLBACK_STAGE *a1, __int64 a2)
 {
-  struct DXGGLOBAL *Global; // rbx
-  DXGGLOBAL *v3; // rax
-  DXGADAPTER *v4; // rsi
-  struct DXGGLOBAL *v6; // rax
-  DXGGLOBAL *v7; // rax
-  DXGADAPTER *v8; // rsi
-  struct DXGGLOBAL *v9; // rax
-  __int16 v10; // [rsp+38h] [rbp+10h] BYREF
-  unsigned __int64 v11; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v3; // rbx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  DXGGLOBAL *v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  DXGADAPTER *v11; // rsi
+  struct DXGGLOBAL *v13; // rax
+  DXGGLOBAL *Global; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  DXGADAPTER *v17; // rsi
+  struct DXGGLOBAL *v18; // rax
+  __int16 v19; // [rsp+38h] [rbp+10h] BYREF
+  unsigned __int64 v20; // [rsp+40h] [rbp+18h] BYREF
 
-  Global = DXGGLOBAL::GetGlobal();
-  if ( *((_QWORD *)Global + 121) == *((_QWORD *)DXGGLOBAL::GetGlobal() + 119) )
+  v3 = *((_QWORD *)DXGGLOBAL::GetGlobal((__int64)a1, a2) + 105);
+  if ( v3 == *((_QWORD *)DXGGLOBAL::GetGlobal(v5, v4) + 103) )
   {
-    v7 = DXGGLOBAL::GetGlobal();
-    v8 = DXGGLOBAL::ReferenceBddFallbackAdapter(v7, &v11);
-    if ( !v8 )
+    Global = DXGGLOBAL::GetGlobal(v7, v6);
+    v17 = DXGGLOBAL::ReferenceBddFallbackAdapter(Global, &v20);
+    if ( !v17 )
     {
       *(_DWORD *)a1 = 3;
       return 3221226021LL;
     }
-    v10 = 1;
-    v9 = DXGGLOBAL::GetGlobal();
+    v19 = 1;
+    v18 = DXGGLOBAL::GetGlobal(v16, v15);
     DXGGLOBAL::IterateAdaptersWithCallback(
-      (__int64)v9,
+      (__int64)v18,
       (__int64 (__fastcall *)(_QWORD *, __int64))DxgkpEscapeStopAdapters,
-      (__int64)&v10,
+      (__int64)&v19,
       4);
-    DXGADAPTER::ReleaseReference(v8);
-    if ( !HIBYTE(v10) )
+    DXGADAPTER::ReleaseReference(v17);
+    if ( !HIBYTE(v19) )
     {
       *(_DWORD *)a1 = 6;
       return 3221225473LL;
@@ -48,23 +56,23 @@ __int64 __fastcall DxgkpStopRenderAndSessionDisplayAdapters(enum _DXGK_DIAG_BDD_
   }
   else
   {
-    v11 = 0LL;
-    v3 = DXGGLOBAL::GetGlobal();
-    v4 = DXGGLOBAL::ReferenceWarpAdapter(v3, &v11);
-    if ( !v4 )
+    v20 = 0LL;
+    v8 = DXGGLOBAL::GetGlobal(v7, v6);
+    v11 = DXGGLOBAL::ReferenceWarpAdapter(v8, &v20);
+    if ( !v11 )
     {
       *(_DWORD *)a1 = 2;
       return 3221226021LL;
     }
-    v10 = 0;
-    v6 = DXGGLOBAL::GetGlobal();
+    v19 = 0;
+    v13 = DXGGLOBAL::GetGlobal(v10, v9);
     DXGGLOBAL::IterateAdaptersWithCallback(
-      (__int64)v6,
+      (__int64)v13,
       (__int64 (__fastcall *)(_QWORD *, __int64))DxgkpEscapeStopAdapters,
-      (__int64)&v10,
+      (__int64)&v19,
       3);
-    DXGADAPTER::ReleaseReference(v4);
-    if ( !HIBYTE(v10) )
+    DXGADAPTER::ReleaseReference(v11);
+    if ( !HIBYTE(v19) )
     {
       *(_DWORD *)a1 = 5;
       return 3221225473LL;

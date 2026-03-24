@@ -1,10 +1,10 @@
 /*
- * XREFs of VidSchiRunningDeviceAllowsLongRunningPackets @ 0x1C003C39C
+ * XREFs of VidSchiRunningDeviceAllowsLongRunningPackets @ 0x1C003168C
  * Callers:
- *     VidSchiCheckNodeTimeout @ 0x1C00AE620 (VidSchiCheckNodeTimeout.c)
+ *     VidSchiCheckNodeTimeout @ 0x1C007F1B0 (VidSchiCheckNodeTimeout.c)
  * Callees:
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C00032E4 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00033A8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011E50 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00128EC (-Release@AcquireSpinLock@@QEAAXXZ.c)
  */
 
 char __fastcall VidSchiRunningDeviceAllowsLongRunningPackets(__int64 a1)
@@ -24,33 +24,32 @@ char __fastcall VidSchiRunningDeviceAllowsLongRunningPackets(__int64 a1)
   v3 = *(_QWORD *)(a1 + 24);
   if ( (*(_DWORD *)(a1 + 12) & 2) != 0 )
   {
-    v11[0] = v3 + 1728;
+    v11[0] = v3 + 1712;
     v12 = 0;
     AcquireSpinLock::Acquire((Acquire *)v11);
-    for ( i = *(_QWORD **)(a1 + 1696); i != (_QWORD *)(a1 + 1696); i = (_QWORD *)*i )
+    for ( i = *(_QWORD **)(a1 + 1688); i != (_QWORD *)(a1 + 1688); i = (_QWORD *)*i )
     {
       if ( *(i - 5) != *(i - 6) )
         goto LABEL_8;
     }
-    if ( !*(_DWORD *)(a1 + 1716) )
+    if ( !*(_DWORD *)(a1 + 1708) )
       v2 = 1;
 LABEL_8:
     AcquireSpinLock::Release((AcquireSpinLock *)v11);
     return v2;
   }
-  else if ( *(_DWORD *)(a1 + 2896) )
+  else if ( *(_DWORD *)(a1 + 2888) )
   {
     return 0;
   }
   else
   {
-    memset(&LockHandle, 0, sizeof(LockHandle));
     v6 = 1;
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v3 + 1728), &LockHandle);
-    v7 = *(unsigned int *)(a1 + 1560);
-    if ( (_DWORD)v7 != *(_DWORD *)(a1 + 1552) )
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v3 + 1712), &LockHandle);
+    v7 = *(unsigned int *)(a1 + 1552);
+    if ( (_DWORD)v7 != *(_DWORD *)(a1 + 1544) )
     {
-      v8 = *(_QWORD *)(a1 + 8 * v7 + 1568);
+      v8 = *(_QWORD *)(a1 + 8 * v7 + 1560);
       if ( v8 )
       {
         v9 = *(_QWORD *)(v8 + 104);

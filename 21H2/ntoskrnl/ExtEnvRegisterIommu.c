@@ -1,16 +1,16 @@
 /*
- * XREFs of ExtEnvRegisterIommu @ 0x140B4BF38
+ * XREFs of ExtEnvRegisterIommu @ 0x140A8C9F0
  * Callers:
- *     HalpIommuProcessIvhdEntry @ 0x1405307FC (HalpIommuProcessIvhdEntry.c)
- *     HalpIvtProcessDrhdEntry @ 0x1405370FC (HalpIvtProcessDrhdEntry.c)
+ *     HalpIommuProcessIvhdEntry @ 0x1404E1AE0 (HalpIommuProcessIvhdEntry.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1404E740C (HalpIvtProcessDrhdEntry.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     HalpExtBuildResourceIdString @ 0x1403BE424 (HalpExtBuildResourceIdString.c)
- *     HalpMmAllocateMemoryInternal @ 0x1403BF104 (HalpMmAllocateMemoryInternal.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     HalpExtBuildResourceIdString @ 0x1403ABF68 (HalpExtBuildResourceIdString.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall ExtEnvRegisterIommu(__int64 a1, __int64 a2, _QWORD *a3)
@@ -27,13 +27,11 @@ __int64 __fastcall ExtEnvRegisterIommu(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v14; // rsi
   unsigned __int64 v15; // rcx
   __int64 v16; // rax
-  _OWORD *v17; // rax
-  __int128 v18; // xmm1
-  _OWORD *v19; // rax
-  unsigned int v20; // eax
-  const void *v21; // rdx
-  int v22; // eax
-  __int64 *v23; // rax
+  __int64 v17; // rax
+  unsigned int v18; // eax
+  const void *v19; // rdx
+  int v20; // eax
+  __int64 *v21; // rax
   size_t SizeInWords; // [rsp+38h] [rbp-110h]
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-F8h] BYREF
   WCHAR SourceString[80]; // [rsp+60h] [rbp-E8h] BYREF
@@ -41,7 +39,7 @@ __int64 __fastcall ExtEnvRegisterIommu(__int64 a1, __int64 a2, _QWORD *a3)
   DestinationString = 0LL;
   if ( *(_DWORD *)a1 == 1
     && *(_DWORD *)(a1 + 4) == 104
-    && (v5 = *(_DWORD *)(a1 + 20), (v5 & 0xFFFF0000) == 0)
+    && (v5 = *(_DWORD *)(a1 + 20), (v5 & 0xFFFF8000) == 0)
     && (v6 = 0, *(_DWORD *)(a1 + 72))
     && (v7 = *(_QWORD **)(a1 + 56), v7[1])
     && ((v5 & 2) == 0 || *(_QWORD *)(*(_QWORD *)(a1 + 64) + 72LL))
@@ -73,9 +71,9 @@ __int64 __fastcall ExtEnvRegisterIommu(__int64 a1, __int64 a2, _QWORD *a3)
       SizeInWords,
       SourceString);
     RtlInitUnicodeString(&DestinationString, SourceString);
-    v10 = 552;
+    v10 = 536;
     if ( !v9 )
-      v10 = (*(_DWORD *)(a1 + 16) + 559) & 0xFFFFFFF8;
+      v10 = (*(_DWORD *)(a1 + 16) + 543) & 0xFFFFFFF8;
     Length = DestinationString.Length;
     v12 = (v10 + DestinationString.Length + 9) & 0xFFFFFFF8;
     MemoryInternal = (void *)HalpMmAllocateMemoryInternal(v12, 1u);
@@ -83,7 +81,7 @@ __int64 __fastcall ExtEnvRegisterIommu(__int64 a1, __int64 a2, _QWORD *a3)
     if ( MemoryInternal )
     {
       memset(MemoryInternal, 0, v12);
-      v15 = (v14 + 559) & 0xFFFFFFFFFFFFFFF8uLL;
+      v15 = (v14 + 543) & 0xFFFFFFFFFFFFFFF8uLL;
       if ( v9 )
       {
         *(_QWORD *)(v14 + 16) = *(_QWORD *)(a1 + 8);
@@ -93,7 +91,7 @@ __int64 __fastcall ExtEnvRegisterIommu(__int64 a1, __int64 a2, _QWORD *a3)
         *(_QWORD *)(v14 + 16) = v15;
         v15 = (*(unsigned int *)(a1 + 16) + 7LL + v15) & 0xFFFFFFFFFFFFFFF8uLL;
       }
-      *(_QWORD *)(v14 + 536) = v15;
+      *(_QWORD *)(v14 + 520) = v15;
       *(_BYTE *)(v14 + 40) = 12;
       v16 = *(_QWORD *)(a1 + 56);
       *(_OWORD *)(v14 + 56) = *(_OWORD *)v16;
@@ -105,64 +103,61 @@ __int64 __fastcall ExtEnvRegisterIommu(__int64 a1, __int64 a2, _QWORD *a3)
       *(_OWORD *)(v14 + 152) = *(_OWORD *)(v16 + 96);
       *(_OWORD *)(v14 + 168) = *(_OWORD *)(v16 + 112);
       *(_QWORD *)(v14 + 184) = *(_QWORD *)(v16 + 128);
-      v17 = *(_OWORD **)(a1 + 64);
+      v17 = *(_QWORD *)(a1 + 64);
       if ( v17 )
       {
-        *(_OWORD *)(v14 + 192) = *v17;
-        *(_OWORD *)(v14 + 208) = v17[1];
-        *(_OWORD *)(v14 + 224) = v17[2];
-        *(_OWORD *)(v14 + 240) = v17[3];
-        *(_OWORD *)(v14 + 256) = v17[4];
-        *(_OWORD *)(v14 + 272) = v17[5];
-        *(_OWORD *)(v14 + 288) = v17[6];
-        v18 = v17[7];
-        v19 = v17 + 8;
-        *(_OWORD *)(v14 + 304) = v18;
-        *(_OWORD *)(v14 + 320) = *v19;
-        *(_OWORD *)(v14 + 336) = v19[1];
-        *(_OWORD *)(v14 + 352) = v19[2];
-        *(_QWORD *)(v14 + 368) = *((_QWORD *)v19 + 6);
+        *(_OWORD *)(v14 + 192) = *(_OWORD *)v17;
+        *(_OWORD *)(v14 + 208) = *(_OWORD *)(v17 + 16);
+        *(_OWORD *)(v14 + 224) = *(_OWORD *)(v17 + 32);
+        *(_OWORD *)(v14 + 240) = *(_OWORD *)(v17 + 48);
+        *(_OWORD *)(v14 + 256) = *(_OWORD *)(v17 + 64);
+        *(_OWORD *)(v14 + 272) = *(_OWORD *)(v17 + 80);
+        *(_OWORD *)(v14 + 288) = *(_OWORD *)(v17 + 96);
+        *(_OWORD *)(v14 + 304) = *(_OWORD *)(v17 + 112);
+        *(_OWORD *)(v14 + 320) = *(_OWORD *)(v17 + 128);
+        *(_OWORD *)(v14 + 336) = *(_OWORD *)(v17 + 144);
+        *(_QWORD *)(v14 + 352) = *(_QWORD *)(v17 + 160);
       }
       *(_DWORD *)(v14 + 24) = *(_DWORD *)(a1 + 16);
-      *(_DWORD *)(v14 + 472) = *(_DWORD *)(a1 + 20);
+      *(_DWORD *)(v14 + 456) = *(_DWORD *)(a1 + 20);
       *(_DWORD *)(v14 + 44) = *(_DWORD *)(a1 + 40);
       *(_DWORD *)(v14 + 52) = *(_DWORD *)(a1 + 48);
       *(_DWORD *)(v14 + 48) = *(_DWORD *)(a1 + 44);
-      *(_DWORD *)(v14 + 476) = *(_DWORD *)(a1 + 72);
-      *(_DWORD *)(v14 + 480) = *(_DWORD *)(a1 + 76);
-      *(_DWORD *)(v14 + 484) = *(_DWORD *)(a1 + 80);
-      *(_DWORD *)(v14 + 488) = *(_DWORD *)(a1 + 84);
-      *(_DWORD *)(v14 + 512) = *(_DWORD *)(a1 + 88);
-      *(_DWORD *)(v14 + 440) = *(_DWORD *)(a1 + 92);
-      *(_DWORD *)(v14 + 516) = *(_DWORD *)(a1 + 96);
-      *(_QWORD *)(v14 + 392) = v14 + 384;
-      *(_QWORD *)(v14 + 384) = v14 + 384;
-      *(_DWORD *)(v14 + 420) = *(_DWORD *)(v14 + 516);
-      *(_QWORD *)(v14 + 424) = *(_QWORD *)(v14 + 256);
-      *(_QWORD *)(v14 + 432) = *(_QWORD *)(v14 + 248);
-      *(_QWORD *)(v14 + 408) = 0LL;
-      *(_QWORD *)(v14 + 400) = 0LL;
-      *(_DWORD *)(v14 + 416) = 0;
-      v20 = *(_DWORD *)(a1 + 16);
-      if ( v20 )
+      *(_DWORD *)(v14 + 460) = *(_DWORD *)(a1 + 72);
+      *(_DWORD *)(v14 + 464) = *(_DWORD *)(a1 + 76);
+      *(_DWORD *)(v14 + 468) = *(_DWORD *)(a1 + 80);
+      *(_DWORD *)(v14 + 472) = *(_DWORD *)(a1 + 84);
+      *(_DWORD *)(v14 + 496) = *(_DWORD *)(a1 + 88);
+      *(_DWORD *)(v14 + 424) = *(_DWORD *)(a1 + 92);
+      *(_DWORD *)(v14 + 500) = *(_DWORD *)(a1 + 96);
+      *(_QWORD *)(v14 + 376) = v14 + 368;
+      *(_QWORD *)(v14 + 368) = v14 + 368;
+      *(_DWORD *)(v14 + 404) = *(_DWORD *)(v14 + 500);
+      *(_QWORD *)(v14 + 408) = *(_QWORD *)(v14 + 256);
+      *(_QWORD *)(v14 + 416) = *(_QWORD *)(v14 + 248);
+      *(_QWORD *)(v14 + 392) = 0LL;
+      *(_QWORD *)(v14 + 384) = 0LL;
+      *(_DWORD *)(v14 + 400) = 0;
+      v18 = *(_DWORD *)(a1 + 16);
+      if ( v18 )
       {
-        v21 = *(const void **)(a1 + 8);
-        if ( v21 )
-          memmove(*(void **)(v14 + 16), v21, v20);
+        v19 = *(const void **)(a1 + 8);
+        if ( v19 )
+          memmove(*(void **)(v14 + 16), v19, v18);
       }
-      v22 = *(_DWORD *)(a1 + 100);
-      *(_WORD *)(v14 + 528) = 0;
-      *(_WORD *)(v14 + 530) = Length + 2;
-      *(_DWORD *)(v14 + 520) = v22;
-      RtlCopyUnicodeString((PUNICODE_STRING)(v14 + 528), &DestinationString);
-      v23 = (__int64 *)qword_140C4BCE8;
-      if ( *(__int64 **)qword_140C4BCE8 != &HalpIommuList )
+      v20 = *(_DWORD *)(a1 + 100);
+      *(_WORD *)(v14 + 512) = 0;
+      *(_WORD *)(v14 + 514) = Length + 2;
+      *(_DWORD *)(v14 + 504) = v20;
+      RtlCopyUnicodeString((PUNICODE_STRING)(v14 + 512), &DestinationString);
+      v21 = (__int64 *)qword_140C49DB8;
+      if ( *(__int64 **)qword_140C49DB8 != &HalpIommuList )
         __fastfail(3u);
       ++HalpIommuCount;
       *(_QWORD *)v14 = &HalpIommuList;
-      *(_QWORD *)(v14 + 8) = v23;
-      *v23 = v14;
-      qword_140C4BCE8 = v14;
+      *(_QWORD *)(v14 + 8) = v21;
+      *v21 = v14;
+      qword_140C49DB8 = v14;
       if ( a3 )
         *a3 = *(_QWORD *)(v14 + 16);
     }

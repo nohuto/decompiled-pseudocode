@@ -1,7 +1,7 @@
 /*
- * XREFs of ?FindOrAssignPrimary@CPTPEngine@@AEAAPEAUCContactState@@PEAUPTPInput@@@Z @ 0x1C0201630
+ * XREFs of ?FindOrAssignPrimary@CPTPEngine@@AEAAPEAUCContactState@@PEAUPTPInput@@@Z @ 0x1C01C5F9C
  * Callers:
- *     ?DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z @ 0x1C01FF354 (-DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z.c)
+ *     ?DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z @ 0x1C01C3D94 (-DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z.c)
  * Callees:
  *     <none>
  */
@@ -26,13 +26,13 @@ struct CContactState *__fastcall CPTPEngine::FindOrAssignPrimary(CPTPEngine *thi
     v7 = (_DWORD *)((char *)a2 + 68);
     do
     {
-      v8 = *((_DWORD *)this + 100 * (*(v7 - 2) % v6) + 302);
+      v8 = *((_DWORD *)this + 98 * (*(v7 - 2) % v6) + 290);
       if ( (v8 & 1) != 0 && (v8 & 0x400) == 0 )
       {
         if ( (*v7 & 0x2000) != 0 )
-          return (CPTPEngine *)((char *)this + 400 * (*(v7 - 2) % v6) + 1208);
+          return (CPTPEngine *)((char *)this + 392 * (*(v7 - 2) % v6) + 1160);
         if ( !v4 )
-          v4 = (_DWORD *)((char *)this + 400 * (*(v7 - 2) % v6) + 1208);
+          v4 = (_DWORD *)((char *)this + 392 * (*(v7 - 2) % v6) + 1160);
       }
       ++v5;
       v7 += 24;
@@ -40,7 +40,7 @@ struct CContactState *__fastcall CPTPEngine::FindOrAssignPrimary(CPTPEngine *thi
     while ( v5 < v2 );
     if ( v4 )
     {
-      *v4 |= 0x80000000;
+      *v4 |= 0x20000000u;
       return (struct CContactState *)v4;
     }
   }

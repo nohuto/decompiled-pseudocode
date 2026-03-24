@@ -1,17 +1,15 @@
 /*
- * XREFs of HvpRemoveFreeCellHint @ 0x14079C290
+ * XREFs of HvpRemoveFreeCellHint @ 0x140708130
  * Callers:
- *     HvFreeCell @ 0x14079BD98 (HvFreeCell.c)
- *     HvpDelistFreeCell @ 0x14079C014 (HvpDelistFreeCell.c)
- *     HvpDoAllocateCell @ 0x14079C920 (HvpDoAllocateCell.c)
+ *     HvpDoAllocateCell @ 0x140708E68 (HvpDoAllocateCell.c)
+ *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
+ *     HvpDelistFreeCell @ 0x1407097A4 (HvpDelistFreeCell.c)
  * Callees:
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
- *     RtlFindSetBits @ 0x1402E4EE0 (RtlFindSetBits.c)
- *     RtlClearBits @ 0x140347580 (RtlClearBits.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     HvpGetCellMap @ 0x140AB44C0 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140AB451C (HvpMapEntryGetBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140AB4534 (HvpGetBinContextInitialize.c)
+ *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
+ *     RtlFindSetBits @ 0x140357850 (RtlFindSetBits.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
  */
 
 void __fastcall HvpRemoveFreeCellHint(
@@ -21,103 +19,98 @@ void __fastcall HvpRemoveFreeCellHint(
         int a4,
         int a5)
 {
-  __int64 v6; // rdi
-  ULONG_PTR v7; // rbx
-  char v8; // r12
-  __int64 v9; // rdx
+  __int64 v5; // rdi
+  char v7; // r13
+  ULONG_PTR v8; // rbx
   __int64 CellMap; // rax
-  __int64 v11; // rcx
-  __int64 v12; // r10
-  __int64 BinAddress; // r15
-  unsigned int v14; // r14d
-  unsigned int *v15; // rdx
-  __int64 v16; // r11
-  int v17; // r8d
-  unsigned int v18; // eax
-  ULONG v19; // r14d
+  __int64 v10; // r11
+  unsigned __int64 v11; // r10
+  unsigned int v12; // ebp
+  unsigned int *v13; // rdx
+  __int64 v14; // r15
+  int v15; // r8d
+  unsigned int v16; // eax
+  __int64 v17; // rsi
+  ULONG v18; // ebp
+  __int64 v19; // r14
   int v20; // ebx
-  ULONG_PTR v21; // rbp
-  ULONG_PTR v22; // rdi
-  RTL_BITMAP *v23; // rcx
+  RTL_BITMAP *v21; // rdi
   ULONG SetBits; // eax
-  int v25; // ecx
-  unsigned int v26; // ecx
-  unsigned int v27; // ecx
-  _WORD v28[20]; // [rsp+30h] [rbp-28h] BYREF
+  int v23; // ecx
+  unsigned int v24; // ecx
+  unsigned int v25; // ecx
 
-  v6 = a4;
-  v28[0] = 0;
-  v7 = (unsigned int)BugCheckParameter3;
-  v8 = 0;
-  HvpGetBinContextInitialize(v28);
-  CellMap = HvpGetCellMap(BugCheckParameter2, v9);
+  v5 = a4;
+  v7 = 0;
+  v8 = (unsigned int)BugCheckParameter3;
+  CellMap = HvpGetCellMap(BugCheckParameter2, BugCheckParameter3);
   if ( !CellMap )
-    KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v7, 0x310uLL);
-  BinAddress = HvpMapEntryGetBinAddress(v11, CellMap, v28);
-  v14 = *(_DWORD *)(BinAddress + 4);
-  v15 = (unsigned int *)(BinAddress + 32);
-  v16 = *(unsigned int *)(BinAddress + 8);
-  v17 = ((_DWORD)v6 << 31) | (v14 + 32);
-  if ( BinAddress + 32 < (unsigned __int64)(BinAddress + v16) )
+    KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v8, 0x310uLL);
+  v11 = *(_QWORD *)(CellMap + 8) & 0xFFFFFFFFFFFFFFF0uLL;
+  v12 = *(_DWORD *)(v11 + 4);
+  v13 = (unsigned int *)(v11 + 32);
+  v14 = *(unsigned int *)(v11 + 8);
+  v15 = ((_DWORD)v5 << 31) | (v12 + 32);
+  if ( v11 + 32 < v11 + v14 )
   {
     do
     {
-      v18 = *v15;
-      if ( (*v15 & 0x80000000) == 0 )
+      v16 = *v13;
+      if ( (*v13 & 0x80000000) == 0 )
       {
-        v26 = (v18 >> 3) - 1;
-        if ( v26 >= 0x10 )
+        v24 = (v16 >> 3) - 1;
+        if ( v24 >= 0x10 )
         {
-          v27 = v26 >> 4;
-          if ( v27 > 0xFF )
+          v25 = v24 >> 4;
+          if ( v25 > 0xFF )
           {
-            v26 = 23;
+            v24 = 23;
           }
           else
           {
-            _BitScanReverse(&v27, v27);
-            v26 = v27 + 16;
+            _BitScanReverse(&v25, v25);
+            v24 = v25 + 16;
           }
         }
-        if ( (_DWORD)v12 == v26 && v17 != (_DWORD)v7 && v17 != a5 )
+        if ( (_DWORD)v10 == v24 && v15 != (_DWORD)v8 && v15 != a5 )
         {
-          v8 = 1;
+          v7 = 1;
           break;
         }
       }
       else
       {
-        v18 = -v18;
+        v16 = -v16;
       }
-      v17 += v18;
-      v15 = (unsigned int *)((char *)v15 + v18);
+      v15 += v16;
+      v13 = (unsigned int *)((char *)v13 + v16);
     }
-    while ( (unsigned __int64)v15 < BinAddress + v16 );
+    while ( (unsigned __int64)v13 < v11 + v14 );
   }
-  v19 = v14 >> 12;
-  v20 = 1 << v12;
-  v21 = BugCheckParameter2 + 632 * v6 + 24 * v12;
-  v22 = 632 * v6 + BugCheckParameter2;
-  v23 = (RTL_BITMAP *)(v21 + 320);
-  if ( v8 )
+  v17 = 632 * v5;
+  v18 = v12 >> 12;
+  v19 = 24 * v10;
+  v20 = 1 << v10;
+  v21 = (RTL_BITMAP *)(24 * v10 + 632 * v5 + BugCheckParameter2 + 312);
+  if ( v7 )
   {
-    *(_DWORD *)(v22 + 904) |= v20;
-    *(_DWORD *)(v21 + 316) = v19;
-    RtlSetBits(v23, v19, *(_DWORD *)(BinAddress + 8) >> 12);
+    *(_DWORD *)(v17 + BugCheckParameter2 + 896) |= v20;
+    *(_DWORD *)(v19 + v17 + BugCheckParameter2 + 308) = v18;
+    RtlSetBits(v21, v18, *(_DWORD *)(v11 + 8) >> 12);
   }
   else
   {
-    RtlClearBits(v23, v19, (unsigned int)v16 >> 12);
-    SetBits = RtlFindSetBits((PRTL_BITMAP)(v21 + 320), 1u, v19);
-    v25 = *(_DWORD *)(v22 + 904);
+    RtlClearBits(v21, v18, (unsigned int)v14 >> 12);
+    SetBits = RtlFindSetBits(v21, 1u, v18);
+    v23 = *(_DWORD *)(v17 + BugCheckParameter2 + 896);
     if ( SetBits == -1 )
     {
-      *(_DWORD *)(v22 + 904) = v25 & ~v20;
+      *(_DWORD *)(v17 + BugCheckParameter2 + 896) = v23 & ~v20;
     }
     else
     {
-      *(_DWORD *)(v22 + 904) = v20 | v25;
-      *(_DWORD *)(v21 + 316) = SetBits;
+      *(_DWORD *)(v17 + BugCheckParameter2 + 896) = v20 | v23;
+      *(_DWORD *)(v19 + v17 + BugCheckParameter2 + 308) = SetBits;
     }
   }
 }

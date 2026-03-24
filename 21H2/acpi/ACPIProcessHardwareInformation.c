@@ -1,12 +1,13 @@
 /*
- * XREFs of ACPIProcessHardwareInformation @ 0x1C0096E88
+ * XREFs of ACPIProcessHardwareInformation @ 0x1C009F214
  * Callers:
- *     ACPILoadProcessFADT @ 0x1C00BEF88 (ACPILoadProcessFADT.c)
+ *     ACPILoadProcessFADT @ 0x1C00BECCC (ACPILoadProcessFADT.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     ACPIAssert @ 0x1C00228CC (ACPIAssert.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     ACPIAssert @ 0x1C0024258 (ACPIAssert.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 ACPIProcessHardwareInformation()
@@ -21,10 +22,11 @@ __int64 ACPIProcessHardwareInformation()
   bool v7; // zf
   unsigned __int16 v8; // dx
   unsigned int v9; // ebp
-  char *Pool2; // rax
-  __int64 v11; // r8
-  unsigned __int16 v12; // r9
+  char *PoolWithTag; // rax
+  char *v11; // rsi
+  __int64 v12; // r8
   unsigned __int16 v13; // r9
+  unsigned __int16 v14; // r9
 
   v0 = *((_QWORD *)AcpiInformation + 1);
   *((_QWORD *)AcpiInformation + 13) = *(unsigned int *)(v0 + 48);
@@ -60,7 +62,7 @@ LABEL_12:
         {
           if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             goto LABEL_16;
-          v13 = 35;
+          v14 = 35;
         }
         else
         {
@@ -72,41 +74,43 @@ LABEL_16:
               *((_WORD *)AcpiInformation + 56) |= 0x4000u;
             return v3;
           }
-          v13 = 34;
+          v14 = 34;
         }
         WPP_RECORDER_SF_(
           (__int64)WPP_GLOBAL_Control->DeviceExtension,
           4u,
           6u,
-          v13,
-          (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids);
+          v14,
+          (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids);
         goto LABEL_16;
       }
-      v12 = 33;
+      v13 = 33;
     }
     else
     {
       *((_WORD *)AcpiInformation + 56) |= 0x100u;
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         goto LABEL_12;
-      v12 = 32;
+      v13 = 32;
     }
     WPP_RECORDER_SF_(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       6u,
-      v12,
-      (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids);
+      v13,
+      (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids);
     goto LABEL_12;
   }
   v9 = 21 * v8;
-  Pool2 = (char *)ExAllocatePool2(64LL, v9, 1735418689LL);
-  GpeTable = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v9, 0x67706341u);
+  GpeTable = PoolWithTag;
+  v11 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    GpeHandlerRegistered = Pool2;
     LODWORD(GpeTableSize) = v9;
-    GpeEnable = &Pool2[*((unsigned __int16 *)AcpiInformation + 51)];
+    memset(PoolWithTag, 0, v9);
+    GpeHandlerRegistered = v11;
+    GpeEnable = &v11[*((unsigned __int16 *)AcpiInformation + 51)];
     GpeCurEnable = (char *)GpeEnable + *((unsigned __int16 *)AcpiInformation + 51);
     GpeIsLevel = (char *)GpeCurEnable + *((unsigned __int16 *)AcpiInformation + 51);
     GpeHandlerType = (char *)GpeIsLevel + *((unsigned __int16 *)AcpiInformation + 51);
@@ -116,19 +120,19 @@ LABEL_16:
     GpePending = (char *)GpeSpecialHandler + *((unsigned __int16 *)AcpiInformation + 51);
     GpeRunMethod = (char *)GpePending + *((unsigned __int16 *)AcpiInformation + 51);
     GpeComplete = (char *)GpeRunMethod + *((unsigned __int16 *)AcpiInformation + 51);
-    v11 = *((unsigned __int16 *)AcpiInformation + 51);
-    GpeSavedWakeMask = (char *)GpeComplete + v11;
-    GpeSavedWakeStatus = (char *)GpeComplete + v11 + v11;
-    GpeMap = (__int64)GpeComplete + v11 + v11 + v11;
+    v12 = *((unsigned __int16 *)AcpiInformation + 51);
+    GpeSavedWakeMask = (char *)GpeComplete + v12;
+    GpeSavedWakeStatus = (char *)GpeComplete + v12 + v12;
+    GpeMap = (__int64)GpeComplete + v12 + v12 + v12;
     goto LABEL_8;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_D(
+    WPP_RECORDER_SF_L(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       2u,
       6u,
       0x1Fu,
-      (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids,
+      (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids,
       v9);
   return (unsigned int)-1073741670;
 }

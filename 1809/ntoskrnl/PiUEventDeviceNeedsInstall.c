@@ -1,5 +1,5 @@
 /*
- * XREFs of PiUEventDeviceNeedsInstall @ 0x1406FEC7C
+ * XREFs of PiUEventDeviceNeedsInstall @ 0x1406FEC5C
  * Callers:
  *     PiUEventNotifyUserMode @ 0x14058EF60 (PiUEventNotifyUserMode.c)
  * Callees:

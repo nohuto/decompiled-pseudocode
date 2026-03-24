@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsRatioWithinThresholdF@CBrushDrawListGenerator@@CA_NMM@Z @ 0x1801FD4F8
+ * XREFs of ?IsRatioWithinThresholdF@CBrushDrawListGenerator@@CA_NMM@Z @ 0x18019E724
  * Callers:
- *     ?CanUseWarpFastPath@CBrushDrawListGenerator@@AEBA_NAEBUGenerateDrawListParameters@1@@Z @ 0x1801FC588 (-CanUseWarpFastPath@CBrushDrawListGenerator@@AEBA_NAEBUGenerateDrawListParameters@1@@Z.c)
+ *     ?TurnOffInvalidWarpFastPath@CBrushDrawListGenerator@@AEAAXPEAUGenerateDrawListParameters@1@@Z @ 0x180056240 (-TurnOffInvalidWarpFastPath@CBrushDrawListGenerator@@AEAAXPEAUGenerateDrawListParameters@1@@Z.c)
  * Callees:
  *     <none>
  */

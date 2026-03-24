@@ -3,12 +3,12 @@
  * Callers:
  *     FsRtlpOplockCleanup @ 0x14001794C (FsRtlpOplockCleanup.c)
  *     FsRtlpRequestShareableOplock @ 0x140017E60 (FsRtlpRequestShareableOplock.c)
- *     FsRtlCheckOplockEx @ 0x1400B7C60 (FsRtlCheckOplockEx.c)
- *     FsRtlUninitializeOplock @ 0x14011B480 (FsRtlUninitializeOplock.c)
- *     FsRtlpOplockEnqueueRH @ 0x140136B34 (FsRtlpOplockEnqueueRH.c)
- *     FsRtlpRequestExclusiveOplock @ 0x14015E0EC (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x140168D80 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3914 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlCheckOplockEx @ 0x1400B7C80 (FsRtlCheckOplockEx.c)
+ *     FsRtlUninitializeOplock @ 0x14011B4A0 (FsRtlUninitializeOplock.c)
+ *     FsRtlpOplockEnqueueRH @ 0x140136B54 (FsRtlpOplockEnqueueRH.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x14015E10C (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x140168DA0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3934 (FsRtlpRemoveAndCompleteRHIrp.c)
  *     FsRtlpOplockFsctrlInternal @ 0x1405DC640 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
  *     IoGetOplockFullFoExt @ 0x140017D90 (IoGetOplockFullFoExt.c)

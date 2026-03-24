@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetD2DBitmapTarget@CRenderTargetBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z @ 0x1802A2D20
+ * XREFs of ?GetD2DBitmapTarget@CRenderTargetBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z @ 0x1800CF050
  * Callers:
- *     ?GetD2DBitmapTarget@CStereoRenderTargetBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z @ 0x1802A7910 (-GetD2DBitmapTarget@CStereoRenderTargetBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z.c)
+ *     ?CopyBitmapRegion@CDecodeBitmap@@QEAAJAEBVCRegion@@PEAUID2D1Bitmap1@@@Z @ 0x1800F2BA4 (-CopyBitmapRegion@CDecodeBitmap@@QEAAJAEBVCRegion@@PEAUID2D1Bitmap1@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180040968 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D92A8 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800563A4 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@VIGDIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800CBA10 (-reset@-$com_ptr_t@VIGDIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRenderTargetBitmap::GetD2DBitmapTarget(
@@ -27,7 +27,7 @@ __int64 __fastcall CRenderTargetBitmap::GetD2DBitmapTarget(
   if ( *((_QWORD *)this + 2) )
   {
     v14 = 0LL;
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(&v14);
+    wil::com_ptr_t<IGDIBitmapRealization,wil::err_returncode_policy>::reset(&v14);
     v6 = (__int64 (__fastcall ***)(_QWORD, GUID *, __int64 *))(*((_QWORD *)this + 2)
                                                              + 8LL
                                                              + *(int *)(*(_QWORD *)(*((_QWORD *)this + 2) + 8LL) + 4LL));
@@ -35,7 +35,7 @@ __int64 __fastcall CRenderTargetBitmap::GetD2DBitmapTarget(
     v10 = v7;
     if ( v7 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x16Cu);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x16Cu, 0LL);
     }
     else
     {
@@ -43,14 +43,14 @@ __int64 __fastcall CRenderTargetBitmap::GetD2DBitmapTarget(
       v11 = (*(__int64 (__fastcall **)(__int64, struct ID2D1Bitmap1 **, __int64))(*(_QWORD *)v14 + 32LL))(v14, a2, v9);
       v10 = v11;
       if ( v11 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0x16Eu);
+        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x16Eu, 0LL);
     }
     wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)&v14);
   }
   else
   {
     v10 = -2003292412;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2003292412, 0x172u);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003292412, 0x172u, 0LL);
   }
   return v10;
 }

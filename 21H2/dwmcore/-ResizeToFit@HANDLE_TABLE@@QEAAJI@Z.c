@@ -1,11 +1,12 @@
 /*
- * XREFs of ?ResizeToFit@HANDLE_TABLE@@QEAAJI@Z @ 0x18003ADD0
+ * XREFs of ?ResizeToFit@HANDLE_TABLE@@QEAAJI@Z @ 0x180046154
  * Callers:
- *     ?GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z @ 0x1800BD3B4 (-GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z.c)
- *     ?AssignEntry@HANDLE_TABLE@@QEAAJIK@Z @ 0x1800BE02C (-AssignEntry@HANDLE_TABLE@@QEAAJIK@Z.c)
+ *     ?GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z @ 0x18005DE74 (-GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z.c)
+ *     ?AssignEntry@HANDLE_TABLE@@QEAAJIK@Z @ 0x18005E800 (-AssignEntry@HANDLE_TABLE@@QEAAJIK@Z.c)
+ *     ?CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_CHANNEL_CREATERESOURCE@@PEAPEAVCResource@@@Z @ 0x1800A1E44 (-CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_C.c)
  * Callees:
- *     ?Resize@HANDLE_TABLE@@AEAAJI@Z @ 0x18003AE24 (-Resize@HANDLE_TABLE@@AEAAJI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Resize@HANDLE_TABLE@@AEAAJI@Z @ 0x1800461A8 (-Resize@HANDLE_TABLE@@AEAAJI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall HANDLE_TABLE::ResizeToFit(HANDLE_TABLE *this, unsigned int a2)

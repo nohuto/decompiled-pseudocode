@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetRootCommand@CSceneVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0219E5C
+ * XREFs of ?EmitSetRootCommand@CSceneVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D99E4
  * Callers:
- *     ?EmitUpdateCommands@CSceneVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021C560 (-EmitUpdateCommands@CSceneVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CSceneVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB6E0 (-EmitUpdateCommands@CSceneVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CSceneVisualMarshaler::EmitSetRootCommand(
@@ -15,7 +15,7 @@ char __fastcall DirectComposition::CSceneVisualMarshaler::EmitSetRootCommand(
   __int64 v5; // rax
   void *v7; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( (*((_DWORD *)this + 96) & 2) == 0 )
+  if ( (*((_DWORD *)this + 94) & 2) == 0 )
     return 1;
   v3 = 0;
   v7 = 0LL;
@@ -25,13 +25,13 @@ char __fastcall DirectComposition::CSceneVisualMarshaler::EmitSetRootCommand(
     *(_DWORD *)v7 = 16;
     *(_QWORD *)(v4 + 4) = 0LL;
     *((_DWORD *)v4 + 3) = 0;
-    *((_DWORD *)v4 + 1) = 666;
-    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-    v5 = *((_QWORD *)this + 47);
+    *((_DWORD *)v4 + 1) = 642;
+    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+    v5 = *((_QWORD *)this + 46);
     if ( v5 )
-      v3 = *(_DWORD *)(v5 + 32);
+      v3 = *(_DWORD *)(v5 + 24);
     *((_DWORD *)v4 + 3) = v3;
-    *((_DWORD *)this + 96) &= ~2u;
+    *((_DWORD *)this + 94) &= ~2u;
     return 1;
   }
   return 0;

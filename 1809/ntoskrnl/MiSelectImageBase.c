@@ -1,17 +1,17 @@
 /*
- * XREFs of MiSelectImageBase @ 0x14064F81C
+ * XREFs of MiSelectImageBase @ 0x14064F7FC
  * Callers:
- *     MiRelocateImageAgain @ 0x14064F5C0 (MiRelocateImageAgain.c)
- *     MiRelocateImage @ 0x14064FEE4 (MiRelocateImage.c)
+ *     MiRelocateImageAgain @ 0x14064F5A0 (MiRelocateImageAgain.c)
+ *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     MiGetImageBitMapInfo @ 0x1400D9510 (MiGetImageBitMapInfo.c)
- *     MiSetControlAreaSystemVa @ 0x14013A17C (MiSetControlAreaSystemVa.c)
- *     MiSelectBitMapForImage @ 0x14064FAB8 (MiSelectBitMapForImage.c)
- *     MiObtainRelocationBits @ 0x14064FAFC (MiObtainRelocationBits.c)
- *     MiSelectRelocationStartHint @ 0x14064FBE4 (MiSelectRelocationStartHint.c)
- *     MiBytesToMapSystemImage @ 0x1406521FC (MiBytesToMapSystemImage.c)
- *     MiSelectSystemImageAddress @ 0x140683888 (MiSelectSystemImageAddress.c)
+ *     MiGetImageBitMapInfo @ 0x1400D9530 (MiGetImageBitMapInfo.c)
+ *     MiSetControlAreaSystemVa @ 0x14013A19C (MiSetControlAreaSystemVa.c)
+ *     MiSelectBitMapForImage @ 0x14064FA98 (MiSelectBitMapForImage.c)
+ *     MiObtainRelocationBits @ 0x14064FADC (MiObtainRelocationBits.c)
+ *     MiSelectRelocationStartHint @ 0x14064FBC4 (MiSelectRelocationStartHint.c)
+ *     MiBytesToMapSystemImage @ 0x1406521DC (MiBytesToMapSystemImage.c)
+ *     MiSelectSystemImageAddress @ 0x140683868 (MiSelectSystemImageAddress.c)
  */
 
 __int64 __fastcall MiSelectImageBase(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, unsigned __int64 *a5)

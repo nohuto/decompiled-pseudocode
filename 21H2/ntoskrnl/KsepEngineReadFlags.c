@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepEngineReadFlags @ 0x140B01140
+ * XREFs of KsepEngineReadFlags @ 0x140A6A47C
  * Callers:
- *     KsepEngineInitialize @ 0x140B01250 (KsepEngineInitialize.c)
+ *     KsepEngineInitialize @ 0x140A6A168 (KsepEngineInitialize.c)
  * Callees:
- *     KsepLogError @ 0x140368C88 (KsepLogError.c)
- *     KsepLogInfo @ 0x1403C09C8 (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x14057D738 (KsepDebugPrint.c)
- *     RtlAssert @ 0x1405E6EA0 (RtlAssert.c)
- *     KsepRegistryOpenKey @ 0x14075CB14 (KsepRegistryOpenKey.c)
- *     KsepRegistryCloseKey @ 0x140826B04 (KsepRegistryCloseKey.c)
- *     KsepRegistryQueryDWORD @ 0x140826B28 (KsepRegistryQueryDWORD.c)
+ *     KsepLogInfo @ 0x1403717A8 (KsepLogInfo.c)
+ *     KsepLogError @ 0x140371F74 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x140588810 (RtlAssert.c)
+ *     KsepRegistryOpenKey @ 0x14075B464 (KsepRegistryOpenKey.c)
+ *     KsepRegistryCloseKey @ 0x1407BE834 (KsepRegistryCloseKey.c)
+ *     KsepRegistryQueryDWORD @ 0x1407BE858 (KsepRegistryQueryDWORD.c)
  */
 
 __int64 __fastcall KsepEngineReadFlags(int *a1)
@@ -36,7 +36,7 @@ __int64 __fastcall KsepEngineReadFlags(int *a1)
   if ( !a1 )
   {
     v8 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    dword_140C2A224[2 * v8] = -1073740768;
+    dword_140C2AAA4[2 * v8] = -1073740768;
     KsepHistoryErrors[2 * v8] = 262244;
     if ( (KsepDebugFlag & 4) != 0 )
       RtlAssert("Engine != NULL", "minkernel\\ntos\\kshim\\kseregistry.c", 0x64u, 0LL);
@@ -70,7 +70,7 @@ __int64 __fastcall KsepEngineReadFlags(int *a1)
     LODWORD(KsepHistoryMessages[v9]) = 262275;
     if ( (KsepDebugFlag & 1) != 0 )
       KsepDebugPrint(0LL, "KSE: Engine has group policy flags: %08x\n", v1);
-    KsepLogInfo(0, "KSE: Engine has group policy flags: %08x\n", v1);
+    KsepLogInfo(0LL, (__int64)"KSE: Engine has group policy flags: %08x\n", v1);
     KsepRegistryCloseKey(KeyHandle);
     KeyHandle = 0LL;
   }
@@ -84,11 +84,11 @@ __int64 __fastcall KsepEngineReadFlags(int *a1)
   if ( v4 < 0 )
   {
     v10 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    dword_140C2A224[2 * v10] = v5;
+    dword_140C2AAA4[2 * v10] = v5;
     KsepHistoryErrors[2 * v10] = 262304;
     if ( (KsepDebugFlag & 2) != 0 )
       KsepDebugPrint(0LL, "KSE: Error reading compatibility key: status: %08x\n", v5);
-    KsepLogError(0LL, (__int64)"KSE: Error reading compatibility key: status: %08x\n", v5);
+    KsepLogError(0, "KSE: Error reading compatibility key: status: %08x\n", v5);
   }
   else
   {
@@ -112,16 +112,16 @@ LABEL_8:
       LODWORD(KsepHistoryMessages[v13]) = 262343;
       if ( (KsepDebugFlag & 1) != 0 )
         KsepDebugPrint(0LL, "KSE: Engine initialized with registry flags: %08x\n", *a1);
-      KsepLogInfo(0, "KSE: Engine initialized with registry flags: %08x\n", *a1);
+      KsepLogInfo(0LL, (__int64)"KSE: Engine initialized with registry flags: %08x\n", *a1);
     }
     else
     {
       v11 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-      dword_140C2A224[2 * v11] = v5;
+      dword_140C2AAA4[2 * v11] = v5;
       KsepHistoryErrors[2 * v11] = 262326;
       if ( (KsepDebugFlag & 2) != 0 )
         KsepDebugPrint(0LL, "KSE: Error reading compatibility value [%ws]: status: %08x\n", L"DisableFlags", v5);
-      KsepLogError(0LL, (__int64)"KSE: Error reading compatibility value [%ws]: status: %08x\n", L"DisableFlags", v5);
+      KsepLogError(0, "KSE: Error reading compatibility value [%ws]: status: %08x\n", L"DisableFlags", v5);
     }
   }
 LABEL_9:
@@ -131,7 +131,7 @@ LABEL_9:
   LODWORD(KsepHistoryMessages[v6]) = 262354;
   if ( (KsepDebugFlag & 1) != 0 )
     KsepDebugPrint(0LL, "KSE: Engine flags (after registry/group policy): %08x\n", *a1);
-  KsepLogInfo(0, "KSE: Engine flags (after registry/group policy): %08x\n", *a1);
+  KsepLogInfo(0LL, (__int64)"KSE: Engine flags (after registry/group policy): %08x\n", *a1);
   KsepRegistryCloseKey(KeyHandle);
   return v5;
 }

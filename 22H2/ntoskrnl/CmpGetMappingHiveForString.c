@@ -1,23 +1,24 @@
 /*
- * XREFs of CmpGetMappingHiveForString @ 0x140A19C18
+ * XREFs of CmpGetMappingHiveForString @ 0x1406EB5F8
  * Callers:
- *     CmpGetCmHiveFromVirtualPath @ 0x140A19BDC (CmpGetCmHiveFromVirtualPath.c)
- *     CmpGetVirtualStoreRoot @ 0x140A19D34 (CmpGetVirtualStoreRoot.c)
+ *     CmpGetCmHiveFromVirtualPath @ 0x1406EB5BC (CmpGetCmHiveFromVirtualPath.c)
+ *     CmpGetVirtualStoreRoot @ 0x14087095C (CmpGetVirtualStoreRoot.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     CmpCompareUnicodeString @ 0x140690A4C (CmpCompareUnicodeString.c)
- *     CmpHashUnicodeComponent @ 0x140708D90 (CmpHashUnicodeComponent.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     CmpHashUnicodeComponent @ 0x1406E3014 (CmpHashUnicodeComponent.c)
+ *     CmpCompareUnicodeString @ 0x1406EB710 (CmpCompareUnicodeString.c)
  */
 
 __int64 __fastcall CmpGetMappingHiveForString(__m128i *a1, _QWORD *a2)
 {
   unsigned int v4; // edi
   int v5; // ebx
-  char *v6; // rcx
-  unsigned int v7; // esi
-  __int64 v8; // r15
-  _WORD *v9; // rcx
+  char *v6; // rsi
+  unsigned int v8; // r15d
+  unsigned int v9; // esi
+  _QWORD *v10; // r12
+  char *v11; // rcx
 
   v4 = 0;
   v5 = CmpHashUnicodeComponent(a1);
@@ -26,37 +27,38 @@ __int64 __fastcall CmpGetMappingHiveForString(__m128i *a1, _QWORD *a2)
     && CmSIDMappingCacheHit < CmpSIDToHiveMappingCount
     && (v6 = (char *)CmpSIDToHiveMapping + 32 * CmSIDMappingCacheHit, *((_DWORD *)v6 + 4) == v5)
     && *(_WORD *)v6 == a1->m128i_i16[0]
-    && !(unsigned int)CmpCompareUnicodeString((__int64)v6, (__int64)a1, 0) )
+    && !(unsigned int)CmpCompareUnicodeString(v6, a1, 0LL) )
   {
-    *a2 = *((_QWORD *)CmpSIDToHiveMapping + 4 * CmSIDMappingCacheHit + 3);
+    *a2 = *((_QWORD *)v6 + 3);
   }
   else
   {
-    v7 = 0;
+    v8 = CmpSIDToHiveMappingCount;
+    v9 = 0;
     if ( CmpSIDToHiveMappingCount )
     {
       while ( 1 )
       {
-        v8 = 32LL * v7;
-        v9 = (char *)CmpSIDToHiveMapping + v8;
-        if ( *(_DWORD *)((char *)CmpSIDToHiveMapping + v8 + 16) == v5
-          && *v9 == a1->m128i_i16[0]
-          && !(unsigned int)CmpCompareUnicodeString((__int64)v9, (__int64)a1, 0) )
+        v10 = CmpSIDToHiveMapping;
+        v11 = (char *)CmpSIDToHiveMapping + 32 * v9;
+        if ( *((_DWORD *)v11 + 4) == v5
+          && *(_WORD *)v11 == a1->m128i_i16[0]
+          && !(unsigned int)CmpCompareUnicodeString(v11, a1, 0LL) )
         {
           break;
         }
-        if ( ++v7 >= CmpSIDToHiveMappingCount )
-          goto LABEL_12;
+        if ( ++v9 >= v8 )
+          goto LABEL_14;
       }
-      CmSIDMappingCacheHit = v7;
-      *a2 = *(_QWORD *)((char *)CmpSIDToHiveMapping + v8 + 24);
+      CmSIDMappingCacheHit = v9;
+      *a2 = v10[4 * v9 + 3];
     }
     else
     {
-LABEL_12:
+LABEL_14:
       v4 = -1073741275;
     }
   }
-  ExReleaseFastMutex(&CmpSIDMappingLock);
+  KeReleaseGuardedMutex(&CmpSIDMappingLock);
   return v4;
 }

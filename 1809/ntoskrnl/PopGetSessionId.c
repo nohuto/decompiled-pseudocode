@@ -1,5 +1,5 @@
 /*
- * XREFs of PopGetSessionId @ 0x1406DBB34
+ * XREFs of PopGetSessionId @ 0x1406DBB14
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:

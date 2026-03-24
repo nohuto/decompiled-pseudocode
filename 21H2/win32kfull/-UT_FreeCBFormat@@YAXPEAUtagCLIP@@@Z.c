@@ -1,23 +1,23 @@
 /*
- * XREFs of ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C014AA2C
+ * XREFs of ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C015CD28
  * Callers:
- *     xxxEmptyClipboard @ 0x1C00C9B80 (xxxEmptyClipboard.c)
- *     ?InternalSetClipboardData@@YAHPEAUtagWINDOWSTATION@@IPEAXHH@Z @ 0x1C01461D0 (-InternalSetClipboardData@@YAHPEAUtagWINDOWSTATION@@IPEAXHH@Z.c)
- *     ?xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C0219D30 (-xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C0219EB8 (-xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021A050 (-xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021A200 (-xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?InternalSetClipboardData@@YAHPEAUtagWINDOWSTATION@@IPEAXHH@Z @ 0x1C002F5A8 (-InternalSetClipboardData@@YAHPEAUtagWINDOWSTATION@@IPEAXHH@Z.c)
+ *     xxxEmptyClipboard @ 0x1C0123C80 (xxxEmptyClipboard.c)
+ *     ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C015CBDC (-xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021F03C (-xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021F1E4 (-xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021F394 (-xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     ?UT_GetFormatType@@YAHPEAUtagCLIP@@@Z @ 0x1C014AAA8 (-UT_GetFormatType@@YAHPEAUtagCLIP@@@Z.c)
- *     GreDeleteServerMetaFile @ 0x1C02B6DA0 (GreDeleteServerMetaFile.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     ?UT_GetFormatType@@YAHPEAUtagCLIP@@@Z @ 0x1C015CDA4 (-UT_GetFormatType@@YAHPEAUtagCLIP@@@Z.c)
+ *     GreDeleteServerMetaFile @ 0x1C02B8C84 (GreDeleteServerMetaFile.c)
  */
 
 void __fastcall UT_FreeCBFormat(struct tagCLIP *a1)
 {
   int FormatType; // eax
   __int64 v2; // rcx
-  __int64 v3; // r8
+  unsigned __int64 v3; // r8
   int v4; // eax
   int v5; // eax
   __int64 v6; // rax
@@ -37,7 +37,7 @@ void __fastcall UT_FreeCBFormat(struct tagCLIP *a1)
     v5 = v4 - 1;
     if ( !v5 )
     {
-      if ( (unsigned __int64)(v3 - 1) <= 1 )
+      if ( v3 - 1 <= 1 )
         return;
 LABEL_7:
       v6 = HMValidateHandleNoSecure(v3, 6);
@@ -45,7 +45,7 @@ LABEL_7:
         HMUnlockDestroyObject(v6);
       return;
     }
-    if ( v5 == 1 && (unsigned __int64)(v3 - 3) > 1 )
+    if ( v5 == 1 && v3 - 3 > 1 )
       GreDeleteServerMetaFile(v3);
   }
   else if ( v3 != 2 )

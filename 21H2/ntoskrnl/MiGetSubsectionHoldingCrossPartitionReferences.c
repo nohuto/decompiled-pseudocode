@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetSubsectionHoldingCrossPartitionReferences @ 0x14022CF78
+ * XREFs of MiGetSubsectionHoldingCrossPartitionReferences @ 0x14025C6E4
  * Callers:
- *     MiUpdateLastSubsectionSize @ 0x14022CE0C (MiUpdateLastSubsectionSize.c)
- *     MiGetSubsectionCrossPartitionReferences @ 0x14022CF58 (MiGetSubsectionCrossPartitionReferences.c)
- *     MiUpdateControlAreaCommitCount @ 0x14026EC38 (MiUpdateControlAreaCommitCount.c)
- *     MiDecrementSubsectionViewCount @ 0x1402869C0 (MiDecrementSubsectionViewCount.c)
- *     MiIncrementSubsectionViewCount @ 0x140286EC0 (MiIncrementSubsectionViewCount.c)
+ *     MiGetSubsectionCrossPartitionReferences @ 0x14025C6C4 (MiGetSubsectionCrossPartitionReferences.c)
+ *     MiUpdateLastSubsectionSize @ 0x1402A1728 (MiUpdateLastSubsectionSize.c)
+ *     MiUpdateControlAreaCommitCount @ 0x1402B7EC0 (MiUpdateControlAreaCommitCount.c)
+ *     MiDecrementSubsectionViewCount @ 0x140315170 (MiDecrementSubsectionViewCount.c)
+ *     MiIncrementSubsectionViewCount @ 0x140315DE0 (MiIncrementSubsectionViewCount.c)
  * Callees:
  *     <none>
  */

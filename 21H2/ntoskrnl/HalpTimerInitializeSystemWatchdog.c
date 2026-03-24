@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerInitializeSystemWatchdog @ 0x14050E930
+ * XREFs of HalpTimerInitializeSystemWatchdog @ 0x1404C24E0
  * Callers:
- *     HalpTimerInitSystem @ 0x1403BB0A0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerGetClockRates @ 0x1403DD4C8 (HalpTimerGetClockRates.c)
- *     HalpInterruptConnect @ 0x140507ED8 (HalpInterruptConnect.c)
- *     HalpTimerWatchdogStart @ 0x14050EA90 (HalpTimerWatchdogStart.c)
+ *     HalpTimerGetClockRates @ 0x1403CE544 (HalpTimerGetClockRates.c)
+ *     HalpInterruptConnect @ 0x1404BB438 (HalpInterruptConnect.c)
+ *     HalpTimerWatchdogStart @ 0x1404C2670 (HalpTimerWatchdogStart.c)
  */
 
 int HalpTimerInitializeSystemWatchdog()
@@ -46,8 +46,8 @@ int HalpTimerInitializeSystemWatchdog()
   v14 = (PKINTERRUPT *)&v18;
   v3 = 0LL;
   v13 = 5;
-  if ( LOWORD(KeActiveProcessors[0]) )
-    v3 = qword_140D06E48[0];
+  if ( KeActiveProcessors[0] )
+    v3 = qword_140CFC848[0];
   v12 = 15;
   v11 = 0LL;
   v10 = 0LL;
@@ -73,15 +73,15 @@ int HalpTimerInitializeSystemWatchdog()
   {
 LABEL_7:
     _InterlockedOr(v7, 0);
-    off_140C01F18[0] = HalpTimerWatchdogStop;
-    off_140C01F08[0] = HalpTimerWatchdogStart;
-    off_140C01F20[0] = HalpTimerWatchdogGeneratedLastReset;
-    off_140C01F28[0] = (__int64 (__fastcall *)())HalpTimerWatchdogTriggerSystemReset;
-    off_140C01FB8[0] = (__int64 (__fastcall *)())HalpTimerWatchdogQueryDueTime;
+    off_140C008C8[0] = HalpTimerWatchdogStop;
+    off_140C008B8[0] = HalpTimerWatchdogStart;
+    off_140C008D0[0] = HalpTimerWatchdogGeneratedLastReset;
+    off_140C008D8[0] = (__int64 (__fastcall *)())HalpTimerWatchdogTriggerSystemReset;
+    off_140C00968[0] = HalpTimerWatchdogQueryDueTime;
     _InterlockedOr(v7, 0);
     HalpTimerWatchdogStart();
     _InterlockedOr(v7, 0);
-    off_140C01F10[0] = HalpTimerWatchdogResetCountdown;
+    off_140C008C0[0] = HalpTimerWatchdogResetCountdown;
     return 0;
   }
   return result;

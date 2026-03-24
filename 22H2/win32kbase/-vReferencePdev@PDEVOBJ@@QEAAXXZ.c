@@ -1,55 +1,46 @@
 /*
- * XREFs of ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C0097060
+ * XREFs of ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C00123D0
  * Callers:
- *     GreCreateDisplayDC @ 0x1C003BFE0 (GreCreateDisplayDC.c)
- *     ?vChangeWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@01@Z @ 0x1C00C32F8 (-vChangeWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@01@Z.c)
- *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C00C6D84 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
- *     bDynamicModeChange @ 0x1C00C75B0 (bDynamicModeChange.c)
- *     ?MulCompletePDEV@@YAXPEAUDHPDEV__@@PEAUHDEV__@@@Z @ 0x1C015E460 (-MulCompletePDEV@@YAXPEAUDHPDEV__@@PEAUHDEV__@@@Z.c)
- *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C015E6A0 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
- *     ?DrvTransferGdiObjects@@YAXPEAUHDEV__@@0K@Z @ 0x1C0161E64 (-DrvTransferGdiObjects@@YAXPEAUHDEV__@@0K@Z.c)
- *     ?vTransferWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@1@Z @ 0x1C016D4D0 (-vTransferWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@1@Z.c)
+ *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C0014AC8 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
+ *     GreCreateDisplayDC @ 0x1C003CAC0 (GreCreateDisplayDC.c)
+ *     ?vChangeWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@01@Z @ 0x1C00B4704 (-vChangeWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@01@Z.c)
+ *     bDynamicModeChange @ 0x1C00BAA30 (bDynamicModeChange.c)
+ *     ?MulCompletePDEV@@YAXPEAUDHPDEV__@@PEAUHDEV__@@@Z @ 0x1C0141710 (-MulCompletePDEV@@YAXPEAUDHPDEV__@@PEAUHDEV__@@@Z.c)
+ *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C0141930 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
+ *     ?DrvTransferGdiObjects@@YAXPEAUHDEV__@@0K@Z @ 0x1C0144AC0 (-DrvTransferGdiObjects@@YAXPEAUHDEV__@@0K@Z.c)
+ *     ?vTransferWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@1@Z @ 0x1C014905C (-vTransferWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@1@Z.c)
  * Callees:
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C016BCC0 (McTemplateK0pz_EtwWriteTransfer.c)
- *     ?ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAUSCircularBuffer@123@_N@Z @ 0x1C016EC94 (-ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAU.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C014CD50 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     ?ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAUSCircularBuffer@123@_N@Z @ 0x1C014DC64 (-ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAU.c)
  */
 
-void __fastcall PDEVOBJ::vReferencePdev(PDEVOBJ *this)
+void __fastcall PDEVOBJ::vReferencePdev(PDEVOBJ *this, __int64 a2, int a3)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  struct _ERESOURCE *v4; // rbx
+  struct _ERESOURCE *v3; // rbx
   __int64 v5; // rax
-  struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer *v6; // rdi
-  NSInstrumentation::CReferenceTracker::CReferenceCountedType *v7; // rcx
-  __int64 v8; // rcx
-  int v9; // r8d
+  struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer *v6; // rdx
+  int v7; // ecx
 
-  v4 = *(struct _ERESOURCE **)(*(_QWORD *)(SGDGetSessionState(this) + 24) + 8LL);
-  if ( v4 )
+  v3 = (struct _ERESOURCE *)ghsemDriverMgmt;
+  if ( ghsemDriverMgmt )
   {
-    PsEnterPriorityRegion(v3, v2);
-    ExEnterCriticalRegionAndAcquireResourceExclusive(v4);
+    PsEnterPriorityRegion();
+    ExEnterCriticalRegionAndAcquireResourceExclusive(v3);
   }
   v5 = *(_QWORD *)this;
   ++*(_DWORD *)(v5 + 8);
-  v6 = *(struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer **)(v5 + 3520);
-  v7 = *(NSInstrumentation::CReferenceTracker::CReferenceCountedType **)(SGDGetSessionState(v3) + 24);
-  if ( v6 )
+  v6 = *(struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer **)(v5 + 3544);
+  v7 = (int)qword_1C024B408;
+  if ( v6 && qword_1C024B408 )
+    NSInstrumentation::CReferenceTracker::CReferenceCountedType::ReferenceDereferenceCommon(qword_1C024B408, v6, 1);
+  if ( v3 )
   {
-    v7 = (NSInstrumentation::CReferenceTracker::CReferenceCountedType *)*((_QWORD *)v7 + 1007);
-    if ( v7 )
-      NSInstrumentation::CReferenceTracker::CReferenceCountedType::ReferenceDereferenceCommon(v7, v6, 1);
-  }
-  if ( v4 )
-  {
-    v8 = *(_QWORD *)(SGDGetSessionState(v7) + 24);
-    if ( *(_DWORD *)(v8 + 180) )
+    if ( gbLockEtw )
     {
       if ( (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
-        McTemplateK0pz_EtwWriteTransfer(v8, (unsigned int)&LockRelease, v9, (_DWORD)v4, (__int64)L"hsem");
+        McTemplateK0pz_EtwWriteTransfer(v7, (unsigned int)&LockRelease, a3, (_DWORD)v3, (__int64)L"hsem");
     }
-    ExReleaseResourceAndLeaveCriticalRegion(v4);
+    ExReleaseResourceAndLeaveCriticalRegion(v3);
     PsLeavePriorityRegion();
   }
 }

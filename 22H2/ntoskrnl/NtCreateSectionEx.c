@@ -1,14 +1,14 @@
 /*
- * XREFs of NtCreateSectionEx @ 0x140A2F840
+ * XREFs of NtCreateSectionEx @ 0x1408C7A40
  * Callers:
  *     <none>
  * Callees:
- *     MiCreateSectionCommon @ 0x140722780 (MiCreateSectionCommon.c)
+ *     MiCreateSectionCommon @ 0x140654AC0 (MiCreateSectionCommon.c)
  */
 
 __int64 __fastcall NtCreateSectionEx(
         unsigned __int64 a1,
-        __int64 a2,
+        ACCESS_MASK a2,
         int a3,
         __int64 *a4,
         int a5,

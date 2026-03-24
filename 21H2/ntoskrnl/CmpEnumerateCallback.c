@@ -1,54 +1,53 @@
 /*
- * XREFs of CmpEnumerateCallback @ 0x1407FC920
+ * XREFs of CmpEnumerateCallback @ 0x14077CDB0
  * Callers:
  *     <none>
  * Callees:
- *     CmCleanupThreadInfo @ 0x14022EA30 (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x140347770 (CmpInitializeThreadInfo.c)
- *     ExfUnblockPushLock @ 0x14041AC40 (ExfUnblockPushLock.c)
- *     CmpUnlockCallbackList @ 0x1406930D4 (CmpUnlockCallbackList.c)
- *     CmpLockCallbackListShared @ 0x140693158 (CmpLockCallbackListShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
  */
 
 __int64 __fastcall CmpEnumerateCallback(__int64 **a1)
 {
-  __int64 *v2; // rdx
-  __int64 v3; // rbx
-  __int64 v4; // rcx
-  __int64 v5; // rdi
-  signed __int32 v7[8]; // [rsp+0h] [rbp-38h] BYREF
-  __int64 v8[3]; // [rsp+20h] [rbp-18h] BYREF
+  struct _KTHREAD *CurrentThread; // rax
+  __int64 *v3; // rcx
+  __int64 v4; // rbx
+  __int64 v5; // rdx
+  __int64 v6; // rdi
+  signed __int32 v8[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  *(_OWORD *)v8 = 0LL;
-  CmpInitializeThreadInfo((__int64)v8);
-  CmpLockCallbackListShared();
-  v2 = &CallbackListHead;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquirePushLockSharedEx((ULONG_PTR)&CmpCallbackListLock, 0LL);
+  v3 = &CallbackListHead;
   if ( *a1 )
-    v2 = *a1;
-  v3 = (unsigned __int64)*a1 & -(__int64)(*a1 != 0LL);
-  v4 = *v2;
-  v5 = 0LL;
-  while ( (__int64 *)v4 != &CallbackListHead )
+    v3 = *a1;
+  v4 = (unsigned __int64)*a1 & -(__int64)(*a1 != 0LL);
+  v5 = *v3;
+  v6 = 0LL;
+  while ( (__int64 *)v5 != &CallbackListHead )
   {
-    if ( *(int *)(v4 + 16) >= 0 )
+    if ( *(int *)(v5 + 16) >= 0 )
     {
-      _InterlockedIncrement((volatile signed __int32 *)(v4 + 16));
-      v5 = *(_QWORD *)(v4 + 40);
-      *a1 = (__int64 *)v4;
+      _InterlockedIncrement((volatile signed __int32 *)(v5 + 16));
+      v6 = *(_QWORD *)(v5 + 40);
+      *a1 = (__int64 *)v5;
       break;
     }
-    v4 = *(_QWORD *)v4;
+    v5 = *(_QWORD *)v5;
   }
-  CmpUnlockCallbackList();
-  if ( v3 )
+  ExReleasePushLockEx((ULONG_PTR)&CmpCallbackListLock, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( v4 )
   {
-    if ( _InterlockedDecrement((volatile signed __int32 *)(v3 + 16)) == 0x80000000 )
+    if ( _InterlockedDecrement((volatile signed __int32 *)(v4 + 16)) == 0x80000000 )
     {
-      _InterlockedOr(v7, 0);
+      _InterlockedOr(v8, 0);
       if ( CallbackListDeleteEvent )
         ExfUnblockPushLock(&CallbackListDeleteEvent, 0LL);
     }
   }
-  CmCleanupThreadInfo(v8);
-  return v5;
+  return v6;
 }

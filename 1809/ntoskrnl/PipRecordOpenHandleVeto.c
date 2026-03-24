@@ -1,13 +1,13 @@
 /*
- * XREFs of PipRecordOpenHandleVeto @ 0x1408406E8
+ * XREFs of PipRecordOpenHandleVeto @ 0x1408406C8
  * Callers:
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140840770 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140840750 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRef @ 0x140002E10 (IoGetDeviceAttachmentBaseRef.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     PnpCollectOpenHandles @ 0x140832EB0 (PnpCollectOpenHandles.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     PnpCollectOpenHandles @ 0x140832E90 (PnpCollectOpenHandles.c)
  */
 
 void __fastcall PipRecordOpenHandleVeto(unsigned int a1, PVOID **a2, struct _DEVICE_OBJECT *a3, __int64 a4, __int64 a5)

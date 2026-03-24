@@ -1,8 +1,8 @@
 /*
- * XREFs of SeUtilSecurityInfoFromSecurityDescriptor @ 0x1C0398110
+ * XREFs of SeUtilSecurityInfoFromSecurityDescriptor @ 0x1C02C578C
  * Callers:
- *     IopDevObjApplyPostCreationSettings @ 0x1C0396FB0 (IopDevObjApplyPostCreationSettings.c)
- *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C0397C84 (PiRegStateReadStackCreationSettingsFromKey.c)
+ *     IopDevObjApplyPostCreationSettings @ 0x1C02C4630 (IopDevObjApplyPostCreationSettings.c)
+ *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C02C5300 (PiRegStateReadStackCreationSettingsFromKey.c)
  * Callees:
  *     <none>
  */

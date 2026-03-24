@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vSrcCopyS4D4@@YAXPEAUBLTINFO@@@Z @ 0x1C02EA5E0
+ * XREFs of ?vSrcCopyS4D4@@YAXPEAUBLTINFO@@@Z @ 0x1C02C96B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,18 +8,18 @@
 
 void __fastcall vSrcCopyS4D4(struct BLTINFO *a1)
 {
-  int v1; // ebp
+  int v1; // r14d
   _BYTE *v2; // r9
-  __int64 v3; // r14
-  unsigned __int8 *v4; // rbx
-  _BYTE *v5; // r10
+  __int64 v3; // rsi
+  unsigned __int8 *v4; // r10
+  _BYTE *v5; // r11
   int v6; // eax
   int v7; // edx
   int v8; // r8d
-  unsigned __int8 *v9; // rsi
-  int v10; // r11d
+  unsigned __int8 *v9; // rbp
+  int v10; // edi
   unsigned __int64 v11; // rax
-  int v12; // r11d
+  int v12; // edi
 
   v1 = *((_DWORD *)a1 + 8);
   v2 = (_BYTE *)(*((_QWORD *)a1 + 2) + ((__int64)*((int *)a1 + 14) >> 1));
@@ -37,7 +37,7 @@ void __fastcall vSrcCopyS4D4(struct BLTINFO *a1)
       if ( v7 && v8 )
       {
         v5 = v2 + 1;
-        *v2 = *(_BYTE *)(v3 + 4 * ((unsigned __int64)*v4 >> 4)) | *v2 & 0xF0;
+        *v2 = *v2 & 0xF0 | *(_BYTE *)(v3 + 4 * ((unsigned __int64)*v4 >> 4));
         --v8;
       }
       v10 = v8 >> 1;
@@ -59,7 +59,7 @@ LABEL_19:
       {
         v9 = v4 + 1;
         v5 = v2 + 1;
-        *v2 = *(_BYTE *)(v3 + 4LL * (*v4 & 0xF)) | *v2 & 0xF0;
+        *v2 = *v2 & 0xF0 | *(_BYTE *)(v3 + 4LL * (*v4 & 0xF));
         --v8;
       }
       v12 = v8 >> 1;

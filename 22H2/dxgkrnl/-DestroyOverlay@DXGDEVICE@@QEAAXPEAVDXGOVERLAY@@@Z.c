@@ -1,27 +1,30 @@
 /*
- * XREFs of ?DestroyOverlay@DXGDEVICE@@QEAAXPEAVDXGOVERLAY@@@Z @ 0x1C02E9088
+ * XREFs of ?DestroyOverlay@DXGDEVICE@@QEAAXPEAVDXGOVERLAY@@@Z @ 0x1C0254BB4
  * Callers:
- *     ?DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C018B128 (-DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
- *     DxgkDestroyOverlay @ 0x1C0335FB0 (DxgkDestroyOverlay.c)
+ *     ?DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C00EFA08 (-DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     DxgkDestroyOverlay @ 0x1C027BA20 (DxgkDestroyOverlay.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_GDXGOVERLAY@@QEAAPEAXI@Z @ 0x1C0049850 (--_GDXGOVERLAY@@QEAAPEAXI@Z.c)
+ *     ??_GDXGOVERLAY@@QEAAPEAXI@Z @ 0x1C0043578 (--_GDXGOVERLAY@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall DXGDEVICE::DestroyOverlay(DXGDEVICE *this, struct DXGOVERLAY ***a2)
 {
-  struct DXGOVERLAY **v3; // rcx
-  struct DXGOVERLAY **v4; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  struct DXGOVERLAY **v6; // rax
+  struct DXGOVERLAY **v7; // rcx
 
-  if ( !*((_BYTE *)this + 72) && !ExIsResourceAcquiredExclusiveLite(*((PERESOURCE *)this + 17)) )
+  if ( !*((_DWORD *)this + 18) && !ExIsResourceAcquiredExclusiveLite(*((PERESOURCE *)this + 17)) )
   {
-    WdLogSingleEntry1(1LL, 4048LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsDeviceLockExclusiveOwner()", 4048LL, 0LL, 0LL, 0LL, 0LL);
+    v5 = WdLogNewEntry5_WdAssertion(v4, v3);
+    *(_QWORD *)(v5 + 24) = 3976LL;
+    WdLogEvent5_WdAssertion(v5);
   }
-  v3 = *a2;
-  if ( (*a2)[1] != (struct DXGOVERLAY *)a2 || (v4 = a2[1], *v4 != (struct DXGOVERLAY *)a2) )
+  v6 = *a2;
+  if ( (*a2)[1] != (struct DXGOVERLAY *)a2 || (v7 = a2[1], *v7 != (struct DXGOVERLAY *)a2) )
     __fastfail(3u);
-  *v4 = (struct DXGOVERLAY *)v3;
-  v3[1] = (struct DXGOVERLAY *)v4;
+  *v7 = (struct DXGOVERLAY *)v6;
+  v6[1] = (struct DXGOVERLAY *)v7;
   DXGOVERLAY::`scalar deleting destructor'((DXGOVERLAY *)a2);
 }

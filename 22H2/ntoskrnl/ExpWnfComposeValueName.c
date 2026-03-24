@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpWnfComposeValueName @ 0x140710D70
+ * XREFs of ExpWnfComposeValueName @ 0x1406F67D0
  * Callers:
- *     ExpWnfLookupPermanentName @ 0x140710A1C (ExpWnfLookupPermanentName.c)
- *     ExpWnfWriteStateData @ 0x1407140C0 (ExpWnfWriteStateData.c)
- *     ExpWnfPopulateStateData @ 0x1407148EC (ExpWnfPopulateStateData.c)
- *     ExpWnfDeletePermanentName @ 0x1407CA118 (ExpWnfDeletePermanentName.c)
- *     ExpWnfRegisterPermanentName @ 0x1407E8530 (ExpWnfRegisterPermanentName.c)
- *     ExpWnfDeletePermanentStateData @ 0x140A0739C (ExpWnfDeletePermanentStateData.c)
+ *     ExpWnfWriteStateData @ 0x140610910 (ExpWnfWriteStateData.c)
+ *     ExpWnfPopulateStateData @ 0x140610FBC (ExpWnfPopulateStateData.c)
+ *     ExpWnfLookupPermanentName @ 0x1406F6488 (ExpWnfLookupPermanentName.c)
+ *     ExpWnfRegisterPermanentName @ 0x1406F85AC (ExpWnfRegisterPermanentName.c)
+ *     ExpWnfDeletePermanentName @ 0x1406F88EC (ExpWnfDeletePermanentName.c)
+ *     ExpWnfDeletePermanentStateData @ 0x14095CB64 (ExpWnfDeletePermanentStateData.c)
  * Callees:
- *     RtlInt64ToUnicodeString @ 0x140710E10 (RtlInt64ToUnicodeString.c)
+ *     RtlInt64ToUnicodeString @ 0x1406F6870 (RtlInt64ToUnicodeString.c)
  */
 
 __int64 __fastcall ExpWnfComposeValueName(__int64 a1, UNICODE_STRING *a2)

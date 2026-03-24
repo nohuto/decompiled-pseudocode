@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpAllocateTablePagedPool @ 0x1407B1018
+ * XREFs of ExpAllocateTablePagedPool @ 0x14069A6A0
  * Callers:
- *     ExpAllocateMidLevelTable @ 0x1407B0618 (ExpAllocateMidLevelTable.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x1407B0D50 (ExpAllocateHandleTableEntrySlow.c)
- *     ExpSetHandleExtraInfo @ 0x1409F9250 (ExpSetHandleExtraInfo.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x140606260 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpAllocateMidLevelTable @ 0x14069A62C (ExpAllocateMidLevelTable.c)
+ *     ExpSetHandleExtraInfo @ 0x14094CBC8 (ExpSetHandleExtraInfo.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     ExpAllocateTablePagedPoolNoZero @ 0x1407B0F74 (ExpAllocateTablePagedPoolNoZero.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExpAllocateTablePagedPoolNoZero @ 0x140606520 (ExpAllocateTablePagedPoolNoZero.c)
  */
 
-void *__fastcall ExpAllocateTablePagedPool(__int64 a1, size_t a2)
+PVOID __fastcall ExpAllocateTablePagedPool(__int64 a1, SIZE_T a2)
 {
-  void *TablePagedPoolNoZero; // rax
-  void *v4; // rbx
+  PVOID TablePagedPoolNoZero; // rax
+  PVOID v4; // rbx
 
   TablePagedPoolNoZero = ExpAllocateTablePagedPoolNoZero(a1, a2);
   v4 = TablePagedPoolNoZero;

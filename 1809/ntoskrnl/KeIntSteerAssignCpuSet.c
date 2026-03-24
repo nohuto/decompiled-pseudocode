@@ -1,13 +1,13 @@
 /*
- * XREFs of KeIntSteerAssignCpuSet @ 0x14029A600
+ * XREFs of KeIntSteerAssignCpuSet @ 0x14029A700
  * Callers:
- *     IoSteerInterrupt @ 0x140823580 (IoSteerInterrupt.c)
+ *     IoSteerInterrupt @ 0x140823560 (IoSteerInterrupt.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiIntSteerAssignCpuSet @ 0x14029A7AC (KiIntSteerAssignCpuSet.c)
- *     KiIntSteerClearCpuSetAssignment @ 0x14029A808 (KiIntSteerClearCpuSetAssignment.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIntSteerAssignCpuSet @ 0x14029A8AC (KiIntSteerAssignCpuSet.c)
+ *     KiIntSteerClearCpuSetAssignment @ 0x14029A908 (KiIntSteerClearCpuSetAssignment.c)
  */
 
 __int64 __fastcall KeIntSteerAssignCpuSet(__int64 a1, unsigned __int16 a2, __int64 a3)

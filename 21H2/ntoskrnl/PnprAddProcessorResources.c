@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprAddProcessorResources @ 0x140951B40
+ * XREFs of PnprAddProcessorResources @ 0x1408AD064
  * Callers:
- *     PnprAddDeviceResources @ 0x1409518C0 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x1408ACDE0 (PnprAddDeviceResources.c)
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1402949F0 (KeGetProcessorNumberFromIndex.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeGetProcessorNumberFromIndex @ 0x1402754F0 (KeGetProcessorNumberFromIndex.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnprAddProcessorResources(__int64 a1, ULONG a2, int a3, _DWORD **a4)
@@ -15,7 +15,7 @@ __int64 __fastcall PnprAddProcessorResources(__int64 a1, ULONG a2, int a3, _DWOR
   int v8; // eax
   int v9; // r15d
   unsigned int v10; // r12d
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v12; // rbp
   __int64 v13; // rcx
   int v14; // eax
@@ -31,22 +31,22 @@ __int64 __fastcall PnprAddProcessorResources(__int64 a1, ULONG a2, int a3, _DWOR
   {
     v9 = v8 + 4;
     v10 = 4 * v8 + 20;
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, (unsigned int)(4 * (v8 + 4) + 20), 1366322768LL);
-    v12 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(4 * (v8 + 4) + 20), 0x51706E50u);
+    v12 = PoolWithTag;
+    if ( !PoolWithTag )
     {
       v13 = PnprContext;
-      v14 = *(_DWORD *)(PnprContext + 33272);
+      v14 = *(_DWORD *)(PnprContext + 20984);
       if ( !v14 )
-        v14 = 815;
-      *(_DWORD *)(PnprContext + 33272) = v14;
-      v15 = *(_DWORD *)(v13 + 33276);
+        v14 = 816;
+      *(_DWORD *)(PnprContext + 20984) = v14;
+      v15 = *(_DWORD *)(v13 + 20988);
       if ( !v15 )
         v15 = 10;
-      *(_DWORD *)(v13 + 33276) = v15;
+      *(_DWORD *)(v13 + 20988) = v15;
       return 3221225626LL;
     }
-    memmove(Pool2, v4, v10);
+    memmove(PoolWithTag, v4, v10);
     ExFreePoolWithTag(v4, 0x51706E50u);
     v4 = v12;
     v12[3] = v9;

@@ -1,36 +1,28 @@
 /*
- * XREFs of NLS_DOWNCASE @ 0x140239F60
+ * XREFs of NLS_DOWNCASE @ 0x1402B1FF0
  * Callers:
- *     RtlDowncaseUnicodeString @ 0x1406B4AE0 (RtlDowncaseUnicodeString.c)
- *     RtlDowncaseUnicodeChar @ 0x140882870 (RtlDowncaseUnicodeChar.c)
+ *     RtlDowncaseUnicodeString @ 0x1406970E0 (RtlDowncaseUnicodeString.c)
+ *     RtlDowncaseUnicodeChar @ 0x14090FAE0 (RtlDowncaseUnicodeChar.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int16 __fastcall NLS_DOWNCASE(__int64 a1, unsigned __int16 a2)
+unsigned __int16 __fastcall NLS_DOWNCASE(unsigned __int16 a1)
 {
-  unsigned __int16 result; // ax
-
-  result = a2;
-  if ( a2 >= 0x41u )
-  {
-    if ( a2 <= 0x5Au )
-    {
-      return a2 + 32;
-    }
-    else if ( a1 )
-    {
-      if ( a2 >= 0xC0u )
-        return a2
-             + *(_WORD *)(a1
-                        + 2LL
-                        * ((a2 & 0xF)
-                         + (unsigned int)*(unsigned __int16 *)(a1
-                                                             + 2LL
-                                                             * (((unsigned __int8)a2 >> 4)
-                                                              + (unsigned int)*(unsigned __int16 *)(a1
-                                                                                                  + 2 * ((unsigned __int64)a2 >> 8))))));
-    }
-  }
-  return result;
+  if ( a1 < 0x41u )
+    return a1;
+  if ( a1 <= 0x5Au )
+    return a1 + 32;
+  if ( !Nls844UnicodeLowercaseTable || a1 < 0xC0u )
+    return a1;
+  return a1
+       + *(_WORD *)(Nls844UnicodeLowercaseTable
+                  + 2LL
+                  * ((a1 & 0xF)
+                   + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeLowercaseTable
+                                                       + 2LL
+                                                       * (((unsigned __int8)a1 >> 4)
+                                                        + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeLowercaseTable
+                                                                                            + 2
+                                                                                            * ((unsigned __int64)a1 >> 8))))));
 }

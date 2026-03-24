@@ -1,19 +1,19 @@
 /*
- * XREFs of ?IsOfType@CRedirectVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A1580
+ * XREFs of ?IsOfType@CRedirectVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A8C30
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C5D30 (-IsOfType@CVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A8C60 (-IsOfType@CVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall CRedirectVisual::IsOfType(__int64 a1, int a2)
 {
-  bool v2; // al
+  char v2; // al
   char v3; // cl
 
-  if ( a2 == 140 )
+  if ( a2 == 141 )
     return 1;
-  v2 = CVisual::IsOfType(a1, a2);
+  v2 = CVisual::IsOfType();
   v3 = 0;
   if ( v2 )
     return 1;

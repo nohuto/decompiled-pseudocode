@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpandHTPatX @ 0x1C0150468
+ * XREFs of ExpandHTPatX @ 0x1C012A438
  * Callers:
- *     Generate_HTSC_WORD @ 0x1C011DD3C (Generate_HTSC_WORD.c)
- *     GenerateWORDPat @ 0x1C025E348 (GenerateWORDPat.c)
+ *     GenerateWORDPat @ 0x1C0002414 (GenerateWORDPat.c)
+ *     Generate_HTSC_WORD @ 0x1C012A1B8 (Generate_HTSC_WORD.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall ExpandHTPatX(char *Src, int a2, int a3, int a4)

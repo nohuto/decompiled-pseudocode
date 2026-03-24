@@ -1,12 +1,12 @@
 /*
- * XREFs of IopGetDriverPathInformation @ 0x14027EDF8
+ * XREFs of IopGetDriverPathInformation @ 0x14027EEF8
  * Callers:
- *     NtQueryVolumeInformationFile @ 0x14065E480 (NtQueryVolumeInformationFile.c)
+ *     NtQueryVolumeInformationFile @ 0x14065E460 (NtQueryVolumeInformationFile.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     IopVerifyDriverObjectOnStack @ 0x14027F4A8 (IopVerifyDriverObjectOnStack.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     IopVerifyDriverObjectOnStack @ 0x14027F5A8 (IopVerifyDriverObjectOnStack.c)
  *     ObReferenceObjectByName @ 0x1405C8DA0 (ObReferenceObjectByName.c)
  */
 

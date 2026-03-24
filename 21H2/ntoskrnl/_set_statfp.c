@@ -1,10 +1,10 @@
 /*
- * XREFs of _set_statfp @ 0x1403E5C9C
+ * XREFs of _set_statfp @ 0x1403D6868
  * Callers:
- *     _exception_enabled @ 0x1403E52DC (_exception_enabled.c)
+ *     _exception_enabled @ 0x1403D5E7C (_exception_enabled.c)
  * Callees:
- *     _set_fpsr @ 0x1403E5CF0 (_set_fpsr.c)
- *     _get_fpsr @ 0x14042B9F0 (_get_fpsr.c)
+ *     _set_fpsr @ 0x1403D68C0 (_set_fpsr.c)
+ *     _get_fpsr @ 0x140409960 (_get_fpsr.c)
  */
 
 __int64 __fastcall set_statfp(char a1)

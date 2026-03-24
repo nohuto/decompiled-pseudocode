@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Retire@CCompositionFrame@@UEAAXAEBUDXGI_FRAME_STATISTICS@@@Z @ 0x1C00177E0
+ * XREFs of ?Retire@CCompositionFrame@@UEAAXAEBUDXGI_FRAME_STATISTICS@@@Z @ 0x1C0015370
  * Callers:
  *     <none>
  * Callees:
- *     ??_GCLegacyTokenBuffer@@AEAAPEAXI@Z @ 0x1C0002A14 (--_GCLegacyTokenBuffer@@AEAAPEAXI@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ??_GCLegacyTokenBuffer@@AEAAPEAXI@Z @ 0x1C001239C (--_GCLegacyTokenBuffer@@AEAAPEAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CCompositionFrame::Retire(CCompositionFrame *this, const struct DXGI_FRAME_STATISTICS *a2)
@@ -39,7 +39,7 @@ void __fastcall CCompositionFrame::Retire(CCompositionFrame *this, const struct 
   {
     v7 = *(_QWORD **)(v6 + 24);
     v8 = (_QWORD *)(v6 + 16);
-    v9 = *((_QWORD *)this + 24);
+    v9 = *((_QWORD *)this + 22);
     if ( *v7 == v6 + 16 )
     {
       v10 = (_QWORD *)v7[1];
@@ -56,24 +56,24 @@ LABEL_6:
           *(_QWORD *)(v6 + 2096) = v6 + 36;
           *(_BYTE *)(v6 + 2108) = 0;
           *(_DWORD *)(v6 + 2104) = 2048;
-          if ( *(_DWORD *)(v9 + 184) > 3u )
+          if ( *(_DWORD *)(v9 + 176) > 3u )
           {
             CLegacyTokenBuffer::`scalar deleting destructor'((CLegacyTokenBuffer *)v6);
             goto LABEL_9;
           }
-          ExAcquirePushLockExclusiveEx(v9 + 96, 0LL);
-          *(_QWORD *)(v9 + 104) = KeGetCurrentThread();
-          v11 = (_QWORD *)(v9 + 168);
-          v12 = *(_QWORD *)(v9 + 168);
-          if ( *(_QWORD *)(v12 + 8) == v9 + 168 )
+          ExAcquirePushLockExclusiveEx(v9 + 88, 0LL);
+          *(_QWORD *)(v9 + 96) = KeGetCurrentThread();
+          v11 = (_QWORD *)(v9 + 160);
+          v12 = *(_QWORD *)(v9 + 160);
+          if ( *(_QWORD *)(v12 + 8) == v9 + 160 )
           {
             *(_QWORD *)v6 = v12;
             *(_QWORD *)(v6 + 8) = v11;
             *(_QWORD *)(v12 + 8) = v6;
             *v11 = v6;
-            ++*(_DWORD *)(v9 + 184);
-            *(_QWORD *)(v9 + 104) = 0LL;
-            ExReleasePushLockExclusiveEx(v9 + 96, 0LL);
+            ++*(_DWORD *)(v9 + 176);
+            *(_QWORD *)(v9 + 96) = 0LL;
+            ExReleasePushLockExclusiveEx(v9 + 88, 0LL);
 LABEL_9:
             *((_QWORD *)this + 13) = 0LL;
             goto LABEL_10;

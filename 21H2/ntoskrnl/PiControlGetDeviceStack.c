@@ -1,65 +1,62 @@
 /*
- * XREFs of PiControlGetDeviceStack @ 0x1407F1CDC
+ * XREFs of PiControlGetDeviceStack @ 0x14072FB64
  * Callers:
- *     PiControlGetPropertyData @ 0x140775140 (PiControlGetPropertyData.c)
+ *     PiControlGetPropertyData @ 0x1406ADDA0 (PiControlGetPropertyData.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x1402D30A0 (IoGetAttachedDeviceReferenceWithTag.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14036B86C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     IoGetLowerDeviceObjectWithTag @ 0x14036CCBC (IoGetLowerDeviceObjectWithTag.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ObQueryNameStringMode @ 0x1407103B0 (ObQueryNameStringMode.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IoGetLowerDeviceObjectWithTag @ 0x1402CCF4C (IoGetLowerDeviceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140362020 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ObQueryNameString @ 0x140718930 (ObQueryNameString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiControlGetDeviceStack(__int64 a1, unsigned int a2, _WORD *a3, unsigned int *a4)
 {
   __int64 v4; // rcx
-  unsigned int v5; // r12d
-  _WORD *v6; // r13
-  int v7; // ebx
-  UNICODE_STRING *v8; // rsi
+  unsigned int v5; // r15d
+  NTSTATUS v7; // edi
+  struct _OBJECT_NAME_INFORMATION *v8; // r14
   struct _DEVICE_OBJECT *DeviceAttachmentBaseRefWithTag; // rax
-  void *AttachedDeviceReferenceWithTag; // rax
-  int v11; // r14d
-  void *v12; // rdi
-  PVOID *Pool2; // rax
-  PVOID *v14; // rcx
-  PVOID *v15; // rax
-  unsigned int v16; // edx
-  _WORD *v17; // r15
-  __int64 v18; // r12
-  unsigned __int16 Length; // di
-  _WORD *v20; // r15
-  unsigned int v21; // r14d
-  PVOID *v22; // rdi
+  void *i; // rax
+  void *v11; // rbx
+  PVOID *PoolWithTag; // rax
+  PVOID *v13; // rcx
+  PVOID *v14; // r13
+  unsigned int v15; // edx
+  _WORD *v16; // r12
+  int v17; // esi
+  __int64 v18; // r15
+  unsigned __int16 Length; // bx
+  _WORD *v20; // r12
+  unsigned int v21; // esi
+  PVOID *v22; // rbx
   __int64 v23; // rax
-  unsigned int v25; // r8d
-  unsigned int v26; // [rsp+30h] [rbp-48h]
-  PVOID *v27; // [rsp+38h] [rbp-40h]
-  struct _DEVICE_OBJECT *Object; // [rsp+40h] [rbp-38h]
-  PVOID P; // [rsp+48h] [rbp-30h] BYREF
-  PVOID *p_P; // [rsp+50h] [rbp-28h]
-  UNICODE_STRING Src; // [rsp+58h] [rbp-20h] BYREF
-  int v32; // [rsp+C0h] [rbp+48h] BYREF
-  unsigned int v33; // [rsp+C8h] [rbp+50h]
-  _WORD *v34; // [rsp+D0h] [rbp+58h]
-  unsigned int *v35; // [rsp+D8h] [rbp+60h]
+  ULONG v25; // r8d
+  unsigned int v26; // [rsp+20h] [rbp-38h]
+  struct _DEVICE_OBJECT *Object; // [rsp+28h] [rbp-30h]
+  PVOID P; // [rsp+30h] [rbp-28h] BYREF
+  PVOID *p_P; // [rsp+38h] [rbp-20h]
+  struct _OBJECT_NAME_INFORMATION Src; // [rsp+40h] [rbp-18h] BYREF
+  ULONG ReturnLength; // [rsp+A0h] [rbp+48h] BYREF
+  unsigned int v32; // [rsp+A8h] [rbp+50h]
+  _WORD *v33; // [rsp+B0h] [rbp+58h]
+  unsigned int *v34; // [rsp+B8h] [rbp+60h]
 
-  v35 = a4;
-  v34 = a3;
-  v33 = a2;
+  v34 = a4;
+  v33 = a3;
+  v32 = a2;
   v4 = *(_QWORD *)(a1 + 32);
   p_P = &P;
-  v32 = 0;
+  ReturnLength = 0;
   v5 = a2;
   P = &P;
-  v6 = a3;
   v7 = 0;
-  Src = 0LL;
   v8 = 0LL;
+  Src = 0LL;
   DeviceAttachmentBaseRefWithTag = (struct _DEVICE_OBJECT *)IoGetDeviceAttachmentBaseRefWithTag(v4, 0x43706E50u);
   Object = DeviceAttachmentBaseRefWithTag;
   if ( !DeviceAttachmentBaseRefWithTag )
@@ -67,126 +64,115 @@ __int64 __fastcall PiControlGetDeviceStack(__int64 a1, unsigned int a2, _WORD *a
     v7 = -1073741808;
     goto LABEL_27;
   }
-  AttachedDeviceReferenceWithTag = IoGetAttachedDeviceReferenceWithTag(DeviceAttachmentBaseRefWithTag, 0x43706E50u);
-  v11 = 0;
-  while ( 1 )
+  for ( i = IoGetAttachedDeviceReferenceWithTag(DeviceAttachmentBaseRefWithTag, 0x43706E50u);
+        ;
+        i = IoGetLowerDeviceObjectWithTag((__int64)v11, 0x43706E50u) )
   {
-    v12 = AttachedDeviceReferenceWithTag;
-    if ( !AttachedDeviceReferenceWithTag )
+    v11 = i;
+    if ( !i )
       break;
-    Pool2 = (PVOID *)ExAllocatePool2(256LL, 24LL, 1198550608LL);
-    if ( !Pool2 )
+    PoolWithTag = (PVOID *)ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x47706E50u);
+    if ( !PoolWithTag )
     {
-      ObfDereferenceObjectWithTag(v12, 0x43706E50u);
+      ObfDereferenceObjectWithTag(v11, 0x43706E50u);
       v7 = -1073741670;
       goto LABEL_27;
     }
-    Pool2[2] = v12;
-    v14 = p_P;
+    PoolWithTag[2] = v11;
+    v13 = p_P;
     if ( *p_P != &P )
-LABEL_34:
+LABEL_35:
       __fastfail(3u);
-    Pool2[1] = p_P;
-    *Pool2 = &P;
-    *v14 = Pool2;
-    p_P = Pool2;
-    AttachedDeviceReferenceWithTag = IoGetLowerDeviceObjectWithTag((__int64)v12, 0x43706E50u);
+    PoolWithTag[1] = p_P;
+    *PoolWithTag = &P;
+    *v13 = PoolWithTag;
+    p_P = PoolWithTag;
   }
-  v15 = (PVOID *)P;
-  v27 = (PVOID *)P;
-  v16 = v5;
-  v17 = v6;
+  v14 = (PVOID *)P;
+  v15 = v5;
   v26 = v5;
+  v16 = a3;
+  v17 = 0;
   if ( P == &P )
   {
 LABEL_20:
-    if ( v17 && v16 >= 2 )
-      *v17 = 0;
-    v21 = v11 + 2;
-    *v35 = v21;
-    if ( !v6 || v21 > v5 )
+    if ( v16 && v15 >= 2 )
+      *v16 = 0;
+    v21 = v17 + 2;
+    *v34 = v21;
+    if ( !v33 || v21 > v5 )
       v7 = -1073741789;
     goto LABEL_25;
   }
-  do
+  while ( 1 )
   {
-    v18 = *((_QWORD *)v15[2] + 1);
-    if ( !v18 )
-    {
-      RtlInitUnicodeString(&Src, L"?");
-LABEL_49:
-      Length = Src.Length;
-      goto LABEL_14;
-    }
-    if ( *(_QWORD *)(v18 + 64) && *(_WORD *)(v18 + 56) >= 2u )
-    {
-      Length = _mm_cvtsi128_si32(*(__m128i *)(v18 + 56));
-      Src = *(UNICODE_STRING *)(v18 + 56);
-      for ( Src.Length = Length; Length >= 2u; Src.Length = Length )
-      {
-        if ( Src.Buffer[((unsigned __int64)Length >> 1) - 1] )
-          break;
-        Length -= 2;
-      }
-    }
-    else
-    {
-      RtlInitUnicodeString(&Src, 0LL);
-      Length = Src.Length;
-    }
-    if ( !Length )
-    {
-      v25 = 272;
-      v32 = 272;
-      if ( !v8 )
-      {
-        v8 = (UNICODE_STRING *)ExAllocatePool2(256LL, 272LL, 1198550608LL);
-        if ( !v8 )
-        {
-          v7 = -1073741670;
-          goto LABEL_27;
-        }
-        v25 = v32;
-      }
-      v7 = ObQueryNameStringMode((char *)v18, (__int64)v8, v25, &v32, 0);
-      if ( v7 >= 0 && v32 && v8->Length >= 2u )
-      {
-        Src = *v8;
-      }
-      else
-      {
-        RtlInitUnicodeString(&Src, L"?");
-        v7 = 0;
-      }
-      goto LABEL_49;
-    }
+    v18 = *((_QWORD *)v14[2] + 1);
+    if ( v18 )
+      break;
+    RtlInitUnicodeString(&Src.Name, L"?");
+LABEL_50:
+    Length = Src.Name.Length;
 LABEL_14:
-    if ( v17 )
+    if ( v16 && v26 >= (unsigned __int64)Length + 2 )
     {
-      v16 = v26;
-      if ( v26 >= (unsigned __int64)Length + 2 )
-      {
-        memmove(v17, Src.Buffer, Length);
-        v20 = &v17[(unsigned __int64)Length >> 1];
-        *v20 = 0;
-        v17 = v20 + 1;
-        v16 = -2 - Length + v26;
-        v26 = v16;
-      }
+      memmove(v16, Src.Name.Buffer, Length);
+      v20 = &v16[(unsigned __int64)Length >> 1];
+      *v20 = 0;
+      v16 = v20 + 1;
+      v26 += -2 - Length;
+    }
+    v14 = (PVOID *)*v14;
+    v17 += Length + 2;
+    if ( v14 == &P )
+      goto LABEL_18;
+  }
+  if ( *(_QWORD *)(v18 + 64) && *(_WORD *)(v18 + 56) >= 2u )
+  {
+    Length = _mm_cvtsi128_si32(*(__m128i *)(v18 + 56));
+    Src = *(struct _OBJECT_NAME_INFORMATION *)(v18 + 56);
+    for ( Src.Name.Length = Length; Length >= 2u; Src.Name.Length = Length )
+    {
+      if ( Src.Name.Buffer[((unsigned __int64)Length >> 1) - 1] )
+        break;
+      Length -= 2;
+    }
+  }
+  else
+  {
+    RtlInitUnicodeString(&Src.Name, 0LL);
+    Length = Src.Name.Length;
+  }
+  if ( Length )
+    goto LABEL_14;
+  v25 = 272;
+  ReturnLength = 272;
+  if ( v8 )
+  {
+LABEL_44:
+    v7 = ObQueryNameString((PVOID)v18, v8, v25, &ReturnLength);
+    if ( v7 >= 0 && ReturnLength && v8->Name.Length >= 2u )
+    {
+      Src = *v8;
     }
     else
     {
-      v16 = v26;
+      RtlInitUnicodeString(&Src.Name, L"?");
+      v7 = 0;
     }
-    v11 += Length + 2;
-    v15 = (PVOID *)*v27;
-    v27 = v15;
+    goto LABEL_50;
   }
-  while ( v15 != &P );
+  v8 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x110uLL, 0x47706E50u);
+  if ( v8 )
+  {
+    v25 = ReturnLength;
+    goto LABEL_44;
+  }
+  v7 = -1073741670;
+LABEL_18:
   if ( v7 >= 0 )
   {
-    v5 = v33;
-    v6 = v34;
+    v15 = v26;
+    v5 = v32;
     goto LABEL_20;
   }
 LABEL_25:
@@ -199,10 +185,10 @@ LABEL_27:
     if ( P == &P )
       break;
     if ( *((PVOID **)P + 1) != &P )
-      goto LABEL_34;
+      goto LABEL_35;
     v23 = *(_QWORD *)P;
     if ( *(PVOID *)(*(_QWORD *)P + 8LL) != P )
-      goto LABEL_34;
+      goto LABEL_35;
     P = *(PVOID *)P;
     *(_QWORD *)(v23 + 8) = &P;
     ObfDereferenceObjectWithTag(v22[2], 0x43706E50u);

@@ -1,38 +1,37 @@
 /*
- * XREFs of ViCtxCheckAndReleaseIsrState @ 0x140AE5B58
+ * XREFs of ViCtxCheckAndReleaseIsrState @ 0x1409E4354
  * Callers:
- *     ViCtxIsr @ 0x140AE5DA0 (ViCtxIsr.c)
- *     ViCtxIsrMessageBased @ 0x140AE5E00 (ViCtxIsrMessageBased.c)
+ *     ViCtxIsr @ 0x1409E4570 (ViCtxIsr.c)
+ *     ViCtxIsrMessageBased @ 0x1409E45D0 (ViCtxIsrMessageBased.c)
  * Callees:
- *     RtlXSave @ 0x14020DFD0 (RtlXSave.c)
- *     VfUtilDbgPrint @ 0x1405CE364 (VfUtilDbgPrint.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
- *     VfErrorStoreTriageInformation @ 0x140AD4684 (VfErrorStoreTriageInformation.c)
- *     ViCtxEqualExtendedState @ 0x140AE5C78 (ViCtxEqualExtendedState.c)
+ *     RtlXSave @ 0x14031A820 (RtlXSave.c)
+ *     VfUtilDbgPrint @ 0x1405A0634 (VfUtilDbgPrint.c)
+ *     VfErrorStoreTriageInformation @ 0x1409D81CC (VfErrorStoreTriageInformation.c)
+ *     ViCtxEqualExtendedState @ 0x1409E4450 (ViCtxEqualExtendedState.c)
  */
 
 __int64 __fastcall ViCtxCheckAndReleaseIsrState(__int64 a1, const void *a2, __int64 a3)
 {
   unsigned __int8 CurrentIrql; // al
   unsigned __int8 v6; // si
+  __int64 v7; // r8
   __int64 result; // rax
-  __int64 v8; // r8
   int v9; // eax
-  ULONG_PTR v10; // r9
-  ULONG_PTR v11; // rdx
-  ULONG_PTR v12; // rax
-  ULONG v13; // ecx
+  __int64 v10; // r9
+  __int64 v11; // rdx
+  __int64 v12; // rax
 
   CurrentIrql = KeGetCurrentIrql();
   v6 = *(_BYTE *)(a1 + 8);
   *(_BYTE *)(a1 + 9) = CurrentIrql;
   if ( v6 != CurrentIrql
-    || (result = *(unsigned int *)(a1 + 4), (result & 2) != 0)
-    && (RtlXSave(*(_DWORD **)(a1 + 64), ViCtxXStateEnabledMask, a3),
-        v6 = *(_BYTE *)(a1 + 8),
-        LOBYTE(v8) = v6 == 0,
-        result = ViCtxEqualExtendedState(*(_QWORD *)(a1 + 32), *(_QWORD *)(a1 + 64), v8),
-        !(_BYTE)result) )
+    || ((*(_DWORD *)(a1 + 4) & 2) == 0
+      ? (result = 1LL)
+      : (RtlXSave(*(_DWORD **)(a1 + 64), ViCtxXStateEnabledMask, a3),
+         v6 = *(_BYTE *)(a1 + 8),
+         LOBYTE(v7) = v6 == 0,
+         result = (unsigned __int8)ViCtxEqualExtendedState(*(_QWORD *)(a1 + 32), *(_QWORD *)(a1 + 64), v7)),
+        !(_DWORD)result) )
   {
     v9 = *(unsigned __int8 *)(a1 + 9);
     if ( v6 == (_BYTE)v9 )
@@ -58,12 +57,11 @@ __int64 __fastcall ViCtxCheckAndReleaseIsrState(__int64 a1, const void *a2, __in
       v11 = 273LL;
       v12 = *(unsigned __int8 *)(a1 + 9);
     }
-    result = VfErrorStoreTriageInformation(196LL, v11, (ULONG_PTR)a2, v10, v12);
-    if ( (_DWORD)result )
-    {
-      VerifierBugCheckIfAppropriate(v13, qword_140D71998, qword_140D719A0, qword_140D719A8, qword_140D719B0);
-      result = (unsigned int)_InterlockedExchange(&VfErrorBugcheckDataReady, 0);
-    }
+    VfErrorStoreTriageInformation(196LL, v11, (__int64)a2, v10, v12);
+    NT_ASSERT("
+Interrupt Service Routine has changed IRQL.
+Please run !analyze for additional information.
+");
   }
   *(_DWORD *)(a1 + 4) &= ~2u;
   _InterlockedExchange((volatile __int32 *)a1, 0);

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetForDCompSnapshot@CCachedVisualImage@@IEAAJPEAVCVisual@@AEBUD2D_SIZE_U@@_N@Z @ 0x1801FEA74
+ * XREFs of ?SetForDCompSnapshot@CCachedVisualImage@@IEAAJPEAVCVisual@@AEBUD2D_SIZE_U@@_N@Z @ 0x1801ABBA4
  * Callers:
- *     ?CreateCVI@CSnapshot@@AEAAJPEAVCVisual@@@Z @ 0x180244B2C (-CreateCVI@CSnapshot@@AEAAJPEAVCVisual@@@Z.c)
+ *     ?CreateCVI@CSnapshot@@AEAAJPEAVCVisual@@@Z @ 0x1801F4E00 (-CreateCVI@CSnapshot@@AEAAJPEAVCVisual@@@Z.c)
  * Callees:
- *     ?ChoosePixelFormat@CCachedVisualImage@@IEAAXXZ @ 0x180060B4C (-ChoosePixelFormat@CCachedVisualImage@@IEAAXXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?SetRootVisual@CCachedVisualImage@@IEAAJPEAVCVisual@@@Z @ 0x1801FEC78 (-SetRootVisual@CCachedVisualImage@@IEAAJPEAVCVisual@@@Z.c)
+ *     ?ChoosePixelFormat@CCachedVisualImage@@IEAAXXZ @ 0x180032B4C (-ChoosePixelFormat@CCachedVisualImage@@IEAAXXZ.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800375A0 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetRootVisual@CCachedVisualImage@@IEAAJPEAVCVisual@@@Z @ 0x1801ABD3C (-SetRootVisual@CCachedVisualImage@@IEAAJPEAVCVisual@@@Z.c)
  */
 
 __int64 __fastcall CCachedVisualImage::SetForDCompSnapshot(
@@ -24,22 +24,22 @@ __int64 __fastcall CCachedVisualImage::SetForDCompSnapshot(
   v9 = v7;
   if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x1B5u);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x197u, 0LL);
   }
   else
   {
-    *((_QWORD *)this + 12) = 0LL;
-    *((float *)this + 26) = (float)(int)a3->width;
-    *((float *)this + 27) = (float)(int)a3->height;
-    *((double *)this + 15) = (float)(int)a3->width;
+    *((_QWORD *)this + 11) = 0LL;
+    *((float *)this + 24) = (float)(int)a3->width;
+    *((float *)this + 25) = (float)(int)a3->height;
+    *((double *)this + 14) = (float)(int)a3->width;
     height = a3->height;
+    *((_QWORD *)this + 18) = 0LL;
     *((_QWORD *)this + 19) = 0LL;
-    *((_QWORD *)this + 20) = 0LL;
-    *((_DWORD *)this + 44) = 2;
-    *((_BYTE *)this + 1779) = a4;
-    *((double *)this + 16) = (float)height;
+    *((_DWORD *)this + 42) = 2;
+    *((_BYTE *)this + 1803) = a4;
+    *((double *)this + 15) = (float)height;
     CCachedVisualImage::ChoosePixelFormat(this);
-    (*(void (__fastcall **)(CCachedVisualImage *, _QWORD, _QWORD))(*(_QWORD *)this + 72LL))(this, 0LL, 0LL);
+    CResource::NotifyOnChanged((__int64)this, 0, 0LL);
   }
   return v9;
 }

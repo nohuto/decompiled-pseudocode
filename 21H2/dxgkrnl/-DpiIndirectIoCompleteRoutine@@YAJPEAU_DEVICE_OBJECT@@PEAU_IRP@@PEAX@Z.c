@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DpiIndirectIoCompleteRoutine@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1C0065E80
+ * XREFs of ?DpiIndirectIoCompleteRoutine@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1C00591E0
  * Callers:
  *     <none>
  * Callees:
@@ -10,6 +10,11 @@ __int64 __fastcall DpiIndirectIoCompleteRoutine(struct _DEVICE_OBJECT *a1, struc
 {
   bool v3; // zf
   struct _IO_WORKITEM *WorkItem; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // rax
 
   v3 = *((_DWORD *)a3 + 12) == 0;
   *(_OWORD *)(a3 + 8) = *(_OWORD *)&a2->IoStatus.Status;
@@ -19,9 +24,15 @@ __int64 __fastcall DpiIndirectIoCompleteRoutine(struct _DEVICE_OBJECT *a1, struc
   {
     WorkItem = IoAllocateWorkItem((PDEVICE_OBJECT)g_pDriverObject);
     if ( WorkItem )
+    {
       IoQueueWorkItemEx(WorkItem, DpiIndirectIoCompleteWork, DelayedWorkQueue, a3);
+    }
     else
-      WdLogSingleEntry1(6LL, -1073741801LL);
+    {
+      v10 = WdLogNewEntry5_WdLowResource(v7, v6, v8, v9);
+      *(_QWORD *)(v10 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v10);
+    }
   }
   else
   {

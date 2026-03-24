@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpFileFlushAndPurge @ 0x14068A23C
+ * XREFs of CmpFileFlushAndPurge @ 0x14071DC38
  * Callers:
- *     CmpFlushHive @ 0x1406885A4 (CmpFlushHive.c)
- *     HvWriteLogFile @ 0x14068A060 (HvWriteLogFile.c)
- *     HvValidateOrInvalidatePrimaryFileHeader @ 0x14068EE60 (HvValidateOrInvalidatePrimaryFileHeader.c)
- *     HvWriteHivePrimaryFile @ 0x14068F1F8 (HvWriteHivePrimaryFile.c)
- *     HvExtendHivePrimaryFileValidDataLength @ 0x140808680 (HvExtendHivePrimaryFileValidDataLength.c)
+ *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
+ *     HvWriteLogFile @ 0x14071DA5C (HvWriteLogFile.c)
+ *     HvWriteHivePrimaryFile @ 0x140725240 (HvWriteHivePrimaryFile.c)
+ *     HvValidateOrInvalidatePrimaryFileHeader @ 0x14072570C (HvValidateOrInvalidatePrimaryFileHeader.c)
+ *     HvExtendHivePrimaryFileValidDataLength @ 0x1408768E4 (HvExtendHivePrimaryFileValidDataLength.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IoAllocateIrp @ 0x1402AAB20 (IoAllocateIrp.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
- *     CmpFileFlush @ 0x1406E10CC (CmpFileFlush.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     IoAllocateIrp @ 0x140361FF0 (IoAllocateIrp.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     CmpFileFlush @ 0x14071DA34 (CmpFileFlush.c)
  */
 
 __int64 __fastcall CmpFileFlushAndPurge(__int64 a1, unsigned int a2)
@@ -24,7 +24,7 @@ __int64 __fastcall CmpFileFlushAndPurge(__int64 a1, unsigned int a2)
   PIRP v4; // rdi
   void *v5; // rcx
   NTSTATUS v6; // eax
-  struct _FILE_OBJECT *v7; // rsi
+  struct _DMA_ADAPTER *v7; // rsi
   unsigned int Status; // ebx
   PDEVICE_OBJECT RelatedDeviceObject; // rbx
   PIRP Irp; // rax
@@ -40,12 +40,12 @@ __int64 __fastcall CmpFileFlushAndPurge(__int64 a1, unsigned int a2)
   v4 = 0LL;
   if ( (*(_DWORD *)(a1 + 160) & 0x20000) != 0 && !(_DWORD)v2 )
   {
-    return (unsigned int)CmpFileFlush(a1, 0LL);
+    return (unsigned int)CmpFileFlush(a1, 0);
   }
   else
   {
-    v5 = *(void **)(a1 + 8 * v2 + 1544);
-    if ( !v5 || BYTE1(NlsMbOemCodePageTag) )
+    v5 = *(void **)(a1 + 8 * v2 + 1536);
+    if ( !v5 || BYTE1(NlsMbCodePageTag) )
     {
       return 0;
     }
@@ -53,7 +53,7 @@ __int64 __fastcall CmpFileFlushAndPurge(__int64 a1, unsigned int a2)
     {
       Object = 0LL;
       v6 = ObReferenceObjectByHandle(v5, 2u, *(POBJECT_TYPE *)CmIoFileObjectType, 0, &Object, 0LL);
-      v7 = (struct _FILE_OBJECT *)Object;
+      v7 = (struct _DMA_ADAPTER *)Object;
       Status = v6;
       if ( v6 >= 0 )
       {
@@ -62,18 +62,18 @@ __int64 __fastcall CmpFileFlushAndPurge(__int64 a1, unsigned int a2)
         v4 = Irp;
         if ( Irp )
         {
-          Irp->Tail.Overlay.OriginalFileObject = v7;
+          Irp->Tail.Overlay.OriginalFileObject = (PFILE_OBJECT)v7;
           CurrentThread = KeGetCurrentThread();
           v4->Tail.Overlay.AuxiliaryBuffer = 0LL;
           *(_WORD *)&v4->RequestorMode = 0;
           v4->Overlay.AllocationSize.QuadPart = 0LL;
           v4->CancelRoutine = 0LL;
-          v7 = (struct _FILE_OBJECT *)Object;
+          v7 = (struct _DMA_ADAPTER *)Object;
           v4->Tail.Overlay.Thread = CurrentThread;
           CurrentStackLocation = v4->Tail.Overlay.CurrentStackLocation;
           v4->Cancel = 0;
           *(_WORD *)&CurrentStackLocation[-1].MajorFunction = 265;
-          CurrentStackLocation[-1].FileObject = v7;
+          CurrentStackLocation[-1].FileObject = (PFILE_OBJECT)v7;
           CurrentStackLocation[-1].DeviceObject = RelatedDeviceObject;
           v13 = v4->Tail.Overlay.CurrentStackLocation;
           v13[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)SmKmGenericCompletion;
@@ -92,7 +92,7 @@ __int64 __fastcall CmpFileFlushAndPurge(__int64 a1, unsigned int a2)
         }
       }
       if ( v7 )
-        ObfDereferenceObject(v7);
+        HalPutDmaAdapter(v7);
       if ( v4 )
         IoFreeIrp(v4);
     }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PoFxSystemLatencyNotify @ 0x14032C340
+ * XREFs of PoFxSystemLatencyNotify @ 0x14034A948
  * Callers:
- *     PoFxSendSystemLatencyUpdate @ 0x14032C150 (PoFxSendSystemLatencyUpdate.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14034A828 (PoFxSendSystemLatencyUpdate.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 bool __fastcall PoFxSystemLatencyNotify(__int64 a1)
@@ -15,8 +15,9 @@ bool __fastcall PoFxSystemLatencyNotify(__int64 a1)
   struct _KTHREAD *CurrentThread; // rax
   bool v3; // di
   ULONG_PTR i; // rbx
-  unsigned __int8 (__fastcall *v5)(__int64, __int64 *); // rax
-  __int64 v7; // [rsp+48h] [rbp+10h] BYREF
+  __int64 (__fastcall *v6)(__int64, __int64 *); // rax
+  char v7; // al
+  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v3 = 0;
@@ -24,20 +25,22 @@ bool __fastcall PoFxSystemLatencyNotify(__int64 a1)
   ExAcquirePushLockSharedEx((ULONG_PTR)&PopFxPluginLock, 0LL);
   for ( i = PopFxPluginList; (ULONG_PTR *)i != &PopFxPluginList; i = *(_QWORD *)i )
   {
-    v5 = *(unsigned __int8 (__fastcall **)(__int64, __int64 *))(i + 96);
-    if ( v5 )
+    v6 = *(__int64 (__fastcall **)(__int64, __int64 *))(i + 96);
+    if ( v6 )
     {
-      v7 = a1;
-      if ( v5(16LL, &v7) )
-      {
-        if ( !v3 )
-          v3 = *(_DWORD *)(i + 24) >= 0;
-      }
+      v8 = a1;
+      v7 = v6(16LL, &v8);
     }
+    else
+    {
+      v7 = 0;
+    }
+    if ( v7 && !v3 )
+      v3 = *(_DWORD *)(i + 24) >= 0;
   }
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxPluginLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PopFxPluginLock);
   KeAbPostRelease((ULONG_PTR)&PopFxPluginLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v3;
 }

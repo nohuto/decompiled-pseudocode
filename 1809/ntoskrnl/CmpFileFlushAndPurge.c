@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpFileFlushAndPurge @ 0x1406B87AC
+ * XREFs of CmpFileFlushAndPurge @ 0x1406B878C
  * Callers:
  *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     HvValidateOrInvalidatePrimaryFileHeader @ 0x1406B8268 (HvValidateOrInvalidatePrimaryFileHeader.c)
- *     HvWriteHivePrimaryFile @ 0x1406B8358 (HvWriteHivePrimaryFile.c)
- *     HvWriteLogFile @ 0x1406B85FC (HvWriteLogFile.c)
- *     HvExtendHivePrimaryFileValidDataLength @ 0x1407FAC08 (HvExtendHivePrimaryFileValidDataLength.c)
+ *     HvValidateOrInvalidatePrimaryFileHeader @ 0x1406B8248 (HvValidateOrInvalidatePrimaryFileHeader.c)
+ *     HvWriteHivePrimaryFile @ 0x1406B8338 (HvWriteHivePrimaryFile.c)
+ *     HvWriteLogFile @ 0x1406B85DC (HvWriteLogFile.c)
+ *     HvExtendHivePrimaryFileValidDataLength @ 0x1407FABE8 (HvExtendHivePrimaryFileValidDataLength.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     IoAllocateIrp @ 0x14008E4E0 (IoAllocateIrp.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B70 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1400B8DD0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     IoFreeIrp @ 0x1400B9650 (IoFreeIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmpFileFlush @ 0x1406B8938 (CmpFileFlush.c)
+ *     CmpFileFlush @ 0x1406B8918 (CmpFileFlush.c)
  */
 
 __int64 __fastcall CmpFileFlushAndPurge(__int64 a1, unsigned int a2)

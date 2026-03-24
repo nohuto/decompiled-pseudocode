@@ -1,15 +1,15 @@
 /*
- * XREFs of SiIsWinPeHardDiskZeroUfdBoot @ 0x140A22790
+ * XREFs of SiIsWinPeHardDiskZeroUfdBoot @ 0x14077B054
  * Callers:
- *     SiGetBiosSystemDisk @ 0x140A22520 (SiGetBiosSystemDisk.c)
+ *     SiGetBiosSystemDisk @ 0x14077AEC0 (SiGetBiosSystemDisk.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _snwscanf_s @ 0x1403E6720 (_snwscanf_s.c)
- *     SiIsWinPEBoot @ 0x1406BAF60 (SiIsWinPEBoot.c)
- *     SiGetBootDeviceNameFromRegistry @ 0x1406BB218 (SiGetBootDeviceNameFromRegistry.c)
- *     SiTranslateSymbolicLink @ 0x1406BB4A0 (SiTranslateSymbolicLink.c)
- *     SiIssueSynchronousIoctl @ 0x140A218B8 (SiIssueSynchronousIoctl.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _snwscanf_s @ 0x1403D72E0 (_snwscanf_s.c)
+ *     SiIsWinPEBoot @ 0x1406A4930 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceNameFromRegistry @ 0x1406A4B58 (SiGetBootDeviceNameFromRegistry.c)
+ *     SiTranslateSymbolicLink @ 0x1406A4F0C (SiTranslateSymbolicLink.c)
+ *     SiIssueSynchronousIoctl @ 0x14097384C (SiIssueSynchronousIoctl.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall SiIsWinPeHardDiskZeroUfdBoot(int a1, __int64 a2, __int64 a3, int a4)
@@ -21,27 +21,30 @@ bool __fastcall SiIsWinPeHardDiskZeroUfdBoot(int a1, __int64 a2, __int64 a3, int
   wchar_t *v8; // rdi
   __int64 v9; // rdx
   __int64 v10; // rdx
-  __int64 v11; // r9
-  int v12; // eax
-  bool v13; // zf
-  int v14; // [rsp+30h] [rbp-9h] BYREF
-  int v15; // [rsp+34h] [rbp-5h] BYREF
-  int v16; // [rsp+38h] [rbp-1h] BYREF
+  int v11; // eax
+  bool v12; // zf
+  int v13; // [rsp+30h] [rbp-9h] BYREF
+  int v14; // [rsp+34h] [rbp-5h] BYREF
+  int v15; // [rsp+38h] [rbp-1h] BYREF
   wchar_t *Src; // [rsp+40h] [rbp+7h] BYREF
-  wchar_t *v18; // [rsp+48h] [rbp+Fh] BYREF
-  int v19; // [rsp+50h] [rbp+17h] BYREF
-  __int64 v20; // [rsp+54h] [rbp+1Bh]
-  __int128 v21; // [rsp+60h] [rbp+27h] BYREF
-  __int128 v22; // [rsp+70h] [rbp+37h]
-  __int64 v23; // [rsp+80h] [rbp+47h]
+  wchar_t *v17; // [rsp+48h] [rbp+Fh] BYREF
+  __int64 v18; // [rsp+50h] [rbp+17h] BYREF
+  int v19; // [rsp+58h] [rbp+1Fh]
+  __int128 v20; // [rsp+60h] [rbp+27h]
+  __int128 v21; // [rsp+70h] [rbp+37h]
+  __int64 v22; // [rsp+80h] [rbp+47h]
 
   v4 = 0;
   Src = 0LL;
-  v18 = 0LL;
-  v15 = 0;
+  v17 = 0LL;
+  v20 = 0LL;
+  v22 = 0LL;
+  v21 = 0LL;
   v14 = 0;
-  HIDWORD(v20) = 0;
-  v16 = 0;
+  v13 = 0;
+  v18 = 0LL;
+  v19 = 0;
+  v15 = 0;
   result = SiIsWinPEBoot(a1, a2, a3, a4);
   if ( result )
   {
@@ -52,24 +55,20 @@ bool __fastcall SiIsWinPeHardDiskZeroUfdBoot(int a1, __int64 a2, __int64 a3, int
       do
         ++v9;
       while ( Src[v9] );
-      if ( snwscanf_s(Src, v9 + 1, L"multi(%d)disk(%d)rdisk(%d)", &v14, &v15, &v16) == 3
+      if ( snwscanf_s(Src, v9 + 1, L"multi(%d)disk(%d)rdisk(%d)", &v13, &v14, &v15) == 3
+        && !v13
         && !v14
         && !v15
-        && !v16
-        && SiTranslateSymbolicLink(L"\\ArcName\\multi(0)disk(0)rdisk(0)", &v18) >= 0 )
+        && SiTranslateSymbolicLink(L"\\ArcName\\multi(0)disk(0)rdisk(0)", &v17) >= 0 )
       {
         ExFreePoolWithTag(v8, 0);
-        v23 = 0LL;
-        v20 = 0LL;
-        v21 = 0LL;
         v19 = 0;
-        v22 = 0LL;
-        v12 = SiIssueSynchronousIoctl(v18, v10, &v19, v11, &v21, 0x28u);
-        if ( v12 >= 0 )
-          v13 = HIDWORD(v22) == 7;
+        v11 = SiIssueSynchronousIoctl(v17, v10, &v18);
+        if ( v11 >= 0 )
+          v12 = HIDWORD(v21) == 7;
         else
-          v13 = v12 == -1073741766;
-        if ( v13 )
+          v12 = v11 == -1073741766;
+        if ( v12 )
           return 1;
       }
     }

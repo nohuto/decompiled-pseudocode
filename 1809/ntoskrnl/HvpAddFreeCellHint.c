@@ -4,7 +4,7 @@
  *     HvpEnlistFreeCell @ 0x1405FAF0C (HvpEnlistFreeCell.c)
  * Callees:
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
  */
 

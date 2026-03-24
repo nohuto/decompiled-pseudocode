@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_ECRectangleEdgeSpawner@EmitterShapes@@UEAAPEAXI@Z @ 0x18022DB20
+ * XREFs of ??_ECRectangleEdgeSpawner@EmitterShapes@@UEAAPEAXI@Z @ 0x1801DEB00
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 EmitterShapes::CRectangleEdgeSpawner *__fastcall EmitterShapes::CRectangleEdgeSpawner::`vector deleting destructor'(

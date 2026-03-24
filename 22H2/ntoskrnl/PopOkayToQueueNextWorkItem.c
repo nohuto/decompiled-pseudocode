@@ -1,19 +1,16 @@
 /*
- * XREFs of PopOkayToQueueNextWorkItem @ 0x14032ED60
+ * XREFs of PopOkayToQueueNextWorkItem @ 0x14032B274
  * Callers:
- *     PopSetUserShutdownMarkerWorker @ 0x140683420 (PopSetUserShutdownMarkerWorker.c)
- *     PopClearUserShutdownMarkerWorker @ 0x140683470 (PopClearUserShutdownMarkerWorker.c)
- *     PopExternalMonitorUpdatedWorker @ 0x1407A91F0 (PopExternalMonitorUpdatedWorker.c)
- *     PopThermalStateTransitionWorker @ 0x140865600 (PopThermalStateTransitionWorker.c)
- *     PopBsdUpdateWorker @ 0x140875B50 (PopBsdUpdateWorker.c)
- *     PpmPerfTelemetryWorker @ 0x140885130 (PpmPerfTelemetryWorker.c)
- *     PopBsdFlushWorker @ 0x1409806D0 (PopBsdFlushWorker.c)
- *     PopRecordLidStateWorker @ 0x1409812D0 (PopRecordLidStateWorker.c)
- *     PopPowerRequestExecutionRequiredTimeoutWorker @ 0x1409816C0 (PopPowerRequestExecutionRequiredTimeoutWorker.c)
- *     PopNetRefreshTimerWorkerCallback @ 0x1409969A0 (PopNetRefreshTimerWorkerCallback.c)
- *     PopPreSleepNotifyWorker @ 0x14099BFD0 (PopPreSleepNotifyWorker.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x14099C758 (PopDripsWatchdogScheduleNextTimer.c)
- *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x140AA6980 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
+ *     PopBsdUpdateWorker @ 0x1405CF240 (PopBsdUpdateWorker.c)
+ *     PpmPerfTelemetryWorker @ 0x1406A36D0 (PpmPerfTelemetryWorker.c)
+ *     PopClearUserShutdownMarkerWorker @ 0x14077A410 (PopClearUserShutdownMarkerWorker.c)
+ *     PopSetUserShutdownMarkerWorker @ 0x14077A460 (PopSetUserShutdownMarkerWorker.c)
+ *     PopExternalMonitorUpdatedWorker @ 0x1407D56B0 (PopExternalMonitorUpdatedWorker.c)
+ *     PopRecordLidStateWorker @ 0x1408E1450 (PopRecordLidStateWorker.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x1408EF534 (PopDripsWatchdogScheduleNextTimer.c)
+ *     PopNetRefreshTimerWorkerCallback @ 0x1408F1FC0 (PopNetRefreshTimerWorkerCallback.c)
+ *     PopPreSleepNotifyWorker @ 0x1408F5710 (PopPreSleepNotifyWorker.c)
+ *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x1409B2650 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
  * Callees:
  *     <none>
  */

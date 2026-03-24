@@ -1,16 +1,16 @@
 /*
- * XREFs of PopLogSleepDisabled @ 0x14070AA54
+ * XREFs of PopLogSleepDisabled @ 0x14070AA34
  * Callers:
  *     PopUpdateUpgradeInProgress @ 0x140582490 (PopUpdateUpgradeInProgress.c)
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  *     PopLogDisabledSleepReason @ 0x1405B0874 (PopLogDisabledSleepReason.c)
  *     PopFilterCapabilities @ 0x1405B0968 (PopFilterCapabilities.c)
- *     PopEnableHiberFile @ 0x140745F9C (PopEnableHiberFile.c)
+ *     PopEnableHiberFile @ 0x140745F7C (PopEnableHiberFile.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  *     PopInitPlatformSettings @ 0x1409DCD88 (PopInitPlatformSettings.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     PopGetReasonListByReasonCode @ 0x1405B0B2C (PopGetReasonListByReasonCode.c)
  */
@@ -52,13 +52,13 @@ __int64 __fastcall PopLogSleepDisabled(int a1, char a2, const void *a3, size_t a
         *(_DWORD *)(v10 + 28) = a4;
         memmove((void *)(v10 + 32), a3, a4);
       }
-      v11 = (__int64 *)qword_140417E48;
-      if ( *(__int64 **)qword_140417E48 != &PowerStateDisableReasonListHead )
+      v11 = (__int64 *)qword_140417E68;
+      if ( *(__int64 **)qword_140417E68 != &PowerStateDisableReasonListHead )
         __fastfail(3u);
       *(_QWORD *)v10 = &PowerStateDisableReasonListHead;
       *(_QWORD *)(v10 + 8) = v11;
       *v11 = v10;
-      qword_140417E48 = v10;
+      qword_140417E68 = v10;
     }
     else
     {

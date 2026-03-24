@@ -1,7 +1,7 @@
 /*
  * XREFs of KdpGetContext @ 0x1409162E4
  * Callers:
- *     KdpGetContextEx @ 0x14028C39C (KdpGetContextEx.c)
+ *     KdpGetContextEx @ 0x14028C49C (KdpGetContextEx.c)
  *     KdpSendWaitContinue @ 0x140917100 (KdpSendWaitContinue.c)
  * Callees:
  *     KdpCopyContext @ 0x140918934 (KdpCopyContext.c)

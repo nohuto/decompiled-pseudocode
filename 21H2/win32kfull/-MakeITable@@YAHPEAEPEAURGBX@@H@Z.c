@@ -1,15 +1,16 @@
 /*
- * XREFs of ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C00DABB8
+ * XREFs of ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C00D4474
  * Callers:
- *     ?vInit256Rainbow@XEPALOBJ@@QEAAXXZ @ 0x1C00DA8E0 (-vInit256Rainbow@XEPALOBJ@@QEAAXXZ.c)
- *     ?bGenColorXlate555@XEPALOBJ@@QEAAHXZ @ 0x1C0141B40 (-bGenColorXlate555@XEPALOBJ@@QEAAHXZ.c)
+ *     ?vInit256Rainbow@XEPALOBJ@@QEAAXXZ @ 0x1C00D417C (-vInit256Rainbow@XEPALOBJ@@QEAAXXZ.c)
+ *     ?bGenColorXlate555@XEPALOBJ@@QEAAHXZ @ 0x1C0154364 (-bGenColorXlate555@XEPALOBJ@@QEAAHXZ.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?inv_cmap@@YAXHPEAURGBX@@HPEAKPEAE@Z @ 0x1C00DACDC (-inv_cmap@@YAXHPEAURGBX@@HPEAKPEAE@Z.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ?MakeITable256@@YAHPEAE@Z @ 0x1C0299E24 (-MakeITable256@@YAHPEAE@Z.c)
- *     ?MakeITableMono@@YAHPEAE@Z @ 0x1C0299E7C (-MakeITableMono@@YAHPEAE@Z.c)
- *     ?MakeITableVGA@@YAHPEAE@Z @ 0x1C0299ED0 (-MakeITableVGA@@YAHPEAE@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?inv_cmap@@YAXHPEAURGBX@@HPEAKPEAE@Z @ 0x1C00D45A0 (-inv_cmap@@YAXHPEAURGBX@@HPEAKPEAE@Z.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ?MakeITable256@@YAHPEAE@Z @ 0x1C029B554 (-MakeITable256@@YAHPEAE@Z.c)
+ *     ?MakeITableMono@@YAHPEAE@Z @ 0x1C029B5AC (-MakeITableMono@@YAHPEAE@Z.c)
+ *     ?MakeITableVGA@@YAHPEAE@Z @ 0x1C029B600 (-MakeITableVGA@@YAHPEAE@Z.c)
  */
 
 __int64 __fastcall MakeITable(unsigned __int8 *a1, struct RGBX *a2, int a3)
@@ -40,28 +41,30 @@ __int64 __fastcall MakeITable(unsigned __int8 *a1, struct RGBX *a2, int a3)
     {
       v9 = 0;
       v10 = a2;
-      while ( *(_DWORD *)v10 == logDefaultPal[v9 % 0x14u + 1] )
+      do
       {
+        if ( *(_DWORD *)v10 != logDefaultPal[v9 % 20 + 1] )
+          break;
         ++v9;
         v10 = (struct RGBX *)((char *)v10 + 4);
-        if ( v9 >= v4 )
+      }
+      while ( v9 < v4 );
+      if ( v9 == v4 )
+      {
+        if ( gpDefITable )
         {
-          if ( v9 != v4 )
-            break;
-          if ( gpDefITable )
-          {
-            memmove(v6, gpDefITable, 0x8000uLL);
-            goto LABEL_11;
-          }
-          v7 = (unsigned __int8 *)Win32AllocPool(0x8000LL, 1886221383LL);
-          v4 = 20;
-          if ( !v7 )
-            v7 = v6;
-          break;
+          memmove(v6, gpDefITable, 0x8000uLL);
+LABEL_11:
+          SEMOBJ::vUnlock((SEMOBJ *)&v16);
+          return v8;
         }
+        v7 = (unsigned __int8 *)PALLOCMEM2(0x8000uLL, 1886221383LL, 0);
+        v4 = 20;
+        if ( !v7 )
+          v7 = v6;
       }
     }
-    v11 = (unsigned int *)Win32AllocPool(0x20000LL, 1886221383LL);
+    v11 = (unsigned int *)PALLOCMEM2(0x20000uLL, 1886221383LL, 0);
     v13 = v11;
     if ( v11 )
     {
@@ -79,9 +82,7 @@ __int64 __fastcall MakeITable(unsigned __int8 *a1, struct RGBX *a2, int a3)
       Win32FreePool(v7);
     }
     v8 = v3;
-LABEL_11:
-    SEMOBJ::vUnlock((SEMOBJ *)&v16);
-    return v8;
+    goto LABEL_11;
   }
   switch ( a3 )
   {

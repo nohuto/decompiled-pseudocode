@@ -1,20 +1,20 @@
 /*
- * XREFs of NtUserCreateDCompositionHwndTarget @ 0x1C00B4DF0
+ * XREFs of NtUserCreateDCompositionHwndTarget @ 0x1C00ECC00
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     NtUserDestroyDCompositionHwndTarget @ 0x1C00B3530 (NtUserDestroyDCompositionHwndTarget.c)
- *     ?AttachWindowCompositionTarget@@YAJPEAUHWND__@@KPEAUCompositionObject@@@Z @ 0x1C00B4F5C (-AttachWindowCompositionTarget@@YAJPEAUHWND__@@KPEAUCompositionObject@@@Z.c)
- *     ?TestWindowForCompositionTarget@@YAJPEAUHWND__@@K@Z @ 0x1C00B5168 (-TestWindowForCompositionTarget@@YAJPEAUHWND__@@K@Z.c)
- *     UserSetLastStatus @ 0x1C011A880 (UserSetLastStatus.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     NtUserDestroyDCompositionHwndTarget @ 0x1C00EC640 (NtUserDestroyDCompositionHwndTarget.c)
+ *     UserSetLastStatus @ 0x1C00EC7BC (UserSetLastStatus.c)
+ *     ?AttachWindowCompositionTarget@@YAJPEAUHWND__@@HPEAUCompositionObject@@@Z @ 0x1C00ECD44 (-AttachWindowCompositionTarget@@YAJPEAUHWND__@@HPEAUCompositionObject@@@Z.c)
+ *     ?TestWindowForCompositionTarget@@YAJPEAUHWND__@@H@Z @ 0x1C00ECF5C (-TestWindowForCompositionTarget@@YAJPEAUHWND__@@H@Z.c)
  */
 
-__int64 __fastcall NtUserCreateDCompositionHwndTarget(HWND a1, unsigned int a2, _QWORD *a3)
+__int64 __fastcall NtUserCreateDCompositionHwndTarget(HWND a1, int a2, _QWORD *a3)
 {
-  __int64 v6; // rdi
+  __int64 v6; // rbx
   int v7; // r15d
-  NTSTATUS v8; // ebx
+  NTSTATUS v8; // edi
   HANDLE Handle; // [rsp+40h] [rbp-48h] BYREF
   struct CompositionObject *v11; // [rsp+A8h] [rbp+20h] BYREF
 
@@ -22,34 +22,29 @@ __int64 __fastcall NtUserCreateDCompositionHwndTarget(HWND a1, unsigned int a2, 
   v6 = 0LL;
   v7 = 0;
   KeEnterCriticalRegion();
-  v8 = a3 == 0LL ? 0xC000000D : 0;
-  if ( a3 && a2 >= 3 )
-    v8 = -1073741811;
-  if ( v8 < 0 )
-    goto LABEL_15;
   v8 = TestWindowForCompositionTarget(a1, a2);
-  if ( v8 < 0 )
-    goto LABEL_15;
-  v11 = 0LL;
-  v8 = CreateSharedSystemVisualObject(&v11);
   if ( v8 >= 0 )
   {
-    v8 = AttachWindowCompositionTarget(a1, a2, v11);
+    v11 = 0LL;
+    v8 = CreateSharedSystemVisualObject(&v11);
     if ( v8 >= 0 )
     {
-      v7 = 1;
-      v8 = CompositionObject::CreateHandle(v11, 1u, 0, 0, &Handle);
+      v8 = AttachWindowCompositionTarget(a1, a2, v11);
+      if ( v8 >= 0 )
+      {
+        v7 = 1;
+        v8 = CompositionObject::CreateHandle(v11, 1u, 0, 0, &Handle);
+      }
+      CompositionObject::Release(v11);
     }
-    CompositionObject::Release(v11);
   }
   if ( v8 < 0 )
   {
-LABEL_15:
     if ( v7 )
       NtUserDestroyDCompositionHwndTarget(a1, a2);
     if ( Handle != (HANDLE)-1LL )
       ObCloseHandle(Handle, 1);
-    UserSetLastStatus(v8);
+    UserSetLastStatus(v8, 0);
   }
   else
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDmaNextContiguousPieceV2 @ 0x140459160
+ * XREFs of HalpDmaNextContiguousPieceV2 @ 0x1404CDD90
  * Callers:
- *     HalpDmaNextContiguousPiece @ 0x14045699C (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaNextContiguousPiece @ 0x1404B8CB0 (HalpDmaNextContiguousPiece.c)
  * Callees:
- *     HalpDmaGetAdapterCacheAlignment @ 0x14045693C (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8C50 (HalpDmaGetAdapterCacheAlignment.c)
  */
 
 __int64 __fastcall HalpDmaNextContiguousPieceV2(
@@ -25,7 +25,7 @@ __int64 __fastcall HalpDmaNextContiguousPieceV2(
   __int64 v16; // r14
   __int64 *v17; // r8
   unsigned __int64 *v18; // rax
-  unsigned int v19; // r8d
+  unsigned int i; // r8d
   _QWORD *v20; // rax
   _QWORD *v21; // r10
   __int64 v22; // rdx
@@ -67,7 +67,7 @@ LABEL_4:
       v23 = v17 + 1;
       v24 = v17[1];
       if ( v24 > v11 )
-        goto LABEL_8;
+        break;
       v25 = *v17;
       if ( v25 + 1 != v24
         || ((v25 ^ v24) & 0xFFFFFFFFFFF00000uLL) != 0
@@ -88,31 +88,21 @@ LABEL_4:
       }
     }
   }
-LABEL_8:
   if ( !v9 || !*(_BYTE *)(v9 + 434) || !a6 || v15 )
     return v15;
   v18 = (unsigned __int64 *)(v16 + 56);
-  v19 = v14;
-  if ( v14 >= a6 )
+  for ( i = v14; i < a6; ++v18 )
   {
-LABEL_15:
-    if ( v19 > a6 )
-      v19 = a6;
-  }
-  else
-  {
-    while ( *v18 > v11 )
-    {
-      v19 += 4096;
-      ++v18;
-      if ( v19 >= a6 )
-        goto LABEL_15;
-    }
+    if ( *v18 <= v11 )
+      break;
+    i += 4096;
   }
   v20 = *(_QWORD **)(a3 + 56);
+  if ( i > a6 )
+    i = a6;
   v21 = (_QWORD *)v20[1];
   v22 = *v20 >> 12;
-  while ( v14 < v19 )
+  while ( v14 < i )
   {
     v26 = *v21 >> 12;
     if ( v26 != v22 + 1
@@ -125,9 +115,9 @@ LABEL_15:
     v22 = v26;
     v14 += 4096;
   }
-  if ( v13 && v14 < 0x1000 && v19 < v14 << 12 && ((v19 - v14) & (AdapterCacheAlignment - 1)) != 0 )
-    v14 = v19;
-  if ( v14 <= v19 )
+  if ( v13 && v14 < 0x1000 && i < v14 << 12 && ((i - v14) & (AdapterCacheAlignment - 1)) != 0 )
+    v14 = i;
+  if ( v14 <= i )
     return v14;
-  return v19;
+  return i;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitDesktopTree@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022E520
+ * XREFs of ?EmitDesktopTree@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F5580
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::EmitDesktopTree(
@@ -15,7 +15,7 @@ char __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::
   __int64 v5; // rax
   void *v7; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( (*((_DWORD *)this + 4) & 0x2000) == 0 )
+  if ( (*((_DWORD *)this + 4) & 0x1000) == 0 )
     return 1;
   v3 = 0;
   v7 = 0LL;
@@ -25,13 +25,13 @@ char __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::
     *(_DWORD *)v7 = 36;
     *(_OWORD *)(v4 + 4) = 0LL;
     *(_OWORD *)(v4 + 20) = 0LL;
-    *((_DWORD *)v4 + 1) = 383;
-    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-    v5 = *((_QWORD *)this + 17);
+    *((_DWORD *)v4 + 1) = 397;
+    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+    v5 = *((_QWORD *)this + 16);
     if ( v5 )
-      v3 = *(_DWORD *)(v5 + 32);
+      v3 = *(_DWORD *)(v5 + 24);
     *((_DWORD *)v4 + 3) = v3;
-    *((_DWORD *)this + 4) &= ~0x2000u;
+    *((_DWORD *)this + 4) &= ~0x1000u;
     return 1;
   }
   return 0;

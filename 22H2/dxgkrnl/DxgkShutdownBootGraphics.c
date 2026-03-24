@@ -1,108 +1,123 @@
 /*
- * XREFs of DxgkShutdownBootGraphics @ 0x1C0187DB0
+ * XREFs of DxgkShutdownBootGraphics @ 0x1C00E4820
  * Callers:
- *     ?SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@PEBQEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0188C5C (-SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAG.c)
- *     ?DxgkCddDestroy@@YAJIIIQEAXE@Z @ 0x1C01E6A40 (-DxgkCddDestroy@@YAJIIIQEAXE@Z.c)
- *     DpiPowerArbiterThread @ 0x1C021E730 (DpiPowerArbiterThread.c)
+ *     ?DxgkCddDestroy@@YAJIIIQEAXE@Z @ 0x1C00E2470 (-DxgkCddDestroy@@YAJIIIQEAXE@Z.c)
+ *     ?SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@PEBQEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00E3A58 (-SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAG.c)
+ *     DpiPowerArbiterThread @ 0x1C019C8E0 (DpiPowerArbiterThread.c)
  * Callees:
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ??0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z @ 0x1C0007CA4 (--0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C018A268 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ??0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z @ 0x1C00088C4 (--0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C00EEC04 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
-__int64 __fastcall DxgkShutdownBootGraphics(struct DXGDEVICE *a1, unsigned int a2)
+__int64 __fastcall DxgkShutdownBootGraphics(struct DXGDEVICE *a1, __int64 a2)
 {
+  unsigned int v2; // ebx
   struct DXGGLOBAL *Global; // rax
-  void *v5; // rcx
-  void *v6; // rcx
-  struct DXGDEVICE *v7; // rbx
-  __int64 v8; // rdi
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  void *v10; // rcx
+  __int64 v11; // rdx
+  void *v12; // rcx
+  struct DXGDEVICE *v13; // rbx
+  __int64 v14; // rdi
+  __int64 v15; // rdx
   struct _KTHREAD **Current; // rax
-  _BYTE v11[16]; // [rsp+30h] [rbp-30h] BYREF
-  _BYTE v12[8]; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v13; // [rsp+48h] [rbp-18h]
-  char v14; // [rsp+50h] [rbp-10h]
-  struct DXGDEVICE *v15; // [rsp+80h] [rbp+20h] BYREF
-  struct DXGDEVICE *v16; // [rsp+90h] [rbp+30h] BYREF
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  _BYTE v22[16]; // [rsp+30h] [rbp-30h] BYREF
+  _BYTE v23[8]; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v24; // [rsp+48h] [rbp-18h]
+  char v25; // [rsp+50h] [rbp-10h]
+  struct DXGDEVICE *v26; // [rsp+80h] [rbp+20h] BYREF
+  struct DXGDEVICE *v27; // [rsp+90h] [rbp+30h] BYREF
 
-  Global = DXGGLOBAL::GetGlobal();
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v11, (struct DXGGLOBAL *)((char *)Global + 1632), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v11);
-  if ( *((_DWORD *)DXGGLOBAL::GetGlobal() + 405) != 4 && *((_DWORD *)DXGGLOBAL::GetGlobal() + 405) )
+  v2 = a2;
+  Global = DXGGLOBAL::GetGlobal((__int64)a1, a2);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v22, (struct DXGGLOBAL *)((char *)Global + 1504), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v22);
+  if ( *((_DWORD *)DXGGLOBAL::GetGlobal(v6, v5) + 373) != 4 && *((_DWORD *)DXGGLOBAL::GetGlobal(v8, v7) + 373) )
     InbvNotifyDisplayOwnershipChange(0LL, 0LL);
-  v5 = (void *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 189);
-  if ( v5 )
+  v10 = (void *)*((_QWORD *)DXGGLOBAL::GetGlobal(v8, v7) + 174);
+  if ( v10 )
   {
-    ExFreePoolWithTag(v5, 0x4B677844u);
-    *((_QWORD *)DXGGLOBAL::GetGlobal() + 189) = 0LL;
+    ExFreePoolWithTag(v10, 0x4B677844u);
+    *((_QWORD *)DXGGLOBAL::GetGlobal(v19, v18) + 174) = 0LL;
   }
-  v6 = (void *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 203);
-  if ( v6 )
+  v12 = (void *)*((_QWORD *)DXGGLOBAL::GetGlobal((__int64)v10, v9) + 187);
+  if ( v12 )
   {
-    ExFreePoolWithTag(v6, 0x4B677844u);
-    *((_QWORD *)DXGGLOBAL::GetGlobal() + 203) = 0LL;
+    ExFreePoolWithTag(v12, 0x4B677844u);
+    *((_QWORD *)DXGGLOBAL::GetGlobal(v21, v20) + 187) = 0LL;
   }
-  v15 = 0LL;
+  v26 = 0LL;
   if ( a1 )
   {
-    v7 = a1;
-    v15 = a1;
+    v13 = a1;
+    v26 = a1;
   }
   else
   {
-    if ( !a2 )
+    if ( !v2 )
       goto LABEL_16;
     Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent();
-    DXGDEVICEBYHANDLE::DXGDEVICEBYHANDLE((DXGDEVICEBYHANDLE *)&v16, a2, Current, &v15);
-    v7 = v15;
-    if ( v15 )
+    DXGDEVICEBYHANDLE::DXGDEVICEBYHANDLE((DXGDEVICEBYHANDLE *)&v27, v2, Current, &v26);
+    v13 = v26;
+    if ( v26 )
     {
-      _InterlockedIncrement64((volatile signed __int64 *)v15 + 8);
-      v7 = v15;
+      _InterlockedIncrement64((volatile signed __int64 *)v26 + 8);
+      v13 = v26;
     }
-    if ( v16 )
+    if ( v27 )
     {
-      if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v16 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-        ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v16 + 2), v16);
-      v7 = v15;
+      v12 = (void *)_InterlockedExchangeAdd64((volatile signed __int64 *)v27 + 8, 0xFFFFFFFFFFFFFFFFuLL);
+      if ( v12 == (void *)1 )
+        ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v27 + 2), v27);
+      v13 = v26;
     }
   }
-  if ( v7 )
+  if ( v13 )
   {
-    v8 = *((_QWORD *)v7 + 235);
-    if ( v8 )
+    v14 = *((_QWORD *)v13 + 231);
+    if ( v14 )
     {
-      v13 = *((_QWORD *)v7 + 235);
-      v14 = 0;
-      DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v12);
-      v7 = v15;
-      if ( *(_DWORD *)(v8 + 200) == 1 && *((_BYTE *)v15 + 1936) )
+      v24 = *((_QWORD *)v13 + 231);
+      v25 = 0;
+      DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v23);
+      v13 = v26;
+      if ( *(_DWORD *)(v14 + 200) == 1 && *((_BYTE *)v26 + 1904) )
       {
-        (*(void (__fastcall **)(_QWORD, __int64, _QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v8 + 2928) + 736LL)
+        (*(void (__fastcall **)(_QWORD, __int64, _QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v14 + 2704)
+                                                                                         + 616LL)
                                                                              + 8LL)
                                                                  + 560LL))(
-          *((_QWORD *)v15 + 100),
+          *((_QWORD *)v26 + 96),
           3LL,
           0LL,
           4294967293LL);
-        *((_BYTE *)v7 + 1936) = 0;
+        *((_BYTE *)v13 + 1904) = 0;
       }
-      if ( v14 )
-        DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v12);
+      if ( v25 )
+        DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v23);
     }
-    if ( !a1 && _InterlockedExchangeAdd64((volatile signed __int64 *)v7 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-      ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v15 + 2), v15);
+    if ( !a1 && _InterlockedExchangeAdd64((volatile signed __int64 *)v13 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+      ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v26 + 2), v26);
   }
 LABEL_16:
-  *((_DWORD *)DXGGLOBAL::GetGlobal() + 405) = 4;
-  if ( v11[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v11);
+  *((_DWORD *)DXGGLOBAL::GetGlobal((__int64)v12, v11) + 373) = 4;
+  if ( v22[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v22, v15);
   return 0LL;
 }

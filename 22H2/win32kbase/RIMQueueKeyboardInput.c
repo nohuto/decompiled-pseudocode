@@ -1,62 +1,53 @@
 /*
- * XREFs of RIMQueueKeyboardInput @ 0x1C0004964
+ * XREFs of RIMQueueKeyboardInput @ 0x1C016A30C
  * Callers:
- *     RIMIDEInjectKeyboardInput @ 0x1C0004888 (RIMIDEInjectKeyboardInput.c)
- *     ?DeliverKeyboardInputToRim@@YAXPEAU_IVKeyboardInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z @ 0x1C01ECE1C (-DeliverKeyboardInputToRim@@YAXPEAU_IVKeyboardInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV.c)
+ *     RIMIDEInjectKeyboardInput @ 0x1C0169680 (RIMIDEInjectKeyboardInput.c)
+ *     ?DeliverKeyboardInputToRim@@YAXPEAU_IVKeyboardInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z @ 0x1C01B3DA4 (-DeliverKeyboardInputToRim@@YAXPEAU_IVKeyboardInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV.c)
  * Callees:
- *     rimProcessDeviceBufferAndStartRead @ 0x1C0004A38 (rimProcessDeviceBufferAndStartRead.c)
- *     WPP_RECORDER_AND_TRACE_SF_ddd @ 0x1C0058ABC (WPP_RECORDER_AND_TRACE_SF_ddd.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z @ 0x1C0192EA4 (-DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0045174 (WPP_RECORDER_SF_ddd.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z @ 0x1C0166784 (-DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175060 (rimProcessDeviceBufferAndStartRead.c)
  */
 
 __int64 __fastcall RIMQueueKeyboardInput(
         struct RawInputManagerObject *a1,
         struct RIMDEV *a2,
-        _QWORD *a3,
+        __int64 *a3,
         unsigned int a4)
 {
   int v4; // eax
-  unsigned int v5; // ebx
+  unsigned int v5; // edi
   __int64 v6; // rsi
   unsigned int v10; // eax
-  __int64 v11; // rdx
+  __int64 v11; // r8
   __int64 v12; // xmm0_8
-  __int64 v13; // rax
+  int v13; // eax
   __int64 v14; // rcx
+  __int64 v15; // rdx
   int v16; // edx
-  int v17; // r8d
 
   v4 = *((_DWORD *)a2 + 46);
   v5 = 0;
   v6 = a4;
   if ( (v4 & 0x2000) == 0 && (v4 & 0x40) == 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2000LL);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1999);
   if ( (unsigned int)v6 > 0x10 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2001LL);
-  v10 = *((_DWORD *)a2 + 173);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2000);
+  v10 = *((_DWORD *)a2 + 175);
   if ( v10 + (unsigned int)v6 < v10 || v10 + (unsigned int)v6 > 0x10 )
   {
-    InputTraceLogging::RIM::DropInput(a2, 7LL);
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (LOBYTE(v16) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 2u) )
+    InputTraceLogging::RIM::DropInput((__int64)a2);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v16) = 0;
-    }
-    if ( (_BYTE)v16 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v17) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_ddd(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v16,
-        v17,
+      LOBYTE(v16) = 2;
+      WPP_RECORDER_SF_ddd(
         (_DWORD)gRimLog,
-        2,
+        v16,
         1,
         46,
-        (__int64)&WPP_9f96ae63cfc83aaf8fc02e72e74825ab_Traceguids,
-        *((_DWORD *)a2 + 173),
+        (__int64)&WPP_6618ffd707d032c105188cf3f3e4149b_Traceguids,
+        *((_DWORD *)a2 + 175),
         16,
         v6);
     }
@@ -70,14 +61,14 @@ __int64 __fastcall RIMQueueKeyboardInput(
       do
       {
         v12 = *a3;
-        v13 = ((unsigned __int8)*((_DWORD *)a2 + 174) + 1) & 0xF;
-        a3 = (_QWORD *)((char *)a3 + 12);
-        *((_DWORD *)a2 + 174) = v13;
-        v14 = 3 * v13;
-        LODWORD(v13) = *((_DWORD *)a3 - 1);
-        *(_QWORD *)((char *)a2 + 4 * v14 + 700) = v12;
-        *((_DWORD *)a2 + v14 + 177) = v13;
-        ++*((_DWORD *)a2 + 173);
+        v13 = *((_DWORD *)a3 + 2);
+        a3 = (__int64 *)((char *)a3 + 12);
+        v14 = ((unsigned __int8)*((_DWORD *)a2 + 176) + 1) & 0xF;
+        *((_DWORD *)a2 + 176) = v14;
+        v15 = 3 * (v14 + 59);
+        *(_QWORD *)((char *)a2 + 4 * v15) = v12;
+        *((_DWORD *)a2 + v15 + 2) = v13;
+        ++*((_DWORD *)a2 + 175);
         --v11;
       }
       while ( v11 );

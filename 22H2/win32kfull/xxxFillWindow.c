@@ -1,24 +1,25 @@
 /*
- * XREFs of xxxFillWindow @ 0x1C00C40F0
+ * XREFs of xxxFillWindow @ 0x1C0045434
  * Callers:
- *     NtUserFillWindow @ 0x1C0012260 (NtUserFillWindow.c)
- *     xxxDWP_EraseBkgnd @ 0x1C00C4090 (xxxDWP_EraseBkgnd.c)
+ *     xxxDWP_EraseBkgnd @ 0x1C0045F88 (xxxDWP_EraseBkgnd.c)
+ *     NtUserFillWindow @ 0x1C01502A0 (NtUserFillWindow.c)
  * Callees:
- *     xxxPaintRect @ 0x1C00077C0 (xxxPaintRect.c)
- *     UT_GetParentDCClipBox @ 0x1C00C4178 (UT_GetParentDCClipBox.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     xxxPaintRect @ 0x1C00454BC (xxxPaintRect.c)
+ *     UT_GetParentDCClipBox @ 0x1C007DB68 (UT_GetParentDCClipBox.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall xxxFillWindow(__int64 a1, __int64 a2, HDC a3, HBRUSH a4)
+__int64 __fastcall xxxFillWindow(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v8; // rcx
-  RECT v10; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v4; // rbx
+  __int128 v9; // [rsp+30h] [rbp-48h] BYREF
 
-  v10 = 0LL;
-  if ( !(unsigned int)UT_GetParentDCClipBox(a2, a3, &v10) )
+  v4 = a1;
+  if ( !a1 )
+    v4 = a2;
+  v9 = 0LL;
+  if ( (unsigned int)UT_GetParentDCClipBox(a2, a3, &v9) )
+    return xxxPaintRect(v4, a2, a3, a4, &v9);
+  else
     return 1LL;
-  v8 = a2;
-  if ( a1 )
-    v8 = a1;
-  return xxxPaintRect(v8, a2, a3, a4, &v10);
 }

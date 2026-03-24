@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CalculateCapacity@VIDMM_LINEAR_POOL@@QEAA_KXZ @ 0x1C0101648
+ * XREFs of ?CalculateCapacity@VIDMM_LINEAR_POOL@@QEAA_KXZ @ 0x1C00CCE0C
  * Callers:
- *     ?CurateVPR@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00FC760 (-CurateVPR@VIDMM_SEGMENT@@QEAAXXZ.c)
+ *     ?CurateVPR@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00C5194 (-CurateVPR@VIDMM_SEGMENT@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

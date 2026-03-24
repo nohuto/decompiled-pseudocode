@@ -1,19 +1,19 @@
 /*
- * XREFs of WdipSemWriteEvent @ 0x1408339AC
+ * XREFs of WdipSemWriteEvent @ 0x1407888FC
  * Callers:
- *     WdipSemSqmInit @ 0x1408316E8 (WdipSemSqmInit.c)
- *     WdipSemWriteSemActionsEvent @ 0x1408320E8 (WdipSemWriteSemActionsEvent.c)
- *     WdipSemWriteInflightLimitExceededEvent @ 0x1409DE3B0 (WdipSemWriteInflightLimitExceededEvent.c)
- *     WdipSemWriteMisconfigEvent @ 0x1409DE498 (WdipSemWriteMisconfigEvent.c)
- *     WdipSemWriteProviderLimitExceededEvent @ 0x1409DE528 (WdipSemWriteProviderLimitExceededEvent.c)
- *     WdipSemWriteScenarioLimitExceededEvent @ 0x1409DE594 (WdipSemWriteScenarioLimitExceededEvent.c)
- *     WdipSemWriteSemFailureEvent @ 0x1409DE61C (WdipSemWriteSemFailureEvent.c)
- *     WdipSemWriteTimeoutEvent @ 0x1409DE6B0 (WdipSemWriteTimeoutEvent.c)
- *     WdipSemSqmAddToStream @ 0x1409DE8E8 (WdipSemSqmAddToStream.c)
- *     WdipSemSqmIncrementDword @ 0x1409DEA9C (WdipSemSqmIncrementDword.c)
+ *     WdipSemWriteSemActionsEvent @ 0x1407886A4 (WdipSemWriteSemActionsEvent.c)
+ *     WdipSemSqmInit @ 0x140793FFC (WdipSemSqmInit.c)
+ *     WdipSemWriteInflightLimitExceededEvent @ 0x140930594 (WdipSemWriteInflightLimitExceededEvent.c)
+ *     WdipSemWriteMisconfigEvent @ 0x14093067C (WdipSemWriteMisconfigEvent.c)
+ *     WdipSemWriteProviderLimitExceededEvent @ 0x14093070C (WdipSemWriteProviderLimitExceededEvent.c)
+ *     WdipSemWriteScenarioLimitExceededEvent @ 0x140930778 (WdipSemWriteScenarioLimitExceededEvent.c)
+ *     WdipSemWriteSemFailureEvent @ 0x140930800 (WdipSemWriteSemFailureEvent.c)
+ *     WdipSemWriteTimeoutEvent @ 0x140930894 (WdipSemWriteTimeoutEvent.c)
+ *     WdipSemSqmAddToStream @ 0x140930ACC (WdipSemSqmAddToStream.c)
+ *     WdipSemSqmIncrementDword @ 0x140930C80 (WdipSemSqmIncrementDword.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
  */
 
 NTSTATUS __fastcall WdipSemWriteEvent(

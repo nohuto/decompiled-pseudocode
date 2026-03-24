@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CSharedReadLegacyAnimationTriggerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C023A1A0
+ * XREFs of ?SetBufferProperty@CSharedReadLegacyAnimationTriggerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F9060
  * Callers:
  *     <none>
  * Callees:

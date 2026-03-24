@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfCheckForIllegalProcessorThrottle @ 0x1402551E8
+ * XREFs of PpmPerfCheckForIllegalProcessorThrottle @ 0x1403006C4
  * Callers:
- *     PpmPerfSnapDeliveredPerformance @ 0x140255E60 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x140220B90 (PpmCheckSnapAllDeliveredPerformance.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PopDiagTraceIllegalProcessorThrottle @ 0x140593FE4 (PopDiagTraceIllegalProcessorThrottle.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PopDiagTraceIllegalProcessorThrottle @ 0x140572B14 (PopDiagTraceIllegalProcessorThrottle.c)
  */
 
 void __fastcall PpmPerfCheckForIllegalProcessorThrottle(__int64 a1)
@@ -18,40 +18,39 @@ void __fastcall PpmPerfCheckForIllegalProcessorThrottle(__int64 a1)
   v6 = 0LL;
   if ( PopProcessorThrottleLogInterval )
   {
-    v2 = *(_QWORD *)(a1 + 33968);
+    v2 = *(_QWORD *)(a1 + 33128);
     if ( v2 )
     {
-      v3 = *(_QWORD *)(a1 + 33976);
+      v3 = *(_QWORD *)(a1 + 33136);
       if ( v3 )
       {
-        v4 = *(void (__fastcall **)(__int64 *))(v2 + 320);
+        v4 = *(void (__fastcall **)(__int64 *))(v2 + 224);
         if ( v4 )
         {
-          if ( *(_BYTE *)(a1 + 33848) )
+          if ( *(_BYTE *)(a1 + 33008) )
           {
             v4(&v6);
-            if ( *(_DWORD *)(v3 + 72) < *(_DWORD *)(v2 + 448) )
+            if ( *(_DWORD *)(v3 + 72) < *(_DWORD *)(v2 + 324) )
             {
-              *(_BYTE *)(a1 + 33856) = 0;
+              *(_BYTE *)(a1 + 33016) = 0;
             }
-            else if ( *(_BYTE *)(a1 + 33856) )
+            else if ( *(_BYTE *)(a1 + 33016) )
             {
-              if ( *(_QWORD *)(a1 + 33864) != v6 )
+              if ( *(_QWORD *)(a1 + 33024) != v6 )
               {
-                v5 = (unsigned int)(*(_DWORD *)(a1 + 33852) + 1);
-                *(_DWORD *)(a1 + 33852) = v5;
-                if ( !((unsigned int)v5 % PopProcessorThrottleLogInterval) || (_DWORD)v5 == 1 )
+                v5 = (unsigned int)++*(_DWORD *)(a1 + 33012);
+                if ( !(*(_DWORD *)(a1 + 33012) % (unsigned int)PopProcessorThrottleLogInterval) || (_DWORD)v5 == 1 )
                 {
                   LODWORD(v5) = KeGetPcr()->Prcb.Number;
-                  PopDiagTraceIllegalProcessorThrottle(v5, v6, a1 + 33872);
+                  PopDiagTraceIllegalProcessorThrottle(v5, v6, a1 + 33032);
                 }
               }
             }
             else
             {
-              *(_BYTE *)(a1 + 33856) = 1;
+              *(_BYTE *)(a1 + 33016) = 1;
             }
-            *(_QWORD *)(a1 + 33864) = v6;
+            *(_QWORD *)(a1 + 33024) = v6;
           }
         }
       }

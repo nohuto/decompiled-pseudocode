@@ -1,525 +1,490 @@
 /*
- * XREFs of PopEtEnergyTrackerQuery @ 0x1407B897C
+ * XREFs of PopEtEnergyTrackerQuery @ 0x1406732D8
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeQueryTimelineBitmapTime @ 0x1402C0834 (KeQueryTimelineBitmapTime.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     PopEtDataSectionCopyData @ 0x1407B9664 (PopEtDataSectionCopyData.c)
- *     PopEtDataSectionReserve @ 0x1407B96B0 (PopEtDataSectionReserve.c)
- *     PopEtDataSectionStart @ 0x1407B9700 (PopEtDataSectionStart.c)
- *     PopEtEnergyTrackerCleanupAggregates @ 0x1407B9720 (PopEtEnergyTrackerCleanupAggregates.c)
- *     PsEnumProcesses @ 0x1407CFA2C (PsEnumProcesses.c)
+ *     KeQueryTimelineBitmapTime @ 0x1402056E0 (KeQueryTimelineBitmapTime.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140253F54 (KiQueryUnbiasedInterruptTime.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     PopEtDataSectionCopyData @ 0x140673F40 (PopEtDataSectionCopyData.c)
+ *     PopEtDataSectionReserve @ 0x140673F8C (PopEtDataSectionReserve.c)
+ *     PopEtDataSectionStart @ 0x140673FDC (PopEtDataSectionStart.c)
+ *     PopEtEnergyTrackerCleanupAggregates @ 0x140673FFC (PopEtEnergyTrackerCleanupAggregates.c)
+ *     PopEtDataSectionCopyString @ 0x1408F29EC (PopEtDataSectionCopyString.c)
+ *     PopEtEnergyTrackerSnapshotProcesses @ 0x1408F2BE8 (PopEtEnergyTrackerSnapshotProcesses.c)
  */
 
-__int64 __fastcall PopEtEnergyTrackerQuery(ULONG_PTR a1, __int64 a2, unsigned int a3)
+__int64 __fastcall PopEtEnergyTrackerQuery(void *a1, __int64 a2, unsigned int a3)
 {
   char *v5; // rbx
-  char v6; // r15
-  int v7; // esi
-  unsigned int v8; // r13d
-  unsigned int v9; // esi
-  unsigned int v10; // r15d
-  _QWORD *v11; // r10
-  _DWORD *v12; // r11
-  int v13; // r9d
-  _QWORD *v14; // r8
-  __int64 v15; // rdx
-  _QWORD **v16; // rdx
-  unsigned __int64 v17; // r8
-  unsigned __int16 *v18; // rdx
-  __int64 v19; // rax
-  int v20; // esi
+  char v6; // r13
+  NTSTATUS v7; // esi
+  char *v8; // r11
+  unsigned int v9; // r9d
+  unsigned int v10; // esi
+  unsigned int v11; // r15d
+  _QWORD *v12; // r10
+  unsigned int v13; // r9d
+  __int64 v14; // rdx
+  _QWORD **i; // rdx
+  unsigned __int16 *v16; // rdx
+  __int64 v17; // rax
+  int v18; // esi
+  __int64 v19; // rdx
+  __int64 v20; // rdx
   __int64 v21; // rdx
-  __int64 v22; // rdx
-  __int64 v23; // rdx
-  char *v24; // r13
-  __m128i v25; // xmm0
-  __int64 v26; // rsi
-  __int64 v27; // r14
+  char *v22; // rsi
+  __m128i v23; // xmm0
+  __int64 v24; // rsi
+  __int64 v25; // r14
+  unsigned int v26; // r12d
+  char *v27; // r10
   int v28; // ebx
-  char *v29; // r11
-  char *v30; // r10
-  unsigned __int8 *v31; // r8
-  __int64 v32; // r9
+  unsigned __int8 *v29; // r8
+  __int64 v30; // r9
+  int v31; // edx
+  int v32; // ecx
   __int64 v33; // rdx
-  __int64 v34; // rax
-  int v35; // r13d
-  int v36; // r12d
-  int v37; // r15d
-  int v38; // ecx
-  __int64 v39; // rdx
-  __int64 *v40; // rdx
-  unsigned __int64 v41; // r8
-  __int64 v42; // rbx
-  __int64 v43; // rax
-  int v44; // ecx
-  _DWORD *v45; // r11
-  __int64 v46; // rdx
+  __int64 *v34; // rdx
+  unsigned __int64 v35; // r8
+  __int64 v36; // rbx
+  __int64 v37; // rax
+  _DWORD *v38; // rsi
+  int v39; // ecx
+  __int64 v40; // rdx
   int TimelineBitmapTime; // eax
-  __int64 v48; // r11
-  __int64 v49; // rdx
-  int v50; // r9d
-  int v51; // r9d
-  int v52; // r9d
-  int v53; // r9d
-  int v54; // r9d
-  int v55; // r9d
-  int v56; // eax
-  __int64 i; // r10
-  __int64 v58; // rdx
-  __int64 *j; // rdx
-  int v61; // [rsp+40h] [rbp-158h]
-  __int64 v62; // [rsp+40h] [rbp-158h]
-  size_t Size; // [rsp+48h] [rbp-150h] BYREF
-  PVOID Object; // [rsp+50h] [rbp-148h] BYREF
-  unsigned __int8 *v65; // [rsp+58h] [rbp-140h]
-  int v66; // [rsp+60h] [rbp-138h]
-  int v67; // [rsp+64h] [rbp-134h]
-  __m128i v68; // [rsp+68h] [rbp-130h] BYREF
-  __int128 v69; // [rsp+78h] [rbp-120h] BYREF
-  __int128 v70; // [rsp+88h] [rbp-110h]
-  char *v71; // [rsp+98h] [rbp-100h]
-  __int64 v72; // [rsp+A0h] [rbp-F8h]
-  _QWORD *v73; // [rsp+A8h] [rbp-F0h]
-  __int128 v74; // [rsp+B0h] [rbp-E8h] BYREF
-  __int128 v75; // [rsp+C0h] [rbp-D8h]
-  __int128 v76; // [rsp+D0h] [rbp-C8h] BYREF
-  __int128 v77; // [rsp+E0h] [rbp-B8h]
-  __int64 v78; // [rsp+F0h] [rbp-A8h]
-  __int64 v79; // [rsp+F8h] [rbp-A0h]
-  __int64 *v80; // [rsp+100h] [rbp-98h]
-  __int128 v81; // [rsp+108h] [rbp-90h] BYREF
-  __int128 v82; // [rsp+118h] [rbp-80h]
-  __int64 v83; // [rsp+128h] [rbp-70h]
-  __int64 v84; // [rsp+138h] [rbp-60h] BYREF
-  __int64 v85; // [rsp+140h] [rbp-58h]
-  __int128 v86; // [rsp+148h] [rbp-50h] BYREF
-  __int128 v87; // [rsp+158h] [rbp-40h]
+  __int64 v42; // rdx
+  int v43; // r9d
+  int v44; // r9d
+  int v45; // r9d
+  int v46; // r9d
+  int v47; // r9d
+  int v48; // r9d
+  __int64 j; // r10
+  __int64 *v50; // rdx
+  unsigned int v52; // [rsp+40h] [rbp-148h]
+  size_t Size; // [rsp+48h] [rbp-140h] BYREF
+  PVOID Object; // [rsp+50h] [rbp-138h] BYREF
+  __int64 *v55; // [rsp+58h] [rbp-130h]
+  int v56; // [rsp+60h] [rbp-128h]
+  int v57; // [rsp+64h] [rbp-124h]
+  __m128i v58; // [rsp+68h] [rbp-120h] BYREF
+  __int128 v59; // [rsp+78h] [rbp-110h] BYREF
+  __int128 v60; // [rsp+88h] [rbp-100h]
+  __int128 v61; // [rsp+98h] [rbp-F0h] BYREF
+  __int128 v62; // [rsp+A8h] [rbp-E0h]
+  char *v63; // [rsp+B8h] [rbp-D0h]
+  __int64 v64; // [rsp+C0h] [rbp-C8h]
+  _QWORD *v65; // [rsp+C8h] [rbp-C0h]
+  __int128 v66; // [rsp+D0h] [rbp-B8h] BYREF
+  __int128 v67; // [rsp+E0h] [rbp-A8h]
+  __int64 v68; // [rsp+F0h] [rbp-98h]
+  __int64 *v69; // [rsp+F8h] [rbp-90h]
+  __int128 v70; // [rsp+100h] [rbp-88h] BYREF
+  __int128 v71; // [rsp+110h] [rbp-78h]
+  __int64 v72; // [rsp+120h] [rbp-68h] BYREF
+  __int64 v73; // [rsp+128h] [rbp-60h]
+  __int64 v74; // [rsp+130h] [rbp-58h]
+  __int128 v75; // [rsp+138h] [rbp-50h] BYREF
+  __int128 v76; // [rsp+148h] [rbp-40h]
+  __int64 v77; // [rsp+1A8h] [rbp+20h]
 
   v5 = 0LL;
   Object = 0LL;
-  v81 = 0LL;
-  v82 = 0LL;
-  v76 = 0LL;
-  v77 = 0LL;
-  v6 = 0;
-  v74 = 0LL;
-  v75 = 0LL;
-  v86 = 0LL;
-  v87 = 0LL;
-  v69 = 0LL;
   v70 = 0LL;
+  v71 = 0LL;
+  v61 = 0LL;
+  v62 = 0LL;
+  v6 = 0;
+  v66 = 0LL;
+  v67 = 0LL;
+  v75 = 0LL;
+  v76 = 0LL;
+  v59 = 0LL;
+  v60 = 0LL;
   if ( !PopEtGlobals )
   {
     v7 = -1073741637;
-    goto LABEL_82;
+    goto LABEL_80;
   }
-  v7 = ObpReferenceObjectByHandleWithTag(
+  v7 = ObReferenceObjectByHandleWithTag(
          a1,
-         1,
-         *(_QWORD *)(PopEtGlobals + 32),
+         1u,
+         *(POBJECT_TYPE *)(PopEtGlobals + 32),
          KeGetCurrentThread()->PreviousMode,
          0x74456F50u,
          &Object,
-         0LL,
          0LL);
   v5 = (char *)Object;
   if ( v7 >= 0 )
   {
-    v86 = 2uLL;
-    v87 = (unsigned __int64)Object;
-    v7 = PsEnumProcesses(PopEtProcessEnumSnapshotCallback, &v86);
+    v75 = 2uLL;
+    v76 = (unsigned __int64)Object;
+    v7 = PopEtEnergyTrackerSnapshotProcesses(&v75);
     if ( v7 >= 0 )
     {
       PopAcquireRwLockExclusive((ULONG_PTR)(v5 + 16));
-      v8 = *((_DWORD *)v5 + 12);
-      v9 = 0;
-      v10 = 44;
-      v11 = 0LL;
+      v6 = 1;
+      v8 = v5 + 48;
+      v9 = *((_DWORD *)v5 + 12);
+      v52 = v9;
+      v10 = 0;
+      v11 = 44;
+      v12 = 0LL;
       while ( 1 )
       {
-        v12 = v5 + 52;
-        if ( v11 )
+        if ( v12 )
         {
-          v13 = *v12 >> 5;
-          v83 = v11[1] & (-1LL << (*v12 & 0x1F));
-          v14 = v5 + 56;
-          v15 = *((_QWORD *)v5 + 7)
+          v13 = *((_DWORD *)v8 + 1);
+          Size = v12[1] & (-1LL << (v13 & 0x1F));
+          v14 = *((_QWORD *)v8 + 1)
               + 8LL
               * ((37
-                * (BYTE6(v83)
+                * (BYTE6(Size)
                  + 37
-                 * (BYTE5(v83)
+                 * (BYTE5(Size)
                   + 37
-                  * (BYTE4(v83)
-                   + 37 * (BYTE3(v83) + 37 * (BYTE2(v83) + 37 * (BYTE1(v83) + 37 * ((unsigned __int8)v83 + 11623883)))))))
-                + HIBYTE(v83)) & (unsigned int)(v13 - 1));
+                  * (BYTE4(Size)
+                   + 37
+                   * (BYTE3(Size) + 37 * (BYTE2(Size) + 37 * (BYTE1(Size) + 37 * ((unsigned __int8)Size + 11623883)))))))
+                + HIBYTE(Size)) & ((v13 >> 5) - 1));
+          v9 = v52;
         }
         else
         {
-          v14 = v5 + 56;
-          v11 = (_QWORD *)*((_QWORD *)v5 + 7);
-          v15 = (__int64)v11;
+          v12 = (_QWORD *)*((_QWORD *)v8 + 1);
+          v14 = (__int64)v12;
         }
-        if ( !v11 )
-          goto LABEL_8;
-        if ( (*v11 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
+        if ( !v12 )
+          goto LABEL_11;
+        if ( (*v12 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
           v5 = (char *)Object;
-        v11 = (_QWORD *)*v11;
-        if ( ((unsigned __int8)v11 & 1) != 0 )
+        v12 = (_QWORD *)*v12;
+        if ( ((unsigned __int8)v12 & 1) != 0 )
         {
-LABEL_8:
-          v16 = (_QWORD **)(v15 + 8);
-          v17 = *v14 + 8 * ((unsigned __int64)(unsigned int)*v12 >> 5);
-          while ( (unsigned __int64)v16 < v17 )
+LABEL_11:
+          for ( i = (_QWORD **)(v14 + 8);
+                (unsigned __int64)i < *((_QWORD *)v8 + 1) + 8 * ((unsigned __int64)*((unsigned int *)v8 + 1) >> 5);
+                ++i )
           {
-            v11 = *v16;
-            if ( ((unsigned __int8)*v16 & 1) == 0 )
-              goto LABEL_13;
-            ++v16;
+            v12 = *i;
+            if ( ((unsigned __int8)*i & 1) == 0 )
+              goto LABEL_14;
           }
-          v11 = 0LL;
+          v12 = 0LL;
         }
-LABEL_13:
-        if ( !v11 )
+LABEL_14:
+        if ( !v12 )
           break;
-        v18 = (unsigned __int16 *)v11[2];
-        if ( v9 >= 0x10000000 )
+        v16 = (unsigned __int16 *)v12[2];
+        if ( v10 >= 0x10000000 )
         {
           v7 = -1073741619;
-          goto LABEL_81;
+          goto LABEL_80;
         }
-        v10 += v18[43];
-        v9 += v18[41] + v18[42] + v18[40];
-        v19 = v11[3];
-        if ( v19 )
-          v9 += ((unsigned int)(*(_QWORD *)(v19 + 24) >> 16) >> 1) & 0x1FFFFFFF;
+        v11 += v16[39];
+        v10 += v16[37] + v16[38] + v16[36];
+        v17 = v12[3];
+        if ( v17 )
+          v10 += ((unsigned int)(*(_QWORD *)(v17 + 24) >> 16) >> 1) & 0x1FFFFFFF;
       }
       LODWORD(Size) = 72;
-      v76 = 0LL;
-      v77 = 0LL;
-      HIDWORD(v76) = 104;
-      LODWORD(v77) = 8;
-      PopEtDataSectionReserve(&v76, v8, &Size);
-      v81 = 0LL;
-      v82 = 0LL;
-      HIDWORD(v81) = 432;
-      LODWORD(v82) = 8;
-      PopEtDataSectionReserve(&v81, v8, &Size);
-      v74 = 0LL;
-      v75 = 0LL;
-      HIDWORD(v74) = 1;
-      LODWORD(v75) = 4;
-      PopEtDataSectionReserve(&v74, v10, &Size);
-      v69 = 0LL;
+      v61 = 0LL;
+      v62 = 0LL;
+      HIDWORD(v61) = 96;
+      LODWORD(v62) = 8;
+      PopEtDataSectionReserve(&v61, v9, &Size);
       v70 = 0LL;
-      HIDWORD(v69) = 2;
-      LODWORD(v70) = 2;
-      PopEtDataSectionReserve(&v69, v9, &Size);
-      v20 = Size;
+      v71 = 0LL;
+      HIDWORD(v70) = 432;
+      LODWORD(v71) = 8;
+      PopEtDataSectionReserve(&v70, v52, &Size);
+      v66 = 0LL;
+      v67 = 0LL;
+      HIDWORD(v66) = 1;
+      LODWORD(v67) = 4;
+      PopEtDataSectionReserve(&v66, v11, &Size);
+      v59 = 0LL;
+      v60 = 0LL;
+      HIDWORD(v59) = 2;
+      LODWORD(v60) = 2;
+      PopEtDataSectionReserve(&v59, v10, &Size);
+      v18 = Size;
       if ( (unsigned int)Size > a3 || (unsigned int)Size >= 0x7FFFFFFF )
       {
         if ( a3 >= 0xC )
         {
           *(_QWORD *)a2 = 0LL;
-          *(_DWORD *)a2 = 2097171;
-          *(_DWORD *)(a2 + 8) = v20;
+          *(_DWORD *)a2 = 2097170;
+          *(_DWORD *)(a2 + 8) = v18;
         }
         v7 = -1073741789;
-        goto LABEL_81;
+        goto LABEL_80;
       }
       memset((void *)a2, 0, (unsigned int)Size);
-      PopEtDataSectionStart(&v76, a2);
-      PopEtDataSectionStart(&v81, v21);
-      PopEtDataSectionStart(&v74, v22);
-      PopEtDataSectionStart(&v69, v23);
-      v83 = a2;
-      *(_DWORD *)a2 = 2097171;
+      PopEtDataSectionStart(&v61, a2);
+      PopEtDataSectionStart(&v70, v19);
+      PopEtDataSectionStart(&v66, v20);
+      PopEtDataSectionStart(&v59, v21);
+      v73 = a2;
+      *(_DWORD *)a2 = 2097170;
       *(_DWORD *)(a2 + 4) = 72;
-      *(_DWORD *)(a2 + 8) = v20;
+      *(_DWORD *)(a2 + 8) = v18;
       *(_DWORD *)(a2 + 12) = *((_DWORD *)v5 + 150);
       *(_DWORD *)(a2 + 24) = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-      *(_DWORD *)(a2 + 36) = v76;
-      *(_DWORD *)(a2 + 40) = v8;
-      *(_DWORD *)(a2 + 56) = 1048680;
-      *(_DWORD *)(a2 + 52) = DWORD1(v75);
+      *(_DWORD *)(a2 + 36) = v61;
+      *(_DWORD *)(a2 + 40) = v52;
+      *(_DWORD *)(a2 + 56) = 1048672;
+      *(_DWORD *)(a2 + 52) = DWORD1(v67);
       *(_WORD *)(a2 + 60) = 12;
-      v24 = (char *)Object;
-      PopEtDataSectionCopyData(&v74, (char *)Object + 32, 12LL);
-      *(_DWORD *)(a2 + 44) = DWORD1(v75);
-      PopEtDataSectionCopyData(&v74, v24 + 604, 16LL);
-      v25 = *(__m128i *)(v24 + 620);
-      v68 = v25;
-      v68.m128i_i32[0] = *((_DWORD *)v24 + 151) + _mm_cvtsi128_si32(v25);
-      v68.m128i_i32[1] = *((_DWORD *)v24 + 152) + v25.m128i_i32[1];
-      v68.m128i_i32[2] = *((_DWORD *)v24 + 153) + v25.m128i_i32[2];
-      v68.m128i_i32[3] = *((_DWORD *)v24 + 154) + v25.m128i_i32[3];
-      *(_DWORD *)(a2 + 48) = DWORD1(v75);
-      PopEtDataSectionCopyData(&v74, &v68, 16LL);
-      v26 = 0LL;
-      v27 = *((_QWORD *)&v77 + 1);
+      v22 = (char *)Object;
+      PopEtDataSectionCopyData(&v66, (char *)Object + 32, 12LL);
+      *(_DWORD *)(a2 + 44) = DWORD1(v67);
+      PopEtDataSectionCopyData(&v66, v22 + 604, 16LL);
+      v23 = *(__m128i *)(v22 + 620);
+      v58 = v23;
+      v58.m128i_i32[0] = *((_DWORD *)v22 + 151) + _mm_cvtsi128_si32(v23);
+      v58.m128i_i32[1] = *((_DWORD *)v22 + 152) + v23.m128i_i32[1];
+      v58.m128i_i32[2] = *((_DWORD *)v22 + 153) + v23.m128i_i32[2];
+      v58.m128i_i32[3] = *((_DWORD *)v22 + 154) + v23.m128i_i32[3];
+      *(_DWORD *)(a2 + 48) = DWORD1(v67);
+      PopEtDataSectionCopyData(&v66, &v58, 16LL);
+      v24 = 0LL;
+      v25 = *((_QWORD *)&v62 + 1);
+      v26 = HIDWORD(v61);
       while ( 1 )
       {
-        v28 = 314159;
-        v29 = v24 + 48;
-        v30 = v24 + 48;
-        v71 = v24 + 48;
-        if ( !v26 )
+        v27 = (char *)Object + 48;
+        v63 = (char *)Object + 48;
+        if ( !v24 )
         {
-          v39 = *((_QWORD *)v24 + 7);
-          v73 = (_QWORD *)v39;
-          v26 = v39;
-          v72 = v39;
-          goto LABEL_30;
+          v33 = *((_QWORD *)Object + 7);
+          v65 = (_QWORD *)v33;
+          v24 = v33;
+          v64 = v33;
+          goto LABEL_28;
         }
-        v72 = v26;
-        v33 = *(_QWORD *)(v26 + 8) & (-1LL << (*((_DWORD *)v24 + 13) & 0x1F));
-        LODWORD(Size) = *((_DWORD *)v24 + 13) >> 5;
-        v84 = v33;
-        v31 = (unsigned __int8 *)&v84;
-        v65 = (unsigned __int8 *)&v84;
-        v32 = 8LL;
-        v78 = 8LL;
-        LODWORD(v33) = 314159;
-        v34 = 314159LL;
-        v61 = 314159;
-        v79 = 314159LL;
-        v35 = 314159;
-        v36 = 314159;
-        v37 = 314159;
-        v38 = 314159;
-        while ( v32 >= 8 )
+        v64 = v24;
+        v28 = *((_DWORD *)Object + 13) >> 5;
+        v72 = *(_QWORD *)(v24 + 8) & (-1LL << (*((_DWORD *)Object + 13) & 0x1F));
+        v29 = (unsigned __int8 *)&v72;
+        v55 = &v72;
+        v30 = 8LL;
+        v68 = 8LL;
+        v31 = 314159;
+        v32 = 314159;
+        while ( v30 >= 8 )
         {
-          v33 = v31[7]
+          v31 = v29[7]
               + 37
-              * (v31[6]
-               + 37 * (v31[5] + 37 * (v31[4] + 37 * (v31[3] + 37 * (v31[2] + 37 * (v31[1] + 37 * (*v31 + 37 * v34)))))));
-          v34 = v33;
-          v31 += 8;
-          v65 = v31;
-          v32 -= 8LL;
-          v78 = v32;
-          v61 = v33;
-          v79 = v33;
-          v35 = v33;
-          v36 = v33;
-          v37 = v33;
-          v28 = v33;
-          v38 = v33;
+              * (v29[6]
+               + 37 * (v29[5] + 37 * (v29[4] + 37 * (v29[3] + 37 * (v29[2] + 37 * (v29[1] + 37 * (*v29 + 37 * v31)))))));
+          v32 = v31;
+          v29 += 8;
+          v55 = (__int64 *)v29;
+          v30 -= 8LL;
+          v68 = v30;
         }
-        if ( v32 >= 1 )
+        if ( v30 >= 1 )
         {
-          v50 = v32 - 1;
-          if ( !v50 )
-            goto LABEL_66;
-          v51 = v50 - 1;
-          if ( !v51 )
-            goto LABEL_65;
-          v52 = v51 - 1;
-          if ( !v52 )
-            goto LABEL_64;
-          v53 = v52 - 1;
-          if ( !v53 )
-            goto LABEL_63;
-          v54 = v53 - 1;
-          if ( !v54 )
+          v43 = v30 - 1;
+          if ( !v43 )
             goto LABEL_62;
-          v55 = v54 - 1;
-          if ( !v55 )
-          {
-            v56 = v79;
-LABEL_61:
-            v35 = *v31++ + 37 * v56;
-            v65 = v31;
-LABEL_62:
-            v36 = *v31++ + 37 * v35;
-            v65 = v31;
-LABEL_63:
-            v37 = *v31++ + 37 * v36;
-            v65 = v31;
-LABEL_64:
-            v28 = *v31++ + 37 * v37;
-            v65 = v31;
-LABEL_65:
-            v38 = *v31++ + 37 * v28;
-            v65 = v31;
-LABEL_66:
-            LODWORD(v33) = *v31 + 37 * v38;
-            v65 = v31 + 1;
-            goto LABEL_29;
-          }
-          if ( v55 == 1 )
-          {
-            v56 = 37 * v61 + *v31++;
-            v65 = v31;
+          v44 = v43 - 1;
+          if ( !v44 )
             goto LABEL_61;
-          }
+          v45 = v44 - 1;
+          if ( !v45 )
+            goto LABEL_60;
+          v46 = v45 - 1;
+          if ( !v46 )
+            goto LABEL_59;
+          v47 = v46 - 1;
+          if ( !v47 )
+            goto LABEL_58;
+          v48 = v47 - 1;
+          if ( !v48 )
+            goto LABEL_57;
+          if ( v48 == 1 )
+            break;
         }
-LABEL_29:
-        v39 = *((_QWORD *)v29 + 1) + 8LL * ((unsigned int)v33 & ((_DWORD)Size - 1));
-        v73 = (_QWORD *)v39;
-LABEL_30:
-        v80 = 0LL;
-        if ( !v26 )
-          goto LABEL_31;
-        if ( (*(_QWORD *)v26 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
+LABEL_27:
+        v33 = *((_QWORD *)Object + 7) + 8LL * (v31 & (unsigned int)(v28 - 1));
+        v65 = (_QWORD *)v33;
+LABEL_28:
+        v69 = 0LL;
+        if ( !v24 )
+          goto LABEL_33;
+        if ( (*(_QWORD *)v24 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
         {
-          v27 = *((_QWORD *)&v77 + 1);
-          v39 = (__int64)v73;
-          v26 = v72;
-          v30 = v71;
+          v25 = *((_QWORD *)&v62 + 1);
+          v26 = HIDWORD(v61);
+          v33 = (__int64)v65;
+          v24 = v64;
+          v27 = v63;
         }
-        if ( v26 && (v26 = *(_QWORD *)v26, (v26 & 1) == 0) )
+        if ( v24 && (v24 = *(_QWORD *)v24, (v24 & 1) == 0) )
         {
-LABEL_35:
-          v72 = v26;
+LABEL_37:
+          v64 = v24;
         }
         else
         {
-LABEL_31:
-          v40 = (__int64 *)(v39 + 8);
-          v41 = *((_QWORD *)v30 + 1) + 8 * ((unsigned __int64)*((unsigned int *)v30 + 1) >> 5);
+LABEL_33:
+          v34 = (__int64 *)(v33 + 8);
+          v35 = *((_QWORD *)v27 + 1) + 8 * ((unsigned __int64)*((unsigned int *)v27 + 1) >> 5);
           while ( 1 )
           {
-            v80 = v40;
-            if ( (unsigned __int64)v40 >= v41 )
+            v69 = v34;
+            if ( (unsigned __int64)v34 >= v35 )
               break;
-            v26 = *v40;
-            if ( (*v40 & 1) == 0 )
+            v24 = *v34;
+            if ( (*v34 & 1) == 0 )
             {
-              v73 = v40;
-              goto LABEL_35;
+              v65 = v34;
+              goto LABEL_37;
             }
-            ++v40;
+            ++v34;
           }
-          v26 = 0LL;
+          v24 = 0LL;
         }
-        if ( !v26 )
+        if ( !v24 )
         {
-          v66 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-          v67 = KiQueryUnbiasedInterruptTime() / 0x2710uLL;
-          v85 = MEMORY[0xFFFFF78000000014];
-          v44 = v66;
-          v45 = Object;
-          v46 = v83;
-          *(_DWORD *)(v83 + 16) = v66 - *((_DWORD *)Object + 148);
-          *(_DWORD *)(v46 + 20) = v67 - v45[149];
-          *(_DWORD *)(v46 + 28) = v44;
+          v56 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+          v57 = KiQueryUnbiasedInterruptTime() / 0x2710uLL;
+          v74 = MEMORY[0xFFFFF78000000014];
+          v38 = Object;
+          v39 = v56;
+          v40 = v73;
+          *(_DWORD *)(v73 + 16) = v56 - *((_DWORD *)Object + 148);
+          *(_DWORD *)(v40 + 20) = v57 - v38[149];
+          *(_DWORD *)(v40 + 28) = v39;
           TimelineBitmapTime = KeQueryTimelineBitmapTime();
-          *(_DWORD *)(v49 + 32) = TimelineBitmapTime;
-          *(_QWORD *)(v49 + 64) = v85;
-          for ( i = 0LL; ; *(_DWORD *)(i + 484) &= ~0x80000000 )
+          *(_DWORD *)(v42 + 32) = TimelineBitmapTime;
+          *(_QWORD *)(v42 + 64) = v74;
+          for ( j = 0LL; ; *(_DWORD *)(j + 484) &= ~0x80000000 )
           {
-            if ( i )
+            if ( j )
             {
-              v62 = *(_QWORD *)(i + 8) & (-1LL << (*(_DWORD *)(v48 + 68) & 0x1F));
-              v58 = *(_QWORD *)(v48 + 72)
-                  + 8LL
-                  * ((37
-                    * (BYTE6(v62)
-                     + 37
-                     * (BYTE5(v62)
-                      + 37
-                      * (BYTE4(v62)
-                       + 37
-                       * (BYTE3(v62) + 37 * (BYTE2(v62) + 37 * (BYTE1(v62) + 37 * ((unsigned __int8)v62 + 11623883)))))))
-                    + HIBYTE(v62)) & (unsigned int)((*(_DWORD *)(v48 + 68) >> 5) - 1));
+              v77 = *(_QWORD *)(j + 8) & (-1LL << (v38[17] & 0x1F));
+              v50 = (__int64 *)(*((_QWORD *)v38 + 9)
+                              + 8LL
+                              * ((37
+                                * (BYTE6(v77)
+                                 + 37
+                                 * (BYTE5(v77)
+                                  + 37
+                                  * (BYTE4(v77)
+                                   + 37
+                                   * (BYTE3(v77)
+                                    + 37 * (BYTE2(v77) + 37 * (BYTE1(v77) + 37 * ((unsigned __int8)v77 + 11623883)))))))
+                                + HIBYTE(v77)) & (unsigned int)((v38[17] >> 5) - 1)));
             }
             else
             {
-              i = *(_QWORD *)(v48 + 72);
-              v58 = i;
+              j = *((_QWORD *)v38 + 9);
+              v50 = (__int64 *)j;
             }
-            if ( !i || (i = *(_QWORD *)i, (i & 1) != 0) )
+            if ( !j || (j = *(_QWORD *)j, (j & 1) != 0) )
             {
-              for ( j = (__int64 *)(v58 + 8);
-                    (unsigned __int64)j < *(_QWORD *)(v48 + 72)
-                                        + 8 * ((unsigned __int64)*(unsigned int *)(v48 + 68) >> 5);
-                    ++j )
+              for ( ++v50;
+                    (unsigned __int64)v50 < *((_QWORD *)v38 + 9) + 8 * ((unsigned __int64)(unsigned int)v38[17] >> 5);
+                    ++v50 )
               {
-                i = *j;
-                if ( (*j & 1) == 0 )
-                  goto LABEL_75;
+                j = *v50;
+                if ( (*v50 & 1) == 0 )
+                  goto LABEL_70;
               }
-              i = 0LL;
+              j = 0LL;
             }
-LABEL_75:
-            if ( !i )
+LABEL_70:
+            if ( !j )
               break;
           }
           v5 = (char *)Object;
-          PopEtEnergyTrackerCleanupAggregates(Object);
+          PopEtEnergyTrackerCleanupAggregates(Object, v50);
           ++*((_DWORD *)v5 + 150);
-          *((_DWORD *)v5 + 148) = v66;
-          *((_DWORD *)v5 + 149) = v67;
+          v38[148] = v56;
+          v38[149] = v57;
           *(_OWORD *)(v5 + 604) = 0LL;
-          *(__m128i *)(v5 + 620) = v68;
+          *(__m128i *)(v5 + 620) = v58;
           v7 = 0;
-LABEL_81:
-          v6 = 1;
-          break;
+          goto LABEL_80;
         }
-        v42 = *(_QWORD *)(v26 + 16);
-        *(_QWORD *)v27 = *(_QWORD *)(v26 + 32);
-        *(_DWORD *)(v27 + 8) = *(_DWORD *)(v26 + 40);
-        *(_DWORD *)(v27 + 12) = (unsigned __int16)*(_DWORD *)(v26 + 44);
-        *(_DWORD *)(v27 + 72) = *(_DWORD *)(v26 + 504);
-        *(_DWORD *)(v27 + 76) = *(_DWORD *)(v26 + 508);
-        *(_OWORD *)(v27 + 80) = *(_OWORD *)(v26 + 480);
-        *(_QWORD *)(v27 + 96) = *(_QWORD *)(v26 + 496);
-        *(_DWORD *)(v27 + 20) = **(_DWORD **)(v42 + 32);
-        *(_DWORD *)(v27 + 24) = *(_DWORD *)(*(_QWORD *)(v42 + 32) + 4LL);
-        *(_DWORD *)(v27 + 44) = **(_DWORD **)(v42 + 40);
-        *(_DWORD *)(v27 + 48) = *(_DWORD *)(*(_QWORD *)(v42 + 40) + 4LL);
-        *(_DWORD *)(v27 + 40) = DWORD1(v75);
-        *(_WORD *)(v27 + 60) = *(_WORD *)(v42 + 86);
-        PopEtDataSectionCopyData(&v74, *(_QWORD *)(v42 + 72), *(unsigned __int16 *)(v42 + 86));
-        *(_WORD *)(v27 + 52) = *(_WORD *)(v42 + 80);
-        *(_DWORD *)(v27 + 16) = DWORD1(v70);
-        PopEtDataSectionCopyData(&v69, *(_QWORD *)(v42 + 48), 2 * (unsigned int)*(unsigned __int16 *)(v42 + 80));
-        *(_WORD *)(v27 + 54) = *(_WORD *)(v42 + 82);
-        *(_DWORD *)(v27 + 28) = DWORD1(v70);
-        PopEtDataSectionCopyData(&v69, *(_QWORD *)(v42 + 56), 2 * (unsigned int)*(unsigned __int16 *)(v42 + 82));
-        *(_WORD *)(v27 + 56) = *(_WORD *)(v42 + 84);
-        *(_DWORD *)(v27 + 32) = DWORD1(v70);
-        PopEtDataSectionCopyData(&v69, *(_QWORD *)(v42 + 64), 2 * (unsigned int)*(unsigned __int16 *)(v42 + 84));
-        v43 = *(_QWORD *)(v26 + 24);
-        if ( v43 )
+        v36 = *(_QWORD *)(v24 + 16);
+        *(_QWORD *)v25 = *(_QWORD *)(v24 + 32);
+        *(_DWORD *)(v25 + 8) = *(_DWORD *)(v24 + 40);
+        *(_DWORD *)(v25 + 12) = (unsigned __int16)*(_DWORD *)(v24 + 44);
+        *(_DWORD *)(v25 + 64) = *(_DWORD *)(v24 + 504);
+        *(_DWORD *)(v25 + 68) = *(_DWORD *)(v24 + 508);
+        *(_OWORD *)(v25 + 72) = *(_OWORD *)(v24 + 480);
+        *(_QWORD *)(v25 + 88) = *(_QWORD *)(v24 + 496);
+        *(_DWORD *)(v25 + 20) = **(_DWORD **)(v36 + 32);
+        *(_DWORD *)(v25 + 24) = *(_DWORD *)(*(_QWORD *)(v36 + 32) + 4LL);
+        *(_DWORD *)(v25 + 40) = DWORD1(v67);
+        *(_WORD *)(v25 + 52) = *(_WORD *)(v36 + 78);
+        PopEtDataSectionCopyData(&v66, *(_QWORD *)(v36 + 64), *(unsigned __int16 *)(v36 + 78));
+        *(_WORD *)(v25 + 44) = *(_WORD *)(v36 + 72);
+        *(_DWORD *)(v25 + 16) = DWORD1(v60);
+        PopEtDataSectionCopyString(&v59, *(_QWORD *)(v36 + 40), *(unsigned __int16 *)(v36 + 72));
+        *(_WORD *)(v25 + 46) = *(_WORD *)(v36 + 74);
+        *(_DWORD *)(v25 + 28) = DWORD1(v60);
+        PopEtDataSectionCopyString(&v59, *(_QWORD *)(v36 + 48), *(unsigned __int16 *)(v36 + 74));
+        *(_WORD *)(v25 + 48) = *(_WORD *)(v36 + 76);
+        *(_DWORD *)(v25 + 32) = DWORD1(v60);
+        PopEtDataSectionCopyString(&v59, *(_QWORD *)(v36 + 56), *(unsigned __int16 *)(v36 + 76));
+        v37 = *(_QWORD *)(v24 + 24);
+        if ( v37 )
         {
-          *(_WORD *)(v27 + 58) = (unsigned __int16)WORD1(*(_QWORD *)(v43 + 24)) >> 1;
-          *(_DWORD *)(v27 + 36) = DWORD1(v70);
-          PopEtDataSectionCopyData(
-            &v69,
-            *(_QWORD *)(v26 + 24) + 32LL,
-            2 * (unsigned int)*(unsigned __int16 *)(v27 + 58));
+          *(_WORD *)(v25 + 50) = (unsigned __int16)WORD1(*(_QWORD *)(v37 + 24)) >> 1;
+          *(_DWORD *)(v25 + 36) = DWORD1(v60);
+          PopEtDataSectionCopyString(&v59, *(_QWORD *)(v24 + 24) + 32LL, *(unsigned __int16 *)(v25 + 50));
         }
         else
         {
-          *(_WORD *)(v27 + 58) = 0;
-          *(_DWORD *)(v27 + 36) = DWORD1(v70);
+          *(_WORD *)(v25 + 50) = 0;
+          *(_DWORD *)(v25 + 36) = DWORD1(v60);
         }
-        *(_DWORD *)(v27 + 64) = DWORD1(v82);
-        *(_DWORD *)(v27 + 68) = 432;
-        PopEtDataSectionCopyData(&v81, v26 + 48, HIDWORD(v81));
-        if ( (unsigned int)(HIDWORD(v76) + DWORD1(v77)) <= DWORD2(v76) )
+        *(_DWORD *)(v25 + 56) = DWORD1(v71);
+        *(_DWORD *)(v25 + 60) = 432;
+        PopEtDataSectionCopyData(&v70, v24 + 48, HIDWORD(v70));
+        if ( v26 + DWORD1(v62) <= DWORD2(v61) )
         {
-          DWORD1(v77) += HIDWORD(v76);
-          v27 += HIDWORD(v76);
-          *((_QWORD *)&v77 + 1) = v27;
+          DWORD1(v62) += v26;
+          v25 += v26;
+          *((_QWORD *)&v62 + 1) = v25;
         }
-        v24 = (char *)Object;
       }
+      v32 = *v29++ + 37 * v32;
+      v55 = (__int64 *)v29;
+LABEL_57:
+      v32 = *v29++ + 37 * v32;
+      v55 = (__int64 *)v29;
+LABEL_58:
+      v32 = *v29++ + 37 * v32;
+      v55 = (__int64 *)v29;
+LABEL_59:
+      v32 = *v29++ + 37 * v32;
+      v55 = (__int64 *)v29;
+LABEL_60:
+      v32 = *v29++ + 37 * v32;
+      v55 = (__int64 *)v29;
+LABEL_61:
+      v32 = *v29++ + 37 * v32;
+      v55 = (__int64 *)v29;
+LABEL_62:
+      v31 = *v29 + 37 * v32;
+      v55 = (__int64 *)(v29 + 1);
+      goto LABEL_27;
     }
   }
-LABEL_82:
+LABEL_80:
   if ( v6 )
-    PopReleaseRwLock((__int64 *)v5 + 2);
+    PopReleaseRwLock((ULONG_PTR)(v5 + 16));
   if ( v5 )
     ObfDereferenceObjectWithTag(v5, 0x74456F50u);
   return (unsigned int)v7;

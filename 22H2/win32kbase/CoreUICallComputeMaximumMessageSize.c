@@ -1,10 +1,10 @@
 /*
- * XREFs of CoreUICallComputeMaximumMessageSize @ 0x1C00A1204
+ * XREFs of CoreUICallComputeMaximumMessageSize @ 0x1C00991C4
  * Callers:
- *     ?Initialize@RegistrarClient@CoreMessagingK@@SAXXZ @ 0x1C00BDC44 (-Initialize@RegistrarClient@CoreMessagingK@@SAXXZ.c)
+ *     ?Initialize@RegistrarClient@CoreMessagingK@@SAXXZ @ 0x1C00749FC (-Initialize@RegistrarClient@CoreMessagingK@@SAXXZ.c)
  * Callees:
- *     ?ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@PEAPEBEIIIIPEAI@Z @ 0x1C00A1498 (-ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@P.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     ?ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@PEAPEBEIIIIPEAI@Z @ 0x1C0099634 (-ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@P.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CoreUICallComputeMaximumMessageSize(
@@ -12,8 +12,8 @@ __int64 __fastcall CoreUICallComputeMaximumMessageSize(
         const unsigned __int8 **a2,
         unsigned int a3,
         __int64 a4,
-        int a5,
-        int a6,
+        __int64 a5,
+        __int64 a6,
         unsigned int *a7)
 {
   __int64 result; // rax

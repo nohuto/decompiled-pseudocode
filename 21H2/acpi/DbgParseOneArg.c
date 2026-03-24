@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgParseOneArg @ 0x1C006BAA0
+ * XREFs of DbgParseOneArg @ 0x1C006B810
  * Callers:
- *     DbgParseArgs @ 0x1C006BA24 (DbgParseArgs.c)
- *     DbgParseOneArg @ 0x1C006BAA0 (DbgParseOneArg.c)
+ *     DbgParseArgs @ 0x1C006B794 (DbgParseArgs.c)
+ *     DbgParseOneArg @ 0x1C006B810 (DbgParseOneArg.c)
  * Callees:
- *     ConPrintf @ 0x1C00290CC (ConPrintf.c)
- *     _strtoui64_0 @ 0x1C002F1E9 (_strtoui64_0.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     DbgMatchArg @ 0x1C006B934 (DbgMatchArg.c)
- *     DbgParseOneArg @ 0x1C006BAA0 (DbgParseOneArg.c)
+ *     _strtoui64_0 @ 0x1C0031D29 (_strtoui64_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
+ *     DbgMatchArg @ 0x1C006B6A4 (DbgMatchArg.c)
+ *     DbgParseOneArg @ 0x1C006B810 (DbgParseOneArg.c)
  */
 
 __int64 __fastcall DbgParseOneArg(__int64 a1, char *a2, unsigned int a3, _DWORD *a4)

@@ -1,111 +1,115 @@
 /*
- * XREFs of ?vArctan@@YAXVEFLOAT@@0AEAV1@AEAJ@Z @ 0x1C02C6290
+ * XREFs of ?vArctan@@YAXVEFLOAT@@0AEAV1@AEAJ@Z @ 0x1C02B06E4
  * Callers:
- *     ?lfOrientation@IFIOBJ@@QEAAJXZ @ 0x1C0082254 (-lfOrientation@IFIOBJ@@QEAAJXZ.c)
- *     cjIFIMetricsToOTMW @ 0x1C008299C (cjIFIMetricsToOTMW.c)
- *     GreAngleArc @ 0x1C02AB948 (GreAngleArc.c)
- *     NtGdiArcInternal @ 0x1C02C6710 (NtGdiArcInternal.c)
+ *     ?lfOrientation@IFIOBJ@@QEAAJXZ @ 0x1C0062618 (-lfOrientation@IFIOBJ@@QEAAJXZ.c)
+ *     cjIFIMetricsToOTMW @ 0x1C0064470 (cjIFIMetricsToOTMW.c)
+ *     GreAngleArc @ 0x1C029F740 (GreAngleArc.c)
+ *     NtGdiArcInternal @ 0x1C02B0BC0 (NtGdiArcInternal.c)
  * Callees:
- *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0017678 (-bIsZero@EFLOAT@@QEBAHXZ.c)
- *     bFToL @ 0x1C009BB20 (bFToL.c)
- *     eFraction @ 0x1C0307EB4 (eFraction.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C00986B8 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
+ *     eFraction @ 0x1C02DF87C (eFraction.c)
  */
 
-__int64 __fastcall vArctan(int a1, int a2, float *a3, int *a4)
+void __fastcall vArctan(int a1, int a2, float *a3, int *a4)
 {
   float v4; // xmm1_4
-  float v6; // xmm4_4
-  int v8; // eax
-  unsigned int v9; // edi
-  int v10; // edx
-  _DWORD *v11; // r8
-  float v12; // xmm4_4
-  __int64 result; // rax
+  float v5; // xmm4_4
+  int v8; // ecx
+  unsigned int v9; // eax
+  __int64 v10; // rdi
+  int v11; // edx
+  _DWORD *v12; // r8
+  float v13; // xmm4_4
   float v14; // xmm2_4
   float v15; // xmm3_4
   float v16; // xmm3_4
   int v17; // xmm5_4
   float *v18; // rax
-  int v19[6]; // [rsp+20h] [rbp-18h] BYREF
+  float *v19; // rax
+  int v20[6]; // [rsp+20h] [rbp-18h] BYREF
 
   v4 = *(float *)&a1;
-  v6 = *(float *)&a2;
-  v19[0] = a1;
-  if ( *(float *)&a1 >= 0.0 )
+  v5 = *(float *)&a2;
+  v20[0] = a1;
+  v8 = 1;
+  if ( *(float *)v20 >= 0.0 )
   {
-    v8 = 2;
     v9 = 0;
+    v10 = 2LL;
   }
   else
   {
-    v8 = 3;
     v9 = 1;
-    LODWORD(v4) = a1 ^ _xmm;
-    v19[0] = a1 ^ _xmm;
+    v10 = 3LL;
   }
-  if ( *(float *)&a2 < 0.0 )
+  if ( v9 )
   {
-    v9 = v8;
-    LODWORD(v6) = a2 ^ _xmm;
+    LODWORD(v4) ^= _xmm;
+    *(float *)v20 = v4;
   }
-  if ( v6 > v4 )
+  if ( *(float *)&a2 >= 0.0 )
+    v8 = 0;
+  else
+    LODWORD(v5) = a2 ^ _xmm;
+  if ( !v8 )
+    v10 = v9;
+  if ( v5 > v4 )
   {
-    *(float *)v19 = v6;
-    v4 = v6;
-    v9 |= 4u;
+    *(float *)v20 = v5;
+    v4 = v5;
+    v10 = (unsigned int)v10 | 4;
   }
-  if ( !EFLOAT::bIsZero((EFLOAT *)v19) )
+  if ( !EFLOAT::bIsZero((EFLOAT *)v20) )
   {
-    v19[0] = v10;
-    bFToL((float)(v12 * FP_ARCTAN_TABLE_SIZE) / v4, v19, 5u);
-    v14 = gaefArctan[v19[0]];
-    *a3 = gaefArctan[v19[0] + 1];
+    v20[0] = v11;
+    bFToL((float)(v13 * FP_ARCTAN_TABLE_SIZE) / v4, v20, 5u);
+    v14 = gaefArctan[v20[0]];
+    *a3 = gaefArctan[v20[0] + 1];
     v15 = *a3 - v14;
     v16 = (float)(v15 * eFraction()) + v14;
     *a3 = v16;
-    switch ( v9 )
+    switch ( (_DWORD)v10 )
     {
-      case 1u:
-        v18 = (float *)FP_180_0;
+      case 1:
+        v19 = (float *)FP_180_0;
         break;
-      case 2u:
+      case 2:
         v18 = (float *)FP_360_0;
-        break;
-      case 3u:
-        v18 = (float *)FP_180_0;
-        goto LABEL_25;
-      case 4u:
-        v18 = (float *)FP_90_0;
+        goto LABEL_23;
+      case 3:
+        v19 = (float *)FP_180_0;
+        goto LABEL_31;
+      case 4:
+        v19 = (float *)FP_90_0;
         break;
       default:
-        switch ( v9 )
+        switch ( (_DWORD)v10 )
         {
-          case 5u:
-            v18 = (float *)FP_90_0;
+          case 5:
+            v19 = (float *)FP_90_0;
             break;
-          case 6u:
-            v18 = (float *)FP_270_0;
+          case 6:
+            v19 = (float *)FP_270_0;
             break;
-          case 7u:
+          case 7:
             v18 = (float *)FP_270_0;
-            goto LABEL_24;
+LABEL_23:
+            *a3 = *v18 + COERCE_FLOAT(LODWORD(v16) ^ v17);
+            goto LABEL_32;
           default:
-LABEL_26:
-            result = v9;
-            v10 = byte_1C0329270[v9];
-            goto LABEL_27;
+LABEL_32:
+            v11 = byte_1C02FAB28[v10];
+            goto LABEL_33;
         }
-LABEL_25:
-        *a3 = v16 + *v18;
-        goto LABEL_26;
+LABEL_31:
+        *a3 = v16 + *v19;
+        goto LABEL_32;
     }
-LABEL_24:
     LODWORD(v16) ^= v17;
-    goto LABEL_25;
+    goto LABEL_31;
   }
-  result = FP_0_0;
-  *v11 = FP_0_0;
-LABEL_27:
-  *a4 = v10;
-  return result;
+  *v12 = FP_0_0;
+LABEL_33:
+  *a4 = v11;
 }

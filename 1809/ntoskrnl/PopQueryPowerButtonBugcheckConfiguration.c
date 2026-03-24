@@ -1,11 +1,11 @@
 /*
- * XREFs of PopQueryPowerButtonBugcheckConfiguration @ 0x14017E000
+ * XREFs of PopQueryPowerButtonBugcheckConfiguration @ 0x14017E020
  * Callers:
- *     PopPowerButtonBugcheckConfigure @ 0x140729920 (PopPowerButtonBugcheckConfigure.c)
+ *     PopPowerButtonBugcheckConfigure @ 0x140729900 (PopPowerButtonBugcheckConfigure.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
  */
 
 NTSTATUS __fastcall PopQueryPowerButtonBugcheckConfiguration(HANDLE KeyHandle, _DWORD *a2)

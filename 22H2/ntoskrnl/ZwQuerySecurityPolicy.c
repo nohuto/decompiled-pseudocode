@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQuerySecurityPolicy @ 0x14041D380
+ * XREFs of ZwQuerySecurityPolicy @ 0x1403FC5C0
  * Callers:
  *     <none>
  * Callees:

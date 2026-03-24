@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwReleaseLock @ 0x14016F1E8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F238 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
  *     AnFwFadeCompletion @ 0x14094F140 (AnFwFadeCompletion.c)
  *     BgpConsoleDisplayCharacterEx @ 0x140953724 (BgpConsoleDisplayCharacterEx.c)
  */

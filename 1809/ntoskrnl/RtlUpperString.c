@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUpperString @ 0x140679860
+ * XREFs of RtlUpperString @ 0x140679840
  * Callers:
  *     <none>
  * Callees:
- *     RtlUpperChar @ 0x1406798C0 (RtlUpperChar.c)
+ *     RtlUpperChar @ 0x1406798A0 (RtlUpperChar.c)
  */
 
 void __stdcall RtlUpperString(PSTRING DestinationString, const STRING *SourceString)

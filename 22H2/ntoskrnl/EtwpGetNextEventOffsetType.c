@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpGetNextEventOffsetType @ 0x1403A19B8
+ * XREFs of EtwpGetNextEventOffsetType @ 0x1405AD390
  * Callers:
- *     EtwpSendTraceEvent @ 0x1403A18C8 (EtwpSendTraceEvent.c)
- *     EtwpInvokeEventCallback @ 0x140601008 (EtwpInvokeEventCallback.c)
- *     EtwpCompressBuffer @ 0x1406021D0 (EtwpCompressBuffer.c)
- *     EtwpSendBufferToDebugger @ 0x1409EBE0C (EtwpSendBufferToDebugger.c)
+ *     EtwpSendTraceEvent @ 0x1405AAAA8 (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1405AB5B8 (EtwpInvokeEventCallback.c)
+ *     EtwpCompressBuffer @ 0x1405AC654 (EtwpCompressBuffer.c)
+ *     EtwpSendBufferToDebugger @ 0x14093CC84 (EtwpSendBufferToDebugger.c)
  * Callees:
  *     <none>
  */
@@ -15,11 +15,9 @@ __int64 __fastcall EtwpGetNextEventOffsetType(unsigned int *a1, unsigned int a2,
   unsigned __int64 v5; // rbx
   int v6; // r8d
   unsigned int v7; // edx
-  unsigned int v8; // eax
-  bool v9; // cf
-  unsigned int v10; // eax
-  bool v12; // zf
-  int v13; // eax
+  unsigned int v9; // eax
+  bool v10; // cf
+  unsigned int v11; // eax
 
   *a3 = 0;
   v4 = *a1;
@@ -29,69 +27,81 @@ __int64 __fastcall EtwpGetNextEventOffsetType(unsigned int *a1, unsigned int a2,
   v6 = *(unsigned int *)((char *)a1 + a2);
   if ( (v6 & 0xFF000000) == 0x90000000 )
   {
-    v8 = (unsigned __int16)v6;
+    v9 = (unsigned __int16)v6;
     v7 = 15;
-    v9 = (unsigned __int16)v6 < 8u;
-    goto LABEL_12;
+    if ( (unsigned __int16)v6 >= 8u )
+      goto LABEL_29;
+    return 0LL;
   }
   if ( (v6 & 0xFF000000) != 0xC0000000 )
     return 0LL;
   v7 = BYTE2(v6);
-  if ( BYTE2(v6) > 0xDu )
+  if ( BYTE2(v6) <= 0xDu )
   {
-    if ( BYTE2(v6) == 16 || BYTE2(v6) == 17 )
+    if ( BYTE2(v6) != 13 )
     {
-      if ( v5 >= v4 - 8 )
-        return 0LL;
-      v8 = *(unsigned __int16 *)((char *)a1 + v5 + 4);
-      v9 = v8 < 0x10;
-      goto LABEL_12;
-    }
-    if ( BYTE2(v6) == 18 || BYTE2(v6) == 19 )
-      goto LABEL_11;
-    v13 = BYTE2(v6) - 20;
-    v12 = BYTE2(v6) == 20;
-LABEL_24:
-    if ( !v12 && v13 != 1 )
+      if ( BYTE2(v6) )
+      {
+        if ( BYTE2(v6) <= 2u )
+        {
+          if ( v5 < v4 - 8 )
+          {
+            v9 = *(unsigned __int16 *)((char *)a1 + v5 + 4);
+            v10 = v9 < 0x20;
+            goto LABEL_26;
+          }
+        }
+        else
+        {
+          if ( BYTE2(v6) > 4u )
+          {
+            if ( BYTE2(v6) <= 9u || BYTE2(v6) > 0xBu )
+              return 0LL;
+            goto LABEL_22;
+          }
+          if ( v5 < v4 - 8 )
+          {
+            v9 = *(unsigned __int16 *)((char *)a1 + v5 + 4);
+            v10 = v9 < 0x18;
+            goto LABEL_26;
+          }
+        }
+      }
       return 0LL;
-    v8 = (unsigned __int16)v6;
-    v9 = (unsigned __int16)v6 < 0x30u;
-    goto LABEL_12;
+    }
+LABEL_23:
+    v9 = (unsigned __int16)v6;
+    v10 = (unsigned __int16)v6 < 0x50u;
+    goto LABEL_26;
   }
-  if ( BYTE2(v6) != 13 )
+  if ( BYTE2(v6) < 0x10u )
+    return 0LL;
+  if ( BYTE2(v6) > 0x11u )
   {
-    if ( BYTE2(v6) == 1 || BYTE2(v6) == 2 )
+    if ( BYTE2(v6) > 0x13u )
     {
-      if ( v5 >= v4 - 8 )
-        return 0LL;
-      v8 = *(unsigned __int16 *)((char *)a1 + v5 + 4);
-      v9 = v8 < 0x20;
-      goto LABEL_12;
+      if ( BYTE2(v6) <= 0x15u )
+      {
+LABEL_22:
+        v9 = (unsigned __int16)v6;
+        v10 = (unsigned __int16)v6 < 0x30u;
+        goto LABEL_26;
+      }
+      return 0LL;
     }
-    if ( BYTE2(v6) == 3 || BYTE2(v6) == 4 )
-    {
-      if ( v5 >= v4 - 8 )
-        return 0LL;
-      v8 = *(unsigned __int16 *)((char *)a1 + v5 + 4);
-      v9 = v8 < 0x18;
-      goto LABEL_12;
-    }
-    v13 = BYTE2(v6) - 10;
-    v12 = BYTE2(v6) == 10;
-    goto LABEL_24;
+    goto LABEL_23;
   }
-LABEL_11:
-  v8 = (unsigned __int16)v6;
-  v9 = (unsigned __int16)v6 < 0x50u;
-LABEL_12:
-  if ( !v9 )
-  {
-    v10 = (v8 + 7) & 0xFFFFFFF8;
-    if ( v10 < (unsigned int)v4 && v10 + (unsigned int)v5 <= (unsigned int)v4 )
-    {
-      *a3 = v10;
-      return v7;
-    }
-  }
-  return 0LL;
+  if ( v5 >= v4 - 8 )
+    return 0LL;
+  v9 = *(unsigned __int16 *)((char *)a1 + v5 + 4);
+  v10 = v9 < 0x10;
+LABEL_26:
+  if ( v10 )
+    return 0LL;
+LABEL_29:
+  v11 = (v9 + 7) & 0xFFFFFFF8;
+  if ( v11 >= (unsigned int)v4 || v11 + (unsigned int)v5 > (unsigned int)v4 )
+    return 0LL;
+  *a3 = v11;
+  return v7;
 }

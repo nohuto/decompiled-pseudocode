@@ -1,10 +1,10 @@
 /*
- * XREFs of CcZeroDataOnDisk @ 0x1403C10B0
+ * XREFs of CcZeroDataOnDisk @ 0x1403192E0
  * Callers:
- *     CcZeroData @ 0x1402FB700 (CcZeroData.c)
+ *     CcZeroData @ 0x140359820 (CcZeroData.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     MmZeroPageWrite @ 0x1403C1114 (MmZeroPageWrite.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     MmZeroPageWrite @ 0x140319368 (MmZeroPageWrite.c)
  */
 
 __int64 __fastcall CcZeroDataOnDisk(__int64 a1, __int64 *a2, _QWORD *a3)
@@ -24,15 +24,15 @@ __int64 __fastcall CcZeroDataOnDisk(__int64 a1, __int64 *a2, _QWORD *a3)
   v8 = v5;
   if ( v5 >= (unsigned int)CcMaxZeroTransferSize )
   {
-    if ( _InterlockedIncrement(&CcAggressiveZeroCount) > CcAggressiveZeroThreshold )
-    {
-      _InterlockedDecrement(&CcAggressiveZeroCount);
-      v6 = 0x10000LL;
-    }
-    else
+    if ( _InterlockedIncrement(&CcAggressiveZeroCount) <= CcAggressiveZeroThreshold )
     {
       v6 = (unsigned int)CcMaxZeroTransferSize;
       v4 = 1;
+    }
+    else
+    {
+      _InterlockedDecrement(&CcAggressiveZeroCount);
+      v6 = 0x10000LL;
     }
   }
   else

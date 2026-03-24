@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCheckForPoolTagFilterExtension @ 0x140726E44
+ * XREFs of EtwpCheckForPoolTagFilterExtension @ 0x140726E24
  * Callers:
- *     EtwpStartLogger @ 0x1406591C0 (EtwpStartLogger.c)
- *     EtwpUpdateTrace @ 0x140725AFC (EtwpUpdateTrace.c)
+ *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140725ADC (EtwpUpdateTrace.c)
  * Callees:
- *     EtwpGetFlagExtension @ 0x14065AFA8 (EtwpGetFlagExtension.c)
- *     EtwpUpdateTagFilter @ 0x140726EAC (EtwpUpdateTagFilter.c)
+ *     EtwpGetFlagExtension @ 0x14065AF88 (EtwpGetFlagExtension.c)
+ *     EtwpUpdateTagFilter @ 0x140726E8C (EtwpUpdateTagFilter.c)
  */
 
 __int64 __fastcall EtwpCheckForPoolTagFilterExtension(__int64 a1, __int64 a2, char a3)

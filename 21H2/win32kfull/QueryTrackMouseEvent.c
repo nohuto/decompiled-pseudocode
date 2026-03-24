@@ -1,7 +1,7 @@
 /*
- * XREFs of QueryTrackMouseEvent @ 0x1C00F8DE8
+ * XREFs of QueryTrackMouseEvent @ 0x1C002C768
  * Callers:
- *     NtUserTrackMouseEvent @ 0x1C00F8CF0 (NtUserTrackMouseEvent.c)
+ *     NtUserTrackMouseEvent @ 0x1C002C670 (NtUserTrackMouseEvent.c)
  * Callees:
  *     <none>
  */

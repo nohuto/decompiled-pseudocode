@@ -1,18 +1,18 @@
 /*
- * XREFs of UsbhSyncResumePort @ 0x1C0039A30
+ * XREFs of UsbhSyncResumePort @ 0x1C003AD40
  * Callers:
- *     UsbhBusIf_ResumeChildHub @ 0x1C0002DF0 (UsbhBusIf_ResumeChildHub.c)
- *     UsbhCycleDevicePort @ 0x1C003681C (UsbhCycleDevicePort.c)
- *     UsbhSyncResumeDeviceInternal @ 0x1C00398B8 (UsbhSyncResumeDeviceInternal.c)
+ *     UsbhBusIf_ResumeChildHub @ 0x1C0001010 (UsbhBusIf_ResumeChildHub.c)
+ *     UsbhCycleDevicePort @ 0x1C0037B3C (UsbhCycleDevicePort.c)
+ *     UsbhSyncResumeDeviceInternal @ 0x1C003ABC8 (UsbhSyncResumeDeviceInternal.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhPCE_Enable @ 0x1C0033CC4 (UsbhPCE_Enable.c)
- *     UsbhPCE_Resume @ 0x1C0033F88 (UsbhPCE_Resume.c)
- *     UsbhWaitForPortResume @ 0x1C0039CEC (UsbhWaitForPortResume.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhPCE_Enable @ 0x1C0035028 (UsbhPCE_Enable.c)
+ *     UsbhPCE_Resume @ 0x1C00352EC (UsbhPCE_Resume.c)
+ *     UsbhWaitForPortResume @ 0x1C003AFFC (UsbhWaitForPortResume.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 __int64 __fastcall UsbhSyncResumePort(struct _DEVICE_OBJECT *a1, __int64 a2, unsigned __int16 a3)
@@ -22,6 +22,7 @@ __int64 __fastcall UsbhSyncResumePort(struct _DEVICE_OBJECT *a1, __int64 a2, uns
   __int64 v7; // rbp
   struct _KEVENT *v8; // rbx
   int v9; // ebx
+  int v11; // [rsp+48h] [rbp-20h]
 
   v3 = a3;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -43,7 +44,10 @@ __int64 __fastcall UsbhSyncResumePort(struct _DEVICE_OBJECT *a1, __int64 a2, uns
     Log((__int64)a1, 16, 1347573624, 0LL, *(unsigned __int16 *)(v7 + 4));
     v9 = UsbhWaitForPortResume(a1);
     if ( v9 < 0 )
-      UsbhException((int)a1, (unsigned __int16)v3, 134, 0, 0, v9, 0, usbfile_bus_c, 7065, 0);
+    {
+      LOBYTE(v11) = 0;
+      UsbhException((int)a1, (unsigned __int16)v3, 134, 0, 0, v9, 0, usbfile_bus_c, 7065, v11);
+    }
   }
   else
   {

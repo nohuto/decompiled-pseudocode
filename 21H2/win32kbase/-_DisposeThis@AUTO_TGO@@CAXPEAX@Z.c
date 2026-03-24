@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_DisposeThis@AUTO_TGO@@CAXPEAX@Z @ 0x1C0173280
+ * XREFs of ?_DisposeThis@AUTO_TGO@@CAXPEAX@Z @ 0x1C0146260
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall AUTO_TGO::_DisposeThis(_DWORD *a1)

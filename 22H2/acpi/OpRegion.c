@@ -1,21 +1,21 @@
 /*
- * XREFs of OpRegion @ 0x1C0050D20
+ * XREFs of OpRegion @ 0x1C0029EA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     MapUnmapPhysMem @ 0x1C004BF60 (MapUnmapPhysMem.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
- *     CreateNameSpaceObject @ 0x1C004F12C (CreateNameSpaceObject.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     MapUnmapPhysMem @ 0x1C0029FF0 (MapUnmapPhysMem.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall OpRegion(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rsi
+  __int64 v2; // r14
   unsigned int NameSpaceObject; // edi
   __int64 v6; // rax
   unsigned int *v7; // rbx
@@ -27,13 +27,13 @@ __int64 __fastcall OpRegion(__int64 a1, __int64 a2)
                       *(unsigned __int8 **)(*(_QWORD *)(a2 + 80) + 32LL),
                       *(_QWORD *)(a1 + 80),
                       *(struct _EX_RUNDOWN_REF **)(a1 + 88),
-                      (__int64 *)(a2 + 64),
+                      (_QWORD *)(a2 + 64),
                       0);
   if ( !NameSpaceObject )
   {
     *(_WORD *)(*(_QWORD *)v2 + 66LL) = 10;
     *(_DWORD *)(*(_QWORD *)v2 + 88LL) = 48;
-    v6 = HeapAlloc(*(_QWORD *)(a1 + 320), 1196576584, *(_DWORD *)(*(_QWORD *)v2 + 88LL));
+    v6 = HeapAlloc(*(struct _SLIST_ENTRY **)(a1 + 320), 1196576584, *(_DWORD *)(*(_QWORD *)v2 + 88LL));
     *(_QWORD *)(*(_QWORD *)v2 + 96LL) = v6;
     if ( v6 )
     {
@@ -53,7 +53,7 @@ __int64 __fastcall OpRegion(__int64 a1, __int64 a2)
       }
       else
       {
-        NameSpaceObject = MapUnmapPhysMem(a1, *(void **)v7, v7[2], (__int64 *)v7);
+        NameSpaceObject = MapUnmapPhysMem(a1, *(_QWORD *)v7, v7[2], v7);
         if ( !NameSpaceObject )
           *((_BYTE *)v7 + 13) |= 1u;
       }
@@ -63,9 +63,9 @@ __int64 __fastcall OpRegion(__int64 a1, __int64 a2)
     else
     {
       NameSpaceObject = -1073741670;
-      LogError(-1073741670);
-      AcpiDiagTraceAmlError(a1, -1073741670);
-      PrintDebugMessage(116, 0LL, 0LL, 0LL, 0LL);
+      LogError(3221225626LL);
+      AcpiDiagTraceAmlError(a1, 3221225626LL);
+      PrintDebugMessage(116, 0, 0, 0, 0LL);
     }
   }
   return NameSpaceObject;

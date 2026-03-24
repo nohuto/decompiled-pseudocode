@@ -1,34 +1,38 @@
 /*
- * XREFs of PopOpenKey @ 0x140387D08
+ * XREFs of PopOpenKey @ 0x1403A75B0
  * Callers:
- *     PpmInitIllegalThrottleLogging @ 0x140387C40 (PpmInitIllegalThrottleLogging.c)
- *     PopOpenPowerKey @ 0x140387CEC (PopOpenPowerKey.c)
- *     PopLoadResumeContext @ 0x140980D28 (PopLoadResumeContext.c)
+ *     PopOpenPowerKey @ 0x1403A758C (PopOpenPowerKey.c)
+ *     PpmInitIllegalThrottleLogging @ 0x1403C69D0 (PpmInitIllegalThrottleLogging.c)
+ *     PopLoadResumeContext @ 0x1407776D4 (PopLoadResumeContext.c)
+ *     PopSaveHibernateEnabled @ 0x1408E1674 (PopSaveHibernateEnabled.c)
+ *     PopSetHiberFileSize @ 0x1408E72F0 (PopSetHiberFileSize.c)
+ *     PopSetHiberFileType @ 0x1408E7400 (PopSetHiberFileType.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
  */
 
-__int64 __fastcall PopOpenKey(HANDLE *a1, const WCHAR *a2)
+__int64 __fastcall PopOpenKey(HANDLE *a1, const WCHAR *a2, ACCESS_MASK a3)
 {
-  NTSTATUS v4; // ebx
-  HANDLE KeyHandle; // [rsp+48h] [rbp+7h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp+Fh] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+1Fh] BYREF
-  HANDLE v9; // [rsp+C0h] [rbp+7Fh] BYREF
+  NTSTATUS v6; // ebx
+  HANDLE KeyHandle; // [rsp+40h] [rbp-9h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-1h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp+Fh] BYREF
+  HANDLE v11; // [rsp+C8h] [rbp+7Fh] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   KeyHandle = 0LL;
-  v9 = 0LL;
+  v11 = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ObjectAttributes.ObjectName = &CmRegistryMachineSystemCurrentControlSet;
-  DestinationString = 0LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
-  v4 = ZwOpenKey(&KeyHandle, 0x2001Fu, &ObjectAttributes);
-  if ( v4 >= 0 )
+  DestinationString = 0LL;
+  v6 = ZwOpenKey(&KeyHandle, 0x2001Fu, &ObjectAttributes);
+  if ( v6 >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, a2);
     ObjectAttributes.RootDirectory = KeyHandle;
@@ -36,13 +40,13 @@ __int64 __fastcall PopOpenKey(HANDLE *a1, const WCHAR *a2)
     ObjectAttributes.ObjectName = &DestinationString;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v4 = ZwCreateKey(&v9, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, 0LL);
-    if ( v4 < 0 )
-      v9 = 0LL;
+    v6 = ZwCreateKey(&v11, a3, &ObjectAttributes, 0, 0LL, 0, 0LL);
+    if ( v6 < 0 )
+      v11 = 0LL;
     else
-      *a1 = v9;
+      *a1 = v11;
     if ( KeyHandle )
       ZwClose(KeyHandle);
   }
-  return (unsigned int)v4;
+  return (unsigned int)v6;
 }

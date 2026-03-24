@@ -1,79 +1,78 @@
 /*
- * XREFs of ?vSpAddAndCompactDirtyRegion@@YAXPEAVSPRITE@@PEAVREGION@@@Z @ 0x1C013795C
+ * XREFs of ?vSpAddAndCompactDirtyRegion@@YAXPEAVSPRITE@@PEAVREGION@@@Z @ 0x1C0164428
  * Callers:
- *     ?vSpRedrawSprite@@YAXPEAVSPRITE@@@Z @ 0x1C001EC30 (-vSpRedrawSprite@@YAXPEAVSPRITE@@@Z.c)
- *     ?vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0137568 (-vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
- *     ?vSpAddAndCompactDirtyRect@@YAXPEAVSPRITE@@VERECTL@@@Z @ 0x1C0137C50 (-vSpAddAndCompactDirtyRect@@YAXPEAVSPRITE@@VERECTL@@@Z.c)
+ *     ?vSpRedrawSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00F0208 (-vSpRedrawSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ?vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0163E9C (-vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?vSpAddAndCompactDirtyRect@@YAXPEAVSPRITE@@VERECTL@@@Z @ 0x1C01654C8 (-vSpAddAndCompactDirtyRect@@YAXPEAVSPRITE@@VERECTL@@@Z.c)
  * Callees:
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00D5ED4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00DA618 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00B297C (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B94F8 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 void __fastcall vSpAddAndCompactDirtyRegion(struct SPRITE *a1, struct REGION *a2)
 {
-  int v4; // esi
-  __int64 v5; // rbx
-  int v6; // ebx
-  __int64 v7; // [rsp+20h] [rbp-40h] BYREF
-  __int64 v8; // [rsp+28h] [rbp-38h] BYREF
-  __int64 v9; // [rsp+30h] [rbp-30h] BYREF
-  struct REGION *v10; // [rsp+38h] [rbp-28h] BYREF
-  struct _RECTL v11; // [rsp+40h] [rbp-20h] BYREF
+  int v3; // edi
+  __int64 v4; // rdx
+  int v5; // esi
+  __int64 v6; // [rsp+20h] [rbp-50h] BYREF
+  struct REGION *v7; // [rsp+28h] [rbp-48h] BYREF
+  __int64 v8; // [rsp+30h] [rbp-40h] BYREF
+  int v9; // [rsp+38h] [rbp-38h]
+  _QWORD v10[2]; // [rsp+40h] [rbp-30h] BYREF
+  struct _RECTL v11; // [rsp+50h] [rbp-20h] BYREF
 
-  Gre::Base::Globals(a1);
-  while ( 1 )
+  do
   {
-    v4 = 0;
-    v10 = a2;
-    v7 = 0LL;
+    v3 = 0;
+    v7 = a2;
+    v6 = 0LL;
     if ( !a2 )
       break;
-    v7 = _InterlockedExchange64((volatile __int64 *)a1 + 24, 0LL);
-    if ( v7 )
+    v6 = _InterlockedExchange64((volatile __int64 *)a1 + 24, 0LL);
+    if ( v6 )
     {
-      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v8);
-      RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v8);
-      if ( v8 )
+      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v10);
+      RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v10);
+      if ( v10[0] )
       {
-        v6 = RGNOBJ::iComplexity((RGNOBJ *)&v7);
-        if ( RGNOBJ::bMerge((RGNOBJ *)&v8, (struct RGNOBJ *)&v7, (struct RGNOBJ *)&v10, 0xEu) )
+        v5 = RGNOBJ::iComplexity((RGNOBJ *)&v6);
+        if ( RGNOBJ::bMerge((RGNOBJ *)v10, (struct RGNOBJ *)&v6, (struct RGNOBJ *)&v7, 0xEu) )
         {
-          RGNOBJ::vSwap((RGNOBJ *)&v8, (struct RGNOBJ *)&v7);
-          v4 = 1;
-          if ( v6 == 3 && (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)&v7) == 2 )
+          RGNOBJ::vSwap((RGNOBJ *)v10, (struct RGNOBJ *)&v6);
+          v3 = 1;
+          if ( v5 == 3 && (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)&v6) == 2 )
           {
-            RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v9);
-            if ( v9 )
+            RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v8);
+            if ( v8 )
             {
-              v11 = 0LL;
-              v11 = *(struct _RECTL *)(v7 + 56);
-              RGNOBJ::vSet((RGNOBJ *)&v9, &v11);
-              RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v7);
-              v7 = v9;
+              v11 = *(struct _RECTL *)(v6 + 96);
+              RGNOBJ::vSet((RGNOBJ *)&v8, &v11);
+              RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v6);
+              v6 = v8;
             }
+            if ( v9 == 1 )
+              RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v8);
           }
         }
       }
-      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v10);
-      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v8);
-      if ( !v4 )
-        break;
-      v5 = v7;
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v7);
+      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v10);
+      v4 = v6;
     }
     else
     {
-      v5 = (__int64)v10;
-      v7 = (__int64)v10;
+      v4 = (__int64)v7;
+      v3 = 1;
+      v6 = (__int64)v7;
     }
-    if ( v5 )
-    {
-      a2 = (struct REGION *)_InterlockedExchange64((volatile __int64 *)a1 + 24, v5);
-      v7 = 0LL;
-      if ( a2 )
-        continue;
-    }
-    break;
+    if ( !v3 )
+      break;
+    if ( !v4 )
+      break;
+    a2 = (struct REGION *)_InterlockedExchange64((volatile __int64 *)a1 + 24, v4);
+    v6 = 0LL;
   }
-  RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v7);
+  while ( a2 );
+  RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v6);
 }

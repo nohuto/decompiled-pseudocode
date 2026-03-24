@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0ManipulationData@@QEAA@XZ @ 0x18020D7DC
+ * XREFs of ??0ManipulationData@@QEAA@XZ @ 0x1801D3CDC
  * Callers:
- *     ??0CManipulation@@IEAA@PEAVCComposition@@@Z @ 0x18020D6FC (--0CManipulation@@IEAA@PEAVCComposition@@@Z.c)
- *     ?InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z @ 0x18020DBFC (-InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z.c)
+ *     ??0CManipulation@@IEAA@PEAVCComposition@@@Z @ 0x1801D3BFC (--0CManipulation@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z @ 0x1801D4088 (-InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z.c)
  * Callees:
- *     ?Reset@ManipulationData@@QEAAXXZ @ 0x18020E1E8 (-Reset@ManipulationData@@QEAAXXZ.c)
+ *     ?Reset@ManipulationData@@QEAAXXZ @ 0x1801D4698 (-Reset@ManipulationData@@QEAAXXZ.c)
  */
 
 ManipulationData *__fastcall ManipulationData::ManipulationData(ManipulationData *this)

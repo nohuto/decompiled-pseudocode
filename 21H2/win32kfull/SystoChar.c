@@ -1,8 +1,8 @@
 /*
- * XREFs of SystoChar @ 0x1C00FC260
+ * XREFs of SystoChar @ 0x1C010B830
  * Callers:
- *     xxxTranslateAccelerator @ 0x1C00FBF34 (xxxTranslateAccelerator.c)
- *     ?xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z @ 0x1C0240F90 (-xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z.c)
+ *     xxxTranslateAccelerator @ 0x1C010B478 (xxxTranslateAccelerator.c)
+ *     ?xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z @ 0x1C0245024 (-xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z.c)
  * Callees:
  *     <none>
  */

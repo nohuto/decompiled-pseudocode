@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ProcessValidationQueryCallback@@YAJPEAGKPEAXK11@Z @ 0x1C005BCA0
+ * XREFs of ?ProcessValidationQueryCallback@@YAJPEAGKPEAXK11@Z @ 0x1C004D3B0
  * Callers:
  *     <none>
  * Callees:
@@ -24,6 +24,6 @@ __int64 __fastcall ProcessValidationQueryCallback(
   RtlInitUnicodeString(&DestinationString, a3);
   if ( !RtlEqualUnicodeString(&DestinationString, String2, 1u) )
     return 0LL;
-  a6[589] = 1;
+  a6[477] = 1;
   return 2147483674LL;
 }

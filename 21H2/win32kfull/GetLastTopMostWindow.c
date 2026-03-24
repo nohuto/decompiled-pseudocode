@@ -1,17 +1,17 @@
 /*
- * XREFs of GetLastTopMostWindow @ 0x1C0085494
+ * XREFs of GetLastTopMostWindow @ 0x1C0038CE8
  * Callers:
- *     LinkWindow @ 0x1C006F9A0 (LinkWindow.c)
- *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0081210 (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
- *     ?TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z @ 0x1C008176C (-TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z.c)
- *     ?CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z @ 0x1C0081A44 (-CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z.c)
- *     ?ValidateZorder@@YAHPEAUtagCVR@@@Z @ 0x1C0082294 (-ValidateZorder@@YAHPEAUtagCVR@@@Z.c)
- *     CalcForegroundInsertAfter @ 0x1C0085330 (CalcForegroundInsertAfter.c)
- *     ?xxxActivateOnMinimize@@YAHPEAUtagWND@@@Z @ 0x1C00CDA30 (-xxxActivateOnMinimize@@YAHPEAUtagWND@@@Z.c)
- *     _GetNextQueueWindow @ 0x1C01EE6BC (_GetNextQueueWindow.c)
+ *     ?xxxActivateOnMinimize@@YAHPEAUtagWND@@@Z @ 0x1C0027BBC (-xxxActivateOnMinimize@@YAHPEAUtagWND@@@Z.c)
+ *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0036098 (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
+ *     ?TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z @ 0x1C00365F4 (-TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z.c)
+ *     ?CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z @ 0x1C0036A5C (-CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z.c)
+ *     ?ValidateZorder@@YAHPEAUtagCVR@@@Z @ 0x1C003739C (-ValidateZorder@@YAHPEAUtagCVR@@@Z.c)
+ *     CalcForegroundInsertAfter @ 0x1C0038B7C (CalcForegroundInsertAfter.c)
+ *     LinkWindow @ 0x1C006FD00 (LinkWindow.c)
+ *     _GetNextQueueWindow @ 0x1C01F3ED8 (_GetNextQueueWindow.c)
  * Callees:
- *     _GetDesktopWindow @ 0x1C006FF60 (_GetDesktopWindow.c)
- *     GetThreadDesktopWindow @ 0x1C00F26A0 (GetThreadDesktopWindow.c)
+ *     _GetDesktopWindow @ 0x1C00704C0 (_GetDesktopWindow.c)
+ *     GetThreadDesktopWindow @ 0x1C0104120 (GetThreadDesktopWindow.c)
  */
 
 __int64 __fastcall GetLastTopMostWindow(__int64 a1)

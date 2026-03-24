@@ -1,10 +1,10 @@
 /*
- * XREFs of GetDpiSettingWithNoDefault @ 0x1C00865E0
+ * XREFs of GetDpiSettingWithNoDefault @ 0x1C00E5240
  * Callers:
- *     GetDpiSetting @ 0x1C00869D0 (GetDpiSetting.c)
- *     ?PerformWin8DpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C01BADB4 (-PerformWin8DpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z.c)
+ *     GetDpiSetting @ 0x1C00E5220 (GetDpiSetting.c)
+ *     ?PerformWin8DpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C01D3E28 (-PerformWin8DpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall GetDpiSettingWithNoDefault(int a1, unsigned int *a2)
@@ -13,7 +13,7 @@ __int64 __fastcall GetDpiSettingWithNoDefault(int a1, unsigned int *a2)
   __int16 v4; // di
   __int64 result; // rax
   unsigned int v6; // [rsp+38h] [rbp-79h] BYREF
-  _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+48h] [rbp-69h] BYREF
+  struct _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+48h] [rbp-69h] BYREF
   __int64 v8; // [rsp+80h] [rbp-31h]
   int v9; // [rsp+88h] [rbp-29h]
   __int128 v10; // [rsp+90h] [rbp-21h]

@@ -1,25 +1,21 @@
 /*
- * XREFs of MiLocateVadEvent @ 0x14030B2DC
+ * XREFs of MiLocateVadEvent @ 0x14027EA34
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiAllocateVirtualMemory @ 0x1406F72D0 (MiAllocateVirtualMemory.c)
- *     MmQueryVirtualMemory @ 0x1406F8400 (MmQueryVirtualMemory.c)
- *     MiDeleteVad @ 0x1406FA4D0 (MiDeleteVad.c)
- *     MiUnmapViewOfSection @ 0x14071F030 (MiUnmapViewOfSection.c)
- *     MmFreeVirtualMemory @ 0x1407455D0 (MmFreeVirtualMemory.c)
- *     MiInitializePartialVad @ 0x14076DBFC (MiInitializePartialVad.c)
- *     MiFreeToSubAllocatedRegion @ 0x14076F194 (MiFreeToSubAllocatedRegion.c)
- *     MiMarkPrivateImageCfgBits @ 0x1407A4470 (MiMarkPrivateImageCfgBits.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1407A5200 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1407CD0F4 (MiAllocateNewSubAllocatedRegion.c)
- *     MiFillMapFileInfo @ 0x1408AC30A (MiFillMapFileInfo.c)
- *     MiGetReadyInPageBlock @ 0x140A313A0 (MiGetReadyInPageBlock.c)
- *     MiApplyImageHotPatchRequest @ 0x140A35650 (MiApplyImageHotPatchRequest.c)
- *     MiGetAweVadPageSize @ 0x140A41DCC (MiGetAweVadPageSize.c)
- *     MiAllocateChildVads @ 0x140A483EC (MiAllocateChildVads.c)
- *     MiCopyLargeVad @ 0x140A493BC (MiCopyLargeVad.c)
+ *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
+ *     MiMapViewOfImageSection @ 0x14061D2D0 (MiMapViewOfImageSection.c)
+ *     MiUnmapViewOfSection @ 0x14061E510 (MiUnmapViewOfSection.c)
+ *     MmQueryVirtualMemory @ 0x14061ED50 (MmQueryVirtualMemory.c)
+ *     MiFreeToSubAllocatedRegion @ 0x140636BA4 (MiFreeToSubAllocatedRegion.c)
+ *     MiInsertVadCharges @ 0x14063A390 (MiInsertVadCharges.c)
+ *     MmFreeVirtualMemory @ 0x14063AD20 (MmFreeVirtualMemory.c)
+ *     MiMarkPrivateImageCfgBits @ 0x14066A340 (MiMarkPrivateImageCfgBits.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140683A58 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiGetReadyInPageBlock @ 0x1408C8604 (MiGetReadyInPageBlock.c)
+ *     MiGetAweVadPageSize @ 0x1408D60F8 (MiGetAweVadPageSize.c)
+ *     MiAllocateChildVads @ 0x1408D8AE0 (MiAllocateChildVads.c)
+ *     MiCopyLargeVad @ 0x1408D9D70 (MiCopyLargeVad.c)
  * Callees:
- *     MiLocateLockedVadEvent @ 0x14030B2F4 (MiLocateLockedVadEvent.c)
+ *     MiLocateLockedVadEvent @ 0x14027EA4C (MiLocateLockedVadEvent.c)
  */
 
 __int64 __fastcall MiLocateVadEvent(__int64 a1, __int64 a2)

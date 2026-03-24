@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpEnableLazyFlushDpcRoutine @ 0x1403B6350
+ * XREFs of CmpEnableLazyFlushDpcRoutine @ 0x14035FDD0
  * Callers:
  *     <none>
  * Callees:
- *     CmpEnableLazyFlush @ 0x1403B63D0 (CmpEnableLazyFlush.c)
- *     _local_unwind @ 0x1403E0F50 (_local_unwind.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     KiCustomAccessRoutine4 @ 0x14042BCD0 (KiCustomAccessRoutine4.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     CmpEnableLazyFlush @ 0x1403A7408 (CmpEnableLazyFlush.c)
+ *     _local_unwind @ 0x1403D1B90 (_local_unwind.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine4 @ 0x140409C50 (KiCustomAccessRoutine4.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void __fastcall CmpEnableLazyFlushDpcRoutine(

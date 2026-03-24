@@ -1,11 +1,11 @@
 /*
- * XREFs of DxgkDdiGetDeviceLocation @ 0x1C0359618
+ * XREFs of DxgkDdiGetDeviceLocation @ 0x1C023101C
  * Callers:
- *     ?DpiDdiGetDeviceLocation@@YAXPEAXGPEAGPEAE2@Z @ 0x1C0065620 (-DpiDdiGetDeviceLocation@@YAXPEAXGPEAGPEAE2@Z.c)
+ *     ?DpiDdiGetDeviceLocation@@YAXPEAXGPEAGPEAE2@Z @ 0x1C00589F0 (-DpiDdiGetDeviceLocation@@YAXPEAXGPEAGPEAE2@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005BFAC (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
- *     ?GetDeviceLocation@ADAPTER_RENDER@@QEAAXW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETDEVICELOCATION@@@Z @ 0x1C0357824 (-GetDeviceLocation@ADAPTER_RENDER@@QEAAXW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETDEVICELOCATION@@.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C00400A4 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?GetDeviceLocation@ADAPTER_RENDER@@QEAAXW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETDEVICELOCATION@@@Z @ 0x1C022FA58 (-GetDeviceLocation@ADAPTER_RENDER@@QEAAXW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETDEVICELOCATION@@.c)
  */
 
 void __fastcall DxgkDdiGetDeviceLocation(_QWORD *a1, int a2, unsigned __int16 a3, _WORD *a4, _BYTE *a5, _BYTE *a6)
@@ -20,7 +20,7 @@ void __fastcall DxgkDdiGetDeviceLocation(_QWORD *a1, int a2, unsigned __int16 a3
   int v15; // [rsp+40h] [rbp-58h]
   __int128 v16; // [rsp+50h] [rbp-48h] BYREF
 
-  v7 = a1[350];
+  v7 = a1[338];
   v9 = a3;
   v16 = 0LL;
   LODWORD(v16) = a3;

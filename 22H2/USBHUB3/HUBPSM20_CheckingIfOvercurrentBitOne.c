@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM20_CheckingIfOvercurrentBitOne @ 0x1C0011A40
+ * XREFs of HUBPSM20_CheckingIfOvercurrentBitOne @ 0x1C0010620
  * Callers:
  *     <none>
  * Callees:
- *     HUBREG_UpdateSqmHubOvercurrentDetected @ 0x1C00349F0 (HUBREG_UpdateSqmHubOvercurrentDetected.c)
+ *     HUBREG_UpdateSqmHubOvercurrentDetected @ 0x1C0031834 (HUBREG_UpdateSqmHubOvercurrentDetected.c)
  */
 
 __int64 __fastcall HUBPSM20_CheckingIfOvercurrentBitOne(__int64 a1, __int64 a2, __int64 a3)

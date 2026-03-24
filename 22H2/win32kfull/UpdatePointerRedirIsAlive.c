@@ -1,10 +1,9 @@
 /*
- * XREFs of UpdatePointerRedirIsAlive @ 0x1C006D138
+ * XREFs of UpdatePointerRedirIsAlive @ 0x1C007C19C
  * Callers:
- *     UpdateInUserCritUpdatedPointerRedirectedGlobalsOnDesktopSwitch @ 0x1C006D084 (UpdateInUserCritUpdatedPointerRedirectedGlobalsOnDesktopSwitch.c)
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
- *     IsPointerInputRedirected @ 0x1C015368A (IsPointerInputRedirected.c)
- *     _RegisterPointerInputTarget @ 0x1C01C6FF8 (_RegisterPointerInputTarget.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
+ *     IsPointerInputRedirected @ 0x1C01F1D94 (IsPointerInputRedirected.c)
+ *     _RegisterPointerInputTarget @ 0x1C01F2364 (_RegisterPointerInputTarget.c)
  * Callees:
  *     <none>
  */
@@ -15,9 +14,6 @@ __int64 __fastcall UpdatePointerRedirIsAlive(__int64 a1)
   unsigned int i; // ebx
   __int64 result; // rax
   __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // rax
-  __int64 v8; // rcx
 
   v2 = (__int64 *)(a1 + 216);
   for ( i = 0; i < 2; ++i )
@@ -27,22 +23,7 @@ __int64 __fastcall UpdatePointerRedirIsAlive(__int64 a1)
     {
       v5 = *(_QWORD *)(result + 40);
       if ( *(char *)(v5 + 20) < 0 || *(char *)(v5 + 19) < 0 )
-      {
-        HMAssignmentUnlock(a1 + 8 * (i + 27LL));
-        v7 = SGDGetUserSessionState(v6);
-        if ( i )
-        {
-          *(_DWORD *)(v7 + 536) = 0;
-          result = SGDGetUserSessionState(v8);
-          *(_DWORD *)(result + 540) = 0;
-        }
-        else
-        {
-          *(_DWORD *)(v7 + 528) = 0;
-          result = SGDGetUserSessionState(v8);
-          *(_DWORD *)(result + 532) = 0;
-        }
-      }
+        result = HMAssignmentUnlock(a1 + 8 * (i + 27LL));
     }
     ++v2;
   }

@@ -1,47 +1,55 @@
 /*
- * XREFs of EmonReleaseProfileResourcesInternal @ 0x14051E1F0
+ * XREFs of EmonReleaseProfileResourcesInternal @ 0x1404D4120
  * Callers:
- *     EmonAllocateResources @ 0x14051CE3C (EmonAllocateResources.c)
- *     EmonReleaseProfileResources @ 0x14051E110 (EmonReleaseProfileResources.c)
+ *     EmonAllocateResources @ 0x1404D30F8 (EmonAllocateResources.c)
+ *     EmonReleaseProfileResources @ 0x1404D4040 (EmonReleaseProfileResources.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     KeIsEmptyAffinityEx @ 0x140255050 (KeIsEmptyAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpPmuReservedResourcesProcessorCallback @ 0x140507A38 (HalpPmuReservedResourcesProcessorCallback.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     EmonReleaseReservedCounters @ 0x1404D41D8 (EmonReleaseReservedCounters.c)
  */
 
 __int64 __fastcall EmonReleaseProfileResourcesInternal(__int64 a1)
 {
-  unsigned int v2; // ebx
+  ULONG v2; // edi
   ULONG ActiveProcessorCount; // r14d
-  unsigned int v4; // edi
-  _BYTE *v5; // rsi
-  _DWORD v7[68]; // [rsp+20h] [rbp-138h] BYREF
+  __int64 v4; // rbx
+  _QWORD *v5; // rsi
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  int v8; // eax
 
   v2 = 0;
-  v7[0] = 2097153;
-  memset(&v7[1], 0, 0x104uLL);
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
-  v4 = 0;
   if ( ActiveProcessorCount )
   {
-    v5 = (_BYTE *)(a1 + 40);
+    v4 = 0LL;
+    v5 = (_QWORD *)(a1 + 32);
     do
     {
       if ( *v5 )
-        KeAddProcessorAffinityEx((unsigned __int16 *)v7, v4);
-      ++v4;
-      v5 += 80;
+        EmonReleaseReservedCounters(v2);
+      if ( *(_QWORD *)(a1 + 24) )
+      {
+        v6 = EmonDsManagementAreas;
+        if ( EmonPebs64Bit )
+        {
+          v7 = *(_QWORD *)(v4 + EmonDsManagementAreas + 32);
+          *(_QWORD *)(v4 + EmonDsManagementAreas + 40) = v7;
+          *(_QWORD *)(v4 + v6 + 56) = v7;
+        }
+        else
+        {
+          v8 = *(_DWORD *)(v4 + EmonDsManagementAreas + 16);
+          *(_DWORD *)(v4 + EmonDsManagementAreas + 20) = v8;
+          *(_DWORD *)(v4 + v6 + 28) = v8;
+        }
+        EmonPebsInUse = 0;
+      }
+      ++v2;
+      ++v5;
+      v4 += 160LL;
     }
-    while ( v4 < ActiveProcessorCount );
+    while ( v2 < ActiveProcessorCount );
   }
-  if ( !(unsigned int)KeIsEmptyAffinityEx(v7) )
-    return (unsigned int)HalpPmuReservedResourcesProcessorCallback(
-                           (__int64)v7,
-                           (__int64 (__fastcall *)(__int64))EmonReleaseReservedCounters,
-                           a1,
-                           a1);
-  return v2;
+  return 0LL;
 }

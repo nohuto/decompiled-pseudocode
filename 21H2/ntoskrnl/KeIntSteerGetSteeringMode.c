@@ -1,29 +1,24 @@
 /*
- * XREFs of KeIntSteerGetSteeringMode @ 0x1403B00D4
+ * XREFs of KeIntSteerGetSteeringMode @ 0x140378120
  * Callers:
- *     KiIntSteerChooseInitialTargetProcessors @ 0x1403AFE88 (KiIntSteerChooseInitialTargetProcessors.c)
- *     ExpQueryInterruptSteeringInformation @ 0x14085F318 (ExpQueryInterruptSteeringInformation.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x140378014 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     ExpQueryInterruptSteeringInformation @ 0x1407CF5A4 (ExpQueryInterruptSteeringInformation.c)
  * Callees:
- *     HalpInterruptAffinityIsSteerable @ 0x1403B0158 (HalpInterruptAffinityIsSteerable.c)
+ *     <none>
  */
 
-__int64 __fastcall KeIntSteerGetSteeringMode(char a1, __int64 a2, char a3, int a4, __int64 a5)
+__int64 __fastcall KeIntSteerGetSteeringMode(__int64 a1, __int64 a2, char a3, int a4, __int64 a5)
 {
-  unsigned int v5; // ebx
-  int IsSteerable; // eax
-  char v8; // cl
-  char v10; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v5; // edx
+  __int64 v6; // rcx
 
-  v10 = a1;
   v5 = 0;
-  if ( KiIntSteerEnabled && a3 )
+  if ( KiIntSteerEnabled && a3 && !*(_WORD *)(a5 + 8) )
   {
-    v10 = 0;
-    IsSteerable = HalpInterruptAffinityIsSteerable(a5, &v10);
-    v8 = v10;
-    if ( IsSteerable < 0 )
-      v8 = 0;
-    if ( v8 )
+    v6 = 0LL;
+    if ( KeActiveProcessors[0] )
+      v6 = qword_140CFC848[0];
+    if ( *(_QWORD *)a5 == v6 )
     {
       if ( (KiInterruptControllerInfo & 1) != 0 && !a4 )
         return 1;

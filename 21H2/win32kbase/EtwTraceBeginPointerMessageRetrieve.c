@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceBeginPointerMessageRetrieve @ 0x1C014C800
+ * XREFs of EtwTraceBeginPointerMessageRetrieve @ 0x1C0121A20
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C0150594 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C0125F58 (McTemplateK0pqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceBeginPointerMessageRetrieve(int a1, char a2, int a3)

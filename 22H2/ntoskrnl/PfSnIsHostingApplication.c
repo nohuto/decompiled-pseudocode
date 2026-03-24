@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnIsHostingApplication @ 0x1407C3168
+ * XREFs of PfSnIsHostingApplication @ 0x140630DEC
  * Callers:
- *     PfSnCalculateScenarioNameAndHash @ 0x1407C2AB0 (PfSnCalculateScenarioNameAndHash.c)
+ *     PfSnBeginAppLaunch @ 0x14062E94C (PfSnBeginAppLaunch.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     wcsstr @ 0x1403DB540 (wcsstr.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     wcsstr @ 0x1403D3A90 (wcsstr.c)
  */
 
 char __fastcall PfSnIsHostingApplication(wchar_t *SubStr)
@@ -29,7 +29,7 @@ char __fastcall PfSnIsHostingApplication(wchar_t *SubStr)
   CurrentThread = KeGetCurrentThread();
   v5 = 0;
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)qword_140C65088, 0LL);
+  ExAcquirePushLockSharedEx((ULONG_PTR)qword_140C502B8, 0LL);
   do
     ++v1;
   while ( Str[v1] );
@@ -51,9 +51,9 @@ char __fastcall PfSnIsHostingApplication(wchar_t *SubStr)
     }
     v6 = v8 + 1;
   }
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)qword_140C65088, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)qword_140C65088);
-  KeAbPostRelease((ULONG_PTR)qword_140C65088);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)qword_140C502B8, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)qword_140C502B8);
+  KeAbPostRelease((ULONG_PTR)qword_140C502B8);
   KeLeaveCriticalRegion();
   return v5;
 }

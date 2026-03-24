@@ -1,50 +1,50 @@
 /*
- * XREFs of OSOpenAMLINamespaceOverrideHandle @ 0x1C008DDC4
+ * XREFs of OSOpenAMLINamespaceOverrideHandle @ 0x1C00B2958
  * Callers:
- *     AMLIAddNamespaceOverride @ 0x1C004A2C8 (AMLIAddNamespaceOverride.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
- *     RtlStringCchCatA @ 0x1C003BDB4 (RtlStringCchCatA.c)
- *     RtlStringCchCatNA @ 0x1C003BE04 (RtlStringCchCatNA.c)
- *     OSOpenHandle @ 0x1C008DF20 (OSOpenHandle.c)
+ *     RtlStringCchPrintfA @ 0x1C000C948 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     RtlStringCchCatA @ 0x1C005E2F4 (RtlStringCchCatA.c)
+ *     RtlStringCchCatNA @ 0x1C005E358 (RtlStringCchCatNA.c)
+ *     OSOpenHandle @ 0x1C008FBB8 (OSOpenHandle.c)
  */
 
-__int64 OSOpenAMLINamespaceOverrideHandle()
+__int64 __fastcall OSOpenAMLINamespaceOverrideHandle(__int64 a1)
 {
-  __int64 v0; // rdi
-  NTSTATUS v1; // ecx
-  __int64 v2; // rax
+  __int64 v2; // rdi
+  NTSTATUS v3; // ecx
+  __int64 v4; // rax
   char pszDest[128]; // [rsp+20h] [rbp-98h] BYREF
 
-  v0 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD))(PmHalDispatchTable + 88))(1413763908LL, 0LL, 0LL);
-  v1 = RtlStringCchPrintfA(
+  v2 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD))(PmHalDispatchTable + 88))(1413763908LL, 0LL, 0LL);
+  v3 = RtlStringCchPrintfA(
          pszDest,
          0x75uLL,
          "%s\\",
          "\\Registry\\Machine\\System\\CurrentControlSet\\Services\\ACPI\\Parameters\\NamespaceOverride");
-  if ( v1 >= 0 )
+  if ( v3 >= 0 )
   {
-    v1 = RtlStringCchCatNA(pszDest, 0x75uLL, (STRSAFE_PCNZCH)(v0 + 10), 6uLL);
-    if ( (int)(v1 + 0x80000000) < 0 || v1 == -2147483643 )
+    v3 = RtlStringCchCatNA(pszDest, 0x75uLL, (STRSAFE_PCNZCH)(v2 + 10), 6uLL);
+    if ( (int)(v3 + 0x80000000) < 0 || v3 == -2147483643 )
     {
-      v1 = RtlStringCchCatA(pszDest, 0x75uLL, "\\");
-      if ( v1 >= 0 )
+      v3 = RtlStringCchCatA(pszDest, 0x75uLL, "\\");
+      if ( v3 >= 0 )
       {
-        v1 = RtlStringCchCatNA(pszDest, 0x75uLL, (STRSAFE_PCNZCH)(v0 + 16), 8uLL);
-        if ( ((v1 + 0x80000000) & 0x80000000) != 0 || v1 == -2147483643 )
+        v3 = RtlStringCchCatNA(pszDest, 0x75uLL, (STRSAFE_PCNZCH)(v2 + 16), 8uLL);
+        if ( ((v3 + 0x80000000) & 0x80000000) != 0 || v3 == -2147483643 )
         {
-          v2 = -1LL;
+          v4 = -1LL;
           do
-            ++v2;
-          while ( pszDest[v2] );
-          v1 = RtlStringCchPrintfA(&pszDest[v2], 117 - v2, "\\%lu", *(_DWORD *)(v0 + 24));
-          if ( v1 >= 0 )
-            return (unsigned int)OSOpenHandle(pszDest);
+            ++v4;
+          while ( pszDest[v4] );
+          v3 = RtlStringCchPrintfA(&pszDest[v4], 117 - v4, "\\%lu", *(_DWORD *)(v2 + 24));
+          if ( v3 >= 0 )
+            return (unsigned int)OSOpenHandle(pszDest, 0LL, a1);
         }
       }
     }
   }
-  return (unsigned int)v1;
+  return (unsigned int)v3;
 }

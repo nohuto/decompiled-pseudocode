@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpApplyContainerFilter @ 0x1409F4B98
+ * XREFs of EtwpApplyContainerFilter @ 0x140940674
  * Callers:
- *     EtwpApplyScopeFilters @ 0x140796D80 (EtwpApplyScopeFilters.c)
+ *     EtwpApplyScopeFilters @ 0x140644118 (EtwpApplyScopeFilters.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlUTF8ToUnicodeN @ 0x14075AA20 (RtlUTF8ToUnicodeN.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlUTF8ToUnicodeN @ 0x1406B6350 (RtlUTF8ToUnicodeN.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall EtwpApplyContainerFilter(__int64 a1, _WORD *a2)
@@ -37,14 +37,14 @@ char __fastcall EtwpApplyContainerFilter(__int64 a1, _WORD *a2)
   }
   else
   {
-    v8 = *(unsigned __int16 *)(v5 + 4224);
+    v8 = *(unsigned __int16 *)(v5 + 4200);
     UnicodeStringActualByteCount = 0;
-    DestinationString.Buffer = (wchar_t *)ExAllocatePool2(64LL, 2 * v8 + 2, 1182233669LL);
+    DestinationString.Buffer = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, 2 * v8 + 2, 0x46777445u);
     Buffer = DestinationString.Buffer;
     if ( !DestinationString.Buffer )
       return 1;
-    v10 = *(const CHAR **)(v5 + 4216);
-    UTF8StringByteCount = *(unsigned __int16 *)(v5 + 4224);
+    v10 = *(const CHAR **)(v5 + 4192);
+    UTF8StringByteCount = *(unsigned __int16 *)(v5 + 4200);
     DestinationString.MaximumLength = 2 * (UTF8StringByteCount + 1);
     RtlUTF8ToUnicodeN(
       DestinationString.Buffer,
@@ -71,6 +71,6 @@ LABEL_10:
     v4 = 0;
   }
   if ( v5 != EtwpHostSiloState )
-    RtlFreeUnicodeString(&DestinationString);
+    RtlFreeAnsiString(&DestinationString);
   return v4;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExUpdateLicenseRegistry @ 0x1406C02D8
+ * XREFs of ExUpdateLicenseRegistry @ 0x1406C02B8
  * Callers:
- *     ExpWatchProductTypeWork @ 0x1406BF930 (ExpWatchProductTypeWork.c)
+ *     ExpWatchProductTypeWork @ 0x1406BF910 (ExpWatchProductTypeWork.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     NtSetValueKey @ 0x1405CC8E0 (NtSetValueKey.c)
  */
 

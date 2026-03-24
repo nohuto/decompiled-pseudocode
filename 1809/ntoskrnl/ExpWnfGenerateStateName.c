@@ -6,8 +6,8 @@
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     ExpWnfAllocateNextPersistentNameSequence @ 0x1408DB2C0 (ExpWnfAllocateNextPersistentNameSequence.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     ExpWnfAllocateNextPersistentNameSequence @ 0x1408DB2A0 (ExpWnfAllocateNextPersistentNameSequence.c)
  */
 
 __int64 __fastcall ExpWnfGenerateStateName(__int64 *a1, int a2, int a3, char a4)

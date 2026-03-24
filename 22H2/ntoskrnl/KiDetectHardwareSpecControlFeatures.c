@@ -1,122 +1,120 @@
 /*
- * XREFs of KiDetectHardwareSpecControlFeatures @ 0x14038294C
+ * XREFs of KiDetectHardwareSpecControlFeatures @ 0x1403A8B3C
  * Callers:
- *     KiSetHardwareSpeculationControlFeatures @ 0x1403818AC (KiSetHardwareSpeculationControlFeatures.c)
- *     KiIsKvaShadowNeededForBranchConfusion @ 0x140381DB0 (KiIsKvaShadowNeededForBranchConfusion.c)
- *     KiDetermineRetpolineEnablement @ 0x1403B1A04 (KiDetermineRetpolineEnablement.c)
- *     KiIsKvaShadowNeededForTsa @ 0x140410184 (KiIsKvaShadowNeededForTsa.c)
+ *     KiSetHardwareSpeculationControlFeatures @ 0x1403A89F0 (KiSetHardwareSpeculationControlFeatures.c)
+ *     KiDetermineRetpolineEnablement @ 0x1403CCAB0 (KiDetermineRetpolineEnablement.c)
+ *     KiIsKvaShadowNeededForBranchConfusion @ 0x1403F2934 (KiIsKvaShadowNeededForBranchConfusion.c)
+ *     KiIsKvaShadowNeededForTsa @ 0x1403F299C (KiIsKvaShadowNeededForTsa.c)
  * Callees:
- *     HviGetEnlightenmentInformation @ 0x140381E54 (HviGetEnlightenmentInformation.c)
- *     KiIsBranchConfusionPresent @ 0x140382DF4 (KiIsBranchConfusionPresent.c)
- *     HviIsHypervisorMicrosoftCompatible @ 0x140382E1C (HviIsHypervisorMicrosoftCompatible.c)
- *     HviIsAnyHypervisorPresent @ 0x140382EA0 (HviIsAnyHypervisorPresent.c)
- *     HviGetHypervisorFeatures @ 0x140383390 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiIsRfdsPresent @ 0x140410218 (KiIsRfdsPresent.c)
- *     KiIsSrsoPresent @ 0x1404102FC (KiIsSrsoPresent.c)
- *     KiIsTsaPresent @ 0x1404103B4 (KiIsTsaPresent.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5310 (HviIsAnyHypervisorPresent.c)
+ *     HviGetEnlightenmentInformation @ 0x1403A8FE0 (HviGetEnlightenmentInformation.c)
+ *     HviGetHypervisorFeatures @ 0x1403A9020 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x1403A9060 (HviIsHypervisorMicrosoftCompatible.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiIsBranchConfusionPresent @ 0x1403F28F0 (KiIsBranchConfusionPresent.c)
+ *     KiIsRfdsPresent @ 0x1403F2A28 (KiIsRfdsPresent.c)
+ *     KiIsSrsoPresent @ 0x1403F2B14 (KiIsSrsoPresent.c)
+ *     KiIsTsaPresent @ 0x1403F2BD8 (KiIsTsaPresent.c)
  */
 
-char *__fastcall KiDetectHardwareSpecControlFeatures(__int64 a1, char a2, __int64 a3, char *a4)
+bool *__fastcall KiDetectHardwareSpecControlFeatures(__int64 a1, char a2, __int64 a3, bool *a4)
 {
   int v4; // r15d
-  char v5; // r13
-  char v8; // r14
-  bool v9; // r9
-  __int64 v10; // rdi
-  int v21; // r8d
-  unsigned __int64 v22; // rax
-  char v23; // cl
-  int v34; // ecx
-  __int64 v35; // rcx
-  int v36; // ecx
-  char v37; // bl
-  __int64 v38; // rdx
-  char v39; // cl
-  char v40; // al
-  char v41; // al
-  __int64 v42; // rdi
-  char *result; // rax
-  char v44; // [rsp+20h] [rbp-60h]
-  char v45; // [rsp+21h] [rbp-5Fh]
-  char v46; // [rsp+22h] [rbp-5Eh]
-  __int128 v47; // [rsp+28h] [rbp-58h]
-  __int128 v50; // [rsp+50h] [rbp-30h] BYREF
-  __int128 v51; // [rsp+60h] [rbp-20h] BYREF
+  bool v7; // r14
+  bool IsAnyHypervisorPresent; // r13
+  __int64 v9; // rdi
+  __int64 v19; // r8
+  unsigned __int64 v20; // rax
+  int v21; // ecx
+  bool v22; // r9
+  __int64 v31; // rcx
+  int v32; // ecx
+  ULONG_PTR v33; // rbx
+  char v34; // cl
+  char v35; // al
+  __int64 v36; // rdi
+  bool *result; // rax
+  bool v38; // [rsp+20h] [rbp-60h]
+  char v39; // [rsp+21h] [rbp-5Fh]
+  char v40; // [rsp+22h] [rbp-5Eh]
+  __int128 v41; // [rsp+28h] [rbp-58h]
+  __int128 v44; // [rsp+50h] [rbp-30h] BYREF
+  __int128 v45; // [rsp+60h] [rbp-20h] BYREF
 
-  v5 = *(_BYTE *)(a1 + 64);
   LOBYTE(v4) = *(_BYTE *)(a1 + 67);
-  v44 = 0;
-  v47 = 0LL;
-  v46 = *(_BYTE *)(a1 + 141);
-  v8 = 0;
-  v50 = 0LL;
-  DWORD2(v47) = 72;
-  v51 = 0LL;
-  v45 = 1;
+  v38 = 0;
+  v39 = *(_BYTE *)(a1 + 141);
+  v41 = 0LL;
+  v40 = *(_BYTE *)(a1 + 64);
+  v7 = 0;
+  IsAnyHypervisorPresent = 1;
+  v44 = 0LL;
+  DWORD2(v41) = 72;
+  v45 = 0LL;
   if ( (unsigned __int8)HviIsHypervisorMicrosoftCompatible() )
   {
-    HviGetEnlightenmentInformation(&v51);
-    v50 = 0LL;
-    HviGetHypervisorFeatures(&v50);
-    if ( (v50 & 0x100000000000LL) == 0 || (v51 & 0x1000) != 0 )
-    {
-      v9 = 1;
-    }
-    else
-    {
-      v9 = 0;
-      v45 = 0;
-    }
+    HviGetEnlightenmentInformation(&v45);
+    v44 = 0LL;
+    HviGetHypervisorFeatures(&v44);
+    if ( (v44 & 0x100000000000LL) != 0 )
+      IsAnyHypervisorPresent = (v45 & 0x1000) != 0;
   }
   else
   {
-    v9 = (unsigned __int8)HviIsAnyHypervisorPresent() != 0;
-    v45 = v9;
+    IsAnyHypervisorPresent = HviIsAnyHypervisorPresent();
   }
-  v10 = v47;
+  v9 = v41;
   _RAX = 0LL;
   __asm { cpuid }
   if ( (unsigned int)_RAX < 7 )
   {
-    v21 = 0;
+    v19 = 0LL;
+    v22 = 0;
   }
   else
   {
     _RAX = 7LL;
     __asm { cpuid }
-    v21 = _RDX;
+    v19 = (unsigned int)_RDX;
     if ( (_RDX & 0x20000000) != 0 )
     {
-      v22 = __readmsr(0x10Au);
-      if ( (v22 & 2) != 0 )
+      v20 = __readmsr(0x10Au);
+      _RDX = (unsigned __int64)HIDWORD(v20) << 32;
+      v21 = v20 & 2;
+      if ( (v20 & 2) != 0 )
       {
-        v23 = 1;
-        v10 = v47 | 0x201;
-        v8 = 1;
-        *(_QWORD *)&v47 = v47 | 0x201;
+        v9 = v41 | 0x200;
+        *(_QWORD *)&v41 = v41 | 0x200;
       }
-      else
+      v22 = v21 != 0;
+      v38 = v21 != 0;
+      v7 = v21 != 0;
+      if ( (v20 & 2) != 0 )
       {
-        v23 = 0;
+        v9 |= 1uLL;
+        v7 = 1;
+        *(_QWORD *)&v41 = v9;
       }
-      v44 = v23;
-      if ( (v22 & 0x10) != 0 )
+      if ( (v20 & 0x10) != 0 )
       {
-        v10 |= 0x100uLL;
-        v8 = 1;
-        *(_QWORD *)&v47 = v10;
+        v9 |= 0x100uLL;
+        v7 = 1;
+        *(_QWORD *)&v41 = v9;
       }
-      if ( (v22 & 4) != 0 )
+      if ( (v20 & 4) != 0 )
       {
-        v10 |= 0x200uLL;
-        v44 = v23;
-        *(_QWORD *)&v47 = v10;
-        v8 = 1;
+        v9 |= 0x200uLL;
+        v38 = v21 != 0;
+        *(_QWORD *)&v41 = v9;
+        v7 = 1;
       }
     }
+    else
+    {
+      v22 = 0;
+    }
   }
-  if ( v46 == 1 )
+  if ( v39 == 1 )
   {
     _RAX = 0x80000000LL;
     __asm { cpuid }
@@ -131,203 +129,194 @@ char *__fastcall KiDetectHardwareSpecControlFeatures(__int64 a1, char a2, __int6
     }
     if ( (_RBX & 0x1000) != 0 )
     {
-      v10 |= 4uLL;
-      v8 = 1;
-      *(_QWORD *)&v47 = v10;
+      v9 |= 4uLL;
+      v7 = 1;
+      *(_QWORD *)&v41 = v9;
     }
     if ( (_RBX & 0x4000) != 0 )
     {
-      v10 |= 0x10uLL;
-      v8 = 1;
-      *(_QWORD *)&v47 = v10;
+      v9 |= 0x10uLL;
+      v7 = 1;
+      *(_QWORD *)&v41 = v9;
     }
     if ( (_RBX & 0x8000) != 0 )
     {
-      v10 |= 0x40uLL;
-      v8 = 1;
-      *(_QWORD *)&v47 = v10;
+      v9 |= 0x40uLL;
+      v7 = 1;
+      *(_QWORD *)&v41 = v9;
     }
     if ( (_RBX & 0x1000000) != 0 )
     {
-      v10 |= 0x80uLL;
-      *(_QWORD *)&v47 = v10;
+      v9 |= 0x80uLL;
+      *(_QWORD *)&v41 = v9;
     }
     if ( (_RBX & 0x4000000) != 0 )
     {
-      v10 |= 0x180uLL;
-      *(_QWORD *)&v47 = v10;
+      v9 |= 0x180uLL;
+      *(_QWORD *)&v41 = v9;
     }
-    if ( (v47 & 0x80u) != 0LL )
+    if ( (v41 & 0x80u) != 0LL )
       goto LABEL_39;
   }
   else
   {
-    if ( (v21 & 0x4000000) != 0 )
+    if ( (v19 & 0x4000000) != 0 )
     {
-      v10 |= 0x14uLL;
-      v8 = 1;
-      *(_QWORD *)&v47 = v10;
+      v9 |= 0x14uLL;
+      v7 = 1;
+      *(_QWORD *)&v41 = v9;
     }
-    if ( (v21 & 0x8000000) != 0 )
+    if ( (v19 & 0x8000000) != 0 )
     {
-      v10 |= 0x44uLL;
-      v8 = 1;
-      *(_QWORD *)&v47 = v10;
+      v9 |= 0x44uLL;
+      v7 = 1;
+      *(_QWORD *)&v41 = v9;
     }
-    if ( v21 < 0 )
+    if ( (int)v19 < 0 )
     {
-      v10 |= 0x80uLL;
-      *(_QWORD *)&v47 = v10;
+      v9 |= 0x80uLL;
+      *(_QWORD *)&v41 = v9;
 LABEL_39:
-      v8 = 1;
+      v7 = 1;
     }
   }
   if ( (a2 & 1) != 0 || KiKvaShadowMode == 1 )
   {
-    v10 |= 0x20uLL;
-    *(_QWORD *)&v47 = v10;
+    v9 |= 0x20uLL;
+    *(_QWORD *)&v41 = v9;
   }
-  if ( v46 == 2 && v5 == 6 )
+  if ( v39 == 2 && v40 == 6 )
   {
-    if ( (unsigned __int8)(v4 - 78) <= 0x19u && (v34 = 50397313, _bittest(&v34, v4 - 78))
+    if ( (unsigned __int8)(v4 - 78) <= 0x19u && (_RDX = 50397313LL, _bittest((const int *)&_RDX, v4 - 78))
       || (_BYTE)v4 == 0x8E
       || (_BYTE)v4 == 0x9E )
     {
-      v10 |= 0x200uLL;
-      *(_QWORD *)&v47 = v10;
+      v9 |= 0x200uLL;
+      *(_QWORD *)&v41 = v9;
     }
-    if ( (unsigned __int8)(v4 - 55) <= 0x37u && (v35 = 0x80404800680001LL, _bittest64(&v35, (unsigned int)(v4 - 55)))
+    if ( (unsigned __int8)(v4 - 55) <= 0x37u && (v31 = 0x80404800680001LL, _bittest64(&v31, (unsigned int)(v4 - 55)))
       || (_BYTE)v4 == 117 )
     {
-      v10 |= 0x200uLL;
-      *(_QWORD *)&v47 = v10;
+      v9 |= 0x200uLL;
+      *(_QWORD *)&v41 = v9;
     }
   }
-  if ( (v47 & 0x14) != 0x14 )
+  if ( (v41 & 0x14) == 0x14 )
   {
-    v37 = v44;
-    goto LABEL_72;
-  }
-  if ( v9 && (KiFeatureSettings & 0x8000) == 0 )
-    goto LABEL_68;
-  v36 = *(_DWORD *)(a1 + 1740);
-  if ( (v36 & 2) != 0 )
-  {
-    v10 |= 0x400uLL;
-    *(_QWORD *)&v47 = v10;
-  }
-  if ( (v36 & 4) != 0 )
-  {
-    v10 |= 0x800uLL;
-    *(_QWORD *)&v47 = v10;
-    if ( (KiFeatureSettings & 0x4000) != 0 )
+    if ( !IsAnyHypervisorPresent || (KiFeatureSettings & 0x8000) != 0 )
     {
-      v10 |= 1uLL;
-      *(_QWORD *)&v47 = v10;
-    }
-  }
-  if ( v46 == 2 )
-  {
-    v37 = v44;
-    if ( !v9 && !v44 || (v36 & 3) != 0 )
-    {
-      v10 |= 0x1000uLL;
-LABEL_67:
-      *(_QWORD *)&v47 = v10;
-    }
-  }
-  else
-  {
-LABEL_68:
-    v37 = v44;
-    if ( v46 == 1 )
-    {
-      v10 |= 0x1000uLL;
-      *(_QWORD *)&v47 = v10;
-      if ( (v10 & 0x40) != 0 )
+      v32 = *(_DWORD *)(a1 + 1740);
+      if ( (v32 & 2) != 0 )
       {
-        v10 |= 0x4000uLL;
-        goto LABEL_67;
+        v9 |= 0x400uLL;
+        *(_QWORD *)&v41 = v9;
+      }
+      if ( (v32 & 4) != 0 )
+      {
+        v9 |= 0x800uLL;
+        *(_QWORD *)&v41 = v9;
+        if ( (KiFeatureSettings & 0x4000) != 0 )
+        {
+          v9 |= 1uLL;
+          *(_QWORD *)&v41 = v9;
+        }
+      }
+      if ( v39 == 2 )
+      {
+        if ( (IsAnyHypervisorPresent || v22) && (v32 & 3) == 0 )
+          goto LABEL_70;
+        v9 |= 0x1000uLL;
+        *(_QWORD *)&v41 = v9;
+      }
+    }
+    if ( v39 == 1 )
+    {
+      v9 |= 0x1000uLL;
+      *(_QWORD *)&v41 = v9;
+      if ( (v9 & 0x40) != 0 )
+      {
+        v9 |= 0x4000uLL;
+        *(_QWORD *)&v41 = v9;
       }
     }
   }
-LABEL_72:
+LABEL_70:
+  v33 = KeFeatureBits2;
   if ( (KeFeatureBits2 & 0x20000) != 0 && (KiFeatureSettings & 0x400000) == 0 )
   {
-    v10 |= 0x2000uLL;
-    *(_QWORD *)&v47 = v10;
+    v9 |= 0x2000uLL;
+    *(_QWORD *)&v41 = v9;
   }
-  if ( (unsigned int)KiIsBranchConfusionPresent(a1) )
+  if ( (unsigned int)KiIsBranchConfusionPresent(a1, _RDX, v19) )
   {
-    v10 |= 0x8000uLL;
-    *(_QWORD *)&v47 = v10;
+    v9 |= 0x8000uLL;
+    *(_QWORD *)&v41 = v9;
   }
   if ( (unsigned int)KiIsTsaPresent(a1) )
   {
-    v10 |= 0x2000000uLL;
-    *(_QWORD *)&v47 = v10;
+    v9 |= 0x2000000uLL;
+    *(_QWORD *)&v41 = v9;
   }
-  if ( v46 != 1 || (KeFeatureBits2 & 0x2000000) != 0 )
+  if ( v39 != 1 || (v33 & 0x2000000) != 0 )
   {
-    v10 |= 8uLL;
-    *(_QWORD *)&v47 = v10;
+    v9 |= 8uLL;
+    *(_QWORD *)&v41 = v9;
   }
-  BYTE12(v47) = 0;
-  if ( v46 == 2 )
+  BYTE12(v41) = 0;
+  if ( v39 == 2 )
   {
-    LOBYTE(v38) = v45;
-    if ( (KeFeatureBits2 & 0x4000000) == 0 && (v45 || v37) )
+    if ( (v33 & 0x4000000) == 0 && (IsAnyHypervisorPresent || v38) )
     {
-      v10 |= 0x10000uLL;
-      *(_QWORD *)&v47 = v10;
+      v9 |= 0x10000uLL;
+      *(_QWORD *)&v41 = v9;
     }
-    if ( (v10 & 0x10000) != 0 )
+    if ( (v9 & 0x10000) != 0 )
     {
-      if ( (KeFeatureBits2 & 0x8000000) != 0 )
+      if ( (v33 & 0x8000000) != 0 )
       {
-        v10 |= 0x20000uLL;
-        *(_QWORD *)&v47 = v10;
+        v9 |= 0x20000uLL;
+        *(_QWORD *)&v41 = v9;
       }
       if ( KiTsxSupported )
       {
-        BYTE12(v47) = 3;
+        BYTE12(v41) = 3;
       }
-      else if ( (KeFeatureBits2 & 0x8000000) != 0
+      else if ( (v33 & 0x8000000) != 0
              || *(_BYTE *)(a1 + 64) == 6
-             && ((v39 = *(_BYTE *)(a1 + 67), v39 == -105) && ((v40 = *(_BYTE *)(a1 + 66), v40 == 2) || v40 == 5)
-              || v39 == -102 && ((v41 = *(_BYTE *)(a1 + 66), v41 == 3) || v41 == 4))
-             || (BYTE12(v47) = 1, v45) )
+             && ((v34 = *(_BYTE *)(a1 + 67), v34 == -105) && ((v35 = *(_BYTE *)(a1 + 66), v35 == 2) || v35 == 5)
+              || v34 == -102 && (unsigned __int8)(*(_BYTE *)(a1 + 66) - 3) <= 1u)
+             || (BYTE12(v41) = 1, IsAnyHypervisorPresent) )
       {
-        BYTE12(v47) = 2;
+        BYTE12(v41) = 2;
       }
     }
   }
   if ( (KiFeatureSettings & 0x10000) != 0 )
   {
-    v10 &= 0xFFFFFFFFFFFFF7FEuLL;
-    *(_QWORD *)&v47 = v10;
+    v9 &= 0xFFFFFFFFFFFFF7FEuLL;
+    *(_QWORD *)&v41 = v9;
   }
-  if ( (unsigned int)KiIsSrsoPresent(a1, v38, 0x10000LL) )
+  if ( (unsigned int)KiIsSrsoPresent(a1, 0x10000LL) )
   {
-    v10 |= 0x200000uLL;
-    *(_QWORD *)&v47 = v10;
+    v9 |= 0x200000uLL;
+    *(_QWORD *)&v41 = v9;
   }
-  if ( v46 == 1 )
+  if ( v39 == 1 )
   {
-    v10 |= 0x400000uLL;
-    *(_QWORD *)&v47 = v10;
+    v9 |= 0x400000uLL;
+    *(_QWORD *)&v41 = v9;
   }
   if ( (unsigned int)KiIsRfdsPresent() )
   {
-    v42 = v10 | 0x800000;
-    *(_QWORD *)&v47 = v42;
-    if ( _bittest64((const signed __int64 *)&KeFeatureBits2, 0x24u) )
-      *(_QWORD *)&v47 = v42 | 0x1000000;
+    v36 = v9 | 0x800000;
+    *(_QWORD *)&v41 = v36;
+    if ( (v33 & 0x1000000000LL) != 0 )
+      *(_QWORD *)&v41 = v36 | 0x1000000;
   }
-  *(_OWORD *)a3 = v47;
+  *(_OWORD *)a3 = v41;
   *(_QWORD *)(a3 + 16) = 4LL;
   result = a4;
   if ( a4 )
-    *a4 = v8;
+    *a4 = v7;
   return result;
 }

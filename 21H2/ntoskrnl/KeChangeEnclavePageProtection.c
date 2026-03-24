@@ -1,27 +1,28 @@
 /*
- * XREFs of KeChangeEnclavePageProtection @ 0x14056D45C
+ * XREFs of KeChangeEnclavePageProtection @ 0x1405151E4
  * Callers:
- *     MiProtectEnclavePages @ 0x1405A9744 (MiProtectEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x14054AB30 (MiProtectEnclavePages.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiEncls @ 0x1404205F0 (KiEncls.c)
- *     memset @ 0x140435E00 (memset.c)
- *     KiEnclsStatus @ 0x14056D6C8 (KiEnclsStatus.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiEncls @ 0x1403FF060 (KiEncls.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     KiEnclsStatus @ 0x140515478 (KiEnclsStatus.c)
  */
 
 __int64 __fastcall KeChangeEnclavePageProtection(__int64 a1, char a2)
 {
   int *v2; // rbp
   unsigned int v4; // edi
-  int v5; // eax
+  int v5; // ecx
   int v6; // eax
-  unsigned int v7; // eax
-  _BYTE v9[80]; // [rsp+B0h] [rbp+B0h] BYREF
+  int v7; // eax
+  unsigned int v8; // eax
+  _BYTE v10[80]; // [rsp+B0h] [rbp+B0h] BYREF
 
-  v2 = (int *)((unsigned __int64)v9 & 0xFFFFFFFFFFFFFFC0uLL);
-  if ( !_bittest64(&KeFeatureBits, 0x2Bu) )
+  v2 = (int *)((unsigned __int64)v10 & 0xFFFFFFFFFFFFFFC0uLL);
+  if ( (KeFeatureBits & 0x80000000000LL) == 0 )
     return 3221225659LL;
-  memset((void *)((unsigned __int64)v9 & 0xFFFFFFFFFFFFFFC0uLL), 0, 0x40uLL);
+  memset((void *)((unsigned __int64)v10 & 0xFFFFFFFFFFFFFFC0uLL), 0, 0x40uLL);
   if ( (a2 & 8) != 0 )
   {
     v4 = 15;
@@ -30,17 +31,18 @@ __int64 __fastcall KeChangeEnclavePageProtection(__int64 a1, char a2)
   else if ( a2 >= 0 )
   {
     v4 = 14;
-    v5 = *v2;
+    v5 = a2 & 1;
+    v6 = *v2;
     if ( (a2 & 1) != 0 )
-      v5 = 1;
-    *v2 = v5;
-    v6 = a2 & 1 | 2;
+      v6 = 1;
+    *v2 = v6;
     if ( (a2 & 2) != 0 )
-      *v2 = v6;
-    else
-      v6 = a2 & 1;
+      *v2 = v5 | 2;
+    v7 = v5 | 2;
+    if ( (a2 & 2) == 0 )
+      v7 = a2 & 1;
     if ( (a2 & 4) != 0 )
-      *v2 = v6 | 4;
+      *v2 = v7 | 4;
   }
   else
   {
@@ -48,7 +50,7 @@ __int64 __fastcall KeChangeEnclavePageProtection(__int64 a1, char a2)
     *v2 = 1024;
   }
   do
-    v7 = KiEncls(v4);
-  while ( v7 == 15 );
-  return KiEnclsStatus(v7);
+    v8 = KiEncls(v4);
+  while ( v8 == 15 );
+  return KiEnclsStatus(v8);
 }

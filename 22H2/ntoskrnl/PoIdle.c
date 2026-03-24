@@ -1,37 +1,31 @@
 /*
- * XREFs of PoIdle @ 0x1402C4B30
+ * XREFs of PoIdle @ 0x140221E90
  * Callers:
- *     KiIdleLoop @ 0x140423300 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x140401FD0 (KiIdleLoop.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KeCheckProcessorAffinityEx @ 0x140257240 (KeCheckProcessorAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
- *     PpmIdlePrepare @ 0x1402C2300 (PpmIdlePrepare.c)
- *     PpmIdleExecuteTransition @ 0x1402C52F0 (PpmIdleExecuteTransition.c)
- *     PpmEventIdleStateChange @ 0x14034E368 (PpmEventIdleStateChange.c)
- *     MmGetNextNode @ 0x14034E6C0 (MmGetNextNode.c)
- *     PpmPerfArbitratorApplyProcessorState @ 0x14034EB90 (PpmPerfArbitratorApplyProcessorState.c)
- *     HalRequestIpi @ 0x14035BB40 (HalRequestIpi.c)
- *     KeIdleSpecCtrl @ 0x140371FC0 (KeIdleSpecCtrl.c)
- *     PpmResetProcessorIdleAccounting @ 0x14039F914 (PpmResetProcessorIdleAccounting.c)
- *     PpmIdleSelectStates @ 0x1403B6E10 (PpmIdleSelectStates.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HalProcessorIdle @ 0x140419FC0 (HalProcessorIdle.c)
- *     KeExecuteVerw @ 0x140435080 (KeExecuteVerw.c)
- *     memset @ 0x140435400 (memset.c)
- *     KeUpdatePendingQosRequest @ 0x140460E1C (KeUpdatePendingQosRequest.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmSetPlatformIdleDurationHint @ 0x140585CB0 (PpmSetPlatformIdleDurationHint.c)
+ *     PpmIdleExecuteTransition @ 0x140222470 (PpmIdleExecuteTransition.c)
+ *     PpmIdlePrepare @ 0x140224F50 (PpmIdlePrepare.c)
+ *     KeAddProcessorAffinityEx @ 0x140229340 (KeAddProcessorAffinityEx.c)
+ *     MmGetNextNode @ 0x1402F0F74 (MmGetNextNode.c)
+ *     PpmEventIdleStateChange @ 0x140307BC0 (PpmEventIdleStateChange.c)
+ *     HalRequestIpi @ 0x140343EB0 (HalRequestIpi.c)
+ *     KeIdleSpecCtrl @ 0x140364F30 (KeIdleSpecCtrl.c)
+ *     PpmIdleSelectStates @ 0x140394E80 (PpmIdleSelectStates.c)
+ *     PpmResetProcessorIdleAccounting @ 0x1403C4434 (PpmResetProcessorIdleAccounting.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HalProcessorIdle @ 0x1403F9320 (HalProcessorIdle.c)
+ *     KeExecuteVerw @ 0x140413500 (KeExecuteVerw.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PpmSetPlatformIdleDurationHint @ 0x140567698 (PpmSetPlatformIdleDurationHint.c)
  */
 
 __int64 __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
 {
   unsigned __int16 v1; // bx
-  __int64 *v3; // rdx
   __int64 result; // rax
-  __int64 v5; // rsi
-  __int64 v6; // r12
+  __int64 v4; // rsi
+  __int64 v5; // r12
+  __int64 v6; // r13
   unsigned __int16 v7; // ax
   __int64 v8; // rdx
   unsigned __int16 v9; // bx
@@ -43,109 +37,87 @@ __int64 __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
   __int64 v15; // r9
   unsigned __int64 *v16; // rax
   unsigned int v17; // ecx
-  __int64 v18; // rax
-  unsigned __int8 v19; // r13
-  char v20; // r15
-  bool v21; // r14
-  bool v22; // zf
-  __int64 v23; // rdi
-  __int16 v24; // r14
-  volatile signed __int32 *SchedulerAssist; // rcx
-  unsigned __int64 v26; // rcx
-  unsigned __int64 v27; // rax
-  int v28; // eax
-  unsigned int v29; // eax
-  int v30; // eax
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *v32; // r8
-  signed __int32 v33; // eax
-  signed __int32 v34; // ett
-  unsigned int v35; // edi
-  unsigned __int16 v36; // ax
-  __int64 v37; // rdx
-  unsigned __int16 v38; // bx
-  unsigned __int16 v39; // di
-  __int64 v40; // rcx
-  int v41; // ecx
-  int v42; // edx
-  unsigned __int16 v43; // dx
-  __int64 v44; // r13
-  char v45; // si
-  unsigned __int16 v46; // cx
-  int v47; // r12d
-  struct _KPRCB *v48; // rdi
-  unsigned __int16 *v49; // r10
-  int *v50; // rsi
-  unsigned int v51; // r15d
-  unsigned int v52; // r9d
-  __int64 v53; // rcx
-  _KSCHEDULER_SUBNODE *v54; // rcx
-  unsigned __int64 DeepIdleSet; // rdx
-  unsigned __int64 Mask; // r8
+  unsigned int v18; // edi
+  unsigned __int16 v19; // ax
+  __int64 v20; // rdx
+  unsigned __int16 v21; // bx
+  unsigned __int16 v22; // di
+  __int64 v23; // rcx
+  __int64 v24; // rax
+  int v25; // ecx
+  int v26; // edx
+  unsigned __int16 v28; // dx
+  char v29; // r12
+  unsigned __int16 v30; // cx
+  __int64 v31; // rsi
+  struct _KPRCB *CurrentPrcb; // r8
+  _KNODE *ParentNode; // r9
+  unsigned int v34; // r10d
   int NextNode; // eax
-  char v58; // [rsp+50h] [rbp-198h] BYREF
-  char v59; // [rsp+51h] [rbp-197h] BYREF
-  char v60; // [rsp+52h] [rbp-196h]
-  unsigned int v61; // [rsp+54h] [rbp-194h] BYREF
-  unsigned int v62; // [rsp+58h] [rbp-190h] BYREF
-  int v63; // [rsp+5Ch] [rbp-18Ch] BYREF
-  __int64 v64; // [rsp+60h] [rbp-188h] BYREF
-  __int64 v65; // [rsp+68h] [rbp-180h] BYREF
-  unsigned __int64 v66; // [rsp+70h] [rbp-178h] BYREF
-  __int64 v67[3]; // [rsp+78h] [rbp-170h] BYREF
-  _DWORD v68[68]; // [rsp+90h] [rbp-158h] BYREF
-  int v69; // [rsp+1E0h] [rbp-8h]
+  __int64 v36; // r11
+  char v37; // [rsp+40h] [rbp-C0h] BYREF
+  char v38[3]; // [rsp+41h] [rbp-BFh] BYREF
+  unsigned int v39; // [rsp+44h] [rbp-BCh] BYREF
+  unsigned int v40; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned int v41; // [rsp+4Ch] [rbp-B4h] BYREF
+  int v42; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v43; // [rsp+58h] [rbp-A8h] BYREF
+  int v44; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v45; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v46; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v47; // [rsp+78h] [rbp-88h] BYREF
+  _DWORD v48[44]; // [rsp+80h] [rbp-80h] BYREF
 
   v1 = 0;
-  v59 = 0;
-  v64 = 0LL;
-  v65 = 0LL;
-  v67[0] = 0LL;
-  v58 = 0;
-  v63 = 0;
-  v62 = 0;
-  memset(&v68[2], 0, 0x100uLL);
-  v3 = PpmCurrentProfile;
-  result = dword_140C3D90C;
-  if ( BYTE5(PpmCurrentProfile[55 * dword_140C3D90C + 23]) )
+  v38[0] = 0;
+  v43 = 0LL;
+  v45 = 0LL;
+  v47 = 0LL;
+  v37 = 0;
+  v42 = 0;
+  v39 = 0;
+  memset(&v48[2], 0, 0xA0uLL);
+  result = dword_140C2334C;
+  if ( BYTE5(PpmCurrentProfile[342 * dword_140C2334C + 23]) )
     return result;
-  v5 = *(_QWORD *)(BugCheckParameter4 + 33600);
-  v6 = *(_QWORD *)(BugCheckParameter4 + 33608);
-  v66 = 0LL;
-  if ( !v5 )
+  v4 = *(_QWORD *)(BugCheckParameter4 + 0x8000);
+  v5 = *(_QWORD *)(BugCheckParameter4 + 32776);
+  v6 = 0LL;
+  v46 = 0LL;
+  if ( !v4 )
   {
-    v61 = 0;
-    v7 = KeIdleSpecCtrl(BugCheckParameter4, 1LL, &v61, 0LL);
-    v9 = v61;
+    v40 = 0;
+    v7 = KeIdleSpecCtrl(BugCheckParameter4, 1LL, &v40, 0LL);
+    v9 = v40;
     v10 = v7;
-    if ( (_WORD)v61 )
+    if ( (_WORD)v40 )
     {
       v8 = 0LL;
       __writemsr(0x48u, 0LL);
     }
-    v11 = HIWORD(v61);
-    if ( HIWORD(v61) )
+    v11 = HIWORD(v40);
+    if ( HIWORD(v40) )
       KeExecuteVerw(v11, v8);
     HalProcessorIdle(v11, v8);
     if ( v9 )
       __writemsr(0x48u, v9);
     else
       _mm_lfence();
-    return KeIdleSpecCtrl(BugCheckParameter4, 0LL, &v61, v10);
+    return KeIdleSpecCtrl(BugCheckParameter4, 0LL, &v40, v10);
   }
-  *(_DWORD *)(v5 + 1092) = 0;
-  v12 = *(_QWORD *)(BugCheckParameter4 + 33600);
+  *(_DWORD *)(v4 + 796) = 0;
+  v12 = *(_QWORD *)(BugCheckParameter4 + 0x8000);
   if ( *(_BYTE *)(v12 + 5) )
   {
-    v13 = *(_QWORD *)(BugCheckParameter4 + 33616);
-    *(_QWORD *)(BugCheckParameter4 + 33616) = 0LL;
-    v14 = *(unsigned int *)(v12 + 28);
-    *(_QWORD *)(BugCheckParameter4 + 33624) += v13;
-    v15 = *(_QWORD *)(BugCheckParameter4 + 33608) + 1008 * v14;
+    v13 = *(_QWORD *)(BugCheckParameter4 + 32784);
+    *(_QWORD *)(BugCheckParameter4 + 32784) = 0LL;
+    v14 = *(unsigned int *)(v12 + 20);
+    *(_QWORD *)(BugCheckParameter4 + 32792) += v13;
+    v15 = *(_QWORD *)(BugCheckParameter4 + 32776) + 1000 * v14;
     *(_QWORD *)(v15 + 40) += v13;
-    if ( *(_DWORD *)(v12 + 76) == 3 )
+    if ( *(_DWORD *)(v12 + 68) == 3 )
     {
-      if ( *(int *)(v12 + 72) >= 0 )
+      if ( *(int *)(v12 + 64) >= 0 )
       {
         ++*(_DWORD *)(v15 + 56);
         v16 = (unsigned __int64 *)&PpmIdleIntervalLimits;
@@ -154,29 +126,28 @@ __int64 __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
         {
           if ( v13 < v16[3] )
           {
-            if ( ++v17 >= 0x1A )
-            {
-              ++*(_DWORD *)(v15 + 60);
-              goto LABEL_27;
-            }
+            ++v17;
             break;
           }
           v16 += 6;
           v17 += 2;
           if ( v17 >= 0x1A )
-          {
-            ++*(_DWORD *)(v15 + 60);
-            goto LABEL_27;
-          }
+            goto LABEL_20;
         }
-        v18 = 32LL * v17;
-        *(_QWORD *)(v18 + v15 + 216) += v13;
-        ++*(_DWORD *)(v18 + v15 + 240);
-        if ( v13 < *(_QWORD *)(v18 + v15 + 224) )
-          *(_QWORD *)(v18 + v15 + 224) = v13;
-        if ( v13 > *(_QWORD *)(v18 + v15 + 232) )
-          *(_QWORD *)(v18 + v15 + 232) = v13;
-LABEL_27:
+        if ( v17 >= 0x1A )
+        {
+LABEL_20:
+          ++*(_DWORD *)(v15 + 60);
+          goto LABEL_21;
+        }
+        v24 = 32LL * v17;
+        *(_QWORD *)(v24 + v15 + 208) += v13;
+        ++*(_DWORD *)(v24 + v15 + 232);
+        if ( v13 < *(_QWORD *)(v24 + v15 + 216) )
+          *(_QWORD *)(v24 + v15 + 216) = v13;
+        if ( v13 > *(_QWORD *)(v24 + v15 + 224) )
+          *(_QWORD *)(v24 + v15 + 224) = v13;
+LABEL_21:
         if ( v13 < *(_QWORD *)(v15 + 64) )
           *(_QWORD *)(v15 + 64) = v13;
         if ( v13 > *(_QWORD *)(v15 + 72) )
@@ -192,225 +163,138 @@ LABEL_27:
       ++*(_DWORD *)(v15 + 48);
     }
   }
-  v19 = 0;
-  *(_DWORD *)(v12 + 72) = 0;
-  v20 = 0;
-  *(_DWORD *)(v12 + 76) = 3;
-  v21 = 0;
+  *(_DWORD *)(v12 + 64) = 0;
+  *(_DWORD *)(v12 + 68) = 3;
   *(_BYTE *)(v12 + 5) = 0;
-  v22 = PpmPerfQosEnabled == 0;
-  v23 = 0LL;
-  *(_BYTE *)(v5 + 5) = 1;
-  v60 = 0;
-  if ( !v22 && PpmPerfQosManageIdleProcessors && *(_DWORD *)(BugCheckParameter4 + 34112) != 5 )
+  *(_BYTE *)(v4 + 5) = 1;
+  v48[0] = 1310721;
+  memset(&v48[1], 0, 0xA4uLL);
+  *(_WORD *)(v4 + 48) = 0;
+  if ( *(_BYTE *)v4 )
   {
-    v23 = *(_QWORD *)(BugCheckParameter4 + 33976);
-    if ( v23 && *(_BYTE *)(v23 + 125) )
-    {
-      v24 = v69;
-      v20 = 1;
-      _disable();
-      SchedulerAssist = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
-      if ( SchedulerAssist )
-        _InterlockedOr(SchedulerAssist, 0x200000u);
-      v21 = (v24 & 0x200) != 0;
-      KxAcquireSpinLock((PKSPIN_LOCK)(v23 + 128));
-    }
-    if ( (*(_BYTE *)(BugCheckParameter4 + 34120) & 0x20) == 0 )
-    {
-      v3 = (__int64 *)__rdtsc();
-      v26 = (unsigned __int64)v3 - *(_QWORD *)(BugCheckParameter4 + 34096);
-      v27 = *(_QWORD *)(BugCheckParameter4 + 34104);
-      if ( v26 < v27 && !*(_BYTE *)(BugCheckParameter4 + 34061) )
-      {
-        v28 = *(_DWORD *)(BugCheckParameter4 + 236);
-        v19 = 1;
-        v60 = 1;
-        if ( (v28 & 0x300) == 0 )
-        {
-          v29 = v28 & 0xFFFFFCFF | 0x100;
-LABEL_48:
-          *(_DWORD *)(BugCheckParameter4 + 236) = v29;
-          KeUpdatePendingQosRequest(BugCheckParameter4);
-          goto LABEL_49;
-        }
-        goto LABEL_49;
-      }
-      *(_QWORD *)(BugCheckParameter4 + 34096) = v3;
-      *(_BYTE *)(BugCheckParameter4 + 34061) = v26 >= 2 * v27;
-    }
-    *(_DWORD *)(BugCheckParameter4 + 34112) = 5;
-    LOBYTE(v3) = 1;
-    PpmPerfArbitratorApplyProcessorState(BugCheckParameter4, v3, 0LL);
-    *(_BYTE *)(BugCheckParameter4 + 236) = 5;
-  }
-  v30 = *(_DWORD *)(BugCheckParameter4 + 236);
-  if ( (v30 & 0x300) != 0 )
-  {
-    v29 = v30 & 0xFFFFFCFF;
-    goto LABEL_48;
-  }
-LABEL_49:
-  if ( v20 )
-  {
-    KxReleaseSpinLock((volatile signed __int64 *)(v23 + 128));
-    if ( v21 )
-    {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v32 = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-      if ( v32 )
-      {
-        _m_prefetchw(v32);
-        v33 = *v32;
-        do
-        {
-          v34 = v33;
-          v33 = _InterlockedCompareExchange(v32, v33 & 0xFFDFFFFF, v33);
-        }
-        while ( v34 != v33 );
-        if ( (v33 & 0x200000) != 0 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-      }
-      _enable();
-    }
-  }
-  v68[0] = 2097153;
-  memset(&v68[1], 0, 0x104uLL);
-  *(_WORD *)(v5 + 56) = 0;
-  if ( *(_BYTE *)v5 )
-  {
-    if ( PpmIdleVetoBias && *(_BYTE *)(v5 + 16) )
+    if ( PpmIdleVetoBias && *(_BYTE *)(v4 + 8) )
       return ((__int64 (*)(void))HalProcessorIdle)();
     PpmIdleSelectStates(
       BugCheckParameter4,
-      v19,
-      (unsigned int)&v64,
-      (unsigned int)&v65,
-      (__int64)&v59,
-      (__int64)&v62,
-      (__int64)&v63,
-      (__int64)v67,
-      (__int64)&v58);
-    v35 = v62;
+      (unsigned int)&v43,
+      (unsigned int)&v45,
+      (unsigned int)v38,
+      (__int64)&v39,
+      (__int64)&v42,
+      (__int64)&v47,
+      (__int64)&v37);
+    v18 = v39;
   }
   else
   {
-    result = PpmIdlePrepare(BugCheckParameter4, v19, (bool *)&v59, &v64, &v65, &v66, (unsigned __int16 *)v68);
-    v35 = result;
-    v62 = result;
+    result = PpmIdlePrepare(
+               BugCheckParameter4,
+               (unsigned int)v38,
+               (unsigned int)&v43,
+               (unsigned int)&v45,
+               (__int64)&v46,
+               (__int64)v48);
+    v18 = result;
+    v39 = result;
     if ( (_DWORD)result == -2 )
     {
-      v61 = 0;
-      v36 = KeIdleSpecCtrl(BugCheckParameter4, 1LL, &v61, 0LL);
-      v38 = v61;
-      v39 = v36;
-      if ( (_WORD)v61 )
+      v41 = 0;
+      v19 = KeIdleSpecCtrl(BugCheckParameter4, 1LL, &v41, 0LL);
+      v21 = v41;
+      v22 = v19;
+      if ( (_WORD)v41 )
       {
-        v37 = 0LL;
+        v20 = 0LL;
         __writemsr(0x48u, 0LL);
       }
-      v40 = HIWORD(v61);
-      if ( HIWORD(v61) )
-        KeExecuteVerw(v40, v37);
-      HalProcessorIdle(v40, v37);
-      if ( v38 )
-        __writemsr(0x48u, v38);
+      v23 = HIWORD(v41);
+      if ( HIWORD(v41) )
+        KeExecuteVerw(v23, v20);
+      HalProcessorIdle(v23, v20);
+      if ( v21 )
+        __writemsr(0x48u, v21);
       else
         _mm_lfence();
-      return KeIdleSpecCtrl(BugCheckParameter4, 0LL, &v61, v39);
+      return KeIdleSpecCtrl(BugCheckParameter4, 0LL, &v41, v22);
     }
     if ( (_DWORD)result == -1 )
     {
-      ++*(_DWORD *)(v6 + 12);
+      ++*(_DWORD *)(v5 + 12);
       return result;
     }
-    v41 = *(_DWORD *)(v5 + 760);
-    v63 = v41;
-    if ( v41 != -1 )
+    v25 = *(_DWORD *)(v4 + 560);
+    v42 = v25;
+    if ( v25 != -1 )
     {
-      **(_DWORD **)(v5 + 1104) = v41;
-      *(_DWORD *)(v5 + 1092) = 1;
+      **(_DWORD **)(v4 + 808) = v25;
+      *(_DWORD *)(v4 + 796) = 1;
     }
-    v58 = *(_BYTE *)(344LL * (unsigned int)result + v5 + 1450) == 0;
+    v6 = v46;
+    v37 = *(_BYTE *)(248LL * (unsigned int)result + v4 + 1058) == 0;
   }
-  v42 = *(_DWORD *)(v5 + 24);
-  if ( v35 != v42 )
+  v26 = *(_DWORD *)(v4 + 16);
+  if ( v18 != v26 )
   {
-    *(_DWORD *)(v5 + 32) = v42;
-    *(_DWORD *)(v5 + 24) = v35;
-    PpmEventIdleStateChange(v35);
+    *(_DWORD *)(v4 + 24) = v26;
+    *(_DWORD *)(v4 + 16) = v18;
+    PpmEventIdleStateChange(v18);
   }
-  v22 = (*(_DWORD *)(v6 + 4))++ == -1;
-  if ( v22 )
-    PpmResetProcessorIdleAccounting(v6, v64);
-  v43 = v68[0];
-  v44 = *(_QWORD *)(BugCheckParameter4 + 33600);
-  v45 = *(_BYTE *)(344LL * v35 + v5 + 1449);
-  v46 = 0;
-  if ( LOWORD(v68[0]) )
+  if ( (*(_DWORD *)(v5 + 4))++ == -1 )
+    PpmResetProcessorIdleAccounting(v5, v43);
+  v28 = 0;
+  v29 = *(_BYTE *)(248LL * v18 + v4 + 1057);
+  v30 = v48[0];
+  v31 = *(_QWORD *)(BugCheckParameter4 + 0x8000);
+  if ( LOWORD(v48[0]) )
   {
-    while ( !*(_QWORD *)&v68[2 * v46 + 2] )
+    while ( !*(_QWORD *)&v48[2 * v28 + 2] )
     {
-      if ( ++v46 >= LOWORD(v68[0]) )
-        goto LABEL_88;
+      if ( ++v28 >= LOWORD(v48[0]) )
+        goto LABEL_62;
     }
-    *(_WORD *)(v44 + 56) |= 0x400u;
-    if ( KiSerializeTimerExpiration && v66 )
-      PpmSetPlatformIdleDurationHint();
-    v43 = v68[0];
+    *(_WORD *)(v31 + 48) |= 0x400u;
+    if ( KiSerializeTimerExpiration && v6 )
+      PpmSetPlatformIdleDurationHint(v6);
+    v30 = v48[0];
   }
-LABEL_88:
-  v47 = KiClockTimerOwner;
+LABEL_62:
   if ( !(_BYTE)KiDynamicTickDisableReason
     && !PpmIpiLastClockOwnerDisable
     && !*(_BYTE *)(BugCheckParameter4 + 33)
     && *(_BYTE *)(KiProcessorBlock[(unsigned int)KiClockTimerOwner] + 33)
-    && !v45 )
+    && !v29 )
   {
-    v48 = KeGetCurrentPrcb();
-    v61 = 0;
-    v49 = (unsigned __int16 *)KeNodeBlock[v48->SchedulerSubNode->Affinity.Reserved[0]];
-    v50 = &KiProcessorIndexToNumberMappingTable[v48->Number];
-    v51 = *v49;
-    while ( 1 )
+    CurrentPrcb = KeGetCurrentPrcb();
+    v44 = 0;
+    ParentNode = CurrentPrcb->ParentNode;
+    v34 = ParentNode->Affinity.Reserved[0];
+    if ( (ParentNode->DeepIdleSet & ~(1LL << CurrentPrcb->GroupIndex)) == (ParentNode->Affinity.Mask & ~(1LL << (KiProcessorIndexToNumberMappingTable[CurrentPrcb->Number] & 0x3F))) )
     {
-      v52 = *((_DWORD *)v49 + 4);
-      while ( v52 )
+      while ( 1 )
       {
-        _BitScanForward((unsigned int *)&v53, v52);
-        v52 &= ~(1 << v53);
-        v54 = *(_KSCHEDULER_SUBNODE **)&v49[4 * v53 + 12];
-        DeepIdleSet = v54->DeepIdleSet;
-        Mask = v54->Affinity.Mask;
-        if ( v54 == v48->SchedulerSubNode )
-        {
-          DeepIdleSet &= ~(1LL << v48->GroupIndex);
-          _bittestandreset64((__int64 *)&Mask, *v50 & 0x3F);
-        }
-        if ( DeepIdleSet != Mask )
-          goto LABEL_104;
+        NextNode = MmGetNextNode(v34, &v44);
+        if ( NextNode == -1 )
+          break;
+        if ( *(_QWORD *)(KeNodeBlock[NextNode] + 64) != *(_QWORD *)(KeNodeBlock[NextNode] + 136) )
+          goto LABEL_73;
       }
-      NextNode = MmGetNextNode(v51, &v61);
-      if ( NextNode == -1 )
-        break;
-      v49 = (unsigned __int16 *)KeNodeBlock[NextNode];
+      if ( ((*(_QWORD *)&v48[2 * ((unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[v36] >> 6) + 2] >> (KiProcessorIndexToNumberMappingTable[v36] & 0x3F)) & 1) == 0 )
+      {
+        KeAddProcessorAffinityEx(v48, (unsigned int)v36);
+        *(_WORD *)(v31 + 48) |= 0x800u;
+      }
     }
-    if ( !(unsigned int)KeCheckProcessorAffinityEx((unsigned __int16 *)v68, v47) )
-    {
-      KeAddProcessorAffinityEx((unsigned __int16 *)v68, v47);
-      *(_WORD *)(v44 + 56) |= 0x800u;
-    }
-LABEL_104:
-    v43 = v68[0];
+LABEL_73:
+    v30 = v48[0];
   }
-  if ( v43 )
+  if ( v30 )
   {
-    while ( !*(_QWORD *)&v68[2 * v1 + 2] )
+    while ( !*(_QWORD *)&v48[2 * v1 + 2] )
     {
-      if ( ++v1 >= v43 )
-        return PpmIdleExecuteTransition(BugCheckParameter4, v59, v64, v65, v58, v60);
+      if ( ++v1 >= v30 )
+        return PpmIdleExecuteTransition(BugCheckParameter4, v38[0], v43, v45, v37);
     }
-    HalRequestIpi(0LL, v68);
+    HalRequestIpi(0LL, v48);
   }
-  return PpmIdleExecuteTransition(BugCheckParameter4, v59, v64, v65, v58, v60);
+  return PpmIdleExecuteTransition(BugCheckParameter4, v38[0], v43, v45, v37);
 }

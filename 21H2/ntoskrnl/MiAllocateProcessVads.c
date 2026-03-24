@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateProcessVads @ 0x1406C3F0C
+ * XREFs of MiAllocateProcessVads @ 0x140711DE0
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x14070A4FC (MmInitializeProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess2 @ 0x140860DAC (MmInitializeHandBuiltProcess2.c)
+ *     MmInitializeProcessAddressSpace @ 0x1407114D4 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x1407D0EC4 (MmInitializeHandBuiltProcess2.c)
  * Callees:
- *     MiAllocateVad @ 0x1406C3FB4 (MiAllocateVad.c)
- *     MiReturnProcessVads @ 0x140968064 (MiReturnProcessVads.c)
+ *     MiAllocateVad @ 0x140711E88 (MiAllocateVad.c)
+ *     MiReturnProcessVads @ 0x1408C4504 (MiReturnProcessVads.c)
  */
 
 _QWORD *__fastcall MiAllocateProcessVads(__int64 a1, __int64 a2)
@@ -17,9 +17,9 @@ _QWORD *__fastcall MiAllocateProcessVads(__int64 a1, __int64 a2)
   Vad = (void *)MiAllocateVad(2147352576LL, 2147356671LL, 1LL);
   if ( !Vad )
     return 0LL;
-  if ( !qword_140C50678 )
+  if ( !qword_140C4DE48 )
     goto LABEL_5;
-  v5 = (_QWORD *)MiAllocateVad(qword_140C50678, qword_140C50678 + 4095, 1LL);
+  v5 = (_QWORD *)MiAllocateVad(qword_140C4DE48, qword_140C4DE48 + 4095, 1LL);
   if ( v5 )
   {
     *v5 = Vad;

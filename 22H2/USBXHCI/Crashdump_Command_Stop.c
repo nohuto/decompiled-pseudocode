@@ -1,10 +1,10 @@
 /*
- * XREFs of Crashdump_Command_Stop @ 0x1C004EC20
+ * XREFs of Crashdump_Command_Stop @ 0x1C004C150
  * Callers:
- *     Crashdump_Cleanup @ 0x1C004BD10 (Crashdump_Cleanup.c)
- *     Crashdump_Command_PrepareForDump @ 0x1C004E978 (Crashdump_Command_PrepareForDump.c)
+ *     Crashdump_Cleanup @ 0x1C0049210 (Crashdump_Cleanup.c)
+ *     Crashdump_Command_PrepareForDump @ 0x1C004BE98 (Crashdump_Command_PrepareForDump.c)
  * Callees:
- *     Crashdump_EventRing_Poll @ 0x1C004E400 (Crashdump_EventRing_Poll.c)
+ *     Crashdump_EventRing_Poll @ 0x1C004B92C (Crashdump_EventRing_Poll.c)
  */
 
 __int64 __fastcall Crashdump_Command_Stop(__int64 a1, char a2)
@@ -41,7 +41,7 @@ __int64 __fastcall Crashdump_Command_Stop(__int64 a1, char a2)
   {
     KeStallExecutionProcessor(0xC8u);
     v8 = *(_DWORD **)(a1 + 16);
-    if ( (*(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL) & 1) != 0 )
+    if ( (*(_OWORD *)(*(_QWORD *)(a1 + 8) + 8LL) & 1) != 0 )
       LODWORD(v15) = *v8;
     else
       v15 = *(_QWORD *)v8;
@@ -62,7 +62,7 @@ __int64 __fastcall Crashdump_Command_Stop(__int64 a1, char a2)
     if ( !*(_DWORD *)(*(_QWORD *)a1 + 584LL) || *(_BYTE *)(v11 + 624) )
       v7 = 72LL;
     v12 = Crashdump_EventRing_Poll(
-            v11 + v7,
+            v7 + v11,
             33,
             v10,
             a1,

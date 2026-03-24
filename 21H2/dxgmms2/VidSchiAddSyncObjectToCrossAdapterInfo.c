@@ -1,31 +1,28 @@
 /*
- * XREFs of VidSchiAddSyncObjectToCrossAdapterInfo @ 0x1C0038794
+ * XREFs of VidSchiAddSyncObjectToCrossAdapterInfo @ 0x1C002F018
  * Callers:
- *     VidSchCreateSyncObject @ 0x1C0099A90 (VidSchCreateSyncObject.c)
+ *     VidSchCreateSyncObject @ 0x1C0083960 (VidSchCreateSyncObject.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall VidSchiAddSyncObjectToCrossAdapterInfo(__int64 a1)
 {
-  KSPIN_LOCK *v2; // rcx
-  _QWORD *v3; // rax
-  __int64 v4; // rcx
-  __int64 v5; // rdx
+  _QWORD *v2; // rax
+  __int64 v3; // rcx
+  __int64 v4; // rdx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  v2 = (KSPIN_LOCK *)(*(_QWORD *)(a1 + 208) + 8LL);
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(v2, &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*(_QWORD *)(a1 + 208) + 8LL), &LockHandle);
   _InterlockedIncrement(*(volatile signed __int32 **)(a1 + 208));
-  v3 = (_QWORD *)(a1 + 144);
-  v4 = *(_QWORD *)(a1 + 208) + 16LL;
-  v5 = *(_QWORD *)v4;
-  if ( *(_QWORD *)(*(_QWORD *)v4 + 8LL) != v4 )
+  v2 = (_QWORD *)(a1 + 144);
+  v3 = *(_QWORD *)(a1 + 208) + 16LL;
+  v4 = *(_QWORD *)v3;
+  if ( *(_QWORD *)(*(_QWORD *)v3 + 8LL) != v3 )
     __fastfail(3u);
-  *(_QWORD *)(a1 + 152) = v4;
-  *v3 = v5;
-  *(_QWORD *)(v5 + 8) = v3;
-  *(_QWORD *)v4 = v3;
+  *(_QWORD *)(a1 + 152) = v3;
+  *v2 = v4;
+  *(_QWORD *)(v4 + 8) = v2;
+  *(_QWORD *)v3 = v2;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
 }

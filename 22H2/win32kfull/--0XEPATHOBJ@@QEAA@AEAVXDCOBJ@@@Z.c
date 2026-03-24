@@ -1,25 +1,25 @@
 /*
- * XREFs of ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C0284C7C
+ * XREFs of ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C01447BC
  * Callers:
- *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z @ 0x1C010BA70 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z.c)
- *     NtGdiCloseFigure @ 0x1C02C0C80 (NtGdiCloseFigure.c)
- *     NtGdiFillPath @ 0x1C02C0DE0 (NtGdiFillPath.c)
- *     NtGdiFlattenPath @ 0x1C02C0F70 (NtGdiFlattenPath.c)
- *     NtGdiPathToRegion @ 0x1C02C1330 (NtGdiPathToRegion.c)
- *     NtGdiSelectClipPath @ 0x1C02C1490 (NtGdiSelectClipPath.c)
- *     NtGdiStrokeAndFillPath @ 0x1C02C1640 (NtGdiStrokeAndFillPath.c)
- *     NtGdiStrokePath @ 0x1C02C1810 (NtGdiStrokePath.c)
- *     NtGdiWidenPath @ 0x1C02C1980 (NtGdiWidenPath.c)
+ *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0092300 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
+ *     NtGdiFillPath @ 0x1C01435D0 (NtGdiFillPath.c)
+ *     NtGdiCloseFigure @ 0x1C0143950 (NtGdiCloseFigure.c)
+ *     NtGdiSelectClipPath @ 0x1C01445D0 (NtGdiSelectClipPath.c)
+ *     NtGdiFlattenPath @ 0x1C02AD030 (NtGdiFlattenPath.c)
+ *     NtGdiPathToRegion @ 0x1C02AD3B0 (NtGdiPathToRegion.c)
+ *     NtGdiStrokeAndFillPath @ 0x1C02AD510 (NtGdiStrokeAndFillPath.c)
+ *     NtGdiStrokePath @ 0x1C02AD6B0 (NtGdiStrokePath.c)
+ *     NtGdiWidenPath @ 0x1C02AD7F0 (NtGdiWidenPath.c)
  * Callees:
- *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C01597BA (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
- *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C015A6C4 (--1XEPATHOBJ@@QEAA@XZ.c)
- *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C0284DC8 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
+ *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C014475C (--1XEPATHOBJ@@QEAA@XZ.c)
+ *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C01457A4 (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
+ *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C0285FE4 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
  */
 
 XEPATHOBJ *__fastcall XEPATHOBJ::XEPATHOBJ(XEPATHOBJ *this, DC **a2)
 {
   int v4; // eax
-  struct HPATH__ *v5; // rdx
+  struct HPATH__ *v6; // rdx
   _BYTE v7[8]; // [rsp+20h] [rbp-108h] BYREF
   struct HPATH__ **v8; // [rsp+28h] [rbp-100h]
   _BYTE v9[8]; // [rsp+A0h] [rbp-88h] BYREF
@@ -41,10 +41,10 @@ XEPATHOBJ *__fastcall XEPATHOBJ::XEPATHOBJ(XEPATHOBJ *this, DC **a2)
     XEPATHOBJ::XEPATHOBJ((XEPATHOBJ *)v9, *((struct HPATH__ **)*a2 + 25));
     PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v7);
     if ( v8 && v10 && EPATHOBJ::bClone((EPATHOBJ *)v7, (struct EPATHOBJ *)v9) )
-      v5 = *v8;
+      v6 = *v8;
     else
-      v5 = 0LL;
-    DC::hpath(*a2, v5);
+      v6 = 0LL;
+    DC::hpath(*a2, v6);
     PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v7);
     XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v9);
   }

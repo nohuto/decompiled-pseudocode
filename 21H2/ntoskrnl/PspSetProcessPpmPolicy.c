@@ -1,24 +1,50 @@
 /*
- * XREFs of PspSetProcessPpmPolicy @ 0x1406D82F0
+ * XREFs of PspSetProcessPpmPolicy @ 0x1406B2490
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ExpUpdateTimerResolution @ 0x1402EC99C (ExpUpdateTimerResolution.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     KeGetProcessQosFromPolicy @ 0x140514228 (KeGetProcessQosFromPolicy.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406DBD14 (ExAcquireTimeRefreshLock.c)
  */
 
-__int64 __fastcall PspSetProcessPpmPolicy(__int64 a1, int a2)
+void __fastcall PspSetProcessPpmPolicy(__int64 a1, int a2)
 {
   int v2; // edx
-  __int64 result; // rax
-  signed __int32 v4; // ett
+  signed __int32 v3; // ett
+  int v5; // edx
+  __int64 v6; // rcx
+  unsigned int v7; // r8d
+  __int64 v8; // r9
 
   v2 = a2 << 7;
   _m_prefetchw((const void *)(a1 + 632));
   do
+    v3 = *(_DWORD *)(a1 + 632);
+  while ( v3 != _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 632), v2 | v3 & 0xFFFFFC7F, v3) );
+  if ( KeNumberProcessorsGroup0[2] )
   {
-    v4 = *(_DWORD *)(a1 + 632);
-    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 632), v2 | v4 & 0xFFFFF87F, v4);
+    if ( (unsigned int)KeGetProcessQosFromPolicy((*(_DWORD *)(a1 + 632) >> 7) & 7) == 2 )
+    {
+      if ( v5 )
+        return;
+      _InterlockedOr((volatile signed __int32 *)(v8 + 2172), v7);
+    }
+    else
+    {
+      if ( !v5 )
+        return;
+      _InterlockedAnd((volatile signed __int32 *)(v8 + 2172), 0xFBFFFFFF);
+    }
+    if ( (*(_DWORD *)(v8 + 1124) & 0x1000) != 0 )
+    {
+      LOBYTE(v6) = 1;
+      ExAcquireTimeRefreshLock(v6);
+      ExpUpdateTimerResolution(0, 0, 0LL);
+      ExReleaseResourceLite(&ExpTimeRefreshLock);
+      KeLeaveCriticalRegion();
+    }
   }
-  while ( v4 != (_DWORD)result );
-  return result;
 }

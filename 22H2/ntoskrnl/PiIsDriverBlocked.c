@@ -1,111 +1,136 @@
 /*
- * XREFs of PiIsDriverBlocked @ 0x140692F18
+ * XREFs of PiIsDriverBlocked @ 0x14077E204
  * Callers:
- *     PiLookupInDDB @ 0x140692E10 (PiLookupInDDB.c)
+ *     PiLookupInDDB @ 0x14077E0FC (PiLookupInDDB.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlIsProcessorFeaturePresent @ 0x140364F00 (RtlIsProcessorFeaturePresent.c)
- *     KeIsKernelCetEnabled @ 0x140387454 (KeIsKernelCetEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcsrchr @ 0x1403DB4B0 (wcsrchr.c)
- *     SdbGetDatabaseMatch @ 0x140693044 (SdbGetDatabaseMatch.c)
- *     PiUpdateDriverDBCache @ 0x140693190 (PiUpdateDriverDBCache.c)
- *     PnpLogEvent @ 0x140958B60 (PnpLogEvent.c)
- *     PiIsHVCIEnabled @ 0x140959D3C (PiIsHVCIEnabled.c)
- *     PiNotifyCiDriverBlocked @ 0x140959D88 (PiNotifyCiDriverBlocked.c)
- *     PnpTraceDriverBlocked @ 0x14096BE14 (PnpTraceDriverBlocked.c)
- *     SdbQueryDataEx @ 0x140A4EF54 (SdbQueryDataEx.c)
- *     SdbReadEntryInformation @ 0x140A4F3E4 (SdbReadEntryInformation.c)
+ *     ExIsProcessorFeaturePresent @ 0x14032AFE0 (ExIsProcessorFeaturePresent.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1403D3A00 (wcsrchr.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     PiUpdateDriverDBCache @ 0x14077E38C (PiUpdateDriverDBCache.c)
+ *     SdbGetDatabaseMatch @ 0x14077E548 (SdbGetDatabaseMatch.c)
+ *     SdbQueryDataExTagID @ 0x1407C1F28 (SdbQueryDataExTagID.c)
+ *     SdbReadEntryInformation @ 0x1407C21FC (SdbReadEntryInformation.c)
+ *     SdbTagRefToTagID @ 0x1407C2850 (SdbTagRefToTagID.c)
+ *     PiIsHVCIEnabled @ 0x1407D499C (PiIsHVCIEnabled.c)
+ *     PnpLogEvent @ 0x1408A1F4C (PnpLogEvent.c)
+ *     PiNotifyCiDriverBlocked @ 0x1408A2D84 (PiNotifyCiDriverBlocked.c)
+ *     PnpTraceDriverBlocked @ 0x1408B1C48 (PnpTraceDriverBlocked.c)
  */
 
 __int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, _OWORD *a5)
 {
-  unsigned int DatabaseMatch; // eax
-  __int64 v8; // r8
-  unsigned int v9; // r13d
-  unsigned int v10; // ebx
-  char v12; // di
+  __int64 v6; // rdx
+  int v7; // esi
+  int v9; // r8d
+  unsigned int DatabaseMatch; // r12d
+  unsigned int v11; // ebx
+  int v13; // r8d
+  char v14; // di
   char IsHVCIEnabled; // al
-  wchar_t *v14; // rax
-  const WCHAR *v15; // rdi
-  __int64 v16; // rdx
-  unsigned int v17; // [rsp+40h] [rbp-51h] BYREF
-  int v18; // [rsp+44h] [rbp-4Dh] BYREF
-  int v19; // [rsp+48h] [rbp-49h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-41h] BYREF
-  __int64 v21; // [rsp+60h] [rbp-31h]
-  _OWORD v22[2]; // [rsp+68h] [rbp-29h] BYREF
-  __int64 v23; // [rsp+88h] [rbp-9h]
+  wchar_t *v16; // rax
+  const WCHAR *v17; // rdi
+  bool v18; // zf
+  unsigned int v19; // [rsp+40h] [rbp-51h] BYREF
+  int v20; // [rsp+44h] [rbp-4Dh] BYREF
+  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-49h] BYREF
+  __int64 v22; // [rsp+58h] [rbp-39h] BYREF
+  int v23; // [rsp+60h] [rbp-31h] BYREF
+  __int64 v24; // [rsp+68h] [rbp-29h]
+  _OWORD v25[2]; // [rsp+70h] [rbp-21h] BYREF
+  __int64 v26; // [rsp+90h] [rbp-1h]
 
-  v17 = 0;
-  v23 = 0LL;
-  v21 = a3;
-  memset(v22, 0, sizeof(v22));
-  DatabaseMatch = SdbGetDatabaseMatch(a1, a4);
-  v9 = DatabaseMatch;
+  v26 = 0LL;
+  v6 = *(_QWORD *)(a2 + 8);
+  v7 = a3;
+  v24 = a3;
+  v19 = 0;
+  memset(v25, 0, sizeof(v25));
+  DatabaseMatch = SdbGetDatabaseMatch(a1, v6, a3, a3, a4);
   if ( !DatabaseMatch )
   {
-    v10 = 0;
-LABEL_3:
-    PiUpdateDriverDBCache(a2, v21, v8, v10, (__int64)v22);
-    if ( v10 + 1073740949 <= 1 )
+    v11 = 0;
+    goto LABEL_3;
+  }
+  *(_QWORD *)&DestinationString.Length = 0LL;
+  v23 = 4;
+  v20 = 0;
+  v22 = 0x400000000LL;
+  if ( (unsigned int)SdbTagRefToTagID(a1, DatabaseMatch, &DestinationString, &v20) )
+  {
+    if ( !(unsigned int)SdbQueryDataExTagID(
+                          *(int *)&DestinationString.Length,
+                          v20,
+                          v13,
+                          (int)&v23,
+                          &v19,
+                          (__int64)&v22 + 4,
+                          (__int64)&v22) )
     {
-      if ( a5 )
+      v11 = 0;
+      v14 = v19;
+      if ( (v19 & 0x10) != 0 )
       {
-        v16 = v17;
-        *a5 = v22[0];
-        if ( (v16 & 0x30) != 0 )
-          PiNotifyCiDriverBlocked(a5, v16, a2);
+        IsHVCIEnabled = PiIsHVCIEnabled();
+        v14 = v19;
+        if ( IsHVCIEnabled )
+          v11 = -1073740949;
       }
+      else if ( (v19 & 4) == 0 || ExIsProcessorFeaturePresent(9u) )
+      {
+        v11 = ((v14 & 1) != 0) - 1073740949;
+      }
+      if ( (v14 & 8) != 0
+        && (PnpSetupInProgress || PnpSetupOOBEInProgress
+                               || PnpSetupUpgradeInProgress
+                               || PnpSetupRollbackActiveInProgress) )
+      {
+        v11 = -1073740949;
+      }
+      goto LABEL_13;
     }
-    return v10;
   }
-  v18 = 4;
-  v19 = 4;
-  if ( (unsigned int)SdbQueryDataEx(a1, DatabaseMatch, v8, &v19, &v17, &v18) )
-    goto LABEL_26;
-  v12 = v17;
-  v10 = 0;
-  if ( (v17 & 0x20) != 0 )
+  else
   {
-    v10 = KeIsKernelCetEnabled() ? 0xC000036B : 0;
+    AslLogCallPrintf(1LL);
   }
-  else if ( (v17 & 0x10) != 0 )
-  {
-    IsHVCIEnabled = PiIsHVCIEnabled();
-    v12 = v17;
-    if ( IsHVCIEnabled )
-      v10 = -1073740949;
-  }
-  else if ( (v17 & 4) == 0 || RtlIsProcessorFeaturePresent(9u) )
-  {
-    v10 = ((v12 & 1) != 0) - 1073740949;
-  }
-  if ( (v12 & 8) != 0
-    && (PnpSetupInProgress || PnpSetupOOBEInProgress || PnpSetupUpgradeInProgress || PnpSetupRollbackActiveInProgress) )
-  {
-LABEL_26:
-    v10 = -1073740949;
-  }
-  if ( !(unsigned int)SdbReadEntryInformation(a1, v9, v22) && (PiLoggedErrorEventsMask & 0x100) == 0 )
+  v11 = -1073740949;
+LABEL_13:
+  if ( !(unsigned int)SdbReadEntryInformation(a1, DatabaseMatch, v25) && (PiLoggedErrorEventsMask & 0x100) == 0 )
   {
     PiLoggedErrorEventsMask |= 0x100u;
     DestinationString = 0LL;
     RtlInitUnicodeString(&DestinationString, L"READ DRIVER ID FAILED");
     PnpLogEvent(&DestinationString, 0LL, 3221226349LL, 0LL, 0);
   }
-  if ( v10 == -1073740949 || v10 == -1073740948 )
+  v7 = v24;
+LABEL_3:
+  if ( v11 + 1073740949 <= 1 )
   {
-    v14 = wcsrchr(*(const wchar_t **)(a2 + 8), 0x5Cu);
-    v15 = v14 ? v14 + 1 : *(const WCHAR **)(a2 + 8);
+    v16 = wcsrchr(*(const wchar_t **)(a2 + 8), 0x5Cu);
+    if ( v16 )
+      v17 = v16 + 1;
+    else
+      v17 = *(const WCHAR **)(a2 + 8);
     DestinationString = 0LL;
-    RtlInitUnicodeString(&DestinationString, v15);
-    PnpLogEvent(&DestinationString, 0LL, v10, v22, 16);
-    PnpTraceDriverBlocked(v15, v22, v17, v10);
-    if ( v10 == -1073740949 )
-      goto LABEL_3;
+    RtlInitUnicodeString(&DestinationString, v17);
+    PnpLogEvent(&DestinationString, 0LL, v11, v25, 16);
+    PnpTraceDriverBlocked(v17, v25, v19, v11);
   }
-  if ( v10 == -1073740948 || !v10 )
-    goto LABEL_3;
-  return v10;
+  if ( !v11 || v11 + 1073740949 <= 1 )
+  {
+    PiUpdateDriverDBCache(a2, v7, v9, v11, (__int64)v25);
+    if ( v11 + 1073740949 <= 1 )
+    {
+      if ( a5 )
+      {
+        v18 = (v19 & 0x10) == 0;
+        *a5 = v25[0];
+        if ( !v18 )
+          PiNotifyCiDriverBlocked(a5, a2);
+      }
+    }
+  }
+  return v11;
 }

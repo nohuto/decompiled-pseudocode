@@ -1,30 +1,28 @@
 /*
- * XREFs of ViThunkCreateThunkTable @ 0x140ADC784
+ * XREFs of ViThunkCreateThunkTable @ 0x1409D8F94
  * Callers:
- *     VfThunkAddDriverThunks @ 0x140ADBF7C (VfThunkAddDriverThunks.c)
- *     VfThunkAddSpecialDriverThunks @ 0x140ADC020 (VfThunkAddSpecialDriverThunks.c)
+ *     VfThunkAddDriverThunks @ 0x1409D8840 (VfThunkAddDriverThunks.c)
+ *     VfThunkAddSpecialDriverThunks @ 0x1409D88C4 (VfThunkAddSpecialDriverThunks.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ViThunkCreateThunkTable(void *Src, unsigned int a2, __int64 a3)
+char *__fastcall ViThunkCreateThunkTable(void *Src, unsigned int a2, __int64 a3)
 {
-  unsigned int v5; // edi
-  unsigned int v6; // esi
-  __int64 result; // rax
-  __int64 v8; // rbx
+  __int64 v4; // rsi
+  char *result; // rax
+  __int64 v7; // rbx
 
-  v5 = a2 >> 4;
-  v6 = 16 * (a2 >> 4);
-  result = ExAllocatePool2(256LL, v6 + 32, 0x74566D4Du);
-  v8 = result;
+  v4 = a2 >> 4;
+  result = (char *)ExAllocatePoolWithTag(PagedPool, 16 * (v4 + 2), 0x74566D4Du);
+  v7 = (__int64)result;
   if ( result )
   {
-    memmove((void *)(result + 32), Src, v6);
-    result = v8;
-    *(_QWORD *)(v8 + 16) = a3;
-    *(_DWORD *)(v8 + 24) = v5;
+    memmove(result + 32, Src, 16 * v4);
+    result = (char *)v7;
+    *(_QWORD *)(v7 + 16) = a3;
+    *(_DWORD *)(v7 + 24) = v4;
   }
   return result;
 }

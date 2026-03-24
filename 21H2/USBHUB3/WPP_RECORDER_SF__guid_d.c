@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF__guid_d @ 0x1C003C8EC
+ * XREFs of WPP_RECORDER_SF__guid_d @ 0x1C003C26C
  * Callers:
- *     HUBACPI_ExecuteDSM @ 0x1C00840FC (HUBACPI_ExecuteDSM.c)
+ *     HUBACPI_ExecuteDSM @ 0x1C0082960 (HUBACPI_ExecuteDSM.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF__guid_d(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall WPP_RECORDER_SF__guid_d(__int64 a1)
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, GUID *, __int64, int *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_c5068035c0c03895c2d054ff6dfe9623_Traceguids,
+      &WPP_7981730f68f0369ab28b5d2e2e7273fd_Traceguids,
       10LL,
       &GUID_DSM_SDM845_HS_RH_PORT_RESET_WORKAROUND,
       16LL,
@@ -28,7 +28,7 @@ __int64 __fastcall WPP_RECORDER_SF__guid_d(__int64 a1)
            a1,
            2LL,
            3LL,
-           &WPP_c5068035c0c03895c2d054ff6dfe9623_Traceguids,
+           &WPP_7981730f68f0369ab28b5d2e2e7273fd_Traceguids,
            v3,
            &GUID_DSM_SDM845_HS_RH_PORT_RESET_WORKAROUND);
 }

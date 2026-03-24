@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDirectedDripsUmMarkTestDevices @ 0x14099F904
+ * XREFs of PopDirectedDripsUmMarkTestDevices @ 0x1408F8808
  * Callers:
- *     PopDirectedDripsIdleResiliencyCallback @ 0x1409836E0 (PopDirectedDripsIdleResiliencyCallback.c)
+ *     PopDirectedDripsIdleResiliencyCallback @ 0x1408E32E4 (PopDirectedDripsIdleResiliencyCallback.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x14022CF30 (RtlLookupElementGenericTableAvl.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopDirectedDripsNotify @ 0x1408759B4 (PopDirectedDripsNotify.c)
- *     IoLockUnlockPnpDeviceTree @ 0x140954CC0 (IoLockUnlockPnpDeviceTree.c)
- *     PopDirectedDripsMarkCandidateDevice @ 0x140983A5C (PopDirectedDripsMarkCandidateDevice.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14032D970 (RtlLookupElementGenericTableAvl.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopDirectedDripsNotify @ 0x14078DA18 (PopDirectedDripsNotify.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x14089E46C (IoLockUnlockPnpDeviceTree.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x1408E3610 (PopDirectedDripsMarkCandidateDevice.c)
  */
 
 void PopDirectedDripsUmMarkTestDevices()
@@ -69,6 +69,6 @@ void PopDirectedDripsUmMarkTestDevices()
     }
     IoLockUnlockPnpDeviceTree(0);
     PopDirectedDripsNotify(PopDirectedDripsUmTestPermissive != 0 ? 5 : 3, (char *)&v8);
-    PopReleaseRwLock((__int64 *)&PopDirectedDripsUmLock);
+    PopReleaseRwLock((ULONG_PTR)&PopDirectedDripsUmLock);
   }
 }

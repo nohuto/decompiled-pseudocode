@@ -1,13 +1,13 @@
 /*
- * XREFs of ParseNestedContext @ 0x1C006BFA0
+ * XREFs of ParseNestedContext @ 0x1C006BCF0
  * Callers:
  *     <none>
  * Callees:
- *     DupObjData @ 0x1C00169A0 (DupObjData.c)
- *     DereferenceObjectEx @ 0x1C00189F4 (DereferenceObjectEx.c)
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     HeapFree @ 0x1C0018DD0 (HeapFree.c)
- *     AsyncCallBack @ 0x1C00696FC (AsyncCallBack.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     DupObjData @ 0x1C000A400 (DupObjData.c)
+ *     AsyncCallBack @ 0x1C00682D8 (AsyncCallBack.c)
  */
 
 __int64 __fastcall ParseNestedContext(__int64 a1, __int64 a2, unsigned int a3)

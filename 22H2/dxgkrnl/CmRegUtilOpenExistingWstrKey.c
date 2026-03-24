@@ -1,17 +1,17 @@
 /*
- * XREFs of CmRegUtilOpenExistingWstrKey @ 0x1C039838C
+ * XREFs of CmRegUtilOpenExistingWstrKey @ 0x1C02C5A04
  * Callers:
- *     PiRegStateOpenClassKey @ 0x1C0397AE8 (PiRegStateOpenClassKey.c)
- *     PpRegStateReadCreateClassCreationSettings @ 0x1C0397E78 (PpRegStateReadCreateClassCreationSettings.c)
+ *     PiRegStateOpenClassKey @ 0x1C02C5164 (PiRegStateOpenClassKey.c)
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C02C54F4 (PpRegStateReadCreateClassCreationSettings.c)
  * Callees:
- *     WdmlibRtlInitUnicodeStringEx @ 0x1C005DF44 (WdmlibRtlInitUnicodeStringEx.c)
- *     CmRegUtilOpenExistingUcKey @ 0x1C0398314 (CmRegUtilOpenExistingUcKey.c)
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C0050BBC (WdmlibRtlInitUnicodeStringEx.c)
+ *     CmRegUtilOpenExistingUcKey @ 0x1C02C5990 (CmRegUtilOpenExistingUcKey.c)
  */
 
 int __fastcall CmRegUtilOpenExistingWstrKey(__int64 a1, const WCHAR *a2)
 {
   int result; // eax
-  void **v3; // r9
+  _QWORD *v3; // r9
   ACCESS_MASK v4; // r10d
   void *v5; // r11
   struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF

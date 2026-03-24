@@ -1,13 +1,12 @@
 /*
- * XREFs of HalpInterruptSetRemappedLineStateInternal @ 0x1403D59D4
+ * XREFs of HalpInterruptSetRemappedLineStateInternal @ 0x1403CB7B4
  * Callers:
- *     HalpInterruptEnableNmi @ 0x1403B043C (HalpInterruptEnableNmi.c)
- *     HalpInterruptRemap @ 0x1403D57DC (HalpInterruptRemap.c)
- *     HalpInterruptSetRemappedLineState @ 0x14050850C (HalpInterruptSetRemappedLineState.c)
+ *     HalpInterruptRemap @ 0x1403785E0 (HalpInterruptRemap.c)
+ *     HalpInterruptEnableNmi @ 0x1403A376C (HalpInterruptEnableNmi.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403A8104 (HalpTimerInitializeHypervisorTimer.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x1402520D4 (HalpInterruptFindLines.c)
- *     HalpInterruptGetPriority @ 0x1403B0D74 (HalpInterruptGetPriority.c)
- *     HalpInterruptSetProblemEx @ 0x14051E038 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptFindLines @ 0x140378CA0 (HalpInterruptFindLines.c)
+ *     HalpInterruptGetPriority @ 0x1403A407C (HalpInterruptGetPriority.c)
  */
 
 __int64 __fastcall HalpInterruptSetRemappedLineStateInternal(__int64 a1, unsigned int *a2, __int64 a3)
@@ -35,7 +34,13 @@ __int64 __fastcall HalpInterruptSetRemappedLineStateInternal(__int64 a1, unsigne
   }
   else
   {
-    HalpInterruptSetProblemEx(a1, 18, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 3337);
+    HalpInterruptLastProblem = 18;
+    if ( a1 )
+    {
+      *(_QWORD *)(a1 + 292) = 18LL;
+      *(_QWORD *)(a1 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\connect.c";
+      *(_DWORD *)(a1 + 312) = 3317;
+    }
     return (unsigned int)-1073741811;
   }
   return v4;

@@ -1,10 +1,8 @@
 /*
- * XREFs of ZwAlpcSetInformation @ 0x14041B840
+ * XREFs of ZwAlpcSetInformation @ 0x1403FABC0
  * Callers:
- *     DifZwAlpcSetInformationWrapper @ 0x1405EDA30 (DifZwAlpcSetInformationWrapper.c)
- *     SshpAlpcInitialize @ 0x140B680A4 (SshpAlpcInitialize.c)
- *     PopUmpoInitializeChannel @ 0x140B70C0C (PopUmpoInitializeChannel.c)
- *     PopUmpoInitializeMonitorChannel @ 0x140B72254 (PopUmpoInitializeMonitorChannel.c)
+ *     PopUmpoInitializeChannel @ 0x140A6FE7C (PopUmpoInitializeChannel.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x140A70AB0 (PopUmpoInitializeMonitorChannel.c)
  * Callees:
  *     <none>
  */

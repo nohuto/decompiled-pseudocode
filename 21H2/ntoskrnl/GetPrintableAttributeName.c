@@ -1,47 +1,45 @@
 /*
- * XREFs of GetPrintableAttributeName @ 0x1409D11F4
+ * XREFs of GetPrintableAttributeName @ 0x1406733C0
  * Callers:
- *     LocalpGetStringForCondition @ 0x1409D3874 (LocalpGetStringForCondition.c)
+ *     LocalpGetStringForCondition @ 0x140672DF8 (LocalpGetStringForCondition.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     SddlpAlloc @ 0x14067757C (SddlpAlloc.c)
- *     EncodeAttributeName @ 0x1409D0420 (EncodeAttributeName.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SddlpAlloc @ 0x140674548 (SddlpAlloc.c)
+ *     EncodeAttributeName @ 0x140926EC8 (EncodeAttributeName.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall GetPrintableAttributeName(__int64 a1, int a2, char a3, _QWORD *a4, _DWORD *a5)
+__int64 __fastcall GetPrintableAttributeName(__int64 a1, int a2, char a3, _QWORD *a4, int *a5)
 {
   unsigned int v6; // ebx
-  unsigned int v7; // edi
-  unsigned int v8; // r12d
-  void *v9; // r14
-  size_t v10; // r13
-  unsigned int v11; // eax
-  __int64 v12; // r12
-  unsigned int v13; // eax
-  unsigned int v14; // ecx
-  unsigned __int64 v15; // r15
-  _WORD *v16; // rsi
-  const wchar_t *v17; // rdx
-  __int64 v18; // rax
-  _DWORD *v19; // rbp
-  int v20; // edi
-  char *v21; // rcx
-  void *Src; // [rsp+20h] [rbp-48h] BYREF
+  unsigned int v7; // esi
+  void *v8; // r14
+  size_t v9; // r13
+  unsigned int v10; // eax
+  unsigned __int64 v11; // r15
+  char *v12; // rdi
+  __int64 v13; // rax
+  int v14; // esi
+  unsigned int v16; // eax
+  __int64 v17; // rcx
+  unsigned int v18; // ecx
+  const wchar_t *v19; // rdx
+  void *v20; // [rsp+20h] [rbp-48h] BYREF
+  size_t Size; // [rsp+28h] [rbp-40h]
 
-  Src = 0LL;
+  LODWORD(Size) = 0;
+  v20 = 0LL;
   v6 = 0;
   v7 = 0;
-  v8 = 0;
-  v9 = 0LL;
+  v8 = 0LL;
   if ( a1 && a4 && a2 )
   {
     *a5 = 1;
     if ( (unsigned int)(a2 - 1) < 4 )
       return 1336;
-    v10 = *(unsigned int *)(a1 + 1);
+    v9 = *(unsigned int *)(a1 + 1);
     *a5 = 5;
-    if ( a2 - 5 < (unsigned int)v10 )
+    if ( a2 - 5 < (unsigned int)v9 )
     {
       return 1336;
     }
@@ -49,99 +47,99 @@ __int64 __fastcall GetPrintableAttributeName(__int64 a1, int a2, char a3, _QWORD
     {
       if ( a3 != -8 )
       {
-        v11 = EncodeAttributeName((unsigned __int16 *)(a1 + 5), v10, (__int64 *)&Src);
-        v9 = Src;
-        v6 = v11;
-        if ( v11 )
-          goto LABEL_39;
-        v12 = -1LL;
+        v16 = EncodeAttributeName(a1 + 5, (unsigned int)v9, &v20);
+        v8 = v20;
+        v6 = v16;
+        if ( v16 )
+          goto LABEL_17;
+        v17 = -1LL;
         do
-          ++v12;
-        while ( *((_WORD *)Src + v12) );
-        v8 = 2 * v12;
-        v13 = v8 + 2;
-        if ( v8 + 2 < v8 )
-          goto LABEL_22;
-        switch ( a3 )
+          ++v17;
+        while ( *((_WORD *)v20 + v17) );
+        Size = (unsigned int)(2 * v17);
+        v10 = Size + 2;
+        if ( (int)Size + 2 >= (unsigned int)Size )
         {
-          case -5:
-            v7 = 8;
-            v14 = v8 + 18;
-            break;
-          case -7:
-            v7 = 6;
-            v14 = v8 + 14;
-            break;
-          case -6:
-            v7 = 10;
-            v14 = v8 + 22;
-            break;
-          case -4:
-            v7 = 7;
-            v14 = v8 + 16;
-            break;
-          default:
-            goto LABEL_24;
+          switch ( a3 )
+          {
+            case -5:
+              v7 = 16;
+              v18 = Size + 18;
+              break;
+            case -7:
+              v7 = 12;
+              v18 = Size + 14;
+              break;
+            case -6:
+              v7 = 20;
+              v18 = Size + 22;
+              break;
+            case -4:
+              v7 = 14;
+              v18 = Size + 16;
+              break;
+            default:
+              goto LABEL_8;
+          }
+          if ( v18 >= v10 )
+          {
+            v10 = v18;
+            goto LABEL_8;
+          }
         }
-        if ( v14 < v13 )
-        {
-LABEL_22:
-          v6 = 534;
-          goto LABEL_39;
-        }
-        v13 = v14;
-LABEL_24:
-        v15 = v13;
-        v16 = SddlpAlloc(v13);
-        *a4 = v16;
-        if ( !v16 )
-        {
-          v6 = 8;
-          goto LABEL_39;
-        }
-        switch ( a3 )
-        {
-          case -5:
-            v17 = L"@DEVICE.";
-            break;
-          case -7:
-            v17 = L"@USER.";
-            break;
-          case -6:
-            v17 = L"@RESOURCE.";
-            break;
-          case -4:
-            v17 = L"@TOKEN.";
-            break;
-          default:
-            v18 = v7 * 2;
-            if ( a3 == -8 )
-            {
-              v19 = a5;
-              v21 = (char *)&v16[v7];
-              v20 = *a5;
-              memmove(v21, (const void *)(a1 + (unsigned int)*a5), v10);
-              goto LABEL_38;
-            }
-LABEL_36:
-            memmove((char *)v16 + v18, v9, v8);
-            v19 = a5;
-            v20 = *a5;
-LABEL_38:
-            v16[(v15 >> 1) - 1] = 0;
-            *v19 = v20 + v10;
-LABEL_39:
-            if ( v9 )
-              ExFreePoolWithTag(v9, 0);
-            return v6;
-        }
-        memmove(v16, v17, v7 * 2);
-        v18 = v7 * 2;
-        goto LABEL_36;
+        v6 = 534;
+        goto LABEL_17;
       }
-      v13 = v10 + 2;
-      if ( (int)v10 + 2 >= (unsigned int)v10 )
-        goto LABEL_24;
+      v10 = v9 + 2;
+      if ( (int)v9 + 2 >= (unsigned int)v9 )
+      {
+LABEL_8:
+        v11 = v10;
+        v12 = (char *)SddlpAlloc(v10);
+        *a4 = v12;
+        if ( v12 )
+        {
+          if ( a3 == -5 )
+          {
+            v19 = L"@DEVICE.";
+          }
+          else if ( a3 == -7 )
+          {
+            v19 = L"@USER.";
+          }
+          else
+          {
+            if ( a3 != -6 )
+            {
+              if ( a3 == -4 )
+                memmove(v12, L"@TOKEN.", v7);
+              v13 = v7;
+              if ( a3 == -8 )
+              {
+                v14 = *a5;
+                memmove(&v12[v13], (const void *)(a1 + (unsigned int)*a5), v9);
+LABEL_16:
+                *(_WORD *)&v12[2 * (v11 >> 1) - 2] = 0;
+                *a5 = v14 + v9;
+                goto LABEL_17;
+              }
+LABEL_40:
+              memmove(&v12[v13], v8, (unsigned int)Size);
+              v14 = *a5;
+              goto LABEL_16;
+            }
+            v19 = L"@RESOURCE.";
+          }
+          memmove(v12, v19, v7);
+          v13 = v7;
+          goto LABEL_40;
+        }
+        v6 = 8;
+LABEL_17:
+        if ( v8 )
+          ExFreePoolWithTag(v8, 0);
+        return v6;
+      }
       return 534;
     }
   }

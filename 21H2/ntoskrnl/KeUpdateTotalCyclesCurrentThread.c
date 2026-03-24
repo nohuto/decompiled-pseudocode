@@ -1,18 +1,18 @@
 /*
- * XREFs of KeUpdateTotalCyclesCurrentThread @ 0x1402481DC
+ * XREFs of KeUpdateTotalCyclesCurrentThread @ 0x1405134C8
  * Callers:
- *     PsQueryTotalCycleTimeProcess @ 0x1406C73D0 (PsQueryTotalCycleTimeProcess.c)
- *     KeEnableProfiling @ 0x140961F3C (KeEnableProfiling.c)
+ *     KeEnableProfiling @ 0x1408BBFDC (KeEnableProfiling.c)
+ *     PsQueryTotalCycleTimeProcess @ 0x1409078C0 (PsQueryTotalCycleTimeProcess.c)
  * Callees:
- *     KiUpdateTotalCyclesCurrentThread @ 0x140345AA0 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14022F8C0 (KiUpdateTotalCyclesCurrentThread.c)
  */
 
-__int64 __fastcall KeUpdateTotalCyclesCurrentThread(__int64 a1, __int64 a2)
+unsigned __int64 __fastcall KeUpdateTotalCyclesCurrentThread(__int64 a1, unsigned __int64 *a2)
 {
-  __int64 result; // rax
+  unsigned __int64 result; // rax
 
   _disable();
-  result = KiUpdateTotalCyclesCurrentThread(KeGetCurrentPrcb(), a1, a2);
+  result = KiUpdateTotalCyclesCurrentThread((__int64)KeGetCurrentPrcb(), a1, a2);
   _enable();
   return result;
 }

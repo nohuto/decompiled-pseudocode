@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalSetSystemInformation @ 0x1407F4E20
+ * XREFs of xHalSetSystemInformation @ 0x140726260
  * Callers:
  *     <none>
  * Callees:

@@ -1,18 +1,18 @@
 /*
- * XREFs of ExfAcquireReleasePushLockExclusive @ 0x14012F2E0
+ * XREFs of ExfAcquireReleasePushLockExclusive @ 0x14012F300
  * Callers:
  *     EtwpLockUnlockBufferList @ 0x140014AC8 (EtwpLockUnlockBufferList.c)
- *     PspLockUnlockProcessExclusive @ 0x14012F2A0 (PspLockUnlockProcessExclusive.c)
+ *     PspLockUnlockProcessExclusive @ 0x14012F2C0 (PspLockUnlockProcessExclusive.c)
  *     NtSetInformationThread @ 0x1405E9EA0 (NtSetInformationThread.c)
  *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
  *     AlpcReferenceBlobByHandle @ 0x140618368 (AlpcReferenceBlobByHandle.c)
- *     PsLookupProcessByProcessId @ 0x140646C40 (PsLookupProcessByProcessId.c)
- *     PsLookupThreadByThreadId @ 0x1406487C0 (PsLookupThreadByThreadId.c)
- *     PfpRpCHashDeleteEntries @ 0x14069DF88 (PfpRpCHashDeleteEntries.c)
- *     PsSynchronizeWithThreadInsertion @ 0x140888638 (PsSynchronizeWithThreadInsertion.c)
- *     PsShutdownSystem @ 0x14088AFC4 (PsShutdownSystem.c)
- *     EtwpUpdateLoggerSecurityDescriptor @ 0x1408C3030 (EtwpUpdateLoggerSecurityDescriptor.c)
+ *     PsLookupProcessByProcessId @ 0x140646C20 (PsLookupProcessByProcessId.c)
+ *     PsLookupThreadByThreadId @ 0x1406487A0 (PsLookupThreadByThreadId.c)
+ *     PfpRpCHashDeleteEntries @ 0x14069DF68 (PfpRpCHashDeleteEntries.c)
+ *     PsSynchronizeWithThreadInsertion @ 0x140888618 (PsSynchronizeWithThreadInsertion.c)
+ *     PsShutdownSystem @ 0x14088AFA4 (PsShutdownSystem.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x1408C3010 (EtwpUpdateLoggerSecurityDescriptor.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)

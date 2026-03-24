@@ -1,18 +1,18 @@
 /*
- * XREFs of KsepGetModuleInfoByAddress @ 0x14080B034
+ * XREFs of KsepGetModuleInfoByAddress @ 0x1407BDED0
  * Callers:
- *     KsepValidateShimProviderAndData @ 0x14080AF80 (KsepValidateShimProviderAndData.c)
+ *     KsepValidateShimProviderAndData @ 0x1407BDE24 (KsepValidateShimProviderAndData.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall KsepGetModuleInfoByAddress(unsigned __int64 a1, unsigned int *a2, unsigned __int64 *a3, _DWORD *a4)
 {
-  unsigned int v7; // r8d
+  unsigned int v7; // r11d
   int v8; // r9d
   unsigned int *i; // rcx
   unsigned __int64 v10; // rdx
-  __int64 v11; // r11
+  __int64 v11; // r8
 
   if ( !a1 || !a3 || !a2 )
     return 3221225485LL;

@@ -3,7 +3,7 @@
  * Callers:
  *     BgpConsoleSetCursor @ 0x140953E30 (BgpConsoleSetCursor.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140327774 (BgpDisplayCharacterEx.c)
+ *     BgpDisplayCharacterEx @ 0x140327874 (BgpDisplayCharacterEx.c)
  */
 
 __int64 BgpConsoleDrawCursor()

@@ -1,12 +1,13 @@
 /*
- * XREFs of CsTerminate @ 0x1C000C514
+ * XREFs of CsTerminate @ 0x1C000C7D8
  * Callers:
- *     CiDriverUnload @ 0x1C000C4B0 (CiDriverUnload.c)
- *     DriverEntry @ 0x1C000D080 (DriverEntry.c)
+ *     CiDriverUnload @ 0x1C000C770 (CiDriverUnload.c)
+ *     DriverEntry @ 0x1C000D290 (DriverEntry.c)
  * Callees:
- *     CiFreeMemory @ 0x1C0004DEC (CiFreeMemory.c)
- *     WppCleanupKm @ 0x1C000C628 (WppCleanupKm.c)
- *     CiSchedulerTerminate @ 0x1C000C934 (CiSchedulerTerminate.c)
+ *     CiFreeMemory @ 0x1C0004B3C (CiFreeMemory.c)
+ *     WppCleanupKm @ 0x1C000C8C0 (WppCleanupKm.c)
+ *     CiNdisCleanupThrottle @ 0x1C000CC10 (CiNdisCleanupThrottle.c)
+ *     CiSchedulerTerminate @ 0x1C000CCF0 (CiSchedulerTerminate.c)
  */
 
 __int64 CsTerminate()
@@ -38,17 +39,12 @@ __int64 CsTerminate()
     CiFreeMemory(Flink[1].Flink);
     CiFreeMemory(&Flink[-1].Blink);
   }
-  if ( CiLastIdleStats )
+  if ( CiLastIdleTime )
   {
-    CiFreeMemory((void *)CiLastIdleStats);
-    CiLastIdleStats = 0LL;
+    CiFreeMemory((void *)CiLastIdleTime);
+    CiLastIdleTime = 0LL;
   }
-  if ( CiNdisThrottleWorkItem )
-  {
-    IoFreeWorkItem(CiNdisThrottleWorkItem);
-    if ( CiNdisDeviceHandle )
-      ZwClose(CiNdisDeviceHandle);
-  }
+  CiNdisCleanupThrottle();
   if ( CiLoggerContext )
   {
     EtwUnregister(CiLoggerContext);

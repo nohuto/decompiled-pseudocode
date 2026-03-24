@@ -1,5 +1,5 @@
 /*
- * XREFs of SepAdtCheckPrivilegeForSensitivity @ 0x1402FFB30
+ * XREFs of SepAdtCheckPrivilegeForSensitivity @ 0x1402FFC30
  * Callers:
  *     SepAdtAuditPrivilegeUseWithContext @ 0x1405BB990 (SepAdtAuditPrivilegeUseWithContext.c)
  * Callees:

@@ -1,16 +1,16 @@
 /*
- * XREFs of SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403FB1CC
+ * XREFs of SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403EC02C
  * Callers:
- *     SymCryptInit @ 0x1403DE98C (SymCryptInit.c)
- *     KeInitSystem @ 0x140B03800 (KeInitSystem.c)
+ *     SymCryptInit @ 0x1403B7CC4 (SymCryptInit.c)
+ *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
  * Callees:
- *     RtlGetEnabledExtendedFeatures @ 0x1403B6B30 (RtlGetEnabledExtendedFeatures.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     SymCryptDetectCpuFeaturesByCpuid @ 0x1403FDBC8 (SymCryptDetectCpuFeaturesByCpuid.c)
- *     SymCryptInitEnvCommon @ 0x1403FDD40 (SymCryptInitEnvCommon.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SymCryptFatal @ 0x14056AF38 (SymCryptFatal.c)
- *     RtlGetVersion @ 0x1406C2630 (RtlGetVersion.c)
+ *     RtlGetEnabledExtendedFeatures @ 0x1403A7460 (RtlGetEnabledExtendedFeatures.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     SymCryptDetectCpuFeaturesByCpuid @ 0x1403EF468 (SymCryptDetectCpuFeaturesByCpuid.c)
+ *     SymCryptInitEnvCommon @ 0x1403EF5DC (SymCryptInitEnvCommon.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SymCryptFatal @ 0x140514F28 (SymCryptFatal.c)
+ *     RtlGetVersion @ 0x1406AC620 (RtlGetVersion.c)
  */
 
 __int64 __fastcall SymCryptInitEnvWindowsKernelmodeWin8_1nLater(unsigned int a1)

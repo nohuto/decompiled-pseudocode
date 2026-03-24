@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipSetTraceNotify @ 0x14070D8F8
+ * XREFs of WmipSetTraceNotify @ 0x14070D8D8
  * Callers:
- *     IoWMIRegistrationControl @ 0x1406B8F20 (IoWMIRegistrationControl.c)
+ *     IoWMIRegistrationControl @ 0x1406B8F00 (IoWMIRegistrationControl.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     IoAllocateIrp @ 0x14008E4E0 (IoAllocateIrp.c)
- *     IoFreeIrp @ 0x1400B9650 (IoFreeIrp.c)
- *     IoWMIDeviceObjectToProviderId @ 0x14012E8C0 (IoWMIDeviceObjectToProviderId.c)
+ *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
+ *     IoWMIDeviceObjectToProviderId @ 0x14012E8E0 (IoWMIDeviceObjectToProviderId.c)
  *     WmipForwardWmiIrp @ 0x1405FB974 (WmipForwardWmiIrp.c)
  */
 

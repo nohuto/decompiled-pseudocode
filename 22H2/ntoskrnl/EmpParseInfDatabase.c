@@ -1,32 +1,49 @@
 /*
- * XREFs of EmpParseInfDatabase @ 0x140B551A0
+ * XREFs of EmpParseInfDatabase @ 0x140A455E8
  * Callers:
- *     EmInitSystem @ 0x140B54E68 (EmInitSystem.c)
+ *     EmInitSystem @ 0x140A4528C (EmInitSystem.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     EmpParseEntryTypes @ 0x140B55494 (EmpParseEntryTypes.c)
- *     EmpParseCallbacks @ 0x140B5560C (EmpParseCallbacks.c)
- *     EmpParseRules @ 0x140B55E80 (EmpParseRules.c)
- *     EmpParseStrings @ 0x140B56184 (EmpParseStrings.c)
- *     EmpParseTargetRules @ 0x140B563B0 (EmpParseTargetRules.c)
- *     CmpFreeSectionList @ 0x140B56F94 (CmpFreeSectionList.c)
- *     CmpParseInfBuffer @ 0x140B5E10C (CmpParseInfBuffer.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x1402CB3F0 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x1402E5430 (KiAbEntryRemoveFromTree.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     CmpFreeSectionList @ 0x140A4584C (CmpFreeSectionList.c)
+ *     EmpParseEntryTypes @ 0x140A45B7C (EmpParseEntryTypes.c)
+ *     EmpParseCallbacks @ 0x140A45CF4 (EmpParseCallbacks.c)
+ *     EmpParseRules @ 0x140A46580 (EmpParseRules.c)
+ *     EmpParseStrings @ 0x140A4689C (EmpParseStrings.c)
+ *     EmpParseTargetRules @ 0x140A46ADC (EmpParseTargetRules.c)
+ *     CmpParseInfBuffer @ 0x140A6206C (CmpParseInfBuffer.c)
  */
 
 __int64 __fastcall EmpParseInfDatabase(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rax
-  PVOID *v5; // rdi
-  int v6; // ebx
+  PVOID *v5; // rbx
+  int v6; // edi
   char v7; // al
-  int v9; // [rsp+40h] [rbp+18h] BYREF
+  struct _KTHREAD *CurrentThread; // rbx
+  unsigned int SessionId; // edx
+  unsigned __int8 v10; // bp
+  unsigned int v11; // r8d
+  bool v12; // zf
+  __int64 v13; // rcx
+  unsigned __int64 v14; // rsi
+  int v15; // eax
+  unsigned int v16; // ecx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  _DWORD v20[14]; // [rsp+30h] [rbp-38h] BYREF
+  int v21; // [rsp+88h] [rbp+20h] BYREF
 
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&EmpParseLock, 0LL);
-  v9 = 0;
-  v4 = CmpParseInfBuffer(a1, a2, &v9);
+  v20[0] = 0;
+  v4 = CmpParseInfBuffer(a1, a2, v20);
   v5 = (PVOID *)v4;
   if ( v4 )
   {
@@ -55,6 +72,59 @@ __int64 __fastcall EmpParseInfDatabase(__int64 a1, unsigned int a2)
   v7 = _InterlockedExchangeAdd64((volatile signed __int64 *)&EmpParseLock, 0xFFFFFFFFFFFFFFFFuLL);
   if ( (v7 & 2) != 0 && (v7 & 4) == 0 )
     ExfTryToWakePushLock((volatile signed __int64 *)&EmpParseLock);
-  KeAbPostRelease((ULONG_PTR)&EmpParseLock);
+  v21 = 0;
+  CurrentThread = KeGetCurrentThread();
+  if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&EmpParseLock) == 1 )
+    SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+  else
+    SessionId = -1;
+  --CurrentThread->SpecialApcDisable;
+  v10 = ++CurrentThread->AbAllocationRegionCount;
+  v11 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  while ( 1 )
+  {
+    v12 = !_BitScanReverse((unsigned int *)&v13, v11);
+    if ( v12 )
+      break;
+    v14 = (unsigned __int64)&CurrentThread->LockEntries[v13];
+    v11 &= ~(1 << v13);
+    if ( (*(_BYTE *)(v14 + 26) & 1) != 0
+      && (*(_DWORD *)(v14 + 32) & 1) == 0
+      && (*(_QWORD *)(v14 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&EmpParseLock & 0x7FFFFFFFFFFFFFFCLL)
+      && *(_DWORD *)(v14 + 40) == SessionId )
+    {
+      *(_BYTE *)(v14 + 26) &= ~1u;
+      if ( *(_QWORD *)(v14 + 32) )
+      {
+        if ( v14 )
+        {
+          *(_BYTE *)(v14 + 32) |= 2u;
+          if ( *(__int64 *)(v14 + 32) < 0 )
+            KiAbEntryRemoveFromTree(v14);
+          v15 = *(_DWORD *)(v14 + 88) & 0x1FFFF;
+          v16 = *(_DWORD *)(v14 + 88) & 0xFFFE0000;
+          *(_BYTE *)(v14 + 25) &= ~1u;
+          v21 = v15;
+          *(_DWORD *)(v14 + 88) = v16;
+          *(_QWORD *)(v14 + 32) = 0LL;
+          v17 = (__int64)(v14 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+          if ( v10 == 1 )
+            CurrentThread->AbEntrySummary |= 1 << v17;
+          else
+            _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v17);
+          goto LABEL_23;
+        }
+        break;
+      }
+    }
+  }
+  if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
+    KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, (ULONG_PTR)&EmpParseLock, SessionId, 0LL);
+LABEL_23:
+  --CurrentThread->AbAllocationRegionCount;
+  KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread, (__int64)&EmpParseLock, &v21);
+  v12 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v12 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    KiCheckForKernelApcDelivery(v18);
   return (unsigned int)v6;
 }

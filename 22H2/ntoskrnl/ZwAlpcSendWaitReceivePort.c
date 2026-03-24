@@ -1,14 +1,10 @@
 /*
- * XREFs of ZwAlpcSendWaitReceivePort @ 0x14041B820
+ * XREFs of ZwAlpcSendWaitReceivePort @ 0x1403FABA0
  * Callers:
- *     PopUmpoSendPowerMessage @ 0x14032D004 (PopUmpoSendPowerMessage.c)
- *     CmFcpSendFeatureUsageReportAlpcMessage @ 0x14041980C (CmFcpSendFeatureUsageReportAlpcMessage.c)
- *     DifZwAlpcSendWaitReceivePortWrapper @ 0x1405ED8A0 (DifZwAlpcSendWaitReceivePortWrapper.c)
- *     PopUmpoProcessMessages @ 0x1407A6E58 (PopUmpoProcessMessages.c)
- *     SshpAlpcMessageCallback @ 0x14084D6A0 (SshpAlpcMessageCallback.c)
- *     SshpAlpcSendMessage @ 0x14084DA40 (SshpAlpcSendMessage.c)
- *     PopMonitorProcessLoop @ 0x140860448 (PopMonitorProcessLoop.c)
- *     DbgkpSendErrorMessage @ 0x14093A32C (DbgkpSendErrorMessage.c)
+ *     PopUmpoSendPowerMessage @ 0x14034BAC4 (PopUmpoSendPowerMessage.c)
+ *     PopUmpoProcessMessages @ 0x1406F31D4 (PopUmpoProcessMessages.c)
+ *     PopMonitorProcessLoop @ 0x1407D0594 (PopMonitorProcessLoop.c)
+ *     DbgkpSendErrorMessage @ 0x1408873C0 (DbgkpSendErrorMessage.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HitTest@CMaskBrush@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800EACB0
+ * XREFs of ?HitTest@CMaskBrush@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800D627C
  * Callers:
- *     ?HitTest@CMaskBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x180107810 (-HitTest@CMaskBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
+ *     ?HitTest@CMaskBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800F6860 (-HitTest@CMaskBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CMaskBrush::HitTest(
@@ -27,19 +27,19 @@ __int64 __fastcall CMaskBrush::HitTest(
   v7 = *((_QWORD *)this - 4);
   if ( v7 )
   {
-    v10 = *(int *)(*(_QWORD *)(v7 + 64) + 8LL) + v7 + 64;
+    v10 = *(int *)(*(_QWORD *)(v7 + 56) + 8LL) + v7 + 56;
     v11 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v10 + 24LL))(v10);
     v4 = v11;
     if ( v11 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0x9Au);
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x9Au, 0LL);
     }
     else if ( *((_QWORD *)this - 5) )
     {
       if ( *a4 )
       {
         *a4 = 0;
-        v13 = *((_QWORD *)this - 5) + 64LL + *(int *)(*(_QWORD *)(*((_QWORD *)this - 5) + 64LL) + 8LL);
+        v13 = *((_QWORD *)this - 5) + 56LL + *(int *)(*(_QWORD *)(*((_QWORD *)this - 5) + 56LL) + 8LL);
         v14 = (*(__int64 (__fastcall **)(__int64, const struct D2D_SIZE_F *, const struct D2D_POINT_2F *, bool *))(*(_QWORD *)v13 + 24LL))(
                 v13,
                 a2,
@@ -47,7 +47,7 @@ __int64 __fastcall CMaskBrush::HitTest(
                 a4);
         v4 = v14;
         if ( v14 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, v14, 0xA0u);
+          MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0xA0u, 0LL);
       }
     }
   }

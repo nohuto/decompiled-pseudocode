@@ -1,45 +1,44 @@
 /*
- * XREFs of EmonSetInterval @ 0x140389F90
+ * XREFs of EmonSetInterval @ 0x140378210
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     HalpTimerSetProfilingTarget @ 0x14038A0CC (HalpTimerSetProfilingTarget.c)
- *     HalpGetProfileDescriptor @ 0x14038A10C (HalpGetProfileDescriptor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpTimerSetProfilingTarget @ 0x140378338 (HalpTimerSetProfilingTarget.c)
+ *     HalpGetProfileDescriptor @ 0x140378378 (HalpGetProfileDescriptor.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall EmonSetInterval(unsigned int a1, unsigned int *a2)
 {
   unsigned __int64 v4; // rbx
-  __int64 v5; // rdx
   int ProfileDescriptor; // esi
-  __int64 v7; // r8
-  unsigned int v8; // eax
-  __int64 v9; // rdx
+  __int64 v6; // r8
+  unsigned int v7; // eax
+  __int64 v8; // rdx
+  unsigned int v9; // ecx
   unsigned int v10; // ecx
-  unsigned int v11; // ecx
-  __int64 v12; // r8
-  __int64 i; // rcx
-  __int64 v14; // rdx
+  __int64 v11; // rcx
+  _DWORD *v12; // rcx
+  __int64 v13; // r8
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
-  int v19; // eax
-  bool v20; // zf
-  unsigned __int8 v21; // al
-  struct _KPRCB *v22; // r10
-  _DWORD *v23; // r8
-  int v24; // eax
-  __int64 v25; // [rsp+40h] [rbp+18h] BYREF
+  int v18; // eax
+  bool v19; // zf
+  unsigned __int8 v20; // al
+  struct _KPRCB *v21; // r10
+  _DWORD *v22; // r8
+  int v23; // eax
+  __int64 v24; // [rsp+40h] [rbp+18h] BYREF
 
-  v25 = 0LL;
-  v4 = HalpAcquireHighLevelLock(&HalpProfileSourceDescriptorListLock);
-  ProfileDescriptor = HalpGetProfileDescriptor(a1, v5, &v25);
+  v24 = 0LL;
+  v4 = (unsigned __int8)HalpAcquireHighLevelLock(&EmonProfileSourceDescriptorListLock);
+  ProfileDescriptor = HalpGetProfileDescriptor(a1, &EmonProfileSourceDescriptorListHead, &v24);
   if ( ProfileDescriptor < 0 )
   {
-    KxReleaseSpinLock(&HalpProfileSourceDescriptorListLock);
+    KxReleaseSpinLock(&EmonProfileSourceDescriptorListLock);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
@@ -49,10 +48,10 @@ __int64 __fastcall EmonSetInterval(unsigned int a1, unsigned int *a2)
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-          v20 = (v19 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v19;
-          if ( v20 )
+          v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+          v19 = (v18 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v18;
+          if ( v19 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
@@ -62,52 +61,56 @@ __int64 __fastcall EmonSetInterval(unsigned int a1, unsigned int *a2)
   }
   else
   {
-    v7 = v25;
-    v8 = *a2;
-    v9 = *(unsigned __int8 *)(v25 + 28);
-    v10 = HIDWORD(EmonProfileIntervalLimits[v9]);
-    if ( *a2 < v10 )
+    v6 = v24;
+    v7 = *a2;
+    v8 = *(unsigned __int8 *)(v24 + 28);
+    v9 = HIDWORD(EmonProfileIntervalLimits[v8]);
+    if ( *a2 < v9 )
+    {
+      *a2 = v9;
+      v7 = v9;
+    }
+    v10 = EmonProfileIntervalLimits[v8];
+    if ( v7 > v10 )
     {
       *a2 = v10;
-      v8 = v10;
+      v7 = v10;
     }
-    v11 = EmonProfileIntervalLimits[v9];
-    if ( v8 > v11 )
-    {
-      *a2 = v11;
-      v8 = v11;
-    }
-    *(_DWORD *)(v7 + 24) = v8;
-    KxReleaseSpinLock(&HalpProfileSourceDescriptorListLock);
+    *(_DWORD *)(v6 + 24) = v7;
+    KxReleaseSpinLock(&EmonProfileSourceDescriptorListLock);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v21 = KeGetCurrentIrql();
-        if ( v21 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v21 >= 2u )
+        v20 = KeGetCurrentIrql();
+        if ( v20 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v20 >= 2u )
         {
-          v22 = KeGetCurrentPrcb();
-          v23 = v22->SchedulerAssist;
-          v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-          v20 = (v24 & v23[5]) == 0;
-          v23[5] &= v24;
-          if ( v20 )
-            KiRemoveSystemWorkPriorityKick(v22);
+          v21 = KeGetCurrentPrcb();
+          v22 = v21->SchedulerAssist;
+          v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+          v19 = (v23 & v22[5]) == 0;
+          v22[5] &= v23;
+          if ( v19 )
+            KiRemoveSystemWorkPriorityKick(v21);
         }
       }
     }
     __writecr8(v4);
     if ( !a1 )
       HalpTimerSetProfilingTarget(*a2, *a2 * (unsigned __int64)KeGetCurrentPrcb()->MHz / 0xA);
-    if ( HalpProfileInterface == &DefaultProfileInterface )
-      v12 = HalpCounterStatus;
-    else
-      v12 = HalpCounterStatus + 8LL * HalpNumberOfCounters * KeGetPcr()->Prcb.Number;
-    for ( i = 0LL; (unsigned int)i < EmonNumberCounters; i = (unsigned int)(i + 1) )
+    v11 = 16LL * EmonNumberCounters * KeGetPcr()->Prcb.Number + 8;
+    if ( EmonNumberCounters )
     {
-      v14 = *(_QWORD *)(v12 + 8 * i);
-      if ( *(_DWORD *)(v14 + 32) == a1 && !*(_DWORD *)(v14 + 24) )
-        *(_QWORD *)v14 = *a2;
+      v12 = (_DWORD *)(EmonCounterStatus + v11);
+      v13 = (unsigned int)EmonNumberCounters;
+      do
+      {
+        if ( *(v12 - 1) == a1 && !*(v12 - 2) )
+          *v12 = *a2;
+        v12 += 4;
+        --v13;
+      }
+      while ( v13 );
     }
     return 0LL;
   }

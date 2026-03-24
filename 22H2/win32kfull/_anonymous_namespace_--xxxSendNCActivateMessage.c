@@ -1,43 +1,74 @@
 /*
- * XREFs of _anonymous_namespace_::xxxSendNCActivateMessage @ 0x1C0066A48
+ * XREFs of _anonymous_namespace_::xxxSendNCActivateMessage @ 0x1C003A690
  * Callers:
- *     ?xxxDeactivate@@YAXPEAUtagTHREADINFO@@KW4DeactivateOption@@@Z @ 0x1C004AD48 (-xxxDeactivate@@YAXPEAUtagTHREADINFO@@KW4DeactivateOption@@@Z.c)
- *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C0061584 (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
- *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C0065F18 (_anonymous_namespace_--xxxLocalActivateWindow.c)
- *     ?xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z @ 0x1C00AE86C (-xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z.c)
+ *     ?xxxDeactivate@@YAXPEAUtagTHREADINFO@@KW4DeactivateOption@@@Z @ 0x1C00319A0 (-xxxDeactivate@@YAXPEAUtagTHREADINFO@@KW4DeactivateOption@@@Z.c)
+ *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C0039E68 (_anonymous_namespace_--xxxLocalActivateWindow.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C003D1EC (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     ?xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z @ 0x1C0120084 (-xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z.c)
  * Callees:
- *     ?IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C0028858 (-IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
- *     xxxSendNotifyMessage @ 0x1C004D370 (xxxSendNotifyMessage.c)
- *     _GetTopLevelWindow @ 0x1C00CFFB0 (_GetTopLevelWindow.c)
- *     ?GetTopLevelHostForComponent@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C00CFFEC (-GetTopLevelHostForComponent@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
- *     xxxSendMessage @ 0x1C0127178 (xxxSendMessage.c)
+ *     xxxSendNotifyMessage @ 0x1C00402D0 (xxxSendNotifyMessage.c)
+ *     xxxSendMessage @ 0x1C005D594 (xxxSendMessage.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     ?GetTopLevelHostForComponent@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C006A13C (-GetTopLevelHostForComponent@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
+ *     ?IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C006B6A0 (-IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
+ *     _GetTopLevelWindow @ 0x1C006FC20 (_GetTopLevelWindow.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z @ 0x1C00F5668 (-QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z.c)
  */
 
-bool __fastcall anonymous_namespace_::xxxSendNCActivateMessage(struct tagWND *a1, unsigned __int64 a2, __int64 a3)
+bool __fastcall anonymous_namespace_::xxxSendNCActivateMessage(struct tagWND *a1, __int64 a2, __int64 a3)
 {
-  const struct tagWND *TopLevelWindow; // rbx
-  bool v6; // di
+  bool v6; // bp
+  unsigned __int64 v7; // r14
+  struct tagWND *TopLevelWindow; // rbx
   struct tagWND *TopLevelHostForComponent; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int128 v12; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v13; // [rsp+40h] [rbp-18h]
+  __int64 ThreadWin32Thread; // rax
+  __int64 v12; // rcx
+  __int64 i; // r10
+  _QWORD v14[4]; // [rsp+30h] [rbp-48h] BYREF
+  char v15; // [rsp+80h] [rbp+8h] BYREF
 
-  TopLevelWindow = a1;
   v6 = 1;
-  if ( !(_WORD)a2 || !(unsigned int)CoreWindowProp::IsComponent(a1) )
-    return xxxSendMessage(TopLevelWindow, 134LL, a2, a3) != 0;
-  TopLevelHostForComponent = CoreWindowProp::GetTopLevelHostForComponent(TopLevelWindow);
-  if ( TopLevelHostForComponent )
-    TopLevelWindow = (const struct tagWND *)GetTopLevelWindow(TopLevelHostForComponent);
-  if ( TopLevelWindow && gpqForegroundPrev && *(const struct tagWND **)(gpqForegroundPrev + 136LL) != TopLevelWindow )
+  if ( !(_WORD)a2 )
   {
-    v12 = 0LL;
-    v13 = 0LL;
-    ThreadLockAlways(TopLevelWindow, &v12);
-    v6 = (unsigned int)xxxSendNotifyMessage(TopLevelWindow, 0x86u, a2, 0LL, 1) != 0;
-    ThreadUnlock1(v10, v9, v11);
+    v7 = 0LL;
+LABEL_3:
+    TopLevelWindow = a1;
+    v6 = xxxSendMessage(a1, 134LL, a2, a3) != 0;
+    goto LABEL_4;
   }
+  v7 = 1LL;
+  if ( !(unsigned int)CoreWindowProp::IsComponent(a1) )
+    goto LABEL_3;
+  TopLevelWindow = a1;
+  TopLevelHostForComponent = CoreWindowProp::GetTopLevelHostForComponent(a1);
+  if ( TopLevelHostForComponent )
+    TopLevelWindow = (struct tagWND *)GetTopLevelWindow(TopLevelHostForComponent);
+  if ( TopLevelWindow && gpqForegroundPrev && *(struct tagWND **)(gpqForegroundPrev + 128LL) != TopLevelWindow )
+  {
+    v14[2] = 0LL;
+    ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+    v14[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+    *(_QWORD *)(ThreadWin32Thread + 416) = v14;
+    v14[1] = TopLevelWindow;
+    HMLockObject(TopLevelWindow);
+    v6 = (unsigned int)xxxSendNotifyMessage(TopLevelWindow, 134LL, a2, 0LL, 1) != 0;
+    ThreadUnlock1(v12);
+  }
+LABEL_4:
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v15);
+  if ( (*((_DWORD *)TopLevelWindow + 81) & 8) != 0 )
+  {
+    for ( i = *((_QWORD *)TopLevelWindow + 14); i; i = *(_QWORD *)(i + 88) )
+    {
+      if ( (*(_BYTE *)(*(_QWORD *)(i + 40) + 235LL) & 1) != 0 && *(_QWORD *)(i + 16) == *((_QWORD *)TopLevelWindow + 2) )
+      {
+        QueueNotifyTransformableMessage((struct tagWND *)i, 0x2FCu, v7, 0LL, 1, 0);
+        break;
+      }
+    }
+  }
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v15);
   return v6;
 }

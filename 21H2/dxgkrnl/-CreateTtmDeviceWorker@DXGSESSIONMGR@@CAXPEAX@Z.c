@@ -1,95 +1,79 @@
 /*
- * XREFs of ?CreateTtmDeviceWorker@DXGSESSIONMGR@@CAXPEAX@Z @ 0x1C021B8B0
+ * XREFs of ?CreateTtmDeviceWorker@DXGSESSIONMGR@@CAXPEAX@Z @ 0x1C019F470
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C00138D4 (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
- *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x1C0025B34 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?RegisterTtmDevice@CTTMDEVICE@@QEAAJPEAVDXGSESSIONDATA@@@Z @ 0x1C03480AC (-RegisterTtmDevice@CTTMDEVICE@@QEAAJPEAVDXGSESSIONDATA@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C000D12C (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?RegisterTtmDevice@CTTMDEVICE@@AEAAJPEAVDXGSESSIONDATA@@@Z @ 0x1C029EFD4 (-RegisterTtmDevice@CTTMDEVICE@@AEAAJPEAVDXGSESSIONDATA@@@Z.c)
  */
 
-void __fastcall DXGSESSIONMGR::CreateTtmDeviceWorker(CTTMDEVICE *this)
+void __fastcall DXGSESSIONMGR::CreateTtmDeviceWorker(CTTMDEVICE *this, __int64 a2)
 {
-  __int64 v2; // rsi
-  _QWORD *v3; // rcx
+  __int64 v3; // rdi
   __int64 v4; // rdx
   __int64 v5; // rcx
-  int v6; // eax
-  __int64 v7; // rbx
-  _BYTE v8[16]; // [rsp+50h] [rbp-68h] BYREF
-  __int64 v9; // [rsp+60h] [rbp-58h] BYREF
-  char v10; // [rsp+68h] [rbp-50h]
-  struct _KAPC_STATE ApcState; // [rsp+70h] [rbp-48h] BYREF
-  char v12; // [rsp+A0h] [rbp-18h]
+  _QWORD *v6; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // rdx
+  __int64 v9; // rax
+  int v10; // eax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rbp
+  _QWORD *v14; // rax
+  _BYTE v15[16]; // [rsp+20h] [rbp-58h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+30h] [rbp-48h] BYREF
+  char v17; // [rsp+60h] [rbp-18h]
 
-  v2 = *((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v8, (struct DXGFASTMUTEX *const)v2, 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v8);
-  DXGAUTOPUSHLOCKFASTEXCLUSIVE::DXGAUTOPUSHLOCKFASTEXCLUSIVE(
-    (DXGAUTOPUSHLOCKFASTEXCLUSIVE *)&v9,
-    (struct DXGPUSHLOCKFAST *)(v2 + 336));
+  v3 = *((_QWORD *)DXGGLOBAL::GetGlobal((__int64)this, a2) + 102);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v15, (struct DXGFASTMUTEX *const)v3, 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v15);
+  KeEnterCriticalRegion();
+  ExAcquirePushLockExclusiveEx(v3 + 336, 0LL);
+  *(_QWORD *)(v3 + 344) = KeGetCurrentThread();
   if ( *((_BYTE *)this + 913) )
   {
-    WdLogSingleEntry1(2LL, this);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Workitem for creating TTM device 0x%I64x is called after the destroy work item.",
-      (__int64)this,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v9 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v9 + 24) = this;
+    WdLogEvent5_WdError(v9);
   }
   else
   {
-    v3 = *(_QWORD **)(v2 + 368);
-    if ( *v3 != v2 + 360 )
+    v6 = *(_QWORD **)(v3 + 368);
+    if ( *v6 != v3 + 360 )
       __fastfail(3u);
-    *(_QWORD *)this = v2 + 360;
-    *((_QWORD *)this + 1) = v3;
-    *v3 = this;
-    *(_QWORD *)(v2 + 368) = this;
-    v4 = *(_QWORD *)(v2 + 136);
-    if ( v4 && *(_BYTE *)(v4 + 18497) )
+    *(_QWORD *)this = v3 + 360;
+    *((_QWORD *)this + 1) = v6;
+    *v6 = this;
+    *(_QWORD *)(v3 + 368) = this;
+    v7 = *(_QWORD *)(v3 + 120);
+    if ( v7 && *(_BYTE *)(v7 + 18489) )
     {
-      v12 = 0;
-      CPROCESSATTACHHELPER::Attach(&ApcState, *(PRKPROCESS *)(v4 + 18648));
-      v6 = CTTMDEVICE::RegisterTtmDevice(this, *(struct DXGSESSIONDATA **)(v2 + 136));
-      if ( v6 < 0 )
+      v17 = 0;
+      CPROCESSATTACHHELPER::Attach(&ApcState, *(PRKPROCESS *)(v7 + 18632));
+      v10 = CTTMDEVICE::RegisterTtmDevice(this, *(struct DXGSESSIONDATA **)(v3 + 120));
+      v13 = v10;
+      if ( v10 < 0 )
       {
-        v7 = v6;
-        WdLogSingleEntry4(2LL, *((unsigned int *)this + 20), *((_QWORD *)this + 8), **(unsigned int **)(v2 + 136), v6);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Failed to register TTM device for target 0x%I64x on adapter 0x%I64x to current console session 0x%I64"
-                    "x, (Status = 0x%I64x).",
-          *((unsigned int *)this + 20),
-          *((_QWORD *)this + 8),
-          **(unsigned int **)(v2 + 136),
-          v7,
-          0LL);
+        v14 = (_QWORD *)WdLogNewEntry5_WdError(v12, v11);
+        v14[3] = *((unsigned int *)this + 20);
+        v14[4] = *((_QWORD *)this + 8);
+        v14[5] = **(unsigned int **)(v3 + 120);
+        v14[6] = v13;
+        WdLogEvent5_WdError(v14);
       }
-      if ( v12 )
+      if ( v17 )
         KeUnstackDetachProcess(&ApcState);
     }
   }
-  if ( v10 )
-  {
-    v5 = v9;
-    *(_QWORD *)(v9 + 8) = 0LL;
-    ExReleasePushLockExclusiveEx(v5, 0LL);
-    KeLeaveCriticalRegion();
-  }
-  if ( v8[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v8);
+  *(_QWORD *)(v3 + 344) = 0LL;
+  ExReleasePushLockExclusiveEx(v3 + 336, 0LL);
+  KeLeaveCriticalRegion();
+  if ( v15[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v15, v8);
 }

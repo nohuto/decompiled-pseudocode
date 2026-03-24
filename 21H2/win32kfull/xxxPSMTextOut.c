@@ -1,62 +1,54 @@
 /*
- * XREFs of xxxPSMTextOut @ 0x1C0250058
+ * XREFs of xxxPSMTextOut @ 0x1C025306C
  * Callers:
- *     xxxDrawMenuBarUnderlines @ 0x1C011CE5C (xxxDrawMenuBarUnderlines.c)
- *     ?xxxDrawMenuItemText@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGHH@Z @ 0x1C02475D8 (-xxxDrawMenuItemText@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGHH@Z.c)
- *     xxxRealDrawMenuItem @ 0x1C0248CAC (xxxRealDrawMenuItem.c)
+ *     xxxDrawMenuBarUnderlines @ 0x1C00E1F30 (xxxDrawMenuBarUnderlines.c)
+ *     ?xxxDrawMenuItemText@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGHH@Z @ 0x1C024C1AC (-xxxDrawMenuItemText@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGHH@Z.c)
+ *     xxxRealDrawMenuItem @ 0x1C024D8A4 (xxxRealDrawMenuItem.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     GreExtTextOutWInternal @ 0x1C008ABC0 (GreExtTextOutWInternal.c)
- *     CALL_LPK @ 0x1C00B9BC8 (CALL_LPK.c)
- *     GreSetBkColor @ 0x1C00BE480 (GreSetBkColor.c)
- *     GreGetTextMetricsW @ 0x1C00C42C4 (GreGetTextMetricsW.c)
- *     GreGetTextExtentW @ 0x1C00C43FC (GreGetTextExtentW.c)
- *     GreGetTextColor @ 0x1C00C5D38 (GreGetTextColor.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     xxxClientPSMTextOut @ 0x1C022CBE4 (xxxClientPSMTextOut.c)
- *     GetPrefixCount @ 0x1C025BA88 (GetPrefixCount.c)
+ *     GreSetBkColor @ 0x1C00446A0 (GreSetBkColor.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     GreExtTextOutWInternal @ 0x1C00AAE5C (GreExtTextOutWInternal.c)
+ *     GreGetTextMetricsW @ 0x1C00E3594 (GreGetTextMetricsW.c)
+ *     GreGetTextExtentW @ 0x1C00E36CC (GreGetTextExtentW.c)
+ *     GreGetTextColor @ 0x1C015840C (GreGetTextColor.c)
+ *     CALL_LPK @ 0x1C01594AC (CALL_LPK.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     xxxClientPSMTextOut @ 0x1C0233404 (xxxClientPSMTextOut.c)
+ *     GetPrefixCount @ 0x1C025EE64 (GetPrefixCount.c)
  */
 
-HDC __fastcall xxxPSMTextOut(
-        HDC a1,
-        unsigned int a2,
-        unsigned int a3,
-        const WCHAR *a4,
-        unsigned int a5,
-        unsigned int a6)
+void __fastcall xxxPSMTextOut(HDC a1, unsigned int a2, unsigned int a3, PCWSTR SourceString, unsigned int a5, int a6)
 {
   unsigned __int16 *v6; // rsi
   int v8; // r12d
   __int64 ThreadWin32Thread; // rax
-  HDC result; // rax
   int PrefixCount; // edi
   int TextMetricsW; // eax
-  int v16; // ebx
-  LONG v17; // edi
+  int v15; // ebx
+  LONG v16; // edi
   int TextColor; // eax
-  int v19; // ebx
-  struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
-  __int128 v21; // [rsp+60h] [rbp-A0h]
-  __int128 v22; // [rsp+80h] [rbp-80h]
-  _OWORD v23[5]; // [rsp+A0h] [rbp-60h] BYREF
-  struct tagRECT v24; // [rsp+F0h] [rbp-10h] BYREF
+  int v18; // ebx
+  struct _POINTL v19; // [rsp+50h] [rbp-B0h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
+  __int128 v21; // [rsp+68h] [rbp-98h]
+  __int128 v22; // [rsp+88h] [rbp-78h]
+  _OWORD v23[5]; // [rsp+B0h] [rbp-50h] BYREF
+  struct tagRECT v24; // [rsp+100h] [rbp+0h] BYREF
 
-  v6 = &word_1C033BE40;
+  v6 = &word_1C0341B30;
   v8 = 0;
-  *(_QWORD *)&DestinationString.Length = 0LL;
+  v19 = 0LL;
   ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   if ( (unsigned int)CALL_LPK(ThreadWin32Thread) )
   {
     DestinationString = 0LL;
-    RtlInitUnicodeString(&DestinationString, a4);
-    return xxxClientPSMTextOut(a1, a2, a3, &DestinationString.Length, a5, a6);
+    RtlInitUnicodeString(&DestinationString, SourceString);
+    xxxClientPSMTextOut(a1, a2, a3, &DestinationString.Length, a5, a6);
   }
-  else if ( a5 < 0xFF
-         || (result = (HDC)Win32AllocPoolZInit(2LL * (int)(a5 + 1), 1953657685LL),
-             (v6 = (unsigned __int16 *)result) != 0LL) )
+  else if ( a5 < 0xFF || (v6 = (unsigned __int16 *)Win32AllocPool(2LL * (int)(a5 + 1), 1953657685LL)) != 0LL )
   {
-    PrefixCount = GetPrefixCount(a4, a5, v6, a5);
+    PrefixCount = GetPrefixCount(SourceString, a5, v6, a5);
     if ( (a6 & 0x200000) == 0 )
       GreExtTextOutWInternal(a1, a2, a3, 0, 0LL, v6, a5 - HIWORD(PrefixCount), 0LL, 0LL, 0);
     if ( (_WORD)PrefixCount != 0xFFFF && (a6 & 0x100000) == 0 )
@@ -67,32 +59,30 @@ HDC __fastcall xxxPSMTextOut(
       v22 = v23[2];
       if ( TextMetricsW )
       {
-        v16 = v22;
+        v15 = v22;
         v8 = DWORD1(v21);
       }
       else
       {
-        v16 = 0;
+        v15 = 0;
       }
       if ( (_WORD)PrefixCount )
       {
-        GreGetTextExtentW(a1, v6, (unsigned __int16)PrefixCount, (struct tagSIZE *)&DestinationString, 1u);
-        a2 += *(_DWORD *)&DestinationString.Length - v16;
+        GreGetTextExtentW(a1, v6, (unsigned __int16)PrefixCount, (struct tagSIZE *)&v19, 1);
+        a2 += v19.x - v15;
       }
-      GreGetTextExtentW(a1, &v6[(unsigned __int16)PrefixCount], 1u, (struct tagSIZE *)&DestinationString, 1u);
-      v17 = v8 + a3 + 1;
+      GreGetTextExtentW(a1, &v6[(unsigned __int16)PrefixCount], 1u, (struct tagSIZE *)&v19, 1);
+      v16 = v8 + a3 + 1;
       v24.left = a2;
-      v24.top = v17;
-      v24.bottom = v17 + 1;
-      v24.right = a2 + DestinationString.Length - v16 / 2;
+      v24.top = v16;
+      v24.bottom = v16 + 1;
+      v24.right = a2 + LOWORD(v19.x) - v15 / 2;
       TextColor = GreGetTextColor(a1);
-      v19 = GreSetBkColor(a1, TextColor);
-      GreExtTextOutWInternal(a1, a2, v17, 2, &v24, (unsigned __int16 *)&word_1C02E3794, 0, 0LL, 0LL, 0);
-      GreSetBkColor(a1, v19);
+      v18 = GreSetBkColor(a1, TextColor);
+      GreExtTextOutWInternal(a1, a2, v16, 2, &v24, (unsigned __int16 *)&word_1C02E597C, 0, 0LL, 0LL, 0);
+      GreSetBkColor(a1, v18);
     }
-    result = (HDC)&word_1C033BE40;
-    if ( v6 != &word_1C033BE40 )
-      return (HDC)Win32FreePool(v6);
+    if ( v6 != &word_1C0341B30 )
+      Win32FreePool(v6);
   }
-  return result;
 }

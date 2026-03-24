@@ -4,9 +4,9 @@
  *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
  *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x140695B44 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x1407544C0 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x140859178 (MiAllocateEnclaveVad.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140695B24 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x140859158 (MiAllocateEnclaveVad.c)
  * Callees:
  *     MiCheckForConflictingVadExistence @ 0x1400884E8 (MiCheckForConflictingVadExistence.c)
  */

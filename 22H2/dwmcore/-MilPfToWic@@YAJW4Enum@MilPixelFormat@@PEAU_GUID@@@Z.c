@@ -1,8 +1,8 @@
 /*
- * XREFs of ?MilPfToWic@@YAJW4Enum@MilPixelFormat@@PEAU_GUID@@@Z @ 0x180281ED0
+ * XREFs of ?MilPfToWic@@YAJW4Enum@MilPixelFormat@@PEAU_GUID@@@Z @ 0x1802180A8
  * Callers:
- *     ?GetPixelFormat@CBitmap@@UEAAJPEAU_GUID@@@Z @ 0x180281820 (-GetPixelFormat@CBitmap@@UEAAJPEAU_GUID@@@Z.c)
- *     ?GetPixelFormat@CBitmapLock@@UEAAJPEAU_GUID@@@Z @ 0x180282210 (-GetPixelFormat@CBitmapLock@@UEAAJPEAU_GUID@@@Z.c)
+ *     ?GetPixelFormat@CBitmap@@UEAAJPEAU_GUID@@@Z @ 0x1802179F0 (-GetPixelFormat@CBitmap@@UEAAJPEAU_GUID@@@Z.c)
+ *     ?GetPixelFormat@CBitmapLock@@UEAAJPEAU_GUID@@@Z @ 0x1802183D0 (-GetPixelFormat@CBitmapLock@@UEAAJPEAU_GUID@@@Z.c)
  * Callees:
  *     <none>
  */

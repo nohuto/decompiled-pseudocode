@@ -1,32 +1,32 @@
 /*
- * XREFs of BgkDestroy @ 0x140AAE8BC
+ * XREFs of BgkDestroy @ 0x1409F4B08
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x1403A78F0 (BgkNotifyDisplayOwnershipChange.c)
- *     BgkInitialize @ 0x140B56D04 (BgkInitialize.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14039BB40 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkInitialize @ 0x140A96F04 (BgkInitialize.c)
  * Callees:
- *     BgkpDisableConsole @ 0x14055161C (BgkpDisableConsole.c)
- *     BgDisplayProgressIndicator @ 0x140AAD188 (BgDisplayProgressIndicator.c)
- *     BgConsoleDestroyInterface @ 0x140AAE968 (BgConsoleDestroyInterface.c)
- *     BgDisplayBackgroundUpdate @ 0x140AAED40 (BgDisplayBackgroundUpdate.c)
- *     BgLibraryDestroy @ 0x140AB0910 (BgLibraryDestroy.c)
+ *     BgkpDisableConsole @ 0x1404FF9AC (BgkpDisableConsole.c)
+ *     BgConsoleDestroyInterface @ 0x1409F3F5C (BgConsoleDestroyInterface.c)
+ *     BgDisplayProgressIndicator @ 0x1409F4334 (BgDisplayProgressIndicator.c)
+ *     BgDisplayBackgroundUpdate @ 0x1409F4748 (BgDisplayBackgroundUpdate.c)
+ *     BgLibraryDestroy @ 0x1409F65E0 (BgLibraryDestroy.c)
  */
 
 __int64 BgkDestroy()
 {
-  if ( !byte_140C54D48 )
+  if ( !byte_140C50B99 )
     return 0LL;
   BgkpDisableConsole();
-  byte_140C54D49 = 0;
-  byte_140C54D48 = 0;
+  byte_140C50BAC = 0;
+  byte_140C50B99 = 0;
   BgDisplayProgressIndicator(0);
-  byte_140C54905 = 0;
-  BgDisplayBackgroundUpdate(0LL);
-  byte_140C54904 = 0;
-  byte_140C54D38 = 0;
-  if ( qword_140C54D30 )
+  byte_140C50745 = 0;
+  BgDisplayBackgroundUpdate(0);
+  byte_140C50744 = 0;
+  byte_140C50B98 = 0;
+  if ( qword_140C50B80 )
   {
-    BgConsoleDestroyInterface();
-    qword_140C54D30 = 0LL;
+    BgConsoleDestroyInterface((__int64 (__fastcall **)())qword_140C50B80);
+    qword_140C50B80 = 0LL;
   }
   return BgLibraryDestroy();
 }

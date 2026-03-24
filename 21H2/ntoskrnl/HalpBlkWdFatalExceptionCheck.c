@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBlkWdFatalExceptionCheck @ 0x14052D8D0
+ * XREFs of HalpBlkWdFatalExceptionCheck @ 0x1404DF240
  * Callers:
- *     HalpBlkPoBusyWait @ 0x14052CED4 (HalpBlkPoBusyWait.c)
- *     HalpBlkWdWorkerRoutine @ 0x14052D960 (HalpBlkWdWorkerRoutine.c)
+ *     HalpBlkPoBusyWait @ 0x1404DE838 (HalpBlkPoBusyWait.c)
+ *     HalpBlkWdWorkerRoutine @ 0x1404DF2D0 (HalpBlkWdWorkerRoutine.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall HalpBlkWdFatalExceptionCheck(ULONG_PTR BugCheckParameter2)

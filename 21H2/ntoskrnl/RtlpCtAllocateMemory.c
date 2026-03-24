@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpCtAllocateMemory @ 0x1409BE958
+ * XREFs of RtlpCtAllocateMemory @ 0x140919458
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1405EDBA0 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x14058E5E0 (RtlRaiseCustomSystemEventTrigger.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall RtlpCtAllocateMemory(SIZE_T NumberOfBytes)

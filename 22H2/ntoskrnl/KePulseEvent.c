@@ -1,90 +1,85 @@
 /*
- * XREFs of KePulseEvent @ 0x1402206C0
+ * XREFs of KePulseEvent @ 0x14033AAD0
  * Callers:
- *     MiWorkingSetManager @ 0x14021D610 (MiWorkingSetManager.c)
- *     MmResourcesAvailable @ 0x1402AEEA0 (MmResourcesAvailable.c)
- *     KeBalanceSetManager @ 0x140392980 (KeBalanceSetManager.c)
- *     DifKePulseEventWrapper @ 0x1405E4180 (DifKePulseEventWrapper.c)
- *     MiPulseLowAvailableEvent @ 0x140653890 (MiPulseLowAvailableEvent.c)
- *     MiPulseCommitSignal @ 0x1406564E4 (MiPulseCommitSignal.c)
- *     NtPulseEvent @ 0x1406B2610 (NtPulseEvent.c)
- *     MiAddPhysicalMemory @ 0x140A2B738 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x140A2CCBC (MiRemovePhysicalMemory.c)
+ *     MmResourcesAvailable @ 0x1402BECF0 (MmResourcesAvailable.c)
+ *     MiWorkingSetManager @ 0x14033BC70 (MiWorkingSetManager.c)
+ *     KeBalanceSetManager @ 0x1403B8A80 (KeBalanceSetManager.c)
+ *     MiPulseCommitSignal @ 0x140550494 (MiPulseCommitSignal.c)
+ *     MiPulseLowAvailableEvent @ 0x14055BF1C (MiPulseLowAvailableEvent.c)
+ *     NtPulseEvent @ 0x1406BF4F0 (NtPulseEvent.c)
+ *     MiAddPhysicalMemory @ 0x1408C4EE0 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5FDC (MiRemovePhysicalMemory.c)
  * Callees:
- *     KiTryUnwaitThread @ 0x140238CB0 (KiTryUnwaitThread.c)
- *     KiExitDispatcher @ 0x14023CD50 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140251F10 (KiAcquireKobjectLockSafe.c)
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
- *     KiWakeQueueWaiter @ 0x1402B8750 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AAB8 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x14056EE70 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD9C (EtwTraceEnqueueWork.c)
+ *     KiWakeOtherQueueWaiters @ 0x140242C80 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024BE10 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x14024BE60 (KiWakeQueueWaiter.c)
+ *     KiTryUnwaitThread @ 0x1402C2EB0 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x1402C4150 (KiExitDispatcher.c)
+ *     KeIsThreadRunning @ 0x140512F94 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405A7700 (EtwTraceEnqueueWork.c)
  */
 
+// local variable allocation has failed, the output may be wrong!
 LONG __stdcall KePulseEvent(PRKEVENT Event, KPRIORITY Increment, BOOLEAN Wait)
 {
-  char v4; // bl
+  _DWORD *SchedulerAssist; // r9
+  char v5; // bl
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // rdi
-  LIST_ENTRY *p_WaitListHead; // r12
-  struct _LIST_ENTRY *Flink; // r13
-  _DWORD *SchedulerAssist; // r9
-  __int64 v11; // rdx
-  struct _LIST_ENTRY *v12; // rbx
-  char v13; // al
-  __int64 v14; // r8
-  struct _LIST_ENTRY *v15; // rax
-  struct _LIST_ENTRY *v16; // rbx
-  struct _LIST_ENTRY *v17; // rcx
-  char v18; // al
-  bool v19; // zf
-  struct _LIST_ENTRY *v20; // rdi
-  struct _LIST_ENTRY **v21; // r15
-  unsigned __int8 v22; // cl
-  _DWORD *v23; // r9
-  __int64 v24; // rdx
-  struct _KPRCB *v25; // r14
+  _QWORD *v8; // rdx
+  __int64 v9; // r8
+  _DWORD *v10; // r9
+  LIST_ENTRY *p_WaitListHead; // r14
+  struct _LIST_ENTRY *Flink; // r15
+  __int64 v14; // rbx
+  char v15; // al
+  __int64 v16; // r8
+  struct _LIST_ENTRY *v17; // rax
+  __int64 v18; // rbx
+  struct _LIST_ENTRY *v19; // rcx
+  char v20; // al
+  bool v21; // zf
+  __int64 v22; // rdi
+  _QWORD *v23; // r12
+  unsigned __int8 v24; // cl
+  struct _KPRCB *v25; // r13
   _KTHREAD *v26; // rbp
   __int64 v27; // r8
-  int v28; // r8d
-  struct _LIST_ENTRY *v29; // rdx
-  struct _LIST_ENTRY *Blink; // rdi
-  struct _LIST_ENTRY **p_Blink; // r15
-  unsigned __int8 v32; // cl
-  _DWORD *v33; // r9
-  __int64 v34; // rdx
-  struct _KPRCB *v35; // r14
+  __int64 v28; // rdi
+  _QWORD *v29; // r12
+  unsigned __int8 v30; // cl
+  struct _KPRCB *v31; // r13
   _KTHREAD *CurrentThread; // rbp
-  __int64 v37; // r8
-  int Flink_high; // r8d
-  struct _LIST_ENTRY *v39; // rdx
-  char v40; // [rsp+30h] [rbp-58h]
+  __int64 v33; // r8
+  unsigned __int8 v34; // [rsp+30h] [rbp-58h]
   LONG SignalState; // [rsp+90h] [rbp+8h]
-  struct _KPRCB *v44; // [rsp+A8h] [rbp+20h]
+  unsigned int v36; // [rsp+98h] [rbp+10h]
+  BOOLEAN v37; // [rsp+A0h] [rbp+18h]
+  __int64 v38; // [rsp+A8h] [rbp+20h]
 
-  v4 = Event->Header.Type & 0x7F;
+  v37 = Wait;
+  v36 = Increment;
+  v5 = Event->Header.Type & 0x7F;
   CurrentIrql = KeGetCurrentIrql();
-  v40 = CurrentIrql;
+  v34 = CurrentIrql;
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 2 )
-      LODWORD(v11) = 4;
-    else
-      v11 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v11;
+    *(_QWORD *)&Increment = (-1LL << (CurrentIrql + 1)) & 4;
+    *(_QWORD *)&Wait = (unsigned int)Increment | SchedulerAssist[5];
+    SchedulerAssist[5] = Wait;
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  v44 = CurrentPrcb;
-  KiAcquireKobjectLockSafe(Event);
+  v38 = (__int64)CurrentPrcb;
+  KiAcquireKobjectLockSafe(&Event->Header.Lock, *(__int64 *)&Increment, Wait, (__int64)SchedulerAssist);
   SignalState = Event->Header.SignalState;
   if ( !SignalState )
   {
     Event->Header.SignalState = 1;
     p_WaitListHead = &Event->Header.WaitListHead;
     Flink = Event->Header.WaitListHead.Flink;
-    if ( !v4 )
+    if ( !v5 )
     {
       while ( 1 )
       {
@@ -94,75 +89,63 @@ LONG __stdcall KePulseEvent(PRKEVENT Event, KPRIORITY Increment, BOOLEAN Wait)
           p_WaitListHead->Flink = p_WaitListHead;
           goto LABEL_6;
         }
-        v12 = Flink;
+        v14 = (__int64)Flink;
         Flink = Flink->Flink;
-        v13 = (char)v12[1].Flink;
-        if ( v13 == 1 )
+        v15 = *(_BYTE *)(v14 + 16);
+        if ( v15 == 1 )
           break;
-        if ( v13 == 2 )
+        if ( v15 == 2 )
         {
-          BYTE1(v12[1].Flink) = 5;
-          Blink = v12[1].Blink;
-          v12->Flink = 0LL;
-          p_Blink = &Blink->Blink;
-          v32 = KeGetCurrentIrql();
+          *(_BYTE *)(v14 + 17) = 5;
+          v28 = *(_QWORD *)(v14 + 24);
+          *(_QWORD *)v14 = 0LL;
+          v29 = (_QWORD *)(v28 + 8);
+          v30 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v32 <= 0xFu )
+          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v30 <= 0xFu )
           {
-            v33 = KeGetCurrentPrcb()->SchedulerAssist;
-            if ( v32 == 2 )
-              LODWORD(v34) = 4;
-            else
-              v34 = (-1LL << (v32 + 1)) & 4;
-            v33[5] |= v34;
+            v10 = KeGetCurrentPrcb()->SchedulerAssist;
+            v8 = (_QWORD *)((-1LL << (v30 + 1)) & 4);
+            v9 = (unsigned int)v8 | v10[5];
+            v10[5] = v9;
           }
-          v35 = KeGetCurrentPrcb();
-          CurrentThread = v35->CurrentThread;
+          v31 = KeGetCurrentPrcb();
+          CurrentThread = v31->CurrentThread;
           if ( (DWORD1(PerfGlobalGroupMask) & 0x1000000) != 0 )
           {
-            LOBYTE(v37) = KeIsThreadRunning(v35->CurrentThread);
-            EtwTraceEnqueueWork(CurrentThread, v12, v37);
+            LOBYTE(v33) = KeIsThreadRunning(v31->CurrentThread);
+            EtwTraceEnqueueWork(CurrentThread, v14, v33);
           }
-          KiAcquireKobjectLockSafe(Blink);
-          if ( *p_Blink == (struct _LIST_ENTRY *)p_Blink
-            || LODWORD(Blink[2].Blink) >= HIDWORD(Blink[2].Blink)
-            || (struct _LIST_ENTRY *)CurrentThread->Queue == Blink && CurrentThread->WaitReason == 15
-            || !(unsigned __int8)KiWakeQueueWaiter(v35, Blink, v12) )
+          KiAcquireKobjectLockSafe((volatile signed __int32 *)v28, (__int64)v8, v9, (__int64)v10);
+          if ( (_QWORD *)*v29 == v29
+            || *(_DWORD *)(v28 + 40) >= *(_DWORD *)(v28 + 44)
+            || CurrentThread->Queue == (_DISPATCHER_HEADER *volatile)v28 && CurrentThread->WaitReason == 15
+            || !KiWakeQueueWaiter((__int64)v31, v28, v14, (__int64)v10) )
           {
-            Flink_high = HIDWORD(Blink->Flink);
-            HIDWORD(Blink->Flink) = Flink_high + 1;
-            v39 = Blink[2].Flink;
-            if ( v39->Flink != (struct _LIST_ENTRY *)&Blink[1].Blink )
-              goto LABEL_73;
-            v12->Flink = (struct _LIST_ENTRY *)((char *)Blink + 24);
-            v12->Blink = v39;
-            v39->Flink = v12;
-            Blink[2].Flink = v12;
-            if ( !Flink_high && *p_Blink != (struct _LIST_ENTRY *)p_Blink )
-              KiWakeOtherQueueWaiters(v35, Blink);
+            v9 = *(unsigned int *)(v28 + 4);
+            *(_DWORD *)(v28 + 4) = v9 + 1;
+            v8 = *(_QWORD **)(v28 + 32);
+            if ( *v8 != v28 + 24 )
+              goto LABEL_58;
+            *(_QWORD *)v14 = v28 + 24;
+            *(_QWORD *)(v14 + 8) = v8;
+            *v8 = v14;
+            *(_QWORD *)(v28 + 32) = v14;
+            if ( !(_DWORD)v9 && (_QWORD *)*v29 != v29 )
+              KiWakeOtherQueueWaiters((__int64)v31, v28);
           }
-          else
-          {
-            v12->Flink = 0LL;
-          }
-          _InterlockedAnd((volatile signed __int32 *)Blink, 0xFFFFFF7F);
-          CurrentPrcb = v44;
-        }
-        else if ( v13 == 4 )
-        {
-          BYTE1(v12[1].Flink) = 5;
-          Event->Header.SignalState = 0;
-          KiInsertQueueDpc((ULONG_PTR)v12[1].Blink, 0);
+          _InterlockedAnd((volatile signed __int32 *)v28, 0xFFFFFF7F);
+          CurrentPrcb = (struct _KPRCB *)v38;
         }
         else
         {
-          v14 = 256LL;
-LABEL_13:
-          KiTryUnwaitThread(CurrentPrcb, v12, v14, 0LL);
+          v16 = 256LL;
+LABEL_9:
+          KiTryUnwaitThread((__int64)CurrentPrcb, v14, v16, 0LL);
         }
       }
-      v14 = WORD1(v12[1].Flink);
-      goto LABEL_13;
+      v16 = *(unsigned __int16 *)(v14 + 18);
+      goto LABEL_9;
     }
     while ( 1 )
     {
@@ -170,85 +153,73 @@ LABEL_13:
       {
         if ( Flink == p_WaitListHead )
           goto LABEL_6;
-        v15 = Flink->Flink;
-        v16 = Flink;
-        Flink = v15;
-        v17 = v16->Blink;
-        if ( v15->Blink != v16 || v17->Flink != v16 )
-LABEL_73:
+        v17 = Flink->Flink;
+        v18 = (__int64)Flink;
+        Flink = v17;
+        v19 = *(struct _LIST_ENTRY **)(v18 + 8);
+        if ( v17->Blink != (struct _LIST_ENTRY *)v18 || v19->Flink != (struct _LIST_ENTRY *)v18 )
+LABEL_58:
           __fastfail(3u);
-        v17->Flink = v15;
-        v15->Blink = v17;
-        v18 = (char)v16[1].Flink;
-        if ( v18 == 1 )
+        v19->Flink = v17;
+        v17->Blink = v19;
+        v20 = *(_BYTE *)(v18 + 16);
+        if ( v20 == 1 )
           break;
-        if ( v18 == 2 )
+        if ( v20 == 2 )
         {
-          BYTE1(v16[1].Flink) = 5;
-          v20 = v16[1].Blink;
-          v16->Flink = 0LL;
-          v21 = &v20->Blink;
-          v22 = KeGetCurrentIrql();
+          *(_BYTE *)(v18 + 17) = 5;
+          v22 = *(_QWORD *)(v18 + 24);
+          *(_QWORD *)v18 = 0LL;
+          v23 = (_QWORD *)(v22 + 8);
+          v24 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v22 <= 0xFu )
+          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v24 <= 0xFu )
           {
-            v23 = KeGetCurrentPrcb()->SchedulerAssist;
-            if ( v22 == 2 )
-              LODWORD(v24) = 4;
-            else
-              v24 = (-1LL << (v22 + 1)) & 4;
-            v23[5] |= v24;
+            v10 = KeGetCurrentPrcb()->SchedulerAssist;
+            v8 = (_QWORD *)((-1LL << (v24 + 1)) & 4);
+            v9 = (unsigned int)v8 | v10[5];
+            v10[5] = v9;
           }
           v25 = KeGetCurrentPrcb();
           v26 = v25->CurrentThread;
           if ( (DWORD1(PerfGlobalGroupMask) & 0x1000000) != 0 )
           {
             LOBYTE(v27) = KeIsThreadRunning(v25->CurrentThread);
-            EtwTraceEnqueueWork(v26, v16, v27);
+            EtwTraceEnqueueWork(v26, v18, v27);
           }
-          KiAcquireKobjectLockSafe(v20);
-          if ( *v21 == (struct _LIST_ENTRY *)v21
-            || LODWORD(v20[2].Blink) >= HIDWORD(v20[2].Blink)
-            || (struct _LIST_ENTRY *)v26->Queue == v20 && v26->WaitReason == 15
-            || !(unsigned __int8)KiWakeQueueWaiter(v25, v20, v16) )
+          KiAcquireKobjectLockSafe((volatile signed __int32 *)v22, (__int64)v8, v9, (__int64)v10);
+          if ( (_QWORD *)*v23 == v23
+            || *(_DWORD *)(v22 + 40) >= *(_DWORD *)(v22 + 44)
+            || v26->Queue == (_DISPATCHER_HEADER *volatile)v22 && v26->WaitReason == 15
+            || !KiWakeQueueWaiter((__int64)v25, v22, v18, (__int64)v10) )
           {
-            v28 = HIDWORD(v20->Flink);
-            HIDWORD(v20->Flink) = v28 + 1;
-            v29 = v20[2].Flink;
-            if ( v29->Flink != (struct _LIST_ENTRY *)&v20[1].Blink )
-              goto LABEL_73;
-            v16->Flink = (struct _LIST_ENTRY *)((char *)v20 + 24);
-            v16->Blink = v29;
-            v29->Flink = v16;
-            v20[2].Flink = v16;
-            if ( !v28 && *v21 != (struct _LIST_ENTRY *)v21 )
-              KiWakeOtherQueueWaiters(v25, v20);
+            v9 = *(unsigned int *)(v22 + 4);
+            *(_DWORD *)(v22 + 4) = v9 + 1;
+            v8 = *(_QWORD **)(v22 + 32);
+            if ( *v8 != v22 + 24 )
+              goto LABEL_58;
+            *(_QWORD *)v18 = v22 + 24;
+            *(_QWORD *)(v18 + 8) = v8;
+            *v8 = v18;
+            *(_QWORD *)(v22 + 32) = v18;
+            if ( !(_DWORD)v9 && (_QWORD *)*v23 != v23 )
+              KiWakeOtherQueueWaiters((__int64)v25, v22);
           }
-          else
-          {
-            v16->Flink = 0LL;
-          }
-          _InterlockedAnd((volatile signed __int32 *)v20, 0xFFFFFF7F);
-          v19 = Event->Header.SignalState-- == 1;
-          if ( v19 )
+          _InterlockedAnd((volatile signed __int32 *)v22, 0xFFFFFF7F);
+          v21 = Event->Header.SignalState-- == 1;
+          if ( v21 )
             goto LABEL_6;
-          CurrentPrcb = v44;
-        }
-        else if ( v18 == 4 )
-        {
-          BYTE1(v16[1].Flink) = 5;
-          Event->Header.SignalState = 0;
-          KiInsertQueueDpc((ULONG_PTR)v16[1].Blink, 0);
+          CurrentPrcb = (struct _KPRCB *)v38;
         }
         else
         {
-          KiTryUnwaitThread(CurrentPrcb, v16, 256LL, 0LL);
+          KiTryUnwaitThread((__int64)CurrentPrcb, v18, 256LL, 0LL);
         }
       }
-      if ( (unsigned __int8)KiTryUnwaitThread(CurrentPrcb, v16, WORD1(v16[1].Flink), 0LL) )
+      if ( (unsigned __int8)KiTryUnwaitThread((__int64)CurrentPrcb, v18, *(unsigned __int16 *)(v18 + 18), 0LL) )
       {
-        v19 = Event->Header.SignalState-- == 1;
-        if ( v19 )
+        v21 = Event->Header.SignalState-- == 1;
+        if ( v21 )
           break;
       }
     }
@@ -256,6 +227,6 @@ LABEL_73:
 LABEL_6:
   Event->Header.SignalState = 0;
   _InterlockedAnd(&Event->Header.Lock, 0xFFFFFF7F);
-  KiExitDispatcher((_DWORD)v44, Wait != 0 ? 3 : 0, 1, Increment, v40);
+  KiExitDispatcher(v38, v37 != 0 ? 3 : 0, 1LL, v36, v34);
   return SignalState;
 }

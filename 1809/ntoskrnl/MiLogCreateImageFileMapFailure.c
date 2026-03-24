@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogCreateImageFileMapFailure @ 0x14084E644
+ * XREFs of MiLogCreateImageFileMapFailure @ 0x14084E624
  * Callers:
  *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x140100898 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogCreateImageFileMapFailure(__int64 a1, __int64 a2, int a3)
@@ -51,7 +51,7 @@ void __fastcall MiLogCreateImageFileMapFailure(__int64 a1, __int64 a2, int a3)
       v13 = 2;
       v18 = 4;
       v21 = 4;
-      TlgWriteEx(v7, &unk_14036DC9F, 0LL, 1u, 0LL, 0LL, 7u, &pData);
+      TlgWriteEx(v7, &unk_14036DDAF, 0LL, 1u, 0LL, 0LL, 7u, &pData);
     }
   }
 }

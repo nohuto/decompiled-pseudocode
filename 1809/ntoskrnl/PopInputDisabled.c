@@ -1,12 +1,12 @@
 /*
- * XREFs of PopInputDisabled @ 0x140878E98
+ * XREFs of PopInputDisabled @ 0x140878E78
  * Callers:
- *     PopAdaptivePowerSettingCallback @ 0x140745E10 (PopAdaptivePowerSettingCallback.c)
+ *     PopAdaptivePowerSettingCallback @ 0x140745DF0 (PopAdaptivePowerSettingCallback.c)
  * Callees:
  *     MmGetNextSession @ 0x140012740 (MmGetNextSession.c)
  *     MmGetSessionId @ 0x1400897B0 (MmGetSessionId.c)
- *     PsIsServiceSession @ 0x1406CEEA0 (PsIsServiceSession.c)
- *     PopSetSessionUserStatus @ 0x1406DC9D8 (PopSetSessionUserStatus.c)
+ *     PsIsServiceSession @ 0x1406CEE80 (PsIsServiceSession.c)
+ *     PopSetSessionUserStatus @ 0x1406DC9B8 (PopSetSessionUserStatus.c)
  */
 
 void __fastcall PopInputDisabled(unsigned int a1, char a2, char a3)

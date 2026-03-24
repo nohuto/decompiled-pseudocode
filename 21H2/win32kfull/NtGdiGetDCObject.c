@@ -1,14 +1,14 @@
 /*
- * XREFs of NtGdiGetDCObject @ 0x1C00E1C20
+ * XREFs of NtGdiGetDCObject @ 0x1C00AA330
  * Callers:
- *     CreateCompatiblePublicDC @ 0x1C00BA240 (CreateCompatiblePublicDC.c)
+ *     CreateCompatiblePublicDC @ 0x1C0159B50 (CreateCompatiblePublicDC.c)
  * Callees:
- *     ?pSurfaceEff@XDCOBJ@@QEAAPEAVSURFACE@@XZ @ 0x1C002BB4C (-pSurfaceEff@XDCOBJ@@QEAAPEAVSURFACE@@XZ.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C003FD30 (--1DEVLOCKOBJ@@QEAA@XZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C0041980 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     DEVLOCKOBJ_bPrepareTrgDcoWrap @ 0x1C00DBA70 (DEVLOCKOBJ_bPrepareTrgDcoWrap.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C008E970 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ?pSurfaceEff@XDCOBJ@@QEAAPEAVSURFACE@@XZ @ 0x1C00ABABC (-pSurfaceEff@XDCOBJ@@QEAAPEAVSURFACE@@XZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2C64 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     DEVLOCKOBJ_bPrepareTrgDcoWrap @ 0x1C00D5DD0 (DEVLOCKOBJ_bPrepareTrgDcoWrap.c)
  */
 
 __int64 __fastcall NtGdiGetDCObject(HDC a1, int a2)
@@ -53,7 +53,7 @@ __int64 __fastcall NtGdiGetDCObject(HDC a1, int a2)
           v12 = 0LL;
           v11 = 0LL;
           v13 = 0;
-          DEVLOCKOBJ_bPrepareTrgDcoWrap((DEVLOCKOBJ *)&v11, 0LL);
+          DEVLOCKOBJ_bPrepareTrgDcoWrap((DEVLOCKOBJ *)&v11);
           v17 = 0LL;
           v16 = 0LL;
           v15 = 0LL;

@@ -1,17 +1,17 @@
 /*
- * XREFs of BiQueryBootEntryOrder @ 0x1408F4304
+ * XREFs of BiQueryBootEntryOrder @ 0x1408F42E4
  * Callers:
- *     BiAddBootEntryToNvramDisplayOrder @ 0x1408F1EA4 (BiAddBootEntryToNvramDisplayOrder.c)
- *     BiBindEfiBootManager @ 0x1408F1F8C (BiBindEfiBootManager.c)
- *     BiExportEfiBootManager @ 0x1408F36A8 (BiExportEfiBootManager.c)
- *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x1408F44B0 (BiRemoveBootEntryFromNvramDisplayOrder.c)
+ *     BiAddBootEntryToNvramDisplayOrder @ 0x1408F1E84 (BiAddBootEntryToNvramDisplayOrder.c)
+ *     BiBindEfiBootManager @ 0x1408F1F6C (BiBindEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x1408F3688 (BiExportEfiBootManager.c)
+ *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x1408F4490 (BiRemoveBootEntryFromNvramDisplayOrder.c)
  * Callees:
- *     ZwQueryBootEntryOrder @ 0x1401BA870 (ZwQueryBootEntryOrder.c)
+ *     ZwQueryBootEntryOrder @ 0x1401BA890 (ZwQueryBootEntryOrder.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiReleasePrivilege @ 0x1407114C4 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140711514 (BiAcquirePrivilege.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
+ *     BiReleasePrivilege @ 0x1407114A4 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
  */
 
 __int64 __fastcall BiQueryBootEntryOrder(ULONG **a1, ULONG *a2)

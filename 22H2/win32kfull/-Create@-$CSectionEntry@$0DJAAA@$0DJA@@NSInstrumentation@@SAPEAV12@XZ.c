@@ -1,29 +1,28 @@
 /*
- * XREFs of ?Create@?$CSectionEntry@$0DJAAA@$0DJA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C02B6200
+ * XREFs of ?Create@?$CSectionEntry@$0DJAAA@$0DJA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C015FE00
  * Callers:
- *     ?Allocate@?$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C00A85D4 (-Allocate@-$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ *     ?Allocate@?$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C0102724 (-Allocate@-$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@IEAAPEAXXZ.c)
  * Callees:
- *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C01BDFD0 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
- *     ?Initialize@?$CSectionEntry@$0DJAAA@$0DJA@@NSInstrumentation@@AEAA_NXZ @ 0x1C02B6340 (-Initialize@-$CSectionEntry@$0DJAAA@$0DJA@@NSInstrumentation@@AEAA_NXZ.c)
+ *     ?Initialize@?$CSectionEntry@$0DJAAA@$0DJA@@NSInstrumentation@@AEAA_NXZ @ 0x1C015FE5C (-Initialize@-$CSectionEntry@$0DJAAA@$0DJA@@NSInstrumentation@@AEAA_NXZ.c)
+ *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C01E8768 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
  */
 
-_QWORD *NSInstrumentation::CSectionEntry<233472,912>::Create()
+void *NSInstrumentation::CSectionEntry<233472,912>::Create()
 {
-  _QWORD *Pool2; // rax
-  _QWORD *v1; // rbx
+  _QWORD *PoolWithTag; // rax
+  void *v1; // rbx
 
-  Pool2 = (_QWORD *)ExAllocatePool2(262LL, 40LL, 1869834581LL);
-  v1 = Pool2;
-  if ( !Pool2 )
-    return 0LL;
-  Pool2[2] = 0LL;
-  Pool2[3] = 0LL;
-  Pool2[4] = 0LL;
-  if ( !(unsigned __int8)NSInstrumentation::CSectionEntry<233472,912>::Initialize(Pool2) )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPoolSession, 0x28uLL, 0x6F736955u);
+  v1 = PoolWithTag;
+  if ( PoolWithTag )
   {
+    PoolWithTag[2] = 0LL;
+    PoolWithTag[3] = 0LL;
+    PoolWithTag[4] = 0LL;
+    if ( (unsigned __int8)NSInstrumentation::CSectionEntry<233472,912>::Initialize(PoolWithTag) )
+      return v1;
     NSInstrumentation::CSectionEntry<24576,96>::~CSectionEntry<24576,96>(v1);
     ExFreePoolWithTag(v1, 0);
-    return 0LL;
   }
-  return v1;
+  return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of Control_ValidateED0TrbPointerOnMismatch @ 0x1C0040DC4
+ * XREFs of Control_ValidateED0TrbPointerOnMismatch @ 0x1C003FEC4
  * Callers:
- *     Control_ProcessTransferEventWithED0 @ 0x1C0040AA8 (Control_ProcessTransferEventWithED0.c)
+ *     Control_ProcessTransferEventWithED0 @ 0x1C0019120 (Control_ProcessTransferEventWithED0.c)
  * Callees:
- *     Controller_ReportFatalError @ 0x1C0032C20 (Controller_ReportFatalError.c)
- *     WPP_RECORDER_SF_DDi @ 0x1C00401BC (WPP_RECORDER_SF_DDi.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C003FA6C (WPP_RECORDER_SF_DDi.c)
  */
 
 void __fastcall Control_ValidateED0TrbPointerOnMismatch(_QWORD *a1, signed __int64 *a2)
@@ -13,17 +13,14 @@ void __fastcall Control_ValidateED0TrbPointerOnMismatch(_QWORD *a1, signed __int
   __int64 v4; // rcx
   signed __int64 v5; // r8
   __int64 v6; // r10
-  __int64 v7; // rcx
-  __int64 v8; // rcx
-  int v9; // r8d
-  __int64 v10; // rcx
-  __int64 v11; // rcx
-  int v12; // [rsp+28h] [rbp-20h]
-  int v13; // [rsp+28h] [rbp-20h]
-  int v14; // [rsp+28h] [rbp-20h]
-  int v15; // [rsp+30h] [rbp-18h]
-  int v16; // [rsp+30h] [rbp-18h]
-  int v17; // [rsp+30h] [rbp-18h]
+  __int64 v7; // rdx
+  int v8; // r8d
+  __int64 v9; // rdx
+  int v10; // r8d
+  int v11; // r8d
+  __int64 v12; // rcx
+  __int64 v13; // rdx
+  int v14; // r8d
 
   v2 = *a2;
   v4 = a1[22];
@@ -32,61 +29,61 @@ void __fastcall Control_ValidateED0TrbPointerOnMismatch(_QWORD *a1, signed __int
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v11 = a1[7];
-      v17 = *(_DWORD *)(v11 + 144);
-      v14 = *(unsigned __int8 *)(a1[6] + 135LL);
+      v13 = a1[6];
+      v14 = *(unsigned __int8 *)(v13 + 135);
+      LOBYTE(v13) = 2;
       WPP_RECORDER_SF_DDi(
-        *(_QWORD *)(v11 + 80),
-        2u,
-        *(unsigned __int8 *)(a1[6] + 135LL),
-        0xEu,
+        *(_QWORD *)(a1[7] + 80LL),
+        v13,
+        v14,
+        14,
         (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
         v14,
-        v17,
+        *(_DWORD *)(a1[7] + 144LL),
         v2);
     }
-    v10 = a1[5];
-    v9 = 4127;
+    v12 = a1[5];
+    v11 = 4127;
     goto LABEL_12;
   }
   v6 = a1[5];
-  if ( !_bittest64((const signed __int64 *)(v6 + 336), 0x26u) )
+  if ( (*(_QWORD *)(v6 + 336) & 0x4000000000LL) == 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v8 = a1[7];
-      v16 = *(_DWORD *)(v8 + 144);
-      v13 = *(unsigned __int8 *)(a1[6] + 135LL);
+      v9 = a1[6];
+      v10 = *(unsigned __int8 *)(v9 + 135);
+      LOBYTE(v9) = 2;
       WPP_RECORDER_SF_DDi(
-        *(_QWORD *)(v8 + 80),
-        2u,
-        *(unsigned __int8 *)(a1[6] + 135LL),
-        0xDu,
+        *(_QWORD *)(a1[7] + 80LL),
+        v9,
+        v10,
+        13,
         (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
-        v13,
-        v16,
+        v10,
+        *(_DWORD *)(a1[7] + 144LL),
         v2);
       v6 = a1[5];
     }
-    v9 = 4128;
-    v10 = v6;
+    v11 = 4128;
+    v12 = v6;
 LABEL_12:
-    Controller_ReportFatalError(v10, 2, v9, 0LL, a1[6], a1[7], (__int64)a1);
+    Controller_ReportFatalError(v12, 2, v11, 0LL, a1[6], a1[7], (__int64)a1);
     return;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v7 = a1[7];
-    v15 = *(_DWORD *)(v7 + 144);
-    v12 = *(unsigned __int8 *)(a1[6] + 135LL);
+    v7 = a1[6];
+    v8 = *(unsigned __int8 *)(v7 + 135);
+    LOBYTE(v7) = 3;
     WPP_RECORDER_SF_DDi(
-      *(_QWORD *)(v7 + 80),
-      3u,
-      *(unsigned __int8 *)(a1[6] + 135LL),
-      0xCu,
+      *(_QWORD *)(a1[7] + 80LL),
+      v7,
+      v8,
+      12,
       (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
-      v12,
-      v15,
+      v8,
+      *(_DWORD *)(a1[7] + 144LL),
       v2);
   }
 }

@@ -1,19 +1,20 @@
 /*
- * XREFs of AlpcpDestroyPort @ 0x1407186E0
+ * XREFs of AlpcpDestroyPort @ 0x1405E2EFC
  * Callers:
- *     AlpcpDeletePort @ 0x140718780 (AlpcpDeletePort.c)
+ *     AlpcpDeletePort @ 0x1405E2D20 (AlpcpDeletePort.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void __fastcall AlpcpDestroyPort(__int64 *a1)
 {
-  __int64 *v2; // rdx
+  __int64 *v2; // rcx
   __int64 **v3; // rax
-  void *v4; // rdx
+  char v4; // al
+  void *v5; // rdx
 
   if ( *a1 )
   {
@@ -23,14 +24,15 @@ void __fastcall AlpcpDestroyPort(__int64 *a1)
       __fastfail(3u);
     *v3 = v2;
     v2[1] = (__int64)v3;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&AlpcpPortListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    v4 = _InterlockedExchangeAdd64((volatile signed __int64 *)&AlpcpPortListLock, 0xFFFFFFFFFFFFFFFFuLL);
+    if ( (v4 & 2) != 0 && (v4 & 4) == 0 )
       ExfTryToWakePushLock((volatile signed __int64 *)&AlpcpPortListLock);
     KeAbPostRelease((ULONG_PTR)&AlpcpPortListLock);
   }
   if ( (a1[52] & 0x200) != 0 )
   {
-    v4 = (void *)a1[31];
-    if ( v4 )
-      ExFreeToNPagedLookasideList(&AlpcpNPLookasides, v4);
+    v5 = (void *)a1[31];
+    if ( v5 )
+      ExFreeToNPagedLookasideList(&AlpcpNPLookasides, v5);
   }
 }

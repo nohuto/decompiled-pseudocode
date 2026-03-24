@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIEcReadWrite @ 0x1C00AD3E0
+ * XREFs of ACPIEcReadWrite @ 0x1C00AE760
  * Callers:
- *     ACPIEcOtherIrpDispatch @ 0x1C00AD3A0 (ACPIEcOtherIrpDispatch.c)
+ *     ACPIEcOtherIrpDispatch @ 0x1C00AE720 (ACPIEcOtherIrpDispatch.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIEcQueueEcIrp @ 0x1C0052CB0 (ACPIEcQueueEcIrp.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIEcQueueEcIrp @ 0x1C00535D0 (ACPIEcQueueEcIrp.c)
  */
 
 __int64 __fastcall ACPIEcReadWrite(ULONG_PTR a1, __int64 a2)

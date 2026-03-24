@@ -1,66 +1,93 @@
 /*
- * XREFs of _RegisterClassEx @ 0x1C0061460
+ * XREFs of _RegisterClassEx @ 0x1C007CB90
  * Callers:
- *     NtUserRegisterClassExWOW @ 0x1C00615D0 (NtUserRegisterClassExWOW.c)
+ *     NtUserRegisterClassExWOW @ 0x1C007CD60 (NtUserRegisterClassExWOW.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     InternalRegisterClassEx @ 0x1C005FF10 (InternalRegisterClassEx.c)
- *     ??1?$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ @ 0x1C0060A44 (--1-$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ.c)
- *     HMValidateHandleNoRip @ 0x1C00A3A40 (HMValidateHandleNoRip.c)
+ *     HMValidateHandleNoRip @ 0x1C0023C6C (HMValidateHandleNoRip.c)
+ *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ @ 0x1C0078DC8 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ.c)
+ *     InternalRegisterClassEx @ 0x1C0079DD0 (InternalRegisterClassEx.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
  */
 
 __int64 __fastcall RegisterClassEx(__int64 a1, _QWORD *a2, __int16 a3, unsigned int a4)
 {
-  __int64 ThreadWin32Thread; // rax
-  __int64 v9; // rdx
-  unsigned __int16 v10; // bx
-  __int64 v11; // rdi
-  __int64 v13; // rax
-  __int64 v14; // [rsp+20h] [rbp-10h] BYREF
-  __int64 v15; // [rsp+28h] [rbp-8h] BYREF
-  int v16; // [rsp+68h] [rbp+38h] BYREF
+  struct _KTHREAD *CurrentThread; // r14
+  __int64 v9; // rsi
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 *ThreadWin32Thread; // rax
+  __int64 v14; // rbx
+  unsigned __int16 v15; // bx
+  __int64 v16; // rdi
+  _QWORD *v17; // rcx
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v21; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v23; // rax
+  __int64 v24; // [rsp+20h] [rbp-10h] BYREF
+  __int64 v25; // [rsp+28h] [rbp-8h] BYREF
+  int v26; // [rsp+78h] [rbp+48h] BYREF
 
-  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  v14 = gSmartObjNullRef;
-  v10 = 0;
-  v15 = *(_QWORD *)(ThreadWin32Thread + 1472);
-  *(_QWORD *)(ThreadWin32Thread + 1472) = &v15;
+  CurrentThread = KeGetCurrentThread();
+  v9 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+    || (CurrentProcess = PsGetCurrentProcess(v11, v10, v12),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v21),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v9 = *ThreadWin32Thread;
+  }
+  v24 = gSmartObjNullRef;
+  v25 = *(_QWORD *)(v9 + 1472);
+  *(_QWORD *)(v9 + 1472) = &v25;
   if ( (*(_DWORD *)(a1 + 8) & 0xFFFF0000) == 0xFFFF0000 )
   {
-    LOBYTE(v9) = 7;
-    v13 = HMValidateHandleNoRip(*(_QWORD *)(a1 + 8), v9);
-    if ( v13 )
-      *(_QWORD *)(a1 + 8) = *(_QWORD *)(*(_QWORD *)(v13 + 40) + 16LL);
+    v23 = HMValidateHandleNoRip(*(_QWORD *)(a1 + 8), 7);
+    if ( v23 )
+      *(_QWORD *)(a1 + 8) = *(_QWORD *)(*(_QWORD *)(v23 + 40) + 16LL);
   }
-  v16 = 0;
-  v11 = InternalRegisterClassEx(a1, a3, a4, &v16);
-  if ( v11 != *(_QWORD *)v14 )
+  v26 = 0;
+  v14 = InternalRegisterClassEx(a1, a3, a4, &v26);
+  if ( v14 != *(_QWORD *)v24 )
   {
-    if ( v14 != gSmartObjNullRef && !--*(_DWORD *)(v14 + 8) )
+    if ( v24 != gSmartObjNullRef && !--*(_DWORD *)(v24 + 8) )
     {
-      if ( *(_BYTE *)(v14 + 12) )
-        Win32FreeToPagedLookasideList(gpStackRefLookAside, v14);
+      if ( *(_BYTE *)(v24 + 12) )
+        Win32FreeToPagedLookasideList(gpStackRefLookAside, v24);
     }
-    if ( v11 )
+    if ( v14 )
     {
-      v14 = *(_QWORD *)(v11 + 128);
-      ++*(_DWORD *)(v14 + 8);
+      v24 = *(_QWORD *)(v14 + 128);
+      ++*(_DWORD *)(v24 + 8);
     }
     else
     {
-      v14 = gSmartObjNullRef;
+      v24 = gSmartObjNullRef;
     }
   }
-  if ( *(_QWORD *)v14 )
+  if ( *(_QWORD *)v24 )
   {
-    if ( !v16 )
+    if ( !v26 )
     {
-      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v14 + 8LL) + 24LL) = a2[1];
-      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v14 + 8LL) + 16LL) = *a2;
-      *(_WORD *)(*(_QWORD *)v14 + 30LL) = 0;
+      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v24 + 8LL) + 24LL) = a2[1];
+      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v24 + 8LL) + 16LL) = *a2;
+      *(_WORD *)(*(_QWORD *)v24 + 30LL) = 0;
     }
-    v10 = *(_WORD *)(*(_QWORD *)(*(_QWORD *)v14 + 8LL) + 2LL);
+    v15 = *(_WORD *)(*(_QWORD *)(*(_QWORD *)v24 + 8LL) + 2LL);
   }
-  SmartObjStackRefBase<tagCLS>::~SmartObjStackRefBase<tagCLS>(&v14);
-  return v10;
+  else
+  {
+    v15 = 0;
+  }
+  v16 = W32GetThreadWin32Thread(KeGetCurrentThread());
+  SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(&v24);
+  v17 = *(_QWORD **)(v16 + 1472);
+  if ( v17 )
+    *(_QWORD *)(v16 + 1472) = *v17;
+  return v15;
 }

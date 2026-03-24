@@ -1,183 +1,86 @@
 /*
- * XREFs of PfSnLogScenarioDecision @ 0x140752F04
+ * XREFs of PfSnLogScenarioDecision @ 0x140630730
  * Callers:
- *     PfSnBeginScenario @ 0x1407508D0 (PfSnBeginScenario.c)
- *     PfSnBeginAppLaunch @ 0x140760A08 (PfSnBeginAppLaunch.c)
+ *     PfSnBeginAppLaunch @ 0x14062E94C (PfSnBeginAppLaunch.c)
+ *     PfSnBeginScenario @ 0x140630458 (PfSnBeginScenario.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     EtwQueryProcessTelemetryInfo @ 0x140754D60 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-char __fastcall PfSnLogScenarioDecision(
-        ULONG_PTR BugCheckParameter1,
-        const size_t *a2,
-        int a3,
-        int a4,
-        char a5,
-        char a6,
-        int a7,
-        __int64 a8)
+char __fastcall PfSnLogScenarioDecision(__int64 a1, int a2, __int16 a3, char a4, char a5, char a6, __int64 a7)
 {
-  __int64 v8; // rdi
-  char v12; // r15
-  char v13; // r12
-  int ProcessTelemetryInfo; // eax
-  __int64 v15; // r10
-  __int64 v16; // rax
-  unsigned __int64 v17; // rdx
-  char v19; // [rsp+30h] [rbp-D0h] BYREF
-  char v20; // [rsp+31h] [rbp-CFh] BYREF
-  char v21; // [rsp+32h] [rbp-CEh] BYREF
-  char v22; // [rsp+33h] [rbp-CDh] BYREF
-  char v23; // [rsp+34h] [rbp-CCh] BYREF
-  __int16 v24; // [rsp+38h] [rbp-C8h] BYREF
-  __int16 v25; // [rsp+3Ch] [rbp-C4h] BYREF
-  int v26; // [rsp+40h] [rbp-C0h] BYREF
-  int v27; // [rsp+44h] [rbp-BCh] BYREF
-  int v28; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v29; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v30; // [rsp+58h] [rbp-A8h] BYREF
-  __int128 v31; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD Address[12]; // [rsp+70h] [rbp-90h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+D0h] [rbp-30h] BYREF
-  const size_t *v34; // [rsp+E0h] [rbp-20h]
-  int v35; // [rsp+E8h] [rbp-18h]
-  int v36; // [rsp+ECh] [rbp-14h]
-  char *v37; // [rsp+F0h] [rbp-10h]
-  __int64 v38; // [rsp+F8h] [rbp-8h]
-  int *v39; // [rsp+100h] [rbp+0h]
-  __int64 v40; // [rsp+108h] [rbp+8h]
-  __int16 *v41; // [rsp+110h] [rbp+10h]
-  __int64 v42; // [rsp+118h] [rbp+18h]
-  char *v43; // [rsp+120h] [rbp+20h]
-  __int64 v44; // [rsp+128h] [rbp+28h]
-  char *v45; // [rsp+130h] [rbp+30h]
-  __int64 v46; // [rsp+138h] [rbp+38h]
-  int *v47; // [rsp+140h] [rbp+40h]
-  __int64 v48; // [rsp+148h] [rbp+48h]
-  int *v49; // [rsp+150h] [rbp+50h]
-  __int64 v50; // [rsp+158h] [rbp+58h]
-  struct _EVENT_DATA_DESCRIPTOR v51; // [rsp+160h] [rbp+60h] BYREF
-  __int128 *v52; // [rsp+180h] [rbp+80h]
-  __int64 v53; // [rsp+188h] [rbp+88h]
-  char v54[16]; // [rsp+190h] [rbp+90h] BYREF
-  char *v55; // [rsp+1A0h] [rbp+A0h]
-  __int64 v56; // [rsp+1A8h] [rbp+A8h]
-  int *v57; // [rsp+1B0h] [rbp+B0h]
-  __int64 v58; // [rsp+1B8h] [rbp+B8h]
-  char *v59; // [rsp+1C0h] [rbp+C0h]
-  __int64 v60; // [rsp+1C8h] [rbp+C8h]
-  char *v61; // [rsp+1D0h] [rbp+D0h]
-  __int64 v62; // [rsp+1D8h] [rbp+D8h]
-  int *v63; // [rsp+1E0h] [rbp+E0h]
-  __int64 v64; // [rsp+1E8h] [rbp+E8h]
-  __int64 *v65; // [rsp+1F0h] [rbp+F0h]
-  __int64 v66; // [rsp+1F8h] [rbp+F8h]
-  __int64 *v67; // [rsp+200h] [rbp+100h]
-  __int64 v68; // [rsp+208h] [rbp+108h]
-  int v69; // [rsp+280h] [rbp+180h] BYREF
+  _UNKNOWN **v7; // rax
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  char v14; // [rsp+38h] [rbp-81h] BYREF
+  char v15; // [rsp+39h] [rbp-80h] BYREF
+  __int16 v16; // [rsp+3Ch] [rbp-7Dh] BYREF
+  __int16 v17; // [rsp+40h] [rbp-79h] BYREF
+  int v18; // [rsp+44h] [rbp-75h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-71h] BYREF
+  __int64 v20; // [rsp+58h] [rbp-61h]
+  int v21; // [rsp+60h] [rbp-59h]
+  int v22; // [rsp+64h] [rbp-55h]
+  __int64 v23; // [rsp+68h] [rbp-51h]
+  __int64 v24; // [rsp+70h] [rbp-49h]
+  int *v25; // [rsp+78h] [rbp-41h]
+  __int64 v26; // [rsp+80h] [rbp-39h]
+  __int16 *v27; // [rsp+88h] [rbp-31h]
+  __int64 v28; // [rsp+90h] [rbp-29h]
+  char *v29; // [rsp+98h] [rbp-21h]
+  __int64 v30; // [rsp+A0h] [rbp-19h]
+  char *v31; // [rsp+A8h] [rbp-11h]
+  __int64 v32; // [rsp+B0h] [rbp-9h]
+  char *v33; // [rsp+B8h] [rbp-1h]
+  __int64 v34; // [rsp+C0h] [rbp+7h]
+  int *v35; // [rsp+C8h] [rbp+Fh]
+  __int64 v36; // [rsp+D0h] [rbp+17h]
+  _UNKNOWN *retaddr; // [rsp+100h] [rbp+47h] BYREF
+  int v38; // [rsp+110h] [rbp+57h] BYREF
 
-  v69 = a3;
-  v8 = a8;
-  memset(Address, 0, sizeof(Address));
-  v12 = a6;
-  v13 = a5;
-  v24 = 0;
-  v25 = 0;
-  v19 = 0;
-  v20 = 0;
-  v26 = 0;
-  if ( qword_140C6A808 && EtwEventEnabled(qword_140C6A808, &PfSnEvt_ScenarioDecision_Info) )
+  v7 = &retaddr;
+  v38 = a2;
+  if ( RegHandle )
   {
-    v16 = -1LL;
-    do
-      ++v16;
-    while ( *((_WORD *)a2 + v16) );
-    v24 = v16;
-    UserData.Ptr = (ULONGLONG)&v24;
-    v35 = 2 * (unsigned __int16)v16;
-    v37 = (char *)a2 + 60;
-    v39 = &v69;
-    v41 = &v25;
-    v43 = &v19;
-    v45 = &v20;
-    v47 = &a7;
-    *(_QWORD *)&UserData.Size = 2LL;
-    v34 = a2;
-    v36 = 0;
-    v38 = 4LL;
-    v40 = 4LL;
-    v25 = a4;
-    v42 = 2LL;
-    v19 = v13;
-    v44 = 1LL;
-    v20 = v12;
-    v46 = 1LL;
-    v48 = 4LL;
-    if ( v8 >= 0 )
-      v17 = v8 / 0x989680uLL;
-    else
-      LODWORD(v17) = -(v8 != -1) - 1;
-    v49 = &v26;
-    v26 = v17;
-    v50 = 4LL;
-    EtwWrite(qword_140C6A808, &PfSnEvt_ScenarioDecision_Info, 0LL, 9u, &UserData);
-  }
-  ProcessTelemetryInfo = EtwQueryProcessTelemetryInfo(BugCheckParameter1, Address, 0x60uLL, 0LL);
-  v31 = 0LL;
-  if ( ProcessTelemetryInfo == -2147483643 )
-    ProcessTelemetryInfo = 0;
-  if ( ProcessTelemetryInfo >= 0 )
-  {
-    LODWORD(v31) = HIDWORD(Address[0]);
-    WORD2(v31) = Address[7];
-    WORD3(v31) = WORD2(Address[7]);
-    LOBYTE(ProcessTelemetryInfo) = Address[2];
-    *((_QWORD *)&v31 + 1) = Address[2];
-  }
-  if ( (unsigned int)dword_140C03008 > 4 )
-  {
-    LOBYTE(ProcessTelemetryInfo) = tlgKeywordOn((__int64)&dword_140C03008, 0x400000000000LL);
-    if ( (_BYTE)ProcessTelemetryInfo )
+    LOBYTE(v7) = EtwEventEnabled(RegHandle, &PfSnEvt_ScenarioDecision_Info);
+    if ( (_BYTE)v7 )
     {
-      v53 = 16LL;
-      v52 = &v31;
-      tlgCreate1Sz_wchar_t((__int64)v54, a2);
-      v55 = &v21;
-      v21 = v69;
-      v57 = &v27;
-      v56 = 1LL;
-      v59 = &v22;
-      v27 = a4;
-      v61 = &v23;
-      v28 = a7;
-      v63 = &v28;
-      v65 = &v29;
-      v67 = &v30;
-      v58 = v15;
-      v22 = v12;
-      v60 = 1LL;
-      v23 = v13;
-      v62 = 1LL;
-      v64 = v15;
-      v29 = v8;
-      v66 = 8LL;
-      v30 = 0x1000000LL;
-      v68 = 8LL;
-      LOBYTE(ProcessTelemetryInfo) = tlgWriteTransfer_EtwWriteTransfer(
-                                       (__int64)&dword_140C03008,
-                                       (unsigned __int8 *)byte_14002D8DF,
-                                       0LL,
-                                       0LL,
-                                       0xBu,
-                                       &v51);
+      v11 = -1LL;
+      do
+        ++v11;
+      while ( *(_WORD *)(a1 + 2 * v11) );
+      v16 = v11;
+      UserData.Ptr = (ULONGLONG)&v16;
+      v21 = 2 * (unsigned __int16)v11;
+      v23 = a1 + 60;
+      v25 = &v38;
+      v27 = &v17;
+      v29 = &v14;
+      v15 = a5;
+      v31 = &v15;
+      v33 = &a6;
+      *(_QWORD *)&UserData.Size = 2LL;
+      v20 = a1;
+      v22 = 0;
+      v24 = 4LL;
+      v26 = 4LL;
+      v17 = a3;
+      v28 = 2LL;
+      v14 = a4;
+      v30 = 1LL;
+      v32 = 1LL;
+      v34 = 4LL;
+      if ( a7 >= 0 )
+        v12 = a7 / 10000000;
+      else
+        LODWORD(v12) = -(a7 != -1) - 1;
+      v35 = &v18;
+      v18 = v12;
+      v36 = 4LL;
+      LOBYTE(v7) = EtwWrite(RegHandle, &PfSnEvt_ScenarioDecision_Info, 0LL, 9u, &UserData);
     }
   }
-  return ProcessTelemetryInfo;
+  return (char)v7;
 }

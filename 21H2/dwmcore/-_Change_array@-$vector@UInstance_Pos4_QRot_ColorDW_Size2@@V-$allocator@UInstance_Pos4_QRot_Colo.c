@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_Change_array@?$vector@UInstance_Pos4_QRot_ColorDW_Size2@@V?$allocator@UInstance_Pos4_QRot_ColorDW_Size2@@@std@@@std@@AEAAXQEAUInstance_Pos4_QRot_ColorDW_Size2@@_K1@Z @ 0x1801A6564
+ * XREFs of ?_Change_array@?$vector@UInstance_Pos4_QRot_ColorDW_Size2@@V?$allocator@UInstance_Pos4_QRot_ColorDW_Size2@@@std@@@std@@AEAAXQEAUInstance_Pos4_QRot_ColorDW_Size2@@_K1@Z @ 0x180173B4C
  * Callers:
- *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@UInstance_Pos4_QRot_ColorDW_Size2@@V?$allocator@UInstance_Pos4_QRot_ColorDW_Size2@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x18019BE6C (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@UInstance_Pos4_QRot_ColorDW_Size2@@V-$allo.c)
+ *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@UInstance_Pos4_QRot_ColorDW_Size2@@V?$allocator@UInstance_Pos4_QRot_ColorDW_Size2@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1801699E4 (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@UInstance_Pos4_QRot_ColorDW_Size2@@V-$allo.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
  */
 
 __int64 __fastcall std::vector<Instance_Pos4_QRot_ColorDW_Size2>::_Change_array(
@@ -17,7 +17,7 @@ __int64 __fastcall std::vector<Instance_Pos4_QRot_ColorDW_Size2>::_Change_array(
 
   v6 = *(void **)a1;
   if ( v6 )
-    std::_Deallocate<16,0>(v6, 16 * ((__int64)(*(_QWORD *)(a1 + 16) - (_QWORD)v6) >> 4));
+    std::_Deallocate<16,0>(v6, 48 * ((*(_QWORD *)(a1 + 16) - (_QWORD)v6) / 48LL));
   *(_QWORD *)a1 = a2;
   *(_QWORD *)(a1 + 8) = a2 + 48 * a3;
   result = a2 + 48 * a4;

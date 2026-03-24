@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInsertSubsectionNode @ 0x140281F60
+ * XREFs of MiInsertSubsectionNode @ 0x1402A15FC
  * Callers:
- *     MiAppendSubsectionChain @ 0x14022CBE0 (MiAppendSubsectionChain.c)
- *     MiCreateDataFileMap @ 0x1406FA990 (MiCreateDataFileMap.c)
+ *     MiAppendSubsectionChain @ 0x1402A147C (MiAppendSubsectionChain.c)
+ *     MiCreateDataFileMap @ 0x14061BFD4 (MiCreateDataFileMap.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiInsertSubsectionNode(__int64 a1, __int64 a2, unsigned __int64 a3)
@@ -25,7 +25,7 @@ __int64 __fastcall MiInsertSubsectionNode(__int64 a1, __int64 a2, unsigned __int
   int v15; // eax
   bool v16; // zf
 
-  v3 = a1 + 280;
+  v3 = a1 + 272;
   if ( (_DWORD)a3 )
     v6 = 17;
   else

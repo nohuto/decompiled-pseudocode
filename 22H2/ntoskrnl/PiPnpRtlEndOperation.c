@@ -1,49 +1,49 @@
 /*
- * XREFs of PiPnpRtlEndOperation @ 0x140788CDC
+ * XREFs of PiPnpRtlEndOperation @ 0x1406ACCB8
  * Callers:
- *     PiDqQueryEvaluateFilter @ 0x140788864 (PiDqQueryEvaluateFilter.c)
- *     PiPnpRtlObjectEventWorker @ 0x1407889E0 (PiPnpRtlObjectEventWorker.c)
- *     PiProcessQueryDeviceState @ 0x14079379C (PiProcessQueryDeviceState.c)
- *     PnpProcessTargetDeviceEvent @ 0x1407948AC (PnpProcessTargetDeviceEvent.c)
- *     PipEnumerateCompleted @ 0x140795910 (PipEnumerateCompleted.c)
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     PiDcUpdateDeviceContainerMembership @ 0x14079BAD0 (PiDcUpdateDeviceContainerMembership.c)
- *     PipProcessStartPhase3 @ 0x14079BED4 (PipProcessStartPhase3.c)
- *     PnpNewDeviceNodeDependencyCheck @ 0x14079C720 (PnpNewDeviceNodeDependencyCheck.c)
- *     PiSwPropertySet @ 0x14079CF70 (PiSwPropertySet.c)
- *     PiDcHandleCustomDeviceEvent @ 0x1407DB41C (PiDcHandleCustomDeviceEvent.c)
- *     PiDqActionDataGetRequestedProperties @ 0x1407FA218 (PiDqActionDataGetRequestedProperties.c)
- *     PiDqIrpPropertySet @ 0x140800484 (PiDqIrpPropertySet.c)
- *     PpDevCfgProcessDevices @ 0x140813294 (PpDevCfgProcessDevices.c)
- *     IoReportDetectedDevice @ 0x140836920 (IoReportDetectedDevice.c)
- *     IoReportRootDevice @ 0x140836DC0 (IoReportRootDevice.c)
- *     PiDqActionDataGetChangedProperties @ 0x14083BF38 (PiDqActionDataGetChangedProperties.c)
- *     PiProcessAddBootDevices @ 0x140855240 (PiProcessAddBootDevices.c)
- *     IopRegisterDeviceInterface @ 0x140866CCC (IopRegisterDeviceInterface.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x140868334 (PnpUnlinkDeviceRemovalRelations.c)
- *     PipClearDevNodeProblem @ 0x14086966C (PipClearDevNodeProblem.c)
- *     PipSetDevNodeProblem @ 0x1408697BC (PipSetDevNodeProblem.c)
- *     IopRemoveDevice @ 0x140869E38 (IopRemoveDevice.c)
- *     PipMergeDependencyEdgeList @ 0x1409547C8 (PipMergeDependencyEdgeList.c)
- *     PiProcessClearDeviceProblem @ 0x140959420 (PiProcessClearDeviceProblem.c)
- *     PiProcessSetDeviceProblem @ 0x1409596E8 (PiProcessSetDeviceProblem.c)
- *     PiPnpRtlEnsureObjectCached @ 0x14095A234 (PiPnpRtlEnsureObjectCached.c)
- *     PiCMCreateDevice @ 0x1409684E0 (PiCMCreateDevice.c)
- *     PiCMDeleteClassKey @ 0x140968DDC (PiCMDeleteClassKey.c)
- *     PiCMDeleteDevice @ 0x140968EF8 (PiCMDeleteDevice.c)
- *     PiCMDeleteObject @ 0x14096958C (PiCMDeleteObject.c)
- *     PiInitializeDevice @ 0x14096DB94 (PiInitializeDevice.c)
+ *     PiDqQueryEvaluateFilter @ 0x1406AC504 (PiDqQueryEvaluateFilter.c)
+ *     PiDqActionDataGetRequestedProperties @ 0x1406B38DC (PiDqActionDataGetRequestedProperties.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x14071B508 (PiDcHandleCustomDeviceEvent.c)
+ *     PiDqIrpPropertySet @ 0x14072653C (PiDqIrpPropertySet.c)
+ *     PiCMDeleteDevice @ 0x14072C52C (PiCMDeleteDevice.c)
+ *     PiProcessSetDeviceProblem @ 0x1407318D4 (PiProcessSetDeviceProblem.c)
+ *     PiProcessClearDeviceProblem @ 0x140731AB8 (PiProcessClearDeviceProblem.c)
+ *     PipClearDevNodeProblem @ 0x140735BFC (PipClearDevNodeProblem.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     PipEnumerateCompleted @ 0x140741820 (PipEnumerateCompleted.c)
+ *     PiSwPropertySet @ 0x1407447F8 (PiSwPropertySet.c)
+ *     IopRegisterDeviceInterface @ 0x140744910 (IopRegisterDeviceInterface.c)
+ *     PiProcessQueryDeviceState @ 0x140745EDC (PiProcessQueryDeviceState.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1407464B0 (PiPnpRtlObjectEventWorker.c)
+ *     PipProcessStartPhase3 @ 0x140747010 (PipProcessStartPhase3.c)
+ *     PnpProcessTargetDeviceEvent @ 0x1407475C0 (PnpProcessTargetDeviceEvent.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x140747934 (PnpNewDeviceNodeDependencyCheck.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x14074AADC (PnpUnlinkDeviceRemovalRelations.c)
+ *     IopRemoveDevice @ 0x14074B778 (IopRemoveDevice.c)
+ *     PipSetDevNodeProblem @ 0x14074C18C (PipSetDevNodeProblem.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x14075875C (PiDcUpdateDeviceContainerMembership.c)
+ *     PiDqActionDataGetChangedProperties @ 0x140770E34 (PiDqActionDataGetChangedProperties.c)
+ *     PpDevCfgProcessDevices @ 0x1407A36EC (PpDevCfgProcessDevices.c)
+ *     IoReportDetectedDevice @ 0x1407AED50 (IoReportDetectedDevice.c)
+ *     PiProcessAddBootDevices @ 0x1407C6AC8 (PiProcessAddBootDevices.c)
+ *     IoReportRootDevice @ 0x1407C7D80 (IoReportRootDevice.c)
+ *     PipMergeDependencyEdgeList @ 0x14089DDC0 (PipMergeDependencyEdgeList.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x1408A31CC (PiPnpRtlEnsureObjectCached.c)
+ *     PiCMCreateDevice @ 0x1408AF490 (PiCMCreateDevice.c)
+ *     PiCMDeleteClassKey @ 0x1408AFDAC (PiCMDeleteClassKey.c)
+ *     PiCMDeleteObject @ 0x1408B01F4 (PiCMDeleteObject.c)
+ *     PiInitializeDevice @ 0x1408B3CBC (PiInitializeDevice.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     RtlIsGenericTableEmptyAvl @ 0x14031E6B0 (RtlIsGenericTableEmptyAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x14031E7F0 (RtlDeleteElementGenericTableAvl.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     PiPnpRtlObjectEventDispatch @ 0x140788E10 (PiPnpRtlObjectEventDispatch.c)
- *     PiPnpRtlObjectEventRelease @ 0x140788E58 (PiPnpRtlObjectEventRelease.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     RtlIsGenericTableEmptyAvl @ 0x14032D550 (RtlIsGenericTableEmptyAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x14032DA20 (RtlDeleteElementGenericTableAvl.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     PiPnpRtlObjectEventDispatch @ 0x1406ACC70 (PiPnpRtlObjectEventDispatch.c)
+ *     PiPnpRtlObjectEventRelease @ 0x1406ACE28 (PiPnpRtlObjectEventRelease.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiPnpRtlEndOperation(PVOID **P)
@@ -74,7 +74,7 @@ LABEL_16:
     *v6 = v5;
     v5[1] = v6;
     ExReleaseResourceLite(&PiPnpRtlActiveOperationsLock);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     while ( !RtlIsGenericTableEmptyAvl((PRTL_AVL_TABLE)(P + 3)) )
     {
       v9 = (HANDLE *)P[5][4];
@@ -85,12 +85,12 @@ LABEL_16:
         Buffer[2] = 0LL;
         v9 = Buffer;
       }
-      PiPnpRtlObjectEventDispatch(v9);
+      PiPnpRtlObjectEventDispatch((__int64)v9);
       RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)(P + 3), &Buffer);
       PiPnpRtlObjectEventRelease(Buffer);
     }
     ExReleaseResourceLite(&PiPnpRtlRemoveOperationDispatchLock);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     v7 = P + 16;
     while ( 1 )
     {

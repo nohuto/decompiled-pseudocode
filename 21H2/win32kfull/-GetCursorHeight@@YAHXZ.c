@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetCursorHeight@@YAHXZ @ 0x1C023E168
+ * XREFs of ?GetCursorHeight@@YAHXZ @ 0x1C0242624
  * Callers:
- *     ?xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z @ 0x1C023E868 (-xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z.c)
+ *     ?xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z @ 0x1C0242D6C (-xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z.c)
  * Callees:
- *     ?_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z @ 0x1C0025910 (-_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z.c)
- *     GreExtGetObjectW @ 0x1C0027B74 (GreExtGetObjectW.c)
- *     GreGetBitmapBits @ 0x1C00E67A4 (GreGetBitmapBits.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     GreGetBitmapBits @ 0x1C001842C (GreGetBitmapBits.c)
+ *     ?_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z @ 0x1C0066AF8 (-_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z.c)
+ *     GreExtGetObjectW @ 0x1C0083108 (GreExtGetObjectW.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 GetCursorHeight(void)
@@ -34,7 +34,7 @@ __int64 GetCursorHeight(void)
   v2 = *(struct tagCURSOR **)(v1 + 376);
   if ( v2 && _InternalGetIconInfo(v2, (struct _ICONINFO *)&v11, 0LL, 0LL, 0LL, 0) )
   {
-    if ( (unsigned int)GreExtGetObjectW((HBRUSH)v12[0], 32LL, (char *)v13)
+    if ( (unsigned int)GreExtGetObjectW(v12[0], 32LL, (char *)v13)
       && (unsigned int)GreGetBitmapBits(v12[0], 0x100u, v14, &v10) )
     {
       v3 = (unsigned __int64)(DWORD1(v13[0]) * DWORD2(v13[0])) >> 4;

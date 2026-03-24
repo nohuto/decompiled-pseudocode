@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRemoveFaultNode @ 0x1400F96A4
+ * XREFs of MiRemoveFaultNode @ 0x1400F96C4
  * Callers:
- *     MiMapPagesToZero @ 0x1400F90C0 (MiMapPagesToZero.c)
- *     MiDecrementHugeContext @ 0x140185A28 (MiDecrementHugeContext.c)
- *     MiScrubNodeLargePageList @ 0x1402CCA90 (MiScrubNodeLargePageList.c)
+ *     MiMapPagesToZero @ 0x1400F90E0 (MiMapPagesToZero.c)
+ *     MiDecrementHugeContext @ 0x140185A48 (MiDecrementHugeContext.c)
+ *     MiScrubNodeLargePageList @ 0x1402CCB90 (MiScrubNodeLargePageList.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall MiRemoveFaultNode(__int64 a1)

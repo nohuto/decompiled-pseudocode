@@ -1,9 +1,10 @@
 /*
- * XREFs of ValidateHwnd @ 0x1C002CAE0
+ * XREFs of ValidateHwnd @ 0x1C0038600
  * Callers:
- *     NtUserSetAdditionalForegroundBoostProcesses @ 0x1C00D8880 (NtUserSetAdditionalForegroundBoostProcesses.c)
+ *     EtwTraceInputProcessDelay @ 0x1C0122370 (EtwTraceInputProcessDelay.c)
+ *     EtwTraceMessageCheckDelay @ 0x1C0122C00 (EtwTraceMessageCheckDelay.c)
  * Callees:
- *     ValidateHwndEx @ 0x1C002CB00 (ValidateHwndEx.c)
+ *     ValidateHwndEx @ 0x1C0038620 (ValidateHwndEx.c)
  */
 
 __int64 __fastcall ValidateHwnd(__int64 a1)

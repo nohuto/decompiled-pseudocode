@@ -1,12 +1,12 @@
 /*
- * XREFs of ??_GCGlobalSurfaceManager@@MEAAPEAXI@Z @ 0x180194EE0
+ * XREFs of ??_GCGlobalSurfaceManager@@MEAAPEAXI@Z @ 0x180164520
  * Callers:
- *     ??_ECGlobalSurfaceManager@@OBA@EAAPEAXI@Z @ 0x1801053D0 (--_ECGlobalSurfaceManager@@OBA@EAAPEAXI@Z.c)
- *     ??_ECGlobalSurfaceManager@@OHI@EAAPEAXI@Z @ 0x1801053F0 (--_ECGlobalSurfaceManager@@OHI@EAAPEAXI@Z.c)
+ *     ??_ECGlobalSurfaceManager@@OBA@EAAPEAXI@Z @ 0x1800F48D0 (--_ECGlobalSurfaceManager@@OBA@EAAPEAXI@Z.c)
+ *     ??_ECGlobalSurfaceManager@@OGA@EAAPEAXI@Z @ 0x1800F48E0 (--_ECGlobalSurfaceManager@@OGA@EAAPEAXI@Z.c)
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
- *     ??1CGlobalSurfaceManager@@MEAA@XZ @ 0x180194B78 (--1CGlobalSurfaceManager@@MEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     ??1CGlobalSurfaceManager@@MEAA@XZ @ 0x18016414C (--1CGlobalSurfaceManager@@MEAA@XZ.c)
  */
 
 CGlobalSurfaceManager *__fastcall CGlobalSurfaceManager::`scalar deleting destructor'(
@@ -17,9 +17,9 @@ CGlobalSurfaceManager *__fastcall CGlobalSurfaceManager::`scalar deleting destru
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x1F8);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopEvaluateInputSuppressionAction @ 0x14086DCDC
+ * XREFs of PopEvaluateInputSuppressionAction @ 0x14086DCBC
  * Callers:
- *     PopBroadcastInputSuppressionCallback @ 0x14071F1E0 (PopBroadcastInputSuppressionCallback.c)
- *     PopExternalMonitorUpdatedWorker @ 0x140764380 (PopExternalMonitorUpdatedWorker.c)
+ *     PopBroadcastInputSuppressionCallback @ 0x14071F1C0 (PopBroadcastInputSuppressionCallback.c)
+ *     PopExternalMonitorUpdatedWorker @ 0x140764360 (PopExternalMonitorUpdatedWorker.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopBroadcastSessionInfo @ 0x14072987C (PopBroadcastSessionInfo.c)
- *     PopTraceInputSuppressionActionUpdate @ 0x14087520C (PopTraceInputSuppressionActionUpdate.c)
+ *     PopBroadcastSessionInfo @ 0x14072985C (PopBroadcastSessionInfo.c)
+ *     PopTraceInputSuppressionActionUpdate @ 0x1408751EC (PopTraceInputSuppressionActionUpdate.c)
  */
 
 void PopEvaluateInputSuppressionAction()
@@ -35,11 +35,11 @@ void PopEvaluateInputSuppressionAction()
   v0 = PopConsoleExternalDisplayConnected;
   v1 = PopLidOpened == 0;
   v2 = 1;
-  v3 = dword_14041810C == 1;
+  v3 = dword_1404180CC == 1;
   v4 = PopConsoleDisplayState == 0;
   if ( PopErrataReportingIncorrectLidState
     || !PopIgnoreLidStateForInputSuppression && PopLidOpened
-    || dword_14041810C != 1
+    || dword_1404180CC != 1
     || PopConsoleExternalDisplayConnected
     || (v5 = 1, PopConsoleDisplayState) )
   {

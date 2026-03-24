@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlSuspendPartition @ 0x140545FB0
+ * XREFs of HvlSuspendPartition @ 0x1404F6620
  * Callers:
  *     <none>
  * Callees:
- *     HvlSetPartitionProperty @ 0x140545BD4 (HvlSetPartitionProperty.c)
+ *     HvlSetPartitionProperty @ 0x1404F6388 (HvlSetPartitionProperty.c)
  */
 
-__int64 __fastcall HvlSuspendPartition(LONGLONG a1, __int64 a2)
+__int64 __fastcall HvlSuspendPartition(__int64 a1, __int64 a2)
 {
-  return HvlSetPartitionProperty(a1, a2, (PHYSICAL_ADDRESS)1LL);
+  return HvlSetPartitionProperty(a1, a2, 1LL);
 }

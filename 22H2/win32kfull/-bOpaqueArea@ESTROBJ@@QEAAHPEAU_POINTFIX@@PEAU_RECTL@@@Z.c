@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bOpaqueArea@ESTROBJ@@QEAAHPEAU_POINTFIX@@PEAU_RECTL@@@Z @ 0x1C010CADC
+ * XREFs of ?bOpaqueArea@ESTROBJ@@QEAAHPEAU_POINTFIX@@PEAU_RECTL@@@Z @ 0x1C0094F64
  * Callers:
- *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z @ 0x1C010BA70 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z.c)
+ *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0092300 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
  * Callees:
- *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0017678 (-bIsZero@EFLOAT@@QEBAHXZ.c)
- *     bFToL @ 0x1C009BB20 (bFToL.c)
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00DC2A8 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C00986B8 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00B7698 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
  */
 
 __int64 __fastcall ESTROBJ::bOpaqueArea(ESTROBJ *this, struct _POINTFIX *a2, struct _RECTL *a3)
@@ -15,59 +15,60 @@ __int64 __fastcall ESTROBJ::bOpaqueArea(ESTROBJ *this, struct _POINTFIX *a2, str
   __int64 v8; // rax
   int v9; // edx
   _QWORD *v11; // rax
-  EFLOAT *v12; // r12
-  __int64 v13; // r14
+  EFLOAT *v12; // r15
+  __int64 v13; // rbx
   EFLOAT *v14; // r8
-  __int64 v15; // rsi
+  __int64 v15; // r14
   int v16; // edx
   LONG v17; // edx
-  int v18; // r8d
-  LONG v19; // r8d
-  float *v20; // r8
+  int v18; // edx
+  LONG v19; // edx
+  __int64 v20; // rcx
   int v21; // edx
   LONG v22; // edx
   int v23; // edx
   int v24; // edx
-  float v25; // xmm3_4
-  float v26; // xmm1_4
-  float v27; // xmm2_4
-  unsigned int v28; // r8d
-  float v29; // xmm1_4
-  unsigned int v30; // r8d
-  unsigned int v31; // r8d
-  float v32; // xmm3_4
-  float v33; // xmm1_4
-  unsigned int v34; // r8d
-  float v35; // xmm2_4
-  unsigned int v36; // r8d
-  float v37; // xmm1_4
-  unsigned int v38; // r8d
-  unsigned int v39; // r8d
-  int v40; // edx
-  int v41; // r8d
-  int v42; // r9d
-  FIX v43; // r11d
-  int v44; // ecx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // rcx
+  __int64 v32; // r8
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  __int64 v37; // rcx
+  __int64 v38; // r8
+  int v39; // edx
+  int v40; // r8d
+  FIX v41; // ebx
+  int v42; // r11d
+  int v43; // edx
+  FIX v44; // r11d
   int v45; // r10d
-  int v46; // edx
+  int v46; // r8d
   FIX v47; // r10d
-  int v48; // r8d
-  FIX v49; // r8d
-  FIX v50; // eax
-  int v51; // edx
-  unsigned __int64 v52; // rcx
+  int v48; // ecx
+  int v49; // edx
+  int v50; // ecx
+  FIX v51; // eax
+  int v52; // ecx
+  unsigned __int64 v53; // rcx
   FIX y; // eax
-  __int64 v54; // rcx
-  LONG v55; // ecx
-  int v56; // eax
-  int v57; // [rsp+20h] [rbp-20h] BYREF
-  int v58; // [rsp+24h] [rbp-1Ch] BYREF
-  int v59; // [rsp+28h] [rbp-18h] BYREF
-  int v60; // [rsp+2Ch] [rbp-14h] BYREF
-  int v61; // [rsp+30h] [rbp-10h] BYREF
-  int v62[3]; // [rsp+34h] [rbp-Ch] BYREF
-  int v63; // [rsp+80h] [rbp+40h] BYREF
-  int v64; // [rsp+98h] [rbp+58h] BYREF
+  __int64 v55; // rcx
+  LONG v56; // ecx
+  int v57; // eax
+  int v58; // [rsp+20h] [rbp-20h] BYREF
+  int v59; // [rsp+24h] [rbp-1Ch] BYREF
+  int v60; // [rsp+28h] [rbp-18h] BYREF
+  int v61; // [rsp+2Ch] [rbp-14h] BYREF
+  int v62; // [rsp+30h] [rbp-10h] BYREF
+  _DWORD v63[3]; // [rsp+34h] [rbp-Ch] BYREF
+  int v64; // [rsp+70h] [rbp+30h] BYREF
+  int v65; // [rsp+88h] [rbp+48h] BYREF
 
   if ( (*((_DWORD *)this + 1) & 2) != 0 )
   {
@@ -90,18 +91,18 @@ __int64 __fastcall ESTROBJ::bOpaqueArea(ESTROBJ *this, struct _POINTFIX *a2, str
   v12 = (EFLOAT *)(*v11 + 400LL);
   v13 = *v11 + 416LL;
   v15 = 0LL;
-  if ( EFLOAT::bIsZero(v12) && EFLOAT::bIsZero((EFLOAT *)v13) )
+  if ( (unsigned int)EFLOAT::bIsZero(v12) && (unsigned int)EFLOAT::bIsZero((EFLOAT *)v13) )
   {
     v16 = (*((_DWORD *)this + 18) + 8) >> 4;
-    if ( *(float *)v14 >= 0.0 )
-    {
-      a3->left = v16 + (*((int *)this + 24) >> 4);
-      v17 = ((*((_DWORD *)this + 26) + 15) >> 4) + v16;
-    }
-    else
+    if ( *(float *)v14 < 0.0 )
     {
       a3->left = v16 - ((*((_DWORD *)this + 26) + 15) >> 4);
       v17 = v16 - (*((int *)this + 24) >> 4);
+    }
+    else
+    {
+      a3->left = v16 + (*((int *)this + 24) >> 4);
+      v17 = ((*((_DWORD *)this + 26) + 15) >> 4) + v16;
     }
     a3->right = v17;
     v18 = (*((_DWORD *)this + 19) + 8) >> 4;
@@ -116,10 +117,10 @@ __int64 __fastcall ESTROBJ::bOpaqueArea(ESTROBJ *this, struct _POINTFIX *a2, str
       v19 = v18 - (*((int *)this + 27) >> 4);
     }
     a3->bottom = v19;
-    a3->right = v17 + 1;
+    ++a3->right;
     return 0LL;
   }
-  if ( EFLOAT::bIsZero(v14) && EFLOAT::bIsZero((EFLOAT *)(v13 + 4)) )
+  if ( (unsigned int)EFLOAT::bIsZero(v14) && (unsigned int)EFLOAT::bIsZero((EFLOAT *)(v13 + 4)) )
   {
     v21 = (*((_DWORD *)this + 18) + 8) >> 4;
     if ( *(float *)v13 >= 0.0 )
@@ -147,64 +148,58 @@ __int64 __fastcall ESTROBJ::bOpaqueArea(ESTROBJ *this, struct _POINTFIX *a2, str
     a3->bottom = v24 + 1;
     return 0LL;
   }
-  v25 = *v20;
-  v26 = (float)*((int *)this + 24);
-  v58 = 0;
-  bFToL(v26 * v25, &v58, 0);
-  v27 = *(float *)v12;
-  v62[0] = 0;
-  bFToL(v26 * v27, v62, v28);
-  v29 = (float)*((int *)this + 26);
-  v59 = 0;
-  bFToL(v29 * v25, &v59, v30);
-  v63 = 0;
-  bFToL(v29 * v27, &v63, v31);
-  v32 = *(float *)v13;
-  v33 = (float)*((int *)this + 25);
-  v57 = 0;
-  bFToL(v33 * v32, &v57, v34);
-  v35 = *(float *)(v13 + 4);
+  v65 = 0;
+  bFToL(v20, &v65, 0LL);
   v61 = 0;
-  bFToL(v33 * v35, &v61, v36);
-  v37 = (float)*((int *)this + 27);
-  v60 = 0;
-  bFToL(v37 * v32, &v60, v38);
+  bFToL(v25, &v61, v26);
+  v58 = 0;
+  bFToL(v27, &v58, v28);
+  v62 = 0;
+  bFToL(v29, &v62, v30);
   v64 = 0;
-  bFToL(v37 * v35, &v64, v39);
-  v40 = v57;
-  v41 = v59;
-  v42 = v58;
-  v43 = v58 + v57 + *((_DWORD *)this + 18);
-  v44 = v61;
-  a2->x = v43;
-  v45 = v40 + v41;
-  v46 = v60;
+  bFToL(v31, &v64, v32);
+  v60 = 0;
+  bFToL(v33, &v60, v34);
+  v59 = 0;
+  bFToL(v35, &v59, v36);
+  v63[0] = 0;
+  bFToL(v37, v63, v38);
+  v39 = v64;
+  v40 = v58;
+  v41 = v65 + v64 + *((_DWORD *)this + 18);
+  a2->x = v41;
+  v42 = v39 + v40;
+  v43 = v59;
+  v44 = *((_DWORD *)this + 18) + v42;
+  a2[1].x = v44;
+  v45 = v43 + v40;
+  v46 = v61;
   v47 = *((_DWORD *)this + 18) + v45;
-  v48 = v60 + v41;
-  a2[1].x = v47;
-  v49 = *((_DWORD *)this + 18) + v48;
-  a2[2].x = v49;
-  v50 = *((_DWORD *)this + 18) + v46 + v42;
-  v51 = v62[0];
-  a2[3].x = v50;
-  a2->y = *((_DWORD *)this + 19) + v44 + v51;
-  a2[1].y = v63 + v44 + *((_DWORD *)this + 19);
-  a2[2].y = v63 + v64 + *((_DWORD *)this + 19);
-  a2[3].y = v51 + v64 + *((_DWORD *)this + 19);
-  v52 = (v47 <= v43) ^ (unsigned __int64)(v47 > v49);
-  a3->left = a2[v52].x;
-  a3->right = a2[v52 + 2].x;
+  a2[2].x = v47;
+  v48 = v43 + *((_DWORD *)this + 18);
+  v49 = v62;
+  a2[3].x = v65 + v48;
+  v50 = v60;
+  a2->y = *((_DWORD *)this + 19) + v60 + v46;
+  v51 = *((_DWORD *)this + 19) + v50 + v49;
+  v52 = v63[0];
+  a2[1].y = v51;
+  a2[2].y = *((_DWORD *)this + 19) + v52 + v49;
+  a2[3].y = *((_DWORD *)this + 19) + v52 + v46;
+  v53 = (v44 <= v41) ^ (unsigned __int64)(v44 > v47);
+  a3->left = a2[v53].x;
+  a3->right = a2[v53 + 2].x;
   y = a2[1].y;
   LOBYTE(v15) = y > a2->y;
-  v54 = v15 ^ (y <= a2[2].y);
-  a3->top = a2[v54].y;
-  a3->bottom = a2[v54 + 2].y;
+  v55 = v15 ^ (y <= a2[2].y);
+  a3->top = a2[v55].y;
+  a3->bottom = a2[v55 + 2].y;
   ERECTL::vOrder((ERECTL *)a3);
-  v55 = a3->left >> 4;
+  v56 = a3->left >> 4;
   a3->top = (a3->top >> 4) - 2;
-  v56 = a3->right + 15;
-  a3->left = v55 - 2;
-  a3->right = (v56 >> 4) + 2;
+  v57 = a3->right + 15;
+  a3->left = v56 - 2;
+  a3->right = (v57 >> 4) + 2;
   a3->bottom = ((a3->bottom + 15) >> 4) + 2;
   return 1LL;
 }

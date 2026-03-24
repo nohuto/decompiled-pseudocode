@@ -1,8 +1,8 @@
 /*
- * XREFs of PfSnPowerBoostUpdate @ 0x1406CDAD8
+ * XREFs of PfSnPowerBoostUpdate @ 0x1406CDAB8
  * Callers:
- *     PfSnPowerBoost @ 0x1406CDA5C (PfSnPowerBoost.c)
- *     PfSnPowerBoostWorker @ 0x14071F0F0 (PfSnPowerBoostWorker.c)
+ *     PfSnPowerBoost @ 0x1406CDA3C (PfSnPowerBoost.c)
+ *     PfSnPowerBoostWorker @ 0x14071F0D0 (PfSnPowerBoostWorker.c)
  * Callees:
  *     NtUpdateWnfStateData @ 0x14060EBB0 (NtUpdateWnfStateData.c)
  */

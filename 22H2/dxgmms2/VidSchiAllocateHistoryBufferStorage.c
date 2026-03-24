@@ -1,41 +1,45 @@
 /*
- * XREFs of VidSchiAllocateHistoryBufferStorage @ 0x1C0105AA0
+ * XREFs of VidSchiAllocateHistoryBufferStorage @ 0x1C00CE310
  * Callers:
- *     VidSchSubmitCommand @ 0x1C00AD620 (VidSchSubmitCommand.c)
+ *     VidSchSubmitCommand @ 0x1C007E2B0 (VidSchSubmitCommand.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall VidSchiAllocateHistoryBufferStorage(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rdi
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int64 v6; // rcx
   __int64 v7; // rax
+  PVOID v8; // rax
+  __int64 v9; // rcx
 
   if ( a2 <= 4 )
   {
-    *(_QWORD *)(a1 + 616) = a1 + 168;
+    *(_QWORD *)(a1 + 608) = a1 + 168;
     *(_QWORD *)(a1 + 264) = a1 + 200;
     return 0LL;
   }
   v4 = a2;
-  Pool2 = ExAllocatePool2(64LL, 8LL * a2, 1633773910LL);
-  *(_QWORD *)(a1 + 616) = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 8LL * a2, 0x61616956u);
+  *(_QWORD *)(a1 + 608) = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v7 = ExAllocatePool2(64LL, 16 * v4, 1633773910LL);
-    *(_QWORD *)(a1 + 264) = v7;
-    if ( v7 )
+    v8 = ExAllocatePoolWithTag((POOL_TYPE)512, 16 * v4, 0x61616956u);
+    *(_QWORD *)(a1 + 264) = v8;
+    if ( v8 )
       return 0LL;
-    ExFreePoolWithTag(*(PVOID *)(a1 + 616), 0);
-    *(_QWORD *)(a1 + 616) = 0LL;
-    WdLogSingleEntry1(6LL, 11540LL);
+    ExFreePoolWithTag(*(PVOID *)(a1 + 608), 0);
+    *(_QWORD *)(a1 + 608) = 0LL;
+    v7 = WdLogNewEntry5_WdLowResource(v9);
+    *(_QWORD *)(v7 + 24) = 10718LL;
   }
   else
   {
-    WdLogSingleEntry1(6LL, 11528LL);
+    v7 = WdLogNewEntry5_WdLowResource(v6);
+    *(_QWORD *)(v7 + 24) = 10706LL;
   }
-  DxgkLogInternalTriageEvent(v6, 262145LL);
+  WdLogEvent5_WdLowResource(v7);
   return 3221225495LL;
 }

@@ -1,56 +1,42 @@
 /*
- * XREFs of ExtEnvAllocateMemory @ 0x1403802B8
+ * XREFs of ExtEnvAllocateMemory @ 0x1404D5030
  * Callers:
- *     HalpIvtProcessDrhdEntry @ 0x14037EF04 (HalpIvtProcessDrhdEntry.c)
- *     DmrEnumerateSatcDevices @ 0x14037F5F0 (DmrEnumerateSatcDevices.c)
- *     DmrpRmrrTreeAddNewScope @ 0x14037FC58 (DmrpRmrrTreeAddNewScope.c)
- *     DmrpRmrrTreeAddRegionToDevice @ 0x14037FCF8 (DmrpRmrrTreeAddRegionToDevice.c)
- *     IvtCreateDevice @ 0x14037FF50 (IvtCreateDevice.c)
- *     HalpIvtAllocateReservedDomainList @ 0x140380034 (HalpIvtAllocateReservedDomainList.c)
- *     HalpIvtCreateReservedDevice @ 0x140380150 (HalpIvtCreateReservedDevice.c)
- *     DmrConvertDeviceScope @ 0x14038021C (DmrConvertDeviceScope.c)
- *     HalpDmaAlwaysReserveLogicalAddressRangeInternal @ 0x14038032C (HalpDmaAlwaysReserveLogicalAddressRangeInternal.c)
- *     IvtAllocateScalableModePasidTables @ 0x14052B530 (IvtAllocateScalableModePasidTables.c)
- *     HalpHsaAllocateReservedDomainList @ 0x14052E1D8 (HalpHsaAllocateReservedDomainList.c)
- *     HalpHsaCreateReservedDevice @ 0x14052E24C (HalpHsaCreateReservedDevice.c)
- *     HalpIommuProcessDeviceEntries @ 0x14052E454 (HalpIommuProcessDeviceEntries.c)
- *     HalpIommuProcessIvhdEntry @ 0x14052E714 (HalpIommuProcessIvhdEntry.c)
- *     HsaAllocateRemappingTableEntry @ 0x14052ED60 (HsaAllocateRemappingTableEntry.c)
- *     HsaCreateDevice @ 0x14052F540 (HsaCreateDevice.c)
- *     HsaProcessIvmd @ 0x140530A0C (HsaProcessIvmd.c)
- *     IvmdFindDeviceEntry @ 0x1405316A8 (IvmdFindDeviceEntry.c)
- *     IvmdProcessRange @ 0x140531748 (IvmdProcessRange.c)
- *     HsaInitializeInterruptRemapping @ 0x140A99188 (HsaInitializeInterruptRemapping.c)
+ *     HalpHsaAllocateReservedDomainList @ 0x1404E1450 (HalpHsaAllocateReservedDomainList.c)
+ *     HalpHsaCreateReservedDevice @ 0x1404E14E8 (HalpHsaCreateReservedDevice.c)
+ *     HalpIommuProcessDeviceEntries @ 0x1404E1714 (HalpIommuProcessDeviceEntries.c)
+ *     HalpIommuProcessIvhdEntry @ 0x1404E1A20 (HalpIommuProcessIvhdEntry.c)
+ *     HsaAllocateRemappingTableEntry @ 0x1404E2000 (HsaAllocateRemappingTableEntry.c)
+ *     HsaCreateDevice @ 0x1404E27E0 (HsaCreateDevice.c)
+ *     HsaProcessIvmd @ 0x1404E4008 (HsaProcessIvmd.c)
+ *     IvmdFindDeviceEntry @ 0x1404E4B58 (IvmdFindDeviceEntry.c)
+ *     IvmdProcessRange @ 0x1404E4C08 (IvmdProcessRange.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1404E734C (HalpIvtProcessDrhdEntry.c)
+ *     IvtCreateDevice @ 0x1404E7970 (IvtCreateDevice.c)
+ *     HalpIvtAllocateReservedDomainList @ 0x1404E7B88 (HalpIvtAllocateReservedDomainList.c)
+ *     HalpIvtCreateReservedDevice @ 0x1404E7C20 (HalpIvtCreateReservedDevice.c)
+ *     DmrConvertDeviceScope @ 0x1404E846C (DmrConvertDeviceScope.c)
+ *     DmrpRmrrTreeAddNewScope @ 0x1404E8878 (DmrpRmrrTreeAddNewScope.c)
+ *     DmrpRmrrTreeAddRegionToDevice @ 0x1404E8918 (DmrpRmrrTreeAddRegionToDevice.c)
+ *     HsaInitializeInterruptRemapping @ 0x1409AA588 (HsaInitializeInterruptRemapping.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x14037E158 (HalpMmAllocateMemoryInternal.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BAC58 (HalpMmAllocateMemoryInternal.c)
  */
 
-__int64 __fastcall ExtEnvAllocateMemory(__int64 a1, unsigned int a2, _QWORD *a3)
+__int64 __fastcall ExtEnvAllocateMemory(__int64 a1, unsigned int a2, __int64 *a3)
 {
-  unsigned int v3; // ebx
-  size_t v4; // rsi
-  void *MemoryInternal; // rax
+  __int64 MemoryInternal; // rax
 
-  v3 = 0;
-  v4 = a2;
+  MemoryInternal = 0LL;
   if ( HalpExtEnvAllocationPhase )
   {
-    if ( HalpExtEnvAllocationPhase != 1 )
-    {
-      *a3 = 0LL;
-      return (unsigned int)-1073741670;
-    }
-    MemoryInternal = (void *)HalpMmAllocCtxAlloc(a1, a2);
+    if ( HalpExtEnvAllocationPhase == 1 )
+      MemoryInternal = HalpMmAllocCtxAlloc(1LL, a2);
   }
   else
   {
-    MemoryInternal = (void *)HalpMmAllocateMemoryInternal(a2, 1u);
+    MemoryInternal = HalpMmAllocateMemoryInternal(a2, 1u);
   }
   *a3 = MemoryInternal;
-  if ( !MemoryInternal )
-    return (unsigned int)-1073741670;
-  memset(MemoryInternal, 0, v4);
-  return v3;
+  return MemoryInternal == 0 ? 0xC000009A : 0;
 }

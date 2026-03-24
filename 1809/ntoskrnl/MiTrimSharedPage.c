@@ -1,19 +1,19 @@
 /*
- * XREFs of MiTrimSharedPage @ 0x1400E9750
+ * XREFs of MiTrimSharedPage @ 0x1400E9770
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
- *     MiMarkFileOnlyPfnBad @ 0x1402B6288 (MiMarkFileOnlyPfnBad.c)
+ *     MiMarkFileOnlyPfnBad @ 0x1402B6388 (MiMarkFileOnlyPfnBad.c)
  * Callees:
  *     MiReleaseControlAreaWaiters @ 0x14001E3A8 (MiReleaseControlAreaWaiters.c)
  *     MiDecrementModifiedWriteCount @ 0x140022DA0 (MiDecrementModifiedWriteCount.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiDecrementSubsection @ 0x1400E76F8 (MiDecrementSubsection.c)
- *     MiPreventControlAreaDeletion @ 0x1400E94D8 (MiPreventControlAreaDeletion.c)
- *     MiTrimSection @ 0x1400EAB84 (MiTrimSection.c)
- *     MiReferencePfBackedSection @ 0x140130400 (MiReferencePfBackedSection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiClusterVadFull @ 0x1402C6028 (MiClusterVadFull.c)
+ *     MiDecrementSubsection @ 0x1400E7718 (MiDecrementSubsection.c)
+ *     MiPreventControlAreaDeletion @ 0x1400E94F8 (MiPreventControlAreaDeletion.c)
+ *     MiTrimSection @ 0x1400EABA4 (MiTrimSection.c)
+ *     MiReferencePfBackedSection @ 0x140130420 (MiReferencePfBackedSection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiClusterVadFull @ 0x1402C6128 (MiClusterVadFull.c)
  */
 
 __int64 __fastcall MiTrimSharedPage(__int64 a1, unsigned __int8 a2, unsigned int a3)

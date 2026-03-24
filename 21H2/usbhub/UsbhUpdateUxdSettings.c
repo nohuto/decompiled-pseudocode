@@ -1,26 +1,26 @@
 /*
- * XREFs of UsbhUpdateUxdSettings @ 0x1C005A420
+ * XREFs of UsbhUpdateUxdSettings @ 0x1C005BAE4
  * Callers:
- *     UsbhSetupDevice @ 0x1C0038CE8 (UsbhSetupDevice.c)
- *     UsbhIoctlCyclePort @ 0x1C003DB64 (UsbhIoctlCyclePort.c)
+ *     UsbhSetupDevice @ 0x1C0039FD8 (UsbhSetupDevice.c)
+ *     UsbhIoctlCyclePort @ 0x1C003ED54 (UsbhIoctlCyclePort.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     memset @ 0x1C001F800 (memset.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_dDD @ 0x1C0047C4C (WPP_RECORDER_SF_dDD.c)
- *     UsbhBuildDeviceID @ 0x1C004F128 (UsbhBuildDeviceID.c)
- *     UsbhBuildHardwareID @ 0x1C004F438 (UsbhBuildHardwareID.c)
- *     UsbhFreeID @ 0x1C004FAE8 (UsbhFreeID.c)
- *     WPP_RECORDER_SF_Sqd @ 0x1C0050930 (WPP_RECORDER_SF_Sqd.c)
- *     UsbhAcquirePdoUxdLock @ 0x1C0058F64 (UsbhAcquirePdoUxdLock.c)
- *     UsbhGetGlobalUxdSettings @ 0x1C00595D4 (UsbhGetGlobalUxdSettings.c)
- *     UsbhGetUxdDeviceKey @ 0x1C00599F0 (UsbhGetUxdDeviceKey.c)
- *     UsbhGetUxdPortKey @ 0x1C0059C74 (UsbhGetUxdPortKey.c)
- *     UsbhReleasePdoUxdLock @ 0x1C005A3E8 (UsbhReleasePdoUxdLock.c)
- *     UsbhUpdateSqmFlags @ 0x1C0072540 (UsbhUpdateSqmFlags.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C0048FCC (WPP_RECORDER_SF_DDD.c)
+ *     UsbhBuildDeviceID @ 0x1C005068C (UsbhBuildDeviceID.c)
+ *     UsbhBuildHardwareID @ 0x1C00509B0 (UsbhBuildHardwareID.c)
+ *     UsbhFreeID @ 0x1C0051094 (UsbhFreeID.c)
+ *     WPP_RECORDER_SF_Sqd @ 0x1C0051F80 (WPP_RECORDER_SF_Sqd.c)
+ *     UsbhAcquirePdoUxdLock @ 0x1C005A634 (UsbhAcquirePdoUxdLock.c)
+ *     UsbhGetGlobalUxdSettings @ 0x1C005ACF0 (UsbhGetGlobalUxdSettings.c)
+ *     UsbhGetUxdDeviceKey @ 0x1C005B10C (UsbhGetUxdDeviceKey.c)
+ *     UsbhGetUxdPortKey @ 0x1C005B39C (UsbhGetUxdPortKey.c)
+ *     UsbhReleasePdoUxdLock @ 0x1C005BAAC (UsbhReleasePdoUxdLock.c)
+ *     UsbhUpdateSqmFlags @ 0x1C00759E0 (UsbhUpdateSqmFlags.c)
  */
 
 __int64 __fastcall UsbhUpdateUxdSettings(__int64 a1, struct _DEVICE_OBJECT *a2, char a3, _BYTE *a4)
@@ -66,7 +66,7 @@ __int64 __fastcall UsbhUpdateUxdSettings(__int64 a1, struct _DEVICE_OBJECT *a2, 
   Source2[3] = *(_OWORD *)(v8 + 662);
   v27 = v8[666];
   UsbhGetGlobalUxdSettings(v13, v9 + 1294);
-  if ( v9[1297] && !dword_1C006A66C )
+  if ( v9[1297] && !dword_1C006C5CC )
   {
     if ( (int)UsbhGetUxdPortKey(a1, *((unsigned __int16 *)v8 + 714), Source1) < 0 )
     {
@@ -83,7 +83,7 @@ __int64 __fastcall UsbhUpdateUxdSettings(__int64 a1, struct _DEVICE_OBJECT *a2, 
         goto LABEL_18;
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
-        WPP_RECORDER_SF_dDD(
+        WPP_RECORDER_SF_DDD(
           (__int64)WPP_GLOBAL_Control->DeviceExtension,
           *((unsigned __int16 *)v8 + 704),
           (__int64)WPP_GLOBAL_Control,

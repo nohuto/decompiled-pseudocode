@@ -1,27 +1,30 @@
 /*
- * XREFs of ?DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C01480C0
+ * XREFs of ?DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C011B760
  * Callers:
  *     <none>
  * Callees:
- *     HMUnlockObject @ 0x1C0038FB0 (HMUnlockObject.c)
- *     HMDestroyObject @ 0x1C004E3A0 (HMDestroyObject.c)
+ *     HMDestroyObject @ 0x1C0007ED0 (HMDestroyObject.c)
+ *     HMUnlockObject @ 0x1C002D5A0 (HMUnlockObject.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0031C90 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
  */
 
 void __fastcall DestroyHandleFirstPass(struct _HANDLEENTRY *a1)
 {
-  _QWORD *v1; // rdi
+  _QWORD *v2; // rdi
   __int64 v3; // rax
   __int64 v4; // rbx
   __int64 v5; // rdx
   unsigned int i; // r8d
   __int64 v7; // rcx
+  _BYTE v8[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  v1 = gpKernelHandleTable;
-  v3 = (unsigned int)((a1 - qword_1C0294B68) >> 5);
+  CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>((__int64)v8);
+  v2 = gpKernelHandleTable;
+  v3 = (unsigned int)((a1 - qword_1C024FD58) >> 5);
   v4 = 3 * v3;
   if ( *((_BYTE *)a1 + 24) == 22 )
     HMUnlockObject(*(_QWORD *)(*((_QWORD *)gpKernelHandleTable + 3 * v3) + 16LL));
-  v5 = v1[v4];
+  v5 = v2[v4];
   if ( *(_DWORD *)(v5 + 8) )
   {
     if ( *((_BYTE *)a1 + 24) == 13 )
@@ -38,6 +41,6 @@ void __fastcall DestroyHandleFirstPass(struct _HANDLEENTRY *a1)
   }
   else
   {
-    HMDestroyObject((void *)v1[v4]);
+    HMDestroyObject((void *)v2[v4]);
   }
 }

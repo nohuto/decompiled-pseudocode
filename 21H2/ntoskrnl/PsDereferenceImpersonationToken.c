@@ -1,13 +1,13 @@
 /*
- * XREFs of PsDereferenceImpersonationToken @ 0x1406D1760
+ * XREFs of PsDereferenceImpersonationToken @ 0x1406AF790
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
  */
 
 void __stdcall PsDereferenceImpersonationToken(PACCESS_TOKEN ImpersonationToken)
 {
   if ( ImpersonationToken )
-    ObfDereferenceObject(ImpersonationToken);
+    HalPutDmaAdapter((PADAPTER_OBJECT)ImpersonationToken);
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnLogHelper @ 0x1407E5390
+ * XREFs of PfSnLogHelper @ 0x1406CC79C
  * Callers:
- *     PfSnLogVolumeCreate @ 0x1406CE4C4 (PfSnLogVolumeCreate.c)
- *     PfSnLogStreamCreate @ 0x1407E5234 (PfSnLogStreamCreate.c)
+ *     PfSnLogVolumeCreate @ 0x1406B25A4 (PfSnLogVolumeCreate.c)
+ *     PfSnLogStreamCreate @ 0x1406CC634 (PfSnLogStreamCreate.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     PfSnReferenceProcessTrace @ 0x1402CD7F0 (PfSnReferenceProcessTrace.c)
- *     PfSnTraceGetLogEntry @ 0x14036669C (PfSnTraceGetLogEntry.c)
- *     PfSnFailProcessTrace @ 0x1407F8C9C (PfSnFailProcessTrace.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     PfSnTraceGetLogEntry @ 0x14031A890 (PfSnTraceGetLogEntry.c)
+ *     PfSnReferenceProcessTrace @ 0x14031E2C0 (PfSnReferenceProcessTrace.c)
+ *     PfSnFailProcessTrace @ 0x140734CC0 (PfSnFailProcessTrace.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall PfSnLogHelper(__int64 a1, unsigned int a2, _QWORD *a3)
 {
-  __int64 v5; // rbx
+  struct _EX_RUNDOWN_REF *v5; // rdi
   struct _EX_RUNDOWN_REF *v6; // rax
-  struct _EX_RUNDOWN_REF *v7; // rdi
+  struct _EX_RUNDOWN_REF *v7; // rbx
 
   v5 = 0LL;
   v6 = PfSnReferenceProcessTrace(a1);
@@ -24,12 +24,14 @@ struct _EX_RUNDOWN_REF *__fastcall PfSnLogHelper(__int64 a1, unsigned int a2, _Q
     if ( (int)PfSnTraceGetLogEntry((__int64)v6, a2, a3) < 0 )
     {
       PfSnFailProcessTrace(v7);
-      ExReleaseRundownProtection(v7 + 45);
     }
     else
     {
-      return v7;
+      v5 = v7;
+      v7 = 0LL;
     }
+    if ( v7 )
+      ExReleaseRundownProtection_0(v7 + 45);
   }
-  return (struct _EX_RUNDOWN_REF *)v5;
+  return v5;
 }

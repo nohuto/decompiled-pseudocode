@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFillCommitReturnInfo @ 0x1402DF118
+ * XREFs of MiFillCommitReturnInfo @ 0x1402988A4
  * Callers:
- *     MiRemoveVadCharges @ 0x1406FB4F0 (MiRemoveVadCharges.c)
- *     MiDecommitRegion @ 0x140744A70 (MiDecommitRegion.c)
+ *     MiRemoveVadCharges @ 0x14063A910 (MiRemoveVadCharges.c)
+ *     MiDecommitRegion @ 0x14063BD10 (MiDecommitRegion.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ void __fastcall MiFillCommitReturnInfo(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v3; // rcx
 
-  v3 = a1 - *(_QWORD *)(a2 + 24);
+  v3 = a1 - *(_QWORD *)(a2 + 16);
   *a3 = v3;
   a3[1] = v3 - *(_QWORD *)(a2 + 8);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of IsMessageInputSourcePen @ 0x1C01EB100
+ * XREFs of IsMessageInputSourcePen @ 0x1C00AD7D0
  * Callers:
  *     <none>
  * Callees:

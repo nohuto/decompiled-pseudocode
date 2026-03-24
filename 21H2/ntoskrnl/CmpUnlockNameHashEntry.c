@@ -1,13 +1,12 @@
 /*
- * XREFs of CmpUnlockNameHashEntry @ 0x1406E717C
+ * XREFs of CmpUnlockNameHashEntry @ 0x1405EFE60
  * Callers:
- *     CmpDereferenceNameControlBlockWithLock @ 0x1406E7088 (CmpDereferenceNameControlBlockWithLock.c)
- *     CmpGetNameControlBlock @ 0x1407C3E50 (CmpGetNameControlBlock.c)
+ *     CmpGetNameControlBlock @ 0x1405EFC10 (CmpGetNameControlBlock.c)
  * Callees:
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
-__int64 __fastcall CmpUnlockNameHashEntry(unsigned int a1)
+char __fastcall CmpUnlockNameHashEntry(unsigned int a1)
 {
   return ExReleasePushLockEx(
            (ULONG_PTR)CmpNameCacheTable

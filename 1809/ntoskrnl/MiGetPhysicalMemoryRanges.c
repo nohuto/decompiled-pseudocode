@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetPhysicalMemoryRanges @ 0x1406DAE1C
+ * XREFs of MiGetPhysicalMemoryRanges @ 0x1406DADFC
  * Callers:
- *     MmGetPhysicalMemoryRangesEx2 @ 0x1406DADC4 (MmGetPhysicalMemoryRangesEx2.c)
- *     MmGetPhysicalMemoryRangesEx @ 0x14075B6A0 (MmGetPhysicalMemoryRangesEx.c)
+ *     MmGetPhysicalMemoryRangesEx2 @ 0x1406DADA4 (MmGetPhysicalMemoryRangesEx2.c)
+ *     MmGetPhysicalMemoryRangesEx @ 0x14075B680 (MmGetPhysicalMemoryRangesEx.c)
  * Callees:
- *     MiLockDynamicMemoryShared @ 0x1400A8914 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x1400A8940 (MiUnlockDynamicMemoryShared.c)
- *     MiReferencePageRuns @ 0x14012B6B0 (MiReferencePageRuns.c)
- *     MiDereferencePageRuns @ 0x140141AB0 (MiDereferencePageRuns.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     MiGetFileOnlyRanges @ 0x1402A63A8 (MiGetFileOnlyRanges.c)
+ *     MiLockDynamicMemoryShared @ 0x1400A8934 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1400A8960 (MiUnlockDynamicMemoryShared.c)
+ *     MiReferencePageRuns @ 0x14012B6D0 (MiReferencePageRuns.c)
+ *     MiDereferencePageRuns @ 0x140141AD0 (MiDereferencePageRuns.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     MiGetFileOnlyRanges @ 0x1402A64A8 (MiGetFileOnlyRanges.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

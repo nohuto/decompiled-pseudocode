@@ -1,10 +1,10 @@
 /*
- * XREFs of SepGetDefaultsSubjectContext @ 0x1409CA928
+ * XREFs of SepGetDefaultsSubjectContext @ 0x140921010
  * Callers:
- *     RtlpSetSecurityObject @ 0x140726700 (RtlpSetSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x14065E3C0 (RtlpSetSecurityObject.c)
  * Callees:
- *     SepLocateTokenTrustLevel @ 0x140232910 (SepLocateTokenTrustLevel.c)
- *     SepLocateTokenIntegrity @ 0x1402ED9BC (SepLocateTokenIntegrity.c)
+ *     SepLocateTokenIntegrity @ 0x1402529CC (SepLocateTokenIntegrity.c)
+ *     SepLocateTokenTrustLevel @ 0x1402AAB88 (SepLocateTokenTrustLevel.c)
  */
 
 __int64 __fastcall SepGetDefaultsSubjectContext(
@@ -18,17 +18,17 @@ __int64 __fastcall SepGetDefaultsSubjectContext(
         _QWORD *a8)
 {
   __int64 v9; // rcx
-  __int64 v10; // r11
+  __int64 v10; // r10
   __int64 v11; // rax
   __int64 v12; // rdx
   _QWORD *TokenIntegrity; // rax
-  __int64 *v14; // r10
+  __int64 *v14; // r11
   __int64 result; // rax
 
   v9 = *a1;
+  v10 = a1[2];
   if ( !v9 )
     v9 = a1[2];
-  v10 = a1[2];
   v11 = *(_QWORD *)(v9 + 168);
   *a2 = *(_QWORD *)(*(_QWORD *)(v9 + 152) + 16LL * *(unsigned int *)(v9 + 144));
   v12 = *(_QWORD *)(v9 + 184);

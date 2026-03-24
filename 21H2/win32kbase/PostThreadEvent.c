@@ -1,26 +1,25 @@
 /*
- * XREFs of PostThreadEvent @ 0x1C01E825C
+ * XREFs of PostThreadEvent @ 0x1C01AEDB0
  * Callers:
- *     NtMITPostThreadEventMessage @ 0x1C0155780 (NtMITPostThreadEventMessage.c)
+ *     NtMITPostThreadEventMessage @ 0x1C012B360 (NtMITPostThreadEventMessage.c)
+ *     ?PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAU_mouseCursorEvent@@@Z @ 0x1C01C0E58 (-PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAU_mouseC.c)
  * Callees:
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C002CA0C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C002CA34 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0042954 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C00429A0 (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-bool __fastcall PostThreadEvent(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+bool __fastcall PostThreadEvent(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5, __int64 a6)
 {
-  unsigned int v7; // edi
-  int v9; // eax
-  bool v10; // bl
-  _BYTE v12[24]; // [rsp+40h] [rbp-18h] BYREF
+  int v10; // eax
+  bool v11; // bl
+  _BYTE v13[24]; // [rsp+40h] [rbp-18h] BYREF
 
-  v7 = a3;
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v12, a2, a3);
-  v9 = (int)qword_1C029CD60;
-  if ( qword_1C029CD60 )
-    v9 = qword_1C029CD60(30LL, a1, a2, v7, a4, a5);
-  v10 = v9 != 0;
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v12);
-  return v10;
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v13);
+  v10 = (int)qword_1C0258170;
+  if ( qword_1C0258170 )
+    v10 = qword_1C0258170(30LL, a1, a2, a3, a4, a5, a6);
+  v11 = v10 != 0;
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v13);
+  return v11;
 }

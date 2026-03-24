@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetSize@CAtlasBitmapResource@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1800EDC00
+ * XREFs of ?GetSize@CAtlasBitmapResource@@UEBA?AUD2D_SIZE_U@@XZ @ 0x18020A7A0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetSize@CAtlasTexture@@QEBA?AUD2D_SIZE_U@@XZ @ 0x1800EDC2C (-GetSize@CAtlasTexture@@QEBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?GetSize@CAtlasTexture@@QEBA?AUD2D_SIZE_U@@XZ @ 0x18020A7D4 (-GetSize@CAtlasTexture@@QEBA-AUD2D_SIZE_U@@XZ.c)
  */
 
 struct D2D_SIZE_U __fastcall CAtlasBitmapResource::GetSize(CAtlasBitmapResource *this, _DWORD *a2)

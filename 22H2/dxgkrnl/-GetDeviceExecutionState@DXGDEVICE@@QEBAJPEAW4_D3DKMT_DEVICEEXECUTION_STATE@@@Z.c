@@ -1,166 +1,118 @@
 /*
- * XREFs of ?GetDeviceExecutionState@DXGDEVICE@@QEBAJPEAW4_D3DKMT_DEVICEEXECUTION_STATE@@@Z @ 0x1C01E02D8
+ * XREFs of ?GetDeviceExecutionState@DXGDEVICE@@QEBAJPEAW4_D3DKMT_DEVICEEXECUTION_STATE@@@Z @ 0x1C00EC874
  * Callers:
- *     DxgkGetDeviceStateInternal @ 0x1C01C9BE0 (DxgkGetDeviceStateInternal.c)
- *     ?IsExecutionStateErrorState@DXGDEVICE@@QEBAEXZ @ 0x1C01E02A0 (-IsExecutionStateErrorState@DXGDEVICE@@QEBAEXZ.c)
+ *     ?IsExecutionStateErrorState@DXGDEVICE@@QEBAEXZ @ 0x1C00EC83C (-IsExecutionStateErrorState@DXGDEVICE@@QEBAEXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DXGDEVICE::GetDeviceExecutionState(DXGDEVICE *this, enum _D3DKMT_DEVICEEXECUTION_STATE *a2)
 {
-  unsigned int v4; // ebp
-  enum _D3DKMT_DEVICEEXECUTION_STATE v5; // esi
-  unsigned int v6; // eax
-  unsigned int v7; // ecx
-  unsigned int v8; // edx
-  unsigned int v9; // ecx
-  unsigned int v10; // edx
-  unsigned int v12; // ecx
-  unsigned int v13; // ecx
-  unsigned int v14; // ecx
-  unsigned int v15; // ecx
-  unsigned int v16; // ecx
-  unsigned int v17; // ecx
-  unsigned int v18; // ecx
-  unsigned int v19; // ecx
-  unsigned int v20; // ecx
-  unsigned int v21; // ecx
-  unsigned int v22; // ecx
-  unsigned int v23; // ecx
-  unsigned int v24; // ecx
-  unsigned int v25; // [rsp+70h] [rbp+8h] BYREF
+  unsigned int v2; // edi
+  unsigned int v5; // eax
+  __int64 v6; // rcx
+  int v7; // eax
+  unsigned int v8; // eax
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rax
+  unsigned int v13; // [rsp+30h] [rbp+8h] BYREF
 
-  v25 = 0;
-  v4 = 0;
-  v5 = D3DKMT_DEVICEEXECUTION_ACTIVE;
+  v2 = 0;
+  v13 = 0;
   if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 10068LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pExecutionState != NULL", 10068LL, 0LL, 0LL, 0LL, 0LL);
+    v10 = WdLogNewEntry5_WdAssertion(this, 0LL);
+    *(_QWORD *)(v10 + 24) = 9963LL;
+    WdLogEvent5_WdAssertion(v10);
   }
-  if ( *((_DWORD *)this + 152) != 1 )
+  if ( *((_DWORD *)this + 144) != 1 )
   {
-    if ( *((_DWORD *)this + 152) == 2 )
+    if ( *((_DWORD *)this + 144) == 2 )
     {
       *a2 = D3DKMT_DEVICEEXECUTION_RESET;
-      return v4;
+      return v2;
     }
-    if ( *((_DWORD *)this + 152) == 3 )
-      goto LABEL_31;
-    if ( *((_DWORD *)this + 152) != 4 )
+    if ( *((_DWORD *)this + 144) == 3 )
+      goto LABEL_25;
+    if ( *((_DWORD *)this + 144) != 4 )
     {
-      WdLogSingleEntry1(1LL, 10168LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"Unexpected device execution state!",
-        10168LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v11 = WdLogNewEntry5_WdAssertion((unsigned int)(*((_DWORD *)this + 144) - 3), a2);
+      *(_QWORD *)(v11 + 24) = 10059LL;
+      WdLogEvent5_WdAssertion(v11);
+      v2 = -1073741823;
     }
-LABEL_15:
-    *a2 = D3DKMT_DEVICEEXECUTION_STOPPED;
-    return v4;
+    goto LABEL_16;
   }
-  if ( (*((_BYTE *)this + 1901) & 1) != 0 )
+  if ( (*((_BYTE *)this + 1869) & 1) != 0 )
   {
-    v7 = *(_DWORD *)(*((_QWORD *)this + 60) + 16LL);
+    v6 = *(unsigned int *)(*((_QWORD *)this + 56) + 16LL);
   }
   else
   {
-    v6 = (*(__int64 (__fastcall **)(_QWORD, unsigned int *))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 736LL) + 8LL)
+    v5 = (*(__int64 (__fastcall **)(_QWORD, unsigned int *))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 616LL) + 8LL)
                                                            + 192LL))(
-           *((_QWORD *)this + 100),
-           &v25);
-    v7 = v25;
-    v4 = v6;
+           *((_QWORD *)this + 96),
+           &v13);
+    v6 = v13;
+    v2 = v5;
   }
-  v8 = v7;
-  v9 = v7 & 0x7FFFFFFF;
-  v10 = v8 & 0x80000000;
-  v25 = v9;
-  if ( (v4 & 0x80000000) != 0 )
-    return v4;
-  if ( v9 > 0xE )
+  v7 = v6;
+  LODWORD(v6) = v6 & 0x7FFFFFFF;
+  v8 = v7 & 0x80000000;
+  v13 = v6;
+  if ( (v2 & 0x80000000) == 0 )
   {
-    v18 = v9 - 15;
-    if ( !v18 )
-      goto LABEL_42;
-    v19 = v18 - 1;
-    if ( !v19 )
-      goto LABEL_42;
-    v20 = v19 - 1;
-    if ( !v20 )
-      goto LABEL_42;
-    v21 = v20 - 1;
-    if ( !v21 )
-      goto LABEL_42;
-    v22 = v21 - 1;
-    if ( !v22 )
-      goto LABEL_42;
-    v23 = v22 - 3;
-    if ( v23 )
+    if ( (unsigned int)v6 <= 0xD )
     {
-      v24 = v23 - 2;
-      if ( !v24 )
-        goto LABEL_42;
-      if ( v24 - 1 >= 2 )
+      if ( (unsigned int)v6 >= 0xB )
+        goto LABEL_24;
+      switch ( (_DWORD)v6 )
       {
-LABEL_29:
-        WdLogSingleEntry1(1LL, 10156LL);
-        DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"Unexpected device error!", 10156LL, 0LL, 0LL, 0LL, 0LL);
-        goto LABEL_30;
+        case 0:
+          *a2 = (v8 != 0) + 1;
+          return v2;
+        case 2:
+LABEL_24:
+          *a2 = D3DKMT_DEVICEEXECUTION_ERROR_OUTOFMEMORY;
+          return v2;
+        case 6:
+          *a2 = D3DKMT_DEVICEEXECUTION_ERROR_DMAFAULT;
+          return v2;
       }
-    }
-    goto LABEL_15;
-  }
-  if ( v9 == 14 )
-    goto LABEL_15;
-  if ( v9 )
-  {
-    v12 = v9 - 2;
-    if ( !v12 )
-    {
-LABEL_30:
-      *a2 = D3DKMT_DEVICEEXECUTION_ERROR_OUTOFMEMORY;
-      return v4;
-    }
-    v13 = v12 - 4;
-    if ( !v13 )
-    {
-      *a2 = D3DKMT_DEVICEEXECUTION_ERROR_DMAFAULT;
-      return v4;
-    }
-    v14 = v13 - 1;
-    if ( v14 )
-    {
-      v15 = v14 - 2;
-      if ( v15 )
+      if ( (_DWORD)v6 != 7 )
       {
-        v16 = v15 - 1;
-        if ( v16 )
+        if ( (unsigned int)v6 <= 8 )
         {
-          v17 = v16 - 1;
-          if ( !v17 || v17 - 1 < 2 )
-            goto LABEL_30;
-          goto LABEL_29;
+LABEL_23:
+          v12 = WdLogNewEntry5_WdAssertion(v6, a2);
+          *(_QWORD *)(v12 + 24) = 10046LL;
+          WdLogEvent5_WdAssertion(v12);
+          v2 = -1073741823;
+          goto LABEL_24;
         }
+LABEL_33:
+        *a2 = D3DKMT_DEVICEEXECUTION_ERROR_DMAPAGEFAULT;
+        return v2;
       }
-LABEL_42:
-      *a2 = D3DKMT_DEVICEEXECUTION_ERROR_DMAPAGEFAULT;
-      return v4;
+LABEL_25:
+      *a2 = D3DKMT_DEVICEEXECUTION_HUNG;
+      return v2;
     }
-LABEL_31:
-    *a2 = D3DKMT_DEVICEEXECUTION_HUNG;
-    return v4;
+    if ( (_DWORD)v6 != 14 )
+    {
+      if ( (unsigned int)v6 <= 0x13 )
+        goto LABEL_33;
+      if ( (_DWORD)v6 != 22 )
+      {
+        if ( (_DWORD)v6 == 24 )
+          goto LABEL_33;
+        if ( (_DWORD)v6 != 25 )
+          goto LABEL_23;
+      }
+    }
+LABEL_16:
+    *a2 = D3DKMT_DEVICEEXECUTION_STOPPED;
   }
-  if ( v10 || *((_BYTE *)this + 73) )
-    v5 = D3DKMT_DEVICEEXECUTION_RESET;
-  *a2 = v5;
-  return v4;
+  return v2;
 }

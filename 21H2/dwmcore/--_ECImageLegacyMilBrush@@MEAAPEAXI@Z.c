@@ -1,24 +1,26 @@
 /*
- * XREFs of ??_ECImageLegacyMilBrush@@MEAAPEAXI@Z @ 0x1800CE3F0
+ * XREFs of ??_ECImageLegacyMilBrush@@MEAAPEAXI@Z @ 0x1800CBA50
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ??1CImageLegacyMilBrush@@MEAA@XZ @ 0x1800CE434 (--1CImageLegacyMilBrush@@MEAA@XZ.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ??1CImageLegacyMilBrush@@MEAA@XZ @ 0x1800CBA94 (--1CImageLegacyMilBrush@@MEAA@XZ.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 CImageLegacyMilBrush *__fastcall CImageLegacyMilBrush::`vector deleting destructor'(
         CImageLegacyMilBrush *this,
         char a2)
 {
+  unsigned int v4; // r8d
+
   CImageLegacyMilBrush::~CImageLegacyMilBrush(this);
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this, 0x100uLL);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0xF8, v4);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

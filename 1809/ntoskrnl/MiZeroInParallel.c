@@ -1,16 +1,16 @@
 /*
- * XREFs of MiZeroInParallel @ 0x14013C524
+ * XREFs of MiZeroInParallel @ 0x14013C544
  * Callers:
  *     MiInitializeMdlBatchPages @ 0x140011478 (MiInitializeMdlBatchPages.c)
- *     MiAllocateLargeZeroPages @ 0x14085C900 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
  * Callees:
- *     KeSetPriorityThread @ 0x1400CD850 (KeSetPriorityThread.c)
- *     KeWaitForGate @ 0x1400FA2E4 (KeWaitForGate.c)
- *     KeSignalGate @ 0x140127690 (KeSignalGate.c)
- *     MiZeroInParallelWorker @ 0x14013C6A0 (MiZeroInParallelWorker.c)
- *     MiGetClosestNodeWithProcessors @ 0x1402BB6E4 (MiGetClosestNodeWithProcessors.c)
+ *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
+ *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
+ *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
+ *     MiZeroInParallelWorker @ 0x14013C6C0 (MiZeroInParallelWorker.c)
+ *     MiGetClosestNodeWithProcessors @ 0x1402BB7E4 (MiGetClosestNodeWithProcessors.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PsCreateSystemThread @ 0x14066AA90 (PsCreateSystemThread.c)
+ *     PsCreateSystemThread @ 0x14066AA70 (PsCreateSystemThread.c)
  */
 
 void __fastcall MiZeroInParallel(__int64 a1)

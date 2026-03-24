@@ -1,28 +1,31 @@
 /*
- * XREFs of ?TransformIgnoreZW@CMILMatrix@@QEBAXPEBUD2D_POINT_2F@@PEAUMilPoint4F@@I@Z @ 0x1802612A8
+ * XREFs of ?TransformIgnoreZW@CMILMatrix@@QEBAXPEBUD2D_POINT_2F@@PEAUMilPoint4F@@I@Z @ 0x180012C10
  * Callers:
- *     VertexTransfer::TransformDeviceSpacePositionAndNormal @ 0x1801F0A94 (VertexTransfer--TransformDeviceSpacePositionAndNormal.c)
+ *     VertexTransfer::TransformDeviceSpacePositionAndNormal @ 0x1800124F8 (VertexTransfer--TransformDeviceSpacePositionAndNormal.c)
+ *     ?Transform@?$CGeneral3DOperator@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@VertexTransfer@@QEAAXAEBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@AEBUVertexAAFixup_UVxN@@IAEBVCMILMatrix@@PEAU?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@Z @ 0x1800126AC (-Transform@-$CGeneral3DOperator@U-$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@VertexTra.c)
+ *     ?Transform@?$CGeneral3DOperator@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@VertexTransfer@@QEAAXAEBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@AEBUVertexAAFixup_UVxN@@IAEBVCMILMatrix@@PEAU3@@Z @ 0x1800129C8 (-Transform@-$CGeneral3DOperator@U-$Vertex_UVxN@UVertexXYW_ColorDW@@@@@VertexTransfer@@QEAAXAEBU-.c)
  * Callees:
- *     ??$IsAffine@$00@CMILMatrix@@AEBA_N_N@Z @ 0x180096590 (--$IsAffine@$00@CMILMatrix@@AEBA_N_N@Z.c)
+ *     <none>
  */
 
 void __fastcall CMILMatrix::TransformIgnoreZW(CMILMatrix *this, const struct D2D_POINT_2F *a2, struct MilPoint4F *a3)
 {
-  float y; // xmm2_4
-  float x; // xmm6_4
-  float v7; // xmm5_4
-  float v8; // xmm5_4
+  float x; // xmm2_4
+  float *v4; // rax
+  float y; // xmm3_4
+  __int64 v6; // r8
+  __int64 v7; // rcx
 
-  y = a2->y;
   x = a2->x;
-  *(float *)a3 = (float)((float)(y * *((float *)this + 4)) + (float)(a2->x * *(float *)this)) + *((float *)this + 12);
-  *((float *)a3 + 1) = (float)((float)(y * *((float *)this + 5)) + (float)(x * *((float *)this + 1)))
-                     + *((float *)this + 13);
-  *((float *)a3 + 2) = (float)((float)(y * *((float *)this + 6)) + (float)(x * *((float *)this + 2)))
-                     + *((float *)this + 14);
-  if ( CMILMatrix::IsAffine<1>((__int64)this, 1) )
-    v8 = *(float *)&FLOAT_1_0;
-  else
-    v8 = (float)((float)(v7 * *((float *)this + 7)) + (float)(x * *((float *)this + 3))) + *((float *)this + 15);
-  *((float *)a3 + 3) = v8;
+  v4 = (float *)((char *)this + 48);
+  y = a2->y;
+  v6 = a3 - this;
+  v7 = 4LL;
+  do
+  {
+    *(float *)((char *)v4 + v6 - 48) = (float)((float)(y * *(v4 - 8)) + (float)(x * *(v4 - 12))) + *v4;
+    ++v4;
+    --v7;
+  }
+  while ( v7 );
 }

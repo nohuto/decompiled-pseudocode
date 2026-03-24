@@ -1,24 +1,23 @@
 /*
- * XREFs of PsReferencePartitionSafe @ 0x1403606EC
+ * XREFs of PsReferencePartitionSafe @ 0x1402AC004
  * Callers:
- *     PsGetNextPartition @ 0x140236710 (PsGetNextPartition.c)
- *     CcGetPartitionWithCreate @ 0x14023EB0C (CcGetPartitionWithCreate.c)
- *     MiPartitionObjectToPartition @ 0x140264ED0 (MiPartitionObjectToPartition.c)
- *     MiWorkingSetManager @ 0x140267320 (MiWorkingSetManager.c)
- *     MiScanPagefiles @ 0x140268BEC (MiScanPagefiles.c)
- *     MiQueryAddressState @ 0x140318330 (MiQueryAddressState.c)
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
- *     MiCommitExistingVad @ 0x14032C1B0 (MiCommitExistingVad.c)
- *     MmQueryMemoryListInformation @ 0x140360AC0 (MmQueryMemoryListInformation.c)
- *     MiWakeLargePageRebuild @ 0x140397C78 (MiWakeLargePageRebuild.c)
- *     MiReferencePagePartition @ 0x14058DED4 (MiReferencePagePartition.c)
- *     MiObtainFreePages @ 0x140596A58 (MiObtainFreePages.c)
- *     MiContractWsSwapPageFile @ 0x1406EC1C4 (MiContractWsSwapPageFile.c)
- *     MiCreateImageOrDataSection @ 0x1406FDCD0 (MiCreateImageOrDataSection.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
- *     MmQueryVirtualMemory @ 0x1407BA750 (MmQueryVirtualMemory.c)
- *     PsReferencePartitionByHandle @ 0x1407DE8D0 (PsReferencePartitionByHandle.c)
- *     MiFindSpecialPurposeMemoryTypeByPartition @ 0x14096E3D8 (MiFindSpecialPurposeMemoryTypeByPartition.c)
+ *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
+ *     MiCheckTrimUnusedPageFileRegions @ 0x14027318C (MiCheckTrimUnusedPageFileRegions.c)
+ *     MiScanPagefiles @ 0x1402732EC (MiScanPagefiles.c)
+ *     PsGetNextPartition @ 0x1402ABF88 (PsGetNextPartition.c)
+ *     CcGetPartitionWithCreate @ 0x1402BAEB0 (CcGetPartitionWithCreate.c)
+ *     MmQueryMemoryListInformation @ 0x1402D4240 (MmQueryMemoryListInformation.c)
+ *     MiPartitionObjectToPartition @ 0x1402E5F80 (MiPartitionObjectToPartition.c)
+ *     MiCheckZeroFreeRebalance @ 0x140318D50 (MiCheckZeroFreeRebalance.c)
+ *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
+ *     MiWakeLargePageRebuild @ 0x14038D600 (MiWakeLargePageRebuild.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14052F930 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiObtainFreePages @ 0x14053B584 (MiObtainFreePages.c)
+ *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
+ *     PsReferencePartitionByHandle @ 0x140692204 (PsReferencePartitionByHandle.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     MiCreateImageOrDataSection @ 0x140706F10 (MiCreateImageOrDataSection.c)
+ *     MiContractWsSwapPageFile @ 0x14071068C (MiContractWsSwapPageFile.c)
  * Callees:
  *     <none>
  */

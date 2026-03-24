@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCreateEnlistment @ 0x14041BC40
+ * XREFs of ZwCreateEnlistment @ 0x1403FAF60
  * Callers:
- *     DifZwCreateEnlistmentWrapper @ 0x1405EE3D0 (DifZwCreateEnlistmentWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

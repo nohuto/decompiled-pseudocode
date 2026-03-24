@@ -1,21 +1,21 @@
 /*
- * XREFs of MiForceCrashForInvalidAccess @ 0x14084BEC4
+ * XREFs of MiForceCrashForInvalidAccess @ 0x14084BEA4
  * Callers:
- *     MiValidFault @ 0x1400B6DD0 (MiValidFault.c)
+ *     MiValidFault @ 0x1400B6DF0 (MiValidFault.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     PsGetProcessId @ 0x1400A56F0 (PsGetProcessId.c)
- *     IoThreadToProcess @ 0x1400ACF00 (IoThreadToProcess.c)
- *     ZwCreateThreadEx @ 0x1401B98F0 (ZwCreateThreadEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PsGetProcessId @ 0x1400A5710 (PsGetProcessId.c)
+ *     IoThreadToProcess @ 0x1400ACF20 (IoThreadToProcess.c)
+ *     ZwCreateThreadEx @ 0x1401B9910 (ZwCreateThreadEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PsFreezeProcess @ 0x140588E24 (PsFreezeProcess.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PsTerminateProcess @ 0x1406C98F4 (PsTerminateProcess.c)
- *     DbgkQueueUserExceptionReport @ 0x1408106DC (DbgkQueueUserExceptionReport.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140812510 (DbgkWerCaptureLiveKernelDump.c)
- *     KeRequestTerminationProcess @ 0x14084338C (KeRequestTerminationProcess.c)
+ *     PsTerminateProcess @ 0x1406C98D4 (PsTerminateProcess.c)
+ *     DbgkQueueUserExceptionReport @ 0x1408106BC (DbgkQueueUserExceptionReport.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x1408124F0 (DbgkWerCaptureLiveKernelDump.c)
+ *     KeRequestTerminationProcess @ 0x14084336C (KeRequestTerminationProcess.c)
  */
 
 _QWORD *__fastcall MiForceCrashForInvalidAccess(PEPROCESS Process)

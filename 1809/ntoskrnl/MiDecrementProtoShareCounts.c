@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDecrementProtoShareCounts @ 0x1402B5904
+ * XREFs of MiDecrementProtoShareCounts @ 0x1402B5A04
  * Callers:
- *     MiAllocateFileExtents @ 0x1408521D0 (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiDecrementProtoShareCounts(__int64 a1, __int64 a2)

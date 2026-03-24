@@ -1,14 +1,14 @@
 /*
- * XREFs of ColorSpaceTransformInitIdentityTransform @ 0x1C0074330
+ * XREFs of ColorSpaceTransformInitIdentityTransform @ 0x1C00623A0
  * Callers:
- *     ColorSpaceTransformConvert @ 0x1C0012F1C (ColorSpaceTransformConvert.c)
- *     ?ConvertToMatrix_V2@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z @ 0x1C0073D20 (-ConvertToMatrix_V2@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z.c)
- *     ?UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C01C44E0 (-UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z.c)
- *     ?GetDxgiGammaRamp@ADAPTER_DISPLAY@@QEAAJIPEAPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C01E15EC (-GetDxgiGammaRamp@ADAPTER_DISPLAY@@QEAAJIPEAPEBUDXGK_GAMMA_RAMP@@@Z.c)
+ *     ColorSpaceTransformConvert @ 0x1C000B888 (ColorSpaceTransformConvert.c)
+ *     ?ConvertToMatrix_V2@@YAJPEAU_D3DKMDT_GAMMA_RAMP@@0@Z @ 0x1C0061D94 (-ConvertToMatrix_V2@@YAJPEAU_D3DKMDT_GAMMA_RAMP@@0@Z.c)
+ *     ?GetDxgiGammaRamp@ADAPTER_DISPLAY@@QEAAJIPEAPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C0137C5C (-GetDxgiGammaRamp@ADAPTER_DISPLAY@@QEAAJIPEAPEBUDXGK_GAMMA_RAMP@@@Z.c)
+ *     ?UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C013D14C (-UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z.c)
  * Callees:
- *     ?InitializeIdentityLut@@YAJPEAUD3DDDI_DXGI_RGB@@IMM@Z @ 0x1C0073E20 (-InitializeIdentityLut@@YAJPEAUD3DDDI_DXGI_RGB@@IMM@Z.c)
- *     ?InitializeIdentityLut_RGB256x3x16@@YAJPEAU_D3DDDI_GAMMA_RAMP_RGB256x3x16@@@Z @ 0x1C0073E64 (-InitializeIdentityLut_RGB256x3x16@@YAJPEAU_D3DDDI_GAMMA_RAMP_RGB256x3x16@@@Z.c)
- *     ?InitializeIdentityMatrix@@YAJPEAMII@Z @ 0x1C0073EB0 (-InitializeIdentityMatrix@@YAJPEAMII@Z.c)
+ *     ?InitializeIdentityLut@@YAJPEAUD3DDDI_DXGI_RGB@@IMM@Z @ 0x1C0061E90 (-InitializeIdentityLut@@YAJPEAUD3DDDI_DXGI_RGB@@IMM@Z.c)
+ *     ?InitializeIdentityLut_RGB256x3x16@@YAJPEAU_D3DDDI_GAMMA_RAMP_RGB256x3x16@@@Z @ 0x1C0061ED4 (-InitializeIdentityLut_RGB256x3x16@@YAJPEAU_D3DDDI_GAMMA_RAMP_RGB256x3x16@@@Z.c)
+ *     ?InitializeIdentityMatrix@@YAJPEAMII@Z @ 0x1C0061F20 (-InitializeIdentityMatrix@@YAJPEAMII@Z.c)
  */
 
 __int64 __fastcall ColorSpaceTransformInitIdentityTransform(__int64 a1)

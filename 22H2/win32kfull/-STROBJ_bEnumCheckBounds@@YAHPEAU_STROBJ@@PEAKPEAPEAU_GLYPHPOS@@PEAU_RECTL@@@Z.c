@@ -1,86 +1,129 @@
 /*
- * XREFs of ?STROBJ_bEnumCheckBounds@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@PEAU_RECTL@@@Z @ 0x1C02D98A8
+ * XREFs of ?STROBJ_bEnumCheckBounds@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@PEAU_RECTL@@@Z @ 0x1C00CCB34
  * Callers:
- *     EngTextOut @ 0x1C0055630 (EngTextOut.c)
+ *     EngTextOut @ 0x1C00CB720 (EngTextOut.c)
  * Callees:
- *     ?bGlyphOutOfBounds@@YAHPEAVESTROBJ@@PEAU_GLYPHPOS@@PEAU_RECTL@@K@Z @ 0x1C02DA064 (-bGlyphOutOfBounds@@YAHPEAVESTROBJ@@PEAU_GLYPHPOS@@PEAU_RECTL@@K@Z.c)
- *     STROBJ_bEnum @ 0x1C02DBBE0 (STROBJ_bEnum.c)
- *     vGetPosInfo @ 0x1C02DBE00 (vGetPosInfo.c)
+ *     ?bGlyphOutOfBounds@@YAHPEAVESTROBJ@@PEAU_GLYPHPOS@@PEAU_RECTL@@K@Z @ 0x1C00CCD10 (-bGlyphOutOfBounds@@YAHPEAVESTROBJ@@PEAU_GLYPHPOS@@PEAU_RECTL@@K@Z.c)
+ *     STROBJ_bEnum @ 0x1C00CCDA0 (STROBJ_bEnum.c)
+ *     vGetPosInfo @ 0x1C02BEA10 (vGetPosInfo.c)
  */
 
 __int64 __fastcall STROBJ_bEnumCheckBounds(struct _STROBJ *a1, ULONG *pc, PGLYPHPOS *ppgpos, struct _RECTL *a4)
 {
-  PGLYPHPOS *v5; // rbx
-  ULONG *v6; // r13
-  int v8; // r14d
+  PGLYPHPOS *v5; // rbp
   ULONG cGlyphs; // r15d
-  BOOL v10; // eax
-  unsigned int v11; // ebp
-  unsigned int v12; // r12d
-  PGLYPHPOS v13; // rax
-  __int64 v14; // rbx
-  PGLYPHPOS v15; // r13
-  __int64 v16; // rsi
-  BOOL v18; // [rsp+20h] [rbp-58h]
-  PGLYPHPOS v19; // [rsp+28h] [rbp-50h]
+  BOOL v9; // eax
+  PGLYPHPOS v10; // r8
+  __int64 v11; // rbx
+  unsigned int v12; // esi
+  unsigned int v13; // r12d
+  PGLYPHPOS v14; // rbp
+  __int64 v15; // r10
+  ULONG v16; // r11d
+  int v17; // edx
+  __int64 v18; // rax
+  LONG x; // ecx
+  LONG y; // r8d
+  __int64 v21; // rdx
+  GLYPHDEF *v22; // rax
+  GLYPHBITS *pgb; // rdx
+  LONG v24; // r8d
+  LONG v25; // r9d
+  LONG v27; // [rsp+20h] [rbp-58h] BYREF
+  LONG v28; // [rsp+24h] [rbp-54h]
+  PGLYPHPOS v29; // [rsp+28h] [rbp-50h]
+  __int64 v30; // [rsp+30h] [rbp-48h]
+  LONG left; // [rsp+80h] [rbp+8h]
+  int v32; // [rsp+88h] [rbp+10h]
+  unsigned int v34; // [rsp+90h] [rbp+18h]
 
   v5 = ppgpos;
-  v6 = pc;
-  v8 = 1;
   while ( 1 )
   {
     cGlyphs = a1[1].cGlyphs;
-    v10 = STROBJ_bEnum(a1, v6, v5);
-    v11 = *v6;
-    v12 = v10;
-    v18 = v10;
-    v13 = *v5;
-    v14 = 0LL;
-    v19 = v13;
-    if ( *v6 )
+    v9 = STROBJ_bEnum(a1, pc, v5);
+    v10 = *v5;
+    v11 = 0LL;
+    v12 = *pc;
+    v13 = v9;
+    v29 = *v5;
+    if ( v12 )
     {
-      v15 = v13;
+      v14 = v10;
       do
       {
-        if ( !(unsigned int)bGlyphOutOfBounds((struct ESTROBJ *)a1, &v15[v14], a4, cGlyphs + (unsigned int)v14) )
+        if ( !(unsigned int)bGlyphOutOfBounds((struct ESTROBJ *)a1, &v14[v11], a4, cGlyphs + (unsigned int)v11) )
           break;
-        v14 = (unsigned int)(v14 + 1);
+        v11 = (unsigned int)(v11 + 1);
       }
-      while ( (unsigned int)v14 < v11 );
-      v6 = pc;
-      if ( (unsigned int)v14 < v11 )
-        break;
+      while ( (unsigned int)v11 < v12 );
+      v5 = ppgpos;
+      v10 = v29;
     }
-    if ( !v12 )
+    if ( (unsigned int)v11 < v12 )
+      break;
+    if ( !v13 )
     {
-      *v6 = 0;
+      *pc = 0;
       return 0LL;
     }
-    v5 = ppgpos;
   }
-  v16 = (unsigned int)(v14 + 1);
-  if ( (unsigned int)v16 < v11 )
+  v15 = (unsigned int)(v11 + 1);
+  v16 = 1;
+  if ( (unsigned int)v15 < v12 )
   {
-    do
+    v17 = (__int64)a1[4].pwszOrg & 0x1400;
+    v32 = v17;
+    left = a4->left;
+    v34 = v12;
+    while ( 1 )
     {
-      if ( (unsigned int)bGlyphOutOfBounds((struct ESTROBJ *)a1, &v19[v16], a4, (unsigned int)v16 + cGlyphs) )
+      v18 = 3 * v15;
+      x = v10[v15].ptl.x;
+      y = v10[v15].ptl.y;
+      v28 = y;
+      v30 = 3 * v15;
+      v27 = x;
+      if ( !v17 )
+      {
+        v21 = (unsigned int)v15 + cGlyphs;
+        if ( (_DWORD)v21 )
+        {
+          if ( a1->ulCharInc )
+          {
+            vGetPosInfo(a1, v21, &v27);
+            x = v27;
+            v18 = v30;
+            y = v28;
+          }
+        }
+      }
+      v22 = (&v29->pgdf)[v18];
+      pgb = v22->pgb;
+      v24 = v22->pgb->ptlOrigin.y + y;
+      v25 = x + v22->pgb->ptlOrigin.x;
+      if ( v25 < left || v25 + pgb->sizlBitmap.cx > a4->right || v24 < a4->top || v24 + pgb->sizlBitmap.cy > a4->bottom )
         break;
-      ++v8;
-      v16 = (unsigned int)(v16 + 1);
+      v34 = v12;
+      ++v16;
+      v15 = (unsigned int)(v15 + 1);
+      if ( (unsigned int)v15 >= v12 )
+        goto LABEL_19;
+      v10 = v29;
+      v17 = v32;
     }
-    while ( (unsigned int)v16 < v11 );
-    v12 = v18;
-    v6 = pc;
+    v12 = v34;
   }
-  if ( v8 + (int)v14 < v11 )
-    v12 = 1;
-  a1[1].cGlyphs = v14 + v8 + cGlyphs;
-  *ppgpos += (unsigned int)v14;
-  *v6 = v8;
-  if ( ((__int64)a1[4].pwszOrg & 0x1400) == 0 && (cGlyphs || (_DWORD)v14) )
+LABEL_19:
+  if ( v16 + (unsigned int)v11 < v12 )
+    v13 = 1;
+  a1[1].cGlyphs = v11 + v16 + cGlyphs;
+  *v5 += v11;
+  *pc = v16;
+  if ( ((__int64)a1[4].pwszOrg & 0x1400) == 0 && (cGlyphs || (_DWORD)v11) )
   {
     if ( a1->ulCharInc )
-      vGetPosInfo(a1, cGlyphs + (unsigned int)v14, &(*ppgpos)->ptl);
+      vGetPosInfo(a1, cGlyphs + (unsigned int)v11, &(*v5)->ptl);
   }
-  return v12;
+  return v13;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpCorrectErrSrc @ 0x140A5B770
+ * XREFs of HalpCorrectErrSrc @ 0x1409A17B0
  * Callers:
  *     <none>
  * Callees:
- *     HalpCorrectGenericErrSrc @ 0x1403DC24C (HalpCorrectGenericErrSrc.c)
- *     HalpCorrectNMIErrSrc @ 0x1403DC270 (HalpCorrectNMIErrSrc.c)
- *     HalpCorrectMachineCheckErrSrc @ 0x140A5B7B4 (HalpCorrectMachineCheckErrSrc.c)
+ *     HalpCorrectGenericErrSrc @ 0x1403CCC94 (HalpCorrectGenericErrSrc.c)
+ *     HalpCorrectNMIErrSrc @ 0x1403CCCB8 (HalpCorrectNMIErrSrc.c)
+ *     HalpCorrectMachineCheckErrSrc @ 0x1409A17F4 (HalpCorrectMachineCheckErrSrc.c)
  */
 
 __int64 __fastcall HalpCorrectErrSrc(__int64 a1, _DWORD *a2)

@@ -1,21 +1,28 @@
 /*
- * XREFs of MiCreateMemoryEvent @ 0x14081E444
+ * XREFs of MiCreateMemoryEvent @ 0x1407A0C30
  * Callers:
- *     MiInitializeMemoryEvents @ 0x14081E318 (MiInitializeMemoryEvents.c)
+ *     MiInitializeMemoryEvents @ 0x1407A0B04 (MiInitializeMemoryEvents.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ZwCreateEvent @ 0x14041AFA0 (ZwCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     ObCreateSymbolicLink @ 0x1407F38E8 (ObCreateSymbolicLink.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ZwCreateEvent @ 0x1403FA320 (ZwCreateEvent.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ObCreateSymbolicLink @ 0x14068F21C (ObCreateSymbolicLink.c)
  */
 
-__int64 __fastcall MiCreateMemoryEvent(UNICODE_STRING *a1, int a2, void *a3, void *a4, int a5, _QWORD *a6, HANDLE *a7)
+__int64 __fastcall MiCreateMemoryEvent(
+        UNICODE_STRING *a1,
+        int a2,
+        void *a3,
+        void *a4,
+        int a5,
+        struct _DMA_ADAPTER **a6,
+        HANDLE *a7)
 {
   UNICODE_STRING v7; // xmm0
   __int64 v8; // r15
-  PVOID v11; // rbx
-  int v12; // edi
+  struct _DMA_ADAPTER *v11; // rbx
+  int SymbolicLink; // edi
   NTSTATUS v13; // eax
   HANDLE *v14; // rcx
   HANDLE v15; // rcx
@@ -30,8 +37,8 @@ __int64 __fastcall MiCreateMemoryEvent(UNICODE_STRING *a1, int a2, void *a3, voi
   v8 = a2;
   Handle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
-  *(&ObjectAttributes.Attributes + 1) = 0;
   v11 = 0LL;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   EventHandle = 0LL;
   v17 = v7;
   if ( a3 )
@@ -46,19 +53,19 @@ __int64 __fastcall MiCreateMemoryEvent(UNICODE_STRING *a1, int a2, void *a3, voi
   ObjectAttributes.Attributes = 512;
   ObjectAttributes.SecurityDescriptor = a4;
   ObjectAttributes.SecurityQualityOfService = 0LL;
-  v12 = ZwCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
-  if ( v12 >= 0 )
+  SymbolicLink = ZwCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
+  if ( SymbolicLink >= 0 )
   {
     Object = 0LL;
     v13 = ObReferenceObjectByHandle(EventHandle, 2u, (POBJECT_TYPE)ExEventObjectType, 0, &Object, 0LL);
-    v11 = Object;
-    v12 = v13;
+    v11 = (struct _DMA_ADAPTER *)Object;
+    SymbolicLink = v13;
     if ( v13 >= 0 )
     {
       if ( !a5 )
       {
 LABEL_8:
-        v12 = 0;
+        SymbolicLink = 0;
         v14 = a7;
         *a6 = v11;
         v11 = 0LL;
@@ -76,8 +83,8 @@ LABEL_8:
       ObjectAttributes.SecurityQualityOfService = 0LL;
       v18[0] = 1LL;
       v18[2] = v8;
-      v12 = ObCreateSymbolicLink(&Handle, 983041, (__int64)&ObjectAttributes, (__int64)v18, 0);
-      if ( v12 >= 0 )
+      SymbolicLink = ObCreateSymbolicLink((__int64 *)&Handle, 0xF0001u, (int)&ObjectAttributes, (__int64)v18, 0);
+      if ( SymbolicLink >= 0 )
       {
         ObCloseHandle(Handle, 0);
         goto LABEL_8;
@@ -89,6 +96,6 @@ LABEL_9:
   if ( v15 )
     ObCloseHandle(v15, 0);
   if ( v11 )
-    ObfDereferenceObject(v11);
-  return (unsigned int)v12;
+    HalPutDmaAdapter(v11);
+  return (unsigned int)SymbolicLink;
 }

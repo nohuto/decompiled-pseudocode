@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlIpv6StringToAddressA @ 0x1402F3660
+ * XREFs of RtlIpv6StringToAddressA @ 0x1402F3760
  * Callers:
- *     RtlIpv6StringToAddressExA @ 0x1402F3A80 (RtlIpv6StringToAddressExA.c)
+ *     RtlIpv6StringToAddressExA @ 0x1402F3B80 (RtlIpv6StringToAddressExA.c)
  * Callees:
- *     __isascii @ 0x140195EDC (__isascii.c)
- *     isdigit @ 0x140195EF0 (isdigit.c)
- *     isxdigit @ 0x140195FE0 (isxdigit.c)
- *     strtol @ 0x14019801C (strtol.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __isascii @ 0x140195EFC (__isascii.c)
+ *     isdigit @ 0x140195F10 (isdigit.c)
+ *     isxdigit @ 0x140196000 (isxdigit.c)
+ *     strtol @ 0x14019803C (strtol.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 NTSTATUS __stdcall RtlIpv6StringToAddressA(PCSTR S, PCSTR *Terminator, struct in6_addr *Addr)

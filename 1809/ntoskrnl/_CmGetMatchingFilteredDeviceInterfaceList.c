@@ -2,18 +2,18 @@
  * XREFs of _CmGetMatchingFilteredDeviceInterfaceList @ 0x14059ED20
  * Callers:
  *     IopGetDeviceInterfaces @ 0x14059E6C4 (IopGetDeviceInterfaces.c)
- *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1406E5BE0 (_PnpDeviceRaisePropertyChangeEventWorker.c)
- *     PnpDisableDeviceInterfaces @ 0x1406EF41C (PnpDisableDeviceInterfaces.c)
- *     PiDevCfgConfigureDeviceInterfaces @ 0x1406F9FC4 (PiDevCfgConfigureDeviceInterfaces.c)
- *     _CmGetMatchingDeviceInterfaceList @ 0x140760E28 (_CmGetMatchingDeviceInterfaceList.c)
- *     PnpDeleteDeviceInterfaces @ 0x140825AFC (PnpDeleteDeviceInterfaces.c)
- *     _CmDeleteDeviceWorker @ 0x1408F75DC (_CmDeleteDeviceWorker.c)
- *     _CmDeleteInterfaceClassWorker @ 0x1408F80DC (_CmDeleteInterfaceClassWorker.c)
+ *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1406E5BC0 (_PnpDeviceRaisePropertyChangeEventWorker.c)
+ *     PnpDisableDeviceInterfaces @ 0x1406EF3FC (PnpDisableDeviceInterfaces.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x1406F9FA4 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     _CmGetMatchingDeviceInterfaceList @ 0x140760E08 (_CmGetMatchingDeviceInterfaceList.c)
+ *     PnpDeleteDeviceInterfaces @ 0x140825ADC (PnpDeleteDeviceInterfaces.c)
+ *     _CmDeleteDeviceWorker @ 0x1408F75BC (_CmDeleteDeviceWorker.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x1408F80BC (_CmDeleteInterfaceClassWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x14074A2C0 (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x14074A2A0 (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
  */
 
 __int64 __fastcall CmGetMatchingFilteredDeviceInterfaceList(

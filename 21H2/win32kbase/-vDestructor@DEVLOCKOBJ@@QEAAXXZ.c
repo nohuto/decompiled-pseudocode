@@ -1,60 +1,65 @@
 /*
- * XREFs of ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C001BAA4
+ * XREFs of ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003B0DC
  * Callers:
- *     GreGetClipBox @ 0x1C001BC60 (GreGetClipBox.c)
- *     pProcessDfbSurfacesInternal @ 0x1C0061CD0 (pProcessDfbSurfacesInternal.c)
- *     GreGetNearestColor @ 0x1C0062D20 (GreGetNearestColor.c)
- *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C016AAA0 (--1DEVLOCKOBJ@@QEAA@XZ.c)
- *     ?vClearSurface@PDEVOBJ@@QEAAXXZ @ 0x1C016B0B8 (-vClearSurface@PDEVOBJ@@QEAAXXZ.c)
- *     GreSetMagicColors @ 0x1C0175868 (GreSetMagicColors.c)
+ *     GreGetNearestColor @ 0x1C00202A0 (GreGetNearestColor.c)
+ *     GreGetClipBox @ 0x1C003A0D0 (GreGetClipBox.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C003B0A8 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     pProcessDfbSurfacesInternal @ 0x1C00BE530 (pProcessDfbSurfacesInternal.c)
+ *     ?vClearSurface@PDEVOBJ@@QEAAXXZ @ 0x1C013E10C (-vClearSurface@PDEVOBJ@@QEAAXXZ.c)
+ *     GreSetMagicColors @ 0x1C0149538 (GreSetMagicColors.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0023390 (W32GetThreadWin32Thread.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0178D70 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     IsThreadCrossSessionAttached @ 0x1C0030000 (IsThreadCrossSessionAttached.c)
+ *     GreDecLockCount @ 0x1C003D8C0 (GreDecLockCount.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall DEVLOCKOBJ::vDestructor(DEVLOCKOBJ *this, __int64 a2, int a3)
+void __fastcall DEVLOCKOBJ::vDestructor(DEVLOCKOBJ *this)
 {
+  int v2; // edi
+  int v3; // eax
   int v4; // eax
-  __int64 *ThreadWin32Thread; // rax
-  __int64 v6; // rax
-  __int64 *v7; // rax
-  __int64 v8; // rax
-  int v9; // eax
-  __int64 v10; // r9
-  struct _ERESOURCE *v11; // rcx
-  __int64 v12; // rax
+  int v5; // eax
+  __int64 v6; // rdx
+  struct _ERESOURCE *v7; // rcx
+  __int64 ThreadWin32Thread; // rax
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 *v10; // rax
+  __int64 v11; // rax
 
-  if ( qword_1C029B0A0 && (int)qword_1C029B0A0() >= 0 && qword_1C029B0A8 )
-    qword_1C029B0A8(this);
+  v2 = -1073741637;
+  if ( qword_1C0256320 )
+    v3 = qword_1C0256320();
+  else
+    v3 = -1073741637;
+  if ( v3 >= 0 && qword_1C0256328 )
+    qword_1C0256328(this);
   v4 = *((_DWORD *)this + 6);
   if ( (v4 & 0x1000) != 0 )
   {
-    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
     if ( ThreadWin32Thread )
-    {
-      v6 = *ThreadWin32Thread;
-      if ( v6 )
-        --*(_DWORD *)(v6 + 104);
-    }
+      --*(_DWORD *)(ThreadWin32Thread + 104);
     *((_DWORD *)this + 6) &= ~0x1000u;
-    v7 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( v7 )
+    CurrentThread = KeGetCurrentThread();
+    if ( !IsThreadCrossSessionAttached() )
     {
-      v8 = *v7;
-      if ( v8 )
+      v10 = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+      if ( v10 )
       {
-        *(_QWORD *)(v8 + 320) = 0LL;
-        *(_QWORD *)(v8 + 312) = 0LL;
+        v11 = *v10;
+        if ( v11 )
+        {
+          *(_QWORD *)(v11 + 320) = 0LL;
+          *(_QWORD *)(v11 + 312) = 0LL;
+        }
       }
     }
   }
   else if ( (v4 & 0x800000) != 0 )
   {
-    v12 = W32GetThreadWin32Thread(KeGetCurrentThread());
-    if ( v12 )
-      --*(_DWORD *)(v12 + 104);
+    GreDecLockCount();
     *((_DWORD *)this + 6) &= ~0x800000u;
   }
   if ( *(_QWORD *)this )
@@ -66,25 +71,25 @@ void __fastcall DEVLOCKOBJ::vDestructor(DEVLOCKOBJ *this, __int64 a2, int a3)
       PsLeavePriorityRegion();
     }
   }
-  v9 = *((_DWORD *)this + 6);
-  if ( (v9 & 8) != 0 )
-    *((_DWORD *)this + 6) = v9 & 0xFFFFFFF7;
-  v10 = *((_QWORD *)this + 1);
-  if ( v10 )
+  v5 = *((_DWORD *)this + 6);
+  if ( (v5 & 8) != 0 )
+    *((_DWORD *)this + 6) = v5 & 0xFFFFFFF7;
+  v6 = *((_QWORD *)this + 1);
+  if ( v6 )
   {
-    v11 = (struct _ERESOURCE *)*((_QWORD *)this + 1);
-    if ( !gbLockEtw
-      || (Microsoft_Windows_Win32kEnableBits & 0x10) == 0
-      || (McTemplateK0pz_EtwWriteTransfer((_DWORD)v11, (unsigned int)&LockRelease, a3, v10, (__int64)L"hsemDMC"),
-          (v11 = (struct _ERESOURCE *)*((_QWORD *)this + 1)) != 0LL) )
+    EtwTraceGreLockReleaseSemaphore(L"hsemDMC", v6);
+    v7 = (struct _ERESOURCE *)*((_QWORD *)this + 1);
+    if ( v7 )
     {
-      ExReleaseResourceAndLeaveCriticalRegion(v11);
+      ExReleaseResourceAndLeaveCriticalRegion(v7);
       PsLeavePriorityRegion();
     }
   }
-  if ( qword_1C029B0B0 && (int)qword_1C029B0B0() >= 0 )
+  if ( qword_1C0256330 )
+    v2 = qword_1C0256330();
+  if ( v2 >= 0 )
   {
-    if ( qword_1C029B0B8 )
-      qword_1C029B0B8((char *)this + 104, (char *)this + 96, (char *)this + 88, (char *)this + 28);
+    if ( qword_1C0256338 )
+      qword_1C0256338((char *)this + 104, (char *)this + 96, (char *)this + 88, (char *)this + 28);
   }
 }

@@ -1,22 +1,17 @@
 /*
- * XREFs of HalpInterruptGetX2ApicPolicy @ 0x140378BFC
+ * XREFs of HalpInterruptGetX2ApicPolicy @ 0x1403A194C
  * Callers:
- *     HalSocRequestConfigurationData @ 0x140378418 (HalSocRequestConfigurationData.c)
+ *     HalSocRequestConfigurationData @ 0x1403A179C (HalSocRequestConfigurationData.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HalpHvIsX2ApicRecommended @ 0x14050B248 (HalpHvIsX2ApicRecommended.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 bool HalpInterruptGetX2ApicPolicy()
 {
-  char v0; // r11
-  char v1; // r10
+  int v5; // ecx
 
-  v0 = 0;
-  v1 = 0;
   _RAX = 1LL;
   __asm { cpuid }
-  if ( (_RCX & 0x200000) != 0 && (HalpIommuX2ApicSupport || (unsigned __int8)HalpHvIsX2ApicRecommended(_RCX, _RDX)) )
-    v1 = 1;
-  return HalpInterruptX2ApicPolicy != v0 && HalpHvCpuManager == v0 && v1 != 0;
+  v5 = _RCX & 0x200000;
+  return HalpInterruptX2ApicPolicy && !HalpHvCpuManager && v5;
 }

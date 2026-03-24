@@ -1,37 +1,37 @@
 /*
- * XREFs of AslpProcessMatchRegNode @ 0x140A56B50
+ * XREFs of AslpProcessMatchRegNode @ 0x14096A1C4
  * Callers:
- *     AslRegWildcardFindNext @ 0x140A563E8 (AslRegWildcardFindNext.c)
+ *     AslRegWildcardFindNext @ 0x140969B00 (AslRegWildcardFindNext.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     AslAlloc @ 0x1407589A8 (AslAlloc.c)
- *     AslStringPatternMatchExW @ 0x1407C6DFC (AslStringPatternMatchExW.c)
- *     AslRegistryGetKey @ 0x14084F2CC (AslRegistryGetKey.c)
- *     AslRegistryEnumKey @ 0x140A54290 (AslRegistryEnumKey.c)
- *     AslRegistryOpenSubKey @ 0x140A54660 (AslRegistryOpenSubKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     AslStringPatternMatchW @ 0x140752F0C (AslStringPatternMatchW.c)
+ *     AslAlloc @ 0x14075A888 (AslAlloc.c)
+ *     AslRegistryGetKey @ 0x1407C253C (AslRegistryGetKey.c)
+ *     AslRegistryEnumKey @ 0x140967CFC (AslRegistryEnumKey.c)
+ *     AslRegistryOpenSubKey @ 0x140967F20 (AslRegistryOpenSubKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AslpProcessMatchRegNode(__int64 a1, __int64 a2)
 {
-  _QWORD *v3; // rsi
+  _QWORD *v3; // rbx
   void *v4; // rcx
-  int Key; // ebp
-  wchar_t *Buffer; // rsi
+  int Key; // ebx
+  wchar_t *Buffer; // r14
   __int64 v7; // rcx
   __int64 v8; // rax
   wchar_t *v9; // rax
   __int64 v10; // rdx
   __int64 v11; // rcx
-  void *v12; // r15
-  _WORD *v13; // rax
-  int v14; // eax
-  __int16 v15; // r11
+  void *v12; // rbp
+  __int16 *v13; // rax
+  __int16 v14; // bx
+  int v15; // eax
   __int64 v16; // rax
   const WCHAR *v17; // rdx
   void *v18; // rcx
-  UNICODE_STRING Destination; // [rsp+30h] [rbp-28h] BYREF
+  UNICODE_STRING Destination; // [rsp+30h] [rbp-18h] BYREF
 
   Destination = 0LL;
   if ( *(_QWORD *)(a1 + 8) == a2 )
@@ -69,12 +69,13 @@ __int64 __fastcall AslpProcessMatchRegNode(__int64 a1, __int64 a2)
       Key = AslRegistryEnumKey(Buffer, v10, v12, *(_DWORD *)(a1 + 40));
       if ( Key < 0 )
         break;
-      v13 = *(_WORD **)(a1 + 24);
+      v13 = *(__int16 **)(a1 + 24);
       ++*(_DWORD *)(a1 + 40);
+      v14 = *v13;
       *v13 = 0;
-      v14 = AslStringPatternMatchExW(*(__int16 **)(a1 + 16), Buffer);
-      **(_WORD **)(a1 + 24) = v15;
-      if ( v14 )
+      v15 = AslStringPatternMatchW(*(unsigned __int16 **)(a1 + 16), Buffer);
+      **(_WORD **)(a1 + 24) = v14;
+      if ( v15 )
       {
         v16 = -1LL;
         do

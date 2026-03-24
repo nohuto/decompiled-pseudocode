@@ -1,11 +1,10 @@
 /*
- * XREFs of HalpIommuLocateFromDevice @ 0x14084667C
+ * XREFs of HalpIommuLocateFromDevice @ 0x140765500
  * Callers:
- *     IommuCreateAtsDevice @ 0x1405251A0 (IommuCreateAtsDevice.c)
- *     IommuMapDevice @ 0x1405264A0 (IommuMapDevice.c)
- *     HalpQueryIommuReservedRegionInformation @ 0x140846600 (HalpQueryIommuReservedRegionInformation.c)
+ *     IommuMapDevice @ 0x1404D8E90 (IommuMapDevice.c)
+ *     HalpQueryIommuReservedRegionInformation @ 0x140765484 (HalpQueryIommuReservedRegionInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuLocateFromDevice(__int64 a1, __int64 *a2, __int64 a3)

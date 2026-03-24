@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpValidateRegistryDword @ 0x1402088DC
+ * XREFs of PnpValidateRegistryDword @ 0x14039A9C8
  * Callers:
- *     PnpGetRegistryDword @ 0x1403D2D2C (PnpGetRegistryDword.c)
- *     PiDevCfgVerifyService @ 0x14067996C (PiDevCfgVerifyService.c)
- *     PiDevCfgVerifyDeviceAllowed @ 0x14069760C (PiDevCfgVerifyDeviceAllowed.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x140697824 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgMigrateDevice @ 0x1406E2EEC (PiDevCfgMigrateDevice.c)
- *     PiDevCfgResolveVariableDeviceProperty @ 0x1406E67F0 (PiDevCfgResolveVariableDeviceProperty.c)
- *     PipDmgInitReadGroupPolicy @ 0x140949330 (PipDmgInitReadGroupPolicy.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14094B864 (PiDevCfgFindDeviceMigrationNode.c)
- *     PiDevCfgMakeServiceBootStart @ 0x14094C79C (PiDevCfgMakeServiceBootStart.c)
- *     PiDevCfgMigrateRootDevice @ 0x14094C9C4 (PiDevCfgMigrateRootDevice.c)
- *     PiDevCfgQueryPolicyEnabled @ 0x14094D458 (PiDevCfgQueryPolicyEnabled.c)
- *     PiDevCfgQueryPolicyStringList @ 0x14094D4C8 (PiDevCfgQueryPolicyStringList.c)
+ *     PnpGetRegistryDword @ 0x1403B738C (PnpGetRegistryDword.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1407675E4 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgMigrateDevice @ 0x14076E804 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgVerifyService @ 0x14077BC80 (PiDevCfgVerifyService.c)
+ *     PiDevCfgResolveVariableDeviceProperty @ 0x14077BE90 (PiDevCfgResolveVariableDeviceProperty.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x14077C328 (PiDevCfgVerifyDeviceAllowed.c)
+ *     PipDmgInitReadGroupPolicy @ 0x1408A3530 (PipDmgInitReadGroupPolicy.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1408A5E04 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgMakeServiceBootStart @ 0x1408A6DF4 (PiDevCfgMakeServiceBootStart.c)
+ *     PiDevCfgMigrateRootDevice @ 0x1408A701C (PiDevCfgMigrateRootDevice.c)
+ *     PiDevCfgQueryPolicyEnabled @ 0x1408A7AD4 (PiDevCfgQueryPolicyEnabled.c)
+ *     PiDevCfgQueryPolicyStringList @ 0x1408A7B44 (PiDevCfgQueryPolicyStringList.c)
  * Callees:
  *     <none>
  */

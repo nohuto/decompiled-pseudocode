@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlCheckOplockForFsFilterCallback @ 0x14067E390
+ * XREFs of FsRtlCheckOplockForFsFilterCallback @ 0x1405CD900
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteAgg @ 0x140212EB4 (_tlgWriteAgg.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402FE830 (FsRtlpOplockBreakByCacheFlags.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1402D55B0 (FsRtlpOplockBreakByCacheFlags.c)
+ *     _tlgWriteAgg @ 0x14036D53C (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall FsRtlCheckOplockForFsFilterCallback(__int64 *a1, __int64 a2, unsigned int a3)
@@ -20,27 +20,27 @@ __int64 __fastcall FsRtlCheckOplockForFsFilterCallback(__int64 *a1, __int64 a2, 
   int v9; // r15d
   __int64 v10; // r8
   int v11; // r9d
-  int v12; // r10d
+  __int64 v12; // r10
   __int64 v13; // r11
-  PEVENT_DATA_DESCRIPTOR v14; // [rsp+20h] [rbp-198h]
-  char v15[4]; // [rsp+80h] [rbp-138h] BYREF
-  int v16; // [rsp+84h] [rbp-134h] BYREF
-  int v17; // [rsp+88h] [rbp-130h] BYREF
-  _DWORD v18[3]; // [rsp+8Ch] [rbp-12Ch] BYREF
-  __int64 v19; // [rsp+98h] [rbp-120h] BYREF
-  _QWORD v20[2]; // [rsp+A0h] [rbp-118h] BYREF
-  _QWORD v21[10]; // [rsp+B0h] [rbp-108h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v22; // [rsp+100h] [rbp-B8h] BYREF
-  __int64 *v23; // [rsp+120h] [rbp-98h]
-  __int64 v24; // [rsp+128h] [rbp-90h]
-  int *v25; // [rsp+130h] [rbp-88h]
-  __int64 v26; // [rsp+138h] [rbp-80h]
-  int *v27; // [rsp+140h] [rbp-78h]
-  __int64 v28; // [rsp+148h] [rbp-70h]
-  _DWORD *v29; // [rsp+150h] [rbp-68h]
-  __int64 v30; // [rsp+158h] [rbp-60h]
-  _QWORD *v31; // [rsp+160h] [rbp-58h]
-  __int64 v32; // [rsp+168h] [rbp-50h]
+  PEVENT_DATA_DESCRIPTOR v14; // [rsp+20h] [rbp-188h]
+  char v15[4]; // [rsp+70h] [rbp-138h] BYREF
+  int v16; // [rsp+74h] [rbp-134h] BYREF
+  int v17; // [rsp+78h] [rbp-130h] BYREF
+  _DWORD v18[3]; // [rsp+7Ch] [rbp-12Ch] BYREF
+  __int64 v19; // [rsp+88h] [rbp-120h] BYREF
+  _QWORD v20[2]; // [rsp+90h] [rbp-118h] BYREF
+  _QWORD v21[10]; // [rsp+A0h] [rbp-108h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v22; // [rsp+F0h] [rbp-B8h] BYREF
+  __int64 *v23; // [rsp+110h] [rbp-98h]
+  __int64 v24; // [rsp+118h] [rbp-90h]
+  int *v25; // [rsp+120h] [rbp-88h]
+  __int64 v26; // [rsp+128h] [rbp-80h]
+  int *v27; // [rsp+130h] [rbp-78h]
+  __int64 v28; // [rsp+138h] [rbp-70h]
+  _DWORD *v29; // [rsp+140h] [rbp-68h]
+  __int64 v30; // [rsp+148h] [rbp-60h]
+  _QWORD *v31; // [rsp+150h] [rbp-58h]
+  __int64 v32; // [rsp+158h] [rbp-50h]
 
   v5 = 0;
   v6 = *a1;
@@ -61,15 +61,15 @@ __int64 __fastcall FsRtlCheckOplockForFsFilterCallback(__int64 *a1, __int64 a2, 
       v21[6] = *(_QWORD *)(a2 + 16);
       if ( *(_BYTE *)(a2 + 4) == 0xFF && *(_DWORD *)(a2 + 24) == 1 && (*(_DWORD *)(a2 + 28) & 0x44) != 0 )
       {
-        if ( (unsigned int)dword_140C03768 > 5 && tlgKeywordOn((__int64)&dword_140C03768, 0x400000000000LL) )
+        if ( (unsigned int)dword_140C021A0 > 5 && tlgKeywordOn((__int64)&dword_140C021A0, 0x400000000000LL) )
         {
-          v19 = 1LL;
+          v19 = v12;
           v23 = &v19;
           v24 = 8LL;
-          v16 = v11;
+          v16 = v12;
           v25 = &v16;
           v26 = v13;
-          v17 = v12;
+          v17 = v11;
           v27 = &v17;
           v28 = v13;
           v18[0] = v9;
@@ -78,7 +78,7 @@ __int64 __fastcall FsRtlCheckOplockForFsFilterCallback(__int64 *a1, __int64 a2, 
           v20[0] = 0x1000000LL;
           v31 = v20;
           v32 = 8LL;
-          tlgWriteAgg((__int64)&dword_140C03768, (unsigned __int8 *)&word_14002B35E, v10, v13 + 3, &v22);
+          tlgWriteAgg((__int64)&dword_140C021A0, (unsigned __int8 *)&byte_14002443F, v10, v13 + 3, &v22);
         }
         LODWORD(v14) = 0;
         v5 = FsRtlpOplockBreakByCacheFlags(
@@ -87,9 +87,7 @@ __int64 __fastcall FsRtlCheckOplockForFsFilterCallback(__int64 *a1, __int64 a2, 
                0LL,
                a3,
                (__int64)v14,
-               0x5000u,
-               0LL,
-               0LL,
+               20480,
                0LL,
                0LL,
                0LL,

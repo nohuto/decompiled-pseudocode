@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Convert_D2D1_COLOR_F_sRGB_To_D2D1_COLOR_F_scRGB@@YA?AU_D3DCOLORVALUE@@AEBU1@@Z @ 0x18027F9B8
+ * XREFs of ?Convert_D2D1_COLOR_F_sRGB_To_D2D1_COLOR_F_scRGB@@YA?AU_D3DCOLORVALUE@@AEBU1@@Z @ 0x18021EAF8
  * Callers:
- *     InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___ @ 0x18026772C (InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___.c)
- *     InterpolateInLinearGamma__lambda_d9ec8cec7b93f46268f106f2fd316fdd___ @ 0x180267824 (InterpolateInLinearGamma__lambda_d9ec8cec7b93f46268f106f2fd316fdd___.c)
+ *     InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___ @ 0x180206280 (InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___.c)
+ *     InterpolateInLinearGamma__lambda_d9ec8cec7b93f46268f106f2fd316fdd___ @ 0x180206368 (InterpolateInLinearGamma__lambda_d9ec8cec7b93f46268f106f2fd316fdd___.c)
  * Callees:
- *     floorf_0 @ 0x18011B8D8 (floorf_0.c)
+ *     floor @ 0x1800E7ED8 (floor.c)
  */
 
 struct _D3DCOLORVALUE *__fastcall Convert_D2D1_COLOR_F_sRGB_To_D2D1_COLOR_F_scRGB(
@@ -14,13 +14,15 @@ struct _D3DCOLORVALUE *__fastcall Convert_D2D1_COLOR_F_sRGB_To_D2D1_COLOR_F_scRG
   int v4; // ecx
   unsigned __int8 v5; // bl
   unsigned __int8 v6; // al
-  int v7; // ecx
-  unsigned __int8 v8; // al
-  int v9; // eax
-  float v10; // xmm0_4
+  float g; // xmm1_4
+  int v8; // ecx
+  unsigned __int8 v9; // al
+  float b; // xmm1_4
+  int v11; // eax
+  float v12; // xmm0_4
   struct _D3DCOLORVALUE *result; // rax
 
-  v4 = (int)floorf_0((float)(a2->r * 255.0) + 0.5);
+  v4 = (int)floor((float)(a2->r * 255.0) + 0.5);
   v5 = -1;
   if ( v4 <= 255 )
   {
@@ -32,29 +34,31 @@ struct _D3DCOLORVALUE *__fastcall Convert_D2D1_COLOR_F_sRGB_To_D2D1_COLOR_F_scRG
   {
     v6 = -1;
   }
+  g = a2->g;
   retstr->r = GammaLUT_sRGB_to_scRGB[v6] / 255.0;
-  v7 = (int)floorf_0((float)(a2->g * 255.0) + 0.5);
-  if ( v7 <= 255 )
+  v8 = (int)floor((float)(g * 255.0) + 0.5);
+  if ( v8 <= 255 )
   {
-    v8 = 0;
-    if ( v7 >= 0 )
-      v8 = v7;
+    v9 = 0;
+    if ( v8 >= 0 )
+      v9 = v8;
   }
   else
   {
-    v8 = -1;
+    v9 = -1;
   }
-  retstr->g = GammaLUT_sRGB_to_scRGB[v8] / 255.0;
-  v9 = (int)floorf_0((float)(a2->b * 255.0) + 0.5);
-  if ( v9 <= 255 )
+  b = a2->b;
+  retstr->g = GammaLUT_sRGB_to_scRGB[v9] / 255.0;
+  v11 = (int)floor((float)(b * 255.0) + 0.5);
+  if ( v11 <= 255 )
   {
     v5 = 0;
-    if ( v9 >= 0 )
-      v5 = v9;
+    if ( v11 >= 0 )
+      v5 = v11;
   }
-  v10 = GammaLUT_sRGB_to_scRGB[v5];
+  v12 = GammaLUT_sRGB_to_scRGB[v5];
   retstr->a = a2->a;
   result = retstr;
-  retstr->b = v10 / 255.0;
+  retstr->b = v12 / 255.0;
   return result;
 }

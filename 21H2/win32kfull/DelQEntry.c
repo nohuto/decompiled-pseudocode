@@ -1,73 +1,70 @@
 /*
- * XREFs of DelQEntry @ 0x1C005BE3C
+ * XREFs of DelQEntry @ 0x1C006684C
  * Callers:
- *     EditionDelQEntry @ 0x1C00039E0 (EditionDelQEntry.c)
- *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0054A60 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
- *     FindQMsg @ 0x1C0057C00 (FindQMsg.c)
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C0058FB0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     ?xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z @ 0x1C00AB408 (-xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z.c)
- *     ?AdjustForCoalescing@@YAXPEAUtagMLIST@@PEAUHWND__@@I@Z @ 0x1C00AC9C8 (-AdjustForCoalescing@@YAXPEAUtagMLIST@@PEAUHWND__@@I@Z.c)
- *     DestroyThreadsMessages @ 0x1C00F6000 (DestroyThreadsMessages.c)
- *     FreeMessageList @ 0x1C00F60B0 (FreeMessageList.c)
- *     SuspendThreadQueue @ 0x1C0105CE0 (SuspendThreadQueue.c)
- *     _anonymous_namespace_::RemoveEventMessage @ 0x1C01095EC (_anonymous_namespace_--RemoveEventMessage.c)
- *     ?_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C016B120 (-_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
- *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01DBF48 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
- *     ?TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01DC5A0 (-TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z.c)
- *     ?DelegateDiscardMessages@@YAXPEAUtagQ@@HPEAUtagDELEGATEPOINTERMAP@@@Z @ 0x1C01E9DA0 (-DelegateDiscardMessages@@YAXPEAUtagQ@@HPEAUtagDELEGATEPOINTERMAP@@@Z.c)
- *     ?DiscardPointerMessage@@YA?AW4tagINPUTMESSAGE_RETRIEVE_RETVAL@@PEAUtagTHREADINFO@@PEAUtagQMSG@@PEAUtagWND@@PEAUtagMSG@@@Z @ 0x1C01EB954 (-DiscardPointerMessage@@YA-AW4tagINPUTMESSAGE_RETRIEVE_RETVAL@@PEAUtagTHREADINFO@@PEAUtagQMSG@@P.c)
- *     DelegateCoalescePointerMessage @ 0x1C01EC898 (DelegateCoalescePointerMessage.c)
- *     NtUserGetRawInputBuffer @ 0x1C01F6020 (NtUserGetRawInputBuffer.c)
+ *     EditionDelQEntry @ 0x1C0007A20 (EditionDelQEntry.c)
+ *     _anonymous_namespace_::RemoveEventMessage @ 0x1C003ADE8 (_anonymous_namespace_--RemoveEventMessage.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0054A40 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     FindQMsg @ 0x1C00582A0 (FindQMsg.c)
+ *     ?xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z @ 0x1C00662E8 (-xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z.c)
+ *     DestroyThreadsMessages @ 0x1C00C16B0 (DestroyThreadsMessages.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C2120 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     ?AdjustForCoalescing@@YAXPEAUtagMLIST@@PEAUHWND__@@I@Z @ 0x1C00DA9C8 (-AdjustForCoalescing@@YAXPEAUtagMLIST@@PEAUHWND__@@I@Z.c)
+ *     FreeMessageList @ 0x1C010D820 (FreeMessageList.c)
+ *     SuspendThreadQueue @ 0x1C0117790 (SuspendThreadQueue.c)
+ *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01E0D20 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
+ *     ?TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01E131C (-TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z.c)
+ *     ?_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C01E1860 (-_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
+ *     ?DelegateDiscardMessages@@YAXPEAUtagQ@@HPEAUtagDELEGATEPOINTERMAP@@@Z @ 0x1C01EF694 (-DelegateDiscardMessages@@YAXPEAUtagQ@@HPEAUtagDELEGATEPOINTERMAP@@@Z.c)
+ *     ?DiscardPointerMessage@@YA?AW4tagINPUTMESSAGE_RETRIEVE_RETVAL@@PEAUtagTHREADINFO@@PEAUtagQMSG@@PEAUtagWND@@PEAUtagMSG@@@Z @ 0x1C01F0E44 (-DiscardPointerMessage@@YA-AW4tagINPUTMESSAGE_RETRIEVE_RETVAL@@PEAUtagTHREADINFO@@PEAUtagQMSG@@P.c)
+ *     DelegateCoalescePointerMessage @ 0x1C01F1F38 (DelegateCoalescePointerMessage.c)
+ *     NtUserGetRawInputBuffer @ 0x1C01FB5C0 (NtUserGetRawInputBuffer.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_qiqdd @ 0x1C005806C (WPP_RECORDER_AND_TRACE_SF_qiqdd.c)
- *     IsPointerInputMessage @ 0x1C00AC3A0 (IsPointerInputMessage.c)
- *     FreePointerMessageParams @ 0x1C01EA2A8 (FreePointerMessageParams.c)
+ *     WPP_RECORDER_SF_qiqdd @ 0x1C0058670 (WPP_RECORDER_SF_qiqdd.c)
+ *     FreeQEntry @ 0x1C0065D58 (FreeQEntry.c)
+ *     IsHiddenByInputService @ 0x1C0066924 (IsHiddenByInputService.c)
  */
 
-__int64 __fastcall DelQEntry(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall DelQEntry(unsigned int **a1, unsigned int *a2, int a3)
 {
-  _QWORD *v5; // rdx
+  _QWORD *v6; // rcx
   __int64 result; // rax
-  char v7; // dl
-  int v8; // [rsp+20h] [rbp-58h]
-  int v9; // [rsp+28h] [rbp-50h]
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  int v10; // [rsp+40h] [rbp-18h]
+  int v11; // [rsp+48h] [rbp-10h]
 
-  v5 = *(_QWORD **)(a2 + 8);
-  if ( v5 )
-    *v5 = *(_QWORD *)a2;
+  v6 = (_QWORD *)*((_QWORD *)a2 + 1);
+  if ( v6 )
+    *v6 = *(_QWORD *)a2;
   if ( *(_QWORD *)a2 )
-    *(_QWORD *)(*(_QWORD *)a2 + 8LL) = *(_QWORD *)(a2 + 8);
-  if ( *(_QWORD *)a1 == a2 )
-    *(_QWORD *)a1 = *(_QWORD *)a2;
-  if ( *(_QWORD *)(a1 + 8) == a2 )
-    *(_QWORD *)(a1 + 8) = *(_QWORD *)(a2 + 8);
-  result = *(unsigned int *)(a2 + 100);
-  if ( (result & 0x2000) == 0 && (result & 0x4000) == 0 && (result & 0x10000) == 0 )
+    *(_QWORD *)(*(_QWORD *)a2 + 8LL) = *((_QWORD *)a2 + 1);
+  if ( *a1 == a2 )
+    *a1 = *(unsigned int **)a2;
+  if ( a1[1] == a2 )
+    a1[1] = (unsigned int *)*((_QWORD *)a2 + 1);
+  result = IsHiddenByInputService(a2);
+  if ( !(_DWORD)result )
   {
-    --*(_DWORD *)(a1 + 16);
-    v7 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) != 0
-      && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    result = (__int64)&WPP_RECORDER_INITIALIZED;
-    if ( v7 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      result = (__int64)WPP_RECORDER_AND_TRACE_SF_qiqdd(
-                          (__int64)WPP_GLOBAL_Control->AttachedDevice,
-                          v7,
-                          WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-                          (__int64)WPP_GLOBAL_Control,
-                          v8,
-                          v9,
-                          0x14u,
-                          (__int64)&WPP_d6b06c2d77c33863c5663f3e1e5963a9_Traceguids);
+    result = (unsigned int)(*(_DWORD *)(v8 + 16) - 1);
+    *(_DWORD *)(v8 + 16) = result;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v11 = result;
+      v10 = *(_DWORD *)(v8 + 20);
+      result = WPP_RECORDER_SF_qiqdd(
+                 (__int64)&WPP_RECORDER_INITIALIZED,
+                 v8,
+                 v9,
+                 0x14u,
+                 (__int64)&WPP_fae14e43e2df34d42d304f3db5b27b93_Traceguids,
+                 a2,
+                 *((_QWORD *)a2 + 17),
+                 v8,
+                 v10,
+                 v11);
+    }
   }
   if ( a3 )
-  {
-    if ( (*(_DWORD *)(a2 + 100) & 8) != 0 && !*(_DWORD *)(a2 + 96) )
-    {
-      if ( (unsigned int)IsPointerInputMessage(*(unsigned int *)(a2 + 24)) )
-        FreePointerMessageParams(a2);
-    }
-    return Win32FreeToPagedLookasideList(QEntryLookaside, a2);
-  }
+    return FreeQEntry(a2);
   return result;
 }

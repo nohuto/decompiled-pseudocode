@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CaptureUsermodeParameters@EscapeRequest@@UEAAXPEAX@Z @ 0x1C02DC090
+ * XREFs of ?CaptureUsermodeParameters@EscapeRequest@@UEAAXPEAX@Z @ 0x1C02DF2A0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 void __fastcall EscapeRequest::CaptureUsermodeParameters(EscapeRequest *this, _QWORD *a2)

@@ -1,35 +1,45 @@
 /*
- * XREFs of ExMapHandleToPointer @ 0x1407A1AC0
+ * XREFs of ExMapHandleToPointer @ 0x14061BB00
  * Callers:
- *     PspJobDelete @ 0x140207100 (PspJobDelete.c)
- *     RtlpFreeHandleForAtom @ 0x1406AB574 (RtlpFreeHandleForAtom.c)
- *     ExMapHandleToPointerEx @ 0x1406BB808 (ExMapHandleToPointerEx.c)
- *     RtlpInsertStringAtom @ 0x1406C5878 (RtlpInsertStringAtom.c)
- *     PspClearProcessThreadCidRefs @ 0x1407A0920 (PspClearProcessThreadCidRefs.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x1407A1A30 (RtlpAtomMapAtomToHandleEntry.c)
- *     ObSetHandleAttributes @ 0x1407A1B10 (ObSetHandleAttributes.c)
- *     ObQueryObjectAuditingByHandle @ 0x1407A2A70 (ObQueryObjectAuditingByHandle.c)
- *     PspThreadDelete @ 0x1407A41E0 (PspThreadDelete.c)
- *     PspProcessDelete @ 0x1407E0F30 (PspProcessDelete.c)
+ *     PspJobDelete @ 0x140287530 (PspJobDelete.c)
+ *     PspProcessDelete @ 0x1406136C0 (PspProcessDelete.c)
+ *     ExMapHandleToPointerEx @ 0x140616680 (ExMapHandleToPointerEx.c)
+ *     PspThreadDelete @ 0x140619920 (PspThreadDelete.c)
+ *     ObpCloseHandle @ 0x14061ABC0 (ObpCloseHandle.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x14061BA60 (RtlpAtomMapAtomToHandleEntry.c)
+ *     PspClearProcessThreadCidRefs @ 0x14064CB80 (PspClearProcessThreadCidRefs.c)
+ *     ObQueryObjectAuditingByHandle @ 0x140684FE0 (ObQueryObjectAuditingByHandle.c)
+ *     ObSetHandleAttributes @ 0x1406918A0 (ObSetHandleAttributes.c)
+ *     RtlpFreeHandleForAtom @ 0x1406A159C (RtlpFreeHandleForAtom.c)
+ *     RtlpInsertStringAtom @ 0x1406ACC5C (RtlpInsertStringAtom.c)
  * Callees:
- *     ExLockHandleTableEntry @ 0x1402F344C (ExLockHandleTableEntry.c)
- *     ExpLookupHandleTableEntry @ 0x140733340 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140685788 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x1406F11F0 (ExpLookupHandleTableEntry.c)
  */
 
-_QWORD *__fastcall ExMapHandleToPointer(unsigned int *a1, __int64 a2)
+signed __int64 *__fastcall ExMapHandleToPointer(__int64 a1, __int64 a2)
 {
-  _QWORD *v2; // rax
-  __int64 v3; // r9
-  _QWORD *v4; // rbx
+  signed __int64 *v3; // rbx
+  signed __int64 v4; // r8
 
-  if ( (a2 & 0x3FC) != 0
-    && (v2 = (_QWORD *)ExpLookupHandleTableEntry(a1, a2), (v4 = v2) != 0LL)
-    && ExLockHandleTableEntry(v3, v2) )
-  {
-    return v4;
-  }
-  else
-  {
+  if ( (a2 & 0x3FC) == 0 )
     return 0LL;
+  v3 = (signed __int64 *)ExpLookupHandleTableEntry(a1, a2);
+  if ( !v3 )
+    return 0LL;
+  do
+  {
+    while ( 1 )
+    {
+      _m_prefetchw(v3);
+      v4 = *v3;
+      if ( (*v3 & 1) != 0 )
+        break;
+      if ( !v4 )
+        return 0LL;
+      ExpBlockOnLockedHandleEntry(a1, v3);
+    }
   }
+  while ( v4 != _InterlockedCompareExchange64(v3, v4 - 1, v4) );
+  return v3;
 }

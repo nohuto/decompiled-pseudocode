@@ -1,43 +1,50 @@
 /*
- * XREFs of ?CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z @ 0x1C017FD98
+ * XREFs of ?CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z @ 0x1C01395BC
  * Callers:
- *     ?_QueryStringHash@CCD_SET_STRING_ID@@CAJAEBU_STRING@@PEAUD3DKMT_HASH@@@Z @ 0x1C017FD00 (-_QueryStringHash@CCD_SET_STRING_ID@@CAJAEBU_STRING@@PEAUD3DKMT_HASH@@@Z.c)
- *     ?CcdCreateMd5Checksum@@YAJPEBEIPEAG@Z @ 0x1C0181114 (-CcdCreateMd5Checksum@@YAJPEBEIPEAG@Z.c)
- *     ?GetMonitorHashsForPath@CCD_TOPOLOGY@@QEAAJU_LUID@@IPEAIPEAUD3DKMT_HASH@@@Z @ 0x1C0182F40 (-GetMonitorHashsForPath@CCD_TOPOLOGY@@QEAAJU_LUID@@IPEAIPEAUD3DKMT_HASH@@@Z.c)
+ *     ?CcdCreateMd5Checksum@@YAJPEBEIPEAG@Z @ 0x1C0139414 (-CcdCreateMd5Checksum@@YAJPEBEIPEAG@Z.c)
+ *     ?_QueryStringHash@CCD_SET_STRING_ID@@CAJAEBU_STRING@@PEAUD3DKMT_HASH@@@Z @ 0x1C0139524 (-_QueryStringHash@CCD_SET_STRING_ID@@CAJAEBU_STRING@@PEAUD3DKMT_HASH@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?DX_MD5Final@@YAXPEAUMD5_CTX@@@Z @ 0x1C017FE54 (-DX_MD5Final@@YAXPEAUMD5_CTX@@@Z.c)
- *     ?DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z @ 0x1C017FF68 (-DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?DX_MD5Final@@YAXPEAUMD5_CTX@@@Z @ 0x1C0139688 (-DX_MD5Final@@YAXPEAUMD5_CTX@@@Z.c)
+ *     ?DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z @ 0x1C013A07C (-DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z.c)
  */
 
 __int64 __fastcall CcdCreateMd5Checksum(const unsigned __int8 *a1, unsigned int a2, unsigned __int8 *a3)
 {
-  __int64 v6; // rax
-  __int64 v7; // rbx
+  char *v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  char *v11; // rbx
+  __int64 v13; // rax
 
   if ( !a1 || !a3 )
     return 3221225485LL;
-  v6 = operator new[](0x68uLL, 0x63644356u, 256LL);
-  v7 = v6;
+  v6 = (char *)operator new[](0x68uLL, 0x63644356u, PagedPool);
+  v11 = v6;
   if ( v6 )
   {
+    memset(v6 + 24, 0, 0x50uLL);
     *(_OWORD *)a3 = 0LL;
-    *(_DWORD *)(v6 + 4) = 0;
-    *(_DWORD *)v6 = 0;
-    *(_DWORD *)(v6 + 8) = 1732584193;
-    *(_DWORD *)(v6 + 12) = -271733879;
-    *(_DWORD *)(v6 + 16) = -1732584194;
-    *(_DWORD *)(v6 + 20) = 271733878;
-    DX_MD5Update((struct MD5_CTX *)v6, a1, a2);
-    DX_MD5Final((struct MD5_CTX *)v7);
-    *(_OWORD *)a3 = *(_OWORD *)(v7 + 88);
-    operator delete((void *)v7);
+    *((_DWORD *)v11 + 1) = 0;
+    *(_DWORD *)v11 = 0;
+    *((_DWORD *)v11 + 2) = 1732584193;
+    *((_DWORD *)v11 + 3) = -271733879;
+    *((_DWORD *)v11 + 4) = -1732584194;
+    *((_DWORD *)v11 + 5) = 271733878;
+    DX_MD5Update((struct MD5_CTX *)v11, a1, a2);
+    DX_MD5Final((struct MD5_CTX *)v11);
+    *(_OWORD *)a3 = *(_OWORD *)(v11 + 88);
+    operator delete(v11);
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry0(6LL);
+    v13 = WdLogNewEntry5_WdLowResource(v8, v7, v9, v10);
+    WdLogEvent5_WdLowResource(v13);
     return 3221225495LL;
   }
 }

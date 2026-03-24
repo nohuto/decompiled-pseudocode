@@ -1,37 +1,41 @@
 /*
- * XREFs of MiRelockProtoPoolPage @ 0x1402EF244
+ * XREFs of MiRelockProtoPoolPage @ 0x14029A708
  * Callers:
- *     MiWaitForCollidedFaultComplete @ 0x1402EF008 (MiWaitForCollidedFaultComplete.c)
- *     MiIdealClusterPage @ 0x14066A500 (MiIdealClusterPage.c)
+ *     MiFinishHardFault @ 0x140239200 (MiFinishHardFault.c)
+ *     MiCopyDataPageToImagePage @ 0x140284A68 (MiCopyDataPageToImagePage.c)
+ *     MiWaitForCollidedFaultComplete @ 0x1402E2190 (MiWaitForCollidedFaultComplete.c)
+ *     MiIdealClusterPage @ 0x140555D54 (MiIdealClusterPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiLockOwnedProtoPage @ 0x1402DD410 (MiLockOwnedProtoPage.c)
- *     MiAddLockedPageCharge @ 0x1402EF368 (MiAddLockedPageCharge.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiLockOwnedProtoPage @ 0x14029A9B0 (MiLockOwnedProtoPage.c)
+ *     MiAddLockedPageCharge @ 0x14029AA98 (MiAddLockedPageCharge.c)
  */
 
-__int64 __fastcall MiRelockProtoPoolPage(__int64 a1, unsigned __int8 *a2)
+__int64 __fastcall MiRelockProtoPoolPage(__int64 a1, char *a2, __int64 a3, _DWORD *a4)
 {
-  unsigned __int8 v4; // si
-  int v6; // [rsp+30h] [rbp+8h] BYREF
+  char v6; // si
+  __int64 v7; // rdx
+  int v9; // [rsp+30h] [rbp+8h] BYREF
 
   if ( a2 )
   {
-    v4 = MiLockPageInline(a1);
-    *a2 = v4;
+    v6 = MiLockPageInline(a1, (__int64)a2, a3, a4);
+    *a2 = v6;
   }
   else
   {
-    v6 = 0;
-    v4 = 17;
+    v9 = 0;
+    v6 = 17;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v6);
+        KeYieldProcessorEx(&v9, (__int64)a2, a3, (__int64)a4);
       while ( *(__int64 *)(a1 + 24) < 0 );
     }
   }
   MiAddLockedPageCharge(a1, 1LL);
-  MiLockOwnedProtoPage(a1, v4);
+  LOBYTE(v7) = v6;
+  MiLockOwnedProtoPage(a1, v7);
   return a1;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpCommitCR3Worker @ 0x140A5A2A4
+ * XREFs of HalpCommitCR3Worker @ 0x1409995EC
  * Callers:
- *     HalpMmBuildTiledMemoryMap @ 0x140A54CD8 (HalpMmBuildTiledMemoryMap.c)
- *     HalpCommitCR3Worker @ 0x140A5A2A4 (HalpCommitCR3Worker.c)
+ *     HalpCommitCR3Worker @ 0x1409995EC (HalpCommitCR3Worker.c)
+ *     HalpMmBuildTiledMemoryMap @ 0x14099A1BC (HalpMmBuildTiledMemoryMap.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     HalpCommitCR3Worker @ 0x140A5A2A4 (HalpCommitCR3Worker.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     HalpCommitCR3Worker @ 0x1409995EC (HalpCommitCR3Worker.c)
  */
 
 void __fastcall HalpCommitCR3Worker(void **a1, unsigned int a2)
@@ -26,7 +26,7 @@ void __fastcall HalpCommitCR3Worker(void **a1, unsigned int a2)
         HalpCommitCR3Worker(v5, a2 - 1);
         v5 = *a1;
       }
-      *a1 = (void *)(MmGetPhysicalAddress(v5).QuadPart & 0xFFFFFFFFFF000LL);
+      *a1 = (void *)(MmGetPhysicalAddress(v5).QuadPart & 0xFFFFFFFFF000LL);
       v6 = 1LL;
       v7 = 2LL;
       do

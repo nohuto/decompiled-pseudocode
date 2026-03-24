@@ -1,13 +1,13 @@
 /*
- * XREFs of imp_WdfDeviceConfigureWdmIrpDispatchCallback @ 0x1C0062E30
+ * XREFs of imp_WdfDeviceConfigureWdmIrpDispatchCallback @ 0x1C0047750
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_cd @ 0x1C0062784 (WPP_IFR_SF_cd.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
- *     ?ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU_IRP@@2@Z2@Z @ 0x1C00811D0 (-ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     WPP_IFR_SF_cd @ 0x1C0046B2C (WPP_IFR_SF_cd.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU_IRP@@2@Z2@Z @ 0x1C0074A60 (-ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU.c)
  */
 
 __int64 __fastcall imp_WdfDeviceConfigureWdmIrpDispatchCallback(
@@ -19,24 +19,29 @@ __int64 __fastcall imp_WdfDeviceConfigureWdmIrpDispatchCallback(
         void *DriverContext)
 {
   _LIST_ENTRY *Flink; // rbx
-  FxDevice *_a1; // rdx
+  unsigned __int8 v9; // dl
+  FxDevice *_a1; // r10
   _FX_DRIVER_GLOBALS *m_Globals; // rdi
-  unsigned int v11; // ebx
-  unsigned __int16 v12; // r9
+  unsigned int v12; // ebx
+  unsigned __int16 v13; // r9
   FxDriver *pDriver; // [rsp+40h] [rbp-18h] BYREF
   void *retaddr; // [rsp+58h] [rbp+0h]
   FxDevice *pDevice; // [rsp+60h] [rbp+8h] BYREF
 
   pDevice = 0LL;
   Flink = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Device, 0x1002u, (void **)&pDevice);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Device,
+    0x1002u,
+    (void **)&pDevice);
   _a1 = pDevice;
   m_Globals = pDevice->m_Globals;
   if ( MajorFunction < 3u || MajorFunction > 4u && (unsigned __int8)(MajorFunction - 14) > 1u )
   {
-    v11 = -1073741811;
-    WPP_IFR_SF_cd(m_Globals, (unsigned __int8)pDevice, 0xCu, 0x3Cu, WPP_FxDeviceApi_cpp_Traceguids, MajorFunction);
-    return v11;
+    v12 = -1073741811;
+    WPP_IFR_SF_cd(m_Globals, v9, 0xCu, 0x3Cu, WPP_FxDeviceApi_cpp_Traceguids, MajorFunction);
+    return v12;
   }
   if ( Driver )
   {
@@ -65,8 +70,8 @@ LABEL_8:
   {
     if ( _a1->m_CurrentPnpState != WdfDevStatePnpInit )
     {
-      v11 = -1073741436;
-      v12 = 62;
+      v12 = -1073741436;
+      v13 = 62;
       goto LABEL_14;
     }
     return (unsigned int)FxPkgIo::ConfigureDynamicDispatching(
@@ -83,9 +88,9 @@ LABEL_8:
                            (FxCxDeviceInfo *)Flink,
                            EvtDeviceWdmIrpDispatch,
                            DriverContext);
-  v11 = -1073741436;
-  v12 = 61;
+  v12 = -1073741436;
+  v13 = 61;
 LABEL_14:
-  WPP_IFR_SF_qL(m_Globals, 2u, 0xCu, v12, WPP_FxDeviceApi_cpp_Traceguids, _a1, 0xC0000184);
-  return v11;
+  WPP_IFR_SF_qL(m_Globals, 2u, 0xCu, v13, WPP_FxDeviceApi_cpp_Traceguids, _a1, 0xC0000184);
+  return v12;
 }

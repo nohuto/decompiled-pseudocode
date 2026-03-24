@@ -1,9 +1,8 @@
 /*
- * XREFs of ??0VIDSCH_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR@@QEAA@PEAU_VIDSCH_INDEPENDENT_FLIP_STATE@@@Z @ 0x1C0019AE0
+ * XREFs of ??0VIDSCH_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR@@QEAA@PEAU_VIDSCH_INDEPENDENT_FLIP_STATE@@@Z @ 0x1C003298C
  * Callers:
- *     VidSchEnterIndependentFlip @ 0x1C0019440 (VidSchEnterIndependentFlip.c)
- *     VidSchExitIndependentFlipInternal @ 0x1C00197B0 (VidSchExitIndependentFlipInternal.c)
- *     VidSchCancelPresentAtFlips @ 0x1C003C650 (VidSchCancelPresentAtFlips.c)
+ *     VidSchEnterIndependentFlip @ 0x1C00343C0 (VidSchEnterIndependentFlip.c)
+ *     VidSchExitIndependentFlipInternal @ 0x1C003494C (VidSchExitIndependentFlipInternal.c)
  * Callees:
  *     <none>
  */

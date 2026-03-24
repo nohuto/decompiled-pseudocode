@@ -1,9 +1,9 @@
 /*
- * XREFs of RIMGetFeatureReport @ 0x1C0188F70
+ * XREFs of RIMGetFeatureReport @ 0x1C015DC88
  * Callers:
- *     RIMGetMaxCountFeatureDetails @ 0x1C01890E0 (RIMGetMaxCountFeatureDetails.c)
+ *     RIMGetMaxCountFeatureDetails @ 0x1C015DDA8 (RIMGetMaxCountFeatureDetails.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
  */
 
 NTSTATUS __fastcall RIMGetFeatureReport(
@@ -15,19 +15,17 @@ NTSTATUS __fastcall RIMGetFeatureReport(
 {
   ULONG OutputBufferLength; // ebx
   PIRP v8; // rax
-  int v9; // r8d
-  int v10; // edx
+  int v9; // edx
   NTSTATUS result; // eax
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-38h] BYREF
   struct _KEVENT Object; // [rsp+60h] [rbp-28h] BYREF
 
   LOBYTE(Timeout->LowPart) = a3;
   OutputBufferLength = a2;
-  memset(&Object, 0, sizeof(Object));
   IoStatusBlock = 0LL;
   KeInitializeEvent(&Object, NotificationEvent, 0);
   v8 = IoBuildDeviceIoControlRequest(0xB0192u, a4, 0LL, 0, Timeout, OutputBufferLength, 0, &Object, &IoStatusBlock);
-  v10 = (int)v8;
+  v9 = (int)v8;
   if ( v8 )
   {
     v8->Tail.Overlay.CurrentStackLocation[-1].FileObject = a5;
@@ -40,21 +38,10 @@ NTSTATUS __fastcall RIMGetFeatureReport(
   }
   else
   {
-    LOBYTE(v10) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-               && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-               && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-    if ( (_BYTE)v10 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v9) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v10,
-        v9,
-        (_DWORD)gRimLog,
-        3,
-        1,
-        35,
-        (__int64)&WPP_30f9ddf97da63da78d93eb777283153b_Traceguids);
+      LOBYTE(v9) = 3;
+      WPP_RECORDER_SF_((_DWORD)gRimLog, v9, 1, 35, (__int64)&WPP_55b2fa568459373c5b96b2ba3eae63fb_Traceguids);
     }
     return -1073741668;
   }

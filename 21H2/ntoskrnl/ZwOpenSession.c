@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwOpenSession @ 0x14041DDC0
+ * XREFs of ZwOpenSession @ 0x1403FC940
  * Callers:
- *     PnpInitializeNotifyEntry @ 0x140768894 (PnpInitializeNotifyEntry.c)
+ *     PnpInitializeNotifyEntry @ 0x1406C4D64 (PnpInitializeNotifyEntry.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?HideDDAVisuals@CComposition@@QEBAXXZ @ 0x18012DE60
+ * XREFs of ?HideDDAVisuals@CComposition@@QEBAXXZ @ 0x180155740
  * Callers:
- *     ?Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801F9888 (-Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EEC74 (-Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
  * Callees:
- *     ?HideVisuals@CVisualGroup@@QEAAXXZ @ 0x1801320C8 (-HideVisuals@CVisualGroup@@QEAAXXZ.c)
+ *     ?HideVisuals@CVisualGroup@@QEAAXXZ @ 0x1801ABD80 (-HideVisuals@CVisualGroup@@QEAAXXZ.c)
  */
 
 void __fastcall CComposition::HideDDAVisuals(CComposition *this)
 {
   CVisualGroup *v1; // rcx
 
-  v1 = (CVisualGroup *)*((_QWORD *)this + 126);
+  v1 = (CVisualGroup *)*((_QWORD *)g_pComposition + 107);
   if ( v1 )
     CVisualGroup::HideVisuals(v1);
 }

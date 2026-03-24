@@ -1,16 +1,16 @@
 /*
- * XREFs of WmipGenerateRegistrationNotification @ 0x14075D8DC
+ * XREFs of WmipGenerateRegistrationNotification @ 0x140757920
  * Callers:
- *     WmipAddDataSource @ 0x14075D1B4 (WmipAddDataSource.c)
- *     WmipRemoveDS @ 0x1408104C0 (WmipRemoveDS.c)
+ *     WmipRemoveDS @ 0x14075529C (WmipRemoveDS.c)
+ *     WmipAddDataSource @ 0x1407568A8 (WmipAddDataSource.c)
  * Callees:
- *     WmipCachePtrs @ 0x14075D9BC (WmipCachePtrs.c)
- *     WmipEnableCollectionForNewGuid @ 0x14075DA88 (WmipEnableCollectionForNewGuid.c)
- *     WmipSendGuidUpdateNotifications @ 0x14075DBD8 (WmipSendGuidUpdateNotifications.c)
- *     WmipUnreferenceEntry @ 0x1407838E0 (WmipUnreferenceEntry.c)
- *     WmipReferenceEntry @ 0x140784160 (WmipReferenceEntry.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x14080EEFC (WmipDisableCollectionForRemovedGuid.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x14063EBE4 (WmipReferenceEntry.c)
+ *     WmipCachePtrs @ 0x140757A00 (WmipCachePtrs.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140757ACC (WmipEnableCollectionForNewGuid.c)
+ *     WmipSendGuidUpdateNotifications @ 0x140757C1C (WmipSendGuidUpdateNotifications.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x140758114 (WmipDisableCollectionForRemovedGuid.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipGenerateRegistrationNotification(ULONG_PTR a1, unsigned int a2)
@@ -58,5 +58,5 @@ __int64 __fastcall WmipGenerateRegistrationNotification(ULONG_PTR a1, unsigned i
   WmipSendGuidUpdateNotifications(a2, v4, v5);
   if ( v5 )
     ExFreePoolWithTag(v5, 0);
-  return WmipUnreferenceEntry(&WmipDSChunkInfo, a1);
+  return WmipUnreferenceEntry((__int64)&WmipDSChunkInfo, (volatile signed __int64 *)a1);
 }

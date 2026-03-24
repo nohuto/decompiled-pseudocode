@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprLogStartEvent @ 0x1408355C0
+ * XREFs of PnprLogStartEvent @ 0x1408355A0
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1408337A0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x140833780 (PnpReplacePartitionUnit.c)
  * Callees:
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PnprLogStartEvent(__int64 a1, __int64 a2)

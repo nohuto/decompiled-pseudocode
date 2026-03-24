@@ -1,40 +1,33 @@
 /*
- * XREFs of KdpSymbol @ 0x140A6F61C
+ * XREFs of KdpSymbol @ 0x1409B99C0
  * Callers:
- *     KdpTrap @ 0x140A6F1FC (KdpTrap.c)
+ *     KdpTrap @ 0x1409BAA20 (KdpTrap.c)
  * Callees:
- *     KiRestoreProcessorControlState @ 0x14041F650 (KiRestoreProcessorControlState.c)
- *     KiSaveProcessorControlState @ 0x14041F720 (KiSaveProcessorControlState.c)
- *     KdpCopyContext @ 0x140A6F708 (KdpCopyContext.c)
- *     KdEnterDebugger @ 0x140A6F7A0 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x140A6F900 (KdExitDebugger.c)
- *     KdpReportLoadSymbolsStateChange @ 0x140A6FA44 (KdpReportLoadSymbolsStateChange.c)
+ *     KiRestoreProcessorControlState @ 0x1403FE170 (KiRestoreProcessorControlState.c)
+ *     KiSaveProcessorControlState @ 0x1403FE240 (KiSaveProcessorControlState.c)
+ *     KdEnterDebugger @ 0x1409B7028 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1409B7190 (KdExitDebugger.c)
+ *     KdpReportLoadSymbolsStateChange @ 0x1409B7DD0 (KdpReportLoadSymbolsStateChange.c)
+ *     KdpCopyContext @ 0x1409B9B28 (KdpCopyContext.c)
  */
 
-void __fastcall KdpSymbol(__int64 a1, __int64 a2, char a3, char a4, __int64 a5, __int64 a6, __int64 a7)
+void __fastcall KdpSymbol(__int64 a1, __int64 a2, char a3, char a4, __int64 a5, __int64 a6)
 {
-  char v10; // al
-  struct _KPRCB *CurrentPrcb; // rsi
-  char v12; // r14
-  int v13; // edx
-  __int64 v14; // r8
-  int v15; // ebx
-  __int64 v16; // rcx
+  bool v9; // al
+  struct _KPRCB *CurrentPrcb; // rdi
+  char v11; // bp
+  int v12; // edx
 
   if ( !a4 && !(_BYTE)KdDebuggerNotPresent )
   {
-    v10 = KdEnterDebugger(a6, a7);
+    v9 = KdEnterDebugger(a6);
     CurrentPrcb = KeGetCurrentPrcb();
-    v12 = v10;
-    KiSaveProcessorControlState((__int64)&CurrentPrcb->ProcessorState, v13);
-    KdpCopyContext(CurrentPrcb->Context, CurrentPrcb->ContextFlagsInit & *(_DWORD *)(a5 + 48), a5);
-    LOBYTE(v14) = a3;
-    KdpReportLoadSymbolsStateChange(a1, a2, v14, CurrentPrcb->Context);
-    v15 = *(_DWORD *)(a5 + 48);
-    KdpCopyContext(a5, CurrentPrcb->ContextFlagsInit & v15, CurrentPrcb->Context);
-    *(_DWORD *)(a5 + 48) = v15;
+    v11 = v9;
+    KiSaveProcessorControlState((__int64)&CurrentPrcb->ProcessorState, v12);
+    KdpCopyContext(CurrentPrcb->Context, *(unsigned int *)(a5 + 48), a5);
+    KdpReportLoadSymbolsStateChange(a1, a2, a3, (__int64)CurrentPrcb->Context);
+    KdpCopyContext(a5, CurrentPrcb->Context->ContextFlags, CurrentPrcb->Context);
     KiRestoreProcessorControlState((__int64)&CurrentPrcb->ProcessorState);
-    LOBYTE(v16) = v12;
-    KdExitDebugger(v16);
+    KdExitDebugger(v11);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCompareString @ 0x1406D7E90
+ * XREFs of RtlCompareString @ 0x1405EC6B0
  * Callers:
- *     KsepGetModuleInfoByName @ 0x140977654 (KsepGetModuleInfoByName.c)
+ *     KsepGetModuleInfoByName @ 0x1408C0D78 (KsepGetModuleInfoByName.c)
  * Callees:
- *     RtlUpperChar @ 0x1406D8590 (RtlUpperChar.c)
+ *     RtlUpperChar @ 0x1405ED5E0 (RtlUpperChar.c)
  */
 
 LONG __stdcall RtlCompareString(const STRING *String1, const STRING *String2, BOOLEAN CaseInSensitive)

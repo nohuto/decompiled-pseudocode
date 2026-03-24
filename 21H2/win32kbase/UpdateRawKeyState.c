@@ -1,10 +1,10 @@
 /*
- * XREFs of UpdateRawKeyState @ 0x1C00A2908
+ * XREFs of UpdateRawKeyState @ 0x1C0095008
  * Callers:
- *     xxxProcessKeyEvent @ 0x1C00CABA0 (xxxProcessKeyEvent.c)
- *     ?ApplyKeyStateUpdate@@YAXE_N@Z @ 0x1C01EC470 (-ApplyKeyStateUpdate@@YAXE_N@Z.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1220 (xxxProcessKeyEvent.c)
+ *     ?ApplyKeyStateUpdate@@YAXE_N@Z @ 0x1C01B3E3C (-ApplyKeyStateUpdate@@YAXE_N@Z.c)
  * Callees:
- *     ApiSetEditionUpdateModifiersForHotkey @ 0x1C00A299C (ApiSetEditionUpdateModifiersForHotkey.c)
+ *     ApiSetEditionUpdateModifiersForHotkey @ 0x1C009509C (ApiSetEditionUpdateModifiersForHotkey.c)
  */
 
 __int64 __fastcall UpdateRawKeyState(unsigned __int8 a1, unsigned __int8 a2)

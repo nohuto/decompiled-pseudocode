@@ -1,115 +1,108 @@
 /*
- * XREFs of ?GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z @ 0x1C0060078
+ * XREFs of ?GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z @ 0x1C001DCA0
  * Callers:
- *     hCreateSolidBrushInternal @ 0x1C0060550 (hCreateSolidBrushInternal.c)
- *     GreSetSolidBrush @ 0x1C00D1630 (GreSetSolidBrush.c)
+ *     hCreateSolidBrushInternal @ 0x1C001D000 (hCreateSolidBrushInternal.c)
+ *     GreSetSolidBrush @ 0x1C001DC80 (GreSetSolidBrush.c)
+ *     SetSysColor @ 0x1C0020850 (SetSysColor.c)
  * Callees:
- *     HmgSafeNextObjt @ 0x1C0035C80 (HmgSafeNextObjt.c)
- *     GreReleaseHmgrSemaphore @ 0x1C00427F0 (GreReleaseHmgrSemaphore.c)
- *     GreAcquireHmgrSemaphore @ 0x1C0042870 (GreAcquireHmgrSemaphore.c)
- *     ??0HANDLELOCK@@QEAA@PEAVOBJECT@@HHH@Z @ 0x1C0042940 (--0HANDLELOCK@@QEAA@PEAVOBJECT@@HHH@Z.c)
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0043330 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ??0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z @ 0x1C00604A0 (--0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z.c)
- *     ??1BRUSHSELOBJ@@QEAA@XZ @ 0x1C006051C (--1BRUSHSELOBJ@@QEAA@XZ.c)
- *     ?vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C00892E0 (-vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z.c)
+ *     HmgSafeNextObjt @ 0x1C000EF80 (HmgSafeNextObjt.c)
+ *     ??1BRUSHSELOBJ@@QEAA@XZ @ 0x1C001E1B4 (--1BRUSHSELOBJ@@QEAA@XZ.c)
+ *     ??0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z @ 0x1C001E1E8 (--0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z.c)
+ *     ??0HANDLELOCK@@QEAA@PEAVOBJECT@@HHH@Z @ 0x1C002FBA0 (--0HANDLELOCK@@QEAA@PEAVOBJECT@@HHH@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0030700 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C003A090 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C003A1E0 (GreAcquireHmgrSemaphore.c)
+ *     ?vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C0068010 (-vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z.c)
  */
 
 __int64 __fastcall GreSetSolidBrushInternal(HBRUSH a1, int a2, int a3, int a4)
 {
   unsigned int v7; // r15d
-  __int64 v8; // rcx
-  struct OBJECT *v9; // rbx
-  unsigned int v10; // eax
-  volatile signed __int32 *v11; // rdi
-  unsigned int v12; // esi
-  __int64 v13; // rcx
-  __int64 v14; // rcx
-  signed __int32 v15; // eax
-  bool v16; // zf
-  int v18; // ecx
-  __int64 v19; // rcx
-  unsigned int v20; // eax
-  __int64 v21; // [rsp+30h] [rbp-68h] BYREF
-  _BYTE v22[8]; // [rsp+38h] [rbp-60h] BYREF
-  int v23; // [rsp+40h] [rbp-58h]
-  struct OBJECT *v24[6]; // [rsp+50h] [rbp-48h] BYREF
+  struct OBJECT *v8; // rbx
+  unsigned int v9; // eax
+  volatile signed __int32 *v10; // rdi
+  unsigned int v11; // esi
+  bool v12; // zf
+  int v14; // ecx
+  __int64 v15; // rcx
+  __int64 Objt; // rax
+  _BYTE v17[8]; // [rsp+30h] [rbp-68h] BYREF
+  int v18; // [rsp+38h] [rbp-60h]
+  struct OBJECT *v19[7]; // [rsp+48h] [rbp-50h] BYREF
 
   v7 = 0;
-  BRUSHSELOBJ::BRUSHSELOBJ((BRUSHSELOBJ *)v24, a1);
-  v9 = v24[0];
-  if ( v24[0] )
+  BRUSHSELOBJ::BRUSHSELOBJ((BRUSHSELOBJ *)v19, a1);
+  v8 = v19[0];
+  if ( v19[0] )
   {
-    v10 = *((_DWORD *)v24[0] + 10);
-    if ( (v10 & 0x10) != 0 && ((v10 & 0x200) == 0 || a4) && ((v10 >> 10) & 1) == a3 )
+    v9 = *((_DWORD *)v19[0] + 10);
+    if ( (v9 & 0x10) != 0 && ((v9 & 0x200) == 0 || a4) && ((v9 >> 10) & 1) == a3 )
     {
-      v11 = 0LL;
-      v12 = 0;
-      GreAcquireHmgrSemaphore(v8);
-      if ( *((_DWORD *)v9 + 2) == 1 || a4 )
+      v10 = 0LL;
+      v11 = 0;
+      GreAcquireHmgrSemaphore();
+      if ( *((_DWORD *)v8 + 2) == 1 || a4 )
       {
-        *((_DWORD *)v9 + 19) = a2;
+        *((_DWORD *)v8 + 19) = a2;
         v7 = 1;
-        HANDLELOCK::HANDLELOCK((HANDLELOCK *)v22, v9, 0, 0, 0);
-        if ( v23 )
+        HANDLELOCK::HANDLELOCK((HANDLELOCK *)v17, v8, 0, 0, 0);
+        if ( v18 )
         {
-          if ( *((_DWORD *)v9 + 2) == 1 )
+          if ( *((_DWORD *)v8 + 2) == 1 )
           {
-            if ( *((_DWORD *)v9 + 25) != -1 )
+            if ( *((_DWORD *)v8 + 25) != -1 )
             {
-              v18 = *((_DWORD *)v9 + 10);
-              if ( v18 >= 0 )
+              v14 = *((_DWORD *)v8 + 10);
+              if ( v14 >= 0 )
               {
-                v11 = (volatile signed __int32 *)*((_QWORD *)v9 + 15);
-                v12 = ((unsigned int)v18 >> 30) & 1;
+                v10 = (volatile signed __int32 *)*((_QWORD *)v8 + 15);
+                v11 = ((unsigned int)v14 >> 30) & 1;
               }
             }
-            *((_DWORD *)v9 + 24) = 0;
-            *((_DWORD *)v9 + 25) = -1;
+            *((_DWORD *)v8 + 24) = 0;
+            *((_DWORD *)v8 + 25) = -1;
             if ( a4 )
             {
-              *((_DWORD *)v9 + 10) &= ~0x80000000;
+              *((_DWORD *)v8 + 10) &= ~0x80000000;
             }
             else
             {
-              *((_DWORD *)v9 + 20) = 7;
-              *((_DWORD *)v9 + 10) = 20;
+              *((_DWORD *)v8 + 20) = 7;
+              *((_DWORD *)v8 + 10) = 20;
             }
           }
           else
           {
-            v19 = 0LL;
-            *((_DWORD *)v9 + 26) = -1;
-            v21 = 0LL;
-            *((_DWORD *)v9 + 27) = -1;
-            *((_DWORD *)v9 + 28) = -1;
+            *((_DWORD *)v8 + 26) = -1;
+            LODWORD(v15) = 0;
+            *((_DWORD *)v8 + 27) = -1;
+            *((_DWORD *)v8 + 28) = -1;
             while ( 1 )
             {
-              v20 = HmgSafeNextObjt(v19, 1, &v21);
-              v19 = v20;
-              if ( !v20 )
+              Objt = HmgSafeNextObjt(v15, 1);
+              if ( !Objt )
                 break;
-              if ( *(struct OBJECT **)(v21 + 1312) == v9 )
-                *(_DWORD *)(v21 + 316) |= 1u;
+              if ( *(struct OBJECT **)(Objt + 1320) == v8 )
+                *(_DWORD *)(Objt + 316) |= 1u;
+              v15 = *(_QWORD *)Objt;
             }
           }
-          HANDLELOCK::vUnlock((HANDLELOCK *)v22);
+          HANDLELOCK::vUnlock((HANDLELOCK *)v17);
         }
-        v13 = *(_QWORD *)(SGDGetSessionState(v14) + 24);
-        v15 = _InterlockedIncrement((volatile signed __int32 *)(v13 + 744));
-        v16 = v23 == 0;
-        *((_DWORD *)v9 + 11) = v15;
-        if ( !v16 )
-          HANDLELOCK::vUnlock((HANDLELOCK *)v22);
+        v12 = v18 == 0;
+        *((_DWORD *)v8 + 11) = _InterlockedIncrement((volatile signed __int32 *)&BRUSH::_ulGlobalBrushUnique);
+        if ( !v12 )
+          HANDLELOCK::vUnlock((HANDLELOCK *)v17);
       }
-      GreReleaseHmgrSemaphore(v13);
-      if ( v11 )
+      GreReleaseHmgrSemaphore();
+      if ( v10 )
       {
-        if ( _InterlockedExchangeAdd(v11, 0xFFFFFFFF) == 1 )
-          RBRUSH::vFreeOrCacheRBrush(v11, v12);
-        *((_QWORD *)v9 + 15) = 0LL;
+        if ( _InterlockedExchangeAdd(v10, 0xFFFFFFFF) == 1 )
+          RBRUSH::vFreeOrCacheRBrush(v10, v11);
+        *((_QWORD *)v8 + 15) = 0LL;
       }
     }
   }
-  BRUSHSELOBJ::~BRUSHSELOBJ((BRUSHSELOBJ *)v24);
+  BRUSHSELOBJ::~BRUSHSELOBJ((BRUSHSELOBJ *)v19);
   return v7;
 }

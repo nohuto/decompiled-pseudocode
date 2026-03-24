@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeLargePageColorSizes @ 0x14017F310
+ * XREFs of MiInitializeLargePageColorSizes @ 0x14017F330
  * Callers:
  *     MiInitializeCacheSizes @ 0x1409BBF1C (MiInitializeCacheSizes.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 MiInitializeLargePageColorSizes()

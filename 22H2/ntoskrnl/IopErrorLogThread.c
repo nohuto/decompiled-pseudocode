@@ -1,21 +1,21 @@
 /*
- * XREFs of IopErrorLogThread @ 0x140872A00
+ * XREFs of IopErrorLogThread @ 0x140754F60
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     RtlStringCchCopyNW @ 0x1402F7ECC (RtlStringCchCopyNW.c)
- *     IopErrorLogGetEntry @ 0x1403C53C4 (IopErrorLogGetEntry.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     IopErrorLogRequeueEntry @ 0x14055EA5C (IopErrorLogRequeueEntry.c)
- *     ObQueryNameStringMode @ 0x14075BD04 (ObQueryNameStringMode.c)
- *     EtwQueryTraceHandleByLoggerName @ 0x1407E5CC4 (EtwQueryTraceHandleByLoggerName.c)
- *     EtwWriteErrorLogEntry @ 0x140872CE8 (EtwWriteErrorLogEntry.c)
- *     IopErrorLogQueueRequest @ 0x140951674 (IopErrorLogQueueRequest.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     IopErrorLogGetEntry @ 0x140371B18 (IopErrorLogGetEntry.c)
+ *     RtlStringCchCopyNW @ 0x140371D50 (RtlStringCchCopyNW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     IopErrorLogRequeueEntry @ 0x14050A2EC (IopErrorLogRequeueEntry.c)
+ *     IopVerifierExAllocatePool_4 @ 0x14050A3B4 (IopVerifierExAllocatePool_4.c)
+ *     ObQueryNameStringMode @ 0x14070FFB0 (ObQueryNameStringMode.c)
+ *     EtwWriteErrorLogEntry @ 0x140754AC8 (EtwWriteErrorLogEntry.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x14078971C (EtwQueryTraceHandleByLoggerName.c)
+ *     IopErrorLogQueueRequest @ 0x1408998C4 (IopErrorLogQueueRequest.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 IopErrorLogThread()
@@ -28,15 +28,15 @@ __int64 IopErrorLogThread()
   char v5; // r12
   UNICODE_STRING *p_P; // r15
   unsigned int v7; // r8d
-  int v8; // eax
-  int v9; // ecx
-  void *v10; // rcx
+  __int64 v8; // rcx
+  struct _DMA_ADAPTER *v9; // rcx
   __int64 result; // rax
-  __int64 v12; // r14
+  __int64 v11; // r14
+  int v12; // eax
   const WCHAR *v13; // rdx
-  __int16 v14; // r9
+  unsigned __int16 v14; // r9
   unsigned int v15; // [rsp+48h] [rbp-C0h] BYREF
-  __int16 v16; // [rsp+4Ch] [rbp-BCh]
+  unsigned __int16 v16; // [rsp+4Ch] [rbp-BCh]
   UNICODE_STRING v17; // [rsp+50h] [rbp-B8h] BYREF
   __int64 v18; // [rsp+60h] [rbp-A8h]
   __int64 v19; // [rsp+68h] [rbp-A0h]
@@ -57,10 +57,10 @@ __int64 IopErrorLogThread()
   {
     while ( 1 )
     {
-LABEL_32:
+LABEL_29:
       v15 = 0;
       result = IopErrorLogGetEntry();
-      v12 = result;
+      v11 = result;
       if ( !result )
         return result;
       v0 = *(_QWORD *)(result + 24);
@@ -99,16 +99,16 @@ LABEL_12:
         if ( (int)ObQueryNameStringMode((char *)v0, (__int64)&v23, 0x110u, &v15, 0) >= 0 && v15 )
         {
           v17 = v23;
-          goto LABEL_42;
+          goto LABEL_41;
         }
-        v13 = &word_1408882A0;
+        v13 = &word_1407D7A40;
       }
       else
       {
         v13 = L"Application Popup";
       }
       RtlInitUnicodeString(&v17, v13);
-LABEL_42:
+LABEL_41:
       Length = v17.Length;
       if ( v17.Length )
         goto LABEL_8;
@@ -118,26 +118,32 @@ LABEL_14:
       v5 = 0;
       p_P = (UNICODE_STRING *)&P;
       v7 = 272;
-      if ( !*(_QWORD *)(v12 + 16) )
-        goto LABEL_34;
+      if ( !*(_QWORD *)(v11 + 16) )
+        goto LABEL_15;
       while ( 1 )
       {
-        v8 = ObQueryNameStringMode(*(char **)(v12 + 16), (__int64)p_P, v7, &v15, 0);
-        if ( v8 != -1073741820 )
+        v12 = ObQueryNameStringMode(*(char **)(v11 + 16), (__int64)p_P, v7, &v15, 0);
+        if ( v12 != -1073741820 )
           break;
         if ( v5 )
-          goto LABEL_34;
-        p_P = (UNICODE_STRING *)ExAllocatePool2(256LL, v15, 538996553LL);
+          goto LABEL_15;
+        p_P = (UNICODE_STRING *)IopVerifierExAllocatePool_4(PagedPool, v15);
         if ( !p_P )
-          goto LABEL_34;
+          goto LABEL_15;
         v7 = v15;
         v5 = 1;
       }
-      if ( v8 >= 0 && v15 )
+      v8 = 0LL;
+      if ( v12 >= 0 && v15 )
+      {
         v20 = *p_P;
+      }
       else
-LABEL_34:
-        RtlInitUnicodeString(&v20, &word_1408882A0);
+      {
+LABEL_15:
+        RtlInitUnicodeString(&v20, &word_1407D7A40);
+        v8 = 0LL;
+      }
       pszDest[0] = 0;
       v25[0] = 0;
       if ( Buffer )
@@ -146,32 +152,32 @@ LABEL_34:
         RtlStringCchCopyNW(v25, 0x100uLL, v20.Buffer, (unsigned __int64)v20.Length >> 1);
       if ( v5 == 1 )
         ExFreePoolWithTag(p_P, 0);
-      if ( (unsigned int)(*(_DWORD *)(v12 + 52) - 1074004004) <= 1 && !wcsicmp(pszDest, L"NTFS") )
+      if ( (unsigned int)(*(_DWORD *)(v11 + 52) - 1074004004) <= 1 && !wcsicmp(pszDest, L"NTFS") )
       {
-        v14 = *(_WORD *)(v12 + 84);
-        *(_WORD *)(v12 + 42) -= v14;
+        v14 = *(_WORD *)(v11 + 84);
+        *(_WORD *)(v11 + 42) -= v14;
         v16 = v14;
-        v19 = v12 + 120;
+        v19 = v11 + 120;
       }
-      if ( (int)EtwWriteErrorLogEntry(v9, (int)v12 + 40, v18, (int)v12 + 32, (__int64)pszDest, (__int64)v25, v16, v19) < 0 )
+      if ( (int)EtwWriteErrorLogEntry(v8, v11 + 40, v18, v11 + 32, (__int64)pszDest, (__int64)v25, v16, v19) < 0 )
       {
-        IopErrorLogRequeueEntry((__int64 *)v12);
+        IopErrorLogRequeueEntry((__int64 *)v11);
         return IopErrorLogQueueRequest();
       }
-      _InterlockedExchangeAdd(&IopErrorLogAllocation, -*(unsigned __int16 *)(v12 - 6));
-      v10 = *(void **)(v12 + 16);
-      if ( v10 )
-        ObfDereferenceObject(v10);
+      _InterlockedExchangeAdd(&IopErrorLogAllocation, -*(unsigned __int16 *)(v11 - 6));
+      v9 = *(struct _DMA_ADAPTER **)(v11 + 16);
+      if ( v9 )
+        HalPutDmaAdapter(v9);
       if ( v21 )
-        ObfDereferenceObject(*(PVOID *)(v12 + 24));
-      ExFreePoolWithTag((PVOID)(v12 - 8), 0);
+        HalPutDmaAdapter(*(PADAPTER_OBJECT *)(v11 + 24));
+      ExFreePoolWithTag((PVOID)(v11 - 8), 0);
     }
   }
   RtlInitUnicodeString(&DestinationString, L"Eventlog-System");
-  if ( (int)EtwQueryTraceHandleByLoggerName((__int64)&DestinationString, &IopErrorLogSession) >= 0 )
+  if ( (int)EtwQueryTraceHandleByLoggerName(&DestinationString, &IopErrorLogSession) >= 0 )
   {
     ErrorLogSessionOpened = 1;
-    goto LABEL_32;
+    goto LABEL_29;
   }
   return IopErrorLogQueueRequest();
 }

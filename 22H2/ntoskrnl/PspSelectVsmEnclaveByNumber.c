@@ -1,19 +1,19 @@
 /*
- * XREFs of PspSelectVsmEnclaveByNumber @ 0x1408A627A
+ * XREFs of PspSelectVsmEnclaveByNumber @ 0x14090E600
  * Callers:
- *     PsCallEnclave @ 0x1409B68B0 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x14090D220 (PsCallEnclave.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PspSelectVsmEnclaveByNumber(__int64 a1, __int64 a2, __int64 *a3)
 {
   struct _KTHREAD *CurrentThread; // rax
-  signed __int64 *v4; // rdi
-  __int64 v8; // rsi
+  __int64 v7; // rsi
+  signed __int64 *v8; // rdi
   __int64 v9; // r11
   int v10; // r10d
   __int64 v11; // rbp
@@ -22,9 +22,9 @@ __int64 __fastcall PspSelectVsmEnclaveByNumber(__int64 a1, __int64 a2, __int64 *
   __int64 v15; // [rsp+50h] [rbp+8h]
 
   CurrentThread = KeGetCurrentThread();
-  v4 = (signed __int64 *)(a1 + 2264);
+  v7 = 0LL;
   --CurrentThread->KernelApcDisable;
-  v8 = 0LL;
+  v8 = (signed __int64 *)(a1 + 2264);
   ExAcquirePushLockSharedEx(a1 + 2264, 0LL);
   v9 = *(_QWORD *)(a1 + 2248);
   if ( v9 )
@@ -32,50 +32,50 @@ __int64 __fastcall PspSelectVsmEnclaveByNumber(__int64 a1, __int64 a2, __int64 *
     v10 = *(_DWORD *)(v9 + 4) >> 5;
     v11 = -1LL << (*(_BYTE *)(v9 + 4) & 0x1F);
     v12 = a2 & v11;
-    if ( v10 )
+    if ( !v10 )
+      goto LABEL_13;
+    v15 = a2 & v11;
+    v13 = *(_QWORD *)(v9 + 8)
+        + 8LL
+        * ((37
+          * (BYTE6(v15)
+           + 37
+           * (BYTE5(v15)
+            + 37
+            * (BYTE4(v15)
+             + 37 * (BYTE3(v15) + 37 * (BYTE2(v15) + 37 * (BYTE1(v15) + 37 * ((unsigned __int8)v12 + 11623883)))))))
+          + HIBYTE(v15)) & (unsigned int)(v10 - 1));
+    while ( 1 )
     {
-      v15 = a2 & v11;
-      v13 = *(_QWORD *)(v9 + 8)
-          + 8LL
-          * ((37
-            * (BYTE6(v15)
-             + 37
-             * (BYTE5(v15)
-              + 37
-              * (BYTE4(v15)
-               + 37 * (BYTE3(v15) + 37 * (BYTE2(v15) + 37 * (BYTE1(v15) + 37 * ((unsigned __int8)v12 + 11623883)))))))
-            + HIBYTE(v15)) & (unsigned int)(v10 - 1));
-      while ( 1 )
-      {
-        v13 = *(_QWORD *)v13;
-        if ( (v13 & 1) != 0 )
-          break;
-        if ( v12 == (v11 & *(_QWORD *)(v13 + 8)) )
-          goto LABEL_8;
-      }
-      v13 = 0LL;
-LABEL_8:
-      if ( v13 )
-      {
-        v8 = v13;
-        if ( *(_DWORD *)(v13 + 40) )
-        {
-          if ( _InterlockedIncrement64((volatile signed __int64 *)(v13 + 16)) <= 1 )
-            __fastfail(0xEu);
-        }
-        else
-        {
-          v8 = 0LL;
-        }
-      }
+      v13 = *(_QWORD *)v13;
+      if ( (v13 & 1) != 0 )
+        break;
+      if ( v12 == (v11 & *(_QWORD *)(v13 + 8)) )
+        goto LABEL_8;
     }
   }
-  if ( _InterlockedCompareExchange64(v4, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared(v4);
-  KeAbPostRelease((ULONG_PTR)v4);
+  v13 = 0LL;
+LABEL_8:
+  if ( v13 )
+  {
+    v7 = v13;
+    if ( *(_DWORD *)(v13 + 40) )
+    {
+      if ( _InterlockedIncrement64((volatile signed __int64 *)(v13 + 16)) <= 1 )
+        __fastfail(0xEu);
+    }
+    else
+    {
+      v7 = 0LL;
+    }
+  }
+LABEL_13:
+  if ( _InterlockedCompareExchange64(v8, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared(v8);
+  KeAbPostRelease((ULONG_PTR)v8);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  if ( !v8 )
+  if ( !v7 )
     return 3221225480LL;
-  *a3 = v8;
+  *a3 = v7;
   return 0LL;
 }

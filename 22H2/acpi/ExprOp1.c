@@ -1,11 +1,11 @@
 /*
- * XREFs of ExprOp1 @ 0x1C00566A0
+ * XREFs of ExprOp1 @ 0x1C002FC20
  * Callers:
  *     <none>
  * Callees:
- *     IsCompatableDSDTRevision @ 0x1C004BE48 (IsCompatableDSDTRevision.c)
- *     ExprOp1_32 @ 0x1C00566E0 (ExprOp1_32.c)
- *     ExprOp1_64 @ 0x1C005683C (ExprOp1_64.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     ExprOp1_64 @ 0x1C002FC60 (ExprOp1_64.c)
+ *     ExprOp1_32 @ 0x1C00692E4 (ExprOp1_32.c)
  */
 
 __int64 __fastcall ExprOp1(__int64 a1, __int64 a2)

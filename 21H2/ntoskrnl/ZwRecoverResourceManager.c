@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwRecoverResourceManager @ 0x14041E5E0
+ * XREFs of ZwRecoverResourceManager @ 0x1403FD120
  * Callers:
- *     CmpInitCmRM @ 0x140742E3C (CmpInitCmRM.c)
+ *     CmpInitCmRM @ 0x140716078 (CmpInitCmRM.c)
  * Callees:
  *     <none>
  */

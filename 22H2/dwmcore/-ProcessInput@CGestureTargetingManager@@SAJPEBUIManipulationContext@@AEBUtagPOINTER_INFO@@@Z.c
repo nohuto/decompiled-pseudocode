@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ProcessInput@CGestureTargetingManager@@SAJPEBUIManipulationContext@@AEBUtagPOINTER_INFO@@@Z @ 0x1801A7E60
+ * XREFs of ?ProcessInput@CGestureTargetingManager@@SAJPEBUIManipulationContext@@AEBUtagPOINTER_INFO@@@Z @ 0x1802378B0
  * Callers:
- *     ?CalculateFrameTargets@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18019DDA4 (-CalculateFrameTargets@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ *     ?CalculateFrameTargets@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x180224540 (-CalculateFrameTargets@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
  * Callees:
- *     ?ConvertToInputType@@YA?AW4InputType@@KI@Z @ 0x180031D98 (-ConvertToInputType@@YA-AW4InputType@@KI@Z.c)
- *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800F2B9C (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
- *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F3C10 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     _anonymous_namespace_::BypassGestureTargeting @ 0x1801A7A80 (_anonymous_namespace_--BypassGestureTargeting.c)
+ *     ?ConvertToInputType@@YA?AW4InputType@@KI@Z @ 0x18004EDF4 (-ConvertToInputType@@YA-AW4InputType@@KI@Z.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3444 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D42F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     _anonymous_namespace_::BypassGestureTargeting @ 0x18023722C (_anonymous_namespace_--BypassGestureTargeting.c)
  */
 
 __int64 __fastcall CGestureTargetingManager::ProcessInput(
@@ -25,15 +25,15 @@ __int64 __fastcall CGestureTargetingManager::ProcessInput(
   unsigned int v13; // eax
   __int64 (__fastcall *v14)(const struct IManipulationContext *, __int64, _QWORD); // r9
   unsigned int v15; // eax
-  __int64 *v16; // rbx
-  __int64 v17; // rsi
+  __int64 (__fastcall ***v16)(_QWORD); // rbx
+  __int64 (__fastcall *v17)(_QWORD); // rsi
   __int64 v18; // rdi
   unsigned int v19; // eax
   __int64 (__fastcall *v20)(const struct IManipulationContext *, __int64 (__fastcall ***)(_QWORD), _QWORD); // r9
   unsigned int v21; // eax
   _BYTE v22[80]; // [rsp+30h] [rbp-68h] BYREF
   char v23; // [rsp+A8h] [rbp+10h] BYREF
-  __int64 *v24; // [rsp+B0h] [rbp+18h] BYREF
+  __int64 (__fastcall ***v24)(_QWORD); // [rsp+B0h] [rbp+18h] BYREF
 
   v4 = ConvertToInputType(*(_DWORD *)a2, *((_DWORD *)a2 + 3));
   v5 = anonymous_namespace_::BypassGestureTargeting((__int64 *)a1, v4);
@@ -81,20 +81,20 @@ __int64 __fastcall CGestureTargetingManager::ProcessInput(
     else
     {
 LABEL_10:
-      v24 = (__int64 *)(*(__int64 (__fastcall **)(const struct IManipulationContext *))(*(_QWORD *)a1 + 112LL))(a1);
+      v24 = (__int64 (__fastcall ***)(_QWORD))(*(__int64 (__fastcall **)(const struct IManipulationContext *))(*(_QWORD *)a1 + 112LL))(a1);
       v16 = v24;
-      Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef((__int64 (__fastcall ****)(_QWORD))&v24);
-      v17 = *v16;
-      v18 = (*(__int64 (__fastcall **)(__int64 *, _BYTE *))(*v16 + 176))(v16, v22);
+      Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v24);
+      v17 = (*v16)[2];
+      v18 = ((__int64 (__fastcall *)(__int64 (__fastcall ***)(_QWORD), _BYTE *))(*v16)[22])(v16, v22);
       v19 = ConvertToInputType(*(_DWORD *)a2, *((_DWORD *)a2 + 3));
-      v21 = v20(a1, (__int64 (__fastcall ***)(_QWORD))v16, v19);
-      v9 = (*(__int64 (__fastcall **)(__int64 *, const struct tagPOINTER_INFO *, _QWORD, __int64, char *))(v17 + 16))(
+      v21 = v20(a1, v16, v19);
+      v9 = ((__int64 (__fastcall *)(__int64 (__fastcall ***)(_QWORD), const struct tagPOINTER_INFO *, _QWORD, __int64, char *))v17)(
              v16,
              a2,
              v21,
              v18,
              &v23);
-      Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)&v24);
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v24);
     }
     return (unsigned int)v9;
   }

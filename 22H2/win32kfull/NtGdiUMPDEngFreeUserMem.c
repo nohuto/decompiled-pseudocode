@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiUMPDEngFreeUserMem @ 0x1C02CDE70
+ * XREFs of NtGdiUMPDEngFreeUserMem @ 0x1C02B5190
  * Callers:
  *     <none>
  * Callees:

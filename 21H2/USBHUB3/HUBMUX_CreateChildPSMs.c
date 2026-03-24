@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBMUX_CreateChildPSMs @ 0x1C000F354
+ * XREFs of HUBMUX_CreateChildPSMs @ 0x1C000EF44
  * Callers:
- *     HUBHSM_CreatingChildPSMs @ 0x1C00083B0 (HUBHSM_CreatingChildPSMs.c)
+ *     HUBHSM_CreatingChildPSMs @ 0x1C00080A0 (HUBHSM_CreatingChildPSMs.c)
  * Callees:
- *     HUBMUX_CreatePSM @ 0x1C000EDD4 (HUBMUX_CreatePSM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     HUBMUX_CreatePSM @ 0x1C000E9AC (HUBMUX_CreatePSM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBMUX_CreateChildPSMs(__int64 a1)
@@ -27,12 +27,12 @@ __int64 __fastcall HUBMUX_CreateChildPSMs(__int64 a1)
   unsigned __int16 v17; // ax
   unsigned __int16 v18; // dx
   __int64 v19; // r8
-  unsigned __int64 v20; // rax
-  _QWORD **v21; // rdi
-  unsigned int v22; // esi
-  _QWORD *v23; // rcx
-  __int64 v24; // rax
-  _QWORD *v25; // rax
+  __int64 v20; // rax
+  unsigned int v21; // esi
+  _QWORD **v23; // rdi
+  _QWORD *v24; // rcx
+  __int64 v25; // rax
+  _QWORD *v26; // rax
   __int128 v27; // [rsp+48h] [rbp-19h] BYREF
   __int128 v28; // [rsp+58h] [rbp-9h]
   __int64 v29; // [rsp+68h] [rbp+7h]
@@ -44,7 +44,7 @@ __int64 __fastcall HUBMUX_CreateChildPSMs(__int64 a1)
 
   *(_DWORD *)(a1 + 146) = 0xFFFF;
   v29 = 0LL;
-  LODWORD(v33) = 0;
+  v33 = 0LL;
   v34 = 0LL;
   v2 = 0;
   v27 = 0LL;
@@ -105,14 +105,14 @@ __int64 __fastcall HUBMUX_CreateChildPSMs(__int64 a1)
       v6 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, unsigned __int64, void *))(WdfFunctions_01015 + 1616))(
              WdfDriverGlobals,
              PSM,
-             off_1C0067330);
+             off_1C00662E8);
       *(_QWORD *)(v6 + 1248) = &PSM20StateTable;
       *(_DWORD *)(v6 + 1124) = 3000;
       *(_DWORD *)(v6 + 1256) = 3000;
       v7 = (_QWORD *)(v6 + 248);
       v8 = *(_QWORD **)(a1 + 2368);
       if ( *v8 != a1 + 2360 )
-LABEL_55:
+LABEL_57:
         __fastfail(3u);
       *v7 = a1 + 2360;
       ++v2;
@@ -188,14 +188,14 @@ LABEL_19:
         v14 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, unsigned __int64, void *))(WdfFunctions_01015 + 1616))(
                 WdfDriverGlobals,
                 v13,
-                off_1C0067330);
+                off_1C00662E8);
         *(_QWORD *)(v14 + 1248) = &PSM30StateTable;
         *(_DWORD *)(v14 + 1124) = 5000;
         *(_DWORD *)(v14 + 1256) = 5000;
         v15 = (_QWORD *)(v14 + 248);
         v16 = *(_QWORD **)(a1 + 2368);
         if ( *v16 != a1 + 2360 )
-          goto LABEL_55;
+          goto LABEL_57;
         *v15 = a1 + 2360;
         ++v9;
         v15[1] = v16;
@@ -222,13 +222,10 @@ LABEL_42:
       v19 = (unsigned int)ExDefaultNonPagedPoolType;
       if ( v18 <= *(_WORD *)(a1 + 88) )
         v18 = *(_WORD *)(a1 + 88);
-      *(_WORD *)(a1 + 1128) = v18;
-      v33 = 0LL;
-      v20 = *(_QWORD *)(a1 + 16);
-      *(_QWORD *)&v31 = 0LL;
-      v32 = v20;
-      v30 = 0LL;
       LODWORD(v30) = 56;
+      v20 = *(_QWORD *)(a1 + 16);
+      *(_WORD *)(a1 + 1128) = v18;
+      *(_QWORD *)&v32 = v20;
       *((_QWORD *)&v31 + 1) = 0x100000001LL;
       if ( (*(int (__fastcall **)(PWDF_DRIVER_GLOBALS, __int128 *, __int64, __int64, unsigned __int64, __int64 *, __int64))(WdfFunctions_01015 + 1536))(
              WdfDriverGlobals,
@@ -239,30 +236,30 @@ LABEL_42:
              &v34,
              a1 + 1120) >= 0 )
       {
-        v22 = 2053;
+        v21 = 2053;
         _InterlockedOr((volatile signed __int32 *)(a1 + 40), 0x40u);
-        return v22;
+        return v21;
       }
     }
   }
-  v21 = (_QWORD **)(a1 + 2360);
-  v22 = 2045;
+  v23 = (_QWORD **)(a1 + 2360);
+  v21 = 2045;
   while ( 1 )
   {
-    v25 = *v21;
-    if ( *v21 == v21 )
-      return v22;
-    if ( (_QWORD **)v25[1] != v21 )
-      goto LABEL_55;
-    v23 = (_QWORD *)*v25;
-    if ( *(_QWORD **)(*v25 + 8LL) != v25 )
-      goto LABEL_55;
-    *v21 = v23;
-    v23[1] = v21;
+    v26 = *v23;
+    if ( *v23 == v23 )
+      return v21;
+    if ( (_QWORD **)v26[1] != v23 )
+      goto LABEL_57;
+    v24 = (_QWORD *)*v26;
+    if ( *(_QWORD **)(*v26 + 8LL) != v26 )
+      goto LABEL_57;
+    *v23 = v24;
+    v24[1] = v23;
     --*(_DWORD *)(a1 + 2356);
-    v24 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD *))(WdfFunctions_01015 + 1632))(
+    v25 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD *))(WdfFunctions_01015 + 1632))(
             WdfDriverGlobals,
-            v25 - 31);
-    (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 1664))(WdfDriverGlobals, v24);
+            v26 - 31);
+    (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 1664))(WdfDriverGlobals, v25);
   }
 }

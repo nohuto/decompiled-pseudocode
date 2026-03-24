@@ -1,5 +1,5 @@
 /*
- * XREFs of NtCompressKey @ 0x1407E91D0
+ * XREFs of NtCompressKey @ 0x1407E91B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,19 +8,19 @@
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
  *     CmpLockRegistryExclusive @ 0x1405B16C8 (CmpLockRegistryExclusive.c)
  *     CmCheckNoTxContext @ 0x1405B7B6C (CmCheckNoTxContext.c)
  *     CmObReferenceObjectByHandle @ 0x1405CD4CC (CmObReferenceObjectByHandle.c)
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
  *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmCompressKey @ 0x1407ED310 (CmCompressKey.c)
- *     CmpWaitOnHiveWriteQueue @ 0x1407F5DAC (CmpWaitOnHiveWriteQueue.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmCompressKey @ 0x1407ED2F0 (CmCompressKey.c)
+ *     CmpWaitOnHiveWriteQueue @ 0x1407F5D8C (CmpWaitOnHiveWriteQueue.c)
  */
 
 NTSTATUS __stdcall NtCompressKey(HANDLE Key)

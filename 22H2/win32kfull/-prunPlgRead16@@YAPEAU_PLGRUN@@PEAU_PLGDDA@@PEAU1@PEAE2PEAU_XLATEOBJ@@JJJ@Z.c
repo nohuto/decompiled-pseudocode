@@ -1,11 +1,11 @@
 /*
- * XREFs of ?prunPlgRead16@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C0300260
+ * XREFs of ?prunPlgRead16@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02D7660
  * Callers:
  *     <none>
  * Callees:
- *     XLATEOBJ_iXlate @ 0x1C008CAC0 (XLATEOBJ_iXlate.c)
- *     ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C015EEA0 (-prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z.c)
- *     ?vAdvXDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C0300B5C (-vAdvXDDA@@YAXPEAU_PLGDDA@@@Z.c)
+ *     XLATEOBJ_iXlate @ 0x1C00C77F0 (XLATEOBJ_iXlate.c)
+ *     ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C02D8114 (-prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z.c)
+ *     ?vAdvXDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C02D82E8 (-vAdvXDDA@@YAXPEAU_PLGDDA@@@Z.c)
  */
 
 struct _PLGRUN *__fastcall prunPlgRead16(
@@ -22,49 +22,57 @@ struct _PLGRUN *__fastcall prunPlgRead16(
   unsigned int v11; // r10d
   __int64 v12; // rbp
   __int64 v13; // r14
-  unsigned __int8 *v14; // r14
-  int v15; // r13d
-  __int64 v16; // r8
-  __int64 v17; // r12
-  unsigned __int8 *v18; // rax
+  int v14; // ecx
+  unsigned __int8 *v15; // r14
+  int v16; // r13d
+  __int64 v17; // r8
+  __int64 v18; // r12
   __int64 v19; // r15
-  ULONG v20; // eax
+  int v20; // eax
+  unsigned __int8 *v21; // rax
+  ULONG v22; // eax
+  int v24; // [rsp+78h] [rbp+30h]
 
   v10 = &a3[2 * a6];
   if ( a4 )
   {
-    v14 = &a4[4 * ((__int64)a8 >> 5)];
-    v15 = *(_DWORD *)v14;
+    v14 = a8 & 0x1F;
+    v15 = &a4[4 * ((__int64)a8 >> 5)];
+    v16 = *(_DWORD *)v15;
     if ( a6 != a7 )
     {
-      v16 = a8 & 0x1F;
-      v17 = (unsigned int)(a7 - a6);
+      v17 = a8 & 0x1F;
+      v18 = (unsigned int)(a7 - a6);
       do
       {
-        v18 = v14 + 4;
-        if ( v16 >= 32 )
-          v15 = *(_DWORD *)v18;
+        if ( v17 >= 32 )
+          v16 = *((_DWORD *)v15 + 1);
         v19 = 0LL;
-        if ( v16 < 32 )
+        if ( v17 < 32 )
+          v19 = v17;
+        v20 = 0;
+        if ( v17 < 32 )
+          v20 = v14;
+        v24 = v20;
+        v21 = v15 + 4;
+        if ( v17 < 32 )
+          v21 = v15;
+        v15 = v21;
+        if ( (dword_1C02FB720[v19] & v16) != 0 )
         {
-          v18 = v14;
-          v19 = v16;
-        }
-        v14 = v18;
-        if ( (v15 & dword_1C0329F30[v19]) != 0 )
-        {
-          v20 = *(unsigned __int16 *)v10;
+          v22 = *(unsigned __int16 *)v10;
           if ( pxlo )
-            v20 = XLATEOBJ_iXlate(pxlo, *(unsigned __int16 *)v10);
-          *(_DWORD *)a2 = v20;
+            v22 = XLATEOBJ_iXlate(pxlo, *(unsigned __int16 *)v10);
+          *(_DWORD *)a2 = v22;
           a2 = prunPumpDDA(a1, a2);
         }
         vAdvXDDA(a1);
+        v17 = v19 + 1;
         v10 += 2;
-        v16 = v19 + 1;
-        --v17;
+        v14 = v24 + 1;
+        --v18;
       }
-      while ( v17 );
+      while ( v18 );
     }
   }
   else if ( a6 != a7 )

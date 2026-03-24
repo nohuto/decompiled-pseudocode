@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_PreparingEndpointAndInterfaceListsOnSelectInterface @ 0x1C0024490
+ * XREFs of HUBDSM_PreparingEndpointAndInterfaceListsOnSelectInterface @ 0x1C0021CB0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface @ 0x1C002F738 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface.c)
+ *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface @ 0x1C002C690 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface.c)
  */
 
 __int64 __fastcall HUBDSM_PreparingEndpointAndInterfaceListsOnSelectInterface(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaHwErrorReportSetSeverityDeviceDriver @ 0x1406443B0
+ * XREFs of WheaHwErrorReportSetSeverityDeviceDriver @ 0x1405BBF40
  * Callers:
- *     WheaHwErrorReportSetFatalSeverityDeviceDriver @ 0x140644300 (WheaHwErrorReportSetFatalSeverityDeviceDriver.c)
- *     WheaReportHwErrorDeviceDriverEx @ 0x140644630 (WheaReportHwErrorDeviceDriverEx.c)
+ *     WheaHwErrorReportSetFatalSeverityDeviceDriver @ 0x1405BBE90 (WheaHwErrorReportSetFatalSeverityDeviceDriver.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x1405BC1B0 (WheaReportHwErrorDeviceDriverEx.c)
  * Callees:
- *     WheapErrorHandleIsValid @ 0x1406447EC (WheapErrorHandleIsValid.c)
+ *     WheapErrorHandleIsValid @ 0x1405BC350 (WheapErrorHandleIsValid.c)
  */
 
 __int64 WheaHwErrorReportSetSeverityDeviceDriver()

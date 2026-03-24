@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpWorkerFactoryCreateThread @ 0x140106DFC
+ * XREFs of ExpWorkerFactoryCreateThread @ 0x140106E1C
  * Callers:
- *     ExpWorkerFactoryCheckCreate @ 0x1400CE200 (ExpWorkerFactoryCheckCreate.c)
- *     NtSetInformationWorkerFactory @ 0x1401060E0 (NtSetInformationWorkerFactory.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1400CE220 (ExpWorkerFactoryCheckCreate.c)
+ *     NtSetInformationWorkerFactory @ 0x140106100 (NtSetInformationWorkerFactory.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwSetInformationThread @ 0x1401B8310 (ZwSetInformationThread.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwSetInformationThread @ 0x1401B8330 (ZwSetInformationThread.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     RtlpCreateUserThreadEx @ 0x14068CF34 (RtlpCreateUserThreadEx.c)
+ *     RtlpCreateUserThreadEx @ 0x14068CF14 (RtlpCreateUserThreadEx.c)
  */
 
 __int64 __fastcall ExpWorkerFactoryCreateThread(__int64 a1)

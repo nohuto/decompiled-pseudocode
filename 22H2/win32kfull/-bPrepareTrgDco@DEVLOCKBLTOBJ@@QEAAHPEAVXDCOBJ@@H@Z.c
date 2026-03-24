@@ -1,14 +1,15 @@
 /*
- * XREFs of ?bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z @ 0x1C00A8004
+ * XREFs of ?bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z @ 0x1C00B8014
  * Callers:
- *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C01026C0 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z.c)
+ *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C008C800 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z.c)
+ *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C00B7948 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
  * Callees:
- *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C0010D14 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
- *     ?bUnMapSrcSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C009E958 (-bUnMapSrcSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ.c)
- *     ?bMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00A80B0 (-bMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00DCB64 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00FA7C0 (-vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C011CD7C (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
+ *     ?vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C008BAB0 (-vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00AC9D8 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ?bMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00B80D0 (-bMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ.c)
+ *     ?bUnMapSrcSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00FE7A0 (-bUnMapSrcSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ.c)
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C0125320 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C016A038 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall DEVLOCKBLTOBJ::bPrepareTrgDco(DEVLOCKBLTOBJ *this, struct XDCOBJ *a2, int a3)
@@ -22,19 +23,19 @@ __int64 __fastcall DEVLOCKBLTOBJ::bPrepareTrgDco(DEVLOCKBLTOBJ *this, struct XDC
 
   v6 = 1;
   if ( !a2 )
-    goto LABEL_8;
+    goto LABEL_9;
   v7 = *(_QWORD *)a2;
   if ( (*(_DWORD *)(v7 + 36) & 0x200) == 0 )
-    goto LABEL_8;
+    goto LABEL_9;
   v8 = *(_QWORD *)(v7 + 48);
   v9 = (DC **)((char *)this + 120);
   XDCOBJ::vLock((DEVLOCKBLTOBJ *)((char *)this + 120), *(HDC *)v7);
-  v10 = *(_QWORD *)(v8 + 1400);
+  v10 = *(_QWORD *)(v8 + 1408);
   if ( !*v9 || !*((_BYTE *)v9 + 49) )
   {
-LABEL_9:
-    v6 = 0;
 LABEL_8:
+    v6 = 0;
+LABEL_9:
     *((_QWORD *)this + 15) = 0LL;
     return v6;
   }
@@ -45,19 +46,18 @@ LABEL_8:
     DC::pSurface(*v9, (struct SURFACE *)(v10 - 24));
     *((_DWORD *)this + 28) |= 0x10u;
   }
-  if ( (unsigned int)DEVLOCKBLTOBJ::bMapTrgSurfaceView(this) )
-    return v6;
-  if ( !a3 )
+  if ( !(unsigned int)DEVLOCKBLTOBJ::bMapTrgSurfaceView(this) )
   {
-    if ( (*((_DWORD *)this + 28) & 0x1000) != 0 && *((_QWORD *)this + 22) )
+    if ( a3 )
     {
-      if ( *((_BYTE *)this + 225) )
-        DEVLOCKBLTOBJ::bUnMapSrcSurfaceView(this);
+      *((_DWORD *)*v9 + 11) |= 1u;
+      return 0;
     }
+    if ( (*((_DWORD *)this + 28) & 0x1000) != 0 && *((_QWORD *)this + 22) && *((_BYTE *)this + 225) )
+      DEVLOCKBLTOBJ::bUnMapSrcSurfaceView(this);
     DEVLOCKBLTOBJ::vClearRenderState(this, (struct XDCOBJ *)v9);
     DLODCOBJ::vUnlock((DLODCOBJ *)v9);
-    goto LABEL_9;
+    goto LABEL_8;
   }
-  *((_DWORD *)*v9 + 11) |= 1u;
-  return 0LL;
+  return v6;
 }

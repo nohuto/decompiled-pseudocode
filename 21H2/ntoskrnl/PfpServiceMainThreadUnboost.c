@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpServiceMainThreadUnboost @ 0x14038B6C0
+ * XREFs of PfpServiceMainThreadUnboost @ 0x140382AD0
  * Callers:
- *     PfPowerActionNotify @ 0x140A49250 (PfPowerActionNotify.c)
+ *     PfPowerActionNotify @ 0x1409909B4 (PfPowerActionNotify.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeSetActualBasePriorityThread @ 0x14028FD20 (KeSetActualBasePriorityThread.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObDereferenceObjectDeferDelete @ 0x140348920 (ObDereferenceObjectDeferDelete.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfpServiceMainThreadUnboost(_DWORD *P)
@@ -22,17 +22,17 @@ void __fastcall PfpServiceMainThreadUnboost(_DWORD *P)
   bool v8; // zf
 
   v2 = 0LL;
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C54588);
-  if ( !P || dword_140C54590 == P[41] )
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C50348);
+  if ( !P || dword_140C50350 == P[41] )
   {
-    v2 = qword_140C54578;
-    if ( qword_140C54578 )
+    v2 = qword_140C50338;
+    if ( qword_140C50338 )
     {
-      qword_140C54578 = 0LL;
-      KeSetActualBasePriorityThread((ULONG_PTR)v2, dword_140C54580);
+      qword_140C50338 = 0LL;
+      KeSetActualBasePriorityThread((__int64)v2, dword_140C50340);
     }
   }
-  KxReleaseSpinLock(&qword_140C54588);
+  KxReleaseSpinLock(&qword_140C50348);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

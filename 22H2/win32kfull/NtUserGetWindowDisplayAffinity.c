@@ -1,45 +1,46 @@
 /*
- * XREFs of NtUserGetWindowDisplayAffinity @ 0x1C00167D0
+ * XREFs of NtUserGetWindowDisplayAffinity @ 0x1C01FC2D0
  * Callers:
  *     <none>
  * Callees:
- *     GetDisplayAffinity @ 0x1C0016874 (GetDisplayAffinity.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     _IsTopLevelWindow @ 0x1C0122310 (_IsTopLevelWindow.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
+ *     GetDisplayAffinity @ 0x1C0247B0C (GetDisplayAffinity.c)
  */
 
 __int64 __fastcall NtUserGetWindowDisplayAffinity(__int64 a1, _DWORD *a2)
 {
   int v4; // edi
-  _DWORD *v5; // rdx
+  __int64 v5; // rax
   ULONG64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rcx
-  int v11; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  _DWORD *v10; // rdx
+  int v12; // [rsp+60h] [rbp+18h] BYREF
 
   v4 = 0;
-  v11 = 0;
-  EnterSharedCrit();
-  v6 = ValidateHwnd(a1);
-  if ( v6 )
+  v12 = 0;
+  EnterSharedCrit(0LL, 1LL);
+  v5 = ValidateHwnd(a1);
+  if ( v5 )
   {
-    if ( (unsigned int)IsTopLevelWindow(v6) )
+    if ( (unsigned int)IsTopLevelWindow(v5) )
     {
-      GetDisplayAffinity(v9, &v11);
+      GetDisplayAffinity(v9, &v12);
       v4 = 1;
       v6 = MmUserProbeAddress;
-      v5 = a2;
+      v10 = a2;
       if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-        v5 = (_DWORD *)MmUserProbeAddress;
-      *v5 = *v5;
-      *a2 = v11;
+        v10 = (_DWORD *)MmUserProbeAddress;
+      *v10 = *v10;
+      *a2 = v12;
     }
     else
     {
-      UserSetLastError(87LL);
+      UserSetLastError(87LL, v7, v8);
     }
   }
-  UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
+  UserSessionSwitchLeaveCrit(v6);
   return v4;
 }

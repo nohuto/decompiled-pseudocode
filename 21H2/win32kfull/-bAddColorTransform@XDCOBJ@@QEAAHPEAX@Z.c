@@ -1,21 +1,21 @@
 /*
- * XREFs of ?bAddColorTransform@XDCOBJ@@QEAAHPEAX@Z @ 0x1C0291848
+ * XREFs of ?bAddColorTransform@XDCOBJ@@QEAAHPEAX@Z @ 0x1C0293E38
  * Callers:
- *     ?hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C0291ACC (-hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z.c)
+ *     ?hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C02940B8 (-hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z.c)
  * Callees:
- *     <none>
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
  */
 
 __int64 __fastcall XDCOBJ::bAddColorTransform(XDCOBJ *this, void *a2)
 {
   __int64 result; // rax
 
-  result = Win32AllocPoolZInit(16LL, 1650745671LL);
+  result = (__int64)PALLOCMEM2(0x10uLL, 1650745671LL, 1);
   if ( result )
   {
     *(_QWORD *)result = a2;
-    *(_QWORD *)(result + 8) = *(_QWORD *)(*(_QWORD *)this + 2080LL);
-    *(_QWORD *)(*(_QWORD *)this + 2080LL) = result;
+    *(_QWORD *)(result + 8) = *(_QWORD *)(*(_QWORD *)this + 2088LL);
+    *(_QWORD *)(*(_QWORD *)this + 2088LL) = result;
     return 1LL;
   }
   return result;

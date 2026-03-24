@@ -1,88 +1,87 @@
 /*
- * XREFs of PopFxCreateDeviceCommon @ 0x1403956A4
+ * XREFs of PopFxCreateDeviceCommon @ 0x1403BE568
  * Callers:
- *     PopFxAcpiRegisterDevice @ 0x1405A0F54 (PopFxAcpiRegisterDevice.c)
- *     PopFxRegisterDeviceWorker @ 0x1408381FC (PopFxRegisterDeviceWorker.c)
+ *     PopFxAcpiRegisterDevice @ 0x14057DFB8 (PopFxAcpiRegisterDevice.c)
+ *     PopFxRegisterDeviceWorker @ 0x1407B531C (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     PopFxDuplicateUniqueId @ 0x1403958CC (PopFxDuplicateUniqueId.c)
- *     IoInitializeRemoveLockEx @ 0x1403C4A40 (IoInitializeRemoveLockEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IoInitializeRemoveLockEx @ 0x14037EB50 (IoInitializeRemoveLockEx.c)
+ *     PopFxDuplicateUniqueId @ 0x1403BE79C (PopFxDuplicateUniqueId.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PopFxCreateDeviceCommon(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 *a5)
+__int64 __fastcall PopFxCreateDeviceCommon(__int64 a1, __int64 a2, __int64 a3, int a4, _QWORD *a5)
 {
   int v6; // edi
-  __int64 Pool2; // rax
-  __int64 v8; // rbx
-  _QWORD *v9; // rax
-  PVOID P[2]; // [rsp+30h] [rbp-18h] BYREF
+  char *PoolWithTag; // rax
+  char *v8; // rbx
+  __int128 v10; // xmm0
+  __int128 v11; // [rsp+30h] [rbp-18h] BYREF
 
-  *(_OWORD *)P = 0LL;
-  v6 = PopFxDuplicateUniqueId(a1, P);
+  v11 = 0LL;
+  v6 = PopFxDuplicateUniqueId(a1, &v11);
   if ( v6 >= 0 )
   {
-    Pool2 = ExAllocatePool2(64LL, 1280LL, 1297630800LL);
-    v8 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x4B8uLL, 0x4D584650u);
+    v8 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_OWORD *)(Pool2 + 216) = *(_OWORD *)P;
-      *(_QWORD *)(Pool2 + 8) = Pool2;
-      *(_QWORD *)Pool2 = Pool2;
-      v9 = (_QWORD *)(Pool2 + 200);
-      v9[1] = v9;
-      *v9 = v9;
-      *(_QWORD *)(v8 + 584) = v8 + 576;
-      *(_QWORD *)(v8 + 576) = v8 + 576;
-      *(_WORD *)(v8 + 568) = 0;
-      *(_BYTE *)(v8 + 570) = 6;
-      *(_DWORD *)(v8 + 572) = 1;
-      *(_QWORD *)(v8 + 360) = 0LL;
-      *(_QWORD *)(v8 + 384) = v8 + 376;
-      *(_QWORD *)(v8 + 376) = v8 + 376;
-      *(_QWORD *)(v8 + 368) = 0LL;
-      *(_BYTE *)(v8 + 368) = 9;
-      *(_QWORD *)(v8 + 392) = 0LL;
-      *(_DWORD *)(v8 + 428) = 0;
-      *(_WORD *)(v8 + 424) = 0;
-      *(_QWORD *)(v8 + 456) = PopFxIdleTimeoutDpcRoutine;
-      *(_DWORD *)(v8 + 432) = 275;
-      *(_QWORD *)(v8 + 464) = v8;
-      *(_QWORD *)(v8 + 488) = 0LL;
-      *(_QWORD *)(v8 + 448) = 0LL;
-      *(_QWORD *)(v8 + 320) = PopFxDeviceWork;
-      *(_QWORD *)(v8 + 328) = v8;
-      *(_QWORD *)(v8 + 304) = 0LL;
-      *(_QWORD *)(v8 + 1224) = PopFxHandleReportDevicePoweredOn;
-      *(_QWORD *)(v8 + 1232) = v8;
-      *(_QWORD *)(v8 + 1208) = 0LL;
-      *(_QWORD *)(v8 + 1152) = 0LL;
-      *(_QWORD *)(v8 + 936) = PopFxDirectedPowerTransitionWorker;
-      *(_QWORD *)(v8 + 944) = v8;
-      *(_QWORD *)(v8 + 920) = 0LL;
-      *(_QWORD *)(v8 + 1008) = v8 + 1000;
-      *(_QWORD *)(v8 + 1000) = v8 + 1000;
-      *(_QWORD *)(v8 + 992) = 0LL;
-      *(_BYTE *)(v8 + 992) = 8;
-      *(_QWORD *)(v8 + 1016) = 0LL;
-      *(_DWORD *)(v8 + 1052) = 0;
-      *(_WORD *)(v8 + 1048) = 0;
-      *(_QWORD *)(v8 + 1080) = PopFxDirectedWorkOrderWatchdog;
-      *(_QWORD *)(v8 + 1088) = v8 + 976;
-      *(_DWORD *)(v8 + 1056) = 275;
-      *(_QWORD *)(v8 + 1112) = 0LL;
-      *(_QWORD *)(v8 + 1072) = 0LL;
-      *(_QWORD *)(v8 + 1120) = v8 + 920;
-      *(_QWORD *)(v8 + 968) = v8 + 976;
+      memset(PoolWithTag, 0, 0x4B8uLL);
+      v10 = v11;
+      *((_QWORD *)v8 + 45) = 0LL;
+      *((_QWORD *)v8 + 140) = v8 + 920;
+      *(_OWORD *)(v8 + 216) = v10;
+      *((_QWORD *)v8 + 26) = v8 + 200;
+      *((_QWORD *)v8 + 25) = v8 + 200;
+      *((_QWORD *)v8 + 118) = v8;
+      *((_QWORD *)v8 + 73) = v8 + 576;
+      *((_QWORD *)v8 + 72) = v8 + 576;
+      *((_QWORD *)v8 + 48) = v8 + 376;
+      *((_QWORD *)v8 + 47) = v8 + 376;
+      *((_QWORD *)v8 + 57) = PopFxIdleTimeoutDpcRoutine;
+      *((_QWORD *)v8 + 40) = PopFxDeviceWork;
+      *((_QWORD *)v8 + 117) = PopFxDirectedPowerTransitionWorker;
+      *((_QWORD *)v8 + 126) = v8 + 1000;
+      *((_QWORD *)v8 + 125) = v8 + 1000;
+      *((_QWORD *)v8 + 135) = PopFxDirectedWorkOrderWatchdog;
+      *((_QWORD *)v8 + 115) = 0LL;
+      *((_QWORD *)v8 + 46) = 0LL;
+      *((_QWORD *)v8 + 124) = 0LL;
+      *((_QWORD *)v8 + 136) = v8 + 976;
+      *((_QWORD *)v8 + 121) = v8 + 976;
+      *((_QWORD *)v8 + 1) = v8;
+      *(_QWORD *)v8 = v8;
+      *((_WORD *)v8 + 284) = 0;
+      v8[570] = 6;
+      *((_DWORD *)v8 + 143) = 1;
+      v8[368] = 9;
+      *((_QWORD *)v8 + 49) = 0LL;
+      *((_DWORD *)v8 + 107) = 0;
+      *((_WORD *)v8 + 212) = 0;
+      *((_DWORD *)v8 + 108) = 275;
+      *((_QWORD *)v8 + 58) = v8;
+      *((_QWORD *)v8 + 61) = 0LL;
+      *((_QWORD *)v8 + 56) = 0LL;
+      *((_QWORD *)v8 + 41) = v8;
+      *((_QWORD *)v8 + 38) = 0LL;
+      *((_QWORD *)v8 + 144) = 0LL;
+      v8[992] = 8;
+      *((_QWORD *)v8 + 127) = 0LL;
+      *((_DWORD *)v8 + 263) = 0;
+      *((_WORD *)v8 + 524) = 0;
+      *((_DWORD *)v8 + 264) = 275;
+      *((_QWORD *)v8 + 139) = 0LL;
+      *((_QWORD *)v8 + 134) = 0LL;
       IoInitializeRemoveLockEx((PIO_REMOVE_LOCK)(v8 + 272), 0x4D584650u, 0, 0, 0x20u);
-      *(_DWORD *)(v8 + 232) = ((a4 & 4) != 0) + 1;
-      *(_DWORD *)(v8 + 824) = a4;
+      *((_DWORD *)v8 + 58) = ((a4 & 4) != 0) + 1;
+      *((_DWORD *)v8 + 206) = a4;
       *a5 = v8;
       return (unsigned int)v6;
     }
     v6 = -1073741670;
   }
-  if ( P[1] )
-    ExFreePoolWithTag(P[1], 0x4D584650u);
+  if ( *((_QWORD *)&v11 + 1) )
+    ExFreePoolWithTag(*((PVOID *)&v11 + 1), 0x4D584650u);
   return (unsigned int)v6;
 }

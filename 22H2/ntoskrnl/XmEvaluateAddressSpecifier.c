@@ -1,478 +1,441 @@
 /*
- * XREFs of XmEvaluateAddressSpecifier @ 0x1403B8BCC
+ * XREFs of XmEvaluateAddressSpecifier @ 0x140396914
  * Callers:
- *     XmGroup2ByByte @ 0x140396960 (XmGroup2ByByte.c)
- *     XmGroup2ByCL @ 0x140398A40 (XmGroup2ByCL.c)
- *     XmGroup2By1 @ 0x1403991A0 (XmGroup2By1.c)
- *     XmMoveXxGeneral @ 0x14039B840 (XmMoveXxGeneral.c)
- *     XmGroup45General @ 0x14039C7B0 (XmGroup45General.c)
- *     XmMoveSegment @ 0x1403AA280 (XmMoveSegment.c)
- *     XmGroup3General @ 0x1403B8320 (XmGroup3General.c)
- *     XmGroup1General @ 0x1403B8A70 (XmGroup1General.c)
- *     XmGroup1Immediate @ 0x1403B8AF0 (XmGroup1Immediate.c)
- *     XmMoveGeneral @ 0x1403B8B60 (XmMoveGeneral.c)
- *     XmBitScanGeneral @ 0x140532C10 (XmBitScanGeneral.c)
- *     XmEffectiveOffset @ 0x140532CA0 (XmEffectiveOffset.c)
- *     XmGeneralBitOffset @ 0x140532D20 (XmGeneralBitOffset.c)
- *     XmGeneralRegister @ 0x140532DD0 (XmGeneralRegister.c)
- *     XmGroup7General @ 0x140532E50 (XmGroup7General.c)
- *     XmGroup8BitOffset @ 0x140532EB0 (XmGroup8BitOffset.c)
- *     XmImulImmediate @ 0x140533000 (XmImulImmediate.c)
- *     XmLoadSegment @ 0x140533080 (XmLoadSegment.c)
- *     XmMoveImmediate @ 0x140533150 (XmMoveImmediate.c)
- *     XmPopGeneral @ 0x1405331A0 (XmPopGeneral.c)
- *     XmSetccByte @ 0x140533230 (XmSetccByte.c)
- *     XmShiftDouble @ 0x140533270 (XmShiftDouble.c)
+ *     XmGroup3General @ 0x140395FD0 (XmGroup3General.c)
+ *     XmMoveGeneral @ 0x1403961E0 (XmMoveGeneral.c)
+ *     XmGroup1General @ 0x140396740 (XmGroup1General.c)
+ *     XmGroup1Immediate @ 0x140396830 (XmGroup1Immediate.c)
+ *     XmGroup2By1 @ 0x1403C0C00 (XmGroup2By1.c)
+ *     XmGroup2ByByte @ 0x1403C0E20 (XmGroup2ByByte.c)
+ *     XmMoveXxGeneral @ 0x1403C3320 (XmMoveXxGeneral.c)
+ *     XmGroup2ByCL @ 0x1403C34A0 (XmGroup2ByCL.c)
+ *     XmGroup45General @ 0x1403C3500 (XmGroup45General.c)
+ *     XmMoveSegment @ 0x1403C9320 (XmMoveSegment.c)
+ *     XmBitScanGeneral @ 0x1404E5180 (XmBitScanGeneral.c)
+ *     XmEffectiveOffset @ 0x1404E5210 (XmEffectiveOffset.c)
+ *     XmGeneralBitOffset @ 0x1404E52D0 (XmGeneralBitOffset.c)
+ *     XmGeneralRegister @ 0x1404E5370 (XmGeneralRegister.c)
+ *     XmGroup7General @ 0x1404E53F0 (XmGroup7General.c)
+ *     XmGroup8BitOffset @ 0x1404E5450 (XmGroup8BitOffset.c)
+ *     XmImulImmediate @ 0x1404E55A0 (XmImulImmediate.c)
+ *     XmLoadSegment @ 0x1404E5620 (XmLoadSegment.c)
+ *     XmMoveImmediate @ 0x1404E56F0 (XmMoveImmediate.c)
+ *     XmPopGeneral @ 0x1404E5740 (XmPopGeneral.c)
+ *     XmSetccByte @ 0x1404E5810 (XmSetccByte.c)
+ *     XmShiftDouble @ 0x1404E5850 (XmShiftDouble.c)
  * Callees:
- *     XmGetLongImmediate @ 0x1403999E8 (XmGetLongImmediate.c)
- *     XmGetCodeByte @ 0x1403B8DB4 (XmGetCodeByte.c)
- *     XmGetRegisterAddress @ 0x1403B8DE4 (XmGetRegisterAddress.c)
- *     XmGetWordImmediate @ 0x1403B9010 (XmGetWordImmediate.c)
- *     x86BiosTranslateAddress @ 0x1403BE960 (x86BiosTranslateAddress.c)
- *     longjmp @ 0x1403D7880 (longjmp.c)
- *     XmEvaluateIndexSpecifier @ 0x140534978 (XmEvaluateIndexSpecifier.c)
+ *     XmGetCodeByte @ 0x140396C68 (XmGetCodeByte.c)
+ *     XmGetRegisterAddress @ 0x140396C98 (XmGetRegisterAddress.c)
+ *     XmGetWordImmediate @ 0x140396D40 (XmGetWordImmediate.c)
+ *     x86BiosTranslateAddress @ 0x140397450 (x86BiosTranslateAddress.c)
+ *     XmGetLongImmediate @ 0x1403C4B34 (XmGetLongImmediate.c)
+ *     longjmp @ 0x1403CFF70 (longjmp.c)
+ *     XmEvaluateIndexSpecifier @ 0x1404E6FB8 (XmEvaluateIndexSpecifier.c)
  */
 
 __int64 __fastcall XmEvaluateAddressSpecifier(__int64 a1, int *a2)
 {
   unsigned int v3; // esi
-  unsigned __int8 CodeByte; // al
+  unsigned __int8 v5; // al
   unsigned int v6; // ecx
-  unsigned int v7; // edx
-  unsigned int v8; // edx
-  unsigned int v9; // edx
-  unsigned int v10; // edx
-  unsigned int v11; // edx
-  unsigned int v12; // edx
+  bool v7; // cc
   __int64 result; // rax
+  unsigned int v9; // ecx
+  unsigned int v10; // ecx
+  unsigned int v11; // ecx
+  unsigned int v12; // ecx
+  __int64 v13; // r8
   unsigned int v14; // edx
-  unsigned int v15; // edx
-  unsigned int v16; // edx
-  unsigned int v17; // edx
-  __int64 v18; // r8
-  unsigned int v19; // edx
-  unsigned int v20; // edx
-  unsigned int v21; // edx
-  unsigned int v22; // edx
-  unsigned int v23; // edx
-  unsigned int v24; // edx
-  unsigned __int16 v25; // cx
-  unsigned int v26; // edx
-  unsigned int v27; // edx
+  __int16 CodeByte; // cx
+  __int16 v16; // ax
   unsigned __int16 WordImmediate; // ax
-  unsigned int v29; // edx
-  __int16 v30; // cx
-  unsigned __int16 v31; // cx
-  unsigned int v32; // edx
-  unsigned int v33; // edx
-  unsigned int v34; // edx
-  unsigned int v35; // edx
-  unsigned int v36; // edx
-  unsigned int v37; // edx
-  unsigned int v38; // eax
-  int v39; // esi
-  unsigned int v40; // edx
-  unsigned int v41; // edx
-  unsigned int v42; // edx
-  unsigned int v43; // edx
-  unsigned int v44; // edx
-  unsigned int v45; // edx
-  int LongImmediate; // esi
-  int v47; // esi
-  int v48; // esi
-  int v49; // esi
-  int v50; // esi
-  int v51; // esi
-  unsigned int v52; // edx
-  unsigned int v53; // edx
-  unsigned int v54; // edx
-  unsigned int v55; // edx
-  unsigned int v56; // edx
-  unsigned int v57; // edx
-  __int16 v58; // cx
-  char v59; // al
-  __int16 v60; // cx
-  char v61; // al
-  __int16 v62; // cx
-  __int16 v63; // ax
-  unsigned int v64; // edx
-  unsigned int v65; // edx
-  unsigned int v66; // edx
-  unsigned int v67; // edx
-  unsigned int v68; // edx
-  unsigned int v69; // edx
-  __int16 v70; // ax
+  unsigned int v18; // ecx
+  unsigned int v19; // ecx
+  unsigned __int16 v20; // ax
+  unsigned int v21; // ecx
+  unsigned int v22; // ecx
+  unsigned int v23; // ecx
+  unsigned int v24; // ecx
+  unsigned int v25; // ecx
+  unsigned int v26; // ecx
+  unsigned int LongImmediate; // eax
+  unsigned int v28; // ecx
+  unsigned int v29; // ecx
+  unsigned int v30; // ecx
+  unsigned int v31; // ecx
+  int v32; // esi
+  int v33; // esi
+  int v34; // esi
+  int v35; // esi
+  unsigned int v36; // ecx
+  unsigned int v37; // ecx
+  unsigned int v38; // ecx
+  unsigned int v39; // ecx
+  unsigned int v40; // ecx
+  int v41; // esi
+  int v42; // esi
+  int v43; // esi
+  __int16 v44; // cx
+  unsigned __int16 v45; // cx
+  __int16 v46; // ax
+  __int16 v47; // cx
+  unsigned __int16 v48; // cx
+  __int16 v49; // ax
+  unsigned int v50; // ecx
+  unsigned int v51; // ecx
+  unsigned int v52; // ecx
+  char v53; // al
+  __int16 v54; // cx
+  char v55; // al
+  __int16 v56; // cx
+  unsigned int v57; // ecx
+  unsigned int v58; // ecx
 
   v3 = 0;
-  CodeByte = XmGetCodeByte(a1);
+  v5 = ((__int64 (*)(void))XmGetCodeByte)();
   *(_BYTE *)(a1 + 142) = 0;
-  v6 = CodeByte >> 6;
-  *a2 = (CodeByte >> 3) & 7;
-  v7 = CodeByte & 7 | (8 * v6);
-  if ( *(_BYTE *)(a1 + 137) )
+  v6 = v5 & 7 | (8 * (v5 >> 6));
+  *a2 = (v5 >> 3) & 7;
+  if ( !*(_BYTE *)(a1 + 137) )
   {
-    if ( v7 > 0x10 )
+    if ( v6 <= 0xC )
     {
-      if ( v7 > 0x18 )
-        goto LABEL_4;
-      if ( v7 == 24 )
+      if ( v6 == 12 )
       {
-LABEL_12:
-        *(_BYTE *)(a1 + 142) = 1;
-        return XmGetRegisterAddress(a1, CodeByte & 7);
+        CodeByte = (char)XmGetCodeByte(a1);
+        v16 = *(_WORD *)(a1 + 48);
+LABEL_24:
+        WordImmediate = CodeByte + v16;
+        goto LABEL_25;
       }
-      v52 = v7 - 17;
-      if ( v52 )
+      if ( v6 == 6 )
       {
-        v53 = v52 - 1;
-        if ( v53 )
+        WordImmediate = XmGetWordImmediate(a1);
+        goto LABEL_25;
+      }
+      if ( v6 > 6 )
+      {
+        v21 = v6 - 7;
+        if ( !v21 )
         {
-          v54 = v53 - 1;
-          if ( v54 )
-          {
-            v55 = v54 - 1;
-            if ( !v55 )
-              goto LABEL_60;
-            v56 = v55 - 1;
-            if ( v56 )
-            {
-              v57 = v56 - 1;
-              if ( v57 )
-              {
-                if ( v57 != 1 )
-                  goto LABEL_22;
-                LongImmediate = XmGetLongImmediate(a1);
-LABEL_77:
-                v3 = *(_DWORD *)(a1 + 52) + LongImmediate;
-                goto LABEL_22;
-              }
-              v47 = XmGetLongImmediate(a1);
-LABEL_80:
-              v3 = *(_DWORD *)(a1 + 48) + v47;
-              goto LABEL_22;
-            }
-            v48 = XmGetLongImmediate(a1);
-LABEL_83:
-            v3 = *(_DWORD *)(a1 + 44) + v48;
-            goto LABEL_42;
-          }
-          v49 = XmGetLongImmediate(a1);
-LABEL_86:
-          v3 = *(_DWORD *)(a1 + 36) + v49;
-          goto LABEL_22;
+          v3 = *(unsigned __int16 *)(a1 + 36);
+          goto LABEL_19;
         }
-        v50 = XmGetLongImmediate(a1);
-LABEL_89:
-        v3 = *(_DWORD *)(a1 + 32) + v50;
-        goto LABEL_22;
-      }
-      v51 = XmGetLongImmediate(a1);
-    }
-    else
-    {
-      if ( v7 == 16 )
-      {
-        v39 = XmGetLongImmediate(a1);
-        goto LABEL_68;
-      }
-      if ( v7 <= 8 )
-      {
-        if ( v7 != 8 )
+        v50 = v21 - 1;
+        if ( v50 )
         {
-          if ( !v7 )
+          v51 = v50 - 1;
+          if ( v51 )
           {
-            v3 = *(_DWORD *)(a1 + 24);
-            goto LABEL_22;
-          }
-          v32 = v7 - 1;
-          if ( !v32 )
-          {
-            v3 = *(_DWORD *)(a1 + 28);
-            goto LABEL_22;
-          }
-          v33 = v32 - 1;
-          if ( !v33 )
-          {
-            v3 = *(_DWORD *)(a1 + 32);
-            goto LABEL_22;
-          }
-          v34 = v33 - 1;
-          if ( !v34 )
-          {
-            v3 = *(_DWORD *)(a1 + 36);
-            goto LABEL_22;
-          }
-          v35 = v34 - 1;
-          if ( v35 )
-          {
-            v36 = v35 - 1;
-            if ( v36 )
+            v52 = v51 - 1;
+            if ( v52 )
             {
-              v37 = v36 - 1;
-              if ( v37 )
-              {
-                if ( v37 == 1 )
-                  v3 = *(_DWORD *)(a1 + 52);
-              }
-              else
-              {
-                v3 = *(_DWORD *)(a1 + 48);
-              }
-              goto LABEL_22;
-            }
-            v38 = XmGetLongImmediate(a1);
-            goto LABEL_61;
-          }
-LABEL_60:
-          v38 = XmEvaluateIndexSpecifier(a1, v6);
-LABEL_61:
-          v3 = v38;
-          goto LABEL_22;
-        }
-        v39 = (char)XmGetCodeByte(a1);
-LABEL_68:
-        v3 = *(_DWORD *)(a1 + 24) + v39;
-        goto LABEL_22;
-      }
-      v40 = v7 - 9;
-      if ( v40 )
-      {
-        v41 = v40 - 1;
-        if ( v41 )
-        {
-          v42 = v41 - 1;
-          if ( v42 )
-          {
-            v43 = v42 - 1;
-            if ( !v43 )
-              goto LABEL_60;
-            v44 = v43 - 1;
-            if ( v44 )
-            {
-              v45 = v44 - 1;
-              if ( v45 )
-              {
-                if ( v45 != 1 )
-                  goto LABEL_22;
-                LongImmediate = (char)XmGetCodeByte(a1);
-                goto LABEL_77;
-              }
-              v47 = (char)XmGetCodeByte(a1);
-              goto LABEL_80;
-            }
-            v48 = (char)XmGetCodeByte(a1);
-            goto LABEL_83;
-          }
-          v49 = (char)XmGetCodeByte(a1);
-          goto LABEL_86;
-        }
-        v50 = (char)XmGetCodeByte(a1);
-        goto LABEL_89;
-      }
-      v51 = (char)XmGetCodeByte(a1);
-    }
-    v3 = *(_DWORD *)(a1 + 28) + v51;
-    goto LABEL_22;
-  }
-  if ( v7 <= 0x10 )
-  {
-    if ( v7 == 16 )
-    {
-      v63 = *(_WORD *)(a1 + 48) + XmGetWordImmediate(a1);
-      goto LABEL_134;
-    }
-    if ( v7 > 8 )
-    {
-      v20 = v7 - 9;
-      if ( v20 )
-      {
-        v21 = v20 - 1;
-        if ( v21 )
-        {
-          v22 = v21 - 1;
-          if ( v22 )
-          {
-            v23 = v22 - 1;
-            if ( v23 )
-            {
-              v24 = v23 - 1;
-              if ( v24 )
-              {
-                v29 = v24 - 1;
-                if ( !v29 )
-                {
-                  v30 = (char)XmGetCodeByte(a1);
-LABEL_40:
-                  v31 = *(_WORD *)(a1 + 44) + v30;
-LABEL_41:
-                  v3 = v31;
-                  goto LABEL_42;
-                }
-                if ( v29 != 1 )
-                  goto LABEL_22;
-                v58 = (char)XmGetCodeByte(a1);
-                goto LABEL_109;
-              }
-              v25 = *(_WORD *)(a1 + 52) + (char)XmGetCodeByte(a1);
+              if ( v52 != 1 )
+                goto LABEL_19;
+              v53 = XmGetCodeByte(a1);
+              v54 = *(_WORD *)(a1 + 52);
             }
             else
             {
-              v25 = *(_WORD *)(a1 + 48) + (char)XmGetCodeByte(a1);
+              v53 = XmGetCodeByte(a1);
+              v54 = *(_WORD *)(a1 + 48);
             }
-LABEL_37:
-            v3 = v25;
-            goto LABEL_22;
+            v45 = v53 + *(_WORD *)(a1 + 44) + v54;
+            goto LABEL_103;
           }
-          v61 = XmGetCodeByte(a1);
-          v62 = *(_WORD *)(a1 + 52);
+          v55 = XmGetCodeByte(a1);
+          v56 = *(_WORD *)(a1 + 52);
         }
         else
         {
-          v61 = XmGetCodeByte(a1);
-          v62 = *(_WORD *)(a1 + 48);
+          v55 = XmGetCodeByte(a1);
+          v56 = *(_WORD *)(a1 + 48);
         }
-        v31 = v61 + *(_WORD *)(a1 + 44) + v62;
-        goto LABEL_41;
-      }
-      v59 = XmGetCodeByte(a1);
-      v60 = *(_WORD *)(a1 + 52);
-    }
-    else
-    {
-      if ( v7 != 8 )
-      {
-        if ( v7 )
-        {
-          v14 = v7 - 1;
-          if ( v14 )
-          {
-            v15 = v14 - 1;
-            if ( v15 )
-            {
-              v16 = v15 - 1;
-              if ( v16 )
-              {
-                v17 = v16 - 1;
-                if ( !v17 )
-                {
-                  v3 = *(unsigned __int16 *)(a1 + 48);
-                  goto LABEL_22;
-                }
-                v26 = v17 - 1;
-                if ( !v26 )
-                {
-                  v3 = *(unsigned __int16 *)(a1 + 52);
-                  goto LABEL_22;
-                }
-                v27 = v26 - 1;
-                if ( v27 )
-                {
-                  if ( v27 == 1 )
-                    v3 = *(unsigned __int16 *)(a1 + 36);
-                  goto LABEL_22;
-                }
-                WordImmediate = XmGetWordImmediate(a1);
-                goto LABEL_35;
-              }
-              v30 = *(_WORD *)(a1 + 52);
-            }
-            else
-            {
-              v30 = *(_WORD *)(a1 + 48);
-            }
-            goto LABEL_40;
-          }
-          v58 = *(_WORD *)(a1 + 52);
-        }
-        else
-        {
-          v58 = *(_WORD *)(a1 + 48);
-        }
-LABEL_109:
-        v25 = *(_WORD *)(a1 + 36) + v58;
-        goto LABEL_37;
-      }
-      v59 = XmGetCodeByte(a1);
-      v60 = *(_WORD *)(a1 + 48);
-    }
-    v25 = v59 + *(_WORD *)(a1 + 36) + v60;
-    goto LABEL_37;
-  }
-  if ( v7 <= 0x18 )
-  {
-    if ( v7 == 24 )
-      goto LABEL_12;
-    v64 = v7 - 17;
-    if ( v64 )
-    {
-      v65 = v64 - 1;
-      if ( v65 )
-      {
-        v66 = v65 - 1;
-        if ( v66 )
-        {
-          v67 = v66 - 1;
-          if ( v67 )
-          {
-            v68 = v67 - 1;
-            if ( v68 )
-            {
-              v69 = v68 - 1;
-              if ( v69 )
-              {
-                if ( v69 != 1 )
-                  goto LABEL_22;
-                v63 = XmGetWordImmediate(a1);
-                goto LABEL_134;
-              }
-              v70 = XmGetWordImmediate(a1);
-              goto LABEL_132;
-            }
-            WordImmediate = *(_WORD *)(a1 + 52) + XmGetWordImmediate(a1);
-          }
-          else
-          {
-            WordImmediate = *(_WORD *)(a1 + 48) + XmGetWordImmediate(a1);
-          }
-LABEL_35:
-          v3 = WordImmediate;
-          goto LABEL_22;
-        }
-        v70 = *(_WORD *)(a1 + 52) + XmGetWordImmediate(a1);
+        v48 = v55 + *(_WORD *)(a1 + 36) + v56;
       }
       else
       {
-        v70 = *(_WORD *)(a1 + 48) + XmGetWordImmediate(a1);
+        if ( v6 )
+        {
+          v9 = v6 - 1;
+          if ( v9 )
+          {
+            v10 = v9 - 1;
+            if ( v10 )
+            {
+              v11 = v10 - 1;
+              if ( v11 )
+              {
+                v12 = v11 - 1;
+                if ( v12 )
+                {
+                  if ( v12 == 1 )
+                    v3 = *(unsigned __int16 *)(a1 + 52);
+                }
+                else
+                {
+                  v3 = *(unsigned __int16 *)(a1 + 48);
+                }
+                goto LABEL_19;
+              }
+              v44 = *(_WORD *)(a1 + 52);
+            }
+            else
+            {
+              v44 = *(_WORD *)(a1 + 48);
+            }
+            v45 = *(_WORD *)(a1 + 44) + v44;
+            goto LABEL_103;
+          }
+          v47 = *(_WORD *)(a1 + 52);
+        }
+        else
+        {
+          v47 = *(_WORD *)(a1 + 48);
+        }
+        v48 = *(_WORD *)(a1 + 36) + v47;
       }
-LABEL_132:
-      v3 = (unsigned __int16)(*(_WORD *)(a1 + 44) + v70);
-LABEL_42:
-      if ( !*(_BYTE *)(a1 + 140) )
-        *(_DWORD *)(a1 + 116) = 2;
-      goto LABEL_22;
     }
-    v63 = *(_WORD *)(a1 + 52) + XmGetWordImmediate(a1);
-LABEL_134:
-    WordImmediate = *(_WORD *)(a1 + 36) + v63;
-    goto LABEL_35;
+    else
+    {
+      if ( v6 > 0x13 )
+      {
+        if ( v6 == 20 )
+        {
+          WordImmediate = *(_WORD *)(a1 + 48) + XmGetWordImmediate(a1);
+          goto LABEL_25;
+        }
+        if ( v6 == 21 )
+        {
+          WordImmediate = *(_WORD *)(a1 + 52) + XmGetWordImmediate(a1);
+          goto LABEL_25;
+        }
+        if ( v6 != 22 )
+        {
+          v7 = v6 <= 0x17;
+          if ( v6 != 23 )
+            goto LABEL_8;
+          WordImmediate = *(_WORD *)(a1 + 36) + XmGetWordImmediate(a1);
+LABEL_25:
+          v3 = WordImmediate;
+          goto LABEL_19;
+        }
+        v20 = *(_WORD *)(a1 + 44) + XmGetWordImmediate(a1);
+        goto LABEL_32;
+      }
+      if ( v6 == 19 )
+      {
+        v46 = *(_WORD *)(a1 + 52) + XmGetWordImmediate(a1);
+LABEL_102:
+        v45 = v46 + *(_WORD *)(a1 + 44);
+LABEL_103:
+        v3 = v45;
+LABEL_33:
+        if ( !*(_BYTE *)(a1 + 140) )
+          *(_DWORD *)(a1 + 116) = 2;
+        goto LABEL_19;
+      }
+      v18 = v6 - 13;
+      if ( !v18 )
+      {
+        CodeByte = (char)XmGetCodeByte(a1);
+        v16 = *(_WORD *)(a1 + 52);
+        goto LABEL_24;
+      }
+      v19 = v18 - 1;
+      if ( !v19 )
+      {
+        v20 = (char)XmGetCodeByte(a1) + *(_WORD *)(a1 + 44);
+LABEL_32:
+        v3 = v20;
+        goto LABEL_33;
+      }
+      v22 = v19 - 1;
+      if ( !v22 )
+      {
+        CodeByte = (char)XmGetCodeByte(a1);
+        v16 = *(_WORD *)(a1 + 36);
+        goto LABEL_24;
+      }
+      v57 = v22 - 1;
+      if ( v57 )
+      {
+        v58 = v57 - 1;
+        if ( v58 )
+        {
+          if ( v58 != 1 )
+            goto LABEL_19;
+          v46 = *(_WORD *)(a1 + 48) + XmGetWordImmediate(a1);
+          goto LABEL_102;
+        }
+        v49 = *(_WORD *)(a1 + 52) + XmGetWordImmediate(a1);
+      }
+      else
+      {
+        v49 = *(_WORD *)(a1 + 48) + XmGetWordImmediate(a1);
+      }
+      v48 = v49 + *(_WORD *)(a1 + 36);
+    }
+    v3 = v48;
+    goto LABEL_19;
   }
-LABEL_4:
-  v8 = v7 - 25;
-  if ( !v8 )
-    goto LABEL_12;
-  v9 = v8 - 1;
-  if ( !v9 )
-    goto LABEL_12;
-  v10 = v9 - 1;
-  if ( !v10 )
-    goto LABEL_12;
-  v11 = v10 - 1;
-  if ( !v11 )
-    goto LABEL_12;
-  v12 = v11 - 1;
-  if ( !v12 || v12 - 1 < 2 )
-    goto LABEL_12;
-LABEL_22:
+  if ( v6 <= 0xC )
+  {
+    if ( v6 == 12 )
+      goto LABEL_97;
+    if ( v6 <= 6 )
+    {
+      if ( v6 == 6 )
+      {
+        v3 = *(_DWORD *)(a1 + 48);
+        goto LABEL_19;
+      }
+      if ( !v6 )
+      {
+        v3 = *(_DWORD *)(a1 + 24);
+        goto LABEL_19;
+      }
+      v23 = v6 - 1;
+      if ( !v23 )
+      {
+        v3 = *(_DWORD *)(a1 + 28);
+        goto LABEL_19;
+      }
+      v24 = v23 - 1;
+      if ( !v24 )
+      {
+        v3 = *(_DWORD *)(a1 + 32);
+        goto LABEL_19;
+      }
+      v25 = v24 - 1;
+      if ( !v25 )
+      {
+        v3 = *(_DWORD *)(a1 + 36);
+        goto LABEL_19;
+      }
+      v26 = v25 - 1;
+      if ( v26 )
+      {
+        if ( v26 != 1 )
+          goto LABEL_19;
+        LongImmediate = XmGetLongImmediate(a1);
+        goto LABEL_98;
+      }
+LABEL_97:
+      LongImmediate = XmEvaluateIndexSpecifier(a1);
+LABEL_98:
+      v3 = LongImmediate;
+      goto LABEL_19;
+    }
+    v28 = v6 - 7;
+    if ( !v28 )
+    {
+      v3 = *(_DWORD *)(a1 + 52);
+      goto LABEL_19;
+    }
+    v29 = v28 - 1;
+    if ( v29 )
+    {
+      v30 = v29 - 1;
+      if ( v30 )
+      {
+        v31 = v30 - 1;
+        if ( v31 )
+        {
+          if ( v31 != 1 )
+            goto LABEL_19;
+          v32 = (char)XmGetCodeByte(a1);
+          goto LABEL_64;
+        }
+        v33 = (char)XmGetCodeByte(a1);
+LABEL_66:
+        v3 = *(_DWORD *)(a1 + 32) + v33;
+        goto LABEL_19;
+      }
+      v34 = (char)XmGetCodeByte(a1);
+      goto LABEL_69;
+    }
+    v35 = (char)XmGetCodeByte(a1);
+    goto LABEL_72;
+  }
+  if ( v6 <= 0x13 )
+  {
+    if ( v6 == 19 )
+    {
+      v32 = XmGetLongImmediate(a1);
+LABEL_64:
+      v3 = *(_DWORD *)(a1 + 36) + v32;
+      goto LABEL_19;
+    }
+    v36 = v6 - 13;
+    if ( v36 )
+    {
+      v37 = v36 - 1;
+      if ( v37 )
+      {
+        v38 = v37 - 1;
+        if ( v38 )
+        {
+          v39 = v38 - 1;
+          if ( v39 )
+          {
+            v40 = v39 - 1;
+            if ( v40 )
+            {
+              if ( v40 != 1 )
+                goto LABEL_19;
+              v33 = XmGetLongImmediate(a1);
+              goto LABEL_66;
+            }
+            v34 = XmGetLongImmediate(a1);
+LABEL_69:
+            v3 = *(_DWORD *)(a1 + 28) + v34;
+            goto LABEL_19;
+          }
+          v35 = XmGetLongImmediate(a1);
+LABEL_72:
+          v3 = *(_DWORD *)(a1 + 24) + v35;
+          goto LABEL_19;
+        }
+        v41 = (char)XmGetCodeByte(a1);
+LABEL_85:
+        v3 = *(_DWORD *)(a1 + 52) + v41;
+        goto LABEL_19;
+      }
+      v42 = (char)XmGetCodeByte(a1);
+LABEL_88:
+      v3 = *(_DWORD *)(a1 + 48) + v42;
+      goto LABEL_19;
+    }
+    v43 = (char)XmGetCodeByte(a1);
+LABEL_91:
+    v3 = *(_DWORD *)(a1 + 44) + v43;
+    goto LABEL_33;
+  }
+  switch ( v6 )
+  {
+    case 0x14u:
+      goto LABEL_97;
+    case 0x15u:
+      v43 = XmGetLongImmediate(a1);
+      goto LABEL_91;
+    case 0x16u:
+      v42 = XmGetLongImmediate(a1);
+      goto LABEL_88;
+  }
+  v7 = v6 <= 0x17;
+  if ( v6 == 23 )
+  {
+    v41 = XmGetLongImmediate(a1);
+    goto LABEL_85;
+  }
+LABEL_8:
+  if ( !v7 )
+  {
+    *(_BYTE *)(a1 + 142) = 1;
+    return XmGetRegisterAddress(a1, v5 & 7);
+  }
+LABEL_19:
   if ( *(_BYTE *)(a1 + 143) )
   {
     result = (unsigned __int16)v3;
@@ -482,12 +445,12 @@ LABEL_22:
   }
   else
   {
-    v18 = *(unsigned int *)(a1 + 116);
-    v19 = *(unsigned __int16 *)(a1 + 2 * v18 + 68);
-    if ( v3 > v19 || v3 + *(_DWORD *)(a1 + 120) > v19 )
+    v13 = *(unsigned int *)(a1 + 116);
+    v14 = *(unsigned __int16 *)(a1 + 2 * v13 + 68);
+    if ( v3 > v14 || v3 + *(_DWORD *)(a1 + 120) > v14 )
       longjmp((_JBTYPE *)(a1 + 160), 14);
     *(_DWORD *)(a1 + 128) = v3;
-    return x86BiosTranslateAddress(*(unsigned __int16 *)(a1 + 2 * v18 + 56), (unsigned __int16)v3);
+    return x86BiosTranslateAddress(*(unsigned __int16 *)(a1 + 2 * v13 + 56), (unsigned __int16)v3);
   }
   return result;
 }

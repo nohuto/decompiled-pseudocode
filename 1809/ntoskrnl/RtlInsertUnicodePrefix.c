@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlInsertUnicodePrefix @ 0x1406A2620
+ * XREFs of RtlInsertUnicodePrefix @ 0x1406A2600
  * Callers:
  *     <none>
  * Callees:
  *     RtlSplay @ 0x14008D660 (RtlSplay.c)
- *     CompareUnicodeStrings @ 0x1406A2890 (CompareUnicodeStrings.c)
- *     ComputeUnicodeNameLength @ 0x1406A29F0 (ComputeUnicodeNameLength.c)
+ *     CompareUnicodeStrings @ 0x1406A2870 (CompareUnicodeStrings.c)
+ *     ComputeUnicodeNameLength @ 0x1406A29D0 (ComputeUnicodeNameLength.c)
  */
 
 BOOLEAN __stdcall RtlInsertUnicodePrefix(

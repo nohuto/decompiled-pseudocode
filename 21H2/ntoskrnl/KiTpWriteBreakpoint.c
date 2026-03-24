@@ -1,11 +1,11 @@
 /*
- * XREFs of KiTpWriteBreakpoint @ 0x140573374
+ * XREFs of KiTpWriteBreakpoint @ 0x14051D468
  * Callers:
- *     KiTpHandleTrap @ 0x1405730E0 (KiTpHandleTrap.c)
- *     KeSetTracepoint @ 0x140962320 (KeSetTracepoint.c)
+ *     KiTpHandleTrap @ 0x14051D1D0 (KiTpHandleTrap.c)
+ *     KeSetTracepoint @ 0x1408BC370 (KeSetTracepoint.c)
  * Callees:
- *     KiTpWriteMemory @ 0x140573408 (KiTpWriteMemory.c)
- *     MmWriteSystemImageTracepoint @ 0x1405A40C4 (MmWriteSystemImageTracepoint.c)
+ *     KiTpWriteMemory @ 0x14051D4FC (KiTpWriteMemory.c)
+ *     MmWriteSystemImageTracepoint @ 0x14053F6F8 (MmWriteSystemImageTracepoint.c)
  */
 
 __int64 __fastcall KiTpWriteBreakpoint(__int64 a1, __int64 a2, __int64 a3)
@@ -27,10 +27,7 @@ __int64 __fastcall KiTpWriteBreakpoint(__int64 a1, __int64 a2, __int64 a3)
   LOBYTE(a3) = v3;
   result = MmWriteSystemImageTracepoint(*(_QWORD *)(a1 + 8), a2, a3);
   if ( !*(_BYTE *)(a1 + 49) && (int)result >= 0 )
-  {
     *(_BYTE *)(a1 + 49) = 1;
-    return result;
-  }
   if ( (_DWORD)result == -1073741637 || (_DWORD)result == -1073741667 )
   {
 LABEL_12:

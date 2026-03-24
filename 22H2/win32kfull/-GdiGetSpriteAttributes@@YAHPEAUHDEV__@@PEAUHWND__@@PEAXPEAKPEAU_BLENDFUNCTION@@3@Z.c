@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GdiGetSpriteAttributes@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAKPEAU_BLENDFUNCTION@@3@Z @ 0x1C001C654
+ * XREFs of ?GdiGetSpriteAttributes@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAKPEAU_BLENDFUNCTION@@3@Z @ 0x1C00ED9B8
  * Callers:
- *     GreGetSpriteAttributes @ 0x1C00C8640 (GreGetSpriteAttributes.c)
+ *     GreGetSpriteAttributes @ 0x1C00ED844 (GreGetSpriteAttributes.c)
  * Callees:
- *     ?pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C001D7AC (-pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
- *     ?pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX_N@Z @ 0x1C027F53C (-pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX_N@Z.c)
+ *     ?pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C00F0050 (-pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
+ *     ?pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C0281748 (-pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
  */
 
 __int64 __fastcall GdiGetSpriteAttributes(
@@ -25,10 +25,10 @@ __int64 __fastcall GdiGetSpriteAttributes(
   v14 = a1;
   v8 = 0;
   SPRITELOCK::SPRITELOCK((SPRITELOCK *)&v13, (struct PDEVOBJ *)&v14);
-  v9 = (const struct _SPRITESTATE *)(v14 + 20);
-  if ( *((_DWORD *)v14 + 35) )
+  v9 = (const struct _SPRITESTATE *)(v14 + 22);
+  if ( *((_DWORD *)v14 + 37) )
   {
-    MetaSprite = pSpGetMetaSprite(v9, a2, 0LL, 0);
+    MetaSprite = pSpGetMetaSprite(v9, a2, 0LL);
     if ( !MetaSprite )
       goto LABEL_5;
     Sprite = (struct SPRITE *)*((_QWORD *)MetaSprite + 3);

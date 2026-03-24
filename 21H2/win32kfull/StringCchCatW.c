@@ -1,35 +1,35 @@
 /*
- * XREFs of StringCchCatW @ 0x1C027B9CC
+ * XREFs of StringCchCatW @ 0x1C027DE58
  * Callers:
- *     GetNlsTablePath @ 0x1C027B834 (GetNlsTablePath.c)
+ *     GetNlsTablePath @ 0x1C027DCC4 (GetNlsTablePath.c)
  * Callees:
- *     StringCopyWorkerW @ 0x1C027BA78 (StringCopyWorkerW.c)
+ *     StringCopyWorkerW @ 0x1C027DF08 (StringCopyWorkerW.c)
  */
 
 HRESULT __stdcall StringCchCatW(STRSAFE_LPWSTR pszDest, size_t cchDest, STRSAFE_LPCWSTR pszSrc)
 {
-  STRSAFE_LPWSTR v3; // rax
-  __int64 v4; // r9
+  __int64 v4; // rdx
+  STRSAFE_LPWSTR v5; // rax
   HRESULT result; // eax
-  size_t v6; // [rsp+20h] [rbp-18h]
+  __int64 v7; // rcx
+  size_t v8; // [rsp+20h] [rbp-18h]
 
-  v3 = pszDest;
   v4 = 260LL;
+  v5 = pszDest;
   do
   {
-    if ( !*v3 )
+    if ( !*v5 )
       break;
-    ++v3;
+    ++v5;
     --v4;
   }
   while ( v4 );
   result = v4 == 0 ? 0x80070057 : 0;
   if ( v4 )
-    return StringCopyWorkerW(
-             (STRSAFE_LPWSTR)((char *)pszDest + ((2 * (260 - v4)) & -(__int64)(v4 != 0))),
-             ((v4 - 260) & ((unsigned __int128)-(__int128)(unsigned __int64)v4 >> 64)) + 260,
-             (size_t *)pszSrc,
-             pszSrc,
-             v6);
+    v7 = 260 - v4;
+  else
+    v7 = 0LL;
+  if ( v4 )
+    return StringCopyWorkerW(&pszDest[v7], 260 - v7, (size_t *)pszSrc, pszSrc, v8);
   return result;
 }

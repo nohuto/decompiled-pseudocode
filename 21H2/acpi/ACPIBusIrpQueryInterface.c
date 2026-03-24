@@ -1,43 +1,43 @@
 /*
- * XREFs of ACPIBusIrpQueryInterface @ 0x1C0005A80
+ * XREFs of ACPIBusIrpQueryInterface @ 0x1C0010C50
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     AcpiDeviceResetInterface @ 0x1C002CBD0 (AcpiDeviceResetInterface.c)
- *     AcpiFanEjectInterface @ 0x1C002DC64 (AcpiFanEjectInterface.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     AcpiPccEjectInterface @ 0x1C005AA64 (AcpiPccEjectInterface.c)
- *     ACPICacheCoherencyInterface @ 0x1C0090A3C (ACPICacheCoherencyInterface.c)
- *     ACPIBusReenumerateSelfInterface @ 0x1C0090C3C (ACPIBusReenumerateSelfInterface.c)
- *     IsPciBus @ 0x1C0091898 (IsPciBus.c)
- *     ACPIEjectPnpLocationInterface @ 0x1C00922E0 (ACPIEjectPnpLocationInterface.c)
- *     ACPIBusIommuBusInterface @ 0x1C00923D0 (ACPIBusIommuBusInterface.c)
- *     ACPIInternalSendSynchronousIrp @ 0x1C0093610 (ACPIInternalSendSynchronousIrp.c)
- *     TranslateEjectInterface @ 0x1C0097130 (TranslateEjectInterface.c)
- *     PciBusEjectInterface @ 0x1C00A1458 (PciBusEjectInterface.c)
- *     AcpiEjectBusNumberTranslator @ 0x1C00A1918 (AcpiEjectBusNumberTranslator.c)
- *     AcpiArblibEjectInterface @ 0x1C00ABEA0 (AcpiArblibEjectInterface.c)
- *     ACPIEjectPartitionUnitInterface @ 0x1C00AF728 (ACPIEjectPartitionUnitInterface.c)
- *     AcpiSdevIdentifierInterface @ 0x1C00B4CE0 (AcpiSdevIdentifierInterface.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     AcpiFanEjectInterface @ 0x1C0011940 (AcpiFanEjectInterface.c)
+ *     AcpiPccEjectInterface @ 0x1C0011A0C (AcpiPccEjectInterface.c)
+ *     AcpiDeviceResetInterface @ 0x1C0031180 (AcpiDeviceResetInterface.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     AcpiPccGetInterfaceInformation @ 0x1C0059EDC (AcpiPccGetInterfaceInformation.c)
+ *     PciBusEjectInterface @ 0x1C009895C (PciBusEjectInterface.c)
+ *     ACPIEjectPnpLocationInterface @ 0x1C00993E0 (ACPIEjectPnpLocationInterface.c)
+ *     ACPIBusIommuBusInterface @ 0x1C00995C4 (ACPIBusIommuBusInterface.c)
+ *     IsPciBus @ 0x1C0099E04 (IsPciBus.c)
+ *     ACPICacheCoherencyInterface @ 0x1C009A0F4 (ACPICacheCoherencyInterface.c)
+ *     ACPIBusReenumerateSelfInterface @ 0x1C009A158 (ACPIBusReenumerateSelfInterface.c)
+ *     TranslateEjectInterface @ 0x1C009A244 (TranslateEjectInterface.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1C009E0DC (ACPIInternalSendSynchronousIrp.c)
+ *     AcpiEjectBusNumberTranslator @ 0x1C00A362C (AcpiEjectBusNumberTranslator.c)
+ *     AcpiArblibEjectInterface @ 0x1C00AD1AC (AcpiArblibEjectInterface.c)
+ *     ACPIEjectPartitionUnitInterface @ 0x1C00B0278 (ACPIEjectPartitionUnitInterface.c)
  */
 
 __int64 __fastcall ACPIBusIrpQueryInterface(ULONG_PTR a1, IRP *a2)
 {
-  _IO_STACK_LOCATION *CurrentStackLocation; // r14
+  _IO_STACK_LOCATION *CurrentStackLocation; // r15
   unsigned int Status; // ebx
   __int64 DeviceExtension; // rax
-  GUID *SecurityContext; // rdi
+  GUID *SecurityContext; // rsi
   unsigned int EaLength; // r13d
-  __int64 v9; // r15
-  unsigned int v10; // eax
-  unsigned int v12; // ebx
-  const void *v13; // rdx
-  _QWORD *v14; // rdi
-  __int64 v15; // rax
-  struct _DEVICE_OBJECT *v16; // rcx
+  __int64 v9; // r14
+  unsigned int InterfaceInformation; // eax
+  __int64 v12; // rax
+  struct _DEVICE_OBJECT *v13; // rcx
+  unsigned int v14; // ebx
+  const void *v15; // rdx
+  _QWORD *v16; // rsi
   unsigned int Size; // ebx
-  _QWORD *QuadPart; // rdi
+  _QWORD *QuadPart; // rsi
 
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   Status = -1073741637;
@@ -55,16 +55,16 @@ __int64 __fastcall ACPIBusIrpQueryInterface(ULONG_PTR a1, IRP *a2)
     memmove(QuadPart, &ACPIInterfaceTable, Size);
     if ( Size > 0x10 )
       QuadPart[1] = a1;
-    goto LABEL_52;
+    goto LABEL_64;
   }
   if ( SecurityContext == &GUID_ACPI_INTERFACE_STANDARD2
     || RtlCompareMemory(SecurityContext, &GUID_ACPI_INTERFACE_STANDARD2, 0x10uLL) == 16 )
   {
-    v12 = 88;
+    v14 = 88;
     if ( CurrentStackLocation->Parameters.QueryInterface.Size <= 0x58u )
-      v12 = CurrentStackLocation->Parameters.QueryInterface.Size;
-    v13 = &ACPIInterfaceTable2;
-    goto LABEL_50;
+      v14 = CurrentStackLocation->Parameters.QueryInterface.Size;
+    v15 = &ACPIInterfaceTable2;
+    goto LABEL_62;
   }
   if ( SecurityContext == &GUID_TRANSLATOR_INTERFACE_STANDARD
     || RtlCompareMemory(SecurityContext, &GUID_TRANSLATOR_INTERFACE_STANDARD, 0x10uLL) == 16 )
@@ -73,16 +73,16 @@ __int64 __fastcall ACPIBusIrpQueryInterface(ULONG_PTR a1, IRP *a2)
     {
       if ( EaLength == 6 && (unsigned __int8)IsPciBus(a1) && (AcpiOverrideAttributes & 0x1000) == 0 )
       {
-        v10 = AcpiEjectBusNumberTranslator(a1, a2);
-        goto LABEL_38;
+        InterfaceInformation = AcpiEjectBusNumberTranslator(a1, a2);
+        goto LABEL_29;
       }
     }
     else if ( (unsigned __int8)IsPciBus(a1) )
     {
-      v10 = TranslateEjectInterface(a1, a2);
-      goto LABEL_38;
+      InterfaceInformation = TranslateEjectInterface(a1, a2);
+      goto LABEL_29;
     }
-    goto LABEL_39;
+    goto LABEL_30;
   }
   if ( SecurityContext == &GUID_PCI_BUS_INTERFACE_STANDARD
     || RtlCompareMemory(SecurityContext, &GUID_PCI_BUS_INTERFACE_STANDARD, 0x10uLL) == 16
@@ -91,69 +91,79 @@ __int64 __fastcall ACPIBusIrpQueryInterface(ULONG_PTR a1, IRP *a2)
   {
     if ( (unsigned __int8)IsPciBus(a1) )
     {
-      v10 = PciBusEjectInterface(a1, a2);
-      goto LABEL_38;
+      InterfaceInformation = PciBusEjectInterface(a1, a2);
+      goto LABEL_29;
     }
-    goto LABEL_39;
+    goto LABEL_30;
   }
   if ( SecurityContext == &GUID_BUS_INTERFACE_STANDARD
     || RtlCompareMemory(SecurityContext, &GUID_BUS_INTERFACE_STANDARD, 0x10uLL) == 16 )
   {
     a2->IoStatus.Status = -1073741127;
-    v15 = *(_QWORD *)(v9 + 792);
-    if ( v15 )
+    v12 = *(_QWORD *)(v9 + 752);
+    if ( v12 )
     {
-      v16 = *(struct _DEVICE_OBJECT **)(v15 + 768);
-      if ( v16 )
+      v13 = *(struct _DEVICE_OBJECT **)(v12 + 728);
+      if ( v13 )
       {
-        if ( v15 == RootDeviceExtension )
+        if ( v12 == RootDeviceExtension )
           CurrentStackLocation->Parameters.CreatePipe.Parameters = (_NAMED_PIPE_CREATE_PARAMETERS *)a1;
-        a2->IoStatus.Status = ACPIInternalSendSynchronousIrp(v16);
+        a2->IoStatus.Status = ACPIInternalSendSynchronousIrp(v13);
       }
     }
-    goto LABEL_35;
+    goto LABEL_41;
   }
   if ( SecurityContext == &GUID_ARBITER_INTERFACE_STANDARD
     || RtlCompareMemory(SecurityContext, &GUID_ARBITER_INTERFACE_STANDARD, 0x10uLL) == 16 )
   {
-    if ( _bittest64((const signed __int64 *)(v9 + 8), 0x25u) && *(_BYTE *)(v9 + 184) )
+    if ( (*(_QWORD *)(v9 + 8) & 0x2000000000LL) != 0 && *(_BYTE *)(v9 + 184) )
     {
-      v10 = AcpiArblibEjectInterface(a1, a2);
-      goto LABEL_37;
+      InterfaceInformation = AcpiArblibEjectInterface(a1, a2);
+      goto LABEL_28;
     }
-    goto LABEL_39;
+    goto LABEL_30;
   }
   if ( SecurityContext == &GUID_PARTITION_UNIT_INTERFACE_STANDARD
     || RtlCompareMemory(SecurityContext, &GUID_PARTITION_UNIT_INTERFACE_STANDARD, 0x10uLL) == 16 )
   {
-    if ( _bittest64((const signed __int64 *)(v9 + 8), 0x25u) )
+    if ( (*(_QWORD *)(v9 + 8) & 0x2000000000LL) != 0 )
     {
-      v10 = ACPIEjectPartitionUnitInterface(a1, a2);
-      goto LABEL_37;
+      InterfaceInformation = ACPIEjectPartitionUnitInterface(a1, a2);
+      goto LABEL_28;
     }
-    goto LABEL_39;
+    goto LABEL_30;
   }
   if ( SecurityContext == &GUID_PCC_INTERFACE_STANDARD
     || RtlCompareMemory(SecurityContext, &GUID_PCC_INTERFACE_STANDARD, 0x10uLL) == 16 )
   {
-    v10 = AcpiPccEjectInterface(a1, a2);
-    goto LABEL_37;
+    InterfaceInformation = AcpiPccEjectInterface(a1, a2);
+    goto LABEL_28;
+  }
+  if ( SecurityContext == &GUID_PCC_INTERFACE_INTERNAL
+    || RtlCompareMemory(SecurityContext, &GUID_PCC_INTERFACE_INTERNAL, 0x10uLL) == 16 )
+  {
+    if ( (*(_QWORD *)(v9 + 8) & 0x1000000000LL) != 0 )
+    {
+      InterfaceInformation = AcpiPccGetInterfaceInformation(a1, a2);
+      goto LABEL_28;
+    }
+    goto LABEL_30;
   }
   if ( SecurityContext == &GUID_D3COLD_SUPPORT_INTERFACE
     || RtlCompareMemory(SecurityContext, &GUID_D3COLD_SUPPORT_INTERFACE, 0x10uLL) == 16 )
   {
-    v12 = 72;
+    v14 = 72;
     if ( CurrentStackLocation->Parameters.QueryInterface.Size <= 0x48u )
-      v12 = CurrentStackLocation->Parameters.QueryInterface.Size;
-    v13 = &D3Interface;
-LABEL_50:
-    v14 = (_QWORD *)CurrentStackLocation->Parameters.Read.ByteOffset.QuadPart;
-    memmove(v14, v13, v12);
-    if ( v12 > 0x10 )
-      v14[1] = v9;
-LABEL_52:
+      v14 = CurrentStackLocation->Parameters.QueryInterface.Size;
+    v15 = &D3Interface;
+LABEL_62:
+    v16 = (_QWORD *)CurrentStackLocation->Parameters.Read.ByteOffset.QuadPart;
+    memmove(v16, v15, v14);
+    if ( v14 > 0x10 )
+      v16[1] = v9;
+LABEL_64:
     Status = 0;
-    goto LABEL_40;
+    goto LABEL_31;
   }
   if ( SecurityContext != &GUID_THERMAL_COOLING_INTERFACE
     && RtlCompareMemory(SecurityContext, &GUID_THERMAL_COOLING_INTERFACE, 0x10uLL) != 16 )
@@ -161,58 +171,52 @@ LABEL_52:
     if ( SecurityContext == &GUID_PNP_LOCATION_INTERFACE
       || RtlCompareMemory(SecurityContext, &GUID_PNP_LOCATION_INTERFACE, 0x10uLL) == 16 )
     {
-      v10 = ACPIEjectPnpLocationInterface(a1, a2);
+      InterfaceInformation = ACPIEjectPnpLocationInterface(a1, a2);
     }
     else if ( SecurityContext == &GUID_DMA_CACHE_COHERENCY_INTERFACE
            || RtlCompareMemory(SecurityContext, &GUID_DMA_CACHE_COHERENCY_INTERFACE, 0x10uLL) == 16 )
     {
-      v10 = ACPICacheCoherencyInterface(v9, CurrentStackLocation);
+      InterfaceInformation = ACPICacheCoherencyInterface(v9, CurrentStackLocation);
     }
     else if ( SecurityContext == &GUID_DEVICE_RESET_INTERFACE_STANDARD
            || RtlCompareMemory(SecurityContext, &GUID_DEVICE_RESET_INTERFACE_STANDARD, 0x10uLL) == 16 )
     {
-      v10 = AcpiDeviceResetInterface(a1, a2, 0LL, 0LL);
+      InterfaceInformation = AcpiDeviceResetInterface(a1, a2, 0LL, 0LL);
     }
     else if ( SecurityContext == &GUID_REENUMERATE_SELF_INTERFACE_STANDARD
            || RtlCompareMemory(SecurityContext, &GUID_REENUMERATE_SELF_INTERFACE_STANDARD, 0x10uLL) == 16 )
     {
-      v10 = ACPIBusReenumerateSelfInterface(v9, CurrentStackLocation);
+      InterfaceInformation = ACPIBusReenumerateSelfInterface(v9, CurrentStackLocation);
     }
     else
     {
       if ( SecurityContext != &GUID_IOMMU_BUS_INTERFACE
         && RtlCompareMemory(SecurityContext, &GUID_IOMMU_BUS_INTERFACE, 0x10uLL) != 16 )
       {
-        if ( SecurityContext != &GUID_SDEV_IDENTIFIER_INTERFACE
-          && RtlCompareMemory(SecurityContext, &GUID_SDEV_IDENTIFIER_INTERFACE, 0x10uLL) != 16 )
-        {
-          goto LABEL_35;
-        }
-        v10 = AcpiSdevIdentifierInterface(a1, CurrentStackLocation);
-        goto LABEL_38;
+        goto LABEL_41;
       }
-      v10 = ACPIBusIommuBusInterface(a1, a2);
+      InterfaceInformation = ACPIBusIommuBusInterface(a1, a2);
     }
-    goto LABEL_37;
+    goto LABEL_28;
   }
-  if ( _bittest64((const signed __int64 *)(v9 + 1000), 0x21u) )
+  if ( (*(_QWORD *)(v9 + 960) & 0x200000000LL) != 0 )
   {
-    v10 = AcpiFanEjectInterface(a1, a2);
-LABEL_37:
-    a2->IoStatus.Status = v10;
-LABEL_38:
-    Status = v10;
+    InterfaceInformation = AcpiFanEjectInterface(a1, a2);
+LABEL_28:
+    a2->IoStatus.Status = InterfaceInformation;
+LABEL_29:
+    Status = InterfaceInformation;
   }
-LABEL_39:
-  if ( Status != -1073741637 )
+LABEL_30:
+  if ( Status == -1073741637 )
   {
-LABEL_40:
-    a2->IoStatus.Status = Status;
-    goto LABEL_41;
-  }
-LABEL_35:
-  Status = a2->IoStatus.Status;
 LABEL_41:
+    Status = a2->IoStatus.Status;
+    goto LABEL_32;
+  }
+LABEL_31:
+  a2->IoStatus.Status = Status;
+LABEL_32:
   IofCompleteRequest(a2, 0);
   return Status;
 }

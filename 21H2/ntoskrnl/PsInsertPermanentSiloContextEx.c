@@ -1,15 +1,15 @@
 /*
- * XREFs of PsInsertPermanentSiloContextEx @ 0x140692980
+ * XREFs of PsInsertPermanentSiloContextEx @ 0x140715D5C
  * Callers:
- *     CmpGetOrCreateContextForSiloNoRef @ 0x140690C50 (CmpGetOrCreateContextForSiloNoRef.c)
- *     PsInsertPermanentSiloContext @ 0x1408643E0 (PsInsertPermanentSiloContext.c)
- *     ObCreateSiloRootDirectory @ 0x140A34510 (ObCreateSiloRootDirectory.c)
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x140715BF8 (CmpGetOrCreateContextForSiloNoRef.c)
+ *     PsInsertPermanentSiloContext @ 0x1407D45C0 (PsInsertPermanentSiloContext.c)
+ *     ObCreateSiloRootDirectory @ 0x1409804D0 (ObCreateSiloRootDirectory.c)
  * Callees:
- *     PspStorageInsertObject @ 0x140692ACC (PspStorageInsertObject.c)
- *     PspIsSiloContext @ 0x140692C18 (PspIsSiloContext.c)
- *     PspJobHasChildren @ 0x1406E5090 (PspJobHasChildren.c)
- *     PspUnlockJob @ 0x1406FFE90 (PspUnlockJob.c)
- *     PspLockJobShared @ 0x1406FFEFC (PspLockJobShared.c)
+ *     PspJobHasChildren @ 0x1405D91D4 (PspJobHasChildren.c)
+ *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
+ *     PspLockJobShared @ 0x14061879C (PspLockJobShared.c)
+ *     PspIsSiloContext @ 0x140715D14 (PspIsSiloContext.c)
+ *     PspStorageInsertObject @ 0x140715E30 (PspStorageInsertObject.c)
  */
 
 __int64 __fastcall PsInsertPermanentSiloContextEx(__int64 a1, unsigned int a2, __int64 a3, int a4)
@@ -23,10 +23,10 @@ __int64 __fastcall PsInsertPermanentSiloContextEx(__int64 a1, unsigned int a2, _
 
   if ( (a4 & 0xFFFFFFFE) != 0 )
     return 3221225485LL;
-  v7 = qword_140D32A90;
+  v7 = qword_140D24990;
   if ( a1 )
-    v7 = *(_QWORD *)(a1 + 1496);
-  if ( (unsigned __int8)PspIsSiloContext(a3) )
+    v7 = *(_QWORD *)(a1 + 1304);
+  if ( PspIsSiloContext(a3) )
   {
     v10 = (*(_BYTE *)(v8 - 48 + 26) & 0x40) != 0
         ? (_QWORD *)(*(_QWORD *)(v8 - 48 - ObpInfoMaskToOffset[*(_BYTE *)(v8 - 48 + 26) & 0x7F]) + 32LL)
@@ -39,8 +39,8 @@ __int64 __fastcall PsInsertPermanentSiloContextEx(__int64 a1, unsigned int a2, _
     if ( !a1 )
       return 3221225520LL;
     CurrentThread = KeGetCurrentThread();
-    PspLockJobShared(a1, CurrentThread);
-    if ( (unsigned __int8)PspJobHasChildren(a1) )
+    PspLockJobShared(a1, (__int64)CurrentThread);
+    if ( PspJobHasChildren(a1) )
     {
       inserted = -1073740529;
       goto LABEL_11;
@@ -54,6 +54,6 @@ __int64 __fastcall PsInsertPermanentSiloContextEx(__int64 a1, unsigned int a2, _
   inserted = PspStorageInsertObject(v7, a2, v8, a3);
 LABEL_11:
   if ( CurrentThread )
-    PspUnlockJob(a1, CurrentThread);
+    PspUnlockJob(a1, (__int64)CurrentThread);
   return inserted;
 }

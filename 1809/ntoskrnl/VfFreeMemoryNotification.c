@@ -1,7 +1,7 @@
 /*
  * XREFs of VfFreeMemoryNotification @ 0x140925CB8
  * Callers:
- *     MmFreeContiguousMemory @ 0x140122FA0 (MmFreeContiguousMemory.c)
+ *     MmFreeContiguousMemory @ 0x140122FC0 (MmFreeContiguousMemory.c)
  * Callees:
  *     VfRemLockDeleteMemoryRange @ 0x140934768 (VfRemLockDeleteMemoryRange.c)
  *     VfDeadlockDeleteMemoryRange @ 0x14093BD60 (VfDeadlockDeleteMemoryRange.c)

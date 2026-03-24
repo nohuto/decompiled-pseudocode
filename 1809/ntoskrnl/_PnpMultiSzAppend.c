@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpMultiSzAppend @ 0x1409002AC
+ * XREFs of _PnpMultiSzAppend @ 0x14090028C
  * Callers:
- *     _CmAppendInstallerClassFiltersLevel @ 0x1408FC9E8 (_CmAppendInstallerClassFiltersLevel.c)
- *     _CmGetDeviceChildren @ 0x1408FD578 (_CmGetDeviceChildren.c)
- *     _CmGetInstallerClassCompoundFilterList @ 0x1408FE058 (_CmGetInstallerClassCompoundFilterList.c)
- *     _CmMergeInstallerClassFilterLists @ 0x1408FF030 (_CmMergeInstallerClassFilterLists.c)
+ *     _CmAppendInstallerClassFiltersLevel @ 0x1408FC9C8 (_CmAppendInstallerClassFiltersLevel.c)
+ *     _CmGetDeviceChildren @ 0x1408FD558 (_CmGetDeviceChildren.c)
+ *     _CmGetInstallerClassCompoundFilterList @ 0x1408FE038 (_CmGetInstallerClassCompoundFilterList.c)
+ *     _CmMergeInstallerClassFilterLists @ 0x1408FF010 (_CmMergeInstallerClassFilterLists.c)
  * Callees:
  *     RtlStringCbCopyExW @ 0x140007504 (RtlStringCbCopyExW.c)
  */

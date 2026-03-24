@@ -1,14 +1,14 @@
 /*
- * XREFs of ObHandleRevocationBlockAddObject @ 0x1409843A0
+ * XREFs of ObHandleRevocationBlockAddObject @ 0x1408DC920
  * Callers:
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
  * Callees:
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140229AD4 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14029C5BC (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
  */
 
 void __fastcall ObHandleRevocationBlockAddObject(struct _EX_RUNDOWN_REF *a1, __int64 a2)
@@ -22,7 +22,7 @@ void __fastcall ObHandleRevocationBlockAddObject(struct _EX_RUNDOWN_REF *a1, __i
 
   v3 = 0;
   v4 = OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO(a2 - 48);
-  v5 = ExAcquireRundownProtection(a1 + 3);
+  v5 = ExAcquireRundownProtection_0(a1 + 3);
   CurrentThread = KeGetCurrentThread();
   v7 = v5;
   --CurrentThread->KernelApcDisable;
@@ -43,6 +43,6 @@ void __fastcall ObHandleRevocationBlockAddObject(struct _EX_RUNDOWN_REF *a1, __i
   if ( v7 )
   {
     if ( !v3 )
-      ExReleaseRundownProtection(a1 + 3);
+      ExReleaseRundownProtection_0(a1 + 3);
   }
 }

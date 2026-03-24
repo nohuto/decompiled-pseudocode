@@ -1,18 +1,14 @@
 /*
- * XREFs of MiControlAreaExemptFromCrossPartitionCharges @ 0x140214D8C
+ * XREFs of MiControlAreaExemptFromCrossPartitionCharges @ 0x140296550
  * Callers:
- *     MiControlAreaRequiresCharge @ 0x140214CE4 (MiControlAreaRequiresCharge.c)
- *     MiIncrementSubsectionViewCount @ 0x1402890D0 (MiIncrementSubsectionViewCount.c)
- *     MiDecrementSubsectionViewCount @ 0x14029F9B0 (MiDecrementSubsectionViewCount.c)
+ *     MiControlAreaRequiresCharge @ 0x14025A51C (MiControlAreaRequiresCharge.c)
+ *     MiDecrementSubsectionViewCount @ 0x1402957F0 (MiDecrementSubsectionViewCount.c)
+ *     MiIncrementSubsectionViewCount @ 0x140296460 (MiIncrementSubsectionViewCount.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall MiControlAreaExemptFromCrossPartitionCharges(__int64 a1)
+_BOOL8 __fastcall MiControlAreaExemptFromCrossPartitionCharges(__int64 a1)
 {
-  if ( (*(_BYTE *)(a1 + 62) & 0xC) != 0 )
-    return 1LL;
-  if ( *(_QWORD *)(a1 + 64) )
-    return 0LL;
-  return *(_WORD *)(a1 + 94) & 1;
+  return (*(_DWORD *)(a1 + 56) & 0x40000000) != 0 || !*(_QWORD *)(a1 + 64) && (*(_DWORD *)(a1 + 92) & 0x10000) != 0;
 }

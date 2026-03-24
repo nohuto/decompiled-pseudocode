@@ -1,35 +1,35 @@
 /*
- * XREFs of ?GetEUDCDefaultFontPFE@RFONTOBJ@@AEAAPEAVPFE@@I@Z @ 0x1C02B41B0
+ * XREFs of ?GetEUDCDefaultFontPFE@RFONTOBJ@@AEAAPEAVPFE@@I@Z @ 0x1C014FC0C
  * Callers:
- *     ?GetLinkedFontUFIs@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C02B4278 (-GetLinkedFontUFIs@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAU_UNIVERSAL_FONT_ID@@H@Z.c)
- *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02B4F3C (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00E7AAC (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?GetLinkedFontUFIs@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C014F928 (-GetLinkedFontUFIs@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAU_UNIVERSAL_FONT_ID@@H@Z.c)
  * Callees:
  *     <none>
  */
 
 struct PFE *__fastcall RFONTOBJ::GetEUDCDefaultFontPFE(RFONTOBJ *this, BOOL a2)
 {
-  __int64 v3; // rcx
-  __int64 v4; // rax
-  char v5; // si
-  unsigned int v6; // ebx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
+  __int64 v2; // r9
+  __int64 v3; // rax
+  char v4; // cl
+  unsigned int v5; // r8d
+  __int64 v7; // rcx
 
-  v3 = *(_QWORD *)(*(_QWORD *)this + 120LL);
-  v4 = *(_QWORD *)(v3 + 32);
-  v5 = *(_BYTE *)(v4 + 44);
-  v6 = *(unsigned __int8 *)(v4 + 45) >> 4;
-  v7 = *(_QWORD *)(SGDGetSessionState(v3) + 32);
-  if ( v5 && v5 != 2 && v5 != -1 || (*(_BYTE *)(v7 + 18736) & (unsigned __int8)(v5 + 2) & 0xF) == 0 )
-    return 0LL;
-  if ( v6 >= 7 || !*(_DWORD *)(664LL * v6 + v7 + 14088) )
-    v6 = 6;
-  if ( a2 )
+  v2 = 0LL;
+  v3 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 32LL);
+  v4 = *(_BYTE *)(v3 + 44);
+  v5 = *(unsigned __int8 *)(v3 + 45) >> 4;
+  if ( (!v4 || v4 == 2 || v4 == -1) && ((unsigned __int8)fFontAssocStatus & (unsigned __int8)(v4 + 2) & 0xF) != 0 )
   {
-    v8 = 664LL * v6;
-    if ( !*(_QWORD *)(v8 + v7 + 14744) )
-      a2 = *(_QWORD *)(v8 + v7 + 14736) == 0LL;
+    if ( v5 >= 7 || !*((_DWORD *)&FontAssocDefaultTable + 166 * v5) )
+      v5 = 6;
+    if ( a2 )
+    {
+      v7 = 664LL * v5;
+      if ( !*(_QWORD *)((char *)&FontAssocDefaultTable + v7 + 656) )
+        a2 = *(_QWORD *)((char *)&FontAssocDefaultTable + v7 + 648) == 0LL;
+    }
+    return (struct PFE *)*((_QWORD *)&FontAssocDefaultTable + 83 * v5 + a2 + 81);
   }
-  return *(struct PFE **)(v7 + 8 * (a2 + 83LL * v6) + 14736);
+  return (struct PFE *)v2;
 }

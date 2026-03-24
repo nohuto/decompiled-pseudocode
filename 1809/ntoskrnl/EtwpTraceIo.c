@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpTraceIo @ 0x140182F80
+ * XREFs of EtwpTraceIo @ 0x140182FA0
  * Callers:
  *     <none>
  * Callees:
  *     PsGetThreadServerSilo @ 0x14007E5E0 (PsGetThreadServerSilo.c)
  *     EtwTraceSiloKernelEvent @ 0x1400891E0 (EtwTraceSiloKernelEvent.c)
- *     IoGetActivityIdIrp @ 0x140107C60 (IoGetActivityIdIrp.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     EtwpDiskProvTraceDisk @ 0x1403107D4 (EtwpDiskProvTraceDisk.c)
+ *     IoGetActivityIdIrp @ 0x140107C80 (IoGetActivityIdIrp.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwpDiskProvTraceDisk @ 0x1403108D4 (EtwpDiskProvTraceDisk.c)
  */
 
 __int64 __fastcall EtwpTraceIo(int a1, int a2, __int64 a3)

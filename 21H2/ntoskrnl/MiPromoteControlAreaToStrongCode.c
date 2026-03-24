@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPromoteControlAreaToStrongCode @ 0x140976F28
+ * XREFs of MiPromoteControlAreaToStrongCode @ 0x1408CDBF0
  * Callers:
- *     MiLoadHotPatch @ 0x140974020 (MiLoadHotPatch.c)
+ *     MiLoadHotPatch @ 0x1408CABD0 (MiLoadHotPatch.c)
  * Callees:
- *     MiValidateSectionCreate @ 0x1406B79C8 (MiValidateSectionCreate.c)
- *     MiGetSectionStrongImageReference @ 0x14097F0F0 (MiGetSectionStrongImageReference.c)
+ *     MiValidateSectionCreate @ 0x140714C70 (MiValidateSectionCreate.c)
+ *     MiGetSectionStrongImageReference @ 0x1408D7ED0 (MiGetSectionStrongImageReference.c)
  */
 
 __int64 __fastcall MiPromoteControlAreaToStrongCode(ULONG_PTR a1, ULONG_PTR a2, int a3, _QWORD *a4)
@@ -12,17 +12,16 @@ __int64 __fastcall MiPromoteControlAreaToStrongCode(ULONG_PTR a1, ULONG_PTR a2, 
   __int64 result; // rax
   __int64 v7; // rdx
   __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rbx
+  __int64 v9; // rbx
 
   result = MiValidateSectionCreate(a2, a1, 0xFFFFFFFF, 0LL, a3 | 0x40000000u, 12, 1);
   if ( (int)result >= 0 )
   {
-    v10 = *(_QWORD *)(a1 + 96);
-    result = MiGetSectionStrongImageReference(v10, v7, v8, v9);
+    v9 = *(_QWORD *)(a1 + 96);
+    result = MiGetSectionStrongImageReference(v9, v7, v8);
     if ( (int)result >= 0 )
     {
-      *a4 = *(_QWORD *)(v10 + 56);
+      *a4 = *(_QWORD *)(v9 + 56);
       return 0LL;
     }
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of EnableFlushTimer @ 0x1403C6B80
+ * XREFs of EnableFlushTimer @ 0x14036DE0C
  * Callers:
- *     InsertEventEntryInLookUpTable @ 0x140212F80 (InsertEventEntryInLookUpTable.c)
- *     ?TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1403D5FB0 (-TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
- *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x140880200 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
+ *     InsertEventEntryInLookUpTable @ 0x14036D608 (InsertEventEntryInLookUpTable.c)
+ *     ?TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x140381A40 (-TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
+ *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x140735A30 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
  * Callees:
- *     ExSetTimer @ 0x14031DC10 (ExSetTimer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     ExSetTimer @ 0x140349080 (ExSetTimer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 _BOOL8 __fastcall EnableFlushTimer(ULONG_PTR a1, unsigned int a2)

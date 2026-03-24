@@ -1,45 +1,102 @@
 /*
- * XREFs of MonitorGetMonitorOrientationsFromTarget @ 0x1C01A25F8
+ * XREFs of MonitorGetMonitorOrientationsFromTarget @ 0x1C0123BC4
  * Callers:
- *     ?AddingMonitorOrientation@ADAPTER_DISPLAY@@QEAA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W42@I@Z @ 0x1C01A25AC (-AddingMonitorOrientation@ADAPTER_DISPLAY@@QEAA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W42@I@Z.c)
- *     ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAPEBU_D3DKMT_DISPLAYMODE@@PEAE@Z @ 0x1C01D2768 (-DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODEL.c)
+ *     ?AddingMonitorOrientation@ADAPTER_DISPLAY@@QEAA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W42@I@Z @ 0x1C0121FF0 (-AddingMonitorOrientation@ADAPTER_DISPLAY@@QEAA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W42@I@Z.c)
+ *     ?SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@PEAVSESSION_VIEW@@QEAXII_N5@Z @ 0x1C01228E0 (-SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_D.c)
+ *     ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAE@Z @ 0x1C015D25C (-DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODEL.c)
  * Callees:
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z @ 0x1C000F304 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z.c)
+ *     <none>
  */
 
-__int64 MonitorGetMonitorOrientationsFromTarget(__int64 a1, unsigned int a2, _DWORD *a3, ...)
+__int64 __fastcall MonitorGetMonitorOrientationsFromTarget(__int64 a1, __int64 a2, _DWORD *a3)
 {
-  struct DXGMONITOR *v4; // rcx
-  int v5; // eax
-  unsigned int v6; // ebx
-  struct DXGMONITOR *v8; // [rsp+48h] [rbp+20h] BYREF
-  va_list va; // [rsp+48h] [rbp+20h]
-  va_list va1; // [rsp+50h] [rbp+28h] BYREF
+  int v3; // edi
+  __int64 v4; // r14
+  __int64 v7; // rax
+  __int64 v8; // rbp
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // rcx
+  __int64 i; // rax
+  __int64 v14; // rsi
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rax
 
-  va_start(va1, a3);
-  va_start(va, a3);
-  v8 = va_arg(va1, struct DXGMONITOR *);
-  if ( !a1 || a2 == -1 )
+  v3 = 0;
+  v4 = (unsigned int)a2;
+  if ( !a1 || (_DWORD)a2 == -1 )
     return 3221225485LL;
-  MONITOR_MGR::AcquireMonitorShared((struct DXGMONITOR **)va, a1, a2);
-  v4 = v8;
-  if ( v8 )
+  v7 = *(_QWORD *)(a1 + 2696);
+  if ( !v7 )
   {
-    if ( a3 )
+    v16 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v16);
+    v7 = *(_QWORD *)(a1 + 2696);
+  }
+  v8 = *(_QWORD *)(v7 + 96);
+  if ( !v8 )
+  {
+    v17 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v17 + 24) = a1;
+    WdLogEvent5_WdError(v17);
+    return 3221225485LL;
+  }
+  if ( v8 == -168 )
+  {
+    v18 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v18);
+  }
+  KeAcquireGuardedMutex((PKGUARDED_MUTEX)(v8 + 168));
+  v12 = v8 + 128;
+  for ( i = *(_QWORD *)(v8 + 128); i != v12; i = *(_QWORD *)(v14 + 16) )
+  {
+    v14 = i - 16;
+    if ( !i )
+      v14 = 0LL;
+    if ( !v14 )
+      break;
+    if ( *(_DWORD *)(v14 + 44) == (_DWORD)v4 )
     {
-      v5 = 0;
-      if ( *((_DWORD *)v8 + 84) != *((_DWORD *)v8 + 82) )
-        v5 = *((_DWORD *)v8 + 84);
-      *a3 = v5;
+      if ( *(_DWORD *)(v14 + 432) != 1 )
+        v14 = *(_QWORD *)(v14 + 440);
+      if ( v14 )
+      {
+        if ( v8 == -168 )
+        {
+          v19 = WdLogNewEntry5_WdAssertion(v12, v9);
+          WdLogEvent5_WdAssertion(v19);
+        }
+        KeReleaseGuardedMutex((PKGUARDED_MUTEX)(v8 + 168));
+        KeEnterCriticalRegion();
+        ExAcquireResourceSharedLite((PERESOURCE)(v14 + 296), 1u);
+        if ( a3 )
+        {
+          if ( *(_DWORD *)(v14 + 456) != *(_DWORD *)(v14 + 448) )
+            v3 = *(_DWORD *)(v14 + 456);
+          *a3 = v3;
+        }
+        ExReleaseResourceLite((PERESOURCE)(v14 + 296));
+        KeLeaveCriticalRegion();
+        return 0LL;
+      }
+      break;
     }
-    v6 = 0;
-    ExReleaseResourceLite((PERESOURCE)((char *)v4 + 24));
-    KeLeaveCriticalRegion();
   }
-  else
+  v20 = WdLogNewEntry5_WdTrace(v12, v9, v10, v11);
+  *(_QWORD *)(v20 + 24) = v4;
+  *(_QWORD *)(v20 + 32) = v8;
+  if ( v8 == -168 )
   {
-    v6 = -1073741275;
-    WdLogSingleEntry1(2LL, -1073741275LL);
+    v23 = WdLogNewEntry5_WdAssertion(v22, v21);
+    WdLogEvent5_WdAssertion(v23);
   }
-  return v6;
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)(v8 + 168));
+  return 3221226021LL;
 }

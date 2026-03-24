@@ -1,29 +1,28 @@
 /*
- * XREFs of MiCreateUltraThreadContext @ 0x1402EC3F0
+ * XREFs of MiCreateUltraThreadContext @ 0x14035465C
  * Callers:
- *     MiZeroInParallelWorker @ 0x1402D1300 (MiZeroInParallelWorker.c)
- *     MiZeroLargePage @ 0x1402EC08C (MiZeroLargePage.c)
- *     MiFindContiguousPagesEx @ 0x1403BA9B8 (MiFindContiguousPagesEx.c)
- *     MiInitializeNewUltraHugeContext @ 0x1403C5488 (MiInitializeNewUltraHugeContext.c)
- *     MiHugePageOperation @ 0x140620610 (MiHugePageOperation.c)
- *     MiCombineIdenticalPages @ 0x1407EBA94 (MiCombineIdenticalPages.c)
- *     MiCreateZeroThreadContext @ 0x140839588 (MiCreateZeroThreadContext.c)
- *     MmRelocatePfnList @ 0x140A3C9F8 (MmRelocatePfnList.c)
- *     MiInitializeScrubPacket @ 0x140A4609C (MiInitializeScrubPacket.c)
- *     MmInitializeProcessor @ 0x140A898EC (MmInitializeProcessor.c)
+ *     MiZeroLargePage @ 0x14030E918 (MiZeroLargePage.c)
+ *     MiZeroInParallelWorker @ 0x140357570 (MiZeroInParallelWorker.c)
+ *     MiTimeSingleLargePageZeroWorker @ 0x1403AB548 (MiTimeSingleLargePageZeroWorker.c)
+ *     MiCreateZeroThreadContext @ 0x1403ABAA8 (MiCreateZeroThreadContext.c)
+ *     MiHugePageOperation @ 0x140532EB8 (MiHugePageOperation.c)
+ *     MiCombineIdenticalPages @ 0x140726870 (MiCombineIdenticalPages.c)
+ *     MiScrubNodeLargePages @ 0x1408D8818 (MiScrubNodeLargePages.c)
+ *     MiInitializeScrubPacket @ 0x1408DBEA0 (MiInitializeScrubPacket.c)
+ *     MmInitializeProcessor @ 0x14099F378 (MmInitializeProcessor.c)
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x1402E92A4 (MiDeleteUltraThreadContext.c)
- *     MiCreateUltraThreadContextHelper @ 0x1402EC46C (MiCreateUltraThreadContextHelper.c)
+ *     MiCreateUltraThreadContextHelper @ 0x1403546C4 (MiCreateUltraThreadContextHelper.c)
+ *     MiDeleteUltraThreadContext @ 0x140357B5C (MiDeleteUltraThreadContext.c)
  */
 
-__int64 __fastcall MiCreateUltraThreadContext(__int64 a1, __int64 a2, int a3, unsigned int a4)
+__int64 __fastcall MiCreateUltraThreadContext(__int64 a1, unsigned int a2, int a3)
 {
-  unsigned int v8; // ebx
+  unsigned int v6; // ebx
 
-  v8 = 0;
-  while ( !_bittest(&a3, v8) || (unsigned int)MiCreateUltraThreadContextHelper(a1 + 32LL * v8, v8, a2, a4) )
+  v6 = 0;
+  while ( !_bittest(&a3, v6) || (unsigned int)MiCreateUltraThreadContextHelper(a1 + 32LL * v6, v6, a2) )
   {
-    if ( ++v8 >= 4 )
+    if ( ++v6 >= 4 )
       return 1LL;
   }
   MiDeleteUltraThreadContext(a1);

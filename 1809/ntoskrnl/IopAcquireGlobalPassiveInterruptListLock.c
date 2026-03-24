@@ -1,9 +1,9 @@
 /*
- * XREFs of IopAcquireGlobalPassiveInterruptListLock @ 0x140288358
+ * XREFs of IopAcquireGlobalPassiveInterruptListLock @ 0x140288458
  * Callers:
- *     IopDereferencePassiveInterruptBlock @ 0x140288408 (IopDereferencePassiveInterruptBlock.c)
- *     IopFindPassiveInterruptBlock @ 0x140288528 (IopFindPassiveInterruptBlock.c)
- *     IopInsertPassiveInterruptBlock @ 0x1402885DC (IopInsertPassiveInterruptBlock.c)
+ *     IopDereferencePassiveInterruptBlock @ 0x140288508 (IopDereferencePassiveInterruptBlock.c)
+ *     IopFindPassiveInterruptBlock @ 0x140288628 (IopFindPassiveInterruptBlock.c)
+ *     IopInsertPassiveInterruptBlock @ 0x1402886DC (IopInsertPassiveInterruptBlock.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  */

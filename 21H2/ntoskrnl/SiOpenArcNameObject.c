@@ -1,10 +1,10 @@
 /*
- * XREFs of SiOpenArcNameObject @ 0x140A228D0
+ * XREFs of SiOpenArcNameObject @ 0x14077AFC8
  * Callers:
- *     SiGetBiosSystemDisk @ 0x140A22520 (SiGetBiosSystemDisk.c)
+ *     SiGetBiosSystemDisk @ 0x14077AEC0 (SiGetBiosSystemDisk.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwOpenSymbolicLinkObject @ 0x14041DDE0 (ZwOpenSymbolicLinkObject.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1403FC960 (ZwOpenSymbolicLinkObject.c)
  */
 
 __int64 __fastcall SiOpenArcNameObject(PCWSTR SourceString, HANDLE *a2)
@@ -15,24 +15,26 @@ __int64 __fastcall SiOpenArcNameObject(PCWSTR SourceString, HANDLE *a2)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
   HANDLE LinkHandle; // [rsp+80h] [rbp+20h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   LinkHandle = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v3 = ZwOpenSymbolicLinkObject(&LinkHandle, 0x20001u, &ObjectAttributes);
   v4 = v3;
-  if ( v3 >= 0 )
+  if ( v3 < 0 )
+  {
+    if ( v3 != -1073741801 && v3 != -1073741670 )
+      return (unsigned int)-1073740718;
+  }
+  else
   {
     *a2 = LinkHandle;
-  }
-  else if ( v3 != -1073741801 && v3 != -1073741670 )
-  {
-    return (unsigned int)-1073740718;
   }
   return v4;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of Bulk_Cleanup @ 0x1C00468E0
+ * XREFs of Bulk_Cleanup @ 0x1C0043CB0
  * Callers:
  *     <none>
  * Callees:
- *     Bulk_DoesDriverOwnRequests @ 0x1C000E574 (Bulk_DoesDriverOwnRequests.c)
- *     WPP_RECORDER_SF_DDD @ 0x1C001E0A4 (WPP_RECORDER_SF_DDD.c)
+ *     Bulk_DoesDriverOwnRequests @ 0x1C000BCDC (Bulk_DoesDriverOwnRequests.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
  */
 
 void __fastcall Bulk_Cleanup(__int64 a1)
@@ -18,12 +18,12 @@ void __fastcall Bulk_Cleanup(__int64 a1)
     v2 = *(_QWORD *)(a1 + 56);
     v3 = *(_DWORD *)(v2 + 144);
     LOBYTE(v2) = 2;
-    WPP_RECORDER_SF_DDD(
+    WPP_RECORDER_SF_ddL(
       *(_QWORD *)(*(_QWORD *)(a1 + 40) + 72LL),
       v2,
       14,
       10,
-      (__int64)&WPP_92c598da33ef340e00f5370896d293ba_Traceguids,
+      (__int64)&WPP_f900c8e8530d3ebbc4303e7a1e3d0cbe_Traceguids,
       *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
       v3,
       *(_DWORD *)(a1 + 64));

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpGetAcpiBiosVersion @ 0x140B993F0
+ * XREFs of CmpGetAcpiBiosVersion @ 0x140A59B9C
  * Callers:
- *     CmpSetSystemBiosInformation @ 0x140B9986C (CmpSetSystemBiosInformation.c)
+ *     CmpSetSystemBiosInformation @ 0x140A594A0 (CmpSetSystemBiosInformation.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140336E50 (HalpAcpiGetTable.c)
- *     sprintf_s @ 0x1403DF0C0 (sprintf_s.c)
+ *     HalpAcpiGetTable @ 0x1402E77D0 (HalpAcpiGetTable.c)
+ *     sprintf_s @ 0x1403D74F0 (sprintf_s.c)
  */
 
 char __fastcall CmpGetAcpiBiosVersion(__int64 a1, char *a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PiUEventFreeEventEntry @ 0x140782B1C
+ * XREFs of PiUEventFreeEventEntry @ 0x14071A3F0
  * Callers:
- *     PiUEventDereferenceEventEntry @ 0x140782728 (PiUEventDereferenceEventEntry.c)
- *     PiUEventNotifyUserMode @ 0x140783EFC (PiUEventNotifyUserMode.c)
+ *     PiUEventDereferenceEventEntry @ 0x14071A38C (PiUEventDereferenceEventEntry.c)
+ *     PiUEventNotifyUserMode @ 0x14071A80C (PiUEventNotifyUserMode.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiUEventFreeEventEntry(_QWORD *P)

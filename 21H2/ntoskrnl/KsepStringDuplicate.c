@@ -1,19 +1,19 @@
 /*
- * XREFs of KsepStringDuplicate @ 0x14075C924
+ * XREFs of KsepStringDuplicate @ 0x14075B274
  * Callers:
- *     KsepRegistryOpenKey @ 0x14075CB14 (KsepRegistryOpenKey.c)
- *     KsepEngineGetShimsFromRegistry @ 0x14075CC14 (KsepEngineGetShimsFromRegistry.c)
- *     KseAddHardwareId @ 0x1407EC8C4 (KseAddHardwareId.c)
- *     KsepStringTransform @ 0x1407ED3AC (KsepStringTransform.c)
- *     KsepDbCacheReadDevice @ 0x1407ED450 (KsepDbCacheReadDevice.c)
- *     KsepCacheDeviceInsertData @ 0x14085C084 (KsepCacheDeviceInsertData.c)
- *     KsepDbGetSdbString @ 0x140963878 (KsepDbGetSdbString.c)
- *     KsepStringSplitMultiString @ 0x140964E64 (KsepStringSplitMultiString.c)
- *     KsepRegistryCreateKey @ 0x1409651B8 (KsepRegistryCreateKey.c)
+ *     KsepDbCacheReadDevice @ 0x140755E7C (KsepDbCacheReadDevice.c)
+ *     KsepRegistryOpenKey @ 0x14075B464 (KsepRegistryOpenKey.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x14075B74C (KsepEngineGetShimsFromRegistry.c)
+ *     KseAddHardwareId @ 0x14075F69C (KseAddHardwareId.c)
+ *     KsepStringTransform @ 0x14075F938 (KsepStringTransform.c)
+ *     KsepCacheDeviceInsertData @ 0x1407CC6F0 (KsepCacheDeviceInsertData.c)
+ *     KsepDbGetSdbString @ 0x1408BF7E8 (KsepDbGetSdbString.c)
+ *     KsepStringSplitMultiString @ 0x1408C0E24 (KsepStringSplitMultiString.c)
+ *     KsepRegistryCreateKey @ 0x1408C11C8 (KsepRegistryCreateKey.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x1402D84BC (KsepPoolAllocatePaged.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlAssert @ 0x1405E6EA0 (RtlAssert.c)
+ *     KsepPoolAllocatePaged @ 0x14037174C (KsepPoolAllocatePaged.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlAssert @ 0x140588810 (RtlAssert.c)
  */
 
 __int64 __fastcall KsepStringDuplicate(__int64 a1, _WORD *a2)

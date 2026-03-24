@@ -1,57 +1,50 @@
 /*
- * XREFs of HvlpStartLogicalProcessor @ 0x140545750
+ * XREFs of HvlpStartLogicalProcessor @ 0x1404F416C
  * Callers:
- *     HvlpEnableNextLogicalProcessor @ 0x14054445C (HvlpEnableNextLogicalProcessor.c)
+ *     HvlpEnableNextLogicalProcessor @ 0x1404F2E04 (HvlpEnableNextLogicalProcessor.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14039D8F0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14039DF00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x14039DF90 (HvlpAcquireHypercallPage.c)
- *     HvlpDepositPages @ 0x140544258 (HvlpDepositPages.c)
+ *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
+ *     HvlpDepositPages @ 0x1404F2C04 (HvlpDepositPages.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlpStartLogicalProcessor(int a1, __int64 a2, unsigned __int16 a3, __int64 a4)
 {
-  int v5; // r15d
-  __int64 v7; // r14
+  int v5; // r14d
+  __int64 v7; // rbp
   __int64 result; // rax
-  _DWORD *v9; // rbx
+  _QWORD *v9; // rbx
   _QWORD *v10; // rax
   __int64 v11; // rcx
   _QWORD *v12; // rsi
   __int16 v13; // ax
   __int16 v14; // bx
-  __int128 v15; // [rsp+20h] [rbp-40h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-30h]
-  __int64 v17; // [rsp+38h] [rbp-28h]
-  __int128 v18; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v19; // [rsp+50h] [rbp-10h]
-  __int64 v20; // [rsp+58h] [rbp-8h]
+  PHYSICAL_ADDRESS v15[4]; // [rsp+20h] [rbp-58h] BYREF
+  PHYSICAL_ADDRESS v16[4]; // [rsp+40h] [rbp-38h] BYREF
 
-  v19 = 0LL;
   *(_OWORD *)a4 = 0LL;
-  LODWORD(v20) = 0;
-  *(_OWORD *)(a4 + 16) = 0LL;
-  v16 = 0LL;
   v5 = a2;
+  memset(v16, 0, sizeof(v16));
+  *(_OWORD *)(a4 + 16) = 0LL;
+  memset(v15, 0, sizeof(v15));
   *(_OWORD *)(a4 + 32) = 0LL;
   *(_QWORD *)(a4 + 48) = 0LL;
-  LODWORD(v17) = 0;
-  v18 = 0LL;
-  v15 = 0LL;
-  v7 = *(unsigned __int16 *)(KeNodeBlock[a3] + 2);
+  v7 = *(unsigned __int16 *)(KeNodeBlock[a3] + 148);
   while ( 1 )
   {
     result = HvlpDepositPages(v7, a2, 0);
     if ( (_DWORD)result )
       break;
-    v9 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v18, 1, 0LL, 16LL);
-    v10 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v15, 2, 0LL, 56LL);
+    v9 = HvlpAcquireHypercallPage(v16, 1, 0LL, 24LL);
+    v10 = HvlpAcquireHypercallPage(v15, 2, 0LL, 56LL);
     v11 = KeNodeBlock[v7];
     v12 = v10;
-    *v9 = a1;
-    v9[1] = v5;
-    v9[2] = *(_DWORD *)(v11 + 4);
-    v9[3] = -2147483647;
+    v9[2] = 0LL;
+    *(_DWORD *)v9 = a1;
+    *((_DWORD *)v9 + 1) = v5;
+    *((_DWORD *)v9 + 2) = *(_DWORD *)(v11 + 168);
+    *((_DWORD *)v9 + 3) = -2147483647;
     v13 = HvcallInitiateHypercall(118);
     v14 = v13;
     if ( v13 != 11 )
@@ -62,8 +55,8 @@ __int64 __fastcall HvlpStartLogicalProcessor(int a1, __int64 a2, unsigned __int1
       *(_QWORD *)(a4 + 48) = v12[6];
       *(_WORD *)a4 = v13;
     }
-    HvlpReleaseHypercallPage((__int64)&v15);
-    HvlpReleaseHypercallPage((__int64)&v18);
+    HvlpReleaseHypercallPage((__int64)v15);
+    HvlpReleaseHypercallPage((__int64)v16);
     if ( v14 != 11 )
       return v14 != 0 ? 0xC0000001 : 0;
   }

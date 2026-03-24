@@ -1,9 +1,9 @@
 /*
- * XREFs of TouchTargetingDownrank @ 0x1C016E59C
+ * XREFs of TouchTargetingDownrank @ 0x1C025FAD8
  * Callers:
- *     ?_TTWindowPenalty@@YAIPEAUtagWND@@PEAUtagPNTRWINDOWHITTTESTARGS@@I@Z @ 0x1C016D29E (-_TTWindowPenalty@@YAIPEAUtagWND@@PEAUtagPNTRWINDOWHITTTESTARGS@@I@Z.c)
+ *     ?_TTWindowPenalty@@YAIPEAUtagWND@@PEAUtagPNTRWINDOWHITTTESTARGS@@I@Z @ 0x1C0215A58 (-_TTWindowPenalty@@YAIPEAUtagWND@@PEAUtagPNTRWINDOWHITTTESTARGS@@I@Z.c)
  * Callees:
- *     _TTHmToPixels @ 0x1C016E604 (_TTHmToPixels.c)
+ *     _TTHmToPixels @ 0x1C0260648 (_TTHmToPixels.c)
  */
 
 __int64 __fastcall TouchTargetingDownrank(__int64 a1, int a2)

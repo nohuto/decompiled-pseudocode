@@ -1,14 +1,14 @@
 /*
- * XREFs of ?AddMapping@InputObjectMap@@SAJAEBU_LUID@@PEBUCompositionInputObject@@@Z @ 0x1C023CFD4
+ * XREFs of ?AddMapping@InputObjectMap@@SAJAEBU_LUID@@PEBUCompositionInputObject@@@Z @ 0x1C01FB264
  * Callers:
- *     ?SetDesktopInputSink@CDesktopInputSink@@SA_NPEAXAEBU_LUID@@@Z @ 0x1C009EC88 (-SetDesktopInputSink@CDesktopInputSink@@SA_NPEAXAEBU_LUID@@@Z.c)
- *     NtUserAddVisualIdentifier @ 0x1C0156E70 (NtUserAddVisualIdentifier.c)
+ *     NtUserAddVisualIdentifier @ 0x1C012D0B0 (NtUserAddVisualIdentifier.c)
+ *     ?SetDesktopVisualInputSink@CDesktopInputTransform@@SA_NPEAXAEBU_LUID@@@Z @ 0x1C01BAD9C (-SetDesktopVisualInputSink@CDesktopInputTransform@@SA_NPEAXAEBU_LUID@@@Z.c)
  * Callees:
- *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00808F0 (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_63d17d6d41434870d2c55e28a74f5cc8_@@CAXPEAX@Z @ 0x1C00DB180 (--$_lambda_invoker_cdecl_@PEAX@_lambda_63d17d6d41434870d2c55e28a74f5cc8_@@CAXPEAX@Z.c)
- *     ?AddMapping@InputSink@InputTraceLogging@@SAXPEBUCompositionInputObject@@U_LUID@@@Z @ 0x1C023D340 (-AddMapping@InputSink@InputTraceLogging@@SAXPEBUCompositionInputObject@@U_LUID@@@Z.c)
- *     ?AllocateBucket@InputObjectMap@@CAPEAX_KPEAX@Z @ 0x1C023D3A8 (-AllocateBucket@InputObjectMap@@CAPEAX_KPEAX@Z.c)
- *     ?FindEntry@InputObjectMap@@CAPEAUInputObjectMapEntry@@AEBU_LUID@@@Z @ 0x1C023D3D4 (-FindEntry@InputObjectMap@@CAPEAUInputObjectMapEntry@@AEBU_LUID@@@Z.c)
+ *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C0046D8C (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_63d17d6d41434870d2c55e28a74f5cc8_@@CAXPEAX@Z @ 0x1C00C7B60 (--$_lambda_invoker_cdecl_@PEAX@_lambda_63d17d6d41434870d2c55e28a74f5cc8_@@CAXPEAX@Z.c)
+ *     ?AddMapping@InputSink@InputTraceLogging@@SAXPEBUCompositionInputObject@@U_LUID@@@Z @ 0x1C01FB5BC (-AddMapping@InputSink@InputTraceLogging@@SAXPEBUCompositionInputObject@@U_LUID@@@Z.c)
+ *     ?AllocateBucket@InputObjectMap@@CAPEAX_KPEAX@Z @ 0x1C01FB624 (-AllocateBucket@InputObjectMap@@CAPEAX_KPEAX@Z.c)
+ *     ?FindEntry@InputObjectMap@@CAPEAUInputObjectMapEntry@@AEBU_LUID@@@Z @ 0x1C01FB650 (-FindEntry@InputObjectMap@@CAPEAUInputObjectMapEntry@@AEBU_LUID@@@Z.c)
  */
 
 __int64 __fastcall InputObjectMap::AddMapping(const struct _LUID *a1, const struct CompositionInputObject *a2)
@@ -25,19 +25,19 @@ __int64 __fastcall InputObjectMap::AddMapping(const struct _LUID *a1, const stru
   _QWORD *v13; // r9
   __int64 v14; // rdx
   PVOID v15; // rcx
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   __int64 v17; // rdx
   _QWORD *v18; // rcx
   __int64 v19; // rdx
-  __int64 v21; // [rsp+70h] [rbp+18h]
-  __int64 v22; // [rsp+70h] [rbp+18h]
-  __int64 v23; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v21; // [rsp+70h] [rbp+50h]
+  __int64 v22; // [rsp+70h] [rbp+50h]
+  __int64 v23; // [rsp+78h] [rbp+58h] BYREF
 
-  CAutoPushLockEx::CAutoPushLockEx((CAutoPushLockEx *)&v23, (struct _EX_PUSH_LOCK *)&InputObjectMap::s_hashTableLock);
+  CAutoPushLockEx::CAutoPushLockEx((CAutoPushLockEx *)&v23, a2);
   v4 = 0;
   if ( !InputObjectMap::FindEntry(a1) )
   {
-    v5 = 2 * ((unsigned int)dword_1C029A1F4 >> 5);
+    v5 = 2 * ((unsigned int)dword_1C0255524 >> 5);
     if ( InputObjectMap::s_hashTable >= (unsigned int)v5 )
     {
       if ( (unsigned int)v5 < 4 )
@@ -63,10 +63,10 @@ __int64 __fastcall InputObjectMap::AddMapping(const struct _LUID *a1, const stru
           v8 = 0LL;
         if ( v8 )
           memset64(Bucket, (unsigned __int64)&InputObjectMap::s_hashTable + 1, v8);
-        v9 = dword_1C029A1F4;
+        v9 = dword_1C0255524;
         v10 = 0;
-        v11 = -1LL << (dword_1C029A1F4 & 0x1F);
-        if ( (dword_1C029A1F4 & 0xFFFFFFE0) != 0 )
+        v11 = -1LL << (dword_1C0255524 & 0x1F);
+        if ( (dword_1C0255524 & 0xFFFFFFE0) != 0 )
         {
           do
           {
@@ -90,26 +90,26 @@ __int64 __fastcall InputObjectMap::AddMapping(const struct _LUID *a1, const stru
               *v13 = *(_QWORD *)&Bucket[8 * v14];
               *(_QWORD *)&Bucket[8 * v14] = v13;
             }
-            v9 = dword_1C029A1F4;
+            v9 = dword_1C0255524;
             ++v10;
           }
-          while ( v10 < (unsigned int)dword_1C029A1F4 >> 5 );
+          while ( v10 < (unsigned int)dword_1C0255524 >> 5 );
         }
         v15 = Buffer;
         Buffer = Bucket;
-        dword_1C029A1F4 = (32 * v5) | v9 & 0x1F;
+        dword_1C0255524 = (32 * v5) | v9 & 0x1F;
         if ( v15 )
           _lambda_63d17d6d41434870d2c55e28a74f5cc8_::_lambda_invoker_cdecl_<void *>(v15);
       }
-      else if ( (dword_1C029A1F4 & 0xFFFFFFE0) == 0 )
+      else if ( (dword_1C0255524 & 0xFFFFFFE0) == 0 )
       {
 LABEL_26:
         v4 = -1073741670;
         goto LABEL_28;
       }
     }
-    Pool2 = ExAllocatePool2(258LL, 32LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x766E6355u);
+    if ( PoolWithTag )
     {
       v17 = HIBYTE(a1->HighPart)
           + 37
@@ -121,10 +121,10 @@ LABEL_26:
              + 37
              * (HIBYTE(a1->LowPart)
               + 37 * (BYTE2(a1->LowPart) + 37 * (BYTE1(a1->LowPart) + 37 * (LOBYTE(a1->LowPart) + 11623883LL)))))));
-      *(_QWORD *)(Pool2 + 8) = v17;
-      *(struct _LUID *)(Pool2 + 16) = *a1;
-      *(_QWORD *)(Pool2 + 24) = a2;
-      v22 = v17 & (-1LL << (dword_1C029A1F4 & 0x1F));
+      PoolWithTag[1] = v17;
+      PoolWithTag[2] = *a1;
+      PoolWithTag[3] = a2;
+      v22 = v17 & (-1LL << (dword_1C0255524 & 0x1F));
       v18 = Buffer;
       v19 = (37
            * (BYTE6(v22)
@@ -133,9 +133,9 @@ LABEL_26:
              + 37
              * (BYTE4(v22)
               + 37 * (BYTE3(v22) + 37 * (BYTE2(v22) + 37 * (BYTE1(v22) + 37 * ((unsigned __int8)v22 + 11623883)))))))
-           + HIBYTE(v22)) & (((unsigned int)dword_1C029A1F4 >> 5) - 1);
-      *(_QWORD *)Pool2 = *((_QWORD *)Buffer + v19);
-      v18[v19] = Pool2;
+           + HIBYTE(v22)) & (((unsigned int)dword_1C0255524 >> 5) - 1);
+      *PoolWithTag = *((_QWORD *)Buffer + v19);
+      v18[v19] = PoolWithTag;
       ++InputObjectMap::s_hashTable;
       ObReferenceObjectByPointer(a2, 3u, ExCompositionObjectType, 0);
       InputTraceLogging::InputSink::AddMapping(a2, *a1);

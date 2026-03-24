@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapGetAllPolicyBufferSize @ 0x140A097E8
+ * XREFs of WheapGetAllPolicyBufferSize @ 0x14095DE90
  * Callers:
- *     WheapWmiExecutePolicyManagementMethod @ 0x14061430C (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x1405BDE20 (WheapWmiExecutePolicyManagementMethod.c)
  * Callees:
  *     <none>
  */
 
 __int64 WheapGetAllPolicyBufferSize()
 {
-  return 80LL;
+  return 52LL;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDrvDbUnloadNodeDpcRoutine @ 0x14036DB60
+ * XREFs of PiDrvDbUnloadNodeDpcRoutine @ 0x14032B950
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
  */
 
 void __fastcall PiDrvDbUnloadNodeDpcRoutine(
@@ -14,9 +14,9 @@ void __fastcall PiDrvDbUnloadNodeDpcRoutine(
         PVOID SystemArgument1,
         PVOID SystemArgument2)
 {
-  volatile signed __int64 *v4; // rdi
+  KSPIN_LOCK *v4; // rdi
 
-  v4 = (volatile signed __int64 *)(DeferredContext + 424);
+  v4 = (KSPIN_LOCK *)(DeferredContext + 424);
   KxAcquireSpinLock((PKSPIN_LOCK)DeferredContext + 53);
   if ( !DeferredContext[432] )
   {

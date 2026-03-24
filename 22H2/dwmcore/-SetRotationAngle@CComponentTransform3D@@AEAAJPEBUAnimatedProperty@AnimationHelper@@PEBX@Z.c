@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetRotationAngle@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800F6370
+ * XREFs of ?SetRotationAngle@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800D5900
  * Callers:
  *     <none>
  * Callees:
- *     ?NotifyScalarPropertyChanged@CPropertyChangeResource@@IEBAJIM@Z @ 0x180097F30 (-NotifyScalarPropertyChanged@CPropertyChangeResource@@IEBAJIM@Z.c)
- *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180098F64 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
- *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800BC160 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180037460 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?NotifyScalarPropertyChanged@CPropertyChangeResource@@IEBAJIM@Z @ 0x180065D0C (-NotifyScalarPropertyChanged@CPropertyChangeResource@@IEBAJIM@Z.c)
+ *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180066030 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
  */
 
 __int64 __fastcall CComponentTransform3D::SetRotationAngle(
@@ -19,13 +19,13 @@ __int64 __fastcall CComponentTransform3D::SetRotationAngle(
   __int64 v7; // rcx
 
   v3 = 0;
-  if ( *((float *)this + 58) != *(float *)a3 )
+  if ( *((float *)this + 56) != *(float *)a3 )
   {
-    *((_DWORD *)this + 58) = *a3;
-    CResource::InvalidateAnimationSources(this, 4);
-    CResource::InvalidateAnimationSources(this, 5);
+    *((_DWORD *)this + 56) = *a3;
+    CResource::InvalidateAnimationSources(this, 15);
+    CResource::InvalidateAnimationSources(this, 16);
     CResource::NotifyOnChanged((__int64)this, 0, 0LL);
-    v6 = CPropertyChangeResource::NotifyScalarPropertyChanged(this, 4u, *((float *)this + 58));
+    v6 = CPropertyChangeResource::NotifyScalarPropertyChanged(this, 0xFu, *((float *)this + 56));
     v3 = v6;
     if ( v6 < 0 )
       MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x166u, 0LL);

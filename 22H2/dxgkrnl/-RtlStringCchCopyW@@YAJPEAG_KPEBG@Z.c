@@ -1,50 +1,32 @@
 /*
- * XREFs of ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0002D88
+ * XREFs of ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000A258
  * Callers:
- *     MonitorFillMonitorDeviceInfo @ 0x1C017B3DC (MonitorFillMonitorDeviceInfo.c)
- *     _lambda_b5f01eb3f4b149c357ab2eab84592b3f_::operator() @ 0x1C01ABA70 (_lambda_b5f01eb3f4b149c357ab2eab84592b3f_--operator().c)
- *     ?_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ @ 0x1C0208CEC (-_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ.c)
- *     ?ConvertStringsToOneMultiString@@YAJPEAU_UNICODE_STRING@@IPEAPEAGPEAI@Z @ 0x1C021CE60 (-ConvertStringsToOneMultiString@@YAJPEAU_UNICODE_STRING@@IPEAPEAGPEAI@Z.c)
- *     ?DpiIndirectStartAdapter@@YAJPEAU_UNICODE_STRING@@PEBXK@Z @ 0x1C03A455C (-DpiIndirectStartAdapter@@YAJPEAU_UNICODE_STRING@@PEBXK@Z.c)
+ *     _lambda_3a429c02e21bb855f1ec386a1cface2b_::operator() @ 0x1C01374D4 (_lambda_3a429c02e21bb855f1ec386a1cface2b_--operator().c)
+ *     ?_QueryTopologySetIdStr@CCD_TOPOLOGY@@AEBAJPEAGG@Z @ 0x1C0149C08 (-_QueryTopologySetIdStr@CCD_TOPOLOGY@@AEBAJPEAGG@Z.c)
+ *     ?CreateMonitorSetId@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@PEA_N@Z @ 0x1C014ABC0 (-CreateMonitorSetId@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@PEA_N@Z.c)
+ *     MonitorFillMonitorDeviceInfo @ 0x1C014D3D8 (MonitorFillMonitorDeviceInfo.c)
+ *     ?_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ @ 0x1C0182B14 (-_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ.c)
+ *     ?ConvertStringsToOneMultiString@@YAJPEAU_UNICODE_STRING@@IPEAPEAGPEAI@Z @ 0x1C0196264 (-ConvertStringsToOneMultiString@@YAJPEAU_UNICODE_STRING@@IPEAPEAGPEAI@Z.c)
+ *     ?DpiIndirectStartAdapter@@YAJPEAU_UNICODE_STRING@@PEBXK@Z @ 0x1C02D5860 (-DpiIndirectStartAdapter@@YAJPEAU_UNICODE_STRING@@PEBXK@Z.c)
  * Callees:
- *     <none>
+ *     RtlStringCopyWorkerW @ 0x1C000A2A8 (RtlStringCopyWorkerW.c)
  */
 
-__int64 __fastcall RtlStringCchCopyW(char *a1, __int64 a2, char *a3)
+__int64 __fastcall RtlStringCchCopyW(unsigned __int16 *a1, size_t a2, const unsigned __int16 *a3)
 {
-  __int64 v3; // r9
-  signed __int64 v4; // r10
-  unsigned __int16 v5; // ax
-  unsigned __int16 *v6; // rax
-  __int64 result; // rax
+  int v3; // r9d
 
-  if ( (unsigned __int64)(a2 - 1) > 0x7FFFFFFE )
+  v3 = 0;
+  if ( a2 - 1 > 0x7FFFFFFE )
+    v3 = -1073741811;
+  if ( v3 < 0 )
   {
-    result = 3221225485LL;
     if ( a2 )
-      *(_WORD *)a1 = 0;
+      *a1 = 0;
   }
   else
   {
-    v3 = 2147483646 - a2;
-    v4 = a3 - a1;
-    do
-    {
-      if ( !(v3 + a2) )
-        break;
-      v5 = *(_WORD *)&a1[v4];
-      if ( !v5 )
-        break;
-      *(_WORD *)a1 = v5;
-      a1 += 2;
-      --a2;
-    }
-    while ( a2 );
-    v6 = (unsigned __int16 *)(a1 - 2);
-    if ( a2 )
-      v6 = (unsigned __int16 *)a1;
-    *v6 = 0;
-    return a2 == 0 ? 0x80000005 : 0;
+    return (unsigned int)RtlStringCopyWorkerW(a1, a2, 0LL, a3, 0x7FFFFFFEuLL);
   }
-  return result;
+  return (unsigned int)v3;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPepComponentSetWakeHint @ 0x14059ED40
+ * XREFs of PopPepComponentSetWakeHint @ 0x1405743C0
  * Callers:
- *     PoFxSetComponentWake @ 0x140588920 (PoFxSetComponentWake.c)
+ *     PoFxSetComponentWake @ 0x1405691E0 (PoFxSetComponentWake.c)
  * Callees:
- *     PopPepUpdateIdleState @ 0x1403107D8 (PopPepUpdateIdleState.c)
- *     PopPepCountReadyActivities @ 0x140313874 (PopPepCountReadyActivities.c)
- *     PopPepRequestWork @ 0x1403138C0 (PopPepRequestWork.c)
- *     PopPepReleaseActivityLink @ 0x140313904 (PopPepReleaseActivityLink.c)
- *     PopPepLockActivityLink @ 0x140313988 (PopPepLockActivityLink.c)
- *     PopPepPromoteActivities @ 0x140313A80 (PopPepPromoteActivities.c)
+ *     PopPepCountReadyActivities @ 0x14026143C (PopPepCountReadyActivities.c)
+ *     PopPepReleaseActivityLink @ 0x140261488 (PopPepReleaseActivityLink.c)
+ *     PopPepRequestWork @ 0x1402614FC (PopPepRequestWork.c)
+ *     PopPepPromoteActivities @ 0x140261688 (PopPepPromoteActivities.c)
+ *     PopPepLockActivityLink @ 0x1402617D8 (PopPepLockActivityLink.c)
+ *     PopPepUpdateIdleState @ 0x140261D98 (PopPepUpdateIdleState.c)
  */
 
-void __fastcall PopPepComponentSetWakeHint(unsigned int *a1, int a2, char a3)
+__int64 __fastcall PopPepComponentSetWakeHint(unsigned int *a1, int a2, char a3)
 {
   __int64 v4; // rdi
   int v6; // ebx
@@ -19,15 +19,15 @@ void __fastcall PopPepComponentSetWakeHint(unsigned int *a1, int a2, char a3)
   char v8; // r14
   unsigned int ready; // ebx
   unsigned int v10; // eax
-  KIRQL v11; // [rsp+60h] [rbp+18h] BYREF
+  KIRQL v12; // [rsp+60h] [rbp+18h] BYREF
 
-  v11 = 0;
-  v4 = (__int64)&a1[52 * a2 + 48];
+  v12 = 0;
+  v4 = (__int64)&a1[50 * a2 + 46];
   if ( a3 )
     v6 = *(_DWORD *)(v4 + 148);
   else
     v6 = *(_DWORD *)(v4 + 188) - 1;
-  v7 = PopPepLockActivityLink((__int64)a1, (volatile LONG *)v4, 6u, 1u, &v11);
+  v7 = PopPepLockActivityLink((__int64)a1, (volatile LONG *)v4, 6u, 1u, &v12);
   *(_BYTE *)(v4 + 144) = a3;
   v8 = v7;
   if ( *(_DWORD *)(v4 + 164) != v6 )
@@ -37,7 +37,7 @@ void __fastcall PopPepComponentSetWakeHint(unsigned int *a1, int a2, char a3)
     PopPepUpdateIdleState((__int64)a1, v4, 1);
     PopPepPromoteActivities((__int64)a1, v4, 2);
     v10 = PopPepCountReadyActivities(a1, v4, 2);
-    PopPepRequestWork((__int64)a1, ready, v10);
+    PopPepRequestWork(ready, v10);
   }
-  PopPepReleaseActivityLink((__int64)a1, (volatile LONG *)v4, v8, v11);
+  return PopPepReleaseActivityLink((__int64)a1, (volatile LONG *)v4, v8, v12);
 }

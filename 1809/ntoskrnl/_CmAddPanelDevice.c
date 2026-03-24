@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmAddPanelDevice @ 0x1408FB0F0
+ * XREFs of _CmAddPanelDevice @ 0x1408FB0D0
  * Callers:
- *     _CmUpdateDevicePanel @ 0x1406E85F8 (_CmUpdateDevicePanel.c)
+ *     _CmUpdateDevicePanel @ 0x1406E85D8 (_CmUpdateDevicePanel.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     _PnpObjectRaiseDevicesChangeEvent @ 0x1406EC1E8 (_PnpObjectRaiseDevicesChangeEvent.c)
- *     _CmAddPanelDeviceWorker @ 0x1408FB234 (_CmAddPanelDeviceWorker.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     _PnpObjectRaiseDevicesChangeEvent @ 0x1406EC1C8 (_PnpObjectRaiseDevicesChangeEvent.c)
+ *     _CmAddPanelDeviceWorker @ 0x1408FB214 (_CmAddPanelDeviceWorker.c)
  */
 
 __int64 __fastcall CmAddPanelDevice(__int64 a1, __int64 a2, __int64 a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of USBHUB_FreeBugCheck @ 0x1C00412FC
+ * XREFs of USBHUB_FreeBugCheck @ 0x1C004259C
  * Callers:
- *     UsbhDriverUnload @ 0x1C0042120 (UsbhDriverUnload.c)
+ *     UsbhDriverUnload @ 0x1C00433D0 (UsbhDriverUnload.c)
  * Callees:
  *     <none>
  */

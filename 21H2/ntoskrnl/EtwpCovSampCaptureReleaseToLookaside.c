@@ -1,18 +1,16 @@
 /*
- * XREFs of EtwpCovSampCaptureReleaseToLookaside @ 0x140460DBA
+ * XREFs of EtwpCovSampCaptureReleaseToLookaside @ 0x1405AF160
  * Callers:
- *     EtwpCovSampCaptureBufferRelease @ 0x14041AAB8 (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampLookasidePop @ 0x140460E30 (EtwpCovSampLookasidePop.c)
- *     EtwpCovSampCaptureApc @ 0x140635A00 (EtwpCovSampCaptureApc.c)
- *     EtwpCovSampCaptureApcRelease @ 0x140635B34 (EtwpCovSampCaptureApcRelease.c)
- *     EtwpCovSampCaptureBufferQueue @ 0x140635B80 (EtwpCovSampCaptureBufferQueue.c)
- *     EtwpCovSampCaptureCancelApcs @ 0x140635C4C (EtwpCovSampCaptureCancelApcs.c)
- *     EtwpCovSampCaptureQueueApc @ 0x1406362D0 (EtwpCovSampCaptureQueueApc.c)
- *     EtwpCovSampCaptureSample @ 0x140636520 (EtwpCovSampCaptureSample.c)
- *     EtwpCovSampCaptureWorkerThread @ 0x1409EF190 (EtwpCovSampCaptureWorkerThread.c)
+ *     EtwpCovSampCaptureApc @ 0x1405AE420 (EtwpCovSampCaptureApc.c)
+ *     EtwpCovSampCaptureApcRelease @ 0x1405AE54C (EtwpCovSampCaptureApcRelease.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x1405AE7A8 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x1405AE7C4 (EtwpCovSampCaptureCancelApcs.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x1405AEE40 (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpCovSampLookasidePop @ 0x1405AF50C (EtwpCovSampLookasidePop.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x140942AC0 (EtwpCovSampCaptureWorkerThread.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x140345170 (KeInsertQueueDpc.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
+ *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
  */
 
 char __fastcall EtwpCovSampCaptureReleaseToLookaside(__int64 a1, __int64 a2, struct _SLIST_ENTRY *a3)
@@ -27,7 +25,7 @@ char __fastcall EtwpCovSampCaptureReleaseToLookaside(__int64 a1, __int64 a2, str
     v6 = *(_DWORD *)(a2 + 40);
     if ( !v6 )
 LABEL_5:
-      LOBYTE(v6) = KeInsertQueueDpc((PRKDPC)(a1 + 936), 0LL, 0LL);
+      LOBYTE(v6) = KeInsertQueueDpc((PRKDPC)(a1 + 824), 0LL, 0LL);
   }
   else
   {

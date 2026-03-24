@@ -1,38 +1,38 @@
 /*
- * XREFs of ??1CoordMap@@QEAA@XZ @ 0x180030A74
+ * XREFs of ??1CoordMap@@QEAA@XZ @ 0x180007480
  * Callers:
- *     ??1CNineGridDrawListBrush@@UEAA@XZ @ 0x180030930 (--1CNineGridDrawListBrush@@UEAA@XZ.c)
+ *     ??_GCNineGridDrawListBrush@@UEAAPEAXI@Z @ 0x1800073B0 (--_GCNineGridDrawListBrush@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CoordMap::~CoordMap(CoordMap *this)
 {
   __int64 v2; // rcx
-  __int64 v3; // rax
-  CoordMap *v4; // rcx
-  __int64 v5; // rax
-  CoordMap *v6; // rcx
+  CoordMap *v3; // rdx
+  __int64 v4; // rax
+  CoordMap *v5; // rcx
+  __int64 v6; // rax
   CoordMap *v7; // rcx
   __int64 v8; // rax
 
   v2 = *((_QWORD *)this + 47);
-  v3 = (v2 - *((_QWORD *)this + 46)) >> 4;
-  if ( v3 )
-    *((_QWORD *)this + 47) = v2 - 16 * v3;
-  v4 = (CoordMap *)*((_QWORD *)this + 46);
+  v3 = (CoordMap *)*((_QWORD *)this + 46);
+  v4 = (v2 - (__int64)v3) >> 4;
+  if ( v4 )
+    *((_QWORD *)this + 47) = v2 - 16 * v4;
   *((_QWORD *)this + 46) = 0LL;
-  if ( v4 == (CoordMap *)((char *)this + 392) )
-    v4 = 0LL;
-  operator delete(v4);
-  v5 = (__int64)(*((_QWORD *)this + 24) - *((_QWORD *)this + 23)) >> 4;
-  if ( v5 )
-    *((_QWORD *)this + 24) -= 16 * v5;
-  v6 = (CoordMap *)*((_QWORD *)this + 23);
+  if ( v3 == (CoordMap *)((char *)this + 392) )
+    v3 = 0LL;
+  operator delete(v3);
+  v5 = (CoordMap *)*((_QWORD *)this + 23);
+  v6 = (__int64)(*((_QWORD *)this + 24) - (_QWORD)v5) >> 4;
+  if ( v6 )
+    *((_QWORD *)this + 24) -= 16 * v6;
   *((_QWORD *)this + 23) = 0LL;
-  if ( v6 == (CoordMap *)((char *)this + 208) )
-    v6 = 0LL;
-  operator delete(v6);
+  if ( v5 == (CoordMap *)((char *)this + 208) )
+    v5 = 0LL;
+  operator delete(v5);
   v7 = *(CoordMap **)this;
   v8 = (__int64)(*((_QWORD *)this + 1) - *(_QWORD *)this) >> 4;
   if ( v8 )

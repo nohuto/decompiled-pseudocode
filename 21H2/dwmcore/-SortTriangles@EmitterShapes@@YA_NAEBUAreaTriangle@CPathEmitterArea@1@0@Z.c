@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SortTriangles@EmitterShapes@@YA_NAEBUAreaTriangle@CPathEmitterArea@1@0@Z @ 0x180259D30
+ * XREFs of ?SortTriangles@EmitterShapes@@YA_NAEBUAreaTriangle@CPathEmitterArea@1@0@Z @ 0x180209740
  * Callers:
  *     <none>
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqQueryDeleteObjectFromResultSet @ 0x1407734A4
+ * XREFs of PiDqQueryDeleteObjectFromResultSet @ 0x14062E5EC
  * Callers:
- *     PiDqQueryApplyObjectEvent @ 0x140775D50 (PiDqQueryApplyObjectEvent.c)
- *     PiDqQueryFreeActiveData @ 0x140776E5C (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryFreeActiveData @ 0x14062E710 (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryApplyObjectEvent @ 0x1407634C4 (PiDqQueryApplyObjectEvent.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x1402DECF0 (RtlDeleteElementGenericTableAvl.c)
- *     PiDmObjectRelease @ 0x14077B394 (PiDmObjectRelease.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1402648C0 (RtlDeleteElementGenericTableAvl.c)
+ *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
  */
 
 BOOLEAN __fastcall PiDqQueryDeleteObjectFromResultSet(__int64 a1, void *a2)

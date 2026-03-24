@@ -1,10 +1,9 @@
 /*
- * XREFs of WriteSystemIO @ 0x1C001B580
+ * XREFs of WriteSystemIO @ 0x1C006800C
  * Callers:
- *     AccessBaseField @ 0x1C001AE70 (AccessBaseField.c)
- *     DebugOutPort @ 0x1C00675C0 (DebugOutPort.c)
+ *     DebugOutPort @ 0x1C0066310 (DebugOutPort.c)
  * Callees:
- *     CheckSystemIOAddressValidity @ 0x1C001B5CC (CheckSystemIOAddressValidity.c)
+ *     CheckSystemIOAddressValidity @ 0x1C0027590 (CheckSystemIOAddressValidity.c)
  */
 
 char __fastcall WriteSystemIO(unsigned int a1, unsigned int a2, unsigned int a3)
@@ -17,7 +16,7 @@ char __fastcall WriteSystemIO(unsigned int a1, unsigned int a2, unsigned int a3)
 
   v8 = a3;
   v4 = a1;
-  result = CheckSystemIOAddressValidity(0LL, a1, a2, &v8);
+  result = CheckSystemIOAddressValidity(0, (const char *)a1, a2, &v8);
   if ( result )
   {
     v6 = a2 - 1;

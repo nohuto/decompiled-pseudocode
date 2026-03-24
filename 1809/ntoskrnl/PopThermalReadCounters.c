@@ -1,13 +1,13 @@
 /*
- * XREFs of PopThermalReadCounters @ 0x14086C550
+ * XREFs of PopThermalReadCounters @ 0x14086C530
  * Callers:
- *     PoThermalCounterSetCallback @ 0x14086C2A0 (PoThermalCounterSetCallback.c)
+ *     PoThermalCounterSetCallback @ 0x14086C280 (PoThermalCounterSetCallback.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     IoCancelIrp @ 0x140121E10 (IoCancelIrp.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     IoCancelIrp @ 0x140121E30 (IoCancelIrp.c)
  */
 
 __int64 __fastcall PopThermalReadCounters(__int64 a1, char a2, unsigned int *a3)

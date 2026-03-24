@@ -2,7 +2,7 @@
  * XREFs of MiCreateSectionCommon @ 0x1405DD7A0
  * Callers:
  *     NtCreateSection @ 0x1405DD740 (NtCreateSection.c)
- *     NtCreateSectionEx @ 0x14084E8E0 (NtCreateSectionEx.c)
+ *     NtCreateSectionEx @ 0x14084E8C0 (NtCreateSectionEx.c)
  * Callees:
  *     CcZeroEndOfLastPage @ 0x14001C250 (CcZeroEndOfLastPage.c)
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
@@ -15,7 +15,7 @@
  *     MiCreateSection @ 0x1405DDAC0 (MiCreateSection.c)
  *     MiCaptureSectionCreateExtendedParameters @ 0x1405DE780 (MiCaptureSectionCreateExtendedParameters.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiCreateSectionCommon(

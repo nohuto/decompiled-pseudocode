@@ -1,9 +1,8 @@
 /*
- * XREFs of WindowFromCacheDC @ 0x1C01BDECC
+ * XREFs of WindowFromCacheDC @ 0x1C01E86BC
  * Callers:
- *     NtUserSelectPalette @ 0x1C009A090 (NtUserSelectPalette.c)
- *     _SelectPalette @ 0x1C0131050 (_SelectPalette.c)
- *     xxxRealizePalette @ 0x1C0214E58 (xxxRealizePalette.c)
+ *     _SelectPalette @ 0x1C01013B4 (_SelectPalette.c)
+ *     xxxRealizePalette @ 0x1C011B890 (xxxRealizePalette.c)
  * Callees:
  *     <none>
  */

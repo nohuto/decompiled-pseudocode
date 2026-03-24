@@ -1,12 +1,12 @@
 /*
- * XREFs of DrawFrame @ 0x1C00C35F4
+ * XREFs of DrawFrame @ 0x1C015A968
  * Callers:
- *     xxxDrawCaptionBar @ 0x1C00BAE5C (xxxDrawCaptionBar.c)
- *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C015A5CC (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
- *     xxxMNDrawFullNC @ 0x1C0247E7C (xxxMNDrawFullNC.c)
+ *     xxxDrawCaptionBar @ 0x1C00DCE08 (xxxDrawCaptionBar.c)
+ *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C0169284 (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
+ *     xxxMNDrawFullNC @ 0x1C024CA44 (xxxMNDrawFullNC.c)
  * Callees:
- *     GrePolyPatBlt @ 0x1C00C1D4C (GrePolyPatBlt.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     GrePolyPatBlt @ 0x1C0045794 (GrePolyPatBlt.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DrawFrame(HDC a1, int *a2, int a3, int a4)
@@ -64,6 +64,6 @@ __int64 __fastcall DrawFrame(HDC a1, int *a2, int a3, int a4)
   v19 = v6;
   v20 = v8;
   v23 = v4;
-  GrePolyPatBlt(a1, (a4 & 4) != 0 ? 5898313 : 15728673, (struct _POLYPATBLT *)v11, 4);
+  GrePolyPatBlt(a1, (a4 & 4) != 0 ? 5898313 : 15728673, (struct _POLYPATBLT *)v11, 4u);
   return 1LL;
 }

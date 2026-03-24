@@ -1,9 +1,9 @@
 /*
- * XREFs of SeComputeAutoInheritByObjectType @ 0x140355E30
+ * XREFs of SeComputeAutoInheritByObjectType @ 0x1403192B0
  * Callers:
  *     <none>
  * Callees:
- *     SeComputeAutoInheritByObjectTypeEx @ 0x1402B3540 (SeComputeAutoInheritByObjectTypeEx.c)
+ *     SeComputeAutoInheritByObjectTypeEx @ 0x1402D66D0 (SeComputeAutoInheritByObjectTypeEx.c)
  */
 
 ULONG __stdcall SeComputeAutoInheritByObjectType(

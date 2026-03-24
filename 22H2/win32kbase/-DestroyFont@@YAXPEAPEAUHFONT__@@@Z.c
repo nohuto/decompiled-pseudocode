@@ -1,15 +1,15 @@
 /*
- * XREFs of ?DestroyFont@@YAXPEAPEAUHFONT__@@@Z @ 0x1C00A03D8
+ * XREFs of ?DestroyFont@@YAXPEAPEAUHFONT__@@@Z @ 0x1C0008E3C
  * Callers:
- *     CleanupGDI @ 0x1C00A0060 (CleanupGDI.c)
- *     ?DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z @ 0x1C00A0474 (-DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z.c)
+ *     CleanupGDI @ 0x1C0008ABC (CleanupGDI.c)
+ *     ?DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z @ 0x1C000BAD0 (-DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z.c)
  * Callees:
- *     GreDeleteObject @ 0x1C00472A0 (GreDeleteObject.c)
+ *     GreDeleteObject @ 0x1C0039970 (GreDeleteObject.c)
  */
 
-void __fastcall DestroyFont(HPALETTE *a1)
+void __fastcall DestroyFont(HBRUSH *a1)
 {
-  HPALETTE v2; // rcx
+  HBRUSH v2; // rcx
 
   v2 = *a1;
   if ( v2 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of CompareMemory @ 0x1C0159456
+ * XREFs of CompareMemory @ 0x1C0127B1C
  * Callers:
- *     pDCIAdjClr @ 0x1C02556B8 (pDCIAdjClr.c)
+ *     pDCIAdjClr @ 0x1C001C170 (pDCIAdjClr.c)
  * Callees:
  *     <none>
  */
@@ -15,10 +15,10 @@ __int64 __fastcall CompareMemory(__int64 a1, char *a2, int a3)
   v3 = a1 - (_QWORD)a2;
   while ( 1 )
   {
-    v4 = a2[v3];
+    v4 = *a2;
     --a3;
-    v5 = *a2++;
-    if ( v4 != v5 )
+    v5 = (a2++)[v3];
+    if ( v5 != v4 )
       break;
     if ( !a3 )
       return 1LL;

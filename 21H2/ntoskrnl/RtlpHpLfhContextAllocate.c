@@ -1,26 +1,34 @@
 /*
- * XREFs of RtlpHpLfhContextAllocate @ 0x1403715C4
+ * XREFs of RtlpHpLfhContextAllocate @ 0x1402A6084
  * Callers:
- *     ExAllocateHeapPool @ 0x1403497C0 (ExAllocateHeapPool.c)
- *     RtlpHpAllocateHeapInternal @ 0x1403714E0 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpAllocateHeapInternal @ 0x1402A5FA0 (RtlpHpAllocateHeapInternal.c)
+ *     ExAllocateHeapPool @ 0x14033C210 (ExAllocateHeapPool.c)
  * Callees:
- *     RtlpHpLfhBucketUpdateStats @ 0x140371654 (RtlpHpLfhBucketUpdateStats.c)
- *     RtlpHpLfhBucketAllocate @ 0x14039FD24 (RtlpHpLfhBucketAllocate.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x1402A6128 (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpHpLfhBucketAllocate @ 0x140392480 (RtlpHpLfhBucketAllocate.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall RtlpHpLfhContextAllocate(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall RtlpHpLfhContextAllocate(__int64 a1, unsigned int a2, int a3, unsigned int a4)
 {
+  size_t v4; // rdi
   bool v5; // zf
-  __int64 v6; // rdx
-  __int64 v9; // rsi
+  int v6; // edx
+  __int64 v9; // rbp
+  void *v10; // rax
+  void *v11; // rbx
 
+  v4 = a2;
   v5 = a2 == a3;
   v6 = a3 + 2;
   if ( v5 )
     v6 = a3;
   v9 = *((unsigned __int8 *)RtlpLfhBucketIndexMap + ((unsigned __int64)(unsigned int)(v6 + 15) >> 4));
-  if ( (*(_QWORD *)(a1 + 8 * v9 + 128) & 1) == 0 || (unsigned int)RtlpHpLfhBucketUpdateStats(a1, v6, 1LL) )
-    return RtlpHpLfhBucketAllocate(a1, *(_QWORD *)(a1 + 8 * v9 + 128), a2, a4);
-  else
+  if ( (*(_QWORD *)(a1 + 8 * v9 + 128) & 1) != 0 && !(unsigned int)RtlpHpLfhBucketUpdateStats() )
     return -1LL;
+  v10 = (void *)RtlpHpLfhBucketAllocate(a1, *(_QWORD *)(a1 + 8 * v9 + 128), (unsigned int)v4, a4);
+  v11 = v10;
+  if ( v10 && (a4 & 2) != 0 )
+    memset(v10, 0, v4);
+  return (__int64)v11;
 }

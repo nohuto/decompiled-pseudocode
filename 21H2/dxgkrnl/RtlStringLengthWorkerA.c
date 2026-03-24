@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringLengthWorkerA @ 0x1C002EC96
+ * XREFs of RtlStringLengthWorkerA @ 0x1C004EB88
  * Callers:
- *     ?RtlStringCbCatA@@YAJPEAD_KPEBD@Z @ 0x1C004F7DC (-RtlStringCbCatA@@YAJPEAD_KPEBD@Z.c)
- *     ?PrepareDripsBlockerProcessName@DripsBlockerTrackingHelper@@QEAAJPEBDPEAU_EPROCESS@@PEADIPEA_K@Z @ 0x1C02FEAA4 (-PrepareDripsBlockerProcessName@DripsBlockerTrackingHelper@@QEAAJPEBDPEAU_EPROCESS@@PEADIPEA_K@Z.c)
+ *     ?RtlStringCbCatA@@YAJPEAD_KPEBD@Z @ 0x1C004E9A4 (-RtlStringCbCatA@@YAJPEAD_KPEBD@Z.c)
+ *     ?PrepareDripsBlockerProcessName@DripsBlockerTrackingHelper@@QEAAJPEBDPEAU_EPROCESS@@PEADIPEA_K@Z @ 0x1C02C38B0 (-PrepareDripsBlockerProcessName@DripsBlockerTrackingHelper@@QEAAJPEBDPEAU_EPROCESS@@PEADIPEA_K@Z.c)
  * Callees:
  *     <none>
  */

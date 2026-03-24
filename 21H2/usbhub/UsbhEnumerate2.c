@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhEnumerate2 @ 0x1C004BE8C
+ * XREFs of UsbhEnumerate2 @ 0x1C004D298
  * Callers:
- *     UsbhHubDispatchPortEvent @ 0x1C0016AF0 (UsbhHubDispatchPortEvent.c)
+ *     UsbhHubDispatchPortEvent @ 0x1C0008BD0 (UsbhHubDispatchPortEvent.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhCancelEnumeration @ 0x1C001EB50 (UsbhCancelEnumeration.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     UsbhSignalSuspendEvent @ 0x1C00349E0 (UsbhSignalSuspendEvent.c)
- *     UsbhFailDriverResetPort @ 0x1C004C300 (UsbhFailDriverResetPort.c)
- *     UsbhHandleOvercurrent @ 0x1C004C3B4 (UsbhHandleOvercurrent.c)
+ *     UsbhCancelEnumeration @ 0x1C00023E0 (UsbhCancelEnumeration.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     UsbhSignalSuspendEvent @ 0x1C0035C9C (UsbhSignalSuspendEvent.c)
+ *     UsbhFailDriverResetPort @ 0x1C004D710 (UsbhFailDriverResetPort.c)
+ *     UsbhHandleOvercurrent @ 0x1C004D7C4 (UsbhHandleOvercurrent.c)
  */
 
 __int64 __fastcall UsbhEnumerate2(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, __int64 a5)
@@ -37,7 +37,7 @@ __int64 __fastcall UsbhEnumerate2(__int64 a1, unsigned int a2, __int64 a3, __int
   if ( !v10 )
   {
     Log(a1, 4, 1162752611, v8, 0LL);
-    v20 = (unsigned int (__fastcall *)(__int64, __int64, __int64))qword_1C0060968[2 * v24];
+    v20 = (unsigned int (__fastcall *)(__int64, __int64, __int64))qword_1C0062948[2 * v24];
 LABEL_19:
     if ( v20 )
       return v20(a1, a4, a5);
@@ -47,14 +47,14 @@ LABEL_19:
   if ( !v11 )
   {
     Log(a1, 4, 1162752613, v8, 0LL);
-    v20 = (unsigned int (__fastcall *)(__int64, __int64, __int64))qword_1C0060568[2 * v23];
+    v20 = (unsigned int (__fastcall *)(__int64, __int64, __int64))qword_1C0062548[2 * v23];
     goto LABEL_19;
   }
   v12 = v11 - 2;
   if ( !v12 )
   {
     Log(a1, 4, 1162752627, v8, 0LL);
-    v20 = (unsigned int (__fastcall *)(__int64, __int64, __int64))qword_1C0063CA8[2 * v22];
+    v20 = (unsigned int (__fastcall *)(__int64, __int64, __int64))qword_1C0065A08[2 * v22];
     goto LABEL_19;
   }
   v13 = v12 - 4;
@@ -67,14 +67,14 @@ LABEL_19:
   if ( !v14 )
   {
     Log(a1, 4, 1162752626, v8, 0LL);
-    v20 = (unsigned int (__fastcall *)(__int64, __int64, __int64))qword_1C0060B68[2 * v21];
+    v20 = (unsigned int (__fastcall *)(__int64, __int64, __int64))qword_1C0062B48[2 * v21];
     goto LABEL_19;
   }
   v15 = v14 - 65520;
   if ( !v15 )
   {
     Log(a1, 4, 1162752628, v8, 0LL);
-    v20 = (unsigned int (__fastcall *)(__int64, __int64, __int64))qword_1C0060768[2 * v19];
+    v20 = (unsigned int (__fastcall *)(__int64, __int64, __int64))qword_1C0062748[2 * v19];
     goto LABEL_19;
   }
   v16 = v15 - 0x10000;

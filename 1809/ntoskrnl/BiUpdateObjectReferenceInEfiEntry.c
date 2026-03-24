@@ -1,19 +1,19 @@
 /*
- * XREFs of BiUpdateObjectReferenceInEfiEntry @ 0x1408F4D84
+ * XREFs of BiUpdateObjectReferenceInEfiEntry @ 0x1408F4D64
  * Callers:
- *     BiCreateEfiEntry @ 0x1408F2DC0 (BiCreateEfiEntry.c)
+ *     BiCreateEfiEntry @ 0x1408F2DA0 (BiCreateEfiEntry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsupr @ 0x140195C30 (_wcsupr.c)
- *     wcsstr @ 0x140197930 (wcsstr.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsupr @ 0x140195C50 (_wcsupr.c)
+ *     wcsstr @ 0x140197950 (wcsstr.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     BcdQueryObject @ 0x140712724 (BcdQueryObject.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x1408F3E04 (BiGetObjectReferenceFromEfiEntry.c)
+ *     BcdQueryObject @ 0x140712704 (BcdQueryObject.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x1408F3DE4 (BiGetObjectReferenceFromEfiEntry.c)
  */
 
 __int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)

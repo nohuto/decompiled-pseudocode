@@ -1,9 +1,11 @@
 /*
- * XREFs of IoFlushAdapterBuffers @ 0x1405011A0
+ * XREFs of IoFlushAdapterBuffers @ 0x140389720
  * Callers:
- *     <none>
+ *     HalPutScatterGatherList @ 0x1402F6340 (HalPutScatterGatherList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpDmaGetAdapterVersion @ 0x14030DA00 (HalpDmaGetAdapterVersion.c)
+ *     IoFlushAdapterBuffersV2 @ 0x140389760 (IoFlushAdapterBuffersV2.c)
+ *     IoFlushAdapterBuffersV3 @ 0x1404CA850 (IoFlushAdapterBuffersV3.c)
  */
 
 BOOLEAN __stdcall IoFlushAdapterBuffers(
@@ -14,11 +16,13 @@ BOOLEAN __stdcall IoFlushAdapterBuffers(
         ULONG Length,
         BOOLEAN WriteToDevice)
 {
-  return DmaAdapter->DmaOperations->FlushAdapterBuffers(
-           DmaAdapter,
-           Mdl,
-           MapRegisterBase,
-           CurrentVa,
-           Length,
-           WriteToDevice);
+  int v6; // r8d
+  int v7; // r9d
+  int v8; // r10d
+  int v9; // r11d
+
+  if ( (unsigned int)HalpDmaGetAdapterVersion((__int64)DmaAdapter) == 2 )
+    return IoFlushAdapterBuffersV2(v8, v9, v6, v7, Length, WriteToDevice);
+  else
+    return IoFlushAdapterBuffersV3(v8, v9, v6, v7, Length, WriteToDevice);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@?$CScaleTransformGeneratedT@VCScaleTransform@@VCTransform@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D82D0
+ * XREFs of ?IsOfType@?$CScaleTransformGeneratedT@VCScaleTransform@@VCTransform@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C5010
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@?$CTransformGeneratedT@VCTransform@@VCTransform3D@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D8300 (-IsOfType@-$CTransformGeneratedT@VCTransform@@VCTransform3D@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@?$CTransformGeneratedT@VCTransform@@VCTransform3D@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C5040 (-IsOfType@-$CTransformGeneratedT@VCTransform@@VCTransform3D@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall CScaleTransformGeneratedT<CScaleTransform,CTransform>::IsOfType(__int64 a1, int a2)
@@ -11,7 +11,7 @@ char __fastcall CScaleTransformGeneratedT<CScaleTransform,CTransform>::IsOfType(
   char v2; // al
   char v3; // cl
 
-  if ( a2 == 151 )
+  if ( a2 == 152 )
     return 1;
   v2 = CTransformGeneratedT<CTransform,CTransform3D>::IsOfType();
   v3 = 0;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiPnpRtlGetDeviceRelatedDeviceRoutine @ 0x1407CE3E0
+ * XREFs of PiPnpRtlGetDeviceRelatedDeviceRoutine @ 0x140699880
  * Callers:
  *     <none>
  * Callees:
- *     ZwPlugPlayControl @ 0x14041CE00 (ZwPlugPlayControl.c)
+ *     ZwPlugPlayControl @ 0x1403FC080 (ZwPlugPlayControl.c)
  */
 
 __int64 __fastcall PiPnpRtlGetDeviceRelatedDeviceRoutine(

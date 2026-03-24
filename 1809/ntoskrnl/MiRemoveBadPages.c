@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRemoveBadPages @ 0x1402A6C6C
+ * XREFs of MiRemoveBadPages @ 0x1402A6D6C
  * Callers:
- *     MmRemovePhysicalMemory @ 0x14084D920 (MmRemovePhysicalMemory.c)
+ *     MmRemovePhysicalMemory @ 0x14084D900 (MmRemovePhysicalMemory.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnBadPagesToBadList @ 0x1402A6EAC (MiReturnBadPagesToBadList.c)
- *     MiUnlinkPageFromBadList @ 0x1402BFD00 (MiUnlinkPageFromBadList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnBadPagesToBadList @ 0x1402A6FAC (MiReturnBadPagesToBadList.c)
+ *     MiUnlinkPageFromBadList @ 0x1402BFE00 (MiUnlinkPageFromBadList.c)
  */
 
 __int64 __fastcall MiRemoveBadPages(unsigned __int64 a1, unsigned __int64 a2)

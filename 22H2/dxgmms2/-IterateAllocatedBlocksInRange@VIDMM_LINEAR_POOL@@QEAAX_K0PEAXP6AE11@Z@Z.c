@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAX_K0PEAXP6AE11@Z@Z @ 0x1C0101FF0
+ * XREFs of ?IterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAX_K0PEAXP6AE11@Z@Z @ 0x1C00CD810
  * Callers:
- *     ?FreeSpaceForSecureResource@VIDMM_SEGMENT@@QEAAEPEAU_LIST_ENTRY@@PEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@@Z @ 0x1C00FD000 (-FreeSpaceForSecureResource@VIDMM_SEGMENT@@QEAAEPEAU_LIST_ENTRY@@PEAU_VIDMM_GLOBAL_ALLOC@@W4_VID.c)
+ *     ?FreeSpaceForSecureResource@VIDMM_SEGMENT@@QEAAEPEAU_LIST_ENTRY@@PEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@@Z @ 0x1C00C5800 (-FreeSpaceForSecureResource@VIDMM_SEGMENT@@QEAAEPEAU_LIST_ENTRY@@PEAU_VIDMM_GLOBAL_ALLOC@@W4_VID.c)
  * Callees:
- *     ?EvictAllocationCallback@@YAEPEAX0@Z @ 0x1C00FCDA4 (-EvictAllocationCallback@@YAEPEAX0@Z.c)
+ *     ?EvictAllocationCallback@@YAEPEAX0@Z @ 0x1C00C561C (-EvictAllocationCallback@@YAEPEAX0@Z.c)
  */
 
 void __fastcall VIDMM_LINEAR_POOL::IterateAllocatedBlocksInRange(
@@ -25,7 +25,7 @@ void __fastcall VIDMM_LINEAR_POOL::IterateAllocatedBlocksInRange(
     if ( *(_QWORD *)v9 < a3
       && *(_QWORD *)(v9 + 8) + *(_QWORD *)v9 > a2
       && *(_BYTE *)(v9 + 56) == 3
-      && !EvictAllocationCallback(a4, *(_QWORD **)(v9 + 16)) )
+      && !EvictAllocationCallback(a4, *(char **)(v9 + 16)) )
     {
       break;
     }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PfFbBufferListAllocateTemporary @ 0x1400E2A84
+ * XREFs of PfFbBufferListAllocateTemporary @ 0x1400E2AA4
  * Callers:
- *     PfpEventHandleOutOfBuffers @ 0x1400E2A60 (PfpEventHandleOutOfBuffers.c)
- *     PfpSectInfoHandleOutOfBuffers @ 0x1406DC140 (PfpSectInfoHandleOutOfBuffers.c)
+ *     PfpEventHandleOutOfBuffers @ 0x1400E2A80 (PfpEventHandleOutOfBuffers.c)
+ *     PfpSectInfoHandleOutOfBuffers @ 0x1406DC120 (PfpSectInfoHandleOutOfBuffers.c)
  * Callees:
- *     PfFbBufferListInsertInFree @ 0x1400E2660 (PfFbBufferListInsertInFree.c)
+ *     PfFbBufferListInsertInFree @ 0x1400E2680 (PfFbBufferListInsertInFree.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopBatteryQueueWork @ 0x1401762AC
+ * XREFs of PopBatteryQueueWork @ 0x1401762CC
  * Callers:
- *     PopBatteryWakeDpc @ 0x140176230 (PopBatteryWakeDpc.c)
- *     PopRefreshEstimateAfterSpoilingDpc @ 0x140176290 (PopRefreshEstimateAfterSpoilingDpc.c)
- *     PopBatteryIrpComplete @ 0x1402DC590 (PopBatteryIrpComplete.c)
- *     PopBatteryWorker @ 0x140719DA0 (PopBatteryWorker.c)
- *     PopBatteryUpdateCurrentState @ 0x14071C1E4 (PopBatteryUpdateCurrentState.c)
- *     PopSpoilBatteryEstimate @ 0x14071C358 (PopSpoilBatteryEstimate.c)
- *     PopBatteryAdd @ 0x14086CCE0 (PopBatteryAdd.c)
- *     PopBatteryRemove @ 0x14086D500 (PopBatteryRemove.c)
+ *     PopBatteryWakeDpc @ 0x140176250 (PopBatteryWakeDpc.c)
+ *     PopRefreshEstimateAfterSpoilingDpc @ 0x1401762B0 (PopRefreshEstimateAfterSpoilingDpc.c)
+ *     PopBatteryIrpComplete @ 0x1402DC690 (PopBatteryIrpComplete.c)
+ *     PopBatteryWorker @ 0x140719D80 (PopBatteryWorker.c)
+ *     PopBatteryUpdateCurrentState @ 0x14071C1C4 (PopBatteryUpdateCurrentState.c)
+ *     PopSpoilBatteryEstimate @ 0x14071C338 (PopSpoilBatteryEstimate.c)
+ *     PopBatteryAdd @ 0x14086CCC0 (PopBatteryAdd.c)
+ *     PopBatteryRemove @ 0x14086D4E0 (PopBatteryRemove.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
  */
 
 void __fastcall PopBatteryQueueWork(unsigned int a1)

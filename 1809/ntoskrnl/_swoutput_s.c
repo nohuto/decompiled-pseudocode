@@ -1,12 +1,12 @@
 /*
- * XREFs of _swoutput_s @ 0x14019CAC4
+ * XREFs of _swoutput_s @ 0x14019CAE4
  * Callers:
- *     vswprintf_s @ 0x14019A370 (vswprintf_s.c)
- *     _vsnwprintf_s @ 0x14019AC70 (_vsnwprintf_s.c)
+ *     vswprintf_s @ 0x14019A390 (vswprintf_s.c)
+ *     _vsnwprintf_s @ 0x14019AC90 (_vsnwprintf_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1401767E0 (xHalTimerWatchdogStop.c)
- *     _flsbuf @ 0x1401983F0 (_flsbuf.c)
- *     _woutput_s @ 0x14019CBE4 (_woutput_s.c)
+ *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
+ *     _flsbuf @ 0x140198410 (_flsbuf.c)
+ *     _woutput_s @ 0x14019CC04 (_woutput_s.c)
  */
 
 __int64 __fastcall swoutput_s(char *a1, unsigned __int64 a2, __int64 a3, __int64 a4)

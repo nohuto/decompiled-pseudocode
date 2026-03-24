@@ -1,277 +1,243 @@
 /*
- * XREFs of EtwpLogger @ 0x140773610
+ * XREFs of EtwpLogger @ 0x1406BE4D0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpRequestFlushTimer @ 0x140227AE0 (EtwpRequestFlushTimer.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9630 (KeSetActualBasePriorityThread.c)
- *     EtwpResetFlushTimer @ 0x14031034C (EtwpResetFlushTimer.c)
- *     KeWaitForMultipleObjects @ 0x140310FC0 (KeWaitForMultipleObjects.c)
- *     PsDetachSiloFromCurrentThread @ 0x14031CAB0 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CAD0 (PsAttachSiloToCurrentThread.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     EtwpRealtimeSaveState @ 0x140682854 (EtwpRealtimeSaveState.c)
- *     EtwpAdjustFreeBuffers @ 0x1406BDDAC (EtwpAdjustFreeBuffers.c)
- *     EtwpFlushActiveBuffers @ 0x1406BDE18 (EtwpFlushActiveBuffers.c)
- *     PsTerminateSystemThread @ 0x140700E60 (PsTerminateSystemThread.c)
- *     EtwpRealtimeUpdateConsumers @ 0x1407730F4 (EtwpRealtimeUpdateConsumers.c)
- *     EtwpRealtimeCreateLogfile @ 0x140773258 (EtwpRealtimeCreateLogfile.c)
- *     EtwpRealtimeFlushSavedBuffers @ 0x1407734E8 (EtwpRealtimeFlushSavedBuffers.c)
- *     EtwpFreeLoggerContext @ 0x14078E1AC (EtwpFreeLoggerContext.c)
- *     EtwpRealtimeDisconnectAllConsumers @ 0x14078E6A0 (EtwpRealtimeDisconnectAllConsumers.c)
- *     EtwpFinalizeHeader @ 0x1407F64A8 (EtwpFinalizeHeader.c)
- *     EtwpStopLoggerInstance @ 0x1407F69E4 (EtwpStopLoggerInstance.c)
- *     EtwpRealtimeNotifyConsumers @ 0x1407F6B28 (EtwpRealtimeNotifyConsumers.c)
- *     EtwpCreateLogFile @ 0x1407F6D40 (EtwpCreateLogFile.c)
- *     EtwpEventWriteTemplateAdmin @ 0x1409E3A70 (EtwpEventWriteTemplateAdmin.c)
- *     EtwpEventWriteTemplateSession @ 0x1409E3CB4 (EtwpEventWriteTemplateSession.c)
- *     EtwpEventWriteTemplateSessionEnd @ 0x1409E3EB0 (EtwpEventWriteTemplateSessionEnd.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     KeSetActualBasePriorityThread @ 0x14022FF20 (KeSetActualBasePriorityThread.c)
+ *     KeWaitForMultipleObjects @ 0x14024B500 (KeWaitForMultipleObjects.c)
+ *     EtwpRequestFlushTimer @ 0x14025F43C (EtwpRequestFlushTimer.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     EtwpResetFlushTimer @ 0x14031D6A0 (EtwpResetFlushTimer.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14034C200 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14034C220 (PsAttachSiloToCurrentThread.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     EtwpRealtimeCreateLogfile @ 0x14065F4C4 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeUpdateConsumers @ 0x1406912B0 (EtwpRealtimeUpdateConsumers.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x140696190 (EtwpRealtimeFlushSavedBuffers.c)
+ *     EtwpFreeLoggerContext @ 0x14069817C (EtwpFreeLoggerContext.c)
+ *     EtwpRealtimeDisconnectAllConsumers @ 0x1406987E4 (EtwpRealtimeDisconnectAllConsumers.c)
+ *     PsTerminateSystemThread @ 0x1406A3340 (PsTerminateSystemThread.c)
+ *     EtwpRealtimeSaveState @ 0x1406A5D48 (EtwpRealtimeSaveState.c)
+ *     EtwpAdjustFreeBuffers @ 0x1406BBB50 (EtwpAdjustFreeBuffers.c)
+ *     EtwpFlushActiveBuffers @ 0x1406BC9F0 (EtwpFlushActiveBuffers.c)
+ *     EtwpStopLoggerInstance @ 0x140710AB0 (EtwpStopLoggerInstance.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x140710C90 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpFinalizeHeader @ 0x140713010 (EtwpFinalizeHeader.c)
+ *     EtwpCreateLogFile @ 0x14071334C (EtwpCreateLogFile.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x140939BAC (EtwpEventWriteTemplateAdmin.c)
+ *     EtwpEventWriteTemplateSession @ 0x140939ECC (EtwpEventWriteTemplateSession.c)
+ *     EtwpEventWriteTemplateSessionEnd @ 0x14093A0C8 (EtwpEventWriteTemplateSessionEnd.c)
  */
 
-NTSTATUS __fastcall EtwpLogger(__int64 a1)
+void __fastcall EtwpLogger(struct _LIST_ENTRY **StartContext)
 {
   __int64 v1; // rbx
-  struct _LIST_ENTRY *v2; // r14
-  struct _KEVENT *v3; // rsi
-  struct _KEVENT *v4; // rbp
-  volatile signed __int32 *v5; // r15
-  int v6; // r12d
-  __int64 v7; // rdx
-  int v8; // r13d
+  struct _LIST_ENTRY *v2; // rsi
+  int v3; // r14d
+  __int64 v4; // rdx
+  int v5; // r15d
   int Logfile; // edi
-  int *v10; // r14
-  int active; // eax
-  int v12; // esi
-  int v13; // eax
-  NTSTATUS v14; // edi
-  bool v16; // si
-  int v17; // eax
-  int v18; // edx
-  int v19; // r8d
-  int v20; // ebp
-  int v21; // ecx
-  int v22; // r8d
-  int v23; // eax
-  __int64 v24; // rcx
+  bool v7; // si
+  int v8; // eax
+  int v9; // ebp
+  int v10; // ecx
+  int v11; // r8d
+  int v12; // eax
+  int v13; // edx
+  int v14; // r8d
+  int i; // eax
+  NTSTATUS v16; // edi
+  __int64 v17; // rcx
   PKWAIT_BLOCK WaitBlockArray; // [rsp+38h] [rbp-40h]
   PVOID Object; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v27; // [rsp+48h] [rbp-30h]
-  struct _LIST_ENTRY *v28; // [rsp+80h] [rbp+8h]
+  __int64 v20; // [rsp+48h] [rbp-30h]
+  struct _LIST_ENTRY *v21; // [rsp+80h] [rbp+8h]
 
-  v1 = *(_QWORD *)(a1 + 8);
-  *(_QWORD *)(v1 + 32) = KeGetCurrentThread();
-  v2 = PsAttachSiloToCurrentThread(*(struct _LIST_ENTRY **)a1);
-  v28 = v2;
-  KeSetActualBasePriorityThread((ULONG_PTR)KeGetCurrentThread(), 15);
-  v3 = (struct _KEVENT *)(v1 + 456);
-  KeSetEvent((PRKEVENT)(v1 + 456), 0, 0);
-  v4 = (struct _KEVENT *)(v1 + 480);
-  v27 = v1 + 504;
-  v5 = (volatile signed __int32 *)(v1 + 816);
-  Object = (PVOID)(v1 + 480);
-  if ( *(_DWORD *)(v1 + 320) )
+  v1 = (__int64)StartContext[1];
+  *(_QWORD *)(v1 + 48) = KeGetCurrentThread();
+  v2 = PsAttachSiloToCurrentThread(*StartContext);
+  v21 = v2;
+  KeSetActualBasePriorityThread((__int64)KeGetCurrentThread(), 15);
+  KeSetEvent((PRKEVENT)(v1 + 472), 0, 0);
+  v20 = v1 + 520;
+  Object = (PVOID)(v1 + 496);
+  if ( !*(_DWORD *)(v1 + 336) )
+    goto LABEL_53;
+  do
   {
-    while ( 1 )
+    v3 = 0;
+    if ( KeWaitForMultipleObjects((*(_DWORD *)(v1 + 224) != 0) + 1, &Object, WaitAny, Executive, 0, 0, 0LL, 0LL) == 1 )
     {
-      v6 = 0;
-      if ( KeWaitForMultipleObjects((*(_DWORD *)(v1 + 208) != 0) + 1, &Object, WaitAny, Executive, 0, 0, 0LL, 0LL) == 1 )
-      {
-        if ( (*(_DWORD *)(v1 + 824) & 0x400) != 0 )
-          _interlockedbittestandreset((volatile signed __int32 *)(v1 + 824), 0xAu);
-        KeResetEvent(v4);
-        v6 = 1;
-      }
-      if ( (unsigned __int8)EtwpBootPhase > 3u )
-        _InterlockedOr(v5, 4u);
-      EtwpAdjustFreeBuffers(v1);
-      v8 = *(_DWORD *)(v1 + 824) & 4;
-      if ( v8 )
-      {
-        Logfile = 0;
-        if ( *(_DWORD *)(v1 + 208) )
-          EtwpResetFlushTimer(v1, 1);
-        v6 = 1;
-      }
-      else
-      {
-        Logfile = 0;
-      }
-      if ( (*v5 & 4) != 0 )
-        break;
-      EtwpFlushActiveBuffers((unsigned int *)v1, v6);
-LABEL_31:
-      if ( !*(_DWORD *)(v1 + 320) )
-      {
-        v2 = v28;
-        goto LABEL_33;
-      }
+      EtwpResetFlushTimer(v1, 0);
+      KeResetEvent((PRKEVENT)(v1 + 496));
+      v3 = 1;
     }
-    if ( (*(_DWORD *)(v1 + 824) & 0x80u) != 0 )
+    if ( EtwpFileSystemReady )
+      _InterlockedOr((volatile signed __int32 *)(v1 + 832), 4u);
+    EtwpAdjustFreeBuffers(v1);
+    v5 = *(_DWORD *)(v1 + 836) & 4;
+    if ( v5 )
     {
-      _InterlockedAnd((volatile signed __int32 *)(v1 + 824), 0xFFFFFF7F);
-      if ( *(_QWORD *)(v1 + 800) )
+      if ( *(_DWORD *)(v1 + 224) )
+        EtwpResetFlushTimer(v1, 1);
+      v3 = 1;
+    }
+    if ( (*(_DWORD *)(v1 + 832) & 4) == 0 )
+    {
+      EtwpFlushActiveBuffers((unsigned int *)v1, v3);
+      continue;
+    }
+    if ( (*(_DWORD *)(v1 + 836) & 0x80u) != 0 )
+    {
+      _InterlockedAnd((volatile signed __int32 *)(v1 + 836), 0xFFFFFF7F);
+      if ( *(_QWORD *)(v1 + 816) )
       {
-        LOBYTE(v7) = 1;
-        EtwpFinalizeHeader(v1, v7);
+        LOBYTE(v4) = 1;
+        EtwpFinalizeHeader(v1, v4);
       }
     }
     if ( (*(_DWORD *)(v1 + 12) & 0x100) != 0 )
-      _InterlockedOr(v5, 8u);
+      _InterlockedOr((volatile signed __int32 *)(v1 + 832), 8u);
     else
-      _InterlockedAnd(v5, 0xFFFFFFF7);
-    if ( (*v5 & 8) != 0 )
+      _InterlockedAnd((volatile signed __int32 *)(v1 + 832), 0xFFFFFFF7);
+    if ( (*(_DWORD *)(v1 + 832) & 8) != 0 )
     {
       Logfile = EtwpRealtimeCreateLogfile(v1);
-      if ( Logfile < 0 && (*(_DWORD *)(v1 + 12) & 0x40) == 0 )
-      {
-        v10 = (int *)(v1 + 40);
-LABEL_60:
-        if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_SESSION_END_FAILED) )
-        {
-          LODWORD(WaitBlockArray) = *(_DWORD *)(v1 + 44);
-          EtwpEventWriteTemplateSessionEnd(
-            v1 + 152,
-            v18,
-            v19,
-            v1 + 136,
-            v1 + 152,
-            Logfile,
-            *(_DWORD *)(v1 + 12),
-            WaitBlockArray,
-            Object,
-            v27);
-        }
-        *v10 = Logfile;
-        EtwpStopLoggerInstance(v1);
-        goto LABEL_31;
-      }
+      if ( Logfile < 0 )
+        goto LABEL_48;
       EtwpRealtimeUpdateConsumers(v1);
       EtwpRealtimeFlushSavedBuffers(v1);
-      Logfile = 0;
-      if ( *(_DWORD *)(v1 + 344) && *(_DWORD *)(v1 + 424) )
+      if ( *(_DWORD *)(v1 + 360) && *(_DWORD *)(v1 + 440) )
         EtwpRequestFlushTimer(v1, 0);
     }
-    if ( (*(_DWORD *)(v1 + 824) & 0x40) != 0 )
+    if ( (*(_DWORD *)(v1 + 836) & 0x40) != 0 )
     {
-      _InterlockedAnd((volatile signed __int32 *)(v1 + 824), 0xFFFFFFBF);
+      _InterlockedAnd((volatile signed __int32 *)(v1 + 836), 0xFFFFFFBF);
       EtwpRealtimeNotifyConsumers(v1);
     }
-    if ( (*(_DWORD *)(v1 + 824) & 8) != 0 )
+    if ( (*(_DWORD *)(v1 + 836) & 8) != 0 )
     {
       EtwpRealtimeDisconnectAllConsumers(v1);
-      _InterlockedAnd((volatile signed __int32 *)(v1 + 824), 0xFFFFFFF7);
-      v10 = (int *)(v1 + 40);
-      *(_DWORD *)(v1 + 40) = 0;
-      KeSetEvent(v3, 0, 0);
+      _InterlockedAnd((volatile signed __int32 *)(v1 + 836), 0xFFFFFFF7);
+      *(_DWORD *)(v1 + 56) = 0;
+      KeSetEvent((PRKEVENT)(v1 + 472), 0, 0);
     }
-    else
+    if ( (*(_DWORD *)(v1 + 836) & 3) != 0 )
     {
-      v10 = (int *)(v1 + 40);
-    }
-    if ( (*(_DWORD *)(v1 + 824) & 3) != 0 )
-    {
-      v16 = 1;
-      if ( (*(_DWORD *)(v1 + 824) & 2) != 0 )
-        v16 = *(_QWORD *)(v1 + 800) == 0LL;
-      LOBYTE(v7) = 1;
-      v17 = EtwpCreateLogFile(v1, v7, 0LL);
-      *v10 = v17;
-      Logfile = v17;
-      if ( v17 < 0 )
+      v7 = 1;
+      if ( (*(_DWORD *)(v1 + 836) & 2) != 0 )
+        v7 = *(_QWORD *)(v1 + 816) == 0LL;
+      LOBYTE(v4) = 1;
+      v8 = EtwpCreateLogFile(v1, v4);
+      *(_DWORD *)(v1 + 56) = v8;
+      Logfile = v8;
+      if ( v8 < 0 )
       {
-        v20 = *(_DWORD *)(v1 + 12);
-        if ( (v20 & 8) != 0 && EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_SWITCH_TO_NEW_FILE_FAILED) )
-          EtwpEventWriteTemplateAdmin(
-            v21,
-            (unsigned int)&ETW_EVENT_SWITCH_TO_NEW_FILE_FAILED,
-            v22,
-            v1 + 136,
-            v1 + 152,
-            Logfile,
-            v20);
-        v4 = (struct _KEVENT *)(v1 + 480);
-      }
-      KeSetEvent((PRKEVENT)(v1 + 456), 0, 0);
-      if ( Logfile < 0 && v16 )
-      {
-        v3 = (struct _KEVENT *)(v1 + 456);
-        goto LABEL_60;
-      }
-      Logfile = 0;
-    }
-    active = EtwpFlushActiveBuffers((unsigned int *)v1, v6);
-    v12 = active;
-    if ( (*(_DWORD *)(v1 + 824) & 1) != 0 && active >= 0 && !v6 )
-      v12 = EtwpFlushActiveBuffers((unsigned int *)v1, 1);
-    if ( (*(_DWORD *)(v1 + 824) & 0x1000) != 0 )
-    {
-      _InterlockedAnd((volatile signed __int32 *)(v1 + 824), 0xFFFFEFFF);
-      if ( *(_QWORD *)(v1 + 800) )
-      {
-        v23 = EtwpFinalizeHeader(v1, 0LL);
-        v12 = v23;
-        if ( v23 >= 0 )
+        v9 = *(_DWORD *)(v1 + 12);
+        if ( (v9 & 8) != 0 )
         {
-          ZwClose(*(HANDLE *)(v1 + 800));
-          *(_QWORD *)(v1 + 800) = 0LL;
+          if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_SWITCH_TO_NEW_FILE_FAILED) )
+            EtwpEventWriteTemplateAdmin(
+              v10,
+              (unsigned int)&ETW_EVENT_SWITCH_TO_NEW_FILE_FAILED,
+              v11,
+              v1 + 152,
+              v1 + 168,
+              Logfile,
+              v9);
+        }
+      }
+      KeSetEvent((PRKEVENT)(v1 + 472), 0, 0);
+      if ( Logfile < 0 && v7 )
+        goto LABEL_48;
+    }
+    Logfile = EtwpFlushActiveBuffers((unsigned int *)v1, v3);
+    if ( (*(_DWORD *)(v1 + 836) & 1) != 0 && Logfile >= 0 && !v3 )
+      Logfile = EtwpFlushActiveBuffers((unsigned int *)v1, 1);
+    if ( (*(_DWORD *)(v1 + 836) & 0x1000) != 0 )
+    {
+      _InterlockedAnd((volatile signed __int32 *)(v1 + 836), 0xFFFFEFFF);
+      if ( *(_QWORD *)(v1 + 816) )
+      {
+        v12 = EtwpFinalizeHeader(v1, 0LL);
+        Logfile = v12;
+        if ( v12 >= 0 )
+        {
+          ZwClose(*(HANDLE *)(v1 + 816));
+          *(_QWORD *)(v1 + 816) = 0LL;
         }
         else
         {
-          *v10 = v23;
+          *(_DWORD *)(v1 + 56) = v12;
         }
       }
     }
-    if ( (*(_DWORD *)(v1 + 12) & 0x40) == 0 )
-      Logfile = v12;
-    v3 = (struct _KEVENT *)(v1 + 456);
-    if ( v8 )
+    if ( v5 )
     {
-      _InterlockedAnd((volatile signed __int32 *)(v1 + 824), 0xFFFFFFFB);
-      *v10 = Logfile;
-      KeSetEvent((PRKEVENT)(v1 + 456), 0, 0);
+      _InterlockedAnd((volatile signed __int32 *)(v1 + 836), 0xFFFFFFFB);
+      *(_DWORD *)(v1 + 56) = Logfile;
+      KeSetEvent((PRKEVENT)(v1 + 472), 0, 0);
     }
-    if ( Logfile >= 0 )
-      goto LABEL_31;
-    goto LABEL_60;
+    if ( Logfile < 0 )
+    {
+LABEL_48:
+      if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_SESSION_END_FAILED) )
+      {
+        LODWORD(WaitBlockArray) = *(_DWORD *)(v1 + 60);
+        EtwpEventWriteTemplateSessionEnd(
+          v1 + 168,
+          v13,
+          v14,
+          v1 + 152,
+          v1 + 168,
+          Logfile,
+          *(_DWORD *)(v1 + 12),
+          WaitBlockArray,
+          Object,
+          v20);
+      }
+      *(_DWORD *)(v1 + 56) = Logfile;
+      EtwpStopLoggerInstance(v1);
+    }
   }
-LABEL_33:
-  while ( 1 )
+  while ( *(_DWORD *)(v1 + 336) );
+  v2 = v21;
+LABEL_53:
+  for ( i = EtwpFlushActiveBuffers((unsigned int *)v1, 1); ; i = EtwpFlushActiveBuffers((unsigned int *)v1, 1) )
   {
-    v13 = EtwpFlushActiveBuffers((unsigned int *)v1, 1);
-    v14 = v13;
-    if ( v13 < 0 )
+    v16 = i;
+    if ( i < 0 )
       break;
-    if ( v13 == 259 )
+    if ( i == 259 )
     {
-      if ( (*v5 & 8) == 0 || (v14 = 0, *(_QWORD *)(v1 + 360)) )
-        v14 = -1073741823;
+      if ( (*(_DWORD *)(v1 + 832) & 8) == 0 || (v16 = 0, *(_QWORD *)(v1 + 376)) )
+        v16 = -1073741823;
       break;
     }
-    if ( *(int *)(v1 + 232) <= 0 || *(_DWORD *)(v1 + 232) <= *(_DWORD *)(v1 + 228) )
+    if ( *(int *)(v1 + 248) <= 0 || *(_DWORD *)(v1 + 248) <= *(_DWORD *)(v1 + 244) )
       break;
-    KeWaitForSingleObject(v4, Executive, 0, 0, (PLARGE_INTEGER)&EtwpOneSecond);
+    KeWaitForSingleObject((PVOID)(v1 + 496), Executive, 0, 0, (PLARGE_INTEGER)&EtwpOneSecond);
   }
-  if ( *(_QWORD *)(v1 + 800) )
+  if ( *(_QWORD *)(v1 + 816) )
   {
     EtwpFinalizeHeader(v1, 0LL);
-    ZwClose(*(HANDLE *)(v1 + 800));
-    *(_QWORD *)(v1 + 800) = 0LL;
+    ZwClose(*(HANDLE *)(v1 + 816));
+    *(_QWORD *)(v1 + 816) = 0LL;
   }
-  if ( *(_QWORD *)(v1 + 360) )
+  if ( *(_QWORD *)(v1 + 376) )
   {
     EtwpRealtimeSaveState(v1);
-    ZwClose(*(HANDLE *)(v1 + 360));
-    *(_QWORD *)(v1 + 360) = 0LL;
+    ZwClose(*(HANDLE *)(v1 + 376));
+    *(_QWORD *)(v1 + 376) = 0LL;
   }
-  *(_DWORD *)(v1 + 40) = v14;
-  KeSetEvent(v3, 0, 0);
-  if ( v14 < 0 && EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_STOP_TRACE) )
-    EtwpEventWriteTemplateSession(v24, &ETW_EVENT_STOP_TRACE, v1);
-  EtwpFreeLoggerContext((PVOID)v1);
+  *(_DWORD *)(v1 + 56) = v16;
+  KeSetEvent((PRKEVENT)(v1 + 472), 0, 0);
+  if ( v16 < 0 && EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_STOP_TRACE) )
+    EtwpEventWriteTemplateSession(v17, &ETW_EVENT_STOP_TRACE, v1);
+  EtwpFreeLoggerContext((char *)v1);
   PsDetachSiloFromCurrentThread(v2);
-  return PsTerminateSystemThread(v14);
+  PsTerminateSystemThread(v16);
 }

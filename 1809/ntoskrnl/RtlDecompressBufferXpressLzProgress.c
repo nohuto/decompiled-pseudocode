@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDecompressBufferXpressLzProgress @ 0x1402FA524
+ * XREFs of RtlDecompressBufferXpressLzProgress @ 0x1402FA624
  * Callers:
- *     RtlDecompressBufferProgress @ 0x1402F9E90 (RtlDecompressBufferProgress.c)
+ *     RtlDecompressBufferProgress @ 0x1402F9F90 (RtlDecompressBufferProgress.c)
  * Callees:
- *     RtlpMakeXpressCallback @ 0x140144168 (RtlpMakeXpressCallback.c)
+ *     RtlpMakeXpressCallback @ 0x140144188 (RtlpMakeXpressCallback.c)
  */
 
 __int64 __fastcall RtlDecompressBufferXpressLzProgress(

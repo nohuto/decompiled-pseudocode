@@ -1,16 +1,16 @@
 /*
- * XREFs of ??1XEPALOBJ2@@QEAA@XZ @ 0x1C00D24A8
+ * XREFs of ??1XEPALOBJ2@@QEAA@XZ @ 0x1C00C9508
  * Callers:
- *     bDeletePalette @ 0x1C008B2F0 (bDeletePalette.c)
- *     ??$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00D3170 (--$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z.c)
+ *     bDeletePalette @ 0x1C0074320 (bDeletePalette.c)
+ *     ??$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CBF54 (--$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z.c)
  * Callees:
- *     PopThreadGuardedObject @ 0x1C003CB00 (PopThreadGuardedObject.c)
- *     DEC_SHARE_REF_CNT @ 0x1C0042440 (DEC_SHARE_REF_CNT.c)
+ *     PopThreadGuardedObject @ 0x1C002D4F0 (PopThreadGuardedObject.c)
+ *     DEC_SHARE_REF_CNT @ 0x1C002F510 (DEC_SHARE_REF_CNT.c)
  */
 
-void __fastcall XEPALOBJ2::~XEPALOBJ2(struct OBJECT **this)
+void __fastcall XEPALOBJ2::~XEPALOBJ2(unsigned int **this)
 {
-  struct OBJECT *v2; // rcx
+  unsigned int *v2; // rcx
 
   v2 = *this;
   if ( v2 )

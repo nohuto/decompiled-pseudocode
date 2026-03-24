@@ -1,12 +1,12 @@
 /*
- * XREFs of ?AllocateFenceStorageSlot@VIDMM_GLOBAL@@SAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N11_K1@Z @ 0x1C0099D3C
+ * XREFs of ?AllocateFenceStorageSlot@VIDMM_GLOBAL@@SAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N11_K1@Z @ 0x1C0083F50
  * Callers:
- *     ?VidMmAllocateFenceStorageSlot@@YAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N11_K1@Z @ 0x1C0013FF0 (-VidMmAllocateFenceStorageSlot@@YAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N11_K1@Z.c)
- *     VidSchCreateSyncObject @ 0x1C0099A90 (VidSchCreateSyncObject.c)
+ *     ?VidMmAllocateFenceStorageSlot@@YAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N11_K1@Z @ 0x1C0012200 (-VidMmAllocateFenceStorageSlot@@YAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N11_K1@Z.c)
+ *     VidSchCreateSyncObject @ 0x1C0083960 (VidSchCreateSyncObject.c)
  * Callees:
- *     ?AllocateSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAVVIDMM_PROCESS@@@Z @ 0x1C0001100 (-AllocateSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STOR.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0002DE0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?AllocateFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x1C0014018 (-AllocateFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@@.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0001690 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?AllocateFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x1C0012228 (-AllocateFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@@.c)
+ *     ?AllocateSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAVVIDMM_PROCESS@@@Z @ 0x1C0017040 (-AllocateSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STOR.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::AllocateFenceStorageSlot(
@@ -18,72 +18,70 @@ __int64 __fastcall VIDMM_GLOBAL::AllocateFenceStorageSlot(
         bool a6)
 {
   __int64 v10; // rdx
-  __int64 v11; // r8
-  KSPIN_LOCK *v12; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r9
+  VIDMM_PROCESS_FENCE_STORAGE *v13; // rcx
   __int64 result; // rax
-  _QWORD *v14; // rdx
-  __int64 v15; // rcx
-  int v16; // eax
-  __int64 v17; // rax
-  __int64 v18; // rcx
+  _QWORD *v15; // rdx
+  __int64 v16; // rcx
+  char v17; // al
+  __int64 v18; // rax
+  __int64 v19; // rcx
 
-  if ( !DXGPROCESS::GetCurrent() )
-  {
+  if ( DXGPROCESS::GetCurrent() && (v10 = *((_QWORD *)DXGPROCESS::GetCurrent() + 8)) != 0 )
+    v11 = *(_QWORD *)(v10 + 8);
+  else
     v11 = 0LL;
-LABEL_6:
-    v10 = 0LL;
-    goto LABEL_7;
-  }
-  v10 = *((_QWORD *)DXGPROCESS::GetCurrent() + 8);
-  if ( v10 )
-    v10 = *(_QWORD *)(v10 + 8);
-  v11 = v10;
-  if ( !v10 || (*(_DWORD *)(*(_QWORD *)(v10 + 32) + 424LL) & 0x100) == 0 )
-    goto LABEL_6;
-LABEL_7:
-  if ( !a4 && !a2 && !a3 && v11 )
+  if ( v11 && (*(_BYTE *)(*(_QWORD *)(v11 + 32) + 347LL) & 0x20) != 0 )
+    v12 = v11;
+  else
+    v12 = 0LL;
+  if ( a4 || a2 || a3 || !v11 )
   {
-    v12 = *(KSPIN_LOCK **)(v11 + 40);
-LABEL_12:
-    if ( !*((_BYTE *)v12 + 64) )
+    if ( v12 && a2 && !a3 )
     {
-      LODWORD(result) = VIDMM_PROCESS_FENCE_STORAGE::AllocateFenceStorageSlot(v12, a1);
-      goto LABEL_14;
+      v16 = *(_QWORD *)(v11 + 32);
+      v17 = *(_BYTE *)(v16 + 347);
+      if ( (v17 & 0x20) != 0 )
+        v18 = *(_QWORD *)(v16 + 496);
+      else
+        v18 = v16 & -(__int64)((v17 & 0x10) != 0);
+      v19 = *(_QWORD *)(v18 + 64);
+      if ( v19 )
+        v19 = *(_QWORD *)(v19 + 8);
+      v13 = *(VIDMM_PROCESS_FENCE_STORAGE **)(v19 + 40);
+      *((_BYTE *)v13 + 64) = 1;
     }
-    goto LABEL_22;
-  }
-  if ( v10 && a2 && !a3 )
-  {
-    v15 = *(_QWORD *)(v11 + 32);
-    v16 = *(_DWORD *)(v15 + 424);
-    if ( (v16 & 0x100) != 0 )
-      v17 = *(_QWORD *)(v15 + 608);
     else
-      v17 = v15 & -(__int64)((v16 & 0x80u) != 0);
-    v18 = *(_QWORD *)(v17 + 64);
-    if ( v18 )
-      v18 = *(_QWORD *)(v18 + 8);
-    v12 = *(KSPIN_LOCK **)(v18 + 40);
-    *((_BYTE *)v12 + 64) = 1;
-    goto LABEL_22;
+    {
+      v13 = (VIDMM_PROCESS_FENCE_STORAGE *)VIDMM_PROCESS_FENCE_STORAGE::_GlobalFenceStorage;
+    }
+    if ( a2 || a3 )
+      goto LABEL_22;
   }
-  v12 = (KSPIN_LOCK *)VIDMM_PROCESS_FENCE_STORAGE::_GlobalFenceStorage;
-  if ( !a2 && !a3 )
-    goto LABEL_12;
+  else
+  {
+    v13 = *(VIDMM_PROCESS_FENCE_STORAGE **)(v11 + 40);
+  }
+  if ( !*((_BYTE *)v13 + 64) )
+  {
+    LODWORD(result) = VIDMM_PROCESS_FENCE_STORAGE::AllocateFenceStorageSlot(v13, a1);
+    goto LABEL_14;
+  }
 LABEL_22:
   LODWORD(result) = VIDMM_PROCESS_FENCE_STORAGE::AllocateSharedFenceStorageSlot(
-                      v12,
+                      (KSPIN_LOCK *)v13,
                       a1,
-                      (struct VIDMM_PROCESS *)(v10 & -(__int64)(a3 != 0)));
+                      (struct VIDMM_PROCESS *)(v12 & -(__int64)(a3 != 0)));
 LABEL_14:
   if ( (int)result >= 0 )
   {
-    v14 = (_QWORD *)*((_QWORD *)a1 + 1);
+    v15 = (_QWORD *)*((_QWORD *)a1 + 1);
     *((_QWORD *)a1 + 4) = a5;
     if ( a6 )
-      *v14 = a5;
+      *v15 = a5;
     else
-      *(_DWORD *)v14 = a5;
+      *(_DWORD *)v15 = a5;
   }
   return (unsigned int)result;
 }

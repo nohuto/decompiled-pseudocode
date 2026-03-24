@@ -1,14 +1,14 @@
 /*
- * XREFs of PipSendGuestAssignedNotification @ 0x14096F0B4
+ * XREFs of PipSendGuestAssignedNotification @ 0x1408B44B0
  * Callers:
- *     PiUpdateGuestAssignedState @ 0x140792AD8 (PiUpdateGuestAssignedState.c)
+ *     PiUpdateGuestAssignedState @ 0x14074614C (PiUpdateGuestAssignedState.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoGetAttachedDevice @ 0x1402AF3E0 (IoGetAttachedDevice.c)
- *     IoQueueThreadIrp @ 0x1403C7120 (IoQueueThreadIrp.c)
- *     memset @ 0x140435400 (memset.c)
- *     PpIrpAllocateDeviceUsageNotification @ 0x140854C40 (PpIrpAllocateDeviceUsageNotification.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     IoGetAttachedDevice @ 0x1402D3EF0 (IoGetAttachedDevice.c)
+ *     IoQueueThreadIrp @ 0x140381250 (IoQueueThreadIrp.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PpIrpAllocateDeviceUsageNotification @ 0x1407C9EAC (PpIrpAllocateDeviceUsageNotification.c)
  */
 
 NTSTATUS __fastcall PipSendGuestAssignedNotification(__int64 a1, char a2)

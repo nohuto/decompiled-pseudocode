@@ -1,59 +1,22 @@
 /*
- * XREFs of ?xxxCallTSFNotifyHook@@YAXPEAUtagNOTIFY@@@Z @ 0x1C01BFD14
+ * XREFs of ?xxxCallTSFNotifyHook@@YAXPEAUtagNOTIFY@@@Z @ 0x1C00068CC
  * Callers:
- *     ?xxxDoLocalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z @ 0x1C01BFE28 (-xxxDoLocalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z.c)
- *     xxxProcessTSFEvent @ 0x1C01BFFF8 (xxxProcessTSFEvent.c)
+ *     ?xxxDoLocalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z @ 0x1C00065F8 (-xxxDoLocalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z.c)
+ *     xxxProcessTSFEvent @ 0x1C0006794 (xxxProcessTSFEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     fnHkINLPNOTIFYSTRUCT @ 0x1C0210E5C (fnHkINLPNOTIFYSTRUCT.c)
+ *     fnHkINLPNOTIFYSTRUCT @ 0x1C0006930 (fnHkINLPNOTIFYSTRUCT.c)
+ *     ??0?$CUnLockDomainExclusiveInUserCrit@VDLT_WINEVENT@@@@QEAA@XZ @ 0x1C0052608 (--0-$CUnLockDomainExclusiveInUserCrit@VDLT_WINEVENT@@@@QEAA@XZ.c)
  */
 
 void __fastcall xxxCallTSFNotifyHook(struct tagNOTIFY *a1)
 {
-  unsigned int DLT; // eax
-  tagDomLock *DomainLockRef; // rax
-  int v4; // edx
-  int v5; // r9d
-  int v6; // edi
-  char *v7; // rbx
-  tagDomLock *v8; // rcx
-  int v9; // [rsp+30h] [rbp-48h] BYREF
-  tagDomLock *v10; // [rsp+38h] [rbp-40h]
-  char v11; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v12; // [rsp+48h] [rbp-30h]
-  char v13; // [rsp+50h] [rbp-28h]
-  __int64 v14; // [rsp+58h] [rbp-20h]
-  char v15; // [rsp+60h] [rbp-18h]
+  int v2; // edx
+  int v3; // r9d
+  int v4; // [rsp+40h] [rbp+8h] BYREF
+  tagDomLock *v5; // [rsp+48h] [rbp+10h] BYREF
 
-  v9 = 0;
-  DLT = DLT_WINEVENT::getDLT(a1);
-  DomainLockRef = (tagDomLock *)GetDomainLockRef(DLT);
-  v12 = gDomainDummyLock;
-  v10 = DomainLockRef;
-  v11 = 1;
-  v13 = 0;
-  v14 = 0LL;
-  if ( DomainLockRef )
-    tagDomLock::UnLockExclusive(DomainLockRef);
-  v15 = 1;
-  fnHkINLPNOTIFYSTRUCT(*((_DWORD *)a1 + 7), v4, (_DWORD)a1, v5, *(_QWORD *)(gpsi + 856LL), (__int64)&v9);
-  if ( v15 )
-  {
-    v6 = 0;
-    v7 = &v11;
-    do
-    {
-      v8 = (tagDomLock *)*((_QWORD *)v7 - 1);
-      if ( v8 )
-      {
-        if ( *v7 )
-          tagDomLock::LockExclusive(v8);
-        else
-          tagDomLock::LockShared(v8);
-      }
-      ++v6;
-      v7 += 16;
-    }
-    while ( !v6 );
-  }
+  v4 = 0;
+  CUnLockDomainExclusiveInUserCrit<DLT_WINEVENT>::CUnLockDomainExclusiveInUserCrit<DLT_WINEVENT>(&v5);
+  fnHkINLPNOTIFYSTRUCT(*((_DWORD *)a1 + 7), v2, (_DWORD)a1, v3, *(_QWORD *)(gpsi + 856LL), (__int64)&v4);
+  tagDomLock::LockExclusive(v5);
 }

@@ -1,44 +1,46 @@
 /*
- * XREFs of PiGetDriverMutableStateDirectory @ 0x1409560F4
+ * XREFs of PiGetDriverMutableStateDirectory @ 0x14089F518
  * Callers:
- *     IoGetDriverDirectory @ 0x1409554B0 (IoGetDriverDirectory.c)
+ *     IoGetDriverDirectory @ 0x14089EC60 (IoGetDriverDirectory.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringPrintfEx @ 0x1403CDA68 (RtlUnicodeStringPrintfEx.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     IopAllocateUnicodeString @ 0x1407941E8 (IopAllocateUnicodeString.c)
- *     PiGetStateRootPath @ 0x140871940 (PiGetStateRootPath.c)
- *     PiOpenDirectoryWithRoot @ 0x140956254 (PiOpenDirectoryWithRoot.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14036E520 (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     IopAllocateUnicodeString @ 0x140745B4C (IopAllocateUnicodeString.c)
+ *     PiGetStateRootPath @ 0x1407811FC (PiGetStateRootPath.c)
+ *     PiOpenDirectoryWithRoot @ 0x14089F680 (PiOpenDirectoryWithRoot.c)
  */
 
-__int64 __fastcall PiGetDriverMutableStateDirectory(unsigned __int16 *a1, __int64 a2, __int64 a3, __int64 *a4)
+__int64 __fastcall PiGetDriverMutableStateDirectory(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  void *v6; // rdi
   int StateRootPath; // ebx
-  __int64 v9; // rcx
-  unsigned int v10; // edx
-  __int64 v12; // [rsp+40h] [rbp-30h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-28h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-18h] BYREF
+  __int64 v6; // rdx
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-20h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-10h] BYREF
 
-  v12 = 0LL;
   DestinationString = 0LL;
-  v6 = 0LL;
   UnicodeString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   RtlInitUnicodeString(&UnicodeString, 0LL);
   StateRootPath = PiGetStateRootPath(L"Win32ServiceStateRoot", L"\\SystemRoot\\ServiceState", 1u, &DestinationString);
   if ( StateRootPath >= 0 )
   {
-    v9 = -1LL;
+    v6 = -1LL;
     do
-      ++v9;
-    while ( *(_WORD *)(a2 + 2 * v9) );
-    v10 = DestinationString.Length + *a1 + 4 + 2 * v9;
-    if ( v10 <= 0xFFFE )
+      ++v6;
+    while ( aData[v6] );
+    if ( DestinationString.Length
+       + (unsigned int)*(unsigned __int16 *)(*(_QWORD *)(a1 + 48) + 24LL)
+       + 4
+       + 2 * (_DWORD)v6 <= 0xFFFE )
     {
-      StateRootPath = IopAllocateUnicodeString((__int64)&UnicodeString, v10);
+      StateRootPath = IopAllocateUnicodeString(
+                        (__int64)&UnicodeString,
+                        DestinationString.Length
+                      + *(_WORD *)(*(_QWORD *)(a1 + 48) + 24LL)
+                      + 4
+                      + 2 * (unsigned __int16)v6);
       if ( StateRootPath >= 0 )
       {
         StateRootPath = RtlUnicodeStringPrintfEx(
@@ -47,15 +49,13 @@ __int64 __fastcall PiGetDriverMutableStateDirectory(unsigned __int16 *a1, __int6
                           0x800u,
                           L"%wZ\\%wZ\\%ws",
                           &DestinationString,
-                          a1,
-                          a2);
+                          *(_QWORD *)(a1 + 48) + 24LL,
+                          L"Data");
         if ( StateRootPath >= 0 )
         {
-          StateRootPath = PiOpenDirectoryWithRoot(&DestinationString, &UnicodeString, (__int64)&v12);
-          if ( StateRootPath < 0 )
-            v6 = (void *)v12;
-          else
-            *a4 = v12;
+          StateRootPath = PiOpenDirectoryWithRoot(&DestinationString, &UnicodeString);
+          if ( StateRootPath >= 0 )
+            *a3 = 0LL;
         }
       }
     }
@@ -64,9 +64,7 @@ __int64 __fastcall PiGetDriverMutableStateDirectory(unsigned __int16 *a1, __int6
       StateRootPath = -2147483643;
     }
   }
-  RtlFreeUnicodeString(&DestinationString);
-  RtlFreeUnicodeString(&UnicodeString);
-  if ( v6 )
-    ZwClose(v6);
+  RtlFreeAnsiString(&DestinationString);
+  RtlFreeAnsiString(&UnicodeString);
   return (unsigned int)StateRootPath;
 }

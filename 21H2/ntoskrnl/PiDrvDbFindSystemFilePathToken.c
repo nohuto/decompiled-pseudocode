@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDrvDbFindSystemFilePathToken @ 0x14095BE9C
+ * XREFs of PiDrvDbFindSystemFilePathToken @ 0x1408B5DE4
  * Callers:
- *     PiDrvDbResolveSystemFilePath @ 0x14095DC2C (PiDrvDbResolveSystemFilePath.c)
+ *     PiDrvDbResolveSystemFilePath @ 0x1408B7ABC (PiDrvDbResolveSystemFilePath.c)
  * Callees:
- *     iswalnum @ 0x1403E1BB0 (iswalnum.c)
- *     iswalpha @ 0x1403E1BCC (iswalpha.c)
- *     RtlFindUnicodeSubstring @ 0x140678510 (RtlFindUnicodeSubstring.c)
+ *     iswalnum @ 0x1403D27F0 (iswalnum.c)
+ *     iswalpha @ 0x1403D280C (iswalpha.c)
+ *     RtlFindUnicodeSubstring @ 0x1405ED870 (RtlFindUnicodeSubstring.c)
  */
 
 char *__fastcall PiDrvDbFindSystemFilePathToken(__m128i *a1, unsigned __int16 *a2)
@@ -31,7 +31,7 @@ char *__fastcall PiDrvDbFindSystemFilePathToken(__m128i *a1, unsigned __int16 *a
     v6 = v15.m128i_i16[0];
     do
     {
-      UnicodeSubstring = RtlFindUnicodeSubstring((unsigned __int16 *)&v15);
+      UnicodeSubstring = RtlFindUnicodeSubstring((unsigned __int16 *)&v15, a2, 1);
       v8 = UnicodeSubstring;
       if ( !UnicodeSubstring )
         return (char *)v2;

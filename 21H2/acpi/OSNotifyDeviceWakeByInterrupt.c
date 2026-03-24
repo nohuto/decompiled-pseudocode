@@ -1,19 +1,19 @@
 /*
- * XREFs of OSNotifyDeviceWakeByInterrupt @ 0x1C005A010
+ * XREFs of OSNotifyDeviceWakeByInterrupt @ 0x1C0059198
  * Callers:
- *     ACPIWakeEmulationInterruptServiceRoutine @ 0x1C0057FA0 (ACPIWakeEmulationInterruptServiceRoutine.c)
+ *     ACPIWakeEmulationInterruptServiceRoutine @ 0x1C0057200 (ACPIWakeEmulationInterruptServiceRoutine.c)
  * Callees:
- *     WPP_RECORDER_SF_qD @ 0x1C0007340 (WPP_RECORDER_SF_qD.c)
- *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C001FF34 (ACPIWakeRemoveDevicesAndUpdate.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     OSNotifyDeviceWakeCallBack @ 0x1C005A1F0 (OSNotifyDeviceWakeCallBack.c)
- *     ACPIWakeDisableAsync @ 0x1C00627FC (ACPIWakeDisableAsync.c)
- *     ACPIWakeEmulationDisable @ 0x1C0062BE8 (ACPIWakeEmulationDisable.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398 (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     OSNotifyDeviceWakeCallBack @ 0x1C0059380 (OSNotifyDeviceWakeCallBack.c)
+ *     ACPIWakeDisableAsync @ 0x1C00619AC (ACPIWakeDisableAsync.c)
+ *     ACPIWakeEmulationDisable @ 0x1C0061DEC (ACPIWakeEmulationDisable.c)
  */
 
 void __fastcall OSNotifyDeviceWakeByInterrupt(__int64 a1)
 {
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v3; // rbx
   __int64 v4; // rdi
   __int64 *v5; // rsi
@@ -36,12 +36,12 @@ void __fastcall OSNotifyDeviceWakeByInterrupt(__int64 a1)
       (__int64)&WPP_3b815367ceb5375a01194b74e08b1a28_Traceguids,
       a1,
       *(_DWORD *)(a1 + 32));
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 16LL, 1299211073LL);
-  v3 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x4D706341u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    Pool2[1] = Pool2;
-    *Pool2 = Pool2;
+    PoolWithTag[1] = PoolWithTag;
+    *PoolWithTag = PoolWithTag;
     IoAcquireCancelSpinLock(&Irql);
     KeAcquireSpinLockAtDpcLevel(&AcpiPowerLock);
     v4 = v3[1];

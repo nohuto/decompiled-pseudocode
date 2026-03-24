@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetRegionHandleAndReset@CRegion@@UEAAJPEAPEAUHRGN__@@@Z @ 0x1C0032580
+ * XREFs of ?GetRegionHandleAndReset@CRegion@@UEAAJPEAPEAUHRGN__@@@Z @ 0x1C0024120
  * Callers:
  *     <none>
  * Callees:
- *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C0032610 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C00241B0 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRegion::GetRegionHandleAndReset(CRegion *this, HRGN *a2)

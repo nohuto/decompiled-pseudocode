@@ -2,22 +2,22 @@
  * XREFs of PopSetPowerSettingValue @ 0x14058B338
  * Callers:
  *     PopScanIdleList @ 0x140010050 (PopScanIdleList.c)
- *     PopInitilizeAcDcSettings @ 0x14017DD9C (PopInitilizeAcDcSettings.c)
+ *     PopInitilizeAcDcSettings @ 0x14017DDBC (PopInitilizeAcDcSettings.c)
  *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
  *     PopSetNewPolicyValue @ 0x14058B120 (PopSetNewPolicyValue.c)
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
- *     PopSetSessionUserStatus @ 0x1406DC9D8 (PopSetSessionUserStatus.c)
- *     PopSetSessionDisplayStatus @ 0x14071D7F4 (PopSetSessionDisplayStatus.c)
- *     PopMonitorProcessBrightnessAction @ 0x140877884 (PopMonitorProcessBrightnessAction.c)
+ *     PopSetSessionUserStatus @ 0x1406DC9B8 (PopSetSessionUserStatus.c)
+ *     PopSetSessionDisplayStatus @ 0x14071D7D4 (PopSetSessionDisplayStatus.c)
+ *     PopMonitorProcessBrightnessAction @ 0x140877864 (PopMonitorProcessBrightnessAction.c)
  * Callees:
  *     PopSetNotificationWork @ 0x1400041F0 (PopSetNotificationWork.c)
  *     PopIncrementPowerSettingPendingUpdates @ 0x140004CE4 (PopIncrementPowerSettingPendingUpdates.c)
  *     PopDecrementPowerSettingPendingUpdates @ 0x140004D6C (PopDecrementPowerSettingPendingUpdates.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PoRegisterPowerSettingCallback @ 0x140589EE0 (PoRegisterPowerSettingCallback.c)
@@ -221,7 +221,7 @@ LABEL_62:
     }
     v8 = 0;
     *(_QWORD *)(PowerSettingConfiguration + 8LL * a3 + 64) = v9;
-    if ( dword_14041810C == a3 )
+    if ( dword_1404180CC == a3 )
       v8 = IsSessionSpecific == 0;
     if ( *(_DWORD *)(PowerSettingConfiguration + 56) || *(_DWORD *)(PowerSettingConfiguration + 60) )
     {

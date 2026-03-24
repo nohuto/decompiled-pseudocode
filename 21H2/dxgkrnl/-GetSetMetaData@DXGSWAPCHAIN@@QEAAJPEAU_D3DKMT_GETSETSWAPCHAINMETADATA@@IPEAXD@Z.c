@@ -1,14 +1,13 @@
 /*
- * XREFs of ?GetSetMetaData@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@IPEAXD@Z @ 0x1C034AD18
+ * XREFs of ?GetSetMetaData@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@IPEAXD@Z @ 0x1C02AADB4
  * Callers:
- *     ?SwapChainGetSetMetaDataInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@ID@Z @ 0x1C034CC34 (-SwapChainGetSetMetaDataInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@ID@Z.c)
+ *     ?SwapChainGetSetMetaDataInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@ID@Z @ 0x1C02AC9F8 (-SwapChainGetSetMetaDataInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@ID@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?GetClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF_INFO@1@PEAPEAUSWAPCHAIN_CLIENT_SURF_INFO@1@@Z @ 0x1C005AE1C (-GetClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF_INFO.c)
- *     McTemplateK0pqddqqqqq_EtwWriteTransfer @ 0x1C005B27C (McTemplateK0pqddqqqqq_EtwWriteTransfer.c)
- *     ?GetMetaDataInternal@DXGSWAPCHAIN@@AEAAJPEAVAUTOEXPANDALLOCATION@@IPEAXAEAUSWAPCHAIN_METADATA_ETW_INFO@1@DPEAI@Z @ 0x1C034AB18 (-GetMetaDataInternal@DXGSWAPCHAIN@@AEAAJPEAVAUTOEXPANDALLOCATION@@IPEAXAEAUSWAPCHAIN_METADATA_ET.c)
- *     ?SetMetaDataInternal@DXGSWAPCHAIN@@AEAAJPEAVAUTOEXPANDALLOCATION@@AEAHIIPEAXAEAUSWAPCHAIN_METADATA_ETW_INFO@1@D@Z @ 0x1C034C870 (-SetMetaDataInternal@DXGSWAPCHAIN@@AEAAJPEAVAUTOEXPANDALLOCATION@@AEAHIIPEAXAEAUSWAPCHAIN_METADA.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?GetClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF_INFO@1@PEAPEAUSWAPCHAIN_CLIENT_SURF_INFO@1@@Z @ 0x1C004BDBC (-GetClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF_INFO.c)
+ *     McTemplateK0pqddqqqqq_EtwWriteTransfer @ 0x1C004C0C4 (McTemplateK0pqddqqqqq_EtwWriteTransfer.c)
+ *     ?GetMetaDataInternal@DXGSWAPCHAIN@@AEAAJPEAVAUTOEXPANDALLOCATION@@IPEAXAEAUSWAPCHAIN_METADATA_ETW_INFO@1@DPEAI@Z @ 0x1C02AAC08 (-GetMetaDataInternal@DXGSWAPCHAIN@@AEAAJPEAVAUTOEXPANDALLOCATION@@IPEAXAEAUSWAPCHAIN_METADATA_ET.c)
+ *     ?SetMetaDataInternal@DXGSWAPCHAIN@@AEAAJPEAVAUTOEXPANDALLOCATION@@AEAHIIPEAXAEAUSWAPCHAIN_METADATA_ETW_INFO@1@D@Z @ 0x1C02AC724 (-SetMetaDataInternal@DXGSWAPCHAIN@@AEAAJPEAVAUTOEXPANDALLOCATION@@AEAHIIPEAXAEAUSWAPCHAIN_METADA.c)
  */
 
 __int64 __fastcall DXGSWAPCHAIN::GetSetMetaData(
@@ -18,184 +17,171 @@ __int64 __fastcall DXGSWAPCHAIN::GetSetMetaData(
         void *a4,
         char a5)
 {
-  __int64 v5; // r14
+  struct _D3DKMT_GETSETSWAPCHAINMETADATA *v6; // rsi
+  __int64 v7; // r15
+  __int64 v9; // rax
+  __int64 v10; // rax
+  BOOL *p_bSetMetaData; // r14
+  __int64 v12; // rax
   BOOL bGlobalMetaData; // eax
   int bProducer; // ecx
-  struct AUTOEXPANDALLOCATION *v11; // rdx
-  __int64 BufferSize; // r8
-  struct _KTHREAD **v13; // rcx
+  struct AUTOEXPANDALLOCATION *v15; // rdx
+  unsigned int BufferSize; // r8d
+  struct _KTHREAD **v17; // rcx
   unsigned int MetaDataInternal; // eax
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  int v17; // ecx
-  char *v18; // rdi
-  unsigned int v19; // r8d
-  unsigned int v20; // edi
-  const EVENT_DESCRIPTOR *v21; // rdx
-  size_t Size; // [rsp+20h] [rbp-71h]
-  size_t Sizea; // [rsp+20h] [rbp-71h]
-  size_t Sizeb; // [rsp+20h] [rbp-71h]
-  void *Src; // [rsp+28h] [rbp-69h]
-  struct DXGSWAPCHAIN::SWAPCHAIN_METADATA_ETW_INFO *v27; // [rsp+30h] [rbp-61h]
-  char v28[8]; // [rsp+38h] [rbp-59h]
-  __int64 v29; // [rsp+40h] [rbp-51h]
-  struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *v30; // [rsp+60h] [rbp-31h] BYREF
-  struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_SURF_INFO *v31; // [rsp+68h] [rbp-29h] BYREF
-  int v32; // [rsp+70h] [rbp-21h] BYREF
-  BOOL v33; // [rsp+74h] [rbp-1Dh]
-  __int128 v34; // [rsp+78h] [rbp-19h]
-  int v35; // [rsp+88h] [rbp-9h]
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  __int64 v21; // rcx
+  char *v22; // rbx
+  unsigned int v23; // r8d
+  unsigned int v24; // ebx
+  const EVENT_DESCRIPTOR *v25; // rdx
+  __int64 v27; // rcx
+  size_t v28; // [rsp+20h] [rbp-61h]
+  size_t v29; // [rsp+20h] [rbp-61h]
+  size_t v30; // [rsp+20h] [rbp-61h]
+  void *Src; // [rsp+28h] [rbp-59h]
+  struct DXGSWAPCHAIN::SWAPCHAIN_METADATA_ETW_INFO *v32; // [rsp+30h] [rbp-51h]
+  __int64 v33; // [rsp+38h] [rbp-49h]
+  __int64 v34; // [rsp+60h] [rbp-21h] BYREF
+  struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *v35; // [rsp+68h] [rbp-19h] BYREF
+  struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_SURF_INFO *v36; // [rsp+70h] [rbp-11h] BYREF
+  int v37; // [rsp+78h] [rbp-9h] BYREF
+  BOOL v38; // [rsp+7Ch] [rbp-5h]
+  __int128 v39; // [rsp+80h] [rbp-1h]
+  int v40; // [rsp+90h] [rbp+Fh]
 
-  v5 = a3;
-  if ( this[3] != KeGetCurrentThread() )
+  v6 = a2;
+  v7 = a3;
+  if ( this[2] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 3090LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_SwapChainLock.IsOwner()", 3090LL, 0LL, 0LL, 0LL, 0LL);
+    v9 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v9 + 24) = 3037LL;
+    WdLogEvent5_WdAssertion(v9);
   }
-  if ( a2->pBuffer )
+  if ( v6->pBuffer )
   {
-    WdLogSingleEntry1(1LL, 3095LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pGetSetMetaData->pBuffer == nullptr",
-      3095LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v10 + 24) = 3042LL;
+    WdLogEvent5_WdAssertion(v10);
   }
-  if ( !(_DWORD)v5 || a2->bSetMetaData )
+  p_bSetMetaData = &v6->bSetMetaData;
+  if ( !(_DWORD)v7 || *p_bSetMetaData )
   {
-    bGlobalMetaData = a2->bGlobalMetaData;
-    bProducer = a2->bProducer;
-    v35 = 0;
-    v32 = bProducer;
-    v33 = bGlobalMetaData;
-    v34 = 0LL;
+    bGlobalMetaData = v6->bGlobalMetaData;
+    v40 = 0;
+    bProducer = v6->bProducer;
+    v37 = bProducer;
+    v38 = bGlobalMetaData;
+    v39 = 0LL;
     if ( bGlobalMetaData )
     {
-      v11 = (struct AUTOEXPANDALLOCATION *)(this + 10);
-      BufferSize = a2->BufferSize;
-      v13 = this;
-      if ( a2->bSetMetaData )
+      v15 = (struct AUTOEXPANDALLOCATION *)(this + 9);
+      BufferSize = v6->BufferSize;
+      v17 = this;
+      if ( *p_bSetMetaData )
       {
-        LODWORD(Size) = a2->BufferSize;
-        LODWORD(v30) = 1;
+        LODWORD(v28) = v6->BufferSize;
+        LODWORD(v34) = 1;
         MetaDataInternal = DXGSWAPCHAIN::SetMetaDataInternal(
                              (DXGSWAPCHAIN *)this,
-                             v11,
-                             (int *)&v30,
-                             v5,
-                             Size,
+                             v15,
+                             (int *)&v34,
+                             v7,
+                             v28,
                              a4,
-                             (struct DXGSWAPCHAIN::SWAPCHAIN_METADATA_ETW_INFO *)&v32,
+                             (struct DXGSWAPCHAIN::SWAPCHAIN_METADATA_ETW_INFO *)&v37,
                              a5);
 LABEL_19:
-        v20 = MetaDataInternal;
-        if ( a2->bSetMetaData )
+        v24 = MetaDataInternal;
+        if ( *p_bSetMetaData )
         {
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x1000000000LL) == 0 )
-            return v20;
-          v21 = (const EVENT_DESCRIPTOR *)&EventIndirectSwapChainSetMetaData;
+          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100000000LL) == 0 )
+            return v24;
+          v25 = (const EVENT_DESCRIPTOR *)&EventIndirectSwapChainSetMetaData;
         }
         else
         {
-          if ( !a2->pBuffer || (Microsoft_Windows_DxgKrnlEnableBits & 0x1000000000LL) == 0 )
-            return v20;
-          v21 = (const EVENT_DESCRIPTOR *)&EventIndirectSwapChainGetMetaData;
+          if ( !v6->pBuffer || (Microsoft_Windows_DxgKrnlEnableBits & 0x100000000LL) == 0 )
+            return v24;
+          v25 = (const EVENT_DESCRIPTOR *)&EventIndirectSwapChainGetMetaData;
         }
-        LODWORD(v29) = DWORD1(v34);
-        *(_DWORD *)v28 = v34;
-        LODWORD(v27) = v33;
-        LODWORD(Src) = v32;
-        LODWORD(Sizea) = MetaDataInternal;
+        LODWORD(v33) = v39;
+        LODWORD(v32) = v38;
+        LODWORD(Src) = v37;
+        LODWORD(v29) = MetaDataInternal;
         McTemplateK0pqddqqqqq_EtwWriteTransfer(
-          v15,
-          v21,
-          v16,
+          v19,
+          v25,
+          v20,
           this,
-          Sizea,
-          Src,
-          v27,
-          *(_QWORD *)v28,
           v29,
-          DWORD2(v34),
-          HIDWORD(v34),
-          v35,
-          v30);
-        return v20;
+          Src,
+          v32,
+          v33,
+          DWORD1(v39),
+          DWORD2(v39),
+          HIDWORD(v39),
+          v40,
+          v34);
+        return v24;
       }
     }
     else
     {
-      v17 = -bProducer;
-      v18 = (char *)this + (v17 != 0 ? 144LL : 96LL);
-      v19 = *((_DWORD *)v18 + 10);
-      if ( v19 == -1
-        || (v30 = 0LL,
-            v31 = 0LL,
+      v21 = (unsigned int)-bProducer;
+      v22 = (char *)this + ((_DWORD)v21 != 0 ? 136LL : 88LL);
+      v23 = *((_DWORD *)v22 + 10);
+      if ( v23 == -1
+        || (v35 = 0LL,
+            v36 = 0LL,
             DXGSWAPCHAIN::GetClientSurfaceInfo(
               (DXGSWAPCHAIN *)this,
-              (struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_INFO *)((char *)this + (v17 != 0 ? 144LL : 96LL)),
-              v19,
-              &v30,
-              &v31),
-            *(_DWORD *)v30 != 1)
-        || *((_DWORD *)v30 + 1) != *((_DWORD *)v18 + 7) )
+              (struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_INFO *)((char *)this + ((_DWORD)v21 != 0 ? 136LL : 88LL)),
+              v23,
+              &v35,
+              &v36),
+            a2 = (struct _D3DKMT_GETSETSWAPCHAINMETADATA *)v35,
+            *(_DWORD *)v35 != 1)
+        || *((_DWORD *)v35 + 1) != *((_DWORD *)v22 + 7) )
       {
-        WdLogSingleEntry2(2LL, *((_QWORD *)v18 + 2), this);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"GetSetMetadata caller (0x%I64x) does not own the swapchain 0x%I64x",
-          *((_QWORD *)v18 + 2),
-          (__int64)this,
-          0LL,
-          0LL,
-          0LL);
-        return 3221225485LL;
+        v12 = WdLogNewEntry5_WdError(v21, a2);
+        v27 = *((_QWORD *)v22 + 2);
+        *(_QWORD *)(v12 + 32) = this;
+        *(_QWORD *)(v12 + 24) = v27;
+        goto LABEL_28;
       }
-      if ( a2->bSetMetaData )
+      if ( v6->bSetMetaData )
       {
-        LODWORD(Sizeb) = a2->BufferSize;
+        LODWORD(v30) = v6->BufferSize;
         MetaDataInternal = DXGSWAPCHAIN::SetMetaDataInternal(
                              (DXGSWAPCHAIN *)this,
-                             *((struct AUTOEXPANDALLOCATION **)v30 + 2),
-                             (int *)v30 + 6,
-                             v5,
-                             Sizeb,
+                             *((struct AUTOEXPANDALLOCATION **)v35 + 2),
+                             (int *)v35 + 6,
+                             v7,
+                             v30,
                              a4,
-                             (struct DXGSWAPCHAIN::SWAPCHAIN_METADATA_ETW_INFO *)&v32,
+                             (struct DXGSWAPCHAIN::SWAPCHAIN_METADATA_ETW_INFO *)&v37,
                              a5);
         goto LABEL_19;
       }
-      v11 = (struct AUTOEXPANDALLOCATION *)*((_QWORD *)v30 + 2);
-      BufferSize = a2->BufferSize;
-      v13 = this;
+      v15 = (struct AUTOEXPANDALLOCATION *)*((_QWORD *)v35 + 2);
+      BufferSize = v6->BufferSize;
+      v17 = this;
     }
     MetaDataInternal = DXGSWAPCHAIN::GetMetaDataInternal(
-                         v13,
-                         v11,
+                         v17,
+                         v15,
                          BufferSize,
                          (char *)a4,
-                         (struct DXGSWAPCHAIN::SWAPCHAIN_METADATA_ETW_INFO *)&v32,
+                         (struct DXGSWAPCHAIN::SWAPCHAIN_METADATA_ETW_INFO *)&v37,
                          a5,
-                         &a2->DataCopied);
+                         &v6->DataCopied);
     goto LABEL_19;
   }
-  WdLogSingleEntry1(2LL, v5);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Getting meta data with non-zero offset (0x%I64x) is not supported",
-    v5,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  v12 = WdLogNewEntry5_WdError(this, a2);
+  *(_QWORD *)(v12 + 24) = v7;
+LABEL_28:
+  WdLogEvent5_WdError(v12);
   return 3221225485LL;
 }

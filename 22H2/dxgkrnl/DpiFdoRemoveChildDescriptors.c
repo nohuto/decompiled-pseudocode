@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiFdoRemoveChildDescriptors @ 0x1C039CF6C
+ * XREFs of DpiFdoRemoveChildDescriptors @ 0x1C02CC13C
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C0200110 (DpiFdoStartAdapter.c)
- *     DpiFdoEnumChildDevices @ 0x1C0217450 (DpiFdoEnumChildDevices.c)
- *     DpiFdoHandleRemoveDevice @ 0x1C039B860 (DpiFdoHandleRemoveDevice.c)
+ *     DpiFdoStartAdapter @ 0x1C0189268 (DpiFdoStartAdapter.c)
+ *     DpiFdoEnumChildDevices @ 0x1C0197594 (DpiFdoEnumChildDevices.c)
+ *     DpiFdoHandleRemoveDevice @ 0x1C02CA780 (DpiFdoHandleRemoveDevice.c)
  * Callees:
- *     DpiFdoRemoveChildDescriptor @ 0x1C039CF24 (DpiFdoRemoveChildDescriptor.c)
+ *     DpiFdoRemoveChildDescriptor @ 0x1C02CC0F4 (DpiFdoRemoveChildDescriptor.c)
  */
 
 void __fastcall DpiFdoRemoveChildDescriptors(__int64 a1)
@@ -15,11 +15,11 @@ void __fastcall DpiFdoRemoveChildDescriptors(__int64 a1)
 
   v1 = *(_QWORD *)(a1 + 64);
   KeEnterCriticalRegion();
-  ExAcquireResourceExclusiveLite((PERESOURCE)(v1 + 3320), 1u);
-  KeWaitForSingleObject((PVOID)(v1 + 3424), Executive, 0, 0, 0LL);
-  for ( i = (_QWORD *)(v1 + 3480); (_QWORD *)*i != i; DpiFdoRemoveChildDescriptor(v1, (_QWORD *)(*i - 32LL)) )
+  ExAcquireResourceExclusiveLite((PERESOURCE)(v1 + 3304), 1u);
+  KeWaitForSingleObject((PVOID)(v1 + 3408), Executive, 0, 0, 0LL);
+  for ( i = (_QWORD *)(v1 + 3464); (_QWORD *)*i != i; DpiFdoRemoveChildDescriptor(v1, (_QWORD *)(*i - 32LL)) )
     ;
-  KeReleaseMutex((PRKMUTEX)(v1 + 3424), 0);
-  ExReleaseResourceLite((PERESOURCE)(v1 + 3320));
+  KeReleaseMutex((PRKMUTEX)(v1 + 3408), 0);
+  ExReleaseResourceLite((PERESOURCE)(v1 + 3304));
   KeLeaveCriticalRegion();
 }

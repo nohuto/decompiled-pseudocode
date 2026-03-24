@@ -1,11 +1,11 @@
 /*
- * XREFs of KeAllocateInterrupt @ 0x14016DA08
+ * XREFs of KeAllocateInterrupt @ 0x14016DA28
  * Callers:
- *     IopConnectInterrupt @ 0x14071076C (IopConnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14071074C (IopConnectInterrupt.c)
  * Callees:
- *     MmAllocateIndependentPagesEx @ 0x140108F9C (MmAllocateIndependentPagesEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     MmAllocateIndependentPagesEx @ 0x140108FBC (MmAllocateIndependentPagesEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall KeAllocateInterrupt(union _SLIST_HEADER *a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTiLogSuspendResumeThread @ 0x1409E668C
+ * XREFs of EtwTiLogSuspendResumeThread @ 0x14093BC14
  * Callers:
- *     PsMultiResumeThread @ 0x1402EEA18 (PsMultiResumeThread.c)
- *     PsSuspendThread @ 0x1406E21F0 (PsSuspendThread.c)
+ *     PsResumeThread @ 0x14064CCE0 (PsResumeThread.c)
+ *     PsSuspendThread @ 0x1406BBD90 (PsSuspendThread.c)
  * Callees:
- *     EtwProviderEnabled @ 0x1402EDE50 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x1402EDEB4 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x1402EDFB0 (EtwpTiFillThreadIdentity.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x14025F604 (EtwpTiFillProcessIdentity.c)
+ *     EtwProviderEnabled @ 0x14025F840 (EtwProviderEnabled.c)
+ *     EtwpTiFillThreadIdentity @ 0x14025F884 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTiLogSuspendResumeThread(int a1, __int64 a2, __int64 a3, char a4)

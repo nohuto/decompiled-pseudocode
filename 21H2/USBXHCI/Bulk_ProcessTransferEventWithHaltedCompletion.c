@@ -1,16 +1,16 @@
 /*
- * XREFs of Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C0044A5C
+ * XREFs of Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C004445C
  * Callers:
- *     Bulk_ProcessTransferEventWithED0 @ 0x1C000AE90 (Bulk_ProcessTransferEventWithED0.c)
- *     Bulk_ProcessTransferEventWithED1 @ 0x1C000E0D4 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C000BEB4 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DBF8 (Bulk_ProcessTransferEventWithED0.c)
  * Callees:
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     StageQueue_Release @ 0x1C000E344 (StageQueue_Release.c)
- *     TR_ReleaseSegments @ 0x1C000E380 (TR_ReleaseSegments.c)
- *     Bulk_Transfer_CompleteCancelable @ 0x1C000E3C8 (Bulk_Transfer_CompleteCancelable.c)
- *     Bulk_Stage_FreeScatterGatherList @ 0x1C000F744 (Bulk_Stage_FreeScatterGatherList.c)
- *     memmove @ 0x1C0019A00 (memmove.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031C54 (Controller_HwVerifierBreakIfEnabled.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     Bulk_Transfer_CompleteCancelable @ 0x1C000C124 (Bulk_Transfer_CompleteCancelable.c)
+ *     StageQueue_Release @ 0x1C000C574 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C000C5AC (TR_ReleaseSegments.c)
+ *     Bulk_Stage_FreeScatterGatherList @ 0x1C000DBA8 (Bulk_Stage_FreeScatterGatherList.c)
+ *     memmove @ 0x1C001B000 (memmove.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
  */
 
 void __fastcall Bulk_ProcessTransferEventWithHaltedCompletion(__int64 a1, __int64 a2, int a3, unsigned int a4)

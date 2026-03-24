@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyInvalidResource@CDxHandleStereoBitmapRealization@@$4PPPPPPPM@A@EAAXPEBVIDeviceResource@@@Z @ 0x180122E40
+ * XREFs of ?NotifyInvalidResource@CDxHandleStereoBitmapRealization@@$4PPPPPPPM@A@EAAXPEBVIDeviceResource@@@Z @ 0x1800F8890
  * Callers:
  *     <none>
  * Callees:

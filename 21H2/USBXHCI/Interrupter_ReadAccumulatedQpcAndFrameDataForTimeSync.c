@@ -1,5 +1,5 @@
 /*
- * XREFs of Interrupter_ReadAccumulatedQpcAndFrameDataForTimeSync @ 0x1C000AD80
+ * XREFs of Interrupter_ReadAccumulatedQpcAndFrameDataForTimeSync @ 0x1C000A190
  * Callers:
  *     <none>
  * Callees:

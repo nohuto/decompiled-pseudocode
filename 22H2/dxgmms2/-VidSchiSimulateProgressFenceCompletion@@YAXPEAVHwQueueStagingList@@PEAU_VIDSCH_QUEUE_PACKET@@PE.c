@@ -1,11 +1,11 @@
 /*
- * XREFs of ?VidSchiSimulateProgressFenceCompletion@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0042EB0
+ * XREFs of ?VidSchiSimulateProgressFenceCompletion@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C00385F8
  * Callers:
- *     ?SubmitPagingToHwQueue@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0040CC8 (-SubmitPagingToHwQueue@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     ?SubmitRenderToHwQueue@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0040F70 (-SubmitRenderToHwQueue@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAPEAUVIDSCH_HW_QU.c)
- *     ?VidSchiRundownHardwarePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0042D0C (-VidSchiRundownHardwarePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAUVIDSCH_H.c)
+ *     ?SubmitPagingToHwQueue@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0035BC0 (-SubmitPagingToHwQueue@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?SubmitRenderToHwQueue@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0035E58 (-SubmitRenderToHwQueue@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAPEAUVIDSCH_HW_QU.c)
+ *     ?VidSchiRundownHardwarePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C00383B0 (-VidSchiRundownHardwarePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAUVIDSCH_H.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
+ *     memset @ 0x1C0018D80 (memset.c)
  */
 
 void __fastcall VidSchiSimulateProgressFenceCompletion(
@@ -14,24 +14,23 @@ void __fastcall VidSchiSimulateProgressFenceCompletion(
         struct VIDSCH_HW_QUEUE *a3)
 {
   __int64 v5; // rbx
-  LARGE_INTEGER *v6; // rsi
+  _DWORD *v6; // rdi
 
   v5 = *(_QWORD *)(*((_QWORD *)a3 + 5) + 16LL);
-  v6 = (LARGE_INTEGER *)(*(_QWORD *)(v5 + 184) + 112LL * *(unsigned int *)(v5 + 196));
+  v6 = (_DWORD *)(*(_QWORD *)(v5 + 184) + 112LL * *(unsigned int *)(v5 + 196));
   memset(v6, 0, 0x70uLL);
   *(_DWORD *)(v5 + 196) = (*(_DWORD *)(v5 + 196) + 1) & (*(_DWORD *)(v5 + 192) - 1);
-  v6[1] = KeQueryPerformanceCounter(0LL);
-  v6->LowPart = 9;
+  *v6 = 9;
   if ( *((_DWORD *)a2 + 12) )
   {
-    v6[3] = *(LARGE_INTEGER *)((char *)a2 + 288);
+    *((_QWORD *)v6 + 3) = *((_QWORD *)a2 + 36);
     *((_QWORD *)a3 + 8) = *((_QWORD *)a2 + 36);
   }
   else
   {
-    v6[*((unsigned int *)a2 + 194) + 3] = *(LARGE_INTEGER *)((char *)a2 + 768);
-    *((_QWORD *)a3 + 3 * *((unsigned int *)a2 + 194) + 8) = *((_QWORD *)a2 + 96);
+    *(_QWORD *)&v6[2 * *((unsigned int *)a2 + 190) + 6] = *((_QWORD *)a2 + 94);
+    *((_QWORD *)a3 + 3 * *((unsigned int *)a2 + 190) + 8) = *((_QWORD *)a2 + 94);
   }
-  v6[2].QuadPart = (LONGLONG)a3;
-  LOBYTE(v6[5].LowPart) = 1;
+  *((_QWORD *)v6 + 2) = a3;
+  *((_BYTE *)v6 + 40) = 1;
 }

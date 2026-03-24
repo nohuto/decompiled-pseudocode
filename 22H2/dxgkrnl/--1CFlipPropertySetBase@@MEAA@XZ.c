@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CFlipPropertySetBase@@MEAA@XZ @ 0x1C0085588
+ * XREFs of ??1CFlipPropertySetBase@@MEAA@XZ @ 0x1C006BE9C
  * Callers:
- *     ??1CFlipConsumerMessage@@MEAA@XZ @ 0x1C007FA70 (--1CFlipConsumerMessage@@MEAA@XZ.c)
- *     ??_GCFlipPropertySet@@MEAAPEAXI@Z @ 0x1C007FB20 (--_GCFlipPropertySet@@MEAAPEAXI@Z.c)
- *     ??_ECFlipPropertySetBase@@MEAAPEAXI@Z @ 0x1C007FB70 (--_ECFlipPropertySetBase@@MEAAPEAXI@Z.c)
+ *     ??1CFlipConsumerMessage@@MEAA@XZ @ 0x1C0068294 (--1CFlipConsumerMessage@@MEAA@XZ.c)
+ *     ??_GCFlipPropertySet@@MEAAPEAXI@Z @ 0x1C0068340 (--_GCFlipPropertySet@@MEAAPEAXI@Z.c)
+ *     ??_ECFlipPropertySetBase@@MEAAPEAXI@Z @ 0x1C0068390 (--_ECFlipPropertySetBase@@MEAAPEAXI@Z.c)
  * Callees:
  *     <none>
  */

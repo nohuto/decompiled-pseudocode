@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CrossedTPTapWarpBackThreshold@CPTPEngine@@AEAAHPEAUCContactState@@UtagPOINT@@@Z @ 0x1C01FF2D8
+ * XREFs of ?CrossedTPTapWarpBackThreshold@CPTPEngine@@AEAAHPEAUCContactState@@UtagPOINT@@@Z @ 0x1C01C3D08
  * Callers:
- *     ?UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNode@@PEAH@Z @ 0x1C0204A20 (-UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNo.c)
+ *     ?UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNode@@PEAH@Z @ 0x1C01C9474 (-UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNo.c)
  * Callees:
  *     <none>
  */
@@ -12,15 +12,16 @@ _BOOL8 __fastcall CPTPEngine::CrossedTPTapWarpBackThreshold(
         struct tagPOINT a3)
 {
   __int64 v3; // rax
-  __int64 v4; // r9
-  __int64 v5; // rdx
+  unsigned int v4; // r11d
+  unsigned int v5; // edx
 
-  if ( (*((_DWORD *)this + 67) & 0x400) == 0 )
+  if ( (*((_DWORD *)this + 55) & 0x400) == 0 )
     return 1LL;
-  v3 = *((_QWORD *)a2 + 2);
-  v5 = (unsigned int)(*((_DWORD *)this + 65) * *((_DWORD *)this + 65));
+  v3 = *((_QWORD *)a2 + 1);
+  v5 = *((_DWORD *)this + 53) * *((_DWORD *)this + 53);
   if ( SHIDWORD(v3) < a3.y )
-    v5 = (unsigned int)(*((_DWORD *)this + 66) * *((_DWORD *)this + 66));
-  v4 = (unsigned int)(*((_DWORD *)this + 63) * *((_DWORD *)this + 63));
-  return v4 * (HIDWORD(v3) - a3.y) * (HIDWORD(v3) - a3.y) + v5 * ((int)v3 - a3.x) * ((int)v3 - a3.x) >= (unsigned __int64)(v4 * v5);
+    v5 = *((_DWORD *)this + 54) * *((_DWORD *)this + 54);
+  v4 = *((_DWORD *)this + 51) * *((_DWORD *)this + 51);
+  return v5 * (__int64)(((int)v3 - a3.x) * ((int)v3 - a3.x))
+       + (unsigned __int64)v4 * (HIDWORD(v3) - a3.y) * (HIDWORD(v3) - a3.y) >= v5 * (unsigned __int64)v4;
 }

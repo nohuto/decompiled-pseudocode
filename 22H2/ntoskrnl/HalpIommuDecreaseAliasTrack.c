@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpIommuDecreaseAliasTrack @ 0x140517B04
+ * XREFs of HalpIommuDecreaseAliasTrack @ 0x1403EFA8C
  * Callers:
- *     HalpIommuBlockDevice @ 0x1405178F0 (HalpIommuBlockDevice.c)
+ *     HalpIommuBlockDevice @ 0x1404C8DA0 (HalpIommuBlockDevice.c)
  * Callees:
- *     IidAreIdsStrictlyEqual @ 0x140673DAC (IidAreIdsStrictlyEqual.c)
+ *     IidAreIdsStrictlyEqual @ 0x1405C62CC (IidAreIdsStrictlyEqual.c)
  */
 
 __int64 __fastcall HalpIommuDecreaseAliasTrack(__int64 a1, _QWORD *a2)
 {
   __int64 *i; // r11
   __int64 v5; // r11
-  __int64 *v7; // rcx
-  __int64 **v8; // rax
+  __int64 *v7; // rax
+  __int64 **v8; // rcx
 
   *a2 = 0LL;
   for ( i = (__int64 *)HalpRidAliasList; ; i = *(__int64 **)v5 )

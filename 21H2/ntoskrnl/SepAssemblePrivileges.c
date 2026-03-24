@@ -1,34 +1,34 @@
 /*
- * XREFs of SepAssemblePrivileges @ 0x1406C57AC
+ * XREFs of SepAssemblePrivileges @ 0x140697360
  * Callers:
- *     SepAccessCheck @ 0x1402FA820 (SepAccessCheck.c)
- *     SepAccessCheckEx @ 0x1403841DC (SepAccessCheckEx.c)
+ *     SepAccessCheck @ 0x14034F410 (SepAccessCheck.c)
+ *     SepAccessCheckEx @ 0x1403737C0 (SepAccessCheckEx.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall SepAssemblePrivileges(int a1, char a2, char a3, char a4, LUID **a5)
 {
-  LUID *Pool2; // rax
-  LUID *v9; // rdx
+  LUID *PoolWithTag; // rax
+  LUID *v9; // r8
   __int64 LowPart; // rax
 
   if ( a5 )
   {
     if ( a1 )
     {
-      Pool2 = (LUID *)ExAllocatePool2(256LL, (unsigned int)(12 * (a1 - 1) + 20), 1917871443LL);
-      v9 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (LUID *)ExAllocatePoolWithTag(PagedPool, (unsigned int)(12 * (a1 - 1) + 20), 0x72506553u);
+      v9 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        Pool2->LowPart = 0;
-        Pool2->HighPart = 0;
+        PoolWithTag->LowPart = 0;
+        PoolWithTag->HighPart = 0;
         LowPart = 0LL;
         if ( a2 )
         {
           v9[1] = SeSecurityPrivilege;
-          v9[2].LowPart = 0x80000000;
-          LowPart = ++v9->LowPart;
+          *(&v9[2].LowPart + 3 * v9->LowPart++) = 0x80000000;
+          LowPart = v9->LowPart;
         }
         if ( a3 )
         {

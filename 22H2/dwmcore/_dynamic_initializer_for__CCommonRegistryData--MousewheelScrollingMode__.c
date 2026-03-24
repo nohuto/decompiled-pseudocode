@@ -1,16 +1,17 @@
 /*
- * XREFs of _dynamic_initializer_for__CCommonRegistryData::MousewheelScrollingMode__ @ 0x180003AD0
+ * XREFs of _dynamic_initializer_for__CCommonRegistryData::MousewheelScrollingMode__ @ 0x180003090
  * Callers:
  *     <none>
  * Callees:
- *     ?Load@?$CRegistryKeyLoader@K@details@@SAKPEBGKW4DwmRegistrySubkey@@@Z @ 0x18010E860 (-Load@-$CRegistryKeyLoader@K@details@@SAKPEBGKW4DwmRegistrySubkey@@@Z.c)
+ *     ?RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z @ 0x1800B3354 (-RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z.c)
  */
 
-__int64 dynamic_initializer_for__CCommonRegistryData::MousewheelScrollingMode__()
+char dynamic_initializer_for__CCommonRegistryData::MousewheelScrollingMode__()
 {
-  __int64 result; // rax
+  char result; // al
+  int v1; // [rsp+30h] [rbp+8h] BYREF
 
-  result = details::CRegistryKeyLoader<unsigned long>::Load(L"MousewheelScrollingMode", 0LL, 0LL);
-  CCommonRegistryData::MousewheelScrollingMode = result;
+  result = -(char)RegGetDwmDwordHelper(L"MousewheelScrollingMode", &v1, 0LL);
+  CCommonRegistryData::MousewheelScrollingMode = result != 0 ? v1 : 0;
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RootHub_HandleResumedPorts @ 0x1C000D530
+ * XREFs of RootHub_HandleResumedPorts @ 0x1C000AE10
  * Callers:
- *     RootHub_D0Exit @ 0x1C000D388 (RootHub_D0Exit.c)
+ *     RootHub_D0Exit @ 0x1C000B838 (RootHub_D0Exit.c)
  * Callees:
- *     RootHub_WaitForResumeCompletion @ 0x1C000D648 (RootHub_WaitForResumeCompletion.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     RootHub_ForceU3 @ 0x1C003DB7C (RootHub_ForceU3.c)
+ *     RootHub_WaitForResumeCompletion @ 0x1C000AF28 (RootHub_WaitForResumeCompletion.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     RootHub_ForceU3 @ 0x1C003D60C (RootHub_ForceU3.c)
  */
 
 void __fastcall RootHub_HandleResumedPorts(__int64 a1)
@@ -47,8 +47,8 @@ LABEL_9:
           *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
           v5,
           11,
-          233,
-          (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+          232,
+          (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
           v1);
       }
       goto LABEL_9;
@@ -60,8 +60,8 @@ LABEL_9:
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
         v5,
         11,
-        234,
-        (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+        233,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
         v1);
     }
 LABEL_6:

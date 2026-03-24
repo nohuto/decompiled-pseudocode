@@ -1,26 +1,26 @@
 /*
- * XREFs of ?HolographicClientCreated_@CompositorTracing@@QEAAXXZ @ 0x1802A5950
+ * XREFs of ?HolographicClientCreated_@CompositorTracing@@QEAAXXZ @ 0x180253928
  * Callers:
- *     ?EnsureHolographicClient@CHolographicManager@@AEAAJXZ @ 0x1802A5498 (-EnsureHolographicClient@CHolographicManager@@AEAAJXZ.c)
+ *     ?EnsureHolographicClient@CHolographicManager@@AEAAJXZ @ 0x1802534C0 (-EnsureHolographicClient@CHolographicManager@@AEAAJXZ.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800BB2A0 (_tlgWriteTransfer_EventWriteTransfer.c)
- *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800FB924 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800DB230 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180152990 (_tlgWriteTransfer_EventWriteTransfer.c)
  */
 
 void __fastcall CompositorTracing::HolographicClientCreated_(CompositorTracing *this)
 {
-  _DWORD *v1; // rcx
-  __int64 v2; // rcx
-  struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v1; // rcx
+  struct _EVENT_DATA_DESCRIPTOR v2; // [rsp+30h] [rbp-38h] BYREF
 
-  v1 = (_DWORD *)wil::details::static_lazy<CompositorTracing>::get(
-                   (__int64)this,
-                   (void (__cdecl *)())_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_)[1];
-  if ( *v1 > 4u )
+  v1 = *((_QWORD *)wil::details::static_lazy<CompositorTracing>::get(
+                     (__int64)this,
+                     _lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_)
+       + 1);
+  if ( *(_DWORD *)v1 > 4u
+    && (*(_QWORD *)(v1 + 16) & 0x400000000000LL) != 0
+    && (*(_QWORD *)(v1 + 24) & 0x400000000000LL) == *(_QWORD *)(v1 + 24) )
   {
-    if ( tlgKeywordOn((__int64)v1, 0x400000000000LL) )
-      tlgWriteTransfer_EventWriteTransfer(v2, (unsigned __int8 *)dword_180382A3B, 0LL, 0LL, 2u, &v3);
+    tlgWriteTransfer_EventWriteTransfer(v1, (unsigned __int8 *)dword_1802ED639, 0LL, 0LL, 2u, &v2);
   }
 }

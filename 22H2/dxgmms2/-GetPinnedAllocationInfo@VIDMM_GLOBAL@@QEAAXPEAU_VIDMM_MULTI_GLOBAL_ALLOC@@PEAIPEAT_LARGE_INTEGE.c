@@ -1,12 +1,11 @@
 /*
- * XREFs of ?GetPinnedAllocationInfo@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAIPEAT_LARGE_INTEGER@@PEA_K@Z @ 0x1C00861B4
+ * XREFs of ?GetPinnedAllocationInfo@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAIPEAT_LARGE_INTEGER@@PEA_K@Z @ 0x1C00AEC4C
  * Callers:
- *     VidMmGetPinnedAllocationInfo @ 0x1C0001260 (VidMmGetPinnedAllocationInfo.c)
+ *     VidMmGetPinnedAllocationInfo @ 0x1C0022D40 (VidMmGetPinnedAllocationInfo.c)
  * Callees:
- *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0004EE4 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
+ *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0001224 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_GLOBAL::GetPinnedAllocationInfo(
         VIDMM_GLOBAL *this,
         struct _VIDMM_MULTI_GLOBAL_ALLOC *a2,
@@ -14,13 +13,21 @@ void __fastcall VIDMM_GLOBAL::GetPinnedAllocationInfo(
         union _LARGE_INTEGER *a4,
         unsigned __int64 *a5)
 {
-  if ( !*(_DWORD *)(*((_QWORD *)a2 + 67) + 12LL) && (**((_DWORD **)a2 + 67) & 0x40000000) == 0 )
+  __int64 v8; // rcx
+  __int64 v9; // rax
+
+  v8 = *(unsigned int *)(*((_QWORD *)a2 + 62) + 12LL);
+  if ( !(_DWORD)v8 && (**((_DWORD **)a2 + 62) & 0x40000000) == 0 )
   {
-    g_DxgMmsBugcheckExportIndex = 1;
-    WdLogSingleEntry5(0LL, 270LL, 10LL, a2, 0LL, 0LL);
+    v9 = WdLogNewEntry5_WdCriticalError(v8, a2);
+    *(_QWORD *)(v9 + 24) = 270LL;
+    *(_QWORD *)(v9 + 32) = 10LL;
+    *(_QWORD *)(v9 + 40) = a2;
+    *(_OWORD *)(v9 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v9);
   }
-  *a3 = VIDMM_SEGMENT::DriverId(*((VIDMM_SEGMENT **)a2 + 15));
-  a4->QuadPart = *((_QWORD *)a2 + 16) + *(_QWORD *)(*((_QWORD *)a2 + 15) + 24LL);
+  *a3 = VIDMM_SEGMENT::DriverId(*((VIDMM_SEGMENT **)a2 + 16));
+  a4->QuadPart = *((_QWORD *)a2 + 17) + *(_QWORD *)(*((_QWORD *)a2 + 16) + 24LL);
   if ( a5 )
-    *a5 = *((_QWORD *)a2 + 16);
+    *a5 = *((_QWORD *)a2 + 17);
 }

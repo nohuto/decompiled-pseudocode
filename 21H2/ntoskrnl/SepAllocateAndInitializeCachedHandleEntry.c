@@ -1,20 +1,20 @@
 /*
- * XREFs of SepAllocateAndInitializeCachedHandleEntry @ 0x140696E04
+ * XREFs of SepAllocateAndInitializeCachedHandleEntry @ 0x140715FB4
  * Callers:
- *     SepGetCachedHandlesEntry @ 0x140696468 (SepGetCachedHandlesEntry.c)
+ *     SepGetCachedHandlesEntry @ 0x140717DC4 (SepGetCachedHandlesEntry.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     RtlCopySid @ 0x14066A4E0 (RtlCopySid.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     RtlCopySid @ 0x140706ED0 (RtlCopySid.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SepAllocateAndInitializeCachedHandleEntry(int *a1, __int64 *a2)
+__int64 __fastcall SepAllocateAndInitializeCachedHandleEntry(int *a1, _QWORD *a2)
 {
   int v3; // ecx
   __int64 v5; // r8
-  __int64 v6; // rsi
-  __int64 Pool2; // rax
-  __int64 v8; // rbx
+  SIZE_T v6; // rsi
+  char *PoolWithTag; // rax
+  char *v8; // rbx
 
   *a2 = 0LL;
   v3 = *a1;
@@ -29,28 +29,28 @@ __int64 __fastcall SepAllocateAndInitializeCachedHandleEntry(int *a1, __int64 *a
     v5 = 4LL * *(unsigned __int8 *)(*((_QWORD *)a1 + 1) + 1LL) + 80;
   }
   v6 = (v5 + 3) & 0xFFFFFFFCLL;
-  Pool2 = ExAllocatePool2(256LL, v6, 1934386515LL);
-  v8 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v6, 0x734C6553u);
+  v8 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *(_QWORD *)(Pool2 + 64) = 0LL;
-  *(_DWORD *)(Pool2 + 56) = 0;
-  *(_QWORD *)(Pool2 + 24) = 1LL;
-  *(_DWORD *)(Pool2 + 32) = *a1;
+  *((_QWORD *)PoolWithTag + 8) = 0LL;
+  *((_DWORD *)PoolWithTag + 14) = 0;
+  *((_QWORD *)PoolWithTag + 3) = 1LL;
+  *((_DWORD *)PoolWithTag + 8) = *a1;
   if ( *a1 )
   {
     if ( *a1 == 1 )
     {
-      *(_WORD *)(Pool2 + 40) = *((_WORD *)a1 + 4);
-      *(_WORD *)(Pool2 + 42) = *((_WORD *)a1 + 5);
-      *(_QWORD *)(Pool2 + 48) = Pool2 + 72;
-      RtlCopyUnicodeString((PUNICODE_STRING)(Pool2 + 40), (PCUNICODE_STRING)(a1 + 2));
+      *((_WORD *)PoolWithTag + 20) = *((_WORD *)a1 + 4);
+      *((_WORD *)PoolWithTag + 21) = *((_WORD *)a1 + 5);
+      *((_QWORD *)PoolWithTag + 6) = PoolWithTag + 72;
+      RtlCopyUnicodeString((PUNICODE_STRING)(PoolWithTag + 40), (PCUNICODE_STRING)(a1 + 2));
     }
   }
   else
   {
-    *(_QWORD *)(Pool2 + 40) = Pool2 + 72;
-    RtlCopySid(v6 - 72, (PSID)(Pool2 + 72), *((PSID *)a1 + 1));
+    *((_QWORD *)PoolWithTag + 5) = PoolWithTag + 72;
+    RtlCopySid(v6 - 72, PoolWithTag + 72, *((PSID *)a1 + 1));
   }
   *a2 = v8;
   return 0LL;

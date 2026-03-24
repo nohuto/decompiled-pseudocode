@@ -1,167 +1,170 @@
 /*
- * XREFs of MiProcessWorkingSets @ 0x14030BBF0
+ * XREFs of MiProcessWorkingSets @ 0x140207BA0
  * Callers:
- *     MiWorkingSetManager @ 0x140267320 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
  * Callees:
- *     MiDrainZeroLookasides @ 0x1402416A4 (MiDrainZeroLookasides.c)
- *     KeSignalGate @ 0x14024B0B4 (KeSignalGate.c)
- *     MiComputeSystemTrimCriteria @ 0x140266644 (MiComputeSystemTrimCriteria.c)
- *     MiComputeAgingPercent @ 0x1402669CC (MiComputeAgingPercent.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxWaitForLockChainValid @ 0x140282C20 (KxWaitForLockChainValid.c)
- *     MiLogProcessWorkingSetsStop @ 0x1402A1948 (MiLogProcessWorkingSetsStop.c)
- *     MiLogProcessWorkingSetsStart @ 0x1402A19AC (MiLogProcessWorkingSetsStart.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     MiTrimOrAgeWorkingSet @ 0x14030C260 (MiTrimOrAgeWorkingSet.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x140311C70 (KxWaitForLockOwnerShip.c)
- *     MiReturnWsToExpansionList @ 0x14036DAE4 (MiReturnWsToExpansionList.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x1403DADE0 (MiInitializeWorkingSetManagerParameters.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14045A10C (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeRetryOutswapProcess @ 0x14056C540 (KeRetryOutswapProcess.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x14056E6FC (KiReleaseQueuedSpinLockInstrumented.c)
- *     MiCheckSystemTrimEndCriteria @ 0x1405962EC (MiCheckSystemTrimEndCriteria.c)
- *     MiOrderTrimList @ 0x140596B14 (MiOrderTrimList.c)
+ *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14022EEA0 (KxWaitForLockOwnerShip.c)
+ *     MiLogProcessWorkingSetsStart @ 0x1402604EC (MiLogProcessWorkingSetsStart.c)
+ *     MiLogProcessWorkingSetsStop @ 0x140260558 (MiLogProcessWorkingSetsStop.c)
+ *     MiComputeSystemTrimCriteria @ 0x140271440 (MiComputeSystemTrimCriteria.c)
+ *     MiComputeAgingPercent @ 0x1402717D8 (MiComputeAgingPercent.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxWaitForLockChainValid @ 0x140287190 (KxWaitForLockChainValid.c)
+ *     MiDrainZeroLookasides @ 0x1402B93C0 (MiDrainZeroLookasides.c)
+ *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     MiReturnWsToExpansionList @ 0x14035E6F8 (MiReturnWsToExpansionList.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x1403CBD04 (MiInitializeWorkingSetManagerParameters.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRetryOutswapProcess @ 0x1405138C8 (KeRetryOutswapProcess.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1405163CC (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14051648C (KiReleaseQueuedSpinLockInstrumented.c)
+ *     MiCheckSystemTrimEndCriteria @ 0x14053AD2C (MiCheckSystemTrimEndCriteria.c)
+ *     MiOrderTrimList @ 0x14053B640 (MiOrderTrimList.c)
  */
 
-void __fastcall MiProcessWorkingSets(__int64 a1, __int64 a2)
+__int64 __fastcall MiProcessWorkingSets(__int64 a1, __int64 a2)
 {
   __int64 v3; // r15
-  PRKEVENT v4; // rdi
-  int v5; // esi
-  _QWORD *v6; // rbx
-  __int64 v7; // r11
-  __int64 *v8; // r12
-  int v9; // r13d
-  __int16 v10; // dx
-  __int64 *v11; // rax
-  __int64 v12; // rcx
-  __int64 *v13; // rdi
-  __int64 *v14; // r14
-  int v15; // r15d
-  __int64 Next; // rax
+  __int64 result; // rax
+  PRKEVENT v5; // rdi
+  int v6; // esi
+  _QWORD *v7; // rbx
+  __int64 v8; // r11
+  __int64 *v9; // r12
+  _DWORD *v10; // r9
+  int v11; // r13d
+  __int16 v12; // dx
+  __int64 *v13; // rax
+  __int64 v14; // rcx
+  __int64 *v15; // rdi
+  __int64 *v16; // r14
+  int v17; // r15d
+  _KSPIN_LOCK_QUEUE *volatile Next; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *SchedulerAssist; // rdx
   unsigned __int64 OldIrql; // rsi
-  unsigned __int8 v20; // r10
-  struct _KPRCB *v21; // rcx
-  _DWORD *v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // rdx
-  __int64 **v25; // rax
-  _DWORD *v26; // rcx
-  _DWORD *v27; // r9
-  __int64 **v28; // rax
-  __int64 **v29; // rdi
-  __int64 *v30; // rax
-  __int64 **v31; // rdi
-  char v32; // r8
-  unsigned int v33; // r9d
-  unsigned int v34; // eax
-  struct _LIST_ENTRY *v35; // rcx
-  __int64 v36; // rax
-  __int64 v37; // rdx
-  __int64 v38; // r8
-  struct _KPRCB *v39; // r9
-  unsigned __int64 v40; // rbx
-  _QWORD *v41; // r8
-  _QWORD *v42; // rcx
-  _QWORD *v43; // rdx
-  int v44; // eax
-  _QWORD *v45; // rcx
-  __int64 v46; // r9
-  _QWORD *v47; // rax
+  unsigned __int8 v22; // r10
+  struct _KPRCB *v23; // rcx
+  _DWORD *v24; // rdx
+  int v25; // edx
+  int v26; // eax
+  __int64 v27; // rcx
+  __int64 v28; // rdx
+  __int64 **v29; // rax
+  __int64 v30; // rcx
+  __int64 **v31; // rax
+  __int64 **v32; // rdi
+  __int64 *v33; // rax
+  __int64 **v34; // rdi
+  char v35; // r14
+  unsigned int v36; // eax
+  int Blink; // esi
+  __int64 v38; // rcx
+  unsigned __int64 v39; // rbx
+  _QWORD *v40; // r8
+  _QWORD *v41; // rcx
+  _QWORD *v42; // rdx
+  int v43; // eax
+  _QWORD *v44; // rcx
+  __int64 v45; // r9
+  _QWORD *v46; // rax
+  __int64 v47; // rax
   __int64 v48; // rax
-  __int64 v49; // rax
-  __int64 **v50; // rax
-  unsigned __int64 v51; // rsi
-  unsigned __int8 v52; // al
-  struct _KPRCB *v53; // r10
-  _DWORD *v54; // r9
-  int v55; // eax
-  bool v56; // zf
-  int v57; // eax
+  __int64 **v49; // rax
+  unsigned __int64 v50; // rsi
+  unsigned __int8 v51; // al
+  struct _KPRCB *v52; // r10
+  _DWORD *v53; // r9
+  int v54; // eax
+  bool v55; // zf
+  unsigned __int64 v56; // rax
+  unsigned __int64 v57; // rcx
+  int v58; // eax
   unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *v59; // r10
-  _DWORD *v60; // r9
+  struct _KPRCB *v60; // r10
   int v61; // eax
-  int v62; // eax
+  struct _KPRCB *v62; // rax
   int v63; // eax
-  unsigned __int8 v64; // al
-  int v65; // eax
-  unsigned __int8 v66; // al
-  int v67; // eax
-  unsigned int v68; // [rsp+20h] [rbp-60h]
-  char v69; // [rsp+24h] [rbp-5Ch]
-  unsigned int v70; // [rsp+28h] [rbp-58h]
-  int v71; // [rsp+2Ch] [rbp-54h]
+  int v64; // eax
+  unsigned __int8 v65; // al
+  struct _KPRCB *v66; // r9
+  _DWORD *v67; // r8
+  int v68; // eax
+  unsigned __int8 v69; // al
+  _DWORD *v70; // r8
+  int v71; // eax
+  unsigned int v72; // [rsp+20h] [rbp-60h]
+  int v73; // [rsp+24h] [rbp-5Ch]
+  unsigned int v74; // [rsp+28h] [rbp-58h]
+  int v75; // [rsp+2Ch] [rbp-54h]
   PRKEVENT Event; // [rsp+30h] [rbp-50h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-48h] BYREF
   void *retaddr; // [rsp+98h] [rbp+18h]
-  __int16 v77; // [rsp+B0h] [rbp+30h]
-  int v78; // [rsp+B8h] [rbp+38h]
-  int v79; // [rsp+B8h] [rbp+38h]
-  int v80; // [rsp+B8h] [rbp+38h]
-  int v81; // [rsp+B8h] [rbp+38h]
+  __int16 v81; // [rsp+B0h] [rbp+30h]
   int v82; // [rsp+B8h] [rbp+38h]
+  __int16 v83; // [rsp+B8h] [rbp+38h]
+  int v84; // [rsp+B8h] [rbp+38h]
+  int v85; // [rsp+B8h] [rbp+38h]
 
   v3 = a1;
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( *(_BYTE *)(a1 + 12) )
     MiInitializeWorkingSetManagerParameters();
-  if ( (*(_DWORD *)(v3 + 4) & 0x20) != 0 )
-    return;
-  v4 = *(PRKEVENT *)(v3 + 16600);
-  Event = v4;
+  result = *(unsigned int *)(v3 + 4);
+  if ( (result & 0x20) != 0 )
+    return result;
+  v5 = *(PRKEVENT *)(v3 + 6848);
+  Event = v5;
   MiComputeAgingPercent(v3);
-  v68 = MiComputeSystemTrimCriteria((_QWORD *)v3, a2);
-  v5 = v68;
-  MiLogProcessWorkingSetsStart(v3, a2, v68);
-  if ( (v68 & 5) != 0 )
+  v72 = MiComputeSystemTrimCriteria(v3, a2);
+  v6 = v72;
+  MiLogProcessWorkingSetsStart(v3, a2, v72);
+  if ( (v72 & 5) != 0 )
+    MiDrainZeroLookasides(v3, 0LL, 0LL, 0LL);
+  v73 = 0;
+  v74 = 0;
+  if ( (v72 & 5) != 0 )
+    LOBYTE(v5[2].Header.SignalState) = 1;
+  if ( (v72 & 2) != 0 )
+    ++HIDWORD(v5[3].Header.WaitListHead.Flink);
+  v7 = 0LL;
+  if ( (v72 & 0x40) != 0 )
   {
-    MiDrainZeroLookasides(v3, 0LL, 0LL, 0);
-    LOBYTE(v4[2].Header.SignalState) = 1;
-  }
-  if ( (v68 & 2) != 0 )
-    ++HIDWORD(v4[3].Header.WaitListHead.Flink);
-  v6 = 0LL;
-  if ( (v68 & 0x20) != 0 )
-  {
-    if ( WORD1(v4[97].Header.WaitListHead.Blink) > 0xAu )
-      WORD1(v4[97].Header.WaitListHead.Blink) = 10;
+    if ( WORD1(v5[97].Header.WaitListHead.Blink) > 0xAu )
+      WORD1(v5[97].Header.WaitListHead.Blink) = 10;
     KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-    if ( BYTE2(v4[2].Header.SignalState) )
+    if ( BYTE2(v5[2].Header.SignalState) == 1 )
     {
-      v41 = (_QWORD *)(v3 + 16608);
-      BYTE2(v4[2].Header.SignalState) = 0;
-      v42 = *(_QWORD **)(v3 + 16608);
-      if ( v42 != (_QWORD *)(v3 + 16608) )
+      v40 = (_QWORD *)(v3 + 6856);
+      BYTE2(v5[2].Header.SignalState) = 0;
+      v41 = *(_QWORD **)(v3 + 6856);
+      if ( v41 != (_QWORD *)(v3 + 6856) )
       {
         do
         {
-          v43 = v42;
-          v42 = (_QWORD *)*v42;
-          if ( (struct _LIST_ENTRY *)v43[9] >= v4[2].Header.WaitListHead.Flink )
+          v42 = v41;
+          v41 = (_QWORD *)*v41;
+          if ( (struct _LIST_ENTRY *)v42[9] >= v5[2].Header.WaitListHead.Flink )
           {
-            v46 = *v43;
-            v47 = (_QWORD *)v43[1];
-            if ( *(_QWORD **)(*v43 + 8LL) != v43 )
-              goto LABEL_80;
-            if ( (_QWORD *)*v47 != v43 )
-              goto LABEL_80;
-            *v47 = v46;
-            *(_QWORD *)(v46 + 8) = v47;
-            v48 = *v41;
-            if ( *(_QWORD **)(*v41 + 8LL) != v41 )
-              goto LABEL_80;
-            *v43 = v48;
-            v43[1] = v41;
-            *(_QWORD *)(v48 + 8) = v43;
-            *v41 = v43;
+            v45 = *v42;
+            v46 = (_QWORD *)v42[1];
+            if ( *(_QWORD **)(*v42 + 8LL) != v42
+              || (_QWORD *)*v46 != v42
+              || (*v46 = v45, *(_QWORD *)(v45 + 8) = v46, v47 = *v40, *(_QWORD **)(*v40 + 8LL) != v40) )
+            {
+LABEL_83:
+              __fastfail(3u);
+            }
+            *v42 = v47;
+            v42[1] = v40;
+            *(_QWORD *)(v47 + 8) = v42;
+            *v40 = v42;
           }
         }
-        while ( v42 != v41 );
+        while ( v41 != v40 );
       }
     }
   }
@@ -169,366 +172,362 @@ void __fastcall MiProcessWorkingSets(__int64 a1, __int64 a2)
   {
     KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
   }
-  v7 = a2;
-  v8 = (__int64 *)(v3 + 16608);
-  BYTE1(v4[2].Header.SignalState) = 1;
-  v69 = 0;
-  v70 = 0;
+  v8 = a2;
+  v9 = (__int64 *)(v3 + 6856);
+  BYTE1(v5[2].Header.SignalState) = 1;
+  v10 = 0LL;
+LABEL_13:
   while ( 2 )
   {
-    while ( 2 )
+    v11 = 0;
+    v75 = v6 & 1;
+    if ( (v6 & 1) != 0 )
     {
-      v9 = 0;
-      v71 = v5 & 1;
-      if ( (v5 & 1) != 0 )
+      v48 = MiOrderTrimList(v3, *((unsigned __int8 *)MiTrimPassToAge + (*(_BYTE *)v8 & 0x7F)), v6 & 1, 0LL);
+      v8 = a2;
+      v10 = 0LL;
+      *(_QWORD *)(a2 + 104) = v48;
+    }
+    v12 = ++LOWORD(v5[97].Header.WaitListHead.Blink);
+    *(_QWORD *)(v8 + 88) = *(_QWORD *)(v8 + 80) - *(_QWORD *)(v8 + 96);
+    v81 = v12;
+    while ( 1 )
+    {
+      v13 = (__int64 *)*v9;
+      if ( (__int64 *)*v9 == v9 )
+        goto LABEL_46;
+      v14 = *v13;
+      if ( (__int64 *)v13[1] != v9 || *(__int64 **)(v14 + 8) != v13 )
+        goto LABEL_83;
+      *v9 = v14;
+      v15 = v13 - 3;
+      *(_QWORD *)(v14 + 8) = v9;
+      v16 = v13;
+      *v13 = 0LL;
+      if ( *((_WORD *)v13 + 74) == v12 )
       {
-        v49 = MiOrderTrimList(v3, *((unsigned __int8 *)MiTrimPassToAge + (*(_BYTE *)v7 & 0x7F)));
-        v7 = a2;
-        *(_QWORD *)(a2 + 104) = v49;
-      }
-      v10 = ++LOWORD(v4[97].Header.WaitListHead.Blink);
-      *(_QWORD *)(v7 + 88) = *(_QWORD *)(v7 + 80) - *(_QWORD *)(v7 + 96);
-      v77 = v10;
-      while ( 1 )
-      {
-        v11 = (__int64 *)*v8;
-        if ( (__int64 *)*v8 == v8 )
+        v33 = (__int64 *)*v9;
+        v34 = (__int64 **)(v15 + 3);
+        if ( *(__int64 **)(*v9 + 8) != v9 )
+          goto LABEL_83;
+        v3 = a1;
+        *v34 = v33;
+        v34[1] = v9;
+        v33[1] = (__int64)v34;
+        *v9 = (__int64)v34;
+        if ( !v75 )
           goto LABEL_49;
-        v12 = *v11;
-        if ( (__int64 *)v11[1] != v8 || *(__int64 **)(v12 + 8) != v11 )
-          goto LABEL_80;
-        *v8 = v12;
-        v13 = v11 - 3;
-        *(_QWORD *)(v12 + 8) = v8;
-        v14 = v11;
-        *v11 = 0LL;
-        if ( *((_WORD *)v11 + 74) == v10 )
-          break;
-        *((_WORD *)v13 + 86) = v10;
-        v15 = v5 & 0x20;
-        if ( (v5 & 0x20) != 0 && (struct _LIST_ENTRY *)v13[12] < Event[2].Header.WaitListHead.Flink )
+        v64 = MiCheckSystemTrimEndCriteria(a1, v8, &LockHandle, 0LL);
+        v8 = a2;
+        v10 = 0LL;
+        v5 = Event;
+        if ( v64 )
+          goto LABEL_49;
+        goto LABEL_13;
+      }
+      *((_WORD *)v15 + 86) = v12;
+      v17 = v6 & 0x40;
+      if ( (v6 & 0x40) != 0 && (struct _LIST_ENTRY *)v15[12] < Event[2].Header.WaitListHead.Flink )
+        break;
+      if ( (unsigned __int64)v15[17] > 1 || (v15[23] & 7) != 0 )
+      {
+        v82 = *((_DWORD *)v15 + 46);
+        BYTE1(v82) = BYTE1(v82) & 0xF9 | 2;
+        *((_WORD *)v15 + 92) = v82;
+        if ( *(_BYTE *)(v8 + 2) == 2 )
         {
-          v28 = (__int64 **)v8[1];
-          v29 = (__int64 **)(v13 + 3);
-          if ( *v28 == v8 )
-          {
-            *v29 = v8;
-            v29[1] = (__int64 *)v28;
-            *v28 = (__int64 *)v29;
-            v8[1] = (__int64)v29;
-            goto LABEL_45;
-          }
-LABEL_80:
-          __fastfail(3u);
+          v56 = v15[17];
+          v57 = v15[14];
+          if ( v56 <= v57 || v56 - v57 < 0x40000 )
+            goto LABEL_35;
         }
-        if ( (unsigned __int64)v13[18] > 1 || (v13[23] & 7) != 0 )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
         {
-          v78 = *((_DWORD *)v13 + 46);
-          BYTE1(v78) = BYTE1(v78) & 0xF9 | 2;
-          *((_WORD *)v13 + 92) = v78;
-          if ( *(_BYTE *)(v7 + 2) == 2
-            && (v13[18] <= (unsigned __int64)v13[14] || (unsigned __int64)(v13[18] - v13[14]) < 0x40000) )
-          {
-            goto LABEL_33;
-          }
-          if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-          {
-            KiReleaseQueuedSpinLockInstrumented(&LockHandle, retaddr);
-            v7 = a2;
-          }
-          else
-          {
-            _m_prefetchw(&LockHandle);
-            Next = (__int64)LockHandle.LockQueue.Next;
-            if ( !LockHandle.LockQueue.Next )
-            {
-              if ( (struct _KLOCK_QUEUE_HANDLE *)_InterlockedCompareExchange64(
-                                                   (volatile signed __int64 *)LockHandle.LockQueue.Lock,
-                                                   0LL,
-                                                   (signed __int64)&LockHandle) == &LockHandle )
-                goto LABEL_24;
-              Next = KxWaitForLockChainValid((__int64 *)&LockHandle);
-              v7 = a2;
-            }
-            LockHandle.LockQueue.Next = 0LL;
-            _InterlockedXor64((volatile signed __int64 *)(Next + 8), 1uLL);
-          }
-LABEL_24:
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          if ( SchedulerAssist )
-          {
-            if ( CurrentPrcb->NestingLevel <= 1u )
-            {
-              v57 = SchedulerAssist[6] - 1;
-              SchedulerAssist[6] = v57;
-              if ( !v57 )
-              {
-                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-                v7 = a2;
-              }
-            }
-          }
-          OldIrql = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
-          {
-            if ( (KiIrqlFlags & 1) != 0 )
-            {
-              CurrentIrql = KeGetCurrentIrql();
-              if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
-              {
-                v59 = KeGetCurrentPrcb();
-                v60 = v59->SchedulerAssist;
-                v61 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-                v56 = (v61 & v60[5]) == 0;
-                v60[5] &= v61;
-                if ( v56 )
-                {
-                  KiRemoveSystemWorkPriorityKick(v59);
-                  v7 = a2;
-                }
-              }
-            }
-          }
-          __writecr8(OldIrql);
-          v5 = v68;
-          v9 = MiTrimOrAgeWorkingSet(v13, v7, v68);
-          if ( v9 )
-            *(_BYTE *)(a2 + 4) = 2;
-          LockHandle.LockQueue.Lock = &SpinLock;
-          LockHandle.LockQueue.Next = 0LL;
-          v20 = KeGetCurrentIrql();
-          __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v20 <= 0xFu )
-          {
-            v27 = KeGetCurrentPrcb()->SchedulerAssist;
-            v27[5] |= (-1 << (v20 + 1)) & 4;
-          }
-          LockHandle.OldIrql = v20;
-          v21 = KeGetCurrentPrcb();
-          v22 = v21->SchedulerAssist;
-          if ( v22 )
-          {
-            if ( v21->NestingLevel <= 1u )
-            {
-              v62 = v22[6];
-              v22[6] = v62 + 1;
-              if ( v62 == -1 )
-                KiRemoveSystemWorkPriorityKick(v21);
-            }
-          }
-          if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
-          {
-            KiAcquireQueuedSpinLockInstrumented(&LockHandle, &SpinLock);
-          }
-          else if ( _InterlockedExchange64((volatile __int64 *)&SpinLock, (__int64)&LockHandle) )
-          {
-            KxWaitForLockOwnerShip(&LockHandle);
-          }
-LABEL_33:
-          if ( !v15 || (struct _LIST_ENTRY *)v13[12] < Event[2].Header.WaitListHead.Flink || v13[13] )
-          {
-            v79 = *((_DWORD *)v13 + 46);
-            BYTE1(v79) &= 0xF9u;
-            *((_WORD *)v13 + 92) = v79;
-            v23 = *((unsigned __int16 *)v13 + 87);
-            v24 = *(_QWORD *)(qword_140C51F48 + 8 * v23) + 16608LL;
-            v25 = *(__int64 ***)(*(_QWORD *)(qword_140C51F48 + 8 * v23) + 16616LL);
-            if ( *v25 != (__int64 *)v24 )
-              goto LABEL_80;
-            *v14 = v24;
-            v14[1] = (__int64)v25;
-            *v25 = v14;
-            *(_QWORD *)(v24 + 8) = v14;
-            v26 = (_DWORD *)v13[13];
-            if ( v26 )
-              KeSignalGate(v26, 1);
-          }
-          else
-          {
-            v80 = *((_DWORD *)v13 + 46);
-            v13[4] = (__int64)v6;
-            BYTE1(v80) |= 6u;
-            v6 = v13 + 4;
-            *((_WORD *)v13 + 92) = v80;
-          }
-          v7 = a2;
-          if ( v9 )
-            goto LABEL_49;
-          v10 = v77;
-        }
-        else if ( v13[13] )
-        {
-          v50 = (__int64 **)v8[1];
-          if ( *v50 != v8 )
-            goto LABEL_80;
-          *v14 = (__int64)v8;
-          v14[1] = (__int64)v50;
-          *v50 = v14;
-          v8[1] = (__int64)v14;
+          KiReleaseQueuedSpinLockInstrumented(&LockHandle, retaddr);
+          v8 = a2;
         }
         else
         {
-          v81 = *((_DWORD *)v13 + 46);
-          BYTE1(v81) |= 6u;
-          *((_WORD *)v13 + 92) = v81;
-          KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-          v51 = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
+          _m_prefetchw(&LockHandle);
+          Next = LockHandle.LockQueue.Next;
+          if ( !LockHandle.LockQueue.Next )
           {
-            if ( (KiIrqlFlags & 1) != 0 )
+            if ( (struct _KLOCK_QUEUE_HANDLE *)_InterlockedCompareExchange64(
+                                                 (volatile signed __int64 *)LockHandle.LockQueue.Lock,
+                                                 0LL,
+                                                 (signed __int64)&LockHandle) == &LockHandle )
+              goto LABEL_26;
+            Next = (_KSPIN_LOCK_QUEUE *volatile)KxWaitForLockChainValid(&LockHandle);
+            v8 = a2;
+            v10 = 0LL;
+          }
+          LockHandle.LockQueue.Next = 0LL;
+          _InterlockedXor64((volatile signed __int64 *)&Next->Lock, 1uLL);
+        }
+LABEL_26:
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        if ( SchedulerAssist )
+        {
+          if ( CurrentPrcb->NestingLevel <= 1u )
+          {
+            v58 = SchedulerAssist[6] - 1;
+            SchedulerAssist[6] = v58;
+            if ( !v58 )
             {
-              v52 = KeGetCurrentIrql();
-              if ( v52 <= 0xFu && LockHandle.OldIrql <= 0xFu && v52 >= 2u )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              v8 = a2;
+            }
+          }
+        }
+        OldIrql = LockHandle.OldIrql;
+        if ( KiIrqlFlags )
+        {
+          if ( (KiIrqlFlags & 1) != 0 )
+          {
+            CurrentIrql = KeGetCurrentIrql();
+            if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+            {
+              v60 = KeGetCurrentPrcb();
+              v10 = v60->SchedulerAssist;
+              v61 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+              v55 = (v61 & v10[5]) == 0;
+              v10[5] &= v61;
+              if ( v55 )
               {
-                v53 = KeGetCurrentPrcb();
-                v54 = v53->SchedulerAssist;
-                v55 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-                v56 = (v55 & v54[5]) == 0;
-                v54[5] &= v55;
-                if ( v56 )
-                  KiRemoveSystemWorkPriorityKick(v53);
+                KiRemoveSystemWorkPriorityKick(v60);
+                v8 = a2;
               }
             }
           }
-          __writecr8(v51);
-          KeRetryOutswapProcess(v13 - 208);
-          KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-          v82 = *((_DWORD *)v13 + 46);
-          BYTE1(v82) &= 0xF9u;
-          *((_WORD *)v13 + 92) = v82;
-          MiReturnWsToExpansionList(v13, 0LL);
-          v10 = v77;
-          v7 = a2;
-          v5 = v68;
         }
-      }
-      v30 = (__int64 *)*v8;
-      v31 = (__int64 **)(v13 + 3);
-      if ( *(__int64 **)(*v8 + 8) != v8 )
-        goto LABEL_80;
-      *v31 = v30;
-      v31[1] = v8;
-      v30[1] = (__int64)v31;
-      *v8 = (__int64)v31;
-      if ( v71 )
-      {
-        v3 = a1;
-        v63 = MiCheckSystemTrimEndCriteria(a1, v7, &LockHandle);
-        v7 = a2;
-        if ( !v63 )
+        __writecr8(OldIrql);
+        v6 = v72;
+        v11 = MiTrimOrAgeWorkingSet(v15, v8, v72, v10);
+        if ( v11 == 1 )
+          *(_BYTE *)(a2 + 4) = 2;
+        LockHandle.LockQueue.Lock = &SpinLock;
+        LockHandle.LockQueue.Next = 0LL;
+        v22 = KeGetCurrentIrql();
+        __writecr8(2uLL);
+        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v22 <= 0xFu )
         {
-          v4 = Event;
-          continue;
+          v62 = KeGetCurrentPrcb();
+          *((_DWORD *)v62->SchedulerAssist + 5) |= (-1 << (v22 + 1)) & 4;
         }
+        LockHandle.OldIrql = v22;
+        v23 = KeGetCurrentPrcb();
+        v24 = v23->SchedulerAssist;
+        if ( v24 )
+        {
+          if ( v23->NestingLevel <= 1u )
+          {
+            v63 = v24[6];
+            v24[6] = v63 + 1;
+            if ( v63 == -1 )
+              KiRemoveSystemWorkPriorityKick(v23);
+          }
+        }
+        if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
+        {
+          KiAcquireQueuedSpinLockInstrumented(&LockHandle, &SpinLock);
+        }
+        else if ( _InterlockedExchange64((volatile __int64 *)&SpinLock, (__int64)&LockHandle) )
+        {
+          KxWaitForLockOwnerShip(&LockHandle);
+        }
+LABEL_35:
+        if ( !v17 || (v25 = 0, (struct _LIST_ENTRY *)v15[12] < Event[2].Header.WaitListHead.Flink) || v15[13] )
+          v25 = 1;
+        v26 = *((_DWORD *)v15 + 46);
+        LOBYTE(v83) = v26;
+        if ( v25 )
+        {
+          HIBYTE(v83) = BYTE1(v26) & 0xF9;
+          *((_WORD *)v15 + 92) = v83;
+          v27 = *((unsigned __int16 *)v15 + 87);
+          v28 = *(_QWORD *)(qword_140C4E648 + 8 * v27) + 6856LL;
+          v29 = *(__int64 ***)(*(_QWORD *)(qword_140C4E648 + 8 * v27) + 6864LL);
+          if ( *v29 != (__int64 *)v28 )
+            goto LABEL_83;
+          *v16 = v28;
+          v16[1] = (__int64)v29;
+          *v29 = v16;
+          *(_QWORD *)(v28 + 8) = v16;
+          v30 = v15[13];
+          if ( v30 )
+            KeSignalGate(v30, 1LL);
+        }
+        else
+        {
+          v15[4] = (__int64)v7;
+          HIBYTE(v83) = BYTE1(v26) | 6;
+          v7 = v15 + 4;
+          *((_WORD *)v15 + 92) = v83;
+        }
+        v8 = a2;
+        v10 = 0LL;
+        if ( v11 == 1 )
+          goto LABEL_46;
+        v12 = v81;
       }
-      break;
+      else if ( v15[13] )
+      {
+        v49 = (__int64 **)v9[1];
+        if ( *v49 != v9 )
+          goto LABEL_83;
+        *v16 = (__int64)v9;
+        v16[1] = (__int64)v49;
+        *v49 = v16;
+        v9[1] = (__int64)v16;
+      }
+      else
+      {
+        v84 = *((_DWORD *)v15 + 46);
+        BYTE1(v84) |= 6u;
+        *((_WORD *)v15 + 92) = v84;
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+        v50 = LockHandle.OldIrql;
+        if ( KiIrqlFlags )
+        {
+          if ( (KiIrqlFlags & 1) != 0 )
+          {
+            v51 = KeGetCurrentIrql();
+            if ( v51 <= 0xFu && LockHandle.OldIrql <= 0xFu && v51 >= 2u )
+            {
+              v52 = KeGetCurrentPrcb();
+              v53 = v52->SchedulerAssist;
+              v54 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+              v55 = (v54 & v53[5]) == 0;
+              v53[5] &= v54;
+              if ( v55 )
+                KiRemoveSystemWorkPriorityKick(v52);
+            }
+          }
+        }
+        __writecr8(v50);
+        KeRetryOutswapProcess(v15 - 208);
+        KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
+        v85 = *((_DWORD *)v15 + 46);
+        BYTE1(v85) &= 0xF9u;
+        *((_WORD *)v15 + 92) = v85;
+        MiReturnWsToExpansionList(v15, 0LL);
+        v12 = v81;
+        v10 = 0LL;
+        v8 = a2;
+        v6 = v72;
+      }
     }
+    v31 = (__int64 **)v9[1];
+    v32 = (__int64 **)(v15 + 3);
+    if ( *v31 != v9 )
+      goto LABEL_83;
+    *v32 = v9;
+    v32[1] = (__int64 *)v31;
+    *v31 = (__int64 *)v32;
+    v9[1] = (__int64)v32;
+LABEL_46:
+    v3 = a1;
 LABEL_49:
-    if ( (v5 & 0x20) != 0 )
+    if ( (v6 & 0x40) != 0 )
     {
-LABEL_45:
-      while ( v6 )
+      while ( v7 )
       {
-        v44 = *((_DWORD *)v6 + 38);
-        v45 = v6 - 4;
-        v6 = (_QWORD *)*v6;
-        *((_WORD *)v45 + 92) = v44 & 0xF9FF;
-        MiReturnWsToExpansionList(v45, 1LL);
+        v43 = *((_DWORD *)v7 + 38);
+        v44 = v7 - 4;
+        v7 = (_QWORD *)*v7;
+        *((_WORD *)v44 + 92) = v43 & 0xF9FF;
+        MiReturnWsToExpansionList(v44, 1LL);
       }
-      v7 = a2;
+      v8 = a2;
+      v10 = 0LL;
     }
-    v32 = v5 | v69;
-    v69 |= v5;
-    if ( v9 )
+    v5 = Event;
+    v35 = v6 | v73;
+    v73 |= v6;
+    if ( v11 != 1 )
     {
-      BYTE1(Event[2].Header.SignalState) = 0;
-      if ( (v32 & 5) != 0 )
-        LOBYTE(Event[2].Header.SignalState) = 0;
-      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-      v40 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      v36 = v6 & 0xFFFFFF3C | v74;
+      Blink = (int)Event[1].Header.WaitListHead.Blink;
+      v74 = v36;
+      if ( v36 == Blink )
       {
-        if ( (KiIrqlFlags & 1) != 0 )
+        BYTE1(Event[2].Header.SignalState) = 0;
+        if ( (v35 & 5) != 0 )
+          LOBYTE(Event[2].Header.SignalState) = 0;
+        if ( Blink )
         {
-          v66 = KeGetCurrentIrql();
-          if ( v66 <= 0xFu && LockHandle.OldIrql <= 0xFu && v66 >= 2u )
+          LODWORD(Event[1].Header.WaitListHead.Blink) = 0;
+          KeSetEvent(Event, 0, 0);
+        }
+        if ( (v35 & 0x83) != 0 )
+        {
+          Event[100].Header.WaitListHead.Blink = *(struct _LIST_ENTRY **)(a2 + 8);
+          *(_QWORD *)&Event[101].Header.Lock = *(_QWORD *)(a2 + 16);
+          Event[101].Header.WaitListHead.Flink = *(struct _LIST_ENTRY **)(a2 + 24);
+          Event[101].Header.WaitListHead.Blink = *(struct _LIST_ENTRY **)(a2 + 32);
+          *(_QWORD *)&Event[102].Header.Lock = *(_QWORD *)(a2 + 40);
+          Event[102].Header.WaitListHead.Flink = *(struct _LIST_ENTRY **)(a2 + 48);
+          Event[102].Header.WaitListHead.Blink = *(struct _LIST_ENTRY **)(a2 + 56);
+          v38 = *(_QWORD *)(a2 + 64);
+          *(_QWORD *)&Event[103].Header.Lock = v38;
+          Event[100].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)((char *)Event[102].Header.WaitListHead.Blink
+                                                                      + v38);
+        }
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+        v39 = LockHandle.OldIrql;
+        if ( KiIrqlFlags )
+        {
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            v39 = KeGetCurrentPrcb();
-            v38 = (__int64)v39->SchedulerAssist;
-            v67 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-            v56 = (v67 & *(_DWORD *)(v38 + 20)) == 0;
-            v37 = (unsigned int)v67 & *(_DWORD *)(v38 + 20);
-            *(_DWORD *)(v38 + 20) = v37;
-            if ( v56 )
-              goto LABEL_129;
+            v65 = KeGetCurrentIrql();
+            if ( v65 <= 0xFu && LockHandle.OldIrql <= 0xFu && v65 >= 2u )
+            {
+              v66 = KeGetCurrentPrcb();
+              v67 = v66->SchedulerAssist;
+              v68 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+              v55 = (v68 & v67[5]) == 0;
+              v67[5] &= v68;
+              if ( v55 )
+                goto LABEL_134;
+            }
           }
         }
+        goto LABEL_59;
       }
-    }
-    else
-    {
-      v4 = Event;
-      v33 = v5 & 0xFFFFFB9C | v70;
-      v70 = v33;
-      v34 = (__int64)Event[1].Header.WaitListHead.Blink & 0xFFFFFBFF;
-      if ( v33 != v34 )
-      {
-        v5 = v34 ^ v33;
-        v68 = v34 ^ v33;
-        if ( ((LOBYTE(Event[1].Header.WaitListHead.Blink) ^ (unsigned __int8)v33) & 5) != 0 )
-          LOBYTE(Event[2].Header.SignalState) = 1;
-        v3 = a1;
-        *(_BYTE *)(v7 + 2) = 6;
-        continue;
-      }
-      BYTE1(Event[2].Header.SignalState) = 0;
-      if ( (v32 & 5) != 0 )
-        LOBYTE(Event[2].Header.SignalState) = 0;
-      if ( LODWORD(Event[1].Header.WaitListHead.Blink) )
-      {
-        LODWORD(Event[1].Header.WaitListHead.Blink) &= 0x400u;
-        KeSetEvent(Event, 0, 0);
-        v32 = v69;
-      }
-      if ( (v32 & 0x43) != 0 )
-      {
-        Event[100].Header.WaitListHead.Blink = *(struct _LIST_ENTRY **)(a2 + 8);
-        *(_QWORD *)&Event[101].Header.Lock = *(_QWORD *)(a2 + 16);
-        Event[101].Header.WaitListHead.Flink = *(struct _LIST_ENTRY **)(a2 + 24);
-        Event[101].Header.WaitListHead.Blink = *(struct _LIST_ENTRY **)(a2 + 32);
-        *(_QWORD *)&Event[102].Header.Lock = *(_QWORD *)(a2 + 40);
-        Event[102].Header.WaitListHead.Flink = *(struct _LIST_ENTRY **)(a2 + 48);
-        v35 = *(struct _LIST_ENTRY **)(a2 + 56);
-        Event[102].Header.WaitListHead.Blink = v35;
-        v36 = *(_QWORD *)(a2 + 64);
-        *(_QWORD *)&Event[103].Header.Lock = v36;
-        Event[100].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)((char *)v35 + v36);
-      }
-      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-      v40 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
-      {
-        if ( (KiIrqlFlags & 1) != 0 )
-        {
-          v64 = KeGetCurrentIrql();
-          if ( v64 <= 0xFu && LockHandle.OldIrql <= 0xFu && v64 >= 2u )
-          {
-            v39 = KeGetCurrentPrcb();
-            v38 = (__int64)v39->SchedulerAssist;
-            v65 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-            v56 = (v65 & *(_DWORD *)(v38 + 20)) == 0;
-            v37 = (unsigned int)v65 & *(_DWORD *)(v38 + 20);
-            *(_DWORD *)(v38 + 20) = v37;
-            if ( v56 )
-LABEL_129:
-              KiRemoveSystemWorkPriorityKick(v39);
-          }
-        }
-      }
+      v6 = v36 ^ Blink;
+      v72 = v6;
+      if ( (v6 & 5) != 0 )
+        LOBYTE(Event[2].Header.SignalState) = 1;
+      *(_BYTE *)(v8 + 2) = 6;
+      continue;
     }
     break;
   }
-  __writecr8(v40);
-  MiLogProcessWorkingSetsStop(a1, v37, v38, (__int64)v39);
+  BYTE1(Event[2].Header.SignalState) = 0;
+  if ( (v35 & 5) != 0 )
+    LOBYTE(Event[2].Header.SignalState) = 0;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  v39 = LockHandle.OldIrql;
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      v69 = KeGetCurrentIrql();
+      if ( v69 <= 0xFu && LockHandle.OldIrql <= 0xFu && v69 >= 2u )
+      {
+        v66 = KeGetCurrentPrcb();
+        v70 = v66->SchedulerAssist;
+        v71 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v55 = (v71 & v70[5]) == 0;
+        v70[5] &= v71;
+        if ( v55 )
+LABEL_134:
+          KiRemoveSystemWorkPriorityKick(v66);
+      }
+    }
+  }
+LABEL_59:
+  __writecr8(v39);
+  return MiLogProcessWorkingSetsStop(v3);
 }

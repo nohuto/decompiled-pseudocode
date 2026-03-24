@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmRaiseCreateEvent @ 0x140880A74
+ * XREFs of _CmRaiseCreateEvent @ 0x140747F50
  * Callers:
- *     _CmCreateDeviceContainerWorker @ 0x14079BA3C (_CmCreateDeviceContainerWorker.c)
- *     _CmCreateDeviceWorker @ 0x1407D7D8C (_CmCreateDeviceWorker.c)
- *     _CmCreateDeviceInterfaceWorker @ 0x140880754 (_CmCreateDeviceInterfaceWorker.c)
- *     _CmCreateInterfaceClassWorker @ 0x1408809E0 (_CmCreateInterfaceClassWorker.c)
- *     _CmCreateInstallerClassWorker @ 0x140A60FB0 (_CmCreateInstallerClassWorker.c)
- *     _CmCreateDevicePanelWorker @ 0x140A65D28 (_CmCreateDevicePanelWorker.c)
+ *     _CmCreateDeviceInterfaceWorker @ 0x140747E3C (_CmCreateDeviceInterfaceWorker.c)
+ *     _CmCreateInterfaceClassWorker @ 0x140748170 (_CmCreateInterfaceClassWorker.c)
+ *     _CmCreateDeviceWorker @ 0x1407491D4 (_CmCreateDeviceWorker.c)
+ *     _CmCreateDeviceContainerWorker @ 0x140758DB8 (_CmCreateDeviceContainerWorker.c)
+ *     _CmCreateInstallerClassWorker @ 0x140974CAC (_CmCreateInstallerClassWorker.c)
+ *     _CmCreateDevicePanelWorker @ 0x140977C04 (_CmCreateDevicePanelWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     _CmMapCmObjectTypeToPnpObjectType @ 0x140789824 (_CmMapCmObjectTypeToPnpObjectType.c)
- *     _PnpObjectRaiseCreateEvent @ 0x140880AD8 (_PnpObjectRaiseCreateEvent.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x1406AF1A8 (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     _PnpObjectRaiseCreateEvent @ 0x140747FB4 (_PnpObjectRaiseCreateEvent.c)
  */
 
 __int64 (__fastcall *__fastcall CmRaiseCreateEvent(
@@ -21,17 +21,18 @@ __int64 (__fastcall *__fastcall CmRaiseCreateEvent(
 {
   unsigned int v8; // eax
   __int64 v9; // rdx
+  __int64 v10; // r9
   __int64 (__fastcall *result)(__int64, __int64, _QWORD, __int64, _QWORD *); // rax
-  _QWORD v11[3]; // [rsp+30h] [rbp-18h] BYREF
+  _QWORD v12[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  v11[1] = 0LL;
+  v12[1] = 0LL;
   v8 = CmMapCmObjectTypeToPnpObjectType(a3);
-  PnpObjectRaiseCreateEvent(a1, v9, v8);
+  PnpObjectRaiseCreateEvent(a1, v9, v8, v10);
   result = *(__int64 (__fastcall **)(__int64, __int64, _QWORD, __int64, _QWORD *))(a1 + 512);
   if ( result )
   {
-    v11[0] = a4;
-    return (__int64 (__fastcall *)(__int64, __int64, _QWORD, __int64, _QWORD *))result(a1, a2, a3, 2LL, v11);
+    v12[0] = a4;
+    return (__int64 (__fastcall *)(__int64, __int64, _QWORD, __int64, _QWORD *))result(a1, a2, a3, 2LL, v12);
   }
   return result;
 }

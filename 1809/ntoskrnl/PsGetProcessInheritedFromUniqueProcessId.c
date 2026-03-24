@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessInheritedFromUniqueProcessId @ 0x1400AC020
+ * XREFs of PsGetProcessInheritedFromUniqueProcessId @ 0x1400AC040
  * Callers:
  *     PsChargeProcessWakeCounter @ 0x140588720 (PsChargeProcessWakeCounter.c)
  *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)

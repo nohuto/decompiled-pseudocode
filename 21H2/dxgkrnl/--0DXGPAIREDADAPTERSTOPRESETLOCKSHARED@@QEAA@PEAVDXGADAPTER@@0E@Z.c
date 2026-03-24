@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0DXGPAIREDADAPTERSTOPRESETLOCKSHARED@@QEAA@PEAVDXGADAPTER@@0E@Z @ 0x1C002B5A4
+ * XREFs of ??0DXGPAIREDADAPTERSTOPRESETLOCKSHARED@@QEAA@PEAVDXGADAPTER@@0E@Z @ 0x1C0025A60
  * Callers:
- *     DxgkWaitForVerticalBlankEventInternal @ 0x1C0177070 (DxgkWaitForVerticalBlankEventInternal.c)
- *     ?DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z @ 0x1C0178000 (-DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z.c)
- *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018C4C0 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     ?DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z @ 0x1C00F6D80 (-DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z.c)
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C0126EB0 (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     ?DxgkWaitForVerticalBlankEventInternal@@YAJIIIIPEAPEAU_KEVENT@@@Z @ 0x1C0157380 (-DxgkWaitForVerticalBlankEventInternal@@YAJIIIIPEAPEAU_KEVENT@@@Z.c)
  * Callees:
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3A0 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00065B8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
  */
 
 DXGPAIREDADAPTERSTOPRESETLOCKSHARED *__fastcall DXGPAIREDADAPTERSTOPRESETLOCKSHARED::DXGPAIREDADAPTERSTOPRESETLOCKSHARED(
@@ -13,25 +13,25 @@ DXGPAIREDADAPTERSTOPRESETLOCKSHARED *__fastcall DXGPAIREDADAPTERSTOPRESETLOCKSHA
         struct DXGADAPTER *a2,
         struct DXGADAPTER *a3)
 {
-  char *v4; // rcx
+  DXGADAPTERSTOPRESETLOCKSHARED *v4; // rcx
   struct DXGADAPTER *v5; // rax
   char v6; // al
   DXGPAIREDADAPTERSTOPRESETLOCKSHARED *result; // rax
 
   *((_QWORD *)this + 1) = a2;
   *((_BYTE *)this + 16) = 0;
-  v4 = (char *)this + 24;
+  v4 = (DXGPAIREDADAPTERSTOPRESETLOCKSHARED *)((char *)this + 24);
   v5 = a2;
   if ( a3 )
     v5 = a3;
-  v4[16] = 0;
-  *((_QWORD *)v4 + 1) = v5;
+  *((_BYTE *)this + 40) = 0;
+  *((_QWORD *)this + 4) = v5;
   if ( !a3 || (v6 = 0, a3 == a2) )
     v6 = 1;
   *((_BYTE *)this + 48) = v6;
   *((_BYTE *)this + 49) = 0;
   if ( !v6 )
-    DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v4);
+    DXGADAPTERSTOPRESETLOCKSHARED::Acquire(v4);
   DXGADAPTERSTOPRESETLOCKSHARED::Acquire(this);
   result = this;
   *((_BYTE *)this + 49) = 1;

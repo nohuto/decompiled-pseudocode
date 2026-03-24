@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DxgkGetBootAnimationRelayState@@YA?AW4_CDD_BOOT_ANIMATION_RELAY_STATE@@XZ @ 0x1C01EAA60
+ * XREFs of ?DxgkGetBootAnimationRelayState@@YA?AW4_CDD_BOOT_ANIMATION_RELAY_STATE@@XZ @ 0x1C016D6D0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
  */
 
-__int64 DxgkGetBootAnimationRelayState()
+__int64 __fastcall DxgkGetBootAnimationRelayState(__int64 a1, __int64 a2)
 {
-  return *((unsigned int *)DXGGLOBAL::GetGlobal() + 405);
+  return *((unsigned int *)DXGGLOBAL::GetGlobal(a1, a2) + 373);
 }

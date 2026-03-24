@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpTraceDatabaseReleaseLock @ 0x1405B1948
+ * XREFs of RtlpTraceDatabaseReleaseLock @ 0x14058EE58
  * Callers:
- *     RtlTraceDatabaseAdd @ 0x1405B12B0 (RtlTraceDatabaseAdd.c)
- *     RtlTraceDatabaseEnumerate @ 0x1405B14D0 (RtlTraceDatabaseEnumerate.c)
- *     RtlTraceDatabaseFind @ 0x1405B1590 (RtlTraceDatabaseFind.c)
- *     RtlTraceDatabaseUnlock @ 0x1405B1620 (RtlTraceDatabaseUnlock.c)
- *     RtlTraceDatabaseValidate @ 0x1405B1640 (RtlTraceDatabaseValidate.c)
+ *     RtlTraceDatabaseAdd @ 0x14058E7A0 (RtlTraceDatabaseAdd.c)
+ *     RtlTraceDatabaseEnumerate @ 0x14058E9C0 (RtlTraceDatabaseEnumerate.c)
+ *     RtlTraceDatabaseFind @ 0x14058EA90 (RtlTraceDatabaseFind.c)
+ *     RtlTraceDatabaseUnlock @ 0x14058EB20 (RtlTraceDatabaseUnlock.c)
+ *     RtlTraceDatabaseValidate @ 0x14058EB40 (RtlTraceDatabaseValidate.c)
  * Callees:
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall RtlpTraceDatabaseReleaseLock(__int64 a1)
@@ -25,26 +25,29 @@ char __fastcall RtlpTraceDatabaseReleaseLock(__int64 a1)
   if ( (*(_DWORD *)(a1 + 4) & 4) != 0 )
   {
     v1 = *(unsigned __int8 *)(a1 + 40);
-    KxReleaseSpinLock((volatile signed __int64 *)(a1 + 56));
+    KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 56));
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v5 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
-        v6 = (v5 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v5;
-        if ( v6 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v5 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
+          v6 = (v5 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v5;
+          if ( v6 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v1);
   }
   else
   {
-    ExReleaseFastMutex((PFAST_MUTEX)(a1 + 56));
+    KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a1 + 56));
   }
   return 1;
 }

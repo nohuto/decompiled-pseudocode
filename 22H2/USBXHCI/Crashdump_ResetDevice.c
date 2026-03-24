@@ -1,12 +1,12 @@
 /*
- * XREFs of Crashdump_ResetDevice @ 0x1C004CC40
+ * XREFs of Crashdump_ResetDevice @ 0x1C004A170
  * Callers:
  *     <none>
  * Callees:
- *     Crashdump_Register_ResetPort @ 0x1C004DA70 (Crashdump_Register_ResetPort.c)
- *     Crashdump_UsbDevice_GetPortType @ 0x1C0050484 (Crashdump_UsbDevice_GetPortType.c)
- *     Crashdump_UsbDevice_ReConfigureOnPortReset @ 0x1C0050840 (Crashdump_UsbDevice_ReConfigureOnPortReset.c)
- *     Crashdump_UsbDevice_ResetPort @ 0x1C0050940 (Crashdump_UsbDevice_ResetPort.c)
+ *     Crashdump_Register_ResetPort @ 0x1C004AFB8 (Crashdump_Register_ResetPort.c)
+ *     Crashdump_UsbDevice_GetPortType @ 0x1C004D9AC (Crashdump_UsbDevice_GetPortType.c)
+ *     Crashdump_UsbDevice_ReConfigureOnPortReset @ 0x1C004DD70 (Crashdump_UsbDevice_ReConfigureOnPortReset.c)
+ *     Crashdump_UsbDevice_ResetPort @ 0x1C004DE70 (Crashdump_UsbDevice_ResetPort.c)
  */
 
 __int64 __fastcall Crashdump_ResetDevice(__int64 a1)

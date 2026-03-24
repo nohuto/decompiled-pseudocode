@@ -1,22 +1,22 @@
 /*
- * XREFs of DrvGetDisplayDriverParameters @ 0x1C007A2E4
+ * XREFs of DrvGetDisplayDriverParameters @ 0x1C00172D8
  * Callers:
- *     DrvEnumDisplaySettings @ 0x1C006F640 (DrvEnumDisplaySettings.c)
- *     ?DrvProbeAndCaptureDevmode@@YAJPEAUtagGRAPHICS_DEVICE@@PEAPEAU_devicemodeW@@PEAH2PEAU2@HHHH3@Z @ 0x1C00793CC (-DrvProbeAndCaptureDevmode@@YAJPEAUtagGRAPHICS_DEVICE@@PEAPEAU_devicemodeW@@PEAH2PEAU2@HHHH3@Z.c)
+ *     ?DrvProbeAndCaptureDevmode@@YAJPEAUtagGRAPHICS_DEVICE@@PEAPEAU_devicemodeW@@PEAH2PEAU2@HHHH3@Z @ 0x1C00163F8 (-DrvProbeAndCaptureDevmode@@YAJPEAUtagGRAPHICS_DEVICE@@PEAPEAU_devicemodeW@@PEAH2PEAU2@HHHH3@Z.c)
+ *     DrvEnumDisplaySettings @ 0x1C001F9E0 (DrvEnumDisplaySettings.c)
  * Callees:
- *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C0072CC4 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
- *     ?DrvGetDisplayDriverDpiSetting@@YAXPEAU_devicemodeW@@@Z @ 0x1C007A7E8 (-DrvGetDisplayDriverDpiSetting@@YAXPEAU_devicemodeW@@@Z.c)
- *     ?DrvLogDisplayDriverEvent@@YAXW4_DISP_DRIVER_LOG@@@Z @ 0x1C00BB16C (-DrvLogDisplayDriverEvent@@YAXW4_DISP_DRIVER_LOG@@@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?DrvGetDisplayDriverDpiSetting@@YAXPEAU_devicemodeW@@@Z @ 0x1C00177DC (-DrvGetDisplayDriverDpiSetting@@YAXPEAU_devicemodeW@@@Z.c)
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C00297C0 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     ?DrvLogDisplayDriverEvent@@YAXW4_DISP_DRIVER_LOG@@@Z @ 0x1C00B7374 (-DrvLogDisplayDriverEvent@@YAXW4_DISP_DRIVER_LOG@@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall DrvGetDisplayDriverParameters(__int64 a1, struct _devicemodeW *a2, int a3, __int64 a4)
 {
   NTSTATUS v7; // r14d
   int v8; // edi
-  int v9; // r10d
+  unsigned int v9; // r10d
   DWORD *p_dmBitsPerPel; // rcx
   DWORD *p_dmPelsWidth; // rdx
   PCWSTR *p_Name; // rcx
@@ -273,7 +273,7 @@ __int64 __fastcall DrvGetDisplayDriverParameters(__int64 a1, struct _devicemodeW
     {
       p_Name = &QueryTable.Name;
       v13 = 13LL;
-      v14 = off_1C024AEC0;
+      v14 = off_1C020B140;
       do
       {
         v15 = *v14++;
@@ -285,13 +285,7 @@ __int64 __fastcall DrvGetDisplayDriverParameters(__int64 a1, struct _devicemodeW
       v16 = 1;
       while ( 1 )
       {
-        RegistryHandleFromDeviceMap = (const WCHAR *)DrvGetRegistryHandleFromDeviceMap(
-                                                       (unsigned __int16 *)a1,
-                                                       v9,
-                                                       0LL,
-                                                       0LL,
-                                                       0,
-                                                       0LL);
+        RegistryHandleFromDeviceMap = (const WCHAR *)DrvGetRegistryHandleFromDeviceMap(a1, v9, 0LL, 0LL, 0, 0LL, v27);
         v18 = (WCHAR *)RegistryHandleFromDeviceMap;
         if ( RegistryHandleFromDeviceMap )
         {

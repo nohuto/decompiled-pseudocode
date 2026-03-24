@@ -1,8 +1,8 @@
 /*
- * XREFs of HvFreeUnreconciledData @ 0x1406C3D64
+ * XREFs of HvFreeUnreconciledData @ 0x1406C3D44
  * Callers:
  *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     HvFoldBackUnreconciledData @ 0x1407FAD48 (HvFoldBackUnreconciledData.c)
+ *     HvFoldBackUnreconciledData @ 0x1407FAD28 (HvFoldBackUnreconciledData.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

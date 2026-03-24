@@ -1,15 +1,15 @@
 /*
- * XREFs of MiEmptyWorkingSetPrivatePagesByVa @ 0x1402A7A20
+ * XREFs of MiEmptyWorkingSetPrivatePagesByVa @ 0x1402A7B20
  * Callers:
- *     MiFlushAllPages @ 0x140153118 (MiFlushAllPages.c)
- *     MmProcessWorkingSetControl @ 0x14085EDA0 (MmProcessWorkingSetControl.c)
+ *     MiFlushAllPages @ 0x140153138 (MiFlushAllPages.c)
+ *     MmProcessWorkingSetControl @ 0x14085ED80 (MmProcessWorkingSetControl.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
  *     MiVadMapsLargeImage @ 0x140074A10 (MiVadMapsLargeImage.c)
  *     MiUnlockVad @ 0x1400784B0 (MiUnlockVad.c)
- *     MiEmptyWorkingSetInitiate @ 0x140142200 (MiEmptyWorkingSetInitiate.c)
+ *     MiEmptyWorkingSetInitiate @ 0x140142220 (MiEmptyWorkingSetInitiate.c)
  */
 
 __int64 __fastcall MiEmptyWorkingSetPrivatePagesByVa(__int64 a1)

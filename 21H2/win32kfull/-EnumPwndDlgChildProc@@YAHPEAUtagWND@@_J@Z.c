@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z @ 0x1C025D360
+ * XREFs of ?EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z @ 0x1C02606F0
  * Callers:
  *     <none>
  * Callees:
- *     IsVisible @ 0x1C006C350 (IsVisible.c)
- *     PtInRect @ 0x1C0077984 (PtInRect.c)
- *     ?IsHelpParent@@YAHPEAUtagWND@@@Z @ 0x1C025D3AC (-IsHelpParent@@YAHPEAUtagWND@@@Z.c)
+ *     PtInRect @ 0x1C004DEBC (PtInRect.c)
+ *     IsVisible @ 0x1C0068164 (IsVisible.c)
+ *     ?IsHelpParent@@YAHPEAUtagWND@@@Z @ 0x1C026073C (-IsHelpParent@@YAHPEAUtagWND@@@Z.c)
  */
 
 __int64 __fastcall EnumPwndDlgChildProc(struct tagWND *a1, struct tagWND **a2)

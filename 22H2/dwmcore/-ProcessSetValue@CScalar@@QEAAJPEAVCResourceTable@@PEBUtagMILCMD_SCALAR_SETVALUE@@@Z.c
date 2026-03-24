@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ProcessSetValue@CScalar@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SCALAR_SETVALUE@@@Z @ 0x18024E8BC
+ * XREFs of ?ProcessSetValue@CScalar@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SCALAR_SETVALUE@@@Z @ 0x1801E87BC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?RegisterAnimateResource@CBaseAnimation@@QEAAJXZ @ 0x1800F3434 (-RegisterAnimateResource@CBaseAnimation@@QEAAJXZ.c)
+ *     ?RegisterAnimateResource@CBaseAnimation@@QEAAJXZ @ 0x180029D80 (-RegisterAnimateResource@CBaseAnimation@@QEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CScalar::ProcessSetValue(
-        CScalar *this,
+        CComposition **this,
         struct CResourceTable *a2,
         const struct tagMILCMD_SCALAR_SETVALUE *a3)
 {
@@ -19,14 +19,14 @@ __int64 __fastcall CScalar::ProcessSetValue(
 
   v3 = 0;
   v4 = *((float *)a3 + 2);
-  if ( v4 != *((float *)this + 28) )
+  if ( v4 != *((float *)this + 26) )
   {
     v6 = CBaseAnimation::RegisterAnimateResource(this);
     v3 = v6;
     if ( v6 < 0 )
       MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x1Fu, 0LL);
     else
-      *((float *)this + 28) = v4;
+      *((float *)this + 26) = v4;
   }
   return v3;
 }

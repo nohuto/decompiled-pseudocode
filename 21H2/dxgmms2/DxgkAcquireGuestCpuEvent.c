@@ -1,12 +1,12 @@
 /*
- * XREFs of DxgkAcquireGuestCpuEvent @ 0x1C002D10C
+ * XREFs of DxgkAcquireGuestCpuEvent @ 0x1C00178CC
  * Callers:
- *     VidSchCreateSyncObject @ 0x1C0099A90 (VidSchCreateSyncObject.c)
+ *     VidSchCreateSyncObject @ 0x1C0083960 (VidSchCreateSyncObject.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 DxgkAcquireGuestCpuEvent()
 {
-  return ((__int64 (*)(void))DxgCoreInterface[91])();
+  return DxgCoreInterface[78]();
 }

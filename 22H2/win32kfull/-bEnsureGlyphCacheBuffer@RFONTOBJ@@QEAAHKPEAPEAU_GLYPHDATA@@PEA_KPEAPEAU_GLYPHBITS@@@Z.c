@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z @ 0x1C007F3E8
+ * XREFs of ?bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z @ 0x1C009AEE8
  * Callers:
- *     FONTOBJ_bEnsureGlyphCacheBuffer @ 0x1C01400E8 (FONTOBJ_bEnsureGlyphCacheBuffer.c)
+ *     FONTOBJ_bEnsureGlyphCacheBuffer @ 0x1C016CB88 (FONTOBJ_bEnsureGlyphCacheBuffer.c)
  * Callees:
- *     ?pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z @ 0x1C007F49C (-pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z.c)
- *     ?bCheckMetricsCache@RFONTOBJ@@QEAAHXZ @ 0x1C007F750 (-bCheckMetricsCache@RFONTOBJ@@QEAAHXZ.c)
- *     ?bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z @ 0x1C02FD7BC (-bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z.c)
- *     ?vFlushCache@RFONTOBJ@@QEAAXXZ @ 0x1C02FDF58 (-vFlushCache@RFONTOBJ@@QEAAXXZ.c)
+ *     ?pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z @ 0x1C009AF98 (-pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z.c)
+ *     ?bCheckMetricsCache@RFONTOBJ@@QEAAHXZ @ 0x1C009CB0C (-bCheckMetricsCache@RFONTOBJ@@QEAAHXZ.c)
+ *     ?bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z @ 0x1C02D4E9C (-bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z.c)
+ *     ?vFlushCache@RFONTOBJ@@QEAAXXZ @ 0x1C02D5368 (-vFlushCache@RFONTOBJ@@QEAAXXZ.c)
  */
 
 __int64 __fastcall RFONTOBJ::bEnsureGlyphCacheBuffer(
@@ -16,52 +16,53 @@ __int64 __fastcall RFONTOBJ::bEnsureGlyphCacheBuffer(
         unsigned __int64 *a4,
         struct _GLYPHBITS **a5)
 {
-  __int64 v6; // rbx
-  unsigned __int64 v7; // rbp
-  struct _GLYPHBITS *v10; // rax
-  int v12; // ecx
+  __int64 v5; // rdi
+  unsigned __int64 v8; // rbp
+  _DWORD *v10; // r14
+  struct _GLYPHBITS *v11; // rax
   unsigned int v13; // eax
   struct _GLYPHDATA *v14; // rdx
 
-  v6 = *(_QWORD *)this + 512LL;
-  v7 = a2;
-  if ( (*(_DWORD *)(*(_QWORD *)this + 644LL) & 4) != 0 )
+  v5 = *(_QWORD *)this;
+  v8 = a2;
+  v10 = (_DWORD *)(*(_QWORD *)this + 644LL);
+  if ( (*v10 & 4) != 0 )
   {
     if ( !a3 )
-      goto LABEL_3;
+      goto LABEL_5;
     if ( (unsigned int)RFONTOBJ::bCheckMetricsCache(this) )
     {
-      *a3 = *(struct _GLYPHDATA **)v6;
-LABEL_3:
-      *a4 = (-(__int64)(*(_DWORD *)(*(_QWORD *)this + 640LL) != 0) & 0xFFFFFFFFFFFFFFD8uLL) + 64;
+      *a3 = *(struct _GLYPHDATA **)(v5 + 512);
+      v5 = *(_QWORD *)this;
+LABEL_5:
+      *a4 = (-(__int64)(*(_DWORD *)(v5 + 640) != 0) & 0xFFFFFFFFFFFFFFD8uLL) + 64;
       while ( 1 )
       {
-        v10 = (struct _GLYPHBITS *)RFONTOBJ::pgbCheckGlyphCache(this, v7);
-        if ( v10 )
-          goto LABEL_5;
-        v12 = *(_DWORD *)(v6 + 132);
-        if ( (v12 & 1) == 0 )
+        v11 = (struct _GLYPHBITS *)RFONTOBJ::pgbCheckGlyphCache(this, v8);
+        if ( v11 )
+          goto LABEL_7;
+        if ( (*v10 & 1) == 0 )
         {
-          if ( (v12 & 2) == 0 )
+          if ( (*v10 & 2) == 0 )
             return 0LL;
-          goto LABEL_5;
+          goto LABEL_7;
         }
         RFONTOBJ::vFlushCache(this);
-        *(_DWORD *)(v6 + 132) &= ~1u;
+        *v10 &= ~1u;
       }
     }
   }
   else if ( a3 )
   {
-    v13 = *(_DWORD *)(*(_QWORD *)this + 632LL);
-    if ( v13 >= 0x10 && v13 < 0xFFFFFFC0 && (unsigned int)RFONTOBJ::bEnsureAuxCacheBuffer(this, v13 + 64) )
+    v13 = *(_DWORD *)(v5 + 632);
+    if ( v13 >= 0x10 && v13 < 0xFFFFFFC0 && RFONTOBJ::bEnsureAuxCacheBuffer(this, v13 + 64) )
     {
       v14 = *(struct _GLYPHDATA **)(*(_QWORD *)this + 616LL);
       *a3 = v14;
       *a4 = 64LL;
-      v10 = (struct _GLYPHBITS *)&v14[1];
-LABEL_5:
-      *a5 = v10;
+      v11 = (struct _GLYPHBITS *)&v14[1];
+LABEL_7:
+      *a5 = v11;
       return 1LL;
     }
   }

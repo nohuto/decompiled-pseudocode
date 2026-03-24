@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DxgkWnfStateChangeCallback@@YAJPEAU_EX_WNF_SUBSCRIPTION@@PEBU_WNF_STATE_NAME@@KKPEBU_WNF_TYPE_ID@@PEAX@Z @ 0x1C01E6140
+ * XREFs of ?DxgkWnfStateChangeCallback@@YAJPEAU_EX_WNF_SUBSCRIPTION@@PEBU_WNF_STATE_NAME@@KKPEBU_WNF_TYPE_ID@@PEAX@Z @ 0x1C0165C80
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DxgkWnfStateChangeCallback(
@@ -18,20 +18,22 @@ __int64 __fastcall DxgkWnfStateChangeCallback(
         struct _EX_RUNDOWN_REF *a6)
 {
   struct DXGGLOBAL *Global; // rax
-  unsigned int v11; // ebx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  unsigned int v13; // ebx
   struct _KPROCESS *Count; // rcx
-  struct DXGGLOBAL *v13; // rax
+  struct DXGGLOBAL *v15; // rax
   struct _KAPC_STATE ApcState; // [rsp+40h] [rbp-88h] BYREF
 
-  Global = DXGGLOBAL::GetGlobal();
-  DXGPUSHLOCK::AcquireShared((struct DXGGLOBAL *)((char *)Global + 1456));
-  v11 = 0;
+  Global = DXGGLOBAL::GetGlobal((__int64)a1, (__int64)a2);
+  DXGPUSHLOCK::AcquireShared((struct DXGGLOBAL *)((char *)Global + 1336));
+  v13 = 0;
   if ( ExAcquireRundownProtection(a6 + 4) )
   {
     Count = (struct _KPROCESS *)a6[3].Count;
     memset(&ApcState, 0, sizeof(ApcState));
     KeStackAttachProcess(Count, &ApcState);
-    v11 = ((__int64 (__fastcall *)(struct _EX_WNF_SUBSCRIPTION *, const struct _WNF_STATE_NAME *, _QWORD, _QWORD, const struct _WNF_TYPE_ID *, struct _EX_RUNDOWN_REF *))a6[1].Count)(
+    v13 = ((__int64 (__fastcall *)(struct _EX_WNF_SUBSCRIPTION *, const struct _WNF_STATE_NAME *, _QWORD, _QWORD, const struct _WNF_TYPE_ID *, struct _EX_RUNDOWN_REF *))a6[1].Count)(
             a1,
             a2,
             a3,
@@ -41,9 +43,8 @@ __int64 __fastcall DxgkWnfStateChangeCallback(
     KeUnstackDetachProcess(&ApcState);
     ExReleaseRundownProtection(a6 + 4);
   }
-  v13 = DXGGLOBAL::GetGlobal();
-  _InterlockedDecrement((volatile signed __int32 *)v13 + 368);
-  ExReleasePushLockSharedEx((char *)v13 + 1456, 0LL);
+  v15 = DXGGLOBAL::GetGlobal(v12, v11);
+  ExReleasePushLockSharedEx((char *)v15 + 1336, 0LL);
   KeLeaveCriticalRegion();
-  return v11;
+  return v13;
 }

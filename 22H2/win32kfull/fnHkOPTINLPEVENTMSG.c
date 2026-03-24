@@ -1,100 +1,85 @@
 /*
- * XREFs of fnHkOPTINLPEVENTMSG @ 0x1C021116C
+ * XREFs of fnHkOPTINLPEVENTMSG @ 0x1C0230F40
  * Callers:
- *     xxxHkCallHook @ 0x1C0120850 (xxxHkCallHook.c)
+ *     xxxHkCallHook @ 0x1C005CA10 (xxxHkCallHook.c)
  * Callees:
- *     HMValidateHandle @ 0x1C002D0F8 (HMValidateHandle.c)
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBE98 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBF84 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00522B4 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005236C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052430 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052468 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     HMValidateHandle @ 0x1C0067040 (HMValidateHandle.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-__int64 __fastcall fnHkOPTINLPEVENTMSG(int a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5)
+__int64 __fastcall fnHkOPTINLPEVENTMSG(int a1, unsigned __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rax
-  bool v13; // zf
-  int v14; // eax
-  int v15; // ebx
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  __int64 v18; // r8
-  __int64 v19; // r9
-  __int64 *v20; // rcx
-  ULONG64 v21; // rdx
-  __int64 v22; // rbx
-  __int64 v23; // rcx
-  ULONG64 v24; // rcx
-  __int64 v25; // xmm0_8
-  int v27; // [rsp+50h] [rbp-68h] BYREF
-  __int64 v28; // [rsp+58h] [rbp-60h]
-  BOOL v29; // [rsp+60h] [rbp-58h]
-  __int64 v30; // [rsp+68h] [rbp-50h]
-  __int64 v31; // [rsp+70h] [rbp-48h]
-  __int128 v32; // [rsp+78h] [rbp-40h]
-  __int64 v33; // [rsp+88h] [rbp-30h]
-  int v34; // [rsp+90h] [rbp-28h]
-  char v35; // [rsp+C0h] [rbp+8h] BYREF
-  int v36; // [rsp+C8h] [rbp+10h] BYREF
-  unsigned __int64 v37; // [rsp+D0h] [rbp+18h] BYREF
+  __int64 v9; // rax
+  bool v10; // zf
+  int v11; // eax
+  int v12; // ebx
+  __int64 *v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // rdx
+  ULONG64 v16; // rcx
+  __int64 v17; // xmm0_8
+  _QWORD v19[13]; // [rsp+50h] [rbp-68h] BYREF
+  char v20; // [rsp+C0h] [rbp+8h] BYREF
+  int v21; // [rsp+C8h] [rbp+10h] BYREF
+  unsigned __int64 v22; // [rsp+D0h] [rbp+18h] BYREF
 
-  v37 = 0LL;
-  v36 = 0;
-  memset_0(&v27, 0, 0x48uLL);
-  v27 = a1;
-  v28 = a2;
-  v29 = a3 != 0LL;
+  v22 = 0LL;
+  v21 = 0;
+  memset(v19, 0, 0x48uLL);
+  LODWORD(v19[0]) = a1;
+  v19[1] = a2;
+  LODWORD(v19[2]) = a3 != 0;
   if ( a3 )
   {
-    v32 = *a3;
-    v33 = *((_QWORD *)a3 + 2);
+    *(_OWORD *)&v19[5] = *(_OWORD *)a3;
+    v19[7] = *(_QWORD *)(a3 + 16);
   }
-  v30 = a4;
-  v31 = a5;
-  v34 = 0;
+  v19[3] = a4;
+  v19[4] = a5;
+  LODWORD(v19[8]) = 0;
   if ( a2 )
   {
-    v12 = HMValidateHandle(a2, 5u);
-    if ( v12 )
+    v9 = HMValidateHandle(a2, 5u);
+    if ( v9 )
     {
-      v13 = (*(_BYTE *)(v12 + 64) & 4) == 0;
-      v14 = v34;
-      if ( !v13 )
-        v14 = 1;
-      v34 = v14;
+      v10 = (*(_BYTE *)(v9 + 64) & 4) == 0;
+      v11 = v19[8];
+      if ( !v10 )
+        v11 = 1;
+      LODWORD(v19[8]) = v11;
     }
   }
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition(
-    (LeaveEnterCritProperDisposition *)&v35,
-    v9,
-    v10,
-    v11);
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&a5);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v20);
   EtwTraceBeginCallback(49LL);
-  v15 = KeUserModeCallback(49LL, &v27, 72LL, &v37, &v36);
+  v12 = KeUserModeCallback(49LL, v19, 72LL, &v22, &v21);
   EtwTraceEndCallback(49LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v35, v16, v17);
-  if ( v15 >= 0 && v36 == 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v20);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&a5);
+  if ( v12 >= 0 && v21 == 24 )
   {
-    v20 = (__int64 *)v37;
-    v21 = v37 + 8;
-    if ( v37 + 8 < v37 || v21 > MmUserProbeAddress )
-      v20 = (__int64 *)MmUserProbeAddress;
-    v22 = *v20;
+    v13 = (__int64 *)v22;
+    if ( v22 + 8 < v22 || v22 + 8 > MmUserProbeAddress )
+      v13 = (__int64 *)MmUserProbeAddress;
+    v14 = *v13;
     if ( !a3 )
-      return v22;
-    v23 = *((_QWORD *)PtiCurrentShared((__int64)v20, v21, v18, v19) + 64);
-    if ( !v23 || (*(_DWORD *)(v23 + 84) & 1) == 0 || *(__int128 **)(v23 + 96) != a3 )
+      return v14;
+    v15 = *(_QWORD *)(gptiCurrent + 512LL);
+    if ( !v15 || (*(_DWORD *)(v15 + 84) & 1) == 0 || *(_QWORD *)(v15 + 96) != a3 )
     {
-      v24 = *(_QWORD *)(v37 + 16);
-      if ( v24 + 24 < v24 || v24 + 24 > MmUserProbeAddress )
-        v24 = MmUserProbeAddress;
-      v25 = *(_QWORD *)(v24 + 16);
-      *a3 = *(_OWORD *)v24;
-      *((_QWORD *)a3 + 2) = v25;
-      return v22;
+      v16 = *(_QWORD *)(v22 + 16);
+      if ( v16 + 24 < v16 || v16 + 24 > MmUserProbeAddress )
+        v16 = MmUserProbeAddress;
+      v17 = *(_QWORD *)(v16 + 16);
+      *(_OWORD *)a3 = *(_OWORD *)v16;
+      *(_QWORD *)(a3 + 16) = v17;
+      return v14;
     }
   }
   return -1LL;

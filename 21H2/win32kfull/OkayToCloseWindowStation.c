@@ -1,24 +1,18 @@
 /*
- * XREFs of OkayToCloseWindowStation @ 0x1C00FE120
+ * XREFs of OkayToCloseWindowStation @ 0x1C0065DB0
  * Callers:
  *     <none>
  * Callees:
- *     CheckHandleFlag @ 0x1C005DFC4 (CheckHandleFlag.c)
+ *     CheckHandleFlag @ 0x1C0066758 (CheckHandleFlag.c)
  */
 
-__int64 __fastcall OkayToCloseWindowStation(__int64 a1)
+__int64 __fastcall OkayToCloseWindowStation(PRKPROCESS *a1)
 {
-  unsigned int *v2; // rdi
-
-  v2 = *(unsigned int **)(a1 + 8);
-  if ( !*(_BYTE *)(a1 + 24) )
+  if ( !*((_BYTE *)a1 + 24) )
     return 0LL;
-  if ( (unsigned int)PsGetProcessSessionIdEx(*(_QWORD *)a1) == -1 )
+  if ( (unsigned int)PsGetProcessSessionIdEx(*a1) == -1 )
     return 3221225506LL;
-  if ( !(unsigned int)CheckHandleFlag(*(PRKPROCESS *)a1, *v2, *(_QWORD *)(a1 + 16), 2LL)
-    && !(unsigned int)CheckHandleFlag(*(PRKPROCESS *)a1, *v2, *(_QWORD *)(a1 + 16), 1LL) )
-  {
+  if ( !(unsigned int)CheckHandleFlag(*a1) && !(unsigned int)CheckHandleFlag(*a1) )
     return 0LL;
-  }
   return 2147483665LL;
 }

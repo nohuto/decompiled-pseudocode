@@ -1,89 +1,90 @@
 /*
- * XREFs of ACPIAmliEvaluateOsc @ 0x1C008F740
+ * XREFs of ACPIAmliEvaluateOsc @ 0x1C009A3A0
  * Callers:
- *     ACPIVerifyUSB4Presence @ 0x1C00027F4 (ACPIVerifyUSB4Presence.c)
- *     AcpiEvaluateOscMethodOnPciRootBus @ 0x1C000286C (AcpiEvaluateOscMethodOnPciRootBus.c)
- *     ACPIIoctlEvaluateUsb4Osc @ 0x1C00587F4 (ACPIIoctlEvaluateUsb4Osc.c)
- *     ACPIPccLegacyInitialize @ 0x1C008F4C8 (ACPIPccLegacyInitialize.c)
- *     ACPIEvaluateOscWheaMethodOnRootBus @ 0x1C008F648 (ACPIEvaluateOscWheaMethodOnRootBus.c)
- *     ACPIEvaluateOscMethodOnRootBus @ 0x1C008F6D8 (ACPIEvaluateOscMethodOnRootBus.c)
- *     ACPIRootInitialize @ 0x1C008F8C0 (ACPIRootInitialize.c)
+ *     AcpiEvaluateOscMethodOnPciRootBus @ 0x1C0011ABC (AcpiEvaluateOscMethodOnPciRootBus.c)
+ *     ACPIRootInitialize @ 0x1C0097FAC (ACPIRootInitialize.c)
+ *     ACPIPccLegacyInitialize @ 0x1C00982D0 (ACPIPccLegacyInitialize.c)
+ *     ACPIEvaluateOscWheaMethodOnRootBus @ 0x1C0098640 (ACPIEvaluateOscWheaMethodOnRootBus.c)
+ *     ACPIEvaluateOscMethodOnRootBus @ 0x1C00B4F44 (ACPIEvaluateOscMethodOnRootBus.c)
  * Callees:
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIEvalNameSpaceObject @ 0x1C000B894 (AMLIEvalNameSpaceObject.c)
- *     AMLIFreeDataBuffs @ 0x1C001C758 (AMLIFreeDataBuffs.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall ACPIAmliEvaluateOsc(__int64 *a1, __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)
 {
   __int64 v6; // rbx
   __int64 *v7; // rbp
-  __int64 Pool2; // rsi
-  __int64 v9; // rax
-  __int64 v10; // rdi
-  __int64 v11; // r15
-  int v12; // ebx
-  size_t v13; // r8
-  const void *v14; // rdx
+  PVOID PoolWithTag; // rsi
+  _OWORD *v9; // rdi
+  unsigned int v10; // r15d
+  int v11; // ebx
+  size_t v12; // r8
+  const void *v13; // rdx
 
   v6 = a4;
   v7 = AMLIGetNamedChild(a1, 1129533279);
   if ( v7 )
   {
-    Pool2 = ExAllocatePool2(64LL, 160LL, 1097884481LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0xA0uLL, 0x41706341u);
+    if ( PoolWithTag )
     {
-      v9 = ExAllocatePool2(64LL, 40LL, 1383097153LL);
-      v10 = v9;
+      v9 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x52706341u);
       if ( v9 )
       {
-        *(_QWORD *)(Pool2 + 32) = a2;
-        *(_WORD *)(Pool2 + 2) = 3;
-        *(_WORD *)(Pool2 + 122) = 3;
-        *(_DWORD *)(Pool2 + 24) = 16;
-        v11 = (unsigned int)v6;
-        *(_QWORD *)(Pool2 + 96) = v6;
-        *(_WORD *)(Pool2 + 42) = 1;
-        *(_QWORD *)(Pool2 + 56) = 1LL;
-        *(_WORD *)(Pool2 + 82) = 1;
-        *(_DWORD *)(Pool2 + 144) = 4 * v6;
-        *(_QWORD *)(Pool2 + 152) = a5;
-        v12 = AMLIEvalNameSpaceObject(v7, v9, 4u, Pool2);
-        if ( v12 >= 0 )
+        memset(PoolWithTag, 0, 0xA0uLL);
+        *v9 = 0LL;
+        v9[1] = 0LL;
+        *((_QWORD *)v9 + 4) = 0LL;
+        *((_WORD *)PoolWithTag + 1) = 3;
+        *((_WORD *)PoolWithTag + 21) = 1;
+        *((_QWORD *)PoolWithTag + 7) = 1LL;
+        *((_WORD *)PoolWithTag + 41) = 1;
+        *((_WORD *)PoolWithTag + 61) = 3;
+        *((_QWORD *)PoolWithTag + 4) = a2;
+        v10 = v6;
+        *((_DWORD *)PoolWithTag + 36) = 4 * v6;
+        *((_DWORD *)PoolWithTag + 6) = 16;
+        *((_QWORD *)PoolWithTag + 12) = v6;
+        *((_QWORD *)PoolWithTag + 19) = a5;
+        v11 = AMLIEvalNameSpaceObject((unsigned __int64 *)v7, (__int64)v9, 4, PoolWithTag);
+        if ( v11 >= 0 )
         {
-          if ( *(_WORD *)(v10 + 2) == 3
-            && (v13 = *(unsigned int *)(v10 + 24), v13 >= 4 * v11)
-            && (v14 = *(const void **)(v10 + 32)) != 0LL
-            && (memmove(a5, v14, v13), (*a5 & 0xE) == 0) )
+          if ( *((_WORD *)v9 + 1) == 3
+            && (v12 = *((unsigned int *)v9 + 6), v12 >= 4 * (unsigned __int64)v10)
+            && (v13 = (const void *)*((_QWORD *)v9 + 4)) != 0LL
+            && (memmove(a5, v13, v12), (*a5 & 0xE) == 0) )
           {
-            AMLIFreeDataBuffs(v10);
-            v12 = 0;
+            AMLIFreeDataBuffs((__int64)v9);
+            v11 = 0;
           }
           else
           {
-            v12 = -1073741823;
+            v11 = -1073741823;
           }
         }
       }
       else
       {
-        v12 = -1073741670;
+        v11 = -1073741670;
       }
-      ExFreePoolWithTag((PVOID)Pool2, 0x41706341u);
-      if ( v10 )
-        ExFreePoolWithTag((PVOID)v10, 0x52706341u);
+      ExFreePoolWithTag(PoolWithTag, 0x41706341u);
+      if ( v9 )
+        ExFreePoolWithTag(v9, 0x52706341u);
     }
     else
     {
-      v12 = -1073741670;
+      v11 = -1073741670;
     }
-    AMLIDereferenceHandleEx((volatile signed __int32 *)v7);
+    AMLIDereferenceHandleEx((__int64)v7);
   }
   else
   {
     return (unsigned int)-1073741823;
   }
-  return (unsigned int)v12;
+  return (unsigned int)v11;
 }

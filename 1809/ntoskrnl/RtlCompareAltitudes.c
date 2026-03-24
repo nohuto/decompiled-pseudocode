@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlCompareAltitudes @ 0x140128A30
+ * XREFs of RtlCompareAltitudes @ 0x140128A50
  * Callers:
- *     ObpInsertCallbackByAltitude @ 0x14075AD64 (ObpInsertCallbackByAltitude.c)
- *     CmpInsertCallbackInListByAltitude @ 0x14075F21C (CmpInsertCallbackInListByAltitude.c)
+ *     ObpInsertCallbackByAltitude @ 0x14075AD44 (ObpInsertCallbackByAltitude.c)
+ *     CmpInsertCallbackInListByAltitude @ 0x14075F1FC (CmpInsertCallbackInListByAltitude.c)
  * Callees:
  *     <none>
  */

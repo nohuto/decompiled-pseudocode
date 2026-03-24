@@ -1,11 +1,11 @@
 /*
- * XREFs of VmProbeAndLockPages @ 0x140628F90
+ * XREFs of VmProbeAndLockPages @ 0x1405A2A70
  * Callers:
  *     <none>
  * Callees:
- *     MiProbeAndLockPages @ 0x14029C5B0 (MiProbeAndLockPages.c)
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     MmUpdateMdlTrackerForMdlSwitch @ 0x14058503C (MmUpdateMdlTrackerForMdlSwitch.c)
+ *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     MmUpdateMdlTrackerForMdlSwitch @ 0x140531398 (MmUpdateMdlTrackerForMdlSwitch.c)
  */
 
 __int64 __fastcall VmProbeAndLockPages(struct _MDL *BugCheckParameter3, char a2, unsigned int a3)
@@ -23,7 +23,7 @@ __int64 __fastcall VmProbeAndLockPages(struct _MDL *BugCheckParameter3, char a2,
        + BugCheckParameter3->ByteCount
        + (unsigned __int64)BugCheckParameter3->ByteOffset <= (PVOID)0x7FFFFFFEFFFFLL )
     {
-      MiProbeAndLockPages(BugCheckParameter3, 0, a3 != 0);
+      MiProbeAndLockPages((__int64)BugCheckParameter3, 0, a3 != 0);
       if ( (BugCheckParameter3->MdlFlags & 0xFFFFFF77) == 0x102 )
       {
         MmUpdateMdlTrackerForMdlSwitch((ULONG_PTR)BugCheckParameter3, 1);

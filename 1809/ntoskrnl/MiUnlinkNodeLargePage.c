@@ -3,20 +3,20 @@
  * Callers:
  *     MiGetFreeZeroLargePage @ 0x14002BCF4 (MiGetFreeZeroLargePage.c)
  *     MiDemoteLocalLargePage @ 0x140064060 (MiDemoteLocalLargePage.c)
- *     MiZeroPageThread @ 0x1401791E0 (MiZeroPageThread.c)
- *     MiGetPagesToZero @ 0x140185240 (MiGetPagesToZero.c)
- *     MiGetHugePageToZero @ 0x140185444 (MiGetHugePageToZero.c)
- *     MiScrubNodeLargePageList @ 0x1402CCA90 (MiScrubNodeLargePageList.c)
+ *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
+ *     MiGetPagesToZero @ 0x140185260 (MiGetPagesToZero.c)
+ *     MiGetHugePageToZero @ 0x140185464 (MiGetHugePageToZero.c)
+ *     MiScrubNodeLargePageList @ 0x1402CCB90 (MiScrubNodeLargePageList.c)
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
  *     MiUnlinkNodeLargePageHelper @ 0x140064700 (MiUnlinkNodeLargePageHelper.c)
  *     MiBeginPageAccessor @ 0x140064A20 (MiBeginPageAccessor.c)
  *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290900 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1402909B8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall MiUnlinkNodeLargePage(

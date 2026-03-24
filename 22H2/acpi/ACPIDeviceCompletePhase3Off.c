@@ -1,15 +1,14 @@
 /*
- * XREFs of ACPIDeviceCompletePhase3Off @ 0x1C001C6E0
+ * XREFs of ACPIDeviceCompletePhase3Off @ 0x1C002D5C0
  * Callers:
- *     ACPIDevicePowerProcessPhase3 @ 0x1C001FEC4 (ACPIDevicePowerProcessPhase3.c)
+ *     ACPIDevicePowerProcessPhase3 @ 0x1C00136BC (ACPIDevicePowerProcessPhase3.c)
  * Callees:
- *     WPP_RECORDER_SF_qD @ 0x1C001B528 (WPP_RECORDER_SF_qD.c)
- *     ACPIDeviceCompletePhase3Common @ 0x1C001C514 (ACPIDeviceCompletePhase3Common.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     ACPIDeviceCompletePhase3Common @ 0x1C001CD30 (ACPIDeviceCompletePhase3Common.c)
  */
 
 void __fastcall ACPIDeviceCompletePhase3Off(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
-  int v5; // edi
   KIRQL v6; // si
   signed __int32 v7; // edx
   _QWORD **v8; // rbx
@@ -19,25 +18,19 @@ void __fastcall ACPIDeviceCompletePhase3Off(__int64 a1, int a2, __int64 a3, __in
   _QWORD *v12; // r9
   __int64 v13; // rcx
   char v14; // dl
-  char v15; // [rsp+30h] [rbp-18h]
 
-  v5 = a2;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    v15 = a2;
-    LOBYTE(a2) = 4;
     WPP_RECORDER_SF_qD(
-      WPP_GLOBAL_Control->DeviceExtension,
-      a2,
-      10,
-      15,
-      (__int64)&WPP_afb93ce9a898342faba18bc7242ff62e_Traceguids,
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      0xAu,
+      0xFu,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       a4,
-      v15);
-  }
+      a2);
   v6 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
   _InterlockedAnd64((volatile signed __int64 *)(a4 + 16), 0xFFFFFFFFFFFFF7FFuLL);
-  if ( v5 < 0 )
+  if ( a2 < 0 )
   {
     _InterlockedOr64((volatile signed __int64 *)(a4 + 16), 0x10000uLL);
   }
@@ -55,7 +48,7 @@ void __fastcall ACPIDeviceCompletePhase3Off(__int64 a1, int a2, __int64 a3, __in
   {
     v10 = *(i - 1);
     v11 = 1;
-    v12 = *(_QWORD **)(v10 + 440);
+    v12 = *(_QWORD **)(v10 + 400);
     if ( v12 )
     {
       do
@@ -69,7 +62,7 @@ void __fastcall ACPIDeviceCompletePhase3Off(__int64 a1, int a2, __int64 a3, __in
       }
       while ( v12 );
       if ( v14 )
-        *(_QWORD *)(v10 + 1008) |= 0x10000uLL;
+        *(_QWORD *)(v10 + 960) |= 0x10000uLL;
     }
   }
   KeReleaseSpinLock(&AcpiPowerLock, v6);

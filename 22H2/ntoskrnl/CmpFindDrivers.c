@@ -1,143 +1,157 @@
 /*
- * XREFs of CmpFindDrivers @ 0x140B5D88C
+ * XREFs of CmpFindDrivers @ 0x140A60F64
  * Callers:
- *     CmGetSystemDriverList @ 0x140B41BA0 (CmGetSystemDriverList.c)
+ *     CmGetSystemDriverList @ 0x140A5F174 (CmGetSystemDriverList.c)
  * Callees:
- *     CmpFindSubKeyByNumber @ 0x1406DAFB0 (CmpFindSubKeyByNumber.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     CmpLoadServicesNode @ 0x140B5C124 (CmpLoadServicesNode.c)
- *     CmpFindGroupOrderList @ 0x140B5C400 (CmpFindGroupOrderList.c)
- *     CmpAddDriverToList @ 0x140B5D228 (CmpAddDriverToList.c)
- *     CmpIsLoadType @ 0x140B5DA70 (CmpIsLoadType.c)
- *     CmpFindRedirectedDriverServiceStateNode @ 0x140B5DCE4 (CmpFindRedirectedDriverServiceStateNode.c)
- *     CmpLoadManufacturingProfileServicesNode @ 0x140B9A214 (CmpLoadManufacturingProfileServicesNode.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByNumber @ 0x1405F34E0 (CmpFindSubKeyByNumber.c)
+ *     CmpLoadServicesNode @ 0x140A602C8 (CmpLoadServicesNode.c)
+ *     CmpFindGroupOrderList @ 0x140A6036C (CmpFindGroupOrderList.c)
+ *     CmpAddDriverToList @ 0x140A6097C (CmpAddDriverToList.c)
+ *     CmpIsLoadType @ 0x140A6112C (CmpIsLoadType.c)
+ *     CmpFindRedirectedDriverServiceStateNode @ 0x140A61328 (CmpFindRedirectedDriverServiceStateNode.c)
+ *     CmpLoadManufacturingProfileServicesNode @ 0x140A8EE84 (CmpLoadManufacturingProfileServicesNode.c)
  */
 
 char __fastcall CmpFindDrivers(
         ULONG_PTR BugCheckParameter3,
-        ULONG_PTR a2,
-        __int64 a3,
-        __int64 a4,
+        __int64 a2,
+        int a3,
+        int a4,
         const UNICODE_STRING *a5,
         unsigned int a6,
         __int64 a7,
-        unsigned int GroupOrderList,
-        char **a9,
+        char **a8,
+        __int64 a9,
         __int64 a10,
-        __int64 a11,
-        __int64 a12)
+        __int64 a11)
 {
-  __int64 v12; // r13
-  unsigned int v14; // edi
-  ULONG_PTR v15; // r14
-  __int64 v16; // r15
+  __int64 v11; // r13
+  unsigned int v15; // edi
+  __int64 v16; // r14
   __int64 v17; // rsi
-  unsigned int v18; // edi
-  unsigned int v19; // r12d
-  const UNICODE_STRING *v20; // r12
-  const UNICODE_STRING *i; // rdi
-  unsigned int v23; // r12d
-  ULONG_PTR v24; // rcx
-  __int64 v25; // [rsp+50h] [rbp-30h] BYREF
-  __int64 v26; // [rsp+58h] [rbp-28h]
-  __int64 v27; // [rsp+60h] [rbp-20h] BYREF
-  __int64 v28; // [rsp+68h] [rbp-18h] BYREF
-  _DWORD *v29; // [rsp+70h] [rbp-10h] BYREF
-  _DWORD *v30; // [rsp+78h] [rbp-8h] BYREF
+  unsigned int GroupOrderList; // eax
+  char **v19; // r15
+  unsigned int v20; // edi
+  unsigned int v21; // r13d
+  unsigned int v22; // r12d
+  const UNICODE_STRING *v23; // r12
+  __int64 v24; // r15
+  __int64 v25; // r13
+  const UNICODE_STRING *v26; // rdi
+  unsigned int v28; // r13d
+  char **v29; // r15
+  unsigned int v30; // r12d
+  ULONG_PTR v31; // rcx
+  PCUNICODE_STRING Source; // [rsp+20h] [rbp-60h]
+  __int64 v33; // [rsp+38h] [rbp-48h]
+  __int64 v34; // [rsp+40h] [rbp-40h]
+  __int64 v35; // [rsp+48h] [rbp-38h]
+  __int64 v36; // [rsp+50h] [rbp-30h] BYREF
+  _DWORD v37[2]; // [rsp+58h] [rbp-28h] BYREF
+  _DWORD v38[2]; // [rsp+60h] [rbp-20h] BYREF
+  _DWORD v39[2]; // [rsp+68h] [rbp-18h] BYREF
+  _DWORD *v40; // [rsp+70h] [rbp-10h] BYREF
+  _DWORD *v41; // [rsp+78h] [rbp-8h] BYREF
 
-  v12 = 0LL;
+  v11 = 0LL;
   a6 = 0;
-  v30 = 0LL;
-  a7 = 0xFFFFFFFFLL;
-  a10 = 0xFFFFFFFFLL;
-  a12 = 0xFFFFFFFFLL;
-  v25 = 0xFFFFFFFFLL;
-  v14 = a2;
-  v27 = 0LL;
-  v28 = 0LL;
-  v29 = 0LL;
-  if ( !CmpLoadServicesNode(BugCheckParameter3, a2, (__int64 *)&v29, (unsigned int *)&v25) )
+  v41 = 0LL;
+  a9 = 0xFFFFFFFFLL;
+  v37[0] = -1;
+  v38[0] = -1;
+  v39[0] = -1;
+  v15 = a2;
+  v37[1] = 0;
+  a11 = 0LL;
+  v36 = 0LL;
+  v38[1] = 0;
+  v40 = 0LL;
+  v39[1] = 0;
+  if ( !CmpLoadServicesNode(BugCheckParameter3, a2, (__int64 *)&v40, (__int64)v39) )
     return 0;
-  v15 = 0LL;
-  v26 = 0LL;
   v16 = 0LL;
-  if ( a11 && (unsigned __int8)CmpLoadManufacturingProfileServicesNode(BugCheckParameter3, (__int64)&a10) )
+  a7 = 0LL;
+  v17 = 0LL;
+  if ( a10
+    && (unsigned __int8)CmpLoadManufacturingProfileServicesNode(
+                          BugCheckParameter3,
+                          v15,
+                          a10,
+                          (unsigned int)&a7,
+                          (__int64)v37) )
   {
-    v16 = v26;
-    v15 = BugCheckParameter3;
+    v17 = a7;
+    v16 = BugCheckParameter3;
   }
   if ( (unsigned __int8)CmpFindRedirectedDriverServiceStateNode(
                           BugCheckParameter3,
-                          v14,
-                          (__int64)&v27,
-                          (__int64)&v28,
-                          (__int64)&a12) )
-  {
-    v17 = v27;
-    v12 = v28;
-  }
+                          v15,
+                          a3,
+                          a4,
+                          (__int64)&a11,
+                          (__int64)&v36,
+                          (__int64)v38) )
+    v11 = v36;
   else
-  {
-    v17 = 0LL;
-  }
-  GroupOrderList = CmpFindGroupOrderList(BugCheckParameter3, v14);
+    a11 = 0LL;
+  v36 = v11;
+  GroupOrderList = CmpFindGroupOrderList(BugCheckParameter3, v15);
+  LODWORD(a7) = GroupOrderList;
   if ( GroupOrderList == -1 )
     return 0;
-  v18 = 0;
+  v19 = a8;
+  v20 = 0;
+  v21 = GroupOrderList;
   while ( 1 )
   {
-    CmpFindSubKeyByNumber(BugCheckParameter3, v29, v18, &a6);
-    v19 = a6;
-    ++v18;
+    CmpFindSubKeyByNumber(BugCheckParameter3, v40, v20, &a6);
+    v22 = a6;
+    ++v20;
     if ( a6 == -1 )
       break;
-    if ( (unsigned __int8)CmpIsLoadType(BugCheckParameter3, 0LL, v15, v16, v17, v12, 0LL) )
-      CmpAddDriverToList(BugCheckParameter3, v19, BugCheckParameter3, GroupOrderList, &CmpSystemHiveName, a9, 0);
+    if ( (unsigned __int8)CmpIsLoadType(BugCheckParameter3, (__int64)Source, v16, v17, v33, v34, v35) )
+      CmpAddDriverToList(BugCheckParameter3, v22, BugCheckParameter3, v21, &CmpSystemHiveName, v19);
   }
-  v20 = a5;
+  v23 = a5;
+  v24 = a11;
+  v25 = v36;
   if ( a5 )
   {
-    for ( i = *(const UNICODE_STRING **)&a5->Length; i != v20; i = *(const UNICODE_STRING **)&i->Length )
+    v26 = *(const UNICODE_STRING **)&a5->Length;
+    if ( *(const UNICODE_STRING **)&a5->Length != a5 )
     {
-      if ( CmpLoadServicesNode(*(_QWORD *)&i[2].Length, LODWORD(i[2].Buffer), (__int64 *)&v30, (unsigned int *)&a7) )
+      v28 = a7;
+      v29 = a8;
+      do
       {
-        v23 = 0;
-        while ( 1 )
+        if ( CmpLoadServicesNode(*(_QWORD *)&v26[2].Length, LODWORD(v26[2].Buffer), (__int64 *)&v41, (__int64)&a9) )
         {
-          CmpFindSubKeyByNumber(*(_QWORD *)&i[2].Length, v30, v23, &a6);
-          v24 = *(_QWORD *)&i[2].Length;
-          ++v23;
-          if ( a6 == -1 )
-            break;
-          if ( (unsigned __int8)CmpIsLoadType(v24, 0LL, v15, v16, v17, v12, 0LL) )
-            CmpAddDriverToList(*(_QWORD *)&i[2].Length, a6, BugCheckParameter3, GroupOrderList, i + 1, a9, 0);
+          v30 = 0;
+          while ( 1 )
+          {
+            CmpFindSubKeyByNumber(*(_QWORD *)&v26[2].Length, v41, v30, &a6);
+            v31 = *(_QWORD *)&v26[2].Length;
+            ++v30;
+            if ( a6 == -1 )
+              break;
+            if ( (unsigned __int8)CmpIsLoadType(v31, (__int64)Source, v16, v17, v33, v34, v35) )
+              CmpAddDriverToList(*(_QWORD *)&v26[2].Length, a6, BugCheckParameter3, v28, v26 + 1, v29);
+          }
+          (*(void (__fastcall **)(ULONG_PTR, __int64 *))(v31 + 16))(v31, &a9);
+          v23 = a5;
         }
-        v20 = a5;
-        if ( (*(_BYTE *)(v24 + 140) & 1) != 0 )
-          HvpReleaseCellFlat(v24, &a7);
-        else
-          HvpReleaseCellPaged(v24, (unsigned int *)&a7);
+        v26 = *(const UNICODE_STRING **)&v26->Length;
       }
+      while ( v26 != v23 );
+      v24 = a11;
+      v25 = v36;
     }
   }
-  if ( v15 && v16 )
-  {
-    if ( (*(_BYTE *)(v15 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v15, &a10);
-    else
-      HvpReleaseCellPaged(v15, (unsigned int *)&a10);
-  }
-  if ( v17 && v12 )
-  {
-    if ( (*(_BYTE *)(v17 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v17, &a12);
-    else
-      HvpReleaseCellPaged(v17, (unsigned int *)&a12);
-  }
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(BugCheckParameter3, &v25);
-  else
-    HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v25);
+  if ( v16 && v17 )
+    (*(void (__fastcall **)(__int64, _DWORD *))(v16 + 16))(v16, v37);
+  if ( v24 && v25 )
+    (*(void (__fastcall **)(__int64, _DWORD *))(v24 + 16))(v24, v38);
+  (*(void (__fastcall **)(ULONG_PTR, _DWORD *))(BugCheckParameter3 + 16))(BugCheckParameter3, v39);
   return 1;
 }

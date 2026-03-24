@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bCloseFigure@EPATHOBJ@@QEAAHXZ @ 0x1C0019220
+ * XREFs of ?bCloseFigure@EPATHOBJ@@QEAAHXZ @ 0x1C00871D0
  * Callers:
- *     bPolyPolygon @ 0x1C0019160 (bPolyPolygon.c)
- *     ?bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C00CC290 (-bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
- *     PATHOBJ_bCloseFigure @ 0x1C00CFE10 (PATHOBJ_bCloseFigure.c)
- *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C016D4E0 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
+ *     ?bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C00BCDD4 (-bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
+ *     bPolyPolygon @ 0x1C00BD910 (bPolyPolygon.c)
+ *     PATHOBJ_bCloseFigure @ 0x1C00C0440 (PATHOBJ_bCloseFigure.c)
+ *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C01405B0 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
  * Callees:
  *     <none>
  */

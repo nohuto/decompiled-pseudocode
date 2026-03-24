@@ -1,60 +1,72 @@
 /*
- * XREFs of ?DmmAdapterPowerChange@@YAJQEAXE@Z @ 0x1C01F2B40
+ * XREFs of ?DmmAdapterPowerChange@@YAJQEAXE@Z @ 0x1C02DC3BC
  * Callers:
- *     DpiPowerArbiterThread @ 0x1C021E730 (DpiPowerArbiterThread.c)
+ *     DpiPowerArbiterThread @ 0x1C019C8E0 (DpiPowerArbiterThread.c)
  * Callees:
- *     ?GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z @ 0x1C0002E98 (-GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0005BA8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00072BC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000A4DC (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0002910 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0006454 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C0009550 (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z @ 0x1C00097F0 (-GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z.c)
  */
 
-__int64 __fastcall DmmAdapterPowerChange(PERESOURCE *a1, char a2)
+__int64 __fastcall DmmAdapterPowerChange(PERESOURCE *a1, __int64 a2)
 {
-  PERESOURCE v3; // rax
-  struct _LIST_ENTRY *Flink; // rdi
-  struct _LIST_ENTRY *Blink; // rbx
-  struct _LIST_ENTRY *v6; // rcx
+  __int64 v3; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  PERESOURCE v8; // rax
+  _QWORD *Address; // rdi
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  _QWORD *v12; // rbx
+  _QWORD *v13; // rcx
   const struct DMMVIDEOPRESENTTARGET *i; // rax
-  __int64 v9; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v15; // rdx
+  __int64 v16; // [rsp+40h] [rbp+18h] BYREF
 
-  if ( a2 != 1 )
-    return 0LL;
-  if ( a1 )
+  if ( (_BYTE)a2 == 1 )
   {
-    if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(a1) )
-      WdLogSingleEntry0(1LL);
-    v3 = a1[365];
-    if ( !v3 )
-      return 0LL;
-    Flink = v3[1].SystemResourcesList.Flink;
-    if ( Flink )
+    if ( !a1 )
     {
-      EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>((__int64)&v9, (__int64)v3[1].SystemResourcesList.Flink);
-      _InterlockedIncrement((volatile signed __int32 *)&Flink[7].Blink[4].Blink);
-      Blink = Flink[7].Blink;
-      v6 = Blink[1].Blink;
-      if ( v6 != (struct _LIST_ENTRY *)&Blink[1].Blink )
+      v3 = WdLogNewEntry5_WdError(0LL, a2);
+      *(_QWORD *)(v3 + 24) &= (unsigned __int64)a1;
+      WdLogEvent5_WdError(v3);
+      return 3223191554LL;
+    }
+    if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(a1) )
+    {
+      v7 = WdLogNewEntry5_WdAssertion(v6, v5);
+      WdLogEvent5_WdAssertion(v7);
+    }
+    v8 = a1[337];
+    if ( v8 )
+    {
+      Address = v8->Address;
+      if ( !Address )
       {
-        for ( i = (const struct DMMVIDEOPRESENTTARGET *)&v6[-1].Blink;
+        v10 = WdLogNewEntry5_WdError(v6, v5);
+        *(_QWORD *)(v10 + 24) = a1;
+        WdLogEvent5_WdError(v10);
+        return 3223192373LL;
+      }
+      EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v16, (__int64)v8->Address);
+      _InterlockedIncrement((volatile signed __int32 *)(Address[10] + 72LL));
+      v12 = (_QWORD *)Address[10];
+      v13 = (_QWORD *)v12[3];
+      if ( v13 != v12 + 3 )
+      {
+        for ( i = (const struct DMMVIDEOPRESENTTARGET *)(v13 - 1);
               i;
-              i = DMMVIDEOPRESENTTARGETSET::GetNextTarget((DMMVIDEOPRESENTTARGETSET *)Blink, i) )
+              i = DMMVIDEOPRESENTTARGETSET::GetNextTarget((DMMVIDEOPRESENTTARGETSET *)v12, i) )
         {
           *((_BYTE *)i + 396) = 0;
         }
       }
-      if ( Blink )
-        ReferenceCounted::Release((ReferenceCounted *)&Blink[4]);
-      DXGFASTMUTEX::Release((struct _KTHREAD **)(v9 + 40));
-      return 0LL;
+      ReferenceCounted::Release((ReferenceCounted *)(v12 + 8), v11);
+      DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v16 + 40), v15);
     }
-    WdLogSingleEntry1(2LL, a1);
-    return 3223192373LL;
   }
-  else
-  {
-    WdLogSingleEntry1(2LL, 0LL);
-    return 3223191554LL;
-  }
+  return 0LL;
 }

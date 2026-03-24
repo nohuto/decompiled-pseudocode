@@ -1,60 +1,56 @@
 /*
- * XREFs of EtwpRegisterPrivateSession @ 0x1409EC90C
+ * XREFs of EtwpRegisterPrivateSession @ 0x14093F3F8
  * Callers:
- *     NtTraceControl @ 0x140725C40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     ObReferenceObjectByPointer @ 0x14022A9A0 (ObReferenceObjectByPointer.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     RtlRbRemoveNode @ 0x14024B910 (RtlRbRemoveNode.c)
- *     RtlRbInsertNodeEx @ 0x14024CCA0 (RtlRbInsertNodeEx.c)
- *     PsGetCurrentThreadProcessId @ 0x1402AF870 (PsGetCurrentThreadProcessId.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     PidNodeCompare @ 0x1409ECE60 (PidNodeCompare.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     RtlRbInsertNodeEx @ 0x1402C0B10 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x1402C1170 (RtlRbRemoveNode.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     PsGetCurrentThreadProcessId @ 0x1402D2070 (PsGetCurrentThreadProcessId.c)
+ *     ObReferenceObjectByPointer @ 0x14035F490 (ObReferenceObjectByPointer.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
+ *     PidNodeCompare @ 0x14093F970 (PidNodeCompare.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRegisterPrivateSession(__int64 a1, unsigned __int16 a2, _WORD *a3, _DWORD *a4)
 {
   unsigned __int64 *v4; // r13
-  bool v6; // zf
   struct _KTHREAD *CurrentThread; // rax
-  __int64 *v9; // rdi
-  bool v10; // si
-  int v11; // eax
-  __int64 *v12; // rax
-  unsigned __int64 Pool2; // rax
-  __int64 *v14; // rbx
-  unsigned int inserted; // edi
-  __int64 *v16; // r14
-  __int64 *i; // rsi
-  char *v18; // r12
-  _WORD *v19; // rcx
-  _QWORD *v20; // rax
-  __int64 v21; // [rsp+28h] [rbp-69h]
+  _DMA_OPERATIONS *v8; // rbx
+  bool v9; // di
+  int v10; // eax
+  void (__fastcall *PutDmaAdapter)(_DMA_ADAPTER *); // rax
+  _DMA_OPERATIONS *PoolWithTag; // rax
+  _DMA_OPERATIONS *v13; // rsi
+  unsigned int inserted; // ebx
+  int (__fastcall **p_AllocateAdapterChannel)(_DMA_ADAPTER *, _DEVICE_OBJECT *, unsigned int, _IO_ALLOCATION_ACTION (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *, void *), void *); // r14
+  int (__fastcall *i)(_DMA_ADAPTER *, _DEVICE_OBJECT *, unsigned int, _IO_ALLOCATION_ACTION (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *, void *), void *); // rdi
+  struct _DMA_ADAPTER *v17; // r12
+  struct _DMA_ADAPTER **v18; // rax
+  char *v19; // [rsp+28h] [rbp-69h]
   int CurrentThreadProcessId; // [rsp+58h] [rbp-39h] BYREF
   PVOID Object; // [rsp+60h] [rbp-31h] BYREF
-  __int64 v24; // [rsp+68h] [rbp-29h] BYREF
-  __int64 v25; // [rsp+70h] [rbp-21h] BYREF
+  __int64 v22; // [rsp+68h] [rbp-29h] BYREF
+  __int64 v23; // [rsp+70h] [rbp-21h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+78h] [rbp-19h]
-  __int128 v27; // [rsp+80h] [rbp-11h] BYREF
-  __int128 v28; // [rsp+90h] [rbp-1h]
-  __int128 v29; // [rsp+A0h] [rbp+Fh]
+  __int128 v25; // [rsp+80h] [rbp-11h] BYREF
+  __int128 v26; // [rsp+90h] [rbp-1h]
+  __int128 v27; // [rsp+A0h] [rbp+Fh]
 
   v4 = (unsigned __int64 *)(a1 + 4080);
-  *(_QWORD *)&v29 = 0LL;
-  DWORD2(v29) = 0;
-  v24 = 0LL;
+  v22 = 0LL;
   Object = 0LL;
+  v23 = 0LL;
   v25 = 0LL;
-  v6 = KeGetCurrentThread()->PreviousMode == 1;
+  v26 = 0LL;
   v27 = 0LL;
-  v28 = 0LL;
-  if ( !v6 )
+  if ( KeGetCurrentThread()->PreviousMode != 1 )
     return 3221225659LL;
   if ( a2 > 8u )
     return 3221225485LL;
@@ -63,21 +59,23 @@ __int64 __fastcall EtwpRegisterPrivateSession(__int64 a1, unsigned __int16 a2, _
   --CurrentThread->KernelApcDisable;
   BugCheckParameter2 = (ULONG_PTR)(v4 + 2);
   ExAcquirePushLockExclusiveEx((ULONG_PTR)(v4 + 2), 0LL);
-  v9 = (__int64 *)*v4;
-  v10 = 0;
+  v8 = (_DMA_OPERATIONS *)*v4;
+  v9 = 0;
   if ( *v4 )
   {
     while ( 1 )
     {
-      v11 = PidNodeCompare(&CurrentThreadProcessId, v9);
-      if ( v11 <= 0 )
+      v10 = PidNodeCompare(&CurrentThreadProcessId, v8);
+      if ( v10 <= 0 )
       {
-        if ( v11 >= 0 )
+        if ( v10 >= 0 )
         {
-          v14 = v9;
+          v13 = v8;
 LABEL_15:
-          v16 = v14 + 4;
-          for ( i = (__int64 *)v14[4]; i != v16; i = (__int64 *)*i )
+          p_AllocateAdapterChannel = &v13->AllocateAdapterChannel;
+          for ( i = v13->AllocateAdapterChannel;
+                (char *)i != (char *)p_AllocateAdapterChannel;
+                i = *(int (__fastcall **)(_DMA_ADAPTER *, _DEVICE_OBJECT *, unsigned int, _IO_ALLOCATION_ACTION (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *, void *), void *))i )
           {
             if ( *((_WORD *)i + 8) == a2 )
             {
@@ -87,72 +85,71 @@ LABEL_15:
             if ( *((_WORD *)i + 8) > a2 )
               break;
           }
-          LODWORD(v27) = 48;
-          *((_QWORD *)&v27 + 1) = 0LL;
-          DWORD2(v28) = 64;
-          *(_QWORD *)&v28 = 0LL;
-          v29 = 0LL;
-          inserted = ObCreateObjectEx(0, EtwpSessionDemuxObjectType, (__int64)&v27, 1, v21, 32, 0, 0, &Object, 0LL);
+          LODWORD(v25) = 48;
+          *((_QWORD *)&v25 + 1) = 0LL;
+          DWORD2(v26) = 64;
+          *(_QWORD *)&v26 = 0LL;
+          v27 = 0LL;
+          inserted = ObCreateObjectEx(0, EtwpSessionDemuxObjectType, (int)&v25, 1u, v19, 32, 0, 0, &Object, 0LL);
           if ( !inserted )
           {
-            v18 = (char *)Object;
-            v19 = Object;
+            v17 = (struct _DMA_ADAPTER *)Object;
             *((_WORD *)Object + 8) = a2;
-            v19[10] = ++*(_WORD *)(a1 + 4104);
-            *((_QWORD *)v19 + 3) = v14;
-            v20 = (_QWORD *)i[1];
-            i[1] = (__int64)v19;
-            *v20 = v19;
-            *((_QWORD *)v19 + 1) = v20;
-            *(_QWORD *)v19 = i;
-            ObReferenceObjectByPointer(v19, 0, EtwpSessionDemuxObjectType, 0);
-            inserted = ObInsertObjectEx(v18, 0LL, 0, 0, 0, (PVOID *)&v25, &v24);
+            *(&v17[1].Size + 1) = ++*(_WORD *)(a1 + 4104);
+            v17[1].DmaOperations = v13;
+            v18 = (struct _DMA_ADAPTER **)*((_QWORD *)i + 1);
+            *((_QWORD *)i + 1) = v17;
+            *v18 = v17;
+            v17->DmaOperations = (_DMA_OPERATIONS *)v18;
+            *(_QWORD *)&v17->Version = i;
+            ObReferenceObjectByPointer(v17, 0, EtwpSessionDemuxObjectType, 0);
+            inserted = ObInsertObjectEx(v17, 0LL, 0, 0, 0, (__int64)&v23, (unsigned __int64 *)&v22);
             if ( !inserted )
             {
-              *a3 = *((_WORD *)v18 + 10);
-              *a4 = v24;
-              goto LABEL_27;
+              *a3 = *(&v17[1].Size + 1);
+              *a4 = v22;
+              goto LABEL_26;
             }
           }
 LABEL_24:
-          if ( v14 && (__int64 *)*v16 == v16 )
+          if ( (char *)*p_AllocateAdapterChannel == (char *)p_AllocateAdapterChannel )
           {
-            RtlRbRemoveNode(v4, (unsigned __int64)v14);
-            ExFreePoolWithTag(v14, 0);
+            RtlRbRemoveNode(v4, (unsigned __int64)v13);
+            ExFreePoolWithTag(v13, 0);
           }
-          goto LABEL_27;
+          goto LABEL_26;
         }
-        v12 = (__int64 *)*v9;
-        if ( !*v9 )
+        PutDmaAdapter = *(void (__fastcall **)(_DMA_ADAPTER *))&v8->Size;
+        if ( !*(_QWORD *)&v8->Size )
           break;
       }
       else
       {
-        v12 = (__int64 *)v9[1];
-        if ( !v12 )
+        PutDmaAdapter = v8->PutDmaAdapter;
+        if ( !PutDmaAdapter )
         {
-          v10 = 1;
+          v9 = 1;
           break;
         }
       }
-      v9 = v12;
+      v8 = (_DMA_OPERATIONS *)PutDmaAdapter;
     }
   }
-  Pool2 = ExAllocatePool2(256LL, 48LL, 1215788101LL);
-  v14 = (__int64 *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = (_DMA_OPERATIONS *)ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x48777445u);
+  v13 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 24) = CurrentThreadProcessId;
-    *(_QWORD *)(Pool2 + 40) = Pool2 + 32;
-    *(_QWORD *)(Pool2 + 32) = Pool2 + 32;
-    RtlRbInsertNodeEx(v4, (unsigned __int64)v9, v10, Pool2);
+    LODWORD(PoolWithTag->FreeCommonBuffer) = CurrentThreadProcessId;
+    PoolWithTag->FlushAdapterBuffers = (unsigned __int8 (__fastcall *)(_DMA_ADAPTER *, _MDL *, void *, void *, unsigned int, unsigned __int8))&PoolWithTag->AllocateAdapterChannel;
+    PoolWithTag->AllocateAdapterChannel = (int (__fastcall *)(_DMA_ADAPTER *, _DEVICE_OBJECT *, unsigned int, _IO_ALLOCATION_ACTION (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *, void *), void *))&PoolWithTag->AllocateAdapterChannel;
+    RtlRbInsertNodeEx(v4, (unsigned __int64)v8, v9, (unsigned __int64)PoolWithTag);
     goto LABEL_15;
   }
   inserted = -1073741801;
-LABEL_27:
-  ExReleasePushLockEx((__int64 *)BugCheckParameter2, 0LL);
+LABEL_26:
+  ExReleasePushLockEx(BugCheckParameter2, 0LL);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( Object )
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
   return inserted;
 }

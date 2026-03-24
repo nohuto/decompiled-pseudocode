@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z @ 0x1C02F43D8
+ * XREFs of ?vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z @ 0x1C014AB64
  * Callers:
- *     ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C02F3AF0 (-bFindFirstSegment@XCLIPOBJ@@IEAAHXZ.c)
- *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C02F3FA8 (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C014ADAC (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C014B544 (-bFindFirstSegment@XCLIPOBJ@@IEAAHXZ.c)
  * Callees:
- *     ?vIntersectHorizontal@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C02F4330 (-vIntersectHorizontal@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
- *     ?vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C02F4428 (-vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
+ *     ?vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C014B170 (-vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
+ *     ?vIntersectHorizontal@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C02CF1D4 (-vIntersectHorizontal@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
  */
 
 void __fastcall XCLIPOBJ::vIntersectScan(XCLIPOBJ *this, int a2, struct _POINTL *a3, struct _POINTL *a4, int *a5)

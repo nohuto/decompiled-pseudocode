@@ -1,16 +1,16 @@
 /*
- * XREFs of ?bSendLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAH@Z @ 0x1C02BEDEC
+ * XREFs of ?bSendLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAH@Z @ 0x1C02AC780
  * Callers:
- *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C02BEF94 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
+ *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C001F424 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C0298EE8 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
- *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C0299658 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02B8264 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
- *     ?UMPDAllocUserMem@UMPDOBJ@@QEAAPEAXK@Z @ 0x1C02B84B4 (-UMPDAllocUserMem@UMPDOBJ@@QEAAPEAXK@Z.c)
- *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02BEC8C (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
- *     ?ulGetMaxSize@UMPDOBJ@@QEBAKXZ @ 0x1C02BF20C (-ulGetMaxSize@UMPDOBJ@@QEBAKXZ.c)
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C001DE74 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A16C0 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C00A1984 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ?UMPDAllocUserMem@UMPDOBJ@@QEAAPEAXK@Z @ 0x1C02A8ED8 (-UMPDAllocUserMem@UMPDOBJ@@QEAAPEAXK@Z.c)
+ *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02AC618 (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
+ *     ?ulGetMaxSize@UMPDOBJ@@QEBAKXZ @ 0x1C02ACAA0 (-ulGetMaxSize@UMPDOBJ@@QEBAKXZ.c)
  */
 
 __int64 __fastcall UMPDOBJ::bSendLargeBitmap(UMPDOBJ *this, struct _SURFOBJ *a2, int *a3)
@@ -28,7 +28,7 @@ __int64 __fastcall UMPDOBJ::bSendLargeBitmap(UMPDOBJ *this, struct _SURFOBJ *a2,
   char *KernelPtr; // rax
   __int64 v16; // rax
   char *v17; // rax
-  __int64 v18; // rcx
+  __int64 v18; // rax
   size_t v20; // [rsp+20h] [rbp-60h]
   ULONG i; // [rsp+30h] [rbp-50h]
   __int64 v22; // [rsp+38h] [rbp-48h] BYREF
@@ -67,11 +67,11 @@ __int64 __fastcall UMPDOBJ::bSendLargeBitmap(UMPDOBJ *this, struct _SURFOBJ *a2,
     if ( v10 > v11 )
       v13 = v11;
     LODWORD(Size) = v13;
-    v14 = UMPDOBJ::_AllocUserMem(this, v13, 0);
+    v14 = (char *)UMPDOBJ::_AllocUserMem(this, v13, 0);
     v27 = v14;
     if ( !v14 )
       break;
-    KernelPtr = UMPDOBJ::GetKernelPtr((char **)this, v14);
+    KernelPtr = UMPDOBJ::GetKernelPtr(this, v14);
     memmove(KernelPtr, pvBits, (unsigned int)Size);
     LODWORD(v20) = 8;
     if ( (unsigned int)UMPDOBJ::Thunk(this, v24, 0x30u, &v22, v20) == -1 || !v22 )
@@ -80,18 +80,18 @@ __int64 __fastcall UMPDOBJ::bSendLargeBitmap(UMPDOBJ *this, struct _SURFOBJ *a2,
     v10 -= Size;
     pvBits = (char *)a2->pvBits + (unsigned int)v6;
     v28 = &v8[v6];
-    v16 = *((_QWORD *)this + 51);
+    v16 = *((_QWORD *)this + 49);
     if ( v16 )
-      *(_DWORD *)(v16 + 56) = 0;
+      *(_DWORD *)(v16 + 48) = 0;
   }
   v17 = &v8[LODWORD(a2->pvScan0) - LODWORD(a2->pvBits)];
   a2->pvBits = v8;
   a2->pvScan0 = v17;
   if ( v10 )
   {
-    v18 = *((_QWORD *)this + 51);
+    v18 = *((_QWORD *)this + 49);
     if ( v18 )
-      *(_DWORD *)(v18 + 56) = 0;
+      *(_DWORD *)(v18 + 48) = 0;
     UMPDOBJ::bDeleteLargeBitmaps(this, a2, 0LL, 0LL);
   }
   else

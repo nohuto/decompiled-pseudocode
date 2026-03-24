@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpStopRMLog @ 0x1406931DC
+ * XREFs of CmpStopRMLog @ 0x1406931BC
  * Callers:
- *     CmpPerformUnloadKey @ 0x1406923B0 (CmpPerformUnloadKey.c)
- *     CmShutdownCmRM @ 0x140692F8C (CmShutdownCmRM.c)
- *     CmShutdownSystem @ 0x1407EC8D4 (CmShutdownSystem.c)
+ *     CmpPerformUnloadKey @ 0x140692390 (CmpPerformUnloadKey.c)
+ *     CmShutdownCmRM @ 0x140692F6C (CmShutdownCmRM.c)
+ *     CmShutdownSystem @ 0x1407EC8B4 (CmShutdownSystem.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpLogCheckpoint @ 0x140701D98 (CmpLogCheckpoint.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpLogCheckpoint @ 0x140701D78 (CmpLogCheckpoint.c)
  */
 
 __int64 __fastcall CmpStopRMLog(__int64 a1)

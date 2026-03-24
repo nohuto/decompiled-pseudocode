@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitAddPrimitivesCommand@CPrimitiveGroupMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010700
+ * XREFs of ?EmitAddPrimitivesCommand@CPrimitiveGroupMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0060EB0
  * Callers:
- *     ?EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010620 (-EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0060DD0 (-EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CPrimitiveGroupMarshaler::EmitAddPrimitivesCommand(
@@ -15,7 +15,7 @@ char __fastcall DirectComposition::CPrimitiveGroupMarshaler::EmitAddPrimitivesCo
   void *v6; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 1;
-  if ( *((_QWORD *)this + 8) && (*((_DWORD *)this + 4) & 0x20) == 0 )
+  if ( *((_QWORD *)this + 7) && (*((_DWORD *)this + 4) & 0x20) == 0 )
   {
     v6 = 0LL;
     if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x18uLL, &v6) )
@@ -24,11 +24,11 @@ char __fastcall DirectComposition::CPrimitiveGroupMarshaler::EmitAddPrimitivesCo
       *(_DWORD *)v6 = 24;
       *(_OWORD *)(v4 + 4) = 0LL;
       *((_DWORD *)v4 + 5) = 0;
-      *((_DWORD *)v4 + 1) = 294;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-      *((_DWORD *)v4 + 3) = *(_DWORD *)(*((_QWORD *)this + 8) + 32LL);
-      *((_DWORD *)v4 + 4) = *((_DWORD *)this + 20);
-      *((_DWORD *)v4 + 5) = *((_DWORD *)this + 18);
+      *((_DWORD *)v4 + 1) = 301;
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+      *((_DWORD *)v4 + 3) = *(_DWORD *)(*((_QWORD *)this + 7) + 24LL);
+      *((_DWORD *)v4 + 4) = *((_DWORD *)this + 18);
+      *((_DWORD *)v4 + 5) = *((_DWORD *)this + 16);
       *((_DWORD *)this + 4) |= 0x20u;
     }
     else

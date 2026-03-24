@@ -1,7 +1,7 @@
 /*
- * XREFs of WdmlibInit @ 0x1C00BD9FC
+ * XREFs of WdmlibInit @ 0x1C00BC68C
  * Callers:
- *     WdmlibIoCreateDeviceSecure @ 0x1C00BD964 (WdmlibIoCreateDeviceSecure.c)
+ *     WdmlibIoCreateDeviceSecure @ 0x1C00BC718 (WdmlibIoCreateDeviceSecure.c)
  * Callees:
  *     <none>
  */

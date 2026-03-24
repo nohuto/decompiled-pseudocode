@@ -1,11 +1,9 @@
 /*
- * XREFs of IopCheckIrpCancelled @ 0x140556608
+ * XREFs of IopCheckIrpCancelled @ 0x140500690
  * Callers:
- *     IopWaitForSynchronousIo @ 0x1402A41A4 (IopWaitForSynchronousIo.c)
- *     IopWaitForSynchronousIoEvent @ 0x140417B94 (IopWaitForSynchronousIoEvent.c)
- *     IopSynchronousServiceTail @ 0x140731680 (IopSynchronousServiceTail.c)
+ *     IopWaitForSynchronousIoEvent @ 0x1403F1280 (IopWaitForSynchronousIoEvent.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall IopCheckIrpCancelled(__int64 a1, __int64 a2)

@@ -1,17 +1,16 @@
 /*
- * XREFs of VfTargetDriversGetVerifierData @ 0x140A8ABF8
+ * XREFs of VfTargetDriversGetVerifierData @ 0x1409D6E40
  * Callers:
- *     CarGetDriverInfoFromViolationStack @ 0x140602CF4 (CarGetDriverInfoFromViolationStack.c)
- *     DifGetPluginPerDriverData @ 0x140604400 (DifGetPluginPerDriverData.c)
- *     VfUtilCheckRuleEnforcement @ 0x140A81CBC (VfUtilCheckRuleEnforcement.c)
- *     VfUtilGetDriverName @ 0x140A81D40 (VfUtilGetDriverName.c)
- *     VfUtilGetSigningLevel @ 0x140A81D70 (VfUtilGetSigningLevel.c)
- *     VfUtilIsBootDriver @ 0x140A81D90 (VfUtilIsBootDriver.c)
- *     VfTargetDriversIsEnabled @ 0x140A8ACE8 (VfTargetDriversIsEnabled.c)
- *     VfHandlePoolAlloc @ 0x140A90660 (VfHandlePoolAlloc.c)
+ *     VfUtilGetDifPluginDriverData @ 0x1405A0760 (VfUtilGetDifPluginDriverData.c)
+ *     VfUtilCheckRuleEnforcement @ 0x1409C65DC (VfUtilCheckRuleEnforcement.c)
+ *     VfUtilGetDriverName @ 0x1409C6770 (VfUtilGetDriverName.c)
+ *     VfUtilGetSigningLevel @ 0x1409C67A0 (VfUtilGetSigningLevel.c)
+ *     VfUtilIsBootDriver @ 0x1409C67C0 (VfUtilIsBootDriver.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
+ *     VfTargetDriversIsEnabled @ 0x1409D6F30 (VfTargetDriversIsEnabled.c)
  * Callees:
- *     VfTargetDriversGetNode @ 0x1402D86CC (VfTargetDriversGetNode.c)
- *     VfDriverIsKernelImageAddress @ 0x140A89D2C (VfDriverIsKernelImageAddress.c)
+ *     VfTargetDriversGetNode @ 0x1405A1D9C (VfTargetDriversGetNode.c)
+ *     VfDriverIsKernelImageAddress @ 0x1409C88C0 (VfDriverIsKernelImageAddress.c)
  */
 
 __int64 __fastcall VfTargetDriversGetVerifierData(unsigned __int64 a1)
@@ -26,10 +25,10 @@ __int64 __fastcall VfTargetDriversGetVerifierData(unsigned __int64 a1)
   }
   else if ( KernelVerifier )
   {
-    if ( dword_140C1B248 < 2 )
+    if ( dword_140C1D0A8 < 2 )
       return 0LL;
   }
-  else if ( !dword_140C1B248 )
+  else if ( !dword_140C1D0A8 )
   {
     return 0LL;
   }

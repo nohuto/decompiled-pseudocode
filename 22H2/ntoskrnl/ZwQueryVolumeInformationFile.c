@@ -1,15 +1,14 @@
 /*
- * XREFs of ZwQueryVolumeInformationFile @ 0x14041AFC0
+ * XREFs of ZwQueryVolumeInformationFile @ 0x1403FA340
  * Callers:
- *     DifZwQueryVolumeInformationFileWrapper @ 0x1405F5C60 (DifZwQueryVolumeInformationFileWrapper.c)
- *     CmpGetVolumeClusterSize @ 0x14068936C (CmpGetVolumeClusterSize.c)
- *     CmpGetVolumeLogFileSizeCap @ 0x1406899A8 (CmpGetVolumeLogFileSizeCap.c)
- *     EtwpFinalizeHeader @ 0x1407F64A8 (EtwpFinalizeHeader.c)
- *     EtwpCreateLogFile @ 0x1407F6D40 (EtwpCreateLogFile.c)
- *     PfpQueryFileExtentsRequest @ 0x14097E5A0 (PfpQueryFileExtentsRequest.c)
- *     PopValidateHiberFileSize @ 0x140989320 (PopValidateHiberFileSize.c)
- *     SmKmIsVolumeIoPossible @ 0x1409D8DAC (SmKmIsVolumeIoPossible.c)
- *     SmKmStoreFileCreate @ 0x1409D9774 (SmKmStoreFileCreate.c)
+ *     CmpGetVolumeLogFileSizeCap @ 0x14069E798 (CmpGetVolumeLogFileSizeCap.c)
+ *     EtwpFinalizeHeader @ 0x140713010 (EtwpFinalizeHeader.c)
+ *     EtwpUpdateFileHeader @ 0x140713648 (EtwpUpdateFileHeader.c)
+ *     CmpGetVolumeClusterSize @ 0x14071D1A8 (CmpGetVolumeClusterSize.c)
+ *     PopValidateHiberFileSize @ 0x140773EB8 (PopValidateHiberFileSize.c)
+ *     PfpQueryFileExtentsRequest @ 0x1408DFD5C (PfpQueryFileExtentsRequest.c)
+ *     SmKmIsVolumeIoPossible @ 0x14092B644 (SmKmIsVolumeIoPossible.c)
+ *     SmKmStoreFileCreate @ 0x14092C02C (SmKmStoreFileCreate.c)
  * Callees:
  *     <none>
  */

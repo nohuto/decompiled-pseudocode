@@ -1,25 +1,25 @@
 /*
- * XREFs of FopReadCmapTable @ 0x140B9DE00
+ * XREFs of FopReadCmapTable @ 0x140A963B4
  * Callers:
- *     FopReadMappingTable @ 0x140B9DAAC (FopReadMappingTable.c)
+ *     FopReadMappingTable @ 0x140A96050 (FopReadMappingTable.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403852A0 (BgpFwFreeMemory.c)
- *     FioFwReadBytesAtOffset @ 0x1403863C8 (FioFwReadBytesAtOffset.c)
- *     BgpFwAllocateMemory @ 0x14038682C (BgpFwAllocateMemory.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     BgpFwFreeMemory @ 0x14039B660 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14039BE84 (BgpFwAllocateMemory.c)
+ *     FioFwReadBytesAtOffset @ 0x1403AE41C (FioFwReadBytesAtOffset.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FopReadCmapTable(__int64 a1, unsigned int a2, _QWORD *a3)
 {
   int BytesAtOffset; // ebx
-  unsigned __int16 v6; // si
+  unsigned __int16 v6; // di
   unsigned __int64 v7; // rcx
   unsigned int v8; // eax
-  _DWORD *Memory; // rdi
-  unsigned int v10; // ebp
+  _DWORD *Memory; // rsi
+  unsigned int v10; // r14d
   unsigned int v11; // r12d
-  unsigned int v12; // r14d
-  unsigned int *v13; // rsi
+  unsigned int v12; // ebp
+  unsigned int *v13; // rdi
   __int64 v16; // [rsp+28h] [rbp-50h] BYREF
   int v17; // [rsp+30h] [rbp-48h]
 
@@ -59,23 +59,26 @@ __int64 __fastcall FopReadCmapTable(__int64 a1, unsigned int a2, _QWORD *a3)
           while ( 1 )
           {
             BytesAtOffset = FioFwReadBytesAtOffset(a1, v10, 8u, v13 - 1);
+            if ( BytesAtOffset >= 0 )
+            {
+              *((_WORD *)v13 - 2) = __ROR2__(*((_WORD *)v13 - 2), 8);
+              *((_WORD *)v13 - 1) = __ROR2__(*((_WORD *)v13 - 1), 8);
+              BytesAtOffset = 0;
+              *v13 = _byteswap_ulong(*v13);
+            }
             if ( BytesAtOffset < 0 )
               break;
             ++v12;
-            v10 += 8;
-            *((_WORD *)v13 - 2) = __ROR2__(*((_WORD *)v13 - 2), 8);
-            BytesAtOffset = 0;
-            *((_WORD *)v13 - 1) = __ROR2__(*((_WORD *)v13 - 1), 8);
-            *v13 = _byteswap_ulong(*v13);
             v13 += 2;
+            v10 += 8;
             if ( v12 >= v11 )
-              goto LABEL_11;
+              goto LABEL_13;
           }
           BgpFwFreeMemory((__int64)Memory);
         }
         else
         {
-LABEL_11:
+LABEL_13:
           *a3 = Memory;
         }
       }

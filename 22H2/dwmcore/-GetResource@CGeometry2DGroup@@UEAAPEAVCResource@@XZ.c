@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetResource@CGeometry2DGroup@@UEAAPEAVCResource@@XZ @ 0x180105EA0
+ * XREFs of ?GetResource@CGeometry2DGroup@@UEAAPEAVCResource@@XZ @ 0x1800E27C0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct CResource *__fastcall CGeometry2DGroup::GetResource(CGeometry2DGroup *this)
 {
-  return (CGeometry2DGroup *)((char *)this - 104);
+  return (CGeometry2DGroup *)((char *)this - 72);
 }

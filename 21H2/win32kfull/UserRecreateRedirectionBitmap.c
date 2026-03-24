@@ -1,49 +1,44 @@
 /*
- * XREFs of UserRecreateRedirectionBitmap @ 0x1C01E2880
+ * XREFs of UserRecreateRedirectionBitmap @ 0x1C01E81F0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z @ 0x1C001F87C (-SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z.c)
- *     HintSpriteShape @ 0x1C00210C4 (HintSpriteShape.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     GetRedirectionBitmap @ 0x1C0049330 (GetRedirectionBitmap.c)
- *     RecreateRedirectionBitmap @ 0x1C008F778 (RecreateRedirectionBitmap.c)
- *     UnsetRedirectedWindow @ 0x1C00B40A4 (UnsetRedirectedWindow.c)
- *     DeleteOldRedirectionBitmap @ 0x1C00B4184 (DeleteOldRedirectionBitmap.c)
- *     DeleteOrSetRedirectionBitmap @ 0x1C00B4214 (DeleteOrSetRedirectionBitmap.c)
- *     ?UnselectRedirectionBitmapsInDCEs@@YAXQEAUtagWND@@@Z @ 0x1C01E21E0 (-UnselectRedirectionBitmapsInDCEs@@YAXQEAUtagWND@@@Z.c)
+ *     HintSpriteShape @ 0x1C00BD898 (HintSpriteShape.c)
+ *     GetRedirectionBitmap @ 0x1C00BEF20 (GetRedirectionBitmap.c)
+ *     ?SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z @ 0x1C00BEFA8 (-SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z.c)
+ *     UnsetRedirectedWindow @ 0x1C00EF7E8 (UnsetRedirectedWindow.c)
+ *     DeleteOldRedirectionBitmap @ 0x1C00EF8C8 (DeleteOldRedirectionBitmap.c)
+ *     DeleteOrSetRedirectionBitmap @ 0x1C00EF958 (DeleteOrSetRedirectionBitmap.c)
+ *     RecreateRedirectionBitmap @ 0x1C00F18E8 (RecreateRedirectionBitmap.c)
+ *     ?UnselectRedirectionBitmapsInDCEs@@YAXQEAUtagWND@@@Z @ 0x1C01E7A4C (-UnselectRedirectionBitmapsInDCEs@@YAXQEAUtagWND@@@Z.c)
  */
 
-struct tagWND *__fastcall UserRecreateRedirectionBitmap(__int64 a1)
+// write access to const memory has been detected, the output may be wrong!
+__int64 __fastcall UserRecreateRedirectionBitmap(__int64 a1)
 {
-  __int64 ThreadWin32Thread; // rdi
-  int v3; // ebx
-  struct tagWND *result; // rax
-  struct tagWND *v5; // rsi
-  HSURF v6; // rbx
+  __int64 result; // rax
+  struct tagWND *v2; // rdi
+  HSURF v3; // rbx
 
-  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  v3 = *(_DWORD *)(ThreadWin32Thread + 1508);
-  *(_DWORD *)(ThreadWin32Thread + 1508) = 0;
-  result = (struct tagWND *)ValidateHwnd(a1);
-  *(_DWORD *)(ThreadWin32Thread + 1508) = v3;
-  v5 = result;
+  gbValidateHandleForIL = 0;
+  result = ValidateHwnd(a1);
+  v2 = (struct tagWND *)result;
   if ( result )
   {
-    if ( (*(_BYTE *)(*((_QWORD *)result + 5) + 27LL) & 0x20) != 0 )
+    if ( (*(_BYTE *)(*(_QWORD *)(result + 40) + 27LL) & 0x20) != 0 )
     {
-      HintSpriteShape(*(HDEV *)(gpDispInfo + 40LL), result, 0LL, 0);
-      DeleteOldRedirectionBitmap((__int64)v5);
-      result = (struct tagWND *)GetRedirectionBitmap((__int64)v5);
-      v6 = (HSURF)result;
+      HintSpriteShape(*(HDEV *)(gpDispInfo + 40LL), (struct tagWND *)result, 0LL, 0);
+      DeleteOldRedirectionBitmap((__int64)v2);
+      result = GetRedirectionBitmap((__int64)v2);
+      v3 = (HSURF)result;
       if ( result )
       {
-        UnselectRedirectionBitmapsInDCEs(v5);
-        SetRedirectionBitmap(v5, 0LL, 0);
-        DeleteOrSetRedirectionBitmap((__int64)v5, v6, 1);
-        result = (struct tagWND *)RecreateRedirectionBitmap(v5, 0, 0, 0, 0, 0LL);
+        UnselectRedirectionBitmapsInDCEs(v2);
+        SetRedirectionBitmap((void **)v2, 0LL, 0);
+        DeleteOrSetRedirectionBitmap((__int64)v2, v3, 1);
+        result = RecreateRedirectionBitmap((void **)v2, 0, 0, 0, 0, 0LL);
         if ( (int)result < 0 )
-          return (struct tagWND *)UnsetRedirectedWindow(v5, 1);
+          return UnsetRedirectedWindow(v2, 1);
       }
     }
   }

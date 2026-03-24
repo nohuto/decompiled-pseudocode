@@ -1,143 +1,130 @@
 /*
- * XREFs of NVMeGetLogPageCompletion @ 0x1C001E280
+ * XREFs of NVMeGetLogPageCompletion @ 0x1C00193A0
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     ProcessCommand @ 0x1C0002360 (ProcessCommand.c)
- *     GetLocalCommand @ 0x1C0009D40 (GetLocalCommand.c)
- *     LocalCommandReuse @ 0x1C000C21C (LocalCommandReuse.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
- *     NVMeIssueAsyncEventCommand @ 0x1C001FBC4 (NVMeIssueAsyncEventCommand.c)
- *     NVMeReenumerateNameSpaceStart @ 0x1C00226AC (NVMeReenumerateNameSpaceStart.c)
- *     ProcessNvmeHealthInfoLog @ 0x1C0024B24 (ProcessNvmeHealthInfoLog.c)
- *     ProcessNvmeReservationNotification @ 0x1C0024E54 (ProcessNvmeReservationNotification.c)
- *     ProcessNvmeSanitizeStatus @ 0x1C0024F48 (ProcessNvmeSanitizeStatus.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     ProcessNvmeHealthInfoLog @ 0x1C0004590 (ProcessNvmeHealthInfoLog.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     GetLocalCommand @ 0x1C000B8A8 (GetLocalCommand.c)
+ *     NVMeIssueAsyncEventCommand @ 0x1C001A3AC (NVMeIssueAsyncEventCommand.c)
+ *     NVMeReenumerateNameSpaceStart @ 0x1C001AC78 (NVMeReenumerateNameSpaceStart.c)
  */
 
 __int64 __fastcall NVMeGetLogPageCompletion(__int64 a1, __int64 a2)
 {
-  unsigned __int64 LocalCommand; // r14
+  __int64 LocalCommand; // rsi
   __int64 v4; // r11
   __int64 result; // rax
-  __int64 v6; // r8
-  __int64 v7; // r11
-  __int64 v8; // rdi
-  char v9; // r15
-  char v10; // cl
-  __int64 v11; // r9
-  __int64 v12; // rdx
-  char v13; // si
-  char v14; // al
-  _DWORD *v15; // rsi
-  char v16; // bp
-  __int16 v17; // cx
-  _DWORD *v18; // rdx
+  __int64 v6; // r11
+  __int64 v7; // rbx
+  char v8; // r14
+  char v9; // cl
+  __int64 v10; // rdx
+  char v11; // bp
+  __int16 v12; // cx
+  void *v13; // rcx
+  __int64 v14; // rax
 
   LocalCommand = GetLocalCommand(a1, a2);
   result = GetSrbExtension(v4);
-  v8 = result;
-  v9 = 0;
-  if ( !LocalCommand )
+  v7 = result;
+  v8 = 0;
+  if ( LocalCommand )
   {
-    *(_BYTE *)(result + 4253) |= 8u;
-    return result;
-  }
-  v10 = *(_BYTE *)(v7 + 3);
-  if ( v10 != 14 )
-  {
-    result = *(unsigned int *)(a1 + 32);
-    if ( (result & 0xE) == 0 )
+    v9 = *(_BYTE *)(v6 + 3);
+    if ( v9 == 14 || (result = *(unsigned int *)(a1 + 24), (result & 0xE) != 0) )
     {
-      v11 = 9LL;
-      v12 = *(_QWORD *)(LocalCommand + 96);
-      v13 = *(_BYTE *)(v12 + 4136);
-      if ( !*(_QWORD *)(v8 + 4200) )
-        goto LABEL_33;
-      if ( v10 != 1 )
+      if ( *(_QWORD *)(v7 + 4200) )
       {
-        v16 = 1;
-        if ( v13 == 4 && (v17 = *(_WORD *)(v8 + 4250), (v17 & 0xE00) == 0x200) && (v17 & 0x1FE) == 0x12 )
+        result = NVMeFreeDmaBuffer(
+                   a1,
+                   *(unsigned int *)(*(_QWORD *)(LocalCommand + 96) + 4240LL),
+                   (__int64 *)(*(_QWORD *)(LocalCommand + 96) + 4200LL),
+                   *(_QWORD *)(*(_QWORD *)(LocalCommand + 96) + 4208LL));
+        *(_DWORD *)(v7 + 4240) = 0;
+      }
+      *(_BYTE *)(v7 + 4253) |= 8u;
+    }
+    else
+    {
+      v10 = *(_QWORD *)(LocalCommand + 96);
+      v11 = *(_BYTE *)(v10 + 4136);
+      if ( *(_QWORD *)(v7 + 4200) )
+      {
+        if ( v9 == 1 )
         {
-          v18 = *(_DWORD **)(v12 + 4200);
-          *v18 = -1;
-          NVMeReenumerateNameSpaceStart(a1, v18, 512LL, 9LL);
+          if ( v11 != 1 )
+          {
+            if ( v11 == 2 )
+            {
+              v8 = ProcessNvmeHealthInfoLog(a1, v6, *(char **)(v10 + 4200), 9);
+            }
+            else if ( v11 == 4 )
+            {
+              if ( **(_DWORD **)(v10 + 4200) )
+              {
+                NVMeReenumerateNameSpaceStart(a1);
+              }
+              else
+              {
+                _interlockedbittestandreset((volatile signed __int32 *)(a1 + 3812), 2u);
+                _interlockedbittestandreset((volatile signed __int32 *)(a1 + 3812), 1u);
+              }
+            }
+          }
         }
         else
         {
-          v16 = 0;
+          if ( v11 == 4 )
+          {
+            v12 = *(_WORD *)(v7 + 4250);
+            if ( (v12 & 0xE00) == 0x200 && (v12 & 0x1FE) == 0x12 )
+            {
+              **(_DWORD **)(v10 + 4200) = -1;
+              NVMeReenumerateNameSpaceStart(a1);
+            }
+          }
+          StorPortExtendedFunction(85LL, a1, 0LL, 1LL);
         }
-        if ( *(_BYTE *)(a1 + 22) && v16 )
-          StorPortExtendedFunction(85LL, a1, 0LL);
-        goto LABEL_32;
+        NVMeFreeDmaBuffer(
+          a1,
+          *(unsigned int *)(*(_QWORD *)(LocalCommand + 96) + 4240LL),
+          (__int64 *)(*(_QWORD *)(LocalCommand + 96) + 4200LL),
+          *(_QWORD *)(*(_QWORD *)(LocalCommand + 96) + 4208LL));
+        *(_BYTE *)(v7 + 4253) |= 8u;
+        *(_DWORD *)(v7 + 4240) = 0;
       }
-      if ( v13 != 1 )
+      *(_DWORD *)LocalCommand = 0;
+      if ( v8 )
       {
-        switch ( v13 )
-        {
-          case 2:
-            v14 = ProcessNvmeHealthInfoLog(a1, v7, *(_QWORD *)(v12 + 4200), 9LL);
-LABEL_23:
-            v9 = v14;
-            break;
-          case -128:
-            v14 = ProcessNvmeReservationNotification(a1, v7, *(_QWORD *)(v12 + 4200), 9LL);
-            goto LABEL_23;
-          case 4:
-            v15 = *(_DWORD **)(v12 + 4200);
-            if ( *(_BYTE *)(a1 + 22) )
-              StorPortExtendedFunction(85LL, a1, 0LL);
-            if ( *v15 )
-            {
-              NVMeReenumerateNameSpaceStart(a1, v15, v6, v11);
-            }
-            else
-            {
-              _interlockedbittestandreset((volatile signed __int32 *)(a1 + 4028), 2u);
-              _interlockedbittestandreset((volatile signed __int32 *)(a1 + 4028), 1u);
-            }
-            break;
-          case 8:
-            if ( *(_BYTE *)(a1 + 22) )
-              StorPortExtendedFunction(105LL, a1, 0LL);
-            break;
-          case -127:
-            v14 = ProcessNvmeSanitizeStatus(a1, v7, *(_QWORD *)(v12 + 4200), 9LL);
-            goto LABEL_23;
-        }
+        v13 = *(void **)(LocalCommand + 96);
+        *(_BYTE *)(LocalCommand + 11) = 0;
+        memset(v13, 0, 0x10A0uLL);
+        *(_QWORD *)(*(_QWORD *)(LocalCommand + 96) + 4232LL) = 0LL;
+        v14 = *(_QWORD *)(LocalCommand + 96);
+        *(_QWORD *)(LocalCommand + 64) = v14;
+        *(_DWORD *)LocalCommand = 1;
+        *(_BYTE *)(v14 + 4253) |= 1u;
+        *(_BYTE *)(*(_QWORD *)(LocalCommand + 96) + 4253LL) &= ~2u;
+        *(_WORD *)(*(_QWORD *)(LocalCommand + 96) + 4244LL) = 0;
+        *(_DWORD *)(v7 + 4140) = *(_DWORD *)(a1 + 4016);
+        *(_QWORD *)(v7 + 4224) = NVMeReConfigAsyncEventCompletion;
+        *(_BYTE *)(v7 + 4096) = 9;
+        *(_BYTE *)(v7 + 4136) = 11;
+        return ProcessCommand(a1, LocalCommand + 8);
       }
-LABEL_32:
-      NVMeFreeDmaBuffer(
-        a1,
-        *(unsigned int *)(*(_QWORD *)(LocalCommand + 96) + 4240LL),
-        (__int64 *)(*(_QWORD *)(LocalCommand + 96) + 4200LL),
-        *(_QWORD *)(*(_QWORD *)(LocalCommand + 96) + 4208LL));
-      *(_BYTE *)(v8 + 4253) |= 8u;
-      *(_DWORD *)(v8 + 4240) = 0;
-LABEL_33:
-      *(_BYTE *)LocalCommand = 0;
-      if ( !v9 )
+      else
+      {
         return NVMeIssueAsyncEventCommand(a1, LocalCommand);
-      LocalCommandReuse(a1, LocalCommand);
-      *(_BYTE *)(*(_QWORD *)(LocalCommand + 96) + 4253LL) |= 1u;
-      *(_BYTE *)(*(_QWORD *)(LocalCommand + 96) + 4253LL) &= ~2u;
-      *(_WORD *)(*(_QWORD *)(LocalCommand + 96) + 4244LL) = 0;
-      *(_DWORD *)(v8 + 4140) = *(_DWORD *)(a1 + 4232);
-      *(_QWORD *)(v8 + 4224) = NVMeReConfigAsyncEventCompletion;
-      *(_BYTE *)(v8 + 4096) = 9;
-      *(_BYTE *)(v8 + 4136) = 11;
-      return ProcessCommand(a1, LocalCommand + 8);
+      }
     }
   }
-  if ( *(_QWORD *)(v8 + 4200) )
+  else
   {
-    result = NVMeFreeDmaBuffer(
-               a1,
-               *(unsigned int *)(*(_QWORD *)(LocalCommand + 96) + 4240LL),
-               (__int64 *)(*(_QWORD *)(LocalCommand + 96) + 4200LL),
-               *(_QWORD *)(*(_QWORD *)(LocalCommand + 96) + 4208LL));
-    *(_DWORD *)(v8 + 4240) = 0;
+    *(_BYTE *)(result + 4253) |= 8u;
   }
-  *(_BYTE *)(v8 + 4253) |= 8u;
   return result;
 }

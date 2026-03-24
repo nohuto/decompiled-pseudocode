@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetDebugTargetInfo@CConditionalExpression@@AEBA?AUDebugTargetInfo@1@XZ @ 0x180210F80
+ * XREFs of ?GetDebugTargetInfo@CConditionalExpression@@AEBA?AUDebugTargetInfo@1@XZ @ 0x1801BDBA4
  * Callers:
- *     ?GetValue@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x180211050 (-GetValue@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
+ *     ?GetValue@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x1801BDC74 (-GetValue@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall CConditionalExpression::GetDebugTargetInfo(__int64 a1, __int6
   __int64 i; // rcx
   int v4; // eax
 
-  v2 = *(_QWORD *)(a1 + 328);
+  v2 = *(_QWORD *)(a1 + 304);
   if ( (*(_DWORD *)(v2 + 4) & 0x40000000) != 0 )
   {
     for ( i = v2 + 12; (*(_DWORD *)i & 0x7F000000) != 0x2000000; i += (*(_DWORD *)i & 0xFFFFFF) + 4LL )

@@ -1,11 +1,10 @@
 /*
- * XREFs of ?SetPoints@?$CBezierFlattener@MVCMilPoint2F@@@@QEAAXAEBVCMilPoint2F@@000@Z @ 0x1800B70E0
+ * XREFs of ?SetPoints@?$CBezierFlattener@MVCMilPoint2F@@@@QEAAXAEBVCMilPoint2F@@000@Z @ 0x18025E1AC
  * Callers:
- *     ?AddNonIntersectedD2DGeometry@CRoundedRectangleShape@@AEBAXPEAUID2D1GeometrySink@@@Z @ 0x1800B6188 (-AddNonIntersectedD2DGeometry@CRoundedRectangleShape@@AEBAXPEAUID2D1GeometrySink@@@Z.c)
- *     ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x1802A00F4 (-GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z.c)
- *     ?InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z @ 0x1802A06CC (-InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z.c)
+ *     ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x18025E67C (-GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z.c)
+ *     ?InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z @ 0x18025EBEC (-InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z.c)
  * Callees:
- *     ?HalveTheStep@?$CBezierFlattener@MVCMilPoint2F@@@@IEAAXXZ @ 0x1800B723C (-HalveTheStep@-$CBezierFlattener@MVCMilPoint2F@@@@IEAAXXZ.c)
+ *     ?HalveTheStep@?$CBezierFlattener@MVCMilPoint2F@@@@IEAAXXZ @ 0x18025E100 (-HalveTheStep@-$CBezierFlattener@MVCMilPoint2F@@@@IEAAXXZ.c)
  */
 
 __m128 __fastcall CBezierFlattener<float,CMilPoint2F>::SetPoints(

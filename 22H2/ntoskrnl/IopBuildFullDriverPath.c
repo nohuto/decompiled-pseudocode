@@ -1,87 +1,84 @@
 /*
- * XREFs of IopBuildFullDriverPath @ 0x14068DB7C
+ * XREFs of IopBuildFullDriverPath @ 0x14073C7A8
  * Callers:
- *     PpCheckInDriverDatabase @ 0x140692C14 (PpCheckInDriverDatabase.c)
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
- *     PiNormalizeDeviceText @ 0x140871388 (PiNormalizeDeviceText.c)
+ *     PpCheckInDriverDatabase @ 0x140739F60 (PpCheckInDriverDatabase.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
+ *     PiNormalizeDeviceText @ 0x14076A260 (PiNormalizeDeviceText.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     IopQueryRegistryKeySystemPath @ 0x14068ECA0 (IopQueryRegistryKeySystemPath.c)
- *     RtlPrefixUnicodeString @ 0x1406D9ED0 (RtlPrefixUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IopVerifierExAllocatePool @ 0x14022C350 (IopVerifierExAllocatePool.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     IopQueryRegistryKeySystemPath @ 0x14073D480 (IopQueryRegistryKeySystemPath.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopBuildFullDriverPath(UNICODE_STRING *a1, void *a2, UNICODE_STRING *a3)
 {
   NTSTATUS appended; // ebx
-  NTSTATUS RegistryValue; // eax
-  PVOID v8; // rsi
-  unsigned int v9; // eax
-  wchar_t *v10; // r14
+  __int64 v7; // r14
   unsigned __int16 Length; // bx
-  unsigned int v12; // edx
-  __int64 Pool2; // rax
-  UNICODE_STRING v15; // xmm0
-  UNICODE_STRING String2; // [rsp+28h] [rbp-29h] BYREF
-  UNICODE_STRING Source; // [rsp+38h] [rbp-19h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-9h] BYREF
-  UNICODE_STRING String1; // [rsp+58h] [rbp+7h] BYREF
-  UNICODE_STRING v20; // [rsp+68h] [rbp+17h]
-  UNICODE_STRING v21; // [rsp+78h] [rbp+27h] BYREF
-  UNICODE_STRING v22; // [rsp+88h] [rbp+37h] BYREF
-  PVOID P; // [rsp+D0h] [rbp+7Fh] BYREF
+  unsigned int v9; // edx
+  wchar_t *Pool; // rax
+  UNICODE_STRING v12; // xmm0
+  UNICODE_STRING String2; // [rsp+20h] [rbp-39h] BYREF
+  UNICODE_STRING Source; // [rsp+30h] [rbp-29h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-19h] BYREF
+  UNICODE_STRING String1; // [rsp+50h] [rbp-9h] BYREF
+  UNICODE_STRING v17; // [rsp+60h] [rbp+7h]
+  UNICODE_STRING v18; // [rsp+70h] [rbp+17h] BYREF
+  UNICODE_STRING v19; // [rsp+80h] [rbp+27h] BYREF
 
   *(_QWORD *)&String1.Length = 1703960LL;
-  *(_QWORD *)&v20.Length = 2359330LL;
+  *(_QWORD *)&v17.Length = 2359330LL;
   String1.Buffer = L"\\SystemRoot\\";
-  v20.Buffer = L"System32\\Drivers\\";
+  v17.Buffer = L"System32\\Drivers\\";
   DestinationString = 0LL;
   Source = 0LL;
-  v21 = 0LL;
+  v18 = 0LL;
   String2 = 0LL;
-  v22 = 0LL;
+  v19 = 0LL;
   RtlInitUnicodeString(a3, 0LL);
   RtlInitUnicodeString(&DestinationString, 0LL);
   RtlInitUnicodeString(&Source, 0LL);
-  RtlInitUnicodeString(&v21, 0LL);
+  RtlInitUnicodeString(&v18, 0LL);
   RtlInitUnicodeString(&String2, 0LL);
-  RtlInitUnicodeString(&v22, 0LL);
-  P = 0LL;
+  RtlInitUnicodeString(&v19, 0LL);
   appended = IopQueryRegistryKeySystemPath(a2, &DestinationString);
   if ( appended < 0 )
-    goto LABEL_16;
-  RegistryValue = IopGetRegistryValue(a2, L"ImagePath", 256, &P);
-  v8 = P;
-  if ( RegistryValue < 0 || (v9 = *((_DWORD *)P + 3), v9 < 2) )
+    goto LABEL_14;
+  if ( (int)IopGetRegistryValue(a2) < 0 || MEMORY[0xC] < 2u )
   {
     Source = DestinationString;
-    v15 = *a1;
-    v21 = v20;
-    String2 = v15;
-    RtlInitUnicodeString(&v22, L".SYS");
+    v12 = *a1;
+    v18 = v17;
+    String2 = v12;
+    RtlInitUnicodeString(&v19, L".SYS");
     Length = String2.Length;
   }
   else
   {
-    if ( v9 > 0xFFFF )
-      goto LABEL_21;
-    v10 = (wchar_t *)((char *)P + *((unsigned int *)P + 2));
-    String2.MaximumLength = *((_DWORD *)P + 3);
-    Length = v9 - 2;
-    String2.Buffer = v10;
-    String2.Length = v9 - 2;
-    if ( *v10 == 92 )
+    if ( MEMORY[0xC] > 0xFFFFu )
+    {
+LABEL_18:
+      appended = -2147483643;
+      goto LABEL_14;
+    }
+    v7 = MEMORY[8];
+    String2.MaximumLength = MEMORY[0xC];
+    Length = MEMORY[0xC] - 2;
+    String2.Buffer = (wchar_t *)MEMORY[8];
+    String2.Length = MEMORY[0xC] - 2;
+    if ( *(_WORD *)MEMORY[8] == 92 )
     {
       if ( RtlPrefixUnicodeString(&String1, &String2, 1u) )
       {
         Length -= 24;
         Source = DestinationString;
         String2.Length = Length;
-        String2.Buffer = v10 + 12;
+        String2.Buffer = (wchar_t *)(v7 + 24);
       }
       else
       {
@@ -93,43 +90,36 @@ __int64 __fastcall IopBuildFullDriverPath(UNICODE_STRING *a1, void *a2, UNICODE_
       Source = DestinationString;
     }
   }
-  v12 = Source.Length + 2 + v21.Length + v22.Length + Length;
-  if ( v12 <= 0xFFFF )
+  v9 = Source.Length + 2 + v18.Length + v19.Length + Length;
+  if ( v9 > 0xFFFF )
+    goto LABEL_18;
+  a3->MaximumLength = v9;
+  a3->Length = 0;
+  Pool = (wchar_t *)IopVerifierExAllocatePool(PagedPool, (unsigned __int16)v9);
+  a3->Buffer = Pool;
+  if ( Pool )
   {
-    a3->MaximumLength = v12;
-    a3->Length = 0;
-    Pool2 = ExAllocatePool2(256LL, (unsigned __int16)v12, 538996553LL);
-    a3->Buffer = (wchar_t *)Pool2;
-    if ( Pool2 )
+    appended = RtlAppendUnicodeStringToString(a3, &Source);
+    if ( appended >= 0 )
     {
-      appended = RtlAppendUnicodeStringToString(a3, &Source);
+      appended = RtlAppendUnicodeStringToString(a3, &v18);
       if ( appended >= 0 )
       {
-        appended = RtlAppendUnicodeStringToString(a3, &v21);
+        appended = RtlAppendUnicodeStringToString(a3, &String2);
         if ( appended >= 0 )
         {
-          appended = RtlAppendUnicodeStringToString(a3, &String2);
+          appended = RtlAppendUnicodeStringToString(a3, &v19);
           if ( appended >= 0 )
-          {
-            appended = RtlAppendUnicodeStringToString(a3, &v22);
-            if ( appended >= 0 )
-              a3->Buffer[(unsigned __int64)a3->Length >> 1] = 0;
-          }
+            a3->Buffer[(unsigned __int64)a3->Length >> 1] = 0;
         }
       }
     }
-    else
-    {
-      appended = -1073741670;
-    }
-    goto LABEL_14;
   }
-LABEL_21:
-  appended = -2147483643;
+  else
+  {
+    appended = -1073741670;
+  }
 LABEL_14:
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0);
-LABEL_16:
-  RtlFreeUnicodeString(&DestinationString);
+  RtlFreeAnsiString(&DestinationString);
   return (unsigned int)appended;
 }

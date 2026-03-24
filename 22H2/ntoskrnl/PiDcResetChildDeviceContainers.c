@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDcResetChildDeviceContainers @ 0x14095B530
+ * XREFs of PiDcResetChildDeviceContainers @ 0x1408A3928
  * Callers:
- *     PiDcUpdateDeviceContainerMembership @ 0x14079BAD0 (PiDcUpdateDeviceContainerMembership.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x14075875C (PiDcUpdateDeviceContainerMembership.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     _CmSetDeviceRegProp @ 0x140798B3C (_CmSetDeviceRegProp.c)
- *     _CmEnumDevicesInContainerWithCallback @ 0x140A63D54 (_CmEnumDevicesInContainerWithCallback.c)
- *     _CmRemoveDeviceFromContainer @ 0x140A646AC (_CmRemoveDeviceFromContainer.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
+ *     _CmRemoveDeviceFromContainer @ 0x14072C9AC (_CmRemoveDeviceFromContainer.c)
+ *     _CmSetDeviceRegProp @ 0x1407404B0 (_CmSetDeviceRegProp.c)
+ *     _CmEnumDevicesInContainerWithCallback @ 0x140975D40 (_CmEnumDevicesInContainerWithCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDcResetChildDeviceContainers(__int64 a1, const wchar_t *a2)
@@ -60,7 +60,7 @@ __int64 __fastcall PiDcResetChildDeviceContainers(__int64 a1, const wchar_t *a2)
         goto LABEL_11;
       if ( DeviceRegProp < 0 )
         break;
-      v3 = CmRemoveDeviceFromContainer(*(_QWORD *)&PiPnpRtlCtx, a2, v13, v4 + 2);
+      v3 = CmRemoveDeviceFromContainer(*(__int64 *)&PiPnpRtlCtx, (__int64)a2, (__int64)v13, (__int64)(v4 + 2));
       if ( v3 < 0 )
         break;
       v6 = CmSetDeviceRegProp(*(__int64 *)&PiPnpRtlCtx, (__int64)(v4 + 2), 0LL, 0x25u, 1u, 0LL, 0, 0);

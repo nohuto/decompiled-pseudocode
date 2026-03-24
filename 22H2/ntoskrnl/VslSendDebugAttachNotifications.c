@@ -1,14 +1,14 @@
 /*
- * XREFs of VslSendDebugAttachNotifications @ 0x140943028
+ * XREFs of VslSendDebugAttachNotifications @ 0x1408902B4
  * Callers:
- *     DbgkpPostModuleMessages @ 0x140937C58 (DbgkpPostModuleMessages.c)
+ *     DbgkpPostModuleMessages @ 0x1408852F0 (DbgkpPostModuleMessages.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslSendDebugAttachNotifications(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall VslSendDebugAttachNotifications(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD v7[14]; // [rsp+20h] [rbp-88h] BYREF
 

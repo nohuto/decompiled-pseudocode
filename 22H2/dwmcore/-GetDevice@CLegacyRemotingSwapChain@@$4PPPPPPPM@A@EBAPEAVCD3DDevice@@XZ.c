@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDevice@CLegacyRemotingSwapChain@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x180121620
+ * XREFs of ?GetDevice@CLegacyRemotingSwapChain@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x1800F7C60
  * Callers:
  *     <none>
  * Callees:

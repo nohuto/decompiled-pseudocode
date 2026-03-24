@@ -1,15 +1,15 @@
 /*
- * XREFs of ?Evict@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAPEAU_VIDMM_MULTI_ALLOC@@IKPEA_K@Z @ 0x1C00B196C
+ * XREFs of ?Evict@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAPEAU_VIDMM_MULTI_ALLOC@@IKPEA_K@Z @ 0x1C0085D90
  * Callers:
- *     ?VidMmEvict@@YAXPEAVVIDMM_GLOBAL@@PEAVVIDMM_DEVICE@@PEAPEAU_VIDMM_MULTI_ALLOC@@IKPEA_K@Z @ 0x1C0017130 (-VidMmEvict@@YAXPEAVVIDMM_GLOBAL@@PEAVVIDMM_DEVICE@@PEAPEAU_VIDMM_MULTI_ALLOC@@IKPEA_K@Z.c)
- *     ?VidMmEvictAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAU_D3DKMT_EVICTION_CRITERIA@@@Z @ 0x1C00E9CB8 (-VidMmEvictAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@.c)
+ *     ?VidMmEvict@@YAXPEAVVIDMM_GLOBAL@@PEAVVIDMM_DEVICE@@PEAPEAU_VIDMM_MULTI_ALLOC@@IKPEA_K@Z @ 0x1C0014850 (-VidMmEvict@@YAXPEAVVIDMM_GLOBAL@@PEAVVIDMM_DEVICE@@PEAPEAU_VIDMM_MULTI_ALLOC@@IKPEA_K@Z.c)
+ *     ?VidMmEvictAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAU_D3DKMT_EVICTION_CRITERIA@@@Z @ 0x1C00B4B04 (-VidMmEvictAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@.c)
  * Callees:
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0005BC0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006770 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C002EDF4 (McTemplateK0pq_EtwWriteTransfer.c)
- *     ?QueueDeferredCommand@VIDMM_GLOBAL@@QEAAJAEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_DEFERRED_COMMAND@@_NPEA_K@Z @ 0x1C0096B10 (-QueueDeferredCommand@VIDMM_GLOBAL@@QEAAJAEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_DEFERRED_COMMAND@@_N.c)
- *     ?UnreferenceAllocationList@VIDMM_DEVICE@@QEAAXPEAPEAUVIDMM_ALLOC@@_KPEA_K@Z @ 0x1C00B1AC4 (-UnreferenceAllocationList@VIDMM_DEVICE@@QEAAXPEAPEAUVIDMM_ALLOC@@_KPEA_K@Z.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006090 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000613C (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0024930 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     ?QueueDeferredCommand@VIDMM_GLOBAL@@QEAAJAEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_DEFERRED_COMMAND@@_NPEA_K@Z @ 0x1C0073674 (-QueueDeferredCommand@VIDMM_GLOBAL@@QEAAJAEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_DEFERRED_COMMAND@@_N.c)
+ *     ?UnreferenceAllocationList@VIDMM_DEVICE@@QEAAXPEAPEAUVIDMM_ALLOC@@_KPEA_K@Z @ 0x1C0085EE4 (-UnreferenceAllocationList@VIDMM_DEVICE@@QEAAXPEAPEAUVIDMM_ALLOC@@_KPEA_K@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::Evict(
@@ -20,17 +20,19 @@ void __fastcall VIDMM_GLOBAL::Evict(
         unsigned int a5,
         unsigned __int64 *a6)
 {
-  struct _VIDMM_MULTI_ALLOC **v6; // rsi
+  struct _VIDMM_MULTI_ALLOC **v6; // rdi
   __int64 v7; // rbx
   __int64 v9; // r8
-  struct _VIDMM_MULTI_ALLOC **i; // r12
-  struct _VIDMM_MULTI_ALLOC *v11; // rdi
-  __int64 v12; // r14
-  __int64 v13; // rcx
-  _QWORD **v14; // r8
-  char v15; // r9
-  __int64 v16; // [rsp+20h] [rbp-98h]
-  _QWORD v17[12]; // [rsp+30h] [rbp-88h] BYREF
+  struct _VIDMM_MULTI_ALLOC **i; // r15
+  struct _VIDMM_MULTI_ALLOC *v11; // rbx
+  __int64 v12; // rbp
+  struct _KTHREAD **v13; // rcx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  _QWORD *v16; // r8
+  char v17; // r9
+  __int64 v18; // [rsp+20h] [rbp-78h]
+  _QWORD v19[10]; // [rsp+30h] [rbp-68h] BYREF
 
   v6 = a3;
   v7 = a4;
@@ -41,31 +43,32 @@ void __fastcall VIDMM_GLOBAL::Evict(
     v12 = **(_QWORD **)*v6;
     if ( (a5 & 2) != 0 )
     {
-      DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)(v12 + 296));
-      *(_BYTE *)(v12 + 83) = 1;
-      DXGFASTMUTEX::Release((struct _KTHREAD **)(v12 + 296));
+      DXGFASTMUTEX::Acquire(*(DXGFASTMUTEX **)(v12 + 312));
+      v13 = *(struct _KTHREAD ***)(v12 + 312);
+      *(_BYTE *)(v12 + 90) = 1;
+      DXGFASTMUTEX::Release(v13, v14);
     }
-    v13 = *((_BYTE *)v11 + 25) & 1;
-    if ( !((unsigned int)v13 | *((_DWORD *)v11 + 38)) && !*((_DWORD *)v11 + 39) )
+    v15 = *((_BYTE *)v11 + 25) & 1;
+    if ( !((unsigned int)v15 | *((_DWORD *)v11 + 38)) && !*((_DWORD *)v11 + 39) )
     {
       _InterlockedIncrement((volatile signed __int32 *)v11 + 41);
-      memset(v17, 0, 0x58uLL);
-      v14 = (_QWORD **)((char *)v11 + 8);
-      LODWORD(v17[0]) = 207;
-      v17[2] = v11;
-      LODWORD(v17[4]) = a5;
-      v15 = dword_1C0076538 || (*(_DWORD *)((*v14)[1] + 112LL) & 1) != 0;
+      memset(v19, 0, sizeof(v19));
+      v16 = (_QWORD *)*((_QWORD *)v11 + 1);
+      LODWORD(v19[0]) = 207;
+      v19[2] = v11;
+      LODWORD(v19[4]) = a5;
+      v17 = dword_1C0050488 || (*(_DWORD *)(v16[1] + 112LL) & 1) != 0;
       VIDMM_GLOBAL::QueueDeferredCommand(
         this,
-        (struct VIDMM_PAGING_QUEUE *)((*v14)[11] + 176LL * (*(_DWORD *)(v12 + 68) & 0x3F)),
-        (struct _VIDMM_DEFERRED_COMMAND *)v17,
-        v15,
+        (struct VIDMM_PAGING_QUEUE *)(v16[10] + 176LL * (*(_DWORD *)(v12 + 76) & 0x3F)),
+        (struct _VIDMM_DEFERRED_COMMAND *)v19,
+        v17,
         0LL);
     }
-    if ( (byte_1C0076981 & 0x10) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
     {
-      LODWORD(v16) = *((_DWORD *)v11 + 38);
-      McTemplateK0pq_EtwWriteTransfer(v13, &EventVidMmEvict, v9, v11, v16);
+      LODWORD(v18) = *((_DWORD *)v11 + 38);
+      McTemplateK0pq_EtwWriteTransfer(v15, &EventVidMmEvict, v9, v11, v18);
     }
   }
 }

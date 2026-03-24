@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0MDCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C02AC700
+ * XREFs of ??0MDCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C02ADF94
  * Callers:
- *     NtGdiSelectBitmap @ 0x1C00EB910 (NtGdiSelectBitmap.c)
- *     GreRealizePalette @ 0x1C01470CC (GreRealizePalette.c)
- *     NtGdiResizePalette @ 0x1C02B6830 (NtGdiResizePalette.c)
+ *     NtGdiSelectBitmap @ 0x1C01011E0 (NtGdiSelectBitmap.c)
+ *     GreRealizePalette @ 0x1C011BC6C (GreRealizePalette.c)
+ *     NtGdiResizePalette @ 0x1C02B86F0 (NtGdiResizePalette.c)
  * Callees:
- *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C015D85C (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C016A898 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
  */
 
 MDCOBJ *__fastcall MDCOBJ::MDCOBJ(MDCOBJ *this, HDC a2)

@@ -1,43 +1,47 @@
 /*
- * XREFs of CmpUnlockTwoKcbs @ 0x1407C2FB4
+ * XREFs of CmpUnlockTwoKcbs @ 0x1405F3950
  * Callers:
- *     CmQueryMultipleValueKey @ 0x1406B3C34 (CmQueryMultipleValueKey.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x14071B730 (CmpFindSubkeyInHashByChildCell.c)
- *     CmEnumerateKey @ 0x1407C16A0 (CmEnumerateKey.c)
- *     CmQueryKey @ 0x1407C1B70 (CmQueryKey.c)
- *     NtNotifyChangeMultipleKeys @ 0x1407E5600 (NtNotifyChangeMultipleKeys.c)
- *     CmSaveMergedKeys @ 0x14090CFF8 (CmSaveMergedKeys.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x140915854 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmEnumerateKey @ 0x1405F4350 (CmEnumerateKey.c)
+ *     CmQueryKey @ 0x1405F5810 (CmQueryKey.c)
+ *     NtNotifyChangeMultipleKeys @ 0x140663230 (NtNotifyChangeMultipleKeys.c)
+ *     CmQueryMultipleValueKey @ 0x140669674 (CmQueryMultipleValueKey.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x140766570 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x14086F410 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmSaveMergedKeys @ 0x14087CA90 (CmSaveMergedKeys.c)
  * Callees:
- *     CmpGetCorrectKcbLockOrder @ 0x14071B20C (CmpGetCorrectKcbLockOrder.c)
- *     CmpUnlockKcb @ 0x140AB4300 (CmpUnlockKcb.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     CmpGetCorrectKcbLockOrder @ 0x1406BA63C (CmpGetCorrectKcbLockOrder.c)
+ *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
+ *     CmpFreeKeyControlBlock @ 0x140719B20 (CmpFreeKeyControlBlock.c)
  */
 
-__int64 __fastcall CmpUnlockTwoKcbs(unsigned __int64 a1, unsigned __int64 a2)
+void __fastcall CmpUnlockTwoKcbs(ULONG_PTR a1, ULONG_PTR a2)
 {
-  __int64 result; // rax
-  unsigned __int64 v3; // [rsp+30h] [rbp+8h] BYREF
-  unsigned __int64 v4; // [rsp+40h] [rbp+18h] BYREF
+  bool v3; // di
+  ULONG_PTR v4; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR v5; // [rsp+40h] [rbp+18h] BYREF
 
+  v5 = 0LL;
   v4 = 0LL;
-  v3 = 0LL;
   if ( a1 )
   {
-    if ( a2 )
+    if ( a2 && a1 != a2 )
     {
-      if ( a1 != a2 )
-      {
-        CmpGetCorrectKcbLockOrder(a1, a2, &v4, &v3);
-        CmpUnlockKcb(v3);
-        a1 = v4;
-      }
+      CmpGetCorrectKcbLockOrder(a1, a2, &v5, &v4);
+      CmpUnlockKcb(v4);
+      a1 = v5;
     }
+    CmpUnlockKcb(a1);
   }
-  else
+  else if ( a2 )
   {
-    if ( !a2 )
-      return result;
-    a1 = a2;
+    v3 = (*(_DWORD *)(a2 + 8) & 0x80000) != 0;
+    if ( *(struct _KTHREAD **)(a2 + 56) == KeGetCurrentThread() )
+      *(_QWORD *)(a2 + 56) = 0LL;
+    else
+      _InterlockedDecrement((volatile signed __int32 *)(a2 + 56));
+    ExReleasePushLockEx(a2 + 48, 0LL);
+    if ( v3 && (*(_DWORD *)(a2 + 8) & 0x80000) != 0 )
+      CmpFreeKeyControlBlock(a2);
   }
-  return CmpUnlockKcb(a1);
 }

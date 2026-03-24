@@ -1,9 +1,9 @@
 /*
- * XREFs of TR_DoesSegmentContainDequeuePointer @ 0x1C000B6E4
+ * XREFs of TR_DoesSegmentContainDequeuePointer @ 0x1C000BE44
  * Callers:
- *     Bulk_FindStage @ 0x1C000B5B0 (Bulk_FindStage.c)
- *     Isoch_FindTrbMatch @ 0x1C00424C0 (Isoch_FindTrbMatch.c)
- *     Bulk_IsTransferEventLikelyDuplicate_Internal @ 0x1C00447B8 (Bulk_IsTransferEventLikelyDuplicate_Internal.c)
+ *     Bulk_FindStage @ 0x1C000BD10 (Bulk_FindStage.c)
+ *     Isoch_FindTrbMatch @ 0x1C00415C0 (Isoch_FindTrbMatch.c)
+ *     Bulk_IsTransferEventLikelyDuplicate_Internal @ 0x1C00441A0 (Bulk_IsTransferEventLikelyDuplicate_Internal.c)
  * Callees:
  *     <none>
  */

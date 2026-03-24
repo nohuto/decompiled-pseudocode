@@ -1,7 +1,7 @@
 /*
- * XREFs of KeConfigureHeteroPolicy @ 0x14074FC28
+ * XREFs of KeConfigureHeteroPolicy @ 0x14074FC08
  * Callers:
- *     PopConfigureHeteroPolicies @ 0x14074F764 (PopConfigureHeteroPolicies.c)
+ *     PopConfigureHeteroPolicies @ 0x14074F744 (PopConfigureHeteroPolicies.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?DestroyDeviceResources@CD3DResourceManager@@QEAAXXZ @ 0x180023EE4
+ * XREFs of ?DestroyDeviceResources@CD3DResourceManager@@QEAAXXZ @ 0x18002A978
  * Callers:
- *     ?DestroyAllResources@CD3DDevice@@AEAAXXZ @ 0x180021788 (-DestroyAllResources@CD3DDevice@@AEAAXXZ.c)
+ *     ?DestroyAllResources@CD3DDevice@@AEAAXXZ @ 0x18002AA04 (-DestroyAllResources@CD3DDevice@@AEAAXXZ.c)
  * Callees:
- *     ?DestroyReleasedResources@CD3DResourceManager@@QEAAXXZ @ 0x180021980 (-DestroyReleasedResources@CD3DResourceManager@@QEAAXXZ.c)
- *     ?DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z @ 0x1800EC9E8 (-DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z.c)
+ *     ?DestroyReleasedResources@CD3DResourceManager@@QEAAXXZ @ 0x18002CD1C (-DestroyReleasedResources@CD3DResourceManager@@QEAAXXZ.c)
+ *     ?DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z @ 0x1800D407C (-DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z.c)
  */
 
 void __fastcall CD3DResourceManager::DestroyDeviceResources(union _SLIST_HEADER *this)
 {
   CD3DResourceManager *v1; // rdi
-  CD3DResourceManager *Alignment; // rax
+  CD3DResourceManager *Alignment; // rdx
   int v4; // esi
   CD3DResourceManager **v5; // r14
 
@@ -22,11 +22,11 @@ void __fastcall CD3DResourceManager::DestroyDeviceResources(union _SLIST_HEADER 
     v5 = (CD3DResourceManager **)&this[2];
     do
     {
-      if ( *((_QWORD *)Alignment - 1) )
+      if ( *((_DWORD *)Alignment - 8) )
       {
         CD3DResourceManager::DestroyResource(
           (CD3DResourceManager *)this,
-          (CD3DResourceManager *)((char *)Alignment - 32));
+          (CD3DResourceManager *)((char *)Alignment - 40));
       }
       else
       {

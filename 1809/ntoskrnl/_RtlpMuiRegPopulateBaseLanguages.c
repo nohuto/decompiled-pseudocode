@@ -1,20 +1,20 @@
 /*
- * XREFs of _RtlpMuiRegPopulateBaseLanguages @ 0x140907D58
+ * XREFs of _RtlpMuiRegPopulateBaseLanguages @ 0x140907D38
  * Callers:
- *     _RtlpMuiRegInitPartialLanguage @ 0x140907D00 (_RtlpMuiRegInitPartialLanguage.c)
+ *     _RtlpMuiRegInitPartialLanguage @ 0x140907CE0 (_RtlpMuiRegInitPartialLanguage.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwEnumerateValueKey @ 0x1401B83D0 (ZwEnumerateValueKey.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlCompareUnicodeStrings @ 0x14069B170 (RtlCompareUnicodeStrings.c)
- *     NtQueryInstallUILanguage @ 0x1406C53D0 (NtQueryInstallUILanguage.c)
- *     RtlpLoadInstallLanguageFallback @ 0x14073C9E4 (RtlpLoadInstallLanguageFallback.c)
- *     LdrpQueryValueKey @ 0x14073E390 (LdrpQueryValueKey.c)
- *     RtlLCIDToCultureName @ 0x140896610 (RtlLCIDToCultureName.c)
- *     _RtlpMuiRegAddBaseLanguage @ 0x14090774C (_RtlpMuiRegAddBaseLanguage.c)
- *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x1409081A8 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwEnumerateValueKey @ 0x1401B83F0 (ZwEnumerateValueKey.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlCompareUnicodeStrings @ 0x14069B150 (RtlCompareUnicodeStrings.c)
+ *     NtQueryInstallUILanguage @ 0x1406C53B0 (NtQueryInstallUILanguage.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x14073C9C4 (RtlpLoadInstallLanguageFallback.c)
+ *     LdrpQueryValueKey @ 0x14073E370 (LdrpQueryValueKey.c)
+ *     RtlLCIDToCultureName @ 0x1408965F0 (RtlLCIDToCultureName.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x14090772C (_RtlpMuiRegAddBaseLanguage.c)
+ *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x140908188 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
  */
 
 NTSTATUS __fastcall RtlpMuiRegPopulateBaseLanguages(_WORD *a1, __int64 a2, _WORD *a3, __int64 a4)

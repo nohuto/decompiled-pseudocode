@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPfnRangeIsZero @ 0x140184634
+ * XREFs of MiPfnRangeIsZero @ 0x140184654
  * Callers:
- *     MiFreeUnusedPfnPages @ 0x140183FC0 (MiFreeUnusedPfnPages.c)
+ *     MiFreeUnusedPfnPages @ 0x140183FE0 (MiFreeUnusedPfnPages.c)
  * Callees:
  *     MiFreeLargeZeroPages @ 0x14002891C (MiFreeLargeZeroPages.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
@@ -9,15 +9,15 @@
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiReleaseNonPagedResources @ 0x1400E18C8 (MiReleaseNonPagedResources.c)
- *     KeFlushSingleTb @ 0x1400ECDD4 (KeFlushSingleTb.c)
- *     MiInsertRecursiveTbFlushEntries @ 0x1401118C8 (MiInsertRecursiveTbFlushEntries.c)
- *     MiTransformValidPteInPlace @ 0x14016A6EC (MiTransformValidPteInPlace.c)
- *     MiReplicatePteChange @ 0x140174EF4 (MiReplicatePteChange.c)
- *     MiClearSystemAccessBits @ 0x1401849FC (MiClearSystemAccessBits.c)
- *     MiDemoteValidLargePageOneLevel @ 0x140184AE4 (MiDemoteValidLargePageOneLevel.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
+ *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x1401118E8 (MiInsertRecursiveTbFlushEntries.c)
+ *     MiTransformValidPteInPlace @ 0x14016A70C (MiTransformValidPteInPlace.c)
+ *     MiReplicatePteChange @ 0x140174F14 (MiReplicatePteChange.c)
+ *     MiClearSystemAccessBits @ 0x140184A1C (MiClearSystemAccessBits.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x140184B04 (MiDemoteValidLargePageOneLevel.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void __fastcall MiPfnRangeIsZero(unsigned __int64 a1, unsigned __int64 a2)

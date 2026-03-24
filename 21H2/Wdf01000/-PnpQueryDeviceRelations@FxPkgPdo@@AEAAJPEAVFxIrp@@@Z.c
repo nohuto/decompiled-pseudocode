@@ -1,22 +1,21 @@
 /*
- * XREFs of ?PnpQueryDeviceRelations@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C0002D18
+ * XREFs of ?PnpQueryDeviceRelations@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C0004A78
  * Callers:
- *     ?_PnpQueryDeviceRelations@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z @ 0x1C0002D00 (-_PnpQueryDeviceRelations@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z.c)
+ *     ?_PnpQueryDeviceRelations@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z @ 0x1C0004A60 (-_PnpQueryDeviceRelations@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?CompletePnpRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z @ 0x1C0002DF8 (-CompletePnpRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?HandleQueryBusRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1C0017668 (-HandleQueryBusRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
- *     ?HandleQueryDeviceRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAVFxRelatedDeviceList@@@Z @ 0x1C0088464 (-HandleQueryDeviceRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAVFxRelatedDeviceList@@@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?CompletePnpRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z @ 0x1C0004B54 (-CompletePnpRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?HandleQueryBusRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1C000F7E0 (-HandleQueryBusRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
+ *     ?HandleQueryDeviceRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAVFxRelatedDeviceList@@@Z @ 0x1C0080654 (-HandleQueryDeviceRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAVFxRelatedDeviceList@@@Z.c)
  */
 
 int __fastcall FxPkgPdo::PnpQueryDeviceRelations(FxPkgPdo *this, FxIrp *Irp)
 {
   int Status; // ebx
   unsigned int Length; // ecx
-  __int64 Pool2; // r14
+  _QWORD *PoolWithTag; // r14
   _DEVICE_OBJECT *m_DeviceObject; // rbx
-  _IRP *m_Irp; // rax
   const void *_a1; // rax
   FxRelatedDeviceList *m_RemovalDeviceList; // r8
 
@@ -36,16 +35,15 @@ int __fastcall FxPkgPdo::PnpQueryDeviceRelations(FxPkgPdo *this, FxIrp *Irp)
     }
     else if ( Length == 4 )
     {
-      Pool2 = ExAllocatePool2(256LL, 16LL, this->m_Globals->Tag);
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x10uLL, this->m_Globals->Tag);
+      if ( PoolWithTag )
       {
         m_DeviceObject = this->m_DeviceBase->m_DeviceObject.m_DeviceObject;
         ObfReferenceObject(m_DeviceObject);
-        m_Irp = Irp->m_Irp;
-        *(_QWORD *)(Pool2 + 8) = m_DeviceObject;
+        PoolWithTag[1] = m_DeviceObject;
         Status = 0;
-        *(_DWORD *)Pool2 = 1;
-        m_Irp->IoStatus.Information = Pool2;
+        *(_DWORD *)PoolWithTag = 1;
+        Irp->m_Irp->IoStatus.Information = (unsigned __int64)PoolWithTag;
       }
       else
       {

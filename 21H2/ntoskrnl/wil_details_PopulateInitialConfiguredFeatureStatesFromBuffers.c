@@ -1,88 +1,74 @@
 /*
- * XREFs of wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140B15608
+ * XREFs of wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140A385E8
  * Callers:
- *     wil_InitializeFeatureStagingFromBuffers @ 0x140B15550 (wil_InitializeFeatureStagingFromBuffers.c)
+ *     CmInitBootFeatureConfigurations @ 0x140A38340 (CmInitBootFeatureConfigurations.c)
  * Callees:
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x1403C77F8 (wil_details_FeatureDescriptors_SkipPadding.c)
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x140832FD0 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1403F0554 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1405CC5C4 (wil_details_BuildFeatureStateCacheFromQueryResults.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14091A2C0 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
  */
 
-__int64 __fastcall wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers(__int64 *a1)
+__int64 *__fastcall wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers(__int64 *a1)
 {
-  unsigned int v2; // edi
-  __int64 *i; // rbx
-  __int64 v4; // rax
-  int v5; // ecx
+  __int64 *v2; // rcx
+  __int64 v3; // rax
+  int v4; // ecx
   int FeatureConfigurationFromBuffers; // eax
-  int v7; // edx
-  __int64 v9; // rdx
-  __int64 v10; // [rsp+20h] [rbp-40h] BYREF
-  int v11; // [rsp+28h] [rbp-38h]
-  _QWORD v12[3]; // [rsp+30h] [rbp-30h] BYREF
-  _QWORD v13[3]; // [rsp+48h] [rbp-18h] BYREF
-  __int64 v14; // [rsp+88h] [rbp+28h]
+  __int64 *result; // rax
+  __int64 *v7; // rbx
+  __int64 v8; // rdx
+  __int64 v9; // [rsp+20h] [rbp-40h] BYREF
+  int v10; // [rsp+28h] [rbp-38h]
+  _QWORD v11[3]; // [rsp+30h] [rbp-30h] BYREF
+  _QWORD v12[3]; // [rsp+48h] [rbp-18h] BYREF
+  __int64 v13; // [rsp+78h] [rbp+18h] BYREF
 
-  v2 = 0;
-  for ( i = wil_details_FeatureDescriptors_SkipPadding((__int64 *)&wil_details_featureDescriptors_a);
-        i;
-        i = wil_details_FeatureDescriptors_SkipPadding(i + 6) )
+  v2 = (__int64 *)&wil_details_featureDescriptors_a;
+  while ( 1 )
   {
-    v10 = 0LL;
-    v11 = 0;
-    if ( *((_BYTE *)i + 21) || *((_BYTE *)i + 22) )
-      goto LABEL_6;
-    v13[0] = 0LL;
-    v4 = *a1;
-    v5 = *((_DWORD *)i + 4);
-    v12[0] = 0LL;
-    v13[1] = v4;
-    v13[2] = a1[1];
-    v12[1] = a1[2];
-    v12[2] = a1[3];
-    FeatureConfigurationFromBuffers = RtlpFcQueryFeatureConfigurationFromBuffers(
-                                        v5,
-                                        (__int64)v13,
-                                        (__int64)v12,
-                                        (__int64)&v10);
-    if ( FeatureConfigurationFromBuffers == -2147483614 )
+    result = wil_details_FeatureDescriptors_SkipPadding(v2);
+    v7 = result;
+    if ( !result )
+      break;
+    v13 = 0LL;
+    v9 = 0LL;
+    v10 = 0;
+    if ( *((_BYTE *)result + 29) || *((_BYTE *)result + 30) )
     {
-      v9 = 131LL;
-      do
-      {
-        *(_QWORD *)*i = v9;
-        i = wil_details_FeatureDescriptors_SkipPadding(i + 6);
-      }
-      while ( i );
-      return v2;
-    }
-    v7 = 0;
-    if ( FeatureConfigurationFromBuffers == -1073741275 )
-    {
-LABEL_6:
-      HIDWORD(v14) = 0;
-      v7 = 0;
+      FeatureConfigurationFromBuffers = -1073741275;
     }
     else
     {
-      HIDWORD(v14) = 0;
-      if ( !FeatureConfigurationFromBuffers )
-      {
-        LODWORD(v14) = (2 * (BYTE4(v10) & 0xB0 | (4 * (BYTE4(v10) & 0x40)))) | 0x83;
-        goto LABEL_8;
-      }
-      if ( FeatureConfigurationFromBuffers == 279 )
-      {
-        LODWORD(v14) = (2 * (BYTE4(v10) & 0x80)) | 0x83;
-        goto LABEL_8;
-      }
-      v7 = FeatureConfigurationFromBuffers;
+      v12[0] = 0LL;
+      v3 = *a1;
+      v4 = *((_DWORD *)v7 + 6);
+      v11[0] = 0LL;
+      v12[1] = v3;
+      v12[2] = a1[1];
+      v11[1] = a1[2];
+      v11[2] = a1[3];
+      FeatureConfigurationFromBuffers = RtlpFcQueryFeatureConfigurationFromBuffers(
+                                          v4,
+                                          (__int64)v12,
+                                          (__int64)v11,
+                                          (__int64)&v9);
     }
-    LODWORD(v14) = 131;
-LABEL_8:
-    if ( !v7 )
-      v7 = v2;
-    v2 = v7;
-    *(_QWORD *)*i = v14;
+    if ( FeatureConfigurationFromBuffers == -2147483614 )
+    {
+      v13 = 518LL;
+      v8 = 518LL;
+      do
+      {
+        *(_QWORD *)*v7 = v8;
+        result = wil_details_FeatureDescriptors_SkipPadding(v7 + 5);
+        v7 = result;
+      }
+      while ( result );
+      return result;
+    }
+    wil_details_BuildFeatureStateCacheFromQueryResults(FeatureConfigurationFromBuffers, (__int64)&v9, &v13);
+    v2 = v7 + 5;
+    *(_QWORD *)*v7 = v13;
   }
-  return v2;
+  return result;
 }

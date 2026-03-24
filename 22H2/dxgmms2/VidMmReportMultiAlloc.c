@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmReportMultiAlloc @ 0x1C00F18D0
+ * XREFs of VidMmReportMultiAlloc @ 0x1C00BB080
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0ppppppppppppq_EtwWriteTransfer @ 0x1C002E430 (McTemplateK0ppppppppppppq_EtwWriteTransfer.c)
+ *     McTemplateK0pppppppppppp_EtwWriteTransfer @ 0x1C0023F90 (McTemplateK0pppppppppppp_EtwWriteTransfer.c)
  */
 
 int __fastcall VidMmReportMultiAlloc(__int64 a1, __int64 a2)
@@ -12,14 +12,14 @@ int __fastcall VidMmReportMultiAlloc(__int64 a1, __int64 a2)
   __int64 v3; // r9
   __int64 v4; // rdx
   __int64 v5; // r8
-  unsigned int v6; // ebx
-  unsigned int v7; // edi
-  void *v8; // rsi
-  __int64 *v9; // r10
-  __int64 v10; // r11
-  __int64 v11; // r12
-  __int64 v12; // rbp
-  __int64 v13; // r10
+  unsigned int v6; // esi
+  unsigned int v7; // ebp
+  void *v8; // r14
+  __int64 *v9; // r11
+  __int64 v10; // rbx
+  __int64 v11; // rdi
+  __int64 v12; // r10
+  __int64 v13; // r11
   _UNKNOWN *retaddr; // [rsp+98h] [rbp+0h] BYREF
 
   v2 = &retaddr;
@@ -45,32 +45,32 @@ int __fastcall VidMmReportMultiAlloc(__int64 a1, __int64 a2)
     if ( bTracingEnabled )
     {
       v10 = *v9;
-      v11 = v9[3];
-      if ( (**(_DWORD **)(*v9 + 536) & 8) != 0 )
-        v12 = *(_QWORD *)(v10 + 392);
+      if ( (**(_DWORD **)(*v9 + 496) & 8) != 0 )
+        v11 = *(_QWORD *)(v10 + 360);
       else
-        v12 = v9[2];
-      v13 = *(_QWORD *)(v5 + 40);
-      if ( v13 )
-        v4 = *(_QWORD *)(v13 + 56);
+        v11 = v9[2];
+      v12 = *(_QWORD *)(v5 + 40);
+      if ( v12 )
+        v4 = *(_QWORD *)(v12 + 56);
+      v13 = v9[3];
       v2 = *(_UNKNOWN ***)(a1 + 40);
-      if ( (byte_1C0076981 & 8) != 0 )
-        LODWORD(v2) = McTemplateK0ppppppppppppq_EtwWriteTransfer(
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+        LODWORD(v2) = McTemplateK0pppppppppppp_EtwWriteTransfer(
                         v6,
                         &EventReportDeviceAllocation,
                         *(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL),
-                        *((_QWORD *)v2[8] + 10),
+                        *((_QWORD *)v2[8] + 9),
                         a1,
                         *(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL),
                         v3,
                         v10,
-                        v13,
+                        v12,
                         v4,
                         v6,
                         v7,
                         v8,
-                        v12,
-                        v11);
+                        v11,
+                        v13);
     }
   }
   return (int)v2;

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vSpComputeClipEffective@@YAXPEAVSPRITE@@AEAVRGNOBJ@@@Z @ 0x1C02802F8
+ * XREFs of ?vSpComputeClipEffective@@YAXPEAVSPRITE@@AEAVRGNOBJ@@@Z @ 0x1C0282AFC
  * Callers:
- *     ?vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z @ 0x1C0281BA0 (-vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z.c)
+ *     ?vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z @ 0x1C0284F34 (-vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z.c)
  * Callees:
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C008E0D4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ??0RGNMEMOBJTMP@@QEAA@XZ @ 0x1C015D534 (--0RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vSpAddOpaqueRects@@YAXJJJJJJAEAVRGNMEMOBJTMP@@0AEAVRGNOBJ@@@Z @ 0x1C028004C (-vSpAddOpaqueRects@@YAXJJJJJJAEAVRGNMEMOBJTMP@@0AEAVRGNOBJ@@@Z.c)
- *     ?vSpDeletePerPixelAlphaFromColorKey@@YAXPEAU_SURFOBJ@@KPEAU_RECTL@@PEAE@Z @ 0x1C02807DC (-vSpDeletePerPixelAlphaFromColorKey@@YAXPEAU_SURFOBJ@@KPEAU_RECTL@@PEAE@Z.c)
- *     ?vSpUpdatePerPixelAlphaFromColorKey@@YAXPEAU_SURFOBJ@@KPEAU_RECTL@@PEAPEAE@Z @ 0x1C0281978 (-vSpUpdatePerPixelAlphaFromColorKey@@YAXPEAU_SURFOBJ@@KPEAU_RECTL@@PEAPEAE@Z.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B9858 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ??0RGNMEMOBJTMP@@QEAA@XZ @ 0x1C016A41C (--0RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vSpAddOpaqueRects@@YAXJJJJJJAEAVRGNMEMOBJTMP@@0AEAVRGNOBJ@@@Z @ 0x1C02825C8 (-vSpAddOpaqueRects@@YAXJJJJJJAEAVRGNMEMOBJTMP@@0AEAVRGNOBJ@@@Z.c)
+ *     ?vSpDeletePerPixelAlphaFromColorKey@@YAXPEAU_SURFOBJ@@KPEAU_RECTL@@PEAE@Z @ 0x1C0282FE0 (-vSpDeletePerPixelAlphaFromColorKey@@YAXPEAU_SURFOBJ@@KPEAU_RECTL@@PEAE@Z.c)
+ *     ?vSpUpdatePerPixelAlphaFromColorKey@@YAXPEAU_SURFOBJ@@KPEAU_RECTL@@PEAPEAE@Z @ 0x1C0284D14 (-vSpUpdatePerPixelAlphaFromColorKey@@YAXPEAU_SURFOBJ@@KPEAU_RECTL@@PEAPEAE@Z.c)
  */
 
 void __fastcall vSpComputeClipEffective(struct SPRITE *a1, struct RGNOBJ *a2)
@@ -26,25 +26,26 @@ void __fastcall vSpComputeClipEffective(struct SPRITE *a1, struct RGNOBJ *a2)
   __int64 i; // rax
   LONG v16; // r11d
   LONG v17; // r10d
-  int v18; // [rsp+28h] [rbp-110h]
-  LONG v19; // [rsp+5Ch] [rbp-DCh]
-  int v20; // [rsp+64h] [rbp-D4h]
-  LONG v21; // [rsp+68h] [rbp-D0h]
-  _QWORD v22[2]; // [rsp+70h] [rbp-C8h] BYREF
-  int v23; // [rsp+80h] [rbp-B8h]
-  LONG v24; // [rsp+84h] [rbp-B4h]
-  LONG v25; // [rsp+88h] [rbp-B0h]
-  LONG v26; // [rsp+8Ch] [rbp-ACh]
-  LONG v27; // [rsp+90h] [rbp-A8h]
-  LONG v28; // [rsp+94h] [rbp-A4h]
-  LONG v29; // [rsp+98h] [rbp-A0h]
-  __int64 v30; // [rsp+A0h] [rbp-98h]
-  __int64 v31; // [rsp+A8h] [rbp-90h]
-  _QWORD v32[2]; // [rsp+B0h] [rbp-88h] BYREF
-  _QWORD v33[3]; // [rsp+C0h] [rbp-78h] BYREF
-  unsigned __int8 *v34; // [rsp+D8h] [rbp-60h] BYREF
-  _QWORD v35[2]; // [rsp+E0h] [rbp-58h] BYREF
-  struct _RECTL v36; // [rsp+F0h] [rbp-48h] BYREF
+  int v18; // [rsp+28h] [rbp-120h]
+  LONG v19; // [rsp+5Ch] [rbp-ECh]
+  int v20; // [rsp+64h] [rbp-E4h]
+  LONG v21; // [rsp+68h] [rbp-E0h]
+  _QWORD v22[2]; // [rsp+70h] [rbp-D8h] BYREF
+  int v23; // [rsp+80h] [rbp-C8h]
+  LONG v24; // [rsp+84h] [rbp-C4h]
+  LONG v25; // [rsp+88h] [rbp-C0h]
+  LONG v26; // [rsp+8Ch] [rbp-BCh]
+  LONG v27; // [rsp+90h] [rbp-B8h]
+  LONG v28; // [rsp+94h] [rbp-B4h]
+  LONG v29; // [rsp+98h] [rbp-B0h]
+  __int64 v30; // [rsp+A0h] [rbp-A8h]
+  __int64 v31; // [rsp+A8h] [rbp-A0h]
+  _QWORD v32[2]; // [rsp+B0h] [rbp-98h] BYREF
+  _QWORD v33[3]; // [rsp+C0h] [rbp-88h] BYREF
+  unsigned __int8 *v34; // [rsp+D8h] [rbp-70h] BYREF
+  _QWORD v35[2]; // [rsp+E0h] [rbp-68h] BYREF
+  struct _RECTL v36; // [rsp+F0h] [rbp-58h] BYREF
+  struct _RECTL v37; // [rsp+100h] [rbp-48h] BYREF
 
   v35[0] = 0LL;
   if ( *(_QWORD *)a2 )
@@ -154,8 +155,8 @@ void __fastcall vSpComputeClipEffective(struct SPRITE *a1, struct RGNOBJ *a2)
                   (struct RGNOBJ *)v32);
               if ( v5 )
               {
-                v36 = (struct _RECTL)*((_OWORD *)a1 + 6);
-                vSpDeletePerPixelAlphaFromColorKey(*((struct _SURFOBJ **)a1 + 16), *((_DWORD *)a1 + 51), &v36, v34);
+                v37 = (struct _RECTL)*((_OWORD *)a1 + 6);
+                vSpDeletePerPixelAlphaFromColorKey(*((struct _SURFOBJ **)a1 + 16), *((_DWORD *)a1 + 51), &v37, v34);
               }
               if ( RGNOBJ::bMerge((RGNOBJ *)v22, (struct RGNOBJ *)v32, a2, 8u) )
                 RGNOBJ::vSwap((RGNOBJ *)v22, a2);

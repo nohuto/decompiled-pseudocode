@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessInput@Edgy@@YAHPEAXPEAPEAX@Z @ 0x1C0155B88
+ * XREFs of ?ProcessInput@Edgy@@YAHPEAXPEAPEAX@Z @ 0x1C02073B8
  * Callers:
- *     EditionEdgyProcessInput @ 0x1C0155D70 (EditionEdgyProcessInput.c)
+ *     EditionEdgyProcessInput @ 0x1C02086B0 (EditionEdgyProcessInput.c)
  * Callees:
- *     ?_OnInput@Edgy@@YA?AUtagSTATE_TRANSITION_DATA@1@AEAUtagEDGY_DATA@@PEAX@Z @ 0x1C01E8714 (-_OnInput@Edgy@@YA-AUtagSTATE_TRANSITION_DATA@1@AEAUtagEDGY_DATA@@PEAX@Z.c)
+ *     ?_OnInput@Edgy@@YA?AUtagSTATE_TRANSITION_DATA@1@AEAUtagEDGY_DATA@@PEAX@Z @ 0x1C02081BC (-_OnInput@Edgy@@YA-AUtagSTATE_TRANSITION_DATA@1@AEAUtagEDGY_DATA@@PEAX@Z.c)
  */
 
 __int64 __fastcall Edgy::ProcessInput(Edgy *this, _QWORD *a2, void **a3)
@@ -11,14 +11,14 @@ __int64 __fastcall Edgy::ProcessInput(Edgy *this, _QWORD *a2, void **a3)
   unsigned int v3; // edi
   __int64 v5; // rbp
   int v7; // ebx
-  __int64 v8; // rdx
+  __int64 v8; // rax
   __int128 v9; // [rsp+20h] [rbp-28h]
   _BYTE v10[24]; // [rsp+30h] [rbp-18h] BYREF
 
   v3 = 0;
   if ( a2 )
     *a2 = 0LL;
-  v5 = *(_QWORD *)(grpdeskRitInput + 248LL);
+  v5 = *(_QWORD *)(grpdeskRitInput + 240LL);
   if ( !v5 )
     return 1LL;
   v7 = *(_DWORD *)(v5 + 16);

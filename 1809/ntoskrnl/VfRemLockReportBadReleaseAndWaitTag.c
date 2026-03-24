@@ -1,7 +1,7 @@
 /*
  * XREFs of VfRemLockReportBadReleaseAndWaitTag @ 0x1409347F8
  * Callers:
- *     IoReleaseRemoveLockAndWaitEx @ 0x14016D020 (IoReleaseRemoveLockAndWaitEx.c)
+ *     IoReleaseRemoveLockAndWaitEx @ 0x14016D040 (IoReleaseRemoveLockAndWaitEx.c)
  * Callees:
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpSetTimerAnyMode @ 0x1405089D0
+ * XREFs of HalpSetTimerAnyMode @ 0x1404BF8FC
  * Callers:
- *     HalpTimerClockPowerChange @ 0x1405084F4 (HalpTimerClockPowerChange.c)
- *     HalpVpptUpdatePhysicalTimer @ 0x140509E90 (HalpVpptUpdatePhysicalTimer.c)
+ *     HalpTimerClockPowerChange @ 0x1404BF450 (HalpTimerClockPowerChange.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x1404C0D94 (HalpVpptUpdatePhysicalTimer.c)
  * Callees:
- *     HalpSetTimer @ 0x140337740 (HalpSetTimer.c)
- *     HalpTimerClearProblem @ 0x140508A74 (HalpTimerClearProblem.c)
+ *     HalpSetTimer @ 0x14024DCEC (HalpSetTimer.c)
+ *     HalpTimerClearProblem @ 0x1404BF9F0 (HalpTimerClearProblem.c)
  */
 
 __int64 __fastcall HalpSetTimerAnyMode(__int64 a1, ULONGLONG a2, __int64 a3, unsigned __int64 *a4)
@@ -17,11 +17,11 @@ __int64 __fastcall HalpSetTimerAnyMode(__int64 a1, ULONGLONG a2, __int64 a3, uns
   __int64 v11; // rcx
   __int64 v12; // r8
 
-  v7 = HalpSetTimer(a1, 3, a2, 1, a4);
+  v7 = HalpSetTimer(a1, 3u, a2, 1, a4);
   v8 = (unsigned int)v7;
   if ( v7 >= 0
-    || (v9 = HalpSetTimer(a1, 2, a2, 1, a4), v8 = (unsigned int)v9, v9 >= 0)
-    || (v10 = HalpSetTimer(a1, 1, a2, 1, a4), v8 = (unsigned int)v10, v10 >= 0) )
+    || (v9 = HalpSetTimer(a1, 2u, a2, 1, a4), v8 = (unsigned int)v9, v9 >= 0)
+    || (v10 = HalpSetTimer(a1, 1u, a2, 1, a4), v8 = (unsigned int)v10, v10 >= 0) )
   {
     HalpTimerClearProblem(a1, 17LL, v8);
     HalpTimerClearProblem(v11, 18LL, v12);

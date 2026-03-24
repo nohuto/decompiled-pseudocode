@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PowerNotRequiredCallback@FxPoxInterface@@CAXPEAX@Z @ 0x1C0039B30
+ * XREFs of ?PowerNotRequiredCallback@FxPoxInterface@@CAXPEAX@Z @ 0x1C008D090
  * Callers:
  *     <none>
  * Callees:
- *     ?PowerNotRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z @ 0x1C000CF38 (-PowerNotRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z.c)
+ *     ?PowerNotRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z @ 0x1C000E53C (-PowerNotRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z.c)
  */
 
 void __fastcall FxPoxInterface::PowerNotRequiredCallback(FxPoxInterface *Context)

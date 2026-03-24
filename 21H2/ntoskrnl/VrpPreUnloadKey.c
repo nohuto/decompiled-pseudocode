@@ -1,13 +1,13 @@
 /*
- * XREFs of VrpPreUnloadKey @ 0x140927048
+ * XREFs of VrpPreUnloadKey @ 0x140884160
  * Callers:
- *     VrpRegistryCallback @ 0x140780EF0 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1405D3FD0 (VrpRegistryCallback.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     VrpFindExactNamespaceNode @ 0x1406924F0 (VrpFindExactNamespaceNode.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     VrpFindExactNamespaceNode @ 0x1405D371C (VrpFindExactNamespaceNode.c)
  */
 
 __int64 __fastcall VrpPreUnloadKey(__int64 a1, __int64 a2)
@@ -40,7 +40,7 @@ __int64 __fastcall VrpPreUnloadKey(__int64 a1, __int64 a2)
       if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(v6);
       KeAbPostRelease((ULONG_PTR)v6);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     }
     return v8;
   }
@@ -49,7 +49,7 @@ __int64 __fastcall VrpPreUnloadKey(__int64 a1, __int64 a2)
     if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v6);
     KeAbPostRelease((ULONG_PTR)v6);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return 0LL;
   }
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbGetConfigurationSubKeyCallback @ 0x14064F770
+ * XREFs of DrvDbGetConfigurationSubKeyCallback @ 0x1405C6500
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfW @ 0x1402E0198 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     _PnpCtxRegQueryValue @ 0x14082EB54 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegCloseKey @ 0x14082EB8C (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegOpenKey @ 0x14082EBA4 (_PnpCtxRegOpenKey.c)
+ *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     _PnpCtxRegCloseKey @ 0x14063B8A4 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14064081C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegQueryValue @ 0x1406BADC4 (_PnpCtxRegQueryValue.c)
  */
 
 __int64 __fastcall DrvDbGetConfigurationSubKeyCallback(int a1, int a2, _WORD *a3, __int64 a4)
@@ -45,30 +45,23 @@ __int64 __fastcall DrvDbGetConfigurationSubKeyCallback(int a1, int a2, _WORD *a3
     {
       v10 = PnpCtxRegQueryValue(v8, v19, L"ConfigScope", &v17, &v18, (char *)&v17 + 4);
       v9 = v10;
-      if ( v10 < 0 )
-        goto LABEL_8;
-      if ( (_DWORD)v17 != 4 )
-        goto LABEL_32;
-      if ( HIDWORD(v17) != 4 )
+      if ( v10 < 0 || v17 != 0x400000004LL )
       {
-LABEL_8:
         if ( v10 == -1073741772 )
           v9 = 0;
-        goto LABEL_32;
+        goto LABEL_31;
       }
       v7 = v18;
     }
     else
     {
       v9 = PnpCtxRegQueryValue(v8, v19, L"ConfigFlags", &v17, &v20, (char *)&v17 + 4);
-      if ( v9 < 0 )
+      if ( v9 < 0 || v17 != 0x400000004LL )
       {
         if ( v9 == -1073741772 )
           v9 = 0;
-        goto LABEL_32;
+        goto LABEL_31;
       }
-      if ( v17 != 0x400000004LL )
-        goto LABEL_32;
     }
     v11 = -1LL;
     v12 = -1LL;
@@ -89,7 +82,7 @@ LABEL_8:
     *(_DWORD *)(a4 + 12) = v14;
     if ( !*(_BYTE *)(a4 + 16) )
     {
-LABEL_26:
+LABEL_25:
       if ( *(_DWORD *)(a4 + 8) < (unsigned int)(v14 + 1) )
       {
         v9 = -1073741789;
@@ -100,7 +93,7 @@ LABEL_26:
         LODWORD(v14) = *(_DWORD *)(a4 + 12);
       }
       *(_DWORD *)(a4 + 12) = v14 + 1;
-      goto LABEL_32;
+      goto LABEL_31;
     }
     if ( *(_DWORD *)(a4 + 8) >= (unsigned int)(v14 + 1) )
     {
@@ -126,10 +119,10 @@ LABEL_26:
       }
       v14 = (unsigned int)(v11 + v15);
       *(_DWORD *)(a4 + 12) = v14;
-      goto LABEL_26;
+      goto LABEL_25;
     }
   }
-LABEL_32:
+LABEL_31:
   if ( v19 )
     PnpCtxRegCloseKey();
   if ( v9 < 0 )

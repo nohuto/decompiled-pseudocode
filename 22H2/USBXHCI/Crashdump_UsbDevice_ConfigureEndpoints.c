@@ -1,10 +1,10 @@
 /*
- * XREFs of Crashdump_UsbDevice_ConfigureEndpoints @ 0x1C004FDF4
+ * XREFs of Crashdump_UsbDevice_ConfigureEndpoints @ 0x1C004D31C
  * Callers:
- *     Crashdump_UsbDevice_Configure @ 0x1C004FB34 (Crashdump_UsbDevice_Configure.c)
+ *     Crashdump_UsbDevice_Configure @ 0x1C004D05C (Crashdump_UsbDevice_Configure.c)
  * Callees:
- *     memset @ 0x1C0020600 (memset.c)
- *     Crashdump_Command_SendCommand @ 0x1C004EA8C (Crashdump_Command_SendCommand.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Crashdump_Command_SendCommand @ 0x1C004BFB0 (Crashdump_Command_SendCommand.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_ConfigureEndpoints(__int64 *a1)
@@ -12,16 +12,16 @@ __int64 __fastcall Crashdump_UsbDevice_ConfigureEndpoints(__int64 *a1)
   __int64 v2; // rbp
   __int64 v3; // r11
   __int64 *v4; // rsi
-  unsigned int v5; // r8d
+  unsigned int v5; // r9d
   unsigned int i; // r10d
-  __int64 v7; // r9
+  __int64 v7; // r8
   __int64 v8; // rdx
   __int64 v9; // rdx
   unsigned int *v10; // rdx
   __int64 v11; // rcx
-  unsigned int v12; // r8d
+  unsigned int v12; // r9d
   unsigned __int64 v13; // rcx
-  unsigned int v14; // r8d
+  unsigned int v14; // r9d
   __int64 v15; // rdx
   __int64 v16; // rdx
   int v17; // ecx
@@ -86,7 +86,7 @@ __int64 __fastcall Crashdump_UsbDevice_ConfigureEndpoints(__int64 *a1)
   v16 = v3 + 32 + (v15 & 0x20);
   v17 = (v5 << 27) | *(_DWORD *)v16 & 0x7FFFFFF;
   *(_DWORD *)v16 = v17;
-  *(_DWORD *)v16 = v17 ^ (*((_DWORD *)a1 + 20) ^ v17) & 0x4000000;
+  *(_DWORD *)v16 = v17 ^ (v17 ^ *((_DWORD *)a1 + 20)) & 0x4000000;
   *(_BYTE *)(v16 + 7) = *((_BYTE *)a1 + 87);
   v18 = a1[2];
   v24 = (*((unsigned __int8 *)a1 + 56) << 24) | 0x3000;

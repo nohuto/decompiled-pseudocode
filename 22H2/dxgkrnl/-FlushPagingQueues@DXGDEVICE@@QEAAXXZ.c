@@ -1,41 +1,33 @@
 /*
- * XREFs of ?FlushPagingQueues@DXGDEVICE@@QEAAXXZ @ 0x1C018B6D4
+ * XREFs of ?FlushPagingQueues@DXGDEVICE@@QEAAXXZ @ 0x1C00ECCC0
  * Callers:
- *     ?NotifyProcessFreeze@DXGDEVICE@@QEAAXXZ @ 0x1C018B774 (-NotifyProcessFreeze@DXGDEVICE@@QEAAXXZ.c)
- *     ?Stop@DXGDEVICE@@QEAAXE@Z @ 0x1C02ED494 (-Stop@DXGDEVICE@@QEAAXE@Z.c)
- *     ?SuspendResumeEscapeAllDevices@DXGPROCESS@@QEAAXPEBVDXGADAPTER@@_N1@Z @ 0x1C0346440 (-SuspendResumeEscapeAllDevices@DXGPROCESS@@QEAAXPEBVDXGADAPTER@@_N1@Z.c)
+ *     ?NotifyProcessFreeze@DXGDEVICE@@QEAAXXZ @ 0x1C00EDA08 (-NotifyProcessFreeze@DXGDEVICE@@QEAAXXZ.c)
+ *     ?Stop@DXGDEVICE@@QEAAXE@Z @ 0x1C0257220 (-Stop@DXGDEVICE@@QEAAXE@Z.c)
+ *     ?SuspendResumeEscapeAllDevices@DXGPROCESS@@QEAAXPEBVDXGADAPTER@@_N1@Z @ 0x1C0286A34 (-SuspendResumeEscapeAllDevices@DXGPROCESS@@QEAAXPEBVDXGADAPTER@@_N1@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DXGDEVICE::FlushPagingQueues(DXGDEVICE *this)
 {
-  DXGDEVICE *v2; // rbp
-  char *v3; // rsi
-  char *i; // rbx
+  __int64 v2; // rcx
+  _QWORD *i; // rdi
+  __int64 v4; // rdx
+  __int64 v5; // rax
 
-  if ( !*((_BYTE *)this + 72)
-    && !ExIsResourceAcquiredExclusiveLite(*((PERESOURCE *)this + 17))
-    && *(struct _KTHREAD **)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 144LL) != KeGetCurrentThread() )
+  if ( !*((_DWORD *)this + 18) && !ExIsResourceAcquiredExclusiveLite(*((PERESOURCE *)this + 17)) )
   {
-    WdLogSingleEntry1(1LL, 8161LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"IsDeviceLockExclusiveOwner() || GetRenderAdapter()->IsStopResetLockExclusiveOwner()",
-      8161LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v4 = *(_QWORD *)(*((_QWORD *)this + 2) + 16LL);
+    if ( *(struct _KTHREAD **)(v4 + 144) != KeGetCurrentThread() )
+    {
+      v5 = WdLogNewEntry5_WdAssertion(v2, v4);
+      *(_QWORD *)(v5 + 24) = 8074LL;
+      WdLogEvent5_WdAssertion(v5);
+    }
   }
-  v2 = this;
-  if ( (*((_BYTE *)this + 1901) & 1) == 0 )
+  if ( (*((_BYTE *)this + 1869) & 1) == 0 )
   {
-    v3 = (char *)this + 528;
-    for ( i = (char *)*((_QWORD *)this + 66); i != v3 && i; i = *(char **)i )
-      (*(void (__fastcall **)(_QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v2 + 2) + 760LL) + 8LL) + 904LL))(*((_QWORD *)i + 4));
+    for ( i = (_QWORD *)*((_QWORD *)this + 62); i != (_QWORD *)((char *)this + 496) && i; i = (_QWORD *)*i )
+      (*(void (__fastcall **)(_QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL) + 8LL) + 912LL))(i[4]);
   }
 }

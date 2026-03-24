@@ -1,34 +1,35 @@
 /*
- * XREFs of rimStackAttachAndProcessInput @ 0x1C00058FC
+ * XREFs of rimStackAttachAndProcessInput @ 0x1C01760E4
  * Callers:
- *     rimProcessKeyboardInput @ 0x1C00056C8 (rimProcessKeyboardInput.c)
- *     RIMOnPnpNotification @ 0x1C0073820 (RIMOnPnpNotification.c)
- *     rimDispatchCompleteFrames @ 0x1C00E1F9C (rimDispatchCompleteFrames.c)
- *     rimProcessMouseInput @ 0x1C00E29D0 (rimProcessMouseInput.c)
- *     rimProcessHidInput @ 0x1C01A4D04 (rimProcessHidInput.c)
+ *     RIMOnPnpNotification @ 0x1C00549C0 (RIMOnPnpNotification.c)
+ *     rimDispatchAutoRepeatCompleteFrame @ 0x1C0174144 (rimDispatchAutoRepeatCompleteFrame.c)
+ *     rimDispatchCompleteFrame @ 0x1C0174394 (rimDispatchCompleteFrame.c)
+ *     rimProcessHidInput @ 0x1C017566C (rimProcessHidInput.c)
+ *     rimProcessKeyboardInput @ 0x1C0175C94 (rimProcessKeyboardInput.c)
+ *     rimProcessMouseInput @ 0x1C0175D20 (rimProcessMouseInput.c)
  * Callees:
- *     rimProcessInput @ 0x1C00059E8 (rimProcessInput.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?DbgPrintGDI@@YAXPEADZZ @ 0x1C0150040 (-DbgPrintGDI@@YAXPEADZZ.c)
- *     WPP_RECORDER_AND_TRACE_SF_qqqD @ 0x1C0173F48 (WPP_RECORDER_AND_TRACE_SF_qqqD.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?DbgPrintGDI@@YAXPEADZZ @ 0x1C013AA80 (-DbgPrintGDI@@YAXPEADZZ.c)
+ *     WPP_RECORDER_SF_qqqD @ 0x1C01522D0 (WPP_RECORDER_SF_qqqD.c)
+ *     rimProcessInput @ 0x1C0175948 (rimProcessInput.c)
  */
 
-void __fastcall rimStackAttachAndProcessInput(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
+void __fastcall rimStackAttachAndProcessInput(__int64 a1, __int64 a2, _QWORD *a3, __m128i *a4, int a5)
 {
   char v9; // di
   struct _KPROCESS *v10; // rsi
-  int v11; // edx
-  int v12; // r8d
-  int v13; // [rsp+20h] [rbp-B8h]
-  _KAPC_STATE ApcState; // [rsp+68h] [rbp-70h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  struct _KAPC_STATE ApcState; // [rsp+58h] [rbp-70h] BYREF
 
   v9 = 0;
   memset(&ApcState, 0, sizeof(ApcState));
-  if ( *(_BYTE *)(a1 + 776) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 504LL);
+  if ( *(_BYTE *)(a1 + 584) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 473);
   v10 = *(struct _KPROCESS **)(a1 + 32);
-  if ( v10 == (struct _KPROCESS *)PsGetCurrentProcess(a1, a2, a3) )
+  if ( v10 == (struct _KPROCESS *)PsGetCurrentProcess(a1, a2) )
     goto LABEL_6;
   if ( !*(_BYTE *)(a1 + 10) )
   {
@@ -46,16 +47,16 @@ LABEL_6:
     v10,
     *(const void **)(a1 + 40),
     *(_DWORD *)(a1 + 84));
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (LOBYTE(v11) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    LOBYTE(v11) = 0;
-  }
-  if ( (_BYTE)v11 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v12) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_qqqD(WPP_GLOBAL_Control->AttachedDevice, v11, v12, 17, v13);
-  }
-  *(_BYTE *)(a1 + 776) = 1;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qqqD(
+      v12,
+      v11,
+      v13,
+      0x12u,
+      (__int64)&WPP_0d925eab253539aeb97635bf94432844_Traceguids,
+      *(_QWORD *)(a1 + 72),
+      *(_QWORD *)(a1 + 32),
+      *(_QWORD *)(a1 + 40),
+      *(_DWORD *)(a1 + 84));
+  *(_BYTE *)(a1 + 584) = 1;
 }

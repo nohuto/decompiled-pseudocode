@@ -1,32 +1,44 @@
 /*
- * XREFs of ?IsVailContainer@@YA_NXZ @ 0x18027C21C
+ * XREFs of ?IsVailContainer@@YA_NXZ @ 0x180023BBC
  * Callers:
- *     ?ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@@PEAX@Z @ 0x18019FEE8 (-ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@.c)
- *     ?QueueFrame@GestureTargeting@TelemetryDebug@InputTraceLogging@@SAXAEBUtagTELEMETRY_POINTER_FRAME_TIMES@@@Z @ 0x1801A027C (-QueueFrame@GestureTargeting@TelemetryDebug@InputTraceLogging@@SAXAEBUtagTELEMETRY_POINTER_FRAME.c)
- *     IsSuperWetInkCompatibleVailContainer @ 0x1801CC1D8 (IsSuperWetInkCompatibleVailContainer.c)
- *     ?CheckOcclusionState@CRemoteAppRenderTarget@@UEAAJXZ @ 0x1801EA9E0 (-CheckOcclusionState@CRemoteAppRenderTarget@@UEAAJXZ.c)
- *     _anonymous_namespace_::CreateD3D12ResourcesInternal @ 0x18028CE60 (_anonymous_namespace_--CreateD3D12ResourcesInternal.c)
+ *     ?UpdateInteractionProgress@CTelemetryTouchLatencyAnalysis@@QEAAJPEBUTOUCH_TELEMETRY_UPDATE_INFO@@_K_NAEB_KIAEBU_LUID@@2PEAPEAUTouchUpdateInfo@1@@Z @ 0x180022A9C (-UpdateInteractionProgress@CTelemetryTouchLatencyAnalysis@@QEAAJPEBUTOUCH_TELEMETRY_UPDATE_INFO@.c)
+ *     ?AnalyzeLatencyInformation@CTelemetryTouchLatencyAnalysis@@AEAAX_K0000000III0AEBUVAIL_TELEMETRY_TOUCH_INFO@1@@Z @ 0x180022FA8 (-AnalyzeLatencyInformation@CTelemetryTouchLatencyAnalysis@@AEAAX_K0000000III0AEBUVAIL_TELEMETRY_.c)
+ *     ?DetectInputGlitch@CTelemetryTouchLatencyAnalysis@@AEBAXAEAUTouchScenarioInfo@1@_K11111111III1@Z @ 0x1800230DC (-DetectInputGlitch@CTelemetryTouchLatencyAnalysis@@AEBAXAEAUTouchScenarioInfo@1@_K11111111III1@Z.c)
+ *     ??4CLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAAAEAV01@AEBV01@@Z @ 0x180023B54 (--4CLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAAAEAV01@AEBV01@@Z.c)
+ *     ??HCLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAA?AV01@AEBV01@@Z @ 0x18015C774 (--HCLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAA-AV01@AEBV01@@Z.c)
+ *     ??KCLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAA?AV01@I@Z @ 0x18015C828 (--KCLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAA-AV01@I@Z.c)
+ *     ?FirstFrameInputGlitch@InteractionTraceProvider@@SAXAEBUTouchScenarioInfo@CTelemetryTouchLatencyAnalysis@@II_K1111111@Z @ 0x18015D650 (-FirstFrameInputGlitch@InteractionTraceProvider@@SAXAEBUTouchScenarioInfo@CTelemetryTouchLatency.c)
+ *     ?SendInteractionSummary@CTelemetryTouchLatencyAnalysis@@AEAAJXZ @ 0x18015FFB8 (-SendInteractionSummary@CTelemetryTouchLatencyAnalysis@@AEAAJXZ.c)
+ *     ?SetMax@CLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAAXAEBV12@@Z @ 0x1801607E8 (-SetMax@CLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAAXAEBV12@@Z.c)
+ *     ?UpdateLastTelemetryInfo@CTelemetryTouchLatencyAnalysis@@QEAAXPEBUTOUCH_TELEMETRY_UPDATE_INFO@@PEAUTouchUpdateInfo@1@_K@Z @ 0x180161374 (-UpdateLastTelemetryInfo@CTelemetryTouchLatencyAnalysis@@QEAAXPEBUTOUCH_TELEMETRY_UPDATE_INFO@@P.c)
  * Callees:
- *     ?RegGetHKLMDword@@YA_NQEBG0PEAK@Z @ 0x18027C198 (-RegGetHKLMDword@@YA_NQEBG0PEAK@Z.c)
+ *     ?RegGetHKLMDword@@YA_NQEBG0PEAK@Z @ 0x180023F50 (-RegGetHKLMDword@@YA_NQEBG0PEAK@Z.c)
  */
 
 bool IsVailContainer(void)
 {
-  bool v0; // bl
-  unsigned int v2; // [rsp+30h] [rbp+8h] BYREF
+  __int16 v0; // ax
+  bool v2; // zf
+  unsigned int v3; // [rsp+30h] [rbp+8h] BYREF
 
-  v0 = 0;
-  if ( HIBYTE(word_1803E6730) )
-    return word_1803E6730;
-  if ( RegGetHKLMDword(L"Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows", L"IsVailContainer", &v2) )
+  if ( byte_180347569 )
   {
-    HIBYTE(word_1803E6730) = 1;
-    v0 = v2 != 0;
-    LOBYTE(word_1803E6730) = v2 != 0;
+    v0 = unk_180347568;
   }
   else
   {
-    word_1803E6730 = 256;
+    if ( RegGetHKLMDword(L"Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows", L"IsVailContainer", &v3) )
+    {
+      v2 = v3 == 0;
+      BYTE1(v3) = 1;
+      LOBYTE(v3) = !v2;
+    }
+    else
+    {
+      LOWORD(v3) = 256;
+    }
+    v0 = v3;
+    unk_180347568 = v3;
   }
-  return v0;
+  return HIBYTE(v0) != 0 ? v0 : 0;
 }

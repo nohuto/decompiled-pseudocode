@@ -1,28 +1,25 @@
 /*
- * XREFs of ?xwtol@@YAKPEBG@Z @ 0x1C0069AF8
+ * XREFs of ?xwtol@@YAKPEBG@Z @ 0x1C0091158
  * Callers:
- *     ?ParseModeCap@@YAHPEAGPEAUtagModeCap@@H@Z @ 0x1C0069A20 (-ParseModeCap@@YAHPEAGPEAUtagModeCap@@H@Z.c)
+ *     ?ParseModeCap@@YAHPEAGPEAUtagModeCap@@H@Z @ 0x1C0091080 (-ParseModeCap@@YAHPEAGPEAUtagModeCap@@H@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall xwtol(const unsigned __int16 *a1)
 {
-  unsigned int v1; // edx
-  int v2; // r8d
+  unsigned int v2; // ecx
+  int v3; // edx
 
-  v1 = 0;
+  v2 = 0;
   while ( 1 )
   {
-    v2 = *a1;
-    if ( (unsigned __int16)(v2 - 48) <= 9u )
-    {
-      v1 = v2 + 2 * (5 * v1 - 24);
-      goto LABEL_4;
-    }
-    if ( v2 != 32 )
-      return v1;
-LABEL_4:
+    v3 = *a1;
+    if ( (unsigned __int16)(v3 - 48) > 9u && v3 != 32 )
+      break;
+    if ( v3 != 32 )
+      v2 = v3 + 2 * (5 * v2 - 24);
     ++a1;
   }
+  return v2;
 }

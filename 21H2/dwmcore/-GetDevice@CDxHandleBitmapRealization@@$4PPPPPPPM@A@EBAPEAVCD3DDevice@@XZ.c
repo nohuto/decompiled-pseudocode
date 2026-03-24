@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x18010B7F0
+ * XREFs of ?GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x1800F8AE0
  * Callers:
  *     <none>
  * Callees:

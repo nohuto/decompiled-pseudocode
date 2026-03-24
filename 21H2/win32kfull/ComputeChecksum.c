@@ -1,11 +1,11 @@
 /*
- * XREFs of ComputeChecksum @ 0x1C00945A4
+ * XREFs of ComputeChecksum @ 0x1C001C090
  * Callers:
- *     CreateDyesColorMappingTable @ 0x1C0093DC8 (CreateDyesColorMappingTable.c)
- *     ComputeRGBLUTAA @ 0x1C0094050 (ComputeRGBLUTAA.c)
- *     HT_CreateDeviceHalftoneInfo @ 0x1C0096118 (HT_CreateDeviceHalftoneInfo.c)
- *     ComputeHTCell @ 0x1C0096AD0 (ComputeHTCell.c)
- *     CacheRGBToXYZ @ 0x1C025E6A4 (CacheRGBToXYZ.c)
+ *     CreateDyesColorMappingTable @ 0x1C001B8B0 (CreateDyesColorMappingTable.c)
+ *     ComputeRGBLUTAA @ 0x1C001BB38 (ComputeRGBLUTAA.c)
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C01126A8 (HT_CreateDeviceHalftoneInfo.c)
+ *     ComputeHTCell @ 0x1C0113064 (ComputeHTCell.c)
+ *     CacheRGBToXYZ @ 0x1C0261818 (CacheRGBToXYZ.c)
  * Callees:
  *     <none>
  */

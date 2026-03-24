@@ -1,9 +1,9 @@
 /*
- * XREFs of _dynamic_initializer_for__CCommonRegistryData::OptimizeForDirtyExpressions__ @ 0x180003B30
+ * XREFs of _dynamic_initializer_for__CCommonRegistryData::OptimizeForDirtyExpressions__ @ 0x180003100
  * Callers:
  *     <none>
  * Callees:
- *     ?Load@?$CRegistryKeyLoader@_N@details@@SA_NPEBG_NW4DwmRegistrySubkey@@@Z @ 0x1800AE8C8 (-Load@-$CRegistryKeyLoader@_N@details@@SA_NPEBG_NW4DwmRegistrySubkey@@@Z.c)
+ *     ?Load@?$CRegistryKeyLoader@_N@details@@SA_NPEBG_NW4DwmRegistrySubkey@@@Z @ 0x1800B3324 (-Load@-$CRegistryKeyLoader@_N@details@@SA_NPEBG_NW4DwmRegistrySubkey@@@Z.c)
  */
 
 __int64 __fastcall dynamic_initializer_for__CCommonRegistryData::OptimizeForDirtyExpressions__(__int64 a1, __int64 a2)

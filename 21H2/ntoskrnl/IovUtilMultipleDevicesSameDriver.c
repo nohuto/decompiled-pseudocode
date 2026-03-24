@@ -1,10 +1,10 @@
 /*
- * XREFs of IovUtilMultipleDevicesSameDriver @ 0x140A922F8
+ * XREFs of IovUtilMultipleDevicesSameDriver @ 0x1409D6C20
  * Callers:
- *     IovpExamineIrpStackForwarding @ 0x140A8C740 (IovpExamineIrpStackForwarding.c)
+ *     IovpExamineIrpStackForwarding @ 0x1409D0B74 (IovpExamineIrpStackForwarding.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
  */
 
 __int64 __fastcall IovUtilMultipleDevicesSameDriver(__int64 a1)

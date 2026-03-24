@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReserveDriverPtes @ 0x1406838CC
+ * XREFs of MiReserveDriverPtes @ 0x1406838AC
  * Callers:
- *     MiSelectSystemImageAddress @ 0x140683888 (MiSelectSystemImageAddress.c)
- *     MmMapLockedRestartPages @ 0x14084C6A0 (MmMapLockedRestartPages.c)
+ *     MiSelectSystemImageAddress @ 0x140683868 (MiSelectSystemImageAddress.c)
+ *     MmMapLockedRestartPages @ 0x14084C680 (MmMapLockedRestartPages.c)
  *     MiGetNewAddressForBootImage @ 0x1409B85F4 (MiGetNewAddressForBootImage.c)
  * Callees:
  *     MiMakeZeroedPageTables @ 0x140026644 (MiMakeZeroedPageTables.c)
@@ -10,11 +10,11 @@
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     RtlFindClearBitsAndSet @ 0x1400D95C0 (RtlFindClearBitsAndSet.c)
- *     MiUnlockDriverMappings @ 0x1400F5F88 (MiUnlockDriverMappings.c)
- *     MiLockDriverMappings @ 0x1400F6188 (MiLockDriverMappings.c)
- *     MiObtainSystemVa @ 0x1400F6944 (MiObtainSystemVa.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
+ *     MiUnlockDriverMappings @ 0x1400F5FA8 (MiUnlockDriverMappings.c)
+ *     MiLockDriverMappings @ 0x1400F61A8 (MiLockDriverMappings.c)
+ *     MiObtainSystemVa @ 0x1400F6964 (MiObtainSystemVa.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

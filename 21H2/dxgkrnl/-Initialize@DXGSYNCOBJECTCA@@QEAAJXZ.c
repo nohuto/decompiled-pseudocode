@@ -1,20 +1,25 @@
 /*
- * XREFs of ?Initialize@DXGSYNCOBJECTCA@@QEAAJXZ @ 0x1C033FF08
+ * XREFs of ?Initialize@DXGSYNCOBJECTCA@@QEAAJXZ @ 0x1C0290F68
  * Callers:
- *     ?Initialize@DXGSYNCOBJECT@@QEAAJPEAVDXGPAGINGQUEUE@@PEAVDXGDEVICE@@@Z @ 0x1C0198FA0 (-Initialize@DXGSYNCOBJECT@@QEAAJPEAVDXGPAGINGQUEUE@@PEAVDXGDEVICE@@@Z.c)
+ *     ?Initialize@DXGSYNCOBJECT@@QEAAJPEAVDXGPAGINGQUEUE@@PEAVDXGDEVICE@@@Z @ 0x1C00DCD40 (-Initialize@DXGSYNCOBJECT@@QEAAJPEAVDXGPAGINGQUEUE@@PEAVDXGDEVICE@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall DXGSYNCOBJECTCA::Initialize(DXGSYNCOBJECTCA *this)
 {
   _OWORD *PoolWithTag; // rax
-  __int64 v3; // rbx
-  _QWORD *v5; // rax
-  int v6; // eax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  __int64 v7; // rdi
+  __int64 v8; // rax
+  _QWORD *v10; // rax
+  int v11; // eax
 
   PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x38uLL, 0x4B677844u);
-  v3 = 0LL;
+  v7 = 0LL;
   *((_QWORD *)this + 39) = PoolWithTag;
   if ( PoolWithTag )
   {
@@ -22,31 +27,23 @@ __int64 __fastcall DXGSYNCOBJECTCA::Initialize(DXGSYNCOBJECTCA *this)
     PoolWithTag[1] = 0LL;
     PoolWithTag[2] = 0LL;
     *((_QWORD *)PoolWithTag + 6) = 0LL;
-    v5 = (_QWORD *)(*((_QWORD *)this + 39) + 16LL);
-    v5[1] = v5;
-    *v5 = v5;
+    v10 = (_QWORD *)(*((_QWORD *)this + 39) + 16LL);
+    v10[1] = v10;
+    *v10 = v10;
     KeInitializeSpinLock((PKSPIN_LOCK)(*((_QWORD *)this + 39) + 8LL));
     _InterlockedIncrement(*((volatile signed __int32 **)this + 39));
-    v6 = *((_DWORD *)this + 50);
-    if ( v6 == 3 || v6 == 5 )
-      v3 = *((_QWORD *)this + 26);
-    *(_QWORD *)(*((_QWORD *)this + 39) + 40LL) = v3;
-    *(_QWORD *)(*((_QWORD *)this + 39) + 32LL) = v3;
+    v11 = *((_DWORD *)this + 48);
+    if ( v11 == 3 || v11 == 5 )
+      v7 = *((_QWORD *)this + 25);
+    *(_QWORD *)(*((_QWORD *)this + 39) + 40LL) = v7;
+    *(_QWORD *)(*((_QWORD *)this + 39) + 32LL) = v7;
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(6LL, -1073741801LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Out of memory allocating VIDSCH_CROSS_ADAPTER_SYNC_OBJECT_INFO class, returning 0x%I64x",
-      -1073741801LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v8 = WdLogNewEntry5_WdLowResource(v4, v3, v5, v6);
+    *(_QWORD *)(v8 + 24) = -1073741801LL;
+    WdLogEvent5_WdLowResource(v8);
     return 3221225495LL;
   }
 }

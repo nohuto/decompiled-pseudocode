@@ -1,16 +1,14 @@
 /*
- * XREFs of ?VidMmProcessAsyncOperation@@YAXPEAX@Z @ 0x1C00A5CE0
+ * XREFs of ?VidMmProcessAsyncOperation@@YAXPEAX@Z @ 0x1C0089E80
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0001904 (--3@YAXPEAX@Z.c)
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C001CDD4 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C002E3C0 (McTemplateK0p_EtwWriteTransfer.c)
- *     McTemplateK0ppp_EtwWriteTransfer @ 0x1C002F09C (McTemplateK0ppp_EtwWriteTransfer.c)
- *     ?VidMmCompleteAsyncUnpin@@YAXPEAVVIDMM_GLOBAL@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00A9174 (-VidMmCompleteAsyncUnpin@@YAXPEAVVIDMM_GLOBAL@@PEAPEAUVIDMM_ALLOC@@@Z.c)
- *     ?WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z @ 0x1C00A93D0 (-WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z.c)
- *     ?IsAllocationInPresentQueue@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@PEAI@Z @ 0x1C00A963C (-IsAllocationInPresentQueue@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@PEAI@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001618 (--3@YAXPEAX@Z.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0023FCC (McTemplateK0p_EtwWriteTransfer.c)
+ *     McTemplateK0ppp_EtwWriteTransfer @ 0x1C0024FC8 (McTemplateK0ppp_EtwWriteTransfer.c)
+ *     ?IsAllocationInPresentQueue@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@PEAI@Z @ 0x1C00B0BD8 (-IsAllocationInPresentQueue@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@PEAI@Z.c)
+ *     ?WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z @ 0x1C00B7858 (-WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z.c)
+ *     ?VidMmCompleteAsyncUnpin@@YAXPEAVVIDMM_GLOBAL@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00BBE5C (-VidMmCompleteAsyncUnpin@@YAXPEAVVIDMM_GLOBAL@@PEAPEAUVIDMM_ALLOC@@@Z.c)
  */
 
 void __fastcall VidMmProcessAsyncOperation(void *a1)
@@ -19,20 +17,21 @@ void __fastcall VidMmProcessAsyncOperation(void *a1)
   __int64 v3; // rcx
   __int64 v4; // r8
   VIDMM_GLOBAL *v5; // rcx
-  __int64 v6; // rsi
-  __int64 v7; // rdi
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  __int64 v9; // rax
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // rsi
-  struct VIDMM_ALLOC *v13; // rdi
-  VIDMM_GLOBAL *v14; // rcx
-  unsigned int v15; // r8d
-  int v16; // eax
-  unsigned int v18; // [rsp+50h] [rbp+8h] BYREF
+  void *v6; // rcx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  struct _KEVENT *v9; // rbp
+  struct VIDMM_ALLOC *v10; // rdi
+  VIDMM_GLOBAL *v11; // rcx
+  unsigned int v12; // r8d
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rsi
+  __int64 v17; // rax
+  unsigned int v19; // [rsp+50h] [rbp+8h] BYREF
   union _LARGE_INTEGER Interval; // [rsp+58h] [rbp+10h] BYREF
-  struct VIDMM_ALLOC *v20; // [rsp+60h] [rbp+18h] BYREF
+  struct VIDMM_ALLOC *v21; // [rsp+60h] [rbp+18h] BYREF
 
   v2 = *((_DWORD *)a1 + 8) - 1;
   if ( v2 )
@@ -42,31 +41,34 @@ void __fastcall VidMmProcessAsyncOperation(void *a1)
     {
       if ( (_DWORD)v5 == 1 )
       {
-        v12 = *((_QWORD *)a1 + 5);
-        v13 = *(struct VIDMM_ALLOC **)(*((_QWORD *)a1 + 6) + 24LL);
-        v20 = v13;
+        v9 = (struct _KEVENT *)*((_QWORD *)a1 + 5);
+        v10 = *(struct VIDMM_ALLOC **)(*((_QWORD *)a1 + 6) + 24LL);
+        v21 = v10;
         while ( 1 )
         {
-          v18 = 0;
-          if ( !VIDMM_GLOBAL::IsAllocationInPresentQueue(v5, v13, &v18) )
+          v19 = 0;
+          if ( !VIDMM_GLOBAL::IsAllocationInPresentQueue(v5, v10, &v19) )
             break;
-          if ( v18 > 1 )
+          if ( v19 > 1 )
             break;
-          v16 = VIDMM_GLOBAL::WaitOnAllocationPresentQueue(v14, v13, v15);
-          if ( v16 >= 0 )
+          v13 = VIDMM_GLOBAL::WaitOnAllocationPresentQueue(v11, v10, v12);
+          v16 = v13;
+          if ( v13 >= 0 )
             break;
-          WdLogSingleEntry1(3LL, v16);
+          v17 = WdLogNewEntry5_WdWarning(v15, v14);
+          *(_QWORD *)(v17 + 24) = v16;
+          WdLogEvent5_WdWarning(v17);
           Interval.QuadPart = -150LL;
           KeDelayExecutionThread(0, 0, &Interval);
         }
-        VidMmCompleteAsyncUnpin((struct VIDMM_GLOBAL *)v12, &v20);
+        VidMmCompleteAsyncUnpin((struct VIDMM_GLOBAL *)v9, &v21);
         KeEnterCriticalRegion();
-        ExAcquirePushLockExclusiveEx(v12 + 44384, 0LL);
-        *(_QWORD *)(v12 + 44392) = KeGetCurrentThread();
-        if ( (*(_DWORD *)(v12 + 44432))-- == 1 )
-          KeSetEvent((PRKEVENT)(v12 + 44408), 0, 0);
-        *(_QWORD *)(v12 + 44392) = 0LL;
-        ExReleasePushLockExclusiveEx(v12 + 44384, 0LL);
+        ExAcquirePushLockExclusiveEx(&v9[1849], 0LL);
+        v9[1849].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)KeGetCurrentThread();
+        if ( v9[1851].Header.LockNV-- == 1 )
+          KeSetEvent(v9 + 1850, 0, 0);
+        v9[1849].Header.WaitListHead.Flink = 0LL;
+        ExReleasePushLockExclusiveEx(&v9[1849], 0LL);
         KeLeaveCriticalRegion();
         DxgkUnreferenceDxgResource(*(struct DXGRESOURCE **)(*((_QWORD *)a1 + 6) + 40LL));
         DxgkUnreferenceDxgAllocation(*((struct DXGALLOCATION **)a1 + 6));
@@ -74,26 +76,19 @@ void __fastcall VidMmProcessAsyncOperation(void *a1)
     }
     else
     {
-      v6 = *((_QWORD *)a1 + 5);
-      v7 = *((_QWORD *)a1 + 7);
-      if ( v6 )
-      {
-        VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-        (*((void (__fastcall **)(__int64, __int64))VirtualMemoryInterface + 4))(v6, v7);
-      }
+      if ( *((_QWORD *)a1 + 5) )
+        MmUnmapViewOfSection(*((_QWORD *)a1 + 5));
       else
-      {
         MmUnmapViewInSystemSpace(*((PVOID *)a1 + 7));
-      }
-      v9 = *((_QWORD *)a1 + 8);
-      if ( v9 )
-        _InterlockedDecrement((volatile signed __int32 *)(v9 + 444));
+      v6 = (void *)*((_QWORD *)a1 + 5);
+      if ( v6 )
+        ObfDereferenceObject(v6);
       ObfDereferenceObject(*((PVOID *)a1 + 6));
-      if ( (byte_1C006E941 & 1) != 0 )
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
         McTemplateK0ppp_EtwWriteTransfer(
-          v10,
+          v7,
           &EndVidMmUnmapViewAsync,
-          v11,
+          v8,
           *((_QWORD *)a1 + 5),
           *((_QWORD *)a1 + 6),
           *((_QWORD *)a1 + 7));
@@ -102,7 +97,7 @@ void __fastcall VidMmProcessAsyncOperation(void *a1)
   else
   {
     ObfDereferenceObject(*((PVOID *)a1 + 5));
-    if ( (byte_1C006E941 & 1) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       McTemplateK0p_EtwWriteTransfer(v3, &EndVidMmDereferenceObjectAsync, v4, *((_QWORD *)a1 + 5));
   }
   operator delete(a1);

@@ -1,9 +1,9 @@
 /*
- * XREFs of CLIPOBJ_cEnumStart @ 0x1C0008B80
+ * XREFs of CLIPOBJ_cEnumStart @ 0x1C00CB5A0
  * Callers:
  *     <none>
  * Callees:
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C0009024 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEEF0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
  */
 
 ULONG __stdcall CLIPOBJ_cEnumStart(CLIPOBJ *pco, BOOL bAll, ULONG iType, ULONG iDirection, ULONG cLimit)

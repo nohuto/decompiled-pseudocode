@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CCD_MODE_RESULT_SET@@QEAA@XZ @ 0x1C03BAB28
+ * XREFs of ??0CCD_MODE_RESULT_SET@@QEAA@XZ @ 0x1C02EA97C
  * Callers:
- *     DxgkEnumerateModesForPathsModality @ 0x1C0302520 (DxgkEnumerateModesForPathsModality.c)
+ *     DxgkEnumerateModesForPathsModality @ 0x1C0295710 (DxgkEnumerateModesForPathsModality.c)
  * Callees:
  *     <none>
  */

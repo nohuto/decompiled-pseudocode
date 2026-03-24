@@ -1,16 +1,20 @@
 /*
- * XREFs of _stricmp @ 0x1403D90F0
+ * XREFs of _stricmp @ 0x1403D16D0
  * Callers:
- *     HalGetEnvironmentVariable @ 0x1405048F0 (HalGetEnvironmentVariable.c)
- *     HalSetEnvironmentVariable @ 0x140504A90 (HalSetEnvironmentVariable.c)
- *     ViThunkSnapSharedExportByName @ 0x140ABE194 (ViThunkSnapSharedExportByName.c)
- *     VfCheckImageCompliance @ 0x140AC449C (VfCheckImageCompliance.c)
- *     HdlspBugCheckProcessing @ 0x140AEAD84 (HdlspBugCheckProcessing.c)
- *     CmpSetupConfigurationTree @ 0x140B3AAA4 (CmpSetupConfigurationTree.c)
- *     CmpSearchSectionByName @ 0x140B56A90 (CmpSearchSectionByName.c)
- *     CmpAppendSection @ 0x140B5E7E0 (CmpAppendSection.c)
+ *     HalGetEnvironmentVariable @ 0x1404BBA60 (HalGetEnvironmentVariable.c)
+ *     HalSetEnvironmentVariable @ 0x1404BBC00 (HalSetEnvironmentVariable.c)
+ *     ViSetRequestedIoCallbacks @ 0x1405A0CCC (ViSetRequestedIoCallbacks.c)
+ *     ViSetRequestedOrderDependentAPIs @ 0x1405A0D48 (ViSetRequestedOrderDependentAPIs.c)
+ *     ViThunkSnapSharedExportByName @ 0x1409C235C (ViThunkSnapSharedExportByName.c)
+ *     VfCheckImageCompliance @ 0x1409C792C (VfCheckImageCompliance.c)
+ *     ViSetRequestedAPIs @ 0x1409C8BEC (ViSetRequestedAPIs.c)
+ *     ViThunkFindAPIContextByName @ 0x1409D901C (ViThunkFindAPIContextByName.c)
+ *     HdlspBugCheckProcessing @ 0x1409EED54 (HdlspBugCheckProcessing.c)
+ *     CmpSearchSectionByName @ 0x140A47180 (CmpSearchSectionByName.c)
+ *     CmpSetupConfigurationTree @ 0x140A59198 (CmpSetupConfigurationTree.c)
+ *     CmpAppendSection @ 0x140A6273C (CmpAppendSection.c)
  * Callees:
- *     __ascii_stricmp @ 0x1403D909C (__ascii_stricmp.c)
+ *     __ascii_stricmp @ 0x1403D167C (__ascii_stricmp.c)
  */
 
 int __cdecl stricmp(const char *Str1, const char *Str2)

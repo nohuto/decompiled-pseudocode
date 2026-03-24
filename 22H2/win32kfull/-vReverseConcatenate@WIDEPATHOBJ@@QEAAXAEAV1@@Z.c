@@ -1,38 +1,41 @@
 /*
- * XREFs of ?vReverseConcatenate@WIDEPATHOBJ@@QEAAXAEAV1@@Z @ 0x1C015E5F2
+ * XREFs of ?vReverseConcatenate@WIDEPATHOBJ@@QEAAXAEAV1@@Z @ 0x1C014158C
  * Callers:
- *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C015DC7A (-bWiden@WIDENER@@IEAAHXZ.c)
+ *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C0140328 (-bWiden@WIDENER@@IEAAHXZ.c)
  * Callees:
- *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEBU_POINTFIX@@H@Z @ 0x1C015E29C (-vAddPoint@WIDEPATHOBJ@@QEAAXPEBU_POINTFIX@@H@Z.c)
+ *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@H@Z @ 0x1C0141644 (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@H@Z.c)
  */
 
-void __fastcall WIDEPATHOBJ::vReverseConcatenate(WIDEPATHOBJ *this, struct WIDEPATHOBJ *a2)
+void __fastcall WIDEPATHOBJ::vReverseConcatenate(WIDEPATHOBJ *this, struct WIDEPATHOBJ *a2, int a3)
 {
-  __int64 v4; // r8
-  unsigned __int64 v5; // rsi
-  __int64 v6; // rbp
-  const struct _POINTFIX *i; // rdi
+  __int64 v3; // rax
+  __int64 v6; // rdx
+  unsigned __int64 v7; // rsi
+  __int64 v8; // rbp
+  struct _POINTFIX *i; // rdi
 
-  v4 = *(_QWORD *)(*((_QWORD *)a2 + 1) + 40LL);
-  if ( v4 )
+  v3 = *((_QWORD *)a2 + 1);
+  v6 = *(_QWORD *)(v3 + 40);
+  if ( v6 )
   {
     do
     {
-      v5 = v4 + 24;
-      v6 = *(_QWORD *)(v4 + 8);
-      for ( i = (const struct _POINTFIX *)(v4 + 8 * (*(unsigned int *)(v4 + 20) + 3LL));
-            (unsigned __int64)i > v5;
-            WIDEPATHOBJ::vAddPoint(this, i) )
+      v7 = v6 + 24;
+      v8 = *(_QWORD *)(v6 + 8);
+      for ( i = (struct _POINTFIX *)(v6 + 8 * (*(unsigned int *)(v6 + 20) + 3LL));
+            (unsigned __int64)i > v7;
+            WIDEPATHOBJ::vAddPoint(this, i, a3) )
       {
         --i;
       }
       *(_QWORD *)(*((_QWORD *)a2 + 1) + 24LL) = **(_QWORD **)(*((_QWORD *)a2 + 1) + 24LL);
       freepathalloc();
-      v4 = v6;
+      v6 = v8;
     }
-    while ( v6 );
+    while ( v8 );
+    v3 = *((_QWORD *)a2 + 1);
   }
-  *(_QWORD *)(*((_QWORD *)a2 + 1) + 24LL) = 0LL;
+  *(_QWORD *)(v3 + 24) = 0LL;
   *(_QWORD *)(*((_QWORD *)a2 + 1) + 40LL) = 0LL;
   *(_QWORD *)(*((_QWORD *)a2 + 1) + 32LL) = 0LL;
 }

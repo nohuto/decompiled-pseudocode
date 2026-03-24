@@ -1,32 +1,32 @@
 /*
- * XREFs of ?InitializeServer@CMessageConversationHost@@AEAAJPEAI@Z @ 0x18002F4E4
+ * XREFs of ?InitializeServer@CMessageConversationHost@@AEAAJPEAI@Z @ 0x1800B3BBC
  * Callers:
- *     ?Initialize@CMessageConversationHost@@AEAAJXZ @ 0x18002F454 (-Initialize@CMessageConversationHost@@AEAAJXZ.c)
+ *     ?Initialize@CMessageConversationHost@@AEAAJXZ @ 0x1800B3B34 (-Initialize@CMessageConversationHost@@AEAAJXZ.c)
  * Callees:
- *     ??1?$unique_storage@U?$resource_policy@PEAXP6APEAXPEAX@Z$1?LocalFree@@YAPEAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x18002F62C (--1-$unique_storage@U-$resource_policy@PEAXP6APEAXPEAX@Z$1-LocalFree@@YAPEAX0@ZU-$integral_const.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CMessageConversationHost::InitializeServer(CMessageConversationHost *this, unsigned int *a2)
 {
   PSECURITY_DESCRIPTOR v4; // rdi
   int v5; // eax
-  unsigned int v6; // ecx
+  __int64 v6; // rcx
   signed int v7; // ebx
-  __int64 v8; // rcx
-  __int64 v9; // rcx
+  __int64 *v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rcx
   DWORD LastError; // ebx
-  signed int v12; // eax
-  unsigned int v13; // ecx
-  unsigned int v14; // [rsp+20h] [rbp-50h]
-  __int64 v15; // [rsp+60h] [rbp-10h] BYREF
-  int v16; // [rsp+68h] [rbp-8h]
-  __int64 v17; // [rsp+A0h] [rbp+30h] BYREF
+  signed int v13; // eax
+  __int64 v14; // rcx
+  unsigned int v15; // [rsp+20h] [rbp-50h]
+  __int64 v16; // [rsp+60h] [rbp-10h] BYREF
+  int v17; // [rsp+68h] [rbp-8h]
+  __int64 v18; // [rsp+A0h] [rbp+30h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+A8h] [rbp+38h] BYREF
 
   SecurityDescriptor = 0LL;
-  v17 = 0LL;
+  v18 = 0LL;
   SetLastError(0);
   v4 = SecurityDescriptor;
   if ( SecurityDescriptor )
@@ -42,55 +42,57 @@ __int64 __fastcall CMessageConversationHost::InitializeServer(CMessageConversati
          &SecurityDescriptor,
          0LL) )
   {
-    v5 = (*(__int64 (__fastcall **)(_QWORD, PSECURITY_DESCRIPTOR, __int64 *))(**((_QWORD **)this + 2) + 64LL))(
-           *((_QWORD *)this + 2),
+    v5 = (*(__int64 (__fastcall **)(_QWORD, PSECURITY_DESCRIPTOR, __int64 *))(**((_QWORD **)this + 3) + 64LL))(
+           *((_QWORD *)this + 3),
            SecurityDescriptor,
-           &v17);
+           &v18);
     v7 = v5;
     if ( v5 < 0 )
     {
-      v14 = 38;
+      v15 = 38;
     }
     else
     {
-      v15 = 0LL;
-      v8 = *((_QWORD *)this + 2);
-      v16 = 1;
-      v5 = (*(__int64 (__fastcall **)(__int64, const wchar_t *, __int64, __int64 *, int, int, int, CMessageConversationHost *, unsigned int *, char *))(*(_QWORD *)v8 + 304LL))(
+      v16 = 0LL;
+      v8 = (__int64 *)*((_QWORD *)this + 3);
+      v9 = *v8;
+      v17 = 1;
+      v5 = (*(__int64 (__fastcall **)(__int64 *, const wchar_t *, __int64, __int64 *, int, int, int, char *, unsigned int *, char *))(v9 + 288))(
              v8,
              L"System\\CompositionEngine",
-             v17,
-             &v15,
+             v18,
+             &v16,
              1,
              1,
              1,
-             this,
+             (char *)this + 16,
              a2,
-             (char *)this + 24);
+             (char *)this + 32);
       v7 = v5;
       if ( v5 >= 0 )
         goto LABEL_6;
-      v14 = 49;
+      v15 = 49;
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, v14, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, v15, 0LL);
   }
   else
   {
-    v12 = GetLastError();
-    v7 = v12;
-    if ( v12 > 0 )
-      v7 = (unsigned __int16)v12 | 0x80070000;
+    v13 = GetLastError();
+    v7 = v13;
+    if ( v13 > 0 )
+      v7 = (unsigned __int16)v13 | 0x80070000;
     if ( v7 >= 0 )
       v7 = -2003304445;
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v7, 0x22u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v7, 0x22u, 0LL);
   }
 LABEL_6:
-  v9 = v17;
-  if ( v17 )
+  v10 = v18;
+  if ( v18 )
   {
-    v17 = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
+    v18 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 16LL))(v10);
   }
-  wil::details::unique_storage<wil::details::resource_policy<void *,void * (*)(void *),&void * LocalFree(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,void * (*)(void *),&void * LocalFree(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>(&SecurityDescriptor);
+  if ( SecurityDescriptor )
+    LocalFree(SecurityDescriptor);
   return (unsigned int)v7;
 }

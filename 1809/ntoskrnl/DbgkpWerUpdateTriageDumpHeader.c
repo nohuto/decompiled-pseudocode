@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkpWerUpdateTriageDumpHeader @ 0x140812FA8
+ * XREFs of DbgkpWerUpdateTriageDumpHeader @ 0x140812F88
  * Callers:
- *     DbgkpWerWriteTriageDump @ 0x1408131A8 (DbgkpWerWriteTriageDump.c)
+ *     DbgkpWerWriteTriageDump @ 0x140813188 (DbgkpWerWriteTriageDump.c)
  * Callees:
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
  */
 
 __int64 __fastcall DbgkpWerUpdateTriageDumpHeader(__int64 a1)

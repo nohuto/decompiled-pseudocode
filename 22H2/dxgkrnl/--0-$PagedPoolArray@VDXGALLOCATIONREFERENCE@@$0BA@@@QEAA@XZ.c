@@ -1,0 +1,27 @@
+/*
+ * XREFs of ??0?$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$0BA@@@QEAA@XZ @ 0x1C01560D8
+ * Callers:
+ *     ?DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z @ 0x1C00FB130 (-DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z.c)
+ *     ?DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEAD@Z @ 0x1C0154B3C (-DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEAD@Z.c)
+ * Callees:
+ *     ??0DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C016D210 (--0DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall PagedPoolArray<DXGALLOCATIONREFERENCE,16>::PagedPoolArray<DXGALLOCATIONREFERENCE,16>(__int64 a1)
+{
+  DXGALLOCATIONREFERENCE *v1; // rdi
+  __int64 v3; // rsi
+
+  *(_QWORD *)a1 = 0LL;
+  v1 = (DXGALLOCATIONREFERENCE *)(a1 + 8);
+  v3 = 16LL;
+  do
+  {
+    DXGALLOCATIONREFERENCE::DXGALLOCATIONREFERENCE(v1);
+    v1 = (DXGALLOCATIONREFERENCE *)((char *)v1 + 8);
+    --v3;
+  }
+  while ( v3 );
+  *(_DWORD *)(a1 + 136) = 0;
+  return a1;
+}

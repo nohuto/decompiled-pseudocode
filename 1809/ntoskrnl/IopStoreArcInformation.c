@@ -4,9 +4,9 @@
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
  *     RtlStringCbCopyA @ 0x140011EF8 (RtlStringCbCopyA.c)
- *     IopVerifierExAllocatePool_0 @ 0x1400DD83C (IopVerifierExAllocatePool_0.c)
- *     _strnicmp @ 0x140195470 (_strnicmp.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
+ *     _strnicmp @ 0x140195490 (_strnicmp.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 
@@ -30,7 +30,7 @@ __int64 __fastcall IopStoreArcInformation(__int64 a1)
   PVOID *k; // rcx
 
   v1 = *(__int64 ***)(a1 + 232);
-  v2 = dword_140409DD0;
+  v2 = dword_140409D90;
   v3 = 0;
   qword_14096E728 = (__int64)&IoArcTableListHead;
   IoArcTableListHead = &IoArcTableListHead;

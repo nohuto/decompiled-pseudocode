@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ApplyAccelerationToDelta@CMouseProcessor@@AEAAXJJUtagPOINT@@_NPEAU_SUBPIXELS@@PEAJ3@Z @ 0x1C00B25A4
+ * XREFs of ?ApplyAccelerationToDelta@CMouseProcessor@@AEAAXJJUtagPOINT@@_NPEAU_SUBPIXELS@@PEAJ3@Z @ 0x1C006F2B8
  * Callers:
- *     ?GetMouseCoordinateRelative@CMouseProcessor@@AEAAXJJPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouseCoordinateOptions@@@Z @ 0x1C00B2468 (-GetMouseCoordinateRelative@CMouseProcessor@@AEAAXJJPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouseC.c)
- *     ?PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorData@@@Z @ 0x1C01FB484 (-PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorDat.c)
+ *     ?GetMouseCoordinateRelative@CMouseProcessor@@AEAAXJJPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouseCoordinateOptions@@@Z @ 0x1C006EED0 (-GetMouseCoordinateRelative@CMouseProcessor@@AEAAXJJPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouseC.c)
+ *     ?PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorData@@@Z @ 0x1C01C0FD0 (-PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorDat.c)
  * Callees:
- *     ?RegionFromPoint@Mouse@InputConfig@@SA_NUtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C003C040 (-RegionFromPoint@Mouse@InputConfig@@SA_NUtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z.c)
- *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C003C1A0 (--0CLockedInputSpace@@QEAA@XZ.c)
- *     ?Accelerate@CDeviceAcceleration@@QEAAXPEAH0PEAU_SUBPIXELS@@@Z @ 0x1C00B2624 (-Accelerate@CDeviceAcceleration@@QEAAXPEAH0PEAU_SUBPIXELS@@@Z.c)
- *     rand @ 0x1C00D6428 (rand.c)
- *     GetNormalizedMouseSensitivityFactor @ 0x1C01E7BA4 (GetNormalizedMouseSensitivityFactor.c)
+ *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C0044158 (--0CLockedInputSpace@@QEAA@XZ.c)
+ *     ?Accelerate@CDeviceAcceleration@@QEAAXPEAH0PEAU_SUBPIXELS@@@Z @ 0x1C006F338 (-Accelerate@CDeviceAcceleration@@QEAAXPEAH0PEAU_SUBPIXELS@@@Z.c)
+ *     ?RegionFromPoint@Mouse@InputConfig@@SA_NUtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C006F558 (-RegionFromPoint@Mouse@InputConfig@@SA_NUtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z.c)
+ *     rand @ 0x1C00C56E8 (rand.c)
+ *     GetNormalizedMouseSensitivityFactor @ 0x1C01AE904 (GetNormalizedMouseSensitivityFactor.c)
  */
 
 void __fastcall CMouseProcessor::ApplyAccelerationToDelta(
@@ -41,14 +41,14 @@ void __fastcall CMouseProcessor::ApplyAccelerationToDelta(
   v23 = a2;
   v9 = a3;
   v10 = a2;
-  if ( a5 && (*((_BYTE *)qword_1C0288098 + 112) || (*(_BYTE *)(&qword_1C0294F10 + 1) & 0x40) == 0) )
+  if ( a5 && (*((_BYTE *)qword_1C0246098 + 112) || (*(_BYTE *)(&qword_1C024FFD0 + 1) & 0x40) == 0) )
   {
-    v12 = (CDeviceAcceleration *)qword_1C02880B0;
+    v12 = qword_1C02460B0;
     v13 = (struct _SUBPIXELS *)v22;
     goto LABEL_4;
   }
-  v12 = qword_1C0288098;
-  if ( *((_BYTE *)qword_1C0288098 + 112) )
+  v12 = qword_1C0246098;
+  if ( *((_BYTE *)qword_1C0246098 + 112) )
   {
     v13 = a6;
 LABEL_4:
@@ -71,31 +71,31 @@ LABEL_4:
   {
     if ( v10 )
     {
-      v15 = *((_DWORD *)this + 13) + v10 * NormalizedMouseSensitivityFactor;
+      v15 = *((_DWORD *)this + 15) + v10 * NormalizedMouseSensitivityFactor;
       v16 = v15 % 256;
-      *((_DWORD *)this + 13) = v15 % 256;
+      *((_DWORD *)this + 15) = v15 % 256;
       v10 = v15 / 256;
       if ( v15 < 0 && v16 > 0 )
       {
         v10 = v15 / 256 + 1;
-        *((_DWORD *)this + 13) = v16 - 256;
+        *((_DWORD *)this + 15) = v16 - 256;
       }
     }
     if ( v9 )
     {
-      v17 = *((_DWORD *)this + 14) + v9 * NormalizedMouseSensitivityFactor;
+      v17 = *((_DWORD *)this + 16) + v9 * NormalizedMouseSensitivityFactor;
       v18 = v17 % 256;
-      *((_DWORD *)this + 14) = v17 % 256;
+      *((_DWORD *)this + 16) = v17 % 256;
       v9 = v17 / 256;
       if ( v17 < 0 && v18 > 0 )
       {
         ++v9;
-        *((_DWORD *)this + 14) = v18 - 256;
+        *((_DWORD *)this + 16) = v18 - 256;
       }
     }
     v19 = a6;
-    *(_DWORD *)a6 = *((_DWORD *)this + 13) << 8;
-    v20 = *((_DWORD *)this + 14) << 8;
+    *(_DWORD *)a6 = *((_DWORD *)this + 15) << 8;
+    v20 = *((_DWORD *)this + 16) << 8;
   }
   *((_DWORD *)v19 + 1) = v20;
   ExReleaseResourceLite(*(PERESOURCE *)v22[1]);

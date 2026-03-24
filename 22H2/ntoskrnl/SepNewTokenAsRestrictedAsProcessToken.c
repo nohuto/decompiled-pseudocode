@@ -1,24 +1,24 @@
 /*
- * XREFs of SepNewTokenAsRestrictedAsProcessToken @ 0x1406C7894
+ * XREFs of SepNewTokenAsRestrictedAsProcessToken @ 0x14070E75C
  * Callers:
- *     NtDuplicateToken @ 0x1407358C0 (NtDuplicateToken.c)
- *     SepFilterToken @ 0x1407F2180 (SepFilterToken.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     NtDuplicateToken @ 0x1406527E0 (NtDuplicateToken.c)
  * Callees:
- *     SeTokenIsRestricted @ 0x140228850 (SeTokenIsRestricted.c)
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
- *     SeTokenIsWriteRestricted @ 0x140370D60 (SeTokenIsWriteRestricted.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
+ *     SeTokenIsRestricted @ 0x14035F3A0 (SeTokenIsRestricted.c)
+ *     SeTokenIsWriteRestricted @ 0x14035F3C0 (SeTokenIsWriteRestricted.c)
  */
 
-__int64 __fastcall SepNewTokenAsRestrictedAsProcessToken(PACCESS_TOKEN Token, _DWORD *a2, _BYTE *a3)
+__int64 __fastcall SepNewTokenAsRestrictedAsProcessToken(_QWORD *Token, _DWORD *a2, _BYTE *a3)
 {
   int v4; // esi
-  unsigned int v6; // ebp
+  unsigned int v6; // r14d
   unsigned int v7; // esi
-  __int64 v8; // r13
-  unsigned int v10; // r14d
+  __int64 v8; // r12
+  unsigned int v10; // r15d
   unsigned int v11; // ebx
   void *v12; // rax
-  __int64 v13; // r12
+  __int64 v13; // r13
   unsigned int v14; // r15d
   unsigned int v15; // ebp
   unsigned int v16; // r14d
@@ -29,13 +29,13 @@ __int64 __fastcall SepNewTokenAsRestrictedAsProcessToken(PACCESS_TOKEN Token, _D
 
   *a3 = 0;
   v4 = a2[50];
-  if ( ((v4 & 0x800) == 0 || _bittest((const signed __int32 *)Token + 50, 0xBu))
+  if ( ((v4 & 0x800) == 0 || (Token[25] & 0x800) != 0)
     && (!SeTokenIsRestricted(a2) || SeTokenIsRestricted(Token))
     && (!SeTokenIsWriteRestricted(a2) || SeTokenIsWriteRestricted(Token))
     && (!SeTokenIsRestricted(a2) || a2[32] >= *((_DWORD *)Token + 32))
-    && (~*((_QWORD *)a2 + 9) & *((_QWORD *)Token + 9)) == 0LL
-    && (~*((_QWORD *)a2 + 8) & *((_QWORD *)Token + 8)) == 0LL
-    && (~v4 & *((_DWORD *)Token + 50) & 0x1000) == 0 )
+    && (~*((_QWORD *)a2 + 9) & Token[9]) == 0LL
+    && (~*((_QWORD *)a2 + 8) & Token[8]) == 0LL
+    && (~v4 & (_DWORD)Token[25] & 0x1000) == 0 )
   {
     if ( SeTokenIsRestricted(a2) && (v14 = *((_DWORD *)Token + 32), v15 = 0, v14) )
     {
@@ -46,7 +46,7 @@ __int64 __fastcall SepNewTokenAsRestrictedAsProcessToken(PACCESS_TOKEN Token, _D
         if ( v16 )
         {
           v18 = *((_QWORD *)a2 + 20);
-          v19 = *(void **)(*((_QWORD *)Token + 20) + 16LL * v15);
+          v19 = *(void **)(Token[20] + 16LL * v15);
           do
           {
             if ( RtlEqualSid(v19, *(PSID *)(v18 + 16LL * v17)) )
@@ -82,7 +82,7 @@ LABEL_14:
           if ( v10 )
           {
             v12 = *(void **)(v8 + 16LL * v7);
-            v13 = *((_QWORD *)Token + 19);
+            v13 = Token[19];
             v20 = v12;
             while ( !RtlEqualSid(v12, *(PSID *)(v13 + 16LL * v11)) )
             {

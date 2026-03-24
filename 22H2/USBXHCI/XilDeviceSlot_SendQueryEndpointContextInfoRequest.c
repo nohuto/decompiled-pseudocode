@@ -1,13 +1,13 @@
 /*
- * XREFs of XilDeviceSlot_SendQueryEndpointContextInfoRequest @ 0x1C00385A8
+ * XREFs of XilDeviceSlot_SendQueryEndpointContextInfoRequest @ 0x1C0036AE8
  * Callers:
- *     UsbDevice_GetXhciEndpointDequeuePointer @ 0x1C001117C (UsbDevice_GetXhciEndpointDequeuePointer.c)
- *     UsbDevice_GetEndpointState @ 0x1C00111E4 (UsbDevice_GetEndpointState.c)
+ *     UsbDevice_GetXhciEndpointDequeuePointer @ 0x1C0010020 (UsbDevice_GetXhciEndpointDequeuePointer.c)
+ *     UsbDevice_GetEndpointState @ 0x1C0010088 (UsbDevice_GetEndpointState.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 char __fastcall XilDeviceSlot_SendQueryEndpointContextInfoRequest(
@@ -71,7 +71,7 @@ char __fastcall XilDeviceSlot_SendQueryEndpointContextInfoRequest(
           v11,
           10,
           31,
-          (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids,
+          (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids,
           v21);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v12, v13, v14);
@@ -89,7 +89,7 @@ char __fastcall XilDeviceSlot_SendQueryEndpointContextInfoRequest(
                     v11,
                     10,
                     30,
-                    (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids,
+                    (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids,
                     v10);
   }
   return v10;

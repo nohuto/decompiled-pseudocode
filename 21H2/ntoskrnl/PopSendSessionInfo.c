@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSendSessionInfo @ 0x14099CDDC
+ * XREFs of PopSendSessionInfo @ 0x1408F5490
  * Callers:
- *     PopReleaseAdaptiveLock @ 0x1407EF120 (PopReleaseAdaptiveLock.c)
- *     PopAdaptivePowerSettingCallback @ 0x140828BC0 (PopAdaptivePowerSettingCallback.c)
+ *     PopSetWin32kDisplayTimeout @ 0x1408F52A4 (PopSetWin32kDisplayTimeout.c)
+ *     PopSetWin32kInputTimeout @ 0x1408F5308 (PopSetWin32kInputTimeout.c)
  * Callees:
- *     PopInvokeWin32Callout @ 0x1407F2AD0 (PopInvokeWin32Callout.c)
+ *     PopInvokeWin32Callout @ 0x14067B7C8 (PopInvokeWin32Callout.c)
  */
 
-__int64 __fastcall PopSendSessionInfo(unsigned int a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall PopSendSessionInfo(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax
   int v5; // [rsp+20h] [rbp-30h] BYREF
@@ -20,7 +20,7 @@ __int64 __fastcall PopSendSessionInfo(unsigned int a1, __int64 a2, __int64 a3, _
   int v12; // [rsp+38h] [rbp-18h]
   int v13; // [rsp+3Ch] [rbp-14h]
   __int64 v14; // [rsp+40h] [rbp-10h]
-  unsigned int v15; // [rsp+60h] [rbp+10h] BYREF
+  int v15; // [rsp+60h] [rbp+10h] BYREF
 
   v15 = a1;
   result = 0LL;

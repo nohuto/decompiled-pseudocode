@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EmitBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02355D8
+ * XREFs of ?EmitBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4D28
  * Callers:
- *     ?EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02357E0 (-EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4F30 (-EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C000B6D8 (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     OpenDwmHandle @ 0x1C009090C (OpenDwmHandle.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     OpenDwmHandle @ 0x1C0049280 (OpenDwmHandle.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005B9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall DirectComposition::CCaptureRenderTargetMarshaler::EmitBuffers(
@@ -28,10 +28,10 @@ bool __fastcall DirectComposition::CCaptureRenderTargetMarshaler::EmitBuffers(
 
   for ( i = *((_DWORD *)this + 4); ; i = *((_DWORD *)this + 4) )
   {
-    v5 = *((_QWORD *)this + 13);
+    v5 = *((_QWORD *)this + 12);
     if ( (i & 0x100) == 0 )
     {
-      v6 = *((_QWORD *)this + 14);
+      v6 = *((_QWORD *)this + 13);
       v7 = v5 == v6;
       if ( v5 >= v6 )
         break;
@@ -41,10 +41,10 @@ bool __fastcall DirectComposition::CCaptureRenderTargetMarshaler::EmitBuffers(
     if ( (unsigned __int64)v8 < 0x18 )
     {
       if ( !DirectComposition::CBatch::AllocateNewFragment(a2, (unsigned __int64 *)&v16) )
-        return *((_QWORD *)this + 13) == *((_QWORD *)this + 14);
+        return *((_QWORD *)this + 12) == *((_QWORD *)this + 13);
       v8 = v16;
     }
-    v9 = *((_QWORD *)this + 14) - *((_QWORD *)this + 13);
+    v9 = *((_QWORD *)this + 13) - *((_QWORD *)this + 12);
     if ( v9 >= ((unsigned __int64)v8 - 16) >> 3 )
       v9 = ((unsigned __int64)v8 - 16) >> 3;
     v16 = 0LL;
@@ -53,22 +53,22 @@ bool __fastcall DirectComposition::CCaptureRenderTargetMarshaler::EmitBuffers(
     *(_DWORD *)v16 = 8 * v9 + 16;
     *(_QWORD *)(v10 + 4) = 0LL;
     *((_DWORD *)v10 + 3) = 0;
-    *((_DWORD *)v10 + 1) = 39;
-    *((_DWORD *)v10 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v10 + 1) = 40;
+    *((_DWORD *)v10 + 2) = *((_DWORD *)this + 6);
     v11 = 0;
-    v10[12] = *((_QWORD *)this + 13) != 0LL;
+    v10[12] = *((_QWORD *)this + 12) != 0LL;
     if ( v9 )
     {
       v12 = 0LL;
       do
       {
         v16 = (void *)-1LL;
-        v13 = (struct _OBJECT_TYPE *)((__int64 (*)(void))qword_1C0296840)();
+        v13 = (struct _OBJECT_TYPE *)((__int64 (*)(void))qword_1C0251A58)();
         OpenDwmHandle(
-          *(PVOID *)(*((_QWORD *)this + 12) + 8 * (v12 + *((_QWORD *)this + 13))),
+          *(PVOID *)(*((_QWORD *)this + 11) + 8 * (v12 + *((_QWORD *)this + 12))),
           v13,
           0xF0001u,
-          v12 + *((_QWORD *)this + 13),
+          v12 + *((_QWORD *)this + 12),
           v15,
           &v16);
         ++v11;
@@ -77,7 +77,7 @@ bool __fastcall DirectComposition::CCaptureRenderTargetMarshaler::EmitBuffers(
       }
       while ( v11 < v9 );
     }
-    *((_QWORD *)this + 13) += v9;
+    *((_QWORD *)this + 12) += v9;
     *((_DWORD *)this + 4) &= ~0x100u;
   }
   return v7;

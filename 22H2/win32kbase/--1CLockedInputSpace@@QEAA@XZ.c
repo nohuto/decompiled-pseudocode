@@ -1,8 +1,7 @@
 /*
- * XREFs of ??1CLockedInputSpace@@QEAA@XZ @ 0x1C0058A20
+ * XREFs of ??1CLockedInputSpace@@QEAA@XZ @ 0x1C0072004
  * Callers:
- *     ?ForwardInputToISM@CMouseProcessor@@AEAA?AW4ISMForwardingDecision@1@AEAVCInputDest@@AEBVCMouseEvent@1@AEBUInputDeliveryContext@1@AEBUtagPOINT@@II_K@Z @ 0x1C005649C (-ForwardInputToISM@CMouseProcessor@@AEAA-AW4ISMForwardingDecision@1@AEAVCInputDest@@AEBVCMouseEv.c)
- *     NtInputSpaceRegionFromPoint @ 0x1C0140CB0 (NtInputSpaceRegionFromPoint.c)
+ *     NtInputSpaceRegionFromPoint @ 0x1C01290C0 (NtInputSpaceRegionFromPoint.c)
  * Callees:
  *     <none>
  */

@@ -1,20 +1,22 @@
 /*
- * XREFs of EditionHandleHungWindow @ 0x1C0155E90
+ * XREFs of EditionHandleHungWindow @ 0x1C012C370
  * Callers:
  *     <none>
  * Callees:
- *     ?IsHungWindow@@YA_NPEBUtagWND@@@Z @ 0x1C0092F94 (-IsHungWindow@@YA_NPEBUtagWND@@@Z.c)
- *     ?ProcessHungWindow@@YAXPEAUtagWND@@@Z @ 0x1C01F3C68 (-ProcessHungWindow@@YAXPEAUtagWND@@@Z.c)
+ *     ProcessHungWindow @ 0x1C00037AC (ProcessHungWindow.c)
+ *     IsHungWindow @ 0x1C0041810 (IsHungWindow.c)
  */
 
-void __fastcall EditionHandleHungWindow(__int64 a1)
+__int64 __fastcall EditionHandleHungWindow(__int64 a1)
 {
-  struct tagWND *v1; // rbx
+  __int64 result; // rax
 
-  v1 = *(struct tagWND **)(a1 + 80);
-  if ( *(_QWORD *)(*((_QWORD *)v1 + 3) + 40LL) )
+  result = *(_QWORD *)(*(_QWORD *)(a1 + 80) + 24LL);
+  if ( *(_QWORD *)(result + 40) )
   {
-    if ( IsHungWindow(*(const struct tagTHREADINFO ***)(a1 + 80)) )
-      ProcessHungWindow(v1);
+    result = IsHungWindow(*(_QWORD *)(a1 + 80));
+    if ( (_DWORD)result )
+      return ProcessHungWindow();
   }
+  return result;
 }

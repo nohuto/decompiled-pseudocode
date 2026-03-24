@@ -1,11 +1,10 @@
 /*
- * XREFs of RtlpFcValidateFeatureConfigurationBuffer @ 0x1409C85F4
+ * XREFs of RtlpFcValidateFeatureConfigurationBuffer @ 0x1405CFC30
  * Callers:
- *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A26ECC (CmFcManagerOverwriteFeatureConfigurationSection.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140A273A0 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD54 (CmFcManagerUpdateFeatureConfigurations.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     RtlFcpCompareFeatureToFeature @ 0x1405B4BB0 (RtlFcpCompareFeatureToFeature.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     RtlFcpCompareFeatureToFeature @ 0x1403F7E98 (RtlFcpCompareFeatureToFeature.c)
  */
 
 __int64 __fastcall RtlpFcValidateFeatureConfigurationBuffer(unsigned int *a1, ULONGLONG a2)
@@ -22,7 +21,7 @@ __int64 __fastcall RtlpFcValidateFeatureConfigurationBuffer(unsigned int *a1, UL
   {
     if ( a2 >= 4
       && ((unsigned __int8)a1 & 3) == 0
-      && RtlULongLongMult(*a1, 0x10uLL, &pullResult) >= 0
+      && RtlULongLongMult(*a1, 0xCuLL, &pullResult) >= 0
       && pullResult + 4 >= pullResult
       && pullResult + 4 <= a2 )
     {
@@ -31,9 +30,8 @@ __int64 __fastcall RtlpFcValidateFeatureConfigurationBuffer(unsigned int *a1, UL
       if ( !*v4 )
         return v3;
       for ( i = v4 + 1;
-            (!v6 || (int)RtlFcpCompareFeatureToFeature(&v4[4 * v6 - 3], i) < 0)
-         && ((i[1] & 0x30) == 0 || (((i[1] & 0x30) - 16) & 0xFFFFFFEF) == 0);
-            i += 4 )
+            (!v6 || (int)RtlFcpCompareFeatureToFeature(&v4[2 * v6 - 2 + v6], i) < 0) && (i[1] & 0x30) != 0x30;
+            i += 3 )
       {
         if ( ++v6 >= v5 )
           return v3;

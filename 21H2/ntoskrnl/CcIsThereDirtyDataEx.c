@@ -1,12 +1,12 @@
 /*
- * XREFs of CcIsThereDirtyDataEx @ 0x14053A990
+ * XREFs of CcIsThereDirtyDataEx @ 0x1404EAA10
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1403119F0 (KxAcquireQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN __stdcall CcIsThereDirtyDataEx(PVPB Vpb, PULONG NumberOfDirtyPages)
@@ -46,8 +46,8 @@ BOOLEAN __stdcall CcIsThereDirtyDataEx(PVPB Vpb, PULONG NumberOfDirtyPages)
     {
       v8 = *((_QWORD *)PspSystemPartition + 1);
       v16.LockQueue.Next = 0LL;
-      v16.LockQueue.Lock = (unsigned __int64 *volatile)(v8 + 704);
-      KxAcquireQueuedSpinLock((__int64)&v16, (volatile __int64 *)(v8 + 704));
+      v16.LockQueue.Lock = (unsigned __int64 *volatile)(v8 + 128);
+      KxAcquireQueuedSpinLock((__int64)&v16, (volatile __int64 *)(v8 + 128));
       if ( v7[4] || *((_DWORD *)v7 + 49) )
       {
         if ( NumberOfDirtyPages )

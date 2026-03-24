@@ -1,11 +1,11 @@
 /*
- * XREFs of ?VerifierClearFormatted@FxRequestBase@@QEAAXXZ @ 0x1C001ACFC
+ * XREFs of ?VerifierClearFormatted@FxRequestBase@@QEAAXXZ @ 0x1C001985C
  * Callers:
- *     ?CompleteSubmitted@FxRequestBase@@QEAAXXZ @ 0x1C0004590 (-CompleteSubmitted@FxRequestBase@@QEAAXXZ.c)
- *     ?ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z @ 0x1C0006F0C (-ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z.c)
- *     ?ContextReleaseAndRestore@FxRequestBase@@QEAAXXZ @ 0x1C001ACB8 (-ContextReleaseAndRestore@FxRequestBase@@QEAAXXZ.c)
+ *     ?CompleteSubmitted@FxRequestBase@@QEAAXXZ @ 0x1C0009160 (-CompleteSubmitted@FxRequestBase@@QEAAXXZ.c)
+ *     ?ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z @ 0x1C000B79C (-ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z.c)
+ *     ?ContextReleaseAndRestore@FxRequestBase@@QEAAXXZ @ 0x1C0019818 (-ContextReleaseAndRestore@FxRequestBase@@QEAAXXZ.c)
  * Callees:
- *     ?ClearVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0068628 (-ClearVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
+ *     ?ClearVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C004ED58 (-ClearVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
  */
 
 void __fastcall FxRequestBase::VerifierClearFormatted(FxRequestBase *this)

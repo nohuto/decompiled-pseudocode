@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetDisplayId@CLegacyRemotingSwapChain@@UEAAXVDisplayId@@@Z @ 0x1802947F0
+ * XREFs of ?SetDisplayId@CLegacyRemotingSwapChain@@UEAAXVDisplayId@@@Z @ 0x1802523C0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CLegacyRemotingSwapChain::SetDisplayId(__int64 a1)
 {
-  return (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 80) + 24LL))(*(_QWORD *)(a1 + 80));
+  return (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 32) + 24LL))(*(_QWORD *)(a1 + 32));
 }

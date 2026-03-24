@@ -4,11 +4,11 @@
  *     SepCreateTokenEx @ 0x14001366C (SepCreateTokenEx.c)
  *     SepCopyTokenAccessInformation @ 0x1405BF0C8 (SepCopyTokenAccessInformation.c)
  *     NtQueryInformationToken @ 0x14062A760 (NtQueryInformationToken.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
- *     SepFilterToken @ 0x140657CEC (SepFilterToken.c)
- *     CmpBuildAdminInformation @ 0x1407F2310 (CmpBuildAdminInformation.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
+ *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
+ *     CmpBuildAdminInformation @ 0x1407F22F0 (CmpBuildAdminInformation.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 NTSTATUS __stdcall RtlCopySidAndAttributesArray(

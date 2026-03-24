@@ -1,5 +1,5 @@
 /*
- * XREFs of EngDeleteSemaphore_0 @ 0x1C0159730
+ * XREFs of EngDeleteSemaphore_0 @ 0x1C01660F0
  * Callers:
  *     <none>
  * Callees:

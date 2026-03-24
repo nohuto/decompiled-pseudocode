@@ -1,22 +1,22 @@
 /*
- * XREFs of HvpGenerateLogEntryMetadata @ 0x14020A41C
+ * XREFs of HvpGenerateLogEntryMetadata @ 0x1403622A4
  * Callers:
- *     HvpGenerateLogEntry @ 0x140688318 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogEntry @ 0x140721960 (HvpGenerateLogEntry.c)
  * Callees:
- *     HvpCopyDataToOffsetArray @ 0x14020A70C (HvpCopyDataToOffsetArray.c)
- *     HvpGenerateLogMetadata @ 0x1406881CC (HvpGenerateLogMetadata.c)
+ *     HvpCopyDataToOffsetArray @ 0x14026A190 (HvpCopyDataToOffsetArray.c)
+ *     HvpGenerateLogMetadata @ 0x1406464B8 (HvpGenerateLogMetadata.c)
  */
 
-__int64 __fastcall HvpGenerateLogEntryMetadata(
+_UNKNOWN **__fastcall HvpGenerateLogEntryMetadata(
         __int64 a1,
-        int a2,
+        __int64 a2,
         __int64 a3,
-        __int64 a4,
-        __int64 a5,
+        unsigned int *a4,
+        unsigned int *a5,
         __int64 a6,
         int a7)
 {
-  int v9; // r9d
+  __int64 v9; // r9
 
   HvpGenerateLogMetadata((PRTL_BITMAP)(a1 + 88));
   return HvpCopyDataToOffsetArray(a6, 8 * a7, a2, v9, a4, a5);

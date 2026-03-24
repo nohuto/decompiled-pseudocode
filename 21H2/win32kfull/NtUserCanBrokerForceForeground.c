@@ -1,34 +1,32 @@
 /*
- * XREFs of NtUserCanBrokerForceForeground @ 0x1C0005620
+ * XREFs of NtUserCanBrokerForceForeground @ 0x1C0006C40
  * Callers:
  *     <none>
  * Callees:
- *     ?RunForegroundAccessCheck@@YA_NPEBUtagWND@@W4ForegroundAccessCheck@@@Z @ 0x1C00056A0 (-RunForegroundAccessCheck@@YA_NPEBUtagWND@@W4ForegroundAccessCheck@@@Z.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     ?CheckCanonicalForegroundAccess@@YA_NW4ForegroundChangeAllowPolicy@@@Z @ 0x1C003D1D4 (-CheckCanonicalForegroundAccess@@YA_NW4ForegroundChangeAllowPolicy@@@Z.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserCanBrokerForceForeground(_DWORD *a1)
 {
-  __int64 v2; // rax
-  int v3; // ebx
-  int v4; // edx
-  ULONG64 v5; // rcx
+  int v2; // ebx
+  int v3; // edx
+  __int64 v5; // [rsp+58h] [rbp+10h]
 
-  v2 = EnterSharedCrit();
-  v3 = 0;
-  if ( (unsigned int)IsImmersiveBroker(*(_QWORD *)(v2 + 424)) )
+  v5 = EnterSharedCrit(0LL, 1LL);
+  v2 = 0;
+  if ( (unsigned int)IsImmersiveBroker(*(_QWORD *)(v5 + 424)) )
   {
-    v3 = 1;
-    v4 = (unsigned __int8)RunForegroundAccessCheck(0LL, 1LL);
-    v5 = MmUserProbeAddress;
+    v3 = (unsigned __int8)CheckCanonicalForegroundAccess(0LL);
     if ( (unsigned __int64)a1 >= MmUserProbeAddress )
       a1 = (_DWORD *)MmUserProbeAddress;
-    *a1 = v4;
+    *a1 = v3;
+    v2 = 1;
   }
   else
   {
     UserSetLastError(5LL);
   }
-  UserSessionSwitchLeaveCrit(v5);
-  return v3;
+  UserSessionSwitchLeaveCrit();
+  return v2;
 }

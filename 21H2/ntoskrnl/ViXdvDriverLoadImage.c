@@ -1,121 +1,113 @@
 /*
- * XREFs of ViXdvDriverLoadImage @ 0x140A8A0C8
+ * XREFs of ViXdvDriverLoadImage @ 0x1409C8E2C
  * Callers:
- *     VfDriverLoadSucceeded @ 0x140A7C224 (VfDriverLoadSucceeded.c)
- *     ViLogAndLoadXdv @ 0x140B536A4 (ViLogAndLoadXdv.c)
+ *     ViLogAndLoadXdv @ 0x140A938F4 (ViLogAndLoadXdv.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1402D6CB0 (RtlImageDirectoryEntryToData.c)
- *     strcmp @ 0x1403E2AE0 (strcmp.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfUtilDbgPrint @ 0x1405FDF9C (VfUtilDbgPrint.c)
- *     ViXdvSetXdvKernelUtilities @ 0x1405FEED0 (ViXdvSetXdvKernelUtilities.c)
- *     ViXdvGetFuncAddress @ 0x140A8A2D8 (ViXdvGetFuncAddress.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
+ *     strcmp @ 0x1403D3730 (strcmp.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfUtilDbgPrint @ 0x1405A06F4 (VfUtilDbgPrint.c)
+ *     ViXdvSetXdvKernelUtilities @ 0x1405A0E84 (ViXdvSetXdvKernelUtilities.c)
+ *     VfIsRuleClassEnabled @ 0x1409C6020 (VfIsRuleClassEnabled.c)
+ *     ViXdvBindXdvDDIWrappers @ 0x1409C8C50 (ViXdvBindXdvDDIWrappers.c)
+ *     ViXdvBindXdvDriverEntryWrappers @ 0x1409C8D1C (ViXdvBindXdvDriverEntryWrappers.c)
+ *     ViXdvGetFuncAddress @ 0x1409C90D8 (ViXdvGetFuncAddress.c)
+ *     ViXdvSetRequestedAPIsforDIF @ 0x1409C9220 (ViXdvSetRequestedAPIsforDIF.c)
  */
 
 char __fastcall ViXdvDriverLoadImage(__int64 a1)
 {
-  __int64 v1; // r14
-  __int64 v2; // rax
-  __int64 v3; // rdi
-  __int64 v4; // rsi
-  __int64 v5; // r15
-  char v6; // bl
-  const char *v7; // rbp
-  void (__fastcall *FuncAddress)(__int64 (__fastcall **)(PCONTEXT), __int64 *, __int64); // rax
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  void *v11; // rax
-  __int64 (__fastcall *v12)(_QWORD); // rax
-  void (*v13)(void); // rax
-  __int64 v15; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v1; // rbp
+  char v2; // r14
+  __int64 v3; // rax
+  __int64 v4; // rbx
+  char v5; // r12
+  __int64 v6; // r13
+  char v7; // r15
+  __int64 v8; // rdi
+  const char *v9; // rsi
+  __int64 FuncAddress; // rax
+  __int64 (__fastcall *v11)(__int64 *, __int64); // rax
+  __int64 v12; // rdx
+  __int64 (*v13)(void); // rax
+  void (__fastcall *v14)(__int64 (__fastcall **)(PCONTEXT)); // rax
+  __int64 (__fastcall *v15)(_QWORD); // rax
+  __int64 v17; // [rsp+50h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 48);
-  v2 = RtlImageDirectoryEntryToData(v1, 1, 0, (int)&v15);
-  v3 = v2;
-  if ( v2 && *(_DWORD *)(v2 + 24) )
+  v2 = 1;
+  v3 = RtlImageDirectoryEntryToData(v1, 1, 0, (int)&v17);
+  v4 = v3;
+  if ( !v3 || !*(_DWORD *)(v3 + 24) )
+    return 0;
+  v5 = 0;
+  v6 = v1 + *(unsigned int *)(v3 + 32);
+  v7 = 0;
+  v8 = 0LL;
+  do
   {
-    v4 = 0LL;
-    v5 = v1 + *(unsigned int *)(v2 + 32);
-    v6 = 1;
-    while ( 1 )
+    v9 = (const char *)(v1 + *(unsigned int *)(v6 + 4 * v8));
+    if ( !strcmp("DifLoadPlugins", v9) )
     {
-      v7 = (const char *)(v1 + *(unsigned int *)(v5 + 4 * v4));
-      if ( !strcmp("SetXdvKernelUtilities", v7) )
+      if ( VfIsRuleClassEnabled(0x23u) )
       {
-        FuncAddress = (void (__fastcall *)(__int64 (__fastcall **)(PCONTEXT), __int64 *, __int64))ViXdvGetFuncAddress(
-                                                                                                    v1,
-                                                                                                    v3,
-                                                                                                    (unsigned int)v4);
-        if ( !FuncAddress )
-        {
-          VfUtilDbgPrint("Error on getting XDV utility routine.\n");
-          goto LABEL_23;
-        }
-        if ( !ViXdvSetXdvKernelUtilities(FuncAddress, v9, v10) )
-        {
-          VfUtilDbgPrint("Error on binding utility functions.\n");
-LABEL_23:
-          v6 = 0;
-        }
+        FuncAddress = ViXdvGetFuncAddress(v1, v4, (unsigned int)v8);
+        if ( !(unsigned __int8)ViXdvSetRequestedAPIsforDIF(FuncAddress) )
+          VfDifAPIThunkContextHead = 0LL;
+      }
+    }
+    else if ( !strcmp("DifUpdatePluginState", v9) )
+    {
+      if ( VfIsRuleClassEnabled(0x23u) )
+        PFnViUpdateDIFPlugins = ViXdvGetFuncAddress(v1, v4, (unsigned int)v8);
+    }
+    else if ( !strcmp("GetXdvDDIWrappers", v9) )
+    {
+      v11 = (__int64 (__fastcall *)(__int64 *, __int64))ViXdvGetFuncAddress(v1, v4, (unsigned int)v8);
+      v5 = ViXdvBindXdvDDIWrappers(v11, v12);
+      if ( v5 != 1 )
+        VfUtilDbgPrint("Error on Verifier Extention DDI bound process\n");
+    }
+    else if ( !strcmp("GetXdvDriverEntryWrappers", v9) )
+    {
+      v13 = (__int64 (*)(void))ViXdvGetFuncAddress(v1, v4, (unsigned int)v8);
+      v7 = ViXdvBindXdvDriverEntryWrappers(v13);
+      if ( v7 != 1 )
+        VfUtilDbgPrint("Error on Verifier Extention entry point bound process\n");
+    }
+    else if ( !strcmp("SetXdvKernelUtilities", v9) )
+    {
+      v14 = (void (__fastcall *)(__int64 (__fastcall **)(PCONTEXT)))ViXdvGetFuncAddress(v1, v4, (unsigned int)v8);
+      if ( !ViXdvSetXdvKernelUtilities(v14) )
+        VfUtilDbgPrint("Error on providing kernel utilities to  XDV.\n");
+    }
+    else if ( !strcmp("XdvHibernationNotification", v9) )
+    {
+      ViFnExtensionHiberFunc = (PVOID)ViXdvGetFuncAddress(v1, v4, (unsigned int)v8);
+    }
+    else if ( !strcmp("XdvNotifyExtensions", v9) )
+    {
+      ViFnXdvNotifyExtensions = ViXdvGetFuncAddress(v1, v4, (unsigned int)v8);
+    }
+    else if ( !strcmp("XdvQueryDispatchTable", v9) )
+    {
+      v15 = (__int64 (__fastcall *)(_QWORD))ViXdvGetFuncAddress(v1, v4, (unsigned int)v8);
+      ViFnXdvQueryDispatchTable = v15;
+      if ( v15 )
+      {
+        ViXdvTipUtils = v15(4LL);
+        if ( !ViXdvTipUtils )
+          VfUtilDbgPrint("Error on getting TiP utilities from XDV.\n");
       }
       else
       {
-        if ( !strcmp("XdvHibernationNotification", v7) )
-        {
-          v11 = (void *)ViXdvGetFuncAddress(v1, v3, (unsigned int)v4);
-          ViFnExtensionHiberFunc = v11;
-LABEL_26:
-          v6 = v11 != 0LL ? v6 : 0;
-          goto LABEL_27;
-        }
-        if ( !strcmp("XdvNotifyExtensions", v7) )
-        {
-          v11 = (void *)ViXdvGetFuncAddress(v1, v3, (unsigned int)v4);
-          ViFnXdvNotifyExtensions = (__int64)v11;
-          goto LABEL_26;
-        }
-        if ( !strcmp("XdvQueryDispatchTable", v7) )
-        {
-          v12 = (__int64 (__fastcall *)(_QWORD))ViXdvGetFuncAddress(v1, v3, (unsigned int)v4);
-          ViFnXdvQueryDispatchTable = v12;
-          if ( !v12 )
-          {
-            VfUtilDbgPrint("Error on binding XdvQueryDispatchTable.\n");
-            goto LABEL_23;
-          }
-          ViXdvTipUtils = v12(4LL);
-          if ( !ViXdvTipUtils )
-          {
-            VfUtilDbgPrint("Error on binding TiP utilities.\n");
-            goto LABEL_23;
-          }
-        }
-        else if ( !strcmp("XdvLoadDifPlugins", v7) )
-        {
-          if ( (VfRuleClasses & 0x800000000LL) != 0 )
-          {
-            v13 = (void (*)(void))ViXdvGetFuncAddress(v1, v3, (unsigned int)v4);
-            ViFnXdvLoadDifPlugins = (__int64)v13;
-            if ( !v13 )
-            {
-              VfUtilDbgPrint("Error on calling XDV DIF plugins.\n");
-              goto LABEL_23;
-            }
-            v13();
-          }
-        }
-        else if ( !strcmp("AutoFailInject", v7) )
-        {
-          v11 = (void *)ViXdvGetFuncAddress(v1, v3, (unsigned int)v4);
-          ViFnAutoFailInject = (__int64 (__fastcall *)(_QWORD))v11;
-          goto LABEL_26;
-        }
+        VfUtilDbgPrint("Error on getting XdvQueryDispatchTable utility from XDV.\n");
       }
-LABEL_27:
-      v4 = (unsigned int)(v4 + 1);
-      if ( (unsigned int)v4 >= *(_DWORD *)(v3 + 24) )
-        return v6;
     }
+    v8 = (unsigned int)(v8 + 1);
   }
-  return 0;
+  while ( (unsigned int)v8 < *(_DWORD *)(v4 + 24) );
+  if ( !v5 || !v7 )
+    return 0;
+  return v2;
 }

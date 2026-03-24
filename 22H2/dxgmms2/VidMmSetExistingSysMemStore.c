@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmSetExistingSysMemStore @ 0x1C002D380
+ * XREFs of VidMmSetExistingSysMemStore @ 0x1C0023050
  * Callers:
  *     <none>
  * Callees:
- *     ?SetExistingSysMemStore@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@PEAX@Z @ 0x1C00E7564 (-SetExistingSysMemStore@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@PEAX@Z.c)
+ *     ?SetExistingSysMemStore@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@PEAX@Z @ 0x1C00B23A0 (-SetExistingSysMemStore@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@PEAX@Z.c)
  */
 
 __int64 __fastcall VidMmSetExistingSysMemStore(VIDMM_GLOBAL *a1, struct _VIDMM_MULTI_ALLOC *a2, void *a3)

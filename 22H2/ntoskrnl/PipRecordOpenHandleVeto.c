@@ -1,20 +1,20 @@
 /*
- * XREFs of PipRecordOpenHandleVeto @ 0x140971CC4
+ * XREFs of PipRecordOpenHandleVeto @ 0x1408B911C
  * Callers:
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140971D4C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407329B0 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x140302AF0 (IoGetDeviceAttachmentBaseRef.c)
- *     PnpCollectOpenHandles @ 0x14096416C (PnpCollectOpenHandles.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x14034C520 (IoGetDeviceAttachmentBaseRef.c)
+ *     PnpCollectOpenHandles @ 0x1408ABC54 (PnpCollectOpenHandles.c)
  */
 
 void __fastcall PipRecordOpenHandleVeto(unsigned int a1, PVOID **a2, struct _DEVICE_OBJECT *a3, __int64 a4, __int64 a5)
 {
   char *DeviceNode; // rdi
   PDEVICE_OBJECT DeviceAttachmentBaseRef; // rax
-  PDEVICE_OBJECT v8; // rbx
+  struct _DMA_ADAPTER *v8; // rbx
 
   *(_DWORD *)a5 = 5;
   PnpCollectOpenHandles(a2, a1, a4);
@@ -22,11 +22,11 @@ void __fastcall PipRecordOpenHandleVeto(unsigned int a1, PVOID **a2, struct _DEV
   if ( a3 )
   {
     DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(a3);
-    v8 = DeviceAttachmentBaseRef;
+    v8 = (struct _DMA_ADAPTER *)DeviceAttachmentBaseRef;
     if ( DeviceAttachmentBaseRef )
       DeviceNode = (char *)DeviceAttachmentBaseRef->DeviceObjectExtension->DeviceNode;
     RtlCopyUnicodeString((PUNICODE_STRING)(a5 + 8), (PCUNICODE_STRING)(DeviceNode + 40));
-    ObfDereferenceObject(v8);
+    HalPutDmaAdapter(v8);
   }
   else
   {

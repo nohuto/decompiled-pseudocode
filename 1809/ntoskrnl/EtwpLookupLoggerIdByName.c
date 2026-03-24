@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpLookupLoggerIdByName @ 0x14065B4EC
+ * XREFs of EtwpLookupLoggerIdByName @ 0x14065B4CC
  * Callers:
- *     EtwpStartLogger @ 0x1406591C0 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
  * Callees:
  *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
  *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)

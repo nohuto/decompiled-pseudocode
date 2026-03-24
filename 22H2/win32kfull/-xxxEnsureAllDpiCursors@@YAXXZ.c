@@ -1,57 +1,57 @@
 /*
- * XREFs of ?xxxEnsureAllDpiCursors@@YAXXZ @ 0x1C008C694
+ * XREFs of ?xxxEnsureAllDpiCursors@@YAXXZ @ 0x1C0025A8C
  * Callers:
- *     ?OnPointerCursorOperation@@YAXXZ @ 0x1C008C350 (-OnPointerCursorOperation@@YAXXZ.c)
+ *     ?HandlePointerCursorSideOp@@YAXXZ @ 0x1C00282E8 (-HandlePointerCursorSideOp@@YAXXZ.c)
  * Callees:
- *     ?xxxEnsureDpiCursorsForSysCur@@YAXI@Z @ 0x1C0026210 (-xxxEnsureDpiCursorsForSysCur@@YAXI@Z.c)
- *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0026260 (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
- *     ThreadLockExchange @ 0x1C008C7A8 (ThreadLockExchange.c)
+ *     ?xxxEnsureDpiCursorsForSysCur@@YAXI@Z @ 0x1C0024B8C (-xxxEnsureDpiCursorsForSysCur@@YAXI@Z.c)
+ *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0024BDC (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     ThreadLockExchange @ 0x1C00C1250 (ThreadLockExchange.c)
  */
 
-void __fastcall xxxEnsureAllDpiCursors(__int64 a1, __int64 a2, __int64 a3)
+void xxxEnsureAllDpiCursors(void)
 {
-  unsigned int v3; // ebx
-  __int64 v4; // rdi
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  _QWORD *v7; // rsi
-  unsigned __int64 v8; // rbx
-  unsigned __int64 i; // rax
-  __int64 v10; // rdi
-  _QWORD v11[5]; // [rsp+20h] [rbp-28h] BYREF
+  unsigned int v0; // ebx
+  __int64 v1; // rdi
+  __int64 v2; // rcx
+  struct tagCURSOR **v3; // rsi
+  unsigned __int64 v4; // rbx
+  unsigned __int64 i; // rcx
+  struct tagCURSOR *v6; // rdi
+  _QWORD v7[5]; // [rsp+20h] [rbp-28h] BYREF
 
-  v11[2] = 0LL;
-  v3 = 0;
-  v11[0] = *(_QWORD *)(gptiCurrent + 416LL);
-  *(_QWORD *)(gptiCurrent + 416LL) = v11;
-  v11[1] = 0LL;
-  v4 = 0LL;
+  v7[2] = 0LL;
+  v0 = 0;
+  v7[0] = *(_QWORD *)(gptiCurrent + 416LL);
+  *(_QWORD *)(gptiCurrent + 416LL) = v7;
+  v7[1] = 0LL;
+  v1 = 0LL;
   do
   {
-    v5 = *(_QWORD *)(v4 + gasyscur[0] + 8);
-    if ( v5 )
+    v2 = *(_QWORD *)(v1 + gasyscur[0] + 8);
+    if ( v2 )
     {
-      ThreadLockExchange(v5, v11);
-      xxxEnsureDpiCursorsForSysCur(v3);
+      ThreadLockExchange(v2, v7);
+      xxxEnsureDpiCursorsForSysCur(v0);
     }
-    ++v3;
-    v4 += 552LL;
+    ++v0;
+    v1 += 552LL;
   }
-  while ( v3 < 0x13 );
-  v6 = gSharedInfo[0];
-  v7 = (_QWORD *)gpKernelHandleTable;
-  v8 = gSharedInfo[1];
-  for ( i = v8 + 32LL * giheLast; v8 <= i; i = gSharedInfo[1] + 32LL * giheLast )
+  while ( v0 < 0x13 );
+  v3 = (struct tagCURSOR **)gpKernelHandleTable;
+  v4 = gSharedInfo[1];
+  for ( i = v4 + 32LL * giheLast; v4 <= i; i = gSharedInfo[1] + 32LL * giheLast )
   {
-    v10 = *v7;
-    if ( *(_BYTE *)(v8 + 24) == 3 && (*(_DWORD *)(v10 + 80) & 0x5240) == 0x4000 )
+    if ( *(_BYTE *)(v4 + 24) == 3 )
     {
-      ThreadLockExchange(*v7, v11);
-      xxxEnsureDpiCursors((struct tagCURSOR *)v10, 0LL, 0);
+      v6 = *v3;
+      if ( (*((_DWORD *)*v3 + 20) & 0x5240) == 0x4000 )
+      {
+        ThreadLockExchange(*v3, v7);
+        xxxEnsureDpiCursors(v6, 0LL, 0);
+      }
     }
-    v8 += 32LL;
-    v6 = gSharedInfo[0];
-    v7 += 3;
+    v4 += 32LL;
+    v3 += 3;
   }
-  ThreadUnlock1(v6, a2, a3);
+  ThreadUnlock1(i);
 }

@@ -1,121 +1,103 @@
 /*
- * XREFs of NtOpenCompositionSurfaceDirtyRegion @ 0x1C0010080
+ * XREFs of NtOpenCompositionSurfaceDirtyRegion @ 0x1C0010390
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?GetRealizationAt@CCompositionBuffer@@IEBAPEAVCBufferRealization@@I@Z @ 0x1C00102F4 (-GetRealizationAt@CCompositionBuffer@@IEBAPEAVCBufferRealization@@I@Z.c)
- *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C00103F0 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
- *     ?LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z @ 0x1C0010430 (-LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z.c)
- *     ?ResolveHandle@DxgkCompositionObject@@SAJPEAXKDW4DxgkCompositionObjectType@@PEAPEAV1@@Z @ 0x1C00105A8 (-ResolveHandle@DxgkCompositionObject@@SAJPEAXKDW4DxgkCompositionObjectType@@PEAPEAV1@@Z.c)
- *     ?OpenLifetimeDirtyRegion@CBufferRealization@@QEBAJPEAPEAUHRGN__@@@Z @ 0x1C0010634 (-OpenLifetimeDirtyRegion@CBufferRealization@@QEBAJPEAPEAUHRGN__@@@Z.c)
- *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C00106D4 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C0010868 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
+ *     ?LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z @ 0x1C0010A64 (-LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z.c)
+ *     ?OpenLifetimeDirtyRegion@CCompositionSurface@@QEBAJ_KAEBUCSM_REALIZATION_INFO@@PEAPEAUHRGN__@@@Z @ 0x1C0010B28 (-OpenLifetimeDirtyRegion@CCompositionSurface@@QEBAJ_KAEBUCSM_REALIZATION_INFO@@PEAPEAUHRGN__@@@Z.c)
+ *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C00170E4 (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall NtOpenCompositionSurfaceDirtyRegion(__int64 a1, unsigned __int64 *a2, ULONG64 a3, HRGN *a4)
+__int64 __fastcall NtOpenCompositionSurfaceDirtyRegion(void *a1, unsigned __int64 *a2, __int128 *a3, HRGN *a4)
 {
-  signed int Buffer; // ebx
+  int v6; // ebx
   unsigned __int64 v7; // rsi
+  __int64 v8; // rdx
+  ULONG64 v9; // rcx
   struct DXGGLOBAL *Global; // rax
-  __int64 v9; // r8
-  PVOID v10; // r14
-  struct CBufferRealization *RealizationAt; // rax
-  CBufferRealization *v12; // rcx
-  struct DXGGLOBAL *v14; // rax
-  CCompositionSurface *v15; // [rsp+38h] [rbp-90h] BYREF
-  unsigned __int64 v16; // [rsp+40h] [rbp-88h]
-  PVOID Object; // [rsp+48h] [rbp-80h] BYREF
-  CCompositionBuffer *v18; // [rsp+50h] [rbp-78h] BYREF
-  unsigned int v19[4]; // [rsp+58h] [rbp-70h]
-  __int128 v20; // [rsp+68h] [rbp-60h]
-  __int64 v21; // [rsp+78h] [rbp-50h]
-  __int128 v22; // [rsp+80h] [rbp-48h]
-  __int128 v23; // [rsp+90h] [rbp-38h]
-  __int64 v24; // [rsp+A0h] [rbp-28h]
-  HRGN v25; // [rsp+D8h] [rbp+10h] BYREF
-  HRGN *v26; // [rsp+E8h] [rbp+20h]
+  char v11; // r8
+  struct DXGGLOBAL *v13; // rax
+  CCompositionSurface *v14; // [rsp+28h] [rbp-70h] BYREF
+  PVOID Object; // [rsp+30h] [rbp-68h] BYREF
+  unsigned __int64 v16; // [rsp+38h] [rbp-60h]
+  __int128 v17; // [rsp+40h] [rbp-58h] BYREF
+  __int128 v18; // [rsp+50h] [rbp-48h]
+  __int128 v19; // [rsp+60h] [rbp-38h]
+  __int128 v20; // [rsp+70h] [rbp-28h]
+  HRGN v21; // [rsp+A8h] [rbp+10h] BYREF
+  HRGN *v22; // [rsp+B8h] [rbp+20h]
 
-  v26 = a4;
-  Buffer = 0;
+  v22 = a4;
+  v6 = 0;
+  Object = 0LL;
   v7 = 0LL;
   v16 = 0LL;
-  *(_OWORD *)v19 = 0LL;
-  v20 = 0LL;
+  v17 = 0LL;
+  v18 = 0LL;
   v21 = 0LL;
-  v25 = 0LL;
   if ( a2 && a3 )
   {
     if ( a2 + 1 < a2 || (unsigned __int64)(a2 + 1) > MmUserProbeAddress )
       a2 = (unsigned __int64 *)MmUserProbeAddress;
     v7 = *a2;
     v16 = *a2;
-    if ( a3 + 40 < a3 || a3 + 40 > MmUserProbeAddress )
-      a3 = MmUserProbeAddress;
-    v22 = *(_OWORD *)a3;
-    v23 = *(_OWORD *)(a3 + 16);
-    v24 = *(_QWORD *)(a3 + 32);
-    *(_OWORD *)v19 = v22;
-    v20 = v23;
-    v21 = v24;
+    if ( a3 + 2 < a3 || (unsigned __int64)(a3 + 2) > MmUserProbeAddress )
+      a3 = (__int128 *)MmUserProbeAddress;
+    v19 = *a3;
+    v20 = a3[1];
+    v17 = v19;
+    v18 = v20;
   }
   else
   {
-    Buffer = -1073741811;
+    v6 = -1073741811;
   }
   KeEnterCriticalRegion();
-  if ( Buffer >= 0 )
+  if ( v6 >= 0 )
   {
-    Global = DXGGLOBAL::GetGlobal();
-    if ( (*(unsigned int (**)(void))(*((_QWORD *)Global + 38069) + 560LL))() )
+    Global = DXGGLOBAL::GetGlobal(v9, v8);
+    if ( (*(unsigned int (__fastcall **)(_QWORD))(*((_QWORD *)Global + 38048) + 296LL))(*((_QWORD *)Global + 38048)) )
     {
-      Object = 0LL;
-      LOBYTE(v9) = 1;
-      Buffer = DxgkCompositionObject::ResolveHandle(a1, 1LL, v9, 1LL, &Object);
-      if ( Buffer >= 0 )
+      v6 = CompositionSurfaceObject::ResolveHandle(a1, 1u, v11, (struct CompositionSurfaceObject **)&Object);
+      if ( v6 >= 0 )
       {
-        v10 = Object;
-        v15 = 0LL;
-        Buffer = CompositionSurfaceObject::LockForRead((CompositionSurfaceObject *)Object, &v15);
-        if ( Buffer >= 0 )
+        v14 = 0LL;
+        v6 = CompositionSurfaceObject::LockForRead(Object, &v14);
+        if ( v6 >= 0 )
         {
-          v18 = 0LL;
-          Buffer = CCompositionSurface::FindBuffer(v15, v7, &v18);
-          if ( Buffer >= 0 )
-          {
-            RealizationAt = CCompositionBuffer::GetRealizationAt(v18, v19[1]);
-            v12 = 0LL;
-            if ( RealizationAt )
-              v12 = RealizationAt;
-            Buffer = RealizationAt == 0LL ? 0xC0000225 : 0;
-            if ( RealizationAt )
-              Buffer = CBufferRealization::OpenLifetimeDirtyRegion(v12, &v25);
-          }
-          CCompositionSurface::UnlockAndRelease(v15);
+          v6 = CCompositionSurface::OpenLifetimeDirtyRegion(v14, v7, (const struct CSM_REALIZATION_INFO *)&v17, &v21);
+          CCompositionSurface::UnlockAndRelease(v14);
         }
-        ObfDereferenceObject(v10);
+        ObfDereferenceObject(Object);
       }
     }
     else
     {
-      Buffer = -1073741790;
+      v6 = -1073741790;
     }
   }
   if ( a4 )
   {
-    if ( a4 + 1 < a4 || (unsigned __int64)(a4 + 1) > MmUserProbeAddress )
+    v9 = (ULONG64)(a4 + 1);
+    if ( a4 + 1 < a4 || v9 > MmUserProbeAddress )
+    {
+      v9 = MmUserProbeAddress;
       *(_BYTE *)MmUserProbeAddress = 0;
-    *a4 = v25;
+    }
+    *a4 = v21;
   }
   else
   {
-    Buffer = -1073741811;
+    v6 = -1073741811;
   }
-  if ( Buffer < 0 && v25 )
+  if ( v6 < 0 && v21 )
   {
-    v14 = DXGGLOBAL::GetGlobal();
-    (*(void (__fastcall **)(HRGN))(*((_QWORD *)v14 + 38069) + 72LL))(v25);
+    v13 = DXGGLOBAL::GetGlobal(v9, v8);
+    (*(void (__fastcall **)(HRGN))(*((_QWORD *)v13 + 38048) + 56LL))(v21);
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)Buffer;
+  return (unsigned int)v6;
 }

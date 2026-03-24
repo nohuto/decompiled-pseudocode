@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpMuiRegGetOrAddLangInfo @ 0x14085EE64
+ * XREFs of RtlpMuiRegGetOrAddLangInfo @ 0x1407CF380
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x1408301C0 (RtlpMuiRegAddLanguageByName.c)
- *     _RtlpMuiRegValidateInstalled @ 0x1408303C0 (_RtlpMuiRegValidateInstalled.c)
- *     _RtlpMuiRegAddBaseLanguage @ 0x140A35D9C (_RtlpMuiRegAddBaseLanguage.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x14079364C (RtlpMuiRegAddLanguageByName.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x140793850 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x140981D3C (_RtlpMuiRegAddBaseLanguage.c)
  * Callees:
- *     RtlpMuiRegGetLangInfoIndex @ 0x14085EF30 (RtlpMuiRegGetLangInfoIndex.c)
- *     RtlpMuiRegResizeLanguages @ 0x140A35A74 (RtlpMuiRegResizeLanguages.c)
+ *     RtlpMuiRegGetLangInfoIndex @ 0x1407CF44C (RtlpMuiRegGetLangInfoIndex.c)
+ *     RtlpMuiRegResizeLanguages @ 0x140981A14 (RtlpMuiRegResizeLanguages.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetOrAddLangInfo(__int64 *a1, __int64 a2, _WORD *a3)
@@ -35,11 +35,9 @@ __int64 __fastcall RtlpMuiRegGetOrAddLangInfo(__int64 *a1, __int64 a2, _WORD *a3
     {
       v14 = (unsigned int)(v9 + 4);
       if ( (unsigned int)v14 >= v10 )
-      {
         v6 = RtlpMuiRegResizeLanguages(v6, v14, v8);
-        if ( !v6 )
-          return 3221225495LL;
-      }
+      if ( !v6 )
+        return 3221225495LL;
       *a1 = v6;
     }
     LOWORD(v8) = *(_WORD *)(v6 + 6);

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bAddScans@RGNMEMOBJ@@AEAAHJPEAVEDGE@@K@Z @ 0x1C0156574
+ * XREFs of ?bAddScans@RGNMEMOBJ@@AEAAHJPEAVEDGE@@K@Z @ 0x1C00265A8
  * Callers:
- *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0157530 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
+ *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0026170 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
  * Callees:
- *     ?bExpand@RGNOBJ@@QEAAHK@Z @ 0x1C007D290 (-bExpand@RGNOBJ@@QEAAHK@Z.c)
- *     memcmp @ 0x1C00D6840 (memcmp.c)
+ *     ?bExpand@RGNOBJ@@QEAAHK@Z @ 0x1C002BBC0 (-bExpand@RGNOBJ@@QEAAHK@Z.c)
+ *     memcmp @ 0x1C00CE910 (memcmp.c)
  */
 
 __int64 __fastcall RGNMEMOBJ::bAddScans(RGNMEMOBJ *this, int a2, struct EDGE *a3, char a4)
@@ -12,10 +12,10 @@ __int64 __fastcall RGNMEMOBJ::bAddScans(RGNMEMOBJ *this, int a2, struct EDGE *a3
   unsigned int v8; // r8d
   unsigned int v9; // r11d
   unsigned int v10; // eax
-  int v12; // ebp
-  _DWORD *v13; // rsi
+  int v12; // edi
+  _DWORD *v13; // r14
   struct EDGE *v14; // rax
-  char *v15; // r15
+  char *v15; // rbp
   _DWORD *v16; // rbx
   int v17; // ecx
   _DWORD *v18; // rbx
@@ -28,7 +28,7 @@ __int64 __fastcall RGNMEMOBJ::bAddScans(RGNMEMOBJ *this, int a2, struct EDGE *a3
 
   v8 = 4 * *((_DWORD *)a3 + 4) + 16;
   v9 = *(_DWORD *)(*(_QWORD *)this + 24LL);
-  if ( v8 > v9 - *(_DWORD *)(*(_QWORD *)this + 48LL) )
+  if ( v8 > v9 - *(_DWORD *)(*(_QWORD *)this + 80LL) )
   {
     v10 = v9 + v8;
     if ( v9 + v8 < v9 || v10 + 1120 < v10 || !(unsigned int)RGNOBJ::bExpand(this, v10 + 1120) )
@@ -100,8 +100,8 @@ __int64 __fastcall RGNMEMOBJ::bAddScans(RGNMEMOBJ *this, int a2, struct EDGE *a3
   }
   else
   {
-    ++*(_DWORD *)(*(_QWORD *)this + 52LL);
-    *(_DWORD *)(*(_QWORD *)this + 48LL) += 4 * v22 + 16;
+    ++*(_DWORD *)(*(_QWORD *)this + 84LL);
+    *(_DWORD *)(*(_QWORD *)this + 80LL) += 4 * v22 + 16;
     *(_DWORD *)v15 = a2 + 1;
     *v13 = v22;
     v13[1] = a2;

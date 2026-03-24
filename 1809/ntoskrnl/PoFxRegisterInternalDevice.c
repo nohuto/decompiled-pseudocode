@@ -1,10 +1,10 @@
 /*
- * XREFs of PoFxRegisterInternalDevice @ 0x1408691E0
+ * XREFs of PoFxRegisterInternalDevice @ 0x1408691C0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     PopFxRegisterDevice @ 0x1407251B0 (PopFxRegisterDevice.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopFxRegisterDevice @ 0x140725190 (PopFxRegisterDevice.c)
  */
 
 __int64 __fastcall PoFxRegisterInternalDevice(PDEVICE_OBJECT DeviceObject, __int64 a2, _QWORD *a3)

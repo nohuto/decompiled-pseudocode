@@ -1,30 +1,29 @@
 /*
- * XREFs of HalpKdReleaseDebuggingDevice @ 0x140AB49F0
+ * XREFs of HalpKdReleaseDebuggingDevice @ 0x1409B6430
  * Callers:
  *     <none>
  * Callees:
- *     HalpFindDevice @ 0x140AB3370 (HalpFindDevice.c)
+ *     HalpFindDevice @ 0x1409B6158 (HalpFindDevice.c)
  */
 
 __int64 __fastcall HalpKdReleaseDebuggingDevice(__int64 a1)
 {
   __int64 *Device; // rax
-  __int64 v3; // rdx
-  __int64 **v4; // rcx
+  __int64 v2; // rcx
+  __int64 **v3; // rdx
 
   if ( *(_DWORD *)(a1 + 220) != 3 )
   {
     Device = HalpFindDevice(a1);
     if ( Device )
     {
-      v3 = *Device;
-      if ( *(__int64 **)(*Device + 8) != Device || (v4 = (__int64 **)Device[1], *v4 != Device) )
+      v2 = *Device;
+      if ( *(__int64 **)(*Device + 8) != Device || (v3 = (__int64 **)Device[1], *v3 != Device) )
         __fastfail(3u);
-      *v4 = (__int64 *)v3;
-      *(_QWORD *)(v3 + 8) = v4;
+      *v3 = (__int64 *)v2;
+      *(_QWORD *)(v2 + 8) = v3;
       --DevicesList;
     }
   }
-  *(_BYTE *)(a1 + 18) = 0;
   return 0LL;
 }

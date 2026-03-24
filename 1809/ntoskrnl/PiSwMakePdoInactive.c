@@ -1,8 +1,8 @@
 /*
- * XREFs of PiSwMakePdoInactive @ 0x1406D9194
+ * XREFs of PiSwMakePdoInactive @ 0x1406D9174
  * Callers:
- *     PiSwProcessRemove @ 0x1406D8B6C (PiSwProcessRemove.c)
- *     PiSwGetChildPdo @ 0x1406D8EB8 (PiSwGetChildPdo.c)
+ *     PiSwProcessRemove @ 0x1406D8B4C (PiSwProcessRemove.c)
+ *     PiSwGetChildPdo @ 0x1406D8E98 (PiSwGetChildPdo.c)
  * Callees:
  *     <none>
  */

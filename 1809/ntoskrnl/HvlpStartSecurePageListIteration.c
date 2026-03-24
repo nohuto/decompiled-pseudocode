@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpStartSecurePageListIteration @ 0x14027A500
+ * XREFs of HvlpStartSecurePageListIteration @ 0x14027A600
  * Callers:
- *     HvlDiscardSecurePagesFromHibernation @ 0x14027689C (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlIterateSecurePagesForHibernation @ 0x140276A38 (HvlIterateSecurePagesForHibernation.c)
- *     HvlAddSecurePagesCallbackRoutine @ 0x14027751C (HvlAddSecurePagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromSecureKernel @ 0x140277C98 (HvlpGetEncryptedDataFromSecureKernel.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x14027699C (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlIterateSecurePagesForHibernation @ 0x140276B38 (HvlIterateSecurePagesForHibernation.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x14027761C (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromSecureKernel @ 0x140277D98 (HvlpGetEncryptedDataFromSecureKernel.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     HvlpSetupPageListIteration @ 0x14027A454 (HvlpSetupPageListIteration.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     HvlpSetupPageListIteration @ 0x14027A554 (HvlpSetupPageListIteration.c)
  */
 
 NTSTATUS __fastcall HvlpStartSecurePageListIteration(int a1, unsigned int a2)

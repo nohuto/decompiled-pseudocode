@@ -1,22 +1,22 @@
 /*
- * XREFs of MmDeleteKernelStack @ 0x1400CA480
+ * XREFs of MmDeleteKernelStack @ 0x1400CA4A0
  * Callers:
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400C9C00 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     PspDeleteKernelStack @ 0x14012F170 (PspDeleteKernelStack.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400C9C20 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     PspDeleteKernelStack @ 0x14012F190 (PspDeleteKernelStack.c)
  *     KeInitThread @ 0x1405656E0 (KeInitThread.c)
  *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
- *     KeUserModeCallback @ 0x140646480 (KeUserModeCallback.c)
- *     KeFreeCalloutStack @ 0x140706740 (KeFreeCalloutStack.c)
- *     KeAllocateCalloutStackEx @ 0x14070CCC0 (KeAllocateCalloutStackEx.c)
- *     KiStartDynamicProcessor @ 0x140842DE8 (KiStartDynamicProcessor.c)
+ *     KeUserModeCallback @ 0x140646460 (KeUserModeCallback.c)
+ *     KeFreeCalloutStack @ 0x140706720 (KeFreeCalloutStack.c)
+ *     KeAllocateCalloutStackEx @ 0x14070CCA0 (KeAllocateCalloutStackEx.c)
+ *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiDeleteKernelStack @ 0x14007A5B0 (MiDeleteKernelStack.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
- *     MiLogKernelStackEvent @ 0x1402BB664 (MiLogKernelStackEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     MiLogKernelStackEvent @ 0x1402BB764 (MiLogKernelStackEvent.c)
  */
 
 signed __int64 __fastcall MmDeleteKernelStack(unsigned __int64 a1, char a2)

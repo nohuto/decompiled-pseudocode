@@ -1,108 +1,108 @@
 /*
- * XREFs of xxxWindowFromPoint @ 0x1C006561C
+ * XREFs of xxxWindowFromPoint @ 0x1C00C11CC
  * Callers:
- *     NtUserWindowFromPoint @ 0x1C00646C0 (NtUserWindowFromPoint.c)
+ *     NtUserWindowFromPoint @ 0x1C00C1180 (NtUserWindowFromPoint.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     ?xxxDCEWindowHitTest@@YAPEAUHWND__@@PEAUtagWND@@I_K_JUtagPOINT@@PEAHK@Z @ 0x1C0064850 (-xxxDCEWindowHitTest@@YAPEAUHWND__@@PEAUtagWND@@I_K_JUtagPOINT@@PEAHK@Z.c)
- *     ?Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z @ 0x1C0064908 (-Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     _tlgKeywordOn @ 0x1C00CD6B0 (_tlgKeywordOn.c)
- *     GetThreadDesktopWindow @ 0x1C00F26A0 (GetThreadDesktopWindow.c)
- *     ?xxxWindowHitTest2@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAHK@Z @ 0x1C0101328 (-xxxWindowHitTest2@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAHK@Z.c)
- *     ?GetWindowDetails@InputTraceLogging@@SA?AUWindowDetails@1@PEBUtagWND@@PEBUtagBWND@@@Z @ 0x1C016AEDA (-GetWindowDetails@InputTraceLogging@@SA-AUWindowDetails@1@PEBUtagWND@@PEBUtagBWND@@@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@G@@U1@U1@U1@U1@U2@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@G@@33334AEBU?$_tlgWrapSz@D@@@Z @ 0x1C02041C0 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@G@@U1@U1@U1@U1@U2@U-$_tlgWrapSz@D@@@-$_tlgWri.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     xxxDCEWindowHitTest @ 0x1C00C1304 (xxxDCEWindowHitTest.c)
+ *     ?Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z @ 0x1C00C1518 (-Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z.c)
+ *     xxxWindowHitTest2 @ 0x1C00D7414 (xxxWindowHitTest2.c)
+ *     GetThreadDesktopWindow @ 0x1C0104120 (GetThreadDesktopWindow.c)
+ *     ?GetWindowDetails@InputTraceLogging@@CA?AUWindowDetails@1@PEAUtagWND@@PEAUtagBWND@@@Z @ 0x1C01E0820 (-GetWindowDetails@InputTraceLogging@@CA-AUWindowDetails@1@PEAUtagWND@@PEAUtagBWND@@@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@G@@U1@U1@U1@U1@U2@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@G@@33334AEBU?$_tlgWrapSz@D@@@Z @ 0x1C0214824 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@G@@U1@U1@U1@U1@U2@U-$_tlgWrapSz@D@@@-$_tlgWri.c)
  */
 
-ULONG_PTR __fastcall xxxWindowFromPoint(struct tagPOINT a1)
+__int64 __fastcall xxxWindowFromPoint(struct tagPOINT a1)
 {
-  ULONG_PTR result; // rax
-  ULONG_PTR v3; // rdi
-  __int64 v4; // rcx
-  int v5; // edi
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // rdi
+  __int64 result; // rax
+  __int64 v3; // rdi
+  __int64 ThreadWin32Thread; // rax
+  __int64 v5; // rsi
+  __int64 v6; // rax
+  unsigned __int64 v7; // rdi
+  __int64 v8; // rcx
+  __int64 v9; // rcx
+  __int64 v10; // rdi
   __int64 WindowDetails; // rax
-  __int128 v14; // xmm1
-  int v15; // [rsp+70h] [rbp-49h] BYREF
-  LONG v16; // [rsp+74h] [rbp-45h] BYREF
-  __int64 v17; // [rsp+78h] [rbp-41h] BYREF
-  __int128 v18; // [rsp+80h] [rbp-39h] BYREF
-  __int128 v19; // [rsp+90h] [rbp-29h]
-  __int64 v20; // [rsp+A0h] [rbp-19h]
-  __int128 v21; // [rsp+A8h] [rbp-11h] BYREF
-  __int64 v22; // [rsp+B8h] [rbp-1h] BYREF
-  __int128 v23; // [rsp+C0h] [rbp+7h] BYREF
-  __int64 v24; // [rsp+D0h] [rbp+17h]
-  _BYTE v25[56]; // [rsp+D8h] [rbp+1Fh] BYREF
-  LONG y; // [rsp+124h] [rbp+6Bh]
-  __int64 v27; // [rsp+128h] [rbp+6Fh] BYREF
-  __int64 v28; // [rsp+130h] [rbp+77h] BYREF
-  __int64 v29; // [rsp+138h] [rbp+7Fh] BYREF
+  __int128 v12; // xmm1
+  int v13; // [rsp+70h] [rbp-90h] BYREF
+  LONG v14; // [rsp+74h] [rbp-8Ch] BYREF
+  __int64 v15; // [rsp+78h] [rbp-88h] BYREF
+  __int128 v16; // [rsp+80h] [rbp-80h] BYREF
+  __int128 v17; // [rsp+90h] [rbp-70h]
+  __int64 v18; // [rsp+A0h] [rbp-60h]
+  __int128 v19; // [rsp+A8h] [rbp-58h] BYREF
+  __int64 v20; // [rsp+B8h] [rbp-48h] BYREF
+  _QWORD v21[3]; // [rsp+C0h] [rbp-40h] BYREF
+  char v22[72]; // [rsp+D8h] [rbp-28h] BYREF
+  LONG y; // [rsp+134h] [rbp+34h]
+  __int64 v24; // [rsp+138h] [rbp+38h] BYREF
+  __int64 v25; // [rsp+140h] [rbp+40h] BYREF
+  __int64 v26; // [rsp+148h] [rbp+48h] BYREF
 
   y = a1.y;
-  v23 = 0LL;
-  v24 = 0LL;
+  v21[2] = 0LL;
   result = GetThreadDesktopWindow(0LL);
   v3 = result;
   if ( result )
   {
-    ThreadLock(result, &v23);
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    v21[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+    *(_QWORD *)(ThreadWin32Thread + 416) = v21;
+    v21[1] = v3;
+    HMLockObject(v3);
     if ( (unsigned int)IsWindowDesktopComposed(v3) )
     {
-      v4 = *(_QWORD *)(v3 + 112);
-      v18 = 0LL;
-      *(_QWORD *)&v19 = 0LL;
-      ThreadLock(v4, &v18);
-      v5 = (unsigned int)xxxDCEWindowHitTest(*(struct tagWND **)(v3 + 112), 0, 0LL, 0LL, a1, 0LL, 5u);
-      ThreadUnlock1(v7, v6, v8);
+      *(_QWORD *)&v17 = 0LL;
+      v5 = *(_QWORD *)(v3 + 112);
+      v6 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      *(_QWORD *)&v16 = *(_QWORD *)(v6 + 416);
+      *(_QWORD *)(v6 + 416) = &v16;
+      *((_QWORD *)&v16 + 1) = v5;
+      if ( v5 )
+        HMLockObject(v5);
+      v7 = xxxDCEWindowHitTest(*(_QWORD *)(v3 + 112), 0, 0, 0, a1, 0LL, 5);
+      ThreadUnlock1(v8);
     }
     else
     {
-      v5 = (unsigned int)xxxWindowHitTest2(v3, a1, 0LL, 1u);
+      v7 = xxxWindowHitTest2(v3);
     }
-    ThreadUnlock1(v10, v9, v11);
-    v12 = HMValidateHandleNoSecure(v5, 1);
-    if ( InputTraceLogging::Enabled(0) )
+    ThreadUnlock1(v9);
+    v10 = HMValidateHandleNoSecure(v7, 1);
+    if ( (unsigned __int8)InputTraceLogging::Enabled(0LL) )
     {
-      WindowDetails = InputTraceLogging::GetWindowDetails(v25, v12);
-      v14 = *(_OWORD *)(WindowDetails + 16);
-      v18 = *(_OWORD *)WindowDetails;
-      v20 = *(_QWORD *)(WindowDetails + 32);
-      v19 = v14;
-      if ( (unsigned int)dword_1C032BE20 > 4 )
+      WindowDetails = InputTraceLogging::GetWindowDetails(v22, v10);
+      v12 = *(_OWORD *)(WindowDetails + 16);
+      v16 = *(_OWORD *)WindowDetails;
+      v18 = *(_QWORD *)(WindowDetails + 32);
+      v17 = v12;
+      if ( (unsigned int)dword_1C0330B20 > 4 && (qword_1C0330B30 & 2) != 0 && (qword_1C0330B38 & 2) == qword_1C0330B38 )
       {
-        if ( (unsigned __int8)tlgKeywordOn(&dword_1C032BE20, 2LL) )
-        {
-          v21 = v18;
-          LODWORD(v27) = HIDWORD(v20);
-          LODWORD(v28) = v20;
-          LODWORD(v29) = HIDWORD(v19);
-          v15 = DWORD2(v19);
-          v22 = v19;
-          v16 = y;
-          LODWORD(v17) = a1.x;
-          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapSz<char>>(
-            (int)&dword_1C032BE20,
-            (int)&dword_1C02EFCAE,
-            (__int64)&v17,
-            (__int64)&v16,
-            (__int64)&v22,
-            (__int64)&v15,
-            (__int64)&v29,
-            (__int64)&v28,
-            (__int64)&v27,
-            (__int64)&v21 + 8,
-            (__int64)&v21);
-        }
+        v19 = v16;
+        LODWORD(v24) = HIDWORD(v18);
+        LODWORD(v25) = v18;
+        LODWORD(v26) = HIDWORD(v17);
+        v13 = DWORD2(v17);
+        v20 = v17;
+        v14 = y;
+        LODWORD(v15) = a1.x;
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapSz<char>>(
+          (int)&dword_1C0330B20,
+          (int)&dword_1C02F2E65,
+          (__int64)&v15,
+          (__int64)&v14,
+          (__int64)&v20,
+          (__int64)&v13,
+          (__int64)&v26,
+          (__int64)&v25,
+          (__int64)&v24,
+          (__int64)&v19 + 8,
+          (__int64)&v19);
       }
     }
-    return v12;
+    return v10;
   }
   return result;
 }

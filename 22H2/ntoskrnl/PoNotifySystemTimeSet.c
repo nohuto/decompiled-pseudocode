@@ -1,84 +1,60 @@
 /*
- * XREFs of PoNotifySystemTimeSet @ 0x1403B5E38
+ * XREFs of PoNotifySystemTimeSet @ 0x1403A7104
  * Callers:
- *     ExpRefreshSystemTime @ 0x140840884 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1409F8340 (NtSetSystemTime.c)
- *     ExpSetSystemTime @ 0x140AAAD24 (ExpSetSystemTime.c)
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
+ *     ExpRefreshSystemTime @ 0x1407A94CC (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x14094BD60 (NtSetSystemTime.c)
+ *     ExpSetSystemTime @ 0x140998FB8 (ExpSetSystemTime.c)
+ *     Phase1InitializationDiscard @ 0x140A3AAD4 (Phase1InitializationDiscard.c)
  * Callees:
- *     PpmConvertTime @ 0x1402553F0 (PpmConvertTime.c)
- *     PopGetPolicyWorker @ 0x14032C984 (PopGetPolicyWorker.c)
- *     PopCheckForWork @ 0x14032C9D8 (PopCheckForWork.c)
- *     ExNotifyWithProcessing @ 0x14033BD60 (ExNotifyWithProcessing.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopSstDiagAddResumeTimestampAdjustment @ 0x140AAA714 (PopSstDiagAddResumeTimestampAdjustment.c)
- *     EtwTraceSystemTimeChange @ 0x140AAA830 (EtwTraceSystemTimeChange.c)
+ *     ExNotifyWithProcessing @ 0x140307DA8 (ExNotifyWithProcessing.c)
+ *     PopCheckForWork @ 0x14034A290 (PopCheckForWork.c)
+ *     PopGetPolicyWorker @ 0x14034AB20 (PopGetPolicyWorker.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceSystemTimeChange @ 0x140998CD8 (EtwTraceSystemTimeChange.c)
  */
 
-__int64 __fastcall PoNotifySystemTimeSet(__int64 *a1, __int64 *a2, int a3, int a4, int a5, int a6, unsigned __int8 a7)
+void __fastcall PoNotifySystemTimeSet(__int64 *a1, __int64 *a2)
 {
-  __int64 result; // rax
-  int v8; // ebp
-  __int64 *v11; // r11
-  __int64 v13; // rcx
-  unsigned __int64 v14; // rax
   unsigned __int8 CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
-  int v17; // eax
-  unsigned __int8 v18; // al
+  unsigned __int8 v4; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v20; // r8
-  int v21; // eax
-  bool v22; // zf
-  _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h] BYREF
+  _DWORD *v6; // r8
+  int v7; // eax
+  bool v8; // zf
 
-  result = (__int64)&retaddr;
-  v8 = ExpRealTimeIsUniversal;
-  v11 = a2;
-  if ( a3 == 2 )
-  {
-    v13 = *a1;
-    result = *a2;
-    if ( v13 > *a2 )
-    {
-      v14 = PpmConvertTime(v13 - result, 0x989680uLL, PopQpcFrequency);
-      result = PopSstDiagAddResumeTimestampAdjustment(v14);
-    }
-  }
   if ( PsWin32CalloutsEstablished )
   {
     PopTimeChangeInfo = *a1;
-    qword_140C3F748 = *v11;
-    EtwTraceSystemTimeChange((_DWORD)a1, (_DWORD)v11, a3, a4, a5, v8, a7);
+    qword_140C25258 = *a2;
+    EtwTraceSystemTimeChange();
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      v17 = 4;
-      if ( CurrentIrql != 2 )
-        v17 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v17;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     ExNotifyWithProcessing(ExCbSetSystemTime, 0LL, 0LL, 0LL);
     PopGetPolicyWorker(16);
     PopCheckForWork();
     if ( KiIrqlFlags )
     {
-      v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v20 = CurrentPrcb->SchedulerAssist;
-        v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v22 = (v21 & v20[5]) == 0;
-        v20[5] &= v21;
-        if ( v22 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v4 = KeGetCurrentIrql();
+        if ( v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v6 = CurrentPrcb->SchedulerAssist;
+          v7 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v8 = (v7 & v6[5]) == 0;
+          v6[5] &= v7;
+          if ( v8 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
-    result = CurrentIrql;
     __writecr8(CurrentIrql);
   }
-  return result;
 }

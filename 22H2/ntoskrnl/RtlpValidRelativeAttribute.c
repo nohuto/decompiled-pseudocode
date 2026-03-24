@@ -1,29 +1,30 @@
 /*
- * XREFs of RtlpValidRelativeAttribute @ 0x14085B760
+ * XREFs of RtlpValidRelativeAttribute @ 0x1406995F4
  * Callers:
- *     RtlpValidAttributeAce @ 0x14085B6F0 (RtlpValidAttributeAce.c)
+ *     RtlpValidAttributeAce @ 0x140699584 (RtlpValidAttributeAce.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14022BF00 (RtlStringCbLengthW.c)
+ *     RtlStringCbLengthW @ 0x1403224DC (RtlStringCbLengthW.c)
  */
 
 char __fastcall RtlpValidRelativeAttribute(unsigned int *a1, unsigned int a2)
 {
   __int64 v4; // rcx
-  unsigned int v5; // r10d
-  __int64 v6; // r11
-  unsigned int v7; // edx
-  unsigned __int64 v8; // rcx
-  unsigned int *i; // r11
+  int v5; // r11d
+  unsigned int v6; // edx
+  unsigned __int64 v7; // rcx
+  unsigned __int16 v8; // ax
+  unsigned int v9; // ebp
+  unsigned int *i; // rbx
   unsigned int *m; // r8
-  __int64 v12; // rcx
+  __int64 v13; // rcx
   unsigned int *k; // r8
-  __int64 v14; // rcx
-  unsigned int v15; // r9d
+  __int64 v15; // rcx
+  int v16; // r9d
   unsigned int *j; // r8
-  __int64 v17; // rcx
-  unsigned int v18; // esi
-  unsigned int v19; // edi
-  __int64 v20; // rcx
+  __int64 v18; // rcx
+  unsigned int v19; // esi
+  int v20; // esi
+  __int64 v21; // rcx
   size_t pcbLength; // [rsp+30h] [rbp+8h] BYREF
 
   if ( a1 )
@@ -37,96 +38,102 @@ char __fastcall RtlpValidRelativeAttribute(unsigned int *a1, unsigned int a2)
           && a2 - (unsigned int)v4 >= 4
           && RtlStringCbLengthW((STRSAFE_PCNZWCH)((char *)a1 + v4), a2 - (unsigned int)v4, &pcbLength) >= 0 )
         {
-          v7 = *(_DWORD *)(v6 + 12);
-          v8 = 4LL * v7;
-          if ( v8 <= 0xFFFFFFFF && a2 - 16 >= (unsigned int)v8 )
+          v6 = a1[3];
+          v7 = 4LL * v6;
+          if ( v7 <= 0xFFFFFFFF && a2 - 16 >= (unsigned int)v7 )
           {
-            switch ( *(_WORD *)(v6 + 4) )
+            v8 = *((_WORD *)a1 + 2);
+            if ( v8 )
             {
-              case 1:
-              case 2:
-                if ( v7 )
+              v9 = v5 + 2;
+              if ( v8 <= (unsigned __int16)(v5 + 2) )
+              {
+                if ( v6 )
                 {
-                  for ( i = (unsigned int *)(v6 + 16); a2 >= *i && a2 - *i >= 8; ++i )
+                  for ( i = a1 + 4; a2 >= *i && a2 - *i >= 8; ++i )
                   {
-                    if ( ++v5 >= v7 )
+                    if ( ++v5 >= v6 )
                       return 1;
                   }
                   return 0;
                 }
                 return 1;
-              case 3:
-                v19 = v5;
-                if ( v7 )
-                {
-                  while ( 1 )
+              }
+              switch ( v8 )
+              {
+                case 3u:
+                  v20 = v5;
+                  if ( v6 )
                   {
-                    v20 = *(unsigned int *)(v6 + 4LL * v19 + 16);
-                    if ( a2 < (unsigned int)v20
-                      || a2 - (unsigned int)v20 < 2
-                      || RtlStringCbLengthW((STRSAFE_PCNZWCH)(v6 + v20), a2 - (unsigned int)v20, &pcbLength) < 0 )
+                    while ( 1 )
                     {
-                      break;
+                      v21 = a1[v20 + 4];
+                      if ( a2 < (unsigned int)v21
+                        || a2 - (unsigned int)v21 < v9
+                        || RtlStringCbLengthW((STRSAFE_PCNZWCH)((char *)a1 + v21), a2 - (unsigned int)v21, &pcbLength) < 0 )
+                      {
+                        break;
+                      }
+                      if ( ++v20 >= a1[3] )
+                        return 1;
                     }
-                    if ( ++v19 >= *(_DWORD *)(v6 + 12) )
-                      return 1;
+                    return 0;
                   }
-                  return 0;
-                }
-                return 1;
-              case 5:
-                v15 = v5;
-                if ( v7 )
-                {
-                  for ( j = (unsigned int *)(v6 + 16); ; ++j )
+                  return 1;
+                case 5u:
+                  v16 = v5;
+                  if ( v6 )
                   {
-                    v17 = *j;
-                    if ( a2 < (unsigned int)v17 )
-                      break;
-                    if ( a2 - (unsigned int)v17 < 4 )
-                      break;
-                    v18 = *(_DWORD *)(v17 + v6);
-                    if ( !v18 || (int)v17 + 4 < (unsigned int)v17 || a2 - ((_DWORD)v17 + 4) < v18 )
-                      break;
-                    if ( ++v15 >= v7 )
-                      return 1;
-                  }
-                  return 0;
-                }
-                return 1;
-              case 6:
-                if ( v7 )
-                {
-                  for ( k = (unsigned int *)(v6 + 16); ; ++k )
-                  {
-                    v14 = *k;
-                    if ( a2 < (unsigned int)v14 || a2 - (unsigned int)v14 < 8 || *(_QWORD *)(v14 + v6) > 1uLL )
-                      break;
-                    if ( ++v5 >= v7 )
-                      return 1;
-                  }
-                  return 0;
-                }
-                return 1;
-              case 0x10:
-                if ( v7 )
-                {
-                  for ( m = (unsigned int *)(v6 + 16); ; ++m )
-                  {
-                    v12 = *m;
-                    if ( a2 < (unsigned int)v12
-                      || a2 - (unsigned int)v12 < 4
-                      || (int)v12 + 4 < (unsigned int)v12
-                      || a2 - ((_DWORD)v12 + 4) < *(_DWORD *)(v12 + v6) )
+                    for ( j = a1 + 4; ; ++j )
                     {
-                      break;
+                      v18 = *j;
+                      if ( a2 < (unsigned int)v18 )
+                        break;
+                      if ( a2 - (unsigned int)v18 < 4 )
+                        break;
+                      v19 = *(unsigned int *)((char *)a1 + v18);
+                      if ( !v19 || (int)v18 + 4 < (unsigned int)v18 || a2 - ((_DWORD)v18 + 4) < v19 )
+                        break;
+                      if ( ++v16 >= v6 )
+                        return 1;
                     }
-                    if ( ++v5 >= v7 )
-                      return 1;
+                    return 0;
                   }
-                  return 0;
-                }
-                return 1;
+                  return 1;
+                case 6u:
+                  if ( v6 )
+                  {
+                    for ( k = a1 + 4; ; ++k )
+                    {
+                      v15 = *k;
+                      if ( a2 < (unsigned int)v15 || a2 - (unsigned int)v15 < 8 || *(_QWORD *)((char *)a1 + v15) > 1uLL )
+                        break;
+                      if ( ++v5 >= v6 )
+                        return 1;
+                    }
+                    return 0;
+                  }
+                  return 1;
+                case 0x10u:
+                  if ( v6 )
+                  {
+                    for ( m = a1 + 4; ; ++m )
+                    {
+                      v13 = *m;
+                      if ( a2 < (unsigned int)v13
+                        || a2 - (unsigned int)v13 < 4
+                        || (int)v13 + 4 < (unsigned int)v13
+                        || a2 - ((_DWORD)v13 + 4) < *(unsigned int *)((char *)a1 + v13) )
+                      {
+                        break;
+                      }
+                      if ( ++v5 >= v6 )
+                        return 1;
+                    }
+                    return 0;
+                  }
+                  return 1;
+              }
             }
           }
         }

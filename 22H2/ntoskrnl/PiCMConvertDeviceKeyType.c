@@ -1,8 +1,8 @@
 /*
- * XREFs of PiCMConvertDeviceKeyType @ 0x1407BEFD0
+ * XREFs of PiCMConvertDeviceKeyType @ 0x1406A8A64
  * Callers:
- *     PiCMOpenDeviceKey @ 0x1407BEE44 (PiCMOpenDeviceKey.c)
- *     PiCMDeleteDeviceKey @ 0x140969340 (PiCMDeleteDeviceKey.c)
+ *     PiCMOpenDeviceKey @ 0x1406A8AF8 (PiCMOpenDeviceKey.c)
+ *     PiCMDeleteDeviceKey @ 0x1408AFFB8 (PiCMDeleteDeviceKey.c)
  * Callees:
  *     <none>
  */
@@ -16,37 +16,31 @@ __int64 __fastcall PiCMConvertDeviceKeyType(__int16 a1, int *a2)
 
   v2 = 0;
   *a2 = 0;
-  if ( !(_BYTE)a1 )
-    return (unsigned int)-1073741811;
-  if ( (unsigned __int8)a1 == 17 )
+  switch ( (unsigned __int8)a1 )
   {
-    *a2 = 17;
-    v4 = 529;
-    v5 = 273;
-    goto LABEL_5;
-  }
-  if ( (unsigned __int8)a1 == 18 )
-  {
-    *a2 = 18;
-    v4 = 530;
-    v5 = 274;
-    goto LABEL_5;
-  }
-  if ( (unsigned __int8)a1 != 19 )
-  {
-    if ( (unsigned __int8)a1 == 20 )
-    {
+    case 0x11u:
+      *a2 = 17;
+      v4 = 529;
+      v5 = 273;
+      break;
+    case 0x12u:
+      *a2 = 18;
+      v4 = 530;
+      v5 = 274;
+      break;
+    case 0x13u:
+      *a2 = 19;
+      v4 = 531;
+      v5 = 275;
+      break;
+    case 0x14u:
       *a2 = 20;
       v4 = 532;
       v5 = 276;
-      goto LABEL_5;
-    }
-    return (unsigned int)-1073741811;
+      break;
+    default:
+      return (unsigned int)-1073741811;
   }
-  *a2 = 19;
-  v4 = 531;
-  v5 = 275;
-LABEL_5:
   v6 = a1 & 0xFF00;
   if ( v6 )
   {

@@ -1,62 +1,61 @@
 /*
- * XREFs of IoReportDetectedDevice @ 0x140836920
+ * XREFs of IoReportDetectedDevice @ 0x1407AED50
  * Callers:
- *     HalpDriverEntry @ 0x1408366D0 (HalpDriverEntry.c)
+ *     HalpDriverEntry @ 0x1407AE540 (HalpDriverEntry.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     PipSetDevNodeState @ 0x14022AEA4 (PipSetDevNodeState.c)
- *     PipAreDriversLoaded @ 0x14022B108 (PipAreDriversLoaded.c)
- *     PipIsDevNodeDNStarted @ 0x14022B1A0 (PipIsDevNodeDNStarted.c)
- *     RtlStringCchPrintfExW @ 0x14022B740 (RtlStringCchPrintfExW.c)
- *     RtlStringCbLengthW @ 0x14022BF00 (RtlStringCbLengthW.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     IoDeleteDevice @ 0x140304E10 (IoDeleteDevice.c)
- *     PpDevNodeInsertIntoTree @ 0x1403663C4 (PpDevNodeInsertIntoTree.c)
- *     PpDevNodeRemoveFromTree @ 0x1403D4BAC (PpDevNodeRemoveFromTree.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwDeleteKey @ 0x14041C1E0 (ZwDeleteKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBF54 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     PnpUnicodeStringToWstrFree @ 0x1406D3FF4 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x1406D4364 (PnpUnicodeStringToWstr.c)
- *     RtlUpcaseUnicodeString @ 0x140774000 (RtlUpcaseUnicodeString.c)
- *     PiPnpRtlEndOperation @ 0x140788CDC (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140788EE0 (PiPnpRtlBeginOperation.c)
- *     PnpDetermineResourceListSize @ 0x1407906DC (PnpDetermineResourceListSize.c)
- *     IopDoDeferredSetInterfaceState @ 0x1407916E4 (IopDoDeferredSetInterfaceState.c)
- *     PipSetDevNodeFlags @ 0x140795BDC (PipSetDevNodeFlags.c)
- *     _PnpSetObjectProperty @ 0x14079708C (_PnpSetObjectProperty.c)
- *     _CmSetDeviceRegProp @ 0x140798B3C (_CmSetDeviceRegProp.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x140798CA4 (PnpDeviceObjectToDeviceInstance.c)
- *     PpDeviceRegistration @ 0x1407CFAC4 (PpDeviceRegistration.c)
- *     _CmCreateDevice @ 0x1407D7C24 (_CmCreateDevice.c)
- *     PipAllocateDeviceNode @ 0x1407DAC30 (PipAllocateDeviceNode.c)
- *     PnpMapDeviceObjectToDeviceInstance @ 0x1407E22C8 (PnpMapDeviceObjectToDeviceInstance.c)
- *     PnpAllocateDeviceInstancePath @ 0x140814AB8 (PnpAllocateDeviceInstancePath.c)
- *     IopCreateRootEnumeratedDeviceObject @ 0x140814AF8 (IopCreateRootEnumeratedDeviceObject.c)
- *     IopWriteAllocatedResourcesToRegistry @ 0x1408186D4 (IopWriteAllocatedResourcesToRegistry.c)
- *     IopGetRootDeviceId @ 0x140837008 (IopGetRootDeviceId.c)
- *     IopGetOriginalServiceName @ 0x140837094 (IopGetOriginalServiceName.c)
- *     IopIsReportedAlready @ 0x140837110 (IopIsReportedAlready.c)
- *     PnpSetRegistryDword @ 0x14083736C (PnpSetRegistryDword.c)
- *     IopDuplicateDetection @ 0x1408373C4 (IopDuplicateDetection.c)
- *     PipClearDevNodeProblem @ 0x14086966C (PipClearDevNodeProblem.c)
- *     PipSetDevNodeProblem @ 0x1408697BC (PipSetDevNodeProblem.c)
- *     PnpCleanupDeviceRegistryValues @ 0x14088507C (PnpCleanupDeviceRegistryValues.c)
- *     IoReportResourceUsageInternal @ 0x140956FE8 (IoReportResourceUsageInternal.c)
- *     PnpSetRegistryRequirementsList @ 0x140958544 (PnpSetRegistryRequirementsList.c)
- *     PnpSetRegistryResourceList @ 0x1409585AC (PnpSetRegistryResourceList.c)
- *     IopCreateLegacyDeviceIds @ 0x14096C7D8 (IopCreateLegacyDeviceIds.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     RtlStringCbLengthW @ 0x1403224DC (RtlStringCbLengthW.c)
+ *     PipIsDevNodeDNStarted @ 0x14032E358 (PipIsDevNodeDNStarted.c)
+ *     PipAreDriversLoaded @ 0x14032E384 (PipAreDriversLoaded.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlStringCchPrintfExW @ 0x14032EBA4 (RtlStringCchPrintfExW.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     IoDeleteDevice @ 0x140360200 (IoDeleteDevice.c)
+ *     PipSetDevNodeState @ 0x14036EEA8 (PipSetDevNodeState.c)
+ *     PpDevNodeRemoveFromTree @ 0x1403710A8 (PpDevNodeRemoveFromTree.c)
+ *     PpDevNodeInsertIntoTree @ 0x14037136C (PpDevNodeInsertIntoTree.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwDeleteKey @ 0x1403FB4A0 (ZwDeleteKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlUpcaseUnicodeString @ 0x14062F0C0 (RtlUpcaseUnicodeString.c)
+ *     PiPnpRtlEndOperation @ 0x1406ACCB8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406AD460 (PiPnpRtlBeginOperation.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406AE574 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1406B033C (PnpUnicodeStringToWstr.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406B14B0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     PipClearDevNodeProblem @ 0x140735BFC (PipClearDevNodeProblem.c)
+ *     IopDoDeferredSetInterfaceState @ 0x14073A250 (IopDoDeferredSetInterfaceState.c)
+ *     _CmSetDeviceRegProp @ 0x1407404B0 (_CmSetDeviceRegProp.c)
+ *     PipSetDevNodeFlags @ 0x140741ABC (PipSetDevNodeFlags.c)
+ *     _PnpSetObjectProperty @ 0x1407420C4 (_PnpSetObjectProperty.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x140743594 (PnpDeviceObjectToDeviceInstance.c)
+ *     PpDeviceRegistration @ 0x140748200 (PpDeviceRegistration.c)
+ *     _CmCreateDevice @ 0x140749068 (_CmCreateDevice.c)
+ *     PnpCleanupDeviceRegistryValues @ 0x14074A844 (PnpCleanupDeviceRegistryValues.c)
+ *     PipSetDevNodeProblem @ 0x14074C18C (PipSetDevNodeProblem.c)
+ *     PipAllocateDeviceNode @ 0x14074E0D4 (PipAllocateDeviceNode.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x14074EE3C (IopWriteAllocatedResourcesToRegistry.c)
+ *     PnpDetermineResourceListSize @ 0x14075020C (PnpDetermineResourceListSize.c)
+ *     PnpMapDeviceObjectToDeviceInstance @ 0x1407523B0 (PnpMapDeviceObjectToDeviceInstance.c)
+ *     PnpAllocateDeviceInstancePath @ 0x1407A5630 (PnpAllocateDeviceInstancePath.c)
+ *     IopIsReportedAlready @ 0x1407AF208 (IopIsReportedAlready.c)
+ *     PnpSetRegistryDword @ 0x1407AF45C (PnpSetRegistryDword.c)
+ *     IopDuplicateDetection @ 0x1407AF4B4 (IopDuplicateDetection.c)
+ *     IopCreateRootEnumeratedDeviceObject @ 0x1407C8BD8 (IopCreateRootEnumeratedDeviceObject.c)
+ *     IoReportResourceUsageInternal @ 0x1408A0308 (IoReportResourceUsageInternal.c)
+ *     PnpSetRegistryRequirementsList @ 0x1408A1960 (PnpSetRegistryRequirementsList.c)
+ *     PnpSetRegistryResourceList @ 0x1408A19C8 (PnpSetRegistryResourceList.c)
+ *     IopCreateLegacyDeviceIds @ 0x1408B243C (IopCreateLegacyDeviceIds.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoReportDetectedDevice(
@@ -69,508 +68,509 @@ NTSTATUS __stdcall IoReportDetectedDevice(
         BOOLEAN ResourceAssigned,
         PDEVICE_OBJECT *DeviceObject)
 {
-  PDRIVER_EXTENSION DriverExtension; // r14
-  UNICODE_STRING *p_ServiceKeyName; // r14
-  PVOID DeviceNode; // rbx
-  PDEVICE_OBJECT v13; // rax
-  const UNICODE_STRING *v15; // rcx
+  char *DeviceNode; // rbx
+  PDRIVER_EXTENSION DriverExtension; // r15
+  UNICODE_STRING *p_ServiceKeyName; // r15
+  PDEVICE_OBJECT v14; // rax
   NTSTATUS result; // eax
-  NTSTATUS appended; // edi
+  const UNICODE_STRING *v16; // rdx
+  int appended; // edi
   int v18; // eax
   int v19; // r13d
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  __int64 v23; // rbx
-  unsigned __int16 Length; // ax
-  size_t v25; // r12
-  unsigned __int64 j; // rcx
-  signed __int64 v27; // rcx
-  __int16 v28; // ax
-  _QWORD *v29; // rax
-  PVOID v30; // r9
-  __int64 v31; // r9
-  PIO_RESOURCE_REQUIREMENTS_LIST v32; // r14
-  ULONG v33; // eax
+  char *v21; // rbx
+  unsigned __int16 v22; // cx
+  size_t v23; // r12
+  wchar_t *v24; // rax
+  signed __int64 v25; // rcx
+  __int16 v26; // ax
+  _QWORD *v27; // rax
+  __int64 v28; // r8
+  PIO_RESOURCE_REQUIREMENTS_LIST v29; // r15
+  ULONG v30; // eax
+  char v31; // r13
   wchar_t *Buffer; // rdx
   wchar_t *i; // rcx
-  __int16 v36; // ax
-  struct _DEVICE_OBJECT *v37; // r12
-  PVOID v38; // rcx
-  int v39; // eax
-  __int64 Pool2; // rax
+  struct _DEVICE_OBJECT *v34; // r12
+  __int64 v35; // rcx
+  int v36; // eax
+  PVOID v37; // rax
   int DeviceInstancePath; // eax
-  NTSTATUS v42; // eax
-  __int64 v43; // r8
+  int v39; // eax
+  wchar_t *v40; // r13
+  int v41; // r8d
+  int v42; // edx
+  __int64 v43; // rcx
   __int64 v44; // rdx
-  __int64 v45; // r8
-  __int64 v46; // rdx
-  __int64 v47; // rcx
-  int v48; // eax
-  wchar_t *v49; // r13
-  __int64 v50; // rdx
-  PDRIVER_OBJECT v51; // rdi
-  bool v52; // zf
-  UNICODE_STRING *v53; // rdi
+  PDRIVER_OBJECT v45; // rdi
+  ULONG Flags; // eax
+  bool v47; // zf
+  UNICODE_STRING *v48; // rdx
   int LegacyDeviceIds; // eax
-  unsigned int v55; // eax
-  int v56; // ecx
-  unsigned int v57; // edi
-  void *v58; // rax
-  void *v59; // rsi
-  __int64 v60; // r8
-  int v61; // edx
-  int v62; // [rsp+20h] [rbp-E0h]
+  int v50; // eax
+  unsigned int v51; // eax
+  int v52; // ecx
+  SIZE_T v53; // rdi
+  PVOID PoolWithTag; // rax
+  void *v55; // rsi
+  __int64 v56; // r8
+  int v57; // edx
+  __int64 v58; // rcx
+  int dwFlags; // [rsp+20h] [rbp-E0h]
   NTSTRSAFE_PCWSTR pszFormat; // [rsp+28h] [rbp-D8h]
-  __int64 v64; // [rsp+30h] [rbp-D0h]
-  int v65; // [rsp+38h] [rbp-C8h]
-  int v66; // [rsp+40h] [rbp-C0h]
-  char v67; // [rsp+50h] [rbp-B0h] BYREF
-  char v68; // [rsp+51h] [rbp-AFh] BYREF
-  char v69; // [rsp+52h] [rbp-AEh] BYREF
-  char v70; // [rsp+53h] [rbp-ADh]
-  _DWORD cbMax[3]; // [rsp+54h] [rbp-ACh] BYREF
-  BOOL v72; // [rsp+60h] [rbp-A0h] BYREF
-  UNICODE_STRING Destination; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v74; // [rsp+78h] [rbp-88h] BYREF
-  int v75; // [rsp+80h] [rbp-80h] BYREF
-  PVOID Object; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v61; // [rsp+30h] [rbp-D0h]
+  int v62; // [rsp+38h] [rbp-C8h]
+  int v63; // [rsp+40h] [rbp-C0h]
+  char v64; // [rsp+50h] [rbp-B0h]
+  char v65; // [rsp+51h] [rbp-AFh] BYREF
+  char v66; // [rsp+52h] [rbp-AEh] BYREF
+  char v67[5]; // [rsp+53h] [rbp-ADh] BYREF
+  HANDLE Handle; // [rsp+58h] [rbp-A8h] BYREF
+  BOOL v69; // [rsp+60h] [rbp-A0h] BYREF
+  char *v70; // [rsp+68h] [rbp-98h] BYREF
+  UNICODE_STRING Destination; // [rsp+70h] [rbp-90h] BYREF
+  int v72; // [rsp+80h] [rbp-80h] BYREF
+  _DWORD cbMax[3]; // [rsp+84h] [rbp-7Ch] BYREF
   HANDLE KeyHandle; // [rsp+90h] [rbp-70h] BYREF
-  HANDLE Handle; // [rsp+98h] [rbp-68h] BYREF
-  int v79; // [rsp+A0h] [rbp-60h]
-  PDRIVER_OBJECT v80; // [rsp+A8h] [rbp-58h]
-  NTSTRSAFE_PWSTR ppszDestEnd; // [rsp+B0h] [rbp-50h] BYREF
-  STRSAFE_PCNZWCH psz; // [rsp+B8h] [rbp-48h] BYREF
-  size_t pcbLength; // [rsp+C0h] [rbp-40h] BYREF
-  PIO_RESOURCE_REQUIREMENTS_LIST v84; // [rsp+C8h] [rbp-38h]
-  PVOID P; // [rsp+D0h] [rbp-30h] BYREF
-  __int128 v86; // [rsp+D8h] [rbp-28h] BYREF
-  __int128 v87; // [rsp+E8h] [rbp-18h] BYREF
-  unsigned __int64 v88; // [rsp+F8h] [rbp-8h]
-  PDEVICE_OBJECT *v89; // [rsp+100h] [rbp+0h]
-  _WORD v90[200]; // [rsp+110h] [rbp+10h] BYREF
+  NTSTRSAFE_PWSTR ppszDestEnd; // [rsp+98h] [rbp-68h] BYREF
+  HANDLE v76; // [rsp+A0h] [rbp-60h] BYREF
+  STRSAFE_PCNZWCH psz; // [rsp+A8h] [rbp-58h] BYREF
+  size_t pcbLength; // [rsp+B0h] [rbp-50h] BYREF
+  PDRIVER_OBJECT v79; // [rsp+B8h] [rbp-48h]
+  PIO_RESOURCE_REQUIREMENTS_LIST v80; // [rsp+C0h] [rbp-40h]
+  PVOID P; // [rsp+C8h] [rbp-38h] BYREF
+  __int128 v82; // [rsp+D0h] [rbp-30h] BYREF
+  __int64 Length; // [rsp+E0h] [rbp-20h]
+  wchar_t *j; // [rsp+E8h] [rbp-18h]
+  PDEVICE_OBJECT *v85; // [rsp+F0h] [rbp-10h]
+  wchar_t pszDest[200]; // [rsp+100h] [rbp+0h] BYREF
 
-  DriverExtension = DriverObject->DriverExtension;
-  v84 = ResourceRequirements;
-  p_ServiceKeyName = &DriverExtension->ServiceKeyName;
-  v89 = DeviceObject;
+  v80 = ResourceRequirements;
   DeviceNode = 0LL;
-  v80 = DriverObject;
-  v68 = 0;
-  v13 = *DeviceObject;
+  v85 = DeviceObject;
+  DriverExtension = DriverObject->DriverExtension;
+  v79 = DriverObject;
+  p_ServiceKeyName = &DriverExtension->ServiceKeyName;
+  v14 = *DeviceObject;
+  LODWORD(ppszDestEnd) = SlotNumber;
+  v66 = 0;
   *(_QWORD *)&Destination.Length = 26214400LL;
   psz = 0LL;
   memset(cbMax, 0, sizeof(cbMax));
   pcbLength = 0LL;
-  v75 = 0;
-  Handle = 0LL;
-  v67 = 0;
-  v74 = 0LL;
   v72 = 0;
-  Destination.Buffer = v90;
+  v76 = 0LL;
+  v65 = 0;
+  v70 = 0LL;
+  v69 = 0;
+  Handle = 0LL;
+  Destination.Buffer = pszDest;
   KeyHandle = 0LL;
-  v70 = 0;
-  Object = 0LL;
+  v64 = 0;
   P = 0LL;
-  v86 = 0LL;
-  v87 = 0LL;
-  if ( v13 )
+  v82 = 0LL;
+  if ( v14 )
   {
-    DeviceNode = v13->DeviceObjectExtension->DeviceNode;
-    v74 = (__int64)DeviceNode;
-    if ( DeviceNode )
-      goto LABEL_5;
-    return -1073741578;
+    DeviceNode = (char *)v14->DeviceObjectExtension->DeviceNode;
+    v70 = DeviceNode;
+    if ( !DeviceNode )
+      return -1073741578;
+    goto LABEL_7;
   }
-  if ( (DriverObject->Flags & 4) == 0 )
+  if ( (DriverObject->Flags & 4) != 0 )
   {
-    v15 = p_ServiceKeyName;
-    goto LABEL_4;
-  }
-  Buffer = p_ServiceKeyName->Buffer;
-  for ( i = &Buffer[((unsigned __int64)p_ServiceKeyName->Length >> 1) - 1]; ; --i )
-  {
-    if ( i == Buffer )
-      return -1073741585;
-    if ( *i == 92 )
-      break;
-  }
-  *((_QWORD *)&v86 + 1) = i + 1;
-  v36 = p_ServiceKeyName->Length - 2 * ((__int64)(unsigned int)((_DWORD)i + 2 - LODWORD(p_ServiceKeyName->Buffer)) >> 1);
-  v15 = (const UNICODE_STRING *)&v86;
-  LOWORD(v86) = v36;
-  WORD1(v86) = v36;
-LABEL_4:
-  result = IopGetRootDeviceId(v15, &Destination);
-  if ( result >= 0 )
-  {
-LABEL_5:
-    appended = PiPnpRtlBeginOperation((__int64 **)&P);
-    if ( appended < 0 )
-      goto LABEL_35;
-    PpDevNodeLockTree(1);
-    if ( DeviceNode || (v80->Flags & 4) != 0 )
+    Buffer = p_ServiceKeyName->Buffer;
+    for ( i = &Buffer[((unsigned __int64)p_ServiceKeyName->Length >> 1) - 1]; i != Buffer; --i )
     {
-      v19 = 0;
-    }
-    else
-    {
-      v18 = IopDuplicateDetection((unsigned int)LegacyBusType, BusNumber, SlotNumber, &v74);
-      v19 = 0;
-      appended = v18;
-      if ( v18 >= 0 )
-        v72 = v74 != 0;
-    }
-    CurrentThread = KeGetCurrentThread();
-    --CurrentThread->KernelApcDisable;
-    ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
-    v23 = v74;
-    if ( v74 )
-    {
-      v30 = Object;
-LABEL_21:
-      if ( v72 )
+      if ( *i == 92 )
       {
-        if ( (unsigned int)PipAreDriversLoaded(v23, v21, v22, (__int64)v30)
-          || (*(_DWORD *)(v23 + 396) & 0x6000) != 0
-          && ((v55 = *(_DWORD *)(v23 + 404), v55 > 0x1C) || (v56 = 268697602, !_bittest(&v56, v55))) )
-        {
-          ObfDereferenceObject(*(PVOID *)(v23 + 32));
-          appended = -1073741810;
-          goto LABEL_59;
-        }
-        if ( !v31 )
-          PipClearDevNodeProblem(v23);
+        *((_QWORD *)&v82 + 1) = i + 1;
+        LOWORD(v82) = p_ServiceKeyName->Length
+                    - 2 * ((__int64)(unsigned int)((_DWORD)i + 2 - LODWORD(p_ServiceKeyName->Buffer)) >> 1);
+        WORD1(v82) = v82;
+        goto LABEL_3;
       }
-      if ( !*(_QWORD *)&cbMax[1] )
+    }
+    return -1073741585;
+  }
+  else
+  {
+LABEL_3:
+    result = RtlAppendUnicodeToString(&Destination, L"ROOT\\");
+    if ( result >= 0 )
+    {
+      v16 = (const UNICODE_STRING *)&v82;
+      if ( (DriverObject->Flags & 4) == 0 )
+        v16 = p_ServiceKeyName;
+      result = RtlAppendUnicodeStringToString(&Destination, v16);
+      if ( result >= 0 )
       {
-        appended = PnpDeviceObjectToDeviceInstance(*(_QWORD *)(v23 + 32), (__int64)&cbMax[1], 983103);
+LABEL_7:
+        appended = PiPnpRtlBeginOperation(&P);
         if ( appended < 0 )
-          goto LABEL_59;
-      }
-    }
-    else
-    {
-      appended = RtlAppendUnicodeToString(&Destination, L"\\");
-      if ( appended < 0 )
-        goto LABEL_35;
-      Length = Destination.Length;
-      v79 = Destination.Length;
-      v88 = Destination.Length;
-      v25 = (400 - (unsigned __int64)Destination.Length) >> 1;
-      for ( j = Destination.Length; ; j = v88 )
-      {
-        Destination.Length = Length;
-        LODWORD(v64) = v19;
-        ppszDestEnd = &v90[j >> 1];
-        RtlStringCchPrintfExW(ppszDestEnd, v25, &ppszDestEnd, 0LL, 0, L"%04u", v64);
-        v27 = &ppszDestEnd[-((unsigned __int64)Destination.Length >> 1)] - v90;
-        if ( (_DWORD)v27 == -1 )
-          v28 = 400 - Destination.Length;
+          goto LABEL_40;
+        PpDevNodeLockTree(1);
+        if ( DeviceNode || (DriverObject->Flags & 4) != 0 )
+        {
+          v19 = 0;
+        }
         else
-          v28 = 2 * v27;
-        Destination.Length += v28;
-        appended = CmCreateDevice(
-                     *(__int64 *)&PiPnpRtlCtx,
-                     (__int64)Destination.Buffer,
-                     983103,
-                     (HANDLE *)&cbMax[1],
-                     &v67,
-                     0);
-        if ( appended < 0 )
-          goto LABEL_59;
-        if ( v67 )
         {
-          v30 = Object;
-          goto LABEL_20;
+          v18 = IopDuplicateDetection((unsigned int)LegacyBusType, BusNumber, (unsigned int)ppszDestEnd, &v70);
+          v19 = 0;
+          appended = v18;
+          if ( v18 >= 0 )
+            v69 = v70 != 0LL;
         }
-        v72 = 0;
-        if ( (unsigned __int8)IopIsReportedAlready(
-                                (unsigned int)&Destination,
-                                cbMax[1],
-                                (_DWORD)p_ServiceKeyName,
-                                (_DWORD)ResourceList,
-                                (__int64)&v72) )
-          break;
-        ZwClose(*(HANDLE *)&cbMax[1]);
-        Length = v79;
-        ++v19;
-      }
-      v29 = PnpDeviceObjectFromDeviceInstanceWithTag((__int64)&Destination, 0x746C6644u);
-      Object = v29;
-      v30 = v29;
-      if ( !v29 )
-      {
-        appended = -1073741823;
-        v23 = 0LL;
-        goto LABEL_59;
-      }
-      v23 = *(_QWORD *)(v29[39] + 40LL);
-      v74 = v23;
-LABEL_20:
-      if ( v23 )
-        goto LABEL_21;
-      appended = IopCreateRootEnumeratedDeviceObject(&Object);
-      if ( appended < 0 )
-        goto LABEL_59;
-      v37 = (struct _DEVICE_OBJECT *)Object;
-      v38 = Object;
-      v70 = 1;
-      *((_DWORD *)Object + 12) |= 0x1000u;
-      v39 = PipAllocateDeviceNode((__int64)v38, (__int64)&v74);
-      v23 = v74;
-      if ( v39 == -1073740946 || !v74 )
-      {
-        IoDeleteDevice(v37);
-        appended = -1073741670;
-        goto LABEL_59;
-      }
-      if ( (v80->Flags & 4) == 0 )
-      {
-        Pool2 = ExAllocatePool2(256LL, p_ServiceKeyName->Length, 1215327824LL);
-        *(_QWORD *)(v23 + 64) = Pool2;
-        if ( !Pool2 )
-          goto LABEL_77;
-        *(_WORD *)(v23 + 58) = p_ServiceKeyName->Length;
-        DeviceInstancePath = RtlUpcaseUnicodeString((PUNICODE_STRING)(v23 + 56), p_ServiceKeyName, 0);
-        appended = DeviceInstancePath;
-        if ( DeviceInstancePath < 0 )
-          goto LABEL_78;
-      }
-      DeviceInstancePath = PnpAllocateDeviceInstancePath(v23, (unsigned int)Destination.Length + 2);
-      appended = DeviceInstancePath;
-      if ( DeviceInstancePath < 0 )
-        goto LABEL_78;
-      v42 = RtlUpcaseUnicodeString((PUNICODE_STRING)(v23 + 40), &Destination, 0);
-      appended = v42;
-      if ( v42 < 0 )
-      {
-        v43 = (unsigned int)v42;
-        v44 = 3LL;
-        goto LABEL_86;
-      }
-      *(_WORD *)(*(_QWORD *)(v23 + 48) + 2 * ((unsigned __int64)*(unsigned __int16 *)(v23 + 40) >> 1)) = 0;
-      v75 = 32;
-      v48 = CmSetDeviceRegProp(
-              *(__int64 *)&PiPnpRtlCtx,
-              *(_QWORD *)(v23 + 48),
-              *(__int64 *)&cbMax[1],
-              0xBu,
-              4u,
-              (__int64)&v75,
-              4u,
-              0);
-      appended = v48;
-      if ( v48 < 0 )
-        goto LABEL_80;
-      v68 = -1;
-      v48 = PnpSetObjectProperty(
-              *(__int64 *)&PiPnpRtlCtx,
-              *(_QWORD *)(v23 + 48),
-              1u,
-              *(__int64 *)&cbMax[1],
-              0LL,
-              (__int64)&DEVPKEY_Device_Reported,
-              17,
-              (__int64)&v68,
-              1u,
-              0);
-      appended = v48;
-      if ( v48 < 0 )
-        goto LABEL_80;
-      v48 = PnpUnicodeStringToWstr(&psz, cbMax, &p_ServiceKeyName->Length);
-      appended = v48;
-      if ( v48 < 0 )
-        goto LABEL_80;
-      v49 = (wchar_t *)psz;
-      appended = RtlStringCbLengthW(psz, cbMax[0], &pcbLength);
-      if ( appended < 0 )
-      {
-        PnpUnicodeStringToWstrFree(v49, (__int64)p_ServiceKeyName);
-        v43 = (unsigned int)appended;
-        v44 = 19LL;
-LABEL_86:
-        PipSetDevNodeProblem(v23, v44, v43);
-        goto LABEL_59;
-      }
-      appended = CmSetDeviceRegProp(
-                   *(__int64 *)&PiPnpRtlCtx,
-                   *(_QWORD *)(v23 + 48),
-                   *(__int64 *)&cbMax[1],
-                   5u,
-                   1u,
-                   (__int64)v49,
-                   (int)pcbLength + 2,
-                   0);
-      PnpUnicodeStringToWstrFree(v49, (__int64)p_ServiceKeyName);
-      if ( appended < 0 )
-      {
-        v45 = (unsigned int)appended;
-LABEL_81:
-        v46 = 19LL;
-LABEL_82:
-        v47 = v23;
-LABEL_84:
-        PipSetDevNodeProblem(v47, v46, v45);
-LABEL_59:
-        if ( v67 )
+        CurrentThread = KeGetCurrentThread();
+        --CurrentThread->KernelApcDisable;
+        ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
+        v21 = v70;
+        if ( v70 )
         {
-          if ( KeyHandle )
-            ZwDeleteKey(KeyHandle);
-          if ( Handle )
-            ZwDeleteKey(Handle);
-          if ( *(_QWORD *)&cbMax[1] )
-            ZwDeleteKey(*(HANDLE *)&cbMax[1]);
-          PnpCleanupDeviceRegistryValues(v23 + 40);
-          PpDevNodeRemoveFromTree((_QWORD *)v23);
-          IoDeleteDevice(*(PDEVICE_OBJECT *)(v23 + 32));
-          ObfDereferenceObject(*(PVOID *)(v23 + 32));
-        }
+LABEL_25:
+          if ( v69 )
+          {
+            if ( (unsigned int)PipAreDriversLoaded((__int64)v21)
+              || (*((_DWORD *)v21 + 99) & 0x6000) != 0
+              && ((v51 = *((_DWORD *)v21 + 101), v51 > 0x1C) || (v52 = 268697602, !_bittest(&v52, v51))) )
+            {
+              HalPutDmaAdapter(*((PADAPTER_OBJECT *)v21 + 4));
+              appended = -1073741810;
+              goto LABEL_71;
+            }
+            if ( !v28 )
+              PipClearDevNodeProblem((__int64)v21);
+          }
+          if ( !Handle )
+          {
+            appended = PnpDeviceObjectToDeviceInstance(*((_QWORD *)v21 + 4), (__int64)&Handle, 983103);
+            if ( appended < 0 )
+            {
+LABEL_71:
+              if ( v65 )
+              {
+                if ( KeyHandle )
+                  ZwDeleteKey(KeyHandle);
+                if ( v76 )
+                  ZwDeleteKey(v76);
+                if ( Handle )
+                  ZwDeleteKey(Handle);
+                PnpCleanupDeviceRegistryValues((__int64)(v21 + 40));
+                PpDevNodeRemoveFromTree(v21);
+                IoDeleteDevice(*((PDEVICE_OBJECT *)v21 + 4));
+                HalPutDmaAdapter(*((PADAPTER_OBJECT *)v21 + 4));
+              }
+              goto LABEL_40;
+            }
+          }
+LABEL_31:
+          v29 = v80;
+          if ( !ResourceList && !v80
+            || (v39 = CmOpenDeviceRegKey(
+                        *(__int64 *)&PiPnpRtlCtx,
+                        *((_QWORD *)v21 + 6),
+                        20,
+                        0,
+                        983103,
+                        1,
+                        (__int64)&KeyHandle,
+                        0LL),
+                appended = v39,
+                v39 >= 0)
+            && (!ResourceList || (v39 = PnpSetRegistryResourceList(KeyHandle), appended = v39, v39 >= 0))
+            && (!v29 || (v39 = PnpSetRegistryRequirementsList(KeyHandle), appended = v39, v39 >= 0)) )
+          {
+            if ( ResourceAssigned )
+            {
+              PipSetDevNodeFlags((__int64)v21, 256);
+              PnpSetRegistryDword(Handle);
+              v30 = PnpDetermineResourceListSize(ResourceList);
+              IopWriteAllocatedResourcesToRegistry((__int64)v21, ResourceList, v30);
+            }
+            else if ( ResourceList && ResourceList->Count && ResourceList->List[0].PartialResourceList.Count )
+            {
+              v53 = (unsigned int)PnpDetermineResourceListSize(ResourceList);
+              PoolWithTag = ExAllocatePoolWithTag(PagedPool, v53, 0x47706E50u);
+              v55 = PoolWithTag;
+              if ( !PoolWithTag )
+              {
+LABEL_70:
+                appended = -1073741670;
+                PipSetDevNodeProblem((__int64)v21, 3, -1073741670);
+                goto LABEL_71;
+              }
+              memmove(PoolWithTag, ResourceList, v53);
+              pszFormat = (NTSTRSAFE_PCWSTR)*((_QWORD *)v21 + 4);
+              v56 = *((_QWORD *)pszFormat + 1);
+              v67[0] = 0;
+              appended = IoReportResourceUsageInternal(
+                           0,
+                           v57,
+                           v56,
+                           0,
+                           dwFlags,
+                           (__int64)pszFormat,
+                           (__int64)v55,
+                           v62,
+                           v63,
+                           (__int64)v67);
+              ExFreePoolWithTag(v55, 0x47706E50u);
+              if ( appended < 0 || v67[0] )
+              {
+                if ( !PipIsDevNodeDNStarted((__int64)v21) )
+                  PipSetDevNodeProblem(v58, 12, appended);
+                appended = -1073741800;
+              }
+            }
+            else
+            {
+              PipSetDevNodeFlags((__int64)v21, 256);
+            }
 LABEL_35:
-        ExReleaseResourceLite(&PnpRegistryDeviceResource);
-        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-        PpDevNodeUnlockTree(1);
-        if ( KeyHandle )
-          ZwClose(KeyHandle);
-        if ( Handle )
+            v31 = v64;
+LABEL_36:
+            if ( appended >= 0 )
+            {
+              *((_DWORD *)v21 + 165) = *(_DWORD *)(*((_QWORD *)v21 + 2) + 660LL);
+              IopDoDeferredSetInterfaceState((__int64)v21);
+              PipSetDevNodeState((__int64)v21, 775);
+              if ( v31 )
+                PipSetDevNodeFlags((__int64)v21, 0x80000000);
+              *v85 = (PDEVICE_OBJECT)*((_QWORD *)v21 + 4);
+              goto LABEL_40;
+            }
+            goto LABEL_71;
+          }
+          goto LABEL_116;
+        }
+        appended = RtlAppendUnicodeToString(&Destination, L"\\");
+        if ( appended < 0 )
+        {
+LABEL_40:
+          ExReleaseResourceLite(&PnpRegistryDeviceResource);
+          KeLeaveCriticalRegion();
+          PpDevNodeUnlockTree(1);
+          if ( KeyHandle )
+            ZwClose(KeyHandle);
+          if ( v76 )
+            ZwClose(v76);
+          if ( Handle )
+            ZwClose(Handle);
+          if ( P )
+            PiPnpRtlEndOperation((PVOID **)P);
+          return appended;
+        }
+        Length = Destination.Length;
+        v22 = Destination.Length;
+        v23 = (400 - (unsigned __int64)Destination.Length) >> 1;
+        v24 = &pszDest[(unsigned __int64)Destination.Length >> 1];
+        for ( j = v24; ; v24 = j )
+        {
+          Destination.Length = v22;
+          LODWORD(v61) = v19;
+          ppszDestEnd = v24;
+          RtlStringCchPrintfExW(v24, v23, &ppszDestEnd, 0LL, 0, L"%04u", v61);
+          v25 = &ppszDestEnd[-((unsigned __int64)Destination.Length >> 1)] - pszDest;
+          if ( (_DWORD)v25 == -1 )
+            v26 = 400 - Destination.Length;
+          else
+            v26 = 2 * v25;
+          Destination.Length += v26;
+          appended = CmCreateDevice(*(__int64 *)&PiPnpRtlCtx, (__int64)Destination.Buffer, 983103, &Handle, &v65, 0);
+          if ( appended < 0 )
+            goto LABEL_71;
+          if ( v65 )
+            goto LABEL_23;
+          v69 = 0;
+          if ( (unsigned __int8)IopIsReportedAlready(
+                                  (unsigned int)&Destination,
+                                  (_DWORD)Handle,
+                                  (_DWORD)p_ServiceKeyName,
+                                  (_DWORD)ResourceList,
+                                  (__int64)&v69) )
+            break;
           ZwClose(Handle);
-        if ( *(_QWORD *)&cbMax[1] )
-          ZwClose(*(HANDLE *)&cbMax[1]);
-        if ( P )
-          PiPnpRtlEndOperation((PVOID **)P);
-        return appended;
-      }
-      Handle = 0LL;
-      v48 = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, *(_QWORD *)(v23 + 48), 19, 0, 983103, 1, (__int64)&Handle, 0LL);
-      appended = v48;
-      if ( v48 < 0 )
-        goto LABEL_80;
-      v48 = PnpSetRegistryDword(Handle);
-      appended = v48;
-      if ( v48 < 0 )
-        goto LABEL_80;
-      v51 = v80;
-      if ( (v80->Flags & 4) == 0 )
-      {
-        LOBYTE(v50) = 1;
-        PpDeviceRegistration((__int64)&Destination, v50, v23 + 56, 1);
-      }
-      v52 = (v51->Flags & 4) == 0;
-      v53 = (UNICODE_STRING *)&v86;
-      Destination.Buffer = 0LL;
-      if ( v52 )
-        v53 = p_ServiceKeyName;
-      *(_DWORD *)&Destination.Length = 0;
-      cbMax[0] = 400;
-      if ( (int)IopGetOriginalServiceName(v53, v90, cbMax) >= 0 && cbMax[0] > 2u )
-      {
-        WORD1(v87) = 400;
-        *((_QWORD *)&v87 + 1) = v90;
-        LOWORD(v87) = LOWORD(cbMax[0]) - 2;
-        v53 = (UNICODE_STRING *)&v87;
-      }
-      LegacyDeviceIds = IopCreateLegacyDeviceIds(v37, v53, ResourceList);
-      appended = LegacyDeviceIds;
-      v47 = v23;
-      if ( LegacyDeviceIds < 0 )
-      {
-        v45 = (unsigned int)LegacyDeviceIds;
-        v46 = 19LL;
-        goto LABEL_84;
-      }
-      PipSetDevNodeFlags(v23, 17);
-      *(_DWORD *)(v23 + 660) = *((_DWORD *)IopRootDeviceNode + 165);
-      PipSetDevNodeState(v23, 772);
-      PpDevNodeInsertIntoTree((__int64)IopRootDeviceNode, v23);
-      DeviceInstancePath = PnpMapDeviceObjectToDeviceInstance((__int64)v37, v23 + 40);
-      appended = DeviceInstancePath;
-      if ( DeviceInstancePath < 0 )
-      {
-LABEL_78:
-        v45 = (unsigned int)DeviceInstancePath;
-        goto LABEL_79;
-      }
-      ObfReferenceObject(v37);
-    }
-    v32 = v84;
-    if ( !ResourceList && !v84
-      || (v48 = CmOpenDeviceRegKey(
-                  *(__int64 *)&PiPnpRtlCtx,
-                  *(_QWORD *)(v23 + 48),
-                  20,
-                  0,
-                  983103,
-                  1,
-                  (__int64)&KeyHandle,
-                  0LL),
-          appended = v48,
-          v48 >= 0)
-      && (!ResourceList || (v48 = PnpSetRegistryResourceList(KeyHandle), appended = v48, v48 >= 0))
-      && (!v32 || (v48 = PnpSetRegistryRequirementsList(KeyHandle), appended = v48, v48 >= 0)) )
-    {
-      if ( ResourceAssigned )
-      {
-        PipSetDevNodeFlags(v23, 256);
-        PnpSetRegistryDword(*(HANDLE *)&cbMax[1]);
-        v33 = PnpDetermineResourceListSize(ResourceList);
-        IopWriteAllocatedResourcesToRegistry(v23, ResourceList, v33);
-      }
-      else if ( ResourceList && ResourceList->Count && ResourceList->List[0].PartialResourceList.Count )
-      {
-        v57 = PnpDetermineResourceListSize(ResourceList);
-        v58 = (void *)ExAllocatePool2(256LL, v57, 1198550608LL);
-        v59 = v58;
-        if ( !v58 )
+          v22 = Length;
+          ++v19;
+        }
+        v27 = PnpDeviceObjectFromDeviceInstanceWithTag((__int64)&Destination, 0x746C6644u);
+        *(_QWORD *)&cbMax[1] = v27;
+        if ( v27 )
         {
-LABEL_77:
-          v45 = 3221225626LL;
+          v21 = *(char **)(v27[39] + 40LL);
+        }
+        else
+        {
+          appended = -1073741823;
+          v21 = 0LL;
+        }
+        v70 = v21;
+LABEL_23:
+        if ( appended < 0 )
+          goto LABEL_71;
+        if ( v21 )
+          goto LABEL_25;
+        appended = IopCreateRootEnumeratedDeviceObject(&cbMax[1]);
+        if ( appended < 0 )
+          goto LABEL_71;
+        v34 = *(struct _DEVICE_OBJECT **)&cbMax[1];
+        v35 = *(_QWORD *)&cbMax[1];
+        v31 = 1;
+        v64 = 1;
+        *(_DWORD *)(*(_QWORD *)&cbMax[1] + 48LL) |= 0x1000u;
+        v36 = PipAllocateDeviceNode(v35, (void **)&v70);
+        v21 = v70;
+        if ( v36 == -1073740946 || !v70 )
+        {
+          IoDeleteDevice(v34);
           appended = -1073741670;
-LABEL_79:
-          v46 = 3LL;
-          goto LABEL_82;
+          goto LABEL_71;
         }
-        memmove(v58, ResourceList, v57);
-        pszFormat = *(NTSTRSAFE_PCWSTR *)(v23 + 32);
-        v60 = *((_QWORD *)pszFormat + 1);
-        v69 = 0;
-        appended = IoReportResourceUsageInternal(
-                     0,
-                     v61,
-                     v60,
-                     0,
-                     v62,
-                     (__int64)pszFormat,
-                     (__int64)v59,
-                     v65,
-                     v66,
-                     (__int64)&v69);
-        ExFreePoolWithTag(v59, 0x47706E50u);
-        if ( appended >= 0 && !v69 )
+        if ( (v79->Flags & 4) == 0 )
         {
-LABEL_32:
-          *(_DWORD *)(v23 + 660) = *(_DWORD *)(*(_QWORD *)(v23 + 16) + 660LL);
-          IopDoDeferredSetInterfaceState(v23);
-          PipSetDevNodeState(v23, 777);
-          if ( v70 )
-            PipSetDevNodeFlags(v23, 0x80000000);
-          *v89 = *(PDEVICE_OBJECT *)(v23 + 32);
-          goto LABEL_35;
+          v37 = ExAllocatePoolWithTag(PagedPool, p_ServiceKeyName->Length, 0x48706E50u);
+          *((_QWORD *)v21 + 8) = v37;
+          if ( !v37 )
+            goto LABEL_70;
+          *((_WORD *)v21 + 29) = p_ServiceKeyName->Length;
+          DeviceInstancePath = RtlUpcaseUnicodeString((PUNICODE_STRING)(v21 + 56), p_ServiceKeyName, 0);
+          appended = DeviceInstancePath;
+          if ( DeviceInstancePath < 0 )
+            goto LABEL_80;
         }
-        if ( !(unsigned int)PipIsDevNodeDNStarted(v23) )
-          PipSetDevNodeProblem(v23, 12LL, (unsigned int)appended);
-        appended = -1073741800;
-      }
-      else
-      {
-        PipSetDevNodeFlags(v23, 256);
-      }
-      if ( appended < 0 )
-        goto LABEL_59;
-      goto LABEL_32;
-    }
+        DeviceInstancePath = PnpAllocateDeviceInstancePath((__int64)v21, (unsigned int)Destination.Length + 2);
+        appended = DeviceInstancePath;
+        if ( DeviceInstancePath < 0
+          || (DeviceInstancePath = RtlUpcaseUnicodeString((PUNICODE_STRING)(v21 + 40), &Destination, 0),
+              appended = DeviceInstancePath,
+              DeviceInstancePath < 0) )
+        {
 LABEL_80:
-    v45 = (unsigned int)v48;
-    goto LABEL_81;
+          PipSetDevNodeProblem((__int64)v21, 3, DeviceInstancePath);
+          goto LABEL_36;
+        }
+        *(_WORD *)(*((_QWORD *)v21 + 6) + 2 * ((unsigned __int64)*((unsigned __int16 *)v21 + 20) >> 1)) = 0;
+        v72 = 32;
+        v39 = CmSetDeviceRegProp(
+                *(__int64 *)&PiPnpRtlCtx,
+                *((_QWORD *)v21 + 6),
+                (__int64)Handle,
+                0xBu,
+                4u,
+                (__int64)&v72,
+                4u,
+                0);
+        appended = v39;
+        if ( v39 >= 0 )
+        {
+          v66 = -1;
+          v39 = PnpSetObjectProperty(
+                  *(__int64 *)&PiPnpRtlCtx,
+                  *((_QWORD *)v21 + 6),
+                  1u,
+                  (__int64)Handle,
+                  0LL,
+                  (__int64)&DEVPKEY_Device_Reported,
+                  17,
+                  (__int64)&v66,
+                  1u,
+                  0);
+          appended = v39;
+          if ( v39 >= 0 )
+          {
+            v39 = PnpUnicodeStringToWstr((__int16 **)&psz, cbMax, &p_ServiceKeyName->Length);
+            appended = v39;
+            if ( v39 >= 0 )
+            {
+              v40 = (wchar_t *)psz;
+              appended = RtlStringCbLengthW(psz, cbMax[0], &pcbLength);
+              if ( appended < 0 )
+              {
+                PnpUnicodeStringToWstrFree(v40, (__int64)p_ServiceKeyName);
+LABEL_88:
+                v41 = appended;
+                goto LABEL_89;
+              }
+              appended = CmSetDeviceRegProp(
+                           *(__int64 *)&PiPnpRtlCtx,
+                           *((_QWORD *)v21 + 6),
+                           (__int64)Handle,
+                           5u,
+                           1u,
+                           (__int64)v40,
+                           (int)pcbLength + 2,
+                           0);
+              PnpUnicodeStringToWstrFree(v40, (__int64)p_ServiceKeyName);
+              if ( appended < 0 )
+                goto LABEL_88;
+              v39 = CmOpenDeviceRegKey(
+                      *(__int64 *)&PiPnpRtlCtx,
+                      *((_QWORD *)v21 + 6),
+                      19,
+                      0,
+                      983103,
+                      1,
+                      (__int64)&v76,
+                      0LL);
+              appended = v39;
+              if ( v39 >= 0 )
+              {
+                v39 = PnpSetRegistryDword(v76);
+                appended = v39;
+                if ( v39 >= 0 )
+                {
+                  v45 = v79;
+                  Flags = v79->Flags;
+                  v47 = (Flags & 4) == 0;
+                  if ( (Flags & 4) == 0 )
+                  {
+                    LOBYTE(v44) = 1;
+                    PpDeviceRegistration((__int64)&Destination, v44, (__int64)(v21 + 56), 1);
+                    v47 = (v45->Flags & 4) == 0;
+                  }
+                  v48 = (UNICODE_STRING *)&v82;
+                  if ( v47 )
+                    v48 = p_ServiceKeyName;
+                  LegacyDeviceIds = IopCreateLegacyDeviceIds(v34, v48, ResourceList);
+                  appended = LegacyDeviceIds;
+                  v43 = (__int64)v21;
+                  if ( LegacyDeviceIds < 0 )
+                  {
+                    v41 = LegacyDeviceIds;
+                    v42 = 19;
+                    goto LABEL_93;
+                  }
+                  PipSetDevNodeFlags((__int64)v21, 17);
+                  *((_DWORD *)v21 + 165) = *((_DWORD *)IopRootDeviceNode + 165);
+                  PipSetDevNodeState((__int64)v21, 770);
+                  PpDevNodeInsertIntoTree((__int64)IopRootDeviceNode, (__int64)v21);
+                  v50 = PnpMapDeviceObjectToDeviceInstance((__int64)v34, (__int64)(v21 + 40));
+                  appended = v50;
+                  if ( v50 < 0 )
+                  {
+                    v41 = v50;
+                    v42 = 3;
+LABEL_91:
+                    v43 = (__int64)v21;
+LABEL_93:
+                    PipSetDevNodeProblem(v43, v42, v41);
+                    goto LABEL_35;
+                  }
+                  ObfReferenceObject(v34);
+                  goto LABEL_31;
+                }
+              }
+            }
+          }
+        }
+LABEL_116:
+        v41 = v39;
+LABEL_89:
+        v42 = 19;
+        goto LABEL_91;
+      }
+    }
   }
   return result;
 }

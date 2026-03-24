@@ -1,22 +1,23 @@
 /*
- * XREFs of VerifierMmMapIoSpace @ 0x140AE3FF0
+ * XREFs of VerifierMmMapIoSpace @ 0x1409E69B0
  * Callers:
  *     <none>
  * Callees:
- *     MmMapIoSpaceEx @ 0x140335810 (MmMapIoSpaceEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViTargetAddToCounter @ 0x140ACC994 (ViTargetAddToCounter.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD6FAC (VfFaultsInjectResourceFailure.c)
- *     MmCheckMapIoSpace @ 0x140AE936C (MmCheckMapIoSpace.c)
+ *     MmMapIoSpaceEx @ 0x1402E7FA0 (MmMapIoSpaceEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     MmCheckMapIoSpace @ 0x1409C5EB8 (MmCheckMapIoSpace.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x1409D72C0 (ViTargetAddToCounter.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC83C (VfFaultsInjectResourceFailure.c)
+ *     VfAllocPoolNotification @ 0x1409DFFC4 (VfAllocPoolNotification.c)
  */
 
 __int64 __fastcall VerifierMmMapIoSpace(ULONG_PTR BugCheckParameter3, ULONG_PTR a2, unsigned int a3)
 {
   unsigned __int8 CurrentIrql; // cl
-  unsigned int v7; // r8d
-  __int64 v8; // rax
-  __int64 v9; // rbx
+  unsigned int v8; // r8d
+  __int64 v9; // rax
+  __int64 v10; // rbx
   __int64 retaddr; // [rsp+38h] [rbp+0h]
 
   CurrentIrql = KeGetCurrentIrql();
@@ -24,31 +25,29 @@ __int64 __fastcall VerifierMmMapIoSpace(ULONG_PTR BugCheckParameter3, ULONG_PTR 
     VerifierBugCheckIfAppropriate(0xC4u, 0x73uLL, CurrentIrql, (unsigned int)BugCheckParameter3, a2);
   if ( (MmVerifierData & 1) != 0 )
     MmCheckMapIoSpace(BugCheckParameter3, a2);
-  if ( (unsigned int)VfFaultsInjectResourceFailure(0) == 1
-    || (VfRuleClasses & 0x40000) != 0 && ViFnAutoFailInject && (unsigned __int8)ViFnAutoFailInject("MmMapIoSpace") )
-  {
+  if ( (unsigned int)VfFaultsInjectResourceFailure(0) == 1 )
     return 0LL;
-  }
   if ( (MmVerifierData & 0x2000000) != 0 )
   {
-    v7 = 4;
+    v8 = 4;
     if ( a3 != 1 )
     {
-      v7 = 516;
+      v8 = 516;
       if ( a3 == 2 )
-        v7 = 1028;
+        v8 = 1028;
     }
-    v8 = MmMapIoSpaceEx(BugCheckParameter3, a2, v7);
+    v9 = MmMapIoSpaceEx(BugCheckParameter3, a2, v8);
   }
   else
   {
-    v8 = ((__int64 (__fastcall *)(ULONG_PTR, ULONG_PTR, _QWORD))pXdvMmMapIoSpace)(BugCheckParameter3, a2, a3);
+    v9 = ((__int64 (__fastcall *)(ULONG_PTR, ULONG_PTR, _QWORD))pXdvMmMapIoSpace)(BugCheckParameter3, a2, a3);
   }
-  v9 = v8;
-  if ( v8 )
+  v10 = v9;
+  VfAllocPoolNotification();
+  if ( v10 )
   {
     if ( (MmVerifierData & 0x1000) != 0 )
-      ViTargetAddToCounter(retaddr, 216LL, 0xE0u, a2);
+      ViTargetAddToCounter(retaddr, 208LL, 0xD8u, a2);
   }
-  return v9;
+  return v10;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiVadPageTableChargeLevel @ 0x14030DA10
+ * XREFs of MiVadPageTableChargeLevel @ 0x14021BA20
  * Callers:
- *     MiReturnPageTablePageCommitment @ 0x1407B92D0 (MiReturnPageTablePageCommitment.c)
- *     MiCommitPageTablesForVad @ 0x1407BDB60 (MiCommitPageTablesForVad.c)
+ *     MiCommitPageTablesForVad @ 0x1405F91A0 (MiCommitPageTablesForVad.c)
+ *     MiReturnPageTablePageCommitment @ 0x1406EE990 (MiReturnPageTablePageCommitment.c)
  * Callees:
- *     MiGetAweVadPageSize @ 0x14097D244 (MiGetAweVadPageSize.c)
+ *     MiGetAweVadPageSize @ 0x1408D60A8 (MiGetAweVadPageSize.c)
  */
 
 __int64 __fastcall MiVadPageTableChargeLevel(__int64 a1)
@@ -12,32 +12,25 @@ __int64 __fastcall MiVadPageTableChargeLevel(__int64 a1)
   unsigned int v1; // edx
   __int64 result; // rax
   unsigned int v3; // ecx
-  unsigned __int64 AweVadPageSize; // rax
 
   v1 = *(_DWORD *)(a1 + 48);
-  if ( (v1 & 0x200000) != 0 )
+  if ( (v1 & 0x100000) != 0 )
   {
-    if ( (v1 & 0x800000) == 0 && (v1 & 0x180000) < 0x100000 )
-      goto LABEL_4;
+    if ( (v1 & 0x400000) == 0 && (v1 & 0xC0000) < 0x80000 )
+    {
+LABEL_4:
+      if ( (*(_BYTE *)(a1 + 48) & 0x70) == 0x30 )
+        return MiGetAweVadPageSize();
+      return 0LL;
+    }
   }
   else
   {
     if ( (*(_DWORD *)(a1 + 64) & 0x1000000) == 0 )
-    {
-LABEL_4:
-      if ( (*(_BYTE *)(a1 + 48) & 0x70) == 0x30 )
-      {
-        AweVadPageSize = MiGetAweVadPageSize(a1);
-        if ( AweVadPageSize == 512 )
-          return 1LL;
-        if ( AweVadPageSize >= 0x40000 )
-          return 2LL;
-      }
-      return 0LL;
-    }
+      goto LABEL_4;
     v1 = *(_DWORD *)(a1 + 48);
   }
-  v3 = MiVadPageIndices[(v1 >> 19) & 3];
+  v3 = MiVadPageIndices[(v1 >> 18) & 3];
   if ( v3 > 1 )
     return 0LL;
   result = 1LL;

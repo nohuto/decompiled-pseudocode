@@ -1,5 +1,5 @@
 /*
- * XREFs of _strrev @ 0x1403E1280
+ * XREFs of _strrev @ 0x1403D1EC0
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Initialize@CD2DResource@@MEAAJXZ @ 0x1800E3A10
+ * XREFs of ?Initialize@CD2DResource@@MEAAJXZ @ 0x1800CE030
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?AddHwProtectedResource@CD2DContext@@IEAAXXZ @ 0x180277788 (-AddHwProtectedResource@CD2DContext@@IEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?AddHwProtectedResource@CD2DContext@@IEAAXXZ @ 0x18023B18C (-AddHwProtectedResource@CD2DContext@@IEAAXXZ.c)
  */
 
 __int64 __fastcall CD2DResource::Initialize(CD2DResource *this)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetNotifiedEffectiveLayoutSize@CVisual@@QEAAXUVector2@Numerics@Foundation@Windows@@@Z @ 0x1800E073C
+ * XREFs of ?SetNotifiedEffectiveLayoutSize@CVisual@@QEAAXUVector2@Numerics@Foundation@Windows@@@Z @ 0x1801AEA10
  * Callers:
- *     ?IssueContextUpdateNotification@CVisual@@IEAAXMAEBUD2D_VECTOR_2F@@@Z @ 0x1800E00EC (-IssueContextUpdateNotification@CVisual@@IEAAXMAEBUD2D_VECTOR_2F@@@Z.c)
+ *     ?IssueContextUpdateNotification@CVisual@@IEAAXMAEBUD2D_VECTOR_2F@@@Z @ 0x1801ADE88 (-IssueContextUpdateNotification@CVisual@@IEAAXMAEBUD2D_VECTOR_2F@@@Z.c)
  * Callees:
- *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x180038ACC (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
+ *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x1800639F0 (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
  */
 
 void __fastcall CVisual::SetNotifiedEffectiveLayoutSize(__int64 a1, __int64 a2)
@@ -11,9 +11,9 @@ void __fastcall CVisual::SetNotifiedEffectiveLayoutSize(__int64 a1, __int64 a2)
   CSparseStorage *v2; // rcx
   _QWORD v3[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v2 = (CSparseStorage *)(a1 + 224);
+  v2 = (CSparseStorage *)(a1 + 216);
   v3[0] = a2;
-  if ( a2 == `CVisual::SetRelativeLayoutSizeInternal'::`2'::sc_defaultValue )
+  if ( a2 == `CVisual::SetNotifiedEffectiveLayoutSize'::`2'::sc_defaultValue )
     *(_DWORD *)(*(_QWORD *)v2 + 4LL) &= ~0x800000u;
   else
     CSparseStorage::SetData(v2, 9u, 8u, v3);

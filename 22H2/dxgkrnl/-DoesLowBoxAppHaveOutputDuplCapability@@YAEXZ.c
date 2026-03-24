@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DoesLowBoxAppHaveOutputDuplCapability@@YAEXZ @ 0x1C032B470
+ * XREFs of ?DoesLowBoxAppHaveOutputDuplCapability@@YAEXZ @ 0x1C0299AA8
  * Callers:
- *     DxgkCreateOutputDupl @ 0x1C032FC50 (DxgkCreateOutputDupl.c)
+ *     DxgkCreateOutputDupl @ 0x1C029D5E0 (DxgkCreateOutputDupl.c)
  * Callees:
  *     <none>
  */

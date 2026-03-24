@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiSetLayout @ 0x1C010F5A0
+ * XREFs of NtGdiSetLayout @ 0x1C0124EF0
  * Callers:
  *     <none>
  * Callees:

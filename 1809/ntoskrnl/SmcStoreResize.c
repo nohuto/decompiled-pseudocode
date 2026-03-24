@@ -1,7 +1,7 @@
 /*
- * XREFs of SmcStoreResize @ 0x1408AF61C
+ * XREFs of SmcStoreResize @ 0x1408AF5FC
  * Callers:
- *     SmcProcessResizeRequest @ 0x1408AC16C (SmcProcessResizeRequest.c)
+ *     SmcProcessResizeRequest @ 0x1408AC14C (SmcProcessResizeRequest.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
@@ -12,11 +12,11 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     SmAlloc @ 0x1400E4B34 (SmAlloc.c)
- *     SmStoreResize @ 0x1408ABB9C (SmStoreResize.c)
- *     SmcCacheReference @ 0x1408AECC8 (SmcCacheReference.c)
- *     SmcStoreEntryFind @ 0x1408AF4C0 (SmcStoreEntryFind.c)
- *     SmcStorePlacementGet @ 0x1408AF500 (SmcStorePlacementGet.c)
+ *     SmAlloc @ 0x1400E4B54 (SmAlloc.c)
+ *     SmStoreResize @ 0x1408ABB7C (SmStoreResize.c)
+ *     SmcCacheReference @ 0x1408AECA8 (SmcCacheReference.c)
+ *     SmcStoreEntryFind @ 0x1408AF4A0 (SmcStoreEntryFind.c)
+ *     SmcStorePlacementGet @ 0x1408AF4E0 (SmcStorePlacementGet.c)
  */
 
 __int64 __fastcall SmcStoreResize(__int64 a1, _DWORD *a2)

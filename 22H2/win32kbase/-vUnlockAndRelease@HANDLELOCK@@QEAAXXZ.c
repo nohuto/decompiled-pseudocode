@@ -1,198 +1,170 @@
 /*
- * XREFs of ?vUnlockAndRelease@HANDLELOCK@@QEAAXXZ @ 0x1C0045760
+ * XREFs of ?vUnlockAndRelease@HANDLELOCK@@QEAAXXZ @ 0x1C0033220
  * Callers:
- *     HmgRemoveObject @ 0x1C0047F80 (HmgRemoveObject.c)
- *     HmgFree @ 0x1C0088BA0 (HmgFree.c)
- *     HmgShareUnlockRemoveObject @ 0x1C0099840 (HmgShareUnlockRemoveObject.c)
+ *     HmgRemoveObject @ 0x1C0032640 (HmgRemoveObject.c)
+ *     HmgFree @ 0x1C007C860 (HmgFree.c)
+ *     HmgShareUnlockRemoveObject @ 0x1C0086470 (HmgShareUnlockRemoveObject.c)
  * Callees:
- *     ?GetW32ProcessFromId@@YAPEAU_W32PROCESS@@KPEAPEAU_EPROCESS@@@Z @ 0x1C0041730 (-GetW32ProcessFromId@@YAPEAU_W32PROCESS@@KPEAPEAU_EPROCESS@@@Z.c)
- *     GreReleaseHmgrSemaphore @ 0x1C00427F0 (GreReleaseHmgrSemaphore.c)
- *     GreAcquireHmgrSemaphore @ 0x1C0042870 (GreAcquireHmgrSemaphore.c)
- *     ?AcquireEntryLock@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0043870 (-AcquireEntryLock@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
- *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0044030 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00442B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
- *     ?GetEtwGdiHandleType@@YA?AW4EtwGdiHandleType@@E@Z @ 0x1C0046EB0 (-GetEtwGdiHandleType@@YA-AW4EtwGdiHandleType@@E@Z.c)
- *     ?ReleaseLockAndEntry@GdiHandleEntryDirectory@@QEAAXI_N@Z @ 0x1C0047C58 (-ReleaseLockAndEntry@GdiHandleEntryDirectory@@QEAAXI_N@Z.c)
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C00DFACC (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     ?AcquireEntryLock@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0030C60 (-AcquireEntryLock@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0031220 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00313F0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?ReleaseLockAndEntry@GdiHandleEntryDirectory@@QEAAXI_N@Z @ 0x1C0033140 (-ReleaseLockAndEntry@GdiHandleEntryDirectory@@QEAAXI_N@Z.c)
+ *     ?GetEtwGdiHandleType@@YA?AW4EtwGdiHandleType@@E@Z @ 0x1C00335E0 (-GetEtwGdiHandleType@@YA-AW4EtwGdiHandleType@@E@Z.c)
+ *     ?GetW32ProcessFromId@@YAPEAU_W32PROCESS@@KPEAPEAU_EPROCESS@@@Z @ 0x1C003370C (-GetW32ProcessFromId@@YAPEAU_W32PROCESS@@KPEAPEAU_EPROCESS@@@Z.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C003A090 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C003A1E0 (GreAcquireHmgrSemaphore.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C01262A8 (McTemplateK0pqqq_EtwWriteTransfer.c)
  */
 
-void __fastcall HANDLELOCK::vUnlockAndRelease(HANDLELOCK *this, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall HANDLELOCK::vUnlockAndRelease(HANDLELOCK *this)
 {
-  int v5; // ebx
-  unsigned int v6; // edi
-  char EtwGdiHandleType; // r15
-  __int64 v8; // rcx
-  __int64 v9; // rsi
-  unsigned int v10; // eax
-  __int64 v11; // r8
-  unsigned __int64 v12; // rdx
-  __int64 v13; // r9
-  __int64 v14; // rcx
-  __int64 *v15; // rdx
-  __int64 v16; // rsi
-  __int64 v17; // rcx
-  __int64 v18; // rdi
-  __int64 v19; // rbx
-  unsigned int v20; // eax
-  __int64 v21; // r8
-  unsigned __int64 v22; // rdx
-  unsigned int v23; // r9d
-  __int64 v24; // r8
-  _DWORD *v25; // r15
-  unsigned int v26; // ebx
-  __int64 v27; // r8
-  __int64 v28; // rsi
-  unsigned int v29; // edx
-  __int64 v30; // rax
-  __int64 v31; // r8
-  _QWORD **v32; // r11
-  unsigned __int64 v33; // r10
-  __int64 v34; // rcx
-  unsigned __int64 W32ProcessFromId; // rsi
-  __int64 v36; // rcx
-  _DWORD *v37; // rax
-  int v38; // r8d
-  unsigned int v39; // esi
+  int v2; // ebx
+  unsigned int v3; // edi
+  unsigned __int16 *v4; // r15
+  unsigned int v5; // ebx
+  GdiHandleManager *v6; // rdi
+  __int64 v7; // rdx
+  unsigned int v8; // r8d
+  __int64 v9; // rcx
+  __int64 v10; // r9
+  _DWORD *v11; // r15
+  unsigned int v12; // ebx
+  __int64 v13; // r8
+  __int64 v14; // rsi
+  unsigned int v15; // edx
+  __int64 v16; // rcx
+  __int64 v17; // r9
+  __int64 v18; // r11
+  __int64 v19; // rcx
+  struct _W32PROCESS *W32ProcessFromId; // rsi
+  __int64 v21; // rcx
+  char EtwGdiHandleType; // al
+  _QWORD *v23; // r9
+  int v24; // ecx
+  int v25; // r8d
+  unsigned int v26; // r12d
   PVOID Object; // [rsp+70h] [rbp+8h] BYREF
 
-  v5 = *(_DWORD *)(*(_QWORD *)this + 8LL);
-  v6 = v5 & 0xFFFFFFFE;
-  if ( (v5 & 0xFFFFFFFE) != 0 && v6 != -2147483630 )
+  v2 = *(_DWORD *)(*(_QWORD *)this + 8LL);
+  v3 = v2 & 0xFFFFFFFE;
+  if ( (v2 & 0xFFFFFFFE) != 0 && v3 != -2147483630 )
   {
     Object = 0LL;
-    W32ProcessFromId = GetW32ProcessFromId(v6, (struct _EPROCESS **)&Object);
+    W32ProcessFromId = GetW32ProcessFromId(v3, (struct _EPROCESS **)&Object);
     if ( W32ProcessFromId )
     {
-      GreAcquireHmgrSemaphore(v34);
-      --*(_DWORD *)(W32ProcessFromId + 60);
-      GreReleaseHmgrSemaphore(v36);
+      GreAcquireHmgrSemaphore(v19);
+      --*((_DWORD *)W32ProcessFromId + 15);
+      GreReleaseHmgrSemaphore(v21);
     }
     if ( Object )
       ObfDereferenceObject(Object);
   }
-  EtwGdiHandleType = GetEtwGdiHandleType(*(unsigned __int8 *)(*(_QWORD *)this + 14LL), a2, a3, a4);
-  v9 = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(v8) + 24) + 8008LL);
-  v10 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)v9, **(_DWORD **)this & 0xFFFFFF);
-  v11 = *(_QWORD *)(v9 + 16);
-  v12 = v10;
-  v13 = *(unsigned int *)(v11 + 2056);
-  v14 = (unsigned int)v13 + ((*(unsigned __int16 *)(v11 + 2) + 0xFFFF) << 16);
-  if ( v10 >= (unsigned int)v14
-    || (v10 >= (unsigned int)v13
-      ? (v14 = ((v10 - (unsigned int)v13) >> 16) + 1,
-         v11 = *(_QWORD *)(v11 + 8 * v14 + 8),
-         v12 = -65536 * ((v10 - (unsigned int)v13) >> 16) - (_DWORD)v13 + v10)
-      : (v11 = *(_QWORD *)(v11 + 8)),
-        (unsigned int)v12 >= *(_DWORD *)(v11 + 20)) )
-  {
-    v15 = 0LL;
-  }
-  else
-  {
-    v14 = 2LL * (unsigned __int8)v12;
-    v15 = *(__int64 **)(*(_QWORD *)(**(_QWORD **)(v11 + 24) + 8 * (v12 >> 8)) + 16LL * (unsigned __int8)v12 + 8);
-  }
-  v16 = *v15;
+  v4 = *(unsigned __int16 **)this;
+  GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)gpHandleManager, **(_DWORD **)this & 0xFFFFFF);
   if ( (Microsoft_Windows_Win32kEnableBits & 0x40000000000LL) != 0 )
   {
-    v37 = (_DWORD *)SGDGetUserSessionState(v14, v15, v11, v13);
-    McTemplateK0pqqq_EtwWriteTransfer(*v37, (unsigned int)&GdiDestroyHandle, v38, v16, EtwGdiHandleType, *v37, v6);
+    EtwGdiHandleType = GetEtwGdiHandleType(*((unsigned __int8 *)v4 + 14));
+    McTemplateK0pqqq_EtwWriteTransfer(v24, (unsigned int)&GdiDestroyHandle, v25, *v23, EtwGdiHandleType);
+    v4 = *(unsigned __int16 **)this;
   }
-  *(_BYTE *)(*(_QWORD *)this + 14LL) = 0;
+  *((_BYTE *)v4 + 14) = 0;
   *(_QWORD *)(*(_QWORD *)this + 16LL) = 0LL;
-  *(_DWORD *)(*(_QWORD *)this + 8LL) = v5 & 1;
-  v17 = *(_QWORD *)(SGDGetSessionState(v14) + 24);
-  v18 = *(_QWORD *)(v17 + 8008);
-  v19 = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(v17) + 24) + 8008LL);
-  v20 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)v19, **(_DWORD **)this & 0xFFFFFF);
-  v21 = *(_QWORD *)(v19 + 16);
-  v22 = v20;
-  v23 = *(_DWORD *)(v21 + 2056);
-  if ( v20 >= v23 + ((*(unsigned __int16 *)(v21 + 2) + 0xFFFF) << 16)
-    || (v20 >= v23
-      ? (v24 = *(_QWORD *)(v21 + 8LL * (((v20 - v23) >> 16) + 1) + 8), v22 = -65536 * ((v20 - v23) >> 16) - v23 + v20)
-      : (v24 = *(_QWORD *)(v21 + 8)),
-        (unsigned int)v22 >= *(_DWORD *)(v24 + 20)) )
+  *(_DWORD *)(*(_QWORD *)this + 8LL) = v2 & 1;
+  v5 = **(_DWORD **)this & 0xFFFFFF;
+  if ( v5 >= 0x10000 )
   {
-    v25 = 0LL;
-  }
-  else
-  {
-    v25 = *(_DWORD **)(*(_QWORD *)(**(_QWORD **)(v24 + 24) + 8 * (v22 >> 8)) + 16LL * (unsigned __int8)v22 + 8);
-  }
-  v26 = (unsigned __int16)*v25 | (*v25 >> 8) & 0xFF0000;
-  if ( v26 >= 0x10000 )
-  {
-    if ( *(_DWORD *)v18 > 0x10000u )
+    if ( *(_DWORD *)gpHandleManager > 0x10000u )
     {
       if ( *((unsigned __int8 *)GdiHandleEntryDirectory::GetEntry(
-                                  *(GdiHandleEntryDirectory **)(v18 + 16),
-                                  (unsigned __int16)*v25,
+                                  *((GdiHandleEntryDirectory **)gpHandleManager + 2),
+                                  **(unsigned __int16 **)this,
                                   1)
-           + 13) == HIWORD(v26) )
-        v26 = (unsigned __int16)v26;
+           + 13) == HIWORD(v5) )
+        v5 = (unsigned __int16)v5;
     }
     else
     {
-      v26 = (unsigned __int16)*v25;
+      v5 = **(unsigned __int16 **)this;
     }
   }
-  v27 = *(_QWORD *)(v18 + 24);
-  if ( v27 )
+  v6 = gpHandleManager;
+  v7 = *((_QWORD *)gpHandleManager + 2);
+  v8 = *(_DWORD *)(v7 + 2056);
+  if ( v5 >= v8 + ((*(unsigned __int16 *)(v7 + 2) + 0xFFFF) << 16) )
+    goto LABEL_36;
+  v9 = ((v5 - v8) >> 16) + 1;
+  if ( v5 < v8 )
+    v9 = 0LL;
+  v10 = *(_QWORD *)(v7 + 8 * v9 + 8);
+  if ( (_DWORD)v9 )
+    v5 += ((1 - (_DWORD)v9) << 16) - v8;
+  if ( v5 >= *(_DWORD *)(v10 + 20) )
+LABEL_36:
+    v11 = 0LL;
+  else
+    v11 = *(_DWORD **)(*(_QWORD *)(**(_QWORD **)(v10 + 24) + 8 * ((unsigned __int64)v5 >> 8))
+                     + 16LL * (unsigned __int8)v5
+                     + 8);
+  v12 = (unsigned __int16)*v11 | (*v11 >> 8) & 0xFF0000;
+  if ( v12 >= 0x10000 )
   {
-    v39 = *(_DWORD *)(4LL * (unsigned __int16)v26 + v27);
-    if ( v39 )
+    if ( *(_DWORD *)gpHandleManager > 0x10000u )
     {
-      if ( GdiHandleEntryDirectory::AcquireEntryLock(*(GdiHandleEntryDirectory **)(v18 + 16), v39, 1) )
-        GdiHandleEntryDirectory::ReleaseLockAndEntry(*(GdiHandleEntryDirectory **)(v18 + 16), v39, 1);
-      *(_DWORD *)(4LL * (unsigned __int16)v26 + *(_QWORD *)(v18 + 24)) = 0;
-      --*(_DWORD *)(v18 + 4);
+      if ( *((unsigned __int8 *)GdiHandleEntryDirectory::GetEntry(
+                                  *((GdiHandleEntryDirectory **)gpHandleManager + 2),
+                                  (unsigned __int16)*v11,
+                                  1)
+           + 13) == HIWORD(v12) )
+        v12 = (unsigned __int16)v12;
+    }
+    else
+    {
+      v12 = (unsigned __int16)*v11;
     }
   }
-  v28 = *(_QWORD *)(v18 + 16);
-  v29 = *(_DWORD *)(v28 + 2056);
-  if ( v26 < v29 + ((*(unsigned __int16 *)(v28 + 2) + 0xFFFF) << 16) )
+  v13 = *((_QWORD *)v6 + 3);
+  v14 = *((_QWORD *)v6 + 2);
+  if ( v13 )
   {
-    if ( v26 >= v29 )
+    v26 = *(_DWORD *)(v13 + 4LL * (unsigned __int16)v12);
+    if ( v26 )
     {
-      v31 = *(_QWORD *)(v28 + 8LL * (((v26 - v29) >> 16) + 1) + 8);
-      v26 += -65536 * ((v26 - v29) >> 16) - v29;
-      v30 = v31;
+      if ( GdiHandleEntryDirectory::AcquireEntryLock(*((GdiHandleEntryDirectory **)v6 + 2), v26, 1) )
+        GdiHandleEntryDirectory::ReleaseLockAndEntry(*((GdiHandleEntryDirectory **)v6 + 2), v26, 1);
+      *(_DWORD *)(*((_QWORD *)v6 + 3) + 4LL * (unsigned __int16)v12) = 0;
+      --*((_DWORD *)v6 + 1);
+      v14 = *((_QWORD *)v6 + 2);
     }
-    else
+  }
+  v15 = *(_DWORD *)(v14 + 2056);
+  if ( v12 < v15 + ((*(unsigned __int16 *)(v14 + 2) + 0xFFFF) << 16) )
+  {
+    v16 = ((v12 - v15) >> 16) + 1;
+    if ( v12 < v15 )
+      v16 = 0LL;
+    v17 = *(_QWORD *)(v14 + 8 * v16 + 8);
+    if ( (_DWORD)v16 )
+      v12 += ((1 - (_DWORD)v16) << 16) - v15;
+    if ( v12 < *(_DWORD *)(v17 + 20) )
     {
-      v30 = *(_QWORD *)(v28 + 8);
-      v31 = v30;
-    }
-    if ( v26 >= *(_DWORD *)(v31 + 20) )
-    {
-      v32 = (_QWORD **)(v30 + 24);
-    }
-    else
-    {
-      v32 = (_QWORD **)(v31 + 24);
-      if ( *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v31 + 24) + 8 * ((unsigned __int64)v26 >> 8))
-                     + 16LL * (unsigned __int8)v26
-                     + 8) )
+      v18 = *(_QWORD *)(**(_QWORD **)(v17 + 24) + 8 * ((unsigned __int64)v12 >> 8));
+      if ( *(_QWORD *)(v18 + 16LL * (unsigned __int8)v12 + 8) )
       {
-        v33 = (unsigned __int64)v26 >> 8;
-        *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v31 + 24) + 8 * v33) + 16LL * (unsigned __int8)v26 + 8) = 0LL;
-        *(_QWORD *)(*(_QWORD *)v31 + 24LL * v26) = *(unsigned int *)(v31 + 12);
-        --*(_DWORD *)(v31 + 16);
-        *(_DWORD *)(v31 + 12) = v26;
-LABEL_24:
-        ExReleasePushLockExclusiveEx(*(_QWORD *)(**v32 + 8 * v33) + 16LL * (unsigned __int8)v26, 0LL);
-        KeLeaveCriticalRegion();
-        *(_BYTE *)v28 = 0;
-        goto LABEL_25;
+        *(_QWORD *)(v18 + 16LL * (unsigned __int8)v12 + 8) = 0LL;
+        *(_QWORD *)(*(_QWORD *)v17 + 24LL * v12) = *(unsigned int *)(v17 + 12);
+        --*(_DWORD *)(v17 + 16);
+        *(_DWORD *)(v17 + 12) = v12;
       }
     }
-    v33 = (unsigned __int64)v26 >> 8;
-    goto LABEL_24;
+    ExReleasePushLockExclusiveEx(
+      *(_QWORD *)(**(_QWORD **)(v17 + 24) + 8 * ((unsigned __int64)v12 >> 8)) + 16LL * (unsigned __int8)v12,
+      0LL);
+    KeLeaveCriticalRegion();
+    *(_BYTE *)v14 = 0;
   }
-LABEL_25:
-  *(_QWORD *)v25 = 0LL;
-  --*(_DWORD *)(v18 + 4);
+  *(_QWORD *)v11 = 0LL;
+  --*((_DWORD *)v6 + 1);
   *((_DWORD *)this + 2) = 0;
   *(_QWORD *)this = 0LL;
   KeLeaveCriticalRegion();

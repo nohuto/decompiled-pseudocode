@@ -1,58 +1,52 @@
 /*
- * XREFs of MiLockVadCore @ 0x1402876B0
+ * XREFs of MiLockVadCore @ 0x140307108
  * Callers:
- *     MiCaptureWriteWatchDirtyBit @ 0x1402170D0 (MiCaptureWriteWatchDirtyBit.c)
- *     MiMoveDirtyBitsToPfns @ 0x1402858F0 (MiMoveDirtyBitsToPfns.c)
- *     MiSetVadFlags @ 0x140287590 (MiSetVadFlags.c)
- *     NtGetWriteWatch @ 0x1402EA260 (NtGetWriteWatch.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x14025A9BC (MiCaptureWriteWatchDirtyBit.c)
+ *     NtGetWriteWatch @ 0x1402ACCE0 (NtGetWriteWatch.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
  */
 
-__int64 __fastcall MiLockVadCore(__int64 a1)
+unsigned __int8 __fastcall MiLockVadCore(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  unsigned __int8 CurrentIrql; // bl
-  signed __int32 v3; // eax
-  signed __int32 v4; // ett
-  _DWORD *SchedulerAssist; // r8
-  __int64 v7; // r9
-  int v8; // [rsp+38h] [rbp+10h] BYREF
+  unsigned __int8 CurrentIrql; // di
+  signed __int32 v6; // eax
+  signed __int32 v7; // ett
+  int v9; // [rsp+38h] [rbp+10h] BYREF
 
-  v8 = 0;
+  v9 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 2 )
-      LODWORD(v7) = 4;
-    else
-      v7 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v7;
+    a2 = (-1LL << (CurrentIrql + 1)) & 4;
+    a3 = (unsigned int)a2 | SchedulerAssist[5];
+    SchedulerAssist[5] = a3;
   }
-  v3 = *(_DWORD *)(a1 + 48);
+  v6 = *(_DWORD *)(a1 + 48);
   do
   {
-    while ( (v3 & 1) != 0 )
+    while ( (v6 & 1) != 0 )
     {
-      if ( (v3 & 2) != 0 )
+      if ( (v6 & 2) != 0 )
       {
-        v8 = 0;
+        v9 = 0;
         do
         {
-          KeYieldProcessorEx(&v8);
-          v3 = *(_DWORD *)(a1 + 48);
+          KeYieldProcessorEx(&v9, a2, a3, (__int64)SchedulerAssist);
+          v6 = *(_DWORD *)(a1 + 48);
         }
-        while ( (v3 & 1) != 0 );
+        while ( (v6 & 1) != 0 );
       }
       else
       {
-        v3 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 48), v3 | 2, v3);
+        v6 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 48), v6 | 2, v6);
       }
     }
-    v4 = v3;
-    v3 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 48), v3 & 0xFFFFFFFC | 1, v3);
+    v7 = v6;
+    v6 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 48), v6 & 0xFFFFFFFC | 1, v6);
   }
-  while ( v4 != v3 );
+  while ( v7 != v6 );
   return CurrentIrql;
 }

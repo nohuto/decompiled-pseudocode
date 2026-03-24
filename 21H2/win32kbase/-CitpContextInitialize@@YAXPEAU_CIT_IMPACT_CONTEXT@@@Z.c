@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CitpContextInitialize@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00A6064
+ * XREFs of ?CitpContextInitialize@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008BC2C
  * Callers:
- *     ?CitpStart@@YAJXZ @ 0x1C00A3AFC (-CitpStart@@YAJXZ.c)
+ *     ?CitpStart@@YAJXZ @ 0x1C008BB2C (-CitpStart@@YAJXZ.c)
  * Callees:
- *     ?SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z @ 0x1C00168D4 (-SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z.c)
- *     ?CitpContextResetTrackingValues@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C00A618C (-CitpContextResetTrackingValues@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     ?SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z @ 0x1C00487F4 (-SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z.c)
+ *     ?CitpContextResetTrackingValues@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C008BD54 (-CitpContextResetTrackingValues@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 void __fastcall CitpContextInitialize(struct _CIT_IMPACT_CONTEXT *a1)

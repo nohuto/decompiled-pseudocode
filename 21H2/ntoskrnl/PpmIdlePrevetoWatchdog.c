@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmIdlePrevetoWatchdog @ 0x1405C81FC
+ * XREFs of PpmIdlePrevetoWatchdog @ 0x140566AF0
  * Callers:
- *     PopDripsWatchdogTakeAction @ 0x1409A0958 (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x1408FA6A0 (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWORD *a3)
@@ -34,14 +34,14 @@ __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWOR
   {
     if ( *(_DWORD *)(result + 4) )
     {
-      v7 = (unsigned int)dword_140C542C0;
-      result = (unsigned int)dword_140C542C0;
-      if ( dword_140C542C0 != -1 )
+      v7 = (unsigned int)dword_140C50080;
+      result = (unsigned int)dword_140C50080;
+      if ( dword_140C50080 != -1 )
       {
         v8 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
         InterruptTimePrecise = RtlGetInterruptTimePrecise(&v19);
         v10 = 0LL;
-        v11 = PpmPlatformStates + 448 * v7;
+        v11 = PpmPlatformStates + 384 * v7;
         v12 = *(_DWORD *)(v11 + 108);
         if ( v12 )
         {
@@ -60,7 +60,7 @@ __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWOR
               goto LABEL_11;
           }
           *a2 = *(_DWORD *)(v14 + v13 + 16);
-          *a3 = *((_QWORD *)PpmIdleVetoList + 3 * v10 + 3);
+          *a3 = *(_QWORD *)(PpmIdleVetoList + 16 * (v10 + 1));
         }
 LABEL_11:
         KxReleaseSpinLock(&PpmIdleVetoLock);

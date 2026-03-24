@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     RtlSetBitsEx @ 0x14008AF20 (RtlSetBitsEx.c)
- *     MmTryIdentifyPage @ 0x1402AA544 (MmTryIdentifyPage.c)
- *     RtlFindNextForwardRunClearEx @ 0x1402EE910 (RtlFindNextForwardRunClearEx.c)
+ *     MmTryIdentifyPage @ 0x1402AA644 (MmTryIdentifyPage.c)
+ *     RtlFindNextForwardRunClearEx @ 0x1402EEA10 (RtlFindNextForwardRunClearEx.c)
  */
 
 __int64 __fastcall IopLiveDumpMirrorPhysicalMemoryCallback(unsigned __int64 a1, __int64 a2)

@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpAddRemoveContainerToCLFSLog @ 0x14080B938
+ * XREFs of CmpAddRemoveContainerToCLFSLog @ 0x14077C9DC
  * Callers:
- *     CmpStartCLFSLog @ 0x14080CD20 (CmpStartCLFSLog.c)
- *     CmpAddRemoveRMLogContainer @ 0x14091BDB8 (CmpAddRemoveRMLogContainer.c)
+ *     CmpStartCLFSLog @ 0x14077D984 (CmpStartCLFSLog.c)
+ *     CmpAddRemoveRMLogContainer @ 0x1408751D4 (CmpAddRemoveRMLogContainer.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlInitAnsiString @ 0x1402A07B0 (RtlInitAnsiString.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     sprintf_s @ 0x1403E7020 (sprintf_s.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     PsDisableImpersonation @ 0x140725F50 (PsDisableImpersonation.c)
- *     PsRestoreImpersonation @ 0x140726090 (PsRestoreImpersonation.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1403D7BF0 (sprintf_s.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     PsDisableImpersonation @ 0x140706410 (PsDisableImpersonation.c)
+ *     PsRestoreImpersonation @ 0x140706540 (PsRestoreImpersonation.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpAddRemoveContainerToCLFSLog(
@@ -78,13 +78,13 @@ __int64 __fastcall CmpAddRemoveContainerToCLFSLog(
     v12 = PsDisableImpersonation(KeGetCurrentThread(), &ImpersonationState);
     KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v22, v13);
     v11 = ClfsAddLogContainer(plfoLog, pcbContainer, &Destination);
-    KiUnstackDetachProcess((__int64)v22, 0LL);
+    KiUnstackDetachProcess((__int64)v22, 0);
     if ( v12 )
       PsRestoreImpersonation(KeGetCurrentThread(), &ImpersonationState);
   }
-  if ( (unsigned int)dword_140C03868 > 5 )
+  if ( (unsigned int)dword_140C02130 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03868, 1LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02130, 1LL) )
     {
       v26 = 0;
       v29 = 0;
@@ -101,15 +101,15 @@ __int64 __fastcall CmpAddRemoveContainerToCLFSLog(
       v28 = 4;
       v31 = 2;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03868,
-        (unsigned __int8 *)byte_14002A4A3,
+        (__int64)&dword_140C02130,
+        (unsigned __int8 *)&unk_140023F30,
         0LL,
         0LL,
         6u,
         &v23);
     }
   }
-  RtlFreeUnicodeString(&DestinationString);
+  RtlFreeAnsiString(&DestinationString);
   ExFreePoolWithTag(Destination.Buffer, 0);
   return (unsigned int)v11;
 }

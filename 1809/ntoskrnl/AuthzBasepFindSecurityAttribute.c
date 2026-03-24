@@ -1,17 +1,17 @@
 /*
- * XREFs of AuthzBasepFindSecurityAttribute @ 0x1400A71D0
+ * XREFs of AuthzBasepFindSecurityAttribute @ 0x1400A71F0
  * Callers:
- *     AuthzBasepCopyoutSecurityAttributes @ 0x1400A5750 (AuthzBasepCopyoutSecurityAttributes.c)
- *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x1400A6C90 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1400A6F88 (AuthzBasepQuerySecurityAttributeAndValues.c)
- *     SepDetermineGlobalTableCheckNeededForQuery @ 0x1400A72A4 (SepDetermineGlobalTableCheckNeededForQuery.c)
- *     AuthzBasepAddSecurityAttribute @ 0x1400D8DCC (AuthzBasepAddSecurityAttribute.c)
- *     AuthzBasepDeleteSecurityAttribute @ 0x1400D91F8 (AuthzBasepDeleteSecurityAttribute.c)
+ *     AuthzBasepCopyoutSecurityAttributes @ 0x1400A5770 (AuthzBasepCopyoutSecurityAttributes.c)
+ *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x1400A6CB0 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1400A6FA8 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     SepDetermineGlobalTableCheckNeededForQuery @ 0x1400A72C4 (SepDetermineGlobalTableCheckNeededForQuery.c)
+ *     AuthzBasepAddSecurityAttribute @ 0x1400D8DEC (AuthzBasepAddSecurityAttribute.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x1400D9218 (AuthzBasepDeleteSecurityAttribute.c)
  *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1405BC0FC (AuthzBasepCompareLegacySecurityAttributesInformation.c)
- *     AuthzBasepCompareSecurityAttributesInformation @ 0x1408EE3C4 (AuthzBasepCompareSecurityAttributesInformation.c)
+ *     AuthzBasepCompareSecurityAttributesInformation @ 0x1408EE3A4 (AuthzBasepCompareSecurityAttributesInformation.c)
  * Callees:
- *     AuthzBasepEqualUnicodeString @ 0x1400A5DC8 (AuthzBasepEqualUnicodeString.c)
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x14013ADD8 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1400A5DE8 (AuthzBasepEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x14013ADF8 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
  */
 

@@ -1,26 +1,26 @@
 /*
- * XREFs of PiLastGoodCopyKeyContents @ 0x140B2AEDC
+ * XREFs of PiLastGoodCopyKeyContents @ 0x140A6F008
  * Callers:
- *     PpLastGoodDoBootProcessing @ 0x140B2AE28 (PpLastGoodDoBootProcessing.c)
+ *     PpLastGoodDoBootProcessing @ 0x140A6EF54 (PpLastGoodDoBootProcessing.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x14041B9C0 (ZwEnumerateValueKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     ZwDeleteKey @ 0x14041D280 (ZwDeleteKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1403FA600 (ZwEnumerateValueKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x1403FBE20 (ZwDeleteKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiLastGoodCopyKeyContents(UNICODE_STRING *a1, UNICODE_STRING *a2)
 {
-  __int64 Pool2; // rbx
-  NTSTATUS v5; // edi
+  char *PoolWithTag; // rdi
+  NTSTATUS v5; // ebx
   NTSTATUS v7; // eax
   HANDLE v8; // rcx
-  ULONG v9; // esi
-  NTSTATUS v10; // eax
+  NTSTATUS v9; // eax
+  ULONG v10; // esi
   HANDLE KeyHandle; // [rsp+40h] [rbp-49h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-41h] BYREF
   UNICODE_STRING ValueName; // [rsp+50h] [rbp-39h] BYREF
@@ -38,8 +38,8 @@ __int64 __fastcall PiLastGoodCopyKeyContents(UNICODE_STRING *a1, UNICODE_STRING 
   ResultLength = 0;
   Disposition = 0;
   ValueName = 0LL;
-  Pool2 = ExAllocatePool2(256LL, 0x418uLL, 0x674C7050u);
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0x418uLL, 0x674C7050u);
+  if ( !PoolWithTag )
     return 3221225626LL;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
@@ -59,36 +59,35 @@ __int64 __fastcall PiLastGoodCopyKeyContents(UNICODE_STRING *a1, UNICODE_STRING 
     v5 = v7;
     if ( v7 >= 0 )
     {
-      v5 = ZwEnumerateValueKey(KeyHandle, 0, KeyValueFullInformation, (PVOID)Pool2, 0x418u, &ResultLength);
-      v9 = 1;
-      if ( v5 < 0 )
+      v9 = ZwEnumerateValueKey(KeyHandle, 0, KeyValueFullInformation, PoolWithTag, 0x418u, &ResultLength);
+      v10 = 1;
+      if ( v9 < 0 )
       {
 LABEL_9:
-        if ( v5 == -2147483622 )
-        {
+        v5 = 0;
+        if ( v9 != -2147483622 )
+          v5 = v9;
+        if ( v5 >= 0 )
           ZwDeleteKey(KeyHandle);
-          v5 = 0;
-        }
       }
       else
       {
         while ( 1 )
         {
-          ValueName.Buffer = (wchar_t *)(Pool2 + 20);
-          ValueName.Length = *(_WORD *)(Pool2 + 16);
+          ValueName.Buffer = (wchar_t *)(PoolWithTag + 20);
+          ValueName.Length = *((_WORD *)PoolWithTag + 8);
           ValueName.MaximumLength = ValueName.Length;
           v5 = ZwSetValueKey(
                  Handle,
                  &ValueName,
                  0,
-                 *(_DWORD *)(Pool2 + 4),
-                 (PVOID)(Pool2 + *(unsigned int *)(Pool2 + 8)),
-                 *(_DWORD *)(Pool2 + 12));
+                 *((_DWORD *)PoolWithTag + 1),
+                 &PoolWithTag[*((unsigned int *)PoolWithTag + 2)],
+                 *((_DWORD *)PoolWithTag + 3));
           if ( v5 < 0 )
             break;
-          v10 = ZwEnumerateValueKey(KeyHandle, v9++, KeyValueFullInformation, (PVOID)Pool2, 0x418u, &ResultLength);
-          v5 = v10;
-          if ( v10 < 0 )
+          v9 = ZwEnumerateValueKey(KeyHandle, v10++, KeyValueFullInformation, PoolWithTag, 0x418u, &ResultLength);
+          if ( v9 < 0 )
             goto LABEL_9;
         }
       }
@@ -97,6 +96,6 @@ LABEL_9:
     }
     ZwClose(v8);
   }
-  ExFreePoolWithTag((PVOID)Pool2, 0x674C7050u);
+  ExFreePoolWithTag(PoolWithTag, 0x674C7050u);
   return (unsigned int)v5;
 }

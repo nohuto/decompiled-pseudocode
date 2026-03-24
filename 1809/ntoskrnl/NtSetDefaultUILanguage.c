@@ -1,9 +1,9 @@
 /*
- * XREFs of NtSetDefaultUILanguage @ 0x14071A8F0
+ * XREFs of NtSetDefaultUILanguage @ 0x14071A8D0
  * Callers:
  *     <none>
  * Callees:
- *     ExpSetCurrentUserUILanguage @ 0x14071A914 (ExpSetCurrentUserUILanguage.c)
+ *     ExpSetCurrentUserUILanguage @ 0x14071A8F4 (ExpSetCurrentUserUILanguage.c)
  */
 
 NTSTATUS __stdcall NtSetDefaultUILanguage(LANGID LanguageId)

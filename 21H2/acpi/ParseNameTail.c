@@ -1,13 +1,13 @@
 /*
- * XREFs of ParseNameTail @ 0x1C000D580
+ * XREFs of ParseNameTail @ 0x1C00215A0
  * Callers:
- *     ParseName @ 0x1C000BE54 (ParseName.c)
- *     ParseTerm @ 0x1C0013680 (ParseTerm.c)
- *     ParseSuperName @ 0x1C0015500 (ParseSuperName.c)
+ *     ParseTerm @ 0x1C0007480 (ParseTerm.c)
+ *     ParseSuperName @ 0x1C0009350 (ParseSuperName.c)
+ *     ParseName @ 0x1C00214C4 (ParseName.c)
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
  */
 
 __int64 __fastcall ParseNameTail(__int64 a1, char **a2, __int64 a3)
@@ -16,16 +16,16 @@ __int64 __fastcall ParseNameTail(__int64 a1, char **a2, __int64 a3)
   char *v7; // rax
   char v8; // cl
   int v9; // r11d
-  _BYTE *v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r10
+  _BYTE *v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r10
+  __int64 v13; // r8
   char v14; // al
-  int v16; // r8d
+  int v16; // r10d
   _BYTE *v17; // rcx
   __int64 v18; // rdx
-  __int64 v19; // r9
-  const char *v20; // r10
+  __int64 v19; // r8
+  const char *v20; // r9
   char v21; // al
   char *v22; // rax
 
@@ -73,18 +73,17 @@ LABEL_7:
           {
             v14 = v10[v13];
             if ( !v14 )
-            {
-              if ( v11 )
-                break;
-LABEL_32:
-              --v10;
               break;
-            }
             *v10++ = v14;
             if ( !--v11 )
               goto LABEL_32;
           }
+          if ( v11 )
+            goto LABEL_15;
+LABEL_32:
+          --v10;
         }
+LABEL_15:
         *v10 = 0;
 LABEL_16:
         *a2 += 4;
@@ -104,19 +103,14 @@ LABEL_16:
             {
               v21 = v17[(_QWORD)v20];
               if ( !v21 )
-              {
-                if ( !v18 )
-                {
-LABEL_24:
-                  --v17;
-                  break;
-                }
                 break;
-              }
               *v17++ = v21;
               if ( !--v18 )
                 goto LABEL_24;
             }
+            if ( !v18 )
+LABEL_24:
+              --v17;
 LABEL_26:
             *v17 = 0;
             goto LABEL_27;

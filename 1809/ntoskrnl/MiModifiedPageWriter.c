@@ -1,5 +1,5 @@
 /*
- * XREFs of MiModifiedPageWriter @ 0x140188720
+ * XREFs of MiModifiedPageWriter @ 0x140188740
  * Callers:
  *     <none>
  * Callees:
@@ -9,20 +9,20 @@
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF20 (KeSetActualBasePriorityThread.c)
- *     KeQueryPriorityThread @ 0x1400E1740 (KeQueryPriorityThread.c)
- *     MiStoreUpdateMemoryConditions @ 0x1400EEDAC (MiStoreUpdateMemoryConditions.c)
- *     MiUseLowIoPriorityForModifiedPages @ 0x1400EEF28 (MiUseLowIoPriorityForModifiedPages.c)
- *     IoBoostThreadIoPriority @ 0x14010863C (IoBoostThreadIoPriority.c)
- *     MiGatherPagefilePages @ 0x14014EFC0 (MiGatherPagefilePages.c)
- *     MiStoreCheckCompleteWriteBatch @ 0x140175FD8 (MiStoreCheckCompleteWriteBatch.c)
- *     MiInitializePagefileBitmapsCache @ 0x140188204 (MiInitializePagefileBitmapsCache.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreeModifiedReservations @ 0x1402B8068 (MiFreeModifiedReservations.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
+ *     KeQueryPriorityThread @ 0x1400E1760 (KeQueryPriorityThread.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1400EEDCC (MiStoreUpdateMemoryConditions.c)
+ *     MiUseLowIoPriorityForModifiedPages @ 0x1400EEF48 (MiUseLowIoPriorityForModifiedPages.c)
+ *     IoBoostThreadIoPriority @ 0x14010865C (IoBoostThreadIoPriority.c)
+ *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
+ *     MiStoreCheckCompleteWriteBatch @ 0x140175FF8 (MiStoreCheckCompleteWriteBatch.c)
+ *     MiInitializePagefileBitmapsCache @ 0x140188224 (MiInitializePagefileBitmapsCache.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeModifiedReservations @ 0x1402B8168 (MiFreeModifiedReservations.c)
  */
 
 LONG __fastcall MiModifiedPageWriter(__int64 a1, __int64 a2, __int64 a3)

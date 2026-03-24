@@ -1,87 +1,88 @@
 /*
- * XREFs of WbHashData @ 0x1407622D0
+ * XREFs of WbHashData @ 0x140667840
  * Callers:
- *     sub_140762238 @ 0x140762238 (sub_140762238.c)
+ *     sub_1406677A4 @ 0x1406677A4 (sub_1406677A4.c)
  * Callees:
- *     BCryptGetProperty @ 0x1407623F0 (BCryptGetProperty.c)
- *     BCryptCreateHash @ 0x14076247C (BCryptCreateHash.c)
- *     BCryptDestroyHash @ 0x140762510 (BCryptDestroyHash.c)
- *     BCryptFinishHash @ 0x140762564 (BCryptFinishHash.c)
- *     BCryptHashData @ 0x1407625D8 (BCryptHashData.c)
- *     WbAlloc @ 0x140763E98 (WbAlloc.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     BCryptGetProperty @ 0x14066795C (BCryptGetProperty.c)
+ *     BCryptDestroyHash @ 0x1406679E8 (BCryptDestroyHash.c)
+ *     BCryptFinishHash @ 0x140667A3C (BCryptFinishHash.c)
+ *     BCryptCreateHash @ 0x140667AB0 (BCryptCreateHash.c)
+ *     BCryptHashData @ 0x140667B44 (BCryptHashData.c)
+ *     WbAlloc @ 0x1406C69C4 (WbAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WbHashData(PUCHAR pbInput, ULONG cbInput, PUCHAR *a3, _DWORD *a4)
 {
-  PUCHAR v4; // rdi
-  NTSTATUS Hash; // ebx
+  NTSTATUS Property; // ebx
+  ULONG v9; // r9d
   ULONG v10; // r9d
   ULONG v11; // r9d
-  ULONG v12; // r9d
+  PUCHAR v12; // rdi
   ULONG *pcbResult; // [rsp+20h] [rbp-40h]
   ULONG v15; // [rsp+28h] [rbp-38h]
   ULONG v16; // [rsp+28h] [rbp-38h]
   ULONG v17; // [rsp+30h] [rbp-30h]
   UCHAR pbOutput[4]; // [rsp+40h] [rbp-20h] BYREF
-  ULONG v19[3]; // [rsp+44h] [rbp-1Ch] BYREF
-  PUCHAR v20[2]; // [rsp+50h] [rbp-10h] BYREF
+  ULONG v19; // [rsp+44h] [rbp-1Ch] BYREF
+  BCRYPT_HASH_HANDLE phHash; // [rsp+48h] [rbp-18h] BYREF
+  PUCHAR v21; // [rsp+50h] [rbp-10h]
 
-  v4 = 0LL;
+  phHash = 0LL;
+  v21 = 0LL;
   *(_DWORD *)pbOutput = 0;
-  memset(v19, 0, sizeof(v19));
-  v20[0] = 0LL;
-  if ( *(__int64 *)((char *)&qword_140C70B34 + 4) )
+  v19 = 0;
+  if ( *(__int64 *)((char *)&qword_140C53DC4 + 4) )
   {
-    Hash = BCryptCreateHash(
-             *(BCRYPT_ALG_HANDLE *)((char *)&qword_140C70B34 + 4),
-             (BCRYPT_HASH_HANDLE *)&v19[1],
-             0LL,
-             0,
-             (PUCHAR)pcbResult,
-             v15,
-             v17);
-    if ( Hash >= 0 )
+    Property = BCryptCreateHash(
+                 *(BCRYPT_ALG_HANDLE *)((char *)&qword_140C53DC4 + 4),
+                 &phHash,
+                 0LL,
+                 0,
+                 (PUCHAR)pcbResult,
+                 v15,
+                 v17);
+    if ( Property >= 0 )
     {
-      Hash = BCryptGetProperty(
-               *(BCRYPT_HANDLE *)((char *)&qword_140C70B34 + 4),
-               L"HashDigestLength",
-               pbOutput,
-               v10,
-               v19,
-               v16);
-      if ( Hash >= 0 )
+      Property = BCryptGetProperty(
+                   *(BCRYPT_HANDLE *)((char *)&qword_140C53DC4 + 4),
+                   L"HashDigestLength",
+                   pbOutput,
+                   v9,
+                   &v19,
+                   v16);
+      if ( Property >= 0 )
       {
-        Hash = WbAlloc(*(unsigned int *)pbOutput, v20);
-        if ( Hash < 0 || (Hash = BCryptHashData(*(BCRYPT_HASH_HANDLE *)&v19[1], pbInput, cbInput, v11), Hash < 0) )
+        Property = WbAlloc(*(unsigned int *)pbOutput);
+        if ( Property < 0 || (Property = BCryptHashData(phHash, pbInput, cbInput, v10), Property < 0) )
         {
-          v4 = v20[0];
+          v12 = v21;
         }
         else
         {
-          v4 = v20[0];
-          Hash = BCryptFinishHash(*(BCRYPT_HASH_HANDLE *)&v19[1], v20[0], *(ULONG *)pbOutput, v12);
-          if ( Hash >= 0 )
+          v12 = v21;
+          Property = BCryptFinishHash(phHash, v21, *(ULONG *)pbOutput, v11);
+          if ( Property >= 0 )
           {
             if ( a3 )
             {
-              *a3 = v4;
-              v4 = 0LL;
+              *a3 = v12;
+              v12 = 0LL;
             }
             if ( a4 )
               *a4 = *(_DWORD *)pbOutput;
           }
         }
+        if ( v12 )
+          ExFreePoolWithTag(v12, 0x42524157u);
       }
     }
+    if ( phHash )
+      BCryptDestroyHash(phHash);
   }
   else
   {
-    Hash = -1073741811;
+    return (unsigned int)-1073741811;
   }
-  if ( v4 )
-    ExFreePoolWithTag(v4, 0);
-  if ( *(_QWORD *)&v19[1] )
-    BCryptDestroyHash(*(BCRYPT_HASH_HANDLE *)&v19[1]);
-  return (unsigned int)Hash;
+  return (unsigned int)Property;
 }

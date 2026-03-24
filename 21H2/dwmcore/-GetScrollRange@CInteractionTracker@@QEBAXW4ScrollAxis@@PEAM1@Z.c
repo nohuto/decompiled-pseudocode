@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetScrollRange@CInteractionTracker@@QEBAXW4ScrollAxis@@PEAM1@Z @ 0x18021B224
+ * XREFs of ?GetScrollRange@CInteractionTracker@@QEBAXW4ScrollAxis@@PEAM1@Z @ 0x1801C9E54
  * Callers:
- *     ?BoundaryFromValue@CInteractionTracker@@QEBA?AW4Boundary@@MW4ScrollAxis@@@Z @ 0x180219524 (-BoundaryFromValue@CInteractionTracker@@QEBA-AW4Boundary@@MW4ScrollAxis@@@Z.c)
- *     ?ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z @ 0x18021A0F0 (-ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z.c)
- *     ?ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z @ 0x18021E7DC (-ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z.c)
+ *     ?BoundaryFromValue@CInteractionTracker@@QEBA?AW4Boundary@@MW4ScrollAxis@@@Z @ 0x1801C83F4 (-BoundaryFromValue@CInteractionTracker@@QEBA-AW4Boundary@@MW4ScrollAxis@@@Z.c)
+ *     ?ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z @ 0x1801C8F38 (-ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z.c)
+ *     ?ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z @ 0x1801CD7B4 (-ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -23,20 +23,20 @@ void __fastcall CInteractionTracker::GetScrollRange(_DWORD *a1, int a2, _DWORD *
     {
       if ( v6 == 1 )
       {
-        v4 = a1[35];
-        v5 = a1[36];
+        v4 = a1[33];
+        v5 = a1[34];
       }
     }
     else
     {
-      v4 = a1[24];
-      v5 = a1[27];
+      v4 = a1[22];
+      v5 = a1[25];
     }
   }
   else
   {
-    v4 = a1[23];
-    v5 = a1[26];
+    v4 = a1[21];
+    v5 = a1[24];
   }
   *a3 = v4;
   *a4 = v5;

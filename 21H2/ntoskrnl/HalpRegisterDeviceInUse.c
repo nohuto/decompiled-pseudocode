@@ -1,80 +1,72 @@
 /*
- * XREFs of HalpRegisterDeviceInUse @ 0x140A70DE0
+ * XREFs of HalpRegisterDeviceInUse @ 0x1409B656C
  * Callers:
- *     HalpKdSetupDebuggingDevice @ 0x140A70D60 (HalpKdSetupDebuggingDevice.c)
+ *     HalpKdSetupDebuggingDevice @ 0x1409B6480 (HalpKdSetupDebuggingDevice.c)
  * Callees:
- *     HalpMmAllocateMemory @ 0x1403BECF8 (HalpMmAllocateMemory.c)
- *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     HalpFindDevice @ 0x140A70F24 (HalpFindDevice.c)
+ *     HalpMmAllocateMemory @ 0x1403BB1F0 (HalpMmAllocateMemory.c)
+ *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalpFindDevice @ 0x1409B6158 (HalpFindDevice.c)
  */
 
 __int64 __fastcall HalpRegisterDeviceInUse(__int64 a1)
 {
   unsigned int v1; // eax
-  __int64 v3; // r14
   unsigned int v4; // esi
-  ULONG_PTR v5; // rbp
-  _QWORD *Memory; // rax
-  _QWORD *v7; // rbx
-  _OWORD *v8; // rax
-  _OWORD *v9; // rcx
-  __int128 v10; // xmm1
-  _QWORD *v11; // rax
+  SIZE_T v5; // rbp
+  void *Memory; // rax
+  __int64 v7; // rbx
+  __int64 *v8; // rax
 
   v1 = *(_DWORD *)(a1 + 220);
-  if ( v1 == 3 )
-    return 0LL;
-  if ( v1 > 1 )
-    return 3221225485LL;
-  if ( HalpFindDevice(a1) )
-    return 0LL;
-  v3 = 2LL;
-  v4 = *(_DWORD *)(a1 + 232) + 2;
-  v5 = (unsigned int)(*(_DWORD *)(a1 + 232) + 298);
-  if ( HalpMmLoaderBlock )
-    Memory = (_QWORD *)HalpMmAllocateMemory((unsigned int)(*(_DWORD *)(a1 + 232) + 298));
-  else
-    Memory = (_QWORD *)ExAllocatePool2(256LL, v5, 0x646C6148u);
-  v7 = Memory;
-  if ( Memory )
+  if ( v1 != 3 )
   {
-    memset(Memory, 0, v5);
-    v8 = v7 + 3;
-    v9 = (_OWORD *)a1;
-    v7[2] = v7 + 3;
-    do
+    if ( v1 > 1 )
+      return 3221225485LL;
+    if ( !HalpFindDevice(a1) )
     {
-      *v8 = *v9;
-      v8[1] = v9[1];
-      v8[2] = v9[2];
-      v8[3] = v9[3];
-      v8[4] = v9[4];
-      v8[5] = v9[5];
-      v8[6] = v9[6];
-      v8 += 8;
-      v10 = v9[7];
-      v9 += 8;
-      *(v8 - 1) = v10;
-      --v3;
+      v4 = *(_DWORD *)(a1 + 232) + 2;
+      v5 = (unsigned int)(*(_DWORD *)(a1 + 232) + 274);
+      if ( HalpMmLoaderBlock )
+        Memory = (void *)HalpMmAllocateMemory((unsigned int)(*(_DWORD *)(a1 + 232) + 274));
+      else
+        Memory = ExAllocatePoolWithTag(PagedPool, v5, 0x206C6148u);
+      v7 = (__int64)Memory;
+      if ( !Memory )
+        return 3221225626LL;
+      memset(Memory, 0, v5);
+      *(_QWORD *)(v7 + 16) = v7 + 24;
+      *(_OWORD *)(v7 + 24) = *(_OWORD *)a1;
+      *(_OWORD *)(v7 + 40) = *(_OWORD *)(a1 + 16);
+      *(_OWORD *)(v7 + 56) = *(_OWORD *)(a1 + 32);
+      *(_OWORD *)(v7 + 72) = *(_OWORD *)(a1 + 48);
+      *(_OWORD *)(v7 + 88) = *(_OWORD *)(a1 + 64);
+      *(_OWORD *)(v7 + 104) = *(_OWORD *)(a1 + 80);
+      *(_OWORD *)(v7 + 120) = *(_OWORD *)(a1 + 96);
+      *(_OWORD *)(v7 + 136) = *(_OWORD *)(a1 + 112);
+      *(_OWORD *)(v7 + 152) = *(_OWORD *)(a1 + 128);
+      *(_OWORD *)(v7 + 168) = *(_OWORD *)(a1 + 144);
+      *(_OWORD *)(v7 + 184) = *(_OWORD *)(a1 + 160);
+      *(_OWORD *)(v7 + 200) = *(_OWORD *)(a1 + 176);
+      *(_OWORD *)(v7 + 216) = *(_OWORD *)(a1 + 192);
+      *(_OWORD *)(v7 + 232) = *(_OWORD *)(a1 + 208);
+      *(_OWORD *)(v7 + 248) = *(_OWORD *)(a1 + 224);
+      *(_QWORD *)(v7 + 264) = *(_QWORD *)(a1 + 240);
+      if ( *(_DWORD *)(a1 + 220) == 1 && *(_QWORD *)(a1 + 224) )
+      {
+        *(_QWORD *)(*(_QWORD *)(v7 + 16) + 224LL) = *(_QWORD *)(v7 + 16) + 248LL;
+        wcscpy_s(*(wchar_t **)(*(_QWORD *)(v7 + 16) + 224LL), (unsigned __int64)v4 >> 1, *(const wchar_t **)(a1 + 224));
+      }
+      v8 = (__int64 *)qword_140C48D70;
+      if ( *(__int64 **)qword_140C48D70 != &qword_140C48D68 )
+        __fastfail(3u);
+      *(_QWORD *)v7 = &qword_140C48D68;
+      *(_QWORD *)(v7 + 8) = v8;
+      *v8 = v7;
+      ++DevicesList;
+      qword_140C48D70 = v7;
     }
-    while ( v3 );
-    *v8 = *v9;
-    if ( *(_DWORD *)(a1 + 220) == 1 && *(_QWORD *)(a1 + 224) )
-    {
-      v7[31] = v7 + 37;
-      wcscpy_s(*(wchar_t **)(v7[2] + 224LL), (unsigned __int64)v4 >> 1, *(const wchar_t **)(a1 + 224));
-    }
-    v11 = (_QWORD *)qword_140C4A190;
-    if ( *(__int64 **)qword_140C4A190 != &qword_140C4A188 )
-      __fastfail(3u);
-    *v7 = &qword_140C4A188;
-    v7[1] = v11;
-    *v11 = v7;
-    ++DevicesList;
-    qword_140C4A190 = (__int64)v7;
-    return 0LL;
   }
-  return 3221225626LL;
+  return 0LL;
 }

@@ -1,1 +1,21 @@
-/*\n * XREFs of MouseClassCreateWaitWakeIrp @ 0x1C000BEE8\n * Callers:\n *     MouseClassPower @ 0x1C0002C10 (MouseClassPower.c)\n *     MouseStart @ 0x1C0003F10 (MouseStart.c)\n *     MouseToggleWaitWakeWorker @ 0x1C00042F0 (MouseToggleWaitWakeWorker.c)\n *     MouseClassCreateWaitWakeIrpWorker @ 0x1C000BF40 (MouseClassCreateWaitWakeIrpWorker.c)\n * Callees:\n *     <none>\n */\n\nbool __fastcall MouseClassCreateWaitWakeIrp(char *Context)\n{\n  return PoRequestPowerIrp(\n           *((PDEVICE_OBJECT *)Context + 3),\n           0,\n           *(POWER_STATE *)(Context + 272),\n           (PREQUEST_POWER_COMPLETE)MouseClassWaitWakeComplete,\n           Context,\n           0LL) == 259;\n}\n
+/*
+ * XREFs of MouseClassCreateWaitWakeIrp @ 0x1C000BEE8
+ * Callers:
+ *     MouseClassPower @ 0x1C0002C10 (MouseClassPower.c)
+ *     MouseStart @ 0x1C0003F10 (MouseStart.c)
+ *     MouseToggleWaitWakeWorker @ 0x1C00042F0 (MouseToggleWaitWakeWorker.c)
+ *     MouseClassCreateWaitWakeIrpWorker @ 0x1C000BF40 (MouseClassCreateWaitWakeIrpWorker.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall MouseClassCreateWaitWakeIrp(char *Context)
+{
+  return PoRequestPowerIrp(
+           *((PDEVICE_OBJECT *)Context + 3),
+           0,
+           *(POWER_STATE *)(Context + 272),
+           (PREQUEST_POWER_COMPLETE)MouseClassWaitWakeComplete,
+           Context,
+           0LL) == 259;
+}

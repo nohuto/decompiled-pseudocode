@@ -1,137 +1,123 @@
 /*
- * XREFs of xxxDDETrackWindowDying @ 0x1C0218544
+ * XREFs of xxxDDETrackWindowDying @ 0x1C021D538
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C0078850 (WPP_RECORDER_AND_TRACE_SF_qq.c)
- *     _PostMessage @ 0x1C00A5270 (_PostMessage.c)
- *     ?UnlinkConv@@YAPEAUtagDDECONV@@PEAU1@@Z @ 0x1C021553C (-UnlinkConv@@YAPEAUtagDDECONV@@PEAU1@@Z.c)
- *     ?xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C0216BBC (-xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z.c)
- *     xxxFreeDdeConv @ 0x1C0218788 (xxxFreeDdeConv.c)
+ *     _PostMessage @ 0x1C002DC40 (_PostMessage.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C004F354 (WPP_RECORDER_SF_qq.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     GetAppCompatFlags2 @ 0x1C00E1310 (GetAppCompatFlags2.c)
+ *     ?UnlinkConv@@YAPEAUtagDDECONV@@PEAU1@@Z @ 0x1C021B138 (-UnlinkConv@@YAPEAUtagDDECONV@@PEAU1@@Z.c)
+ *     ?xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C021C148 (-xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z.c)
+ *     xxxFreeDdeConv @ 0x1C021D748 (xxxFreeDdeConv.c)
  */
 
-_UNKNOWN **__fastcall xxxDDETrackWindowDying(_QWORD *a1, _UNKNOWN **a2)
+_UNKNOWN **__fastcall xxxDDETrackWindowDying(__int64 *a1, _UNKNOWN **a2)
 {
   _UNKNOWN **v2; // rbx
   _UNKNOWN **result; // rax
+  __int64 v4; // rax
+  void *v5; // rdi
   __int64 ThreadWin32Thread; // rax
-  __int64 v5; // rax
-  _QWORD *v6; // rax
-  __int64 v7; // rcx
-  __int64 *v8; // rax
-  __int64 v9; // r8
-  _DWORD *v10; // rdx
-  int v11; // ecx
-  BOOL v12; // eax
-  struct tagFREELIST *v13; // rdi
+  __int64 v7; // rax
+  _QWORD *v8; // rax
+  __int64 v9; // rcx
+  int v10; // eax
+  __int64 *v11; // rax
+  __int64 v12; // r8
+  _DWORD *v13; // rdx
   int v14; // ecx
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  struct tagDDECONV *v18; // rax
-  __int64 v19; // rdx
+  BOOL v15; // eax
+  struct tagFREELIST *v16; // rdi
+  int v17; // ecx
+  __int64 v18; // rcx
+  struct tagDDECONV *v19; // rax
   __int64 v20; // rcx
-  __int64 v21; // r8
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  _QWORD v25[3]; // [rsp+50h] [rbp-38h] BYREF
-  __int128 v26; // [rsp+68h] [rbp-20h] BYREF
-  __int64 v27; // [rsp+78h] [rbp-10h]
+  __int64 v21; // rcx
+  __int128 v22; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v23; // [rsp+50h] [rbp-28h]
+  _QWORD v24[4]; // [rsp+58h] [rbp-20h] BYREF
 
-  v25[2] = 0LL;
+  v24[2] = 0LL;
   v2 = a2;
-  v27 = 0LL;
-  v26 = 0LL;
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x2000) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
+  v22 = 0LL;
+  v23 = 0LL;
   result = &WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     if ( a1 )
-      result = (_UNKNOWN **)WPP_RECORDER_AND_TRACE_SF_qq(
-                              WPP_GLOBAL_Control->AttachedDevice,
-                              (_DWORD)a2,
-                              WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-                              WPP_MAIN_CB.Queue.ListEntry.Flink,
-                              4,
-                              14,
-                              22,
-                              (__int64)&WPP_b8232c44b11d3b42055fa312fd74cb4b_Traceguids,
-                              *a1,
-                              v2);
+      v4 = *a1;
     else
-      result = (_UNKNOWN **)WPP_RECORDER_AND_TRACE_SF_qq(
-                              WPP_GLOBAL_Control->AttachedDevice,
-                              (_DWORD)a2,
-                              WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-                              WPP_MAIN_CB.Queue.ListEntry.Flink,
-                              4,
-                              14,
-                              22,
-                              (__int64)&WPP_b8232c44b11d3b42055fa312fd74cb4b_Traceguids,
-                              0,
-                              v2);
+      v4 = 0LL;
+    result = (_UNKNOWN **)WPP_RECORDER_SF_qq(
+                            (__int64)a1,
+                            4u,
+                            0xEu,
+                            0x16u,
+                            (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids,
+                            v4,
+                            a2);
   }
   if ( v2 )
   {
     do
     {
-      ThreadLock((__int64)v2[3], (__int64 *)&v26);
+      v5 = v2[3];
       ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-      v25[0] = *(_QWORD *)(ThreadWin32Thread + 416);
-      *(_QWORD *)(ThreadWin32Thread + 416) = v25;
-      v25[1] = v2;
+      v24[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+      *(_QWORD *)(ThreadWin32Thread + 416) = v24;
+      v24[1] = v5;
+      if ( v5 )
+        HMLockObject(v5);
+      v7 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      *(_QWORD *)&v22 = *(_QWORD *)(v7 + 416);
+      *(_QWORD *)(v7 + 416) = &v22;
+      *((_QWORD *)&v22 + 1) = v2;
       HMLockObject(v2);
       if ( ((_DWORD)v2[10] & 2) == 0 )
       {
-        v5 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-        if ( *(_DWORD *)(v5 + 632) > 0x400u
-          || (*(_DWORD *)(v5 + 648) & 0x20) == 0
-          || (v6 = v2[6]) == 0LL
-          || (v7 = v6[2], *(_DWORD *)(v7 + 632) > 0x400u)
-          || (*(_DWORD *)(v7 + 648) & 0x20) == 0 )
+        if ( (GetAppCompatFlags2(0x400u) & 0x20) == 0
+          || (v8 = v2[6]) == 0LL
+          || ((v9 = v8[2], *(_DWORD *)(v9 + 632) <= 0x400u) ? (v10 = *(_DWORD *)(v9 + 648)) : (LOBYTE(v10) = 0),
+              (v10 & 0x20) == 0) )
         {
-          v8 = (__int64 *)v2[5];
-          if ( v8 )
-            v9 = *v8;
+          v11 = (__int64 *)v2[5];
+          if ( v11 )
+            v12 = *v11;
           else
-            LODWORD(v9) = 0;
-          PostMessage((int)v2[6], 993, v9, 0);
+            LODWORD(v12) = 0;
+          PostMessage((int)v2[6], 993, v12, 0);
         }
       }
-      v10 = v2[4];
-      if ( v10 )
+      v13 = v2[4];
+      if ( v13 )
       {
-        v11 = v10[20];
-        v10[20] = v11 | 6;
-        v12 = (v11 & 0xA) != 0;
+        v14 = v13[20];
+        v13[20] = v14 | 6;
+        v15 = (v14 & 0xA) != 0;
       }
       else
       {
-        v12 = 1;
+        v15 = 1;
       }
-      v13 = (struct tagFREELIST *)v2[9];
+      v16 = (struct tagFREELIST *)v2[9];
       v2[9] = 0LL;
-      v14 = *((_DWORD *)v2 + 20);
-      if ( (v14 & 2) != 0 && v12 || (v14 & 4) != 0 )
+      v17 = *((_DWORD *)v2 + 20);
+      if ( (v17 & 2) != 0 && v15 || (v17 & 4) != 0 )
       {
         if ( (*(_BYTE *)(_HMPheFromObject(v2) + 25) & 1) == 0 )
           v2[4] = (_UNKNOWN *)xxxFreeDdeConv((struct tagDDECONV *)v2[4]);
-        v18 = (struct tagDDECONV *)ThreadUnlock1(v16, v15, v17);
-        if ( v18 )
-          xxxFreeDdeConv(v18);
+        v19 = (struct tagDDECONV *)ThreadUnlock1(v18);
+        if ( v19 )
+          xxxFreeDdeConv(v19);
       }
       else
       {
-        UnlinkConv((struct tagDDECONV *)v2);
-        ThreadUnlock1(v20, v19, v21);
+        UnlinkConv((struct tagDDECONV *)v2, (__int16)v13);
+        ThreadUnlock1(v20);
       }
-      xxxFreeListFree(v13);
-      result = (_UNKNOWN **)ThreadUnlock1(v23, v22, v24);
+      xxxFreeListFree(v16);
+      result = (_UNKNOWN **)ThreadUnlock1(v21);
       v2 = result;
     }
     while ( result );

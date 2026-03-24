@@ -1,16 +1,16 @@
 /*
- * XREFs of IopInitializeInMemoryDumpData @ 0x140281648
+ * XREFs of IopInitializeInMemoryDumpData @ 0x140281748
  * Callers:
- *     IopInitializeOfflineCrashDump @ 0x140180C60 (IopInitializeOfflineCrashDump.c)
+ *     IopInitializeOfflineCrashDump @ 0x140180C80 (IopInitializeOfflineCrashDump.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     MmAllocateContiguousNodeMemory @ 0x1400E6460 (MmAllocateContiguousNodeMemory.c)
- *     MmFreeContiguousMemory @ 0x140122FA0 (MmFreeContiguousMemory.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwFilterBootOption @ 0x1401B9D10 (ZwFilterBootOption.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     KdCopyDataBlock @ 0x14028B9B8 (KdCopyDataBlock.c)
- *     IoSetEnvironmentVariableEx @ 0x140821608 (IoSetEnvironmentVariableEx.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1400E6480 (MmAllocateContiguousNodeMemory.c)
+ *     MmFreeContiguousMemory @ 0x140122FC0 (MmFreeContiguousMemory.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwFilterBootOption @ 0x1401B9D30 (ZwFilterBootOption.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KdCopyDataBlock @ 0x14028BAB8 (KdCopyDataBlock.c)
+ *     IoSetEnvironmentVariableEx @ 0x1408215E8 (IoSetEnvironmentVariableEx.c)
  */
 
 void IopInitializeInMemoryDumpData()

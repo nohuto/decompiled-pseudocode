@@ -1,9 +1,9 @@
 /*
- * XREFs of CompareEventEntry @ 0x1C0074560
+ * XREFs of CompareEventEntry @ 0x1C00625D0
  * Callers:
- *     InsertEventEntryInLookUpTable @ 0x1C0074AF0 (InsertEventEntryInLookUpTable.c)
+ *     InsertEventEntryInLookUpTable @ 0x1C0062B68 (InsertEventEntryInLookUpTable.c)
  * Callees:
- *     memcmp @ 0x1C002CB10 (memcmp.c)
+ *     memcmp @ 0x1C0028AF0 (memcmp.c)
  */
 
 int __fastcall CompareEventEntry(unsigned __int8 a1, __int64 a2, __int64 a3)

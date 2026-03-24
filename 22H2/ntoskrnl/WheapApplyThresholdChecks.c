@@ -1,37 +1,48 @@
 /*
- * XREFs of WheapApplyThresholdChecks @ 0x140610C28
+ * XREFs of WheapApplyThresholdChecks @ 0x1405BB620
  * Callers:
- *     WheaReportHwError @ 0x1406106A0 (WheaReportHwError.c)
+ *     WheaReportHwError @ 0x1405BB070 (WheaReportHwError.c)
  * Callees:
- *     WheapGetErrorThresholdInformation @ 0x140610F5C (WheapGetErrorThresholdInformation.c)
+ *     <none>
  */
 
-char __fastcall WheapApplyThresholdChecks(__int64 a1, __int64 a2)
+char __fastcall WheapApplyThresholdChecks(__int64 a1)
 {
-  __int64 v3; // rcx
-  unsigned int v5; // ecx
-  unsigned int v6; // [rsp+30h] [rbp+8h] BYREF
-  unsigned int v7; // [rsp+38h] [rbp+10h] BYREF
-  int v8; // [rsp+3Ch] [rbp+14h]
+  int v2; // eax
+  __int64 v3; // rax
+  unsigned __int8 *v4; // rdx
+  unsigned int v5; // r10d
+  unsigned __int64 v6; // r11
+  __int64 v7; // rcx
 
-  v8 = HIDWORD(a2);
-  v7 = 0;
-  v6 = 0;
   ++*(_DWORD *)(a1 + 84);
-  WheapGetErrorThresholdInformation(a1, &v6, &v7);
-  if ( v7 <= 1 )
+  v2 = *(_DWORD *)(a1 + 104);
+  if ( v2 == 1 )
+  {
+    v3 = 144LL;
+  }
+  else
+  {
+    if ( v2 == 2 || v2 == 4 || v2 != 5 && v2 != 8 && (v2 <= 11 || v2 > 13) )
+      return 0;
+    v3 = 160LL;
+  }
+  v4 = (unsigned __int8 *)(a1 + v3);
+  if ( !(a1 + v3) || *v4 != 1 && *v4 != 2 && *v4 != 3 && *v4 != 4 && *v4 != 8 && (unsigned int)*v4 - 9 > 1 )
     return 0;
-  v3 = MEMORY[0xFFFFF78000000320];
-  if ( v6
-    && (unsigned int)KeMaximumIncrement * (MEMORY[0xFFFFF78000000320] - *(_QWORD *)(a1 + 72)) / 10000000LL > (unsigned __int64)v6 )
+  v5 = *((_DWORD *)v4 + 5);
+  v6 = *((unsigned int *)v4 + 6);
+  if ( v5 <= 1 )
+    return 0;
+  v7 = MEMORY[0xFFFFF78000000320];
+  if ( (_DWORD)v6
+    && (unsigned int)KeMaximumIncrement * (MEMORY[0xFFFFF78000000320] - *(_QWORD *)(a1 + 72)) / 10000000LL > v6 )
   {
     *(_DWORD *)(a1 + 80) = 1;
-    *(_QWORD *)(a1 + 72) = v3;
+    *(_QWORD *)(a1 + 72) = v7;
     return 0;
   }
-  v5 = *(_DWORD *)(a1 + 80) + 1;
-  *(_DWORD *)(a1 + 80) = v5;
-  if ( v5 < v7 )
+  if ( ++*(_DWORD *)(a1 + 80) < v5 )
     return 0;
   *(_DWORD *)(a1 + 80) = 0;
   return 1;

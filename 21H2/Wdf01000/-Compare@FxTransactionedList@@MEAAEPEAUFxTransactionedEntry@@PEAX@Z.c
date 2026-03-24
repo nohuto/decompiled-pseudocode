@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Compare@FxTransactionedList@@MEAAEPEAUFxTransactionedEntry@@PEAX@Z @ 0x1C000BAD0
+ * XREFs of ?Compare@FxTransactionedList@@MEAAEPEAUFxTransactionedEntry@@PEAX@Z @ 0x1C000DA00
  * Callers:
  *     <none>
  * Callees:

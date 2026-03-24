@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CSharedReadTransformMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C00BA2C0
+ * XREFs of ?IsOfType@CSharedReadTransformMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C00A58B0
  * Callers:
  *     <none>
  * Callees:
@@ -19,7 +19,7 @@ char __fastcall DirectComposition::CSharedReadTransformMarshaler::IsOfType(__int
     case 54:
       return 1;
     case 185:
-      v3 = *(_DWORD *)(a1 + 72);
+      v3 = *(_DWORD *)(a1 + 64);
       if ( v3 == 107 || v3 == 104 )
         return 1;
       break;

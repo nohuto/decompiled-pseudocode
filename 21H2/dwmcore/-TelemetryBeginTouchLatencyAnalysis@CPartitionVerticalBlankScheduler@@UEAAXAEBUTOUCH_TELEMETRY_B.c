@@ -1,14 +1,14 @@
 /*
- * XREFs of ?TelemetryBeginTouchLatencyAnalysis@CPartitionVerticalBlankScheduler@@UEAAXAEBUTOUCH_TELEMETRY_BEGIN_INFO@@_KPEBG@Z @ 0x180015A80
+ * XREFs of ?TelemetryBeginTouchLatencyAnalysis@CPartitionVerticalBlankScheduler@@UEAAXAEBUTOUCH_TELEMETRY_BEGIN_INFO@@_KPEBG@Z @ 0x180023FA0
  * Callers:
  *     <none>
  * Callees:
- *     ?BeginAnalyzingInteraction@CTelemetryTouchLatencyAnalysis@InteractionLatencyTelemetry@@QEAAXPEBUTOUCH_TELEMETRY_BEGIN_INFO@@_KPEBG1IAEBU_LUID@@_N@Z @ 0x180015B80 (-BeginAnalyzingInteraction@CTelemetryTouchLatencyAnalysis@InteractionLatencyTelemetry@@QEAAXPEBU.c)
- *     ??1?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EBC0 (--1-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?GetPrimaryAdapter@CDisplayManager@@QEAAJPEAPEAUIDXGIAdapter1@@@Z @ 0x18003D75C (-GetPrimaryAdapter@CDisplayManager@@QEAAJPEAPEAUIDXGIAdapter1@@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?BeginAnalyzingInteraction@CTelemetryTouchLatencyAnalysis@@QEAAXPEBUTOUCH_TELEMETRY_BEGIN_INFO@@_KPEBG1IAEBU_LUID@@_N@Z @ 0x180023728 (-BeginAnalyzingInteraction@CTelemetryTouchLatencyAnalysis@@QEAAXPEBUTOUCH_TELEMETRY_BEGIN_INFO@@.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?GetPrimaryAdapter@CDisplayManager@@QEAAJPEAPEAUIDXGIAdapter1@@@Z @ 0x180031104 (-GetPrimaryAdapter@CDisplayManager@@QEAAJPEAPEAUIDXGIAdapter1@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CPartitionVerticalBlankScheduler::TelemetryBeginTouchLatencyAnalysis(
@@ -27,14 +27,14 @@ void __fastcall CPartitionVerticalBlankScheduler::TelemetryBeginTouchLatencyAnal
   v8[0] = 0LL;
   if ( (int)CDisplayManager::GetPrimaryAdapter(v7, v8) >= 0 )
     ((void (__fastcall *)(struct IDXGIAdapter1 *, _BYTE *))v8[0]->lpVtbl->GetDesc1)(v8[0], v9);
-  InteractionLatencyTelemetry::CTelemetryTouchLatencyAnalysis::BeginAnalyzingInteraction(
-    (CPartitionVerticalBlankScheduler *)((char *)this + 5440),
+  CTelemetryTouchLatencyAnalysis::BeginAnalyzingInteraction(
+    (CPartitionVerticalBlankScheduler *)((char *)this + 5952),
     a2,
-    2 - (unsigned int)(*(_BYTE *)(*((_QWORD *)g_pComposition + 27) + 577LL) != 0),
+    2 - (unsigned int)(*(_BYTE *)(*((_QWORD *)g_pComposition + 11) + 129LL) != 0),
     a4,
-    **((_QWORD **)this + 564),
-    2 - (*(_BYTE *)(*((_QWORD *)g_pComposition + 27) + 577LL) != 0),
+    **((_QWORD **)this + 629),
+    2 - (*(_BYTE *)(*((_QWORD *)g_pComposition + 11) + 129LL) != 0),
     &v10,
     (v11 & 2) != 0);
-  wil::com_ptr_t<CVisual,wil::err_returncode_policy>::~com_ptr_t<CVisual,wil::err_returncode_policy>(v8);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(v8);
 }

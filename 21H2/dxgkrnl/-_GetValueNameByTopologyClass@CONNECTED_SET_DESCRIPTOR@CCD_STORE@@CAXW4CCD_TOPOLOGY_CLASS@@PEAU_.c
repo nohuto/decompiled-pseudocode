@@ -1,51 +1,57 @@
 /*
- * XREFs of ?_GetValueNameByTopologyClass@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@CAXW4CCD_TOPOLOGY_CLASS@@PEAU_UNICODE_STRING@@@Z @ 0x1C01B8114
+ * XREFs of ?_GetValueNameByTopologyClass@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@CAXW4CCD_TOPOLOGY_CLASS@@PEAU_UNICODE_STRING@@@Z @ 0x1C0167810
  * Callers:
- *     ?GetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAPEBVCCD_SET_STRING_ID@@W4CCD_TOPOLOGY_CLASS@@@Z @ 0x1C01B7FB8 (-GetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAPEBVCCD_SET_STRING_ID@@W4CCD_TOP.c)
- *     ?SetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAJAEBVCCD_SET_STRING_ID@@W4CCD_TOPOLOGY_CLASS@@@Z @ 0x1C01BB308 (-SetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAJAEBVCCD_SET_STRING_ID@@W4CCD_TO.c)
+ *     ?GetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAPEBVCCD_SET_STRING_ID@@W4CCD_TOPOLOGY_CLASS@@@Z @ 0x1C0137AF4 (-GetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAPEBVCCD_SET_STRING_ID@@W4CCD_TOP.c)
+ *     ?SetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAJAEBVCCD_SET_STRING_ID@@W4CCD_TOPOLOGY_CLASS@@@Z @ 0x1C0167604 (-SetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAJAEBVCCD_SET_STRING_ID@@W4CCD_TO.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CCD_STORE::CONNECTED_SET_DESCRIPTOR::_GetValueNameByTopologyClass(int a1, __int64 a2)
+__int16 __fastcall CCD_STORE::CONNECTED_SET_DESCRIPTOR::_GetValueNameByTopologyClass(__int64 a1, __int64 a2)
 {
-  const wchar_t *v3; // rcx
-  __int64 result; // rax
+  __int64 v2; // rdi
+  const wchar_t *v4; // rax
+  __int16 result; // ax
+  __int64 v6; // rax
 
-  switch ( a1 )
+  v2 = (int)a1;
+  if ( (_DWORD)a1 == 1 )
   {
-    case 1:
-      v3 = L"Internal";
-LABEL_11:
-      *(_WORD *)(a2 + 2) = 18;
-      result = 16LL;
-      goto LABEL_9;
-    case 2:
-      v3 = L"Clone";
-      *(_WORD *)(a2 + 2) = 12;
-      result = 10LL;
-      goto LABEL_9;
-    case 4:
-      v3 = L"eXtend";
-      goto LABEL_7;
-    case 8:
-      v3 = L"External";
-      goto LABEL_11;
+    *(_WORD *)(a2 + 2) = 18;
+    v4 = L"Internal";
   }
-  if ( a1 != 15 )
+  else if ( (_DWORD)a1 == 2 )
   {
-    WdLogSingleEntry1(1LL, a1);
-    v3 = L"Recent";
+    *(_WORD *)(a2 + 2) = 12;
+    v4 = L"Clone";
+  }
+  else if ( (_DWORD)a1 == 4 )
+  {
     *(_WORD *)(a2 + 2) = 14;
-    goto LABEL_8;
+    v4 = L"eXtend";
   }
-  v3 = L"Recent";
-LABEL_7:
-  *(_WORD *)(a2 + 2) = 14;
-LABEL_8:
-  result = 12LL;
-LABEL_9:
-  *(_QWORD *)(a2 + 8) = v3;
+  else if ( (_DWORD)a1 == 8 )
+  {
+    *(_WORD *)(a2 + 2) = 18;
+    v4 = L"External";
+  }
+  else
+  {
+    if ( (_DWORD)a1 == 15 )
+    {
+      *(_WORD *)(a2 + 2) = 14;
+    }
+    else
+    {
+      v6 = WdLogNewEntry5_WdAssertion(a1, a2);
+      *(_QWORD *)(v6 + 24) = v2;
+      WdLogEvent5_WdAssertion(v6);
+      *(_WORD *)(a2 + 2) = 14;
+    }
+    v4 = L"Recent";
+  }
+  *(_QWORD *)(a2 + 8) = v4;
+  result = *(_WORD *)(a2 + 2) - 2;
   *(_WORD *)a2 = result;
   return result;
 }

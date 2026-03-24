@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsFreeEntryInRow@CAtlasTexture@@QEBA_NI@Z @ 0x1800189DC
+ * XREFs of ?IsFreeEntryInRow@CAtlasTexture@@QEBA_NI@Z @ 0x18024C5B8
  * Callers:
- *     ?CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z @ 0x1800186E4 (-CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z.c)
+ *     ?CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z @ 0x18024BFEC (-CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z.c)
  * Callees:
  *     <none>
  */

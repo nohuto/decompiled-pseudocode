@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x14051A198
+ * XREFs of HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x1404D0F30
  * Callers:
- *     HalpInterruptEnumerateUnmaskedInterrupts @ 0x1405040F0 (HalpInterruptEnumerateUnmaskedInterrupts.c)
+ *     HalpInterruptEnumerateUnmaskedInterrupts @ 0x1404BB1A0 (HalpInterruptEnumerateUnmaskedInterrupts.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x14037D1C8 (HalpAcquireHighLevelLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378990 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpInterruptEnumerateUnmaskedSecondaryInterrupts(
@@ -62,19 +62,22 @@ __int64 __fastcall HalpInterruptEnumerateUnmaskedSecondaryInterrupts(
     v9 = *(_QWORD *)v9;
   }
   while ( v7 );
-  KxReleaseSpinLock((volatile signed __int64 *)&SecondaryIcListSpinLock);
+  KxReleaseSpinLock(&SecondaryIcListSpinLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v20 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v18 = ~(unsigned __int16)(-1LL << (v20 + 1));
-      v19 = (v18 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v18;
-      if ( v19 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && v20 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v18 = ~(unsigned __int16)(-1LL << (v20 + 1));
+        v19 = (v18 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v18;
+        if ( v19 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v20);

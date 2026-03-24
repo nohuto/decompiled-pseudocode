@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmIdleUpdatePlatformDependencies @ 0x14099E088
+ * XREFs of PpmIdleUpdatePlatformDependencies @ 0x1408F6898
  * Callers:
- *     PpmInstallPlatformIdleStates @ 0x14098AAF0 (PpmInstallPlatformIdleStates.c)
+ *     PpmInstallPlatformIdleStates @ 0x1408E22A0 (PpmInstallPlatformIdleStates.c)
  * Callees:
  *     <none>
  */

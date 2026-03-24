@@ -1,27 +1,25 @@
 /*
- * XREFs of StRtlIoStorInfoSetNvCachePriority @ 0x140652638
+ * XREFs of StRtlIoStorInfoSetNvCachePriority @ 0x1405C92D0
  * Callers:
- *     IoAsynchronousPageWrite @ 0x14020C810 (IoAsynchronousPageWrite.c)
+ *     IoAsynchronousPageWrite @ 0x1402CB1EC (IoAsynchronousPageWrite.c)
  * Callees:
- *     IoGetGenericIrpExtension @ 0x140379030 (IoGetGenericIrpExtension.c)
- *     IoSetGenericIrpExtension @ 0x140387790 (IoSetGenericIrpExtension.c)
+ *     IoGetGenericIrpExtension @ 0x140370F30 (IoGetGenericIrpExtension.c)
+ *     IoSetGenericIrpExtension @ 0x14037A120 (IoSetGenericIrpExtension.c)
  */
 
 __int64 __fastcall StRtlIoStorInfoSetNvCachePriority(__int64 a1, unsigned __int8 a2)
 {
   __int64 result; // rax
-  __int64 v5; // r9
-  int v6; // [rsp+38h] [rbp+10h] BYREF
+  int v5; // [rsp+38h] [rbp+10h] BYREF
 
-  v6 = 0;
+  v5 = 0;
   if ( a2 > 0xFu )
     return 3221225485LL;
-  result = IoGetGenericIrpExtension(a1, &v6, 4u);
+  result = IoGetGenericIrpExtension(a1, &v5, 4u);
   if ( (int)(result + 0x80000000) < 0 || (_DWORD)result == -1073741275 )
   {
-    LOBYTE(v5) = 1;
-    LOBYTE(v6) = a2 & 0xF | v6 & 0xF0 | 0x10;
-    return IoSetGenericIrpExtension(a1, &v6, 4LL, v5);
+    LOBYTE(v5) = a2 & 0xF | v5 & 0xF0 | 0x10;
+    return IoSetGenericIrpExtension(a1, &v5, 4u, 1);
   }
   return result;
 }

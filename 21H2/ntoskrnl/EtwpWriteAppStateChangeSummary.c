@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpWriteAppStateChangeSummary @ 0x140712BA0
+ * XREFs of EtwpWriteAppStateChangeSummary @ 0x14062A95C
  * Callers:
- *     EtwTraceProcess @ 0x14070AC28 (EtwTraceProcess.c)
- *     EtwTraceAppStateChange @ 0x140712868 (EtwTraceAppStateChange.c)
+ *     EtwTraceProcess @ 0x14060330C (EtwTraceProcess.c)
+ *     EtwTraceAppStateChange @ 0x1406CDBB8 (EtwTraceAppStateChange.c)
  * Callees:
- *     _tlgWriteAgg @ 0x1402A1A20 (_tlgWriteAgg.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402A2094 (_tlgCreate1Sz_wchar_t.c)
- *     PsIsHostSilo @ 0x1402A6DF0 (PsIsHostSilo.c)
- *     PsGetProcessServerSilo @ 0x140347680 (PsGetProcessServerSilo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
+ *     PsIsHostSilo @ 0x140354A80 (PsIsHostSilo.c)
+ *     _tlgWriteAgg @ 0x140375E94 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall EtwpWriteAppStateChangeSummary(
@@ -24,13 +24,13 @@ char __fastcall EtwpWriteAppStateChangeSummary(
   __int64 v11; // rdx
   unsigned int v12; // r15d
   __int64 ProcessServerSilo; // rsi
-  __int64 *v14; // rax
-  __int64 v15; // rax
-  unsigned __int16 *v16; // r9
-  unsigned __int64 v17; // r10
-  char v18; // cl
-  unsigned __int64 v19; // rax
-  bool v20; // zf
+  bool v14; // zf
+  __int64 *v15; // rax
+  __int64 v16; // rax
+  unsigned __int16 *v17; // r9
+  unsigned __int64 v18; // r10
+  char v19; // cl
+  unsigned __int64 v20; // rax
   unsigned __int64 v21; // rax
   unsigned __int64 v22; // rax
   unsigned __int64 v23; // rax
@@ -151,7 +151,7 @@ char __fastcall EtwpWriteAppStateChangeSummary(
   __int64 v139; // [rsp+358h] [rbp+258h]
 
   memset(v72, 0, 29);
-  if ( dword_140C043A8 && tlgKeywordOn((__int64)&dword_140C043A8, 0x200000000000LL) )
+  if ( dword_140C02BB8 && tlgKeywordOn((__int64)&dword_140C02BB8, 0x200000000000LL) )
   {
     v10 = 1LL;
     v11 = 257LL;
@@ -166,121 +166,115 @@ char __fastcall EtwpWriteAppStateChangeSummary(
     v10 = v11;
   *(_QWORD *)&v72[0] = v10;
   ProcessServerSilo = PsGetProcessServerSilo(a1);
-  if ( PsIsHostSilo(ProcessServerSilo) )
+  v14 = !PsIsHostSilo(ProcessServerSilo);
+  v15 = (__int64 *)(ProcessServerSilo + 1256);
+  if ( !v14 )
+    v15 = PspNullGuid;
+  if ( v15 )
+    *(_OWORD *)((char *)v72 + 13) = *(_OWORD *)v15;
+  v16 = *(_QWORD *)(a1 + 1472);
+  if ( (unsigned int)dword_140C02BB8 > 5 )
   {
-    v14 = PspNullGuid;
-  }
-  else
-  {
-    v14 = (__int64 *)(ProcessServerSilo + 1448);
-    if ( ProcessServerSilo == -1448 )
-      goto LABEL_9;
-  }
-  *(_OWORD *)((char *)v72 + 13) = *(_OWORD *)v14;
-LABEL_9:
-  v15 = *(_QWORD *)(a1 + 1472);
-  if ( (unsigned int)dword_140C043A8 > 5 )
-  {
-    LOBYTE(v15) = tlgKeywordOn((__int64)&dword_140C043A8, 0x400000000000LL);
-    if ( (_BYTE)v15 )
+    LOBYTE(v16) = tlgKeywordOn((__int64)&dword_140C02BB8, 0x400000000000LL);
+    if ( (_BYTE)v16 )
     {
-      v18 = *a2;
-      v19 = v17;
-      v20 = *a2 == 0;
+      v19 = *a2;
+      v20 = v18;
+      v14 = *a2 == 0;
       v75 = 8LL;
       v77 = 8LL;
-      LOBYTE(v19) = v20;
+      LOBYTE(v20) = v14;
       v79 = 8LL;
-      v47 = v19;
+      v47 = v20;
       v81 = 8LL;
       v74 = &v47;
-      v21 = v17;
-      LOBYTE(v21) = v18 == 1;
+      v21 = v18;
+      LOBYTE(v21) = v19 == 1;
       v83 = 8LL;
       v48 = v21;
       v85 = 8LL;
       v76 = &v48;
-      v22 = v17;
-      LOBYTE(v22) = v18 == 2;
+      v22 = v18;
+      LOBYTE(v22) = v19 == 2;
       v87 = 8LL;
       v49 = v22;
       v89 = 8LL;
       v78 = &v49;
-      v23 = v17;
-      LOBYTE(v23) = v18 == 3;
+      v23 = v18;
+      LOBYTE(v23) = v19 == 3;
       v91 = 8LL;
       v50 = v23;
       v80 = &v50;
-      v24 = v17;
-      LOBYTE(v24) = v18 == 4;
+      v24 = v18;
+      LOBYTE(v24) = v19 == 4;
       v51 = v24;
       v82 = &v51;
-      v25 = v17;
-      LOBYTE(v25) = v18 == 5;
+      v25 = v18;
+      LOBYTE(v25) = v19 == 5;
       v52 = v25;
       v84 = &v52;
-      v26 = v17;
-      LOBYTE(v26) = v18 == 6;
+      v26 = v18;
+      LOBYTE(v26) = v19 == 6;
       v53 = v26;
       v86 = &v53;
       v54 = *(_QWORD *)(a2 + 41);
       v88 = &v54;
       v55 = *(_QWORD *)(a2 + 49);
       v90 = &v55;
-      v27 = v17;
+      v27 = v18;
       if ( a3 )
         LOBYTE(v27) = (*(_BYTE *)(a1 + 2171) & 7) != 0;
       v56 = v27;
       v92 = &v56;
-      v28 = v17;
+      v28 = v18;
       v93 = 8LL;
       if ( a3 )
         LOBYTE(v28) = (*(_BYTE *)(a1 + 2171) & 0x38) != 0;
       v57 = v28;
       v94 = &v57;
-      v29 = (unsigned int)v17;
+      v29 = (unsigned int)v18;
       v95 = 8LL;
       if ( a3 )
         v29 = *a3;
       v58 = v29;
       v96 = &v58;
-      v30 = v17;
+      v30 = v18;
       v97 = 8LL;
       if ( a3 )
         v30 = *(_QWORD *)(a3 + 1);
       v59 = v30;
       v98 = &v59;
-      v31 = v17;
+      v31 = v18;
       v99 = 8LL;
       if ( a3 )
         v31 = *(_QWORD *)(a3 + 3);
       v60 = v31;
       v100 = &v60;
-      v32 = (unsigned int)v17;
+      v32 = (unsigned int)v18;
       v101 = 8LL;
       if ( a3 )
         v32 = a3[7];
       v61 = v32;
       v102 = &v61;
-      v33 = (unsigned int)v17;
+      v33 = (unsigned int)v18;
       v103 = 8LL;
       if ( a3 )
         v33 = a3[9];
       v62 = v33;
       v104 = &v62;
-      v34 = (unsigned int)v17;
+      v34 = (unsigned int)v18;
       v105 = 8LL;
       if ( a3 )
         v34 = a3[8];
       v63 = v34;
       v106 = &v63;
-      v35 = (unsigned int)v17;
+      v35 = (unsigned int)v18;
       v107 = 8LL;
       if ( a3 )
         v35 = a3[10];
       v64 = v35;
       v108 = &v64;
-      v36 = v17;
+      v36 = v18;
       v109 = 8LL;
       if ( a3 )
         v36 = *(_QWORD *)(a3 + 5);
@@ -290,16 +284,16 @@ LABEL_9:
       if ( a3 )
         v37 = v12 >> 31;
       else
-        v37 = (unsigned int)v17;
+        v37 = (unsigned int)v18;
       v66 = v37;
       v112 = &v66;
-      v38 = v17;
+      v38 = v18;
       v113 = 8LL;
       if ( a3 )
         LOBYTE(v38) = v12 == 0;
       v67 = v38;
       v114 = &v67;
-      v39 = v17;
+      v39 = v18;
       v115 = 8LL;
       if ( a3 )
         LOBYTE(v39) = v12 == 1;
@@ -309,24 +303,24 @@ LABEL_9:
       if ( a3 )
         v40 = ((unsigned __int64)*(unsigned __int8 *)(a1 + 2171) >> 6) & 1;
       else
-        v40 = v17;
+        v40 = v18;
       v69 = v40;
       v118 = &v69;
       v119 = 8LL;
-      if ( v18 == 3 )
+      if ( v19 == 3 )
         v41 = *(unsigned int *)(a1 + 1832);
       else
-        v41 = (unsigned int)v17;
+        v41 = (unsigned int)v18;
       v70 = v41;
       v121 = 8LL;
       v120 = &v70;
       v123 = 2LL;
       v122 = v125;
-      v124 = *((_QWORD *)v16 + 1);
-      v125[0] = *v16;
-      v125[1] = v17;
-      tlgCreate1Sz_wchar_t((__int64)v126, (const WCHAR *)(a4 + 16));
-      tlgCreate1Sz_wchar_t((__int64)v127, (const WCHAR *)(a4 + 272));
+      v124 = *((_QWORD *)v17 + 1);
+      v125[0] = *v17;
+      v125[1] = v18;
+      tlgCreate1Sz_wchar_t((__int64)v126, (const size_t *)(a4 + 16));
+      tlgCreate1Sz_wchar_t((__int64)v127, (const size_t *)(a4 + 272));
       v129 = 4LL;
       v131 = 4LL;
       v133 = 2LL;
@@ -343,8 +337,8 @@ LABEL_9:
       v137 = 29LL;
       v71 = 50331648LL;
       v139 = 8LL;
-      LOBYTE(v15) = tlgWriteAgg((__int64)&dword_140C043A8, (unsigned __int8 *)&byte_140034A4F, v43, 0x24u, &v73);
+      LOBYTE(v16) = tlgWriteAgg((__int64)&dword_140C02BB8, (unsigned __int8 *)&dword_14002CB1C, v43, 0x24u, &v73);
     }
   }
-  return v15;
+  return v16;
 }

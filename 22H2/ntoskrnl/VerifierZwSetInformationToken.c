@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierZwSetInformationToken @ 0x140AD1740
+ * XREFs of VerifierZwSetInformationToken @ 0x1409D44E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierZwSetInformationToken()

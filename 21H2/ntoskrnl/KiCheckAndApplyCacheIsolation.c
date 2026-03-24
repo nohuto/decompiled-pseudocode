@@ -1,7 +1,7 @@
 /*
- * XREFs of KiCheckAndApplyCacheIsolation @ 0x140573A00
+ * XREFs of KiCheckAndApplyCacheIsolation @ 0x14051F140
  * Callers:
- *     SwapContext @ 0x140428D90 (SwapContext.c)
+ *     SwapContext @ 0x1404067C0 (SwapContext.c)
  * Callees:
  *     <none>
  */

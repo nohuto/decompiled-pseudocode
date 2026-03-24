@@ -1,26 +1,26 @@
 /*
- * XREFs of KiDecodeMcaFault @ 0x1403E3090
+ * XREFs of KiDecodeMcaFault @ 0x1403DB640
  * Callers:
- *     KiMachineCheckControl @ 0x14042B410 (KiMachineCheckControl.c)
- *     $$11 @ 0x14042B420 ($$11.c)
- *     $$12 @ 0x14042B430 ($$12.c)
- *     $$13 @ 0x14042B440 ($$13.c)
- *     $$14 @ 0x14042B450 ($$14.c)
- *     $$15 @ 0x14042B460 ($$15.c)
- *     $$16 @ 0x14042B470 ($$16.c)
- *     $$17 @ 0x14042B480 ($$17.c)
- *     $$18 @ 0x14042B490 ($$18.c)
- *     $$19 @ 0x14042B4A0 ($$19.c)
- *     $$1a @ 0x14042B4B0 ($$1a.c)
- *     $$1b @ 0x14042B4C0 ($$1b.c)
- *     $$1c @ 0x14042B4D0 ($$1c.c)
- *     $$1d @ 0x14042B4E0 ($$1d.c)
- *     $$1e @ 0x14042B4F0 ($$1e.c)
- *     $$1f @ 0x14042B500 ($$1f.c)
+ *     KiMachineCheckControl @ 0x140409A90 (KiMachineCheckControl.c)
+ *     $$11 @ 0x140409AA0 ($$11.c)
+ *     $$12 @ 0x140409AB0 ($$12.c)
+ *     $$13 @ 0x140409AC0 ($$13.c)
+ *     $$14 @ 0x140409AD0 ($$14.c)
+ *     $$15 @ 0x140409AE0 ($$15.c)
+ *     $$16 @ 0x140409AF0 ($$16.c)
+ *     $$17 @ 0x140409B00 ($$17.c)
+ *     $$18 @ 0x140409B10 ($$18.c)
+ *     $$19 @ 0x140409B20 ($$19.c)
+ *     $$1a @ 0x140409B30 ($$1a.c)
+ *     $$1b @ 0x140409B40 ($$1b.c)
+ *     $$1c @ 0x140409B50 ($$1c.c)
+ *     $$1d @ 0x140409B60 ($$1d.c)
+ *     $$1e @ 0x140409B70 ($$1e.c)
+ *     $$1f @ 0x140409B80 ($$1f.c)
  * Callees:
- *     KeTestSpinLock @ 0x140226F10 (KeTestSpinLock.c)
- *     FsRtlMdlReadCompleteDevEx @ 0x140AFB010 (FsRtlMdlReadCompleteDevEx.c)
- *     KeGuardDispatchICall @ 0x140B147A0 (KeGuardDispatchICall.c)
+ *     KeTestSpinLock @ 0x1402F61F0 (KeTestSpinLock.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x1409F8010 (FsRtlMdlReadCompleteDevEx.c)
+ *     KeGuardDispatchICall @ 0x140A11330 (KeGuardDispatchICall.c)
  */
 
 __int64 KiDecodeMcaFault()
@@ -43,7 +43,7 @@ __int64 KiDecodeMcaFault()
     return (*((__int64 (__fastcall **)(_BYTE *, _QWORD))CompleteDev + 78))(CompleteDev + 2048, 0LL);
   v2 = *((unsigned int *)CompleteDev + 505);
   v3 = *((_QWORD *)CompleteDev + 249);
-  v4 = (__int64 (__fastcall *)(__int64, __int64, _QWORD, __int64))*((_QWORD *)CompleteDev + 31);
+  v4 = (__int64 (__fastcall *)(__int64, __int64, _QWORD, __int64))*((_QWORD *)CompleteDev + 32);
   v5 = *((unsigned int *)CompleteDev + 500);
   if ( (unsigned int)v2 >= 8 )
   {

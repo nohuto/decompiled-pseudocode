@@ -1,17 +1,16 @@
 /*
- * XREFs of UsbDevice_UcxEvtEnable @ 0x1C0013260
+ * XREFs of UsbDevice_UcxEvtEnable @ 0x1C000E990
  * Callers:
  *     <none>
  * Callees:
- *     Command_SendCommand @ 0x1C000A850 (Command_SendCommand.c)
- *     Controller_IsControllerAccessible @ 0x1C000A914 (Controller_IsControllerAccessible.c)
- *     Endpoint_Disable @ 0x1C000B0DC (Endpoint_Disable.c)
- *     Endpoint_Enable @ 0x1C000BDF0 (Endpoint_Enable.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
- *     MicrosoftTelemetryAssertTriggeredMsgKM @ 0x1C00532B4 (MicrosoftTelemetryAssertTriggeredMsgKM.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
+ *     Controller_IsControllerAccessible @ 0x1C0007380 (Controller_IsControllerAccessible.c)
+ *     Endpoint_Enable @ 0x1C00083B0 (Endpoint_Enable.c)
+ *     Endpoint_Disable @ 0x1C000AB88 (Endpoint_Disable.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 char __fastcall UsbDevice_UcxEvtEnable(__int64 a1, __int64 a2)
@@ -35,12 +34,8 @@ char __fastcall UsbDevice_UcxEvtEnable(__int64 a1, __int64 a2)
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          *(_QWORD *)(*((_QWORD *)&v10[0] + 1) + 16LL),
-         off_1C00632C0);
+         off_1C00602C0);
   v4 = *(_QWORD *)(*(_QWORD *)(v3 + 8) + 144LL);
-  if ( *(_BYTE *)(v3 + 134) )
-    MicrosoftTelemetryAssertTriggeredMsgKM("Slot already enabled");
-  if ( *(_BYTE *)(v3 + 135) )
-    MicrosoftTelemetryAssertTriggeredMsgKM("Slot ID was expected to be 0");
   v6 = Endpoint_Enable(*(__m128i ***)(v3 + 176));
   if ( v6 < 0 )
   {
@@ -52,7 +47,7 @@ char __fastcall UsbDevice_UcxEvtEnable(__int64 a1, __int64 a2)
         v5,
         12,
         14,
-        (__int64)&WPP_a3acd40f84823909f7fc3b79b04bc30f_Traceguids,
+        (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
         v6);
     }
   }

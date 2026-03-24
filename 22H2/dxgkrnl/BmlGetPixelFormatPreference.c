@@ -1,63 +1,34 @@
 /*
- * XREFs of BmlGetPixelFormatPreference @ 0x1C017AA2C
+ * XREFs of BmlGetPixelFormatPreference @ 0x1C014779C
  * Callers:
- *     BmlGetNextBestSourceMode @ 0x1C017A320 (BmlGetNextBestSourceMode.c)
- *     BmlComparePixelFormats @ 0x1C03BCF18 (BmlComparePixelFormats.c)
+ *     BmlCompareSourceModes @ 0x1C014766C (BmlCompareSourceModes.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall BmlGetPixelFormatPreference(int a1, int a2)
+__int64 __fastcall BmlGetPixelFormatPreference(__int64 a1, __int64 a2)
 {
-  int v2; // ecx
-  int v3; // ecx
-  __int64 result; // rax
-  int v5; // ecx
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
-  int v9; // ecx
-  bool v10; // zf
-  unsigned int v11; // ecx
+  __int64 v3; // rax
 
-  if ( !a1 )
+  if ( !(_DWORD)a1 )
   {
-    WdLogSingleEntry0(1LL);
+    v3 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v3);
     return 0xFFFFFFFFLL;
   }
-  v2 = a1 - 20;
-  if ( !v2 )
-    return 4LL;
-  v3 = v2 - 1;
-  if ( !v3 )
-    return 4LL;
-  v5 = v3 - 1;
-  if ( !v5 )
+  if ( (int)a1 <= 19 )
     return 0xFFFFFFFFLL;
-  v6 = v5 - 1;
-  if ( !v6 )
-    return 3LL;
-  v7 = v6 - 9;
-  if ( !v7 )
+  if ( (int)a1 <= 21 )
+    return 4LL;
+  if ( (_DWORD)a1 == 22 )
+    return 0xFFFFFFFFLL;
+  if ( (_DWORD)a1 == 32 )
     return 1LL;
-  v8 = v7 - 3;
-  if ( !v8 )
+  if ( (_DWORD)a1 != 23 )
   {
-    v10 = a2 == 1;
-    goto LABEL_16;
+    if ( (_DWORD)a1 == 41 )
+      return 2LL;
+    return 0xFFFFFFFFLL;
   }
-  v9 = v8 - 6;
-  if ( !v9 )
-    return 2LL;
-  result = 0xFFFFFFFFLL;
-  if ( v9 == 72 )
-  {
-    v10 = a2 == 2;
-LABEL_16:
-    v11 = 5;
-    if ( !v10 )
-      return (unsigned int)-1;
-    return v11;
-  }
-  return result;
+  return 3LL;
 }

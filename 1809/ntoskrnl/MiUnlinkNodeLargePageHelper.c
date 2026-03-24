@@ -3,16 +3,16 @@
  * Callers:
  *     MiUnlinkNodeLargePage @ 0x140064290 (MiUnlinkNodeLargePage.c)
  *     MiCoalesceFreeLargePages @ 0x140090810 (MiCoalesceFreeLargePages.c)
- *     MiTryUnlinkNodeLargePage @ 0x14012BB90 (MiTryUnlinkNodeLargePage.c)
+ *     MiTryUnlinkNodeLargePage @ 0x14012BBB0 (MiTryUnlinkNodeLargePage.c)
  * Callees:
  *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
  *     MiIncreaseAvailablePages @ 0x14009CEE0 (MiIncreaseAvailablePages.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     MiPageListCollision @ 0x1401212A4 (MiPageListCollision.c)
- *     MiUpdateAvailableEvents @ 0x14017F804 (MiUpdateAvailableEvents.c)
- *     MiObtainFreePages @ 0x1402B3194 (MiObtainFreePages.c)
- *     MiArePageContentsZero @ 0x1402BF668 (MiArePageContentsZero.c)
- *     MiWakeLargePageRebuild @ 0x1402CE8A0 (MiWakeLargePageRebuild.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     MiPageListCollision @ 0x1401212C4 (MiPageListCollision.c)
+ *     MiUpdateAvailableEvents @ 0x14017F824 (MiUpdateAvailableEvents.c)
+ *     MiObtainFreePages @ 0x1402B3294 (MiObtainFreePages.c)
+ *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
+ *     MiWakeLargePageRebuild @ 0x1402CE9A0 (MiWakeLargePageRebuild.c)
  */
 
 __int64 __fastcall MiUnlinkNodeLargePageHelper(_QWORD *a1, __int64 a2, unsigned int a3, unsigned int a4, char a5)

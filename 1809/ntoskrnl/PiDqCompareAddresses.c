@@ -1,5 +1,5 @@
 /*
- * XREFs of PiDqCompareAddresses @ 0x1406C61C0
+ * XREFs of PiDqCompareAddresses @ 0x1406C61A0
  * Callers:
  *     <none>
  * Callees:

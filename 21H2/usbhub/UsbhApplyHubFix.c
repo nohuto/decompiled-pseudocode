@@ -1,7 +1,7 @@
 /*
- * XREFs of UsbhApplyHubFix @ 0x1C0050B60
+ * XREFs of UsbhApplyHubFix @ 0x1C00521B0
  * Callers:
- *     UsbhCheckHubErrata @ 0x1C0050F60 (UsbhCheckHubErrata.c)
+ *     UsbhCheckHubErrata @ 0x1C00525B0 (UsbhCheckHubErrata.c)
  * Callees:
  *     <none>
  */

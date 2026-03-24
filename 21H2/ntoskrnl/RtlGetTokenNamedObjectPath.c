@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGetTokenNamedObjectPath @ 0x1409B91D0
+ * XREFs of RtlGetTokenNamedObjectPath @ 0x1409138F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetTokenNamedObjectPath @ 0x1409B9B50 (RtlpGetTokenNamedObjectPath.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x140914568 (RtlpGetTokenNamedObjectPath.c)
  */
 
 __int64 __fastcall RtlGetTokenNamedObjectPath(void *a1)

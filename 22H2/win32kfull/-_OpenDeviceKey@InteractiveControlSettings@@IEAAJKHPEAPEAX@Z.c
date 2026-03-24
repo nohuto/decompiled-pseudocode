@@ -1,12 +1,12 @@
 /*
- * XREFs of ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C00491C4
+ * XREFs of ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C00E41C0
  * Callers:
- *     ?ReadSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C0049368 (-ReadSettings@InteractiveControlSettings@@QEAAJXZ.c)
- *     ?WriteSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C0244BE0 (-WriteSettings@InteractiveControlSettings@@QEAAJXZ.c)
+ *     ?ReadSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C00E4368 (-ReadSettings@InteractiveControlSettings@@QEAAJXZ.c)
+ *     ?WriteSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C0256204 (-WriteSettings@InteractiveControlSettings@@QEAAJXZ.c)
  * Callees:
- *     RtlUnicodeStringValidateDestWorker @ 0x1C00482A8 (RtlUnicodeStringValidateDestWorker.c)
- *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00483D0 (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00E130C (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C00E15C8 (RtlUnicodeStringValidateDestWorker.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall InteractiveControlSettings::_OpenDeviceKey(
@@ -15,13 +15,13 @@ __int64 __fastcall InteractiveControlSettings::_OpenDeviceKey(
         __int64 a3,
         void **a4)
 {
-  int v6; // ecx
-  __int16 v7; // r10
-  const wchar_t *v8; // r9
-  __int64 v9; // r8
-  wchar_t *v10; // r11
-  __int16 v11; // ax
-  size_t v12; // rdx
+  int v6; // edx
+  const wchar_t *v7; // r10
+  __int16 v8; // bx
+  __int64 v9; // r11
+  __int16 v10; // r8
+  size_t v11; // r9
+  char *v12; // rcx
   PUNICODE_STRING Class; // [rsp+20h] [rbp-E0h]
   ULONG CreateOptions; // [rsp+28h] [rbp-D8h]
   void *KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
@@ -55,36 +55,34 @@ __int64 __fastcall InteractiveControlSettings::_OpenDeviceKey(
              CreateOptions);
       if ( v6 >= 0 )
       {
-        v7 = pcchDestLength;
-        v8 = L"\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\InteractiveControl";
+        v7 = L"\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\InteractiveControl";
+        v8 = pcchDestLength;
         v9 = 0x7FFFLL;
         v6 = 0;
-        v10 = &ppszDest[pcchDestLength];
-        v11 = 0;
-        v12 = pcchDest - pcchDestLength;
+        v10 = 0;
+        v11 = pcchDest - pcchDestLength;
         if ( pcchDest == pcchDestLength )
+          goto LABEL_19;
+        v12 = (char *)ppszDest
+            + 2 * pcchDestLength
+            - (_QWORD)L"\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\InteractiveControl";
+        do
         {
-LABEL_18:
+          if ( !v9 )
+            break;
+          if ( !*v7 )
+            break;
+          *(const wchar_t *)((char *)v7 + (_QWORD)v12) = *v7;
+          --v9;
+          ++v7;
+          ++v10;
+          --v11;
+        }
+        while ( v11 );
+        if ( !v11 && v9 && *v7 )
+LABEL_19:
           v6 = -2147483643;
-        }
-        else
-        {
-          while ( v9 )
-          {
-            if ( *v8 )
-            {
-              *v10++ = *v8++;
-              --v9;
-              ++v11;
-              if ( --v12 )
-                continue;
-            }
-            if ( v12 || !v9 || !*v8 )
-              break;
-            goto LABEL_18;
-          }
-        }
-        DestinationString.Length = 2 * (v7 + v11);
+        DestinationString.Length = 2 * (v8 + v10);
       }
       if ( v6 >= 0 )
       {

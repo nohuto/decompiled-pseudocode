@@ -1,184 +1,176 @@
 /*
- * XREFs of ?BTreeRedistribute@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAPEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@@@PEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1405BC90C
+ * XREFs of ?BTreeRedistribute@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAPEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@@@PEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x140324A00
  * Callers:
- *     ?BTreeDeleteEx@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1405BA03C (-BTreeDeleteEx@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAA.c)
- *     ?BTreeInsertEx@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@PEAUSEARCH_RESULT@1@PEAT_SM_PAGE_KEY@@@Z @ 0x1405BB028 (-BTreeInsertEx@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAA.c)
+ *     ?BTreeDeleteEx@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1402634A4 (-BTreeDeleteEx@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAA.c)
+ *     ?BTreeInsertEx@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@PEAUSEARCH_RESULT@1@PEAT_SM_PAGE_KEY@@@Z @ 0x140266124 (-BTreeInsertEx@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAA.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall B_TREE<_SM_PAGE_KEY,SMKM_STORE_MGR<SM_TRAITS>::SMKM_FRONTEND_ENTRY,4096,B_TREE_DUMMY_NODE_POOL,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeRedistribute(
-        size_t a1,
+        _DWORD *a1,
         __int64 a2)
 {
   __int64 v2; // r12
-  size_t *v3; // rcx
-  _DWORD *v4; // r8
-  _DWORD *v5; // rdi
-  unsigned int v6; // edx
-  size_t *v7; // rax
+  __int64 v3; // rcx
+  _DWORD *v4; // rdx
+  _DWORD *v5; // rsi
+  unsigned int v6; // r8d
+  __int64 *v7; // rax
   bool v8; // cc
-  size_t *p_Size; // rcx
-  size_t *v10; // r8
-  size_t v11; // rax
+  __int64 *v9; // rcx
+  __int64 *v10; // rdx
+  __int64 v11; // rax
   __int64 v12; // r12
-  size_t v13; // r15
-  _DWORD *v14; // r13
+  _DWORD *v13; // r15
+  _DWORD *v14; // rdi
   unsigned int v15; // r9d
-  unsigned int v16; // r8d
+  unsigned int v16; // edx
   unsigned int v17; // ecx
   unsigned int v18; // ecx
-  size_t v19; // rbx
+  _DWORD *v19; // rbx
   unsigned int v20; // ebp
-  size_t v21; // rsi
-  char v22; // dl
-  __int64 v23; // r14
+  _DWORD *v21; // r10
+  char v22; // r8
+  __int64 v23; // r11
   unsigned int v24; // eax
-  __int64 v25; // r8
-  unsigned __int64 v26; // rcx
-  _DWORD *v27; // rax
-  unsigned int v28; // r11d
-  char *v29; // r10
-  unsigned int v30; // r9d
-  char *v31; // r14
-  __int64 v32; // r13
-  int v33; // eax
-  unsigned int v34; // r8d
-  __int64 v35; // rcx
-  __int64 v36; // r8
-  char *v38; // [rsp+20h] [rbp-68h]
-  __int64 v39; // [rsp+28h] [rbp-60h]
-  __int64 v40; // [rsp+30h] [rbp-58h]
-  size_t Size; // [rsp+90h] [rbp+8h] BYREF
-  _DWORD *v42; // [rsp+98h] [rbp+10h] BYREF
-  _DWORD *v43; // [rsp+A0h] [rbp+18h]
-  _DWORD *v44; // [rsp+A8h] [rbp+20h]
+  unsigned __int64 v25; // rcx
+  unsigned int v26; // r9d
+  char *v27; // r13
+  unsigned int v28; // edx
+  char *v29; // r14
+  size_t v30; // r8
+  int v32; // eax
+  unsigned int v33; // r8d
+  __int64 v34; // rcx
+  __int64 v35; // rax
+  __int64 v36; // r11
+  __int64 v37; // [rsp+20h] [rbp-58h]
+  _DWORD *v38; // [rsp+80h] [rbp+8h] BYREF
+  _DWORD *v39; // [rsp+88h] [rbp+10h] BYREF
+  _DWORD *v40; // [rsp+90h] [rbp+18h]
+  __int64 v41; // [rsp+98h] [rbp+20h]
 
-  Size = a1;
+  v38 = a1;
   v2 = 1LL;
-  v3 = (size_t *)(*(_QWORD *)a2 + 16LL * (unsigned int)(*(_DWORD *)(a2 + 24) - 1));
-  v4 = (_DWORD *)*(v3 - 2);
-  v5 = (_DWORD *)*(v3 - 1);
-  v6 = (unsigned __int8)-(*(_BYTE *)(*v3 + 3) != 0) + 255;
+  v3 = *(_QWORD *)a2 + 16LL * (unsigned int)(*(_DWORD *)(a2 + 24) - 1);
+  v4 = *(_DWORD **)(v3 - 16);
+  v5 = *(_DWORD **)(v3 - 8);
+  v6 = (unsigned __int8)-(*(_BYTE *)(*(_QWORD *)v3 + 3LL) != 0) + 255;
   if ( v5 == &v4[4 * (unsigned __int16)*v4 + 4] )
   {
-    Size = *v3;
+    v38 = *(_DWORD **)v3;
     v5 -= 4;
-    v7 = (size_t *)(v4 + 2);
+    v7 = (__int64 *)(v4 + 2);
     v8 = v5 <= v4 + 4;
-    p_Size = (size_t *)&v42;
-    v10 = (size_t *)(v5 - 2);
+    v9 = (__int64 *)&v39;
+    v10 = (__int64 *)(v5 - 2);
     if ( v8 )
       v10 = v7;
   }
   else
   {
-    v42 = (_DWORD *)*v3;
-    v10 = (size_t *)(v5 + 2);
-    p_Size = &Size;
+    v39 = *(_DWORD **)v3;
+    v10 = (__int64 *)(v5 + 2);
+    v9 = (__int64 *)&v38;
     v2 = 0LL;
   }
   v11 = *v10;
-  *p_Size = *v10;
+  *v9 = *v10;
   v12 = v11 | v2;
-  v13 = Size;
-  v14 = v42;
-  v15 = (unsigned __int16)*(_DWORD *)Size;
-  v16 = (unsigned __int16)*v42;
+  v13 = v38;
+  v14 = v39;
+  v15 = (unsigned __int16)*v38;
+  v16 = (unsigned __int16)*v39;
   v17 = v16 + v15;
   if ( v16 + v15 >= v6 && v17 < 2 * v6 - 1 )
   {
     v18 = v17 >> 1;
-    if ( v16 <= v15 )
+    if ( v16 > v15 )
     {
-      v43 = v42;
-      v20 = v18 - v16;
-      v44 = v42;
-      v19 = Size;
-      v21 = (size_t)v42;
+      v19 = v39;
+      v20 = v16 - v18;
+      v21 = v39;
+      v14 = v38;
     }
     else
     {
-      v19 = (size_t)v42;
-      v20 = v16 - v18;
-      v43 = v42;
-      v44 = v42;
-      v21 = Size;
+      v19 = v38;
+      v20 = v18 - v16;
+      v21 = v39;
     }
-    v22 = *(_BYTE *)(v19 + 3);
+    v22 = *((_BYTE *)v19 + 3);
+    v40 = v21;
     v23 = v15 < v16 ? v18 : 0;
     v24 = 0;
-    v40 = v23;
+    v41 = v23;
     if ( v16 <= v15 )
       v24 = v16;
-    v25 = v24;
-    v39 = v25;
-    v26 = (-(__int64)(v22 != 0) & 0xFFFFFFFFFFFFFFF8uLL) + 16;
-    v27 = v43;
-    v28 = v22 != 0 ? 8 : 16;
-    v29 = (char *)(v21 + v26 * (unsigned int)v25 + 16);
-    LODWORD(v42) = v28;
-    v30 = v20 * v28;
-    v38 = v29;
-    v31 = (char *)(v19 + v26 * v23 + 16);
-    LODWORD(Size) = v20 * v28;
-    if ( !v22 )
-      v27 = v44;
-    if ( (_DWORD *)v19 == v27 )
+    v37 = v24;
+    v25 = (-(__int64)(v22 != 0) & 0xFFFFFFFFFFFFFFF8uLL) + 16;
+    v26 = v22 != 0 ? 8 : 16;
+    v27 = (char *)v14 + v25 * v24 + 16;
+    LODWORD(v39) = v26;
+    v28 = v20 * v26;
+    v29 = (char *)v19 + v25 * v23 + 16;
+    LODWORD(v38) = v20 * v26;
+    if ( v19 == v21 )
     {
-      memmove(&v29[v30], (const void *)(v21 + v26 * (unsigned int)v25 + 16), v28 * (unsigned __int16)*(_DWORD *)v21);
-      v30 = Size;
-      v29 = v38;
-      v28 = (unsigned int)v42;
-      v25 = v39;
+      memmove(&v27[v28], v27, v26 * (unsigned __int16)*v14);
+      v22 = *((_BYTE *)v19 + 3);
+      v28 = (unsigned int)v38;
+      v26 = (unsigned int)v39;
+      v21 = v40;
+      v23 = v41;
     }
     else
     {
-      LODWORD(Size) = v20 * v28;
+      LODWORD(v38) = v20 * v26;
     }
-    if ( *(_BYTE *)(v19 + 3) )
+    if ( v22 )
     {
-      v32 = v30;
-      memmove(v29, v31, v30);
+      v30 = v28;
     }
     else
     {
-      v33 = *v5;
-      if ( (_DWORD *)v19 == v14 )
+      v32 = *v5;
+      v33 = v20 - 1;
+      if ( v19 == v21 )
       {
-        v34 = v20 - 1;
-        v35 = 2LL * (v20 - 1);
-        *(_DWORD *)(v21 + 8 * v35 + 16) = v33;
-        *(_QWORD *)(v21 + 8 * v35 + 24) = *(_QWORD *)(v21 + 8);
+        v34 = 2LL * v33;
+        v14[4 * v33 + 4] = v32;
+        v35 = *((_QWORD *)v14 + 1);
       }
       else
       {
-        v36 = 2 * v25;
-        v29 += v28;
-        *(_DWORD *)(v21 + 8 * v36 + 16) = v33;
-        *(_QWORD *)(v21 + 8 * v36 + 24) = *(_QWORD *)(v19 + 8);
-        v34 = v20 - 1;
+        v34 = 2 * v37;
+        v27 += v26;
+        v14[4 * v37 + 4] = v32;
+        v35 = *((_QWORD *)v19 + 1);
       }
-      if ( (_DWORD *)v19 == v14 )
+      *(_QWORD *)&v14[2 * v34 + 6] = v35;
+      if ( v19 == v21 )
       {
-        v31 += v28;
-        *v5 = *(_DWORD *)(v19 + 16 * v40 + 16);
-        *(_QWORD *)(v21 + 8) = *(_QWORD *)(v19 + 16 * v40 + 24);
+        v36 = 2 * v23;
+        v29 += v26;
+        *v5 = v19[2 * v36 + 4];
+        *((_QWORD *)v14 + 1) = *(_QWORD *)&v19[2 * v36 + 6];
       }
       else
       {
-        *v5 = *(_DWORD *)(v19 + 16LL * v34 + 16);
-        *(_QWORD *)(v19 + 8) = *(_QWORD *)(v19 + 16LL * v34 + 24);
+        v33 = v20 - 1;
+        *v5 = v19[4 * v20];
+        *((_QWORD *)v19 + 1) = *(_QWORD *)&v19[4 * v20 + 2];
       }
-      memmove(v29, v31, v28 * v34);
-      v32 = (unsigned int)Size;
+      v30 = v26 * v33;
     }
-    *(_WORD *)v21 += v20;
+    memmove(v27, v29, v30);
+    *(_WORD *)v14 += v20;
     *(_WORD *)v19 -= v20;
     if ( v19 == v13 )
-      memmove(v31, &v31[v32], (unsigned int)v42 * (unsigned __int16)*(_DWORD *)v19);
-    if ( *(_BYTE *)(v13 + 3) )
-      *v5 = *(_DWORD *)(v13 + 16);
+      memmove(v29, &v29[(unsigned int)v38], (unsigned int)v39 * (unsigned __int16)*v19);
+    if ( *((_BYTE *)v13 + 3) )
+      *v5 = v13[4];
   }
   return v12;
 }

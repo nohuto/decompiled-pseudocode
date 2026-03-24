@@ -1,11 +1,11 @@
 /*
- * XREFs of NtUserSetDisplayAutoRotationPreferences @ 0x1C0016E20
+ * XREFs of NtUserSetDisplayAutoRotationPreferences @ 0x1C0008AB0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsActivePpi@CRotationMgr@@SA_NPEAUtagPROCESSINFO@@@Z @ 0x1C0016E88 (-IsActivePpi@CRotationMgr@@SA_NPEAUtagPROCESSINFO@@@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     ?IsActivePpi@CRotationMgr@@SA_NPEAUtagPROCESSINFO@@@Z @ 0x1C0008B18 (-IsActivePpi@CRotationMgr@@SA_NPEAUtagPROCESSINFO@@@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtUserSetDisplayAutoRotationPreferences(int a1)
@@ -22,7 +22,7 @@ __int64 __fastcall NtUserSetDisplayAutoRotationPreferences(int a1)
   }
   else
   {
-    *(_DWORD *)(v2 + 928) = a1;
+    *(_DWORD *)(v2 + 920) = a1;
     if ( CRotationMgr::IsActivePpi((struct tagPROCESSINFO *)v2) )
       (*(void (__fastcall **)(PVOID))(*(_QWORD *)P + 8LL))(P);
     v3 = 1LL;

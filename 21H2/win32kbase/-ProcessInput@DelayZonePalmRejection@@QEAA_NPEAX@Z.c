@@ -1,515 +1,467 @@
 /*
- * XREFs of ?ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01E625C
+ * XREFs of ?ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01AD228
  * Callers:
- *     ?ProcessDelayZonePalmRejection@CTouchProcessor@@AEAA_NPEAUCPointerInputFrame@@@Z @ 0x1C01D0B94 (-ProcessDelayZonePalmRejection@CTouchProcessor@@AEAA_NPEAUCPointerInputFrame@@@Z.c)
+ *     ?ProcessDelayZonePalmRejection@CTouchProcessor@@AEAA_NPEAUCPointerInputFrame@@@Z @ 0x1C01991E4 (-ProcessDelayZonePalmRejection@CTouchProcessor@@AEAA_NPEAUCPointerInputFrame@@@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     HMAssignmentLock @ 0x1C003A420 (HMAssignmentLock.c)
- *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C0056338 (WPP_RECORDER_AND_TRACE_SF_dd.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     ?GetPointerInfo@CTouchProcessor@@QEAAPEBUtagPOINTER_INFO@@PEBUCPointerInputFrame@@K@Z @ 0x1C01CB070 (-GetPointerInfo@CTouchProcessor@@QEAAPEBUtagPOINTER_INFO@@PEBUCPointerInputFrame@@K@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_L @ 0x1C01DA7E0 (WPP_RECORDER_AND_TRACE_SF_L.c)
- *     WPP_RECORDER_AND_TRACE_SF_dqd @ 0x1C01DB01C (WPP_RECORDER_AND_TRACE_SF_dqd.c)
- *     ?HandleDelayZonePalmRejectionTimer@CHidInput@@QEAAX_NK@Z @ 0x1C01E1AF0 (-HandleDelayZonePalmRejectionTimer@CHidInput@@QEAAX_NK@Z.c)
- *     ?DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01E5A70 (-DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ.c)
- *     ?HitTestRejectionRegion@DelayZonePalmRejection@@AEAA_NPEAXUtagPOINT@@1PEA_NPEAUCDelayZonePanelTelemetryData@@@Z @ 0x1C01E5E30 (-HitTestRejectionRegion@DelayZonePalmRejection@@AEAA_NPEAXUtagPOINT@@1PEA_NPEAUCDelayZonePanelTe.c)
- *     ?SuppressDeadzoneContacts@DelayZonePalmRejection@@AEAAXAEBUDEVICE_OUTPUT_CONFIG@@AEBUtagPOINTER_INFO@@@Z @ 0x1C01E6EF8 (-SuppressDeadzoneContacts@DelayZonePalmRejection@@AEAAXAEBUDEVICE_OUTPUT_CONFIG@@AEBUtagPOINTER_.c)
- *     WPP_RECORDER_AND_TRACE_SF_dqddd @ 0x1C01E7210 (WPP_RECORDER_AND_TRACE_SF_dqddd.c)
- *     ?UpdateInputPalmRejectStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFrame@@W4CDelayZoneTelemetryUpdateState@@K@Z @ 0x1C01F7EF4 (-UpdateInputPalmRejectStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemet.c)
- *     ?UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDelayZonePanelTelemetryData@@PEBUtagPOINTER_INFO@@K@Z @ 0x1C01F7F88 (-UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDela.c)
+ *     HMAssignmentLock @ 0x1C0030310 (HMAssignmentLock.c)
+ *     _HMObjectFromHandle @ 0x1C0030680 (_HMObjectFromHandle.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_Dd @ 0x1C013705C (WPP_RECORDER_SF_Dd.c)
+ *     ?GetPointerInfo@CTouchProcessor@@QEAAPEBUtagPOINTER_INFO@@PEBUCPointerInputFrame@@K@Z @ 0x1C0193B40 (-GetPointerInfo@CTouchProcessor@@QEAAPEBUtagPOINTER_INFO@@PEBUCPointerInputFrame@@K@Z.c)
+ *     WPP_RECORDER_SF_L @ 0x1C01A13EC (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_dqd @ 0x1C01A1B3C (WPP_RECORDER_SF_dqd.c)
+ *     ?HandleDelayZonePalmRejectionTimer@CHidInput@@QEAAX_NK@Z @ 0x1C01A9474 (-HandleDelayZonePalmRejectionTimer@CHidInput@@QEAAX_NK@Z.c)
+ *     ?DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01ACBAC (-DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ.c)
+ *     ?HitTestRejectionRegion@DelayZonePalmRejection@@AEAA_NPEAXUtagPOINT@@1PEA_NPEAUCDelayZonePanelTelemetryData@@@Z @ 0x1C01ACF24 (-HitTestRejectionRegion@DelayZonePalmRejection@@AEAA_NPEAXUtagPOINT@@1PEA_NPEAUCDelayZonePanelTe.c)
+ *     ?SuppressDeadzoneContacts@DelayZonePalmRejection@@AEAAXUtagPOINT@@@Z @ 0x1C01ADB78 (-SuppressDeadzoneContacts@DelayZonePalmRejection@@AEAAXUtagPOINT@@@Z.c)
+ *     WPP_RECORDER_SF_dqddd @ 0x1C01ADE80 (WPP_RECORDER_SF_dqddd.c)
+ *     ?UpdateInputPalmRejectStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFrame@@W4CDelayZoneTelemetryUpdateState@@K@Z @ 0x1C01BD690 (-UpdateInputPalmRejectStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemet.c)
+ *     ?UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDelayZonePanelTelemetryData@@PEBUtagPOINTER_INFO@@K@Z @ 0x1C01BD724 (-UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDela.c)
  */
 
-unsigned __int8 __fastcall DelayZonePalmRejection::ProcessInput(
-        LARGE_INTEGER *this,
-        signed __int64 LowPart,
-        __int64 a3,
-        unsigned __int64 a4)
+unsigned __int8 __fastcall DelayZonePalmRejection::ProcessInput(LARGE_INTEGER *this, LARGE_INTEGER *a2)
 {
-  struct CPointerInputFrame *v4; // r13
-  char v6; // di
-  unsigned int v7; // eax
-  bool v8; // cl
-  LARGE_INTEGER PerformanceCounter; // r14
-  unsigned int v10; // r12d
-  unsigned __int8 v11; // si
+  BOOL v2; // r15d
+  unsigned int LowPart; // r8d
+  char v6; // cl
+  char v7; // r12
+  __int64 *QuadPart; // rdx
+  unsigned int v9; // eax
+  struct tagPOINT v10; // rbx
+  int v11; // r13d
+  unsigned __int8 v12; // si
   const struct tagPOINTER_INFO *PointerInfo; // rax
-  const struct tagPOINTER_INFO *v13; // r15
-  int v14; // eax
-  LARGE_INTEGER v15; // rax
-  int v16; // eax
+  const struct tagPOINTER_INFO *v14; // r15
+  int v15; // eax
+  LARGE_INTEGER v16; // rax
+  int v17; // eax
   LONG HighPart; // eax
-  LARGE_INTEGER v18; // rcx
-  int v19; // r14d
-  LARGE_INTEGER v20; // rax
-  int v21; // eax
-  struct tagPOINT v22; // r9
-  struct tagPOINT v23; // r8
-  void *v24; // rdx
-  bool v25; // al
-  unsigned __int8 v26; // r10
-  bool v27; // r14
-  LARGE_INTEGER v28; // rcx
-  int v29; // r14d
-  unsigned int v30; // ecx
-  LONGLONG v31; // r14
-  CHidInput *v32; // rcx
-  CHidInput *v33; // rcx
-  __int64 v34; // rdx
-  __int64 v35; // r8
-  __int64 v36; // r9
-  LARGE_INTEGER v37; // rcx
-  __int64 v38; // rdx
-  __int64 v39; // r8
-  bool v40; // zf
-  int v41; // edx
-  int v43; // [rsp+28h] [rbp-E0h]
-  int v44; // [rsp+30h] [rbp-D8h]
-  int v45; // [rsp+38h] [rbp-D0h]
-  int v46; // [rsp+40h] [rbp-C8h]
-  __int64 v47; // [rsp+50h] [rbp-B8h]
-  char v48; // [rsp+58h] [rbp-B0h]
-  char v49; // [rsp+58h] [rbp-B0h]
-  bool v50[4]; // [rsp+78h] [rbp-90h] BYREF
-  int v51; // [rsp+7Ch] [rbp-8Ch]
-  int v52; // [rsp+80h] [rbp-88h]
-  BOOL v53; // [rsp+84h] [rbp-84h]
-  BOOL v54; // [rsp+88h] [rbp-80h]
-  LARGE_INTEGER v55; // [rsp+90h] [rbp-78h]
-  unsigned int v56; // [rsp+98h] [rbp-70h]
-  struct tagPOINTER_INFO *v57[2]; // [rsp+A8h] [rbp-60h] BYREF
-  __int128 v58; // [rsp+B8h] [rbp-50h] BYREF
-  __int128 v59; // [rsp+C8h] [rbp-40h]
-  _OWORD v60[2]; // [rsp+D8h] [rbp-30h] BYREF
-  _OWORD v61[2]; // [rsp+F8h] [rbp-10h] BYREF
+  LONG v19; // eax
+  LARGE_INTEGER v20; // rcx
+  LONG v21; // eax
+  LARGE_INTEGER v22; // rax
+  int v23; // eax
+  struct tagPOINT v24; // r9
+  struct tagPOINT v25; // r8
+  void *v26; // rdx
+  bool v27; // al
+  int v28; // r8d
+  int v29; // r9d
+  unsigned __int8 v30; // cl
+  bool v31; // r12
+  char v32; // al
+  LARGE_INTEGER v33; // rcx
+  DWORD v34; // eax
+  int v35; // edx
+  unsigned int v36; // ecx
+  unsigned __int64 v37; // rax
+  unsigned __int64 v38; // rdx
+  CHidInput *v39; // rcx
+  CHidInput *v40; // rcx
+  LARGE_INTEGER v41; // rcx
+  __int64 v42; // r8
+  __int64 v43; // rdx
+  bool v44; // zf
+  LARGE_INTEGER v45; // rcx
+  int v47; // [rsp+28h] [rbp-99h]
+  struct CDelayZonePanelTelemetryData *v48; // [rsp+30h] [rbp-91h]
+  __int64 v49; // [rsp+38h] [rbp-89h]
+  __int64 v50; // [rsp+40h] [rbp-81h]
+  char v51; // [rsp+58h] [rbp-69h]
+  char v52; // [rsp+59h] [rbp-68h]
+  char v53; // [rsp+5Ah] [rbp-67h]
+  bool v54; // [rsp+5Bh] [rbp-66h] BYREF
+  char v55; // [rsp+5Ch] [rbp-65h]
+  BOOL v56; // [rsp+60h] [rbp-61h]
+  BOOL v57; // [rsp+64h] [rbp-5Dh]
+  __int64 *v58[2]; // [rsp+68h] [rbp-59h] BYREF
+  unsigned int v59; // [rsp+78h] [rbp-49h]
+  unsigned int v60; // [rsp+7Ch] [rbp-45h]
+  __int128 v61; // [rsp+80h] [rbp-41h] BYREF
+  __int128 v62; // [rsp+90h] [rbp-31h]
+  _OWORD v63[2]; // [rsp+A8h] [rbp-19h] BYREF
+  _OWORD v64[2]; // [rsp+C8h] [rbp+7h] BYREF
 
-  v4 = (struct CPointerInputFrame *)LowPart;
-  v6 = 1;
-  LOBYTE(LowPart) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                 && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-                 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)LowPart || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_dd(
-      WPP_GLOBAL_Control->AttachedDevice,
-      LowPart,
-      a3,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      8,
-      13,
-      (__int64)&WPP_86908d42d98631d196c6ca9688fccfc3_Traceguids,
-      this->HighPart);
-  v7 = *((_DWORD *)v4 + 12);
-  v8 = 0;
-  PerformanceCounter.QuadPart = 0LL;
-  v50[1] = 0;
-  v57[0] = 0LL;
-  LOBYTE(LowPart) = 0;
-  LOBYTE(v53) = 0;
-  v10 = 0;
-  LOBYTE(v54) = 0;
-  v55.QuadPart = 0LL;
-  v11 = 1;
-  v50[0] = 0;
-  v50[2] = 0;
-  LOBYTE(v51) = 0;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_Dd(
+      (__int64)gBaseLog,
+      4u,
+      8u,
+      0xDu,
+      (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids,
+      this->HighPart,
+      a2[5].LowPart);
+  LowPart = a2[6].LowPart;
+  v6 = 0;
+  v7 = 0;
   v52 = 0;
-  v56 = v7;
-  if ( v7 )
+  LOBYTE(v2) = 0;
+  v51 = 0;
+  QuadPart = 0LL;
+  v56 = v2;
+  v9 = 0;
+  LOBYTE(v57) = 0;
+  v10 = 0LL;
+  v58[0] = 0LL;
+  v11 = 0;
+  v53 = 0;
+  v55 = 0;
+  v12 = 1;
+  v60 = LowPart;
+  v59 = 0;
+  if ( LowPart )
   {
     while ( 1 )
     {
-      PointerInfo = CTouchProcessor::GetPointerInfo(gpTouchProcessor, v4, v10);
-      v13 = PointerInfo;
-      if ( PointerInfo )
+      PointerInfo = CTouchProcessor::GetPointerInfo(gpTouchProcessor, (const struct CPointerInputFrame *)a2, v9);
+      v14 = PointerInfo;
+      if ( !PointerInfo )
+        break;
+      v15 = *(_DWORD *)PointerInfo;
+      if ( v15 == 3 )
       {
-        v14 = *(_DWORD *)PointerInfo;
-        if ( v14 == 3 )
+        v16 = this[4];
+        if ( !v16.QuadPart )
         {
-          v15 = this[4];
-          if ( !v15.QuadPart )
-          {
-            v15 = *(LARGE_INTEGER *)((char *)v4 + 64);
-            this[4] = v15;
-          }
-          if ( *((_QWORD *)v4 + 8) != v15.QuadPart )
-            goto LABEL_131;
-          v50[0] = 1;
-          this[6] = KeQueryPerformanceCounter(0LL);
-          v16 = *((_DWORD *)v13 + 3);
-          if ( (v16 & 1) != 0 )
-          {
-            HighPart = this[5].HighPart;
-            if ( !HighPart )
-            {
-              v50[2] = 1;
-              v57[0] = v13;
-            }
-            a4 = (unsigned int)(HighPart + 1);
-            this[5].HighPart = a4;
-            LOBYTE(LowPart) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                           && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-                           && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-            LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            if ( (_BYTE)LowPart || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              WPP_RECORDER_AND_TRACE_SF_dqd(
-                WPP_GLOBAL_Control->AttachedDevice,
-                LowPart,
-                a3,
-                HighPart + 1,
-                4,
-                8,
-                14,
-                (__int64)&WPP_86908d42d98631d196c6ca9688fccfc3_Traceguids,
-                *((_DWORD *)v13 + 1),
-                this[4].QuadPart,
-                HighPart + 1);
-            v18 = this[16];
-            if ( v18.QuadPart )
-            {
-              v19 = v52;
-              memset(v60, 0, sizeof(v60));
-              ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD))DelayZoneTelemetry::UpdatePointerAndDelayZoneInfo)(
-                (LARGE_INTEGER)v18.QuadPart,
-                0xFFFFFFFFLL,
-                v60,
-                v13,
-                v52);
-              v52 = v19 + 1;
-            }
-          }
-          else if ( (v16 & 2) == 0 )
-          {
-            LowPart = (unsigned int)this[5].HighPart;
-            if ( (_DWORD)LowPart )
-            {
-              LowPart = (unsigned int)(LowPart - 1);
-              this[5].HighPart = LowPart;
-            }
-            LOBYTE(a4) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-                      && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-            LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            if ( (_BYTE)a4 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            {
-              v48 = LowPart;
-              LOBYTE(LowPart) = a4;
-              WPP_RECORDER_AND_TRACE_SF_dqd(
-                WPP_GLOBAL_Control->AttachedDevice,
-                LowPart,
-                a3,
-                a4,
-                4,
-                8,
-                15,
-                (__int64)&WPP_86908d42d98631d196c6ca9688fccfc3_Traceguids,
-                *((_DWORD *)v13 + 1),
-                this[4].QuadPart,
-                v48);
-            }
-          }
-          PerformanceCounter = v55;
-          if ( (*((_DWORD *)v13 + 3) & 0x8000) != 0 )
-            LOBYTE(v51) = 1;
-          goto LABEL_62;
+          v16 = a2[8];
+          this[4] = v16;
         }
-        if ( v14 != 2 )
-          goto LABEL_131;
-        v20 = this[2];
-        if ( !v20.QuadPart )
+        if ( a2[8].QuadPart != v16.QuadPart )
+          goto LABEL_93;
+        v52 = 1;
+        this[6] = KeQueryPerformanceCounter(0LL);
+        v17 = *((_DWORD *)v14 + 3);
+        if ( (v17 & 1) != 0 )
         {
-          v20 = *(LARGE_INTEGER *)((char *)v4 + 64);
-          this[2] = v20;
-        }
-        if ( *((_QWORD *)v4 + 8) != v20.QuadPart )
-          goto LABEL_131;
-        v50[1] = 1;
-        PerformanceCounter = KeQueryPerformanceCounter(0LL);
-        v55 = PerformanceCounter;
-        v21 = *((_DWORD *)v13 + 3);
-        if ( (v21 & 0x10000) == 0 )
-        {
-          if ( (v21 & 0x40000) != 0 )
+          HighPart = this[5].HighPart;
+          if ( !HighPart )
           {
-            LowPart = this[5].LowPart;
-            if ( (_DWORD)LowPart )
-            {
-              LowPart = (unsigned int)(LowPart - 1);
-              this[5].LowPart = LowPart;
-            }
-            LOBYTE(a4) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-                      && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-            LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            if ( (_BYTE)a4 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            {
-              v49 = LowPart;
-              LOBYTE(LowPart) = a4;
-              WPP_RECORDER_AND_TRACE_SF_dqd(
-                WPP_GLOBAL_Control->AttachedDevice,
-                LowPart,
-                a3,
-                a4,
-                4,
-                8,
-                17,
-                (__int64)&WPP_86908d42d98631d196c6ca9688fccfc3_Traceguids,
-                *((_DWORD *)v13 + 1),
-                this[2].QuadPart,
-                v49);
-            }
+            v10 = (struct tagPOINT)*((_QWORD *)v14 + 7);
+            v53 = 1;
           }
-          goto LABEL_62;
+          v19 = HighPart + 1;
+          this[5].HighPart = v19;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LODWORD(v50) = v19;
+            LODWORD(v48) = *((_DWORD *)v14 + 1);
+            WPP_RECORDER_SF_dqd(
+              (__int64)&WPP_RECORDER_INITIALIZED,
+              4u,
+              8u,
+              0xEu,
+              (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids,
+              v48,
+              this[4].QuadPart,
+              v50);
+          }
+          v20 = this[16];
+          if ( v20.QuadPart )
+          {
+            memset(v63, 0, sizeof(v63));
+            ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD))DelayZoneTelemetry::UpdatePointerAndDelayZoneInfo)(
+              (LARGE_INTEGER)v20.QuadPart,
+              0xFFFFFFFFLL,
+              v63,
+              v14,
+              v11++);
+          }
         }
+        else if ( (v17 & 2) == 0 )
+        {
+          v21 = this[5].HighPart;
+          if ( v21 )
+            this[5].HighPart = --v21;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LODWORD(v50) = v21;
+            LODWORD(v48) = *((_DWORD *)v14 + 1);
+            WPP_RECORDER_SF_dqd(
+              (__int64)&WPP_RECORDER_INITIALIZED,
+              4u,
+              8u,
+              0xFu,
+              (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids,
+              v48,
+              this[4].QuadPart,
+              v50);
+          }
+        }
+        QuadPart = v58[0];
+        if ( (*((_DWORD *)v14 + 3) & 0x8000) != 0 )
+          v55 = 1;
+        goto LABEL_45;
+      }
+      if ( v15 != 2 )
+        goto LABEL_93;
+      v22 = this[2];
+      if ( !v22.QuadPart )
+      {
+        v22 = a2[8];
+        this[2] = v22;
+      }
+      if ( a2[8].QuadPart != v22.QuadPart )
+        goto LABEL_93;
+      v7 = 1;
+      v51 = 1;
+      QuadPart = (__int64 *)KeQueryPerformanceCounter(0LL).QuadPart;
+      v58[0] = QuadPart;
+      v23 = *((_DWORD *)v14 + 3);
+      if ( (v23 & 0x10000) != 0 )
+      {
+        v54 = 0;
         ++this[5].LowPart;
-        v22 = (struct tagPOINT)*((_QWORD *)v13 + 7);
-        v23 = (struct tagPOINT)*((_QWORD *)v13 + 6);
-        v24 = (void *)*((_QWORD *)v13 + 2);
-        v50[3] = 0;
-        v58 = 0LL;
-        v59 = 0LL;
-        v25 = DelayZonePalmRejection::HitTestRejectionRegion(
+        v24 = (struct tagPOINT)*((_QWORD *)v14 + 7);
+        v25 = (struct tagPOINT)*((_QWORD *)v14 + 6);
+        v26 = (void *)*((_QWORD *)v14 + 2);
+        v61 = 0LL;
+        v62 = 0LL;
+        v27 = DelayZonePalmRejection::HitTestRejectionRegion(
                 (DelayZonePalmRejection *)this,
+                v26,
+                v25,
                 v24,
-                v23,
-                v22,
-                &v50[3],
-                (struct CDelayZonePanelTelemetryData *)&v58);
-        v26 = v54;
-        v27 = v25;
-        if ( !v54 )
+                &v54,
+                (struct CDelayZonePanelTelemetryData *)&v61);
+        v30 = v57;
+        v31 = v27;
+        if ( !v57 )
         {
-          v26 = v25;
-          v54 = v25;
+          v30 = v27;
+          v57 = v27;
         }
-        a4 = v53;
-        if ( !v53 )
+        v32 = v56;
+        if ( !v56 )
         {
-          a4 = !v25;
-          v53 = !v25;
+          v32 = !v31;
+          v56 = !v31;
         }
-        LOBYTE(LowPart) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                       && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-                       && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-        LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        if ( (_BYTE)LowPart || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_AND_TRACE_SF_dqddd(
-            WPP_GLOBAL_Control->AttachedDevice,
-            LowPart,
-            a3,
-            v26,
-            v43,
-            v44,
-            v45,
-            v46,
-            *((_DWORD *)v13 + 1),
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_dqddd(
+            v30,
+            (unsigned int)&WPP_RECORDER_INITIALIZED,
+            v28,
+            v29,
+            v47,
+            *((_DWORD *)v14 + 1),
             this[2].QuadPart,
             this[5].LowPart,
-            v26,
-            a4);
-        v28 = this[16];
-        if ( v28.QuadPart && v27 )
+            v30,
+            v32);
+        v33 = this[16];
+        if ( v33.QuadPart && v31 )
         {
-          v29 = v52;
-          v61[0] = v58;
-          v61[1] = v59;
+          v64[0] = v61;
+          v64[1] = v62;
           ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD))DelayZoneTelemetry::UpdatePointerAndDelayZoneInfo)(
-            (LARGE_INTEGER)v28.QuadPart,
-            v50[3],
-            v61,
-            v13,
-            v52);
-          v52 = v29 + 1;
+            (LARGE_INTEGER)v33.QuadPart,
+            v54,
+            v64,
+            v14,
+            v11++);
         }
-      }
-      PerformanceCounter = v55;
-LABEL_62:
-      if ( ++v10 >= v56 )
-      {
-        v8 = v50[1];
-        LOBYTE(LowPart) = v50[0];
-        break;
-      }
-    }
-  }
-  if ( LOBYTE(this->LowPart) )
-  {
-    if ( v8 )
-    {
-      v30 = this[13].HighPart;
-      if ( v30 )
-      {
-        v31 = PerformanceCounter.QuadPart - this[6].QuadPart;
-        LowPart = (unsigned __int64)(1000 * v31) % gliQpcFreq.QuadPart;
-        a4 = (unsigned __int64)(1000 * v31) / gliQpcFreq.QuadPart;
-        if ( (unsigned int)a4 > v30 )
-        {
-          LOBYTE(this->LowPart) = 0;
-          LOBYTE(LowPart) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                         && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-                         && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-          LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          if ( (_BYTE)LowPart || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_AND_TRACE_SF_L(
-              WPP_GLOBAL_Control->AttachedDevice,
-              LowPart,
-              a3,
-              (unsigned int)&WPP_86908d42d98631d196c6ca9688fccfc3_Traceguids,
-              4,
-              8,
-              19,
-              (__int64)&WPP_86908d42d98631d196c6ca9688fccfc3_Traceguids,
-              a4);
-        }
-      }
-    }
-  }
-  else if ( (_BYTE)LowPart )
-  {
-    LOBYTE(this->LowPart) = 1;
-    LOBYTE(LowPart) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                   && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-                   && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( (_BYTE)LowPart || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        LowPart,
-        a3,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        4,
-        8,
-        18,
-        (__int64)&WPP_86908d42d98631d196c6ca9688fccfc3_Traceguids);
-  }
-  v32 = (CHidInput *)(unsigned int)this->HighPart;
-  if ( (_DWORD)v32 )
-  {
-    v33 = (CHidInput *)(unsigned int)((_DWORD)v32 - 1);
-    if ( (_DWORD)v33 )
-    {
-      if ( (_DWORD)v33 == 1 && !this[5].HighPart && !this[5].LowPart && !(_BYTE)v51 )
-      {
-        this[4].QuadPart = 0LL;
-        this[2].QuadPart = 0LL;
-        this->HighPart = 0;
-      }
-      goto LABEL_131;
-    }
-    if ( v50[0] && v50[2] )
-    {
-      if ( LOBYTE(this[1].LowPart) == 1 )
-      {
-        CHidInput::HandleDelayZonePalmRejectionTimer(v33, 1, 0);
-        LOBYTE(this[1].LowPart) = 0;
-      }
-      DelayZonePalmRejection::SuppressDeadzoneContacts(
-        (DelayZonePalmRejection *)this,
-        (const struct DEVICE_OUTPUT_CONFIG *)(*((_QWORD *)v4 + 32) + 156LL),
-        v57[0]);
-      DelayZonePalmRejection::DispatchBufferedInputFrames((DelayZonePalmRejection *)this, v34, v35, v36);
-      v37 = this[16];
-      if ( v37.QuadPart )
-      {
-        v38 = (unsigned int)this->HighPart;
-LABEL_122:
-        v39 = 1LL;
-        goto LABEL_123;
-      }
-    }
-    else if ( v50[1] )
-    {
-      if ( v53 )
-      {
-        if ( LOBYTE(this[1].LowPart) == 1 )
-        {
-          CHidInput::HandleDelayZonePalmRejectionTimer(v33, 1, 0);
-          LOBYTE(this[1].LowPart) = 0;
-        }
-        DelayZonePalmRejection::DispatchBufferedInputFrames((DelayZonePalmRejection *)this, LowPart, a3, a4);
+        v7 = 1;
       }
       else
       {
-        this[8].QuadPart = (LONGLONG)v4;
-        v11 = 0;
+        if ( (v23 & 0x40000) == 0 )
+          goto LABEL_46;
+        v34 = this[5].LowPart;
+        if ( v34 )
+          this[5].LowPart = --v34;
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          goto LABEL_46;
+        LODWORD(v50) = v34;
+        LODWORD(v48) = *((_DWORD *)v14 + 1);
+        WPP_RECORDER_SF_dqd(
+          (__int64)&WPP_RECORDER_INITIALIZED,
+          4u,
+          8u,
+          0x11u,
+          (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids,
+          v48,
+          this[2].QuadPart,
+          v50);
       }
-      v37 = this[16];
-      if ( v37.QuadPart )
+      QuadPart = v58[0];
+LABEL_46:
+      v9 = v59 + 1;
+      v59 = v9;
+      if ( v9 >= v60 )
       {
-        v38 = (unsigned int)this->HighPart;
-        v39 = 0LL;
-LABEL_123:
-        ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))DelayZoneTelemetry::UpdateInputPalmRejectStateInfo)(
-          (LARGE_INTEGER)v37.QuadPart,
-          v38,
-          v39);
+        LOBYTE(v2) = v56;
+        v6 = v52;
+        goto LABEL_48;
+      }
+    }
+    QuadPart = v58[0];
+LABEL_45:
+    v7 = v51;
+    goto LABEL_46;
+  }
+LABEL_48:
+  if ( LOBYTE(this->LowPart) )
+  {
+    if ( v7 )
+    {
+      v36 = this[13].HighPart;
+      if ( v36 )
+      {
+        v37 = (unsigned __int64)(1000 * ((_QWORD)QuadPart - this[6].QuadPart)) / gliQpcFreq.QuadPart;
+        v38 = (unsigned __int64)(1000 * ((_QWORD)QuadPart - this[6].QuadPart)) % gliQpcFreq.QuadPart;
+        if ( (unsigned int)v37 > v36 )
+        {
+          LOBYTE(this->LowPart) = 0;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v38) = 4;
+            WPP_RECORDER_SF_L(
+              (unsigned int)&WPP_RECORDER_INITIALIZED,
+              v38,
+              8,
+              19,
+              (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids,
+              v37);
+          }
+        }
       }
     }
   }
   else
   {
-    if ( !LOBYTE(this->LowPart) )
-      goto LABEL_130;
-    if ( v50[0] && v50[2] )
+    v35 = 1;
+    if ( v6 )
     {
-      v37 = this[16];
-      this->HighPart = 2;
-      if ( !v37.QuadPart )
-        goto LABEL_131;
-      v38 = 2LL;
-      goto LABEL_122;
-    }
-    if ( !v50[1] || !v54 )
-    {
-LABEL_130:
-      this->HighPart = 2;
-      goto LABEL_131;
-    }
-    CHidInput::HandleDelayZonePalmRejectionTimer(v32, 0, this[12].HighPart);
-    LOBYTE(this[1].LowPart) = 1;
-    v40 = this[3].QuadPart == 0;
-    this[7].QuadPart = (LONGLONG)v4;
-    this[8].QuadPart = (LONGLONG)v4;
-    if ( v40 )
-    {
-      v57[0] = (struct tagPOINTER_INFO *)&this[3];
-      v57[1] = *((struct tagPOINTER_INFO **)gpKernelHandleTable + 3 * (unsigned __int16)this[2].LowPart);
-      HMAssignmentLock((__int64 **)v57, 0LL);
-    }
-    v37 = this[16];
-    v11 = 0;
-    this->HighPart = 1;
-    if ( v37.QuadPart )
-    {
-      v39 = 0LL;
-      v38 = 1LL;
-      goto LABEL_123;
+      LOBYTE(this->LowPart) = 1;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v35) = 4;
+        WPP_RECORDER_SF_((_DWORD)gBaseLog, v35, 8, 18, (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids);
+      }
     }
   }
-LABEL_131:
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) == 0
-    || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
+  v39 = (CHidInput *)(unsigned int)this->HighPart;
+  if ( !(_DWORD)v39 )
   {
-    v6 = 0;
+    if ( LOBYTE(this->LowPart) )
+    {
+      if ( v52 && v53 )
+      {
+        v41 = this[16];
+        this->HighPart = 2;
+        v12 = 1;
+        if ( !v41.QuadPart )
+          goto LABEL_93;
+        v42 = 1LL;
+        v43 = 2LL;
+        goto LABEL_84;
+      }
+      if ( v7 && v57 )
+      {
+        CHidInput::HandleDelayZonePalmRejectionTimer(v39, 0, this[12].HighPart);
+        this[7].QuadPart = (LONGLONG)a2;
+        v44 = this[3].QuadPart == 0;
+        LOBYTE(this[1].LowPart) = 1;
+        this[8].QuadPart = (LONGLONG)a2;
+        if ( v44 )
+        {
+          v45 = this[2];
+          v58[0] = (__int64 *)&this[3];
+          v58[1] = (__int64 *)HMObjectFromHandle(v45.LowPart);
+          HMAssignmentLock(v58);
+        }
+        v41 = this[16];
+        v12 = 0;
+        this->HighPart = 1;
+        if ( v41.QuadPart )
+        {
+          v42 = 0LL;
+          v43 = 1LL;
+          goto LABEL_84;
+        }
+        goto LABEL_93;
+      }
+    }
+    this->HighPart = 2;
+    goto LABEL_92;
   }
-  if ( v6 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  v40 = (CHidInput *)(unsigned int)((_DWORD)v39 - 1);
+  if ( (_DWORD)v40 )
   {
-    v41 = 20;
-    LODWORD(v47) = v11;
-    LOBYTE(v41) = v6;
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_dd(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v41,
-      a3,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      8,
-      20,
-      (__int64)&WPP_86908d42d98631d196c6ca9688fccfc3_Traceguids,
-      this->HighPart,
-      v47);
+    if ( (_DWORD)v40 != 1 )
+      goto LABEL_93;
+    if ( !this[5].HighPart && !this[5].LowPart && !v55 )
+    {
+      this[4].QuadPart = 0LL;
+      this[2].QuadPart = 0LL;
+      this->HighPart = 0;
+    }
+    goto LABEL_92;
   }
-  return v11;
+  if ( v52 && v53 )
+  {
+    if ( LOBYTE(this[1].LowPart) == 1 )
+    {
+      CHidInput::HandleDelayZonePalmRejectionTimer(v40, 1, 0);
+      LOBYTE(this[1].LowPart) = 0;
+    }
+    DelayZonePalmRejection::SuppressDeadzoneContacts((DelayZonePalmRejection *)this, v10);
+    DelayZonePalmRejection::DispatchBufferedInputFrames((DelayZonePalmRejection *)this);
+    v41 = this[16];
+    if ( v41.QuadPart )
+    {
+      v42 = 1LL;
+LABEL_70:
+      v43 = (unsigned int)this->HighPart;
+LABEL_84:
+      ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))DelayZoneTelemetry::UpdateInputPalmRejectStateInfo)(
+        (LARGE_INTEGER)v41.QuadPart,
+        v43,
+        v42);
+      goto LABEL_93;
+    }
+    goto LABEL_93;
+  }
+  if ( !v7 )
+  {
+LABEL_92:
+    v12 = 1;
+    goto LABEL_93;
+  }
+  if ( v2 )
+  {
+    if ( LOBYTE(this[1].LowPart) == 1 )
+    {
+      CHidInput::HandleDelayZonePalmRejectionTimer(v40, 1, 0);
+      LOBYTE(this[1].LowPart) = 0;
+    }
+    DelayZonePalmRejection::DispatchBufferedInputFrames((DelayZonePalmRejection *)this);
+  }
+  else
+  {
+    this[8].QuadPart = (LONGLONG)a2;
+    v12 = 0;
+  }
+  v41 = this[16];
+  if ( v41.QuadPart )
+  {
+    v42 = 0LL;
+    goto LABEL_70;
+  }
+LABEL_93:
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LODWORD(v49) = v12;
+    LODWORD(v48) = this->HighPart;
+    WPP_RECORDER_SF_Dd(
+      (__int64)gBaseLog,
+      4u,
+      8u,
+      0x14u,
+      (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids,
+      v48,
+      v49);
+  }
+  return v12;
 }

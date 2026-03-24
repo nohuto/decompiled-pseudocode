@@ -1,59 +1,51 @@
 /*
- * XREFs of MiImageProtoChargedCommit @ 0x14035E5A8
+ * XREFs of MiImageProtoChargedCommit @ 0x140379D10
  * Callers:
- *     MiDeleteSystemPagableVm @ 0x1402E9440 (MiDeleteSystemPagableVm.c)
+ *     MiDeleteSystemPagableVm @ 0x140286100 (MiDeleteSystemPagableVm.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     MiGetSubsectionDriverProtos @ 0x1402A25C4 (MiGetSubsectionDriverProtos.c)
- *     MiGetSharedProtosAtDpcLevel @ 0x1403697CC (MiGetSharedProtosAtDpcLevel.c)
+ *     MiGetSubsectionDriverProtos @ 0x14027D460 (MiGetSubsectionDriverProtos.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     MiGetSharedProtosAtDpcLevel @ 0x1403A5B8C (MiGetSharedProtosAtDpcLevel.c)
  */
 
-__int64 __fastcall MiImageProtoChargedCommit(__int64 a1, unsigned __int64 a2)
+_BOOL8 __fastcall MiImageProtoChargedCommit(__int64 a1, unsigned __int64 a2)
 {
-  unsigned int SessionId; // r12d
-  __int64 v5; // rbx
-  unsigned int v6; // esi
-  unsigned int *v7; // r14
-  unsigned __int64 v8; // rcx
-  int v9; // edi
+  unsigned int SessionId; // r14d
+  __int64 i; // rbx
+  unsigned __int64 v6; // rcx
+  unsigned int v7; // edi
   __int64 SubsectionDriverProtos; // rax
   __int64 SharedProtosAtDpcLevel; // rax
-  unsigned __int64 v13; // rcx
-  unsigned __int64 v14; // rcx
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rcx
 
   SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-  v5 = a1 + 128;
-  v6 = 0;
-  while ( 1 )
+  for ( i = a1 + 128; ; i = *(_QWORD *)(i + 16) )
   {
-    if ( !v5 )
+    if ( !i )
       return 0LL;
-    v7 = (unsigned int *)(v5 + 44);
-    v8 = *(_QWORD *)(v5 + 8);
-    v9 = *(unsigned __int16 *)(v5 + 32) >> 1;
-    if ( a2 >= v8 && a2 < v8 + 8LL * *v7 )
-    {
-LABEL_9:
-      LOBYTE(v6) = (v9 & 0x1Fu) >= 4;
-      return v6;
-    }
-    if ( (*(_BYTE *)(v5 + 34) & 2) == 0 || (*(_DWORD *)(a1 + 56) & 0x8000000) == 0 )
+    v6 = *(_QWORD *)(i + 8);
+    v7 = (*(unsigned __int16 *)(i + 32) >> 1) & 0x1F;
+    if ( a2 >= v6 && a2 < v6 + 8LL * *(unsigned int *)(i + 44) )
+      return v7 >= 4;
+    if ( (*(_BYTE *)(i + 34) & 2) == 0 || (*(_DWORD *)(a1 + 56) & 0x4000000) == 0 )
       break;
-    SharedProtosAtDpcLevel = MiGetSharedProtosAtDpcLevel(a1, SessionId, v5);
+    SharedProtosAtDpcLevel = MiGetSharedProtosAtDpcLevel(a1, SessionId, i);
     if ( SharedProtosAtDpcLevel )
     {
-      v13 = *(_QWORD *)(SharedProtosAtDpcLevel + 72);
-      if ( a2 >= v13 && a2 < v13 + 8LL * *v7 )
-        goto LABEL_9;
+      v11 = *(_QWORD *)(SharedProtosAtDpcLevel + 72);
+      if ( a2 >= v11 && a2 < v11 + 8LL * *(unsigned int *)(i + 44) )
+        return v7 >= 4;
     }
 LABEL_6:
-    v5 = *(_QWORD *)(v5 + 16);
+    ;
   }
-  SubsectionDriverProtos = MiGetSubsectionDriverProtos((_QWORD *)v5);
+  SubsectionDriverProtos = MiGetSubsectionDriverProtos((_QWORD *)i);
   if ( !SubsectionDriverProtos )
     goto LABEL_6;
-  v14 = *(_QWORD *)(SubsectionDriverProtos + 72);
-  if ( a2 < v14 || a2 >= v14 + 8LL * *v7 )
+  v12 = *(_QWORD *)(SubsectionDriverProtos + 72);
+  if ( a2 < v12 || a2 >= v12 + 8LL * *(unsigned int *)(i + 44) )
     goto LABEL_6;
-  return 1LL;
+  v7 = 4;
+  return v7 >= 4;
 }

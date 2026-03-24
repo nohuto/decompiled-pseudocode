@@ -1,66 +1,69 @@
 /*
- * XREFs of SepRmFetchGlobalSacl @ 0x14084E76C
+ * XREFs of SepRmFetchGlobalSacl @ 0x1407C550C
  * Callers:
- *     SepRmGlobalSaclSetWrkr @ 0x14084E6D0 (SepRmGlobalSaclSetWrkr.c)
+ *     SepRmGlobalSaclSetWrkr @ 0x1407C5470 (SepRmGlobalSaclSetWrkr.c)
  * Callees:
- *     RtlStringCchCatNW @ 0x1403A6808 (RtlStringCchCatNW.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     SepRegOpenKey @ 0x1407F5978 (SepRegOpenKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlStringCchCatNW @ 0x1403C7EA4 (RtlStringCchCatNW.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SepRegOpenKey @ 0x14070E324 (SepRegOpenKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepRmFetchGlobalSacl(STRSAFE_PCNZWCH *a1, ULONG *a2, _QWORD *a3)
 {
-  unsigned __int64 v6; // rbx
-  __int64 Pool2; // rax
-  wchar_t *v8; // rdi
+  __int64 v3; // rbx
+  SIZE_T v7; // rbx
+  wchar_t *PoolWithTag; // rdi
   size_t v9; // rbx
-  size_t v10; // rdx
-  char *v11; // r9
-  _WORD *v12; // rcx
-  __int16 v13; // ax
-  _WORD *v14; // rax
+  signed int v10; // ecx
+  size_t v11; // rdx
+  wchar_t *v12; // rcx
+  wchar_t v13; // ax
+  wchar_t *v14; // rax
   NTSTATUS v15; // ebx
-  __int64 v17; // rsi
-  void *v18; // rax
+  char *v17; // rsi
+  PVOID v18; // rax
   ULONG ResultLength; // [rsp+60h] [rbp+30h] BYREF
   HANDLE KeyHandle; // [rsp+78h] [rbp+48h] BYREF
 
-  v6 = *(unsigned __int16 *)a1 + 98LL;
+  v3 = *(unsigned __int16 *)a1;
   KeyHandle = 0LL;
   ResultLength = 0;
-  Pool2 = ExAllocatePool2(256LL, v6, 1818448711LL);
-  v8 = (wchar_t *)Pool2;
-  if ( !Pool2 )
-    goto LABEL_17;
-  v9 = v6 >> 1;
+  v7 = v3 + 98;
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v7, 0x6C635347u);
+  if ( !PoolWithTag )
+    goto LABEL_18;
+  v9 = v7 >> 1;
+  v10 = v9 == 0 ? 0xC000000D : 0;
   if ( v9 )
   {
-    v10 = v9;
-    v11 = (char *)L"\\Registry\\Machine\\SECURITY\\Policy\\GlobalSaclName" - Pool2;
-    v12 = (_WORD *)Pool2;
+    v11 = v9;
+    v12 = PoolWithTag;
     do
     {
-      if ( !(2147483646 - v9 + v10) )
+      if ( !(2147483646 - v9 + v11) )
         break;
-      v13 = *(_WORD *)((char *)v12 + (_QWORD)v11);
+      v13 = *(wchar_t *)((char *)v12
+                       + (char *)L"\\Registry\\Machine\\SECURITY\\Policy\\GlobalSaclName"
+                       - (char *)PoolWithTag);
       if ( !v13 )
         break;
       *v12++ = v13;
-      --v10;
+      --v11;
     }
-    while ( v10 );
+    while ( v11 );
     v14 = v12 - 1;
-    if ( v10 )
+    if ( v11 )
       v14 = v12;
+    v10 = v11 == 0 ? 0x80000005 : 0;
     *v14 = 0;
-    if ( v10 )
-      RtlStringCchCatNW(v8, v9, a1[1], (unsigned __int64)*(unsigned __int16 *)a1 >> 1);
   }
-  v15 = SepRegOpenKey(v8, 0x201u, &KeyHandle);
+  if ( v10 >= 0 )
+    RtlStringCchCatNW(PoolWithTag, v9, a1[1], (unsigned __int64)*(unsigned __int16 *)a1 >> 1);
+  v15 = SepRegOpenKey(PoolWithTag, 0x201u, &KeyHandle);
   if ( v15 >= 0 )
   {
     v15 = ZwQueryValueKey(KeyHandle, &DefaultKey, KeyValuePartialInformation, 0LL, 0, &ResultLength);
@@ -71,26 +74,20 @@ __int64 __fastcall SepRmFetchGlobalSacl(STRSAFE_PCNZWCH *a1, ULONG *a2, _QWORD *
       {
         *a2 = 0;
         *a3 = 0LL;
-        goto LABEL_12;
+        goto LABEL_13;
       }
-      v17 = ExAllocatePool2(256LL, ResultLength, 1818448711LL);
+      v17 = (char *)ExAllocatePoolWithTag(PagedPool, ResultLength, 0x6C635347u);
       if ( v17 )
       {
-        v15 = ZwQueryValueKey(
-                KeyHandle,
-                &DefaultKey,
-                KeyValuePartialInformation,
-                (PVOID)v17,
-                ResultLength,
-                &ResultLength);
+        v15 = ZwQueryValueKey(KeyHandle, &DefaultKey, KeyValuePartialInformation, v17, ResultLength, &ResultLength);
         if ( v15 >= 0 )
         {
           ResultLength -= 12;
-          v18 = (void *)ExAllocatePool2(256LL, ResultLength, 1818448711LL);
+          v18 = ExAllocatePoolWithTag(PagedPool, ResultLength, 0x6C635347u);
           *a3 = v18;
           if ( v18 )
           {
-            memmove(v18, (const void *)(v17 + 12), ResultLength);
+            memmove(v18, v17 + 12, ResultLength);
             *a2 = ResultLength;
           }
           else
@@ -98,20 +95,20 @@ __int64 __fastcall SepRmFetchGlobalSacl(STRSAFE_PCNZWCH *a1, ULONG *a2, _QWORD *
             v15 = -1073741801;
           }
         }
-        ExFreePoolWithTag((PVOID)v17, 0);
-        goto LABEL_12;
+        ExFreePoolWithTag(v17, 0);
+        goto LABEL_13;
       }
-LABEL_17:
+LABEL_18:
       v15 = -1073741801;
     }
   }
-LABEL_12:
+LABEL_13:
   if ( KeyHandle )
   {
     ZwClose(KeyHandle);
     KeyHandle = 0LL;
   }
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   return (unsigned int)v15;
 }

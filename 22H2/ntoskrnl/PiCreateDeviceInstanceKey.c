@@ -1,32 +1,32 @@
 /*
- * XREFs of PiCreateDeviceInstanceKey @ 0x1407D7B78
+ * XREFs of PiCreateDeviceInstanceKey @ 0x140748FB4
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     _CmCreateDevice @ 0x1407D7C24 (_CmCreateDevice.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     _CmCreateDevice @ 0x140749068 (_CmCreateDevice.c)
  */
 
 __int64 __fastcall PiCreateDeviceInstanceKey(__int64 a1, _QWORD *a2, _DWORD *a3)
 {
-  int v3; // ebx
   struct _KTHREAD *CurrentThread; // rax
+  int v5; // ebx
   int Device; // ebx
   char v9; // [rsp+40h] [rbp+8h] BYREF
 
   *a2 = 0LL;
-  v3 = (int)a2;
   CurrentThread = KeGetCurrentThread();
+  v5 = (int)a2;
   *a3 = 0;
   v9 = 0;
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceSharedLite(&PnpRegistryDeviceResource, 1u);
-  Device = CmCreateDevice(PiPnpRtlCtx, *(_QWORD *)(a1 + 48), 983103, v3, (__int64)&v9, 0);
+  Device = CmCreateDevice(PiPnpRtlCtx, *(_QWORD *)(a1 + 48), 983103, v5, (__int64)&v9, 0);
   if ( Device >= 0 )
     *a3 = 2 - (v9 != 0);
   ExReleaseResourceLite(&PnpRegistryDeviceResource);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)Device;
 }

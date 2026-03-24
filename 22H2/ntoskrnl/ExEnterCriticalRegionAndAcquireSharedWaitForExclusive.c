@@ -1,10 +1,9 @@
 /*
- * XREFs of ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14046AD00
+ * XREFs of ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x1405B5290
  * Callers:
- *     DifExEnterCriticalRegionAndAcquireSharedWaitForExclusiveWrapper @ 0x1405D8920 (DifExEnterCriticalRegionAndAcquireSharedWaitForExclusiveWrapper.c)
- *     VerifierExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x140ACF050 (VerifierExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
+ *     VerifierExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x1409D1B70 (VerifierExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
  * Callees:
- *     ExAcquireSharedWaitForExclusive @ 0x1403C82F0 (ExAcquireSharedWaitForExclusive.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1405B4CB0 (ExAcquireSharedWaitForExclusive.c)
  */
 
 PVOID __stdcall ExEnterCriticalRegionAndAcquireSharedWaitForExclusive(PERESOURCE Resource)

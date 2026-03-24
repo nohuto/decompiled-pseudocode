@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfSetAllDomainsToUpdate @ 0x14032AFD0
+ * XREFs of PpmPerfSetAllDomainsToUpdate @ 0x1403807D8
  * Callers:
- *     PpmCheckStart @ 0x14032BEE4 (PpmCheckStart.c)
- *     PpmPerfUpdateDomainPolicy @ 0x1407A6860 (PpmPerfUpdateDomainPolicy.c)
- *     PpmPerfReApplyStates @ 0x140986A84 (PpmPerfReApplyStates.c)
+ *     PpmCheckStart @ 0x140229DC0 (PpmCheckStart.c)
+ *     PpmPerfReApplyStates @ 0x14077A250 (PpmPerfReApplyStates.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x14078B4DC (PpmPerfUpdateDomainPolicy.c)
  * Callees:
  *     <none>
  */
@@ -13,6 +13,6 @@ __int64 PpmPerfSetAllDomainsToUpdate()
   __int64 result; // rax
 
   for ( result = PpmPerfDomainHead; (__int64 *)result != &PpmPerfDomainHead; result = *(_QWORD *)result )
-    *(_BYTE *)(result + 1061) = 1;
+    *(_BYTE *)(result + 765) = 1;
   return result;
 }

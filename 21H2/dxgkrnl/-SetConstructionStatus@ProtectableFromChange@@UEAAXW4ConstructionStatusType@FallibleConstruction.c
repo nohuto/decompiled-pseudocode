@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetConstructionStatus@ProtectableFromChange@@UEAAXW4ConstructionStatusType@FallibleConstruction@@@Z @ 0x1C00204B0
+ * XREFs of ?SetConstructionStatus@ProtectableFromChange@@UEAAXW4ConstructionStatusType@FallibleConstruction@@@Z @ 0x1C001B880
  * Callers:
  *     <none>
  * Callees:

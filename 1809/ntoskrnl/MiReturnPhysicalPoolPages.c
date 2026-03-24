@@ -3,16 +3,16 @@
  * Callers:
  *     MiClearNonPagedPtes @ 0x1400282C4 (MiClearNonPagedPtes.c)
  *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
- *     MiGetPoolPages @ 0x1400CB1A0 (MiGetPoolPages.c)
- *     MiAddExpansionNonPagedPool @ 0x14017F9AC (MiAddExpansionNonPagedPool.c)
+ *     MiGetPoolPages @ 0x1400CB1C0 (MiGetPoolPages.c)
+ *     MiAddExpansionNonPagedPool @ 0x14017F9CC (MiAddExpansionNonPagedPool.c)
  * Callees:
  *     MiReturnPoolCharges @ 0x140023984 (MiReturnPoolCharges.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void __fastcall MiReturnPhysicalPoolPages(unsigned __int64 a1, char a2)

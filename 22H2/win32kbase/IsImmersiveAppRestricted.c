@@ -1,5 +1,5 @@
 /*
- * XREFs of IsImmersiveAppRestricted @ 0x1C008F860
+ * XREFs of IsImmersiveAppRestricted @ 0x1C007BE40
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 _BOOL8 __fastcall IsImmersiveAppRestricted(__int64 a1)
 {
-  return (*(_DWORD *)(a1 + 816) & 0x30) == 16;
+  return (*(_DWORD *)(a1 + 820) & 0x30) == 16;
 }

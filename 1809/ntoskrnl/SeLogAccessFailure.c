@@ -1,20 +1,20 @@
 /*
- * XREFs of SeLogAccessFailure @ 0x140118EE0
+ * XREFs of SeLogAccessFailure @ 0x140118F00
  * Callers:
  *     SeAccessCheckWithHintWithAdminlessChecks @ 0x1400516C0 (SeAccessCheckWithHintWithAdminlessChecks.c)
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9450 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6A4 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9470 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6C4 (SepCommonAccessCheckExWithAdminlessChecks.c)
  *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     SepFlattenAcl @ 0x1402FF350 (SepFlattenAcl.c)
- *     SepGetLearningModeObjectInformation @ 0x1402FF4D0 (SepGetLearningModeObjectInformation.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     SepFlattenAcl @ 0x1402FF450 (SepFlattenAcl.c)
+ *     SepGetLearningModeObjectInformation @ 0x1402FF5D0 (SepGetLearningModeObjectInformation.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsReferenceEffectiveToken @ 0x1406492D0 (PsReferenceEffectiveToken.c)
+ *     PsReferenceEffectiveToken @ 0x1406492B0 (PsReferenceEffectiveToken.c)
  */
 
 void __fastcall SeLogAccessFailure(
@@ -168,7 +168,7 @@ void __fastcall SeLogAccessFailure(
   v108 = a4;
   v99 = 1;
   CurrentIrql = KeGetCurrentIrql();
-  if ( !byte_1404400AC || CurrentIrql >= 2u || !EtwKernelProvRegHandle )
+  if ( !byte_1404400A4 || CurrentIrql >= 2u || !EtwKernelProvRegHandle )
     return;
   if ( a1 )
   {

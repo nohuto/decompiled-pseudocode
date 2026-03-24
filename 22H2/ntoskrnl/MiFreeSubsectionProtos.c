@@ -1,16 +1,15 @@
 /*
- * XREFs of MiFreeSubsectionProtos @ 0x1407B6624
+ * XREFs of MiFreeSubsectionProtos @ 0x14069FA50
  * Callers:
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiDereferencePerSessionProtos @ 0x1407B6168 (MiDereferencePerSessionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1407B62B0 (MiCreatePerSessionProtos.c)
+ *     MiDereferencePerSessionProtos @ 0x14069F60C (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x14069F724 (MiCreatePerSessionProtos.c)
  * Callees:
- *     MiDeletePerSessionProtos @ 0x14033E9C4 (MiDeletePerSessionProtos.c)
+ *     MiDeletePerSessionProtos @ 0x1403285B0 (MiDeletePerSessionProtos.c)
  */
 
-__int64 __fastcall MiFreeSubsectionProtos(_QWORD **a1)
+__int64 __fastcall MiFreeSubsectionProtos(unsigned __int64 **a1)
 {
-  _QWORD *v2; // rcx
+  unsigned __int64 *v2; // rcx
   __int64 result; // rax
 
   while ( 1 )
@@ -18,7 +17,7 @@ __int64 __fastcall MiFreeSubsectionProtos(_QWORD **a1)
     v2 = *a1;
     if ( !*a1 )
       break;
-    *a1 = (_QWORD *)*v2;
+    *a1 = (unsigned __int64 *)*v2;
     result = MiDeletePerSessionProtos(v2);
   }
   return result;

@@ -1,14 +1,12 @@
 /*
- * XREFs of RtlpFcGetBufferManager @ 0x1407D143C
+ * XREFs of RtlpFcGetBufferManager @ 0x1409190D8
  * Callers:
- *     RtlQueryFeatureConfiguration @ 0x14035CAB0 (RtlQueryFeatureConfiguration.c)
- *     RtlQueryAllInternalFeatureConfigurations @ 0x140410DB0 (RtlQueryAllInternalFeatureConfigurations.c)
- *     RtlQueryInternalFeatureConfiguration @ 0x140410E70 (RtlQueryInternalFeatureConfiguration.c)
+ *     RtlQueryFeatureConfiguration @ 0x14038C100 (RtlQueryFeatureConfiguration.c)
  * Callees:
  *     <none>
  */
 
-void *RtlpFcGetBufferManager()
+_QWORD *RtlpFcGetBufferManager()
 {
-  return &unk_140C14090;
+  return qword_140C481F0;
 }

@@ -1,27 +1,29 @@
 /*
- * XREFs of MiPteNeedsCommitCharge @ 0x140345C50
+ * XREFs of MiPteNeedsCommitCharge @ 0x1402E2938
  * Callers:
- *     MiCountSharedPages @ 0x1402737F0 (MiCountSharedPages.c)
- *     MiSetProtectionOnSection @ 0x140277B60 (MiSetProtectionOnSection.c)
+ *     MiSetProtectionOnSection @ 0x1402B3300 (MiSetProtectionOnSection.c)
+ *     MiCountSharedPages @ 0x1402E2400 (MiCountSharedPages.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x140272D70 (MiGetProtoPteAddress.c)
+ *     MiGetProtoPteAddress @ 0x1402B11D0 (MiGetProtoPteAddress.c)
  */
 
-__int64 __fastcall MiPteNeedsCommitCharge(__int64 a1, __int64 a2)
+_BOOL8 __fastcall MiPteNeedsCommitCharge(__int64 a1, __int64 a2)
 {
   int v2; // r8d
-  unsigned int v3; // ebx
+  bool v4; // zf
   __int64 v6; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *(_DWORD *)(a1 + 48);
-  v3 = 0;
   v6 = 0LL;
-  if ( (v2 & 0x70) == 0x20 && (v2 & 0xF80) != 0x80 )
+  if ( (v2 & 0x70) == 0x20
+    && (v2 & 0xF80) != 0x80
+    && (MiGetProtoPteAddress(a1, (unsigned __int64)(a2 << 25 >> 16) >> 12, 4, &v6), v6) )
   {
-    MiGetProtoPteAddress(a1, (unsigned __int64)(a2 << 25 >> 16) >> 12, 4, &v6);
-    if ( v6 )
-      return (*(_BYTE *)(v6 + 32) & 0xA) != 10;
+    v4 = (*(_BYTE *)(v6 + 32) & 0xA) == 10;
   }
-  LOBYTE(v3) = (*(_DWORD *)(a1 + 48) & 0x280) != 640;
-  return v3;
+  else
+  {
+    v4 = (*(_DWORD *)(a1 + 48) & 0x280) == 640;
+  }
+  return !v4;
 }

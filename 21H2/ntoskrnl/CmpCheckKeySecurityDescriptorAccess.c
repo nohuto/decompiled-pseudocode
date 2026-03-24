@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpCheckKeySecurityDescriptorAccess @ 0x1406B5158
+ * XREFs of CmpCheckKeySecurityDescriptorAccess @ 0x1406A5CB0
  * Callers:
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x14065B560 (CmpDoAccessCheckOnLayeredSubtree.c)
- *     CmpCheckKeyNodeStackAccess @ 0x14065BF3C (CmpCheckKeyNodeStackAccess.c)
- *     CmpCheckSecurityCellAccess @ 0x1406B50AC (CmpCheckSecurityCellAccess.c)
- *     CmpCheckKcbStackAccess @ 0x140918134 (CmpCheckKcbStackAccess.c)
+ *     CmpCheckSecurityCellAccess @ 0x1406A5C2C (CmpCheckSecurityCellAccess.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x140729760 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmpCheckKeyNodeStackAccess @ 0x1407298D4 (CmpCheckKeyNodeStackAccess.c)
+ *     CmpCheckKcbStackAccess @ 0x1408716E4 (CmpCheckKcbStackAccess.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14023A1C0 (PsGetCurrentThreadProcess.c)
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     SepDeleteAccessState @ 0x1403478A0 (SepDeleteAccessState.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CmpSetAccessStateForBackupRestore @ 0x1406B52CC (CmpSetAccessStateForBackupRestore.c)
- *     SeCreateAccessStateEx @ 0x14071F190 (SeCreateAccessStateEx.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     SepDeleteAccessState @ 0x14027C660 (SepDeleteAccessState.c)
+ *     PsGetCurrentThreadProcess @ 0x1402BDFE0 (PsGetCurrentThreadProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessStateEx @ 0x1406618D0 (SeCreateAccessStateEx.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x14076EEF4 (CmpSetAccessStateForBackupRestore.c)
  */
 
 __int64 __fastcall CmpCheckKeySecurityDescriptorAccess(
@@ -22,30 +22,24 @@ __int64 __fastcall CmpCheckKeySecurityDescriptorAccess(
         ACCESS_MASK a3,
         char a4)
 {
-  unsigned int CurrentThread; // edi
-  char *v9; // rbx
-  unsigned int CurrentThreadProcess; // eax
+  struct _KTHREAD *CurrentThread; // rdi
+  GENERIC_MAPPING *v9; // rbx
+  struct _KPROCESS *CurrentThreadProcess; // rax
   __int64 v11; // rdx
   signed int AccessState; // ebx
   ACCESS_MASK GrantedAccess; // [rsp+50h] [rbp-B0h] BYREF
   NTSTATUS AccessStatus[3]; // [rsp+54h] [rbp-ACh] BYREF
   struct _SECURITY_SUBJECT_CONTEXT v16[5]; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v17[224]; // [rsp+100h] [rbp+0h] BYREF
+  _QWORD v17[28]; // [rsp+100h] [rbp+0h] BYREF
 
   GrantedAccess = 0;
   AccessStatus[0] = 0;
   memset(v16, 0, sizeof(v16));
   memset(v17, 0, sizeof(v17));
-  CurrentThread = (unsigned int)KeGetCurrentThread();
-  v9 = (char *)CmKeyObjectType + 76;
-  CurrentThreadProcess = (unsigned int)PsGetCurrentThreadProcess();
-  AccessState = SeCreateAccessStateEx(
-                  CurrentThread,
-                  CurrentThreadProcess,
-                  (unsigned int)v16,
-                  (unsigned int)v17,
-                  a3,
-                  (__int64)v9);
+  CurrentThread = KeGetCurrentThread();
+  v9 = (GENERIC_MAPPING *)((char *)CmKeyObjectType + 76);
+  CurrentThreadProcess = PsGetCurrentThreadProcess();
+  AccessState = SeCreateAccessStateEx(CurrentThread, CurrentThreadProcess, v16, v17, a3, v9);
   if ( AccessState >= 0 )
   {
     if ( a4 )
@@ -53,16 +47,11 @@ __int64 __fastcall CmpCheckKeySecurityDescriptorAccess(
       LOBYTE(v11) = a2;
       AccessState = CmpSetAccessStateForBackupRestore(v16, v11, SecurityDescriptor, 0LL);
       if ( AccessState < 0 )
-      {
-LABEL_6:
-        SepDeleteAccessState((__int64)v16);
-        SeReleaseSubjectContext(&v16[1]);
-        return (unsigned int)AccessState;
-      }
+        goto LABEL_4;
       if ( !LODWORD(v16[0].PrimaryToken) )
       {
         AccessState = 0;
-        goto LABEL_6;
+        goto LABEL_4;
       }
       GrantedAccess = HIDWORD(v16[0].PrimaryToken);
     }
@@ -79,7 +68,9 @@ LABEL_6:
                     AccessStatus) == 0
                 ? 0xC0000022
                 : 0;
-    goto LABEL_6;
+LABEL_4:
+    SepDeleteAccessState((__int64)v16);
+    SeReleaseSubjectContext(&v16[1]);
   }
   return (unsigned int)AccessState;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiCreateMetafileDC @ 0x1C01595D0
+ * XREFs of NtGdiCreateMetafileDC @ 0x1C0165EF0
  * Callers:
  *     <none>
  * Callees:

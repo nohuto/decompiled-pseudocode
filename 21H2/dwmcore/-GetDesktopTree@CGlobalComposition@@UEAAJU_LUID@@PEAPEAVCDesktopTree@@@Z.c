@@ -1,42 +1,74 @@
 /*
- * XREFs of ?GetDesktopTree@CGlobalComposition@@UEAAJU_LUID@@PEAPEAVCDesktopTree@@@Z @ 0x180027D80
+ * XREFs of ?GetDesktopTree@CGlobalComposition@@UEAAJU_LUID@@PEAPEAVCDesktopTree@@@Z @ 0x18005E910
  * Callers:
- *     ?Partition_DesktopCaptureBits@CGlobalComposition@@UEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_DESKTOPCAPTUREBITS@@@Z @ 0x180026C40 (-Partition_DesktopCaptureBits@CGlobalComposition@@UEAAJPEAVCChannelContext@@PEAVCResourceTable@@.c)
+ *     ?Partition_DesktopCaptureBits@CGlobalComposition@@UEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_DESKTOPCAPTUREBITS@@@Z @ 0x180043990 (-Partition_DesktopCaptureBits@CGlobalComposition@@UEAAJPEAVCChannelContext@@PEAVCResourceTable@@.c)
  * Callees:
- *     ?GetDesktopTree@CComposition@@UEAAJU_LUID@@PEAPEAVCDesktopTree@@@Z @ 0x180027DD0 (-GetDesktopTree@CComposition@@UEAAJU_LUID@@PEAPEAVCDesktopTree@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ @ 0x1800B2FA8 (-GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ @ 0x18006E9E8 (-GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     _Init_thread_footer @ 0x1800E7910 (_Init_thread_footer.c)
+ *     _Init_thread_header @ 0x1800E7978 (_Init_thread_header.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGlobalComposition::GetDesktopTree(
-        CRenderTargetManager **this,
+        CGlobalComposition *this,
         struct _LUID a2,
         struct CDesktopTree **a3)
 {
   DWORD LowPart; // ebx
-  int DesktopTree; // edi
+  unsigned int v6; // edi
+  CMILCOMBase **i; // rax
+  struct CDesktopTree *v8; // rsi
   struct IMonitorTarget *PrimaryMonitorTarget; // rax
-  int v9; // eax
-  unsigned int v10; // ecx
-  LONG HighPart; // [rsp+4Ch] [rbp+14h]
+  int v11; // eax
+  __int64 v12; // rcx
+  LONG HighPart; // [rsp+6Ch] [rbp+14h]
+  struct _RTL_CRITICAL_SECTION *v14; // [rsp+70h] [rbp+18h] BYREF
 
   HighPart = a2.HighPart;
   LowPart = a2.LowPart;
-  DesktopTree = CComposition::GetDesktopTree((CComposition *)this, a2, a3);
-  if ( DesktopTree < 0 && LowPart == dword_1803D1AC0 && HighPart == dword_1803D1AC4 )
+  v6 = -2147023728;
+  if ( dword_18034B16C > *(_DWORD *)(*((_QWORD *)NtCurrentTeb()->ThreadLocalStoragePointer + (unsigned int)tls_index)
+                                   + 4LL) )
   {
-    PrimaryMonitorTarget = CRenderTargetManager::GetPrimaryMonitorTarget(this[27]);
-    if ( PrimaryMonitorTarget )
+    Init_thread_header(&dword_18034B16C);
+    if ( dword_18034B16C == -1 )
     {
-      v9 = (*(__int64 (__fastcall **)(struct IMonitorTarget *, struct CDesktopTree **))(*(_QWORD *)PrimaryMonitorTarget
-                                                                                      + 24LL))(
-             PrimaryMonitorTarget,
-             a3);
-      DesktopTree = v9;
-      if ( v9 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v10, &dword_180345B70, 2u, v9, 0x93u, 0LL);
+      dword_180345A9C = -2147023728;
+      Init_thread_footer(&dword_18034B16C);
     }
   }
-  return (unsigned int)DesktopTree;
+  *a3 = 0LL;
+  v14 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 16);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 16));
+  for ( i = (CMILCOMBase **)*((_QWORD *)this + 7); i != *((CMILCOMBase ***)this + 8); ++i )
+  {
+    v8 = *i;
+    if ( *((_QWORD *)*i + 737) == __PAIR64__(HighPart, LowPart) )
+    {
+      CMILCOMBase::InternalAddRef(*i);
+      v6 = 0;
+      *a3 = v8;
+      goto LABEL_6;
+    }
+  }
+  if ( __PAIR64__(HighPart, LowPart) == 0xFFFFFFFE00000000uLL )
+  {
+    PrimaryMonitorTarget = CRenderTargetManager::GetPrimaryMonitorTarget(*((CRenderTargetManager **)this + 11));
+    if ( PrimaryMonitorTarget )
+    {
+      v11 = (*(__int64 (__fastcall **)(struct IMonitorTarget *, struct CDesktopTree **))(*(_QWORD *)PrimaryMonitorTarget
+                                                                                       + 8LL))(
+              PrimaryMonitorTarget,
+              a3);
+      v6 = v11;
+      if ( v11 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v12, &dword_180345A98, 2u, v11, 0xB1u, 0LL);
+    }
+  }
+LABEL_6:
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v14);
+  return v6;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of UserGetDriverObject @ 0x1C00D0D90
+ * XREFs of UserGetDriverObject @ 0x1C011C180
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-PVOID UserGetDriverObject()
+PDRIVER_OBJECT UserGetDriverObject()
 {
   return gpWin32kDriverObject;
 }

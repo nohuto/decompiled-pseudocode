@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_WaitingForPostReset2ExtendedTimerInRenum @ 0x1C0020DE0
+ * XREFs of HUBDSM_WaitingForPostReset2ExtendedTimerInRenum @ 0x1C001E540
  * Callers:
  *     <none>
  * Callees:

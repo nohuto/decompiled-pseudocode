@@ -1,7 +1,7 @@
 /*
- * XREFs of ?D3DXVec2Transform@@YAPEAUD2DVector2@@PEAU1@PEBU1@PEBUD2DQuaternion@@@Z @ 0x18027EAC4
+ * XREFs of ?D3DXVec2Transform@@YAPEAUD2DVector2@@PEAU1@PEBU1@PEBUD2DQuaternion@@@Z @ 0x18021DD7C
  * Callers:
- *     ?Vector2Transform@CExpressionValueStack@@QEAAJXZ @ 0x180262368 (-Vector2Transform@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Vector2Transform@CExpressionValueStack@@QEAAJXZ @ 0x180201AF0 (-Vector2Transform@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */

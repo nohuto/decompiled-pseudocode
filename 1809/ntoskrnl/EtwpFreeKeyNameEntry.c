@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpFreeKeyNameEntry @ 0x14018C110
+ * XREFs of EtwpFreeKeyNameEntry @ 0x14018C130
  * Callers:
  *     <none>
  * Callees:

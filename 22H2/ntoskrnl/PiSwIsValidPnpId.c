@@ -1,7 +1,7 @@
 /*
- * XREFs of PiSwIsValidPnpId @ 0x14081C630
+ * XREFs of PiSwIsValidPnpId @ 0x14074D988
  * Callers:
- *     PiSwValidateCreateData @ 0x14081C3AC (PiSwValidateCreateData.c)
+ *     PiSwValidateCreateData @ 0x14074D70C (PiSwValidateCreateData.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ char __fastcall PiSwIsValidPnpId(__int16 *a1, char a2)
     v2 = *a1;
     if ( !*a1 )
       break;
-    if ( (unsigned __int16)(v2 - 33) > 0x5Eu || v2 == 44 || !a2 && v2 == 92 )
+    if ( (unsigned __int16)(v2 - 33) > 0x5Eu || v2 == 44 || !a2 && *a1 == 92 )
       return 0;
     ++a1;
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpFcGetBufferManager @ 0x1406EBC34
+ * XREFs of RtlpFcGetBufferManager @ 0x140919088
  * Callers:
- *     RtlQueryFeatureConfiguration @ 0x1403C7820 (RtlQueryFeatureConfiguration.c)
+ *     RtlQueryFeatureConfiguration @ 0x14038C800 (RtlQueryFeatureConfiguration.c)
  * Callees:
  *     <none>
  */
 
-void *RtlpFcGetBufferManager()
+_QWORD *RtlpFcGetBufferManager()
 {
-  return &unk_140C494B0;
+  return qword_140C48150;
 }

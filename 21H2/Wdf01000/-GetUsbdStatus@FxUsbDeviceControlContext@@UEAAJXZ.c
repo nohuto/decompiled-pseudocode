@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetUsbdStatus@FxUsbDeviceControlContext@@UEAAJXZ @ 0x1C000BD30
+ * XREFs of ?GetUsbdStatus@FxUsbDeviceControlContext@@UEAAJXZ @ 0x1C000DC70
  * Callers:
  *     <none>
  * Callees:

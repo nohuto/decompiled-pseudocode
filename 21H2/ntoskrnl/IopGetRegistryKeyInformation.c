@@ -1,19 +1,19 @@
 /*
- * XREFs of IopGetRegistryKeyInformation @ 0x14067A3F4
+ * XREFs of IopGetRegistryKeyInformation @ 0x14076A5E4
  * Callers:
- *     PiDevCfgCopyDeviceKey @ 0x140679BEC (PiDevCfgCopyDeviceKey.c)
- *     pIoQueryDeviceDescription @ 0x1406DE008 (pIoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x1406DE494 (pIoQueryBusDescription.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140769E0C (PiDevCfgCopyDeviceKey.c)
+ *     pIoQueryDeviceDescription @ 0x14078AB64 (pIoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x14078B104 (pIoQueryBusDescription.c)
  * Callees:
- *     ZwQueryKey @ 0x14041BA20 (ZwQueryKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
+ *     ZwQueryKey @ 0x1403FA660 (ZwQueryKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall IopGetRegistryKeyInformation(HANDLE KeyHandle, _QWORD *a2)
 {
   NTSTATUS result; // eax
-  void *Pool2; // rbx
+  PVOID Pool; // rbx
   NTSTATUS v6; // edi
   ULONG Length; // [rsp+50h] [rbp+18h] BYREF
 
@@ -21,18 +21,18 @@ NTSTATUS __fastcall IopGetRegistryKeyInformation(HANDLE KeyHandle, _QWORD *a2)
   result = ZwQueryKey(KeyHandle, KeyFullInformation, 0LL, 0, &Length);
   if ( result == -1073741789 || result == -2147483643 )
   {
-    Pool2 = (void *)ExAllocatePool2(64LL, Length, 538996553LL);
-    if ( Pool2 )
+    Pool = IopVerifierExAllocatePool(NonPagedPoolNx, Length);
+    if ( Pool )
     {
-      v6 = ZwQueryKey(KeyHandle, KeyFullInformation, Pool2, Length, &Length);
+      v6 = ZwQueryKey(KeyHandle, KeyFullInformation, Pool, Length, &Length);
       if ( v6 < 0 )
       {
-        ExFreePoolWithTag(Pool2, 0);
+        ExFreePoolWithTag(Pool, 0);
         return v6;
       }
       else
       {
-        *a2 = Pool2;
+        *a2 = Pool;
         return 0;
       }
     }

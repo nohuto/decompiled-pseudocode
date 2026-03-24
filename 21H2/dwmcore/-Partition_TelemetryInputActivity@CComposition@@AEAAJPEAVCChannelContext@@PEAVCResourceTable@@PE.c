@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Partition_TelemetryInputActivity@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_TELEMETRYINPUTACTIVITY@@@Z @ 0x18001819C
+ * XREFs of ?Partition_TelemetryInputActivity@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_TELEMETRYINPUTACTIVITY@@@Z @ 0x18001BF4C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CComposition::Partition_TelemetryInputActivity(
@@ -12,8 +12,8 @@ __int64 __fastcall CComposition::Partition_TelemetryInputActivity(
         struct CResourceTable *a3,
         const struct tagMILCMD_PARTITION_TELEMETRYINPUTACTIVITY *a4)
 {
-  (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**((_QWORD **)this + 82) + 32LL))(
-    *((_QWORD *)this + 82),
+  (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**((_QWORD **)this + 63) + 32LL))(
+    *((_QWORD *)this + 63),
     *((unsigned int *)a4 + 1),
     *((_QWORD *)a4 + 1));
   return 0LL;

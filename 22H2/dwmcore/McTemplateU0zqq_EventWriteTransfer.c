@@ -1,44 +1,35 @@
 /*
- * XREFs of McTemplateU0zqq_EventWriteTransfer @ 0x1801E76FC
+ * XREFs of McTemplateU0zqq_EventWriteTransfer @ 0x180185114
  * Callers:
- *     ?CheckForMajorityScreenVideoNotifications@CLegacyRenderTarget@@AEAAXXZ @ 0x18008C39C (-CheckForMajorityScreenVideoNotifications@CLegacyRenderTarget@@AEAAXXZ.c)
- *     ??1CLegacyRenderTarget@@MEAA@XZ @ 0x1800C8144 (--1CLegacyRenderTarget@@MEAA@XZ.c)
- *     ??1CDDisplayRenderTarget@@UEAA@XZ @ 0x1801C1D78 (--1CDDisplayRenderTarget@@UEAA@XZ.c)
- *     ?SignalSEB@CFSVPProvider@@AEAAX_NI@Z @ 0x1801E7640 (-SignalSEB@CFSVPProvider@@AEAAX_NI@Z.c)
+ *     ?SignalSEB@CLegacyRenderTarget@@AEAAX_NI@Z @ 0x1800246CC (-SignalSEB@CLegacyRenderTarget@@AEAAX_NI@Z.c)
+ *     ??1CLegacyRenderTarget@@MEAA@XZ @ 0x180025C94 (--1CLegacyRenderTarget@@MEAA@XZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateU0zqq_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
 {
-  __int64 v5; // rax
-  struct _EVENT_DATA_DESCRIPTOR v7; // [rsp+30h] [rbp-50h] BYREF
-  const wchar_t *v8; // [rsp+40h] [rbp-40h]
-  int v9; // [rsp+48h] [rbp-38h]
-  int v10; // [rsp+4Ch] [rbp-34h]
-  int *v11; // [rsp+50h] [rbp-30h]
-  __int64 v12; // [rsp+58h] [rbp-28h]
-  char *v13; // [rsp+60h] [rbp-20h]
-  __int64 v14; // [rsp+68h] [rbp-18h]
-  int v15; // [rsp+A8h] [rbp+28h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-50h] BYREF
+  const wchar_t *v7; // [rsp+40h] [rbp-40h]
+  __int64 v8; // [rsp+48h] [rbp-38h]
+  int *v9; // [rsp+50h] [rbp-30h]
+  __int64 v10; // [rsp+58h] [rbp-28h]
+  char *v11; // [rsp+60h] [rbp-20h]
+  __int64 v12; // [rsp+68h] [rbp-18h]
+  int v13; // [rsp+A8h] [rbp+28h] BYREF
 
-  v15 = a4;
-  v5 = -1LL;
-  do
-    ++v5;
-  while ( aFsvp[v5] );
-  v8 = L"FSVP";
-  v9 = 2 * v5 + 2;
-  v10 = 0;
+  v13 = a4;
+  v8 = 10LL;
+  v10 = 4LL;
+  v7 = L"FSVP";
   v12 = 4LL;
-  v11 = &v15;
-  v14 = 4LL;
-  v13 = &a5;
+  v9 = &v13;
+  v11 = &a5;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_ETWGUID_PUBLISH_SEB_NOTIFICATION,
            a3,
            4u,
-           &v7);
+           &v6);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?HapticsDeviceNotify@SimpleHapticsController@@KAJPEAU_PLUGPLAY_NOTIFY_HDR@@PEAX@Z @ 0x1C0256AD0
+ * XREFs of ?HapticsDeviceNotify@SimpleHapticsController@@KAJPEAU_PLUGPLAY_NOTIFY_HDR@@PEAX@Z @ 0x1C0259D50
  * Callers:
  *     <none>
  * Callees:
- *     ??$Write@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C01D08A8 (--$Write@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C024E6A0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
- *     ?CloseHapticsWriteDevice@SimpleHapticsController@@IEAAJH@Z @ 0x1C0256858 (-CloseHapticsWriteDevice@SimpleHapticsController@@IEAAJH@Z.c)
- *     ?OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ @ 0x1C0257718 (-OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C01D4BD8 (--$Write@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C02516B4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ?CloseHapticsWriteDevice@SimpleHapticsController@@IEAAJH@Z @ 0x1C0259AD4 (-CloseHapticsWriteDevice@SimpleHapticsController@@IEAAJH@Z.c)
+ *     ?OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ @ 0x1C025A9A8 (-OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ.c)
  */
 
 __int64 __fastcall SimpleHapticsController::HapticsDeviceNotify(
@@ -45,12 +45,12 @@ __int64 __fastcall SimpleHapticsController::HapticsDeviceNotify(
         v12 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data4;
       if ( !v12 )
       {
-        if ( (unsigned int)dword_1C0326288 > 4 )
+        if ( (unsigned int)dword_1C032B2C0 > 4 )
         {
           v17 = (__int64)"SimpleHapticsController::HapticsDeviceNotify -> GUID_TARGET_DEVICE_REMOVE_COMPLETE";
           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>>(
-            (__int64)&dword_1C0326288,
-            byte_1C02F1F6B,
+            (__int64)&dword_1C032B2C0,
+            byte_1C02F4B06,
             0LL,
             0LL,
             (void **)&v17);
@@ -59,13 +59,13 @@ __int64 __fastcall SimpleHapticsController::HapticsDeviceNotify(
         v2 = v13;
         if ( v13 < 0 )
         {
-          if ( (unsigned int)dword_1C0326288 > 2 )
+          if ( (unsigned int)dword_1C032B2C0 > 2 )
           {
             LODWORD(v17) = v13;
             v18 = (__int64)"Function failed.";
             _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-              (__int64)&dword_1C0326288,
-              byte_1C02F1F9A,
+              (__int64)&dword_1C032B2C0,
+              byte_1C02F4B35,
               v14,
               v15,
               (void **)&v18,
@@ -85,12 +85,12 @@ __int64 __fastcall SimpleHapticsController::HapticsDeviceNotify(
     }
     else
     {
-      if ( (unsigned int)dword_1C0326288 > 4 )
+      if ( (unsigned int)dword_1C032B2C0 > 4 )
       {
         v17 = (__int64)"SimpleHapticsController::HapticsDeviceNotify -> GUID_TARGET_DEVICE_REMOVE_CANCELLED";
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>>(
-          (__int64)&dword_1C0326288,
-          byte_1C02F1F6B,
+          (__int64)&dword_1C032B2C0,
+          byte_1C02F4B06,
           0LL,
           0LL,
           (void **)&v17);
@@ -99,13 +99,13 @@ __int64 __fastcall SimpleHapticsController::HapticsDeviceNotify(
       v2 = v9;
       if ( v9 < 0 )
       {
-        if ( (unsigned int)dword_1C0326288 > 2 )
+        if ( (unsigned int)dword_1C032B2C0 > 2 )
         {
           LODWORD(v17) = v9;
           v18 = (__int64)"Function failed.";
           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-            (__int64)&dword_1C0326288,
-            byte_1C02F1F9A,
+            (__int64)&dword_1C032B2C0,
+            byte_1C02F4B35,
             v10,
             v11,
             (void **)&v18,
@@ -125,12 +125,12 @@ __int64 __fastcall SimpleHapticsController::HapticsDeviceNotify(
   }
   else
   {
-    if ( (unsigned int)dword_1C0326288 > 4 )
+    if ( (unsigned int)dword_1C032B2C0 > 4 )
     {
       v17 = (__int64)"SimpleHapticsController::HapticsDeviceNotify -> GUID_TARGET_DEVICE_QUERY_REMOVE";
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>>(
-        (__int64)&dword_1C0326288,
-        byte_1C02F1F6B,
+        (__int64)&dword_1C032B2C0,
+        byte_1C02F4B06,
         0LL,
         0LL,
         (void **)&v17);
@@ -139,13 +139,13 @@ __int64 __fastcall SimpleHapticsController::HapticsDeviceNotify(
     v2 = v5;
     if ( v5 < 0 )
     {
-      if ( (unsigned int)dword_1C0326288 > 2 )
+      if ( (unsigned int)dword_1C032B2C0 > 2 )
       {
         LODWORD(v17) = v5;
         v18 = (__int64)"Function failed.";
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-          (__int64)&dword_1C0326288,
-          byte_1C02F1F9A,
+          (__int64)&dword_1C032B2C0,
+          byte_1C02F4B35,
           v6,
           v7,
           (void **)&v18,

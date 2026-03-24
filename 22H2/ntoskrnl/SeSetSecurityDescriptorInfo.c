@@ -1,10 +1,10 @@
 /*
- * XREFs of SeSetSecurityDescriptorInfo @ 0x14069E810
+ * XREFs of SeSetSecurityDescriptorInfo @ 0x1406D8020
  * Callers:
- *     IopSetDeviceSecurityDescriptor @ 0x14069E6A4 (IopSetDeviceSecurityDescriptor.c)
- *     ObSetSecurityDescriptorInfo @ 0x14069E860 (ObSetSecurityDescriptorInfo.c)
+ *     ObSetSecurityDescriptorInfo @ 0x1406D8070 (ObSetSecurityDescriptorInfo.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x14076A88C (IopSetDeviceSecurityDescriptor.c)
  * Callees:
- *     RtlpSetSecurityObject @ 0x14072BDE0 (RtlpSetSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1406D7180 (RtlpSetSecurityObject.c)
  */
 
 NTSTATUS __stdcall SeSetSecurityDescriptorInfo(
@@ -17,10 +17,10 @@ NTSTATUS __stdcall SeSetSecurityDescriptorInfo(
 {
   if ( *ObjectsSecurityDescriptor )
     return RtlpSetSecurityObject(
-             (_DWORD)Object,
+             (__int64)Object,
              *SecurityInformation,
-             (_DWORD)ModificationDescriptor,
-             (_DWORD)ObjectsSecurityDescriptor,
+             (__int64)ModificationDescriptor,
+             ObjectsSecurityDescriptor,
              0,
              PoolType,
              (__int64)GenericMapping,

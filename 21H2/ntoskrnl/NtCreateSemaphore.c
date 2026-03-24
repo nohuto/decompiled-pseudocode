@@ -1,22 +1,25 @@
 /*
- * XREFs of NtCreateSemaphore @ 0x14072A4C0
+ * XREFs of NtCreateSemaphore @ 0x140705010
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeSemaphore @ 0x1402A4940 (KeInitializeSemaphore.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14072B3B0 (ObCreateObjectEx.c)
+ *     KeInitializeSemaphore @ 0x140356600 (KeInitializeSemaphore.c)
+ *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateSemaphore(unsigned __int64 a1, unsigned int a2, int a3, LONG a4, int Limit)
+__int64 __fastcall NtCreateSemaphore(unsigned __int64 a1, ACCESS_MASK a2, __int64 a3, LONG a4, int Limit)
 {
   _QWORD *v7; // rdi
-  unsigned __int8 PreviousMode; // si
-  int Object; // ecx
-  __int64 v11; // [rsp+58h] [rbp-20h] BYREF
+  char PreviousMode; // si
+  int inserted; // ecx
+  char *v11; // [rsp+20h] [rbp-58h]
+  PRKSEMAPHORE Semaphore; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v13; // [rsp+58h] [rbp-20h] BYREF
 
   v7 = (_QWORD *)a1;
-  v11 = 0LL;
+  v13 = 0LL;
+  Semaphore = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
@@ -26,13 +29,14 @@ __int64 __fastcall NtCreateSemaphore(unsigned __int64 a1, unsigned int a2, int a
   }
   if ( Limit <= 0 || a4 < 0 || a4 > Limit )
     return 3221225485LL;
-  Object = ObCreateObjectEx(PreviousMode, (_DWORD)ExSemaphoreObjectType, a3, PreviousMode);
-  if ( Object >= 0 )
+  inserted = ObCreateObjectEx(PreviousMode, ExSemaphoreObjectType, a3, PreviousMode, v11, 32, 0, 0, &Semaphore, 0LL);
+  if ( inserted >= 0 )
   {
-    KeInitializeSemaphore(0LL, a4, Limit);
-    Object = ObInsertObjectEx(0LL, 0LL, a2, 0, 0, 0LL, &v11);
-    if ( Object >= 0 )
-      *v7 = v11;
+    KeInitializeSemaphore(Semaphore, a4, Limit);
+    inserted = ObInsertObjectEx((char *)Semaphore, 0LL, a2, 0, 0, 0LL, (unsigned __int64 *)&v13);
+    LODWORD(Semaphore) = inserted;
+    if ( inserted >= 0 )
+      *v7 = v13;
   }
-  return (unsigned int)Object;
+  return (unsigned int)inserted;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpCovSampContextPruneModules @ 0x1408A9420
+ * XREFs of EtwpCovSampContextPruneModules @ 0x140944324
  * Callers:
- *     EtwpCoverageSamplerQuery @ 0x1408AA478 (EtwpCoverageSamplerQuery.c)
- *     EtwpCovSampContextGetModule @ 0x1409F133C (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampContextGetModule @ 0x140943470 (EtwpCovSampContextGetModule.c)
+ *     EtwpCoverageSamplerQuery @ 0x140946474 (EtwpCoverageSamplerQuery.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     PsGetCurrentThreadId @ 0x14033BCC0 (PsGetCurrentThreadId.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwpCovSampModuleCleanup @ 0x1409F2758 (EtwpCovSampModuleCleanup.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PsGetCurrentThreadId @ 0x140302DF0 (PsGetCurrentThreadId.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwpCovSampModuleCleanup @ 0x1409452C8 (EtwpCovSampModuleCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall EtwpCovSampContextPruneModules(__int64 a1)
@@ -57,10 +57,10 @@ unsigned __int64 __fastcall EtwpCovSampContextPruneModules(__int64 a1)
   result = *(_DWORD *)(a1 + 16) >> 1;
   v35 = 0LL;
   v34 = 0LL;
-  if ( *(_DWORD *)(a1 + 1244) > (unsigned int)result || *(_DWORD *)(a1 + 1636) > (int)result )
+  if ( *(_DWORD *)(a1 + 732) > (unsigned int)result || *(_DWORD *)(a1 + 1124) > (int)result )
   {
     result = (unsigned int)_InterlockedCompareExchange(
-                             (volatile signed __int32 *)(a1 + 1640),
+                             (volatile signed __int32 *)(a1 + 1128),
                              (signed __int32)PsGetCurrentThreadId(),
                              0);
     if ( !(_DWORD)result )
@@ -77,10 +77,10 @@ unsigned __int64 __fastcall EtwpCovSampContextPruneModules(__int64 a1)
       }
       while ( v5 );
       CurrentThread = KeGetCurrentThread();
-      v7 = (volatile signed __int64 *)(a1 + 1176);
       --CurrentThread->KernelApcDisable;
-      ExAcquirePushLockSharedEx(a1 + 1176, 0LL);
-      for ( i = *(__int64 **)(a1 + 1224); i != (__int64 *)(a1 + 1224); i = (__int64 *)*i )
+      v7 = (volatile signed __int64 *)(a1 + 664);
+      ExAcquirePushLockSharedEx(a1 + 664, 0LL);
+      for ( i = *(__int64 **)(a1 + 712); i != (__int64 *)(a1 + 712); i = (__int64 *)*i )
       {
         if ( *(i - 1) == 1 && !*((_DWORD *)i + 15) )
         {
@@ -104,8 +104,8 @@ LABEL_54:
         }
       }
       if ( _InterlockedCompareExchange64(v7, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared((signed __int64 *)(a1 + 1176));
-      KeAbPostRelease(a1 + 1176);
+        ExfReleasePushLockShared((signed __int64 *)(a1 + 664));
+      KeAbPostRelease(a1 + 664);
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       v14 = &v35;
       *((_QWORD *)&v35 + 1) = &v35;
@@ -125,14 +125,14 @@ LABEL_54:
         --v3;
       }
       while ( v3 );
-      *((_QWORD *)&v34 + 1) = &v34;
       v16 = 0LL;
+      *((_QWORD *)&v34 + 1) = &v34;
       *(_QWORD *)&v34 = &v34;
       v17 = KeGetCurrentThread();
       --v17->KernelApcDisable;
-      ExAcquirePushLockExclusiveEx(a1 + 1176, 0LL);
+      ExAcquirePushLockExclusiveEx(a1 + 664, 0LL);
       v18 = (__int128 *)v35;
-      *(_QWORD *)(a1 + 1184) = KeGetCurrentThread();
+      *(_QWORD *)(a1 + 672) = KeGetCurrentThread();
       while ( v18 != &v35 )
       {
         v19 = v18;
@@ -145,9 +145,9 @@ LABEL_54:
         {
           if ( (*((_DWORD *)v20 + 30) & 0x40000) == 0 )
           {
-            v22 = *(_DWORD *)(a1 + 1196) >> 5;
-            v33 = *((_QWORD *)v20 + 1) & (-1LL << (*(_DWORD *)(a1 + 1196) & 0x1F));
-            for ( j = (char *)(*(_QWORD *)(a1 + 1200)
+            v22 = *(_DWORD *)(a1 + 684) >> 5;
+            v33 = *((_QWORD *)v20 + 1) & (-1LL << (*(_DWORD *)(a1 + 684) & 0x1F));
+            for ( j = (char *)(*(_QWORD *)(a1 + 688)
                              + 8LL
                              * ((37
                                * (BYTE6(v33)
@@ -163,7 +163,7 @@ LABEL_54:
               if ( *(char **)j == v20 )
               {
                 *(_QWORD *)j = *(_QWORD *)v20;
-                --*(_DWORD *)(a1 + 1192);
+                --*(_DWORD *)(a1 + 680);
                 break;
               }
             }
@@ -172,9 +172,9 @@ LABEL_54:
           v24 = v20 + 16;
           if ( *((_QWORD *)v20 + 2) )
           {
-            v25 = *(_DWORD *)(a1 + 1212) >> 5;
-            v33 = *((_QWORD *)v20 + 3) & (-1LL << (*(_DWORD *)(a1 + 1212) & 0x1F));
-            for ( k = (_QWORD *)(*(_QWORD *)(a1 + 1216)
+            v25 = *(_DWORD *)(a1 + 700) >> 5;
+            v33 = *((_QWORD *)v20 + 3) & (-1LL << (*(_DWORD *)(a1 + 700) & 0x1F));
+            for ( k = (_QWORD *)(*(_QWORD *)(a1 + 704)
                                + 8LL
                                * ((37
                                  * (BYTE6(v33)
@@ -190,7 +190,7 @@ LABEL_54:
               if ( (_QWORD *)*k == v24 )
               {
                 *k = *v24;
-                --*(_DWORD *)(a1 + 1208);
+                --*(_DWORD *)(a1 + 696);
                 break;
               }
             }
@@ -206,7 +206,7 @@ LABEL_54:
           *v29 = v28;
           *(_QWORD *)(v28 + 8) = v29;
           v30 = (_OWORD **)*((_QWORD *)&v34 + 1);
-          --*(_DWORD *)(a1 + 1240);
+          --*(_DWORD *)(a1 + 728);
           if ( *v30 != &v34 )
             goto LABEL_54;
           *((_QWORD *)v20 + 10) = v30;
@@ -215,12 +215,12 @@ LABEL_54:
           *((_QWORD *)&v34 + 1) = v20 + 72;
         }
       }
-      *(_DWORD *)(a1 + 1244) = 0;
-      *(_DWORD *)(a1 + 1636) = 0;
-      *(_QWORD *)(a1 + 1184) = 0LL;
+      *(_DWORD *)(a1 + 732) = 0;
+      *(_DWORD *)(a1 + 1124) = 0;
+      *(_QWORD *)(a1 + 672) = 0LL;
       if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 1176));
-      KeAbPostRelease(a1 + 1176);
+        ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 664));
+      KeAbPostRelease(a1 + 664);
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       while ( 1 )
       {
@@ -241,7 +241,7 @@ LABEL_54:
         EtwpCovSampModuleCleanup(result - 72);
         ExFreePoolWithTag(v32, 0x56777445u);
       }
-      _InterlockedExchange((volatile __int32 *)(a1 + 1640), 0);
+      _InterlockedExchange((volatile __int32 *)(a1 + 1128), 0);
     }
   }
   return result;

@@ -1,10 +1,10 @@
 /*
- * XREFs of KeDispatchSecondaryInterrupt @ 0x14056EBB0
+ * XREFs of KeDispatchSecondaryInterrupt @ 0x140518EB0
  * Callers:
- *     HalpInvokeIsrForGsiv @ 0x14051D820 (HalpInvokeIsrForGsiv.c)
+ *     HalpInvokeIsrForGsiv @ 0x1404D1230 (HalpInvokeIsrForGsiv.c)
  * Callees:
- *     KiInsertSecondarySignalList @ 0x14056F060 (KiInsertSecondarySignalList.c)
- *     KiInterruptDispatchCommon @ 0x140575CD8 (KiInterruptDispatchCommon.c)
+ *     KiInsertSecondarySignalList @ 0x1405193D8 (KiInsertSecondarySignalList.c)
+ *     KiInterruptDispatchCommon @ 0x140521428 (KiInterruptDispatchCommon.c)
  */
 
 char __fastcall KeDispatchSecondaryInterrupt(int a1, unsigned int a2, __int64 a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhSshPropagateResume @ 0x1C001E15C
+ * XREFs of UsbhSshPropagateResume @ 0x1C001BB74
  * Callers:
- *     UsbhBusIf_ResumeChildHub @ 0x1C0002DF0 (UsbhBusIf_ResumeChildHub.c)
- *     UsbhSshResumeDownstream @ 0x1C0009090 (UsbhSshResumeDownstream.c)
+ *     UsbhBusIf_ResumeChildHub @ 0x1C0001010 (UsbhBusIf_ResumeChildHub.c)
+ *     UsbhSshResumeDownstream @ 0x1C000C0F0 (UsbhSshResumeDownstream.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhSet_Pdo_Dx @ 0x1C000AFE0 (UsbhSet_Pdo_Dx.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhEtwLogHubIrpEvent @ 0x1C000C920 (UsbhEtwLogHubIrpEvent.c)
- *     UsbhSendSynchronousUsbIoctlRequest @ 0x1C001E2AC (UsbhSendSynchronousUsbIoctlRequest.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhSet_Pdo_Dx @ 0x1C0010D74 (UsbhSet_Pdo_Dx.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C0012400 (UsbhEtwLogHubIrpEvent.c)
+ *     UsbhSendSynchronousUsbIoctlRequest @ 0x1C001BCC4 (UsbhSendSynchronousUsbIoctlRequest.c)
  */
 
 __int64 __fastcall UsbhSshPropagateResume(__int64 a1, __int64 a2, struct _DEVICE_OBJECT *a3)
@@ -25,18 +25,18 @@ __int64 __fastcall UsbhSshPropagateResume(__int64 a1, __int64 a2, struct _DEVICE
   {
     v6 = UsbhSendSynchronousUsbIoctlRequest(a1, a3, 2232227LL);
     UsbhEtwLogHubIrpEvent(a1, 0LL, 0LL, &USBHUB_ETW_EVENT_HUB_RESUME_PROPAGATE);
-    *(_BYTE *)(a2 + 132) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
+    *(_BYTE *)(a2 + 132) = KeAcquireSpinLockRaiseToDpc(&HubG);
     *(_DWORD *)(a2 + 136) = 1;
     *(_DWORD *)(a2 + 88) = 2018460752;
     *(_DWORD *)(a2 + 92) = 26;
-    WPP_MAIN_CB.Dpc.DeferredRoutine = (void (__fastcall *)(_KDPC *, void *, void *, void *))a2;
+    qword_1C006C500 = a2;
     *(_QWORD *)(a2 + 24) = KeGetCurrentThread();
     v8 = PdoExt((__int64)a3)[281];
     *(_DWORD *)(a2 + 136) = 0;
-    WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+    qword_1C006C500 = 0LL;
     v9 = *(_BYTE *)(a2 + 132);
     *(_DWORD *)(a2 + 88) = 1734964085;
-    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v9);
+    KeReleaseSpinLock(&HubG, v9);
     if ( (unsigned int)(v8 - 1) <= 2 )
       UsbhSet_Pdo_Dx(a3, (POWER_STATE)1);
   }

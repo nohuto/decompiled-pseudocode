@@ -1,40 +1,44 @@
 /*
- * XREFs of ?StringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x180076EB8
+ * XREFs of ?StringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800B1EE4
  * Callers:
- *     ?GuidToString@CAnimationTracking@@CAXAEBU_GUID@@PEAGK@Z @ 0x180076E08 (-GuidToString@CAnimationTracking@@CAXAEBU_GUID@@PEAGK@Z.c)
- *     ?CreateLegacyRemotingSwapChain@CD3DDevice@@QEAAJPEAUIDXGIOutputDWM@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVILegacyRemotingSwapChain@@@Z @ 0x1800FE0C4 (-CreateLegacyRemotingSwapChain@CD3DDevice@@QEAAJPEAUIDXGIOutputDWM@@AEBUD2D_SIZE_U@@AEBUPixelFor.c)
+ *     ?GuidToString@CAnimationTracking@@CAXAEBU_GUID@@PEAGK@Z @ 0x1800B1E34 (-GuidToString@CAnimationTracking@@CAXAEBU_GUID@@PEAGK@Z.c)
+ *     ?CreateLegacyRemotingSwapChain@CD3DDevice@@QEAAJPEBGAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVILegacyRemotingSwapChain@@@Z @ 0x1800E4244 (-CreateLegacyRemotingSwapChain@CD3DDevice@@QEAAJPEBGAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRen.c)
  * Callees:
- *     _vsnwprintf @ 0x1801019B8 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1800E8228 (_vsnwprintf.c)
  */
 
-__int64 StringCbPrintfW(unsigned __int16 *a1, unsigned __int64 a2, const unsigned __int16 *a3, ...)
+__int64 StringCbPrintfW(wchar_t *Buffer, unsigned __int64 a2, const unsigned __int16 *a3, ...)
 {
   unsigned __int64 v3; // rdx
-  unsigned __int64 v5; // rsi
-  unsigned int v6; // edi
+  int v5; // esi
+  unsigned __int64 v6; // rbx
   int v7; // eax
   va_list Args; // [rsp+68h] [rbp+20h] BYREF
 
   va_start(Args, a3);
   v3 = a2 >> 1;
-  if ( v3 - 1 <= 0x7FFFFFFE )
+  v5 = 0;
+  if ( v3 - 1 > 0x7FFFFFFE )
+    v5 = -2147024809;
+  if ( v5 < 0 )
   {
-    v5 = v3 - 1;
-    v6 = 0;
-    v7 = vsnwprintf(a1, v3 - 1, a3, Args);
-    if ( v7 < 0 || v7 > v5 )
-    {
-      v6 = -2147024774;
-    }
-    else if ( v7 != v5 )
-    {
-      return v6;
-    }
-    a1[v5] = 0;
-    return v6;
+    if ( v3 )
+      *Buffer = 0;
   }
-  v6 = -2147024809;
-  if ( v3 )
-    *a1 = 0;
-  return v6;
+  else
+  {
+    v6 = v3 - 1;
+    v5 = 0;
+    v7 = vsnwprintf(Buffer, v3 - 1, a3, Args);
+    if ( v7 < 0 || v7 > v6 )
+    {
+      Buffer[v6] = 0;
+      return (unsigned int)-2147024774;
+    }
+    else if ( v7 == v6 )
+    {
+      Buffer[v6] = 0;
+    }
+  }
+  return (unsigned int)v5;
 }

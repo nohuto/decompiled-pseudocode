@@ -1,14 +1,14 @@
 /*
- * XREFs of NtGdiGetRegionData @ 0x1C008B350
+ * XREFs of NtGdiGetRegionData @ 0x1C001F550
  * Callers:
  *     <none>
  * Callees:
- *     AllocFreeTmpBuffer @ 0x1C002FCF0 (AllocFreeTmpBuffer.c)
- *     FreeTmpBuffer @ 0x1C0030FE0 (FreeTmpBuffer.c)
- *     GreGetRegionData @ 0x1C008B460 (GreGetRegionData.c)
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     GreGetRegionData @ 0x1C001F660 (GreGetRegionData.c)
+ *     AllocFreeTmpBuffer @ 0x1C0022520 (AllocFreeTmpBuffer.c)
+ *     FreeTmpBuffer @ 0x1C0022780 (FreeTmpBuffer.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall NtGdiGetRegionData(HRGN a1, unsigned int a2, volatile void *a3)

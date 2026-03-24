@@ -1,323 +1,455 @@
 /*
- * XREFs of MiReturnPageTablePageCommitment @ 0x1407B92D0
+ * XREFs of MiReturnPageTablePageCommitment @ 0x1406EE990
  * Callers:
- *     MiDeleteEmptyPageTableCommit @ 0x140233E34 (MiDeleteEmptyPageTableCommit.c)
- *     MiRemoveVad @ 0x14030DA80 (MiRemoveVad.c)
+ *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
+ *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
+ *     MiDeleteEmptyPageTableCommit @ 0x1403F4B14 (MiDeleteEmptyPageTableCommit.c)
  * Callees:
- *     HalSystemVectorDispatchEntry @ 0x140203DC0 (HalSystemVectorDispatchEntry.c)
- *     RtlAreBitsClearEx @ 0x14022C900 (RtlAreBitsClearEx.c)
- *     MiBitmapRangeZeroEx @ 0x1402354A4 (MiBitmapRangeZeroEx.c)
- *     MiGetPreviousVad @ 0x140244718 (MiGetPreviousVad.c)
- *     MmGetMinWsPagePriority @ 0x14024DA70 (MmGetMinWsPagePriority.c)
- *     MiGetNextVad @ 0x140281C00 (MiGetNextVad.c)
- *     MiVadPageTableChargeLevel @ 0x14030DA10 (MiVadPageTableChargeLevel.c)
- *     MiVadDeleted @ 0x14030EB80 (MiVadDeleted.c)
- *     MiVadPureReserve @ 0x140319990 (MiVadPureReserve.c)
- *     MiUpdateChargedWsles @ 0x1405B85A8 (MiUpdateChargedWsles.c)
- *     MiReturnFullProcessCommitment @ 0x1406FEC50 (MiReturnFullProcessCommitment.c)
+ *     MiVadPureReserve @ 0x14021B990 (MiVadPureReserve.c)
+ *     MiVadPageTableChargeLevel @ 0x14021BA20 (MiVadPageTableChargeLevel.c)
+ *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
+ *     MiVadDeleted @ 0x14025B330 (MiVadDeleted.c)
+ *     MiCreateSystemWsles @ 0x1402C0BD0 (MiCreateSystemWsles.c)
+ *     MiBitmapRangeZeroEx @ 0x1403096C0 (MiBitmapRangeZeroEx.c)
+ *     RtlAreBitsClearEx @ 0x140348F90 (RtlAreBitsClearEx.c)
+ *     MiUpdateChargedWsles @ 0x14055C45C (MiUpdateChargedWsles.c)
+ *     MiReturnFullProcessCommitment @ 0x1406EE838 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiReturnPageTablePageCommitment(
         unsigned __int64 a1,
-        __int64 a2,
+        unsigned __int64 a2,
         __int64 a3,
         unsigned __int64 a4,
         unsigned __int64 a5,
         __int64 a6,
-        _BYTE *a7)
+        unsigned __int8 *a7)
 {
-  __int64 v7; // r14
-  __int64 v9; // r15
-  __int64 v10; // rax
-  unsigned __int64 v11; // r10
+  unsigned __int64 *v7; // r14
+  __int64 v12; // rax
+  unsigned __int64 v13; // r10
   __int64 result; // rax
-  unsigned __int64 v13; // rcx
-  unsigned __int64 v14; // rdx
-  unsigned __int64 v15; // rdx
-  unsigned __int64 v16; // r8
-  _BYTE *v17; // r12
-  int v18; // ebp
-  __int64 v19; // r10
-  __int64 v20; // r8
-  unsigned __int64 v21; // r11
-  __int64 v22; // r9
-  int v23; // eax
-  __int64 v24; // rdi
-  __int64 v25; // rsi
-  char v26; // cl
-  int v27; // r15d
-  __int64 v28; // r10
-  __int64 v29; // r11
+  __int64 v15; // r12
+  unsigned __int64 v16; // rax
+  unsigned __int64 v17; // rax
+  int v18; // eax
+  __int64 v19; // r9
+  __int64 v20; // r10
+  unsigned __int64 v21; // r13
+  unsigned __int64 v22; // rbx
+  unsigned __int64 v23; // rbp
+  __int64 v24; // rcx
+  __int64 v25; // r11
+  __int64 v26; // r15
+  __int64 v27; // r9
+  unsigned __int64 v28; // rdi
+  __int64 v29; // rbp
   char v30; // r8
   __int64 v31; // rax
   unsigned __int64 v32; // rcx
   __int64 v33; // rcx
-  unsigned __int64 v34; // r11
-  char v35; // r8
-  __int64 v36; // rax
-  unsigned __int64 v37; // rcx
-  __int64 v38; // rcx
-  __int64 v39; // r12
-  signed __int64 v40; // rbx
-  __int64 v41; // r13
-  __int64 v42; // r14
-  __int64 v43; // r13
-  __int64 v44; // r10
-  __int64 v45; // rsi
-  int v46; // eax
-  unsigned __int8 v47; // cl
-  __int64 v48; // rdx
-  unsigned __int64 v49; // r15
-  __int64 v50; // [rsp+20h] [rbp-A8h]
-  __int64 v51; // [rsp+28h] [rbp-A0h]
-  int v52; // [rsp+30h] [rbp-98h]
-  unsigned __int64 v53; // [rsp+38h] [rbp-90h]
-  __int64 v54; // [rsp+40h] [rbp-88h]
-  __int64 v55; // [rsp+48h] [rbp-80h]
-  unsigned __int64 PreviousVad; // [rsp+50h] [rbp-78h]
-  unsigned __int64 NextVad; // [rsp+58h] [rbp-70h]
-  __int64 v58; // [rsp+60h] [rbp-68h] BYREF
-  __int64 v59; // [rsp+68h] [rbp-60h]
-  __int64 v60; // [rsp+70h] [rbp-58h]
-  unsigned __int64 v61; // [rsp+78h] [rbp-50h]
-  unsigned __int64 v62; // [rsp+80h] [rbp-48h]
-  __int64 v63; // [rsp+88h] [rbp-40h]
-  __int64 v64; // [rsp+90h] [rbp-38h]
+  unsigned __int64 v34; // rax
+  unsigned __int64 i; // rax
+  unsigned __int64 v36; // rcx
+  unsigned __int64 v37; // rax
+  unsigned __int64 v38; // rax
+  char v39; // r8
+  __int64 v40; // rax
+  unsigned __int64 v41; // rcx
+  __int64 v42; // rcx
+  __int64 *v43; // rcx
+  __int64 **v44; // rcx
+  __int64 *v45; // rcx
+  __int64 v46; // r8
+  int v47; // edx
+  __int64 v48; // rbx
+  signed __int64 v49; // rsi
+  __int64 v50; // rdi
+  __int64 v51; // r14
+  int v52; // eax
+  int v53; // edx
+  unsigned __int64 v54; // rbp
+  __int64 v55; // r15
+  __int64 v56; // r9
+  __int64 v57; // r8
+  __int64 v58; // [rsp+20h] [rbp-A8h]
+  int v59; // [rsp+28h] [rbp-A0h]
+  int v60; // [rsp+2Ch] [rbp-9Ch]
+  unsigned __int64 j; // [rsp+30h] [rbp-98h]
+  _QWORD *v62; // [rsp+38h] [rbp-90h]
+  __int64 v63; // [rsp+40h] [rbp-88h]
+  __int64 v64; // [rsp+48h] [rbp-80h]
+  __int64 v65; // [rsp+50h] [rbp-78h]
+  __int64 v66; // [rsp+58h] [rbp-70h] BYREF
+  __int64 v67; // [rsp+60h] [rbp-68h]
+  __int64 v68; // [rsp+68h] [rbp-60h]
+  __int64 v69; // [rsp+70h] [rbp-58h]
+  unsigned __int64 v70; // [rsp+78h] [rbp-50h]
+  unsigned __int64 v71; // [rsp+80h] [rbp-48h]
+  __int64 v72; // [rsp+88h] [rbp-40h]
+  __int64 v73; // [rsp+90h] [rbp-38h]
 
-  v7 = a6;
-  v9 = a3;
-  v10 = *(unsigned int *)(a6 + 52);
-  LODWORD(v10) = v10 & 0x7FFFFFFF;
-  v11 = v10 | ((unsigned __int64)*(unsigned __int8 *)(a6 + 34) << 31);
-  result = 0x7FFFFFFFDLL;
-  if ( v11 >= 0x7FFFFFFFDLL && v11 != 0x7FFFFFFFELL )
+  v7 = (unsigned __int64 *)a6;
+  v12 = *(unsigned int *)(a6 + 52);
+  LODWORD(v12) = v12 & 0x7FFFFFFF;
+  v13 = v12 | ((unsigned __int64)*(unsigned __int8 *)(a6 + 34) << 31);
+  result = 0x7FFFFFFFELL;
+  if ( v13 >= 0x7FFFFFFFDLL && v13 != 0x7FFFFFFFELL )
     return result;
-  v13 = a4 & 0xFFFFFFFFFFFFFFFEuLL;
-  v14 = a4 & 0xFFFFFFFFFFFFFFFEuLL;
+  v15 = 0LL;
+  v16 = a4 & 0xFFFFFFFFFFFFFFFEuLL;
   if ( (a4 & 1) == 0 )
-  {
-    v13 = a4;
-    v14 = 0LL;
-  }
-  v61 = v14;
-  PreviousVad = v13;
-  v15 = a5 & 0xFFFFFFFFFFFFFFFEuLL;
-  v16 = a5 & 0xFFFFFFFFFFFFFFFEuLL;
-  if ( (a5 & 1) == 0 )
-  {
-    v15 = a5;
     v16 = 0LL;
-  }
-  v62 = v16;
-  NextVad = v15;
+  v70 = v16;
+  v17 = a5 & 0xFFFFFFFFFFFFFFFEuLL;
+  if ( (a5 & 1) == 0 )
+    v17 = 0LL;
+  v71 = v17;
   MiVadPageTableChargeLevel(a6);
-  v17 = a7;
   v18 = MiVadPureReserve(a6);
-  v20 = 1023LL;
-  v22 = 0LL;
-  v60 = *(_QWORD *)(v9 + 1680) + 48LL;
-  v23 = 0;
-  v55 = 0LL;
-  v50 = 0LL;
-  v24 = (unsigned int)(a1 >> 21);
-  v25 = (unsigned int)(v21 >> 21);
-  v54 = 1023LL;
-  if ( (int)v19 > 0 )
-  {
-    v47 = a7[1];
-    v23 = v19;
-    v48 = v19;
-    do
-    {
-      *a7 >>= 1;
-      v24 >>= 9;
-      v25 >>= 9;
-      v47 >>= 1;
-      v20 >>= 9;
-      --v48;
-    }
-    while ( v48 );
-    a7[1] = v47;
-    v54 = v20;
-    if ( (int)v19 >= 3 )
-    {
-      result = 0LL;
-      goto LABEL_17;
-    }
-  }
-  v26 = *a7;
-  LOBYTE(v27) = 9 * v23;
-  v28 = v23;
-  v59 = v23;
-  v52 = 9 * v23;
-  v53 = -1LL;
-  v51 = 0LL;
+  v21 = -1LL;
+  v24 = (unsigned int)(a2 >> 21);
+  v60 = v18;
+  v22 = a4 & 0xFFFFFFFFFFFFFFFEuLL;
+  v23 = a1 >> 21;
+  v58 = v24;
+  LOBYTE(v24) = 0;
+  v69 = *(_QWORD *)(a3 + 1680) + 48LL;
+  if ( !v25 )
+    v22 = a4;
+  v26 = (unsigned int)v23;
+  v67 = v19;
+  v27 = v58;
+  v28 = a5 & 0xFFFFFFFFFFFFFFFEuLL;
+  LOBYTE(result) = *a7;
+  v65 = 0LL;
+  if ( !v20 )
+    v28 = a5;
+  v64 = 0LL;
+  v29 = 0LL;
+  v68 = 1023LL;
+  v63 = 0LL;
+  v59 = 0;
+  j = v22;
+  v62 = (_QWORD *)v28;
   do
   {
-    v63 = v24;
-    v64 = v25;
-    if ( v26 )
+    v72 = v26;
+    v73 = v27;
+    if ( !(_BYTE)result )
     {
-      v29 = PreviousVad;
-      if ( PreviousVad )
+      ++v26;
+LABEL_40:
+      result = (__int64)a7;
+      goto LABEL_41;
+    }
+    if ( !v22 )
+      goto LABEL_40;
+    v30 = 9 * v24;
+    while ( 1 )
+    {
+      if ( (__int64)(((unsigned __int64)*(unsigned int *)(v22 + 28) >> 9) | ((unsigned __int64)*(unsigned __int8 *)(v22 + 33) << 23)) >> v30 != v26 )
       {
-        v30 = v27;
-        while ( (__int64)(((unsigned __int64)*(unsigned int *)(v29 + 28) >> 9) | ((unsigned __int64)*(unsigned __int8 *)(v29 + 33) << 23)) >> v30 == v24 )
+LABEL_39:
+        LOBYTE(v24) = v59;
+        goto LABEL_40;
+      }
+      v31 = *(unsigned int *)(v22 + 52);
+      LODWORD(v31) = v31 & 0x7FFFFFFF;
+      v32 = v31 | ((unsigned __int64)*(unsigned __int8 *)(v22 + 34) << 31);
+      if ( (v32 < 0x7FFFFFFFDLL || v32 == 0x7FFFFFFFELL)
+        && ((unsigned int)MiVadDeleted(v22) == 1 || !(unsigned int)MiVadPureReserve(v33)) )
+      {
+        break;
+      }
+      if ( v22 == v70 )
+      {
+        v22 = *v7;
+        v34 = (unsigned __int64)v7;
+        j = *v7;
+        if ( *v7 )
         {
-          v31 = *(unsigned int *)(v29 + 52);
-          LODWORD(v31) = v31 & 0x7FFFFFFF;
-          v32 = v31 | ((unsigned __int64)*(unsigned __int8 *)(v29 + 34) << 31);
-          if ( (v32 < 0x7FFFFFFFDLL || v32 == 0x7FFFFFFFELL)
-            && ((unsigned int)MiVadDeleted(v29) || !(unsigned int)MiVadPureReserve(v33)) )
+          for ( i = *(_QWORD *)(v22 + 8); i; i = *(_QWORD *)(i + 8) )
           {
-            *v17 = 0;
-            goto LABEL_9;
+            v22 = i;
+            j = i;
           }
-          if ( v29 == v61 )
-            v29 = v7;
-          PreviousVad = MiGetPreviousVad((unsigned __int64 *)v29);
-          v29 = PreviousVad;
-          if ( !PreviousVad )
+          goto LABEL_38;
+        }
+        v22 = v7[2] & 0xFFFFFFFFFFFFFFFCuLL;
+        j = v22;
+        if ( v22 )
+        {
+          do
           {
-            PreviousVad = 0LL;
+            if ( *(_QWORD *)(v22 + 8) == v34 )
+              break;
+            v34 = v22;
+            v22 = *(_QWORD *)(v22 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+          }
+          while ( v22 );
+LABEL_37:
+          j = v22;
+        }
+      }
+      else
+      {
+        v36 = *(_QWORD *)v22;
+        v37 = v22;
+        if ( *(_QWORD *)v22 )
+        {
+          v38 = *(_QWORD *)(v36 + 8);
+          v22 = *(_QWORD *)v22;
+          for ( j = v36; v38; v38 = *(_QWORD *)(v38 + 8) )
+          {
+            v22 = v38;
+            j = v38;
+          }
+          goto LABEL_38;
+        }
+        v22 = *(_QWORD *)(v22 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+        j = v22;
+        if ( v22 )
+        {
+          do
+          {
+            if ( *(_QWORD *)(v22 + 8) == v37 )
+              break;
+            v37 = v22;
+            v22 = *(_QWORD *)(v22 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+          }
+          while ( v22 );
+          goto LABEL_37;
+        }
+      }
+LABEL_38:
+      if ( !v22 )
+        goto LABEL_39;
+    }
+    result = (__int64)a7;
+    ++v26;
+    LOBYTE(v24) = v59;
+    *a7 = 0;
+LABEL_41:
+    if ( *(_BYTE *)(result + 1) )
+    {
+      if ( v28 )
+      {
+        v39 = 9 * v24;
+        do
+        {
+          result = (unsigned __int64)*(unsigned int *)(v28 + 24) >> 9;
+          if ( (__int64)(result | ((unsigned __int64)*(unsigned __int8 *)(v28 + 32) << 23)) >> v39 != v27 )
             break;
+          v40 = *(unsigned int *)(v28 + 52);
+          LODWORD(v40) = v40 & 0x7FFFFFFF;
+          v41 = v40 | ((unsigned __int64)*(unsigned __int8 *)(v28 + 34) << 31);
+          if ( (v41 < 0x7FFFFFFFDLL || v41 == 0x7FFFFFFFELL)
+            && ((unsigned int)MiVadDeleted(v28) == 1 || !(unsigned int)MiVadPureReserve(v42)) )
+          {
+            result = (__int64)a7;
+            a7[1] = 0;
+            goto LABEL_70;
+          }
+          if ( v28 == v71 )
+          {
+            v28 = v7[1];
+            result = (__int64)v7;
+            v62 = (_QWORD *)v28;
+            if ( v28 )
+            {
+              v43 = *(__int64 **)v28;
+              if ( *(_QWORD *)v28 )
+              {
+                do
+                {
+                  result = *v43;
+                  v28 = (unsigned __int64)v43;
+                  v62 = v43;
+                  v43 = (__int64 *)result;
+                }
+                while ( result );
+              }
+              continue;
+            }
+            v28 = v7[2] & 0xFFFFFFFFFFFFFFFCuLL;
+            v62 = (_QWORD *)v28;
+            if ( v28 )
+            {
+              do
+              {
+                if ( *(_QWORD *)v28 == result )
+                  break;
+                result = v28;
+                v28 = *(_QWORD *)(v28 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+              }
+              while ( v28 );
+LABEL_66:
+              v62 = (_QWORD *)v28;
+            }
+          }
+          else
+          {
+            v44 = *(__int64 ***)(v28 + 8);
+            result = v28;
+            if ( v44 )
+            {
+              v28 = *(_QWORD *)(v28 + 8);
+              v62 = v44;
+              v45 = *v44;
+              if ( v45 )
+              {
+                do
+                {
+                  result = *v45;
+                  v28 = (unsigned __int64)v45;
+                  v62 = v45;
+                  v45 = (__int64 *)result;
+                }
+                while ( result );
+              }
+              continue;
+            }
+            v28 = *(_QWORD *)(v28 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+            v62 = (_QWORD *)v28;
+            if ( v28 )
+            {
+              do
+              {
+                if ( *(_QWORD *)v28 == result )
+                  break;
+                result = v28;
+                v28 = *(_QWORD *)(v28 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+              }
+              while ( v28 );
+              goto LABEL_66;
+            }
           }
         }
+        while ( v28 );
       }
     }
     else
     {
-LABEL_9:
-      ++v24;
+LABEL_70:
+      v58 = --v27;
     }
-    if ( v17[1] )
-    {
-      v34 = NextVad;
-      if ( NextVad )
-      {
-        v35 = v27;
-        while ( (__int64)(((unsigned __int64)*(unsigned int *)(v34 + 24) >> 9) | ((unsigned __int64)*(unsigned __int8 *)(v34 + 32) << 23)) >> v35 == v25 )
-        {
-          v36 = *(unsigned int *)(v34 + 52);
-          LODWORD(v36) = v36 & 0x7FFFFFFF;
-          v37 = v36 | ((unsigned __int64)*(unsigned __int8 *)(v34 + 34) << 31);
-          if ( (v37 < 0x7FFFFFFFDLL || v37 == 0x7FFFFFFFELL)
-            && ((unsigned int)MiVadDeleted(v34) || !(unsigned int)MiVadPureReserve(v38)) )
-          {
-            v17[1] = 0;
-            goto LABEL_11;
-          }
-          if ( v34 == v62 )
-            v34 = v7;
-          NextVad = MiGetNextVad(v34);
-          v34 = NextVad;
-          if ( !NextVad )
-          {
-            NextVad = 0LL;
-            break;
-          }
-        }
-      }
-    }
-    else
-    {
-LABEL_11:
-      --v25;
-    }
-    if ( v24 > v25 )
+    if ( v26 > v27 )
       break;
-    if ( !v18 )
-      v55 = v25 - v24 + v22 + 1;
-    v39 = v55;
-    v40 = v24;
-    v41 = v59;
-    v42 = v60 - 16 * v28;
-    v58 = v24;
+    v46 = v67;
+    v47 = v60;
+    if ( v29 >= v67 && !v60 )
+      v65 += v27 - v26 + 1;
+    v48 = v64;
+    v49 = v26;
+    v50 = v65;
+    v51 = v69 - 16 * v29;
+    v66 = v26;
     do
     {
-      if ( v18 )
+      if ( v47 )
       {
-        if ( v40 == v24 )
+        if ( v49 == v26 )
         {
-          v46 = MiBitmapRangeZeroEx(v42 + 504, v40, &v58);
-          v24 = v58;
-          if ( v46 )
+          v52 = MiBitmapRangeZeroEx(v51 + 520, v49, &v66);
+          v26 = v66;
+          v27 = v58;
+          if ( v52 == 1 )
           {
-            v40 = v58 - 1;
-            goto LABEL_42;
+            v49 = v66 - 1;
+            goto LABEL_100;
           }
+          v46 = v67;
         }
-        if ( !_bittest64(*(const signed __int64 **)(v42 + 512), v40) )
-          goto LABEL_42;
-        ++v39;
+        if ( !_bittest64(*(const signed __int64 **)(v51 + 528), v49) )
+          goto LABEL_100;
+        if ( v29 >= v46 )
+          ++v50;
       }
-      _bittestandreset64(*(signed __int64 **)(v42 + 512), v40);
-      if ( !(unsigned int)MmGetMinWsPagePriority() && (v40 == v25 || (v40 & 7) == 7 || v18) )
+      _bittestandreset64(*(signed __int64 **)(v51 + 528), v49);
+      if ( !(unsigned int)MiCreateSystemWsles() && (v49 == v27 || (v49 & 7) == 7 || v53) )
       {
-        v49 = v40 & 0xFFFFFFFFFFFFFFF8uLL;
-        if ( RtlAreBitsClearEx(v42 + 504, v40 & 0xFFFFFFFFFFFFFFF8uLL, 8uLL)
-          && ((*(_DWORD *)(a3 + 2172) & 1) != 0 || v49 != (v54 & 0xFFFFFFFFFFFFFFF8uLL)) )
+        v54 = v49 & 0xFFFFFFFFFFFFFFF8uLL;
+        if ( !RtlAreBitsClearEx(v51 + 520, v49 & 0xFFFFFFFFFFFFFFF8uLL, 8uLL)
+          || (*(_DWORD *)(a3 + 2172) & 1) == 0 && v54 == (v68 & 0xFFFFFFFFFFFFFFF8uLL) )
         {
-          if ( v41 )
+          goto LABEL_93;
+        }
+        if ( v63 )
+        {
+          ++v48;
+LABEL_93:
+          v27 = v58;
+          v29 = v63;
+          goto LABEL_100;
+        }
+        if ( v21 == -1LL )
+        {
+          v27 = v58;
+          v21 = v49 & 0xFFFFFFFFFFFFFFF8uLL;
+          v29 = 0LL;
+          v15 = 1LL;
+        }
+        else
+        {
+          if ( v21 + 8 * v15 == v54 )
           {
-            ++v50;
-            goto LABEL_42;
+            v27 = v58;
+            ++v15;
           }
-          if ( v53 != -1LL )
+          else
           {
-            if ( v53 + 8 * v51 == v49 )
-            {
-              ++v51;
-              goto LABEL_42;
-            }
             HalSystemVectorDispatchEntry();
-            v50 += v51;
+            v27 = v58;
+            v48 += v15;
+            v21 = v49 & 0xFFFFFFFFFFFFFFF8uLL;
+            v15 = 1LL;
           }
-          v51 = 1LL;
-          v53 = v40 & 0xFFFFFFFFFFFFFFF8uLL;
+          v29 = 0LL;
         }
       }
-LABEL_42:
-      ++v40;
+LABEL_100:
+      v47 = v60;
+      ++v49;
+      v46 = v67;
     }
-    while ( v40 <= v25 );
-    v43 = v63;
-    v55 = v39;
-    v17 = a7;
-    if ( v51 )
+    while ( v49 <= v27 );
+    v65 = v50;
+    v28 = (unsigned __int64)v62;
+    v64 = v48;
+    v22 = j;
+    if ( v15 )
     {
       HalSystemVectorDispatchEntry();
-      v50 += v51;
-      v53 = -1LL;
-      v51 = 0LL;
+      v64 += v15;
+      v21 = -1LL;
+      v15 = 0LL;
     }
-    v44 = v59;
-    v27 = v52 + 9;
+    ++v29;
+    v55 = v72;
+    LODWORD(v24) = v59 + 1;
+    v56 = v73;
     *a7 >>= 1;
-    v28 = v44 + 1;
-    v45 = v64;
     a7[1] >>= 1;
-    v54 >>= 9;
-    v26 = *a7;
-    v22 = v55;
-    v7 = a6;
-    v24 = v43 >> 9;
-    v25 = v45 >> 9;
-    v52 = v27;
-    v59 = v28;
+    v68 >>= 9;
+    result = *a7;
+    v7 = (unsigned __int64 *)a6;
+    v27 = v56 >> 9;
+    v26 = v55 >> 9;
+    v58 = v27;
+    v59 = v24;
+    v63 = v29;
   }
-  while ( v27 < 27 );
-  result = v50;
-  v9 = a3;
-  if ( v50 )
+  while ( (int)v24 < 3 );
+  v57 = v64;
+  if ( v64 )
+    result = (__int64)MiUpdateChargedWsles(a3 + 1664);
+  if ( v65 )
   {
-    MiUpdateChargedWsles(a3 + 1664);
-    result = v50;
+    result = v69;
+    *(_QWORD *)(v69 + 240) -= v65;
   }
-  if ( v22 )
-    *(_QWORD *)(v60 + 240) -= v22;
-LABEL_17:
-  if ( result + v22 )
-    return MiReturnFullProcessCommitment(v9, result + v22);
+  if ( v57 + v65 )
+    return MiReturnFullProcessCommitment(a3, v57 + v65);
   return result;
 }

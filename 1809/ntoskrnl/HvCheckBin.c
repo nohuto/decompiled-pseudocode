@@ -4,9 +4,9 @@
  *     HvCheckHive @ 0x1405F991C (HvCheckHive.c)
  * Callees:
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     SetFailureLocation @ 0x14026BA58 (SetFailureLocation.c)
+ *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
  *     HvMoveLayoutStats @ 0x1405F2340 (HvMoveLayoutStats.c)
- *     HvAddToLayoutStats @ 0x1406B9938 (HvAddToLayoutStats.c)
+ *     HvAddToLayoutStats @ 0x1406B9918 (HvAddToLayoutStats.c)
  */
 
 __int64 __fastcall HvCheckBin(

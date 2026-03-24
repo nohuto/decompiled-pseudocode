@@ -1,5 +1,5 @@
 /*
- * XREFs of ExDupHandleTable @ 0x1406965A0
+ * XREFs of ExDupHandleTable @ 0x140696580
  * Callers:
  *     ObInitProcess @ 0x1406092E4 (ObInitProcess.c)
  * Callees:
@@ -7,18 +7,18 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExLockHandleTableEntry @ 0x140053220 (ExLockHandleTableEntry.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfUnblockPushLock @ 0x1401B7430 (ExfUnblockPushLock.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExpLookupHandleTableEntry @ 0x1405E8990 (ExpLookupHandleTableEntry.c)
  *     ExpFreeHandleTable @ 0x1406067F8 (ExpFreeHandleTable.c)
- *     ExCreateHandleTable @ 0x140696420 (ExCreateHandleTable.c)
- *     ObInheritObjectHandle @ 0x1406969C4 (ObInheritObjectHandle.c)
- *     ExpAllocateHandleTable @ 0x140696A84 (ExpAllocateHandleTable.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x140696B94 (ExpAllocateHandleTableEntrySlow.c)
- *     ExpGetHandleExtraInfo @ 0x1408CE130 (ExpGetHandleExtraInfo.c)
- *     ExpSetHandleExtraInfo @ 0x1408CE17C (ExpSetHandleExtraInfo.c)
- *     ExpUpdateDebugInfo @ 0x1408CE408 (ExpUpdateDebugInfo.c)
+ *     ExCreateHandleTable @ 0x140696400 (ExCreateHandleTable.c)
+ *     ObInheritObjectHandle @ 0x1406969A4 (ObInheritObjectHandle.c)
+ *     ExpAllocateHandleTable @ 0x140696A64 (ExpAllocateHandleTable.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x140696B74 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpGetHandleExtraInfo @ 0x1408CE110 (ExpGetHandleExtraInfo.c)
+ *     ExpSetHandleExtraInfo @ 0x1408CE15C (ExpSetHandleExtraInfo.c)
+ *     ExpUpdateDebugInfo @ 0x1408CE3E8 (ExpUpdateDebugInfo.c)
  */
 
 __int64 __fastcall ExDupHandleTable(__int64 a1, unsigned int *a2, unsigned int a3, _BYTE *a4, unsigned int **a5)

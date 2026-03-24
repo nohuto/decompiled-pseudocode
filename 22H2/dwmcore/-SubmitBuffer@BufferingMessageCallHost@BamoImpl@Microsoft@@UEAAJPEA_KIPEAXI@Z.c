@@ -1,102 +1,98 @@
 /*
- * XREFs of ?SubmitBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z @ 0x1801BB4F0
+ * XREFs of ?SubmitBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z @ 0x180166FF0
  * Callers:
  *     <none>
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1801986D8 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ??$_Emplace_reallocate@AEBQEAURemoteCallBuffer@BamoImpl@Microsoft@@@?$vector@PEAURemoteCallBuffer@BamoImpl@Microsoft@@V?$allocator@PEAURemoteCallBuffer@BamoImpl@Microsoft@@@std@@@std@@QEAAPEAPEAURemoteCallBuffer@BamoImpl@Microsoft@@QEAPEAU234@AEBQEAU234@@Z @ 0x1801B8480 (--$_Emplace_reallocate@AEBQEAURemoteCallBuffer@BamoImpl@Microsoft@@@-$vector@PEAURemoteCallBuffe.c)
- *     ?TryFindBufferStream@BufferingMessageCallHost@BamoImpl@Microsoft@@AEAA_N_KPEAPEAUBufferStream@23@@Z @ 0x1801BBDAC (-TryFindBufferStream@BufferingMessageCallHost@BamoImpl@Microsoft@@AEAA_N_KPEAPEAUBufferStream@23.c)
- *     ?_Tidy@?$vector@UItemIdParameterIndex@BamoImpl@Microsoft@@V?$allocator@UItemIdParameterIndex@BamoImpl@Microsoft@@@std@@@std@@AEAAXXZ @ 0x1801BC0EC (-_Tidy@-$vector@UItemIdParameterIndex@BamoImpl@Microsoft@@V-$allocator@UItemIdParameterIndex@Bam.c)
- *     ?_Tidy@?$vector@V?$com_ptr_t@VBamoPrincipal@Bamo@Microsoft@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VBamoPrincipal@Bamo@Microsoft@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@AEAAXXZ @ 0x1801BC140 (-_Tidy@-$vector@V-$com_ptr_t@VBamoPrincipal@Bamo@Microsoft@@Uerr_returncode_policy@wil@@@wil@@V-.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x18014CF54 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$_Emplace_reallocate@PEBVCVisual@@@?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@QEAAPEAPEBVCVisual@@QEAPEBV2@$$QEAPEBV2@@Z @ 0x180164458 (--$_Emplace_reallocate@PEBVCVisual@@@-$vector@PEBVCVisual@@V-$allocator@PEBVCVisual@@@std@@@std@.c)
+ *     ?TryFindBufferStream@BufferingMessageCallHost@BamoImpl@Microsoft@@AEAA_N_KPEAPEAUBufferStream@23@@Z @ 0x1801673AC (-TryFindBufferStream@BufferingMessageCallHost@BamoImpl@Microsoft@@AEAA_N_KPEAPEAUBufferStream@23.c)
+ *     ?_Tidy@?$vector@UItemIdParameterIndex@BamoImpl@Microsoft@@V?$allocator@UItemIdParameterIndex@BamoImpl@Microsoft@@@std@@@std@@AEAAXXZ @ 0x180167758 (-_Tidy@-$vector@UItemIdParameterIndex@BamoImpl@Microsoft@@V-$allocator@UItemIdParameterIndex@Bam.c)
  */
 
 __int64 __fastcall Microsoft::BamoImpl::BufferingMessageCallHost::SubmitBuffer(
         Microsoft::BamoImpl::BufferingMessageCallHost *this,
         unsigned __int64 *a2,
-        __int64 a3,
-        void *a4,
+        int a3,
+        const char *a4,
         unsigned int a5)
 {
-  unsigned __int64 v5; // r14
+  unsigned __int64 v7; // rsi
   const char *v8; // r9
-  struct Microsoft::BamoImpl::BufferStream *v9; // rdi
-  _QWORD *v10; // rax
-  _QWORD *v11; // rbx
-  unsigned int v12; // ecx
+  __int64 *v9; // rdi
+  struct Microsoft::BamoImpl::BufferStream *v10; // rax
+  struct Microsoft::BamoImpl::BufferStream *v11; // rbx
   _QWORD *v13; // rsi
-  _QWORD *v14; // r14
-  _QWORD *v15; // rsi
-  _BYTE *v16; // rdx
+  struct Microsoft::BamoImpl::BufferStream **v14; // rdx
+  struct Microsoft::BamoImpl::BufferStream *v15[3]; // [rsp+20h] [rbp-18h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
-  struct Microsoft::BamoImpl::BufferStream *v19; // [rsp+40h] [rbp+8h] BYREF
 
-  v5 = a2[1];
+  if ( a3 != 2 )
+  {
+    wil::details::in1diag3::_FailFast_Unexpected(
+      retaddr,
+      (void *)0xD3,
+      (__int64)"onecore\\private\\mincore\\priv_sdk\\inc\\BamoBufferingMessageCallHost.inl",
+      a4);
+    __debugbreak();
+  }
+  v7 = a2[1];
   Microsoft::BamoImpl::BufferingMessageCallHost::TryFindBufferStream(
     (Microsoft::BamoImpl::BufferingMessageCallHost *)((char *)this - 16),
     *a2,
-    &v19);
-  v9 = v19;
-  if ( !v19 )
+    v15);
+  v9 = (__int64 *)v15[0];
+  if ( !v15[0] )
+  {
     wil::details::in1diag3::_FailFast_Unexpected(
       retaddr,
-      233LL,
-      (__int64)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoBufferingMessageCallHost.inl",
+      (void *)0xE0,
+      (__int64)"onecore\\private\\mincore\\priv_sdk\\inc\\BamoBufferingMessageCallHost.inl",
       v8);
-  v10 = operator new(0x50uLL);
+    __debugbreak();
+  }
+  v10 = (struct Microsoft::BamoImpl::BufferStream *)operator new(0x38uLL);
   v11 = v10;
   if ( v10 )
   {
-    v12 = a5;
-    *v10 = a4;
-    v13 = (_QWORD *)((char *)this + 32);
-    v10[2] = v5;
-    v14 = v10 + 3;
-    v10[3] = 0LL;
-    v10[4] = 0LL;
-    v10[5] = 0LL;
-    v10[7] = 0LL;
-    v10[8] = 0LL;
-    v10[9] = 0LL;
-    *((_DWORD *)v10 + 2) = v12;
+    *((_QWORD *)v10 + 3) = 0LL;
+    *((_QWORD *)v10 + 4) = 0LL;
+    *((_QWORD *)v10 + 5) = 0LL;
+    *(_QWORD *)v10 = a4;
+    *((_DWORD *)v10 + 2) = a5;
+    *((_QWORD *)v10 + 2) = v7;
     *((_BYTE *)v10 + 48) = 0;
-    v19 = (struct Microsoft::BamoImpl::BufferStream *)v10;
-    if ( v10 + 3 != (_QWORD *)((char *)this + 32) )
+  }
+  else
+  {
+    v11 = 0LL;
+  }
+  v15[0] = v11;
+  if ( v11 )
+  {
+    v13 = (_QWORD *)((char *)this + 32);
+    if ( (char *)v11 + 24 != (char *)this + 32 )
     {
-      std::vector<Microsoft::BamoImpl::ItemIdParameterIndex>::_Tidy(v10 + 3);
-      *v14 = *v13;
-      v14[1] = *((_QWORD *)this + 5);
-      v14[2] = *((_QWORD *)this + 6);
+      std::vector<Microsoft::BamoImpl::ItemIdParameterIndex>::_Tidy((char *)v11 + 24);
+      *((_QWORD *)v11 + 3) = *v13;
+      *((_QWORD *)v11 + 4) = *((_QWORD *)this + 5);
+      *((_QWORD *)v11 + 5) = *((_QWORD *)this + 6);
       *v13 = 0LL;
       *((_QWORD *)this + 5) = 0LL;
       *((_QWORD *)this + 6) = 0LL;
     }
-    v15 = (_QWORD *)((char *)this + 64);
-    if ( v11 + 7 != (_QWORD *)((char *)this + 64) )
-    {
-      std::vector<wil::com_ptr_t<Microsoft::Bamo::BamoPrincipal,wil::err_returncode_policy>>::_Tidy(v11 + 7);
-      v11[7] = *v15;
-      v11[8] = *((_QWORD *)this + 9);
-      v11[9] = *((_QWORD *)this + 10);
-      *v15 = 0LL;
-      *((_QWORD *)this + 9) = 0LL;
-      *((_QWORD *)this + 10) = 0LL;
-    }
     *((_BYTE *)v11 + 48) = *((_BYTE *)this + 56);
     *((_BYTE *)this + 56) = 0;
-    v16 = (_BYTE *)*((_QWORD *)v9 + 1);
-    if ( v16 == *((_BYTE **)v9 + 2) )
+    v14 = (struct Microsoft::BamoImpl::BufferStream **)v9[1];
+    if ( (struct Microsoft::BamoImpl::BufferStream **)v9[2] == v14 )
     {
-      std::vector<Microsoft::BamoImpl::RemoteCallBuffer *>::_Emplace_reallocate<Microsoft::BamoImpl::RemoteCallBuffer * const &>(
-        (const void **)v9,
-        v16,
-        &v19);
+      std::vector<CVisual const *>::_Emplace_reallocate<CVisual const *>(v9, v14, v15);
     }
     else
     {
-      *(_QWORD *)v16 = v11;
-      *((_QWORD *)v9 + 1) += 8LL;
+      *v14 = v11;
+      v9[1] += 8LL;
     }
     return 0LL;
   }
@@ -104,8 +100,8 @@ __int64 __fastcall Microsoft::BamoImpl::BufferingMessageCallHost::SubmitBuffer(
   {
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0xF0,
-      (int)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoBufferingMessageCallHost.inl",
+      (void *)0xE7,
+      (__int64)"onecore\\private\\mincore\\priv_sdk\\inc\\BamoBufferingMessageCallHost.inl",
       (const char *)0x8007000ELL);
     return 2147942414LL;
   }

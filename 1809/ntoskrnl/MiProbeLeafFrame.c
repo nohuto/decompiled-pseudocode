@@ -2,7 +2,7 @@
  * XREFs of MiProbeLeafFrame @ 0x140094C6C
  * Callers:
  *     MmProbeAndLockSelectedPages @ 0x1400949E0 (MmProbeAndLockSelectedPages.c)
- *     MmStoreProbeAndLockPages @ 0x140153D54 (MmStoreProbeAndLockPages.c)
+ *     MmStoreProbeAndLockPages @ 0x140153D74 (MmStoreProbeAndLockPages.c)
  * Callees:
  *     MiSetProbePagesAhead @ 0x140029710 (MiSetProbePagesAhead.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)

@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlpHeatRegisterVolume @ 0x140816558
+ * XREFs of FsRtlpHeatRegisterVolume @ 0x140816538
  * Callers:
- *     FsRtlHeatInit @ 0x1408162D0 (FsRtlHeatInit.c)
+ *     FsRtlHeatInit @ 0x1408162B0 (FsRtlHeatInit.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     McGenEventRegister @ 0x140181CFC (McGenEventRegister.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     McTemplateK0jq @ 0x1402704D0 (McTemplateK0jq.c)
+ *     McGenEventRegister @ 0x140181D1C (McGenEventRegister.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     McTemplateK0jq @ 0x1402705D0 (McTemplateK0jq.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

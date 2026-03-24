@@ -1,336 +1,300 @@
 /*
- * XREFs of ?AllocateBlock@VIDMM_PROCESS_HEAP@@AEAAJ_KKW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAU_VIDMM_PROCESS_HEAP_BLOCK@@E@Z @ 0x1C0103674
+ * XREFs of ?AllocateBlock@VIDMM_PROCESS_HEAP@@AEAAJ_KKW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAU_VIDMM_PROCESS_HEAP_BLOCK@@E@Z @ 0x1C00CAA60
  * Callers:
- *     ?AllocateSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX2PEAEE@Z @ 0x1C0103CD4 (-AllocateSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX2PEAE.c)
+ *     ?AllocateSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX2PEAEE@Z @ 0x1C00CAFF0 (-AllocateSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX2PEAE.c)
  * Callees:
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0005F60 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0019964 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ??_GVIDMM_LINEAR_POOL@@QEAAPEAXI@Z @ 0x1C002D79C (--_GVIDMM_LINEAR_POOL@@QEAAPEAXI@Z.c)
- *     McTemplateK0pxqqt_EtwWriteTransfer @ 0x1C00321E4 (McTemplateK0pxqqt_EtwWriteTransfer.c)
- *     ??0VIDMM_LINEAR_POOL@@QEAA@XZ @ 0x1C00BA798 (--0VIDMM_LINEAR_POOL@@QEAA@XZ.c)
- *     ?Init@VIDMM_LINEAR_POOL@@QEAAJ_KEP6AXPEAX@ZP6AH1@Z@Z @ 0x1C00BA844 (-Init@VIDMM_LINEAR_POOL@@QEAAJ_KEP6AXPEAX@ZP6AH1@Z@Z.c)
- *     ?GetBlockListHead@VIDMM_PROCESS_HEAP@@AEAAPEAU_LIST_ENTRY@@W4_VIDMM_PROCESS_HEAP_MAPPING@@@Z @ 0x1C010489C (-GetBlockListHead@VIDMM_PROCESS_HEAP@@AEAAPEAU_LIST_ENTRY@@W4_VIDMM_PROCESS_HEAP_MAPPING@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0001FC0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     McTemplateK0pxqqt_EtwWriteTransfer @ 0x1C0027F6C (McTemplateK0pxqqt_EtwWriteTransfer.c)
+ *     ??_GVIDMM_LINEAR_POOL@@QEAAPEAXI@Z @ 0x1C0028504 (--_GVIDMM_LINEAR_POOL@@QEAAPEAXI@Z.c)
+ *     ?Init@VIDMM_LINEAR_POOL@@QEAAJ_KEP6AXPEAX@ZP6AH1@Z@Z @ 0x1C00908EC (-Init@VIDMM_LINEAR_POOL@@QEAAJ_KEP6AXPEAX@ZP6AH1@Z@Z.c)
+ *     ??0VIDMM_LINEAR_POOL@@QEAA@XZ @ 0x1C00909B4 (--0VIDMM_LINEAR_POOL@@QEAA@XZ.c)
+ *     ?GetBlockListHead@VIDMM_PROCESS_HEAP@@AEAAPEAU_LIST_ENTRY@@W4_VIDMM_PROCESS_HEAP_MAPPING@@@Z @ 0x1C00CBB8C (-GetBlockListHead@VIDMM_PROCESS_HEAP@@AEAAPEAU_LIST_ENTRY@@W4_VIDMM_PROCESS_HEAP_MAPPING@@@Z.c)
  */
 
 __int64 __fastcall VIDMM_PROCESS_HEAP::AllocateBlock(
         __int64 a1,
-        SIZE_T a2,
+        ULONG_PTR a2,
         unsigned int a3,
-        unsigned int a4,
-        __int64 *a5,
+        ULONG a4,
+        _QWORD *a5,
         char a6)
 {
   unsigned __int64 v7; // r8
-  int v8; // r13d
-  unsigned int v9; // r15d
-  VIDMM_LINEAR_POOL *v10; // rsi
-  HANDLE v11; // r12
-  SIZE_T v12; // r8
+  ULONG v8; // r12d
+  ULONG AllocationType; // esi
+  VIDMM_LINEAR_POOL *v10; // r15
+  HANDLE v11; // r13
+  ULONG_PTR v12; // r8
   int v13; // eax
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *v15; // rax
-  int v16; // eax
-  __int64 v17; // rdi
+  NTSTATUS v14; // eax
+  __int64 v15; // rcx
+  __int64 v16; // rbx
+  __int64 v17; // rdx
   __int64 v18; // rcx
-  int v19; // eax
-  __int64 v20; // rcx
+  __int64 v19; // rax
+  int v20; // eax
+  __int64 v21; // rcx
+  __int64 v22; // rax
   NTSTATUS inserted; // eax
-  __int64 v22; // rcx
-  __int64 v23; // rdx
-  NTSTATUS v24; // eax
-  VIDMM_LINEAR_POOL *v25; // rax
-  VIDMM_LINEAR_POOL *v26; // rax
-  int v27; // eax
-  __int64 v28; // rax
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  __int64 v31; // rbx
-  __int64 v32; // rbx
-  __int64 v33; // rcx
-  int v34; // eax
-  int v35; // r15d
-  _QWORD *v36; // rcx
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // rax
+  NTSTATUS v28; // eax
+  VIDMM_LINEAR_POOL *v29; // rax
+  __int64 v30; // rcx
+  __int64 v31; // rax
+  int v32; // eax
+  _DWORD *v33; // rax
+  __int64 v34; // rcx
+  __int64 v35; // r8
+  _DWORD *v36; // r14
   __int64 v37; // rax
-  PVOID v38; // r9
-  __int64 BlockListHead; // rax
-  _QWORD *v40; // r8
+  int v38; // eax
+  int v39; // esi
+  _QWORD *v40; // rax
   __int64 v41; // rcx
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *v42; // rax
-  __int64 NewObject; // [rsp+20h] [rbp-50h]
-  PHANDLE Handle; // [rsp+28h] [rbp-48h]
-  __int64 v46; // [rsp+30h] [rbp-40h]
-  __int64 v47; // [rsp+38h] [rbp-38h]
-  PVOID Object; // [rsp+50h] [rbp-20h] BYREF
-  SIZE_T Size; // [rsp+58h] [rbp-18h] BYREF
-  HANDLE v50; // [rsp+60h] [rbp-10h] BYREF
-  SIZE_T v51; // [rsp+68h] [rbp-8h] BYREF
-  PVOID Address; // [rsp+B8h] [rbp+48h] BYREF
+  PVOID v42; // r9
+  __int64 BlockListHead; // rax
+  _QWORD *v44; // r8
+  __int64 v45; // rdx
+  ULONG Protect[2]; // [rsp+28h] [rbp-38h]
+  __int64 v48; // [rsp+30h] [rbp-30h]
+  __int64 v49; // [rsp+38h] [rbp-28h]
+  PVOID Object; // [rsp+40h] [rbp-20h] BYREF
+  ULONG_PTR RegionSize; // [rsp+48h] [rbp-18h] BYREF
+  void *Handle; // [rsp+50h] [rbp-10h] BYREF
+  ULONG_PTR v53; // [rsp+58h] [rbp-8h] BYREF
+  PVOID BaseAddress; // [rsp+A8h] [rbp+48h] BYREF
 
   v7 = a2 + a3;
-  Address = 0LL;
+  BaseAddress = 0LL;
   v8 = 0;
   Object = 0LL;
   *a5 = 0LL;
-  v9 = 0;
+  AllocationType = 0;
   v10 = 0LL;
-  v50 = 0LL;
+  Handle = 0LL;
   v11 = 0LL;
-  if ( v7 <= (unsigned int)dword_1C00763EC )
-    v7 = (unsigned int)dword_1C00763EC;
+  if ( v7 <= (unsigned int)dword_1C005033C )
+    v7 = (unsigned int)dword_1C005033C;
   v12 = (v7 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-  Size = v12;
+  RegionSize = v12;
   if ( v12 < a2 )
-    goto LABEL_58;
-  if ( a4 != 3 )
-  {
-    if ( a4 == 4 )
-    {
-LABEL_22:
-      v19 = 134479872;
-      goto LABEL_24;
-    }
-    if ( a4 != 5 )
-    {
-      if ( a4 != 6 )
-      {
-        v8 = 4;
-        v9 = 8400896;
-        if ( a4 != 2 )
-          v8 = 1028;
-        v13 = 12288;
-        if ( a4 != 2 )
-          v13 = 8400896;
-        if ( !a6 )
-          v9 = v13;
-        if ( dword_1C0076278 )
-          v9 &= ~0x1000u;
-        VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-        if ( (*(int (__fastcall **)(__int64, PVOID *, _QWORD, SIZE_T *, unsigned int, int))VirtualMemoryInterface)(
-               -1LL,
-               &Address,
-               0LL,
-               &Size,
-               v9,
-               v8) < 0 )
-        {
-          v9 &= ~0x800000u;
-          v15 = DxgkGetVirtualMemoryInterface();
-          v16 = (*(__int64 (__fastcall **)(__int64, PVOID *, _QWORD, SIZE_T *, unsigned int, int))v15)(
-                  -1LL,
-                  &Address,
-                  0LL,
-                  &Size,
-                  v9,
-                  v8);
-          v17 = v16;
-          if ( v16 < 0 )
-          {
-            Address = 0LL;
-            _InterlockedIncrement(&dword_1C00767D8);
-            WdLogSingleEntry1(6LL, v16);
-            v47 = 0LL;
-            v46 = 0LL;
-            Handle = 0LL;
-            NewObject = v17;
-            DxgkLogInternalTriageEvent(v18, 262145LL);
-LABEL_63:
-            if ( v11 )
-              MmUnsecureVirtualMemory(v11);
-            if ( Address )
-            {
-              v42 = DxgkGetVirtualMemoryInterface();
-              (*((void (__fastcall **)(__int64, PVOID *, SIZE_T *, __int64, __int64, PHANDLE, __int64, __int64))v42 + 2))(
-                -1LL,
-                &Address,
-                &Size,
-                0x8000LL,
-                NewObject,
-                Handle,
-                v46,
-                v47);
-              Address = 0LL;
-            }
-LABEL_73:
-            if ( v10 )
-              VIDMM_LINEAR_POOL::`scalar deleting destructor'(v10);
-            return (unsigned int)v17;
-          }
-        }
-        if ( (v9 & 0x1000) != 0 )
-        {
-          v11 = MmSecureVirtualMemory(Address, Size, 4u);
-          if ( !v11 )
-          {
-            WdLogSingleEntry0(3LL);
-            LODWORD(v17) = -1073741801;
-            goto LABEL_63;
-          }
-        }
-        goto LABEL_33;
-      }
-      goto LABEL_22;
-    }
-  }
-  v19 = 1208221696;
-LABEL_24:
-  v51 = v12;
-  LODWORD(v17) = MmCreateSection(&Object, 0LL, 0LL, &v51, 4, v19, -1LL, 0LL);
-  if ( (int)v17 < 0 )
-  {
-    Object = 0LL;
-    _InterlockedIncrement(&dword_1C0076888);
-    WdLogSingleEntry1(6LL, 1953LL);
-    v47 = 0LL;
-    v46 = 0LL;
-    Handle = 0LL;
-    NewObject = 1953LL;
-    DxgkLogInternalTriageEvent(v20, 262145LL);
-LABEL_59:
-    if ( a4 != 3 && a4 != 4 )
-    {
-      if ( a4 != 5 && a4 != 6 )
-        goto LABEL_63;
-      if ( Address )
-        MmUnmapViewInSystemSpace(Address);
-    }
-    if ( Object )
-    {
-      if ( v50 )
-        ObCloseHandle(v50, ((unsigned __int64)v50 & 0xFFFFFFFF80000000uLL) == 0);
-      ObfDereferenceObject(Object);
-    }
-    goto LABEL_73;
-  }
-  ObfReferenceObject(Object);
-  inserted = ObInsertObject(Object, 0LL, 0, 0, 0LL, &v50);
-  v17 = inserted;
-  if ( inserted < 0 )
-  {
-    WdLogSingleEntry2(1LL, Object, inserted);
-    v47 = 0LL;
-    v23 = 0x40000LL;
-    v46 = 0LL;
-    Handle = (PHANDLE)v17;
-    NewObject = (__int64)Object;
-LABEL_28:
-    DxgkLogInternalTriageEvent(v22, v23);
-    goto LABEL_59;
-  }
+    goto LABEL_40;
+  if ( a4 == 3 )
+    goto LABEL_21;
+  if ( a4 == 4 )
+    goto LABEL_22;
   if ( a4 - 5 <= 1 )
   {
-    v24 = MmMapViewInSystemSpace(Object, &Address, &Size);
-    v17 = v24;
-    if ( v24 < 0 )
+LABEL_21:
+    v20 = 1208221696;
+    if ( ((a4 - 4) & 0xFFFFFFFD) != 0 )
     {
-      _InterlockedIncrement(&dword_1C0076884);
-      WdLogSingleEntry1(6LL, v24);
-LABEL_32:
-      v23 = 262145LL;
-      v47 = 0LL;
-      v46 = 0LL;
-      Handle = 0LL;
-      NewObject = v17;
-      goto LABEL_28;
+LABEL_23:
+      v53 = v12;
+      LODWORD(v16) = MmCreateSection(&Object, 0LL, 0LL, &v53, 4, v20, -1LL, 0LL);
+      if ( (int)v16 < 0 )
+      {
+        Object = 0LL;
+        _InterlockedIncrement(&dword_1C0050778);
+        v22 = WdLogNewEntry5_WdLowResource(v21);
+        *(_QWORD *)(v22 + 24) = 1976LL;
+LABEL_25:
+        WdLogEvent5_WdLowResource(v22);
+        goto LABEL_41;
+      }
+      ObfReferenceObject(Object);
+      inserted = ObInsertObject(Object, 0LL, 0, 0, 0LL, &Handle);
+      v16 = inserted;
+      if ( inserted < 0 )
+      {
+        v27 = WdLogNewEntry5_WdAssertion(v25, v24, v26);
+        *(_QWORD *)(v27 + 24) = Object;
+        *(_QWORD *)(v27 + 32) = v16;
+        WdLogEvent5_WdAssertion(v27);
+        goto LABEL_41;
+      }
+      if ( a4 - 5 <= 1 )
+      {
+        v28 = MmMapViewInSystemSpace(Object, &BaseAddress, &RegionSize);
+        v16 = v28;
+        if ( v28 < 0 )
+        {
+          _InterlockedIncrement(&dword_1C0050774);
+          goto LABEL_37;
+        }
+      }
+      goto LABEL_31;
+    }
+LABEL_22:
+    v20 = 134479872;
+    goto LABEL_23;
+  }
+  v8 = 4;
+  if ( a4 != 2 )
+    v8 = 1028;
+  v13 = 12288;
+  if ( a4 != 2 )
+    v13 = 8400896;
+  AllocationType = v13 | 0x800000;
+  if ( !a6 )
+    AllocationType = v13;
+  if ( dword_1C00501C8 )
+    AllocationType &= ~0x1000u;
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, AllocationType, v8) < 0 )
+  {
+    AllocationType &= ~0x800000u;
+    v14 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, AllocationType, v8);
+    v16 = v14;
+    if ( v14 < 0 )
+    {
+      BaseAddress = 0LL;
+      _InterlockedIncrement(&dword_1C00506C8);
+LABEL_37:
+      v22 = WdLogNewEntry5_WdLowResource(v15);
+      *(_QWORD *)(v22 + 24) = v16;
+      goto LABEL_25;
     }
   }
-LABEL_33:
-  v25 = (VIDMM_LINEAR_POOL *)operator new(320LL, 0x37316956u, 64LL);
-  if ( !v25 || (v26 = VIDMM_LINEAR_POOL::VIDMM_LINEAR_POOL(v25), (v10 = v26) == 0LL) )
+  if ( (AllocationType & 0x1000) != 0 )
   {
-    _InterlockedIncrement(&dword_1C00767DC);
-    v32 = 2069LL;
-    WdLogSingleEntry1(6LL, 2069LL);
-    goto LABEL_57;
+    v11 = MmSecureVirtualMemory(BaseAddress, RegionSize, 4u);
+    if ( !v11 )
+    {
+      v19 = WdLogNewEntry5_WdWarning(v18, v17);
+      WdLogEvent5_WdWarning(v19);
+LABEL_40:
+      LODWORD(v16) = -1073741801;
+LABEL_41:
+      if ( a4 - 3 > 1 )
+      {
+        if ( a4 == 5 )
+          goto LABEL_49;
+        if ( a4 != 6 )
+        {
+          if ( v11 )
+            MmUnsecureVirtualMemory(v11);
+          if ( BaseAddress )
+          {
+            ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+            BaseAddress = 0LL;
+          }
+LABEL_55:
+          if ( v10 )
+            VIDMM_LINEAR_POOL::`scalar deleting destructor'(v10);
+          return (unsigned int)v16;
+        }
+      }
+      if ( a4 - 5 > 1 )
+      {
+LABEL_51:
+        if ( Object )
+        {
+          if ( Handle )
+            ObCloseHandle(Handle, ((unsigned __int64)Handle & 0xFFFFFFFF80000000uLL) == 0);
+          ObfDereferenceObject(Object);
+        }
+        goto LABEL_55;
+      }
+LABEL_49:
+      if ( BaseAddress )
+        MmUnmapViewInSystemSpace(BaseAddress);
+      goto LABEL_51;
+    }
   }
-  v27 = VIDMM_LINEAR_POOL::Init(v26, Size, 0, 0LL, 0LL);
-  v17 = v27;
-  if ( v27 < 0 )
+LABEL_31:
+  v29 = (VIDMM_LINEAR_POOL *)operator new[](0x140uLL, 0x37316956u, (POOL_TYPE)512);
+  if ( v29 )
+    v10 = VIDMM_LINEAR_POOL::VIDMM_LINEAR_POOL(v29);
+  if ( !v10 )
   {
-    _InterlockedIncrement(&dword_1C00767E0);
-    WdLogSingleEntry1(6LL, v27);
-    goto LABEL_32;
+    _InterlockedIncrement(&dword_1C00506CC);
+    v31 = WdLogNewEntry5_WdLowResource(v30);
+    *(_QWORD *)(v31 + 24) = 2094LL;
+    WdLogEvent5_WdLowResource(v31);
+    goto LABEL_40;
   }
-  v28 = operator new(104LL, 0x31316956u, 256LL);
-  v31 = v28;
-  if ( !v28 )
+  v32 = VIDMM_LINEAR_POOL::Init(v10, RegionSize, 0, 0LL, 0LL);
+  v16 = v32;
+  if ( v32 < 0 )
   {
-    _InterlockedIncrement(&dword_1C00767E4);
-    v32 = 2091LL;
-    WdLogSingleEntry1(6LL, 2091LL);
-LABEL_57:
-    v47 = 0LL;
-    v46 = 0LL;
-    Handle = 0LL;
-    NewObject = v32;
-    DxgkLogInternalTriageEvent(v33, 262145LL);
-LABEL_58:
-    LODWORD(v17) = -1073741801;
-    goto LABEL_59;
+    _InterlockedIncrement(&dword_1C00506D0);
+    goto LABEL_37;
   }
-  *(_QWORD *)v28 = a1;
-  *(_DWORD *)(v28 + 24) = 0;
-  *(_QWORD *)(v28 + 32) = Address;
-  *(_QWORD *)(v28 + 40) = Size;
-  v34 = 2;
-  v35 = (v9 >> 23) & 1;
-  *(_DWORD *)(v31 + 48) = v8;
-  *(_QWORD *)(v31 + 72) = v10;
-  *(_QWORD *)(v31 + 56) = v11;
+  v33 = operator new[](0x68uLL, 0x31316956u, PagedPool);
+  v36 = v33;
+  if ( !v33 )
+  {
+    _InterlockedIncrement(&dword_1C00506D4);
+    v37 = WdLogNewEntry5_WdLowResource(v34);
+    *(_QWORD *)(v37 + 24) = 2116LL;
+    WdLogEvent5_WdLowResource(v37);
+    goto LABEL_40;
+  }
+  *(_QWORD *)v33 = a1;
+  v33[6] = 0;
+  *((_QWORD *)v33 + 4) = BaseAddress;
+  *((_QWORD *)v33 + 5) = RegionSize;
+  v38 = 2;
+  v39 = (AllocationType >> 23) & 1;
+  v36[12] = v8;
+  *((_QWORD *)v36 + 9) = v10;
+  *((_QWORD *)v36 + 7) = v11;
   if ( a4 != 2 )
-    v34 = 0;
-  *(_DWORD *)(v31 + 80) = a4;
-  *(_DWORD *)(v31 + 64) = v34 | v35;
-  *(_QWORD *)(v31 + 88) = Object;
-  *(_QWORD *)(v31 + 96) = v50;
+    v38 = 0;
+  v36[20] = a4;
+  v36[16] = v38 | v39;
+  *((_QWORD *)v36 + 11) = Object;
+  *((_QWORD *)v36 + 12) = Handle;
   if ( g_IsInternalReleaseOrDbg )
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v29) + 24) = v31;
-  *(_QWORD *)(*(_QWORD *)(a1 + 8) + 144LL) += *(_QWORD *)(v31 + 40);
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(v34) + 24) = v36;
+  *(_QWORD *)(*(_QWORD *)(a1 + 8) + 144LL) += *((_QWORD *)v36 + 5);
   ++*(_DWORD *)(*(_QWORD *)(a1 + 8) + 152LL);
-  v36 = *(_QWORD **)(a1 + 8);
-  v37 = *(_QWORD *)(v31 + 40);
+  v40 = *(_QWORD **)(a1 + 8);
+  v41 = *((_QWORD *)v36 + 5);
   if ( a4 == 1 )
   {
-    v36[21] += v37;
+    v40[21] += v41;
   }
   else if ( a4 == 2 )
   {
-    v36[23] += v37;
+    v40[23] += v41;
   }
   else
   {
-    v36[25] += v37;
+    v40[25] += v41;
   }
   if ( bTracingEnabled )
   {
-    v38 = Address;
+    v42 = BaseAddress;
     if ( a4 - 3 <= 3 )
-      v38 = Object;
-    if ( (byte_1C0076982 & 2) != 0 )
+      v42 = Object;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
     {
-      LODWORD(v47) = 1;
-      LODWORD(v46) = *(_DWORD *)(*(_QWORD *)(a1 + 8) + 8LL);
-      LODWORD(Handle) = a4;
+      LODWORD(v49) = 1;
+      LODWORD(v48) = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL);
+      Protect[0] = a4;
       McTemplateK0pxqqt_EtwWriteTransfer(
-        (unsigned int)v46,
+        *(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL),
         &EventCreateProcessAllocation,
-        v30,
-        v38,
-        Size,
-        Handle,
-        v46,
-        v47);
+        v35,
+        v42,
+        RegionSize,
+        *(_QWORD *)Protect,
+        v48,
+        v49);
     }
   }
-  BlockListHead = VIDMM_PROCESS_HEAP::GetBlockListHead(a1, a4, v31 + 8);
-  v41 = *(_QWORD *)BlockListHead;
+  BlockListHead = VIDMM_PROCESS_HEAP::GetBlockListHead(a1, a4, v36 + 2);
+  v45 = *(_QWORD *)BlockListHead;
   if ( *(_QWORD *)(*(_QWORD *)BlockListHead + 8LL) != BlockListHead )
     __fastfail(3u);
-  v40[1] = BlockListHead;
-  *v40 = v41;
-  *(_QWORD *)(v41 + 8) = v40;
-  *(_QWORD *)BlockListHead = v40;
-  *a5 = v31;
-  return (unsigned int)v17;
+  v44[1] = BlockListHead;
+  *v44 = v45;
+  *(_QWORD *)(v45 + 8) = v44;
+  *(_QWORD *)BlockListHead = v44;
+  *a5 = v36;
+  return (unsigned int)v16;
 }

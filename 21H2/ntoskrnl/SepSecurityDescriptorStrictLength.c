@@ -1,11 +1,11 @@
 /*
- * XREFs of SepSecurityDescriptorStrictLength @ 0x1409CE6B8
+ * XREFs of SepSecurityDescriptorStrictLength @ 0x140924DDC
  * Callers:
- *     RtlLengthSecurityDescriptorStrict @ 0x140419F54 (RtlLengthSecurityDescriptorStrict.c)
- *     SepCheckAndCopySelfRelativeSD @ 0x1405F4CC8 (SepCheckAndCopySelfRelativeSD.c)
- *     SeOperationAuditAlarm @ 0x1409C820C (SeOperationAuditAlarm.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409C8EE8 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409C99C0 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     RtlLengthSecurityDescriptorStrict @ 0x1403F8660 (RtlLengthSecurityDescriptorStrict.c)
+ *     SepCheckAndCopySelfRelativeSD @ 0x140596D28 (SepCheckAndCopySelfRelativeSD.c)
+ *     SeOperationAuditAlarm @ 0x14091E7BC (SeOperationAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091F498 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14091FF5C (SepAdtSecurityDescriptorChangedAuditAlarm.c)
  * Callees:
  *     <none>
  */
@@ -45,7 +45,7 @@ __int64 __fastcall SepSecurityDescriptorStrictLength(__int64 a1)
   {
     v5 = *(unsigned int *)(a1 + 4);
     if ( !(_DWORD)v5 )
-      goto LABEL_10;
+      goto LABEL_9;
     v6 = a1 + v5;
   }
   if ( v6 )
@@ -53,17 +53,18 @@ __int64 __fastcall SepSecurityDescriptorStrictLength(__int64 a1)
     v3 += (4 * *(unsigned __int8 *)(v6 + 1) + 11) & 0xFFFFFFFC;
     v4 = v6 + ((4 * *(unsigned __int8 *)(v6 + 1) + 11) & 0xFFFFFFFC);
   }
+LABEL_9:
   if ( v1 >= 0 )
   {
     v8 = *(_QWORD *)(a1 + 16);
-    goto LABEL_13;
   }
-LABEL_10:
-  v7 = *(unsigned int *)(a1 + 8);
-  if ( !(_DWORD)v7 )
-    goto LABEL_16;
-  v8 = a1 + v7;
-LABEL_13:
+  else
+  {
+    v7 = *(unsigned int *)(a1 + 8);
+    if ( !(_DWORD)v7 )
+      goto LABEL_16;
+    v8 = a1 + v7;
+  }
   if ( v8 )
   {
     v9 = (4 * *(unsigned __int8 *)(v8 + 1) + 11) & 0xFFFFFFFC;

@@ -1,15 +1,15 @@
 /*
- * XREFs of ?OnSceneFrameTick@CSceneMesh@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x18024ECF0
+ * XREFs of ?OnSceneFrameTick@CSceneMesh@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x1801E8B20
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180100300 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     _lambda_05398b4549421d065ab404e0dbeea144_::operator() @ 0x18024EBB0 (_lambda_05398b4549421d065ab404e0dbeea144_--operator().c)
- *     _lambda_a6cadc748e29644dcd3cf84dc08806d7_::operator() @ 0x18024EBF0 (_lambda_a6cadc748e29644dcd3cf84dc08806d7_--operator().c)
- *     ?GetSharedSectionData@CSharedSectionWrapper@@QEBA?AV?$span@E$0?0@gsl@@XZ @ 0x180251AAC (-GetSharedSectionData@CSharedSectionWrapper@@QEBA-AV-$span@E$0-0@gsl@@XZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5D20 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     _lambda_05398b4549421d065ab404e0dbeea144_::operator() @ 0x1801E8A08 (_lambda_05398b4549421d065ab404e0dbeea144_--operator().c)
+ *     _lambda_a6cadc748e29644dcd3cf84dc08806d7_::operator() @ 0x1801E8A44 (_lambda_a6cadc748e29644dcd3cf84dc08806d7_--operator().c)
+ *     ?GetSharedSectionData@CSharedSectionWrapper@@QEBA?AV?$span@E$0?0@gsl@@XZ @ 0x1801EC80C (-GetSharedSectionData@CSharedSectionWrapper@@QEBA-AV-$span@E$0-0@gsl@@XZ.c)
  */
 
 __int64 __fastcall CSceneMesh::OnSceneFrameTick(CSceneMesh *this, struct ISpectreRenderer *a2)
@@ -31,215 +31,184 @@ __int64 __fastcall CSceneMesh::OnSceneFrameTick(CSceneMesh *this, struct ISpectr
   unsigned int v17; // eax
   __int64 v18; // rdx
   unsigned int v19; // eax
-  int v20; // ecx
-  int v21; // ecx
-  int v22; // ecx
-  __int64 (__fastcall *v23)(struct ISpectreRenderer *, __int64 *); // rbx
-  int v24; // eax
-  unsigned int v26; // [rsp+28h] [rbp-49h]
-  _QWORD v27[2]; // [rsp+38h] [rbp-39h] BYREF
-  char v28; // [rsp+48h] [rbp-29h]
-  _BYTE v29[24]; // [rsp+50h] [rbp-21h] BYREF
-  unsigned int v30; // [rsp+68h] [rbp-9h] BYREF
-  __int64 v31; // [rsp+70h] [rbp-1h]
-  __int128 v32; // [rsp+78h] [rbp+7h]
-  __int128 v33; // [rsp+88h] [rbp+17h]
-  __int64 v34; // [rsp+98h] [rbp+27h]
-  int v35; // [rsp+A0h] [rbp+2Fh]
-  __int128 v36; // [rsp+A8h] [rbp+37h]
-  int v37; // [rsp+B8h] [rbp+47h]
-  __int64 v38; // [rsp+D8h] [rbp+67h] BYREF
+  __int64 (__fastcall *v20)(struct ISpectreRenderer *, __int64 *); // rbx
+  int v21; // eax
+  unsigned int v23; // [rsp+28h] [rbp-39h]
+  _BYTE v24[16]; // [rsp+38h] [rbp-29h] BYREF
+  _QWORD v25[2]; // [rsp+48h] [rbp-19h] BYREF
+  char v26; // [rsp+58h] [rbp-9h]
+  unsigned int v27; // [rsp+68h] [rbp+7h] BYREF
+  __int64 v28; // [rsp+70h] [rbp+Fh]
+  __int128 v29; // [rsp+78h] [rbp+17h]
+  __int128 v30; // [rsp+88h] [rbp+27h]
+  CSceneMesh *v31; // [rsp+98h] [rbp+37h]
+  int v32; // [rsp+A0h] [rbp+3Fh]
+  __int128 v33; // [rsp+A8h] [rbp+47h]
+  __int64 v34; // [rsp+C8h] [rbp+67h] BYREF
 
   v3 = this;
   if ( !*((_BYTE *)this + 16) )
     return 0;
   v4 = *((_QWORD *)this - 6);
-  v27[0] = (char *)this - 152;
-  v27[1] = &v38;
-  v38 = 0LL;
-  v28 = 1;
+  v25[0] = (char *)this - 144;
+  v25[1] = &v34;
+  v34 = 0LL;
+  v26 = 1;
   if ( !v4 )
   {
-LABEL_59:
-    lambda_a6cadc748e29644dcd3cf84dc08806d7_::operator()(v27);
-    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v38);
+LABEL_51:
+    lambda_a6cadc748e29644dcd3cf84dc08806d7_::operator()(v25);
+    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v34);
     return 0;
   }
   if ( *((_DWORD *)this - 20) == 6 )
   {
-    v34 = 0LL;
-    v32 = 0LL;
+    v31 = 0LL;
+    v29 = 0LL;
+    v30 = 0LL;
     v33 = 0LL;
-    v36 = 0LL;
-    v35 = 0;
-    v37 = 4;
+    v32 = 0;
     v7 = lambda_05398b4549421d065ab404e0dbeea144_::operator()((__int64)this, v4, 6);
     v8 = *((_QWORD *)v3 - 6);
-    v30 = v7;
-    v31 = *(_QWORD *)(CSharedSectionWrapper::GetSharedSectionData(v8, v29) + 8);
+    v27 = v7;
+    v28 = *(_QWORD *)(CSharedSectionWrapper::GetSharedSectionData(v8, v24) + 8);
     this = (CSceneMesh *)*((_QWORD *)v3 - 7);
     if ( this )
     {
       if ( *((_DWORD *)v3 - 21) == 57 )
       {
-        v9 = *(_QWORD *)(CSharedSectionWrapper::GetSharedSectionData(this, v29) + 8);
-        *(_QWORD *)&v36 = v9;
+        v9 = *(_QWORD *)(CSharedSectionWrapper::GetSharedSectionData(this, v24) + 8);
+        *(_QWORD *)&v33 = v9;
       }
       else
       {
         if ( *((_DWORD *)v3 - 21) != 42 )
         {
-          v26 = 109;
+          v23 = 109;
           goto LABEL_5;
         }
-        v9 = *(_QWORD *)(CSharedSectionWrapper::GetSharedSectionData(this, v29) + 8);
-        *((_QWORD *)&v36 + 1) = v9;
+        v9 = *(_QWORD *)(CSharedSectionWrapper::GetSharedSectionData(this, v24) + 8);
+        *((_QWORD *)&v33 + 1) = v9;
       }
-      v35 = lambda_05398b4549421d065ab404e0dbeea144_::operator()(v9, *((_QWORD *)v3 - 7), *((_DWORD *)v3 - 21));
+      v32 = lambda_05398b4549421d065ab404e0dbeea144_::operator()(v9, *((_QWORD *)v3 - 7), *((_DWORD *)v3 - 21));
     }
     v10 = *((_QWORD *)v3 - 5);
     if ( v10 )
     {
       if ( *((_DWORD *)v3 - 19) != 6 )
       {
-        v26 = 118;
+        v23 = 118;
         goto LABEL_5;
       }
       v11 = lambda_05398b4549421d065ab404e0dbeea144_::operator()((__int64)this, v10, 6);
-      if ( v30 > v11 )
+      if ( v27 > v11 )
       {
-        v26 = 121;
+        v23 = 121;
         goto LABEL_5;
       }
-      this = *(CSceneMesh **)(CSharedSectionWrapper::GetSharedSectionData(*((_QWORD *)v3 - 5), v29) + 8);
-      *(_QWORD *)&v32 = this;
+      this = *(CSceneMesh **)(CSharedSectionWrapper::GetSharedSectionData(*((_QWORD *)v3 - 5), v24) + 8);
+      *(_QWORD *)&v29 = this;
     }
     v12 = *((_QWORD *)v3 - 1);
     if ( v12 )
     {
       if ( *((_DWORD *)v3 - 15) != 2 )
       {
-        v26 = 129;
+        v23 = 129;
         goto LABEL_5;
       }
       v13 = lambda_05398b4549421d065ab404e0dbeea144_::operator()((__int64)this, v12, 2);
-      if ( v30 > v13 )
+      if ( v27 > v13 )
       {
-        v26 = 132;
+        v23 = 132;
         goto LABEL_5;
       }
-      this = *(CSceneMesh **)(CSharedSectionWrapper::GetSharedSectionData(*((_QWORD *)v3 - 1), v29) + 8);
-      *((_QWORD *)&v32 + 1) = this;
+      this = *(CSceneMesh **)(CSharedSectionWrapper::GetSharedSectionData(*((_QWORD *)v3 - 1), v24) + 8);
+      *((_QWORD *)&v29 + 1) = this;
     }
     v14 = *((_QWORD *)v3 - 2);
     if ( v14 )
     {
       if ( *((_DWORD *)v3 - 16) != 42 )
       {
-        v26 = 140;
+        v23 = 140;
         goto LABEL_5;
       }
       v15 = lambda_05398b4549421d065ab404e0dbeea144_::operator()((__int64)this, v14, 42);
-      if ( v30 > v15 )
+      if ( v27 > v15 )
       {
-        v26 = 143;
+        v23 = 143;
         goto LABEL_5;
       }
-      this = *(CSceneMesh **)(CSharedSectionWrapper::GetSharedSectionData(*((_QWORD *)v3 - 2), v29) + 8);
-      *(_QWORD *)&v33 = this;
+      this = *(CSceneMesh **)(CSharedSectionWrapper::GetSharedSectionData(*((_QWORD *)v3 - 2), v24) + 8);
+      *(_QWORD *)&v30 = this;
     }
     v16 = *((_QWORD *)v3 - 4);
     if ( v16 )
     {
       if ( *((_DWORD *)v3 - 18) != 16 )
       {
-        v26 = 151;
+        v23 = 151;
         goto LABEL_5;
       }
       v17 = lambda_05398b4549421d065ab404e0dbeea144_::operator()((__int64)this, v16, 16);
-      if ( v30 > v17 )
+      if ( v27 > v17 )
       {
-        v26 = 154;
+        v23 = 154;
         goto LABEL_5;
       }
-      this = *(CSceneMesh **)(CSharedSectionWrapper::GetSharedSectionData(*((_QWORD *)v3 - 4), v29) + 8);
-      *((_QWORD *)&v33 + 1) = this;
+      this = *(CSceneMesh **)(CSharedSectionWrapper::GetSharedSectionData(*((_QWORD *)v3 - 4), v24) + 8);
+      *((_QWORD *)&v30 + 1) = this;
     }
     v18 = *((_QWORD *)v3 - 3);
     if ( v18 )
     {
       if ( *((_DWORD *)v3 - 17) != 16 )
       {
-        v26 = 162;
+        v23 = 162;
         goto LABEL_5;
       }
       v19 = lambda_05398b4549421d065ab404e0dbeea144_::operator()((__int64)this, v18, 16);
-      if ( v30 > v19 )
+      if ( v27 > v19 )
       {
-        v26 = 165;
+        v23 = 165;
         goto LABEL_5;
       }
-      v34 = *(_QWORD *)(CSharedSectionWrapper::GetSharedSectionData(*((_QWORD *)v3 - 3), v29) + 8);
+      this = *(CSceneMesh **)(CSharedSectionWrapper::GetSharedSectionData(*((_QWORD *)v3 - 3), v24) + 8);
+      v31 = this;
     }
-    this = (CSceneMesh *)*((unsigned int *)v3 - 22);
-    if ( !(_DWORD)this )
+    if ( *((_DWORD *)v3 - 22) != 4 )
     {
-      v26 = 175;
+      v23 = 172;
       goto LABEL_5;
     }
-    v20 = (_DWORD)this - 1;
-    if ( v20 )
+    v20 = *(__int64 (__fastcall **)(struct ISpectreRenderer *, __int64 *))(*(_QWORD *)a2 + 72LL);
+    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(&v34);
+    v21 = v20(a2, &v34);
+    v6 = v21;
+    if ( v21 < 0 )
     {
-      v21 = v20 - 1;
-      if ( v21 )
-      {
-        v22 = v21 - 1;
-        if ( v22 )
-        {
-          if ( v22 == 2 )
-            v37 = 5;
-        }
-        else
-        {
-          v37 = 3;
-        }
-      }
-      else
-      {
-        v37 = 2;
-      }
+      v23 = 175;
+      goto LABEL_50;
     }
-    else
+    v21 = (*(__int64 (__fastcall **)(__int64, unsigned int *))(*(_QWORD *)v34 + 24LL))(v34, &v27);
+    v6 = v21;
+    if ( v21 < 0 )
     {
-      v37 = 1;
-    }
-    v23 = *(__int64 (__fastcall **)(struct ISpectreRenderer *, __int64 *))(*(_QWORD *)a2 + 72LL);
-    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(&v38);
-    v24 = v23(a2, &v38);
-    v6 = v24;
-    if ( v24 < 0 )
-    {
-      v26 = 202;
-      goto LABEL_58;
-    }
-    v24 = (*(__int64 (__fastcall **)(__int64, unsigned int *))(*(_QWORD *)v38 + 24LL))(v38, &v30);
-    v6 = v24;
-    if ( v24 < 0 )
-    {
-      v26 = 203;
-LABEL_58:
-      v5 = v24;
+      v23 = 176;
+LABEL_50:
+      v5 = v21;
       goto LABEL_6;
     }
-    goto LABEL_59;
+    goto LABEL_51;
   }
-  v26 = 86;
+  v23 = 86;
 LABEL_5:
   v5 = -2147024809;
   v6 = -2147024809;
 LABEL_6:
-  MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v5, v26, 0LL);
-  lambda_a6cadc748e29644dcd3cf84dc08806d7_::operator()(v27);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v38);
+  MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v5, v23, 0LL);
+  lambda_a6cadc748e29644dcd3cf84dc08806d7_::operator()(v25);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v34);
   return v6;
 }

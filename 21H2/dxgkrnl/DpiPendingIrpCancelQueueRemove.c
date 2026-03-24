@@ -1,5 +1,5 @@
 /*
- * XREFs of DpiPendingIrpCancelQueueRemove @ 0x1C0060A20
+ * XREFs of DpiPendingIrpCancelQueueRemove @ 0x1C0052DD0
  * Callers:
  *     <none>
  * Callees:

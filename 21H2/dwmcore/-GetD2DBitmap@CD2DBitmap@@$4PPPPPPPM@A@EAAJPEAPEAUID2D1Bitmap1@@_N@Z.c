@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetD2DBitmap@CD2DBitmap@@$4PPPPPPPM@A@EAAJPEAPEAUID2D1Bitmap1@@_N@Z @ 0x180109710
+ * XREFs of ?GetD2DBitmap@CD2DBitmap@@$4PPPPPPPM@A@EAAJPEAPEAUID2D1Bitmap1@@_N@Z @ 0x1800F60F0
  * Callers:
  *     <none>
  * Callees:

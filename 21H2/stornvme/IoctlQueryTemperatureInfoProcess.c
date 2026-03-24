@@ -1,15 +1,15 @@
 /*
- * XREFs of IoctlQueryTemperatureInfoProcess @ 0x1C001BD14
+ * XREFs of IoctlQueryTemperatureInfoProcess @ 0x1C001348C
  * Callers:
- *     IoctlToNVMe @ 0x1C0002DE0 (IoctlToNVMe.c)
+ *     IoctlToNVMe @ 0x1C0002660 (IoctlToNVMe.c)
  * Callees:
- *     NVMeZeroMemory @ 0x1C0005100 (NVMeZeroMemory.c)
- *     SrbAssignQueueId @ 0x1C0005238 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     BuildGetLogPageCommand @ 0x1C0005458 (BuildGetLogPageCommand.c)
- *     NVMeAllocateDmaBuffer @ 0x1C00055C4 (NVMeAllocateDmaBuffer.c)
- *     memset @ 0x1C00109C0 (memset.c)
- *     KelvinToCelsius @ 0x1C001C6CC (KelvinToCelsius.c)
+ *     BuildGetLogPageCommand @ 0x1C0002AA4 (BuildGetLogPageCommand.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C0005B00 (NVMeAllocateDmaBuffer.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     KelvinToCelsius @ 0x1C0013E44 (KelvinToCelsius.c)
  */
 
 __int64 __fastcall IoctlQueryTemperatureInfoProcess(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall IoctlQueryTemperatureInfoProcess(__int64 a1, __int64 a2)
   __int64 v7; // rax
   unsigned int v8; // edx
 
-  v2 = *(_QWORD *)(a1 + 1640);
+  v2 = *(_QWORD *)(a1 + 1624);
   GetSrbExtension(a2);
   if ( *(_BYTE *)(v5 + 2) == 40 )
   {
@@ -32,7 +32,7 @@ __int64 __fastcall IoctlQueryTemperatureInfoProcess(__int64 a1, __int64 a2)
     v6 = *(_QWORD *)(v5 + 24);
     v7 = 16LL;
   }
-  v8 = *(_DWORD *)(v7 + v5);
+  v8 = *(_DWORD *)(v5 + v7);
   if ( v8 >= 0x44 )
   {
     NVMeZeroMemory((void *)(v6 + 28), v8 - 28);

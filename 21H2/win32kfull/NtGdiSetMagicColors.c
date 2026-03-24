@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiSetMagicColors @ 0x1C0159650
+ * XREFs of NtGdiSetMagicColors @ 0x1C0165F70
  * Callers:
  *     <none>
  * Callees:

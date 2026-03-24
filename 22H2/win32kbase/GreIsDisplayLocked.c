@@ -1,15 +1,12 @@
 /*
- * XREFs of GreIsDisplayLocked @ 0x1C016A540
+ * XREFs of GreIsDisplayLocked @ 0x1C014B740
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall GreIsDisplayLocked(__int64 a1)
+_BOOL8 GreIsDisplayLocked()
 {
-  __int64 v1; // rax
-
-  v1 = SGDGetSessionState(a1);
-  return ExIsResourceAcquiredExclusiveLite(*(PERESOURCE *)(*(_QWORD *)(v1 + 24) + 120LL)) != 0;
+  return ExIsResourceAcquiredExclusiveLite((PERESOURCE)ghsemGreLock) != 0;
 }

@@ -1,33 +1,33 @@
 /*
- * XREFs of AMLIInitialize @ 0x1C00BCDB8
+ * XREFs of AMLIInitialize @ 0x1C00BCD10
  * Callers:
- *     ACPIInitializeAMLI @ 0x1C00BCD04 (ACPIInitializeAMLI.c)
+ *     ACPIInitializeAMLI @ 0x1C00BCC5C (ACPIInitializeAMLI.c)
  * Callees:
- *     CreateNameSpaceObject @ 0x1C0013250 (CreateNameSpaceObject.c)
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     DereferenceObjectEx @ 0x1C00189F4 (DereferenceObjectEx.c)
- *     NewGlobalHeap @ 0x1C0022190 (NewGlobalHeap.c)
- *     InitializeNativeNamespace @ 0x1C0027E90 (InitializeNativeNamespace.c)
- *     InsertOwnerObjList @ 0x1C0028350 (InsertOwnerObjList.c)
- *     NewNameSpaceObject @ 0x1C0028388 (NewNameSpaceObject.c)
- *     NewObjOwner @ 0x1C00285B8 (NewObjOwner.c)
- *     InitMutex @ 0x1C002AFB0 (InitMutex.c)
- *     SetLogSize @ 0x1C002EE70 (SetLogSize.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     AMLIAddNextNamespaceOverride @ 0x1C0065AA0 (AMLIAddNextNamespaceOverride.c)
- *     FreeObjOwner @ 0x1C00663E4 (FreeObjOwner.c)
- *     FreeOwnedObjects @ 0x1C00665BC (FreeOwnedObjects.c)
- *     AMLIDebugger @ 0x1C0067034 (AMLIDebugger.c)
- *     CatError @ 0x1C0067084 (CatError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
- *     OSCloseHandle @ 0x1C00954DC (OSCloseHandle.c)
- *     OSReadRegValue @ 0x1C00968B0 (OSReadRegValue.c)
- *     OSOpenAMLINamespaceOverrideHandle @ 0x1C00B2238 (OSOpenAMLINamespaceOverrideHandle.c)
- *     InitIllegalIOAddressListFromHAL @ 0x1C00BF108 (InitIllegalIOAddressListFromHAL.c)
- *     AMLIGetEmOverride @ 0x1C00BF20C (AMLIGetEmOverride.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     InitMutex @ 0x1C0010410 (InitMutex.c)
+ *     SetLogSize @ 0x1C00104C8 (SetLogSize.c)
+ *     NewObjOwner @ 0x1C0023628 (NewObjOwner.c)
+ *     InitializeNativeNamespace @ 0x1C0023AF0 (InitializeNativeNamespace.c)
+ *     NewGlobalHeap @ 0x1C0024270 (NewGlobalHeap.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     NewNameSpaceObject @ 0x1C002BD38 (NewNameSpaceObject.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     InsertOwnerObjList @ 0x1C002D368 (InsertOwnerObjList.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     AMLIAddNextNamespaceOverride @ 0x1C0064824 (AMLIAddNextNamespaceOverride.c)
+ *     FreeObjOwner @ 0x1C006517C (FreeObjOwner.c)
+ *     FreeOwnedObjects @ 0x1C006535C (FreeOwnedObjects.c)
+ *     AMLIDebugger @ 0x1C0065C80 (AMLIDebugger.c)
+ *     CatError @ 0x1C0065CD0 (CatError.c)
+ *     OSCloseHandle @ 0x1C0096D0C (OSCloseHandle.c)
+ *     OSReadRegValue @ 0x1C0097444 (OSReadRegValue.c)
+ *     OSOpenAMLINamespaceOverrideHandle @ 0x1C00B2958 (OSOpenAMLINamespaceOverrideHandle.c)
+ *     InitIllegalIOAddressListFromHAL @ 0x1C00BDA5C (InitIllegalIOAddressListFromHAL.c)
+ *     AMLIGetEmOverride @ 0x1C00BDB64 (AMLIGetEmOverride.c)
  */
 
 __int64 __fastcall AMLIInitialize(__int64 a1, int a2, __int64 a3, unsigned int a4, __int64 a5)
@@ -41,14 +41,14 @@ __int64 __fastcall AMLIInitialize(__int64 a1, int a2, __int64 a3, unsigned int a
   unsigned __int8 **v12; // rsi
   __int64 v13; // rcx
   __int64 v14; // rbx
-  _SLIST_ENTRY *v15; // rax
+  void *v15; // rax
   __int64 v16; // rbx
-  _SLIST_ENTRY *v17; // rax
+  void *v17; // rax
   __int64 v18; // rcx
   __int64 v19; // r8
   __int64 v20; // rax
   int v22; // ecx
-  _SLIST_ENTRY *v23; // rax
+  _QWORD *v23; // rax
   int NamespaceOverride; // ebx
   void *v25; // [rsp+40h] [rbp-10h] BYREF
   int v26; // [rsp+90h] [rbp+40h] BYREF
@@ -61,8 +61,8 @@ __int64 __fastcall AMLIInitialize(__int64 a1, int a2, __int64 a3, unsigned int a
   v8 = gAMLIInitFlags;
   v26 = 0;
   v27 = 0;
-  dword_1C0081AC8 = 0;
-  byte_1C0081ACC[0] = 0;
+  dword_1C0082908 = 0;
+  pszDest[0] = 0;
   gAmliMethodCounter = 0LL;
   AMLIGetEmOverride();
   if ( gpnsNameSpaceRoot )
@@ -71,24 +71,22 @@ __int64 __fastcall AMLIInitialize(__int64 a1, int a2, __int64 a3, unsigned int a
     LogError(-1072431085);
     AcpiDiagTraceAmlError(0LL, -1072431085);
     v22 = 66;
-LABEL_41:
+LABEL_44:
     PrintDebugMessage(v22, 0LL, 0LL, 0LL, 0LL);
   }
   else
   {
-    LODWORD(gdwGlobalHeapBlkSize) = a2;
     MemoryInfo = v5;
     LODWORD(gdwCtxtBlkSize) = 2048;
+    LODWORD(gdwGlobalHeapBlkSize) = a2;
     gdwfAMLIInit = v8;
     if ( (v8 & 8) != 0 )
       gdwfAMLI |= 4u;
-    v9 = 1024;
-    if ( v6 <= 0x400 )
-    {
+    if ( v6 > 0x400 )
+      v6 = 1024;
+    v9 = 16;
+    if ( v6 > 0x10 )
       v9 = v6;
-      if ( v6 <= 0x10 )
-        v9 = 16;
-    }
     gdwcCTObjsMax = v9;
     _InterlockedOr(&gDebugger, 0x8000u);
     SetLogSize();
@@ -146,7 +144,7 @@ LABEL_41:
                 v14 = a5;
                 *(_WORD *)(a5 + 66) = 2;
                 *(_DWORD *)(v14 + 88) = 21;
-                v15 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, 0x15u);
+                v15 = (void *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, 0x15u);
                 *(_QWORD *)(v14 + 96) = v15;
                 if ( !v15 )
                 {
@@ -154,7 +152,7 @@ LABEL_41:
                   LogError(-1073741670);
                   AcpiDiagTraceAmlError(0LL, -1073741670);
                   v22 = 68;
-                  goto LABEL_41;
+                  goto LABEL_44;
                 }
                 memmove(v15, "Microsoft Windows NT", *(unsigned int *)(v14 + 88));
                 NameSpaceObject = CreateNameSpaceObject(gpheapGlobal, "_OSI", 0LL, 0LL, &a5, 0);
@@ -163,7 +161,7 @@ LABEL_41:
                 v16 = a5;
                 *(_WORD *)(a5 + 66) = 8;
                 *(_DWORD *)(v16 + 88) = 202;
-                v17 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, 0xCAu);
+                v17 = (void *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, 0xCAu);
                 *(_QWORD *)(v16 + 96) = v17;
                 if ( !v17 )
                 {
@@ -171,7 +169,7 @@ LABEL_41:
                   LogError(-1073741670);
                   AcpiDiagTraceAmlError(0LL, -1073741670);
                   v22 = 69;
-                  goto LABEL_41;
+                  goto LABEL_44;
                 }
                 memset(v17, 0, *(unsigned int *)(v16 + 88));
                 *(_BYTE *)(*(_QWORD *)(v16 + 96) + 193LL) |= 1u;
@@ -201,7 +199,7 @@ LABEL_41:
                         gpnsNameSpaceOverrideRoot = (__int64)v23;
                         if ( v23 )
                         {
-                          *((_DWORD *)&v23[2].Next + 2) = 1600085852;
+                          *((_DWORD *)v23 + 10) = 1600085852;
                           InsertOwnerObjList(
                             (struct _EX_RUNDOWN_REF *)gpNameSpaceOverrideOwner,
                             (struct _EX_RUNDOWN_REF *)v23);
@@ -224,28 +222,28 @@ LABEL_41:
                         }
                       }
                       KeInitializeSpinLock(&SpinLock);
-                      NewIrql = 0;
-                      qword_1C0081D98 = (__int64)DispatchCtxtQueue;
-                      qword_1C0081D88 = 0LL;
-                      qword_1C0081DA0 = (__int64)&gReadyQueue;
-                      qword_1C0081DB8 = (__int64)&qword_1C0081DB0;
-                      qword_1C0081DB0 = (__int64)&qword_1C0081DB0;
-                      qword_1C0081D70 = (__int64)&qword_1C0081D68;
-                      qword_1C0081D68 = (__int64)&qword_1C0081D68;
+                      byte_1C00827B0 = 0;
+                      qword_1C00827C8 = (__int64)DispatchCtxtQueue;
+                      qword_1C00827B8 = 0LL;
+                      qword_1C00827D0 = (__int64)&gReadyQueue;
+                      qword_1C00827E8 = (__int64)&qword_1C00827E0;
+                      qword_1C00827E0 = (__int64)&qword_1C00827E0;
+                      qword_1C00827A0 = (__int64)&qword_1C0082798;
+                      qword_1C0082798 = (__int64)&qword_1C0082798;
                       KeInitializeSpinLock(&gmutCtxtList);
-                      byte_1C0082248 = 0;
+                      byte_1C0082FC8 = 0;
                       KeInitializeSpinLock(&gmutOwnerList);
-                      byte_1C0082260 = 0;
+                      byte_1C0082FF0 = 0;
                       KeInitializeSpinLock(&gmutHeap);
-                      byte_1C0082868 = 0;
+                      NewIrql = 0;
                       KeInitializeSpinLock(&gmutSleep);
-                      byte_1C0082878 = 0;
+                      byte_1C00831E8 = 0;
                       v27 = 9;
                       ExAllocateTimerInternal2((PEX_RUNDOWN_REF)SleepQueueDpc);
                       SleepTimer = v20;
-                      qword_1C0082858 = (__int64)&SleepQueue;
+                      qword_1C00831D8 = (__int64)&SleepQueue;
                       SleepQueue = (__int64)&SleepQueue;
-                      qword_1C00809A8 = (__int64)&RunningContextListHead;
+                      qword_1C00817E8 = (__int64)&RunningContextListHead;
                       RunningContextListHead = (__int64)&RunningContextListHead;
                       InitIllegalIOAddressListFromHAL();
                       v28 = 4;
@@ -269,12 +267,11 @@ LABEL_41:
                       {
                         AmliWatchdogAction = 0;
                       }
-                      _InterlockedExchange(&dword_1C0080AE0, 0);
+                      _InterlockedExchange(&dword_1C0081920, 0);
                       AcpiRecordBlackboxWorkItem.WorkerRoutine = (void (__fastcall *)(void *))AcpiRecordBlackboxInformationWorker;
                       NameSpaceObject = 0;
                       AcpiRecordBlackboxWorkItem.Parameter = 0LL;
                       AcpiRecordBlackboxWorkItem.List.Flink = 0LL;
-                      goto LABEL_34;
                     }
                   }
                 }
@@ -288,7 +285,6 @@ LABEL_41:
     if ( NameSpaceObject == 32772 )
       NameSpaceObject = 259;
   }
-LABEL_34:
   if ( (gdwfAMLIInit & 1) != 0 )
   {
     PrintDebugMessage(67, 0LL, 0LL, 0LL, 0LL);

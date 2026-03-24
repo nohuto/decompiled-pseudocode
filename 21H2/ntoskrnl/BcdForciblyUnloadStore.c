@@ -1,17 +1,17 @@
 /*
- * XREFs of BcdForciblyUnloadStore @ 0x1408072C0
+ * XREFs of BcdForciblyUnloadStore @ 0x1407792D8
  * Callers:
- *     PopAllocateHiberContext @ 0x140802068 (PopAllocateHiberContext.c)
- *     BiCleanupLoadedStores @ 0x140811F10 (BiCleanupLoadedStores.c)
+ *     PopAllocateHiberContext @ 0x140777C44 (PopAllocateHiberContext.c)
+ *     BiCleanupLoadedStores @ 0x1407820A8 (BiCleanupLoadedStores.c)
  * Callees:
- *     BiIsOfflineHandle @ 0x1403A7864 (BiIsOfflineHandle.c)
- *     BiIsSynchFirmwareEntries @ 0x1403A78AC (BiIsSynchFirmwareEntries.c)
- *     BiUnloadHiveByHandle @ 0x140807354 (BiUnloadHiveByHandle.c)
- *     BiExportStoreAlterationsToFirmware @ 0x1408074F4 (BiExportStoreAlterationsToFirmware.c)
- *     BiIsSystemStore @ 0x1408127B8 (BiIsSystemStore.c)
- *     BiReleaseBcdSyncMutant @ 0x1408134D8 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x14081369C (BiAcquireBcdSyncMutant.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
+ *     BiIsSynchFirmwareEntries @ 0x14039B484 (BiIsSynchFirmwareEntries.c)
+ *     BiIsOfflineHandle @ 0x14039B59C (BiIsOfflineHandle.c)
+ *     BiUnloadHiveByHandle @ 0x14077936C (BiUnloadHiveByHandle.c)
+ *     BiExportStoreAlterationsToFirmware @ 0x14077950C (BiExportStoreAlterationsToFirmware.c)
+ *     BiIsSystemStore @ 0x1407833A8 (BiIsSystemStore.c)
+ *     BiReleaseBcdSyncMutant @ 0x140784774 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x140784938 (BiAcquireBcdSyncMutant.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
  */
 
 __int64 __fastcall BcdForciblyUnloadStore(__int64 a1)

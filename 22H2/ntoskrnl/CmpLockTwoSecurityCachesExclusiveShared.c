@@ -1,57 +1,35 @@
 /*
- * XREFs of CmpLockTwoSecurityCachesExclusiveShared @ 0x1407DE37C
+ * XREFs of CmpLockTwoSecurityCachesExclusiveShared @ 0x14076F7E8
  * Callers:
- *     CmpCopyKeyPartial @ 0x1407DDDD8 (CmpCopyKeyPartial.c)
- *     CmpDoBuildVirtualStack @ 0x140A1916C (CmpDoBuildVirtualStack.c)
- *     CmpSyncKeyValues @ 0x140A22E84 (CmpSyncKeyValues.c)
+ *     CmpCopyKeyPartial @ 0x14076F54C (CmpCopyKeyPartial.c)
+ *     CmpDoBuildVirtualStack @ 0x14086FFEC (CmpDoBuildVirtualStack.c)
+ *     CmpSyncKeyValues @ 0x140879E7C (CmpSyncKeyValues.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     CmLockHiveSecurityShared @ 0x140AF60A0 (CmLockHiveSecurityShared.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
  */
 
-__int64 __fastcall CmpLockTwoSecurityCachesExclusiveShared(unsigned __int64 a1, unsigned __int64 a2)
+void __fastcall CmpLockTwoSecurityCachesExclusiveShared(unsigned __int64 a1, unsigned __int64 a2)
 {
-  unsigned __int64 *v4; // rbx
-  __int64 result; // rax
-  __int64 v6; // rdi
-  unsigned __int64 *v7; // rdi
-  __int64 v8; // rax
-  __int64 v9; // rsi
-  unsigned __int64 *v10; // rdi
-  __int64 v11; // rbx
+  ULONG_PTR v2; // rdi
+  bool v4; // cc
+  ULONG_PTR v5; // rcx
 
+  v2 = a2 + 1776;
+  v4 = a1 <= a2;
   if ( a1 < a2 )
   {
-    v7 = (unsigned __int64 *)(a1 + 1784);
-    v8 = KeAbPreAcquire(a1 + 1784, 0LL);
-    v9 = v8;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v7, v8, (__int64)v7);
-    if ( v9 )
-      *(_BYTE *)(v9 + 18) = 1;
-    return CmLockHiveSecurityShared(a2);
-  }
-  else if ( a1 > a2 )
-  {
-    CmLockHiveSecurityShared(a2);
-    v10 = (unsigned __int64 *)(a1 + 1784);
-    result = KeAbPreAcquire((__int64)v10, 0LL);
-    v11 = result;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
-      result = ExfAcquirePushLockExclusiveEx(v10, result, (__int64)v10);
-    if ( v11 )
-      *(_BYTE *)(v11 + 18) = 1;
+    ExAcquirePushLockExclusiveEx(a1 + 1776, 0LL);
+    ExAcquirePushLockSharedEx(v2, 0LL);
   }
   else
   {
-    v4 = (unsigned __int64 *)(a2 + 1784);
-    result = KeAbPreAcquire(a2 + 1784, 0LL);
-    v6 = result;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
-      result = ExfAcquirePushLockExclusiveEx(v4, result, (__int64)v4);
-    if ( v6 )
-      *(_BYTE *)(v6 + 18) = 1;
+    v5 = a2 + 1776;
+    if ( !v4 )
+    {
+      ExAcquirePushLockSharedEx(v5, 0LL);
+      v5 = a1 + 1776;
+    }
+    ExAcquirePushLockExclusiveEx(v5, 0LL);
   }
-  return result;
 }

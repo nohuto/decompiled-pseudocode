@@ -1,13 +1,13 @@
 /*
- * XREFs of vMakeInactiveHelper @ 0x1C02A07F0
+ * XREFs of vMakeInactiveHelper @ 0x1C029836C
  * Callers:
- *     ?vUnlinkAllEudcFromRFONTList@@YAXXZ @ 0x1C008AA18 (-vUnlinkAllEudcFromRFONTList@@YAXXZ.c)
- *     vUnlinkAllEudcRFONTsAndPFEsWorker @ 0x1C00A82C8 (vUnlinkAllEudcRFONTsAndPFEsWorker.c)
- *     vUnlinkEudcRFONTsAndPFEsWorker @ 0x1C02A0ADC (vUnlinkEudcRFONTsAndPFEsWorker.c)
- *     vUnlinkEudcRFONTsWorker @ 0x1C02A0C30 (vUnlinkEudcRFONTsWorker.c)
+ *     vUnlinkAllEudcRFONTsAndPFEsWorker @ 0x1C011E714 (vUnlinkAllEudcRFONTsAndPFEsWorker.c)
+ *     ?vUnlinkAllEudcFromRFONTList@@YAXHH@Z @ 0x1C01358C0 (-vUnlinkAllEudcFromRFONTList@@YAXHH@Z.c)
+ *     vUnlinkEudcRFONTsAndPFEsWorker @ 0x1C02985C0 (vUnlinkEudcRFONTsAndPFEsWorker.c)
+ *     vUnlinkEudcRFONTsWorker @ 0x1C0298720 (vUnlinkEudcRFONTsWorker.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?bMakeInactiveHelper@RFONTOBJ@@QEAAHPEAPEAVRFONT@@@Z @ 0x1C00932EC (-bMakeInactiveHelper@RFONTOBJ@@QEAAHPEAPEAVRFONT@@@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?bMakeInactiveHelper@RFONTOBJ@@QEAAHPEAPEAVRFONT@@@Z @ 0x1C009D0D0 (-bMakeInactiveHelper@RFONTOBJ@@QEAAHPEAPEAVRFONT@@@Z.c)
  */
 
 void __fastcall vMakeInactiveHelper(__int64 *a1)

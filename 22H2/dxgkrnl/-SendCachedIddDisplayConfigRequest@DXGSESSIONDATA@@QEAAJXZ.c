@@ -1,69 +1,81 @@
 /*
- * XREFs of ?SendCachedIddDisplayConfigRequest@DXGSESSIONDATA@@QEAAJXZ @ 0x1C01E23E8
+ * XREFs of ?SendCachedIddDisplayConfigRequest@DXGSESSIONDATA@@QEAAJXZ @ 0x1C01671A4
  * Callers:
- *     ?ConnectSessionDisplayBroker@DXGSESSIONDATA@@QEAAJXZ @ 0x1C01E237C (-ConnectSessionDisplayBroker@DXGSESSIONDATA@@QEAAJXZ.c)
+ *     ?ConnectSessionDisplayBroker@DXGSESSIONDATA@@QEAAJXZ @ 0x1C0167134 (-ConnectSessionDisplayBroker@DXGSESSIONDATA@@QEAAJXZ.c)
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?reset@?$auto_rc@V?$rc_buffer@U?$AlpcRequest@$07@DispBroker@@@@@@QEAAXPEAV?$rc_buffer@U?$AlpcRequest@$07@DispBroker@@@@@Z @ 0x1C0017094 (-reset@-$auto_rc@V-$rc_buffer@U-$AlpcRequest@$07@DispBroker@@@@@@QEAAXPEAV-$rc_buffer@U-$AlpcReq.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?SetDisplayConfigDone@DXGSESSIONDATA@@QEAAXK@Z @ 0x1C004A1E8 (-SetDisplayConfigDone@DXGSESSIONDATA@@QEAAXK@Z.c)
- *     ?SendDisplayBrokerMessage@DispBrokerClient@@QEAAJKPEAU_PORT_MESSAGE@@PEAU_ALPC_MESSAGE_ATTRIBUTES@@0PEA_K1PEAT_LARGE_INTEGER@@@Z @ 0x1C01E2850 (-SendDisplayBrokerMessage@DispBrokerClient@@QEAAJKPEAU_PORT_MESSAGE@@PEAU_ALPC_MESSAGE_ATTRIBUTE.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?reset@?$auto_rc@V?$rc_buffer@U?$AlpcRequest@$07@DispBroker@@@@@@QEAAXPEAV?$rc_buffer@U?$AlpcRequest@$07@DispBroker@@@@@Z @ 0x1C001A80C (-reset@-$auto_rc@V-$rc_buffer@U-$AlpcRequest@$07@DispBroker@@@@@@QEAAXPEAV-$rc_buffer@U-$AlpcReq.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?SetDisplayConfigDone@DXGSESSIONDATA@@QEAAXK@Z @ 0x1C0043D18 (-SetDisplayConfigDone@DXGSESSIONDATA@@QEAAXK@Z.c)
+ *     ?SendDisplayBrokerMessage@DispBrokerClient@@QEAAJKPEAU_PORT_MESSAGE@@PEAU_ALPC_MESSAGE_ATTRIBUTES@@0PEA_K1PEAT_LARGE_INTEGER@@@Z @ 0x1C01675CC (-SendDisplayBrokerMessage@DispBrokerClient@@QEAAJKPEAU_PORT_MESSAGE@@PEAU_ALPC_MESSAGE_ATTRIBUTE.c)
  */
 
 __int64 __fastcall DXGSESSIONDATA::SendCachedIddDisplayConfigRequest(DXGSESSIONDATA *this)
 {
   unsigned int v2; // ebx
-  __int64 v3; // rax
-  int v5; // esi
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v9; // rdx
+  int v10; // esi
   signed int MessageId; // eax
-  ReferenceCounted *v7; // [rsp+48h] [rbp-39h] BYREF
-  _BYTE v8[8]; // [rsp+50h] [rbp-31h] BYREF
-  char v9; // [rsp+58h] [rbp-29h]
-  union _LARGE_INTEGER v10; // [rsp+60h] [rbp-21h] BYREF
-  unsigned __int64 v11; // [rsp+68h] [rbp-19h] BYREF
-  _PORT_MESSAGE v12[2]; // [rsp+78h] [rbp-9h] BYREF
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // rax
+  ReferenceCounted *v16; // [rsp+48h] [rbp-39h] BYREF
+  _BYTE v17[8]; // [rsp+50h] [rbp-31h] BYREF
+  char v18; // [rsp+58h] [rbp-29h]
+  union _LARGE_INTEGER v19; // [rsp+60h] [rbp-21h] BYREF
+  unsigned __int64 v20; // [rsp+68h] [rbp-19h] BYREF
+  _PORT_MESSAGE v21[2]; // [rsp+78h] [rbp-9h] BYREF
 
   v2 = 0;
-  v7 = 0LL;
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v8, (DXGSESSIONDATA *)((char *)this + 19024), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v8);
-  v3 = *((_QWORD *)this + 2385);
-  if ( v3 )
+  v16 = 0LL;
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v17, (DXGSESSIONDATA *)((char *)this + 18992), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v17);
+  v5 = *((_QWORD *)this + 2380);
+  if ( v5 )
   {
-    _InterlockedIncrement((volatile signed __int32 *)(v3 + 8));
-    auto_rc<rc_buffer<DispBroker::AlpcRequest<8>>>::reset(&v7, *((ReferenceCounted **)this + 2385));
-    v5 = *((_DWORD *)this + 4768);
-    if ( v9 )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v8);
-    v10.QuadPart = (-(__int64)(g_bSkuSupportMultipleUsers != 0) & 0xFFFFFFFF8EC04D00uLL) - 100000000;
-    memset(v12, 0, 0x48uLL);
-    v11 = 72LL;
+    _InterlockedIncrement((volatile signed __int32 *)(v5 + 8));
+    auto_rc<rc_buffer<DispBroker::AlpcRequest<8>>>::reset(&v16, *((_QWORD *)this + 2380));
+    v10 = *((_DWORD *)this + 4758);
+    if ( v18 )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v17, v9);
+    v19.QuadPart = (-(__int64)(g_bSkuSupportMultipleUsers != 0) & 0xFFFFFFFF8EC04D00uLL) - 100000000;
+    memset(v21, 0, 0x48uLL);
+    v20 = 72LL;
     MessageId = DispBrokerClient::SendDisplayBrokerMessage(
-                  (DXGSESSIONDATA *)((char *)this + 18968),
+                  (DXGSESSIONDATA *)((char *)this + 18936),
                   0x120000u,
-                  (struct _PORT_MESSAGE *)(((unsigned __int64)v7 + 16) & -(__int64)(v7 != 0LL)),
+                  (struct _PORT_MESSAGE *)(((unsigned __int64)v16 + 16) & -(__int64)(v16 != 0LL)),
                   0LL,
-                  v12,
-                  &v11,
+                  v21,
+                  &v20,
                   0LL,
-                  &v10);
+                  &v19);
     if ( MessageId == 192 )
     {
+      v15 = WdLogNewEntry5_WdWarning(v13, v12, v14);
       v2 = -1073741749;
-      WdLogSingleEntry2(3LL, *(unsigned int *)this, -1073741749LL);
+      *(_QWORD *)(v15 + 24) = *(unsigned int *)this;
+      *(_QWORD *)(v15 + 32) = -1073741749LL;
+      WdLogEvent5_WdWarning(v15);
     }
     else
     {
       if ( MessageId >= 0 )
       {
-        MessageId = v12[1].MessageId;
-        if ( (v12[1].MessageId & 0x80000000) == 0 )
+        MessageId = v21[1].MessageId;
+        if ( (v21[1].MessageId & 0x80000000) == 0 )
         {
-          DXGSESSIONDATA::SetDisplayConfigDone(this, v5);
-          MessageId = v12[1].MessageId;
+          DXGSESSIONDATA::SetDisplayConfigDone(this, v10);
+          MessageId = v21[1].MessageId;
         }
       }
       v2 = MessageId;
@@ -71,10 +83,12 @@ __int64 __fastcall DXGSESSIONDATA::SendCachedIddDisplayConfigRequest(DXGSESSIOND
   }
   else
   {
-    WdLogSingleEntry1(4LL, *(unsigned int *)this);
-    if ( v9 )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v8);
+    v6 = WdLogNewEntry5_WdEvent(v4, v3);
+    *(_QWORD *)(v6 + 24) = *(unsigned int *)this;
+    WdLogEvent5_WdEvent(v6);
+    if ( v18 )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v17, v7);
   }
-  auto_rc<rc_buffer<DispBroker::AlpcRequest<8>>>::reset(&v7, 0LL);
+  auto_rc<rc_buffer<DispBroker::AlpcRequest<8>>>::reset(&v16, 0LL);
   return v2;
 }

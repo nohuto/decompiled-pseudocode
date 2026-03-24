@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0ppqx_EventWriteTransfer @ 0x1801A2AA8
+ * XREFs of McTemplateU0ppqx_EventWriteTransfer @ 0x180228160
  * Callers:
- *     ?NotifyCaptureManipulation@CManipulationManager@@QEAAJPEAVCInteraction@@I_K@Z @ 0x18019E6A4 (-NotifyCaptureManipulation@CManipulationManager@@QEAAJPEAVCInteraction@@I_K@Z.c)
+ *     ?NotifyCaptureManipulation@CManipulationManager@@QEAAJPEAVCInteraction@@I_K@Z @ 0x180224E54 (-NotifyCaptureManipulation@CManipulationManager@@QEAAJPEAVCInteraction@@I_K@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0ppqx_EventWriteTransfer(__int64 a1, __int64 a2, ...)
@@ -44,7 +44,7 @@ ULONG McTemplateU0ppqx_EventWriteTransfer(__int64 a1, __int64 a2, ...)
   v11 = 8LL;
   va_copy(v10, va3);
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &MIDMANIPULATION_UPDATE_CAPTURE_MANIPULATION,
            v13,
            5u,

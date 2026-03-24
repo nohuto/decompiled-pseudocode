@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpIsProcessZombie @ 0x140814978
+ * XREFs of EtwpIsProcessZombie @ 0x140797B94
  * Callers:
- *     EtwpProcessEnumCallback @ 0x140814660 (EtwpProcessEnumCallback.c)
- *     EtwpPsProvProcessEnumCallback @ 0x1409EB400 (EtwpPsProvProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x140797740 (EtwpProcessEnumCallback.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x14093EB60 (EtwpPsProvProcessEnumCallback.c)
  * Callees:
  *     <none>
  */

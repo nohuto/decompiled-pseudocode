@@ -1,10 +1,10 @@
 /*
- * XREFs of PfHardFaultLog @ 0x14027B250
+ * XREFs of PfHardFaultLog @ 0x1402BAA40
  * Callers:
- *     MiWaitForInPageComplete @ 0x14027AA30 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x14031B1F0 (MiWaitForInPageComplete.c)
  * Callees:
- *     PfLogEvent @ 0x14036044C (PfLogEvent.c)
- *     EtwTraceSiloTimedEvent @ 0x14045FA6C (EtwTraceSiloTimedEvent.c)
+ *     PfLogEvent @ 0x1402D4DFC (PfLogEvent.c)
+ *     EtwTraceSiloTimedEvent @ 0x1405A81C8 (EtwTraceSiloTimedEvent.c)
  */
 
 struct _KTHREAD *__fastcall PfHardFaultLog(_QWORD *a1, int a2, int a3)
@@ -53,7 +53,7 @@ LABEL_3:
       a1[8] = v8;
       v9 = (__int64)Process[1].Header.WaitListHead.Flink ^ (__int64)Process[1].ThreadListHead.Flink;
       v11[0] = 2 * v8;
-      v11[1] = dword_140CF5E50;
+      v11[1] = dword_140CEC350;
       v14 = a1[6];
       v12 = (unsigned int)(a1[4] >> 9);
       v13 = a1[5];

@@ -1,56 +1,53 @@
 /*
- * XREFs of GreDesktopSwitch @ 0x1C006CE0C
+ * XREFs of GreDesktopSwitch @ 0x1C002A9C8
  * Callers:
- *     xxxSwitchDesktop @ 0x1C006BB2C (xxxSwitchDesktop.c)
+ *     xxxSwitchDesktop @ 0x1C0029864 (xxxSwitchDesktop.c)
  * Callees:
- *     ?LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z @ 0x1C007A73C (-LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z.c)
- *     ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C007A88C (-ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z.c)
- *     ?SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z @ 0x1C007B2F8 (-SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
+ *     ?LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z @ 0x1C0015600 (-LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z.c)
+ *     ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C0015774 (-ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z.c)
+ *     ?SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z @ 0x1C0015DF8 (-SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z.c)
  */
 
 __int64 __fastcall GreDesktopSwitch(__int64 a1, int a2, int a3, __int64 a4, int a5)
 {
-  struct Gre::Base::SESSION_GLOBALS *v9; // rsi
   _QWORD *i; // rdx
-  __int64 v12; // rax
-  __int64 v13; // rcx
-  __int64 v14; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  __int64 v13; // [rsp+30h] [rbp+8h] BYREF
 
   a5 = 0;
-  v14 = a1;
-  v9 = Gre::Base::Globals((Gre::Base *)a1);
+  v13 = a1;
   ENTER_GRE_DWM_CRIT(a1, &a5);
-  if ( (unsigned int)IsDwmActive() && !a3 )
-    SpRenderHint(&v14, 65539 - (unsigned int)(a2 != 0), 0LL, 0LL);
-  LEAVE_GRE_DWM_CRIT(a1, 0LL);
+  if ( g_pDwmState && !a3 )
+    SpRenderHint((struct PDEVOBJ *)&v13, 65539 - (a2 != 0), 0LL, 0LL);
+  LEAVE_GRE_DWM_CRIT(a1, 0);
   if ( a1 )
   {
     if ( (*(_DWORD *)(a1 + 40) & 0x20000) != 0 )
     {
-      for ( i = **(_QWORD ***)(a1 + 1768); i; i = (_QWORD *)*i )
+      for ( i = **(_QWORD ***)(a1 + 1800); i; i = (_QWORD *)*i )
       {
-        v12 = i[6];
-        if ( v12 )
+        v11 = i[6];
+        if ( v11 )
         {
-          if ( (*(_DWORD *)(v12 + 40) & 1) != 0 )
+          if ( (*(_DWORD *)(v11 + 40) & 1) != 0 )
           {
-            v13 = *(_QWORD *)(v12 + 2528);
-            if ( v13 )
-              *(_QWORD *)(v13 + 648) = a4;
+            v12 = *(_QWORD *)(v11 + 2552);
+            if ( v12 )
+              *(_QWORD *)(v12 + 648) = a4;
           }
         }
       }
     }
     else
     {
-      *(_QWORD *)(*(_QWORD *)(a1 + 2528) + 648LL) = a4;
+      *(_QWORD *)(*(_QWORD *)(a1 + 2552) + 648LL) = a4;
     }
   }
   if ( a5 )
   {
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDynamicModeChange");
-    GreReleaseSemaphoreInternal(*((_QWORD *)v9 + 10));
+    EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
+    GreReleaseSemaphoreInternal(ghsemDynamicModeChange);
   }
   return 0LL;
 }

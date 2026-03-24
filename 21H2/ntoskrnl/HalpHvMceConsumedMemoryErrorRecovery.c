@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpHvMceConsumedMemoryErrorRecovery @ 0x14050E73C
+ * XREFs of HalpHvMceConsumedMemoryErrorRecovery @ 0x1404C22EC
  * Callers:
- *     HalpMceRecoveryMemoryErrorAmd @ 0x14051C8F0 (HalpMceRecoveryMemoryErrorAmd.c)
- *     HalpMceRecoveryMemoryErrorIntel @ 0x14051CA0C (HalpMceRecoveryMemoryErrorIntel.c)
+ *     HalpMceRecoveryMemoryErrorAmd @ 0x1404D0370 (HalpMceRecoveryMemoryErrorAmd.c)
+ *     HalpMceRecoveryMemoryErrorIntel @ 0x1404D045C (HalpMceRecoveryMemoryErrorIntel.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HalpHvGetMachineCheckContext @ 0x14050EE34 (HalpHvGetMachineCheckContext.c)
- *     HalpMemoryErrorDeferredRecovery @ 0x14051C2D8 (HalpMemoryErrorDeferredRecovery.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpHvGetMachineCheckContext @ 0x1404C2A14 (HalpHvGetMachineCheckContext.c)
+ *     HalpMemoryErrorDeferredRecovery @ 0x1404CFF30 (HalpMemoryErrorDeferredRecovery.c)
  */
 
 __int64 __fastcall HalpHvMceConsumedMemoryErrorRecovery(__int64 a1, int a2, __int16 a3, char a4, char a5)
 {
   int v8; // edx
   __int128 v10; // [rsp+40h] [rbp-28h] BYREF
-  int v11; // [rsp+50h] [rbp-18h]
+  __int64 v11; // [rsp+50h] [rbp-18h]
 
   v10 = 0LL;
-  v11 = 0;
+  v11 = 0LL;
   if ( (int)HalpHvGetMachineCheckContext(a1, &v10) < 0 )
     return 3221225473LL;
   if ( (_DWORD)v10 != 3 )

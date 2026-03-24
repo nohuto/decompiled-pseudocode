@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTouchPadEnabledStatusChangeStart @ 0x1C014E960
+ * XREFs of EtwTraceTouchPadEnabledStatusChangeStart @ 0x1C0123D20
  * Callers:
- *     EnablePTPDevices @ 0x1C0148970 (EnablePTPDevices.c)
+ *     EnablePTPDevices @ 0x1C011BED0 (EnablePTPDevices.c)
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C014F270 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124580 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTouchPadEnabledStatusChangeStart(__int64 a1)

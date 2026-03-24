@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAccessCheck @ 0x140350ABC
+ * XREFs of MiAccessCheck @ 0x14031A8E8
  * Callers:
- *     MiDispatchFault @ 0x140237F10 (MiDispatchFault.c)
+ *     MiDispatchFault @ 0x14020EEC0 (MiDispatchFault.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiAllowGuardFault @ 0x1403416A0 (MiAllowGuardFault.c)
- *     MiLockTransitionLeafPageEx @ 0x1403477B8 (MiLockTransitionLeafPageEx.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiAllowGuardFault @ 0x1402FB414 (MiAllowGuardFault.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     MiLockTransitionLeafPage @ 0x140363DD4 (MiLockTransitionLeafPage.c)
  */
 
 __int64 __fastcall MiAccessCheck(
@@ -26,14 +26,10 @@ __int64 __fastcall MiAccessCheck(
   __int64 v14; // rbp
   unsigned __int64 v15; // rbx
   int v16; // edi
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  unsigned __int64 v20; // rbx
-  int v21; // edi
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
+  __int64 v17; // r8
+  unsigned __int64 v18; // rbx
+  int v19; // edi
+  __int64 v20; // r8
 
   if ( a3 == 1
     && ((unsigned __int64)BugCheckParameter2 > 0xFFFFF6BFFFFFFF78uLL
@@ -50,7 +46,7 @@ __int64 __fastcall MiAccessCheck(
     return 0LL;
   }
   v11 = a4;
-  if ( *((char *)MiReadWrite + (a4 & 7)) - (a2 != 0) < 10 )
+  if ( *((char *)&MiReadWrite + (a4 & 7)) - (a2 != 0) < 10 )
     return 3221225477LL;
   if ( (a4 & 0xFFFFFFF8) != 0x10 || (a5 & 1) != 0 && *(_BYTE *)(a5 & 0xFFFFFFFFFFFFFFFEuLL) == 1 )
     return 0LL;
@@ -58,19 +54,19 @@ __int64 __fastcall MiAccessCheck(
     return 3221225477LL;
   if ( (v10 & 0xC00) != 0x800 )
   {
-    v20 = v10 & 0xFFFFFFFFFFFFFC1FuLL | (32LL * (a4 & 0xF));
-    v21 = 0;
+    v18 = v10 & 0xFFFFFFFFFFFFFC1FuLL | (32LL * (a4 & 0xF));
+    v19 = 0;
     if ( !MiPteInShadowRange((unsigned __int64)BugCheckParameter2) )
       goto LABEL_44;
-    if ( (unsigned int)MiPteHasShadow(v23, v22, v24) )
+    if ( (unsigned int)MiPteHasShadow() )
     {
-      v21 = 1;
-      if ( HIBYTE(word_140C66DFC) )
+      v19 = 1;
+      if ( HIBYTE(word_140C4E008) )
       {
 LABEL_44:
-        *BugCheckParameter2 = v20;
-        if ( v21 )
-          MiWritePteShadow(BugCheckParameter2, v20);
+        *BugCheckParameter2 = v18;
+        if ( v19 )
+          MiWritePteShadow((__int64)BugCheckParameter2, v18, v20);
         return 2147483649LL;
       }
     }
@@ -78,25 +74,25 @@ LABEL_44:
     {
       goto LABEL_44;
     }
-    if ( (v20 & 1) != 0 )
-      v20 |= 0x8000000000000000uLL;
+    if ( (v18 & 1) != 0 )
+      v18 |= 0x8000000000000000uLL;
     goto LABEL_44;
   }
-  if ( a6 )
+  if ( a6 == 1 )
   {
     v13 = v10;
-    if ( qword_140C65C40 )
+    if ( qword_140C4DF40 )
     {
       if ( (v10 & 0x10) != 0 )
         v13 = v10 & 0xFFFFFFFFFFFFFFEFuLL;
       else
-        v13 = v10 & ~qword_140C65C40;
+        v13 = v10 & ~qword_140C4DF40;
     }
-    v14 = 48 * ((v13 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
+    v14 = 48 * ((v13 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
   }
   else
   {
-    v14 = MiLockTransitionLeafPageEx((ULONG_PTR)BugCheckParameter2, 0LL, 0);
+    v14 = MiLockTransitionLeafPage((ULONG_PTR)BugCheckParameter2);
     v10 = MI_READ_PTE_LOCK_FREE((unsigned __int64)BugCheckParameter2);
     if ( v14 )
       *(_QWORD *)(v14 + 16) = *(_QWORD *)(v14 + 16) & 0xFFFFFFFFFFFFFC1FuLL | (32LL * (v11 & 0xF));
@@ -105,10 +101,10 @@ LABEL_44:
   v16 = 0;
   if ( !MiPteInShadowRange((unsigned __int64)BugCheckParameter2) )
     goto LABEL_32;
-  if ( (unsigned int)MiPteHasShadow(v18, v17, v19) )
+  if ( (unsigned int)MiPteHasShadow() )
   {
     v16 = 1;
-    if ( HIBYTE(word_140C66DFC) )
+    if ( HIBYTE(word_140C4E008) )
       goto LABEL_32;
 LABEL_30:
     if ( (v15 & 1) != 0 )
@@ -120,7 +116,7 @@ LABEL_30:
 LABEL_32:
   *BugCheckParameter2 = v15;
   if ( v16 )
-    MiWritePteShadow(BugCheckParameter2, v15);
+    MiWritePteShadow((__int64)BugCheckParameter2, v15, v17);
   if ( !a6 )
   {
     if ( v14 )

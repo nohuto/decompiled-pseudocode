@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAttemptPageFileReduction @ 0x140637C1C
+ * XREFs of MiAttemptPageFileReduction @ 0x140542848
  * Callers:
- *     MiProcessDereferenceList @ 0x140625124 (MiProcessDereferenceList.c)
+ *     MiProcessDereferenceList @ 0x14038746C (MiProcessDereferenceList.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiOkToShrinkPageFiles @ 0x140292CC0 (MiOkToShrinkPageFiles.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiQueueSyncModifiedWriterApc @ 0x14063B498 (MiQueueSyncModifiedWriterApc.c)
- *     IoSetInformation @ 0x1408836C0 (IoSetInformation.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiOkToShrinkPageFiles @ 0x1402E9E2C (MiOkToShrinkPageFiles.c)
+ *     MiQueueSyncModifiedWriterApc @ 0x14032D01C (MiQueueSyncModifiedWriterApc.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IoSetInformation @ 0x14077BFD0 (IoSetInformation.c)
  */
 
-char __fastcall MiAttemptPageFileReduction(__int64 a1)
+int __fastcall MiAttemptPageFileReduction(__int64 a1)
 {
   __int64 v2; // rsi
   __int64 v3; // r14
@@ -29,11 +29,11 @@ char __fastcall MiAttemptPageFileReduction(__int64 a1)
   __int64 *v13; // rdi
   __int64 v14; // rcx
   __int64 FileInformation; // [rsp+38h] [rbp-D0h] BYREF
-  int v17[22]; // [rsp+48h] [rbp-C0h] BYREF
+  int v17[24]; // [rsp+48h] [rbp-C0h] BYREF
   int Object[28]; // [rsp+A8h] [rbp-60h] BYREF
 
   FileInformation = 0LL;
-  memset(v17, 0, sizeof(v17));
+  memset(v17, 0, 0x58uLL);
   memset(Object, 0, 0x68uLL);
   Object[1] = 0;
   v2 = *(_QWORD *)(a1 + 24);
@@ -47,9 +47,9 @@ char __fastcall MiAttemptPageFileReduction(__int64 a1)
     Object[8] = *(unsigned __int8 *)(a1 + 76);
     Object[9] = *(_DWORD *)(a1 + 40);
 LABEL_12:
-    MiQueueSyncModifiedWriterApc(v2, (int)v17, (int)MiAttemptPageFileReductionApc, (int)Object, Object);
+    MiQueueSyncModifiedWriterApc(v2, (__int64)v17, (__int64)MiAttemptPageFileReductionApc, (__int64)Object, Object);
     v12 = &Object[10];
-    v13 = (__int64 *)(v2 + 17056);
+    v13 = (__int64 *)(v2 + 6944);
     do
     {
       v11 = (unsigned int)*v12;
@@ -57,7 +57,7 @@ LABEL_12:
       {
         v14 = *v13;
         FileInformation = v11 << 12;
-        LOBYTE(v11) = IoSetInformation(*(PFILE_OBJECT *)(v14 + 56), FileAllocationInformation, 8u, &FileInformation);
+        LODWORD(v11) = IoSetInformation(*(PFILE_OBJECT *)(v14 + 56), FileAllocationInformation, 8u, &FileInformation);
       }
       ++v13;
       ++v12;
@@ -66,26 +66,29 @@ LABEL_12:
     while ( v3 );
     return v11;
   }
-  v4 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v2 + 1408));
+  v4 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v2 + 1344));
   *(_QWORD *)(a1 + 32) = 0LL;
   v5 = v4;
-  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v2 + 1408));
+  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v2 + 1344));
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-      v10 = (v9 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v9;
-      if ( v10 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v10 = (v9 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v9;
+        if ( v10 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v5);
-  LOBYTE(v11) = MiOkToShrinkPageFiles(*(_QWORD *)(v2 + 17576), *(_QWORD *)(v2 + 17816));
+  LODWORD(v11) = MiOkToShrinkPageFiles(*(_QWORD *)(v2 + 7464), *(_QWORD *)(v2 + 7592));
   if ( (_DWORD)v11 )
   {
     Object[8] = 16;

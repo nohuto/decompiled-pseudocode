@@ -1,33 +1,32 @@
 /*
- * XREFs of DrvNotifySessionStateChange @ 0x1C00A92D0
+ * XREFs of DrvNotifySessionStateChange @ 0x1C007E8B0
  * Callers:
- *     MultiUserNtGreCleanup @ 0x1C00A8AE8 (MultiUserNtGreCleanup.c)
- *     InitializeGreCSRSS @ 0x1C00A9010 (InitializeGreCSRSS.c)
+ *     MultiUserNtGreCleanup @ 0x1C007D498 (MultiUserNtGreCleanup.c)
+ *     InitializeGreCSRSS @ 0x1C007E308 (InitializeGreCSRSS.c)
  * Callees:
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C00462E4 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     ??9?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEBAH$$T@Z @ 0x1C00D01A0 (--9-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEBAH$$T@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     UserIsUserCritSecIn @ 0x1C004AA80 (UserIsUserCritSecIn.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DrvNotifySessionStateChange(unsigned int a1)
+__int64 __fastcall DrvNotifySessionStateChange(__int64 a1)
 {
-  __int64 v1; // rbx
+  __int64 v1; // rdi
   __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
+  __int64 v3; // rax
+  __int64 v4; // rbx
 
-  v1 = a1;
-  if ( (unsigned int)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator!=()
-    && IS_USERCRIT_OWNED_AT_ALL(v3, v2, v4, v5)
-    && (unsigned int)(v1 - 3) > 1 )
+  v1 = (unsigned int)a1;
+  if ( gpresUser && (unsigned int)UserIsUserCritSecIn() && (unsigned int)(v1 - 3) > 1 )
   {
-    WdLogSingleEntry0(1LL);
+    v3 = WdLogNewEntry5_WdAssertion(a1, v2);
+    WdLogEvent5_WdAssertion(v3);
   }
-  PsGetCurrentProcessSessionId();
-  WdLogSingleEntry2(4LL, v1);
-  if ( qword_1C0294F80 )
-    return qword_1C0294F80((unsigned int)v1);
+  v4 = WdLogNewEntry5_WdEvent(a1);
+  *(_QWORD *)(v4 + 24) = v1;
+  *(_QWORD *)(v4 + 32) = (unsigned int)PsGetCurrentProcessSessionId();
+  WdLogEvent5_WdEvent(v4);
+  if ( qword_1C0254F90 )
+    return qword_1C0254F90((unsigned int)v1);
   else
     return 3221225659LL;
 }

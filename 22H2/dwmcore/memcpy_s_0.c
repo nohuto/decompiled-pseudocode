@@ -1,9 +1,10 @@
 /*
- * XREFs of memcpy_s_0 @ 0x1801FD6E8
+ * XREFs of memcpy_s_0 @ 0x18019E914
  * Callers:
- *     ?GenerateIntermediateSurfaceBrush@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1@PEAPEAVCSurfaceDrawListBrush@@@Z @ 0x1801FC9F8 (-GenerateIntermediateSurfaceBrush@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1.c)
+ *     ?GenerateIntermediateSurfaceBrush@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1@PEAPEAVCSurfaceDrawListBrush@@@Z @ 0x18019DC38 (-GenerateIntermediateSurfaceBrush@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1.c)
  * Callees:
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
+ *     _invalid_parameter_noinfo @ 0x1800E7E7E (_invalid_parameter_noinfo.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
  */
 
 errno_t __cdecl memcpy_s_0(
@@ -12,7 +13,7 @@ errno_t __cdecl memcpy_s_0(
         const void *const Source,
         const rsize_t SourceSize)
 {
-  int *v5; // rax
+  errno_t *v5; // rax
   errno_t v6; // ebx
 
   if ( !SourceSize )
@@ -30,16 +31,16 @@ errno_t __cdecl memcpy_s_0(
   if ( !Source )
   {
 LABEL_4:
-    v5 = _errno();
+    v5 = (errno_t *)_o__errno(Destination);
     v6 = 22;
 LABEL_5:
     *v5 = v6;
-    _invalid_parameter_noinfo();
+    invalid_parameter_noinfo();
     return v6;
   }
   if ( SourceSize > 0x28 )
   {
-    v5 = _errno();
+    v5 = (errno_t *)_o__errno(Destination);
     v6 = 34;
     goto LABEL_5;
   }

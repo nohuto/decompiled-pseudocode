@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiCreateSolidBrush @ 0x1C0110740
+ * XREFs of NtGdiCreateSolidBrush @ 0x1C0125910
  * Callers:
  *     <none>
  * Callees:

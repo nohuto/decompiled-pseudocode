@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CRenderData@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D8FC0
+ * XREFs of ?IsOfType@CRenderData@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C22C0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CRenderData::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 47 || a2 == 145;
+  return a2 == 145 || a2 == 45;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIThermalCompletePendingIrps @ 0x1C0020E34
+ * XREFs of ACPIThermalCompletePendingIrps @ 0x1C0012E74
  * Callers:
- *     ACPIThermalLoopEx @ 0x1C00209D8 (ACPIThermalLoopEx.c)
- *     ACPIThermalStopZoneWorker @ 0x1C006109C (ACPIThermalStopZoneWorker.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
+ *     ACPIThermalStopZoneWorker @ 0x1C00602DC (ACPIThermalStopZoneWorker.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qqssdddd @ 0x1C002112C (WPP_RECORDER_SF_qqssdddd.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qqssdddd @ 0x1C001317C (WPP_RECORDER_SF_qqssdddd.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 char __fastcall ACPIThermalCompletePendingIrps(__int64 a1)
@@ -19,11 +19,11 @@ char __fastcall ACPIThermalCompletePendingIrps(__int64 a1)
   __int64 *v6; // rdi
   __int64 *v7; // rsi
   __int64 v8; // r13
-  int v9; // eax
-  __int64 v10; // rax
-  __int64 **v11; // rcx
-  __int64 **v12; // rax
-  _QWORD *v13; // rdi
+  _QWORD *v9; // rdi
+  int v11; // eax
+  __int64 v12; // rax
+  __int64 **v13; // rcx
+  __int64 **v14; // rax
   _QWORD *v15; // rcx
   IRP *v16; // rbx
   _QWORD *v17; // rax
@@ -33,7 +33,7 @@ char __fastcall ACPIThermalCompletePendingIrps(__int64 a1)
   __int64 v21; // rax
   __int64 v22; // rcx
   __int64 v23; // r13
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   IRP *v25; // [rsp+30h] [rbp-51h]
   __int64 v26; // [rsp+38h] [rbp-49h]
   void *v27; // [rsp+40h] [rbp-41h]
@@ -56,7 +56,7 @@ char __fastcall ACPIThermalCompletePendingIrps(__int64 a1)
   v5 = (__int64 *)AcpiThermalList;
   v33 = v4;
   if ( (__int64 *)AcpiThermalList == &AcpiThermalList )
-    goto LABEL_12;
+    goto LABEL_5;
   do
   {
     v6 = v5;
@@ -65,8 +65,8 @@ char __fastcall ACPIThermalCompletePendingIrps(__int64 a1)
     v8 = v6[2];
     if ( ACPIInternalGetDeviceExtension(*(_QWORD *)(v8 + 40)) != a1 )
       continue;
-    v9 = *(_DWORD *)(v8 + 24);
-    if ( v9 == 2703488 )
+    v11 = *(_DWORD *)(v8 + 24);
+    if ( v11 == 2703488 )
     {
       if ( !_InterlockedExchange64(v6 - 8, 0LL) )
         continue;
@@ -81,19 +81,19 @@ char __fastcall ACPIThermalCompletePendingIrps(__int64 a1)
       *(_DWORD *)(v22 + 88) = *(_DWORD *)(v1 + 88);
       *(v6 - 14) = 92LL;
     }
-    else if ( v9 == 2703512 )
+    else if ( v11 == 2703512 )
     {
       v23 = *(v6 - 18);
       *(_OWORD *)v23 = 0LL;
       if ( *(_QWORD *)(v1 + 312) )
       {
-        Pool2 = (void *)ExAllocatePool2(64LL, *(unsigned __int16 *)(v1 + 306), 1416651585LL);
-        *(_QWORD *)(v23 + 8) = Pool2;
-        if ( Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, *(unsigned __int16 *)(v1 + 306), 0x54706341u);
+        *(_QWORD *)(v23 + 8) = PoolWithTag;
+        if ( PoolWithTag )
         {
           *(_WORD *)v23 = *(_WORD *)(v1 + 304);
           *(_WORD *)(v23 + 2) = *(_WORD *)(v1 + 306);
-          memmove(Pool2, *(const void **)(v1 + 312), *(unsigned __int16 *)(v1 + 306));
+          memmove(PoolWithTag, *(const void **)(v1 + 312), *(unsigned __int16 *)(v1 + 306));
         }
       }
       *(v6 - 14) = 16LL;
@@ -103,48 +103,48 @@ char __fastcall ACPIThermalCompletePendingIrps(__int64 a1)
       *(v6 - 14) = 0LL;
     }
     *((_DWORD *)v6 - 30) = 0;
-    v10 = *v7;
+    v12 = *v7;
     if ( *(__int64 **)(*v7 + 8) != v7
-      || (v11 = (__int64 **)v7[1], *v11 != v7)
-      || (*v11 = (__int64 *)v10, *(_QWORD *)(v10 + 8) = v11, v12 = (__int64 **)v35, (_QWORD **)*v35 != &v34) )
+      || (v13 = (__int64 **)v7[1], *v13 != v7)
+      || (*v13 = (__int64 *)v12, *(_QWORD *)(v12 + 8) = v13, v14 = (__int64 **)v35, (_QWORD **)*v35 != &v34) )
     {
 LABEL_29:
       __fastfail(3u);
     }
     v7[1] = (__int64)v35;
     *v7 = (__int64)&v34;
-    *v12 = v7;
+    *v14 = v7;
     v35 = v7;
   }
   while ( v5 != &AcpiThermalList );
   v4 = v33;
-LABEL_12:
+LABEL_5:
   KeReleaseSpinLock(&AcpiThermalLock, v4);
-  v13 = v34;
-  while ( v13 != &v34 )
+  v9 = v34;
+  while ( v9 != &v34 )
   {
-    v15 = (_QWORD *)*v13;
-    v16 = (IRP *)(v13 - 21);
-    v17 = v13;
-    v13 = v15;
+    v15 = (_QWORD *)*v9;
+    v16 = (IRP *)(v9 - 21);
+    v17 = v9;
+    v9 = v15;
     if ( (_QWORD *)v15[1] != v17 )
       goto LABEL_29;
     v18 = (_QWORD *)v17[1];
     if ( (_QWORD *)*v18 != v17 )
       goto LABEL_29;
     *v18 = v15;
-    v19 = &unk_1C006FB8B;
+    v19 = &unk_1C00701BA;
     v15[1] = v18;
-    v20 = &unk_1C006FB8B;
+    v20 = &unk_1C00701BA;
     TimeFields = 0LL;
     Time.QuadPart = MEMORY[0xFFFFF78000000008];
     RtlTimeToTimeFields(&Time, &TimeFields);
     v21 = *(_QWORD *)(a1 + 8);
     if ( (v21 & 0x200000000000LL) != 0 )
     {
-      v19 = *(void **)(a1 + 608);
+      v19 = *(void **)(a1 + 568);
       if ( (v21 & 0x400000000000LL) != 0 )
-        v20 = *(void **)(a1 + 616);
+        v20 = *(void **)(a1 + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {

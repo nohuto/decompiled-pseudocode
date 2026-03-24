@@ -1,11 +1,11 @@
 /*
- * XREFs of ESM_UpdatingTransferRingDequeuePointers @ 0x1C000C0A0
+ * XREFs of ESM_UpdatingTransferRingDequeuePointers @ 0x1C000FB60
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     Endpoint_OnCancelSetDequeuePointer @ 0x1C000C0DC (Endpoint_OnCancelSetDequeuePointer.c)
- *     XilEndpoint_FetchStreamContextArray @ 0x1C0037708 (XilEndpoint_FetchStreamContextArray.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     Endpoint_OnCancelSetDequeuePointer @ 0x1C00100F4 (Endpoint_OnCancelSetDequeuePointer.c)
+ *     XilEndpoint_FetchStreamContextArray @ 0x1C003754C (XilEndpoint_FetchStreamContextArray.c)
  */
 
 __int64 __fastcall ESM_UpdatingTransferRingDequeuePointers(__int64 a1)

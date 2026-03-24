@@ -1,21 +1,21 @@
 /*
- * XREFs of _SysCtxOpenMachine @ 0x140855F00
+ * XREFs of _SysCtxOpenMachine @ 0x1407A4D24
  * Callers:
- *     _PnpCtxCreateNode @ 0x140855DB8 (_PnpCtxCreateNode.c)
+ *     _PnpCtxCreateNode @ 0x1407A4BD8 (_PnpCtxCreateNode.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwDuplicateObject @ 0x14041AE20 (ZwDuplicateObject.c)
- *     memset @ 0x140435400 (memset.c)
- *     _RegRtlOpenKeyTransacted @ 0x1406CEE20 (_RegRtlOpenKeyTransacted.c)
- *     RtlGetVersion @ 0x140759210 (RtlGetVersion.c)
- *     _SysCtxOpenControlSet @ 0x140856138 (_SysCtxOpenControlSet.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x1403FA1A0 (ZwDuplicateObject.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlGetVersion @ 0x14068F5D0 (RtlGetVersion.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406BB4DC (_RegRtlOpenKeyTransacted.c)
+ *     _SysCtxOpenControlSet @ 0x1407A4F54 (_SysCtxOpenControlSet.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SysCtxOpenMachine(
-        unsigned int a1,
+        __int64 a1,
         __int64 a2,
         __int64 a3,
         __int64 a4,
@@ -23,48 +23,53 @@ __int64 __fastcall SysCtxOpenMachine(
         int a6,
         _QWORD *a7)
 {
-  int Version; // ebx
-  _BYTE *Pool2; // rdi
+  int Version; // edi
+  _OWORD *PoolWithTag; // rax
+  __int64 v11; // rcx
+  _BYTE *v12; // rbx
   int v13; // r8d
-  __int64 v14; // rcx
-  const WCHAR *v15; // rdx
+  const WCHAR *v14; // rdx
+  __int64 v15; // rcx
   __int64 v16; // rcx
   HANDLE v17; // rcx
-  const WCHAR *v19; // rdx
-  __int64 v20; // rcx
   HANDLE TargetHandle; // [rsp+40h] [rbp-C0h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-B8h] BYREF
-  HANDLE v23; // [rsp+50h] [rbp-B0h] BYREF
-  HANDLE v24; // [rsp+58h] [rbp-A8h] BYREF
-  HANDLE v25; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD *v26; // [rsp+68h] [rbp-98h]
+  HANDLE v21; // [rsp+50h] [rbp-B0h] BYREF
+  HANDLE v22; // [rsp+58h] [rbp-A8h] BYREF
+  HANDLE v23; // [rsp+60h] [rbp-A0h]
   _DWORD VersionInformation[72]; // [rsp+70h] [rbp-90h] BYREF
 
   Handle = 0LL;
   v23 = 0LL;
+  v21 = 0LL;
+  v22 = 0LL;
   Version = 0;
-  v24 = 0LL;
-  v25 = 0LL;
   TargetHandle = 0LL;
   *a7 = 0LL;
-  v26 = a7;
-  Pool2 = (_BYTE *)ExAllocatePool2(256LL, 56LL, 1397771856LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x38uLL, 0x53504E50u);
+  v12 = PoolWithTag;
+  if ( !PoolWithTag )
   {
     Version = -1073741801;
-    goto LABEL_29;
+    goto LABEL_27;
   }
   v13 = a6;
+  *PoolWithTag = 0LL;
+  PoolWithTag[1] = 0LL;
+  PoolWithTag[2] = 0LL;
+  *((_QWORD *)PoolWithTag + 6) = 0LL;
   if ( !a6 )
   {
     memset(&VersionInformation[1], 0, 0x118uLL);
     VersionInformation[0] = 284;
     Version = RtlGetVersion((PRTL_OSVERSIONINFOW)VersionInformation);
     if ( Version < 0 )
-      goto LABEL_29;
-    v13 = BYTE2(VersionInformation[69]) | (unsigned __int16)(LOBYTE(VersionInformation[69]) << 8) | ((LOBYTE(VersionInformation[2]) | (unsigned __int16)(LOBYTE(VersionInformation[1]) << 8)) << 16);
+      goto LABEL_27;
+    v11 = LOBYTE(VersionInformation[69]);
+    LOWORD(v11) = LOBYTE(VersionInformation[69]) << 8;
+    v13 = BYTE2(VersionInformation[69]) | (unsigned __int16)v11 | ((LOBYTE(VersionInformation[2]) | (unsigned __int16)(LOBYTE(VersionInformation[1]) << 8)) << 16);
   }
-  *(_DWORD *)Pool2 = v13;
+  *(_DWORD *)v12 = v13;
   if ( SourceHandle )
   {
     Version = ZwDuplicateObject(
@@ -78,91 +83,71 @@ __int64 __fastcall SysCtxOpenMachine(
     if ( Version < 0 )
     {
       TargetHandle = 0LL;
-      goto LABEL_17;
+      goto LABEL_15;
     }
   }
-  v14 = 2147483650LL;
-  if ( a2 )
+  if ( !a2 )
   {
-    if ( a2 == -1 )
-      goto LABEL_7;
-    v15 = 0LL;
-    v14 = a2;
+    v14 = L"SYSTEM";
+    v15 = 2147483650LL;
+    goto LABEL_6;
   }
-  else
+  if ( a2 != -1 )
   {
-    v15 = L"SYSTEM";
-  }
-  Version = RegRtlOpenKeyTransacted((void *)v14, v15, 0, 0x2000000u, &Handle, (__int64)TargetHandle);
-  if ( Version )
-    goto LABEL_29;
-LABEL_7:
-  if ( Handle )
-  {
-    Version = SysCtxOpenControlSet(a1, Handle, TargetHandle, &v25);
+    v14 = 0LL;
+    v15 = a2;
+LABEL_6:
+    Version = RegRtlOpenKeyTransacted((char *)v15, v14, 0, 0x2000000u, &Handle, (__int64)TargetHandle);
     if ( Version )
-      goto LABEL_29;
+      goto LABEL_27;
   }
-  if ( !a3 )
+  if ( !Handle || (Version = SysCtxOpenControlSet(v11, Handle, TargetHandle, &v22)) == 0 )
   {
-    v19 = L"SOFTWARE";
-    v20 = 2147483650LL;
-    goto LABEL_38;
+    if ( a4 )
+    {
+      if ( a4 == -1 )
+        goto LABEL_12;
+      v16 = a4;
+    }
+    else
+    {
+      v16 = 2147483651LL;
+    }
+    Version = RegRtlOpenKeyTransacted((char *)v16, 0LL, 0, 0x2000000u, &v21, (__int64)TargetHandle);
+    if ( !Version )
+    {
+LABEL_12:
+      v12[16] = 1;
+      v17 = 0LL;
+      *((_QWORD *)v12 + 1) = TargetHandle;
+      *((_QWORD *)v12 + 3) = Handle;
+      *((_QWORD *)v12 + 4) = v23;
+      *((_QWORD *)v12 + 6) = v22;
+      *((_QWORD *)v12 + 5) = v21;
+      *a7 = v12;
+      v12 = 0LL;
+      TargetHandle = 0LL;
+      Handle = 0LL;
+      v22 = 0LL;
+      v21 = 0LL;
+      goto LABEL_13;
+    }
   }
-  if ( a3 != -1 )
-  {
-    v19 = 0LL;
-    v20 = a3;
-LABEL_38:
-    Version = RegRtlOpenKeyTransacted((void *)v20, v19, 0, 0x2000000u, &v23, (__int64)TargetHandle);
-    if ( Version )
-      goto LABEL_29;
-  }
-  if ( a4 )
-  {
-    if ( a4 == -1 )
-      goto LABEL_14;
-    v16 = a4;
-  }
-  else
-  {
-    v16 = 2147483651LL;
-  }
-  Version = RegRtlOpenKeyTransacted((void *)v16, 0LL, 0, 0x2000000u, &v24, (__int64)TargetHandle);
-  if ( !Version )
-  {
-LABEL_14:
-    Pool2[16] = 1;
-    v17 = 0LL;
-    *((_QWORD *)Pool2 + 1) = TargetHandle;
-    *((_QWORD *)Pool2 + 3) = Handle;
-    *((_QWORD *)Pool2 + 4) = v23;
-    *((_QWORD *)Pool2 + 6) = v25;
-    *((_QWORD *)Pool2 + 5) = v24;
-    Handle = 0LL;
-    v23 = 0LL;
-    v25 = 0LL;
-    *v26 = Pool2;
-    Pool2 = 0LL;
-    v24 = 0LL;
-    TargetHandle = 0LL;
-    goto LABEL_15;
-  }
-LABEL_29:
+LABEL_27:
   v17 = TargetHandle;
-LABEL_15:
+LABEL_13:
   if ( v17 )
     ZwClose(v17);
-LABEL_17:
+LABEL_15:
   if ( Handle )
     ZwClose(Handle);
   if ( v23 )
     ZwClose(v23);
-  if ( v25 )
-    ZwClose(v25);
-  if ( v24 )
-    ZwClose(v24);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( v22 )
+    ZwClose(v22);
+  if ( v21 )
+    ZwClose(v21);
+  if ( v12 )
+    ExFreePoolWithTag(v12, 0);
   return (unsigned int)Version;
 }

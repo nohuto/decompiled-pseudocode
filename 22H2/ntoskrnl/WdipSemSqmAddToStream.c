@@ -1,11 +1,11 @@
 /*
- * XREFs of WdipSemSqmAddToStream @ 0x1409DE8E8
+ * XREFs of WdipSemSqmAddToStream @ 0x140930ACC
  * Callers:
- *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1407DAEF8 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
- *     WdipSemSqmLogTimeoutDataPoints @ 0x1409DEB3C (WdipSemSqmLogTimeoutDataPoints.c)
+ *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1406990E8 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
+ *     WdipSemSqmLogTimeoutDataPoints @ 0x140930D20 (WdipSemSqmLogTimeoutDataPoints.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     WdipSemWriteEvent @ 0x1408339AC (WdipSemWriteEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     WdipSemWriteEvent @ 0x1407888FC (WdipSemWriteEvent.c)
  */
 
 NTSTATUS __fastcall WdipSemSqmAddToStream(_DWORD *a1, unsigned int a2, ULONGLONG a3)

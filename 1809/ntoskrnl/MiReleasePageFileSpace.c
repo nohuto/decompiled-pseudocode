@@ -11,14 +11,14 @@
  *     MiDeleteClusterSection @ 0x140081F00 (MiDeleteClusterSection.c)
  *     MiRemoveMappedPtes @ 0x1400855D0 (MiRemoveMappedPtes.c)
  *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     MiWsleFlush @ 0x1400B32F0 (MiWsleFlush.c)
- *     MiDeleteMergedPte @ 0x14011FC00 (MiDeleteMergedPte.c)
- *     MiDeletePerSessionProtos @ 0x140136F84 (MiDeletePerSessionProtos.c)
- *     MiPurgeImageSection @ 0x140176600 (MiPurgeImageSection.c)
- *     MiDeleteClusterPage @ 0x1402C612C (MiDeleteClusterPage.c)
+ *     MiWsleFlush @ 0x1400B3310 (MiWsleFlush.c)
+ *     MiDeleteMergedPte @ 0x14011FC20 (MiDeleteMergedPte.c)
+ *     MiDeletePerSessionProtos @ 0x140136FA4 (MiDeletePerSessionProtos.c)
+ *     MiPurgeImageSection @ 0x140176620 (MiPurgeImageSection.c)
+ *     MiDeleteClusterPage @ 0x1402C622C (MiDeleteClusterPage.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
- *     MiCapturePageFileInfoInline @ 0x140119DB0 (MiCapturePageFileInfoInline.c)
+ *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
  */
 
 __int64 __fastcall MiReleasePageFileSpace(struct _KEVENT *a1, __int64 a2)

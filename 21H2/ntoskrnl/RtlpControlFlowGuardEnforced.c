@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpControlFlowGuardEnforced @ 0x140294CA4
+ * XREFs of RtlpControlFlowGuardEnforced @ 0x1402773E0
  * Callers:
- *     RtlGuardRestoreContext @ 0x140294C30 (RtlGuardRestoreContext.c)
- *     RtlGuardCheckLongJumpTarget @ 0x1405EEC28 (RtlGuardCheckLongJumpTarget.c)
+ *     RtlGuardCheckExceptionHandler @ 0x140277304 (RtlGuardCheckExceptionHandler.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x14058F448 (RtlGuardCheckLongJumpTarget.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x140294CC0 (VslGetNestedPageProtectionFlags.c)
+ *     VslGetNestedPageProtectionFlags @ 0x140277400 (VslGetNestedPageProtectionFlags.c)
  */
 
 __int64 RtlpControlFlowGuardEnforced()

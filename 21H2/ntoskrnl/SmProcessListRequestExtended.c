@@ -1,63 +1,68 @@
 /*
- * XREFs of SmProcessListRequestExtended @ 0x1409D4090
+ * XREFs of SmProcessListRequestExtended @ 0x140929D54
  * Callers:
- *     SmProcessListRequest @ 0x1409D3EC0 (SmProcessListRequest.c)
+ *     SmProcessListRequest @ 0x140929B84 (SmProcessListRequest.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     SmKmStoreReference @ 0x14035F464 (SmKmStoreReference.c)
- *     SmKmStoreRefFromStoreIndex @ 0x14035F5E8 (SmKmStoreRefFromStoreIndex.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     SmKmFileInfoGetPath @ 0x1409D59E8 (SmKmFileInfoGetPath.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     SmKmStoreReference @ 0x1402D9458 (SmKmStoreReference.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SmKmFileInfoGetPath @ 0x14092B4A4 (SmKmFileInfoGetPath.c)
  */
 
-__int64 __fastcall SmProcessListRequestExtended(__int64 a1, __int64 a2)
+__int64 __fastcall SmProcessListRequestExtended(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v4; // esi
-  unsigned int v5; // r14d
-  __int64 v6; // r12
-  unsigned __int64 v7; // rbx
-  __int64 v8; // rax
+  unsigned __int64 v6; // rbx
+  unsigned int v7; // esi
+  unsigned int v8; // r14d
+  __int64 v9; // r12
+  __int64 v10; // rax
   int Path; // ebp
-  struct _EX_RUNDOWN_REF *v10; // rax
-  struct _EX_RUNDOWN_REF *v11; // rax
+  struct _EX_RUNDOWN_REF *v12; // rax
+  struct _EX_RUNDOWN_REF *v13; // rax
 
-  v4 = 0;
+  v6 = 0LL;
+  v7 = 0;
   if ( *(_BYTE *)(a2 + 1) )
   {
-    v5 = 1;
+    v8 = 1;
     do
     {
-      v6 = a2 + 4LL * v4;
-      v7 = SmKmStoreReference(a1, *(_DWORD *)(v6 + 4));
-      if ( v7 )
+      v9 = a2 + 4LL * v7;
+      v6 = SmKmStoreReference(a1, *(_DWORD *)(v9 + 4), a3, a4);
+      if ( v6 )
       {
-        v8 = a2 + ((unsigned __int64)v4 << 7);
-        if ( *(_BYTE *)(v7 + 6020) == 1 )
+        v10 = a2 + ((unsigned __int64)v7 << 7);
+        if ( *(_BYTE *)(v6 + 6020) == 1 )
         {
-          Path = SmKmFileInfoGetPath(v7 + 6216, v8 + 132, 128LL);
+          Path = SmKmFileInfoGetPath(v6 + 6216, v10 + 132, 128LL);
           if ( Path < 0 )
-          {
-            v11 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(a1, *(_DWORD *)(v7 + 6016) & 0x3FF);
-            ExReleaseRundownProtection(v11 + 1);
-            return (unsigned int)Path;
-          }
+            goto LABEL_12;
         }
         else
         {
-          *(_WORD *)(v8 + 132) = 0;
+          *(_WORD *)(v10 + 132) = 0;
         }
-        v10 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(a1, *(_DWORD *)(v7 + 6016) & 0x3FF);
-        ExReleaseRundownProtection(v10 + 1);
+        v12 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(a1, *(_DWORD *)(v6 + 6016) & 0x3FF);
+        ExReleaseRundownProtection_0(v12 + 1);
+        v6 = 0LL;
       }
       else
       {
-        memmove((void *)(v6 + 4), (const void *)(a2 + 4 * (v5-- + 1LL)), 4 * (*(unsigned __int8 *)(a2 + 1) - v4--) - 4);
+        memmove((void *)(v9 + 4), (const void *)(a2 + 4 * (v8-- + 1LL)), 4 * (*(unsigned __int8 *)(a2 + 1) - v7--) - 4);
         --*(_BYTE *)(a2 + 1);
       }
-      ++v4;
-      ++v5;
+      ++v7;
+      ++v8;
     }
-    while ( v4 < *(unsigned __int8 *)(a2 + 1) );
+    while ( v7 < *(unsigned __int8 *)(a2 + 1) );
   }
-  return 0;
+  Path = 0;
+LABEL_12:
+  if ( v6 )
+  {
+    v13 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(a1, *(_DWORD *)(v6 + 6016) & 0x3FF);
+    ExReleaseRundownProtection_0(v13 + 1);
+  }
+  return (unsigned int)Path;
 }

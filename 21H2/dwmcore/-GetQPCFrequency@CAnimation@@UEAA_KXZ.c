@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetQPCFrequency@CAnimation@@UEAA_KXZ @ 0x1800FB2C0
+ * XREFs of ?GetQPCFrequency@CAnimation@@UEAA_KXZ @ 0x1800E2950
  * Callers:
  *     <none>
  * Callees:

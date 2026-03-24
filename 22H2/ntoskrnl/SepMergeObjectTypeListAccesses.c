@@ -1,8 +1,8 @@
 /*
- * XREFs of SepMergeObjectTypeListAccesses @ 0x1405B7F0C
+ * XREFs of SepMergeObjectTypeListAccesses @ 0x14059627C
  * Callers:
- *     SeAccessCheckByType @ 0x1402B3A90 (SeAccessCheckByType.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C10C0 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x140345AC0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406265D0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
  *     <none>
  */

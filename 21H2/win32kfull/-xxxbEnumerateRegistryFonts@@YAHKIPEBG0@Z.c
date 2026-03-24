@@ -1,22 +1,21 @@
 /*
- * XREFs of ?xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z @ 0x1C00EEC14
+ * XREFs of ?xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z @ 0x1C0025C40
  * Callers:
- *     ?xxxLoadPermanentFonts@@YAHXZ @ 0x1C00EE81C (-xxxLoadPermanentFonts@@YAHXZ.c)
- *     ?xxxLoadUserAndNetworkFonts@@YAXXZ @ 0x1C00EEA3C (-xxxLoadUserAndNetworkFonts@@YAXXZ.c)
+ *     ?xxxLoadUserAndNetworkFonts@@YAXXZ @ 0x1C0025DD8 (-xxxLoadUserAndNetworkFonts@@YAXXZ.c)
+ *     ?xxxLoadPermanentFonts@@YAHXZ @ 0x1C0025F30 (-xxxLoadPermanentFonts@@YAHXZ.c)
  * Callees:
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0061D10 (PopAndFreeAlwaysW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     ?xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z @ 0x1C00EEE2C (-xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z.c)
- *     ThreadLockExchange @ 0x1C00FDE30 (ThreadLockExchange.c)
+ *     ?xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z @ 0x1C0021E50 (-xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BFD00 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     ThreadLockExchange @ 0x1C00C15B0 (ThreadLockExchange.c)
  */
 
 __int64 __fastcall xxxbEnumerateRegistryFonts(
-        unsigned int a1,
-        __int64 a2,
+        int a1,
+        unsigned int a2,
         const unsigned __int16 *a3,
         const unsigned __int16 *a4)
 {
-  unsigned int v4; // edi
   __int64 v6; // rbx
   ULONG v7; // r12d
   void *v8; // rdi
@@ -39,7 +38,6 @@ __int64 __fastcall xxxbEnumerateRegistryFonts(
   KeyHandle = 0LL;
   v21 = 0LL;
   v19 = 0LL;
-  v4 = a2;
   ResultLength = 0;
   v6 = 0LL;
   v7 = 544;
@@ -47,30 +45,30 @@ __int64 __fastcall xxxbEnumerateRegistryFonts(
   v18 = 0LL;
   v17 = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
-  if ( (_DWORD)a2 == 56 )
+  if ( a2 == 56 )
   {
-    v6 = CreateProfileUserName(&v20, a2, a3, a4);
+    v6 = CreateProfileUserName(&v20);
     if ( !v6 )
       return 0LL;
   }
-  v8 = (void *)OpenCacheKeyEx(v6, v4, 131097LL);
+  v8 = (void *)OpenCacheKeyEx(v6, a2, 131097LL, 0LL);
   if ( v6 )
     FreeProfileUserName(v6, &v20);
   if ( !v8 )
     return 0LL;
   v9 = xxxbEnumerateRegistryFontsInternal(v8, a1);
-  v10 = Win32AllocPoolZInit(544LL, 1919972181LL);
+  v10 = Win32AllocPool(544LL, 1919972181LL);
   v11 = (unsigned int *)v10;
   if ( !v10 )
     return v9;
-  PushW32ThreadLock(v10, &v18, (__int64)Win32FreePool);
+  PushW32ThreadLock(v10, &v18, Win32FreePool);
   for ( i = 0; ; ++i )
   {
     v13 = ZwEnumerateKey(v8, i, KeyBasicInformation, v11, v7 - 2, &ResultLength);
     if ( v13 != -2147483643 && v13 != -1073741789 )
       break;
     ResultLength += 2;
-    v15 = Win32AllocPoolZInit(ResultLength, 1919972181LL);
+    v15 = Win32AllocPool(ResultLength, 1919972181LL);
     v16 = (unsigned int *)v15;
     if ( v15 )
     {
@@ -82,7 +80,7 @@ __int64 __fastcall xxxbEnumerateRegistryFonts(
       if ( v13 != -2147483643 && v13 != -1073741789 )
         break;
     }
-LABEL_16:
+LABEL_20:
     ;
   }
   if ( v13 >= 0 )
@@ -101,9 +99,9 @@ LABEL_16:
       v9 |= xxxbEnumerateRegistryFontsInternal(KeyHandle, a1);
       ZwClose(KeyHandle);
     }
-    goto LABEL_16;
+    goto LABEL_20;
   }
-  PopAndFreeAlwaysW32ThreadLock((__int64)&v18);
+  PopAndFreeAlwaysW32ThreadLock(&v18);
   ZwClose(v8);
   return v9;
 }

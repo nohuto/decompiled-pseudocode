@@ -1,12 +1,12 @@
 /*
- * XREFs of ?AddRef@CHolographicFrameProcessor@@WCA@EAAKXZ @ 0x18010ADB0
+ * XREFs of ?AddRef@CHolographicFrameProcessor@@WCA@EAAKXZ @ 0x1800F85A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-unsigned int __fastcall CHolographicFrameProcessor::AddRef(__int64 a1)
+__int64 __fastcall CHolographicFrameProcessor::AddRef(__int64 a1)
 {
-  return CManipulationContext::AddRef((CManipulationContext *)(a1 - 32));
+  return CInteraction::AddRef((CInteraction *)(a1 - 32));
 }

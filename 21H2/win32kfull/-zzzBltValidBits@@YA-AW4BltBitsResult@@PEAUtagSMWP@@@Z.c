@@ -1,354 +1,345 @@
 /*
- * XREFs of ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0047DD4
+ * XREFs of ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C006E030
  * Callers:
- *     xxxEndDeferWindowPosEx @ 0x1C004720C (xxxEndDeferWindowPosEx.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C006EDBC (xxxEndDeferWindowPosEx.c)
  * Callees:
- *     NtGdiBitBltInternal @ 0x1C003DD70 (NtGdiBitBltInternal.c)
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?BltValidInit@@YAHPEAUtagSMWP@@@Z @ 0x1C00435F8 (-BltValidInit@@YAHPEAUtagSMWP@@@Z.c)
- *     ?IsStillWindowC@@YAHPEAUHWND__@@@Z @ 0x1C0043740 (-IsStillWindowC@@YAHPEAUHWND__@@@Z.c)
- *     GetRedirectionBitmap @ 0x1C0049330 (GetRedirectionBitmap.c)
- *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C0049764 (zzzLockDisplayAreaAndInvalidateDCCache.c)
- *     xxxInternalInvalidate @ 0x1C004A420 (xxxInternalInvalidate.c)
- *     PhysicalToLogicalInPlaceRgn @ 0x1C004A600 (PhysicalToLogicalInPlaceRgn.c)
- *     GetStyleWindow @ 0x1C004CDA0 (GetStyleWindow.c)
- *     IsThreadDesktopComposed @ 0x1C006DA68 (IsThreadDesktopComposed.c)
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C006E60C (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     _GetDesktopWindow @ 0x1C006FF60 (_GetDesktopWindow.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     xxxFlushDeferredWindowEvents @ 0x1C00741F8 (xxxFlushDeferredWindowEvents.c)
- *     GreRedrawSpriteOverlapPresent @ 0x1C0085D2C (GreRedrawSpriteOverlapPresent.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     DeleteOldRedirectionBitmap @ 0x1C00B4184 (DeleteOldRedirectionBitmap.c)
- *     GetOldRedirectionBitmap @ 0x1C00B41E0 (GetOldRedirectionBitmap.c)
- *     UnionRect @ 0x1C00C1640 (UnionRect.c)
- *     SpbCheck @ 0x1C00DC1F8 (SpbCheck.c)
- *     GreHintDCWnd @ 0x1C00DC470 (GreHintDCWnd.c)
- *     SpbCheckRect @ 0x1C00DC7C0 (SpbCheckRect.c)
- *     FreeSpb @ 0x1C00DCA08 (FreeSpb.c)
- *     ?SwpCalcVisRgn@@YAHPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C00DF0C0 (-SwpCalcVisRgn@@YAHPEAUtagWND@@PEAUHRGN__@@@Z.c)
- *     LogicalToPhysicalInPlaceRgnWorker @ 0x1C0100464 (LogicalToPhysicalInPlaceRgnWorker.c)
- *     ?CombineOldNewVis@@YAHPEAUHRGN__@@00II@Z @ 0x1C0102694 (-CombineOldNewVis@@YAHPEAUHRGN__@@00II@Z.c)
- *     UpdateSpriteArea @ 0x1C010C8C8 (UpdateSpriteArea.c)
- *     GreUnlockDisplayArea @ 0x1C01221CC (GreUnlockDisplayArea.c)
- *     RestoreSpb @ 0x1C0158DC0 (RestoreSpb.c)
- *     FindSpb @ 0x1C0158F38 (FindSpb.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     GreClientRgnDone @ 0x1C0284414 (GreClientRgnDone.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068330 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     IsThreadDesktopComposed @ 0x1C006A418 (IsThreadDesktopComposed.c)
+ *     GreRedrawSpriteOverlapPresent @ 0x1C006A43C (GreRedrawSpriteOverlapPresent.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DF44 (zzzEndDeferWinEventNotify.c)
+ *     ?BltValidInit@@YAHPEAUtagSMWP@@@Z @ 0x1C006EC64 (-BltValidInit@@YAHPEAUtagSMWP@@@Z.c)
+ *     ?IsStillWindowC@@YAHPEAUHWND__@@@Z @ 0x1C006ED88 (-IsStillWindowC@@YAHPEAUHWND__@@@Z.c)
+ *     _GetDesktopWindow @ 0x1C00704C0 (_GetDesktopWindow.c)
+ *     GetStyleWindow @ 0x1C0071560 (GetStyleWindow.c)
+ *     xxxInternalInvalidate @ 0x1C0072580 (xxxInternalInvalidate.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C0072764 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     PhysicalToLogicalInPlaceRgn @ 0x1C0073088 (PhysicalToLogicalInPlaceRgn.c)
+ *     NtGdiBitBltInternal @ 0x1C0088690 (NtGdiBitBltInternal.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     ?SwpCalcVisRgn@@YAHPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C00BEE08 (-SwpCalcVisRgn@@YAHPEAUtagWND@@PEAUHRGN__@@@Z.c)
+ *     GetRedirectionBitmap @ 0x1C00BEF20 (GetRedirectionBitmap.c)
+ *     GreHintDCWnd @ 0x1C00D5420 (GreHintDCWnd.c)
+ *     DeleteOldRedirectionBitmap @ 0x1C00EF8C8 (DeleteOldRedirectionBitmap.c)
+ *     GetOldRedirectionBitmap @ 0x1C00EF924 (GetOldRedirectionBitmap.c)
+ *     UnionRect @ 0x1C0104EFC (UnionRect.c)
+ *     LogicalToPhysicalInPlaceRgnWorker @ 0x1C0115D84 (LogicalToPhysicalInPlaceRgnWorker.c)
+ *     ?CombineOldNewVis@@YAHPEAUHRGN__@@00II@Z @ 0x1C011680C (-CombineOldNewVis@@YAHPEAUHRGN__@@00II@Z.c)
+ *     UpdateSpriteArea @ 0x1C015B5D4 (UpdateSpriteArea.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     FindSpb @ 0x1C021A2B4 (FindSpb.c)
+ *     FreeSpb @ 0x1C021A2E4 (FreeSpb.c)
+ *     RestoreSpb @ 0x1C021A4F0 (RestoreSpb.c)
+ *     SpbCheck @ 0x1C021A72C (SpbCheck.c)
+ *     SpbCheckRect @ 0x1C021A844 (SpbCheckRect.c)
+ *     GreUnlockDisplayArea @ 0x1C0285ACC (GreUnlockDisplayArea.c)
+ *     GreClientRgnDone @ 0x1C0287854 (GreClientRgnDone.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall zzzBltValidBits(__int64 a1)
 {
-  __int64 v1; // r15
-  HDC v2; // r12
-  unsigned int v3; // r13d
-  __int64 v4; // rbx
+  __int64 v1; // r13
+  HDC v2; // r15
+  unsigned int v3; // r12d
+  __int64 v4; // rdx
   _QWORD *v5; // rsi
   int v6; // r14d
-  __int64 v7; // rax
-  __int64 v8; // rdi
-  _QWORD *v9; // rax
-  int v10; // r14d
-  struct tagWND *v11; // rsi
-  __int64 v12; // rdx
-  int v13; // edi
-  int v14; // r13d
+  _QWORD *v7; // rbx
+  __int64 v8; // rax
+  __int64 v9; // rdi
+  _QWORD *v10; // rax
+  __int64 v11; // rsi
+  int v12; // r8d
+  int v13; // r14d
+  unsigned int v14; // r12d
   __int64 *v15; // rbx
-  int v16; // ecx
-  int v17; // eax
-  _QWORD *v18; // rdi
-  int v19; // ebx
-  __int64 v20; // rdx
-  unsigned int DLT; // eax
-  tagDomLock *DomainLockRef; // rax
-  char *v23; // rbx
-  int v24; // edi
-  tagDomLock *v25; // rcx
-  int v27; // edi
-  _QWORD *v28; // rbx
-  __int64 v29; // rcx
-  __int64 v30; // rax
-  unsigned int v31; // esi
-  __int64 v32; // rdi
-  HRGN v33; // rdx
-  int v34; // edx
-  __int64 v35; // rcx
-  int v36; // eax
-  int v37; // esi
-  unsigned int v38; // ebx
+  __int64 v16; // rcx
+  int v17; // r13d
+  int v18; // eax
+  __int64 *v19; // rdi
+  int v20; // ebx
+  __int64 v21; // rdx
+  int v23; // edi
+  _QWORD *v24; // rbx
+  __int64 v25; // rax
+  unsigned int v26; // edi
+  __int64 v27; // rsi
   __int64 RedirectionBitmap; // rax
-  __int64 v40; // rcx
-  int v41; // eax
-  int v42; // r9d
-  int v43; // edx
-  int v44; // r10d
-  int v45; // r8d
-  int v46; // eax
-  __int64 v47; // r15
-  __int64 v48; // r8
-  __int64 v49; // rax
-  __int64 v50; // r14
-  __int64 v51; // r8
-  _QWORD *v52; // r8
+  __int64 v29; // rdx
+  int v30; // ecx
+  HRGN v31; // rdx
+  int v32; // eax
+  int v33; // esi
+  unsigned int v34; // ebx
+  int v35; // r9d
+  int v36; // edx
+  int v37; // r10d
+  int v38; // r8d
+  int v39; // eax
+  __int64 v40; // r15
+  __int64 v41; // r8
+  __int64 v42; // rax
+  __int64 v43; // r14
+  __int64 v44; // r8
+  _QWORD *v45; // r8
   __int64 StyleWindow; // rax
-  __int64 v54; // r14
-  __int64 v55; // r15
-  __int64 v56; // r10
-  __int64 OldRedirectionBitmap; // r8
-  __int64 v58; // r9
-  __int64 v59; // r8
-  __int64 v60; // rcx
-  __int64 v61; // r9
-  __int64 v62; // rcx
-  __int64 v63; // r8
-  __int64 v64; // rdi
-  __int64 v65; // rbx
-  int v66; // edi
-  int v67; // edx
-  int v68; // r13d
-  unsigned int v69; // r12d
+  __int64 v47; // r14
+  __int64 v48; // r15
+  __int64 v49; // r10
+  __int64 v50; // r8
+  __int64 v51; // r9
+  __int64 v52; // r8
+  __int64 v53; // rcx
+  __int64 v54; // r9
+  __int64 v55; // rcx
+  __int64 v56; // r8
+  __int64 v57; // rdi
+  __int64 v58; // rbx
+  int v59; // edi
+  unsigned int v60; // r12d
+  int v61; // edx
+  int v62; // eax
+  __m128i v63; // xmm0
+  int v64; // ecx
+  int v65; // edx
+  __int64 OldRedirectionBitmap; // rax
+  __int64 v67; // r10
+  HDC v68; // r15
+  int v69; // eax
   int v70; // eax
-  __m128i v71; // xmm0
-  int v72; // ecx
-  int v73; // edx
-  int v74; // ecx
-  int v75; // r10d
-  int v76; // edx
-  int v77; // r11d
-  __int64 v78; // rax
-  HDC v79; // r12
   __int64 Spb; // rax
-  unsigned int v81[2]; // [rsp+28h] [rbp-E0h]
-  __int64 v82; // [rsp+30h] [rbp-D8h]
-  __int64 *v83; // [rsp+38h] [rbp-D0h]
-  int v84; // [rsp+40h] [rbp-C8h]
-  int v85; // [rsp+48h] [rbp-C0h]
-  int v86; // [rsp+50h] [rbp-B8h]
-  int v87; // [rsp+58h] [rbp-B0h]
-  __int64 v88; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v89; // [rsp+70h] [rbp-98h] BYREF
-  int v90; // [rsp+78h] [rbp-90h]
-  int v91; // [rsp+7Ch] [rbp-8Ch]
-  int valid; // [rsp+80h] [rbp-88h]
-  int v93; // [rsp+84h] [rbp-84h]
-  HDC v94[2]; // [rsp+88h] [rbp-80h] BYREF
-  __m128i v95; // [rsp+98h] [rbp-70h] BYREF
-  __int64 v96; // [rsp+A8h] [rbp-60h] BYREF
-  struct tagWND *v97; // [rsp+B0h] [rbp-58h]
-  __int64 v98; // [rsp+B8h] [rbp-50h]
-  __m128i v99; // [rsp+C8h] [rbp-40h] BYREF
-  __int128 v100; // [rsp+D8h] [rbp-30h] BYREF
-  tagDomLock *v101; // [rsp+E8h] [rbp-20h]
-  char v102; // [rsp+F0h] [rbp-18h] BYREF
-  __int64 v103; // [rsp+F8h] [rbp-10h]
-  char v104; // [rsp+100h] [rbp-8h]
-  __int64 v105; // [rsp+108h] [rbp+0h]
-  char v106; // [rsp+110h] [rbp+8h]
+  unsigned int v72[2]; // [rsp+28h] [rbp-99h]
+  __int64 v73; // [rsp+30h] [rbp-91h]
+  __int64 *v74; // [rsp+38h] [rbp-89h]
+  int v75; // [rsp+40h] [rbp-81h]
+  int v76; // [rsp+48h] [rbp-79h]
+  int v77; // [rsp+50h] [rbp-71h]
+  int v78; // [rsp+58h] [rbp-69h]
+  int v79; // [rsp+68h] [rbp-59h]
+  __int64 v80; // [rsp+70h] [rbp-51h] BYREF
+  int v81; // [rsp+78h] [rbp-49h]
+  int v82; // [rsp+7Ch] [rbp-45h]
+  int valid; // [rsp+80h] [rbp-41h]
+  int v84; // [rsp+84h] [rbp-3Dh]
+  HDC v85[2]; // [rsp+88h] [rbp-39h] BYREF
+  __m128i v86; // [rsp+98h] [rbp-29h] BYREF
+  __int64 v87; // [rsp+A8h] [rbp-19h] BYREF
+  __int64 v88; // [rsp+B0h] [rbp-11h] BYREF
+  __int64 v89; // [rsp+B8h] [rbp-9h]
+  HRGN v90; // [rsp+C0h] [rbp-1h]
+  __m128i v91; // [rsp+C8h] [rbp+7h] BYREF
+  __int128 v92; // [rsp+D8h] [rbp+17h] BYREF
 
   v1 = a1;
-  v98 = a1;
-  v94[0] = 0LL;
-  v100 = 0LL;
-  ++gdwDeferWinEvent;
+  v87 = a1;
+  v92 = 0LL;
   v2 = 0LL;
   v3 = 0;
+  ++gdwDeferWinEvent;
+  v85[0] = 0LL;
   GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
   valid = BltValidInit((struct tagSMWP *)v1);
   if ( !valid )
-    goto LABEL_45;
-  v4 = *(_QWORD *)(v1 + 40);
+    goto LABEL_37;
   v5 = 0LL;
   v6 = *(_DWORD *)(v1 + 28) - 1;
+  v7 = *(_QWORD **)(v1 + 40);
   if ( v6 < 0 )
-    goto LABEL_45;
+    goto LABEL_37;
   do
   {
-    v7 = HMValidateHandleNoSecure(*(_QWORD *)v4, 1);
-    v8 = v7;
-    if ( v7 && *(_QWORD *)(v7 + 104) && IsStillWindowC(*(_QWORD *)(v4 + 8)) )
+    LOBYTE(v4) = 1;
+    v8 = HMValidateHandleNoSecure(*v7, v4);
+    v9 = v8;
+    if ( v8 && *(_QWORD *)(v8 + 104) && (unsigned int)IsStillWindowC((HWND)v7[1]) )
     {
-      if ( *(_QWORD *)(v4 + 112) == 2LL
-        && ((*(_BYTE *)(*(_QWORD *)(v8 + 40) + 31LL) & 1) == 0 || *(_QWORD *)(v8 + 104) != GetDesktopWindow(v8)) )
+      if ( v7[14] == 2LL
+        && ((*(_BYTE *)(*(_QWORD *)(v9 + 40) + 31LL) & 1) == 0 || *(_QWORD *)(v9 + 104) != GetDesktopWindow(v9)) )
       {
-        *(_QWORD *)(v4 + 112) = 0LL;
+        v7[14] = 0LL;
       }
-      v9 = (_QWORD *)v4;
+      v10 = v7;
       if ( v5 )
-        v9 = v5;
-      v5 = v9;
+        v10 = v5;
+      v5 = v10;
     }
     else
     {
-      *(_QWORD *)v4 = 0LL;
-      *(_DWORD *)(v4 + 32) = 6159;
+      *v7 = 0LL;
+      *((_DWORD *)v7 + 8) = 6159;
     }
-    v4 += 168LL;
+    v7 += 21;
     --v6;
   }
   while ( v6 >= 0 );
-  v10 = 0;
   if ( v5 )
   {
-    v11 = *(struct tagWND **)(_HMObjectFromHandle(*v5) + 104);
-    v97 = v11;
+    v11 = *(_QWORD *)(_HMObjectFromHandle(*v5) + 104);
+    v89 = v11;
     if ( *(_QWORD *)(gpDispInfo + 32LL) )
       SpbCheck();
-    zzzChangeStates(v11, (struct tagSMWP *)v1);
-    v93 = 0;
-    if ( !(unsigned int)IsThreadDesktopComposed(gptiCurrent, v12, 0LL) )
+    zzzChangeStates((struct tagWND *)v11, (struct tagSMWP *)v1);
+    v84 = 0;
+    if ( !(unsigned int)IsThreadDesktopComposed(gptiCurrent) )
     {
-      v65 = *(_QWORD *)(v1 + 40);
-      v66 = *(_DWORD *)(v1 + 28);
-      while ( --v66 >= 0 )
+      v58 = *(_QWORD *)(v1 + 40);
+      v59 = *(_DWORD *)(v1 + 28);
+      while ( --v59 >= 0 )
       {
-        if ( *(_QWORD *)v65 )
+        if ( *(_QWORD *)v58 && (*(_DWORD *)(v58 + 32) & 8) == 0 )
         {
-          if ( (*(_DWORD *)(v65 + 32) & 8) == 0 )
+          _HMObjectFromHandle(*(_QWORD *)v58);
+          v61 = *(_DWORD *)(v58 + 72);
+          if ( v61 || *(_DWORD *)(v58 + 76) )
           {
-            _HMObjectFromHandle(*(_QWORD *)v65);
-            v67 = *(_DWORD *)(v65 + 72);
-            if ( v67 || *(_DWORD *)(v65 + 76) )
-            {
-              v72 = -*(_DWORD *)(v65 + 76);
-              v73 = -v67;
-              v95 = *(__m128i *)(v65 + 56);
-              v71 = v95;
-              v95.m128i_i32[2] += v73;
-              v95.m128i_i32[3] += v72;
-              v95.m128i_i32[1] += v72;
-              v99 = v71;
-              v95.m128i_i32[0] = v73 + _mm_cvtsi128_si32(v71);
-              UnionRect(&v100, &v99, &v95);
-              v93 = 1;
-            }
+            v64 = -*(_DWORD *)(v58 + 76);
+            v65 = -v61;
+            v86 = *(__m128i *)(v58 + 56);
+            v63 = v86;
+            v86.m128i_i32[2] += v65;
+            v86.m128i_i32[3] += v64;
+            v86.m128i_i32[1] += v64;
+            v91 = v63;
+            v86.m128i_i32[0] = v65 + _mm_cvtsi128_si32(v63);
+            UnionRect(&v92, &v91, &v86);
+            v12 = 1;
+            v84 = 1;
+          }
+          else
+          {
+            v12 = v84;
           }
         }
-        v65 += 168LL;
+        v58 += 168LL;
       }
     }
-    v13 = ~(unsigned __int8)(*(_DWORD *)(gptiCurrent + 488LL) >> 14) & 2;
-    HIDWORD(v88) = v13;
-    zzzLockDisplayAreaAndInvalidateDCCache(v11, (*(_BYTE *)(*((_QWORD *)v11 + 5) + 31LL) & 2) != 0 ? 28 : 26);
+    LODWORD(v80) = ~(unsigned __int8)(*(_DWORD *)(gptiCurrent + 488LL) >> 14) & 2;
+    zzzLockDisplayAreaAndInvalidateDCCache(
+      v11,
+      (*(_BYTE *)(*(_QWORD *)(v11 + 40) + 31LL) & 2) != 0 ? 28 : 26,
+      (unsigned __int64)&v92 & -(__int64)(v12 != 0));
+    v13 = 0;
     v14 = 96;
     v15 = *(__int64 **)(v1 + 40);
-    v16 = *(_DWORD *)(v1 + 28) - 1;
-    LODWORD(v89) = 96;
-    v95.m128i_i64[0] = ghrgnInvalidSum;
-    v91 = 0;
-    v90 = v16;
-    if ( v16 >= 0 )
+    v16 = (unsigned int)(*(_DWORD *)(v1 + 28) - 1);
+    v79 = 96;
+    v90 = (HRGN)ghrgnInvalidSum;
+    v82 = 0;
+    v81 = v16;
+    if ( (int)v16 >= 0 )
     {
-      HIDWORD(v88) = v13;
-      v17 = v16;
+      v17 = v80;
+      v18 = v16;
       while ( 1 )
       {
         --valid;
+        v16 = *v15;
         if ( *v15 )
           break;
 LABEL_20:
         v15 += 21;
-        v90 = --v17;
-        if ( v17 < 0 )
+        v81 = --v18;
+        if ( v18 < 0 )
         {
-          v1 = v98;
-          v11 = v97;
+          v11 = v89;
+          LODWORD(v80) = v17;
+          v1 = v87;
           goto LABEL_22;
         }
       }
       if ( (v15[4] & 8) != 0 )
       {
 LABEL_19:
-        v17 = v90;
+        v18 = v81;
         goto LABEL_20;
       }
-      _HMObjectFromHandle(*v15);
-      v29 = *v15;
-      HIDWORD(v88) = v13 | 1;
-      v30 = _HMObjectFromHandle(v29);
-      v31 = *((_DWORD *)v15 + 22);
-      v32 = v30;
-      if ( (*(_BYTE *)(*(_QWORD *)(v30 + 40) + 26LL) & 8) != 0 )
+      _HMObjectFromHandle(v16);
+      v17 |= 1u;
+      v25 = _HMObjectFromHandle(*v15);
+      v26 = *((_DWORD *)v15 + 22);
+      v27 = v25;
+      if ( (*(_BYTE *)(*(_QWORD *)(v25 + 40) + 26LL) & 8) != 0 )
       {
-        RedirectionBitmap = GetRedirectionBitmap(v30);
-        v40 = *(_QWORD *)(v32 + 40);
-        if ( !RedirectionBitmap && (*(_BYTE *)(v40 + 27) & 0x20) == 0
-          || (*(_DWORD *)(v40 + 232) & 2) == 0 && (*((_DWORD *)v15 + 39) & 7) == 0 )
-        {
-          goto LABEL_90;
-        }
-        *(_DWORD *)(v32 + 320) |= 0x4000u;
+        RedirectionBitmap = GetRedirectionBitmap(v25);
+        v29 = *(_QWORD *)(v27 + 40);
+        if ( !RedirectionBitmap && (*(_BYTE *)(v29 + 27) & 0x20) == 0 )
+          goto LABEL_78;
+        v30 = *(_DWORD *)(v29 + 232);
+        if ( (v30 & 0x20) == 0 && (*((_DWORD *)v15 + 39) & 7) == 0 )
+          goto LABEL_78;
+        *(_DWORD *)(v29 + 232) = v30 | 2;
       }
-      if ( !(unsigned int)SwpCalcVisRgn((struct tagWND *)v32, ghrgnVisNew) )
-        v31 |= 1u;
+      if ( !(unsigned int)SwpCalcVisRgn((struct tagWND *)v27, ghrgnVisNew) )
+        v26 |= 1u;
       if ( *(_QWORD *)(gpDispInfo + 32LL) )
-        SpbCheckRect((struct tagWND *)v32, (struct tagRECT *)(*(_QWORD *)(v32 + 40) + 88LL), 1u);
-      if ( (v31 & 3) == 0 && *(_QWORD *)(*(_QWORD *)(v32 + 40) + 136LL) != 1LL )
+        SpbCheckRect((struct tagWND *)v27, (struct tagRECT *)(*(_QWORD *)(v27 + 40) + 88LL), 1u);
+      if ( (v26 & 3) == 0 && *(_QWORD *)(*(_QWORD *)(v27 + 40) + 136LL) != 1LL )
       {
-        v42 = *((_DWORD *)v15 + 16);
-        v43 = *((_DWORD *)v15 + 14);
-        if ( v42 > v43 )
+        v35 = *((_DWORD *)v15 + 16);
+        v36 = *((_DWORD *)v15 + 14);
+        if ( v35 > v36 )
         {
-          v44 = *((_DWORD *)v15 + 17);
-          v45 = *((_DWORD *)v15 + 15);
-          if ( v44 > v45 )
+          v37 = *((_DWORD *)v15 + 17);
+          v38 = *((_DWORD *)v15 + 15);
+          if ( v37 > v38 )
           {
-            v46 = *((_DWORD *)v15 + 19);
-            v81[0] = v44 - v46;
+            v39 = *((_DWORD *)v15 + 19);
+            v72[0] = v37 - v39;
             GreSetRectRgn(
               ghrgnSWP1,
-              (unsigned int)(v43 - *((_DWORD *)v15 + 18)),
-              (unsigned int)(v45 - v46),
-              (unsigned int)(v42 - *((_DWORD *)v15 + 18)),
-              *(_QWORD *)v81,
-              v82,
-              v83,
-              v84,
-              v85,
-              v86,
-              v87);
+              (unsigned int)(v36 - *((_DWORD *)v15 + 18)),
+              (unsigned int)(v38 - v39),
+              (unsigned int)(v35 - *((_DWORD *)v15 + 18)),
+              *(_QWORD *)v72,
+              v73,
+              v74,
+              v75,
+              v76,
+              v77,
+              v78);
             if ( (unsigned int)GreCombineRgn(ghrgnValid, ghrgnSWP1, v15[12], 1LL) >= 2
               && ((v14 & 0x20) != 0 || (unsigned int)GreCombineRgn(ghrgnValid, ghrgnValid, ghrgnValidSum, 4LL) > 1) )
             {
               if ( v15[9] )
                 GreOffsetRgn(ghrgnValid, *((unsigned int *)v15 + 18), *((unsigned int *)v15 + 19));
-              v47 = v32;
-              v48 = 0LL;
+              v40 = v27;
+              v41 = 0LL;
               while ( 1 )
               {
-                v49 = *(_QWORD *)(v47 + 40);
-                v50 = *(_QWORD *)(v49 + 136);
-                if ( v50 == 1 )
+                v42 = *(_QWORD *)(v40 + 40);
+                v43 = *(_QWORD *)(v42 + 136);
+                if ( v43 == 1 )
                   break;
-                if ( v50 )
+                if ( v43 )
                 {
-                  v96 = *(_QWORD *)(v49 + 136);
-                  if ( v48 )
+                  v88 = *(_QWORD *)(v42 + 136);
+                  if ( v41 )
                   {
-                    v70 = PhysicalToLogicalInPlaceRgn(v48, &v96);
-                    v50 = v96;
-                    v68 = v70;
+                    v62 = PhysicalToLogicalInPlaceRgn(v41, &v88);
+                    v43 = v88;
+                    LODWORD(v80) = v62;
                   }
                   else
                   {
-                    v68 = 0;
+                    LODWORD(v80) = 0;
                   }
-                  v69 = GreCombineRgn(ghrgnValid, ghrgnValid, v50, 4LL);
-                  if ( v68 )
-                    GreDeleteObject(v50);
-                  if ( v69 < 2 )
+                  v60 = GreCombineRgn(ghrgnValid, ghrgnValid, v43, 4LL);
+                  if ( (_DWORD)v80 )
+                    GreDeleteObject(v43);
+                  if ( v60 < 2 )
                     break;
-                  v48 = v47;
+                  v41 = v40;
                 }
-                v47 = *(_QWORD *)(v47 + 104);
-                if ( !v47 || (*(_BYTE *)(*(_QWORD *)(v47 + 40) + 31LL) & 2) != 0 )
+                v40 = *(_QWORD *)(v40 + 104);
+                if ( !v40 || (*(_BYTE *)(*(_QWORD *)(v40 + 40) + 31LL) & 2) != 0 )
                 {
-                  v51 = v15[15];
-                  if ( (!v51 || (unsigned int)GreCombineRgn(ghrgnValid, ghrgnValid, v51, 4LL) >= 2)
+                  v44 = v15[15];
+                  if ( (!v44 || (unsigned int)GreCombineRgn(ghrgnValid, ghrgnValid, v44, 4LL) >= 2)
                     && (unsigned int)GreCombineRgn(ghrgnValid, ghrgnValid, ghrgnVisNew, 1LL) > 1 )
                   {
-                    goto LABEL_59;
+                    goto LABEL_54;
                   }
                   break;
                 }
@@ -357,296 +348,262 @@ LABEL_19:
           }
         }
       }
-      v31 |= 4u;
-LABEL_59:
-      if ( (v31 & 4) == 0 && (*((_DWORD *)v15 + 18) || *((_DWORD *)v15 + 19)) )
+      v26 |= 4u;
+LABEL_54:
+      if ( (v26 & 4) == 0 && (*((_DWORD *)v15 + 18) || *((_DWORD *)v15 + 19)) )
       {
-        StyleWindow = GetStyleWindow(v32, 2568LL);
-        v54 = StyleWindow;
-        if ( StyleWindow && (v55 = GetRedirectionBitmap(StyleWindow)) != 0 )
+        StyleWindow = GetStyleWindow(v27, 2568LL);
+        v47 = StyleWindow;
+        if ( StyleWindow && (v48 = GetRedirectionBitmap(StyleWindow)) != 0 )
         {
-          if ( v32 != v54 )
+          if ( v27 != v47 )
           {
-            v56 = *(_QWORD *)(v54 + 40);
-            v87 = *(_DWORD *)(v56 + 92);
-            v86 = *(_DWORD *)(v56 + 88);
-            v85 = -*((_DWORD *)v15 + 19);
-            OldRedirectionBitmap = v55;
-            v84 = -*((_DWORD *)v15 + 18);
-            v83 = v15 + 7;
-            v82 = ghrgnValid;
-            *(_QWORD *)v81 = ghdcMem;
-LABEL_114:
-            UpdateSpriteArea(v54, v55, OldRedirectionBitmap);
-            goto LABEL_60;
+            v49 = *(_QWORD *)(v47 + 40);
+            v78 = *(_DWORD *)(v49 + 92);
+            v77 = *(_DWORD *)(v49 + 88);
+            v76 = -*((_DWORD *)v15 + 19);
+            v50 = v48;
+            v75 = -*((_DWORD *)v15 + 18);
+            v74 = v15 + 7;
+            v73 = ghrgnValid;
+            v72[1] = ghdcMem[1];
+LABEL_103:
+            UpdateSpriteArea(v47, v48, v50);
+            goto LABEL_55;
           }
           if ( (*((_DWORD *)v15 + 39) & 1) != 0
             || *((_DWORD *)v15 + 18) != *((_DWORD *)v15 + 4) - *((_DWORD *)v15 + 20)
             || *((_DWORD *)v15 + 19) != *((_DWORD *)v15 + 5) - *((_DWORD *)v15 + 21) )
           {
-            OldRedirectionBitmap = GetOldRedirectionBitmap(v54);
-            v74 = -*((_DWORD *)v15 + 19);
-            v75 = *((_DWORD *)v15 + 21);
-            v76 = -*((_DWORD *)v15 + 18);
-            v77 = *((_DWORD *)v15 + 20);
-            v78 = ghdcMem2;
-            v96 = ghdcMem2;
+            OldRedirectionBitmap = GetOldRedirectionBitmap(v47);
+            v67 = v48;
             if ( OldRedirectionBitmap )
-              v78 = v96;
-            else
-              OldRedirectionBitmap = v55;
-            v87 = v75;
-            v86 = v77;
-            v85 = v74;
-            v84 = v76;
-            v83 = v15 + 7;
-            v82 = ghrgnValid;
-            *(_QWORD *)v81 = v78;
-            goto LABEL_114;
+              v67 = OldRedirectionBitmap;
+            v78 = *((_DWORD *)v15 + 21);
+            v77 = *((_DWORD *)v15 + 20);
+            v76 = -*((_DWORD *)v15 + 19);
+            v50 = v67;
+            v75 = -*((_DWORD *)v15 + 18);
+            v74 = v15 + 7;
+            v73 = ghrgnValid;
+            v72[1] = ghdcMem2[1];
+            goto LABEL_103;
           }
         }
-        else if ( (*(_BYTE *)(*(_QWORD *)(v32 + 40) + 26LL) & 8) == 0 )
+        else if ( (*(_BYTE *)(*(_QWORD *)(v27 + 40) + 26LL) & 8) == 0 )
         {
-          v79 = v94[0];
-          if ( !v94[0] )
+          v68 = v85[0];
+          if ( !v85[0] )
           {
-            v79 = *(HDC *)(gpDispInfo + 56LL);
-            v94[0] = v79;
+            v68 = *(HDC *)(gpDispInfo + 56LL);
+            v85[0] = v68;
           }
-          GreHintDCWnd((_DWORD)v79, *(_QWORD *)v32, 0, 0, 0);
-          GreSelectVisRgn(v79, ghrgnValid, 2LL);
+          GreHintDCWnd((_DWORD)v68, *(_QWORD *)v27, 0, 0, 0);
+          GreSelectVisRgn(v68, ghrgnValid, 2LL);
           NtGdiBitBltInternal(
-            v79,
+            v68,
             *((_DWORD *)v15 + 14),
             *((_DWORD *)v15 + 15),
             *((_DWORD *)v15 + 16) - *((_DWORD *)v15 + 14),
             *((_DWORD *)v15 + 17) - *((_DWORD *)v15 + 15),
-            v79,
+            (__int64)v68,
             *((_DWORD *)v15 + 14) - *((_DWORD *)v15 + 18),
             *((_DWORD *)v15 + 15) - *((_DWORD *)v15 + 19),
             13369376,
             0,
             1);
-          GreHintDCWnd((_DWORD)v79, 0, 0, 0, 0);
+          GreHintDCWnd((_DWORD)v68, 0, 0, 0, 0);
         }
       }
-LABEL_60:
-      if ( ((*(_BYTE *)(*(_QWORD *)(v32 + 40) + 16LL) >> 7) & ((v31 & 2) == 0)) == 0
-        || !(unsigned int)CombineOldNewVis(ghrgnInvalid, (HRGN)v15[12], ghrgnVisNew, 4u, v31) )
+LABEL_55:
+      if ( *(char *)(*(_QWORD *)(v27 + 40) + 16LL) >= 0
+        || (v26 & 2) != 0
+        || !(unsigned int)CombineOldNewVis(ghrgnInvalid, (HRGN)v15[12], ghrgnVisNew, 4u, v26) )
       {
-        v33 = (HRGN)v15[12];
-        if ( v33 )
+        v31 = (HRGN)v15[12];
+        if ( v31 )
         {
-          if ( !(unsigned int)CombineOldNewVis(ghrgnInvalid, v33, ghrgnVisNew, 2u, v31) )
+          if ( !(unsigned int)CombineOldNewVis(ghrgnInvalid, v31, ghrgnVisNew, 2u, v26) )
           {
-LABEL_89:
-            v14 = v89;
-            goto LABEL_90;
+LABEL_77:
+            v14 = v79;
+            goto LABEL_78;
           }
         }
         else
         {
-          v99 = *(__m128i *)(*((_QWORD *)v97 + 5) + 88LL);
-          TransformRectBetweenCoordinateSpaces(&v99, &v99, v32, v97, *(_QWORD *)v81);
-          SetRectRgnIndirect(ghrgnInvalid, &v99);
+          v91 = *(__m128i *)(*(_QWORD *)(v89 + 40) + 88LL);
+          TransformRectBetweenCoordinateSpaces(&v91, &v91, v27, v89);
+          SetRectRgnIndirect(ghrgnInvalid, &v91);
         }
-LABEL_63:
-        v14 = v89;
-        if ( (v31 & 4) == 0 )
+LABEL_58:
+        v14 = v79;
+        if ( (v26 & 4) == 0 )
         {
-          if ( (v89 & 0x20) != 0 )
+          if ( (v79 & 0x20) != 0 )
           {
-            v58 = 5LL;
-            v59 = 0LL;
-            v60 = ghrgnValidSum;
+            v51 = 5LL;
+            v52 = 0LL;
+            v53 = ghrgnValidSum;
           }
           else
           {
-            v58 = 2LL;
-            v60 = ghrgnValidSum;
-            v59 = ghrgnValidSum;
+            v51 = 2LL;
+            v53 = ghrgnValidSum;
+            v52 = ghrgnValidSum;
           }
-          GreCombineRgn(v60, ghrgnValid, v59, v58);
-          v14 &= ~0x20u;
-          LODWORD(v89) = v14;
+          GreCombineRgn(v53, ghrgnValid, v52, v51);
+          v14 = v79 & 0xFFFFFFDF;
+          v79 &= ~0x20u;
         }
         if ( (v14 & 0x20) != 0 )
         {
-          if ( (v31 & 4) != 0 )
+          if ( (v26 & 4) != 0 )
           {
-LABEL_66:
-            v34 = *((_DWORD *)v15 + 8);
-            if ( ((*(_BYTE *)(*(_QWORD *)(v32 + 40) + 16LL) >> 7) & ((v34 & 0x40) == 0)) != 0 && (v34 & 0x87) != 7 )
+LABEL_61:
+            if ( *(char *)(*(_QWORD *)(v27 + 40) + 16LL) < 0 )
             {
-              Spb = FindSpb(v32);
-              FreeSpb(Spb);
+              v70 = *((_DWORD *)v15 + 8);
+              if ( (v70 & 0x40) == 0 && (v70 & 0x87) != 7 )
+              {
+                Spb = FindSpb(v27);
+                FreeSpb(Spb);
+              }
             }
-            v35 = v15[12];
-            if ( v35 )
+            v16 = v15[12];
+            if ( v16 )
             {
-              GreDeleteObject(v35);
+              GreDeleteObject(v16);
               v15[12] = 0LL;
             }
-            v10 = v91;
-            if ( (*(_BYTE *)(*(_QWORD *)(v32 + 40) + 21LL) & 1) == 0 && (v15[4] & 0x40) != 0 )
-              v10 = ++v91;
-            if ( (v31 & 8) != 0 )
-              goto LABEL_78;
-            if ( (v31 & 5) == 4 )
+            v13 = v82;
+            if ( (*(_BYTE *)(*(_QWORD *)(v27 + 40) + 21LL) & 1) == 0 && (v15[4] & 0x40) != 0 )
+              v13 = ++v82;
+            if ( (v26 & 8) != 0 )
+              goto LABEL_73;
+            if ( (v26 & 5) == 4 )
             {
-              AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v88);
-              xxxInternalInvalidate((struct tagWND *)v32, (HRGN)1, 0x485u);
-              AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v88);
+              UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v86);
+              xxxInternalInvalidate((struct tagWND *)v27, (HRGN)1, 0x485u);
+              UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v86);
             }
-            v89 = ghrgnInvalid;
-            v36 = LogicalToPhysicalInPlaceRgnWorker(v32, &v89, 0LL);
-            v37 = v36;
+            v80 = ghrgnInvalid;
+            v32 = LogicalToPhysicalInPlaceRgnWorker(v27, &v80, 0LL);
+            v33 = v32;
             if ( (v14 & 0x40) != 0 )
             {
-              if ( !valid && !v36 )
+              if ( !valid && !v32 )
               {
-                v95.m128i_i64[0] = ghrgnInvalid;
-LABEL_77:
+                v90 = (HRGN)ghrgnInvalid;
+LABEL_72:
                 v14 &= ~0x40u;
-                LODWORD(v89) = v14;
-LABEL_78:
-                v13 = HIDWORD(v88);
-                v2 = v94[0];
+                v79 = v14;
+LABEL_73:
+                v2 = v85[0];
                 goto LABEL_19;
               }
-              v61 = 5LL;
-              v63 = 0LL;
-              v62 = ghrgnInvalidSum;
+              v54 = 5LL;
+              v56 = 0LL;
+              v55 = ghrgnInvalidSum;
             }
             else
             {
-              v61 = 2LL;
-              v62 = ghrgnInvalidSum;
-              v63 = ghrgnInvalidSum;
+              v54 = 2LL;
+              v55 = ghrgnInvalidSum;
+              v56 = ghrgnInvalidSum;
             }
-            v64 = v89;
-            GreCombineRgn(v62, v89, v63, v61);
-            if ( v37 )
-              GreDeleteObject(v64);
-            goto LABEL_77;
+            v57 = v80;
+            GreCombineRgn(v55, v80, v56, v54);
+            if ( v33 )
+              GreDeleteObject(v57);
+            goto LABEL_72;
           }
-          v52 = (_QWORD *)ghrgnValid;
+          v45 = (_QWORD *)ghrgnValid;
         }
         else
         {
-          v52 = (_QWORD *)ghrgnValidSum;
+          v45 = (_QWORD *)ghrgnValidSum;
         }
-        if ( (unsigned int)GreCombineRgn(ghrgnInvalid, ghrgnInvalid, *v52, 4LL) > 1 )
-          goto LABEL_66;
-LABEL_90:
-        *(_DWORD *)(v32 + 320) &= ~0x4000u;
-        LOBYTE(v31) = v31 | 8;
-        goto LABEL_66;
+        if ( (unsigned int)GreCombineRgn(ghrgnInvalid, ghrgnInvalid, *v45, 4LL) > 1 )
+          goto LABEL_61;
+LABEL_78:
+        *(_DWORD *)(*(_QWORD *)(v27 + 40) + 232LL) &= ~2u;
+        LOBYTE(v26) = v26 | 8;
+        goto LABEL_61;
       }
-      v41 = RestoreSpb(v32, ghrgnInvalid, v94);
-      if ( v41 )
+      v69 = RestoreSpb(v27, ghrgnInvalid, v85);
+      if ( v69 )
       {
-        if ( v41 == 2 && (v89 & 0x20) == 0 )
+        if ( v69 == 2 && (v79 & 0x20) == 0 )
           GreCombineRgn(ghrgnValidSum, ghrgnValidSum, ghrgnInvalid, 4LL);
-        if ( (v31 & 1) != 0 )
-          goto LABEL_169;
+        if ( (v26 & 1) != 0 )
+          goto LABEL_159;
       }
-      else if ( (v31 & 1) != 0 )
+      else if ( (v26 & 1) != 0 )
       {
-        goto LABEL_89;
+        goto LABEL_77;
       }
       GreCombineRgn(ghrgnInvalid, ghrgnInvalid, ghrgnVisNew, 2LL);
-LABEL_169:
-      if ( (v31 & 0x20) == 0 && (unsigned int)GreCombineRgn(ghrgnValid, ghrgnValid, ghrgnInvalid, 4LL) <= 1 )
-        LOBYTE(v31) = v31 | 0x20;
-      goto LABEL_63;
+LABEL_159:
+      if ( (v26 & 0x20) == 0 && (unsigned int)GreCombineRgn(ghrgnValid, ghrgnValid, ghrgnInvalid, 4LL) <= 1 )
+        LOBYTE(v26) = v26 | 0x20;
+      goto LABEL_58;
     }
 LABEL_22:
-    if ( v93 )
-      GreUnlockDisplayArea(*(_QWORD *)(gpDispInfo + 40LL), &v100);
-    v18 = *(_QWORD **)(v1 + 40);
-    v19 = *(_DWORD *)(v1 + 28);
-    while ( --v19 >= 0 )
+    if ( v84 )
+      GreUnlockDisplayArea(*(_QWORD *)(gpDispInfo + 40LL), &v92);
+    v19 = *(__int64 **)(v1 + 40);
+    v20 = *(_DWORD *)(v1 + 28);
+    while ( --v20 >= 0 )
     {
-      if ( *v18 )
+      v16 = *v19;
+      if ( *v19 )
       {
-        v20 = _HMObjectFromHandle(*v18);
-        if ( (*(_BYTE *)(*(_QWORD *)(v20 + 40) + 26LL) & 8) != 0 )
-          DeleteOldRedirectionBitmap(v20);
+        v21 = _HMObjectFromHandle(v16);
+        if ( (*(_BYTE *)(*(_QWORD *)(v21 + 40) + 26LL) & 8) != 0 )
+          DeleteOldRedirectionBitmap(v21);
       }
-      v18 += 21;
+      v19 += 21;
     }
     if ( (v14 & 0x40) == 0 )
     {
-      if ( v10 != *(_DWORD *)(v1 + 28) || (v38 = 69, v11 == (struct tagWND *)GetDesktopWindow(v11)) )
-        v38 = 133;
-      AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v88);
-      xxxInternalInvalidate(v11, (HRGN)v95.m128i_i64[0], v38);
-      AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v88);
+      if ( v13 != *(_DWORD *)(v1 + 28) || (v34 = 69, v11 == GetDesktopWindow(v11)) )
+        v34 = 133;
+      UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v87);
+      xxxInternalInvalidate((struct tagWND *)v11, v90, v34);
+      UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v87);
     }
-    if ( *((_DWORD *)&WPP_MAIN_CB.DeviceQueue.1 + 1) )
-      GreClientRgnDone();
+    if ( *(&WPP_MAIN_CB.AlignmentRequirement + 1) )
+      GreClientRgnDone(v16);
     GreRedrawSpriteOverlapPresent(*(_QWORD *)(gpDispInfo + 40LL));
     if ( v2 )
     {
       GreSelectVisRgn(v2, 0LL, 1LL);
       GreGetBounds(v2, 0LL, 0LL);
     }
-    v3 = HIDWORD(v88);
+    v3 = v80;
   }
   else
   {
-LABEL_45:
-    v27 = *(_DWORD *)(v1 + 28) - 1;
-    if ( v27 >= 0 )
+LABEL_37:
+    v23 = *(_DWORD *)(v1 + 28) - 1;
+    if ( v23 >= 0 )
     {
-      v28 = (_QWORD *)(*(_QWORD *)(v1 + 40) + 96LL);
+      v24 = (_QWORD *)(*(_QWORD *)(v1 + 40) + 96LL);
       do
       {
-        if ( *v28 )
+        if ( *v24 )
         {
-          GreDeleteObject(*v28);
-          *v28 = 0LL;
+          GreDeleteObject(*v24);
+          *v24 = 0LL;
         }
-        v28 += 21;
-        --v27;
+        v24 += 21;
+        --v23;
       }
-      while ( v27 >= 0 );
+      while ( v23 >= 0 );
     }
   }
   GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-  DLT = DLT_WINEVENT::getDLT();
-  DomainLockRef = (tagDomLock *)GetDomainLockRef(DLT);
-  v102 = 1;
-  v23 = &v102;
-  v101 = DomainLockRef;
-  v24 = 0;
-  v103 = gDomainDummyLock;
-  v105 = 0LL;
-  v104 = 0;
-  v106 = 0;
-  do
-  {
-    v25 = (tagDomLock *)*((_QWORD *)v23 - 1);
-    if ( v25 )
-    {
-      if ( *v23 )
-        tagDomLock::LockExclusive(v25);
-      else
-        tagDomLock::LockShared(v25);
-    }
-    ++v24;
-    v23 += 16;
-  }
-  while ( !v24 );
-  v106 = 1;
-  --gdwDeferWinEvent;
-  if ( v101 )
-  {
-    if ( v102 )
-      tagDomLock::UnLockExclusive(v101);
-    else
-      tagDomLock::UnLockShared(v101);
-  }
+  zzzEndDeferWinEventNotify();
   return v3;
 }

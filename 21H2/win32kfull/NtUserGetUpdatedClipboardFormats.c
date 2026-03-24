@@ -1,83 +1,80 @@
 /*
- * XREFs of NtUserGetUpdatedClipboardFormats @ 0x1C01F6C70
+ * XREFs of NtUserGetUpdatedClipboardFormats @ 0x1C01FC350
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z @ 0x1C00CA3D4 (-CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z.c)
- *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00CD268 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
- *     ?CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z @ 0x1C0140C58 (-CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z.c)
- *     ?IsFmtBlocked@@YAHI@Z @ 0x1C0219760 (-IsFmtBlocked@@YAHI@Z.c)
+ *     ?CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z @ 0x1C003015C (-CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z.c)
+ *     ?CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z @ 0x1C00301DC (-CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00304E8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     ?IsFmtBlocked@@YAHI@Z @ 0x1C021EDA8 (-IsFmtBlocked@@YAHI@Z.c)
  */
 
-__int64 __fastcall NtUserGetUpdatedClipboardFormats(__int64 a1, unsigned int a2, unsigned int *a3)
+__int64 __fastcall NtUserGetUpdatedClipboardFormats(__int64 a1, unsigned int a2, _DWORD *a3)
 {
   __int64 CurrentProcessWin32Process; // r13
   int v6; // ebx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  ULONG64 v10; // rcx
-  struct tagWINDOWSTATION *v11; // r14
-  __int64 v12; // rax
-  unsigned int v13; // r8d
-  unsigned int v14; // edi
-  unsigned int v15; // r15d
-  __int64 v16; // rsi
-  unsigned int v17; // ecx
-  __int64 v18; // r10
-  _DWORD *v19; // r8
-  _DWORD *v20; // rdx
-  int v22; // [rsp+20h] [rbp-58h]
+  ULONG64 v7; // rcx
+  struct tagWINDOWSTATION *v8; // r14
+  __int64 v9; // rax
+  __int64 v10; // r8
+  unsigned int v11; // edi
+  unsigned int v12; // r15d
+  __int64 v13; // rsi
+  unsigned int v14; // ecx
+  __int64 v15; // r10
+  _DWORD *v16; // r8
+  _DWORD *v17; // rdx
+  int v19; // [rsp+20h] [rbp-58h]
 
   CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
   v6 = 0;
-  EnterSharedCrit(v8, v7, v9);
-  v11 = CheckClipboardAccess();
-  if ( v11 )
+  EnterSharedCrit(0LL, 1LL);
+  v8 = CheckClipboardAccess();
+  if ( v8 )
   {
-    v12 = PsGetCurrentProcessWin32Process(v10);
-    v13 = CountNumClipFormatForIL(*(_QWORD *)(v12 + 880), (__int64)v11);
-    v10 = (ULONG64)a3;
+    v9 = PsGetCurrentProcessWin32Process(v7);
+    v10 = (unsigned int)CountNumClipFormatForIL(*(_QWORD *)(v9 + 880), (__int64)v8);
+    v7 = (ULONG64)a3;
     if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-      v10 = MmUserProbeAddress;
-    *(_DWORD *)v10 = *(_DWORD *)v10;
-    *a3 = v13;
-    if ( a2 >= v13 )
+      v7 = MmUserProbeAddress;
+    *(_DWORD *)v7 = *(_DWORD *)v7;
+    *a3 = v10;
+    if ( a2 >= (unsigned int)v10 )
     {
-      v14 = 0;
-      v15 = 0;
-      v22 = 0;
-      while ( v14 < *((_DWORD *)v11 + 34) && v15 < a2 )
+      v11 = 0;
+      v12 = 0;
+      v19 = 0;
+      while ( v11 < *((_DWORD *)v8 + 34) && v12 < a2 )
       {
-        v16 = 32LL * v14;
+        v13 = 32LL * v11;
         if ( (unsigned int)CheckClipboardAccessForIntegrityLevel(
-                             *(_QWORD *)(v16 + *((_QWORD *)v11 + 16) + 20),
+                             *(_QWORD *)(v13 + *((_QWORD *)v8 + 16) + 20),
                              *(_QWORD *)(CurrentProcessWin32Process + 880))
-          || !(unsigned int)IsFmtBlocked(*(_DWORD *)(v16 + *((_QWORD *)v11 + 16))) )
+          || !(unsigned int)IsFmtBlocked(*(_DWORD *)(v13 + *((_QWORD *)v8 + 16))) )
         {
-          v19 = (_DWORD *)(a1 + 4LL * v15);
-          v20 = v19;
-          if ( (unsigned __int64)v19 >= MmUserProbeAddress )
-            v20 = (_DWORD *)MmUserProbeAddress;
-          *v20 = *v20;
-          v10 = *(unsigned int *)(v16 + *((_QWORD *)v11 + 16));
-          *v19 = v10;
-          v15 = ++v22;
+          v16 = (_DWORD *)(a1 + 4LL * v12);
+          v17 = v16;
+          if ( (unsigned __int64)v16 >= MmUserProbeAddress )
+            v17 = (_DWORD *)MmUserProbeAddress;
+          *v17 = *v17;
+          v7 = *(unsigned int *)(v13 + *((_QWORD *)v8 + 16));
+          *v16 = v7;
+          v12 = ++v19;
         }
         else
         {
-          EtwTraceUIPIClipboardError(0LL, CurrentProcessWin32Process, v17, *(_QWORD *)(v16 + v18 + 20));
+          EtwTraceUIPIClipboardError(0LL, CurrentProcessWin32Process, v14, *(_QWORD *)(v13 + v15 + 20));
         }
-        ++v14;
+        ++v11;
       }
       v6 = 1;
     }
     else
     {
-      UserSetLastError(122LL, MmUserProbeAddress);
+      UserSetLastError(122LL, MmUserProbeAddress, v10);
     }
   }
-  UserSessionSwitchLeaveCrit(v10);
+  UserSessionSwitchLeaveCrit(v7);
   return v6;
 }

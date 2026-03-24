@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C00B71CC
+ * XREFs of ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C012E274
  * Callers:
- *     ?UmfdCallSessionInitialize@@YAJXZ @ 0x1C00A552C (-UmfdCallSessionInitialize@@YAJXZ.c)
- *     ?UmfdCallSessionUninitialize@@YAXXZ @ 0x1C00BA4B0 (-UmfdCallSessionUninitialize@@YAXXZ.c)
- *     ??1?$CAutoDestroy@VCMultipleConsumerWorkQueue@@@@QEAA@XZ @ 0x1C0307428 (--1-$CAutoDestroy@VCMultipleConsumerWorkQueue@@@@QEAA@XZ.c)
+ *     ?UmfdCallSessionInitialize@@YAJXZ @ 0x1C00F3C04 (-UmfdCallSessionInitialize@@YAJXZ.c)
+ *     UmfdSessionUninitialize @ 0x1C0132320 (UmfdSessionUninitialize.c)
+ *     ??1?$CAutoDestroy@VCMultipleConsumerWorkQueue@@@@QEAA@XZ @ 0x1C02DEF68 (--1-$CAutoDestroy@VCMultipleConsumerWorkQueue@@@@QEAA@XZ.c)
  * Callees:
- *     ?Destroy@CWorkItemQueue@@SAXQEAV1@@Z @ 0x1C00B720C (-Destroy@CWorkItemQueue@@SAXQEAV1@@Z.c)
- *     ?Destroy@CEventPool@@SAXQEAV1@@Z @ 0x1C00B7264 (-Destroy@CEventPool@@SAXQEAV1@@Z.c)
+ *     ?Destroy@CWorkItemQueue@@SAXQEAV1@@Z @ 0x1C012E2B4 (-Destroy@CWorkItemQueue@@SAXQEAV1@@Z.c)
+ *     ?Destroy@CEventPool@@SAXQEAV1@@Z @ 0x1C012E30C (-Destroy@CEventPool@@SAXQEAV1@@Z.c)
  */
 
 void __fastcall CMultipleConsumerWorkQueue::Destroy(void **pv)

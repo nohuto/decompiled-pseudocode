@@ -1,175 +1,174 @@
 /*
- * XREFs of ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x180084B28
+ * XREFs of ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x180067194
  * Callers:
- *     ?PrepMegaRectData@CMegaRectCollection@@AEAAJXZ @ 0x180084AA0 (-PrepMegaRectData@CMegaRectCollection@@AEAAJXZ.c)
+ *     ?PrepMegaRectData@CMegaRectCollection@@AEAAJXZ @ 0x180067040 (-PrepMegaRectData@CMegaRectCollection@@AEAAJXZ.c)
  * Callees:
- *     ??_GCRegion@@QEAAPEAXI@Z @ 0x1800132A0 (--_GCRegion@@QEAAPEAXI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ReorderAxisAlignedRectVertices @ 0x1800854A8 (ReorderAxisAlignedRectVertices.c)
- *     IsValidAxisAlignedRect @ 0x1800859E4 (IsValidAxisAlignedRect.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     VerticesHaveIntegralXY @ 0x180097888 (VerticesHaveIntegralXY.c)
- *     ??$TransferVertices@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@YAXAEBVCDrawListPrimitive@@AEBVCMILMatrix@@_NMAEBV?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@@Z @ 0x1800A3520 (--$TransferVertices@U-$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@YAXAEBVCDrawListPrimitive@@AEBVCMILMa.c)
- *     ?GetPrimitive@CRenderingBatchCommand@@QEBAPEAVCDrawListPrimitive@@XZ @ 0x1800A7724 (-GetPrimitive@CRenderingBatchCommand@@QEBAPEAVCDrawListPrimitive@@XZ.c)
- *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@EV?$allocator@E@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1800B6A5C (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@EV-$allocator@E@std@@@std@@AEAAX_KAEBU_Val.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ??_GCRegion@@QEAAPEAXI@Z @ 0x18002B534 (--_GCRegion@@QEAAPEAXI@Z.c)
+ *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@EV?$allocator@E@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x18004EF80 (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@EV-$allocator@E@std@@@std@@AEAAX_KAEBU_Val.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ReorderAxisAlignedRectVertices @ 0x180066BD8 (ReorderAxisAlignedRectVertices.c)
+ *     VerticesHaveIntegralXY @ 0x1800670C8 (VerticesHaveIntegralXY.c)
+ *     IsValidAxisAlignedRect @ 0x180067128 (IsValidAxisAlignedRect.c)
+ *     ??$TransferVertices@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@YAXAEBVCDrawListPrimitive@@AEBVCMILMatrix@@_NMAEBV?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@@Z @ 0x180079820 (--$TransferVertices@U-$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@YAXAEBVCDrawListPrimitive@@AEBVCMILMa.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
-__int64 __fastcall CMegaRect::PrepareData(__int64 a1, unsigned __int64 *a2)
+__int64 __fastcall CMegaRect::PrepareData(__int64 *a1, __int64 a2)
 {
-  unsigned int v4; // r12d
-  unsigned int Primitive; // eax
-  __int64 *v6; // rdx
-  char *v7; // rbx
-  unsigned int v8; // r13d
-  __int64 v9; // rdx
-  char *v10; // rcx
-  unsigned int v11; // r15d
-  char *v12; // rdi
-  size_t v13; // rdi
-  unsigned __int64 v14; // r14
-  HANDLE ProcessHeap; // rax
-  LPVOID v16; // rax
-  int v17; // r8d
-  int v18; // r9d
-  _QWORD *v19; // rcx
-  __int64 v20; // rdx
-  unsigned __int64 *v21; // rdi
-  int v22; // ebx
-  __m128 v23; // xmm3
-  __m128 v24; // xmm1
-  HANDLE v25; // rax
-  char *v26; // rax
-  _DWORD *v27; // rax
-  CRegion *v28; // rax
-  __int32 v29; // r9d
-  __int32 v30; // r10d
-  __int32 v31; // eax
-  __int32 v32; // r11d
-  _DWORD *v33; // rdx
-  __int32 *v34; // r8
-  unsigned int v36; // [rsp+20h] [rbp-30h]
-  unsigned __int64 v37; // [rsp+30h] [rbp-20h] BYREF
-  unsigned int v38; // [rsp+38h] [rbp-18h]
-  int v39; // [rsp+3Ch] [rbp-14h]
-  __m128 v40; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v3; // rdx
+  unsigned int v5; // r12d
+  __int64 v6; // r13
+  unsigned int v7; // r15d
+  unsigned __int64 v8; // rax
+  unsigned __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // r14
+  LPVOID v12; // rax
+  int v13; // r8d
+  int v14; // r9d
+  _QWORD *v15; // rcx
+  int v16; // edx
+  unsigned int *v17; // rdi
+  unsigned int v18; // ebx
+  __m128 v19; // xmm3
+  __m128 v20; // xmm1
+  char *v21; // rax
+  _DWORD *v22; // rax
+  CRegion *v23; // rax
+  __int32 v24; // r9d
+  __int32 v25; // r10d
+  __int32 v26; // eax
+  __int32 v27; // r11d
+  _DWORD *v28; // rdx
+  __int32 *v29; // r8
+  unsigned __int64 v31; // rbx
+  unsigned int v32; // [rsp+20h] [rbp-40h]
+  __int64 v33; // [rsp+30h] [rbp-30h] BYREF
+  unsigned int v34; // [rsp+38h] [rbp-28h]
+  int v35; // [rsp+3Ch] [rbp-24h]
+  __m128 v36; // [rsp+40h] [rbp-20h] BYREF
 
-  v4 = 0;
-  Primitive = (unsigned int)CRenderingBatchCommand::GetPrimitive(*(CRenderingBatchCommand **)a1);
-  v7 = (char *)v6[1];
-  v8 = Primitive;
-  v9 = *v6;
-  v10 = &v7[-v9];
-  v11 = 8 * *(_DWORD *)(a1 + 24) + 16;
-  v12 = (char *)(4 * v11);
-  if ( v12 < &v7[-v9] )
+  v3 = *(_QWORD *)a2;
+  v5 = 0;
+  v6 = *(_QWORD *)(*a1 + 184);
+  v7 = 8 * *((_DWORD *)a1 + 6) + 16;
+  v8 = *(_QWORD *)(a2 + 8) - v3;
+  v9 = 4 * v7;
+  if ( v9 < v8 )
   {
-    v7 = (char *)(v9 + 4 * v11);
-    goto LABEL_5;
+    *(_QWORD *)(a2 + 8) = v3 + v9;
   }
-  if ( v12 <= v10 )
-    goto LABEL_6;
-  if ( (unsigned __int64)v12 <= a2[2] - v9 )
+  else if ( v9 > v8 )
   {
-    v13 = v12 - v10;
-    memset_0(v7, 0, v13);
-    v7 += v13;
-LABEL_5:
-    a2[1] = (unsigned __int64)v7;
-    goto LABEL_6;
+    if ( v9 <= *(_QWORD *)(a2 + 16) - v3 )
+    {
+      v31 = v3 + v9;
+      memset_0(*(void **)(a2 + 8), 0, v3 + v9 - *(_QWORD *)(a2 + 8));
+      *(_QWORD *)(a2 + 8) = v31;
+    }
+    else
+    {
+      std::vector<unsigned char>::_Resize_reallocate<std::_Value_init_tag>((__int64 *)a2, (unsigned int)v9);
+    }
   }
-  std::vector<unsigned char>::_Resize_reallocate<std::_Value_init_tag>(a2, 4 * v11);
-  v7 = (char *)a2[1];
-LABEL_6:
-  v14 = *a2;
-  v40.m128_u64[0] = v14;
-  v40.m128_u64[1] = v11 | 0x400000000LL;
-  ProcessHeap = GetProcessHeap();
-  v16 = HeapAlloc(ProcessHeap, 0, (SIZE_T)&v7[-v14]);
-  v19 = *(_QWORD **)(a1 + 16);
-  *(_QWORD *)(a1 + 16) = v16;
-  if ( v19 )
+  v10 = *a1;
+  v11 = *(_QWORD *)a2;
+  v36.m128_u64[0] = *(_QWORD *)a2;
+  v36.m128_u64[1] = v7 | 0x400000000LL;
+  if ( *(_DWORD *)(v10 + 24) <= 1u )
   {
-    DefaultHeap::Free(v19);
-    v16 = *(LPVOID *)(a1 + 16);
+    v12 = DefaultHeap::Alloc(*(_QWORD *)(a2 + 8) - v11);
+    v15 = (_QWORD *)a1[2];
+    a1[2] = (__int64)v12;
+    if ( v15 )
+    {
+      operator delete(v15);
+      v12 = (LPVOID)a1[2];
+    }
+    if ( v12 )
+    {
+      TransferVertices<Vertex_UVxN<VertexXYW_ColorDW>>(v6, *(_QWORD *)(*a1 + 64) + 8, v13, v14, (__int64)&v36);
+      v36.m128_u64[0] = v11;
+      v36.m128_u64[1] = v7 | 0x400000000LL;
+      if ( !VerticesHaveIntegralXY((__int64 *)&v36) )
+        return v5;
+      v36.m128_u64[0] = v11;
+      v36.m128_u64[1] = v7 | 0x400000000LL;
+      if ( !IsValidAxisAlignedRect((__int64)&v36) )
+        return v5;
+      v16 = *((_DWORD *)a1 + 6);
+      v36.m128_u64[0] = a1[2];
+      v17 = (unsigned int *)v36.m128_u64[0];
+      v18 = 8 * v16 + 16;
+      v33 = v11;
+      v36.m128_u64[1] = v18 | 0x400000000LL;
+      v34 = v7;
+      v35 = 4;
+      ReorderAxisAlignedRectVertices(&v33, v16, (__int64)&v36);
+      v19 = _mm_mul_ps(
+              _mm_add_ps(
+                _mm_unpacklo_ps(
+                  _mm_unpacklo_ps((__m128)*v17, (__m128)*(unsigned int *)((char *)v17 + (int)(3 * v18))),
+                  _mm_unpacklo_ps((__m128)v17[1], (__m128)*(unsigned int *)((char *)v17 + (int)(3 * v18) + 4))),
+                g_halfFixedPointForRounding),
+              (__m128)_xmm);
+      v20 = _mm_cmplt_ps(DirectX::g_XMMaxInt, v19);
+      v36 = _mm_or_ps(_mm_andnot_ps(v20, (__m128)_mm_cvttps_epi32(v19)), _mm_and_ps(v20, DirectX::g_XMAbsMask));
+      v21 = (char *)DefaultHeap::Alloc(0x48uLL);
+      v15 = v21;
+      if ( v21 )
+      {
+        v22 = v21 + 8;
+        *v15 = v22;
+        *v22 = 0;
+      }
+      else
+      {
+        v15 = 0LL;
+      }
+      v23 = (CRegion *)a1[1];
+      a1[1] = (__int64)v15;
+      if ( v23 )
+      {
+        CRegion::`scalar deleting destructor'(v23, 1);
+        v15 = (_QWORD *)a1[1];
+      }
+      if ( v15 )
+      {
+        v24 = v36.m128_i32[0];
+        v25 = v36.m128_i32[2];
+        if ( v36.m128_i32[0] >= v36.m128_i32[2]
+          || (v26 = v36.m128_i32[1], v27 = v36.m128_i32[3], v36.m128_i32[1] >= v36.m128_i32[3]) )
+        {
+          *(_DWORD *)*v15 = 0;
+        }
+        else
+        {
+          v28 = (_DWORD *)*v15;
+          v29 = (__int32 *)(*v15 + 28LL);
+          *v28 = 2;
+          *v29 = v24;
+          v28[3] = v26;
+          v29[1] = v25;
+          v28[4] = (_DWORD)v29 - ((_DWORD)v28 + 12);
+          v28[1] = v24;
+          v28[2] = v25;
+          v28[6] = (_DWORD)v29 - ((_DWORD)v28 + 20) + 8;
+          v28[5] = v27;
+        }
+        return v5;
+      }
+      v32 = 278;
+    }
+    else
+    {
+      v32 = 240;
+    }
+    v5 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v15, 0LL, 0, -2147024882, v32, 0LL);
   }
-  if ( !v16 )
-  {
-    v36 = 229;
-LABEL_25:
-    v4 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v19, 0LL, 0LL, -2147024882, v36);
-    return v4;
-  }
-  TransferVertices<Vertex_UVxN<VertexXYW_ColorDW>>(v8, *(_DWORD *)a1 + 16, v17, v18, (__int64)&v40);
-  v40.m128_u64[0] = v14;
-  v40.m128_u64[1] = v11 | 0x400000000LL;
-  if ( !(unsigned __int8)VerticesHaveIntegralXY(&v40) )
-    return v4;
-  v40.m128_u64[0] = v14;
-  v40.m128_u64[1] = v11 | 0x400000000LL;
-  if ( !(unsigned __int8)IsValidAxisAlignedRect(&v40) )
-    return v4;
-  v20 = *(unsigned int *)(a1 + 24);
-  v40.m128_u64[0] = *(_QWORD *)(a1 + 16);
-  v21 = (unsigned __int64 *)v40.m128_u64[0];
-  v37 = v14;
-  v22 = v20 + 2;
-  v38 = v11;
-  v40.m128_i32[2] = 8 * (v20 + 2);
-  v40.m128_i32[3] = 4;
-  v39 = 4;
-  ReorderAxisAlignedRectVertices(&v37, v20, &v40);
-  v23 = _mm_mul_ps(
-          _mm_add_ps(_mm_movelh_ps((__m128)*v21, (__m128)v21[2 * v22]), g_halfFixedPointForRounding),
-          (__m128)_xmm);
-  v24 = _mm_cmplt_ps(DirectX::g_XMMaxInt, v23);
-  v40 = _mm_or_ps(_mm_andnot_ps(v24, (__m128)_mm_cvttps_epi32(v23)), _mm_and_ps(v24, DirectX::g_XMAbsMask));
-  v25 = GetProcessHeap();
-  v26 = (char *)HeapAlloc(v25, 0, 0x48uLL);
-  v19 = v26;
-  if ( v26 )
-  {
-    v27 = v26 + 8;
-    *v19 = v27;
-    *v27 = 0;
-  }
-  else
-  {
-    v19 = 0LL;
-  }
-  v28 = *(CRegion **)(a1 + 8);
-  *(_QWORD *)(a1 + 8) = v19;
-  if ( v28 )
-  {
-    CRegion::`scalar deleting destructor'(v28, 1);
-    v19 = *(_QWORD **)(a1 + 8);
-  }
-  if ( !v19 )
-  {
-    v36 = 267;
-    goto LABEL_25;
-  }
-  v29 = v40.m128_i32[0];
-  v30 = v40.m128_i32[2];
-  if ( v40.m128_i32[0] >= v40.m128_i32[2]
-    || (v31 = v40.m128_i32[1], v32 = v40.m128_i32[3], v40.m128_i32[1] >= v40.m128_i32[3]) )
-  {
-    *(_DWORD *)*v19 = 0;
-  }
-  else
-  {
-    v33 = (_DWORD *)*v19;
-    v34 = (__int32 *)(*v19 + 28LL);
-    *v33 = 2;
-    *v34 = v29;
-    v33[3] = v31;
-    v34[1] = v30;
-    v33[4] = (_DWORD)v34 - ((_DWORD)v33 + 12);
-    v33[1] = v29;
-    v33[2] = v30;
-    v33[6] = (_DWORD)v34 - ((_DWORD)v33 + 20) + 8;
-    v33[5] = v32;
-  }
-  return v4;
+  return v5;
 }

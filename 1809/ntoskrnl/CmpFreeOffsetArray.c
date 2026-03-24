@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpFreeOffsetArray @ 0x1407F43F0
+ * XREFs of CmpFreeOffsetArray @ 0x1407F43D0
  * Callers:
- *     CmpFlushBackupHive @ 0x1407F4070 (CmpFlushBackupHive.c)
- *     CmDumpKey @ 0x1408011B8 (CmDumpKey.c)
+ *     CmpFlushBackupHive @ 0x1407F4050 (CmpFlushBackupHive.c)
+ *     CmDumpKey @ 0x140801198 (CmDumpKey.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

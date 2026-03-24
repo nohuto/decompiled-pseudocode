@@ -1,32 +1,30 @@
 /*
- * XREFs of CmpLightWeightUpdateModificationActions @ 0x140A2A04C
+ * XREFs of CmpLightWeightUpdateModificationActions @ 0x14087FDE8
  * Callers:
- *     CmpLightWeightCreateModificationData @ 0x140A28AA8 (CmpLightWeightCreateModificationData.c)
+ *     CmpLightWeightCreateModificationData @ 0x14087F25C (CmpLightWeightCreateModificationData.c)
  * Callees:
- *     CmListGetNextElement @ 0x140AF66A8 (CmListGetNextElement.c)
+ *     CmListGetNextElement @ 0x14066EA14 (CmListGetNextElement.c)
  */
 
-__int64 __fastcall CmpLightWeightUpdateModificationActions(__int64 a1, __int64 a2)
+char *__fastcall CmpLightWeightUpdateModificationActions(__int64 a1, __int64 a2)
 {
-  __int64 v2; // r9
-  __int64 v3; // r8
-  __int64 result; // rax
+  _QWORD **v2; // r11
+  char *result; // rax
+  __int64 v4; // r9
   __int64 v5; // r10
-  __int64 v6; // r11
-  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
+  _QWORD *v6; // [rsp+38h] [rbp+10h] BYREF
 
-  v7 = 0LL;
-  v2 = a2 + 208;
-  v3 = 32LL;
+  v6 = 0LL;
+  v2 = (_QWORD **)(a2 + 208);
   while ( 1 )
   {
-    result = CmListGetNextElement(v2, &v7, v3);
+    result = CmListGetNextElement(v2, &v6, 32);
     if ( !result )
       break;
-    if ( (*(_DWORD *)(result + 68) == 1 || *(_DWORD *)(result + 68) == 3 || *(_DWORD *)(result + 68) == 10)
-      && *(_QWORD *)(result + 56) == v5 )
+    if ( (*((_DWORD *)result + 17) == 1 || *((_DWORD *)result + 17) == 3 || *((_DWORD *)result + 17) == 10)
+      && *((_QWORD *)result + 7) == v4 )
     {
-      *(_QWORD *)(result + 104) = v6;
+      *((_QWORD *)result + 13) = v5;
     }
   }
   return result;

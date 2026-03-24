@@ -1,8 +1,8 @@
 /*
- * XREFs of ?D3DXVec3Cross@@YAPEAUD2DVector3@@PEAU1@PEBU1@1@Z @ 0x18027EB6C
+ * XREFs of ?D3DXVec3Cross@@YAPEAUD2DVector3@@PEAU1@PEBU1@1@Z @ 0x18021DE24
  * Callers:
- *     ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x18023C8D0 (-GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ.c)
- *     ?Vector3Cross@CExpressionValueStack@@QEAAJXZ @ 0x180262728 (-Vector3Cross@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x1801D7838 (-GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ.c)
+ *     ?Vector3Cross@CExpressionValueStack@@QEAAJXZ @ 0x180201EBC (-Vector3Cross@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */

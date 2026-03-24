@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlGetNextBaseMcbEntry @ 0x14033E590
+ * XREFs of FsRtlGetNextBaseMcbEntry @ 0x1402FA390
  * Callers:
- *     FsRtlGetNextLargeMcbEntry @ 0x1403A5FB0 (FsRtlGetNextLargeMcbEntry.c)
+ *     FsRtlGetNextLargeMcbEntry @ 0x1404EEE60 (FsRtlGetNextLargeMcbEntry.c)
  * Callees:
  *     <none>
  */
@@ -13,30 +13,29 @@ BOOLEAN __stdcall FsRtlGetNextBaseMcbEntry(
         PLONGLONG Lbn,
         PLONGLONG SectorCount)
 {
-  int v5; // r10d
-  __int64 v9; // r8
-  int v10; // ecx
-  int v11; // ecx
-  unsigned int v12; // edx
+  int v6; // r11d
+  int v7; // eax
+  int v8; // eax
+  int v9; // ecx
 
-  v5 = 0;
-  if ( RunIndex < Mcb->PairCount )
-  {
-    v9 = RunIndex - 1;
-    if ( RunIndex )
-      v10 = *((_DWORD *)Mcb->Mapping + 2 * v9);
-    else
-      v10 = 0;
-    *(_DWORD *)Vbn = v10;
-    *((_DWORD *)Vbn + 1) = (v10 != -1) - 1;
-    v11 = *((_DWORD *)Mcb->Mapping + 2 * RunIndex + 1);
-    *(_DWORD *)Lbn = v11;
-    *((_DWORD *)Lbn + 1) = (v11 != -1) - 1;
-    if ( RunIndex )
-      v5 = *((_DWORD *)Mcb->Mapping + 2 * v9);
-    v12 = *((_DWORD *)Mcb->Mapping + 2 * RunIndex) - v5;
-    LOBYTE(v5) = 1;
-    *SectorCount = v12;
-  }
-  return v5;
+  if ( RunIndex >= Mcb->PairCount )
+    return 0;
+  v6 = 0;
+  if ( RunIndex )
+    v7 = *((_DWORD *)Mcb->Mapping + 2 * RunIndex - 2);
+  else
+    v7 = 0;
+  *(_DWORD *)Vbn = v7;
+  if ( v7 == -1 )
+    v8 = -1;
+  else
+    v8 = 0;
+  *((_DWORD *)Vbn + 1) = v8;
+  v9 = *((_DWORD *)Mcb->Mapping + 2 * RunIndex + 1);
+  *(_DWORD *)Lbn = v9;
+  *((_DWORD *)Lbn + 1) = (v9 != -1) - 1;
+  if ( RunIndex )
+    v6 = *((_DWORD *)Mcb->Mapping + 2 * RunIndex - 2);
+  *SectorCount = (unsigned int)(*((_DWORD *)Mcb->Mapping + 2 * RunIndex) - v6);
+  return 1;
 }

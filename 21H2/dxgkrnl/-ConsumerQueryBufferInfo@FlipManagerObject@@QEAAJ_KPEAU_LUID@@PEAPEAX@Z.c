@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ConsumerQueryBufferInfo@FlipManagerObject@@QEAAJ_KPEAU_LUID@@PEAPEAX@Z @ 0x1C0079D70
+ * XREFs of ?ConsumerQueryBufferInfo@FlipManagerObject@@QEAAJ_KPEAU_LUID@@PEAPEAX@Z @ 0x1C00686C0
  * Callers:
- *     NtFlipObjectConsumerQueryBufferInfo @ 0x1C007AAE0 (NtFlipObjectConsumerQueryBufferInfo.c)
+ *     NtFlipObjectConsumerQueryBufferInfo @ 0x1C00693B0 (NtFlipObjectConsumerQueryBufferInfo.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00069FC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0007EB4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?CreateDxSharedSurfaceHandle@CPoolBufferResource@@QEAAJPEAPEAX@Z @ 0x1C007F294 (-CreateDxSharedSurfaceHandle@CPoolBufferResource@@QEAAJPEAPEAX@Z.c)
- *     ?FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@@@Z @ 0x1C007F9EC (-FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0010CC4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@@@Z @ 0x1C006C6DC (-FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@.c)
+ *     ?CreateDxSharedSurfaceHandle@CPoolBufferResource@@QEAAJPEAPEAX@Z @ 0x1C006DDFC (-CreateDxSharedSurfaceHandle@CPoolBufferResource@@QEAAJPEAPEAX@Z.c)
  */
 
 __int64 __fastcall FlipManagerObject::ConsumerQueryBufferInfo(
@@ -25,7 +25,7 @@ __int64 __fastcall FlipManagerObject::ConsumerQueryBufferInfo(
   DxSharedSurfaceHandle = CPushLock::AcquireLockExclusive((FlipManagerObject *)((char *)this + 40));
   if ( DxSharedSurfaceHandle >= 0 )
   {
-    ResourceState = CEndpointResourceStateManager::FindResourceState(v9, a2, (struct _LIST_ENTRY *)((char *)this + 136));
+    ResourceState = CEndpointResourceStateManager::FindResourceState(v9, a2, (struct _LIST_ENTRY *)((char *)this + 120));
     v12 = ResourceState;
     if ( ResourceState )
     {
@@ -33,7 +33,7 @@ __int64 __fastcall FlipManagerObject::ConsumerQueryBufferInfo(
                                 *((CPoolBufferResource **)ResourceState + 3),
                                 a4);
       if ( DxSharedSurfaceHandle >= 0 )
-        *a3 = *(struct _LUID *)(*((_QWORD *)v12 + 3) + 72LL);
+        *a3 = *(struct _LUID *)(*((_QWORD *)v12 + 3) + 64LL);
     }
     else
     {

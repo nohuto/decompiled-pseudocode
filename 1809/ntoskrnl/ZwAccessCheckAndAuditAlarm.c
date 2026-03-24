@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAccessCheckAndAuditAlarm @ 0x1401B8690
+ * XREFs of ZwAccessCheckAndAuditAlarm @ 0x1401B86B0
  * Callers:
  *     <none>
  * Callees:

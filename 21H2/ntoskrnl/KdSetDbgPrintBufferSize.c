@@ -1,20 +1,20 @@
 /*
- * XREFs of KdSetDbgPrintBufferSize @ 0x140565974
+ * XREFs of KdSetDbgPrintBufferSize @ 0x1405116E4
  * Callers:
- *     NtSystemDebugControl @ 0x1406DC120 (NtSystemDebugControl.c)
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
+ *     NtSystemDebugControl @ 0x1407CFC00 (NtSystemDebugControl.c)
+ *     KdAllocateDynamicMemory @ 0x140A565F8 (KdAllocateDynamicMemory.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall KdSetDbgPrintBufferSize(unsigned int a1)
+__int64 __fastcall KdSetDbgPrintBufferSize(SIZE_T NumberOfBytes)
 {
   unsigned int v1; // r14d
-  _BYTE *Pool2; // rsi
+  _BYTE *PoolWithTag; // rsi
   unsigned __int8 CurrentIrql; // bp
   _DWORD *SchedulerAssist; // r9
   unsigned __int8 v6; // al
@@ -32,15 +32,15 @@ __int64 __fastcall KdSetDbgPrintBufferSize(unsigned int a1)
   _DWORD *v18; // r8
   int v19; // eax
 
-  v1 = a1;
+  v1 = NumberOfBytes;
   if ( KdPitchDebugger )
     return 3221226324LL;
-  if ( a1 > 0x1000000 )
+  if ( (unsigned int)NumberOfBytes > 0x1000000 )
     return 3221225711LL;
-  if ( a1 <= 0x1000 )
+  if ( (unsigned int)NumberOfBytes <= 0x1000 )
   {
     v1 = 4096;
-    Pool2 = &KdPrintDefaultCircularBuffer;
+    PoolWithTag = &KdPrintDefaultCircularBuffer;
     while ( 1 )
     {
 LABEL_9:
@@ -57,7 +57,7 @@ LABEL_9:
         {
           v11 = 0LL;
           v12 = KdPrintCircularBuffer;
-          qword_140D01938 = (__int64)KeGetCurrentPrcb();
+          qword_140CFA2C8 = (__int64)KeGetCurrentPrcb();
           if ( v1 > (unsigned __int64)(unsigned int)KdPrintBufferSize )
           {
             if ( KdPrintWritePointer - (_UNKNOWN *)KdPrintCircularBuffer >= (unsigned __int64)(unsigned int)KdPrintBufferSize )
@@ -67,14 +67,14 @@ LABEL_9:
             if ( KdPrintRolloverCount )
             {
               v11 = (unsigned int)KdPrintBufferSize - v13;
-              memmove(Pool2, (char *)KdPrintCircularBuffer + v13, v11);
+              memmove(PoolWithTag, (char *)KdPrintCircularBuffer + v13, v11);
             }
-            memmove(&Pool2[v11], v12, v13);
+            memmove(&PoolWithTag[v11], v12, v13);
             v11 += v13;
             if ( KdPrintRolloverCount )
             {
               v14 = 0LL;
-              if ( *Pool2 )
+              if ( *PoolWithTag )
               {
                 do
                 {
@@ -82,22 +82,22 @@ LABEL_9:
                     break;
                   ++v14;
                 }
-                while ( Pool2[v14] );
+                while ( PoolWithTag[v14] );
               }
               v15 = v14 + 1;
               if ( v15 < v11 )
               {
                 v11 -= v15;
-                memmove(Pool2, &Pool2[v15], v11);
+                memmove(PoolWithTag, &PoolWithTag[v15], v11);
               }
             }
           }
-          memset(&Pool2[v11], 0, v1 - v11);
+          memset(&PoolWithTag[v11], 0, v1 - v11);
           ++KdPrintBufferChanges;
-          qword_140D01938 = 0LL;
-          KdPrintCircularBuffer = Pool2;
+          qword_140CFA2C8 = 0LL;
+          KdPrintCircularBuffer = PoolWithTag;
           KdPrintBufferSize = v1;
-          KdPrintWritePointer = &Pool2[v11];
+          KdPrintWritePointer = &PoolWithTag[v11];
           KdPrintRolloverCount = 0;
           _InterlockedExchange((volatile __int32 *)&KdpPrintSpinLock, 0);
           if ( KiIrqlFlags )
@@ -144,8 +144,8 @@ LABEL_9:
       _mm_pause();
     }
   }
-  Pool2 = (_BYTE *)ExAllocatePool2(66LL, a1, 1649435723LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)NumberOfBytes, 0x6250644Bu);
+  if ( PoolWithTag )
     goto LABEL_9;
   return 3221225495LL;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlFillNonVolatileMemory @ 0x1405EC320
+ * XREFs of RtlFillNonVolatileMemory @ 0x14058CCD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlFillMemoryNonTemporal @ 0x14042A3D0 (RtlFillMemoryNonTemporal.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlFlushNonVolatileMemory @ 0x1405E4740 (RtlFlushNonVolatileMemory.c)
+ *     RtlFillMemoryNonTemporal @ 0x1404083A0 (RtlFillMemoryNonTemporal.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlFlushNonVolatileMemory @ 0x140585C10 (RtlFlushNonVolatileMemory.c)
  */
 
 __int64 __fastcall RtlFillNonVolatileMemory(char a1, __m128i *a2, size_t a3, unsigned __int8 a4, __int16 a5)

@@ -1,23 +1,23 @@
 /*
- * XREFs of IopLiveDumpWriteDumpFileWithHvPages @ 0x140820918
+ * XREFs of IopLiveDumpWriteDumpFileWithHvPages @ 0x1408208F8
  * Callers:
- *     IoCaptureLiveDump @ 0x14081EFA4 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x14081EF84 (IoCaptureLiveDump.c)
  * Callees:
  *     MmFreeIndependentPages @ 0x140001010 (MmFreeIndependentPages.c)
- *     RtlClearAllBitsEx @ 0x1401102F0 (RtlClearAllBitsEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SecureDump_Get_SecureDumpHeader @ 0x1402866F0 (SecureDump_Get_SecureDumpHeader.c)
- *     RtlMergeBitMapsEx @ 0x1402EEF9C (RtlMergeBitMapsEx.c)
- *     RtlNumberOfSetBitsEx @ 0x1402EF070 (RtlNumberOfSetBitsEx.c)
+ *     RtlClearAllBitsEx @ 0x140110310 (RtlClearAllBitsEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SecureDump_Get_SecureDumpHeader @ 0x1402867F0 (SecureDump_Get_SecureDumpHeader.c)
+ *     RtlMergeBitMapsEx @ 0x1402EF09C (RtlMergeBitMapsEx.c)
+ *     RtlNumberOfSetBitsEx @ 0x1402EF170 (RtlNumberOfSetBitsEx.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopLiveDumpCheckTermination @ 0x14081FF94 (IopLiveDumpCheckTermination.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x140820058 (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpGetHvMergePages @ 0x140820184 (IopLiveDumpGetHvMergePages.c)
- *     IopLiveDumpGetNtMergePages @ 0x14082031C (IopLiveDumpGetNtMergePages.c)
- *     IopLiveDumpWriteBuffer @ 0x140820638 (IopLiveDumpWriteBuffer.c)
+ *     IopLiveDumpCheckTermination @ 0x14081FF74 (IopLiveDumpCheckTermination.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x140820038 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpGetHvMergePages @ 0x140820164 (IopLiveDumpGetHvMergePages.c)
+ *     IopLiveDumpGetNtMergePages @ 0x1408202FC (IopLiveDumpGetNtMergePages.c)
+ *     IopLiveDumpWriteBuffer @ 0x140820618 (IopLiveDumpWriteBuffer.c)
  */
 
 __int64 __fastcall IopLiveDumpWriteDumpFileWithHvPages(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitBoundsInMonitor@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022E4A0
+ * XREFs of ?EmitBoundsInMonitor@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F5500
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::EmitBoundsInMonitor(
@@ -13,7 +13,7 @@ char __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::
   char *v3; // rcx
   void *v5; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( (*((_DWORD *)this + 4) & 0x8000) == 0 )
+  if ( (*((_DWORD *)this + 4) & 0x4000) == 0 )
     return 1;
   v5 = 0LL;
   if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x1CuLL, &v5) )
@@ -22,10 +22,10 @@ char __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::
     *(_DWORD *)v5 = 28;
     *(_OWORD *)(v3 + 4) = 0LL;
     *(_QWORD *)(v3 + 20) = 0LL;
-    *((_DWORD *)v3 + 1) = 385;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-    *(_OWORD *)(v3 + 12) = *((_OWORD *)this + 10);
-    *((_DWORD *)this + 4) &= ~0x8000u;
+    *((_DWORD *)v3 + 1) = 399;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+    *(_OWORD *)(v3 + 12) = *(_OWORD *)((char *)this + 152);
+    *((_DWORD *)this + 4) &= ~0x4000u;
     return 1;
   }
   return 0;

@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpWriteCustomBreakpoint @ 0x1405658B4
+ * XREFs of KdpWriteCustomBreakpoint @ 0x140511624
  * Callers:
- *     KdpSendWaitContinue @ 0x140A6FB80 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpAddBreakpoint @ 0x140A7471C (KdpAddBreakpoint.c)
+ *     KdpAddBreakpoint @ 0x1409BA0B0 (KdpAddBreakpoint.c)
  */
 
 __int64 __fastcall KdpWriteCustomBreakpoint(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -19,5 +19,5 @@ __int64 __fastcall KdpWriteCustomBreakpoint(__int64 a1, __int64 a2, __int64 a3, 
   v6 = KdpAddBreakpoint(*(_QWORD *)(a1 + 16), v5, a3, a4, 56LL, a1);
   *(_DWORD *)(a1 + 32) = v6;
   *(_DWORD *)(a1 + 8) = v6 == 0 ? 0xC0000001 : 0;
-  return ((__int64 (__fastcall *)(__int64, __int128 *, _QWORD, __int128 *))KdSendPacket)(2LL, &v8, 0LL, &KdpContext);
+  return KdSendPacket(2LL, &v8, 0LL, &KdpContext);
 }

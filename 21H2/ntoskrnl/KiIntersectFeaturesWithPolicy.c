@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntersectFeaturesWithPolicy @ 0x140A55DCC
+ * XREFs of KiIntersectFeaturesWithPolicy @ 0x1409A0B30
  * Callers:
- *     KiInitializeXSave @ 0x140A56780 (KiInitializeXSave.c)
+ *     KiInitializeXSave @ 0x14099BC40 (KiInitializeXSave.c)
  * Callees:
- *     KiGetProcessorInformation @ 0x1403BF694 (KiGetProcessorInformation.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiIsXSaveFeatureAllowed @ 0x140A55F2C (KiIsXSaveFeatureAllowed.c)
- *     KiLoadPolicyFromImage @ 0x140A55FBC (KiLoadPolicyFromImage.c)
+ *     KiGetProcessorInformation @ 0x1403BBC7C (KiGetProcessorInformation.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiIsXSaveFeatureAllowed @ 0x1409A0C90 (KiIsXSaveFeatureAllowed.c)
+ *     KiLoadPolicyFromImage @ 0x1409A0D20 (KiLoadPolicyFromImage.c)
  */
 
 __int64 __fastcall KiIntersectFeaturesWithPolicy(__int64 a1, __int64 *a2)
@@ -44,7 +44,7 @@ __int64 __fastcall KiIntersectFeaturesWithPolicy(__int64 a1, __int64 *a2)
     result = KiLoadPolicyFromImage(a1, &v16, &v17);
     if ( (_DWORD)result == -1073741204 )
     {
-      *((_DWORD *)a2 + 5) &= 0xFFFFFFF8;
+      *((_DWORD *)a2 + 5) &= 0xFFFFFFFC;
       *a2 = 0LL;
       a2[67] = 0LL;
     }

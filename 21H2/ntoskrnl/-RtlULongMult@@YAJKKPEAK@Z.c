@@ -1,8 +1,8 @@
 /*
- * XREFs of ?RtlULongMult@@YAJKKPEAK@Z @ 0x140649558
+ * XREFs of ?RtlULongMult@@YAJKKPEAK@Z @ 0x1405C0824
  * Callers:
- *     sub_1407E3E2C @ 0x1407E3E2C (sub_1407E3E2C.c)
- *     sub_1407E4178 @ 0x1407E4178 (sub_1407E4178.c)
+ *     sub_14064D36C @ 0x14064D36C (sub_14064D36C.c)
+ *     sub_140688274 @ 0x140688274 (sub_140688274.c)
  * Callees:
  *     <none>
  */

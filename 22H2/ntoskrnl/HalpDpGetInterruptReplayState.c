@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpDpGetInterruptReplayState @ 0x140A97400
+ * XREFs of HalpDpGetInterruptReplayState @ 0x1409A8360
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptSaveReplayState @ 0x140A97DBC (HalpInterruptSaveReplayState.c)
+ *     HalpInterruptSaveReplayState @ 0x1409A8D30 (HalpInterruptSaveReplayState.c)
  */
 
 __int64 __fastcall HalpDpGetInterruptReplayState(__int64 a1, _QWORD *a2)
 {
-  unsigned __int32 v3; // eax
+  unsigned __int32 v3; // r8d
   __int64 result; // rax
   __int64 v5; // rdi
 
   v3 = _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4), 1u);
   if ( v3 < *(_DWORD *)a1 )
   {
-    v5 = *(_QWORD *)(a1 + 32) + *(_DWORD *)(a1 + 40) * v3;
+    v5 = *(_QWORD *)(a1 + 32) + v3 * *(_DWORD *)(a1 + 40);
     result = HalpInterruptSaveReplayState(v5);
     if ( (int)result >= 0 )
     {

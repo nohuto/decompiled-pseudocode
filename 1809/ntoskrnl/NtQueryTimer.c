@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryTimer @ 0x1408CF9A0
+ * XREFs of NtQueryTimer @ 0x1408CF980
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeQueryTimerDueTime @ 0x1402904C8 (KeQueryTimerDueTime.c)
+ *     KeQueryTimerDueTime @ 0x1402905C8 (KeQueryTimerDueTime.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtQueryTimer(

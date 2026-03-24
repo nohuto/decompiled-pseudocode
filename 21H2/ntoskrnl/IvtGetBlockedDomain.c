@@ -1,11 +1,11 @@
 /*
- * XREFs of IvtGetBlockedDomain @ 0x14052E940
+ * XREFs of IvtGetBlockedDomain @ 0x1404DFF1C
  * Callers:
- *     IvtUpdateContextEntry @ 0x14052F89C (IvtUpdateContextEntry.c)
- *     IvtUpdateScalableModeTranslationStructures @ 0x1405300A8 (IvtUpdateScalableModeTranslationStructures.c)
- *     IvtInitializeIommu @ 0x140A63CE0 (IvtInitializeIommu.c)
+ *     IvtUpdateContextEntry @ 0x1404E0BBC (IvtUpdateContextEntry.c)
+ *     IvtUpdateExtendedContextEntry @ 0x1404E0D70 (IvtUpdateExtendedContextEntry.c)
+ *     IvtInitializeIommu @ 0x1409A9950 (IvtInitializeIommu.c)
  * Callees:
- *     HalpIvtFindReservedDomain @ 0x140537A78 (HalpIvtFindReservedDomain.c)
+ *     HalpIvtFindReservedDomain @ 0x1404E7DCC (HalpIvtFindReservedDomain.c)
  */
 
 __int64 __fastcall IvtGetBlockedDomain(__int64 a1, unsigned int *a2, unsigned __int64 *a3)
@@ -24,7 +24,7 @@ __int64 __fastcall IvtGetBlockedDomain(__int64 a1, unsigned int *a2, unsigned __
   else
   {
     v8 = IvtBlockedPageTablePhysical;
-    result = *(unsigned int *)(a1 + 260);
+    result = *(unsigned int *)(a1 + 220);
   }
   *a3 = v8 >> 12;
   return result;

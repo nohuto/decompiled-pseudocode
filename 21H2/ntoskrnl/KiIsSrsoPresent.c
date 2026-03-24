@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsSrsoPresent @ 0x140418D94
+ * XREFs of KiIsSrsoPresent @ 0x1403F33A4
  * Callers:
- *     KiDetectHardwareSpecControlFeatures @ 0x1403BFE70 (KiDetectHardwareSpecControlFeatures.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1403ADD1C (KiDetectHardwareSpecControlFeatures.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ __int64 __fastcall KiIsSrsoPresent(__int64 a1)
   __int64 result; // rax
 
   result = 1LL;
-  if ( *(_BYTE *)(a1 + 141) != 1 || _bittest64((const signed __int64 *)&KeFeatureBits2, 0x22u) )
+  if ( *(_BYTE *)(a1 + 141) != 1 || (KeFeatureBits2 & 0x400000000LL) != 0 )
     return 0LL;
   return result;
 }

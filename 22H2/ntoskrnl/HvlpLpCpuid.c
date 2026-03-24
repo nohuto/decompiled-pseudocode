@@ -1,60 +1,58 @@
 /*
- * XREFs of HvlpLpCpuid @ 0x140941500
+ * XREFs of HvlpLpCpuid @ 0x140A8F2D8
  * Callers:
- *     HvlpDiscoverTopologyAmd @ 0x140B93F94 (HvlpDiscoverTopologyAmd.c)
- *     HvlpDiscoverTopologyIntel @ 0x140B941D0 (HvlpDiscoverTopologyIntel.c)
+ *     HvlpDiscoverTopologyAmd @ 0x140A8EF24 (HvlpDiscoverTopologyAmd.c)
+ *     HvlpDiscoverTopologyIntel @ 0x140A8F160 (HvlpDiscoverTopologyIntel.c)
  * Callees:
- *     HvcallInitInputControl @ 0x1403725A0 (HvcallInitInputControl.c)
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
  */
 
-char __fastcall HvlpLpCpuid(ULONG a1, ULONG a2, LONG a3, PHYSICAL_ADDRESS *a4)
+char __fastcall HvlpLpCpuid(int a1, unsigned int a2, int a3, _DWORD *a4)
 {
-  PHYSICAL_ADDRESS *v13; // rbx
-  PHYSICAL_ADDRESS *v14; // rdi
-  int v15; // ecx
-  __int64 v17; // [rsp+20h] [rbp-50h] BYREF
-  __int128 v18; // [rsp+28h] [rbp-48h] BYREF
-  __int64 v19; // [rsp+38h] [rbp-38h]
-  __int64 v20; // [rsp+40h] [rbp-30h]
-  __int128 v21; // [rsp+48h] [rbp-28h] BYREF
-  __int64 v22; // [rsp+58h] [rbp-18h]
-  __int64 v23; // [rsp+60h] [rbp-10h]
+  _DWORD *v13; // rbx
+  _QWORD *v14; // rax
+  __int64 v15; // r8
+  _DWORD *v16; // rdi
+  __int64 v17; // rdx
+  __int64 v18; // r9
+  __int128 v20; // [rsp+28h] [rbp-48h] BYREF
+  __int128 v21; // [rsp+38h] [rbp-38h]
+  __int128 v22; // [rsp+48h] [rbp-28h] BYREF
+  __int128 v23; // [rsp+58h] [rbp-18h]
 
-  v17 = 0LL;
   v22 = 0LL;
-  LODWORD(v23) = 0;
-  v19 = 0LL;
-  LODWORD(v20) = 0;
+  v23 = 0LL;
+  v20 = 0LL;
   v21 = 0LL;
-  v18 = 0LL;
   if ( a1 == -1 )
   {
     _RAX = a2;
     __asm { cpuid }
-    a4->LowPart = _RAX;
-    a4->HighPart = _RBX;
-    a4[1].LowPart = _RCX;
-    a4[1].HighPart = _RDX;
+    *a4 = _RAX;
+    a4[1] = _RBX;
+    a4[2] = _RCX;
+    a4[3] = _RDX;
   }
   else
   {
-    HvcallInitInputControl(136, &v17);
-    HIDWORD(v17) = HIDWORD(v17) & 0xF000F000 | 1;
-    v13 = HvlpAcquireHypercallPage((__int64)&v21, 1, 0LL, 16LL);
-    v14 = HvlpAcquireHypercallPage((__int64)&v18, 2, 0LL, 16LL);
-    v15 = v17;
-    v13->LowPart = a1;
-    v13->HighPart = 0x10000;
-    v13[1].LowPart = a2;
-    v13[1].HighPart = a3;
-    HvcallInitiateHypercall(v15);
-    *a4 = *v14;
-    a4[1] = v14[1];
-    HvlpReleaseHypercallPage((__int64)&v18);
-    LOBYTE(_RAX) = HvlpReleaseHypercallPage((__int64)&v21);
+    v13 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v22, 1, 0LL, 16LL);
+    v14 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v20, 2, 0LL, 16LL);
+    v15 = *((_QWORD *)&v21 + 1);
+    v16 = v14;
+    v17 = *((_QWORD *)&v23 + 1);
+    *v13 = a1;
+    v13[1] = 0x10000;
+    v13[2] = a2;
+    v13[3] = a3;
+    HvcallInitiateHypercall(136, v17, v15, v18);
+    *a4 = *v16;
+    a4[1] = v16[1];
+    a4[2] = v16[2];
+    a4[3] = v16[3];
+    HvlpReleaseHypercallPage((__int64)&v20);
+    LOBYTE(_RAX) = HvlpReleaseHypercallPage((__int64)&v22);
   }
   return _RAX;
 }

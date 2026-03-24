@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpVpptTimerRegister @ 0x140509CD4
+ * XREFs of HalpVpptTimerRegister @ 0x1404C0BD8
  * Callers:
- *     HalpTimerSelectRoles @ 0x14037A8FC (HalpTimerSelectRoles.c)
+ *     HalpTimerSelectRoles @ 0x1403B0F2C (HalpTimerSelectRoles.c)
  * Callees:
- *     HalSocRequestApi @ 0x140378A3C (HalSocRequestApi.c)
- *     HalpTimerRegister @ 0x140379104 (HalpTimerRegister.c)
- *     ExtEnvInitializeSpinLock @ 0x1403B414C (ExtEnvInitializeSpinLock.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalSocRequestApi @ 0x1403A199C (HalSocRequestApi.c)
+ *     HalpTimerRegister @ 0x1403B2D90 (HalpTimerRegister.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExtEnvInitializeSpinLock @ 0x1404D5474 (ExtEnvInitializeSpinLock.c)
  */
 
 __int64 __fastcall HalpVpptTimerRegister(__int64 a1, char a2)
@@ -41,8 +41,8 @@ __int64 __fastcall HalpVpptTimerRegister(__int64 a1, char a2)
     {
       HalpVpptPhysicalTimerTarget = -1;
       *(_QWORD *)&HalpVpptPhysicalTimer = a1;
-      ExtEnvInitializeSpinLock(HalpVpptLock);
-      qword_140C628C8 = (__int64)&HalpVpptQueue;
+      ExtEnvInitializeSpinLock(&HalpVpptLock);
+      qword_140C4A6E8 = (__int64)&HalpVpptQueue;
       *(_QWORD *)&HalpVpptQueue = &HalpVpptQueue;
       memset(v8, 0, sizeof(v8));
       v8[1] = HalpVpptInitialize;
@@ -62,7 +62,7 @@ __int64 __fastcall HalpVpptTimerRegister(__int64 a1, char a2)
       LODWORD(v8[15]) = v6;
       v8[11] = &v9;
       v9 = 0LL;
-      v8[17] = 11LL;
+      v8[17] = 12LL;
       v11 = 0LL;
       if ( v7 )
         v8[13] = *(_QWORD *)(a1 + 192);

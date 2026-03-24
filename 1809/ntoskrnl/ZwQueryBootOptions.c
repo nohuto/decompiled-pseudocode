@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwQueryBootOptions @ 0x1401BA890
+ * XREFs of ZwQueryBootOptions @ 0x1401BA8B0
  * Callers:
- *     BiQueryBootOptions @ 0x1408F43D8 (BiQueryBootOptions.c)
- *     SiGetEspFromFirmware @ 0x1408F568C (SiGetEspFromFirmware.c)
+ *     BiQueryBootOptions @ 0x1408F43B8 (BiQueryBootOptions.c)
+ *     SiGetEspFromFirmware @ 0x1408F566C (SiGetEspFromFirmware.c)
  * Callees:
  *     <none>
  */

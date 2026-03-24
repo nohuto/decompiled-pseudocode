@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpReadWheaPhysicalMemory @ 0x1405218E0
+ * XREFs of HalpReadWheaPhysicalMemory @ 0x1404D7750
  * Callers:
  *     <none>
  * Callees:
- *     HalpReadWriteWheaPhysicalMemory @ 0x140521900 (HalpReadWriteWheaPhysicalMemory.c)
+ *     HalpReadWriteWheaPhysicalMemory @ 0x1404D7770 (HalpReadWriteWheaPhysicalMemory.c)
  */
 
 __int64 __fastcall HalpReadWheaPhysicalMemory(__int64 a1, unsigned int a2, __int64 a3)

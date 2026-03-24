@@ -1,31 +1,36 @@
 /*
- * XREFs of ?ResolveSourceReference@CExpression@@UEAAJIPEAPEAVCResource@@@Z @ 0x180074330
+ * XREFs of ?ResolveSourceReference@CExpression@@UEAAJIPEAPEAVCResource@@@Z @ 0x180059A90
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CExpression::ResolveSourceReference(CExpression *this, unsigned int a2, struct CResource **a3)
 {
-  unsigned int v3; // ebx
+  struct CResource *v3; // rcx
+  unsigned int v4; // ebx
 
-  if ( a2 >= *((_DWORD *)this + 106) || !*(_QWORD *)(*((_QWORD *)this + 52) + 8LL * a2) )
+  if ( a2 < *((_DWORD *)this + 100) && *(_QWORD *)(*((_QWORD *)this + 49) + 8LL * a2) )
   {
-    *a3 = 0LL;
-    goto LABEL_7;
+    _mm_lfence();
+    v3 = *(struct CResource **)(*(_QWORD *)(*((_QWORD *)this + 49) + 8LL * a2) + 16LL);
   }
-  _mm_lfence();
-  this = *(CExpression **)(*(_QWORD *)(*((_QWORD *)this + 52) + 8LL * a2) + 16LL);
-  *a3 = this;
-  if ( !this )
+  else
   {
-LABEL_7:
-    v3 = -2147467259;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, &dword_18032C888, 2LL, -2147467259, 0x14Du);
-    return v3;
+    v3 = 0LL;
   }
-  (*(void (__fastcall **)(CExpression *))(*(_QWORD *)this + 8LL))(this);
-  return 0;
+  *a3 = v3;
+  if ( v3 )
+  {
+    (*(void (__fastcall **)(struct CResource *))(*(_QWORD *)v3 + 8LL))(v3);
+    return 0;
+  }
+  else
+  {
+    v4 = -2147467259;
+    MilInstrumentationCheckHR_MaybeFailFast(0, &dword_1802CE578, 2u, -2147467259, 0x14Du, 0LL);
+  }
+  return v4;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpGetCmosData @ 0x1403A4C90
+ * XREFs of HalpGetCmosData @ 0x1404CC1B0
  * Callers:
- *     HalReadBootRegister @ 0x140A90CB4 (HalReadBootRegister.c)
+ *     HalReadBootRegister @ 0x1409A9790 (HalReadBootRegister.c)
  * Callees:
- *     HalpGetSetCmosData @ 0x1403A4CAC (HalpGetSetCmosData.c)
+ *     HalpGetSetCmosData @ 0x1404CC1CC (HalpGetSetCmosData.c)
  */
 
 __int64 __fastcall HalpGetCmosData(int a1, int a2, int a3, int a4)

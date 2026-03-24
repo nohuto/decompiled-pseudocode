@@ -1,7 +1,7 @@
 /*
- * XREFs of MiZeroPageLogEntriesMergable @ 0x140351464
+ * XREFs of MiZeroPageLogEntriesMergable @ 0x140398B28
  * Callers:
- *     MiLogZeroPageDecision @ 0x140351354 (MiLogZeroPageDecision.c)
+ *     MiLogZeroPageDecision @ 0x140398A28 (MiLogZeroPageDecision.c)
  * Callees:
  *     <none>
  */
@@ -17,12 +17,12 @@ __int64 __fastcall MiZeroPageLogEntriesMergable(int *a1, int *a2)
   if ( *((_WORD *)a1 + 4) != *((_WORD *)a2 + 4) || *((_WORD *)a1 + 5) != *((_WORD *)a2 + 5) )
     return 0LL;
   v2 = *((_BYTE *)a2 + 12);
-  if ( *((_BYTE *)a1 + 12) > 4u )
+  if ( *((_BYTE *)a1 + 12) <= 4u )
   {
-    if ( v2 <= 4u )
+    if ( v2 > 4u )
       return 0LL;
   }
-  else if ( v2 > 4u )
+  else if ( v2 <= 4u )
   {
     return 0LL;
   }

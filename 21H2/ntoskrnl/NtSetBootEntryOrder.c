@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetBootEntryOrder @ 0x140A010D0
+ * XREFs of NtSetBootEntryOrder @ 0x140954D10
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     IoSetEnvironmentVariableEx @ 0x14093E830 (IoSetEnvironmentVariableEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     IoSetEnvironmentVariableEx @ 0x140899D5C (IoSetEnvironmentVariableEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall NtSetBootEntryOrder(unsigned __int64 a1, unsigned int a2)
@@ -27,7 +27,7 @@ __int64 __fastcall NtSetBootEntryOrder(unsigned __int64 a1, unsigned int a2)
 
   v2 = a2;
   PoolWithTag = 0LL;
-  if ( dword_140C15C70 != 2 )
+  if ( dword_140C19850 != 2 )
     return 3221225474LL;
   if ( a2 > 0x3FFFFFFF )
     return 3221225485LL;
@@ -62,9 +62,14 @@ __int64 __fastcall NtSetBootEntryOrder(unsigned __int64 a1, unsigned int a2)
   v11 = KeGetCurrentThread();
   --v11->KernelApcDisable;
   ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
-  v12 = IoSetEnvironmentVariableEx(L"BootOrder", (__int64)&EfiBootVariablesGuid, (__int64)PoolWithTag, 2 * (int)v2, 1);
+  v12 = IoSetEnvironmentVariableEx(
+          (const size_t *)L"BootOrder",
+          (__int64)&EfiBootVariablesGuid,
+          (__int64)PoolWithTag,
+          2 * (int)v2,
+          1);
   ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v12 == -1073741568 )
     v12 = 0;
   if ( PoolWithTag )

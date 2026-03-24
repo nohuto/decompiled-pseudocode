@@ -1,28 +1,18 @@
 /*
- * XREFs of bFntCacheDisabled @ 0x1C008877C
+ * XREFs of bFntCacheDisabled @ 0x1C00E57F8
  * Callers:
- *     InitFNTCache @ 0x1C00880A0 (InitFNTCache.c)
+ *     InitFNTCache @ 0x1C00E53A0 (InitFNTCache.c)
  * Callees:
- *     bQueryFntCacheReg @ 0x1C0088820 (bQueryFntCacheReg.c)
+ *     bQueryFntCacheReg @ 0x1C00E5868 (bQueryFntCacheReg.c)
  */
 
-__int64 __fastcall bFntCacheDisabled(Gre::Base *a1)
+__int64 bFntCacheDisabled()
 {
-  unsigned int v1; // ebx
-  struct Gre::Base::SESSION_GLOBALS *v2; // rdi
-  __int64 v3; // rcx
-  __int64 v4; // rax
-  __int64 v5; // rcx
-  __int64 v6; // rax
+  unsigned int v0; // ebx
 
-  v1 = 0;
-  v2 = Gre::Base::Globals(a1);
-  v4 = SGDGetSessionState(v3);
-  bQueryFntCacheReg(*(HANDLE *)(*(_QWORD *)(v4 + 32) + 19408LL));
-  if ( !*((_DWORD *)v2 + 752) )
-  {
-    v6 = SGDGetSessionState(v5);
-    return (unsigned int)bQueryFntCacheReg(*(HANDLE *)(*(_QWORD *)(v6 + 32) + 19408LL)) == 0;
-  }
-  return v1;
+  v0 = 0;
+  bQueryFntCacheReg(ghkeyGreInitialize);
+  if ( !G_fServiceSession )
+    return (unsigned int)bQueryFntCacheReg(ghkeyGreInitialize) == 0;
+  return v0;
 }

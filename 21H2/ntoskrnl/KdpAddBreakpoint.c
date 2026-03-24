@@ -1,12 +1,12 @@
 /*
- * XREFs of KdpAddBreakpoint @ 0x140A7471C
+ * XREFs of KdpAddBreakpoint @ 0x1409BA0B0
  * Callers:
- *     KdpWriteCustomBreakpoint @ 0x1405658B4 (KdpWriteCustomBreakpoint.c)
- *     KdpSendWaitContinue @ 0x140A6FB80 (KdpSendWaitContinue.c)
- *     KdpWriteBreakPointEx @ 0x140A73D80 (KdpWriteBreakPointEx.c)
+ *     KdpWriteCustomBreakpoint @ 0x140511624 (KdpWriteCustomBreakpoint.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
+ *     KdpWriteBreakPointEx @ 0x1409B9090 (KdpWriteBreakPointEx.c)
  * Callees:
- *     KdpCopyCodeStream @ 0x140A74644 (KdpCopyCodeStream.c)
- *     KdpInsertBreakpoint @ 0x140A748B4 (KdpInsertBreakpoint.c)
+ *     KdpCopyCodeStream @ 0x1409B9A9C (KdpCopyCodeStream.c)
+ *     KdpInsertBreakpoint @ 0x1409BA334 (KdpInsertBreakpoint.c)
  */
 
 __int64 __fastcall KdpAddBreakpoint(unsigned __int64 a1, __int64 a2, unsigned __int8 a3, unsigned __int8 a4)
@@ -37,7 +37,7 @@ __int64 __fastcall KdpAddBreakpoint(unsigned __int64 a1, __int64 a2, unsigned __
     {
       if ( !v8 )
         return 0LL;
-      v12 = KdpCopyCodeStream((char *)(a1 & ~(unsigned __int64)a4), (__int64)v16, a3, 4);
+      v12 = KdpCopyCodeStream((PVOID)(a1 & ~(unsigned __int64)a4), (__int64)v16, a3, 4);
       *(_QWORD *)v8 = a1;
       *((_BYTE *)v8 + 36) = a3;
       *((_BYTE *)v8 + 37) = a4;

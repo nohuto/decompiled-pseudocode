@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFlushReadyLists @ 0x14029D1C8
+ * XREFs of KiFlushReadyLists @ 0x14029D2C8
  * Callers:
- *     KeTransitionProcessorParkState @ 0x14029CC9C (KeTransitionProcessorParkState.c)
+ *     KeTransitionProcessorParkState @ 0x14029CD9C (KeTransitionProcessorParkState.c)
  * Callees:
- *     KiInsertDeferredReadyList @ 0x1400ACBA8 (KiInsertDeferredReadyList.c)
+ *     KiInsertDeferredReadyList @ 0x1400ACBC8 (KiInsertDeferredReadyList.c)
  */
 
 _UNKNOWN **__fastcall KiFlushReadyLists(__int64 a1, unsigned int *a2, __int64 a3)

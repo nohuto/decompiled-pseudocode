@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIThermalStopZoneWorker @ 0x1C006109C
+ * XREFs of ACPIThermalStopZoneWorker @ 0x1C00602DC
  * Callers:
- *     ACPIThermalWorker @ 0x1C00959C0 (ACPIThermalWorker.c)
+ *     ACPIThermalWorker @ 0x1C009AB00 (ACPIThermalWorker.c)
  * Callees:
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     ACPIThermalLoopEx @ 0x1C00209D8 (ACPIThermalLoopEx.c)
- *     ACPIThermalCompletePendingIrps @ 0x1C0020E34 (ACPIThermalCompletePendingIrps.c)
- *     ACPIUnregisterForDeviceNotifications @ 0x1C005D720 (ACPIUnregisterForDeviceNotifications.c)
- *     AcpiThermalDestroyContraints @ 0x1C00612B0 (AcpiThermalDestroyContraints.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
+ *     ACPIThermalCompletePendingIrps @ 0x1C0012E74 (ACPIThermalCompletePendingIrps.c)
+ *     ACPIUnregisterForDeviceNotifications @ 0x1C005C6C0 (ACPIUnregisterForDeviceNotifications.c)
+ *     AcpiThermalDestroyContraints @ 0x1C00604F0 (AcpiThermalDestroyContraints.c)
  */
 
 LONG __fastcall ACPIThermalStopZoneWorker(__int64 a1)
@@ -16,8 +16,8 @@ LONG __fastcall ACPIThermalStopZoneWorker(__int64 a1)
   void *v3; // rcx
   IRP *v4; // rcx
   void *v5; // rcx
-  volatile signed __int32 *v6; // rcx
-  volatile signed __int32 *v7; // rcx
+  __int64 v6; // rcx
+  __int64 v7; // rcx
   void *v8; // rcx
   KIRQL v9; // al
   __int64 v10; // r9
@@ -49,13 +49,13 @@ LONG __fastcall ACPIThermalStopZoneWorker(__int64 a1)
     ObfDereferenceObject(v5);
     *(_QWORD *)(v1 + 200) = 0LL;
   }
-  v6 = *(volatile signed __int32 **)(v1 + 112);
+  v6 = *(_QWORD *)(v1 + 112);
   if ( v6 )
   {
     AMLIDereferenceHandleEx(v6);
     *(_QWORD *)(v1 + 112) = 0LL;
   }
-  v7 = *(volatile signed __int32 **)(v1 + 120);
+  v7 = *(_QWORD *)(v1 + 120);
   if ( v7 )
   {
     AMLIDereferenceHandleEx(v7);
@@ -78,10 +78,10 @@ LONG __fastcall ACPIThermalStopZoneWorker(__int64 a1)
     *(_QWORD *)(v10 + 8) = v11;
     KeReleaseSpinLock(&AcpiThermalConstraintLock, v9);
   }
-  ACPIUnregisterForDeviceNotifications(*(_QWORD *)(a1 + 768));
+  ACPIUnregisterForDeviceNotifications(*(_QWORD *)(a1 + 728));
   if ( *(_QWORD *)(a1 + 224) )
   {
-    IoWMIRegistrationControl(*(PDEVICE_OBJECT *)(a1 + 768), 2u);
+    IoWMIRegistrationControl(*(PDEVICE_OBJECT *)(a1 + 728), 2u);
     ExFreePoolWithTag(*(PVOID *)(a1 + 224), 0x54706341u);
     *(_QWORD *)(a1 + 224) = 0LL;
   }

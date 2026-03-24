@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpValidateParameters @ 0x140820560
+ * XREFs of IopLiveDumpValidateParameters @ 0x140820540
  * Callers:
- *     IoCaptureLiveDump @ 0x14081EFA4 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x14081EF84 (IoCaptureLiveDump.c)
  * Callees:
- *     IopLiveDumpValidateCancelObject @ 0x1408204A8 (IopLiveDumpValidateCancelObject.c)
- *     IopLiveDumpValidateDumpFileHandle @ 0x140820510 (IopLiveDumpValidateDumpFileHandle.c)
+ *     IopLiveDumpValidateCancelObject @ 0x140820488 (IopLiveDumpValidateCancelObject.c)
+ *     IopLiveDumpValidateDumpFileHandle @ 0x1408204F0 (IopLiveDumpValidateDumpFileHandle.c)
  */
 
 int __fastcall IopLiveDumpValidateParameters(__int64 a1, __int64 a2)

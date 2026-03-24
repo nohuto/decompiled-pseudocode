@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsAnyMessageDelegated@CPointerInfoNode@@QEBAHXZ @ 0x1C01CC85C
+ * XREFs of ?IsAnyMessageDelegated@CPointerInfoNode@@QEBAHXZ @ 0x1C0196628
  * Callers:
- *     ?ReevaluateQFrameHasDelegation@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@K@Z @ 0x1C01D1D14 (-ReevaluateQFrameHasDelegation@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@K@Z.c)
+ *     ?ReevaluateQFrameHasDelegation@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@K@Z @ 0x1C019AB08 (-ReevaluateQFrameHasDelegation@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@K@Z.c)
  * Callees:
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C00E4A4E (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
- *     ?IsMessageDelegated@CPointerInfoNode@@QEBAHHHHH@Z @ 0x1C01CCC0C (-IsMessageDelegated@CPointerInfoNode@@QEBAHHHHH@Z.c)
+ *     ?IsMessageDelegated@CPointerInfoNode@@QEBAHHHHH@Z @ 0x1C01969F4 (-IsMessageDelegated@CPointerInfoNode@@QEBAHHHHH@Z.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01970E4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
  */
 
 __int64 __fastcall CPointerInfoNode::IsAnyMessageDelegated(CPointerInfoNode *this)
@@ -37,8 +37,8 @@ __int64 __fastcall CPointerInfoNode::IsAnyMessageDelegated(CPointerInfoNode *thi
       || (unsigned int)CPointerInfoNode::IsMessageDelegated(
                          v4,
                          -__CFSHR__((_DWORD)v4, 28),
-                         (8 * (int)v4) >> 31,
-                         (4 * (int)v4) >> 31,
+                         -__CFSHR__((_DWORD)v4, 29),
+                         -__CFSHR__((_DWORD)v4, 30),
                          (2 * (int)v4) >> 31)
       || (unsigned int)CPointerInfoNode::IsMessageDelegated(
                          (CPointerInfoNode *)(unsigned int)(v5 >> 31),

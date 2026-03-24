@@ -1,35 +1,35 @@
 /*
- * XREFs of AlpcpMapLegacyPortView @ 0x1407B9EC0
+ * XREFs of AlpcpMapLegacyPortView @ 0x1406FFA18
  * Callers:
- *     AlpcpFormatConnectionRequest @ 0x1407162C8 (AlpcpFormatConnectionRequest.c)
- *     AlpcpAcceptConnectPort @ 0x1407169EC (AlpcpAcceptConnectPort.c)
+ *     AlpcpFormatConnectionRequest @ 0x1405E033C (AlpcpFormatConnectionRequest.c)
+ *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     AlpcpDeleteBlob @ 0x14071C18C (AlpcpDeleteBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14073A344 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x14073C150 (AlpcpUnlockBlob.c)
- *     AlpcpCreateSection @ 0x14076C8D8 (AlpcpCreateSection.c)
- *     AlpcpCreateSectionView @ 0x1407BA274 (AlpcpCreateSectionView.c)
- *     MmGetSectionInformation @ 0x1407BA640 (MmGetSectionInformation.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
+ *     AlpcpDeleteBlob @ 0x1405EA09C (AlpcpDeleteBlob.c)
+ *     MmGetSectionInformation @ 0x140621350 (MmGetSectionInformation.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     AlpcpCreateSectionView @ 0x1406FFE28 (AlpcpCreateSectionView.c)
+ *     AlpcpCreateSection @ 0x140701CAC (AlpcpCreateSection.c)
+ *     AlpcpDereferenceView @ 0x1408C1BF4 (AlpcpDereferenceView.c)
  */
 
-__int64 __fastcall AlpcpMapLegacyPortView(char *Object, __int64 a2, __int64 a3)
+__int64 __fastcall AlpcpMapLegacyPortView(PVOID Object, __int64 a2, __int64 a3)
 {
   void *v3; // rsi
   int SectionInformation; // edi
-  __int64 v7; // rdx
-  __int64 v8; // rax
-  unsigned __int64 v9; // r15
-  __int64 v10; // r12
-  ULONG_PTR v11; // rsi
-  __int64 v12; // rbx
-  __int64 v13; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rax
+  unsigned __int64 v10; // r15
+  __int64 v11; // r12
+  ULONG_PTR v12; // rsi
+  __int64 v13; // rbx
+  __int64 v14; // rax
   __int64 v15; // [rsp+30h] [rbp-20h] BYREF
   __int128 v16; // [rsp+38h] [rbp-18h] BYREF
-  PVOID v17; // [rsp+48h] [rbp-8h]
-  PVOID Objecta; // [rsp+98h] [rbp+48h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-8h]
+  PVOID v18; // [rsp+98h] [rbp+48h] BYREF
   __int64 v19; // [rsp+A0h] [rbp+50h]
   ULONG_PTR BugCheckParameter2; // [rsp+A8h] [rbp+58h] BYREF
 
@@ -41,17 +41,17 @@ __int64 __fastcall AlpcpMapLegacyPortView(char *Object, __int64 a2, __int64 a3)
   v16 = 0LL;
   if ( !v3 )
     return 3221225480LL;
-  Objecta = 0LL;
+  v18 = 0LL;
   SectionInformation = ObReferenceObjectByHandle(
                          v3,
                          6u,
                          MmSectionObjectType,
                          KeGetCurrentThread()->PreviousMode,
-                         &Objecta,
+                         &v18,
                          0LL);
   if ( SectionInformation >= 0 )
   {
-    SectionInformation = MmGetSectionInformation(Objecta, 0LL, &v16);
+    SectionInformation = MmGetSectionInformation((__int64)v18, 0, (__int64)&v16);
     if ( SectionInformation >= 0 )
     {
       if ( (DWORD2(v16) & 0x800000) != 0 )
@@ -60,49 +60,51 @@ __int64 __fastcall AlpcpMapLegacyPortView(char *Object, __int64 a2, __int64 a3)
       }
       else
       {
-        v7 = (unsigned int)(AlpcpViewGranularity - 1);
-        v8 = ~((unsigned int)AlpcpViewGranularity - 1LL);
-        v9 = v8 & (v7 + *(unsigned int *)(a2 + 16));
-        v10 = v8 & (v7 + *(_QWORD *)(a2 + 24));
-        if ( v10 + v9 < v9 )
+        v8 = (unsigned int)(AlpcpViewGranularity - 1);
+        v9 = ~((unsigned int)AlpcpViewGranularity - 1LL);
+        v10 = v9 & (v8 + *(unsigned int *)(a2 + 16));
+        v11 = v9 & (v8 + *(_QWORD *)(a2 + 24));
+        if ( v11 + v10 >= v10 )
         {
-          SectionInformation = -1073741811;
-        }
-        else if ( v10 + v9 > (unsigned __int64)v17 )
-        {
-          SectionInformation = -1073741670;
+          if ( v11 + v10 <= v17 )
+          {
+            SectionInformation = AlpcpCreateSection(Object, v17, (__int64)&BugCheckParameter2);
+            if ( SectionInformation >= 0 )
+            {
+              v12 = BugCheckParameter2;
+              SectionInformation = AlpcpCreateSectionView(BugCheckParameter2, Object, (__int64)&v15);
+              if ( SectionInformation >= 0 )
+              {
+                v13 = v15;
+                *(_DWORD *)a2 = 48;
+                *(_QWORD *)(a2 + 32) = *(_QWORD *)(v13 + 40);
+                v14 = *(_QWORD *)(v13 + 48);
+                *(_QWORD *)(a2 + 40) = 0LL;
+                *(_QWORD *)(a2 + 24) = v14;
+                *(_QWORD *)(v19 + 40) = v13;
+                AlpcpLockForCachedReferenceBlob(*(_QWORD *)(v13 + 16));
+                ++*(_DWORD *)(v13 + 76);
+                AlpcpUnlockBlob(*(_QWORD *)(v13 + 16));
+              }
+              else if ( AlpcpDeleteBlob(v12) )
+              {
+                AlpcpDereferenceView(v12);
+              }
+              AlpcpDereferenceView(v12);
+            }
+          }
+          else
+          {
+            SectionInformation = -1073741670;
+          }
         }
         else
         {
-          SectionInformation = AlpcpCreateSection(Object, 0, 0, v3, v17, &BugCheckParameter2);
-          if ( SectionInformation >= 0 )
-          {
-            v11 = BugCheckParameter2;
-            SectionInformation = AlpcpCreateSectionView(BugCheckParameter2, Object, (__int64)&v15);
-            if ( SectionInformation < 0 )
-            {
-              if ( AlpcpDeleteBlob(v11) )
-                AlpcpDereferenceBlobEx(v11, 1);
-            }
-            else
-            {
-              v12 = v15;
-              *(_DWORD *)a2 = 48;
-              *(_QWORD *)(a2 + 32) = *(_QWORD *)(v12 + 40);
-              v13 = *(_QWORD *)(v12 + 48);
-              *(_QWORD *)(a2 + 40) = 0LL;
-              *(_QWORD *)(a2 + 24) = v13;
-              *(_QWORD *)(v19 + 40) = v12;
-              AlpcpLockForCachedReferenceBlob(*(_QWORD *)(v12 + 16));
-              ++*(_DWORD *)(v12 + 76);
-              AlpcpUnlockBlob(*(_QWORD *)(v12 + 16));
-            }
-            AlpcpDereferenceBlobEx(v11, 1);
-          }
+          SectionInformation = -1073741811;
         }
       }
     }
-    ObfDereferenceObject(Objecta);
+    HalPutDmaAdapter((PADAPTER_OBJECT)v18);
   }
   return (unsigned int)SectionInformation;
 }

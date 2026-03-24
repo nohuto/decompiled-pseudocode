@@ -1,15 +1,15 @@
 /*
- * XREFs of ?bStrokeCosmetic@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@K@Z @ 0x1C0132CB4
+ * XREFs of ?bStrokeCosmetic@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@K@Z @ 0x1C014A2CC
  * Callers:
- *     EngStrokePath @ 0x1C0132A40 (EngStrokePath.c)
- *     EngLineTo @ 0x1C01338B0 (EngLineTo.c)
+ *     EngStrokePath @ 0x1C01494D0 (EngStrokePath.c)
+ *     EngLineTo @ 0x1C01497F0 (EngLineTo.c)
  * Callees:
- *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C0009AF4 (-bUMPDSecurityGateEx@@YAHXZ.c)
- *     ?bLines@@YAHPEAU_BMINFO@@PEAU_POINTFIX@@1PEAU_RUN@@KPEAU_LINESTATE@@PEAU_RECTL@@PEAP6AXPEAU_STRIP@@03@ZKPEAKJPEAU_W32KCDD_ENG_CALLBACKS@@@Z @ 0x1C0133198 (-bLines@@YAHPEAU_BMINFO@@PEAU_POINTFIX@@1PEAU_RUN@@KPEAU_LINESTATE@@PEAU_RECTL@@PEAP6AXPEAU_STRI.c)
- *     ?vEnumPathStart@XCLIPOBJ@@QEAAXPEAU_PATHOBJ@@PEAVSURFACE@@PEAU_LINEATTRS@@@Z @ 0x1C01432BC (-vEnumPathStart@XCLIPOBJ@@QEAAXPEAU_PATHOBJ@@PEAVSURFACE@@PEAU_LINEATTRS@@@Z.c)
- *     ?bEnumPath@XCLIPOBJ@@QEAAHPEAU_PATHOBJ@@KPEAU_CLIPLINE@@H@Z @ 0x1C014382C (-bEnumPath@XCLIPOBJ@@QEAAHPEAU_PATHOBJ@@KPEAU_CLIPLINE@@H@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C00CFBA8 (-bUMPDSecurityGateEx@@YAHXZ.c)
+ *     ?bLines@@YAHPEAU_BMINFO@@PEAU_POINTFIX@@1PEAU_RUN@@KPEAU_LINESTATE@@PEAU_RECTL@@PEAP6AXPEAU_STRIP@@03@ZKPEAKJPEAU_W32KCDD_ENG_CALLBACKS@@@Z @ 0x1C014A7BC (-bLines@@YAHPEAU_BMINFO@@PEAU_POINTFIX@@1PEAU_RUN@@KPEAU_LINESTATE@@PEAU_RECTL@@PEAP6AXPEAU_STRI.c)
+ *     ?bEnumPath@XCLIPOBJ@@QEAAHPEAU_PATHOBJ@@KPEAU_CLIPLINE@@H@Z @ 0x1C014B164 (-bEnumPath@XCLIPOBJ@@QEAAHPEAU_PATHOBJ@@KPEAU_CLIPLINE@@H@Z.c)
+ *     ?vEnumPathStart@XCLIPOBJ@@QEAAXPEAU_PATHOBJ@@PEAVSURFACE@@PEAU_LINEATTRS@@@Z @ 0x1C014C1D8 (-vEnumPathStart@XCLIPOBJ@@QEAAXPEAU_PATHOBJ@@PEAVSURFACE@@PEAU_LINEATTRS@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall bStrokeCosmetic(
@@ -63,7 +63,7 @@ __int64 __fastcall bStrokeCosmetic(
   _QWORD v51[14]; // [rsp+80h] [rbp-80h] BYREF
   struct _POINTFIX v52; // [rsp+F0h] [rbp-10h] BYREF
   __int64 v53; // [rsp+F8h] [rbp-8h]
-  struct _CLIPLINE v54[6]; // [rsp+100h] [rbp+0h] BYREF
+  _CLIPLINE v54[6]; // [rsp+100h] [rbp+0h] BYREF
   struct _POINTFIX *v55[2]; // [rsp+1C0h] [rbp+C0h] BYREF
   _DWORD v56[16]; // [rsp+1D0h] [rbp+D0h] BYREF
   _BYTE v57[64]; // [rsp+210h] [rbp+110h] BYREF
@@ -89,8 +89,8 @@ __int64 __fastcall bStrokeCosmetic(
     v12 = *((_QWORD *)a1 + 6);
     if ( v12 )
     {
-      v51[11] = *(_QWORD *)(v12 + 2180);
-      LODWORD(v51[12]) = *(_DWORD *)(v12 + 2188);
+      v51[11] = *(_QWORD *)(v12 + 2212);
+      LODWORD(v51[12]) = *(_DWORD *)(v12 + 2220);
     }
     else
     {
@@ -156,23 +156,23 @@ __int64 __fastcall bStrokeCosmetic(
   if ( v25 == 1 )
   {
     iSolidColor |= (4 * ((2 * iSolidColor) | iSolidColor)) | (2 * iSolidColor);
-    goto LABEL_54;
+    goto LABEL_55;
   }
   if ( v25 == 2 )
   {
-LABEL_54:
+LABEL_55:
     iSolidColor |= 16 * iSolidColor;
-    goto LABEL_55;
+    goto LABEL_56;
   }
   if ( v25 != 3 )
   {
     if ( v25 != 4 )
       goto LABEL_19;
-    goto LABEL_56;
+    goto LABEL_57;
   }
-LABEL_55:
-  iSolidColor |= iSolidColor << 8;
 LABEL_56:
+  iSolidColor |= iSolidColor << 8;
+LABEL_57:
   iSolidColor |= iSolidColor << 16;
 LABEL_19:
   HIDWORD(v55[1]) = -1;

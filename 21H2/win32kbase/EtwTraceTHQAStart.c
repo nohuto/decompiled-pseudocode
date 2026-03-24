@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTHQAStart @ 0x1C014E630
+ * XREFs of EtwTraceTHQAStart @ 0x1C0123A20
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C014F270 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124580 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTHQAStart(__int64 a1)

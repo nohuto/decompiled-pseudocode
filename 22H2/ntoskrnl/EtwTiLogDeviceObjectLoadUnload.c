@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTiLogDeviceObjectLoadUnload @ 0x14076BF44
+ * XREFs of EtwTiLogDeviceObjectLoadUnload @ 0x14071979C
  * Callers:
- *     IoDeleteDevice @ 0x140304E10 (IoDeleteDevice.c)
- *     IoCreateDevice @ 0x14076B4E0 (IoCreateDevice.c)
+ *     IoDeleteDevice @ 0x140360200 (IoDeleteDevice.c)
+ *     IoCreateDevice @ 0x140719130 (IoCreateDevice.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     EtwProviderEnabled @ 0x140304190 (EtwProviderEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x14025F0A0 (EtwProviderEnabled.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTiLogDeviceObjectLoadUnload(char a1, unsigned __int16 *a2, unsigned __int16 *a3)
@@ -15,8 +15,8 @@ BOOLEAN __fastcall EtwTiLogDeviceObjectLoadUnload(char a1, unsigned __int16 *a2,
   REGHANDLE v3; // rsi
   const EVENT_DESCRIPTOR *v5; // r14
   BOOLEAN result; // al
-  int v8; // ecx
-  const wchar_t *v9; // rdx
+  const wchar_t *v8; // rdx
+  int v9; // ecx
   const wchar_t *v10; // r9
   int v11; // r8d
   __int16 v12; // ax
@@ -43,8 +43,8 @@ BOOLEAN __fastcall EtwTiLogDeviceObjectLoadUnload(char a1, unsigned __int16 *a2,
     result = EtwProviderEnabled(v3, 0, 0x80000000uLL);
     if ( result )
     {
-      v8 = 12;
-      v9 = L"(null)";
+      v8 = L"(null)";
+      v9 = 12;
       if ( a2 && *a2 )
       {
         v10 = (const wchar_t *)*((_QWORD *)a2 + 1);
@@ -65,8 +65,8 @@ BOOLEAN __fastcall EtwTiLogDeviceObjectLoadUnload(char a1, unsigned __int16 *a2,
       v19 = 0;
       if ( a3 && *a3 )
       {
-        v9 = (const wchar_t *)*((_QWORD *)a3 + 1);
-        v8 = *a3;
+        v8 = (const wchar_t *)*((_QWORD *)a3 + 1);
+        v9 = *a3;
         v13 = *a3 >> 1;
       }
       else
@@ -74,9 +74,9 @@ BOOLEAN __fastcall EtwTiLogDeviceObjectLoadUnload(char a1, unsigned __int16 *a2,
         v13 = 6;
       }
       v15 = v13;
-      v22 = v9;
+      v22 = v8;
       v20 = &v15;
-      v23 = v8;
+      v23 = v9;
       v21 = 2LL;
       v24 = 0;
       return EtwWrite(v3, v5, 0LL, 4u, &UserData);

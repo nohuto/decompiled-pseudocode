@@ -1,117 +1,115 @@
 /*
- * XREFs of DpiDispatchInternalIoctl @ 0x1C01D9890
+ * XREFs of DpiDispatchInternalIoctl @ 0x1C01333B0
  * Callers:
  *     <none>
  * Callees:
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     LoadEtwStackLocation @ 0x1C0012FFC (LoadEtwStackLocation.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pt_EtwWriteTransfer @ 0x1C0040F6C (McTemplateK0pt_EtwWriteTransfer.c)
- *     McTemplateK0phbr1q_EtwWriteTransfer @ 0x1C005ECC8 (McTemplateK0phbr1q_EtwWriteTransfer.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     LoadEtwStackLocation @ 0x1C0009C30 (LoadEtwStackLocation.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C003A380 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0phbr1q_EtwWriteTransfer @ 0x1C0052494 (McTemplateK0phbr1q_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DpiDispatchInternalIoctl(__int64 a1, IRP *a2, __int64 a3)
 {
-  char v3; // r14
+  char v3; // r15
   _BYTE *EtwStackLocation; // rax
   __int64 v7; // rcx
   __int64 v8; // r8
   __int64 v9; // rsi
   NTSTATUS v10; // eax
-  unsigned int v11; // ebx
-  __int64 (__fastcall *v12)(__int64, IRP *); // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
   __int64 v13; // r8
-  __int64 v14; // rcx
-  __int64 v15; // r8
+  __int64 v14; // rbx
+  __int64 (__fastcall *v15)(__int64, IRP *); // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  __int64 v22; // rax
   __int64 RemlockSize; // [rsp+20h] [rbp-A9h]
-  int v18; // [rsp+40h] [rbp-89h] BYREF
-  __int64 v19; // [rsp+48h] [rbp-81h]
-  char v20; // [rsp+50h] [rbp-79h]
-  _BYTE v21[72]; // [rsp+58h] [rbp-71h] BYREF
-  __int128 v22; // [rsp+A0h] [rbp-29h]
-  __int128 v23; // [rsp+B0h] [rbp-19h]
-  __int128 v24; // [rsp+C0h] [rbp-9h]
-  __int128 v25; // [rsp+D0h] [rbp+7h]
-  __int64 v26; // [rsp+E0h] [rbp+17h]
+  int v24; // [rsp+40h] [rbp-89h] BYREF
+  __int64 v25; // [rsp+48h] [rbp-81h]
+  char v26; // [rsp+50h] [rbp-79h]
+  _BYTE v27[72]; // [rsp+58h] [rbp-71h] BYREF
+  __int128 v28; // [rsp+A0h] [rbp-29h]
+  __int128 v29; // [rsp+B0h] [rbp-19h]
+  __int128 v30; // [rsp+C0h] [rbp-9h]
+  __int128 v31; // [rsp+D0h] [rbp+7h]
+  __int64 v32; // [rsp+E0h] [rbp+17h]
 
-  v18 = -1;
+  v24 = -1;
   v3 = 0;
-  v19 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v25 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v20 = 1;
-    v18 = 1003;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v26 = 1;
+    v24 = 1003;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 1003);
   }
   else
   {
-    v20 = 0;
+    v26 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v18, 1003);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v24, 1003LL);
   if ( bTracingEnabled )
   {
-    EtwStackLocation = LoadEtwStackLocation(v21, (__int64)a2);
-    v22 = *(_OWORD *)EtwStackLocation;
-    v23 = *((_OWORD *)EtwStackLocation + 1);
-    v24 = *((_OWORD *)EtwStackLocation + 2);
-    v25 = *((_OWORD *)EtwStackLocation + 3);
-    v26 = *((_QWORD *)EtwStackLocation + 8);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+    EtwStackLocation = LoadEtwStackLocation(v27, (__int64)a2);
+    v28 = *(_OWORD *)EtwStackLocation;
+    v29 = *((_OWORD *)EtwStackLocation + 1);
+    v30 = *((_OWORD *)EtwStackLocation + 2);
+    v31 = *((_OWORD *)EtwStackLocation + 3);
+    v32 = *((_QWORD *)EtwStackLocation + 8);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       McTemplateK0phbr1q_EtwWriteTransfer(v7, &EventEnterDpiDispatchInternalIoctl, v8, a1);
   }
   v9 = *(_QWORD *)(a1 + 64);
   v10 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v9 + 64), a2, File, 1u, 0x20u);
-  v11 = v10;
+  v14 = v10;
   if ( v10 < 0 )
   {
-    WdLogSingleEntry1(3LL, v10);
-LABEL_25:
-    a2->IoStatus.Status = v11;
-    IofCompleteRequest(a2, 0);
-LABEL_15:
-    if ( v3 != 1 )
-      goto LABEL_10;
-    goto LABEL_9;
+    v22 = WdLogNewEntry5_WdWarning(v12, v11, v13);
+    *(_QWORD *)(v22 + 24) = v14;
+    WdLogEvent5_WdWarning(v22);
+    goto LABEL_22;
   }
-  v12 = *(__int64 (__fastcall **)(__int64, IRP *))(v9 + 112);
+  v15 = *(__int64 (__fastcall **)(__int64, IRP *))(v9 + 112);
   v3 = 1;
-  if ( !v12 )
+  if ( !v15 )
   {
     if ( *(_BYTE *)(v9 + 56) == 1 && *(_QWORD *)(v9 + 160) )
     {
       ++a2->CurrentLocation;
       ++a2->Tail.Overlay.CurrentStackLocation;
-      v11 = IofCallDriver(*(PDEVICE_OBJECT *)(v9 + 160), a2);
+      LODWORD(v14) = IofCallDriver(*(PDEVICE_OBJECT *)(v9 + 160), a2);
       goto LABEL_9;
     }
-    v11 = -1073741637;
-    goto LABEL_25;
+    LODWORD(v14) = -1073741637;
+LABEL_22:
+    a2->IoStatus.Status = v14;
+    IofCompleteRequest(a2, 0);
+    if ( v3 != 1 )
+      goto LABEL_10;
+    goto LABEL_9;
   }
-  v11 = v12(a1, a2);
-  if ( v11 == -1073741738 )
-  {
-    v3 = 0;
-    goto LABEL_15;
-  }
+  LODWORD(v14) = v15(a1, a2);
+  if ( (_DWORD)v14 != -1073741738 )
 LABEL_9:
-  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v9 + 64), a2, 0x20u);
+    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v9 + 64), a2, 0x20u);
 LABEL_10:
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
   {
-    LODWORD(RemlockSize) = v11;
-    McTemplateK0pt_EtwWriteTransfer(
-      (REGHANDLE *)&DxgkControlGuid_Context,
-      &EventExitDpiDispatchInternalIoctl,
-      v13,
-      a1,
-      RemlockSize);
+    LODWORD(RemlockSize) = v14;
+    McTemplateK0pq_EtwWriteTransfer(v17, &EventExitDpiDispatchInternalIoctl, v18, a1, RemlockSize);
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v18);
-  if ( v20 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v14, &EventProfilerExit, v15, v18);
-  return v11;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v24, v16);
+  if ( v26 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v19, &EventProfilerExit, v20, v24);
+  return (unsigned int)v14;
 }

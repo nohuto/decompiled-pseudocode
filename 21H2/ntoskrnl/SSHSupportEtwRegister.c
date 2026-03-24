@@ -1,9 +1,9 @@
 /*
- * XREFs of SSHSupportEtwRegister @ 0x1408455A0
+ * XREFs of SSHSupportEtwRegister @ 0x140796BE0
  * Callers:
- *     SshInitialize @ 0x140B03360 (SshInitialize.c)
+ *     SshInitialize @ 0x140A40584 (SshInitialize.c)
  * Callees:
- *     EtwRegister @ 0x1406D2350 (EtwRegister.c)
+ *     EtwRegister @ 0x140762CB0 (EtwRegister.c)
  */
 
 NTSTATUS SSHSupportEtwRegister()

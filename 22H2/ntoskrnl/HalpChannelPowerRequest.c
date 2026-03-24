@@ -1,80 +1,93 @@
 /*
- * XREFs of HalpChannelPowerRequest @ 0x140935A0C
+ * XREFs of HalpChannelPowerRequest @ 0x140866978
  * Callers:
- *     HaliSetSystemInformation @ 0x14085EE78 (HaliSetSystemInformation.c)
- *     HaliQuerySystemInformation @ 0x140A88510 (HaliQuerySystemInformation.c)
+ *     HaliSetSystemInformation @ 0x140866474 (HaliSetSystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x14098F9D0 (HaliQuerySystemInformation.c)
  * Callees:
- *     HalpSendPccCommand @ 0x140935C80 (HalpSendPccCommand.c)
+ *     HalpSendPccCommand @ 0x140866C0C (HalpSendPccCommand.c)
  */
 
 __int64 __fastcall HalpChannelPowerRequest(__int16 *a1, int a2, _DWORD *a3)
 {
-  int v5; // edx
-  __int16 v6; // r10
-  __int16 v7; // r11
-  unsigned int v8; // edx
-  int v9; // ecx
-  unsigned int v11; // r8d
-  _WORD *i; // rax
-  __int64 v13; // r8
-  int v14; // eax
-  __int64 v15; // rax
+  unsigned int v3; // r10d
+  int v6; // edx
+  __int64 v7; // r8
+  __int16 v8; // si
+  __int16 v9; // bp
+  unsigned int v10; // ecx
+  __int64 v12; // r9
+  _WORD *v13; // rax
+  __int64 v14; // r8
+  int v15; // eax
+  __int64 v16; // rax
 
+  v3 = 0;
   if ( a2 != 24 )
     return (unsigned int)-1073741820;
-  v6 = *a1;
-  v7 = a1[1];
-  v8 = *((_DWORD *)a1 + 4);
-  v9 = *((_DWORD *)a1 + 1);
-  if ( v9 == 2 )
+  v7 = *((unsigned int *)a1 + 1);
+  v8 = *a1;
+  v9 = a1[1];
+  v10 = *((_DWORD *)a1 + 4);
+  if ( (_DWORD)v7 == 2 )
   {
-    if ( v8 >= 2 )
+    if ( v10 >= 2 )
       return (unsigned int)-1073741808;
   }
-  else if ( ((v9 - 1) & 0xFFFFFFFC) != 0 )
+  else if ( (((_DWORD)v7 - 1) & 0xFFFFFFFC) != 0 )
   {
     return (unsigned int)-1073741808;
   }
-  v11 = 0;
-  if ( !HalpChannelMemoryRangeCount )
-    return (unsigned int)-1073741275;
-  for ( i = (char *)HalpChannelMemoryRanges + 12; *(i - 1) != v6 || *i != v7; i += 8 )
+  v12 = 0LL;
+  v6 = -1073741275;
+  if ( HalpChannelMemoryRangeCount )
   {
-    if ( ++v11 >= HalpChannelMemoryRangeCount )
-      return (unsigned int)-1073741275;
-  }
-  if ( v9 == 2 )
-  {
-    if ( v8 == 1 )
-      v8 = *((unsigned __int8 *)HalpChannelMemoryRanges + 16 * v11 + 15);
-    *((_QWORD *)a1 + 2) = v8;
-  }
-  v5 = HalpSendPccCommand(*((unsigned __int16 *)HalpChannelMemoryRanges + 8 * v11 + 4), a1);
-  if ( v5 >= 0 )
-  {
-    v13 = qword_140C60160;
-    v14 = *((_DWORD *)a1 + 1);
-    *((_DWORD *)a1 + 2) = *(_DWORD *)(qword_140C60160 + 4);
-    switch ( v14 )
+    v13 = (char *)HalpChannelMemoryRanges + 12;
+    while ( *(v13 - 1) != v8 || *v13 != v9 )
     {
-      case 2:
-        goto LABEL_27;
-      case 1:
-        *((_QWORD *)a1 + 2) = *(_DWORD *)(v13 + 8) != 0;
-        goto LABEL_27;
-      case 3:
-        v15 = *(_QWORD *)(v13 + 24);
-        break;
-      case 4:
-        v15 = *(_QWORD *)(v13 + 16);
-        break;
-      default:
-        goto LABEL_27;
+      v12 = (unsigned int)(v12 + 1);
+      v13 += 8;
+      if ( (unsigned int)v12 >= HalpChannelMemoryRangeCount )
+        goto LABEL_15;
     }
-    *((_QWORD *)a1 + 2) = v15;
-LABEL_27:
-    if ( a3 )
-      *a3 = 24;
+    v3 = v12;
+    v6 = 0;
   }
-  return (unsigned int)v5;
+LABEL_15:
+  if ( v6 >= 0 )
+  {
+    if ( (_DWORD)v7 == 2 )
+    {
+      if ( v10 == 1 )
+        v10 = *((unsigned __int8 *)HalpChannelMemoryRanges + 16 * v3 + 15);
+      *((_QWORD *)a1 + 2) = v10;
+    }
+    v6 = HalpSendPccCommand(*((unsigned __int16 *)HalpChannelMemoryRanges + 8 * v3 + 4), a1, v7, v12);
+    if ( v6 >= 0 )
+    {
+      v14 = qword_140C48D20;
+      v15 = *((_DWORD *)a1 + 1);
+      *((_DWORD *)a1 + 2) = *(_DWORD *)(qword_140C48D20 + 4);
+      switch ( v15 )
+      {
+        case 2:
+          goto LABEL_29;
+        case 1:
+          *((_QWORD *)a1 + 2) = *(_DWORD *)(v14 + 8) != 0;
+          goto LABEL_29;
+        case 3:
+          v16 = *(_QWORD *)(v14 + 24);
+          break;
+        case 4:
+          v16 = *(_QWORD *)(v14 + 16);
+          break;
+        default:
+          goto LABEL_29;
+      }
+      *((_QWORD *)a1 + 2) = v16;
+LABEL_29:
+      if ( a3 )
+        *a3 = 24;
+    }
+  }
+  return (unsigned int)v6;
 }

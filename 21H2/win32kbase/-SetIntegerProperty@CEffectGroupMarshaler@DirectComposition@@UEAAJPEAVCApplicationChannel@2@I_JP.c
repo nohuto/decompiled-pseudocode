@@ -1,16 +1,16 @@
 /*
- * XREFs of ?SetIntegerProperty@CEffectGroupMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C02266C0
+ * XREFs of ?SetIntegerProperty@CEffectGroupMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01DD570
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0099660 (-SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationCha.c)
+ *     ?SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C009E600 (-SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationCha.c)
  */
 
 __int64 __fastcall DirectComposition::CEffectGroupMarshaler::SetIntegerProperty(
         DirectComposition::CEffectGroupMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
-        int a4,
+        __int64 a4,
         bool *a5)
 {
   unsigned int v5; // r10d
@@ -18,10 +18,10 @@ __int64 __fastcall DirectComposition::CEffectGroupMarshaler::SetIntegerProperty(
   v5 = 0;
   if ( a3 == 1 )
   {
-    if ( *((_DWORD *)this + 21) != a4 )
+    if ( *((_DWORD *)this + 19) != a4 )
     {
       *((_DWORD *)this + 4) |= 0x100u;
-      *((_DWORD *)this + 21) = a4;
+      *((_DWORD *)this + 19) = a4;
       *a5 = 1;
     }
   }

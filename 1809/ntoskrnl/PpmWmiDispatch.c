@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmWmiDispatch @ 0x140757BA0
+ * XREFs of PpmWmiDispatch @ 0x140757B80
  * Callers:
  *     <none>
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
- *     PpmWmiRegisterInfo @ 0x140757C14 (PpmWmiRegisterInfo.c)
- *     PpmWmiGetAllData @ 0x14087676C (PpmWmiGetAllData.c)
+ *     PpmWmiRegisterInfo @ 0x140757BF4 (PpmWmiRegisterInfo.c)
+ *     PpmWmiGetAllData @ 0x14087674C (PpmWmiGetAllData.c)
  */
 
 __int64 __fastcall PpmWmiDispatch(int a1, __int64 *a2, int a3, int a4, __int64 a5, _DWORD *a6)

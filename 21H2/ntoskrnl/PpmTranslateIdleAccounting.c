@@ -1,24 +1,24 @@
 /*
- * XREFs of PpmTranslateIdleAccounting @ 0x1405D73F0
+ * XREFs of PpmTranslateIdleAccounting @ 0x140577280
  * Callers:
- *     PpmWmiFireIdleAccountingEvent @ 0x1405D8720 (PpmWmiFireIdleAccountingEvent.c)
- *     PpmEventTraceProcessorIdleAccounting @ 0x1405DB370 (PpmEventTraceProcessorIdleAccounting.c)
+ *     PpmWmiFireIdleAccountingEvent @ 0x140578580 (PpmWmiFireIdleAccountingEvent.c)
+ *     PpmEventTraceProcessorIdleAccounting @ 0x14057ADA0 (PpmEventTraceProcessorIdleAccounting.c)
  * Callees:
- *     PpmConvertTime @ 0x14029394C (PpmConvertTime.c)
- *     PpmUpdateProcessorIdleAccounting @ 0x1403D1F74 (PpmUpdateProcessorIdleAccounting.c)
+ *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
+ *     PpmUpdateProcessorIdleAccounting @ 0x1403C4928 (PpmUpdateProcessorIdleAccounting.c)
  */
 
-unsigned __int64 __fastcall PpmTranslateIdleAccounting(_QWORD *a1, __int64 a2, unsigned __int64 *a3)
+ULONGLONG __fastcall PpmTranslateIdleAccounting(_QWORD *a1, __int64 a2, ULONGLONG *a3)
 {
-  unsigned __int64 *v3; // r12
+  ULONGLONG *v3; // r12
   int *v6; // rcx
   unsigned int v7; // edx
-  unsigned __int64 result; // rax
+  ULONGLONG result; // rax
   __int64 v9; // rdi
   _DWORD *v10; // rsi
   __int64 v11; // r15
-  unsigned __int64 v12; // r12
-  unsigned __int64 v13; // rbp
+  ULONGLONG v12; // r12
+  __int64 v13; // rbp
   _DWORD *v14; // rbx
   _DWORD *v15; // r14
   __int64 v16; // r13
@@ -26,7 +26,7 @@ unsigned __int64 __fastcall PpmTranslateIdleAccounting(_QWORD *a1, __int64 a2, u
   _DWORD *v18; // r14
   __int64 v19; // rbp
   int v20; // eax
-  unsigned __int64 v21; // rbx
+  __int64 v21; // rbx
   unsigned int v22; // r13d
   unsigned int v23; // eax
   int v24; // eax

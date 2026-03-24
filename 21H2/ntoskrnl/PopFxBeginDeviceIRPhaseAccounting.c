@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxBeginDeviceIRPhaseAccounting @ 0x1405CADAC
+ * XREFs of PopFxBeginDeviceIRPhaseAccounting @ 0x14056932C
  * Callers:
- *     PopPdcIdleResiliencyCallback @ 0x1409971BC (PopPdcIdleResiliencyCallback.c)
+ *     PopPdcIdleResiliencyCallback @ 0x1408F004C (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopFxBeginDeviceIRPhaseAccounting(__int64 a1)
@@ -19,9 +19,9 @@ __int64 __fastcall PopFxBeginDeviceIRPhaseAccounting(__int64 a1)
 
   v2 = KeAcquireSpinLockRaiseToDpc(&PopFxGlobalDeviceAccountingLock);
   KxAcquireSpinLock(&PopCsResiliencyStatsLock);
-  byte_140C224F8 = 1;
+  byte_140C23158 = 1;
   if ( PopFxGlobalDeviceAccountingInfo )
-    qword_140C224F0 = a1;
+    qword_140C23150 = a1;
   KxReleaseSpinLock(&PopCsResiliencyStatsLock);
   KxReleaseSpinLock(&PopFxGlobalDeviceAccountingLock);
   result = (unsigned int)KiIrqlFlags;

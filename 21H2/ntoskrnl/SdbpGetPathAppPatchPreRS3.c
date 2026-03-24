@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbpGetPathAppPatchPreRS3 @ 0x1406498D0
+ * XREFs of SdbpGetPathAppPatchPreRS3 @ 0x1405C0850
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyW @ 0x1402E0200 (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbpGetPathAppPatch @ 0x140A13EC0 (SdbpGetPathAppPatch.c)
- *     SdbpGetProcessHostGuestArchitectures @ 0x140A142D0 (SdbpGetProcessHostGuestArchitectures.c)
- *     AslPathCombine @ 0x140A15B1C (AslPathCombine.c)
+ *     RtlStringCchCopyW @ 0x1403716A0 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbpGetPathAppPatch @ 0x140966F60 (SdbpGetPathAppPatch.c)
+ *     SdbpGetProcessHostGuestArchitectures @ 0x140967340 (SdbpGetProcessHostGuestArchitectures.c)
+ *     AslPathCombine @ 0x140968814 (AslPathCombine.c)
  */
 
 __int64 __fastcall SdbpGetPathAppPatchPreRS3(wchar_t *a1, size_t a2, const wchar_t *a3, __int64 a4)
 {
-  NTSTATUS ProcessHostGuestArchitectures; // eax
-  unsigned int v9; // ebx
-  const char *v10; // r9
-  int v11; // r8d
+  NTSTATUS ProcessHostGuestArchitectures; // ebx
+  const char *v9; // r9
+  int v10; // r8d
+  const wchar_t *v11; // r8
   __int16 v12[2]; // [rsp+30h] [rbp-D0h] BYREF
   __int16 v13; // [rsp+34h] [rbp-CCh] BYREF
   wchar_t pszSrc[12]; // [rsp+38h] [rbp-C8h] BYREF
@@ -29,40 +29,36 @@ __int64 __fastcall SdbpGetPathAppPatchPreRS3(wchar_t *a1, size_t a2, const wchar
   pszDest[0] = 0;
   v12[0] = -1;
   ProcessHostGuestArchitectures = SdbpGetProcessHostGuestArchitectures(&v13, v12, a4);
-  v9 = ProcessHostGuestArchitectures;
   if ( ProcessHostGuestArchitectures >= 0 )
   {
     if ( v12[0] == 9 || v12[0] == 12 )
     {
-      if ( !a3 )
-        a3 = &word_140011C40;
-      ProcessHostGuestArchitectures = AslPathCombine(pszSrc, a3, pszDest, 0x104uLL);
-      v9 = ProcessHostGuestArchitectures;
+      ProcessHostGuestArchitectures = AslPathCombine(pszSrc);
       if ( ProcessHostGuestArchitectures < 0 )
       {
-        v10 = "AslPathCombine failed [%x]";
-        v11 = 1004;
+        v9 = "AslPathCombine failed [%x]";
+        v10 = 1004;
         goto LABEL_5;
       }
     }
     else
     {
-      if ( !a3 )
-        a3 = &word_140011C40;
-      ProcessHostGuestArchitectures = RtlStringCchCopyW(pszDest, 0x104uLL, a3);
-      v9 = ProcessHostGuestArchitectures;
+      v11 = &word_14001BE00;
+      if ( a3 )
+        v11 = a3;
+      ProcessHostGuestArchitectures = RtlStringCchCopyW(pszDest, 0x104uLL, v11);
       if ( ProcessHostGuestArchitectures < 0 )
       {
-        v10 = "RtlStringCchCopyW failed to copy FileName [%x]";
-        v11 = 1010;
+        v9 = "RtlStringCchCopyW failed to copy FileName [%x]";
+        v10 = 1010;
         goto LABEL_5;
       }
     }
     return (unsigned int)SdbpGetPathAppPatch(a1, a2);
   }
-  v10 = "SdbpGetProcessHostGuestArchitectures failed [%x]";
-  v11 = 992;
+  v9 = "SdbpGetProcessHostGuestArchitectures failed [%x]";
+  v10 = 992;
 LABEL_5:
-  AslLogCallPrintf(1, (unsigned int)"SdbpGetPathAppPatchPreRS3", v11, (_DWORD)v10, ProcessHostGuestArchitectures);
-  return v9;
+  AslLogCallPrintf(1, (unsigned int)"SdbpGetPathAppPatchPreRS3", v10, (_DWORD)v9);
+  return (unsigned int)ProcessHostGuestArchitectures;
 }

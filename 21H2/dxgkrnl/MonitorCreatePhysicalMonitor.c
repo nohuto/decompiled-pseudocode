@@ -1,102 +1,113 @@
 /*
- * XREFs of MonitorCreatePhysicalMonitor @ 0x1C0205ED8
+ * XREFs of MonitorCreatePhysicalMonitor @ 0x1C019142C
  * Callers:
- *     DpiPdoAddPdo @ 0x1C0205A28 (DpiPdoAddPdo.c)
- *     DpiPdoHandleChildConnectionChange @ 0x1C02164B8 (DpiPdoHandleChildConnectionChange.c)
+ *     DpiPdoHandleChildConnectionChange @ 0x1C0179B08 (DpiPdoHandleChildConnectionChange.c)
+ *     DpiPdoAddPdo @ 0x1C0179C7C (DpiPdoAddPdo.c)
  * Callees:
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??0?$RESOURCE_LOCK@VDXGMONITOR@@@@QEAA@PEAVDXGMONITOR@@_N@Z @ 0x1C00135F8 (--0-$RESOURCE_LOCK@VDXGMONITOR@@@@QEAA@PEAVDXGMONITOR@@_N@Z.c)
- *     ?DmmPowerOnOffTargetsFromSourceIfNecessary@@YAJQEAXEPEAU_DMM_SET_TIMING_RESULT@@@Z @ 0x1C0157474 (-DmmPowerOnOffTargetsFromSourceIfNecessary@@YAJQEAXEPEAU_DMM_SET_TIMING_RESULT@@@Z.c)
- *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C01A2ECC (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
- *     ?DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z @ 0x1C01A7544 (-DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z.c)
- *     ?UsingSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ @ 0x1C01BE8BC (-UsingSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ.c)
- *     ?_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C01E285C (-_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_.c)
- *     ?DmmIsTargetForceable@@YAJQEAXIPEAEW4_DMM_VIDPN_MONITOR_TYPE@@@Z @ 0x1C0206098 (-DmmIsTargetForceable@@YAJQEAXIPEAEW4_DMM_VIDPN_MONITOR_TYPE@@@Z.c)
- *     ?_GetMonitorDiagInfo@DXGMONITOR@@QEBAJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C0207244 (-_GetMonitorDiagInfo@DXGMONITOR@@QEBAJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z.c)
- *     ?_HandleCreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAU_DXGK_CONNECTION_USB4_INFO@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02076C0 (-_HandleCreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAU_DXGK_CONNECTION_USB4.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0129B38 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ *     ?DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z @ 0x1C01369BC (-DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z.c)
+ *     ?DmmPowerOnOffTargetsFromSourceIfNecessary@@YAJQEAXIE@Z @ 0x1C014E348 (-DmmPowerOnOffTargetsFromSourceIfNecessary@@YAJQEAXIE@Z.c)
+ *     ?UsingSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ @ 0x1C014ECC4 (-UsingSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ.c)
+ *     ?_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C0161C8C (-_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_.c)
+ *     ?_GetMonitorDiagInfo@DXGMONITOR@@QEAAJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C018F0D0 (-_GetMonitorDiagInfo@DXGMONITOR@@QEAAJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z.c)
+ *     ?_HandleCreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0191114 (-_HandleCreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAU_DXGK_DISPLAY_SCENARI.c)
+ *     ?DmmIsTargetForceable@@YAJQEAXIPEAEW4_DMM_VIDPN_MONITOR_TYPE@@@Z @ 0x1C02DDF78 (-DmmIsTargetForceable@@YAJQEAXIPEAEW4_DMM_VIDPN_MONITOR_TYPE@@@Z.c)
  */
 
 __int64 __fastcall MonitorCreatePhysicalMonitor(
         char *a1,
         __int64 a2,
         struct _DEVICE_OBJECT *a3,
-        unsigned __int8 a4,
+        __int64 a4,
         char a5,
-        struct _DXGK_CONNECTION_USB4_INFO *a6,
-        struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a7)
+        struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a6)
 {
-  __int64 v8; // rdi
-  __int64 v11; // rax
-  __int64 v12; // rsi
-  __int64 v13; // rax
-  MONITOR_MGR *v14; // r14
+  unsigned __int8 v6; // r12
+  __int64 v7; // rsi
+  __int64 v10; // rax
+  struct _DXGK_DISPLAY_SCENARIO_CONTEXT *v11; // rbx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  ADAPTER_DISPLAY **v15; // r15
   unsigned int PhysicalMonitor; // eax
-  unsigned int v16; // r15d
-  DXGMONITOR *v17; // rsi
-  __int64 v18; // rdx
-  int v20; // eax
-  _OWORD v21[2]; // [rsp+40h] [rbp-20h] BYREF
-  DXGMONITOR *v22; // [rsp+90h] [rbp+30h] BYREF
-  unsigned int v23; // [rsp+98h] [rbp+38h] BYREF
+  unsigned int v17; // r12d
+  struct DXGMONITOR *v18; // r14
+  __int64 v19; // r8
+  __int64 v21; // rax
+  __int64 v22; // rax
+  int v23; // eax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // rbx
+  _QWORD *v27; // rax
+  _OWORD v28[2]; // [rsp+30h] [rbp-20h] BYREF
+  struct DXGMONITOR *v29; // [rsp+90h] [rbp+40h] BYREF
+  char v30; // [rsp+98h] [rbp+48h] BYREF
 
-  v8 = (unsigned int)a2;
-  v11 = WdLogNewEntry5_WdTrace(a1, a2);
-  *(_QWORD *)(v11 + 24) = v8;
-  *(_QWORD *)(v11 + 32) = a1;
-  if ( !a1 || !a3 || (_DWORD)v8 == -1 )
+  v6 = a4;
+  v7 = (unsigned int)a2;
+  v10 = WdLogNewEntry5_WdTrace(a1, a2, a3, a4);
+  *(_QWORD *)(v10 + 24) = v7;
+  *(_QWORD *)(v10 + 32) = a1;
+  if ( !a1 || !a3 || (_DWORD)v7 == -1 )
     return 3221225485LL;
-  v12 = (__int64)a7;
-  if ( a7 )
+  v11 = a6;
+  if ( a6 )
   {
-    *((_DWORD *)a7 + 9) = v8;
-    *(_QWORD *)(v12 + 52) = *(_QWORD *)(a1 + 404);
-    *(_DWORD *)(v12 + 40) = 1;
+    *((_DWORD *)a6 + 9) = v7;
+    *(_QWORD *)((char *)v11 + 52) = *(_QWORD *)(a1 + 316);
+    *((_DWORD *)v11 + 10) = 1;
   }
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner((PERESOURCE *)a1) )
-    WdLogSingleEntry0(1LL);
-  v13 = *((_QWORD *)a1 + 349);
-  if ( !v13 || (v14 = *(MONITOR_MGR **)(v13 + 112)) == 0LL )
   {
-    WdLogSingleEntry1(2LL, a1);
+    v21 = WdLogNewEntry5_WdAssertion(v13, v12);
+    WdLogEvent5_WdAssertion(v21);
+  }
+  v14 = *((_QWORD *)a1 + 337);
+  if ( !v14 || (v15 = *(ADAPTER_DISPLAY ***)(v14 + 96)) == 0LL )
+  {
+    v22 = WdLogNewEntry5_WdError(v13, v12);
+    *(_QWORD *)(v22 + 24) = a1;
+    WdLogEvent5_WdError(v22);
     return 3221225485LL;
   }
-  PhysicalMonitor = MONITOR_MGR::_HandleCreatePhysicalMonitor(
-                      v14,
-                      v8,
-                      a3,
-                      a4,
-                      a5,
-                      a6,
-                      (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v12);
-  v22 = 0LL;
-  memset(v21, 0, sizeof(v21));
-  v16 = PhysicalMonitor;
-  if ( (int)MONITOR_MGR::_GetMonitorInstance(v14, v8, 1, &v22) >= 0 )
+  PhysicalMonitor = MONITOR_MGR::_HandleCreatePhysicalMonitor(v15, (unsigned int)v7, a3, v6, a5, v11);
+  v29 = 0LL;
+  memset(v28, 0, sizeof(v28));
+  v17 = PhysicalMonitor;
+  if ( (int)MONITOR_MGR::_GetMonitorInstance((struct _FAST_MUTEX *)v15, (unsigned int)v7, 1, &v29) >= 0 )
   {
-    v17 = v22;
-    if ( v22 )
+    v18 = v29;
+    if ( v29 )
     {
-      RESOURCE_LOCK<DXGMONITOR>::RESOURCE_LOCK<DXGMONITOR>(&v22, (__int64)v22, 0);
-      DXGMONITOR::_GetMonitorDiagInfo(v17, (struct _DXGK_DIAG_MONITOR_MGR_EXTRA_INFO *)v21);
-      if ( v22 )
-      {
-        ExReleaseResourceLite((PERESOURCE)((char *)v22 + 24));
-        KeLeaveCriticalRegion();
-      }
+      KeEnterCriticalRegion();
+      ExAcquireResourceSharedLite((PERESOURCE)((char *)v18 + 296), 1u);
+      DXGMONITOR::_GetMonitorDiagInfo(v18, (struct _DXGK_DIAG_MONITOR_MGR_EXTRA_INFO *)v28, v19);
+      ExReleaseResourceLite((PERESOURCE)((char *)v18 + 296));
+      KeLeaveCriticalRegion();
     }
   }
-  MONITOR_MGR::_LogMonitorPresentEvent((__int64)v14, 1, v8, v16, v21);
-  LOBYTE(v23) = 0;
+  MONITOR_MGR::_LogMonitorPresentEvent((__int64)v15, 1LL, v7, v17, v28);
+  LODWORD(v29) = -1;
+  v30 = 0;
   if ( DXGADAPTER::UsingSetTimingsFromVidPn((DXGADAPTER *)a1)
-    && !a1[2705]
-    && (int)DmmIsTargetForceable(a1, (unsigned int)v8, &v23, 0LL) >= 0
-    && !(_BYTE)v23
-    && (int)DmmGetSourceConnectedToTargetInClientVidPn(a1, v8, &v23) >= 0 )
+    && !a1[2609]
+    && (int)DmmIsTargetForceable(a1, (unsigned int)v7, &v30, 0LL) >= 0
+    && !v30
+    && (int)DmmGetSourceConnectedToTargetInClientVidPn(a1, (unsigned int)v7, (unsigned int *)&v29) >= 0 )
   {
-    LOBYTE(v18) = 1;
-    v20 = DmmPowerOnOffTargetsFromSourceIfNecessary((PERESOURCE *)a1, v18, 0LL);
-    if ( v20 < 0 )
-      WdLogSingleEntry2(2LL, a1, v20);
+    v23 = DmmPowerOnOffTargetsFromSourceIfNecessary((PERESOURCE *)a1, (unsigned int)v29, 1u);
+    v26 = v23;
+    if ( v23 < 0 )
+    {
+      v27 = (_QWORD *)WdLogNewEntry5_WdError(v25, v24);
+      v27[3] = v7;
+      v27[4] = a1;
+      v27[5] = v26;
+      WdLogEvent5_WdError(v27);
+    }
   }
-  return v16;
+  return v17;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of __tailMerge_ext_ms_win_ntuser_private_l1_1_0_dll @ 0x180102299
+ * XREFs of __tailMerge_ext_ms_win_ntuser_private_l1_1_0_dll @ 0x1800E8825
  * Callers:
- *     __imp_load_UpdateWindowInputSinkHints @ 0x18010228D (__imp_load_UpdateWindowInputSinkHints.c)
+ *     __imp_load_UpdateWindowInputSinkHints @ 0x1800E8819 (__imp_load_UpdateWindowInputSinkHints.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x1800F39B0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE920 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_ext_ms_win_ntuser_private_l1_1_0_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

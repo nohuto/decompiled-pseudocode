@@ -1,221 +1,222 @@
 /*
- * XREFs of ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180061790
+ * XREFs of ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180087AD0
  * Callers:
- *     ?TryGetAxisAlignedRectangle@CGeometry@@QEAA_NPEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180009460 (-TryGetAxisAlignedRectangle@CGeometry@@QEAA_NPEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DR.c)
- *     ?ProcessPostSubgraphWindowBackdropInput@CPreComputeContext@@AEAAJPEAVCVisual@@@Z @ 0x18000B384 (-ProcessPostSubgraphWindowBackdropInput@CPreComputeContext@@AEAAJPEAVCVisual@@@Z.c)
- *     ?GetShapeDataCore@CCombinedGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x18001B160 (-GetShapeDataCore@CCombinedGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ?GetWindowClipShape@CWindowNode@@AEBAJPEAVCShapePtr@@@Z @ 0x1800459AC (-GetWindowClipShape@CWindowNode@@AEBAJPEAVCShapePtr@@@Z.c)
- *     ?PreSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18004B9C0 (-PreSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?Render@CShapeDrawingContext@@QEAAJXZ @ 0x18005AAAC (-Render@CShapeDrawingContext@@QEAAJXZ.c)
- *     ?PreSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180064A30 (-PreSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180067A20 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006B570 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z @ 0x1800845B8 (-CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z.c)
- *     ?TryDrawCommandAsDrawList@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@IV?$span@$$CBE$0?0@gsl@@PEA_N@Z @ 0x180095390 (-TryDrawCommandAsDrawList@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawLi.c)
- *     ?CalcRootBounds@CVisual@@QEBAJPEAV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800C3790 (-CalcRootBounds@CVisual@@QEBAJPEAV-$TMil3DRect@MV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointA.c)
- *     ?ComputeBounds@CSpriteVectorShape@@QEAAXXZ @ 0x1800D992C (-ComputeBounds@CSpriteVectorShape@@QEAAXXZ.c)
- *     ?HitTestContent@CWindowNode@@UEAAJ_NAEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800DF780 (-HitTestContent@CWindowNode@@UEAAJ_NAEBUD2D_POINT_2F@@PEA_N@Z.c)
- *     ?GetBoundsSafe@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800EBCE8 (-GetBoundsSafe@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
- *     ?GetShapeDataCore@CProxyGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180104090 (-GetShapeDataCore@CProxyGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ?GetDxClipShape@CWindowNode@@AEBA?AVCShapePtr@@XZ @ 0x180133ACA (-GetDxClipShape@CWindowNode@@AEBA-AVCShapePtr@@XZ.c)
- *     ?ShapeDataFromGeometry@CDrawingContext@@CAJPEBUD2D_SIZE_F@@PEAVCGeometry@@PEAVCShapePtr@@@Z @ 0x1801D6F44 (-ShapeDataFromGeometry@CDrawingContext@@CAJPEBUD2D_SIZE_F@@PEAVCGeometry@@PEAVCShapePtr@@@Z.c)
- *     ?HitTestWithTransformation@CPolygon@@QEAAJAEBUD2D_POINT_2F@@AEBVCMILMatrix@@1AEBW4Enum@MilBackfaceVisibility@@PEA_N@Z @ 0x180213728 (-HitTestWithTransformation@CPolygon@@QEAAJAEBUD2D_POINT_2F@@AEBVCMILMatrix@@1AEBW4Enum@MilBackfa.c)
- *     ?UpdateMaskIntermediate@CProjectedShadowCaster@@QEAAJPEAVCDrawingContext@@@Z @ 0x180219DA0 (-UpdateMaskIntermediate@CProjectedShadowCaster@@QEAAJPEAVCDrawingContext@@@Z.c)
- *     ?GetShapeDataCore@CGeometryGroup@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x18022EE50 (-GetShapeDataCore@CGeometryGroup@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ?EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ @ 0x18024510C (-EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ.c)
- *     ?GetGeometryBounds@CWindowNode@@AEAAJPEAVCGeometry@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180256718 (-GetGeometryBounds@CWindowNode@@AEAAJPEAVCGeometry@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMi.c)
- *     ?ProcessSetDxClip@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETDXCLIP@@@Z @ 0x180256868 (-ProcessSetDxClip@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETDXCLIP@@@Z.c)
+ *     ?TryGetAxisAlignedRectangle@CGeometry@@QEAA_NPEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180011AA8 (-TryGetAxisAlignedRectangle@CGeometry@@QEAA_NPEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DR.c)
+ *     ?GetBoundsSafe@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180067E04 (-GetBoundsSafe@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
+ *     ?GetWindowClipShape@CWindowNode@@AEBAJPEAVCShapePtr@@@Z @ 0x180067ED0 (-GetWindowClipShape@CWindowNode@@AEBAJPEAVCShapePtr@@@Z.c)
+ *     ?TryDrawCommandAsDrawList@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@_NIV?$span@$$CBE$0?0@gsl@@PEA_N@Z @ 0x180069D3C (-TryDrawCommandAsDrawList@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawLi.c)
+ *     ?CalcMode@CCpuClippingData@@CA?AW4Enum@CpuClippingMode@@PEAVCVisual@@W423@_N@Z @ 0x18007AF14 (-CalcMode@CCpuClippingData@@CA-AW4Enum@CpuClippingMode@@PEAVCVisual@@W423@_N@Z.c)
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18007BE10 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PushEffects@CDrawingContext@@QEAAJAEAUNodeEffects@1@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAVCFilterEffect@@11PEA_N@Z @ 0x18007F3E0 (-PushEffects@CDrawingContext@@QEAAJAEAUNodeEffects@1@PEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UM.c)
+ *     ?GetEffects@CDrawingContext@@AEAAXPEBVCVisualTree@@PEAVCVisual@@PEAUNodeEffects@1@@Z @ 0x180083DB0 (-GetEffects@CDrawingContext@@AEAAXPEBVCVisualTree@@PEAVCVisual@@PEAUNodeEffects@1@@Z.c)
+ *     ?PreSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180085300 (-PreSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180088E00 (-PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18008A510 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18009E540 (-PreSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?ShapeDataFromGeometry@CDrawingContext@@CAJPEBUD2D_SIZE_F@@PEAVCGeometry@@PEAVCShapePtr@@@Z @ 0x180178368 (-ShapeDataFromGeometry@CDrawingContext@@CAJPEBUD2D_SIZE_F@@PEAVCGeometry@@PEAVCShapePtr@@@Z.c)
+ *     ?GetShapeDataCore@CCombinedGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1801B8480 (-GetShapeDataCore@CCombinedGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?GetShapeDataCore@CGeometryGroup@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1801C3C80 (-GetShapeDataCore@CGeometryGroup@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ @ 0x1801DFB34 (-EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ.c)
+ *     ?UpdateMaskIntermediate@CProjectedShadowCaster@@QEAAJPEAVCDrawingContext@@@Z @ 0x1801E409C (-UpdateMaskIntermediate@CProjectedShadowCaster@@QEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?GetShapeDataCore@CProxyGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1801E6180 (-GetShapeDataCore@CProxyGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?ComputeBounds@CSpriteVectorShape@@QEAAXXZ @ 0x1801ECE28 (-ComputeBounds@CSpriteVectorShape@@QEAAXXZ.c)
+ *     ?CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z @ 0x1801ECF04 (-CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z.c)
+ *     ?GetDxClipShape@CWindowNode@@AEBA?AVCShapePtr@@XZ @ 0x1801F369C (-GetDxClipShape@CWindowNode@@AEBA-AVCShapePtr@@XZ.c)
+ *     ?GetDxClipShapeForHitTest@CWindowNode@@AEBAXPEAVCShapePtr@@@Z @ 0x1801F36F4 (-GetDxClipShapeForHitTest@CWindowNode@@AEBAXPEAVCShapePtr@@@Z.c)
+ *     ?GetGeometryBounds@CWindowNode@@AEAAJPEAVCGeometry@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801F3724 (-GetGeometryBounds@CWindowNode@@AEAAJPEAVCGeometry@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMi.c)
+ *     ?ProcessSetDxClip@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETDXCLIP@@@Z @ 0x1801F38BC (-ProcessSetDxClip@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETDXCLIP@@@Z.c)
+ *     ?HitTestWithTransformation@CPolygon@@QEAAJAEBUD2D_POINT_2F@@AEBVCMILMatrix@@1AEBW4Enum@MilBackfaceVisibility@@PEA_N@Z @ 0x1801F7864 (-HitTestWithTransformation@CPolygon@@QEAAJAEBUD2D_POINT_2F@@AEBVCMILMatrix@@1AEBW4Enum@MilBackfa.c)
+ *     ?Render@CShapeDrawingContext@@QEAAJXZ @ 0x18026170C (-Render@CShapeDrawingContext@@QEAAJXZ.c)
  * Callees:
- *     ?GetTrimmedShapeData@CGeometry@@AEBAJAEBVCShape@@PEAVCShapePtr@@@Z @ 0x18001523C (-GetTrimmedShapeData@CGeometry@@AEBAJAEBVCShape@@PEAVCShapePtr@@@Z.c)
- *     ?CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z @ 0x1800629A0 (-CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800DC518 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ?GetShapeDataWorker@CGeometry@@AEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1800F2358 (-GetShapeDataWorker@CGeometry@@AEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z @ 0x180080AA0 (-CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C876C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ?GetShapeDataWorker@CGeometry@@AEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1800D52D0 (-GetShapeDataWorker@CGeometry@@AEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?GetTrimmedShapeData@CGeometry@@AEBAJAEBVCShape@@PEAVCShapePtr@@@Z @ 0x1801B5AEC (-GetTrimmedShapeData@CGeometry@@AEBAJAEBVCShape@@PEAVCShapePtr@@@Z.c)
  */
 
 __int64 __fastcall CGeometry::GetShapeData(CGeometry *this, const struct D2D_SIZE_F *a2, struct CShapePtr *a3)
 {
-  unsigned int v3; // r14d
-  char v7; // al
-  const struct D2D_SIZE_F *v8; // r12
+  char v3; // al
+  unsigned int v4; // r14d
+  const struct D2D_SIZE_F *v8; // rbx
   int v9; // eax
-  unsigned int v10; // ecx
-  int v11; // ebx
-  void (__fastcall ***v12)(_QWORD, __int64); // rcx
-  __int64 v14; // rbx
-  const struct CShape **v15; // rbx
-  char v16; // r12
-  const struct CShape *v17; // rbx
+  __int64 v10; // rcx
+  void (__fastcall ***v11)(_QWORD, __int64); // rcx
+  CShape *v12; // rcx
+  int v13; // eax
+  __int64 v15; // rbx
+  __int64 v16; // rbx
+  char v17; // bl
   __int64 v18; // rbx
-  CShape *v19; // rcx
-  int v20; // eax
-  struct CShape *v21; // r14
   int ShapeDataWorker; // eax
-  unsigned int v23; // ecx
-  __int64 v24; // rbx
+  __int64 v20; // rcx
   int TrimmedShapeData; // eax
-  unsigned int v26; // ecx
-  int v27; // eax
-  unsigned int v28; // ecx
-  int v29; // eax
-  unsigned int v30; // ecx
-  _DWORD v31[2]; // [rsp+30h] [rbp-59h] BYREF
-  __int64 v32; // [rsp+38h] [rbp-51h]
-  int v33; // [rsp+40h] [rbp-49h]
-  int v34; // [rsp+44h] [rbp-45h]
-  __int64 v35; // [rsp+48h] [rbp-41h]
-  __int128 v36; // [rsp+50h] [rbp-39h]
-  int v37; // [rsp+60h] [rbp-29h]
-  int v38; // [rsp+64h] [rbp-25h]
-  int v39; // [rsp+68h] [rbp-21h]
-  int v40; // [rsp+6Ch] [rbp-1Dh]
-  int v41; // [rsp+70h] [rbp-19h]
-  struct CShape *v42; // [rsp+80h] [rbp-9h] BYREF
-  _DWORD v43[6]; // [rsp+88h] [rbp-1h] BYREF
+  __int64 v22; // rcx
+  __int64 v23; // r15
+  int v24; // eax
+  __int64 v25; // rcx
+  int v26; // eax
+  __int64 v27; // rcx
+  struct CShape *v28; // [rsp+30h] [rbp-49h] BYREF
+  _DWORD v29[2]; // [rsp+40h] [rbp-39h] BYREF
+  __int64 v30; // [rsp+48h] [rbp-31h]
+  int v31; // [rsp+50h] [rbp-29h]
+  int v32; // [rsp+54h] [rbp-25h]
+  __int64 v33; // [rsp+58h] [rbp-21h]
+  __int128 v34; // [rsp+60h] [rbp-19h]
+  int v35; // [rsp+70h] [rbp-9h]
+  int v36; // [rsp+74h] [rbp-5h]
+  int v37; // [rsp+78h] [rbp-1h]
+  int v38; // [rsp+7Ch] [rbp+3h]
+  int v39; // [rsp+80h] [rbp+7h]
+  _DWORD v40[6]; // [rsp+90h] [rbp+17h] BYREF
 
-  v3 = 0;
-  if ( !*((_BYTE *)this + 136) )
+  v3 = *((_BYTE *)this + 128);
+  v4 = 0;
+  if ( v3 )
+    goto LABEL_2;
+  v15 = *((_QWORD *)this + 2);
+  if ( GetCurrentThreadId() == *(_DWORD *)(v15 + 528) )
   {
-    v14 = *((_QWORD *)this + 2);
-    if ( GetCurrentThreadId() == *(_DWORD *)(v14 + 680) )
+    if ( (*((_BYTE *)this + 32) & 1) != 0 )
     {
-      v15 = (const struct CShape **)((char *)this + 104);
-      if ( (*((_BYTE *)this + 32) & 1) != 0 )
+      v17 = 1;
+      ShapeDataWorker = CGeometry::GetShapeDataWorker(this, a2, (CGeometry *)((char *)this + 96));
+      v4 = ShapeDataWorker;
+      if ( ShapeDataWorker < 0 )
       {
-        v16 = 1;
-        ShapeDataWorker = CGeometry::GetShapeDataWorker(this, a2, (CGeometry *)((char *)this + 104));
-        v3 = ShapeDataWorker;
-        if ( ShapeDataWorker < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, ShapeDataWorker, 0xAAu, 0LL);
-          return v3;
-        }
-        *((_DWORD *)this + 8) &= ~1u;
+        MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, ShapeDataWorker, 0xAAu, 0LL);
+        return v4;
       }
-      else
+      *((_DWORD *)this + 8) &= ~1u;
+    }
+    else
+    {
+      v17 = 0;
+    }
+    if ( *((_BYTE *)this + 129) )
+    {
+      if ( v17 || *((_BYTE *)this + 130) || (v18 = *((_QWORD *)this + 14)) == 0 )
       {
-        v16 = 0;
-      }
-      if ( !*((_BYTE *)this + 137) )
-      {
-        v17 = *v15;
-        if ( *((_BYTE *)a3 + 8) && *(_QWORD *)a3 )
-          (***(void (__fastcall ****)(_QWORD, __int64))a3)(*(_QWORD *)a3, 1LL);
-        *((_BYTE *)a3 + 8) = 0;
-        *(_QWORD *)a3 = v17;
-        *((_BYTE *)a3 + 8) = 0;
-        return v3;
-      }
-      if ( v16 )
-        goto LABEL_33;
-      if ( *((_BYTE *)this + 138) || !*((_QWORD *)this + 15) )
-      {
-        v15 = (const struct CShape **)((char *)this + 104);
-LABEL_33:
-        TrimmedShapeData = CGeometry::GetTrimmedShapeData(this, *v15, (CGeometry *)((char *)this + 120));
-        v3 = TrimmedShapeData;
+        TrimmedShapeData = CGeometry::GetTrimmedShapeData(
+                             this,
+                             *((const struct CShape **)this + 12),
+                             (CGeometry *)((char *)this + 112));
+        v4 = TrimmedShapeData;
         if ( TrimmedShapeData < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, TrimmedShapeData, 0xB2u, 0LL);
-          return v3;
+          MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, TrimmedShapeData, 0xB2u, 0LL);
+          return v4;
         }
-        *((_BYTE *)this + 138) = 0;
+        v18 = *((_QWORD *)this + 14);
+        *((_BYTE *)this + 130) = 0;
       }
-LABEL_31:
-      v24 = *((_QWORD *)this + 15);
       CShapePtr::Release(a3);
-      *(_QWORD *)a3 = v24;
-      *((_BYTE *)a3 + 8) = 0;
-      return v3;
     }
-  }
-  v7 = *((_BYTE *)this + 136);
-  if ( v7 || (*((_BYTE *)this + 32) & 1) != 0 || (v18 = *((_QWORD *)this + 13)) == 0 )
-  {
-    v8 = 0LL;
-    if ( v7 )
-      v8 = a2;
-    v9 = (*(__int64 (__fastcall **)(CGeometry *, const struct D2D_SIZE_F *, struct CShapePtr *))(*(_QWORD *)this + 216LL))(
-           this,
-           v8,
-           a3);
-    v11 = v9;
-    v3 = v9;
-    if ( v9 < 0 )
+    else
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xFAu, 0LL);
-      goto LABEL_51;
+      v18 = *((_QWORD *)this + 12);
+      if ( *((_BYTE *)a3 + 8) && *(_QWORD *)a3 )
+        (***(void (__fastcall ****)(_QWORD, __int64))a3)(*(_QWORD *)a3, 1LL);
     }
-    if ( (*(unsigned __int8 (__fastcall **)(CGeometry *))(*(_QWORD *)this + 232LL))(this) && *(_QWORD *)a3 )
-    {
-      (*(void (__fastcall **)(CGeometry *, const struct D2D_SIZE_F *, _DWORD *))(*(_QWORD *)this + 224LL))(
-        this,
-        v8,
-        v43);
-      v19 = *(CShape **)a3;
-      v31[0] = v43[0];
-      v31[1] = v43[1];
-      v41 = 5124;
-      v33 = v43[2];
-      v34 = v43[3];
-      v37 = v43[4];
-      v36 = _xmm;
-      v38 = v43[5];
-      v40 = (int)FLOAT_1_0;
-      v32 = 0LL;
-      v35 = 0LL;
-      v39 = 0;
-      v20 = CShape::CopyShape(v19, (const struct CMILMatrix *)v31, &v42);
-      v11 = v20;
-      v3 = v20;
-      if ( v20 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v12, 0LL, 0, v20, 0x108u, 0LL);
-        goto LABEL_51;
-      }
-      v21 = v42;
-      if ( *((_BYTE *)a3 + 8) )
-      {
-        v12 = *(void (__fastcall ****)(_QWORD, __int64))a3;
-        if ( *(_QWORD *)a3 )
-          (**v12)(v12, 1LL);
-      }
-      *(_QWORD *)a3 = v21;
-      *((_BYTE *)a3 + 8) = 1;
-    }
-    v3 = v11;
-    if ( v11 >= 0 )
-    {
-      if ( *((_BYTE *)this + 137) )
-      {
-        v29 = CGeometry::GetTrimmedShapeData(this, *(const struct CShape **)a3, a3);
-        v3 = v29;
-        if ( v29 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v30, 0LL, 0, v29, 0xCAu, 0LL);
-      }
-      return v3;
-    }
-LABEL_51:
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v12, 0LL, 0, v11, 0xC6u, 0LL);
-    return v3;
-  }
-  if ( *((_BYTE *)this + 137) )
-  {
-    if ( !*((_BYTE *)this + 138) && *((_QWORD *)this + 15) )
-      goto LABEL_31;
-    v27 = CGeometry::GetTrimmedShapeData(this, *((const struct CShape **)this + 13), a3);
-    v3 = v27;
-    if ( v27 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, v27, 0xD3u, 0LL);
-  }
-  else
-  {
-    if ( *((_BYTE *)a3 + 8) && *(_QWORD *)a3 )
-      (***(void (__fastcall ****)(_QWORD, __int64))a3)(*(_QWORD *)a3, 1LL);
     *(_QWORD *)a3 = v18;
     *((_BYTE *)a3 + 8) = 0;
   }
-  return v3;
+  else
+  {
+    v3 = *((_BYTE *)this + 128);
+    if ( v3 || (*((_BYTE *)this + 32) & 1) != 0 || (v16 = *((_QWORD *)this + 12)) == 0 )
+    {
+LABEL_2:
+      v8 = 0LL;
+      if ( v3 )
+        v8 = a2;
+      v9 = (*(__int64 (__fastcall **)(CGeometry *, const struct D2D_SIZE_F *, struct CShapePtr *))(*(_QWORD *)this
+                                                                                                 + 224LL))(
+             this,
+             v8,
+             a3);
+      v4 = v9;
+      if ( v9 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xFAu, 0LL);
+      }
+      else if ( (*(unsigned __int8 (__fastcall **)(CGeometry *))(*(_QWORD *)this + 240LL))(this) && *(_QWORD *)a3 )
+      {
+        (*(void (__fastcall **)(CGeometry *, const struct D2D_SIZE_F *, _DWORD *))(*(_QWORD *)this + 232LL))(
+          this,
+          v8,
+          v40);
+        v12 = *(CShape **)a3;
+        v29[0] = v40[0];
+        v29[1] = v40[1];
+        v31 = v40[2];
+        v32 = v40[3];
+        v35 = v40[4];
+        v34 = _xmm;
+        v36 = v40[5];
+        v38 = (int)FLOAT_1_0;
+        v39 = 0;
+        v30 = 0LL;
+        v33 = 0LL;
+        v37 = 0;
+        v13 = CShape::CopyShape(v12, (const struct CMILMatrix *)v29, &v28);
+        v4 = v13;
+        if ( v13 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast((__int64)v11, 0LL, 0, v13, 0x108u, 0LL);
+        }
+        else
+        {
+          if ( *((_BYTE *)a3 + 8) )
+          {
+            v11 = *(void (__fastcall ****)(_QWORD, __int64))a3;
+            if ( *(_QWORD *)a3 )
+              (**v11)(v11, 1LL);
+          }
+          *(_QWORD *)a3 = v28;
+          *((_BYTE *)a3 + 8) = 1;
+        }
+      }
+      if ( (v4 & 0x80000000) != 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast((__int64)v11, 0LL, 0, v4, 0xC6u, 0LL);
+      }
+      else if ( *((_BYTE *)this + 129) )
+      {
+        v26 = CGeometry::GetTrimmedShapeData(this, *(const struct CShape **)a3, a3);
+        v4 = v26;
+        if ( v26 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0xCAu, 0LL);
+      }
+      return v4;
+    }
+    if ( *((_BYTE *)this + 129) )
+    {
+      if ( *((_BYTE *)this + 130) || (v23 = *((_QWORD *)this + 14)) == 0 )
+      {
+        v24 = CGeometry::GetTrimmedShapeData(this, *((const struct CShape **)this + 12), a3);
+        v4 = v24;
+        if ( v24 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0xD3u, 0LL);
+      }
+      else
+      {
+        CShapePtr::Release(a3);
+        *(_QWORD *)a3 = v23;
+        *((_BYTE *)a3 + 8) = 0;
+      }
+    }
+    else
+    {
+      if ( *((_BYTE *)a3 + 8) && *(_QWORD *)a3 )
+        (***(void (__fastcall ****)(_QWORD, __int64))a3)(*(_QWORD *)a3, 1LL);
+      *(_QWORD *)a3 = v16;
+      *((_BYTE *)a3 + 8) = 0;
+    }
+  }
+  return v4;
 }

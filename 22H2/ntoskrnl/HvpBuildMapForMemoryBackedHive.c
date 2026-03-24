@@ -1,24 +1,24 @@
 /*
- * XREFs of HvpBuildMapForMemoryBackedHive @ 0x1408272D8
+ * XREFs of HvpBuildMapForMemoryBackedHive @ 0x1407B233C
  * Callers:
- *     HvHiveStartMemoryBacked @ 0x140826DF0 (HvHiveStartMemoryBacked.c)
+ *     HvHiveStartMemoryBacked @ 0x14076FAD4 (HvHiveStartMemoryBacked.c)
  * Callees:
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     CmpClaimGlobalQuota @ 0x14070304C (CmpClaimGlobalQuota.c)
- *     HvpInitMap @ 0x14074EF80 (HvpInitMap.c)
- *     HvpEnlistFreeCells @ 0x14074FE60 (HvpEnlistFreeCells.c)
- *     HvpValidateLoadedBin @ 0x14074FF40 (HvpValidateLoadedBin.c)
- *     HvpPointMapEntriesToBuffer @ 0x1407502DC (HvpPointMapEntriesToBuffer.c)
+ *     SetFailureLocation @ 0x14031DB78 (SetFailureLocation.c)
+ *     HvpEnlistFreeCells @ 0x140657190 (HvpEnlistFreeCells.c)
+ *     HvpValidateLoadedBin @ 0x140657274 (HvpValidateLoadedBin.c)
+ *     CmpClaimGlobalQuota @ 0x140720214 (CmpClaimGlobalQuota.c)
+ *     HvpPointMapEntriesToBuffer @ 0x14072242C (HvpPointMapEntriesToBuffer.c)
+ *     HvpInitMap @ 0x14072336C (HvpInitMap.c)
  */
 
 __int64 __fastcall HvpBuildMapForMemoryBackedHive(ULONG_PTR BugCheckParameter2, __int64 a2, int a3)
 {
   __int64 v3; // rbx
   char v6; // r12
-  unsigned int inited; // edi
+  unsigned int inited; // esi
   unsigned int v8; // ebp
   unsigned int v9; // r15d
-  _DWORD *v10; // rsi
+  _DWORD *v10; // rdi
   __int64 v11; // rdx
   int v12; // eax
 
@@ -37,7 +37,7 @@ __int64 __fastcall HvpBuildMapForMemoryBackedHive(ULONG_PTR BugCheckParameter2, 
     v10 = (_DWORD *)(a2 + v8);
     if ( !HvpValidateLoadedBin(v10, v8, v9) )
     {
-      if ( (a3 & 0x20000) != 0 || !BYTE2(NlsMbOemCodePageTag) && (CmpBootType & 6) == 0 )
+      if ( (a3 & 0x20000) != 0 || !BYTE3(NlsMbCodePageTag) && (CmpBootType & 6) == 0 )
       {
         inited = -1073741492;
         SetFailureLocation(v3, 0, 4, -1073741492, 0);

@@ -1,184 +1,144 @@
 /*
- * XREFs of VrpHandleIoctlInitializeJobForVreg @ 0x14077A578
+ * XREFs of VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x14077B590 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x1405D3110 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x140208E68 (RtlUnicodeStringCopy.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsGetJobSilo @ 0x14031C600 (PsGetJobSilo.c)
- *     PsIsThreadInSilo @ 0x14031C6B8 (PsIsThreadInSilo.c)
- *     memset @ 0x140435400 (memset.c)
- *     VrpFreeKeyContext @ 0x14068EC34 (VrpFreeKeyContext.c)
- *     VrpAllocateKeyContext @ 0x14068EECC (VrpAllocateKeyContext.c)
- *     CmSetCallbackObjectContext @ 0x14068F0A0 (CmSetCallbackObjectContext.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     PspStorageMakeSlotReadOnly @ 0x14077A4C8 (PspStorageMakeSlotReadOnly.c)
- *     CmGetRootKeyObjectForSilo @ 0x14077A8E0 (CmGetRootKeyObjectForSilo.c)
- *     PsInsertSiloContext @ 0x14077CEF0 (PsInsertSiloContext.c)
- *     CmInitSiloNamespace @ 0x14077D2D8 (CmInitSiloNamespace.c)
- *     VrpIncrementSiloCount @ 0x14077D33C (VrpIncrementSiloCount.c)
- *     PsRemoveSiloContext @ 0x1409AC780 (PsRemoveSiloContext.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     PsGetJobSilo @ 0x140200050 (PsGetJobSilo.c)
+ *     RtlUnicodeStringCopy @ 0x140206C90 (RtlUnicodeStringCopy.c)
+ *     PsIsThreadInSilo @ 0x14025C1E8 (PsIsThreadInSilo.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     VrpIncrementSiloCount @ 0x1405D2494 (VrpIncrementSiloCount.c)
+ *     CmInitSiloNamespace @ 0x1405D2580 (CmInitSiloNamespace.c)
+ *     PsInsertSiloContext @ 0x1405D25C0 (PsInsertSiloContext.c)
+ *     CmGetRootKeyObjectForSilo @ 0x1405D263C (CmGetRootKeyObjectForSilo.c)
+ *     VrpDereferenceJobContext @ 0x1405D2914 (VrpDereferenceJobContext.c)
+ *     PsMakeSiloContextPermanent @ 0x1405D2930 (PsMakeSiloContextPermanent.c)
+ *     CmSetCallbackObjectContext @ 0x1405D5830 (CmSetCallbackObjectContext.c)
+ *     VrpAllocateKeyContext @ 0x1405D5A24 (VrpAllocateKeyContext.c)
+ *     VrpFreeKeyContext @ 0x1405D5A80 (VrpFreeKeyContext.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObCreateObject @ 0x1407023B0 (ObCreateObject.c)
+ *     VrpInitializeNamespaceNodeList @ 0x140863CE0 (VrpInitializeNamespaceNodeList.c)
+ *     PsRemoveSiloContext @ 0x140905BC0 (PsRemoveSiloContext.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlInitializeJobForVreg(
-        ULONG_PTR *a1,
+        HANDLE *a1,
         unsigned int a2,
-        char a3,
+        KPROCESSOR_MODE a3,
         __int64 a4,
-        __int64 a5,
-        PVOID Object)
+        PVOID Object,
+        __int64 a6)
 {
-  _QWORD *v7; // rdi
   UNICODE_STRING *v8; // rsi
-  void *RootKeyObjectForSilo; // r15
-  __int64 v10; // r14
+  struct _DMA_ADAPTER *RootKeyObjectForSilo; // r15
   int JobSilo; // ebx
-  PVOID PoolWithTag; // rax
-  PVOID v13; // rbx
-  void *v14; // rcx
+  _QWORD *v11; // rdi
+  __int64 v12; // r14
   char IsThreadInSilo; // al
-  PVOID v16; // rcx
+  PVOID v14; // rcx
   __int64 KeyContext; // rax
-  __int128 v18; // xmm0
-  __int64 Pool2; // rax
-  __int64 Tag; // [rsp+20h] [rbp-40h]
-  int v23; // [rsp+A8h] [rbp+48h]
-  PVOID v24; // [rsp+B8h] [rbp+58h] BYREF
+  wchar_t *PoolWithTag; // rax
+  PVOID v18; // [rsp+98h] [rbp+48h] BYREF
 
   Object = 0LL;
-  v7 = 0LL;
-  v24 = 0LL;
+  v18 = 0LL;
   v8 = 0LL;
-  v23 = 0;
+  a6 = 0LL;
   RootKeyObjectForSilo = 0LL;
-  a5 = 0LL;
-  v10 = 0LL;
-  if ( a2 < 8 )
-    goto LABEL_2;
-  JobSilo = ObCreateObjectEx(0, (_DWORD *)VrpJobContextType, 0LL, 1, Tag, 96, 0, 0, &v24, 0LL);
-  if ( JobSilo < 0 )
+  if ( a2 >= 8 )
   {
-    v7 = v24;
-  }
-  else
-  {
-    v7 = v24;
-    memset(v24, 0, 0x60uLL);
-    v7[2] = 0LL;
-    *((_OWORD *)v7 + 2) = 0LL;
-    *((_OWORD *)v7 + 3) = 0LL;
-    *((_OWORD *)v7 + 4) = 0LL;
-    v7[4] = 0LL;
-    v7[8] = 16LL;
-    v7[6] = 0LL;
-    v7[7] = 0LL;
-    v7[9] = 0LL;
-    v7[5] = 8LL;
-    if ( !is_mul_ok(0LL, 8uLL) )
+    JobSilo = ObCreateObject(0, VrpJobContextType, 0, 1, 0, 96, 0, 0, (__int64)&v18);
+    if ( JobSilo < 0 )
     {
-      JobSilo = -1073741675;
-LABEL_11:
-      v14 = (void *)v7[9];
-      if ( v14 )
-        ExFreePoolWithTag(v14, 0x72615452u);
-      *((_OWORD *)v7 + 2) = 0LL;
-      *((_OWORD *)v7 + 3) = 0LL;
-      *((_OWORD *)v7 + 4) = 0LL;
-      goto LABEL_27;
+      v11 = v18;
     }
-    if ( !is_mul_ok(0x20uLL, 8uLL) )
+    else
     {
-      JobSilo = -1073741675;
-      goto LABEL_11;
-    }
-    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x100uLL, 0x72615452u);
-    v13 = PoolWithTag;
-    if ( !PoolWithTag )
-    {
-      JobSilo = -1073741801;
-      goto LABEL_11;
-    }
-    memset(PoolWithTag, 0, 0x100uLL);
-    v7[9] = v13;
-    v7[7] = 32LL;
-    JobSilo = VrpIncrementSiloCount();
-    if ( JobSilo >= 0 )
-    {
-      *((_DWORD *)v7 + 22) = 1;
-      JobSilo = ObpReferenceObjectByHandleWithTag(*a1, 6, (__int64)PsJobType, a3, 0x52566D43u, &Object, 0LL, 0LL);
+      v11 = v18;
+      memset(v18, 0, 0x60uLL);
+      v11[2] = 0LL;
+      JobSilo = VrpInitializeNamespaceNodeList(v11);
       if ( JobSilo >= 0 )
       {
-        JobSilo = PsGetJobSilo((__int64)Object);
-        if ( JobSilo < 0 )
+        JobSilo = VrpIncrementSiloCount();
+        if ( JobSilo >= 0 )
         {
-          v10 = a5;
-        }
-        else
-        {
-          v10 = a5;
-          IsThreadInSilo = PsIsThreadInSilo((__int64)KeGetCurrentThread(), a5);
-          v7 = v24;
-          if ( IsThreadInSilo )
-          {
-LABEL_2:
-            JobSilo = -1073741811;
-            goto LABEL_29;
-          }
-          v16 = v24;
-          *(_OWORD *)v24 = *(_OWORD *)(v10 + 1456);
-          KeyContext = VrpAllocateKeyContext(v16);
-          v8 = (UNICODE_STRING *)KeyContext;
-          if ( !KeyContext
-            || (v18 = *(_OWORD *)(v10 + 1456),
-                *(_WORD *)(KeyContext + 32) = 1,
-                *(_OWORD *)KeyContext = v18,
-                Pool2 = ExAllocatePool2(256LL, CmRegistryRootName.Length, 1734693462LL),
-                (v8[1].Buffer = (wchar_t *)Pool2) == 0LL) )
-          {
-            JobSilo = -1073741670;
-            goto LABEL_29;
-          }
-          v8[1].Length = 0;
-          v8[1].MaximumLength = CmRegistryRootName.Length;
-          RtlUnicodeStringCopy(v8 + 1, &CmRegistryRootName);
-          JobSilo = CmInitSiloNamespace(v10);
+          *((_DWORD *)v11 + 22) = 1;
+          JobSilo = ObReferenceObjectByHandleWithTag(*a1, 6u, (POBJECT_TYPE)PsJobType, a3, 0x52566D43u, &Object, 0LL);
           if ( JobSilo >= 0 )
           {
-            JobSilo = PsInsertSiloContext(v10, (unsigned int)VrpSiloContextSlot, v7);
+            JobSilo = PsGetJobSilo((__int64)Object);
             if ( JobSilo >= 0 )
             {
-              v23 = 1;
-              RootKeyObjectForSilo = (void *)CmGetRootKeyObjectForSilo(v10);
-              JobSilo = CmSetCallbackObjectContext(RootKeyObjectForSilo, &VrpCallbackCookie, v8, 0LL);
-              if ( JobSilo >= 0 )
+              v12 = a6;
+              IsThreadInSilo = PsIsThreadInSilo((__int64)KeGetCurrentThread(), a6);
+              v11 = v18;
+              if ( IsThreadInSilo )
               {
-                v8 = 0LL;
-                PspStorageMakeSlotReadOnly(*(_QWORD *)(v10 + 1520), (unsigned int)VrpSiloContextSlot);
-                JobSilo = 0;
-                goto LABEL_29;
+                JobSilo = -1073741811;
+              }
+              else
+              {
+                v14 = v18;
+                *(_OWORD *)v18 = *(_OWORD *)(v12 + 1240);
+                KeyContext = VrpAllocateKeyContext(v14);
+                v8 = (UNICODE_STRING *)KeyContext;
+                if ( KeyContext
+                  && (*(_OWORD *)KeyContext = *(_OWORD *)(v12 + 1240),
+                      *(_WORD *)(KeyContext + 32) = 1,
+                      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, CmRegistryRootName.Length, 0x67655256u),
+                      (v8[1].Buffer = PoolWithTag) != 0LL) )
+                {
+                  v8[1].Length = 0;
+                  v8[1].MaximumLength = CmRegistryRootName.Length;
+                  RtlUnicodeStringCopy(v8 + 1, &CmRegistryRootName);
+                  JobSilo = CmInitSiloNamespace(v12);
+                  if ( JobSilo >= 0 )
+                  {
+                    JobSilo = PsInsertSiloContext(v12, VrpSiloContextSlot, (__int64)v11);
+                    if ( JobSilo >= 0 )
+                    {
+                      RootKeyObjectForSilo = (struct _DMA_ADAPTER *)CmGetRootKeyObjectForSilo(v12);
+                      JobSilo = CmSetCallbackObjectContext(RootKeyObjectForSilo, &VrpCallbackCookie, v8, 0LL);
+                      if ( JobSilo < 0 )
+                      {
+                        PsRemoveSiloContext(v12, (unsigned int)VrpSiloContextSlot, 0LL);
+                      }
+                      else
+                      {
+                        v8 = 0LL;
+                        PsMakeSiloContextPermanent(v12, (unsigned int)VrpSiloContextSlot);
+                        JobSilo = 0;
+                      }
+                    }
+                  }
+                }
+                else
+                {
+                  JobSilo = -1073741670;
+                }
               }
             }
           }
         }
       }
     }
+    if ( v11 )
+      VrpDereferenceJobContext(v11);
+    if ( RootKeyObjectForSilo )
+      HalPutDmaAdapter(RootKeyObjectForSilo);
+    if ( v8 )
+      VrpFreeKeyContext(v8);
+    if ( Object )
+      ObfDereferenceObjectWithTag(Object, 0x52566D43u);
   }
-LABEL_27:
-  if ( v23 )
-    PsRemoveSiloContext(v10, (unsigned int)VrpSiloContextSlot, 0LL);
-LABEL_29:
-  if ( v7 )
-    ObfDereferenceObjectWithTag(v7, 0x67655256u);
-  if ( RootKeyObjectForSilo )
-    ObfDereferenceObject(RootKeyObjectForSilo);
-  if ( v8 )
-    VrpFreeKeyContext((PVOID *)v8);
-  if ( Object )
-    ObfDereferenceObjectWithTag(Object, 0x52566D43u);
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
   return (unsigned int)JobSilo;
 }

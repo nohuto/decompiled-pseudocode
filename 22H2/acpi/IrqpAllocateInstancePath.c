@@ -1,85 +1,90 @@
 /*
- * XREFs of IrqpAllocateInstancePath @ 0x1C00A015C
+ * XREFs of IrqpAllocateInstancePath @ 0x1C00964E4
  * Callers:
- *     IrqTraceAffinityPolicy @ 0x1C009FFD0 (IrqTraceAffinityPolicy.c)
+ *     IrqTraceAffinityPolicy @ 0x1C0096174 (IrqTraceAffinityPolicy.c)
  * Callees:
  *     <none>
  */
 
-__int16 __fastcall IrqpAllocateInstancePath(PDEVICE_OBJECT Pdo, __int64 a2)
+__int64 __fastcall IrqpAllocateInstancePath(PDEVICE_OBJECT Pdo, __int64 a2)
 {
-  _WORD *Data; // rdi
+  PVOID Data; // rdi
   ULONG Size; // eax
-  __int16 result; // ax
-  const wchar_t *v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // rdx
-  _WORD *v10; // r8
-  __int16 v11; // ax
-  ULONG RequiredSize; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v6; // r8
+  _WORD *v7; // rax
+  __int64 result; // rax
+  __int64 v9; // rcx
+  __int16 v10; // cx
+  const wchar_t *v11; // rax
+  __int64 v12; // r8
+  SIZE_T NumberOfBytes; // [rsp+60h] [rbp+8h] BYREF
   ULONG Type; // [rsp+70h] [rbp+18h] BYREF
 
   Type = 0;
-  RequiredSize = 0;
+  LODWORD(NumberOfBytes) = 0;
   Data = 0LL;
   if ( !Pdo )
-    goto LABEL_8;
-  if ( IoGetDevicePropertyData(Pdo, &DEVPKEY_Device_InstanceId, 0, 0, 0, 0LL, &RequiredSize, &Type) == -1073741789 )
+    goto LABEL_17;
+  if ( IoGetDevicePropertyData(Pdo, &DEVPKEY_Device_InstanceId, 0, 0, 0, 0LL, (PULONG)&NumberOfBytes, &Type) == -1073741789 )
   {
-    Size = RequiredSize;
-    if ( RequiredSize >= 0xFFFE )
+    Size = NumberOfBytes;
+    if ( (unsigned int)NumberOfBytes >= 0xFFFE )
       goto LABEL_6;
-    Data = (_WORD *)ExAllocatePool2(256LL, RequiredSize, 1232102209LL);
+    Data = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x49706341u);
     if ( !Data )
-    {
-LABEL_8:
-      result = 0x7FFF;
-      v7 = &word_1C0063064;
-      *(_OWORD *)a2 = 0LL;
-      v8 = 0x7FFFLL;
-      while ( *v7 )
-      {
-        ++v7;
-        if ( !--v8 )
-          return result;
-      }
-      result = 0x7FFF - v8;
-      if ( a2 )
-      {
-        *(_QWORD *)(a2 + 8) = &word_1C0063064;
-        goto LABEL_21;
-      }
-      return result;
-    }
+      goto LABEL_17;
   }
-  Size = RequiredSize;
+  Size = NumberOfBytes;
 LABEL_6:
-  if ( IoGetDevicePropertyData(Pdo, &DEVPKEY_Device_InstanceId, 0, 0, Size, Data, &RequiredSize, &Type) < 0 )
+  if ( IoGetDevicePropertyData(Pdo, &DEVPKEY_Device_InstanceId, 0, 0, Size, Data, (PULONG)&NumberOfBytes, &Type) < 0 )
   {
     ExFreePoolWithTag(Data, 0);
-    goto LABEL_8;
+    Data = 0LL;
   }
-  if ( !Data )
-    goto LABEL_8;
-  result = 0x7FFF;
-  *(_OWORD *)a2 = 0LL;
-  v9 = 0x7FFFLL;
-  v10 = Data;
-  while ( *Data )
+  if ( Data )
   {
-    ++Data;
-    if ( !--v9 )
+    *(_OWORD *)a2 = 0LL;
+    v6 = 0x7FFFLL;
+    v7 = Data;
+    do
+    {
+      if ( !*v7 )
+        break;
+      ++v7;
+      --v6;
+    }
+    while ( v6 );
+    result = -v6;
+    v9 = (0x7FFF - v6) & -(__int64)(v6 != 0);
+    if ( v6 && a2 )
+    {
+      *(_QWORD *)(a2 + 8) = Data;
+LABEL_15:
+      v10 = 2 * v9;
+      *(_WORD *)a2 = v10;
+      *(_WORD *)(a2 + 2) = v10 + 2;
       return result;
+    }
+    return result;
   }
-  result = 0x7FFF - v9;
-  if ( a2 )
+LABEL_17:
+  v11 = &word_1C006F7EC;
+  *(_OWORD *)a2 = 0LL;
+  v12 = 0x7FFFLL;
+  do
   {
-    *(_QWORD *)(a2 + 8) = v10;
-LABEL_21:
-    v11 = 2 * result;
-    *(_WORD *)a2 = v11;
-    result = v11 + 2;
-    *(_WORD *)(a2 + 2) = result;
+    if ( !*v11 )
+      break;
+    ++v11;
+    --v12;
+  }
+  while ( v12 );
+  result = -v12;
+  v9 = (0x7FFF - v12) & -(__int64)(v12 != 0);
+  if ( v12 && a2 )
+  {
+    *(_QWORD *)(a2 + 8) = &word_1C006F7EC;
+    goto LABEL_15;
   }
   return result;
 }

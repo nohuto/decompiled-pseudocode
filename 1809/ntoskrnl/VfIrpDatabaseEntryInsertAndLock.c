@@ -3,8 +3,8 @@
  * Callers:
  *     VfPacketCreateAndLock @ 0x14093F3F8 (VfPacketCreateAndLock.c)
  * Callees:
- *     ViIrpDatabaseAcquireLockExclusive @ 0x14030B4E8 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x14030B530 (ViIrpDatabaseReleaseLockExclusive.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x14030B5E8 (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x14030B630 (ViIrpDatabaseReleaseLockExclusive.c)
  *     VfUtilAddressRangeAdd @ 0x140925F8C (VfUtilAddressRangeAdd.c)
  *     VfIrpDatabaseEntryFindAndLock @ 0x14093E224 (VfIrpDatabaseEntryFindAndLock.c)
  */

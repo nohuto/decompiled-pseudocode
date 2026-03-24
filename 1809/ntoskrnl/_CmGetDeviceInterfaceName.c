@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmGetDeviceInterfaceName @ 0x1406F849C
+ * XREFs of _CmGetDeviceInterfaceName @ 0x1406F847C
  * Callers:
- *     IoGetDeviceInterfaceAlias @ 0x1406D52C0 (IoGetDeviceInterfaceAlias.c)
- *     IopRegisterDeviceInterface @ 0x140709AF4 (IopRegisterDeviceInterface.c)
+ *     IoGetDeviceInterfaceAlias @ 0x1406D52A0 (IoGetDeviceInterfaceAlias.c)
+ *     IopRegisterDeviceInterface @ 0x140709AD4 (IopRegisterDeviceInterface.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14013DD30 (RtlStringCchCopyExW.c)
+ *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
  *     _CmValidateInstallerClassName @ 0x140596DE4 (_CmValidateInstallerClassName.c)
  *     _CmValidateDeviceName @ 0x1405C76D0 (_CmValidateDeviceName.c)
  */

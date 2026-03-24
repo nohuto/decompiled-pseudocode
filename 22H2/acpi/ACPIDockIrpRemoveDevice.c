@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIDockIrpRemoveDevice @ 0x1C0009590
+ * XREFs of ACPIDockIrpRemoveDevice @ 0x1C004A790
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
- *     ACPIGet @ 0x1C00293A4 (ACPIGet.c)
- *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C002D0E0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C0017F40 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
  */
 
 __int64 __fastcall ACPIDockIrpRemoveDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
@@ -16,7 +16,7 @@ __int64 __fastcall ACPIDockIrpRemoveDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp
   ULONG_PTR v6; // rbx
   unsigned int v7; // edi
   unsigned int MinorFunction; // r15d
-  __int64 v10; // rbp
+  __int64 *v10; // rbp
   __int64 v11; // rax
   const char *v12; // rcx
   const char *v13; // rdx
@@ -37,7 +37,7 @@ LABEL_5:
     IofCompleteRequest(Irp, 0);
     return v7;
   }
-  if ( *(_DWORD *)(DeviceExtension + 368) == 4 )
+  if ( *(_DWORD *)(DeviceExtension + 328) == 4 )
   {
     Irp->IoStatus.Status = -1073741810;
     v7 = -1073741810;
@@ -45,27 +45,27 @@ LABEL_5:
   }
   if ( *(_DWORD *)(DeviceExtension + 192) == 2 )
   {
-    v10 = *(_QWORD *)(DeviceExtension + 184);
+    v10 = *(__int64 **)(DeviceExtension + 184);
     if ( *(_DWORD *)(DeviceExtension + 200) != 1 )
     {
       KdDisableDebugger();
-      ACPIGet(v10, 1262699615, 277086210, 0, 4, 0LL, 0LL, (__int64)&v16, 0LL);
+      ACPIGet(v10, 1262699615, 277086210, 0LL, 4, 0LL, 0LL, (__int64)&v16, 0LL);
       KdEnableDebugger();
     }
   }
   *(_DWORD *)(v6 + 200) = 0;
-  *(_DWORD *)(v6 + 368) = 4;
+  *(_DWORD *)(v6 + 328) = 4;
   Irp->IoStatus.Status = 0;
   Irp->IoStatus.Information = 0LL;
   IofCompleteRequest(Irp, 0);
   v11 = *(_QWORD *)(v6 + 8);
-  v12 = (const char *)&unk_1C00622D0;
-  v13 = (const char *)&unk_1C00622D0;
+  v12 = (const char *)&unk_1C00701BA;
+  v13 = (const char *)&unk_1C00701BA;
   if ( (v11 & 0x200000000000LL) != 0 )
   {
-    v12 = *(const char **)(v6 + 608);
+    v12 = *(const char **)(v6 + 568);
     if ( (v11 & 0x400000000000LL) != 0 )
-      v13 = *(const char **)(v6 + 616);
+      v13 = *(const char **)(v6 + 576);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
@@ -79,16 +79,16 @@ LABEL_5:
       0x1Au,
       (__int64)&WPP_6625d3923c543510b1fa3235c3eeddfe_Traceguids,
       (char)Irp,
-      (__int64)(&ACPIDispatchPnpTableNames)[v14],
+      ACPIDispatchPnpTableNames[v14],
       0,
       v6,
       v12,
       v13);
   }
   v15 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-  *(_QWORD *)(v6 + 776) = 0LL;
-  *(_QWORD *)(v6 + 784) = 0LL;
-  *(_QWORD *)(v6 + 768) = 0LL;
+  *(_QWORD *)(v6 + 736) = 0LL;
+  *(_QWORD *)(v6 + 744) = 0LL;
+  *(_QWORD *)(v6 + 728) = 0LL;
   _InterlockedAnd64((volatile signed __int64 *)(v6 + 8), 0xFFFFFFFFFFFFFC00uLL);
   _InterlockedOr64((volatile signed __int64 *)(v6 + 8), 8uLL);
   _InterlockedOr64((volatile signed __int64 *)(v6 + 8), 4uLL);

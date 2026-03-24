@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMmGetPteAddressSafe @ 0x14037EA3C
+ * XREFs of HalpMmGetPteAddressSafe @ 0x1403BB4A0
  * Callers:
- *     HalpMap @ 0x14037E878 (HalpMap.c)
- *     HalpMmReservePageTablePages @ 0x14037EBBC (HalpMmReservePageTablePages.c)
- *     HalpReserveHalPtes @ 0x140B4C3D4 (HalpReserveHalPtes.c)
+ *     HalpMmReservePageTablePages @ 0x1403BABAC (HalpMmReservePageTablePages.c)
+ *     HalpMap @ 0x1403BB2D8 (HalpMap.c)
+ *     HalpReserveHalPtes @ 0x140A64880 (HalpReserveHalPtes.c)
  * Callees:
- *     HalpMmAllocateAndInsertPageTablePage @ 0x14037DDA0 (HalpMmAllocateAndInsertPageTablePage.c)
+ *     HalpMmAllocateAndInsertPageTablePage @ 0x1403BAD40 (HalpMmAllocateAndInsertPageTablePage.c)
  */
 
 __int64 __fastcall HalpMmGetPteAddressSafe(unsigned __int64 a1)

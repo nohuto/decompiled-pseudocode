@@ -1,20 +1,20 @@
 /*
  * XREFs of SeMakeAnonymousLogonTokenNoEveryone @ 0x1409AE3B0
  * Callers:
- *     SepInitializationPhase1 @ 0x140726F44 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x140726F24 (SepInitializationPhase1.c)
  * Callees:
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x140127138 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x140127158 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeSetMandatoryPolicyToken @ 0x1405BDA08 (SeSetMandatoryPolicyToken.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x1406555A0 (RtlAddAccessAllowedAce.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1406555D0 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140655630 (RtlSetOwnerSecurityDescriptor.c)
- *     SepCreateToken @ 0x140727870 (SepCreateToken.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x140655580 (RtlAddAccessAllowedAce.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x1406555B0 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140655610 (RtlSetOwnerSecurityDescriptor.c)
+ *     SepCreateToken @ 0x140727850 (SepCreateToken.c)
  */
 
 __int64 SeMakeAnonymousLogonTokenNoEveryone()

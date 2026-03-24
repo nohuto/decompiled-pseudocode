@@ -1,91 +1,123 @@
 /*
- * XREFs of rimAbIsPointerSuppressedByPointer @ 0x1C018724C
+ * XREFs of rimAbIsPointerSuppressedByPointer @ 0x1C01590C8
  * Callers:
- *     rimAbIsPointerSuppressedByOtherDeviceContacts @ 0x1C0187010 (rimAbIsPointerSuppressedByOtherDeviceContacts.c)
+ *     rimAbIsPointerSuppressedByOtherDeviceContacts @ 0x1C0158E64 (rimAbIsPointerSuppressedByOtherDeviceContacts.c)
  * Callees:
- *     rimAbIsPointInPenDeadzone @ 0x1C0186DCC (rimAbIsPointInPenDeadzone.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimAbIsPointInPenDeadzone @ 0x1C0158BE4 (rimAbIsPointInPenDeadzone.c)
  */
 
-char __fastcall rimAbIsPointerSuppressedByPointer(__int64 a1, unsigned int *a2, __int64 a3, unsigned int *a4, char a5)
+__int64 __fastcall rimAbIsPointerSuppressedByPointer(__int128 *a1, int *a2, int *a3, int a4)
 {
-  __int64 v9; // rdx
+  unsigned int v4; // ebx
+  int v9; // edx
   int v10; // eax
-  __int64 v12; // rcx
-  __int64 v13; // rcx
+  bool v11; // zf
+  int v13; // ecx
+  int v14; // r8d
+  __int64 v15; // r8
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  __int64 v18; // rdx
+  __int128 v19; // [rsp+20h] [rbp-10h] BYREF
 
+  v4 = 0;
+  if ( (a2[3] & 2) == 0 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 196);
+  if ( (a3[3] & 2) == 0 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 197);
   if ( !gDeviceArbitrationType )
-    return 0;
+    return 0LL;
   v9 = *a2;
-  v10 = *a4;
-  if ( (_DWORD)v9 == *a4 )
-    return 0;
-  if ( (_DWORD)v9 != 5 )
+  v10 = *a3;
+  if ( *a2 == *a3 )
+    return 0LL;
+  if ( v9 == 5 )
   {
     if ( v10 == 5 )
-      return 0;
-    if ( (a2[3] & 2) == 0 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, v9, a3);
-    if ( (a4[3] & 2) == 0 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, v9, a3);
-    if ( *a2 - 2 > 1 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, v9, a3);
-    v12 = *a4;
-    if ( *a4 != 3 && *a4 != 2 )
-    {
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v12, v9, a3);
-      v12 = *a4;
-    }
-    if ( *a2 == (_DWORD)v12 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v12, v9, a3);
-    v13 = (unsigned int)(gDeviceArbitrationType - 1);
-    if ( gDeviceArbitrationType == 1 )
-    {
-      if ( *a2 != 2 )
-      {
-        if ( *a2 != 3 )
-LABEL_43:
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(v13, v9, a3);
-        return 0;
-      }
-      if ( *a4 != 3 )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(v13, v9, a3);
-    }
-    else
-    {
-      v13 = (unsigned int)(gDeviceArbitrationType - 2);
-      if ( gDeviceArbitrationType != 2 )
-      {
-        if ( gDeviceArbitrationType != 3 )
-          goto LABEL_43;
-        if ( *a2 == 2 )
-        {
-          if ( *a4 != 3 )
-            MicrosoftTelemetryAssertTriggeredNoArgsKM(v13, v9, a3);
-          return (unsigned int)rimAbIsPointInPenDeadzone(a1, (__int64)a2, a3, (__int64)a4) != 0;
-        }
-        if ( *a2 != 3 )
-          goto LABEL_43;
-        return 0;
-      }
-      if ( *a2 != 2 )
-      {
-        if ( *a2 != 3 )
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(v13, v9, a3);
-        if ( *a4 != 2 )
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(v13, v9, a3);
-        if ( (a2[3] & 4) == 0 )
-          return (unsigned int)rimAbIsPointInPenDeadzone(a3, (__int64)a4, a1, (__int64)a2) == 0;
-        return 0;
-      }
-      if ( *a4 != 3 )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(v13, v9, a3);
-      if ( (a4[3] & 4) == 0 )
-        return (unsigned int)rimAbIsPointInPenDeadzone(a1, (__int64)a2, a3, (__int64)a4) != 0;
-    }
-    return 1;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 215);
+    v11 = a4 == 0;
+    goto LABEL_11;
   }
   if ( v10 == 5 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, v9, a3);
-  return a5 ^ 1;
+    return 0LL;
+  if ( v9 != 3 && v9 != 2 )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 229);
+    v10 = *a3;
+  }
+  v13 = v10;
+  if ( v10 != 3 && v10 != 2 )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 230);
+    v13 = *a3;
+  }
+  if ( *a2 == v13 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 231);
+  if ( gDeviceArbitrationType == 1 )
+  {
+    if ( *a2 != 2 )
+    {
+      if ( *a2 != 3 )
+      {
+        v14 = 245;
+        goto LABEL_47;
+      }
+      return 0LL;
+    }
+    if ( *a3 != 3 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 240);
+    return 1LL;
+  }
+  if ( gDeviceArbitrationType == 2 )
+  {
+    if ( *a2 != 2 )
+    {
+      if ( *a2 != 3 )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 271);
+      if ( *a3 != 2 )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 272);
+      if ( (a2[3] & 4) == 0 )
+      {
+        v17 = *((_QWORD *)a2 + 5);
+        v18 = *((_QWORD *)a3 + 5);
+        v19 = *a1;
+        v11 = (unsigned int)rimAbIsPointInPenDeadzone(&v19, v18, v17) == 0;
+LABEL_11:
+        LOBYTE(v4) = v11;
+        return v4;
+      }
+      return 0LL;
+    }
+    if ( *a3 != 3 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 254);
+    if ( (a3[3] & 4) == 0 )
+    {
+LABEL_34:
+      v15 = *((_QWORD *)a3 + 5);
+      v16 = *((_QWORD *)a2 + 5);
+      v19 = *a1;
+      return rimAbIsPointInPenDeadzone(&v19, v16, v15);
+    }
+    return 1LL;
+  }
+  if ( gDeviceArbitrationType != 3 )
+  {
+    v14 = 311;
+LABEL_47:
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, v14);
+    return 0LL;
+  }
+  if ( *a2 == 2 )
+  {
+    if ( *a3 != 3 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 293);
+    goto LABEL_34;
+  }
+  if ( *a2 != 3 )
+  {
+    v14 = 303;
+    goto LABEL_47;
+  }
+  return 0LL;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsValid@CD2DGenericInk@@$4PPPPPPPM@A@EBAJXZ @ 0x180109490
+ * XREFs of ?IsValid@CD2DGenericInk@@$4PPPPPPPM@A@EBAJXZ @ 0x1800F78C0
  * Callers:
  *     <none>
  * Callees:

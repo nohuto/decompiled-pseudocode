@@ -8,13 +8,13 @@
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
  *     MiAllocateFromSubAllocatedRegion @ 0x1405F8BBC (MiAllocateFromSubAllocatedRegion.c)
  *     MiLockVadRange @ 0x140604B60 (MiLockVadRange.c)
- *     MiCfgInitializeProcess @ 0x140677D70 (MiCfgInitializeProcess.c)
- *     MiMapViewOfPhysicalSection @ 0x1407544C0 (MiMapViewOfPhysicalSection.c)
- *     MiCoalescePlaceholderAllocations @ 0x140851A18 (MiCoalescePlaceholderAllocations.c)
- *     MiHotPatchProcess @ 0x140855624 (MiHotPatchProcess.c)
- *     MiAllocateEnclaveVad @ 0x140859178 (MiAllocateEnclaveVad.c)
- *     MiPreparePlaceholderVadReplacement @ 0x14085C850 (MiPreparePlaceholderVadReplacement.c)
- *     MiDeleteInsertedCloneVads @ 0x14085E388 (MiDeleteInsertedCloneVads.c)
+ *     MiCfgInitializeProcess @ 0x140677D50 (MiCfgInitializeProcess.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
+ *     MiCoalescePlaceholderAllocations @ 0x1408519F8 (MiCoalescePlaceholderAllocations.c)
+ *     MiHotPatchProcess @ 0x140855604 (MiHotPatchProcess.c)
+ *     MiAllocateEnclaveVad @ 0x140859158 (MiAllocateEnclaveVad.c)
+ *     MiPreparePlaceholderVadReplacement @ 0x14085C830 (MiPreparePlaceholderVadReplacement.c)
+ *     MiDeleteInsertedCloneVads @ 0x14085E368 (MiDeleteInsertedCloneVads.c)
  * Callees:
  *     <none>
  */

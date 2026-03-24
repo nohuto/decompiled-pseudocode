@@ -1,7 +1,7 @@
 /*
- * XREFs of CommitReadOnlyMemory @ 0x1C007EB20
+ * XREFs of CommitReadOnlyMemory @ 0x1C006A4C0
  * Callers:
- *     ?HMGrowHandleTable@@YAHXZ @ 0x1C007E950 (-HMGrowHandleTable@@YAHXZ.c)
+ *     ?HMGrowHandleTable@@YAHXZ @ 0x1C006A2F4 (-HMGrowHandleTable@@YAHXZ.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ __int64 __fastcall CommitReadOnlyMemory(__int64 a1, ULONG_PTR *a2, __int64 a3, _
   v13 = 0LL;
   BaseAddress = 0LL;
   v14 = 0LL;
-  CurrentProcess = PsGetCurrentProcess(a1, a2, a3);
+  CurrentProcess = PsGetCurrentProcess(a1, a2);
   v9 = ((__int64 (__fastcall *)(__int64, __int64, PVOID *, _QWORD, __int64, __int64 *, __int64 *, int, int, int))MmMapViewOfSection)(
          a1,
          CurrentProcess,

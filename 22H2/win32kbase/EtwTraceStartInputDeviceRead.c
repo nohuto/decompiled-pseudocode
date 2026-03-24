@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceStartInputDeviceRead @ 0x1C007A2A0
+ * XREFs of EtwTraceStartInputDeviceRead @ 0x1C006AF10
  * Callers:
- *     RIMStartDeviceSpecificRead @ 0x1C00789D8 (RIMStartDeviceSpecificRead.c)
+ *     RIMStartDeviceSpecificRead @ 0x1C006AD98 (RIMStartDeviceSpecificRead.c)
  * Callees:
- *     McTemplateK0dq_EtwWriteTransfer @ 0x1C00DF7E4 (McTemplateK0dq_EtwWriteTransfer.c)
+ *     McTemplateK0dq_EtwWriteTransfer @ 0x1C01256BC (McTemplateK0dq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceStartInputDeviceRead(__int64 a1, int a2, __int64 a3)

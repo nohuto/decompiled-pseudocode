@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlQueryAtomsInAtomTable @ 0x140893748
+ * XREFs of RtlQueryAtomsInAtomTable @ 0x140893728
  * Callers:
- *     NtQueryInformationAtom @ 0x1406ADF70 (NtQueryInformationAtom.c)
+ *     NtQueryInformationAtom @ 0x1406ADF50 (NtQueryInformationAtom.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

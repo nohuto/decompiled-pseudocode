@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSetTimer @ 0x1402526E0
+ * XREFs of KeSetTimer @ 0x14025F5B0
  * Callers:
  *     <none>
  * Callees:
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
  */
 
 BOOLEAN __stdcall KeSetTimer(PKTIMER Timer, LARGE_INTEGER DueTime, PKDPC Dpc)

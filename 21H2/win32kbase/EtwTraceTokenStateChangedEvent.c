@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTokenStateChangedEvent @ 0x1C00A7140
+ * XREFs of EtwTraceTokenStateChangedEvent @ 0x1C0097D60
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pqqxqttxxt_EtwWriteTransfer @ 0x1C00E5ACC (McTemplateK0pqqxqttxxt_EtwWriteTransfer.c)
+ *     McTemplateK0pqqxqttxxt_EtwWriteTransfer @ 0x1C0126120 (McTemplateK0pqqxqttxxt_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTokenStateChangedEvent(

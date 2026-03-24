@@ -1,13 +1,13 @@
 /*
- * XREFs of VslCreateSecureImageSection @ 0x14054DA70
+ * XREFs of VslCreateSecureImageSection @ 0x1404FE040
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x1403CE424 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x1403CE69C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     VslpUnlockPagesForTransfer @ 0x140393974 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x1403939C8 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall VslCreateSecureImageSection(
@@ -21,7 +21,7 @@ __int64 __fastcall VslCreateSecureImageSection(
   __int64 v7; // r15
   __int64 v9; // r14
   __int64 result; // rax
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   __int64 *v12[10]; // [rsp+30h] [rbp-A9h] BYREF
   _QWORD v13[14]; // [rsp+80h] [rbp-59h] BYREF
 

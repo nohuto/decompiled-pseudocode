@@ -1,8 +1,9 @@
 /*
- * XREFs of BuildGetFeaturesTemperatureThresholdCommand @ 0x1C000A950
+ * XREFs of BuildGetFeaturesTemperatureThresholdCommand @ 0x1C0011070
  * Callers:
- *     QueryTemperatureInfoHealthLogCompletion @ 0x1C0020390 (QueryTemperatureInfoHealthLogCompletion.c)
- *     QueryTemperatureThresholdCompletion @ 0x1C0020570 (QueryTemperatureThresholdCompletion.c)
+ *     QueryTemperatureInfoHealthLogCompletion @ 0x1C00167E0 (QueryTemperatureInfoHealthLogCompletion.c)
+ *     QueryTemperatureThresholdCompletion @ 0x1C00169A0 (QueryTemperatureThresholdCompletion.c)
+ *     NVMeGetTemperatureThreshold @ 0x1C0019654 (NVMeGetTemperatureThreshold.c)
  * Callees:
  *     <none>
  */

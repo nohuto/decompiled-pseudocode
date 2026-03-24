@@ -1,10 +1,10 @@
 /*
- * XREFs of InbvSetFunction @ 0x14018E3C4
+ * XREFs of InbvSetFunction @ 0x14018E3E4
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x14016EAC0 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14016EAE0 (BgkNotifyDisplayOwnershipChange.c)
  *     InbvDriverInitialize @ 0x1409D6F70 (InbvDriverInitialize.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall InbvSetFunction(int a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReturnPteMappingPair @ 0x1402CE108
+ * XREFs of MiReturnPteMappingPair @ 0x1402CE208
  * Callers:
- *     MiSlowRotateCopy @ 0x1402AF438 (MiSlowRotateCopy.c)
- *     MiCopyDirectMapHeader @ 0x140852BC4 (MiCopyDirectMapHeader.c)
+ *     MiSlowRotateCopy @ 0x1402AF538 (MiSlowRotateCopy.c)
+ *     MiCopyDirectMapHeader @ 0x140852BA4 (MiCopyDirectMapHeader.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReturnPteMappingPair(__int64 a1)

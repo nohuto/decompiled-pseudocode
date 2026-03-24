@@ -1,9 +1,9 @@
 /*
- * XREFs of FreeProcessHidTable @ 0x1C011E378
+ * XREFs of FreeProcessHidTable @ 0x1C0133018
  * Callers:
- *     DestroyProcessHidRequests @ 0x1C011E360 (DestroyProcessHidRequests.c)
+ *     DestroyProcessHidRequests @ 0x1C0133000 (DestroyProcessHidRequests.c)
  * Callees:
- *     FreeHidProcessRequest @ 0x1C0102B44 (FreeHidProcessRequest.c)
+ *     FreeHidProcessRequest @ 0x1C0107C8C (FreeHidProcessRequest.c)
  */
 
 void __fastcall FreeProcessHidTable(__int64 a1)

@@ -1,32 +1,34 @@
 /*
- * XREFs of ExpAddTagForBigPages @ 0x140214C50
+ * XREFs of ExpAddTagForBigPages @ 0x14033BDC0
  * Callers:
- *     ExAllocateContiguousHeapPool @ 0x140214694 (ExAllocateContiguousHeapPool.c)
- *     ExInsertPoolTag @ 0x140214A58 (ExInsertPoolTag.c)
- *     ExAllocateHeapPool @ 0x1403497C0 (ExAllocateHeapPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x140295320 (ExAllocateContiguousHeapPool.c)
+ *     ExInsertPoolTag @ 0x1402955CC (ExInsertPoolTag.c)
+ *     ExAllocateHeapPool @ 0x14033C210 (ExAllocateHeapPool.c)
  * Callees:
- *     ExpResizeBigPageTable @ 0x1402129C0 (ExpResizeBigPageTable.c)
- *     ExTryConvertSharedSpinLockExclusive @ 0x1402169E0 (ExTryConvertSharedSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140366A20 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140461B20 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14063D8E0 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BF60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpResizeBigPageTable @ 0x1403752C0 (ExpResizeBigPageTable.c)
+ *     ExTryConvertSharedSpinLockExclusive @ 0x140381B10 (ExTryConvertSharedSpinLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1405B5C64 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1405B5DBC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpAddTagForBigPages(
         unsigned __int64 a1,
         int a2,
         __int64 a3,
-        unsigned int a4,
+        _DWORD *SchedulerAssist,
         unsigned __int16 a5,
         char a6)
 {
-  unsigned int v6; // ebp
+  unsigned int v6; // r14d
+  unsigned int v7; // r13d
   unsigned __int64 v8; // r12
   int v9; // esi
+  signed __int64 v10; // rdi
   unsigned __int64 v11; // rbx
   unsigned __int8 CurrentIrql; // r15
   struct _KPRCB *CurrentPrcb; // rdi
@@ -38,55 +40,50 @@ __int64 __fastcall ExpAddTagForBigPages(
   __int64 v19; // rcx
   volatile signed __int64 v20; // rtt
   int v21; // r8d
-  __int64 v22; // rax
-  struct _KPRCB *v23; // rcx
-  _DWORD *v24; // rdx
-  __int64 v26; // rax
-  bool v27; // cf
-  __int64 v28; // rdx
-  int v29; // ebx
-  _QWORD *v30; // rbx
-  unsigned __int64 v31; // rax
-  _DWORD *v32; // rcx
-  __int64 v33; // rdx
-  _QWORD *v34; // rbx
-  void *v35; // rcx
-  _DWORD *SchedulerAssist; // r9
-  int v37; // eax
+  struct _KPRCB *v22; // rcx
+  _DWORD *v23; // rdx
+  __int64 v25; // rax
+  bool v26; // cf
+  __int64 v27; // rdx
+  int v28; // ebx
+  _QWORD *v29; // rbx
+  __int64 v30; // rdx
+  _QWORD *v31; // rbx
+  void *v32; // rcx
+  _DWORD *v33; // rcx
+  int v34; // eax
+  int v35; // eax
+  unsigned __int8 v36; // al
+  struct _KPRCB *v37; // r10
   int v38; // eax
-  unsigned __int8 v39; // al
-  struct _KPRCB *v40; // r10
-  _DWORD *v41; // r9
+  bool v39; // zf
+  unsigned __int8 v40; // cl
+  struct _KPRCB *v41; // r10
   int v42; // eax
-  bool v43; // zf
-  unsigned __int8 v44; // cl
-  struct _KPRCB *v45; // r10
-  _DWORD *v46; // r9
+  void *v43; // rcx
+  unsigned __int8 v44; // al
+  struct _KPRCB *v45; // r9
+  _DWORD *v46; // r8
   int v47; // eax
-  void *v48; // rcx
-  unsigned __int8 v49; // al
-  struct _KPRCB *v50; // r9
-  _DWORD *v51; // r8
+  unsigned __int8 v48; // al
+  struct _KPRCB *v49; // r9
+  _DWORD *v50; // r8
+  int v51; // eax
   int v52; // eax
   unsigned __int8 v53; // al
-  struct _KPRCB *v54; // r9
-  _DWORD *v55; // r8
-  int v56; // eax
-  int v57; // eax
-  unsigned __int8 v58; // al
-  _DWORD *v59; // r8
-  int v60; // eax
-  void *retaddr; // [rsp+58h] [rbp+0h]
-  PVOID P; // [rsp+60h] [rbp+8h] BYREF
-  int v63; // [rsp+68h] [rbp+10h]
-  __int64 v64; // [rsp+70h] [rbp+18h]
+  _DWORD *v54; // r8
+  int v55; // eax
+  PVOID P[9]; // [rsp+20h] [rbp-48h] BYREF
+  void *retaddr; // [rsp+68h] [rbp+0h]
+  __int64 v60; // [rsp+80h] [rbp+18h]
 
-  v64 = a3;
-  v63 = a2;
+  v60 = a3;
   v6 = 0;
+  v7 = (unsigned int)SchedulerAssist;
   v8 = 40543LL * (unsigned int)(a1 >> 12);
-  v9 = a4 & 0x20;
-  P = 0LL;
+  v9 = (unsigned __int8)SchedulerAssist & 0x20;
+  P[0] = 0LL;
+  v10 = a1;
   while ( 1 )
   {
     while ( 1 )
@@ -97,7 +94,8 @@ __int64 __fastcall ExpAddTagForBigPages(
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-        SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+        a3 = (-1 << (CurrentIrql + 1)) & 4u | SchedulerAssist[5];
+        SchedulerAssist[5] = a3;
       }
       if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
       {
@@ -111,9 +109,9 @@ __int64 __fastcall ExpAddTagForBigPages(
         {
           if ( CurrentPrcb->NestingLevel <= 1u )
           {
-            v37 = v14[6];
-            v14[6] = v37 + 1;
-            if ( v37 == -1 )
+            v34 = v14[6];
+            v14[6] = v34 + 1;
+            if ( v34 == -1 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
@@ -124,26 +122,26 @@ __int64 __fastcall ExpAddTagForBigPages(
                       (ExpLargePoolTableLock & 0x7FFFFFFF) + 1,
                       ExpLargePoolTableLock & 0x7FFFFFFF) )
         {
-          v32 = CurrentPrcb->SchedulerAssist;
-          if ( v32 )
+          v33 = CurrentPrcb->SchedulerAssist;
+          if ( v33 )
           {
             if ( CurrentPrcb->NestingLevel <= 1u )
             {
-              v38 = v32[6] - 1;
-              v32[6] = v38;
-              if ( !v38 )
+              v35 = v33[6] - 1;
+              v33[6] = v35;
+              if ( !v35 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
-          ExpWaitForSpinLockSharedAndAcquire(&ExpLargePoolTableLock, CurrentIrql);
+          ExpWaitForSpinLockSharedAndAcquire((unsigned __int64)&ExpLargePoolTableLock, CurrentIrql, a3, SchedulerAssist);
         }
+        v10 = a1;
       }
       if ( v9 )
       {
-        v31 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[25];
-        v16 = *(_QWORD *)(v31 + 824);
-        v17 = (volatile signed __int32 *)(v31 + 792);
-        v18 = *(_QWORD *)(v31 + 832);
+        v16 = *(_QWORD *)(qword_140C4DDE0 + 992);
+        v17 = (volatile signed __int32 *)(qword_140C4DDE0 + 864);
+        v18 = *(_QWORD *)(qword_140C4DDE0 + 1000);
       }
       else
       {
@@ -153,32 +151,29 @@ __int64 __fastcall ExpAddTagForBigPages(
       }
       if ( v16 && *v17 != v18 )
       {
-        v19 = v16 + 32LL * ((unsigned int)v11 & ((_DWORD)v18 - 1));
+        v19 = v16 + 24LL * ((unsigned int)v11 & ((_DWORD)v18 - 1));
         while ( 1 )
         {
           if ( (*(_QWORD *)v19 & 1) != 0 )
           {
             v20 = *(_QWORD *)v19;
-            if ( v20 == _InterlockedCompareExchange64((volatile signed __int64 *)v19, a1, *(_QWORD *)v19) )
+            if ( v20 == _InterlockedCompareExchange64((volatile signed __int64 *)v19, v10, *(_QWORD *)v19) )
               break;
           }
-          v26 = v19 + 32;
+          v25 = v19 + 24;
           ++v6;
-          v27 = v19 + 32 < v16 + 32 * v18;
+          v26 = v19 + 24 < v16 + 24 * v18;
           v19 = v16;
-          if ( v27 )
-            v19 = v26;
-          if ( v19 == v16 + 32LL * ((unsigned int)v11 & ((_DWORD)v18 - 1)) )
-            goto LABEL_25;
+          if ( v26 )
+            v19 = v25;
+          if ( v19 == v16 + 24LL * ((unsigned int)v11 & ((_DWORD)v18 - 1)) )
+            goto LABEL_24;
         }
-        v21 = a5;
-        *(_DWORD *)(v19 + 8) = v63;
+        *(_DWORD *)(v19 + 8) = a2;
         *(_BYTE *)(v19 + 12) = a6;
-        v22 = v64;
-        *(_DWORD *)(v19 + 12) = (unsigned __int8)*(_DWORD *)(v19 + 12) | ((a4 & 0xFFF | (v21 << 12)) << 8);
-        *(_QWORD *)(v19 + 16) = v22;
-        if ( (a4 & 8) != 0 )
-          *(_QWORD *)(v19 + 24) = a1 ^ ExpPoolQuotaCookie;
+        v21 = (unsigned __int8)*(_DWORD *)(v19 + 12) | ((v7 & 0xFFF | (a5 << 12)) << 8);
+        *(_QWORD *)(v19 + 16) = v60;
+        *(_DWORD *)(v19 + 12) = v21;
         _InterlockedIncrement(v17);
         if ( v6 < 0x10 || *v17 <= (unsigned int)(v18 >> 2) )
         {
@@ -191,96 +186,96 @@ __int64 __fastcall ExpAddTagForBigPages(
             _InterlockedAnd(&ExpLargePoolTableLock, 0xBFFFFFFF);
             _InterlockedDecrement(&ExpLargePoolTableLock);
           }
-          v23 = KeGetCurrentPrcb();
-          v24 = v23->SchedulerAssist;
-          if ( v24 )
+          v22 = KeGetCurrentPrcb();
+          v23 = v22->SchedulerAssist;
+          if ( v23 )
           {
-            if ( v23->NestingLevel <= 1u )
+            if ( v22->NestingLevel <= 1u )
             {
-              v57 = v24[6] - 1;
-              v24[6] = v57;
-              if ( !v57 )
-                KiRemoveSystemWorkPriorityKick(v23);
+              v52 = v23[6] - 1;
+              v23[6] = v52;
+              if ( !v52 )
+                KiRemoveSystemWorkPriorityKick(v22);
             }
           }
           if ( !KiIrqlFlags )
-            goto LABEL_20;
+            goto LABEL_19;
           if ( (KiIrqlFlags & 1) == 0 )
-            goto LABEL_20;
-          v58 = KeGetCurrentIrql();
-          if ( v58 > 0xFu )
-            goto LABEL_20;
+            goto LABEL_19;
+          v53 = KeGetCurrentIrql();
+          if ( v53 > 0xFu )
+            goto LABEL_19;
           if ( CurrentIrql > 0xFu )
-            goto LABEL_20;
-          if ( v58 < 2u )
-            goto LABEL_20;
-          v54 = KeGetCurrentPrcb();
-          v59 = v54->SchedulerAssist;
-          v60 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v43 = (v60 & v59[5]) == 0;
-          v59[5] &= v60;
-          if ( !v43 )
-            goto LABEL_20;
+            goto LABEL_19;
+          if ( v53 < 2u )
+            goto LABEL_19;
+          v49 = KeGetCurrentPrcb();
+          v54 = v49->SchedulerAssist;
+          v55 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v39 = (v55 & v54[5]) == 0;
+          v54[5] &= v55;
+          if ( !v39 )
+            goto LABEL_19;
         }
         else
         {
           if ( ExTryConvertSharedSpinLockExclusive(&ExpLargePoolTableLock) == 1 )
           {
-            ExpResizeBigPageTable(a4, v33, &P);
+            ExpResizeBigPageTable(v7, v30, P);
             ExReleaseSpinLockExclusiveFromDpcLevel(&ExpLargePoolTableLock);
             if ( KiIrqlFlags )
             {
               if ( (KiIrqlFlags & 1) != 0 )
               {
-                v49 = KeGetCurrentIrql();
-                if ( v49 <= 0xFu && CurrentIrql <= 0xFu && v49 >= 2u )
+                v44 = KeGetCurrentIrql();
+                if ( v44 <= 0xFu && CurrentIrql <= 0xFu && v44 >= 2u )
                 {
-                  v50 = KeGetCurrentPrcb();
-                  v51 = v50->SchedulerAssist;
-                  v52 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                  v43 = (v52 & v51[5]) == 0;
-                  v51[5] &= v52;
-                  if ( v43 )
-                    KiRemoveSystemWorkPriorityKick(v50);
+                  v45 = KeGetCurrentPrcb();
+                  v46 = v45->SchedulerAssist;
+                  v47 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                  v39 = (v47 & v46[5]) == 0;
+                  v46[5] &= v47;
+                  if ( v39 )
+                    KiRemoveSystemWorkPriorityKick(v45);
                 }
               }
             }
             __writecr8(CurrentIrql);
-            v34 = P;
-            if ( P )
+            v31 = P[0];
+            if ( P[0] )
             {
               do
               {
-                v35 = v34;
-                v34 = (_QWORD *)*v34;
-                ExFreePoolWithTag(v35, 0);
+                v32 = v31;
+                v31 = (_QWORD *)*v31;
+                ExFreePoolWithTag(v32, 0);
               }
-              while ( v34 );
+              while ( v31 );
             }
             return 1LL;
           }
           ExReleaseSpinLockSharedFromDpcLevel(&ExpLargePoolTableLock);
           if ( !KiIrqlFlags
             || (KiIrqlFlags & 1) == 0
-            || (v53 = KeGetCurrentIrql(), v53 > 0xFu)
+            || (v48 = KeGetCurrentIrql(), v48 > 0xFu)
             || CurrentIrql > 0xFu
-            || v53 < 2u
-            || (v54 = KeGetCurrentPrcb(),
-                v55 = v54->SchedulerAssist,
-                v56 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1)),
-                v43 = (v56 & v55[5]) == 0,
-                v55[5] &= v56,
-                !v43) )
+            || v48 < 2u
+            || (v49 = KeGetCurrentPrcb(),
+                v50 = v49->SchedulerAssist,
+                v51 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1)),
+                v39 = (v51 & v50[5]) == 0,
+                v50[5] &= v51,
+                !v39) )
           {
-LABEL_20:
+LABEL_19:
             __writecr8(CurrentIrql);
             return 1LL;
           }
         }
-        KiRemoveSystemWorkPriorityKick(v54);
-        goto LABEL_20;
+        KiRemoveSystemWorkPriorityKick(v49);
+        goto LABEL_19;
       }
-LABEL_25:
+LABEL_24:
       if ( ExTryConvertSharedSpinLockExclusive(&ExpLargePoolTableLock) )
         break;
       ExReleaseSpinLockSharedFromDpcLevel(&ExpLargePoolTableLock);
@@ -288,54 +283,56 @@ LABEL_25:
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v39 = KeGetCurrentIrql();
-          if ( v39 <= 0xFu && CurrentIrql <= 0xFu && v39 >= 2u )
+          v36 = KeGetCurrentIrql();
+          if ( v36 <= 0xFu && CurrentIrql <= 0xFu && v36 >= 2u )
           {
-            v40 = KeGetCurrentPrcb();
-            v41 = v40->SchedulerAssist;
-            v42 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-            v43 = (v42 & v41[5]) == 0;
-            v41[5] &= v42;
-            if ( v43 )
-              KiRemoveSystemWorkPriorityKick(v40);
+            v37 = KeGetCurrentPrcb();
+            SchedulerAssist = v37->SchedulerAssist;
+            v38 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v39 = (v38 & SchedulerAssist[5]) == 0;
+            a3 = (unsigned int)v38 & SchedulerAssist[5];
+            SchedulerAssist[5] = a3;
+            if ( v39 )
+              KiRemoveSystemWorkPriorityKick(v37);
           }
         }
       }
       __writecr8(CurrentIrql);
     }
-    v29 = ExpResizeBigPageTable(a4, v28, &P);
+    v28 = ExpResizeBigPageTable(v7, v27, P);
     ExReleaseSpinLockExclusiveFromDpcLevel(&ExpLargePoolTableLock);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v44 = KeGetCurrentIrql();
-        if ( v44 <= 0xFu && CurrentIrql <= 0xFu && v44 >= 2u )
+        v40 = KeGetCurrentIrql();
+        if ( v40 <= 0xFu && CurrentIrql <= 0xFu && v40 >= 2u )
         {
-          v45 = KeGetCurrentPrcb();
-          v46 = v45->SchedulerAssist;
-          v47 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v43 = (v47 & v46[5]) == 0;
-          v46[5] &= v47;
-          if ( v43 )
-            KiRemoveSystemWorkPriorityKick(v45);
+          v41 = KeGetCurrentPrcb();
+          SchedulerAssist = v41->SchedulerAssist;
+          v42 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v39 = (v42 & SchedulerAssist[5]) == 0;
+          a3 = (unsigned int)v42 & SchedulerAssist[5];
+          SchedulerAssist[5] = a3;
+          if ( v39 )
+            KiRemoveSystemWorkPriorityKick(v41);
         }
       }
     }
     __writecr8(CurrentIrql);
-    if ( !v29 )
+    if ( !v28 )
       break;
-    v30 = P;
-    if ( P )
+    v29 = P[0];
+    if ( P[0] )
     {
       do
       {
-        v48 = v30;
-        v30 = (_QWORD *)*v30;
-        ExFreePoolWithTag(v48, 0);
+        v43 = v29;
+        v29 = (_QWORD *)*v29;
+        ExFreePoolWithTag(v43, 0);
       }
-      while ( v30 );
-      P = 0LL;
+      while ( v29 );
+      P[0] = 0LL;
     }
   }
   ++ExpBigTableExpansionFailed;

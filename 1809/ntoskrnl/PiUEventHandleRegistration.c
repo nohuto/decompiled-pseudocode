@@ -1,5 +1,5 @@
 /*
- * XREFs of PiUEventHandleRegistration @ 0x140655C04
+ * XREFs of PiUEventHandleRegistration @ 0x140655BE4
  * Callers:
  *     PiUEventHandleIoctl @ 0x14059FE4C (PiUEventHandleIoctl.c)
  * Callees:
@@ -8,12 +8,12 @@
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     PsGetCurrentThreadProcessId @ 0x14004D240 (PsGetCurrentThreadProcessId.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     PiUEventHashGuidIntoBucket @ 0x1400DCF40 (PiUEventHashGuidIntoBucket.c)
+ *     PiUEventHashGuidIntoBucket @ 0x1400DCF60 (PiUEventHashGuidIntoBucket.c)
  *     PiDmGetObject @ 0x1405989C8 (PiDmGetObject.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     PiUEventInitClientRegistrationContext @ 0x140655918 (PiUEventInitClientRegistrationContext.c)
- *     PiUEventFreeClientRegistrationContext @ 0x1406C80B8 (PiUEventFreeClientRegistrationContext.c)
- *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x140700708 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
+ *     PiUEventInitClientRegistrationContext @ 0x1406558F8 (PiUEventInitClientRegistrationContext.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x1406C8098 (PiUEventFreeClientRegistrationContext.c)
+ *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x1407006E8 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
  */
 
 __int64 __fastcall PiUEventHandleRegistration(__int64 a1, __int64 a2, int a3, int a4, __int64 a5)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ConvertToAndFromWideCharSymCP @ 0x1C027B31C
+ * XREFs of ConvertToAndFromWideCharSymCP @ 0x1C027D7AC
  * Callers:
- *     ConvertToAndFromWideChar @ 0x1C00E7F50 (ConvertToAndFromWideChar.c)
+ *     ConvertToAndFromWideChar @ 0x1C00A4AF4 (ConvertToAndFromWideChar.c)
  * Callees:
  *     <none>
  */

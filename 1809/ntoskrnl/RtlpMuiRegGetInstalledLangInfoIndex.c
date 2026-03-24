@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpMuiRegGetInstalledLangInfoIndex @ 0x140906D14
+ * XREFs of RtlpMuiRegGetInstalledLangInfoIndex @ 0x140906CF4
  * Callers:
- *     _RtlpMuiRegValidateLIPLanguage @ 0x140908248 (_RtlpMuiRegValidateLIPLanguage.c)
- *     _RtlpMuiRegValidatePartialLanguage @ 0x140908498 (_RtlpMuiRegValidatePartialLanguage.c)
+ *     _RtlpMuiRegValidateLIPLanguage @ 0x140908228 (_RtlpMuiRegValidateLIPLanguage.c)
+ *     _RtlpMuiRegValidatePartialLanguage @ 0x140908478 (_RtlpMuiRegValidatePartialLanguage.c)
  * Callees:
  *     <none>
  */

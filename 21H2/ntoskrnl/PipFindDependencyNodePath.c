@@ -1,15 +1,15 @@
 /*
- * XREFs of PipFindDependencyNodePath @ 0x14055FAFC
+ * XREFs of PipFindDependencyNodePath @ 0x14038AEFC
  * Callers:
- *     IoTestDependency @ 0x14055F7F0 (IoTestDependency.c)
+ *     IoTestDependency @ 0x14038AEA0 (IoTestDependency.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PipDependencyGraphDepthFirstSearch @ 0x14055FA74 (PipDependencyGraphDepthFirstSearch.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PipDependencyGraphDepthFirstSearch @ 0x14038AF94 (PipDependencyGraphDepthFirstSearch.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall PipFindDependencyNodePath(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
+__int64 __fastcall PipFindDependencyNodePath(__int64 a1, __int64 a2, _DWORD *a3, __int64 a4)
 {
   int v5; // ebp
   unsigned __int64 v9; // r14
@@ -38,7 +38,7 @@ __int64 __fastcall PipFindDependencyNodePath(__int64 a1, __int64 a2, _DWORD *a3,
         v13 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
         if ( v13 )
-          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }

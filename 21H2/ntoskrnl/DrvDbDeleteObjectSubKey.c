@@ -1,266 +1,262 @@
 /*
- * XREFs of DrvDbDeleteObjectSubKey @ 0x140A2DB88
+ * XREFs of DrvDbDeleteObjectSubKey @ 0x14097CDAC
  * Callers:
- *     DrvDbDeleteObjectRegKey @ 0x140A2DA0C (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x14097CC44 (DrvDbDeleteObjectRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyExW @ 0x1402E0340 (RtlStringCchCopyExW.c)
- *     wcschr @ 0x1403E32C0 (wcschr.c)
- *     wcsrchr @ 0x1403E34B0 (wcsrchr.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140698AAC (_PnpGetGenericStorePropertyKeys.c)
- *     _PnpCtxRegEnumValue @ 0x14069946C (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406994BC (_PnpCtxRegQueryInfoKey.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     _PnpDeletePropertyWorker @ 0x1406DB1B4 (_PnpDeletePropertyWorker.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140862B44 (_RegRtlDeleteKeyTransacted.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlStringCchCopyExW @ 0x140265430 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     wcschr @ 0x1403D3F10 (wcschr.c)
+ *     wcsrchr @ 0x1403D4100 (wcsrchr.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumValue @ 0x1406C4714 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406C484C (_PnpCtxRegQueryInfoKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140766D58 (_RegRtlDeleteKeyTransacted.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x140767F80 (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpDeletePropertyWorker @ 0x14076CF9C (_PnpDeletePropertyWorker.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall DrvDbDeleteObjectSubKey(__int64 *a1, __int64 a2, const wchar_t *a3, unsigned int a4)
+__int64 __fastcall DrvDbDeleteObjectSubKey(__int64 *a1, char *a2, const WCHAR *a3, unsigned int a4)
 {
   __int64 v4; // rax
-  unsigned int v5; // r15d
-  void *Pool2; // rsi
-  unsigned int v10; // edi
+  unsigned int v5; // esi
+  PVOID PoolWithTag; // r13
+  unsigned int v9; // edi
+  wchar_t *v10; // r12
   __int64 v11; // rcx
   __int64 v12; // r8
   int v13; // eax
-  int InfoKey; // ebx
+  int inited; // ebx
   __int64 v15; // rcx
-  NTSTATUS i; // eax
+  signed int i; // eax
   __int64 v17; // rbx
-  bool v18; // zf
-  int v19; // eax
-  unsigned int v20; // edi
-  int v21; // eax
-  __int64 v22; // rbx
-  size_t v23; // rbx
-  wchar_t *v24; // rax
-  wchar_t *v25; // rdi
+  int v18; // eax
+  __int64 v19; // rdi
+  int v20; // eax
+  __int64 v21; // rbx
+  size_t v22; // rbx
+  wchar_t *v23; // rax
   char *j; // rax
+  __int64 v25; // rcx
+  int v26; // eax
   __int64 v27; // rcx
-  int v28; // eax
-  __int64 v29; // rcx
-  __int64 v30; // rdx
-  __int64 v31; // r8
-  wchar_t *v32; // rax
-  bool v33; // zf
-  __int64 v34; // rcx
-  __int64 v35; // r8
-  int v36; // eax
-  __int64 v37; // rcx
-  unsigned int v38; // r14d
-  __int64 v39; // rcx
-  HANDLE v40; // r15
+  __int64 v28; // rdx
+  __int64 v29; // r8
+  int v30; // eax
+  wchar_t *v31; // rax
+  bool v32; // zf
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  int v35; // eax
+  __int64 v36; // rcx
+  unsigned int v37; // esi
+  __int64 v38; // rcx
+  PVOID v39; // rdi
+  HANDLE v40; // r14
   __int64 dwFlags; // [rsp+28h] [rbp-48h]
   unsigned int v43; // [rsp+40h] [rbp-30h] BYREF
   int v44; // [rsp+44h] [rbp-2Ch] BYREF
   int v45; // [rsp+48h] [rbp-28h] BYREF
   HANDLE Handle; // [rsp+50h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-18h] BYREF
-  unsigned int v48; // [rsp+B8h] [rbp+48h] BYREF
+  unsigned int v49; // [rsp+C8h] [rbp+58h] BYREF
 
   v4 = *a1;
   v5 = 0;
   Handle = 0LL;
   v43 = 0;
   v44 = 0;
-  v48 = 0;
-  Pool2 = 0LL;
+  v49 = 0;
+  PoolWithTag = 0LL;
   v45 = 0;
-  v10 = 0;
+  v9 = 0;
+  v10 = 0LL;
   if ( a4 <= 1 )
   {
     if ( v4 && (v11 = *(_QWORD *)(v4 + 224)) != 0 )
       v12 = *(_QWORD *)(v11 + 8);
     else
       v12 = 0LL;
-    v13 = RegRtlDeleteTreeInternal(a2, (__int64)a3, v12, 0);
-    InfoKey = v13;
+    v13 = RegRtlDeleteTreeInternal(a2, a3, v12, 0);
+    inited = v13;
 LABEL_7:
     if ( v13 == -1073741444 )
-      InfoKey = 0;
-    goto LABEL_84;
+      inited = 0;
+    goto LABEL_86;
   }
   v15 = 0LL;
   if ( v4 )
     v15 = *(_QWORD *)(v4 + 224);
-  v13 = SysCtxRegOpenKey(v15, a2, (__int64)a3, 0, 0x3001Fu, (__int64)&Handle);
-  InfoKey = v13;
+  v13 = SysCtxRegOpenKey(v15, (__int64)a2, (__int64)a3, 0, 0x3001Fu, (__int64)&Handle);
+  inited = v13;
   if ( v13 < 0 )
     goto LABEL_7;
   for ( i = PnpGetGenericStorePropertyKeys(*a1, (__int64)Handle, 0LL, 0, 0LL, 0, &v43);
         ;
-        i = PnpGetGenericStorePropertyKeys(*a1, (__int64)Handle, 0LL, 0, (__int64)Pool2, v17, &v43) )
+        i = PnpGetGenericStorePropertyKeys(*a1, (__int64)Handle, 0LL, 0, (__int64)PoolWithTag, v17, &v43) )
   {
-    InfoKey = i;
+    inited = i;
     if ( i != -1073741789 )
       break;
     v17 = v43;
-    if ( v43 <= v10 )
+    if ( v43 <= v9 )
     {
-      InfoKey = -1073741595;
-      goto LABEL_82;
+      inited = -1073741595;
+      break;
     }
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
-    v10 = v17;
-    Pool2 = (void *)ExAllocatePool2(256LL, 20 * v17, 1111770192LL);
-    if ( !Pool2 )
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
+    v9 = v17;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 20 * v17, 0x42444450u);
+    if ( !PoolWithTag )
     {
-      InfoKey = -1073741801;
-      goto LABEL_84;
+      inited = -1073741801;
+      break;
     }
   }
-  v18 = i == -1073741275;
-  if ( i != -1073741275 )
-  {
-    if ( i < 0 )
-      goto LABEL_82;
-    v18 = i == -1073741275;
-  }
-  if ( !v18 )
-    v5 = v10;
-  v19 = 0;
-  v20 = 0;
-  if ( InfoKey != -1073741275 )
-    v19 = InfoKey;
-  InfoKey = v19;
+  if ( (int)(inited + 0x80000000) >= 0 && inited != -1073741275 )
+    goto LABEL_84;
+  if ( inited != -1073741275 )
+    v5 = v9;
+  v18 = 0;
+  v19 = 0LL;
+  if ( inited != -1073741275 )
+    v18 = inited;
+  inited = v18;
   if ( v5 )
   {
     do
     {
-      v21 = PnpDeletePropertyWorker(*a1, (__int64)Handle, 0LL, (__int64)Pool2 + 20 * v20, 0, dwFlags, 0);
-      InfoKey = v21;
-      if ( v21 == -1073741275 || v21 == -1073741790 )
+      v20 = PnpDeletePropertyWorker(*a1, (__int64)Handle, 0LL, (__int64)PoolWithTag + 20 * v19, 0, dwFlags, 0);
+      inited = v20;
+      if ( v20 == -1073741275 || v20 == -1073741790 )
       {
-        InfoKey = 0;
+        inited = 0;
       }
-      else if ( v21 < 0 )
+      else if ( v20 < 0 )
       {
-        goto LABEL_82;
+        goto LABEL_84;
       }
-      ++v20;
+      v19 = (unsigned int)(v19 + 1);
     }
-    while ( v20 < v5 );
+    while ( (unsigned int)v19 < v5 );
   }
-  if ( InfoKey >= 0 )
+  if ( inited < 0 )
+    goto LABEL_84;
+  if ( !wcschr(a3, 0x5Cu) )
   {
-    if ( wcschr(a3, 0x5Cu) )
+    if ( *a1 && (v33 = *(_QWORD *)(*a1 + 224)) != 0 )
+      v34 = *(_QWORD *)(v33 + 8);
+    else
+      v34 = 0LL;
+    v35 = RegRtlDeleteKeyTransacted((char *)Handle, 0LL, v34);
+    inited = v35;
+    if ( v35 == -1073741444 )
     {
-      v22 = -1LL;
-      do
-        ++v22;
-      while ( a3[v22] );
-      v23 = v22 + 1;
-      v24 = (wchar_t *)ExAllocatePool2(256LL, 2 * v23, 1111770192LL);
-      v25 = v24;
-      if ( v24 )
+      inited = 0;
+      goto LABEL_84;
+    }
+    if ( v35 != -1073741535 )
+      goto LABEL_84;
+    inited = PnpCtxRegQueryInfoKey(v36, Handle, 0LL, 0LL, &v49, &v45, 0LL);
+    if ( inited < 0 )
+      goto LABEL_84;
+    v37 = v45 + 1;
+    if ( !v49 )
+      goto LABEL_84;
+    v39 = ExAllocatePoolWithTag(PagedPool, 2LL * v37, 0x42444450u);
+    if ( v39 )
+    {
+      while ( 1 )
       {
-        RtlStringCchCopyExW(v24, v23, a3, 0LL, 0LL, 0x900u);
-        for ( j = (char *)Handle; ; j = 0LL )
-        {
-          if ( !j )
-          {
-            v27 = 0LL;
-            if ( *a1 )
-              v27 = *(_QWORD *)(*a1 + 224);
-            v28 = SysCtxRegOpenKey(v27, a2, (__int64)v25, 0, 0x3001Fu, (__int64)&Handle);
-            InfoKey = v28;
-            if ( v28 < 0 )
-            {
-              if ( v28 == -1073741444 )
-                InfoKey = 0;
-              goto LABEL_81;
-            }
-            InfoKey = PnpCtxRegQueryInfoKey(v29, (int)Handle, (int)&v44, 0, (__int64)&v48, 0LL, 0LL);
-            if ( InfoKey < 0 || v44 || v48 )
-              goto LABEL_81;
-            j = (char *)Handle;
-          }
-          if ( *a1 && (v30 = *(_QWORD *)(*a1 + 224)) != 0 )
-            v31 = *(_QWORD *)(v30 + 8);
-          else
-            v31 = 0LL;
-          InfoKey = RegRtlDeleteKeyTransacted(j, 0LL, v31);
-          if ( InfoKey == -1073741444 )
-          {
-            InfoKey = 0;
-          }
-          else if ( InfoKey < 0 )
-          {
-            v33 = InfoKey == -1073741535;
-            goto LABEL_79;
-          }
-          v32 = wcsrchr(v25, 0x5Cu);
-          if ( !v32 )
-            goto LABEL_81;
-          *v32 = 0;
-          ZwClose(Handle);
-          Handle = 0LL;
-        }
+        v49 = v37;
+        inited = PnpCtxRegEnumValue(v38, Handle, 0, v39, &v49, 0LL, 0LL, 0LL);
+        if ( inited < 0 )
+          break;
+        v40 = Handle;
+        DestinationString = 0LL;
+        inited = RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)v39);
+        if ( inited >= 0 )
+          inited = ZwDeleteValueKey(v40, &DestinationString);
+        if ( inited != -1073741772 && inited < 0 )
+          goto LABEL_81;
       }
-LABEL_40:
-      InfoKey = -1073741801;
+      if ( inited == -2147483622 )
+        inited = 0;
+LABEL_81:
+      ExFreePoolWithTag(v39, 0);
       goto LABEL_82;
     }
-    if ( *a1 && (v34 = *(_QWORD *)(*a1 + 224)) != 0 )
-      v35 = *(_QWORD *)(v34 + 8);
-    else
-      v35 = 0LL;
-    v36 = RegRtlDeleteKeyTransacted((char *)Handle, 0LL, v35);
-    InfoKey = v36;
-    if ( v36 == -1073741444 )
-    {
-      InfoKey = 0;
-    }
-    else if ( v36 == -1073741535 )
-    {
-      InfoKey = PnpCtxRegQueryInfoKey(v37, (int)Handle, 0, 0, (__int64)&v48, (__int64)&v45, 0LL);
-      if ( InfoKey >= 0 )
-      {
-        v38 = v45 + 1;
-        if ( v48 )
-        {
-          v25 = (wchar_t *)ExAllocatePool2(256LL, 2LL * v38, 1111770192LL);
-          if ( v25 )
-          {
-            while ( 1 )
-            {
-              v48 = v38;
-              InfoKey = PnpCtxRegEnumValue(v39, Handle, 0, v25, (__int64)&v48, 0LL, 0LL, 0LL);
-              if ( InfoKey < 0 )
-                break;
-              v40 = Handle;
-              DestinationString = 0LL;
-              InfoKey = RtlInitUnicodeStringEx(&DestinationString, v25);
-              if ( InfoKey >= 0 )
-                InfoKey = ZwDeleteValueKey(v40, &DestinationString);
-              if ( ((InfoKey + 0x80000000) & 0x80000000) == 0 && InfoKey != -1073741772 )
-                goto LABEL_81;
-            }
-            v33 = InfoKey == -2147483622;
-LABEL_79:
-            if ( v33 )
-              InfoKey = 0;
-LABEL_81:
-            ExFreePoolWithTag(v25, 0);
-            goto LABEL_82;
-          }
-          goto LABEL_40;
-        }
-      }
-    }
+LABEL_40:
+    inited = -1073741801;
+    goto LABEL_84;
   }
+  v21 = -1LL;
+  do
+    ++v21;
+  while ( a3[v21] );
+  v22 = v21 + 1;
+  v23 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2 * v22, 0x42444450u);
+  v10 = v23;
+  if ( !v23 )
+    goto LABEL_40;
+  RtlStringCchCopyExW(v23, v22, a3, 0LL, 0LL, 0x900u);
+  for ( j = (char *)Handle; ; j = 0LL )
+  {
+    if ( !j )
+    {
+      v25 = 0LL;
+      if ( *a1 )
+        v25 = *(_QWORD *)(*a1 + 224);
+      v26 = SysCtxRegOpenKey(v25, (__int64)a2, (__int64)v10, 0, 0x3001Fu, (__int64)&Handle);
+      inited = v26;
+      if ( v26 < 0 )
+      {
+        v32 = v26 == -1073741444;
+        goto LABEL_60;
+      }
+      inited = PnpCtxRegQueryInfoKey(v27, Handle, &v44, 0LL, &v49, 0LL, 0LL);
+      if ( inited < 0 || v44 || v49 )
+        goto LABEL_82;
+      j = (char *)Handle;
+    }
+    if ( *a1 && (v28 = *(_QWORD *)(*a1 + 224)) != 0 )
+      v29 = *(_QWORD *)(v28 + 8);
+    else
+      v29 = 0LL;
+    v30 = RegRtlDeleteKeyTransacted(j, 0LL, v29);
+    inited = v30;
+    if ( v30 == -1073741444 )
+    {
+      inited = 0;
+      goto LABEL_57;
+    }
+    if ( v30 < 0 )
+      break;
+LABEL_57:
+    v31 = wcsrchr(v10, 0x5Cu);
+    if ( !v31 )
+      goto LABEL_82;
+    *v31 = 0;
+    ZwClose(Handle);
+    Handle = 0LL;
+  }
+  v32 = v30 == -1073741535;
+LABEL_60:
+  if ( v32 )
+    inited = 0;
 LABEL_82:
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( v10 )
+    ExFreePoolWithTag(v10, 0);
 LABEL_84:
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
+LABEL_86:
   if ( Handle )
     ZwClose(Handle);
-  return (unsigned int)InfoKey;
+  return (unsigned int)inited;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopGetFileVolumeNameInformation @ 0x1403C6F60
+ * XREFs of IopGetFileVolumeNameInformation @ 0x14035F7C8
  * Callers:
- *     NtQueryInformationFile @ 0x1407250E0 (NtQueryInformationFile.c)
+ *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ObQueryNameString @ 0x14075B880 (ObQueryNameString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ObQueryNameString @ 0x14070FAD0 (ObQueryNameString.c)
  */
 
 NTSTATUS __fastcall IopGetFileVolumeNameInformation(void *a1, __int64 a2, _DWORD *a3, int a4)

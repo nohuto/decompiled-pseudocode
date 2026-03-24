@@ -1,7 +1,7 @@
 /*
- * XREFs of SeSetAuditParameter @ 0x1403381D0
+ * XREFs of SeSetAuditParameter @ 0x140305750
  * Callers:
- *     CmpReportAuditVirtualizationEvent @ 0x140A1BAD4 (CmpReportAuditVirtualizationEvent.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140871DE8 (CmpReportAuditVirtualizationEvent.c)
  * Callees:
  *     <none>
  */
@@ -14,13 +14,9 @@ NTSTATUS __stdcall SeSetAuditParameter(
 {
   NTSTATUS v4; // r11d
   int v5; // r10d
-  char *v6; // rax
-  NTSTATUS result; // eax
-  char *v8; // rax
-  int v9; // r10d
-  char *v10; // rax
-  int v11; // r10d
-  char *v12; // rax
+  __int64 v6; // rax
+  char *v7; // rcx
+  int v9; // eax
 
   v4 = 0;
   v5 = 0;
@@ -28,108 +24,92 @@ NTSTATUS __stdcall SeSetAuditParameter(
     return -1073741811;
   switch ( Type )
   {
-    case SeAdtParmTypeHexInt64:
-LABEL_7:
-      v8 = (char *)AuditParameters + 32 * Index;
-      *((_QWORD *)v8 + 4) = *(_QWORD *)Data;
-LABEL_8:
-      v5 = 8;
-LABEL_9:
-      *((_DWORD *)v8 + 6) = Type;
-      *((_DWORD *)v8 + 7) = v5;
-      return v4;
+    case SeAdtParmTypeNone:
+    case SeAdtParmTypeNoLogonId:
+      v7 = (char *)AuditParameters + 32 * Index;
+      *((_DWORD *)v7 + 7) = 0;
+      goto LABEL_5;
     case SeAdtParmTypeString:
-LABEL_11:
-      v9 = *(unsigned __int16 *)Data + 16;
-      v10 = (char *)AuditParameters + 32 * Index;
-      *((_QWORD *)v10 + 6) = Data;
-      *((_DWORD *)v10 + 6) = Type;
-      *((_DWORD *)v10 + 7) = v9;
-      return 0;
+    case SeAdtParmTypeFileSpec:
+    case SeAdtParmTypeMultiSzString:
+      v5 = *(unsigned __int16 *)Data + 16;
+      goto LABEL_9;
+    case SeAdtParmTypeUlong:
+    case SeAdtParmTypeHexUlong:
     case SeAdtParmTypeMessage:
     case SeAdtParmTypeUlongNoConv:
-LABEL_5:
-      v6 = (char *)AuditParameters + 32 * Index;
-      *((_QWORD *)v6 + 4) = *(unsigned int *)Data;
-      *((_DWORD *)v6 + 6) = Type;
-      *((_DWORD *)v6 + 7) = 4;
-      return 0;
-    default:
-      switch ( Type )
+      v6 = *(unsigned int *)Data;
+      v5 = 4;
+      goto LABEL_4;
+    case SeAdtParmTypeSid:
+      v9 = *((unsigned __int8 *)Data + 1);
+      goto LABEL_19;
+    case SeAdtParmTypeLogonId:
+    case SeAdtParmTypeTime:
+    case SeAdtParmTypeLuid:
+    case SeAdtParmTypeHexInt64:
+    case SeAdtParmTypeDuration:
+    case SeAdtParmTypeDateTime:
+    case SeAdtParmTypeLogonIdNoSid:
+    case SeAdtParmTypeLogonIdEx:
+      v6 = *(_QWORD *)Data;
+      v5 = 8;
+LABEL_4:
+      v7 = (char *)AuditParameters + 32 * Index;
+      *((_QWORD *)v7 + 4) = v6;
+      goto LABEL_5;
+    case SeAdtParmTypeAccessMask:
+    case SeAdtParmTypeObjectTypes:
+    case SeAdtParmTypeStringList:
+    case SeAdtParmTypeSidList:
+    case SeAdtParmTypeUserAccountControl:
+    case SeAdtParmTypeNoUac:
+      return -1073741822;
+    case SeAdtParmTypePrivs:
+      if ( Data )
       {
-        case SeAdtParmTypeNone:
-        case SeAdtParmTypeNoLogonId:
-          v8 = (char *)AuditParameters + 32 * Index;
-          *((_DWORD *)v8 + 7) = 0;
-          goto LABEL_9;
-        case SeAdtParmTypeFileSpec:
-        case SeAdtParmTypeMultiSzString:
-          goto LABEL_11;
-        case SeAdtParmTypeUlong:
-        case SeAdtParmTypeHexUlong:
-          goto LABEL_5;
-        case SeAdtParmTypeSid:
-          v5 = 4 * *((unsigned __int8 *)Data + 1) + 8;
-          v8 = (char *)AuditParameters + 32 * Index;
-          *((_QWORD *)v8 + 6) = Data;
-          goto LABEL_9;
-        case SeAdtParmTypeLogonId:
-        case SeAdtParmTypeTime:
-        case SeAdtParmTypeLuid:
-        case SeAdtParmTypeDuration:
-        case SeAdtParmTypeDateTime:
-        case SeAdtParmTypeLogonIdNoSid:
-        case SeAdtParmTypeLogonIdEx:
-          goto LABEL_7;
-        case SeAdtParmTypeAccessMask:
-        case SeAdtParmTypeObjectTypes:
-        case SeAdtParmTypeStringList:
-        case SeAdtParmTypeSidList:
-        case SeAdtParmTypeUserAccountControl:
-        case SeAdtParmTypeNoUac:
-          return -1073741822;
-        case SeAdtParmTypePrivs:
-          if ( Data )
-          {
-            if ( *(_DWORD *)Data )
-              v5 = 12 * *(_DWORD *)Data + 8;
-            else
-              v5 = 8;
-          }
-          v8 = (char *)AuditParameters + 32 * Index;
-          *((_QWORD *)v8 + 6) = Data;
-          goto LABEL_9;
-        case SeAdtParmTypePtr:
-          v8 = (char *)AuditParameters + 32 * Index;
-          *((_QWORD *)v8 + 4) = Data;
-          goto LABEL_8;
-        case SeAdtParmTypeGuid:
-          v5 = 16;
-          v8 = (char *)AuditParameters + 32 * Index;
-          *((_QWORD *)v8 + 6) = Data;
-          goto LABEL_9;
-        case SeAdtParmTypeSockAddr:
-        case SeAdtParmTypeSockAddrNoPort:
-          if ( *(_WORD *)Data == 23 )
-          {
-            v11 = 28;
-          }
-          else
-          {
-            v11 = 16;
-            if ( *(_WORD *)Data == 33 )
-              v11 = 14;
-          }
-          v12 = (char *)AuditParameters + 32 * Index;
-          *((_QWORD *)v12 + 6) = Data;
-          *((_DWORD *)v12 + 6) = Type;
-          *((_DWORD *)v12 + 7) = v11;
-          result = 0;
-          break;
-        default:
-          return -1073741811;
+        if ( *(_DWORD *)Data )
+        {
+          v9 = 3 * *(_DWORD *)Data;
+LABEL_19:
+          v5 = 4 * v9 + 8;
+        }
+        else
+        {
+          v5 = 8;
+        }
       }
+      goto LABEL_9;
+    case SeAdtParmTypePtr:
+      v5 = 8;
+      v7 = (char *)AuditParameters + 32 * Index;
+      *((_QWORD *)v7 + 4) = Data;
+      goto LABEL_5;
+    case SeAdtParmTypeGuid:
+      v5 = 16;
+      goto LABEL_9;
+    case SeAdtParmTypeSockAddr:
+    case SeAdtParmTypeSockAddrNoPort:
+      if ( *(_WORD *)Data == 23 )
+      {
+        v5 = 28;
+      }
+      else
+      {
+        v5 = 16;
+        if ( *(_WORD *)Data == 33 )
+          v5 = 14;
+      }
+LABEL_9:
+      v7 = (char *)AuditParameters + 32 * Index;
+      *((_QWORD *)v7 + 6) = Data;
+LABEL_5:
+      *((_DWORD *)v7 + 6) = Type;
+      *((_DWORD *)v7 + 7) = v5;
+      break;
+    default:
+      v4 = -1073741811;
       break;
   }
-  return result;
+  return v4;
 }

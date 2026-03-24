@@ -1,13 +1,13 @@
 /*
- * XREFs of PopGetPolicyDeviceObject @ 0x140741040
+ * XREFs of PopGetPolicyDeviceObject @ 0x140741020
  * Callers:
- *     PopConnectToPolicyDevice @ 0x140740EB4 (PopConnectToPolicyDevice.c)
+ *     PopConnectToPolicyDevice @ 0x140740E94 (PopConnectToPolicyDevice.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B70 (IoGetRelatedDeviceObject.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateFile @ 0x1401B8C10 (ZwCreateFile.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  */
 

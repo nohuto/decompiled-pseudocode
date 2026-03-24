@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIWakeRestoreEnables @ 0x1C0063734
+ * XREFs of ACPIWakeRestoreEnables @ 0x1C00623F4
  * Callers:
- *     ACPIDevicePowerProcessPhase2SystemSubPhase3 @ 0x1C0050720 (ACPIDevicePowerProcessPhase2SystemSubPhase3.c)
+ *     ACPIDevicePowerProcessPhase2SystemSubPhase3 @ 0x1C00513C0 (ACPIDevicePowerProcessPhase2SystemSubPhase3.c)
  * Callees:
- *     ACPIBuildRunMethodRequest @ 0x1C001FB38 (ACPIBuildRunMethodRequest.c)
+ *     ACPIBuildRunMethodRequest @ 0x1C0025AF4 (ACPIBuildRunMethodRequest.c)
  */
 
 __int64 __fastcall ACPIWakeRestoreEnables(__int64 a1, __int64 a2)

@@ -1,11 +1,10 @@
 /*
- * XREFs of ??_E?$TValueResource@UD2D_MATRIX_3X2_F@@UtagMILCMD_MATRIXRESOURCE@@$0GK@@@MEAAPEAXI@Z @ 0x18019E740
+ * XREFs of ??_E?$TValueResource@UD2D_MATRIX_3X2_F@@UtagMILCMD_MATRIXRESOURCE@@$0GK@@@MEAAPEAXI@Z @ 0x18016C9F0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CResource@@MEAA@XZ @ 0x180049CEC (--1CResource@@MEAA@XZ.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CResource@@MEAA@XZ @ 0x1800A0EAC (--1CResource@@MEAA@XZ.c)
  */
 
 CResource *__fastcall TValueResource<D2D_MATRIX_3X2_F,tagMILCMD_MATRIXRESOURCE,106>::`vector deleting destructor'(
@@ -15,11 +14,6 @@ CResource *__fastcall TValueResource<D2D_MATRIX_3X2_F,tagMILCMD_MATRIXRESOURCE,1
   *(_QWORD *)a1 = &TValueResource<D2D_MATRIX_3X2_F,tagMILCMD_MATRIXRESOURCE,106>::`vftable';
   CResource::~CResource(a1);
   if ( (a2 & 1) != 0 )
-  {
-    if ( (a2 & 4) != 0 )
-      __global_delete(a1);
-    else
-      DefaultHeap::Free(a1);
-  }
+    operator delete(a1);
   return a1;
 }

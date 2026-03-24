@@ -1,65 +1,78 @@
 /*
- * XREFs of PsInvokeWin32Callout @ 0x1406AF850
+ * XREFs of PsInvokeWin32Callout @ 0x14061B5A0
  * Callers:
- *     PsThawMultiProcess @ 0x1402044E4 (PsThawMultiProcess.c)
- *     PspJobDelete @ 0x140207000 (PspJobDelete.c)
- *     SeCaptureAtomTableCallout @ 0x140355F10 (SeCaptureAtomTableCallout.c)
- *     KiSystemCall64 @ 0x140433500 (KiSystemCall64.c)
- *     PspSetProcessTimerDelayForWin32 @ 0x1405A4A84 (PspSetProcessTimerDelayForWin32.c)
- *     PsApplyDeepFreezeOptimizations @ 0x14067ED7C (PsApplyDeepFreezeOptimizations.c)
- *     PsRemoveDeepFreezeOptimizations @ 0x14067EDC0 (PsRemoveDeepFreezeOptimizations.c)
- *     PfpQueryGpuUtilization @ 0x14068261C (PfpQueryGpuUtilization.c)
- *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
- *     PspExitThread @ 0x14076DF3C (PspExitThread.c)
- *     KeUserModeCallback @ 0x14076ED90 (KeUserModeCallback.c)
- *     PsConvertToGuiThread @ 0x1407C6820 (PsConvertToGuiThread.c)
- *     ExpWin32OpenProcedure @ 0x1407CB4D0 (ExpWin32OpenProcedure.c)
- *     ExpWin32OkayToCloseProcedure @ 0x1407CCFA0 (ExpWin32OkayToCloseProcedure.c)
- *     ExpWin32CloseProcedure @ 0x1407CDC90 (ExpWin32CloseProcedure.c)
- *     NtAddAtomEx @ 0x1407D1D40 (NtAddAtomEx.c)
- *     PopInvokeWin32Callout @ 0x1407D3E3C (PopInvokeWin32Callout.c)
- *     ExpWin32ParseProcedure @ 0x1407D6190 (ExpWin32ParseProcedure.c)
- *     ExpWin32DeleteProcedure @ 0x1407DA0D0 (ExpWin32DeleteProcedure.c)
- *     NtQueryInformationAtom @ 0x1407DBCF0 (NtQueryInformationAtom.c)
- *     NtDeleteAtom @ 0x1407E9940 (NtDeleteAtom.c)
- *     PsFreezeProcess @ 0x1407EC200 (PsFreezeProcess.c)
- *     PspShutdownCsrProcess @ 0x1409AD358 (PspShutdownCsrProcess.c)
- *     PspQueryProcessInterferenceCountCallback @ 0x1409B27C0 (PspQueryProcessInterferenceCountCallback.c)
- *     PspEnsureGuiThreadAndBatchFlush @ 0x1409B4C58 (PspEnsureGuiThreadAndBatchFlush.c)
+ *     PspJobDelete @ 0x1402DD320 (PspJobDelete.c)
+ *     SeCaptureAtomTableCallout @ 0x140314314 (SeCaptureAtomTableCallout.c)
+ *     KiSystemCall64 @ 0x140411000 (KiSystemCall64.c)
+ *     PspSetProcessTimerDelayForWin32 @ 0x1405825EC (PspSetProcessTimerDelayForWin32.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
+ *     KeUserModeCallback @ 0x14063D750 (KeUserModeCallback.c)
+ *     PsConvertToGuiThread @ 0x140683840 (PsConvertToGuiThread.c)
+ *     NtQueryInformationAtom @ 0x140683E50 (NtQueryInformationAtom.c)
+ *     NtAddAtomEx @ 0x140684130 (NtAddAtomEx.c)
+ *     PsThawProcess @ 0x1406857E4 (PsThawProcess.c)
+ *     PsFreezeProcess @ 0x14068595C (PsFreezeProcess.c)
+ *     ExpWin32OpenProcedure @ 0x140685F90 (ExpWin32OpenProcedure.c)
+ *     NtDeleteAtom @ 0x140686070 (NtDeleteAtom.c)
+ *     ExpWin32OkayToCloseProcedure @ 0x140686410 (ExpWin32OkayToCloseProcedure.c)
+ *     ExpWin32CloseProcedure @ 0x1406871E0 (ExpWin32CloseProcedure.c)
+ *     ExpWin32ParseProcedure @ 0x140690140 (ExpWin32ParseProcedure.c)
+ *     ExpWin32DeleteProcedure @ 0x140696FF0 (ExpWin32DeleteProcedure.c)
+ *     PfpQueryGpuUtilization @ 0x14069EE9C (PfpQueryGpuUtilization.c)
+ *     PspExitThread @ 0x1406C35F8 (PspExitThread.c)
+ *     PopInvokeWin32Callout @ 0x1406F45B8 (PopInvokeWin32Callout.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
+ *     PspAssignProcessToJob @ 0x14071E800 (PspAssignProcessToJob.c)
+ *     PspShutdownCsrProcess @ 0x1409066A0 (PspShutdownCsrProcess.c)
+ *     PspQueryProcessInterferenceCountCallback @ 0x140909180 (PspQueryProcessInterferenceCountCallback.c)
  * Callees:
- *     MmSessionGetWin32Callouts @ 0x140214EC0 (MmSessionGetWin32Callouts.c)
- *     MmGetSessionId @ 0x1402A3B20 (MmGetSessionId.c)
- *     ExCallCallBack @ 0x1406AF8E4 (ExCallCallBack.c)
- *     ExCallSessionCallBack @ 0x1407C6220 (ExCallSessionCallBack.c)
+ *     MmGetSessionId @ 0x140252DB0 (MmGetSessionId.c)
+ *     MmSessionGetWin32Callouts @ 0x14025A170 (MmSessionGetWin32Callouts.c)
+ *     ExReferenceCallBackBlock @ 0x14025A1B0 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14025A270 (ExDereferenceCallBackBlock.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExCallCallBack @ 0x14061B29C (ExCallCallBack.c)
+ *     ExCallSessionCallBack @ 0x140660AC8 (ExCallSessionCallBack.c)
  */
 
 __int64 __fastcall PsInvokeWin32Callout(int a1, __int64 a2, int a3, __int64 a4)
 {
-  __int64 v4; // r11
-  __int64 v5; // r10
-  __int64 v7; // rbx
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
-  __int64 result; // rax
-  int v10; // r8d
+  __int64 v4; // r10
+  __int64 v5; // rbx
+  union _RTL_RUN_ONCE *Win32Callouts; // rbp
+  struct _EX_RUNDOWN_REF *v8; // rax
+  struct _EX_RUNDOWN_REF *v9; // rsi
+  int v10; // ebx
+  int v12; // r8d
   _KPROCESS *Process; // rcx
   int SessionId; // eax
-  _DWORD *v13; // r9
-  __int64 v14; // rcx
-  unsigned int v15; // [rsp+40h] [rbp+18h] BYREF
+  _DWORD *v15; // r9
+  union _RTL_RUN_ONCE *v16; // rax
+  __int64 v17; // rcx
+  unsigned int v18; // [rsp+40h] [rbp+18h] BYREF
 
-  v15 = 0;
+  v18 = 0;
   v4 = a4;
   v5 = a1;
   if ( !a3 )
-    goto LABEL_2;
-  v10 = a3 - 1;
-  if ( v10 )
   {
-    if ( v10 != 1 )
-      return 3221225485LL;
-    v14 = 0LL;
+    Win32Callouts = MmSessionGetWin32Callouts();
+    v8 = ExReferenceCallBackBlock((signed __int64 *)Win32Callouts);
+    v9 = v8;
+    if ( v8 )
+    {
+      v10 = ((__int64 (__fastcall *)(unsigned __int64, __int64, __int64))v8[1].Count)(v8[2].Count, v5, a2);
+      ExDereferenceCallBackBlock((signed __int64 *)Win32Callouts, v9);
+      return (unsigned int)v10;
+    }
+    return (unsigned int)-1073741811;
+  }
+  v12 = a3 - 1;
+  if ( v12 )
+  {
+    if ( v12 != 1 )
+      return (unsigned int)-1073741811;
+    v17 = 0LL;
   }
   else
   {
@@ -67,18 +80,16 @@ __int64 __fastcall PsInvokeWin32Callout(int a1, __int64 a2, int a3, __int64 a4)
     if ( (Process[1].DirectoryTableBase & 0x1000000000000LL) != 0 )
     {
       SessionId = MmGetSessionId((__int64)Process);
-      if ( *v13 == SessionId )
+      if ( *v15 == SessionId )
       {
-LABEL_2:
-        v7 = v5;
-        Win32Callouts = MmSessionGetWin32Callouts();
-        return ExCallCallBack(Win32Callouts, v7, a2);
+        v16 = MmSessionGetWin32Callouts();
+        return (unsigned int)ExCallCallBack((signed __int64 *)v16, v5, a2);
       }
     }
-    v14 = v4;
+    v17 = v4;
   }
-  result = ExCallSessionCallBack(v14, v5, a2, &v15);
-  if ( (int)result >= 0 )
-    return v15;
-  return result;
+  v10 = ExCallSessionCallBack(v17, v5, a2, &v18);
+  if ( v10 >= 0 )
+    return v18;
+  return (unsigned int)v10;
 }

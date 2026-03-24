@@ -1,177 +1,173 @@
 /*
- * XREFs of SetRedirectedWindow @ 0x1C00D36F4
+ * XREFs of SetRedirectedWindow @ 0x1C00BCE5C
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     _SetLayeredWindowAttributes @ 0x1C00D5980 (_SetLayeredWindowAttributes.c)
- *     xxxSetWindowStyle @ 0x1C00EB620 (xxxSetWindowStyle.c)
- *     xxxPrintWindow @ 0x1C01BCFE4 (xxxPrintWindow.c)
+ *     xxxSetWindowStyle @ 0x1C005E140 (xxxSetWindowStyle.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
+ *     _SetLayeredWindowAttributes @ 0x1C00BD1E8 (_SetLayeredWindowAttributes.c)
+ *     xxxPrintWindow @ 0x1C01E7D10 (xxxPrintWindow.c)
  * Callees:
- *     IncrementCompositedCount @ 0x1C0005ADC (IncrementCompositedCount.c)
- *     FillRect @ 0x1C0028BEC (FillRect.c)
- *     xxxInternalInvalidate @ 0x1C0032FD0 (xxxInternalInvalidate.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00ABF38 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     DeleteOrSetRedirectionBitmap @ 0x1C00C825C (DeleteOrSetRedirectionBitmap.c)
- *     RedirectDCEs @ 0x1C00D3618 (RedirectDCEs.c)
- *     IsToplevelWindowDesktopComposed @ 0x1C00D3B08 (IsToplevelWindowDesktopComposed.c)
- *     HintSpriteShape @ 0x1C00D3B40 (HintSpriteShape.c)
- *     UpdateWindowSpriteMonitor @ 0x1C00D3F28 (UpdateWindowSpriteMonitor.c)
- *     ?SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z @ 0x1C00D54CC (-SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z.c)
- *     CreateOrGetRedirectionBitmap @ 0x1C00D564C (CreateOrGetRedirectionBitmap.c)
- *     ??1?$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ @ 0x1C00EBBE4 (--1-$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ.c)
- *     _GetProp @ 0x1C00F21FC (_GetProp.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     GetRedirectionBitmap @ 0x1C011DD30 (GetRedirectionBitmap.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     _IsTopLevelWindow @ 0x1C0122310 (_IsTopLevelWindow.c)
+ *     FillRect @ 0x1C0045694 (FillRect.c)
+ *     RedirectDCEs @ 0x1C004C470 (RedirectDCEs.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C0067530 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     _GetProp @ 0x1C006B8F0 (_GetProp.c)
+ *     IsToplevelWindowDesktopComposed @ 0x1C006BE7C (IsToplevelWindowDesktopComposed.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
+ *     xxxInternalInvalidate @ 0x1C00724E0 (xxxInternalInvalidate.c)
+ *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ @ 0x1C0078D28 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ.c)
+ *     ??1?$SmartObjStackRef@UtagCLS@@@@QEAA@XZ @ 0x1C00BD198 (--1-$SmartObjStackRef@UtagCLS@@@@QEAA@XZ.c)
+ *     HintSpriteShape @ 0x1C00BD538 (HintSpriteShape.c)
+ *     UpdateWindowSpriteDPI @ 0x1C00BD5D8 (UpdateWindowSpriteDPI.c)
+ *     GetRedirectionBitmap @ 0x1C00BEBC0 (GetRedirectionBitmap.c)
+ *     ?SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z @ 0x1C00BEC48 (-SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z.c)
+ *     CreateOrGetRedirectionBitmap @ 0x1C00BEDE8 (CreateOrGetRedirectionBitmap.c)
+ *     DeleteOrSetRedirectionBitmap @ 0x1C00EF608 (DeleteOrSetRedirectionBitmap.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00FF480 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
+ *     IncrementCompositedCount @ 0x1C01E7980 (IncrementCompositedCount.c)
  */
 
 __int64 __fastcall SetRedirectedWindow(struct tagWND *a1, int a2)
 {
-  __int64 ThreadWin32Thread; // rax
-  int v5; // r12d
-  unsigned int v6; // r13d
-  unsigned int v7; // r14d
-  __int64 v8; // rsi
+  int v4; // r12d
+  unsigned int v5; // r13d
+  unsigned int v6; // r14d
+  __int64 v7; // rsi
+  BOOL v8; // esi
   int v9; // esi
-  __int64 v10; // rax
-  __int64 v11; // rdx
-  __int64 v12; // r8
+  __int64 v10; // r9
+  __int64 v11; // rax
+  __int64 v12; // rdx
   __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 Prop; // rax
-  __int64 v17; // rdx
-  __int64 v18; // rsi
-  HBRUSH v19; // r12
-  __int64 v20; // rcx
-  __m128i v21; // xmm0
-  __int64 v22; // r13
-  __int64 RedirectionBitmap; // rax
+  HBRUSH v14; // rsi
+  __int64 v15; // rcx
   __int64 SolidBrush; // rax
-  BOOL v25; // esi
-  HBITMAP v26; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v27; // [rsp+28h] [rbp-28h] BYREF
-  __int64 v28; // [rsp+30h] [rbp-20h] BYREF
-  RECT v29; // [rsp+38h] [rbp-18h] BYREF
-  char v30; // [rsp+98h] [rbp+48h] BYREF
-  int v31; // [rsp+A0h] [rbp+50h]
+  __m128i v17; // xmm0
+  __int64 v18; // rax
+  HBRUSH v19; // r8
+  __int64 v20; // r13
+  __int64 RedirectionBitmap; // rax
+  __int64 Prop; // rax
+  _BYTE v24[8]; // [rsp+20h] [rbp-30h] BYREF
+  __int64 v25[2]; // [rsp+28h] [rbp-28h] BYREF
+  RECT v26; // [rsp+38h] [rbp-18h] BYREF
+  HBITMAP v27; // [rsp+A0h] [rbp+50h] BYREF
+  HBRUSH v28; // [rsp+A8h] [rbp+58h]
 
-  v26 = 0LL;
-  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
-  v27 = gSmartObjNullRef;
-  v5 = a2 & 0x10;
-  v6 = 0;
-  v7 = a2 & 0xFFFFFFEF;
-  v28 = *(_QWORD *)(ThreadWin32Thread + 1512);
-  *(_QWORD *)(ThreadWin32Thread + 1512) = &v28;
-  v31 = v5;
+  v27 = 0LL;
+  SmartObjStackRefBase<tagCLS>::Init(v25, 0LL);
+  v4 = a2 & 0x10;
+  v5 = 0;
+  v6 = a2 & 0xFFFFFFEF;
   if ( GetRedirectionBitmap(a1) )
   {
-    if ( v7 == 1 )
+    if ( v6 == 1 )
     {
       RedirectionBitmap = GetRedirectionBitmap(a1);
       HintSpriteShape(*(_QWORD *)(gpDispInfo + 40LL), a1, RedirectionBitmap, 0LL);
     }
-LABEL_18:
-    if ( !v5 )
-    {
-      AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v30);
-      xxxInternalInvalidate(a1, (HRGN)1, 0x485u);
-      AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v30, v13, v14);
-    }
-    Prop = GetProp(a1, (unsigned __int16)atomLayer, 1LL);
-    *(_DWORD *)(Prop + 32) |= v7;
-    v9 = 0;
-    goto LABEL_21;
+    goto LABEL_39;
   }
-  v8 = *((_QWORD *)a1 + 17);
-  if ( v8 != *(_QWORD *)v27 )
+  v7 = *((_QWORD *)a1 + 17);
+  if ( v7 != *(_QWORD *)v25[0] )
   {
-    if ( v27 != gSmartObjNullRef && !--*(_DWORD *)(v27 + 8) )
+    SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(v25);
+    if ( v7 )
     {
-      if ( *(_BYTE *)(v27 + 12) )
-        Win32FreeToPagedLookasideList(gpStackRefLookAside, v27);
-    }
-    if ( v8 )
-    {
-      v27 = *(_QWORD *)(v8 + 128);
-      ++*(_DWORD *)(v27 + 8);
+      v25[0] = *(_QWORD *)(v7 + 128);
+      ++*(_DWORD *)(v25[0] + 8);
     }
     else
     {
-      v27 = gSmartObjNullRef;
+      v25[0] = gSmartObjNullRef;
     }
   }
-  if ( *(char *)(*(_QWORD *)(*(_QWORD *)v27 + 8LL) + 8LL) < 0
-    || (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)v27 + 8LL) + 8LL) & 0x40) != 0 )
+  if ( *(char *)(*(_QWORD *)(*(_QWORD *)v25[0] + 8LL) + 8LL) < 0
+    || (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)v25[0] + 8LL) + 8LL) & 0x40) != 0 )
   {
-    v25 = 0;
-    if ( (unsigned int)IsToplevelWindowDesktopComposed(a1) )
-      v25 = v7 == 1;
-    if ( ((unsigned int)IsTopLevelWindow(a1)
-       || (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)v27 + 8LL) + 8LL) & 0x40) != 0
-       || v7 != 1)
-      && !v25 )
+    v8 = 0;
+    if ( (unsigned int)IsToplevelWindowDesktopComposed((__int64)a1) )
+      v8 = v6 == 1;
+    if ( !(unsigned int)IsTopLevelWindow((__int64)a1)
+      && (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)v25[0] + 8LL) + 8LL) & 0x40) == 0
+      && v6 == 1 )
+    {
+      v8 = 1;
+    }
+    if ( !v8 )
     {
       v9 = -2143420411;
-      goto LABEL_21;
+      goto LABEL_42;
     }
   }
-  v9 = CreateOrGetRedirectionBitmap(a1, 0LL, 0LL, &v26);
+  v9 = CreateOrGetRedirectionBitmap(a1, 0LL, 0LL, &v27);
   if ( v9 >= 0 )
   {
-    if ( !(unsigned int)SetRedirectionBitmap(a1, v26, 0) )
+    if ( (unsigned int)SetRedirectionBitmap(a1, v27, 0) )
     {
-      DeleteOrSetRedirectionBitmap((__int64)a1, (HSURF)v26, 0);
+      SetOrClrWF(1, (__int64)a1, 0xB20u, 1);
+      v11 = ValidateHmonitorNoRip(*(_QWORD *)(*((_QWORD *)a1 + 5) + 256LL));
+      UpdateWindowSpriteDPI(a1, v11);
+    }
+    else
+    {
+      DeleteOrSetRedirectionBitmap(a1, v27, 0LL, v10);
       v9 = -1073741801;
-      goto LABEL_21;
     }
-    SetOrClrWF(1LL, a1, 2848LL, 1LL);
-    v10 = ValidateHmonitorNoRip(*(_QWORD *)(*((_QWORD *)a1 + 5) + 256LL));
-    UpdateWindowSpriteMonitor(a1, v10);
-    if ( v7 == 2 )
+    if ( v9 >= 0 )
     {
-      IncrementCompositedCount((__int64)a1);
-    }
-    else if ( v7 == 1 )
-    {
-      v11 = *((_QWORD *)a1 + 5);
-      v12 = *(_QWORD *)(v11 + 88) - *(_QWORD *)(v11 + 104);
-      if ( !v12 )
-        v12 = *(_QWORD *)(v11 + 96) - *(_QWORD *)(v11 + 112);
-      if ( (v12 || *(_QWORD *)(v11 + 168)) && !IsRectEmptyInl((const struct tagRECT *)(v11 + 88)) )
+      if ( v6 == 2 )
+        IncrementCompositedCount(a1);
+      if ( v6 == 1 )
       {
-        v18 = 0LL;
-        v19 = *(HBRUSH *)(gpsi + 4736LL);
-        v20 = *(unsigned int *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 1100LL);
-        if ( (_DWORD)v20 )
+        v12 = *((_QWORD *)a1 + 5);
+        if ( (*(_QWORD *)(v12 + 88) != *(_QWORD *)(v12 + 104)
+           || *(_QWORD *)(v12 + 96) != *(_QWORD *)(v12 + 112)
+           || *(_QWORD *)(v12 + 168))
+          && !IsRectEmptyInl((const struct tagRECT *)(v12 + 88)) )
         {
-          SolidBrush = GreCreateSolidBrush(v20);
-          v17 = *((_QWORD *)a1 + 5);
-          v18 = SolidBrush;
-          if ( SolidBrush )
-            v19 = (HBRUSH)SolidBrush;
+          v14 = 0LL;
+          v28 = (HBRUSH)ghbrWhite;
+          v15 = *(unsigned int *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 1092LL);
+          if ( (_DWORD)v15 )
+          {
+            SolidBrush = GreCreateSolidBrush(v15);
+            v13 = *((_QWORD *)a1 + 5);
+            v14 = (HBRUSH)SolidBrush;
+          }
+          v17 = *(__m128i *)(v13 + 88);
+          v26.bottom = v17.m128i_i32[3] - v17.m128i_i32[1];
+          v26.top = 0;
+          v26.right = v17.m128i_i32[2] - _mm_cvtsi128_si32(v17);
+          v26.left = 0;
+          v18 = GreSelectBitmap(*(_QWORD *)ghdcMem, v27);
+          v19 = v14;
+          v20 = v18;
+          if ( !v14 )
+            v19 = v28;
+          FillRect(*(HDC *)ghdcMem, &v26, v19);
+          if ( v14 )
+            GreDeleteObject(v14);
+          GreSelectBitmap(*(_QWORD *)ghdcMem, v20);
+          v5 = 1;
         }
-        v21 = *(__m128i *)(v17 + 88);
-        v29.bottom = v21.m128i_i32[3] - v21.m128i_i32[1];
-        v29.top = 0;
-        v29.right = v21.m128i_i32[2] - _mm_cvtsi128_si32(v21);
-        v29.left = 0;
-        v22 = GreSelectBitmap(ghdcMem, v26);
-        FillRect(ghdcMem, &v29, v19);
-        if ( v18 )
-          GreDeleteObject(v18);
-        GreSelectBitmap(ghdcMem, v22);
-        v5 = v31;
-        v6 = 1;
+        HintSpriteShape(*(_QWORD *)(gpDispInfo + 40LL), a1, v27, v5);
       }
-      HintSpriteShape(*(_QWORD *)(gpDispInfo + 40LL), a1, v26, v6);
+      RedirectDCEs(a1);
+LABEL_39:
+      if ( !v4 )
+      {
+        UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v24);
+        xxxInternalInvalidate(a1, (HRGN)1, 0x485u);
+        UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v24);
+      }
+      Prop = GetProp((__int64)a1, (unsigned __int16)atomLayer, 1LL);
+      *(_DWORD *)(Prop + 32) |= v6;
+      v9 = 0;
     }
-    RedirectDCEs((__int64)a1);
-    goto LABEL_18;
   }
-LABEL_21:
-  SmartObjStackRefBase<tagCLS>::~SmartObjStackRefBase<tagCLS>(&v27);
+LABEL_42:
+  SmartObjStackRef<tagCLS>::~SmartObjStackRef<tagCLS>(v25);
   return (unsigned int)v9;
 }

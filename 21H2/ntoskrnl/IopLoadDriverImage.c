@@ -1,30 +1,31 @@
 /*
- * XREFs of IopLoadDriverImage @ 0x140255A78
+ * XREFs of IopLoadDriverImage @ 0x140399E78
  * Callers:
- *     NtLoadDriver @ 0x1406DDFF0 (NtLoadDriver.c)
+ *     NtLoadDriver @ 0x140780800 (NtLoadDriver.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IopLoadUnloadDriver @ 0x1406DE800 (IopLoadUnloadDriver.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
+ *     IopVerifierExAllocatePoolWithQuota_2 @ 0x1403CAF28 (IopVerifierExAllocatePoolWithQuota_2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     IopLoadUnloadDriver @ 0x140780820 (IopLoadUnloadDriver.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopLoadDriverImage(_OWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rdi
   KPROCESSOR_MODE PreviousMode; // dl
-  __int64 v4; // r9
-  __int64 v5; // rax
-  int v6; // edx
-  void *v7; // rcx
-  unsigned __int64 v8; // rdx
-  void *Pool2; // rbx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  int v7; // edx
+  void *v8; // rcx
+  unsigned __int64 v9; // rdx
+  void *PoolWithQuota_2; // rbx
   void *Src[2]; // [rsp+38h] [rbp-70h] BYREF
   _BYTE WorkItem[80]; // [rsp+50h] [rbp-58h] BYREF
 
@@ -38,30 +39,30 @@ __int64 __fastcall IopLoadDriverImage(_OWORD *a1)
   {
     if ( !SeSinglePrivilegeCheck(SeLoadDriverPrivilege, PreviousMode) )
       return 3221225569LL;
-    if ( (unsigned __int8)PsIsCurrentThreadInServerSilo() )
+    if ( PsIsCurrentThreadInServerSilo(v5, v4) )
       return 0LL;
-    v5 = 0x7FFFFFFF0000LL;
+    v6 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v5 = (__int64)a1;
-    v6 = *(_DWORD *)v5;
-    LODWORD(Src[0]) = v6;
-    v7 = *(void **)(v5 + 8);
-    Src[1] = v7;
-    if ( !(_WORD)v6 )
+      v6 = (__int64)a1;
+    v7 = *(_DWORD *)v6;
+    LODWORD(Src[0]) = v7;
+    v8 = *(void **)(v6 + 8);
+    Src[1] = v8;
+    if ( !(_WORD)v7 )
       return 3221225485LL;
-    if ( ((unsigned __int8)v7 & 1) != 0 )
+    if ( ((unsigned __int8)v8 & 1) != 0 )
       ExRaiseDatatypeMisalignment();
-    v8 = (unsigned __int64)v7 + (unsigned __int16)v6;
-    if ( v8 > 0x7FFFFFFF0000LL || v8 < (unsigned __int64)v7 )
+    v9 = (unsigned __int64)v8 + (unsigned __int16)v7;
+    if ( v9 > 0x7FFFFFFF0000LL || v9 < (unsigned __int64)v8 )
       MEMORY[0x7FFFFFFF0000] = 0;
-    Pool2 = (void *)ExAllocatePool2(289LL, LOWORD(Src[0]), 538996553LL, v4);
-    memmove(Pool2, Src[1], LOWORD(Src[0]));
-    Src[1] = Pool2;
+    PoolWithQuota_2 = (void *)IopVerifierExAllocatePoolWithQuota_2(v8, LOWORD(Src[0]));
+    memmove(PoolWithQuota_2, Src[1], LOWORD(Src[0]));
+    Src[1] = PoolWithQuota_2;
   }
   else
   {
     *(_OWORD *)Src = *a1;
-    Pool2 = 0LL;
+    PoolWithQuota_2 = 0LL;
   }
   WorkItem[34] = 6;
   *(_DWORD *)&WorkItem[36] = 0;
@@ -81,7 +82,7 @@ __int64 __fastcall IopLoadDriverImage(_OWORD *a1)
     ExQueueWorkItem((PWORK_QUEUE_ITEM)WorkItem, DelayedWorkQueue);
     KeWaitForSingleObject(&WorkItem[32], UserRequest, 0, 0, 0LL);
   }
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( PoolWithQuota_2 )
+    ExFreePoolWithTag(PoolWithQuota_2, 0);
   return *(unsigned int *)&WorkItem[72];
 }

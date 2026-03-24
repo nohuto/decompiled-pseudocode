@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlGetAppContainerNamedObjectPath @ 0x1402EDCD0
+ * XREFs of RtlGetAppContainerNamedObjectPath @ 0x1402EDDD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
  *     NtQueryInformationToken @ 0x14062A760 (NtQueryInformationToken.c)
- *     RtlpGetTokenNamedObjectPath @ 0x140894DCC (RtlpGetTokenNamedObjectPath.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x140894DAC (RtlpGetTokenNamedObjectPath.c)
  */
 
 NTSTATUS __fastcall RtlGetAppContainerNamedObjectPath(__int64 TokenHandle, PSID Sid, char a3, __int64 a4)

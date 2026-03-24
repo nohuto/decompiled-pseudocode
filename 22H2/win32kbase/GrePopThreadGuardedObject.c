@@ -1,9 +1,9 @@
 /*
- * XREFs of GrePopThreadGuardedObject @ 0x1C0159030
+ * XREFs of GrePopThreadGuardedObject @ 0x1C013F1E0
  * Callers:
  *     <none>
  * Callees:
- *     PopThreadGuardedObject @ 0x1C003CB00 (PopThreadGuardedObject.c)
+ *     PopThreadGuardedObject @ 0x1C002D4F0 (PopThreadGuardedObject.c)
  */
 
 void __fastcall GrePopThreadGuardedObject(_QWORD *a1)

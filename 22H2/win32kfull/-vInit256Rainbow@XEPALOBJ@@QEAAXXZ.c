@@ -1,11 +1,12 @@
 /*
- * XREFs of ?vInit256Rainbow@XEPALOBJ@@QEAAXXZ @ 0x1C02D9100
+ * XREFs of ?vInit256Rainbow@XEPALOBJ@@QEAAXXZ @ 0x1C00D3E2C
  * Callers:
- *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIAEAV?$umptr_w@E@@PEAUtagBITMAPINFO@@III@Z @ 0x1C00300D0 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
+ *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIPEAEPEAUtagBITMAPINFO@@III@Z @ 0x1C007F3A8 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
  * Callees:
- *     ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C00AC154 (-ulTime@XEPALOBJ@@QEAAKXZ.c)
- *     ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C02A35F4 (-MakeITable@@YAHPEAEPEAURGBX@@H@Z.c)
- *     ?vInit256Default@XEPALOBJ@@QEAAXXZ @ 0x1C02D9090 (-vInit256Default@XEPALOBJ@@QEAAXXZ.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C00D40AC (-ulTime@XEPALOBJ@@QEAAKXZ.c)
+ *     ?vInit256Default@XEPALOBJ@@QEAAXXZ @ 0x1C00D40C8 (-vInit256Default@XEPALOBJ@@QEAAXXZ.c)
+ *     ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C00D4124 (-MakeITable@@YAHPEAEPEAURGBX@@H@Z.c)
  */
 
 void __fastcall XEPALOBJ::vInit256Rainbow(XEPALOBJ *this)
@@ -15,28 +16,23 @@ void __fastcall XEPALOBJ::vInit256Rainbow(XEPALOBJ *this)
   char v3; // r11
   __int64 v4; // r9
   __int64 v6; // r10
-  Gre::Base *v7; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v8; // rbp
-  __int64 v9; // r8
-  __int64 v10; // r9
-  signed __int64 v11; // rsi
-  Gre::Base *v12; // rax
-  __int64 v13; // rcx
-  Gre::Base *v14; // rdi
-  int v15; // [rsp+38h] [rbp+10h]
+  unsigned __int8 *v7; // rsi
+  unsigned __int8 *v8; // rbx
+  __int64 v9; // rax
+  int v10; // [rsp+38h] [rbp+10h]
 
   v1 = 0;
   v2 = 0;
   v3 = 0;
-  HIBYTE(v15) = 0;
+  HIBYTE(v10) = 0;
   v4 = 0LL;
   v6 = 256LL;
   do
   {
-    LOBYTE(v15) = v3;
-    BYTE1(v15) = v2;
-    BYTE2(v15) = v1;
-    *(_DWORD *)(v4 + *(_QWORD *)(*(_QWORD *)this + 112LL)) = v15;
+    LOBYTE(v10) = v3;
+    BYTE1(v10) = v2;
+    BYTE2(v10) = v1;
+    *(_DWORD *)(v4 + *(_QWORD *)(*(_QWORD *)this + 112LL)) = v10;
     v3 += 32;
     if ( !v3 )
     {
@@ -49,25 +45,26 @@ void __fastcall XEPALOBJ::vInit256Rainbow(XEPALOBJ *this)
   }
   while ( v6 );
   XEPALOBJ::vInit256Default(this);
-  v8 = Gre::Base::Globals(v7);
-  v11 = *((_QWORD *)v8 + 492);
-  if ( v11 )
-    goto LABEL_10;
-  v12 = (Gre::Base *)Win32AllocPool(0x8000LL, 1650946631LL, v9, v10);
-  v13 = *(_QWORD *)this;
-  v14 = v12;
-  if ( v12 )
+  v7 = gpRGBXlate;
+  if ( gpRGBXlate )
+    goto LABEL_5;
+  v8 = (unsigned __int8 *)PALLOCMEM2(0x8000uLL, 1650946631LL, 0);
+  v9 = *(_QWORD *)this;
+  if ( v8 )
   {
-    MakeITable(v12, *(struct RGBX **)(v13 + 112), 256);
-    v11 = _InterlockedCompareExchange64((volatile signed __int64 *)v8 + 492, (signed __int64)v14, 0LL);
-    if ( v11 )
-      Win32FreePool(v14);
+    MakeITable(v8, *(struct RGBX **)(v9 + 112), 256);
+    v7 = (unsigned __int8 *)_InterlockedCompareExchange64(
+                              (volatile signed __int64 *)gpRGBXlate,
+                              (signed __int64)v8,
+                              0LL);
+    if ( v7 )
+      Win32FreePool(v8);
     else
-      v11 = (signed __int64)v14;
-LABEL_10:
+      v7 = v8;
+LABEL_5:
     *(_DWORD *)(*(_QWORD *)this + 36LL) = XEPALOBJ::ulTime(this);
-    *(_QWORD *)(*(_QWORD *)this + 104LL) = v11;
+    *(_QWORD *)(*(_QWORD *)this + 104LL) = v7;
     return;
   }
-  *(_QWORD *)(v13 + 104) = 0LL;
+  *(_QWORD *)(v9 + 104) = 0LL;
 }

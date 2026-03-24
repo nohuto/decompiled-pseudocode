@@ -1,5 +1,5 @@
 /*
- * XREFs of ViIrpDatabaseReleaseLockExclusive @ 0x14030B530
+ * XREFs of ViIrpDatabaseReleaseLockExclusive @ 0x14030B630
  * Callers:
  *     IovpCompleteRequest2 @ 0x14092F620 (IovpCompleteRequest2.c)
  *     VfIoFreeIrp @ 0x14093027C (VfIoFreeIrp.c)
@@ -8,8 +8,8 @@
  *     VfIrpDatabaseEntryInsertAndLock @ 0x14093E2D0 (VfIrpDatabaseEntryInsertAndLock.c)
  *     VfIrpDatabaseEntryReleaseLock @ 0x14093E3A4 (VfIrpDatabaseEntryReleaseLock.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ViIrpDatabaseReleaseLockExclusive(unsigned __int8 a1)

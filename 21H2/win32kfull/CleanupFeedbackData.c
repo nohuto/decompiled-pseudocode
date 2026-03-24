@@ -1,19 +1,16 @@
 /*
- * XREFs of CleanupFeedbackData @ 0x1C0122C20
+ * XREFs of CleanupFeedbackData @ 0x1C01374C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 CleanupFeedbackData()
+void CleanupFeedbackData()
 {
-  __int64 result; // rax
-
   if ( Feedback::gpevtPointerCursorOperation )
   {
-    result = Win32FreePool(Feedback::gpevtPointerCursorOperation);
+    Win32FreePool(Feedback::gpevtPointerCursorOperation);
     Feedback::gpevtPointerCursorOperation = 0LL;
   }
-  return result;
 }

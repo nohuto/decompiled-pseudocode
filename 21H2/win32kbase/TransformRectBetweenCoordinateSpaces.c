@@ -1,64 +1,65 @@
 /*
- * XREFs of TransformRectBetweenCoordinateSpaces @ 0x1C006D5A0
+ * XREFs of TransformRectBetweenCoordinateSpaces @ 0x1C0070250
  * Callers:
- *     xxxEnumDisplayMonitors @ 0x1C006E680 (xxxEnumDisplayMonitors.c)
+ *     xxxEnumDisplayMonitors @ 0x1C006FE90 (xxxEnumDisplayMonitors.c)
  * Callees:
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C001E924 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C002EA80 (W32GetCurrentThreadDpiAwarenessContext.c)
- *     Is_GetTopLevelWindowSupported @ 0x1C006C860 (Is_GetTopLevelWindowSupported.c)
- *     TransformRectBetweenCoordinateSpacesPerMonitor @ 0x1C006D8A0 (TransformRectBetweenCoordinateSpacesPerMonitor.c)
- *     Is_MonitorFromRectSupported @ 0x1C006E534 (Is_MonitorFromRectSupported.c)
- *     IntersectRect @ 0x1C006EC48 (IntersectRect.c)
- *     ?ExpandedMonitorRect@@YA?AUtagRECT@@PEAUtagMONITOR@@K@Z @ 0x1C006F314 (-ExpandedMonitorRect@@YA-AUtagRECT@@PEAUtagMONITOR@@K@Z.c)
- *     HMValidateSharedHandleNoRip @ 0x1C008F240 (HMValidateSharedHandleNoRip.c)
- *     TransformOffscreenAdjacentRect @ 0x1C00D00F8 (TransformOffscreenAdjacentRect.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     IsDpiAwarenessBoundaryInParentChain @ 0x1C0152130 (IsDpiAwarenessBoundaryInParentChain.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C002AA84 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     TransformRectBetweenCoordinateSpacesPerMonitor @ 0x1C007053C (TransformRectBetweenCoordinateSpacesPerMonitor.c)
+ *     Is_MonitorFromRectSupported @ 0x1C0070EC8 (Is_MonitorFromRectSupported.c)
+ *     IntersectRect @ 0x1C0071334 (IntersectRect.c)
+ *     ?ExpandedMonitorRect@@YA?AUtagRECT@@PEAUtagMONITOR@@K@Z @ 0x1C00713A8 (-ExpandedMonitorRect@@YA-AUtagRECT@@PEAUtagMONITOR@@K@Z.c)
+ *     Is_GetTopLevelWindowSupported @ 0x1C0071528 (Is_GetTopLevelWindowSupported.c)
+ *     HMValidateSharedHandleNoRip @ 0x1C00B3EE8 (HMValidateSharedHandleNoRip.c)
+ *     TransformOffscreenAdjacentRect @ 0x1C00C08AC (TransformOffscreenAdjacentRect.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     IsDpiAwarenessBoundaryInParentChain @ 0x1C01372B4 (IsDpiAwarenessBoundaryInParentChain.c)
  */
 
-__int64 __fastcall TransformRectBetweenCoordinateSpaces(
-        struct tagRECT *a1,
-        const struct tagRECT *a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall TransformRectBetweenCoordinateSpaces(_OWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // bl
-  unsigned int CurrentThreadDpiAwarenessContext; // r12d
-  unsigned int v10; // esi
-  struct tagRECT v11; // xmm1
-  unsigned int v12; // edi
-  __int64 v13; // r15
-  int top; // r13d
-  int v15; // eax
-  int v16; // r14d
-  LONG v17; // r15d
-  __int64 v18; // rax
+  unsigned int *v7; // r14
+  unsigned int CurrentThreadDpiAwarenessContext; // r15d
+  unsigned int v10; // edi
+  __int128 v11; // xmm1
+  unsigned int v12; // esi
+  __int64 v13; // r8
+  __int64 v14; // rcx
+  __int64 v15; // r13
+  int v16; // r12d
+  int v17; // eax
+  unsigned int v18; // r13d
+  int v19; // r14d
   __int64 v20; // rax
-  int v21; // ebx
-  int v22; // eax
-  int v23; // eax
-  __int64 v25; // rax
+  __int64 v22; // rax
+  int v23; // ecx
+  int v24; // eax
+  int v25; // ebx
   int v26; // eax
-  unsigned int bottom; // ecx
-  int v28; // eax
-  LONG v29; // eax
-  LONG v30; // eax
-  LONG v31; // eax
-  LONG v32; // eax
+  int v27; // eax
+  __int64 v29; // rax
+  int v30; // eax
+  unsigned int v31; // ecx
+  int v32; // eax
   int v33; // eax
   int v34; // eax
-  int v35; // [rsp+30h] [rbp-89h]
-  int left; // [rsp+40h] [rbp-79h]
-  int right; // [rsp+50h] [rbp-69h]
-  __int128 v39; // [rsp+60h] [rbp-59h] BYREF
-  struct tagRECT v40; // [rsp+70h] [rbp-49h] BYREF
-  struct tagRECT v41; // [rsp+80h] [rbp-39h] BYREF
-  struct tagRECT v42; // [rsp+90h] [rbp-29h] BYREF
-  struct tagRECT v43; // [rsp+A0h] [rbp-19h] BYREF
-  struct tagRECT v44; // [rsp+B0h] [rbp-9h] BYREF
+  int v35; // eax
+  int v36; // eax
+  int v37; // eax
+  int v38; // eax
+  int v39; // [rsp+30h] [rbp-89h]
+  int v40; // [rsp+40h] [rbp-79h]
+  int v41; // [rsp+50h] [rbp-69h]
+  __int128 v43; // [rsp+60h] [rbp-59h] BYREF
+  struct tagRECT v44; // [rsp+70h] [rbp-49h] BYREF
+  __int128 v45; // [rsp+80h] [rbp-39h] BYREF
+  __int128 v46; // [rsp+90h] [rbp-29h] BYREF
+  __int128 v47; // [rsp+A0h] [rbp-19h] BYREF
+  __int128 v48; // [rsp+B0h] [rbp-9h] BYREF
 
   v4 = 0;
+  v7 = (unsigned int *)a2;
   if ( a3 )
     CurrentThreadDpiAwarenessContext = *(_DWORD *)(*(_QWORD *)(a3 + 40) + 288LL);
   else
@@ -67,193 +68,208 @@ __int64 __fastcall TransformRectBetweenCoordinateSpaces(
     v10 = *(_DWORD *)(*(_QWORD *)(a4 + 40) + 288LL);
   else
     v10 = W32GetCurrentThreadDpiAwarenessContext();
-  v11 = *a2;
-  v35 = 0;
+  v11 = *(_OWORD *)v7;
+  v39 = 0;
   v12 = 0;
-  v43 = 0LL;
-  v44 = v11;
-  v42 = 0LL;
-  if ( (((unsigned __int16)(CurrentThreadDpiAwarenessContext >> 8) ^ (unsigned __int16)(v10 >> 8)) & 0x1FF) == 0
-    || IsRectEmptyInl(a2) && !a2->left && !a2->top )
+  v13 = 1LL;
+  v47 = 0LL;
+  v48 = v11;
+  v46 = 0LL;
+  if ( (((unsigned __int16)(CurrentThreadDpiAwarenessContext >> 8) ^ (unsigned __int16)(v10 >> 8)) & 0x1FF) == 0 )
   {
+    a2 = 0x20000000LL;
+    if ( (CurrentThreadDpiAwarenessContext & 0xF) != 2
+      || (v23 = 1, (CurrentThreadDpiAwarenessContext & 0x20000000) == 0) )
+    {
+      v23 = 0;
+    }
+    if ( (v10 & 0xF) != 2 || (v24 = 1, (v10 & 0x20000000) == 0) )
+      v24 = 0;
+    if ( v23 == v24 )
+      goto LABEL_31;
+  }
+  v14 = *v7;
+  if ( ((int)v14 >= (int)v7[2] || (int)v7[1] >= (int)v7[3]) && !(_DWORD)v14 && !v7[1] )
+  {
+LABEL_31:
     *a1 = v11;
     return 0LL;
   }
-  if ( a3 && (int)Is_GetTopLevelWindowSupported() >= 0 )
+  if ( a3 )
   {
-    v20 = qword_1C029C7E0 ? qword_1C029C7E0(a3) : 0LL;
-    if ( v20 )
+    v22 = (int)Is_GetTopLevelWindowSupported(v14, a2, 1LL) >= 0 && qword_1C0257AA0 ? qword_1C0257AA0(a3) : 0LL;
+    if ( v22 )
     {
-      if ( v20 != a3 )
+      if ( v22 != a3 )
       {
         if ( (unsigned int)IsDpiAwarenessBoundaryInParentChain(a3) )
         {
-          v25 = HMValidateSharedHandleNoRip(*(_QWORD *)(*(_QWORD *)(a3 + 40) + 256LL));
-          if ( v25 )
+          v29 = HMValidateSharedHandleNoRip(*(_QWORD *)(*(_QWORD *)(a3 + 40) + 256LL));
+          if ( v29 )
             return TransformRectBetweenCoordinateSpacesPerMonitor(
                      (_DWORD)a1,
-                     (_DWORD)a2,
+                     (_DWORD)v7,
                      CurrentThreadDpiAwarenessContext,
                      v10,
-                     v25);
+                     v29);
         }
       }
     }
   }
-  v13 = *((_QWORD *)gpDispInfo + 13);
-  if ( !v13 )
-    goto LABEL_41;
-  top = v42.top;
-  right = v42.right;
-  left = v42.left;
+  v15 = *(_QWORD *)(gpDispInfo + 104);
+  if ( !v15 )
+    goto LABEL_73;
+  v16 = DWORD1(v46);
+  v41 = DWORD2(v46);
+  v40 = v46;
   do
   {
-    v41 = 0LL;
-    v39 = (__int128)*ExpandedMonitorRect(&v40, (struct tagMONITOR *)v13, v10);
-    if ( (unsigned int)IntersectRect(&v41, &v39, a2) )
+    v45 = 0LL;
+    v43 = (__int128)*ExpandedMonitorRect(&v44, (struct tagMONITOR *)v15, v10);
+    if ( (unsigned int)IntersectRect(&v45, &v43, v7) )
     {
-      if ( v35 )
+      if ( v39 )
       {
-        v26 = left;
-        bottom = v42.bottom;
-        if ( left >= v41.left )
-          v26 = v41.left;
-        left = v26;
-        if ( top >= v41.top )
-          top = v41.top;
-        *(_QWORD *)&v42.left = __PAIR64__(top, v26);
-        v28 = right;
-        if ( right <= v41.right )
-          v28 = v41.right;
-        right = v28;
-        if ( v42.bottom <= v41.bottom )
-          bottom = v41.bottom;
-        *(_QWORD *)&v42.right = __PAIR64__(bottom, v28);
+        v30 = v40;
+        v31 = HIDWORD(v46);
+        if ( v40 >= (int)v45 )
+          v30 = v45;
+        v40 = v30;
+        if ( v16 >= SDWORD1(v45) )
+          v16 = DWORD1(v45);
+        *(_QWORD *)&v46 = __PAIR64__(v16, v30);
+        v32 = v41;
+        if ( v41 <= SDWORD2(v45) )
+          v32 = DWORD2(v45);
+        v41 = v32;
+        if ( SHIDWORD(v46) <= SHIDWORD(v45) )
+          v31 = HIDWORD(v45);
+        *((_QWORD *)&v46 + 1) = __PAIR64__(v31, v32);
       }
       else
       {
-        v42 = v41;
-        top = v41.top;
-        right = v41.right;
-        left = v41.left;
+        v46 = v45;
+        v16 = DWORD1(v45);
+        v41 = DWORD2(v45);
+        v40 = v45;
       }
       v12 |= TransformRectBetweenCoordinateSpacesPerMonitor(
-               (unsigned int)&v41,
-               (unsigned int)&v41,
+               (unsigned int)&v45,
+               (unsigned int)&v45,
                CurrentThreadDpiAwarenessContext,
                v10,
-               v13);
-      if ( !v35 )
+               v15);
+      if ( !v39 )
       {
-        v15 = 1;
-        v43 = v41;
-        v35 = 1;
-        goto LABEL_15;
+        v17 = 1;
+        v47 = v45;
+        v39 = 1;
+        goto LABEL_16;
       }
-      v29 = v43.left;
-      if ( v43.left >= v41.left )
-        v29 = v41.left;
-      v43.left = v29;
-      v30 = v43.top;
-      if ( v43.top >= v41.top )
-        v30 = v41.top;
-      v43.top = v30;
-      v31 = v43.right;
-      if ( v43.right <= v41.right )
-        v31 = v41.right;
-      v43.right = v31;
-      v32 = v43.bottom;
-      if ( v43.bottom <= v41.bottom )
-        v32 = v41.bottom;
-      v43.bottom = v32;
+      v33 = v47;
+      if ( (int)v47 >= (int)v45 )
+        v33 = v45;
+      LODWORD(v47) = v33;
+      v34 = DWORD1(v47);
+      if ( SDWORD1(v47) >= SDWORD1(v45) )
+        v34 = DWORD1(v45);
+      DWORD1(v47) = v34;
+      v35 = DWORD2(v47);
+      if ( SDWORD2(v47) <= SDWORD2(v45) )
+        v35 = DWORD2(v45);
+      DWORD2(v47) = v35;
+      v36 = HIDWORD(v47);
+      if ( SHIDWORD(v47) <= SHIDWORD(v45) )
+        v36 = HIDWORD(v45);
+      HIDWORD(v47) = v36;
     }
-    v15 = v35;
-LABEL_15:
-    v13 = *(_QWORD *)(v13 + 56);
+    v17 = v39;
+LABEL_16:
+    v15 = *(_QWORD *)(v15 + 56);
   }
-  while ( v13 );
-  if ( v15 )
+  while ( v15 );
+  if ( v17 )
   {
-    v16 = v44.right;
-    v17 = v44.left;
-    v18 = *(_QWORD *)&v42.left - *(_QWORD *)&v44.left;
-    if ( *(_QWORD *)&v42.left == *(_QWORD *)&v44.left )
-      v18 = *(_QWORD *)&v42.right - *(_QWORD *)&v44.right;
-    if ( v18 )
+    v19 = DWORD2(v48);
+    v18 = v48;
+    v20 = v46 - v48;
+    if ( (_QWORD)v46 == (_QWORD)v48 )
+      v20 = *((_QWORD *)&v46 + 1) - *((_QWORD *)&v48 + 1);
+    if ( v20 )
     {
-      v21 = v44.top;
-      if ( left <= v44.left )
+      v25 = DWORD1(v48);
+      if ( v40 <= (int)v48 )
       {
-        v23 = right;
+        v27 = v41;
       }
       else
       {
-        *(_QWORD *)&v41.right = __PAIR64__(v44.bottom, left);
-        *(_QWORD *)&v41.left = *(_QWORD *)&v44.left;
-        v22 = TransformOffscreenAdjacentRect(
-                (unsigned int)&v42,
-                (unsigned int)&v43,
-                (unsigned int)&v41,
+        *((_QWORD *)&v45 + 1) = __PAIR64__(HIDWORD(v48), v40);
+        *(_QWORD *)&v45 = v48;
+        v26 = TransformOffscreenAdjacentRect(
+                (unsigned int)&v46,
+                (unsigned int)&v47,
+                (unsigned int)&v45,
                 CurrentThreadDpiAwarenessContext,
                 v10);
-        top = v42.top;
-        v12 |= v22;
-        v23 = v42.right;
+        v16 = DWORD1(v46);
+        v12 |= v26;
+        v27 = DWORD2(v46);
       }
-      if ( v23 < v16 )
+      if ( v27 < v19 )
       {
-        *(_QWORD *)&v41.left = __PAIR64__(v21, v23);
-        *(_QWORD *)&v41.right = __PAIR64__(v44.bottom, v16);
-        v33 = TransformOffscreenAdjacentRect(
-                (unsigned int)&v42,
-                (unsigned int)&v43,
-                (unsigned int)&v41,
+        *(_QWORD *)&v45 = __PAIR64__(v25, v27);
+        *((_QWORD *)&v45 + 1) = __PAIR64__(HIDWORD(v48), v19);
+        v37 = TransformOffscreenAdjacentRect(
+                (unsigned int)&v46,
+                (unsigned int)&v47,
+                (unsigned int)&v45,
                 CurrentThreadDpiAwarenessContext,
                 v10);
-        top = v42.top;
-        v12 |= v33;
+        v16 = DWORD1(v46);
+        v12 |= v37;
       }
-      if ( top > v21 )
+      if ( v16 > v25 )
       {
-        *(_QWORD *)&v41.left = __PAIR64__(v21, v17);
-        *(_QWORD *)&v41.right = __PAIR64__(top, v16);
+        *(_QWORD *)&v45 = __PAIR64__(v25, v18);
+        *((_QWORD *)&v45 + 1) = __PAIR64__(v16, v19);
         v12 |= TransformOffscreenAdjacentRect(
-                 (unsigned int)&v42,
-                 (unsigned int)&v43,
-                 (unsigned int)&v41,
+                 (unsigned int)&v46,
+                 (unsigned int)&v47,
+                 (unsigned int)&v45,
                  CurrentThreadDpiAwarenessContext,
                  v10);
       }
-      if ( v42.bottom < v44.bottom )
+      if ( SHIDWORD(v46) < SHIDWORD(v48) )
       {
-        *(_QWORD *)&v44.left = __PAIR64__(v42.bottom, v17);
-        v44.right = v16;
-        v34 = TransformOffscreenAdjacentRect(
-                (unsigned int)&v42,
-                (unsigned int)&v43,
-                (unsigned int)&v44,
+        *(_QWORD *)&v48 = __PAIR64__(HIDWORD(v46), v18);
+        DWORD2(v48) = v19;
+        v38 = TransformOffscreenAdjacentRect(
+                (unsigned int)&v46,
+                (unsigned int)&v47,
+                (unsigned int)&v48,
                 CurrentThreadDpiAwarenessContext,
                 v10);
-        goto LABEL_45;
+        goto LABEL_77;
       }
     }
-    goto LABEL_20;
+    goto LABEL_21;
   }
-LABEL_41:
-  if ( (int)Is_MonitorFromRectSupported() >= 0 )
+LABEL_73:
+  if ( (int)Is_MonitorFromRectSupported(v14, a2, v13) >= 0 )
   {
-    if ( qword_1C029C980 )
-      v4 = qword_1C029C980(a2, 2LL, v10);
-    v34 = TransformRectBetweenCoordinateSpacesPerMonitor(
-            (unsigned int)&v43,
-            (_DWORD)a2,
+    if ( qword_1C0257C40 )
+      v4 = qword_1C0257C40(v7, 2LL, v10);
+    v38 = TransformRectBetweenCoordinateSpacesPerMonitor(
+            (unsigned int)&v47,
+            (_DWORD)v7,
             CurrentThreadDpiAwarenessContext,
             v10,
             v4);
-LABEL_45:
-    v12 |= v34;
+LABEL_77:
+    v12 |= v38;
   }
-LABEL_20:
-  *a1 = v43;
+LABEL_21:
+  *a1 = v47;
   return v12;
 }

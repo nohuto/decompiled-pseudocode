@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpPrepareToInvalidateAllHigherLayerKcbsPostCallback @ 0x14091D0F0
+ * XREFs of CmpPrepareToInvalidateAllHigherLayerKcbsPostCallback @ 0x1408765A0
  * Callers:
  *     <none>
  * Callees:
- *     CmpPrepareForSubtreeInvalidation @ 0x14069E26C (CmpPrepareForSubtreeInvalidation.c)
+ *     CmpPrepareForSubtreeInvalidation @ 0x140772AC4 (CmpPrepareForSubtreeInvalidation.c)
  */
 
 __int64 __fastcall CmpPrepareToInvalidateAllHigherLayerKcbsPostCallback(__int64 a1, __int64 a2, __int64 a3)

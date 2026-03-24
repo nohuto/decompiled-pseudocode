@@ -1,8 +1,8 @@
 /*
- * XREFs of ?EtwpGetClassName@@YAJQEAUtagWND@@PEAU_UNICODE_STRING@@@Z @ 0x1C000DDF4
+ * XREFs of ?EtwpGetClassName@@YAJQEAUtagWND@@PEAU_UNICODE_STRING@@@Z @ 0x1C00AA0EC
  * Callers:
- *     EtwTraceInputProcessDelay @ 0x1C0053680 (EtwTraceInputProcessDelay.c)
- *     EtwTraceMessageCheckDelay @ 0x1C0089570 (EtwTraceMessageCheckDelay.c)
+ *     EtwTraceInputProcessDelay @ 0x1C0122640 (EtwTraceInputProcessDelay.c)
+ *     EtwTraceMessageCheckDelay @ 0x1C0122ED0 (EtwTraceMessageCheckDelay.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@
 __int64 __fastcall EtwpGetClassName(struct tagWND *const a1, struct _UNICODE_STRING *a2)
 {
   unsigned int v4; // ebx
-  _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  struct _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   v4 = 0;
   DestinationString = 0LL;

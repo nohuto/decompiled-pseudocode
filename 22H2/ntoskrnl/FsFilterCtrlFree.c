@@ -1,13 +1,13 @@
 /*
- * XREFs of FsFilterCtrlFree @ 0x1402A21A8
+ * XREFs of FsFilterCtrlFree @ 0x1402D7408
  * Callers:
- *     FsRtlReleaseFile @ 0x140723980 (FsRtlReleaseFile.c)
- *     FsRtlAcquireFileExclusiveCommon @ 0x140723B90 (FsRtlAcquireFileExclusiveCommon.c)
- *     FsRtlQueryOpen @ 0x1407AC0F4 (FsRtlQueryOpen.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x1407B4A78 (FsRtlAcquireFileForCcFlushEx.c)
- *     FsRtlReleaseFileForCcFlush @ 0x1407B4D18 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlQueryOpen @ 0x1405D8FB0 (FsRtlQueryOpen.c)
+ *     FsRtlReleaseFile @ 0x140655100 (FsRtlReleaseFile.c)
+ *     FsRtlAcquireFileExclusiveCommon @ 0x1406552D0 (FsRtlAcquireFileExclusiveCommon.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x1406BFDE4 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x1406BFFC4 (FsRtlAcquireFileForCcFlushEx.c)
  * Callees:
- *     FsFilterFreeCompletionStack @ 0x14045EC7A (FsFilterFreeCompletionStack.c)
+ *     FsFilterFreeCompletionStack @ 0x1404F0E18 (FsFilterFreeCompletionStack.c)
  */
 
 __int64 __fastcall FsFilterCtrlFree(__int64 a1)
@@ -16,6 +16,6 @@ __int64 __fastcall FsFilterCtrlFree(__int64 a1)
 
   result = *(unsigned int *)(a1 + 64);
   if ( (result & 1) != 0 )
-    return FsFilterFreeCompletionStack();
+    return FsFilterFreeCompletionStack(a1);
   return result;
 }

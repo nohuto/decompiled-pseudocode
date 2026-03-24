@@ -1,26 +1,16 @@
 /*
- * XREFs of PipIsProviderStarted @ 0x14085F5DC
+ * XREFs of PipIsProviderStarted @ 0x14089DD68
  * Callers:
- *     IoResolveDependency @ 0x1403965C0 (IoResolveDependency.c)
- *     PipCheckForUnsatisfiedDependencies @ 0x1406C98DC (PipCheckForUnsatisfiedDependencies.c)
+ *     IoResolveDependency @ 0x1403BF100 (IoResolveDependency.c)
+ *     PipCheckForUnsatisfiedDependencies @ 0x14073DDA8 (PipCheckForUnsatisfiedDependencies.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall PipIsProviderStarted(__int64 a1)
+bool __fastcall PipIsProviderStarted(__int64 a1)
 {
-  char result; // al
+  int v1; // eax
 
-  switch ( *(_DWORD *)(a1 + 300) )
-  {
-    case 0x30A:
-    case 0x30E:
-    case 0x30F:
-      result = 1;
-      break;
-    default:
-      result = 0;
-      break;
-  }
-  return result;
+  v1 = *(_DWORD *)(a1 + 300);
+  return v1 >= 776 && (v1 == 776 || v1 > 779 && v1 <= 781);
 }

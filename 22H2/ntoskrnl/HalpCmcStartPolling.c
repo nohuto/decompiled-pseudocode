@@ -1,40 +1,42 @@
 /*
- * XREFs of HalpCmcStartPolling @ 0x1403B42D8
+ * XREFs of HalpCmcStartPolling @ 0x1403C53F8
  * Callers:
- *     HalpCmciDeferredRoutine @ 0x140505820 (HalpCmciDeferredRoutine.c)
- *     HalpInitializeCmc @ 0x140A8B58C (HalpInitializeCmc.c)
+ *     HalpCmciDeferredRoutine @ 0x14038D3C0 (HalpCmciDeferredRoutine.c)
+ *     HalpInitializeCmc @ 0x1409A0E28 (HalpInitializeCmc.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     HalpIsPartitionCpuManager @ 0x140378548 (HalpIsPartitionCpuManager.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x14037858C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1898 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsPartitionCpuManager @ 0x1403AF37C (HalpIsPartitionCpuManager.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall HalpCmcStartPolling(__int64 a1, __int64 a2)
+char __fastcall HalpCmcStartPolling(__int64 a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  unsigned __int64 v4; // rbx
-  int v5; // eax
+  __int64 v1; // rcx
+  unsigned __int64 v2; // rbx
+  int v3; // eax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v8; // zf
+  bool v6; // zf
 
-  if ( !HalpIsMicrosoftCompatibleHvLoaded(a1, a2) || (LOBYTE(v5) = HalpIsPartitionCpuManager(v3, v2), (_BYTE)v5) )
+  if ( !HalpIsMicrosoftCompatibleHvLoaded(a1) || (LOBYTE(v3) = HalpIsPartitionCpuManager(v1), (_BYTE)v3) )
   {
-    v4 = KeAcquireSpinLockRaiseToDpc(&HalpCmcFallbackLock);
+    v2 = KeAcquireSpinLockRaiseToDpc(&HalpCmcFallbackLock);
     if ( HalpCmcPollingInitialized )
     {
-      if ( (HalpMcaPollForCmc || HalpCmciRevertToPolledMode || HalpCmcPollingStartDeferred) && !HalpCmcPollingStarted )
+      if ( (HalpMcaPollForCmc
+         || HalpCmciRevertToPolledMode
+         || HalpCmcPollingStartDeferred != (_BYTE)HalpCmciRevertToPolledMode)
+        && !HalpCmcPollingStarted )
       {
         KiSetTimerEx(
-          (__int64)&qword_140C6A908,
+          (__int64)&qword_140C50838,
           -10000LL * (unsigned int)HalpCmcContext,
           HalpCmcContext,
           0,
-          (__int64)&dword_140C6A948);
+          (__int64)&dword_140C50878);
         HalpCmcPollingStarted = 1;
       }
     }
@@ -42,25 +44,26 @@ char __fastcall HalpCmcStartPolling(__int64 a1, __int64 a2)
     {
       HalpCmcPollingStartDeferred = 1;
     }
-    LOBYTE(v5) = KxReleaseSpinLock((volatile signed __int64 *)&HalpCmcFallbackLock);
+    KxReleaseSpinLock(&HalpCmcFallbackLock);
+    LOBYTE(v3) = KiIrqlFlags;
     if ( KiIrqlFlags )
     {
-      LOBYTE(v5) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)v5 <= 0xFu
-        && (unsigned __int8)v4 <= 0xFu
-        && (unsigned __int8)v5 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v5 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-        v8 = (v5 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v5;
-        if ( v8 )
-          LOBYTE(v5) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        LOBYTE(v3) = KeGetCurrentIrql();
+        if ( (unsigned __int8)v3 <= 0xFu && (unsigned __int8)v2 <= 0xFu && (unsigned __int8)v3 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v3 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+          v6 = (v3 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v3;
+          if ( v6 )
+            LOBYTE(v3) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
-    __writecr8(v4);
+    __writecr8(v2);
   }
-  return v5;
+  return v3;
 }

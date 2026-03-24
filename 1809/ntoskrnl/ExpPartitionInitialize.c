@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpPartitionInitialize @ 0x140754A84
+ * XREFs of ExpPartitionInitialize @ 0x140754A64
  * Callers:
- *     PspAllocatePartition @ 0x14075CA68 (PspAllocatePartition.c)
+ *     PspAllocatePartition @ 0x14075CA48 (PspAllocatePartition.c)
  *     ExpWorkerInitialization @ 0x1409D4C50 (ExpWorkerInitialization.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExpPartitionCreatePoolInternal @ 0x140754C84 (ExpPartitionCreatePoolInternal.c)
- *     ExpWorkQueueManagerInitialize @ 0x140754E20 (ExpWorkQueueManagerInitialize.c)
- *     ExpPartitionDestroy @ 0x1408D6354 (ExpPartitionDestroy.c)
+ *     ExpPartitionCreatePoolInternal @ 0x140754C64 (ExpPartitionCreatePoolInternal.c)
+ *     ExpWorkQueueManagerInitialize @ 0x140754E00 (ExpWorkQueueManagerInitialize.c)
+ *     ExpPartitionDestroy @ 0x1408D6334 (ExpPartitionDestroy.c)
  */
 
 __int64 __fastcall ExpPartitionInitialize(__int64 a1)

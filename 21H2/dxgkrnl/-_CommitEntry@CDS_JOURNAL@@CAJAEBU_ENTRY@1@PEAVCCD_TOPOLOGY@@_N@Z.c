@@ -1,17 +1,17 @@
 /*
- * XREFs of ?_CommitEntry@CDS_JOURNAL@@CAJAEBU_ENTRY@1@PEAVCCD_TOPOLOGY@@_N@Z @ 0x1C01D6840
+ * XREFs of ?_CommitEntry@CDS_JOURNAL@@CAJAEBU_ENTRY@1@PEAVCCD_TOPOLOGY@@_N@Z @ 0x1C01492C0
  * Callers:
- *     ?CommitTo@CDS_JOURNAL@@QEBAJPEAVCCD_TOPOLOGY@@_NPEAG@Z @ 0x1C01B8454 (-CommitTo@CDS_JOURNAL@@QEBAJPEAVCCD_TOPOLOGY@@_NPEAG@Z.c)
- *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C01D3EC0 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
- *     ?ApplyCdsjToPathModality@CDS_JOURNAL@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C01EE858 (-ApplyCdsjToPathModality@CDS_JOURNAL@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ *     ?CommitTo@CDS_JOURNAL@@QEBAJPEAVCCD_TOPOLOGY@@_NPEAG@Z @ 0x1C00E1334 (-CommitTo@CDS_JOURNAL@@QEBAJPEAVCCD_TOPOLOGY@@_NPEAG@Z.c)
+ *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C014A0E0 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ *     ?ApplyCdsjToPathModality@CDS_JOURNAL@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C02F0C8C (-ApplyCdsjToPathModality@CDS_JOURNAL@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
  * Callees:
- *     ?IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z @ 0x1C0019678 (-IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z.c)
- *     ?IsPrimaryClonePathByModality@CCD_TOPOLOGY@@QEBA_NI@Z @ 0x1C0019D70 (-IsPrimaryClonePathByModality@CCD_TOPOLOGY@@QEBA_NI@Z.c)
- *     ?_IsUnextend@CDS_JOURNAL@@CA_NAEBU_ENTRY@1@@Z @ 0x1C0019E30 (-_IsUnextend@CDS_JOURNAL@@CA_NAEBU_ENTRY@1@@Z.c)
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C01ABE88 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
- *     ?_FillPathDescriptor@CDS_JOURNAL@@CAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@1@_N2PEAVDXGADAPTER@@@Z @ 0x1C01D5B10 (-_FillPathDescriptor@CDS_JOURNAL@@CAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@1@_N2PEAVDXG.c)
- *     ?RemoveCloneGroupByModality@CCD_TOPOLOGY@@QEAAJAEBU_LUID@@I@Z @ 0x1C03A9CF8 (-RemoveCloneGroupByModality@CCD_TOPOLOGY@@QEAAJAEBU_LUID@@I@Z.c)
- *     ?_ExtendTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@AEBU_ENTRY@1@@Z @ 0x1C03AC838 (-_ExtendTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@AEBU_ENTRY@1@@Z.c)
+ *     ?_IsUnextend@CDS_JOURNAL@@CA_NAEBU_ENTRY@1@@Z @ 0x1C0001D40 (-_IsUnextend@CDS_JOURNAL@@CA_NAEBU_ENTRY@1@@Z.c)
+ *     ?IsPrimaryClonePathByModality@CCD_TOPOLOGY@@QEBA_NI@Z @ 0x1C000C7F4 (-IsPrimaryClonePathByModality@CCD_TOPOLOGY@@QEBA_NI@Z.c)
+ *     ?IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z @ 0x1C000C868 (-IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013527C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     ?_FillPathDescriptor@CDS_JOURNAL@@CAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@1@_N2PEAVDXGADAPTER@@@Z @ 0x1C0146954 (-_FillPathDescriptor@CDS_JOURNAL@@CAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@1@_N2PEAVDXG.c)
+ *     ?RemoveCloneGroupByModality@CCD_TOPOLOGY@@QEAAJAEBU_LUID@@I@Z @ 0x1C02EB344 (-RemoveCloneGroupByModality@CCD_TOPOLOGY@@QEAAJAEBU_LUID@@I@Z.c)
+ *     ?_ExtendTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@AEBU_ENTRY@1@@Z @ 0x1C02F10E8 (-_ExtendTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@AEBU_ENTRY@1@@Z.c)
  */
 
 __int64 __fastcall CDS_JOURNAL::_CommitEntry(const struct CDS_JOURNAL::_ENTRY *a1, struct CCD_TOPOLOGY *this)
@@ -24,14 +24,18 @@ __int64 __fastcall CDS_JOURNAL::_CommitEntry(const struct CDS_JOURNAL::_ENTRY *a
   unsigned __int16 v9; // cx
   const struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rcx
   unsigned int v11; // esi
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
   unsigned int j; // ebp
-  __int64 v13; // rax
-  unsigned __int16 v14; // cx
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v15; // rax
-  struct D3DKMT_PATHMODALITY_DESCRIPTOR *v16; // r15
-  char v17; // al
-  char v18; // r11
+  __int64 v16; // rax
+  unsigned __int16 v17; // cx
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v18; // rax
+  struct D3DKMT_PATHMODALITY_DESCRIPTOR *v19; // r15
+  __int64 v20; // r8
+  char v21; // r11
   __int64 result; // rax
+  _QWORD *v23; // rax
 
   IsPrimaryClonePathByModality = 0;
   v3 = -1;
@@ -59,13 +63,13 @@ __int64 __fastcall CDS_JOURNAL::_CommitEntry(const struct CDS_JOURNAL::_ENTRY *a
     if ( v4 == -1 || !IsPrimaryClonePathByModality )
     {
 LABEL_28:
-      WdLogSingleEntry5(
-        3LL,
-        *((int *)a1 + 6),
-        *((unsigned int *)a1 + 5),
-        *((unsigned int *)a1 + 8),
-        this,
-        *((_QWORD *)this + 8));
+      v23 = (_QWORD *)WdLogNewEntry5_WdWarning(v13, v12, v14);
+      v23[3] = *((int *)a1 + 6);
+      v23[4] = *((unsigned int *)a1 + 5);
+      v23[5] = *((unsigned int *)a1 + 8);
+      v23[6] = this;
+      v23[7] = *((_QWORD *)this + 8);
+      WdLogEvent5_WdWarning(v23);
       return 0LL;
     }
     result = CCD_TOPOLOGY::RemoveCloneGroupByModality(this, (const struct _LUID *)((char *)a1 + 20), v4);
@@ -78,17 +82,17 @@ LABEL_28:
       {
         for ( j = 0; ; ++j )
         {
-          v13 = *((_QWORD *)this + 8);
-          v14 = v13 ? *(_WORD *)(v13 + 20) : 0;
-          if ( j >= v14 )
+          v16 = *((_QWORD *)this + 8);
+          v17 = v16 ? *(_WORD *)(v16 + 20) : 0;
+          if ( j >= v17 )
             break;
-          v15 = CCD_TOPOLOGY::GetPathDescriptor(this, j);
-          v16 = v15;
-          if ( v3 == *((_DWORD *)v15 + 46) )
+          v18 = CCD_TOPOLOGY::GetPathDescriptor(this, j);
+          v19 = v18;
+          if ( v3 == *((_DWORD *)v18 + 46) )
           {
-            CCD_TOPOLOGY::IsMatchingSource(v15, (const struct _LUID *)((char *)a1 + 20), v4);
-            v17 = CCD_TOPOLOGY::IsPrimaryClonePathByModality(this, j);
-            CDS_JOURNAL::_FillPathDescriptor(v16, a1, v17, v18, 0LL);
+            CCD_TOPOLOGY::IsMatchingSource(v18, (const struct _LUID *)((char *)a1 + 20), v4);
+            LOBYTE(v20) = CCD_TOPOLOGY::IsPrimaryClonePathByModality(this, j);
+            CDS_JOURNAL::_FillPathDescriptor(v19, a1, v20, v21, 0LL);
           }
         }
         return v11;

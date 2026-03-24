@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBREG_WriteValueToHubHardwareKey @ 0x1C0084DC4
+ * XREFs of HUBREG_WriteValueToHubHardwareKey @ 0x1C007F2FC
  * Callers:
- *     HUBFDO_LogHubResetRecoveryWasInvoked @ 0x1C007B79C (HUBFDO_LogHubResetRecoveryWasInvoked.c)
- *     HUBREG_EvtWorkItemUpdateSqmHubOvercurrentDetected @ 0x1C0084F00 (HUBREG_EvtWorkItemUpdateSqmHubOvercurrentDetected.c)
+ *     HUBFDO_LogHubResetRecoveryWasInvoked @ 0x1C00775C4 (HUBFDO_LogHubResetRecoveryWasInvoked.c)
+ *     HUBREG_EvtWorkItemUpdateSqmHubOvercurrentDetected @ 0x1C007F430 (HUBREG_EvtWorkItemUpdateSqmHubOvercurrentDetected.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_WriteValueToHubHardwareKey(__int64 a1, __int64 a2, int a3)
@@ -45,7 +45,7 @@ __int64 __fastcall HUBREG_WriteValueToHubHardwareKey(__int64 a1, __int64 a2, int
     v7 = 57;
 LABEL_7:
     LODWORD(v9) = v5;
-    WPP_RECORDER_SF_d(*(_QWORD *)(a1 + 2520), 2u, 3u, v7, (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids, v9);
+    WPP_RECORDER_SF_d(*(_QWORD *)(a1 + 2520), 2u, 3u, v7, (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids, v9);
   }
 LABEL_8:
   if ( v10 )

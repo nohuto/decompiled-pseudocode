@@ -1,93 +1,87 @@
 /*
- * XREFs of ?UmfdCallSessionInitialize@@YAJXZ @ 0x1C00A552C
+ * XREFs of ?UmfdCallSessionInitialize@@YAJXZ @ 0x1C00F3C04
  * Callers:
- *     UmfdSessionInitialize @ 0x1C00A5360 (UmfdSessionInitialize.c)
+ *     UmfdSessionInitialize @ 0x1C00F35D0 (UmfdSessionInitialize.c)
  * Callees:
- *     ?Create@CEventPool@@SAQEAV1@XZ @ 0x1C00A5630 (-Create@CEventPool@@SAQEAV1@XZ.c)
- *     ?Create@CManualResetEvent@@SAQEAV1@XZ @ 0x1C00A567C (-Create@CManualResetEvent@@SAQEAV1@XZ.c)
- *     ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C00B71CC (-Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z.c)
- *     ??1?$CAutoDestroy@VCMultipleConsumerWorkQueue@@@@QEAA@XZ @ 0x1C0307428 (--1-$CAutoDestroy@VCMultipleConsumerWorkQueue@@@@QEAA@XZ.c)
- *     ??1?$CAutoDestroy@VCWorkItemQueue@@@@QEAA@XZ @ 0x1C0307448 (--1-$CAutoDestroy@VCWorkItemQueue@@@@QEAA@XZ.c)
+ *     ?Create@CEventPool@@SAQEAV1@XZ @ 0x1C00F3D0C (-Create@CEventPool@@SAQEAV1@XZ.c)
+ *     ?Create@CManualResetEvent@@SAQEAV1@XZ @ 0x1C00F3DBC (-Create@CManualResetEvent@@SAQEAV1@XZ.c)
+ *     ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C012E274 (-Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z.c)
+ *     ?Destroy@CWorkItemQueue@@SAXQEAV1@@Z @ 0x1C012E2B4 (-Destroy@CWorkItemQueue@@SAXQEAV1@@Z.c)
+ *     ??1?$CAutoDestroy@VCMultipleConsumerWorkQueue@@@@QEAA@XZ @ 0x1C02DEF68 (--1-$CAutoDestroy@VCMultipleConsumerWorkQueue@@@@QEAA@XZ.c)
  */
 
-__int64 __fastcall UmfdCallSessionInitialize(__int64 a1)
+__int64 UmfdCallSessionInitialize(void)
 {
-  int v1; // edi
-  __int64 v2; // rsi
-  __int64 v3; // rbp
-  union _SLIST_HEADER ***v4; // r14
-  union _SLIST_HEADER **v5; // rax
-  union _SLIST_HEADER **v6; // rbx
-  union _SLIST_HEADER *v7; // rax
-  union _SLIST_HEADER *v8; // rdi
-  struct CManualResetEvent *v9; // rax
-  struct CEventPool *v10; // rax
-  void **v12; // rbx
-  void *v13; // rcx
-  union _SLIST_HEADER *v14; // [rsp+40h] [rbp+8h] BYREF
-  union _SLIST_HEADER **v15; // [rsp+48h] [rbp+10h] BYREF
+  int v0; // ebx
+  __int64 v1; // rdi
+  __int64 v2; // r14
+  union _SLIST_HEADER **v3; // rax
+  union _SLIST_HEADER **v4; // rsi
+  union _SLIST_HEADER *v5; // rax
+  union _SLIST_HEADER *v6; // rbx
+  struct CManualResetEvent *v7; // rax
+  struct CEventPool *v8; // rax
+  __int64 v10; // rsi
+  void *v11; // rcx
+  union _SLIST_HEADER **v12; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = 0;
+  v0 = 0;
+  v1 = 0LL;
   v2 = 0LL;
-  v3 = *(_QWORD *)(SGDGetSessionState(a1) + 40);
-  v4 = (union _SLIST_HEADER ***)(v3 + 16);
-  while ( v1 >= 0 )
+  while ( v0 >= 0 )
   {
-    v5 = (union _SLIST_HEADER **)EngAllocMem(0, 0x10u, 0x676D6466u);
+    v3 = (union _SLIST_HEADER **)EngAllocMem(0, 0x10u, 0x676D6466u);
+    v4 = v3;
+    if ( !v3 )
+      goto LABEL_15;
+    v12 = v3;
+    v5 = (union _SLIST_HEADER *)EngAllocMem(0, 0x20u, 0x676D6466u);
     v6 = v5;
     if ( !v5 )
-      goto LABEL_14;
-    v15 = v5;
-    v7 = (union _SLIST_HEADER *)EngAllocMem(0, 0x20u, 0x676D6466u);
-    v8 = v7;
+      goto LABEL_12;
+    InitializeSListHead(v5 + 1);
+    LOBYTE(v6->Alignment) = 0;
+    v7 = CManualResetEvent::Create();
+    v6->Region = (ULONGLONG)v7;
     if ( !v7 )
-      goto LABEL_11;
-    v14 = v7;
-    InitializeSListHead(v7 + 1);
-    LOBYTE(v8->Alignment) = 0;
-    v9 = CManualResetEvent::Create();
-    v8->Region = (ULONGLONG)v9;
-    if ( !v9 )
     {
-      CAutoDestroy<CWorkItemQueue>::~CAutoDestroy<CWorkItemQueue>(&v14);
-LABEL_11:
-      *v6 = 0LL;
-LABEL_13:
-      CAutoDestroy<CMultipleConsumerWorkQueue>::~CAutoDestroy<CMultipleConsumerWorkQueue>(&v15);
-LABEL_14:
-      v1 = -1073741801;
-      goto LABEL_8;
+      CWorkItemQueue::Destroy(v6);
+LABEL_12:
+      v6 = 0LL;
     }
-    *v6 = v8;
-    v10 = CEventPool::Create();
-    v6[1] = (union _SLIST_HEADER *)v10;
-    if ( !v10 )
-      goto LABEL_13;
-    v4[4] = v6;
-    v1 = 0;
     *v4 = v6;
-LABEL_8:
-    v2 = (unsigned int)(v2 + 1);
-    ++v4;
-    if ( (unsigned int)v2 >= 4 )
+    if ( !v6 || (v8 = CEventPool::Create(), (v4[1] = (union _SLIST_HEADER *)v8) == 0LL) )
     {
-      if ( v1 >= 0 )
-        return (unsigned int)v1;
+      CAutoDestroy<CMultipleConsumerWorkQueue>::~CAutoDestroy<CMultipleConsumerWorkQueue>(&v12);
+LABEL_15:
+      v0 = -1073741801;
+      goto LABEL_9;
+    }
+    g_pUmfdServerPort[v2] = v4;
+    v0 = 0;
+    g_pUmfdClientPort[v2] = v4;
+LABEL_9:
+    v1 = (unsigned int)(v1 + 1);
+    ++v2;
+    if ( (unsigned int)v1 >= 4 )
+    {
+      if ( v0 >= 0 )
+        return (unsigned int)v0;
       break;
     }
   }
-  if ( (_DWORD)v2 )
+  if ( (_DWORD)v1 )
   {
-    v12 = (void **)(v3 + 48);
+    v10 = 0LL;
     do
     {
-      v13 = *v12;
-      *(v12 - 4) = 0LL;
-      CMultipleConsumerWorkQueue::Destroy(v13);
-      *v12++ = 0LL;
-      --v2;
+      v11 = (void *)g_pUmfdServerPort[v10];
+      g_pUmfdClientPort[v10] = 0LL;
+      CMultipleConsumerWorkQueue::Destroy(v11);
+      g_pUmfdServerPort[v10++] = 0LL;
+      --v1;
     }
-    while ( v2 );
+    while ( v1 );
   }
-  return (unsigned int)v1;
+  return (unsigned int)v0;
 }

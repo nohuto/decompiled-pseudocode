@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_DDDDqss @ 0x1C0060130
+ * XREFs of WPP_RECORDER_SF_DDDDqss @ 0x1C005F340
  * Callers:
- *     ACPISystemPowerDetermineSupportedDeviceStates @ 0x1C000BF30 (ACPISystemPowerDetermineSupportedDeviceStates.c)
+ *     ACPISystemPowerDetermineSupportedDeviceStates @ 0x1C001AAF0 (ACPISystemPowerDetermineSupportedDeviceStates.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_DDDDqss(

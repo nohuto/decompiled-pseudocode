@@ -1,17 +1,16 @@
 /*
- * XREFs of ?MsgLookupTableAlloc@@YAPEAXI@Z @ 0x1C00A78B8
+ * XREFs of ?MsgLookupTableAlloc@@YAPEAXI@Z @ 0x1C003FD4C
  * Callers:
- *     ?AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C00A7790 (-AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z.c)
+ *     ?AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C003FC24 (-AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall MsgLookupTableAlloc(int a1)
 {
   int v1; // ecx
   __int64 v2; // rcx
-  __int64 v3; // rdx
-  __int64 v4; // rbx
+  __int64 v3; // rbx
 
   if ( a1 )
   {
@@ -26,8 +25,8 @@ __int64 __fastcall MsgLookupTableAlloc(int a1)
   }
   v2 = 64LL;
 LABEL_5:
-  v4 = Win32AllocPoolZInit(v2, 1819112277LL);
-  if ( !v4 )
-    UserSetLastError(14LL, v3);
-  return v4;
+  v3 = Win32AllocPoolZInit(v2, 1819112277LL);
+  if ( !v3 )
+    UserSetLastError(14LL);
+  return v3;
 }

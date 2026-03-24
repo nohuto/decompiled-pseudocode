@@ -1,25 +1,25 @@
 /*
- * XREFs of DrvDbOpenDriverDatabaseRegKey @ 0x14086671C
+ * XREFs of DrvDbOpenDriverDatabaseRegKey @ 0x1407358D4
  * Callers:
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x1408664C0 (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x140866854 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbDispatchDriverDatabase @ 0x140876610 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x140A6B75C (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1406B4C50 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140727CD0 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x140735700 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14097D3F4 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     DrvDbCreateDatabaseNode @ 0x140815840 (DrvDbCreateDatabaseNode.c)
- *     DrvDbLoadDatabaseNode @ 0x1408775F0 (DrvDbLoadDatabaseNode.c)
- *     DrvDbUnloadDatabaseNode @ 0x1408778A8 (DrvDbUnloadDatabaseNode.c)
- *     DrvDbFindDatabaseNode @ 0x140877BE4 (DrvDbFindDatabaseNode.c)
- *     DrvDbDestroyDatabaseNode @ 0x140A6D9C0 (DrvDbDestroyDatabaseNode.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     DrvDbFindDatabaseNode @ 0x14060258C (DrvDbFindDatabaseNode.c)
+ *     DrvDbUnloadDatabaseNode @ 0x1406B7450 (DrvDbUnloadDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x1406B7534 (DrvDbLoadDatabaseNode.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     DrvDbCreateDatabaseNode @ 0x1407A4698 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbDestroyDatabaseNode @ 0x14097E8BC (DrvDbDestroyDatabaseNode.c)
  */
 
 __int64 __fastcall DrvDbOpenDriverDatabaseRegKey(
-        _QWORD *a1,
+        const UNICODE_STRING **a1,
         const WCHAR *a2,
         unsigned int a3,
         char a4,
@@ -30,21 +30,22 @@ __int64 __fastcall DrvDbOpenDriverDatabaseRegKey(
   int DatabaseNode; // eax
   int v12; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v14; // rsi
+  const UNICODE_STRING *v14; // rsi
   __int64 v15; // rcx
-  __int64 v17[2]; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v16; // r8
+  const UNICODE_STRING *v18[2]; // [rsp+40h] [rbp-28h] BYREF
 
-  v17[0] = 0LL;
+  v18[0] = 0LL;
   v10 = 0;
   if ( wcsicmp(a2, L"*") )
   {
-    DatabaseNode = DrvDbFindDatabaseNode(a1, a2, v17);
+    DatabaseNode = DrvDbFindDatabaseNode((__int64)a1, a2, v18);
     v12 = DatabaseNode;
     if ( DatabaseNode == -1073741772 )
     {
       if ( !a4 )
         return (unsigned int)v12;
-      v12 = DrvDbCreateDatabaseNode((__int64)a1, a2, 0LL, 0, 0LL, 16, 0LL, 0LL, v17);
+      v12 = DrvDbCreateDatabaseNode(a1, a2, 0LL, 0LL, 16, 0LL, 0LL, v18);
       if ( v12 < 0 )
         return (unsigned int)v12;
       v10 = 1;
@@ -56,27 +57,27 @@ __int64 __fastcall DrvDbOpenDriverDatabaseRegKey(
   }
   else
   {
-    v17[0] = a1[4];
+    v18[0] = a1[4];
   }
   CurrentThread = KeGetCurrentThread();
-  v14 = v17[0];
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite(*(PERESOURCE *)(v14 + 152), 1u);
-  if ( (*(_DWORD *)(v14 + 64) & 1) != 0 || (v12 = DrvDbLoadDatabaseNode(a1, v14), v12 >= 0) )
+  v14 = v18[0];
+  ExAcquireResourceExclusiveLite(*(PERESOURCE *)&v18[0][9].Length, 1u);
+  if ( ((__int64)v14[3].Buffer & 1) != 0 || (v12 = DrvDbLoadDatabaseNode((__int64 *)a1, (__int64)v14), v12 >= 0) )
   {
     if ( *a1 )
-      v15 = *(_QWORD *)(*a1 + 224LL);
+      v15 = *(_QWORD *)&(*a1)[14].Length;
     else
       v15 = 0LL;
-    v12 = SysCtxRegOpenKey(v15, *(_QWORD *)(v14 + 96), 0LL, 0, a3, a5);
-    if ( (*(_DWORD *)(v14 + 64) & 1) == 0 )
-      DrvDbUnloadDatabaseNode(a1, v14);
+    v12 = SysCtxRegOpenKey(v15, (__int64)v14[5].Buffer, 0LL, 0, a3, a5);
+    if ( ((__int64)v14[3].Buffer & 1) == 0 )
+      DrvDbUnloadDatabaseNode((__int64)a1, (__int64)v14);
     if ( v12 >= 0 && a6 )
       *a6 = 2;
   }
-  ExReleaseResourceLite(*(PERESOURCE *)(v14 + 152));
+  ExReleaseResourceLite(*(PERESOURCE *)&v14[9].Length);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v12 < 0 && v10 )
-    DrvDbDestroyDatabaseNode(a1, v17[0]);
+    DrvDbDestroyDatabaseNode(a1, v18[0], v16);
   return (unsigned int)v12;
 }

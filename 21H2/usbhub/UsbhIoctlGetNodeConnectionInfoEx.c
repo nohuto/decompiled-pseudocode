@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhIoctlGetNodeConnectionInfoEx @ 0x1C003F534
+ * XREFs of UsbhIoctlGetNodeConnectionInfoEx @ 0x1C0040720
  * Callers:
- *     UsbhFdoDeviceControl @ 0x1C0029C60 (UsbhFdoDeviceControl.c)
+ *     UsbhFdoDeviceControl @ 0x1C002AFB0 (UsbhFdoDeviceControl.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhIoctlGetNodeConnectionInfoExApi @ 0x1C003F5CC (UsbhIoctlGetNodeConnectionInfoExApi.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhIoctlGetNodeConnectionInfoExApi @ 0x1C00407B8 (UsbhIoctlGetNodeConnectionInfoExApi.c)
  */
 
 __int64 __fastcall UsbhIoctlGetNodeConnectionInfoEx(__int64 a1, __int64 a2)

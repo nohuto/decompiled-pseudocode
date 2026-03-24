@@ -3,7 +3,7 @@
  * Callers:
  *     PopPowerRequestCleanUp @ 0x14000333C (PopPowerRequestCleanUp.c)
  * Callees:
- *     TtmNotifySessionPowerRequestDeleted @ 0x14087FDE8 (TtmNotifySessionPowerRequestDeleted.c)
+ *     TtmNotifySessionPowerRequestDeleted @ 0x14087FDC8 (TtmNotifySessionPowerRequestDeleted.c)
  */
 
 __int64 PopNotifySessionUserPowerRequestDeleted()

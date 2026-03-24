@@ -1,11 +1,11 @@
 /*
- * XREFs of VslpSetupLiveDumpBuffer @ 0x14027C568
+ * XREFs of VslpSetupLiveDumpBuffer @ 0x14027C668
  * Callers:
- *     VslSetupLiveDumpBufferInSk @ 0x14027BED0 (VslSetupLiveDumpBufferInSk.c)
+ *     VslSetupLiveDumpBufferInSk @ 0x14027BFD0 (VslSetupLiveDumpBufferInSk.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 NTSTATUS __fastcall VslpSetupLiveDumpBuffer(_QWORD *a1, _QWORD *a2, _QWORD *a3)

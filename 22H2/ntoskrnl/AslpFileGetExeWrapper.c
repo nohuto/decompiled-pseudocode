@@ -1,40 +1,40 @@
 /*
- * XREFs of AslpFileGetExeWrapper @ 0x140A583F4
+ * XREFs of AslpFileGetExeWrapper @ 0x14096B000
  * Callers:
- *     AslpFileGetPeExportNameExeWrapper @ 0x140A58D50 (AslpFileGetPeExportNameExeWrapper.c)
+ *     AslpFileGetPeExportNameExeWrapper @ 0x14096B930 (AslpFileGetPeExportNameExeWrapper.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslpFileGetImageNtHeader @ 0x140A58B00 (AslpFileGetImageNtHeader.c)
- *     AslpFileHasActiveMarkWrapper @ 0x140A58E78 (AslpFileHasActiveMarkWrapper.c)
- *     AslpFileHasSecuromWrapper @ 0x140A58FC0 (AslpFileHasSecuromWrapper.c)
- *     AslpHasStarForceWrapper @ 0x140A5943C (AslpHasStarForceWrapper.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslpFileGetImageNtHeader @ 0x14096B6B4 (AslpFileGetImageNtHeader.c)
+ *     AslpFileHasActiveMarkWrapper @ 0x14096BA54 (AslpFileHasActiveMarkWrapper.c)
+ *     AslpFileHasSecuromWrapper @ 0x14096BB94 (AslpFileHasSecuromWrapper.c)
+ *     AslpHasStarForceWrapper @ 0x14096BE44 (AslpHasStarForceWrapper.c)
  */
 
 __int64 __fastcall AslpFileGetExeWrapper(_DWORD *a1, __int64 a2)
 {
   int ImageNtHeader; // ebx
   __int64 v6; // rdi
-  int v8; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v9; // [rsp+68h] [rbp+10h] BYREF
+  int v7; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v8; // [rsp+68h] [rbp+10h] BYREF
 
-  v8 = 0;
+  v7 = 0;
   *a1 = 0;
-  v9 = 0LL;
+  v8 = 0LL;
   if ( *(_QWORD *)(a2 + 24) >= 0x100000000uLL )
     return 0LL;
-  ImageNtHeader = AslpFileGetImageNtHeader(&v9, a2);
+  ImageNtHeader = AslpFileGetImageNtHeader(&v8);
   if ( ImageNtHeader < 0 )
     goto LABEL_4;
-  v6 = v9;
-  if ( (unsigned int)AslpFileHasSecuromWrapper(v9) )
+  v6 = v8;
+  if ( (unsigned int)AslpFileHasSecuromWrapper(v8) )
   {
     *a1 = 1;
     return 0;
   }
-  ImageNtHeader = AslpFileHasActiveMarkWrapper(&v8, v6, a2);
+  ImageNtHeader = AslpFileHasActiveMarkWrapper(&v7, v6, a2);
   if ( ImageNtHeader >= 0 )
   {
-    if ( v8 )
+    if ( v7 )
     {
       *a1 = 2;
     }

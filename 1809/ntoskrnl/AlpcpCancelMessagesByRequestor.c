@@ -6,7 +6,7 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeReleaseSemaphoreEx @ 0x1400D2950 (KeReleaseSemaphoreEx.c)
+ *     KeReleaseSemaphoreEx @ 0x1400D2970 (KeReleaseSemaphoreEx.c)
  *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
  *     AlpcpTransferQuotaMessage @ 0x140615E7C (AlpcpTransferQuotaMessage.c)
  *     AlpcpClearOwnerPortMessage @ 0x140616260 (AlpcpClearOwnerPortMessage.c)
@@ -14,7 +14,7 @@
  *     AlpcpLockForCachedReferenceBlob @ 0x140616E4C (AlpcpLockForCachedReferenceBlob.c)
  *     AlpcpReferenceBlob @ 0x140618428 (AlpcpReferenceBlob.c)
  *     PsReleaseProcessWakeCounter @ 0x14061C390 (PsReleaseProcessWakeCounter.c)
- *     AlpcpTryLockForCachedReferenceBlob @ 0x1406C704C (AlpcpTryLockForCachedReferenceBlob.c)
+ *     AlpcpTryLockForCachedReferenceBlob @ 0x1406C702C (AlpcpTryLockForCachedReferenceBlob.c)
  */
 
 __int64 __fastcall AlpcpCancelMessagesByRequestor(__int64 a1, __int64 a2, ULONG_PTR *a3, unsigned int a4, __int64 a5)

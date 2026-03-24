@@ -1,8 +1,9 @@
 /*
- * XREFs of TransformRectAroundPoint @ 0x1C01BA120
+ * XREFs of TransformRectAroundPoint @ 0x1C01E5944
  * Callers:
- *     GetNewMonitor @ 0x1C010B39C (GetNewMonitor.c)
- *     ?TransformRectAroundCursor@@YAXPEAUMOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z @ 0x1C01B93D4 (-TransformRectAroundCursor@@YAXPEAUMOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z.c)
+ *     GetNewMonitor @ 0x1C006BEBC (GetNewMonitor.c)
+ *     ?TransformRectAroundCursor@@YAXPEAU_MOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z @ 0x1C01E3D5C (-TransformRectAroundCursor@@YAXPEAU_MOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z.c)
+ *     ?MigrateRectMonitors@@YA_NPEAUtagWND@@PEAUtagRECT@@PEAUtagMONITOR@@122PEAU_MOVESIZEDATA@@K@Z @ 0x1C020B30C (-MigrateRectMonitors@@YA_NPEAUtagWND@@PEAUtagRECT@@PEAUtagMONITOR@@122PEAU_MOVESIZEDATA@@K@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,43 +16,27 @@ INT __fastcall TransformRectAroundPoint(
         unsigned __int16 a5,
         __int64 a6)
 {
-  INT v9; // eax
-  int v10; // r9d
-  INT v11; // r8d
-  INT v12; // edx
   INT result; // eax
-  int v14; // ecx
-  INT v15; // edi
-  INT v16; // eax
-  INT v17; // ecx
-  INT v18; // eax
-  INT v19; // ecx
+  int v10; // ecx
+  INT v11; // edi
 
   if ( a3 )
   {
-    v9 = EngMulDiv(a6 - *a1, a3[2] - *a3, a1[2] - *a1);
-    v10 = a1[1];
-    v11 = a1[3] - v10;
-    v12 = a3[3] - a3[1];
-    *a4 = a6 - v9;
-    result = EngMulDiv(HIDWORD(a6) - v10, v12, v11);
-    a4[2] = *a4 + a3[2] - *a3;
-    v14 = HIDWORD(a6) - result + a3[3] - a3[1];
+    *a4 = a6 - EngMulDiv(a6 - *a1, a3[2] - *a3, a1[2] - *a1);
+    result = EngMulDiv(HIDWORD(a6) - a1[1], a3[3] - a3[1], a1[3] - a1[1]);
     a4[1] = HIDWORD(a6) - result;
+    a4[2] = *a4 + a3[2] - *a3;
+    v10 = HIDWORD(a6) - result + a3[3] - a3[1];
   }
   else
   {
-    v15 = a2;
+    v11 = a2;
     *a4 = a6 - EngMulDiv(a6 - *a1, a5, a2);
-    v16 = EngMulDiv(HIDWORD(a6) - a1[1], a5, v15);
-    v17 = a1[2] - *a1;
-    a4[1] = HIDWORD(a6) - v16;
-    v18 = EngMulDiv(v17, a5, v15);
-    v19 = a1[3] - a1[1];
-    a4[2] = *a4 + v18;
-    result = EngMulDiv(v19, a5, v15);
-    v14 = result + a4[1];
+    a4[1] = HIDWORD(a6) - EngMulDiv(HIDWORD(a6) - a1[1], a5, v11);
+    a4[2] = *a4 + EngMulDiv(a1[2] - *a1, a5, v11);
+    result = EngMulDiv(a1[3] - a1[1], a5, v11);
+    v10 = a4[1] + result;
   }
-  a4[3] = v14;
+  a4[3] = v10;
   return result;
 }

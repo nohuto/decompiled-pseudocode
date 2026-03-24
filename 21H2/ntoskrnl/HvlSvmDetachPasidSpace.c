@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlSvmDetachPasidSpace @ 0x140548A90
+ * XREFs of HvlSvmDetachPasidSpace @ 0x1404F6D70
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x14039DD80 (HvcallFastExtended.c)
- *     HvlpDetachRootSvmDevice @ 0x1405492D8 (HvlpDetachRootSvmDevice.c)
- *     HvlpHvToNtStatus @ 0x14054CA70 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
+ *     HvlpDetachRootSvmDevice @ 0x1404F7510 (HvlpDetachRootSvmDevice.c)
+ *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlSvmDetachPasidSpace(unsigned int a1)
@@ -16,7 +16,7 @@ __int64 __fastcall HvlSvmDetachPasidSpace(unsigned int a1)
   _QWORD v6[3]; // [rsp+30h] [rbp-18h] BYREF
 
   v6[0] = a1;
-  v2 = HvcallFastExtended(65699LL, (__int64)v6, 8u, 0LL, 0);
+  v2 = HvcallFastExtended(65699LL, (__int64)v6, 8u, 0, 0);
   v3 = HvlpHvToNtStatus(v2);
   if ( (HvlpFlags & 2) != 0 )
   {

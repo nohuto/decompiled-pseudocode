@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SetD2DEffectProperties@CAffineTransform2DEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x180257970
+ * XREFs of ?SetD2DEffectProperties@CAffineTransform2DEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x1801F55B0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180080594 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Invert@Matrix3x2F@D2D1@@QEAA_NXZ @ 0x1800E7B68 (-Invert@Matrix3x2F@D2D1@@QEAA_NXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Invert@Matrix3x2F@D2D1@@QEAA_NXZ @ 0x180018594 (-Invert@Matrix3x2F@D2D1@@QEAA_NXZ.c)
+ *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180058584 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CAffineTransform2DEffect::SetD2DEffectProperties(
@@ -23,7 +23,7 @@ __int64 __fastcall CAffineTransform2DEffect::SetD2DEffectProperties(
   float v10; // xmm3_4
   __int128 v11; // xmm0
   float v12; // xmm3_4
-  __int64 v13; // rax
+  __int64 (__fastcall *v13)(struct ID2D1Effect *, _QWORD, _QWORD, char *, int); // rax
   int v14; // eax
   __int64 v15; // rcx
   unsigned int v16; // ebx
@@ -39,19 +39,19 @@ __int64 __fastcall CAffineTransform2DEffect::SetD2DEffectProperties(
   __int64 v27; // [rsp+58h] [rbp-28h]
   D2D1_MATRIX_3X2_F v28; // [rsp+60h] [rbp-20h] BYREF
 
-  v2 = *((float *)this + 54);
-  v3 = (CAffineTransform2DEffect *)((char *)this + 220);
-  v4 = *((float *)this + 53);
-  v6 = *(_OWORD *)((char *)this + 184);
-  v27 = *((_QWORD *)this + 25);
-  v8 = v2 * *((float *)this + 48);
+  v2 = *((float *)this + 48);
+  v3 = (CAffineTransform2DEffect *)((char *)this + 196);
+  v4 = *((float *)this + 47);
+  v6 = *((_OWORD *)this + 10);
+  v27 = *((_QWORD *)this + 22);
+  v8 = v2 * *((float *)this + 42);
   v26 = v6;
-  v9 = (float)((float)(v8 + (float)(v4 * *((float *)this + 46))) + *((float *)this + 50)) - v4;
-  v10 = (float)(v4 * *((float *)this + 47)) + (float)(v2 * *((float *)this + 49));
-  v11 = *(_OWORD *)((char *)this + 220);
+  v9 = (float)((float)(v8 + (float)(v4 * *((float *)this + 40))) + *((float *)this + 44)) - v4;
+  v10 = (float)(v4 * *((float *)this + 41)) + (float)(v2 * *((float *)this + 43));
+  v11 = *(_OWORD *)((char *)this + 196);
   *(float *)&v27 = v9;
-  v12 = v10 + *((float *)this + 51);
-  *(_QWORD *)&v28.m[2][0] = *(_QWORD *)((char *)this + 236);
+  v12 = v10 + *((float *)this + 45);
+  *(_QWORD *)&v28.m[2][0] = *(_QWORD *)((char *)this + 212);
   *(_OWORD *)&v28.m11 = v11;
   *((float *)&v27 + 1) = v12 - v2;
   D2D1::Matrix3x2F::Invert(&v28);
@@ -62,15 +62,10 @@ __int64 __fastcall CAffineTransform2DEffect::SetD2DEffectProperties(
   v26 = v24;
   v27 = v25;
   D2D1::Matrix3x2F::SetProduct((D2D1::Matrix3x2F *)&v24, (const struct D2D1::Matrix3x2F *)&v26, v3);
-  v13 = *(_QWORD *)a2;
+  v13 = *(__int64 (__fastcall **)(struct ID2D1Effect *, _QWORD, _QWORD, char *, int))(*(_QWORD *)a2 + 72LL);
   v26 = v24;
   v27 = v25;
-  v14 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, _QWORD, _QWORD, char *, int))(v13 + 72))(
-          a2,
-          0LL,
-          0LL,
-          (char *)this + 176,
-          4);
+  v14 = v13(a2, 0LL, 0LL, (char *)this + 152, 4);
   v16 = v14;
   if ( v14 < 0 )
   {
@@ -82,7 +77,7 @@ __int64 __fastcall CAffineTransform2DEffect::SetD2DEffectProperties(
             a2,
             1LL,
             0LL,
-            (char *)this + 180,
+            (char *)this + 156,
             4);
     v16 = v17;
     if ( v17 < 0 )
@@ -108,7 +103,7 @@ __int64 __fastcall CAffineTransform2DEffect::SetD2DEffectProperties(
                 a2,
                 3LL,
                 0LL,
-                (char *)this + 208,
+                (char *)this + 184,
                 4);
         v16 = v21;
         if ( v21 < 0 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EtwProfilerTypeName@DripsBlockerTrackingHelper@@KAPEAGW4_DXGKETW_PROFILER_TYPE@@PEAI@Z @ 0x1C0304970
+ * XREFs of ?EtwProfilerTypeName@DripsBlockerTrackingHelper@@KAPEAGW4_DXGKETW_PROFILER_TYPE@@PEAI@Z @ 0x1C02C11D8
  * Callers:
- *     ?AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z @ 0x1C0303528 (-AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z.c)
- *     ?AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C0303620 (-AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ.c)
- *     ?AddProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0303924 (-AddProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@.c)
- *     ?EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z @ 0x1C0303E10 (-EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z.c)
+ *     ?AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z @ 0x1C02BFDCC (-AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z.c)
+ *     ?AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C02BFEC4 (-AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ.c)
+ *     ?AddProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C02C01C4 (-AddProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@.c)
+ *     ?EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z @ 0x1C02C063C (-EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z.c)
  * Callees:
  *     <none>
  */
@@ -41,116 +41,124 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
   int v29; // ecx
   int v30; // ecx
 
-  if ( a1 <= 5000 )
+  if ( a1 <= 5001 )
   {
-    if ( a1 == 5000 )
+    if ( a1 == 5001 )
     {
-      *a2 = 20;
-      return L"DdiQueryAdapterInfo";
+      *a2 = 16;
+      return L"DdiCreateDevice";
     }
-    if ( a1 > 2144 )
+    if ( a1 > 2142 )
     {
       if ( a1 > 3000 )
       {
         if ( a1 > 4000 )
         {
-          switch ( a1 )
+          if ( a1 == 5000 )
           {
-            case 4001:
-              *a2 = 22;
-              result = L"DpiDxgkDdiStartDevice";
-              break;
-            case 4002:
-              *a2 = 21;
-              result = L"DpiDxgkDdiStopDevice";
-              break;
-            case 4003:
-              *a2 = 23;
-              result = L"DpiDxgkDdiRemoveDevice";
-              break;
-            case 4004:
-              *a2 = 28;
-              result = L"DpiDxgkDdiDispatchIoRequest";
-              break;
-            case 4005:
-              *a2 = 30;
-              result = L"DpiDxgkDdiQueryChildRelations";
-              break;
-            case 4006:
-              *a2 = 27;
-              result = L"DpiDxgkDdiQueryChildStatus";
-              break;
-            case 4007:
-              result = L"DpiDxgkDdiQueryDeviceDescriptor";
-              goto LABEL_723;
-            case 4008:
-              *a2 = 24;
-              result = L"DpiDxgkDdiSetPowerState";
-              break;
-            case 4009:
-              *a2 = 26;
-              result = L"DpiDxgkDdiNotifyAcpiEvent";
-              break;
-            case 4010:
-              *a2 = 17;
-              result = L"DpiDxgkDdiUnload";
-              break;
-            case 4011:
-              *a2 = 28;
-              result = L"DpiDxgkDdiControlEtwLogging";
-              break;
-            case 4012:
-              *a2 = 25;
-              result = L"DpiDxgkDdiQueryInterface";
-              break;
-            case 4013:
-              *a2 = 13;
-              result = L"DpiDpcForIsr";
-              break;
-            case 4014:
-              *a2 = 30;
-              result = L"DpiFdoMessageInterruptRoutine";
-              break;
-            case 4015:
-              *a2 = 25;
-              result = L"VidSchDdiNotifyInterrupt";
-              break;
-            case 4016:
-              result = L"VidSchiCallNotifyInterruptAtISR";
-              goto LABEL_723;
-            case 4017:
-              *a2 = 51;
-              result = L"DpiDxgkDdiStopDeviceAndReleasePostDisplayOwnership";
-              break;
-            case 4018:
-              *a2 = 30;
-              result = L"DpiDxgkDdiGetChildContainerId";
-              break;
-            case 4019:
-              *a2 = 35;
-              result = L"DpiDxgkDdiDdiNotifySurpriseRemoval";
-              break;
-            case 4020:
-              *a2 = 27;
-              result = L"DpiFdoThermalActiveCooling";
-              break;
-            case 4021:
-              *a2 = 28;
-              result = L"DpiFdoThermalPassiveCooling";
-              break;
-            case 4022:
-              *a2 = 26;
-              result = L"DxgkCbIndicateChildStatus";
-              break;
-            case 4023:
-              *a2 = 19;
-              result = L"DpiPNPPowerRelated";
-              break;
-            case 4024:
-              result = L"VidSchiDeferredVisibilityThread";
-              goto LABEL_723;
-            default:
-              goto LABEL_716;
+            *a2 = 20;
+            return L"DdiQueryAdapterInfo";
+          }
+          else
+          {
+            switch ( a1 )
+            {
+              case 4001:
+                *a2 = 22;
+                result = L"DpiDxgkDdiStartDevice";
+                break;
+              case 4002:
+                *a2 = 21;
+                result = L"DpiDxgkDdiStopDevice";
+                break;
+              case 4003:
+                *a2 = 23;
+                result = L"DpiDxgkDdiRemoveDevice";
+                break;
+              case 4004:
+                *a2 = 28;
+                result = L"DpiDxgkDdiDispatchIoRequest";
+                break;
+              case 4005:
+                *a2 = 30;
+                result = L"DpiDxgkDdiQueryChildRelations";
+                break;
+              case 4006:
+                *a2 = 27;
+                result = L"DpiDxgkDdiQueryChildStatus";
+                break;
+              case 4007:
+                result = L"DpiDxgkDdiQueryDeviceDescriptor";
+                goto LABEL_715;
+              case 4008:
+                *a2 = 24;
+                result = L"DpiDxgkDdiSetPowerState";
+                break;
+              case 4009:
+                *a2 = 26;
+                result = L"DpiDxgkDdiNotifyAcpiEvent";
+                break;
+              case 4010:
+                *a2 = 17;
+                result = L"DpiDxgkDdiUnload";
+                break;
+              case 4011:
+                *a2 = 28;
+                result = L"DpiDxgkDdiControlEtwLogging";
+                break;
+              case 4012:
+                *a2 = 25;
+                result = L"DpiDxgkDdiQueryInterface";
+                break;
+              case 4013:
+                *a2 = 13;
+                result = L"DpiDpcForIsr";
+                break;
+              case 4014:
+                *a2 = 30;
+                result = L"DpiFdoMessageInterruptRoutine";
+                break;
+              case 4015:
+                *a2 = 25;
+                result = L"VidSchDdiNotifyInterrupt";
+                break;
+              case 4016:
+                result = L"VidSchiCallNotifyInterruptAtISR";
+                goto LABEL_715;
+              case 4017:
+                *a2 = 51;
+                result = L"DpiDxgkDdiStopDeviceAndReleasePostDisplayOwnership";
+                break;
+              case 4018:
+                *a2 = 30;
+                result = L"DpiDxgkDdiGetChildContainerId";
+                break;
+              case 4019:
+                *a2 = 35;
+                result = L"DpiDxgkDdiDdiNotifySurpriseRemoval";
+                break;
+              case 4020:
+                *a2 = 27;
+                result = L"DpiFdoThermalActiveCooling";
+                break;
+              case 4021:
+                *a2 = 28;
+                result = L"DpiFdoThermalPassiveCooling";
+                break;
+              case 4022:
+                *a2 = 26;
+                result = L"DxgkCbIndicateChildStatus";
+                break;
+              case 4023:
+                *a2 = 19;
+                result = L"DpiPNPPowerRelated";
+                break;
+              case 4024:
+                result = L"VidSchiDeferredVisibilityThread";
+                goto LABEL_715;
+              default:
+                goto LABEL_708;
+            }
           }
         }
         else if ( a1 == 4000 )
@@ -380,7 +388,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
               break;
             case 3055:
               result = L"DxgkCddOpenResourceFromNtHandle";
-              goto LABEL_723;
+              goto LABEL_715;
             case 3056:
               *a2 = 37;
               result = L"DxgkCddQueryResourceInfoFromNtHandle";
@@ -406,7 +414,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
               result = L"DxgkCddEvict";
               break;
             default:
-              goto LABEL_716;
+              goto LABEL_708;
           }
         }
       }
@@ -419,6 +427,14 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
       {
         switch ( a1 )
         {
+          case 2143:
+            *a2 = 37;
+            result = L"DxgkGetProcessSchedulingPriorityBand";
+            break;
+          case 2144:
+            *a2 = 26;
+            result = L"DxgkGetMemoryBudgetTarget";
+            break;
           case 2145:
             *a2 = 19;
             result = L"DxgkGetOverlayCaps";
@@ -441,7 +457,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
             break;
           case 2150:
             result = L"DxgkQueryProtectedSessionStatus";
-            goto LABEL_723;
+            goto LABEL_715;
           case 2151:
             *a2 = 42;
             result = L"DxgkQueryProtectedSessionInfoFromNtHandle";
@@ -536,7 +552,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
             break;
           case 2174:
             result = L"DxgkGetDisplayConfigBufferSizes";
-            goto LABEL_723;
+            goto LABEL_715;
           case 2175:
             *a2 = 28;
             result = L"DxgkIsSourceInHardwareClone";
@@ -567,7 +583,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
             break;
           case 2182:
             result = L"DxgkIsVidPnSourceOwnerExclusive";
-            goto LABEL_723;
+            goto LABEL_715;
           case 2183:
             *a2 = 17;
             result = L"DxgkDisplayOnOff";
@@ -684,42 +700,26 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
             *a2 = 29;
             result = L"DxgkpProcessStatusChangeWork";
             break;
-          case 2214:
-            *a2 = 24;
-            result = L"DxgkRegisterVailProcess";
-            break;
-          case 2215:
-            *a2 = 34;
-            result = L"DxgkVailPromoteCompositionSurface";
-            break;
-          case 2216:
-            *a2 = 16;
-            result = L"DxgkVailConnect";
-            break;
-          case 2217:
-            *a2 = 18;
-            result = L"DxgkVailDisonnect";
-            break;
-          case 2218:
-            *a2 = 26;
-            result = L"DxgkVmBusSendAsyncMessage";
-            break;
           default:
-            goto LABEL_716;
+            goto LABEL_708;
         }
       }
     }
     else
     {
-      if ( a1 == 2144 )
+      if ( a1 == 2142 )
       {
-        *a2 = 26;
-        return L"DxgkGetMemoryBudgetTarget";
+        *a2 = 23;
+        return L"DxgkGetYieldPercentage";
       }
-      if ( a1 > 2064 )
+      if ( a1 > 2063 )
       {
         switch ( a1 )
         {
+          case 2064:
+            *a2 = 26;
+            result = L"DxgkOutputDuplGetMetaData";
+            break;
           case 2065:
             *a2 = 34;
             result = L"DxgkOutputDuplGetPointerShapeData";
@@ -1028,24 +1028,16 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
             *a2 = 26;
             result = L"DxgkSetMemoryBudgetTarget";
             break;
-          case 2142:
-            *a2 = 23;
-            result = L"DxgkGetYieldPercentage";
-            break;
-          case 2143:
-            *a2 = 37;
-            result = L"DxgkGetProcessSchedulingPriorityBand";
-            break;
           default:
-            goto LABEL_716;
+            goto LABEL_708;
         }
       }
       else
       {
-        if ( a1 == 2064 )
+        if ( a1 == 2063 )
         {
-          *a2 = 26;
-          return L"DxgkOutputDuplGetMetaData";
+          *a2 = 27;
+          return L"DxgkOutputDuplGetFrameInfo";
         }
         if ( a1 > 2024 )
         {
@@ -1117,7 +1109,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
               break;
             case 2041:
               result = L"DxgkCreateSynchronizationObject";
-              goto LABEL_723;
+              goto LABEL_715;
             case 2042:
               *a2 = 33;
               result = L"DxgkDestroySynchronizationObject";
@@ -1128,7 +1120,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
               break;
             case 2044:
               result = L"DxgkSignalSynchronizationObject";
-              goto LABEL_723;
+              goto LABEL_715;
             case 2045:
               *a2 = 16;
               result = L"DxgkWaitForIdle";
@@ -1201,12 +1193,8 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
               *a2 = 22;
               result = L"DxgkDestroyOutputDupl";
               break;
-            case 2063:
-              *a2 = 27;
-              result = L"DxgkOutputDuplGetFrameInfo";
-              break;
             default:
-              goto LABEL_716;
+              goto LABEL_708;
           }
         }
         else
@@ -1315,7 +1303,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
                   return L"DpiDispatchInternalIoctl";
               }
             }
-            goto LABEL_716;
+            goto LABEL_708;
           }
           switch ( a1 )
           {
@@ -1396,7 +1384,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
               result = L"DxgkUpdateOverlay";
               break;
             default:
-              goto LABEL_716;
+              goto LABEL_708;
           }
         }
       }
@@ -1414,10 +1402,6 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
     {
       switch ( a1 )
       {
-        case 5001:
-          *a2 = 16;
-          result = L"DdiCreateDevice";
-          break;
         case 5002:
           *a2 = 20;
           result = L"DdiCreateAllocation";
@@ -1460,7 +1444,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
           break;
         case 5012:
           result = L"DdiUpdateActiveVidPnPresentPath";
-          goto LABEL_723;
+          goto LABEL_715;
         case 5013:
           *a2 = 17;
           result = L"DdiSubmitCommand";
@@ -1731,7 +1715,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
           break;
         case 5080:
           result = L"DdiSetTargetAdjustedColorimetry";
-          goto LABEL_723;
+          goto LABEL_715;
         case 5081:
           *a2 = 24;
           result = L"DdiDisplayDetectControl";
@@ -1786,7 +1770,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
           break;
         case 5094:
           result = L"DdiSetVirtualFunctionPowerState";
-          goto LABEL_723;
+          goto LABEL_715;
         case 5095:
           *a2 = 21;
           result = L"DdiGetResourceForBar";
@@ -1901,7 +1885,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
           break;
         case 5123:
           result = L"DdiPostMultiPlaneOverlayPresent";
-          goto LABEL_723;
+          goto LABEL_715;
         case 5124:
           *a2 = 27;
           result = L"DdiSetPowerComponentFState";
@@ -1968,7 +1952,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
           break;
         case 5140:
           result = L"DdiSetTrackedWorkloadPowerLevel";
-          goto LABEL_723;
+          goto LABEL_715;
         case 5141:
           *a2 = 25;
           result = L"DdiCollectDiagnosticInfo";
@@ -1989,24 +1973,8 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
           *a2 = 12;
           result = L"DdiDsiReset";
           break;
-        case 5155:
-          *a2 = 31;
-          result = L"DdiSetInterruptTargetPresentId";
-          break;
-        case 5156:
-          *a2 = 21;
-          result = L"DdiCancelQueuedFlips";
-          break;
-        case 5160:
-          *a2 = 15;
-          result = L"DdiCancelFlips";
-          break;
-        case 5161:
-          *a2 = 22;
-          result = L"DdiUpdateFlipQueueLog";
-          break;
         default:
-          goto LABEL_716;
+          goto LABEL_708;
       }
     }
     return result;
@@ -2267,7 +2235,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
           result = L"DmmInterfaceEnumPaths";
           break;
         default:
-          goto LABEL_716;
+          goto LABEL_708;
       }
     }
     return result;
@@ -2405,7 +2373,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
           break;
         case 7031:
           result = L"DmmMiniportInterfaceGetNumPaths";
-          goto LABEL_723;
+          goto LABEL_715;
         case 7032:
           *a2 = 42;
           result = L"DmmMiniportInterfaceGetNumPathsFromSource";
@@ -2420,7 +2388,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
           break;
         case 7035:
           result = L"DmmMiniportInterfaceAcquirePath";
-          goto LABEL_723;
+          goto LABEL_715;
         case 7036:
           *a2 = 37;
           result = L"DmmMiniportInterfaceAcquireFirstPath";
@@ -2435,7 +2403,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
           break;
         case 7039:
           result = L"DmmMiniportInterfaceReleasePath";
-          goto LABEL_723;
+          goto LABEL_715;
         case 7040:
           *a2 = 34;
           result = L"DmmMiniportInterfaceCreateNewPath";
@@ -2446,7 +2414,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
           break;
         case 7042:
           result = L"DmmMiniportInterfaceGetTopology";
-          goto LABEL_723;
+          goto LABEL_715;
         case 7043:
           *a2 = 41;
           result = L"DmmMiniportInterfaceAcquireSourceModeSet";
@@ -2524,7 +2492,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
           result = L"HandleMonitorPnPNotification";
           break;
         default:
-          goto LABEL_716;
+          goto LABEL_708;
       }
     }
     return result;
@@ -2609,7 +2577,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
           result = L"PowerStateD3transition";
           break;
         default:
-          goto LABEL_716;
+          goto LABEL_708;
       }
     }
     return result;
@@ -2663,7 +2631,7 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
         *a2 = 29;
         return L"DxgkDdiMiracastCreateContext";
       }
-      goto LABEL_716;
+      goto LABEL_708;
     }
     v16 = a1 - 13003;
     if ( !v16 )
@@ -2697,10 +2665,10 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
         *a2 = 29;
         return L"UmdDriverStopMiracastSession";
       }
-      goto LABEL_716;
+      goto LABEL_708;
     }
     result = L"UmdDriverDestroyMiracastContext";
-    goto LABEL_723;
+    goto LABEL_715;
   }
   if ( a1 <= 14001 )
   {
@@ -2744,13 +2712,13 @@ const wchar_t *__fastcall DripsBlockerTrackingHelper::EtwProfilerTypeName(int a1
       *a2 = 23;
       return L"VidMmProcessOperations";
     }
-    goto LABEL_716;
+    goto LABEL_708;
   }
   v26 = a1 - 15000;
   if ( !v26 )
   {
     result = L"DxgkCbSetProtectedSessionStatus";
-LABEL_723:
+LABEL_715:
     *a2 = 32;
     return result;
   }
@@ -2768,7 +2736,7 @@ LABEL_723:
         {
           if ( v30 != 1 )
           {
-LABEL_716:
+LABEL_708:
             *a2 = 9;
             return L"NotFound";
           }

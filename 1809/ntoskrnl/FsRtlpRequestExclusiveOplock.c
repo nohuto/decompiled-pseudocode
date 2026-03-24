@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlpRequestExclusiveOplock @ 0x14015E0EC
+ * XREFs of FsRtlpRequestExclusiveOplock @ 0x14015E10C
  * Callers:
  *     FsRtlpOplockFsctrlInternal @ 0x1405DC640 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
@@ -11,14 +11,14 @@
  *     FsRtlpOplockKeysEqual @ 0x1400199A0 (FsRtlpOplockKeysEqual.c)
  *     FsRtlpCallerIsAtomicRequestor @ 0x140019C40 (FsRtlpCallerIsAtomicRequestor.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     FsRtlpClearOwner @ 0x14012171C (FsRtlpClearOwner.c)
- *     FsRtlpCancelExclusiveIrp @ 0x14013F6FC (FsRtlpCancelExclusiveIrp.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3914 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14026FECC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14026FFD0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     FsRtlpClearOwner @ 0x14012173C (FsRtlpClearOwner.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x14013F71C (FsRtlpCancelExclusiveIrp.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3934 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14026FFCC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402700D0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     FsRtlpOplockUpperLowerCompatible @ 0x1405DCC54 (FsRtlpOplockUpperLowerCompatible.c)
  *     FsRtlpAllocateOplock @ 0x1405DCDA0 (FsRtlpAllocateOplock.c)

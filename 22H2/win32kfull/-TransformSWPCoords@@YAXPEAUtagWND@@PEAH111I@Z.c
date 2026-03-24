@@ -1,144 +1,137 @@
 /*
- * XREFs of ?TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z @ 0x1C01CC70C
+ * XREFs of ?TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z @ 0x1C01F63B4
  * Callers:
- *     NtUserSetWindowPos @ 0x1C0028F90 (NtUserSetWindowPos.c)
- *     NtUserDeferWindowPosAndBand @ 0x1C0029610 (NtUserDeferWindowPosAndBand.c)
+ *     NtUserDeferWindowPosAndBand @ 0x1C00320C0 (NtUserDeferWindowPosAndBand.c)
+ *     NtUserSetWindowPos @ 0x1C006A5C0 (NtUserSetWindowPos.c)
  * Callees:
- *     ?IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z @ 0x1C00F403C (-IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z.c)
- *     _IsTopLevelWindow @ 0x1C0122310 (_IsTopLevelWindow.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ScaleDpiValueWithSubpixel @ 0x1C01BA0E8 (ScaleDpiValueWithSubpixel.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005B960 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
+ *     IsChildWindowDpiBoundary @ 0x1C007061C (IsChildWindowDpiBoundary.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ScaleDpiValueWithSubpixel @ 0x1C01E590C (ScaleDpiValueWithSubpixel.c)
+ *     GetLogicalDpiFromMonitor @ 0x1C01F6638 (GetLogicalDpiFromMonitor.c)
  */
 
 void __fastcall TransformSWPCoords(struct tagWND *a1, int *a2, int *a3, int *a4, int *a5, char a6)
 {
-  __int64 v10; // rcx
-  int v11; // r8d
-  _DWORD *v12; // r9
-  __int64 v13; // rax
-  __int64 v14; // rcx
-  __int64 v15; // r15
-  unsigned __int16 v16; // di
-  unsigned __int16 v17; // si
-  INT v18; // r15d
-  INT v19; // eax
-  INT v20; // r8d
-  unsigned __int16 v21; // r8
-  unsigned __int16 v22; // r9
-  float *v23; // r10
-  int *v24; // rbx
+  int v10; // r9d
+  __int64 v11; // rax
+  __int64 v12; // rdi
+  __int64 v13; // rcx
+  unsigned int v14; // eax
+  unsigned __int16 v15; // ax
+  INT v16; // r14d
+  unsigned __int16 v17; // r8
+  unsigned __int16 v18; // r9
+  float *v19; // r10
+  INT v20; // eax
+  INT v21; // r8d
+  INT v22; // edx
+  INT v23; // edx
+  int v24; // ecx
   int v25; // edx
-  int v26; // ecx
-  int v27; // edx
-  int v28; // eax
-  INT v29; // eax
-  __int64 v30; // rax
+  int v26; // eax
+  INT v27; // eax
+  __int64 v28; // rax
+  __int64 v29; // rdi
+  INT LogicalDpiFromMonitor; // ebx
   __int64 v31; // rcx
-  __int64 v32; // rbx
-  unsigned __int16 v33; // di
-  unsigned __int16 v34; // ax
-  INT v35; // ebx
-  INT c; // [rsp+20h] [rbp-30h] BYREF
-  int v37; // [rsp+24h] [rbp-2Ch]
-  int *v38; // [rsp+28h] [rbp-28h]
-  INT *v39; // [rsp+30h] [rbp-20h]
-  int *v40; // [rsp+38h] [rbp-18h] BYREF
-  int v41; // [rsp+40h] [rbp-10h]
-  int v42; // [rsp+44h] [rbp-Ch]
+  unsigned int CurrentThreadDpiAwarenessContext; // eax
+  INT v33; // edi
+  unsigned __int16 v34; // [rsp+20h] [rbp-20h]
+  unsigned __int16 v35; // [rsp+22h] [rbp-1Eh]
+  INT c; // [rsp+28h] [rbp-18h] BYREF
+  int v37; // [rsp+2Ch] [rbp-14h]
+  int v38; // [rsp+30h] [rbp-10h]
+  int v39; // [rsp+34h] [rbp-Ch]
 
-  v40 = a3;
-  v39 = a2;
-  v38 = a5;
-  if ( !IsTopLevelWindow((__int64)a1) )
+  if ( (unsigned int)IsTopLevelWindow((__int64)a1) )
   {
-    if ( v11 != 3 )
+    if ( !v10 )
     {
-      v13 = ValidateHmonitorNoRip(*(_QWORD *)(*(_QWORD *)(v10 + 40) + 256LL));
-      if ( v13 )
+      v23 = *a3;
+      c = *a2;
+      v38 = *a4 + c;
+      v24 = v23 + *a5;
+      v37 = v23;
+      v39 = v24;
+      TransformRectBetweenCoordinateSpaces(&c, &c, a1, 0LL);
+      v25 = v37;
+      v26 = v38 - c;
+      *a2 = c;
+      *a3 = v25;
+      *a4 = v26;
+      v27 = v39 - v25;
+LABEL_19:
+      *a5 = v27;
+      return;
+    }
+    if ( (a6 & 2) == 0 )
+    {
+      c = *a2;
+      v37 = *a3;
+      TransformPointBetweenCoordinateSpaces(&c, &c, a1, 0LL);
+      *a2 = c;
+      *a3 = v37;
+      return;
+    }
+    if ( (a6 & 1) == 0 )
+    {
+      v28 = ValidateHmonitorNoRip(*(_QWORD *)(*((_QWORD *)a1 + 5) + 256LL));
+      v29 = v28;
+      if ( v28 )
       {
-        v14 = *((_QWORD *)a1 + 5);
-        v15 = v13 + 40;
-        v16 = (*(_DWORD *)(v14 + 288) >> 8) & 0x1FF;
-        if ( !v16 )
-          v16 = *(_WORD *)(*(_QWORD *)v15 + 60LL);
-        v17 = ((unsigned int)W32GetCurrentThreadDpiAwarenessContext(v14) >> 8) & 0x1FF;
-        if ( !v17 )
-          v17 = *(_WORD *)(*(_QWORD *)v15 + 60LL);
-        v18 = v17;
-        c = v17;
-        if ( (a6 & 2) == 0 )
-        {
-          v19 = EngMulDiv(*v39, v16, v17);
-          v20 = c;
-          *v39 = v19;
-          *v40 = EngMulDiv(*v40, v16, v20);
-          v18 = c;
-        }
-        if ( (a6 & 1) == 0 )
-        {
-          if ( IsChildWindowDpiBoundary(a1) )
-          {
-            *((_DWORD *)a1 + 58) = 0;
-            *((_DWORD *)a1 + 59) = 0;
-            ScaleDpiValueWithSubpixel(a4, (float *)a1 + 58, v16, v17);
-            ScaleDpiValueWithSubpixel(v38, v23, v21, v22);
-          }
-          else
-          {
-            v24 = v38;
-            *a4 = EngMulDiv(*a4, v16, v18);
-            *v24 = EngMulDiv(*v24, v16, v18);
-          }
-        }
+        LogicalDpiFromMonitor = (unsigned __int16)GetLogicalDpiFromMonitor(
+                                                    v28,
+                                                    *(unsigned int *)(*((_QWORD *)a1 + 5) + 288LL));
+        CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(v31);
+        v33 = (unsigned __int16)GetLogicalDpiFromMonitor(v29, CurrentThreadDpiAwarenessContext);
+        v20 = EngMulDiv(*a4, LogicalDpiFromMonitor, v33);
+        v21 = v33;
+        v22 = LogicalDpiFromMonitor;
+LABEL_18:
+        *a4 = v20;
+        v27 = EngMulDiv(*a5, v22, v21);
+        goto LABEL_19;
       }
     }
-    return;
   }
-  if ( !v11 )
+  else if ( v10 != 3 )
   {
-    v25 = *a3;
-    LODWORD(v40) = *a2;
-    v41 = *v12 + (_DWORD)v40;
-    v26 = v25 + *a5;
-    HIDWORD(v40) = v25;
-    v42 = v26;
-    TransformRectBetweenCoordinateSpaces(&v40, &v40, a1, 0LL);
-    v27 = HIDWORD(v40);
-    v28 = v41 - (_DWORD)v40;
-    *a2 = (int)v40;
-    *a3 = v27;
-    *a4 = v28;
-    v29 = v42 - v27;
-LABEL_25:
-    *a5 = v29;
-    return;
-  }
-  if ( (a6 & 2) == 0 )
-  {
-    c = *a2;
-    v37 = *a3;
-    TransformPointBetweenCoordinateSpaces(&c, &c, a1, 0LL);
-    *a2 = c;
-    *a3 = v37;
-    return;
-  }
-  if ( (a6 & 1) == 0 )
-  {
-    v30 = ValidateHmonitorNoRip(*(_QWORD *)(*(_QWORD *)(v10 + 40) + 256LL));
-    if ( v30 )
+    v11 = ValidateHmonitorNoRip(*(_QWORD *)(*((_QWORD *)a1 + 5) + 256LL));
+    v12 = v11;
+    if ( v11 )
     {
-      v31 = *((_QWORD *)a1 + 5);
-      v32 = v30 + 40;
-      v33 = (*(_DWORD *)(v31 + 288) >> 8) & 0x1FF;
-      if ( !v33 )
-        v33 = *(_WORD *)(*(_QWORD *)v32 + 60LL);
-      v34 = ((unsigned int)W32GetCurrentThreadDpiAwarenessContext(v31) >> 8) & 0x1FF;
-      if ( !v34 )
-        v34 = *(_WORD *)(*(_QWORD *)v32 + 60LL);
-      v35 = v34;
-      *a4 = EngMulDiv(*a4, v33, v34);
-      v29 = EngMulDiv(*a5, v33, v35);
-      goto LABEL_25;
+      v34 = GetLogicalDpiFromMonitor(v11, *(unsigned int *)(*((_QWORD *)a1 + 5) + 288LL));
+      v14 = W32GetCurrentThreadDpiAwarenessContext(v13);
+      v15 = GetLogicalDpiFromMonitor(v12, v14);
+      v35 = v15;
+      c = v15;
+      if ( (a6 & 2) != 0 )
+      {
+        v16 = v15;
+      }
+      else
+      {
+        *a2 = EngMulDiv(*a2, v34, v15);
+        v16 = c;
+        *a3 = EngMulDiv(*a3, v34, c);
+      }
+      if ( (a6 & 1) == 0 )
+      {
+        if ( (unsigned int)IsChildWindowDpiBoundary(a1) )
+        {
+          *((_DWORD *)a1 + 58) = 0;
+          *((_DWORD *)a1 + 59) = 0;
+          ScaleDpiValueWithSubpixel(a4, (float *)a1 + 58, v34, v35);
+          ScaleDpiValueWithSubpixel(a5, v19, v17, v18);
+          return;
+        }
+        v20 = EngMulDiv(*a4, v34, v16);
+        v21 = v16;
+        v22 = v34;
+        goto LABEL_18;
+      }
     }
   }
 }

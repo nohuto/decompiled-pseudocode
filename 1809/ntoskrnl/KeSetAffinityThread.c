@@ -1,24 +1,24 @@
 /*
- * XREFs of KeSetAffinityThread @ 0x14016B290
+ * XREFs of KeSetAffinityThread @ 0x14016B2B0
  * Callers:
- *     ExpWorkerThread @ 0x1400B5C50 (ExpWorkerThread.c)
+ *     ExpWorkerThread @ 0x1400B5C70 (ExpWorkerThread.c)
  *     NtSetInformationThread @ 0x1405E9EA0 (NtSetInformationThread.c)
- *     ExpWorkQueueManagerThread @ 0x140740AC0 (ExpWorkQueueManagerThread.c)
+ *     ExpWorkQueueManagerThread @ 0x140740AA0 (ExpWorkQueueManagerThread.c)
  * Callees:
  *     KiRequestSoftwareInterrupt @ 0x140005AC0 (KiRequestSoftwareInterrupt.c)
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiReadyDeferredReadyList @ 0x1400CDC04 (KiReadyDeferredReadyList.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1F80 (KiEndThreadCycleAccumulation.c)
- *     KiQueueReadyThread @ 0x1400D2350 (KiQueueReadyThread.c)
- *     KiSetAffinityThread @ 0x14011545C (KiSetAffinityThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B7C (KiUpdatePriorityMatrixThreadState.c)
- *     KiSwapContext @ 0x1401C3F50 (KiSwapContext.c)
- *     KiExtendProcessAffinity @ 0x14029BF80 (KiExtendProcessAffinity.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiReadyDeferredReadyList @ 0x1400CDC24 (KiReadyDeferredReadyList.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
+ *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
+ *     KiSetAffinityThread @ 0x14011547C (KiSetAffinityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
+ *     KiSwapContext @ 0x1401C3F70 (KiSwapContext.c)
+ *     KiExtendProcessAffinity @ 0x14029C080 (KiExtendProcessAffinity.c)
  */
 
 char __fastcall KeSetAffinityThread(__int64 a1, __int64 a2)

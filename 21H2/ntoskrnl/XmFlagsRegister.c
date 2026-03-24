@@ -1,10 +1,10 @@
 /*
- * XREFs of XmFlagsRegister @ 0x140535030
+ * XREFs of XmFlagsRegister @ 0x1404E5350
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x1403A2FA8 (XmSetSourceValue.c)
- *     XmSetDestinationValue @ 0x1403A3038 (XmSetDestinationValue.c)
+ *     XmSetSourceValue @ 0x140396F08 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x140396F98 (XmSetDestinationValue.c)
  */
 
 __int64 __fastcall XmFlagsRegister(__int64 a1)

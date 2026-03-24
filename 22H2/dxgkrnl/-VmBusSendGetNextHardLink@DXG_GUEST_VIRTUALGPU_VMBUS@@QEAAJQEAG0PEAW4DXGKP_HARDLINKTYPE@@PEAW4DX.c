@@ -1,13 +1,11 @@
 /*
- * XREFs of ?VmBusSendGetNextHardLink@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJQEAG0PEAW4DXGKP_HARDLINKTYPE@@PEAW4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C0389DC8
+ * XREFs of ?VmBusSendGetNextHardLink@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJQEAG0PEAW4DXGKP_HARDLINKTYPE@@PEAW4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C0249738
  * Callers:
- *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C030AD78 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
+ *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C02622D0 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C00408CC (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z @ 0x1C038FC20 (-VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z.c)
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000C2B4 (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024DA2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetNextHardLink(
@@ -17,51 +15,46 @@ __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetNextHardLink(
         enum DXGKP_HARDLINKTYPE *a4,
         enum DXGKP_HARDLINKOVERWRITETYPE *a5)
 {
-  __int64 v9; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
   int v10; // ebx
-  unsigned int v11; // r11d
-  int v12; // eax
-  unsigned int v14[4]; // [rsp+30h] [rbp-D0h] BYREF
-  __int128 v15; // [rsp+40h] [rbp-C0h] BYREF
-  int v16; // [rsp+50h] [rbp-B0h]
-  _DWORD v17[3]; // [rsp+160h] [rbp+60h] BYREF
-  unsigned __int16 v18[260]; // [rsp+16Ch] [rbp+6Ch] BYREF
-  unsigned __int16 v19[262]; // [rsp+374h] [rbp+274h] BYREF
+  __int64 v11; // r8
+  __int64 v12; // rax
+  struct _MDL *v14; // [rsp+28h] [rbp-D8h]
+  unsigned int v15; // [rsp+30h] [rbp-D0h] BYREF
+  _QWORD v16[2]; // [rsp+38h] [rbp-C8h] BYREF
+  int v17; // [rsp+48h] [rbp-B8h]
+  _DWORD v18[3]; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned __int16 v19[260]; // [rsp+5Ch] [rbp-A4h] BYREF
+  unsigned __int16 v20[262]; // [rsp+264h] [rbp+164h] BYREF
 
-  v16 = 0;
-  v15 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)&v15, this, 0x18u, 0LL, 0LL, 0LL);
-  v9 = v15;
-  v14[0] = 1056;
-  *(_BYTE *)(v15 + 12) = 0;
-  *(_DWORD *)(v9 + 12) &= 0x1FFu;
-  *(_QWORD *)v9 = 0LL;
-  *(_DWORD *)(v9 + 8) = 0;
-  *(_QWORD *)(v9 + 16) = 55LL;
-  v10 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSyncMessage(this, (struct DXGVMBUSMESSAGE *)&v15, v17, v14);
+  v17 = 55;
+  v16[0] = 0LL;
+  v16[1] = 0LL;
+  v15 = 1056;
+  v10 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(this, (struct DXGKVMB_COMMAND_BASE *)v16, 0x18u, v18, &v15, v14);
   if ( v10 < 0 )
     goto LABEL_5;
   v10 = -1073741823;
-  if ( v14[0] < 0x41C )
+  if ( v15 < 0x41C )
     goto LABEL_6;
-  v10 = v17[0];
-  if ( v17[0] < 0 )
+  v10 = v18[0];
+  if ( v18[0] < 0 )
   {
 LABEL_5:
     if ( v10 == -2147483642 )
-      goto LABEL_7;
+      return (unsigned int)v10;
 LABEL_6:
-    WdLogSingleEntry1(3LL, v10);
-    goto LABEL_7;
+    v12 = WdLogNewEntry5_WdWarning(v9, v8, v11);
+    *(_QWORD *)(v12 + 24) = v10;
+    WdLogEvent5_WdWarning(v12);
+    return (unsigned int)v10;
   }
+  v20[259] = 0;
   v19[259] = 0;
-  v18[259] = 0;
-  RtlStringCbCopyW(a2, 0x208uLL, (size_t *)v19);
-  RtlStringCbCopyW(a3, v11, (size_t *)v18);
-  v12 = v17[2];
-  *(_DWORD *)a4 = v17[1];
-  *(_DWORD *)a5 = v12;
-LABEL_7:
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)&v15);
+  RtlStringCbCopyW(a2, 0x208uLL, (size_t *)v20);
+  RtlStringCbCopyW(a3, 0x208uLL, (size_t *)v19);
+  *(_DWORD *)a4 = v18[1];
+  *(_DWORD *)a5 = v18[2];
   return (unsigned int)v10;
 }

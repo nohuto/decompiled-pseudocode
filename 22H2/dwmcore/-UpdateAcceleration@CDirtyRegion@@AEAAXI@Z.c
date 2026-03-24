@@ -1,27 +1,27 @@
 /*
- * XREFs of ?UpdateAcceleration@CDirtyRegion@@AEAAXI@Z @ 0x1800D57D8
+ * XREFs of ?UpdateAcceleration@CDirtyRegion@@AEAAXI@Z @ 0x1800C27C4
  * Callers:
- *     ?_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18006A650 (-_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSiz.c)
- *     ?Merge@CDirtyRegion@@AEAAXII@Z @ 0x180077ED0 (-Merge@CDirtyRegion@@AEAAXII@Z.c)
+ *     ?_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180082E50 (-_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSiz.c)
+ *     ?Merge@CDirtyRegion@@AEAAXII@Z @ 0x1800C2638 (-Merge@CDirtyRegion@@AEAAXII@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall CDirtyRegion::UpdateAcceleration(CDirtyRegion *this, unsigned int a2)
 {
-  __int64 v3; // r8
+  __int64 v3; // r11
   __int64 v4; // rbx
-  float *v5; // r9
+  float *v5; // r8
   float *v6; // rax
   float *v7; // rcx
   float v8; // xmm1_4
-  char v9; // r10
+  char v9; // r9
   float v10; // xmm2_4
-  __int64 v11; // r9
-  __int64 v12; // r10
+  __int64 v11; // r8
+  __int64 v12; // r9
   float *v13; // rdx
   float *v14; // rcx
-  __int64 v15; // r9
+  __int64 v15; // r8
   float v16; // xmm1_4
   char v17; // al
   float v18; // xmm2_4
@@ -31,9 +31,9 @@ void __fastcall CDirtyRegion::UpdateAcceleration(CDirtyRegion *this, unsigned in
   if ( a2 )
   {
     v4 = a2;
-    v5 = (float *)((char *)this + 16 * a2 + 1952);
-    v6 = (float *)((char *)this + 32 * a2 + 2080);
-    v7 = (float *)((char *)this + 1956);
+    v5 = (float *)((char *)this + 16 * a2 + 1984);
+    v6 = (float *)((char *)this + 32 * a2 + 2112);
+    v7 = (float *)((char *)this + 1988);
     do
     {
       v8 = 0.0;
@@ -60,9 +60,9 @@ void __fastcall CDirtyRegion::UpdateAcceleration(CDirtyRegion *this, unsigned in
   v11 = a2 + 1;
   if ( (unsigned int)v11 < 8 )
   {
-    v12 = 8 * v11 + 520;
-    v13 = (float *)((char *)this + 16 * (unsigned int)v11 + 1956);
-    v14 = (float *)((char *)this + 16 * v3 + 1952);
+    v12 = 8 * v11 + 528;
+    v13 = (float *)((char *)this + 16 * (unsigned int)v11 + 1988);
+    v14 = (float *)((char *)this + 16 * v3 + 1984);
     v15 = (unsigned int)(8 - v11);
     do
     {

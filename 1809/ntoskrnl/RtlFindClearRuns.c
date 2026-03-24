@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindClearRuns @ 0x14013BD00
+ * XREFs of RtlFindClearRuns @ 0x14013BD20
  * Callers:
- *     RtlFindLongestRunClear @ 0x1402EE670 (RtlFindLongestRunClear.c)
+ *     RtlFindLongestRunClear @ 0x1402EE770 (RtlFindLongestRunClear.c)
  * Callees:
  *     <none>
  */
@@ -76,7 +76,7 @@ ULONG __stdcall RtlFindClearRuns(
       v18 = *(_BYTE *)Buffer;
       Buffer = (unsigned int *)((char *)Buffer + 1);
       if ( v13 == v12 - 1 && v9 )
-        v18 |= byte_140360C28[v7 & 7];
+        v18 |= byte_140360D38[v7 & 7];
       if ( v18 )
       {
         v24 = RtlpBitsClearLow[v18];
@@ -114,14 +114,14 @@ ULONG __stdcall RtlFindClearRuns(
         }
         v15 = RtlpBitsClearHigh[v18];
         v16 = v17 - v15 + 8;
-        v26 = *((_BYTE *)&unk_140360C30 - v15) | byte_140362048[v24] | v18;
+        v26 = *((_BYTE *)&unk_140360D40 - v15) | byte_140362158[v24] | v18;
         if ( v26 != 0xFF )
         {
           while ( v14 < v5 || v4[v14 - 1].NumberOfBits < RtlpBitsClearAnywhere[v26] )
           {
             v33 = RtlpBitsClearAnywhere[v26];
             v34 = 0;
-            for ( j = byte_140362048[v33]; ((unsigned __int8)j & v26) != 0; ++v34 )
+            for ( j = byte_140362158[v33]; ((unsigned __int8)j & v26) != 0; ++v34 )
               j *= 2;
             v36 = v14 + 1;
             if ( v14 >= SizeOfRunArray )

@@ -1,103 +1,104 @@
 /*
- * XREFs of MmEnumerateBadPages @ 0x140A2FC54
+ * XREFs of MmEnumerateBadPages @ 0x14056469C
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     MiIterateOverPartitions @ 0x14062947C (MiIterateOverPartitions.c)
- *     MiEnumerateQuarantinedBadHugeRangePages @ 0x140629E78 (MiEnumerateQuarantinedBadHugeRangePages.c)
- *     MiSortPageFramesRemoveDuplicates @ 0x14062AD14 (MiSortPageFramesRemoveDuplicates.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MmEnumerateBadPages(__int64 **a1)
+__int64 __fastcall MmEnumerateBadPages(_QWORD *a1)
 {
-  __int64 *v2; // rdi
-  char *v3; // r14
-  struct _KTHREAD *CurrentThread; // rbx
-  unsigned int v5; // esi
-  __int64 v6; // rax
-  __int64 v7; // r15
-  bool v8; // zf
+  __int64 v2; // rbx
+  unsigned __int64 v3; // rbx
   _QWORD *Pool; // rax
-  const void **v10; // rbx
-  __int64 v11; // rax
-  __int64 result; // rax
-  PVOID P[2]; // [rsp+20h] [rbp-20h] BYREF
-  int v14; // [rsp+30h] [rbp-10h]
-  int v15; // [rsp+34h] [rbp-Ch]
-  size_t v16; // [rsp+38h] [rbp-8h]
+  _QWORD *v5; // rdi
+  _QWORD *v6; // r15
+  unsigned __int64 OldIrql; // rbx
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v11; // eax
+  bool v12; // zf
+  __int64 i; // rax
+  unsigned __int64 v15; // rbx
+  unsigned __int8 v16; // al
+  struct _KPRCB *v17; // r9
+  _DWORD *v18; // r8
+  int v19; // eax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   *a1 = 0LL;
-  v15 = 0;
-  v16 = 0LL;
-  v14 = 0;
-  P[1] = P;
-  v2 = 0LL;
-  P[0] = P;
-  v3 = 0LL;
-  CurrentThread = KeGetCurrentThread();
-  v5 = 0;
-  --CurrentThread->SpecialApcDisable;
-  v6 = KeAbPreAcquire((__int64)&qword_140C67488, 0LL);
-  v7 = v6;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140C67488, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&qword_140C67488, v6, (__int64)&qword_140C67488);
-  if ( v7 )
-    *(_BYTE *)(v7 + 18) = 1;
-  MiIterateOverPartitions(MiEnumeratePartitionBadPages, (__int64)P);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C67488, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C67488);
-  KeAbPostRelease((ULONG_PTR)&qword_140C67488);
-  v8 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v8 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
-  MiEnumerateQuarantinedBadHugeRangePages((__int64)P);
-  if ( v14 >= 0 )
+  v2 = qword_140C51D80;
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  if ( qword_140C51D80 )
   {
-    if ( v16 )
+    while ( 1 )
     {
-      if ( v16 + 1 >= v16
-        && v16 + 1 <= 0x1FFFFFFFFFFFFFFFLL
-        && (Pool = MiAllocatePool(64, 8 * v16 + 8, 0x61426D4Du), (v2 = Pool) != 0LL) )
+      v3 = v2 + 16;
+      Pool = MiAllocatePool(64, 8 * v3, 0x61426D4Du);
+      v5 = Pool;
+      if ( !Pool )
+        return 3221225626LL;
+      v6 = Pool;
+      KeAcquireInStackQueuedSpinLock(qword_140C51DA0, &LockHandle);
+      if ( qword_140C51D80 < v3 )
       {
-        v3 = (char *)(Pool + 1);
+        if ( qword_140C51D80 )
+          break;
       }
-      else
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      OldIrql = LockHandle.OldIrql;
+      if ( KiIrqlFlags )
       {
-        v5 = -1073741670;
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v11 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v12 = (v11 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v11;
+            if ( v12 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
+        }
+      }
+      __writecr8(OldIrql);
+      ExFreePoolWithTag(v5, 0);
+      v2 = qword_140C51D80;
+      if ( !qword_140C51D80 )
+        return 0LL;
+    }
+    *v5 = qword_140C51D80;
+    for ( i = qword_140C51D90; i != 0xFFFFFFFFFLL; i = *(_QWORD *)(48 * i - 0x58000000000LL) & 0xFFFFFFFFFLL )
+      *++v6 = i;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    v15 = LockHandle.OldIrql;
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        v16 = KeGetCurrentIrql();
+        if ( v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
+        {
+          v17 = KeGetCurrentPrcb();
+          v18 = v17->SchedulerAssist;
+          v19 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v12 = (v19 & v18[5]) == 0;
+          v18[5] &= v19;
+          if ( v12 )
+            KiRemoveSystemWorkPriorityKick((__int64)v17);
+        }
       }
     }
+    __writecr8(v15);
+    *a1 = v5;
   }
-  else
-  {
-    v5 = v14;
-  }
-  while ( 1 )
-  {
-    v10 = (const void **)P[0];
-    if ( P[0] == P )
-      break;
-    if ( *((PVOID **)P[0] + 1) != P || (v11 = *(_QWORD *)P[0], *(PVOID *)(*(_QWORD *)P[0] + 8LL) != P[0]) )
-      __fastfail(3u);
-    P[0] = *(PVOID *)P[0];
-    *(_QWORD *)(v11 + 8) = P;
-    if ( v3 )
-    {
-      memmove(v3, v10[3], 8LL * (_QWORD)v10[2]);
-      v3 += 8 * (_QWORD)v10[2];
-    }
-    ExFreePoolWithTag(v10, 0);
-  }
-  if ( v2 )
-    *v2 = MiSortPageFramesRemoveDuplicates(v2 + 1, v16);
-  result = v5;
-  *a1 = v2;
-  return result;
+  return 0LL;
 }

@@ -1,79 +1,59 @@
 /*
- * XREFs of MiPrefetchControlArea @ 0x1407DCE8C
+ * XREFs of MiPrefetchControlArea @ 0x14066BF34
  * Callers:
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiSetPagesModified @ 0x14062896C (MiSetPagesModified.c)
- *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x140A3E508 (MiLoadSectionIntoVsmEnclave.c)
+ *     MiWalkEntireImage @ 0x140239E20 (MiWalkEntireImage.c)
+ *     MiSetPagesModified @ 0x140534FF0 (MiSetPagesModified.c)
+ *     MiValidateSectionCreate @ 0x14066B20C (MiValidateSectionCreate.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x1408D35C0 (MiLoadSectionIntoVsmEnclave.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     MiPfCompletePrefetchIos @ 0x1402A3920 (MiPfCompletePrefetchIos.c)
- *     MiDereferenceInPageAutoBoostLock @ 0x1402BD3E8 (MiDereferenceInPageAutoBoostLock.c)
- *     MiGetInPageAutoBoostLock @ 0x1402BD418 (MiGetInPageAutoBoostLock.c)
- *     KeAbPostReleaseEx @ 0x1402BD4C0 (KeAbPostReleaseEx.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiReleaseReadListResources @ 0x1407213C0 (MiReleaseReadListResources.c)
- *     MiPfExecuteReadList @ 0x140724164 (MiPfExecuteReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x140744BF0 (MiPfPrepareSequentialReadList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     MiPfPutPagesInTransition @ 0x14027BCA0 (MiPfPutPagesInTransition.c)
+ *     MiPfCompletePrefetchIos @ 0x14027D180 (MiPfCompletePrefetchIos.c)
+ *     MiReleaseReadListResources @ 0x140636234 (MiReleaseReadListResources.c)
+ *     MiPfExecuteReadList @ 0x140636824 (MiPfExecuteReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x14063B4F0 (MiPfPrepareSequentialReadList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiPrefetchControlArea(
         __int64 a1,
-        signed __int64 a2,
+        unsigned __int64 a2,
         unsigned __int64 a3,
         unsigned int a4,
         int a5,
         unsigned int a6)
 {
-  struct _KTHREAD *CurrentThread; // rdi
-  volatile signed __int64 *v11; // rax
-  volatile signed __int64 *v12; // rsi
-  __int64 v13; // rax
-  ULONG_PTR v14; // rbp
-  int List; // ebx
-  int v17; // eax
-  PVOID v18; // rcx
-  PVOID P[2]; // [rsp+50h] [rbp-38h] BYREF
+  struct _KTHREAD *CurrentThread; // rbx
+  int List; // edi
+  int v8; // eax
+  PVOID v9; // rcx
+  PVOID P[3]; // [rsp+40h] [rbp-18h] BYREF
 
   P[0] = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v11 = MiGetInPageAutoBoostLock();
-  v12 = v11;
-  if ( v11 )
+  List = MiPfPrepareSequentialReadList(0LL, a1, a2, 0LL, a3, a4, a6, (__int64 *)P);
+  if ( List >= 0 && P[0] )
   {
-    v13 = KeAbPreAcquire((__int64)v11, 0LL);
-    v14 = v13;
-    if ( v13 )
-      *(_BYTE *)(v13 + 18) = 1;
-    List = MiPfPrepareSequentialReadList(0LL, a1, a2, 0LL, a3, a4, a6, (__int64)v12, (__int64 *)P);
-    if ( List >= 0 && P[0] )
+    ++BYTE6(CurrentThread[1].Queue);
+    *((_DWORD *)P[0] + 26) = 0;
+    v8 = MiPfPutPagesInTransition((__int64)P[0], 0LL, a5);
+    v9 = P[0];
+    List = v8;
+    if ( v8 >= 0 && *((PVOID *)P[0] + 15) != (char *)P[0] + 120 )
     {
-      ++BYTE6(CurrentThread[1].Queue);
-      *((_DWORD *)P[0] + 26) = 0;
-      v17 = MiPfPutPagesInTransition((__int64)P[0], 0, a5, a6);
-      v18 = P[0];
-      List = v17;
-      if ( v17 >= 0 && *((PVOID *)P[0] + 15) != (char *)P[0] + 120 )
-      {
-        MiPfExecuteReadList((__int64)P[0], a5, a6, 0LL);
-        MiPfCompletePrefetchIos((_QWORD **)P[0] + 15, 0LL, 0LL);
-        v18 = P[0];
-      }
-      MiReleaseReadListResources((__int64)v18);
-      --BYTE6(CurrentThread[1].Queue);
-      ExFreePoolWithTag(P[0], 0);
+      MiPfExecuteReadList((__int64)P[0], a5, a6, 0LL);
+      MiPfCompletePrefetchIos((_QWORD **)P[0] + 15, 0LL, 0LL);
+      v9 = P[0];
     }
-    if ( v14 )
-      KeAbPostReleaseEx((ULONG_PTR)v12, v14);
-    MiDereferenceInPageAutoBoostLock(v12);
+    MiReleaseReadListResources((__int64)v9);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    --BYTE6(CurrentThread[1].Queue);
+    ExFreePoolWithTag(P[0], 0);
   }
   else
   {
-    List = -1073741670;
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
   }
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
   return (unsigned int)List;
 }

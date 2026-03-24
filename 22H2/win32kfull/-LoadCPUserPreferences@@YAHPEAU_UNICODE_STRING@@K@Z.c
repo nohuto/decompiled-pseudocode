@@ -1,9 +1,9 @@
 /*
- * XREFs of ?LoadCPUserPreferences@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C0073EDC
+ * XREFs of ?LoadCPUserPreferences@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C01260D0
  * Callers:
- *     xxxUpdatePerUserSystemParameters @ 0x1C0072BDC (xxxUpdatePerUserSystemParameters.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C0026774 (xxxUpdatePerUserSystemParameters.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall LoadCPUserPreferences(struct _UNICODE_STRING *a1, int a2)
@@ -28,7 +28,7 @@ __int64 __fastcall LoadCPUserPreferences(struct _UNICODE_STRING *a1, int a2)
     memmove(gpdwCPUserPreferencesMask, &Src, ProfileValue);
   }
   v5 = (char *)&gpviCPUserPreferences + 16;
-  v6 = 27LL;
+  v6 = 21LL;
   do
   {
     if ( (unsigned int)FastGetProfileValue(a1, *((unsigned int *)v5 + 1), *((_QWORD *)v5 + 1), 0LL, &Src, 4, a2) )
@@ -47,8 +47,7 @@ __int64 __fastcall LoadCPUserPreferences(struct _UNICODE_STRING *a1, int a2)
   *(_DWORD *)(gpsi + 7008LL) = *(_DWORD *)UPDWORDPointer(8198LL);
   *(_DWORD *)(gpsi + 2228LL) = *(_DWORD *)UPDWORDPointer(8206LL);
   *(_DWORD *)(gpsi + 2232LL) = *(_DWORD *)UPDWORDPointer(8208LL);
-  *(_DWORD *)(gpsi + 7004LL) = (unsigned int)gpdwCPUserPreferencesMask ^ ((unsigned int)gpdwCPUserPreferencesMask ^ *(_DWORD *)(gpsi + 7004LL)) & 0x7FFFFFFF;
+  *(_DWORD *)(gpsi + 7004LL) = (unsigned int)gpdwCPUserPreferencesMask ^ (*(_DWORD *)(gpsi + 7004LL) ^ (unsigned int)gpdwCPUserPreferencesMask) & 0x7FFFFFFF;
   EnforceColorDependentSettings();
-  *(_DWORD *)UPDWORDPointer(8193LL) = 0x7FFFFFFF;
   return 1LL;
 }

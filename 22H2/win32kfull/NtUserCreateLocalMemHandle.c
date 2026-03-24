@@ -1,48 +1,42 @@
 /*
- * XREFs of NtUserCreateLocalMemHandle @ 0x1C01CE090
+ * XREFs of NtUserCreateLocalMemHandle @ 0x1C0127A30
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandle @ 0x1C002D0F8 (HMValidateHandle.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     HMValidateHandle @ 0x1C0067040 (HMValidateHandle.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-__int64 __fastcall NtUserCreateLocalMemHandle(__int64 a1, volatile void *a2, unsigned int a3, _DWORD *a4)
+__int64 __fastcall NtUserCreateLocalMemHandle(unsigned __int64 a1, volatile void *a2, unsigned int a3, _DWORD *a4)
 {
-  SIZE_T v5; // r15
-  __int64 v8; // rdx
-  ULONG64 v9; // rcx
-  __int64 v10; // rsi
-  __int64 v11; // r8
-  __int64 v12; // r9
-  unsigned int v13; // ebx
-  unsigned int v14; // eax
+  ULONG64 v8; // rcx
+  __int64 v9; // r14
+  unsigned int v10; // ebx
+  unsigned int v11; // eax
 
-  v5 = a3;
-  EnterCrit(0LL, 0LL);
-  v10 = HMValidateHandle(a1, 6u);
-  v13 = 0;
-  if ( v10 )
+  EnterCrit(0LL, 1LL);
+  v9 = HMValidateHandle(a1, 6u);
+  v10 = 0;
+  if ( v9 )
   {
     if ( a2 )
-      ProbeForWrite(a2, v5, 1u);
+      ProbeForWrite(a2, a3, 1u);
     if ( a4 )
     {
-      v8 = *(unsigned int *)(v10 + 16);
-      v9 = MmUserProbeAddress;
+      v8 = MmUserProbeAddress;
       if ( (unsigned __int64)a4 >= MmUserProbeAddress )
         a4 = (_DWORD *)MmUserProbeAddress;
-      *a4 = v8;
+      *a4 = *(_DWORD *)(v9 + 16);
     }
-    if ( a2 && (v14 = *(_DWORD *)(v10 + 16), (unsigned int)v5 >= v14) )
-      memmove((void *)a2, (const void *)(v10 + 20), v14);
+    if ( a2 && (v11 = *(_DWORD *)(v9 + 16), a3 >= v11) )
+      memmove((void *)a2, (const void *)(v9 + 20), v11);
     else
-      v13 = -1073741789;
+      v10 = -1073741789;
   }
   else
   {
-    v13 = -1073741816;
+    v10 = -1073741816;
   }
-  UserSessionSwitchLeaveCrit(v9, v8, v11, v12);
-  return v13;
+  UserSessionSwitchLeaveCrit(v8);
+  return v10;
 }

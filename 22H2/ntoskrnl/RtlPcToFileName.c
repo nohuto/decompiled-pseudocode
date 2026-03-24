@@ -1,14 +1,12 @@
 /*
- * XREFs of RtlPcToFileName @ 0x1403A9CA0
+ * XREFs of RtlPcToFileName @ 0x1403CBF30
  * Callers:
- *     KiLogSingleDpcSoftTimeoutEvent @ 0x14056B360 (KiLogSingleDpcSoftTimeoutEvent.c)
- *     EtwTimLogControlProtectionKernelModeReturnMismatch @ 0x1405FFE6C (EtwTimLogControlProtectionKernelModeReturnMismatch.c)
- *     KitLogFeatureUsage @ 0x14060EBE0 (KitLogFeatureUsage.c)
- *     PoRegisterPowerSettingCallback @ 0x1407A7570 (PoRegisterPowerSettingCallback.c)
+ *     KitLogFeatureUsage @ 0x1405B9570 (KitLogFeatureUsage.c)
+ *     PoRegisterPowerSettingCallback @ 0x1406F4AF0 (PoRegisterPowerSettingCallback.c)
  * Callees:
- *     MmUnlockLoadedModuleListShared @ 0x1402A7C6C (MmUnlockLoadedModuleListShared.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     MmLockLoadedModuleListShared @ 0x140339800 (MmLockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x14029CDE4 (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x14029CF18 (MmLockLoadedModuleListShared.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
  */
 
 __int64 __fastcall RtlPcToFileName(unsigned __int64 a1, UNICODE_STRING *a2)
@@ -33,12 +31,12 @@ __int64 __fastcall RtlPcToFileName(unsigned __int64 a1, UNICODE_STRING *a2)
       if ( a1 >= (unsigned __int64)v7 && a1 < (unsigned __int64)v7 + *((unsigned int *)v6 + 16) )
       {
         RtlCopyUnicodeString(a2, (PCUNICODE_STRING)(v6 + 11));
-        goto LABEL_8;
+        goto LABEL_6;
       }
     }
   }
   v3 = -1073741275;
-LABEL_8:
+LABEL_6:
   MmUnlockLoadedModuleListShared(v9);
   return v3;
 }

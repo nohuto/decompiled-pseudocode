@@ -1,29 +1,43 @@
 /*
- * XREFs of ?Allocate@SURFACE@@SAPEAV1@_KG@Z @ 0x1C0047A04
+ * XREFs of ?Allocate@SURFACE@@SAPEAV1@_KG@Z @ 0x1C00808C0
  * Callers:
- *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C005ED70 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
+ *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C0027C60 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
  * Callees:
- *     ?AcquireReferenceCountedObjectHandle@@YA_NW4ReferenceTrackerCountedType@@PEAXPEAPEAX@Z @ 0x1C00478B4 (-AcquireReferenceCountedObjectHandle@@YA_NW4ReferenceTrackerCountedType@@PEAXPEAPEAX@Z.c)
- *     ??$FreeIsolatedType@V?$CLookAsideTypeIsolation@$0DGAAA@$0DGA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C0158230 (--$FreeIsolatedType@V-$CLookAsideTypeIsolation@$0DGAAA@$0DGA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     ??$FreeIsolatedType@V?$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C002B910 (--$FreeIsolatedType@V-$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     ?AcquireReferenceCountedObjectHandle@@YA_NW4ReferenceTrackerCountedType@@PEAXPEAPEAX@Z @ 0x1C0080950 (-AcquireReferenceCountedObjectHandle@@YA_NW4ReferenceTrackerCountedType@@PEAXPEAPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-struct SURFACE *__fastcall SURFACE::Allocate(__int64 a1)
+struct _SLIST_ENTRY *__fastcall SURFACE::Allocate()
 {
-  __int64 v1; // rcx
-  _QWORD *v2; // rax
-  void *v3; // rbx
+  __int64 v0; // rdi
+  struct _SLIST_ENTRY *v1; // rbx
 
-  v1 = **(_QWORD **)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 6504LL);
+  v0 = (__int64)*gpTypeIsolation;
+  if ( *gpTypeIsolation )
+  {
+    ++*(_DWORD *)(v0 + 68);
+    v1 = ExpInterlockedPopEntrySList((PSLIST_HEADER)(v0 + 48));
+    if ( !v1 )
+    {
+      ++*(_DWORD *)(v0 + 72);
+      v1 = (struct _SLIST_ENTRY *)(*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(v0 + 96))(
+                                    *(unsigned int *)(v0 + 84),
+                                    *(unsigned int *)(v0 + 92),
+                                    *(unsigned int *)(v0 + 88),
+                                    v0 + 48);
+    }
+  }
+  else
+  {
+    v1 = 0LL;
+  }
   if ( !v1 )
     return 0LL;
-  v2 = ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)(v1 + 48));
-  v3 = v2;
-  if ( !v2 )
-    return 0LL;
-  if ( !AcquireReferenceCountedObjectHandle(0LL, v2, v2 + 85) )
+  if ( !(unsigned __int8)AcquireReferenceCountedObjectHandle(0LL, v1, &v1[42].Next + 1) )
   {
-    FreeIsolatedType<NSInstrumentation::CLookAsideTypeIsolation<221184,864>>(v3);
+    FreeIsolatedType<NSInstrumentation::CLookAsideTypeIsolation<180224,704>>(v1);
     return 0LL;
   }
-  return (struct SURFACE *)v3;
+  return v1;
 }

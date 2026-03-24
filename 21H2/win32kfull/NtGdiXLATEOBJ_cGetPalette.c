@@ -1,54 +1,71 @@
 /*
- * XREFs of NtGdiXLATEOBJ_cGetPalette @ 0x1C02B41E0
+ * XREFs of NtGdiXLATEOBJ_cGetPalette @ 0x1C02B5E90
  * Callers:
  *     <none>
  * Callees:
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0009B28 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ??$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z @ 0x1C012914C (--$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z.c)
- *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C0143064 (-bSafeCopyBits@@YAHPEAX0K@Z.c)
- *     XLATEOBJ_cGetPalette @ 0x1C02BE240 (XLATEOBJ_cGetPalette.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CFBDC (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z @ 0x1C013DA6C (--$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z.c)
+ *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C01552E4 (-bSafeCopyBits@@YAHPEAX0K@Z.c)
+ *     Feature_1508323640__private_IsEnabledDeviceUsage @ 0x1C016A12C (Feature_1508323640__private_IsEnabledDeviceUsage.c)
+ *     ?bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ @ 0x1C016D8BC (-bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ.c)
+ *     ?vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ @ 0x1C02B2070 (-vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ.c)
+ *     XLATEOBJ_cGetPalette @ 0x1C02BF8C0 (XLATEOBJ_cGetPalette.c)
  */
 
 __int64 __fastcall NtGdiXLATEOBJ_cGetPalette(__int64 a1, ULONG a2, ULONG a3, char *a4)
 {
-  ULONG Palette; // esi
+  ULONG Palette; // edi
+  ULONG *v9; // rsi
   struct _W32THREAD *ThreadWin32Thread; // rax
-  struct UMPDOBJ *ThreadCurrentObj; // rax
-  struct UMPDOBJ *v11; // rbx
-  XLATEOBJ *v12; // r12
-  unsigned int v13; // ebp
-  ULONG *v14; // rdi
+  struct UMPDOBJ *ThreadCurrentObj; // rbx
+  XLATEOBJ *v12; // r15
+  unsigned int v13; // r14d
 
   Palette = 0;
+  v9 = 0LL;
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v11 = ThreadCurrentObj;
   if ( ThreadCurrentObj )
   {
-    ++*((_DWORD *)ThreadCurrentObj + 105);
-    v12 = (XLATEOBJ *)UMPDOBJ::GetDDIOBJ<_XLATEOBJ>((__int64)ThreadCurrentObj, a1);
-    if ( !v12 || !a4 )
-      goto LABEL_13;
-    if ( a3 <= 0x9C4000 )
+    if ( (unsigned int)Feature_1508323640__private_IsEnabledDeviceUsage() )
     {
-      v13 = 4 * a3;
-      if ( 4 * a3 )
-        v14 = (ULONG *)Win32AllocPool(v13, 1886221639LL);
-      else
-        v14 = 0LL;
-      if ( v14 )
+      if ( !UMPDOBJ::bIncrementEngCallRecursionCount(ThreadCurrentObj) )
       {
-        Palette = XLATEOBJ_cGetPalette(v12, a2, a3, v14);
-        if ( Palette )
-          Palette &= -((unsigned int)bSafeCopyBits(a4, v14, v13) != 0);
-        Win32FreePool(v14);
+        ThreadCurrentObj = 0LL;
+        goto LABEL_15;
       }
-      goto LABEL_13;
+    }
+    else
+    {
+      ++*((_DWORD *)ThreadCurrentObj + 105);
+    }
+    v12 = (XLATEOBJ *)UMPDOBJ::GetDDIOBJ<_XLATEOBJ>((__int64)ThreadCurrentObj, a1);
+    if ( v12 )
+    {
+      if ( a4 )
+      {
+        if ( a3 > 0x9C4000 )
+          goto LABEL_15;
+        v13 = 4 * a3;
+        v9 = (ULONG *)PALLOCMEM2(4 * a3, 1886221639LL, 0);
+      }
+      else
+      {
+        v13 = 4 * a3;
+      }
+      if ( v9 )
+      {
+        Palette = XLATEOBJ_cGetPalette(v12, a2, a3, v9);
+        if ( Palette )
+          Palette &= -((unsigned int)bSafeCopyBits(a4, v9, v13) != 0);
+        Win32FreePool(v9);
+      }
     }
   }
-  if ( v11 )
-LABEL_13:
-    --*((_DWORD *)v11 + 105);
+LABEL_15:
+  if ( ThreadCurrentObj )
+    UMPDOBJ::vDecrementEngCallRecursionCount(ThreadCurrentObj);
   return Palette;
 }

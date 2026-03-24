@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmMatchLastKnownParentCallback @ 0x1408F8350
+ * XREFs of _CmMatchLastKnownParentCallback @ 0x1408F8330
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
  */
 

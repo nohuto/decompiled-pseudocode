@@ -1,52 +1,50 @@
 /*
- * XREFs of PopDiagTraceShutdownAction @ 0x1405D3540
+ * XREFs of PopDiagTraceShutdownAction @ 0x140572F84
  * Callers:
- *     PopExecutePowerAction @ 0x1407FEC6C (PopExecutePowerAction.c)
+ *     PopExecutePowerAction @ 0x1407751C8 (PopExecutePowerAction.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     SshSessionManagerTraceShutdownAction @ 0x1409A0F20 (SshSessionManagerTraceShutdownAction.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-__int64 __fastcall PopDiagTraceShutdownAction(unsigned int a1, unsigned int a2, unsigned int a3)
+char __fastcall PopDiagTraceShutdownAction(int a1, int a2, int a3)
 {
-  unsigned int v4; // ebx
-  REGHANDLE v6; // r14
-  unsigned int v8; // [rsp+40h] [rbp-29h] BYREF
-  unsigned int v9; // [rsp+44h] [rbp-25h] BYREF
-  unsigned int v10; // [rsp+50h] [rbp-19h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+60h] [rbp-9h] BYREF
-  unsigned int *v12; // [rsp+70h] [rbp+7h]
-  int v13; // [rsp+78h] [rbp+Fh]
-  int v14; // [rsp+7Ch] [rbp+13h]
-  int *v15; // [rsp+80h] [rbp+17h]
-  int v16; // [rsp+88h] [rbp+1Fh]
-  int v17; // [rsp+8Ch] [rbp+23h]
+  _UNKNOWN **v3; // rax
+  REGHANDLE v6; // rbx
+  int v8; // [rsp+40h] [rbp-40h] BYREF
+  int v9; // [rsp+44h] [rbp-3Ch] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-38h] BYREF
+  int *v11; // [rsp+58h] [rbp-28h]
+  int v12; // [rsp+60h] [rbp-20h]
+  int v13; // [rsp+64h] [rbp-1Ch]
+  int *v14; // [rsp+68h] [rbp-18h]
+  int v15; // [rsp+70h] [rbp-10h]
+  int v16; // [rsp+74h] [rbp-Ch]
+  _UNKNOWN *retaddr; // [rsp+88h] [rbp+8h] BYREF
+  int v18; // [rsp+98h] [rbp+18h] BYREF
 
-  v8 = 0;
-  v9 = 0;
-  v4 = a2;
-  v10 = a2;
+  v3 = &retaddr;
+  v18 = a2;
   if ( PopDiagHandleRegistered )
   {
     v6 = PopDiagHandle;
-    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SHUTDOWN_ACTION) )
+    LOBYTE(v3) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SHUTDOWN_ACTION);
+    if ( (_BYTE)v3 )
     {
       UserData.Reserved = 0;
-      v14 = 0;
-      v17 = 0;
+      v13 = 0;
+      v16 = 0;
       UserData.Ptr = (ULONGLONG)&v8;
       UserData.Size = 4;
-      v12 = &v10;
-      v13 = 4;
-      v15 = (int *)&v9;
-      v16 = 4;
+      v11 = &v18;
+      v12 = 4;
+      v14 = &v9;
+      v15 = 4;
       v8 = a1;
       v9 = a3;
-      EtwWriteEx(v6, &POP_ETW_EVENT_SHUTDOWN_ACTION, 0LL, 0, 0LL, 0LL, 3u, &UserData);
-      v4 = v10;
+      LOBYTE(v3) = EtwWriteEx(v6, &POP_ETW_EVENT_SHUTDOWN_ACTION, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
-  return SshSessionManagerTraceShutdownAction(a1, v4, a3);
+  return (char)v3;
 }

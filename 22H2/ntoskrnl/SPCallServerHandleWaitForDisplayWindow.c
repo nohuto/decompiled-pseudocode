@@ -1,227 +1,263 @@
 /*
- * XREFs of SPCallServerHandleWaitForDisplayWindow @ 0x1407E8954
+ * XREFs of SPCallServerHandleWaitForDisplayWindow @ 0x14078CC7C
  * Callers:
- *     sub_1406EF620 @ 0x1406EF620 (sub_1406EF620.c)
+ *     sub_1405FE2AC @ 0x1405FE2AC (sub_1405FE2AC.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleWaitForDisplayWindow(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
-  __int64 *v6; // rbp
-  __int64 v7; // rbp
-  int v8; // eax
-  unsigned int v9; // edx
-  NTSTATUS v10; // eax
-  NTSTATUS v11; // esi
-  unsigned int v12; // eax
+  __int64 v4; // rbp
+  unsigned int *v7; // rax
+  unsigned int v8; // r8d
+  int v9; // edi
+  int v10; // eax
+  NTSTATUS v11; // eax
+  NTSTATUS v12; // edi
   unsigned int *v13; // rax
   unsigned int i; // ecx
   __int64 v15; // r8
   unsigned int *v16; // rdx
   unsigned int v17; // edx
+  unsigned int *v18; // rcx
   NTSTATUS v19; // eax
   int v20; // edx
   unsigned int v21; // ecx
-  __int64 Pool2; // rax
-  unsigned __int64 *v23; // rdx
-  int v24; // esi
-  __int64 v25; // r11
-  unsigned int v26; // ecx
-  _DWORD *j; // r8
-  unsigned int v28; // eax
-  unsigned int v29; // eax
-  _DWORD *v30; // r9
-  int v31; // r11d
-  unsigned int v32; // eax
+  _DWORD *PoolWithTag; // rax
+  int v24; // edi
+  unsigned int v25; // r9d
+  __int64 v26; // r10
+  int v27; // r11d
+  unsigned int v28; // edx
+  int v29; // eax
+  unsigned int v30; // ecx
+  __int64 v31; // r9
+  int v32; // edi
   unsigned int v33; // ecx
-  unsigned __int64 m; // r8
-  unsigned int v35; // eax
-  unsigned int v36; // ecx
-  _DWORD *k; // r8
-  unsigned int v38; // eax
-  LARGE_INTEGER v39; // [rsp+30h] [rbp-38h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-30h] BYREF
-  int v41; // [rsp+70h] [rbp+8h] BYREF
-  int v42; // [rsp+80h] [rbp+18h] BYREF
+  unsigned int v34; // eax
+  unsigned int v35; // ecx
+  unsigned __int64 v36; // rdx
+  unsigned int v37; // eax
+  unsigned int v38; // ecx
+  _DWORD *v39; // rdx
+  unsigned int v40; // eax
+  LARGE_INTEGER v41; // [rsp+30h] [rbp-48h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-40h] BYREF
+  int v43; // [rsp+80h] [rbp+8h] BYREF
+  int v44; // [rsp+90h] [rbp+18h] BYREF
 
-  v42 = a3;
-  if ( a1 )
+  v44 = a3;
+  v4 = 0LL;
+  if ( !a1 || !a2 || !a4 )
+    return (unsigned int)-1073741811;
+  v13 = *(unsigned int **)(a1 + 8);
+  if ( v13 && *(_DWORD *)a1 > 3u )
   {
-    if ( a2 )
+    for ( i = 0; i < 3; ++i )
     {
-      if ( a4 )
+      v15 = *v13;
+      v16 = v13 + 1;
+      if ( v13 + 1 < v13 )
+        goto LABEL_32;
+      v13 = (unsigned int *)((char *)v16 + v15);
+      if ( (unsigned int *)((char *)v16 + v15) < v16 )
+        goto LABEL_32;
+    }
+    v17 = *v13;
+    v18 = v13 + 1;
+    if ( v13 + 1 < v13 )
+    {
+LABEL_32:
+      v8 = -1073741675;
+      goto LABEL_9;
+    }
+    v7 = 0LL;
+    if ( v17 )
+      v7 = v18;
+    v8 = 0;
+    if ( v17 == 8 )
+    {
+      v4 = *(_QWORD *)v7;
+      goto LABEL_9;
+    }
+    return (unsigned int)-1073741789;
+  }
+  v8 = -1073741811;
+LABEL_9:
+  if ( (v8 & 0x80000000) == 0 )
+  {
+    v44 = 0;
+    v43 = 0;
+    v41.LowPart = 0;
+    DestinationString = 0LL;
+    v9 = 1;
+    RtlInitUnicodeString(&DestinationString, L"Security-SPP-GenuineLocalStatus");
+    v10 = ((__int64 (__fastcall *)(UNICODE_STRING *, int *, int *, __int64, LARGE_INTEGER *))qword_140D2D498)(
+            &DestinationString,
+            &v44,
+            &v43,
+            4LL,
+            &v41);
+    v8 = v10;
+    if ( v10 != -1073741772 )
+    {
+      if ( v10 < 0 )
+        return v8;
+      if ( v44 != 4 || !v43 )
+        v9 = 0;
+      if ( v9 )
+        KeResetEvent(&stru_140C13E60);
+    }
+    dword_140D2D1C4 = 1;
+    do
+    {
+      v11 = KeWaitForSingleObject(&stru_140C13E60, UserRequest, 1, 1u, 0LL);
+      v12 = v11;
+    }
+    while ( v11 == 257 );
+    if ( v11 >= 0 && v11 != 192 )
+    {
+      do
       {
-        v13 = *(unsigned int **)(a1 + 8);
-        if ( v13 )
+        v19 = KeWaitForSingleObject(&Mutex, UserRequest, 1, 1u, 0LL);
+        v12 = v19;
+      }
+      while ( v19 == 257 );
+      if ( v19 >= 0 && v19 != 192 && v19 != 258 )
+        KeReleaseMutex((PRKMUTEX)&Mutex, 0);
+    }
+    v20 = *(_DWORD *)(a2 + 32);
+    if ( *(_DWORD *)(a2 + 16) >= 0xFFFFFFC8 )
+      return (unsigned int)-1073741675;
+    v21 = *(_DWORD *)(a2 + 16) + 60;
+    if ( v21 < *(_DWORD *)(a2 + 16) + 56 )
+      return (unsigned int)-1073741675;
+    v8 = v21 + v20 < v21 ? 0xC0000095 : 0;
+    if ( v21 + v20 >= v21 )
+    {
+      *(_DWORD *)(a4 + 4) = 28;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1CuLL, 0x20534C53u);
+      if ( !PoolWithTag )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(a4 + 8) = PoolWithTag;
+      *(_DWORD *)a4 = 0;
+      v24 = v12 | 0x10000000;
+      if ( PoolWithTag + 1 < PoolWithTag )
+        return (unsigned int)-1073741675;
+      if ( PoolWithTag + 2 <= (_DWORD *)((char *)PoolWithTag + *(unsigned int *)(a4 + 4)) )
+      {
+        *PoolWithTag = 4;
+        PoolWithTag[1] = v24;
+        v25 = ++*(_DWORD *)a4;
+        v26 = *(_QWORD *)(a4 + 8);
+        v27 = -1;
+        if ( !v26 )
         {
-          if ( *(_DWORD *)a1 > 3u )
+          v28 = *(_DWORD *)(a4 + 4);
+          v29 = -1;
+          v30 = v28 + 12;
+          if ( v28 + 12 >= v28 )
+            v29 = v28 + 12;
+          v8 = v30 < v28 ? 0xC0000095 : 0;
+          *(_DWORD *)(a4 + 4) = v29;
+          if ( v30 >= v28 )
           {
-            for ( i = 0; i < 3; ++i )
+            *(_DWORD *)a4 = v25 + 1;
+LABEL_55:
+            v31 = *(_QWORD *)(a4 + 8);
+            v32 = dword_140D2D064;
+            if ( !v31 )
             {
-              v15 = *v13;
-              v16 = v13 + 1;
-              if ( v13 + 1 < v13 )
-                return (unsigned int)-1073741675;
-              v13 = (unsigned int *)((char *)v16 + v15);
-              if ( (unsigned int *)((char *)v16 + v15) < v16 )
-                return (unsigned int)-1073741675;
-            }
-            v17 = *v13;
-            if ( v13 + 1 < v13 )
-              return (unsigned int)-1073741675;
-            v6 = 0LL;
-            if ( v17 )
-              v6 = (__int64 *)(v13 + 1);
-            if ( v17 == 8 )
-            {
-              v7 = *v6;
-              v42 = 0;
-              v41 = 0;
-              v39.LowPart = 0;
-              DestinationString = 0LL;
-              RtlInitUnicodeString(&DestinationString, L"Security-SPP-GenuineLocalStatus");
-              v8 = ((__int64 (__fastcall *)(UNICODE_STRING *, int *, int *, __int64, LARGE_INTEGER *))qword_140D534A8)(
-                     &DestinationString,
-                     &v42,
-                     &v41,
-                     4LL,
-                     &v39);
-              v9 = v8;
-              if ( v8 != -1073741772 )
+              v33 = *(_DWORD *)(a4 + 4);
+              v34 = v33 + 8;
+              if ( v33 + 8 >= v33 )
+                v27 = v33 + 8;
+              v8 = v34 < v33 ? 0xC0000095 : 0;
+              *(_DWORD *)(a4 + 4) = v27;
+              if ( v34 >= v33 )
               {
-                if ( v8 < 0 )
-                  return v9;
-                if ( v42 == 4 && v41 )
-                  KeResetEvent(&stru_140C0EE40);
-              }
-              dword_140D53188 = 1;
-              do
-              {
-                v10 = KeWaitForSingleObject(&stru_140C0EE40, UserRequest, 1, 1u, 0LL);
-                v11 = v10;
-              }
-              while ( v10 == 257 );
-              if ( v10 >= 0 && v10 != 192 )
-              {
-                do
-                {
-                  v19 = KeWaitForSingleObject(&Mutex, UserRequest, 1, 1u, 0LL);
-                  v11 = v19;
-                }
-                while ( v19 == 257 );
-                if ( v19 >= 0 && v19 != 192 && v19 != 258 )
-                  KeReleaseMutex(&Mutex, 0);
-              }
-              v20 = *(_DWORD *)(a2 + 32);
-              if ( *(_DWORD *)(a2 + 16) >= 0xFFFFFFC8 )
-                return (unsigned int)-1073741675;
-              v21 = *(_DWORD *)(a2 + 16) + 60;
-              if ( v21 < *(_DWORD *)(a2 + 16) + 56 )
-                return (unsigned int)-1073741675;
-              v12 = v20 + v21;
-              v9 = v20 + v21 < v21 ? 0xC0000095 : 0;
-              if ( v12 < v21 )
-                return v9;
-              *(_DWORD *)(a4 + 4) = 28;
-              Pool2 = ExAllocatePool2(256LL, 28LL, 542329939LL);
-              if ( !Pool2 )
-                return (unsigned int)-1073741801;
-              v23 = (unsigned __int64 *)(a4 + 8);
-              *(_QWORD *)(a4 + 8) = Pool2;
-              *(_DWORD *)a4 = 0;
-              v24 = v11 | 0x10000000;
-              v25 = Pool2;
-              v26 = 0;
-              for ( j = (_DWORD *)Pool2; v26 < *(_DWORD *)a4; j = (_DWORD *)((char *)j + v28) )
-              {
-                v28 = *j + 4;
-                if ( *j >= 0xFFFFFFFC || (_DWORD *)((char *)j + v28) < j )
-                  return (unsigned int)-1073741675;
-                ++v26;
-              }
-              if ( j + 1 < j )
-                return (unsigned int)-1073741675;
-              if ( (unsigned __int64)(j + 2) <= v25 + (unsigned __int64)*(unsigned int *)(a4 + 4) )
-              {
-                *j = 4;
-                j[1] = v24;
                 ++*(_DWORD *)a4;
-                if ( !*v23 )
-                {
-                  v29 = *(_DWORD *)(a4 + 4);
-                  if ( v29 + 12 < v29 )
-                  {
-LABEL_52:
-                    *(_DWORD *)(a4 + 4) = -1;
-                    return (unsigned int)-1073741675;
-                  }
-                  *(_DWORD *)(a4 + 4) = v29 + 12;
-LABEL_49:
-                  ++*(_DWORD *)a4;
-                  v30 = (_DWORD *)*v23;
-                  v31 = dword_140D53054;
-                  if ( !*v23 )
-                  {
-                    v32 = *(_DWORD *)(a4 + 4);
-                    if ( v32 + 8 >= v32 )
-                    {
-                      *(_DWORD *)(a4 + 4) = v32 + 8;
-                      ++*(_DWORD *)a4;
-                      return 0;
-                    }
-                    goto LABEL_52;
-                  }
-                  v36 = 0;
-                  for ( k = (_DWORD *)*v23; v36 < *(_DWORD *)a4; k = (_DWORD *)((char *)k + v38) )
-                  {
-                    v38 = *k + 4;
-                    if ( *k >= 0xFFFFFFFC || (_DWORD *)((char *)k + v38) < k )
-                      return (unsigned int)-1073741675;
-                    ++v36;
-                  }
-                  if ( k + 1 >= k )
-                  {
-                    v9 = 0;
-                    if ( k + 2 <= (_DWORD *)((char *)v30 + *(unsigned int *)(a4 + 4)) )
-                    {
-                      *k = 4;
-                      k[1] = v31;
-                      ++*(_DWORD *)a4;
-                      return v9;
-                    }
-                    return (unsigned int)-1073741789;
-                  }
-                  return (unsigned int)-1073741675;
-                }
-                v33 = 0;
-                for ( m = *v23; v33 < *(_DWORD *)a4; m += v35 )
-                {
-                  v35 = *(_DWORD *)m + 4;
-                  if ( *(_DWORD *)m >= 0xFFFFFFFC || m + v35 < m )
-                    return (unsigned int)-1073741675;
-                  ++v33;
-                }
-                if ( m + 4 < m )
-                  return (unsigned int)-1073741675;
-                if ( m + 12 <= *v23 + *(unsigned int *)(a4 + 4) )
-                {
-                  *(_DWORD *)m = 8;
-                  *(_QWORD *)(m + 4) = v7;
-                  goto LABEL_49;
-                }
+                return 0;
+              }
+              return v8;
+            }
+            v38 = 0;
+            v39 = *(_DWORD **)(a4 + 8);
+            if ( *(_DWORD *)a4 )
+            {
+              while ( 1 )
+              {
+                v40 = *v39 + 4;
+                if ( *v39 >= 0xFFFFFFFC || (_DWORD *)((char *)v39 + v40) < v39 )
+                  break;
+                ++v38;
+                v39 = (_DWORD *)((char *)v39 + v40);
+                if ( v38 >= *(_DWORD *)a4 )
+                  goto LABEL_72;
               }
             }
-            return (unsigned int)-1073741789;
+            else
+            {
+LABEL_72:
+              if ( v39 + 1 >= v39 )
+              {
+                v8 = 0;
+                if ( (unsigned __int64)(v39 + 2) <= v31 + (unsigned __int64)*(unsigned int *)(a4 + 4) )
+                {
+                  *v39 = 4;
+                  v39[1] = v32;
+                  ++*(_DWORD *)a4;
+                  return v8;
+                }
+                return (unsigned int)-1073741789;
+              }
+            }
+            return (unsigned int)-1073741675;
           }
+LABEL_22:
+          if ( (v8 & 0x80000000) != 0 )
+            return v8;
+          goto LABEL_55;
+        }
+        v35 = 0;
+        v36 = *(_QWORD *)(a4 + 8);
+        if ( v25 )
+        {
+          while ( 1 )
+          {
+            v37 = *(_DWORD *)v36 + 4;
+            if ( *(_DWORD *)v36 >= 0xFFFFFFFC )
+              break;
+            if ( v36 + v37 < v36 )
+              return (unsigned int)-1073741675;
+            ++v35;
+            v36 += v37;
+            if ( v35 >= v25 )
+              goto LABEL_64;
+          }
+          v8 = -1073741675;
+          goto LABEL_22;
+        }
+LABEL_64:
+        if ( v36 + 4 < v36 )
+          return (unsigned int)-1073741675;
+        v8 = 0;
+        if ( v36 + 12 <= v26 + (unsigned __int64)*(unsigned int *)(a4 + 4) )
+        {
+          *(_DWORD *)v36 = 8;
+          *(_QWORD *)(v36 + 4) = v4;
+          ++*(_DWORD *)a4;
+          goto LABEL_22;
         }
       }
+      return (unsigned int)-1073741789;
     }
   }
-  return (unsigned int)-1073741811;
+  return v8;
 }

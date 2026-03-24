@@ -1,8 +1,8 @@
 /*
- * XREFs of ?cjOTMAWSize@@YAIPEAU_IFIMETRICS@@PEAI@Z @ 0x1C00816AC
+ * XREFs of ?cjOTMAWSize@@YAIPEAU_IFIMETRICS@@PEAI@Z @ 0x1C009BCF4
  * Callers:
- *     ?GreGetOutlineTextMetricsInternalW@@YAKPEAUHDC__@@KPEAU_OUTLINETEXTMETRICW@@PEAU_TMDIFF@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C0081368 (-GreGetOutlineTextMetricsInternalW@@YAKPEAUHDC__@@KPEAU_OUTLINETEXTMETRICW@@PEAU_TMDIFF@@W4Entry.c)
- *     cjIFIMetricsToOTMW @ 0x1C008299C (cjIFIMetricsToOTMW.c)
+ *     cjIFIMetricsToOTMW @ 0x1C0064470 (cjIFIMetricsToOTMW.c)
+ *     GreGetOutlineTextMetricsInternalW @ 0x1C009B9F8 (GreGetOutlineTextMetricsInternalW.c)
  * Callees:
  *     <none>
  */

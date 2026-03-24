@@ -1,9 +1,9 @@
 /*
- * XREFs of CLEAR_PM1_STATUS_BITS @ 0x1C0004B96
+ * XREFs of CLEAR_PM1_STATUS_BITS @ 0x1C0025FEC
  * Callers:
- *     ACPIInterruptServiceRoutine @ 0x1C0003D30 (ACPIInterruptServiceRoutine.c)
+ *     ACPIInterruptServiceRoutine @ 0x1C0025E90 (ACPIInterruptServiceRoutine.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CLEAR_PM1_STATUS_BITS(__int16 a1)

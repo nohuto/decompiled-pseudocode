@@ -1,9 +1,9 @@
 /*
- * XREFs of SeAuditingFileEventsWithContext @ 0x1409CD5A0
+ * XREFs of SeAuditingFileEventsWithContext @ 0x140920850
  * Callers:
  *     <none>
  * Callees:
- *     SeAuditingFileEventsWithContextEx @ 0x1405B8E10 (SeAuditingFileEventsWithContextEx.c)
+ *     SeAuditingFileEventsWithContextEx @ 0x140596D30 (SeAuditingFileEventsWithContextEx.c)
  */
 
 BOOLEAN __stdcall SeAuditingFileEventsWithContext(

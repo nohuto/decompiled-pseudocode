@@ -1,17 +1,18 @@
 /*
- * XREFs of MiWriteValidPteVolatile @ 0x14033A510
+ * XREFs of MiWriteValidPteVolatile @ 0x140241370
  * Callers:
- *     MiLockPagedAddress @ 0x140245DF4 (MiLockPagedAddress.c)
- *     MiWriteWsle @ 0x14026ED30 (MiWriteWsle.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x14026FA0C (MiTryLockProtoPoolPageAtDpc.c)
- *     MiLockProtoPoolPage @ 0x140273AF0 (MiLockProtoPoolPage.c)
- *     MiLockOwnedProtoPage @ 0x140273EE0 (MiLockOwnedProtoPage.c)
- *     MiMakePageAvoidRead @ 0x1402BBEE0 (MiMakePageAvoidRead.c)
- *     MiLockCode @ 0x140312BB0 (MiLockCode.c)
- *     MiCopyOnWrite @ 0x140316400 (MiCopyOnWrite.c)
- *     MiResolveProtoPteFault @ 0x14031EAA0 (MiResolveProtoPteFault.c)
- *     MiCheckProtoPtePageState @ 0x140337B00 (MiCheckProtoPtePageState.c)
- *     MiSetReadOnlyOnSectionView @ 0x14033A030 (MiSetReadOnlyOnSectionView.c)
+ *     MiResolveProtoPteFault @ 0x1402153D0 (MiResolveProtoPteFault.c)
+ *     MiCheckProtoPtePageState @ 0x14023B270 (MiCheckProtoPtePageState.c)
+ *     MiCopyOnWrite @ 0x14023F300 (MiCopyOnWrite.c)
+ *     MiSetReadOnlyOnSectionView @ 0x140240B90 (MiSetReadOnlyOnSectionView.c)
+ *     MiWriteWsle @ 0x1402C0ED0 (MiWriteWsle.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x140304CB4 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiLockOwnedProtoPage @ 0x14031A320 (MiLockOwnedProtoPage.c)
+ *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
+ *     MiLockCode @ 0x1403235B0 (MiLockCode.c)
+ *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
+ *     MiRemoveWsle @ 0x140338FE0 (MiRemoveWsle.c)
+ *     MiLockPagedAddress @ 0x14036B924 (MiLockPagedAddress.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +21,7 @@ signed __int64 __fastcall MiWriteValidPteVolatile(volatile signed __int64 *a1, i
 {
   signed __int64 v3; // r9
   __int64 v4; // r11
-  __int64 v5; // rdi
+  __int64 v5; // rbx
   int v6; // edx
   unsigned __int64 v8; // rax
   __int64 v9; // r10
@@ -43,8 +44,6 @@ signed __int64 __fastcall MiWriteValidPteVolatile(volatile signed __int64 *a1, i
     v10 = v9 | 0x42;
     if ( !v6 )
       v10 = v9;
-    if ( (MiFlags & 0x4000000) != 0 )
-      _mm_lfence();
     result = _InterlockedCompareExchange64(a1, v10, v3);
     v11 = v3 == result;
     v3 = result;

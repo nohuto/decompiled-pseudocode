@@ -1,10 +1,12 @@
 /*
- * XREFs of vUnlinkEudcRFONTs @ 0x1C0297294
+ * XREFs of vUnlinkEudcRFONTs @ 0x1C02989E4
  * Callers:
- *     bDeleteFlEntry @ 0x1C02961A8 (bDeleteFlEntry.c)
+ *     bDeleteFlEntry @ 0x1C0298670 (bDeleteFlEntry.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     vUnlinkEudcRFONTsWorker @ 0x1C02975D8 (vUnlinkEudcRFONTsWorker.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?bValid@RFONTOBJ@@QEBAHXZ @ 0x1C0090814 (-bValid@RFONTOBJ@@QEBAHXZ.c)
+ *     ??0PUBLIC_PFTOBJ@@QEAA@PEAVPFT@@@Z @ 0x1C016AA98 (--0PUBLIC_PFTOBJ@@QEAA@PEAVPFT@@@Z.c)
+ *     vUnlinkEudcRFONTsWorker @ 0x1C0298D50 (vUnlinkEudcRFONTsWorker.c)
  */
 
 void __fastcall vUnlinkEudcRFONTs(__int64 a1)
@@ -13,13 +15,15 @@ void __fastcall vUnlinkEudcRFONTs(__int64 a1)
   __int64 i; // rdi
   struct PFT *v4; // rbx
   __int64 j; // rdi
+  __int64 v6; // rbx
   __int64 k; // rdi
-  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
-  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v9; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v10; // [rsp+58h] [rbp+20h] BYREF
 
-  v8 = ghsemPublicPFT;
+  v10 = ghsemPublicPFT;
   GreAcquireSemaphore(ghsemPublicPFT);
-  v7 = ghsemRFONTList;
+  v9 = ghsemRFONTList;
   GreAcquireSemaphore(ghsemRFONTList);
   v2 = gpPFTPublic;
   for ( i = 0LL; (unsigned int)i < *((_DWORD *)v2 + 6); i = (unsigned int)(i + 1) )
@@ -33,14 +37,16 @@ void __fastcall vUnlinkEudcRFONTs(__int64 a1)
     if ( *((_QWORD *)v4 + j + 5) )
       vUnlinkEudcRFONTsWorker(a1);
   }
-  if ( gpPFTPrivate )
+  PUBLIC_PFTOBJ::PUBLIC_PFTOBJ((PUBLIC_PFTOBJ *)&v8, (struct PFT *)gpPFTPrivate);
+  if ( RFONTOBJ::bValid((RFONTOBJ *)&v8) )
   {
-    for ( k = 0LL; (unsigned int)k < *((_DWORD *)gpPFTPrivate + 6); k = (unsigned int)(k + 1) )
+    v6 = v8;
+    for ( k = 0LL; (unsigned int)k < *(_DWORD *)(v6 + 24); k = (unsigned int)(k + 1) )
     {
-      if ( gpPFTPrivate[k + 5] )
+      if ( *(_QWORD *)(v6 + 8 * k + 40) )
         vUnlinkEudcRFONTsWorker(a1);
     }
   }
-  SEMOBJ::vUnlock((SEMOBJ *)&v7);
-  SEMOBJ::vUnlock((SEMOBJ *)&v8);
+  SEMOBJ::vUnlock((SEMOBJ *)&v9);
+  SEMOBJ::vUnlock((SEMOBJ *)&v10);
 }

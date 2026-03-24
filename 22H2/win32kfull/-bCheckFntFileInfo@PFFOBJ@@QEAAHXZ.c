@@ -1,10 +1,11 @@
 /*
- * XREFs of ?bCheckFntFileInfo@PFFOBJ@@QEAAHXZ @ 0x1C00806B8
+ * XREFs of ?bCheckFntFileInfo@PFFOBJ@@QEAAHXZ @ 0x1C009AC60
  * Callers:
- *     ?QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z @ 0x1C007EB2C (-QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z.c)
- *     ?QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z @ 0x1C0081158 (-QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z.c)
+ *     ?ulGetFontData2@@YAKAEAVDCOBJ@@KKPEAXK@Z @ 0x1C009AB1C (-ulGetFontData2@@YAKAEAVDCOBJ@@KKPEAXK@Z.c)
+ *     ?QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z @ 0x1C009F3F8 (-QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z.c)
+ *     ?QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z @ 0x1C02C1F50 (-QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z.c)
  * Callees:
- *     <none>
+ *     Win32FileInfo @ 0x1C00A6758 (Win32FileInfo.c)
  */
 
 __int64 __fastcall PFFOBJ::bCheckFntFileInfo(PFFOBJ *this)
@@ -13,8 +14,6 @@ __int64 __fastcall PFFOBJ::bCheckFntFileInfo(PFFOBJ *this)
   int v3; // eax
   __int64 v5; // rdi
   __int64 v6; // rcx
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v8; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = *(_QWORD *)this;
   v3 = *(_DWORD *)(*(_QWORD *)this + 52LL);
@@ -31,12 +30,10 @@ LABEL_10:
     }
     while ( 1 )
     {
-      v8 = 0LL;
-      v7 = 0LL;
-      Win32FileInfo(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v1 + 200) + 8 * v5) + 80LL), &v7, &v8);
+      Win32FileInfo(*(PCWSTR *)(*(_QWORD *)(*(_QWORD *)(v1 + 200) + 8 * v5) + 80LL));
       v1 = *(_QWORD *)this;
       v6 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 200LL) + 8 * v5);
-      if ( *(_QWORD *)v6 != v7 || *(_DWORD *)(v6 + 24) != (_DWORD)v8 )
+      if ( *(_QWORD *)v6 || *(_DWORD *)(v6 + 24) )
         break;
       v5 = (unsigned int)(v5 + 1);
       if ( (unsigned int)v5 >= *(_DWORD *)(v1 + 36) )

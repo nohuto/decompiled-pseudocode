@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockPoolCommitWs @ 0x140352CB4
+ * XREFs of MiUnlockPoolCommitWs @ 0x14030B808
  * Callers:
- *     MiFillPoolCommitPageTable @ 0x1402CFF00 (MiFillPoolCommitPageTable.c)
- *     MiCommitPoolMemory @ 0x1403525F0 (MiCommitPoolMemory.c)
+ *     MiCommitPoolMemory @ 0x14030B22C (MiCommitPoolMemory.c)
+ *     MiFillPoolCommitPageTable @ 0x14030B9E0 (MiFillPoolCommitPageTable.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x14020D8D0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlockPoolCommitWs(__int64 a1)

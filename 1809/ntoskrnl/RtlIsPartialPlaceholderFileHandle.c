@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlIsPartialPlaceholderFileHandle @ 0x140897B90
+ * XREFs of RtlIsPartialPlaceholderFileHandle @ 0x140897B70
  * Callers:
  *     <none>
  * Callees:

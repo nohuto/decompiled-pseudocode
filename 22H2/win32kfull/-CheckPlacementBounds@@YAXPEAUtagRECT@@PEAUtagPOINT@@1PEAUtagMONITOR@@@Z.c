@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CheckPlacementBounds@@YAXPEAUtagRECT@@PEAUtagPOINT@@1PEAUtagMONITOR@@@Z @ 0x1C000FEF4
+ * XREFs of ?CheckPlacementBounds@@YAXPEAUtagRECT@@PEAUtagPOINT@@1PEAUtagMONITOR@@@Z @ 0x1C011A434
  * Callers:
- *     xxxSetWindowPlacement @ 0x1C00C4790 (xxxSetWindowPlacement.c)
+ *     xxxSetWindowPlacement @ 0x1C011A0A8 (xxxSetWindowPlacement.c)
  * Callees:
- *     GetMonitorWorkRect @ 0x1C00C46A8 (GetMonitorWorkRect.c)
+ *     GetMonitorWorkRect @ 0x1C0041390 (GetMonitorWorkRect.c)
  */
 
 void __fastcall CheckPlacementBounds(
@@ -14,15 +14,15 @@ void __fastcall CheckPlacementBounds(
 {
   __int64 *MonitorWorkRect; // rax
   LONG top; // r13d
-  int v9; // esi
+  int v9; // ebp
   __int64 v10; // r9
-  unsigned __int64 v11; // rbp
+  unsigned __int64 v11; // r11
   __int64 v12; // rdx
   int v13; // r10d
   LONG bottom; // ecx
-  int v15; // r11d
+  int v15; // edi
   LONG left; // r14d
-  int v17; // edi
+  int v17; // esi
   LONG right; // r8d
   LONG x; // r8d
   LONG y; // ecx
@@ -30,16 +30,16 @@ void __fastcall CheckPlacementBounds(
   int v22; // r10d
   int v23; // ecx
   int v24; // r10d
-  int v25; // r11d
+  int v25; // r8d
   int v26; // eax
   int v27; // ecx
   LONG v28; // eax
   int v29; // r8d
   LONG v30; // ecx
   __int128 v31; // [rsp+20h] [rbp-48h]
-  __int64 v32; // [rsp+30h] [rbp-38h] BYREF
+  __int128 v32; // [rsp+30h] [rbp-38h] BYREF
 
-  MonitorWorkRect = (__int64 *)GetMonitorWorkRect(&v32, a4);
+  MonitorWorkRect = (__int64 *)GetMonitorWorkRect(&v32, (__int64)a4);
   top = a1->top;
   v9 = -1;
   v10 = *MonitorWorkRect;
@@ -108,7 +108,7 @@ void __fastcall CheckPlacementBounds(
     v22 = y + *(_DWORD *)(gpsi + 2088LL);
     v23 = v22 >= (int)v11 ? v22 > SHIDWORD(v12) : -1;
     v24 = x >= (int)v10 ? x > (int)v12 : -1;
-    v25 = x + *(_DWORD *)(gpsi + 2084LL);
+    v25 = *(_DWORD *)(gpsi + 2084LL) + x;
     v26 = v25 >= (int)v10 ? v25 > (int)v12 : -1;
     if ( v21 * v23 > 0 || v24 * v26 > 0 )
     {

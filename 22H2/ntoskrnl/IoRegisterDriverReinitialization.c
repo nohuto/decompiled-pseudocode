@@ -1,12 +1,12 @@
 /*
- * XREFs of IoRegisterDriverReinitialization @ 0x140850950
+ * XREFs of IoRegisterDriverReinitialization @ 0x1407C6BE0
  * Callers:
- *     DifIoRegisterDriverReinitializationWrapper @ 0x1405E0BD0 (DifIoRegisterDriverReinitializationWrapper.c)
+ *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     IopInterlockedInsertTailList @ 0x1403A884C (IopInterlockedInsertTailList.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     IopInterlockedInsertTailList @ 0x1403C8DC0 (IopInterlockedInsertTailList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __stdcall IoRegisterDriverReinitialization(
@@ -14,20 +14,20 @@ void __stdcall IoRegisterDriverReinitialization(
         PDRIVER_REINITIALIZE DriverReinitializationRoutine,
         PVOID Context)
 {
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
 
   ObfReferenceObject(DriverObject);
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 40LL, 1767010121LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x69526F49u);
+  if ( PoolWithTag )
   {
     DriverObject->Flags |= 8u;
-    Pool2[2] = DriverObject;
-    Pool2[3] = DriverReinitializationRoutine;
-    Pool2[4] = Context;
-    IopInterlockedInsertTailList((__int64)&IopDriverReinitializeQueueHead, Pool2);
+    PoolWithTag[2] = DriverObject;
+    PoolWithTag[3] = DriverReinitializationRoutine;
+    PoolWithTag[4] = Context;
+    IopInterlockedInsertTailList((__int64)&IopDriverReinitializeQueueHead, PoolWithTag);
   }
   else
   {
-    ObfDereferenceObject(DriverObject);
+    HalPutDmaAdapter((PADAPTER_OBJECT)DriverObject);
   }
 }

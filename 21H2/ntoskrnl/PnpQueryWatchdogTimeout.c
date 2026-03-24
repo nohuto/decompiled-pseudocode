@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpQueryWatchdogTimeout @ 0x1402D5AFC
+ * XREFs of PnpQueryWatchdogTimeout @ 0x1402803B8
  * Callers:
- *     PnpAllocateWatchdog @ 0x1402D5A78 (PnpAllocateWatchdog.c)
+ *     PnpAllocateWatchdog @ 0x140280324 (PnpAllocateWatchdog.c)
  * Callees:
  *     <none>
  */
@@ -9,15 +9,24 @@
 __int64 __fastcall PnpQueryWatchdogTimeout(char a1)
 {
   __int64 result; // rax
-  char v2; // dl
+  char v2; // cl
 
   result = 0LL;
   if ( a1 )
     return (unsigned int)PnpWatchdogTimeoutFirstChance;
   v2 = 0;
-  if ( !(_BYTE)dword_140D051DC && (PnpSetupOOBEInProgress || PnpSetupInProgress) )
+  if ( !(_BYTE)dword_140CFB19C && (PnpSetupOOBEInProgress || PnpSetupInProgress) )
     v2 = 1;
-  if ( PnpWatchdogBugcheckConfig && (PnpWatchdogBugcheckConfig == 1 || v2) )
+  if ( PnpWatchdogBugcheckConfig )
+  {
+    if ( PnpWatchdogBugcheckConfig == 1 )
+      return (unsigned int)PnpWatchdogTimeoutSecondChance;
+  }
+  else
+  {
+    v2 = 0;
+  }
+  if ( v2 )
     return (unsigned int)PnpWatchdogTimeoutSecondChance;
   return result;
 }

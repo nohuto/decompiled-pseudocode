@@ -1,17 +1,17 @@
 /*
- * XREFs of SeAuditSystemTimeChange @ 0x1409CB148
+ * XREFs of SeAuditSystemTimeChange @ 0x14091E414
  * Callers:
- *     NtSetSystemTime @ 0x1409F8340 (NtSetSystemTime.c)
+ *     NtSetSystemTime @ 0x14094BD60 (NtSetSystemTime.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14020BB20 (PsGetCurrentThreadProcess.c)
- *     SepAdtLogAuditRecord @ 0x14039B490 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742C84 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1409D1CF0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PsGetCurrentThreadProcess @ 0x140316F60 (PsGetCurrentThreadProcess.c)
+ *     SepAdtLogAuditRecord @ 0x1403C20B4 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14062F1D8 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     SepAuditFailed @ 0x140925950 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeAuditSystemTimeChange(__int64 a1, __int64 a2)
@@ -24,9 +24,12 @@ void __fastcall SeAuditSystemTimeChange(__int64 a1, __int64 a2)
   int AllocatedFullProcessImageName; // eax
   int v10; // eax
   __int64 v11; // rax
+  int v12; // eax
+  PVOID P; // [rsp+20h] [rbp-E0h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+28h] [rbp-D8h] BYREF
   _QWORD Src[132]; // [rsp+50h] [rbp-B0h] BYREF
 
+  P = 0LL;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   SeCaptureSubjectContext(&SubjectContext);
   ClientToken = SubjectContext.ClientToken;
@@ -37,7 +40,7 @@ void __fastcall SeAuditSystemTimeChange(__int64 a1, __int64 a2)
   v7 = *v6[19];
   CurrentThreadProcess = PsGetCurrentThreadProcess();
   memset(Src, 0, 0x418uLL);
-  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess);
+  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, (__int64)&P);
   if ( AllocatedFullProcessImageName < 0 )
   {
     SepAuditFailed((unsigned int)AllocatedFullProcessImageName);
@@ -61,8 +64,9 @@ void __fastcall SeAuditSystemTimeChange(__int64 a1, __int64 a2)
     Src[15] = 0x80000000CLL;
     Src[19] = 0x80000000CLL;
     Src[24] = CurrentThreadProcess[1].Header.WaitListHead.Flink;
-    Src[30] = 0LL;
-    HIDWORD(Src[27]) = MEMORY[0] + 16;
+    v12 = *(unsigned __int16 *)P + 16;
+    Src[30] = P;
+    HIDWORD(Src[27]) = v12;
     Src[16] = a1;
     Src[20] = a2;
     Src[23] = 0x80000000BLL;
@@ -70,5 +74,7 @@ void __fastcall SeAuditSystemTimeChange(__int64 a1, __int64 a2)
     LODWORD(Src[1]) = 7;
     SepAdtLogAuditRecord(Src);
   }
+  if ( P )
+    ExFreePoolWithTag(P, 0);
   SeReleaseSubjectContext(&SubjectContext);
 }

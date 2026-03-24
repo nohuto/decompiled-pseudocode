@@ -1,143 +1,131 @@
 /*
- * XREFs of SepAddTokenOriginClaim @ 0x1407E3BD4
+ * XREFs of SepAddTokenOriginClaim @ 0x140922BA0
  * Callers:
- *     SeSubProcessToken @ 0x1406B71F8 (SeSubProcessToken.c)
- *     SeDuplicateTokenAndAddOriginClaim @ 0x1407E3B00 (SeDuplicateTokenAndAddOriginClaim.c)
+ *     SeSubProcessToken @ 0x140603E44 (SeSubProcessToken.c)
+ *     SeDuplicateTokenAndAddOriginClaim @ 0x1409227FC (SeDuplicateTokenAndAddOriginClaim.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224D10 (AuthzBasepSetSecurityAttributesToken.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     RtlUShortAdd @ 0x1403223E4 (RtlUShortAdd.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402506CC (AuthzBasepSetSecurityAttributesToken.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     RtlUShortAdd @ 0x140309CBC (RtlUShortAdd.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall SepAddTokenOriginClaim(_DWORD *a1, int a2, __int64 a3, char a4)
+__int64 __fastcall SepAddTokenOriginClaim(_DWORD *a1, int a2, __int64 a3)
 {
   int appended; // ebx
-  _DWORD *v6; // rdi
-  UNICODE_STRING v7; // xmm0
-  __int64 v8; // rcx
+  _DWORD *v5; // rdi
+  __int64 v6; // rcx
+  const UNICODE_STRING *v7; // rdi
+  __int16 v8; // cx
+  __int64 v9; // rbx
   wchar_t *Pool2; // rax
-  const UNICODE_STRING *v11; // rdi
-  NTSTATUS v12; // eax
-  __int16 v13; // cx
-  __int64 v14; // rbx
-  __int64 v15; // rcx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-59h] BYREF
-  int v17; // [rsp+30h] [rbp-49h] BYREF
-  int v18; // [rsp+34h] [rbp-45h]
-  UNICODE_STRING *v19; // [rsp+38h] [rbp-41h]
-  __int128 v20; // [rsp+40h] [rbp-39h] BYREF
-  UNICODE_STRING v21; // [rsp+50h] [rbp-29h] BYREF
-  int v22; // [rsp+60h] [rbp-19h]
-  int v23; // [rsp+64h] [rbp-15h]
-  int v24; // [rsp+68h] [rbp-11h]
-  const UNICODE_STRING *v25; // [rsp+70h] [rbp-9h]
-  UNICODE_STRING v26; // [rsp+78h] [rbp-1h]
-  UNICODE_STRING v27; // [rsp+88h] [rbp+Fh]
-  UNICODE_STRING SourceString; // [rsp+98h] [rbp+1Fh] BYREF
-  USHORT pusResult; // [rsp+E8h] [rbp+6Fh] BYREF
-  int v30; // [rsp+F0h] [rbp+77h] BYREF
+  __int64 v11; // rcx
+  UNICODE_STRING Destination; // [rsp+20h] [rbp-39h] BYREF
+  int v14; // [rsp+30h] [rbp-29h] BYREF
+  int v15; // [rsp+34h] [rbp-25h]
+  UNICODE_STRING *p_DestinationString; // [rsp+38h] [rbp-21h]
+  __int128 v17; // [rsp+40h] [rbp-19h] BYREF
+  UNICODE_STRING SourceString; // [rsp+50h] [rbp-9h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+60h] [rbp+7h] BYREF
+  int v20; // [rsp+70h] [rbp+17h]
+  int v21; // [rsp+74h] [rbp+1Bh]
+  int v22; // [rsp+78h] [rbp+1Fh]
+  const UNICODE_STRING *v23; // [rsp+80h] [rbp+27h]
+  USHORT pusResult; // [rsp+C8h] [rbp+6Fh] BYREF
+  int v25; // [rsp+D0h] [rbp+77h] BYREF
 
   *(_QWORD *)&SourceString.Length = 1966108LL;
-  *(_QWORD *)&v27.Length = 4849736LL;
-  SourceString.Buffer = L"POLICYAPPID://";
-  v27.Buffer = L"SMARTLOCKER://SMARTSCREENORIGINCLAIM";
-  *(_QWORD *)&v26.Length = 6422624LL;
-  v26.Buffer = L"SMARTLOCKER://SMARTSCREENORIGINCLAIMNOTINHERITED";
   pusResult = 0;
+  SourceString.Buffer = L"POLICYAPPID://";
   appended = 0;
-  v6 = 0LL;
-  DestinationString = 0LL;
-  v20 = 0LL;
-  if ( a2 != 536 )
+  v5 = 0LL;
+  Destination = 0LL;
+  v17 = 0LL;
+  if ( a2 == 536 )
   {
-    DWORD2(v20) = a2;
-LABEL_3:
-    *(_QWORD *)&v20 = a1;
-    goto LABEL_4;
+    v5 = a1;
+    if ( !*a1 )
+    {
+      a1 = (_DWORD *)v17;
+      goto LABEL_7;
+    }
+    DWORD2(v17) = 524;
   }
-  v6 = a1;
-  if ( *a1 )
-  {
-    DWORD2(v20) = 524;
-    goto LABEL_3;
-  }
-  a1 = (_DWORD *)v20;
-LABEL_4:
-  if ( !a1 )
-    goto LABEL_8;
-  v17 = 1;
-  v19 = &v21;
-  v18 = 1;
-  if ( a4 )
-    v7 = v26;
   else
-    v7 = v27;
-  v8 = *(_QWORD *)(a3 + 776);
-  v25 = (const UNICODE_STRING *)&v20;
-  v22 = 16;
-  v21 = v7;
-  v24 = 1;
-  v23 = 65;
-  v30 = 4;
-  appended = AuthzBasepSetSecurityAttributesToken(v8, &v30, (__int64)&v17);
+  {
+    DWORD2(v17) = a2;
+  }
+  *(_QWORD *)&v17 = a1;
+LABEL_7:
+  if ( !a1 )
+    goto LABEL_9;
+  v14 = 1;
+  p_DestinationString = &DestinationString;
+  v15 = 1;
+  RtlInitUnicodeString(&DestinationString, L"SMARTLOCKER://SMARTSCREENORIGINCLAIM");
+  v6 = *(_QWORD *)(a3 + 776);
+  v23 = (const UNICODE_STRING *)&v17;
+  v20 = 16;
+  v22 = 1;
+  v21 = 65;
+  v25 = 4;
+  appended = AuthzBasepSetSecurityAttributesToken(v6, &v25, (__int64)&v14);
   if ( appended >= 0 )
   {
-LABEL_8:
-    if ( v6 )
+LABEL_9:
+    if ( v5 )
     {
-      v11 = (const UNICODE_STRING *)*((_QWORD *)v6 + 66);
-      RtlInitUnicodeString(&DestinationString, 0LL);
-      while ( v11 )
+      v7 = (const UNICODE_STRING *)*((_QWORD *)v5 + 66);
+      RtlInitUnicodeString(&Destination, 0LL);
+      while ( v7 )
       {
-        v12 = RtlUShortAdd(0x1Cu, v11[-2].Length, &pusResult);
-        appended = v12;
-        if ( v12 < 0 )
-          break;
-        appended = RtlUShortAdd(pusResult, v13 - 26, &pusResult);
+        appended = RtlUShortAdd(0x1Cu, v7[-2].Length, &pusResult);
         if ( appended < 0 )
           break;
-        v14 = pusResult;
-        DestinationString.Length = 0;
-        if ( pusResult > DestinationString.MaximumLength )
+        appended = RtlUShortAdd(pusResult, v8 - 26, &pusResult);
+        if ( appended < 0 )
+          break;
+        v9 = pusResult;
+        Destination.Length = 0;
+        if ( pusResult > Destination.MaximumLength )
         {
-          if ( DestinationString.Buffer )
-            ExFreePoolWithTag(DestinationString.Buffer, 0x434F6553u);
-          DestinationString.MaximumLength = v14;
-          Pool2 = (wchar_t *)ExAllocatePool2(258LL, v14, 1129276755LL);
-          DestinationString.Buffer = Pool2;
+          if ( Destination.Buffer )
+            ExFreePoolWithTag(Destination.Buffer, 0x434F6553u);
+          Destination.MaximumLength = v9;
+          Pool2 = (wchar_t *)ExAllocatePool2(258LL, v9, 1129276755LL);
+          Destination.Buffer = Pool2;
           if ( !Pool2 )
           {
             appended = -1073741670;
-            goto LABEL_10;
+            goto LABEL_23;
           }
         }
-        RtlCopyUnicodeString(&DestinationString, &SourceString);
-        appended = RtlAppendUnicodeStringToString(&DestinationString, v11 - 2);
+        RtlCopyUnicodeString(&Destination, &SourceString);
+        appended = RtlAppendUnicodeStringToString(&Destination, v7 - 2);
         if ( appended < 0 )
           break;
-        v15 = *(_QWORD *)(a3 + 776);
-        v19 = &v21;
-        v17 = 1;
-        v25 = v11 - 1;
-        v18 = 1;
-        v21 = DestinationString;
-        v22 = 3;
-        v24 = 1;
-        v23 = 65;
-        v30 = 4;
-        appended = AuthzBasepSetSecurityAttributesToken(v15, &v30, (__int64)&v17);
+        v11 = *(_QWORD *)(a3 + 776);
+        p_DestinationString = &DestinationString;
+        v14 = 1;
+        v23 = v7 - 1;
+        v15 = 1;
+        DestinationString = Destination;
+        v20 = 3;
+        v22 = 1;
+        v21 = 65;
+        v25 = 4;
+        appended = AuthzBasepSetSecurityAttributesToken(v11, &v25, (__int64)&v14);
         if ( appended < 0 )
           break;
-        v11 = *(const UNICODE_STRING **)&v11->Length;
+        v7 = *(const UNICODE_STRING **)&v7->Length;
       }
     }
   }
-  Pool2 = DestinationString.Buffer;
-LABEL_10:
+  Pool2 = Destination.Buffer;
+LABEL_23:
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0x434F6553u);
   return (unsigned int)appended;

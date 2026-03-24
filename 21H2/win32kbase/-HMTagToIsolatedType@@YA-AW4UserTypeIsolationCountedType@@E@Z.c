@@ -1,8 +1,8 @@
 /*
- * XREFs of ?HMTagToIsolatedType@@YA?AW4UserTypeIsolationCountedType@@E@Z @ 0x1C0030E74
+ * XREFs of ?HMTagToIsolatedType@@YA?AW4UserTypeIsolationCountedType@@E@Z @ 0x1C00283F4
  * Callers:
- *     ?HMFreeIsolatedType@@YAXEPEAX@Z @ 0x1C0030D88 (-HMFreeIsolatedType@@YAXEPEAX@Z.c)
- *     ?HMAllocateIsolatedType@@YAPEAXE@Z @ 0x1C0030E00 (-HMAllocateIsolatedType@@YAPEAXE@Z.c)
+ *     ?HMFreeIsolatedType@@YAXEPEAX@Z @ 0x1C0028308 (-HMFreeIsolatedType@@YAXEPEAX@Z.c)
+ *     ?HMAllocateIsolatedType@@YAPEAXE@Z @ 0x1C0028380 (-HMAllocateIsolatedType@@YAPEAXE@Z.c)
  * Callees:
  *     <none>
  */

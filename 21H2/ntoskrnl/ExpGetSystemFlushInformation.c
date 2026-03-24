@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpGetSystemFlushInformation @ 0x1406C955C
+ * XREFs of ExpGetSystemFlushInformation @ 0x1406AD540
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x1406C9754 (ExpGetSystemFirmwareTableInformation.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x1406AD66C (ExpGetSystemFirmwareTableInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpGetSystemFlushInformation(__int64 a1)
@@ -24,9 +24,9 @@ __int64 __fastcall ExpGetSystemFlushInformation(__int64 a1)
   _DWORD Src[3]; // [rsp+38h] [rbp-40h] BYREF
   __int64 v14; // [rsp+44h] [rbp-34h]
 
-  v2 = ((unsigned __int64)KeFeatureBits >> 34) & 4 | 1;
-  if ( _bittest64(&KeFeatureBits, 0x23u) )
-    v2 = ((unsigned __int64)KeFeatureBits >> 34) & 4 | 3;
+  v2 = (KeFeatureBits >> 34) & 4 | 1;
+  if ( (KeFeatureBits & 0x800000000LL) != 0 )
+    v2 = (KeFeatureBits >> 34) & 4 | 3;
   *(_DWORD *)a1 = v2;
   *(_DWORD *)(a1 + 4) = KeGetCurrentPrcb()->CFlushSize;
   *(_QWORD *)(a1 + 8) = 0LL;

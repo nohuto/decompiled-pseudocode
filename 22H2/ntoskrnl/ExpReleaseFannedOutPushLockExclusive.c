@@ -1,16 +1,15 @@
 /*
- * XREFs of ExpReleaseFannedOutPushLockExclusive @ 0x1403CF660
+ * XREFs of ExpReleaseFannedOutPushLockExclusive @ 0x140390D84
  * Callers:
- *     ExReleaseAutoExpandPushLockExclusive @ 0x14022F8B0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     FsRtlInsertPerStreamContext @ 0x140333C20 (FsRtlInsertPerStreamContext.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x1402FAB20 (ExReleaseAutoExpandPushLockExclusive.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033ADA0 (KeQueryMaximumProcessorCountEx.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140344740 (KeQueryMaximumProcessorCountEx.c)
  */
 
-unsigned int __fastcall ExpReleaseFannedOutPushLockExclusive(unsigned __int64 a1)
+char __fastcall ExpReleaseFannedOutPushLockExclusive(unsigned __int64 a1)
 {
-  unsigned int result; // eax
+  ULONG MaximumProcessorCount; // eax
   __int64 v3; // rbp
   unsigned int v4; // edi
   __int64 v5; // rbx
@@ -18,10 +17,10 @@ unsigned int __fastcall ExpReleaseFannedOutPushLockExclusive(unsigned __int64 a1
   unsigned int v7; // ecx
   volatile signed __int64 *v8; // rcx
 
-  result = KeQueryMaximumProcessorCountEx(0xFFFFu);
-  if ( result )
+  MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
+  if ( MaximumProcessorCount )
   {
-    v3 = result;
+    v3 = MaximumProcessorCount;
     v4 = ((unsigned int)a1 >> 13) & 0x3FFFF;
     v5 = (a1 >> 4) & 0x1FF;
     v6 = 0LL;
@@ -29,16 +28,16 @@ unsigned int __fastcall ExpReleaseFannedOutPushLockExclusive(unsigned __int64 a1
     {
       _BitScanReverse(&v7, v4);
       v8 = (volatile signed __int64 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v6 + ExSaPageArrays) + 8LL * (v7 - 2))
-                                                 + 8 * (v4 ^ (unsigned __int64)(unsigned int)(1 << v7))
+                                                 + 8LL * (v4 ^ (1 << v7))
                                                  + 8)
                                      + 8 * v5);
-      result = _InterlockedExchangeAdd64(v8, 0xFFFFFFFFFFFFFFFFuLL);
-      if ( (result & 2) != 0 && (result & 4) == 0 )
-        result = ExfTryToWakePushLock(v8);
+      LOBYTE(MaximumProcessorCount) = _InterlockedExchangeAdd64(v8, 0xFFFFFFFFFFFFFFFFuLL) & 6;
+      if ( (_BYTE)MaximumProcessorCount == 2 )
+        LOBYTE(MaximumProcessorCount) = ExfTryToWakePushLock(v8);
       v6 += 8LL;
       --v3;
     }
     while ( v3 );
   }
-  return result;
+  return MaximumProcessorCount;
 }

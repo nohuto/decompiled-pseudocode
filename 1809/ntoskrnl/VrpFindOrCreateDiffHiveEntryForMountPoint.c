@@ -1,15 +1,15 @@
 /*
- * XREFs of VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14080D728
+ * XREFs of VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14080D708
  * Callers:
- *     VrpLoadDifferencingHive @ 0x14080D918 (VrpLoadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x14080D8F8 (VrpLoadDifferencingHive.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VrpAllocateDiffHiveEntry @ 0x14080D220 (VrpAllocateDiffHiveEntry.c)
- *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x14080D578 (VrpFindDiffHiveEntryForMountPointWithLock.c)
+ *     VrpAllocateDiffHiveEntry @ 0x14080D200 (VrpAllocateDiffHiveEntry.c)
+ *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x14080D558 (VrpFindDiffHiveEntryForMountPointWithLock.c)
  */
 
 __int64 __fastcall VrpFindOrCreateDiffHiveEntryForMountPoint(PCUNICODE_STRING String1, const void **a2, __int64 *a3)

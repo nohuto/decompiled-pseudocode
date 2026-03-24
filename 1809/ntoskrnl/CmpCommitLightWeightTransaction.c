@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCommitLightWeightTransaction @ 0x140693564
+ * XREFs of CmpCommitLightWeightTransaction @ 0x140693544
  * Callers:
- *     NtCommitRegistryTransaction @ 0x140693430 (NtCommitRegistryTransaction.c)
- *     CmpTransMgrCommit @ 0x1406FCFD0 (CmpTransMgrCommit.c)
+ *     NtCommitRegistryTransaction @ 0x140693410 (NtCommitRegistryTransaction.c)
+ *     CmpTransMgrCommit @ 0x1406FCFB0 (CmpTransMgrCommit.c)
  * Callees:
- *     ExfUnblockPushLock @ 0x1401B7430 (ExfUnblockPushLock.c)
+ *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
  *     CmpLockRegistryExclusive @ 0x1405B16C8 (CmpLockRegistryExclusive.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpCommitPreparedLightWeightTransaction @ 0x140693690 (CmpCommitPreparedLightWeightTransaction.c)
- *     CmpPrepareLightWeightTransaction @ 0x14069377C (CmpPrepareLightWeightTransaction.c)
- *     CmpCleanupLightWeightPrepare @ 0x140693858 (CmpCleanupLightWeightPrepare.c)
- *     CmpAbortLightWeightTransaction @ 0x1406939B0 (CmpAbortLightWeightTransaction.c)
- *     CmpCleanupLightWeightTransaction @ 0x140693A5C (CmpCleanupLightWeightTransaction.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpCommitPreparedLightWeightTransaction @ 0x140693670 (CmpCommitPreparedLightWeightTransaction.c)
+ *     CmpPrepareLightWeightTransaction @ 0x14069375C (CmpPrepareLightWeightTransaction.c)
+ *     CmpCleanupLightWeightPrepare @ 0x140693838 (CmpCleanupLightWeightPrepare.c)
+ *     CmpAbortLightWeightTransaction @ 0x140693990 (CmpAbortLightWeightTransaction.c)
+ *     CmpCleanupLightWeightTransaction @ 0x140693A3C (CmpCleanupLightWeightTransaction.c)
  */
 
 __int64 __fastcall CmpCommitLightWeightTransaction(__int64 a1)

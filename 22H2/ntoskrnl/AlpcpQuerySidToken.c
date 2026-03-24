@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpQuerySidToken @ 0x140714D58
+ * XREFs of AlpcpQuerySidToken @ 0x140664404
  * Callers:
- *     AlpcpQuerySidMessage @ 0x140714BEC (AlpcpQuerySidMessage.c)
+ *     AlpcpQuerySidMessage @ 0x140664354 (AlpcpQuerySidMessage.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeQueryUserSidToken @ 0x140714EB0 (SeQueryUserSidToken.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SeQueryUserSidToken @ 0x1406544B4 (SeQueryUserSidToken.c)
  */
 
 __int64 __fastcall AlpcpQuerySidToken(__int64 a1, void *a2, unsigned int a3, _DWORD *a4)
@@ -18,7 +18,7 @@ __int64 __fastcall AlpcpQuerySidToken(__int64 a1, void *a2, unsigned int a3, _DW
 
   LODWORD(Size[0]) = 0;
   memset(Src, 0, 0x44uLL);
-  SeQueryUserSidToken(a1, Src, 68LL, Size);
+  SeQueryUserSidToken(a1, Src, 0x44u, (ULONG *)Size);
   v8 = 0;
   v9 = LODWORD(Size[0]);
   if ( LODWORD(Size[0]) > a3 )

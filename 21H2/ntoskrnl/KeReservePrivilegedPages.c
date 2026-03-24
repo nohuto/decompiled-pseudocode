@@ -1,12 +1,11 @@
 /*
- * XREFs of KeReservePrivilegedPages @ 0x1403A147C
+ * XREFs of KeReservePrivilegedPages @ 0x1403954A0
  * Callers:
- *     MiReleasePrivilegedPtes @ 0x1406EBA70 (MiReleasePrivilegedPtes.c)
- *     MiFreeInitializationCode @ 0x14075F23C (MiFreeInitializationCode.c)
- *     MiReservePrivilegedPtes @ 0x140761C34 (MiReservePrivilegedPtes.c)
- *     MiUnlockDriverPages @ 0x14080C400 (MiUnlockDriverPages.c)
+ *     MiReservePrivilegedPtes @ 0x14075EAD0 (MiReservePrivilegedPtes.c)
+ *     MiReleasePrivilegedPtes @ 0x140773A48 (MiReleasePrivilegedPtes.c)
+ *     MiUnlockDriverPages @ 0x1408C4DC0 (MiUnlockDriverPages.c)
  * Callees:
- *     VslReserveProtectedPages @ 0x14080C778 (VslReserveProtectedPages.c)
+ *     VslReserveProtectedPages @ 0x14077D350 (VslReserveProtectedPages.c)
  */
 
 __int64 KeReservePrivilegedPages()

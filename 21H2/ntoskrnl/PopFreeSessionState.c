@@ -1,44 +1,50 @@
 /*
- * XREFs of PopFreeSessionState @ 0x1407EC100
+ * XREFs of PopFreeSessionState @ 0x140778D60
  * Callers:
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     PopFreeRegistration @ 0x1407EC1B0 (PopFreeRegistration.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     PopFreeRegistration @ 0x140778E14 (PopFreeRegistration.c)
  */
 
 void __fastcall PopFreeSessionState(int a1)
 {
   unsigned int i; // edi
   _DWORD **v3; // rbx
-  _DWORD *j; // rax
-  __int64 v5; // rsi
-  int v6; // ecx
+  _DWORD *v4; // rax
+  int v5; // ecx
+  __int64 v6; // rsi
   _QWORD *v7; // rcx
 
   ExAcquireFastMutex(&PopSettingLock);
   for ( i = 0; i < 2; ++i )
   {
     v3 = (_DWORD **)((char *)&PopSessionSpecificLists + 16 * i);
-    for ( j = *v3; j != (_DWORD *)v3; j = (_DWORD *)v5 )
+    v4 = *v3;
+    while ( v4 != (_DWORD *)v3 )
     {
-      v5 = *(_QWORD *)j;
-      if ( j[12] == a1 )
+      if ( v4[12] == a1 )
       {
-        v6 = j[13];
-        if ( (v6 & 2) != 0 )
+        v5 = v4[13];
+        v6 = *(_QWORD *)v4;
+        if ( (v5 & 2) != 0 )
         {
-          j[13] = v6 | 4;
+          v4[13] = v5 | 4;
         }
         else
         {
-          if ( *(_DWORD **)(v5 + 8) != j || (v7 = (_QWORD *)*((_QWORD *)j + 1), (_DWORD *)*v7 != j) )
+          if ( *(_DWORD **)(v6 + 8) != v4 || (v7 = (_QWORD *)*((_QWORD *)v4 + 1), (_DWORD *)*v7 != v4) )
             __fastfail(3u);
-          *v7 = v5;
-          *(_QWORD *)(v5 + 8) = v7;
-          PopFreeRegistration(j);
+          *v7 = v6;
+          *(_QWORD *)(v6 + 8) = v7;
+          PopFreeRegistration(v4);
         }
+        v4 = (_DWORD *)v6;
+      }
+      else
+      {
+        v4 = *(_DWORD **)v4;
       }
     }
   }

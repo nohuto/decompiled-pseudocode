@@ -1,21 +1,23 @@
 /*
- * XREFs of Endpoint_OnCancelEndpointConfigureCompletion @ 0x1C0038C00
+ * XREFs of Endpoint_OnCancelEndpointConfigureCompletion @ 0x1C0038980
  * Callers:
  *     <none>
  * Callees:
- *     CommonBuffer_ReleaseBuffer @ 0x1C000182C (CommonBuffer_ReleaseBuffer.c)
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     WPP_RECORDER_SF_ddL @ 0x1C002F238 (WPP_RECORDER_SF_ddL.c)
- *     Controller_ReportFatalError @ 0x1C0032C20 (Controller_ReportFatalError.c)
- *     Endpoint_SendClearStallTransfer @ 0x1C003A12C (Endpoint_SendClearStallTransfer.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     Endpoint_SendClearStallTransfer @ 0x1C0039D7C (Endpoint_SendClearStallTransfer.c)
  */
 
 void __fastcall Endpoint_OnCancelEndpointConfigureCompletion(__int64 a1, int a2)
 {
   __int64 v2; // rdi
   int v5; // edx
-  int v6; // edx
+  char v6; // cl
+  int v7; // edx
+  int v8; // edx
 
   v2 = *(_QWORD *)(a1 + 48);
   CommonBuffer_ReleaseBuffer(*(_QWORD *)(*(_QWORD *)v2 + 120LL), *(_QWORD *)(v2 + 256));
@@ -25,12 +27,12 @@ void __fastcall Endpoint_OnCancelEndpointConfigureCompletion(__int64 a1, int a2)
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v5) = 4;
-      WPP_RECORDER_SF_DD(
+      WPP_RECORDER_SF_dd(
         *(_QWORD *)(v2 + 80),
         v5,
         13,
         74,
-        (__int64)&WPP_60b6c7b69d133891580a7186b105caca_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(v2 + 16) + 135LL),
         *(_DWORD *)(v2 + 144));
     }
@@ -40,31 +42,36 @@ LABEL_11:
       ESM_AddEvent((KSPIN_LOCK *)(v2 + 288), 12);
     return;
   }
-  if ( *(_BYTE *)(a1 + 60) != 1 )
+  v6 = *(_BYTE *)(a1 + 60);
+  if ( v6 != 1 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v8 = *(unsigned __int8 *)(*(_QWORD *)(v2 + 16) + 135LL);
+      LOBYTE(v8) = 2;
       WPP_RECORDER_SF_ddL(
         *(_QWORD *)(v2 + 80),
-        2u,
-        0xDu,
-        0x4Cu,
-        (__int64)&WPP_60b6c7b69d133891580a7186b105caca_Traceguids,
-        *(unsigned __int8 *)(*(_QWORD *)(v2 + 16) + 135LL),
+        v8,
+        13,
+        76,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+        *(_BYTE *)(*(_QWORD *)(v2 + 16) + 135LL),
         *(_DWORD *)(v2 + 144),
-        *(unsigned __int8 *)(a1 + 60));
+        v6);
+    }
     Controller_ReportFatalError(*(_QWORD *)v2, 2, 4125, 0LL, *(_QWORD *)(v2 + 16), v2, 0LL);
     goto LABEL_11;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v6 = *(unsigned __int8 *)(*(_QWORD *)(v2 + 16) + 135LL);
-    LOBYTE(v6) = 4;
-    WPP_RECORDER_SF_DD(
+    v7 = *(unsigned __int8 *)(*(_QWORD *)(v2 + 16) + 135LL);
+    LOBYTE(v7) = 4;
+    WPP_RECORDER_SF_dd(
       *(_QWORD *)(v2 + 80),
-      v6,
+      v7,
       13,
       75,
-      (__int64)&WPP_60b6c7b69d133891580a7186b105caca_Traceguids,
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
       *(_BYTE *)(*(_QWORD *)(v2 + 16) + 135LL),
       *(_DWORD *)(v2 + 144));
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPrefetchReleasePreallocatedPages @ 0x14063251C
+ * XREFs of MiPrefetchReleasePreallocatedPages @ 0x1405398E0
  * Callers:
- *     MiPrefetchVirtualMemory @ 0x1402EE1C8 (MiPrefetchVirtualMemory.c)
- *     MiPrefetchPreallocatePages @ 0x140632198 (MiPrefetchPreallocatePages.c)
+ *     MiPrefetchVirtualMemory @ 0x14033DEB0 (MiPrefetchVirtualMemory.c)
+ *     MiPrefetchPreallocatePages @ 0x140539560 (MiPrefetchPreallocatePages.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiFreePageChain @ 0x14046C5F2 (MiFreePageChain.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MiFreePageChain @ 0x1402E1E74 (MiFreePageChain.c)
  */
 
 void __fastcall MiPrefetchReleasePreallocatedPages(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -29,7 +29,7 @@ void __fastcall MiPrefetchReleasePreallocatedPages(__int64 a1, __int64 a2, __int
   {
     v9 = 512LL;
     MiReturnCommit(a3, 512LL);
-    if ( (unsigned __int16 *)a3 != MiSystemPartition )
+    if ( (ULONG_PTR *)a3 != &MiSystemPartition )
       goto LABEL_15;
     CurrentPrcb = KeGetCurrentPrcb();
     CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
@@ -60,7 +60,7 @@ void __fastcall MiPrefetchReleasePreallocatedPages(__int64 a1, __int64 a2, __int
     }
     if ( v9 )
 LABEL_15:
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(a3 + 17280), v9);
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(a3 + 7168), v9);
 LABEL_16:
     *(_DWORD *)(a1 + 16) = 0;
   }

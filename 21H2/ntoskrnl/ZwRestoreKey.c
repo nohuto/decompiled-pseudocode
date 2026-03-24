@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwRestoreKey @ 0x14041E7E0
+ * XREFs of ZwRestoreKey @ 0x1403FD320
  * Callers:
- *     DifZwRestoreKeyWrapper @ 0x1406267D0 (DifZwRestoreKeyWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

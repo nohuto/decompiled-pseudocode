@@ -1,50 +1,43 @@
 /*
- * XREFs of NtUserEnableResizeLayoutSynchronization @ 0x1C00B02E0
+ * XREFs of NtUserEnableResizeLayoutSynchronization @ 0x1C0124DE0
  * Callers:
  *     <none>
  * Callees:
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
  */
 
 __int64 __fastcall NtUserEnableResizeLayoutSynchronization(__int64 a1, int a2)
 {
-  __int64 v4; // rax
-  __int64 v5; // rdx
+  __int64 v4; // rdi
+  __int64 v5; // rax
   __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rdi
-  __int64 v10; // rbx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int128 v15; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-18h]
+  __int64 v7; // rbx
+  __int64 v8; // rcx
+  __int128 v10; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v11; // [rsp+30h] [rbp-18h]
 
-  v16 = 0LL;
-  v15 = 0LL;
-  EnterCrit(0LL, 0LL);
-  v4 = ValidateHwnd(a1);
-  v9 = 0LL;
-  v10 = v4;
-  if ( v4 )
+  v11 = 0LL;
+  v10 = 0LL;
+  v4 = 1LL;
+  EnterCrit(0LL, 1LL);
+  v5 = ValidateHwnd(a1);
+  v7 = v5;
+  if ( v5 && (v6 = (*(_WORD *)(*(_QWORD *)(v5 + 40) + 42LL) & 0x2FFFu) - 669, (v6 & 0xFFFFFFFD) != 0) )
   {
-    v6 = *(_QWORD *)(v4 + 40);
-    v5 = (*(_WORD *)(v6 + 42) & 0x2FFFu) - 669;
-    if ( (v5 & 0xFFFFFFFD) != 0 )
-    {
-      *(_QWORD *)&v15 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v15;
-      *((_QWORD *)&v15 + 1) = v4;
-      HMLockObject(v4);
-      if ( a2 )
-        *(_BYTE *)(*(_QWORD *)(v10 + 40) + 25LL) |= 0x80u;
-      else
-        SetOrClrWF(0LL, v10, 2432LL, 0LL);
-      ThreadUnlock1(v12, v11, v13);
-      v9 = 1LL;
-    }
+    *(_QWORD *)&v10 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v10;
+    *((_QWORD *)&v10 + 1) = v5;
+    HMLockObject(v5);
+    if ( a2 )
+      *(_BYTE *)(*(_QWORD *)(v7 + 40) + 25LL) |= 0x80u;
+    else
+      SetOrClrWF(0, v7, 0x980u, 0);
+    ThreadUnlock1(v8);
   }
-  UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
-  return v9;
+  else
+  {
+    v4 = 0LL;
+  }
+  UserSessionSwitchLeaveCrit(v6);
+  return v4;
 }

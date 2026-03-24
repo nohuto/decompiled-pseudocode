@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpCmcInitializePolling @ 0x1403D256C
+ * XREFs of HalpCmcInitializePolling @ 0x1403C53E0
  * Callers:
- *     HalpInitializeCmc @ 0x140A5AA64 (HalpInitializeCmc.c)
+ *     HalpInitializeCmc @ 0x1409A11B8 (HalpInitializeCmc.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpCmcInitializeErrorPacketContents @ 0x1403D2818 (HalpCmcInitializeErrorPacketContents.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpCmcInitializeErrorPacketContents @ 0x1403C5548 (HalpCmcInitializeErrorPacketContents.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpCmcInitializePolling(__int64 a1)
@@ -24,21 +24,21 @@ __int64 __fastcall HalpCmcInitializePolling(__int64 a1)
     HalpCmcErrorPacket = (__int64)&HalpCmcReserveErrorPacket;
     HalpCmcInitializeErrorPacketContents();
     v3 = *(_DWORD *)(a1 + 52);
-    qword_140C54A20 = (__int64)HalpCmcDeferredRoutine;
-    qword_140C54A58 = (__int64)HalpCmcWorkerRoutine;
+    qword_140C50890 = (__int64)HalpCmcDeferredRoutine;
+    qword_140C508C8 = (__int64)HalpCmcWorkerRoutine;
     HalpCmcContext = v3;
-    qword_140C549C8 = 8LL;
-    qword_140C549D8 = (__int64)&qword_140C549D0;
-    qword_140C549D0 = (__int64)&qword_140C549D0;
-    dword_140C54A08 = 275;
-    qword_140C54A28 = (__int64)&HalpCmcContext;
-    qword_140C54A40 = 0LL;
-    qword_140C54A18 = 0LL;
-    qword_140C54A60 = (__int64)&HalpCmcContext;
-    qword_140C54A48 = 0LL;
-    qword_140C549E0 = 0LL;
-    dword_140C54A04 = 0;
-    word_140C54A00 = 0;
+    qword_140C50838 = 8LL;
+    qword_140C50848 = (__int64)&qword_140C50840;
+    qword_140C50840 = (__int64)&qword_140C50840;
+    dword_140C50878 = 275;
+    qword_140C50898 = (__int64)&HalpCmcContext;
+    qword_140C508B0 = 0LL;
+    qword_140C50888 = 0LL;
+    qword_140C508D0 = (__int64)&HalpCmcContext;
+    qword_140C508B8 = 0LL;
+    qword_140C50850 = 0LL;
+    dword_140C50874 = 0;
+    word_140C50870 = 0;
     HalpCmcPollingInitialized = 1;
   }
   KxReleaseSpinLock(&HalpCmcFallbackLock);

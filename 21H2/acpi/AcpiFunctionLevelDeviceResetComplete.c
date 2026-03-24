@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiFunctionLevelDeviceResetComplete @ 0x1C00AD250
+ * XREFs of AcpiFunctionLevelDeviceResetComplete @ 0x1C00AE650
  * Callers:
- *     AcpiFunctionLevelDeviceReset @ 0x1C00AD168 (AcpiFunctionLevelDeviceReset.c)
+ *     AcpiFunctionLevelDeviceReset @ 0x1C00AE568 (AcpiFunctionLevelDeviceReset.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall AcpiFunctionLevelDeviceResetComplete(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

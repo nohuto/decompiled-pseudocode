@@ -1,39 +1,23 @@
 /*
- * XREFs of ?GetVidPnSourceOwnerEmulated@ADAPTER_DISPLAY@@QEBAPEAVDXGDEVICE@@I@Z @ 0x1C0046AC4
+ * XREFs of ?GetVidPnSourceOwnerEmulated@ADAPTER_DISPLAY@@QEBAPEAVDXGDEVICE@@I@Z @ 0x1C001C490
  * Callers:
- *     ?QueryVidPnExclusiveOwnershipCallBack@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C02D0440 (-QueryVidPnExclusiveOwnershipCallBack@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
- *     DxgkAdjustFullscreenGamma @ 0x1C02D08B0 (DxgkAdjustFullscreenGamma.c)
+ *     ?QueryVidPnExclusiveOwnershipCallBack@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C0170C20 (-QueryVidPnExclusiveOwnershipCallBack@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     DxgkAdjustFullscreenGamma @ 0x1C0223100 (DxgkAdjustFullscreenGamma.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
-struct DXGDEVICE *__fastcall ADAPTER_DISPLAY::GetVidPnSourceOwnerEmulated(ADAPTER_DISPLAY *this, unsigned int a2)
+struct DXGDEVICE *__fastcall ADAPTER_DISPLAY::GetVidPnSourceOwnerEmulated(ADAPTER_DISPLAY *this, __int64 a2)
 {
   __int64 v3; // rbx
-  int v4; // edx
-  int v5; // r8d
+  __int64 v5; // rax
 
-  v3 = a2;
-  if ( a2 >= *((_DWORD *)this + 24) )
+  v3 = (unsigned int)a2;
+  if ( (unsigned int)a2 >= *((_DWORD *)this + 20) )
   {
-    WdLogSingleEntry1(1LL, 6268LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          0,
-          v4,
-          v5,
-          0LL,
-          2,
-          -1,
-          L"VidPnSourceId < m_NumVidPnSources",
-          6268LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v5 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v5 + 24) = 6108LL;
+    WdLogEvent5_WdAssertion(v5);
   }
-  return *(struct DXGDEVICE **)(4000 * v3 + *((_QWORD *)this + 16) + 744);
+  return *(struct DXGDEVICE **)(3968 * v3 + *((_QWORD *)this + 14) + 704);
 }

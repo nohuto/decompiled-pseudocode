@@ -1,52 +1,50 @@
 /*
- * XREFs of NtNotifyPresentToCompositionSurface @ 0x1C0001F10
+ * XREFs of NtNotifyPresentToCompositionSurface @ 0x1C0065590
  * Callers:
- *     ?QuerySwapChainBindingStatus@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C02E0EA4 (-QuerySwapChainBindingStatus@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJIPEAU_D3DKMT_PRESENTHISTORY.c)
+ *     ?QuerySwapChainBindingStatus@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C028DD4C (-QuerySwapChainBindingStatus@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJIPEAU_D3DKMT_PRESENTHISTORY.c)
  * Callees:
- *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C0005A8C (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C000FC78 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
+ *     ?LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z @ 0x1C0010098 (-LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z.c)
+ *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C00168A4 (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?CheckBinding@CCompositionSurface@@QEBA_N_KPEAW4CompositionBufferType@@PEAPEAUHWND__@@PEA_N@Z @ 0x1C0066160 (-CheckBinding@CCompositionSurface@@QEBA_N_KPEAW4CompositionBufferType@@PEAPEAUHWND__@@PEA_N@Z.c)
+ *     ?PreNotifyPendingFlipPresent@CCompositionSurface@@QEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@@Z @ 0x1C006650C (-PreNotifyPendingFlipPresent@CCompositionSurface@@QEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOK.c)
  */
 
-__int64 __fastcall NtNotifyPresentToCompositionSurface(void *a1, unsigned __int64 a2)
+__int64 __fastcall NtNotifyPresentToCompositionSurface(CCompositionSurface *a1, unsigned __int64 a2)
 {
-  NTSTATUS v4; // esi
-  __int64 v5; // r14
+  signed int v4; // ebx
+  unsigned __int64 v5; // r14
   _DWORD *v6; // rdx
   _OWORD *v7; // rcx
   _OWORD *v8; // rdx
-  __int64 v9; // r9
+  __int64 v9; // r8
   __int64 v10; // rax
-  _OWORD *v11; // rcx
+  _D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN *v11; // rcx
   _OWORD *v12; // rax
-  __int64 *v13; // r14
-  char v14; // r8
-  _QWORD *v15; // r13
-  char *v16; // r15
-  int v17; // r8d
-  char *v18; // r13
-  char *i; // rax
-  int v20; // ebx
-  int v21; // esi
-  _QWORD *v22; // rbx
-  char *v23; // rcx
-  _OWORD *v25; // rax
-  _OWORD *v26; // rcx
-  __int64 v27; // r9
-  int v28; // [rsp+20h] [rbp-8B8h]
-  PVOID Object; // [rsp+28h] [rbp-8B0h] BYREF
-  __int64 v30; // [rsp+30h] [rbp-8A8h]
-  void *v31; // [rsp+38h] [rbp-8A0h]
-  _BYTE v32[1072]; // [rsp+40h] [rbp-898h] BYREF
-  _QWORD v33[134]; // [rsp+470h] [rbp-468h] BYREF
+  unsigned __int64 *v13; // r14
+  _OWORD *v14; // rax
+  _D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN *v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // r8
+  PVOID v18; // r12
+  CCompositionSurface *v19; // rsi
+  bool v21; // [rsp+30h] [rbp-8C8h] BYREF
+  PVOID Object; // [rsp+38h] [rbp-8C0h] BYREF
+  CCompositionSurface *v23; // [rsp+40h] [rbp-8B8h] BYREF
+  signed int v24; // [rsp+48h] [rbp-8B0h]
+  unsigned __int64 v25; // [rsp+50h] [rbp-8A8h]
+  HWND v26; // [rsp+58h] [rbp-8A0h] BYREF
+  _BYTE v27[1072]; // [rsp+60h] [rbp-898h] BYREF
+  _D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN v28; // [rsp+490h] [rbp-468h] BYREF
 
-  v31 = a1;
+  v23 = a1;
   v4 = 0;
-  memset(v33, 0, 1064);
+  memset(&v28, 0, sizeof(v28));
   Object = 0LL;
   v5 = 0LL;
-  v30 = 0LL;
+  v25 = 0LL;
   if ( a2 )
   {
     if ( (unsigned __int8)PsGetCurrentThreadPreviousMode() == 1 )
@@ -56,10 +54,11 @@ __int64 __fastcall NtNotifyPresentToCompositionSurface(void *a1, unsigned __int6
         v6 = (_DWORD *)MmUserProbeAddress;
       if ( *v6 != 2 )
         v4 = -1073741811;
+      v24 = v4;
       v7 = (_OWORD *)(a2 + 16);
       if ( a2 + 1080 < a2 + 16 || a2 + 1080 > MmUserProbeAddress )
         v7 = (_OWORD *)MmUserProbeAddress;
-      v8 = v32;
+      v8 = v27;
       v9 = 8LL;
       v10 = 8LL;
       do
@@ -80,133 +79,84 @@ __int64 __fastcall NtNotifyPresentToCompositionSurface(void *a1, unsigned __int6
       *v8 = *v7;
       v8[1] = v7[1];
       *((_QWORD *)v8 + 4) = *((_QWORD *)v7 + 4);
-      v11 = v33;
-      v12 = v32;
+      v11 = &v28;
+      v12 = v27;
       do
       {
-        *v11 = *v12;
-        v11[1] = v12[1];
-        v11[2] = v12[2];
-        v11[3] = v12[3];
-        v11[4] = v12[4];
-        v11[5] = v12[5];
-        v11[6] = v12[6];
-        v11 += 8;
-        *(v11 - 1) = v12[7];
+        *(_OWORD *)&v11->FenceValue = *v12;
+        *(_OWORD *)&v11->dxgContext = v12[1];
+        *(_OWORD *)&v11->PresentLimitSemaphoreId = v12[2];
+        *(_OWORD *)&v11->hCompSurf = v12[3];
+        *(_OWORD *)&v11->confirmationCookie = v12[4];
+        *(_OWORD *)&v11->RemainingTokens = v12[5];
+        *(_OWORD *)&v11->ScrollRect.bottom = v12[6];
+        v11 = (_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN *)((char *)v11 + 128);
+        v11[-1].DirtyRegions.Rects[15] = (RECT)v12[7];
         v12 += 8;
         --v9;
       }
       while ( v9 );
-      *v11 = *v12;
-      v11[1] = v12[1];
-      *((_QWORD *)v11 + 4) = *((_QWORD *)v12 + 4);
-      v13 = (__int64 *)(a2 + 8);
+      *(_OWORD *)&v11->FenceValue = *v12;
+      *(_OWORD *)&v11->dxgContext = v12[1];
+      v11->PresentLimitSemaphoreId = *((_QWORD *)v12 + 4);
+      v13 = (unsigned __int64 *)(a2 + 8);
       if ( a2 + 16 < a2 + 8 || a2 + 16 > MmUserProbeAddress )
-        v13 = (__int64 *)MmUserProbeAddress;
+        v13 = (unsigned __int64 *)MmUserProbeAddress;
       v5 = *v13;
-      v30 = v5;
+      v25 = v5;
     }
     else
     {
-      v25 = (_OWORD *)(a2 + 16);
-      v26 = v33;
-      v27 = 8LL;
+      v14 = (_OWORD *)(a2 + 16);
+      v15 = &v28;
+      v16 = 8LL;
       do
       {
-        *v26 = *v25;
-        v26[1] = v25[1];
-        v26[2] = v25[2];
-        v26[3] = v25[3];
-        v26[4] = v25[4];
-        v26[5] = v25[5];
-        v26[6] = v25[6];
-        v26 += 8;
-        *(v26 - 1) = v25[7];
-        v25 += 8;
-        --v27;
+        *(_OWORD *)&v15->FenceValue = *v14;
+        *(_OWORD *)&v15->dxgContext = v14[1];
+        *(_OWORD *)&v15->PresentLimitSemaphoreId = v14[2];
+        *(_OWORD *)&v15->hCompSurf = v14[3];
+        *(_OWORD *)&v15->confirmationCookie = v14[4];
+        *(_OWORD *)&v15->RemainingTokens = v14[5];
+        *(_OWORD *)&v15->ScrollRect.bottom = v14[6];
+        v15 = (_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN *)((char *)v15 + 128);
+        v15[-1].DirtyRegions.Rects[15] = (RECT)v14[7];
+        v14 += 8;
+        --v16;
       }
-      while ( v27 );
-      *v26 = *v25;
-      v26[1] = v25[1];
-      *((_QWORD *)v26 + 4) = *((_QWORD *)v25 + 4);
+      while ( v16 );
+      *(_OWORD *)&v15->FenceValue = *v14;
+      *(_OWORD *)&v15->dxgContext = v14[1];
+      v15->PresentLimitSemaphoreId = *((_QWORD *)v14 + 4);
       v5 = *(_QWORD *)(a2 + 8);
-      v30 = v5;
       v4 = *(_DWORD *)a2 != 2 ? 0xC000000D : 0;
     }
   }
   KeEnterCriticalRegion();
   if ( v4 >= 0 )
   {
-    v4 = CompositionSurfaceObject::ResolveHandle(a1, 2u, v14, (struct CompositionSurfaceObject **)&Object);
-    v15 = Object;
+    v4 = CompositionSurfaceObject::ResolveHandle(a1, 2u, v17, (struct CompositionSurfaceObject **)&Object);
+    v18 = Object;
     if ( v4 >= 0 )
     {
-      v16 = 0LL;
-      v4 = ObReferenceObjectByPointer(Object, 3u, g_pDxgkCompositionObjectType, 0);
+      v23 = 0LL;
+      v4 = CompositionSurfaceObject::LockForWrite((char *)Object, &v23);
       if ( v4 >= 0 )
       {
-        KeEnterCriticalRegion();
-        ExAcquirePushLockExclusiveEx(v15 + 6, 0LL);
-        v15[7] = KeGetCurrentThread();
-        v4 = 0;
-        v15 = Object;
-        v16 = (char *)Object + 40;
-        v5 = v30;
-      }
-      v28 = v4;
-      if ( v4 >= 0 )
-      {
-        v17 = -1073741275;
-        v18 = 0LL;
-        if ( *((_DWORD *)v16 + 22) )
-        {
-          for ( i = (char *)*((_QWORD *)v16 + 9); i != v16 + 72; i = *(char **)i )
-          {
-            if ( *((_QWORD *)i - 1) == v5 )
-            {
-              v18 = i - 24;
-              v17 = 0;
-              break;
-            }
-          }
-        }
-        if ( v17 < 0
-          || (v20 = (*(__int64 (__fastcall **)(char *))(*(_QWORD *)v18 + 8LL))(v18),
-              (*(void (__fastcall **)(char *))(*(_QWORD *)v18 + 24LL))(v18),
-              v20 != 2)
-          || !v18[40] )
+        LODWORD(Object) = 0;
+        v21 = 0;
+        v19 = v23;
+        if ( !CCompositionSurface::CheckBinding(v23, v5, (enum CompositionBufferType *)&Object, &v26, &v21)
+          || (_DWORD)Object != 2
+          || !v21 )
         {
           v4 = -1073741811;
-          v28 = -1073741811;
         }
         if ( v4 >= 0 )
-        {
-          v21 = 0;
-          v22 = 0LL;
-          if ( *((_DWORD *)v16 + 22) && *(_BYTE *)(*((_QWORD *)v16 + 9) - 24LL + 40) )
-            v22 = (_QWORD *)(*((_QWORD *)v16 + 9) - 24LL);
-          if ( v22 && v22[2] == v5 && (*(unsigned int (__fastcall **)(_QWORD *))(*v22 + 8LL))(v22) == 2 )
-            (*(void (__fastcall **)(_QWORD *, _QWORD *))(*v22 + 56LL))(v22, v33);
-          else
-            v21 = -1073741811;
-          v28 = v21;
-        }
-        v23 = v16 + 8;
-        if ( KeGetCurrentThread() == *((struct _KTHREAD **)v16 + 2) )
-        {
-          *((_QWORD *)v16 + 2) = 0LL;
-          ExReleasePushLockExclusiveEx(v23, 0LL);
-        }
-        else
-        {
-          ExReleasePushLockSharedEx(v23, 0LL);
-        }
-        KeLeaveCriticalRegion();
-        ObfDereferenceObject(v16 - 40);
-        v4 = v28;
-        v15 = Object;
+          v4 = CCompositionSurface::PreNotifyPendingFlipPresent(v19, v5, &v28);
+        CCompositionSurface::UnlockAndRelease(v19);
       }
-      ObfDereferenceObject(v15);
+      ObfDereferenceObject(v18);
     }
   }
   KeLeaveCriticalRegion();

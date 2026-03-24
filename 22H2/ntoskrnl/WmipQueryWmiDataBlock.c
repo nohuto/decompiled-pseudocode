@@ -1,26 +1,26 @@
 /*
- * XREFs of WmipQueryWmiDataBlock @ 0x1407ABB30
+ * XREFs of WmipQueryWmiDataBlock @ 0x14065F9D0
  * Callers:
- *     IoWMISystemControl @ 0x1407E3064 (IoWMISystemControl.c)
+ *     IoWMISystemControl @ 0x1406A25F4 (IoWMISystemControl.c)
  * Callees:
- *     WmipUnreferenceRegEntry @ 0x14022AAD4 (WmipUnreferenceRegEntry.c)
- *     IoGetDeviceInstanceName @ 0x140321B38 (IoGetDeviceInstanceName.c)
- *     WmipFindRegEntryByDevice @ 0x1403C1F64 (WmipFindRegEntryByDevice.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     IoWMICompleteRequest @ 0x1407ABC28 (IoWMICompleteRequest.c)
- *     WmipGetSMBiosTableData @ 0x1407ABD0C (WmipGetSMBiosTableData.c)
- *     WmipGetSMBiosEventlog @ 0x1409DF9F8 (WmipGetSMBiosEventlog.c)
- *     WmipGetSysIds @ 0x1409DFC78 (WmipGetSysIds.c)
+ *     WmipUnreferenceRegEntry @ 0x14032E244 (WmipUnreferenceRegEntry.c)
+ *     IoGetDeviceInstanceName @ 0x14036F3E0 (IoGetDeviceInstanceName.c)
+ *     WmipFindRegEntryByDevice @ 0x1403717C4 (WmipFindRegEntryByDevice.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     IoWMICompleteRequest @ 0x14065FAC4 (IoWMICompleteRequest.c)
+ *     WmipGetSMBiosTableData @ 0x14065FBBC (WmipGetSMBiosTableData.c)
+ *     RtlpQueryRegistryValues @ 0x1406B9848 (RtlpQueryRegistryValues.c)
+ *     WmipGetSMBiosEventlog @ 0x140931A84 (WmipGetSMBiosEventlog.c)
+ *     WmipGetSysIds @ 0x140931C78 (WmipGetSysIds.c)
  */
 
 __int64 __fastcall WmipQueryWmiDataBlock(
         __int64 a1,
         void *a2,
-        int a3,
+        unsigned int a3,
         __int64 a4,
         unsigned int a5,
         unsigned int *a6,
@@ -29,13 +29,13 @@ __int64 __fastcall WmipQueryWmiDataBlock(
 {
   unsigned __int64 v8; // rsi
   int DeviceInstanceName; // edi
-  int *v11; // r15
+  int *v10; // r15
   unsigned int v12; // r14d
   unsigned int *v13; // r12
-  unsigned int v14; // ebx
+  unsigned int v14; // eax
   char *v15; // rcx
   int SMBiosEventlog; // eax
-  int v18; // eax
+  unsigned int v18; // eax
   int v19; // r14d
   __int64 v20; // rax
   __int64 v21; // r13
@@ -51,7 +51,7 @@ __int64 __fastcall WmipQueryWmiDataBlock(
   wchar_t *Buffer; // rdx
   _WORD *v32; // rsi
   unsigned int v33; // [rsp+30h] [rbp-D0h] BYREF
-  int v34; // [rsp+34h] [rbp-CCh] BYREF
+  unsigned int v34; // [rsp+34h] [rbp-CCh] BYREF
   void *v35; // [rsp+38h] [rbp-C8h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C0h] BYREF
   void *Src; // [rsp+50h] [rbp-B0h] BYREF
@@ -64,7 +64,7 @@ __int64 __fastcall WmipQueryWmiDataBlock(
   __int64 v44; // [rsp+98h] [rbp-68h]
   int v45; // [rsp+A0h] [rbp-60h]
   const wchar_t *v46; // [rsp+A8h] [rbp-58h]
-  int *v47; // [rsp+B0h] [rbp-50h]
+  unsigned int *v47; // [rsp+B0h] [rbp-50h]
   int v48; // [rsp+B8h] [rbp-48h]
   __int64 v49; // [rsp+D0h] [rbp-30h]
   int v50; // [rsp+D8h] [rbp-28h]
@@ -76,19 +76,19 @@ __int64 __fastcall WmipQueryWmiDataBlock(
 
   v8 = a8;
   DeviceInstanceName = 0;
-  v11 = (int *)a6;
-  v12 = 0;
+  v10 = (int *)a6;
   v38 = a2;
+  v12 = 0;
   v13 = 0LL;
   switch ( a3 )
   {
-    case 0:
+    case 0u:
       UnicodeString = 0LL;
       RegEntryByDevice = (_QWORD *)WmipFindRegEntryByDevice(a1);
       Src = RegEntryByDevice;
       v21 = (__int64)RegEntryByDevice;
       if ( !RegEntryByDevice )
-        goto LABEL_45;
+        goto LABEL_44;
       v27 = RegEntryByDevice[3];
       if ( v27 )
       {
@@ -108,9 +108,9 @@ __int64 __fastcall WmipQueryWmiDataBlock(
               do
               {
                 Buffer = UnicodeString.Buffer;
-                *v11 = v28;
+                *v10 = v28;
                 v32 = (_WORD *)((v8 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
-                ++v11;
+                ++v10;
                 *v32++ = Length;
                 memmove(v32, Buffer, Length);
                 v8 = (unsigned __int64)v32 + Length;
@@ -120,23 +120,23 @@ __int64 __fastcall WmipQueryWmiDataBlock(
               v12 = v33;
               v21 = (__int64)Src;
             }
-            goto LABEL_41;
+            goto LABEL_40;
           }
-          goto LABEL_40;
+          goto LABEL_39;
         }
-LABEL_42:
+LABEL_41:
         DeviceInstanceName = -1073741163;
-        goto LABEL_44;
+        goto LABEL_43;
       }
-LABEL_43:
+LABEL_42:
       DeviceInstanceName = -1073741823;
-      goto LABEL_44;
-    case 1:
+      goto LABEL_43;
+    case 1u:
       UnicodeString = 0LL;
       v20 = WmipFindRegEntryByDevice(a1);
       v21 = v20;
       if ( !v20 )
-        goto LABEL_45;
+        goto LABEL_44;
       v22 = *(_QWORD *)(v20 + 24);
       if ( v22 )
       {
@@ -154,20 +154,20 @@ LABEL_43:
             *(_WORD *)(a8 + 4) = v23 + 4;
             memmove((void *)(a8 + 6), v24, v23);
             *(_DWORD *)(a8 + 4 + v25 + 2) = 3145823;
-LABEL_41:
-            RtlFreeUnicodeString(&UnicodeString);
-LABEL_44:
+LABEL_40:
+            RtlFreeAnsiString(&UnicodeString);
+LABEL_43:
             WmipUnreferenceRegEntry(v21);
             return IoWMICompleteRequest(a1, a2, v38, (unsigned int)DeviceInstanceName, v12);
           }
-LABEL_40:
+LABEL_39:
           DeviceInstanceName = -1073741789;
-          goto LABEL_41;
+          goto LABEL_40;
         }
-        goto LABEL_42;
+        goto LABEL_41;
       }
-      goto LABEL_43;
-    case 2:
+      goto LABEL_42;
+    case 2u:
       v33 = 0;
       v43 = 0x4000000;
       v40 = 292;
@@ -189,7 +189,7 @@ LABEL_40:
       v54 = 0LL;
       v55 = 0;
       if ( (int)RtlpQueryRegistryValues(0LL, L"\\Registry\\Machine\\Hardware\\Description\\System", &v39, 0LL) < 0 )
-        goto LABEL_45;
+        goto LABEL_44;
       v12 = 12;
       if ( a7 >= 0xC )
       {
@@ -198,15 +198,15 @@ LABEL_40:
         *(_DWORD *)(a8 + 8) = (_DWORD)v35;
         goto LABEL_9;
       }
-      goto LABEL_26;
+      goto LABEL_25;
   }
   if ( a3 != 3 )
   {
-    if ( a3 != 4 && a3 != 5 )
+    if ( a3 > 5 )
     {
       if ( a3 == 6 )
       {
-        v34 = a7 != 0 ? a7 : 0;
+        v34 = a7;
         SMBiosEventlog = WmipGetSMBiosEventlog(a8 & -(__int64)(a7 != 0), &v34);
         v12 = v34;
         DeviceInstanceName = SMBiosEventlog;
@@ -214,7 +214,7 @@ LABEL_40:
           return IoWMICompleteRequest(a1, a2, v38, (unsigned int)DeviceInstanceName, v12);
         goto LABEL_9;
       }
-LABEL_45:
+LABEL_44:
       DeviceInstanceName = -1073741163;
       return IoWMICompleteRequest(a1, a2, v38, (unsigned int)DeviceInstanceName, v12);
     }
@@ -246,7 +246,7 @@ LABEL_45:
       DeviceInstanceName = 0;
       return IoWMICompleteRequest(a1, a2, v38, (unsigned int)DeviceInstanceName, v12);
     }
-LABEL_26:
+LABEL_25:
     DeviceInstanceName = -1073741789;
     return IoWMICompleteRequest(a1, a2, v38, (unsigned int)DeviceInstanceName, v12);
   }
@@ -263,10 +263,10 @@ LABEL_26:
   }
   v33 = v14;
   DeviceInstanceName = WmipGetSMBiosTableData(v15);
-  v12 = v14 + 8;
+  v12 = v33 + 8;
   if ( DeviceInstanceName >= 0 )
   {
-    *v13 = v14;
+    *v13 = v33;
 LABEL_9:
     *a6 = v12;
   }

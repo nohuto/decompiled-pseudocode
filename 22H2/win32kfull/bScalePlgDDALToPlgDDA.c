@@ -1,9 +1,9 @@
 /*
- * XREFs of bScalePlgDDALToPlgDDA @ 0x1C02FF4CC
+ * XREFs of bScalePlgDDALToPlgDDA @ 0x1C02D688C
  * Callers:
- *     ?bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z @ 0x1C02FE124 (-bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z.c)
+ *     ?bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z @ 0x1C02D54FC (-bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall bScalePlgDDALToPlgDDA(__int64 a1, _DWORD *a2)
@@ -88,7 +88,7 @@ __int64 __fastcall bScalePlgDDALToPlgDDA(__int64 a1, _DWORD *a2)
   CCHAR v81; // al
   __int64 v82; // rax
 
-  memset_0(a2, 0, 0x18CuLL);
+  memset(a2, 0, 0x18CuLL);
   v4 = *(_QWORD *)(a1 + 280);
   if ( (unsigned __int64)(*(_QWORD *)(a1 + 8) + 0x80000000LL) > 0xFFFFFFFF )
     return 0LL;

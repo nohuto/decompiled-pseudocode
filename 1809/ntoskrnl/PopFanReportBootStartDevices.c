@@ -5,7 +5,7 @@
  * Callees:
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     PopSqmFanEnumeration @ 0x14075AB0C (PopSqmFanEnumeration.c)
+ *     PopSqmFanEnumeration @ 0x14075AAEC (PopSqmFanEnumeration.c)
  */
 
 void PopFanReportBootStartDevices()

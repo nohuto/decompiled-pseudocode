@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140A2C368
+ * XREFs of _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14097BA48
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x1407894A8 (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x14073A544 (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _RegRtlSetValue @ 0x1406D5A30 (_RegRtlSetValue.c)
- *     _CmOpenDeviceRegKey @ 0x14077F2EC (_CmOpenDeviceRegKey.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     _RegRtlSetValue @ 0x140768AF4 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
@@ -40,7 +40,7 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
   v11 = 0LL;
   v26 = 0;
   Handle = 0LL;
-  v15 = &off_140A38610;
+  v15 = &off_140983DC0;
   for ( i = 0; i < 2; ++i )
   {
     v17 = *v15;

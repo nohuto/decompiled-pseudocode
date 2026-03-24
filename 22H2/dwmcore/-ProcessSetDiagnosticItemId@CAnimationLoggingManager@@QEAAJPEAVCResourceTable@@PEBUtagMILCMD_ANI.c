@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ProcessSetDiagnosticItemId@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATIONLOGGINGMANAGER_SETDIAGNOSTICITEMID@@@Z @ 0x18021644C
+ * XREFs of ?ProcessSetDiagnosticItemId@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATIONLOGGINGMANAGER_SETDIAGNOSTICITEMID@@@Z @ 0x1801B0FF8
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?GetDebugInfoForResource@CAnimationLoggingManager@@AEAAAEAUResourceDebugInfo@1@PEAVCResource@@@Z @ 0x18003E8F0 (-GetDebugInfoForResource@CAnimationLoggingManager@@AEAAAEAUResourceDebugInfo@1@PEAVCResource@@@Z.c)
- *     ?RemoveResourceDebugInfo@CAnimationLoggingManager@@QEAAXPEAVCResource@@@Z @ 0x18003EB08 (-RemoveResourceDebugInfo@CAnimationLoggingManager@@QEAAXPEAVCResource@@@Z.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x180049524 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B76D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??0?$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCCompositionSurfaceInfo@@@Z @ 0x180025A30 (--0-$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCComposition.c)
+ *     ?GetDebugInfoForResource@CAnimationLoggingManager@@AEAAAEAUResourceDebugInfo@1@PEAVCResource@@@Z @ 0x18003522C (-GetDebugInfoForResource@CAnimationLoggingManager@@AEAAAEAUResourceDebugInfo@1@PEAVCResource@@@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A1010 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?RemoveResourceDebugInfo@CAnimationLoggingManager@@QEAAXPEAVCResource@@@Z @ 0x1800C42C8 (-RemoveResourceDebugInfo@CAnimationLoggingManager@@QEAAXPEAVCResource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801643CC (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CAnimationLoggingManager::ProcessSetDiagnosticItemId(
@@ -20,72 +20,70 @@ __int64 __fastcall CAnimationLoggingManager::ProcessSetDiagnosticItemId(
   struct CResource *ResourceWithoutType; // rax
   struct CResource *v6; // rdi
   struct CAnimationLoggingManager::ResourceDebugInfo *DebugInfoForResource; // rax
-  int v9; // edx
-  _QWORD *v10; // rax
-  _QWORD *v11; // r15
-  int v12; // esi
-  int v13; // ebx
-  __int64 v14; // rdi
-  __int64 v15; // rax
-  int v16; // eax
-  int v17; // [rsp+20h] [rbp-18h]
+  int v8; // edx
+  _DWORD *v9; // rbp
+  int v10; // esi
+  int v11; // ebx
+  __int64 v12; // rdi
+  __int64 v13; // rax
+  int v14; // eax
   wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
 
   ResourceWithoutType = CResourceTable::GetResourceWithoutType(
-                          *(CResourceTable **)(*((_QWORD *)this + 6) + 32LL),
+                          *(CResourceTable **)(*((_QWORD *)this + 6) + 24LL),
                           *((_DWORD *)a3 + 2));
   v6 = ResourceWithoutType;
   if ( ResourceWithoutType )
   {
     DebugInfoForResource = CAnimationLoggingManager::GetDebugInfoForResource(this, ResourceWithoutType);
-    v9 = *((_DWORD *)a3 + 4);
-    *((_DWORD *)DebugInfoForResource + 10) = v9;
+    v8 = *((_DWORD *)a3 + 4);
+    *((_DWORD *)DebugInfoForResource + 10) = v8;
     *((_DWORD *)DebugInfoForResource + 11) = *((_DWORD *)a3 + 5);
     if ( *((_DWORD *)a3 + 4) )
     {
       if ( *((_DWORD *)a3 + 3) != -1 )
       {
-        v10 = operator new(0x20uLL);
-        v11 = v10;
-        if ( v10 )
+        v9 = operator new(0x20uLL);
+        if ( v9 )
         {
-          v12 = *((_DWORD *)a3 + 3);
-          v13 = *((_DWORD *)a3 + 2);
-          v14 = *(_QWORD *)(*((_QWORD *)this + 2) + 496LL);
-          *v10 = this;
-          (*(void (__fastcall **)(CAnimationLoggingManager *))(*(_QWORD *)this + 8LL))(this);
-          *((_DWORD *)v11 + 2) = v13;
-          v11[2] = v14;
-          *((_DWORD *)v11 + 6) = v12;
-          v15 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*((_QWORD *)this + 2) + 656LL) + 24LL))(*(_QWORD *)(*((_QWORD *)this + 2) + 656LL));
-          v16 = (*(__int64 (__fastcall **)(__int64, __int64 (__fastcall *)(void *), _QWORD *, __int64))(*(_QWORD *)v15 + 152LL))(
-                  v15,
-                  lambda_c032fb9048ad168ba2bd3d1dd4629f64_::_lambda_invoker_cdecl_,
-                  v11,
+          v10 = *((_DWORD *)a3 + 3);
+          v11 = *((_DWORD *)a3 + 2);
+          v12 = *(_QWORD *)(*((_QWORD *)this + 2) + 352LL);
+          wil::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>(
+            v9,
+            (__int64)this);
+          v9[2] = v11;
+          *((_QWORD *)v9 + 2) = v12;
+          v9[6] = v10;
+        }
+        else
+        {
+          v9 = 0LL;
+        }
+        if ( v9 )
+        {
+          v13 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*((_QWORD *)this + 2) + 504LL) + 88LL))(*(_QWORD *)(*((_QWORD *)this + 2) + 504LL));
+          v14 = (*(__int64 (__fastcall **)(__int64, __int64 (__fastcall *)(CAnimationLoggingManager::DeferredDebugInfo *), _DWORD *, __int64))(*(_QWORD *)v13 + 144LL))(
+                  v13,
+                  lambda_3440248c42f2751644268d737f23a18f_::_lambda_invoker_cdecl_,
+                  v9,
                   3LL);
-          if ( v16 < 0 )
+          if ( v14 < 0 )
+          {
             wil::details::in1diag3::FailFast_Hr(
               retaddr,
-              362LL,
+              (void *)0x17D,
               (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\animationloggingmanager.cpp",
-              (const char *)(unsigned int)v16,
-              v17);
+              (const char *)(unsigned int)v14);
+            JUMPOUT(0x1801B1131LL);
+          }
         }
       }
     }
-    else if ( !*((_QWORD *)DebugInfoForResource + 3) && !v9 )
+    else if ( !*((_QWORD *)DebugInfoForResource + 3) && !v8 )
     {
       CAnimationLoggingManager::RemoveResourceDebugInfo(this, v6);
     }
-    return 0LL;
   }
-  else
-  {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x135,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\animationloggingmanager.cpp",
-      (const char *)0x88980403LL);
-    return 2291663875LL;
-  }
+  return 0LL;
 }

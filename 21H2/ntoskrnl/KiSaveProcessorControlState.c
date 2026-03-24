@@ -1,16 +1,16 @@
 /*
- * XREFs of KiSaveProcessorControlState @ 0x14041F720
+ * XREFs of KiSaveProcessorControlState @ 0x1403FE240
  * Callers:
- *     KdpReport @ 0x140299E94 (KdpReport.c)
- *     KiSaveProcessorState @ 0x14029AEF0 (KiSaveProcessorState.c)
- *     KiFreezeTargetExecution @ 0x14029AF90 (KiFreezeTargetExecution.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     KeSaveStateForHibernate @ 0x140420460 (KeSaveStateForHibernate.c)
- *     ExpSystemErrorHandler @ 0x14042B7A0 (ExpSystemErrorHandler.c)
- *     IopLiveDumpCorralDpc @ 0x140A66050 (IopLiveDumpCorralDpc.c)
- *     IopLiveDumpEndMirroringCallback @ 0x140A66300 (IopLiveDumpEndMirroringCallback.c)
- *     KdpSymbol @ 0x140A6F61C (KdpSymbol.c)
- *     KdpCommandString @ 0x140A74270 (KdpCommandString.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeSaveStateForHibernate @ 0x1403FEED0 (KeSaveStateForHibernate.c)
+ *     ExpSystemErrorHandler @ 0x140409710 (ExpSystemErrorHandler.c)
+ *     KdpReport @ 0x1405119E4 (KdpReport.c)
+ *     KiFreezeTargetExecution @ 0x14051DE60 (KiFreezeTargetExecution.c)
+ *     KiSaveProcessorState @ 0x140525410 (KiSaveProcessorState.c)
+ *     IopLiveDumpCorralDpc @ 0x1409ABC30 (IopLiveDumpCorralDpc.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409ABEE0 (IopLiveDumpEndMirroringCallback.c)
+ *     KdpCommandString @ 0x1409B9600 (KdpCommandString.c)
+ *     KdpSymbol @ 0x1409B99C0 (KdpSymbol.c)
  * Callees:
  *     <none>
  */

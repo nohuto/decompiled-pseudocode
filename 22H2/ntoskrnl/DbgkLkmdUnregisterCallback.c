@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkLkmdUnregisterCallback @ 0x14093AD40
+ * XREFs of DbgkLkmdUnregisterCallback @ 0x1408881C0
  * Callers:
  *     <none>
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140214F10 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x140214FD0 (ExDereferenceCallBackBlock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A210 (ExWaitForRundownProtectionRelease.c)
- *     ExCompareExchangeCallBack @ 0x14039FB68 (ExCompareExchangeCallBack.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExReferenceCallBackBlock @ 0x14025A1B0 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14025A270 (ExDereferenceCallBackBlock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1403427F0 (ExWaitForRundownProtectionRelease.c)
+ *     ExCompareExchangeCallBack @ 0x1403AEFFC (ExCompareExchangeCallBack.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DbgkLkmdUnregisterCallback(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall DbgkLkmdUnregisterCallback(__int64 a1)
   v2 = 0;
   while ( 1 )
   {
-    v3 = &stru_140C70CA0 + 2 * v2;
+    v3 = &stru_140C53F30 + 2 * v2;
     v4 = ExReferenceCallBackBlock((signed __int64 *)v3);
     v5 = v4;
     if ( v4 )

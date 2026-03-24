@@ -1,13 +1,13 @@
 /*
- * XREFs of KiShadowProcessorAllocation @ 0x140A5A148
+ * XREFs of KiShadowProcessorAllocation @ 0x14099F9F4
  * Callers:
- *     KeWriteProtectProcessorState @ 0x140A59A7C (KeWriteProtectProcessorState.c)
- *     KiEnableKvaShadowing @ 0x140A59FA4 (KiEnableKvaShadowing.c)
+ *     KeWriteProtectProcessorState @ 0x14099F128 (KeWriteProtectProcessorState.c)
+ *     KiEnableKvaShadowing @ 0x14099F860 (KiEnableKvaShadowing.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1402D6F40 (RtlSectionTableFromVirtualAddress.c)
- *     MmCreateShadowMapping @ 0x14082A644 (MmCreateShadowMapping.c)
- *     MmDeleteShadowMapping @ 0x140978B04 (MmDeleteShadowMapping.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1402A8F10 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     MmCreateShadowMapping @ 0x1407A00AC (MmCreateShadowMapping.c)
+ *     MmDeleteShadowMapping @ 0x1408D1964 (MmDeleteShadowMapping.c)
  */
 
 __int64 __fastcall KiShadowProcessorAllocation(__int64 a1, unsigned __int64 a2)
@@ -22,7 +22,7 @@ __int64 __fastcall KiShadowProcessorAllocation(__int64 a1, unsigned __int64 a2)
   if ( (unsigned int)MmCreateShadowMapping(a2, 20480LL) )
   {
     v4 = 0;
-    if ( !(unsigned int)MmCreateShadowMapping(a1 + 40576, 4096LL) )
+    if ( !(unsigned int)MmCreateShadowMapping(a1 + 36480, 4096LL) )
       goto LABEL_11;
     v4 = 1;
     if ( !*(_DWORD *)(a1 + 36) )
@@ -40,7 +40,7 @@ __int64 __fastcall KiShadowProcessorAllocation(__int64 a1, unsigned __int64 a2)
 LABEL_11:
         MmDeleteShadowMapping(a2, 0x5000uLL);
         if ( v4 )
-          MmDeleteShadowMapping(a1 + 40576, 0x1000uLL);
+          MmDeleteShadowMapping(a1 + 36480, 0x1000uLL);
         return 0LL;
       }
     }

@@ -1,137 +1,138 @@
 /*
- * XREFs of xInsertMetricsPlusRFONTOBJ @ 0x1C007F014
+ * XREFs of xInsertMetricsPlusRFONTOBJ @ 0x1C009C988
  * Callers:
- *     ?bInsertMetricsPlus@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C007EFC4 (-bInsertMetricsPlus@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z.c)
+ *     ?bInsertMetricsPlus@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C009C938 (-bInsertMetricsPlus@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z.c)
  * Callees:
- *     ?pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z @ 0x1C007F49C (-pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z.c)
- *     ?bCheckMetricsCache@RFONTOBJ@@QEAAHXZ @ 0x1C007F750 (-bCheckMetricsCache@RFONTOBJ@@QEAAHXZ.c)
- *     ?QueryGlyphMetricsPlusBits@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAPEAU_GLYPHDATA@@PEAPEAU_GLYPHBITS@@@Z @ 0x1C007F8F4 (-QueryGlyphMetricsPlusBits@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAPEAU_GLYPHDATA@@PEAPEAU.c)
- *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0080918 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
- *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C0080E54 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?bInsertMetrics@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C02B47AC (-bInsertMetrics@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z.c)
- *     ?bInsertMetricsPlusPath@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C02FDB50 (-bInsertMetricsPlusPath@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z.c)
+ *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0099730 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
+ *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C009A248 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
+ *     ?QueryGlyphMetricsPlusBits@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAPEAU_GLYPHDATA@@PEAPEAU_GLYPHBITS@@@Z @ 0x1C009A308 (-QueryGlyphMetricsPlusBits@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAPEAU_GLYPHDATA@@PEAPEAU.c)
+ *     ?pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z @ 0x1C009AF98 (-pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z.c)
+ *     ?bCheckMetricsCache@RFONTOBJ@@QEAAHXZ @ 0x1C009CB0C (-bCheckMetricsCache@RFONTOBJ@@QEAAHXZ.c)
+ *     ?bInsertMetrics@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C009D7AC (-bInsertMetrics@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z.c)
+ *     ?bInsertMetricsPlusPath@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C015254C (-bInsertMetricsPlusPath@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall xInsertMetricsPlusRFONTOBJ(RFONTOBJ *this, struct _GLYPHDATA **a2, unsigned __int16 a3)
 {
-  __int64 v6; // r13
-  unsigned int v7; // r15d
-  __int64 v8; // rdi
-  __int64 v9; // rcx
-  __int64 v10; // rbx
-  unsigned int v11; // eax
-  struct _GLYPHDATA *v13; // rcx
-  unsigned __int64 v14; // rbx
-  void *v15; // rax
-  struct _GLYPHDATA *v16; // rcx
-  void *v17; // r13
+  __int64 v3; // rbx
+  unsigned int v4; // edi
+  __int64 v8; // r13
+  unsigned int v9; // r12d
+  __int64 v10; // r13
+  __int64 v11; // r8
+  unsigned int v12; // eax
+  struct _GLYPHDATA *v14; // rax
+  unsigned __int64 v15; // r15
+  void *v16; // r13
+  struct _GLYPHDATA *v17; // rax
   unsigned int FontData; // eax
-  __int64 v19; // rcx
-  unsigned __int16 v20; // [rsp+40h] [rbp-59h] BYREF
-  struct _GLYPHDATA *v21; // [rsp+48h] [rbp-51h] BYREF
-  struct _GLYPHBITS *v22; // [rsp+50h] [rbp-49h] BYREF
-  _QWORD v23[3]; // [rsp+58h] [rbp-41h] BYREF
-  struct _GLYPHDATA v24; // [rsp+70h] [rbp-29h] BYREF
+  __int64 v19; // rdx
+  __int64 v20; // rax
+  unsigned __int16 v21; // [rsp+40h] [rbp-59h] BYREF
+  struct _GLYPHDATA *v22; // [rsp+48h] [rbp-51h] BYREF
+  struct _GLYPHBITS *v23; // [rsp+50h] [rbp-49h] BYREF
+  _QWORD v24[3]; // [rsp+58h] [rbp-41h] BYREF
+  struct _GLYPHDATA v25; // [rsp+70h] [rbp-29h] BYREF
 
-  v6 = *(_QWORD *)(*(_QWORD *)this + 480LL);
+  v3 = *(_QWORD *)this;
+  v4 = 0;
+  v8 = *(_QWORD *)(*(_QWORD *)this + 480LL);
   if ( (*(_DWORD *)(*(_QWORD *)this + 84LL) & 2) != 0 )
   {
-    LODWORD(v21) = 0;
-    v20 = a3;
-    RFONTOBJ::vXlatGlyphArray(this, &v20, 1u, (unsigned int *)&v21, 0, 0);
-    v7 = (unsigned int)v21;
+    v21 = a3;
+    LODWORD(v22) = 0;
+    RFONTOBJ::vXlatGlyphArray(this, &v21, 1, (unsigned int *)&v22, 0, 0);
+    v9 = (unsigned int)v22;
+    v3 = *(_QWORD *)this;
   }
   else
   {
-    v7 = a3;
+    v9 = a3;
   }
-  v8 = *(_QWORD *)this;
-  if ( v7 == *(_DWORD *)(*(_QWORD *)this + 460LL) )
+  if ( v9 == *(_DWORD *)(v3 + 460) )
   {
-    v13 = *(struct _GLYPHDATA **)(v6 + 8);
-    if ( v13 )
+    v14 = *(struct _GLYPHDATA **)(v8 + 8);
+    if ( v14 )
     {
-      *a2 = v13;
+      *a2 = v14;
       return 1LL;
     }
   }
-  if ( !*(_DWORD *)(v8 + 88) )
+  if ( !*(_DWORD *)(v3 + 88) )
     return RFONTOBJ::bInsertMetrics(this, a2, a3);
-  if ( !(unsigned int)RFONTOBJ::bCheckMetricsCache(this) )
-    return 0LL;
-  if ( *(_DWORD *)(*(_QWORD *)this + 88LL) != 2 )
+  if ( (unsigned int)RFONTOBJ::bCheckMetricsCache(this) )
   {
-    v23[0] = *(_QWORD *)(*(_QWORD *)this + 128LL);
-    v10 = *(_QWORD *)(v23[0] + 88LL);
-    if ( v10 == *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(v9) + 32) + 23448LL) )
+    v10 = *(_QWORD *)this;
+    if ( *(_DWORD *)(*(_QWORD *)this + 88LL) == 2 )
+      return RFONTOBJ::bInsertMetricsPlusPath(this, a2, a3);
+    v24[0] = *(_QWORD *)(v10 + 128);
+    if ( *(struct PDEV **)(v24[0] + 88LL) == qword_1C0340AC0 )
     {
-      v21 = 0LL;
+      *(_DWORD *)(v3 + 644) = 6;
+      v11 = *(_QWORD *)this;
       v22 = 0LL;
-      v11 = *(_DWORD *)(v8 + 636);
-      *(_DWORD *)(v8 + 644) = 6;
+      v12 = *(_DWORD *)(v3 + 636);
+      v23 = 0LL;
       if ( (unsigned int)PFFOBJ::QueryGlyphMetricsPlusBits(
-                           (PFFOBJ *)v23,
-                           *(struct DHPDEV__ **)(*(_QWORD *)this + 112LL),
-                           *(struct _FONTOBJ **)this,
-                           v7,
-                           v11,
-                           &v21,
-                           &v22) != -1 )
-      {
-        v21->gdf.pgb = v22;
-        *a2 = v21;
-        return 1LL;
-      }
+                           (PFFOBJ *)v24,
+                           *(struct DHPDEV__ **)(v11 + 112),
+                           (struct _FONTOBJ *)v11,
+                           v9,
+                           v12,
+                           &v22,
+                           &v23) == -1 )
+        return v4;
+      v22->gdf.pgb = v23;
+      *a2 = v22;
     }
     else
     {
-      memset_0(&v24, 0, sizeof(v24));
-      v14 = *(unsigned int *)(v8 + 632);
-      if ( v14 <= *(_QWORD *)(v8 + 592) - *(_QWORD *)(v8 + 584)
-        || (LODWORD(v14) = PFFOBJ::QueryFontData(
-                             (PFFOBJ *)v23,
-                             *(struct DHPDEV__ **)(*(_QWORD *)this + 112LL),
-                             *(struct _FONTOBJ **)this,
-                             1u,
-                             v7,
-                             &v24,
-                             0LL,
-                             0),
-            (_DWORD)v14 != -1) )
+      memset(&v25, 0, sizeof(v25));
+      v15 = *(unsigned int *)(v3 + 632);
+      if ( v15 > *(_QWORD *)(v3 + 592) - *(_QWORD *)(v3 + 584) )
       {
-        v15 = RFONTOBJ::pgbCheckGlyphCache(this, (unsigned int)v14);
-        v16 = &v24;
-        v17 = v15;
-        if ( !*(_DWORD *)(*(_QWORD *)this + 640LL) )
-          v16 = *(struct _GLYPHDATA **)(v8 + 512);
-        FontData = PFFOBJ::QueryFontData(
-                     (PFFOBJ *)v23,
-                     *(struct DHPDEV__ **)(*(_QWORD *)this + 112LL),
-                     *(struct _FONTOBJ **)this,
-                     1u,
-                     v7,
-                     v16,
-                     v15,
-                     v14);
-        if ( FontData != -1 )
-        {
-          if ( *(_DWORD *)(*(_QWORD *)this + 640LL) )
-          {
-            v19 = *(_QWORD *)(v8 + 512);
-            *(_OWORD *)v19 = *(_OWORD *)&v24.gdf.pgb;
-            *(_QWORD *)(v19 + 16) = *(_QWORD *)&v24.fxA;
-          }
-          *a2 = *(struct _GLYPHDATA **)(v8 + 512);
-          *(_QWORD *)(v8 + 512) += (-(__int64)(*(_DWORD *)(*(_QWORD *)this + 640LL) != 0) & 0xFFFFFFFFFFFFFFD8uLL) + 64;
-          if ( v17 )
-            *(_QWORD *)(v8 + 584) += FontData;
-          return 1LL;
-        }
+        LODWORD(v15) = PFFOBJ::QueryFontData(
+                         (PFFOBJ *)v24,
+                         *(struct DHPDEV__ **)(v10 + 112),
+                         (struct _FONTOBJ *)v10,
+                         1u,
+                         v9,
+                         &v25,
+                         0LL,
+                         0);
+        if ( (_DWORD)v15 == -1 )
+          return v4;
       }
+      v16 = (void *)RFONTOBJ::pgbCheckGlyphCache(this, (unsigned int)v15);
+      v17 = &v25;
+      if ( !*(_DWORD *)(*(_QWORD *)this + 640LL) )
+        v17 = *(struct _GLYPHDATA **)(v3 + 512);
+      FontData = PFFOBJ::QueryFontData(
+                   (PFFOBJ *)v24,
+                   *(struct DHPDEV__ **)(*(_QWORD *)this + 112LL),
+                   *(struct _FONTOBJ **)this,
+                   1u,
+                   v9,
+                   v17,
+                   v16,
+                   v15);
+      v19 = FontData;
+      if ( FontData == -1 )
+        return v4;
+      if ( *(_DWORD *)(*(_QWORD *)this + 640LL) )
+      {
+        v20 = *(_QWORD *)(v3 + 512);
+        *(_OWORD *)v20 = *(_OWORD *)&v25.gdf.pgb;
+        *(_QWORD *)(v20 + 16) = *(_QWORD *)&v25.fxA;
+      }
+      *a2 = *(struct _GLYPHDATA **)(v3 + 512);
+      *(_QWORD *)(v3 + 512) += (-(__int64)(*(_DWORD *)(*(_QWORD *)this + 640LL) != 0) & 0xFFFFFFFFFFFFFFD8uLL) + 64;
+      if ( v16 )
+        *(_QWORD *)(v3 + 584) += v19;
     }
-    return 0LL;
+    return 1;
   }
-  return RFONTOBJ::bInsertMetricsPlusPath(this, a2, a3);
+  return 0LL;
 }

@@ -1,38 +1,35 @@
 /*
- * XREFs of VfGetVerifierInformation @ 0x140601D00
+ * XREFs of VfGetVerifierInformation @ 0x1409ECAB4
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     VfSuspectDriversGetVerifierInformation @ 0x140A9A640 (VfSuspectDriversGetVerifierInformation.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     VfSuspectDriversGetVerifierInformation @ 0x1409D98E0 (VfSuspectDriversGetVerifierInformation.c)
  */
 
-__int64 __fastcall VfGetVerifierInformation(void *a1, size_t Size, unsigned int *a3, int a4)
+__int64 __fastcall VfGetVerifierInformation(void *a1, SIZE_T NumberOfBytes, unsigned int *a3, int a4)
 {
   unsigned int v7; // eax
-  unsigned int v8; // esi
-  __int64 Pool2; // rax
-  void *v10; // rbx
+  unsigned __int64 v8; // rbx
+  PVOID PoolWithTag; // rsi
   unsigned int VerifierInformation; // edi
-  unsigned int v12; // eax
 
   *a3 = 0;
   v7 = 10485760;
-  if ( (unsigned int)Size <= 0xA00000 )
-    v7 = Size;
+  if ( (unsigned int)NumberOfBytes <= 0xA00000 )
+    v7 = NumberOfBytes;
   v8 = v7;
-  Pool2 = ExAllocatePool2(64LL, v7, 1886213206LL);
-  v10 = (void *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v7, 0x706D5456u);
+  if ( PoolWithTag )
   {
-    VerifierInformation = VfSuspectDriversGetVerifierInformation(Pool2, v8, (_DWORD)a3, (_DWORD)a1, a4);
-    v12 = *a3;
-    if ( *a3 > v8 )
-      v12 = v8;
-    memmove(a1, v10, v12);
-    ExFreePoolWithTag(v10, 0);
+    memset(PoolWithTag, 0, v8);
+    VerifierInformation = VfSuspectDriversGetVerifierInformation((__int64)PoolWithTag, v8, a3, (__int64)a1, a4);
+    if ( *a3 <= (unsigned int)v8 )
+      LODWORD(v8) = *a3;
+    memmove(a1, PoolWithTag, (unsigned int)v8);
+    ExFreePoolWithTag(PoolWithTag, 0);
   }
   else
   {

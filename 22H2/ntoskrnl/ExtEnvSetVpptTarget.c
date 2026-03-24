@@ -1,15 +1,15 @@
 /*
- * XREFs of ExtEnvSetVpptTarget @ 0x1405087B8
+ * XREFs of ExtEnvSetVpptTarget @ 0x1404BF6E4
  * Callers:
- *     HalpVpptUpdatePhysicalTimer @ 0x140509E90 (HalpVpptUpdatePhysicalTimer.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x1404C0D94 (HalpVpptUpdatePhysicalTimer.c)
  * Callees:
- *     HalpInterruptSetDestination @ 0x14031F770 (HalpInterruptSetDestination.c)
- *     HalpInterruptGsiToLine @ 0x14031FD30 (HalpInterruptGsiToLine.c)
- *     HalpInterruptApplyOverrides @ 0x14037D0F8 (HalpInterruptApplyOverrides.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpInterruptLineToGsi @ 0x140505230 (HalpInterruptLineToGsi.c)
+ *     HalpInterruptSetDestination @ 0x140378400 (HalpInterruptSetDestination.c)
+ *     HalpInterruptApplyOverrides @ 0x140378894 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptGsiToLine @ 0x1403789CC (HalpInterruptGsiToLine.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpInterruptLineToGsi @ 0x1404BC654 (HalpInterruptLineToGsi.c)
  */
 
 __int64 __fastcall ExtEnvSetVpptTarget(__int64 a1, unsigned int a2)
@@ -36,7 +36,7 @@ __int64 __fastcall ExtEnvSetVpptTarget(__int64 a1, unsigned int a2)
   v4 = (_DWORD *)HalpAlwaysOnTimer;
   *((_QWORD *)&v13 + 1) = (unsigned __int16)(v3 >> 6);
   *(_QWORD *)&v13 = 1LL << (v3 & 0x3F);
-  if ( HalpAlwaysOnTimer && *(_DWORD *)(HalpAlwaysOnTimer + 228) == 11 )
+  if ( HalpAlwaysOnTimer && *(_DWORD *)(HalpAlwaysOnTimer + 228) == 12 )
   {
     HIDWORD(v14[0]) = 211;
     v5 = v14[5] & 0xC0000000 | 4;
@@ -44,7 +44,7 @@ __int64 __fastcall ExtEnvSetVpptTarget(__int64 a1, unsigned int a2)
   else
   {
     v4 = (_DWORD *)HalpClockTimer;
-    if ( *(_DWORD *)(HalpClockTimer + 228) != 11 )
+    if ( *(_DWORD *)(HalpClockTimer + 228) != 12 )
       KeBugCheckEx(0x5Cu, 0x114uLL, 0LL, 0xFFFFFFFFC00000BBuLL, 0LL);
     v5 = v14[5] & 0xC0000000;
     HIDWORD(v14[0]) = 209;
@@ -77,13 +77,13 @@ __int64 __fastcall ExtEnvSetVpptTarget(__int64 a1, unsigned int a2)
     }
     HIDWORD(v12) = v8;
   }
-  HalpInterruptApplyOverrides(&v12, (_DWORD *)&v14[1] + 1, &v14[2]);
+  HalpInterruptApplyOverrides((unsigned int *)&v12, (_DWORD *)&v14[1] + 1, &v14[2]);
   v9 = HalpInterruptLineToGsi((unsigned int *)&v12, &v11);
   if ( v9 < 0 )
     KeBugCheckEx(0x5Cu, 0x114uLL, (ULONG_PTR)v4, v9, 3uLL);
   LODWORD(v14[0]) = 0;
   LODWORD(v14[7]) = v11;
-  result = HalpInterruptSetDestination((unsigned int *)v14, (__int64)&v13, &v11);
+  result = HalpInterruptSetDestination((__int64)v14, (__int64)&v13, &v11);
   if ( (int)result < 0 )
     KeBugCheckEx(0x5Cu, 0x114uLL, (ULONG_PTR)v4, (int)result, 4uLL);
   return result;

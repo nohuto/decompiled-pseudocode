@@ -1,37 +1,38 @@
 /*
- * XREFs of ExUuidCreate @ 0x140681B30
+ * XREFs of ExUuidCreate @ 0x1407208B0
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x1405D89F0 (PopPowerButtonWorkCallback.c)
- *     DifExUuidCreateWrapper @ 0x140609B70 (DifExUuidCreateWrapper.c)
- *     NtCreateJobObject @ 0x140681CB0 (NtCreateJobObject.c)
- *     EtwpStartLogger @ 0x1406EE2AC (EtwpStartLogger.c)
- *     CmpUuidCreate @ 0x1407435A8 (CmpUuidCreate.c)
- *     PipGenerateContainerID @ 0x1407452A0 (PipGenerateContainerID.c)
- *     CmpCloneHwProfile @ 0x14091DBC4 (CmpCloneHwProfile.c)
- *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x140930370 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
- *     IoGetDeviceDirectory @ 0x140943540 (IoGetDeviceDirectory.c)
- *     PiDevCfgResolveVariableGenerateGuid @ 0x14094E390 (PiDevCfgResolveVariableGenerateGuid.c)
- *     BiCreateObject @ 0x140A1CF34 (BiCreateObject.c)
+ *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
+ *     CmpUuidCreate @ 0x1407167B4 (CmpUuidCreate.c)
+ *     NtCreateJobObject @ 0x14071EF90 (NtCreateJobObject.c)
+ *     PipGenerateContainerID @ 0x14076E528 (PipGenerateContainerID.c)
+ *     CmpCloneHwProfile @ 0x140877184 (CmpCloneHwProfile.c)
+ *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x14088D8F0 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
+ *     IoGetDeviceDirectory @ 0x14089E810 (IoGetDeviceDirectory.c)
+ *     PiDevCfgResolveVariableGenerateGuid @ 0x1408A98B0 (PiDevCfgResolveVariableGenerateGuid.c)
+ *     BiCreateObject @ 0x14096EFC8 (BiCreateObject.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExpUuidSaveSequenceNumberIf @ 0x1406DC574 (ExpUuidSaveSequenceNumberIf.c)
- *     ExpUuidGetValues @ 0x14080EE74 (ExpUuidGetValues.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ExpUuidSaveSequenceNumberIf @ 0x1406B9814 (ExpUuidSaveSequenceNumberIf.c)
+ *     ExpUuidGetValues @ 0x1407D3654 (ExpUuidGetValues.c)
  */
 
 NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
 {
   struct _KTHREAD *CurrentThread; // r14
-  NTSTATUS Values; // ebp
+  NTSTATUS Values; // esi
   __int64 v4; // rdi
   char v5; // cl
   int v6; // eax
   __int64 v7; // rdi
   __int64 v9; // rax
-  __int64 v10; // r15
+  signed __int8 v10; // cf
+  __int64 v11; // rbp
+  char v12; // al
+  bool v13; // zf
 
   CurrentThread = KeGetCurrentThread();
   Values = 0;
@@ -40,10 +41,10 @@ NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
     do
     {
       v4 = ExpUuidCachedValues;
-      v5 = ExpUuidCacheValid;
-      *(_DWORD *)Uuid->Data4 = dword_140D3B26C;
-      *(_DWORD *)&Uuid->Data4[4] = dword_140D3B270;
-      v6 = _InterlockedDecrement(&dword_140D3B268);
+      v5 = BYTE5(NlsMbCodePageTag);
+      *(_DWORD *)Uuid->Data4 = dword_140D2D2C4;
+      *(_DWORD *)&Uuid->Data4[4] = unk_140D2D2C8;
+      v6 = _InterlockedDecrement(&dword_140D2D2C0);
     }
     while ( v4 != ExpUuidCachedValues );
     if ( v6 >= 0 )
@@ -57,26 +58,29 @@ NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
       return Values;
     }
     --CurrentThread->KernelApcDisable;
-    v9 = KeAbPreAcquire((__int64)&ExpUuidLock, 0LL);
-    v10 = v9;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpUuidLock, 0LL) )
-      ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v9, (__int64)&ExpUuidLock);
+    v9 = KeAbPreAcquire((ULONG_PTR)&ExpUuidLock, 0LL, 0);
+    v10 = _interlockedbittestandset64((volatile signed __int32 *)&ExpUuidLock, 0LL);
+    v11 = v9;
     if ( v10 )
-      *(_BYTE *)(v10 + 18) = 1;
+      ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v9, (ULONG_PTR)&ExpUuidLock);
+    if ( v11 )
+      *(_BYTE *)(v11 + 26) |= 1u;
     if ( v4 != ExpUuidCachedValues )
     {
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpUuidLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) != 2 )
-        goto LABEL_14;
-      goto LABEL_16;
+      v13 = (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpUuidLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2;
+      goto LABEL_17;
     }
     Values = ExpUuidGetValues(&ExpUuidCachedValues);
     if ( Values )
       break;
     ExpUuidSaveSequenceNumberIf();
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpUuidLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) != 2 )
+    v12 = _InterlockedExchangeAdd64((volatile signed __int64 *)&ExpUuidLock, 0xFFFFFFFFFFFFFFFFuLL);
+    if ( (v12 & 2) == 0 )
       goto LABEL_14;
-LABEL_16:
-    ExfTryToWakePushLock(&ExpUuidLock);
+    v13 = (v12 & 4) == 0;
+LABEL_17:
+    if ( v13 )
+      ExfTryToWakePushLock(&ExpUuidLock);
 LABEL_14:
     KeAbPostRelease((ULONG_PTR)&ExpUuidLock);
     KeLeaveCriticalRegionThread((__int64)CurrentThread);

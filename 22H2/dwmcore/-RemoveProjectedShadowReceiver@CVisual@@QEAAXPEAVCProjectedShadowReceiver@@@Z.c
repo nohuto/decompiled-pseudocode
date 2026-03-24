@@ -1,43 +1,33 @@
 /*
- * XREFs of ?RemoveProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z @ 0x1800041FC
+ * XREFs of ?RemoveProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z @ 0x18000DA28
  * Callers:
- *     ?SetReceivingVisual@CProjectedShadowReceiver@@QEAAXPEAVCVisual@@@Z @ 0x180004424 (-SetReceivingVisual@CProjectedShadowReceiver@@QEAAXPEAVCVisual@@@Z.c)
+ *     ?SetReceivingVisual@CProjectedShadowReceiver@@QEAAXPEAVCVisual@@@Z @ 0x18000CFCC (-SetReceivingVisual@CProjectedShadowReceiver@@QEAAXPEAVCVisual@@@Z.c)
  * Callees:
- *     ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x180004EB0 (-GetProjectedShadowReceivers@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocato.c)
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z @ 0x1800991C8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x18000C25C (-GetProjectedShadowReceivers@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocato.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009FAF8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CVisual::RemoveProjectedShadowReceiver(CVisual *this, struct CProjectedShadowReceiver *a2)
 {
   __int64 ProjectedShadowReceivers; // rdi
   __int64 v4; // r10
-  _BYTE *v5; // r8
-  _QWORD *v6; // rcx
-  _BYTE *v7; // rdx
+  char *v5; // r8
+  char *i; // rcx
 
-  if ( (**((_DWORD **)this + 29) & 0x20000) != 0 )
+  if ( (**((_DWORD **)this + 28) & 0x20000) != 0 )
   {
-    ProjectedShadowReceivers = CVisual::GetProjectedShadowReceivers(this);
-    v5 = *(_BYTE **)(ProjectedShadowReceivers + 8);
-    v6 = *(_QWORD **)ProjectedShadowReceivers;
-    if ( *(_BYTE **)ProjectedShadowReceivers != v5 )
+    ProjectedShadowReceivers = CVisual::GetProjectedShadowReceivers((__int64)this);
+    v5 = *(char **)(ProjectedShadowReceivers + 8);
+    for ( i = *(char **)ProjectedShadowReceivers; i != v5 && *(_QWORD *)i != v4; i += 8 )
+      ;
+    if ( i != v5 )
     {
-      while ( 1 )
-      {
-        v7 = v6 + 1;
-        if ( *v6 == v4 )
-          break;
-        ++v6;
-        if ( v7 == v5 )
-          goto LABEL_5;
-      }
-      memmove_0(v6, v7, v5 - v7);
+      memmove_0(i, i + 8, v5 - (i + 8));
       *(_QWORD *)(ProjectedShadowReceivers + 8) -= 8LL;
     }
-LABEL_5:
-    if ( !(*(unsigned __int8 (__fastcall **)(CVisual *))(*(_QWORD *)this + 256LL))(this) )
+    if ( !(*(unsigned __int8 (__fastcall **)(CVisual *))(*(_QWORD *)this + 280LL))(this) )
       CVisual::PropagateFlags(this, 5LL);
   }
 }

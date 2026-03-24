@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAllocateSlabEntry @ 0x1402C1B9C
+ * XREFs of MiAllocateSlabEntry @ 0x1402C1C9C
  * Callers:
- *     MiReplenishSlabAllocator @ 0x1402C2BB4 (MiReplenishSlabAllocator.c)
+ *     MiReplenishSlabAllocator @ 0x1402C2CB4 (MiReplenishSlabAllocator.c)
  * Callees:
  *     MiSetPfnTbFlushStamp @ 0x1400296A4 (MiSetPfnTbFlushStamp.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiAbortCombineScan @ 0x140082668 (MiAbortCombineScan.c)
  *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
  *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     RtlInterlockedSetClearRunEx @ 0x140100CC0 (RtlInterlockedSetClearRunEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiReInitializeFreeSlabPfn @ 0x1402C2B00 (MiReInitializeFreeSlabPfn.c)
- *     MiSlabAllocatorRecentFailure @ 0x1402C2BFC (MiSlabAllocatorRecentFailure.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x1402C2C3C (MiUpdateSlabPagePlaceholderState.c)
+ *     RtlInterlockedSetClearRunEx @ 0x140100CE0 (RtlInterlockedSetClearRunEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiReInitializeFreeSlabPfn @ 0x1402C2C00 (MiReInitializeFreeSlabPfn.c)
+ *     MiSlabAllocatorRecentFailure @ 0x1402C2CFC (MiSlabAllocatorRecentFailure.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x1402C2D3C (MiUpdateSlabPagePlaceholderState.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

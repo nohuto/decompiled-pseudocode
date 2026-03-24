@@ -1,50 +1,48 @@
 /*
- * XREFs of MmStoreFlushOutstandingEvictions @ 0x14065D0A4
+ * XREFs of MmStoreFlushOutstandingEvictions @ 0x140317EF8
  * Callers:
- *     MiStoreDeletePartition @ 0x14065C0A8 (MiStoreDeletePartition.c)
- *     SmStoreCompressionStart @ 0x1409D78D8 (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStart @ 0x140689A80 (SmStoreCompressionStart.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-NTSTATUS __fastcall MmStoreFlushOutstandingEvictions(_QWORD *a1)
+NTSTATUS MmStoreFlushOutstandingEvictions()
 {
-  __int64 v1; // rdi
-  volatile LONG *v2; // rbp
-  unsigned __int64 v3; // rsi
+  unsigned __int64 v0; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v7; // eax
-  bool v8; // zf
+  int v5; // eax
+  bool v6; // zf
 
-  v1 = *a1;
-  v2 = (volatile LONG *)(*a1 + 1224LL);
-  v3 = ExAcquireSpinLockExclusive(v2);
-  if ( !*(_DWORD *)(v1 + 1200) )
-    KeResetEvent((PRKEVENT)(v1 + 1312));
-  ++*(_DWORD *)(v1 + 1200);
-  ExReleaseSpinLockExclusiveFromDpcLevel(v2);
+  v0 = ExAcquireSpinLockExclusive(&dword_140C51220);
+  if ( !dword_140C51210 )
+    KeResetEvent(&Object);
+  ++dword_140C51210;
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C51220);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v7 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v8 = (v7 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v7;
-      if ( v8 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v0 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v5 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));
+        v6 = (v5 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v5;
+        if ( v6 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
-  __writecr8(v3);
-  KeSetEvent((PRKEVENT)(v1 + 1240), 0, 0);
-  return KeWaitForSingleObject((PVOID)(v1 + 1312), WrKernel, 0, 0, 0LL);
+  __writecr8(v0);
+  KeSetEvent(&stru_140C51230, 0, 0);
+  return KeWaitForSingleObject(&Object, WrKernel, 0, 0, 0LL);
 }

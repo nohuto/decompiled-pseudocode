@@ -1,80 +1,64 @@
 /*
- * XREFs of MiScanPagefiles @ 0x14021D91C
+ * XREFs of MiScanPagefiles @ 0x14033C2FC
  * Callers:
- *     MiWorkingSetManager @ 0x14021D610 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x14033BC70 (MiWorkingSetManager.c)
  * Callees:
- *     MiFreePageFileHashPfns @ 0x14021D980 (MiFreePageFileHashPfns.c)
- *     ExQueueWorkItemToPartition @ 0x1402B956C (ExQueueWorkItemToPartition.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
- *     PsReferencePartitionSafe @ 0x1402F9C1C (PsReferencePartitionSafe.c)
+ *     ExQueueWorkItemToPartition @ 0x140277F2C (ExQueueWorkItemToPartition.c)
+ *     PsReferencePartitionSafe @ 0x140303F74 (PsReferencePartitionSafe.c)
+ *     MiFreePageFileHashPfns @ 0x14033C274 (MiFreePageFileHashPfns.c)
+ *     MiSufficientAvailablePages @ 0x14033E480 (MiSufficientAvailablePages.c)
  */
 
-__int64 __fastcall MiScanPagefiles(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char __fastcall MiScanPagefiles(__int64 a1)
 {
-  unsigned int v4; // eax
-  _QWORD *v6; // rdi
-  __int64 v7; // rsi
-  __int64 result; // rax
-  unsigned int v9; // edx
-  int v10; // ecx
+  unsigned int v2; // eax
+  unsigned int v3; // ecx
+  int v4; // edx
   __int64 i; // r8
-  __int64 v12; // rcx
+  __int64 v6; // rcx
+  __int64 v7; // r10
 
-  v4 = *(_DWORD *)(a1 + 17048);
-  if ( v4 )
+  MiFreePageFileHashPfns(a1);
+  v2 = MiSufficientAvailablePages(a1, 1056LL);
+  if ( !v2 )
   {
-    v6 = (_QWORD *)(a1 + 17056);
-    v7 = v4;
-    do
+    v3 = *(_DWORD *)(a1 + 6936);
+    if ( v3 )
     {
-      MiFreePageFileHashPfns(*v6++);
-      --v7;
-    }
-    while ( v7 );
-  }
-  result = MiSufficientAvailablePages(a1, 1056LL, a3, a4);
-  if ( !(_DWORD)result )
-  {
-    v9 = *(_DWORD *)(a1 + 17048);
-    if ( v9 )
-    {
-      if ( *(_QWORD *)(a1 + 17824) && !*(_QWORD *)(a1 + 1024) )
+      if ( *(_QWORD *)(a1 + 7600) && !*(_QWORD *)(a1 + 984) )
       {
-        result = *(unsigned int *)(a1 + 1032);
-        if ( (unsigned int)result >= 0x1E )
+        v2 = *(_DWORD *)(a1 + 992);
+        if ( v2 >= 0x1E )
         {
-          v10 = 0;
-          for ( i = a1 + 17056;
-                (*(_BYTE *)(*(_QWORD *)i + 204LL) & 0x50) != 0 || !*(_QWORD *)(*(_QWORD *)i + 24LL);
-                i += 8LL )
+          v4 = 0;
+          for ( i = a1 + 6944; (*(_BYTE *)(*(_QWORD *)i + 204LL) & 0x50) != 0 || !*(_QWORD *)(*(_QWORD *)i + 24LL); i += 8LL )
           {
-            if ( ++v10 >= v9 )
+            if ( ++v4 >= v3 )
             {
-              if ( *(_BYTE *)(a1 + 715) )
+              if ( *(_BYTE *)(a1 + 675) == 1 )
               {
-                v12 = *(_QWORD *)(a1 + 200);
-                *(_DWORD *)(a1 + 1032) = 0;
-                *(_BYTE *)(a1 + 715) = 0;
-                result = PsReferencePartitionSafe(v12);
-                if ( (_BYTE)result )
+                v6 = *(_QWORD *)(a1 + 176);
+                *(_BYTE *)(a1 + 675) = 0;
+                *(_DWORD *)(a1 + 992) = 0;
+                LOBYTE(v2) = PsReferencePartitionSafe(v6);
+                if ( (_BYTE)v2 )
                 {
-                  *(_QWORD *)(a1 + 1000) = 0LL;
-                  *(_QWORD *)(a1 + 1016) = MiScanPagefileSpace;
-                  *(_QWORD *)(a1 + 1024) = a1;
-                  return ExQueueWorkItemToPartition(a1 + 1000);
+                  *(_QWORD *)(a1 + 984) = a1;
+                  *(_QWORD *)(a1 + 976) = MiScanPagefileSpace;
+                  *(_QWORD *)(a1 + 960) = v7;
+                  LOBYTE(v2) = ExQueueWorkItemToPartition((_QWORD *)(a1 + 960), 2, 0xFFFFFFFF, *(_QWORD *)(a1 + 176));
                 }
               }
-              return result;
+              return v2;
             }
           }
         }
         else
         {
-          result = (unsigned int)(result + 1);
-          *(_DWORD *)(a1 + 1032) = result;
+          *(_DWORD *)(a1 + 992) = ++v2;
         }
       }
     }
   }
-  return result;
+  return v2;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of VslRundownSecureProcess @ 0x140942FC0
+ * XREFs of VslRundownSecureProcess @ 0x14089024C
  * Callers:
- *     KeRundownSecureProcess @ 0x14056F7BC (KeRundownSecureProcess.c)
+ *     KeRundownSecureProcess @ 0x14051395C (KeRundownSecureProcess.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslRundownSecureProcess(__int64 a1)
+NTSTATUS __fastcall VslRundownSecureProcess(__int64 a1)
 {
   _QWORD v3[14]; // [rsp+20h] [rbp-88h] BYREF
 

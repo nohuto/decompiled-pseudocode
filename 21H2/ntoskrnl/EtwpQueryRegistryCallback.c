@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpQueryRegistryCallback @ 0x1408166C0
+ * XREFs of EtwpQueryRegistryCallback @ 0x1407B1B60
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlCreateUnicodeString @ 0x14066A0F0 (RtlCreateUnicodeString.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlCreateUnicodeString @ 0x1406748C0 (RtlCreateUnicodeString.c)
  */
 
 __int64 __fastcall EtwpQueryRegistryCallback(

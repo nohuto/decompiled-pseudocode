@@ -11,9 +11,9 @@
  *     WbMoveHeapExecutedBlockToBackOfLRU @ 0x1406246B0 (WbMoveHeapExecutedBlockToBackOfLRU.c)
  *     sub_140624A54 @ 0x140624A54 (sub_140624A54.c)
  *     sub_140624D6C @ 0x140624D6C (sub_140624D6C.c)
- *     sub_1406901F0 @ 0x1406901F0 (sub_1406901F0.c)
- *     WbAddHeapExecutedBlockToCache @ 0x14069158C (WbAddHeapExecutedBlockToCache.c)
- *     WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1406B0CE0 (WbReleaseLeastRecentlyUsedHeapExecutedBlocks.c)
+ *     sub_1406901D0 @ 0x1406901D0 (sub_1406901D0.c)
+ *     WbAddHeapExecutedBlockToCache @ 0x14069156C (WbAddHeapExecutedBlockToCache.c)
+ *     WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1406B0CC0 (WbReleaseLeastRecentlyUsedHeapExecutedBlocks.c)
  */
 
 __int64 __fastcall WbGetHeapExecutedBlock(__int64 a1, __int64 a2, __int64 **a3)
@@ -46,7 +46,7 @@ __int64 __fastcall WbGetHeapExecutedBlock(__int64 a1, __int64 a2, __int64 **a3)
   KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   if ( v9 == -1073741198 )
   {
-    v12 = sub_1406901F0(a1, a2, &v14);
+    v12 = sub_1406901D0(a1, a2, &v14);
     v10 = v14;
     v9 = v12;
     if ( v12 < 0 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIGpeClearRegisters @ 0x1C002C260
+ * XREFs of ACPIGpeClearRegisters @ 0x1C0026834
  * Callers:
- *     ACPIGpeClearEventMasks @ 0x1C002C0F8 (ACPIGpeClearEventMasks.c)
- *     ACPIEnableInitializeACPI @ 0x1C0036910 (ACPIEnableInitializeACPI.c)
- *     ACPILoadProcessFADT @ 0x1C00A99AC (ACPILoadProcessFADT.c)
+ *     ACPIEnableInitializeACPI @ 0x1C0010040 (ACPIEnableInitializeACPI.c)
+ *     ACPIGpeClearEventMasks @ 0x1C0025C40 (ACPIGpeClearEventMasks.c)
+ *     ACPILoadProcessFADT @ 0x1C00BECCC (ACPILoadProcessFADT.c)
  * Callees:
- *     ACPIReadGpeStatusRegister @ 0x1C0038A6C (ACPIReadGpeStatusRegister.c)
- *     ACPIWriteGpeStatusRegister @ 0x1C0038BA4 (ACPIWriteGpeStatusRegister.c)
+ *     ACPIWriteGpeStatusRegister @ 0x1C0026890 (ACPIWriteGpeStatusRegister.c)
+ *     ACPIReadGpeStatusRegister @ 0x1C0026904 (ACPIReadGpeStatusRegister.c)
  */
 
 void *ACPIGpeClearRegisters()

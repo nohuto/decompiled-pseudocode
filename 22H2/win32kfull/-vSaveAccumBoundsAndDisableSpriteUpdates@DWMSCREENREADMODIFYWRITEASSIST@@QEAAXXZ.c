@@ -1,58 +1,58 @@
 /*
- * XREFs of ?vSaveAccumBoundsAndDisableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ @ 0x1C0266BF4
+ * XREFs of ?vSaveAccumBoundsAndDisableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ @ 0x1C029EE7C
  * Callers:
- *     NtGdiLineTo @ 0x1C015AE20 (NtGdiLineTo.c)
- *     NtGdiInvertRgn @ 0x1C02A9D30 (NtGdiInvertRgn.c)
- *     GrePolyBezier @ 0x1C02ABFF0 (GrePolyBezier.c)
- *     GrePolyPolygon @ 0x1C02AC330 (GrePolyPolygon.c)
- *     GrePolyPolyline @ 0x1C02AC620 (GrePolyPolyline.c)
- *     NtGdiRectangle @ 0x1C02AD690 (NtGdiRectangle.c)
+ *     GrePolyPolyline @ 0x1C0142500 (GrePolyPolyline.c)
+ *     NtGdiRectangle @ 0x1C0143A10 (NtGdiRectangle.c)
+ *     GrePolyPolygon @ 0x1C0144870 (GrePolyPolygon.c)
+ *     NtGdiLineTo @ 0x1C0144E10 (NtGdiLineTo.c)
+ *     NtGdiInvertRgn @ 0x1C0148D60 (NtGdiInvertRgn.c)
+ *     GrePolyBezier @ 0x1C029FE00 (GrePolyBezier.c)
  * Callees:
- *     ?bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C0266514 (-bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
+ *     <none>
  */
 
 void __fastcall DWMSCREENREADMODIFYWRITEASSIST::vSaveAccumBoundsAndDisableSpriteUpdates(
         DWMSCREENREADMODIFYWRITEASSIST *this)
 {
-  struct Gre::Base::SESSION_GLOBALS *v2; // rsi
-  int Bounds; // eax
-  __int64 v4; // rdx
+  __int64 v1; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
   _QWORD *v5; // rcx
   __int64 v6; // rdx
   __int64 v7; // r8
   int v8; // edx
   int v9; // r9d
 
-  if ( **((_QWORD **)this + 3) )
+  v1 = *((_QWORD *)this + 3);
+  if ( *(_QWORD *)v1 )
   {
-    v2 = Gre::Base::Globals(this);
-    *(_DWORD *)(**((_QWORD **)this + 3) + 488LL) = 0;
-    Bounds = GreGetBounds(***((_QWORD ***)this + 3), (char *)this + 4, 4LL);
-    v4 = *((_QWORD *)this + 3);
-    *(_DWORD *)this = Bounds;
-    ERECTL::bOffsetSubtract(
-      (DWMSCREENREADMODIFYWRITEASSIST *)((char *)this + 4),
-      (const struct _POINTL *)(*(_QWORD *)v4 + 8 * ((*(_DWORD *)(*(_QWORD *)v4 + 40LL) & 1) + 127LL)),
-      0);
+    *(_DWORD *)(*(_QWORD *)v1 + 488LL) = 0;
+    *(_DWORD *)this = GreGetBounds(***((_QWORD ***)this + 3), (char *)this + 4, 4LL);
+    v3 = **((_QWORD **)this + 3);
+    v4 = *(_DWORD *)(v3 + 40) & 1;
+    *((_DWORD *)this + 1) -= *(_DWORD *)(v3 + 8 * v4 + 1016);
+    *((_DWORD *)this + 3) -= *(_DWORD *)(v3 + 8 * v4 + 1016);
+    *((_DWORD *)this + 2) -= *(_DWORD *)(v3 + 8 * v4 + 1020);
+    *((_DWORD *)this + 4) -= *(_DWORD *)(v3 + 8 * v4 + 1020);
     v5 = (_QWORD *)*((_QWORD *)this + 3);
     *((_DWORD *)this + 8) = *(unsigned __int8 *)(*(_QWORD *)(*v5 + 976LL) + 212LL);
     v6 = *(_QWORD *)(*v5 + 976LL);
     if ( (*(_DWORD *)(v6 + 152) & 0x1000) != 0 )
     {
       *((_QWORD *)this + 5) = *(_QWORD *)(v6 + 160);
-      GreDCSelectBrush(*v5, *(_QWORD *)(*((_QWORD *)v2 + 396) + 40LL));
+      GreDCSelectBrush(*v5, gahStockObjects[5]);
     }
     else
     {
-      *((_QWORD *)this + 5) = GreDCSelectBrush(*v5, *(_QWORD *)(*((_QWORD *)v2 + 396) + 40LL));
+      *((_QWORD *)this + 5) = GreDCSelectBrush(*v5, gahStockObjects[5]);
     }
     *(_BYTE *)(*(_QWORD *)(**((_QWORD **)this + 3) + 976LL) + 212LL) = 11;
     v7 = *((_QWORD *)this + 3);
-    v8 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v7 + 976LL) + 152LL);
-    *((_DWORD *)this + 16) = (v8 & 0x100) == 0;
+    v8 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v7 + 976LL) + 152LL) & 0x100;
+    *((_DWORD *)this + 16) = v8 == 0;
     v9 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v7 + 976LL) + 152LL) & 0x200;
     *((_DWORD *)this + 17) = v9 == 0;
-    if ( (v8 & 0x100) == 0 )
+    if ( !v8 )
       *((_QWORD *)this + 6) = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v7 + 976LL) + 216LL);
     if ( !v9 )
       *((_QWORD *)this + 7) = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v7 + 976LL) + 8LL);

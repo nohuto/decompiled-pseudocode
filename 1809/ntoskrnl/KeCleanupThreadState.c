@@ -3,8 +3,8 @@
  * Callers:
  *     PspThreadDelete @ 0x1405FB0B0 (PspThreadDelete.c)
  * Callees:
- *     KeFlushQueuedDpcs @ 0x1400DBE30 (KeFlushQueuedDpcs.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeFlushQueuedDpcs @ 0x1400DBE50 (KeFlushQueuedDpcs.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 void __fastcall KeCleanupThreadState(ULONG_PTR BugCheckParameter1)

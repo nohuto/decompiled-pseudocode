@@ -1,13 +1,13 @@
 /*
- * XREFs of BiSetFirmwareModifiedFromObject @ 0x1403272A8
+ * XREFs of BiSetFirmwareModifiedFromObject @ 0x1403273A8
  * Callers:
- *     BiDeleteElement @ 0x1407125BC (BiDeleteElement.c)
- *     BcdSetElementDataWithFlags @ 0x140713390 (BcdSetElementDataWithFlags.c)
- *     BcdDeleteObject @ 0x1408F08A0 (BcdDeleteObject.c)
+ *     BiDeleteElement @ 0x14071259C (BiDeleteElement.c)
+ *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
+ *     BcdDeleteObject @ 0x1408F0880 (BcdDeleteObject.c)
  * Callees:
- *     BiSetFirmwareModified @ 0x14016E4A8 (BiSetFirmwareModified.c)
- *     BiOpenStoreKeyFromObject @ 0x1403271E0 (BiOpenStoreKeyFromObject.c)
- *     BiCloseKey @ 0x140713910 (BiCloseKey.c)
+ *     BiSetFirmwareModified @ 0x14016E4C8 (BiSetFirmwareModified.c)
+ *     BiOpenStoreKeyFromObject @ 0x1403272E0 (BiOpenStoreKeyFromObject.c)
+ *     BiCloseKey @ 0x1407138F0 (BiCloseKey.c)
  */
 
 __int64 __fastcall BiSetFirmwareModifiedFromObject(void *a1)

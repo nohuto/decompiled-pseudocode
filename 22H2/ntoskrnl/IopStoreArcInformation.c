@@ -1,113 +1,113 @@
 /*
- * XREFs of IopStoreArcInformation @ 0x140B733D8
+ * XREFs of IopStoreArcInformation @ 0x140A5D274
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlStringCbCopyA @ 0x140347B88 (RtlStringCbCopyA.c)
- *     _strnicmp @ 0x1403D91A0 (_strnicmp.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IopVerifierExAllocatePool @ 0x14022C350 (IopVerifierExAllocatePool.c)
+ *     RtlStringCbCopyA @ 0x1402640B0 (RtlStringCbCopyA.c)
+ *     _strnicmp @ 0x1403D1780 (_strnicmp.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopStoreArcInformation(__int64 a1)
 {
-  __int64 **v1; // r14
+  __int64 **v1; // r15
   int v2; // r12d
   unsigned int v3; // ebx
-  __int64 *i; // rsi
-  PVOID *Pool2; // rdi
-  __int64 v6; // rbp
-  ULONG_PTR v7; // rbp
-  char *v8; // rax
-  char *v9; // r15
+  __int64 *i; // r14
+  PVOID *Pool; // rdi
+  __int64 v6; // rsi
+  SIZE_T v7; // rsi
+  char *v8; // rbp
+  PVOID *v9; // rcx
   PVOID **v10; // rax
-  __int64 j; // rax
-  __int64 v13; // rax
-  int v14; // edx
-  __int64 k; // rcx
-  __int64 m; // rcx
+  PVOID *j; // rax
+  PVOID *m; // rcx
+  PVOID *v14; // rbx
+  __int64 v15; // rax
+  int v16; // edx
+  PVOID *k; // rcx
 
   v1 = *(__int64 ***)(a1 + 232);
-  v2 = dword_140C31AF0;
+  v2 = dword_140C197B0;
   v3 = 0;
-  qword_140D54BE0 = (__int64)&IoArcTableListHead;
-  IoArcTableListHead = (__int64)&IoArcTableListHead;
+  qword_140D2E868 = (__int64)&IoArcTableListHead;
+  IoArcTableListHead = &IoArcTableListHead;
   for ( i = *v1; ; i = (__int64 *)*i )
   {
     if ( i == (__int64 *)v1 )
     {
-      for ( j = IoArcTableListHead; (__int64 *)j != &IoArcTableListHead; j = *(_QWORD *)j )
+      for ( j = (PVOID *)IoArcTableListHead; j != &IoArcTableListHead; j = (PVOID *)*j )
       {
-        if ( !*(_BYTE *)(j + 36) && !*(_BYTE *)(j + 72) )
+        if ( !*((_BYTE *)j + 36) && !*((_BYTE *)j + 72) )
         {
-          v14 = *(_DWORD *)(j + 32);
-          for ( k = *(_QWORD *)j; (__int64 *)k != &IoArcTableListHead; k = *(_QWORD *)k )
+          v16 = *((_DWORD *)j + 8);
+          for ( k = (PVOID *)*j; k != &IoArcTableListHead; k = (PVOID *)*k )
           {
-            if ( !*(_BYTE *)(k + 36) && !*(_BYTE *)(k + 72) && v14 == *(_DWORD *)(k + 32) )
+            if ( !*((_BYTE *)k + 36) && !*((_BYTE *)k + 72) && v16 == *((_DWORD *)k + 8) )
             {
-              *(_BYTE *)(j + 72) = 1;
-              *(_BYTE *)(k + 72) = 1;
+              *((_BYTE *)j + 72) = 1;
+              *((_BYTE *)k + 72) = 1;
             }
           }
         }
       }
       if ( v2 == 1 )
       {
-        for ( m = IoArcTableListHead; (__int64 *)m != &IoArcTableListHead; m = *(_QWORD *)m )
+        for ( m = (PVOID *)IoArcTableListHead; m != &IoArcTableListHead; m = (PVOID *)*m )
         {
-          if ( *(_BYTE *)(m + 76) && *(_BYTE *)(m + 72) )
+          if ( *((_BYTE *)m + 76) && *((_BYTE *)m + 72) )
             IopAmbiguousSystemDisk = 1;
         }
       }
       return v3;
     }
-    Pool2 = (PVOID *)ExAllocatePool2(64LL, 0x50uLL, 0x20206F49u);
-    if ( !Pool2 )
-    {
-      v3 = -1073741670;
-      goto LABEL_21;
-    }
+    Pool = (PVOID *)IopVerifierExAllocatePool(NonPagedPoolNx, 0x50uLL);
+    if ( !Pool )
+      goto LABEL_27;
     v6 = -1LL;
     do
       ++v6;
     while ( *(_BYTE *)(i[3] + v6) );
     v7 = v6 + 1;
-    v8 = (char *)ExAllocatePool2(64LL, v7, 0x344E6F49u);
-    v9 = v8;
+    v8 = (char *)IopVerifierExAllocatePool(NonPagedPoolNx, v7);
+    v9 = Pool;
     if ( !v8 )
       break;
-    *(_OWORD *)Pool2 = *(_OWORD *)i;
-    *((_OWORD *)Pool2 + 1) = *((_OWORD *)i + 1);
-    *((_OWORD *)Pool2 + 2) = *((_OWORD *)i + 2);
-    *((_OWORD *)Pool2 + 3) = *((_OWORD *)i + 3);
+    memset(Pool, 0, 0x50uLL);
+    *(_OWORD *)Pool = *(_OWORD *)i;
+    *((_OWORD *)Pool + 1) = *((_OWORD *)i + 1);
+    *((_OWORD *)Pool + 2) = *((_OWORD *)i + 2);
+    *((_OWORD *)Pool + 3) = *((_OWORD *)i + 3);
     RtlStringCbCopyA(v8, v7, (NTSTRSAFE_PCSTR)i[3]);
-    Pool2[3] = v9;
-    if ( v2 == 1 && v7 >= 9 && !strnicmp(&v9[v7 - 9], "rdisk(0)", 8uLL) )
-      *((_BYTE *)Pool2 + 76) = 1;
-    v10 = (PVOID **)qword_140D54BE0;
-    if ( *(__int64 **)qword_140D54BE0 != &IoArcTableListHead )
-LABEL_26:
+    Pool[3] = v8;
+    if ( v2 == 1 && v7 >= 9 && !strnicmp(&v8[v7 - 9], "rdisk(0)", 8uLL) )
+      *((_BYTE *)Pool + 76) = 1;
+    v10 = (PVOID **)qword_140D2E868;
+    if ( *(PVOID **)qword_140D2E868 != &IoArcTableListHead )
+LABEL_30:
       __fastfail(3u);
-    *Pool2 = &IoArcTableListHead;
-    Pool2[1] = v10;
-    *v10 = Pool2;
-    qword_140D54BE0 = (__int64)Pool2;
+    *Pool = &IoArcTableListHead;
+    Pool[1] = v10;
+    *v10 = Pool;
+    qword_140D2E868 = (__int64)Pool;
   }
-  v3 = -1073741670;
   while ( 1 )
   {
-    ExFreePoolWithTag(Pool2, 0);
-LABEL_21:
-    Pool2 = (PVOID *)IoArcTableListHead;
-    if ( (__int64 *)IoArcTableListHead == &IoArcTableListHead )
-      return v3;
-    if ( *(__int64 **)(IoArcTableListHead + 8) != &IoArcTableListHead )
-      goto LABEL_26;
-    v13 = *(_QWORD *)IoArcTableListHead;
-    if ( *(_QWORD *)(*(_QWORD *)IoArcTableListHead + 8LL) != IoArcTableListHead )
-      goto LABEL_26;
-    IoArcTableListHead = *(_QWORD *)IoArcTableListHead;
-    *(_QWORD *)(v13 + 8) = &IoArcTableListHead;
-    ExFreePoolWithTag(Pool2[3], 0);
+    ExFreePoolWithTag(v9, 0);
+LABEL_27:
+    v14 = (PVOID *)IoArcTableListHead;
+    if ( IoArcTableListHead == &IoArcTableListHead )
+      return (unsigned int)-1073741670;
+    if ( *((PVOID **)IoArcTableListHead + 1) != &IoArcTableListHead )
+      goto LABEL_30;
+    v15 = *(_QWORD *)IoArcTableListHead;
+    if ( *(PVOID *)(*(_QWORD *)IoArcTableListHead + 8LL) != IoArcTableListHead )
+      goto LABEL_30;
+    IoArcTableListHead = *(PVOID *)IoArcTableListHead;
+    *(_QWORD *)(v15 + 8) = &IoArcTableListHead;
+    ExFreePoolWithTag(v14[3], 0);
+    v9 = v14;
   }
 }

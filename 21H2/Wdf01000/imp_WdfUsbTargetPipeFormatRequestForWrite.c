@@ -1,10 +1,10 @@
 /*
- * XREFs of imp_WdfUsbTargetPipeFormatRequestForWrite @ 0x1C0076640
+ * XREFs of imp_WdfUsbTargetPipeFormatRequestForWrite @ 0x1C0068FD0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_IFR_SF_qqq @ 0x1C0030348 (WPP_IFR_SF_qqq.c)
- *     ?_FormatTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAUWDFMEMORY__@@PEAU_WDFMEMORY_OFFSET@@K@Z @ 0x1C007AB18 (-_FormatTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAUW.c)
+ *     WPP_IFR_SF_qqq @ 0x1C0032C78 (WPP_IFR_SF_qqq.c)
+ *     ?_FormatTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAUWDFMEMORY__@@PEAU_WDFMEMORY_OFFSET@@K@Z @ 0x1C006E078 (-_FormatTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAUW.c)
  */
 
 int __fastcall imp_WdfUsbTargetPipeFormatRequestForWrite(
@@ -14,12 +14,12 @@ int __fastcall imp_WdfUsbTargetPipeFormatRequestForWrite(
         WDFMEMORY__ *WriteMemory,
         _WDFMEMORY_OFFSET *WriteOffsets)
 {
-  _FX_DRIVER_GLOBALS *v8; // rbp
+  _FX_DRIVER_GLOBALS *DriverName; // rbp
 
-  v8 = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
-  if ( *(&DriverGlobals[-3].DisplaceDriverUnload + 4) )
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
+  if ( BYTE4(DriverGlobals[-2].Driver) )
     WPP_IFR_SF_qqq(
-      (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+      (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
       5u,
       0xEu,
       0xCu,
@@ -27,5 +27,5 @@ int __fastcall imp_WdfUsbTargetPipeFormatRequestForWrite(
       Pipe,
       Request,
       WriteMemory);
-  return FxUsbPipe::_FormatTransfer(v8, Pipe, Request, WriteMemory, WriteOffsets, 0);
+  return FxUsbPipe::_FormatTransfer(DriverName, Pipe, Request, WriteMemory, WriteOffsets, 0);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of KiDoubleFaultAbortShadow @ 0x140AB5540
+ * XREFs of KiDoubleFaultAbortShadow @ 0x140A14540
  * Callers:
  *     <none>
  * Callees:
@@ -27,7 +27,7 @@ void __fastcall __noreturn KiDoubleFaultAbortShadow(
   __writemsr(0xC0000101, retaddr);
   v9 = __readcr3();
   KernelDirectoryTableBase = KeGetPcr()->Prcb.KernelDirectoryTableBase;
-  if ( v9 != KernelDirectoryTableBase && !_bittest(MK_FP(__GS__, 40984LL), 1u) )
+  if ( v9 != KernelDirectoryTableBase && !_bittest(MK_FP(__GS__, 36888LL), 1u) )
     __writecr3(KernelDirectoryTableBase);
   KiDoubleFaultAbort(v14, a2, a3, a4);
 }

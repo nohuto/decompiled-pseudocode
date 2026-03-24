@@ -1,41 +1,34 @@
 /*
- * XREFs of MiGetSlabAllocatorStandbyList @ 0x1405B10D8
+ * XREFs of MiGetSlabAllocatorStandbyList @ 0x140552E84
  * Callers:
- *     MiInsertPageInList @ 0x1402BF9C0 (MiInsertPageInList.c)
- *     MiUnlinkPageFromListEx @ 0x140326870 (MiUnlinkPageFromListEx.c)
+ *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
+ *     MiInsertPageInList @ 0x140326800 (MiInsertPageInList.c)
  * Callees:
- *     MiEnumerateSlabAllocators @ 0x14023B3C8 (MiEnumerateSlabAllocators.c)
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
+ *     MiEnumerateSlabAllocators @ 0x1402B8CCC (MiEnumerateSlabAllocators.c)
  */
 
 __int64 __fastcall MiGetSlabAllocatorStandbyList(__int64 a1, int a2)
 {
   unsigned __int64 v2; // rdx
-  unsigned __int64 v4; // rdx
-  __int64 v5; // rbx
-  _QWORD *v6; // rax
-  __int64 v7; // [rsp+20h] [rbp-28h] BYREF
-  ULONG_PTR v8; // [rsp+28h] [rbp-20h]
-  __int64 v9; // [rsp+30h] [rbp-18h]
+  __int64 v4; // rax
+  _QWORD v5[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v6; // [rsp+30h] [rbp-18h]
 
   if ( a2 )
   {
-    v7 = a1;
-    v4 = *(_QWORD *)(a1 + 40);
-    v9 = 0LL;
-    v8 = 0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4);
-    v5 = *(_QWORD *)(qword_140C51F48 + 8 * ((v4 >> 43) & 0x3FF));
-    v6 = MiSearchNumaNodeTable(v8);
+    v5[0] = a1;
+    v6 = 0LL;
+    v4 = *(_QWORD *)(a1 + 40) >> 39;
+    v5[1] = (a1 + 0x58000000000LL) / 48;
     MiEnumerateSlabAllocators(
-      v5,
+      *(_QWORD *)(qword_140C4E648 + 8 * (v4 & 0x3FF)),
       (unsigned int (__fastcall *)(__int64, unsigned __int64, __int64))MiGetSlabStandbyListWorker,
-      (__int64)&v7,
-      *((_DWORD *)v6 + 2));
-    return v9;
+      (__int64)v5);
+    return v6;
   }
   else
   {
-    v2 = *(_QWORD *)a1 & 0xFFFFFF0000000000uLL | (*(_QWORD *)(a1 + 24) >> 40) & 0x7FFFFLL | ((unsigned __int64)(*(_DWORD *)(a1 + 36) & 0x1FFFFF) << 19);
+    v2 = ((*(_QWORD *)a1 & 0xFFFFFFF000000000uLL | ((unsigned __int64)*(unsigned __int8 *)(a1 + 39) << 28)) << 8) | *(unsigned __int16 *)(a1 + 36) | (*(_QWORD *)(a1 + 24) >> 20) & 0xFFFFF0000LL;
     _InterlockedDecrement((volatile signed __int32 *)(v2 + 136));
     return *(_QWORD *)(v2 + 40) + 64LL;
   }

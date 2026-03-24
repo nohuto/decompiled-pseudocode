@@ -1,10 +1,10 @@
 /*
- * XREFs of CreateTlgAggregateSession @ 0x1C00BDE74
+ * XREFs of CreateTlgAggregateSession @ 0x1C0090C98
  * Callers:
- *     TlgRegisterAggregateProviderEx @ 0x1C00BDCD4 (TlgRegisterAggregateProviderEx.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1C0090A60 (TlgRegisterAggregateProviderEx.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
- *     DestroyAggregateSession @ 0x1C010A340 (DestroyAggregateSession.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     DestroyAggregateSession @ 0x1C00D32A0 (DestroyAggregateSession.c)
  */
 
 _QWORD *__fastcall CreateTlgAggregateSession(char a1, char a2)
@@ -18,9 +18,10 @@ _QWORD *__fastcall CreateTlgAggregateSession(char a1, char a2)
 
   PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)(a1 != 0 ? PagedPool : 512), 0x178uLL, 0x47417254u);
   v5 = PoolWithTag;
-  if ( !PoolWithTag )
-    goto LABEL_11;
-  memset(PoolWithTag, 0, 0x178uLL);
+  if ( PoolWithTag )
+    memset(PoolWithTag, 0, 0x178uLL);
+  if ( !v5 )
+    goto LABEL_13;
   v5[34] = 0LL;
   if ( a2 || !a1 )
   {
@@ -30,7 +31,7 @@ _QWORD *__fastcall CreateTlgAggregateSession(char a1, char a2)
       memset(v6, 0, 0x40uLL);
     v5[33] = v7;
     if ( !v7 )
-      goto LABEL_11;
+      goto LABEL_13;
     KeInitializeEvent((PRKEVENT)(v7 + 32), NotificationEvent, 0);
     v8 = (_QWORD *)v5[33];
     v8[2] = TlgAggregateInternalFlushWorkItemRoutineKernelMode;
@@ -43,7 +44,7 @@ _QWORD *__fastcall CreateTlgAggregateSession(char a1, char a2)
       v5[45] = Timer;
       if ( !Timer )
       {
-LABEL_11:
+LABEL_13:
         DestroyAggregateSession(v5);
         return 0LL;
       }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetMappedSectionPointer@CTokenManager@@UEAAJPEAPEAXPEA_K@Z @ 0x1C00119C0
+ * XREFs of ?GetMappedSectionPointer@CTokenManager@@UEAAJPEAPEAXPEA_K@Z @ 0x1C0016CF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,16 +8,21 @@
 
 __int64 __fastcall CTokenManager::GetMappedSectionPointer(CTokenManager *this, void **a2, unsigned __int64 *a3)
 {
-  __int64 result; // rax
-  void *v4; // r9
+  unsigned int v3; // r9d
+  void *v4; // rax
 
-  result = 0LL;
+  v3 = 0;
   *a2 = 0LL;
   *a3 = 0LL;
-  v4 = (void *)*((_QWORD *)this + 6);
-  if ( !v4 )
-    return 3221225473LL;
-  *a2 = v4;
-  *a3 = *((_QWORD *)this + 7);
-  return result;
+  v4 = (void *)*((_QWORD *)this + 5);
+  if ( v4 )
+  {
+    *a2 = v4;
+    *a3 = *((_QWORD *)this + 6);
+  }
+  else
+  {
+    return (unsigned int)-1073741823;
+  }
+  return v3;
 }

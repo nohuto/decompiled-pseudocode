@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwTraceEvent @ 0x14041C320
+ * XREFs of ZwTraceEvent @ 0x1403FAF60
  * Callers:
  *     <none>
  * Callees:

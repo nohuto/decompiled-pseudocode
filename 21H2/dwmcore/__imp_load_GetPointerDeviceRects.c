@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_GetPointerDeviceRects @ 0x180102556
+ * XREFs of __imp_load_GetPointerDeviceRects @ 0x1800E909D
  * Callers:
  *     <none>
  * Callees:

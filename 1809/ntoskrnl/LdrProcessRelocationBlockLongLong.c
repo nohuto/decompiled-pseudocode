@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrProcessRelocationBlockLongLong @ 0x14072A858
+ * XREFs of LdrProcessRelocationBlockLongLong @ 0x14072A838
  * Callers:
- *     LdrRelocateImageWithBias @ 0x14072A778 (LdrRelocateImageWithBias.c)
+ *     LdrRelocateImageWithBias @ 0x14072A758 (LdrRelocateImageWithBias.c)
  * Callees:
- *     LdrpGenericProcessRelocation @ 0x14017ED30 (LdrpGenericProcessRelocation.c)
- *     LdrpArmProcessRelocation @ 0x1402F5274 (LdrpArmProcessRelocation.c)
- *     LdrpThumbProcessRelocation @ 0x1402F534C (LdrpThumbProcessRelocation.c)
+ *     LdrpGenericProcessRelocation @ 0x14017ED50 (LdrpGenericProcessRelocation.c)
+ *     LdrpArmProcessRelocation @ 0x1402F5374 (LdrpArmProcessRelocation.c)
+ *     LdrpThumbProcessRelocation @ 0x1402F544C (LdrpThumbProcessRelocation.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?Pop@?$CWatermarkStack@W4StackStateType@COcclusionContext@@$0EA@$01$09@@QEAA_NPEAW4StackStateType@COcclusionContext@@@Z @ 0x1800DCD68
+ * XREFs of ?Pop@?$CWatermarkStack@W4StackStateType@COcclusionContext@@$0EA@$01$09@@QEAA_NPEAW4StackStateType@COcclusionContext@@@Z @ 0x1800D18F8
  * Callers:
- *     ?Pop@COcclusionContext@@UEAAJXZ @ 0x1800DCCF0 (-Pop@COcclusionContext@@UEAAJXZ.c)
- *     ?PopClip@COcclusionContext@@AEAAXXZ @ 0x1801C05FC (-PopClip@COcclusionContext@@AEAAXXZ.c)
+ *     ?Pop@COcclusionContext@@UEAAJXZ @ 0x1800D1880 (-Pop@COcclusionContext@@UEAAJXZ.c)
+ *     ?PopClip@COcclusionContext@@AEAAXXZ @ 0x180183C18 (-PopClip@COcclusionContext@@AEAAXXZ.c)
  * Callees:
  *     <none>
  */

@@ -1,24 +1,20 @@
 /*
- * XREFs of BcdCloseStore @ 0x1408124A0
+ * XREFs of BcdCloseStore @ 0x140782414
  * Callers:
- *     WheaPersistBadPageToBcd @ 0x140644D30 (WheaPersistBadPageToBcd.c)
- *     PopFreeHiberContext @ 0x140800338 (PopFreeHiberContext.c)
- *     PopAllocateHiberContext @ 0x140802068 (PopAllocateHiberContext.c)
- *     BiLoadSystemStore @ 0x140811FE0 (BiLoadSystemStore.c)
- *     PopBcdClose @ 0x14081D368 (PopBcdClose.c)
- *     PoInitHiberServices @ 0x1408288D4 (PoInitHiberServices.c)
- *     PopAdaptivePrepareForSystemInitiatedReboot @ 0x14099C9CC (PopAdaptivePrepareForSystemInitiatedReboot.c)
- *     SepSecureBootCorrectBcd @ 0x1409CDCC8 (SepSecureBootCorrectBcd.c)
- *     BapdpProcessBCDCache @ 0x140B1C78C (BapdpProcessBCDCache.c)
+ *     WheaPersistBadPageToBcd @ 0x1405BC750 (WheaPersistBadPageToBcd.c)
+ *     PopFreeHiberContext @ 0x140776FBC (PopFreeHiberContext.c)
+ *     BiLoadSystemStore @ 0x140781BD4 (BiLoadSystemStore.c)
+ *     PopBcdClose @ 0x1408F584C (PopBcdClose.c)
+ *     SepSecureBootCorrectBcd @ 0x1409241E8 (SepSecureBootCorrectBcd.c)
  * Callees:
- *     BiIsOfflineHandle @ 0x1403A7864 (BiIsOfflineHandle.c)
- *     BiIsSynchFirmwareEntries @ 0x1403A78AC (BiIsSynchFirmwareEntries.c)
- *     BiCloseStore @ 0x140811EB0 (BiCloseStore.c)
- *     BiIsWinPEBoot @ 0x140812540 (BiIsWinPEBoot.c)
- *     BiIsSystemStore @ 0x1408127B8 (BiIsSystemStore.c)
- *     BiReleaseBcdSyncMutant @ 0x1408134D8 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x14081369C (BiAcquireBcdSyncMutant.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
+ *     BiIsSynchFirmwareEntries @ 0x14039B484 (BiIsSynchFirmwareEntries.c)
+ *     BiIsOfflineHandle @ 0x14039B59C (BiIsOfflineHandle.c)
+ *     BiCloseStore @ 0x140781D00 (BiCloseStore.c)
+ *     BiIsWinPEBoot @ 0x140782DC4 (BiIsWinPEBoot.c)
+ *     BiIsSystemStore @ 0x1407833A8 (BiIsSystemStore.c)
+ *     BiReleaseBcdSyncMutant @ 0x140784774 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x140784938 (BiAcquireBcdSyncMutant.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
  */
 
 __int64 __fastcall BcdCloseStore(__int64 a1)

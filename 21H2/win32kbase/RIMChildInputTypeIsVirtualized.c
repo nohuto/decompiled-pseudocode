@@ -1,15 +1,15 @@
 /*
- * XREFs of RIMChildInputTypeIsVirtualized @ 0x1C00C1E80
+ * XREFs of RIMChildInputTypeIsVirtualized @ 0x1C0055848
  * Callers:
- *     RIMDiscoverDevicesOfInputType @ 0x1C0044B20 (RIMDiscoverDevicesOfInputType.c)
- *     RIMDirectStartStopDeviceRead @ 0x1C0047820 (RIMDirectStartStopDeviceRead.c)
+ *     RIMDiscoverDevicesOfInputType @ 0x1C0052D04 (RIMDiscoverDevicesOfInputType.c)
+ *     RIMDirectStartStopDeviceRead @ 0x1C0053E80 (RIMDirectStartStopDeviceRead.c)
  * Callees:
- *     IsKeyboardIVEnabled @ 0x1C0006EF4 (IsKeyboardIVEnabled.c)
- *     isChildPartition @ 0x1C00383F0 (isChildPartition.c)
- *     IsMouseIVEnabled @ 0x1C0038414 (IsMouseIVEnabled.c)
- *     IsPTPIVEnabled @ 0x1C0042570 (IsPTPIVEnabled.c)
- *     IsPenIVEnabled @ 0x1C01F0D34 (IsPenIVEnabled.c)
- *     IsTouchIVEnabled @ 0x1C01F0DB4 (IsTouchIVEnabled.c)
+ *     isChildPartition @ 0x1C0040F30 (isChildPartition.c)
+ *     IsMouseIVEnabled @ 0x1C0041518 (IsMouseIVEnabled.c)
+ *     IsPTPIVEnabled @ 0x1C00A9640 (IsPTPIVEnabled.c)
+ *     IsKeyboardIVEnabled @ 0x1C01BA704 (IsKeyboardIVEnabled.c)
+ *     IsPenIVEnabled @ 0x1C01BA73C (IsPenIVEnabled.c)
+ *     IsTouchIVEnabled @ 0x1C01BA78C (IsTouchIVEnabled.c)
  */
 
 char __fastcall RIMChildInputTypeIsVirtualized(int a1)
@@ -18,25 +18,25 @@ char __fastcall RIMChildInputTypeIsVirtualized(int a1)
 
   if ( !isChildPartition() )
     return 0;
-  if ( (dword_1C02A0630 & 1) == 0 )
+  if ( (dword_1C0259698 & 1) == 0 )
   {
-    dword_1C02A0630 |= 1u;
-    dword_1C029E4B8 = (unsigned __int8)IsMouseIVEnabled();
-    dword_1C029E4BC = 1;
-    dword_1C029E4C0 = (unsigned __int8)IsKeyboardIVEnabled();
-    dword_1C029E4C4 = 2;
-    dword_1C029E4C8 = (unsigned __int8)IsTouchIVEnabled();
-    dword_1C029E4CC = 16;
-    dword_1C029E4D0 = (unsigned __int8)IsPenIVEnabled();
-    dword_1C029E4D4 = 4;
-    dword_1C029E4D8 = (unsigned __int8)IsPTPIVEnabled();
-    dword_1C029E4DC = 8;
+    dword_1C0259698 |= 1u;
+    dword_1C0259548 = (unsigned __int8)IsMouseIVEnabled();
+    dword_1C025954C = 1;
+    dword_1C0259550 = (unsigned __int8)IsKeyboardIVEnabled();
+    dword_1C0259554 = 2;
+    dword_1C0259558 = (unsigned __int8)IsTouchIVEnabled();
+    dword_1C025955C = 16;
+    dword_1C0259560 = (unsigned __int8)IsPenIVEnabled();
+    dword_1C0259564 = 4;
+    dword_1C0259568 = (unsigned __int8)IsPTPIVEnabled();
+    dword_1C025956C = 8;
   }
-  v3 = &dword_1C029E4B8;
+  v3 = &dword_1C0259548;
   while ( (a1 & v3[1]) == 0 || !*v3 )
   {
     v3 += 2;
-    if ( v3 == (int *)&Feature_PenTapped__private_reporting )
+    if ( v3 == (int *)&gullTouchInjectionMaxTimeOffset )
       return 0;
   }
   return 1;

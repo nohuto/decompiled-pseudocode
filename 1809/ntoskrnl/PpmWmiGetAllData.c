@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmWmiGetAllData @ 0x14087676C
+ * XREFs of PpmWmiGetAllData @ 0x14087674C
  * Callers:
- *     PpmWmiDispatch @ 0x140757BA0 (PpmWmiDispatch.c)
+ *     PpmWmiDispatch @ 0x140757B80 (PpmWmiDispatch.c)
  * Callees:
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     PpmPerfGetCurrentState @ 0x140131DA4 (PpmPerfGetCurrentState.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PpmPerfGetCurrentState @ 0x140131DC4 (PpmPerfGetCurrentState.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __int64 a4, int *a5, char a6)
@@ -159,7 +159,7 @@ __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __
       *((_QWORD *)v22 + 2) = 0LL;
       *((_BYTE *)v22 + 28) = 100;
       *((_BYTE *)v22 + 29) = *(_BYTE *)(v14 + 345);
-      v22[8] = HIDWORD(PpmCurrentProfile[341 * dword_14041810C + 7]);
+      v22[8] = HIDWORD(PpmCurrentProfile[341 * dword_1404180CC + 7]);
       *((_QWORD *)v22 + 5) = *(_QWORD *)(v14 + 32);
       v22[16] = 1;
     }

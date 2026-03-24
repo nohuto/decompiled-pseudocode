@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EnsureBrushGraph@CClipBrush@@MEAAJ_N@Z @ 0x18020AB20
+ * XREFs of ?EnsureBrushGraph@CClipBrush@@MEAAJ_N@Z @ 0x1801B7C60
  * Callers:
  *     <none>
  * Callees:
- *     ?Build@CBrushRenderingGraphBuilder@@SAJPEAVCBrush@@PEAPEAVCBrushRenderingGraph@@@Z @ 0x180035A74 (-Build@CBrushRenderingGraphBuilder@@SAJPEAVCBrush@@PEAPEAVCBrushRenderingGraph@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D5C3C (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Build@CBrushRenderingGraphBuilder@@SAJPEAVCBrush@@PEAPEAVCBrushRenderingGraph@@@Z @ 0x180049734 (-Build@CBrushRenderingGraphBuilder@@SAJPEAVCBrush@@PEAPEAVCBrushRenderingGraph@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C8F44 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CClipBrush::EnsureBrushGraph(CClipBrush *this, char a2)
@@ -17,13 +17,13 @@ __int64 __fastcall CClipBrush::EnsureBrushGraph(CClipBrush *this, char a2)
   char v7; // [rsp+48h] [rbp+10h] BYREF
 
   if ( (!a2
-     || (*(unsigned __int8 (__fastcall **)(CClipBrush *, _QWORD, char *))(*(_QWORD *)this + 288LL))(this, 0LL, &v7))
-    && (Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease((__int64 *)this + 9),
-        v3 = CBrushRenderingGraphBuilder::Build(this, (struct CBrushRenderingGraph **)this + 9),
+     || (*(unsigned __int8 (__fastcall **)(CClipBrush *, _QWORD, char *))(*(_QWORD *)this + 296LL))(this, 0LL, &v7))
+    && (Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease((__int64 *)this + 8),
+        v3 = CBrushRenderingGraphBuilder::Build(this, (struct CBrushRenderingGraph **)this + 8),
         v5 = v3,
         v3 < 0) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, v3, 0x81u);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x89u, 0LL);
   }
   else
   {

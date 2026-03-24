@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K@Z @ 0x1C0006A50
+ * XREFs of ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K@Z @ 0x1C00BE020
  * Callers:
- *     ?bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C00069CC (-bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
+ *     ?bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C00BDEDC (-bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
  * Callees:
- *     EngSetLastError @ 0x1C00AADD0 (EngSetLastError.c)
- *     bCvtVts @ 0x1C02362CC (bCvtVts.c)
+ *     EngSetLastError @ 0x1C009F430 (EngSetLastError.c)
+ *     bCvtVts @ 0x1C00BE0A8 (bCvtVts.c)
  */
 
 __int64 __fastcall EXFORMOBJ::bXform(EXFORMOBJ *this, struct _VECTORL *a2, struct _VECTORFX *a3, __int64 a4)

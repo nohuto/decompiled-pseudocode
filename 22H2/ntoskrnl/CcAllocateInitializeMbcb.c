@@ -1,26 +1,31 @@
 /*
- * XREFs of CcAllocateInitializeMbcb @ 0x14035C6E8
+ * XREFs of CcAllocateInitializeMbcb @ 0x140317B34
  * Callers:
- *     CcSetDirtyInMask @ 0x1402C8FC0 (CcSetDirtyInMask.c)
+ *     CcSetDirtyInMask @ 0x1402B6B00 (CcSetDirtyInMask.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *CcAllocateInitializeMbcb()
 {
   _QWORD *result; // rax
+  _QWORD *v1; // rbx
 
-  result = ExAllocatePoolWithTag((POOL_TYPE)1536, 0xC0uLL, 0x624D6343u);
+  result = ExAllocatePoolWithTag(NonPagedPoolNx, 0xC0uLL, 0x624D6343u);
+  v1 = result;
   if ( result )
   {
-    *(_WORD *)result = 763;
-    result[6] = result + 2;
-    result[7] = result + 2;
-    result[2] = result + 6;
-    result[3] = result + 6;
-    *((_DWORD *)result + 18) = -1;
-    result[5] = -1LL;
-    result[11] = result + 12;
+    memset(result, 0, 0xC0uLL);
+    *(_WORD *)v1 = 763;
+    v1[6] = v1 + 2;
+    v1[7] = v1 + 2;
+    v1[2] = v1 + 6;
+    v1[3] = v1 + 6;
+    *((_DWORD *)v1 + 18) = -1;
+    v1[5] = -1LL;
+    v1[11] = v1 + 12;
+    return v1;
   }
   return result;
 }

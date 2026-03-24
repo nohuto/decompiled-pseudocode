@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CurrentInertiaVelocity@CScaleMotion@@MEBAMXZ @ 0x18026FC20
+ * XREFs of ?CurrentInertiaVelocity@CScaleMotion@@MEBAMXZ @ 0x18020F150
  * Callers:
- *     <none>
+ *     ?CurrentInertiaVelocity@CPositionMotion@@MEBAMXZ @ 0x18020F1D0 (-CurrentInertiaVelocity@CPositionMotion@@MEBAMXZ.c)
  * Callees:
- *     powf_0 @ 0x18011B92C (powf_0.c)
+ *     powf @ 0x1800E7F08 (powf.c)
  */
 
 float __fastcall CScaleMotion::CurrentInertiaVelocity(CScaleMotion *this)
@@ -16,7 +16,7 @@ float __fastcall CScaleMotion::CurrentInertiaVelocity(CScaleMotion *this)
   if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)this + 8) - 1.0) & _xmm) <= 0.0000011920929 )
     return *((float *)this + 12);
   if ( COERCE_FLOAT(*((_DWORD *)this + 8) & _xmm) >= 0.0000011920929 && (*((_BYTE *)this + 8) & 1) != 0 )
-    return powf_0(*((float *)this + 8), v1) * *((float *)this + 12);
+    return powf(*((float *)this + 8), v1) * *((float *)this + 12);
   else
     return 0.0;
 }

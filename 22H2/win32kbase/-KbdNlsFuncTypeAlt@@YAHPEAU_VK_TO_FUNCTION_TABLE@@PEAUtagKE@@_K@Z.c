@@ -1,58 +1,56 @@
 /*
- * XREFs of ?KbdNlsFuncTypeAlt@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z @ 0x1C01EBBB0
+ * XREFs of ?KbdNlsFuncTypeAlt@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z @ 0x1C01AB270
  * Callers:
  *     <none>
  * Callees:
- *     GetModifierBits @ 0x1C00039B0 (GetModifierBits.c)
- *     ?GenerateNlsVkAltKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z @ 0x1C01EBAF4 (-GenerateNlsVkAltKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z.c)
- *     ?GenerateNlsVkKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z @ 0x1C01EBB4C (-GenerateNlsVkKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z.c)
+ *     GetModifierBits @ 0x1C000B560 (GetModifierBits.c)
+ *     ?GenerateNlsVkAltKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z @ 0x1C01AB1C4 (-GenerateNlsVkAltKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z.c)
+ *     ?GenerateNlsVkKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z @ 0x1C01AB218 (-GenerateNlsVkKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z.c)
  */
 
-__int64 __fastcall KbdNlsFuncTypeAlt(struct _VK_TO_FUNCTION_TABLE *a1, struct tagKE *a2, __int64 a3, __int64 a4)
+__int64 __fastcall KbdNlsFuncTypeAlt(struct _VK_TO_FUNCTION_TABLE *a1, struct tagKE *a2, __int64 a3)
 {
-  unsigned int v4; // edi
-  __int64 v8; // rax
+  unsigned int v3; // ebx
   unsigned __int16 ModifierBits; // ax
-  int v10; // ebp
-  char v11; // al
+  int v8; // ebp
+  char v9; // al
   unsigned int NlsVkKey; // eax
   unsigned int NlsVkAltKey; // eax
 
-  v4 = 0;
+  v3 = 0;
   if ( !a2 || !a1 )
     return 0LL;
-  v8 = SGDGetUserSessionState(a1, a2, a3, a4);
-  ModifierBits = GetModifierBits((unsigned __int8 **)&off_1C0246630, v8 + 14056);
-  if ( ModifierBits <= 7u )
+  ModifierBits = GetModifierBits((unsigned __int8 **)&Modifiers_NLSKBD, (__int64)gafRawKeyState);
+  if ( ModifierBits <= (unsigned __int16)word_1C024AAD0 )
   {
-    v10 = *((unsigned __int8 *)&off_1C0246630 + ModifierBits + 10);
-    if ( v10 != 15 )
+    v8 = *((unsigned __int8 *)&Modifiers_NLSKBD + ModifierBits + 10);
+    if ( v8 != 15 )
     {
-      v11 = *((_BYTE *)a1 + 2);
+      v9 = *((_BYTE *)a1 + 2);
       if ( *((__int16 *)a2 + 1) < 0 )
       {
-        if ( v11 == 2 )
+        if ( v9 == 2 )
         {
-          NlsVkAltKey = GenerateNlsVkAltKey(a1, v10, a2, a3);
+          NlsVkAltKey = GenerateNlsVkAltKey(a1, v8, a2, a3);
           *((_BYTE *)a1 + 2) = 1;
         }
         else
         {
-          return (unsigned int)GenerateNlsVkKey(a1, v10, a2, a3);
+          return (unsigned int)GenerateNlsVkKey(a1, v8, a2, a3);
         }
         return NlsVkAltKey;
       }
       else
       {
-        if ( v11 == 2 )
-          NlsVkKey = GenerateNlsVkAltKey(a1, v10, a2, a3);
+        if ( v9 == 2 )
+          NlsVkKey = GenerateNlsVkAltKey(a1, v8, a2, a3);
         else
-          NlsVkKey = GenerateNlsVkKey(a1, v10, a2, a3);
-        v4 = NlsVkKey;
-        if ( ((unsigned __int8)(1 << v10) & *((_BYTE *)a1 + 3)) != 0 )
+          NlsVkKey = GenerateNlsVkKey(a1, v8, a2, a3);
+        v3 = NlsVkKey;
+        if ( ((unsigned __int8)(1 << v8) & *((_BYTE *)a1 + 3)) != 0 )
           *((_BYTE *)a1 + 2) = 2;
       }
     }
   }
-  return v4;
+  return v3;
 }

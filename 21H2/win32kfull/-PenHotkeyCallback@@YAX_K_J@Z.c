@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PenHotkeyCallback@@YAX_K_J@Z @ 0x1C01D3F90
+ * XREFs of ?PenHotkeyCallback@@YAX_K_J@Z @ 0x1C01D8930
  * Callers:
  *     <none>
  * Callees:
@@ -15,9 +15,9 @@ void __fastcall PenHotkeyCallback(unsigned __int64 a1)
   __int64 v5; // [rsp+30h] [rbp+8h] BYREF
 
   v5 = 0LL;
-  if ( a1 <= 0x1D )
+  if ( a1 <= 0x22 )
   {
-    v1 = a1 - 25;
+    v1 = a1 - 30;
     if ( v1 )
     {
       v2 = v1 - 1;

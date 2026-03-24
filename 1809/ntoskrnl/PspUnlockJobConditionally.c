@@ -7,8 +7,8 @@
  *     PspRemoveProcessFromJobChain @ 0x140600410 (PspRemoveProcessFromJobChain.c)
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
  *     PspSendProcessNotificationToJobChain @ 0x14060394C (PspSendProcessNotificationToJobChain.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB24 (PspAllocateAndQueryNotificationChannel.c)
- *     PspSetNetRateControl @ 0x14088A70C (PspSetNetRateControl.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB04 (PspAllocateAndQueryNotificationChannel.c)
+ *     PspSetNetRateControl @ 0x14088A6EC (PspSetNetRateControl.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  */

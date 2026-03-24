@@ -1,37 +1,37 @@
 /*
- * XREFs of VfIrpSendSynchronousIrp @ 0x140A8D17C
+ * XREFs of VfIrpSendSynchronousIrp @ 0x1409D1510
  * Callers:
- *     VfPnpTestStartedPdoStack @ 0x140AA60B0 (VfPnpTestStartedPdoStack.c)
- *     VfPowerTestStartedPdoStack @ 0x140AA6990 (VfPowerTestStartedPdoStack.c)
- *     VfWmiTestStartedPdoStack @ 0x140AA6BB0 (VfWmiTestStartedPdoStack.c)
+ *     VfPnpTestStartedPdoStack @ 0x1409E29B0 (VfPnpTestStartedPdoStack.c)
+ *     VfPowerTestStartedPdoStack @ 0x1409E32F0 (VfPowerTestStartedPdoStack.c)
+ *     VfWmiTestStartedPdoStack @ 0x1409E3530 (VfWmiTestStartedPdoStack.c)
  * Callees:
- *     IoAllocateIrpEx @ 0x14022CFA0 (IoAllocateIrpEx.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     IovUtilWatermarkIrp @ 0x1402D3080 (IovUtilWatermarkIrp.c)
- *     IoGetAttachedDeviceReference @ 0x1403109B0 (IoGetAttachedDeviceReference.c)
- *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
+ *     IoGetAttachedDeviceReference @ 0x14022CA10 (IoGetAttachedDeviceReference.c)
+ *     IoAllocateIrpEx @ 0x1402A1700 (IoAllocateIrpEx.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     IovUtilWatermarkIrp @ 0x140361ED4 (IovUtilWatermarkIrp.c)
  */
 
 __int64 __fastcall VfIrpSendSynchronousIrp(
         struct _DEVICE_OBJECT *a1,
         __int64 a2,
         int a3,
-        __int64 a4,
+        NTSTATUS a4,
         ULONG_PTR a5,
         ULONG_PTR *a6,
         NTSTATUS *a7)
 {
   PDEVICE_OBJECT AttachedDeviceReference; // rbp
-  __int64 v10; // rdx
+  __int64 v11; // rdx
   IRP *Irp; // rbx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  __int128 v14; // xmm1
-  __int128 v15; // xmm0
-  __int128 v16; // xmm1
-  struct _IO_STACK_LOCATION *v17; // rax
+  __int128 v15; // xmm1
+  __int128 v16; // xmm0
+  __int128 v17; // xmm1
+  struct _IO_STACK_LOCATION *v18; // rax
   NTSTATUS Status; // r14d
   struct _KEVENT Event; // [rsp+30h] [rbp-38h] BYREF
 
@@ -41,31 +41,31 @@ __int64 __fastcall VfIrpSendSynchronousIrp(
   if ( a7 )
     *a7 = 0;
   AttachedDeviceReference = IoGetAttachedDeviceReference(a1);
-  LOBYTE(v10) = AttachedDeviceReference->StackSize;
-  Irp = (IRP *)IoAllocateIrpEx((__int64)AttachedDeviceReference, v10, 0LL);
+  LOBYTE(v11) = AttachedDeviceReference->StackSize;
+  Irp = (IRP *)IoAllocateIrpEx((__int64)AttachedDeviceReference, v11, 0LL);
   if ( Irp )
   {
     if ( a3 )
       IovUtilWatermarkIrp();
-    Irp->IoStatus.Status = -1073741637;
+    Irp->IoStatus.Status = a4;
     Irp->IoStatus.Information = a5;
     KeInitializeEvent(&Event, SynchronizationEvent, 0);
     CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
-    v14 = *(_OWORD *)(a2 + 16);
+    v15 = *(_OWORD *)(a2 + 16);
     *(_OWORD *)&CurrentStackLocation[-1].MajorFunction = *(_OWORD *)a2;
-    v15 = *(_OWORD *)(a2 + 32);
-    *(_OWORD *)&CurrentStackLocation[-1].Parameters.NotifyDirectoryEx.CompletionFilter = v14;
-    v16 = *(_OWORD *)(a2 + 48);
-    *(_OWORD *)(&CurrentStackLocation[-1].Parameters.SetQuota + 6) = v15;
-    *(_QWORD *)&v15 = *(_QWORD *)(a2 + 64);
-    *(_OWORD *)&CurrentStackLocation[-1].FileObject = v16;
-    CurrentStackLocation[-1].Context = (PVOID)v15;
-    v17 = Irp->Tail.Overlay.CurrentStackLocation;
-    v17[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)&ViIrpSynchronousCompletionRoutine;
-    v17[-1].Context = &Event;
-    v17[-1].Control = -32;
+    v16 = *(_OWORD *)(a2 + 32);
+    *(_OWORD *)&CurrentStackLocation[-1].Parameters.NotifyDirectoryEx.CompletionFilter = v15;
+    v17 = *(_OWORD *)(a2 + 48);
+    *(_OWORD *)(&CurrentStackLocation[-1].Parameters.SetQuota + 6) = v16;
+    *(_QWORD *)&v16 = *(_QWORD *)(a2 + 64);
+    *(_OWORD *)&CurrentStackLocation[-1].FileObject = v17;
+    CurrentStackLocation[-1].Context = (PVOID)v16;
+    v18 = Irp->Tail.Overlay.CurrentStackLocation;
+    v18[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)&ViIrpSynchronousCompletionRoutine;
+    v18[-1].Context = &Event;
+    v18[-1].Control = -32;
     Status = IofCallDriver(AttachedDeviceReference, Irp);
-    ObfDereferenceObject(AttachedDeviceReference);
+    HalPutDmaAdapter((PADAPTER_OBJECT)AttachedDeviceReference);
     if ( Status == 259 )
     {
       KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
@@ -80,7 +80,7 @@ __int64 __fastcall VfIrpSendSynchronousIrp(
   }
   else
   {
-    ObfDereferenceObject(AttachedDeviceReference);
+    HalPutDmaAdapter((PADAPTER_OBJECT)AttachedDeviceReference);
     return 0LL;
   }
 }

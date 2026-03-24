@@ -1,8 +1,8 @@
 /*
- * XREFs of KiSelectIdealProcessor @ 0x1400D5648
+ * XREFs of KiSelectIdealProcessor @ 0x1400D5668
  * Callers:
- *     KeStartThread @ 0x1400D3994 (KeStartThread.c)
- *     KeSelectIdealProcessor @ 0x1400D8994 (KeSelectIdealProcessor.c)
+ *     KeStartThread @ 0x1400D39B4 (KeStartThread.c)
+ *     KeSelectIdealProcessor @ 0x1400D89B4 (KeSelectIdealProcessor.c)
  * Callees:
  *     <none>
  */

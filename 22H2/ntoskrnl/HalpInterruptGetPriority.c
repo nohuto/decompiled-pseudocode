@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptGetPriority @ 0x14037CCA0
+ * XREFs of HalpInterruptGetPriority @ 0x1403A397C
  * Callers:
- *     HalpInitializeDeferredErrorVector @ 0x14037C338 (HalpInitializeDeferredErrorVector.c)
- *     HalpInterruptEnablePerformanceEvents @ 0x14037C3A8 (HalpInterruptEnablePerformanceEvents.c)
- *     HalpConnectThermalInterrupt @ 0x14037C510 (HalpConnectThermalInterrupt.c)
- *     HalpInitializeCmciVector @ 0x14037C664 (HalpInitializeCmciVector.c)
- *     HalpInterruptSetRemappedLineStateInternal @ 0x14037CBF8 (HalpInterruptSetRemappedLineStateInternal.c)
- *     HalpInterruptSetLineState @ 0x14037CD5C (HalpInterruptSetLineState.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x1403A32A0 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpInterruptSetLineState @ 0x1403A33F8 (HalpInterruptSetLineState.c)
+ *     HalpInitializeDeferredErrorVector @ 0x1403A3848 (HalpInitializeDeferredErrorVector.c)
+ *     HalpInitializeCmciVector @ 0x1403A38B8 (HalpInitializeCmciVector.c)
+ *     HalpInterruptSetRemappedLineStateInternal @ 0x1403CB0B4 (HalpInterruptSetRemappedLineStateInternal.c)
+ *     HalpConnectThermalInterrupt @ 0x1404D14F0 (HalpConnectThermalInterrupt.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 __fastcall HalpInterruptGetPriority(__int64 a1, unsigned __int8 a2)
   v2 = a2 >> 4;
   if ( v2 <= 2u )
     return 0LL;
-  v3 = *(_DWORD *)(a1 + 252);
+  v3 = *(_DWORD *)(a1 + 228);
   if ( 15 - (unsigned int)v2 > v3 )
     return 0LL;
   else

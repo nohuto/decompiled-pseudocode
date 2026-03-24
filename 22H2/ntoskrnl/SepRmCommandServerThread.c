@@ -1,42 +1,42 @@
 /*
- * XREFs of SepRmCommandServerThread @ 0x14082D2D0
+ * XREFs of SepRmCommandServerThread @ 0x1407AD670
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293330 (PdcCreateWatchdogAroundClientCall.c)
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     PsIsHostSilo @ 0x1402AF8D0 (PsIsHostSilo.c)
- *     PsDetachSiloFromCurrentThread @ 0x14031CAB0 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CAD0 (PsAttachSiloToCurrentThread.c)
- *     SepRmProcessCreationCommandLineAuditSettingsWrkr @ 0x140372500 (SepRmProcessCreationCommandLineAuditSettingsWrkr.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwReplyWaitReceivePort @ 0x14041A800 (ZwReplyWaitReceivePort.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     SepAdtInitLsaDeadEventForNonPagedList @ 0x1405B75D4 (SepAdtInitLsaDeadEventForNonPagedList.c)
- *     SepRmInteractiveLogoffLogonSessionCompletedWrkr @ 0x140682C70 (SepRmInteractiveLogoffLogonSessionCompletedWrkr.c)
- *     SepRmInteractiveLogoffLogonSessionWrkr @ 0x1406833F0 (SepRmInteractiveLogoffLogonSessionWrkr.c)
- *     SepRmCreateLogonSessionWrkr @ 0x1407BDA10 (SepRmCreateLogonSessionWrkr.c)
- *     SepRmAddLogonSessionInfoWrkr @ 0x1407C7C00 (SepRmAddLogonSessionInfoWrkr.c)
- *     PoRequestShutdownEvent @ 0x14082D450 (PoRequestShutdownEvent.c)
- *     SepRmLsaConnectRequest @ 0x14082D52C (SepRmLsaConnectRequest.c)
- *     SepRmSetAuditEventWrkr @ 0x14084DD00 (SepRmSetAuditEventWrkr.c)
- *     SepRmGlobalSaclSetWrkr @ 0x14084E6D0 (SepRmGlobalSaclSetWrkr.c)
- *     SepRmCapUpdateWrkr @ 0x14085D390 (SepRmCapUpdateWrkr.c)
- *     SepRmDeleteLogonSessionWrkr @ 0x140880410 (SepRmDeleteLogonSessionWrkr.c)
- *     SepRmCleanupRmLsaState @ 0x1409C8E50 (SepRmCleanupRmLsaState.c)
- *     SepRmMakeLogonSessionsSiblingsWrkr @ 0x1409D0500 (SepRmMakeLogonSessionsSiblingsWrkr.c)
- *     SepRmSetSharedUserSessionWrkr @ 0x1409D0540 (SepRmSetSharedUserSessionWrkr.c)
- *     SepRmValidateProcUniqueLuidWrkr @ 0x1409D0570 (SepRmValidateProcUniqueLuidWrkr.c)
- *     SepAuditFailed @ 0x1409D1CF0 (SepAuditFailed.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     HalSystemVectorDispatchEntry @ 0x1402526A0 (HalSystemVectorDispatchEntry.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     PsIsHostSilo @ 0x1402D5230 (PsIsHostSilo.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14034C200 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14034C220 (PsAttachSiloToCurrentThread.c)
+ *     SepRmProcessCreationCommandLineAuditSettingsWrkr @ 0x140365650 (SepRmProcessCreationCommandLineAuditSettingsWrkr.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwReplyWaitReceivePort @ 0x1403F9B80 (ZwReplyWaitReceivePort.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SepAdtInitLsaDeadEventForNonPagedList @ 0x140595808 (SepAdtInitLsaDeadEventForNonPagedList.c)
+ *     SepRmCreateLogonSessionWrkr @ 0x140685080 (SepRmCreateLogonSessionWrkr.c)
+ *     SepRmAddLogonSessionInfoWrkr @ 0x140692450 (SepRmAddLogonSessionInfoWrkr.c)
+ *     SepRmInteractiveLogoffLogonSessionCompletedWrkr @ 0x140779440 (SepRmInteractiveLogoffLogonSessionCompletedWrkr.c)
+ *     SepRmInteractiveLogoffLogonSessionWrkr @ 0x14077A320 (SepRmInteractiveLogoffLogonSessionWrkr.c)
+ *     SepRmDeleteLogonSessionWrkr @ 0x14077AFE0 (SepRmDeleteLogonSessionWrkr.c)
+ *     SepRmLsaConnectRequest @ 0x1407AD7F0 (SepRmLsaConnectRequest.c)
+ *     PoRequestShutdownEvent @ 0x1407ADB40 (PoRequestShutdownEvent.c)
+ *     SepRmSetAuditEventWrkr @ 0x1407C5350 (SepRmSetAuditEventWrkr.c)
+ *     SepRmGlobalSaclSetWrkr @ 0x1407C5470 (SepRmGlobalSaclSetWrkr.c)
+ *     SepRmCapUpdateWrkr @ 0x1407CDC90 (SepRmCapUpdateWrkr.c)
+ *     SepRmCleanupRmLsaState @ 0x14091C0D4 (SepRmCleanupRmLsaState.c)
+ *     SepRmMakeLogonSessionsSiblingsWrkr @ 0x140923D40 (SepRmMakeLogonSessionsSiblingsWrkr.c)
+ *     SepRmSetSharedUserSessionWrkr @ 0x140923D80 (SepRmSetSharedUserSessionWrkr.c)
+ *     SepRmValidateProcUniqueLuidWrkr @ 0x140923DC0 (SepRmValidateProcUniqueLuidWrkr.c)
+ *     SepAuditFailed @ 0x140925950 (SepAuditFailed.c)
  */
 
 void __fastcall SepRmCommandServerThread(PVOID StartContext)
@@ -71,8 +71,8 @@ void __fastcall SepRmCommandServerThread(PVOID StartContext)
   v1 = PoRequestShutdownEvent(0LL);
   if ( v1 < 0 )
   {
-    ZwClose(Handle);
-    Handle = 0LL;
+    ZwClose(qword_140D2EB70);
+    qword_140D2EB70 = 0LL;
     SepAuditFailed((unsigned int)v1);
   }
   else
@@ -90,14 +90,14 @@ void __fastcall SepRmCommandServerThread(PVOID StartContext)
         {
           do
           {
-            v3 = ZwReplyWaitReceivePort((__int64)Handle, (__int64)&Event, (__int64)v2);
+            v3 = ZwReplyWaitReceivePort((__int64)qword_140D2EB70, (__int64)&Event, (__int64)v2);
             v2 = 0LL;
           }
           while ( v3 < 0 && (v3 == -1073741823 || v3 == -1073741813 || v3 == -1073741281) );
           v4 = *(struct _LIST_ENTRY **)&Event.Header.Lock;
           if ( *(_QWORD *)&Event.Header.Lock == -8LL )
           {
-            v4 = (struct _LIST_ENTRY *)PdcCreateWatchdogAroundClientCall();
+            v4 = (struct _LIST_ENTRY *)HalSystemVectorDispatchEntry();
             *(_QWORD *)&Event.Header.Lock = v4;
           }
           v5 = v19 & 0x7FFF;
@@ -131,28 +131,28 @@ void __fastcall SepRmCommandServerThread(PVOID StartContext)
         KeInitializeEvent((PRKEVENT)&Object.Header.WaitListHead, NotificationEvent, 0);
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
-        ExAcquireResourceExclusiveLite(&stru_140C71080, 1u);
-        qword_140C71120 = (__int64)&Event.Header.WaitListHead;
+        ExAcquireResourceExclusiveLite(&stru_140C54680, 1u);
+        qword_140C54720 = (__int64)&Event.Header.WaitListHead;
         v8 = SepLsaAuditQueueInfo == (_QWORD)&SepLsaAuditQueueInfo;
-        ExReleaseResourceLite(&stru_140C71080);
-        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        ExReleaseResourceLite(&stru_140C54680);
+        KeLeaveCriticalRegion();
         inited = SepAdtInitLsaDeadEventForNonPagedList((__int64)&Object.Header.WaitListHead);
         v10 = KeGetCurrentThread();
         v11 = inited;
         --v10->KernelApcDisable;
-        ExAcquireResourceExclusiveLite(&stru_140C70F50, 1u);
-        qword_140C70FF0 = (__int64)&v16.Header.WaitListHead;
+        ExAcquireResourceExclusiveLite(&stru_140C54540, 1u);
+        qword_140C545E0 = (__int64)&v16.Header.WaitListHead;
         v12 = SepLsaDeletedLogonQueueInfo == (_QWORD)&SepLsaDeletedLogonQueueInfo;
-        ExReleaseResourceLite(&stru_140C70F50);
-        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        ExReleaseResourceLite(&stru_140C54540);
+        KeLeaveCriticalRegion();
         if ( !v8 )
           KeWaitForSingleObject(&Event.Header.WaitListHead, Executive, 0, 0, 0LL);
         if ( v11 )
           KeWaitForSingleObject(&Object.Header.WaitListHead, Executive, 0, 0, 0LL);
         if ( !v12 )
           KeWaitForSingleObject(&v16.Header.WaitListHead, Executive, 0, 0, 0LL);
-        ZwClose(Handle);
-        Handle = 0LL;
+        ZwClose(qword_140D2EB70);
+        qword_140D2EB70 = 0LL;
         v4 = *(struct _LIST_ENTRY **)&Event.Header.Lock;
       }
       ServerSiloGlobals = (char *)PsGetServerSiloGlobals((__int64)v4);

@@ -1,21 +1,21 @@
 /*
- * XREFs of ?CreateCompatibleSurface@@YA?AVSURFREF@@PEAUHDEV__@@KPEAUHPALETTE__@@HHHHHHHHHKKPEAX@Z @ 0x1C00911E4
+ * XREFs of ?CreateCompatibleSurface@@YA?AVSURFREF@@PEAUHDEV__@@KPEAUHPALETTE__@@HHHHHHHHHKKPEAX@Z @ 0x1C00AB5AC
  * Callers:
- *     GreCreateCompatibleBitmapInternal @ 0x1C0090C1C (GreCreateCompatibleBitmapInternal.c)
- *     ?SpCreateSurface@@YA?AVSURFREF@@PEAUHDEV__@@PEAUtagSIZE@@@Z @ 0x1C010B114 (-SpCreateSurface@@YA-AVSURFREF@@PEAUHDEV__@@PEAUtagSIZE@@@Z.c)
- *     ?vProfileDriver@PDEVOBJ@@QEAAXXZ @ 0x1C0113FC8 (-vProfileDriver@PDEVOBJ@@QEAAXXZ.c)
- *     GreCreateBitmapFromDxSurface @ 0x1C029F870 (GreCreateBitmapFromDxSurface.c)
+ *     ?SpCreateSurface@@YA?AVSURFREF@@PEAUHDEV__@@PEAUtagSIZE@@@Z @ 0x1C0012D88 (-SpCreateSurface@@YA-AVSURFREF@@PEAUHDEV__@@PEAUtagSIZE@@@Z.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AAFE8 (GreCreateCompatibleBitmapInternal.c)
+ *     ?vProfileDriver@PDEVOBJ@@QEAAXXZ @ 0x1C01297E8 (-vProfileDriver@PDEVOBJ@@QEAAXXZ.c)
+ *     GreCreateBitmapFromDxSurface @ 0x1C02A0D70 (GreCreateBitmapFromDxSurface.c)
  * Callees:
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0028338 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ?pfnBitBlt@SURFACE@@QEAAP6AHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@ZXZ @ 0x1C008E810 (-pfnBitBlt@SURFACE@@QEAAP6AHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL.c)
- *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C00921F8 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
- *     ?bRemoteDriverNeedsDeviceBitmaps@@YAHAEAVPDEVOBJ@@@Z @ 0x1C010B3B8 (-bRemoteDriverNeedsDeviceBitmaps@@YAHAEAVPDEVOBJ@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ @ 0x1C015D33C (--0-$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ??0SURFREF@@QEAA@XZ @ 0x1C026AD30 (--0SURFREF@@QEAA@XZ.c)
- *     ??0SURFREF@@QEAA@$$QEAV0@@Z @ 0x1C026B4E4 (--0SURFREF@@QEAA@$$QEAV0@@Z.c)
+ *     ?bRemoteDriverNeedsDeviceBitmaps@@YAHAEAVPDEVOBJ@@@Z @ 0x1C001302C (-bRemoteDriverNeedsDeviceBitmaps@@YAHAEAVPDEVOBJ@@@Z.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C0019C48 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C008393C (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ?pfnBitBlt@SURFACE@@QEAAP6AHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@ZXZ @ 0x1C00BA100 (-pfnBitBlt@SURFACE@@QEAAP6AHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ @ 0x1C016A05C (--0-$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ??0SURFREF@@QEAA@XZ @ 0x1C026CF90 (--0SURFREF@@QEAA@XZ.c)
+ *     ??0SURFREF@@QEAA@$$QEAV0@@Z @ 0x1C026D768 (--0SURFREF@@QEAA@$$QEAV0@@Z.c)
  */
 
 SURFREF *__fastcall CreateCompatibleSurface(
@@ -36,213 +36,204 @@ SURFREF *__fastcall CreateCompatibleSurface(
         int a15,
         __int64 a16)
 {
-  int v18; // ecx
-  unsigned int v19; // r12d
-  unsigned int v20; // r14d
-  int v21; // r11d
+  unsigned int v16; // r13d
+  unsigned int v18; // esi
+  int v20; // r12d
+  int v21; // ecx
   unsigned int v22; // edx
   __int64 (__fastcall *v23)(_QWORD, unsigned __int64, __int64, _QWORD, _QWORD, _DWORD, int, __int64 *); // r10
-  int v24; // r12d
-  unsigned int v25; // eax
-  HSURF v26; // rax
-  HSURF v27; // rdi
+  unsigned int v24; // r13d
+  HSURF v25; // rax
+  HSURF v26; // rdi
+  __int64 v27; // rdx
   SURFACE *v28; // rax
-  __int64 (__fastcall *v29)(_QWORD, unsigned __int64, __int64, _QWORD, _QWORD, int, int, __int64 *); // r10
-  unsigned int v30; // r12d
+  __int64 v29; // rdx
+  __int64 (__fastcall *v30)(_QWORD, unsigned __int64, __int64, _QWORD, _QWORD, int, int, __int64 *); // r10
   HSURF v31; // rax
-  __int64 (__fastcall *v32)(_QWORD, unsigned __int64, __int64, _QWORD); // rax
+  __int64 (__fastcall *v32)(_QWORD, unsigned __int64); // rax
   int (*v33)(struct _SURFOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *, struct _POINTL *, struct _BRUSHOBJ *, struct _POINTL *, unsigned int); // rax
-  __int64 v34; // rcx
+  __int64 v34; // r10
   int v35; // eax
   __int64 v36; // rdi
-  unsigned int v38; // [rsp+60h] [rbp-89h]
-  __int64 v39; // [rsp+68h] [rbp-81h] BYREF
-  char v40; // [rsp+70h] [rbp-79h]
-  int v41; // [rsp+74h] [rbp-75h]
-  _BYTE v42[32]; // [rsp+78h] [rbp-71h] BYREF
-  SURFACE *v43; // [rsp+98h] [rbp-51h]
-  unsigned __int64 v44; // [rsp+A0h] [rbp-49h]
-  __int64 v45; // [rsp+A8h] [rbp-41h] BYREF
-  _DWORD v46[4]; // [rsp+B0h] [rbp-39h] BYREF
-  HPALETTE v47; // [rsp+C0h] [rbp-29h]
-  int v48; // [rsp+C8h] [rbp-21h]
-  int v49; // [rsp+CCh] [rbp-1Dh]
-  __int64 v50; // [rsp+D0h] [rbp-19h] BYREF
-  unsigned int v51; // [rsp+D8h] [rbp-11h]
-  unsigned int v52; // [rsp+DCh] [rbp-Dh]
+  __int64 v38; // [rsp+60h] [rbp-79h] BYREF
+  char v39; // [rsp+68h] [rbp-71h]
+  int v40; // [rsp+6Ch] [rbp-6Dh]
+  _BYTE v41[32]; // [rsp+70h] [rbp-69h] BYREF
+  SURFACE *v42; // [rsp+90h] [rbp-49h]
+  unsigned __int64 v43; // [rsp+98h] [rbp-41h]
+  __int64 v44; // [rsp+A0h] [rbp-39h] BYREF
+  _DWORD v45[4]; // [rsp+A8h] [rbp-31h] BYREF
+  HPALETTE v46; // [rsp+B8h] [rbp-21h]
+  __int64 v47; // [rsp+C0h] [rbp-19h]
+  __int64 v48; // [rsp+C8h] [rbp-11h] BYREF
+  unsigned int v49; // [rsp+D0h] [rbp-9h]
+  unsigned int v50; // [rsp+D4h] [rbp-5h]
 
-  v46[3] = 0;
-  v49 = 0;
-  v18 = 67108865;
-  v19 = a5;
-  v20 = a7;
-  v21 = a15;
-  v48 = 67108865;
-  v45 = a16;
-  v47 = a4;
-  v50 = a2;
+  v16 = a5;
+  v18 = a7;
+  v20 = a14;
+  v21 = 67108865;
+  v44 = a16;
+  v47 = 67108865LL;
+  v48 = a2;
   v22 = a6;
-  v46[1] = a5;
-  v46[2] = a6;
-  v46[0] = a3;
+  v45[3] = 0;
+  v45[1] = a5;
+  v45[2] = a6;
+  v46 = a4;
+  v45[0] = a3;
   if ( (*(_DWORD *)(a2 + 40) & 0x8000) != 0 )
-    v18 = 67371009;
-  v48 = v18;
+    v21 = 67371009;
+  LODWORD(v47) = v21;
   if ( !a7 )
   {
     if ( !a9 )
-      goto LABEL_49;
-    v20 = bRemoteDriverNeedsDeviceBitmaps((struct PDEVOBJ *)&v50);
-    if ( !v20 )
-      goto LABEL_49;
-    a3 = v46[0];
+      goto LABEL_50;
+    v18 = bRemoteDriverNeedsDeviceBitmaps((struct PDEVOBJ *)&v48);
+    if ( !v18 )
+      goto LABEL_50;
+    a3 = v45[0];
     v22 = a6;
-    v21 = a15;
   }
   if ( a9 )
   {
-    v20 = 0;
+    v18 = 0;
     if ( g_pDwmState )
-      v20 = gfDwmDeviceBitmapsEnabled;
-    if ( !v20 )
-      goto LABEL_49;
+      v18 = gfDwmDeviceBitmapsEnabled;
   }
-  v44 = __PAIR64__(v22, a5);
+  if ( !v18 )
+    goto LABEL_50;
+  v43 = __PAIR64__(v22, a5);
   if ( a9 )
   {
-    v23 = *(__int64 (__fastcall **)(_QWORD, unsigned __int64, __int64, _QWORD, _QWORD, _DWORD, int, __int64 *))(a2 + 3416);
-    v24 = 87;
-    if ( a14 )
-      v24 = a14;
+    v23 = *(__int64 (__fastcall **)(_QWORD, unsigned __int64, __int64, _QWORD, _QWORD, _DWORD, int, __int64 *))(a2 + 3440);
+    if ( !a14 )
+      v20 = 87;
     if ( v23 )
     {
-      v50 = 0LL;
-      v25 = (a12 != 0 ? 5 : 1) | 8;
+      v48 = 0LL;
+      v24 = (a12 != 0 ? 5 : 1) | 8;
       if ( !a13 )
-        v25 = a12 != 0 ? 5 : 1;
-      v38 = v25;
-      v26 = (HSURF)v23(*(_QWORD *)(a2 + 1768), v44, a3, v25, 0LL, 0, v21, &v50);
-      v27 = v26;
-      if ( v26 )
+        v24 = a12 != 0 ? 5 : 1;
+      v25 = (HSURF)v23(*(_QWORD *)(a2 + 1800), v43, a3, v24, 0LL, 0, a15, &v48);
+      v26 = v25;
+      if ( v25 )
       {
-        SURFREF::SURFREF((SURFREF *)v42, v26);
-        v28 = v43;
-        if ( v43 )
+        SURFREF::SURFREF((SURFREF *)v41, v25);
+        v28 = v42;
+        if ( v42 )
         {
           if ( a13 )
           {
-            *((_DWORD *)v43 + 29) |= 0x400u;
-            v28 = v43;
+            *((_DWORD *)v42 + 29) |= 0x400u;
+            v28 = v42;
           }
           *((_DWORD *)v28 + 29) |= 1u;
-          *((_QWORD *)v43 + 71) = v50;
-          *((_DWORD *)v43 + 31) = v24;
-          *((_DWORD *)v43 + 30) = v38;
+          *((_QWORD *)v42 + 71) = v48;
+          *((_DWORD *)v42 + 31) = v20;
           goto LABEL_22;
         }
 LABEL_25:
         SURFREF::SURFREF(a1);
 LABEL_26:
-        if ( v43 )
-          DEC_SHARE_REF_CNT(v43);
-        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v42);
+        if ( v42 )
+          DEC_SHARE_REF_CNT(v42, v29);
+        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v41);
         return a1;
       }
     }
     if ( !a10 )
-      goto LABEL_49;
+      goto LABEL_50;
 LABEL_30:
     SURFREF::SURFREF(a1);
     return a1;
   }
   if ( !a11 )
   {
-    v32 = *(__int64 (__fastcall **)(_QWORD, unsigned __int64, __int64, _QWORD))(a2 + 2744);
+    v32 = *(__int64 (__fastcall **)(_QWORD, unsigned __int64))(a2 + 2768);
     if ( !v32 )
-      goto LABEL_49;
-    v27 = (HSURF)v32(*(_QWORD *)(a2 + 1768), v44, a3, 0LL);
-    if ( !v27 )
-      goto LABEL_49;
+      goto LABEL_50;
+    v26 = (HSURF)v32(*(_QWORD *)(a2 + 1800), v43);
     goto LABEL_38;
   }
-  v29 = *(__int64 (__fastcall **)(_QWORD, unsigned __int64, __int64, _QWORD, _QWORD, int, int, __int64 *))(a2 + 3416);
-  if ( !v29 )
+  v30 = *(__int64 (__fastcall **)(_QWORD, unsigned __int64, __int64, _QWORD, _QWORD, int, int, __int64 *))(a2 + 3440);
+  if ( !v30 )
     goto LABEL_30;
-  v30 = a12 != 0 ? 6 : 2;
-  v31 = (HSURF)v29(*(_QWORD *)(a2 + 1768), v44, a3, v30, 0LL, a14, v21, &v45);
-  v27 = v31;
+  v24 = a12 != 0 ? 6 : 2;
+  v31 = (HSURF)v30(*(_QWORD *)(a2 + 1800), v43, a3, v24, 0LL, a14, a15, &v44);
+  v26 = v31;
   if ( !v31 )
     goto LABEL_30;
-  SURFREF::SURFREF((SURFREF *)v42, v31);
-  if ( !v43 )
+  SURFREF::SURFREF((SURFREF *)v41, v31);
+  if ( !v42 )
     goto LABEL_25;
-  *((_DWORD *)v43 + 29) |= 8u;
-  *((_QWORD *)v43 + 71) = v45;
-  *((_DWORD *)v43 + 30) = v30;
+  *((_DWORD *)v42 + 29) |= 8u;
+  *((_QWORD *)v42 + 71) = v44;
 LABEL_22:
-  if ( v43 )
-    DEC_SHARE_REF_CNT(v43);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v42);
-  v19 = a5;
+  *((_DWORD *)v42 + 30) = v24;
+  if ( v42 )
+    DEC_SHARE_REF_CNT(v42, v27);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v41);
+  v16 = a5;
 LABEL_38:
-  if ( (_DWORD)v27 != -1 )
+  if ( v26 && (_DWORD)v26 != -1 )
   {
-    SURFREF::SURFREF((SURFREF *)v42, v27);
-    if ( v43 )
+    SURFREF::SURFREF((SURFREF *)v41, v26);
+    if ( v42 )
     {
-      *((_DWORD *)v43 + 28) |= 0x800000u;
-      *((_DWORD *)v43 + 28) |= 0x4000000u;
-      *((_DWORD *)v43 + 28) |= 0x4000u;
-      if ( v47 )
+      *((_DWORD *)v42 + 28) |= 0x800000u;
+      *((_DWORD *)v42 + 28) |= 0x4000000u;
+      *((_DWORD *)v42 + 28) |= 0x4000u;
+      if ( v46 )
       {
-        EPALOBJ::EPALOBJ((EPALOBJ *)&v50, v47);
-        if ( v50 )
-          *((_QWORD *)v43 + 16) = v50;
+        EPALOBJ::EPALOBJ((EPALOBJ *)&v48, v46);
+        if ( v48 )
+          *((_QWORD *)v42 + 16) = v48;
       }
-      if ( !a9 && (!a11 || !v45) )
+      if ( !a9 && (!a11 || !v44) )
       {
-        v52 = a6;
-        v50 = 0LL;
-        v51 = v19;
-        v33 = SURFACE::pfnBitBlt(v43);
+        v50 = a6;
+        v48 = 0LL;
+        v49 = v16;
+        v33 = SURFACE::pfnBitBlt(v42);
         ((void (__fastcall *)(__int64, _QWORD, _QWORD, _QWORD, _QWORD, __int64 *, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD))v33)(
-          (v34 + 24) & -(__int64)(v34 != 0),
+          v34,
           0LL,
           0LL,
           0LL,
           0LL,
-          &v50,
+          &v48,
           0LL,
           0LL,
           0LL,
           0LL,
           0);
       }
-      EtwPhysicalSurfCreateEvent(v27, 1LL, *((_QWORD *)v43 + 71), 1LL);
+      EtwPhysicalSurfCreateEvent(v26, 1LL, *((_QWORD *)v42 + 71), 1LL);
     }
-    SURFREF::SURFREF(a1, v42);
+    SURFREF::SURFREF(a1, v41);
     goto LABEL_26;
   }
-LABEL_49:
-  v39 = 0LL;
+LABEL_50:
+  v38 = 0LL;
   v35 = 1;
   if ( !a9 )
     v35 = a8;
+  v39 = 0;
   v40 = 0;
-  v41 = 0;
-  v48 |= v35 != 0 ? 0x800 : 0;
-  SURFMEM::bCreateDIB((SURFMEM *)&v39, (struct _DEVBITMAPINFO *)v46, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0);
-  if ( v39 )
+  LODWORD(v47) = (v35 != 0 ? 0x800 : 0) | v47;
+  SURFMEM::bCreateDIB((SURFMEM *)&v38, (struct _DEVBITMAPINFO *)v45, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0);
+  if ( v38 )
   {
-    v40 |= 1u;
-    *(_DWORD *)(v39 + 112) |= 0x800000u;
-    *(_QWORD *)(v39 + 48) = a2;
-    if ( *(_QWORD *)(v39 + 248) )
-      *(_DWORD *)(v39 + 112) |= 0x4000u;
+    v39 |= 1u;
+    *(_DWORD *)(v38 + 112) |= 0x800000u;
+    *(_QWORD *)(v38 + 48) = a2;
+    if ( *(_QWORD *)(v38 + 248) )
+      *(_DWORD *)(v38 + 112) |= 0x4000u;
     else
-      *(_DWORD *)(v39 + 112) |= 0x200u;
-    EtwPhysicalSurfCreateEvent(*(_QWORD *)(v39 + 32), 0LL, 0LL, v20);
-    v36 = v39;
+      *(_DWORD *)(v38 + 112) |= 0x200u;
+    EtwPhysicalSurfCreateEvent(*(_QWORD *)(v38 + 32), 0LL, 0LL, v18);
+    v36 = v38;
     UnexpectedThreadTerminationHandler<SURFREF>::UnexpectedThreadTerminationHandler<SURFREF>(a1);
     if ( v36 )
     {
@@ -254,6 +245,6 @@ LABEL_49:
   {
     SURFREF::SURFREF(a1);
   }
-  SURFMEM::~SURFMEM((SURFMEM *)&v39);
+  SURFMEM::~SURFMEM((SURFMEM *)&v38);
   return a1;
 }

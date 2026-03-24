@@ -1,13 +1,13 @@
 /*
- * XREFs of VslValidateDynamicCodePages @ 0x140550900
+ * XREFs of VslValidateDynamicCodePages @ 0x1404FEC90
  * Callers:
  *     <none>
  * Callees:
- *     MiProbeAndLockPages @ 0x14029C5B0 (MiProbeAndLockPages.c)
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall VslValidateDynamicCodePages(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -40,7 +40,7 @@ __int64 __fastcall VslValidateDynamicCodePages(unsigned __int64 a1, __int64 a2, 
   v17.StartVa = (PVOID)(a1 & 0xFFFFFFFFFFFFF000uLL);
   v17.ByteOffset = a1 & 0xFFF;
   v17.ByteCount = v8;
-  MiProbeAndLockPages(&v17, 0, 0);
+  MiProbeAndLockPages((__int64)&v17, 0, 0);
   v10 = 8
       * (((*(_DWORD *)(a4 + 32) & 0xFFFLL)
         + 4095
@@ -55,7 +55,7 @@ __int64 __fastcall VslValidateDynamicCodePages(unsigned __int64 a1, __int64 a2, 
   MemoryDescriptorList.StartVa = (PVOID)(a4 & 0xFFFFFFFFFFFFF000uLL);
   MemoryDescriptorList.ByteOffset = a4 & 0xFFF;
   MemoryDescriptorList.ByteCount = v10;
-  MiProbeAndLockPages(&MemoryDescriptorList, 0, 0);
+  MiProbeAndLockPages((__int64)&MemoryDescriptorList, 0, 0);
   v14[1] = a1;
   v14[2] = v18;
   v14[3] = a4;

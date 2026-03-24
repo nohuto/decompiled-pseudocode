@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CSpatialRemarshaler@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180251E00
+ * XREFs of ?IsOfType@CSpatialRemarshaler@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801ECA20
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CSpatialRemarshaler::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 176 || a2 == 114;
+  return ((a2 - 112) & 0xFFFFFFBF) == 0;
 }

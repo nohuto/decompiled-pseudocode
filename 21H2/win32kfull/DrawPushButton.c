@@ -1,13 +1,13 @@
 /*
- * XREFs of DrawPushButton @ 0x1C00C16F0
+ * XREFs of DrawPushButton @ 0x1C0044F3C
  * Callers:
- *     DrawFrameControl @ 0x1C00BF6FC (DrawFrameControl.c)
- *     DrawThumb2 @ 0x1C00C5BBC (DrawThumb2.c)
+ *     DrawFrameControl @ 0x1C0045C38 (DrawFrameControl.c)
+ *     DrawThumb2 @ 0x1C0158244 (DrawThumb2.c)
  * Callees:
- *     GreSetTextColor @ 0x1C00BE3F8 (GreSetTextColor.c)
- *     GreSetBkColor @ 0x1C00BE480 (GreSetBkColor.c)
- *     DrawEdge @ 0x1C00C17C0 (DrawEdge.c)
- *     FillRect @ 0x1C00C1CEC (FillRect.c)
+ *     GreSetTextColor @ 0x1C0044618 (GreSetTextColor.c)
+ *     GreSetBkColor @ 0x1C00446A0 (GreSetBkColor.c)
+ *     DrawEdge @ 0x1C00451E8 (DrawEdge.c)
+ *     FillRect @ 0x1C0045734 (FillRect.c)
  */
 
 int __fastcall DrawPushButton(HDC a1, RECT *a2, __int16 a3, __int16 a4)

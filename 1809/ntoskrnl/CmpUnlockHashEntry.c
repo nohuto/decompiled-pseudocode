@@ -4,8 +4,8 @@
  *     CmpDelayCloseWorker @ 0x1405D1760 (CmpDelayCloseWorker.c)
  *     CmpWalkOneLevel @ 0x1405D4560 (CmpWalkOneLevel.c)
  *     CmpPerformCompleteKcbCacheLookup @ 0x1405E5320 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1406F81FC (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x1406F81DC (CmpFindSubkeyInHashByChildCell.c)
  * Callees:
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     CmpDeleteHive @ 0x1405AFDEC (CmpDeleteHive.c)

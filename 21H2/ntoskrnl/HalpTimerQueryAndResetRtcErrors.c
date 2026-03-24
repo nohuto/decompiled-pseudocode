@@ -1,51 +1,56 @@
 /*
- * XREFs of HalpTimerQueryAndResetRtcErrors @ 0x1403985E0
+ * XREFs of HalpTimerQueryAndResetRtcErrors @ 0x14038D8C0
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x14024A9B0 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 bool __fastcall HalpTimerQueryAndResetRtcErrors(char a1)
 {
   __int32 v1; // ebx
-  __int64 v2; // r8
-  int v3; // eax
+  int v2; // eax
+  __int64 v4; // r8
   __int64 v5; // r8
-  int v6; // [rsp+20h] [rbp-60h]
-  int v7; // [rsp+28h] [rbp-58h]
-  __int32 v8; // [rsp+40h] [rbp-40h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v9[2]; // [rsp+48h] [rbp-38h] BYREF
-  __int32 *v10; // [rsp+68h] [rbp-18h]
-  int v11; // [rsp+70h] [rbp-10h]
-  int v12; // [rsp+74h] [rbp-Ch]
+  int v6; // [rsp+20h] [rbp-39h]
+  int v7; // [rsp+28h] [rbp-31h]
+  __int32 v8; // [rsp+40h] [rbp-19h] BYREF
+  __int32 v9; // [rsp+44h] [rbp-15h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v10; // [rsp+48h] [rbp-11h] BYREF
+  __int32 *v11; // [rsp+68h] [rbp+Fh]
+  int v12; // [rsp+70h] [rbp+17h]
+  int v13; // [rsp+74h] [rbp+1Bh]
+  struct _EVENT_DATA_DESCRIPTOR v14; // [rsp+78h] [rbp+1Fh] BYREF
+  __int32 *v15; // [rsp+98h] [rbp+3Fh]
+  int v16; // [rsp+A0h] [rbp+47h]
+  int v17; // [rsp+A4h] [rbp+4Bh]
 
   v1 = _InterlockedExchange(&HalpTimerRtcErrorCode, 0);
   if ( a1 )
   {
-    if ( (unsigned int)dword_140C04538 > 5 && tlgKeywordOn((__int64)&dword_140C04538, 0x400000000000LL) )
+    if ( (unsigned int)dword_140C02E38 > 5 && tlgKeywordOn((__int64)&dword_140C02E38, 0x400000000000LL) )
     {
-      v12 = 0;
-      v10 = &v8;
+      v13 = 0;
+      v11 = &v8;
       v8 = v1;
-      v11 = 4;
-      tlgWriteEx_EtwWriteEx((__int64)&dword_140C04538, (unsigned __int8 *)&byte_140028341, v2, 1u, v6, v7, 3u, v9);
+      v12 = 4;
+      tlgWriteEx_EtwWriteEx((__int64)&dword_140C02E38, (unsigned __int8 *)&byte_140022779, v4, 1u, v6, v7, 3u, &v10);
     }
-    v3 = 9;
+    v2 = 9;
   }
   else
   {
-    if ( (unsigned int)dword_140C04538 > 5 && tlgKeywordOn((__int64)&dword_140C04538, 0x400000000000LL) )
+    if ( (unsigned int)dword_140C02E38 > 5 && tlgKeywordOn((__int64)&dword_140C02E38, 0x400000000000LL) )
     {
-      v12 = 0;
-      v10 = &v8;
-      v8 = v1;
-      v11 = 4;
-      tlgWriteEx_EtwWriteEx((__int64)&dword_140C04538, (unsigned __int8 *)&word_140028306, v5, 1u, v6, v7, 3u, v9);
+      v17 = 0;
+      v15 = &v9;
+      v9 = v1;
+      v16 = 4;
+      tlgWriteEx_EtwWriteEx((__int64)&dword_140C02E38, (unsigned __int8 *)&word_14002273E, v5, 1u, v6, v7, 3u, &v14);
     }
-    v3 = 31;
+    v2 = 31;
   }
-  return (v3 & v1) != 0;
+  return (v2 & v1) != 0;
 }

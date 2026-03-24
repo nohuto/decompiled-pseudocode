@@ -1,21 +1,21 @@
 /*
- * XREFs of PspCreatePicoProcess @ 0x1409B2390
+ * XREFs of PspCreatePicoProcess @ 0x14090BD00
  * Callers:
  *     <none>
  * Callees:
- *     PspUnlockProcessExclusive @ 0x14025302C (PspUnlockProcessExclusive.c)
- *     PspLockProcessExclusive @ 0x1402A0880 (PspLockProcessExclusive.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140732CC0 (ObReferenceObjectByHandleWithTag.c)
- *     PsCreateMinimalProcess @ 0x140831810 (PsCreateMinimalProcess.c)
+ *     PspUnlockProcessExclusive @ 0x1402CB978 (PspUnlockProcessExclusive.c)
+ *     PspLockProcessExclusive @ 0x1402E98B0 (PspLockProcessExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
+ *     PsCreateMinimalProcess @ 0x1407C6284 (PsCreateMinimalProcess.c)
  */
 
 __int64 __fastcall PspCreatePicoProcess(__int64 a1, __int64 a2, HANDLE *a3)
 {
   struct _KTHREAD *CurrentThread; // r13
   int v4; // ebx
-  PVOID v7; // r12
+  struct _DMA_ADAPTER *v7; // r12
   NTSTATUS v8; // edi
   void *v9; // rcx
   int v10; // eax
@@ -52,7 +52,7 @@ __int64 __fastcall PspCreatePicoProcess(__int64 a1, __int64 a2, HANDLE *a3)
   v8 = ObReferenceObjectByHandleWithTag(v9, 9u, (POBJECT_TYPE)SeTokenObjectType, 0, 0x72437350u, &v21, 0LL);
   if ( v8 >= 0 )
   {
-    v7 = v21;
+    v7 = (struct _DMA_ADAPTER *)v21;
 LABEL_10:
     v10 = 0;
     if ( (v4 & 1) != 0 )
@@ -92,7 +92,7 @@ LABEL_10:
           v16 = 0LL;
           v14 = Object;
           v17 = (volatile signed __int32 *)v20;
-          v7 = v21;
+          v7 = (struct _DMA_ADAPTER *)v21;
           *v23 = Handle;
         }
         v18 = v8;

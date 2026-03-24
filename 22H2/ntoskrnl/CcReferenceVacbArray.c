@@ -1,11 +1,11 @@
 /*
- * XREFs of CcReferenceVacbArray @ 0x14029F4CC
+ * XREFs of CcReferenceVacbArray @ 0x140293434
  * Callers:
- *     CcGetVacbFromFreeList @ 0x14029F418 (CcGetVacbFromFreeList.c)
- *     CcGetRandomVacbArrayWithReference @ 0x140538094 (CcGetRandomVacbArrayWithReference.c)
- *     CcUnmapInactiveViewsInternal @ 0x140538490 (CcUnmapInactiveViewsInternal.c)
+ *     CcGetVacbFromFreeList @ 0x140293370 (CcGetVacbFromFreeList.c)
+ *     CcGetRandomVacbArrayWithReference @ 0x1404EB088 (CcGetRandomVacbArrayWithReference.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1404EB484 (CcUnmapInactiveViewsInternal.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 _DWORD *__fastcall CcReferenceVacbArray(unsigned int a1)

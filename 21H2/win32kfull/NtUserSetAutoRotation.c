@@ -1,29 +1,26 @@
 /*
- * XREFs of NtUserSetAutoRotation @ 0x1C01FC560
+ * XREFs of NtUserSetAutoRotation @ 0x1C02015C0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastStatus @ 0x1C011A880 (UserSetLastStatus.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     UserSetLastStatus @ 0x1C00EC7BC (UserSetLastStatus.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtUserSetAutoRotation(unsigned int a1)
 {
-  NTSTATUS v2; // eax
-  __int64 v3; // rcx
-  __int64 v4; // rbx
+  __int64 v2; // rdi
+  NTSTATUS v3; // eax
+  __int64 v4; // rcx
 
-  EnterCrit(0LL, 0LL);
-  v2 = (*(__int64 (__fastcall **)(PVOID, _QWORD))(*(_QWORD *)qword_1C0335C70 + 48LL))(qword_1C0335C70, a1);
-  if ( v2 < 0 )
+  v2 = 1LL;
+  EnterCrit(0LL, 1LL);
+  v3 = (*(__int64 (__fastcall **)(PVOID, _QWORD))(*(_QWORD *)P + 48LL))(P, a1);
+  if ( v3 < 0 )
   {
-    UserSetLastStatus(v2, 1);
-    v4 = 0LL;
+    UserSetLastStatus(v3, 1);
+    v2 = 0LL;
   }
-  else
-  {
-    v4 = 1LL;
-  }
-  UserSessionSwitchLeaveCrit(v3);
-  return v4;
+  UserSessionSwitchLeaveCrit(v4);
+  return v2;
 }

@@ -1,25 +1,20 @@
 /*
- * XREFs of ??0CNaturalAnimationMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0213D2C
+ * XREFs of ??0CNaturalAnimationMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01D3E80
  * Callers:
- *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C001520C (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
+ *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00285B4 (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
  * Callees:
  *     <none>
  */
 
-LARGE_INTEGER *__fastcall DirectComposition::CNaturalAnimationMarshaler::CNaturalAnimationMarshaler(
-        LARGE_INTEGER *this)
+DirectComposition::CNaturalAnimationMarshaler *__fastcall DirectComposition::CNaturalAnimationMarshaler::CNaturalAnimationMarshaler(
+        DirectComposition::CNaturalAnimationMarshaler *this)
 {
-  LARGE_INTEGER PerformanceCounter; // rax
-
-  this[4].LowPart = 0;
-  this[7].QuadPart = 0LL;
-  this->QuadPart = (LONGLONG)&DirectComposition::CNaturalAnimationMarshaler::`vftable';
-  this[3].QuadPart = 1LL;
-  this[6].LowPart = 109;
-  PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  this[25].LowPart = 0;
-  this[25].HighPart = 0;
-  this[26].LowPart = 0;
-  this[23] = PerformanceCounter;
+  *(_QWORD *)((char *)this + 20) = 1LL;
+  *((_QWORD *)this + 6) = 0LL;
+  *((_DWORD *)this + 10) = 109;
+  *(_QWORD *)this = &DirectComposition::CNaturalAnimationMarshaler::`vftable';
+  *((_QWORD *)this + 22) = 0LL;
+  *((_DWORD *)this + 46) = 0;
+  *((LARGE_INTEGER *)this + 24) = KeQueryPerformanceCounter(0LL);
   return this;
 }

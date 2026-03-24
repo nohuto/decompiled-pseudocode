@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCoverageHighIrqlCPWorkItemCallback @ 0x140630EF0
+ * XREFs of EtwpCoverageHighIrqlCPWorkItemCallback @ 0x1405A6800
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     TelemetryCoverageStringHashInternal @ 0x14024F664 (TelemetryCoverageStringHashInternal.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCoverageRecord @ 0x1406D45B4 (EtwpCoverageRecord.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     TelemetryCoverageStringHashInternal @ 0x1402C86A8 (TelemetryCoverageStringHashInternal.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCoverageRecord @ 0x1406B5CE4 (EtwpCoverageRecord.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCoverageHighIrqlCPWorkItemCallback(_QWORD *a1)
@@ -18,8 +18,8 @@ __int64 __fastcall EtwpCoverageHighIrqlCPWorkItemCallback(_QWORD *a1)
   KIRQL v3; // al
   __int64 *v4; // rbx
   unsigned __int64 v5; // rsi
-  int v6; // r13d
-  __int64 v7; // rax
+  __int64 v6; // rax
+  int v7; // r13d
   unsigned __int64 v8; // r12
   _BYTE *v9; // rbp
   unsigned __int8 CurrentIrql; // al
@@ -44,12 +44,12 @@ __int64 __fastcall EtwpCoverageHighIrqlCPWorkItemCallback(_QWORD *a1)
     v5 = v3;
     if ( *v2 == (__int64 *)v2 )
       break;
-    v7 = *v4;
-    if ( (__int64 **)v4[1] != v2 || *(__int64 **)(v7 + 8) != v4 )
+    v6 = *v4;
+    if ( (__int64 **)v4[1] != v2 || *(__int64 **)(v6 + 8) != v4 )
       __fastfail(3u);
-    *v2 = (__int64 *)v7;
-    v6 = 1;
-    *(_QWORD *)(v7 + 8) = v2;
+    *v2 = (__int64 *)v6;
+    v7 = 1;
+    *(_QWORD *)(v6 + 8) = v2;
 LABEL_8:
     v8 = v4[3];
     v9 = (_BYTE *)v4[4];
@@ -87,13 +87,13 @@ LABEL_8:
       while ( (unsigned __int64)v9 < v8 );
       v2 = (__int64 **)(v1 + 16);
     }
-    if ( v6 )
+    if ( v7 )
       ExFreePoolWithTag(v4, 0x56777445u);
   }
   v4 = *(__int64 **)(v1 + 8);
   if ( v4[4] < (unsigned __int64)v4[3] )
   {
-    v6 = 0;
+    v7 = 0;
     goto LABEL_8;
   }
   v4[3] = (__int64)(v4 + 5);

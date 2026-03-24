@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDmListRemoveObject @ 0x1408296FC
+ * XREFs of PiDmListRemoveObject @ 0x1408296DC
  * Callers:
  *     PiPnpRtlCmActionCallback @ 0x140599080 (PiPnpRtlCmActionCallback.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     PiDmGetObjectManagerForObjectType @ 0x140598CD0 (PiDmGetObjectManagerForObjectType.c)
- *     PiDmListRemoveObjectWorker @ 0x1408297C8 (PiDmListRemoveObjectWorker.c)
+ *     PiDmListRemoveObjectWorker @ 0x1408297A8 (PiDmListRemoveObjectWorker.c)
  */
 
 _QWORD *__fastcall PiDmListRemoveObject(unsigned int a1, ULONG_PTR a2, ULONG_PTR a3, __int64 a4)

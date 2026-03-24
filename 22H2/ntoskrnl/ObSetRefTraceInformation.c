@@ -1,12 +1,12 @@
 /*
- * XREFs of ObSetRefTraceInformation @ 0x14097C950
+ * XREFs of ObSetRefTraceInformation @ 0x1408DE31C
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     ObpStartRuntimeStackTrace @ 0x14097D664 (ObpStartRuntimeStackTrace.c)
- *     ObpStopRuntimeStackTrace @ 0x14097DAD0 (ObpStopRuntimeStackTrace.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ObpStartRuntimeStackTrace @ 0x1408DF008 (ObpStartRuntimeStackTrace.c)
+ *     ObpStopRuntimeStackTrace @ 0x1408DF434 (ObpStopRuntimeStackTrace.c)
  */
 
 __int64 __fastcall ObSetRefTraceInformation(_BYTE *a1, unsigned int a2)

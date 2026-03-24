@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiTerminalMonitorControl @ 0x1409A371C
+ * XREFs of TtmiTerminalMonitorControl @ 0x1408FDBDC
  * Callers:
- *     TtmSessionMonitorControl @ 0x1409A4AE0 (TtmSessionMonitorControl.c)
+ *     TtmSessionMonitorControl @ 0x1408FEF14 (TtmSessionMonitorControl.c)
  * Callees:
- *     TtmiSetPendingOnOffRequest @ 0x1409A3648 (TtmiSetPendingOnOffRequest.c)
- *     TtmpEnterProximity @ 0x1409A39F8 (TtmpEnterProximity.c)
- *     TtmpExitProximity @ 0x1409A3A54 (TtmpExitProximity.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
+ *     TtmiSetPendingOnOffRequest @ 0x1408FDB28 (TtmiSetPendingOnOffRequest.c)
+ *     TtmpEnterProximity @ 0x1408FDEB8 (TtmpEnterProximity.c)
+ *     TtmpExitProximity @ 0x1408FDF14 (TtmpExitProximity.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmiTerminalMonitorControl(__int64 a1, unsigned int *a2, unsigned int a3, int a4)
@@ -47,6 +47,6 @@ LABEL_7:
     goto LABEL_6;
   }
   v6 = -1073741811;
-  TtmiLogError("TtmiTerminalMonitorControl", 1497LL, 0xFFFFFFFFLL, 3221225485LL);
+  TtmiLogError("TtmiTerminalMonitorControl", 1359LL, 0xFFFFFFFFLL, 3221225485LL);
   return v6;
 }

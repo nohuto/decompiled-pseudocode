@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpGetThreadResourceHint @ 0x140114380
+ * XREFs of ExpGetThreadResourceHint @ 0x1401143A0
  * Callers:
  *     ExpAcquireResourceSharedLite @ 0x140050960 (ExpAcquireResourceSharedLite.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1400B19F0 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireSharedWaitForExclusive @ 0x140165E60 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x1400B1A10 (ExpAcquireSharedStarveExclusive.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x140165E80 (ExAcquireSharedWaitForExclusive.c)
  * Callees:
  *     <none>
  */

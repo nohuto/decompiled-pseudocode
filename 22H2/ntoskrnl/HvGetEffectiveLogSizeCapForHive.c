@@ -1,13 +1,13 @@
 /*
- * XREFs of HvGetEffectiveLogSizeCapForHive @ 0x1407516C8
+ * XREFs of HvGetEffectiveLogSizeCapForHive @ 0x1407239C0
  * Callers:
- *     CmpIsHiveEligibleForLazyReconcile @ 0x140750EA0 (CmpIsHiveEligibleForLazyReconcile.c)
- *     CmpDoReconcileNextHive @ 0x140750F50 (CmpDoReconcileNextHive.c)
- *     HvTruncateCurrentLogFileIfRequired @ 0x14075140C (HvTruncateCurrentLogFileIfRequired.c)
- *     CmpGenerateFlushControlData @ 0x140753D7C (CmpGenerateFlushControlData.c)
- *     HvSwapLogFiles @ 0x1407DED54 (HvSwapLogFiles.c)
- *     CmpAdjustRequestedFileSize @ 0x1407E62CC (CmpAdjustRequestedFileSize.c)
- *     HvTruncateAllLogFilesIfRequired @ 0x1407E8014 (HvTruncateAllLogFilesIfRequired.c)
+ *     CmpGenerateFlushControlData @ 0x140723504 (CmpGenerateFlushControlData.c)
+ *     HvTruncateCurrentLogFileIfRequired @ 0x1407237B8 (HvTruncateCurrentLogFileIfRequired.c)
+ *     CmpAdjustRequestedFileSize @ 0x140724364 (CmpAdjustRequestedFileSize.c)
+ *     CmpDoReconcileNextHive @ 0x140724450 (CmpDoReconcileNextHive.c)
+ *     CmpIsHiveEligibleForLazyReconcile @ 0x140724564 (CmpIsHiveEligibleForLazyReconcile.c)
+ *     HvSwapLogFiles @ 0x140724908 (HvSwapLogFiles.c)
+ *     HvTruncateAllLogFilesIfRequired @ 0x140724BD8 (HvTruncateAllLogFilesIfRequired.c)
  * Callees:
  *     <none>
  */
@@ -21,10 +21,10 @@ __int64 __fastcall HvGetEffectiveLogSizeCapForHive(unsigned int *a1)
   unsigned int v5; // r8d
   __int64 result; // rax
 
-  if ( (a1[1028] & 0x800) != 0 )
+  if ( (a1[1038] & 0x800) != 0 )
     return 0x2000000LL;
-  v1 = a1[70];
-  v2 = a1[47];
+  v1 = a1[68];
+  v2 = a1[46];
   v3 = 0x2000;
   if ( v1 < 0x2000 )
     v3 = v1;

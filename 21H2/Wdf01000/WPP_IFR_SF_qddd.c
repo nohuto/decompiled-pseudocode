@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_IFR_SF_qDDd @ 0x1C006417C
+ * XREFs of WPP_IFR_SF_qDDd @ 0x1C0049E00
  * Callers:
- *     ?ConfigureConstraints@FxIoQueue@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@@Z @ 0x1C0025214 (-ConfigureConstraints@FxIoQueue@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@@Z.c)
- *     imp_WdfRequestForwardToParentDeviceIoQueue @ 0x1C0064550 (imp_WdfRequestForwardToParentDeviceIoQueue.c)
+ *     imp_WdfRequestForwardToParentDeviceIoQueue @ 0x1C004A290 (imp_WdfRequestForwardToParentDeviceIoQueue.c)
+ *     ?ConfigureConstraints@FxIoQueue@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@@Z @ 0x1C0075CD4 (-ConfigureConstraints@FxIoQueue@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@@Z.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qDDd(

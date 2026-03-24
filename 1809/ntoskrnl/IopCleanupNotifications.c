@@ -1,15 +1,15 @@
 /*
- * XREFs of IopCleanupNotifications @ 0x14016AA18
+ * XREFs of IopCleanupNotifications @ 0x14016AA38
  * Callers:
  *     IopDeleteFileObjectExtension @ 0x140092150 (IopDeleteFileObjectExtension.c)
  *     IopDeleteDevice @ 0x14059F2A0 (IopDeleteDevice.c)
- *     IopUnloadDriver @ 0x1407089E8 (IopUnloadDriver.c)
+ *     IopUnloadDriver @ 0x1407089C8 (IopUnloadDriver.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExUnregisterCallback @ 0x14016CED0 (ExUnregisterCallback.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExUnregisterCallback @ 0x14016CEF0 (ExUnregisterCallback.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

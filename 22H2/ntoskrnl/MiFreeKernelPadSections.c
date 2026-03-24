@@ -1,30 +1,29 @@
 /*
- * XREFs of MiFreeKernelPadSections @ 0x140B6892C
+ * XREFs of MiFreeKernelPadSections @ 0x140A6B26C
  * Callers:
- *     MiInitializeDriverImages @ 0x140B497A0 (MiInitializeDriverImages.c)
+ *     MiInitializeDriverImages @ 0x140A4E6F4 (MiInitializeDriverImages.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     MiIsKernelHalPadSection @ 0x1403A6A40 (MiIsKernelHalPadSection.c)
- *     MiFreeInitializationCode @ 0x140703BAC (MiFreeInitializationCode.c)
- *     VslReserveProtectedPages @ 0x140886034 (VslReserveProtectedPages.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     MiIsKernelHalPadSection @ 0x1403C7F9C (MiIsKernelHalPadSection.c)
+ *     MiFreeInitializationCode @ 0x14075E45C (MiFreeInitializationCode.c)
+ *     VslReserveProtectedPages @ 0x14077D250 (VslReserveProtectedPages.c)
  */
 
 void __fastcall MiFreeKernelPadSections(unsigned __int64 a1, int a2)
 {
-  int v2; // ebp
+  int v2; // esi
   __int64 v4; // rax
   int v5; // r14d
   __int64 v6; // r10
-  int v7; // esi
+  int v7; // ebp
   _DWORD *v8; // rbx
   unsigned int v9; // ecx
-  __int64 v10; // rdx
+  __int64 v10; // r15
   unsigned int v11; // r8d
-  int v12; // r13d
-  __int64 v13; // r15
+  unsigned int v12; // r12d
 
   v2 = a2;
-  if ( dword_140D1D228 != 2 )
+  if ( dword_140CFB1D8 != 2 )
   {
     v4 = RtlImageNtHeader(a1);
     v5 = 0;
@@ -44,18 +43,17 @@ void __fastcall MiFreeKernelPadSections(unsigned __int64 a1, int a2)
           ++v5;
           v11 = (v9 + 4095) & 0xFFFFF000;
           v12 = v11 + v10;
-          if ( v5 != 1 || dword_140D1D228 != 1 )
+          if ( v5 != 1 || dword_140CFB1D8 != 1 )
           {
-            v13 = (unsigned int)v8[3];
-            if ( (MiFlags & 0x4000) != 0 )
+            if ( (MiFlags & 0x8000) != 0 )
             {
               VslReserveProtectedPages(0LL, a1 + v10, v11 >> 12, 2u);
               v6 = 0x7FFFFFFFF8LL;
             }
             MiFreeInitializationCode(
               a1,
-              (v6 & ((v13 + a1) >> 9)) - 0x98000000000LL,
-              (v6 & ((a1 + (unsigned int)(v12 - 1)) >> 9)) - 0x98000000000LL,
+              (v6 & ((a1 + v10) >> 9)) - 0x98000000000LL,
+              (v6 & ((v12 + a1 - 1) >> 9)) - 0x98000000000LL,
               1);
             v6 = 0x7FFFFFFFF8LL;
           }
@@ -66,11 +64,11 @@ void __fastcall MiFreeKernelPadSections(unsigned __int64 a1, int a2)
       while ( v7 );
       v2 = a2;
     }
-    if ( (*(_QWORD *)&v2 & 0x1FFFFFLL) != 0 && (MiFlags & 4) != 0 )
+    if ( (MiFlags & 4) != 0 && (*(_QWORD *)&v2 & 0x1FFFFFLL) != 0 )
       MiFreeInitializationCode(
         a1,
         (v6 & ((a1 + (unsigned int)(v2 - a1)) >> 9)) - 0x98000000000LL,
-        (v6 & ((a1 + ((v2 - (_DWORD)a1 + 0x1FFFFF) & 0xFFE00000) - 1) >> 9)) - 0x98000000000LL,
+        (v6 & ((((v2 - (_DWORD)a1 + 0x1FFFFF) & 0xFFE00000) + a1 - 1) >> 9)) - 0x98000000000LL,
         1);
   }
 }

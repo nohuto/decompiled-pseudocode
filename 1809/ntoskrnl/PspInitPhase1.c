@@ -3,12 +3,12 @@
  * Callers:
  *     PsInitSystem @ 0x1409C4944 (PsInitSystem.c)
  * Callees:
- *     strcpy_s @ 0x14019B7A0 (strcpy_s.c)
- *     KeBugCheck @ 0x1401BBB80 (KeBugCheck.c)
- *     VslRegisterSecureSystemProcess @ 0x14027BB34 (VslRegisterSecureSystemProcess.c)
+ *     strcpy_s @ 0x14019B7C0 (strcpy_s.c)
+ *     KeBugCheck @ 0x1401BBBA0 (KeBugCheck.c)
+ *     VslRegisterSecureSystemProcess @ 0x14027BC34 (VslRegisterSecureSystemProcess.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ObInsertObject @ 0x14061B280 (ObInsertObject.c)
- *     PsCreateMinimalProcess @ 0x14075754C (PsCreateMinimalProcess.c)
+ *     PsCreateMinimalProcess @ 0x14075752C (PsCreateMinimalProcess.c)
  *     PspInitializeBackgroundActivityModeratorCallouts @ 0x1409ADABC (PspInitializeBackgroundActivityModeratorCallouts.c)
  *     PspInitializeDesktopActivityModeratorCallouts @ 0x1409ADB18 (PspInitializeDesktopActivityModeratorCallouts.c)
  *     PspInitializeHwTraceCallouts @ 0x1409ADB6C (PspInitializeHwTraceCallouts.c)

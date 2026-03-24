@@ -1,11 +1,12 @@
 /*
- * XREFs of ApiSetEditionIsGpqForegroundAccessibleExplicit @ 0x1C00C9988
+ * XREFs of ApiSetEditionIsGpqForegroundAccessibleExplicit @ 0x1C004E8C4
  * Callers:
- *     ProcessKeyboardInjectedInputViaRim @ 0x1C00024FC (ProcessKeyboardInjectedInputViaRim.c)
- *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C006B3FC (xxxUpdateGlobalsAndSendKeyEvent.c)
- *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C01CED30 (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C004D1F0 (xxxUpdateGlobalsAndSendKeyEvent.c)
+ *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C019885C (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
+ *     ProcessKeyboardInjectedInputViaRim @ 0x1C01B07B0 (ProcessKeyboardInjectedInputViaRim.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ApiSetEditionIsGpqForegroundAccessibleExplicit(
@@ -14,10 +15,37 @@ __int64 __fastcall ApiSetEditionIsGpqForegroundAccessibleExplicit(
         __int64 a3,
         unsigned int a4)
 {
-  unsigned int v4; // edi
+  __int64 v6; // rbp
+  unsigned int v8; // edi
+  int v9; // eax
 
-  v4 = 0;
-  if ( qword_1C02964F0 && (int)qword_1C02964F0() >= 0 && qword_1C02964F8 )
-    return (unsigned int)qword_1C02964F8(a1, a2, a3, a4);
-  return v4;
+  v6 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      184,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  v8 = 0;
+  if ( qword_1C02572C8 )
+    v9 = qword_1C02572C8();
+  else
+    v9 = -1073741637;
+  if ( v9 >= 0 && qword_1C02572D0 )
+    v8 = qword_1C02572D0(a1, v6, a3, a4);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      185,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  return v8;
 }

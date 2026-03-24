@@ -1,9 +1,8 @@
 /*
- * XREFs of ??4?$SharedMixedObjectPointerFieldpcls@UtagCLS@@@tagWND@@QEAAPEAUtagCLS@@PEAU2@@Z @ 0x1C00F8378
+ * XREFs of ??4?$SharedMixedObjectPointerFieldpcls@UtagCLS@@@tagWND@@QEAAPEAUtagCLS@@PEAU2@@Z @ 0x1C00257D4
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     ReferenceClass @ 0x1C00F8130 (ReferenceClass.c)
+ *     ReferenceClass @ 0x1C0025580 (ReferenceClass.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
  * Callees:
  *     <none>
  */
@@ -11,12 +10,13 @@
 __int64 __fastcall tagWND::SharedMixedObjectPointerFieldpcls<tagCLS>::operator=(_QWORD *a1, __int64 a2)
 {
   __int64 v2; // r8
+  __int64 result; // rax
 
-  v2 = *(a1 - 12);
+  v2 = 0LL;
   if ( a2 )
-    *(_QWORD *)(v2 + 128) = *(_QWORD *)(a2 + 16);
-  else
-    *(_QWORD *)(v2 + 128) = 0LL;
+    v2 = *(_QWORD *)(a2 + 16);
+  *(_QWORD *)(*(a1 - 12) + 128LL) = v2;
+  result = a2;
   *a1 = a2;
-  return a2;
+  return result;
 }

@@ -1,87 +1,84 @@
 /*
- * XREFs of MiFillMapFileInfo @ 0x1408AC30A
+ * XREFs of MiFillMapFileInfo @ 0x1408C45BC
  * Callers:
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1407A5200 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MiLogMapFileEvent @ 0x1408AC522 (MiLogMapFileEvent.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x14061E9B0 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MiLogMapFileEvent @ 0x1408C4798 (MiLogMapFileEvent.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x140272D70 (MiGetProtoPteAddress.c)
- *     MiVadMapsLargeImage @ 0x14027CE20 (MiVadMapsLargeImage.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     MiReferenceControlAreaFile @ 0x1402A22B4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A23C0 (MiDereferenceControlAreaFile.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     MiLocateVadEvent @ 0x14030B2DC (MiLocateVadEvent.c)
+ *     MiReferenceControlAreaFile @ 0x14029D540 (MiReferenceControlAreaFile.c)
+ *     MiStartingOffset @ 0x14029EAA0 (MiStartingOffset.c)
+ *     MiGetProtoPteAddress @ 0x1402B11D0 (MiGetProtoPteAddress.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     MiDereferenceControlAreaFile @ 0x1402D7994 (MiDereferenceControlAreaFile.c)
  */
 
 int __fastcall MiFillMapFileInfo(__int64 a1, __int64 a2)
 {
-  __int64 v4; // r12
-  unsigned __int64 v5; // r15
-  int v6; // r13d
-  unsigned __int64 v7; // r14
-  unsigned __int64 v8; // rbp
-  unsigned __int64 v9; // rsi
-  __int64 v10; // rsi
-  __int64 v11; // rax
+  unsigned __int64 *v3; // rdi
+  int v5; // r12d
+  unsigned __int64 v6; // rbp
+  __int64 v7; // r15
+  unsigned __int64 v8; // rsi
+  ULONG_PTR v9; // rax
   unsigned int SessionId; // eax
-  unsigned __int64 v13; // rcx
-  __int64 v14; // rcx
-  __int64 VadEvent; // rax
-  unsigned __int64 v16; // rcx
-  unsigned __int64 v17; // rcx
-  __int64 v18; // rax
-  __int64 *v20; // [rsp+50h] [rbp+8h] BYREF
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rcx
+  __int64 v13; // rax
+  unsigned __int64 v14; // rcx
+  unsigned __int64 v15; // r8
+  __int64 v16; // rax
+  __int64 *v18; // [rsp+50h] [rbp+8h] BYREF
 
-  v20 = 0LL;
-  v4 = **(_QWORD **)(a1 + 72);
-  v5 = *(_QWORD *)(a1 + 112) & 0xFFFFFFFFFFFFFFFEuLL;
-  v6 = *(_DWORD *)(a1 + 48);
-  v7 = *(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32);
-  v8 = v7 << 12;
-  v9 = *(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32);
+  v3 = (unsigned __int64 *)(a2 + 16);
+  v18 = 0LL;
+  v5 = *(_DWORD *)(a1 + 48);
+  v6 = *(_QWORD *)(a1 + 112) & 0xFFFFFFFFFFFFFFFEuLL;
+  v7 = **(_QWORD **)(a1 + 72);
+  v8 = *(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32);
   *(_QWORD *)(a2 + 16) = 0LL;
-  v10 = (v9 - v7 + 1) << 12;
-  if ( !*(_QWORD *)(v4 + 64) )
+  if ( *(_QWORD *)(v7 + 64) )
   {
+    v9 = MiReferenceControlAreaFile(v7);
+    *(_QWORD *)(a2 + 8) = *(_QWORD *)(v9 + 24);
+    MiDereferenceControlAreaFile(v7, v9);
+    MiGetProtoPteAddress(a1, v8, 0, &v18);
+    SessionId = MmGetSessionIdEx(v6);
+    v11 = *v3 ^ (MiStartingOffset(v18, *(_QWORD *)(a1 + 80), SessionId) ^ *v3) & 0xFFFFFFFFFFFFLL;
+    *v3 = v11;
+    if ( (v5 & 0x70) == 0x20 )
+    {
+      if ( (*(_DWORD *)(a1 + 48) & 0xF80) == 0x380 )
+      {
+        v12 = v11 & 0xFF7FFFFFFFFFFFFFuLL;
+        v13 = 0x40000000000000LL;
+      }
+      else
+      {
+        v12 = v11 & 0xFFBFFFFFFFFFFFFFuLL;
+        v13 = 0x80000000000000LL;
+      }
+      v14 = v13 | v12;
+    }
+    else
+    {
+      v14 = v11 & 0xFF3FFFFFFFFFFFFFuLL;
+    }
+  }
+  else
+  {
+    v14 = 0xC0000000000000LL;
     *(_QWORD *)(a2 + 8) = *(_QWORD *)(a1 + 80);
-    *(_QWORD *)(a2 + 16) = 0xC0000000000000LL;
-    goto LABEL_10;
   }
-  v11 = MiReferenceControlAreaFile(v4);
-  *(_QWORD *)(a2 + 8) = *(_QWORD *)(v11 + 24);
-  MiDereferenceControlAreaFile(v4, v11);
-  MiGetProtoPteAddress(a1, v7, 0, (__int64 *)&v20);
-  SessionId = MmGetSessionIdEx(v5);
-  v13 = *(_QWORD *)(a2 + 16) ^ (*(_QWORD *)(a2 + 16) ^ MiStartingOffset(v20, *(_QWORD *)(a1 + 80), SessionId)) & 0xFFFFFFFFFFFFLL;
-  *(_QWORD *)(a2 + 16) = v13;
-  if ( (v6 & 0x70) != 0x20 )
-  {
-    v16 = v13 & 0xFF3FFFFFFFFFFFFFuLL;
-    goto LABEL_9;
-  }
-  if ( (*(_DWORD *)(a1 + 48) & 0xF80) != 0x380 )
-  {
-    v16 = v13 & 0xFF3FFFFFFFFFFFFFuLL | 0x80000000000000LL;
-LABEL_9:
-    *(_QWORD *)(a2 + 16) = v16;
-    goto LABEL_10;
-  }
-  *(_QWORD *)(a2 + 16) = v13 & 0xFF3FFFFFFFFFFFFFuLL | 0x40000000000000LL;
-  if ( (unsigned int)MiVadMapsLargeImage(a1) )
-  {
-    VadEvent = MiLocateVadEvent(v14, 16LL);
-    v8 += (unsigned __int64)*(unsigned __int8 *)(VadEvent + 8) << 16;
-    v10 = *(_QWORD *)(VadEvent + 16) << 12;
-  }
-LABEL_10:
-  v17 = ((unsigned __int64)(*(_DWORD *)(a1 + 64) & 0x1000000) << 29) | *(_QWORD *)(a2 + 16) & 0xFFDFFFFFFFFFFFFFuLL;
-  *(_QWORD *)(a2 + 16) = v17;
-  *(_DWORD *)(a2 + 40) = *(_DWORD *)(v5 + 1088);
-  *(_QWORD *)a2 = v8;
-  *(_QWORD *)(a2 + 24) = v10;
-  *(_QWORD *)(a2 + 16) = v17 ^ (v17 ^ ((unsigned __int64)*(unsigned int *)(a1 + 48) << 41)) & 0x1F000000000000LL;
-  v18 = *(unsigned int *)(a1 + 52);
-  LODWORD(v18) = v18 & 0x7FFFFFFF;
-  *(_QWORD *)(a2 + 32) = (v18 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31)) << 12;
-  return v18;
+  *v3 = v14;
+  v15 = ((unsigned __int64)(*(_DWORD *)(a1 + 64) & 0x1000000) << 29) | *v3 & 0xFFDFFFFFFFFFFFFFuLL;
+  *v3 = v15;
+  *(_DWORD *)(a2 + 40) = *(_DWORD *)(v6 + 1088);
+  *(_QWORD *)a2 = v8 << 12;
+  *(_QWORD *)(a2 + 24) = ((*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32))
+                        - (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32))
+                        + 1) << 12;
+  *v3 = v15 ^ (v15 ^ ((unsigned __int64)*(unsigned int *)(a1 + 48) << 41)) & 0x1F000000000000LL;
+  v16 = *(unsigned int *)(a1 + 52);
+  LODWORD(v16) = v16 & 0x7FFFFFFF;
+  *(_QWORD *)(a2 + 32) = (v16 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31)) << 12;
+  return v16;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_LLLqss @ 0x1C0063804
+ * XREFs of WPP_RECORDER_SF_LLLqss @ 0x1C00624C4
  * Callers:
- *     ACPIWakeDisableAsync @ 0x1C00627FC (ACPIWakeDisableAsync.c)
+ *     ACPIWakeDisableAsync @ 0x1C00619AC (ACPIWakeDisableAsync.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_LLLqss(
@@ -69,7 +69,7 @@ __int64 __fastcall WPP_RECORDER_SF_LLLqss(
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, char *, __int64, char *, __int64, char *, __int64, char *, __int64, const char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_f2b70cf489233296687a8e467b880eb0_Traceguids,
+      &WPP_78661b2d78ff34e38fc1910a80efa3ce_Traceguids,
       11LL,
       &a6,
       4LL,
@@ -99,5 +99,5 @@ __int64 __fastcall WPP_RECORDER_SF_LLLqss(
     while ( v12[v13] );
   }
   LOWORD(v23) = 11;
-  return WppAutoLogTrace(a1, 4LL, 17LL, &WPP_f2b70cf489233296687a8e467b880eb0_Traceguids, v23, &a6);
+  return WppAutoLogTrace(a1, 4LL, 17LL, &WPP_78661b2d78ff34e38fc1910a80efa3ce_Traceguids, v23, &a6);
 }

@@ -1,79 +1,77 @@
 /*
- * XREFs of ?VidMmFlushCpuCacheWorker@@YAJPEAX_KPEAU_MDL@@E@Z @ 0x1C00E9E90
+ * XREFs of ?VidMmFlushCpuCacheWorker@@YAJPEAX_KPEAU_MDL@@E@Z @ 0x1C00B4CE4
  * Callers:
- *     ?FlushAllocationFromProcessorCache@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@HE@Z @ 0x1C00E3008 (-FlushAllocationFromProcessorCache@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@HE@Z.c)
- *     ?InvalidateCache@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAU_VIDMM_MULTI_ALLOC@@_K3@Z @ 0x1C00E3C38 (-InvalidateCache@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAU_VIDMM.c)
+ *     ?FlushAllocationFromProcessorCache@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@HE@Z @ 0x1C00AE590 (-FlushAllocationFromProcessorCache@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@HE@Z.c)
  * Callees:
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0005D98 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0019988 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0005710 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0017928 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024D70 (McTemplateK0q_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall VidMmFlushCpuCacheWorker(__int64 BaseAddress, unsigned __int64 Length, struct _MDL *a3)
 {
-  char *v4; // r14
-  __int64 v5; // rcx
+  char *v4; // rsi
+  __int64 v5; // rdx
   __int64 v6; // rcx
   __int64 v7; // r8
-  ULONG v9; // ebx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  int v12; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v13; // [rsp+58h] [rbp-30h]
-  char v14; // [rsp+60h] [rbp-28h]
+  __int64 v8; // rax
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  ULONG v12; // ebx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  int v15; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v16; // [rsp+28h] [rbp-30h]
+  char v17; // [rsp+30h] [rbp-28h]
 
   v4 = (char *)BaseAddress;
-  v12 = -1;
-  v13 = 0LL;
-  if ( (qword_1C0076010 & 2) != 0 )
+  v15 = -1;
+  v16 = 0LL;
+  if ( (qword_1C0050010 & 2) != 0 )
   {
-    v14 = 1;
-    v12 = 8008;
-    if ( byte_1C0076981 < 0 )
-      McTemplateK0q_EtwWriteTransfer(BaseAddress, (__int64)&EventProfilerEnter, (__int64)a3, 8008);
+    v17 = 1;
+    v15 = 8008;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(BaseAddress, &EventProfilerEnter, (__int64)a3, 8008);
   }
   else
   {
-    v14 = 0;
+    v17 = 0;
   }
   DXGETWPROFILER_BASE::PushProfilerEntry();
   if ( v4 )
   {
-    if ( Length < 0x80000000 )
-    {
-      while ( Length )
-      {
-        v9 = -1;
-        if ( Length < 0xFFFFFFFF )
-          v9 = Length;
-        KeInvalidateRangeAllCaches(v4, v9);
-        Length -= v9;
-        v4 += v9;
-      }
-    }
-    else
+    if ( (Length & 0xFFFFFFFF80000000uLL) != 0 )
     {
       KeInvalidateAllCaches();
     }
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v12);
-    if ( v14 )
+    else
     {
-      LOBYTE(v10) = byte_1C0076981;
-      if ( byte_1C0076981 < 0 )
-        McTemplateK0q_EtwWriteTransfer(v10, (__int64)&EventProfilerExit, v11, v12);
+      while ( Length )
+      {
+        v12 = -1;
+        if ( Length < 0xFFFFFFFF )
+          v12 = Length;
+        KeInvalidateRangeAllCaches(v4, v12);
+        Length -= v12;
+        v4 += v12;
+      }
     }
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v15);
+    if ( v17 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v13, &EventProfilerExit, v14, v15);
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(1LL, 19066LL);
-    DxgkLogInternalTriageEvent(v5, 0x40000LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v12);
-    if ( v14 )
+    v8 = WdLogNewEntry5_WdAssertion(v6, v5, v7);
+    *(_QWORD *)(v8 + 24) = 18312LL;
+    WdLogEvent5_WdAssertion(v8);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v15);
+    if ( v17 )
     {
-      if ( byte_1C0076981 < 0 )
-        McTemplateK0q_EtwWriteTransfer(v6, (__int64)&EventProfilerExit, v7, v12);
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v9, &EventProfilerExit, v10, v15);
     }
     return 3221225485LL;
   }

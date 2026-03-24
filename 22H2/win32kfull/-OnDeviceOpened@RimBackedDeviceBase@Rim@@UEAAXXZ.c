@@ -1,7 +1,7 @@
 /*
- * XREFs of ?OnDeviceOpened@RimBackedDeviceBase@Rim@@UEAAXXZ @ 0x1C0227DF0
+ * XREFs of ?OnDeviceOpened@RimBackedDeviceBase@Rim@@UEAAXXZ @ 0x1C0243380
  * Callers:
- *     ?OnDeviceOpened@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C023E3D0 (-OnDeviceOpened@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?OnDeviceOpened@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C024F078 (-OnDeviceOpened@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ void __fastcall Rim::RimBackedDeviceBase::OnDeviceOpened(Rim::RimBackedDeviceBas
   {
     if ( !*((_BYTE *)this + 12) )
     {
-      RelatedDeviceObject = IoGetRelatedDeviceObject(*(PFILE_OBJECT *)(v2 + 304));
+      RelatedDeviceObject = IoGetRelatedDeviceObject(*(PFILE_OBJECT *)(v2 + 320));
       *((_QWORD *)this + 3) = RelatedDeviceObject;
       ObfReferenceObject(RelatedDeviceObject);
       *((_BYTE *)this + 12) = 1;

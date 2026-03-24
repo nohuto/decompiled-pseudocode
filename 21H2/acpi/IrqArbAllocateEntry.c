@@ -1,9 +1,9 @@
 /*
- * XREFs of IrqArbAllocateEntry @ 0x1C009FF30
+ * XREFs of IrqArbAllocateEntry @ 0x1C00A1230
  * Callers:
  *     <none>
  * Callees:
- *     ArbAllocateEntry @ 0x1C009FFA0 (ArbAllocateEntry.c)
+ *     ArbAllocateEntry @ 0x1C00A12A0 (ArbAllocateEntry.c)
  */
 
 __int64 __fastcall IrqArbAllocateEntry(__int64 a1, __int64 a2)

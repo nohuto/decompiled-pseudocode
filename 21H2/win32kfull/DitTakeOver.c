@@ -1,7 +1,7 @@
 /*
- * XREFs of DitTakeOver @ 0x1C00FD28C
+ * XREFs of DitTakeOver @ 0x1C010BE90
  * Callers:
- *     EditionActivateMitInput @ 0x1C00FCD90 (EditionActivateMitInput.c)
+ *     EditionActivateMitInput @ 0x1C010B9D0 (EditionActivateMitInput.c)
  * Callees:
  *     <none>
  */

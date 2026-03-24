@@ -8,10 +8,10 @@
  *     MiResolveProtoPteFault @ 0x140042E60 (MiResolveProtoPteFault.c)
  *     MiSetReadOnlyOnSectionView @ 0x140085B00 (MiSetReadOnlyOnSectionView.c)
  *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
- *     MmCheckCachedPageStates @ 0x1400B0290 (MmCheckCachedPageStates.c)
- *     MiWriteWsle @ 0x1400DB178 (MiWriteWsle.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x14011B860 (MiTryLockProtoPoolPageAtDpc.c)
- *     MiLockPagedAddress @ 0x1401408F0 (MiLockPagedAddress.c)
+ *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
+ *     MiWriteWsle @ 0x1400DB198 (MiWriteWsle.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x14011B880 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiLockPagedAddress @ 0x140140910 (MiLockPagedAddress.c)
  * Callees:
  *     <none>
  */

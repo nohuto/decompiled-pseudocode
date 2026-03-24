@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsHardwareProtected@CD2DBitmap@@$4PPPPPPPM@LA@EBA_NXZ @ 0x1801097F0
+ * XREFs of ?IsHardwareProtected@CD2DBitmap@@$4PPPPPPPM@LA@EBA_NXZ @ 0x1800F6250
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FindControlPointAtDistance@CTrimPathOperation@@AEBA_NIPEAIPEAMPEAUBezierTrimPoint@1@@Z @ 0x18029FFD8
+ * XREFs of ?FindControlPointAtDistance@CTrimPathOperation@@AEBA_NIPEAIPEAMPEAUBezierTrimPoint@1@@Z @ 0x18025E560
  * Callers:
- *     ?InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z @ 0x1802A06CC (-InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z.c)
+ *     ?InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z @ 0x18025EBEC (-InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z.c)
  * Callees:
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
  */
 
 bool __fastcall CTrimPathOperation::FindControlPointAtDistance(
@@ -32,7 +32,7 @@ bool __fastcall CTrimPathOperation::FindControlPointAtDistance(
     {
       v13 = *((float *)this + 2 * v5 + 51) - *((float *)this + 2 * v12 + 51);
       v14 = *((float *)this + 2 * v5 + 52) - *((float *)this + 2 * v12 + 52);
-      v15 = o_sqrtf_0((float)(v13 * v13) + (float)(v14 * v14));
+      v15 = sqrtf_0((float)(v13 * v13) + (float)(v14 * v14));
       v11 = v11 + v15;
       if ( v11 > *((float *)a5 + 1) )
         break;

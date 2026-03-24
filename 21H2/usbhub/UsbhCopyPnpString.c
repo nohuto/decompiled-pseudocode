@@ -1,24 +1,31 @@
 /*
- * XREFs of UsbhCopyPnpString @ 0x1C0059124
+ * XREFs of UsbhCopyPnpString @ 0x1C005A810
  * Callers:
- *     UsbhFdoReturnDeviceConfigInfo @ 0x1C0030490 (UsbhFdoReturnDeviceConfigInfo.c)
+ *     UsbhFdoReturnDeviceConfigInfo @ 0x1C0031834 (UsbhFdoReturnDeviceConfigInfo.c)
  * Callees:
- *     memmove @ 0x1C001F540 (memmove.c)
+ *     memmove @ 0x1C001DEC0 (memmove.c)
+ *     memset @ 0x1C001E180 (memset.c)
  */
 
 __int64 __fastcall UsbhCopyPnpString(__int64 a1, __int64 a2)
 {
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
 
   *(_OWORD *)a1 = 0LL;
   if ( *(_QWORD *)(a2 + 8) && *(_DWORD *)(a2 + 4) )
   {
     *(_OWORD *)a1 = *(_OWORD *)a2;
-    Pool2 = (void *)ExAllocatePool2(64LL, *(unsigned int *)(a2 + 4), 1112885333LL);
-    *(_QWORD *)(a1 + 8) = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(
+                    SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory),
+                    *(unsigned int *)(a2 + 4),
+                    0x42554855u);
+    *(_QWORD *)(a1 + 8) = PoolWithTag;
+    if ( !PoolWithTag )
       return 3221225626LL;
-    memmove(Pool2, *(const void **)(a2 + 8), *(unsigned int *)(a2 + 4));
+    memset(PoolWithTag, 0, *(unsigned int *)(a2 + 4));
+    if ( !*(_QWORD *)(a1 + 8) )
+      return 3221225626LL;
+    memmove(*(void **)(a1 + 8), *(const void **)(a2 + 8), *(unsigned int *)(a2 + 4));
   }
   return 0LL;
 }

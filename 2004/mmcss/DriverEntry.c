@@ -1,14 +1,23 @@
 /*
- * XREFs of DriverEntry @ 0x1C000D010
+ * XREFs of DriverEntry @ 0x1C000D120
  * Callers:
- *     <none>
+ *     GsDriverEntry @ 0x1C000D010 (GsDriverEntry.c)
  * Callees:
- *     sub_1C000D044 @ 0x1C000D044 (sub_1C000D044.c)
- *     sub_1C000D120 @ 0x1C000D120 (sub_1C000D120.c)
+ *     CsTerminate @ 0x1C000C494 (CsTerminate.c)
+ *     CsInitialize @ 0x1C000D150 (CsInitialize.c)
  */
 
-NTSTATUS __stdcall DriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath)
+NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
 {
-  sub_1C000D044();
-  return sub_1C000D120(DriverObject, RegistryPath);
+  NTSTATUS result; // eax
+  NTSTATUS v3; // ebx
+
+  result = CsInitialize(DriverObject, RegistryPath);
+  v3 = result;
+  if ( result < 0 )
+  {
+    CsTerminate();
+    return v3;
+  }
+  return result;
 }

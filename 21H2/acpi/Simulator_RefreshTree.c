@@ -1,11 +1,11 @@
 /*
- * XREFs of Simulator_RefreshTree @ 0x1C0065440
+ * XREFs of Simulator_RefreshTree @ 0x1C00641C0
  * Callers:
- *     ACPITableLoadCallBack @ 0x1C001F7F0 (ACPITableLoadCallBack.c)
- *     ParseUnload @ 0x1C006C0C0 (ParseUnload.c)
+ *     ACPITableLoadCallBack @ 0x1C0030360 (ACPITableLoadCallBack.c)
+ *     ParseUnload @ 0x1C006BE10 (ParseUnload.c)
  * Callees:
- *     Simulator_AllocAndInitTestData @ 0x1C0064AA0 (Simulator_AllocAndInitTestData.c)
- *     Simulator_TestNotify @ 0x1C0065540 (Simulator_TestNotify.c)
+ *     Simulator_AllocAndInitTestData @ 0x1C006381C (Simulator_AllocAndInitTestData.c)
+ *     Simulator_TestNotify @ 0x1C00642C0 (Simulator_TestNotify.c)
  */
 
 __int64 Simulator_RefreshTree()

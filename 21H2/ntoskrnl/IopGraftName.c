@@ -1,352 +1,371 @@
 /*
- * XREFs of IopGraftName @ 0x1406B9FD4
+ * XREFs of IopGraftName @ 0x14069E8A4
  * Callers:
- *     IopSymlinkProcessReparse @ 0x1406B9F74 (IopSymlinkProcessReparse.c)
+ *     IopSymlinkProcessReparse @ 0x14069E848 (IopSymlinkProcessReparse.c)
  * Callees:
- *     IopSymlinkGetMostRecentlyUsedName @ 0x14024011C (IopSymlinkGetMostRecentlyUsedName.c)
- *     IopSymlinkGetECP @ 0x14024013C (IopSymlinkGetECP.c)
- *     IopGetFileObjectExtension @ 0x1402A3A14 (IopGetFileObjectExtension.c)
- *     IopSymlinkRemoveECP @ 0x1402A4DEC (IopSymlinkRemoveECP.c)
- *     Feature_2506530111__private_IsEnabled @ 0x140417C90 (Feature_2506530111__private_IsEnabled.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     IopCopyOverNewPathSecure @ 0x140658770 (IopCopyOverNewPathSecure.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14066EF20 (FsRtlFreeExtraCreateParameter.c)
- *     IoGetIrpExtraCreateParameter @ 0x14069B6E0 (IoGetIrpExtraCreateParameter.c)
- *     IopSymlinkUpdateECP @ 0x1406B9A14 (IopSymlinkUpdateECP.c)
- *     IopSymlinkRememberJunction @ 0x1406B9BC0 (IopSymlinkRememberJunction.c)
- *     IopSymlinkInitializeSymlinkInfo @ 0x1406B9DC4 (IopSymlinkInitializeSymlinkInfo.c)
- *     IopSymlinkAllocateAndAddECP @ 0x1406B9EA8 (IopSymlinkAllocateAndAddECP.c)
- *     IopCopyOverNewPath @ 0x1406BA5E4 (IopCopyOverNewPath.c)
- *     IopSymlinkGetRelatedMountPoint @ 0x1406BA6C4 (IopSymlinkGetRelatedMountPoint.c)
- *     IopGetFileInformation @ 0x14070FC40 (IopGetFileInformation.c)
- *     ObQueryNameStringMode @ 0x1407103B0 (ObQueryNameStringMode.c)
- *     IopSymlinkApplyToOpenedName @ 0x140937CC0 (IopSymlinkApplyToOpenedName.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     IopSymlinkGetMostRecentlyUsedName @ 0x1402BB470 (IopSymlinkGetMostRecentlyUsedName.c)
+ *     IopSymlinkGetECP @ 0x1402BB490 (IopSymlinkGetECP.c)
+ *     IopSymlinkRemoveECP @ 0x140354DDC (IopSymlinkRemoveECP.c)
+ *     IopGetFileObjectExtension @ 0x1403567E0 (IopGetFileObjectExtension.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopCopyOverNewPathSecure @ 0x1405CDC80 (IopCopyOverNewPathSecure.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14060C9E0 (FsRtlFreeExtraCreateParameter.c)
+ *     IopGetFileInformation @ 0x140620A14 (IopGetFileInformation.c)
+ *     IoGetIrpExtraCreateParameter @ 0x140683F20 (IoGetIrpExtraCreateParameter.c)
+ *     IopSymlinkUpdateECP @ 0x14069E24C (IopSymlinkUpdateECP.c)
+ *     IopSymlinkRememberJunction @ 0x14069E3D4 (IopSymlinkRememberJunction.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x14069E698 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x14069E77C (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkGetRelatedMountPoint @ 0x14069EEF4 (IopSymlinkGetRelatedMountPoint.c)
+ *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
+ *     IopSymlinkApplyToOpenedName @ 0x1408954C0 (IopSymlinkApplyToOpenedName.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void __fastcall IopGraftName(IRP *a1, __int64 a2, int *a3)
+IRP *__fastcall IopGraftName(IRP *a1, __int64 a2, int *a3)
 {
-  IRP *v5; // r15
-  unsigned int v6; // r14d
-  void *v7; // rdi
-  NTSTATUS IrpExtraCreateParameter; // edi
-  UNICODE_STRING *v9; // r13
-  int v10; // ebx
-  __int64 v11; // r8
-  unsigned __int64 v12; // rcx
-  int v13; // eax
-  unsigned __int16 v14; // r11
-  __int64 v15; // rdx
-  char *v16; // rax
-  unsigned int v17; // r15d
-  __int64 Pool2; // rax
-  unsigned __int16 *v19; // r12
+  struct _DMA_ADAPTER *v3; // r12
+  unsigned int v5; // edi
+  char *v6; // r13
+  const void **v7; // rsi
+  int IrpExtraCreateParameter; // ebx
+  UNICODE_STRING *v9; // r15
+  __int64 v10; // r10
+  unsigned __int64 v11; // rcx
+  char v12; // r9
+  __int64 v13; // rdx
+  int v14; // eax
+  bool v15; // sf
+  __int16 v16; // r10
+  char *v17; // rax
+  ULONG v18; // esi
+  unsigned int v19; // r15d
+  unsigned __int16 *PoolWithTag; // rax
+  const void **v21; // r12
   int NameStringMode; // eax
-  unsigned int v21; // ebx
-  PVOID v22; // rdi
-  unsigned int *v23; // rax
-  _DWORD *v24; // r15
+  struct _FILE_OBJECT *v23; // r15
+  struct _IRP *v24; // rax
+  struct _IRP *v25; // r12
   int FileInformation; // eax
-  unsigned int v26; // ecx
+  unsigned int v27; // ecx
   __int64 RelatedMountPoint; // rax
-  unsigned __int16 v28; // dx
-  unsigned __int16 v29; // r11
-  PVOID v30; // r15
-  unsigned int v31; // r10d
+  unsigned __int16 v29; // r10
+  char v30; // r11
+  unsigned int v31; // r9d
   unsigned int v32; // r12d
-  __int64 v33; // rax
-  int v34; // ecx
-  char *v35; // rdi
-  unsigned int v36; // r12d
-  unsigned __int16 *v37; // rbx
-  unsigned int *v38; // r14
-  char *v39; // rbx
-  char *v40; // r14
-  unsigned __int16 v41; // r14
-  PVOID v42; // r15
-  unsigned int v43; // r13d
-  __int16 v44; // dx
-  __int64 MostRecentlyUsedName; // rax
-  int IsEnabled; // eax
-  __int64 v47; // rbx
+  char *v33; // rax
+  __int16 v34; // r12
+  struct _IRP *v35; // rdi
+  char *v36; // rbx
+  char *v37; // rdi
+  unsigned __int16 v38; // di
+  PVOID v39; // rsi
+  unsigned int v40; // r15d
+  __int16 v41; // dx
+  void *MostRecentlyUsedName; // rax
   int updated; // eax
-  __int16 v49; // [rsp+20h] [rbp-69h]
-  __int64 v50; // [rsp+50h] [rbp-39h] BYREF
-  PVOID Object; // [rsp+58h] [rbp-31h]
-  PVOID EcpContext; // [rsp+60h] [rbp-29h] BYREF
-  char *v53; // [rsp+68h] [rbp-21h]
-  const void **v54; // [rsp+70h] [rbp-19h]
-  struct _ECP_LIST *ExtraCreateParameter; // [rsp+78h] [rbp-11h] BYREF
-  unsigned int *v56; // [rsp+80h] [rbp-9h]
-  const UNICODE_STRING *v57; // [rsp+88h] [rbp-1h]
-  PVOID P; // [rsp+90h] [rbp+7h]
-  PVOID v61; // [rsp+100h] [rbp+77h] BYREF
-  unsigned __int16 v62; // [rsp+108h] [rbp+7Fh]
+  PVOID v44; // rcx
+  IRP *result; // rax
+  int v46; // ecx
+  PVOID EcpContext; // [rsp+50h] [rbp-39h] BYREF
+  PVOID P; // [rsp+58h] [rbp-31h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+60h] [rbp-29h]
+  __int64 v50; // [rsp+68h] [rbp-21h] BYREF
+  struct _ECP_LIST *ExtraCreateParameter; // [rsp+70h] [rbp-19h] BYREF
+  char *v52; // [rsp+78h] [rbp-11h]
+  struct _IRP *v53; // [rsp+80h] [rbp-9h]
+  PVOID v54; // [rsp+88h] [rbp-1h]
+  unsigned __int16 *v55; // [rsp+90h] [rbp+7h]
+  char v58; // [rsp+100h] [rbp+77h]
+  PVOID v59; // [rsp+108h] [rbp+7Fh] BYREF
 
-  v5 = a1;
-  v6 = 0;
+  v3 = *(struct _DMA_ADAPTER **)(a2 + 64);
+  DmaAdapter = v3;
   LODWORD(v50) = 0;
-  v62 = 0;
-  v7 = *(void **)(a2 + 64);
-  v53 = 0LL;
+  v5 = 0;
+  LOWORD(v59) = 0;
+  v6 = 0LL;
+  v52 = 0LL;
   EcpContext = 0LL;
-  LOBYTE(v61) = 0;
-  P = 0LL;
+  v7 = 0LL;
+  v58 = 0;
   v54 = 0LL;
-  v56 = 0LL;
+  P = 0LL;
+  v53 = 0LL;
   ExtraCreateParameter = 0LL;
-  Object = v7;
   IrpExtraCreateParameter = IoGetIrpExtraCreateParameter(a1, &ExtraCreateParameter);
   IopSymlinkGetECP(ExtraCreateParameter, &EcpContext);
   v9 = (UNICODE_STRING *)EcpContext;
-  v10 = -1073741192;
-  v11 = 4194817LL;
+  v10 = 4194817LL;
   *((_WORD *)EcpContext + 1) |= 2u;
-  if ( v5->IoStatus.Status != 260 )
+  if ( a1->IoStatus.Status != 260 )
     IrpExtraCreateParameter = -1073741192;
-  v12 = v5->IoStatus.Information - 2684354563u;
-  if ( v12 > 0x16 || !_bittest64(&v11, v12) )
+  v11 = a1->IoStatus.Information - 2684354563u;
+  if ( v11 > 0x16 || !_bittest64(&v10, v11) )
     IrpExtraCreateParameter = -1073741192;
-  if ( !v5->Tail.Overlay.AuxiliaryBuffer )
+  v12 = 0;
+  v13 = *((unsigned __int16 *)a3 + 3);
+  if ( !a1->Tail.Overlay.AuxiliaryBuffer )
     IrpExtraCreateParameter = -1073741192;
   if ( !a3 )
     IrpExtraCreateParameter = -1073741192;
-  if ( *((_WORD *)a3 + 3) >= 0x4000u )
+  if ( (unsigned __int16)v13 >= 0x4000u )
     IrpExtraCreateParameter = -1073741192;
-  v13 = *a3;
+  v14 = *a3;
   if ( *((_WORD *)a3 + 2) >= 0x4000u )
     IrpExtraCreateParameter = -1073741192;
-  if ( (unsigned int)(v13 + 1610612733) > 0x16 || !_bittest((const int *)&v11, v13 + 1610612733) )
+  if ( (unsigned int)(v14 + 1610612733) > 0x16 || !_bittest((const int *)&v10, v14 + 1610612733) )
     IrpExtraCreateParameter = -1073741192;
-  v57 = (const UNICODE_STRING *)(a2 + 88);
+  v55 = (unsigned __int16 *)(a2 + 88);
   if ( !*(_WORD *)(a2 + 88) )
-    goto LABEL_92;
-  v10 = IrpExtraCreateParameter;
+    IrpExtraCreateParameter = -1073741192;
+  v15 = IrpExtraCreateParameter < 0;
   if ( IrpExtraCreateParameter >= 0 )
   {
-    if ( v13 == -1610612733 )
+    if ( v14 == -1610612733 )
     {
-      v14 = *((_WORD *)a3 + 5);
-      v53 = (char *)a3 + *((unsigned __int16 *)a3 + 4) + 16;
-      v62 = v14;
-LABEL_21:
-      v15 = *((unsigned __int16 *)a3 + 3);
-      goto LABEL_46;
+      v16 = *((_WORD *)a3 + 5);
+      v52 = (char *)a3 + *((unsigned __int16 *)a3 + 4) + 16;
+      LOWORD(v59) = v16;
     }
-    if ( v13 != -1610612724 )
+    else if ( v14 == -1610612724 )
     {
-      v10 = -1073741194;
-      goto LABEL_92;
-    }
-    v16 = (char *)a3 + *((unsigned __int16 *)a3 + 4) + 20;
-    v62 = *((_WORD *)a3 + 5);
-    v53 = v16;
-    if ( (a3[4] & 1) != 0 )
-    {
-      v17 = 256;
-      LOBYTE(v61) = 1;
-      if ( Object )
+      v17 = (char *)a3 + *((unsigned __int16 *)a3 + 4) + 20;
+      LOWORD(v59) = *((_WORD *)a3 + 5);
+      v52 = v17;
+      if ( (a3[4] & 1) == 0 )
+        goto LABEL_51;
+      v58 = 1;
+      v18 = 256;
+      v19 = 256;
+      if ( v3 && !IopGetFileObjectExtension((__int64)v3, 5, 0LL) )
       {
-        if ( !IopGetFileObjectExtension((__int64)Object, 5, 0LL) )
+        while ( 1 )
         {
-          while ( 1 )
+          PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, v19, 0x63466F49u);
+          v12 = 0;
+          P = PoolWithTag;
+          v21 = (const void **)PoolWithTag;
+          if ( !PoolWithTag )
+            break;
+          memset(PoolWithTag, 0, v19);
+          NameStringMode = ObQueryNameStringMode(*(_QWORD *)(a2 + 8), (_DWORD)v21, v19, (unsigned int)&v50, 0);
+          v12 = 0;
+          IrpExtraCreateParameter = NameStringMode;
+          if ( NameStringMode >= 0 )
+            goto LABEL_33;
+          if ( NameStringMode != -2147483643 )
+            goto LABEL_32;
+          v19 = v50;
+          if ( (unsigned int)v50 >= 0xFFFF )
           {
-            Pool2 = ExAllocatePool2(256LL, v17, 1665560393LL);
-            v54 = (const void **)Pool2;
-            v19 = (unsigned __int16 *)Pool2;
-            if ( !Pool2 )
+            IrpExtraCreateParameter = -1073741562;
+LABEL_32:
+            if ( IrpExtraCreateParameter >= 0 )
             {
-              v10 = -1073741670;
-              goto LABEL_77;
+LABEL_33:
+              v23 = (struct _FILE_OBJECT *)DmaAdapter;
+              v5 = *(unsigned __int16 *)v21 + *v55 - *((unsigned __int16 *)a3 + 3);
+              while ( 1 )
+              {
+                v24 = (struct _IRP *)ExAllocatePoolWithTag(PagedPool, v18, 0x63466F49u);
+                v12 = 0;
+                v54 = v24;
+                v25 = v24;
+                if ( !v24 )
+                {
+                  IrpExtraCreateParameter = -1073741670;
+                  goto LABEL_40;
+                }
+                v53 = v24;
+                memset(v24, 0, v18);
+                FileInformation = IopGetFileInformation(v23, v18, 9u, v25, &v50);
+                v12 = 0;
+                IrpExtraCreateParameter = FileInformation;
+                if ( FileInformation >= 0 )
+                  break;
+                if ( FileInformation != -2147483643 )
+                  goto LABEL_40;
+                v18 = *(_DWORD *)&v25->Type + 8;
+                if ( v18 >= 0xFFFF )
+                {
+                  IrpExtraCreateParameter = -1073741562;
+LABEL_40:
+                  v7 = (const void **)P;
+                  goto LABEL_49;
+                }
+                ExFreePoolWithTag(v25, 0);
+              }
+              v27 = v5 + *(_DWORD *)&v25->Type;
+              if ( v27 < v5 )
+              {
+                v5 = -1;
+                IrpExtraCreateParameter = -1073741675;
+                goto LABEL_40;
+              }
+              v9 = (UNICODE_STRING *)EcpContext;
+              v5 += *(_DWORD *)&v25->Type;
+              v7 = (const void **)P;
+              v3 = DmaAdapter;
+              if ( v27 >= 0xFFFF )
+                IrpExtraCreateParameter = -1073741562;
+              goto LABEL_51;
             }
-            NameStringMode = ObQueryNameStringMode(*(_QWORD *)(a2 + 8), Pool2, v17, (unsigned int)&v50, 0);
-            v10 = NameStringMode;
-            if ( NameStringMode >= 0 )
-              break;
-            if ( NameStringMode != -2147483643 )
-              goto LABEL_45;
-            v17 = v50;
-            if ( (unsigned int)v50 >= 0xFFFF )
-            {
-LABEL_37:
-              v10 = -1073741562;
-              goto LABEL_86;
-            }
-            ExFreePoolWithTag(v19, 0);
+            v7 = v21;
+LABEL_49:
+            v3 = DmaAdapter;
+            goto LABEL_50;
           }
-          v21 = 256;
-          v22 = Object;
-          v6 = *v19 + v57->Length - *((unsigned __int16 *)a3 + 3);
-          while ( 1 )
-          {
-            v23 = (unsigned int *)ExAllocatePool2(256LL, v21, 1665560393LL);
-            P = v23;
-            v24 = v23;
-            if ( !v23 )
-            {
-              v10 = -1073741670;
-              goto LABEL_86;
-            }
-            v56 = v23;
-            FileInformation = IopGetFileInformation(v22, (__int64)&v50);
-            v10 = FileInformation;
-            if ( FileInformation >= 0 )
-              break;
-            if ( FileInformation != -2147483643 )
-              goto LABEL_45;
-            v21 = *v24 + 8;
-            if ( v21 >= 0xFFFF )
-              goto LABEL_37;
-            ExFreePoolWithTag(v24, 0);
-          }
-          v26 = v6 + *v24;
-          if ( v26 < v6 )
-          {
-            v10 = -1073741675;
-            goto LABEL_86;
-          }
-          v6 += *v24;
-          if ( v26 < 0xFFFF )
-            goto LABEL_21;
-          v10 = -1073741562;
+          ExFreePoolWithTag(v21, 0);
         }
+        IrpExtraCreateParameter = -1073741670;
+        v7 = 0LL;
+        goto LABEL_49;
       }
-    }
-  }
-LABEL_45:
-  v15 = *((unsigned __int16 *)a3 + 3);
-  if ( v10 < 0 )
-    goto LABEL_84;
-LABEL_46:
-  RelatedMountPoint = IopSymlinkGetRelatedMountPoint(v9, v15);
-  if ( !RelatedMountPoint )
-    RelatedMountPoint = IopSymlinkGetMostRecentlyUsedName((__int64)v9);
-  v30 = Object;
-  v31 = *(unsigned __int16 *)(RelatedMountPoint + 16);
-  if ( (_BYTE)v61 )
-  {
-    if ( !Object || IopGetFileObjectExtension((__int64)Object, 5, 0LL) )
-    {
-      if ( v6 <= v31 )
-        v6 = v31;
+      v7 = 0LL;
+LABEL_50:
+      v9 = (UNICODE_STRING *)EcpContext;
+LABEL_51:
+      v13 = *((unsigned __int16 *)a3 + 3);
     }
     else
     {
-      v6 += v31;
+      IrpExtraCreateParameter = -1073741194;
     }
-    v28 = *((_WORD *)a3 + 3);
-    v6 += 2;
-  }
-  v32 = v6 + v29 + v28 + 4;
-  if ( v32 >= 0xFFFF )
-  {
-    v10 = -1073741562;
-    goto LABEL_84;
-  }
-  v33 = ExAllocatePool2(256LL, v32, 1665560393LL);
-  v34 = v10;
-  v35 = (char *)v33;
-  if ( !v33 )
-    v34 = -1073741670;
-  v36 = v32 - 2;
-  v10 = v34;
-  if ( v34 < 0 )
-  {
-LABEL_84:
-    if ( !(_BYTE)v61 )
+    if ( IrpExtraCreateParameter < 0 )
+      goto LABEL_91;
+    RelatedMountPoint = IopSymlinkGetRelatedMountPoint(v9, v13);
+    if ( !RelatedMountPoint )
+      RelatedMountPoint = IopSymlinkGetMostRecentlyUsedName((__int64)v9);
+    v30 = v58;
+    v31 = *(unsigned __int16 *)(RelatedMountPoint + 16);
+    if ( v58 )
     {
-LABEL_89:
-      v5 = a1;
+      if ( !v3 || IopGetFileObjectExtension((__int64)v3, 5, 0LL) )
+      {
+        if ( v5 <= v31 )
+          v5 = v31;
+      }
+      else
+      {
+        v5 += v31;
+      }
+      v5 += 2;
+    }
+    v32 = v5 + v29 + *((unsigned __int16 *)a3 + 3) + 4;
+    if ( v32 >= 0xFFFF )
+    {
+      IrpExtraCreateParameter = -1073741562;
+    }
+    else
+    {
+      v33 = (char *)ExAllocatePoolWithTag(PagedPool, v32, 0x63466F49u);
+      v12 = 0;
+      v6 = v33;
+      if ( !v33 )
+      {
+        v29 = (unsigned __int16)v59;
+        IrpExtraCreateParameter = -1073741670;
+        v30 = v58;
+        goto LABEL_69;
+      }
+      memset(v33, 0, v32);
+      v29 = (unsigned __int16)v59;
+      v30 = v58;
+    }
+    v12 = 0;
+LABEL_69:
+    v34 = v32 - 2;
+    if ( IrpExtraCreateParameter < 0 )
+      goto LABEL_91;
+    if ( v30 )
+    {
+      v59 = 0LL;
+      if ( DmaAdapter && !IopGetFileObjectExtension((__int64)DmaAdapter, 5, 0LL) )
+      {
+        memmove(v6, v7[1], *(unsigned __int16 *)v7);
+        v35 = v53;
+        v36 = &v6[2 * ((unsigned __int64)*(unsigned __int16 *)v7 >> 1)];
+        memmove(v36, &v53->Size + 1, *(unsigned int *)&v53->Type);
+        v37 = &v36[2 * ((unsigned __int64)*(unsigned int *)&v35->Type >> 1)];
+        if ( **(_WORD **)(a2 + 96) != 92 && *((_WORD *)v37 - 1) != 92 )
+        {
+          *(_WORD *)v37 = 92;
+          LOWORD(v37) = (_WORD)v37 + 2;
+        }
+        v38 = (_WORD)v37 - (_WORD)v6;
+        IopSymlinkRemoveECP(ExtraCreateParameter, &EcpContext);
+        v39 = EcpContext;
+        v40 = *((unsigned __int16 *)EcpContext + 8) + 2 + v38;
+        if ( v40 >= 0xFFFF )
+        {
+          IrpExtraCreateParameter = -1073741562;
+LABEL_78:
+          ExFreePoolWithTag(v6, 0);
 LABEL_90:
-      if ( v10 >= 0 )
-        v10 = 260;
-      goto LABEL_92;
-    }
-LABEL_85:
-    v19 = (unsigned __int16 *)v54;
-    if ( v54 )
-LABEL_86:
-      ExFreePoolWithTag(v19, 0);
-    if ( P )
-      ExFreePoolWithTag(P, 0);
-    goto LABEL_89;
-  }
-  if ( (_BYTE)v61 )
-  {
-    v61 = 0LL;
-    if ( v30 && !IopGetFileObjectExtension((__int64)v30, 5, 0LL) )
-    {
-      v37 = (unsigned __int16 *)v54;
-      memmove(v35, v54[1], *(unsigned __int16 *)v54);
-      v38 = v56;
-      v39 = &v35[2 * ((unsigned __int64)*v37 >> 1)];
-      memmove(v39, v56 + 1, *v56);
-      v40 = &v39[2 * ((unsigned __int64)*v38 >> 1)];
-      if ( **(_WORD **)(a2 + 96) != 92 && *((_WORD *)v40 - 1) != 92 )
-      {
-        *(_WORD *)v40 = 92;
-        LOWORD(v40) = (_WORD)v40 + 2;
+          v12 = 0;
+LABEL_91:
+          if ( v58 == v12 )
+            goto LABEL_97;
+          if ( P )
+            ExFreePoolWithTag(P, 0);
+          if ( !v54 )
+            goto LABEL_97;
+          v44 = v54;
+          goto LABEL_96;
+        }
+        IrpExtraCreateParameter = IopSymlinkAllocateAndAddECP(a1, &v59, v40);
+        if ( IrpExtraCreateParameter < 0 )
+          goto LABEL_78;
+        v41 = v40 + 32;
+        v9 = (UNICODE_STRING *)v59;
+        IopSymlinkInitializeSymlinkInfo(
+          (__int64)v59,
+          v41,
+          *((const void **)v39 + 3),
+          *((_WORD *)v39 + 8),
+          *(_WORD *)v39,
+          v6,
+          v38,
+          *(_WORD *)P,
+          *((_WORD *)v39 + 1),
+          *((_QWORD *)v39 + 1));
+        FsRtlFreeExtraCreateParameter(v39);
       }
-      v41 = (_WORD)v40 - (_WORD)v35;
-      IopSymlinkRemoveECP(ExtraCreateParameter, &EcpContext);
-      v42 = EcpContext;
-      v43 = *((unsigned __int16 *)EcpContext + 8) + 2 + v41;
-      if ( v43 >= 0xFFFF )
-      {
-        v10 = -1073741562;
-LABEL_67:
-        ExFreePoolWithTag(v35, 0);
-        goto LABEL_85;
-      }
-      v10 = IopSymlinkAllocateAndAddECP(a1, &v61, v43);
-      if ( v10 < 0 )
-        goto LABEL_67;
-      v44 = v43 + 32;
-      v9 = (UNICODE_STRING *)v61;
-      IopSymlinkInitializeSymlinkInfo(
-        (__int64)v61,
-        v44,
-        *((const void **)v42 + 3),
-        *((_WORD *)v42 + 8),
-        *(_WORD *)v42,
-        v35,
-        v41,
-        *(_WORD *)v54,
-        *((_WORD *)v42 + 1),
-        *((_QWORD *)v42 + 1));
-      FsRtlFreeExtraCreateParameter(v42);
+      MostRecentlyUsedName = (void *)IopSymlinkGetRelatedMountPoint(v9, *((unsigned __int16 *)a3 + 3));
+      if ( !MostRecentlyUsedName )
+        MostRecentlyUsedName = (void *)IopSymlinkGetMostRecentlyUsedName((__int64)v9);
+      updated = IopSymlinkApplyToOpenedName(a2, MostRecentlyUsedName, (int)a3, a1, v6, v34);
     }
-    MostRecentlyUsedName = IopSymlinkGetRelatedMountPoint(v9, *((unsigned __int16 *)a3 + 3));
-    if ( !MostRecentlyUsedName )
-      MostRecentlyUsedName = IopSymlinkGetMostRecentlyUsedName((__int64)v9);
-    v10 = IopSymlinkApplyToOpenedName(a2, MostRecentlyUsedName, a3, a1, v35, v36);
-    goto LABEL_85;
-  }
-  IsEnabled = Feature_2506530111__private_IsEnabled();
-  v49 = *((_WORD *)a3 + 3);
-  if ( !IsEnabled )
-  {
-    v47 = a2;
-    IopCopyOverNewPath(v35, v49);
-LABEL_79:
-    v5 = a1;
-    if ( *a3 == -1610612733 )
-      updated = IopSymlinkRememberJunction(*((_WORD *)a3 + 3), v47, (__int64)a1, v9);
     else
-      updated = IopSymlinkUpdateECP(a1, v9, 0, v57, 0, v9->MaximumLength & 0xFFFE);
-    v10 = updated;
+    {
+      IrpExtraCreateParameter = IopCopyOverNewPathSecure(v6, v52, v29, a2, *((_WORD *)a3 + 3));
+      if ( IrpExtraCreateParameter < 0 )
+      {
+        v44 = v6;
+LABEL_96:
+        ExFreePoolWithTag(v44, 0);
+        goto LABEL_97;
+      }
+      if ( *a3 == -1610612733 )
+      {
+        IrpExtraCreateParameter = IopSymlinkRememberJunction(*((_WORD *)a3 + 3), a2, (__int64)a1, v9);
+LABEL_97:
+        v15 = IrpExtraCreateParameter < 0;
+        goto LABEL_98;
+      }
+      updated = IopSymlinkUpdateECP(a1, v9, 0, (const UNICODE_STRING *)(a2 + 88), 0, v9->MaximumLength & 0xFFFE);
+    }
+    IrpExtraCreateParameter = updated;
     goto LABEL_90;
   }
-  v10 = IopCopyOverNewPathSecure(v35, v53, v62, a2, v49);
-  if ( v10 >= 0 )
-  {
-    v47 = a2;
-    goto LABEL_79;
-  }
-  ExFreePoolWithTag(v35, 0);
-LABEL_77:
-  v5 = a1;
-LABEL_92:
-  v5->IoStatus.Status = v10;
+LABEL_98:
+  result = a1;
+  v46 = 260;
+  if ( v15 )
+    v46 = IrpExtraCreateParameter;
+  a1->IoStatus.Status = v46;
+  return result;
 }

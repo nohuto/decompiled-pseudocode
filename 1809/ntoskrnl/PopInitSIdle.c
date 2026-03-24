@@ -1,18 +1,18 @@
 /*
- * XREFs of PopInitSIdle @ 0x14071C5DC
+ * XREFs of PopInitSIdle @ 0x14071C5BC
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PopDispatchFullWake @ 0x1406E24D0 (PopDispatchFullWake.c)
- *     PopBatteryApplyCompositeState @ 0x14071A168 (PopBatteryApplyCompositeState.c)
- *     PopSleepPowerSettingCallback @ 0x140746F30 (PopSleepPowerSettingCallback.c)
- *     PopApplyPolicy @ 0x1407476D4 (PopApplyPolicy.c)
+ *     PopDispatchFullWake @ 0x1406E24B0 (PopDispatchFullWake.c)
+ *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
+ *     PopSleepPowerSettingCallback @ 0x140746F10 (PopSleepPowerSettingCallback.c)
+ *     PopApplyPolicy @ 0x1407476B4 (PopApplyPolicy.c)
  * Callees:
- *     PopResetIdleTime @ 0x140138B80 (PopResetIdleTime.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
+ *     PopResetIdleTime @ 0x140138BA0 (PopResetIdleTime.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
  *     PopIsDozeSupported @ 0x1405B0814 (PopIsDozeSupported.c)
  *     PopFilterCapabilities @ 0x1405B0968 (PopFilterCapabilities.c)
- *     PopTraceSystemIdleTimeoutInitialization @ 0x14071C790 (PopTraceSystemIdleTimeoutInitialization.c)
+ *     PopTraceSystemIdleTimeoutInitialization @ 0x14071C770 (PopTraceSystemIdleTimeoutInitialization.c)
  */
 
 __int64 __fastcall PopInitSIdle(char a1)
@@ -38,7 +38,7 @@ __int64 __fastcall PopInitSIdle(char a1)
   v3 = 5;
   v15 = *((_DWORD *)PopPolicy + 14);
   v16 = 2;
-  if ( (PopFullWake & 3) != 0 || !dword_140418120 || (PopSimulate & 0x1000000) != 0 )
+  if ( (PopFullWake & 3) != 0 || !dword_1404180E0 || (PopSimulate & 0x1000000) != 0 )
   {
     PopFilterCapabilities((__int64)&PopCapabilities, (__int64)v12);
     if ( *((_DWORD *)PopPolicy + 15) )
@@ -86,12 +86,12 @@ LABEL_34:
     v16 = 4;
   }
   v15 = 0;
-  v13 = dword_140418120;
+  v13 = dword_1404180E0;
   HIDWORD(Source2) = 1;
 LABEL_4:
-  if ( RtlCompareMemory(&qword_140417634, &Source2, 0xCuLL) == 12
-    && (v4 = dword_140417640, dword_140417640 == v16)
-    && (v5 = dword_14041762C, dword_14041762C == v13) )
+  if ( RtlCompareMemory(&qword_140417654, &Source2, 0xCuLL) == 12
+    && (v4 = dword_140417660, dword_140417660 == v16)
+    && (v5 = dword_14041764C, dword_14041764C == v13) )
   {
     v1 = 0;
   }
@@ -100,26 +100,26 @@ LABEL_4:
     PopResetIdleTime(4u);
     v4 = v16;
     v5 = v13;
-    dword_14041763C = v15;
-    qword_140417634 = Source2;
-    byte_140417654 = 1;
-    dword_140417640 = v16;
-    dword_14041762C = v13;
+    dword_14041765C = v15;
+    qword_140417654 = Source2;
+    byte_140417674 = 1;
+    dword_140417660 = v16;
+    dword_14041764C = v13;
     if ( dword_1403FE780 )
-      v7 = dword_140417644 | 1;
+      v7 = dword_140417664 | 1;
     else
-      v7 = dword_140417644 & 0xFFFFFFFE;
-    dword_140417644 = v7;
-    if ( !byte_140418254 )
+      v7 = dword_140417664 & 0xFFFFFFFE;
+    dword_140417664 = v7;
+    if ( !byte_140418234 )
     {
       if ( dword_1403FE7A0 )
         v8 = v7 | 2;
       else
         v8 = v7 & 0xFFFFFFFD;
-      dword_140417644 = v8;
+      dword_140417664 = v8;
     }
   }
   v11 = v5;
   LOBYTE(v5) = v1;
-  return PopTraceSystemIdleTimeoutInitialization(v5, v3, qword_140417634, v4, v11, SBYTE4(qword_140417634), a1);
+  return PopTraceSystemIdleTimeoutInitialization(v5, v3, qword_140417654, v4, v11, SBYTE4(qword_140417654), a1);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiFinalizeTimer2Disablement @ 0x1400FB03C
+ * XREFs of KiFinalizeTimer2Disablement @ 0x1400FB05C
  * Callers:
- *     KiUpdateTimer2Flags @ 0x1400FB30C (KiUpdateTimer2Flags.c)
- *     KiExpireTimer2 @ 0x1400FB8E0 (KiExpireTimer2.c)
+ *     KiUpdateTimer2Flags @ 0x1400FB32C (KiUpdateTimer2Flags.c)
+ *     KiExpireTimer2 @ 0x1400FB900 (KiExpireTimer2.c)
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x14010E900 (EtwGetKernelTraceTimestamp.c)
- *     EtwTraceTimedEvent @ 0x14011BC4C (EtwTraceTimedEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
+ *     EtwTraceTimedEvent @ 0x14011BC6C (EtwTraceTimedEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiFinalizeTimer2Disablement(unsigned __int64 a1)

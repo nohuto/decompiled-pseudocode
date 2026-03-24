@@ -1,20 +1,18 @@
 /*
- * XREFs of GreEnumFonts @ 0x1C0003CEC
+ * XREFs of GreEnumFonts @ 0x1C00BA6AC
  * Callers:
- *     NtGdiEnumFonts @ 0x1C0003B20 (NtGdiEnumFonts.c)
+ *     NtGdiEnumFonts @ 0x1C00BA4E0 (NtGdiEnumFonts.c)
  * Callees:
- *     ?pPFFGet@DEVICE_PFTOBJ@@QEAAPEAVPFF@@PEAUHDEV__@@PEAPEAPEAV2@@Z @ 0x1C0003F94 (-pPFFGet@DEVICE_PFTOBJ@@QEAAPEAVPFF@@PEAUHDEV__@@PEAPEAPEAV2@@Z.c)
- *     ?EnumEngineOnly@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2PEAVDCOBJ@@PEAKPEAX@Z @ 0x1C0003FE8 (-EnumEngineOnly@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2PEAVDCOBJ@@PEAKPEAX@Z.c)
- *     ??0DEVICE_PFTOBJ@@QEAA@XZ @ 0x1C00A8438 (--0DEVICE_PFTOBJ@@QEAA@XZ.c)
- *     ?bGetDeviceFonts@PDEVOBJ@@QEAAHXZ @ 0x1C00BDC38 (-bGetDeviceFonts@PDEVOBJ@@QEAAHXZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?ulLogPixelsX@PDEVOBJ@@QEAAKXZ @ 0x1C0113D6C (-ulLogPixelsX@PDEVOBJ@@QEAAKXZ.c)
- *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C0113DB0 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ?EnumDeviceAndEngine@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2AEAVPFFOBJ@@AEAVPDEVOBJ@@PEAVDCOBJ@@PEAKPEAX@Z @ 0x1C02D3014 (-EnumDeviceAndEngine@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2AEAVPFFOBJ@@AEAVPDEVOBJ@.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C0099DF4 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
+ *     ?ulLogPixelsX@PDEVOBJ@@QEAAKXZ @ 0x1C0099E30 (-ulLogPixelsX@PDEVOBJ@@QEAAKXZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?EnumEngineOnly@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2PEAVDCOBJ@@PEAKPEAX@Z @ 0x1C00BA8EC (-EnumEngineOnly@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2PEAVDCOBJ@@PEAKPEAX@Z.c)
+ *     ?pPFFGet@DEVICE_PFTOBJ@@QEAAPEAVPFF@@PEAUHDEV__@@PEAPEAPEAV2@@Z @ 0x1C00BAC10 (-pPFFGet@DEVICE_PFTOBJ@@QEAAPEAVPFF@@PEAUHDEV__@@PEAPEAPEAV2@@Z.c)
+ *     ?bGetDeviceFonts@PDEVOBJ@@QEAAHXZ @ 0x1C013008C (-bGetDeviceFonts@PDEVOBJ@@QEAAHXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
+ *     ?EnumDeviceAndEngine@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2AEAVPFFOBJ@@AEAVPDEVOBJ@@PEAVDCOBJ@@PEAKPEAX@Z @ 0x1C02B8354 (-EnumDeviceAndEngine@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2AEAVPFFOBJ@@AEAVPDEVOBJ@.c)
  */
 
 _BOOL8 __fastcall GreEnumFonts(
@@ -26,113 +24,88 @@ _BOOL8 __fastcall GreEnumFonts(
         unsigned int *a6,
         _DWORD *a7)
 {
-  void *v7; // r14
-  Gre::Base *v11; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v13; // rsi
-  int v14; // edx
-  int v15; // eax
-  int v16; // eax
-  struct PFF *v17; // rax
-  Gre::Base *v18; // rcx
-  unsigned int v19; // edx
-  bool v20; // al
-  struct Gre::Base::SESSION_GLOBALS *v21; // rbx
-  __int64 v22; // rcx
-  BOOL v23; // ebx
-  _DWORD v24[5]; // [rsp+68h] [rbp-A0h] BYREF
-  int v25; // [rsp+7Ch] [rbp-8Ch]
-  int v26; // [rsp+80h] [rbp-88h]
-  int v27; // [rsp+84h] [rbp-84h]
-  int v28; // [rsp+88h] [rbp-80h]
-  int v29; // [rsp+8Ch] [rbp-7Ch]
-  __int64 v30; // [rsp+90h] [rbp-78h] BYREF
-  _QWORD v31[2]; // [rsp+98h] [rbp-70h] BYREF
-  char v32[32]; // [rsp+A8h] [rbp-60h] BYREF
-  _BYTE v33[16]; // [rsp+C8h] [rbp-40h] BYREF
-  struct PFF *v34; // [rsp+D8h] [rbp-30h] BYREF
-  __int64 v35; // [rsp+E8h] [rbp-20h] BYREF
-  __int64 v36; // [rsp+F8h] [rbp-10h] BYREF
-  __int64 v37; // [rsp+108h] [rbp+0h] BYREF
-  __int64 v38; // [rsp+118h] [rbp+10h] BYREF
+  void *v7; // rsi
+  BOOL v8; // ebx
+  int v12; // edx
+  int v13; // ecx
+  struct PFF *v14; // rax
+  unsigned int v15; // edx
+  bool v16; // al
+  _DWORD v18[10]; // [rsp+68h] [rbp-71h] BYREF
+  struct PFT *v19; // [rsp+90h] [rbp-49h] BYREF
+  struct PFT **v20; // [rsp+98h] [rbp-41h] BYREF
+  struct _FONTHASH **v21; // [rsp+A0h] [rbp-39h] BYREF
+  struct PFT **v22; // [rsp+A8h] [rbp-31h] BYREF
+  struct _FONTHASH **v23; // [rsp+B0h] [rbp-29h] BYREF
+  __int64 v24; // [rsp+B8h] [rbp-21h] BYREF
+  _QWORD v25[2]; // [rsp+C0h] [rbp-19h] BYREF
+  char v26[32]; // [rsp+D0h] [rbp-9h] BYREF
+  struct PFF *v27; // [rsp+F0h] [rbp+17h] BYREF
 
   v7 = a7;
+  v8 = 0;
   if ( !a7 )
     *a6 = 0;
-  DCOBJ::DCOBJ((DCOBJ *)v31, a1);
-  if ( !v31[0] )
+  DCOBJ::DCOBJ((DCOBJ *)v25, a1);
+  if ( v25[0] )
   {
-    EngSetLastError(6u);
-    DCOBJ::~DCOBJ((DCOBJ *)v31);
-    return 0LL;
-  }
-  a7 = *(_DWORD **)(v31[0] + 48LL);
-  if ( (a7[10] & 0x40) == 0 )
-    PDEVOBJ::bGetDeviceFonts((PDEVOBJ *)&a7);
-  v13 = Gre::Base::Globals(v11);
-  v30 = *((_QWORD *)v13 + 6);
-  GreAcquireSemaphore(v30);
-  v29 = a5;
-  v28 = 0;
-  v24[3] = 0;
-  v14 = a7[527];
-  if ( v14 )
-  {
-    v26 = 0;
-    v25 = 1;
-    if ( v14 == 4 )
-      goto LABEL_11;
+    a7 = *(_DWORD **)(v25[0] + 48LL);
+    if ( (a7[10] & 0x40) == 0 )
+      PDEVOBJ::bGetDeviceFonts((PDEVOBJ *)&a7);
+    v24 = ghsemPublicPFT;
+    GreAcquireSemaphore(ghsemPublicPFT);
+    v18[9] = a5;
+    v18[8] = 0;
+    v18[3] = 0;
+    v12 = a7[535];
+    v18[6] = v12 == 0;
+    v18[5] = v12 == 4;
+    if ( (*(_DWORD *)(*(_QWORD *)(v25[0] + 976LL) + 236LL) & 1) != 0 || (v13 = a7[10], v18[0] = 0, (v13 & 1) == 0) )
+      v18[0] = 1;
+    v18[1] = PDEVOBJ::ulLogPixelsX((PDEVOBJ *)&a7);
+    v18[2] = PDEVOBJ::ulLogPixelsY((PDEVOBJ *)&a7);
+    v18[7] = a3 & 0x200;
+    v19 = gpPFTDevice;
+    v18[4] = gulFontInformation & 1;
+    v14 = DEVICE_PFTOBJ::pPFFGet((DEVICE_PFTOBJ *)&v19, *(HDEV *)(v25[0] + 48LL), 0LL);
+    if ( !v14
+      || (v27 = v14,
+          v21 = gpPFTPublic,
+          v20 = gpPFTPrivate,
+          !(v16 = EnumDeviceAndEngine(
+                    a4,
+                    v15,
+                    a2,
+                    (struct _EFFILTER_INFO *)v18,
+                    (struct PUBLIC_PFTOBJ *)&v21,
+                    (struct PUBLIC_PFTOBJ *)&v20,
+                    (struct PFFOBJ *)&v27,
+                    (struct PDEVOBJ *)&a7,
+                    (struct DCOBJ *)v25,
+                    a6,
+                    v7))) )
+    {
+      v23 = gpPFTPublic;
+      v22 = gpPFTPrivate;
+      v16 = EnumEngineOnly(
+              a4,
+              v15,
+              a2,
+              (struct _EFFILTER_INFO *)v18,
+              (struct PUBLIC_PFTOBJ *)&v23,
+              (struct PUBLIC_PFTOBJ *)&v22,
+              (struct DCOBJ *)v25,
+              a6,
+              v7);
+    }
+    v8 = v16;
+    SEMOBJ::vUnlock((SEMOBJ *)&v24);
   }
   else
   {
-    v26 = 1;
+    EngSetLastError(6u);
   }
-  v25 = 0;
-LABEL_11:
-  if ( (*(_DWORD *)(*(_QWORD *)(v31[0] + 976LL) + 236LL) & 1) != 0 || (v15 = a7[10], v24[0] = 0, (v15 & 1) == 0) )
-    v24[0] = 1;
-  v24[1] = PDEVOBJ::ulLogPixelsX((PDEVOBJ *)&a7);
-  v24[2] = PDEVOBJ::ulLogPixelsY((PDEVOBJ *)&a7);
-  v16 = *((_BYTE *)v13 + 164) & 1;
-  v27 = a3 & 0x200;
-  v24[4] = v16;
-  DEVICE_PFTOBJ::DEVICE_PFTOBJ((DEVICE_PFTOBJ *)v33);
-  v17 = DEVICE_PFTOBJ::pPFFGet((DEVICE_PFTOBJ *)v33, *(HDEV *)(v31[0] + 48LL), 0LL);
-  if ( !v17
-    || (v34 = v17,
-        v36 = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState() + 32) + 20272LL),
-        v35 = *((_QWORD *)v13 + 796),
-        !(v20 = EnumDeviceAndEngine(
-                  a4,
-                  v19,
-                  a2,
-                  (struct _EFFILTER_INFO *)v24,
-                  (struct PUBLIC_PFTOBJ *)&v36,
-                  (struct PUBLIC_PFTOBJ *)&v35,
-                  (struct PFFOBJ *)&v34,
-                  (struct PDEVOBJ *)&a7,
-                  (struct DCOBJ *)v31,
-                  a6,
-                  v7))) )
-  {
-    v21 = Gre::Base::Globals(v18);
-    v22 = *(_QWORD *)(SGDGetSessionState() + 32);
-    v37 = *((_QWORD *)v21 + 796);
-    v38 = *(_QWORD *)(v22 + 20272);
-    v20 = EnumEngineOnly(
-            a4,
-            v38,
-            a2,
-            (struct _EFFILTER_INFO *)v24,
-            (struct PUBLIC_PFTOBJ *)&v38,
-            (struct PUBLIC_PFTOBJ *)&v37,
-            (struct DCOBJ *)v31,
-            a6,
-            v7);
-  }
-  v23 = v20;
-  SEMOBJ::vUnlock((SEMOBJ *)&v30);
-  if ( v31[0] )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v31);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v32);
-  return v23;
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v25);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v26);
+  return v8;
 }

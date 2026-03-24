@@ -1,25 +1,25 @@
 /*
- * XREFs of ?FormatControlRequest@FxUsbDevice@@QEAAJPEAVFxRequestBase@@PEAT_WDF_USB_CONTROL_SETUP_PACKET@@PEAUFxRequestBuffer@@@Z @ 0x1C007F23C
+ * XREFs of ?FormatControlRequest@FxUsbDevice@@QEAAJPEAVFxRequestBase@@PEAT_WDF_USB_CONTROL_SETUP_PACKET@@PEAUFxRequestBuffer@@@Z @ 0x1C0072A70
  * Callers:
- *     imp_WdfUsbTargetDeviceFormatRequestForControlTransfer @ 0x1C0078240 (imp_WdfUsbTargetDeviceFormatRequestForControlTransfer.c)
- *     imp_WdfUsbTargetDeviceSendControlTransferSynchronously @ 0x1C0078E40 (imp_WdfUsbTargetDeviceSendControlTransferSynchronously.c)
+ *     imp_WdfUsbTargetDeviceFormatRequestForControlTransfer @ 0x1C006ADF0 (imp_WdfUsbTargetDeviceFormatRequestForControlTransfer.c)
+ *     imp_WdfUsbTargetDeviceSendControlTransferSynchronously @ 0x1C006BA90 (imp_WdfUsbTargetDeviceSendControlTransferSynchronously.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?GetBufferLength@FxRequestBuffer@@QEAAKXZ @ 0x1C0006AA0 (-GetBufferLength@FxRequestBuffer@@QEAAKXZ.c)
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     ?ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z @ 0x1C0006F0C (-ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z.c)
- *     ?SetContext@FxRequestBase@@QEAAXPEAUFxRequestContext@@@Z @ 0x1C001B360 (-SetContext@FxRequestBase@@QEAAXPEAUFxRequestContext@@@Z.c)
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxFormatUsbRequest@@YAXPEAVFxRequestBase@@PEAU_URB@@W4_FX_URB_TYPE@@PEAUUSBD_HANDLE__@@@Z @ 0x1C00393BA (-FxFormatUsbRequest@@YAXPEAVFxRequestBase@@PEAU_URB@@W4_FX_URB_TYPE@@PEAUUSBD_HANDLE__@@@Z.c)
- *     ??0FxUsbDeviceControlContext@@QEAA@W4_FX_URB_TYPE@@@Z @ 0x1C0039464 (--0FxUsbDeviceControlContext@@QEAA@W4_FX_URB_TYPE@@@Z.c)
- *     ?GetFxUrbTypeForRequest@FxUsbDevice@@QEAA?AW4_FX_URB_TYPE@@PEAVFxRequestBase@@@Z @ 0x1C003956A (-GetFxUrbTypeForRequest@FxUsbDevice@@QEAA-AW4_FX_URB_TYPE@@PEAVFxRequestBase@@@Z.c)
- *     ?MarkDisposeOverride@FxObject@@QEAAXW4FxObjectLockState@@@Z @ 0x1C0055598 (-MarkDisposeOverride@FxObject@@QEAAXW4FxObjectLockState@@@Z.c)
- *     WPP_IFR_SF_i @ 0x1C006C7F0 (WPP_IFR_SF_i.c)
- *     ?StoreAndReferenceMemory@FxUsbDeviceControlContext@@QEAAXPEAVFxUsbDevice@@PEAUFxRequestBuffer@@PEAT_WDF_USB_CONTROL_SETUP_PACKET@@@Z @ 0x1C0080588 (-StoreAndReferenceMemory@FxUsbDeviceControlContext@@QEAAXPEAVFxUsbDevice@@PEAUFxRequestBuffer@@P.c)
- *     USBD_UrbAllocate @ 0x1C0090CEC (USBD_UrbAllocate.c)
- *     ?GetOrAllocateMdl@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAU_MDL@@1PEAEW4_LOCK_OPERATION@@EPEA_K@Z @ 0x1C0091820 (-GetOrAllocateMdl@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAU_MDL@@1PEAEW4_LOCK_OPERAT.c)
+ *     ?SetContext@FxRequestBase@@QEAAXPEAUFxRequestContext@@@Z @ 0x1C0001A90 (-SetContext@FxRequestBase@@QEAAXPEAUFxRequestContext@@@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?GetBufferLength@FxRequestBuffer@@QEAAKXZ @ 0x1C000B08C (-GetBufferLength@FxRequestBuffer@@QEAAKXZ.c)
+ *     ?ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z @ 0x1C000B79C (-ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
+ *     ?MarkDisposeOverride@FxObject@@QEAAXW4FxObjectLockState@@@Z @ 0x1C00324F8 (-MarkDisposeOverride@FxObject@@QEAAXW4FxObjectLockState@@@Z.c)
+ *     WPP_IFR_SF_i @ 0x1C0058FE0 (WPP_IFR_SF_i.c)
+ *     ?FxFormatUsbRequest@@YAXPEAVFxRequestBase@@PEAU_URB@@W4_FX_URB_TYPE@@PEAUUSBD_HANDLE__@@@Z @ 0x1C006EBCC (-FxFormatUsbRequest@@YAXPEAVFxRequestBase@@PEAU_URB@@W4_FX_URB_TYPE@@PEAUUSBD_HANDLE__@@@Z.c)
+ *     ??0FxUsbDeviceControlContext@@QEAA@W4_FX_URB_TYPE@@@Z @ 0x1C006F41C (--0FxUsbDeviceControlContext@@QEAA@W4_FX_URB_TYPE@@@Z.c)
+ *     ?GetFxUrbTypeForRequest@FxUsbDevice@@QEAA?AW4_FX_URB_TYPE@@PEAVFxRequestBase@@@Z @ 0x1C0070790 (-GetFxUrbTypeForRequest@FxUsbDevice@@QEAA-AW4_FX_URB_TYPE@@PEAVFxRequestBase@@@Z.c)
+ *     ?StoreAndReferenceMemory@FxUsbDeviceControlContext@@QEAAXPEAVFxUsbDevice@@PEAUFxRequestBuffer@@PEAT_WDF_USB_CONTROL_SETUP_PACKET@@@Z @ 0x1C0073D0C (-StoreAndReferenceMemory@FxUsbDeviceControlContext@@QEAAXPEAVFxUsbDevice@@PEAUFxRequestBuffer@@P.c)
+ *     USBD_UrbAllocate @ 0x1C008FFDC (USBD_UrbAllocate.c)
+ *     ?GetOrAllocateMdl@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAU_MDL@@1PEAEW4_LOCK_OPERATION@@EPEA_K@Z @ 0x1C0091830 (-GetOrAllocateMdl@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAU_MDL@@1PEAEW4_LOCK_OPERAT.c)
  */
 
 int __fastcall FxUsbDevice::FormatControlRequest(
@@ -34,16 +34,13 @@ int __fastcall FxUsbDevice::FormatControlRequest(
   int _a3; // ebx
   const void *ObjectHandleUnchecked; // rax
   FxRequestContext *m_RequestContext; // rbx
-  bool FxUrbTypeForRequest; // al
-  _FX_DRIVER_GLOBALS *m_Globals; // rcx
-  _FX_URB_TYPE v16; // bp
-  void *v17; // r8
-  FX_POOL **v18; // rax
-  __int64 v19; // rax
+  _FX_URB_TYPE FxUrbTypeForRequest; // bp
+  FX_POOL **v15; // rax
+  FxRequestContext *v16; // rax
   USBD_HANDLE__ *m_USBDHandle; // rbp
-  int v21; // r15d
-  _FX_DRIVER_GLOBALS *v22; // rdx
-  __m128i pMdl; // [rsp+40h] [rbp-28h] BYREF
+  int v18; // r15d
+  _FX_DRIVER_GLOBALS *m_Globals; // rdx
+  _MDL *pMdl; // [rsp+40h] [rbp-28h] BYREF
   void *retaddr; // [rsp+68h] [rbp+0h]
 
   BufferLength = FxRequestBuffer::GetBufferLength(RequestBuffer);
@@ -56,14 +53,14 @@ int __fastcall FxUsbDevice::FormatControlRequest(
   if ( _a3 < 0 )
   {
     ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this);
-    WPP_IFR_SF_qqd(
+    WPP_IFR_SF_qid(
       this->m_Globals,
       2u,
       0xEu,
       0x17u,
       WPP_FxusbDeviceKm_cpp_Traceguids,
       ObjectHandleUnchecked,
-      Request,
+      (__int64)Request,
       _a3);
     return _a3;
   }
@@ -71,30 +68,33 @@ int __fastcall FxUsbDevice::FormatControlRequest(
   if ( !m_RequestContext || m_RequestContext->m_RequestType != 19 )
   {
     FxUrbTypeForRequest = FxUsbDevice::GetFxUrbTypeForRequest(this, Request);
-    m_Globals = this->m_Globals;
-    v16 = FxUrbTypeForRequest;
-    pMdl.m128i_i64[0] = 0LL;
-    pMdl.m128i_i64[1] = 64LL;
-    if ( m_Globals->FxPoolTrackingOn )
-      v17 = retaddr;
+    v15 = FxPoolAllocator(
+            this->m_Globals,
+            &this->m_Globals->FxPoolFrameworks,
+            ExDefaultNonPagedPoolType,
+            0x128uLL,
+            this->m_Globals->Tag,
+            retaddr);
+    if ( v15 )
+    {
+      FxUsbDeviceControlContext::FxUsbDeviceControlContext((FxUsbDeviceControlContext *)v15, FxUrbTypeForRequest);
+      m_RequestContext = v16;
+    }
     else
-      v17 = 0LL;
-    v18 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, &pMdl, 0x128uLL, m_Globals->Tag, v17);
-    if ( !v18 )
+    {
+      m_RequestContext = 0LL;
+    }
+    if ( !m_RequestContext )
       return -1073741670;
-    FxUsbDeviceControlContext::FxUsbDeviceControlContext((FxUsbDeviceControlContext *)v18, v16);
-    m_RequestContext = (FxRequestContext *)v19;
-    if ( !v19 )
-      return -1073741670;
-    if ( v16 == FxUrbTypeUsbdAllocated )
+    if ( FxUrbTypeForRequest == FxUrbTypeUsbdAllocated )
     {
       m_USBDHandle = this->m_USBDHandle;
-      v21 = USBD_UrbAllocate(m_USBDHandle, (_URB **)(v19 + 272));
-      if ( v21 < 0 )
+      v18 = USBD_UrbAllocate(m_USBDHandle, (_URB **)&m_RequestContext[2].m_RequestMemory);
+      if ( v18 < 0 )
       {
-        WPP_IFR_SF_d(this->m_Globals, 2u, 0xEu, 0x18u, WPP_FxusbDeviceKm_cpp_Traceguids, v21);
+        WPP_IFR_SF_d(this->m_Globals, 2u, 0xEu, 0x18u, WPP_FxusbDeviceKm_cpp_Traceguids, v18);
         ((void (__fastcall *)(FxRequestContext *, __int64))m_RequestContext->~FxRequestContext)(m_RequestContext, 1LL);
-        return v21;
+        return v18;
       }
       m_RequestContext[1].m_CompletionParams.Parameters.Others.Argument1.Value = (unsigned __int64)m_USBDHandle;
       FxObject::MarkDisposeOverride(Request, ObjectLock);
@@ -102,12 +102,12 @@ int __fastcall FxUsbDevice::FormatControlRequest(
     FxRequestBase::SetContext(Request, m_RequestContext);
   }
   if ( ((RequestBuffer->DataType - 2) & 0xFFFFFFFD) != 0
-    || (v22 = this->m_Globals,
-        pMdl.m128i_i64[0] = 0LL,
+    || (m_Globals = this->m_Globals,
+        pMdl = 0LL,
         result = FxRequestBuffer::GetOrAllocateMdl(
                    RequestBuffer,
-                   v22,
-                   (_MDL **)&pMdl,
+                   m_Globals,
+                   &pMdl,
                    (_MDL **)&m_RequestContext[2].m_RequestType,
                    (unsigned __int8 *)&m_RequestContext[3],
                    IoModifyAccess,
@@ -123,8 +123,7 @@ int __fastcall FxUsbDevice::FormatControlRequest(
     FxFormatUsbRequest(
       Request,
       (_FILE_OBJECT *)m_RequestContext[2].m_RequestMemory,
-      (_FX_URB_TYPE)(m_RequestContext[2].m_RequestMemory != (IFxMemory *)&m_RequestContext[1].m_CompletionParams.Parameters.Usb
-                                                          + 1),
+      m_RequestContext[2].m_RequestMemory != (IFxMemory *)&m_RequestContext[1].m_CompletionParams.Parameters.Usb + 1,
       this->m_USBDHandle);
     return 0;
   }

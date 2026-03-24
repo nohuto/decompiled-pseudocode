@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFreePartitionId @ 0x140851DD8
+ * XREFs of MiFreePartitionId @ 0x140851DB8
  * Callers:
- *     MiDeletePartition @ 0x1402B4440 (MiDeletePartition.c)
+ *     MiDeletePartition @ 0x1402B4540 (MiDeletePartition.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)

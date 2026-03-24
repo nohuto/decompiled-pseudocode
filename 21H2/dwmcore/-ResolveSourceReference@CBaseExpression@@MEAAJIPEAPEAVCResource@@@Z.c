@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ResolveSourceReference@CBaseExpression@@MEAAJIPEAPEAVCResource@@@Z @ 0x1800FB640
+ * XREFs of ?ResolveSourceReference@CBaseExpression@@MEAAJIPEAPEAVCResource@@@Z @ 0x1800E2CC0
  * Callers:
  *     <none>
  * Callees:

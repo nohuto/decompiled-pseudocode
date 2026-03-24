@@ -1,36 +1,51 @@
 /*
- * XREFs of MonitorGetNativeFlags @ 0x1C01E4C78
+ * XREFs of MonitorGetNativeFlags @ 0x1C0133A54
  * Callers:
- *     DxgkGetMonitorInternalInfo @ 0x1C01A0250 (DxgkGetMonitorInternalInfo.c)
- *     ?OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z @ 0x1C022211C (-OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z.c)
+ *     DxgkGetAdapterDeviceDesc @ 0x1C011EB60 (DxgkGetAdapterDeviceDesc.c)
+ *     DxgkGetMonitorInternalInfo @ 0x1C0128030 (DxgkGetMonitorInternalInfo.c)
+ *     ?OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z @ 0x1C019B43C (-OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z.c)
  * Callees:
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0007198 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
- *     ?_GetMonitorNativeFlags@DXGMONITOR@@QEBAJPEAE00@Z @ 0x1C019DE38 (-_GetMonitorNativeFlags@DXGMONITOR@@QEBAJPEAE00@Z.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009DB4 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_GetMonitorNativeFlags@DXGMONITOR@@QEBAJPEAE00@Z @ 0x1C0009E24 (-_GetMonitorNativeFlags@DXGMONITOR@@QEBAJPEAE00@Z.c)
  */
 
-__int64 __fastcall MonitorGetNativeFlags(__int64 a1, unsigned __int8 *a2, bool *a3, bool *a4)
+__int64 __fastcall MonitorGetNativeFlags(struct HDXGMONITOR__ *a1, unsigned __int8 *a2, bool *a3, bool *a4)
 {
-  DXGMONITOR *v7; // rbx
-  unsigned int MonitorNativeFlags; // edi
-  DXGMONITOR *v10; // [rsp+38h] [rbp+10h] BYREF
+  __int64 result; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  DXGMONITOR *v10; // rbx
+  unsigned int MonitorNativeFlags; // eax
+  struct _ERESOURCE *v12; // rcx
+  unsigned int v13; // ebx
+  __int64 v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  DXGMONITOR *v18; // [rsp+48h] [rbp+10h] BYREF
 
   if ( !a2 || !a3 || !a4 )
     return 3221225485LL;
-  MONITOR_MGR::AcquireMonitorShared(&v10, a1);
-  v7 = v10;
-  if ( v10 )
+  v18 = 0LL;
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, &v18);
+  if ( (int)result >= 0 )
   {
+    v10 = v18;
+    if ( !v18 )
+    {
+      v14 = WdLogNewEntry5_WdAssertion(v9, v8);
+      WdLogEvent5_WdAssertion(v14);
+      v17 = WdLogNewEntry5_WdAssertion(v16, v15);
+      WdLogEvent5_WdAssertion(v17);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite((PERESOURCE)((char *)v10 + 296), 1u);
     MonitorNativeFlags = DXGMONITOR::_GetMonitorNativeFlags(v10, a2, a3, a4);
-  }
-  else
-  {
-    MonitorNativeFlags = -1073741275;
-    WdLogSingleEntry1(2LL, -1073741275LL);
-  }
-  if ( v7 )
-  {
-    ExReleaseResourceLite((PERESOURCE)((char *)v7 + 24));
+    v12 = (struct _ERESOURCE *)((char *)v10 + 296);
+    v13 = MonitorNativeFlags;
+    ExReleaseResourceLite(v12);
     KeLeaveCriticalRegion();
+    return v13;
   }
-  return MonitorNativeFlags;
+  return result;
 }

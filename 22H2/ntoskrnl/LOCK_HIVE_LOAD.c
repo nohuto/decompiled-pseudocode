@@ -1,37 +1,27 @@
 /*
- * XREFs of LOCK_HIVE_LOAD @ 0x1407523B8
+ * XREFs of LOCK_HIVE_LOAD @ 0x1406EB544
  * Callers:
- *     CmpTryToRundownHive @ 0x1402092DC (CmpTryToRundownHive.c)
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
- *     CmShutdownSystem1 @ 0x140615C34 (CmShutdownSystem1.c)
- *     CmShutdownSystem2 @ 0x140615E8C (CmShutdownSystem2.c)
- *     CmReleaseLoadKeyContext @ 0x140692BE4 (CmReleaseLoadKeyContext.c)
- *     CmpLateUnloadHiveWorker @ 0x140693350 (CmpLateUnloadHiveWorker.c)
- *     CmKtmNotification @ 0x140697D50 (CmKtmNotification.c)
- *     CmpPerformUnloadKey @ 0x140699394 (CmpPerformUnloadKey.c)
- *     CmpDoFlushNextHive @ 0x140752430 (CmpDoFlushNextHive.c)
- *     CmLoadAppKey @ 0x140769B50 (CmLoadAppKey.c)
- *     CmpResolveHiveLoadConflict @ 0x140A16AC8 (CmpResolveHiveLoadConflict.c)
- *     CmpLazyCommitWorker @ 0x140A1C170 (CmpLazyCommitWorker.c)
+ *     CmpTryToRundownHive @ 0x140360C44 (CmpTryToRundownHive.c)
+ *     CmpLoadKeyCommon @ 0x14036102C (CmpLoadKeyCommon.c)
+ *     CmpPerformUnloadKey @ 0x14066CBFC (CmpPerformUnloadKey.c)
+ *     CmKtmNotification @ 0x14066E410 (CmKtmNotification.c)
+ *     CmLoadAppKey @ 0x1406E8CDC (CmLoadAppKey.c)
+ *     CmReleaseLoadKeyContext @ 0x1406EADC0 (CmReleaseLoadKeyContext.c)
+ *     CmpDoFlushNextHive @ 0x1406EB100 (CmpDoFlushNextHive.c)
+ *     CmpLateUnloadHiveWorker @ 0x14071B940 (CmpLateUnloadHiveWorker.c)
+ *     CmShutdownSystem @ 0x14086B948 (CmShutdownSystem.c)
+ *     CmpResolveHiveLoadConflict @ 0x14086E774 (CmpResolveHiveLoadConflict.c)
+ *     CmpLazyCommitWorker @ 0x140872B80 (CmpLazyCommitWorker.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
-__int64 LOCK_HIVE_LOAD()
+void LOCK_HIVE_LOAD()
 {
-  struct _KTHREAD *CurrentThread; // rdi
-  __int64 result; // rax
-  __int64 v2; // rbx
+  struct _KTHREAD *CurrentThread; // rbx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  result = KeAbPreAcquire((__int64)&CmpLoadHiveLock, 0LL);
-  v2 = result;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&CmpLoadHiveLock, 0LL) )
-    result = ExfAcquirePushLockExclusiveEx(&CmpLoadHiveLock, result, (__int64)&CmpLoadHiveLock);
-  if ( v2 )
-    *(_BYTE *)(v2 + 18) = 1;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&CmpLoadHiveLock, 0LL);
   CmpLoadHiveLockOwner = (__int64)CurrentThread;
-  return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of SepLpacCausedAccessFailure @ 0x1401347BC
+ * XREFs of SepLpacCausedAccessFailure @ 0x1401347DC
  * Callers:
  *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:

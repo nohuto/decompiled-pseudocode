@@ -5,9 +5,9 @@
  * Callees:
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
  *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     qsort @ 0x1401962C0 (qsort.c)
- *     PpmBeginProfileAccumulation @ 0x1406D0DBC (PpmBeginProfileAccumulation.c)
- *     PpmEnableProfile @ 0x140756E3C (PpmEnableProfile.c)
+ *     qsort @ 0x1401962E0 (qsort.c)
+ *     PpmBeginProfileAccumulation @ 0x1406D0D9C (PpmBeginProfileAccumulation.c)
+ *     PpmEnableProfile @ 0x140756E1C (PpmEnableProfile.c)
  */
 
 void PpmInitPolicyConfiguration()
@@ -25,21 +25,21 @@ void PpmInitPolicyConfiguration()
     v2 = 1LL << v0[4];
     if ( (v0[5] & 4) != 0 )
       *(_DWORD *)v0 >>= 1;
-    v3 = &unk_14040E7C8;
+    v3 = &unk_14040E7E8;
     do
     {
       *v3 |= v2;
       v3 += 341;
     }
-    while ( (__int64)v3 < (__int64)qword_14040FD18 );
+    while ( (__int64)v3 < (__int64)qword_14040FD38 );
     v0 += 40;
     --v1;
   }
   while ( v1 );
-  qword_14040FD30 = -1LL;
+  qword_14040FD50 = -1LL;
   PpmDefaultProfile[0] = (__int64)PpmInfoDefaultProfileName;
-  xmmword_14040E7AC = (__int128)NullGuid;
-  dword_14040E7BC = 2;
+  xmmword_14040E7CC = (__int128)NullGuid;
+  dword_14040E7DC = 2;
   PpmEnableProfile((__int64)PpmDefaultProfile, (__int64)v0);
   PpmBeginProfileAccumulation((__int64)PpmDefaultProfile, MEMORY[0xFFFFF78000000008]);
   qsort(&PpmPolicyConfigTable, 0x34uLL, 0x28uLL, (int (__cdecl *)(const void *, const void *))PpmInfoConfigComparer);

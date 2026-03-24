@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPepUnregisterDevice @ 0x140823318
+ * XREFs of PopPepUnregisterDevice @ 0x1407B52D0
  * Callers:
- *     PopFxUnregisterDevice @ 0x14082310C (PopFxUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x1407B4F70 (PopFxUnregisterDevice.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     PopPepProcessEvent @ 0x140356454 (PopPepProcessEvent.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     PopPepUpdateIdleStateRefCount @ 0x1403B92D0 (PopPepUpdateIdleStateRefCount.c)
- *     PopPepRemoveDevice @ 0x1403B9378 (PopPepRemoveDevice.c)
- *     PopPepWaitForDeviceRelease @ 0x1403B954C (PopPepWaitForDeviceRelease.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PopPepProcessEvent @ 0x140261A84 (PopPepProcessEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403A0864 (PopPepUpdateIdleStateRefCount.c)
+ *     PopPepRemoveDevice @ 0x1403BE334 (PopPepRemoveDevice.c)
+ *     PopPepWaitForDeviceRelease @ 0x1403BE59C (PopPepWaitForDeviceRelease.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PopPepUnregisterDevice(char *P)
+void __fastcall PopPepUnregisterDevice(__int64 *P)
 {
   unsigned int v2; // edi
   __int64 v3; // rax
@@ -22,25 +22,18 @@ void __fastcall PopPepUnregisterDevice(char *P)
   DbgPrintEx(0x92u, 3u, "PopPep: unregister device (0x%p)\n", P);
   v2 = 0;
   PopPepProcessEvent((__int64)P, 0LL, 6u, 5u, (__int64)Timeout, 0LL);
-  KeWaitForSingleObject(P + 40, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(P + 5, Executive, 0, 0, 0LL);
   PopPepWaitForDeviceRelease((__int64)P);
-  PopPepRemoveDevice((__int64 *)P);
+  PopPepRemoveDevice(P);
   v3 = *((int *)P + 42);
   v4 = 0;
   if ( (_DWORD)v3 != 4 )
-    v4 = *(_DWORD *)&P[4 * v3 + 140];
-  PopPepUpdateIdleStateRefCount(v4, 0, 0, (volatile signed __int32 *)P + 46);
+    v4 = *((_DWORD *)P + v3 + 35);
+  PopPepUpdateIdleStateRefCount(v4, 0, 0);
   if ( *((_DWORD *)P + 45) )
   {
     do
-    {
-      PopPepUpdateIdleStateRefCount(
-        *(_DWORD *)(*(_QWORD *)&P[208 * v2 + 392] + 16LL),
-        0,
-        0,
-        (volatile signed __int32 *)&P[208 * v2 + 384]);
-      ++v2;
-    }
+      PopPepUpdateIdleStateRefCount(*(_DWORD *)(P[25 * v2++ + 47] + 16), 0, 0);
     while ( v2 < *((_DWORD *)P + 45) );
   }
   ExFreePoolWithTag(P, 0x54706550u);

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CDDisplayRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0227E50
+ * XREFs of ?SetIntegerProperty@CDDisplayRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01EEF60
  * Callers:
  *     <none>
  * Callees:
@@ -39,35 +39,36 @@ __int64 __fastcall DirectComposition::CDDisplayRenderTargetMarshaler::SetInteger
           v10 = v9 - 1;
           if ( v10 )
           {
-            v11 = v10 - 4;
+            v11 = v10 - 3;
             if ( !v11 )
             {
               if ( (unsigned int)(a4 - 1) > 3 )
                 return (unsigned int)-1073741811;
               *((_DWORD *)this + 4) |= 0x80u;
-              *((_DWORD *)this + 35) = a4;
+              *((_DWORD *)this + 32) = a4;
               goto LABEL_28;
             }
-            v12 = v11 - 2;
+            v12 = v11 - 1;
             if ( v12 )
             {
-              v13 = v12 - 2;
+              v13 = v12 - 1;
               if ( v13 )
               {
-                if ( v13 != 1 )
+                if ( v13 != 2 )
                   return (unsigned int)-1073741811;
-                *((_DWORD *)this + 4) |= 0x400u;
+                *((_DWORD *)this + 4) |= 0x200u;
+                *((_BYTE *)this + 141) = a4 != 0;
               }
               else
               {
-                *((_DWORD *)this + 4) |= 0x200u;
-                *((_BYTE *)this + 152) = a4 != 0;
+                *((_DWORD *)this + 4) |= 0x20u;
+                *((_BYTE *)this + 140) = a4 != 0;
               }
 LABEL_28:
               *a5 = 1;
               return v5;
             }
-            *((_DWORD *)this + 37) = a4;
+            *((_DWORD *)this + 34) = a4;
           }
           else
           {

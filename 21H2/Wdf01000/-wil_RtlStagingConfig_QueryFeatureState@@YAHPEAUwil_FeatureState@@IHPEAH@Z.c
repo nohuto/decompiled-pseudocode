@@ -1,9 +1,9 @@
 /*
- * XREFs of ?wil_RtlStagingConfig_QueryFeatureState@@YAHPEAUwil_FeatureState@@IHPEAH@Z @ 0x1C00BD384
+ * XREFs of ?wil_RtlStagingConfig_QueryFeatureState@@YAHPEAUwil_FeatureState@@IHPEAH@Z @ 0x1C00BC374
  * Callers:
- *     ?wil_details_GetCurrentFeatureEnabledState@@YA?ATwil_details_FeatureStateCache@@PEBUwil_details_FeatureDescriptor@@PEAH@Z @ 0x1C00368E4 (-wil_details_GetCurrentFeatureEnabledState@@YA-ATwil_details_FeatureStateCache@@PEBUwil_details_.c)
+ *     ?wil_details_GetCurrentFeatureEnabledState@@YA?ATwil_details_FeatureStateCache@@PEBUwil_details_FeatureDescriptor@@PEAH@Z @ 0x1C001CD64 (-wil_details_GetCurrentFeatureEnabledState@@YA-ATwil_details_FeatureStateCache@@PEBUwil_details_.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall wil_RtlStagingConfig_QueryFeatureState(
@@ -12,7 +12,7 @@ __int64 __fastcall wil_RtlStagingConfig_QueryFeatureState(
         int featureRequiresSessionChange,
         int *a4)
 {
-  unsigned int v5; // ebx
+  unsigned int v5; // edi
   int v6; // eax
   unsigned int v7; // ecx
   unsigned __int64 changeStamp; // [rsp+20h] [rbp-28h] BYREF
@@ -26,18 +26,20 @@ __int64 __fastcall wil_RtlStagingConfig_QueryFeatureState(
   if ( !v6 )
   {
     v7 = *((_DWORD *)&featureConfiguration + 1);
+    v5 = 1;
     state->enabledState = (*((_DWORD *)&featureConfiguration + 1) >> 4) & 3;
     state->variant = BYTE1(v7) & 0x3F;
     state->payload = featureConfiguration.VariantPayload;
     state->payloadKind = (unsigned __int16)v7 >> 14;
     state->isVariantConfiguration = (v7 >> 6) & 1;
+LABEL_5:
     state->hasNotification = (v7 >> 7) & 1;
-    return 1;
+    return v5;
   }
   if ( v6 == 279 )
   {
-    state->hasNotification = (*((_DWORD *)&featureConfiguration + 1) >> 7) & 1;
-    return 1;
+    v7 = *((_DWORD *)&featureConfiguration + 1);
+    goto LABEL_5;
   }
   return v5;
 }

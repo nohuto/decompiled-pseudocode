@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlQueryActiveHypervisorProcessorCount @ 0x140540070
+ * XREFs of HvlQueryActiveHypervisorProcessorCount @ 0x1404F1E60
  * Callers:
  *     <none>
  * Callees:
@@ -10,6 +10,6 @@ __int64 __fastcall HvlQueryActiveHypervisorProcessorCount(_DWORD *a1)
 {
   if ( (HvlpFlags & 2) == 0 )
     return 3221225473LL;
-  *a1 = HvlpActiveProcessorCount;
+  *a1 = *(_DWORD *)((char *)&Mm64BitPhysicalAddress + 7);
   return 0LL;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of SharpenInput @ 0x1C0269120
+ * XREFs of SharpenInput @ 0x1C026BD40
  * Callers:
- *     ExpandDIB_CY_ExpCX @ 0x1C0265E70 (ExpandDIB_CY_ExpCX.c)
+ *     ExpandDIB_CY_ExpCX @ 0x1C02688D0 (ExpandDIB_CY_ExpCX.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of EngDitherColor @ 0x1C0289080
+ * XREFs of EngDitherColor @ 0x1C0288210
  * Callers:
- *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C0086DD4 (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
- *     ?PanDitherColor@@YAKPEAUDHPDEV__@@KKPEAK@Z @ 0x1C029BBD0 (-PanDitherColor@@YAKPEAUDHPDEV__@@KKPEAK@Z.c)
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C00CF9EC (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
+ *     ?PanDitherColor@@YAKPEAUDHPDEV__@@KKPEAK@Z @ 0x1C0294AB0 (-PanDitherColor@@YAKPEAUDHPDEV__@@KKPEAK@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?vComputeSubspaces@@YAPEAU_VERTEX_DATA@@KPEAU1@@Z @ 0x1C028883C (-vComputeSubspaces@@YAPEAU_VERTEX_DATA@@KPEAU1@@Z.c)
- *     ?vDitherColor4bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z @ 0x1C0288AD0 (-vDitherColor4bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z.c)
- *     ?vDitherColor8bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z @ 0x1C0288DC8 (-vDitherColor8bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?vComputeSubspaces@@YAPEAU_VERTEX_DATA@@KPEAU1@@Z @ 0x1C02879BC (-vComputeSubspaces@@YAPEAU_VERTEX_DATA@@KPEAU1@@Z.c)
+ *     ?vDitherColor4bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z @ 0x1C0287C58 (-vDitherColor4bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z.c)
+ *     ?vDitherColor8bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z @ 0x1C0287F60 (-vDitherColor8bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z.c)
  */
 
 ULONG __stdcall EngDitherColor(HDEV hdev, ULONG iMode, ULONG rgb, ULONG *pul)
@@ -22,7 +22,7 @@ ULONG __stdcall EngDitherColor(HDEV hdev, ULONG iMode, ULONG rgb, ULONG *pul)
   _BYTE v15[32]; // [rsp+28h] [rbp-30h] BYREF
 
   v6 = 0;
-  if ( *((_WORD *)hdev + 1040) == 8 && *((_WORD *)hdev + 1041) == 8 )
+  if ( *((_WORD *)hdev + 1056) == 8 && *((_WORD *)hdev + 1057) == 8 )
   {
     if ( iMode == 2 )
     {
@@ -37,15 +37,15 @@ ULONG __stdcall EngDitherColor(HDEV hdev, ULONG iMode, ULONG rgb, ULONG *pul)
         v11 = v10;
         do
         {
-          v12 = byte_1C03288AF[v11];
-          pul[v12] |= byte_1C03288F0[--v11 + 128];
+          v12 = byte_1C02F9F2F[v11];
+          pul[v12] |= jSwapSubSpace[--v11 + 128];
           --v10;
         }
         while ( v10 );
       }
       return 1;
     }
-    v7 = *((_DWORD *)hdev + 519);
+    v7 = *((_DWORD *)hdev + 527);
     if ( (unsigned int)(v7 - 2) <= 1 )
     {
       v8 = vComputeSubspaces(rgb, (struct _VERTEX_DATA *)v15);

@@ -1,297 +1,298 @@
 /*
- * XREFs of xxxDragObject @ 0x1C02442A8
+ * XREFs of xxxDragObject @ 0x1C0248694
  * Callers:
- *     NtUserDragObject @ 0x1C01F2820 (NtUserDragObject.c)
+ *     NtUserDragObject @ 0x1C01F7DE0 (NtUserDragObject.c)
  * Callees:
- *     ?zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0023BF4 (-zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C0050D70 (xxxSendTransformableMessageTimeout.c)
- *     xxxSleepThread2 @ 0x1C0052D3C (xxxSleepThread2.c)
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0061D10 (PopAndFreeAlwaysW32ThreadLock.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     xxxWindowEvent @ 0x1C0073AB0 (xxxWindowEvent.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00788F8 (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     xxxInternalGetMessage @ 0x1C00A4B4C (xxxInternalGetMessage.c)
- *     xxxReleaseCapture @ 0x1C00AA35C (xxxReleaseCapture.c)
- *     xxxSetCapture @ 0x1C00AA44C (xxxSetCapture.c)
- *     ?xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z @ 0x1C00C9704 (-xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z.c)
- *     ?zzzShowCursor@@YAH_N@Z @ 0x1C0118590 (-zzzShowCursor@@YAH_N@Z.c)
- *     ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C0244120 (-xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z.c)
+ *     ?zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C004B658 (-zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004F430 (WPP_RECORDER_SF_q.c)
+ *     xxxSleepThread2 @ 0x1C0058750 (xxxSleepThread2.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C0059990 (xxxSendTransformableMessageTimeout.c)
+ *     xxxWindowEvent @ 0x1C00814D0 (xxxWindowEvent.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BFD00 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     xxxInternalGetMessage @ 0x1C00D9FB0 (xxxInternalGetMessage.c)
+ *     xxxReleaseCapture @ 0x1C00DAE50 (xxxReleaseCapture.c)
+ *     xxxSetCapture @ 0x1C00DAF80 (xxxSetCapture.c)
+ *     ?xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z @ 0x1C00F5550 (-xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z.c)
+ *     ?zzzShowCursor@@YAH_N@Z @ 0x1C0125A74 (-zzzShowCursor@@YAH_N@Z.c)
+ *     ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C02484C8 (-xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z.c)
  */
 
 __int64 __fastcall xxxDragObject(struct tagWND *a1, struct tagWND *a2, int a3, __int64 a4, struct tagCURSOR *a5)
 {
   unsigned int v5; // ebx
-  unsigned __int64 *v9; // r13
+  struct tagCURSOR *v9; // rdi
   __int64 result; // rax
-  __int64 v11; // r14
+  __int64 v11; // r15
   unsigned __int64 v12; // rax
-  struct tagCURSOR *v13; // rax
-  struct tagWND *i; // rsi
-  __int64 v15; // rdx
+  struct tagCURSOR *v13; // r12
+  __int64 ThreadWin32Thread; // rax
+  struct tagWND *i; // r14
   __int64 v16; // rcx
-  __int64 v17; // r8
-  struct tagWND *v18; // rdx
-  int v19; // ecx
-  __int64 v20; // rdx
-  struct tagCURSOR *v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int128 v29; // xmm1
-  __int128 v30; // xmm0
+  struct tagWND *v17; // rdx
+  unsigned int v18; // eax
+  __int64 v19; // rcx
+  __int64 v20; // rcx
+  int v21; // r14d
+  __int64 v22; // rcx
+  __int64 v23; // rcx
+  __int128 v24; // xmm1
+  __int128 v25; // xmm0
   struct tagCURSOR *DropObject; // rax
-  struct tagCURSOR *v32; // rsi
-  struct tagCURSOR *v33; // rcx
-  __int64 v34; // rdx
-  __int64 v35; // rcx
-  __int64 v36; // r8
-  unsigned __int64 v37; // r8
-  unsigned int v38; // edx
-  __int64 v39; // rdx
-  __int64 v40; // rcx
-  __int64 v41; // r8
-  __int64 v42; // rax
-  unsigned __int64 *v43; // rsi
-  int v44; // edx
-  int v45; // r8d
-  unsigned __int64 v46; // r8
-  unsigned int v47; // esi
-  __int64 v48; // rdx
-  __int64 v49; // rcx
-  __int64 v50; // r8
-  struct tagWND *v51; // rdx
-  struct tagCURSOR *v52; // [rsp+58h] [rbp-B0h]
-  __int64 v53; // [rsp+68h] [rbp-A0h] BYREF
-  unsigned __int64 *v54; // [rsp+70h] [rbp-98h]
-  __int64 v55; // [rsp+78h] [rbp-90h]
-  __int128 v56; // [rsp+80h] [rbp-88h] BYREF
-  __int128 v57; // [rsp+90h] [rbp-78h]
-  __int128 v58; // [rsp+A0h] [rbp-68h]
-  __int128 v59; // [rsp+B0h] [rbp-58h] BYREF
-  __int64 v60; // [rsp+C0h] [rbp-48h]
-  __int128 v61; // [rsp+C8h] [rbp-40h] BYREF
-  __int64 v62; // [rsp+D8h] [rbp-30h]
-  __int128 v63; // [rsp+E0h] [rbp-28h] BYREF
-  __int64 v64; // [rsp+F0h] [rbp-18h]
-  __int128 v65; // [rsp+F8h] [rbp-10h] BYREF
-  __int64 v66; // [rsp+108h] [rbp+0h]
-  _OWORD v67[3]; // [rsp+110h] [rbp+8h] BYREF
+  struct tagCURSOR *v27; // rcx
+  unsigned __int64 v28; // r12
+  __int64 v29; // rcx
+  __int64 v30; // rcx
+  __int64 v31; // rax
+  unsigned __int64 v32; // rdi
+  int v33; // edx
+  int v34; // ecx
+  unsigned __int64 v35; // r8
+  unsigned int v36; // edi
+  __int64 v37; // rcx
+  struct tagWND *v38; // rdx
+  int v39; // [rsp+58h] [rbp-B0h]
+  unsigned __int64 v40; // [rsp+60h] [rbp-A8h]
+  struct tagCURSOR *v41; // [rsp+68h] [rbp-A0h]
+  __int64 v42; // [rsp+78h] [rbp-90h] BYREF
+  unsigned __int64 v43; // [rsp+80h] [rbp-88h]
+  __int64 v44; // [rsp+88h] [rbp-80h]
+  __int128 v45; // [rsp+90h] [rbp-78h] BYREF
+  __int128 v46; // [rsp+A0h] [rbp-68h]
+  __int128 v47; // [rsp+B0h] [rbp-58h]
+  __int128 v48; // [rsp+C0h] [rbp-48h] BYREF
+  __int64 v49; // [rsp+D0h] [rbp-38h]
+  __int128 v50; // [rsp+D8h] [rbp-30h] BYREF
+  __int64 v51; // [rsp+E8h] [rbp-20h]
+  _QWORD v52[3]; // [rsp+F0h] [rbp-18h] BYREF
+  __int128 v53; // [rsp+108h] [rbp+0h] BYREF
+  __int64 v54; // [rsp+118h] [rbp+10h]
+  _OWORD v55[3]; // [rsp+120h] [rbp+18h] BYREF
 
-  v62 = 0LL;
   v5 = 0;
-  v60 = 0LL;
-  v64 = 0LL;
-  v66 = 0LL;
-  v55 = 0LL;
-  v56 = 0LL;
+  v39 = 1;
+  v40 = 0LL;
+  v51 = 0LL;
+  v49 = 0LL;
+  v54 = 0LL;
+  v44 = 0LL;
+  v52[2] = 0LL;
+  v45 = 0LL;
   v9 = 0LL;
-  v57 = 0LL;
-  v58 = 0LL;
-  memset(v67, 0, sizeof(v67));
-  v61 = 0LL;
-  v59 = 0LL;
-  v63 = 0LL;
-  v65 = 0LL;
+  v46 = 0LL;
+  v47 = 0LL;
+  memset(v55, 0, sizeof(v55));
+  v50 = 0LL;
+  v48 = 0LL;
+  v53 = 0LL;
   result = Win32AllocPoolWithQuotaZInit(96LL, 1935962965LL);
   v11 = result;
-  if ( !result )
-    return result;
-  PushW32ThreadLock(result, &v63, (__int64)Win32FreePool);
-  v12 = 0LL;
-  if ( a2 )
-    v12 = *(_QWORD *)a2;
-  *(_QWORD *)v11 = v12;
-  *(_DWORD *)(v11 + 16) = a3;
-  *(_QWORD *)(v11 + 24) = a4;
-  if ( a5 )
-    v13 = zzzSetCursor(a5);
-  else
-    v13 = *(struct tagCURSOR **)(*(_QWORD *)(gptiCurrent + 432LL) + 376LL);
-  v52 = v13;
-  ThreadLock((__int64)v13, (__int64 *)&v65);
-  if ( a2 )
+  if ( result )
   {
-    for ( i = a2; (*(_BYTE *)(*((_QWORD *)i + 5) + 31LL) & 0xC0) == 0x40; i = (struct tagWND *)*((_QWORD *)i + 13) )
-      ;
-    *(_QWORD *)&v59 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v59;
-    *((_QWORD *)&v59 + 1) = i;
-    HMLockObject(i);
-    xxxInternalUpdateWindow(i, 1);
-    ThreadUnlock1(v16, v15, v17);
-  }
-  if ( gpqForeground )
-  {
-    v18 = *(struct tagWND **)(gpqForeground + 112LL);
-    if ( v18 )
-    {
-      if ( gpqForeground == *(_QWORD *)(gptiCurrent + 432LL) )
-      {
-        v19 = 33;
-        if ( *((_QWORD *)v18 + 2) == gptiCurrent )
-          v18 = a2;
-        else
-          v19 = 49;
-        xxxWindowEvent(0x80000004, v18, 0, 3u, v19);
-      }
-    }
-  }
-  xxxWindowEvent(0xEu, a2, 0, 0, 0);
-  xxxSetCapture((__int64)a2);
-  zzzShowCursor(1);
-  v53 = *(_QWORD *)(gptiCurrent + 416LL);
-  *(_QWORD *)(gptiCurrent + 416LL) = &v53;
-  v54 = 0LL;
-  while ( *(struct tagWND **)(*(_QWORD *)(gptiCurrent + 432LL) + 104LL) == a2 )
-  {
-    while ( !(unsigned int)xxxInternalGetMessage(&v56, 0LL, 0x200u, 0x20Eu, 1, 0)
-         && !(unsigned int)xxxInternalGetMessage(&v56, 0LL, 0x23u, 0x23u, 1, 0)
-         && !(unsigned int)xxxInternalGetMessage(&v56, 0LL, 0x100u, 0x109u, 1, 0) )
-    {
-      if ( !(unsigned int)xxxSleepThread2(7u, 0, 1, 0, 0LL) )
-      {
-        ThreadUnlock1(v24, v23, v25);
-        ThreadUnlock1(v27, v26, v28);
-        goto LABEL_69;
-      }
-    }
-    while ( (unsigned int)xxxInternalGetMessage(v67, 0LL, 0x100u, 0x109u, 1, 0) )
-      ;
-    if ( *(struct tagWND **)(*(_QWORD *)(gptiCurrent + 432LL) + 104LL) != a2
-      || DWORD2(v56) == 256 && (_QWORD)v57 == 27LL )
-    {
-      v21 = *(struct tagCURSOR **)(gasyscur[0] + 5528LL);
-      if ( v21 )
-        zzzSetCursor(v21);
-      break;
-    }
-    v29 = *(_OWORD *)(v11 + 16);
-    *(_OWORD *)(v11 + 48) = *(_OWORD *)v11;
-    v30 = *(_OWORD *)(v11 + 32);
-    *(_OWORD *)(v11 + 64) = v29;
-    *(_OWORD *)(v11 + 80) = v30;
-    *(_QWORD *)(v11 + 32) = *(_QWORD *)((char *)&v58 + 4);
-    DropObject = xxxQueryDropObject(a1, (struct tagDROPSTRUCT *)v11);
-    v32 = DropObject;
-    if ( !DropObject )
-    {
-      v32 = *(struct tagCURSOR **)(gasyscur[0] + 5528LL);
-      *(_QWORD *)(v11 + 8) = 0LL;
-      goto LABEL_33;
-    }
-    if ( DropObject == (struct tagCURSOR *)1 )
-    {
-      v32 = a5;
-LABEL_33:
-      if ( !v32 )
-        goto LABEL_35;
-    }
-    zzzSetCursor(v32);
-LABEL_35:
+    PushW32ThreadLock(result, &v53, (__int64)Win32FreePool);
+    v12 = 0LL;
+    if ( a2 )
+      v12 = *(_QWORD *)a2;
+    *(_QWORD *)v11 = v12;
+    *(_DWORD *)(v11 + 16) = a3;
+    *(_QWORD *)(v11 + 24) = a4;
+    if ( a5 )
+      v13 = zzzSetCursor(a5);
+    else
+      v13 = *(struct tagCURSOR **)(*(_QWORD *)(gptiCurrent + 432LL) + 376LL);
+    v41 = v13;
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    v52[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+    *(_QWORD *)(ThreadWin32Thread + 416) = v52;
+    v52[1] = v13;
+    if ( v13 )
+      HMLockObject(v13);
     if ( a2 )
     {
-      v33 = *(struct tagCURSOR **)(gasyscur[0] + 5528LL);
-      _InterlockedIncrement(&glSendMessage);
-      xxxSendTransformableMessageTimeout((unsigned __int64 *)a2, 0x22Du, v32 != v33, v11, 0, 0, 0LL, 1, 1);
+      for ( i = a2; (*(_BYTE *)(*((_QWORD *)i + 5) + 31LL) & 0xC0) == 0x40; i = (struct tagWND *)*((_QWORD *)i + 13) )
+        ;
+      *(_QWORD *)&v48 = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = &v48;
+      *((_QWORD *)&v48 + 1) = i;
+      HMLockObject(i);
+      xxxInternalUpdateWindow(i, 1u);
+      ThreadUnlock1(v16);
     }
-    if ( v9 == (unsigned __int64 *)HMValidateHandleNoSecure(*(_QWORD *)(v11 + 8), 1) )
+    if ( gpqForeground )
     {
-      if ( !v9 )
-        goto LABEL_45;
-      v37 = 0LL;
-      v38 = 559;
+      v17 = *(struct tagWND **)(gpqForeground + 112LL);
+      if ( v17 )
+      {
+        if ( gpqForeground == *(_QWORD *)(gptiCurrent + 432LL) )
+        {
+          v18 = 33;
+          if ( *((_QWORD *)v17 + 2) == gptiCurrent )
+            v17 = a2;
+          else
+            v18 = 49;
+          xxxWindowEvent(0x80000004, v17, 0, 3u, v18);
+        }
+      }
+    }
+    xxxWindowEvent(0xEu, a2, 0, 0, 0);
+    xxxSetCapture((__int64)a2);
+    LOBYTE(v19) = 1;
+    zzzShowCursor(v19);
+    v21 = 1;
+    v42 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v42;
+    v43 = 0LL;
+    while ( *(struct tagWND **)(*(_QWORD *)(gptiCurrent + 432LL) + 104LL) == a2 )
+    {
+      while ( !(unsigned int)xxxInternalGetMessage(&v45, 0LL, 0x200u, 0x20Eu, 1, 0)
+           && !(unsigned int)xxxInternalGetMessage(&v45, 0LL, 0x23u, 0x23u, 1, 0)
+           && !(unsigned int)xxxInternalGetMessage(&v45, 0LL, 0x100u, 0x109u, 1, 0) )
+      {
+        if ( !(unsigned int)xxxSleepThread2(7u, 0, 1, 0, 0LL) )
+        {
+          ThreadUnlock1(v22);
+          ThreadUnlock1(v23);
+          goto LABEL_69;
+        }
+      }
+      while ( (unsigned int)xxxInternalGetMessage(v55, 0LL, 0x100u, 0x109u, 1, 0) )
+        ;
+      if ( *(struct tagWND **)(*(_QWORD *)(gptiCurrent + 432LL) + 104LL) != a2
+        || DWORD2(v45) == 256 && (_QWORD)v46 == 27LL )
+      {
+        v9 = *(struct tagCURSOR **)(gasyscur[0] + 5528LL);
+        if ( v9 )
+          zzzSetCursor(*(struct tagCURSOR **)(gasyscur[0] + 5528LL));
+        break;
+      }
+      v24 = *(_OWORD *)(v11 + 16);
+      *(_OWORD *)(v11 + 48) = *(_OWORD *)v11;
+      v25 = *(_OWORD *)(v11 + 32);
+      *(_OWORD *)(v11 + 64) = v24;
+      *(_OWORD *)(v11 + 80) = v25;
+      *(_QWORD *)(v11 + 32) = *(_QWORD *)((char *)&v47 + 4);
+      DropObject = xxxQueryDropObject(a1, (struct tagDROPSTRUCT *)v11);
+      v9 = DropObject;
+      if ( DropObject )
+      {
+        if ( DropObject == (struct tagCURSOR *)1 )
+          v9 = a5;
+      }
+      else
+      {
+        v9 = *(struct tagCURSOR **)(gasyscur[0] + 5528LL);
+        *(_QWORD *)(v11 + 8) = 0LL;
+      }
+      if ( v9 )
+        zzzSetCursor(v9);
+      if ( a2 )
+      {
+        v27 = *(struct tagCURSOR **)(gasyscur[0] + 5528LL);
+        _InterlockedIncrement(&glSendMessage);
+        xxxSendTransformableMessageTimeout(
+          (unsigned __int64)a2,
+          0x22Du,
+          v9 != v27,
+          (struct _LARGE_STRING *)v11,
+          0,
+          0,
+          0LL,
+          1,
+          1);
+      }
+      if ( v40 == HMValidateHandleNoSecure(*(_QWORD *)(v11 + 8), 1) )
+      {
+        if ( v40 )
+        {
+          _InterlockedIncrement(&glSendMessage);
+          xxxSendTransformableMessageTimeout(v40, 0x22Fu, 0LL, (struct _LARGE_STRING *)v11, 0, 0, 0LL, 1, 1);
+        }
+      }
+      else
+      {
+        if ( v40 )
+        {
+          _InterlockedIncrement(&glSendMessage);
+          xxxSendTransformableMessageTimeout(v40, 0x22Eu, 0LL, (struct _LARGE_STRING *)(v11 + 48), 0, 0, 0LL, 1, 1);
+        }
+        v28 = HMValidateHandleNoSecure(*(_QWORD *)(v11 + 8), 1);
+        v40 = v28;
+        ThreadUnlock1(v29);
+        v42 = *(_QWORD *)(gptiCurrent + 416LL);
+        *(_QWORD *)(gptiCurrent + 416LL) = &v42;
+        v43 = v28;
+        if ( v28 )
+        {
+          HMLockObject(v28);
+          _InterlockedAdd(&glSendMessage, 1u);
+          xxxSendTransformableMessageTimeout(v28, 0x22Eu, 1uLL, (struct _LARGE_STRING *)v11, 0, 0, 0LL, 1, 1);
+        }
+      }
+      if ( DWORD2(v45) == 162 || DWORD2(v45) == 514 )
+      {
+        v21 = 0;
+        v39 = 0;
+      }
+      else
+      {
+        v21 = v39;
+      }
+      if ( !v21 )
+        break;
+    }
+    ThreadUnlock1(v20);
+    if ( v21 )
+      v9 = *(struct tagCURSOR **)(gasyscur[0] + 5528LL);
+    xxxReleaseCapture();
+    zzzShowCursor(0LL);
+    zzzSetCursor(v41);
+    ThreadUnlock1(v30);
+    if ( v9 == *(struct tagCURSOR **)(gasyscur[0] + 5528LL)
+      || (v31 = ValidateHwnd(*(_QWORD *)(v11 + 8)), (v32 = v31) == 0) )
+    {
+      v36 = 0;
     }
     else
     {
-      if ( v9 )
+      *(_QWORD *)&v50 = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = &v50;
+      *((_QWORD *)&v50 + 1) = v31;
+      HMLockObject(v31);
+      *(_DWORD *)(*(_QWORD *)(v32 + 16) + 488LL) |= 0x20u;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        _InterlockedIncrement(&glSendMessage);
-        xxxSendTransformableMessageTimeout(v9, 0x22Eu, 0LL, v11 + 48, 0, 0, 0LL, 1, 1);
+        LOBYTE(v33) = 4;
+        WPP_RECORDER_SF_q(
+          v34,
+          v33,
+          2,
+          10,
+          (__int64)&WPP_d797790c7a3731f04d2687a9272fe752_Traceguids,
+          *(_QWORD *)(v32 + 16));
       }
-      v9 = (unsigned __int64 *)HMValidateHandleNoSecure(*(_QWORD *)(v11 + 8), 1);
-      ThreadUnlock1(v35, v34, v36);
-      v53 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v53;
-      v54 = v9;
-      if ( !v9 )
-        goto LABEL_45;
-      HMLockObject(v9);
-      v37 = 1LL;
-      v38 = 558;
+      v35 = 0LL;
+      if ( a2 )
+        v35 = *(_QWORD *)a2;
+      _InterlockedIncrement(&glSendMessage);
+      v36 = xxxSendTransformableMessageTimeout(v32, 0x22Au, v35, (struct _LARGE_STRING *)v11, 0, 0, 0LL, 1, 1);
+      ThreadUnlock1(v37);
     }
-    _InterlockedAdd(&glSendMessage, 1u);
-    xxxSendTransformableMessageTimeout(v9, v38, v37, v11, 0, 0, 0LL, 1, 1);
-LABEL_45:
-    if ( DWORD2(v56) == 162 || DWORD2(v56) == 514 )
+    if ( gpqForeground )
     {
-      ThreadUnlock1(v21, v20, v22);
-      goto LABEL_51;
+      v38 = *(struct tagWND **)(gpqForeground + 112LL);
+      if ( v38 )
+      {
+        if ( gpqForeground == *(_QWORD *)(gptiCurrent + 432LL) )
+          xxxWindowEvent(0x80000005, v38, 0, 4u, 0x21u);
+      }
     }
-  }
-  ThreadUnlock1(v21, v20, v22);
-  v32 = *(struct tagCURSOR **)(gasyscur[0] + 5528LL);
-LABEL_51:
-  xxxReleaseCapture();
-  zzzShowCursor(0);
-  zzzSetCursor(v52);
-  ThreadUnlock1(v40, v39, v41);
-  if ( v32 == *(struct tagCURSOR **)(gasyscur[0] + 5528LL)
-    || (v42 = ValidateHwnd(*(_QWORD *)(v11 + 8)), (v43 = (unsigned __int64 *)v42) == 0LL) )
-  {
-    v47 = 0;
-  }
-  else
-  {
-    *(_QWORD *)&v61 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v61;
-    *((_QWORD *)&v61 + 1) = v42;
-    HMLockObject(v42);
-    *(_DWORD *)(v43[2] + 488) |= 0x20u;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-      || (LOBYTE(v44) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-    {
-      LOBYTE(v44) = 0;
-    }
-    if ( (_BYTE)v44 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v45) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_q(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v44,
-        v45,
-        10,
-        4,
-        2,
-        10,
-        (__int64)&WPP_fc54a38ba6263c0086d73cf5d07c55ae_Traceguids,
-        v43[2]);
-    }
-    v46 = 0LL;
-    if ( a2 )
-      v46 = *(_QWORD *)a2;
-    _InterlockedAdd(&glSendMessage, 1u);
-    v47 = xxxSendTransformableMessageTimeout(v43, 0x22Au, v46, v11, 0, 0, 0LL, 1, 1);
-    ThreadUnlock1(v49, v48, v50);
-  }
-  if ( gpqForeground )
-  {
-    v51 = *(struct tagWND **)(gpqForeground + 112LL);
-    if ( v51 )
-    {
-      if ( gpqForeground == *(_QWORD *)(gptiCurrent + 432LL) )
-        xxxWindowEvent(0x80000005, v51, 0, 4u, 33);
-    }
-  }
-  xxxWindowEvent(0xFu, a2, 0, 0, 0);
-  v5 = v47;
+    xxxWindowEvent(0xFu, a2, 0, 0, 0);
+    v5 = v36;
 LABEL_69:
-  PopAndFreeAlwaysW32ThreadLock((__int64)&v63);
-  return v5;
+    PopAndFreeAlwaysW32ThreadLock((__int64)&v53);
+    return v5;
+  }
+  return result;
 }

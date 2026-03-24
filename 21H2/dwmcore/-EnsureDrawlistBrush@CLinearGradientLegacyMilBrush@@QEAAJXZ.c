@@ -1,157 +1,156 @@
 /*
- * XREFs of ?EnsureDrawlistBrush@CLinearGradientLegacyMilBrush@@QEAAJXZ @ 0x1802087CC
+ * XREFs of ?EnsureDrawlistBrush@CLinearGradientLegacyMilBrush@@QEAAJXZ @ 0x1801B58F8
  * Callers:
- *     ?Draw@CLinearGradientLegacyMilBrush@@QEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@AEBUMilRectF@@@Z @ 0x18020827C (-Draw@CLinearGradientLegacyMilBrush@@QEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@AEBUMi.c)
+ *     ?Draw@CLinearGradientLegacyMilBrush@@QEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@_NAEBUMilRectF@@@Z @ 0x1801B5444 (-Draw@CLinearGradientLegacyMilBrush@@QEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@_NAEBU.c)
  * Callees:
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x18003C050 (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ??0CLinearGradientBrush@@QEAA@PEAVCComposition@@@Z @ 0x180040E2C (--0CLinearGradientBrush@@QEAA@PEAVCComposition@@@Z.c)
- *     ??$_Emplace_reallocate@PEAVCColorGradientStop@@@?$vector@PEAVCColorGradientStop@@V?$allocator@PEAVCColorGradientStop@@@std@@@std@@QEAAPEAPEAVCColorGradientStop@@QEAPEAV2@$$QEAPEAV2@@Z @ 0x1800413BC (--$_Emplace_reallocate@PEAVCColorGradientStop@@@-$vector@PEAVCColorGradientStop@@V-$allocator@PE.c)
- *     ?SetStops@CGradientBrush@@QEAAXAEBV?$span@PEAVCColorGradientStop@@$0?0@gsl@@_N@Z @ 0x180043988 (-SetStops@CGradientBrush@@QEAAXAEBV-$span@PEAVCColorGradientStop@@$0-0@gsl@@_N@Z.c)
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18004F61C (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x180190BB4 (-terminate@details@gsl@@YAXXZ.c)
- *     ??4?$com_ptr_t@VCColorGradientStop@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorGradientStop@@@Z @ 0x1802081AC (--4-$com_ptr_t@VCColorGradientStop@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorGradi.c)
- *     ??4?$com_ptr_t@VCLinearGradientBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCLinearGradientBrush@@@Z @ 0x180208214 (--4-$com_ptr_t@VCLinearGradientBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCLinearGr.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F358 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??4?$com_ptr_t@VCColorGradientStop@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorGradientStop@@@Z @ 0x1800F0108 (--4-$com_ptr_t@VCColorGradientStop@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorGradi.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??$_Emplace_reallocate@PEAVCVisual@@@?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@QEAAPEAPEAVCVisual@@QEAPEAV2@$$QEAPEAV2@@Z @ 0x1801B52E4 (--$_Emplace_reallocate@PEAVCVisual@@@-$vector@PEAVCVisual@@V-$allocator@PEAVCVisual@@@std@@@std@.c)
+ *     ??0CLinearGradientBrush@@QEAA@PEAVCComposition@@@Z @ 0x1801D27CC (--0CLinearGradientBrush@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?SetStops@CGradientBrush@@QEAAXAEBV?$span@PEAVCColorGradientStop@@$0?0@gsl@@_N@Z @ 0x1801E77F8 (-SetStops@CGradientBrush@@QEAAXAEBV-$span@PEAVCColorGradientStop@@$0-0@gsl@@_N@Z.c)
  */
 
 __int64 __fastcall CLinearGradientLegacyMilBrush::EnsureDrawlistBrush(CLinearGradientLegacyMilBrush *this)
 {
-  __int64 *v1; // rsi
-  unsigned int v3; // edi
-  CLinearGradientBrush *v4; // rax
-  CLinearGradientBrush *v5; // rax
-  __int64 v6; // rcx
-  _DWORD *v7; // rdx
-  __int64 v8; // rax
-  _DWORD *v9; // rdx
-  __int64 v10; // rax
-  __int64 *v11; // r14
+  unsigned int v2; // edi
+  CLinearGradientBrush *v3; // rax
+  CLinearGradientBrush *v4; // rcx
+  __int64 v5; // rsi
+  _QWORD *v6; // rax
+  __int64 v7; // rdx
+  _QWORD *v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rcx
   __int64 v12; // rcx
-  __int64 v13; // rcx
   __int64 v14; // rcx
+  __int64 v15; // rsi
   __int64 v16; // rax
-  __int64 v17; // rbx
-  __int64 v18; // rcx
-  __int64 v19; // rax
-  struct CResource ***v20; // r14
-  void *v21; // rsi
-  gsl::details *v22; // rcx
-  unsigned int v23; // [rsp+20h] [rbp-30h]
-  __int128 v24; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v25; // [rsp+40h] [rbp-10h]
-  __int64 v26; // [rsp+80h] [rbp+30h] BYREF
+  __int64 v17; // rax
+  gsl::details *v18; // rcx
+  void *v19; // rbx
+  __int64 v20; // rax
+  unsigned int v21; // [rsp+20h] [rbp-30h]
+  __int128 v22; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v23; // [rsp+40h] [rbp-10h]
+  __int64 v24; // [rsp+80h] [rbp+30h] BYREF
 
-  v1 = (__int64 *)((char *)this + 264);
-  v3 = 0;
-  if ( *((_QWORD *)this + 33) )
-    return v3;
-  v4 = (CLinearGradientBrush *)DefaultHeap::AllocClear(0x120uLL);
-  if ( v4 )
-    v5 = CLinearGradientBrush::CLinearGradientBrush(v4, *((struct CComposition **)this + 2));
+  v2 = 0;
+  if ( *((_QWORD *)this + 31) )
+    return v2;
+  v3 = (CLinearGradientBrush *)DefaultHeap::AllocClear(0xF0uLL);
+  if ( v3 )
+    v4 = CLinearGradientBrush::CLinearGradientBrush(v3, *((struct CComposition **)this + 2));
   else
-    v5 = 0LL;
-  wil::com_ptr_t<CLinearGradientBrush,wil::err_returncode_policy>::operator=(v1, (__int64)v5);
-  if ( !*v1 )
+    v4 = 0LL;
+  v5 = *((_QWORD *)this + 31);
+  *((_QWORD *)this + 31) = v4;
+  if ( v4 )
+    (*(void (__fastcall **)(CLinearGradientBrush *))(*(_QWORD *)v4 + 8LL))(v4);
+  if ( v5 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+  if ( !*((_QWORD *)this + 31) )
   {
-    v23 = 116;
-LABEL_17:
-    v3 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, -2147024882, v23);
-    v12 = *v1;
-    *v1 = 0LL;
+    v21 = 108;
+LABEL_21:
+    v2 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v4, 0LL, 0, -2147024882, v21, 0LL);
+    v10 = *((_QWORD *)this + 31);
+    *((_QWORD *)this + 31) = 0LL;
+    if ( v10 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 16LL))(v10);
+    v11 = *((_QWORD *)this + 32);
+    *((_QWORD *)this + 32) = 0LL;
+    if ( v11 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
+    v12 = *((_QWORD *)this + 33);
+    *((_QWORD *)this + 33) = 0LL;
     if ( v12 )
       (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
-    v13 = *((_QWORD *)this + 34);
-    *((_QWORD *)this + 34) = 0LL;
-    if ( v13 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v13 + 16LL))(v13);
-    v14 = *((_QWORD *)this + 35);
-    *((_QWORD *)this + 35) = 0LL;
-    if ( v14 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v14 + 16LL))(v14);
-    return v3;
+    return v2;
   }
-  v7 = DefaultHeap::AllocClear(0x58uLL);
-  if ( v7 )
+  v6 = DefaultHeap::Alloc(0x50uLL);
+  v7 = (__int64)v6;
+  if ( v6 )
   {
-    v8 = *((_QWORD *)this + 2);
-    v7[2] = 0;
-    *((_QWORD *)v7 + 2) = v8;
-    *((_QWORD *)v7 + 3) = 0LL;
-    *((_QWORD *)v7 + 5) = 0LL;
-    v7[8] = 0;
-    *(_QWORD *)v7 = &CColorGradientStop::`vftable';
-    *((_QWORD *)v7 + 8) = 0LL;
-    *((_QWORD *)v7 + 9) = 0LL;
-    v7[20] = 0;
+    v6[2] = *((_QWORD *)this + 2);
+    *((_DWORD *)v6 + 2) = 0;
+    v6[3] = 0LL;
+    v6[5] = 0LL;
+    *((_DWORD *)v6 + 8) = 0;
+    *v6 = &CColorGradientStop::`vftable';
+    v6[7] = 0LL;
+    v6[8] = 0LL;
+    *((_DWORD *)v6 + 18) = 0;
   }
   else
   {
     v7 = 0LL;
   }
-  wil::com_ptr_t<CColorGradientStop,wil::err_returncode_policy>::operator=((__int64 *)this + 34, (__int64)v7);
-  if ( !*((_QWORD *)this + 34) )
+  wil::com_ptr_t<CColorGradientStop,wil::err_returncode_policy>::operator=((__int64 *)this + 32, v7);
+  if ( !*((_QWORD *)this + 32) )
   {
-    v23 = 118;
-    goto LABEL_17;
+    v21 = 110;
+    goto LABEL_21;
   }
-  v9 = DefaultHeap::AllocClear(0x58uLL);
-  if ( v9 )
+  v8 = DefaultHeap::Alloc(0x50uLL);
+  v9 = (__int64)v8;
+  if ( v8 )
   {
-    v10 = *((_QWORD *)this + 2);
-    v9[2] = 0;
-    *((_QWORD *)v9 + 2) = v10;
-    *((_QWORD *)v9 + 3) = 0LL;
-    *((_QWORD *)v9 + 5) = 0LL;
-    v9[8] = 0;
-    *(_QWORD *)v9 = &CColorGradientStop::`vftable';
-    *((_QWORD *)v9 + 8) = 0LL;
-    *((_QWORD *)v9 + 9) = 0LL;
-    v9[20] = 0;
+    v8[2] = *((_QWORD *)this + 2);
+    *((_DWORD *)v8 + 2) = 0;
+    v8[3] = 0LL;
+    v8[5] = 0LL;
+    *((_DWORD *)v8 + 8) = 0;
+    *v8 = &CColorGradientStop::`vftable';
+    v8[7] = 0LL;
+    v8[8] = 0LL;
+    *((_DWORD *)v8 + 18) = 0;
   }
   else
   {
     v9 = 0LL;
   }
-  v11 = (__int64 *)((char *)this + 280);
-  wil::com_ptr_t<CColorGradientStop,wil::err_returncode_policy>::operator=((__int64 *)this + 35, (__int64)v9);
-  if ( !*((_QWORD *)this + 35) )
+  wil::com_ptr_t<CColorGradientStop,wil::err_returncode_policy>::operator=((__int64 *)this + 33, v9);
+  if ( !*((_QWORD *)this + 33) )
   {
-    v23 = 120;
-    goto LABEL_17;
+    v21 = 112;
+    goto LABEL_21;
   }
-  v26 = *((_QWORD *)this + 34);
-  v25 = 0LL;
-  v24 = 0LL;
-  std::vector<CColorGradientStop *>::_Emplace_reallocate<CColorGradientStop *>(&v24, 0LL, &v26);
-  v16 = *((_QWORD *)&v24 + 1);
-  v17 = v25;
-  v18 = *v11;
-  v26 = *v11;
-  if ( *((_QWORD *)&v24 + 1) == v25 )
+  v24 = *((_QWORD *)this + 32);
+  v23 = 0LL;
+  v22 = 0LL;
+  std::vector<CVisual *>::_Emplace_reallocate<CVisual *>((__int64 *)&v22, 0LL, &v24);
+  v14 = *((_QWORD *)this + 33);
+  v15 = v23;
+  v16 = *((_QWORD *)&v22 + 1);
+  v24 = v14;
+  if ( v23 == *((_QWORD *)&v22 + 1) )
   {
-    std::vector<CColorGradientStop *>::_Emplace_reallocate<CColorGradientStop *>(&v24, *((_BYTE **)&v24 + 1), &v26);
-    v19 = *((_QWORD *)&v24 + 1);
-    v17 = v25;
+    std::vector<CVisual *>::_Emplace_reallocate<CVisual *>((__int64 *)&v22, *((_BYTE **)&v22 + 1), &v24);
+    v17 = *((_QWORD *)&v22 + 1);
+    v15 = v23;
   }
   else
   {
-    **((_QWORD **)&v24 + 1) = v18;
-    v19 = v16 + 8;
+    **((_QWORD **)&v22 + 1) = v14;
+    v17 = v16 + 8;
   }
-  v20 = (struct CResource ***)*v1;
-  v21 = (void *)v24;
-  gsl::details::extent_type<-1>::extent_type<-1>((gsl::details *)&v24, (int)((v19 - (__int64)v24) >> 3));
-  *((_QWORD *)&v24 + 1) = v21;
-  if ( (_QWORD)v24 == -1LL || !v21 && (_QWORD)v24 )
+  v18 = (gsl::details *)*((_QWORD *)this + 31);
+  v19 = (void *)v22;
+  v20 = (v17 - (__int64)v22) >> 3;
+  *(_QWORD *)&v22 = (int)v20;
+  if ( (int)v20 < 0 || (*((_QWORD *)&v22 + 1) = v19) == 0LL && (_DWORD)v20 )
   {
-    gsl::details::terminate(v22);
-    JUMPOUT(0x180208A7BLL);
+    `gsl::details::get_terminate_handler'::`2'::handler(v18);
+    __debugbreak();
   }
-  CGradientBrush::SetStops(v20, (__int64 *)&v24, 0);
-  if ( v21 )
-    std::_Deallocate<16,0>(v21, (v17 - (_QWORD)v21) & 0xFFFFFFFFFFFFFFF8uLL);
-  return v3;
+  CGradientBrush::SetStops(v18);
+  if ( v19 )
+    std::_Deallocate<16,0>(v19, (v15 - (_QWORD)v19) & 0xFFFFFFFFFFFFFFF8uLL);
+  return v2;
 }

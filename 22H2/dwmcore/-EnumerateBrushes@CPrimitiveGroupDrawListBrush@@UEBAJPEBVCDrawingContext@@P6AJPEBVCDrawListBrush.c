@@ -1,24 +1,25 @@
 /*
- * XREFs of ?EnumerateBrushes@CPrimitiveGroupDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX@Z2@Z @ 0x1800109B0
+ * XREFs of ?EnumerateBrushes@CPrimitiveGroupDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX@Z2@Z @ 0x1800F3240
  * Callers:
  *     <none>
  * Callees:
- *     ?GetIteratorForState@CPrimitiveGroupDrawListGenerator@@QEBA?AVIterator@CPrimitiveBuffer@@I@Z @ 0x1800108D0 (-GetIteratorForState@CPrimitiveGroupDrawListGenerator@@QEBA-AVIterator@CPrimitiveBuffer@@I@Z.c)
- *     ?Step@Iterator@CPrimitiveBuffer@@QEAA_NXZ @ 0x180010D4C (-Step@Iterator@CPrimitiveBuffer@@QEAA_NXZ.c)
- *     ??0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x18005C8F8 (--0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z.c)
- *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180071B00 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
- *     ?ComputeRectangleTransform@D2DMatrixHelper@@YA_NAEBUD2D_RECT_F@@0PEAUD2D_MATRIX_3X2_F@@@Z @ 0x18007FC08 (-ComputeRectangleTransform@D2DMatrixHelper@@YA_NAEBUD2D_RECT_F@@0PEAUD2D_MATRIX_3X2_F@@@Z.c)
- *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180080594 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
- *     ?CreateWithTextureTransform@CSurfaceDrawListBrush@@SAJAEBVCDrawListBitmap@@USamplerMode@@AEBVMatrix3x3@@PEAPEAV1@@Z @ 0x1800927C4 (-CreateWithTextureTransform@CSurfaceDrawListBrush@@SAJAEBVCDrawListBitmap@@USamplerMode@@AEBVMat.c)
- *     ?Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z @ 0x1800B26B8 (-Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z.c)
- *     ?IsEmpty@@YA_NAEBUD2D_RECT_F@@@Z @ 0x1800B2F2C (-IsEmpty@@YA_NAEBUD2D_RECT_F@@@Z.c)
- *     ?Get2DScaleDimensions@CMILMatrix@@QEBAXPEAM0@Z @ 0x1800B5084 (-Get2DScaleDimensions@CMILMatrix@@QEBAXPEAM0@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??_ECSurfaceDrawListBrush@@UEAAPEAXI@Z @ 0x1800D8440 (--_ECSurfaceDrawListBrush@@UEAAPEAXI@Z.c)
- *     ?ClipRectAndEdgeFlags@@YA?AW4D2D1_EDGE_FLAGS@@AEBUD2D_RECT_F@@W41@01PEAU2@PEAW41@@Z @ 0x1800D9FD4 (-ClipRectAndEdgeFlags@@YA-AW4D2D1_EDGE_FLAGS@@AEBUD2D_RECT_F@@W41@01PEAU2@PEAW41@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?SetSnapToPixelsReference@CSurfaceDrawListBrush@@QEAAXPEBUD2D_VECTOR_2F@@@Z @ 0x180252ECC (-SetSnapToPixelsReference@CSurfaceDrawListBrush@@QEAAXPEBUD2D_VECTOR_2F@@@Z.c)
+ *     ?ClipRectAndEdgeFlags@@YA_NAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@01PEAU1@PEAW42@@Z @ 0x180012ED0 (-ClipRectAndEdgeFlags@@YA_NAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@01PEAU1@PEAW42@@Z.c)
+ *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180041988 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
+ *     ?CreateWithTextureTransform@CSurfaceDrawListBrush@@SAJAEBVCDrawListBitmap@@USamplerMode@@AEBVMatrix3x3@@PEAPEAV1@@Z @ 0x180050134 (-CreateWithTextureTransform@CSurfaceDrawListBrush@@SAJAEBVCDrawListBitmap@@USamplerMode@@AEBVMat.c)
+ *     ??_ECSurfaceDrawListBrush@@UEAAPEAXI@Z @ 0x180054720 (--_ECSurfaceDrawListBrush@@UEAAPEAXI@Z.c)
+ *     ??1?$unique_ptr@VCSurfaceDrawListBrush@@U?$default_delete@VCSurfaceDrawListBrush@@@std@@@std@@QEAA@XZ @ 0x1800563C0 (--1-$unique_ptr@VCSurfaceDrawListBrush@@U-$default_delete@VCSurfaceDrawListBrush@@@std@@@std@@QE.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180058560 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180058584 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z @ 0x18008D110 (-Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z.c)
+ *     ?Step@Iterator@CPrimitiveBuffer@@QEAA_NXZ @ 0x1800B9FB4 (-Step@Iterator@CPrimitiveBuffer@@QEAA_NXZ.c)
+ *     ?GetIteratorForState@CPrimitiveGroupDrawListGenerator@@QEBA?AVIterator@CPrimitiveBuffer@@I@Z @ 0x1800BA118 (-GetIteratorForState@CPrimitiveGroupDrawListGenerator@@QEBA-AVIterator@CPrimitiveBuffer@@I@Z.c)
+ *     ?Get2DScaleDimensions@CMILMatrix@@QEBAXPEAM0@Z @ 0x1800BA28C (-Get2DScaleDimensions@CMILMatrix@@QEBAXPEAM0@Z.c)
+ *     ??0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800C4488 (--0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ?ComputeRectangleTransform@D2DMatrixHelper@@YA_NAEBUD2D_RECT_F@@0PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1800C6CD8 (-ComputeRectangleTransform@D2DMatrixHelper@@YA_NAEBUD2D_RECT_F@@0PEAUD2D_MATRIX_3X2_F@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?SetSnapToPixelsReference@CSurfaceDrawListBrush@@QEAAXPEBUD2D_VECTOR_2F@@@Z @ 0x1801EEBC0 (-SetSnapToPixelsReference@CSurfaceDrawListBrush@@QEAAXPEBUD2D_VECTOR_2F@@@Z.c)
  */
 
 __int64 __fastcall CPrimitiveGroupDrawListBrush::EnumerateBrushes(
@@ -29,200 +30,198 @@ __int64 __fastcall CPrimitiveGroupDrawListBrush::EnumerateBrushes(
 {
   unsigned int v5; // r14d
   CMILMatrix *v6; // rax
-  unsigned int v7; // r15d
-  __int64 v8; // rcx
-  __int64 v9; // rsi
-  D2DMatrixHelper *v10; // rbx
-  __int64 v11; // r13
-  float v12; // r12d
-  __m128i v13; // xmm6
-  struct D2D_MATRIX_3X2_F *v14; // r9
-  char v15; // r11
-  __int32 v16; // xmm1_4
-  unsigned int v17; // xmm0_4
+  __int128 v7; // xmm1
+  __int128 v8; // xmm0
+  __int128 v9; // xmm1
+  __int64 v10; // rcx
+  unsigned int v11; // r12d
+  __int64 v12; // rsi
+  D2DMatrixHelper *v13; // rbx
+  struct CSurfaceDrawListBrush *v14; // r15
+  float v15; // r13d
+  __m128i v16; // xmm6
+  struct D2D_MATRIX_3X2_F *v17; // r9
   unsigned int v18; // xmm0_4
   unsigned int v19; // xmm1_4
-  CSurfaceDrawListBrush *v20; // rcx
-  CSurfaceDrawListBrush *v21; // rax
-  CSurfaceDrawListBrush *v22; // rax
-  CSurfaceDrawListBrush *v23; // rax
-  int v24; // eax
-  unsigned int v25; // ecx
-  float v27; // xmm3_4
-  float v28; // xmm2_4
-  FLOAT v29; // xmm0_4
-  FLOAT v30; // xmm2_4
-  FLOAT v31; // xmm1_4
-  FLOAT v32; // xmm3_4
-  bool v33; // [rsp+39h] [rbp-CFh]
+  __int32 v20; // xmm1_4
+  unsigned int v21; // xmm0_4
+  CSurfaceDrawListBrush *v22; // rcx
+  unsigned int v23; // r8d
+  CSurfaceDrawListBrush *v24; // rax
+  CSurfaceDrawListBrush *v25; // rax
+  int v26; // eax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  unsigned int v29; // r8d
+  __int64 v30; // rdx
+  unsigned int v31; // r8d
+  char v33; // [rsp+38h] [rbp-D0h]
   CSurfaceDrawListBrush *v34; // [rsp+40h] [rbp-C8h] BYREF
   float v35; // [rsp+48h] [rbp-C0h] BYREF
-  float v36[2]; // [rsp+58h] [rbp-B0h] BYREF
-  CSurfaceDrawListBrush **v37; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v38; // [rsp+68h] [rbp-A0h] BYREF
-  unsigned int v39; // [rsp+70h] [rbp-98h]
-  unsigned int v40; // [rsp+74h] [rbp-94h]
-  __m256i v41; // [rsp+78h] [rbp-90h] BYREF
-  __int128 v42; // [rsp+98h] [rbp-70h]
-  __int128 v43; // [rsp+A8h] [rbp-60h]
-  int v44; // [rsp+B8h] [rbp-50h]
-  struct D2D_RECT_F v45; // [rsp+C0h] [rbp-48h] BYREF
-  void *v46; // [rsp+D0h] [rbp-38h]
-  int (*v47)(const struct CDrawListBrush *, void *); // [rsp+D8h] [rbp-30h]
-  struct D2D_RECT_F v48; // [rsp+E0h] [rbp-28h] BYREF
-  __m256i v49; // [rsp+F8h] [rbp-10h] BYREF
-  __int128 v50; // [rsp+118h] [rbp+10h]
-  __int128 v51; // [rsp+128h] [rbp+20h]
-  int v52; // [rsp+138h] [rbp+30h]
-  _BYTE v53[8]; // [rsp+148h] [rbp+40h] BYREF
-  D2DMatrixHelper *v54; // [rsp+150h] [rbp+48h]
-  _BYTE v55[72]; // [rsp+168h] [rbp+60h] BYREF
-  struct D2D_RECT_F v56; // [rsp+1B0h] [rbp+A8h] BYREF
+  float v36; // [rsp+58h] [rbp-B0h] BYREF
+  __m256i v37; // [rsp+60h] [rbp-A8h] BYREF
+  __int128 v38; // [rsp+80h] [rbp-88h]
+  __int128 v39; // [rsp+90h] [rbp-78h]
+  int v40; // [rsp+A0h] [rbp-68h]
+  struct D2D_RECT_F v41; // [rsp+A8h] [rbp-60h] BYREF
+  _QWORD v42[2]; // [rsp+B8h] [rbp-50h] BYREF
+  unsigned int v43; // [rsp+C8h] [rbp-40h]
+  unsigned int v44; // [rsp+CCh] [rbp-3Ch]
+  CSurfaceDrawListBrush **v45; // [rsp+D0h] [rbp-38h]
+  CSurfaceDrawListBrush *v46; // [rsp+D8h] [rbp-30h] BYREF
+  char v47; // [rsp+E0h] [rbp-28h]
+  void *v48; // [rsp+E8h] [rbp-20h]
+  int (*v49)(const struct CDrawListBrush *, void *); // [rsp+F0h] [rbp-18h]
+  __m128i v50; // [rsp+F8h] [rbp-10h] BYREF
+  __m256i v51; // [rsp+108h] [rbp+0h] BYREF
+  __int128 v52; // [rsp+128h] [rbp+20h]
+  __int128 v53; // [rsp+138h] [rbp+30h]
+  int v54; // [rsp+148h] [rbp+40h]
+  _BYTE v55[8]; // [rsp+158h] [rbp+50h] BYREF
+  D2DMatrixHelper *v56; // [rsp+160h] [rbp+58h]
+  _BYTE v57[72]; // [rsp+178h] [rbp+70h] BYREF
+  struct D2D_RECT_F v58; // [rsp+1C0h] [rbp+B8h] BYREF
 
-  v46 = a4;
-  v47 = a3;
+  v48 = a4;
+  v49 = a3;
   v5 = 0;
-  v52 = 0;
-  CMatrixStack::Top((const struct CDrawingContext *)((char *)a2 + 400), (struct CMILMatrix *)&v49);
-  v6 = CMILMatrix::CMILMatrix((CMILMatrix *)v55, (const struct D2D_MATRIX_3X2_F *)((char *)this + 8));
-  v41 = *(__m256i *)v6;
-  v42 = *((_OWORD *)v6 + 2);
-  v43 = *((_OWORD *)v6 + 3);
-  v44 = *((_DWORD *)v6 + 16);
-  CMILMatrix::Multiply((CMILMatrix *)&v41, (const struct CMILMatrix *)&v49);
-  v52 = v44;
-  v49 = v41;
-  v50 = v42;
-  v51 = v43;
-  CMILMatrix::Get2DScaleDimensions((CMILMatrix *)&v49, v36, &v35);
-  v7 = 0;
-  v8 = *((_QWORD *)this + 9);
-  v33 = COERCE_FLOAT(COERCE_UNSIGNED_INT(v36[0] - 1.0) & _xmm) < 0.000081380211;
-  if ( !*(_DWORD *)(*(_QWORD *)(v8 + 16) + 8LL) )
+  v54 = 0;
+  CMatrixStack::Top((const struct CDrawingContext *)((char *)a2 + 408), (struct CMILMatrix *)&v51);
+  v6 = CMILMatrix::CMILMatrix((CMILMatrix *)v57, (const struct D2D_MATRIX_3X2_F *)((char *)this + 8));
+  v7 = *((_OWORD *)v6 + 1);
+  *(_OWORD *)v37.m256i_i8 = *(_OWORD *)v6;
+  v8 = *((_OWORD *)v6 + 2);
+  *(_OWORD *)&v37.m256i_u64[2] = v7;
+  v9 = *((_OWORD *)v6 + 3);
+  LODWORD(v6) = *((_DWORD *)v6 + 16);
+  v38 = v8;
+  v40 = (int)v6;
+  v39 = v9;
+  CMILMatrix::Multiply((CMILMatrix *)&v37, (const struct CMILMatrix *)&v51);
+  v54 = v40;
+  v51 = v37;
+  v52 = v38;
+  v53 = v39;
+  CMILMatrix::Get2DScaleDimensions((CMILMatrix *)&v51, &v36, &v35);
+  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(v36 - 1.0) & _xmm) >= 0.000081380211
+    || (v33 = 0, COERCE_FLOAT(COERCE_UNSIGNED_INT(v35 - 1.0) & _xmm) >= 0.000081380211) )
+  {
+    v33 = 1;
+  }
+  v10 = *((_QWORD *)this + 9);
+  v11 = 0;
+  if ( !*(_DWORD *)(*(_QWORD *)(v10 + 16) + 8LL) )
     return v5;
   while ( 1 )
   {
-    v9 = **(_QWORD **)(v8 + 16) + 144LL * v7;
-    CPrimitiveGroupDrawListGenerator::GetIteratorForState(v8, (__int64)v53, v7);
-    if ( (*(_BYTE *)(v9 + 4) & 2) == 0
-      && *(_DWORD *)v9
-      && *(_DWORD *)(v9 + 40) < *(_DWORD *)(*((_QWORD *)this + 9) + 32LL) )
+    v12 = **(_QWORD **)(v10 + 16) + 144LL * v11;
+    CPrimitiveGroupDrawListGenerator::GetIteratorForState(v10, (__int64)v55, v11);
+    if ( (*(_BYTE *)(v12 + 4) & 2) == 0
+      && *(_DWORD *)v12
+      && *(_DWORD *)(v12 + 40) < *(_DWORD *)(*((_QWORD *)this + 9) + 56LL) )
     {
       break;
     }
-LABEL_21:
-    v8 = *((_QWORD *)this + 9);
-    if ( ++v7 >= *(_DWORD *)(*(_QWORD *)(v8 + 16) + 8LL) )
+LABEL_24:
+    v10 = *((_QWORD *)this + 9);
+    if ( ++v11 >= *(_DWORD *)(*(_QWORD *)(v10 + 16) + 8LL) )
       return v5;
   }
   while ( 1 )
   {
-    v10 = v54;
-    v11 = *(_QWORD *)(*((_QWORD *)this + 9) + 80LL) + 24LL * *(unsigned int *)(v9 + 40);
+    v13 = v56;
+    v14 = (struct CSurfaceDrawListBrush *)(*(_QWORD *)(*((_QWORD *)this + 9) + 104LL)
+                                         + 48LL * *(unsigned int *)(v12 + 40));
     if ( *((_BYTE *)this + 52) )
     {
-      ClipRectAndEdgeFlags(v54, *((unsigned int *)v54 + 11), (char *)this + 32, *((unsigned int *)this + 12), &v48, v36);
-      v12 = v36[0];
-      v13 = (__m128i)v48;
+      ClipRectAndEdgeFlags(
+        (__int64)v56,
+        *((_DWORD *)v56 + 11),
+        (__int64)this + 32,
+        *((_DWORD *)this + 12),
+        &v50,
+        (int *)&v36);
+      v15 = v36;
+      v16 = v50;
     }
     else
     {
-      v13 = _mm_loadu_si128((const __m128i *)v54);
-      v12 = *((float *)v54 + 11);
-      v36[0] = v12;
-      v48 = (struct D2D_RECT_F)v13;
+      v16 = _mm_loadu_si128((const __m128i *)v56);
+      v15 = *((float *)v56 + 11);
+      v36 = v15;
+      v50 = v16;
     }
-    if ( IsEmpty(&v48) )
-      goto LABEL_20;
+    if ( TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty((float *)v50.m128i_i32) )
+      goto LABEL_23;
     if ( v33 )
     {
-      if ( v15 )
-      {
-        v16 = *((_DWORD *)v10 + 17);
-        v41.m256i_i32[0] = *((_DWORD *)v10 + 16);
-        v17 = *((_DWORD *)v10 + 18);
-        v41.m256i_i32[1] = v16;
-        *(__int64 *)((char *)&v41.m256i_i64[1] + 4) = __PAIR64__(*((_DWORD *)v10 + 19), v17);
-        v18 = *((_DWORD *)v10 + 20);
-        v19 = *((_DWORD *)v10 + 21);
-        goto LABEL_11;
-      }
-LABEL_26:
-      v27 = FLOAT_N0_5;
-      goto LABEL_27;
+      v41 = (struct D2D_RECT_F)_mm_sub_ps(*(__m128 *)v13, (__m128)_xmm);
+      D2DMatrixHelper::ComputeRectangleTransform((const struct D2D_RECT_F *)v13, &v41, &v58, v17);
+      D2D1::Matrix3x2F::SetProduct(
+        (D2D1::Matrix3x2F *)v42,
+        (const struct D2D1::Matrix3x2F *)&v58,
+        (D2DMatrixHelper *)((char *)v13 + 64));
+      *(__int64 *)((char *)&v37.m256i_i64[1] + 4) = v42[1];
+      v18 = v43;
+      v19 = v44;
+      v37.m256i_i64[0] = v42[0];
     }
-    if ( !v15 )
-      goto LABEL_26;
-    v27 = 0.0;
-LABEL_27:
-    v28 = v33 ? 0.0 : FLOAT_N0_5;
-    v29 = *(float *)v10 - v28;
-    v30 = v28 + *((float *)v10 + 2);
-    v31 = *((float *)v10 + 1) - v27;
-    v32 = v27 + *((float *)v10 + 3);
-    v45.left = v29;
-    v45.right = v30;
-    v45.top = v31;
-    v45.bottom = v32;
-    D2DMatrixHelper::ComputeRectangleTransform(v10, &v45, &v56, v14);
-    D2D1::Matrix3x2F::SetProduct(
-      (D2D1::Matrix3x2F *)&v37,
-      (const struct D2D1::Matrix3x2F *)&v56,
-      (D2DMatrixHelper *)((char *)v10 + 64));
-    *(__int64 *)((char *)&v41.m256i_i64[1] + 4) = v38;
-    v18 = v39;
-    v19 = v40;
-    v41.m256i_i64[0] = (__int64)v37;
-LABEL_11:
-    v41.m256i_i32[2] = 0;
-    v41.m256i_i32[5] = 0;
+    else
+    {
+      v20 = *((_DWORD *)v13 + 17);
+      v37.m256i_i32[0] = *((_DWORD *)v13 + 16);
+      v21 = *((_DWORD *)v13 + 18);
+      v37.m256i_i32[1] = v20;
+      *(__int64 *)((char *)&v37.m256i_i64[1] + 4) = __PAIR64__(*((_DWORD *)v13 + 19), v21);
+      v18 = *((_DWORD *)v13 + 20);
+      v19 = *((_DWORD *)v13 + 21);
+    }
+    v37.m256i_i32[2] = 0;
+    v37.m256i_i32[5] = 0;
     v34 = 0LL;
-    v38 = 0LL;
-    v37 = &v34;
+    v46 = 0LL;
+    v45 = &v34;
     LOWORD(v35) = *((_WORD *)this + 40);
     BYTE2(v35) = *((_BYTE *)this + 82);
-    v41.m256i_i64[3] = __PAIR64__(v19, v18);
-    LODWORD(v42) = 1065353216;
-    LOBYTE(v39) = 1;
-    v5 = CSurfaceDrawListBrush::CreateWithTextureTransform(v11, &v35, &v41, &v38);
-    if ( (_BYTE)v39 )
+    v37.m256i_i64[3] = __PAIR64__(v19, v18);
+    LODWORD(v38) = 1065353216;
+    v47 = 1;
+    v5 = CSurfaceDrawListBrush::CreateWithTextureTransform(v14, (__int16 *)&v35, (__int64)&v37, &v46);
+    if ( v47 )
     {
-      v20 = *v37;
-      *v37 = (CSurfaceDrawListBrush *)v38;
-      if ( v20 )
-        CSurfaceDrawListBrush::`vector deleting destructor'(v20, 1u);
+      v23 = (unsigned int)v45;
+      v22 = *v45;
+      *v45 = v46;
+      if ( v22 )
+        CSurfaceDrawListBrush::`vector deleting destructor'(v22, 1, v23);
     }
     if ( (v5 & 0x80000000) != 0 )
       break;
-    *((_BYTE *)v34 + 147) = 1;
-    v21 = v34;
-    *(_OWORD *)((char *)v34 + 120) = *(_OWORD *)((char *)v10 + 88);
-    *((_BYTE *)v21 + 145) = 0;
-    v22 = v34;
+    *((_BYTE *)v34 + 169) = 1;
+    *((_OWORD *)v34 + 9) = *(_OWORD *)((char *)v13 + 88);
+    v24 = v34;
     *(_OWORD *)((char *)v34 + 8) = *(_OWORD *)((char *)this + 8);
-    *((_QWORD *)v22 + 3) = *((_QWORD *)this + 3);
-    v23 = v34;
+    *((_QWORD *)v24 + 3) = *((_QWORD *)this + 3);
+    v25 = v34;
     *((_BYTE *)v34 + 52) = 1;
-    *((__m128i *)v23 + 2) = v13;
-    *((float *)v23 + 12) = v12;
+    *((__m128i *)v25 + 2) = v16;
+    *((float *)v25 + 12) = v15;
     if ( *((_BYTE *)this + 64) )
       CSurfaceDrawListBrush::SetSnapToPixelsReference(v34, (const struct D2D_VECTOR_2F *)this + 7);
-    v24 = ((__int64 (__fastcall *)(CSurfaceDrawListBrush *, void *))v47)(v34, v46);
-    v5 = v24;
-    if ( v24 < 0 )
+    v26 = ((__int64 (__fastcall *)(CSurfaceDrawListBrush *, void *))v49)(v34, v48);
+    v5 = v26;
+    if ( v26 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0xAAu, 0LL);
-      goto LABEL_33;
+      MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, v26, 0xA7u, 0LL);
+      goto LABEL_28;
     }
-    if ( v34 )
-      CSurfaceDrawListBrush::`vector deleting destructor'(v34, 1u);
-LABEL_20:
-    if ( !CPrimitiveBuffer::Iterator::Step((CPrimitiveBuffer::Iterator *)v53) )
-      goto LABEL_21;
+    std::unique_ptr<CSurfaceDrawListBrush>::~unique_ptr<CSurfaceDrawListBrush>(&v34, v27, v29);
+LABEL_23:
+    if ( !CPrimitiveBuffer::Iterator::Step((CPrimitiveBuffer::Iterator *)v55) )
+      goto LABEL_24;
   }
-  MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v20, 0LL, 0, v5, 0x9Eu, 0LL);
-LABEL_33:
-  if ( v34 )
-    CSurfaceDrawListBrush::`vector deleting destructor'(v34, 1u);
+  MilInstrumentationCheckHR_MaybeFailFast((__int64)v22, 0LL, 0, v5, 0x9Bu, 0LL);
+LABEL_28:
+  std::unique_ptr<CSurfaceDrawListBrush>::~unique_ptr<CSurfaceDrawListBrush>(&v34, v30, v31);
   return v5;
 }

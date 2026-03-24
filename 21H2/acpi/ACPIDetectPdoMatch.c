@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIDetectPdoMatch @ 0x1C0093204
+ * XREFs of ACPIDetectPdoMatch @ 0x1C009DCB0
  * Callers:
- *     ACPIDetectPdoDevices @ 0x1C0006CE8 (ACPIDetectPdoDevices.c)
+ *     ACPIDetectPdoDevices @ 0x1C0019338 (ACPIDetectPdoDevices.c)
  * Callees:
- *     ACPIDetectCouldExtensionBeInRelation @ 0x1C00932F8 (ACPIDetectCouldExtensionBeInRelation.c)
+ *     ACPIDetectCouldExtensionBeInRelation @ 0x1C009DDA4 (ACPIDetectCouldExtensionBeInRelation.c)
  */
 
 char __fastcall ACPIDetectPdoMatch(__int64 a1, int a2)
@@ -16,7 +16,7 @@ char __fastcall ACPIDetectPdoMatch(__int64 a1, int a2)
   v2 = *(_QWORD *)(a1 + 8);
   v3 = 0;
   v6 = 0LL;
-  if ( (v2 & 0x200000000000008LL) != 8 || *(_QWORD *)(a1 + 768) )
+  if ( (v2 & 0x200000000000008LL) != 8 || *(_QWORD *)(a1 + 728) )
     return 1;
   v4 = ACPIDetectCouldExtensionBeInRelation(a1, a2, 0, 1, (__int64)&v6);
   if ( v6 || v4 < 0 )

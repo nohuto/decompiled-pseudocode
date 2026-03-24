@@ -1,9 +1,9 @@
 /*
- * XREFs of CiSchedulerCommitPriority @ 0x1C00027F0
+ * XREFs of CiSchedulerCommitPriority @ 0x1C0001760
  * Callers:
- *     CiThreadSetRelativePriority @ 0x1C000AC80 (CiThreadSetRelativePriority.c)
+ *     CiThreadSetRelativePriority @ 0x1C000A920 (CiThreadSetRelativePriority.c)
  * Callees:
- *     CiSchedulerSetPriority @ 0x1C0002A60 (CiSchedulerSetPriority.c)
+ *     CiSchedulerSetPriority @ 0x1C0001940 (CiSchedulerSetPriority.c)
  */
 
 void __fastcall CiSchedulerCommitPriority(__int64 a1)

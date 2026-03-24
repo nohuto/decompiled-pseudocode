@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetConfigurationAll@CInteractionConfigurationGroup@DirectComposition@@QEAAJW4Enum@InteractionInputType@@@Z @ 0x1C0093FD8
+ * XREFs of ?SetConfigurationAll@CInteractionConfigurationGroup@DirectComposition@@QEAAJW4Enum@InteractionInputType@@@Z @ 0x1C0084878
  * Callers:
- *     ?CheckInputSinkTypes@CInteractionMarshaler@DirectComposition@@AEAAJXZ @ 0x1C0093ED0 (-CheckInputSinkTypes@CInteractionMarshaler@DirectComposition@@AEAAJXZ.c)
+ *     ?CheckInputSinkTypes@CInteractionMarshaler@DirectComposition@@AEAAJXZ @ 0x1C0084770 (-CheckInputSinkTypes@CInteractionMarshaler@DirectComposition@@AEAAJXZ.c)
  * Callees:
- *     ?InsertAt@?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@QEAAJAEBUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@I@Z @ 0x1C00940DC (-InsertAt@-$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@Direct.c)
- *     ?Reset@?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@QEAAX_N@Z @ 0x1C0094360 (-Reset@-$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectCom.c)
+ *     ?InsertAt@?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@QEAAJAEBUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@I@Z @ 0x1C0084B68 (-InsertAt@-$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@Direct.c)
+ *     ?Reset@?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@QEAAX_N@Z @ 0x1C0084D8C (-Reset@-$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectCom.c)
  */
 
 __int64 __fastcall DirectComposition::CInteractionConfigurationGroup::SetConfigurationAll(_DWORD *a1, int a2)
@@ -12,8 +12,8 @@ __int64 __fastcall DirectComposition::CInteractionConfigurationGroup::SetConfigu
   int v3; // ecx
   int v4; // edx
   int v5; // edx
-  __int64 v6; // rdx
-  int v8; // edx
+  int v6; // edx
+  int v7; // edx
   int v9; // [rsp+20h] [rbp-10h] BYREF
   int v10; // [rsp+24h] [rbp-Ch]
   int v11; // [rsp+28h] [rbp-8h]
@@ -25,13 +25,13 @@ __int64 __fastcall DirectComposition::CInteractionConfigurationGroup::SetConfigu
     v5 = v4 - 1;
     if ( v5 )
     {
-      v6 = (unsigned int)(v5 - 1);
-      if ( (_DWORD)v6 )
+      v6 = v5 - 1;
+      if ( v6 )
       {
-        v8 = v6 - 1;
-        if ( v8 )
+        v7 = v6 - 1;
+        if ( v7 )
         {
-          if ( v8 == 1 )
+          if ( v7 == 1 )
           {
             a1[22] = 1;
             a1[23] = -1;
@@ -53,7 +53,7 @@ __int64 __fastcall DirectComposition::CInteractionConfigurationGroup::SetConfigu
       {
         CStructDynamicArray<DirectComposition::CInteractionConfigurationGroup::ContactRangeConfiguration>::Reset(
           a1 + 16,
-          v6);
+          0LL);
         v10 = -1;
         v9 = 1;
         v11 = -805306369;

@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPITableNotifyFreeObject @ 0x1C003F560
+ * XREFs of ACPITableNotifyFreeObject @ 0x1C005F7C0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
- *     ACPIBuildProcessDelayedDependencyExternalTrigger @ 0x1C000E1CC (ACPIBuildProcessDelayedDependencyExternalTrigger.c)
- *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C0010E04 (ACPIBuildProcessNotifyPepDeleteDevice.c)
- *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C002D080 (ACPIInitDereferenceDeviceExtensionLocked.c)
- *     WPP_RECORDER_SF_qqDD @ 0x1C003F9DC (WPP_RECORDER_SF_qqDD.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIFinalizeObject @ 0x1C0048054 (AMLIFinalizeObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIBuildProcessDelayedDependencyExternalTrigger @ 0x1C00119AC (ACPIBuildProcessDelayedDependencyExternalTrigger.c)
+ *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C00198D8 (ACPIInitDereferenceDeviceExtensionLocked.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C002D1D0 (ACPIBuildProcessNotifyPepDeleteDevice.c)
+ *     WPP_RECORDER_SF_qqDD @ 0x1C005FC3C (WPP_RECORDER_SF_qqDD.c)
+ *     AMLIFinalizeObject @ 0x1C006344C (AMLIFinalizeObject.c)
  */
 
 __int64 __fastcall ACPITableNotifyFreeObject(int a1, KIRQL *a2, int a3, int a4)
@@ -29,29 +29,23 @@ __int64 __fastcall ACPITableNotifyFreeObject(int a1, KIRQL *a2, int a3, int a4)
   {
     case 1:
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(a2) = 4;
         WPP_RECORDER_SF_(
-          WPP_GLOBAL_Control->DeviceExtension,
-          (_DWORD)a2,
-          22,
-          10,
-          (__int64)&WPP_b69ad285f7363a9fe4fc640ff5707c54_Traceguids);
-      }
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          4u,
+          0x16u,
+          0xAu,
+          (__int64)&WPP_f8b46c04efd331199758d8633b6695d8_Traceguids);
       *v5 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
       KeAcquireSpinLockAtDpcLevel(&AcpiDeviceTreeLock);
       break;
     case 3:
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(a2) = 4;
         WPP_RECORDER_SF_(
-          WPP_GLOBAL_Control->DeviceExtension,
-          (_DWORD)a2,
-          22,
-          11,
-          (__int64)&WPP_b69ad285f7363a9fe4fc640ff5707c54_Traceguids);
-      }
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          4u,
+          0x16u,
+          0xBu,
+          (__int64)&WPP_f8b46c04efd331199758d8633b6695d8_Traceguids);
       KeReleaseSpinLockFromDpcLevel(&AcpiDeviceTreeLock);
       KeReleaseSpinLock(&AcpiPowerLock, *v5);
       break;
@@ -100,7 +94,7 @@ LABEL_10:
         goto LABEL_10;
       }
       _InterlockedOr64((volatile signed __int64 *)(v10 + 8), 0x80000000000uLL);
-      v11 = *(_QWORD *)(v10 + 792);
+      v11 = *(_QWORD *)(v10 + 752);
       if ( v11 )
         _InterlockedOr64((volatile signed __int64 *)(v11 + 8), 0x40000000000uLL);
       ACPIBuildProcessDelayedDependencyExternalTrigger(v10);

@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipGenerateMofResourceNotification @ 0x140851170
+ * XREFs of WmipGenerateMofResourceNotification @ 0x1407C5D90
  * Callers:
- *     WmipAddDataSource @ 0x14086A5B0 (WmipAddDataSource.c)
- *     WmipMRCleanup @ 0x1409E1660 (WmipMRCleanup.c)
+ *     WmipAddDataSource @ 0x140756098 (WmipAddDataSource.c)
+ *     WmipMRCleanup @ 0x1407C5D20 (WmipMRCleanup.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     WmipProcessEvent @ 0x14086B2E0 (WmipProcessEvent.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WmipProcessEvent @ 0x140757570 (WmipProcessEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall WmipGenerateMofResourceNotification(_WORD *Src, _WORD *a2, _OWORD *a3, int a4)
@@ -17,8 +17,8 @@ void __fastcall WmipGenerateMofResourceNotification(_WORD *Src, _WORD *a2, _OWOR
   __int64 v6; // r10
   __int64 v10; // rsi
   __int64 v11; // rbp
-  size_t v12; // rbx
-  char *Pool2; // rax
+  SIZE_T v12; // rbx
+  char *PoolWithTag; // rax
   char *v14; // rdi
   int v15; // eax
   size_t v16; // rsi
@@ -34,11 +34,11 @@ void __fastcall WmipGenerateMofResourceNotification(_WORD *Src, _WORD *a2, _OWOR
   while ( a2[v4] );
   v11 = 2 * v4 + 4;
   v12 = v10 + 2 * v4 + 76;
-  Pool2 = (char *)ExAllocatePool2(256LL, v12, 1885957463LL);
-  v14 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v12, 0x70696D57u);
+  v14 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(Pool2, 0, v12);
+    memset(PoolWithTag, 0, v12);
     *(_DWORD *)v14 = v12;
     *((_DWORD *)v14 + 1) = a4;
     *((_QWORD *)v14 + 1) = 1LL;
@@ -56,7 +56,7 @@ void __fastcall WmipGenerateMofResourceNotification(_WORD *Src, _WORD *a2, _OWOR
     v16 >>= 1;
     *(_WORD *)&v14[2 * v16 + 74] = v11 - 2;
     memmove(&v14[2 * v16 + 76], a2, v11 - 2);
-    WmipProcessEvent(v14);
+    WmipProcessEvent(v14, 1, 0);
     ExFreePoolWithTag(v14, 0);
   }
 }

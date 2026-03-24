@@ -1,110 +1,92 @@
 /*
- * XREFs of ?SetLastAction@Usage@PTPTelemetry@@SAXW4tagPTP_ACTION@@@Z @ 0x1C01E071C
+ * XREFs of ?SetLastAction@Usage@PTPTelemetry@@SAXW4tagPTP_ACTION@@@Z @ 0x1C01A7268
  * Callers:
- *     ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C01DFD20 (-OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z.c)
+ *     ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C01A6710 (-OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0079EA8 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     EtwTraceTouchpadGestureDetected @ 0x1C013B810 (EtwTraceTouchpadGestureDetected.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@U1@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@334@Z @ 0x1C01DDFF0 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U1@U1@U2@@-$_tlgWriteTemplate@$$A6AJP.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     EtwTraceTouchpadGestureDetected @ 0x1C0124460 (EtwTraceTouchpadGestureDetected.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@U1@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@334@Z @ 0x1C01A5030 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U1@U1@U2@@-$_tlgWriteTemplate@$$A6AJP.c)
  */
 
-int __fastcall PTPTelemetry::Usage::SetLastAction(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char __fastcall PTPTelemetry::Usage::SetLastAction(int a1)
 {
-  int v4; // ebx
-  __int64 v5; // rdi
-  LARGE_INTEGER PerformanceCounter; // r8
-  LONGLONG v7; // rcx
-  unsigned __int64 v8; // rdx
-  signed __int64 v9; // r9
-  __int64 v10; // r10
-  __int64 v11; // r11
-  __int64 v12; // rcx
-  unsigned __int64 v13; // rax
-  __int64 v14; // r8
-  __int64 v15; // rdi
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  __int64 v20; // rax
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // r9
-  _DWORD *v25; // rax
-  _DWORD *v26; // rcx
-  int v28; // [rsp+58h] [rbp-9h] BYREF
-  int v29; // [rsp+5Ch] [rbp-5h] BYREF
-  LONGLONG v30; // [rsp+60h] [rbp-1h] BYREF
-  unsigned __int64 v31; // [rsp+68h] [rbp+7h] BYREF
-  signed __int64 v32; // [rsp+70h] [rbp+Fh] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v33; // [rsp+78h] [rbp+17h] BYREF
-  int *v34; // [rsp+98h] [rbp+37h]
-  __int64 v35; // [rsp+A0h] [rbp+3Fh]
+  LARGE_INTEGER PerformanceCounter; // rax
+  signed __int64 v3; // rax
+  __int64 v4; // r8
+  __int64 v5; // r9
+  __int64 v6; // r10
+  __int64 v7; // r11
+  __int64 v8; // rcx
+  unsigned __int64 v9; // rax
+  __int64 v10; // r8
+  int v12; // [rsp+50h] [rbp-9h] BYREF
+  int v13; // [rsp+54h] [rbp-5h] BYREF
+  int v14; // [rsp+58h] [rbp-1h] BYREF
+  LONGLONG v15; // [rsp+60h] [rbp+7h] BYREF
+  unsigned __int64 v16; // [rsp+68h] [rbp+Fh] BYREF
+  __int64 v17; // [rsp+70h] [rbp+17h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v18; // [rsp+78h] [rbp+1Fh] BYREF
+  int *v19; // [rsp+98h] [rbp+3Fh]
+  __int64 v20; // [rsp+A0h] [rbp+47h]
 
-  v4 = a1;
-  v5 = SGDGetUserSessionState(a1, a2, a3, a4) + 3464;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  v7 = PerformanceCounter.QuadPart - _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 112), 0LL, 0LL);
-  v8 = (unsigned __int64)(1000 * v7) % gliQpcFreq.QuadPart;
-  v9 = (unsigned __int64)(1000 * v7) / gliQpcFreq.QuadPart;
-  if ( v9 <= 500 )
+  v3 = (unsigned __int64)(1000
+                        * (PerformanceCounter.QuadPart - _InterlockedCompareExchange64(&qword_1C0254F00, 0LL, 0LL)))
+     / gliQpcFreq.QuadPart;
+  if ( v3 <= 500 )
   {
-    _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 96), 0LL, 0LL);
-    _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 104), 0LL, 0LL);
-    if ( (unsigned int)dword_1C02883D8 > 5 && tlgKeywordOn((__int64)&dword_1C02883D8, 0x400000000000LL) )
+    _InterlockedCompareExchange64(&qword_1C0254EF0, 0LL, 0LL);
+    LOBYTE(v3) = _InterlockedCompareExchange64(&qword_1C0254EF8, 0LL, 0LL);
+    if ( (unsigned int)dword_1C0249250 > 5 )
     {
-      v29 = *(_DWORD *)(v5 + 124);
-      v12 = PerformanceCounter.QuadPart - v11;
-      v28 = v4;
-      v13 = 1000 * (PerformanceCounter.QuadPart - v11);
-      v14 = PerformanceCounter.QuadPart - v10;
-      v32 = v9;
-      v30 = v13 / gliQpcFreq.QuadPart;
-      v31 = (unsigned __int64)(1000 * v14) / gliQpcFreq.QuadPart;
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
-        v12,
-        byte_1C025D61B,
-        v14,
-        v9,
-        (__int64)&v32,
-        (__int64)&v28,
-        (__int64)&v31,
-        (__int64)&v30,
-        (__int64)&v29);
+      LOBYTE(v3) = tlgKeywordOn((__int64)&dword_1C0249250, 0x400000000000LL);
+      if ( (_BYTE)v3 )
+      {
+        v12 = dword_1C0254F0C;
+        v8 = v4 - v7;
+        v13 = a1;
+        v9 = 1000 * (v4 - v7);
+        v10 = v4 - v6;
+        v17 = v5;
+        v15 = v9 / gliQpcFreq.QuadPart;
+        v16 = (unsigned __int64)(1000 * v10) / gliQpcFreq.QuadPart;
+        LOBYTE(v3) = _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
+                       v8,
+                       byte_1C021E87C,
+                       v10,
+                       v5,
+                       (__int64)&v17,
+                       (__int64)&v13,
+                       (__int64)&v16,
+                       (__int64)&v15,
+                       (__int64)&v12);
+      }
     }
   }
-  v15 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))SGDGetUserSessionState)(
-          v7,
-          v8,
-          (LARGE_INTEGER)PerformanceCounter.QuadPart,
-          v9);
-  v20 = SGDGetUserSessionState(v17, v16, v18, v19);
-  if ( *(_DWORD *)(v20 + 12008) || *(_QWORD *)(v20 + 11984) || *(__int64 *)(v20 + 11968) <= 0 )
-    *(_DWORD *)(v15 + 12012) = v4;
+  if ( dword_1C0250D88 || qword_1C0250D70 || PTPTelemetry::Usage::gTPTelemTimings <= 0 )
+    dword_1C0250D8C = a1;
   else
-    *(_DWORD *)(v15 + 12008) = v4;
-  v25 = (_DWORD *)SGDGetUserSessionState(v22, v21, v23, v24);
-  v26 = v25 + 2956;
-  if ( v4 > 12 )
+    dword_1C0250D88 = a1;
+  if ( a1 > 12 )
   {
-    if ( v4 > 21 )
+    if ( a1 > 21 )
     {
-      switch ( v4 )
+      switch ( a1 )
       {
         case 22:
-          ++v25[2963];
-          break;
+          ++dword_1C0257BEC;
+          ++dword_1C0257C2C;
+          goto LABEL_57;
         case 23:
-          ++v25[2973];
+          ++dword_1C0257C14;
           break;
         case 24:
-          ++v25[2974];
+          ++dword_1C0257C18;
           break;
         case 25:
-          ++v25[2959];
+          ++dword_1C0257BDC;
           break;
         default:
           goto LABEL_57;
@@ -112,98 +94,102 @@ int __fastcall PTPTelemetry::Usage::SetLastAction(__int64 a1, __int64 a2, __int6
     }
     else
     {
-      switch ( v4 )
+      switch ( a1 )
       {
         case 21:
-          ++v25[2965];
+          ++dword_1C0257BF4;
           break;
         case 16:
-          ++v25[2962];
+          ++dword_1C0257BE8;
           break;
         case 17:
-          ++v25[2966];
+          ++dword_1C0257BF8;
           break;
         case 18:
-          ++v25[2960];
+          ++dword_1C0257BE0;
           break;
         case 19:
-          ++v25[2961];
+          ++dword_1C0257BE4;
           break;
         case 20:
-          ++v25[2964];
+          ++dword_1C0257BF0;
           break;
         default:
           goto LABEL_57;
       }
     }
+LABEL_20:
+    ++dword_1C0257C2C;
+    goto LABEL_57;
   }
-  else if ( v4 == 12 )
+  if ( a1 == 12 )
   {
-    ++v25[2976];
+    ++dword_1C0257C20;
+    goto LABEL_20;
   }
-  else if ( v4 > 6 )
+  if ( a1 <= 6 )
   {
-    switch ( v4 )
-    {
-      case 7:
-        ++v25[2957];
-        break;
-      case 8:
-        ++v25[2958];
-        break;
-      case 9:
-        ++*v26;
-        ++v25[2979];
-        LODWORD(v25) = EtwTraceTouchpadGestureDetected((__int64)v26);
-        goto LABEL_57;
-      case 10:
-        ++v25[2977];
-        return (int)v25;
-      default:
-        ++v25[2975];
-        break;
-    }
-  }
-  else
-  {
-    switch ( v4 )
+    switch ( a1 )
     {
       case 6:
-        ++v25[2968];
+        ++dword_1C0257C00;
         break;
       case 1:
-        ++v25[2969];
+        ++dword_1C0257C04;
         break;
       case 2:
-        ++v25[2970];
+        ++dword_1C0257C08;
         break;
       case 3:
-        ++v25[2971];
+        ++dword_1C0257C0C;
         break;
       case 4:
-        ++v25[2972];
+        ++dword_1C0257C10;
         break;
       case 5:
-        ++v25[2967];
+        ++dword_1C0257BFC;
         break;
       default:
         goto LABEL_57;
     }
+    goto LABEL_20;
   }
-  ++v25[2979];
-LABEL_57:
-  if ( (unsigned int)dword_1C02883D8 > 5 )
+  if ( a1 == 7 )
   {
-    v28 = v4;
-    v34 = &v28;
-    v35 = 4LL;
-    LODWORD(v25) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_1C02883D8,
-                     (unsigned __int8 *)dword_1C025D684,
-                     0LL,
-                     0LL,
-                     3u,
-                     &v33);
+    ++dword_1C0257BD4;
+    goto LABEL_20;
   }
-  return (int)v25;
+  if ( a1 == 8 )
+  {
+    ++dword_1C0257BD8;
+    goto LABEL_20;
+  }
+  if ( a1 != 9 )
+  {
+    if ( a1 == 10 )
+    {
+      ++dword_1C0257C24;
+      return v3;
+    }
+    ++dword_1C0257C1C;
+    goto LABEL_20;
+  }
+  ++PTPTelemetry::Usage::gTPTelemState;
+  ++dword_1C0257C2C;
+  LOBYTE(v3) = EtwTraceTouchpadGestureDetected(0LL);
+LABEL_57:
+  if ( (unsigned int)dword_1C0249250 > 5 )
+  {
+    v14 = a1;
+    v19 = &v14;
+    v20 = 4LL;
+    LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
+                   (__int64)&dword_1C0249250,
+                   (unsigned __int8 *)dword_1C021E580,
+                   0LL,
+                   0LL,
+                   3u,
+                   &v18);
+  }
+  return v3;
 }

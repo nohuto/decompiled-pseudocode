@@ -2,16 +2,16 @@
  * XREFs of CmpRemoveSubKeyFromList @ 0x1405AE780
  * Callers:
  *     CmpRemoveSubKey @ 0x1405AE6EC (CmpRemoveSubKey.c)
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140804288 (CmpLightWeightPrepareDeleteKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x140804618 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140804268 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x1408045F8 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
  *     CmpFindSubKeyInRoot @ 0x1405D4F64 (CmpFindSubKeyInRoot.c)
- *     CmpFindSubKeyInLeaf @ 0x1407FECA8 (CmpFindSubKeyInLeaf.c)
+ *     CmpFindSubKeyInLeaf @ 0x1407FEC88 (CmpFindSubKeyInLeaf.c)
  */
 
 char __fastcall CmpRemoveSubKeyFromList(ULONG_PTR BugCheckParameter2, int *a2, unsigned int a3)

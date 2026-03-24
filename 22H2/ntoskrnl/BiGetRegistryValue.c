@@ -1,126 +1,115 @@
 /*
- * XREFs of BiGetRegistryValue @ 0x1408079C4
+ * XREFs of BiGetRegistryValue @ 0x140783CF8
  * Callers:
- *     BiWasFirmwareModified @ 0x1403742A8 (BiWasFirmwareModified.c)
- *     BiMarkTreatAsSystemStore @ 0x1408047D4 (BiMarkTreatAsSystemStore.c)
- *     BiIsSystemStore @ 0x1408054D4 (BiIsSystemStore.c)
- *     BiIsWinPEBoot @ 0x140805598 (BiIsWinPEBoot.c)
- *     BiUpdateBcdObject @ 0x140806888 (BiUpdateBcdObject.c)
- *     BiGetObjectDescription @ 0x14080716C (BiGetObjectDescription.c)
- *     BcdGetElementDataWithFlags @ 0x14080723C (BcdGetElementDataWithFlags.c)
- *     BiGetSavedBootEntry @ 0x1408080F4 (BiGetSavedBootEntry.c)
- *     BiUnloadHiveByHandle @ 0x140A5D574 (BiUnloadHiveByHandle.c)
- *     BiIsPortableWorkspaceBoot @ 0x140A5D71C (BiIsPortableWorkspaceBoot.c)
+ *     BiWasFirmwareModified @ 0x14039ADCC (BiWasFirmwareModified.c)
+ *     BiUnloadHiveByHandle @ 0x14077926C (BiUnloadHiveByHandle.c)
+ *     BiMarkTreatAsSystemStore @ 0x140781E20 (BiMarkTreatAsSystemStore.c)
+ *     BiGetObjectDescription @ 0x140781ED8 (BiGetObjectDescription.c)
+ *     BiIsWinPEBoot @ 0x140782CC4 (BiIsWinPEBoot.c)
+ *     BiIsSystemStore @ 0x1407832A8 (BiIsSystemStore.c)
+ *     BcdGetElementDataWithFlags @ 0x1407840C0 (BcdGetElementDataWithFlags.c)
+ *     BiIsPortableWorkspaceBoot @ 0x14096F8F8 (BiIsPortableWorkspaceBoot.c)
+ *     BiGetSavedBootEntry @ 0x14097251C (BiGetSavedBootEntry.c)
+ *     BiUpdateBcdObject @ 0x140972EE0 (BiUpdateBcdObject.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     BiSanitizeHandle @ 0x14036937C (BiSanitizeHandle.c)
- *     CmSiCloseSection @ 0x140374450 (CmSiCloseSection.c)
- *     BiZwQueryValueKey @ 0x140374468 (BiZwQueryValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     BiOpenKey @ 0x140807650 (BiOpenKey.c)
- *     BiLogMessage @ 0x140807BA0 (BiLogMessage.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     CmSiCloseSection @ 0x140321658 (CmSiCloseSection.c)
+ *     BiSanitizeHandle @ 0x14032C5AC (BiSanitizeHandle.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     BiZwQueryValueKey @ 0x14039AE54 (BiZwQueryValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     BiOpenKey @ 0x140784304 (BiOpenKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall BiGetRegistryValue(
-        __int64 a1,
-        const WCHAR *a2,
-        const WCHAR *a3,
-        unsigned int a4,
-        _QWORD *a5,
-        _DWORD *a6)
+__int64 __fastcall BiGetRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3, int a4, _QWORD *a5, _DWORD *a6)
 {
-  const WCHAR *v7; // rbx
-  const WCHAR *v8; // rax
+  const WCHAR *v7; // rax
   unsigned int i; // r12d
-  _DWORD *Pool2; // r14
-  unsigned __int64 v12; // rax
-  __int64 v13; // r8
+  _DWORD *PoolWithTag; // r14
+  unsigned __int64 v11; // rax
+  __int64 v12; // r8
+  NTSTATUS v13; // ebx
   void *v14; // rsi
-  int v15; // ebx
-  __int64 v16; // r8
-  void *v17; // rax
-  ULONG Size; // [rsp+30h] [rbp-68h] BYREF
-  int Size_4; // [rsp+34h] [rbp-64h]
-  ULONG v21; // [rsp+38h] [rbp-60h] BYREF
-  void *v22; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v15; // r8
+  PVOID v16; // rax
+  ULONG NumberOfBytes; // [rsp+30h] [rbp-68h] BYREF
+  NTSTATUS NumberOfBytes_4; // [rsp+34h] [rbp-64h]
+  ULONG v20; // [rsp+38h] [rbp-60h] BYREF
+  int v21[2]; // [rsp+40h] [rbp-58h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-50h] BYREF
 
-  v7 = a3;
-  v8 = a2;
-  v21 = 0;
-  Size = 0;
+  v7 = a2;
+  v20 = 0;
+  NumberOfBytes = 0;
   DestinationString = 0LL;
   for ( i = 0; ; ++i )
   {
-    Pool2 = 0LL;
-    v22 = 0LL;
+    PoolWithTag = 0LL;
+    *(_QWORD *)v21 = 0LL;
     *a5 = 0LL;
     *a6 = 0;
-    RtlInitUnicodeString(&DestinationString, v8);
-    v12 = BiSanitizeHandle(a1);
-    a1 = v12;
-    if ( v7 )
+    RtlInitUnicodeString(&DestinationString, v7);
+    v11 = BiSanitizeHandle(a1);
+    a1 = v11;
+    if ( a3 )
     {
-      v15 = BiOpenKey(v12, v7, 0x20019u, &v22);
-      Size_4 = v15;
-      v14 = v22;
-      if ( v15 < 0 )
+      v13 = BiOpenKey(v11, a3, 131097LL, v21);
+      NumberOfBytes_4 = v13;
+      v14 = *(void **)v21;
+      if ( v13 < 0 )
         goto LABEL_11;
     }
     else
     {
-      v14 = (void *)v12;
+      v14 = (void *)v11;
     }
-    v15 = BiZwQueryValueKey(v14, &DestinationString, v13, 0LL, 0, &Size);
-    Size_4 = v15;
-    if ( v15 == -1073741789 )
+    v13 = BiZwQueryValueKey(v14, &DestinationString, v12, 0LL, 0, &NumberOfBytes);
+    NumberOfBytes_4 = v13;
+    if ( v13 == -1073741789 )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(258LL, Size, 1262764866LL);
-      if ( !Pool2 )
-        goto LABEL_20;
-      v15 = BiZwQueryValueKey(v14, &DestinationString, v16, Pool2, Size, &v21);
-      Size_4 = v15;
-      if ( v15 >= 0 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, NumberOfBytes, 0x4B444342u);
+      if ( !PoolWithTag )
+        goto LABEL_19;
+      v13 = BiZwQueryValueKey(v14, &DestinationString, v15, PoolWithTag, NumberOfBytes, &v20);
+      NumberOfBytes_4 = v13;
+      if ( v13 >= 0 )
       {
-        if ( Pool2[1] == a4 )
+        if ( PoolWithTag[1] == a4 )
         {
-          Size -= 12;
-          v17 = (void *)ExAllocatePool2(258LL, Size, 1262764866LL);
-          *a5 = v17;
-          if ( v17 )
+          NumberOfBytes -= 12;
+          v16 = ExAllocatePoolWithTag(PagedPool, NumberOfBytes, 0x4B444342u);
+          *a5 = v16;
+          if ( v16 )
           {
-            memmove(v17, Pool2 + 3, Size);
-            *a6 = Size;
-            v15 = 0;
+            memmove(v16, PoolWithTag + 3, NumberOfBytes);
+            *a6 = NumberOfBytes;
+            v13 = 0;
           }
           else
           {
-LABEL_20:
-            v15 = -1073741670;
+LABEL_19:
+            v13 = -1073741670;
           }
         }
         else
         {
-          BiLogMessage(4LL, L"Unexpected type for BCD element. Expected type: 0x%x Actual type: 0x%x", a4);
-          v15 = -1073741788;
+          v13 = -1073741788;
         }
-        Size_4 = v15;
+        NumberOfBytes_4 = v13;
       }
     }
 LABEL_11:
     if ( v14 != (void *)a1 && v14 )
       CmSiCloseSection(v14);
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0x4B444342u);
-    if ( v15 != -1073741443 )
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0x4B444342u);
+    if ( v13 != -1073741443 )
       break;
     __debugbreak();
     if ( i >= 5 )
       break;
-    v7 = a3;
-    v8 = a2;
+    v7 = a2;
   }
-  return (unsigned int)v15;
+  return (unsigned int)v13;
 }

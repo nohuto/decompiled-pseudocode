@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Destroy@CEventPool@@SAXQEAV1@@Z @ 0x1C00B7264
+ * XREFs of ?Destroy@CEventPool@@SAXQEAV1@@Z @ 0x1C012E30C
  * Callers:
- *     ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C00B71CC (-Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z.c)
+ *     ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C012E274 (-Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z.c)
  * Callees:
- *     ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C00B72BC (-Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z.c)
+ *     ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C012E364 (-Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z.c)
  */
 
 void __fastcall CEventPool::Destroy(union _SLIST_HEADER *pv)

@@ -1,16 +1,16 @@
 /*
- * XREFs of PdcNotificationClientRegister @ 0x14089A964
+ * XREFs of PdcNotificationClientRegister @ 0x14089A944
  * Callers:
  *     PopInitializeDirectedDrips @ 0x1409DC6E0 (PopInitializeDirectedDrips.c)
  * Callees:
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLock @ 0x140091480 (ExfReleasePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PdcPortOpen @ 0x1407453A0 (PdcPortOpen.c)
- *     PdcAcquireRwLockExclusive @ 0x14089AEEC (PdcAcquireRwLockExclusive.c)
+ *     PdcPortOpen @ 0x140745380 (PdcPortOpen.c)
+ *     PdcAcquireRwLockExclusive @ 0x14089AECC (PdcAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PdcNotificationClientRegister(__int64 a1, int *a2, __int64 a3, _QWORD *a4)

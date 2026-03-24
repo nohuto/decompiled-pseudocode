@@ -1,33 +1,33 @@
 /*
- * XREFs of HalpIommuMarkHiberPhase @ 0x140A96140
+ * XREFs of HalpIommuMarkHiberPhase @ 0x140996550
  * Callers:
- *     HaliLocateHiberRanges @ 0x140A95D60 (HaliLocateHiberRanges.c)
+ *     HaliLocateHiberRanges @ 0x140996610 (HaliLocateHiberRanges.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PoSetHiberRange @ 0x14058E930 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x140387960 (PoSetHiberRange.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall HalpIommuMarkHiberPhase(PVOID MemoryMap)
 {
-  ULONG_PTR *i; // rbx
-  void (__fastcall *v3)(PVOID, ULONG_PTR, ULONG_PTR *); // rax
+  __int64 *i; // rbx
   PVOID *j; // rbx
   PVOID *k; // rsi
+  void (__fastcall *v5)(PVOID, __int64, __int64 *); // rax
 
-  for ( i = (ULONG_PTR *)HalpIommuList; i != &HalpIommuList; i = (ULONG_PTR *)*i )
+  for ( i = (__int64 *)HalpIommuList; i != &HalpIommuList; i = (__int64 *)*i )
   {
-    v3 = (void (__fastcall *)(PVOID, ULONG_PTR, ULONG_PTR *))i[40];
-    if ( v3 )
-      v3(MemoryMap, i[2], i + 50);
+    v5 = (void (__fastcall *)(PVOID, __int64, __int64 *))i[38];
+    if ( v5 )
+      v5(MemoryMap, i[2], i + 46);
   }
   if ( MemoryMap )
   {
-    PoSetHiberRange(MemoryMap, 2u, &IommupSystemContextListPushLock, 8uLL, 0x496C6148u);
+    PoSetHiberRange(MemoryMap, 2u, &IommupSystemContextListLock, 8uLL, 0x496C6148u);
     for ( j = (PVOID *)IommupSystemContextListHead; j != &IommupSystemContextListHead; j = (PVOID *)*j )
     {
-      PoSetHiberRange(MemoryMap, 2u, j, 0x48uLL, 0x496C6148u);
+      PoSetHiberRange(MemoryMap, 2u, j, 0x40uLL, 0x496C6148u);
       for ( k = (PVOID *)j[6]; k != j + 6; k = (PVOID *)*k )
-        PoSetHiberRange(MemoryMap, 2u, k, 0x1070uLL, 0x496C6148u);
+        PoSetHiberRange(MemoryMap, 2u, k, 0x68uLL, 0x496C6148u);
     }
   }
 }

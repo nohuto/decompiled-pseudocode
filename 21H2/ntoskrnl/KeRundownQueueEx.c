@@ -1,55 +1,57 @@
 /*
- * XREFs of KeRundownQueueEx @ 0x140234764
+ * XREFs of KeRundownQueueEx @ 0x1402A9CF8
  * Callers:
- *     KeRundownQueue @ 0x140234660 (KeRundownQueue.c)
- *     IopDeleteIoCompletionInternal @ 0x140234678 (IopDeleteIoCompletionInternal.c)
- *     EtwpDeleteRegistrationObject @ 0x140796530 (EtwpDeleteRegistrationObject.c)
+ *     KeRundownQueue @ 0x1402A9B70 (KeRundownQueue.c)
+ *     IopDeleteIoCompletionInternal @ 0x1402A9B88 (IopDeleteIoCompletionInternal.c)
+ *     EtwpDeleteRegistrationObject @ 0x1405FC900 (EtwpDeleteRegistrationObject.c)
+ *     KeUnInitializeUmsThread @ 0x1408BD6E8 (KeUnInitializeUmsThread.c)
  * Callees:
- *     KeRundownQueueCommon @ 0x140234888 (KeRundownQueueCommon.c)
- *     KiAcquireReleaseObjectRundownLockExclusive @ 0x140234D1C (KiAcquireReleaseObjectRundownLockExclusive.c)
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KeRundownQueueCommon @ 0x1402A9DDC (KeRundownQueueCommon.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x1402AA214 (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
  */
 
-_QWORD *__fastcall KeRundownQueueEx(_QWORD *SystemArgument1, char a2)
+__int64 __fastcall KeRundownQueueEx(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
+  char v4; // bp
   char CurrentIrql; // si
-  _QWORD *v5; // rax
-  _QWORD *v6; // rdi
-  _DWORD *SchedulerAssist; // r9
-  _QWORD *v9; // rcx
-  int v10; // [rsp+20h] [rbp-18h]
+  _QWORD *v7; // rax
+  __int64 v8; // rdi
+  _QWORD *v10; // rcx
 
+  v4 = a2;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+    a2 = (-1LL << (CurrentIrql + 1)) & 4;
+    a3 = (unsigned int)a2 | SchedulerAssist[5];
+    SchedulerAssist[5] = a3;
   }
-  KiAcquireKobjectLockSafe(SystemArgument1);
-  v5 = SystemArgument1 + 3;
-  v6 = (_QWORD *)SystemArgument1[3];
-  if ( v6 == SystemArgument1 + 3 )
+  KiAcquireKobjectLockSafe((volatile signed __int32 *)a1, a2, a3, (__int64)SchedulerAssist);
+  v7 = (_QWORD *)(a1 + 24);
+  v8 = *(_QWORD *)(a1 + 24);
+  if ( v8 == a1 + 24 )
   {
-    v6 = 0LL;
+    v8 = 0LL;
   }
   else
   {
-    *((_DWORD *)SystemArgument1 + 1) = 0;
-    v9 = (_QWORD *)SystemArgument1[4];
-    if ( (_QWORD *)v6[1] != v5 || (_QWORD *)*v9 != v5 )
+    *(_DWORD *)(a1 + 4) = 0;
+    v10 = *(_QWORD **)(a1 + 32);
+    if ( *(_QWORD **)(v8 + 8) != v7 || (_QWORD *)*v10 != v7 )
       __fastfail(3u);
-    *v9 = v6;
-    v6[1] = v9;
-    SystemArgument1[4] = SystemArgument1 + 3;
-    *v5 = v5;
+    *v10 = v8;
+    *(_QWORD *)(v8 + 8) = v10;
+    *(_QWORD *)(a1 + 32) = a1 + 24;
+    *v7 = v7;
   }
-  LOBYTE(v10) = a2;
-  KeRundownQueueCommon(SystemArgument1, v10);
-  _InterlockedAnd((volatile signed __int32 *)SystemArgument1, 0xFFFFFF7F);
-  if ( a2 )
-    KiAcquireReleaseObjectRundownLockExclusive(SystemArgument1);
+  KeRundownQueueCommon(a1, a1 + 48, a1 + 40, 1, v4);
+  _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
+  if ( v4 )
+    KiAcquireReleaseObjectRundownLockExclusive(a1);
   KiExitDispatcher((unsigned int)KeGetCurrentPrcb(), 0, 1, 0, CurrentIrql);
-  return v6;
+  return v8;
 }

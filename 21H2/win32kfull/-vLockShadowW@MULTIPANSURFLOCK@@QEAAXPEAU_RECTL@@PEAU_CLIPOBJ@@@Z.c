@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vLockShadowW@MULTIPANSURFLOCK@@QEAAXPEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C0294B64
+ * XREFs of ?vLockShadowW@MULTIPANSURFLOCK@@QEAAXPEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C0297134
  * Callers:
- *     ??0MULTIPANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@1PEAU_RECTL@@2PEAHPEAU_CLIPOBJ@@@Z @ 0x1C0292214 (--0MULTIPANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@1PEAU_RECTL@@2PEAHPEAU_CLIPOBJ@@@Z.c)
+ *     ??0MULTIPANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@1PEAU_RECTL@@2PEAHPEAU_CLIPOBJ@@@Z @ 0x1C0294804 (--0MULTIPANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@1PEAU_RECTL@@2PEAHPEAU_CLIPOBJ@@@Z.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C002F5C4 (-vOrder@ERECTL@@QEAAXXZ.c)
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0031090 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z @ 0x1C0294164 (-ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00B157C (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00B79F8 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?vUnLockShadowWAndWait@MULTIPANSURFLOCK@@QEAAXXZ @ 0x1C0297880 (-vUnLockShadowWAndWait@MULTIPANSURFLOCK@@QEAAXXZ.c)
  */
 
 void __fastcall MULTIPANSURFLOCK::vLockShadowW(MULTIPANSURFLOCK *this, struct _RECTL *a2, struct _CLIPOBJ *a3)
@@ -20,193 +20,169 @@ void __fastcall MULTIPANSURFLOCK::vLockShadowW(MULTIPANSURFLOCK *this, struct _R
   LONG bottom; // ecx
   LONG v10; // eax
   __int64 v11; // rbx
-  __int64 v12; // rax
-  int v13; // edx
+  __int64 v12; // rdx
+  __int64 v13; // rax
   __int64 v14; // rax
-  __int64 v15; // rax
-  __int64 v16; // rcx
-  signed int v17; // eax
-  __int64 v18; // rcx
-  __int64 v19; // r15
-  int v20; // eax
-  __int64 v21; // rcx
-  int v22; // r14d
-  __int64 v23; // rsi
-  int v24; // eax
-  int v25; // ebx
-  __int64 v26; // r13
-  __int64 v27; // rax
-  __int64 v28; // rbx
-  __int64 v29; // rax
-  char *v30; // rsi
-  __int64 v31; // r12
-  __int64 v32; // rcx
-  __int64 v33; // rax
-  __int64 v34; // r14
-  __int64 v35; // rcx
-  char *v36; // r15
-  __int64 v37; // rbx
-  __int64 v38; // rsi
-  __int64 v39; // rcx
-  __int64 v40; // rsi
-  _BYTE *v41; // rbx
-  __int64 v42; // r14
-  __int64 v43; // rcx
-  struct _PANDEV *v44; // rcx
-  __int64 v45; // rcx
-  char *v46; // [rsp+30h] [rbp-20h] BYREF
-  int v47; // [rsp+38h] [rbp-18h]
-  int v48; // [rsp+3Ch] [rbp-14h]
-  __int128 v49; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v50; // [rsp+90h] [rbp+40h]
-  __int64 v51; // [rsp+A0h] [rbp+50h]
-  __int64 v52; // [rsp+A8h] [rbp+58h]
+  int v15; // ecx
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  signed int v18; // eax
+  __int64 v19; // rcx
+  __int64 v20; // r15
+  int v21; // eax
+  __int64 v22; // rcx
+  int v23; // r14d
+  __int64 v24; // rsi
+  int v25; // eax
+  int v26; // ebx
+  __int64 v27; // r13
+  __int64 v28; // rax
+  __int64 v29; // rbx
+  __int64 v30; // rax
+  char *v31; // rsi
+  __int64 v32; // r12
+  __int64 v33; // rcx
+  __int64 v34; // rax
+  __int64 v35; // r14
+  __int64 v36; // rcx
+  char *v37; // r15
+  __int64 v38; // rbx
+  __int64 v39; // rsi
+  __int64 v40; // rcx
+  __int64 v41; // rcx
+  char *v42; // [rsp+30h] [rbp-20h] BYREF
+  int v43; // [rsp+38h] [rbp-18h]
+  int v44; // [rsp+3Ch] [rbp-14h]
+  __int128 v45; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v46; // [rsp+90h] [rbp+40h]
+  __int64 v47; // [rsp+A0h] [rbp+50h]
+  __int64 v48; // [rsp+A8h] [rbp+58h]
 
-  v49 = 0LL;
+  v45 = 0LL;
   if ( a3 && a3->iDComplexity )
   {
     top = a3->rclBounds.top;
     left = a2->left;
     if ( a3->rclBounds.left > a2->left )
       left = a3->rclBounds.left;
-    LODWORD(v49) = left;
+    LODWORD(v45) = left;
     v6 = a2->top;
     if ( top > v6 )
       v6 = top;
     right = a3->rclBounds.right;
-    DWORD1(v49) = v6;
+    DWORD1(v45) = v6;
     v8 = a2->right;
     if ( right < v8 )
       v8 = right;
     bottom = a3->rclBounds.bottom;
-    DWORD2(v49) = v8;
+    DWORD2(v45) = v8;
     v10 = a2->bottom;
     if ( bottom < v10 )
       v10 = bottom;
-    HIDWORD(v49) = v10;
+    HIDWORD(v45) = v10;
   }
   else
   {
-    v49 = (__int128)*a2;
+    v45 = (__int128)*a2;
   }
-  ERECTL::vOrder((ERECTL *)&v49);
+  ERECTL::vOrder((ERECTL *)&v45);
   v11 = *((_QWORD *)this + 4);
   v12 = v11;
-  if ( !v11 )
-    v12 = *((_QWORD *)this + 5);
-  v13 = *(_DWORD *)(*(_QWORD *)(v12 + 64) + 36LL);
-  v14 = *((_QWORD *)this + 4);
-  if ( !v11 )
-    v14 = *((_QWORD *)this + 5);
-  v15 = *(_QWORD *)(v14 + 64);
-  v48 = v13;
-  v46 = 0LL;
-  v47 = *(_DWORD *)(v15 + 32);
-  ERECTL::operator*=((int *)&v49, (int *)&v46);
-  if ( !ERECTL::bEmpty((ERECTL *)&v49) )
+  if ( v11 )
   {
-    v16 = v11;
+    v13 = *((_QWORD *)this + 4);
+  }
+  else
+  {
+    v12 = *((_QWORD *)this + 5);
+    v13 = v12;
+  }
+  v14 = *(_QWORD *)(v13 + 64);
+  v42 = 0LL;
+  v15 = *(_DWORD *)(v14 + 32);
+  v16 = *(_QWORD *)(v12 + 64);
+  v43 = v15;
+  v44 = *(_DWORD *)(v16 + 36);
+  ERECTL::operator*=((int *)&v45, (int *)&v42);
+  if ( !ERECTL::bEmpty((ERECTL *)&v45) )
+  {
+    v17 = v11;
     if ( !v11 )
-      v16 = *((_QWORD *)this + 5);
-    v17 = (unsigned int)v49 / *(_DWORD *)(v16 + 768);
-    v18 = v11;
-    v19 = v17;
+      v17 = *((_QWORD *)this + 5);
+    v18 = (unsigned int)v45 / *(_DWORD *)(v17 + 768);
+    v19 = v11;
+    v20 = v18;
     if ( !v11 )
-      v18 = *((_QWORD *)this + 5);
-    v20 = DWORD2(v49) / *(_DWORD *)(v18 + 768);
-    v21 = v11;
-    v22 = v20;
+      v19 = *((_QWORD *)this + 5);
+    v21 = DWORD2(v45) / *(_DWORD *)(v19 + 768);
+    v22 = v11;
+    v23 = v21;
     if ( !v11 )
-      v21 = *((_QWORD *)this + 5);
-    v23 = DWORD1(v49) / *(_DWORD *)(v21 + 772);
+      v22 = *((_QWORD *)this + 5);
+    v24 = DWORD1(v45) / *(_DWORD *)(v22 + 772);
     if ( !v11 )
       v11 = *((_QWORD *)this + 5);
-    v24 = HIDWORD(v49) / *(_DWORD *)(v11 + 772);
+    v25 = HIDWORD(v45) / *(_DWORD *)(v11 + 772);
     *((_BYTE *)this + 49) = 1;
-    v25 = v24;
+    v26 = v25;
     memset((char *)this + 131, 0, 0x51uLL);
-    v26 = v19;
-    v27 = v25 + 1;
-    v28 = v23;
-    v51 = v27;
-    v50 = v22 + 1;
-    v29 = 9 * v23;
-    v52 = v23;
-    v30 = (char *)this + 9 * v23 + 131;
-    v46 = v30;
-    v31 = 8 * (v19 + v29) + 120;
-    *(_QWORD *)&v49 = v31;
-LABEL_27:
-    v32 = *((_QWORD *)this + 4);
-    if ( !v32 )
-      v32 = *((_QWORD *)this + 5);
-    KeWaitForSingleObject((PVOID)(*(_QWORD *)(v32 + 784) + 32LL), UserRequest, 0, 0, 0LL);
-    v33 = v50;
-    v34 = v28;
-    v35 = v51;
-    v36 = v30;
-    while ( v34 < v35 )
+    v27 = v20;
+    v28 = v26 + 1;
+    v29 = v24;
+    v47 = v28;
+    v46 = v23 + 1;
+    v30 = 9 * v24;
+    v48 = v24;
+    v31 = (char *)this + 9 * v24 + 131;
+    v42 = v31;
+    v32 = 8 * (v20 + v30) + 120;
+    *(_QWORD *)&v45 = v32;
+LABEL_25:
+    v33 = *((_QWORD *)this + 4);
+    if ( !v33 )
+      v33 = *((_QWORD *)this + 5);
+    KeWaitForSingleObject((PVOID)(*(_QWORD *)(v33 + 784) + 32LL), UserRequest, 0, 0, 0LL);
+    v34 = v46;
+    v35 = v29;
+    v36 = v47;
+    v37 = v31;
+    while ( v35 < v36 )
     {
-      v37 = v26;
-      if ( v26 < v33 )
+      v38 = v27;
+      if ( v27 < v34 )
       {
-        v38 = v31;
+        v39 = v32;
         while ( 1 )
         {
-          v39 = *((_QWORD *)this + 4);
-          if ( !v39 )
-            v39 = *((_QWORD *)this + 5);
-          if ( !EngAcquireSemaphoreNoWait(*(HSEMAPHORE *)(v38 + v39)) )
+          v40 = *((_QWORD *)this + 4);
+          if ( !v40 )
+            v40 = *((_QWORD *)this + 5);
+          if ( !EngAcquireSemaphoreNoWait(*(HSEMAPHORE *)(v39 + v40)) )
             break;
-          v36[v37] = 1;
-          v38 += 8LL;
-          v33 = v50;
-          if ( ++v37 >= v50 )
+          v37[v38] = 1;
+          v39 += 8LL;
+          v34 = v46;
+          if ( ++v38 >= v46 )
           {
-            v35 = v51;
-            goto LABEL_38;
+            v36 = v47;
+            goto LABEL_36;
           }
         }
-        v40 = 760LL;
-        v41 = (char *)this + 211;
-        do
-        {
-          v42 = 9LL;
-          do
-          {
-            if ( *v41 == 1 )
-            {
-              v43 = *((_QWORD *)this + 4);
-              if ( !v43 )
-                v43 = *((_QWORD *)this + 5);
-              EngReleaseSemaphore(*(HSEMAPHORE *)(v40 + v43));
-              *v41 = 0;
-            }
-            v40 -= 8LL;
-            --v41;
-            --v42;
-          }
-          while ( v42 );
-        }
-        while ( v40 >= 184 );
-        v44 = (struct _PANDEV *)*((_QWORD *)this + 4);
-        if ( !v44 )
-          v44 = (struct _PANDEV *)*((_QWORD *)this + 5);
-        ShadowUnLockWait(v44);
+        MULTIPANSURFLOCK::vUnLockShadowWAndWait(this);
         memset((char *)this + 131, 0, 0x51uLL);
-        v28 = v52;
-        v30 = v46;
-        v31 = v49;
-        goto LABEL_27;
+        v29 = v48;
+        v31 = v42;
+        v32 = v45;
+        goto LABEL_25;
       }
-LABEL_38:
-      ++v34;
-      v31 += 72LL;
-      v36 += 9;
+LABEL_36:
+      ++v35;
+      v32 += 72LL;
+      v37 += 9;
     }
-    v45 = *((_QWORD *)this + 4);
-    if ( !v45 )
-      v45 = *((_QWORD *)this + 5);
-    KeReleaseMutex((PRKMUTEX)(*(_QWORD *)(v45 + 784) + 32LL), 0);
+    v41 = *((_QWORD *)this + 4);
+    if ( !v41 )
+      v41 = *((_QWORD *)this + 5);
+    KeReleaseMutex((PRKMUTEX)(*(_QWORD *)(v41 + 784) + 32LL), 0);
   }
 }

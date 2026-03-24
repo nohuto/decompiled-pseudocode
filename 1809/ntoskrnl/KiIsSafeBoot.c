@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIsSafeBoot @ 0x1401B4604
+ * XREFs of KiIsSafeBoot @ 0x1401B4624
  * Callers:
- *     KiDetermineRetpolineEnablement @ 0x1401930BC (KiDetermineRetpolineEnablement.c)
+ *     KiDetermineRetpolineEnablement @ 0x1401930DC (KiDetermineRetpolineEnablement.c)
  * Callees:
- *     strstr @ 0x140194EA0 (strstr.c)
+ *     strstr @ 0x140194EC0 (strstr.c)
  */
 
 bool __fastcall KiIsSafeBoot(__int64 a1)

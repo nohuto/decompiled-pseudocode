@@ -1,12 +1,12 @@
 /*
- * XREFs of SepCaptureInt64Array @ 0x1407F1A50
+ * XREFs of SepCaptureInt64Array @ 0x14069B24C
  * Callers:
- *     SepCaptureTokenSecurityAttributesInformation @ 0x1407F1020 (SepCaptureTokenSecurityAttributesInformation.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x1406EEC68 (SepCaptureTokenSecurityAttributesInformation.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepCaptureInt64Array(char *Src, unsigned int a2, __int64 a3, _QWORD *a4)
@@ -14,7 +14,7 @@ __int64 __fastcall SepCaptureInt64Array(char *Src, unsigned int a2, __int64 a3, 
   unsigned __int64 v6; // rax
   __int64 v7; // r15
   unsigned int v8; // edi
-  void *Pool2; // rbx
+  PVOID PoolWithTag; // rbx
 
   v6 = 8LL * a2;
   v7 = 0xFFFFFFFFLL;
@@ -23,8 +23,8 @@ __int64 __fastcall SepCaptureInt64Array(char *Src, unsigned int a2, __int64 a3, 
   v8 = v6 > 0xFFFFFFFF ? 0xC0000095 : 0;
   if ( v6 > 0xFFFFFFFF )
     return v8;
-  Pool2 = (void *)ExAllocatePool2(256LL, (unsigned int)v7, 1950442835LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)v7, 0x74416553u);
+  if ( PoolWithTag )
   {
     if ( (_DWORD)v7 )
     {
@@ -33,11 +33,11 @@ __int64 __fastcall SepCaptureInt64Array(char *Src, unsigned int a2, __int64 a3, 
       if ( (unsigned __int64)&Src[v7] > 0x7FFFFFFF0000LL || &Src[v7] < Src )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
-    memmove(Pool2, Src, (unsigned int)v7);
+    memmove(PoolWithTag, Src, (unsigned int)v7);
     if ( (v8 & 0x80000000) != 0 )
-      ExFreePoolWithTag(Pool2, 0);
+      ExFreePoolWithTag(PoolWithTag, 0);
     else
-      *a4 = Pool2;
+      *a4 = PoolWithTag;
     return v8;
   }
   return 3221225626LL;

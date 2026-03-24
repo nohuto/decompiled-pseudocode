@@ -1,13 +1,13 @@
 /*
- * XREFs of ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD360
+ * XREFs of ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021EDD4
  * Callers:
- *     xxxGetClipboardData @ 0x1C01FDE64 (xxxGetClipboardData.c)
+ *     xxxGetClipboardData @ 0x1C002D328 (xxxGetClipboardData.c)
  * Callees:
- *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C00131A8 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
- *     HMValidateHandle @ 0x1C002D0F8 (HMValidateHandle.c)
- *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C01FC714 (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
- *     CreateDIBPalette @ 0x1C01FD818 (CreateDIBPalette.c)
- *     xxxGetClipboardData @ 0x1C01FDE64 (xxxGetClipboardData.c)
+ *     xxxGetClipboardData @ 0x1C002D328 (xxxGetClipboardData.c)
+ *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C002F970 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
+ *     HMValidateHandle @ 0x1C0067040 (HMValidateHandle.c)
+ *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C015C768 (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
+ *     CreateDIBPalette @ 0x1C021F148 (CreateDIBPalette.c)
  */
 
 __int64 __fastcall xxxGetDummyPalette(struct tagWINDOWSTATION *a1, struct tagGETCLIPBDATA *a2)
@@ -15,7 +15,7 @@ __int64 __fastcall xxxGetDummyPalette(struct tagWINDOWSTATION *a1, struct tagGET
   unsigned int v2; // ebx
   struct tagCLIP *ClipFormat; // rax
   struct tagCLIP *v6; // rax
-  __int64 ClipboardData; // rax
+  void *ClipboardData; // rax
   __int64 v8; // rax
   __int64 v9; // rbx
   struct tagCLIP *v10; // rdi
@@ -33,10 +33,10 @@ __int64 __fastcall xxxGetDummyPalette(struct tagWINDOWSTATION *a1, struct tagGET
         return 0LL;
     }
   }
-  ClipboardData = xxxGetClipboardData(a1, v2, a2);
+  ClipboardData = xxxGetClipboardData(a1, v2, (__int64)a2);
   if ( !ClipboardData )
     return 0LL;
-  v8 = HMValidateHandle(ClipboardData, 6u);
+  v8 = HMValidateHandle((unsigned __int64)ClipboardData, 6u);
   if ( !v8 )
     return 0LL;
   v9 = v8 + 20;

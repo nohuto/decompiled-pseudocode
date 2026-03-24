@@ -1,21 +1,21 @@
 /*
- * XREFs of FreeSystemRelativePath @ 0x1C00BC5F0
+ * XREFs of FreeSystemRelativePath @ 0x1C0015C20
  * Callers:
- *     ldevLoadDriver @ 0x1C0075290 (ldevLoadDriver.c)
- *     ?ldevLoadImageInternal@@YAPEAU_LDEV@@PEBGHPEAHHH@Z @ 0x1C00BC250 (-ldevLoadImageInternal@@YAPEAU_LDEV@@PEBGHPEAHHH@Z.c)
+ *     ldevLoadDriver @ 0x1C0015500 (ldevLoadDriver.c)
+ *     ?ldevLoadImageInternal@@YAPEAU_LDEV@@PEBGHPEAHHH@Z @ 0x1C0015860 (-ldevLoadImageInternal@@YAPEAU_LDEV@@PEBGHPEAHHH@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
-void __fastcall FreeSystemRelativePath(__int64 a1)
+__int64 __fastcall FreeSystemRelativePath(__int64 a1)
 {
-  char *v1; // rdx
+  __int64 v2; // rcx
+  __int64 result; // rax
 
-  v1 = *(char **)(a1 + 8);
-  if ( v1 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      v1);
+  v2 = *(_QWORD *)(a1 + 8);
+  if ( v2 )
+    result = Win32FreePool(v2);
   *(_QWORD *)(a1 + 8) = 0LL;
   *(_DWORD *)a1 = 0;
+  return result;
 }

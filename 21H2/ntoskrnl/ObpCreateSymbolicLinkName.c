@@ -1,218 +1,258 @@
 /*
- * XREFs of ObpCreateSymbolicLinkName @ 0x1406A97F0
+ * XREFs of ObpCreateSymbolicLinkName @ 0x1406B8F14
  * Callers:
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
  * Callees:
- *     ObFastReplaceObject @ 0x140276A48 (ObFastReplaceObject.c)
- *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1402A0E90 (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     PsGetCurrentSilo @ 0x140347D50 (PsGetCurrentSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     ObDereferenceObjectDeferDelete @ 0x140348920 (ObDereferenceObjectDeferDelete.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ObpUnlockDirectory @ 0x14066960C (ObpUnlockDirectory.c)
- *     ObpLockDirectoryShared @ 0x14066965C (ObpLockDirectoryShared.c)
- *     ObpLookupDirectoryEntry @ 0x1406A9B40 (ObpLookupDirectoryEntry.c)
- *     ObpParseComponentName @ 0x14080EDFC (ObpParseComponentName.c)
- *     ObpLockChildDirectory @ 0x140811430 (ObpLockChildDirectory.c)
+ *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
+ *     PsGetCurrentSilo @ 0x14027C930 (PsGetCurrentSilo.c)
+ *     ObpReleaseLookupContext @ 0x14027EAD0 (ObpReleaseLookupContext.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1403604C8 (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     ObpLookupDirectoryEntryEx @ 0x140601DF4 (ObpLookupDirectoryEntryEx.c)
  */
 
-__int16 __fastcall ObpCreateSymbolicLinkName(__int64 a1)
+void __fastcall ObpCreateSymbolicLinkName(__int64 a1)
 {
-  __int64 v1; // rdi
-  __int64 v2; // rax
-  int v4; // r14d
-  __int64 *v5; // rcx
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 v7; // dx
+  __int64 v1; // r15
+  char v2; // al
+  __int64 v4; // r9
+  unsigned __int16 *v5; // rax
+  unsigned __int16 v6; // ax
+  struct _DMA_ADAPTER **v7; // r9
+  __int16 v8; // r10
+  char v9; // r12
+  char v10; // r13
   struct _LIST_ENTRY *CurrentSilo; // rax
-  __int64 v9; // rsi
-  char *v10; // r13
-  __int64 v11; // rdx
-  __int64 v12; // r9
-  __int64 v13; // rax
-  __int64 v14; // rsi
-  struct _OBJECT_TYPE *v15; // rax
-  char v16; // di
-  unsigned int v17; // eax
-  __int64 v18; // r15
+  struct _DMA_ADAPTER *v12; // rbx
+  __m128i v13; // xmm6
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  struct _DMA_ADAPTER ***CurrentServerSiloGlobals; // rsi
+  struct _DMA_ADAPTER *v17; // r14
+  __int16 v18; // di
+  _QWORD *v19; // xmm0_8
+  _WORD *v20; // rbx
+  __int64 v21; // rax
+  __int64 v22; // r8
+  struct _OBJECT_TYPE *v23; // rax
+  char v24; // bl
+  __int64 v25; // rdi
+  unsigned int v26; // eax
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v20; // r12
-  int v21; // r15d
-  void *v22; // rdi
-  struct _KTHREAD *v23; // rcx
-  __int128 v24; // xmm0
-  bool v25; // zf
-  __int128 v27; // [rsp+20h] [rbp-40h] BYREF
-  __int128 v28; // [rsp+30h] [rbp-30h] BYREF
-  __int128 v29; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v30; // [rsp+50h] [rbp-10h]
-  __int64 v31; // [rsp+A0h] [rbp+40h]
-  PVOID Object; // [rsp+A8h] [rbp+48h]
+  __int64 v28; // rcx
+  int v29; // eax
+  bool v30; // zf
+  __m128i v31; // [rsp+38h] [rbp-49h]
+  __m128i v32; // [rsp+48h] [rbp-39h] BYREF
+  __int64 v33[2]; // [rsp+58h] [rbp-29h] BYREF
+  __int64 v34; // [rsp+68h] [rbp-19h]
+  int v35; // [rsp+70h] [rbp-11h]
+  __int16 v36; // [rsp+74h] [rbp-Dh]
+  __int16 v37; // [rsp+76h] [rbp-Bh]
+  int v38; // [rsp+78h] [rbp-9h]
+  int v39; // [rsp+7Ch] [rbp-5h]
+  int v41; // [rsp+F0h] [rbp+6Fh]
+  struct _DMA_ADAPTER *v42; // [rsp+F8h] [rbp+77h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+100h] [rbp+7Fh]
 
   v1 = a1 - 48;
-  LOWORD(v2) = *(unsigned __int8 *)(a1 - 48 + 26);
-  v4 = 64;
-  v28 = 0LL;
+  v34 = 0LL;
+  v2 = *(_BYTE *)(a1 - 48 + 26);
+  v35 = 0;
+  v36 = 0;
+  v41 = 64;
+  v39 = 0;
   if ( (v2 & 2) != 0 )
+    v4 = v1 - ObpInfoMaskToOffset[v2 & 3];
+  else
+    v4 = 0LL;
+  if ( !v4 )
+    return;
+  if ( !*(_QWORD *)(*(_QWORD *)v4 + 304LL) )
+    return;
+  if ( *(_WORD *)(v4 + 8) != 4 )
+    return;
+  v5 = *(unsigned __int16 **)(v4 + 16);
+  if ( v5[1] != 58 )
+    return;
+  v6 = NLS_UPCASE(*v5);
+  if ( (unsigned __int16)(v6 - 65) > 0x19u )
+    return;
+  v37 = v8;
+  *(_DWORD *)(a1 + 24) = v6 - 64;
+  v9 = v8;
+  v10 = v8;
+  v42 = *v7;
+  *(_OWORD *)v33 = 0LL;
+  v38 = -60876;
+  CurrentSilo = PsGetCurrentSilo();
+  DmaAdapter = (PADAPTER_OBJECT)OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO((__int64)CurrentSilo);
+  v12 = DmaAdapter;
+  ObfReferenceObject(DmaAdapter);
+  v13 = *(__m128i *)(a1 + 8);
+  v31 = v13;
+  CurrentServerSiloGlobals = (struct _DMA_ADAPTER ***)PsGetCurrentServerSiloGlobals(v15, v14);
+  while ( 1 )
   {
-    v2 = ObpInfoMaskToOffset[v2 & 3];
-    v5 = (__int64 *)(v1 - v2);
-    if ( v1 != v2 )
+    v17 = v12;
+    if ( (_mm_cvtsi128_si32(_mm_srli_si128(v13, 8)) & 7) != 0 || !**CurrentServerSiloGlobals )
     {
-      v2 = *v5;
-      if ( *(_QWORD *)(*v5 + 304) )
-      {
-        if ( *((_WORD *)v5 + 4) == 4 )
-        {
-          v2 = v5[2];
-          if ( *(_WORD *)(v2 + 2) == 58 )
-          {
-            CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-            LOWORD(v2) = NLS_UPCASE(CurrentServerSiloGlobals[154], v7);
-            if ( (unsigned __int16)(v2 - 65) <= 0x19u )
-            {
-              *(_DWORD *)(a1 + 24) = (unsigned __int16)v2 - 64;
-              v30 = 0LL;
-              v29 = 0LL;
-              CurrentSilo = PsGetCurrentSilo();
-              Object = OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO((__int64)CurrentSilo);
-              v9 = (__int64)Object;
-              ObfReferenceObject(Object);
-              v27 = *(_OWORD *)(a1 + 8);
-              v10 = (char *)PsGetCurrentServerSiloGlobals();
-LABEL_9:
-              v11 = v9;
-              v12 = *(_QWORD *)(*(_QWORD *)v10 & 0xFFFFFFFFFFFFFFF0uLL);
-              if ( v12 && (unsigned __int16)v27 >= 8u && **((_QWORD **)&v27 + 1) == 0x5C003F003F005CLL )
-              {
-                *((_QWORD *)&v27 + 1) += 8LL;
-                LOWORD(v27) = v27 - 8;
-                v11 = v12;
-              }
-              ObpLockDirectoryShared((__int64)&v29, v11);
-              while ( (unsigned __int8)ObpParseComponentName(&v27, &v28) )
-              {
-                v13 = ObpLookupDirectoryEntry(&v28, 0LL, &v29);
-                v14 = v13;
-                if ( !v13 )
-                  goto LABEL_18;
-                v15 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v13 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(v13 - 48) >> 8)];
-                if ( v15 != ObpDirectoryObjectType )
-                {
-                  if ( v15 == ObpSymbolicLinkObjectType && !*(_DWORD *)(v14 + 24) )
-                  {
-                    if ( v4 )
-                    {
-                      --v4;
-                      ObpUnlockDirectory((__int64)&v29);
-                      if ( (_WORD)v27 || (*(_DWORD *)(a1 + 28) & 0xE) != 0 )
-                        *(_DWORD *)(a1 + 28) &= ~0x20u;
-                      v24 = *(_OWORD *)(v14 + 8);
-                      v9 = (__int64)Object;
-                      v27 = v24;
-                      goto LABEL_9;
-                    }
-                    v14 = 0LL;
-                  }
-LABEL_18:
-                  v31 = *(_QWORD *)(*(_QWORD *)(v1 - ObpInfoMaskToOffset[*(_BYTE *)(v1 + 26) & 3]) + 304LL);
-                  v16 = 1;
-                  if ( v14 )
-                  {
-                    if ( ((unsigned __int8)ObHeaderCookie ^ (unsigned __int8)(*(_BYTE *)(v14 - 24) ^ ((unsigned __int16)(v14 - 48) >> 8))) == *(_BYTE *)(IoDeviceObjectType + 40) )
-                    {
-                      v17 = *(_DWORD *)(v14 + 72);
-                      if ( v17 > 0x13 )
-                      {
-                        if ( v17 == 20 )
-                          goto LABEL_57;
-                        if ( v17 != 36 )
-                        {
-                          v25 = v17 == 40;
-                          goto LABEL_54;
-                        }
-                        v16 = 6;
-                      }
-                      else
-                      {
-                        if ( v17 < 0x12 )
-                        {
-                          if ( v17 < 2 )
-                            goto LABEL_55;
-                          if ( v17 <= 3 )
-                          {
-                            v16 = 5;
-                            goto LABEL_27;
-                          }
-                          if ( v17 <= 6 )
-                            goto LABEL_55;
-                          if ( v17 <= 9 )
-                          {
-                            v16 = ((*(_DWORD *)(v14 + 52) & 1) == 0) + 2;
-                            goto LABEL_27;
-                          }
-                          v25 = v17 == 16;
-LABEL_54:
-                          if ( !v25 )
-                          {
-LABEL_55:
-                            v16 = 0;
-                            goto LABEL_27;
-                          }
-                        }
-LABEL_57:
-                        v16 = 4;
-                      }
-                    }
-                    else
-                    {
-                      v14 = 0LL;
-                    }
-                  }
-LABEL_27:
-                  v18 = (unsigned int)(*(_DWORD *)(a1 + 24) - 1);
-                  if ( !v14 || (*(_DWORD *)(a1 + 28) & 0x20) == 0 )
-                    v14 = a1;
-                  ObfReferenceObject((PVOID)v14);
-                  CurrentThread = KeGetCurrentThread();
-                  --CurrentThread->SpecialApcDisable;
-                  ExAcquirePushLockExclusiveEx((ULONG_PTR)(v10 + 120), 0LL);
-                  v20 = (unsigned int)v18;
-                  *(_BYTE *)(v18 + v31 + 260) = v16;
-                  v21 = 1 << v18;
-                  *(_DWORD *)(v31 + 256) |= v21;
-                  v22 = (void *)ObFastReplaceObject((volatile __int64 *)(v31 + 32 + 8 * v20), v14);
-                  if ( v31 == (*(_QWORD *)v10 & 0xFFFFFFFFFFFFFFF0uLL) )
-                    *((_DWORD *)v10 + 2) |= v21;
-                  else
-                    ++*(_DWORD *)&v10[4 * v20 + 12];
-                  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v10 + 15, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-                    ExfTryToWakePushLock(v10 + 120);
-                  KeAbPostRelease((ULONG_PTR)(v10 + 120));
-                  v23 = KeGetCurrentThread();
-                  v25 = v23->SpecialApcDisable++ == -1;
-                  if ( v25 && ($CEA84C04E3712D858E5667A507841A2A *)v23->ApcState.ApcListHead[0].Flink != &v23->152 )
-                    KiCheckForKernelApcDelivery();
-                  if ( v22 )
-                    ObDereferenceObjectDeferDelete(v22);
-                  break;
-                }
-                ObpLockChildDirectory(&v29, v14, 0LL);
-              }
-              if ( (_QWORD)v29 )
-                ObpUnlockDirectory((__int64)&v29);
-              LOWORD(v2) = ObfDereferenceObject(Object);
-            }
-          }
-        }
-      }
+      v18 = v31.m128i_i16[0];
+LABEL_48:
+      v20 = (_WORD *)v31.m128i_i64[1];
+      goto LABEL_15;
     }
+    v18 = _mm_cvtsi128_si32(v13);
+    v31.m128i_i16[0] = v18;
+    if ( (unsigned __int16)v18 < 8u )
+      goto LABEL_48;
+    v19 = (_QWORD *)_mm_srli_si128(v13, 8).m128i_u64[0];
+    v20 = v19;
+    if ( *v19 == ObpDosDevicesShortNamePrefix )
+    {
+      v20 = v19 + 1;
+      v18 -= 8;
+      v31.m128i_i64[1] = (__int64)(v19 + 1);
+      v31.m128i_i16[0] = v18;
+      v17 = **CurrentServerSiloGlobals;
+      v13 = v31;
+    }
+    while ( 1 )
+    {
+LABEL_15:
+      if ( *v20 == 92 )
+      {
+        ++v20;
+        v18 -= 2;
+        v31.m128i_i64[1] = (__int64)v20;
+        v31.m128i_i16[0] = v18;
+        v13 = v31;
+      }
+      v32 = v13;
+      if ( v18 )
+      {
+        do
+        {
+          if ( *v20 == 92 )
+            break;
+          ++v20;
+          v30 = v18 == 2;
+          v18 -= 2;
+          v31.m128i_i16[0] = v18;
+        }
+        while ( !v30 );
+        v31.m128i_i64[1] = (__int64)v20;
+        v13 = v31;
+      }
+      v32.m128i_i16[0] -= v18;
+      if ( !v32.m128i_i16[0] )
+        goto LABEL_42;
+      if ( v17 == v42 )
+      {
+        v37 = 257;
+      }
+      else
+      {
+        v9 = 0;
+        v10 = 0;
+      }
+      v21 = ObpLookupDirectoryEntryEx(v17, (unsigned __int16 *)&v32, 0, 0LL, 0, (__int64)v33);
+      v22 = v21;
+      if ( v17 == v42 )
+      {
+        LOBYTE(v37) = v9;
+        HIBYTE(v37) = v10;
+      }
+      else
+      {
+        v10 = HIBYTE(v37);
+        v9 = v37;
+      }
+      if ( !v21 )
+        goto LABEL_30;
+      v23 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v21 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(v21 - 48) >> 8)];
+      if ( v23 != ObpDirectoryObjectType )
+        break;
+      v17 = (struct _DMA_ADAPTER *)v22;
+    }
+    if ( v23 != ObpSymbolicLinkObjectType || *(_DWORD *)(v22 + 24) )
+      break;
+    if ( !v41 )
+    {
+      v22 = 0LL;
+      break;
+    }
+    v13 = *(__m128i *)(v22 + 8);
+    v12 = DmaAdapter;
+    --v41;
+    v31 = v13;
   }
-  return v2;
+LABEL_30:
+  v24 = 1;
+  v25 = *(_QWORD *)(*(_QWORD *)(v1 - ObpInfoMaskToOffset[*(_BYTE *)(v1 + 26) & 3]) + 304LL);
+  if ( v22
+    && ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v22 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(v22 - 48) >> 8)] == IoDeviceObjectType )
+  {
+    v26 = *(_DWORD *)(v22 + 72);
+    if ( v26 <= 0x13 )
+    {
+      if ( v26 < 0x12 )
+      {
+        if ( v26 < 2 )
+          goto LABEL_44;
+        if ( v26 <= 3 )
+        {
+          v24 = 5;
+          goto LABEL_39;
+        }
+        if ( v26 <= 6 )
+          goto LABEL_44;
+        if ( v26 <= 9 )
+        {
+          v24 = ((*(_DWORD *)(v22 + 52) & 1) == 0) + 2;
+          goto LABEL_39;
+        }
+        v30 = v26 == 16;
+LABEL_59:
+        if ( v30 )
+          goto LABEL_60;
+LABEL_44:
+        v24 = 0;
+        goto LABEL_39;
+      }
+LABEL_60:
+      v24 = 4;
+      goto LABEL_39;
+    }
+    if ( v26 == 20 )
+      goto LABEL_60;
+    if ( v26 != 36 )
+    {
+      v30 = v26 == 40;
+      goto LABEL_59;
+    }
+    v24 = 6;
+  }
+LABEL_39:
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->SpecialApcDisable;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)(CurrentServerSiloGlobals + 15), 0LL);
+  v28 = (unsigned int)(*(_DWORD *)(a1 + 24) - 1);
+  v29 = 1 << (*(_BYTE *)(a1 + 24) - 1);
+  *(_BYTE *)(v28 + v25 + 32) = v24;
+  *(_DWORD *)(v25 + 28) |= v29;
+  if ( (struct _DMA_ADAPTER **)v25 == *CurrentServerSiloGlobals )
+    *((_DWORD *)CurrentServerSiloGlobals + 2) |= v29;
+  else
+    ++*((_DWORD *)CurrentServerSiloGlobals + v28 + 3);
+  ExReleasePushLockEx((ULONG_PTR)(CurrentServerSiloGlobals + 15), 0LL);
+  KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+LABEL_42:
+  ObpReleaseLookupContext((__int64)v33);
+  HalPutDmaAdapter(DmaAdapter);
 }

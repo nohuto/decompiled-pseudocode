@@ -1,8 +1,8 @@
 /*
- * XREFs of CmFcpInitializeSectionState @ 0x1406EBB3C
+ * XREFs of CmFcpInitializeSectionState @ 0x1406C3DC0
  * Callers:
- *     CmFcManagerStartRuntimePhase @ 0x140B156F8 (CmFcManagerStartRuntimePhase.c)
- *     CmFcManagerInitialize @ 0x140B15B24 (CmFcManagerInitialize.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerInitialize @ 0x140A38D64 (CmFcManagerInitialize.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of SpiMax311RxReady @ 0x14067D430
+ * XREFs of SpiMax311RxReady @ 0x1405CB330
  * Callers:
  *     <none>
  * Callees:
- *     SpiMax311BufferRxData @ 0x14067D294 (SpiMax311BufferRxData.c)
- *     SpiSend16 @ 0x14067D61C (SpiSend16.c)
+ *     SpiMax311BufferRxData @ 0x1405CB184 (SpiMax311BufferRxData.c)
+ *     SpiSend16 @ 0x1405CB51C (SpiSend16.c)
  */
 
 bool __fastcall SpiMax311RxReady(_QWORD *a1)
@@ -20,5 +20,5 @@ bool __fastcall SpiMax311RxReady(_QWORD *a1)
       break;
     SpiMax311BufferRxData(v2);
   }
-  return (_DWORD)qword_140D1B220 != HIDWORD(qword_140D1B220);
+  return (_DWORD)qword_140CF9A60 != HIDWORD(qword_140CF9A60);
 }

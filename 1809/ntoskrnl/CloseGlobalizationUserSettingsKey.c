@@ -1,11 +1,11 @@
 /*
- * XREFs of CloseGlobalizationUserSettingsKey @ 0x140174A90
+ * XREFs of CloseGlobalizationUserSettingsKey @ 0x140174AB0
  * Callers:
- *     NtSetDefaultLocale @ 0x14071A6E0 (NtSetDefaultLocale.c)
- *     ExpSetCurrentUserUILanguage @ 0x14071A914 (ExpSetCurrentUserUILanguage.c)
- *     ExpGetCurrentUserUILanguage @ 0x14071AED0 (ExpGetCurrentUserUILanguage.c)
+ *     NtSetDefaultLocale @ 0x14071A6C0 (NtSetDefaultLocale.c)
+ *     ExpSetCurrentUserUILanguage @ 0x14071A8F4 (ExpSetCurrentUserUILanguage.c)
+ *     ExpGetCurrentUserUILanguage @ 0x14071AEB0 (ExpGetCurrentUserUILanguage.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  */
 
 __int64 __fastcall CloseGlobalizationUserSettingsKey(char *a1)

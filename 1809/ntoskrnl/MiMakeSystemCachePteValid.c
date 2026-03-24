@@ -1,5 +1,5 @@
 /*
- * XREFs of MiMakeSystemCachePteValid @ 0x1400D7A60
+ * XREFs of MiMakeSystemCachePteValid @ 0x1400D7A80
  * Callers:
  *     MmCopyToCachedPage @ 0x140033050 (MmCopyToCachedPage.c)
  * Callees:
@@ -13,9 +13,9 @@
  *     MiAllocateWsle @ 0x140048800 (MiAllocateWsle.c)
  *     MiLockWorkingSetOptimal @ 0x140088344 (MiLockWorkingSetOptimal.c)
  *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     PfSnLogPageFault @ 0x1400D7490 (PfSnLogPageFault.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiLockAndDecrementShareCount @ 0x140118088 (MiLockAndDecrementShareCount.c)
+ *     PfSnLogPageFault @ 0x1400D74B0 (PfSnLogPageFault.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
  */
 
 void __fastcall MiMakeSystemCachePteValid(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4)

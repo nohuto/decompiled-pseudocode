@@ -1,7 +1,7 @@
 /*
- * XREFs of LinkNodepAddAttachedDevice @ 0x1C009968C
+ * XREFs of LinkNodepAddAttachedDevice @ 0x1C00B6A00
  * Callers:
- *     LinkNodeCrackPrt @ 0x1C005CEBC (LinkNodeCrackPrt.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
  * Callees:
  *     <none>
  */
@@ -10,10 +10,10 @@ __int64 __fastcall LinkNodepAddAttachedDevice(__int64 a1, __int64 **a2)
 {
   __int64 *v3; // rdx
   __int64 *i; // rcx
-  __int64 *v5; // r8
+  __int64 *v5; // r9
   __int64 *v6; // r8
-  __int64 **v7; // rcx
-  __int64 *v8; // rdx
+  __int64 *v7; // r8
+  __int64 **v8; // rcx
   __int64 *v9; // rdx
   int v10; // edx
   int v11; // edx
@@ -23,31 +23,31 @@ __int64 __fastcall LinkNodepAddAttachedDevice(__int64 a1, __int64 **a2)
   {
     if ( v3 == i )
     {
-      v7 = (__int64 **)v3[1];
-      if ( *v7 != v3 )
+      v8 = (__int64 **)v3[1];
+      if ( *v8 != v3 )
         __fastfail(3u);
       *a2 = v3;
-      a2[1] = (__int64 *)v7;
-      *v7 = (__int64 *)a2;
+      a2[1] = (__int64 *)v8;
+      *v8 = (__int64 *)a2;
       v3[1] = (__int64)a2;
       return 0LL;
     }
     v5 = (__int64 *)i[6];
     if ( v5 )
     {
-      if ( v5 == a2[6] )
+      v6 = a2[6];
+      if ( v5 == v6 )
         break;
     }
-    v6 = (__int64 *)i[2];
-    if ( v6 )
+    v7 = (__int64 *)i[2];
+    if ( v7 && v7 == a2[2] )
     {
-      if ( v6 == a2[2] )
-        break;
+      v6 = a2[6];
+      break;
     }
   }
-  v8 = a2[6];
-  if ( v8 )
-    i[6] = (__int64)v8;
+  if ( v6 )
+    i[6] = (__int64)v6;
   v9 = a2[2];
   if ( v9 )
     i[2] = (__int64)v9;

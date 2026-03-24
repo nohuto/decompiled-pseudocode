@@ -1,19 +1,19 @@
 /*
- * XREFs of PerfDiagpProxyWorker @ 0x140742AE0
+ * XREFs of PerfDiagpProxyWorker @ 0x140742AC0
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
- *     PerfDiagpRestartCKCL @ 0x140741AD0 (PerfDiagpRestartCKCL.c)
- *     PerfDiagpIsTracingAllowed @ 0x140742C70 (PerfDiagpIsTracingAllowed.c)
- *     PerfDiagpUpdateCKCLEnableFlags @ 0x140742D78 (PerfDiagpUpdateCKCLEnableFlags.c)
- *     PerfDiagpInitializeLoggerInfo @ 0x140742E84 (PerfDiagpInitializeLoggerInfo.c)
- *     PerfDiagpSaveActiveDCLLogFileName @ 0x1408B0C50 (PerfDiagpSaveActiveDCLLogFileName.c)
+ *     PerfDiagpRestartCKCL @ 0x140741AB0 (PerfDiagpRestartCKCL.c)
+ *     PerfDiagpIsTracingAllowed @ 0x140742C50 (PerfDiagpIsTracingAllowed.c)
+ *     PerfDiagpUpdateCKCLEnableFlags @ 0x140742D58 (PerfDiagpUpdateCKCLEnableFlags.c)
+ *     PerfDiagpInitializeLoggerInfo @ 0x140742E64 (PerfDiagpInitializeLoggerInfo.c)
+ *     PerfDiagpSaveActiveDCLLogFileName @ 0x1408B0C30 (PerfDiagpSaveActiveDCLLogFileName.c)
  */
 
 void __fastcall PerfDiagpProxyWorker(_DWORD *a1)
@@ -35,35 +35,35 @@ void __fastcall PerfDiagpProxyWorker(_DWORD *a1)
   ExFreePoolWithTag(a1, 0);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14040A780, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14040A760, 0LL);
   if ( !(unsigned int)PerfDiagpIsTracingAllowed() )
     goto LABEL_32;
-  if ( dword_14040A788 != v1 - 1 )
+  if ( dword_14040A768 != v1 - 1 )
   {
     if ( v1 == 3 )
     {
-      if ( dword_14040A788 == 1 )
+      if ( dword_14040A768 == 1 )
         goto LABEL_11;
     }
     else if ( ((v1 - 5) & 0xFFFFFFFD) == 0 )
     {
       goto LABEL_4;
     }
-    if ( v1 < dword_14040A788 )
+    if ( v1 < dword_14040A768 )
     {
-      v1 = dword_14040A788;
+      v1 = dword_14040A768;
       goto LABEL_11;
     }
 LABEL_32:
-    v2 = (dword_14040A788 & 0xFFFFFFF7) != 0;
-    dword_14040A788 = 8;
+    v2 = (dword_14040A768 & 0xFFFFFFF7) != 0;
+    dword_14040A768 = 8;
     goto LABEL_12;
   }
 LABEL_4:
   if ( v1 == 1 )
   {
     PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-    NtTraceControl(2u, dword_14040A7D0, dword_14040A7D0[0], dword_14040A7D0, dword_14040A7D0[0], &v9);
+    NtTraceControl(2u, dword_14040A7B0, dword_14040A7B0[0], dword_14040A7B0, dword_14040A7B0[0], &v9);
     v8 = L"Diagnostics\\Performance\\BootCKCLSettings";
   }
   else
@@ -85,12 +85,12 @@ LABEL_9:
       case 4:
 LABEL_18:
         PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-        NtTraceControl(2u, dword_14040A7D0, dword_14040A7D0[0], dword_14040A7D0, dword_14040A7D0[0], &v9);
+        NtTraceControl(2u, dword_14040A7B0, dword_14040A7B0[0], dword_14040A7B0, dword_14040A7B0[0], &v9);
         v2 = 1;
         goto LABEL_11;
       case 5:
         PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-        NtTraceControl(2u, dword_14040A7D0, dword_14040A7D0[0], dword_14040A7D0, dword_14040A7D0[0], &v9);
+        NtTraceControl(2u, dword_14040A7B0, dword_14040A7B0[0], dword_14040A7B0, dword_14040A7B0[0], &v9);
         v8 = L"Diagnostics\\Performance\\SecondaryLogonCKCLSettings";
         break;
       case 6:
@@ -98,7 +98,7 @@ LABEL_18:
       case 7:
         PerfDiagpSaveActiveDCLLogFileName();
         PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-        NtTraceControl(2u, dword_14040A7D0, dword_14040A7D0[0], dword_14040A7D0, dword_14040A7D0[0], &v9);
+        NtTraceControl(2u, dword_14040A7B0, dword_14040A7B0[0], dword_14040A7B0, dword_14040A7B0[0], &v9);
         v8 = L"Diagnostics\\Performance\\ShutdownCKCLSettings";
         break;
       default:
@@ -110,13 +110,13 @@ LABEL_10:
   if ( updated < 0 )
     goto LABEL_32;
 LABEL_11:
-  dword_14040A788 = v1;
+  dword_14040A768 = v1;
 LABEL_12:
   if ( v2 )
     PerfDiagpRestartCKCL(L"WMI\\AutoLogger\\Circular Kernel Context Logger");
-  v7 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14040A780, 0xFFFFFFFFFFFFFFFFuLL);
+  v7 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14040A760, 0xFFFFFFFFFFFFFFFFuLL);
   if ( (v7 & 2) != 0 && (v7 & 4) == 0 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_14040A780);
-  KeAbPostRelease((ULONG_PTR)&qword_14040A780);
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_14040A760);
+  KeAbPostRelease((ULONG_PTR)&qword_14040A760);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
 }

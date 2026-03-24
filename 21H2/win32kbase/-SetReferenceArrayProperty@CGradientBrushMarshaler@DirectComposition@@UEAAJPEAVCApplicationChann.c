@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetReferenceArrayProperty@CGradientBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C021D110
+ * XREFs of ?SetReferenceArrayProperty@CGradientBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C01E69A0
  * Callers:
  *     <none>
  * Callees:
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?ClearStops@CGradientBrushMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C021CF10 (-ClearStops@CGradientBrushMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
+ *     ?ClearStops@CGradientBrushMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01E67A0 (-ClearStops@CGradientBrushMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CGradientBrushMarshaler::SetReferenceArrayProperty(
@@ -17,38 +17,46 @@ __int64 __fastcall DirectComposition::CGradientBrushMarshaler::SetReferenceArray
         bool *a6)
 {
   unsigned int v6; // ebx
-  unsigned int i; // esi
-  unsigned int v11; // esi
+  int v9; // esi
+  unsigned int v10; // r12d
 
   v6 = 0;
+  v9 = 0;
   *a6 = 0;
   if ( (!a5 || a4) && a3 == 1 )
   {
-    for ( i = 0; i < a5; ++i )
+    v10 = 0;
+    do
     {
-      if ( !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4[i] + 96LL))(
-              a4[i],
+      if ( v10 >= a5 )
+        break;
+      if ( !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4[v10] + 96LL))(
+              a4[v10],
               21LL) )
-        return (unsigned int)-1073741811;
+        v9 = -1073741811;
+      ++v10;
     }
-    DirectComposition::CGradientBrushMarshaler::ClearStops(this, a2);
-    *((_DWORD *)this + 28) = a5;
-    v11 = 0;
-    *((_QWORD *)this + 13) = a4;
-    *((_DWORD *)this + 29) = 0;
-    *a6 = 1;
-    *((_DWORD *)this + 4) |= 0x100u;
-    if ( *((_DWORD *)this + 28) )
+    while ( v9 >= 0 );
+    if ( v9 >= 0 )
     {
-      do
-        DirectComposition::CResourceMarshaler::AddRef(*(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 13)
-                                                                                                + 8LL * v11++));
-      while ( v11 < *((_DWORD *)this + 28) );
+      DirectComposition::CGradientBrushMarshaler::ClearStops(this, a2);
+      *((_DWORD *)this + 26) = a5;
+      *((_QWORD *)this + 12) = a4;
+      *((_DWORD *)this + 27) = 0;
+      *a6 = 1;
+      *((_DWORD *)this + 4) |= 0x100u;
+      if ( *((_DWORD *)this + 26) )
+      {
+        do
+          DirectComposition::CResourceMarshaler::AddRef(*(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 12)
+                                                                                                  + 8LL * v6++));
+        while ( v6 < *((_DWORD *)this + 26) );
+      }
     }
   }
   else
   {
     return (unsigned int)-1073741811;
   }
-  return v6;
+  return (unsigned int)v9;
 }

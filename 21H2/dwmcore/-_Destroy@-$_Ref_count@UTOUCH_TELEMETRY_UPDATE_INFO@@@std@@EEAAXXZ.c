@@ -1,5 +1,5 @@
 /*
- * XREFs of ?_Destroy@?$_Ref_count@UTOUCH_TELEMETRY_UPDATE_INFO@@@std@@EEAAXXZ @ 0x180276EA0
+ * XREFs of ?_Destroy@?$_Ref_count@UTOUCH_TELEMETRY_UPDATE_INFO@@@std@@EEAAXXZ @ 0x180232E30
  * Callers:
  *     <none>
  * Callees:

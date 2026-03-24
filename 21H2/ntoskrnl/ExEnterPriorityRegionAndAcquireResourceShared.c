@@ -1,48 +1,54 @@
 /*
- * XREFs of ExEnterPriorityRegionAndAcquireResourceShared @ 0x140220460
+ * XREFs of ExEnterPriorityRegionAndAcquireResourceShared @ 0x140292930
  * Callers:
- *     DifExEnterPriorityRegionAndAcquireResourceSharedWrapper @ 0x1406084B0 (DifExEnterPriorityRegionAndAcquireResourceSharedWrapper.c)
+ *     <none>
  * Callees:
- *     PsBoostThreadIoEx @ 0x1402ACD80 (PsBoostThreadIoEx.c)
- *     ExpAcquireResourceSharedLite @ 0x1402B1170 (ExpAcquireResourceSharedLite.c)
- *     ExAcquireFastResourceShared @ 0x14039B6B0 (ExAcquireFastResourceShared.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x14039C618 (ExpAllocateOwnerEntryForLegacyShim.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExpAcquireResourceSharedLite @ 0x14034C060 (ExpAcquireResourceSharedLite.c)
+ *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
+ *     ExAcquireFastResourceShared @ 0x14038F380 (ExAcquireFastResourceShared.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x14038FB6C (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 PVOID __fastcall ExEnterPriorityRegionAndAcquireResourceShared(ULONG_PTR BugCheckParameter2)
 {
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 v3; // rdx
-  unsigned __int8 CurrentIrql; // cl
-  struct _KTHREAD *v6; // rdx
+  __int16 v3; // ax
+  __int64 CurrentIrql; // rdx
+  __int16 v5; // ax
+  struct _KTHREAD *v7; // r8
   void *OwnerEntryForLegacyShim; // rsi
 
   CurrentThread = KeGetCurrentThread();
   PsBoostThreadIoEx(CurrentThread, 0LL, 0LL, 0LL);
   --CurrentThread->KernelApcDisable;
-  v3 = *(unsigned __int16 *)(BugCheckParameter2 + 26);
+  v3 = *(_WORD *)(BugCheckParameter2 + 26);
+  CurrentIrql = (unsigned __int8)v3;
   if ( (v3 & 0x41) == 1 )
     KeBugCheckEx(0x1C6u, 0xFuLL, BugCheckParameter2, 0LL, 0LL);
-  if ( (v3 & 1) != 0 )
+  v5 = *(_WORD *)(BugCheckParameter2 + 26) & 1;
+  if ( v5 )
   {
     CurrentIrql = KeGetCurrentIrql();
-    v6 = KeGetCurrentThread();
-    if ( CurrentIrql > 1u )
-      KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 1uLL, 0LL);
-    if ( (v6->ApcState.InProgressFlags & 2) != 0 )
+    v7 = KeGetCurrentThread();
+    if ( (unsigned __int8)CurrentIrql > 1u )
+      KeBugCheckEx(0x1C6u, 0LL, (unsigned __int8)CurrentIrql, 1uLL, 0LL);
+    if ( (v7->ApcState.InProgressFlags & 2) != 0 )
       KeBugCheckEx(0x1C6u, 6uLL, 0LL, 0LL, 0LL);
-    if ( !CurrentIrql && (v6->MiscFlags & 0x400) == 0 && !v6->WaitBlock[3].SpareLong )
+    if ( !(_BYTE)CurrentIrql && (v7->MiscFlags & 0x400) == 0 && !v7->WaitBlock[3].SpareLong )
       KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
+  }
+  if ( v5 )
+  {
     OwnerEntryForLegacyShim = (void *)ExpAllocateOwnerEntryForLegacyShim();
     if ( !(unsigned __int8)ExAcquireFastResourceShared(BugCheckParameter2, (ULONG_PTR)OwnerEntryForLegacyShim) )
       ExFreePoolWithTag(OwnerEntryForLegacyShim, 0);
   }
   else
   {
-    LOBYTE(v3) = 1;
-    ExpAcquireResourceSharedLite(BugCheckParameter2, v3);
+    LOBYTE(CurrentIrql) = 1;
+    ExpAcquireResourceSharedLite(BugCheckParameter2, CurrentIrql);
   }
   return CurrentThread->WaitBlock[2].SparePtr;
 }

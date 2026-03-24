@@ -1,9 +1,9 @@
 /*
- * XREFs of PspWow64PickBestNtdll @ 0x14036ACD4
+ * XREFs of PspWow64PickBestNtdll @ 0x1403276E4
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     PsQuerySystemDllInfo @ 0x14076F6C4 (PsQuerySystemDllInfo.c)
+ *     PsQuerySystemDllInfo @ 0x1406C769C (PsQuerySystemDllInfo.c)
  */
 
 __int64 __fastcall PspWow64PickBestNtdll(__int64 a1)
@@ -25,28 +25,28 @@ __int64 __fastcall PspWow64PickBestNtdll(__int64 a1)
       SystemDllInfo = PsQuerySystemDllInfo((unsigned int)v1);
       if ( SystemDllInfo )
       {
-        if ( (*(_BYTE *)SystemDllInfo & 0xC) == 0xC && *(_WORD *)(SystemDllInfo + 2) == v4 )
+        if ( (*(_DWORD *)SystemDllInfo & 4) != 0 && *(_WORD *)(SystemDllInfo + 2) == v4 )
           return v3;
       }
       v1 = v3 + 1;
-      if ( v1 >= 7 )
-        goto LABEL_6;
+      if ( v1 >= 6 )
+        goto LABEL_7;
     }
   }
   else
   {
-LABEL_6:
+LABEL_7:
     v5 = 0;
     while ( 1 )
     {
       v6 = PsQuerySystemDllInfo((unsigned int)v5);
       if ( v6 )
       {
-        if ( (*(_DWORD *)v6 & 8) != 0 && *(_WORD *)(v6 + 2) == v8 )
+        if ( *(_WORD *)(v6 + 2) == v8 )
           break;
       }
       v5 = v7 + 1;
-      if ( v5 >= 7 )
+      if ( v5 >= 6 )
         return 0LL;
     }
     return v7;

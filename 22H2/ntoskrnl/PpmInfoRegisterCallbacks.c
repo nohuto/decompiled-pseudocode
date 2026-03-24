@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmInfoRegisterCallbacks @ 0x140B68888
+ * XREFs of PpmInfoRegisterCallbacks @ 0x140A6B4EC
  * Callers:
- *     PopInitializePowerSettingCallbacks @ 0x140B687AC (PopInitializePowerSettingCallbacks.c)
+ *     PopInitializePowerSettingCallbacks @ 0x140A6B410 (PopInitializePowerSettingCallbacks.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PoRegisterPowerSettingCallback @ 0x1407A7570 (PoRegisterPowerSettingCallback.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PoRegisterPowerSettingCallback @ 0x1406F4AF0 (PoRegisterPowerSettingCallback.c)
  */
 
 __int64 PpmInfoRegisterCallbacks()

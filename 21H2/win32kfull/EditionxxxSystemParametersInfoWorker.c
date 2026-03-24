@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionxxxSystemParametersInfoWorker @ 0x1C009EBE0
+ * XREFs of EditionxxxSystemParametersInfoWorker @ 0x1C00DD320
  * Callers:
  *     <none>
  * Callees:
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
  */
 
 __int64 __fastcall EditionxxxSystemParametersInfoWorker(unsigned int a1, int a2)

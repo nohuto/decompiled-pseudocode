@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDmObjectGetAggregatedBooleanPropertyData @ 0x1406D6908
+ * XREFs of PiDmObjectGetAggregatedBooleanPropertyData @ 0x1406AF534
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x1406D6560 (PiPnpRtlObjectActionCallback.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1406AF1F0 (PiPnpRtlObjectActionCallback.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     PiDmObjectRelease @ 0x1406D6C18 (PiDmObjectRelease.c)
- *     PiDmGetObject @ 0x1406D81D0 (PiDmGetObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     PiDmGetObject @ 0x1406AF84C (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x1406AFBD0 (PiDmObjectRelease.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PiDmObjectGetAggregatedBooleanPropertyData(
@@ -22,39 +22,38 @@ __int64 __fastcall PiDmObjectGetAggregatedBooleanPropertyData(
         int a8,
         _DWORD *a9)
 {
-  int v9; // r15d
-  _BYTE *v12; // r12
+  int v9; // r14d
+  _BYTE *v12; // r15
   int Object; // ebx
   int v15; // r9d
   char *v16; // rdx
   unsigned int v17; // r8d
   __int64 v18; // r10
   __int64 v20; // rcx
-  __int64 *v21; // rsi
+  __int64 *v21; // rdi
+  __int64 v22; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v23; // rbx
-  __int64 *v24; // rdi
-  ULONG_PTR v25; // r14
-  ULONG_PTR v26; // rcx
-  int v27; // eax
-  _QWORD **v28; // r13
-  _QWORD *v29; // r14
-  char *v30; // rdx
+  ULONG_PTR v24; // rsi
+  ULONG_PTR v25; // r12
+  int v26; // eax
+  _QWORD **v27; // r13
+  _QWORD *v28; // rsi
+  char *v29; // rdx
   int ObjectProperty; // eax
-  int v32; // [rsp+60h] [rbp-20h] BYREF
+  int v31; // [rsp+60h] [rbp-20h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+68h] [rbp-18h] BYREF
-  ULONG_PTR v34; // [rsp+70h] [rbp-10h]
-  char v35; // [rsp+C0h] [rbp+40h] BYREF
-  int v36; // [rsp+D0h] [rbp+50h] BYREF
-  int v37; // [rsp+D4h] [rbp+54h]
+  ULONG_PTR v33; // [rsp+70h] [rbp-10h]
+  char v34; // [rsp+C0h] [rbp+40h] BYREF
+  int v35; // [rsp+D0h] [rbp+50h] BYREF
+  int v36; // [rsp+D4h] [rbp+54h]
 
-  v37 = HIDWORD(a3);
+  v36 = HIDWORD(a3);
   BugCheckParameter2 = 0LL;
   v9 = 0;
-  v36 = 0;
-  v32 = 0;
-  v12 = (_BYTE *)a7;
   v35 = 0;
+  v31 = 0;
+  v12 = (_BYTE *)a7;
+  v34 = 0;
   Object = -1073741802;
   if ( a7 )
   {
@@ -67,7 +66,7 @@ __int64 __fastcall PiDmObjectGetAggregatedBooleanPropertyData(
   }
   if ( a1 < 7 && !a4 )
   {
-    v16 = byte_140001798;
+    v16 = byte_140004208;
     v17 = 0;
     while ( 1 )
     {
@@ -96,35 +95,34 @@ __int64 __fastcall PiDmObjectGetAggregatedBooleanPropertyData(
         if ( Object >= 0 )
         {
           CurrentThread = KeGetCurrentThread();
-          v23 = v21[6];
-          v24 = (__int64 *)BugCheckParameter2;
-          v25 = BugCheckParameter2;
-          v26 = BugCheckParameter2;
+          v24 = BugCheckParameter2;
+          a7 = v21[6];
+          v22 = a7;
+          v33 = BugCheckParameter2;
           --CurrentThread->KernelApcDisable;
-          a7 = v23;
-          v34 = v25;
-          ExAcquirePushLockExclusiveEx(v26, 0LL);
-          v27 = *(_DWORD *)(v25 + v23);
-          if ( v27 == 0x80000000 )
+          v25 = BugCheckParameter2;
+          ExAcquirePushLockExclusiveEx(BugCheckParameter2, 0LL);
+          v26 = *(_DWORD *)(v24 + v22);
+          if ( v26 == 0x80000000 )
           {
-            v28 = (_QWORD **)((char *)v24 + PiDmListDefs[5 * *((int *)v21 + 10) + 1]);
-            v29 = *v28;
-            if ( *v28 != v28 )
+            v27 = (_QWORD **)(v25 + PiDmListDefs[5 * *((int *)v21 + 10) + 1]);
+            v28 = *v27;
+            if ( *v27 != v27 )
             {
               do
               {
-                v30 = (char *)v29 - PiDmListDefs[5 * *((int *)v21 + 10) + 3];
+                v29 = (char *)v28 - PiDmListDefs[5 * *((int *)v21 + 10) + 3];
                 ObjectProperty = PnpGetObjectProperty(
-                                   *(__int64 *)&PiPnpRtlCtx,
-                                   *((_QWORD *)v30 + 2),
-                                   *((unsigned int *)v30 + 7),
-                                   0LL,
+                                   PiPnpRtlCtx,
+                                   *((_QWORD *)v29 + 2),
+                                   *((_DWORD *)v29 + 7),
+                                   0,
                                    0LL,
                                    v21[1],
-                                   (__int64)&v36,
                                    (__int64)&v35,
+                                   (__int64)&v34,
                                    1,
-                                   (__int64)&v32,
+                                   (__int64)&v31,
                                    0);
                 Object = ObjectProperty;
                 if ( ObjectProperty < 0 )
@@ -132,24 +130,24 @@ __int64 __fastcall PiDmObjectGetAggregatedBooleanPropertyData(
                   if ( ObjectProperty != -1073741275 )
                     goto LABEL_19;
                 }
-                else if ( v36 == 17 && v35 == -1 )
+                else if ( v35 == 17 && v34 == -1 )
                 {
                   ++v9;
                 }
-                v29 = (_QWORD *)*v29;
+                v28 = (_QWORD *)*v28;
               }
-              while ( v29 != v28 );
-              v23 = a7;
+              while ( v28 != v27 );
+              v22 = a7;
             }
-            *(_DWORD *)(v34 + v23) = v9;
-            v27 = v9;
+            *(_DWORD *)(v33 + v22) = v9;
+            v26 = v9;
           }
-          *v12 = (v27 <= 0) - 1;
+          *v12 = (v26 <= 0) - 1;
           Object = 0;
 LABEL_19:
-          ExReleasePushLockEx(v24, 0LL);
-          KeLeaveCriticalRegion();
-          PiDmObjectRelease(v24);
+          ExReleasePushLockEx(v25, 0LL);
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          PiDmObjectRelease((PVOID)BugCheckParameter2);
         }
       }
       else

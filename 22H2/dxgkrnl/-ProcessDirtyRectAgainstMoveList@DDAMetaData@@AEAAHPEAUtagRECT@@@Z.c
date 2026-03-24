@@ -1,11 +1,10 @@
 /*
- * XREFs of ?ProcessDirtyRectAgainstMoveList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z @ 0x1C0332B00
+ * XREFs of ?ProcessDirtyRectAgainstMoveList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z @ 0x1C02A1CD8
  * Callers:
- *     ?ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C0332E8C (-ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z.c)
+ *     ?ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C02A2008 (-ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AddToDirtyList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z @ 0x1C03313D8 (-AddToDirtyList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z.c)
- *     ?RectsOverlap@@YA?AW4RECT_OVERLAP@@PEAUtagRECT@@00@Z @ 0x1C0334010 (-RectsOverlap@@YA-AW4RECT_OVERLAP@@PEAUtagRECT@@00@Z.c)
+ *     ?AddToDirtyList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z @ 0x1C02A0A34 (-AddToDirtyList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z.c)
+ *     ?RectsOverlap@@YA?AW4RECT_OVERLAP@@PEAUtagRECT@@00@Z @ 0x1C02A2E40 (-RectsOverlap@@YA-AW4RECT_OVERLAP@@PEAUtagRECT@@00@Z.c)
  */
 
 __int64 __fastcall DDAMetaData::ProcessDirtyRectAgainstMoveList(DDAMetaData *this, struct tagRECT *a2)
@@ -14,10 +13,13 @@ __int64 __fastcall DDAMetaData::ProcessDirtyRectAgainstMoveList(DDAMetaData *thi
   unsigned int v3; // r15d
   unsigned int v6; // ebp
   __int64 v7; // rdi
-  __int64 v8; // rbx
+  __int64 v8; // rsi
   struct tagRECT *v9; // rdx
-  __int64 v10; // r8
+  __int64 v10; // rdx
   __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // rcx
+  __int64 v15; // rax
 
   v2 = 0;
   v3 = *((_DWORD *)this + 11);
@@ -37,24 +39,16 @@ __int64 __fastcall DDAMetaData::ProcessDirtyRectAgainstMoveList(DDAMetaData *thi
     v6 = DDAMetaData::AddToDirtyList(this, v9);
     if ( !v6 )
       break;
-    v10 = **((_QWORD **)this + 6);
-    v11 = (unsigned int)--*((_DWORD *)this + 11);
-    *(_OWORD *)v7 = *(_OWORD *)(v10 + 24 * v11);
-    *(_QWORD *)(v7 + 16) = *(_QWORD *)(v10 + 24 * v11 + 16);
+    v12 = **((_QWORD **)this + 6);
+    v13 = (unsigned int)--*((_DWORD *)this + 11);
+    *(_OWORD *)v7 = *(_OWORD *)(v12 + 24 * v13);
+    *(_QWORD *)(v7 + 16) = *(_QWORD *)(v12 + 24 * v13 + 16);
 LABEL_7:
     if ( ++v2 >= v3 )
       return v6;
   }
-  WdLogSingleEntry1(2LL, 847LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Failed to add existing move to dirty list",
-    847LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  v15 = WdLogNewEntry5_WdError(v11, v10);
+  *(_QWORD *)(v15 + 24) = 844LL;
+  WdLogEvent5_WdError(v15);
   return 0LL;
 }

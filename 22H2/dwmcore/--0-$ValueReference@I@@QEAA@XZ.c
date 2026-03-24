@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0?$ValueReference@I@@QEAA@XZ @ 0x180291E64
+ * XREFs of ??0?$ValueReference@I@@QEAA@XZ @ 0x180241C78
  * Callers:
- *     ??$MakeAndInitialize@V?$ValueReference@I@@U?$IReference@I@Foundation@Windows@@J@Details@WRL@Microsoft@@YAJPEAPEAU?$IReference@I@Foundation@Windows@@$$QEAJ@Z @ 0x180291408 (--$MakeAndInitialize@V-$ValueReference@I@@U-$IReference@I@Foundation@Windows@@J@Details@WRL@Micr.c)
+ *     ?CreatePrimaryDescription@CDDisplayManager@@AEAAJAEBVRenderTargetInfo@@AEBUPixelFormatInfo@@AEBUD2D_SIZE_U@@PEAPEAUIDisplayPrimaryDescription@Core@Display@Devices@Windows@@@Z @ 0x180243BF0 (-CreatePrimaryDescription@CDDisplayManager@@AEAAJAEBVRenderTargetInfo@@AEBUPixelFormatInfo@@AEBU.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??0FtmBase@WRL@Microsoft@@QEAA@XZ @ 0x1802922E8 (--0FtmBase@WRL@Microsoft@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??0FtmBase@WRL@Microsoft@@QEAA@XZ @ 0x1802420D0 (--0FtmBase@WRL@Microsoft@@QEAA@XZ.c)
  */
 
 __int64 __fastcall ValueReference<unsigned int>::ValueReference<unsigned int>(__int64 a1)
@@ -13,7 +13,7 @@ __int64 __fastcall ValueReference<unsigned int>::ValueReference<unsigned int>(__
   struct Microsoft::WRL::Details::ModuleBase *v3; // rcx
 
   v2 = (_QWORD *)(a1 + 16);
-  *(_QWORD *)a1 = &IDDASwapChain::`vftable'{for `IDeviceResource'};
+  *(_QWORD *)a1 = &ILegacyStereoSwapChain::`vftable'{for `IDeviceResource'};
   Microsoft::WRL::FtmBase::FtmBase((Microsoft::WRL::FtmBase *)(a1 + 16));
   v3 = Microsoft::WRL::Details::ModuleBase::module_;
   *(_QWORD *)a1 = &Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<3>,Windows::Foundation::IReference<unsigned int>,Microsoft::WRL::FtmBase>::`vftable';

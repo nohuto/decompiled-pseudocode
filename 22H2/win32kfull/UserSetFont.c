@@ -1,31 +1,35 @@
 /*
- * XREFs of UserSetFont @ 0x1C0078184
+ * XREFs of UserSetFont @ 0x1C00E276C
  * Callers:
- *     SetIconMetrics @ 0x1C00761C4 (SetIconMetrics.c)
- *     xxxSetNCFonts @ 0x1C0078690 (xxxSetNCFonts.c)
+ *     SetIconMetrics @ 0x1C00E1F70 (SetIconMetrics.c)
+ *     xxxSetNCFonts @ 0x1C00E2938 (xxxSetNCFonts.c)
  * Callees:
- *     GreMarkDeletableFont @ 0x1C0076A08 (GreMarkDeletableFont.c)
- *     CreateFontFromUserProfile @ 0x1C0078200 (CreateFontFromUserProfile.c)
+ *     CreateFontFromUserProfile @ 0x1C00E27E8 (CreateFontFromUserProfile.c)
+ *     GreMarkDeletableFont @ 0x1C00E4074 (GreMarkDeletableFont.c)
  */
 
 __int64 __fastcall UserSetFont(struct _UNICODE_STRING *a1, __int64 a2, __int64 a3, struct HLFONT__ **a4)
 {
   __int64 result; // rax
-  __int64 v6; // rcx
-  struct HLFONT__ *v7; // rdi
+  struct HLFONT__ *v6; // rdi
+  __int64 v7; // rdx
+  struct HLFONT__ *v8; // rcx
+  __int64 v9; // r8
 
   result = CreateFontFromUserProfile(a1);
-  v7 = (struct HLFONT__ *)result;
+  v6 = (struct HLFONT__ *)result;
   if ( result )
   {
-    if ( *a4
-      && *a4 != *(struct HLFONT__ **)(GetSessionDpiServerInfo(v6) + 24)
-      && *a4 != *(struct HLFONT__ **)(Get96DpiServerInfo() + 24) )
+    if ( *a4 )
     {
-      GreMarkDeletableFont(*a4);
-      GreDeleteObject(*a4);
+      v8 = *(struct HLFONT__ **)(GetSessionDpiServerInfo() + 24);
+      if ( *a4 != v8 && *a4 != *(struct HLFONT__ **)(Get96DpiServerInfo(v8, v7, v9) + 24) )
+      {
+        GreMarkDeletableFont(*a4);
+        GreDeleteObject(*a4);
+      }
     }
-    *a4 = v7;
+    *a4 = v6;
     return 1LL;
   }
   return result;

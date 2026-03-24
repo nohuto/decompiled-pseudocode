@@ -4,8 +4,8 @@
  *     RtlInsertElementGenericTable @ 0x14008EE50 (RtlInsertElementGenericTable.c)
  * Callees:
  *     RtlSplay @ 0x14008D660 (RtlSplay.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 PVOID __stdcall RtlInsertElementGenericTableFull(

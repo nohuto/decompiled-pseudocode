@@ -1,11 +1,11 @@
 /*
- * XREFs of wil_details_EvaluateFeatureDependencies @ 0x1C0034070
+ * XREFs of wil_details_EvaluateFeatureDependencies @ 0x1C0029070
  * Callers:
- *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1C0034230 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
- *     wil_InitializeFeatureStaging @ 0x1C0037078 (wil_InitializeFeatureStaging.c)
+ *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1C0029220 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
+ *     wil_InitializeFeatureStaging @ 0x1C002B078 (wil_InitializeFeatureStaging.c)
  * Callees:
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C0004550 (wil_details_FeatureDescriptors_SkipPadding.c)
- *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x1C0034124 (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C0007C8C (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x1C0029124 (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
  */
 
 _QWORD *wil_details_EvaluateFeatureDependencies()
@@ -14,11 +14,11 @@ _QWORD *wil_details_EvaluateFeatureDependencies()
   int v1; // r9d
   int v2; // r8d
   int v3; // eax
-  int **i; // rcx
+  _QWORD *i; // rcx
   _QWORD *result; // rax
   _QWORD *v6; // rbx
 
-  v0 = (int **)wil_details_FeatureDescriptors_SkipPadding(&wil_details_featureDescriptors_a);
+  v0 = (int **)wil_details_FeatureDescriptors_SkipPadding(wil_details_featureDescriptors_a);
   if ( v0 )
   {
     v1 = 0;
@@ -33,11 +33,11 @@ _QWORD *wil_details_EvaluateFeatureDependencies()
           v3 = *((_BYTE *)v0 + 31) != 0;
         _InterlockedXor(*v0, v1 & 0xFFFFFFBF | (v3 << 6) ^ **v0 & 0x40);
       }
-      v0 = (int **)wil_details_FeatureDescriptors_SkipPadding(v0 + 7);
+      v0 = (int **)wil_details_FeatureDescriptors_SkipPadding(v0 + 5);
     }
     while ( v0 );
   }
-  for ( i = &wil_details_featureDescriptors_a; ; i = (int **)(v6 + 7) )
+  for ( i = wil_details_featureDescriptors_a; ; i = v6 + 5 )
   {
     result = wil_details_FeatureDescriptors_SkipPadding(i);
     v6 = result;

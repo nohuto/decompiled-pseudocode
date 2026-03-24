@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTouchTargetingOffset @ 0x1C014EBB0
+ * XREFs of EtwTraceTouchTargetingOffset @ 0x1C0123F70
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0dddd_EtwWriteTransfer @ 0x1C014FA2C (McTemplateK0dddd_EtwWriteTransfer.c)
+ *     McTemplateK0dddd_EtwWriteTransfer @ 0x1C0125150 (McTemplateK0dddd_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTouchTargetingOffset(int a1, int a2, int a3, char a4)

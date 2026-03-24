@@ -1,13 +1,13 @@
 /*
- * XREFs of ?TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z @ 0x1C03D4A60
+ * XREFs of ?TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z @ 0x1C03005F4
  * Callers:
- *     ?PresentDisplayOnly@BLTQUEUE@@QEAAJPEAU_DXGKARG_PRESENT_DISPLAYONLY@@IW4BltQueuePresentDisplayOnlySource@1@@Z @ 0x1C03D33E4 (-PresentDisplayOnly@BLTQUEUE@@QEAAJPEAU_DXGKARG_PRESENT_DISPLAYONLY@@IW4BltQueuePresentDisplayOn.c)
- *     ?ProcessVSyncTdrWorker@BLTQUEUE@@AEAAXE@Z @ 0x1C03D35F4 (-ProcessVSyncTdrWorker@BLTQUEUE@@AEAAXE@Z.c)
+ *     ?PresentDisplayOnly@BLTQUEUE@@QEAAJPEAU_DXGKARG_PRESENT_DISPLAYONLY@@@Z @ 0x1C02FF340 (-PresentDisplayOnly@BLTQUEUE@@QEAAJPEAU_DXGKARG_PRESENT_DISPLAYONLY@@@Z.c)
+ *     ?ProcessVSyncTdrWorker@BLTQUEUE@@AEAAXE@Z @ 0x1C02FF520 (-ProcessVSyncTdrWorker@BLTQUEUE@@AEAAXE@Z.c)
  * Callees:
- *     ?GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ @ 0x1C0014FAC (-GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ.c)
- *     ?TdrCreateRecoveryContext@@YAPEAU_TDR_RECOVERY_CONTEXT@@XZ @ 0x1C030EF00 (-TdrCreateRecoveryContext@@YAPEAU_TDR_RECOVERY_CONTEXT@@XZ.c)
- *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030F310 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     TdrBugcheckOnTimeout @ 0x1C030FD40 (TdrBugcheckOnTimeout.c)
+ *     ?GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ @ 0x1C001AC14 (-GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ.c)
+ *     ?TdrCreateRecoveryContext@@YAPEAU_TDR_RECOVERY_CONTEXT@@XZ @ 0x1C0265FC0 (-TdrCreateRecoveryContext@@YAPEAU_TDR_RECOVERY_CONTEXT@@XZ.c)
+ *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02663B0 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     TdrBugcheckOnTimeout @ 0x1C0266E00 (TdrBugcheckOnTimeout.c)
  */
 
 __int64 __fastcall DXGDODPRESENT::TriggerDisplayOnlyTdr(__int64 a1, int a2, int a3, __int64 a4)
@@ -43,14 +43,14 @@ __int64 __fastcall DXGDODPRESENT::TriggerDisplayOnlyTdr(__int64 a1, int a2, int 
       _InterlockedIncrement64((volatile signed __int64 *)Adapter + 3);
       v13 = *(_QWORD **)(StartContext + 32);
       *(_QWORD *)(StartContext + 40) = -1LL;
-      *(_DWORD *)(StartContext + 144) = 65540;
-      *(_DWORD *)(StartContext + 148) = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v13[27] + 64LL) + 40LL) + 28LL);
+      *(_DWORD *)(StartContext + 136) = 49156;
+      *(_DWORD *)(StartContext + 140) = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v13[27] + 64LL) + 40LL) + 28LL);
       *(_QWORD *)(StartContext + 24) = a4;
       *(_DWORD *)(StartContext + 80) = a3;
-      v14 = v13[74];
+      v14 = v13[63];
       if ( !v14 )
-        v14 = v13[56];
-      *(_QWORD *)(StartContext + 104) = v14;
+        v14 = v13[45];
+      *(_QWORD *)(StartContext + 96) = v14;
       if ( !TdrIsRecoveryRequired((struct _TDR_RECOVERY_CONTEXT *)StartContext) )
         return 1LL;
       memset(&ObjectAttributes.Length + 1, 0, 20);

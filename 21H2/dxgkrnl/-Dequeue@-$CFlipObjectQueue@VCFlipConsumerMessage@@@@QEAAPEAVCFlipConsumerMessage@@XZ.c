@@ -1,8 +1,8 @@
 /*
- * XREFs of ?Dequeue@?$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ @ 0x1C0080EA8
+ * XREFs of ?Dequeue@?$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ @ 0x1C006D914
  * Callers:
- *     ?QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z @ 0x1C007A0C0 (-QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z.c)
- *     ?Clear@CBackchannelManager@@QEAAXXZ @ 0x1C0080E58 (-Clear@CBackchannelManager@@QEAAXXZ.c)
+ *     ?QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z @ 0x1C0068988 (-QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z.c)
+ *     ?Clear@CBackchannelManager@@QEAAXXZ @ 0x1C006D8C4 (-Clear@CBackchannelManager@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

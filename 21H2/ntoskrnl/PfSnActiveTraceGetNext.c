@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnActiveTraceGetNext @ 0x14023A910
+ * XREFs of PfSnActiveTraceGetNext @ 0x1402B52F8
  * Callers:
- *     PfSnNameRemoveAll @ 0x1406B5F74 (PfSnNameRemoveAll.c)
+ *     PfSnNameRemoveAll @ 0x140698BDC (PfSnNameRemoveAll.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 *__fastcall PfSnActiveTraceGetNext(struct _EX_RUNDOWN_REF *a1)
@@ -22,19 +22,19 @@ __int64 *__fastcall PfSnActiveTraceGetNext(struct _EX_RUNDOWN_REF *a1)
   int v10; // eax
   bool v11; // zf
 
-  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140C54690);
+  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140C50450);
   v3 = (__int64 **)&a1[2];
   if ( !a1 )
-    v3 = (__int64 **)&qword_140C54688;
+    v3 = (__int64 **)&qword_140C50448;
   for ( i = *v3; i != &PfSnGlobals; i = (__int64 *)i[1] )
   {
     v5 = i - 1;
-    if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)i + 44) )
+    if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)i + 44) )
       goto LABEL_6;
   }
   v5 = 0LL;
 LABEL_6:
-  KxReleaseSpinLock(&qword_140C54690);
+  KxReleaseSpinLock(&qword_140C50450);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
@@ -54,6 +54,6 @@ LABEL_6:
   }
   __writecr8(v2);
   if ( a1 )
-    ExReleaseRundownProtection(a1 + 45);
+    ExReleaseRundownProtection_0(a1 + 45);
   return v5;
 }

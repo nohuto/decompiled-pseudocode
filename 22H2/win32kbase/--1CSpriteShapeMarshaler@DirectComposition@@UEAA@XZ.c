@@ -1,18 +1,18 @@
 /*
- * XREFs of ??1CSpriteShapeMarshaler@DirectComposition@@UEAA@XZ @ 0x1C00A6C64
+ * XREFs of ??1CSpriteShapeMarshaler@DirectComposition@@UEAA@XZ @ 0x1C01E7AB0
  * Callers:
- *     ??_ECSpriteShapeMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C00A6C20 (--_ECSpriteShapeMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ *     ??_ECSpriteShapeMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C01D45E0 (--_ECSpriteShapeMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 void __fastcall DirectComposition::CSpriteShapeMarshaler::~CSpriteShapeMarshaler(
         DirectComposition::CSpriteShapeMarshaler *this)
 {
-  char *v1; // rdx
+  __int64 v1; // rcx
 
-  v1 = (char *)*((_QWORD *)this + 11);
   *(_QWORD *)this = &DirectComposition::CSpriteShapeMarshaler::`vftable';
+  v1 = *((_QWORD *)this + 11);
   if ( v1 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v1);
+    Win32FreePool(v1);
 }

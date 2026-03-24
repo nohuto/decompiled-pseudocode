@@ -1,12 +1,17 @@
 /*
- * XREFs of Win32QueryPoolSize @ 0x1C0150020
+ * XREFs of Win32QueryPoolSize @ 0x1C0139DF0
  * Callers:
  *     <none>
  * Callees:
- *     ?QueryPoolSize@CLeakTrackingAllocator@NSInstrumentation@@QEAA_KPEAXI@Z @ 0x1C016E894 (-QueryPoolSize@CLeakTrackingAllocator@NSInstrumentation@@QEAA_KPEAXI@Z.c)
+ *     <none>
  */
 
-unsigned __int64 __fastcall Win32QueryPoolSize(NSInstrumentation::CLeakTrackingAllocator *a1, unsigned int a2)
+SIZE_T __fastcall Win32QueryPoolSize(_QWORD *a1)
 {
-  return NSInstrumentation::CLeakTrackingAllocator::QueryPoolSize(a1, a1, a2);
+  unsigned __int8 QuotaCharged; // [rsp+38h] [rbp+10h] BYREF
+
+  if ( (gdwPoolFlags & 1) != 0 )
+    return *(a1 - 4);
+  QuotaCharged = 0;
+  return ExQueryPoolBlockSize(a1, &QuotaCharged);
 }

@@ -1,85 +1,86 @@
 /*
- * XREFs of HvpRecoverDataReadRoutine @ 0x1407FF5D0
+ * XREFs of HvpRecoverDataReadRoutine @ 0x140874730
  * Callers:
- *     <none>
+ *     HvpApplyIncrementalLogFile @ 0x140881368 (HvpApplyIncrementalLogFile.c)
+ *     HvpApplyLegacyLogFile @ 0x14088159C (HvpApplyLegacyLogFile.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall HvpRecoverDataReadRoutine(unsigned int *a1, unsigned int a2, unsigned int a3, _QWORD *a4)
+__int64 __fastcall HvpRecoverDataReadRoutine(
+        unsigned int *a1,
+        unsigned int a2,
+        unsigned int a3,
+        struct _LOOKASIDE_LIST_EX *a4)
 {
-  unsigned int v4; // ebx
-  struct _PRIVILEGE_SET *Pool; // rdi
+  struct _PRIVILEGE_SET *TransientPoolWithTag; // rdi
+  int v7; // ebx
   __int64 v8; // r13
   int v9; // eax
   int v10; // ecx
-  unsigned int v11; // esi
-  struct _PRIVILEGE_SET *v12; // rcx
-  unsigned int *v13; // r15
-  unsigned int v14; // ebp
-  int v15; // esi
-  unsigned int v17; // [rsp+78h] [rbp+10h]
+  unsigned int v11; // r12d
+  unsigned int v12; // ebx
+  struct _PRIVILEGE_SET *v13; // rcx
+  unsigned int v14; // r14d
+  unsigned int v15; // ebp
+  char *v16; // rcx
 
-  v4 = 0;
-  Pool = 0LL;
+  TransientPoolWithTag = 0LL;
   if ( a2 + a3 < a2 && a2 + a3 )
     return (unsigned int)-1073741811;
   v8 = *(_QWORD *)a1;
   v9 = *(_DWORD *)(*(_QWORD *)a1 + 136LL) << 9;
   v10 = ~(v9 - 1);
-  v11 = (v10 & (a2 + v9 + a3 - 1)) - (a2 & v10);
-  v17 = a2 & v10;
-  if ( v11 < a3 )
+  v11 = a2 & v10;
+  v12 = (v10 & (a2 + v9 + a3 - 1)) - (a2 & v10);
+  if ( v12 < a3 )
   {
     return (unsigned int)-1073741811;
   }
   else
   {
-    v12 = (struct _PRIVILEGE_SET *)*((_QWORD *)a1 + 1);
-    v13 = a1 + 4;
-    v14 = v11;
-    if ( v11 < 0x10000 )
+    v13 = (struct _PRIVILEGE_SET *)*((_QWORD *)a1 + 1);
+    v14 = v12;
+    if ( v12 < 0x10000 )
       v14 = 0x10000;
-    if ( !v12 )
-      goto LABEL_12;
-    if ( *v13 < v14 )
-    {
-      CmSiFreeMemory(v12);
-    }
+    if ( !v13 )
+      goto LABEL_14;
+    v15 = a1[4];
+    if ( v15 < v14 )
+      CmSiFreeMemory(v13);
     else
-    {
-      Pool = (struct _PRIVILEGE_SET *)*((_QWORD *)a1 + 1);
-      v14 = *v13;
-    }
+      TransientPoolWithTag = (struct _PRIVILEGE_SET *)*((_QWORD *)a1 + 1);
     *((_QWORD *)a1 + 1) = 0LL;
-    *v13 = 0;
-    if ( !Pool )
+    a1[4] = 0;
+    if ( v15 < v14 )
+      v15 = v14;
+    if ( !TransientPoolWithTag )
     {
-LABEL_12:
-      Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(256LL, v11, 1867074883LL);
-      if ( !Pool )
+LABEL_14:
+      TransientPoolWithTag = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithTag(PagedPool, v12, 0x6F494D43u, a4);
+      if ( !TransientPoolWithTag )
         return (unsigned int)-1073741801;
-      v14 = v11;
+      v15 = v12;
     }
-    v15 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, struct _PRIVILEGE_SET *, unsigned int))(v8 + 48))(
-            v8,
-            a1[5],
-            v17,
-            Pool,
-            v11);
-    if ( v15 < 0 )
+    v7 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, struct _PRIVILEGE_SET *, unsigned int))(v8 + 48))(
+           v8,
+           a1[5],
+           v11,
+           TransientPoolWithTag,
+           v12);
+    if ( v7 >= 0 )
     {
-      CmSiFreeMemory(Pool);
-      return (unsigned int)v15;
+      *((_QWORD *)a1 + 1) = TransientPoolWithTag;
+      a1[4] = v15;
+      v16 = (char *)TransientPoolWithTag + a2 % (*(_DWORD *)(v8 + 136) << 9);
+      TransientPoolWithTag = 0LL;
+      v7 = 0;
+      a4->L.ListHead.Alignment = (unsigned __int64)v16;
     }
-    else
-    {
-      *((_QWORD *)a1 + 1) = Pool;
-      *v13 = v14;
-      *a4 = (char *)Pool + a2 % (*(_DWORD *)(v8 + 136) << 9);
-    }
+    if ( TransientPoolWithTag )
+      CmSiFreeMemory(TransientPoolWithTag);
   }
-  return v4;
+  return (unsigned int)v7;
 }

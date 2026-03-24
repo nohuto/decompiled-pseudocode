@@ -1,12 +1,13 @@
 /*
- * XREFs of AcpiIsDeviceSecure @ 0x1C00A0614
+ * XREFs of AcpiIsDeviceSecure @ 0x1C00A264C
  * Callers:
- *     AcpiCheckSecureDevice @ 0x1C0094A0C (AcpiCheckSecureDevice.c)
+ *     ACPIBusAndFilterIrpQueryCapabilities @ 0x1C009EB30 (ACPIBusAndFilterIrpQueryCapabilities.c)
+ *     AcpiCheckSecureDevice @ 0x1C00B55A8 (AcpiCheckSecureDevice.c)
  * Callees:
- *     ACPIQueryDeviceBiosNameEx @ 0x1C0006494 (ACPIQueryDeviceBiosNameEx.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     AcpiSearchSdevTable @ 0x1C00B4D68 (AcpiSearchSdevTable.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ACPIQueryDeviceBiosName @ 0x1C0099CE0 (ACPIQueryDeviceBiosName.c)
+ *     AcpiSearchSdevTable @ 0x1C00B5690 (AcpiSearchSdevTable.c)
  */
 
 char __fastcall AcpiIsDeviceSecure(__int64 a1)
@@ -28,7 +29,7 @@ char __fastcall AcpiIsDeviceSecure(__int64 a1)
     v4 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD))(PmHalDispatchTable + 88))(1447380051LL, 0LL, 0LL);
     if ( v4 )
     {
-      if ( (int)ACPIQueryDeviceBiosNameEx(*(_QWORD *)(a1 + 768), 1u, (struct _UNICODE_STRING *)P) >= 0 )
+      if ( (int)ACPIQueryDeviceBiosName(*(_QWORD *)(a1 + 728), (struct _UNICODE_STRING *)P) >= 0 )
       {
         if ( (unsigned __int8)AcpiSearchSdevTable(v4, P, (char *)&v6 + 4) )
         {
@@ -36,7 +37,7 @@ char __fastcall AcpiIsDeviceSecure(__int64 a1)
           if ( (int)VslQuerySecureDevice(&v6, &v8) >= 0 )
           {
             v1 = v8;
-            *(_QWORD *)(a1 + 960) = *((_QWORD *)&v8 + 1);
+            *(_QWORD *)(a1 + 920) = *((_QWORD *)&v8 + 1);
           }
         }
       }

@@ -1,26 +1,26 @@
 /*
- * XREFs of PiDevCfgLogDeviceConfigured @ 0x1406F3980
+ * XREFs of PiDevCfgLogDeviceConfigured @ 0x1406F3960
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1406E2E54 (PiDevCfgConfigureDevice.c)
- *     PiDevCfgLogDeviceConfigured @ 0x1406F3980 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgConfigureDevice @ 0x1406E2E34 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x1406F3960 (PiDevCfgLogDeviceConfigured.c)
  * Callees:
  *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     PnpGetLogString @ 0x14015D214 (PnpGetLogString.c)
- *     McTemplateK0zzjzzztzdzztdz @ 0x14015D3DC (McTemplateK0zzjzzztzdzztdz.c)
- *     RtlUnicodeStringPrintfEx @ 0x14015D7AC (RtlUnicodeStringPrintfEx.c)
- *     RtlTimeToTimeFields @ 0x14015DA00 (RtlTimeToTimeFields.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlUnicodeStringExHandleOtherFlags @ 0x140287714 (RtlUnicodeStringExHandleOtherFlags.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     PnpGetLogString @ 0x14015D234 (PnpGetLogString.c)
+ *     McTemplateK0zzjzzztzdzztdz @ 0x14015D3FC (McTemplateK0zzjzzztzdzztdz.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14015D7CC (RtlUnicodeStringPrintfEx.c)
+ *     RtlTimeToTimeFields @ 0x14015DA20 (RtlTimeToTimeFields.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlUnicodeStringExHandleOtherFlags @ 0x140287814 (RtlUnicodeStringExHandleOtherFlags.c)
  *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x14065AA30 (RtlCreateUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1406B2120 (ExpAllocateStringRoutine.c)
- *     PiDevCfgLogDeviceConfigured @ 0x1406F3980 (PiDevCfgLogDeviceConfigured.c)
- *     PiDevCfgQueryObjectProperties @ 0x1406F6260 (PiDevCfgQueryObjectProperties.c)
- *     PnpTraceDeviceConfig @ 0x1406F6A68 (PnpTraceDeviceConfig.c)
+ *     RtlCreateUnicodeString @ 0x14065AA10 (RtlCreateUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x1406F3960 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1406F6240 (PiDevCfgQueryObjectProperties.c)
+ *     PnpTraceDeviceConfig @ 0x1406F6A48 (PnpTraceDeviceConfig.c)
  */
 
 void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)
@@ -424,7 +424,7 @@ LABEL_20:
         if ( !v7 )
           v67 = 0LL;
         v121 = v67;
-        v68 = (const wchar_t *)&dword_1409111A4;
+        v68 = (const wchar_t *)&dword_140911184;
         if ( v8 )
           v68 = v8;
         PnpGetLogString(*(_QWORD *)(v126 + 16) + 40LL);
@@ -458,7 +458,7 @@ LABEL_20:
       if ( !v7 )
         v77 = 0LL;
       v122 = v77;
-      v78 = (const wchar_t *)&dword_1409111A4;
+      v78 = (const wchar_t *)&dword_140911184;
       if ( v8 )
         v78 = v8;
       PnpGetLogString(*(_QWORD *)(v126 + 16) + 40LL);
@@ -494,7 +494,7 @@ LABEL_20:
       if ( !v7 )
         v57 = 0LL;
       v120 = v57;
-      v58 = (const wchar_t *)&dword_1409111A4;
+      v58 = (const wchar_t *)&dword_140911184;
       if ( v8 )
         v58 = v8;
       PnpGetLogString(*(_QWORD *)(v126 + 16) + 40LL);
@@ -529,7 +529,7 @@ LABEL_20:
       v19 = v7 + 272;
     else
       v19 = 0LL;
-    v20 = &dword_1409111A4;
+    v20 = &dword_140911184;
     if ( v8 )
       v20 = (int *)v8;
     v119 = (const wchar_t *)v20;
@@ -651,7 +651,7 @@ LABEL_20:
               v103 = (UNICODE_STRING *)PiDevCfgEmptyString;
             v104 = L",";
             if ( v93 == (_QWORD *)*v29 )
-              v104 = &word_140766570;
+              v104 = &word_140766550;
             v105 = RtlUnicodeStringPrintfEx(
                      (PUNICODE_STRING)&TimeFields,
                      (PUNICODE_STRING)&TimeFields,

@@ -1,41 +1,39 @@
 /*
- * XREFs of ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C0089E94
+ * XREFs of ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00E6238
  * Callers:
- *     InitFNTCache @ 0x1C00880A0 (InitFNTCache.c)
- *     EngCloseFNTCache @ 0x1C0089CDC (EngCloseFNTCache.c)
- *     GdiMultiUserFontCleanup @ 0x1C008AAF0 (GdiMultiUserFontCleanup.c)
+ *     InitFNTCache @ 0x1C00E53A0 (InitFNTCache.c)
+ *     GdiMultiUserFontCleanup @ 0x1C00E6080 (GdiMultiUserFontCleanup.c)
+ *     EngCloseFNTCache @ 0x1C00E61F0 (EngCloseFNTCache.c)
  * Callees:
- *     vUnmapFontCacheFile @ 0x1C0089F40 (vUnmapFontCacheFile.c)
+ *     vUnmapFontCacheFile @ 0x1C00E62CC (vUnmapFontCacheFile.c)
  */
 
-void __fastcall vCleanUpFntCacheInternal(__int64 a1)
+void vCleanUpFntCacheInternal(void)
 {
-  __int64 v1; // rbx
-  void *v2; // rcx
-  _QWORD *v3; // rax
-  void *v4; // rcx
+  HANDLE *v0; // rcx
 
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  v2 = *(void **)(v1 + 19408);
-  if ( v2 )
+  if ( ghkeyGreInitialize )
   {
-    ZwClose(v2);
-    *(_QWORD *)(v1 + 19408) = 0LL;
+    ZwClose(ghkeyGreInitialize);
+    ghkeyGreInitialize = 0LL;
   }
-  v3 = *(_QWORD **)(v1 + 19392);
-  if ( v3 )
+  v0 = (HANDLE *)qword_1C0339BE8;
+  if ( qword_1C0339BE8 )
   {
-    if ( *v3 )
-      vUnmapFontCacheFile();
-    v4 = *(void **)(*(_QWORD *)(v1 + 19392) + 96LL);
-    if ( v4 )
+    if ( *(_QWORD *)qword_1C0339BE8 )
     {
-      ZwClose(v4);
-      *(_QWORD *)(*(_QWORD *)(v1 + 19392) + 96LL) = 0LL;
+      vUnmapFontCacheFile();
+      v0 = (HANDLE *)qword_1C0339BE8;
     }
-    Win32FreePool(*(void **)(v1 + 19392));
-    *(_QWORD *)(v1 + 19392) = 0LL;
+    if ( v0[12] )
+    {
+      ZwClose(v0[12]);
+      v0 = (HANDLE *)qword_1C0339BE8;
+      *(_QWORD *)(qword_1C0339BE8 + 96) = 0LL;
+    }
+    Win32FreePool(v0);
+    qword_1C0339BE8 = 0LL;
   }
-  *(_DWORD *)(v1 + 19384) = 0;
-  *(_BYTE *)(v1 + 19404) = 1;
+  dword_1C0339BE0 = 0;
+  gbFntCacheClosed = 1;
 }

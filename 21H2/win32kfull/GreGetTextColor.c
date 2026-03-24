@@ -1,12 +1,12 @@
 /*
- * XREFs of GreGetTextColor @ 0x1C00C5D38
+ * XREFs of GreGetTextColor @ 0x1C015840C
  * Callers:
- *     ?xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z @ 0x1C00C3E78 (-xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z.c)
- *     xxxDrawState @ 0x1C024DD1C (xxxDrawState.c)
- *     xxxPSMTextOut @ 0x1C0250058 (xxxPSMTextOut.c)
+ *     ?xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z @ 0x1C0157FC4 (-xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z.c)
+ *     xxxDrawState @ 0x1C0250D44 (xxxDrawState.c)
+ *     xxxPSMTextOut @ 0x1C025306C (xxxPSMTextOut.c)
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall GreGetTextColor(HDC a1)

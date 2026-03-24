@@ -1,17 +1,17 @@
 /*
- * XREFs of imp_WdfSpinLockCreate @ 0x1C0011040
+ * XREFs of imp_WdfSpinLockCreate @ 0x1C0019640
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxValidateObjectAttributesForParentHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C0005890 (-FxValidateObjectAttributesForParentHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTE.c)
- *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C0005B30 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
- *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C00062C0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ??0FxSpinLock@@QEAA@PEAU_FX_DRIVER_GLOBALS@@G@Z @ 0x1C0011178 (--0FxSpinLock@@QEAA@PEAU_FX_DRIVER_GLOBALS@@G@Z.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000A0E0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
+ *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C000B520 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     ?FxValidateObjectAttributesForParentHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000CFA4 (-FxValidateObjectAttributesForParentHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTE.c)
+ *     ??0FxSpinLock@@QEAA@PEAU_FX_DRIVER_GLOBALS@@G@Z @ 0x1C0019738 (--0FxSpinLock@@QEAA@PEAU_FX_DRIVER_GLOBALS@@G@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
  */
 
 __int64 __fastcall imp_WdfSpinLockCreate(
@@ -19,58 +19,69 @@ __int64 __fastcall imp_WdfSpinLockCreate(
         _WDF_OBJECT_ATTRIBUTES *SpinLockAttributes,
         WDFSPINLOCK__ **SpinLock)
 {
-  _FX_DRIVER_GLOBALS *m_Globals; // rbx
+  _FX_DRIVER_GLOBALS *DriverName; // rbx
   __int64 result; // rax
-  bool v7; // cf
-  unsigned __int16 v8; // bp
-  FxSpinLock *v9; // rax
-  FxObject *v10; // rax
-  FxObject *v11; // rbx
-  int v12; // edi
-  FxPoolTypeOrPoolFlags v13; // [rsp+40h] [rbp-28h] BYREF
-  void *retaddr; // [rsp+68h] [rbp+0h]
-  FxObject *pParent; // [rsp+70h] [rbp+8h] BYREF
-  WDFSPINLOCK__ *lock; // [rsp+80h] [rbp+18h] BYREF
+  _POOL_TYPE v7; // edx
+  bool v8; // cf
+  unsigned __int16 ExtraSize; // bp
+  FxSpinLock *v10; // rax
+  FxObject *v11; // rax
+  FxObject *v12; // rbx
+  int v13; // edi
+  void *retaddr; // [rsp+58h] [rbp+0h]
+  FxObject *pParent; // [rsp+60h] [rbp+8h] BYREF
+  WDFSPINLOCK__ *lock; // [rsp+70h] [rbp+18h] BYREF
 
   lock = 0LL;
-  m_Globals = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
-  if ( (int)FxValidateObjectAttributesForParentHandle((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], SpinLockAttributes, 0) >= 0 )
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
+  if ( (int)FxValidateObjectAttributesForParentHandle(
+              (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+              SpinLockAttributes,
+              0) >= 0 )
   {
     pParent = 0LL;
-    FxObjectHandleGetPtr(m_Globals, (unsigned __int64)SpinLockAttributes->ParentObject, 0x1000u, (void **)&pParent);
-    m_Globals = pParent->m_Globals;
+    FxObjectHandleGetPtr(DriverName, (unsigned __int64)SpinLockAttributes->ParentObject, 0x1000u, (void **)&pParent);
+    DriverName = pParent->m_Globals;
   }
   if ( !SpinLock )
-    FxVerifierNullBugCheck(m_Globals, retaddr);
-  result = FxValidateObjectAttributes(m_Globals, SpinLockAttributes, 0);
+    FxVerifierNullBugCheck(DriverName, retaddr);
+  result = FxValidateObjectAttributes(DriverName, SpinLockAttributes, 0);
   if ( (int)result >= 0 )
   {
-    v7 = m_Globals->FxVerifierLock != 0;
+    v7 = ExDefaultNonPagedPoolType;
+    v8 = DriverName->FxVerifierLock != 0;
     *SpinLock = 0LL;
-    v8 = v7 ? 0x100 : 0;
-    *(_QWORD *)&v13.UsePoolType = 0LL;
-    v13.u.PoolFlags = 64LL;
-    v9 = (FxSpinLock *)FxObjectHandleAllocCommon(
-                         m_Globals,
-                         &v13,
-                         0x80uLL,
-                         0,
-                         SpinLockAttributes,
-                         v8,
-                         FxObjectTypeExternal);
-    if ( v9 && (FxSpinLock::FxSpinLock(v9, m_Globals, v8), (v11 = v10) != 0LL) )
+    ExtraSize = v8 ? 0x100 : 0;
+    v10 = (FxSpinLock *)FxObjectHandleAlloc(
+                          DriverName,
+                          v7,
+                          0x80uLL,
+                          0,
+                          SpinLockAttributes,
+                          ExtraSize,
+                          FxObjectTypeExternal);
+    if ( v10 )
     {
-      v12 = FxObject::Commit(v10, (_FX_DRIVER_GLOBALS *)SpinLockAttributes, (void **)&lock, 0LL, 1u);
-      if ( v12 < 0 )
+      FxSpinLock::FxSpinLock(v10, DriverName, ExtraSize);
+      v12 = v11;
+    }
+    else
+    {
+      v12 = 0LL;
+    }
+    if ( v12 )
+    {
+      v13 = FxObject::Commit(v12, (_FX_DRIVER_GLOBALS *)SpinLockAttributes, (void **)&lock, 0LL, 1u);
+      if ( v13 < 0 )
       {
-        FxObject::ClearEvtCallbacks(v11);
-        v11->DeleteObject(v11);
+        FxObject::ClearEvtCallbacks(v12);
+        v12->DeleteObject(v12);
       }
       else
       {
         *SpinLock = lock;
       }
-      return (unsigned int)v12;
+      return (unsigned int)v13;
     }
     else
     {

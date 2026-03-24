@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiEngDeletePath @ 0x1C02C97C0
+ * XREFs of NtGdiEngDeletePath @ 0x1C02B23B0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     EngDeletePath @ 0x1C015A800 (EngDeletePath.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     EngDeletePath @ 0x1C0286470 (EngDeletePath.c)
  */
 
 __int64 __fastcall NtGdiEngDeletePath(__int64 a1)
@@ -13,22 +13,27 @@ __int64 __fastcall NtGdiEngDeletePath(__int64 a1)
   struct _W32THREAD *ThreadWin32Thread; // rax
   struct UMPDOBJ *ThreadCurrentObj; // rax
   struct UMPDOBJ *v4; // rbx
+  __int64 result; // rax
 
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
   v4 = ThreadCurrentObj;
-  if ( !ThreadCurrentObj )
-    return 3221225485LL;
-  ++*((_DWORD *)ThreadCurrentObj + 109);
-  if ( a1 )
+  if ( ThreadCurrentObj )
   {
-    if ( a1 == *((_QWORD *)ThreadCurrentObj + 31) )
+    ++*((_DWORD *)ThreadCurrentObj + 105);
+    if ( a1 && a1 == *((_QWORD *)ThreadCurrentObj + 31) )
     {
       EngDeletePath(*((PATHOBJ **)ThreadCurrentObj + 30));
       *((_QWORD *)v4 + 30) = 0LL;
       *((_QWORD *)v4 + 31) = 0LL;
     }
+    result = 0LL;
   }
-  --*((_DWORD *)v4 + 109);
-  return 0LL;
+  else
+  {
+    result = 3221225485LL;
+  }
+  if ( v4 )
+    --*((_DWORD *)v4 + 105);
+  return result;
 }

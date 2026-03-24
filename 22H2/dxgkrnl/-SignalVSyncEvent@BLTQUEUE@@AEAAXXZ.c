@@ -1,242 +1,185 @@
 /*
- * XREFs of ?SignalVSyncEvent@BLTQUEUE@@AEAAXXZ @ 0x1C01D4100
+ * XREFs of ?SignalVSyncEvent@BLTQUEUE@@AEAAXXZ @ 0x1C00DDEE4
  * Callers:
- *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C01D3F70 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
+ *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C015D654 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0003734 (_tlgKeywordOn.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ @ 0x1C0014FAC (-GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?TriggerRemoteVsync@HOSTVMMONITORMAPPING@@QEAAXU_LUID@@IJ_K@Z @ 0x1C002B184 (-TriggerRemoteVsync@HOSTVMMONITORMAPPING@@QEAAXU_LUID@@IJ_K@Z.c)
- *     McTemplateK0qqqqq_EtwWriteTransfer @ 0x1C004284C (McTemplateK0qqqqq_EtwWriteTransfer.c)
- *     ?NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z @ 0x1C0046F48 (-NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@3@Z @ 0x1C006D7D8 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U1@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@2AEBU?$_tlgWrapperByVal@$03@@23@Z @ 0x1C006DAE8 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U1@U2@@-$_tlgWriteTemplate@$$A6AJP.c)
- *     McTemplateK0pqxqqipqx_EtwWriteTransfer @ 0x1C006E384 (McTemplateK0pqxqqipqx_EtwWriteTransfer.c)
- *     McTemplateK0qiiiq_EtwWriteTransfer @ 0x1C006E494 (McTemplateK0qiiiq_EtwWriteTransfer.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     _tlgKeywordOn @ 0x1C000C284 (_tlgKeywordOn.c)
+ *     ?GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ @ 0x1C001AC14 (-GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0qqqq_EtwWriteTransfer @ 0x1C003BB30 (McTemplateK0qqqq_EtwWriteTransfer.c)
+ *     ?NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z @ 0x1C003F0A0 (-NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z.c)
+ *     ?TriggerRemoteVsync@REMOTEVSYNCMAPPING@@QEAAXU_LUID@@I@Z @ 0x1C004F768 (-TriggerRemoteVsync@REMOTEVSYNCMAPPING@@QEAAXU_LUID@@I@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@3@Z @ 0x1C005E944 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U1@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@2AEBU?$_tlgWrapperByVal@$03@@23@Z @ 0x1C005EC54 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U1@U2@@-$_tlgWriteTemplate@$$A6AJP.c)
+ *     McTemplateK0pqxqqipqx_EtwWriteTransfer @ 0x1C005F588 (McTemplateK0pqxqqipqx_EtwWriteTransfer.c)
+ *     McTemplateK0qiii_EtwWriteTransfer @ 0x1C005F6A0 (McTemplateK0qiii_EtwWriteTransfer.c)
  */
 
 void __fastcall BLTQUEUE::SignalVSyncEvent(BLTQUEUE *this)
 {
-  char *v2; // rbp
+  LARGE_INTEGER v2; // rax
   __int64 v3; // rcx
-  __int64 v4; // r8
-  LARGE_INTEGER v5; // rax
-  __int64 v6; // rcx
-  LARGE_INTEGER v7; // rbx
-  __int64 QuadPart; // r9
-  bool v9; // zf
-  __int64 v10; // r10
-  __int64 v11; // r8
-  __int64 v12; // rcx
-  __int64 v13; // rdx
-  __int128 v14; // rax
-  struct _KEVENT *v16; // rcx
-  __int128 v17; // rtt
-  int v18; // r9d
-  LONGLONG v19; // rax
-  unsigned int v20; // r14d
-  DXGDODPRESENT *v21; // rcx
-  __int64 v22; // rdi
+  LARGE_INTEGER v4; // rdi
+  bool v5; // zf
+  __int64 v6; // r8
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  LONGLONG v9; // rdx
+  struct _KEVENT *v10; // rcx
+  LONGLONG v11; // rax
+  unsigned int v12; // r14d
+  DXGDODPRESENT *v13; // rcx
+  __int64 v14; // rbx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  unsigned int v17; // r9d
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  struct DXGADAPTER *Adapter; // rbx
+  __int64 v22; // rdx
   __int64 v23; // rcx
-  __int64 v24; // r8
-  unsigned int v25; // r10d
-  __int64 v26; // rcx
-  __int64 v27; // r8
-  struct DXGADAPTER *Adapter; // rax
-  __int64 v29; // r10
-  DXGADAPTER *v30; // rax
-  struct DXGADAPTER *v31; // rax
-  __int64 v32; // rdx
-  __int64 v33; // r8
-  char v34[8]; // [rsp+20h] [rbp-A8h]
-  union _LARGE_INTEGER PerformanceFrequency; // [rsp+60h] [rbp-68h] BYREF
-  __int64 v36; // [rsp+68h] [rbp-60h] BYREF
-  __int64 v37; // [rsp+70h] [rbp-58h] BYREF
-  __int64 v38; // [rsp+78h] [rbp-50h] BYREF
-  _QWORD v39[3]; // [rsp+80h] [rbp-48h] BYREF
-  int v40; // [rsp+D0h] [rbp+8h] BYREF
-  unsigned int v41; // [rsp+D8h] [rbp+10h] BYREF
-  int v42; // [rsp+E0h] [rbp+18h] BYREF
-  unsigned int v43; // [rsp+E8h] [rbp+20h] BYREF
+  struct DXGGLOBAL *Global; // rax
+  DXGADAPTER *v25; // rax
+  struct DXGADAPTER *v26; // rax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // r8
+  union _LARGE_INTEGER PerformanceFrequency; // [rsp+60h] [rbp-19h] BYREF
+  union _LARGE_INTEGER v31; // [rsp+68h] [rbp-11h] BYREF
+  __int64 v32; // [rsp+70h] [rbp-9h] BYREF
+  __int64 v33; // [rsp+78h] [rbp-1h] BYREF
+  __int64 v34; // [rsp+80h] [rbp+7h] BYREF
+  __int64 v35; // [rsp+88h] [rbp+Fh] BYREF
+  _BYTE v36[8]; // [rsp+90h] [rbp+17h] BYREF
+  DXGPUSHLOCK *v37; // [rsp+98h] [rbp+1Fh]
+  int v38; // [rsp+A0h] [rbp+27h]
+  int v39; // [rsp+E0h] [rbp+67h] BYREF
+  unsigned int v40; // [rsp+E8h] [rbp+6Fh] BYREF
+  int v41; // [rsp+F0h] [rbp+77h] BYREF
+  unsigned int v42; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  v2 = (char *)this + 408;
-  if ( this != (BLTQUEUE *)-408LL && *((struct _KTHREAD **)this + 52) == KeGetCurrentThread() )
-  {
-    WdLogSingleEntry1(1LL, 1453LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"bAllowAcquireRecursive || pPushLock == NULL || !m_pPushLock->IsExclusiveOwner()",
-      1453LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-  }
-  KeEnterCriticalRegion();
-  if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx(v2, 0LL) )
-  {
-    if ( bTracingEnabled )
-    {
-      v18 = *((_DWORD *)v2 + 6);
-      if ( v18 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-        McTemplateK0q_EtwWriteTransfer(v3, &EventBlockThread, v4, v18);
-    }
-    ExAcquirePushLockExclusiveEx(v2, 0LL);
-  }
-  *((_QWORD *)v2 + 1) = KeGetCurrentThread();
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v36, (struct _KTHREAD **)this + 50, 0);
+  DXGPUSHLOCK::AcquireExclusive(v37);
   PerformanceFrequency.QuadPart = 0LL;
-  v5 = KeQueryPerformanceCounter(&PerformanceFrequency);
-  v6 = *((_QWORD *)this + 55);
-  v7 = v5;
-  if ( v6 && *((_DWORD *)this + 34) == 3 )
+  v38 = 2;
+  v2 = KeQueryPerformanceCounter(&PerformanceFrequency);
+  v3 = *((_QWORD *)this + 54);
+  v4 = v2;
+  if ( v3 && *((_DWORD *)this + 34) == 3 )
   {
-    QuadPart = PerformanceFrequency.QuadPart;
-    v19 = 1000 * (v5.QuadPart - v6) / PerformanceFrequency.QuadPart;
-    v20 = v19;
-    if ( (unsigned int)v19 > 0x28 )
-      v20 = 10 * ((unsigned int)v19 / 0xA);
-    v21 = *(DXGDODPRESENT **)this;
-    v22 = 0LL;
-    if ( v20 > 0x64 )
-      v20 = 100;
-    if ( v21 )
-      v22 = *(_QWORD *)((char *)DXGDODPRESENT::GetAdapter(v21) + 404);
-    if ( (unsigned int)dword_1C013F8A8 > 5 )
+    v11 = 1000 * (v2.QuadPart - v3) / PerformanceFrequency.QuadPart;
+    v12 = v11;
+    if ( (unsigned int)v11 > 0x28 )
+      v12 = 10 * ((unsigned int)v11 / 0xA);
+    v13 = *(DXGDODPRESENT **)this;
+    if ( v12 > 0x64 )
+      v12 = 100;
+    v14 = 0LL;
+    if ( v13 )
+      v14 = *(_QWORD *)((char *)DXGDODPRESENT::GetAdapter(v13) + 316);
+    if ( (unsigned int)dword_1C00B19E8 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_1C013F8A8, 0x400000080000LL) )
+      if ( tlgKeywordOn((__int64)&dword_1C00B19E8, 0x400000080000LL) )
       {
-        v40 = *((_DWORD *)this + 65);
-        v36 = v22;
-        v41 = v20;
-        v37 = 16779264LL;
-        v38 = 1LL;
+        v39 = *((_DWORD *)this + 63);
+        v32 = v14;
+        v40 = v12;
+        v33 = 16779264LL;
+        v34 = 1LL;
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
-          v23,
-          byte_1C00AB0AE,
-          v24,
-          (__int64)&v38,
-          (__int64)&v37,
-          (__int64)&v41,
-          (__int64)&v36,
-          (__int64)&v40);
-        QuadPart = PerformanceFrequency.QuadPart;
-        v25 = dword_1C013F8A8;
+          v15,
+          byte_1C0081822,
+          v16,
+          (__int64)&v34,
+          (__int64)&v33,
+          (__int64)&v40,
+          (__int64)&v32,
+          (__int64)&v39);
+        v17 = dword_1C00B19E8;
       }
-      if ( v25 > 5 && tlgKeywordOn((__int64)&dword_1C013F8A8, 0x80000LL) )
+      if ( v17 > 5 && tlgKeywordOn((__int64)&dword_1C00B19E8, 0x80000LL) )
       {
-        v42 = *((_DWORD *)this + 65);
-        v39[0] = v22;
-        v43 = v20;
+        v41 = *((_DWORD *)this + 63);
+        v35 = v14;
+        v42 = v12;
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
-          v26,
-          byte_1C00AB044,
-          v27,
-          QuadPart,
-          (__int64)&v43,
-          (__int64)v39,
-          (__int64)&v42);
-        QuadPart = PerformanceFrequency.QuadPart;
+          v18,
+          byte_1C00818AA,
+          v19,
+          v20,
+          (__int64)&v42,
+          (__int64)&v35,
+          (__int64)&v41);
       }
     }
   }
-  else
+  v5 = *((_DWORD *)this + 34) == 1;
+  *((LARGE_INTEGER *)this + 54) = v4;
+  if ( !v5 )
   {
-    QuadPart = PerformanceFrequency.QuadPart;
-  }
-  v9 = *((_DWORD *)this + 34) == 1;
-  *((LARGE_INTEGER *)this + 55) = v7;
-  if ( !v9 )
-  {
-    v10 = *((unsigned int *)this + 92);
-    v11 = *((unsigned int *)this + 93);
-    v12 = v7.QuadPart * v10;
-    if ( v11 != 1 )
-      v12 /= v11;
-    if ( QuadPart == 10000000 )
-      v13 = v12 / 10000000;
-    else
-      v13 = v12 / QuadPart;
-    *((_QWORD *)this + 56) = v13;
-    v14 = QuadPart * v11 * (unsigned int)v13;
-    if ( v10 == 32 )
+    v6 = *((unsigned int *)this + 90);
+    v7 = *((unsigned int *)this + 91);
+    v8 = v4.QuadPart * v6 / v7 / PerformanceFrequency.QuadPart;
+    *((_QWORD *)this + 55) = v8;
+    v9 = PerformanceFrequency.QuadPart * v7 * (unsigned int)v8 % v6;
+    v5 = bTracingEnabled == 0;
+    *((_QWORD *)this + 56) = PerformanceFrequency.QuadPart * v7 * (unsigned int)v8 / v6;
+    if ( !v5 )
     {
-      *((_QWORD *)&v14 + 1) = BYTE8(v14) & 0x1F;
-      *(_QWORD *)&v14 = (__int64)(*((_QWORD *)&v14 + 1) + v14) >> 5;
-    }
-    else
-    {
-      v17 = v14;
-      *(_QWORD *)&v14 = v14 / v10;
-      *((_QWORD *)&v14 + 1) = v17 % v10;
-    }
-    v9 = bTracingEnabled == 0;
-    *((_QWORD *)this + 57) = v14;
-    if ( !v9 && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-      McTemplateK0qiiiq_EtwWriteTransfer(
-        v12,
-        *((__int64 *)&v14 + 1),
-        v11,
-        0,
-        *((_QWORD *)this + 56),
-        *((_QWORD *)this + 55),
-        *((_QWORD *)this + 57),
-        *((_DWORD *)this + 99));
-    if ( *((_DWORD *)this + 99) )
-    {
-      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-        McTemplateK0qqqqq_EtwWriteTransfer(
-          v12,
-          &EventDWMVsyncSignal,
-          v11,
-          *((_DWORD *)this + 98),
-          *((_DWORD *)this + 112),
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+        McTemplateK0qqqq_EtwWriteTransfer(v7, &EventDWMVsyncSignal, v6, *((_DWORD *)this + 96), v8, 0, 0);
+      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+        McTemplateK0qiii_EtwWriteTransfer(
+          v7,
+          v9,
+          v6,
           0,
-          *((_DWORD *)this + 99),
-          *((_DWORD *)this + 34));
-      KePulseEvent(*((PRKEVENT *)this + 47), 0, 0);
+          *((_QWORD *)this + 55),
+          *((_QWORD *)this + 54),
+          *((_QWORD *)this + 56));
+    }
+    if ( *((_DWORD *)this + 97) )
+    {
+      KePulseEvent(*((PRKEVENT *)this + 46), 0, 0);
       if ( *(_QWORD *)this )
       {
-        DXGGLOBAL::GetGlobal();
         Adapter = DXGDODPRESENT::GetAdapter(*(DXGDODPRESENT **)this);
-        HOSTVMMONITORMAPPING::TriggerRemoteVsync(
-          (KSPIN_LOCK *)(v29 + 304888),
-          *(struct _LUID *)((char *)Adapter + 404),
-          *((_DWORD *)this + 65),
-          0,
-          0);
+        Global = DXGGLOBAL::GetGlobal(v23, v22);
+        REMOTEVSYNCMAPPING::TriggerRemoteVsync(
+          (KSPIN_LOCK *)Global + 38084,
+          *(struct _LUID *)((char *)Adapter + 316),
+          *((_DWORD *)this + 63));
       }
     }
-    v16 = (struct _KEVENT *)*((_QWORD *)this + 48);
-    if ( v16 && *((_DWORD *)this + 98) <= *((_DWORD *)this + 112) )
-      KeSetEvent(v16, 0, 0);
+    v10 = (struct _KEVENT *)*((_QWORD *)this + 47);
+    if ( v10 && *((_DWORD *)this + 96) <= *((_DWORD *)this + 110) )
+      KeSetEvent(v10, 0, 0);
   }
-  *((_QWORD *)v2 + 1) = 0LL;
-  ExReleasePushLockExclusiveEx(v2, 0LL);
-  KeLeaveCriticalRegion();
-  if ( *((_DWORD *)this + 34) != 2 && (*((_DWORD *)this + 238) & 2) != 0 )
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v36);
+  if ( *((_DWORD *)this + 34) != 2 && (*((_DWORD *)this + 234) & 2) != 0 )
     (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 16) + 48LL))(*((_QWORD *)this + 16));
   if ( *(_QWORD *)this )
   {
-    v30 = DXGDODPRESENT::GetAdapter(*(DXGDODPRESENT **)this);
-    *((_DWORD *)this + 99) = *((_DWORD *)this + 726) + DXGADAPTER::NumberOfVSyncWaiter(v30, *((_DWORD *)this + 64));
+    v25 = DXGDODPRESENT::GetAdapter(*(DXGDODPRESENT **)this);
+    *((_DWORD *)this + 97) = *((_DWORD *)this + 722) + DXGADAPTER::NumberOfVSyncWaiter(v25, *((_DWORD *)this + 62));
   }
   if ( bTracingEnabled )
   {
     if ( *(_QWORD *)this )
     {
-      KeQueryPerformanceCounter(0LL);
+      v31.QuadPart = 0LL;
+      KeQueryPerformanceCounter(&v31);
       if ( bTracingEnabled )
       {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80u) != 0LL )
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
         {
-          v31 = DXGDODPRESENT::GetAdapter(*(DXGDODPRESENT **)this);
-          *(_DWORD *)v34 = *((_DWORD *)this + 65);
-          McTemplateK0pqxqqipqx_EtwWriteTransfer(*(unsigned int *)v34, v32, v33, v31, *(_QWORD *)v34);
+          v26 = DXGDODPRESENT::GetAdapter(*(DXGDODPRESENT **)this);
+          McTemplateK0pqxqqipqx_EtwWriteTransfer(v28, v27, v29, v26);
         }
       }
     }

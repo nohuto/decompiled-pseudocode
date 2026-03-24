@@ -1,11 +1,11 @@
 /*
- * XREFs of DmrGetNextDrhdDeviceScope @ 0x14037F970
+ * XREFs of DmrGetNextDrhdDeviceScope @ 0x1404E836C
  * Callers:
- *     HalpIvtProcessDrhdEntry @ 0x14037EF04 (HalpIvtProcessDrhdEntry.c)
- *     DmrFindDrhdForDeviceScope @ 0x14037F670 (DmrFindDrhdForDeviceScope.c)
- *     DmrValidateDeviceScope @ 0x14037F87C (DmrValidateDeviceScope.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1404E734C (HalpIvtProcessDrhdEntry.c)
+ *     DmrFindDrhdForDeviceScope @ 0x1404E82BC (DmrFindDrhdForDeviceScope.c)
+ *     DmrValidateDeviceScope @ 0x1404E85B0 (DmrValidateDeviceScope.c)
  * Callees:
- *     DmrGetNextDeviceScope @ 0x14037FAC0 (DmrGetNextDeviceScope.c)
+ *     DmrGetNextDeviceScope @ 0x1404E8514 (DmrGetNextDeviceScope.c)
  */
 
 __int64 __fastcall DmrGetNextDrhdDeviceScope(unsigned __int64 a1, __int64 a2)
@@ -13,8 +13,8 @@ __int64 __fastcall DmrGetNextDrhdDeviceScope(unsigned __int64 a1, __int64 a2)
   unsigned __int64 v3; // rdx
 
   v3 = a1 + *(unsigned __int16 *)(a1 + 2);
-  if ( v3 <= a1 )
-    return 0LL;
-  else
+  if ( v3 > a1 )
     return DmrGetNextDeviceScope(a1 + 16, v3, a2);
+  else
+    return 0LL;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of InitializeDynamicPartitioningPolicy @ 0x140B52464
+ * XREFs of InitializeDynamicPartitioningPolicy @ 0x140A73288
  * Callers:
- *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A39F24 (InitBootProcessor.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     HviIsAnyHypervisorPresent @ 0x140382EA0 (HviIsAnyHypervisorPresent.c)
- *     ZwQueryLicenseValue @ 0x14041D260 (ZwQueryLicenseValue.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5310 (HviIsAnyHypervisorPresent.c)
+ *     ZwQueryLicenseValue @ 0x1403FC4A0 (ZwQueryLicenseValue.c)
  */
 
 __int64 InitializeDynamicPartitioningPolicy()
@@ -21,7 +21,7 @@ __int64 InitializeDynamicPartitioningPolicy()
   v5 = 0;
   result = HvlpFlags;
   DestinationString = 0LL;
-  if ( (HvlpFlags & 2) == 0 && (HvlpFlags & 4) == 0 )
+  if ( (HvlpFlags & 2) == 0 )
   {
     IsAnyHypervisorPresent = HviIsAnyHypervisorPresent();
     v2 = L"Kernel-VirtualDynamicPartitioningSupported";

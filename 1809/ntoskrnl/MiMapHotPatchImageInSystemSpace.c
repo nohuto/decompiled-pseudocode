@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMapHotPatchImageInSystemSpace @ 0x140856788
+ * XREFs of MiMapHotPatchImageInSystemSpace @ 0x140856768
  * Callers:
- *     MiPrepareToHotPatchImage @ 0x140857368 (MiPrepareToHotPatchImage.c)
+ *     MiPrepareToHotPatchImage @ 0x140857348 (MiPrepareToHotPatchImage.c)
  * Callees:
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     IoAllocateMdl @ 0x1400DFCB0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1400E0B40 (IoFreeMdl.c)
+ *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
  */
 
 __int64 __fastcall MiMapHotPatchImageInSystemSpace(_QWORD *a1)

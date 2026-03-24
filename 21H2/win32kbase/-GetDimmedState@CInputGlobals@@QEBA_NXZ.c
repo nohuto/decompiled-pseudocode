@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDimmedState@CInputGlobals@@QEBA_NXZ @ 0x1C01DBF20
+ * XREFs of ?GetDimmedState@CInputGlobals@@QEBA_NXZ @ 0x1C01A3640
  * Callers:
  *     <none>
  * Callees:

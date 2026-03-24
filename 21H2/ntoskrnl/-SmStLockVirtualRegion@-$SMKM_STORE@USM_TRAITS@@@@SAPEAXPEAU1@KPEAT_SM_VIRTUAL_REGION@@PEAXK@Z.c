@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SmStLockVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KPEAT_SM_VIRTUAL_REGION@@PEAXK@Z @ 0x1403794AC
+ * XREFs of ?SmStLockVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KPEAT_SM_VIRTUAL_REGION@@PEAXK@Z @ 0x1402DFD6C
  * Callers:
- *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1403792D8 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
+ *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1402DE790 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
  * Callees:
- *     ?SmStHelperSendCommand@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SMKM_STORE_HELPER_PARAMS@@K@Z @ 0x1403795D4 (-SmStHelperSendCommand@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SM.c)
- *     ?SmStFindVirtualLockedRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAU_SM_VIRTUAL_LOCKED_REGION@@PEAU1@KPEAX@Z @ 0x1403798F0 (-SmStFindVirtualLockedRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAU_SM_VIRTUAL_LOCKED_REGION@@PEAU1@K.c)
- *     ?SmStCheckLockInProgressRegionComplete@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_VIRTUAL_REGION@@K@Z @ 0x140390724 (-SmStCheckLockInProgressRegionComplete@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_VIRTUAL_REGIO.c)
+ *     ?SmStCheckLockInProgressRegionComplete@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_VIRTUAL_REGION@@K@Z @ 0x1402AD250 (-SmStCheckLockInProgressRegionComplete@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_VIRTUAL_REGIO.c)
+ *     ?SmStHelperSendCommand@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SMKM_STORE_HELPER_PARAMS@@K@Z @ 0x1402DFE94 (-SmStHelperSendCommand@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SM.c)
+ *     ?SmStFindVirtualLockedRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAU_SM_VIRTUAL_LOCKED_REGION@@PEAU1@KPEAX@Z @ 0x1402E02C0 (-SmStFindVirtualLockedRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAU_SM_VIRTUAL_LOCKED_REGION@@PEAU1@K.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStLockVirtualRegion(
@@ -34,7 +34,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStLockVirtualRegion(
     goto LABEL_8;
   }
   v9 = *(_QWORD *)(a1 + 6576);
-  if ( v9 && !(unsigned int)SMKM_STORE<SM_TRAITS>::SmStCheckLockInProgressRegionComplete(a1, v9, 0LL, a4) )
+  if ( v9 && !(unsigned int)SMKM_STORE<SM_TRAITS>::SmStCheckLockInProgressRegionComplete(a1, v9, 0) )
     return 0LL;
   VirtualLockedRegion = SMKM_STORE<SM_TRAITS>::SmStFindVirtualLockedRegion(a1, (a5 >> 7) & 7, 0LL);
   *(_QWORD *)((char *)&v21[1] + 4) &= v11;
@@ -47,7 +47,11 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStLockVirtualRegion(
   *(_OWORD *)((char *)v21 + 4) = 0LL;
   if ( (a5 & 1) != 0 )
     DWORD1(v21[0]) |= 1u;
-  v14 = SMKM_STORE<SM_TRAITS>::SmStHelperSendCommand(a1, 4LL, &v19);
+  v14 = ((__int64 (__fastcall *)(__int64, __int64, __int64 *, _QWORD))SMKM_STORE<SM_TRAITS>::SmStHelperSendCommand)(
+          a1,
+          4LL,
+          &v19,
+          (a5 & 0x20 | 0x10) >> 2);
   if ( v14 < 0 )
   {
     if ( v14 == -1073741536 )
@@ -70,7 +74,11 @@ LABEL_8:
       v20 = *(unsigned int *)(a1 + 6208);
       v19 = a4;
       memset(v21, 0, sizeof(v21));
-      SMKM_STORE<SM_TRAITS>::SmStHelperSendCommand(a1, 6LL, &v19);
+      ((void (__fastcall *)(__int64, __int64, __int64 *, __int64))SMKM_STORE<SM_TRAITS>::SmStHelperSendCommand)(
+        a1,
+        6LL,
+        &v19,
+        8LL);
     }
     return v16;
   }

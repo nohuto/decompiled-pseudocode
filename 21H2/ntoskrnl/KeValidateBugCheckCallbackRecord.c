@@ -1,15 +1,15 @@
 /*
- * XREFs of KeValidateBugCheckCallbackRecord @ 0x140567038
+ * XREFs of KeValidateBugCheckCallbackRecord @ 0x140517B98
  * Callers:
- *     IopDumpCallAddPagesCallbacks @ 0x140554390 (IopDumpCallAddPagesCallbacks.c)
- *     IopDumpCallRemovePagesCallbacks @ 0x1405544E0 (IopDumpCallRemovePagesCallbacks.c)
- *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x140567DA0 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
- *     KiInvokeBugCheckEntryCallbacks @ 0x140567F5C (KiInvokeBugCheckEntryCallbacks.c)
- *     IopLiveDumpAddTriageDumpData @ 0x140A656A0 (IopLiveDumpAddTriageDumpData.c)
- *     IopLiveDumpCallRemovePagesCallbacks @ 0x140A659E0 (IopLiveDumpCallRemovePagesCallbacks.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x140503D00 (IopDumpCallAddPagesCallbacks.c)
+ *     IopDumpCallRemovePagesCallbacks @ 0x140503E50 (IopDumpCallRemovePagesCallbacks.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x1405185EC (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     KiInvokeBugCheckEntryCallbacks @ 0x1405187A8 (KiInvokeBugCheckEntryCallbacks.c)
+ *     IopLiveDumpAddTriageDumpData @ 0x1409AB280 (IopLiveDumpAddTriageDumpData.c)
+ *     IopLiveDumpCallRemovePagesCallbacks @ 0x1409AB5C0 (IopLiveDumpCallRemovePagesCallbacks.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14028FBF0 (MmIsAddressValidEx.c)
- *     IoIsPartialDumpRetry @ 0x1405529A8 (IoIsPartialDumpRetry.c)
+ *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
+ *     IoIsPartialDumpRetry @ 0x1405026C8 (IoIsPartialDumpRetry.c)
  */
 
 bool __fastcall KeValidateBugCheckCallbackRecord(__int64 a1, int a2, _QWORD *a3)

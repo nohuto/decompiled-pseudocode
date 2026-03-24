@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpCovSampContextPruneModules @ 0x1409F0964
+ * XREFs of EtwpCovSampContextPruneModules @ 0x1409442D4
  * Callers:
- *     EtwpCovSampContextGetModule @ 0x1409EFAE0 (EtwpCovSampContextGetModule.c)
- *     EtwpCoverageSamplerQuery @ 0x1409F2984 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCovSampContextGetModule @ 0x140943420 (EtwpCovSampContextGetModule.c)
+ *     EtwpCoverageSamplerQuery @ 0x140946424 (EtwpCoverageSamplerQuery.c)
  * Callees:
- *     PsGetCurrentThreadId @ 0x140231BE0 (PsGetCurrentThreadId.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwpCovSampModuleCleanup @ 0x1409F1828 (EtwpCovSampModuleCleanup.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     PsGetCurrentThreadId @ 0x1402AA4D0 (PsGetCurrentThreadId.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpCovSampModuleCleanup @ 0x140945278 (EtwpCovSampModuleCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall EtwpCovSampContextPruneModules(__int64 a1)
@@ -106,7 +106,7 @@ LABEL_54:
       if ( _InterlockedCompareExchange64(v7, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)(a1 + 664));
       KeAbPostRelease(a1 + 664);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       v14 = &v35;
       *((_QWORD *)&v35 + 1) = &v35;
       *(_QWORD *)&v35 = &v35;
@@ -221,7 +221,7 @@ LABEL_54:
       if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(a1 + 664);
       KeAbPostRelease(a1 + 664);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       while ( 1 )
       {
         result = v34;

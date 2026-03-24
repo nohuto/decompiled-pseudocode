@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIGetCmosInterface @ 0x1C0029714
+ * XREFs of ACPIGetCmosInterface @ 0x1C002C4B0
  * Callers:
- *     OSInitializeCallbacks @ 0x1C00BEDD4 (OSInitializeCallbacks.c)
+ *     OSInitializeCallbacks @ 0x1C00BF128 (OSInitializeCallbacks.c)
  * Callees:
- *     ACPIInitReferenceDeviceExtension @ 0x1C00056D8 (ACPIInitReferenceDeviceExtension.c)
- *     CmosGetInterface @ 0x1C009F804 (CmosGetInterface.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
+ *     CmosGetInterface @ 0x1C00A1EB4 (CmosGetInterface.c)
  */
 
 __int64 ACPIGetCmosInterface()
@@ -17,9 +17,9 @@ __int64 ACPIGetCmosInterface()
   v0 = RootDeviceExtension;
   ACPIInitReferenceDeviceExtension(RootDeviceExtension);
   KeReleaseSpinLock(&AcpiDeviceTreeLock, v1);
-  LODWORD(v0) = CmosGetInterface(*(PDEVICE_OBJECT *)(v0 + 768));
+  LODWORD(v0) = CmosGetInterface(*(PDEVICE_OBJECT *)(v0 + 728));
   v2 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-  --*(_DWORD *)(RootDeviceExtension + 732);
+  --*(_DWORD *)(RootDeviceExtension + 692);
   KeReleaseSpinLock(&AcpiDeviceTreeLock, v2);
   return (unsigned int)v0;
 }

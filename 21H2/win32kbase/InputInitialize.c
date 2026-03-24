@@ -1,169 +1,125 @@
 /*
- * XREFs of InputInitialize @ 0x1C0052DC4
+ * XREFs of InputInitialize @ 0x1C008A25C
  * Callers:
- *     Win32kBaseDriverEntry @ 0x1C02E4310 (Win32kBaseDriverEntry.c)
+ *     Win32kBaseDriverEntry @ 0x1C029B770 (Win32kBaseDriverEntry.c)
  * Callees:
- *     ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C004763C (--1ApiSetEditionCrit@@QEAA@XZ.c)
- *     ??0ApiSetEditionCrit@@QEAA@H@Z @ 0x1C0047C7C (--0ApiSetEditionCrit@@QEAA@H@Z.c)
- *     ApiSetGetInputSensorThreadingModel @ 0x1C0052F34 (ApiSetGetInputSensorThreadingModel.c)
- *     InitializeInputComponents @ 0x1C0053064 (InitializeInputComponents.c)
- *     ShouldEnableInputVirtualization @ 0x1C0053D88 (ShouldEnableInputVirtualization.c)
- *     ApiSetEditionGetDefaultMouseSensitivity @ 0x1C0053EF8 (ApiSetEditionGetDefaultMouseSensitivity.c)
- *     ??0CTouchProcessor@@QEAA@XZ @ 0x1C0053FEC (--0CTouchProcessor@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
- *     ?ivrInitAllwin32knsDelayLoads@@YAXPEAX@Z @ 0x1C01F0090 (-ivrInitAllwin32knsDelayLoads@@YAXPEAX@Z.c)
- *     ivrLoadImage @ 0x1C01F102C (ivrLoadImage.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     Win32AllocPoolZInit @ 0x1C0028440 (Win32AllocPoolZInit.c)
+ *     ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C0053D5C (--1ApiSetEditionCrit@@QEAA@XZ.c)
+ *     ??0ApiSetEditionCrit@@QEAA@HH@Z @ 0x1C0054218 (--0ApiSetEditionCrit@@QEAA@HH@Z.c)
+ *     ??0CTouchProcessor@@QEAA@XZ @ 0x1C0089EF4 (--0CTouchProcessor@@QEAA@XZ.c)
+ *     ApiSetEditionGetDefaultMouseSensitivity @ 0x1C0089F6C (ApiSetEditionGetDefaultMouseSensitivity.c)
+ *     ShouldEnableInputVirtualization @ 0x1C008A018 (ShouldEnableInputVirtualization.c)
+ *     ApiSetGetInputSensorThreadingModel @ 0x1C008A3BC (ApiSetGetInputSensorThreadingModel.c)
+ *     InitializeInputComponents @ 0x1C008B6CC (InitializeInputComponents.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?ivrInitAllwin32knsDelayLoads@@YAXPEAX@Z @ 0x1C01BA428 (-ivrInitAllwin32knsDelayLoads@@YAXPEAX@Z.c)
+ *     ivrLoadImage @ 0x1C01BA9D8 (ivrLoadImage.c)
  */
 
-__int64 __fastcall InputInitialize(__int64 a1, __int64 a2, __int64 a3)
+__int64 InputInitialize()
 {
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  unsigned int v6; // ebx
-  __int64 (**v7)(void); // rdi
-  unsigned int v8; // esi
-  __int64 v9; // rax
+  unsigned int v0; // ebx
+  __int64 (**v1)(void); // rdi
+  unsigned int v2; // esi
+  __int64 v3; // rax
   int InputSensorThreadingModel; // eax
-  PVOID v11; // rsi
-  __int64 Pool2; // rdi
-  unsigned int v13; // edi
-  CDeviceAcceleration **v14; // rsi
-  __int64 v15; // rdx
-  __int64 v16; // rcx
+  CTouchProcessor *v5; // rax
+  CTouchProcessor *v6; // rax
+  unsigned int v7; // esi
+  CDeviceAcceleration **v8; // rdi
   unsigned int DefaultMouseSensitivity; // ebp
-  __int64 v18; // r8
-  __int64 v19; // rax
-  __int64 v21; // rax
-  void *v22; // rcx
-  PVOID BackTrace[20]; // [rsp+20h] [rbp-A8h] BYREF
-  char v24; // [rsp+D0h] [rbp+8h] BYREF
+  __int64 v10; // rax
+  void *v12; // rcx
+  char v13; // [rsp+60h] [rbp+18h] BYREF
 
-  ApiSetEditionCrit::ApiSetEditionCrit((ApiSetEditionCrit *)&v24, 1LL, a3);
-  v6 = 0;
+  ApiSetEditionCrit::ApiSetEditionCrit((ApiSetEditionCrit *)&v13, 1, 0);
+  v0 = 0;
   gbInputInitialized = 1;
+  gInputLock = 0LL;
+  v1 = (__int64 (**)(void))&unk_1C0246020;
+  qword_1C0255508 = 0LL;
+  v2 = 0;
+  gQueueLock = 0LL;
+  qword_1C02554E8 = 0LL;
+  gWndLock = 0LL;
+  qword_1C02554F8 = 0LL;
   CBaseInput::_sLock = 0LL;
-  v7 = (__int64 (**)(void))&unk_1C0288020;
-  qword_1C029A1C8 = 0LL;
-  v8 = 0;
+  qword_1C02554D8 = 0LL;
   CBaseInput::_sessionInitialized = 1;
-  while ( 1 )
+  do
   {
-    if ( v8 != *(_DWORD *)v7 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v4, v3, v5);
-    v9 = (*(v7 - 4))();
-    *(v7 - 1) = (__int64 (*)(void))v9;
-    if ( !v9 )
-      break;
-    InputSensorThreadingModel = ApiSetGetInputSensorThreadingModel(*(unsigned int *)v7);
-    *((_DWORD *)v7 - 4) = InputSensorThreadingModel;
-    if ( !InputSensorThreadingModel )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v4, v3, v5);
-    ++v8;
-    v7 += 6;
-    if ( v8 >= 3 )
+    if ( v2 != *(_DWORD *)v1 )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 109LL);
+    v3 = (*(v1 - 4))();
+    *(v1 - 1) = (__int64 (*)(void))v3;
+    if ( !v3 )
     {
-      v11 = gpLeakTrackingAllocator;
-      if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x72705443) == 0x72705443
-        && (v21 = 0LL, *((_DWORD *)gpLeakTrackingAllocator + 11)) )
+      v0 = -1073741823;
+      goto LABEL_20;
+    }
+    InputSensorThreadingModel = ApiSetGetInputSensorThreadingModel(*(unsigned int *)v1);
+    *((_DWORD *)v1 - 4) = InputSensorThreadingModel;
+    if ( !InputSensorThreadingModel )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 121LL);
+    ++v2;
+    v1 += 6;
+  }
+  while ( v2 < 3 );
+  v5 = (CTouchProcessor *)Win32AllocPoolZInit(0xA0uLL, 1919964227LL);
+  if ( v5 )
+    v6 = CTouchProcessor::CTouchProcessor(v5);
+  else
+    v6 = 0LL;
+  gpTouchProcessor = v6;
+  if ( v6 )
+  {
+    v7 = 0;
+    v8 = &qword_1C0246098;
+    do
+    {
+      DefaultMouseSensitivity = ApiSetEditionGetDefaultMouseSensitivity(v7);
+      if ( *((_DWORD *)v8 + 2) != v7 )
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 78LL);
+      if ( *v8 )
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 79LL);
+      v10 = ((__int64 (__fastcall *)(_QWORD))*(v8 - 1))(DefaultMouseSensitivity);
+      *v8 = (CDeviceAcceleration *)v10;
+      if ( !v10 )
       {
-        while ( *((_DWORD *)gpLeakTrackingAllocator + v21) != 1919964227 )
-        {
-          if ( ++v21 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-            goto LABEL_9;
-        }
-        Pool2 = ExAllocatePool2(260LL, 168LL);
-        if ( Pool2 )
-        {
-          memset(BackTrace, 0, sizeof(BackTrace));
-          RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-          if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 >= 0x1000 )
-          {
-            if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                     v11,
-                                     Pool2,
-                                     BackTrace) )
-              goto LABEL_30;
-LABEL_11:
-            gpTouchProcessor = CTouchProcessor::CTouchProcessor((CTouchProcessor *)Pool2);
-            if ( gpTouchProcessor )
-            {
-              v13 = 0;
-              v14 = &qword_1C0288098;
-              do
-              {
-                DefaultMouseSensitivity = ApiSetEditionGetDefaultMouseSensitivity(v13);
-                if ( *((_DWORD *)v14 + 2) != v13 )
-                  MicrosoftTelemetryAssertTriggeredNoArgsKM(v16, v15, v18);
-                if ( *v14 )
-                  MicrosoftTelemetryAssertTriggeredNoArgsKM(v16, v15, v18);
-                v19 = ((__int64 (__fastcall *)(_QWORD))*(v14 - 1))(DefaultMouseSensitivity);
-                *v14 = (CDeviceAcceleration *)v19;
-                if ( !v19 )
-                {
-                  v6 = -1073741823;
-                  goto LABEL_20;
-                }
-                ++v13;
-                v14 += 3;
-              }
-              while ( v13 < 2 );
-              if ( (unsigned __int8)ShouldEnableInputVirtualization() )
-              {
-                gInputVirtualizationSessionId = gSessionId;
-                gbInputVirtualizationEnabled = 1;
-                ghModwin32kns = (void *)ivrLoadImage();
-                if ( ghModwin32kns )
-                {
-                  ivrInitAllwin32knsDelayLoads(v22);
-                  if ( gpfnIVInitialize )
-                    v6 = gpfnIVInitialize(&gbRootPartition);
-                  else
-                    v6 = -1073741637;
-                }
-                else
-                {
-                  v6 = -1073741204;
-                }
-              }
-              goto LABEL_20;
-            }
-LABEL_32:
-            v6 = -1073741801;
-LABEL_20:
-            InitializeInputComponents();
-            goto LABEL_21;
-          }
-          if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                  v11,
-                                  Pool2,
-                                  BackTrace) )
-          {
-            Pool2 += 16LL;
-            goto LABEL_10;
-          }
-LABEL_30:
-          ExFreePoolWithTag((PVOID)Pool2, 0);
-        }
+        v0 = -1073741823;
+        goto LABEL_19;
+      }
+      ++v7;
+      v8 += 3;
+    }
+    while ( v7 < 2 );
+    if ( ShouldEnableInputVirtualization() )
+    {
+      gInputVirtualizationSessionId = gSessionId;
+      gbInputVirtualizationEnabled = 1;
+      ghModwin32kns = (void *)ivrLoadImage();
+      if ( ghModwin32kns )
+      {
+        ivrInitAllwin32knsDelayLoads(v12);
+        if ( gpfnIVInitialize )
+          v0 = gpfnIVInitialize(&gbRootPartition);
+        else
+          v0 = -1073741637;
       }
       else
       {
-LABEL_9:
-        Pool2 = ExAllocatePool2(260LL, 152LL);
-LABEL_10:
-        if ( Pool2 )
-          goto LABEL_11;
+        v0 = -1073741204;
       }
-      gpTouchProcessor = 0LL;
-      goto LABEL_32;
     }
   }
-  v6 = -1073741823;
-LABEL_21:
-  ApiSetEditionCrit::~ApiSetEditionCrit((ApiSetEditionCrit *)&v24);
-  return v6;
+  else
+  {
+    v0 = -1073741801;
+  }
+LABEL_19:
+  InitializeInputComponents();
+LABEL_20:
+  ApiSetEditionCrit::~ApiSetEditionCrit((ApiSetEditionCrit *)&v13);
+  return v0;
 }

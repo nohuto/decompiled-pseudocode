@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PnpEventStartedCancelStop@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C000BE00
+ * XREFs of ?PnpEventStartedCancelStop@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C000DD40
  * Callers:
  *     <none>
  * Callees:

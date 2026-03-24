@@ -1,22 +1,21 @@
 /*
- * XREFs of IsInputProcessingActivated @ 0x1C0058A50
+ * XREFs of IsInputProcessingActivated @ 0x1C0045510
  * Callers:
- *     NtMITGetCursorUpdateHandle @ 0x1C00AB130 (NtMITGetCursorUpdateHandle.c)
+ *     <none>
  * Callees:
  *     <none>
  */
 
-char IsInputProcessingActivated()
+bool IsInputProcessingActivated()
 {
-  PKDPC BufferChainingDpc; // rdi
-  SINGLE_LIST_ENTRY *p_DpcListEntry; // rbx
+  CInputThread *v0; // rdi
+  bool v1; // bl
 
-  BufferChainingDpc = WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc;
-  p_DpcListEntry = &WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc->DpcListEntry;
+  v0 = gpInputThread;
   KeEnterCriticalRegion();
-  ExAcquirePushLockSharedEx(p_DpcListEntry, 0LL);
-  LOBYTE(BufferChainingDpc) = LODWORD(BufferChainingDpc->DeferredRoutine) == 2;
-  ExReleasePushLockSharedEx(p_DpcListEntry, 0LL);
+  ExAcquirePushLockSharedEx(v0, 0LL);
+  v1 = *((_DWORD *)v0 + 4) == 2;
+  ExReleasePushLockSharedEx(v0, 0LL);
   KeLeaveCriticalRegion();
-  return (char)BufferChainingDpc;
+  return v1;
 }

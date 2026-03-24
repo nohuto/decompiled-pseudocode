@@ -6,7 +6,7 @@
  *     ExpHwidGetDeviceProperties @ 0x1405865BC (ExpHwidGetDeviceProperties.c)
  * Callees:
  *     IoGetDevicePropertyData @ 0x140586930 (IoGetDevicePropertyData.c)
- *     PnpGetDeviceInterfacePropertyData @ 0x14082864C (PnpGetDeviceInterfacePropertyData.c)
+ *     PnpGetDeviceInterfacePropertyData @ 0x14082862C (PnpGetDeviceInterfacePropertyData.c)
  */
 
 NTSTATUS __fastcall ExpHwidGetDevicePropertyDataFixed(

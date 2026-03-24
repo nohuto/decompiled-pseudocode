@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPDO_IdleResiliencyCallback @ 0x1C001D7B0
+ * XREFs of HUBPDO_IdleResiliencyCallback @ 0x1C001AEE0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF__guid_dd @ 0x1C0014C44 (WPP_RECORDER_SF__guid_dd.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF__guid_dd @ 0x1C0013468 (WPP_RECORDER_SF__guid_dd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_IdleResiliencyCallback(
@@ -33,7 +33,7 @@ __int64 __fastcall HUBPDO_IdleResiliencyCallback(
         WdfDriverGlobals,
         v8,
         "DRIPS IO Tag",
-        12101LL,
+        11416LL,
         "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubpdo.c");
     }
     else
@@ -42,6 +42,6 @@ __int64 __fastcall HUBPDO_IdleResiliencyCallback(
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF__guid_dd(*(_QWORD *)(Context[1] + 1432LL), (__int64)Value, ValueLength, 0xB4u, v10, SettingGuid);
+    WPP_RECORDER_SF__guid_dd(*(_QWORD *)(Context[1] + 1432LL), (__int64)Value, ValueLength, 0xA0u, v10, SettingGuid);
   return v4;
 }

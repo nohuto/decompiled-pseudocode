@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z @ 0x1C021C968
+ * XREFs of ?UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z @ 0x1C0222F78
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     ?UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z @ 0x1C021C968 (-UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     ?UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z @ 0x1C0222F78 (-UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z.c)
  * Callees:
- *     ?UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z @ 0x1C021C968 (-UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z.c)
+ *     ?UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z @ 0x1C0222F78 (-UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z.c)
  */
 
 void __fastcall UnlockNotifyWindow(struct tagMENU *a1)

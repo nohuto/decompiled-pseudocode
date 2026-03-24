@@ -1,14 +1,13 @@
 /*
- * XREFs of ?ShareToD3D12@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@PEAPEAUID3D12Resource@@@Z @ 0x18027EE78
+ * XREFs of ?ShareToD3D12@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@PEAPEAUID3D12Resource@@@Z @ 0x18024052C
  * Callers:
- *     ?CreateD3D12Resource@CLegacySwapChain@@QEBAJIPEAPEAUID3D12Resource@@@Z @ 0x18028B190 (-CreateD3D12Resource@CLegacySwapChain@@QEBAJIPEAPEAUID3D12Resource@@@Z.c)
+ *     ?CreateD3D12Resource@CLegacySwapChain@@QEBAJIPEAPEAUID3D12Resource@@@Z @ 0x1802499D8 (-CreateD3D12Resource@CLegacySwapChain@@QEBAJIPEAPEAUID3D12Resource@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??1?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@IEAA@XZ @ 0x18002D294 (--1-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@wil@.c)
- *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x18003DB7C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetD3D12DeviceNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z @ 0x18027E4A8 (-GetD3D12DeviceNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x180030F44 (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?GetD3D12DeviceNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z @ 0x18023F8CC (-GetD3D12DeviceNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z.c)
  */
 
 __int64 __fastcall CD3DDevice::ShareToD3D12(CD3DDevice *this, struct ID3D11Texture2D *a2, struct ID3D12Resource **a3)
@@ -19,13 +18,13 @@ __int64 __fastcall CD3DDevice::ShareToD3D12(CD3DDevice *this, struct ID3D11Textu
   struct ID3D11Texture2DVtbl *lpVtbl; // rax
   int v9; // eax
   __int64 v10; // rbx
-  __int64 (__fastcall *v11)(__int64, _QWORD, __int64, _QWORD, void **); // rdi
+  __int64 (__fastcall *v11)(__int64, _QWORD, __int64, _QWORD, HANDLE *); // rdi
   int v12; // eax
   __int64 v13; // rdx
   __int64 v15; // [rsp+30h] [rbp-18h] BYREF
   struct ID3D12Device *v16; // [rsp+38h] [rbp-10h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
-  void *v18; // [rsp+68h] [rbp+20h] BYREF
+  HANDLE hObject; // [rsp+68h] [rbp+20h] BYREF
 
   D3D12DeviceNoRef = CD3DDevice::GetD3D12DeviceNoRef(this, &v16);
   if ( (D3D12DeviceNoRef & 0x80000000) == 0 )
@@ -34,7 +33,7 @@ __int64 __fastcall CD3DDevice::ShareToD3D12(CD3DDevice *this, struct ID3D11Textu
     if ( !v16 )
     {
       D3D12DeviceNoRef = -2003292404;
-      v6 = 1690LL;
+      v6 = 2113LL;
       goto LABEL_3;
     }
     lpVtbl = a2->lpVtbl;
@@ -48,55 +47,56 @@ __int64 __fastcall CD3DDevice::ShareToD3D12(CD3DDevice *this, struct ID3D11Textu
     {
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)0x69E,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
+        (void *)0x845,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
         (const char *)(unsigned int)v9);
-LABEL_15:
+LABEL_16:
       wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v15);
       return D3D12DeviceNoRef;
     }
     v10 = v15;
-    v18 = 0LL;
-    v11 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64, _QWORD, void **))(*(_QWORD *)v15 + 104LL);
+    hObject = 0LL;
+    v11 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64, _QWORD, HANDLE *))(*(_QWORD *)v15 + 104LL);
     wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
-      &v18,
+      &hObject,
       0LL);
-    v12 = v11(v10, 0LL, 0x10000000LL, 0LL, &v18);
+    v12 = v11(v10, 0LL, 0x10000000LL, 0LL, &hObject);
     D3D12DeviceNoRef = v12;
     if ( v12 >= 0 )
     {
-      v12 = ((__int64 (__fastcall *)(struct ID3D12Device *, void *, GUID *, struct ID3D12Resource **))v7->lpVtbl->OpenSharedHandle)(
+      v12 = ((__int64 (__fastcall *)(struct ID3D12Device *, HANDLE, GUID *, struct ID3D12Resource **))v7->lpVtbl->OpenSharedHandle)(
               v7,
-              v18,
+              hObject,
               &GUID_696442be_a72e_4059_bc79_5b5c98040fad,
               a3);
       D3D12DeviceNoRef = v12;
       if ( v12 >= 0 )
       {
         D3D12DeviceNoRef = 0;
-        goto LABEL_14;
+LABEL_14:
+        if ( (char *)hObject - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL )
+          CloseHandle(hObject);
+        goto LABEL_16;
       }
-      v13 = 1703LL;
+      v13 = 2126LL;
     }
     else
     {
-      v13 = 1700LL;
+      v13 = 2123LL;
     }
     wil::details::in1diag3::Return_Hr(
       retaddr,
       (void *)v13,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
       (const char *)(unsigned int)v12);
-LABEL_14:
-    wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::~unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>(&v18);
-    goto LABEL_15;
+    goto LABEL_14;
   }
-  v6 = 1686LL;
+  v6 = 2109LL;
 LABEL_3:
   wil::details::in1diag3::Return_Hr(
     retaddr,
     (void *)v6,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
     (const char *)D3D12DeviceNoRef);
   return D3D12DeviceNoRef;
 }

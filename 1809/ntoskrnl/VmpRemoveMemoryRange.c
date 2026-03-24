@@ -1,16 +1,16 @@
 /*
- * XREFs of VmpRemoveMemoryRange @ 0x14030D510
+ * XREFs of VmpRemoveMemoryRange @ 0x14030D610
  * Callers:
- *     VmDeleteMemoryRange @ 0x1408B02F0 (VmDeleteMemoryRange.c)
+ *     VmDeleteMemoryRange @ 0x1408B02D0 (VmDeleteMemoryRange.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpFlushTbVaRange @ 0x14030C544 (VmpFlushTbVaRange.c)
- *     VmpProcessContextLockExclusive @ 0x14030D0AC (VmpProcessContextLockExclusive.c)
- *     VmpVaRangeNumberOfGpaRanges @ 0x14030DC14 (VmpVaRangeNumberOfGpaRanges.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpFlushTbVaRange @ 0x14030C644 (VmpFlushTbVaRange.c)
+ *     VmpProcessContextLockExclusive @ 0x14030D1AC (VmpProcessContextLockExclusive.c)
+ *     VmpVaRangeNumberOfGpaRanges @ 0x14030DD14 (VmpVaRangeNumberOfGpaRanges.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VmpFreeMemoryRanges @ 0x1408B073C (VmpFreeMemoryRanges.c)
+ *     VmpFreeMemoryRanges @ 0x1408B071C (VmpFreeMemoryRanges.c)
  */
 
 __int64 __fastcall VmpRemoveMemoryRange(

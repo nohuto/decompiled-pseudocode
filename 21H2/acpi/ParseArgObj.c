@@ -1,14 +1,14 @@
 /*
- * XREFs of ParseArgObj @ 0x1C00083D4
+ * XREFs of ParseArgObj @ 0x1C00227E4
  * Callers:
- *     ParseOpcode @ 0x1C000B180 (ParseOpcode.c)
+ *     ParseOpcode @ 0x1C0022530 (ParseOpcode.c)
  * Callees:
- *     CopyObjData @ 0x1C000A900 (CopyObjData.c)
- *     ConPrintf @ 0x1C00290CC (ConPrintf.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintObject @ 0x1C0067C8C (PrintObject.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     CopyObjData @ 0x1C0022864 (CopyObjData.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
+ *     PrintObject @ 0x1C0066934 (PrintObject.c)
  */
 
 __int64 __fastcall ParseArgObj(__int64 a1, __int64 a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcpPrepareViewForDelivery @ 0x1407A4774
+ * XREFs of AlpcpPrepareViewForDelivery @ 0x140661FB8
  * Callers:
- *     AlpcpCaptureViewAttributeInternal @ 0x1407A4638 (AlpcpCaptureViewAttributeInternal.c)
+ *     AlpcpCaptureViewAttributeInternal @ 0x140661E7C (AlpcpCaptureViewAttributeInternal.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MmUnsecureVirtualMemory @ 0x1406F8010 (MmUnsecureVirtualMemory.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x1407A4A8C (MmSecureVirtualMemoryAgainstWrites.c)
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1407A6A34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpReferenceBlob @ 0x1407A7F84 (AlpcpReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x1407B0F40 (AlpcpUnlockBlob.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     MmUnsecureVirtualMemory @ 0x14061F760 (MmUnsecureVirtualMemory.c)
+ *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x1406621F8 (MmSecureVirtualMemoryAgainstWrites.c)
  */
 
 __int64 __fastcall AlpcpPrepareViewForDelivery(ULONG_PTR BugCheckParameter2, char a2, unsigned __int8 a3)
@@ -85,7 +85,7 @@ LABEL_7:
         {
           KiStackAttachProcess(*(_KPROCESS **)(v7 + 32), 0LL, (__int64)v16, v8);
           MmUnsecureVirtualMemory(*(HANDLE *)(v7 + 64));
-          KiUnstackDetachProcess((__int64)v16, 0LL);
+          KiUnstackDetachProcess((__int64)v16, 0);
           *(_QWORD *)(v7 + 64) = 0LL;
         }
         *(_DWORD *)(v7 + 72) |= 1u;
@@ -103,6 +103,6 @@ LABEL_8:
   *(_DWORD *)(BugCheckParameter2 + 72) ^= (*(_DWORD *)(BugCheckParameter2 + 72) ^ (2 * v5)) & 2;
   AlpcpUnlockBlob(v3);
   if ( v7 )
-    AlpcpDereferenceBlobEx(v7);
+    AlpcpDereferenceBlobEx(v7, 1);
   return v11;
 }

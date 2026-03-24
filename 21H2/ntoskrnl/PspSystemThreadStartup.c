@@ -1,14 +1,14 @@
 /*
- * XREFs of PspSystemThreadStartup @ 0x1402513D0
+ * XREFs of PspSystemThreadStartup @ 0x1402EC130
  * Callers:
  *     <none>
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheck @ 0x14041F3B0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PspDisablePrimaryTokenExchange @ 0x140702AF8 (PspDisablePrimaryTokenExchange.c)
- *     PspTerminateThreadByPointer @ 0x14079F130 (PspTerminateThreadByPointer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheck @ 0x1403FDED0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1406478CC (PspDisablePrimaryTokenExchange.c)
+ *     PspTerminateThreadByPointer @ 0x1406DA1F0 (PspTerminateThreadByPointer.c)
  */
 
 __int64 __fastcall PspSystemThreadStartup(void (__fastcall *a1)(__int64), __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsVbr@SC_DISK@@QEAAEXZ @ 0x140651254
+ * XREFs of ?IsVbr@SC_DISK@@QEAAEXZ @ 0x1405C6EF8
  * Callers:
- *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x1406513D8 (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
+ *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x1405C707C (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
  * Callees:
- *     ?Validate@MBR_ENTRY@@QEAAEK_K@Z @ 0x140651D0C (-Validate@MBR_ENTRY@@QEAAEK_K@Z.c)
+ *     ?Validate@MBR_ENTRY@@QEAAEK_K@Z @ 0x1405C79B0 (-Validate@MBR_ENTRY@@QEAAEK_K@Z.c)
  */
 
 char __fastcall SC_DISK::IsVbr(SC_DISK *this)
@@ -15,12 +15,12 @@ char __fastcall SC_DISK::IsVbr(SC_DISK *this)
   unsigned __int64 v6; // r8
   unsigned int v7; // edi
 
-  v1 = *((_QWORD *)this + 33);
+  v1 = *((_QWORD *)this + 32);
   v2 = 0;
   if ( *(_WORD *)(v1 + 510) == 0xAA55 && ((*(_BYTE *)v1 + 23) & 0xFD) == 0 )
   {
     v2 = 1;
-    if ( *((_DWORD *)this + 56) == 11 )
+    if ( *((_DWORD *)this + 54) == 11 )
     {
       if ( *(_QWORD *)(v1 + 3) == 0x202020205346544ELL )
         return v2;
@@ -31,7 +31,7 @@ char __fastcall SC_DISK::IsVbr(SC_DISK *this)
           return v2;
       }
     }
-    v6 = *((_QWORD *)this + 31);
+    v6 = *((_QWORD *)this + 30);
     v7 = 0;
     while ( MBR_ENTRY::Validate((MBR_ENTRY *)(16LL * v7 + v1 + 446), 0, v6) )
     {

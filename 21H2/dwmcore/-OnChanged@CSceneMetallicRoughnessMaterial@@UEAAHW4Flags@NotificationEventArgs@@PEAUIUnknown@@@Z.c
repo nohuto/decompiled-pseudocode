@@ -1,26 +1,36 @@
 /*
- * XREFs of ?OnChanged@CSceneMetallicRoughnessMaterial@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18023D660
+ * XREFs of ?OnChanged@CSceneMetallicRoughnessMaterial@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1801EAE00
  * Callers:
  *     <none>
  * Callees:
- *     ??E?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEAVCProjectedShadowCaster@@V?$com_ptr_t@VCProjectedShadow@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ @ 0x18018579C (--E-$_Tree_unchecked_const_iterator@V-$_Tree_val@U-$_Tree_simple_types@U-$pair@QEAVCProjectedSha.c)
- *     ?AddDirtySceneObject@CSceneComponent@@QEAAXPEAVCSceneObject@@@Z @ 0x18025BA7C (-AddDirtySceneObject@CSceneComponent@@QEAAXPEAVCSceneObject@@@Z.c)
+ *     ?ApplyBaseColorInputToSpectreResource@CSceneMetallicRoughnessMaterial@@AEAAXPEAUISpectreMaterial@@@Z @ 0x1801EACAC (-ApplyBaseColorInputToSpectreResource@CSceneMetallicRoughnessMaterial@@AEAAXPEAUISpectreMaterial.c)
+ *     ?ApplyMetallicRoughnessInputToSpectreResource@CSceneMetallicRoughnessMaterial@@AEAAXPEAUISpectreMaterial@@@Z @ 0x1801EACF4 (-ApplyMetallicRoughnessInputToSpectreResource@CSceneMetallicRoughnessMaterial@@AEAAXPEAUISpectre.c)
+ *     ?OnChanged@CScenePbrMaterial@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1801EB300 (-OnChanged@CScenePbrMaterial@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
  */
 
-__int64 __fastcall CSceneMetallicRoughnessMaterial::OnChanged(__int64 a1, unsigned int a2, __int64 a3)
+__int64 __fastcall CSceneMetallicRoughnessMaterial::OnChanged(
+        CSceneMetallicRoughnessMaterial *a1,
+        unsigned int a2,
+        __int64 a3)
 {
-  __int64 v6; // rcx
-  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v3; // r9
+  struct ISpectreMaterial *v7; // rdx
 
-  if ( a3 && (a3 == *(_QWORD *)(a1 + 168) || a3 == *(_QWORD *)(a1 + 176)) )
+  v3 = *((_QWORD *)a1 + 8);
+  if ( *(_QWORD *)v3 == v3 )
+    return 1LL;
+  v7 = *(struct ISpectreMaterial **)(*(_QWORD *)v3 + 40LL);
+  if ( !v7 )
+    return 0LL;
+  if ( a3 )
   {
-    v6 = **(_QWORD **)(a1 + 72);
-    v8 = v6;
-    while ( v6 != *(_QWORD *)(a1 + 72) )
+    if ( a3 == *((_QWORD *)a1 + 20) )
     {
-      CSceneComponent::AddDirtySceneObject(*(CSceneComponent **)(v6 + 32), (struct CSceneObject *)a1);
-      std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<CProjectedShadowCaster * const,wil::com_ptr_t<CProjectedShadow,wil::err_returncode_policy>>>>,std::_Iterator_base0>::operator++(&v8);
-      v6 = v8;
+      CSceneMetallicRoughnessMaterial::ApplyBaseColorInputToSpectreResource(a1, v7);
+    }
+    else if ( a3 == *((_QWORD *)a1 + 21) )
+    {
+      CSceneMetallicRoughnessMaterial::ApplyMetallicRoughnessInputToSpectreResource(a1, v7);
     }
   }
   return CScenePbrMaterial::OnChanged(a1, a2, a3);

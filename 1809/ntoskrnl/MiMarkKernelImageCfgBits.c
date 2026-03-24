@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMarkKernelImageCfgBits @ 0x14070F3B4
+ * XREFs of MiMarkKernelImageCfgBits @ 0x14070F394
  * Callers:
- *     MiProcessKernelCfgImage @ 0x1400F5544 (MiProcessKernelCfgImage.c)
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
+ *     MiProcessKernelCfgImage @ 0x1400F5564 (MiProcessKernelCfgImage.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiFlushKernelCfgBitmap @ 0x1402C32E0 (MiFlushKernelCfgBitmap.c)
- *     MiSnapDriverRange @ 0x140653C00 (MiSnapDriverRange.c)
- *     VslCompleteSecureDriverLoad @ 0x140817F08 (VslCompleteSecureDriverLoad.c)
- *     MiAllocateKernelCfgBitmapPageTables @ 0x14085BC34 (MiAllocateKernelCfgBitmapPageTables.c)
- *     MiReleaseKernelCfgLock @ 0x14085BF20 (MiReleaseKernelCfgLock.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiFlushKernelCfgBitmap @ 0x1402C33E0 (MiFlushKernelCfgBitmap.c)
+ *     MiSnapDriverRange @ 0x140653BE0 (MiSnapDriverRange.c)
+ *     VslCompleteSecureDriverLoad @ 0x140817EE8 (VslCompleteSecureDriverLoad.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x14085BC14 (MiAllocateKernelCfgBitmapPageTables.c)
+ *     MiReleaseKernelCfgLock @ 0x14085BF00 (MiReleaseKernelCfgLock.c)
  */
 
 __int64 __fastcall MiMarkKernelImageCfgBits(__int64 a1, __int64 a2)

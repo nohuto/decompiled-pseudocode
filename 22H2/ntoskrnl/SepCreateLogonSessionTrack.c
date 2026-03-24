@@ -1,56 +1,58 @@
 /*
- * XREFs of SepCreateLogonSessionTrack @ 0x1407BDA3C
+ * XREFs of SepCreateLogonSessionTrack @ 0x1406850AC
  * Callers:
- *     SepRmCreateLogonSessionWrkr @ 0x1407BDA10 (SepRmCreateLogonSessionWrkr.c)
- *     SeInitServerSilo @ 0x1409C8EA0 (SeInitServerSilo.c)
- *     SepRmDbInitialization @ 0x140B6DDC4 (SepRmDbInitialization.c)
+ *     SepRmCreateLogonSessionWrkr @ 0x140685080 (SepRmCreateLogonSessionWrkr.c)
+ *     SeInitServerSilo @ 0x14091C124 (SeInitServerSilo.c)
+ *     SepRmDbInitialization @ 0x140A6E540 (SepRmDbInitialization.c)
  * Callees:
- *     ExInitializePushLock @ 0x1402235B0 (ExInitializePushLock.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     PsGetCurrentServerSilo @ 0x14025C220 (PsGetCurrentServerSilo.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExInitializePushLock @ 0x140341EF0 (ExInitializePushLock.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepCreateLogonSessionTrack(__int64 a1)
 {
-  struct _EX_RUNDOWN_REF *Pool2; // rax
-  struct _EX_RUNDOWN_REF *v3; // rbx
-  unsigned __int64 v4; // rcx
-  unsigned __int64 *v5; // r15
+  KSPIN_LOCK *PoolWithTag; // rax
+  KSPIN_LOCK *v3; // rbx
+  __int64 v4; // rcx
+  KSPIN_LOCK *v5; // r15
   struct _KTHREAD *CurrentThread; // rax
   struct _ERESOURCE *v7; // rbp
-  unsigned __int64 v8; // rdi
+  KSPIN_LOCK v8; // rdi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
   void *CurrentServerSilo; // rsi
 
-  Pool2 = (struct _EX_RUNDOWN_REF *)ExAllocatePool2(256LL, 192LL, 1934386515LL);
-  v3 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (KSPIN_LOCK *)ExAllocatePoolWithTag(PagedPool, 0xC0uLL, 0x734C6553u);
+  v3 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  memset(Pool2, 0, 0xC0uLL);
-  v3[1].Count = *(unsigned __int64 *)a1;
-  v3[3].Count = 1LL;
-  v3[18].Count = 0LL;
-  v3[17].Count = (unsigned __int64)&v3[16];
-  v3[16].Count = (unsigned __int64)&v3[16];
+  memset(PoolWithTag, 0, 0xC0uLL);
+  v3[1] = *(_QWORD *)a1;
+  v3[3] = 1LL;
+  v3[17] = (KSPIN_LOCK)(v3 + 16);
+  v3[16] = (KSPIN_LOCK)(v3 + 16);
+  v3[18] = 0LL;
   ExInitializePushLock(v3 + 19);
-  if ( HIDWORD(NlsMbOemCodePageTag) )
+  if ( SeTokenLeakTracking )
   {
-    v3[23].Count = (unsigned __int64)&v3[22];
-    v3[22].Count = (unsigned __int64)&v3[22];
+    v3[23] = (KSPIN_LOCK)(v3 + 22);
+    v3[22] = (KSPIN_LOCK)(v3 + 22);
   }
-  v4 = (unsigned __int64)(unsigned int)(1529154084 * *(_DWORD *)a1) >> 28;
-  v5 = (unsigned __int64 *)(SepLogonSessions + 8 * v4);
+  v4 = (unsigned int)(1529154084 * *(_DWORD *)a1) >> 28;
+  v5 = (KSPIN_LOCK *)(SepLogonSessions + 8 * v4);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v7 = &SepRmDbLock + (v4 & 3);
   ExAcquireResourceExclusiveLite(v7, 1u);
   v8 = *v5;
-  CurrentServerSilo = (void *)PsGetCurrentServerSilo();
+  CurrentServerSilo = (void *)PsGetCurrentServerSilo(v10, v9);
   while ( v8 )
   {
     if ( CurrentServerSilo == *(void **)(v8 + 160)
@@ -66,9 +68,9 @@ __int64 __fastcall SepCreateLogonSessionTrack(__int64 a1)
   }
   if ( CurrentServerSilo )
     ObfReferenceObjectWithTag(CurrentServerSilo, 0x734C6553u);
-  v3[20].Count = (unsigned __int64)CurrentServerSilo;
-  v3->Count = *v5;
-  *v5 = (unsigned __int64)v3;
+  v3[20] = (KSPIN_LOCK)CurrentServerSilo;
+  *v3 = *v5;
+  *v5 = (KSPIN_LOCK)v3;
   ExReleaseResourceLite(v7);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return 0LL;

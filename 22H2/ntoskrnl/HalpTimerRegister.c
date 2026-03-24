@@ -1,49 +1,51 @@
 /*
- * XREFs of HalpTimerRegister @ 0x140379104
+ * XREFs of HalpTimerRegister @ 0x1403B2D90
  * Callers:
- *     HalpHpetDiscover @ 0x140377E30 (HalpHpetDiscover.c)
- *     HalpRtcDiscover @ 0x1403795E8 (HalpRtcDiscover.c)
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403A3BEC (HalpTimerRegisterBuiltinPlugins.c)
- *     HalpHvWatchdogDiscover @ 0x1403A3C70 (HalpHvWatchdogDiscover.c)
- *     HalpHvDiscover @ 0x1403A3CCC (HalpHvDiscover.c)
- *     HalpTscDiscover @ 0x1403A3E48 (HalpTscDiscover.c)
- *     HalpArtDiscover @ 0x1403A3F78 (HalpArtDiscover.c)
- *     HalpApicTimerDiscover @ 0x1403A405C (HalpApicTimerDiscover.c)
- *     HalpPmTimerDiscover @ 0x1403A41D8 (HalpPmTimerDiscover.c)
- *     HalpWdatDiscover @ 0x1403A4388 (HalpWdatDiscover.c)
- *     HalpVpptTimerRegister @ 0x140509CD4 (HalpVpptTimerRegister.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403B174C (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpPmTimerDiscover @ 0x1403B17DC (HalpPmTimerDiscover.c)
+ *     HalpSfiTimerDiscover @ 0x1403B18DC (HalpSfiTimerDiscover.c)
+ *     HalpRtcDiscover @ 0x1403B1968 (HalpRtcDiscover.c)
+ *     HalpApicTimerDiscover @ 0x1403B1AAC (HalpApicTimerDiscover.c)
+ *     HalpTscDiscover @ 0x1403B1C20 (HalpTscDiscover.c)
+ *     HalpHpetDiscover @ 0x1403B25CC (HalpHpetDiscover.c)
+ *     HalpWdatDiscover @ 0x1403B3240 (HalpWdatDiscover.c)
+ *     HalpHvWatchdogDiscover @ 0x1403B3510 (HalpHvWatchdogDiscover.c)
+ *     HalpArtDiscover @ 0x1403B356C (HalpArtDiscover.c)
+ *     HalpHvDiscover @ 0x1403B36BC (HalpHvDiscover.c)
+ *     HalpVpptTimerRegister @ 0x1404C0BD8 (HalpVpptTimerRegister.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     HalpTimerBuildKnownResourceIdString @ 0x140379414 (HalpTimerBuildKnownResourceIdString.c)
- *     HalpMmAllocateMemoryInternal @ 0x14037E158 (HalpMmAllocateMemoryInternal.c)
- *     HalQueryMaximumProcessorCount @ 0x14037FEF0 (HalQueryMaximumProcessorCount.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpPciGetHpetInterruptSource @ 0x140B93B50 (HalpPciGetHpetInterruptSource.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AD70 (HalQueryMaximumProcessorCount.c)
+ *     HalpTimerBuildKnownResourceIdString @ 0x1403B30A4 (HalpTimerBuildKnownResourceIdString.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BAC58 (HalpMmAllocateMemoryInternal.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpPciGetHpetInterruptSource @ 0x140A8E120 (HalpPciGetHpetInterruptSource.c)
  */
 
-__int64 __fastcall HalpTimerRegister(__int64 a1, UNICODE_STRING *p_DestinationString)
+__int64 __fastcall HalpTimerRegister(__int64 a1, UNICODE_STRING *a2)
 {
   unsigned int v2; // ebx
+  UNICODE_STRING *p_DestinationString; // r15
   __int64 v5; // rcx
-  __int64 v6; // rdx
-  unsigned int v7; // ebp
+  unsigned int v6; // ebp
   unsigned int MaximumProcessorCount; // r12d
-  unsigned int v9; // r14d
+  unsigned int v8; // r14d
   void *MemoryInternal; // rax
-  __int64 v11; // rsi
-  unsigned __int64 v12; // r14
-  unsigned __int64 v13; // rcx
-  __int128 v14; // xmm0
+  __int64 v10; // rsi
+  unsigned __int64 v11; // r14
+  unsigned __int64 v12; // rcx
+  __int128 v13; // xmm0
   unsigned int i; // ebp
-  __int64 v16; // rcx
-  __int64 *v17; // rax
+  __int64 v15; // rcx
+  __int64 *v16; // rax
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-F8h] BYREF
   WCHAR SourceString[80]; // [rsp+30h] [rbp-E8h] BYREF
 
   v2 = 0;
+  p_DestinationString = a2;
   DestinationString = 0LL;
   if ( !HalpTimerRegistrationAllowed )
     return (unsigned int)-1073741431;
@@ -61,7 +63,6 @@ __int64 __fastcall HalpTimerRegister(__int64 a1, UNICODE_STRING *p_DestinationSt
   }
   if ( (v5 & 0x1000) != 0 || (v5 & 0x80u) != 0LL )
     return (unsigned int)-1073741637;
-  v6 = 2048LL;
   if ( (v5 & 0x800) != 0 && !*(_QWORD *)(a1 + 72) )
     return (unsigned int)-1073741811;
   if ( (v5 & 0x801) == 0x800 )
@@ -76,85 +77,86 @@ __int64 __fastcall HalpTimerRegister(__int64 a1, UNICODE_STRING *p_DestinationSt
     {
       return (unsigned int)-1073741811;
     }
-    if ( !p_DestinationString )
+    if ( !a2 )
     {
       HalpTimerBuildKnownResourceIdString(a1, 75LL, SourceString);
       p_DestinationString = &DestinationString;
       RtlInitUnicodeString(&DestinationString, SourceString);
+      v5 = *(unsigned int *)(a1 + 116);
     }
-    if ( _bittest((const signed __int32 *)(a1 + 116), 0x10u) )
+    if ( (v5 & 0x10000) != 0 )
     {
-      MaximumProcessorCount = HalQueryMaximumProcessorCount(v5, v6);
-      v7 = (*(_DWORD *)(a1 + 96) + 7) & 0xFFFFFFF8;
+      MaximumProcessorCount = HalQueryMaximumProcessorCount(v5);
+      v6 = (*(_DWORD *)(a1 + 96) + 7) & 0xFFFFFFF8;
     }
     else
     {
-      v7 = *(_DWORD *)(a1 + 96);
+      v6 = *(_DWORD *)(a1 + 96);
       MaximumProcessorCount = 1;
     }
-    v9 = (((MaximumProcessorCount * v7 + 351) & 0xFFFFFFF8) + 9 + p_DestinationString->Length) & 0xFFFFFFF8;
-    MemoryInternal = (void *)HalpMmAllocateMemoryInternal(v9, 1LL);
-    v11 = (__int64)MemoryInternal;
+    v8 = (((MaximumProcessorCount * v6 + 351) & 0xFFFFFFF8) + 9 + p_DestinationString->Length) & 0xFFFFFFF8;
+    MemoryInternal = (void *)HalpMmAllocateMemoryInternal(v8, 1LL);
+    v10 = (__int64)MemoryInternal;
     if ( MemoryInternal )
     {
-      memset(MemoryInternal, 0, v9);
-      v12 = (v11 + 303) & 0xFFFFFFFFFFFFFFF8uLL;
-      *(_QWORD *)(v11 + 288) = v12;
-      v13 = (v12 + 55) & 0xFFFFFFFFFFFFFFF8uLL;
-      *(_QWORD *)(v11 + 72) = v13;
-      *(_QWORD *)(v12 + 32) = (MaximumProcessorCount * v7 + v13 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-      *(_QWORD *)(v11 + 192) = *(_QWORD *)(a1 + 104);
-      *(_OWORD *)(v11 + 104) = *(_OWORD *)(a1 + 8);
-      *(_OWORD *)(v11 + 120) = *(_OWORD *)(a1 + 24);
-      *(_OWORD *)(v11 + 136) = *(_OWORD *)(a1 + 40);
-      *(_OWORD *)(v11 + 152) = *(_OWORD *)(a1 + 56);
-      v14 = *(_OWORD *)(a1 + 72);
-      *(_DWORD *)(v11 + 80) = v7;
-      *(_OWORD *)(v11 + 168) = v14;
-      *(_DWORD *)(v11 + 220) = *(_DWORD *)(a1 + 100);
-      *(_DWORD *)(v11 + 224) = *(_DWORD *)(a1 + 116);
-      *(_DWORD *)(v11 + 84) = *(_DWORD *)(a1 + 120);
-      *(_DWORD *)(v11 + 88) = *(_DWORD *)(a1 + 124);
-      *(_DWORD *)(v11 + 96) = *(_DWORD *)(a1 + 132);
-      *(_DWORD *)(v11 + 92) = *(_DWORD *)(a1 + 128);
-      *(_DWORD *)(v11 + 228) = *(_DWORD *)(a1 + 136);
-      *(_DWORD *)(v11 + 216) = *(_DWORD *)(a1 + 112);
+      memset(MemoryInternal, 0, v8);
+      v11 = (v10 + 303) & 0xFFFFFFFFFFFFFFF8uLL;
+      *(_QWORD *)(v10 + 288) = v11;
+      v12 = (v11 + 55) & 0xFFFFFFFFFFFFFFF8uLL;
+      *(_QWORD *)(v10 + 72) = v12;
+      *(_QWORD *)(v11 + 32) = (MaximumProcessorCount * v6 + v12 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+      *(_QWORD *)(v10 + 192) = *(_QWORD *)(a1 + 104);
+      *(_OWORD *)(v10 + 104) = *(_OWORD *)(a1 + 8);
+      *(_OWORD *)(v10 + 120) = *(_OWORD *)(a1 + 24);
+      *(_OWORD *)(v10 + 136) = *(_OWORD *)(a1 + 40);
+      *(_OWORD *)(v10 + 152) = *(_OWORD *)(a1 + 56);
+      v13 = *(_OWORD *)(a1 + 72);
+      *(_DWORD *)(v10 + 80) = v6;
+      *(_OWORD *)(v10 + 168) = v13;
+      *(_DWORD *)(v10 + 220) = *(_DWORD *)(a1 + 100);
+      *(_DWORD *)(v10 + 224) = *(_DWORD *)(a1 + 116);
+      *(_DWORD *)(v10 + 84) = *(_DWORD *)(a1 + 120);
+      *(_DWORD *)(v10 + 88) = *(_DWORD *)(a1 + 124);
+      *(_DWORD *)(v10 + 96) = *(_DWORD *)(a1 + 132);
+      *(_DWORD *)(v10 + 92) = *(_DWORD *)(a1 + 128);
+      *(_DWORD *)(v10 + 228) = *(_DWORD *)(a1 + 136);
+      *(_DWORD *)(v10 + 216) = *(_DWORD *)(a1 + 112);
       if ( *(_DWORD *)(a1 + 96) )
       {
         if ( *(_QWORD *)(a1 + 88) )
         {
           for ( i = 0; i < MaximumProcessorCount; ++i )
             memmove(
-              (void *)(*(_QWORD *)(v11 + 72) + *(_DWORD *)(v11 + 80) * i),
+              (void *)(*(_QWORD *)(v10 + 72) + i * *(_DWORD *)(v10 + 80)),
               *(const void **)(a1 + 88),
               *(unsigned int *)(a1 + 96));
         }
       }
-      *(_DWORD *)(v11 + 284) = *(_DWORD *)(a1 + 140);
-      *(_WORD *)(v12 + 24) = 0;
-      *(_WORD *)(v12 + 26) = p_DestinationString->Length + 2;
-      RtlCopyUnicodeString((PUNICODE_STRING)(v12 + 24), p_DestinationString);
+      *(_DWORD *)(v10 + 284) = *(_DWORD *)(a1 + 140);
+      *(_WORD *)(v11 + 24) = 0;
+      *(_WORD *)(v11 + 26) = p_DestinationString->Length + 2;
+      RtlCopyUnicodeString((PUNICODE_STRING)(v11 + 24), p_DestinationString);
       if ( (*(_DWORD *)(a1 + 116) & 0x400) != 0 )
       {
-        *(_QWORD *)(v12 + 12) = 0LL;
-        *(_DWORD *)(v12 + 8) = 0;
-        *(_DWORD *)v12 = 0;
-        *(_DWORD *)(v12 + 4) = 0;
+        *(_QWORD *)(v11 + 12) = 0LL;
+        *(_DWORD *)(v11 + 8) = 0;
+        *(_DWORD *)v11 = 0;
+        *(_DWORD *)(v11 + 4) = 0;
         if ( *(_DWORD *)(a1 + 136) == 3 )
         {
-          LOBYTE(v16) = *(_BYTE *)(a1 + 142);
-          HalpPciGetHpetInterruptSource(v16, v12 + 8, (v11 + 303) & 0xFFFFFFFFFFFFFFF8uLL);
+          LOBYTE(v15) = *(_BYTE *)(a1 + 142);
+          HalpPciGetHpetInterruptSource(v15, v11 + 8, (v10 + 303) & 0xFFFFFFFFFFFFFFF8uLL);
         }
       }
-      v17 = (__int64 *)qword_140C64688;
-      if ( *(ULONG_PTR **)qword_140C64688 != &HalpRegisteredTimers )
+      v16 = (__int64 *)qword_140C4C168;
+      if ( *(ULONG_PTR **)qword_140C4C168 != &HalpRegisteredTimers )
         __fastfail(3u);
       LODWORD(HalpRegisteredTimerCount) = HalpRegisteredTimerCount + 1;
-      *(_QWORD *)v11 = &HalpRegisteredTimers;
-      *(_QWORD *)(v11 + 8) = v17;
-      *v17 = v11;
-      qword_140C64688 = v11;
-      if ( (*(_DWORD *)(v11 + 224) & 0x100000) != 0 )
+      *(_QWORD *)v10 = &HalpRegisteredTimers;
+      *(_QWORD *)(v10 + 8) = v16;
+      *v16 = v10;
+      qword_140C4C168 = v10;
+      if ( (*(_DWORD *)(v10 + 224) & 0x100000) != 0 )
         HalpTimerAuxiliaryClockEnabled = 1;
     }
     else

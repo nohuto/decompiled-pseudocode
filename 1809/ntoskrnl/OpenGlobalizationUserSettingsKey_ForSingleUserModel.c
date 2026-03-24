@@ -1,14 +1,14 @@
 /*
- * XREFs of OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x14031F754
+ * XREFs of OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x14031F854
  * Callers:
- *     OpenGlobalizationUserSettingsKey @ 0x140174AB4 (OpenGlobalizationUserSettingsKey.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x140174AD4 (OpenGlobalizationUserSettingsKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
- *     OpenOrCreateKeyWithFlags @ 0x14031F8A8 (OpenOrCreateKeyWithFlags.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     OpenOrCreateKeyWithFlags @ 0x14031F9A8 (OpenOrCreateKeyWithFlags.c)
  *     ExFreePool @ 0x14034D780 (ExFreePool.c)
- *     ExpAllocateStringRoutine @ 0x1406B2120 (ExpAllocateStringRoutine.c)
+ *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
  */
 
 __int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(

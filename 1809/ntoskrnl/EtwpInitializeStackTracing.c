@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpInitializeStackTracing @ 0x1408B6F24
+ * XREFs of EtwpInitializeStackTracing @ 0x1408B6F04
  * Callers:
- *     EtwpUpdateStackTracing @ 0x1408B70F0 (EtwpUpdateStackTracing.c)
+ *     EtwpUpdateStackTracing @ 0x1408B70D0 (EtwpUpdateStackTracing.c)
  * Callees:
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7900 (KeQueryActiveProcessorCountEx.c)
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpReferenceStackLookasideList @ 0x1408B7088 (EtwpReferenceStackLookasideList.c)
+ *     EtwpReferenceStackLookasideList @ 0x1408B7068 (EtwpReferenceStackLookasideList.c)
  */
 
 __int64 __fastcall EtwpInitializeStackTracing(__int64 a1)

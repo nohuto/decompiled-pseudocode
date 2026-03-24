@@ -1,25 +1,24 @@
 /*
- * XREFs of ??$CreateWindowProp@VCoreWindowProp@@@CWindowProp@@SAJPEAPEAVCoreWindowProp@@@Z @ 0x1C0238A00
+ * XREFs of ??$CreateWindowProp@VCoreWindowProp@@@CWindowProp@@SAJPEAPEAVCoreWindowProp@@@Z @ 0x1C01234BC
  * Callers:
- *     ?ChangeRole@CoreWindowProp@@KAJPEAUtagWND@@W4COREWINDOWROLE@@_N@Z @ 0x1C0238BAC (-ChangeRole@CoreWindowProp@@KAJPEAUtagWND@@W4COREWINDOWROLE@@_N@Z.c)
+ *     ?ChangeRole@CoreWindowProp@@KAJPEAUtagWND@@W4COREWINDOWROLE@@_N@Z @ 0x1C0123424 (-ChangeRole@CoreWindowProp@@KAJPEAUtagWND@@W4COREWINDOWROLE@@_N@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CWindowProp::CreateWindowProp<CoreWindowProp>(__int64 *a1)
+__int64 __fastcall CWindowProp::CreateWindowProp<CoreWindowProp>(_QWORD *a1)
 {
   unsigned int v2; // ebx
-  __int64 v3; // rax
+  _OWORD *v3; // rax
 
   v2 = 0;
-  v3 = Win32AllocPoolZInit(56LL, 1920430933LL);
+  v3 = (_OWORD *)Win32AllocPoolZInit(48LL, 1920430933LL);
   if ( v3 )
   {
     *a1 = v3;
-    *(_OWORD *)v3 = 0LL;
-    *(_OWORD *)(v3 + 16) = 0LL;
-    *(_OWORD *)(v3 + 32) = 0LL;
-    *(_QWORD *)(v3 + 48) = 0LL;
+    *v3 = 0LL;
+    v3[1] = 0LL;
+    v3[2] = 0LL;
     *(_QWORD *)v3 = &CoreWindowProp::`vftable';
   }
   else

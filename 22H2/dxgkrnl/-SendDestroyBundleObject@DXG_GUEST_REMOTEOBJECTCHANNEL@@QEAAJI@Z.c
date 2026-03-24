@@ -1,88 +1,100 @@
 /*
- * XREFs of ?SendDestroyBundleObject@DXG_GUEST_REMOTEOBJECTCHANNEL@@QEAAJI@Z @ 0x1C034C2DC
+ * XREFs of ?SendDestroyBundleObject@DXG_GUEST_REMOTEOBJECTCHANNEL@@QEAAJI@Z @ 0x1C028C67C
  * Callers:
- *     ?VailSendDestroyBundleObject@DXGSESSIONDATA@@QEAAJI@Z @ 0x1C0363440 (-VailSendDestroyBundleObject@DXGSESSIONDATA@@QEAAJI@Z.c)
+ *     ?VailSendDestroyBundleObject@DXGSESSIONDATA@@QEAAJI@Z @ 0x1C02B7E70 (-VailSendDestroyBundleObject@DXGSESSIONDATA@@QEAAJI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
-__int64 __fastcall DXG_GUEST_REMOTEOBJECTCHANNEL::SendDestroyBundleObject(DXG_GUEST_REMOTEOBJECTCHANNEL *this, int a2)
+__int64 __fastcall DXG_GUEST_REMOTEOBJECTCHANNEL::SendDestroyBundleObject(
+        DXG_GUEST_REMOTEOBJECTCHANNEL *this,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4)
 {
-  unsigned int v4; // ebx
-  __int64 v5; // rcx
-  int v6; // eax
-  __int64 v7; // rdx
-  unsigned int v9; // [rsp+50h] [rbp-30h] BYREF
-  int v10; // [rsp+58h] [rbp-28h] BYREF
-  unsigned int v11; // [rsp+5Ch] [rbp-24h]
-  int v12; // [rsp+60h] [rbp-20h]
-  int v13; // [rsp+64h] [rbp-1Ch]
-  _DWORD v14[4]; // [rsp+68h] [rbp-18h] BYREF
+  int v4; // ebx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // rax
+  __int64 v10; // rbx
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  unsigned int v20; // [rsp+30h] [rbp-30h] BYREF
+  int v21; // [rsp+38h] [rbp-28h] BYREF
+  int v22; // [rsp+3Ch] [rbp-24h]
+  int v23; // [rsp+40h] [rbp-20h]
+  int v24; // [rsp+44h] [rbp-1Ch]
+  _DWORD v25[4]; // [rsp+48h] [rbp-18h] BYREF
 
-  if ( DXGPROCESS::GetCurrent((__int64)this) )
+  v4 = a2;
+  if ( !DXGPROCESS::GetCurrent((__int64)this, a2, a3, a4) )
   {
-    if ( a2 )
+    v9 = WdLogNewEntry5_WdError(v7, v6);
+    LODWORD(v10) = -1073741811;
+    *(_QWORD *)(v9 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v9);
+    return (unsigned int)v10;
+  }
+  if ( !v4 )
+  {
+    v11 = WdLogNewEntry5_WdWarning(v7, v6, v8);
+    LODWORD(v10) = -1073741811;
+    *(_QWORD *)(v11 + 24) = 0LL;
+    *(_QWORD *)(v11 + 32) = -1073741811LL;
+LABEL_7:
+    WdLogEvent5_WdWarning(v11);
+    return (unsigned int)v10;
+  }
+  v12 = *((_QWORD *)this + 1);
+  v24 = 0;
+  v25[2] = 3;
+  v25[0] = 1869901170;
+  v21 = 1869901170;
+  v25[1] = -1073741823;
+  v22 = -1073741823;
+  v23 = 4;
+  v20 = 16;
+  v25[3] = v4;
+  v13 = (*(__int64 (__fastcall **)(__int64, _DWORD *, __int64, int *, unsigned int *))(*(_QWORD *)v12 + 32LL))(
+          v12,
+          v25,
+          16LL,
+          &v21,
+          &v20);
+  v10 = v13;
+  if ( v13 < 0 )
+  {
+    v11 = WdLogNewEntry5_WdWarning(v15, v14, v16);
+    *(_QWORD *)(v11 + 24) = v10;
+    goto LABEL_7;
+  }
+  if ( v20 == 16 )
+  {
+    if ( v23 == 4 )
     {
-      v5 = *((_QWORD *)this + 1);
-      v13 = 0;
-      v14[2] = 3;
-      v14[0] = 1869901170;
-      v10 = 1869901170;
-      v14[1] = -1073741823;
-      v11 = -1073741823;
-      v12 = 4;
-      v9 = 16;
-      v14[3] = a2;
-      v6 = (*(__int64 (__fastcall **)(__int64, _DWORD *, __int64, int *, unsigned int *))(*(_QWORD *)v5 + 32LL))(
-             v5,
-             v14,
-             16LL,
-             &v10,
-             &v9);
-      v4 = v6;
-      if ( v6 >= 0 )
-      {
-        if ( v9 == 16 )
-        {
-          if ( v12 == 4 )
-            return v11;
-          v7 = v12;
-        }
-        else
-        {
-          v7 = v9;
-        }
-        WdLogSingleEntry2(3LL, v7, -1073741823LL);
-        return (unsigned int)-1073741823;
-      }
-      else
-      {
-        WdLogSingleEntry1(3LL, v6);
-      }
+      LODWORD(v10) = v22;
+      return (unsigned int)v10;
     }
-    else
-    {
-      v4 = -1073741811;
-      WdLogSingleEntry2(3LL, 0LL, -1073741811LL);
-    }
+    v17 = WdLogNewEntry5_WdWarning(v15, v14, v16);
+    v18 = v23;
   }
   else
   {
-    v4 = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context. Returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v17 = WdLogNewEntry5_WdWarning(v15, v14, v16);
+    v18 = v20;
   }
-  return v4;
+  *(_QWORD *)(v17 + 24) = v18;
+  *(_QWORD *)(v17 + 32) = -1073741823LL;
+  WdLogEvent5_WdWarning(v17);
+  LODWORD(v10) = -1073741823;
+  return (unsigned int)v10;
 }

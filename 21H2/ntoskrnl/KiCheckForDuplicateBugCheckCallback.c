@@ -1,8 +1,8 @@
 /*
- * XREFs of KiCheckForDuplicateBugCheckCallback @ 0x14024AFA0
+ * XREFs of KiCheckForDuplicateBugCheckCallback @ 0x14039E7A8
  * Callers:
- *     KeRegisterBugCheckReasonCallback @ 0x14024AE50 (KeRegisterBugCheckReasonCallback.c)
- *     KeRegisterBugCheckCallback @ 0x1403B5E30 (KeRegisterBugCheckCallback.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14039E660 (KeRegisterBugCheckReasonCallback.c)
+ *     KeRegisterBugCheckCallback @ 0x1403CD830 (KeRegisterBugCheckCallback.c)
  * Callees:
  *     <none>
  */

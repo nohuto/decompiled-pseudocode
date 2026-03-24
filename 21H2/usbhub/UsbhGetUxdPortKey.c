@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhGetUxdPortKey @ 0x1C0059C74
+ * XREFs of UsbhGetUxdPortKey @ 0x1C005B39C
  * Callers:
- *     UsbhUpdateUxdSettings @ 0x1C005A420 (UsbhUpdateUxdSettings.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005BAE4 (UsbhUpdateUxdSettings.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     RtlStringCbPrintfW @ 0x1C004436C (RtlStringCbPrintfW.c)
- *     UsbhGetUxdLoadKeySettings @ 0x1C0059B94 (UsbhGetUxdLoadKeySettings.c)
- *     UsbhOpenUxdPortHandle @ 0x1C0059E04 (UsbhOpenUxdPortHandle.c)
- *     WPP_RECORDER_SF_SS @ 0x1C005A9C4 (WPP_RECORDER_SF_SS.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     RtlStringCbPrintfW @ 0x1C004561C (RtlStringCbPrintfW.c)
+ *     UsbhGetUxdLoadKeySettings @ 0x1C005B2B0 (UsbhGetUxdLoadKeySettings.c)
+ *     UsbhOpenUxdPortHandle @ 0x1C005B4A4 (UsbhOpenUxdPortHandle.c)
+ *     WPP_RECORDER_SF_SS @ 0x1C005C0E4 (WPP_RECORDER_SF_SS.c)
  */
 
 __int64 __fastcall UsbhGetUxdPortKey(__int64 a1, unsigned int a2, void *a3)

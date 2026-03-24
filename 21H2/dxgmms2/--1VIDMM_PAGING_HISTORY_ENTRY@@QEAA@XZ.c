@@ -1,5 +1,5 @@
 /*
- * XREFs of ??1VIDMM_PAGING_HISTORY_ENTRY@@QEAA@XZ @ 0x1C002D750
+ * XREFs of ??1VIDMM_PAGING_HISTORY_ENTRY@@QEAA@XZ @ 0x1C00233A0
  * Callers:
  *     <none>
  * Callees:

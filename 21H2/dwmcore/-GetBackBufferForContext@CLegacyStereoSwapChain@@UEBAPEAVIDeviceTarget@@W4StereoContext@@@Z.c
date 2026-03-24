@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBackBufferForContext@CLegacyStereoSwapChain@@UEBAPEAVIDeviceTarget@@W4StereoContext@@@Z @ 0x1802909D0
+ * XREFs of ?GetBackBufferForContext@CLegacyStereoSwapChain@@UEBAPEAVIDeviceTarget@@W4StereoContext@@@Z @ 0x18024DC20
  * Callers:
  *     <none>
  * Callees:
@@ -16,7 +16,7 @@ __int64 __fastcall CLegacyStereoSwapChain::GetBackBufferForContext(__int64 a1, i
   {
     if ( a2 <= 1 )
     {
-      v3 = *(_QWORD *)(a1 - 248);
+      v3 = *(_QWORD *)(a1 - 200);
     }
     else
     {

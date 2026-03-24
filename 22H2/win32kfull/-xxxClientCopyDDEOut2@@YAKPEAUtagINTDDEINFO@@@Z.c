@@ -1,48 +1,53 @@
 /*
- * XREFs of ?xxxClientCopyDDEOut2@@YAKPEAUtagINTDDEINFO@@@Z @ 0x1C020562C
+ * XREFs of ?xxxClientCopyDDEOut2@@YAKPEAUtagINTDDEINFO@@@Z @ 0x1C022815C
  * Callers:
- *     xxxClientCopyDDEOut1 @ 0x1C0211D00 (xxxClientCopyDDEOut1.c)
+ *     xxxClientCopyDDEOut1 @ 0x1C0231F34 (xxxClientCopyDDEOut1.c)
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBE98 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBF84 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00522B4 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005236C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052430 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052468 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall xxxClientCopyDDEOut2(struct tagINTDDEINFO *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall xxxClientCopyDDEOut2(struct tagINTDDEINFO *a1)
 {
-  int v5; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 *v8; // rcx
+  int v2; // ebx
+  __int64 *v3; // rcx
   __int64 result; // rax
-  _BYTE v10[4]; // [rsp+30h] [rbp-88h] BYREF
-  int v11; // [rsp+34h] [rbp-84h] BYREF
-  _QWORD v12[3]; // [rsp+38h] [rbp-80h] BYREF
-  __int128 v13; // [rsp+50h] [rbp-68h] BYREF
-  __int128 v14; // [rsp+60h] [rbp-58h]
-  __int128 v15; // [rsp+70h] [rbp-48h]
-  __int128 v16; // [rsp+80h] [rbp-38h]
-  __int64 v17; // [rsp+90h] [rbp-28h]
+  char v5; // [rsp+30h] [rbp-88h] BYREF
+  _BYTE v6[3]; // [rsp+31h] [rbp-87h] BYREF
+  int v7; // [rsp+34h] [rbp-84h] BYREF
+  _QWORD v8[3]; // [rsp+38h] [rbp-80h] BYREF
+  __int128 v9; // [rsp+50h] [rbp-68h] BYREF
+  __int128 v10; // [rsp+60h] [rbp-58h]
+  __int128 v11; // [rsp+70h] [rbp-48h]
+  __int128 v12; // [rsp+80h] [rbp-38h]
+  __int64 v13; // [rsp+90h] [rbp-28h]
 
-  v12[0] = 0LL;
-  v11 = 0;
-  v13 = *(_OWORD *)a1;
-  v14 = *((_OWORD *)a1 + 1);
-  v15 = *((_OWORD *)a1 + 2);
-  v16 = *((_OWORD *)a1 + 3);
-  v17 = *((_QWORD *)a1 + 8);
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v10, a2, a3, a4);
+  v8[0] = 0LL;
+  v7 = 0;
+  v9 = *(_OWORD *)a1;
+  v10 = *((_OWORD *)a1 + 1);
+  v11 = *((_OWORD *)a1 + 2);
+  v12 = *((_OWORD *)a1 + 3);
+  v13 = *((_QWORD *)a1 + 8);
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v6);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v5);
   EtwTraceBeginCallback(63LL);
-  v5 = KeUserModeCallback(63LL, &v13, 72LL, v12, &v11);
+  v2 = KeUserModeCallback(63LL, &v9, 72LL, v8, &v7);
   EtwTraceEndCallback(63LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v10, v6, v7);
-  *((_QWORD *)a1 + 3) = *((_QWORD *)&v14 + 1);
-  if ( v5 < 0 || v11 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v5);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v6);
+  *((_QWORD *)a1 + 3) = *((_QWORD *)&v10 + 1);
+  if ( v2 < 0 || v7 != 24 )
     return 0LL;
-  v8 = (__int64 *)v12[0];
-  if ( (unsigned __int64)(v12[0] + 8LL) < v12[0] || v12[0] + 8LL > MmUserProbeAddress )
-    v8 = (__int64 *)MmUserProbeAddress;
-  result = *v8;
-  v12[1] = *v8;
+  v3 = (__int64 *)v8[0];
+  if ( (unsigned __int64)(v8[0] + 8LL) < v8[0] || v8[0] + 8LL > MmUserProbeAddress )
+    v3 = (__int64 *)MmUserProbeAddress;
+  result = *v3;
+  v8[1] = *v3;
   return result;
 }

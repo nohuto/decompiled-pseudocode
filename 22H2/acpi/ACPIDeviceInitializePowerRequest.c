@@ -1,173 +1,174 @@
 /*
- * XREFs of ACPIDeviceInitializePowerRequest @ 0x1C001CFB8
+ * XREFs of ACPIDeviceInitializePowerRequest @ 0x1C001C9E4
  * Callers:
- *     ACPIDeviceInternalDelayedDeviceRequest @ 0x1C001D2E8 (ACPIDeviceInternalDelayedDeviceRequest.c)
- *     ACPIDeviceInternalDeviceRequest @ 0x1C001D3C8 (ACPIDeviceInternalDeviceRequest.c)
- *     ACPIDeviceInternalSynchronizeRequest @ 0x1C001D5B4 (ACPIDeviceInternalSynchronizeRequest.c)
- *     ACPIDeviceIrpDeviceFilterRequest @ 0x1C001DAB0 (ACPIDeviceIrpDeviceFilterRequest.c)
- *     ACPIDeviceIrpDeviceRequest @ 0x1C001DC18 (ACPIDeviceIrpDeviceRequest.c)
- *     ACPIDeviceIrpSystemRequest @ 0x1C001DE68 (ACPIDeviceIrpSystemRequest.c)
- *     ACPIDeviceIrpWaitWakeRequest @ 0x1C001DFD8 (ACPIDeviceIrpWaitWakeRequest.c)
- *     ACPIDeviceIrpWarmEjectRequest @ 0x1C001E494 (ACPIDeviceIrpWarmEjectRequest.c)
- *     AcpiDeviceResetInvokeReset @ 0x1C0023ADC (AcpiDeviceResetInvokeReset.c)
+ *     ACPIDeviceInternalDeviceRequest @ 0x1C000DD10 (ACPIDeviceInternalDeviceRequest.c)
+ *     ACPIDeviceInternalDelayedDeviceRequest @ 0x1C001B254 (ACPIDeviceInternalDelayedDeviceRequest.c)
+ *     ACPIDeviceInternalSynchronizeRequest @ 0x1C001C8E8 (ACPIDeviceInternalSynchronizeRequest.c)
+ *     ACPIDeviceIrpDeviceRequest @ 0x1C002D984 (ACPIDeviceIrpDeviceRequest.c)
+ *     ACPIDeviceIrpWaitWakeRequest @ 0x1C002E524 (ACPIDeviceIrpWaitWakeRequest.c)
+ *     ACPIDeviceIrpDeviceFilterRequest @ 0x1C0031410 (ACPIDeviceIrpDeviceFilterRequest.c)
+ *     ACPIDeviceIrpSystemRequest @ 0x1C0050A08 (ACPIDeviceIrpSystemRequest.c)
+ *     ACPIDeviceIrpWarmEjectRequest @ 0x1C0050D60 (ACPIDeviceIrpWarmEjectRequest.c)
+ *     AcpiDeviceResetInvokeReset @ 0x1C00529C8 (AcpiDeviceResetInvokeReset.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     ACPIDeviceInternalQueueRequest @ 0x1C001D4C0 (ACPIDeviceInternalQueueRequest.c)
- *     ACPIDereferenceWaitWakePowerRequest @ 0x1C00447E0 (ACPIDereferenceWaitWakePowerRequest.c)
- *     ACPIWakeEmulationEnable @ 0x1C00452C4 (ACPIWakeEmulationEnable.c)
- *     ACPIWakeEnableDisableAsync @ 0x1C0045368 (ACPIWakeEnableDisableAsync.c)
- *     ACPIWakeEmulationPrepare @ 0x1C0098C0C (ACPIWakeEmulationPrepare.c)
+ *     ACPIDeviceInternalQueueRequest @ 0x1C001CC50 (ACPIDeviceInternalQueueRequest.c)
+ *     ACPIWakeEnableDisableAsync @ 0x1C002F564 (ACPIWakeEnableDisableAsync.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIWakeEmulationDisable @ 0x1C0061DEC (ACPIWakeEmulationDisable.c)
+ *     ACPIWakeEmulationEnable @ 0x1C0061E34 (ACPIWakeEmulationEnable.c)
+ *     ACPIWakeEmulationPrepare @ 0x1C00B635C (ACPIWakeEmulationPrepare.c)
  */
 
 __int64 __fastcall ACPIDeviceInitializePowerRequest(
         __int64 a1,
         int a2,
-        _DWORD *a3,
-        void (__fastcall *a4)(__int64, __int64, __int64),
-        __int64 a5,
+        _SLIST_ENTRY *a3,
+        __int64 a4,
+        int a5,
         int a6,
-        int a7,
-        unsigned int a8)
+        unsigned int a7)
 {
-  _QWORD *v12; // rax
-  _QWORD *v13; // rdi
-  int v14; // ebx
+  PSLIST_ENTRY v11; // rdi
+  KIRQL v12; // r12
+  unsigned int v13; // esi
   __int64 result; // rax
-  KIRQL v16; // r12
-  unsigned int v17; // esi
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  void (__fastcall *v20)(__int64, __int64 *); // rax
-  struct _DEVICE_OBJECT *v21; // rcx
-  __int64 v22; // [rsp+20h] [rbp-38h] BYREF
+  struct _DEVICE_OBJECT *v15; // rcx
+  __int64 v16; // rdx
+  int v17; // ebx
+  __int64 v18; // rcx
+  void (__fastcall *v19)(__int64, __int64 *); // rax
+  __int64 v20; // [rsp+20h] [rbp-38h] BYREF
 
-  v12 = ExAllocateFromNPagedLookasideList(&RequestLookAsideList);
-  v13 = v12;
-  if ( !v12 )
+  ++dword_1C0082D54;
+  v11 = ExpInterlockedPopEntrySList(&RequestLookAsideList);
+  if ( !v11 )
   {
-    v14 = -1073741670;
-    if ( a4 )
-      a4(a1, a5, 3221225626LL);
-    return (unsigned int)v14;
-  }
-  memset(v12, 0, 0x108uLL);
-  v13[3] = v13 + 2;
-  v13[2] = v13 + 2;
-  v13[11] = v13 + 10;
-  v13[10] = v13 + 10;
-  *((_DWORD *)v13 + 64) = 0;
-  v13[9] = v13 + 8;
-  v13[8] = v13 + 8;
-  *((_DWORD *)v13 + 8) = 1599293264;
-  v13[24] = a4;
-  v13[25] = a5;
-  v13[5] = a1;
-  *((_DWORD *)v13 + 52) = 3;
-  *((_DWORD *)v13 + 12) = a7;
-  v13[1] = v13;
-  *v13 = v13;
-  v16 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerQueueLock);
-  if ( !a7 )
-  {
-    if ( _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 736), 0, 0) )
+    ++dword_1C0082D58;
+    v11 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_1C0082D70)(
+                          (unsigned int)dword_1C0082D64,
+                          (unsigned int)dword_1C0082D6C,
+                          (unsigned int)dword_1C0082D68);
+    if ( !v11 )
     {
-      if ( a6 == 3 )
-      {
-        if ( a2 == 4 )
-        {
-          v17 = a8 | 0x10;
-          goto LABEL_35;
-        }
-      }
-      else if ( a2 == 1 )
-      {
-        v17 = a8 | 0x20;
-        goto LABEL_35;
-      }
+      v17 = -1073741670;
+LABEL_26:
+      if ( a3 )
+        ((void (__fastcall *)(__int64, __int64, _QWORD))a3)(a1, a4, (unsigned int)v17);
+      return (unsigned int)v17;
     }
-    v17 = a8;
-LABEL_35:
-    *((_DWORD *)v13 + 26) = a2;
-    *((_DWORD *)v13 + 27) = 0;
-    *((_DWORD *)v13 + 14) = v17;
-    if ( a2 > *(_DWORD *)(a1 + 384) )
+  }
+  memset(v11, 0, 0x108uLL);
+  *((_QWORD *)&v11[1].Next + 1) = v11 + 1;
+  v11[1].Next = v11 + 1;
+  *((_QWORD *)&v11[5].Next + 1) = v11 + 5;
+  v11[5].Next = v11 + 5;
+  *((_QWORD *)&v11[4].Next + 1) = v11 + 4;
+  v11[4].Next = v11 + 4;
+  LODWORD(v11[2].Next) = 1599293264;
+  v11[12].Next = a3;
+  *((_QWORD *)&v11[12].Next + 1) = a4;
+  *((_QWORD *)&v11[2].Next + 1) = a1;
+  LODWORD(v11[13].Next) = 3;
+  LODWORD(v11[16].Next) = 0;
+  LODWORD(v11[3].Next) = a6;
+  *((_QWORD *)&v11->Next + 1) = v11;
+  v11->Next = v11;
+  v12 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerQueueLock);
+  if ( !a6 )
+  {
+    if ( !_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 696), 0, 0) )
     {
-      v21 = *(struct _DEVICE_OBJECT **)(a1 + 768);
-      if ( v21 )
-        PoSetPowerState(v21, DevicePowerState, (POWER_STATE)a2);
+LABEL_12:
+      v13 = a7;
+      goto LABEL_13;
     }
-    if ( a2 > 1 )
-      *(_QWORD *)(a1 + 1008) &= ~0x10000uLL;
-    goto LABEL_40;
-  }
-  if ( a7 == 1 )
-  {
-    v17 = a8;
-    *((_DWORD *)v13 + 26) = a2;
-    *((_DWORD *)v13 + 27) = *a3;
-    *((_DWORD *)v13 + 28) = a6;
-    goto LABEL_40;
-  }
-  if ( a7 != 2 )
-  {
-    if ( a7 == 3 )
+    if ( a5 == 3 )
     {
-      v17 = a8;
-      *((_DWORD *)v13 + 26) = a2;
+      if ( a2 != 4 )
+        goto LABEL_12;
+      v13 = a7 | 0x10;
     }
     else
     {
-      v17 = a8;
-      if ( a7 != 4 )
+      if ( a2 != 1 )
+        goto LABEL_12;
+      v13 = a7 | 0x20;
+    }
+LABEL_13:
+    *((_DWORD *)&v11[6].Next + 2) = a2;
+    *((_DWORD *)&v11[6].Next + 3) = 0;
+    *((_DWORD *)&v11[3].Next + 2) = v13;
+    if ( a2 > *(_DWORD *)(a1 + 344) )
+    {
+      v15 = *(struct _DEVICE_OBJECT **)(a1 + 728);
+      if ( v15 )
+        PoSetPowerState(v15, DevicePowerState, (POWER_STATE)a2);
+    }
+    if ( a2 > 1 )
+      *(_QWORD *)(a1 + 960) &= ~0x10000uLL;
+    goto LABEL_8;
+  }
+  if ( a6 == 1 )
+  {
+    v13 = a7;
+    *((_DWORD *)&v11[6].Next + 3) = a5;
+    *((_DWORD *)&v11[6].Next + 2) = a2;
+    goto LABEL_8;
+  }
+  if ( a6 != 2 )
+  {
+    if ( a6 == 3 )
+    {
+      v13 = a7;
+      *((_DWORD *)&v11[6].Next + 2) = a2;
+    }
+    else
+    {
+      v13 = a7;
+      if ( a6 != 4 )
       {
-LABEL_40:
-        if ( (v17 & 2) == 0 )
-          ACPIDeviceInternalQueueRequest(a1, v13, v17);
-        KeReleaseSpinLock(&AcpiPowerQueueLock, v16);
+LABEL_8:
+        if ( (v13 & 2) == 0 )
+          ACPIDeviceInternalQueueRequest(a1, v11, v13);
+        KeReleaseSpinLock(&AcpiPowerQueueLock, v12);
         return 3221225494LL;
       }
     }
-    *((_DWORD *)v13 + 14) = v17;
-    goto LABEL_40;
+    *((_DWORD *)&v11[3].Next + 2) = v13;
+    goto LABEL_8;
   }
-  *((_DWORD *)v13 + 14) = a8;
-  *((_DWORD *)v13 + 26) = a2;
-  *((_DWORD *)v13 + 28) = 1;
-  KeReleaseSpinLock(&AcpiPowerQueueLock, v16);
-  if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 1000)) )
-  {
-    v14 = -1073741436;
-LABEL_19:
-    if ( a4 )
-      a4(a1, a5, (unsigned int)v14);
-    ACPIDereferenceWaitWakePowerRequest(v13);
-    return (unsigned int)v14;
-  }
-  if ( _bittest64((const signed __int64 *)(a1 + 1008), 0x20u) )
+  *((_DWORD *)&v11[3].Next + 2) = a7;
+  *((_DWORD *)&v11[6].Next + 2) = a2;
+  LODWORD(v11[7].Next) = 1;
+  KeReleaseSpinLock(&AcpiPowerQueueLock, v12);
+  if ( (*(_QWORD *)(a1 + 960) & 0x100000000LL) != 0 )
   {
     if ( KeGetCurrentIrql() >= 2u )
     {
-      v14 = -1073741496;
-      goto LABEL_19;
+      v17 = -1073741496;
+      goto LABEL_26;
     }
-    v14 = ACPIWakeEmulationPrepare(v13);
-    if ( v14 < 0 )
-      goto LABEL_19;
-    v14 = ACPIWakeEmulationEnable(v13);
-    if ( v14 < 0 )
-      goto LABEL_19;
+    v17 = ACPIWakeEmulationPrepare(v11);
+    if ( v17 < 0 )
+      goto LABEL_26;
+    v17 = ACPIWakeEmulationEnable(v11);
+    if ( v17 < 0 )
+    {
+      ACPIWakeEmulationDisable(v11);
+      goto LABEL_26;
+    }
   }
-  if ( _bittest64((const signed __int64 *)(a1 + 1008), 0x26u) )
+  if ( (*(_QWORD *)(a1 + 960) & 0x4000000000LL) != 0 )
   {
-    v19 = *(_QWORD *)(a1 + 992);
-    v22 = *(unsigned int *)(a1 + 976);
-    v20 = *(void (__fastcall **)(__int64, __int64 *))(a1 + 984);
-    BYTE4(v22) = 1;
-    v20(v19, &v22);
+    v18 = *(_QWORD *)(a1 + 952);
+    v20 = *(unsigned int *)(a1 + 936);
+    v19 = *(void (__fastcall **)(__int64, __int64 *))(a1 + 944);
+    BYTE4(v20) = 1;
+    v19(v18, &v20);
   }
-  LOBYTE(v18) = 1;
-  result = ACPIWakeEnableDisableAsync(a1, v18, &ACPIDeviceIrpWaitWakeRequestPending, v13);
+  LOBYTE(v16) = 1;
+  result = ACPIWakeEnableDisableAsync(a1, v16, &ACPIDeviceIrpWaitWakeRequestPending, v11);
   if ( (_DWORD)result == 259 )
     return 3221225494LL;
   return result;

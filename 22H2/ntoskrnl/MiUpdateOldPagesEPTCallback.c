@@ -1,33 +1,51 @@
 /*
- * XREFs of MiUpdateOldPagesEPTCallback @ 0x140635630
+ * XREFs of MiUpdateOldPagesEPTCallback @ 0x14053C3C0
  * Callers:
  *     <none>
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUpdateOldPteWorker @ 0x14046BD86 (MiUpdateOldPteWorker.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiUpdateOldPteWorker @ 0x14053C668 (MiUpdateOldPteWorker.c)
  */
 
-__int64 __fastcall MiUpdateOldPagesEPTCallback(__int64 a1, __int64 *a2, unsigned __int64 a3)
+__int64 __fastcall MiUpdateOldPagesEPTCallback(__int64 a1, _QWORD *a2, unsigned __int64 a3, __int64 a4, __int64 a5)
 {
-  __int64 v3; // rsi
-  __int64 v6; // rax
-  __int64 v7; // rcx
-  bool v8; // zf
-  unsigned __int64 v9; // rax
-  __int64 v11; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v5; // rbp
+  unsigned __int64 v8; // rbx
+  bool v9; // zf
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  unsigned __int64 v14; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 24);
-  v6 = MI_READ_PTE_LOCK_FREE(a3);
-  v7 = *a2;
-  v11 = v6;
-  if ( (v7 & 2) != 0 )
-    v8 = (v6 & 0x20) == 0;
+  v5 = *(_QWORD *)(a1 + 24);
+  v8 = MI_READ_PTE_LOCK_FREE(a3);
+  v14 = v8;
+  if ( (*a2 & 2) != 0 )
+    v9 = (v8 & 0x20) == 0;
   else
-    v8 = (v7 & 1) == 0;
-  if ( v8 )
+    v9 = (*a2 & 1) == 0;
+  if ( v9 )
   {
-    v9 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v11);
-    MiUpdateOldPteWorker(v3, a3, 48 * ((v9 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL);
+    if ( MiPteInShadowRange((unsigned __int64)&v14)
+      && (MiFlags & 0xC00000) != 0
+      && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+      && (v8 & 1) != 0
+      && ((v8 & 0x20) == 0 || (v8 & 0x42) == 0) )
+    {
+      Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( Flink )
+      {
+        v11 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v14 >> 3) & 0x1FF));
+        v12 = v8 | 0x20;
+        if ( (v11 & 0x20) == 0 )
+          v12 = v8;
+        v8 = v12;
+        if ( (v11 & 0x42) != 0 )
+          v8 = v12;
+      }
+    }
+    MiUpdateOldPteWorker(v5, a3, 48 * ((v8 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL, a5);
   }
   return 0LL;
 }

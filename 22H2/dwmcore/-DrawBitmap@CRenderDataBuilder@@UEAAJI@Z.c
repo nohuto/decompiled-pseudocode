@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DrawBitmap@CRenderDataBuilder@@UEAAJI@Z @ 0x1800FC6E0
+ * XREFs of ?DrawBitmap@CRenderDataBuilder@@UEAAJI@Z @ 0x1800DAD60
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800C4940 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800B8A24 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
  */
 
 __int64 __fastcall CRenderDataBuilder::DrawBitmap(CRenderDataBuilder *this, int a2)
@@ -15,7 +15,7 @@ __int64 __fastcall CRenderDataBuilder::DrawBitmap(CRenderDataBuilder *this, int 
   __int64 v7; // rdx
   __int64 v8; // rcx
 
-  v4 = DynArrayImpl<0>::Grow((unsigned __int64)this + 16, 1u, 16, 0, 0LL);
+  v4 = DynArrayImpl<0>::Grow((__int64)this + 16, 1u, 16, 0, 0LL);
   v6 = v4;
   if ( v4 < 0 )
   {
@@ -27,7 +27,7 @@ __int64 __fastcall CRenderDataBuilder::DrawBitmap(CRenderDataBuilder *this, int 
     v8 = *((_QWORD *)this + 2);
     *(_DWORD *)(v7 + v8) = 16;
     *(_QWORD *)(v7 + v8 + 8) = 0LL;
-    *(_DWORD *)(v7 + v8 + 4) = 443;
+    *(_DWORD *)(v7 + v8 + 4) = 460;
     *(_DWORD *)(v7 + v8 + 8) = a2;
     *((_DWORD *)this + 10) += 16;
   }

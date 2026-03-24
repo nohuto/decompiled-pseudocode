@@ -1,14 +1,14 @@
 /*
- * XREFs of WheaAddErrorSource @ 0x1408DB8A0
+ * XREFs of WheaAddErrorSource @ 0x1408DB880
  * Callers:
  *     <none>
  * Callees:
- *     WheapAddErrorSource @ 0x14017D1BC (WheapAddErrorSource.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     WheapAddErrorSource @ 0x14017D1DC (WheapAddErrorSource.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WheapInitializeErrorSource @ 0x140727DB8 (WheapInitializeErrorSource.c)
+ *     WheapInitializeErrorSource @ 0x140727D98 (WheapInitializeErrorSource.c)
  */
 
 __int64 __fastcall WheaAddErrorSource(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VerifySegmentSet@VIDMM_GLOBAL@@QEAAEKKKPEAK@Z @ 0x1C00B3818
+ * XREFs of ?VerifySegmentSet@VIDMM_GLOBAL@@QEAAEKKKPEAK@Z @ 0x1C008C2C0
  * Callers:
- *     ?CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@U_DXGK_ALLOCATIONINFOFLAGS2@@PEAVDXGADAPTERALLOCATION@@PEAX6KE6PEAVVIDMM_PAGE_TABLE_BASE@@PEAPEAU_VIDMM_CROSSADAPTER_ALLOC@@PEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00A7EB0 (-CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_D.c)
- *     ?VerifySupportedSegmentSetAndAdjustFlags@VIDMM_GLOBAL@@IEAAEKKPEAU_DXGK_ALLOCATIONINFOFLAGS_WDDM2_0@@_K1_NPEAU_VIDMM_VERIFY_SUPPORTED_SEGMENT@@@Z @ 0x1C00AAC60 (-VerifySupportedSegmentSetAndAdjustFlags@VIDMM_GLOBAL@@IEAAEKKPEAU_DXGK_ALLOCATIONINFOFLAGS_WDDM.c)
- *     ?Init@VIDMM_DMA_POOL@@QEAAJXZ @ 0x1C00B2ED0 (-Init@VIDMM_DMA_POOL@@QEAAJXZ.c)
+ *     ?CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@U_DXGK_ALLOCATIONINFOFLAGS2@@PEAVDXGADAPTERALLOCATION@@PEAX6KE6EPEAPEAU_VIDMM_CROSSADAPTER_ALLOC@@PEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C005D110 (-CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_D.c)
+ *     ?VerifySupportedSegmentSetAndAdjustFlags@VIDMM_GLOBAL@@IEAAEKKPEAU_DXGK_ALLOCATIONINFOFLAGS_WDDM2_0@@_K1_NPEAU_VIDMM_VERIFY_SUPPORTED_SEGMENT@@@Z @ 0x1C00849E0 (-VerifySupportedSegmentSetAndAdjustFlags@VIDMM_GLOBAL@@IEAAEKKPEAU_DXGK_ALLOCATIONINFOFLAGS_WDDM.c)
+ *     ?Init@VIDMM_DMA_POOL@@QEAAJXZ @ 0x1C008B728 (-Init@VIDMM_DMA_POOL@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -15,25 +15,30 @@ bool __fastcall VIDMM_GLOBAL::VerifySegmentSet(
         int a4,
         unsigned int *a5)
 {
-  char v5; // r11
-  unsigned int v6; // ebx
-  unsigned int v7; // edx
+  __int64 v5; // rbx
+  char v6; // r11
+  unsigned int v7; // edi
+  unsigned int v8; // edx
 
-  v5 = 0;
-  v6 = *(_DWORD *)(1616LL * a2 + *((_QWORD *)this + 5028) + 28);
-  v7 = 0;
+  v5 = *((_QWORD *)this + 5027);
+  v6 = 0;
+  v7 = *(_DWORD *)(1584LL * a2 + v5 + 20);
+  v8 = 0;
   if ( a5 )
+  {
     *a5 = 0;
-  if ( (~*(_DWORD *)(*((_QWORD *)this + 5028) + 24LL) & a3) != 0 )
+    v5 = *((_QWORD *)this + 5027);
+  }
+  if ( (~*(_DWORD *)(v5 + 16) & a3) != 0 )
     return 0;
   for ( ; a3; a3 >>= 1 )
   {
-    if ( (a3 & 1) != 0 && a4 != (a4 & *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 464) + 8LL * v6) + 80LL)) )
-      v7 |= 1 << v5;
-    ++v5;
+    if ( (a3 & 1) != 0 && a4 != (a4 & *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 464) + 8LL * v7) + 80LL)) )
+      v8 |= 1 << v6;
     ++v6;
+    ++v7;
   }
   if ( a5 )
-    *a5 = v7;
-  return v7 == 0;
+    *a5 = v8;
+  return v8 == 0;
 }

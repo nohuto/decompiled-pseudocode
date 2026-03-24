@@ -1,10 +1,10 @@
 /*
- * XREFs of IoStartIoRateControl @ 0x14036204C
+ * XREFs of IoStartIoRateControl @ 0x1402006C0
  * Callers:
- *     PspIoRateEntryActivate @ 0x1407D8BEC (PspIoRateEntryActivate.c)
+ *     PspIoRateEntryActivate @ 0x1405D81B0 (PspIoRateEntryActivate.c)
  * Callees:
- *     IopIoRateStartRateControl @ 0x140362154 (IopIoRateStartRateControl.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     IopIoRateStartRateControl @ 0x1402007C8 (IopIoRateStartRateControl.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IoStartIoRateControl(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5)

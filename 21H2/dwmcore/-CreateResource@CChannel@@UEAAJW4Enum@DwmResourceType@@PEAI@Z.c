@@ -1,42 +1,42 @@
 /*
- * XREFs of ?CreateResource@CChannel@@UEAAJW4Enum@DwmResourceType@@PEAI@Z @ 0x1800BD330
+ * XREFs of ?CreateResource@CChannel@@UEAAJW4Enum@DwmResourceType@@PEAI@Z @ 0x18005D940
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?CreateOrAddRefOnChannel@CHandleTable@@QEAAJPEAVCChannel@@W4MIL_RESOURCE_TYPE@@PEAI@Z @ 0x1800BD8BC (-CreateOrAddRefOnChannel@CHandleTable@@QEAAJPEAVCChannel@@W4MIL_RESOURCE_TYPE@@PEAI@Z.c)
- *     ?MilTypeFromDwmType@CChannel@@CAJW4Enum@DwmResourceType@@PEAW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D994C (-MilTypeFromDwmType@CChannel@@CAJW4Enum@DwmResourceType@@PEAW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CreateOrAddRefOnChannel@CHandleTable@@QEAAJPEAVCChannel@@W4MIL_RESOURCE_TYPE@@PEAI@Z @ 0x18005D9D8 (-CreateOrAddRefOnChannel@CHandleTable@@QEAAJPEAVCChannel@@W4MIL_RESOURCE_TYPE@@PEAI@Z.c)
+ *     ?MilTypeFromDwmType@CChannel@@CAJW4Enum@DwmResourceType@@PEAW4MIL_RESOURCE_TYPE@@@Z @ 0x18005DF3C (-MilTypeFromDwmType@CChannel@@CAJW4Enum@DwmResourceType@@PEAW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CChannel::CreateResource(__int64 a1, unsigned int a2, _DWORD *a3)
 {
-  int v6; // eax
-  __int64 v7; // rcx
-  unsigned int v8; // ebx
-  int v9; // eax
-  __int64 v10; // rcx
-  int v12; // [rsp+50h] [rbp+8h] BYREF
-  unsigned int v13; // [rsp+60h] [rbp+18h] BYREF
-  struct _RTL_CRITICAL_SECTION *v14; // [rsp+68h] [rbp+20h] BYREF
+  struct _RTL_CRITICAL_SECTION *v3; // rdi
+  int v7; // eax
+  __int64 v8; // rcx
+  unsigned int v9; // ebx
+  int v10; // eax
+  __int64 v11; // rcx
+  int v13; // [rsp+50h] [rbp+8h] BYREF
+  unsigned int v14; // [rsp+60h] [rbp+18h] BYREF
 
-  v14 = (struct _RTL_CRITICAL_SECTION *)(a1 + 168);
+  v3 = (struct _RTL_CRITICAL_SECTION *)(a1 + 168);
   EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 168));
-  v12 = 0;
-  v6 = CChannel::MilTypeFromDwmType(a2, &v13);
-  v8 = v6;
-  if ( v6 < 0 )
+  v13 = 0;
+  v7 = CChannel::MilTypeFromDwmType(a2, &v14);
+  v9 = v7;
+  if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x2CAu);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x2B2u, 0LL);
   }
   else
   {
-    v9 = CHandleTable::CreateOrAddRefOnChannel(a1 + 16, a1, v13, &v12);
-    v8 = v9;
-    if ( v9 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0x2CBu);
+    v10 = CHandleTable::CreateOrAddRefOnChannel(a1 + 16, a1, v14, &v13);
+    v9 = v10;
+    if ( v10 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x2B3u, 0LL);
   }
-  *a3 = v12;
-  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v14);
-  return v8;
+  *a3 = v13;
+  if ( v3 )
+    LeaveCriticalSection(v3);
+  return v9;
 }

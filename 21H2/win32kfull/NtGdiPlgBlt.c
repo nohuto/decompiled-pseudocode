@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiPlgBlt @ 0x1C028BE70
+ * XREFs of NtGdiPlgBlt @ 0x1C028E1D0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     GrePlgBlt @ 0x1C028B85C (GrePlgBlt.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     GrePlgBlt @ 0x1C028DBB0 (GrePlgBlt.c)
  */
 
 __int64 __fastcall NtGdiPlgBlt(
@@ -17,7 +17,7 @@ __int64 __fastcall NtGdiPlgBlt(
         int a6,
         int a7,
         HSURF a8,
-        int a9,
+        unsigned int a9,
         int a10,
         int a11)
 {

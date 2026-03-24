@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetWindow@CFlipExBuffer@@UEBAPEAUHWND__@@XZ @ 0x1C001A2C0
+ * XREFs of ?GetWindow@CFlipExBuffer@@UEBAPEAUHWND__@@XZ @ 0x1C001BAC0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 HWND __fastcall CFlipExBuffer::GetWindow(CFlipExBuffer *this)
 {
-  return (HWND)*((_QWORD *)this + 40);
+  return (HWND)*((_QWORD *)this + 36);
 }

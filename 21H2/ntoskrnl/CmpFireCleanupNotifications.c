@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFireCleanupNotifications @ 0x1406C25A0
+ * XREFs of CmpFireCleanupNotifications @ 0x1405D82F4
  * Callers:
- *     CmpDeleteKeyObject @ 0x1407C2680 (CmpDeleteKeyObject.c)
+ *     CmpDeleteKeyObject @ 0x1406675C0 (CmpDeleteKeyObject.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     CmpCallbackFatalFilter @ 0x1409100F4 (CmpCallbackFatalFilter.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpCallbackFatalFilter @ 0x14086A074 (CmpCallbackFatalFilter.c)
  */
 
 __int64 __fastcall CmpFireCleanupNotifications(__int64 a1)

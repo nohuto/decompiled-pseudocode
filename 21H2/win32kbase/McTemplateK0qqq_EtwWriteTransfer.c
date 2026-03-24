@@ -1,24 +1,24 @@
 /*
- * XREFs of McTemplateK0qqq_EtwWriteTransfer @ 0x1C00E5834
+ * XREFs of McTemplateK0qqq_EtwWriteTransfer @ 0x1C01250D4
  * Callers:
- *     EtwTraceFocusedProcessChange @ 0x1C00B6F00 (EtwTraceFocusedProcessChange.c)
- *     ?ReportGetAsyncKeyStateAnomaly@CAsyncKeyEventMonitor@@AEAAXK@Z @ 0x1C00BBAEC (-ReportGetAsyncKeyStateAnomaly@CAsyncKeyEventMonitor@@AEAAXK@Z.c)
- *     EtwTraceGreMovePointerEnd @ 0x1C00C3430 (EtwTraceGreMovePointerEnd.c)
- *     EtwTraceGreMovePointerBegin @ 0x1C00C3450 (EtwTraceGreMovePointerBegin.c)
- *     EtwTraceBeginPointerFrameBuildPartial @ 0x1C014C680 (EtwTraceBeginPointerFrameBuildPartial.c)
- *     EtwTraceBeginPointerFrameCoalesce @ 0x1C014C6B0 (EtwTraceBeginPointerFrameCoalesce.c)
- *     EtwTraceBeginPointerFrameCommit @ 0x1C014C710 (EtwTraceBeginPointerFrameCommit.c)
- *     EtwTraceBeginPointerFrameCreation @ 0x1C014C750 (EtwTraceBeginPointerFrameCreation.c)
- *     EtwTraceBeginPointerFrameMessageGeneration @ 0x1C014C790 (EtwTraceBeginPointerFrameMessageGeneration.c)
- *     EtwTraceCursorSize @ 0x1C014CA00 (EtwTraceCursorSize.c)
- *     EtwTraceEndPointerFrameBuildPartial @ 0x1C014CD40 (EtwTraceEndPointerFrameBuildPartial.c)
- *     EtwTraceEndPointerFrameCoalesce @ 0x1C014CD70 (EtwTraceEndPointerFrameCoalesce.c)
- *     EtwTraceEndPointerFrameCommit @ 0x1C014CDD0 (EtwTraceEndPointerFrameCommit.c)
- *     EtwTraceEndPointerFrameCreation @ 0x1C014CE10 (EtwTraceEndPointerFrameCreation.c)
- *     EtwTraceEndPointerFrameMessageGeneration @ 0x1C014CE50 (EtwTraceEndPointerFrameMessageGeneration.c)
+ *     EtwTraceFocusedProcessChange @ 0x1C00A7E40 (EtwTraceFocusedProcessChange.c)
+ *     ?ReportGetAsyncKeyStateAnomaly@CAsyncKeyEventMonitor@@AEAAXK@Z @ 0x1C00AB054 (-ReportGetAsyncKeyStateAnomaly@CAsyncKeyEventMonitor@@AEAAXK@Z.c)
+ *     EtwTraceGreMovePointerEnd @ 0x1C00B3320 (EtwTraceGreMovePointerEnd.c)
+ *     EtwTraceGreMovePointerBegin @ 0x1C00B3340 (EtwTraceGreMovePointerBegin.c)
+ *     EtwTraceBeginPointerFrameBuildPartial @ 0x1C01218A0 (EtwTraceBeginPointerFrameBuildPartial.c)
+ *     EtwTraceBeginPointerFrameCoalesce @ 0x1C01218D0 (EtwTraceBeginPointerFrameCoalesce.c)
+ *     EtwTraceBeginPointerFrameCommit @ 0x1C0121930 (EtwTraceBeginPointerFrameCommit.c)
+ *     EtwTraceBeginPointerFrameCreation @ 0x1C0121970 (EtwTraceBeginPointerFrameCreation.c)
+ *     EtwTraceBeginPointerFrameMessageGeneration @ 0x1C01219B0 (EtwTraceBeginPointerFrameMessageGeneration.c)
+ *     EtwTraceCursorSize @ 0x1C0121C30 (EtwTraceCursorSize.c)
+ *     EtwTraceEndPointerFrameBuildPartial @ 0x1C0122020 (EtwTraceEndPointerFrameBuildPartial.c)
+ *     EtwTraceEndPointerFrameCoalesce @ 0x1C0122050 (EtwTraceEndPointerFrameCoalesce.c)
+ *     EtwTraceEndPointerFrameCommit @ 0x1C01220B0 (EtwTraceEndPointerFrameCommit.c)
+ *     EtwTraceEndPointerFrameCreation @ 0x1C01220F0 (EtwTraceEndPointerFrameCreation.c)
+ *     EtwTraceEndPointerFrameMessageGeneration @ 0x1C0122130 (EtwTraceEndPointerFrameMessageGeneration.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0047300 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00554F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqq_EtwWriteTransfer(

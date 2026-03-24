@@ -1,76 +1,70 @@
 /*
- * XREFs of RtlUTF8StringToUnicodeString @ 0x1409C23E0
+ * XREFs of RtlUTF8StringToUnicodeString @ 0x1409197D0
  * Callers:
- *     PiGetDefaultMessageString @ 0x140849DD8 (PiGetDefaultMessageString.c)
+ *     PiGetDefaultMessageString @ 0x14076A644 (PiGetDefaultMessageString.c)
  * Callees:
- *     CountUTF8ToUnicode @ 0x140392C50 (CountUTF8ToUnicode.c)
- *     RtlUTF8ToUnicodeN @ 0x1406DA680 (RtlUTF8ToUnicodeN.c)
- *     ExpAllocateStringRoutine @ 0x1407C7520 (ExpAllocateStringRoutine.c)
- *     ExFreePool @ 0x140AAFCC0 (ExFreePool.c)
+ *     CountUTF8ToUnicode @ 0x14058EEE8 (CountUTF8ToUnicode.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
+ *     RtlUTF8ToUnicodeN @ 0x140699310 (RtlUTF8ToUnicodeN.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall RtlUTF8StringToUnicodeString(__int64 a1, char **a2, char a3)
+__int64 __fastcall RtlUTF8StringToUnicodeString(__int16 *a1, unsigned __int16 *a2, char a3)
 {
-  int v5; // edx
+  int v6; // edx
+  char *v7; // rcx
   __int64 result; // rax
-  ULONG v8; // edi
-  __int64 StringRoutine; // rax
-  ULONG v10; // ecx
-  NTSTATUS v11; // edi
-  unsigned __int64 v12; // rcx
-  unsigned int v13; // eax
-  ULONG UnicodeStringActualByteCount; // [rsp+58h] [rbp+10h] BYREF
+  SIZE_T v9; // rax
+  unsigned __int16 v10; // cx
+  PVOID StringRoutine; // rax
+  unsigned __int64 v12; // rdx
+  ULONG v13; // edx
+  NTSTATUS v14; // edi
+  SIZE_T NumberOfBytes; // [rsp+58h] [rbp+10h] BYREF
+  ULONG UnicodeStringActualByteCount; // [rsp+68h] [rbp+20h] BYREF
 
-  v5 = *(unsigned __int16 *)a2;
+  v6 = *a2 + 1;
+  LODWORD(NumberOfBytes) = 0;
+  v7 = (char *)*((_QWORD *)a2 + 1);
   UnicodeStringActualByteCount = 0;
-  result = CountUTF8ToUnicode(a2[1], v5, &UnicodeStringActualByteCount);
+  result = CountUTF8ToUnicode(v7, v6, &NumberOfBytes);
   if ( (int)result >= 0 )
   {
-    v8 = UnicodeStringActualByteCount + 2;
-    UnicodeStringActualByteCount = v8;
-    if ( v8 > 0xFFFE )
+    v9 = (unsigned int)NumberOfBytes;
+    if ( (unsigned int)NumberOfBytes > 0xFFFE )
       return 3221225712LL;
+    v10 = NumberOfBytes - 2;
+    *a1 = NumberOfBytes - 2;
     if ( a3 )
     {
-      StringRoutine = ExpAllocateStringRoutine(v8);
-      *(_QWORD *)(a1 + 8) = StringRoutine;
+      a1[1] = v9;
+      StringRoutine = ExpAllocateStringRoutine(v9);
+      *((_QWORD *)a1 + 1) = StringRoutine;
       if ( !StringRoutine )
         return 3221225495LL;
-      *(_WORD *)(a1 + 2) = v8;
-      LOWORD(v10) = v8;
+      v10 = *a1;
     }
     else
     {
-      v10 = *(unsigned __int16 *)(a1 + 2);
-      if ( v8 > v10 )
+      v12 = v10 + 2LL;
+      if ( v12 > (unsigned __int16)a1[1] || v12 < 2 )
         return 2147483653LL;
     }
-    v11 = RtlUTF8ToUnicodeN(
-            *(PWSTR *)(a1 + 8),
-            (unsigned __int16)v10,
-            &UnicodeStringActualByteCount,
-            a2[1],
-            *(unsigned __int16 *)a2);
-    if ( v11 < 0 )
+    v14 = RtlUTF8ToUnicodeN(*((PWSTR *)a1 + 1), v10, &UnicodeStringActualByteCount, *((PCCH *)a2 + 1), *a2);
+    if ( v14 < 0 )
     {
       if ( a3 )
       {
-        ExFreePool(*(PVOID *)(a1 + 8));
-        *(_QWORD *)(a1 + 8) = 0LL;
-        *(_WORD *)(a1 + 2) = 0;
+        ExFreePoolWithTag(*((PVOID *)a1 + 1), v13);
+        *((_QWORD *)a1 + 1) = 0LL;
       }
-      return (unsigned int)v11;
     }
-    v12 = UnicodeStringActualByteCount;
-    v13 = *(unsigned __int16 *)(a1 + 2);
-    *(_WORD *)a1 = UnicodeStringActualByteCount;
-    if ( (unsigned int)v12 < v13 )
+    else
     {
-      v11 = 0;
-      *(_WORD *)(*(_QWORD *)(a1 + 8) + 2 * (v12 >> 1)) = 0;
-      return (unsigned int)v11;
+      v14 = 0;
+      *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * ((unsigned __int64)UnicodeStringActualByteCount >> 1)) = 0;
     }
-    return 2147483653LL;
+    return (unsigned int)v14;
   }
   return result;
 }

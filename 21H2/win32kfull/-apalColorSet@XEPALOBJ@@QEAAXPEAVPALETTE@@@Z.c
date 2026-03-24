@@ -1,8 +1,8 @@
 /*
- * XREFs of ?apalColorSet@XEPALOBJ@@QEAAXPEAVPALETTE@@@Z @ 0x1C027414C
+ * XREFs of ?apalColorSet@XEPALOBJ@@QEAAXPEAVPALETTE@@@Z @ 0x1C0276840
  * Callers:
- *     GreCreateDIBitmapReal @ 0x1C002BC78 (GreCreateDIBitmapReal.c)
- *     ?DxEngSyncPaletteTableWithDevice@@YAHPEAUHPALETTE__@@PEAUHDEV__@@@Z @ 0x1C02735E0 (-DxEngSyncPaletteTableWithDevice@@YAHPEAUHPALETTE__@@PEAUHDEV__@@@Z.c)
+ *     GreCreateDIBitmapReal @ 0x1C00AC12C (GreCreateDIBitmapReal.c)
+ *     ?DxEngSyncPaletteTableWithDevice@@YAHPEAUHPALETTE__@@PEAUHDEV__@@@Z @ 0x1C0275CD4 (-DxEngSyncPaletteTableWithDevice@@YAHPEAUHPALETTE__@@PEAUHDEV__@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ void __fastcall XEPALOBJ::apalColorSet(XEPALOBJ *this, struct PALETTE *a2)
   v2 = *(_QWORD *)this;
   v5 = *(_QWORD *)(*(_QWORD *)this + 120LL);
   if ( v5 != v2 )
-    DEC_SHARE_REF_CNT(v5);
+    DEC_SHARE_REF_CNT(v5, a2);
   INC_SHARE_REF_CNT(a2);
   *(_DWORD *)(*(_QWORD *)this + 28LL) = *((_DWORD *)a2 + 7);
   *(_QWORD *)(*(_QWORD *)this + 112LL) = *((_QWORD *)a2 + 14);

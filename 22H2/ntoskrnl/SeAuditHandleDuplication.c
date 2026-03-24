@@ -1,35 +1,36 @@
 /*
- * XREFs of SeAuditHandleDuplication @ 0x1409CA84C
+ * XREFs of SeAuditHandleDuplication @ 0x14091DB1C
  * Callers:
- *     ObDuplicateObject @ 0x1406FB9A0 (ObDuplicateObject.c)
- *     ObCompleteObjectDuplication @ 0x1407BFAC4 (ObCompleteObjectDuplication.c)
- *     ObAuditInheritedHandleProcedure @ 0x14097AE10 (ObAuditInheritedHandleProcedure.c)
+ *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
+ *     ObCompleteObjectDuplication @ 0x140664680 (ObCompleteObjectDuplication.c)
+ *     ObAuditInheritedHandleProcedure @ 0x1408DC450 (ObAuditInheritedHandleProcedure.c)
  * Callees:
- *     ObpIsKernelHandle @ 0x1402BEB24 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x14039B490 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
+ *     ObpIsKernelHandle @ 0x1402C8F50 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x1403C20B4 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
  */
 
-void __fastcall SeAuditHandleDuplication(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall SeAuditHandleDuplication(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v8; // rsi
   __int64 v9; // rax
   __int64 v10; // rbx
   int v11; // eax
   bool IsKernelHandle; // al
-  unsigned int v13; // r10d
-  unsigned int v14; // r9d
-  __int64 v15; // rcx
-  unsigned __int64 v16; // rcx
-  bool v17; // al
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // rcx
-  unsigned int v21; // r9d
-  unsigned int v22; // r10d
+  char v13; // dl
+  unsigned int v14; // r10d
+  unsigned int v15; // r9d
+  __int64 v16; // rcx
+  unsigned __int64 v17; // rcx
+  bool v18; // al
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  unsigned __int64 v21; // rcx
+  unsigned int v22; // r9d
+  unsigned int v23; // r10d
   _QWORD SubjectContext[5]; // [rsp+20h] [rbp-E8h] BYREF
   _QWORD Src[132]; // [rsp+48h] [rbp-C0h] BYREF
 
@@ -56,22 +57,22 @@ void __fastcall SeAuditHandleDuplication(__int64 a1, __int64 a2, __int64 a3, __i
   Src[11] = 0x800000005LL;
   Src[15] = 0x80000000BLL;
   IsKernelHandle = ObpIsKernelHandle(a1, 0);
-  Src[19] = __PAIR64__(v13, v14);
-  v16 = v15 ^ 0xFFFFFFFF80000000uLL;
-  LODWORD(Src[23]) = v14;
+  Src[19] = __PAIR64__(v14, v15);
+  v17 = v16 ^ 0xFFFFFFFF80000000uLL;
+  LODWORD(Src[23]) = v15;
   if ( !IsKernelHandle )
-    v16 = a1;
+    v17 = a1;
   Src[20] = *(_QWORD *)(a3 + 1088);
-  HIDWORD(Src[23]) = v13;
-  Src[16] = v16 & 0xFFFFFFFFFFFFFFFCuLL;
-  v17 = ObpIsKernelHandle(a2, 0);
-  v20 = v19 ^ v18;
-  Src[27] = __PAIR64__(v22, v21);
-  if ( !v17 )
-    v20 = a2;
+  HIDWORD(Src[23]) = v14;
+  Src[16] = v17 & 0xFFFFFFFFFFFFFFFCuLL;
+  v18 = ObpIsKernelHandle(a2, v13);
+  v21 = v20 ^ v19;
+  Src[27] = __PAIR64__(v23, v22);
+  if ( !v18 )
+    v21 = a2;
   Src[28] = *(_QWORD *)(a4 + 1088);
   LODWORD(Src[1]) = 7;
-  Src[24] = v20 & 0xFFFFFFFFFFFFFFFCuLL;
+  Src[24] = v21 & 0xFFFFFFFFFFFFFFFCuLL;
   SepAdtLogAuditRecord(Src);
   SeReleaseSubjectContext((PSECURITY_SUBJECT_CONTEXT)&SubjectContext[1]);
 }

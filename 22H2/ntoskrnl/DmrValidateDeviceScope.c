@@ -1,27 +1,27 @@
 /*
- * XREFs of DmrValidateDeviceScope @ 0x14037F87C
+ * XREFs of DmrValidateDeviceScope @ 0x1404E85B0
  * Callers:
- *     HalpIvtProcessDrhdEntry @ 0x14037EF04 (HalpIvtProcessDrhdEntry.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1404E734C (HalpIvtProcessDrhdEntry.c)
  * Callees:
- *     DmrGetNextDrhdDeviceScope @ 0x14037F970 (DmrGetNextDrhdDeviceScope.c)
- *     DmrGetNextRemappingStructure @ 0x14037F99C (DmrGetNextRemappingStructure.c)
- *     DmrCheckPathMatch @ 0x14037FB9C (DmrCheckPathMatch.c)
+ *     DmrGetNextDrhdDeviceScope @ 0x1404E836C (DmrGetNextDrhdDeviceScope.c)
+ *     DmrCheckPathMatch @ 0x1404E8398 (DmrCheckPathMatch.c)
+ *     DmrGetNextRemappingStructure @ 0x1404E855C (DmrGetNextRemappingStructure.c)
  */
 
-__int64 __fastcall DmrValidateDeviceScope(__int64 a1, __int64 a2)
+__int64 __fastcall DmrValidateDeviceScope(unsigned __int64 a1, unsigned __int64 a2)
 {
   unsigned int v2; // ebx
   unsigned __int8 v5; // r15
-  __int64 j; // rdx
-  __int64 NextRemappingStructure; // rax
-  __int64 v8; // rdi
-  _BYTE *i; // rdx
+  __int64 i; // rdx
   _BYTE *NextDrhdDeviceScope; // rax
+  __int64 j; // rdx
   __int64 k; // rdx
-  __int64 v13; // rbp
   __int64 m; // rdx
-  __int64 v15; // rax
-  __int64 v16; // r14
+  char *v11; // rax
+  char *v12; // r14
+  char *v13; // rbp
+  unsigned __int64 NextRemappingStructure; // rax
+  unsigned __int64 v15; // rdi
 
   v2 = 0;
   if ( *(_WORD *)a2 )
@@ -33,7 +33,7 @@ __int64 __fastcall DmrValidateDeviceScope(__int64 a1, __int64 a2)
     v5 = *(_BYTE *)(a2 + 4);
     if ( (v5 & 1) != 0 )
     {
-      for ( i = 0LL; ; i = NextDrhdDeviceScope )
+      for ( i = 0LL; ; i = (__int64)NextDrhdDeviceScope )
       {
         NextDrhdDeviceScope = (_BYTE *)DmrGetNextDrhdDeviceScope(a2, i);
         if ( !NextDrhdDeviceScope )
@@ -42,10 +42,10 @@ __int64 __fastcall DmrValidateDeviceScope(__int64 a1, __int64 a2)
           return (unsigned int)-1073741823;
       }
     }
-    for ( j = 0LL; ; j = v8 )
+    for ( j = 0LL; ; j = v15 )
     {
       NextRemappingStructure = DmrGetNextRemappingStructure(a1, j);
-      v8 = NextRemappingStructure;
+      v15 = NextRemappingStructure;
       if ( !NextRemappingStructure )
         break;
       if ( !*(_WORD *)NextRemappingStructure
@@ -54,18 +54,18 @@ __int64 __fastcall DmrValidateDeviceScope(__int64 a1, __int64 a2)
       {
         if ( (v5 & *(_BYTE *)(NextRemappingStructure + 4) & 1) != 0 )
           return (unsigned int)-1073741823;
-        for ( k = 0LL; ; k = v13 )
+        for ( k = 0LL; ; k = (__int64)v13 )
         {
-          v13 = DmrGetNextDrhdDeviceScope(a2, k);
+          v13 = (char *)DmrGetNextDrhdDeviceScope(a2, k);
           if ( !v13 )
             break;
-          for ( m = 0LL; ; m = v16 )
+          for ( m = 0LL; ; m = (__int64)v12 )
           {
-            v15 = DmrGetNextDrhdDeviceScope(v8, m);
-            v16 = v15;
-            if ( !v15 )
+            v11 = (char *)DmrGetNextDrhdDeviceScope(v15, m);
+            v12 = v11;
+            if ( !v11 )
               break;
-            if ( (unsigned __int8)DmrCheckPathMatch(v13, v15) )
+            if ( DmrCheckPathMatch(v13, v11) )
               return (unsigned int)-1073741823;
           }
         }

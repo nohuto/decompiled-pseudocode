@@ -1,37 +1,34 @@
 /*
- * XREFs of ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C0048150
+ * XREFs of ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C0039FC4
  * Callers:
- *     ulIndexToRGB @ 0x1C00097B0 (ulIndexToRGB.c)
- *     ?vRemoveRefPalettes@@YAXK@Z @ 0x1C0033C08 (-vRemoveRefPalettes@@YAXK@Z.c)
- *     ?GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0038DD8 (-GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z.c)
- *     NtGdiDeleteObjectApp @ 0x1C0041980 (NtGdiDeleteObjectApp.c)
- *     ??1SURFMEM@@QEAA@XZ @ 0x1C0046370 (--1SURFMEM@@QEAA@XZ.c)
- *     GreDeleteObject @ 0x1C00472A0 (GreDeleteObject.c)
- *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C00483E0 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
- *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C004B888 (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
- *     bDeletePalette @ 0x1C008B2F0 (bDeletePalette.c)
- *     ?Map@SURFACE@@QEAA?AW4SurfaceMapStatus@1@PEAXPEAVDC@@@Z @ 0x1C008F8D0 (-Map@SURFACE@@QEAA-AW4SurfaceMapStatus@1@PEAXPEAVDC@@@Z.c)
- *     GdiUnmapGDIW32PIDLockedBitmaps @ 0x1C00A67F0 (GdiUnmapGDIW32PIDLockedBitmaps.c)
- *     ?vChangeWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@01@Z @ 0x1C00C32F8 (-vChangeWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@01@Z.c)
- *     ?bGarbageCollect@XEPALOBJ2@@QEAAHXZ @ 0x1C00D26AC (-bGarbageCollect@XEPALOBJ2@@QEAAHXZ.c)
- *     freepathalloc @ 0x1C0154300 (freepathalloc.c)
- *     newpathalloc @ 0x1C0154390 (newpathalloc.c)
- *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C0154FD0 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
- *     ?vTrackObject@PDEVOBJ@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C01560E0 (-vTrackObject@PDEVOBJ@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?vUntrackObject@PDEVOBJ@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C01561B0 (-vUntrackObject@PDEVOBJ@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z @ 0x1C01585B0 (-bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z.c)
- *     pProcessDfbSurfaces2 @ 0x1C015AAD0 (pProcessDfbSurfaces2.c)
- *     GreSetMagicColors @ 0x1C016C76C (GreSetMagicColors.c)
- *     ?vTransferWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@1@Z @ 0x1C016D4D0 (-vTransferWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@1@Z.c)
+ *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C000DEF0 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     freepathalloc @ 0x1C0023430 (freepathalloc.c)
+ *     ?SelectPaletteWorker@@YAPEAUHPALETTE__@@PEAVXDCOBJ@@PEAU1@H@Z @ 0x1C00295B4 (-SelectPaletteWorker@@YAPEAUHPALETTE__@@PEAVXDCOBJ@@PEAU1@H@Z.c)
+ *     ??1SURFMEM@@QEAA@XZ @ 0x1C0031B30 (--1SURFMEM@@QEAA@XZ.c)
+ *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C003950C (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
+ *     ulIndexToRGB @ 0x1C0067820 (ulIndexToRGB.c)
+ *     ?NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z @ 0x1C0073B1C (-NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z.c)
+ *     GdiUnmapGDIW32PIDLockedBitmaps @ 0x1C0073F80 (GdiUnmapGDIW32PIDLockedBitmaps.c)
+ *     bDeletePalette @ 0x1C0074320 (bDeletePalette.c)
+ *     ?Map@SURFACE@@QEAA?AW4SurfaceMapStatus@1@PEAXPEAVDC@@@Z @ 0x1C007AB20 (-Map@SURFACE@@QEAA-AW4SurfaceMapStatus@1@PEAXPEAVDC@@@Z.c)
+ *     ?bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z @ 0x1C007AEC4 (-bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z.c)
+ *     ?vChangeWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@01@Z @ 0x1C00B4704 (-vChangeWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@01@Z.c)
+ *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C00B9020 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
+ *     newpathalloc @ 0x1C00BDE50 (newpathalloc.c)
+ *     pProcessDfbSurfaces2 @ 0x1C00BE790 (pProcessDfbSurfaces2.c)
+ *     ??$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CBF54 (--$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z.c)
+ *     GreRestoreDCInternal @ 0x1C00CC1F0 (GreRestoreDCInternal.c)
+ *     ?vTransferWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@1@Z @ 0x1C014905C (-vTransferWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@1@Z.c)
+ *     GreSetMagicColors @ 0x1C0149888 (GreSetMagicColors.c)
  * Callees:
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
  */
 
 void __fastcall SEMOBJ::vUnlock(PERESOURCE *this)
 {
   if ( *this )
   {
-    EtwTraceGreLockReleaseSemaphore((__int64)L"hsem", (int)*this);
+    EtwTraceGreLockReleaseSemaphore(L"hsem", *this);
     if ( *this )
     {
       ExReleaseResourceAndLeaveCriticalRegion(*this);

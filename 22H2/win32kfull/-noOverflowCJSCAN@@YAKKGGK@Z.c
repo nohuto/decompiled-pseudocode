@@ -1,8 +1,7 @@
 /*
- * XREFs of ?noOverflowCJSCAN@@YAKKGGK@Z @ 0x1C00E0BBC
+ * XREFs of ?noOverflowCJSCAN@@YAKKGGK@Z @ 0x1C00ABD38
  * Callers:
- *     NtGdiCreateDIBSection @ 0x1C002A420 (NtGdiCreateDIBSection.c)
- *     GreGetBitmapBitsSize @ 0x1C00E0B68 (GreGetBitmapBitsSize.c)
+ *     GreGetBitmapBitsSize @ 0x1C00ABCE4 (GreGetBitmapBitsSize.c)
  * Callees:
  *     <none>
  */

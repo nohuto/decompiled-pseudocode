@@ -1,253 +1,280 @@
 /*
- * XREFs of PopDiagTracePowerRequestCreate @ 0x1407EFFBC
+ * XREFs of PopDiagTracePowerRequestCreate @ 0x14067C538
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x14036A698 (PopPowerRequestCreateCommon.c)
- *     PopDiagTraceControlCallback @ 0x14081CBF0 (PopDiagTraceControlCallback.c)
+ *     PopCreateUserPowerRequest @ 0x14067CD9C (PopCreateUserPowerRequest.c)
+ *     PopDiagTraceControlCallback @ 0x14067D270 (PopDiagTraceControlCallback.c)
+ *     PopCreateKernelPowerRequest @ 0x1407727C8 (PopCreateKernelPowerRequest.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     PoStoreRequester @ 0x14036AC64 (PoStoreRequester.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     PoStoreRequester @ 0x140282E3C (PoStoreRequester.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     Feature_3401902395__private_IsEnabledDeviceUsage @ 0x1403F7E54 (Feature_3401902395__private_IsEnabledDeviceUsage.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PopDiagTracePowerRequestCreate(char a1, __int64 a2)
 {
   const EVENT_DESCRIPTOR *v4; // rdx
   int *v5; // rax
-  __int64 Pool2; // rax
-  __int64 v7; // rdi
-  __int64 v8; // r9
-  wchar_t *v9; // r10
-  __int64 v10; // rcx
-  _WORD *v11; // r9
-  __int64 v12; // r8
-  _WORD *v13; // rax
-  wchar_t *v14; // rax
-  __int64 v15; // r8
-  _WORD *v16; // r8
-  __int64 v17; // rcx
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v7; // rbx
+  __int64 v8; // rsi
+  wchar_t *v9; // r9
+  SIZE_T v10; // rsi
+  __int64 v11; // r8
+  _WORD *v12; // rax
+  unsigned __int16 v13; // di
+  __int64 v14; // r8
+  wchar_t *v15; // rax
+  int SessionId; // eax
+  __int64 v17; // rsi
   _WORD *v18; // rax
-  wchar_t *v19; // rdx
-  __int64 v20; // r8
-  int v21; // eax
+  __int64 v19; // rcx
+  wchar_t *v20; // rdx
+  __int64 v21; // r8
   int v22; // eax
-  bool v23; // zf
-  int v24; // eax
-  unsigned int v25; // r9d
-  unsigned __int16 v26; // dx
-  __int64 v27; // rcx
-  __int64 v28; // rax
-  const EVENT_DESCRIPTOR *v29; // rdx
+  int v23; // eax
+  bool v24; // zf
+  int v25; // eax
+  unsigned int v26; // r9d
+  unsigned __int16 v27; // di
+  unsigned __int16 v28; // dx
+  __int64 v29; // rcx
   __int64 v30; // rax
-  unsigned int v31; // r9d
+  const EVENT_DESCRIPTOR *v31; // rdx
   __int64 v32; // rax
-  __int64 v33; // rcx
-  __int64 v34; // rcx
+  unsigned int v33; // r9d
+  __int64 v34; // rax
   __int64 v35; // rcx
-  ULONG v36; // r9d
-  __int16 v37; // [rsp+30h] [rbp-D0h] BYREF
-  __int16 v38; // [rsp+34h] [rbp-CCh] BYREF
-  int v39; // [rsp+38h] [rbp-C8h] BYREF
-  int v40; // [rsp+3Ch] [rbp-C4h] BYREF
-  int v41; // [rsp+40h] [rbp-C0h] BYREF
-  int v42; // [rsp+44h] [rbp-BCh] BYREF
-  int SessionId; // [rsp+48h] [rbp-B8h] BYREF
-  int v44; // [rsp+4Ch] [rbp-B4h] BYREF
-  int v45; // [rsp+50h] [rbp-B0h] BYREF
-  int v46; // [rsp+54h] [rbp-ACh] BYREF
-  int v47; // [rsp+58h] [rbp-A8h] BYREF
-  int v48; // [rsp+5Ch] [rbp-A4h] BYREF
-  __int128 v49; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v50; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v36; // rcx
+  __int64 v37; // rcx
+  ULONG v38; // r9d
+  unsigned __int16 v39; // [rsp+30h] [rbp-D0h] BYREF
+  __int16 v40; // [rsp+34h] [rbp-CCh] BYREF
+  int v41; // [rsp+38h] [rbp-C8h] BYREF
+  int v42; // [rsp+3Ch] [rbp-C4h] BYREF
+  int v43; // [rsp+40h] [rbp-C0h] BYREF
+  int v44; // [rsp+44h] [rbp-BCh] BYREF
+  int v45; // [rsp+48h] [rbp-B8h] BYREF
+  int v46; // [rsp+4Ch] [rbp-B4h] BYREF
+  int v47; // [rsp+50h] [rbp-B0h] BYREF
+  int v48; // [rsp+54h] [rbp-ACh] BYREF
+  int v49; // [rsp+58h] [rbp-A8h] BYREF
+  int v50; // [rsp+5Ch] [rbp-A4h] BYREF
+  __int64 v51; // [rsp+60h] [rbp-A0h] BYREF
+  SIZE_T NumberOfBytes[2]; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-88h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+90h] [rbp-70h] BYREF
-  int *v53; // [rsp+A0h] [rbp-60h]
-  __int64 v54; // [rsp+A8h] [rbp-58h]
-  int *v55; // [rsp+B0h] [rbp-50h]
-  __int64 v56; // [rsp+B8h] [rbp-48h]
-  int *p_SessionId; // [rsp+C0h] [rbp-40h]
-  __int64 v58; // [rsp+C8h] [rbp-38h]
-  int *v59; // [rsp+D0h] [rbp-30h]
-  __int64 v60; // [rsp+D8h] [rbp-28h]
-  int *v61; // [rsp+E0h] [rbp-20h]
-  __int64 v62; // [rsp+E8h] [rbp-18h]
-  int *v63; // [rsp+F0h] [rbp-10h]
-  __int64 v64; // [rsp+F8h] [rbp-8h]
-  int *v65; // [rsp+100h] [rbp+0h]
-  __int64 v66; // [rsp+108h] [rbp+8h]
-  __int64 v67; // [rsp+110h] [rbp+10h]
-  __int64 v68; // [rsp+118h] [rbp+18h]
-  __int64 v69; // [rsp+120h] [rbp+20h]
-  __int64 v70; // [rsp+128h] [rbp+28h]
-  __int64 v71; // [rsp+130h] [rbp+30h]
-  __int64 v72; // [rsp+138h] [rbp+38h]
-  __int16 *v73; // [rsp+140h] [rbp+40h]
-  __int64 v74; // [rsp+148h] [rbp+48h]
-  __int16 *v75; // [rsp+150h] [rbp+50h]
-  __int64 v76; // [rsp+158h] [rbp+58h]
-  __int64 v77; // [rsp+160h] [rbp+60h]
-  int v78; // [rsp+168h] [rbp+68h]
-  int v79; // [rsp+16Ch] [rbp+6Ch]
+  int *v55; // [rsp+A0h] [rbp-60h]
+  __int64 v56; // [rsp+A8h] [rbp-58h]
+  int *v57; // [rsp+B0h] [rbp-50h]
+  __int64 v58; // [rsp+B8h] [rbp-48h]
+  int *v59; // [rsp+C0h] [rbp-40h]
+  __int64 v60; // [rsp+C8h] [rbp-38h]
+  int *v61; // [rsp+D0h] [rbp-30h]
+  __int64 v62; // [rsp+D8h] [rbp-28h]
+  int *v63; // [rsp+E0h] [rbp-20h]
+  __int64 v64; // [rsp+E8h] [rbp-18h]
+  int *v65; // [rsp+F0h] [rbp-10h]
+  __int64 v66; // [rsp+F8h] [rbp-8h]
+  int *v67; // [rsp+100h] [rbp+0h]
+  __int64 v68; // [rsp+108h] [rbp+8h]
+  __int64 v69; // [rsp+110h] [rbp+10h]
+  __int64 v70; // [rsp+118h] [rbp+18h]
+  __int64 v71; // [rsp+120h] [rbp+20h]
+  __int64 v72; // [rsp+128h] [rbp+28h]
+  __int64 v73; // [rsp+130h] [rbp+30h]
+  __int64 v74; // [rsp+138h] [rbp+38h]
+  __int16 *v75; // [rsp+140h] [rbp+40h]
+  __int64 v76; // [rsp+148h] [rbp+48h]
+  __int16 *v77; // [rsp+150h] [rbp+50h]
+  __int64 v78; // [rsp+158h] [rbp+58h]
+  SIZE_T v79; // [rsp+160h] [rbp+60h]
+  int v80; // [rsp+168h] [rbp+68h]
+  int v81; // [rsp+16Ch] [rbp+6Ch]
   wchar_t pszDest[24]; // [rsp+1E0h] [rbp+E0h] BYREF
 
-  v50 = a2;
-  v37 = 0;
-  v38 = 0;
+  v51 = a2;
+  v39 = 0;
+  v40 = 0;
   DestinationString = 0LL;
   if ( PopDiagHandleRegistered )
   {
     v4 = &POP_ETW_EVENT_CREATE_POWER_REQUEST;
     if ( a1 )
-      v4 = (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_POWER_REQUEST_RUNDOWN;
+      v4 = &POP_ETW_EVENT_POWER_REQUEST_RUNDOWN;
     if ( EtwEventEnabled(PopDiagHandle, v4) )
     {
-      v5 = *(int **)(a2 + 96);
-      *(_QWORD *)&v49 = 0LL;
-      v39 = *v5;
-      v42 = 0;
-      SessionId = 0;
-      v40 = 0;
+      v5 = *(int **)(a2 + 80);
+      NumberOfBytes[0] = 0LL;
+      v41 = *v5;
       v44 = 0;
       v45 = 0;
+      v42 = 0;
       v46 = 0;
-      v41 = 0;
-      v48 = 0;
       v47 = 0;
-      PoStoreRequester(*(_QWORD *)(a2 + 96), 0LL, (unsigned __int64 *)&v49, 0);
-      Pool2 = ExAllocatePool2(256LL, v49, 1346721364LL);
-      v7 = Pool2;
-      if ( Pool2 )
+      v48 = 0;
+      v43 = 0;
+      v50 = 0;
+      v49 = 0;
+      PoStoreRequester(*(_QWORD *)(a2 + 80), 0LL, NumberOfBytes, 0);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, NumberOfBytes[0], 0x50455654u);
+      v7 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        if ( (int)PoStoreRequester(*(_QWORD *)(v50 + 96), Pool2, (unsigned __int64 *)&v49, 0) >= 0 )
+        if ( (int)PoStoreRequester(*(_QWORD *)(v51 + 80), (__int64)PoolWithTag, NumberOfBytes, 0) >= 0 )
         {
-          if ( v39 )
+          if ( v41 )
           {
-            v42 = *(_DWORD *)(v7 + 24);
-            SessionId = MmGetSessionIdEx(*(_QWORD *)(*(_QWORD *)(v50 + 96) + 8LL));
-            v15 = *(_QWORD *)(v7 + 16);
-            v49 = 0LL;
-            v16 = (_WORD *)(v7 + v15);
-            if ( v16 )
+            v44 = v7[6];
+            if ( (unsigned int)Feature_3401902395__private_IsEnabledDeviceUsage() )
+              SessionId = *(_DWORD *)(v51 + 16);
+            else
+              SessionId = MmGetSessionIdEx(*(_QWORD *)(*(_QWORD *)(v51 + 80) + 8LL));
+            v45 = SessionId;
+            v17 = *((_QWORD *)v7 + 2);
+            *(_OWORD *)NumberOfBytes = 0LL;
+            v10 = (SIZE_T)v7 + v17;
+            if ( !v10 )
+              goto LABEL_30;
+            v18 = (_WORD *)v10;
+            v19 = 0x7FFFLL;
+            do
             {
-              v17 = 0x7FFFLL;
-              v18 = v16;
-              while ( *v18 )
-              {
-                ++v18;
-                if ( !--v17 )
-                  goto LABEL_27;
-              }
-              *((_QWORD *)&v49 + 1) = v16;
-              LOWORD(v49) = -2 - 2 * v17;
+              if ( !*v18 )
+                break;
+              ++v18;
+              --v19;
             }
-LABEL_27:
-            if ( v39 == 2 )
+            while ( v19 );
+            if ( v19 )
             {
-              RtlStringCbPrintfW(pszDest, 0x2CuLL, L"%d", *(unsigned int *)(v7 + 28));
-              v19 = pszDest;
+              v13 = 2 * (v19 != 0 ? 0x7FFF - v19 : 0);
             }
             else
             {
-              v19 = 0LL;
+LABEL_30:
+              v10 = NumberOfBytes[1];
+              v13 = NumberOfBytes[0];
             }
-            RtlInitUnicodeString(&DestinationString, v19);
+            if ( v41 == 2 )
+            {
+              RtlStringCbPrintfW(pszDest, 0x2CuLL, L"%d", (unsigned int)v7[7]);
+              v20 = pszDest;
+            }
+            else
+            {
+              v20 = 0LL;
+            }
+            RtlInitUnicodeString(&DestinationString, v20);
           }
           else
           {
-            v8 = *(_QWORD *)(v7 + 16);
-            v9 = (wchar_t *)(v7 + *(_QWORD *)(v7 + 24));
-            v10 = 0x7FFFLL;
-            v49 = 0LL;
-            v11 = (_WORD *)(v7 + v8);
+            v8 = *((_QWORD *)v7 + 2);
+            v9 = (wchar_t *)((char *)v7 + *((_QWORD *)v7 + 3));
+            *(_OWORD *)NumberOfBytes = 0LL;
+            v10 = (SIZE_T)v7 + v8;
+            if ( !v10 )
+              goto LABEL_14;
+            v11 = 0x7FFFLL;
+            v12 = (_WORD *)v10;
+            do
+            {
+              if ( !*v12 )
+                break;
+              ++v12;
+              --v11;
+            }
+            while ( v11 );
             if ( v11 )
             {
-              v12 = 0x7FFFLL;
-              v13 = v11;
-              while ( *v13 )
-              {
-                ++v13;
-                if ( !--v12 )
-                  goto LABEL_15;
-              }
-              *((_QWORD *)&v49 + 1) = v11;
-              LOWORD(v49) = -2 - 2 * v12;
+              v13 = 2 * (v11 != 0 ? 0x7FFF - v11 : 0);
             }
-LABEL_15:
-            DestinationString = 0LL;
+            else
+            {
+LABEL_14:
+              v10 = NumberOfBytes[1];
+              v13 = NumberOfBytes[0];
+            }
             if ( v9 )
             {
-              v14 = v9;
-              while ( *v14 )
+              v14 = 0x7FFFLL;
+              v15 = v9;
+              do
               {
-                ++v14;
-                if ( !--v10 )
-                  goto LABEL_31;
+                if ( !*v15 )
+                  break;
+                ++v15;
+                --v14;
               }
-              DestinationString.Buffer = v9;
-              DestinationString.Length = -2 - 2 * v10;
+              while ( v14 );
+              if ( v14 )
+              {
+                DestinationString.Buffer = v9;
+                DestinationString.Length = 2 * (v14 != 0 ? 0x7FFF - v14 : 0);
+              }
             }
           }
-LABEL_31:
-          v20 = v50;
-          v21 = v40;
-          if ( !*(_QWORD *)(v50 + 96) )
-            v21 = 1;
-          v40 = v21;
-          v22 = *(_DWORD *)(v50 + 20);
-          if ( (v22 & 2) != 0 )
-          {
-            v44 = 1;
-            v22 = *(_DWORD *)(v50 + 20);
-          }
-          if ( (v22 & 1) != 0 )
-          {
-            v45 = 1;
-            v22 = *(_DWORD *)(v50 + 20);
-          }
-          if ( (v22 & 4) != 0 )
+          v21 = v51;
+          v22 = v42;
+          if ( !*(_QWORD *)(v51 + 80) )
+            v22 = 1;
+          v42 = v22;
+          v23 = *(_DWORD *)(v51 + 20);
+          if ( (v23 & 2) != 0 )
           {
             v46 = 1;
-            v22 = *(_DWORD *)(v50 + 20);
+            v23 = *(_DWORD *)(v51 + 20);
           }
-          if ( (v22 & 8) != 0 )
+          if ( (v23 & 1) != 0 )
           {
             v47 = 1;
-            v22 = *(_DWORD *)(v50 + 20);
+            v23 = *(_DWORD *)(v51 + 20);
           }
-          if ( (v22 & 0x10) != 0 )
+          if ( (v23 & 4) != 0 )
           {
             v48 = 1;
-            v22 = *(_DWORD *)(v50 + 20);
+            v23 = *(_DWORD *)(v51 + 20);
           }
-          v23 = (v22 & 0x20) == 0;
-          v24 = v41;
-          v25 = 13;
-          if ( !v23 )
-            v24 = 1;
-          v41 = v24;
-          UserData.Ptr = (ULONGLONG)&v50;
-          v53 = &v39;
-          v55 = &v42;
-          p_SessionId = &SessionId;
-          v59 = &v40;
-          v61 = &v44;
-          v63 = &v45;
-          v65 = &v46;
-          v67 = v50 + 44;
-          v69 = v50 + 40;
-          v71 = v50 + 48;
-          v26 = DestinationString.Length >> 1;
-          v73 = &v37;
-          v75 = &v38;
-          v37 = (unsigned __int16)v49 >> 1;
-          v38 = DestinationString.Length >> 1;
+          if ( (v23 & 8) != 0 )
+          {
+            v49 = 1;
+            v23 = *(_DWORD *)(v51 + 20);
+          }
+          if ( (v23 & 0x10) != 0 )
+          {
+            v50 = 1;
+            v23 = *(_DWORD *)(v51 + 20);
+          }
+          v24 = (v23 & 0x20) == 0;
+          v25 = v43;
+          v26 = 13;
+          if ( !v24 )
+            v25 = 1;
           *(_QWORD *)&UserData.Size = 8LL;
-          v54 = 4LL;
+          v43 = v25;
+          UserData.Ptr = (ULONGLONG)&v51;
+          v55 = &v41;
+          v57 = &v44;
+          v59 = &v45;
+          v61 = &v42;
+          v63 = &v46;
+          v65 = &v47;
+          v67 = &v48;
+          v69 = v51 + 36;
+          v71 = v51 + 32;
+          v73 = v51 + 40;
+          v27 = v13 >> 1;
+          v28 = DestinationString.Length >> 1;
+          v75 = (__int16 *)&v39;
+          v77 = &v40;
+          v39 = v27;
+          v40 = DestinationString.Length >> 1;
           v56 = 4LL;
           v58 = 4LL;
           v60 = 4LL;
@@ -257,53 +284,54 @@ LABEL_31:
           v68 = 4LL;
           v70 = 4LL;
           v72 = 4LL;
-          v74 = 2LL;
+          v74 = 4LL;
           v76 = 2LL;
-          if ( (unsigned __int16)v49 >> 1 )
+          v78 = 2LL;
+          if ( v27 )
           {
-            v25 = 14;
-            v77 = *((_QWORD *)&v49 + 1);
-            v79 = 0;
-            v78 = 2 * ((unsigned __int16)v49 >> 1);
+            v26 = 14;
+            v79 = v10;
+            v80 = 2 * v27;
+            v81 = 0;
           }
-          if ( v26 )
+          if ( v28 )
           {
-            v27 = 2LL * v25;
-            *(&UserData.Ptr + v27) = (ULONGLONG)DestinationString.Buffer;
-            *(&UserData.Reserved + 2 * v27) = 0;
-            *(&UserData.Size + 2 * v27) = 2 * v26;
-            ++v25;
+            v29 = 2LL * v26;
+            *(&UserData.Ptr + v29) = (ULONGLONG)DestinationString.Buffer;
+            *(&UserData.Reserved + 2 * v29) = 0;
+            *(&UserData.Size + 2 * v29) = 2 * v28;
+            ++v26;
           }
-          v28 = 2LL * v25;
-          v29 = (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_POWER_REQUEST_RUNDOWN;
-          *(&UserData.Ptr + v28) = (ULONGLONG)&v47;
-          *((_QWORD *)&UserData.Size + v28) = 4LL;
-          v30 = v25 + 1;
-          v31 = v25 + 2;
-          v30 *= 2LL;
-          *(&UserData.Ptr + v30) = (ULONGLONG)&v48;
+          v30 = 2LL * v26;
+          v31 = &POP_ETW_EVENT_POWER_REQUEST_RUNDOWN;
+          *(&UserData.Ptr + v30) = (ULONGLONG)&v49;
           *((_QWORD *)&UserData.Size + v30) = 4LL;
-          v32 = 2LL * v31;
-          *(&UserData.Ptr + v32) = (ULONGLONG)&v41;
+          v32 = v26 + 1;
+          v33 = v26 + 2;
+          v32 *= 2LL;
+          *(&UserData.Ptr + v32) = (ULONGLONG)&v50;
           *((_QWORD *)&UserData.Size + v32) = 4LL;
-          v33 = v31 + 1;
-          v31 += 2;
-          v33 *= 2LL;
-          *(&UserData.Ptr + v33) = v20 + 52;
-          *((_QWORD *)&UserData.Size + v33) = 4LL;
-          v34 = 2LL * v31;
-          *(&UserData.Ptr + v34) = v20 + 56;
+          v34 = 2LL * v33;
+          *(&UserData.Ptr + v34) = (ULONGLONG)&v43;
           *((_QWORD *)&UserData.Size + v34) = 4LL;
-          v35 = v31 + 1;
-          v36 = v31 + 2;
+          v35 = v33 + 1;
+          v33 += 2;
           v35 *= 2LL;
-          *(&UserData.Ptr + v35) = v20 + 60;
+          *(&UserData.Ptr + v35) = v21 + 44;
           *((_QWORD *)&UserData.Size + v35) = 4LL;
+          v36 = 2LL * v33;
+          *(&UserData.Ptr + v36) = v21 + 48;
+          *((_QWORD *)&UserData.Size + v36) = 4LL;
+          v37 = v33 + 1;
+          v38 = v33 + 2;
+          v37 *= 2LL;
+          *(&UserData.Ptr + v37) = v21 + 52;
+          *((_QWORD *)&UserData.Size + v37) = 4LL;
           if ( !a1 )
-            v29 = &POP_ETW_EVENT_CREATE_POWER_REQUEST;
-          EtwWrite(PopDiagHandle, v29, 0LL, v36, &UserData);
+            v31 = &POP_ETW_EVENT_CREATE_POWER_REQUEST;
+          EtwWrite(PopDiagHandle, v31, 0LL, v38, &UserData);
         }
-        ExFreePoolWithTag((PVOID)v7, 0x50455654u);
+        ExFreePoolWithTag(v7, 0x50455654u);
       }
     }
   }

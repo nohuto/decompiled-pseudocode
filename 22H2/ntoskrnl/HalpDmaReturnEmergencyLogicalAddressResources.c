@@ -1,90 +1,93 @@
 /*
- * XREFs of HalpDmaReturnEmergencyLogicalAddressResources @ 0x14050098C
+ * XREFs of HalpDmaReturnEmergencyLogicalAddressResources @ 0x1404B82B8
  * Callers:
- *     HalPutScatterGatherListDmarThin @ 0x14045C990 (HalPutScatterGatherListDmarThin.c)
- *     HalpDmaFreeLa @ 0x1404FFE44 (HalpDmaFreeLa.c)
+ *     HalpDmaFreeLa @ 0x1404B7848 (HalpDmaFreeLa.c)
+ *     HalPutScatterGatherListThin @ 0x1404CB1D0 (HalPutScatterGatherListThin.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpConstructScatterGatherListDmarThin @ 0x140513FD4 (HalpConstructScatterGatherListDmarThin.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140514F7C (HalpAllocateDmaResourcesInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x1404CA51C (HalpAllocateDmaResourcesInternal.c)
+ *     HalpConstructScatterGatherListThin @ 0x1404CB758 (HalpConstructScatterGatherListThin.c)
  */
 
-__int64 __fastcall HalpDmaReturnEmergencyLogicalAddressResources(__int64 a1)
+__int64 __fastcall HalpDmaReturnEmergencyLogicalAddressResources(PDMA_ADAPTER DmaAdapter)
 {
-  volatile signed __int64 *v1; // r14
-  __int64 v3; // rdi
+  KSPIN_LOCK *p_Version; // r14
+  _DMA_OPERATIONS *v3; // rdi
   KIRQL v4; // al
-  _QWORD *v5; // rcx
+  _DMA_OPERATIONS **p_DmaOperations; // rcx
   unsigned __int64 v6; // rsi
-  __int64 *v7; // rax
+  struct _DMA_ADAPTER *DmaOperations; // rax
   char v8; // bp
   __int64 v9; // rax
   __int64 result; // rax
-  __int64 v11; // rdx
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v14; // zf
-  int v15; // ecx
+  bool v13; // zf
+  int AllocateCommonBuffer; // ecx
+  _DMA_OPERATIONS *v15; // rcx
+  _DMA_OPERATIONS *v16; // rax
 
-  v1 = (volatile signed __int64 *)(a1 + 568);
+  p_Version = (KSPIN_LOCK *)&DmaAdapter[35].Version;
   v3 = 0LL;
-  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 568));
-  v5 = (_QWORD *)(a1 + 576);
+  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&DmaAdapter[35].Version);
+  p_DmaOperations = &DmaAdapter[35].DmaOperations;
   v6 = v4;
-  v7 = *(__int64 **)(a1 + 576);
-  if ( v7 == (__int64 *)(a1 + 576) )
+  DmaOperations = (struct _DMA_ADAPTER *)DmaAdapter[35].DmaOperations;
+  if ( DmaOperations == (struct _DMA_ADAPTER *)&DmaAdapter[35].DmaOperations )
   {
     v8 = 1;
-    *(_BYTE *)(a1 + 592) = 0;
+    LOBYTE(DmaAdapter[36].DmaOperations) = 0;
   }
   else
   {
-    v3 = *(_QWORD *)(a1 + 576);
+    v3 = DmaAdapter[35].DmaOperations;
     v8 = 0;
-    v9 = *v7;
-    if ( *(_QWORD **)(v3 + 8) != v5 || *(_QWORD *)(v9 + 8) != v3 )
+    v9 = *(_QWORD *)&DmaOperations->Version;
+    if ( (_DMA_OPERATIONS **)v3->PutDmaAdapter != p_DmaOperations || *(_DMA_OPERATIONS **)(v9 + 8) != v3 )
       __fastfail(3u);
-    *v5 = v9;
-    *(_QWORD *)(v9 + 8) = v5;
+    *p_DmaOperations = (_DMA_OPERATIONS *)v9;
+    *(_QWORD *)(v9 + 8) = p_DmaOperations;
   }
-  result = KxReleaseSpinLock(v1);
+  KxReleaseSpinLock(p_Version);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v6 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v11 = -1LL << ((unsigned __int8)v6 + 1);
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)v11;
-      v14 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v14 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v6 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v13 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v13 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v6);
   if ( !v8 )
   {
-    v15 = *(_DWORD *)(v3 + 16);
-    if ( v15 )
+    AllocateCommonBuffer = (int)v3->AllocateCommonBuffer;
+    if ( AllocateCommonBuffer )
     {
-      if ( v15 != 1 )
+      if ( AllocateCommonBuffer != 1 )
         return result;
     }
-    else if ( *(_DWORD *)(a1 + 624) == 3 )
+    else if ( LODWORD(DmaAdapter[38].DmaOperations) == 3 )
     {
-      LOBYTE(v11) = 1;
-      *(_QWORD *)(*(_QWORD *)(a1 + 240) + 24LL) = *(_QWORD *)(a1 + 560);
-      ++*(_DWORD *)(a1 + 624);
-      return HalpAllocateDmaResourcesInternal(a1, v11, 0LL);
+      v15 = DmaAdapter[14].DmaOperations;
+      v16 = DmaAdapter[34].DmaOperations;
+      v15->FreeCommonBuffer = (void (__fastcall *)(_DMA_ADAPTER *, unsigned int, _LARGE_INTEGER, void *, unsigned __int8))v16;
+      v15->FlushAdapterBuffers = (unsigned __int8 (__fastcall *)(_DMA_ADAPTER *, _MDL *, void *, void *, unsigned int, unsigned __int8))v16;
+      ++LODWORD(DmaAdapter[38].DmaOperations);
+      return HalpAllocateDmaResourcesInternal(DmaAdapter);
     }
-    return HalpConstructScatterGatherListDmarThin(v3);
+    return HalpConstructScatterGatherListThin(v3);
   }
   return result;
 }

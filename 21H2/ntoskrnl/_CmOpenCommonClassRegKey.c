@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmOpenCommonClassRegKey @ 0x140787E30
+ * XREFs of _CmOpenCommonClassRegKey @ 0x140645374
  * Callers:
- *     _CmOpenInterfaceClassRegKey @ 0x140787DE8 (_CmOpenInterfaceClassRegKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x140789460 (_CmOpenInstallerClassRegKey.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x14063A994 (_CmOpenInterfaceClassRegKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x140645BF0 (_CmOpenInstallerClassRegKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _CmOpenCommonClassRegKeyWorker @ 0x140781268 (_CmOpenCommonClassRegKeyWorker.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x140645118 (_CmOpenCommonClassRegKeyWorker.c)
  */
 
 __int64 __fastcall CmOpenCommonClassRegKey(
@@ -36,7 +36,10 @@ __int64 __fastcall CmOpenCommonClassRegKey(
   else
   {
     if ( (unsigned __int8)a3 != 64 )
-      return (unsigned int)-1073741811;
+    {
+      v15 = -1073741811;
+      goto LABEL_7;
+    }
     v11 = 4;
   }
   v12 = *(__int64 (__fastcall **)(__int64, __int64, _QWORD, __int64, int, _QWORD *))(a1 + 504);
@@ -54,33 +57,28 @@ __int64 __fastcall CmOpenCommonClassRegKey(
     else
     {
       if ( v13 == -1073741536 )
-      {
-LABEL_16:
-        v15 = v19[0];
-        goto LABEL_8;
-      }
+        goto LABEL_17;
       if ( v13 )
         return (unsigned int)-1073741595;
     }
   }
   v14 = CmOpenCommonClassRegKeyWorker(a1, a2, v19[2], SHIDWORD(v19[2]), v19[3], SBYTE4(v19[3]), v19[4], &v19[5]);
   v15 = v14;
-  if ( v12 )
+  if ( !v12 )
+    goto LABEL_7;
+  LODWORD(v19[0]) = v14;
+  v17 = v12(a1, a2, v11, 11LL, 2, v19);
+  if ( v17 == -1073741822 )
+    goto LABEL_7;
+  if ( v17 == -1073741536 )
   {
-    LODWORD(v19[0]) = v14;
-    v17 = v12(a1, a2, v11, 11LL, 2, v19);
-    if ( v17 != -1073741822 )
-    {
-      if ( v17 != -1073741536 )
-      {
-        if ( !v17 )
-          goto LABEL_8;
-        return (unsigned int)-1073741595;
-      }
-      goto LABEL_16;
-    }
+LABEL_17:
+    v15 = v19[0];
+    goto LABEL_7;
   }
-LABEL_8:
+  if ( v17 )
+    return (unsigned int)-1073741595;
+LABEL_7:
   if ( v15 >= 0 && a8 )
     *a8 = v19[5];
   return (unsigned int)v15;

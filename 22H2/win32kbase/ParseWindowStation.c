@@ -1,10 +1,10 @@
 /*
- * XREFs of ParseWindowStation @ 0x1C00A0E80
+ * XREFs of ParseWindowStation @ 0x1C004F8A0
  * Callers:
- *     W32CalloutDispatch @ 0x1C00DE840 (W32CalloutDispatch.c)
+ *     W32CalloutDispatch @ 0x1C004EFB0 (W32CalloutDispatch.c)
  * Callees:
- *     ApiSetEditionParseDesktop @ 0x1C00A0F70 (ApiSetEditionParseDesktop.c)
- *     wcschr @ 0x1C00CE068 (wcschr.c)
+ *     ApiSetEditionParseDesktop @ 0x1C004F9E4 (ApiSetEditionParseDesktop.c)
+ *     wcschr @ 0x1C00C5450 (wcschr.c)
  */
 
 __int64 __fastcall ParseWindowStation(__int64 a1)
@@ -26,8 +26,9 @@ __int64 __fastcall ParseWindowStation(__int64 a1)
       *(_QWORD *)(v3 + 8) = v5 + 1;
       **(_WORD **)(a1 + 40) -= 2;
       *(_WORD *)(*(_QWORD *)(a1 + 40) + 2LL) -= 2;
+      v3 = *(_QWORD *)(a1 + 40);
     }
-    if ( wcschr(*(const wchar_t **)(*(_QWORD *)(a1 + 40) + 8LL), 0x5Cu) )
+    if ( wcschr(*(const wchar_t **)(v3 + 8), 0x5Cu) )
       return 3221225529LL;
     v7 = *(POBJECT_TYPE **)(a1 + 8);
     if ( v7 == ExDesktopObjectType )

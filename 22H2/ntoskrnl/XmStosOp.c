@@ -1,24 +1,24 @@
 /*
- * XREFs of XmStosOp @ 0x140398F10
+ * XREFs of XmStosOp @ 0x1403C0970
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmGetStringAddress @ 0x140398FFC (XmGetStringAddress.c)
- *     XmGetStringAddressRange @ 0x140399074 (XmGetStringAddressRange.c)
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
- *     XmStoreResult @ 0x1403B8FA8 (XmStoreResult.c)
+ *     XmStoreResult @ 0x1403966C0 (XmStoreResult.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
+ *     XmGetStringAddress @ 0x1403C0A5C (XmGetStringAddress.c)
+ *     XmGetStringAddressRange @ 0x1403C0AD0 (XmGetStringAddressRange.c)
  */
 
-unsigned __int64 __fastcall XmStosOp(__int64 a1)
+__int64 __fastcall XmStosOp(__int64 a1)
 {
   __int64 v2; // rcx
   __int64 v3; // r8
   __int64 StringAddress; // rax
-  __int64 v5; // rdx
-  unsigned __int64 result; // rax
+  int v5; // edx
+  __int64 result; // rax
   unsigned int v7; // esi
   int v8; // ecx
-  unsigned int v9; // edi
+  int v9; // edi
   unsigned __int64 v10; // rcx
   unsigned __int64 v11; // rdx
   unsigned __int64 v12; // rbp
@@ -29,13 +29,13 @@ unsigned __int64 __fastcall XmStosOp(__int64 a1)
   int v17; // r9d
   unsigned int v18; // [rsp+40h] [rbp+8h] BYREF
 
-  XmSetSourceValue(a1, a1 + 24);
+  XmSetSourceValue(a1, (unsigned __int16 *)(a1 + 24));
   if ( !*(_BYTE *)(v2 + 139) )
   {
     StringAddress = XmGetStringAddress(v2, 0LL, 7LL);
-    v5 = *(unsigned int *)(a1 + 108);
+    v5 = *(_DWORD *)(a1 + 108);
     *(_QWORD *)(a1 + 88) = StringAddress;
-    return XmStoreResult(a1, v5);
+    return (__int64)XmStoreResult(a1, v5);
   }
   if ( *(_BYTE *)(v2 + 137) )
   {
@@ -86,7 +86,7 @@ LABEL_9:
     {
       if ( v13 < (unsigned int)v12 || (result = *(_QWORD *)(a1 + 88), (result & 3) != 0) )
       {
-        result = XmStoreResult(a1, v9);
+        result = (__int64)XmStoreResult(a1, v9);
         *(_QWORD *)(a1 + 88) += *(unsigned int *)(a1 + 120) + 1LL;
         v13 = v17 - 1;
       }

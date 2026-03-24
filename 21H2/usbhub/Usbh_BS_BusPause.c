@@ -1,15 +1,15 @@
 /*
- * XREFs of Usbh_BS_BusPause @ 0x1C0010190
+ * XREFs of Usbh_BS_BusPause @ 0x1C0003070
  * Callers:
- *     UsbhDispatch_BusEvent @ 0x1C000FC10 (UsbhDispatch_BusEvent.c)
+ *     UsbhDispatch_BusEvent @ 0x1C0002AF0 (UsbhDispatch_BusEvent.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhReleaseBusStateLock @ 0x1C0010420 (UsbhReleaseBusStateLock.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhBusDisconnect_Action @ 0x1C0030A90 (UsbhBusDisconnect_Action.c)
- *     UsbhBusPnpStop_Action @ 0x1C0030B18 (UsbhBusPnpStop_Action.c)
- *     Usbh_BusRemove_PdoEvent @ 0x1C003A2BC (Usbh_BusRemove_PdoEvent.c)
+ *     UsbhReleaseBusStateLock @ 0x1C0003300 (UsbhReleaseBusStateLock.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhBusDisconnect_Action @ 0x1C0031E38 (UsbhBusDisconnect_Action.c)
+ *     UsbhBusPnpStop_Action @ 0x1C0031EC0 (UsbhBusPnpStop_Action.c)
+ *     Usbh_BusRemove_PdoEvent @ 0x1C003B5CC (Usbh_BusRemove_PdoEvent.c)
  */
 
 __int64 __fastcall Usbh_BS_BusPause(__int64 a1, __int64 a2, int a3)

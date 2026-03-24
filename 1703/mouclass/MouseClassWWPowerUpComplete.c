@@ -1,1 +1,54 @@
-/*\n * XREFs of MouseClassWWPowerUpComplete @ 0x1C0004AF0\n * Callers:\n *     <none>\n * Callees:\n *     MouseClassLogError @ 0x1C00045CC (MouseClassLogError.c)\n *     WPP_RECORDER_SF_q @ 0x1C00051B8 (WPP_RECORDER_SF_q.c)\n */\n\nvoid __fastcall MouseClassWWPowerUpComplete(\n        PDEVICE_OBJECT DeviceObject,\n        UCHAR MinorFunction,\n        POWER_STATE PowerState,\n        struct _IO_REMOVE_LOCK *Context)\n{\n  int v5; // edx\n  _QWORD *PoolWithTag; // rbx\n  int v7; // r8d\n  PIO_WORKITEM WorkItem; // rax\n  NTSTATUS v9; // eax\n  struct _IO_WORKITEM *v10; // rcx\n\n  if ( BYTE1(Context[10].Common.RemoveEvent.Header.WaitListHead.Blink) )\n  {\n    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x20uLL, 0x43756F4Du);\n    if ( !PoolWithTag )\n    {\nLABEL_5:\n      WPP_RECORDER_SF_q(WPP_GLOBAL_Control->DeviceExtension, v5, v7, 84);\n      MouseClassLogError(*(void **)&Context->Common.Removed, -2147155954, 1, -1073741670, 0, 0LL, 0);\n      return;\n    }\n    WorkItem = IoAllocateWorkItem(*(PDEVICE_OBJECT *)&Context->Common.Removed);\n    PoolWithTag[2] = WorkItem;\n    if ( !WorkItem )\n    {\n      ExFreePoolWithTag(PoolWithTag, 0);\n      goto LABEL_5;\n    }\n    *PoolWithTag = 0LL;\n    PoolWithTag[1] = Context;\n    v9 = IoAcquireRemoveLockEx(Context + 1, PoolWithTag, File, 1u, 0x20u);\n    v10 = (struct _IO_WORKITEM *)PoolWithTag[2];\n    if ( v9 < 0 )\n    {\n      IoFreeWorkItem(v10);\n      ExFreePoolWithTag(PoolWithTag, 0);\n    }\n    else\n    {\n      IoQueueWorkItem(v10, MouseClassCreateWaitWakeIrpWorker, DelayedWorkQueue, PoolWithTag);\n    }\n  }\n}\n
+/*
+ * XREFs of MouseClassWWPowerUpComplete @ 0x1C0004AF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MouseClassLogError @ 0x1C00045CC (MouseClassLogError.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00051B8 (WPP_RECORDER_SF_q.c)
+ */
+
+void __fastcall MouseClassWWPowerUpComplete(
+        PDEVICE_OBJECT DeviceObject,
+        UCHAR MinorFunction,
+        POWER_STATE PowerState,
+        struct _IO_REMOVE_LOCK *Context)
+{
+  int v5; // edx
+  _QWORD *PoolWithTag; // rbx
+  int v7; // r8d
+  PIO_WORKITEM WorkItem; // rax
+  NTSTATUS v9; // eax
+  struct _IO_WORKITEM *v10; // rcx
+
+  if ( BYTE1(Context[10].Common.RemoveEvent.Header.WaitListHead.Blink) )
+  {
+    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x20uLL, 0x43756F4Du);
+    if ( !PoolWithTag )
+    {
+LABEL_5:
+      WPP_RECORDER_SF_q(WPP_GLOBAL_Control->DeviceExtension, v5, v7, 84);
+      MouseClassLogError(*(void **)&Context->Common.Removed, -2147155954, 1, -1073741670, 0, 0LL, 0);
+      return;
+    }
+    WorkItem = IoAllocateWorkItem(*(PDEVICE_OBJECT *)&Context->Common.Removed);
+    PoolWithTag[2] = WorkItem;
+    if ( !WorkItem )
+    {
+      ExFreePoolWithTag(PoolWithTag, 0);
+      goto LABEL_5;
+    }
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = Context;
+    v9 = IoAcquireRemoveLockEx(Context + 1, PoolWithTag, File, 1u, 0x20u);
+    v10 = (struct _IO_WORKITEM *)PoolWithTag[2];
+    if ( v9 < 0 )
+    {
+      IoFreeWorkItem(v10);
+      ExFreePoolWithTag(PoolWithTag, 0);
+    }
+    else
+    {
+      IoQueueWorkItem(v10, MouseClassCreateWaitWakeIrpWorker, DelayedWorkQueue, PoolWithTag);
+    }
+  }
+}

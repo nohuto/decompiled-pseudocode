@@ -1,31 +1,31 @@
 /*
- * XREFs of ObReferenceObjectByNameEx @ 0x1406686C8
+ * XREFs of ObReferenceObjectByNameEx @ 0x1405DE69C
  * Callers:
- *     AlpcpCreateClientPort @ 0x140667114 (AlpcpCreateClientPort.c)
- *     CmUnloadKey @ 0x14069E454 (CmUnloadKey.c)
- *     ObInitServerSilo @ 0x140859318 (ObInitServerSilo.c)
- *     NtQueryOpenSubKeys @ 0x14090E9C0 (NtQueryOpenSubKeys.c)
- *     NtQueryOpenSubKeysEx @ 0x14090EC00 (NtQueryOpenSubKeysEx.c)
- *     CmpResolveHiveLoadConflict @ 0x140914914 (CmpResolveHiveLoadConflict.c)
- *     CmObReferenceObjectByName @ 0x140AB4008 (CmObReferenceObjectByName.c)
+ *     CmObReferenceObjectByName @ 0x1405CD0F0 (CmObReferenceObjectByName.c)
+ *     AlpcpCreateClientPort @ 0x1405E054C (AlpcpCreateClientPort.c)
+ *     CmUnloadKey @ 0x140719C78 (CmUnloadKey.c)
+ *     ObInitServerSilo @ 0x1407C90E0 (ObInitServerSilo.c)
+ *     NtQueryOpenSubKeys @ 0x1408686D0 (NtQueryOpenSubKeys.c)
+ *     NtQueryOpenSubKeysEx @ 0x1408688F0 (NtQueryOpenSubKeysEx.c)
+ *     CmpResolveHiveLoadConflict @ 0x14086E724 (CmpResolveHiveLoadConflict.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x140251C40 (HalPutDmaAdapter.c)
- *     SeClearLearningModeObjectInformation @ 0x140347840 (SeClearLearningModeObjectInformation.c)
- *     SepDeleteAccessState @ 0x1403478A0 (SepDeleteAccessState.c)
- *     PsGetCurrentSilo @ 0x140347D50 (PsGetCurrentSilo.c)
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     SeSetLearningModeObjectInformation @ 0x1405F43E0 (SeSetLearningModeObjectInformation.c)
- *     ObpAdjustAccessMask @ 0x1406689A4 (ObpAdjustAccessMask.c)
- *     ObpUnlockDirectory @ 0x14066960C (ObpUnlockDirectory.c)
- *     ObpFreeObjectNameBuffer @ 0x14071F0D0 (ObpFreeObjectNameBuffer.c)
- *     SeCreateAccessState @ 0x14071F140 (SeCreateAccessState.c)
- *     ObpCheckObjectReference @ 0x14072266C (ObpCheckObjectReference.c)
- *     SeReleaseSecurityDescriptor @ 0x1407B3DA0 (SeReleaseSecurityDescriptor.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     ObpLookupObjectName @ 0x1407CB6C0 (ObpLookupObjectName.c)
- *     ObpCaptureObjectCreateInformation @ 0x1407CCD80 (ObpCaptureObjectCreateInformation.c)
+ *     SeClearLearningModeObjectInformation @ 0x14027C5B0 (SeClearLearningModeObjectInformation.c)
+ *     SepDeleteAccessState @ 0x14027C660 (SepDeleteAccessState.c)
+ *     PsGetCurrentSilo @ 0x14027C930 (PsGetCurrentSilo.c)
+ *     SeSetLearningModeObjectInformation @ 0x14027C980 (SeSetLearningModeObjectInformation.c)
+ *     ObpReleaseLookupContext @ 0x14027EAD0 (ObpReleaseLookupContext.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ObpAdjustAccessMask @ 0x1405DE9A0 (ObpAdjustAccessMask.c)
+ *     ObpCaptureObjectCreateInformation @ 0x140656440 (ObpCaptureObjectCreateInformation.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeReleaseSecurityDescriptor @ 0x14065C750 (SeReleaseSecurityDescriptor.c)
+ *     ObpCheckObjectReference @ 0x140660F3C (ObpCheckObjectReference.c)
+ *     ObpFreeObjectNameBuffer @ 0x140661348 (ObpFreeObjectNameBuffer.c)
+ *     SeCreateAccessState @ 0x140661880 (SeCreateAccessState.c)
+ *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
  */
 
 __int64 __fastcall ObReferenceObjectByNameEx(
@@ -37,139 +37,128 @@ __int64 __fastcall ObReferenceObjectByNameEx(
         __int64 a6,
         PADAPTER_OBJECT *a7)
 {
-  int v9; // r12d
+  int v10; // r12d
   struct _KPRCB *CurrentPrcb; // r14
   _GENERAL_LOOKASIDE *P; // rsi
-  int v12; // edx
-  int v13; // ecx
-  PSLIST_ENTRY v14; // rbx
-  unsigned int Number; // eax
-  char v16; // r14
+  int v13; // edx
+  int v14; // ecx
+  PSLIST_ENTRY v15; // rbx
+  char v16; // si
   __int64 v17; // rdx
   __int64 v18; // r8
   __int64 v19; // r9
   struct _LIST_ENTRY *CurrentSilo; // rax
-  int v21; // ecx
-  __int64 v22; // rdx
+  __int64 v21; // rdx
   _SLIST_ENTRY *Next; // rcx
-  struct _KPRCB *v24; // rdx
-  _GENERAL_LOOKASIDE *v25; // rcx
+  struct _KPRCB *v23; // rdx
+  _GENERAL_LOOKASIDE *v24; // rcx
   _GENERAL_LOOKASIDE *L; // rsi
   __int64 Size; // rdx
   void *(__fastcall *AllocateEx)(_POOL_TYPE, unsigned __int64, unsigned int, _LOOKASIDE_LIST_EX *); // rax
   __int64 Tag; // r8
   __int64 Type; // rcx
-  PADAPTER_OBJECT DmaAdapter; // [rsp+70h] [rbp-41h] BYREF
-  __int128 v33; // [rsp+78h] [rbp-39h] BYREF
-  __int128 v34; // [rsp+88h] [rbp-29h] BYREF
-  __int128 v35; // [rsp+98h] [rbp-19h]
-  __int128 v36; // [rsp+A8h] [rbp-9h]
-  __int64 v37; // [rsp+B8h] [rbp+7h]
-  NTSTATUS Information; // [rsp+100h] [rbp+4Fh] BYREF
-  unsigned int v39; // [rsp+110h] [rbp+5Fh]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+78h] [rbp-31h] BYREF
+  __int128 v32; // [rsp+80h] [rbp-29h] BYREF
+  __int128 v33; // [rsp+90h] [rbp-19h] BYREF
+  __int128 v34; // [rsp+A0h] [rbp-9h]
+  __int128 v35; // [rsp+B0h] [rbp+7h]
+  __int64 v36; // [rsp+C0h] [rbp+17h]
+  NTSTATUS Information; // [rsp+F8h] [rbp+4Fh] BYREF
 
-  v39 = a3;
   DmaAdapter = 0LL;
-  v37 = 0LL;
-  v9 = a1;
+  v36 = 0LL;
+  v10 = a1;
+  v32 = 0LL;
   v33 = 0LL;
   v34 = 0LL;
   v35 = 0LL;
-  v36 = 0LL;
   if ( !a1 || !a4 )
     return 3221225485LL;
   CurrentPrcb = KeGetCurrentPrcb();
   P = CurrentPrcb->PPLookasideList[8].P;
   ++P->TotalAllocates;
-  v14 = RtlpInterlockedPopEntrySList(&P->ListHead);
-  if ( !v14 )
+  v15 = RtlpInterlockedPopEntrySList(&P->ListHead);
+  if ( !v15 )
   {
     ++P->AllocateMisses;
     L = CurrentPrcb->PPLookasideList[8].L;
     ++L->TotalAllocates;
-    v14 = RtlpInterlockedPopEntrySList(&L->ListHead);
-    if ( !v14 )
+    v15 = RtlpInterlockedPopEntrySList(&L->ListHead);
+    if ( !v15 )
     {
       Size = L->Size;
       AllocateEx = L->AllocateEx;
       Tag = L->Tag;
       Type = (unsigned int)L->Type;
       ++L->AllocateMisses;
-      v14 = (PSLIST_ENTRY)((__int64 (__fastcall *)(__int64, __int64, __int64))AllocateEx)(Type, Size, Tag);
-      if ( !v14 )
+      v15 = (PSLIST_ENTRY)((__int64 (__fastcall *)(__int64, __int64, __int64))AllocateEx)(Type, Size, Tag);
+      if ( !v15 )
         return 3221225626LL;
     }
   }
-  Number = CurrentPrcb->Number;
   v16 = a5;
-  LOBYTE(v12) = a5;
   LOBYTE(v13) = a5;
-  LODWORD(v14->Next) = Number;
-  Information = ObpCaptureObjectCreateInformation(v13, v12, v9, (unsigned int)&v33, (__int64)&v14[10], 1);
+  LOBYTE(v14) = a5;
+  LODWORD(v15->Next) = CurrentPrcb->Number;
+  Information = ObpCaptureObjectCreateInformation(v14, v13, v10, (unsigned int)&v32, (__int64)&v15[10], 1);
   if ( Information >= 0 )
   {
     if ( !a2 )
     {
-      Information = SeCreateAccessState(v14, &v14[14], v39, a4 + 76);
+      Information = SeCreateAccessState(v15, &v15[14], a3, a4 + 76);
       if ( Information < 0 )
       {
-LABEL_18:
-        if ( a2 == (struct _SECURITY_SUBJECT_CONTEXT *)v14 )
+LABEL_14:
+        if ( a2 == (struct _SECURITY_SUBJECT_CONTEXT *)v15 )
         {
           SepDeleteAccessState((__int64)a2);
           SeReleaseSubjectContext(a2 + 1);
         }
-        Next = v14[12].Next;
+        Next = v15[12].Next;
         if ( Next )
         {
-          LOBYTE(v17) = v14[11].Next;
+          LOBYTE(v17) = v15[11].Next;
           LOBYTE(v18) = 1;
           SeReleaseSecurityDescriptor(Next, v17, v18, v19);
-          v14[12].Next = 0LL;
+          v15[12].Next = 0LL;
         }
-        if ( *((_QWORD *)&v33 + 1) )
-          ObpFreeObjectNameBuffer(&v33);
-        goto LABEL_24;
+        if ( *((_QWORD *)&v32 + 1) )
+          ObpFreeObjectNameBuffer(&v32);
+        goto LABEL_20;
       }
-      a2 = (struct _SECURITY_SUBJECT_CONTEXT *)v14;
+      a2 = (struct _SECURITY_SUBJECT_CONTEXT *)v15;
     }
     Information = ObpAdjustAccessMask(a2);
     if ( Information >= 0 )
     {
       CurrentSilo = PsGetCurrentSilo();
       Information = ObpLookupObjectName(
-                      *((_QWORD *)&v14[10].Next + 1),
+                      *((_QWORD *)&v15[10].Next + 1),
                       v16,
                       a6,
                       0LL,
                       0LL,
                       (__int64)CurrentSilo,
                       (__int64)a2,
-                      (__int64)&v14[28],
+                      (__int64)&v15[28],
                       0LL,
                       (__int64)&DmaAdapter);
       if ( Information >= 0 )
       {
-        if ( v14[28].Next )
-          ObpUnlockDirectory(&v14[28]);
-        v21 = (int)DmaAdapter;
-        v22 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ LOBYTE(DmaAdapter[-2].DmaOperations) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)DmaAdapter - 48) >> 8)];
-        if ( (*(_DWORD *)(v22 + 72) & (__int64)v14[10].Next) != 0 )
+        ObpReleaseLookupContext((__int64)&v15[28]);
+        v21 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ LOBYTE(DmaAdapter[-2].DmaOperations) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)DmaAdapter - 48) >> 8)];
+        if ( (*(_DWORD *)(v21 + 72) & (__int64)v15[10].Next) != 0 )
         {
           HalPutDmaAdapter(DmaAdapter);
           Information = -1073741811;
         }
         else
         {
-          if ( SepLearningModeTokenCount )
-          {
-            *(_QWORD *)&v35 = v22 + 16;
-            *((_QWORD *)&v35 + 1) = &v33;
-            *(_QWORD *)&v36 = *((_QWORD *)&v14[10].Next + 1);
-            SeSetLearningModeObjectInformation((__int64)&v34);
-            v21 = (int)DmaAdapter;
-          }
-          if ( (unsigned __int8)ObpCheckObjectReference(v21, &Information) )
+          *(_QWORD *)&v34 = v21 + 16;
+          *((_QWORD *)&v34 + 1) = &v32;
+          *(_QWORD *)&v35 = *((_QWORD *)&v15[10].Next + 1);
+          SeSetLearningModeObjectInformation((__int64)&v33);
+          if ( (unsigned __int8)ObpCheckObjectReference((_DWORD)DmaAdapter, &Information) )
             *a7 = DmaAdapter;
           else
             HalPutDmaAdapter(DmaAdapter);
@@ -177,24 +166,24 @@ LABEL_18:
         }
       }
     }
-    goto LABEL_18;
+    goto LABEL_14;
   }
-LABEL_24:
-  v24 = KeGetCurrentPrcb();
-  v25 = v24->PPLookasideList[8].P;
-  ++v25->TotalFrees;
-  if ( LOWORD(v25->ListHead.Alignment) < v25->Depth
-    || (++v25->FreeMisses,
-        v25 = v24->PPLookasideList[8].L,
-        ++v25->TotalFrees,
-        LOWORD(v25->ListHead.Alignment) < v25->Depth) )
+LABEL_20:
+  v23 = KeGetCurrentPrcb();
+  v24 = v23->PPLookasideList[8].P;
+  ++v24->TotalFrees;
+  if ( LOWORD(v24->ListHead.Alignment) < v24->Depth
+    || (++v24->FreeMisses,
+        v24 = v23->PPLookasideList[8].L,
+        ++v24->TotalFrees,
+        LOWORD(v24->ListHead.Alignment) < v24->Depth) )
   {
-    RtlpInterlockedPushEntrySList(&v25->ListHead, v14);
+    RtlpInterlockedPushEntrySList(&v24->ListHead, v15);
   }
   else
   {
-    ++v25->FreeMisses;
-    ((void (__fastcall *)(PSLIST_ENTRY))v25->FreeEx)(v14);
+    ++v24->FreeMisses;
+    ((void (__fastcall *)(PSLIST_ENTRY))v24->FreeEx)(v15);
   }
   return (unsigned int)Information;
 }

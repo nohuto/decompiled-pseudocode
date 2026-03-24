@@ -1,12 +1,12 @@
 /*
- * XREFs of ?PushTransform@COcclusionContext@@UEAAJPEAVCTransform@@@Z @ 0x180045A20
+ * XREFs of ?PushTransform@COcclusionContext@@UEAAJPEAVCTransform@@@Z @ 0x18003F470
  * Callers:
  *     <none>
  * Callees:
- *     ?PushTransformInternal@COcclusionContext@@AEAAJPEAVCTransform@@@Z @ 0x180045AA8 (-PushTransformInternal@COcclusionContext@@AEAAJPEAVCTransform@@@Z.c)
- *     ?CheckTransformAllowsOcclusion@COcclusionContext@@AEBAJAEBVCMILMatrix@@PEA_N@Z @ 0x180045B14 (-CheckTransformAllowsOcclusion@COcclusionContext@@AEBAJAEBVCMILMatrix@@PEA_N@Z.c)
- *     ?GetMatrix@CTransform3D@@QEAAAEBVCMILMatrix@@PEBUD2D_SIZE_F@@@Z @ 0x180049214 (-GetMatrix@CTransform3D@@QEAAAEBVCMILMatrix@@PEBUD2D_SIZE_F@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PushTransformInternal@COcclusionContext@@AEAAJPEAVCTransform@@@Z @ 0x18003F4F8 (-PushTransformInternal@COcclusionContext@@AEAAJPEAVCTransform@@@Z.c)
+ *     ?CheckTransformAllowsOcclusion@COcclusionContext@@AEBAJAEBVCMILMatrix@@PEA_N@Z @ 0x18004241C (-CheckTransformAllowsOcclusion@COcclusionContext@@AEBAJAEBVCMILMatrix@@PEA_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetMatrix@CTransform3D@@QEAAAEBVCMILMatrix@@PEBUD2D_SIZE_F@@@Z @ 0x18007AC58 (-GetMatrix@CTransform3D@@QEAAAEBVCMILMatrix@@PEBUD2D_SIZE_F@@@Z.c)
  */
 
 __int64 __fastcall COcclusionContext::PushTransform(COcclusionContext *this, struct CTransform *a2)
@@ -22,14 +22,14 @@ __int64 __fastcall COcclusionContext::PushTransform(COcclusionContext *this, str
 
   v2 = 0;
   v12 = 0;
-  if ( *((_DWORD *)this + 358) || !a2 )
+  if ( *((_DWORD *)this + 365) || !a2 )
     goto LABEL_8;
   Matrix = CTransform3D::GetMatrix(a2, 0LL);
   v7 = COcclusionContext::CheckTransformAllowsOcclusion(v6, Matrix, &v12);
   v2 = v7;
   if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x440u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x473u, 0LL);
     return v2;
   }
   if ( v12 )
@@ -37,12 +37,12 @@ __int64 __fastcall COcclusionContext::PushTransform(COcclusionContext *this, str
     v9 = COcclusionContext::PushTransformInternal(this, a2);
     v2 = v9;
     if ( v9 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x444u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x477u, 0LL);
   }
   else
   {
 LABEL_8:
-    ++*((_DWORD *)this + 358);
+    ++*((_DWORD *)this + 365);
   }
   return v2;
 }

@@ -1,88 +1,82 @@
 /*
- * XREFs of ?VmBusLock2@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0380760
+ * XREFs of ?VmBusLock2@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C02432C0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B7A4 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_ACQUIREKEY.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     DxgkLock @ 0x1C018C3E0 (DxgkLock.c)
- *     DxgkLock2 @ 0x1C01D2650 (DxgkLock2.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00269AC (--$CastToVmBusCommand@UDXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_ACQUIREKEY.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     DxgkLock2 @ 0x1C010BD70 (DxgkLock2.c)
+ *     DxgkLock @ 0x1C010CE30 (DxgkLock.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusLock2(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // bl
+  __int64 v2; // rdx
+  __int64 v3; // rcx
   __int64 v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // rdi
-  D3DKMT_HANDLE *v8; // rcx
-  int v9; // ecx
+  char v5; // bl
+  __int64 v6; // rax
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // rdi
+  D3DKMT_HANDLE *v11; // rcx
+  int v12; // ecx
   void *pData; // rax
-  D3DKMT_HANDLE v11; // eax
-  struct VMBPACKETCOMPLETION__ *v12; // rcx
-  _DWORD v14[2]; // [rsp+58h] [rbp-9h] BYREF
-  void *v15; // [rsp+60h] [rbp-1h]
-  _BYTE v16[8]; // [rsp+68h] [rbp+7h] BYREF
-  DXGPUSHLOCK *v17; // [rsp+70h] [rbp+Fh]
-  int v18; // [rsp+78h] [rbp+17h]
-  struct _D3DKMT_LOCK v19; // [rsp+80h] [rbp+1Fh] BYREF
+  D3DKMT_HANDLE v14; // eax
+  struct VMBPACKETCOMPLETION__ *v15; // rcx
+  _DWORD v17[2]; // [rsp+20h] [rbp-60h] BYREF
+  void *v18; // [rsp+28h] [rbp-58h]
+  _BYTE v19[8]; // [rsp+30h] [rbp-50h] BYREF
+  DXGPUSHLOCK *v20; // [rsp+38h] [rbp-48h]
+  int v21; // [rsp+40h] [rbp-40h]
+  struct _D3DKMT_LOCK v22; // [rsp+48h] [rbp-38h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v16, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v17);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 0;
-  v18 = 1;
-  if ( *(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v19, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v20);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 0;
+  v21 = 1;
+  if ( *(_BYTE *)(v4 + 165) )
   {
-    v4 = CastToVmBusCommand<DXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC>((__int64)a1);
-    v7 = v4;
-    if ( v4 )
+    v7 = CastToVmBusCommand<DXGKVMB_COMMAND_ACQUIREKEYEDMUTEXSYNC>((__int64)a1);
+    v10 = v7;
+    if ( v7 )
     {
-      v14[1] = 0;
-      v8 = (D3DKMT_HANDLE *)(v4 + 24);
-      if ( *(_BYTE *)(v4 + 48) )
+      v17[1] = 0;
+      v11 = (D3DKMT_HANDLE *)(v7 + 24);
+      if ( *(_BYTE *)(v7 + 48) )
       {
-        v11 = *(_DWORD *)(v4 + 28);
-        memset(&v19, 0, sizeof(v19));
-        v19.hAllocation = v11;
-        v19.hDevice = *v8;
-        v19.Flags.Value = *(_DWORD *)(v7 + 52);
-        v19.PrivateDriverData = *(_DWORD *)(v7 + 56);
-        v9 = DxgkLock(&v19, v5, v6);
-        pData = v19.pData;
+        v14 = *(_DWORD *)(v7 + 28);
+        memset(&v22, 0, sizeof(v22));
+        v22.hAllocation = v14;
+        v22.hDevice = *v11;
+        v22.Flags.Value = *(_DWORD *)(v10 + 52);
+        v22.PrivateDriverData = *(_DWORD *)(v10 + 56);
+        v12 = DxgkLock(&v22, v8, v9);
+        pData = v22.pData;
       }
       else
       {
-        v9 = DxgkLock2((struct DXGALLOCATION *)v8);
-        pData = *(void **)(v7 + 40);
+        v12 = DxgkLock2((ULONG64)v11);
+        pData = *(void **)(v10 + 40);
       }
-      v14[0] = v9;
-      v12 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 16);
-      v15 = pData;
-      VmBusCompletePacket(v12, v14, 0x10u);
-      v3 = 1;
+      v17[0] = v12;
+      v15 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 9);
+      v18 = pData;
+      VmBusCompletePacket(v15, v17, 0x10u);
+      v5 = 1;
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, 2051LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"The adapter is already closed by the guest",
-      2051LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v6 + 24) = 1630LL;
+    WdLogEvent5_WdError(v6);
   }
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v16);
-  return v3;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v19);
+  return v5;
 }

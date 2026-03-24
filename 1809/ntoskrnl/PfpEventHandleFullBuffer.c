@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpEventHandleFullBuffer @ 0x1401228C0
+ * XREFs of PfpEventHandleFullBuffer @ 0x1401228E0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     PfTFullEventListAdd @ 0x140122908 (PfTFullEventListAdd.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     PfTFullEventListAdd @ 0x140122928 (PfTFullEventListAdd.c)
  */
 
 LONG __fastcall PfpEventHandleFullBuffer(struct _SLIST_ENTRY *a1)

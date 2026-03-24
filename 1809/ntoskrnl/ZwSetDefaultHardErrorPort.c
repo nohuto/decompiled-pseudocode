@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetDefaultHardErrorPort @ 0x1401BB230
+ * XREFs of ZwSetDefaultHardErrorPort @ 0x1401BB250
  * Callers:
  *     <none>
  * Callees:

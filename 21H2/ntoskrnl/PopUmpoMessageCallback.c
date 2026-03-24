@@ -1,9 +1,9 @@
 /*
- * XREFs of PopUmpoMessageCallback @ 0x14036A1B0
+ * XREFs of PopUmpoMessageCallback @ 0x140281310
  * Callers:
  *     <none>
  * Callees:
- *     PopUmpoProcessMessages @ 0x1407EFAD0 (PopUmpoProcessMessages.c)
+ *     PopUmpoProcessMessages @ 0x14067A3E4 (PopUmpoProcessMessages.c)
  */
 
 void __fastcall PopUmpoMessageCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)

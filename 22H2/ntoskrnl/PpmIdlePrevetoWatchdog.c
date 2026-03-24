@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmIdlePrevetoWatchdog @ 0x1405852E0
+ * XREFs of PpmIdlePrevetoWatchdog @ 0x140566A30
  * Callers:
- *     PopDripsWatchdogTakeAction @ 0x1409A125C (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x1408FA6F0 (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A120 (RtlGetInterruptTimePrecise.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWORD *a3)
@@ -15,11 +15,11 @@ __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWOR
   __int64 v7; // rbp
   unsigned __int64 v8; // rbx
   __int64 InterruptTimePrecise; // rax
-  __int64 v10; // rcx
-  __int64 v11; // rdx
+  __int64 v10; // rdx
+  __int64 v11; // r8
   unsigned int v12; // r10d
   __int64 v13; // r11
-  unsigned __int64 v14; // rdx
+  unsigned __int64 v14; // rcx
   __int64 v15; // r9
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -34,14 +34,14 @@ __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWOR
   {
     if ( *(_DWORD *)(result + 4) )
     {
-      v7 = (unsigned int)dword_140CF7E40;
-      result = (unsigned int)dword_140CF7E40;
-      if ( dword_140CF7E40 != -1 )
+      v7 = (unsigned int)dword_140C50080;
+      result = (unsigned int)dword_140C50080;
+      if ( dword_140C50080 != -1 )
       {
         v8 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
         InterruptTimePrecise = RtlGetInterruptTimePrecise(&v19);
         v10 = 0LL;
-        v11 = PpmPlatformStates + 448 * v7;
+        v11 = PpmPlatformStates + 384 * v7;
         v12 = *(_DWORD *)(v11 + 108);
         if ( v12 )
         {
@@ -60,25 +60,26 @@ __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWOR
               goto LABEL_11;
           }
           *a2 = *(_DWORD *)(v14 + v13 + 16);
-          *a3 = *((_QWORD *)PpmIdleVetoList + 3 * v10 + 3);
+          *a3 = *(_QWORD *)(PpmIdleVetoList + 16 * (v10 + 1));
         }
 LABEL_11:
-        result = KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
+        KxReleaseSpinLock(&PpmIdleVetoLock);
+        result = (unsigned int)KiIrqlFlags;
         if ( KiIrqlFlags )
         {
-          result = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
-            && (unsigned __int8)result <= 0xFu
-            && (unsigned __int8)v8 <= 0xFu
-            && (unsigned __int8)result >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-            v18 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= result;
-            if ( v18 )
-              result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            result = KeGetCurrentIrql();
+            if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v8 <= 0xFu && (unsigned __int8)result >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+              v18 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= result;
+              if ( v18 )
+                result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            }
           }
         }
         __writecr8(v8);

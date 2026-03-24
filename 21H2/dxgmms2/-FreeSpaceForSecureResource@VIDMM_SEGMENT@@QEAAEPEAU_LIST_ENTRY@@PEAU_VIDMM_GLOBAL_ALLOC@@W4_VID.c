@@ -1,13 +1,13 @@
 /*
- * XREFs of ?FreeSpaceForSecureResource@VIDMM_SEGMENT@@QEAAEPEAU_LIST_ENTRY@@PEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@@Z @ 0x1C00EA9AC
+ * XREFs of ?FreeSpaceForSecureResource@VIDMM_SEGMENT@@QEAAEPEAU_LIST_ENTRY@@PEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@@Z @ 0x1C00C6DE0
  * Callers:
- *     ?SuspendDevices@VIDMM_WORKER_THREAD@@AEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_PAGE_IN_POLICY_PER_COMBINATION@@W4VIDMM_BUDGET_PRIORITY_BAND@@W4_VIDMM_PLACEMENT_RESTRICTION@@PEAPEAV3@@Z @ 0x1C00DF4E0 (-SuspendDevices@VIDMM_WORKER_THREAD@@AEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_.c)
- *     ?SuspendPurgeForVPRGrow@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00E95DC (-SuspendPurgeForVPRGrow@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?SuspendDevices@VIDMM_WORKER_THREAD@@AEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_PAGE_IN_POLICY_PER_COMBINATION@@W4VIDMM_BUDGET_PRIORITY_BAND@@W4_VIDMM_PLACEMENT_RESTRICTION@@PEA_NPEAPEAV3@@Z @ 0x1C00B9CC8 (-SuspendDevices@VIDMM_WORKER_THREAD@@AEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_P.c)
+ *     ?SuspendPurgeForVPRGrow@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00C59E4 (-SuspendPurgeForVPRGrow@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
  * Callees:
- *     ?IterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAX_K0PEAXP6AE11@Z@Z @ 0x1C00EF704 (-IterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAX_K0PEAXP6AE11@Z@Z.c)
+ *     ?IterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAX_K0PEAXP6AE11@Z@Z @ 0x1C00CEDF0 (-IterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAX_K0PEAXP6AE11@Z@Z.c)
  */
 
-char __fastcall VIDMM_SEGMENT::FreeSpaceForSecureResource(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char __fastcall VIDMM_SEGMENT::FreeSpaceForSecureResource(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   unsigned __int64 v6; // rcx
   unsigned __int64 v7; // rax
@@ -24,7 +24,7 @@ char __fastcall VIDMM_SEGMENT::FreeSpaceForSecureResource(__int64 a1, __int64 a2
   if ( !*(_DWORD *)(a1 + 412) )
     return 1;
   v6 = ~*(_QWORD *)(a1 + 400) & (*(_QWORD *)(a1 + 400) + *(_QWORD *)(a3 + 16));
-  if ( (_DWORD)a4 != 5 )
+  if ( a4 != 5 )
   {
     v8 = *(_QWORD *)(a1 + 416);
     if ( v8 - *(_QWORD *)(a1 + 384) >= v6 )
@@ -53,7 +53,7 @@ LABEL_7:
   v13 = 1;
   if ( g_IsInternalReleaseOrDbg )
   {
-    v10 = WdLogNewEntry5_WdTrace(v6, a2, a3, a4);
+    v10 = WdLogNewEntry5_WdTrace(v6);
     *(_QWORD *)(v10 + 24) = v9;
     *(_QWORD *)(v10 + 32) = v8;
   }

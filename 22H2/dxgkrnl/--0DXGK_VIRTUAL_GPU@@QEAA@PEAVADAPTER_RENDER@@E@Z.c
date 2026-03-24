@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0DXGK_VIRTUAL_GPU@@QEAA@PEAVADAPTER_RENDER@@E@Z @ 0x1C03674B4
+ * XREFs of ??0DXGK_VIRTUAL_GPU@@QEAA@PEAVADAPTER_RENDER@@E@Z @ 0x1C022F860
  * Callers:
- *     ??0DXGK_VIRTUAL_GPU_PARAV@@QEAA@PEAVADAPTER_RENDER@@@Z @ 0x1C036E9B8 (--0DXGK_VIRTUAL_GPU_PARAV@@QEAA@PEAVADAPTER_RENDER@@@Z.c)
- *     ?CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@EEEPEAX@Z @ 0x1C0370490 (-CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@EEEPEAX@Z.c)
+ *     ??0DXGK_VIRTUAL_GPU_PARAV@@QEAA@PEAVADAPTER_RENDER@@@Z @ 0x1C00402C8 (--0DXGK_VIRTUAL_GPU_PARAV@@QEAA@PEAVADAPTER_RENDER@@@Z.c)
+ *     ?CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@E@Z @ 0x1C0236F90 (-CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@E@Z.c)
  * Callees:
  *     <none>
  */
@@ -23,17 +23,17 @@ DXGK_VIRTUAL_GPU *__fastcall DXGK_VIRTUAL_GPU::DXGK_VIRTUAL_GPU(
   *((_QWORD *)this + 7) = 0LL;
   *((_QWORD *)this + 8) = 0LL;
   *((_DWORD *)this + 18) = 0;
-  *((_DWORD *)this + 19) = 20;
+  *((_DWORD *)this + 19) = 12;
   v3 = *((_QWORD *)this + 1);
   *((_QWORD *)this + 12) = 0LL;
   *((_QWORD *)this + 13) = 0LL;
   if ( a3 )
-    v4 = *(_QWORD *)(v3 + 1872);
+    v4 = *(_QWORD *)(v3 + 1640);
   else
-    v4 = *(_QWORD *)(v3 + 1864);
+    v4 = *(_QWORD *)(v3 + 1632);
   *((_QWORD *)this + 14) = v4;
   result = this;
   *((_BYTE *)this + 152) = a3;
-  *((_BYTE *)this + 156) = 1;
+  *((_BYTE *)this + 154) = 1;
   return result;
 }

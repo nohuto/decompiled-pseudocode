@@ -1,8 +1,8 @@
 /*
- * XREFs of AlpcpGetEffectiveTokenMessage @ 0x1406B5838
+ * XREFs of AlpcpGetEffectiveTokenMessage @ 0x1406B5818
  * Callers:
- *     AlpcpQuerySidMessage @ 0x1406B5728 (AlpcpQuerySidMessage.c)
- *     AlpcpQueryTokenModifiedIdMessage @ 0x140849E84 (AlpcpQueryTokenModifiedIdMessage.c)
+ *     AlpcpQuerySidMessage @ 0x1406B5708 (AlpcpQuerySidMessage.c)
+ *     AlpcpQueryTokenModifiedIdMessage @ 0x140849E64 (AlpcpQueryTokenModifiedIdMessage.c)
  * Callees:
  *     SeCreateClientSecurityEx @ 0x140631CE0 (SeCreateClientSecurityEx.c)
  */

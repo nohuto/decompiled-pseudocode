@@ -1,39 +1,51 @@
 /*
- * XREFs of PspGetNextJob @ 0x14068A6EC
+ * XREFs of PspGetNextJob @ 0x140617C40
  * Callers:
- *     PspGetNextSilo @ 0x14068A6A0 (PspGetNextSilo.c)
- *     PspEnforceLimits @ 0x1407B67A0 (PspEnforceLimits.c)
+ *     PspGetNextSilo @ 0x140617AF0 (PspGetNextSilo.c)
+ *     PspEnforceLimits @ 0x140617B3C (PspEnforceLimits.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     ObReferenceObjectSafeWithTag @ 0x140302BD0 (ObReferenceObjectSafeWithTag.c)
- *     PspUnlockJobListShared @ 0x14068A79C (PspUnlockJobListShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
  */
 
 __int64 *__fastcall PspGetNextJob(_QWORD *Object)
 {
-  struct _KTHREAD *CurrentThread; // rsi
-  __int64 *v2; // rbp
-  __int64 *v4; // rbx
+  struct _KTHREAD *CurrentThread; // rbx
+  __int64 *v3; // rsi
+  __int64 *v4; // r14
+  __int64 v5; // rcx
+  bool v6; // zf
 
   CurrentThread = KeGetCurrentThread();
-  v2 = 0LL;
   --CurrentThread->SpecialApcDisable;
+  v3 = 0LL;
   ExAcquirePushLockSharedEx((ULONG_PTR)&PspJobListLock, 0LL);
-  v4 = (__int64 *)PspJobList;
   if ( Object )
     v4 = (__int64 *)Object[3];
-  while ( v4 != &PspJobList )
+  else
+    v4 = (__int64 *)PspJobList;
+  if ( v4 != &PspJobList )
   {
-    if ( ObReferenceObjectSafeWithTag((__int64)(v4 - 3)) )
+    while ( !ObReferenceObjectSafeWithTag((__int64)(v4 - 3)) )
     {
-      v2 = v4 - 3;
-      break;
+      v4 = (__int64 *)*v4;
+      if ( v4 == &PspJobList )
+        goto LABEL_6;
     }
-    v4 = (__int64 *)*v4;
+    v3 = v4 - 3;
   }
-  PspUnlockJobListShared(CurrentThread);
+LABEL_6:
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PspJobListLock, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&PspJobListLock);
+  KeAbPostRelease((ULONG_PTR)&PspJobListLock);
+  v6 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v6 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    KiCheckForKernelApcDelivery(v5);
   if ( Object )
     ObfDereferenceObjectWithTag(Object, 0x6E457350u);
-  return v2;
+  return v3;
 }

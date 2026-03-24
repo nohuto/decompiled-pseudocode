@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GDITrustedFontFileFree@@YAXPEAU_RTL_AVL_TABLE@@PEAX@Z @ 0x1C028D950
+ * XREFs of ?GDITrustedFontFileFree@@YAXPEAU_RTL_AVL_TABLE@@PEAX@Z @ 0x1C028AC20
  * Callers:
  *     <none>
  * Callees:

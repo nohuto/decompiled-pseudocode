@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpVolumeManagerGetContextForFilePath @ 0x140854FF0
+ * XREFs of CmpVolumeManagerGetContextForFilePath @ 0x1407C8E74
  * Callers:
- *     CmpHandlePageFileOpenNotification @ 0x140854EE0 (CmpHandlePageFileOpenNotification.c)
+ *     CmpHandlePageFileOpenNotification @ 0x1407C8C58 (CmpHandlePageFileOpenNotification.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateFile @ 0x14041B140 (ZwCreateFile.c)
- *     CmpVolumeManagerGetContextForFile @ 0x140701CB8 (CmpVolumeManagerGetContextForFile.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateFile @ 0x1403FA4C0 (ZwCreateFile.c)
+ *     CmpVolumeManagerGetContextForFile @ 0x140721364 (CmpVolumeManagerGetContextForFile.c)
  */
 
 __int64 __fastcall CmpVolumeManagerGetContextForFilePath(
@@ -21,12 +21,13 @@ __int64 __fastcall CmpVolumeManagerGetContextForFilePath(
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp+27h] BYREF
   HANDLE FileHandle; // [rsp+B8h] [rbp+67h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   FileHandle = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = a2;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   IoStatusBlock = 0LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   ContextForFile = ZwCreateFile(&FileHandle, 0x80u, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 7u, 1u, 0, 0LL, 0);
   if ( ContextForFile >= 0 )

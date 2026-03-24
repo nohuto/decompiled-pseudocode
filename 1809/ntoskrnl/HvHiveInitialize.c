@@ -4,7 +4,7 @@
  *     CmpHiveInitialize @ 0x1405A717C (CmpHiveInitialize.c)
  *     CmpGetSystemControlValues @ 0x1409CE008 (CmpGetSystemControlValues.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void *__fastcall HvHiveInitialize(_QWORD *a1)

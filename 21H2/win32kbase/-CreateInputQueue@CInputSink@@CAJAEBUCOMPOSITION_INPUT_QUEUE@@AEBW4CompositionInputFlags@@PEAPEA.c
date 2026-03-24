@@ -1,11 +1,10 @@
 /*
- * XREFs of ?CreateInputQueue@CInputSink@@CAJAEBUCOMPOSITION_INPUT_QUEUE@@AEBW4CompositionInputFlags@@PEAPEAVIInputQueue@@@Z @ 0x1C0096628
+ * XREFs of ?CreateInputQueue@CInputSink@@CAJAEBUCOMPOSITION_INPUT_QUEUE@@AEBW4CompositionInputFlags@@PEAPEAVIInputQueue@@@Z @ 0x1C00588A0
  * Callers:
- *     ?SetDropTarget@CInputSink@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C009642C (-SetDropTarget@CInputSink@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z.c)
- *     ?Initialize@CInputSink@@IEAAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z @ 0x1C0096548 (-Initialize@CInputSink@@IEAAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z.c)
+ *     ?SetDropTarget@CInputSink@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C00586A4 (-SetDropTarget@CInputSink@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z.c)
+ *     ?Initialize@CInputSink@@IEAAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z @ 0x1C00587C0 (-Initialize@CInputSink@@IEAAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z.c)
  * Callees:
- *     ?Create@CInputQueue@@SAJW4CompositionInputQueueType@@PEAUHWND__@@UtagMsgRoutingInfo@@W4CompositionInputFlags@@PEAPEAV1@@Z @ 0x1C00966C4 (-Create@CInputQueue@@SAJW4CompositionInputQueueType@@PEAUHWND__@@UtagMsgRoutingInfo@@W4Compositi.c)
- *     MicrosoftTelemetryAssertTriggeredMsgKM @ 0x1C0241304 (MicrosoftTelemetryAssertTriggeredMsgKM.c)
+ *     ?Create@CInputQueue@@SAJW4CompositionInputQueueType@@PEAUHWND__@@UtagMsgRoutingInfo@@W4CompositionInputFlags@@PEAPEAV1@@Z @ 0x1C0058944 (-Create@CInputQueue@@SAJW4CompositionInputQueueType@@PEAUHWND__@@UtagMsgRoutingInfo@@W4Compositi.c)
  */
 
 __int64 __fastcall CInputSink::CreateInputQueue(
@@ -13,55 +12,53 @@ __int64 __fastcall CInputSink::CreateInputQueue(
         const enum CompositionInputFlags *a2,
         struct IInputQueue **a3)
 {
-  __int64 result; // rax
+  unsigned int v4; // r9d
   __int64 v7; // rcx
-  __int128 v8; // xmm0
-  __int64 v9; // r9
-  __int128 v10; // xmm1
-  __int64 v11; // rdx
-  struct IInputQueue *v12; // rcx
-  _OWORD v13[2]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v14; // [rsp+50h] [rbp-18h]
-  struct IInputQueue *v15; // [rsp+70h] [rbp+8h] BYREF
+  struct IInputQueue *v8; // rax
+  __int128 v10; // xmm0
+  __int128 v11; // xmm1
+  __int64 v12; // r9
+  __int64 v13; // rdx
+  _OWORD v14[2]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v15; // [rsp+50h] [rbp-18h]
+  struct IInputQueue *v16; // [rsp+70h] [rbp+8h] BYREF
 
-  result = 0LL;
+  v4 = 0;
   *a3 = 0LL;
   v7 = *(unsigned int *)a1;
   if ( !(_DWORD)v7 )
   {
-    v12 = 0LL;
+    v8 = 0LL;
     if ( g_pInputManager )
-      v12 = (CInputManager *)((char *)g_pInputManager + 88);
-    goto LABEL_6;
+      v8 = (CInputManager *)((char *)g_pInputManager + 88);
+LABEL_4:
+    *a3 = v8;
+    return v4;
   }
   if ( (_DWORD)v7 == 1 )
   {
-    v12 = 0LL;
+    v8 = 0LL;
     if ( g_pInputManager )
-      v12 = (CInputManager *)((char *)g_pInputManager + 96);
-    goto LABEL_6;
+      v8 = (CInputManager *)((char *)g_pInputManager + 96);
+    goto LABEL_4;
   }
-  if ( (int)v7 > 1 )
+  if ( (unsigned int)(v7 - 2) > 2 )
   {
-    if ( (int)v7 <= 3 )
-    {
-      v8 = *((_OWORD *)a1 + 1);
-      v9 = *(unsigned int *)a2;
-      v10 = *((_OWORD *)a1 + 2);
-      v15 = 0LL;
-      v13[0] = v8;
-      *(_QWORD *)&v8 = *((_QWORD *)a1 + 6);
-      v11 = *((_QWORD *)a1 + 1);
-      v14 = v8;
-      v13[1] = v10;
-      result = CInputQueue::Create(v7, v11, v13, v9, &v15);
-      v12 = v15;
-LABEL_6:
-      *a3 = v12;
-      return result;
-    }
-    if ( (_DWORD)v7 == 4 )
-      MicrosoftTelemetryAssertTriggeredMsgKM("Input delivery requires window", a1, a2);
+    return (unsigned int)-1073741811;
   }
-  return 3221225485LL;
+  else
+  {
+    v10 = *((_OWORD *)a1 + 1);
+    v16 = 0LL;
+    v11 = *((_OWORD *)a1 + 2);
+    v12 = *(unsigned int *)a2;
+    v14[0] = v10;
+    *(_QWORD *)&v10 = *((_QWORD *)a1 + 6);
+    v13 = *((_QWORD *)a1 + 1);
+    v15 = v10;
+    v14[1] = v11;
+    v4 = CInputQueue::Create(v7, v13, v14, v12, &v16);
+    *a3 = v16;
+  }
+  return v4;
 }

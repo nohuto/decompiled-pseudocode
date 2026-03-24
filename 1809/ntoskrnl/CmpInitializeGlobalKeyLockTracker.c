@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpInitializeGlobalKeyLockTracker @ 0x1407305CC
+ * XREFs of CmpInitializeGlobalKeyLockTracker @ 0x1407305AC
  * Callers:
  *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
  * Callees:

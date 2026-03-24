@@ -1,13 +1,13 @@
 /*
- * XREFs of Crashdump_UsbDevice_Configure @ 0x1C004DAE0
+ * XREFs of Crashdump_UsbDevice_Configure @ 0x1C004D05C
  * Callers:
- *     Crashdump_UsbDevice_ReConfigureOnControllerReset @ 0x1C004E69C (Crashdump_UsbDevice_ReConfigureOnControllerReset.c)
- *     Crashdump_UsbDevice_ReConfigureOnPortReset @ 0x1C004E7F0 (Crashdump_UsbDevice_ReConfigureOnPortReset.c)
+ *     Crashdump_UsbDevice_ReConfigureOnControllerReset @ 0x1C004DC1C (Crashdump_UsbDevice_ReConfigureOnControllerReset.c)
+ *     Crashdump_UsbDevice_ReConfigureOnPortReset @ 0x1C004DD70 (Crashdump_UsbDevice_ReConfigureOnPortReset.c)
  * Callees:
- *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004D3D8 (Crashdump_Endpoint_SendControlTransfer.c)
- *     Crashdump_UsbDevice_ConfigureEndpoints @ 0x1C004DDA0 (Crashdump_UsbDevice_ConfigureEndpoints.c)
- *     Crashdump_UsbDevice_GetDeviceDescriptor @ 0x1C004E100 (Crashdump_UsbDevice_GetDeviceDescriptor.c)
- *     Crashdump_UsbDevice_SendAddressDeviceCommand @ 0x1C004EAEC (Crashdump_UsbDevice_SendAddressDeviceCommand.c)
+ *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004C954 (Crashdump_Endpoint_SendControlTransfer.c)
+ *     Crashdump_UsbDevice_ConfigureEndpoints @ 0x1C004D31C (Crashdump_UsbDevice_ConfigureEndpoints.c)
+ *     Crashdump_UsbDevice_GetDeviceDescriptor @ 0x1C004D67C (Crashdump_UsbDevice_GetDeviceDescriptor.c)
+ *     Crashdump_UsbDevice_SendAddressDeviceCommand @ 0x1C004E070 (Crashdump_UsbDevice_SendAddressDeviceCommand.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_Configure(__int64 a1, int a2)

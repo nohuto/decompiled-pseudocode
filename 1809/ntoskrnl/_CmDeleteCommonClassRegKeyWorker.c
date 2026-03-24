@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmDeleteCommonClassRegKeyWorker @ 0x1408F640C
+ * XREFs of _CmDeleteCommonClassRegKeyWorker @ 0x1408F63EC
  * Callers:
- *     _CmDeleteCommonClassRegKey @ 0x1408F62C0 (_CmDeleteCommonClassRegKey.c)
+ *     _CmDeleteCommonClassRegKey @ 0x1408F62A0 (_CmDeleteCommonClassRegKey.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _CmGetCommonClassRegKeyPath @ 0x140596C9C (_CmGetCommonClassRegKeyPath.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     _RegRtlDeleteTreeInternal @ 0x14070DC5C (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140762160 (_RegRtlDeleteKeyTransacted.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x1408FFF48 (_SysCtxRegOpenCurrentUserKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14070DC3C (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140762140 (_RegRtlDeleteKeyTransacted.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x1408FFF28 (_SysCtxRegOpenCurrentUserKey.c)
  */
 
 __int64 __fastcall CmDeleteCommonClassRegKeyWorker(__int64 a1, __int64 a2, __int16 a3, int a4, char a5)

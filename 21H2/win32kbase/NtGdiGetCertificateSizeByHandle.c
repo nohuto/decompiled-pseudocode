@@ -1,10 +1,10 @@
 /*
- * XREFs of NtGdiGetCertificateSizeByHandle @ 0x1C00CE200
+ * XREFs of NtGdiGetCertificateSizeByHandle @ 0x1C00BEB60
  * Callers:
  *     <none>
  * Callees:
- *     SafelyCopyKernelModeDataToUserModeData_unsigned_long_ @ 0x1C00CE244 (SafelyCopyKernelModeDataToUserModeData_unsigned_long_.c)
- *     ?GetCertificateSize@COPM@@QEAAJPEAXW4_DXGKMDT_CERTIFICATE_TYPE@@PEAK@Z @ 0x1C00CE910 (-GetCertificateSize@COPM@@QEAAJPEAXW4_DXGKMDT_CERTIFICATE_TYPE@@PEAK@Z.c)
+ *     SafelyCopyKernelModeDataToUserModeData_unsigned_long_ @ 0x1C00BEBA4 (SafelyCopyKernelModeDataToUserModeData_unsigned_long_.c)
+ *     ?GetCertificateSize@COPM@@QEAAJPEAXW4_DXGKMDT_CERTIFICATE_TYPE@@PEAK@Z @ 0x1C00BF278 (-GetCertificateSize@COPM@@QEAAJPEAXW4_DXGKMDT_CERTIFICATE_TYPE@@PEAK@Z.c)
  */
 
 int __fastcall NtGdiGetCertificateSizeByHandle(COPM *a1, enum _DXGKMDT_CERTIFICATE_TYPE a2, __int64 a3)

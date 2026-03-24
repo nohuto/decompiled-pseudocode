@@ -1,240 +1,177 @@
 /*
- * XREFs of MiAddRangeToPartitionTree @ 0x140658B8C
+ * XREFs of MiAddRangeToPartitionTree @ 0x1405610AC
  * Callers:
- *     MiAddMdlToPartitionTree @ 0x140658AA0 (MiAddMdlToPartitionTree.c)
- *     MiInsertPartitionPages @ 0x14065A4F0 (MiInsertPartitionPages.c)
- *     MiAddPhysicalMemory @ 0x140A2B738 (MiAddPhysicalMemory.c)
- *     MmRemovePhysicalMemory @ 0x140A2D280 (MmRemovePhysicalMemory.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140A4438C (MiAllocatePartitionPhysicalPages.c)
- *     MiHotAddPartitionMemory @ 0x140A44D10 (MiHotAddPartitionMemory.c)
+ *     MiAddMdlToPartitionTree @ 0x140560FC0 (MiAddMdlToPartitionTree.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408DA9C8 (MiAllocatePartitionPhysicalPages.c)
+ *     MiHotAddPartitionMemory @ 0x1408DB2CC (MiHotAddPartitionMemory.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x140287FA0 (RtlAvlInsertNodeEx.c)
- *     RtlSetBitsEx @ 0x14028B2A0 (RtlSetBitsEx.c)
- *     RtlClearBitsEx @ 0x14028BA00 (RtlClearBitsEx.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     RtlClearBitsEx @ 0x14027E980 (RtlClearBitsEx.c)
+ *     RtlAvlInsertNodeEx @ 0x140296BD0 (RtlAvlInsertNodeEx.c)
+ *     RtlSetBitsEx @ 0x140297080 (RtlSetBitsEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiAddRangeToPartitionTree(unsigned __int64 *a1, __int64 a2, unsigned __int64 a3, char a4)
+_BOOL8 __fastcall MiAddRangeToPartitionTree(unsigned __int64 *a1, __int64 a2, unsigned __int64 a3, int a4)
 {
-  unsigned int v4; // edi
-  unsigned __int64 v5; // rsi
-  char v7; // r10
+  unsigned __int64 v5; // rdi
+  int v6; // r12d
+  unsigned __int64 v7; // rsi
   __int64 v8; // rax
-  int v9; // r9d
-  unsigned __int64 v10; // r12
-  __int64 v11; // r13
-  unsigned __int64 v12; // rax
+  __int64 v9; // r8
+  __int64 v10; // r13
+  unsigned __int64 v11; // rbp
+  _QWORD *v12; // rax
+  unsigned __int64 v13; // r8
+  __int64 v14; // rdx
+  unsigned __int64 v15; // rcx
   _QWORD *Pool; // rbx
-  _QWORD *v14; // rbp
-  unsigned __int64 v15; // r8
-  __int64 v16; // rdx
-  __int64 v17; // r14
-  __int64 v18; // rbp
-  unsigned __int64 v19; // rbp
-  PVOID v20; // rax
-  __int64 v21; // rcx
-  bool v22; // r8
-  _QWORD *v23; // rdx
-  unsigned __int64 v24; // rcx
-  _QWORD *v25; // rax
-  __int64 v26; // rax
-  unsigned __int64 v27; // rbp
-  unsigned __int64 v28; // rdx
-  unsigned __int64 v29; // rcx
-  __int64 *v30; // r8
-  __int64 v31; // r9
-  __int64 *v32; // rdx
-  bool v33; // zf
-  bool j; // zf
-  unsigned __int64 i; // [rsp+20h] [rbp-88h]
-  __int64 v37; // [rsp+28h] [rbp-80h]
-  unsigned __int64 *v38; // [rsp+B0h] [rbp+8h]
-  __int64 v39; // [rsp+B8h] [rbp+10h]
-  int v40; // [rsp+C0h] [rbp+18h]
+  PVOID v17; // rax
+  __int64 v18; // r15
+  __int64 v19; // rcx
+  bool v20; // r8
+  _QWORD *v21; // rdx
+  unsigned __int64 v22; // rcx
+  _QWORD *v23; // rax
+  __int64 v24; // rdx
+  unsigned __int64 v25; // rbx
+  unsigned __int64 v26; // rdx
+  __int64 v28; // [rsp+20h] [rbp-88h]
+  unsigned __int64 *v29; // [rsp+B0h] [rbp+8h]
+  __int64 v30; // [rsp+B8h] [rbp+10h]
+  __int64 v31; // [rsp+C0h] [rbp+18h]
+  int v32; // [rsp+C8h] [rbp+20h]
 
-  v39 = a2;
-  v38 = a1;
-  v4 = 0;
+  v32 = a4;
+  v30 = a2;
+  v29 = a1;
   v5 = 0LL;
-  v40 = 0;
-  v7 = a4;
-  v8 = a2 & 0x3FFFFFFFFFFC0000LL;
-  v9 = 0;
-  v37 = a2 & 0x3FFFFFFFFFFC0000LL;
-  v10 = 0LL;
-  while ( 2 )
+  v6 = 0;
+  v7 = 0LL;
+  v8 = a2 & 0x7FFFFFFFFFFC0000LL;
+  v9 = a2 + 0x3FFFF;
+  v28 = a2 + 0x3FFFF;
+  v31 = a2 & 0x7FFFFFFFFFFC0000LL;
+LABEL_2:
+  v5 = v8 | v5 & 0x8000000000000000uLL;
+  v10 = a2;
+  v11 = (a3 + v9 - (v5 & 0x7FFFFFFFFFFFFFFFLL)) >> 18;
+LABEL_3:
+  if ( v11 )
   {
-    v11 = a2;
-    v5 = v8 | v5 & 0xC000000000000000uLL;
-    v12 = (a2 + a3 + 0x3FFFF) & 0xFFFFFFFFFFFC0000uLL;
-    for ( i = v12; ; v12 = i )
+    v12 = (_QWORD *)*a1;
+    if ( !*a1 )
+      goto LABEL_11;
+    v13 = v5 & 0x7FFFFFFFFFFFFFFFLL;
+    while ( 1 )
     {
-      if ( !a3 )
+      v14 = v12[3];
+      v15 = v14 & 0x7FFFFFFFFFFFFFFFLL;
+      if ( v13 < (v14 & 0x7FFFFFFFFFFFFFFFuLL) )
       {
-        LOBYTE(v4) = v9 == 0;
-        return v4;
+        v12 = (_QWORD *)*v12;
       }
-      Pool = (_QWORD *)*a1;
-      v14 = 0LL;
-      if ( *a1 )
-      {
-        v15 = v5 & 0x3FFFFFFFFFFFFFFFLL;
-        while ( 1 )
-        {
-          v16 = Pool[3];
-          if ( v15 >= (v16 & 0x3FFFFFFFFFFFFFFFuLL) )
-          {
-            v17 = (__int64)(Pool + 4);
-            if ( v15 < Pool[4] + (v16 & 0x3FFFFFFFFFFFFFFFuLL) )
-            {
-              if ( (v16 & 0x4000000000000000LL) == 0 || (v7 & 1) == 0 )
-                Pool[3] = v16 & 0xBFFFFFFFFFFFFFFFuLL;
-              goto LABEL_33;
-            }
-            Pool = (_QWORD *)Pool[1];
-          }
-          else
-          {
-            v14 = Pool;
-            Pool = (_QWORD *)*Pool;
-          }
-          if ( !Pool )
-          {
-            v12 = i;
-            break;
-          }
-        }
-      }
-      v18 = v14 ? v14[3] & 0x3FFFFFFFFFFFFFFFLL : v12;
-      Pool = MiAllocatePool(64, 0x30uLL, 0x7070694Du);
-      if ( !Pool )
-        break;
-      if ( (a4 & 2) != 0 )
-        v19 = v18 - (v5 & 0x3FFFFFFFFFFFFFFFLL);
       else
-        v19 = 0x40000LL;
-      v20 = MiAllocatePool(64, 8 * ((v19 >> 6) + ((v19 & 0x3F) != 0)), 0x6270694Du);
-      if ( !v20 )
       {
-        ExFreePoolWithTag(Pool, 0);
-        break;
-      }
-      v17 = (__int64)(Pool + 4);
-      Pool[4] = v19;
-      Pool[5] = v20;
-      v21 = Pool[3] ^ (Pool[3] ^ v5) & 0x3FFFFFFFFFFFFFFFLL;
-      Pool[3] = v21;
-      if ( (a4 & 1) != 0 )
-      {
-        v21 |= 0x4000000000000000uLL;
-        Pool[3] = v21;
-      }
-      v22 = 0;
-      v23 = (_QWORD *)*v38;
-      if ( *v38 )
-      {
-        v24 = v21 & 0x3FFFFFFFFFFFFFFFLL;
-        while ( 1 )
+        if ( v13 <= v15 )
         {
-          if ( v24 >= (v23[3] & 0x3FFFFFFFFFFFFFFFuLL) )
+          if ( v12 )
           {
-            v25 = (_QWORD *)v23[1];
-            if ( !v25 )
+            v18 = (__int64)(v12 + 4);
+            if ( v14 >= 0 || a4 != 1 )
             {
-              v22 = 1;
-              break;
+              v12[3] = v15;
+              v14 &= ~0x8000000000000000uLL;
             }
+            goto LABEL_21;
           }
-          else
+LABEL_11:
+          Pool = MiAllocatePool(64, 0x30uLL, 0x7070694Du);
+          if ( Pool )
           {
-            v25 = (_QWORD *)*v23;
-            if ( !*v23 )
-              break;
-          }
-          v23 = v25;
-        }
-      }
-      RtlAvlInsertNodeEx(v38, (unsigned __int64)v23, v22, (unsigned __int64)Pool);
-      v9 = v40;
-      v7 = a4;
-LABEL_33:
-      v26 = Pool[3] & 0x3FFFFFFFFFFFFFFFLL;
-      v27 = v26 + Pool[4] - v11;
-      if ( v27 > a3 )
-        v27 = a3;
-      if ( (v7 & 4) == 0 )
-      {
-        v28 = v11 - v26;
-        if ( v9 )
-        {
-          RtlClearBitsEx(v17, v28, v27);
-          Pool[3] &= ~0x8000000000000000uLL;
-          goto LABEL_57;
-        }
-        RtlSetBitsEx(v17, v28, v27);
-        if ( v11 == (Pool[3] & 0x3FFFFFFFFFFFFFFFLL) && v27 == Pool[4] )
-        {
-          Pool[3] |= 0x8000000000000000uLL;
-          goto LABEL_57;
-        }
-        v29 = Pool[4];
-        if ( !*(_QWORD *)v17 )
-          goto LABEL_57;
-        if ( v29 > 1 )
-        {
-          if ( *(_QWORD *)v17 < v29 )
-            goto LABEL_57;
-          v30 = *(__int64 **)(v17 + 8);
-          v31 = *v30;
-          v32 = &v30[(v29 - 1) >> 6];
-          if ( v30 != v32 )
-          {
-            for ( j = v31 == -1; j; j = *v30 == -1 )
+            v17 = MiAllocatePool(64, 0x8000uLL, 0x6270694Du);
+            if ( v17 )
             {
-              if ( ++v30 == v32 )
+              v18 = (__int64)(Pool + 4);
+              Pool[4] = 0x40000LL;
+              Pool[5] = v17;
+              v19 = Pool[3] ^ (v5 ^ Pool[3]) & 0x7FFFFFFFFFFFFFFFLL;
+              Pool[3] = v19;
+              if ( v32 == 1 )
               {
-                v33 = (*v30 & (0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v29 - 1))) == 0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v29 - 1);
-                goto LABEL_53;
+                v19 |= 0x8000000000000000uLL;
+                Pool[3] = v19;
               }
+              v20 = 0;
+              v21 = (_QWORD *)*v29;
+              if ( *v29 )
+              {
+                v22 = v19 & 0x7FFFFFFFFFFFFFFFLL;
+                while ( 1 )
+                {
+                  if ( v22 < (v21[3] & 0x7FFFFFFFFFFFFFFFuLL) )
+                  {
+                    v23 = (_QWORD *)*v21;
+                    if ( !*v21 )
+                      break;
+                  }
+                  else
+                  {
+                    v23 = (_QWORD *)v21[1];
+                    if ( !v23 )
+                    {
+                      v20 = 1;
+                      break;
+                    }
+                  }
+                  v21 = v23;
+                }
+              }
+              RtlAvlInsertNodeEx(v29, (unsigned __int64)v21, v20, Pool);
+              v14 = Pool[3];
+LABEL_21:
+              v24 = v14 & 0x7FFFFFFFFFFFFFFFLL;
+              v25 = a3;
+              if ( v24 - v10 + 0x40000 <= a3 )
+                v25 = v24 - v10 + 0x40000;
+              v26 = v10 - v24;
+              if ( v6 )
+              {
+                RtlClearBitsEx(v18, v26, v25);
+              }
+              else
+              {
+                RtlSetBitsEx(v18, v26, v25);
+                v7 += v25;
+              }
+              a1 = v29;
+              a4 = v32;
+              v10 += v25;
+              a3 -= v25;
+              --v11;
+              v5 ^= (v5 ^ (v5 + 0x40000)) & 0x7FFFFFFFFFFFFFFFLL;
+              goto LABEL_3;
             }
-            goto LABEL_57;
+            ExFreePoolWithTag(Pool, 0);
           }
-          v33 = ((0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v29)) & v31) == 0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v29);
-LABEL_53:
-          if ( !v33 )
+          v6 = 1;
+          if ( v7 )
           {
-LABEL_57:
-            v7 = a4;
-            goto LABEL_58;
+            a1 = v29;
+            a3 = v7;
+            a2 = v30;
+            v8 = v31;
+            a4 = v32;
+            v9 = v28;
+            goto LABEL_2;
           }
+          return 0LL;
         }
-        else if ( v29 != 1 || !_bittest64(*(const signed __int64 **)(v17 + 8), 0) )
-        {
-          goto LABEL_57;
-        }
-        Pool[3] |= 0x8000000000000000uLL;
-        goto LABEL_57;
+        v12 = (_QWORD *)v12[1];
       }
-LABEL_58:
-      v9 = v40;
-      v11 += v27;
-      a1 = v38;
-      a3 -= v27;
-      v10 += v27;
-      v5 ^= (v11 ^ v5) & 0x3FFFFFFFFFFFFFFFLL;
+      if ( !v12 )
+        goto LABEL_11;
     }
-    v9 = 1;
-    v40 = 1;
-    if ( v10 )
-    {
-      a1 = v38;
-      a3 = v10;
-      v7 = a4;
-      a2 = v39;
-      v8 = v37;
-      continue;
-    }
-    return 0LL;
   }
+  return v6 != 1;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbFindDatabaseNode @ 0x1406D3B98
+ * XREFs of DrvDbFindDatabaseNode @ 0x1406D3B78
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x1406D27A0 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbGetObjectDatabaseNode @ 0x1406D307C (DrvDbGetObjectDatabaseNode.c)
- *     DrvDbSuspendDatabase @ 0x14073A9D4 (DrvDbSuspendDatabase.c)
- *     DrvDbRegisterDatabase @ 0x14073B374 (DrvDbRegisterDatabase.c)
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x14075395C (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140753ADC (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x1409014C8 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x140902ADC (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1406D2780 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbGetObjectDatabaseNode @ 0x1406D305C (DrvDbGetObjectDatabaseNode.c)
+ *     DrvDbSuspendDatabase @ 0x14073A9B4 (DrvDbSuspendDatabase.c)
+ *     DrvDbRegisterDatabase @ 0x14073B354 (DrvDbRegisterDatabase.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x14075393C (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140753ABC (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x1409014A8 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140902ABC (DrvDbSetDriverDatabaseMappedProperty.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)

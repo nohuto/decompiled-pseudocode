@@ -1,14 +1,14 @@
 /*
- * XREFs of IopLiveDumpAllocateExtraBuffers @ 0x14093B5F8
+ * XREFs of IopLiveDumpAllocateExtraBuffers @ 0x140897674
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x14093AAEC (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140896BBC (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     HvlPrepareLivedumpDescriptor @ 0x14054AC34 (HvlPrepareLivedumpDescriptor.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x14055A628 (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpIsUnderMemoryPressure @ 0x14055A6A0 (IopLiveDumpIsUnderMemoryPressure.c)
- *     MmAllocateIndependentPagesEx @ 0x140829CBC (MmAllocateIndependentPagesEx.c)
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x14093C268 (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HvlPrepareLivedumpDescriptor @ 0x1404F8EB4 (HvlPrepareLivedumpDescriptor.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x1405089CC (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x140508A44 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     MmAllocateIndependentPagesEx @ 0x140762A0C (MmAllocateIndependentPagesEx.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x140897F8C (IopLiveDumpDiscardVirtualAddressRange.c)
  */
 
 __int64 __fastcall IopLiveDumpAllocateExtraBuffers(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -27,11 +27,11 @@ __int64 __fastcall IopLiveDumpAllocateExtraBuffers(__int64 a1, __int64 a2, __int
   unsigned __int64 *v16; // r15
   unsigned __int64 *v17; // r13
   int v18; // r14d
-  unsigned __int64 v19; // r9
+  unsigned __int64 v19; // rcx
   unsigned __int64 v20; // r8
-  unsigned __int64 v21; // rcx
-  unsigned __int64 v22; // r9
-  unsigned __int64 v23; // r8
+  unsigned __int64 v21; // r9
+  unsigned __int64 v22; // rcx
+  unsigned __int64 v23; // r9
   __int64 v24; // rsi
   unsigned __int64 v25; // rsi
   __int64 IndependentPages; // rax
@@ -86,18 +86,18 @@ __int64 __fastcall IopLiveDumpAllocateExtraBuffers(__int64 a1, __int64 a2, __int
     if ( v18 >= 0 )
     {
       v19 = *v17;
-      v20 = *v16;
+      v20 = (unsigned int)BufferChunkSizeInBytes;
+      v21 = *v16;
       *(_QWORD *)(a1 + 232) <<= 12;
-      v21 = (unsigned int)BufferChunkSizeInBytes;
       v22 = v19 << 12;
       *(_QWORD *)(a1 + 264) <<= 12;
-      v23 = v20 << 12;
+      v23 = v21 << 12;
       *v17 = v22;
       *v16 = v23;
-      if ( v22 % v21 )
-        *(_QWORD *)(a1 + 248) = *(_QWORD *)(a1 + 216) + v22 / v21;
-      if ( v23 % v21 )
-        *(_QWORD *)(a1 + 280) = *(_QWORD *)(a1 + 216) + v23 / v21;
+      if ( v22 % v20 )
+        *(_QWORD *)(a1 + 248) = *(_QWORD *)(a1 + 216) + v22 / v20;
+      if ( v23 % v20 )
+        *(_QWORD *)(a1 + 280) = *(_QWORD *)(a1 + 216) + v23 / v20;
     }
     else
     {
@@ -109,13 +109,13 @@ __int64 __fastcall IopLiveDumpAllocateExtraBuffers(__int64 a1, __int64 a2, __int
   if ( v24 )
   {
     v25 = v24 << 12;
-    IndependentPages = MmAllocateIndependentPagesEx(v25, -1, 0LL, 0);
+    IndependentPages = MmAllocateIndependentPagesEx(v25, -1, 0LL, 0LL);
     *(_QWORD *)(a1 + 144) = IndependentPages;
     if ( IndependentPages )
     {
-      v27 = *(_QWORD *)(a1 + 936);
-      v28 = *(_QWORD *)(a1 + 928);
-      v29 = *(_QWORD *)(a1 + 920);
+      v27 = *(_QWORD *)(a1 + 840);
+      v28 = *(_QWORD *)(a1 + 832);
+      v29 = *(_QWORD *)(a1 + 824);
       *(_DWORD *)(a1 + 152) = v25;
       if ( IopLiveDumpIsUnderMemoryPressure(v29, v28, v27) )
       {

@@ -1,29 +1,29 @@
 /*
- * XREFs of PiSwCompleteCreate @ 0x1406D808C
+ * XREFs of PiSwCompleteCreate @ 0x1406D806C
  * Callers:
- *     PiSwPdoPnPDispatch @ 0x1406D8350 (PiSwPdoPnPDispatch.c)
+ *     PiSwPdoPnPDispatch @ 0x1406D8330 (PiSwPdoPnPDispatch.c)
  * Callees:
  *     RtlStringCbCopyW @ 0x1400073A0 (RtlStringCbCopyW.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     RtlStringCbLengthW @ 0x14011CAA8 (RtlStringCbLengthW.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     RtlStringCbLengthW @ 0x14011CAC8 (RtlStringCbLengthW.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PnpFreeDevPropertyArray @ 0x140595490 (PnpFreeDevPropertyArray.c)
  *     PnpAllocatePWSTR @ 0x14059A42C (PnpAllocatePWSTR.c)
  *     _CmGetDeviceInterfaceClassGuid @ 0x14059ADB0 (_CmGetDeviceInterfaceClassGuid.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     _CmGetDeviceInterfaceReferenceString @ 0x1406D5694 (_CmGetDeviceInterfaceReferenceString.c)
- *     PnpCopyDevPropertyArray @ 0x1406D7250 (PnpCopyDevPropertyArray.c)
- *     PiSwPropertySet @ 0x1406D7970 (PiSwPropertySet.c)
- *     PiSwFreeInterfaceList @ 0x1406D8328 (PiSwFreeInterfaceList.c)
- *     IoRegisterDeviceInterface @ 0x1407099A0 (IoRegisterDeviceInterface.c)
- *     PiSwInterfaceCreate @ 0x14075440C (PiSwInterfaceCreate.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x1406D5674 (_CmGetDeviceInterfaceReferenceString.c)
+ *     PnpCopyDevPropertyArray @ 0x1406D7230 (PnpCopyDevPropertyArray.c)
+ *     PiSwPropertySet @ 0x1406D7950 (PiSwPropertySet.c)
+ *     PiSwFreeInterfaceList @ 0x1406D8308 (PiSwFreeInterfaceList.c)
+ *     IoRegisterDeviceInterface @ 0x140709980 (IoRegisterDeviceInterface.c)
+ *     PiSwInterfaceCreate @ 0x1407543EC (PiSwInterfaceCreate.c)
  */
 
 void __fastcall PiSwCompleteCreate(struct _DEVICE_OBJECT *Object)

@@ -1,30 +1,30 @@
 /*
- * XREFs of PopUmpoInitializeChannel @ 0x140B2B9FC
+ * XREFs of PopUmpoInitializeChannel @ 0x140A6FE7C
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     ExRegisterCallback @ 0x14025A0B0 (ExRegisterCallback.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwAlpcCreatePort @ 0x14041C6C0 (ZwAlpcCreatePort.c)
- *     ZwAlpcSetInformation @ 0x14041C900 (ZwAlpcSetInformation.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExCreateCallback @ 0x1406E0E40 (ExCreateCallback.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x14078ED30 (RtlAddAccessAllowedAce.c)
- *     PopUmpoProcessMessages @ 0x1407EFAD0 (PopUmpoProcessMessages.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ExRegisterCallback @ 0x14037F1A0 (ExRegisterCallback.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwAlpcCreatePort @ 0x1403FB300 (ZwAlpcCreatePort.c)
+ *     ZwAlpcSetInformation @ 0x1403FB540 (ZwAlpcSetInformation.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x140676BE0 (RtlAddAccessAllowedAce.c)
+ *     PopUmpoProcessMessages @ 0x14067A3E4 (PopUmpoProcessMessages.c)
+ *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PopUmpoInitializeChannel()
 {
   int v0; // ecx
   ULONG v1; // ebx
-  ACL *Pool2; // rax
+  ACL *PoolWithTag; // rax
   ACL *v3; // rdi
   int Acl; // ebx
   PCALLBACK_OBJECT v5; // rsi
@@ -36,7 +36,7 @@ __int64 PopUmpoInitializeChannel()
   __int64 v12; // [rsp+A0h] [rbp-11h]
   _QWORD v13[9]; // [rsp+A8h] [rbp-9h] BYREF
 
-  memset(&CallbackObject_8, 0, 44);
+  memset(&CallbackObject_8, 0, sizeof(CallbackObject_8));
   memset(v13, 0, sizeof(v13));
   PopAlpcServerPort = 0LL;
   PopAlpcClientPort = 0LL;
@@ -49,11 +49,11 @@ __int64 PopUmpoInitializeChannel()
   v0 = *((unsigned __int8 *)SeLocalSystemSid + 1);
   v9 = 0LL;
   v1 = 4 * v0 + 28;
-  Pool2 = (ACL *)ExAllocatePool2(64LL, v1, 0x6F706D55u);
-  v3 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (ACL *)ExAllocatePoolWithTag(NonPagedPoolNx, v1, 0x6F706D55u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    Acl = RtlCreateAcl(Pool2, v1, 2u);
+    Acl = RtlCreateAcl(PoolWithTag, v1, 2u);
     if ( Acl >= 0 )
     {
       Acl = RtlAddAccessAllowedAce(v3, 2u, 0x10000000u, SeLocalSystemSid);

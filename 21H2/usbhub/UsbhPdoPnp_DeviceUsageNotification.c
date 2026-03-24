@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhPdoPnp_DeviceUsageNotification @ 0x1C0054570
+ * XREFs of UsbhPdoPnp_DeviceUsageNotification @ 0x1C0055C00
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhRegisterBootDeviceNotification @ 0x1C005B81C (UsbhRegisterBootDeviceNotification.c)
- *     UsbhUpdateSqmFlags @ 0x1C0072540 (UsbhUpdateSqmFlags.c)
- *     UsbhPdo_IsDeviceExternal @ 0x1C00727D4 (UsbhPdo_IsDeviceExternal.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhRegisterBootDeviceNotification @ 0x1C005CEBC (UsbhRegisterBootDeviceNotification.c)
+ *     UsbhUpdateSqmFlags @ 0x1C00759E0 (UsbhUpdateSqmFlags.c)
+ *     UsbhPdo_IsDeviceExternal @ 0x1C0075C74 (UsbhPdo_IsDeviceExternal.c)
  */
 
 __int64 __fastcall UsbhPdoPnp_DeviceUsageNotification(PDEVICE_OBJECT DeviceObject, PIRP Irp)

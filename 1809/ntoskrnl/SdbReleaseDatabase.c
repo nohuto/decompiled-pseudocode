@@ -1,15 +1,15 @@
 /*
- * XREFs of SdbReleaseDatabase @ 0x140680AFC
+ * XREFs of SdbReleaseDatabase @ 0x140680ADC
  * Callers:
- *     PiLookupInDDB @ 0x14067EE2C (PiLookupInDDB.c)
- *     KsepShimDbUnmapFromMemory @ 0x1406835F0 (KsepShimDbUnmapFromMemory.c)
- *     KseShimDatabaseBootRelease @ 0x1407503E4 (KseShimDatabaseBootRelease.c)
- *     PpReleaseBootDDB @ 0x140750498 (PpReleaseBootDDB.c)
+ *     PiLookupInDDB @ 0x14067EE0C (PiLookupInDDB.c)
+ *     KsepShimDbUnmapFromMemory @ 0x1406835D0 (KsepShimDbUnmapFromMemory.c)
+ *     KseShimDatabaseBootRelease @ 0x1407503C4 (KseShimDatabaseBootRelease.c)
+ *     PpReleaseBootDDB @ 0x140750478 (PpReleaseBootDDB.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SdbCloseDatabaseRead @ 0x140680AB4 (SdbCloseDatabaseRead.c)
- *     SdbpCleanupLocalDatabaseSupport @ 0x140680C44 (SdbpCleanupLocalDatabaseSupport.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
+ *     SdbCloseDatabaseRead @ 0x140680A94 (SdbCloseDatabaseRead.c)
+ *     SdbpCleanupLocalDatabaseSupport @ 0x140680C24 (SdbpCleanupLocalDatabaseSupport.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
  */
 
 void __fastcall SdbReleaseDatabase(_QWORD *P)

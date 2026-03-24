@@ -1,18 +1,18 @@
 /*
- * XREFs of VmpPrefetchVirtualAddresses @ 0x14062B1A8
+ * XREFs of VmpPrefetchVirtualAddresses @ 0x1405A4584
  * Callers:
- *     VmPrefetchVirtualAddresses @ 0x1409D8CF8 (VmPrefetchVirtualAddresses.c)
- *     VmpPrefetchWorker @ 0x1409DA4D0 (VmpPrefetchWorker.c)
+ *     VmPrefetchVirtualAddresses @ 0x14092E850 (VmPrefetchVirtualAddresses.c)
+ *     VmpPrefetchWorker @ 0x14092FA30 (VmpPrefetchWorker.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VmpProcessContextLockShared @ 0x14045F804 (VmpProcessContextLockShared.c)
- *     VmpFillGpnRanges @ 0x140629910 (VmpFillGpnRanges.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VmpFillGpnRanges @ 0x1405A33A0 (VmpFillGpnRanges.c)
+ *     VmpProcessContextLockShared @ 0x1405A49D4 (VmpProcessContextLockShared.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VmpPrefetchVirtualAddresses(volatile LONG *SpinLock, _QWORD *a2, unsigned __int64 a3)
@@ -67,13 +67,7 @@ __int64 __fastcall VmpPrefetchVirtualAddresses(volatile LONG *SpinLock, _QWORD *
         *((_QWORD *)&v24 + 1) = v11;
         while ( *((_QWORD *)&v24 + 1) )
         {
-          VmpFillGpnRanges(
-            (__int64)SpinLock,
-            (unsigned __int64 *)&v24,
-            (__int64)PoolWithTag,
-            (__int64 *)&v27,
-            v7,
-            (__int64 *)&v25);
+          VmpFillGpnRanges((__int64)SpinLock, (unsigned __int64 *)&v24, (__int64)PoolWithTag, (__int64 *)&v27, v7, &v25);
           if ( v27 >= v7 )
           {
             v23 = *((_QWORD *)SpinLock + 5);
@@ -137,7 +131,7 @@ __int64 __fastcall VmpPrefetchVirtualAddresses(volatile LONG *SpinLock, _QWORD *
       v6 = -1073741670;
     }
 LABEL_34:
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(VmpExtensionHost + 64));
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(VmpExtensionHost + 64));
     if ( PoolWithTag )
       ExFreePoolWithTag(PoolWithTag, 0);
   }

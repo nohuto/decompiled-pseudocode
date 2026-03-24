@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryEvent @ 0x1406D0B60
+ * XREFs of NtQueryEvent @ 0x1406AF7B0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     ExpQueryCrossVmEvent @ 0x140A080E0 (ExpQueryCrossVmEvent.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExpQueryCrossVmEvent @ 0x14095C910 (ExpQueryCrossVmEvent.c)
  */
 
 __int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, int *a3, int a4, unsigned __int64 a5)
@@ -16,13 +16,14 @@ __int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, int *a3, int a4, unsigned
   __int64 v9; // rcx
   NTSTATUS v10; // eax
   NTSTATUS v11; // esi
-  _DWORD *v12; // r14
+  struct _DMA_ADAPTER *v12; // r14
   int v14; // [rsp+30h] [rbp-38h] BYREF
   PVOID Object; // [rsp+38h] [rbp-30h] BYREF
-  PVOID v16; // [rsp+40h] [rbp-28h]
-  int v17; // [rsp+78h] [rbp+10h] BYREF
+  PVOID v16; // [rsp+40h] [rbp-28h] BYREF
+  PVOID v17; // [rsp+48h] [rbp-20h]
+  int v18; // [rsp+78h] [rbp+10h] BYREF
 
-  v17 = 0;
+  v18 = 0;
   v14 = 0;
   if ( a2 )
     return 3221225475LL;
@@ -48,8 +49,8 @@ __int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, int *a3, int a4, unsigned
   Object = 0LL;
   v10 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
   v11 = v10;
-  v12 = Object;
-  v16 = Object;
+  v12 = (struct _DMA_ADAPTER *)Object;
+  v17 = Object;
   LODWORD(Object) = v10;
   if ( v10 < 0 )
   {
@@ -57,14 +58,14 @@ __int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, int *a3, int a4, unsigned
     {
       if ( ExCrossVmEventObjectType )
       {
-        Object = 0LL;
-        v11 = ObReferenceObjectByHandle(Handle, 1u, ExCrossVmEventObjectType, PreviousMode, &Object, 0LL);
-        v12 = Object;
-        v16 = Object;
+        v16 = 0LL;
+        v11 = ObReferenceObjectByHandle(Handle, 1u, ExCrossVmEventObjectType, PreviousMode, &v16, 0LL);
+        v12 = (struct _DMA_ADAPTER *)v16;
+        v17 = v16;
         LODWORD(Object) = v11;
         if ( v11 >= 0 )
         {
-          v11 = ExpQueryCrossVmEvent(v12, &v17, &v14);
+          v11 = ExpQueryCrossVmEvent(v16, &v18, &v14);
           LODWORD(Object) = v11;
         }
       }
@@ -72,27 +73,27 @@ __int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, int *a3, int a4, unsigned
   }
   else
   {
-    v14 = v12[1];
-    v17 = *(_BYTE *)v12 & 0x7F;
+    v14 = *(_DWORD *)(&v12->Size + 1);
+    v18 = v12->Version & 0x7F;
   }
   if ( v11 >= 0 )
   {
     if ( PreviousMode )
     {
-      *a3 = v17;
+      *a3 = v18;
       a3[1] = v14;
       if ( v8 )
         *v8 = 8;
     }
     else
     {
-      *a3 = v17;
+      *a3 = v18;
       a3[1] = v14;
       if ( v8 )
         *v8 = 8;
     }
   }
   if ( v12 )
-    ObfDereferenceObject(v12);
+    HalPutDmaAdapter(v12);
   return (unsigned int)v11;
 }

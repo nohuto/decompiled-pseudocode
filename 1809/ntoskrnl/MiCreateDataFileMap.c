@@ -4,12 +4,12 @@
  *     MiCreateNewSection @ 0x14061B7E0 (MiCreateNewSection.c)
  * Callees:
  *     MiInsertSubsectionNode @ 0x14009290C (MiInsertSubsectionNode.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     FsRtlGetFileSize @ 0x14061B4A0 (FsRtlGetFileSize.c)
- *     FsRtlSetFileSize @ 0x1406CAA80 (FsRtlSetFileSize.c)
- *     MiComputeIdealFirstSubsection @ 0x1408529E4 (MiComputeIdealFirstSubsection.c)
+ *     FsRtlSetFileSize @ 0x1406CAA60 (FsRtlSetFileSize.c)
+ *     MiComputeIdealFirstSubsection @ 0x1408529C4 (MiComputeIdealFirstSubsection.c)
  */
 
 NTSTATUS __fastcall MiCreateDataFileMap(

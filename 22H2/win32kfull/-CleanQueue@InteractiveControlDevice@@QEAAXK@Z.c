@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CleanQueue@InteractiveControlDevice@@QEAAXK@Z @ 0x1C0244EC0
+ * XREFs of ?CleanQueue@InteractiveControlDevice@@QEAAXK@Z @ 0x1C02564F8
  * Callers:
- *     ?QueueInput@InteractiveControlDevice@@QEAAXPEAU_LIST_ENTRY@@PEAVInteractiveControlInput@@@Z @ 0x1C0246070 (-QueueInput@InteractiveControlDevice@@QEAAXPEAU_LIST_ENTRY@@PEAVInteractiveControlInput@@@Z.c)
+ *     ?QueueInput@InteractiveControlDevice@@QEAAXPEAU_LIST_ENTRY@@PEAVInteractiveControlInput@@@Z @ 0x1C02576B0 (-QueueInput@InteractiveControlDevice@@QEAAXPEAU_LIST_ENTRY@@PEAVInteractiveControlInput@@@Z.c)
  * Callees:
- *     ??_GInteractiveControlInput@@QEAAPEAXI@Z @ 0x1C0244E50 (--_GInteractiveControlInput@@QEAAPEAXI@Z.c)
+ *     ??_GInteractiveControlInput@@QEAAPEAXI@Z @ 0x1C0256470 (--_GInteractiveControlInput@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall InteractiveControlDevice::CleanQueue(InteractiveControlDevice *this)

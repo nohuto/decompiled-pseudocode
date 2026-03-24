@@ -1,25 +1,26 @@
 /*
- * XREFs of ?OemSpecifiedViewDist@Win81@@YAIQEAX@Z @ 0x1C031654C
+ * XREFs of ?OemSpecifiedViewDist@Win81@@YAIQEAX@Z @ 0x1C02AFE38
  * Callers:
- *     ?DetermineViewDistance@Win81@@YA_NQEAXAEBUtagSIZE@@H1HPEAI@Z @ 0x1C0315E6C (-DetermineViewDistance@Win81@@YA_NQEAXAEBUtagSIZE@@H1HPEAI@Z.c)
+ *     ?DetermineViewDistance@Win81@@YA_NQEAXAEBUtagSIZE@@H1HHPEAI@Z @ 0x1C02AF80C (-DetermineViewDistance@Win81@@YA_NQEAXAEBUtagSIZE@@H1HHPEAI@Z.c)
  * Callees:
- *     DpiReadPnpRegistryValue @ 0x1C01DCD70 (DpiReadPnpRegistryValue.c)
+ *     DpiReadPnpRegistryValue @ 0x1C01842D4 (DpiReadPnpRegistryValue.c)
  */
 
 __int64 __fastcall Win81::OemSpecifiedViewDist(Win81 *this, void *const a2)
 {
   __int64 v2; // rcx
-  _DWORD *v3; // rax
+  wchar_t *v3; // rax
   unsigned int v5; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = *((_QWORD *)this + 27);
   v5 = 0;
   if ( (int)DpiReadPnpRegistryValue(v2, L"ViewDistanceOverride", (char *)&v5, 4u, 2u) < 0 )
     return 0LL;
-  v3 = &unk_1C00DDDC0;
-  while ( v5 != *v3 )
+  v3 = (wchar_t *)&unk_1C0085A48;
+  while ( v5 != *(_DWORD *)v3 )
   {
-    if ( ++v3 == (_DWORD *)&unk_1C00DDDD8 )
+    v3 += 2;
+    if ( v3 == L"\\SystemRoot\\System32\\" )
       return 0LL;
   }
   return v5;

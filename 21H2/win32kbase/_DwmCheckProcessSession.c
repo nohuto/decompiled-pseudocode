@@ -1,9 +1,9 @@
 /*
- * XREFs of _DwmCheckProcessSession @ 0x1C009DB00
+ * XREFs of _DwmCheckProcessSession @ 0x1C0089580
  * Callers:
- *     NtUserCheckProcessSession @ 0x1C009DA90 (NtUserCheckProcessSession.c)
+ *     NtUserCheckProcessSession @ 0x1C0089370 (NtUserCheckProcessSession.c)
  * Callees:
- *     LockProcessByClientIdEx @ 0x1C009DDE8 (LockProcessByClientIdEx.c)
+ *     LockProcessByClientIdEx @ 0x1C00895DC (LockProcessByClientIdEx.c)
  */
 
 __int64 __fastcall DwmCheckProcessSession(int a1)

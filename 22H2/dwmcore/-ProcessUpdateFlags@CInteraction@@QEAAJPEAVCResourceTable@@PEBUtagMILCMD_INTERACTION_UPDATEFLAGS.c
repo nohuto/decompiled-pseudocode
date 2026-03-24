@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ProcessUpdateFlags@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPDATEFLAGS@@@Z @ 0x1800F3E9C
+ * XREFs of ?ProcessUpdateFlags@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPDATEFLAGS@@@Z @ 0x1800D2BB4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,29 +11,25 @@ __int64 __fastcall CInteraction::ProcessUpdateFlags(
         struct CResourceTable *a2,
         const struct tagMILCMD_INTERACTION_UPDATEFLAGS *a3)
 {
-  char v5; // dl
-  char v6; // r8
+  char v4; // dl
+  char v5; // r9
+  char v6; // cl
   char v7; // dl
-  char v8; // cl
-  char v9; // dl
-  char v10; // cl
-  int v11; // eax
+  int v8; // eax
 
-  v5 = *((_BYTE *)this + 192) & 0xFE | (*((_BYTE *)a3 + 8) != 0);
-  *((_BYTE *)this + 192) = v5;
-  v6 = v5 & 0xFB | (*((_BYTE *)a3 + 9) != 0 ? 4 : 0);
-  *((_BYTE *)this + 192) = v6;
-  v7 = v6 & 0xF7 | (*((_BYTE *)a3 + 10) != 0 ? 8 : 0);
-  *((_BYTE *)this + 192) = v7;
-  v8 = v7 & 0xEF | (*((_BYTE *)a3 + 11) != 0 ? 0x10 : 0);
-  v9 = v8 ^ (v8 ^ (2 * v8)) & 0x20;
-  *((_BYTE *)this + 192) = v9;
-  *((_BYTE *)this + 192) = v9 & 0xBF | (*((_BYTE *)a3 + 12) != 0 ? 0x40 : 0);
-  v10 = *((_BYTE *)this + 1616) & 0xFB | (*((_BYTE *)a3 + 13) != 0 ? 4 : 0);
-  *((_BYTE *)this + 1616) = v10;
-  v11 = *((_DWORD *)a3 + 4);
-  *((_DWORD *)this + 49) = v11;
-  *((_DWORD *)this + 424) = v11;
-  *((_BYTE *)this + 1616) = v10 & 0xF7 | (v11 != 2 ? 0 : 8);
+  v4 = *((_BYTE *)this + 184) & 0xFE | (*((_BYTE *)a3 + 8) != 0);
+  *((_BYTE *)this + 184) = v4;
+  v5 = v4 & 0xFB | (*((_BYTE *)a3 + 9) != 0 ? 4 : 0);
+  *((_BYTE *)this + 184) = v5;
+  v6 = v5 & 0xF7 | (*((_BYTE *)a3 + 10) != 0 ? 8 : 0);
+  v7 = v6 ^ (v6 ^ (2 * v6)) & 0x10;
+  *((_BYTE *)this + 184) = v7;
+  *((_BYTE *)this + 184) = v7 & 0xDF | (*((_BYTE *)a3 + 11) != 0 ? 0x20 : 0);
+  *((_BYTE *)this + 1608) = *((_BYTE *)this + 1608) & 0xFB | (*((_BYTE *)a3 + 12) != 0 ? 4 : 0);
+  v8 = *((_DWORD *)a3 + 4);
+  *((_DWORD *)this + 47) = v8;
+  *((_DWORD *)this + 422) = v8;
+  *((_BYTE *)this + 1608) &= ~8u;
+  *((_BYTE *)this + 1608) |= v8 != 2 ? 0 : 8;
   return 0LL;
 }

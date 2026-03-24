@@ -1,8 +1,7 @@
 /*
- * XREFs of _ReassociateQueueEventCompletionPacket @ 0x1C01B3604
+ * XREFs of _ReassociateQueueEventCompletionPacket @ 0x1C01D2DD0
  * Callers:
- *     NtUserMsgWaitForMultipleObjectsEx @ 0x1C011D490 (NtUserMsgWaitForMultipleObjectsEx.c)
- *     NtUserReassociateQueueEventCompletionPacket @ 0x1C01D8E40 (NtUserReassociateQueueEventCompletionPacket.c)
+ *     NtUserMsgWaitForMultipleObjectsEx @ 0x1C0052B00 (NtUserMsgWaitForMultipleObjectsEx.c)
  * Callees:
  *     <none>
  */
@@ -10,9 +9,9 @@
 __int64 ReassociateQueueEventCompletionPacket()
 {
   ZwAssociateWaitCompletionPacket(
-    *(_QWORD *)(gptiCurrent + 1488LL),
-    *(_QWORD *)(gptiCurrent + 1464LL),
-    *(_QWORD *)(gptiCurrent + 1480LL),
+    *(_QWORD *)(gptiCurrent + 1448LL),
+    *(_QWORD *)(gptiCurrent + 1424LL),
+    *(_QWORD *)(gptiCurrent + 1440LL),
     0LL,
     1LL,
     0,

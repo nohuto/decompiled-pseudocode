@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetFinalValue@CExpressionForce@@UEAAXM@Z @ 0x180227760
+ * XREFs of ?SetFinalValue@CExpressionForce@@UEAAXM@Z @ 0x1801D7EC0
  * Callers:
  *     <none>
  * Callees:
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall __noreturn CExpressionForce::SetFinalValue(CExpressionForce *this, float a2)

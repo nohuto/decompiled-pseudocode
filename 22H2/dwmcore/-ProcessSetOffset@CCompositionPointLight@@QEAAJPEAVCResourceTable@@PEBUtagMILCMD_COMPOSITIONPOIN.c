@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetOffset@CCompositionPointLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONPOINTLIGHT_SETOFFSET@@@Z @ 0x180225070
+ * XREFs of ?ProcessSetOffset@CCompositionPointLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONPOINTLIGHT_SETOFFSET@@@Z @ 0x1801BB0EC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionPointLight::ProcessSetOffset(
@@ -18,8 +18,8 @@ __int64 __fastcall CCompositionPointLight::ProcessSetOffset(
   v5[0] = *((_DWORD *)a3 + 2);
   v5[2] = *((_DWORD *)a3 + 4);
   v5[1] = v3;
-  return ((__int64 (__fastcall *)(char *, void *, _DWORD *))xmmword_1803E4628)(
-           (char *)this + SDWORD2(xmmword_1803E4628),
+  return ((__int64 (__fastcall *)(char *, void *, _DWORD *))xmmword_180345E58)(
+           (char *)this + SDWORD2(xmmword_180345E58),
            &CCompositionPointLight::sc_Offset,
            v5);
 }

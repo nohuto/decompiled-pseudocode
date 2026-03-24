@@ -1,10 +1,10 @@
 /*
- * XREFs of ?transpose@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBU4123@@Z @ 0x18000DE90
+ * XREFs of ?transpose@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBU4123@@Z @ 0x1801A77F0
  * Callers:
- *     ?Transpose@CMILMatrix@@QEAAXXZ @ 0x18000DE4C (-Transpose@CMILMatrix@@QEAAXXZ.c)
- *     ?SetLocalToWorld@CD3DBatchExecutionContext@@QEAAXAEBVCMILMatrix@@@Z @ 0x1801ED424 (-SetLocalToWorld@CD3DBatchExecutionContext@@QEAAXAEBVCMILMatrix@@@Z.c)
+ *     ?SetLocalToWorld@CD3DBatchExecutionContext@@QEAAXAEBVCMILMatrix@@@Z @ 0x1801A74B0 (-SetLocalToWorld@CD3DBatchExecutionContext@@QEAAXAEBVCMILMatrix@@@Z.c)
+ *     ?GetTranspose@CMILMatrix@@QEBA?AV1@XZ @ 0x180210FEC (-GetTranspose@CMILMatrix@@QEBA-AV1@XZ.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 __m128 *__fastcall Windows::Foundation::Numerics::transpose(__m128 *a1, __m128 *a2)

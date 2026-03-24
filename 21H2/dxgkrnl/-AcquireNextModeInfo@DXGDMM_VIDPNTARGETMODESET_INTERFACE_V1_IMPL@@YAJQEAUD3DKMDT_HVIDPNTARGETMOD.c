@@ -1,14 +1,14 @@
 /*
- * XREFs of ?AcquireNextModeInfo@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@QEBU_D3DKMDT_VIDPN_TARGET_MODE@@PEAPEBU3@@Z @ 0x1C01A8A40
+ * XREFs of ?AcquireNextModeInfo@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@QEBU_D3DKMDT_VIDPN_TARGET_MODE@@PEAPEBU3@@Z @ 0x1C01255D0
  * Callers:
  *     <none>
  * Callees:
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDEOPRESENTTARGET@@U?$DoubleLinkedListElementDeleter@VDMMVIDEOPRESENTTARGET@@@@@@QEAAEQEBVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C0010EB8 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDEOPRESENTTARGET@@U-$DoubleLinkedListElementDelete.c)
- *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDPNTARGETMODESET@@PEAUD3DKMDT_HVIDPNTARGETMODESET__@@@@SAPEAVDMMVIDPNTARGETMODESET@@PEAUD3DKMDT_HVIDPNTARGETMODESET__@@@Z @ 0x1C001123C (-GetFromHandle@-$ExposedViaHandle@VDMMVIDPNTARGETMODESET@@PEAUD3DKMDT_HVIDPNTARGETMODESET__@@@@S.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     ??$AcquireDdiEnumeratorCachedModeInfo@V?$binder2nd@V?$mem_fun1_t@PEAVDMMVIDPNTARGETMODE@@VDMMVIDPNTARGETMODESET@@PEBV1@@KM_STL@@@KM_STL@@@DMMVIDPNTARGETMODESET@@QEAAJV?$binder2nd@V?$mem_fun1_t@PEAVDMMVIDPNTARGETMODE@@VDMMVIDPNTARGETMODESET@@PEBV1@@KM_STL@@@KM_STL@@PEAPEBU_D3DKMDT_VIDPN_TARGET_MODE@@@Z @ 0x1C01A8B9C (--$AcquireDdiEnumeratorCachedModeInfo@V-$binder2nd@V-$mem_fun1_t@PEAVDMMVIDPNTARGETMODE@@VDMMVID.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDEOPRESENTTARGET@@U?$DoubleLinkedListElementDeleter@VDMMVIDEOPRESENTTARGET@@@@@@QEAAEQEBVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C0005EC0 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDEOPRESENTTARGET@@U-$DoubleLinkedListElementDelete.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDPNTARGETMODESET@@PEAUD3DKMDT_HVIDPNTARGETMODESET__@@@@SAPEAVDMMVIDPNTARGETMODESET@@PEAUD3DKMDT_HVIDPNTARGETMODESET__@@@Z @ 0x1C0008424 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDPNTARGETMODESET@@PEAUD3DKMDT_HVIDPNTARGETMODESET__@@@@S.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ??$AcquireDdiEnumeratorCachedModeInfo@V?$binder2nd@V?$mem_fun1_t@PEAVDMMVIDPNTARGETMODE@@VDMMVIDPNTARGETMODESET@@PEBV1@@KM_STL@@@KM_STL@@@DMMVIDPNTARGETMODESET@@QEAAJV?$binder2nd@V?$mem_fun1_t@PEAVDMMVIDPNTARGETMODE@@VDMMVIDPNTARGETMODESET@@PEBV1@@KM_STL@@@KM_STL@@PEAPEBU_D3DKMDT_VIDPN_TARGET_MODE@@@Z @ 0x1C012593C (--$AcquireDdiEnumeratorCachedModeInfo@V-$binder2nd@V-$mem_fun1_t@PEAVDMMVIDPNTARGETMODE@@VDMMVID.c)
  */
 
 __int64 __fastcall DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::AcquireNextModeInfo(
@@ -17,122 +17,158 @@ __int64 __fastcall DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::AcquireNextModeI
         const struct _D3DKMDT_VIDPN_TARGET_MODE *const a3,
         const struct _D3DKMDT_VIDPN_TARGET_MODE **a4)
 {
-  __int64 v7; // rsi
-  __int64 v8; // rax
-  __int64 v9; // rbx
-  _DWORD *v10; // rdi
-  __int64 v11; // rbx
-  int v12; // eax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  unsigned int v15; // ebx
-  __int64 v16; // rbx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rsi
+  __int64 v12; // rax
+  __int64 v13; // rbx
+  _DWORD *v14; // rdi
+  __int64 v15; // rbx
+  __int64 v16; // rdx
   __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v20; // rax
-  bool v21; // zf
-  struct DMMVIDPNSOURCEMODE *(__fastcall *v22)(DMMVIDPNSOURCEMODESET *, const struct DMMVIDPNSOURCEMODE *const); // [rsp+20h] [rbp-50h] BYREF
-  int v23; // [rsp+28h] [rbp-48h]
-  __int64 v24; // [rsp+30h] [rbp-40h]
-  int v25; // [rsp+40h] [rbp-30h] BYREF
-  __int64 v26; // [rsp+48h] [rbp-28h]
-  char v27; // [rsp+50h] [rbp-20h]
-  __int64 v28; // [rsp+68h] [rbp-8h]
-  __int64 v29; // [rsp+A0h] [rbp+30h] BYREF
+  int v18; // eax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  unsigned int v23; // ebx
+  __int64 v24; // rbx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v28; // rax
+  __int64 v29; // rcx
+  bool v30; // zf
+  _QWORD *v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rax
+  __int64 v34; // rax
+  __int64 v35; // rax
+  __int64 v36; // rax
+  __int64 v37; // rax
+  __int64 v38; // rax
+  struct DMMVIDPNSOURCEMODE *(__fastcall *v39)(DMMVIDPNSOURCEMODESET *, const struct DMMVIDPNSOURCEMODE *const); // [rsp+20h] [rbp-50h] BYREF
+  int v40; // [rsp+28h] [rbp-48h]
+  __int64 v41; // [rsp+30h] [rbp-40h]
+  int v42; // [rsp+40h] [rbp-30h] BYREF
+  __int64 v43; // [rsp+48h] [rbp-28h]
+  char v44; // [rsp+50h] [rbp-20h]
+  __int64 v45; // [rsp+68h] [rbp-8h]
+  __int64 v46; // [rsp+A0h] [rbp+30h] BYREF
 
-  v25 = -1;
-  v26 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v42 = -1;
+  v43 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v27 = 1;
-    v25 = 6011;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v44 = 1;
+    v42 = 6011;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, (__int64)a3, 6011);
   }
   else
   {
-    v27 = 0;
+    v44 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v25, 6011);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v42, 6011LL);
   if ( a3 )
   {
     *(_QWORD *)&a3->Id = 0LL;
-    v7 = ExposedViaHandle<DMMVIDPNTARGETMODESET,D3DKMDT_HVIDPNTARGETMODESET__ *>::GetFromHandle((__int64)this);
-    if ( v7 )
+    v11 = ExposedViaHandle<DMMVIDPNTARGETMODESET,D3DKMDT_HVIDPNTARGETMODESET__ *>::GetFromHandle((__int64)this);
+    if ( v11 )
     {
-      v8 = a2 - 16;
-      v9 = -a2;
-      v10 = (_DWORD *)(v8 & -(__int64)(v9 != 0));
-      if ( v10 && *v10 == 305419896 )
+      v12 = a2 - 16;
+      v13 = -a2;
+      v14 = (_DWORD *)(v12 & -(__int64)(v13 != 0));
+      if ( v14 && *v14 == 305419896 )
       {
-        v11 = *(_QWORD *)((v8 & -(__int64)(v9 != 0)) + 8);
-        if ( !v11 )
-          WdLogSingleEntry0(1LL);
-        if ( DoublyLinkedList<DMMVIDEOPRESENTTARGET,DoubleLinkedListElementDeleter<DMMVIDEOPRESENTTARGET>>::ContainsByReference(
-               v7 + 32,
-               v11) )
+        v15 = *(_QWORD *)((v12 & -(__int64)(v13 != 0)) + 8);
+        if ( !v15 )
         {
-          v23 = 0;
-          v29 = 0LL;
-          v22 = DMMVIDPNSOURCEMODESET::GetNextMode;
-          v28 = v11;
-          v24 = v11;
-          v12 = DMMVIDPNTARGETMODESET::AcquireDdiEnumeratorCachedModeInfo<KM_STL::binder2nd<KM_STL::mem_fun1_t<DMMVIDPNTARGETMODE *,DMMVIDPNTARGETMODESET,DMMVIDPNTARGETMODE const *>>>(
-                  v7,
-                  &v22,
-                  &v29);
-          v15 = v12;
-          if ( v12 == -1071774902 )
+          v33 = WdLogNewEntry5_WdAssertion(v10, v9);
+          WdLogEvent5_WdAssertion(v33);
+        }
+        if ( DoublyLinkedList<DMMVIDEOPRESENTTARGET,DoubleLinkedListElementDeleter<DMMVIDEOPRESENTTARGET>>::ContainsByReference(
+               v11 + 32,
+               v15) )
+        {
+          v40 = 0;
+          v46 = 0LL;
+          v39 = DMMVIDPNSOURCEMODESET::GetNextMode;
+          v45 = v15;
+          v41 = v15;
+          v18 = DMMVIDPNTARGETMODESET::AcquireDdiEnumeratorCachedModeInfo<KM_STL::binder2nd<KM_STL::mem_fun1_t<DMMVIDPNTARGETMODE *,DMMVIDPNTARGETMODESET,DMMVIDPNTARGETMODE const *>>>(
+                  v11,
+                  &v39,
+                  &v46);
+          v23 = v18;
+          if ( v18 == -1071774902 )
           {
-            v20 = WdLogNewEntry5_WdTrace(v14, v13);
-            v21 = v29 == 0;
-            *(_QWORD *)(v20 + 24) = v7;
-            if ( !v21 )
-              WdLogSingleEntry0(1LL);
-            v15 = 1075708748;
+            v28 = WdLogNewEntry5_WdTrace(v20, v19, v21, v22);
+            v30 = v46 == 0;
+            *(_QWORD *)(v28 + 24) = v11;
+            if ( !v30 )
+            {
+              v35 = WdLogNewEntry5_WdAssertion(v29, v19);
+              WdLogEvent5_WdAssertion(v35);
+            }
+            v23 = 1075708748;
           }
-          else if ( v12 < 0 )
+          else if ( v18 < 0 )
           {
-            WdLogSingleEntry2(7LL, v10, v7);
+            v36 = WdLogNewEntry5_WdDmmEvent(v20, v19);
+            *(_QWORD *)(v36 + 24) = v14;
+            *(_QWORD *)(v36 + 32) = v11;
+            WdLogEvent5_WdDmmEvent(v36);
           }
           else
           {
-            v16 = v29;
-            if ( !v29 )
-              WdLogSingleEntry0(1LL);
-            *(_QWORD *)&a3->Id = v16;
-            v15 = 0;
+            v24 = v46;
+            if ( !v46 )
+            {
+              v37 = WdLogNewEntry5_WdAssertion(v20, v19);
+              WdLogEvent5_WdAssertion(v37);
+            }
+            *(_QWORD *)&a3->Id = v24;
+            v23 = 0;
           }
         }
         else
         {
-          WdLogSingleEntry2(2LL, v10, v7);
-          v15 = -1071774928;
+          v34 = WdLogNewEntry5_WdError(v17, v16);
+          *(_QWORD *)(v34 + 24) = v14;
+          *(_QWORD *)(v34 + 32) = v11;
+          WdLogEvent5_WdError(v34);
+          v23 = -1071774928;
         }
       }
       else
       {
-        WdLogSingleEntry1(2LL, v8 & -(__int64)(v9 != 0));
-        v15 = -1071774959;
+        v38 = WdLogNewEntry5_WdError(v10, v9);
+        *(_QWORD *)(v38 + 24) = v14;
+        WdLogEvent5_WdError(v38);
+        v23 = -1071774959;
       }
     }
     else
     {
-      WdLogSingleEntry1(2LL, this);
-      v15 = -1071774967;
+      v32 = WdLogNewEntry5_WdError(v10, v9);
+      *(_QWORD *)(v32 + 24) = this;
+      WdLogEvent5_WdError(v32);
+      v23 = -1071774967;
     }
   }
   else
   {
-    WdLogSingleEntry3(2LL, 0LL, a2, this);
-    v15 = -1073741811;
+    v31 = (_QWORD *)WdLogNewEntry5_WdError(v8, v7);
+    v31[3] = 0LL;
+    v31[4] = a2;
+    v31[5] = this;
+    WdLogEvent5_WdError(v31);
+    v23 = -1073741811;
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v25);
-  if ( v27 )
-  {
-    LOBYTE(v17) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v17, &EventProfilerExit, v18, v25);
-  }
-  return v15;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v42, v19);
+  if ( v44 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v25, &EventProfilerExit, v26, v42);
+  return v23;
 }

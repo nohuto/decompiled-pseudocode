@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReadGpuVaConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00BE990
+ * XREFs of ?ReadGpuVaConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0093490
  * Callers:
- *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0468 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0091434 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
  */
 
 void VIDMM_GLOBAL::ReadGpuVaConfiguration(void)
@@ -22,131 +22,151 @@ void VIDMM_GLOBAL::ReadGpuVaConfiguration(void)
   int v11; // [rsp+5Ch] [rbp-A4h] BYREF
   int v12; // [rsp+60h] [rbp-A0h] BYREF
   int v13; // [rsp+64h] [rbp-9Ch] BYREF
-  __int64 v14; // [rsp+70h] [rbp-90h] BYREF
-  int v15; // [rsp+78h] [rbp-88h]
-  const wchar_t *v16; // [rsp+80h] [rbp-80h]
-  int *v17; // [rsp+88h] [rbp-78h]
-  int v18; // [rsp+90h] [rbp-70h]
-  int *v19; // [rsp+98h] [rbp-68h]
-  int v20; // [rsp+A0h] [rbp-60h]
-  __int64 v21; // [rsp+A8h] [rbp-58h]
-  int v22; // [rsp+B0h] [rbp-50h]
-  const wchar_t *v23; // [rsp+B8h] [rbp-48h]
-  int *v24; // [rsp+C0h] [rbp-40h]
-  int v25; // [rsp+C8h] [rbp-38h]
-  int *v26; // [rsp+D0h] [rbp-30h]
-  int v27; // [rsp+D8h] [rbp-28h]
-  __int64 v28; // [rsp+E0h] [rbp-20h]
-  int v29; // [rsp+E8h] [rbp-18h]
-  const wchar_t *v30; // [rsp+F0h] [rbp-10h]
-  int *v31; // [rsp+F8h] [rbp-8h]
-  int v32; // [rsp+100h] [rbp+0h]
-  int *v33; // [rsp+108h] [rbp+8h]
-  int v34; // [rsp+110h] [rbp+10h]
-  __int64 v35; // [rsp+118h] [rbp+18h]
-  int v36; // [rsp+120h] [rbp+20h]
-  const wchar_t *v37; // [rsp+128h] [rbp+28h]
-  int *v38; // [rsp+130h] [rbp+30h]
-  int v39; // [rsp+138h] [rbp+38h]
-  int *v40; // [rsp+140h] [rbp+40h]
-  int v41; // [rsp+148h] [rbp+48h]
-  __int64 v42; // [rsp+150h] [rbp+50h]
-  int v43; // [rsp+158h] [rbp+58h]
-  const wchar_t *v44; // [rsp+160h] [rbp+60h]
-  int *v45; // [rsp+168h] [rbp+68h]
-  int v46; // [rsp+170h] [rbp+70h]
-  int *v47; // [rsp+178h] [rbp+78h]
-  int v48; // [rsp+180h] [rbp+80h]
-  __int64 v49; // [rsp+188h] [rbp+88h]
-  int v50; // [rsp+190h] [rbp+90h]
-  const wchar_t *v51; // [rsp+198h] [rbp+98h]
-  int *v52; // [rsp+1A0h] [rbp+A0h]
-  int v53; // [rsp+1A8h] [rbp+A8h]
-  int *v54; // [rsp+1B0h] [rbp+B0h]
-  int v55; // [rsp+1B8h] [rbp+B8h]
-  __int64 v56; // [rsp+1C0h] [rbp+C0h]
-  int v57; // [rsp+1C8h] [rbp+C8h]
-  const wchar_t *v58; // [rsp+1D0h] [rbp+D0h]
-  int *v59; // [rsp+1D8h] [rbp+D8h]
-  int v60; // [rsp+1E0h] [rbp+E0h]
-  int *v61; // [rsp+1E8h] [rbp+E8h]
-  int v62; // [rsp+1F0h] [rbp+F0h]
-  __int128 v63; // [rsp+1F8h] [rbp+F8h]
-  __int128 v64; // [rsp+208h] [rbp+108h]
-  __int128 v65; // [rsp+218h] [rbp+118h]
-  __int64 v66; // [rsp+228h] [rbp+128h]
+  int v14; // [rsp+68h] [rbp-98h] BYREF
+  int v15; // [rsp+6Ch] [rbp-94h] BYREF
+  __int64 v16; // [rsp+70h] [rbp-90h] BYREF
+  int v17; // [rsp+78h] [rbp-88h]
+  const wchar_t *v18; // [rsp+80h] [rbp-80h]
+  int *v19; // [rsp+88h] [rbp-78h]
+  int v20; // [rsp+90h] [rbp-70h]
+  int *v21; // [rsp+98h] [rbp-68h]
+  int v22; // [rsp+A0h] [rbp-60h]
+  __int64 v23; // [rsp+A8h] [rbp-58h]
+  int v24; // [rsp+B0h] [rbp-50h]
+  const wchar_t *v25; // [rsp+B8h] [rbp-48h]
+  int *v26; // [rsp+C0h] [rbp-40h]
+  int v27; // [rsp+C8h] [rbp-38h]
+  int *v28; // [rsp+D0h] [rbp-30h]
+  int v29; // [rsp+D8h] [rbp-28h]
+  __int64 v30; // [rsp+E0h] [rbp-20h]
+  int v31; // [rsp+E8h] [rbp-18h]
+  const wchar_t *v32; // [rsp+F0h] [rbp-10h]
+  int *v33; // [rsp+F8h] [rbp-8h]
+  int v34; // [rsp+100h] [rbp+0h]
+  int *v35; // [rsp+108h] [rbp+8h]
+  int v36; // [rsp+110h] [rbp+10h]
+  __int64 v37; // [rsp+118h] [rbp+18h]
+  int v38; // [rsp+120h] [rbp+20h]
+  const wchar_t *v39; // [rsp+128h] [rbp+28h]
+  int *v40; // [rsp+130h] [rbp+30h]
+  int v41; // [rsp+138h] [rbp+38h]
+  int *v42; // [rsp+140h] [rbp+40h]
+  int v43; // [rsp+148h] [rbp+48h]
+  __int64 v44; // [rsp+150h] [rbp+50h]
+  int v45; // [rsp+158h] [rbp+58h]
+  const wchar_t *v46; // [rsp+160h] [rbp+60h]
+  int *v47; // [rsp+168h] [rbp+68h]
+  int v48; // [rsp+170h] [rbp+70h]
+  int *v49; // [rsp+178h] [rbp+78h]
+  int v50; // [rsp+180h] [rbp+80h]
+  __int64 v51; // [rsp+188h] [rbp+88h]
+  int v52; // [rsp+190h] [rbp+90h]
+  const wchar_t *v53; // [rsp+198h] [rbp+98h]
+  int *v54; // [rsp+1A0h] [rbp+A0h]
+  int v55; // [rsp+1A8h] [rbp+A8h]
+  int *v56; // [rsp+1B0h] [rbp+B0h]
+  int v57; // [rsp+1B8h] [rbp+B8h]
+  __int64 v58; // [rsp+1C0h] [rbp+C0h]
+  int v59; // [rsp+1C8h] [rbp+C8h]
+  const wchar_t *v60; // [rsp+1D0h] [rbp+D0h]
+  int *v61; // [rsp+1D8h] [rbp+D8h]
+  int v62; // [rsp+1E0h] [rbp+E0h]
+  int *v63; // [rsp+1E8h] [rbp+E8h]
+  int v64; // [rsp+1F0h] [rbp+F0h]
+  __int64 v65; // [rsp+1F8h] [rbp+F8h]
+  int v66; // [rsp+200h] [rbp+100h]
+  const wchar_t *v67; // [rsp+208h] [rbp+108h]
+  int *v68; // [rsp+210h] [rbp+110h]
+  int v69; // [rsp+218h] [rbp+118h]
+  int *v70; // [rsp+220h] [rbp+120h]
+  int v71; // [rsp+228h] [rbp+128h]
+  __int128 v72; // [rsp+230h] [rbp+130h]
+  __int128 v73; // [rsp+240h] [rbp+140h]
+  __int128 v74; // [rsp+250h] [rbp+150h]
+  __int64 v75; // [rsp+260h] [rbp+160h]
 
-  v7 = 0;
-  v0 = 0;
   v8 = 0;
-  v1 = 0;
+  v0 = 0;
   v9 = 0;
-  v10 = 30;
+  v1 = 0;
+  v11 = 30;
   v3 = 30;
-  v11 = 0x10000;
-  v4 = 0x10000;
-  v16 = L"DisableUncommitGpuVaInPagingProcess";
-  v17 = &v0;
-  v19 = &v7;
-  v23 = L"EnableZeroFlagInPde";
-  v24 = &v1;
-  v26 = &v8;
-  v30 = L"DisableMakeIoMmuAddressValid";
-  v31 = &v2;
-  v33 = &v9;
-  v37 = L"PagingProcessVaSpaceBitCount";
-  v38 = &v3;
-  v40 = &v10;
-  v44 = L"GpuVaFirstValidAddress";
-  v45 = &v4;
-  v47 = &v11;
-  v51 = L"EnableGpuVaGuardPages";
-  v52 = &v5;
-  v54 = &v12;
+  v13 = 0x10000;
+  v5 = 0x10000;
+  v18 = L"DisableUncommitGpuVaInPagingProcess";
+  v19 = &v0;
+  v21 = &v8;
+  v25 = L"EnableZeroFlagInPde";
+  v26 = &v1;
+  v28 = &v9;
+  v32 = L"DisableMakeIoMmuAddressValid";
+  v33 = &v2;
+  v35 = &v10;
+  v39 = L"PagingProcessVaSpaceBitCount";
+  v40 = &v3;
+  v42 = &v11;
+  v46 = L"GpuVaPagingHistorySize";
+  v47 = &v4;
+  v49 = &v12;
+  v53 = L"GpuVaFirstValidAddress";
+  v54 = &v5;
+  v56 = &v13;
+  v10 = 0;
   v2 = 0;
   v12 = 0;
-  v5 = 0;
-  v13 = 0;
+  v4 = 0;
+  v14 = 0;
   v6 = 0;
-  v14 = 0LL;
-  v15 = 288;
-  v18 = 67108868;
-  v20 = 4;
-  v21 = 0LL;
-  v22 = 288;
-  v25 = 67108868;
-  v27 = 4;
-  v28 = 0LL;
-  v29 = 288;
-  v32 = 67108868;
-  v34 = 4;
-  v35 = 0LL;
-  v36 = 288;
-  v39 = 67108868;
-  v41 = 4;
-  v42 = 0LL;
-  v43 = 288;
-  v46 = 67108868;
-  v48 = 4;
-  v49 = 0LL;
-  v50 = 288;
-  v53 = 67108868;
-  v55 = 4;
-  v56 = 0LL;
-  v57 = 288;
-  v60 = 67108868;
-  v58 = L"AllocateGpuVaFromHighAddresses";
-  v62 = 4;
-  v59 = &v6;
-  v61 = &v13;
-  v63 = 0LL;
-  v66 = 0LL;
-  v64 = 0LL;
+  v15 = 0;
+  v7 = 0;
+  v16 = 0LL;
+  v17 = 288;
+  v20 = 67108868;
+  v22 = 4;
+  v23 = 0LL;
+  v24 = 288;
+  v27 = 67108868;
+  v29 = 4;
+  v30 = 0LL;
+  v31 = 288;
+  v34 = 67108868;
+  v36 = 4;
+  v37 = 0LL;
+  v38 = 288;
+  v41 = 67108868;
+  v43 = 4;
+  v44 = 0LL;
+  v45 = 288;
+  v48 = 67108868;
+  v50 = 4;
+  v51 = 0LL;
+  v52 = 288;
+  v55 = 67108868;
+  v57 = 4;
+  v59 = 288;
+  v60 = L"EnableGpuVaGuardPages";
+  v61 = &v6;
+  v63 = &v14;
+  v67 = L"AllocateGpuVaFromHighAddresses";
+  v68 = &v7;
+  v70 = &v15;
+  v62 = 67108868;
+  v64 = 4;
+  v66 = 288;
+  v69 = 67108868;
+  v71 = 4;
+  v58 = 0LL;
   v65 = 0LL;
-  RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers\\MemoryManager", &v14, 0LL, 0LL);
-  dword_1C0076458 = v3;
+  v72 = 0LL;
+  v75 = 0LL;
+  v73 = 0LL;
+  v74 = 0LL;
+  RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers\\MemoryManager", &v16, 0LL, 0LL);
+  dword_1C00503A8 = v3;
+  dword_1C00503AC = v4;
+  dword_1C00503B0 = 32 * v4;
   VIDMM_GLOBAL::_Config = (v2 != 0 ? 0x20 : 0) | (v1 != 0 ? 0x100 : 0) | (v0 != 0 ? 0x80 : 0) | VIDMM_GLOBAL::_Config & 0xFFFFFE5F;
-  dword_1C0076468 = v4 & 0xFFFFF000;
-  dword_1C0076540 = v5;
-  dword_1C0076544 = v6;
+  dword_1C00503B4 = v5 & 0xFFFFF000;
+  dword_1C0050490 = v6;
+  dword_1C0050494 = v7;
 }

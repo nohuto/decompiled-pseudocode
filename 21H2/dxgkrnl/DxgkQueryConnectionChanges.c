@@ -1,395 +1,421 @@
 /*
- * XREFs of DxgkQueryConnectionChanges @ 0x1C0024C50
+ * XREFs of DxgkQueryConnectionChanges @ 0x1C0020690
  * Callers:
- *     DpiFdoHandleDisplayDetectControl @ 0x1C0024A9C (DpiFdoHandleDisplayDetectControl.c)
- *     DpiDxgkDdiDisplayDetectControl @ 0x1C01F3488 (DpiDxgkDdiDisplayDetectControl.c)
- *     DpiIndicateConnectorChangeWorkItem @ 0x1C01F3910 (DpiIndicateConnectorChangeWorkItem.c)
+ *     DpiFdoHandleDisplayDetectControl @ 0x1C0020478 (DpiFdoHandleDisplayDetectControl.c)
+ *     DpiDxgkDdiDisplayDetectControl @ 0x1C0179578 (DpiDxgkDdiDisplayDetectControl.c)
+ *     DpiIndicateConnectorChangeWorkItem @ 0x1C02C6180 (DpiIndicateConnectorChangeWorkItem.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0012AB4 (_tlgKeywordOn.c)
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     DpiFdoGetChildDescriptor @ 0x1C001E234 (DpiFdoGetChildDescriptor.c)
- *     DpiDxgkDdiQueryConnectionChange @ 0x1C002557C (DpiDxgkDdiQueryConnectionChange.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@3444@Z @ 0x1C00602F8 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U1@U2@U2@U2@@-$_tlgWriteTemplate@$$A6.c)
- *     MonitorQuerySkippedRemovalState @ 0x1C015772C (MonitorQuerySkippedRemovalState.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01B32DC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C01B40A0 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01B445C (DpiAcquireCoreSyncAccessSafe.c)
- *     DxgkEndDisplayCalloutBatch @ 0x1C01F3A78 (DxgkEndDisplayCalloutBatch.c)
- *     DxgkStartDisplayCalloutBatch @ 0x1C01F3B34 (DxgkStartDisplayCalloutBatch.c)
- *     ?DmmProcessHPDFiltering@@YA?AW4_DMM_HPD_FILTER_RESULT@@PEAXPEAU_DXGK_CONNECTION_CHANGE@@AEAU_DMM_HPD_FILTER_INFO@@EPEAU_GUID@@@Z @ 0x1C02061E4 (-DmmProcessHPDFiltering@@YA-AW4_DMM_HPD_FILTER_RESULT@@PEAXPEAU_DXGK_CONNECTION_CHANGE@@AEAU_DMM.c)
- *     DpiPdoHandleChildConnectionChange @ 0x1C02164B8 (DpiPdoHandleChildConnectionChange.c)
- *     ?DmmUpdateHPDFilteringTelemetry@@YAXPEAXAEAU_DMM_HPD_FILTER_INFO@@PEAU_GUID@@IE@Z @ 0x1C021683C (-DmmUpdateHPDFilteringTelemetry@@YAXPEAXAEAU_DMM_HPD_FILTER_INFO@@PEAU_GUID@@IE@Z.c)
- *     DxgkInvalidateVidPnDisplayModeListCache @ 0x1C02C4FD8 (DxgkInvalidateVidPnDisplayModeListCache.c)
- *     DpiFdoHandleTargetConnectionState @ 0x1C038A234 (DpiFdoHandleTargetConnectionState.c)
- *     ?DmmUpdateTargetLinkTrainingState@@YAJPEAXPEAU_DXGK_CONNECTION_CHANGE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C03A4A78 (-DmmUpdateTargetLinkTrainingState@@YAJPEAXPEAU_DXGK_CONNECTION_CHANGE@@PEAU_DXGK_DISPLAY_SCENARI.c)
- *     MonitorRebuildMonitorModeListCache @ 0x1C03B0A28 (MonitorRebuildMonitorModeListCache.c)
+ *     DpiFdoGetChildDescriptor @ 0x1C001A270 (DpiFdoGetChildDescriptor.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiFdoHandleQueryConnectionChange @ 0x1C0020EC8 (DpiFdoHandleQueryConnectionChange.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0pxqqqqq_EtwWriteTransfer @ 0x1C002866C (McTemplateK0pxqqqqq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0121730 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C01219AC (DpiAcquireCoreSyncAccessSafe.c)
+ *     DxgkEndDisplayCalloutBatch @ 0x1C0179934 (DxgkEndDisplayCalloutBatch.c)
+ *     ?DmmUpdateHPDFilteringTelemetry@@YAXPEAXAEAU_DMM_HPD_FILTER_INFO@@PEAU_GUID@@IE@Z @ 0x1C01799E4 (-DmmUpdateHPDFilteringTelemetry@@YAXPEAXAEAU_DMM_HPD_FILTER_INFO@@PEAU_GUID@@IE@Z.c)
+ *     DpiPdoHandleChildConnectionChange @ 0x1C0179B08 (DpiPdoHandleChildConnectionChange.c)
+ *     ?DmmProcessHPDFiltering@@YA?AW4_DMM_HPD_FILTER_RESULT@@PEAXPEAU_DXGK_CONNECTION_CHANGE@@AEAU_DMM_HPD_FILTER_INFO@@EPEAU_GUID@@@Z @ 0x1C017A684 (-DmmProcessHPDFiltering@@YA-AW4_DMM_HPD_FILTER_RESULT@@PEAXPEAU_DXGK_CONNECTION_CHANGE@@AEAU_DMM.c)
+ *     DxgkStartDisplayCalloutBatch @ 0x1C017A7E8 (DxgkStartDisplayCalloutBatch.c)
+ *     DxgkInvalidateVidPnDisplayModeListCache @ 0x1C021748C (DxgkInvalidateVidPnDisplayModeListCache.c)
+ *     DpiFdoHandleTargetConnectionState @ 0x1C02CACE4 (DpiFdoHandleTargetConnectionState.c)
+ *     ?DmmUpdateTargetLinkTrainingState@@YAJPEAXPEAU_DXGK_CONNECTION_CHANGE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C02E4828 (-DmmUpdateTargetLinkTrainingState@@YAJPEAXPEAU_DXGK_CONNECTION_CHANGE@@PEAU_DXGK_DISPLAY_SCENARI.c)
+ *     MonitorRebuildMonitorModeListCache @ 0x1C02F41CC (MonitorRebuildMonitorModeListCache.c)
  */
 
-__int64 __fastcall DxgkQueryConnectionChanges(__int64 a1, char a2, char a3, char a4, BOOLEAN a5, char a6)
+__int64 __fastcall DxgkQueryConnectionChanges(__int64 a1, __int64 a2, char a3, char a4, char a5)
 {
-  __int64 v6; // rbx
-  char v8; // r12
+  __int64 v5; // rbx
+  char v6; // r12
+  char v8; // r14
+  char v9; // si
   __int64 v11; // rdx
   int v12; // eax
   __int64 v13; // rdi
-  __int64 v14; // rcx
-  _QWORD *v15; // rdi
-  _QWORD *v16; // rax
-  int v17; // eax
-  KSPIN_LOCK *v18; // rsi
-  int v19; // r15d
-  int v20; // eax
-  D3DDDI_VIDEO_PRESENT_TARGET_ID v21; // r14d
-  unsigned int v22; // ecx
-  char v23; // si
-  bool v24; // zf
-  _QWORD *v25; // rsi
-  __int64 v26; // r13
-  __int64 v27; // rcx
-  _QWORD *v28; // r14
-  __int64 v29; // rdx
-  int v30; // ecx
-  unsigned __int64 v31; // rdx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // r9
+  _QWORD *v18; // rdi
+  char v19; // r13
+  _DWORD *v20; // rax
+  __int64 v21; // r8
+  int v22; // eax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r14
+  __int64 v26; // rax
+  int v27; // r15d
+  int v28; // r8d
+  __int64 v29; // rsi
+  __int64 v30; // rdi
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  int v33; // eax
+  int v34; // r8d
+  _QWORD *v35; // rax
+  __int64 v36; // rax
+  unsigned int v37; // esi
+  __int64 v38; // rcx
+  __int64 v39; // rax
+  char v40; // si
+  __int64 v41; // rdx
   _QWORD *ChildDescriptor; // rax
-  __int64 v33; // r9
-  _DWORD *v34; // r12
-  struct _DXGK_CONNECTION_CHANGE *v35; // rsi
-  int v36; // ecx
-  int v37; // r8d
-  int v38; // r9d
-  char v39; // cl
-  int v40; // eax
+  __int64 v43; // rdx
+  __int64 v44; // rcx
+  __int64 v45; // r9
+  _DWORD *v46; // r14
+  __int64 v47; // rax
+  int v48; // eax
+  bool v49; // cl
+  __int64 v50; // r9
+  int v51; // eax
+  __int64 v52; // rdx
+  __int64 v53; // rcx
+  __int64 v54; // rax
   int updated; // eax
-  __int64 v42; // rdx
-  int v44; // [rsp+20h] [rbp-E0h]
-  char v45; // [rsp+50h] [rbp-B0h] BYREF
-  char v46; // [rsp+51h] [rbp-AFh]
-  int ConnectionChangeId_high; // [rsp+54h] [rbp-ACh] BYREF
-  int ConnectionChangeId; // [rsp+58h] [rbp-A8h] BYREF
-  int v49; // [rsp+5Ch] [rbp-A4h] BYREF
-  int v50; // [rsp+60h] [rbp-A0h] BYREF
-  int v51[2]; // [rsp+68h] [rbp-98h]
-  __int64 v52; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v53; // [rsp+78h] [rbp-88h] BYREF
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+80h] [rbp-80h] BYREF
-  struct _DXGK_CONNECTION_CHANGE v55[5]; // [rsp+A0h] [rbp-60h] BYREF
-  _DWORD v56[8]; // [rsp+120h] [rbp+20h] BYREF
-  __int64 v57; // [rsp+140h] [rbp+40h]
-  __int64 v58; // [rsp+148h] [rbp+48h]
-  int v59; // [rsp+150h] [rbp+50h]
-  int v60; // [rsp+154h] [rbp+54h]
-  int v61; // [rsp+158h] [rbp+58h]
-  int v62; // [rsp+15Ch] [rbp+5Ch]
-  __int64 v63; // [rsp+160h] [rbp+60h]
-  _OWORD v64[3]; // [rsp+170h] [rbp+70h] BYREF
-  __int64 v65[10]; // [rsp+1A0h] [rbp+A0h] BYREF
-  __int64 v66[10]; // [rsp+1F0h] [rbp+F0h] BYREF
+  __int64 v56; // rdx
+  __int64 v57; // rcx
+  __int64 v58; // rdx
+  __int64 v59; // rcx
+  __int64 v60; // r8
+  __int64 v61; // rax
+  __int64 v63; // rax
+  int v64; // [rsp+20h] [rbp-E0h]
+  int v65; // [rsp+28h] [rbp-D8h]
+  int v66; // [rsp+30h] [rbp-D0h]
+  int v67; // [rsp+38h] [rbp-C8h]
+  char v69; // [rsp+51h] [rbp-AFh]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE v72[104]; // [rsp+80h] [rbp-80h] BYREF
+  _OWORD v73[3]; // [rsp+F0h] [rbp-10h] BYREF
+  _QWORD v74[10]; // [rsp+120h] [rbp+20h] BYREF
 
-  v6 = *(_QWORD *)(a1 + 64);
-  v45 = a3;
-  *(_QWORD *)v51 = a1;
-  v46 = 0;
+  v5 = *(_QWORD *)(a1 + 64);
+  v6 = 0;
   v8 = a3;
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( !v6 || *(_DWORD *)(v6 + 16) != 1953656900 || *(_DWORD *)(v6 + 20) != 2 )
+  v69 = 0;
+  v9 = a2;
+  if ( !v5 || *(_DWORD *)(v5 + 16) != 1953656900 || *(_DWORD *)(v5 + 20) != 2 )
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
+    v63 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v63 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v63);
     return 3221225485LL;
   }
-  if ( !ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v6 + 168)) )
+  if ( !ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v5 + 168)) )
   {
     KeEnterCriticalRegion();
-    if ( *(_BYTE *)(v6 + 484) )
-      DpiCheckForOutstandingD3Requests(v6);
-    ExAcquireResourceSharedLite(*(PERESOURCE *)(v6 + 168), 1u);
+    if ( *(_BYTE *)(v5 + 484) )
+      DpiCheckForOutstandingD3Requests(v5);
+    ExAcquireResourceSharedLite(*(PERESOURCE *)(v5 + 168), 1u);
     KeEnterCriticalRegion();
-    ExAcquireResourceExclusiveLite((PERESOURCE)(v6 + 3304), 1u);
-    v46 = 1;
+    ExAcquireResourceExclusiveLite((PERESOURCE)(v5 + 3304), 1u);
+    v6 = 1;
+    v69 = 1;
   }
-  if ( (unsigned int)(*(_DWORD *)(v6 + 236) - 1) > 1 || *(_DWORD *)(v6 + 3984) == 1 || *(_DWORD *)(v6 + 284) != 1 )
+  if ( (unsigned int)(*(_DWORD *)(v5 + 236) - 1) > 1 || *(_DWORD *)(v5 + 3976) == 1 || *(_DWORD *)(v5 + 284) != 1 )
   {
-    KeSetEvent((PRKEVENT)(v6 + 3528), 0, 0);
-    v14 = 3LL;
-    v13 = -1073741661LL;
-    goto LABEL_81;
+    KeSetEvent((PRKEVENT)(v5 + 3528), 0, 0);
+    LODWORD(v13) = -1073741661;
+    v61 = WdLogNewEntry5_WdWarning(v59, v58, v60);
+    *(_QWORD *)(v61 + 24) = -1073741661LL;
+    WdLogEvent5_WdWarning(v61);
+    goto LABEL_80;
   }
-  if ( (*(_BYTE *)(v6 + 3904) & 1) != 0 )
+  if ( (*(_BYTE *)(v5 + 3904) & 1) != 0 )
   {
     LOBYTE(v11) = 1;
     v12 = DpiAcquireCoreSyncAccessSafe(a1, v11);
     v13 = v12;
     if ( v12 < 0 )
     {
-      KeSetEvent((PRKEVENT)(v6 + 3528), 0, 0);
-      v14 = 2LL;
-LABEL_81:
-      WdLogSingleEntry1(v14, v13);
-      goto LABEL_82;
+      KeSetEvent((PRKEVENT)(v5 + 3528), 0, 0);
+      v16 = WdLogNewEntry5_WdError(v15, v14);
+      *(_QWORD *)(v16 + 24) = v13;
+      WdLogEvent5_WdError(v16);
+      goto LABEL_80;
     }
-    DxgkStartDisplayCalloutBatch(*(_QWORD *)(v6 + 3896));
+    DxgkStartDisplayCalloutBatch(*(_QWORD *)(v5 + 3896));
   }
-  if ( a2 )
+  if ( v9 )
   {
-    if ( (*(_BYTE *)(v6 + 3905) & 8) != 0 )
+    if ( (*(_BYTE *)(v5 + 3905) & 8) != 0 )
     {
-      memset(v65, 0, 0x48uLL);
-      EtwActivityIdControl(3u, (LPGUID)&v65[1]);
-      v15 = *(_QWORD **)(v6 + 3464);
-      v65[8] = MEMORY[0xFFFFF78000000014];
-      LODWORD(v65[3]) = 60;
-      LOBYTE(v65[6]) = -1;
-      while ( v15 != (_QWORD *)(v6 + 3464) )
+      memset(v74, 0, 0x48uLL);
+      EtwActivityIdControl(3u, (LPGUID)&v74[1]);
+      v18 = *(_QWORD **)(v5 + 3464);
+      v74[8] = MEMORY[0xFFFFF78000000014];
+      LODWORD(v74[3]) = 60;
+      LOBYTE(v74[6]) = -1;
+      if ( v18 != (_QWORD *)(v5 + 3464) )
       {
-        v16 = v15 - 4;
-        v15 = (_QWORD *)*v15;
-        if ( *((_DWORD *)v16 + 4) == 1 )
+        v19 = v8;
+        do
         {
-          LOBYTE(v44) = a4;
-          v17 = DpiPdoHandleChildConnectionChange(
-                  *(_QWORD *)(v6 + 24),
-                  *((_DWORD *)v16 + 6),
-                  v44,
-                  v8,
-                  a5,
-                  1,
-                  0LL,
-                  (__int64)v65);
-          if ( v17 < 0 )
-            WdLogSingleEntry1(2LL, v17);
+          v20 = v18 - 4;
+          v18 = (_QWORD *)*v18;
+          if ( v20[4] == 1 )
+          {
+            v21 = *v20 == 1 ? (unsigned int)v20[1] : 4294967294LL;
+            LOBYTE(v17) = 1;
+            LOBYTE(v67) = 1;
+            LOBYTE(v66) = a5;
+            LOBYTE(v65) = v19;
+            LOBYTE(v64) = a4;
+            v22 = DpiPdoHandleChildConnectionChange(
+                    *(_QWORD *)(v5 + 24),
+                    (unsigned int)v20[6],
+                    v21,
+                    v17,
+                    v64,
+                    v65,
+                    v66,
+                    v67,
+                    v74);
+            v25 = v22;
+            if ( v22 < 0 )
+            {
+              v26 = WdLogNewEntry5_WdError(v24, v23);
+              *(_QWORD *)(v26 + 24) = v25;
+              WdLogEvent5_WdError(v26);
+            }
+          }
         }
+        while ( v18 != (_QWORD *)(v5 + 3464) );
+        v8 = v19;
       }
     }
   }
-  v18 = (KSPIN_LOCK *)(v6 + 3520);
   do
   {
     while ( 1 )
     {
-      v19 = 0;
-      memset(v64, 0, sizeof(v64));
-      memset(v55, 0, sizeof(v55));
-      EtwActivityIdControl(3u, (LPGUID)&v55[2]);
-      *((_QWORD *)&v55[4] + 1) = MEMORY[0xFFFFF78000000014];
-      *((_BYTE *)&v55[4].12 + 9) = a5;
-      v55[2].TargetConnect.NewTargetId = 60;
-      LOBYTE(v55[3].TargetJoin.NewTargetId) = -1;
-      *((_BYTE *)&v55[4].12 + 8) = v8;
-      KeAcquireInStackQueuedSpinLock(v18, &LockHandle);
-      *(_DWORD *)(v6 + 3516) = 2;
+      v27 = 0;
+      memset(v73, 0, sizeof(v73));
+      memset(v72, 0, sizeof(v72));
+      EtwActivityIdControl(3u, (LPGUID)&v72[32]);
+      *(_QWORD *)&v72[88] = MEMORY[0xFFFFF78000000014];
+      *(_DWORD *)&v72[48] = 60;
+      v72[72] = -1;
+      v72[101] = a5;
+      v72[100] = v8;
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v5 + 3520), &LockHandle);
+      *(_DWORD *)(v5 + 3516) = 2;
       KeReleaseInStackQueuedSpinLock(&LockHandle);
-      v20 = DpiDxgkDdiQueryConnectionChange(v6, *(_QWORD *)(v6 + 40), *(_QWORD *)(v6 + 48), v55);
-      v13 = v20;
-      if ( v20 < 0 )
+      v29 = *(_QWORD *)(v5 + 48);
+      v30 = *(_QWORD *)(v5 + 40);
+      if ( (*(_BYTE *)(v5 + 3905) & 8) != 0 )
       {
-LABEL_24:
-        WdLogSingleEntry1(2LL, v13);
-        break;
-      }
-      if ( v20 == 255 )
-        break;
-      if ( *((_BYTE *)&v55[4].12 + 10) )
-      {
-        DxgkInvalidateVidPnDisplayModeListCache(*(_QWORD *)(v6 + 3896));
-        MonitorRebuildMonitorModeListCache(*(struct DXGADAPTER **)(v6 + 3896));
+        if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+          McTemplateK0pxqqqqq_EtwWriteTransfer(
+            0,
+            (unsigned int)&EventEnterDdiQueryConnectionChange,
+            v28,
+            v29,
+            0,
+            0,
+            0,
+            -2,
+            0,
+            0);
+        v33 = (*(__int64 (__fastcall **)(__int64, _BYTE *))(v30 + 1136))(v29, v72);
+        v13 = v33;
+        if ( bTracingEnabled )
+        {
+          if ( v33 < 0 )
+          {
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+              McTemplateK0pxqqqqq_EtwWriteTransfer(
+                0,
+                (unsigned int)&EventEnterDdiQueryConnectionChange,
+                v34,
+                v29,
+                0,
+                0,
+                0,
+                -2,
+                0,
+                v33);
+          }
+          else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+          {
+            McTemplateK0pxqqqqq_EtwWriteTransfer(
+              HIBYTE(*(_DWORD *)&v72[8]) & 0xF,
+              (unsigned int)&EventExitDdiQueryConnectionChange,
+              v34,
+              v29,
+              v72[0],
+              v72[8],
+              v72[11] & 0xF,
+              v72[12],
+              v72[16],
+              v33);
+          }
+        }
+        v35 = (_QWORD *)WdLogNewEntry5_WdTrace();
+        v35[3] = *(unsigned int *)v72;
+        v35[4] = *(_DWORD *)&v72[8] & 0xFFFFFF;
+        v35[5] = (*(_QWORD *)&v72[8] >> 24) & 0xFLL;
+        v32 = *(unsigned int *)&v72[16];
+        v35[6] = *(unsigned int *)&v72[16];
+        v35[7] = v13;
       }
       else
       {
-        v21 = *((_DWORD *)v55 + 2) & 0xFFFFFF | (v55[4].TargetConnect.NewTargetId << 24);
-        v22 = HIBYTE(*((_DWORD *)v55 + 2)) & 0xF;
-        if ( v22 < 4 )
-          goto LABEL_32;
-        if ( v22 <= 6 )
+        LODWORD(v13) = DpiFdoHandleQueryConnectionChange(v5, v72);
+      }
+      if ( (int)v13 < 0 )
+      {
+        v36 = WdLogNewEntry5_WdError(v32, v31);
+        *(_QWORD *)(v36 + 24) = (int)v13;
+        WdLogEvent5_WdError(v36);
+        break;
+      }
+      if ( (_DWORD)v13 == 255 )
+        break;
+      if ( v72[102] )
+      {
+        DxgkInvalidateVidPnDisplayModeListCache(*(_QWORD *)(v5 + 3896));
+        MonitorRebuildMonitorModeListCache(*(struct DXGADAPTER **)(v5 + 3896));
+      }
+      else
+      {
+        v37 = *(_DWORD *)&v72[8] & 0xFFFFFF | (*(_DWORD *)&v72[96] << 24);
+        v38 = HIBYTE(*(_DWORD *)&v72[8]) & 0xF;
+        if ( (unsigned int)v38 < 4 )
         {
-          updated = DpiFdoHandleTargetConnectionState(v6, v55);
-          goto LABEL_72;
-        }
-        if ( ((v22 - 8) & 0xFFFFFFFD) != 0 )
-        {
-          if ( v22 - 12 > 2 )
-          {
-LABEL_32:
-            WdLogSingleEntry2(2LL, (*((_QWORD *)v55 + 1) >> 24) & 0xFLL, v20);
-            LODWORD(v13) = -1073741811;
-            break;
-          }
-          goto LABEL_68;
-        }
-        ChildDescriptor = DpiFdoGetChildDescriptor(v6, v21);
-        v34 = ChildDescriptor;
-        if ( ChildDescriptor )
-        {
-          if ( *(_DWORD *)ChildDescriptor != 1 )
-            goto LABEL_48;
-          LOBYTE(v33) = (*(_BYTE *)(v6 + 3905) & 0x10) != 0;
-          v19 = DmmProcessHPDFiltering(*(_QWORD *)(v6 + 3896), v55, v64, v33, &v55[2]);
-          if ( v19 != 1 )
-          {
-            LODWORD(v33) = *((_DWORD *)v55 + 2);
 LABEL_48:
-            v35 = 0LL;
-            if ( (v33 & 0xF000000) == 0xA000000 && (v55[0].TargetJoin.NewTargetId & 1) != 0 )
-            {
-              if ( (*(_DWORD *)(v6 + 3916) & 0x40) != 0 )
-              {
-                v35 = &v55[1];
-              }
-              else
-              {
-                if ( (unsigned int)dword_1C012F8A8 > 5 && tlgKeywordOn((__int64)&dword_1C012F8A8, 0x400000000002LL) )
-                {
-                  ConnectionChangeId_high = HIDWORD(v55[1].ConnectionChangeId);
-                  ConnectionChangeId = v55[1].ConnectionChangeId;
-                  v52 = *(_QWORD *)(v6 + 2672);
-                  v49 = v38 & 0xFFFFFF;
-                  v50 = 1;
-                  v53 = 16779264LL;
-                  _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-                    v36,
-                    (unsigned int)&unk_1C0099C64,
-                    v37,
-                    v38 & 0xFFFFFF,
-                    (__int64)&v53,
-                    (__int64)&v50,
-                    (__int64)&v52,
-                    (__int64)&v49,
-                    (__int64)&ConnectionChangeId,
-                    (__int64)&ConnectionChangeId_high);
-                }
-                WdLogSingleEntry1(2LL, v13);
-              }
-            }
-            v39 = v19 == 3 || *((_BYTE *)&v55[4].12 + 8);
-            LOBYTE(v44) = 0;
-            v40 = DpiPdoHandleChildConnectionChange(
-                    *(_QWORD *)(v6 + 24),
-                    v21,
-                    v44,
-                    v39,
-                    *((BOOLEAN *)&v55[4].12 + 9),
-                    *((char *)&v55[4].12 + 11),
-                    (__int64)v35,
-                    (__int64)&v55[1].TargetJoin.NewTargetId);
-            LODWORD(v13) = v40;
-            if ( v40 < 0 )
-              WdLogSingleEntry1(2LL, v40);
-          }
-          if ( *v34 == 1 )
-            DmmUpdateHPDFilteringTelemetry(
-              *(void **)(v6 + 3896),
-              (struct _DMM_HPD_FILTER_INFO *)v64,
-              (struct _GUID *)&v55[2],
-              v21,
-              (_DWORD)v13 == 0x40000000);
-          if ( (v19 & 0xFFFFFFFD) != 0 && (v19 != 3 || (_DWORD)v13 == 0x40000000) )
-          {
-            v8 = v45;
-            v18 = (KSPIN_LOCK *)(v6 + 3520);
-LABEL_68:
-            updated = DmmUpdateTargetLinkTrainingState(
-                        *(void **)(v6 + 3896),
-                        v55,
-                        (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)&v55[1].TargetJoin.NewTargetId,
-                        v19 != 0);
-LABEL_72:
-            v13 = updated;
-            if ( updated < 0 )
-              goto LABEL_24;
-          }
-          else
-          {
-            v8 = v45;
-            v18 = (KSPIN_LOCK *)(v6 + 3520);
-            if ( (int)v13 < 0 )
-              break;
-          }
+          v39 = WdLogNewEntry5_WdError(v38, v31);
+          *(_QWORD *)(v39 + 24) = (*(_QWORD *)&v72[8] >> 24) & 0xFLL;
+          *(_QWORD *)(v39 + 32) = (int)v13;
+          WdLogEvent5_WdError(v39);
+          LODWORD(v13) = -1073741811;
+LABEL_49:
+          v8 = a3;
+          if ( (int)v13 < 0 )
+            break;
         }
         else
         {
-          WdLogSingleEntry1(2LL, -1073741810LL);
-          v8 = v45;
+          if ( (unsigned int)v38 <= 6 )
+          {
+            updated = DpiFdoHandleTargetConnectionState(v5, v72);
+          }
+          else
+          {
+            if ( (((_DWORD)v38 - 8) & 0xFFFFFFFD) != 0 )
+            {
+              if ( (unsigned int)(v38 - 12) > 2 )
+                goto LABEL_48;
+            }
+            else
+            {
+              ChildDescriptor = DpiFdoGetChildDescriptor(v5, v37);
+              v46 = ChildDescriptor;
+              if ( !ChildDescriptor )
+              {
+                v47 = WdLogNewEntry5_WdError(v44, v43);
+                *(_QWORD *)(v47 + 24) = -1073741810LL;
+LABEL_78:
+                WdLogEvent5_WdError(v47);
+                goto LABEL_49;
+              }
+              if ( *(_DWORD *)ChildDescriptor == 1 )
+              {
+                LOBYTE(v45) = (*(_BYTE *)(v5 + 3905) & 0x10) != 0;
+                v48 = DmmProcessHPDFiltering(*(_QWORD *)(v5 + 3896), v72, v73, v45, &v72[32]);
+                LODWORD(v45) = *(_DWORD *)&v72[8];
+                v27 = v48;
+              }
+              if ( v27 != 1 )
+              {
+                v49 = v27 == 3 || v72[100];
+                v50 = v45 & 0xF000000;
+                LOBYTE(v67) = v72[103];
+                LOBYTE(v50) = (_DWORD)v50 == 167772160;
+                LOBYTE(v66) = v72[101];
+                LOBYTE(v65) = v49;
+                LOBYTE(v64) = 0;
+                v51 = DpiPdoHandleChildConnectionChange(
+                        *(_QWORD *)(v5 + 24),
+                        v37,
+                        *(unsigned int *)&v72[12],
+                        v50,
+                        v64,
+                        v65,
+                        v66,
+                        v67,
+                        &v72[24]);
+                v13 = v51;
+                if ( v51 < 0 )
+                {
+                  v54 = WdLogNewEntry5_WdError(v53, v52);
+                  *(_QWORD *)(v54 + 24) = v13;
+                  WdLogEvent5_WdError(v54);
+                }
+              }
+              if ( *v46 == 1 )
+                DmmUpdateHPDFilteringTelemetry(
+                  *(void **)(v5 + 3896),
+                  (struct _DMM_HPD_FILTER_INFO *)v73,
+                  (struct _GUID *)&v72[32],
+                  v37,
+                  (_DWORD)v13 == 0x40000000);
+              if ( (v27 & 0xFFFFFFFD) == 0 || v27 == 3 && (_DWORD)v13 != 0x40000000 )
+                goto LABEL_49;
+              v8 = a3;
+            }
+            updated = DmmUpdateTargetLinkTrainingState(
+                        *(void **)(v5 + 3896),
+                        (struct _DXGK_CONNECTION_CHANGE *)v72,
+                        (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)&v72[24],
+                        v27 != 0);
+          }
+          v13 = updated;
+          if ( updated < 0 )
+          {
+            v47 = WdLogNewEntry5_WdError(v57, v56);
+            *(_QWORD *)(v47 + 24) = v13;
+            goto LABEL_78;
+          }
         }
       }
     }
-    v23 = 1;
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v6 + 3520), &LockHandle);
-    if ( (*(_DWORD *)(v6 + 3516) & 1) == 0 )
+    v40 = 1;
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v5 + 3520), &LockHandle);
+    if ( (*(_DWORD *)(v5 + 3516) & 1) == 0 )
     {
-      *(_DWORD *)(v6 + 3516) = 0;
-      v23 = 0;
-      KeSetEvent((PRKEVENT)(v6 + 3528), 0, 0);
+      *(_DWORD *)(v5 + 3516) = 0;
+      v40 = 0;
+      KeSetEvent((PRKEVENT)(v5 + 3528), 0, 0);
     }
     KeReleaseInStackQueuedSpinLock(&LockHandle);
-    v8 = v45;
-    v24 = v23 == 0;
-    v18 = (KSPIN_LOCK *)(v6 + 3520);
   }
-  while ( !v24 );
-  if ( a6 )
+  while ( v40 );
+  v6 = v69;
+  if ( (*(_BYTE *)(v5 + 3904) & 1) != 0 )
   {
-    memset(v66, 0, 0x48uLL);
-    EtwActivityIdControl(3u, (LPGUID)&v66[1]);
-    v25 = *(_QWORD **)(v6 + 3464);
-    v26 = *(_QWORD *)v51;
-    v66[8] = MEMORY[0xFFFFF78000000014];
-    LODWORD(v66[3]) = 68;
-    LOBYTE(v66[6]) = -1;
-    while ( v25 != (_QWORD *)(v6 + 3464) )
-    {
-      v27 = *(_QWORD *)(v6 + 3896);
-      v28 = v25;
-      v29 = *((unsigned int *)v25 - 2);
-      v25 = (_QWORD *)*v25;
-      v45 = 0;
-      if ( (int)MonitorQuerySkippedRemovalState(v27, v29, &v45) >= 0 && v45 )
-      {
-        LOBYTE(v44) = 0;
-        v30 = DpiPdoHandleChildConnectionChange(v26, *((_DWORD *)v28 - 2), v44, 0, 0, 0, 0LL, (__int64)v66);
-        if ( v30 < 0 )
-        {
-          WdLogSingleEntry1(2LL, (int)v13);
-          break;
-        }
-        v31 = *(_QWORD *)(v6 + 5728);
-        v61 = v30;
-        v60 = *((_DWORD *)v28 - 2);
-        v63 = *(_QWORD *)(v6 + 2672);
-        v58 = 0LL;
-        v56[0] = 30;
-        v56[1] = 72;
-        v57 = 0LL;
-        memset(&v56[2], 0, 24);
-        v59 = 126;
-        v62 = 0;
-        DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v56, v31);
-      }
-    }
-  }
-  else
-  {
-    v26 = *(_QWORD *)v51;
-  }
-  if ( (*(_BYTE *)(v6 + 3904) & 1) != 0 )
-  {
-    DxgkEndDisplayCalloutBatch(*(_QWORD *)(v6 + 3896));
-    LOBYTE(v42) = 1;
-    DpiReleaseCoreSyncAccessSafe(v26, v42);
+    DxgkEndDisplayCalloutBatch(*(_QWORD *)(v5 + 3896));
+    LOBYTE(v41) = 1;
+    DpiReleaseCoreSyncAccessSafe(a1, v41);
   }
   if ( (int)v13 < 0 )
   {
-    _InterlockedAnd((volatile signed __int32 *)(v6 + 3644), 0xFFFFFFFE);
-    IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(v6 + 152), BusRelations);
+    _InterlockedAnd((volatile signed __int32 *)(v5 + 3644), 0xFFFFFFFE);
+    IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(v5 + 152), BusRelations);
   }
-LABEL_82:
-  if ( v46 )
+LABEL_80:
+  if ( v6 )
   {
-    ExReleaseResourceLite((PERESOURCE)(v6 + 3304));
+    ExReleaseResourceLite((PERESOURCE)(v5 + 3304));
     KeLeaveCriticalRegion();
-    if ( *(_BYTE *)(v6 + 484) )
-      DpiEnableD3Requests(*(_QWORD *)(v6 + 24));
-    ExReleaseResourceLite(*(PERESOURCE *)(v6 + 168));
+    if ( *(_BYTE *)(v5 + 484) )
+      DpiEnableD3Requests(*(_QWORD *)(v5 + 24));
+    ExReleaseResourceLite(*(PERESOURCE *)(v5 + 168));
     KeLeaveCriticalRegion();
   }
   return (unsigned int)v13;

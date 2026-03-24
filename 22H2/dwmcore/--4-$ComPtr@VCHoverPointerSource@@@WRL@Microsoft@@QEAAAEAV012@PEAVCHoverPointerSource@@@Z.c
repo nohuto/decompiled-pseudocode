@@ -1,20 +1,23 @@
 /*
- * XREFs of ??4?$ComPtr@VCHoverPointerSource@@@WRL@Microsoft@@QEAAAEAV012@PEAVCHoverPointerSource@@@Z @ 0x180101F5C
+ * XREFs of ??4?$ComPtr@VCHoverPointerSource@@@WRL@Microsoft@@QEAAAEAV012@PEAVCHoverPointerSource@@@Z @ 0x1800DE5D0
  * Callers:
- *     ?ProcessSetHoverSource@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_SETHOVERSOURCE@@@Z @ 0x180101F04 (-ProcessSetHoverSource@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_SETHOVER.c)
+ *     ?ProcessSetHoverSource@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_SETHOVERSOURCE@@@Z @ 0x1800DE578 (-ProcessSetHoverSource@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_SETHOVER.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 *__fastcall Microsoft::WRL::ComPtr<CHoverPointerSource>::operator=(__int64 *a1, __int64 a2)
 {
-  __int64 v4; // rax
+  __int64 v4; // rcx
 
-  if ( *a1 != a2 )
+  v4 = *a1;
+  if ( v4 != a2 )
   {
     if ( a2 )
+    {
       (*(void (__fastcall **)(__int64))(*(_QWORD *)(a2 + 8) + 8LL))(a2 + 8);
-    v4 = *a1;
+      v4 = *a1;
+    }
     *a1 = a2;
     if ( v4 )
       (*(void (__fastcall **)(__int64))(*(_QWORD *)(v4 + 8) + 16LL))(v4 + 8);

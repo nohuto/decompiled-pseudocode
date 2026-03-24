@@ -1,11 +1,11 @@
 /*
- * XREFs of TR_ReAllocateTransferRingSegmentsForOffload @ 0x1C0041A80
+ * XREFs of TR_ReAllocateTransferRingSegmentsForOffload @ 0x1C003F56C
  * Callers:
- *     UsbDevice_HandleAddAndDropEndpointsState @ 0x1C000AE48 (UsbDevice_HandleAddAndDropEndpointsState.c)
+ *     UsbDevice_HandleAddAndDropEndpointsState @ 0x1C00078C4 (UsbDevice_HandleAddAndDropEndpointsState.c)
  * Callees:
- *     TR_AcquireSegment @ 0x1C000B1D8 (TR_AcquireSegment.c)
- *     TR_EnsureSegments @ 0x1C000B270 (TR_EnsureSegments.c)
- *     XilCoreCommonBuffer_ReleaseBuffers @ 0x1C000E878 (XilCoreCommonBuffer_ReleaseBuffers.c)
+ *     TR_AcquireSegment @ 0x1C0009844 (TR_AcquireSegment.c)
+ *     TR_EnsureSegments @ 0x1C00098D0 (TR_EnsureSegments.c)
+ *     XilCoreCommonBuffer_ReleaseBuffers @ 0x1C000A2A0 (XilCoreCommonBuffer_ReleaseBuffers.c)
  */
 
 __int64 __fastcall TR_ReAllocateTransferRingSegmentsForOffload(__int64 a1)

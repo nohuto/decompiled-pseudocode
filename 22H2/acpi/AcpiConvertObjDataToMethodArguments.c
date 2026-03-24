@@ -1,111 +1,126 @@
 /*
- * XREFs of AcpiConvertObjDataToMethodArguments @ 0x1C0036F14
+ * XREFs of AcpiConvertObjDataToMethodArguments @ 0x1C005AC44
  * Callers:
- *     AcpiSetupNativeMethodContext @ 0x1C0037EC0 (AcpiSetupNativeMethodContext.c)
+ *     AcpiSetupNativeMethodContext @ 0x1C005B9C0 (AcpiSetupNativeMethodContext.c)
  * Callees:
- *     ACPIIoctlCalculateOutputBufferSizeV1 @ 0x1C002F7A0 (ACPIIoctlCalculateOutputBufferSizeV1.c)
- *     ACPIIoctlCalculateOutputBufferV1 @ 0x1C002F8A4 (ACPIIoctlCalculateOutputBufferV1.c)
- *     WPP_RECORDER_SF_DDDD @ 0x1C00380F0 (WPP_RECORDER_SF_DDDD.c)
- *     WPP_RECORDER_SF_PD @ 0x1C0038454 (WPP_RECORDER_SF_PD.c)
+ *     ACPIIoctlCalculateOutputBufferSizeV1 @ 0x1C000BE70 (ACPIIoctlCalculateOutputBufferSizeV1.c)
+ *     ACPIIoctlCalculateOutputBufferV1 @ 0x1C000BF6C (ACPIIoctlCalculateOutputBufferV1.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C005BBF4 (WPP_RECORDER_SF_DDDD.c)
+ *     WPP_RECORDER_SF_PD @ 0x1C005BF58 (WPP_RECORDER_SF_PD.c)
  */
 
-__int64 __fastcall AcpiConvertObjDataToMethodArguments(unsigned int a1, __int64 a2, _QWORD *a3, __int64 *a4)
+__int64 __fastcall AcpiConvertObjDataToMethodArguments(unsigned int a1, __int64 a2, _QWORD *a3, SIZE_T *a4)
 {
-  unsigned int v4; // r14d
-  __int64 v7; // rbx
-  int v9; // ebx
-  unsigned int i; // r11d
-  __int64 v11; // rsi
-  int v12; // edx
-  int v13; // r11d
-  __int64 v14; // rsi
-  __int64 Pool2; // rax
-  int v16; // edx
-  int v17; // r8d
-  int v18; // r9d
-  void *v19; // rbp
-  __int64 v20; // r15
-  int v21; // edx
-  __int64 v22; // rax
-  int v24; // [rsp+20h] [rbp-78h]
-  __int64 v25[9]; // [rsp+50h] [rbp-48h] BYREF
-  int v26; // [rsp+A0h] [rbp+8h] BYREF
-  __int64 v27; // [rsp+A8h] [rbp+10h]
+  void *v4; // rsi
+  __int64 v6; // rbx
+  int v8; // ebx
+  __int64 v9; // r11
+  int v10; // edx
+  __int64 v11; // r11
+  SIZE_T v12; // rbp
+  PVOID PoolWithTag; // rax
+  int v14; // edx
+  int v15; // r8d
+  int v16; // r9d
+  __int64 v17; // r14
+  __int64 v18; // r15
+  int v19; // edx
+  __int64 v20; // rax
+  _QWORD *v21; // rax
+  int v23; // [rsp+20h] [rbp-78h]
+  SIZE_T v24[9]; // [rsp+50h] [rbp-48h] BYREF
+  int v25; // [rsp+A0h] [rbp+8h] BYREF
+  __int64 v26; // [rsp+A8h] [rbp+10h]
+  _QWORD *v27; // [rsp+B0h] [rbp+18h]
 
-  v27 = a2;
-  v4 = 0;
-  v7 = a2;
+  v27 = a3;
+  v26 = a2;
+  v4 = 0LL;
+  v6 = a2;
   if ( a1 )
   {
-    v25[0] = 0LL;
-    v26 = 0;
-    for ( i = 0; i < a1; i = v13 + 1 )
+    v25 = 0;
+    v9 = 0LL;
+    v24[0] = 0LL;
+    do
     {
-      v11 = v7 + 40LL * i;
-      v9 = ACPIIoctlCalculateOutputBufferSizeV1(v11, v25, &v26, 1, 0);
-      if ( v9 < 0 )
+      v8 = ACPIIoctlCalculateOutputBufferSizeV1(v6 + 40 * v9, v24, &v25, 1, 0);
+      if ( v8 < 0 )
       {
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_DDDD(WPP_GLOBAL_Control->DeviceExtension, v12, 21, 21, v24, v13, a1, *(_WORD *)(v11 + 2), v9);
-        return (unsigned int)v9;
-      }
-      v7 = v27;
-    }
-    v14 = v25[0];
-    Pool2 = ExAllocatePool2(64LL, v25[0], 1315988289LL);
-    v19 = (void *)Pool2;
-    if ( Pool2 )
-    {
-      v20 = Pool2;
-      if ( a1 )
-      {
-        while ( 1 )
-        {
-          v25[0] = v7 + 40LL * v4;
-          v9 = ACPIIoctlCalculateOutputBufferV1(v25[0], v20, 1);
-          if ( v9 < 0 )
-            break;
-          v22 = *(unsigned __int16 *)(v20 + 2);
-          if ( (unsigned __int16)v22 < 4u )
-            v22 = 4LL;
-          v7 = v27;
-          v20 += v22 + 4;
-          if ( ++v4 >= a1 )
-            goto LABEL_16;
-        }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_DDDD(
             WPP_GLOBAL_Control->DeviceExtension,
-            v21,
-            19,
-            23,
-            v24,
-            v4,
+            v10,
+            21,
+            21,
+            v23,
+            v11,
             a1,
-            *(_WORD *)(v25[0] + 2),
-            v9);
-        ExFreePoolWithTag(v19, 0x4E706341u);
+            *(_WORD *)(v26 + 40 * v11 + 2),
+            v8);
+        goto LABEL_18;
       }
-      else
+      v6 = v26;
+      v9 = (unsigned int)(v11 + 1);
+    }
+    while ( (unsigned int)v9 < a1 );
+    v12 = v24[0];
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v24[0], 0x4E706341u);
+    v4 = PoolWithTag;
+    if ( !PoolWithTag )
+    {
+      v8 = -1073741670;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_PD(WPP_GLOBAL_Control->DeviceExtension, v14, v15, v16, v23, v12);
+      return (unsigned int)v8;
+    }
+    v17 = 0LL;
+    v18 = (__int64)PoolWithTag;
+    if ( a1 )
+    {
+      while ( 1 )
       {
-LABEL_16:
-        *a3 = v19;
-        v9 = 0;
-        *a4 = v14;
+        v8 = ACPIIoctlCalculateOutputBufferV1(v6 + 40 * v17, v18, 1);
+        if ( v8 < 0 )
+          break;
+        v20 = *(unsigned __int16 *)(v18 + 2);
+        if ( (unsigned __int16)v20 < 4u )
+          v20 = 4LL;
+        v6 = v26;
+        v18 += v20 + 4;
+        v17 = (unsigned int)(v17 + 1);
+        if ( (unsigned int)v17 >= a1 )
+          goto LABEL_17;
       }
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_DDDD(
+          WPP_GLOBAL_Control->DeviceExtension,
+          v19,
+          19,
+          23,
+          v23,
+          v17,
+          a1,
+          *(_WORD *)(v26 + 40 * v17 + 2),
+          v8);
     }
     else
     {
-      v9 = -1073741670;
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_PD(WPP_GLOBAL_Control->DeviceExtension, v16, v17, v18, v24, v14);
+LABEL_17:
+      v21 = v27;
+      v8 = 0;
+      *a4 = v12;
+      *v21 = v4;
     }
+LABEL_18:
+    if ( v8 < 0 && v4 )
+      ExFreePoolWithTag(v4, 0x4E706341u);
   }
   else
   {
     *a3 = 0LL;
-    v9 = 0;
     *a4 = 0LL;
+    return 0;
   }
-  return (unsigned int)v9;
+  return (unsigned int)v8;
 }

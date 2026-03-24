@@ -1,19 +1,19 @@
 /*
- * XREFs of PspInitializeProcessSecurity @ 0x14070F0D8
+ * XREFs of PspInitializeProcessSecurity @ 0x1406D6400
  * Callers:
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     MmGetSessionId @ 0x140300B40 (MmGetSessionId.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     SeSubProcessToken @ 0x140671BE0 (SeSubProcessToken.c)
- *     PspIdentityBasedJobBreakaway @ 0x1406E91DC (PspIdentityBasedJobBreakaway.c)
- *     ObInitializeFastReference @ 0x14070F2D8 (ObInitializeFastReference.c)
- *     SeAssignPrimaryToken @ 0x1408471EC (SeAssignPrimaryToken.c)
+ *     MmGetSessionId @ 0x140253550 (MmGetSessionId.c)
+ *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
+ *     PspIdentityBasedJobBreakaway @ 0x1405D9294 (PspIdentityBasedJobBreakaway.c)
+ *     SeSubProcessToken @ 0x140603B5C (SeSubProcessToken.c)
+ *     ObInitializeFastReference @ 0x1406D65FC (ObInitializeFastReference.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     SeAssignPrimaryToken @ 0x1407BBBD0 (SeAssignPrimaryToken.c)
  */
 
 __int64 __fastcall PspInitializeProcessSecurity(
-        __int64 a1,
+        PEPROCESS Process,
         __int64 a2,
         __int64 a3,
         int a4,
@@ -28,79 +28,79 @@ __int64 __fastcall PspInitializeProcessSecurity(
         __int64 a13,
         _DWORD *a14)
 {
-  _DWORD *v14; // r15
-  int v15; // esi
-  _DWORD *v17; // r14
-  unsigned __int64 v20; // r12
+  _DWORD *v14; // rsi
+  int *v17; // r14
+  struct _DMA_ADAPTER *v20; // r15
   int SessionId; // eax
   int v22; // r9d
-  __int64 v23; // r10
-  signed __int64 v24; // rax
-  __int64 v26; // [rsp+68h] [rbp-29h] BYREF
-  _DWORD v27[4]; // [rsp+70h] [rbp-21h] BYREF
-  __int64 v28; // [rsp+80h] [rbp-11h]
-  __int64 v29; // [rsp+88h] [rbp-9h]
-  __int16 v30; // [rsp+C8h] [rbp+37h] BYREF
-  char v31; // [rsp+CAh] [rbp+39h]
+  int v23; // r12d
+  int v24; // eax
+  signed __int64 v25; // rax
+  PADAPTER_OBJECT v27; // [rsp+68h] [rbp-29h] BYREF
+  _DWORD v28[4]; // [rsp+70h] [rbp-21h] BYREF
+  PEPROCESS v29; // [rsp+80h] [rbp-11h]
+  __int64 v30; // [rsp+88h] [rbp-9h]
+  __int16 v31; // [rsp+C8h] [rbp+37h] BYREF
+  char v32; // [rsp+CAh] [rbp+39h]
 
   v14 = a14;
-  v15 = 0;
-  v26 = 0LL;
-  v30 = 0;
   v31 = 0;
-  v17 = a14 + 1;
+  v32 = 0;
+  v27 = 0LL;
   *a14 = 0;
-  *v17 = 0;
+  v17 = v14 + 1;
+  v14[1] = 0;
   v20 = 0LL;
-  if ( a1 )
+  if ( Process )
   {
-    v27[0] = a5;
-    v27[1] = a12;
-    v27[2] = a6;
-    v27[3] = a7;
-    v29 = a13;
-    v28 = a1;
+    v28[0] = a5;
+    v28[1] = a12;
+    v28[2] = a6;
+    v28[3] = a7;
+    v30 = a13;
+    v29 = Process;
     SessionId = MmGetSessionId(a2);
-    v15 = SeSubProcessToken(
-            a2,
-            v23,
-            (PVOID *)&v26,
-            v22 != 0 ? 1 : 3,
-            SessionId,
-            (__int64)v27,
-            a8,
-            a9,
-            a10,
-            a11,
-            (char *)&v30);
-    if ( v15 >= 0 )
+    v23 = SeSubProcessToken(a2, a3, &v27, v22 != 0 ? 1 : 3, SessionId, (__int64)v28, a8, a9, a10, a11, &v31);
+    if ( v23 >= 0 )
     {
-      ObInitializeFastReference(a2 + 1208, v26);
-      if ( a4 || (_BYTE)v30 )
+      ObInitializeFastReference(a2 + 1208, v27);
+      if ( a4 || (_BYTE)v31 )
         *v14 = 1;
-      if ( HIBYTE(v30) )
+      if ( HIBYTE(v31) )
       {
         *v17 = 1;
+        v24 = 1;
       }
-      else if ( v31 && !*v17 )
+      else
       {
-        v20 = PsReferencePrimaryTokenWithTag(a1, 0x746C6644u);
-        v15 = PspIdentityBasedJobBreakaway(v20, v26, v17);
+        v24 = *v17;
+      }
+      if ( !v24 && v32 )
+      {
+        v20 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
+        v23 = PspIdentityBasedJobBreakaway((int)v20, (int)v27, v14 + 1);
       }
     }
-    if ( *v14 || *(int *)(a1 + 2512) < 0 || (*(_DWORD *)(a2 + 2172) & 0x800000) != 0 && !*(_QWORD *)(a1 + 2528) )
-      v24 = _InterlockedIncrement64(&PsNextSecurityDomain);
+    if ( *v14
+      || SLODWORD(Process[2].ReadyListHead.Blink) < 0
+      || (*(_DWORD *)(a2 + 2172) & 0x800000) != 0 && !*(_QWORD *)&Process[2].ActiveProcessors.Count )
+    {
+      v25 = _InterlockedIncrement64(&PsNextSecurityDomain);
+    }
     else
-      v24 = *(_QWORD *)(a1 + 2528);
-    *(_QWORD *)(a2 + 2528) = v24;
-    *(_QWORD *)(a2 + 2536) = v24;
-    if ( v20 )
-      ObFastDereferenceObject((signed __int64 *)(a1 + 1208), v20, 0x746C6644u);
+    {
+      v25 = *(_QWORD *)&Process[2].ActiveProcessors.Count;
+    }
+    *(_QWORD *)(a2 + 2528) = v25;
+    *(_QWORD *)(a2 + 2536) = v25;
   }
   else
   {
-    *(_QWORD *)(a2 + 1208) = 0LL;
+    ObInitializeFastReference(a2 + 1208, 0LL);
     SeAssignPrimaryToken(a2, a3);
+    v23 = 0;
   }
-  return (unsigned int)v15;
+  if ( v20 )
+    ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5], v20);
+  return (unsigned int)v23;
 }

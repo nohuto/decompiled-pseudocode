@@ -1,12 +1,12 @@
 /*
- * XREFs of MiTrimWorkingSetTail @ 0x14011C690
+ * XREFs of MiTrimWorkingSetTail @ 0x14011C6B0
  * Callers:
  *     MiTrimPte @ 0x140087BD0 (MiTrimPte.c)
  * Callees:
  *     MiTrimmedEnough @ 0x140087DD8 (MiTrimmedEnough.c)
- *     MiTrimWorkingSetBuildup @ 0x14011C6F8 (MiTrimWorkingSetBuildup.c)
- *     MiProcessVmAccessedInfo @ 0x1402B353C (MiProcessVmAccessedInfo.c)
- *     MiQueryEPTAccessedState @ 0x1402B3600 (MiQueryEPTAccessedState.c)
+ *     MiTrimWorkingSetBuildup @ 0x14011C718 (MiTrimWorkingSetBuildup.c)
+ *     MiProcessVmAccessedInfo @ 0x1402B363C (MiProcessVmAccessedInfo.c)
+ *     MiQueryEPTAccessedState @ 0x1402B3700 (MiQueryEPTAccessedState.c)
  */
 
 __int64 __fastcall MiTrimWorkingSetTail(__int64 a1)

@@ -1,258 +1,392 @@
 /*
- * XREFs of MultiUserNtGreCleanup @ 0x1C00A8AE8
+ * XREFs of MultiUserNtGreCleanup @ 0x1C007D498
  * Callers:
- *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C0134470 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C011BB50 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
- *     ?GrepCloseCurrentProcess@@YAHXZ @ 0x1C0034CE8 (-GrepCloseCurrentProcess@@YAHXZ.c)
- *     ?MultiUserGreCleanupEngResources@@YAXXZ @ 0x1C0077CD4 (-MultiUserGreCleanupEngResources@@YAXXZ.c)
- *     ?FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C41C (-FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     DrvNotifySessionStateChange @ 0x1C00A92D0 (DrvNotifySessionStateChange.c)
- *     ?IsSessionGlobalsAreaAllocated@Base@Gre@@YA_NXZ @ 0x1C00A95E0 (-IsSessionGlobalsAreaAllocated@Base@Gre@@YA_NXZ.c)
- *     ?FreeSessionGlobalsArea@Base@Gre@@YAXXZ @ 0x1C00A9604 (-FreeSessionGlobalsArea@Base@Gre@@YAXXZ.c)
- *     ?Destroy@GdiHandleManager@@SAXPEAV1@@Z @ 0x1C00A9640 (-Destroy@GdiHandleManager@@SAXPEAV1@@Z.c)
- *     ?vDestroyScanLookAsideList@RGNMEMOBJ@@SAXXZ @ 0x1C00A9680 (-vDestroyScanLookAsideList@RGNMEMOBJ@@SAXXZ.c)
- *     ?UninitializeTypeIsolation@@YAXXZ @ 0x1C00A9868 (-UninitializeTypeIsolation@@YAXXZ.c)
- *     ?MultiUserGreDeleteXLATE@@YAXXZ @ 0x1C00A98BC (-MultiUserGreDeleteXLATE@@YAXXZ.c)
- *     ?UninitializeReferenceTracker@@YAXXZ @ 0x1C00A9930 (-UninitializeReferenceTracker@@YAXXZ.c)
- *     ?MultiUserDrvCleanupGraphicsDeviceList@@YAXXZ @ 0x1C00A99B8 (-MultiUserDrvCleanupGraphicsDeviceList@@YAXXZ.c)
- *     ?MultiUserGreHmgOwnAll@@YAXXZ @ 0x1C00A9A88 (-MultiUserGreHmgOwnAll@@YAXXZ.c)
- *     ?MultiUserGreCleanupDrivers@@YAXXZ @ 0x1C00A9B3C (-MultiUserGreCleanupDrivers@@YAXXZ.c)
- *     ?Free@PDEV@@SAXPEAV1@H@Z @ 0x1C00C4260 (-Free@PDEV@@SAXPEAV1@H@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C000F1D0 (-GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     PopThreadGuardedObject @ 0x1C002D4F0 (PopThreadGuardedObject.c)
+ *     ?NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z @ 0x1C0073B1C (-NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z.c)
+ *     ?vDestroyScanLookAsideList@RGNMEMOBJ@@SAXXZ @ 0x1C007CD10 (-vDestroyScanLookAsideList@RGNMEMOBJ@@SAXXZ.c)
+ *     Win32FreePagedLookasideList @ 0x1C007DB20 (Win32FreePagedLookasideList.c)
+ *     ?Destroy@GdiHandleManager@@SAXPEAV1@@Z @ 0x1C007DFD0 (-Destroy@GdiHandleManager@@SAXPEAV1@@Z.c)
+ *     ?MultiUserGreCleanupEngResources@@YAXXZ @ 0x1C007E0FC (-MultiUserGreCleanupEngResources@@YAXXZ.c)
+ *     DrvNotifySessionStateChange @ 0x1C007E8B0 (DrvNotifySessionStateChange.c)
+ *     ?DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C007E9E4 (-DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     ?GreCleanupRemoteAdapterContext@@YAXPEAUtagREMOTE_CONTEXT@@@Z @ 0x1C007EBF4 (-GreCleanupRemoteAdapterContext@@YAXPEAUtagREMOTE_CONTEXT@@@Z.c)
+ *     ?MultiUserGreCleanupDrivers@@YAXXZ @ 0x1C007EC40 (-MultiUserGreCleanupDrivers@@YAXXZ.c)
+ *     ?Destroy@?$CLookAsideTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00B1038 (-Destroy@-$CLookAsideTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@SAXPEAV12@@Z.c)
+ *     ?Destroy@?$TypeIsolationFactory@V?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@V?$CTypeIsolation@$0DJAAA@$0DJA@@2@@@SAXPEAPEAE@Z @ 0x1C00B1078 (-Destroy@-$TypeIsolationFactory@V-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@V-$CTypeIsolat.c)
+ *     ?Destroy@?$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00B14B4 (-Destroy@-$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@SAXPEAV12@@Z.c)
+ *     ?Destroy@?$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00B7920 (-Destroy@-$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@SAXPEAV12@@Z.c)
+ *     ??$FreeIsolatedType@V?$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C00C8838 (--$FreeIsolatedType@V-$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     ?Destroy@?$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00CB6A8 (-Destroy@-$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@SAXPEAV12@@Z.c)
+ *     GreDeleteFastMutex @ 0x1C00CB820 (GreDeleteFastMutex.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?Destroy@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAXPEAV123@@Z @ 0x1C014DC38 (-Destroy@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAXPEAV123@@Z.c)
  */
 
-__int64 __fastcall MultiUserNtGreCleanup(Gre::Base *a1)
+__int64 MultiUserNtGreCleanup()
 {
-  __int64 v1; // rcx
-  NSInstrumentation::CLeakTrackingAllocator *v2; // rcx
-  __int64 v3; // rbx
-  char **v4; // rdi
-  char **v5; // rdi
-  char **v6; // rdi
-  unsigned __int64 v7; // rcx
-  __int64 v8; // rax
-  __int64 v9; // rsi
-  unsigned __int64 i; // rdi
-  char *v11; // rdx
-  char *v12; // rdx
-  char *v13; // rdx
-  char *v14; // rdx
-  char *v15; // rdx
-  char **v16; // rdi
-  void *v17; // rcx
-  struct PDEV **v18; // rdi
-  struct PDEV **v19; // rdi
-  char *v20; // rdx
-  char *v21; // rdx
-  char *v22; // rdx
-  __int64 v23; // rcx
-  char *v24; // rdx
-  char *v25; // rdx
-  char *v26; // rdx
-  struct GdiHandleManager *v27; // rcx
-  void *v28; // rcx
-  void *v29; // rcx
-  char **v30; // rbx
-  __int64 v31; // rdi
-  unsigned __int64 v33; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int CurrentProcessId; // eax
+  GdiHandleManager *v1; // rcx
+  unsigned int v2; // ebx
+  int v3; // edi
+  unsigned int i; // edx
+  unsigned int NextEntryIndex; // eax
+  __int64 CurrentProcessWin32Process; // rax
+  int v7; // edi
+  int v8; // eax
+  int v9; // eax
+  __int64 *v10; // rbx
+  int v11; // eax
+  __int64 *v12; // rbx
+  int v13; // eax
+  __int64 *v14; // rbx
+  int v15; // eax
+  struct _ENTRY *v16; // rcx
+  __int64 v17; // rax
+  __int64 v18; // rsi
+  unsigned __int64 v19; // rbx
+  int v20; // eax
+  __int64 *v21; // rsi
+  __int64 v22; // rbp
+  __int64 v23; // rbx
+  int v24; // eax
+  __int64 *v25; // rbx
+  void *v26; // rcx
+  int v27; // eax
+  _QWORD *v28; // rbx
+  int v29; // eax
+  _QWORD *v30; // rbx
+  struct tagREMOTE_CONTEXT *v31; // rcx
+  unsigned __int8 **v32; // rbx
+  unsigned __int8 *v33; // rcx
+  unsigned __int8 *v34; // rcx
+  unsigned __int8 *v35; // rcx
+  unsigned __int8 *v36; // rcx
+  unsigned __int8 *v37; // rcx
+  PVOID *v38; // rbx
+  __int64 v39; // rsi
+  int v40; // eax
+  struct GdiHandleManager *v41; // rcx
+  void * near **v42; // rbx
+  __int64 v43; // rsi
+  int v44; // eax
+  struct _ENTRY *v46; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( Gre::Base::IsSessionGlobalsAreaAllocated(a1) )
+  CurrentProcessId = (unsigned int)PsGetCurrentProcessId();
+  gbGreSessionCleanup = 1;
+  v46 = 0LL;
+  v2 = CurrentProcessId & 0xFFFFFFFC;
+  v3 = 0;
+  if ( gpHandleManager )
   {
-    v3 = *(_QWORD *)(SGDGetSessionState(v1) + 24);
-    if ( *(_BYTE *)v3 )
+    for ( i = 0; ; i = NextEntryIndex )
     {
-      *(_DWORD *)(v3 + 3192) = 1;
-      MultiUserGreHmgOwnAll();
-      if ( qword_1C0294850 && (int)qword_1C0294850() >= 0 && qword_1C0294858 )
-        qword_1C0294858();
-      if ( *(_QWORD *)(v3 + 8008) )
-        GrepCloseCurrentProcess();
-      if ( qword_1C0294860 && (int)qword_1C0294860() >= 0 )
+      NextEntryIndex = GdiHandleManager::GetNextEntryIndex(v1, i, &v46);
+      if ( !NextEntryIndex )
+        break;
+      LOBYTE(v1) = *((_BYTE *)v46 + 14) - 1;
+      if ( (unsigned __int8)v1 <= 0x1Du )
       {
-        v4 = qword_1C0294868 ? (char **)qword_1C0294868() : 0LL;
-        if ( *v4 )
-        {
-          NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, *v4);
-          *v4 = 0LL;
-        }
+        v1 = (GdiHandleManager *)(v2 | *((_DWORD *)v46 + 2) & 1);
+        *((_DWORD *)v46 + 2) = (_DWORD)v1;
+        ++v3;
       }
-      if ( qword_1C0294870 && (int)qword_1C0294870() >= 0 )
-      {
-        v5 = qword_1C0294878 ? (char **)qword_1C0294878() : 0LL;
-        if ( *v5 )
-        {
-          NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, *v5);
-          *v5 = 0LL;
-        }
-      }
-      if ( qword_1C0294880 && (int)qword_1C0294880() >= 0 )
-      {
-        v6 = qword_1C0294888 ? (char **)qword_1C0294888() : 0LL;
-        if ( *v6 )
-        {
-          NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, *v6);
-          *v6 = 0LL;
-        }
-      }
-      if ( qword_1C0294890 && (int)qword_1C0294890() >= 0 )
-      {
-        v7 = 0LL;
-        v33 = 0LL;
-        if ( qword_1C0294898 )
-        {
-          v8 = qword_1C0294898(&v33);
-          v7 = v33;
-          v9 = v8;
-        }
-        else
-        {
-          v9 = 0LL;
-        }
-        for ( i = 0LL; i < v7; ++i )
-        {
-          v11 = *(char **)(v9 + 8 * i);
-          if ( v11 )
-          {
-            NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v11);
-            *(_QWORD *)(v9 + 8 * i) = 0LL;
-            v7 = v33;
-          }
-        }
-      }
-      v12 = *(char **)(v3 + 3000);
-      if ( v12 )
-      {
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v12);
-        *(_QWORD *)(v3 + 3000) = 0LL;
-      }
-      if ( qword_1C02948A0 && (int)qword_1C02948A0() >= 0 && qword_1C02948A8 )
-        qword_1C02948A8();
-      MultiUserGreDeleteXLATE();
-      v13 = *(char **)(v3 + 200);
-      if ( v13 )
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v13);
-      v14 = *(char **)(v3 + 192);
-      if ( v14 )
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v14);
-      v15 = *(char **)(v3 + 3936);
-      if ( v15 )
-      {
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v15);
-        *(_QWORD *)(v3 + 3936) = 0LL;
-      }
-      if ( qword_1C02948B0 && (int)qword_1C02948B0() >= 0 )
-      {
-        v16 = qword_1C02948B8 ? (char **)qword_1C02948B8() : 0LL;
-        if ( *v16 )
-        {
-          NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, *v16);
-          *v16 = 0LL;
-        }
-      }
-      v17 = *(void **)(*(_QWORD *)(v3 + 6472) + 24LL);
-      if ( v17 )
-        ZwClose(v17);
-      if ( qword_1C02948C0 && (int)qword_1C02948C0() >= 0 )
-      {
-        v18 = qword_1C02948C8 ? (struct PDEV **)qword_1C02948C8() : 0LL;
-        if ( *v18 )
-        {
-          PDEV::Free(*v18, 0);
-          *v18 = 0LL;
-        }
-      }
-      if ( qword_1C02948D0 && (int)qword_1C02948D0() >= 0 )
-      {
-        v19 = qword_1C02948D8 ? (struct PDEV **)qword_1C02948D8() : 0LL;
-        if ( *v19 )
-        {
-          PDEV::Free(*v19, 0);
-          *v19 = 0LL;
-        }
-      }
-      MultiUserGreCleanupDrivers();
-      MultiUserDrvCleanupGraphicsDeviceList();
-      DrvNotifySessionStateChange(1LL);
-      v20 = *(char **)(v3 + 2352);
-      if ( v20 )
-      {
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v20);
-        *(_QWORD *)(v3 + 2352) = 0LL;
-      }
-      v21 = *(char **)(v3 + 2368);
-      if ( v21 )
-      {
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v21);
-        *(_QWORD *)(v3 + 2368) = 0LL;
-      }
-      v22 = *(char **)(v3 + 2360);
-      if ( v22 )
-      {
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v22);
-        *(_QWORD *)(v3 + 2360) = 0LL;
-      }
-      UninitializeTypeIsolation();
-      UninitializeReferenceTracker();
-      v24 = *(char **)(v3 + 1304);
-      if ( v24 )
-      {
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v24);
-        *(_QWORD *)(v3 + 1304) = 0LL;
-      }
-      v25 = *(char **)(v3 + 1312);
-      if ( v25 )
-      {
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v25);
-        *(_QWORD *)(v3 + 1312) = 0LL;
-      }
-      if ( qword_1C02948F0 && (int)qword_1C02948F0() >= 0 && qword_1C02948F8 )
-        qword_1C02948F8();
-      MultiUserGreCleanupEngResources(v23);
-      v26 = *(char **)(v3 + 144);
-      if ( v26 )
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v26);
-      v27 = *(struct GdiHandleManager **)(v3 + 8008);
-      *(_QWORD *)(v3 + 144) = 0LL;
-      if ( v27 )
-      {
-        GdiHandleManager::Destroy(v27);
-        *(_QWORD *)(v3 + 8008) = 0LL;
-      }
-      v28 = *(void **)(v3 + 1928);
-      if ( v28 )
-      {
-        MmUnmapViewInSessionSpace(v28);
-        *(_QWORD *)(v3 + 1928) = 0LL;
-      }
-      v29 = *(void **)(v3 + 2344);
-      if ( v29 )
-      {
-        ObfDereferenceObject(v29);
-        *(_QWORD *)(v3 + 2344) = 0LL;
-      }
-      RGNMEMOBJ::vDestroyScanLookAsideList();
-      v30 = (char **)(v3 + 1952);
-      v31 = 31LL;
+    }
+    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v1);
+    if ( CurrentProcessWin32Process )
+      *(_DWORD *)(CurrentProcessWin32Process + 60) = v3;
+  }
+  v7 = -1073741637;
+  if ( qword_1C0255440 )
+    v8 = qword_1C0255440();
+  else
+    v8 = -1073741637;
+  if ( v8 >= 0 && qword_1C0255448 )
+    qword_1C0255448();
+  if ( gpHandleManager )
+    NtGdiCloseProcess((GdiHandleManager *)v2, 2u);
+  if ( qword_1C0255450 )
+    v9 = qword_1C0255450();
+  else
+    v9 = -1073741637;
+  if ( v9 >= 0 )
+  {
+    v10 = qword_1C0255458 ? (__int64 *)qword_1C0255458() : 0LL;
+    if ( *v10 )
+    {
+      Win32FreePool(*v10);
+      *v10 = 0LL;
+    }
+  }
+  if ( qword_1C0255460 )
+    v11 = qword_1C0255460();
+  else
+    v11 = -1073741637;
+  if ( v11 >= 0 )
+  {
+    v12 = qword_1C0255468 ? (__int64 *)qword_1C0255468() : 0LL;
+    if ( *v12 )
+    {
+      Win32FreePool(*v12);
+      *v12 = 0LL;
+    }
+  }
+  if ( qword_1C0255470 )
+    v13 = qword_1C0255470();
+  else
+    v13 = -1073741637;
+  if ( v13 >= 0 )
+  {
+    v14 = qword_1C0255478 ? (__int64 *)qword_1C0255478() : 0LL;
+    if ( *v14 )
+    {
+      Win32FreePool(*v14);
+      *v14 = 0LL;
+    }
+  }
+  if ( qword_1C0255480 )
+    v15 = qword_1C0255480();
+  else
+    v15 = -1073741637;
+  if ( v15 >= 0 )
+  {
+    v16 = 0LL;
+    v46 = 0LL;
+    if ( qword_1C0255488 )
+    {
+      v17 = qword_1C0255488(&v46);
+      v16 = v46;
+      v18 = v17;
+    }
+    else
+    {
+      v18 = 0LL;
+    }
+    v19 = 0LL;
+    if ( v16 )
+    {
       do
       {
-        if ( *v30 )
+        if ( *(_QWORD *)(v18 + 8 * v19) )
         {
-          NSInstrumentation::CLeakTrackingAllocator::FreePagedLookasideList(v2, *v30);
-          *v30 = 0LL;
+          Win32FreePool(*(_QWORD *)(v18 + 8 * v19));
+          *(_QWORD *)(v18 + 8 * v19) = 0LL;
+          v16 = v46;
         }
-        ++v30;
-        --v31;
+        ++v19;
       }
-      while ( v31 );
-      if ( qword_1C0294900 && (int)qword_1C0294900() >= 0 && qword_1C0294908 )
-        qword_1C0294908();
-      if ( qword_1C0294770 && (int)qword_1C0294770() >= 0 && qword_1C0294778 )
-        qword_1C0294778();
-      if ( qword_1C0294F18 && (int)qword_1C0294F18() >= 0 && qword_1C0294F20 )
-        qword_1C0294F20();
+      while ( v19 < (unsigned __int64)v16 );
     }
-    Gre::Base::FreeSessionGlobalsArea(v2);
   }
+  if ( LastNlsTableBuffer )
+  {
+    Win32FreePool(LastNlsTableBuffer);
+    LastNlsTableBuffer = 0LL;
+  }
+  if ( qword_1C0255490 )
+    v20 = qword_1C0255490();
+  else
+    v20 = -1073741637;
+  if ( v20 >= 0 && qword_1C0255498 )
+    qword_1C0255498();
+  v21 = (__int64 *)&unk_1C0254358;
+  v22 = 8LL;
+  do
+  {
+    v23 = *v21;
+    if ( *v21 )
+    {
+      PopThreadGuardedObject((_QWORD *)(v23 - 32));
+      Win32FreePool(v23 - 32);
+    }
+    v21 += 4;
+    --v22;
+  }
+  while ( v22 );
+  if ( gpCachedEngbrush )
+    Win32FreePool((__int64)gpCachedEngbrush);
+  if ( gpCachedDbrush )
+    Win32FreePool((__int64)gpCachedDbrush);
+  if ( gpRGBXlate )
+  {
+    Win32FreePool((__int64)gpRGBXlate);
+    gpRGBXlate = 0LL;
+  }
+  if ( qword_1C02554A0 )
+    v24 = qword_1C02554A0();
+  else
+    v24 = -1073741637;
+  if ( v24 >= 0 )
+  {
+    v25 = qword_1C02554A8 ? (__int64 *)qword_1C02554A8() : 0LL;
+    if ( *v25 )
+    {
+      Win32FreePool(*v25);
+      *v25 = 0LL;
+    }
+  }
+  v26 = (void *)*((_QWORD *)gpSfmState + 3);
+  if ( v26 )
+    ZwClose(v26);
+  if ( qword_1C02554B0 )
+    v27 = qword_1C02554B0();
+  else
+    v27 = -1073741637;
+  if ( v27 >= 0 )
+  {
+    v28 = qword_1C02554B8 ? (_QWORD *)qword_1C02554B8() : 0LL;
+    if ( *v28 )
+    {
+      FreeIsolatedType<NSInstrumentation::CTypeIsolation<917504,3584>>();
+      *v28 = 0LL;
+    }
+  }
+  if ( qword_1C02554C0 )
+    v29 = qword_1C02554C0();
+  else
+    v29 = -1073741637;
+  if ( v29 >= 0 )
+  {
+    v30 = qword_1C02554C8 ? (_QWORD *)qword_1C02554C8() : 0LL;
+    if ( *v30 )
+    {
+      FreeIsolatedType<NSInstrumentation::CTypeIsolation<917504,3584>>();
+      *v30 = 0LL;
+    }
+  }
+  MultiUserGreCleanupDrivers();
+  DrvCleanupGraphicsDeviceList(gpLocalGraphicsDeviceList);
+  gpLocalGraphicsDeviceList = 0LL;
+  DrvCleanupGraphicsDeviceList(gpRemoteGraphicsDeviceList);
+  gpRemoteGraphicsDeviceList = 0LL;
+  gpGraphicsDeviceList = 0LL;
+  if ( qword_1C02512C8 )
+  {
+    Win32FreePool((__int64)qword_1C02512C8);
+    qword_1C02512C8 = 0LL;
+  }
+  v31 = (struct tagREMOTE_CONTEXT *)qword_1C02512D8;
+  if ( qword_1C02512D8 )
+  {
+    Win32FreePool(qword_1C02512D8);
+    qword_1C02512D8 = 0LL;
+  }
+  GreCleanupRemoteAdapterContext(v31);
+  DrvNotifySessionStateChange(1LL);
+  if ( gpLockShortDelay )
+  {
+    Win32FreePool((__int64)gpLockShortDelay);
+    gpLockShortDelay = 0LL;
+  }
+  if ( gpTmpGlobal )
+  {
+    Win32FreePool((__int64)gpTmpGlobal);
+    gpTmpGlobal = 0LL;
+  }
+  if ( gpTmpGlobalFree )
+  {
+    Win32FreePool((__int64)gpTmpGlobalFree);
+    gpTmpGlobalFree = 0LL;
+  }
+  v32 = gpTypeIsolation;
+  if ( gpTypeIsolation )
+  {
+    if ( *gpTypeIsolation )
+      NSInstrumentation::CLookAsideTypeIsolation<180224,704>::Destroy(*gpTypeIsolation);
+    v33 = v32[2];
+    if ( v33 )
+      NSInstrumentation::CTypeIsolation<81920,320>::Destroy(v33);
+    v34 = v32[3];
+    if ( v34 )
+      NSInstrumentation::CTypeIsolation<81920,320>::Destroy(v34);
+    v35 = v32[1];
+    if ( v35 )
+      NSInstrumentation::CLookAsideTypeIsolation<36864,144>::Destroy(v35);
+    v36 = v32[4];
+    if ( v36 )
+      NSInstrumentation::CTypeIsolation<81920,320>::Destroy(v36);
+    v37 = v32[6];
+    if ( v37 )
+      NSInstrumentation::CTypeIsolation<917504,3584>::Destroy(v37);
+    TypeIsolationFactory<NSInstrumentation::CTypeIsolation<28672,112>,NSInstrumentation::CTypeIsolation<233472,912>>::Destroy(v32);
+    Win32FreePool((__int64)gpTypeIsolation);
+    gpTypeIsolation = 0LL;
+  }
+  if ( gpReferenceTracker )
+  {
+    v38 = (PVOID *)&qword_1C024B3F8;
+    v39 = 3LL;
+    do
+    {
+      if ( *v38 )
+        NSInstrumentation::CReferenceTracker::CReferenceCountedType::Destroy(*v38);
+      v38 += 2;
+      --v39;
+    }
+    while ( v39 );
+    ExFreePoolWithTag(gpReferenceTracker, 0);
+    gpReferenceTracker = 0LL;
+  }
+  if ( gpAdapterLuids )
+  {
+    Win32FreePool((__int64)gpAdapterLuids);
+    gpAdapterLuids = 0LL;
+  }
+  if ( gpDevicesPerLuid )
+  {
+    Win32FreePool((__int64)gpDevicesPerLuid);
+    gpDevicesPerLuid = 0LL;
+  }
+  if ( qword_1C02554E0 )
+    v40 = qword_1C02554E0();
+  else
+    v40 = -1073741637;
+  if ( v40 >= 0 && qword_1C02554E8 )
+    qword_1C02554E8();
+  MultiUserGreCleanupEngResources();
+  GreDeleteFastMutex(ghfmMemory);
+  ghfmMemory = 0LL;
+  if ( gpHandleManager )
+  {
+    GdiHandleManager::Destroy(v41);
+    gpHandleManager = 0LL;
+  }
+  if ( gpGdiSharedMemory )
+  {
+    MmUnmapViewInSessionSpace(gpGdiSharedMemory);
+    gpGdiSharedMemory = 0LL;
+  }
+  if ( gpHmgrSharedHandleSection )
+  {
+    ObfDereferenceObject(gpHmgrSharedHandleSection);
+    gpHmgrSharedHandleSection = 0LL;
+  }
+  RGNMEMOBJ::vDestroyScanLookAsideList();
+  v42 = &pHmgLookAsideList;
+  v43 = 31LL;
+  do
+  {
+    if ( *v42 )
+    {
+      Win32FreePagedLookasideList();
+      *v42 = 0LL;
+    }
+    ++v42;
+    --v43;
+  }
+  while ( v43 );
+  if ( qword_1C02554F0 )
+    v44 = qword_1C02554F0();
+  else
+    v44 = -1073741637;
+  if ( v44 >= 0 && qword_1C02554F8 )
+    qword_1C02554F8();
+  if ( qword_1C0255360 )
+    v7 = qword_1C0255360();
+  if ( v7 >= 0 && qword_1C0255368 )
+    qword_1C0255368();
   return 1LL;
 }

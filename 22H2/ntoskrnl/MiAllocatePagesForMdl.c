@@ -1,26 +1,28 @@
 /*
- * XREFs of MiAllocatePagesForMdl @ 0x1402F8CDC
+ * XREFs of MiAllocatePagesForMdl @ 0x140354954
  * Callers:
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402F87A0 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     MmAllocatePagesForMdl @ 0x1403AA2F0 (MmAllocatePagesForMdl.c)
- *     MmAllocateNonCachedMemory @ 0x140A2D980 (MmAllocateNonCachedMemory.c)
- *     MiAllocateUserPhysicalPages @ 0x140A403C8 (MiAllocateUserPhysicalPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140A4438C (MiAllocatePartitionPhysicalPages.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x140354850 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmAllocatePagesForMdl @ 0x1403A5DB0 (MmAllocatePagesForMdl.c)
+ *     MiPopulateCombineMdls @ 0x140726B30 (MiPopulateCombineMdls.c)
+ *     MmAllocateNonCachedMemory @ 0x1408C6740 (MmAllocateNonCachedMemory.c)
+ *     MiAllocateUserPhysicalPages @ 0x1408D4D38 (MiAllocateUserPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408DA9C8 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     MiObtainMdlCharges @ 0x1402F8E6C (MiObtainMdlCharges.c)
- *     MiValidateMdlAllocationRequest @ 0x1402F8FAC (MiValidateMdlAllocationRequest.c)
- *     MiFindPagesForMdl @ 0x1402F91AC (MiFindPagesForMdl.c)
- *     MiInitializeMdlBatchPages @ 0x1402F9310 (MiInitializeMdlBatchPages.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     EtwpGetDurationSince @ 0x14046732E (EtwpGetDurationSince.c)
- *     MiLogMdlRangeEvent @ 0x140623510 (MiLogMdlRangeEvent.c)
- *     MiReturnMdlExcess @ 0x140623798 (MiReturnMdlExcess.c)
- *     MiRemoveMdlPages @ 0x140A2E5AC (MiRemoveMdlPages.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     MiInitializeMdlPages @ 0x140354AC4 (MiInitializeMdlPages.c)
+ *     MiInitializeMdlBatchPages @ 0x140354E44 (MiInitializeMdlBatchPages.c)
+ *     MiFindPagesForMdl @ 0x14035563C (MiFindPagesForMdl.c)
+ *     MiObtainMdlCharges @ 0x140355770 (MiObtainMdlCharges.c)
+ *     MiValidateMdlAllocationRequest @ 0x14035738C (MiValidateMdlAllocationRequest.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiLogMdlRangeEvent @ 0x140533FD8 (MiLogMdlRangeEvent.c)
+ *     MiReturnMdlExcess @ 0x1405340EC (MiReturnMdlExcess.c)
+ *     EtwpGetDurationSince @ 0x1405A89B4 (EtwpGetDurationSince.c)
+ *     MiRemoveMdlPages @ 0x1408C6AB0 (MiRemoveMdlPages.c)
  */
 
 __int64 __fastcall MiAllocatePagesForMdl(
@@ -31,110 +33,87 @@ __int64 __fastcall MiAllocatePagesForMdl(
         __int64 a5,
         int a6,
         int a7,
-        int a8,
-        __int64 a9,
-        __int64 a10)
+        int a8)
 {
   LARGE_INTEGER PerformanceCounter; // r15
-  __int64 v15; // r13
-  unsigned int v16; // r12d
-  unsigned int v17; // eax
-  ULONGLONG Ptr; // rdx
-  unsigned __int64 v19; // rcx
-  unsigned int *v20; // r13
-  int v21; // r12d
-  __int64 v22; // r13
-  int v24; // [rsp+50h] [rbp-B0h]
-  _QWORD v25[12]; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD v26[6]; // [rsp+C0h] [rbp-40h] BYREF
-  int v27; // [rsp+F0h] [rbp-10h]
-  int v28; // [rsp+F4h] [rbp-Ch]
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+F8h] [rbp-8h] BYREF
+  __int64 v13; // r13
+  unsigned int v14; // r12d
+  unsigned int *v15; // r13
+  int v16; // r12d
+  __int64 v17; // r13
+  int v19; // ecx
+  int v20; // [rsp+50h] [rbp-A9h]
+  _QWORD v21[10]; // [rsp+60h] [rbp-99h] BYREF
+  _QWORD v22[6]; // [rsp+B0h] [rbp-49h] BYREF
+  int v23; // [rsp+E0h] [rbp-19h]
+  int v24; // [rsp+E4h] [rbp-15h]
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+E8h] [rbp-11h] BYREF
 
-  memset(v25, 0, 0x58uLL);
+  memset(v21, 0, sizeof(v21));
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  if ( (int)MiValidateMdlAllocationRequest((unsigned int)v25, a1, a2, a3, a4, a5, a6, a7, a8, a9) >= 0 )
+  if ( (int)MiValidateMdlAllocationRequest((unsigned int)v21, a1, a2, a3, a4, a5, a6, a7, a8) >= 0
+    && (int)MiObtainMdlCharges(v21) >= 0 )
   {
-    if ( a10 )
+    v13 = v21[8];
+    UserData.Ptr = v21[5];
+    *(_DWORD *)(v21[8] + 40LL) = 0;
+    v14 = 0;
+    while ( 1 )
     {
-      HIDWORD(v25[10]) |= 1u;
-      v25[8] = a10;
-    }
-    if ( (int)MiObtainMdlCharges(v25) < 0 )
-    {
-      if ( (v25[10] & 0x100000000LL) != 0 )
-        v25[8] = 0LL;
-    }
-    else
-    {
-      v15 = v25[8];
-      v16 = 0;
-      v24 = 0;
-      UserData.Ptr = v25[4];
-      *(_DWORD *)(v25[8] + 40LL) = 0;
-      MiFindPagesForMdl(v25);
-      v17 = *(_DWORD *)(v15 + 40);
-      Ptr = UserData.Ptr;
-      v19 = v25[6] * ((unsigned __int64)v17 >> 12);
-      if ( v19 != UserData.Ptr )
+      v20 = *(_DWORD *)(v13 + 40);
+      MiFindPagesForMdl(v21);
+      if ( (unsigned __int64)*(unsigned int *)(v13 + 40) >> 12 == UserData.Ptr )
+        break;
+      v19 = v21[1];
+      if ( SLOBYTE(v21[1]) >= 0 )
+        goto LABEL_23;
+      if ( v20 == *(_DWORD *)(v13 + 40) )
       {
-        while ( SLOBYTE(v25[7]) < 0 )
+        if ( v14 > 3 || KeGetCurrentIrql() >= 2u || (v21[1] & 8) != 0 )
         {
-          if ( v24 == v17 )
-          {
-            if ( v16 > 3 || KeGetCurrentIrql() >= 2u || (v25[7] & 8) != 0 )
-            {
-LABEL_26:
-              if ( v19 == Ptr )
-                goto LABEL_6;
-              break;
-            }
-            KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&Mi10Milliseconds);
-            ++v16;
-          }
-          else
-          {
-            v16 = 0;
-          }
-          LODWORD(v25[7]) &= ~0x10000u;
-          v24 = *(_DWORD *)(v15 + 40);
-          MiFindPagesForMdl(v25);
-          v17 = *(_DWORD *)(v15 + 40);
-          Ptr = UserData.Ptr;
-          v19 = v25[6] * ((unsigned __int64)v17 >> 12);
-          if ( v19 == UserData.Ptr )
-            goto LABEL_26;
+LABEL_23:
+          MiReturnMdlExcess(v21);
+          break;
         }
-        MiReturnMdlExcess(v25);
+        KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&Mi10Milliseconds);
+        v19 = v21[1];
+        ++v14;
       }
-LABEL_6:
-      v20 = (unsigned int *)v25[8];
-      if ( v25[8] )
+      else
       {
-        if ( (a8 & 0x40) == 0 )
-          MiInitializeMdlBatchPages(v25);
-        if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
-          MiLogMdlRangeEvent(v20 + 12, 632LL, (unsigned __int64)v20[10] >> 12, v25[6]);
-        if ( (v25[7] & 0x100) != 0 )
-          v25[8] = MiRemoveMdlPages(v20);
+        v14 = 0;
       }
+      LODWORD(v21[1]) = v19 & 0xFFFEFFFF;
+    }
+    v15 = (unsigned int *)v21[8];
+    if ( v21[8] )
+    {
+      if ( (a8 & 0x40) == 0 )
+      {
+        MiInitializeMdlBatchPages(v21);
+        MiInitializeMdlPages(v15, LODWORD(v21[1]));
+      }
+      if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
+        MiLogMdlRangeEvent(v15 + 12, 632LL, (unsigned __int64)v15[10] >> 12);
+      if ( (v21[1] & 0x100) != 0 )
+        v21[8] = MiRemoveMdlPages(v15);
     }
   }
-  v21 = v25[7];
-  v22 = v25[8];
+  v16 = v21[1];
+  v17 = v21[8];
   if ( EtwEventEnabled(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MDL_ALLOCATION) )
   {
-    v26[0] = ((__int64 (__fastcall *)(_QWORD))EtwpGetDurationSince)((LARGE_INTEGER)PerformanceCounter.QuadPart);
-    v26[1] = a5;
-    v26[5] = v22;
-    UserData.Ptr = (ULONGLONG)v26;
-    v26[2] = a2;
-    v26[3] = a3;
-    v26[4] = a4;
-    v27 = a7;
-    v28 = v21;
+    v22[0] = ((__int64 (__fastcall *)(_QWORD))EtwpGetDurationSince)((LARGE_INTEGER)PerformanceCounter.QuadPart);
+    v22[1] = a5;
+    v22[5] = v17;
+    UserData.Ptr = (ULONGLONG)v22;
+    v22[2] = a2;
+    v22[3] = a3;
+    v22[4] = a4;
+    v23 = a7;
+    v24 = v16;
     *(_QWORD *)&UserData.Size = 56LL;
     EtwWriteEx(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MDL_ALLOCATION, 0LL, 1u, 0LL, 0LL, 1u, &UserData);
   }
-  return v25[8];
+  return v21[8];
 }

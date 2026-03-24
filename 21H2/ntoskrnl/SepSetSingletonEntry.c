@@ -1,14 +1,14 @@
 /*
- * XREFs of SepSetSingletonEntry @ 0x1405F577C
+ * XREFs of SepSetSingletonEntry @ 0x1405978BC
  * Callers:
- *     SeSetSecurityAttributesTokenEx @ 0x1405F5440 (SeSetSecurityAttributesTokenEx.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x140597580 (SeSetSecurityAttributesTokenEx.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140204870 (AuthzBasepSetSecurityAttributesToken.c)
- *     SepGetSingletonEntryFromIndexNumber @ 0x1402058C0 (SepGetSingletonEntryFromIndexNumber.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402508E0 (AuthzBasepSetSecurityAttributesToken.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x140251564 (SepGetSingletonEntryFromIndexNumber.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepSetSingletonEntry(unsigned int a1, int *a2, __int64 a3)
@@ -19,7 +19,7 @@ __int64 __fastcall SepSetSingletonEntry(unsigned int a1, int *a2, __int64 a3)
   KIRQL v8; // al
   __int64 v9; // rcx
   unsigned __int64 v10; // rdi
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _QWORD *v12; // rax
   _QWORD *v13; // rax
   unsigned __int8 CurrentIrql; // al
@@ -38,14 +38,14 @@ __int64 __fastcall SepSetSingletonEntry(unsigned int a1, int *a2, __int64 a3)
   v10 = v8;
   if ( !v9 )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, 48LL, 1950442835LL);
-    *((_QWORD *)v7 + 2) = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x74416553u);
+    *((_QWORD *)v7 + 2) = PoolWithTag;
+    if ( !PoolWithTag )
     {
       v5 = -1073741801;
       goto LABEL_7;
     }
-    *Pool2 = 0;
+    *PoolWithTag = 0;
     *(_DWORD *)(*((_QWORD *)v7 + 2) + 24LL) = 0;
     v12 = (_QWORD *)(*((_QWORD *)v7 + 2) + 8LL);
     v12[1] = v12;

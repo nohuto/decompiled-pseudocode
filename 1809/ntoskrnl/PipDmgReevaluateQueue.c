@@ -1,11 +1,11 @@
 /*
- * XREFs of PipDmgReevaluateQueue @ 0x140839484
+ * XREFs of PipDmgReevaluateQueue @ 0x140839464
  * Callers:
- *     PiDmaGuardProcessPostRemove @ 0x1406ED62C (PiDmaGuardProcessPostRemove.c)
- *     PipDmgInitPhaseTwo @ 0x14073B170 (PipDmgInitPhaseTwo.c)
+ *     PiDmaGuardProcessPostRemove @ 0x1406ED60C (PiDmaGuardProcessPostRemove.c)
+ *     PipDmgInitPhaseTwo @ 0x14073B150 (PipDmgInitPhaseTwo.c)
  * Callees:
- *     PipDmgFlushQueueAndRestartDevices @ 0x1408393C4 (PipDmgFlushQueueAndRestartDevices.c)
- *     PiCslIsConsoleLocked @ 0x14083A194 (PiCslIsConsoleLocked.c)
+ *     PipDmgFlushQueueAndRestartDevices @ 0x1408393A4 (PipDmgFlushQueueAndRestartDevices.c)
+ *     PiCslIsConsoleLocked @ 0x14083A174 (PiCslIsConsoleLocked.c)
  */
 
 void PipDmgReevaluateQueue()

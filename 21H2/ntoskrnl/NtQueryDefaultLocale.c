@@ -1,28 +1,27 @@
 /*
- * XREFs of NtQueryDefaultLocale @ 0x1406BC500
+ * XREFs of NtQueryDefaultLocale @ 0x14069F740
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionLocaleId @ 0x140702ABC (MmGetSessionLocaleId.c)
+ *     MmGetSessionLocaleId @ 0x140620240 (MmGetSessionLocaleId.c)
  */
 
-__int64 __fastcall NtQueryDefaultLocale(__int64 a1, int *a2)
+__int64 __fastcall NtQueryDefaultLocale(char a1, int *a2)
 {
-  char v2; // r9
   unsigned int v3; // r8d
+  __int64 v4; // rcx
   int SessionLocaleId; // eax
 
-  v2 = a1;
   v3 = 0;
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    a1 = 0x7FFFFFFF0000LL;
+    v4 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      a1 = (__int64)a2;
-    *(_DWORD *)a1 = *(_DWORD *)a1;
+      v4 = (__int64)a2;
+    *(_DWORD *)v4 = *(_DWORD *)v4;
   }
-  if ( v2 )
-    SessionLocaleId = MmGetSessionLocaleId(a1, a2, 0LL);
+  if ( a1 )
+    SessionLocaleId = MmGetSessionLocaleId();
   else
     SessionLocaleId = PsDefaultSystemLocaleId;
   *a2 = SessionLocaleId;

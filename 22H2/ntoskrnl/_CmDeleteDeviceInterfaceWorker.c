@@ -1,35 +1,33 @@
 /*
- * XREFs of _CmDeleteDeviceInterfaceWorker @ 0x140A61BA4
+ * XREFs of _CmDeleteDeviceInterfaceWorker @ 0x14072D35C
  * Callers:
- *     _CmDeleteDeviceInterface @ 0x140A6163C (_CmDeleteDeviceInterface.c)
+ *     _CmDeleteDeviceInterface @ 0x14072C884 (_CmDeleteDeviceInterface.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _CmSetDeviceInterfaceMappedProperty @ 0x14086DA58 (_CmSetDeviceInterfaceMappedProperty.c)
- *     _CmDeleteDeviceInterfaceRegKey @ 0x140A61768 (_CmDeleteDeviceInterfaceRegKey.c)
- *     _CmRaiseDeleteEvent @ 0x140A65658 (_CmRaiseDeleteEvent.c)
- *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x140A68458 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _CmDeleteDeviceInterfaceRegKey @ 0x14072D5A0 (_CmDeleteDeviceInterfaceRegKey.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x14072E720 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     _CmRaiseDeleteEvent @ 0x14072EA60 (_CmRaiseDeleteEvent.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x1407657F4 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmDeleteDeviceInterfaceWorker(__int64 a1, __int64 a2, __int16 a3, __int64 a4)
+__int64 __fastcall CmDeleteDeviceInterfaceWorker(__int64 a1, __int64 a2, __int16 a3, int a4)
 {
   int v4; // ebx
   int *v7; // r14
-  unsigned int v8; // edi
+  unsigned int v8; // esi
   int v9; // ebp
   int v10; // eax
-  void *Pool2; // rdi
+  PVOID PoolWithTag; // rsi
   unsigned int v12; // r14d
   int DeviceInterfaceMappedPropertyKeys; // eax
-  __int64 v14; // r9
-  unsigned __int64 v15; // rbp
-  unsigned int v16; // r14d
-  __int64 v17; // rbp
-  int v18; // eax
-  __int64 v19; // r9
-  unsigned int v21; // [rsp+40h] [rbp-48h] BYREF
-  _DWORD v22[4]; // [rsp+48h] [rbp-40h] BYREF
+  int v14; // ebp
+  int v15; // eax
+  int v16; // r9d
+  unsigned int v18; // ebp
+  unsigned int v19; // [rsp+40h] [rbp-48h] BYREF
+  _DWORD v20[4]; // [rsp+48h] [rbp-40h] BYREF
 
   v4 = 0;
   if ( a3 )
@@ -38,39 +36,39 @@ __int64 __fastcall CmDeleteDeviceInterfaceWorker(__int64 a1, __int64 a2, __int16
   }
   else
   {
-    v22[0] = 768;
-    v7 = v22;
-    v22[1] = 512;
+    v20[0] = 768;
+    v7 = v20;
+    v20[1] = 512;
     v8 = 0;
-    v22[2] = 256;
+    v20[2] = 256;
     while ( 1 )
     {
       v9 = *v7;
       v10 = CmDeleteDeviceInterfaceRegKey(a1, a2, *v7 | 0x30u, a4, 1);
       if ( v10 )
       {
-        if ( v10 != -1073741772 && v10 != -1073741811 && v10 != -1073741637 )
+        if ( v10 != -1073741637 && v10 != -1073741772 && v10 != -1073741811 )
           break;
       }
       v10 = CmDeleteDeviceInterfaceRegKey(a1, a2, v9 | 0x31u, a4, 0);
       if ( v10 )
       {
-        if ( v10 != -1073741772 && v10 != -1073741811 && v10 != -1073741637 && v10 != -1073741535 )
+        if ( v10 != -1073741637 && v10 != -1073741772 && v10 != -1073741811 && v10 != -1073741535 )
           break;
       }
       ++v8;
       ++v7;
       if ( v8 >= 3 )
-        goto LABEL_16;
+        goto LABEL_8;
     }
     v4 = v10;
     if ( v10 < 0 )
       return (unsigned int)v4;
-LABEL_16:
-    Pool2 = 0LL;
+LABEL_8:
+    PoolWithTag = 0LL;
     v12 = 0;
-    v21 = 0;
-    while ( 1 )
+    v19 = 0;
+    do
     {
       LOBYTE(a4) = 1;
       DeviceInterfaceMappedPropertyKeys = CmGetDeviceInterfaceMappedPropertyKeys(
@@ -78,74 +76,70 @@ LABEL_16:
                                             a2,
                                             0,
                                             a4,
-                                            (__int64)Pool2,
+                                            (__int64)PoolWithTag,
                                             v12,
-                                            (__int64)&v21);
+                                            (__int64)&v19);
+      v12 = v19;
       if ( DeviceInterfaceMappedPropertyKeys != -1073741789 )
-        break;
-      v12 = v21;
-      v15 = 20LL * v21;
-      if ( v15 > 0xFFFFFFFF )
+        goto LABEL_10;
+      v18 = 20 * v19;
+      if ( 20 * (unsigned __int64)v19 > 0xFFFFFFFF )
       {
         DeviceInterfaceMappedPropertyKeys = -1073741811;
-        goto LABEL_26;
+        goto LABEL_32;
       }
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0);
-      Pool2 = (void *)ExAllocatePool2(256LL, (unsigned int)v15, 1380994640LL);
-      if ( !Pool2 )
-      {
-        DeviceInterfaceMappedPropertyKeys = -1073741801;
-LABEL_26:
-        v4 = DeviceInterfaceMappedPropertyKeys;
-        goto LABEL_45;
-      }
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v18, 0x52504E50u);
     }
+    while ( PoolWithTag );
+    DeviceInterfaceMappedPropertyKeys = -1073741801;
+LABEL_10:
     if ( DeviceInterfaceMappedPropertyKeys && DeviceInterfaceMappedPropertyKeys != -1073741275 )
-      goto LABEL_26;
-    v16 = v21;
-    v17 = 0LL;
-    if ( v21 )
+    {
+LABEL_32:
+      v4 = DeviceInterfaceMappedPropertyKeys;
+      goto LABEL_19;
+    }
+    v14 = 0;
+    if ( v12 )
     {
       while ( 1 )
       {
-        v18 = CmSetDeviceInterfaceMappedProperty(a1, a2, 0LL, 0LL, (__int64)Pool2 + 20 * v17, 0, 0LL, 0);
-        if ( v18 )
+        v15 = CmSetDeviceInterfaceMappedProperty(a1, a2, (int)PoolWithTag + 20 * v14, 0, 0LL, 0);
+        if ( v15 )
         {
-          if ( v18 != -1073741275 && v18 != -1073741790 && v18 != -1073741802 && v18 != -1073741637 )
+          if ( v15 != -1073741790 && v15 != -1073741275 && v15 != -1073741802 && v15 != -1073741637 )
             break;
         }
-        v17 = (unsigned int)(v17 + 1);
-        if ( (unsigned int)v17 >= v16 )
-          goto LABEL_36;
+        if ( ++v14 >= v12 )
+          goto LABEL_15;
       }
-      v4 = v18;
+      v4 = v15;
     }
-LABEL_36:
+LABEL_15:
     if ( v4 >= 0 )
     {
-      DeviceInterfaceMappedPropertyKeys = CmDeleteDeviceInterfaceRegKey(a1, a2, 48, v14, 1);
-      if ( DeviceInterfaceMappedPropertyKeys
-        && DeviceInterfaceMappedPropertyKeys != -1073741772
-        && DeviceInterfaceMappedPropertyKeys != -1073741811 )
+      DeviceInterfaceMappedPropertyKeys = CmDeleteDeviceInterfaceRegKey(a1, a2, 48, a4, 1);
+      if ( !DeviceInterfaceMappedPropertyKeys
+        || DeviceInterfaceMappedPropertyKeys == -1073741772
+        || DeviceInterfaceMappedPropertyKeys == -1073741811 )
       {
-        goto LABEL_26;
-      }
-      DeviceInterfaceMappedPropertyKeys = CmDeleteDeviceInterfaceRegKey(a1, a2, 49, v19, 0);
-      if ( DeviceInterfaceMappedPropertyKeys )
-      {
-        if ( DeviceInterfaceMappedPropertyKeys != -1073741772
-          && DeviceInterfaceMappedPropertyKeys != -1073741811
-          && DeviceInterfaceMappedPropertyKeys != -1073741535 )
+        DeviceInterfaceMappedPropertyKeys = CmDeleteDeviceInterfaceRegKey(a1, a2, 49, v16, 0);
+        if ( !DeviceInterfaceMappedPropertyKeys
+          || DeviceInterfaceMappedPropertyKeys == -1073741772
+          || DeviceInterfaceMappedPropertyKeys == -1073741811
+          || DeviceInterfaceMappedPropertyKeys == -1073741535 )
         {
-          goto LABEL_26;
+          CmRaiseDeleteEvent(a1, a2, 3LL);
+          goto LABEL_19;
         }
       }
-      CmRaiseDeleteEvent(a1, a2, 3LL);
+      goto LABEL_32;
     }
-LABEL_45:
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
+LABEL_19:
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
   }
   return (unsigned int)v4;
 }

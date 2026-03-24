@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpCopyCompressedName @ 0x140708D60
+ * XREFs of CmpCopyCompressedName @ 0x1406E2D64
  * Callers:
- *     CmpQueryKeyValueData @ 0x1406DCE80 (CmpQueryKeyValueData.c)
- *     CmpConstructNameFromKeyNodes @ 0x1406DD670 (CmpConstructNameFromKeyNodes.c)
- *     CmpPopulateKeyNodeInformation @ 0x1407074F8 (CmpPopulateKeyNodeInformation.c)
- *     CmAddLogForAction @ 0x1407079F8 (CmAddLogForAction.c)
- *     CmpInitializeValueNameString @ 0x140708514 (CmpInitializeValueNameString.c)
- *     CmpAddSubKeyToList @ 0x140708884 (CmpAddSubKeyToList.c)
- *     CmpMarkIndexDirty @ 0x14070C108 (CmpMarkIndexDirty.c)
- *     CmpLoadHiveVolatile @ 0x140A0C3E0 (CmpLoadHiveVolatile.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x140A17018 (CmpConstructNameFromKcbNameBlocks.c)
- *     CmpInitializeKeyNameString @ 0x140A22004 (CmpInitializeKeyNameString.c)
- *     CmpPopulateKeyBasicInformation @ 0x140A2A144 (CmpPopulateKeyBasicInformation.c)
- *     CmSelectQualifiedInstallLanguage @ 0x140B5C4DC (CmSelectQualifiedInstallLanguage.c)
- *     CmpGetNodeName @ 0x140B5DC34 (CmpGetNodeName.c)
+ *     CmpConstructNameFromKeyNodes @ 0x1405F3210 (CmpConstructNameFromKeyNodes.c)
+ *     CmpQueryKeyValueData @ 0x1405F7EB0 (CmpQueryKeyValueData.c)
+ *     CmpInitializeValueNameString @ 0x14066F2E8 (CmpInitializeValueNameString.c)
+ *     CmAddLogForAction @ 0x14069300C (CmAddLogForAction.c)
+ *     CmpAddSubKeyToList @ 0x1406E2B90 (CmpAddSubKeyToList.c)
+ *     CmpPopulateKeyNodeInformation @ 0x1406E3380 (CmpPopulateKeyNodeInformation.c)
+ *     CmpMarkIndexDirty @ 0x1406E53DC (CmpMarkIndexDirty.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x140778B38 (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpInitializeKeyNameString @ 0x1408791D8 (CmpInitializeKeyNameString.c)
+ *     CmpLoadHiveVolatile @ 0x14087CFAC (CmpLoadHiveVolatile.c)
+ *     CmpPopulateKeyBasicInformation @ 0x140882694 (CmpPopulateKeyBasicInformation.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x140A5F7C0 (CmSelectQualifiedInstallLanguage.c)
+ *     CmpGetNodeName @ 0x140A61278 (CmpGetNodeName.c)
  * Callees:
  *     <none>
  */

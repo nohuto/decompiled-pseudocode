@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaMapScatterTransferV3 @ 0x1405001F0
+ * XREFs of HalpDmaMapScatterTransferV3 @ 0x1404B7B40
  * Callers:
- *     HalpMapTransferV3 @ 0x1405151FC (HalpMapTransferV3.c)
+ *     HalpMapTransferV3 @ 0x1404CA778 (HalpMapTransferV3.c)
  * Callees:
- *     HalpDmaGetAdapterCacheAlignment @ 0x1403B91AC (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaNextContiguousPiece @ 0x14045ADC8 (HalpDmaNextContiguousPiece.c)
- *     HalpDmaSyncMapBuffers @ 0x14045C492 (HalpDmaSyncMapBuffers.c)
- *     HalpDmaFlushBuffer @ 0x140510CD0 (HalpDmaFlushBuffer.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8BA0 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaNextContiguousPiece @ 0x1404B8C00 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaFlushBuffer @ 0x1404C749C (HalpDmaFlushBuffer.c)
+ *     HalpDmaSyncMapBuffers @ 0x1404C8134 (HalpDmaSyncMapBuffers.c)
  */
 
 _QWORD *__fastcall HalpDmaMapScatterTransferV3(
@@ -14,88 +14,90 @@ _QWORD *__fastcall HalpDmaMapScatterTransferV3(
         __int64 a2,
         __int64 a3,
         __int64 a4,
-        int *a5,
+        _DWORD *a5,
         char a6,
         char a7,
-        __int64 *a8)
+        _QWORD *a8)
 {
   _QWORD *result; // rax
   __int64 v13; // rdx
-  unsigned int v14; // r11d
-  __int64 v15; // rbx
-  __int64 v16; // rcx
-  __int64 v17; // r10
-  __int64 v18; // r12
-  _BYTE *v19; // r9
-  _QWORD *v20; // rdx
+  __int64 v14; // r8
+  unsigned int v15; // r10d
+  __int64 v16; // rbx
+  __int64 v17; // rcx
+  __int64 v18; // r9
+  __int64 v19; // r12
+  _QWORD *v20; // r9
   __int64 v21; // rcx
   __int64 v22; // rdx
   bool v23; // zf
   int v24; // [rsp+20h] [rbp-38h]
   int v25; // [rsp+28h] [rbp-30h]
+  char v26; // [rsp+30h] [rbp-28h]
+  char v27; // [rsp+38h] [rbp-20h]
 
   result = (_QWORD *)HalpDmaNextContiguousPiece(a1, a2, a3, a4, a6, *a5);
-  v14 = (unsigned int)result;
-  *a5 = (int)result;
+  v15 = (unsigned int)result;
+  *a5 = (_DWORD)result;
   if ( !(_DWORD)result )
     return result;
-  v15 = a4 & 0xFFF;
-  v16 = (unsigned int)((unsigned __int64)(a4 - *(_QWORD *)(a2 + 32)) >> 12);
-  v17 = v15 + (*(_QWORD *)(a2 + 8 * v16 + 48) << 12);
+  v16 = a4 & 0xFFF;
+  v17 = (unsigned int)((unsigned __int64)(a4 - *(_QWORD *)(a2 + 32)) >> 12);
+  v18 = v16 + (*(_QWORD *)(a2 + 8 * v17 + 48) << 12);
   if ( a3 )
   {
-    v18 = (unsigned int)result;
-    if ( *(_QWORD *)(a1 + 144) < v17 + (unsigned __int64)(unsigned int)result - 1 && *(_DWORD *)(a1 + 520) != 3 )
+    if ( (v19 = (unsigned int)result, *(_QWORD *)(a1 + 136) < v18 + (unsigned __int64)(unsigned int)result - 1)
+      && *(_DWORD *)(a1 + 512) != 2
+      || !*(_BYTE *)(a1 + 437)
+      && !a6
+      && ((v17 = (unsigned int)HalpDmaGetAdapterCacheAlignment(a1, v13, v14) - 1, (v17 & v18) != 0)
+       || ((unsigned int)v17 & v15) != 0)
+      || *(_BYTE *)(a3 + 64) )
     {
-      v19 = (_BYTE *)(a1 + 445);
-LABEL_11:
       v20 = *(_QWORD **)(a3 + 56);
-      *a8 = v15 + *v20;
+      *a8 = v16 + *v20;
       if ( a6 )
       {
-        HalpDmaSyncMapBuffers(a1, a2, a4, v20, v14, a6, 0, a7);
+        v27 = a7;
+        v26 = 0;
+        LOBYTE(v25) = a6;
       }
-      else if ( !*v19 )
+      else
       {
-        HalpDmaSyncMapBuffers(a1, a2, a4, v20, v14, 0, 1, a7);
-      }
-      v21 = *(_QWORD *)(a3 + 56);
-      result = (_QWORD *)((unsigned __int64)(v18 + v15 + 4095) >> 12);
-      if ( (_DWORD)result )
-      {
-        v22 = (unsigned int)result;
-        do
+        if ( *(_BYTE *)(a1 + 437) )
         {
-          v21 = *(_QWORD *)(v21 + 8);
-          --v22;
+LABEL_15:
+          v21 = *(_QWORD *)(a3 + 56);
+          result = (_QWORD *)((unsigned __int64)(v19 + v16 + 4095) >> 12);
+          if ( (_DWORD)result )
+          {
+            v22 = (unsigned int)result;
+            do
+            {
+              v21 = *(_QWORD *)(v21 + 8);
+              --v22;
+            }
+            while ( v22 );
+          }
+          *(_QWORD *)(a3 + 56) = v21;
+          return result;
         }
-        while ( v22 );
+        v27 = a7;
+        v26 = 1;
+        LOBYTE(v25) = 0;
       }
-      *(_QWORD *)(a3 + 56) = v21;
-      return result;
+      HalpDmaSyncMapBuffers(a1, a2, a4, v20, v15, v25, v26, v27);
+      goto LABEL_15;
     }
-    v19 = (_BYTE *)(a1 + 445);
-    if ( !*(_BYTE *)(a1 + 445) && !a6 )
-    {
-      v16 = (unsigned int)HalpDmaGetAdapterCacheAlignment(a1, v13) - 1;
-      if ( (v16 & v17) != 0 || ((unsigned int)v16 & v14) != 0 )
-        goto LABEL_11;
-    }
-    if ( *(_BYTE *)(a3 + 64) )
-      goto LABEL_11;
   }
-  else
-  {
-    v19 = (_BYTE *)(a1 + 445);
-  }
-  v23 = *v19 == 0;
+  v23 = *(_BYTE *)(a1 + 437) == 0;
   result = a8;
-  *a8 = v17;
+  *a8 = v18;
   if ( v23 )
   {
     LOBYTE(v25) = a7;
     LOBYTE(v24) = a6;
-    return (_QWORD *)HalpDmaFlushBuffer(v16, a2, a4, v14, v24, v25);
+    return (_QWORD *)HalpDmaFlushBuffer(v17, a2, a4, v15, v24, v25);
   }
   return result;
 }

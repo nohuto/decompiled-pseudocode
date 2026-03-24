@@ -1,0 +1,40 @@
+/*
+ * XREFs of ??0CD2DTarget@@QEAA@PEAVID2DContextOwner@@PEAVCD2DFactory@@PEAVIDeviceTarget@@PEAUID2D1Bitmap1@@PEAUID2D1PrivateDepthBuffer@@@Z @ 0x1800CDAF0
+ * Callers:
+ *     ?PushTarget@CD2DContext@@UEAAJPEAVID2DContextOwner@@PEAVIDeviceTarget@@@Z @ 0x180077430 (-PushTarget@CD2DContext@@UEAAJPEAVID2DContextOwner@@PEAVIDeviceTarget@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ */
+
+CD2DTarget *__fastcall CD2DTarget::CD2DTarget(
+        CD2DTarget *this,
+        struct ID2DContextOwner *a2,
+        struct CD2DFactory *a3,
+        struct IDeviceTarget *a4,
+        struct ID2D1Bitmap1 *a5,
+        struct ID2D1PrivateDepthBuffer *a6)
+{
+  char *v7; // rcx
+
+  *((_QWORD *)this + 2) = 0LL;
+  *((_QWORD *)this + 4) = 0LL;
+  *((_QWORD *)this + 5) = 0LL;
+  *((_DWORD *)this + 13) = 0;
+  *(_QWORD *)this = a2;
+  *((_QWORD *)this + 1) = a3;
+  *((_BYTE *)this + 48) = 0;
+  *((_BYTE *)this + 56) = 0;
+  *((_QWORD *)this + 3) = a4;
+  if ( a4 )
+  {
+    v7 = (char *)a4 + *(int *)(*((_QWORD *)a4 + 1) + 4LL) + 8;
+    (*(void (__fastcall **)(char *))(*(_QWORD *)v7 + 8LL))(v7);
+  }
+  *((_QWORD *)this + 4) = a5;
+  if ( a5 )
+    (*(void (__fastcall **)(struct ID2D1Bitmap1 *))(*(_QWORD *)a5 + 8LL))(a5);
+  *((_QWORD *)this + 5) = a6;
+  if ( a6 )
+    (*(void (__fastcall **)(struct ID2D1PrivateDepthBuffer *))(*(_QWORD *)a6 + 8LL))(a6);
+  return this;
+}

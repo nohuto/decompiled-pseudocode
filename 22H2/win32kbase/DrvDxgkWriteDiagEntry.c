@@ -1,15 +1,12 @@
 /*
- * XREFs of DrvDxgkWriteDiagEntry @ 0x1C00BA960
+ * XREFs of DrvDxgkWriteDiagEntry @ 0x1C00B8460
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DrvDxgkWriteDiagEntry(__int64 a1, __int64 a2)
+__int64 DrvDxgkWriteDiagEntry()
 {
-  __int64 DxgkWin32kInterface; // rax
-
-  DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(a1, a2);
-  return (*(__int64 (__fastcall **)(__int64))(DxgkWin32kInterface + 304))(a1);
+  return ((__int64 (*)(void))qword_1C02509C0)();
 }

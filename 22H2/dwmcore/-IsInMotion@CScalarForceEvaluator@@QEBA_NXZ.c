@@ -1,10 +1,9 @@
 /*
- * XREFs of ?IsInMotion@CScalarForceEvaluator@@QEBA_NXZ @ 0x180276DD0
+ * XREFs of ?IsInMotion@CScalarForceEvaluator@@QEBA_NXZ @ 0x180215768
  * Callers:
- *     ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18023C17C (-CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?IsInMotion@CScalarForce@@UEBA_NXZ @ 0x180276040 (-IsInMotion@CScalarForce@@UEBA_NXZ.c)
- *     ?IsInMotion@CExpressionForce@@UEBA_NXZ @ 0x180276200 (-IsInMotion@CExpressionForce@@UEBA_NXZ.c)
- *     ?IsInMotion@CNaturalAnimationScalarForceAdapater@@UEBA_NXZ @ 0x180277610 (-IsInMotion@CNaturalAnimationScalarForceAdapater@@UEBA_NXZ.c)
+ *     ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801D717C (-CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?IsInMotion@CExpressionForce@@UEBA_NXZ @ 0x180214AF0 (-IsInMotion@CExpressionForce@@UEBA_NXZ.c)
+ *     ?IsInMotion@CNaturalAnimationScalarForceAdapater@@UEBA_NXZ @ 0x180215F90 (-IsInMotion@CNaturalAnimationScalarForceAdapater@@UEBA_NXZ.c)
  * Callees:
  *     <none>
  */

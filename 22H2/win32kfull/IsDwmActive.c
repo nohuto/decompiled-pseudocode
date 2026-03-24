@@ -1,60 +1,12 @@
 /*
- * XREFs of IsDwmActive @ 0x1C00D4B60
+ * XREFs of IsDwmActive @ 0x1C00BE010
  * Callers:
- *     GreAdjustSpriteDirtyAccum @ 0x1C000ABB0 (GreAdjustSpriteDirtyAccum.c)
- *     GreGetDxSharedSurface @ 0x1C000AE98 (GreGetDxSharedSurface.c)
- *     ?uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ @ 0x1C000B0D4 (-uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ.c)
- *     GreDwmUseDeviceBitmapsForMultiAdapter @ 0x1C000B12C (GreDwmUseDeviceBitmapsForMultiAdapter.c)
- *     GreNotifyDirtySprite @ 0x1C000B1A0 (GreNotifyDirtySprite.c)
- *     GreGetSprite @ 0x1C0013DE0 (GreGetSprite.c)
- *     GreWindowBeginLayoutUpdate @ 0x1C0016938 (GreWindowBeginLayoutUpdate.c)
- *     GreDwmUseDeviceBitmaps @ 0x1C0058454 (GreDwmUseDeviceBitmaps.c)
- *     GreTransferDwmStateToSpriteState @ 0x1C00587CC (GreTransferDwmStateToSpriteState.c)
- *     GreUpdateSpriteVisRgn @ 0x1C005AA10 (GreUpdateSpriteVisRgn.c)
- *     GreDwmEnableSoftwareCursorRendering @ 0x1C005AFF4 (GreDwmEnableSoftwareCursorRendering.c)
- *     GreDwmHasSoftwareCursor @ 0x1C005B2AC (GreDwmHasSoftwareCursor.c)
- *     GreDesktopSwitch @ 0x1C006CE0C (GreDesktopSwitch.c)
- *     GreUpdateSpriteClipRgn @ 0x1C0077DA8 (GreUpdateSpriteClipRgn.c)
- *     GreSfmCloseCompositorRef @ 0x1C0079C9C (GreSfmCloseCompositorRef.c)
- *     GreSetRedirectionSurfaceSignaling @ 0x1C007A4F0 (GreSetRedirectionSurfaceSignaling.c)
- *     GreDwmGetSurfaceData @ 0x1C007AA30 (GreDwmGetSurfaceData.c)
- *     GreSfmOpenCompositorRef @ 0x1C007B044 (GreSfmOpenCompositorRef.c)
- *     GreSfmGetDirtyRgn @ 0x1C007E35C (GreSfmGetDirtyRgn.c)
- *     GreGetRedirectionEvent @ 0x1C00BCE08 (GreGetRedirectionEvent.c)
- *     GreWindowLayoutComplete @ 0x1C00C5DFC (GreWindowLayoutComplete.c)
- *     GreGetWindowResizeDCompositionSynchronizationObject @ 0x1C00C8130 (GreGetWindowResizeDCompositionSynchronizationObject.c)
- *     GreGetSpriteAttributes @ 0x1C00C8640 (GreGetSpriteAttributes.c)
- *     ?GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z @ 0x1C00C8FF0 (-GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z.c)
- *     ?GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHHHHPEBG@Z @ 0x1C00CD42C (-GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHH.c)
- *     GreDwmNotifySpriteMonitorChange @ 0x1C00D3F9C (GreDwmNotifySpriteMonitorChange.c)
- *     GreHintSpriteShape @ 0x1C00D41D4 (GreHintSpriteShape.c)
- *     vCleanupUMWindowlessSprite @ 0x1C00D4A00 (vCleanupUMWindowlessSprite.c)
- *     EngpMovePointer @ 0x1C0133898 (EngpMovePointer.c)
- *     EngSetPointerShape @ 0x1C0133970 (EngSetPointerShape.c)
- *     GreAddBitmapD3DDirtyRgn @ 0x1C015982A (GreAddBitmapD3DDirtyRgn.c)
- *     GreIsWindowResizeInProgress @ 0x1C01599C0 (GreIsWindowResizeInProgress.c)
- *     ?SpDdCreateFullscreenSprite@@YAJPEAUHDC__@@KPEAPEAXPEAPEAU1@@Z @ 0x1C0265A70 (-SpDdCreateFullscreenSprite@@YAJPEAUHDC__@@KPEAPEAXPEAPEAU1@@Z.c)
- *     ?SpDdDestroyFullscreenSprite@@YAJPEAUHDC__@@PEAX@Z @ 0x1C0266060 (-SpDdDestroyFullscreenSprite@@YAJPEAUHDC__@@PEAX@Z.c)
- *     ?SpDdNotifyFullscreenSpriteUpdate@@YAJPEAUHDC__@@PEAX@Z @ 0x1C02661A8 (-SpDdNotifyFullscreenSpriteUpdate@@YAJPEAUHDC__@@PEAX@Z.c)
- *     GreCancelSynchronizedWindowResize @ 0x1C026737C (GreCancelSynchronizedWindowResize.c)
- *     GreConfirmWindowResizeCommit @ 0x1C0267488 (GreConfirmWindowResizeCommit.c)
- *     GreDeleteSpriteDelayDelete @ 0x1C0267588 (GreDeleteSpriteDelayDelete.c)
- *     GreGetHwndUpdateIds @ 0x1C0267938 (GreGetHwndUpdateIds.c)
- *     GreHLsurfSetPresentFlags @ 0x1C0267ADC (GreHLsurfSetPresentFlags.c)
- *     GreHLsurfSetUpdateId @ 0x1C0267C44 (GreHLsurfSetUpdateId.c)
- *     GreHintSpriteShapeDelayDelete @ 0x1C0267DDC (GreHintSpriteShapeDelayDelete.c)
- *     GreProtectSpriteContent @ 0x1C0267E68 (GreProtectSpriteContent.c)
- *     GreSetHwndPresentFlags @ 0x1C02680D4 (GreSetHwndPresentFlags.c)
- *     GreWindowResizeComplete @ 0x1C0268454 (GreWindowResizeComplete.c)
- *     GreWindowResizeStarted @ 0x1C02686B0 (GreWindowResizeStarted.c)
- *     ?DxLddmSharedPrimaryLockNotification@@YAJU_LUID@@IPEBU_RECTL@@@Z @ 0x1C026E65C (-DxLddmSharedPrimaryLockNotification@@YAJU_LUID@@IPEBU_RECTL@@@Z.c)
- *     ?InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z @ 0x1C026EBF0 (-InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z.c)
- *     GreSetLWContentOwner @ 0x1C02D5534 (GreSetLWContentOwner.c)
+ *     <none>
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall IsDwmActive(Gre::Base *a1)
+_BOOL8 IsDwmActive()
 {
-  return *((_QWORD *)Gre::Base::Globals(a1) + 38) != 0LL;
+  return g_pDwmState != 0LL;
 }

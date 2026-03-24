@@ -1,17 +1,15 @@
 /*
- * XREFs of NtUserScrollDC @ 0x1C00C0740
+ * XREFs of NtUserScrollDC @ 0x1C00FCD00
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     _ScrollDC @ 0x1C00C08AC (_ScrollDC.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     _ScrollDC @ 0x1C00FCE74 (_ScrollDC.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
-__int64 __fastcall NtUserScrollDC(HDC a1, __int64 a2, __int64 a3, struct tagRECT *a4, ULONG64 a5, HRGN a6, ULONG64 a7)
+__int64 __fastcall NtUserScrollDC(HDC a1, int a2, int a3, struct tagRECT *a4, struct tagRECT *a5, HRGN a6, ULONG64 a7)
 {
-  int v8; // r12d
-  int v9; // r15d
   struct tagRECT *v11; // rdi
   _OWORD *v12; // rsi
   ULONG64 v13; // rcx
@@ -20,14 +18,12 @@ __int64 __fastcall NtUserScrollDC(HDC a1, __int64 a2, __int64 a3, struct tagRECT
   struct tagRECT v17; // [rsp+88h] [rbp-70h] BYREF
   __int128 v18; // [rsp+A0h] [rbp-58h] BYREF
 
-  v8 = a3;
-  v9 = a2;
-  v11 = (struct tagRECT *)a5;
+  v11 = a5;
   v12 = (_OWORD *)a7;
   v16 = 0LL;
   v17 = 0LL;
   v18 = 0LL;
-  EnterSharedCrit(a1, a2, a3);
+  EnterSharedCrit(0LL, 1LL);
   if ( a4 )
   {
     if ( (unsigned __int64)a4 >= MmUserProbeAddress )
@@ -37,12 +33,12 @@ __int64 __fastcall NtUserScrollDC(HDC a1, __int64 a2, __int64 a3, struct tagRECT
   }
   if ( a5 )
   {
-    if ( a5 >= MmUserProbeAddress )
+    if ( (unsigned __int64)a5 >= MmUserProbeAddress )
       v11 = (struct tagRECT *)MmUserProbeAddress;
     v17 = *v11;
     v11 = &v17;
   }
-  v14 = ScrollDC(a1, v9, v8, a4, v11, a6, (struct tagRECT *)((unsigned __int64)&v18 & -(__int64)(a7 != 0)));
+  v14 = ScrollDC(a1, a2, a3, a4, v11, a6, (struct tagRECT *)((unsigned __int64)&v18 & -(__int64)(a7 != 0)));
   if ( a7 )
   {
     v13 = MmUserProbeAddress;

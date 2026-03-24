@@ -1,25 +1,25 @@
 /*
- * XREFs of EmpRuleParserStackPush @ 0x140B56BDC
+ * XREFs of EmpRuleParserStackPush @ 0x140A4727C
  * Callers:
- *     EmpParseRuleExpression @ 0x140B5599C (EmpParseRuleExpression.c)
+ *     EmpParseRuleExpression @ 0x140A4608C (EmpParseRuleExpression.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EmpRuleParserStackPush(__int64 a1, int a2, __int64 a3, __int64 a4, int a5)
+char *__fastcall EmpRuleParserStackPush(__int64 a1, int a2, __int64 a3, __int64 a4, int a5)
 {
-  __int64 result; // rax
-  __int64 *v10; // rcx
+  char *result; // rax
+  _QWORD *v10; // rcx
 
-  result = ExAllocatePool2(256LL, 0x28uLL, 0x74734D45u);
+  result = (char *)ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x74734D45u);
   if ( result )
   {
-    v10 = (__int64 *)(result + 32);
-    *(_DWORD *)(result + 24) = a5;
+    v10 = result + 32;
+    *((_DWORD *)result + 6) = a5;
     *(_DWORD *)result = a2;
-    *(_QWORD *)(result + 8) = a3;
-    *(_QWORD *)(result + 16) = a4;
-    result = *(_QWORD *)(a1 + 8);
+    *((_QWORD *)result + 1) = a3;
+    *((_QWORD *)result + 2) = a4;
+    result = *(char **)(a1 + 8);
     *v10 = result;
     ++*(_DWORD *)a1;
     *(_QWORD *)(a1 + 8) = v10;

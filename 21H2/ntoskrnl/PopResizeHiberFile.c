@@ -1,15 +1,15 @@
 /*
- * XREFs of PopResizeHiberFile @ 0x140801624
+ * XREFs of PopResizeHiberFile @ 0x140776CC8
  * Callers:
- *     PopAdjustHiberFile @ 0x140801014 (PopAdjustHiberFile.c)
- *     PopEnlargeHiberFile @ 0x140801068 (PopEnlargeHiberFile.c)
+ *     PopAdjustHiberFile @ 0x140776BD4 (PopAdjustHiberFile.c)
+ *     PopEnlargeHiberFile @ 0x140776C28 (PopEnlargeHiberFile.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ZwSetInformationFile @ 0x14041BC40 (ZwSetInformationFile.c)
- *     PopSetHiberFileMcb @ 0x140801784 (PopSetHiberFileMcb.c)
- *     PopSanityCheckHiberFile @ 0x1408017F8 (PopSanityCheckHiberFile.c)
- *     PopValidateHiberFileSize @ 0x1408018EC (PopValidateHiberFileSize.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x14081C234 (FsRtlIssueFileNotificationFsctl.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ZwSetInformationFile @ 0x1403FA880 (ZwSetInformationFile.c)
+ *     PopValidateHiberFileSize @ 0x140776E28 (PopValidateHiberFileSize.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x14078D6B4 (FsRtlIssueFileNotificationFsctl.c)
+ *     PopSanityCheckHiberFile @ 0x14078E278 (PopSanityCheckHiberFile.c)
+ *     PopSetHiberFileMcb @ 0x14078E7FC (PopSetHiberFileMcb.c)
  */
 
 __int64 __fastcall PopResizeHiberFile(__int64 a1, _QWORD *a2)
@@ -22,16 +22,16 @@ __int64 __fastcall PopResizeHiberFile(__int64 a1, _QWORD *a2)
   __int64 FileInformation; // [rsp+40h] [rbp-20h] BYREF
   ULONG_PTR v11; // [rsp+48h] [rbp-18h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-10h] BYREF
-  int v13; // [rsp+78h] [rbp+18h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+78h] [rbp+18h] BYREF
   ULONG_PTR v14; // [rsp+88h] [rbp+28h] BYREF
 
   v8 = 0LL;
   P = 0LL;
-  v13 = 0;
+  LODWORD(NumberOfBytes) = 0;
   IoStatusBlock = 0LL;
   if ( !FileObject )
     goto LABEL_17;
-  if ( qword_140C22BD0 == a1 )
+  if ( qword_140C23850 == a1 )
   {
 LABEL_15:
     Status = 0;
@@ -76,13 +76,13 @@ LABEL_17:
                  (_DWORD)FileObject,
                  (unsigned int)&v14,
                  (unsigned int)&P,
-                 (__int64)&v13);
+                 (__int64)&NumberOfBytes);
       if ( Status >= 0 )
       {
-        Status = PopSetHiberFileMcb(P);
+        Status = PopSetHiberFileMcb(P, (unsigned int)NumberOfBytes);
         if ( Status >= 0 )
         {
-          qword_140C22BD0 = v14;
+          qword_140C23850 = v14;
           FsRtlIssueFileNotificationFsctl((PFILE_OBJECT)FileObject);
           goto LABEL_15;
         }
@@ -90,6 +90,6 @@ LABEL_17:
     }
   }
 LABEL_16:
-  *a2 = qword_140C22BD0;
+  *a2 = qword_140C23850;
   return (unsigned int)Status;
 }

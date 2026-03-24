@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vEnumPathStart@XCLIPOBJ@@QEAAXPEAU_PATHOBJ@@PEAVSURFACE@@PEAU_LINEATTRS@@@Z @ 0x1C02D95B8
+ * XREFs of ?vEnumPathStart@XCLIPOBJ@@QEAAXPEAU_PATHOBJ@@PEAVSURFACE@@PEAU_LINEATTRS@@@Z @ 0x1C014BC28
  * Callers:
- *     ?bStrokeCosmetic@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@K@Z @ 0x1C000D5A8 (-bStrokeCosmetic@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@K@Z.c)
- *     PATHOBJ_vEnumStartClipLines @ 0x1C02D97E0 (PATHOBJ_vEnumStartClipLines.c)
+ *     ?bStrokeCosmetic@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@K@Z @ 0x1C0149D1C (-bStrokeCosmetic@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@K@Z.c)
+ *     PATHOBJ_vEnumStartClipLines @ 0x1C02BCF20 (PATHOBJ_vEnumStartClipLines.c)
  * Callees:
- *     ?bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z @ 0x1C02D9334 (-bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z.c)
+ *     ?bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z @ 0x1C014B068 (-bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z.c)
  */
 
 void __fastcall XCLIPOBJ::vEnumPathStart(
@@ -43,9 +43,9 @@ void __fastcall XCLIPOBJ::vEnumPathStart(
     v9 = *((_QWORD *)this + 18);
     if ( v8 )
     {
-      *(_DWORD *)(v9 + 192) = v8[545];
-      *(_DWORD *)(*((_QWORD *)this + 18) + 196LL) = v8[546];
-      *(_DWORD *)(*((_QWORD *)this + 18) + 200LL) = v8[547];
+      *(_DWORD *)(v9 + 192) = v8[553];
+      *(_DWORD *)(*((_QWORD *)this + 18) + 196LL) = v8[554];
+      *(_DWORD *)(*((_QWORD *)this + 18) + 200LL) = v8[555];
     }
     else
     {

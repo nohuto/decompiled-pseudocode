@@ -1,9 +1,9 @@
 /*
- * XREFs of PopThermalTelemetryCallback @ 0x1402DC330
+ * XREFs of PopThermalTelemetryCallback @ 0x1402DC430
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x140138CA8 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x140138CC8 (PopQueueWorkItem.c)
  */
 
 char PopThermalTelemetryCallback()

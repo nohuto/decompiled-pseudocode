@@ -1,12 +1,12 @@
 /*
- * XREFs of SepAdtGenerateDiscardAudit @ 0x1409C89D0
+ * XREFs of SepAdtGenerateDiscardAudit @ 0x14091EF80
  * Callers:
- *     SepAdtDetermineInsertQueue @ 0x1403DA1F0 (SepAdtDetermineInsertQueue.c)
+ *     SepAdtDetermineInsertQueue @ 0x1403CB860 (SepAdtDetermineInsertQueue.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepAdtGenerateDiscardAudit(unsigned int *P)

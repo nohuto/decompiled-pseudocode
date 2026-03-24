@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIThermalTMPCallback @ 0x1C00204A0
+ * XREFs of ACPIThermalTMPCallback @ 0x1C00124B0
  * Callers:
- *     ACPIThermalLoopEx @ 0x1C00209D8 (ACPIThermalLoopEx.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
  * Callees:
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     ACPIThermalLoop @ 0x1C00209C0 (ACPIThermalLoop.c)
- *     ACPIThermalUpdateTemperature @ 0x1C002167C (ACPIThermalUpdateTemperature.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     ACPIThermalLoop @ 0x1C0012A10 (ACPIThermalLoop.c)
+ *     ACPIThermalUpdateTemperature @ 0x1C0013534 (ACPIThermalUpdateTemperature.c)
  */
 
 __int64 __fastcall ACPIThermalTMPCallback(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -13,8 +13,8 @@ __int64 __fastcall ACPIThermalTMPCallback(__int64 a1, int a2, __int64 a3, __int6
   if ( a2 >= 0 )
   {
     ACPIThermalUpdateTemperature(a4, *(unsigned int *)(a3 + 16));
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
+    dword_1C0082908 = 0;
+    pszDest = 0;
     FreeDataBuffs(a3, 1u);
   }
   return ACPIThermalLoop(a4, 0x40000000LL);

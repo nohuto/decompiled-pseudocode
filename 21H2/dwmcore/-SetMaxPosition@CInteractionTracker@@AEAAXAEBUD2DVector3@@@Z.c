@@ -1,54 +1,49 @@
 /*
- * XREFs of ?SetMaxPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x18021D048
+ * XREFs of ?SetMaxPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x1801CC06C
  * Callers:
- *     ?ProcessSetMaxPosition@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMAXPOSITION@@@Z @ 0x18021C108 (-ProcessSetMaxPosition@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTR.c)
- *     ?SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x18021D1FC (-SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
- *     ?SetProperty@CInteractionTracker@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18021D520 (-SetProperty@CInteractionTracker@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?ProcessSetMaxPosition@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMAXPOSITION@@@Z @ 0x1801CAC5C (-ProcessSetMaxPosition@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTR.c)
+ *     ?SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x1801CC22C (-SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
+ *     ?SetProperty@CInteractionTracker@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801CC550 (-SetProperty@CInteractionTracker@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
  * Callees:
- *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x1800485B4 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?EnsurePositionIsLessThanOrEqualToMax@CInteractionTracker@@AEAAXW4PropertyValueMask@1@@Z @ 0x18021A884 (-EnsurePositionIsLessThanOrEqualToMax@CInteractionTracker@@AEAAXW4PropertyValueMask@1@@Z.c)
- *     ?SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x18021D1FC (-SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
- *     ?ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ @ 0x180264E58 (-ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ.c)
+ *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180065B20 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?EnsurePositionIsLessThanOrEqualToMax@CInteractionTracker@@AEAAXW4PropertyValueMask@1@@Z @ 0x1801C96D8 (-EnsurePositionIsLessThanOrEqualToMax@CInteractionTracker@@AEAAXW4PropertyValueMask@1@@Z.c)
+ *     ?SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x1801CC22C (-SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
+ *     ?ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ @ 0x180213F40 (-ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ.c)
  */
 
 void __fastcall CInteractionTracker::SetMaxPosition(CInteractionTracker *this, const struct D2DVector3 *a2)
 {
-  unsigned __int64 v4; // rcx
-  float v5; // xmm0_4
-  bool v6; // cf
-  bool v7; // zf
+  float v3; // xmm0_4
+  float v4; // xmm2_4
+  char v5; // cl
+  bool v6; // zf
+  float v7; // xmm1_4
   float v8; // xmm0_4
-  char v9; // dl
-  float v10; // xmm1_4
-  float v11; // xmm0_4
-  _DWORD v12[4]; // [rsp+20h] [rbp-28h] BYREF
+  _DWORD v9[4]; // [rsp+20h] [rbp-28h] BYREF
 
-  v4 = *((_QWORD *)this + 13) - *(_QWORD *)a2;
-  if ( !v4 )
-    v4 = *((unsigned int *)this + 28) - (unsigned __int64)*((unsigned int *)a2 + 2);
-  if ( v4 )
+  if ( *((_QWORD *)this + 12) != *(_QWORD *)a2 || *((_DWORD *)this + 26) != *((_DWORD *)a2 + 2) )
   {
-    LODWORD(v5) = COERCE_UNSIGNED_INT(*((float *)this + 26) - *(float *)a2) & _xmm;
-    v6 = v5 > 0.0000011920929;
-    v7 = 0.0000011920929 == v5;
-    v8 = *((float *)this + 27) - *((float *)a2 + 1);
-    v9 = (v6 || v7) + 4;
-    if ( COERCE_FLOAT(LODWORD(v8) & _xmm) >= 0.0000011920929 )
-      v9 |= 2u;
-    v7 = (*((_BYTE *)this + 541) & 8) == 0;
-    *((_QWORD *)this + 13) = *(_QWORD *)a2;
-    *((_DWORD *)this + 28) = *((_DWORD *)a2 + 2);
-    if ( v7 )
-      CInteractionTracker::EnsurePositionIsLessThanOrEqualToMax((__int64)this, v9);
-    v10 = fminf(*((float *)this + 24), *((float *)this + 27));
-    v12[0] = fminf(*((float *)this + 23), *((float *)this + 26));
-    v11 = fminf(*((float *)this + 25), *((float *)this + 28));
-    *(float *)&v12[1] = v10;
-    *(float *)&v12[2] = v11;
-    CInteractionTracker::SetMinPosition(this, (const struct D2DVector3 *)v12);
-    if ( !*((_DWORD *)this + 44) )
-      InteractionSourceManager::ReconfigureAllManipulations((CInteractionTracker *)((char *)this + 200));
+    LODWORD(v3) = COERCE_UNSIGNED_INT(*((float *)this + 24) - *(float *)a2) & _xmm;
+    LODWORD(v4) = COERCE_UNSIGNED_INT(*((float *)this + 25) - *((float *)a2 + 1)) & _xmm;
+    *((_QWORD *)this + 12) = *(_QWORD *)a2;
+    v5 = (v3 >= 0.0000011920929) + 4;
+    v6 = (*((_BYTE *)this + 533) & 4) == 0;
+    *((_DWORD *)this + 26) = *((_DWORD *)a2 + 2);
+    if ( v6 )
+    {
+      if ( v4 >= 0.0000011920929 )
+        v5 |= 2u;
+      CInteractionTracker::EnsurePositionIsLessThanOrEqualToMax((__int64)this, v5);
+    }
+    v7 = fminf(*((float *)this + 22), *((float *)this + 25));
+    v9[0] = fminf(*((float *)this + 21), *((float *)this + 24));
+    v8 = fminf(*((float *)this + 23), *((float *)this + 26));
+    *(float *)&v9[1] = v7;
+    *(float *)&v9[2] = v8;
+    CInteractionTracker::SetMinPosition(this, (const struct D2DVector3 *)v9);
+    if ( !*((_DWORD *)this + 42) )
+      InteractionSourceManager::ReconfigureAllManipulations((CInteractionTracker *)((char *)this + 192));
     CResource::InvalidateAnimationSources(this, 26);
   }
 }

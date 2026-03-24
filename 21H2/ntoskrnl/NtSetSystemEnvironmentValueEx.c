@@ -1,42 +1,40 @@
 /*
- * XREFs of NtSetSystemEnvironmentValueEx @ 0x1406DCB10
+ * XREFs of NtSetSystemEnvironmentValueEx @ 0x140955660
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     PsIsProcessAppContainer @ 0x1406C9928 (PsIsProcessAppContainer.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ExSetFirmwareEnvironmentVariable @ 0x1409FB890 (ExSetFirmwareEnvironmentVariable.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1409FC784 (ExpFirmwareAccessAppContainerCheck.c)
- *     ExpSetFirmwareEnvironmentVariable @ 0x1409FE284 (ExpSetFirmwareEnvironmentVariable.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     PsIsProcessAppContainer @ 0x1406AD854 (PsIsProcessAppContainer.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x14094F4A0 (ExSetFirmwareEnvironmentVariable.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x140950400 (ExpFirmwareAccessAppContainerCheck.c)
+ *     ExpSetFirmwareEnvironmentVariable @ 0x140951ECC (ExpSetFirmwareEnvironmentVariable.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall NtSetSystemEnvironmentValueEx(__m128i *a1, __int128 *a2, unsigned __int64 a3, int a4, int a5)
 {
-  int v5; // esi
   unsigned __int16 v8; // cx
   size_t v9; // rbx
   unsigned __int64 v10; // rcx
   unsigned __int64 v11; // rcx
-  _WORD *PoolWithTag; // rax
-  _WORD *v13; // rdi
+  size_t *PoolWithTag; // rax
+  size_t *v13; // rdi
   __int64 v14; // rax
   unsigned int v15; // ebx
-  BOOLEAN v16; // [rsp+30h] [rbp-78h]
-  int v17; // [rsp+38h] [rbp-70h]
+  char v16; // [rsp+30h] [rbp-78h]
+  unsigned int v17; // [rsp+38h] [rbp-70h]
   __m128i Src; // [rsp+50h] [rbp-58h]
   __int128 v19; // [rsp+68h] [rbp-40h] BYREF
 
-  v5 = a3;
   v19 = 0LL;
   if ( !KeGetCurrentThread()->PreviousMode )
-    return ExSetFirmwareEnvironmentVariable((_DWORD)a1, (_DWORD)a2, a3, a4, a5);
-  if ( dword_140C15C70 != 2 )
+    return ExSetFirmwareEnvironmentVariable((__int64)a1, (int)a2, a3, a4, a5);
+  if ( dword_140C19850 != 2 )
     return 3221225474LL;
   if ( ((unsigned __int8)a1 & 3) != 0 )
     goto LABEL_31;
@@ -63,24 +61,24 @@ LABEL_31:
   v16 = SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, 1);
   if ( v16 )
     goto LABEL_23;
-  if ( PsIsProcessAppContainer((__int64)KeGetCurrentThread()->ApcState.Process) )
-    v16 = ExpFirmwareAccessAppContainerCheck(2LL);
+  if ( PsIsProcessAppContainer(KeGetCurrentThread()->ApcState.Process) )
+    v16 = ExpFirmwareAccessAppContainerCheck(2);
   if ( !v16 )
     return 3221225569LL;
 LABEL_23:
   v19 = *a2;
-  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v9 + 2, 0x72766E45u);
+  PoolWithTag = (size_t *)ExAllocatePoolWithTag(NonPagedPoolNx, v9 + 2, 0x72766E45u);
   v13 = PoolWithTag;
   if ( !PoolWithTag )
     return 3221225626LL;
   memmove(PoolWithTag, (const void *)Src.m128i_i64[1], v9);
-  v13[v9 >> 1] = 0;
+  *((_WORD *)v13 + (v9 >> 1)) = 0;
   v14 = v19 - ExpSecureBootVendorGuid;
   if ( (_QWORD)v19 == ExpSecureBootVendorGuid )
     v14 = *((_QWORD *)&v19 + 1) - 0x4B788FE7F42860BDLL;
-  if ( v14 || wcsnicmp(v13, L"Kernel_", 7uLL) )
+  if ( v14 || wcsnicmp((const wchar_t *)v13, L"Kernel_", 7uLL) )
   {
-    v15 = ExpSetFirmwareEnvironmentVariable((_DWORD)v13, (unsigned int)&v19, v5, v17, a5, 1);
+    v15 = ExpSetFirmwareEnvironmentVariable(v13, (__int64)&v19, a3, v17, a5, 1);
     ExFreePoolWithTag(v13, 0);
     return v15;
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?WindowNodeSetAlphaMargins@CChannel@@UEAAJIAEBU_MARGINS@@@Z @ 0x180073EE0
+ * XREFs of ?WindowNodeSetAlphaMargins@CChannel@@UEAAJIAEBU_MARGINS@@@Z @ 0x18005F290
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CChannel::WindowNodeSetAlphaMargins(CChannel *this, unsigned int a2, const struct _MARGINS *a3)
@@ -14,12 +14,12 @@ __int64 __fastcall CChannel::WindowNodeSetAlphaMargins(CChannel *this, unsigned 
   unsigned int v7; // ebx
   int v9; // [rsp+20h] [rbp-28h] BYREF
   _OWORD v10[2]; // [rsp+24h] [rbp-24h]
-  char *v11; // [rsp+50h] [rbp+8h] BYREF
+  struct _RTL_CRITICAL_SECTION *v11; // [rsp+50h] [rbp+8h] BYREF
 
-  v11 = (char *)this + 168;
+  v11 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
   EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
-  CChannel::CheckHandle((__int64)this, a2, 204);
-  v9 = 443;
+  CChannel::CheckHandle((__int64)this, a2, 203);
+  v9 = 446;
   v10[0] = 0LL;
   v6 = (__int128)*a3;
   LODWORD(v10[0]) = a2;

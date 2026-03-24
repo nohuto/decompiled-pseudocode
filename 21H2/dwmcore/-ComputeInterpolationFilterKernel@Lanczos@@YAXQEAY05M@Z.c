@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ComputeInterpolationFilterKernel@Lanczos@@YAXQEAY05M@Z @ 0x1801E70D0
+ * XREFs of ?ComputeInterpolationFilterKernel@Lanczos@@YAXQEAY05M@Z @ 0x18019F6C8
  * Callers:
- *     ?ComputeLanczosKernel@@YAJPEAVCSurfaceShaderComposer@@IIII@Z @ 0x1801DCF5C (-ComputeLanczosKernel@@YAJPEAVCSurfaceShaderComposer@@IIII@Z.c)
+ *     ?ComputeLanczosKernel@@YAJPEAVCSurfaceShaderComposer@@IIII@Z @ 0x1801921A4 (-ComputeLanczosKernel@@YAJPEAVCSurfaceShaderComposer@@IIII@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     Lanczos::Lanczos @ 0x1801E71B0 (Lanczos--Lanczos.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     Lanczos::Lanczos @ 0x18019F7A8 (Lanczos--Lanczos.c)
  */
 
 void __fastcall Lanczos::ComputeInterpolationFilterKernel(Lanczos *this, float (*const a2)[6])

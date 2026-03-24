@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CComponentTransform3D::sc_Anchor__ @ 0x180001A20
+ * XREFs of _dynamic_initializer_for__CComponentTransform3D::sc_Anchor__ @ 0x180001750
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CComponentTransform3D::sc_Anchor__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E3360 = (unsigned __int64)CPropertyChangeResource::SetAnimatedProperty;
-  qword_1803E3370 = v1;
+  xmmword_1803441A0 = (unsigned __int64)CPropertyChangeResource::SetAnimatedProperty;
+  qword_1803441B0 = v1;
   return result;
 }

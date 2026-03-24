@@ -1,13 +1,13 @@
 /*
- * XREFs of BiGetDriveLayoutInformation @ 0x140803EC0
+ * XREFs of BiGetDriveLayoutInformation @ 0x14078560C
  * Callers:
- *     BiGetDriveLayoutBlock @ 0x1408031CC (BiGetDriveLayoutBlock.c)
- *     BiCreatePartitionDevice @ 0x14080397C (BiCreatePartitionDevice.c)
+ *     BiGetDriveLayoutBlock @ 0x140782D38 (BiGetDriveLayoutBlock.c)
+ *     BiCreatePartitionDevice @ 0x1407850C0 (BiCreatePartitionDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     BiIssueGetDriveLayoutIoctl @ 0x140803F88 (BiIssueGetDriveLayoutIoctl.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     BiIssueGetDriveLayoutIoctl @ 0x1407856D4 (BiIssueGetDriveLayoutIoctl.c)
  */
 
 __int64 __fastcall BiGetDriveLayoutInformation(PCWSTR SourceString)
@@ -18,13 +18,14 @@ __int64 __fastcall BiGetDriveLayoutInformation(PCWSTR SourceString)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   HANDLE FileHandle; // [rsp+A0h] [rbp+20h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   FileHandle = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   IoStatusBlock = 0LL;

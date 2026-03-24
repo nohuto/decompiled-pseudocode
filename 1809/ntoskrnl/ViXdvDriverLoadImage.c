@@ -3,11 +3,11 @@
  * Callers:
  *     VfDriverLoadImage @ 0x140921264 (VfDriverLoadImage.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
- *     strcmp @ 0x140196EE0 (strcmp.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     VfUtilDbgPrint @ 0x14030994C (VfUtilDbgPrint.c)
- *     ViXdvSetXdvKernelUtilities @ 0x140309E78 (ViXdvSetXdvKernelUtilities.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
+ *     strcmp @ 0x140196F00 (strcmp.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     VfUtilDbgPrint @ 0x140309A4C (VfUtilDbgPrint.c)
+ *     ViXdvSetXdvKernelUtilities @ 0x140309F78 (ViXdvSetXdvKernelUtilities.c)
  *     ViXdvBindXdvDDIWrappers @ 0x140928350 (ViXdvBindXdvDDIWrappers.c)
  *     ViXdvBindXdvDriverEntryWrappers @ 0x140928410 (ViXdvBindXdvDriverEntryWrappers.c)
  *     ViXdvGetFuncAddress @ 0x140928730 (ViXdvGetFuncAddress.c)

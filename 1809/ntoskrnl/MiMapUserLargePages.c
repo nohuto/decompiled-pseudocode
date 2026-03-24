@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMapUserLargePages @ 0x14085D578
+ * XREFs of MiMapUserLargePages @ 0x14085D558
  * Callers:
  *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiCopyLargeVad @ 0x14085CD74 (MiCopyLargeVad.c)
+ *     MiCopyLargeVad @ 0x14085CD54 (MiCopyLargeVad.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiFreeLargeZeroPages @ 0x14002891C (MiFreeLargeZeroPages.c)
@@ -14,16 +14,16 @@
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiGetPfnLink @ 0x1400E1040 (MiGetPfnLink.c)
- *     MiGetPdeAddress @ 0x1400EDB44 (MiGetPdeAddress.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1402A9218 (MiLogPerfMemoryRangeEvent.c)
- *     MiInitPerfMemoryFlags @ 0x1402B8F20 (MiInitPerfMemoryFlags.c)
- *     MiReturnPartitionResidentAvailable @ 0x1402BFF40 (MiReturnPartitionResidentAvailable.c)
- *     MiDemotePfnListChain @ 0x1402C52D0 (MiDemotePfnListChain.c)
- *     MiInsertLargeUserMapping @ 0x1402C56F0 (MiInsertLargeUserMapping.c)
- *     MiGetCrossPartitionCharges @ 0x1402D197C (MiGetCrossPartitionCharges.c)
- *     MiReturnCrossPartitionCharges @ 0x1402D23BC (MiReturnCrossPartitionCharges.c)
- *     MiAllocateLargeZeroPages @ 0x14085C900 (MiAllocateLargeZeroPages.c)
+ *     MiGetPfnLink @ 0x1400E1060 (MiGetPfnLink.c)
+ *     MiGetPdeAddress @ 0x1400EDB64 (MiGetPdeAddress.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1402A9318 (MiLogPerfMemoryRangeEvent.c)
+ *     MiInitPerfMemoryFlags @ 0x1402B9020 (MiInitPerfMemoryFlags.c)
+ *     MiReturnPartitionResidentAvailable @ 0x1402C0040 (MiReturnPartitionResidentAvailable.c)
+ *     MiDemotePfnListChain @ 0x1402C53D0 (MiDemotePfnListChain.c)
+ *     MiInsertLargeUserMapping @ 0x1402C57F0 (MiInsertLargeUserMapping.c)
+ *     MiGetCrossPartitionCharges @ 0x1402D1A7C (MiGetCrossPartitionCharges.c)
+ *     MiReturnCrossPartitionCharges @ 0x1402D24BC (MiReturnCrossPartitionCharges.c)
+ *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
  */
 
 __int64 __fastcall MiMapUserLargePages(__int64 a1, int a2, __int64 a3)

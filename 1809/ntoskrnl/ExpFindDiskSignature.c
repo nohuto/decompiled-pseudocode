@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpFindDiskSignature @ 0x1408D0840
+ * XREFs of ExpFindDiskSignature @ 0x1408D0820
  * Callers:
- *     ExpConvertSignatureName @ 0x1408CFE04 (ExpConvertSignatureName.c)
- *     ExpCreateOutputEFI @ 0x1408D010C (ExpCreateOutputEFI.c)
- *     ExpTranslateEfiPath @ 0x1408D282C (ExpTranslateEfiPath.c)
+ *     ExpConvertSignatureName @ 0x1408CFDE4 (ExpConvertSignatureName.c)
+ *     ExpCreateOutputEFI @ 0x1408D00EC (ExpCreateOutputEFI.c)
+ *     ExpTranslateEfiPath @ 0x1408D280C (ExpTranslateEfiPath.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     swprintf_s @ 0x14019A340 (swprintf_s.c)
- *     ZwQuerySystemInformation @ 0x1401B8830 (ZwQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     swprintf_s @ 0x14019A360 (swprintf_s.c)
+ *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpGetPartitionTableInfo @ 0x1408D0E9C (ExpGetPartitionTableInfo.c)
+ *     ExpGetPartitionTableInfo @ 0x1408D0E7C (ExpGetPartitionTableInfo.c)
  */
 
 NTSTATUS ExpFindDiskSignature(__int64 a1, _DWORD *a2, unsigned int *a3, _QWORD *a4, _QWORD *a5, char a6, ...)

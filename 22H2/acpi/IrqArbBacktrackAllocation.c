@@ -1,42 +1,44 @@
 /*
- * XREFs of IrqArbBacktrackAllocation @ 0x1C009CE30
+ * XREFs of IrqArbBacktrackAllocation @ 0x1C00B6F40
  * Callers:
  *     <none>
  * Callees:
- *     RtlDeleteRange_0 @ 0x1C0001A9D (RtlDeleteRange_0.c)
- *     ProcessorDeleteDeviceIdtAssignment @ 0x1C005E010 (ProcessorDeleteDeviceIdtAssignment.c)
- *     WPP_RECORDER_SF_Dq @ 0x1C005EA78 (WPP_RECORDER_SF_Dq.c)
- *     ProcessorGetDeviceIdtAssignment @ 0x1C009AC04 (ProcessorGetDeviceIdtAssignment.c)
- *     IrqArbGsivFromIrq @ 0x1C009D6AC (IrqArbGsivFromIrq.c)
- *     IcRemovePossibleReference @ 0x1C009F670 (IcRemovePossibleReference.c)
+ *     WPP_RECORDER_SF_Dq @ 0x1C000F3CC (WPP_RECORDER_SF_Dq.c)
+ *     ProcessorDeleteDeviceIdtAssignment @ 0x1C000FC64 (ProcessorDeleteDeviceIdtAssignment.c)
+ *     RtlDeleteRange_0 @ 0x1C0031D4D (RtlDeleteRange_0.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C00936A0 (ProcessorGetDeviceIdtAssignment.c)
+ *     IrqArbGsivFromIrq @ 0x1C00938DC (IrqArbGsivFromIrq.c)
+ *     IcRemovePossibleReference @ 0x1C0096A68 (IcRemovePossibleReference.c)
  */
 
-NTSTATUS __fastcall IrqArbBacktrackAllocation(__int64 a1, unsigned int *a2, int a3)
+NTSTATUS __fastcall IrqArbBacktrackAllocation(__int64 a1, unsigned int *a2, __int64 a3)
 {
-  unsigned int *v5; // rdi
-  unsigned int v6; // r14d
-  __int64 v7; // rdx
+  unsigned int v5; // esi
   _QWORD *UserData; // rax
-  __int128 v10; // [rsp+40h] [rbp-40h] BYREF
-  __int128 v11; // [rsp+50h] [rbp-30h]
+  int v8; // [rsp+20h] [rbp-60h]
+  __int128 v9; // [rsp+40h] [rbp-40h] BYREF
+  __int128 v10; // [rsp+50h] [rbp-30h]
   struct _RANGE_LIST_ITERATOR Iterator; // [rsp+60h] [rbp-20h] BYREF
-  PRTL_RANGE Range; // [rsp+A0h] [rbp+20h] BYREF
+  PRTL_RANGE Range; // [rsp+90h] [rbp+10h] BYREF
 
   Range = 0LL;
-  v11 = 0LL;
+  v10 = 0LL;
   memset(&Iterator, 0, sizeof(Iterator));
-  v5 = a2 + 8;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_Dq(WPP_GLOBAL_Control->DeviceExtension, *(_QWORD *)(*((_QWORD *)a2 + 5) + 40LL), a3, 18);
-  v6 = IrqArbGsivFromIrq(*a2);
-  LOBYTE(v7) = (a2[16] & 2) != 0;
-  IcRemovePossibleReference(v6, v7);
-  if ( (int)ProcessorGetDeviceIdtAssignment(*(PVOID *)(*(_QWORD *)v5 + 32LL), v6, 1, &v10) >= 0 )
-    ProcessorDeleteDeviceIdtAssignment(*(void **)(*(_QWORD *)v5 + 32LL), v6, DWORD1(v11), 1);
+    WPP_RECORDER_SF_Dq(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      *(_QWORD *)(*((_QWORD *)a2 + 5) + 40LL),
+      a3,
+      0x12u,
+      v8);
+  v5 = IrqArbGsivFromIrq(*a2);
+  IcRemovePossibleReference(v5, (a2[16] & 2) != 0);
+  if ( (int)ProcessorGetDeviceIdtAssignment(*(PVOID *)(*((_QWORD *)a2 + 4) + 32LL), v5, 1, &v9) >= 0 )
+    ProcessorDeleteDeviceIdtAssignment(*(void **)(*((_QWORD *)a2 + 4) + 32LL), v5, DWORD1(v10), 1);
   RtlGetFirstRange(*(PRTL_RANGE_LIST *)(a1 + 48), &Iterator, &Range);
   while ( Range )
   {
-    if ( *(PVOID *)(*(_QWORD *)v5 + 32LL) == Range->Owner
+    if ( *(PVOID *)(*((_QWORD *)a2 + 4) + 32LL) == Range->Owner
       && *((_QWORD *)a2 + 1) == Range->End
       && *(_QWORD *)a2 == Range->Start )
     {
@@ -47,7 +49,7 @@ NTSTATUS __fastcall IrqArbBacktrackAllocation(__int64 a1, unsigned int *a2, int 
                *(PRTL_RANGE_LIST *)(a1 + 48),
                *(_QWORD *)a2,
                *((_QWORD *)a2 + 1),
-               *(PVOID *)(*(_QWORD *)v5 + 32LL));
+               *(PVOID *)(*((_QWORD *)a2 + 4) + 32LL));
     }
     RtlGetNextRange(&Iterator, &Range, 1u);
   }
@@ -55,5 +57,5 @@ NTSTATUS __fastcall IrqArbBacktrackAllocation(__int64 a1, unsigned int *a2, int 
            *(PRTL_RANGE_LIST *)(a1 + 48),
            *(_QWORD *)a2,
            *((_QWORD *)a2 + 1),
-           *(PVOID *)(*(_QWORD *)v5 + 32LL));
+           *(PVOID *)(*((_QWORD *)a2 + 4) + 32LL));
 }

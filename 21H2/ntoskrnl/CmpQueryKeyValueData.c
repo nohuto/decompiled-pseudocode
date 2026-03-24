@@ -1,190 +1,185 @@
 /*
- * XREFs of CmpQueryKeyValueData @ 0x1407C5730
+ * XREFs of CmpQueryKeyValueData @ 0x1405F7EB0
  * Callers:
- *     CmEnumerateValueKey @ 0x1406A18C0 (CmEnumerateValueKey.c)
- *     CmQueryValueKey @ 0x1407C83F0 (CmQueryValueKey.c)
- *     CmEnumerateValueFromLayeredKey @ 0x1407F6698 (CmEnumerateValueFromLayeredKey.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x140915854 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmEnumerateValueKey @ 0x1405F4EF0 (CmEnumerateValueKey.c)
+ *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x14086C260 (CmEnumerateValueFromLayeredKey.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x14086F410 (CmEnumerateValueKeyFromMergedView.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpCopyCompressedName @ 0x140718AE8 (CmpCopyCompressedName.c)
- *     CmpGetValueData @ 0x1407C46A0 (CmpGetValueData.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     CmpGetValueData @ 0x1405F8410 (CmpGetValueData.c)
+ *     CmpCopyCompressedName @ 0x140669F74 (CmpCopyCompressedName.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpQueryKeyValueData(
         __int64 a1,
-        unsigned int a2,
+        int a2,
         __int64 a3,
         int a4,
         _DWORD *Size,
         unsigned int a6,
         unsigned int *a7)
 {
-  unsigned int v8; // r11d
-  __int64 v9; // r10
-  unsigned int v10; // r15d
-  _DWORD *v11; // rdi
-  unsigned __int16 v12; // dx
-  unsigned int v13; // edx
-  unsigned int v14; // ecx
-  unsigned int v15; // r14d
-  unsigned int v16; // esi
+  __int64 v9; // r11
+  unsigned int v10; // r13d
+  unsigned int v11; // esi
+  _DWORD *v12; // rdi
+  unsigned __int16 v13; // dx
+  unsigned int v14; // edx
+  unsigned int v15; // ecx
+  unsigned int v16; // r14d
   unsigned int v17; // esi
   int v19; // r9d
-  unsigned int v20; // r9d
-  unsigned int v21; // esi
-  size_t v22; // r8
+  unsigned int v20; // r10d
+  unsigned int v21; // r15d
+  unsigned int v22; // r9d
   unsigned int v23; // edx
-  unsigned int v24; // r13d
-  unsigned int v25; // ecx
+  unsigned int v24; // r12d
+  size_t v25; // r8
   unsigned int v26; // r8d
   unsigned int i; // eax
-  unsigned int v28; // ecx
-  unsigned int v29; // edx
-  unsigned int v30; // edx
-  int v31; // r9d
-  unsigned int v32; // edx
-  unsigned int v33; // ecx
-  unsigned int v34; // r8d
-  unsigned int v35; // r8d
-  unsigned int v36; // esi
+  unsigned int v28; // r13d
+  void *v29; // rcx
+  int v30; // r9d
+  unsigned int v31; // edx
+  unsigned int v32; // ecx
+  unsigned int v33; // r13d
+  unsigned int v34; // esi
   void *Src; // [rsp+48h] [rbp-60h] BYREF
-  __int64 v38[2]; // [rsp+50h] [rbp-58h] BYREF
-  __int64 v39; // [rsp+60h] [rbp-48h]
-  unsigned int v42; // [rsp+C0h] [rbp+18h]
-  __int64 v43; // [rsp+C8h] [rbp+20h] BYREF
+  _DWORD v36[2]; // [rsp+50h] [rbp-58h] BYREF
+  __int64 v37; // [rsp+58h] [rbp-50h]
+  __int64 v38; // [rsp+60h] [rbp-48h]
+  unsigned int v41; // [rsp+C0h] [rbp+18h]
+  char v42; // [rsp+C8h] [rbp+20h] BYREF
 
-  v8 = a2;
   v9 = a1;
-  v10 = 0;
+  v10 = a6;
+  v11 = 0;
   Src = 0LL;
-  LOBYTE(v43) = 0;
-  v38[0] = 0xFFFFFFFFLL;
-  v39 = *(_QWORD *)(a1 + 32);
-  v11 = Size;
-  v38[1] = a3;
-  v12 = 2 * *(_WORD *)(a3 + 2);
+  v42 = 0;
+  v36[0] = -1;
+  v36[1] = 0;
+  v38 = *(_QWORD *)(a1 + 32);
+  v12 = Size;
+  v37 = a3;
+  v13 = 2 * *(_WORD *)(a3 + 2);
   if ( (*(_BYTE *)(a3 + 16) & 1) == 0 )
-    v12 = *(_WORD *)(a3 + 2);
+    v13 = *(_WORD *)(a3 + 2);
   if ( a4 == 2 )
   {
-    v13 = *(_DWORD *)(a3 + 4);
-    if ( v13 >= 0x80000000 )
-      v14 = v13 + 0x80000000;
-    else
-      v14 = *(_DWORD *)(a3 + 4);
-    LODWORD(Size) = v14;
-    v15 = 0;
-    *a7 = v14 + 12;
-    v16 = a6;
-    if ( a6 < 0xC )
+    v14 = *(_DWORD *)(a3 + 4);
+    v15 = v14 + 0x80000000;
+    if ( v14 < 0x80000000 )
+      v15 = *(_DWORD *)(a3 + 4);
+    LODWORD(Size) = v15;
+    v16 = 0;
+    *a7 = v15 + 12;
+    if ( v10 < 0xC )
     {
-      v15 = -1073741789;
+      v16 = -1073741789;
     }
     else
     {
-      *v11 = 0;
-      v11[1] = *(_DWORD *)(a3 + 12);
-      v11[2] = v14;
-      v17 = v16 - 12;
-      if ( v17 >= v14 )
-        v17 = v14;
-      else
-        v15 = -2147483643;
-      if ( v14 )
+      *v12 = 0;
+      v12[1] = *(_DWORD *)(a3 + 12);
+      v12[2] = v15;
+      v17 = v10 - 12;
+      if ( v10 - 12 < v15 )
+        v16 = -2147483643;
+      if ( v17 >= v15 )
+        v17 = v15;
+      if ( v15 )
       {
-        if ( v13 >= 0x80000000 )
+        if ( v14 >= 0x80000000 )
         {
           Src = (void *)(a3 + 8);
         }
-        else if ( !CmpGetValueData(
-                     *(_QWORD *)(v9 + 32),
-                     v8,
-                     a3,
-                     (unsigned int *)&Size,
-                     (__int64)&Src,
-                     (__int64)&v43,
-                     v38) )
+        else if ( !(unsigned __int8)CmpGetValueData(
+                                      *(_QWORD *)(v9 + 32),
+                                      a2,
+                                      a3,
+                                      (unsigned int)&Size,
+                                      (__int64)&Src,
+                                      (__int64)&v42,
+                                      (__int64)v36) )
         {
-          v15 = -1073741670;
+          v16 = -1073741670;
         }
         if ( Src )
-          memmove(v11 + 3, Src, v17);
+          memmove(v12 + 3, Src, v17);
       }
     }
   }
   else if ( a4 )
   {
     v19 = a4 - 1;
-    if ( v19 && (v31 = v19 - 2) != 0 )
+    if ( v19 && (v30 = v19 - 2) != 0 )
     {
-      if ( v31 == 1 )
+      if ( v30 == 1 )
       {
-        v32 = *(_DWORD *)(a3 + 4);
-        v33 = v32 + 0x80000000;
-        if ( v32 < 0x80000000 )
-          v33 = *(_DWORD *)(a3 + 4);
-        LODWORD(Size) = v33;
-        v15 = 0;
-        *a7 = v33 + 8;
-        v34 = a6;
-        if ( a6 >= 8 )
+        v31 = *(_DWORD *)(a3 + 4);
+        v32 = v31 + 0x80000000;
+        if ( v31 < 0x80000000 )
+          v32 = *(_DWORD *)(a3 + 4);
+        LODWORD(Size) = v32;
+        v16 = 0;
+        *a7 = v32 + 8;
+        if ( v10 < 8 )
         {
-          *v11 = *(_DWORD *)(a3 + 12);
-          v11[1] = v33;
-          v35 = v34 - 8;
-          v36 = v33;
-          if ( v35 < v33 )
+          v16 = -1073741789;
+        }
+        else
+        {
+          *v12 = *(_DWORD *)(a3 + 12);
+          v12[1] = v32;
+          v33 = v10 - 8;
+          v34 = v32;
+          if ( v33 < v32 )
           {
-            v36 = v35;
-            v15 = -2147483643;
+            v34 = v33;
+            v16 = -2147483643;
           }
-          if ( v33 )
+          if ( v32 )
           {
-            if ( v32 < 0x80000000 )
+            if ( v31 < 0x80000000 )
             {
-              if ( !CmpGetValueData(
-                      *(_QWORD *)(v9 + 32),
-                      v8,
-                      a3,
-                      (unsigned int *)&Size,
-                      (__int64)&Src,
-                      (__int64)&v43,
-                      v38) )
-                v15 = -1073741670;
+              if ( !(unsigned __int8)CmpGetValueData(
+                                       *(_QWORD *)(v9 + 32),
+                                       a2,
+                                       a3,
+                                       (unsigned int)&Size,
+                                       (__int64)&Src,
+                                       (__int64)&v42,
+                                       (__int64)v36) )
+                v16 = -1073741670;
             }
             else
             {
               Src = (void *)(a3 + 8);
             }
             if ( Src )
-              memmove(v11 + 2, Src, v36);
+              memmove(v12 + 2, Src, v34);
           }
-        }
-        else
-        {
-          v15 = -1073741789;
         }
       }
       else
       {
-        v15 = -1073741811;
+        v16 = -1073741811;
       }
     }
     else
     {
       v20 = *(_DWORD *)(a3 + 4);
-      v42 = v20;
+      v41 = v20;
       if ( v20 >= 0x80000000 )
         v21 = v20 + 0x80000000;
       else
         v21 = *(_DWORD *)(a3 + 4);
       LODWORD(Size) = v21;
-      v22 = v12;
-      v23 = v21 + v12 + 20;
+      v22 = v13;
+      v23 = v21 + v13 + 20;
       v24 = 0;
       if ( v21 )
       {
@@ -192,38 +187,36 @@ __int64 __fastcall CmpQueryKeyValueData(
         if ( v24 > v23 - v21 )
           v23 = v24 + v21;
       }
-      v15 = 0;
+      v16 = 0;
       *a7 = v23;
-      v25 = a6;
-      if ( a6 < 0x14 )
+      if ( v10 < 0x14 )
       {
-        v15 = -1073741789;
+        v16 = -1073741789;
       }
       else
       {
-        *v11 = 0;
-        v11[1] = *(_DWORD *)(a3 + 12);
-        v11[3] = v21;
-        v11[4] = v22;
-        if ( v25 - 20 < (unsigned int)v22 )
-        {
-          v22 = v25 - 20;
-          v15 = -2147483643;
-        }
+        *v12 = 0;
+        v12[1] = *(_DWORD *)(a3 + 12);
+        v12[3] = v21;
+        v12[4] = v22;
+        v25 = v10 - 20;
+        if ( (unsigned int)v25 >= v22 )
+          v25 = v22;
+        else
+          v16 = -2147483643;
         if ( (*(_BYTE *)(a3 + 16) & 1) != 0 )
         {
-          v26 = (unsigned int)v22 >> 1;
+          v26 = (unsigned int)v25 >> 1;
           if ( v26 >= *(unsigned __int16 *)(a3 + 2) )
             v26 = *(unsigned __int16 *)(a3 + 2);
           for ( i = 0; i < v26; ++i )
-            *((_WORD *)v11 + i + 10) = *(unsigned __int8 *)(i + a3 + 20);
+            *((_WORD *)v12 + i + 10) = *(unsigned __int8 *)(i + a3 + 20);
         }
         else
         {
-          memmove(v11 + 5, (const void *)(a3 + 20), v22);
-          v20 = v42;
+          memmove(v12 + 5, (const void *)(a3 + 20), v25);
+          v20 = v41;
           v9 = a1;
-          v8 = a2;
         }
         if ( v21 )
         {
@@ -233,75 +226,65 @@ __int64 __fastcall CmpQueryKeyValueData(
           }
           else
           {
-            if ( !CmpGetValueData(
-                    *(_QWORD *)(v9 + 32),
-                    v8,
-                    a3,
-                    (unsigned int *)&Size,
-                    (__int64)&Src,
-                    (__int64)&v43,
-                    v38) )
-              v15 = -1073741670;
+            if ( !(unsigned __int8)CmpGetValueData(
+                                     *(_QWORD *)(v9 + 32),
+                                     a2,
+                                     a3,
+                                     (unsigned int)&Size,
+                                     (__int64)&Src,
+                                     (__int64)&v42,
+                                     (__int64)v36) )
+              v16 = -1073741670;
             v21 = (unsigned int)Size;
           }
-          v11[2] = v24;
-          if ( a6 >= v24 )
-            v10 = a6 - v24;
-          if ( v10 >= v21 )
-            v10 = v21;
+          v12[2] = v24;
+          if ( v10 >= v24 )
+            v11 = v10 - v24;
+          if ( v11 >= v21 )
+            v11 = v21;
           else
-            v15 = -2147483643;
+            v16 = -2147483643;
           if ( Src )
-            memmove((char *)v11 + v24, Src, v10);
+            memmove((char *)v12 + v24, Src, v11);
         }
         else
         {
-          v11[2] = -1;
+          v12[2] = -1;
         }
       }
     }
   }
   else
   {
-    v28 = v12;
-    v15 = 0;
-    *a7 = v12 + 12;
-    v29 = a6;
-    if ( a6 < 0xC )
+    v16 = 0;
+    *a7 = v13 + 12;
+    if ( v10 < 0xC )
     {
-      v15 = -1073741789;
+      v16 = -1073741789;
     }
     else
     {
-      *v11 = 0;
-      v11[1] = *(_DWORD *)(a3 + 12);
-      v11[2] = v28;
-      v30 = v29 - 12;
-      if ( v30 < v28 )
-      {
-        v28 = v30;
-        v15 = -2147483643;
-      }
-      if ( (*(_BYTE *)(a3 + 16) & 1) != 0 )
-        CmpCopyCompressedName((_WORD *)v11 + 6, v28, (unsigned __int8 *)(a3 + 20), *(unsigned __int16 *)(a3 + 2));
+      *v12 = 0;
+      v12[1] = *(_DWORD *)(a3 + 12);
+      v12[2] = v13;
+      v28 = v10 - 12;
+      if ( v28 >= v13 )
+        v28 = v13;
       else
-        memmove(v11 + 3, (const void *)(a3 + 20), v28);
+        v16 = -2147483643;
+      v29 = v12 + 3;
+      if ( (*(_BYTE *)(a3 + 16) & 1) != 0 )
+        CmpCopyCompressedName(v29, v28, a3 + 20);
+      else
+        memmove(v29, (const void *)(a3 + 20), v28);
     }
   }
   if ( Src && Src != (void *)(a3 + 8) )
   {
-    if ( (_BYTE)v43 == 1 )
-    {
+    if ( v42 == 1 )
       ExFreePoolWithTag(Src, 0);
-    }
-    else if ( (*(_BYTE *)(v39 + 140) & 1) != 0 )
-    {
-      HvpReleaseCellFlat(v39, v38);
-    }
     else
-    {
-      HvpReleaseCellPaged(v39, v38);
-    }
+      (*(void (__fastcall **)(__int64, _DWORD *))(v38 + 16))(v38, v36);
   }
-  return v15;
+  return v16;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of TranslateGlobalVectorToIsaVector @ 0x140845334
+ * XREFs of TranslateGlobalVectorToIsaVector @ 0x1407C14A8
  * Callers:
- *     HalacpiIrqTranslateResourcesIsa @ 0x140845020 (HalacpiIrqTranslateResourcesIsa.c)
+ *     HalacpiIrqTranslateResourcesIsa @ 0x1407C11B0 (HalacpiIrqTranslateResourcesIsa.c)
  * Callees:
  *     <none>
  */

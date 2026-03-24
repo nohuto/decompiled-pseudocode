@@ -1,11 +1,12 @@
 /*
- * XREFs of ?MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z @ 0x1800EA78C
+ * XREFs of ?MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z @ 0x1800A91E0
  * Callers:
- *     ?NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z @ 0x1800987C4 (-NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z.c)
+ *     ?SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z @ 0x180074560 (-SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z.c)
+ *     ?NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z @ 0x1800AA5F0 (-NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z.c)
  * Callees:
- *     ?GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800559D0 (-GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
- *     ?CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z @ 0x180057F78 (-CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800A9608 (-GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
+ *     ?CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z @ 0x1800AC338 (-CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z.c)
  */
 
 __int64 __fastcall CBaseExpression::MergeValueWithMask(
@@ -15,18 +16,18 @@ __int64 __fastcall CBaseExpression::MergeValueWithMask(
         struct CExpressionValue *a4)
 {
   int v4; // r10d
-  int *v8; // rdi
+  unsigned int *v8; // rdi
   int v9; // r8d
   unsigned __int64 v10; // r10
   unsigned int ExpressionTypeChannelCount; // eax
-  __int64 v12; // r9
-  __int64 v13; // r10
+  __int64 v12; // rdx
+  __int64 v13; // r8
   unsigned int v14; // ebx
   int v16; // r9d
   unsigned int v17; // [rsp+20h] [rbp-18h]
 
   v4 = *(_DWORD *)(a1 + 72);
-  v8 = (int *)a1;
+  v8 = (unsigned int *)a1;
   v9 = *(_DWORD *)a3 - 1;
   if ( !v9 )
   {
@@ -37,13 +38,13 @@ __int64 __fastcall CBaseExpression::MergeValueWithMask(
       if ( _bittest64(&a1, v10) )
         goto LABEL_4;
     }
-    v17 = 2007;
+    v17 = 1845;
     goto LABEL_17;
   }
   if ( v9 != 1 )
   {
     v16 = -2147467259;
-    v17 = 2026;
+    v17 = 1864;
 LABEL_18:
     v14 = v16;
     MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, v16, v17, 0LL);
@@ -51,7 +52,7 @@ LABEL_18:
   }
   if ( v4 != 104 && v4 != 265 )
   {
-    v17 = 2016;
+    v17 = 1854;
 LABEL_17:
     v16 = -2147024809;
     goto LABEL_18;
@@ -70,7 +71,7 @@ LABEL_4:
         return 0;
     }
     v16 = -2147467259;
-    v17 = 2065;
+    v17 = 1903;
     goto LABEL_18;
   }
   return 0;

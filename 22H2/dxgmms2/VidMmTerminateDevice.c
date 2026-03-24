@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmTerminateDevice @ 0x1C0001F20
+ * XREFs of VidMmTerminateDevice @ 0x1C0011F90
  * Callers:
  *     <none>
  * Callees:
- *     ??_GVIDMM_DEVICE@@QEAAPEAXI@Z @ 0x1C00024CC (--_GVIDMM_DEVICE@@QEAAPEAXI@Z.c)
+ *     ??_GVIDMM_DEVICE@@QEAAPEAXI@Z @ 0x1C0011FAC (--_GVIDMM_DEVICE@@QEAAPEAXI@Z.c)
  */
 
 void *__fastcall VidMmTerminateDevice(void *a1, unsigned int a2)

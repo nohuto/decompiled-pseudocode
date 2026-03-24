@@ -1,101 +1,97 @@
 /*
- * XREFs of ?AcquireSessionGdiViewId@DXGSESSIONDATA@@QEAAJPEAK@Z @ 0x1C0354B1C
+ * XREFs of ?AcquireSessionGdiViewId@DXGSESSIONDATA@@QEAAJPEAK@Z @ 0x1C029EB8C
  * Callers:
- *     DxgkAcquireGdiViewIds @ 0x1C02272AC (DxgkAcquireGdiViewIds.c)
+ *     DxgkAcquireGdiViewIds @ 0x1C019DB44 (DxgkAcquireGdiViewIds.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     memmove @ 0x1C0028340 (memmove.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
  */
 
 __int64 __fastcall DXGSESSIONDATA::AcquireSessionGdiViewId(DXGSESSIONDATA *this, unsigned int *a2)
 {
-  signed __int32 v4; // ecx
-  signed __int32 v5; // r14d
-  signed __int32 v6; // esi
-  unsigned int v7; // ecx
-  unsigned __int64 v8; // rcx
-  unsigned __int64 v9; // rax
-  void *v10; // rax
-  void *v11; // rbp
-  unsigned int v12; // ebx
-  const void *v13; // rdx
-  _BYTE v15[16]; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v4; // rcx
+  signed __int32 v5; // edi
+  unsigned __int32 v6; // eax
+  __int64 v7; // rdx
+  int v8; // r8d
+  unsigned int v9; // ecx
+  unsigned __int64 v10; // rcx
+  SIZE_T v11; // rax
+  PVOID v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  PVOID v16; // rsi
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  unsigned int v19; // ebx
+  const void *v20; // rdx
+  __int64 v21; // rax
+  _BYTE v23[24]; // [rsp+20h] [rbp-18h] BYREF
 
   v4 = DXGSESSIONDATA::s_GlobalGdiViewId;
   do
   {
-    v5 = v4;
-    if ( v4 == -2 )
+    if ( (_DWORD)v4 == -2 )
     {
-      v12 = -1073741756;
-      WdLogSingleEntry1(2LL, -1073741756LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Exceeded the maximun GDI view ID, returning 0x%I64x.",
-        -1073741756LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      return v12;
+      v21 = WdLogNewEntry5_WdError(v4, a2);
+      v19 = -1073741756;
+      *(_QWORD *)(v21 + 24) = -1073741756LL;
+      WdLogEvent5_WdError(v21);
+      return v19;
     }
-    v6 = v4 + 1;
-    v4 = _InterlockedCompareExchange((volatile signed __int32 *)&DXGSESSIONDATA::s_GlobalGdiViewId, v4 + 1, v4);
+    v5 = v4 + 1;
+    v6 = _InterlockedCompareExchange((volatile signed __int32 *)&DXGSESSIONDATA::s_GlobalGdiViewId, v4 + 1, v4);
+    v4 = v6;
   }
-  while ( v4 + 1 != v6 );
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v15, (DXGSESSIONDATA *)((char *)this + 19088), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v15);
-  v7 = *((_DWORD *)this + 4786);
-  if ( *((_DWORD *)this + 4785) + *((_DWORD *)this + 4784) >= v7 )
+  while ( v6 + 1 != v5 );
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v23, (DXGSESSIONDATA *)((char *)this + 19048), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v23);
+  v7 = *((unsigned int *)this + 4773);
+  v8 = *((_DWORD *)this + 4772);
+  v9 = *((_DWORD *)this + 4774);
+  if ( v8 + (int)v7 >= v9 )
   {
-    if ( v7 )
-      v8 = 2 * v7;
+    if ( v9 )
+      v10 = 2 * v9;
     else
-      v8 = 16LL;
-    *((_DWORD *)this + 4786) = v8;
-    v9 = 4 * v8;
-    if ( !is_mul_ok(v8, 4uLL) )
-      v9 = -1LL;
-    v10 = (void *)operator new[](v9, 0x4B677844u, 256LL);
-    v11 = v10;
-    if ( !v10 )
+      v10 = 16LL;
+    *((_DWORD *)this + 4774) = v10;
+    v11 = 4 * v10;
+    if ( !is_mul_ok(v10, 4uLL) )
+      v11 = -1LL;
+    v12 = operator new[](v11, 0x4B677844u, PagedPool);
+    v16 = v12;
+    if ( !v12 )
     {
-      _InterlockedCompareExchange((volatile signed __int32 *)&DXGSESSIONDATA::s_GlobalGdiViewId, v5, v6);
-      WdLogSingleEntry1(6LL, *(unsigned int *)this);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Unable to allocate GDI View ID buffer for session 0x%I64x",
-        *(unsigned int *)this,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      v12 = -1073741801;
+      v17 = (unsigned int)(v5 - 1);
+      _InterlockedCompareExchange((volatile signed __int32 *)&DXGSESSIONDATA::s_GlobalGdiViewId, v17, v5);
+      v18 = WdLogNewEntry5_WdLowResource(v17, v13, v14, v15);
+      *(_QWORD *)(v18 + 24) = *(unsigned int *)this;
+      WdLogEvent5_WdLowResource(v18);
+      v19 = -1073741801;
       goto LABEL_16;
     }
-    v13 = (const void *)*((_QWORD *)this + 2394);
-    if ( v13 )
+    v20 = (const void *)*((_QWORD *)this + 2388);
+    if ( v20 )
     {
-      memmove(v10, v13, 4LL * (unsigned int)(*((_DWORD *)this + 4785) + *((_DWORD *)this + 4784)));
-      operator delete(*((void **)this + 2394));
+      memmove(v12, v20, 4LL * (unsigned int)(*((_DWORD *)this + 4773) + *((_DWORD *)this + 4772)));
+      operator delete[](*((void **)this + 2388));
     }
-    *((_QWORD *)this + 2394) = v11;
+    v7 = *((unsigned int *)this + 4773);
+    v8 = *((_DWORD *)this + 4772);
+    *((_QWORD *)this + 2388) = v16;
   }
-  *(_DWORD *)(*((_QWORD *)this + 2394) + 4LL * (unsigned int)(*((_DWORD *)this + 4785) + *((_DWORD *)this + 4784))) = v6;
-  ++*((_DWORD *)this + 4785);
-  v12 = 0;
-  *a2 = v6;
+  *(_DWORD *)(*((_QWORD *)this + 2388) + 4LL * (unsigned int)(v8 + v7)) = v5;
+  ++*((_DWORD *)this + 4773);
+  v19 = 0;
+  *a2 = v5;
 LABEL_16:
-  if ( v15[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v15);
-  return v12;
+  if ( v23[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v23, v7);
+  return v19;
 }

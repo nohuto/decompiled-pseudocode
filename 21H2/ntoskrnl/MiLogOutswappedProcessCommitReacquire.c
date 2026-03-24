@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogOutswappedProcessCommitReacquire @ 0x140580088
+ * XREFs of MiLogOutswappedProcessCommitReacquire @ 0x14052B704
  * Callers:
- *     MiReAcquireOutSwappedProcessCommit @ 0x140580DB8 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x14052C368 (MiReAcquireOutSwappedProcessCommit.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x14024A9B0 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x1403699D0 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogOutswappedProcessCommitReacquire(__int64 a1, __int64 a2, int a3, int a4)
@@ -20,43 +20,43 @@ void __fastcall MiLogOutswappedProcessCommitReacquire(__int64 a1, __int64 a2, in
   __int64 v11; // r11
   __int64 v12; // r11
   int v13; // ecx
-  int v14; // [rsp+20h] [rbp-39h]
-  int v15; // [rsp+28h] [rbp-31h]
-  int v16; // [rsp+40h] [rbp-19h] BYREF
-  __int64 v17; // [rsp+48h] [rbp-11h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v18; // [rsp+50h] [rbp-9h] BYREF
-  _BYTE v19[16]; // [rsp+70h] [rbp+17h] BYREF
-  int *v20; // [rsp+80h] [rbp+27h]
-  int v21; // [rsp+88h] [rbp+2Fh]
-  int v22; // [rsp+8Ch] [rbp+33h]
-  __int64 *v23; // [rsp+90h] [rbp+37h]
-  int v24; // [rsp+98h] [rbp+3Fh]
-  int v25; // [rsp+9Ch] [rbp+43h]
+  int v14; // [rsp+20h] [rbp-98h]
+  int v15; // [rsp+28h] [rbp-90h]
+  int v16; // [rsp+40h] [rbp-78h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-70h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v18; // [rsp+50h] [rbp-68h] BYREF
+  _BYTE v19[16]; // [rsp+70h] [rbp-48h] BYREF
+  int *v20; // [rsp+80h] [rbp-38h]
+  int v21; // [rsp+88h] [rbp-30h]
+  int v22; // [rsp+8Ch] [rbp-2Ch]
+  __int64 *v23; // [rsp+90h] [rbp-28h]
+  int v24; // [rsp+98h] [rbp-20h]
+  int v25; // [rsp+9Ch] [rbp-1Ch]
 
-  if ( *(_QWORD *)&qword_140C53448 )
+  if ( *(_QWORD *)&qword_140C4EEE0 )
   {
     if ( a3 )
     {
       if ( a4 )
       {
-        if ( **(_DWORD **)&qword_140C53448 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C53448, 4LL) )
+        if ( **(_DWORD **)&qword_140C4EEE0 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 4LL) )
         {
           tlgCreate1Sz_char((__int64)v19, (const CHAR *)(v11 + 1448));
-          v10 = &byte_14002C87F;
+          v10 = byte_140025A7D;
           goto LABEL_13;
         }
       }
-      else if ( **(_DWORD **)&qword_140C53448 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C53448, 4LL) )
+      else if ( **(_DWORD **)&qword_140C4EEE0 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 4LL) )
       {
         tlgCreate1Sz_char((__int64)v19, (const CHAR *)(v12 + 1448));
-        v10 = (char *)&byte_14002C82B;
+        v10 = (char *)&byte_140025AD1;
         goto LABEL_13;
       }
     }
-    else if ( **(_DWORD **)&qword_140C53448 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C53448, 4LL) )
+    else if ( **(_DWORD **)&qword_140C4EEE0 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 4LL) )
     {
       tlgCreate1Sz_char((__int64)v19, (const CHAR *)(v5 + 1448));
-      v10 = byte_14002C8D3;
+      v10 = byte_140025A2D;
 LABEL_13:
       v13 = *(_DWORD *)(v9 + 1088);
       v22 = 0;

@@ -1,14 +1,14 @@
 /*
- * XREFs of PoPowerOffMonitor @ 0x14038B628
+ * XREFs of PoPowerOffMonitor @ 0x140382864
  * Callers:
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PoUnblockConsoleSwitch @ 0x1407FE774 (PoUnblockConsoleSwitch.c)
- *     PoStartPowerStateTasks @ 0x1407FE79C (PoStartPowerStateTasks.c)
- *     PoEndPowerStateTasks @ 0x1407FE7BC (PoEndPowerStateTasks.c)
- *     PoBlockConsoleSwitch @ 0x1407FE7DC (PoBlockConsoleSwitch.c)
- *     PopDispatchStateCallout @ 0x1407FE82C (PopDispatchStateCallout.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PoBlockConsoleSwitch @ 0x14067E978 (PoBlockConsoleSwitch.c)
+ *     PopDispatchStateCallout @ 0x14067E9C8 (PopDispatchStateCallout.c)
+ *     PoUnblockConsoleSwitch @ 0x14077415C (PoUnblockConsoleSwitch.c)
+ *     PoEndPowerStateTasks @ 0x140774184 (PoEndPowerStateTasks.c)
+ *     PoStartPowerStateTasks @ 0x1407741A4 (PoStartPowerStateTasks.c)
  */
 
 __int64 PoPowerOffMonitor()

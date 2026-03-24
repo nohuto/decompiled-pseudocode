@@ -4,7 +4,7 @@
  *     CcInitializeBcbProfiler @ 0x14098E324 (CcInitializeBcbProfiler.c)
  *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14018DD30 (VslGetNestedPageProtectionFlags.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14018DD50 (VslGetNestedPageProtectionFlags.c)
  */
 
 __int64 KiAreCodePatchesAllowed()

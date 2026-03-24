@@ -1,13 +1,12 @@
 /*
- * XREFs of ReadMultiSzRegistryValueAndCompareId @ 0x1C00278D8
+ * XREFs of ReadMultiSzRegistryValueAndCompareId @ 0x1C001E16C
  * Callers:
- *     GetDynamicRegistrySettings @ 0x1C0025C3C (GetDynamicRegistrySettings.c)
- *     GetRegistrySettings @ 0x1C0025E04 (GetRegistrySettings.c)
- *     GetRegistrySettingsForSpecificKey @ 0x1C0027674 (GetRegistrySettingsForSpecificKey.c)
+ *     GetRegistrySettings @ 0x1C001CF78 (GetRegistrySettings.c)
+ *     GetRegistrySettingsForSpecificKey @ 0x1C001E008 (GetRegistrySettingsForSpecificKey.c)
  * Callees:
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     CompareId @ 0x1C0025A7C (CompareId.c)
- *     WMultiStringToAscii @ 0x1C0027AD4 (WMultiStringToAscii.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     CompareId @ 0x1C0005BD0 (CompareId.c)
+ *     WMultiStringToAscii @ 0x1C001E368 (WMultiStringToAscii.c)
  */
 
 bool __fastcall ReadMultiSzRegistryValueAndCompareId(

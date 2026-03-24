@@ -1,15 +1,15 @@
 /*
- * XREFs of ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C023EA24
+ * XREFs of ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C0242F50
  * Callers:
- *     xxxTooltipWndProc @ 0x1C010CED0 (xxxTooltipWndProc.c)
+ *     xxxTooltipWndProc @ 0x1C00DB220 (xxxTooltipWndProc.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     _GetDesktopWindow @ 0x1C006FF60 (_GetDesktopWindow.c)
- *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C009C270 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
- *     ?SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z @ 0x1C0118B1C (-SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z.c)
- *     xxxResetTooltip @ 0x1C0118B6C (xxxResetTooltip.c)
- *     ?TooltipAnimate@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C023E320 (-TooltipAnimate@@YAHPEAUtagTOOLTIPWND@@@Z.c)
- *     ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C023E738 (-xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     ?SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z @ 0x1C0029168 (-SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z.c)
+ *     xxxResetTooltip @ 0x1C002B3FC (xxxResetTooltip.c)
+ *     _GetDesktopWindow @ 0x1C00704C0 (_GetDesktopWindow.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?TooltipAnimate@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C02427DC (-TooltipAnimate@@YAHPEAUtagTOOLTIPWND@@@Z.c)
+ *     ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C0242C3C (-xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z.c)
  */
 
 __int64 __fastcall xxxTooltipHandleTimer(struct tagTOOLTIPWND *a1, int a2)
@@ -20,10 +20,8 @@ __int64 __fastcall xxxTooltipHandleTimer(struct tagTOOLTIPWND *a1, int a2)
   __int64 DesktopWindow; // rax
   struct tagWND *v7; // rbx
   __int64 ThreadWin32Thread; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  _QWORD v13[5]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v9; // rcx
+  _QWORD v11[5]; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = 1;
   v4 = a2 - 1;
@@ -33,7 +31,7 @@ __int64 __fastcall xxxTooltipHandleTimer(struct tagTOOLTIPWND *a1, int a2)
     if ( v5 )
     {
       if ( v5 == 1 && (unsigned int)TooltipAnimate(a1) )
-        SetTooltipTimer(a1, 2u, *((_DWORD *)a1 + 3));
+        SetTooltipTimer(a1, 2, *((_DWORD *)a1 + 3));
     }
     else
     {
@@ -43,18 +41,18 @@ __int64 __fastcall xxxTooltipHandleTimer(struct tagTOOLTIPWND *a1, int a2)
   else
   {
     DesktopWindow = GetDesktopWindow(*(_QWORD *)a1);
-    v13[2] = 0LL;
+    v11[2] = 0LL;
     v7 = (struct tagWND *)DesktopWindow;
     ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-    v13[0] = *(_QWORD *)(ThreadWin32Thread + 416);
-    *(_QWORD *)(ThreadWin32Thread + 416) = v13;
-    v13[1] = v7;
+    v11[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+    *(_QWORD *)(ThreadWin32Thread + 416) = v11;
+    v11[1] = v7;
     HMLockObject(v7);
     if ( xxxSetParentWorker(*(struct tagWND **)a1, v7, 0LL, 0) )
       v2 = xxxShowTooltip(a1);
     else
       v2 = 0;
-    ThreadUnlock1(v10, v9, v11);
+    ThreadUnlock1(v9);
   }
   return v2;
 }

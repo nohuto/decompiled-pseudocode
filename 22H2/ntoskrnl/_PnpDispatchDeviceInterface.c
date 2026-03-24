@@ -1,26 +1,26 @@
 /*
- * XREFs of _PnpDispatchDeviceInterface @ 0x1406CCF40
+ * XREFs of _PnpDispatchDeviceInterface @ 0x1406B5060
  * Callers:
  *     <none>
  * Callees:
- *     _PnpMapCmStatusToDispatchStatus @ 0x14022B204 (_PnpMapCmStatusToDispatchStatus.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1406CC2A8 (_CmOpenDeviceInterfaceRegKey.c)
- *     _CmGetDeviceInterfaceMappedProperty @ 0x1406CC724 (_CmGetDeviceInterfaceMappedProperty.c)
- *     _CmValidateDeviceInterfaceName @ 0x1406CEA70 (_CmValidateDeviceInterfaceName.c)
- *     _CmGetMatchingDeviceInterfaceList @ 0x14086050C (_CmGetMatchingDeviceInterfaceList.c)
- *     _CmSetDeviceInterfaceMappedProperty @ 0x14086DA58 (_CmSetDeviceInterfaceMappedProperty.c)
- *     _CmCreateDeviceInterface @ 0x1408805EC (_CmCreateDeviceInterface.c)
- *     _CmDeleteDeviceInterface @ 0x140A6163C (_CmDeleteDeviceInterface.c)
- *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x140A68458 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
- *     _CmGetDeviceInterfaceMappedPropertyLocales @ 0x140A68684 (_CmGetDeviceInterfaceMappedPropertyLocales.c)
+ *     _PnpMapCmStatusToDispatchStatus @ 0x14032E4C8 (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmGetDeviceInterfaceMappedProperty @ 0x1406B64C8 (_CmGetDeviceInterfaceMappedProperty.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1406B6624 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1406BA7AC (_CmValidateDeviceInterfaceName.c)
+ *     _CmDeleteDeviceInterface @ 0x14072C884 (_CmDeleteDeviceInterface.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x14072E720 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     _CmCreateDeviceInterface @ 0x140747CCC (_CmCreateDeviceInterface.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x1407657F4 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmGetMatchingDeviceInterfaceList @ 0x1407D199C (_CmGetMatchingDeviceInterfaceList.c)
+ *     _CmGetDeviceInterfaceMappedPropertyLocales @ 0x14097A5F0 (_CmGetDeviceInterfaceMappedPropertyLocales.c)
  */
 
 __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, _DWORD *a5)
 {
-  __int64 v5; // r10
+  __int64 (__fastcall *v5)(); // r10
   __int128 *v6; // r8
   int v7; // r9d
-  __int64 v8; // r9
+  int v8; // r9d
   int v9; // r9d
   int v10; // r9d
   int v11; // r9d
@@ -30,15 +30,15 @@ __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a
   unsigned int DeviceInterfaceMappedProperty; // eax
   __int128 v17; // [rsp+50h] [rbp-18h] BYREF
 
-  v5 = (__int64)a2;
+  v5 = a2;
   LODWORD(a2) = 0;
   LODWORD(v6) = 0;
   v17 = 0LL;
   v7 = a4 - 1;
   if ( v7 )
   {
-    v8 = (unsigned int)(v7 - 1);
-    if ( (_DWORD)v8 )
+    v8 = v7 - 1;
+    if ( v8 )
     {
       v9 = v8 - 1;
       if ( v9 )
@@ -61,7 +61,7 @@ __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a
                   if ( v14 == 1 )
                     DeviceInterfaceMappedProperty = CmSetDeviceInterfaceMappedProperty(
                                                       a1,
-                                                      v5,
+                                                      (_DWORD)v5,
                                                       *((_QWORD *)a5 + 2),
                                                       a5[6],
                                                       *((_QWORD *)a5 + 4),
@@ -73,14 +73,14 @@ __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a
                 {
                   DeviceInterfaceMappedProperty = CmGetDeviceInterfaceMappedProperty(
                                                     a1,
-                                                    v5,
+                                                    (_DWORD)v5,
                                                     *(_QWORD *)a5,
                                                     *((_QWORD *)a5 + 1),
                                                     *((_QWORD *)a5 + 2),
-                                                    *((_DWORD **)a5 + 3),
+                                                    *((_QWORD *)a5 + 3),
                                                     *((_QWORD *)a5 + 4),
                                                     a5[10],
-                                                    *((_DWORD **)a5 + 6));
+                                                    *((_QWORD *)a5 + 6));
                 }
               }
               else
@@ -99,7 +99,7 @@ __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a
             {
               DeviceInterfaceMappedProperty = CmGetDeviceInterfaceMappedPropertyKeys(
                                                 a1,
-                                                v5,
+                                                (_DWORD)v5,
                                                 *(_QWORD *)a5,
                                                 0,
                                                 *((_QWORD *)a5 + 3),
@@ -135,7 +135,7 @@ __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a
       {
         DeviceInterfaceMappedProperty = CmCreateDeviceInterface(
                                           a1,
-                                          v5,
+                                          (_DWORD)v5,
                                           *a5,
                                           (int)a5 + 8,
                                           (__int64)(a5 + 4),
@@ -146,13 +146,13 @@ __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a
     {
       DeviceInterfaceMappedProperty = CmOpenDeviceInterfaceRegKey(
                                         a1,
-                                        v5,
-                                        0x30u,
-                                        v8,
+                                        (_DWORD)v5,
+                                        48,
+                                        0,
                                         *a5,
                                         *((_BYTE *)a5 + 4),
                                         *((_QWORD *)a5 + 1),
-                                        a5 + 4);
+                                        (__int64)(a5 + 4));
     }
   }
   else

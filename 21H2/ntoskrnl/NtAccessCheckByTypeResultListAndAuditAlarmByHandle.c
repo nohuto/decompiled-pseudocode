@@ -1,9 +1,9 @@
 /*
- * XREFs of NtAccessCheckByTypeResultListAndAuditAlarmByHandle @ 0x1409CAB50
+ * XREFs of NtAccessCheckByTypeResultListAndAuditAlarmByHandle @ 0x140921230
  * Callers:
  *     <none>
  * Callees:
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406260EC (SepAccessCheckAndAuditAlarm.c)
  */
 
 NTSTATUS __stdcall NtAccessCheckByTypeResultListAndAuditAlarmByHandle(
@@ -29,21 +29,21 @@ NTSTATUS __stdcall NtAccessCheckByTypeResultListAndAuditAlarmByHandle(
 
   v18 = ClientToken;
   return SepAccessCheckAndAuditAlarm(
-           SubsystemName,
-           (__int64)HandleId,
-           &v18,
-           (__int64)ObjectTypeName,
+           (int)SubsystemName,
+           (int)HandleId,
+           (int)&v18,
+           (int)ObjectTypeName,
            (__int64)ObjectName,
            (__int64)SecurityDescriptor,
-           PrincipalSelfSid,
+           (__int64)PrincipalSelfSid,
            DesiredAccess,
            AuditType,
            Flags,
-           (unsigned __int64)ObjectTypeList,
+           (__int64)ObjectTypeList,
            ObjectTypeListLength,
            (__int64)GenericMapping,
-           GrantedAccess,
-           AccessStatus,
-           GenerateOnClose,
+           (__int64)GrantedAccess,
+           (__int64)AccessStatus,
+           (__int64)GenerateOnClose,
            1);
 }

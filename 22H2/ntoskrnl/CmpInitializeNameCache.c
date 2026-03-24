@@ -1,28 +1,32 @@
 /*
- * XREFs of CmpInitializeNameCache @ 0x14083F37C
+ * XREFs of CmpInitializeNameCache @ 0x1407B9710
  * Callers:
- *     CmInitSystem1 @ 0x140B39964 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-_QWORD *CmpInitializeNameCache()
+__int64 CmpInitializeNameCache()
 {
-  _QWORD *result; // rax
-  __int64 v1; // rcx
+  PVOID PoolWithTag; // rax
+  _QWORD *v1; // rbx
+  __int64 result; // rax
 
-  result = (_QWORD *)ExAllocatePool2(256LL, 0x8000LL, 1631800643LL);
-  CmpNameCacheTable = result;
-  if ( !result )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x8000uLL, 0x61434D43u);
+  CmpNameCacheTable = PoolWithTag;
+  v1 = PoolWithTag;
+  if ( !PoolWithTag )
     KeBugCheckEx(0x67u, 3uLL, 2uLL, 0LL, 0LL);
-  v1 = 2048LL;
+  memset(PoolWithTag, 0, 0x8000uLL);
+  result = 2048LL;
   do
   {
-    *result = 0LL;
-    result += 2;
-    --v1;
+    *v1 = 0LL;
+    v1 += 2;
+    --result;
   }
-  while ( v1 );
+  while ( result );
   return result;
 }

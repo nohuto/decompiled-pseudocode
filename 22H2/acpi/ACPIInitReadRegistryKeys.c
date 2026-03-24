@@ -1,172 +1,171 @@
 /*
- * XREFs of ACPIInitReadRegistryKeys @ 0x1C00A89A8
+ * XREFs of ACPIInitReadRegistryKeys @ 0x1C00BD2FC
  * Callers:
- *     DriverEntry @ 0x1C00A7310 (DriverEntry.c)
+ *     DriverEntry @ 0x1C00BB98C (DriverEntry.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
- *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
- *     OSCloseHandle @ 0x1C008DB48 (OSCloseHandle.c)
- *     OSOpenHandle @ 0x1C008DF20 (OSOpenHandle.c)
- *     OSReadRegValue @ 0x1C008E6B0 (OSReadRegValue.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     RtlStringCchPrintfA @ 0x1C000C948 (RtlStringCchPrintfA.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     OSOpenHandle @ 0x1C008FBB8 (OSOpenHandle.c)
+ *     OSCloseHandle @ 0x1C0096D0C (OSCloseHandle.c)
+ *     OSReadRegValue @ 0x1C0097444 (OSReadRegValue.c)
  */
 
 void ACPIInitReadRegistryKeys()
 {
-  void *v0; // rbx
-  void *v1; // rsi
+  _BYTE *v0; // rbx
+  _BYTE *v1; // rdi
   int v2; // eax
-  int v3; // edx
-  unsigned int v4; // edi
-  _BYTE *Pool2; // rax
-  int v6; // eax
-  int v7; // edx
-  int v8; // r9d
-  char *v9; // rax
-  __int64 v10; // rdi
-  int v11; // edi
-  unsigned int v12; // r14d
-  _BYTE *v13; // rax
-  unsigned int v14; // edi
-  char *v15; // rax
-  char *v16; // r14
-  unsigned int v17; // edx
-  char *v18; // rcx
-  char v19; // al
-  int v20; // [rsp+28h] [rbp-10h]
-  int v21; // [rsp+28h] [rbp-10h]
-  unsigned int v22; // [rsp+70h] [rbp+38h] BYREF
-  int v23; // [rsp+78h] [rbp+40h] BYREF
-  int v24; // [rsp+80h] [rbp+48h] BYREF
-  void *v25; // [rsp+88h] [rbp+50h] BYREF
+  unsigned int v3; // esi
+  _BYTE *PoolWithTag; // rax
+  int v5; // eax
+  char *v6; // rax
+  __int64 v7; // rsi
+  int v8; // esi
+  unsigned int v9; // r14d
+  _BYTE *v10; // rax
+  unsigned int v11; // esi
+  char *v12; // rax
+  char *v13; // r14
+  unsigned int v14; // edx
+  char *v15; // rcx
+  char v16; // al
+  unsigned __int16 v17; // r9
+  unsigned int v18; // [rsp+70h] [rbp+38h] BYREF
+  int v19; // [rsp+78h] [rbp+40h] BYREF
+  int v20; // [rsp+80h] [rbp+48h] BYREF
+  void *v21; // [rsp+88h] [rbp+50h] BYREF
 
-  v25 = 0LL;
+  v21 = 0LL;
   v0 = 0LL;
-  v22 = 4;
-  v24 = 0;
-  v23 = 0;
+  v18 = 4;
+  v20 = 0;
+  v19 = 0;
   v1 = 0LL;
-  if ( (int)OSReadRegValue("Attributes", 0LL, &v23, &v22) >= 0 )
-    AcpiOverrideAttributes |= v23 & 0xFFFEFFFF;
+  if ( (int)OSReadRegValue("Attributes", 0LL, &v19, &v18) >= 0 )
+    AcpiOverrideAttributes |= v19 & 0xFFFEFFFF;
   AcpiProcessorString = 0LL;
-  v2 = OSOpenHandle("\\Registry\\Machine\\Hardware\\Description\\System\\CentralProcessor\\0", 0LL, (__int64)&v25);
-  if ( v2 >= 0 )
+  v2 = OSOpenHandle("\\Registry\\Machine\\Hardware\\Description\\System\\CentralProcessor\\0", 0LL, (__int64)&v21);
+  if ( v2 < 0 )
   {
-    v4 = 40;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_D(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        0xBu,
+        0x10u,
+        (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
+        v2);
+  }
+  else
+  {
+    v3 = 40;
     while ( 1 )
     {
       if ( v0 )
         ExFreePoolWithTag(v0, 0);
-      Pool2 = (_BYTE *)ExAllocatePool2(256LL, v4, 1399874369LL);
-      v0 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v3, 0x53706341u);
+      v0 = PoolWithTag;
+      if ( !PoolWithTag )
         break;
-      v22 = v4;
-      v4 += 10;
-      v6 = OSReadRegValue("Identifier", v25, Pool2, &v22);
-      if ( v6 != -2147483643 )
+      memset(PoolWithTag, 0, v3);
+      v18 = v3;
+      v3 += 10;
+      v5 = OSReadRegValue("Identifier", v21, v0, &v18);
+      if ( v5 != -2147483643 )
       {
-        if ( v6 >= 0 )
+        if ( v5 < 0 )
         {
-          v9 = strstr((const char *)v0, "Stepping");
-          if ( v9 )
-            *(v9 - 1) = 0;
-          v10 = -1LL;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            v17 = 17;
+LABEL_40:
+            WPP_RECORDER_SF_D(
+              (__int64)WPP_GLOBAL_Control->DeviceExtension,
+              2u,
+              0xBu,
+              v17,
+              (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
+              v5);
+          }
+        }
+        else
+        {
+          v6 = strstr(v0, "Stepping");
+          if ( v6 )
+            *(v6 - 1) = 0;
+          v7 = -1LL;
           do
-            ++v10;
-          while ( *((_BYTE *)v0 + v10) );
-          v11 = v10 + 1;
-          v12 = 10;
+            ++v7;
+          while ( v0[v7] );
+          v8 = v7 + 1;
+          v9 = 10;
           while ( 1 )
           {
             if ( v1 )
               ExFreePoolWithTag(v1, 0);
-            v13 = (_BYTE *)ExAllocatePool2(256LL, v12, 1399874369LL);
-            v1 = v13;
-            if ( !v13 )
+            v10 = ExAllocatePoolWithTag(PagedPool, v9, 0x53706341u);
+            v1 = v10;
+            if ( !v10 )
               break;
-            v22 = v12;
-            v12 += 10;
-            v6 = OSReadRegValue("VendorIdentifier", v25, v13, &v22);
-            if ( v6 != -2147483643 )
+            memset(v10, 0, v9);
+            v18 = v9;
+            v9 += 10;
+            v5 = OSReadRegValue("VendorIdentifier", v21, v1, &v18);
+            if ( v5 != -2147483643 )
             {
-              if ( v6 >= 0 )
+              if ( v5 >= 0 )
               {
-                v14 = v22 + 2 + v11;
-                v15 = (char *)ExAllocatePool2(64LL, v14, 1399874369LL);
-                v16 = v15;
-                if ( v15 )
+                v11 = v18 + 2 + v8;
+                v12 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v11, 0x53706341u);
+                v13 = v12;
+                if ( v12 )
                 {
-                  RtlStringCchPrintfA(v15, v14, "%s - %s", (const char *)v1, (const char *)v0);
-                  v17 = 0;
-                  if ( v14 )
+                  RtlStringCchPrintfA(v12, v11, "%s - %s", v1, v0);
+                  v14 = 0;
+                  if ( v11 )
                   {
-                    v18 = v16;
+                    v15 = v13;
                     do
                     {
-                      v19 = *v18;
-                      if ( !*v18 )
+                      v16 = *v15;
+                      if ( !*v15 )
                         break;
-                      if ( v19 < 32 || v19 == 44 )
-                        *v18 = 32;
-                      ++v17;
-                      ++v18;
+                      if ( v16 < 32 || v16 == 44 )
+                        *v15 = 32;
+                      ++v14;
+                      ++v15;
                     }
-                    while ( v17 < v14 );
+                    while ( v14 < v11 );
                   }
-                  *((_QWORD *)&AcpiProcessorString + 1) = v16;
-                  WORD1(AcpiProcessorString) = v14;
-                  LOWORD(AcpiProcessorString) = v14;
-                  v22 = 4;
-                  if ( (int)OSReadRegValue("ProcDevAsyncStart", 0LL, &v24, &v22) < 0
-                    || (AcpiProcessorAsyncStart = 1, !v24) )
+                  *((_QWORD *)&AcpiProcessorString + 1) = v13;
+                  WORD1(AcpiProcessorString) = v11;
+                  LOWORD(AcpiProcessorString) = v11;
+                  v18 = 4;
+                  if ( (int)OSReadRegValue("ProcDevAsyncStart", 0LL, &v20, &v18) < 0
+                    || (AcpiProcessorAsyncStart = 1, !v20) )
                   {
                     AcpiProcessorAsyncStart = 0;
                   }
                 }
-                goto LABEL_38;
+                goto LABEL_29;
               }
               if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                goto LABEL_38;
-              v8 = 18;
-              goto LABEL_14;
+                goto LABEL_29;
+              v17 = 18;
+              goto LABEL_40;
             }
           }
-        }
-        else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          v8 = 17;
-LABEL_14:
-          v21 = v6;
-          LOBYTE(v7) = 2;
-          WPP_RECORDER_SF_d(
-            WPP_GLOBAL_Control->DeviceExtension,
-            v7,
-            11,
-            v8,
-            (__int64)&WPP_94a568583922335cc08c125c0dbec1dc_Traceguids,
-            v21);
         }
         break;
       }
     }
-LABEL_38:
-    if ( v25 )
-      OSCloseHandle(v25);
+LABEL_29:
+    if ( v21 )
+      OSCloseHandle(v21);
     if ( v1 )
       ExFreePoolWithTag(v1, 0);
     if ( v0 )
       ExFreePoolWithTag(v0, 0);
-  }
-  else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    v20 = v2;
-    LOBYTE(v3) = 2;
-    WPP_RECORDER_SF_d(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v3,
-      11,
-      16,
-      (__int64)&WPP_94a568583922335cc08c125c0dbec1dc_Traceguids,
-      v20);
   }
 }

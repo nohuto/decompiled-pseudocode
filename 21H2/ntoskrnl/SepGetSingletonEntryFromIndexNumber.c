@@ -1,15 +1,15 @@
 /*
- * XREFs of SepGetSingletonEntryFromIndexNumber @ 0x1402058C0
+ * XREFs of SepGetSingletonEntryFromIndexNumber @ 0x140251564
  * Callers:
- *     SepInitSingletonEntry @ 0x14020585C (SepInitSingletonEntry.c)
- *     SepCleanupMarkedForDeletionEntries @ 0x140206780 (SepCleanupMarkedForDeletionEntries.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140300534 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SepSetSingletonEntry @ 0x1405F577C (SepSetSingletonEntry.c)
- *     SepValidateAndCopyGlobalEntry @ 0x1405F58AC (SepValidateAndCopyGlobalEntry.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14024E760 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepInitSingletonEntry @ 0x140251500 (SepInitSingletonEntry.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x140251A94 (SepCleanupMarkedForDeletionEntries.c)
+ *     SepSetSingletonEntry @ 0x1405978BC (SepSetSingletonEntry.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x1405979EC (SepValidateAndCopyGlobalEntry.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall SepGetSingletonEntryFromIndexNumber(unsigned int a1)

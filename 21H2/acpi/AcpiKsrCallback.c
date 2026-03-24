@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiKsrCallback @ 0x1C00B0840
+ * XREFs of AcpiKsrCallback @ 0x1C00B15A0
  * Callers:
  *     <none>
  * Callees:
- *     AcpiKsrPreparePersistentContext @ 0x1C00B0890 (AcpiKsrPreparePersistentContext.c)
+ *     AcpiKsrPreparePersistentContext @ 0x1C00B15F0 (AcpiKsrPreparePersistentContext.c)
  */
 
 void __fastcall AcpiKsrCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)

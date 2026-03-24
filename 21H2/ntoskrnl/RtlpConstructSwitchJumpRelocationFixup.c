@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpConstructSwitchJumpRelocationFixup @ 0x1405EF7C8
+ * XREFs of RtlpConstructSwitchJumpRelocationFixup @ 0x140590464
  * Callers:
- *     RtlApplySwitchJumpRelocationToPage @ 0x1405EF160 (RtlApplySwitchJumpRelocationToPage.c)
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1405EF24C (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     RtlApplySwitchJumpRelocationToPage @ 0x14058FDD0 (RtlApplySwitchJumpRelocationToPage.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14058FEBC (RtlPerformRetpolineRelocationsOnImageEx.c)
  * Callees:
  *     <none>
  */

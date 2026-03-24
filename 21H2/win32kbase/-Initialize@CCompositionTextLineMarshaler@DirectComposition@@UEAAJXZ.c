@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CCompositionTextLineMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0225820
+ * XREFs of ?Initialize@CCompositionTextLineMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01DBF00
  * Callers:
  *     <none>
  * Callees:
@@ -12,9 +12,9 @@ __int64 __fastcall DirectComposition::CCompositionTextLineMarshaler::Initialize(
   __int64 result; // rax
 
   result = 0LL;
+  *((_QWORD *)this + 8) = 0LL;
   *((_QWORD *)this + 9) = 0LL;
   *((_QWORD *)this + 10) = 0LL;
-  *((_QWORD *)this + 11) = 0LL;
-  *((_DWORD *)this + 24) = 0;
+  *((_DWORD *)this + 22) = 0;
   return result;
 }

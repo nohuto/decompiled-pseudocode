@@ -1,12 +1,12 @@
 /*
- * XREFs of GetgpRedirDev @ 0x1C00BEA50
+ * XREFs of GetgpRedirDev @ 0x1C01374D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GetgpRedirDev(__int64 a1)
+void **GetgpRedirDev()
 {
-  return *(_QWORD *)(SGDGetSessionState(a1) + 32) + 23376LL;
+  return &gpRedirDev;
 }

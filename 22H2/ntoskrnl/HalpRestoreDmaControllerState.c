@@ -1,29 +1,66 @@
 /*
- * XREFs of HalpRestoreDmaControllerState @ 0x140A953BC
+ * XREFs of HalpRestoreDmaControllerState @ 0x140995CE0
  * Callers:
- *     HalpAcpiPostSleep @ 0x140A966C0 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140995B1C (HalpAcpiPostSleep.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpMiscIsLegacyPcType @ 0x14050AEF8 (HalpMiscIsLegacyPcType.c)
- *     HalpRestoreLegacyDmaControllerState @ 0x140A96510 (HalpRestoreLegacyDmaControllerState.c)
+ *     HalpMiscIsLegacyPcType @ 0x140386324 (HalpMiscIsLegacyPcType.c)
+ *     HalpIoDelay @ 0x1403F9350 (HalpIoDelay.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-char HalpRestoreDmaControllerState()
+void HalpRestoreDmaControllerState()
 {
   __int64 i; // rbx
-  void (__fastcall *v1)(__int64); // rax
-  __int64 v2; // rcx
-  char result; // al
+  unsigned __int8 v1; // di
+  unsigned __int8 *v2; // rbx
+  void (__fastcall *v3)(__int64); // rax
+  __int64 v4; // rcx
+  unsigned __int8 v5; // al
+  __int64 v6; // rcx
+  unsigned __int8 v7; // al
+  unsigned __int16 v8; // dx
 
   for ( i = HalpDmaControllers; (__int64 *)i != &HalpDmaControllers; i = *(_QWORD *)i )
   {
-    v1 = *(void (__fastcall **)(__int64))(i + 80);
-    v2 = *(_QWORD *)(i + 64);
+    v3 = *(void (__fastcall **)(__int64))(i + 80);
+    v4 = *(_QWORD *)(i + 64);
     *(_BYTE *)(i + 216) = 1;
-    v1(v2);
+    v3(v4);
   }
-  result = HalpMiscIsLegacyPcType();
-  if ( result )
-    return HalpRestoreLegacyDmaControllerState();
-  return result;
+  if ( HalpMiscIsLegacyPcType() )
+  {
+    __outbyte(0xFu, 0xFu);
+    __outbyte(0xDEu, 0xEu);
+    HalpIoDelay();
+    __outbyte(8u, 0);
+    __outbyte(0xD0u, 0);
+    HalpIoDelay();
+    v1 = 0;
+    v2 = (unsigned __int8 *)&unk_140CECE93;
+    do
+    {
+      if ( v2[1] )
+      {
+        v5 = *(v2 - 2);
+        v6 = *(_QWORD *)(v2 - 19);
+        if ( v1 >= 4u )
+        {
+          __outbyte(v6 + 22, v5);
+          v7 = *v2;
+          v8 = *(_QWORD *)(v2 - 19) + 20;
+        }
+        else
+        {
+          __outbyte(v6 + 11, v5);
+          v7 = *v2;
+          v8 = *(_QWORD *)(v2 - 19) + 10;
+        }
+        __outbyte(v8, v7);
+        HalpIoDelay();
+      }
+      ++v1;
+      v2 += 24;
+    }
+    while ( v1 < 8u );
+  }
 }

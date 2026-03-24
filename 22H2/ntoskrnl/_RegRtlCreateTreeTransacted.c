@@ -1,16 +1,16 @@
 /*
- * XREFs of _RegRtlCreateTreeTransacted @ 0x140797F40
+ * XREFs of _RegRtlCreateTreeTransacted @ 0x1406B7124
  * Callers:
- *     _SysCtxRegCreateTree @ 0x140797ECC (_SysCtxRegCreateTree.c)
+ *     _SysCtxRegCreateTree @ 0x1406B70B0 (_SysCtxRegCreateTree.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14022B258 (RtlStringCchCopyExW.c)
- *     RtlUnalignedStringCchLengthW @ 0x14022B68C (RtlUnalignedStringCchLengthW.c)
- *     _wcsnicmp @ 0x1403D9530 (_wcsnicmp.c)
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _RegRtlCreateKeyTransacted @ 0x14079844C (_RegRtlCreateKeyTransacted.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlStringCchCopyExW @ 0x14032E518 (RtlStringCchCopyExW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x14032EA54 (RtlUnalignedStringCchLengthW.c)
+ *     _wcsnicmp @ 0x1403D1B10 (_wcsnicmp.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _RegRtlCreateKeyTransacted @ 0x1406B733C (_RegRtlCreateKeyTransacted.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlCreateTreeTransacted(
@@ -20,65 +20,98 @@ __int64 __fastcall RegRtlCreateTreeTransacted(
         __int64 a4,
         __int64 a5,
         char a6,
-        _QWORD *a7)
+        __int64 *a7,
+        __int64 a8,
+        __int64 a9)
 {
+  unsigned int v10; // r13d
   NTSTATUS KeyTransacted; // edi
-  size_t v11; // rbx
-  wchar_t *Pool2; // rax
-  wchar_t *v13; // rsi
-  unsigned __int64 v14; // rbx
-  __int64 v15; // rbp
-  wchar_t *v16; // rax
+  size_t v14; // rbx
+  wchar_t *PoolWithTag; // rax
+  wchar_t *v16; // rsi
+  unsigned __int64 v17; // rbx
+  __int64 v18; // rbp
+  unsigned __int64 v19; // rdi
+  wchar_t *v20; // rax
+  __int64 v21; // r9
+  char v22; // cl
+  __int64 v23; // r10
+  __int64 v24; // rax
+  __int64 v25; // r8
+  ULONG dwFlags; // [rsp+28h] [rbp-60h]
+  __int64 v27; // [rsp+50h] [rbp-38h] BYREF
   size_t pcchLength; // [rsp+58h] [rbp-30h] BYREF
+  unsigned int v29; // [rsp+A8h] [rbp+20h]
 
+  v29 = a4;
+  v10 = a3;
   pcchLength = 0LL;
-  KeyTransacted = RegRtlCreateKeyTransacted(Handle);
+  v27 = 0LL;
+  KeyTransacted = RegRtlCreateKeyTransacted(Handle, pszSrc, a3, a4, a5, a6, a7, a8, a9);
   if ( KeyTransacted == -1073741772 )
   {
     KeyTransacted = RtlUnalignedStringCchLengthW(pszSrc, 0x7FFFuLL, &pcchLength);
     if ( KeyTransacted >= 0 )
     {
-      v11 = pcchLength + 1;
-      Pool2 = (wchar_t *)ExAllocatePool2(256LL, 2 * (pcchLength + 1), 1279739218LL);
-      v13 = Pool2;
-      if ( Pool2 )
+      v14 = pcchLength + 1;
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2 * (pcchLength + 1), 0x4C474552u);
+      v16 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        KeyTransacted = RtlStringCchCopyExW(Pool2, v11, pszSrc, 0LL, 0LL, 0x100u);
+        KeyTransacted = RtlStringCchCopyExW(PoolWithTag, v14, pszSrc, 0LL, 0LL, 0x100u);
         if ( !KeyTransacted )
         {
-          v14 = (unsigned __int64)v13;
-          v15 = (__int64)Handle;
-          if ( !Handle && !wcsnicmp(v13, L"\\REGISTRY\\MACHINE\\", 0x12uLL) )
+          v17 = (unsigned __int64)v16;
+          v18 = (__int64)Handle;
+          if ( !Handle && !wcsnicmp(v16, L"\\REGISTRY\\MACHINE\\", 0x12uLL) )
           {
-            v15 = 2147483650LL;
-            v14 = (unsigned __int64)(v13 + 18);
+            v18 = 2147483650LL;
+            v17 = (unsigned __int64)(v16 + 18);
           }
           while ( 1 )
           {
-            v16 = wcschr((const wchar_t *)v14, 0x5Cu);
-            v14 = (unsigned __int64)v16;
-            if ( v16 )
+            v19 = v17;
+            v20 = wcschr((const wchar_t *)v17, 0x5Cu);
+            v17 = (unsigned __int64)v20;
+            if ( v20 )
             {
-              *v16 = 0;
+              *v20 = 0;
               do
-                v14 += 2LL;
-              while ( *(_WORD *)v14 == 92 );
-              v14 &= -(__int64)(*(_WORD *)v14 != 0);
+                v17 += 2LL;
+              while ( *(_WORD *)v17 == 92 );
+              v17 &= -(__int64)(*(_WORD *)v17 != 0);
             }
-            KeyTransacted = RegRtlCreateKeyTransacted(v15);
-            if ( (HANDLE)v15 != Handle && v15 != 2147483650LL )
-              ZwClose((HANDLE)v15);
+            v21 = v29;
+            v22 = a6;
+            v23 = a8;
+            if ( v17 )
+            {
+              v21 = 4LL;
+              v22 = 0;
+            }
+            v24 = a5;
+            if ( v17 )
+              v23 = 0LL;
+            v25 = v10;
+            if ( v17 )
+              v24 = 0LL;
+            LOBYTE(dwFlags) = v22;
+            if ( v17 )
+              v25 = v10 & 0xFFFFFFFC;
+            KeyTransacted = RegRtlCreateKeyTransacted(v18, v19, v25, v21, v24, dwFlags, &v27, v23, a9);
+            if ( (HANDLE)v18 != Handle && v18 != 2147483650LL )
+              ZwClose((HANDLE)v18);
             if ( KeyTransacted )
               break;
-            if ( !v14 )
+            if ( !v17 )
             {
-              *a7 = 0LL;
+              *a7 = v27;
               break;
             }
-            v15 = 0LL;
+            v18 = v27;
           }
         }
-        ExFreePoolWithTag(v13, 0);
+        ExFreePoolWithTag(v16, 0);
       }
       else
       {

@@ -1,19 +1,19 @@
 /*
- * XREFs of PoFxAbandonDevice @ 0x1406ED028
+ * XREFs of PoFxAbandonDevice @ 0x1406ED008
  * Callers:
- *     PopFxAcpiUnregisterDevice @ 0x1402E86B0 (PopFxAcpiUnregisterDevice.c)
- *     IopRemoveDevice @ 0x1406ECE24 (IopRemoveDevice.c)
- *     PnpDriverLoadingFailed @ 0x1407630D0 (PnpDriverLoadingFailed.c)
+ *     PopFxAcpiUnregisterDevice @ 0x1402E87B0 (PopFxAcpiUnregisterDevice.c)
+ *     IopRemoveDevice @ 0x1406ECE04 (IopRemoveDevice.c)
+ *     PnpDriverLoadingFailed @ 0x1407630B0 (PnpDriverLoadingFailed.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PopFxReleaseAcpiRefDevice @ 0x1402D91D4 (PopFxReleaseAcpiRefDevice.c)
- *     PopPluginAbandonDevice @ 0x1402DA498 (PopPluginAbandonDevice.c)
- *     PopFxFreeUniqueId @ 0x1406EEF5C (PopFxFreeUniqueId.c)
- *     PopDiagTraceFxDevicePreparation @ 0x1406EEFAC (PopDiagTraceFxDevicePreparation.c)
- *     PopFxUnregisterDeviceOrWait @ 0x1406EF02C (PopFxUnregisterDeviceOrWait.c)
- *     PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x14087B900 (PopDirectedDripsDiagFreeDeviceDiagnostic.c)
+ *     PopFxReleaseAcpiRefDevice @ 0x1402D92D4 (PopFxReleaseAcpiRefDevice.c)
+ *     PopPluginAbandonDevice @ 0x1402DA598 (PopPluginAbandonDevice.c)
+ *     PopFxFreeUniqueId @ 0x1406EEF3C (PopFxFreeUniqueId.c)
+ *     PopDiagTraceFxDevicePreparation @ 0x1406EEF8C (PopDiagTraceFxDevicePreparation.c)
+ *     PopFxUnregisterDeviceOrWait @ 0x1406EF00C (PopFxUnregisterDeviceOrWait.c)
+ *     PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x14087B8E0 (PopDirectedDripsDiagFreeDeviceDiagnostic.c)
  */
 
 LONG __fastcall PoFxAbandonDevice(__int64 a1)

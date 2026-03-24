@@ -1,71 +1,72 @@
 /*
- * XREFs of MmManagePartitionInitialAddMemory @ 0x140A4573C
+ * XREFs of MmManagePartitionInitialAddMemory @ 0x1408DBA14
  * Callers:
- *     NtManagePartition @ 0x140760280 (NtManagePartition.c)
+ *     NtManagePartition @ 0x1406762C0 (NtManagePartition.c)
  * Callees:
- *     MiValidateSpecialPurposeMemoryAttributes @ 0x140660BF0 (MiValidateSpecialPurposeMemoryAttributes.c)
- *     MiHotAddPartitionMemory @ 0x140A44D10 (MiHotAddPartitionMemory.c)
- *     MiAddSpecialPurposeMemoryCleanup @ 0x140A46D34 (MiAddSpecialPurposeMemoryCleanup.c)
- *     MiAddSpecialPurposeMemoryComplete @ 0x140A46DAC (MiAddSpecialPurposeMemoryComplete.c)
- *     MiAddSpecialPurposeMemoryPrepare @ 0x140A46E30 (MiAddSpecialPurposeMemoryPrepare.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     MiHotAddPartitionMemory @ 0x1408DB2CC (MiHotAddPartitionMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MmManagePartitionInitialAddMemory(__int64 *a1, __int64 a2, __int64 a3, char a4)
+__int64 __fastcall MmManagePartitionInitialAddMemory(unsigned __int64 *a1, int *a2, __int64 a3, __int64 a4)
 {
-  __int64 *v4; // rdi
-  __int64 v5; // r14
-  int v7; // ebp
+  char *v5; // rsi
+  char *Pool; // rdi
+  unsigned __int64 v7; // r15
+  int v8; // eax
   unsigned int v9; // ebx
-  int v10; // eax
-  __int64 v11; // rcx
-  int v12; // eax
-  __int64 result; // rax
-  __int64 *v14; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v15; // [rsp+58h] [rbp+10h] BYREF
+  unsigned int v11; // eax
+  SIZE_T v12; // rbx
 
-  v15 = 0LL;
-  v4 = 0LL;
-  v5 = *a1;
-  v7 = *(_DWORD *)a2;
-  v14 = 0LL;
-  if ( a4 )
+  v5 = 0LL;
+  Pool = 0LL;
+  v7 = *a1;
+  v8 = *a2;
+  if ( (*a2 & 0xFFFFFFF8) == 0 )
   {
-    v9 = -1073741727;
-    goto LABEL_14;
+    if ( (v8 & 4) != 0 )
+      return 3221225659LL;
+    if ( (v8 & 7) != 0 )
+    {
+      v11 = a2[1];
+      if ( v11 )
+      {
+        v5 = (char *)(a3 + 16);
+        if ( (_BYTE)a4 )
+        {
+          v12 = 16LL * v11;
+          Pool = (char *)MiAllocatePool(64, v12, 0x6148694Du);
+          if ( !Pool )
+          {
+            v9 = -1073741670;
+            goto LABEL_19;
+          }
+          if ( v12 )
+          {
+            if ( ((unsigned __int8)v5 & 7) != 0 )
+              ExRaiseDatatypeMisalignment();
+            if ( (unsigned __int64)&v5[v12] > 0x7FFFFFFF0000LL || &v5[v12] < v5 )
+              MEMORY[0x7FFFFFFF0000] = 0;
+          }
+          memmove(Pool, v5, v12);
+        }
+        else
+        {
+          Pool = (char *)(a3 + 16);
+        }
+        v9 = MiHotAddPartitionMemory(v7, (unsigned __int64 *)Pool, a2, a4);
+        goto LABEL_19;
+      }
+    }
   }
-  if ( (v7 & 0xFFFFFF80) != 0 )
+  v9 = -1073741811;
+LABEL_19:
+  if ( Pool )
   {
-LABEL_4:
-    v9 = -1073741811;
-    goto LABEL_14;
+    if ( Pool != v5 )
+      ExFreePoolWithTag(Pool, 0);
   }
-  if ( (v7 & 0x10) != 0 )
-  {
-    if ( (v7 & 0xFFFFFFEF) != 0 )
-      goto LABEL_4;
-    LOBYTE(v10) = MiValidateSpecialPurposeMemoryAttributes((_QWORD *)(a2 + 16));
-    if ( !v10 )
-      goto LABEL_4;
-    v12 = MiAddSpecialPurposeMemoryPrepare(v5, v11, &v14, &v15);
-    v4 = v14;
-    v9 = v12;
-    if ( v12 < 0 )
-      goto LABEL_14;
-    v5 = *v14;
-    *(_DWORD *)a2 = 1;
-  }
-  else if ( (v7 & 7) == 0 )
-  {
-    goto LABEL_4;
-  }
-  if ( !*(_DWORD *)(a2 + 4) )
-    goto LABEL_4;
-  v9 = MiHotAddPartitionMemory(v5, (unsigned __int64 *)(a3 + 48), (int *)a2);
-  if ( (*(_DWORD *)(v5 + 4) & 0x80u) != 0 )
-    MiAddSpecialPurposeMemoryComplete(v4, &v15, v9);
-LABEL_14:
-  MiAddSpecialPurposeMemoryCleanup(v4, &v15);
-  result = v9;
-  *(_DWORD *)a2 = v7;
-  return result;
+  return v9;
 }

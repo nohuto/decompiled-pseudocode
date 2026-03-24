@@ -1,12 +1,13 @@
 /*
- * XREFs of AcpiConvertPackageArgumentToPackageObj @ 0x1C005BD3C
+ * XREFs of AcpiConvertPackageArgumentToPackageObj @ 0x1C005AE58
  * Callers:
- *     AcpiConvertMethodArgumentsToObjData @ 0x1C005B8FC (AcpiConvertMethodArgumentsToObjData.c)
+ *     AcpiConvertMethodArgumentsToObjData @ 0x1C005A9FC (AcpiConvertMethodArgumentsToObjData.c)
  * Callees:
- *     WPP_RECORDER_SF_DDD @ 0x1C0031440 (WPP_RECORDER_SF_DDD.c)
- *     WPP_RECORDER_SF_DD @ 0x1C004B644 (WPP_RECORDER_SF_DD.c)
- *     AcpiConvertMethodArgumentsToObjData @ 0x1C005B8FC (AcpiConvertMethodArgumentsToObjData.c)
- *     WPP_RECORDER_SF_qDD @ 0x1C005CFE8 (WPP_RECORDER_SF_qDD.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C002EFC8 (WPP_RECORDER_SF_DDD.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C004CA24 (WPP_RECORDER_SF_DD.c)
+ *     AcpiConvertMethodArgumentsToObjData @ 0x1C005A9FC (AcpiConvertMethodArgumentsToObjData.c)
+ *     WPP_RECORDER_SF_qDD @ 0x1C005C14C (WPP_RECORDER_SF_qDD.c)
  */
 
 __int64 __fastcall AcpiConvertPackageArgumentToPackageObj(_WORD *a1, unsigned int *a2, PVOID *a3)
@@ -19,10 +20,10 @@ __int64 __fastcall AcpiConvertPackageArgumentToPackageObj(_WORD *a1, unsigned in
   unsigned __int16 *v10; // rcx
   unsigned __int16 v11; // dx
   __int64 v12; // rax
-  __int64 v13; // r9
+  __int64 v13; // r11
   __int64 v14; // rax
   unsigned int v15; // eax
-  unsigned int *Pool2; // rax
+  PVOID PoolWithTag; // rax
   int v17; // ebx
   int v18; // edx
   int v19; // r8d
@@ -43,11 +44,12 @@ __int64 __fastcall AcpiConvertPackageArgumentToPackageObj(_WORD *a1, unsigned in
 LABEL_15:
       v15 = 40 * v8 + 8;
       *a2 = v15;
-      Pool2 = (unsigned int *)ExAllocatePool2(64LL, v15, 1315988289LL);
-      *a3 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v15, 0x4E706341u);
+      *a3 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        *Pool2 = v8;
+        memset(PoolWithTag, 0, *a2);
+        *(_DWORD *)*a3 = v8;
         v17 = AcpiConvertMethodArgumentsToObjData(v6, v9, v8, (__int64)*a3 + 8);
         if ( v17 >= 0 )
           return (unsigned int)v17;
@@ -63,7 +65,7 @@ LABEL_15:
             2u,
             0x15u,
             0x1Cu,
-            (__int64)&WPP_6b96f8ebb13c3b7665ec42abfcbc7cd5_Traceguids,
+            (__int64)&WPP_4ea83bc4352b3df9b35783bbf858603c_Traceguids,
             *a2,
             -1073741670);
         *a2 = 0;
@@ -76,10 +78,10 @@ LABEL_15:
         v11 = v10[1];
         if ( v11 > (unsigned __int16)v5 )
           break;
-        v12 = 4LL;
-        if ( v11 >= 4u )
-          v12 = v10[1];
-        v13 = v10[1];
+        v12 = v10[1];
+        v13 = v12;
+        if ( v11 < 4u )
+          v12 = 4LL;
         if ( (unsigned __int64)v10 + v12 + 4 > v7 )
           break;
         ++v8;
@@ -99,7 +101,7 @@ LABEL_15:
           2u,
           0x15u,
           0x1Bu,
-          (__int64)&WPP_6b96f8ebb13c3b7665ec42abfcbc7cd5_Traceguids,
+          (__int64)&WPP_4ea83bc4352b3df9b35783bbf858603c_Traceguids,
           *v10,
           v10[1],
           v5);

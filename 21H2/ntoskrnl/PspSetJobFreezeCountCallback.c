@@ -1,5 +1,5 @@
 /*
- * XREFs of PspSetJobFreezeCountCallback @ 0x140259210
+ * XREFs of PspSetJobFreezeCountCallback @ 0x1402CF840
  * Callers:
  *     <none>
  * Callees:
@@ -20,25 +20,25 @@ __int64 __fastcall PspSetJobFreezeCountCallback(__int64 a1, _DWORD *a2)
 
   if ( (**(_DWORD **)a2 & 1) != 0 )
   {
-    v3 = *(_DWORD *)(a1 + 1048);
+    v3 = *(_DWORD *)(a1 + 856);
     if ( *(_BYTE *)(*(_QWORD *)a2 + 4LL) )
       v4 = v3 + 1;
     else
       v4 = v3 - 1;
-    *(_DWORD *)(a1 + 1048) = v4;
+    *(_DWORD *)(a1 + 856) = v4;
   }
   v5 = *(_QWORD *)a2;
   if ( (*(_DWORD *)v5 & 4) != 0 )
   {
-    v10 = *(_DWORD *)(a1 + 1056);
+    v10 = *(_DWORD *)(a1 + 864);
     if ( *(_BYTE *)(v5 + 5) )
       v11 = v10 + 1;
     else
       v11 = v10 - 1;
-    *(_DWORD *)(a1 + 1056) = v11;
+    *(_DWORD *)(a1 + 864) = v11;
   }
-  v6 = *(_DWORD *)(a1 + 1048);
-  v7 = *(_DWORD *)(a1 + 1056) != 0 ? 2 : 0;
+  v6 = *(_DWORD *)(a1 + 856);
+  v7 = *(_DWORD *)(a1 + 864) != 0 ? 2 : 0;
   v8 = v7 | 1;
   if ( !v6 )
     v8 = v7;

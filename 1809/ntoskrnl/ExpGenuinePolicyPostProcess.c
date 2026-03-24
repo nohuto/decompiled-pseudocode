@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpGenuinePolicyPostProcess @ 0x1406A77C0
+ * XREFs of ExpGenuinePolicyPostProcess @ 0x1406A77A0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryLicenseValue @ 0x1401BAAF0 (ZwQueryLicenseValue.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryLicenseValue @ 0x1401BAB10 (ZwQueryLicenseValue.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpOsProductCacheProviderHelper @ 0x1406A79E0 (ExpOsProductCacheProviderHelper.c)
- *     ExpGetVMActivationStatus @ 0x140704088 (ExpGetVMActivationStatus.c)
- *     sub_1407045E8 @ 0x1407045E8 (sub_1407045E8.c)
+ *     ExpOsProductCacheProviderHelper @ 0x1406A79C0 (ExpOsProductCacheProviderHelper.c)
+ *     ExpGetVMActivationStatus @ 0x140704068 (ExpGetVMActivationStatus.c)
+ *     sub_1407045C8 @ 0x1407045C8 (sub_1407045C8.c)
  */
 
 __int64 __fastcall ExpGenuinePolicyPostProcess(int a1, _BYTE *a2, int a3, __int64 a4, _BYTE *a5)
@@ -42,7 +42,7 @@ __int64 __fastcall ExpGenuinePolicyPostProcess(int a1, _BYTE *a2, int a3, __int6
   LODWORD(NumberOfBytes) = 0;
   if ( !v12 )
   {
-    VMActivationStatus = sub_1407045E8(a1, (_DWORD)a2, a3, a4, 2);
+    VMActivationStatus = sub_1407045C8(a1, (_DWORD)a2, a3, a4, 2);
     *a5 = 1;
     return (unsigned int)VMActivationStatus;
   }
@@ -76,7 +76,7 @@ LABEL_6:
         if ( qword_14096D388 )
         {
           VMActivationStatus = ExpOsProductCacheProviderHelper(
-                                 (PUNICODE_STRING)&stru_140908D48,
+                                 (PUNICODE_STRING)&stru_140908D28,
                                  (__int64)&NumberOfBytes,
                                  (ULONG)&v13);
           if ( VMActivationStatus == -1073741789 )
@@ -85,7 +85,7 @@ LABEL_6:
             if ( !PoolWithTag )
               return (unsigned int)-1073741801;
             VMActivationStatus = ExpOsProductCacheProviderHelper(
-                                   (PUNICODE_STRING)&stru_140908D48,
+                                   (PUNICODE_STRING)&stru_140908D28,
                                    (__int64)&NumberOfBytes,
                                    (ULONG)&v13);
           }
@@ -113,7 +113,7 @@ LABEL_22:
 LABEL_20:
         if ( !v16 )
         {
-          VMActivationStatus = sub_1407045E8(a1, v7, a3, v17, 2);
+          VMActivationStatus = sub_1407045C8(a1, v7, a3, v17, 2);
           *a5 = 1;
         }
         goto LABEL_22;

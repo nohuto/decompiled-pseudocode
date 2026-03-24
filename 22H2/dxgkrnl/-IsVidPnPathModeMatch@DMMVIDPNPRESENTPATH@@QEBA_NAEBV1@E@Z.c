@@ -1,71 +1,148 @@
 /*
- * XREFs of ?IsVidPnPathModeMatch@DMMVIDPNPRESENTPATH@@QEBA_NAEBV1@E@Z @ 0x1C03B97AC
+ * XREFs of ?IsVidPnPathModeMatch@DMMVIDPNPRESENTPATH@@QEBA_NAEBV1@E@Z @ 0x1C0147F1C
  * Callers:
- *     ?BuildSetTimingsPathInfoFromClientVidPn@VIDPN_MGR@@AEBAJKQEAVDMMVIDPN@@PEAK1PEAPEAU_DXGK_SET_TIMING_PATH_INFO@@PEAPEAIPEAUD3DKMT_VIDPN_SOURCE_MASKS@@3@Z @ 0x1C01768D8 (-BuildSetTimingsPathInfoFromClientVidPn@VIDPN_MGR@@AEBAJKQEAVDMMVIDPN@@PEAK1PEAPEAU_DXGK_SET_TIM.c)
+ *     ?BuildSetTimingsPathInfoFromClientVidPn@VIDPN_MGR@@AEBAJKQEAVDMMVIDPN@@PEAK1PEAPEAU_DXGK_SET_TIMING_PATH_INFO@@PEAPEAIPEAUD3DKMT_VIDPN_SOURCE_MASKS@@3@Z @ 0x1C00E90D0 (-BuildSetTimingsPathInfoFromClientVidPn@VIDPN_MGR@@AEBAJKQEAVDMMVIDPN@@PEAK1PEAPEAU_DXGK_SET_TIM.c)
  * Callees:
- *     ?IsFunctional@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0001A18 (-IsFunctional@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
- *     ?IsFunctionalContentRotationType@DMMVIDPNPRESENTPATH@@SAEW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@@Z @ 0x1C0002C60 (-IsFunctionalContentRotationType@DMMVIDPNPRESENTPATH@@SAEW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@.c)
- *     ?D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z @ 0x1C0002F04 (-D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z.c)
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000A4DC (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     ?AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ @ 0x1C000A568 (-AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ.c)
- *     ??8DMMVIDPNSOURCEMODE@@QEBA_NAEBV0@@Z @ 0x1C0068424 (--8DMMVIDPNSOURCEMODE@@QEBA_NAEBV0@@Z.c)
- *     ??9DMMVIDPNTARGETMODE@@QEBA_NAEBV0@@Z @ 0x1C0068494 (--9DMMVIDPNTARGETMODE@@QEBA_NAEBV0@@Z.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0006454 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ?IsFunctional@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C000B924 (-IsFunctional@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
+ *     ?IsFunctionalContentRotationType@DMMVIDPNPRESENTPATH@@SAEW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@@Z @ 0x1C000C3C4 (-IsFunctionalContentRotationType@DMMVIDPNPRESENTPATH@@SAEW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@.c)
+ *     ?D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z @ 0x1C000C3EC (-D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z.c)
+ *     ??8DMMVIDPNSOURCEMODE@@QEBA_NAEBV0@@Z @ 0x1C000C954 (--8DMMVIDPNSOURCEMODE@@QEBA_NAEBV0@@Z.c)
+ *     ??9DMMVIDPNTARGETMODE@@QEBA_NAEBV0@@Z @ 0x1C000C988 (--9DMMVIDPNTARGETMODE@@QEBA_NAEBV0@@Z.c)
  */
 
-bool __fastcall DMMVIDPNPRESENTPATH::IsVidPnPathModeMatch(DMMVIDPNTARGET **this, DMMVIDPNTARGET **a2, char a3)
+bool __fastcall DMMVIDPNPRESENTPATH::IsVidPnPathModeMatch(
+        DMMVIDPNPRESENTPATH *this,
+        const struct DMMVIDPNPRESENTPATH *a2,
+        char a3)
 {
-  enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION *v4; // rbx
-  bool v7; // r14
-  enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION v8; // eax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  bool v8; // bl
   enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION v9; // eax
-  struct DMMVIDPNTARGETMODESET *v11; // rbx
-  __int64 v12; // r15
-  struct DMMVIDPNTARGETMODESET *v13; // rdi
-  __int64 v14; // r12
-  struct DMMVIDPNTARGETMODESET *v15; // rbp
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION v12; // eax
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  __int64 v15; // r14
   __int64 v16; // r12
-  struct DMMVIDPNTARGETMODESET *v17; // rsi
-  __int64 v18; // r15
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v19; // r15
+  __int64 v20; // rbp
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rbp
+  __int64 v24; // rax
+  __int64 v25; // rbp
+  __int64 v26; // r12
+  __int64 v27; // rdi
+  __int64 v28; // rax
+  __int64 v29; // rdi
+  __int64 v30; // rsi
+  __int64 v31; // rdx
+  __int64 v32; // rdx
+  __int64 v33; // rdx
+  __int64 v35; // rax
+  __int64 v36; // rax
+  __int64 v37; // rax
+  __int64 v38; // rax
+  __int64 v39; // rax
+  __int64 v40; // rax
 
-  v4 = (enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION *)this + 29;
-  v7 = 0;
-  if ( !DMMVIDPNPRESENTPATH::IsFunctional((DMMVIDPNPRESENTPATH *)this)
-    || (v8 = (unsigned int)D3DKMDT_VPPR_GET_CONTENT_ROTATION(*v4),
-        !DMMVIDPNPRESENTPATH::IsFunctionalContentRotationType(v8)) )
-  {
-    WdLogSingleEntry0(1LL);
-  }
-  if ( !DMMVIDPNPRESENTPATH::IsFunctional((DMMVIDPNPRESENTPATH *)a2)
-    || (v9 = (unsigned int)D3DKMDT_VPPR_GET_CONTENT_ROTATION(*v4),
+  v8 = 0;
+  if ( !DMMVIDPNPRESENTPATH::IsFunctional(this)
+    || (v9 = (unsigned int)D3DKMDT_VPPR_GET_CONTENT_ROTATION(*((_DWORD *)this + 29)),
         !DMMVIDPNPRESENTPATH::IsFunctionalContentRotationType(v9)) )
   {
-    WdLogSingleEntry0(1LL);
+    v35 = WdLogNewEntry5_WdAssertion(v7, v6);
+    WdLogEvent5_WdAssertion(v35);
   }
-  if ( !a3 && *v4 != *((_DWORD *)a2 + 29) || *((_DWORD *)this + 28) != *((_DWORD *)a2 + 28) )
-    return 0;
-  v11 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(this[12]);
-  v12 = *((_QWORD *)v11 + 18);
-  if ( !v12 )
-    WdLogSingleEntry0(1LL);
-  v13 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(a2[12]);
-  v14 = *((_QWORD *)v13 + 18);
-  if ( !v14 )
-    WdLogSingleEntry0(1LL);
-  if ( !DMMVIDPNTARGETMODE::operator!=(v12, v14) )
+  if ( !DMMVIDPNPRESENTPATH::IsFunctional(a2)
+    || (v12 = (unsigned int)D3DKMDT_VPPR_GET_CONTENT_ROTATION(*((_DWORD *)this + 29)),
+        !DMMVIDPNPRESENTPATH::IsFunctionalContentRotationType(v12)) )
   {
-    v15 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(this[11]);
-    v16 = *((_QWORD *)v15 + 18);
-    if ( !v16 )
-      WdLogSingleEntry0(1LL);
-    v17 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(a2[11]);
-    v18 = *((_QWORD *)v17 + 18);
-    if ( !v18 )
-      WdLogSingleEntry0(1LL);
-    v7 = DMMVIDPNSOURCEMODE::operator==(v16, v18);
-    ReferenceCounted::Release((struct DMMVIDPNTARGETMODESET *)((char *)v17 + 88));
-    ReferenceCounted::Release((struct DMMVIDPNTARGETMODESET *)((char *)v15 + 88));
+    v36 = WdLogNewEntry5_WdAssertion(v11, v10);
+    WdLogEvent5_WdAssertion(v36);
   }
-  ReferenceCounted::Release((struct DMMVIDPNTARGETMODESET *)((char *)v13 + 88));
-  ReferenceCounted::Release((struct DMMVIDPNTARGETMODESET *)((char *)v11 + 88));
-  return v7;
+  if ( !a3 && *((_DWORD *)this + 29) != *((_DWORD *)a2 + 29) || *((_DWORD *)this + 28) != *((_DWORD *)a2 + 28) )
+    return 0;
+  v13 = *((_QWORD *)this + 12);
+  v14 = *(_QWORD *)(v13 + 104);
+  if ( v14 )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)(v14 + 96));
+    v15 = *(_QWORD *)(v13 + 104);
+  }
+  else
+  {
+    v15 = 0LL;
+  }
+  v16 = *(_QWORD *)(v15 + 144);
+  if ( !v16 )
+  {
+    v37 = WdLogNewEntry5_WdAssertion(v13, v10);
+    WdLogEvent5_WdAssertion(v37);
+  }
+  v17 = *((_QWORD *)a2 + 12);
+  v18 = *(_QWORD *)(v17 + 104);
+  if ( v18 )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)(v18 + 96));
+    v19 = *(_QWORD *)(v17 + 104);
+  }
+  else
+  {
+    v19 = 0LL;
+  }
+  v20 = *(_QWORD *)(v19 + 144);
+  if ( !v20 )
+  {
+    v38 = WdLogNewEntry5_WdAssertion(v17, v10);
+    WdLogEvent5_WdAssertion(v38);
+  }
+  if ( !DMMVIDPNTARGETMODE::operator!=(v16, v20) )
+  {
+    v23 = *((_QWORD *)this + 11);
+    v24 = *(_QWORD *)(v23 + 104);
+    if ( v24 )
+    {
+      _InterlockedIncrement((volatile signed __int32 *)(v24 + 96));
+      v25 = *(_QWORD *)(v23 + 104);
+    }
+    else
+    {
+      v25 = 0LL;
+    }
+    v26 = *(_QWORD *)(v25 + 144);
+    if ( !v26 )
+    {
+      v39 = WdLogNewEntry5_WdAssertion(v22, v21);
+      WdLogEvent5_WdAssertion(v39);
+    }
+    v27 = *((_QWORD *)a2 + 11);
+    v28 = *(_QWORD *)(v27 + 104);
+    if ( v28 )
+    {
+      _InterlockedIncrement((volatile signed __int32 *)(v28 + 96));
+      v29 = *(_QWORD *)(v27 + 104);
+    }
+    else
+    {
+      v29 = 0LL;
+    }
+    v30 = *(_QWORD *)(v29 + 144);
+    if ( !v30 )
+    {
+      v40 = WdLogNewEntry5_WdAssertion(v22, v21);
+      WdLogEvent5_WdAssertion(v40);
+    }
+    v8 = DMMVIDPNSOURCEMODE::operator==(v26, v30);
+    ReferenceCounted::Release((ReferenceCounted *)(v29 + 88), v31);
+    ReferenceCounted::Release((ReferenceCounted *)(v25 + 88), v32);
+  }
+  ReferenceCounted::Release((ReferenceCounted *)(v19 + 88), v21);
+  ReferenceCounted::Release((ReferenceCounted *)(v15 + 88), v33);
+  return v8;
 }

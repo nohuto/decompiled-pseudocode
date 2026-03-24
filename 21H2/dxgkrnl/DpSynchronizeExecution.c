@@ -1,22 +1,24 @@
 /*
- * XREFs of DpSynchronizeExecution @ 0x1C0014950
+ * XREFs of DpSynchronizeExecution @ 0x1C000D740
  * Callers:
- *     DxgNotifyDpcCB @ 0x1C0014800 (DxgNotifyDpcCB.c)
- *     DpiMiracastChunkInfoCallbackDpc @ 0x1C0060FD0 (DpiMiracastChunkInfoCallbackDpc.c)
+ *     DxgNotifyDpcCB @ 0x1C000D5D0 (DxgNotifyDpcCB.c)
+ *     DpiMiracastChunkInfoCallbackDpc @ 0x1C0053340 (DpiMiracastChunkInfoCallbackDpc.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DpSynchronizeExecution(__int64 a1, KSYNCHRONIZE_ROUTINE *a2, void *a3, unsigned int a4, BOOLEAN *a5)
 {
   __int64 v5; // r10
   __int64 v8; // rbx
-  struct _KINTERRUPT *v9; // rcx
-  int v10; // eax
-  __int64 v11; // r9
-  KIRQL v13; // di
-  int v14; // ebx
+  int v9; // eax
+  __int64 v10; // r9
+  KIRQL v12; // di
+  int v13; // ebx
+  __int64 v14; // rax
   __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v5 = a4;
@@ -28,26 +30,27 @@ __int64 __fastcall DpSynchronizeExecution(__int64 a1, KSYNCHRONIZE_ROUTINE *a2, 
     || (unsigned int)(*(_DWORD *)(v8 + 20) - 2) > 1 )
   {
 LABEL_23:
-    v14 = -1073741811;
-    v15 = -1073741811LL;
+    v13 = -1073741811;
+    v14 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v14 + 24) = -1073741811LL;
     goto LABEL_24;
   }
-  v9 = *(struct _KINTERRUPT **)(v8 + 1368);
-  if ( v9 )
+  a1 = *(_QWORD *)(v8 + 1368);
+  if ( a1 )
   {
-    v10 = *(_DWORD *)(v8 + 1360);
-    if ( v10 == 2 )
+    v9 = *(_DWORD *)(v8 + 1360);
+    if ( v9 == 2 )
     {
 LABEL_12:
-      *a5 = KeSynchronizeExecution(v9, a2, a3);
+      *a5 = KeSynchronizeExecution((PKINTERRUPT)a1, a2, a3);
       return 0LL;
     }
-    if ( v10 != 3 )
+    if ( v9 != 3 )
       return 0LL;
-    v11 = *(_QWORD *)(v8 + 1376);
-    if ( *(_DWORD *)(v11 + 4) > (unsigned int)v5 )
+    v10 = *(_QWORD *)(v8 + 1376);
+    if ( *(_DWORD *)(v10 + 4) > (unsigned int)v5 )
     {
-      v9 = *(struct _KINTERRUPT **)(v11 + 48 * v5 + 24);
+      a1 = *(_QWORD *)(v10 + 48 * v5 + 24);
       goto LABEL_12;
     }
     goto LABEL_23;
@@ -55,23 +58,25 @@ LABEL_12:
   if ( *(_BYTE *)(v8 + 2692)
     || *(_BYTE *)(v8 + 2694)
     || *(_BYTE *)(v8 + 2693)
-    || *(_BYTE *)(v8 + 1159)
+    || *(_BYTE *)(v8 + 1158)
     || *(_BYTE *)(v8 + 2695)
     || *(_BYTE *)(v8 + 2696)
     || *(_BYTE *)(v8 + 2697) )
   {
-    v13 = KfRaiseIrql(3u);
-    memset(&LockHandle, 0, sizeof(LockHandle));
+    v12 = KfRaiseIrql(3u);
     KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v8 + 1448), &LockHandle);
     *a5 = ((__int64 (__fastcall *)(void *))a2)(a3);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-    KeLowerIrql(v13);
+    KeLowerIrql(v12);
     return 0LL;
   }
-  v14 = -1073741823;
-  v15 = -1073741823LL;
+  v13 = -1073741823;
+  v14 = WdLogNewEntry5_WdError(0LL, a2);
+  *(_QWORD *)(v14 + 24) = -1073741823LL;
 LABEL_24:
-  WdLogSingleEntry1(2LL, v15);
-  WdLogSingleEntry1(2LL, v14);
-  return (unsigned int)v14;
+  WdLogEvent5_WdError(v14);
+  v17 = WdLogNewEntry5_WdError(v16, v15);
+  *(_QWORD *)(v17 + 24) = v13;
+  WdLogEvent5_WdError(v17);
+  return (unsigned int)v13;
 }

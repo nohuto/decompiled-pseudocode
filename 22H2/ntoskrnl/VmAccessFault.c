@@ -1,158 +1,134 @@
 /*
- * XREFs of VmAccessFault @ 0x1409DC0A0
+ * XREFs of VmAccessFault @ 0x14092E9B0
  * Callers:
- *     VmpPinMemoryRange @ 0x1405FA3C0 (VmpPinMemoryRange.c)
+ *     <none>
  * Callees:
- *     ExFreeToLookasideListEx @ 0x14020BA00 (ExFreeToLookasideListEx.c)
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     ExAllocateFromLookasideListEx @ 0x14022D0A0 (ExAllocateFromLookasideListEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     VmpAccessFaultBatch @ 0x140465EE6 (VmpAccessFaultBatch.c)
- *     VmpLogAccessFault @ 0x1405F99C8 (VmpLogAccessFault.c)
- *     VmpLogAccessFaultRange @ 0x1405F9B0C (VmpLogAccessFaultRange.c)
- *     VmpPrefetchForVirtualFault @ 0x1409DD64C (VmpPrefetchForVirtualFault.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VmpAccessFaultBatch @ 0x1405A2AAC (VmpAccessFaultBatch.c)
+ *     VmpLogAccessFault @ 0x1405A3D4C (VmpLogAccessFault.c)
+ *     VmpPrefetchForVirtualFault @ 0x14092F99C (VmpPrefetchForVirtualFault.c)
  */
 
 __int64 __fastcall VmAccessFault(
         unsigned __int64 *a1,
-        __int64 *a2,
+        unsigned __int64 *a2,
         unsigned __int64 a3,
         unsigned int a4,
-        unsigned int a5,
-        unsigned int a6,
+        int a5,
+        int a6,
         __int64 a7)
 {
-  _QWORD *v7; // rbx
-  unsigned __int64 *v10; // rsi
-  __int64 v11; // rdi
-  char *v12; // r13
-  char *v13; // rax
-  char *v14; // rax
-  __int64 v15; // rdx
-  __int64 v16; // r9
-  unsigned __int64 *v17; // rcx
-  unsigned __int64 *v18; // rax
+  PSLIST_ENTRY v7; // rbx
+  unsigned __int64 *v10; // r13
+  unsigned __int64 *v11; // rsi
+  __int64 v12; // rdi
+  struct _SLIST_ENTRY *v13; // r15
+  unsigned __int64 *v14; // rbp
+  unsigned __int64 v15; // r14
+  unsigned __int64 v16; // r13
+  __int64 v17; // rcx
+  __int64 v18; // r9
   __int64 v19; // rcx
-  __int64 v20; // r9
-  int v21; // r10d
-  unsigned __int64 *v22; // r14
-  __int64 *v23; // rax
-  unsigned __int64 v24; // rbp
-  __int64 v25; // r10
-  __int64 v26; // rcx
-  __int64 v27; // r9
-  __int64 v28; // rcx
-  int v29; // edi
-  int v31; // [rsp+40h] [rbp-388h]
-  __int64 v33; // [rsp+50h] [rbp-378h]
-  unsigned __int64 v34; // [rsp+58h] [rbp-370h]
-  volatile LONG *SpinLock; // [rsp+60h] [rbp-368h]
-  char v36; // [rsp+70h] [rbp-358h] BYREF
+  int v20; // edi
+  int v22; // [rsp+40h] [rbp-368h]
+  unsigned __int64 v23; // [rsp+48h] [rbp-360h]
+  unsigned __int64 *v24; // [rsp+50h] [rbp-358h]
+  volatile LONG *SpinLock; // [rsp+58h] [rbp-350h]
+  char v26; // [rsp+60h] [rbp-348h] BYREF
 
   v7 = 0LL;
-  v10 = a1;
+  v24 = a2;
+  v10 = a2;
+  v11 = a1;
   if ( (a4 & 0xFFFFFF80) != 0 )
     NT_ASSERT("(FaultTypeFlags & ~0x7F) == 0");
-  if ( (a5 & 0xFFFFFFFD) != 0 )
-    NT_ASSERT("(AllowedPromotionFlags & ~0x02) == 0");
-  SpinLock = (volatile LONG *)KeGetCurrentThread()->ApcState.Process[2].Affinity.StaticBitmap[5];
+  SpinLock = (volatile LONG *)KeGetCurrentThread()->ApcState.Process[2].Affinity.Bitmap[5];
   if ( !SpinLock )
     NT_ASSERT("ProcessContext != ((void *)0)");
   if ( (a4 & 0x38) == 0x20 )
     VmpPrefetchForVirtualFault(a1);
-  v11 = 0LL;
-  v12 = &v36;
-  v31 = 16;
-  if ( a3 > 0x10 || v10[1] > 0x10 )
+  v12 = 0LL;
+  v22 = 16;
+  v13 = (struct _SLIST_ENTRY *)&v26;
+  if ( a3 > 0x10 || v11[1] > 0x10 )
   {
-    v13 = (char *)ExAllocateFromLookasideListEx(&VmpLargeFaultBatchLookasideList);
-    v7 = v13;
-    if ( v13 )
+    ++dword_140CEEC14;
+    v7 = RtlpInterlockedPopEntrySList(&VmpLargeFaultBatchLookasideList);
+    if ( !v7 )
     {
-      *((_DWORD *)v13 + 1) = 0;
-      v12 = v13 + 32;
-      *((_QWORD *)v13 + 1) = v13 + 32;
-      *(_DWORD *)v13 = 512;
-      v14 = v13 + 24608;
-      v7[2] = v14;
-      v7[3] = v14;
-      v31 = 512;
+      ++dword_140CEEC18;
+      v7 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, union _SLIST_HEADER *))qword_140CEEC30)(
+                           (unsigned int)dword_140CEEC24,
+                           (unsigned int)dword_140CEEC2C,
+                           (unsigned int)dword_140CEEC28,
+                           &VmpLargeFaultBatchLookasideList);
+    }
+    if ( v7 )
+    {
+      HIDWORD(v7->Next) = 0;
+      v13 = v7 + 2;
+      *((_QWORD *)&v7->Next + 1) = v7 + 2;
+      v7[1].Next = v7 + 1538;
+      *((_QWORD *)&v7[1].Next + 1) = v7 + 1538;
+      v22 = 512;
+      LODWORD(v7->Next) = 512;
     }
   }
-  if ( VmpTraceLoggingProvider && *(_DWORD *)VmpTraceLoggingProvider && tlgKeywordOn(VmpTraceLoggingProvider, 8LL) )
-  {
-    v16 = 0LL;
-    v17 = v10;
-    v18 = &v10[2 * a3];
-    if ( v10 < v18 )
-    {
-      do
-      {
-        v16 += v17[1];
-        v17 += 2;
-      }
-      while ( v17 < v18 );
-    }
-    if ( tlgKeywordOn(VmpTraceLoggingProvider, v15) )
-      VmpLogAccessFault(v19, a4, a5, a6, a3, v20, v21);
-  }
-  v22 = &v10[2 * a3];
-  if ( v10 >= v22 )
-    goto LABEL_38;
-  v23 = a2;
+  v14 = &v11[2 * a3];
+  if ( v11 >= v14 )
+    goto LABEL_29;
   do
   {
-    v24 = *v10;
-    v25 = *v23;
-    v33 = *v23;
-    v34 = v10[1] + *v10;
-    if ( VmpTraceLoggingProvider && *(_DWORD *)VmpTraceLoggingProvider )
+    v15 = *v11;
+    v16 = *v10;
+    v23 = v11[1] + *v11;
+    if ( VmpTraceLoggingProvider && *(_DWORD *)VmpTraceLoggingProvider && tlgKeywordOn(VmpTraceLoggingProvider, 8LL) )
+      VmpLogAccessFault(v17, v16, v15, v18, a4, a5, a6);
+    while ( v15 < v23 )
     {
-      if ( tlgKeywordOn(VmpTraceLoggingProvider, 16LL) )
+      if ( v16 > 0x7FFFFFFEFLL )
+        NT_ASSERT("SystemVpn <= ((ULONG_PTR)MmHighestUserAddress >> 12L)");
+      v19 = 3 * v12;
+      v12 = (unsigned int)(v12 + 1);
+      *((_QWORD *)&v13[v19 + 1].Next + 1) = v16 & 0xFFFFFFFFFFFFFLL;
+      v13[v19 + 2].Next = (_SLIST_ENTRY *)(v15 & 0xFFFFFFFFFFFFFLL);
+      if ( (_DWORD)v12 == v22 )
       {
-        VmpLogAccessFaultRange(v26, v25, v24, v27, a4, a5, a6, a3);
-        v25 = v33;
+        v20 = VmpAccessFaultBatch(SpinLock, (unsigned __int64)v13, v12, (int)v7, a4, a5, a6, a7);
+        if ( v20 < 0 )
+          goto LABEL_30;
+        v12 = 0LL;
       }
-      v23 = a2;
+      ++v15;
+      ++v16;
     }
-    if ( v24 < v34 )
-    {
-      do
-      {
-        if ( (unsigned __int64)(v25 << 12) > 0x7FFFFFFEFFFFLL )
-          NT_ASSERT("((PVOID) ((PVOID)(SystemVpn << 12L)) <= MmHighestUserAddress)");
-        v28 = 6 * v11;
-        v11 = (unsigned int)(v11 + 1);
-        *(_QWORD *)&v12[8 * v28 + 24] = v25 & 0xFFFFFFFFFFFFFLL;
-        *(_QWORD *)&v12[8 * v28 + 32] = v24 & 0xFFFFFFFFFFFFFLL;
-        if ( (_DWORD)v11 == v31 )
-        {
-          v29 = VmpAccessFaultBatch(SpinLock, (unsigned __int64)v12, v11, (int)v7, a4, a5, a6, a7);
-          if ( v29 < 0 )
-            goto LABEL_39;
-          v25 = v33;
-          v11 = 0LL;
-        }
-        ++v25;
-        ++v24;
-        v33 = v25;
-      }
-      while ( v24 < v34 );
-      v23 = a2;
-    }
-    ++v23;
-    v10 += 2;
-    a2 = v23;
+    v11 += 2;
+    v10 = ++v24;
   }
-  while ( v10 < v22 );
-  if ( !(_DWORD)v11
-    || (v29 = VmpAccessFaultBatch(SpinLock, (unsigned __int64)v12, v11, (int)v7, a4, a5, a6, a7), v29 >= 0) )
+  while ( v11 < v14 );
+  if ( !(_DWORD)v12
+    || (v20 = VmpAccessFaultBatch(SpinLock, (unsigned __int64)v13, v12, (int)v7, a4, a5, a6, a7), v20 >= 0) )
   {
-LABEL_38:
-    v29 = 0;
+LABEL_29:
+    v20 = 0;
   }
-LABEL_39:
+LABEL_30:
   if ( v7 )
-    ExFreeToLookasideListEx(&VmpLargeFaultBatchLookasideList, v7);
-  return (unsigned int)v29;
+  {
+    ++dword_140CEEC1C;
+    if ( LOWORD(VmpLargeFaultBatchLookasideList.Alignment) < (unsigned __int16)word_140CEEC10 )
+    {
+      RtlpInterlockedPushEntrySList(&VmpLargeFaultBatchLookasideList, v7);
+    }
+    else
+    {
+      ++dword_140CEEC20;
+      ((void (__fastcall *)(PSLIST_ENTRY, union _SLIST_HEADER *))qword_140CEEC38)(v7, &VmpLargeFaultBatchLookasideList);
+    }
+  }
+  return (unsigned int)v20;
 }

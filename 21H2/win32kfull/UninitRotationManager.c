@@ -1,5 +1,5 @@
 /*
- * XREFs of UninitRotationManager @ 0x1C0122870
+ * XREFs of UninitRotationManager @ 0x1C0137160
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
 
 void UninitRotationManager()
 {
-  if ( qword_1C0335C70 )
-    ExFreePoolWithTag(qword_1C0335C70, 0x6D747255u);
-  qword_1C0335C70 = 0LL;
+  if ( P )
+    ExFreePoolWithTag(P, 0x6D747255u);
+  P = 0LL;
 }

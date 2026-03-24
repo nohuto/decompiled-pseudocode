@@ -1,53 +1,55 @@
 /*
- * XREFs of DxgkOpenAdapterFromDeviceName @ 0x1C01D7220
+ * XREFs of DxgkOpenAdapterFromDeviceName @ 0x1C0145830
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     DxgkCloseAdapterImpl @ 0x1C01A96B0 (DxgkCloseAdapterImpl.c)
- *     ?DxgkOpenAdapter@@YAJPEAU_D3DKMT_OPENADAPTER@@@Z @ 0x1C01B2620 (-DxgkOpenAdapter@@YAJPEAU_D3DKMT_OPENADAPTER@@@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     DpiValidateDeviceName @ 0x1C01D93B8 (DpiValidateDeviceName.c)
+ *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C000B9F0 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000C2B4 (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?DxgkOpenAdapter@@YAJPEAU_D3DKMT_OPENADAPTER@@@Z @ 0x1C0115DA0 (-DxgkOpenAdapter@@YAJPEAU_D3DKMT_OPENADAPTER@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     DxgkCloseAdapterImpl @ 0x1C0124D90 (DxgkCloseAdapterImpl.c)
+ *     DpiValidateDeviceName @ 0x1C0149894 (DpiValidateDeviceName.c)
  */
 
 __int64 __fastcall DxgkOpenAdapterFromDeviceName(ULONG64 a1)
 {
-  ULONG64 v2; // rcx
+  ULONG64 v2; // rax
   __int128 v3; // xmm1
-  WCHAR *v4; // rdx
-  bool v5; // r14
-  __int64 v6; // rcx
-  __int64 v7; // rax
-  WCHAR *v8; // r8
-  int v9; // r11d
-  __int64 v10; // r10
-  WCHAR v11; // r9
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // r9
   struct DXGPROCESS *Current; // rax
-  struct DXGPROCESS *v14; // rdi
-  int DeviceObjectPointer; // ebx
-  __int64 v16; // r8
-  int v17; // esi
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // rax
-  int v21; // eax
-  _DWORD *v22; // rcx
-  _QWORD *v23; // rcx
-  int v24; // [rsp+50h] [rbp-298h] BYREF
-  int v25; // [rsp+54h] [rbp-294h]
-  PDEVICE_OBJECT DeviceObject; // [rsp+58h] [rbp-290h] BYREF
-  PFILE_OBJECT FileObject; // [rsp+60h] [rbp-288h] BYREF
-  _BYTE v28[24]; // [rsp+68h] [rbp-280h] BYREF
-  WCHAR *v29; // [rsp+80h] [rbp-268h]
-  __int64 v30; // [rsp+88h] [rbp-260h]
-  struct _UNICODE_STRING DestinationString; // [rsp+90h] [rbp-258h] BYREF
-  WCHAR *v32; // [rsp+A0h] [rbp-248h]
-  __int64 v33; // [rsp+A8h] [rbp-240h]
-  __int64 v34; // [rsp+B0h] [rbp-238h]
-  WCHAR SourceString[256]; // [rsp+C0h] [rbp-228h] BYREF
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  DXGPROCESS *v12; // rsi
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // rbx
+  __int64 v17; // r8
+  int v18; // edi
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  _DWORD *v21; // rdx
+  _QWORD *v22; // rdx
+  int v23; // eax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // rax
+  int v29; // [rsp+20h] [rbp-278h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+28h] [rbp-270h] BYREF
+  PFILE_OBJECT FileObject; // [rsp+30h] [rbp-268h] BYREF
+  _BYTE v32[24]; // [rsp+38h] [rbp-260h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-248h] BYREF
+  __int128 v34; // [rsp+60h] [rbp-238h]
+  __int64 v35; // [rsp+70h] [rbp-228h]
+  WCHAR SourceString[256]; // [rsp+80h] [rbp-218h] BYREF
 
   DestinationString = 0LL;
   memset(SourceString, 0, sizeof(SourceString));
@@ -55,60 +57,19 @@ __int64 __fastcall DxgkOpenAdapterFromDeviceName(ULONG64 a1)
   if ( a1 >= MmUserProbeAddress )
     v2 = MmUserProbeAddress;
   v3 = *(_OWORD *)v2;
-  *(_OWORD *)v28 = v3;
-  *(_QWORD *)&v28[16] = *(_QWORD *)(v2 + 16);
-  v4 = (WCHAR *)v3;
+  v34 = v3;
+  v35 = *(_QWORD *)(v2 + 16);
   if ( (__int64)v3 + 512 > MmUserProbeAddress || (__int64)v3 + 512 < (unsigned __int64)v3 )
     *(_BYTE *)MmUserProbeAddress = 0;
-  v5 = 0;
-  v25 = 0;
-  v6 = 2147483646LL;
-  v34 = 2147483646LL;
-  v32 = (WCHAR *)v3;
-  v7 = 256LL;
-  v33 = 256LL;
-  v8 = SourceString;
-  v29 = SourceString;
-  v9 = 0;
-  v10 = 0LL;
-  v30 = 0LL;
-  while ( v7 )
-  {
-    if ( !v6 )
-      goto LABEL_10;
-    v11 = *v4;
-    if ( !*v4 )
-      goto LABEL_10;
-    v32 = ++v4;
-    *v8++ = v11;
-    v29 = v8;
-    v33 = --v7;
-    v34 = --v6;
-    v30 = ++v10;
-  }
-  v29 = --v8;
-  v30 = v10 - 1;
-  v9 = -2147483643;
-LABEL_10:
-  *v8 = 0;
-  v25 = v9;
-  if ( v9 < 0 )
+  if ( (int)RtlStringCbCopyW(SourceString, 0x200uLL, (size_t *)v3) < 0 )
     return 3221225485LL;
-  Current = DXGPROCESS::GetCurrent(v6);
-  v14 = Current;
+  Current = DXGPROCESS::GetCurrent(v5, v4, v6, v7);
+  v12 = Current;
   if ( !Current )
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v26 = WdLogNewEntry5_WdError(v11, v10);
+    *(_QWORD *)(v26 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v26);
     return 3221225485LL;
   }
   RtlInitUnicodeString(&DestinationString, SourceString);
@@ -116,59 +77,62 @@ LABEL_10:
     SourceString[1] = 63;
   if ( (int)DpiValidateDeviceName(&DestinationString) < 0 )
   {
-    WdLogSingleEntry1(3LL, -1073741811LL);
+    v27 = WdLogNewEntry5_WdWarning(v14, v13, v15);
+    *(_QWORD *)(v27 + 24) = -1073741811LL;
+    WdLogEvent5_WdWarning(v27);
     return 3221225485LL;
   }
   FileObject = 0LL;
   DeviceObject = 0LL;
-  DeviceObjectPointer = IoGetDeviceObjectPointer(&DestinationString, 0, &FileObject, &DeviceObject);
-  memset(v28, 0, sizeof(v28));
-  v17 = 0;
-  v24 = 0;
-  if ( DeviceObjectPointer < 0 )
-    goto LABEL_37;
-  *(_QWORD *)v28 = DeviceObject;
+  LODWORD(v16) = IoGetDeviceObjectPointer(&DestinationString, 0, &FileObject, &DeviceObject);
+  memset(v32, 0, sizeof(v32));
+  v18 = 0;
+  v29 = 0;
+  if ( (int)v16 < 0 )
+    goto LABEL_29;
+  *(_QWORD *)v32 = DeviceObject;
   ObfReferenceObject(DeviceObject);
   ObfDereferenceObject(FileObject);
   FileObject = 0LL;
-  DeviceObjectPointer = DxgkOpenAdapter((struct _D3DKMT_OPENADAPTER *)v28, v18, v19);
+  LODWORD(v16) = DxgkOpenAdapter((struct _D3DKMT_OPENADAPTER *)v32, v19, v20);
   ObfDereferenceObject(DeviceObject);
   DeviceObject = 0LL;
-  if ( DeviceObjectPointer < 0 )
-    goto LABEL_37;
-  v17 = *(_DWORD *)&v28[8];
-  v24 = *(_DWORD *)&v28[8];
-  v20 = *((_QWORD *)v14 + 11);
-  if ( v20 )
-    v5 = (*(unsigned int (__fastcall **)(_QWORD, _QWORD, _QWORD))(v20 + 224))(0LL, 0LL, 0LL) != 0;
-  if ( v5 )
+  if ( (int)v16 < 0 )
+    goto LABEL_29;
+  v18 = *(_DWORD *)&v32[8];
+  v29 = *(_DWORD *)&v32[8];
+  if ( DXGPROCESS::IsRemoteConnection(v12) )
   {
-    v21 = (*(__int64 (__fastcall **)(_QWORD))(*((_QWORD *)v14 + 11) + 448LL))(*(_QWORD *)&v28[12]);
-    DeviceObjectPointer = v21;
-    if ( v21 < 0 )
-      WdLogSingleEntry1(3LL, v21);
-  }
-  if ( DeviceObjectPointer < 0 )
-  {
-LABEL_37:
-    *(_QWORD *)&v28[8] = 0LL;
-    *(_DWORD *)&v28[16] = 0;
-  }
-  v22 = (_DWORD *)(a1 + 8);
-  if ( a1 + 8 >= MmUserProbeAddress )
-    v22 = (_DWORD *)MmUserProbeAddress;
-  *v22 = *(_DWORD *)&v28[8];
-  v23 = (_QWORD *)(a1 + 12);
-  if ( a1 + 12 >= MmUserProbeAddress )
-    v23 = (_QWORD *)MmUserProbeAddress;
-  *v23 = *(_QWORD *)&v28[12];
-  if ( DeviceObjectPointer < 0 )
-  {
-    if ( v17 )
+    v23 = (*(__int64 (__fastcall **)(_QWORD))(*((_QWORD *)v12 + 11) + 448LL))(*(_QWORD *)&v32[12]);
+    v16 = v23;
+    if ( v23 < 0 )
     {
-      v24 = v17;
-      DxgkCloseAdapterImpl((__int64)&v24, 0, v16);
+      v28 = WdLogNewEntry5_WdWarning(v25, v24, v17);
+      *(_QWORD *)(v28 + 24) = v16;
+      WdLogEvent5_WdWarning(v28);
     }
   }
-  return (unsigned int)DeviceObjectPointer;
+  if ( (int)v16 < 0 )
+  {
+LABEL_29:
+    *(_QWORD *)&v32[8] = 0LL;
+    *(_DWORD *)&v32[16] = 0;
+  }
+  v21 = (_DWORD *)(a1 + 8);
+  if ( a1 + 8 >= MmUserProbeAddress )
+    v21 = (_DWORD *)MmUserProbeAddress;
+  *v21 = *(_DWORD *)&v32[8];
+  v22 = (_QWORD *)(a1 + 12);
+  if ( a1 + 12 >= MmUserProbeAddress )
+    v22 = (_QWORD *)MmUserProbeAddress;
+  *v22 = *(_QWORD *)&v32[12];
+  if ( (int)v16 < 0 )
+  {
+    if ( v18 )
+    {
+      v29 = v18;
+      DxgkCloseAdapterImpl((__int64)&v29, 0, v17);
+    }
+  }
+  return (unsigned int)v16;
 }

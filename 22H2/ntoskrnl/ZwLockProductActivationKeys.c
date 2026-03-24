@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwLockProductActivationKeys @ 0x14041C900
+ * XREFs of ZwLockProductActivationKeys @ 0x1403FBBA0
  * Callers:
- *     ExInitializeTimeRefresh @ 0x140B3CBEC (ExInitializeTimeRefresh.c)
+ *     ExInitializeTimeRefresh @ 0x140A5B1EC (ExInitializeTimeRefresh.c)
  * Callees:
  *     <none>
  */

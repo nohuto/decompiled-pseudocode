@@ -3,10 +3,10 @@
  * Callers:
  *     KeIntSteerPeriodic @ 0x1400626A0 (KeIntSteerPeriodic.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     qsort @ 0x1401962C0 (qsort.c)
- *     _alloca_probe @ 0x1401C5DA0 (_alloca_probe.c)
- *     KiIntSteerComputeCpuSet @ 0x14029A830 (KiIntSteerComputeCpuSet.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     qsort @ 0x1401962E0 (qsort.c)
+ *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
+ *     KiIntSteerComputeCpuSet @ 0x14029A930 (KiIntSteerComputeCpuSet.c)
  */
 
 __int64 __fastcall KiIntSteerCalculateDistribution(unsigned __int16 *a1, unsigned int a2)

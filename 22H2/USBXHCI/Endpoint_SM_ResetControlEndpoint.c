@@ -1,10 +1,10 @@
 /*
- * XREFs of Endpoint_SM_ResetControlEndpoint @ 0x1C003B9EC
+ * XREFs of Endpoint_SM_ResetControlEndpoint @ 0x1C0019C94
  * Callers:
- *     ESM_ResettingControlEndpoint @ 0x1C0051A40 (ESM_ResettingControlEndpoint.c)
+ *     ESM_ResettingControlEndpoint @ 0x1C0019C70 (ESM_ResettingControlEndpoint.c)
  * Callees:
- *     Command_SendCommand @ 0x1C000A850 (Command_SendCommand.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 char __fastcall Endpoint_SM_ResetControlEndpoint(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Init@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@I@Z @ 0x1802B3730
+ * XREFs of ?Init@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@I@Z @ 0x18026D7A0
  * Callers:
- *     ?Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z @ 0x1802B3BCC (-Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z.c)
+ *     ?Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z @ 0x18026D328 (-Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z.c)
  * Callees:
- *     ?HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z @ 0x180060C2C (-HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetPixelFormatColorSpace@@YAJW4DXGI_FORMAT@@PEAW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18028C5D0 (-GetPixelFormatColorSpace@@YAJW4DXGI_FORMAT@@PEAW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     ?InitResource@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@@Z @ 0x1802B3850 (-InitResource@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@@Z.c)
+ *     ?HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z @ 0x180033A80 (-HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetPixelFormatColorSpace@@YAJW4DXGI_FORMAT@@PEAW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18024AB10 (-GetPixelFormatColorSpace@@YAJW4DXGI_FORMAT@@PEAW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?InitResource@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@@Z @ 0x18026D8C4 (-InitResource@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@@Z.c)
  */
 
 __int64 __fastcall CD3DTexture::Init(
@@ -16,43 +16,42 @@ __int64 __fastcall CD3DTexture::Init(
         struct ID3D11Texture2D *a3,
         unsigned int a4)
 {
-  int v8; // ecx
   int PixelFormatColorSpace; // eax
-  __int64 v10; // rcx
-  unsigned int v11; // ebx
-  int v12; // eax
-  unsigned int v14; // [rsp+20h] [rbp-18h]
+  __int64 v9; // rcx
+  unsigned int v10; // ebx
+  int v11; // eax
+  unsigned int v13; // [rsp+20h] [rbp-18h]
 
-  ((void (__fastcall *)(struct ID3D11Texture2D *, char *))a3->lpVtbl->GetDesc)(a3, (char *)this + 104);
-  *((_DWORD *)this + 38) = HasAlphaChannel(*((_DWORD *)this + 30)) ? 1 : 3;
-  PixelFormatColorSpace = GetPixelFormatColorSpace(v8, (enum DXGI_COLOR_SPACE_TYPE *)this + 39);
-  v11 = PixelFormatColorSpace;
+  ((void (__fastcall *)(struct ID3D11Texture2D *, char *))a3->lpVtbl->GetDesc)(a3, (char *)this + 120);
+  *((_DWORD *)this + 42) = HasAlphaChannel(*((_DWORD *)this + 34)) ? 1 : 3;
+  PixelFormatColorSpace = GetPixelFormatColorSpace(*((_DWORD *)this + 34), (enum DXGI_COLOR_SPACE_TYPE *)this + 43);
+  v10 = PixelFormatColorSpace;
   if ( PixelFormatColorSpace < 0 )
   {
-    v14 = 75;
+    v13 = 75;
     goto LABEL_9;
   }
-  v12 = *((_DWORD *)this + 28);
-  *((_DWORD *)this + 40) = v12;
-  if ( (unsigned int)(v12 - 1) <= 0x1F )
+  v11 = *((_DWORD *)this + 32);
+  *((_DWORD *)this + 44) = v11;
+  if ( (unsigned int)(v11 - 1) <= 0x1F )
   {
-    *((_DWORD *)this + 37) = a4;
-    if ( a4 >= *((_DWORD *)this + 29) )
+    *((_DWORD *)this + 41) = a4;
+    if ( a4 >= *((_DWORD *)this + 33) )
     {
-      v11 = -2147467259;
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, -2147467259, 0x56u);
-      return v11;
+      v10 = -2147467259;
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147467259, 0x56u, 0LL);
+      return v10;
     }
     PixelFormatColorSpace = CD3DTexture::InitResource(this, a2, a3);
-    v11 = PixelFormatColorSpace;
+    v10 = PixelFormatColorSpace;
     if ( PixelFormatColorSpace >= 0 )
-      return v11;
-    v14 = 92;
+      return v10;
+    v13 = 92;
 LABEL_9:
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, PixelFormatColorSpace, v14);
-    return v11;
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, PixelFormatColorSpace, v13, 0LL);
+    return v10;
   }
-  v11 = -2147467259;
-  MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, -2147467259, 0x50u);
-  return v11;
+  v10 = -2147467259;
+  MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147467259, 0x50u, 0LL);
+  return v10;
 }

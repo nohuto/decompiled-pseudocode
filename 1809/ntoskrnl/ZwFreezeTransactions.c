@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwFreezeTransactions @ 0x1401B9E90
+ * XREFs of ZwFreezeTransactions @ 0x1401B9EB0
  * Callers:
  *     <none>
  * Callees:

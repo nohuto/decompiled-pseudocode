@@ -1,11 +1,11 @@
 /*
- * XREFs of FindShellFrameThreadFromAssociation @ 0x1C01D996C
+ * XREFs of FindShellFrameThreadFromAssociation @ 0x1C01D2E4C
  * Callers:
- *     ?TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01DC5A0 (-TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z.c)
- *     TryDetachShellFrame @ 0x1C01DD074 (TryDetachShellFrame.c)
- *     _SetThreadQueueMergeSetting @ 0x1C02040D8 (_SetThreadQueueMergeSetting.c)
+ *     ?TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01E131C (-TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z.c)
+ *     TryDetachShellFrame @ 0x1C01E2264 (TryDetachShellFrame.c)
+ *     _SetThreadQueueMergeSetting @ 0x1C0207260 (_SetThreadQueueMergeSetting.c)
  * Callees:
- *     ?FindShellFrameAppThreadsAssociation@@YAPEAU_THREADSASSOCIATION@@PEAUtagTHREADINFO@@@Z @ 0x1C00DD4F4 (-FindShellFrameAppThreadsAssociation@@YAPEAU_THREADSASSOCIATION@@PEAUtagTHREADINFO@@@Z.c)
+ *     ?FindShellFrameAppThreadsAssociation@@YAPEAU_THREADSASSOCIATION@@PEAUtagTHREADINFO@@@Z @ 0x1C0030D64 (-FindShellFrameAppThreadsAssociation@@YAPEAU_THREADSASSOCIATION@@PEAUtagTHREADINFO@@@Z.c)
  */
 
 __int64 __fastcall FindShellFrameThreadFromAssociation(struct tagTHREADINFO *a1)

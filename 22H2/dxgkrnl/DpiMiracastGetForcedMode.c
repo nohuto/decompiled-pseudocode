@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiMiracastGetForcedMode @ 0x1C020554C
+ * XREFs of DpiMiracastGetForcedMode @ 0x1C0175124
  * Callers:
- *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C020667C (DxgkMiracastQueryMiracastSupportInternal.c)
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C0174DC4 (DxgkMiracastQueryMiracastSupportInternal.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 __int64 DpiMiracastGetForcedMode()
@@ -38,28 +38,32 @@ __int64 DpiMiracastGetForcedMode()
   v19 = 0;
   v6 = L"MiracastUseIhvDriver";
   v5 = 288;
-  v7 = &v3;
   v8 = 67108868;
+  v7 = &v3;
+  v10 = 4;
   v9 = &v1;
   v13 = L"MiracastForceDisable";
   v14 = &v2;
   v16 = &v1;
-  v10 = 4;
   v12 = 288;
   v15 = 67108868;
   v17 = 4;
+  v22 = 0LL;
   v1 = 2;
   v3 = 2;
   v2 = 2;
   v20 = 0LL;
   v21 = 0LL;
-  v22 = 0LL;
   if ( (int)RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers", &v4, 0LL, 0LL) < 0 )
     return 0LL;
   result = 1LL;
   if ( v2 == 1 )
     return 3LL;
   if ( v3 != 1 )
-    return v3 == 0 ? 2 : 0;
+  {
+    if ( !v3 )
+      return 2LL;
+    return 0LL;
+  }
   return result;
 }

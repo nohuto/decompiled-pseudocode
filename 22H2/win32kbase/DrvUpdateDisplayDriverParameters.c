@@ -1,17 +1,15 @@
 /*
- * XREFs of DrvUpdateDisplayDriverParameters @ 0x1C001C3F8
+ * XREFs of DrvUpdateDisplayDriverParameters @ 0x1C001DB08
  * Callers:
- *     ApplyPathModalityToCdsRegistryStore @ 0x1C001A35C (ApplyPathModalityToCdsRegistryStore.c)
- *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C001B5AC (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0013A90 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ApplyPathModalityToCdsRegistryStore @ 0x1C001C484 (ApplyPathModalityToCdsRegistryStore.c)
  * Callees:
- *     ?DrvWriteDisplayDriverParameters@@YAJPEAUtagGRAPHICS_DEVICE@@KPEBGQEAU_devicemodeW@@HH@Z @ 0x1C0019DF8 (-DrvWriteDisplayDriverParameters@@YAJPEAUtagGRAPHICS_DEVICE@@KPEBGQEAU_devicemodeW@@HH@Z.c)
- *     ?UpdateMonitorDevicesOnGraphicsDevice@EnsureMonitorDevices@@AEAAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C001E1C0 (-UpdateMonitorDevicesOnGraphicsDevice@EnsureMonitorDevices@@AEAAXPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     ?GetMonitorDevice@EnsureMonitorDevices@@QEBAXKAEAUtagVIDEO_MONITOR_DEVICE@@@Z @ 0x1C00227A0 (-GetMonitorDevice@EnsureMonitorDevices@@QEBAXKAEAUtagVIDEO_MONITOR_DEVICE@@@Z.c)
- *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C00246E4 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     ?DrvWriteDisplayDriverParameters@@YAJPEAUtagGRAPHICS_DEVICE@@KPEBGQEAU_devicemodeW@@HH@Z @ 0x1C001C5D8 (-DrvWriteDisplayDriverParameters@@YAJPEAUtagGRAPHICS_DEVICE@@KPEBGQEAU_devicemodeW@@HH@Z.c)
+ *     UpdateMonitorDevices @ 0x1C001E2B0 (UpdateMonitorDevices.c)
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C002AC30 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall DrvUpdateDisplayDriverParameters(
@@ -20,141 +18,117 @@ __int64 __fastcall DrvUpdateDisplayDriverParameters(
         int a3,
         int a4)
 {
-  int v5; // esi
-  unsigned int v7; // r15d
-  unsigned int v8; // r13d
+  int v5; // r15d
+  unsigned int v9; // r14d
   const unsigned __int16 *RegistryHandleFromDeviceMap; // rax
-  __int64 v10; // rdx
-  unsigned __int16 *v11; // r12
-  int v12; // esi
-  int dmSize; // esi
-  int dmDriverExtra; // eax
-  void *v16; // rdx
-  unsigned int v17; // esi
-  _OWORD *v18; // rdx
-  char *v19; // rdx
-  unsigned int v20; // r12d
-  const unsigned __int16 *v21; // rax
-  __int64 v22; // rdx
-  unsigned __int16 *v23; // rsi
-  unsigned int v25; // [rsp+30h] [rbp-40h]
-  _BYTE v27[8]; // [rsp+38h] [rbp-38h] BYREF
-  unsigned int v28; // [rsp+40h] [rbp-30h]
-  PVOID P; // [rsp+48h] [rbp-28h]
-  __int128 v30; // [rsp+50h] [rbp-20h] BYREF
-  int v31; // [rsp+60h] [rbp-10h]
+  __int64 v11; // rdx
+  unsigned __int16 *v12; // rbp
+  __int64 v14; // rcx
+  unsigned int v15; // ebp
+  __int64 v16; // rax
+  __int64 v17; // rbp
+  __int64 v18; // rdx
+  const unsigned __int16 *v19; // rax
+  __int64 v20; // rdx
+  unsigned __int16 *v21; // r12
+  int v22; // [rsp+30h] [rbp-18h]
+  int v24; // [rsp+70h] [rbp+28h]
 
-  v5 = a3;
-  v7 = -1073741823;
-  v8 = 2;
+  v5 = -1073741823;
+  v24 = -1073741823;
+  v9 = 2;
   if ( (unsigned __int16)(gProtocolType - 1) > 0xFFFDu )
   {
     while ( 1 )
     {
       RegistryHandleFromDeviceMap = (const unsigned __int16 *)DrvGetRegistryHandleFromDeviceMap(
                                                                 a1,
-                                                                v8,
+                                                                v9,
                                                                 0LL,
                                                                 0LL,
                                                                 0,
-                                                                0LL);
-      v11 = (unsigned __int16 *)RegistryHandleFromDeviceMap;
+                                                                0LL,
+                                                                v22);
+      v12 = (unsigned __int16 *)RegistryHandleFromDeviceMap;
       if ( RegistryHandleFromDeviceMap )
       {
-        v12 = DrvWriteDisplayDriverParameters(a1, v10, RegistryHandleFromDeviceMap, a2, v5);
-        ZwClose(v11);
-        v7 = v12;
-        if ( v12 >= 0 )
-        {
-          if ( a4 )
-          {
-            v28 = 0;
-            P = 0LL;
-            EnsureMonitorDevices::UpdateMonitorDevicesOnGraphicsDevice((EnsureMonitorDevices *)v27, a1);
-            v20 = 0;
-            if ( v28 )
-            {
-              v25 = v12;
-              do
-              {
-                v31 = 0;
-                v30 = 0LL;
-                EnsureMonitorDevices::GetMonitorDevice(
-                  (EnsureMonitorDevices *)v27,
-                  v20,
-                  (struct tagVIDEO_MONITOR_DEVICE *)&v30);
-                if ( (v30 & 3) == 3 )
-                {
-                  v21 = (const unsigned __int16 *)DrvGetRegistryHandleFromDeviceMap(
-                                                    a1,
-                                                    v8,
-                                                    (char *)&v30 + 4,
-                                                    0LL,
-                                                    0,
-                                                    0LL);
-                  v23 = (unsigned __int16 *)v21;
-                  if ( v21 )
-                  {
-                    DrvWriteDisplayDriverParameters(a1, v22, v21, a2, a3);
-                    ZwClose(v23);
-                  }
-                }
-                ++v20;
-              }
-              while ( v20 < v28 );
-              v7 = v25;
-            }
-            if ( P )
-              ExFreePoolWithTag(P, 0);
-          }
-LABEL_5:
-          if ( (unsigned __int16)(gProtocolType - 1) > 0xFFFDu )
-            return v7;
-          return 0LL;
-        }
-        v5 = a3;
+        v24 = DrvWriteDisplayDriverParameters(a1, v11, RegistryHandleFromDeviceMap, a2, a3);
+        v5 = v24;
+        ZwClose(v12);
       }
-      if ( v8 != 2 )
-        goto LABEL_5;
-      v8 = 0;
+      if ( v5 >= 0 )
+        break;
+      if ( v9 != 2 )
+        goto LABEL_6;
+      v9 = 0;
     }
+    if ( a4 )
+    {
+      UpdateMonitorDevices();
+      v17 = 0LL;
+      if ( *((_DWORD *)a1 + 54) )
+      {
+        do
+        {
+          v18 = *((_QWORD *)a1 + 28);
+          if ( (*(_BYTE *)(v18 + 20 * v17) & 3) == 3 )
+          {
+            v19 = (const unsigned __int16 *)DrvGetRegistryHandleFromDeviceMap(
+                                              a1,
+                                              v9,
+                                              v18 + 4 * (5 * v17 + 1),
+                                              0LL,
+                                              0,
+                                              0LL,
+                                              v22);
+            v21 = (unsigned __int16 *)v19;
+            if ( v19 )
+            {
+              DrvWriteDisplayDriverParameters(a1, v20, v19, a2, a3);
+              ZwClose(v21);
+            }
+          }
+          v17 = (unsigned int)(v17 + 1);
+        }
+        while ( (unsigned int)v17 < *((_DWORD *)a1 + 54) );
+        v5 = v24;
+      }
+    }
+LABEL_6:
+    if ( (unsigned __int16)(gProtocolType - 1) > 0xFFFDu )
+      return (unsigned int)v5;
+    return 0LL;
   }
-  *((_DWORD *)a1 + 63) = a3 == 0;
+  *((_DWORD *)a1 + 65) = a3 == 0;
   if ( (*((_DWORD *)a1 + 40) & 8) == 0 || !a2 )
     return 0LL;
-  dmSize = a2->dmSize;
-  dmDriverExtra = a2->dmDriverExtra;
-  v16 = (void *)*((_QWORD *)a1 + 33);
-  v17 = dmDriverExtra + dmSize;
+  v14 = *((_QWORD *)a1 + 34);
+  v15 = a2->dmDriverExtra + a2->dmSize;
+  if ( v14 )
+  {
+    Win32FreePool(v14);
+    *((_QWORD *)a1 + 34) = 0LL;
+  }
+  v16 = PALLOCMEM2(v15);
+  *((_QWORD *)a1 + 34) = v16;
   if ( v16 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v16);
-    *((_QWORD *)a1 + 33) = 0LL;
-  }
-  if ( v17 )
-    v18 = NSInstrumentation::CLeakTrackingAllocator::Allocate(gpLeakTrackingAllocator, 0x104uLL, v17, 0x73726447u);
-  else
-    v18 = 0LL;
-  *((_QWORD *)a1 + 33) = v18;
-  if ( v18 )
-  {
-    *v18 = *(_OWORD *)a2->dmDeviceName;
-    v18[1] = *(_OWORD *)&a2->dmDeviceName[8];
-    v18[2] = *(_OWORD *)&a2->dmDeviceName[16];
-    v18[3] = *(_OWORD *)&a2->dmDeviceName[24];
-    v18[4] = *(_OWORD *)&a2->dmSpecVersion;
-    v18[5] = *(union _devicemodeW::$5A39A2C3BB0B1D2D5888DFEE2BA0B23C *)((char *)&a2->76 + 4);
-    v18[6] = *(_OWORD *)&a2->dmYResolution;
-    v19 = (char *)(v18 + 8);
-    *((_OWORD *)v19 - 1) = *(_OWORD *)&a2->dmFormName[5];
-    *(_OWORD *)v19 = *(_OWORD *)&a2->dmFormName[13];
-    *((_OWORD *)v19 + 1) = *(_OWORD *)&a2->dmFormName[21];
-    *((_OWORD *)v19 + 2) = *(_OWORD *)&a2->dmFormName[29];
-    *((_OWORD *)v19 + 3) = *(_OWORD *)&a2->dmPelsHeight;
-    *((_OWORD *)v19 + 4) = *(_OWORD *)&a2->dmICMIntent;
-    *((_QWORD *)v19 + 10) = *(_QWORD *)&a2->dmReserved2;
-    *((_DWORD *)v19 + 22) = a2->dmPanningHeight;
-    memmove((void *)(*((_QWORD *)a1 + 33) + 220LL), &a2[1], a2->dmDriverExtra);
+    *(_OWORD *)v16 = *(_OWORD *)a2->dmDeviceName;
+    *(_OWORD *)(v16 + 16) = *(_OWORD *)&a2->dmDeviceName[8];
+    *(_OWORD *)(v16 + 32) = *(_OWORD *)&a2->dmDeviceName[16];
+    *(_OWORD *)(v16 + 48) = *(_OWORD *)&a2->dmDeviceName[24];
+    *(_OWORD *)(v16 + 64) = *(_OWORD *)&a2->dmSpecVersion;
+    *(union _devicemodeW::$5A39A2C3BB0B1D2D5888DFEE2BA0B23C *)(v16 + 80) = *(union _devicemodeW::$5A39A2C3BB0B1D2D5888DFEE2BA0B23C *)((char *)&a2->76 + 4);
+    *(_OWORD *)(v16 + 96) = *(_OWORD *)&a2->dmYResolution;
+    *(_OWORD *)(v16 + 112) = *(_OWORD *)&a2->dmFormName[5];
+    *(_OWORD *)(v16 + 128) = *(_OWORD *)&a2->dmFormName[13];
+    *(_OWORD *)(v16 + 144) = *(_OWORD *)&a2->dmFormName[21];
+    *(_OWORD *)(v16 + 160) = *(_OWORD *)&a2->dmFormName[29];
+    *(_OWORD *)(v16 + 176) = *(_OWORD *)&a2->dmPelsHeight;
+    *(_OWORD *)(v16 + 192) = *(_OWORD *)&a2->dmICMIntent;
+    *(_QWORD *)(v16 + 208) = *(_QWORD *)&a2->dmReserved2;
+    *(_DWORD *)(v16 + 216) = a2->dmPanningHeight;
+    memmove((void *)(*((_QWORD *)a1 + 34) + 220LL), &a2[1], a2->dmDriverExtra);
     return 0LL;
   }
   return 3221225495LL;

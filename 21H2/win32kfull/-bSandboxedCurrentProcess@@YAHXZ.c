@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bSandboxedCurrentProcess@@YAHXZ @ 0x1C012B08C
+ * XREFs of ?bSandboxedCurrentProcess@@YAHXZ @ 0x1C00A1CC8
  * Callers:
- *     NtGdiSetPUMPDOBJ @ 0x1C0127D20 (NtGdiSetPUMPDOBJ.c)
+ *     NtGdiSetPUMPDOBJ @ 0x1C00A1260 (NtGdiSetPUMPDOBJ.c)
  * Callees:
  *     <none>
  */

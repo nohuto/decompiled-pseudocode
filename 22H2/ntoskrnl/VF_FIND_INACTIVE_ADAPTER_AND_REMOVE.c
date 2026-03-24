@@ -1,11 +1,11 @@
 /*
- * XREFs of VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x140AC59DC
+ * XREFs of VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x1409CA424
  * Callers:
- *     VfGetDmaAdapter @ 0x140AC7560 (VfGetDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x1409CBE70 (VfGetDmaAdapter.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 struct _LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
@@ -22,10 +22,10 @@ struct _LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_
   struct _LIST_ENTRY *Blink; // rcx
 
   v2 = 0LL;
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C36990);
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140D4A088);
   for ( i = ViAdapterList.Flink; &ViAdapterList != i; i = i->Flink )
   {
-    if ( i[4].Flink == a1 && (SHIDWORD(i[4].Blink) <= 0 || LOBYTE(i[4].Blink) == 1) )
+    if ( i[1].Blink == a1 && (SHIDWORD(i[2].Flink) <= 0 || LOBYTE(i[2].Flink) == 1) )
     {
       Flink = i->Flink;
       v2 = i;
@@ -37,19 +37,22 @@ struct _LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_
       break;
     }
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C36990);
+  KxReleaseSpinLock(&qword_140D4A088);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v9 = (v8 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v8;
-      if ( v9 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+        v9 = (v8 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v8;
+        if ( v9 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v3);

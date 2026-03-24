@@ -1,10 +1,10 @@
 /*
- * XREFs of Endpoint_AreTransfersPending @ 0x1C0039740
+ * XREFs of Endpoint_AreTransfersPending @ 0x1C0037CA8
  * Callers:
- *     Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted @ 0x1C003BBF0 (Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted.c)
- *     ESM_CheckingIfEndpointCanBeResetAfterHalt @ 0x1C0051490 (ESM_CheckingIfEndpointCanBeResetAfterHalt.c)
+ *     Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted @ 0x1C0039C00 (Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted.c)
+ *     ESM_CheckingIfEndpointCanBeResetAfterHalt @ 0x1C004E940 (ESM_CheckingIfEndpointCanBeResetAfterHalt.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall Endpoint_AreTransfersPending(__int64 a1)

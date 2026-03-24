@@ -1,14 +1,13 @@
 /*
- * XREFs of BmlCompareSourceModesWithMonitors @ 0x1C017AAF8
+ * XREFs of BmlCompareSourceModesWithMonitors @ 0x1C0146F88
  * Callers:
- *     BmlGetNextBestSourceMode @ 0x1C017A320 (BmlGetNextBestSourceMode.c)
- *     BmlCompareSourceModes @ 0x1C03BCFB4 (BmlCompareSourceModes.c)
+ *     BmlCompareSourceModes @ 0x1C014766C (BmlCompareSourceModes.c)
  * Callees:
- *     ??$DIFF@H@@YAHHH@Z @ 0x1C0002C80 (--$DIFF@H@@YAHHH@Z.c)
- *     ?BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z @ 0x1C017AAA8 (-BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z.c)
- *     ??$BmlCompareValues@H@@YA?AW4BML_COMPARISON_RESULT@@HH@Z @ 0x1C017AADC (--$BmlCompareValues@H@@YA-AW4BML_COMPARISON_RESULT@@HH@Z.c)
- *     BmlGetModeCategoryForRegion @ 0x1C017ACBC (BmlGetModeCategoryForRegion.c)
- *     ??$BmlCompareValues@I@@YA?AW4BML_COMPARISON_RESULT@@II@Z @ 0x1C017AD88 (--$BmlCompareValues@I@@YA-AW4BML_COMPARISON_RESULT@@II@Z.c)
+ *     ??$DIFF@H@@YAHHH@Z @ 0x1C000C44C (--$DIFF@H@@YAHHH@Z.c)
+ *     BmlGetModeCategoryForRegion @ 0x1C0147138 (BmlGetModeCategoryForRegion.c)
+ *     ??$BmlCompareValues@I@@YA?AW4BML_COMPARISON_RESULT@@II@Z @ 0x1C014789C (--$BmlCompareValues@I@@YA-AW4BML_COMPARISON_RESULT@@II@Z.c)
+ *     ?BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z @ 0x1C01478B4 (-BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z.c)
+ *     ??$BmlCompareValues@H@@YA?AW4BML_COMPARISON_RESULT@@HH@Z @ 0x1C01483C8 (--$BmlCompareValues@H@@YA-AW4BML_COMPARISON_RESULT@@HH@Z.c)
  */
 
 __int64 __fastcall BmlCompareSourceModesWithMonitors(
@@ -18,100 +17,109 @@ __int64 __fastcall BmlCompareSourceModesWithMonitors(
         __int64 a4,
         __int64 a5)
 {
-  __int64 v5; // r8
-  __int64 v7; // rcx
-  char v8; // r13
-  unsigned int *v9; // rbx
-  char v10; // r15
-  unsigned int v11; // edx
-  _DWORD *v12; // rdi
-  bool v13; // al
-  const struct _D3DKMDT_2DREGION *v14; // rbp
-  const struct _D3DKMDT_2DREGION *v15; // rsi
-  __int64 v16; // r12
-  __int64 v17; // rcx
+  __int64 v6; // r13
+  bool v7; // r12
+  __int64 v8; // rdx
+  char v9; // r14
+  __int64 v11; // rdi
+  __int64 v12; // rcx
+  int v13; // eax
+  __int64 v14; // rsi
+  const struct _D3DKMDT_2DREGION *v15; // r13
   unsigned int ModeCategoryForRegion; // eax
-  __int64 v19; // r8
-  unsigned int v20; // ebx
-  unsigned int v21; // eax
+  const struct _D3DKMDT_2DREGION *v17; // r15
+  __int64 v18; // r8
+  unsigned int v19; // ebx
+  unsigned int v20; // eax
   __int64 result; // rax
-  __int64 v23; // r8
-  unsigned int v24; // eax
-  __int64 v25; // r8
-  unsigned int v26; // ebx
-  unsigned int v27; // eax
-  int v28; // edi
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  unsigned int v25; // eax
+  __int64 v26; // r8
+  unsigned int v27; // ebx
+  unsigned int v28; // eax
+  _QWORD *v29; // rax
+  _QWORD *v30; // rax
+  int v31; // edi
   int ScaledAspectRatio; // eax
-  int v30; // ebx
-  int v31; // eax
-  int v32; // eax
-  __int64 v33; // [rsp+30h] [rbp-48h]
-  __int64 v34; // [rsp+80h] [rbp+8h]
-  unsigned int *v35; // [rsp+90h] [rbp+18h]
+  unsigned int v33; // ebx
+  int v34; // eax
+  unsigned int v35; // eax
+  __int64 v36; // [rsp+60h] [rbp+8h]
+  __int64 v37; // [rsp+70h] [rbp+18h]
 
-  v5 = a2;
-  v7 = 120LL * a2;
-  v8 = 0;
-  v33 = a2;
-  v34 = v7;
-  v9 = (unsigned int *)(v7 + a1 + 52);
-  v10 = 0;
-  v35 = v9;
-  v11 = *v9;
-  v12 = v9 + 1;
-  v13 = *v9 && *v12;
-  v14 = (const struct _D3DKMDT_2DREGION *)(a4 + 76);
-  if ( v13 )
+  v6 = a2;
+  v7 = 0;
+  v8 = 104LL * a2;
+  v9 = 0;
+  v36 = v6;
+  v37 = v8;
+  v11 = v8 + a1;
+  v12 = *(unsigned int *)(v8 + a1 + 52);
+  if ( (_DWORD)v12 )
   {
-    if ( v14->cx == v11 && *(_DWORD *)(a4 + 80) == *v12 )
-      v8 = 1;
-    v15 = (const struct _D3DKMDT_2DREGION *)(a5 + 76);
-    if ( *(_DWORD *)(a5 + 76) == v11 && *(_DWORD *)(a5 + 80) == *v12 )
-      v10 = 1;
+    v13 = *(_DWORD *)(v11 + 56);
+    if ( v13 )
+    {
+      v9 = 1;
+      if ( *(_DWORD *)(a4 + 76) == (_DWORD)v12 )
+        v7 = *(_DWORD *)(a4 + 80) == v13;
+      if ( *(_DWORD *)(a5 + 76) != (_DWORD)v12 || *(_DWORD *)(a5 + 80) != v13 )
+        v9 = 0;
+    }
   }
-  else
+  v14 = v8 + a1;
+  if ( *(_DWORD *)(v8 + a1 + 36) && *(_DWORD *)(v14 + 40) )
   {
     v15 = (const struct _D3DKMDT_2DREGION *)(a5 + 76);
-  }
-  v16 = v7 + a1;
-  v17 = *(unsigned int *)(v7 + a1 + 36);
-  if ( (_DWORD)v17 && *(_DWORD *)(v16 + 40) )
-  {
-    LOBYTE(v5) = v10;
-    ModeCategoryForRegion = BmlGetModeCategoryForRegion(v15, v16 + 36, v5);
-    LOBYTE(v19) = v8;
-    v20 = ModeCategoryForRegion;
-    v21 = BmlGetModeCategoryForRegion(v14, v16 + 36, v19);
-    result = BmlCompareValues<unsigned int>(v21, v20);
+    LOBYTE(a3) = v9;
+    ModeCategoryForRegion = BmlGetModeCategoryForRegion(a5 + 76, v14 + 36, a3);
+    v17 = (const struct _D3DKMDT_2DREGION *)(a4 + 76);
+    LOBYTE(v18) = v7;
+    v19 = ModeCategoryForRegion;
+    v20 = BmlGetModeCategoryForRegion(v17, v14 + 36, v18);
+    result = BmlCompareValues<unsigned int>(v20, v19);
     if ( (_DWORD)result )
       return result;
-    v9 = v35;
   }
   else
   {
-    WdLogSingleEntry4(3LL, a1, v5, v17, *(unsigned int *)(v16 + 40));
+    v29 = (_QWORD *)WdLogNewEntry5_WdWarning(v12, v8, a3);
+    v29[3] = a1;
+    v29[4] = v6;
+    v29[5] = *(unsigned int *)(v14 + 36);
+    v29[6] = *(unsigned int *)(v14 + 40);
+    WdLogEvent5_WdWarning(v29);
+    v17 = (const struct _D3DKMDT_2DREGION *)(a4 + 76);
+    v15 = (const struct _D3DKMDT_2DREGION *)(a5 + 76);
   }
-  if ( !*v9 || !*v12 )
+  if ( !*(_DWORD *)(v11 + 52) || !*(_DWORD *)(v11 + 56) )
   {
-    WdLogSingleEntry4(3LL, a1, v33, *v9, (unsigned int)*v12);
+    v30 = (_QWORD *)WdLogNewEntry5_WdWarning(v23, v22, v24);
+    v30[4] = v36;
+    v30[3] = a1;
+    v30[5] = *(unsigned int *)(v11 + 52);
+    v30[6] = *(unsigned int *)(v11 + 56);
+    WdLogEvent5_WdWarning(v30);
     return 0LL;
   }
-  LOBYTE(v23) = v8;
-  v24 = BmlGetModeCategoryForRegion(v14, v9, v23);
-  LOBYTE(v25) = v10;
-  v26 = v24;
-  v27 = BmlGetModeCategoryForRegion(v15, v35, v25);
-  result = BmlCompareValues<unsigned int>(v26, v27);
+  LOBYTE(v24) = v7;
+  v25 = BmlGetModeCategoryForRegion(v17, v11 + 52, v24);
+  LOBYTE(v26) = v9;
+  v27 = v25;
+  v28 = BmlGetModeCategoryForRegion(v15, v11 + 52, v26);
+  result = BmlCompareValues<unsigned int>(v27, v28);
   if ( !(_DWORD)result )
   {
-    if ( v26 == 3 )
+    if ( v27 == 3 )
     {
-      v28 = *(_DWORD *)(v34 + a1 + 60);
-      ScaledAspectRatio = BmlGetScaledAspectRatio(v14);
-      v30 = DIFF<int>(ScaledAspectRatio, v28);
-      v31 = BmlGetScaledAspectRatio(v15);
-      v32 = DIFF<int>(v31, v28);
-      return BmlCompareValues<int>(v32, v30);
+      v31 = *(_DWORD *)(v37 + a1 + 60);
+      ScaledAspectRatio = BmlGetScaledAspectRatio(v17);
+      v33 = DIFF<int>(ScaledAspectRatio, v31);
+      v34 = BmlGetScaledAspectRatio(v15);
+      v35 = DIFF<int>(v34, v31);
+      return BmlCompareValues<int>(v35, v33);
     }
     return 0LL;
   }

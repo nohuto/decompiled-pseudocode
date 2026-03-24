@@ -1,39 +1,48 @@
 /*
- * XREFs of ?MarkForPendingDestroy@OUTPUTDUPL_CONTEXT@@QEAAXXZ @ 0x1C0332738
+ * XREFs of ?MarkForPendingDestroy@OUTPUTDUPL_CONTEXT@@QEAAXXZ @ 0x1C02A1A18
  * Callers:
- *     ?MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_DESTROY_REASON@@@Z @ 0x1C01A1EB0 (-MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_.c)
+ *     ?MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_DESTROY_REASON@@@Z @ 0x1C015D0D4 (-MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A8230 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?Abandon@DXGDXGIKEYEDMUTEX@@QEAAXXZ @ 0x1C032A190 (-Abandon@DXGDXGIKEYEDMUTEX@@QEAAXXZ.c)
- *     ?CloseConsumerResources@DXGDXGIKEYEDMUTEX@@QEAAXXZ @ 0x1C032A7AC (-CloseConsumerResources@DXGDXGIKEYEDMUTEX@@QEAAXXZ.c)
- *     ?ReleaseSessionReference@OUTPUTDUPL_CONTEXT@@AEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C03344E0 (-ReleaseSessionReference@OUTPUTDUPL_CONTEXT@@AEAAXPEAVDXGSESSIONDATA@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0123B08 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?Abandon@DXGDXGIKEYEDMUTEX@@QEAAXXZ @ 0x1C0298BDC (-Abandon@DXGDXGIKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?CloseConsumerResources@DXGDXGIKEYEDMUTEX@@QEAAXXZ @ 0x1C0299024 (-CloseConsumerResources@DXGDXGIKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?ReleaseSessionReference@OUTPUTDUPL_CONTEXT@@AEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C02A3280 (-ReleaseSessionReference@OUTPUTDUPL_CONTEXT@@AEAAXPEAVDXGSESSIONDATA@@@Z.c)
  */
 
-void __fastcall OUTPUTDUPL_CONTEXT::MarkForPendingDestroy(OUTPUTDUPL_CONTEXT *this)
+void __fastcall OUTPUTDUPL_CONTEXT::MarkForPendingDestroy(OUTPUTDUPL_CONTEXT *this, __int64 a2)
 {
-  unsigned int v1; // edi
-  DXGSESSIONMGR *v3; // rbx
+  unsigned int v2; // edi
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  DXGSESSIONMGR *v7; // rbx
+  __int64 v8; // rax
+  __int64 v9; // rax
   unsigned int ProcessSessionId; // eax
   struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
 
-  v1 = 0;
+  v2 = 0;
   if ( *((_DWORD *)this + 72) )
   {
-    WdLogSingleEntry1(1LL, 2423LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"!m_bPendingDestroy", 2423LL, 0LL, 0LL, 0LL, 0LL);
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 2414LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  v3 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 118);
-  if ( v3 )
+  v7 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal((__int64)this, a2) + 102);
+  if ( v7 )
   {
     if ( !*((_DWORD *)this + 76) )
     {
-      WdLogSingleEntry1(1LL, 2434LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_SessionRefAdded", 2434LL, 0LL, 0LL, 0LL, 0LL);
+      v9 = WdLogNewEntry5_WdAssertion(v6, v5);
+      *(_QWORD *)(v9 + 24) = 2425LL;
+      WdLogEvent5_WdAssertion(v9);
     }
     ProcessSessionId = PsGetProcessSessionId(*((_QWORD *)this + 3));
-    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v3, ProcessSessionId);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v7, ProcessSessionId);
     OUTPUTDUPL_CONTEXT::ReleaseSessionReference(this, SessionDataForSpecifiedSession);
     *((_DWORD *)this + 76) = 0;
     if ( !*((_DWORD *)this + 72) )
@@ -43,16 +52,17 @@ void __fastcall OUTPUTDUPL_CONTEXT::MarkForPendingDestroy(OUTPUTDUPL_CONTEXT *th
       {
         do
         {
-          DXGDXGIKEYEDMUTEX::Abandon(*((DXGDXGIKEYEDMUTEX **)this + v1 + 6));
-          DXGDXGIKEYEDMUTEX::CloseConsumerResources(*((struct _KPROCESS ***)this + v1++ + 6));
+          DXGDXGIKEYEDMUTEX::Abandon(*((DXGDXGIKEYEDMUTEX **)this + v2 + 6));
+          DXGDXGIKEYEDMUTEX::CloseConsumerResources(*((struct _KPROCESS ***)this + v2++ + 6), v12, v13, v14);
         }
-        while ( v1 < *((_DWORD *)this + 10) );
+        while ( v2 < *((_DWORD *)this + 10) );
       }
     }
   }
   else
   {
-    WdLogSingleEntry1(1LL, 2429LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"DXGSESSIONDATA is NULL", 2429LL, 0LL, 0LL, 0LL, 0LL);
+    v8 = WdLogNewEntry5_WdAssertion(v6, v5);
+    *(_QWORD *)(v8 + 24) = 2420LL;
+    WdLogEvent5_WdAssertion(v8);
   }
 }

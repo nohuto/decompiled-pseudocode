@@ -1,5 +1,5 @@
 /*
- * XREFs of PspTeardownPartition @ 0x14088D450
+ * XREFs of PspTeardownPartition @ 0x14088D430
  * Callers:
  *     <none>
  * Callees:
@@ -10,12 +10,12 @@
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiDeletePartition @ 0x1402B4440 (MiDeletePartition.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiDeletePartition @ 0x1402B4540 (MiDeletePartition.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PsTerminateMinimalProcess @ 0x14088B2B4 (PsTerminateMinimalProcess.c)
- *     ExpPartitionDestroy @ 0x1408D6354 (ExpPartitionDestroy.c)
+ *     PsTerminateMinimalProcess @ 0x14088B294 (PsTerminateMinimalProcess.c)
+ *     ExpPartitionDestroy @ 0x1408D6334 (ExpPartitionDestroy.c)
  */
 
 LONG_PTR __fastcall PspTeardownPartition(PVOID Object)

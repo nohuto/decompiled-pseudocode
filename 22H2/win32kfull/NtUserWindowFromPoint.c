@@ -1,25 +1,22 @@
 /*
- * XREFs of NtUserWindowFromPoint @ 0x1C008C450
+ * XREFs of NtUserWindowFromPoint @ 0x1C00C0E20
  * Callers:
  *     <none>
  * Callees:
- *     xxxWindowFromPoint @ 0x1C008C498 (xxxWindowFromPoint.c)
+ *     xxxWindowFromPoint @ 0x1C00C0E6C (xxxWindowFromPoint.c)
  */
 
-__int64 __fastcall NtUserWindowFromPoint(struct tagPOINT a1)
+__int64 __fastcall NtUserWindowFromPoint(__int64 a1)
 {
   __int64 *v2; // rax
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // rbx
+  __int64 v3; // rcx
+  __int64 v4; // rbx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v2 = (__int64 *)xxxWindowFromPoint(a1);
-  v7 = 0LL;
+  v4 = 0LL;
   if ( v2 )
-    v7 = *v2;
-  UserSessionSwitchLeaveCrit(v4, v3, v5, v6);
-  return v7;
+    v4 = *v2;
+  UserSessionSwitchLeaveCrit(v3);
+  return v4;
 }

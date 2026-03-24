@@ -1,43 +1,45 @@
 /*
- * XREFs of MiIncreaseUsedPtesCount @ 0x14028FB74
+ * XREFs of MiIncreaseUsedPtesCount @ 0x1403097D4
  * Callers:
- *     MiInsertPhysicalPteMapping @ 0x140213558 (MiInsertPhysicalPteMapping.c)
- *     MiUpdatePageTableUseCount @ 0x140257F64 (MiUpdatePageTableUseCount.c)
- *     MiSplitPrivatePage @ 0x14028E238 (MiSplitPrivatePage.c)
- *     MiCompleteRestrictedImageFault @ 0x1402CB710 (MiCompleteRestrictedImageFault.c)
- *     MiDecommitPages @ 0x1402CE240 (MiDecommitPages.c)
- *     MiCommitExistingVad @ 0x14032C1B0 (MiCommitExistingVad.c)
- *     MiProtectPrivateMemory @ 0x14032EA60 (MiProtectPrivateMemory.c)
- *     MiReservePageFileSpaceForPage @ 0x14033B190 (MiReservePageFileSpaceForPage.c)
- *     MiInPagePageTable @ 0x140353230 (MiInPagePageTable.c)
- *     MiUpdatePrivateDemandZeroView @ 0x140593E88 (MiUpdatePrivateDemandZeroView.c)
- *     MiCommitHotPatchTable @ 0x1405A3418 (MiCommitHotPatchTable.c)
- *     MiUpdateAwePageTable @ 0x1405AC9A0 (MiUpdateAwePageTable.c)
- *     MiBuildForkPte @ 0x1405B88D8 (MiBuildForkPte.c)
- *     MiUpdateForkMaps @ 0x1405BBD5C (MiUpdateForkMaps.c)
- *     MiInsertLargeUserMapping @ 0x1405C2898 (MiInsertLargeUserMapping.c)
+ *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
+ *     MiReservePageFileSpaceForPage @ 0x14023D660 (MiReservePageFileSpaceForPage.c)
+ *     MiInsertPhysicalPteMapping @ 0x140298318 (MiInsertPhysicalPteMapping.c)
+ *     MiUpdatePageTableUseCount @ 0x1402CF7F4 (MiUpdatePageTableUseCount.c)
+ *     MiInPagePageTable @ 0x14030BDC0 (MiInPagePageTable.c)
+ *     MiSplitPrivatePage @ 0x14030CFB0 (MiSplitPrivatePage.c)
+ *     MiProtectPrivateMemory @ 0x14030DA00 (MiProtectPrivateMemory.c)
+ *     MiCompleteRestrictedImageFault @ 0x14031D0A0 (MiCompleteRestrictedImageFault.c)
+ *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
+ *     MiUpdatePrivateDemandZeroView @ 0x14052D398 (MiUpdatePrivateDemandZeroView.c)
+ *     MiCommitHotPatchTable @ 0x14053E8C0 (MiCommitHotPatchTable.c)
+ *     MiUpdateAwePageTable @ 0x14054E034 (MiUpdateAwePageTable.c)
+ *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
+ *     MiUpdateForkMaps @ 0x14055B7A0 (MiUpdateForkMaps.c)
+ *     MiInsertLargeUserMapping @ 0x14055E578 (MiInsertLargeUserMapping.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14028FBF0 (MmIsAddressValidEx.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
  */
 
-__int64 __fastcall MiIncreaseUsedPtesCount(__int64 a1, unsigned int a2)
+__int64 __fastcall MiIncreaseUsedPtesCount(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
+  unsigned int v5; // edi
   __int64 result; // rax
-  int v5; // [rsp+38h] [rbp+10h] BYREF
+  int v7; // [rsp+38h] [rbp+10h] BYREF
 
-  v5 = 0;
+  v7 = 0;
+  v5 = a2;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 24), 0x3FuLL) )
   {
     do
-      KeYieldProcessorEx(&v5);
+      KeYieldProcessorEx(&v7, a2, a3, a4);
     while ( *(__int64 *)(a1 + 24) < 0 );
   }
   result = 0x7FFFFFFFFFFFFFFFLL;
   *(_QWORD *)(a1 + 16) ^= ((unsigned int)*(_QWORD *)(a1 + 16) ^ ((unsigned int)*(_QWORD *)(a1 + 16)
-                                                               + ((unsigned __int16)a2 << 16))) & 0x3FF0000;
+                                                               + ((unsigned __int16)v5 << 16))) & 0x3FF0000;
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( a2 <= 1 )
+  if ( v5 <= 1 )
     return MmIsAddressValidEx(*(_QWORD *)(a1 + 8) | 0x8000000000000000uLL);
   return result;
 }

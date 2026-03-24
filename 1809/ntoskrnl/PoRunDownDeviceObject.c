@@ -1,15 +1,15 @@
 /*
- * XREFs of PoRunDownDeviceObject @ 0x1400DAB60
+ * XREFs of PoRunDownDeviceObject @ 0x1400DAB80
  * Callers:
- *     IoDeleteDevice @ 0x1400DAAC0 (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x1400DAAE0 (IoDeleteDevice.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
  *     MiLockPagableImageSection @ 0x14009ABB0 (MiLockPagableImageSection.c)
- *     PoRegisterDeviceForIdleDetection @ 0x1400DAC50 (PoRegisterDeviceForIdleDetection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     PoRegisterDeviceForIdleDetection @ 0x1400DAC70 (PoRegisterDeviceForIdleDetection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MmLockPagableSectionByHandle @ 0x14061F240 (MmLockPagableSectionByHandle.c)
  */

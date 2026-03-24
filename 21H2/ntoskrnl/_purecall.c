@@ -1,12 +1,12 @@
 /*
- * XREFs of _purecall @ 0x14063F630
+ * XREFs of _purecall @ 0x1405B7200
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
  */
 
 void __noreturn purecall()
 {
-  RtlRaiseStatus(-1073741822);
+  RtlRaiseStatus(0xC0000002);
 }

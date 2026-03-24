@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CCompositionCubeMapMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C022D0E0
+ * XREFs of ?SetBufferProperty@CCompositionCubeMapMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F41B0
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C002A9C0 (Win32AllocPoolWithQuotaZInit.c)
  */
 
 __int64 __fastcall DirectComposition::CCompositionCubeMapMarshaler::SetBufferProperty(
@@ -19,7 +19,7 @@ __int64 __fastcall DirectComposition::CCompositionCubeMapMarshaler::SetBufferPro
   unsigned int v9; // ebp
   unsigned __int64 v10; // rsi
   bool v11; // r15
-  __int64 QuotaZInit; // rax
+  void *v12; // rax
   __int64 v13; // rdx
 
   v6 = 0;
@@ -51,14 +51,10 @@ __int64 __fastcall DirectComposition::CCompositionCubeMapMarshaler::SetBufferPro
     return (unsigned int)-1073741811;
   if ( !is_mul_ok(v10, 0x90uLL) )
     return (unsigned int)-1073741675;
-  QuotaZInit = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                 (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)v10,
-                 (a4[1] * (unsigned __int128)0x90uLL) >> 64,
-                 144 * v10,
-                 0x6D634344u);
-  if ( QuotaZInit )
+  v12 = Win32AllocPoolWithQuotaZInit(144LL * a4[1], 0x6D634344u);
+  if ( v12 )
   {
-    *((_QWORD *)this + 7) = QuotaZInit;
+    *((_QWORD *)this + 7) = v12;
     *((_DWORD *)this + 19) = v9;
     *((_DWORD *)this + 16) = 6 * v10;
     *((_DWORD *)this + 20) = v10;

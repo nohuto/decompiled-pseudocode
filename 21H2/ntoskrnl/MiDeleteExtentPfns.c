@@ -1,83 +1,87 @@
 /*
- * XREFs of MiDeleteExtentPfns @ 0x14059E2C0
+ * XREFs of MiDeleteExtentPfns @ 0x140540780
  * Callers:
- *     MiAddPhysicalMemory @ 0x140968388 (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiPurgeBadFileOnlyPages @ 0x1405A032C (MiPurgeBadFileOnlyPages.c)
- *     MiWaitForExtentDeletions @ 0x1405A1AE8 (MiWaitForExtentDeletions.c)
- *     MiWakeExtentDeletionWaiters @ 0x1405A1C08 (MiWakeExtentDeletionWaiters.c)
- *     MiRemovePhysicalMemory @ 0x140969850 (MiRemovePhysicalMemory.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPurgeBadFileOnlyPages @ 0x1405418F0 (MiPurgeBadFileOnlyPages.c)
+ *     MiWaitForExtentDeletions @ 0x1405426E0 (MiWaitForExtentDeletions.c)
+ *     MiWakeExtentDeletionWaiters @ 0x140542800 (MiWakeExtentDeletionWaiters.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
  */
 
-__int64 __fastcall MiDeleteExtentPfns(__int64 a1)
+char __fastcall MiDeleteExtentPfns(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rax
-  KIRQL v3; // al
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // rsi
-  unsigned __int64 v7; // rbx
-  __int64 result; // rax
+  __int64 v2; // rdi
+  __int64 v3; // rax
+  __int64 v4; // rbx
+  int v5; // eax
+  unsigned __int64 OldIrql; // rsi
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v11; // zf
+  bool v9; // zf
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
+  v2 = a1;
+  memset(&LockHandle, 0, sizeof(LockHandle));
   if ( a1 )
   {
-    v2 = KeAbPreAcquire((__int64)&qword_140C4F2C8, 0LL);
-    if ( v2 )
-      *(_BYTE *)(v2 + 18) = 1;
+    v3 = KeAbPreAcquire((ULONG_PTR)&qword_140C4CB10, 0LL, 0);
+    if ( v3 )
+      *(_BYTE *)(v3 + 26) |= 1u;
   }
-  do
+  while ( 1 )
   {
-    while ( qword_140C4F2A0 )
+    MiPurgeBadFileOnlyPages(a1, a2);
+    while ( qword_140C4CAE8 )
       MiRemovePhysicalMemory(0LL);
-    v3 = ExAcquireSpinLockExclusive(&dword_140C56920);
-    v6 = qword_140C4F2A0;
-    v7 = v3;
-    if ( a1 )
+    KeAcquireInStackQueuedSpinLock(&qword_140C51DA0, &LockHandle);
+    v4 = qword_140C4CAE8;
+    if ( !v2 )
     {
-      if ( !qword_140C4F2A0 )
+      if ( qword_140C4CAE8 || byte_140C4CB31 == 1 )
       {
-        LOBYTE(v4) = v3;
-        MiWakeExtentDeletionWaiters(v5, v4);
-        MiPurgeBadFileOnlyPages();
-        return KeAbPostRelease((ULONG_PTR)&qword_140C4F2C8);
+        LOBYTE(v5) = MiWaitForExtentDeletions(&LockHandle);
+        return v5;
       }
+      goto LABEL_12;
     }
-    else if ( qword_140C4F2A0 || byte_140C4F2E9 )
-    {
-      LOBYTE(v4) = v3;
-      return MiWaitForExtentDeletions(v5, v4);
-    }
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C56920);
-    result = (unsigned int)KiIrqlFlags;
+    if ( !qword_140C4CAE8 )
+      break;
+LABEL_12:
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    LOBYTE(v5) = KiIrqlFlags;
+    OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        result = KeGetCurrentIrql();
-        if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v7 <= 0xFu && (unsigned __int8)result >= 2u )
+        LOBYTE(v5) = KeGetCurrentIrql();
+        if ( (unsigned __int8)v5 <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)v5 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-          v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= result;
-          if ( v11 )
-            result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          a1 = (unsigned int)LockHandle.OldIrql + 1;
+          a2 = -1LL << (LockHandle.OldIrql + 1);
+          v5 = ~(unsigned __int16)a2;
+          v9 = (v5 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v5;
+          if ( v9 )
+            LOBYTE(v5) = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }
-    __writecr8(v7);
+    __writecr8(OldIrql);
+    if ( !v4 )
+      goto LABEL_22;
   }
-  while ( v6 );
-  if ( !a1 )
-    return result;
-  return KeAbPostRelease((ULONG_PTR)&qword_140C4F2C8);
+  LOBYTE(v5) = MiWakeExtentDeletionWaiters(&LockHandle);
+LABEL_22:
+  if ( v2 )
+    LOBYTE(v5) = KeAbPostRelease((ULONG_PTR)&qword_140C4CB10);
+  return v5;
 }

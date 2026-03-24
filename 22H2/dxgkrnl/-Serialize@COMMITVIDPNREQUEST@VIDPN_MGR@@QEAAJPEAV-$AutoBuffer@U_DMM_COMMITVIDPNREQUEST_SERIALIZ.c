@@ -1,54 +1,62 @@
 /*
- * XREFs of ?Serialize@COMMITVIDPNREQUEST@VIDPN_MGR@@QEAAJPEAV?$AutoBuffer@U_DMM_COMMITVIDPNREQUEST_SERIALIZATION@@@DMM@@@Z @ 0x1C00699D4
+ * XREFs of ?Serialize@COMMITVIDPNREQUEST@VIDPN_MGR@@QEAAJPEAV?$AutoBuffer@U_DMM_COMMITVIDPNREQUEST_SERIALIZATION@@@DMM@@@Z @ 0x1C005C904
  * Callers:
- *     ?SerializeCommitVidPnRequests@COMMITVIDPNREQUEST@VIDPN_MGR@@SAJAEBV?$Queue@UCOMMITVIDPNREQUEST@VIDPN_MGR@@@@PEAV?$AutoBuffer@U_DMM_COMMITVIDPNREQUESTSET_SERIALIZATION@@@DMM@@@Z @ 0x1C03AFFB0 (-SerializeCommitVidPnRequests@COMMITVIDPNREQUEST@VIDPN_MGR@@SAJAEBV-$Queue@UCOMMITVIDPNREQUEST@V.c)
+ *     ?SerializeCommitVidPnRequests@COMMITVIDPNREQUEST@VIDPN_MGR@@SAJAEBV?$Queue@UCOMMITVIDPNREQUEST@VIDPN_MGR@@@@PEAV?$AutoBuffer@U_DMM_COMMITVIDPNREQUESTSET_SERIALIZATION@@@DMM@@@Z @ 0x1C02E1158 (-SerializeCommitVidPnRequests@COMMITVIDPNREQUEST@VIDPN_MGR@@SAJAEBV-$Queue@UCOMMITVIDPNREQUEST@V.c)
  * Callees:
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ??1?$AutoBuffer@U_DMM_VIDEOPRESENTSOURCESET_SERIALIZATION@@@DMM@@UEAA@XZ @ 0x1C0067C70 (--1-$AutoBuffer@U_DMM_VIDEOPRESENTSOURCESET_SERIALIZATION@@@DMM@@UEAA@XZ.c)
- *     ?Initialize@?$AutoBuffer@U_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION@@@DMM@@QEAAJ_KQEBXW4DXGK_POOL_FLAGS@@@Z @ 0x1C006965C (-Initialize@-$AutoBuffer@U_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION@@@DMM@@QEAAJ_KQEBXW4DXGK_P.c)
- *     ?Serialize@DMMVIDPN@@QEBAJPEAV?$AutoBuffer@U_DMM_VIDPN_SERIALIZATION@@@DMM@@@Z @ 0x1C03B8F40 (-Serialize@DMMVIDPN@@QEBAJPEAV-$AutoBuffer@U_DMM_VIDPN_SERIALIZATION@@@DMM@@@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ??1?$AutoBuffer@U_DMM_VIDEOPRESENTSOURCESET_SERIALIZATION@@@DMM@@UEAA@XZ @ 0x1C005AEB8 (--1-$AutoBuffer@U_DMM_VIDEOPRESENTSOURCESET_SERIALIZATION@@@DMM@@UEAA@XZ.c)
+ *     ?Initialize@?$AutoBuffer@U_KEY_VALUE_PARTIAL_INFORMATION@@@DMM@@QEAAJ_KQEBXW4_POOL_TYPE@@@Z @ 0x1C005C3E4 (-Initialize@-$AutoBuffer@U_KEY_VALUE_PARTIAL_INFORMATION@@@DMM@@QEAAJ_KQEBXW4_POOL_TYPE@@@Z.c)
+ *     ?Serialize@DMMVIDPN@@QEBAJPEAV?$AutoBuffer@U_DMM_VIDPN_SERIALIZATION@@@DMM@@@Z @ 0x1C02E9188 (-Serialize@DMMVIDPN@@QEBAJPEAV-$AutoBuffer@U_DMM_VIDPN_SERIALIZATION@@@DMM@@@Z.c)
  */
 
-__int64 __fastcall VIDPN_MGR::COMMITVIDPNREQUEST::Serialize(__int64 a1, _QWORD *a2)
+__int64 __fastcall VIDPN_MGR::COMMITVIDPNREQUEST::Serialize(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rcx
-  int v5; // eax
-  unsigned int v6; // ebx
-  __int64 v7; // rax
-  int v8; // ecx
-  void **v10; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v11; // [rsp+28h] [rbp-40h]
-  void **v12; // [rsp+38h] [rbp-30h]
+  __int64 v4; // rax
+  __int64 v5; // rcx
+  int v6; // eax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rbx
+  __int64 v10; // rax
+  __int64 v11; // rcx
+  void **v13; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v14; // [rsp+28h] [rbp-40h]
+  void **v15; // [rsp+38h] [rbp-30h]
   void *Src; // [rsp+40h] [rbp-28h]
   size_t Size; // [rsp+48h] [rbp-20h]
-  __int64 v15; // [rsp+50h] [rbp-18h]
+  int v18; // [rsp+50h] [rbp-18h]
 
-  if ( a2[4] )
-    WdLogSingleEntry0(1LL);
-  v4 = *(_QWORD *)(a1 + 48);
+  if ( *(_QWORD *)(a2 + 32) )
+  {
+    v4 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v4);
+  }
+  v5 = *(_QWORD *)(a1 + 48);
   Src = 0LL;
   Size = 0LL;
-  v10 = &DMM::AutoBuffer<_DMM_MONITORPRESENCEEVENTSET_SERIALIZATION>::`vftable'{for `SetElement'};
-  v12 = &DMM::AutoBuffer<_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION>::`vftable'{for `NonReferenceCounted'};
-  v11 = 0LL;
-  v15 = 256LL;
-  v5 = DMMVIDPN::Serialize(v4, &v10);
-  v6 = v5;
-  if ( v5 >= 0 )
+  v13 = &DMM::AutoBuffer<_DMM_MONITORPRESENCEEVENTSET_SERIALIZATION>::`vftable'{for `SetElement'};
+  v15 = &DMM::AutoBuffer<_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION>::`vftable'{for `NonReferenceCounted'};
+  v14 = 0LL;
+  v18 = 3;
+  v6 = DMMVIDPN::Serialize(v5, &v13);
+  v9 = v6;
+  if ( v6 >= 0 )
   {
-    DMM::AutoBuffer<_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION>::Initialize(a2, Size + 16);
-    memmove((void *)(a2[4] + 16LL), Src, Size);
-    v6 = 0;
-    *(_DWORD *)a2[4] = *(_DWORD *)(a1 + 56);
-    v7 = a2[4];
-    v8 = *(_DWORD *)(a1 + 68);
-    *(_QWORD *)(v7 + 4) = *(_QWORD *)(a1 + 60);
-    *(_DWORD *)(v7 + 12) = v8;
+    DMM::AutoBuffer<_KEY_VALUE_PARTIAL_INFORMATION>::Initialize(a2, Size + 16);
+    memmove((void *)(*(_QWORD *)(a2 + 32) + 16LL), Src, Size);
+    LODWORD(v9) = 0;
+    **(_DWORD **)(a2 + 32) = *(_DWORD *)(a1 + 56);
+    v11 = *(_QWORD *)(a2 + 32);
+    *(_QWORD *)(v11 + 4) = *(_QWORD *)(a1 + 60);
+    *(_DWORD *)(v11 + 12) = *(_DWORD *)(a1 + 68);
   }
   else
   {
-    WdLogSingleEntry2(2LL, *(_QWORD *)(a1 + 48), v5);
+    v10 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v10 + 24) = *(_QWORD *)(a1 + 48);
+    *(_QWORD *)(v10 + 32) = v9;
+    WdLogEvent5_WdError(v10);
   }
-  DMM::AutoBuffer<_DMM_VIDEOPRESENTSOURCESET_SERIALIZATION>::~AutoBuffer<_DMM_VIDEOPRESENTSOURCESET_SERIALIZATION>(&v10);
-  return v6;
+  DMM::AutoBuffer<_DMM_VIDEOPRESENTSOURCESET_SERIALIZATION>::~AutoBuffer<_DMM_VIDEOPRESENTSOURCESET_SERIALIZATION>(&v13);
+  return (unsigned int)v9;
 }

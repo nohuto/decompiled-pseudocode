@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlSizeHeap @ 0x1405E50D0
+ * XREFs of RtlSizeHeap @ 0x140586600
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSizeHeapInternal @ 0x1405EB088 (RtlpSizeHeapInternal.c)
- *     RtlpLogHeapFailure @ 0x1405F1BBC (RtlpLogHeapFailure.c)
+ *     RtlpSizeHeapInternal @ 0x14058BA58 (RtlpSizeHeapInternal.c)
+ *     RtlpLogHeapFailure @ 0x14059356C (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, __int64 a3)

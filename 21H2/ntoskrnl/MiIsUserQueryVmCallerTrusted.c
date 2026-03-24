@@ -1,36 +1,27 @@
 /*
- * XREFs of MiIsUserQueryVmCallerTrusted @ 0x140695CF8
+ * XREFs of MiIsUserQueryVmCallerTrusted @ 0x1407174C0
  * Callers:
- *     MmQueryVirtualMemory @ 0x1407BA750 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     SeTokenIsAdmin @ 0x140695DA0 (SeTokenIsAdmin.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     PsReferenceEffectiveToken @ 0x1407B3B60 (PsReferenceEffectiveToken.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
+ *     SeTokenIsAdmin @ 0x140717530 (SeTokenIsAdmin.c)
  */
 
 __int64 __fastcall MiIsUserQueryVmCallerTrusted(__int64 a1)
 {
-  void *v2; // rbx
-  unsigned int v3; // edi
-  char v5; // [rsp+58h] [rbp+10h] BYREF
-  int v6; // [rsp+60h] [rbp+18h] BYREF
-  __int64 v7; // [rsp+68h] [rbp+20h] BYREF
+  unsigned int v1; // ebx
+  struct _DMA_ADAPTER *v2; // rdi
+  bool v4; // [rsp+48h] [rbp+10h] BYREF
+  int v5; // [rsp+50h] [rbp+18h] BYREF
+  int v6; // [rsp+58h] [rbp+20h] BYREF
 
-  v6 = 0;
-  v5 = 0;
-  v2 = (void *)PsReferenceEffectiveToken(a1, 1953654867LL, &v6, &v5, &v7, 0LL);
-  v3 = 0;
+  v1 = 0;
+  v4 = 0;
+  v2 = (struct _DMA_ADAPTER *)PsReferenceEffectiveToken(a1, &v6, &v4, &v5, 0LL);
   if ( SeTokenIsAdmin(v2) || SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, 1) )
-    v3 = 1;
-  if ( v6 == 1 )
-  {
-    ObFastDereferenceObject((signed __int64 *)(*(_QWORD *)(a1 + 544) + 1208LL), (unsigned __int64)v2, 0x74726853u);
-  }
-  else if ( v2 )
-  {
-    ObfDereferenceObjectWithTag(v2, 0x74726853u);
-  }
-  return v3;
+    v1 = 1;
+  HalPutDmaAdapter(v2);
+  return v1;
 }

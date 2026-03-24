@@ -1,15 +1,15 @@
 /*
- * XREFs of PspInitializeSystemPartitionPhase0 @ 0x140B28514
+ * XREFs of PspInitializeSystemPartitionPhase0 @ 0x140A6DD90
  * Callers:
- *     PspInitPhase0 @ 0x140AFD7A4 (PspInitPhase0.c)
+ *     PspInitPhase0 @ 0x140A3DC68 (PspInitPhase0.c)
  * Callees:
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x14078ED30 (RtlAddAccessAllowedAce.c)
- *     PsCreatePartition @ 0x14085BC40 (PsCreatePartition.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x140676BE0 (RtlAddAccessAllowedAce.c)
+ *     PspAllocatePartition @ 0x1407CC2B4 (PspAllocatePartition.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PspInitializeSystemPartitionPhase0()
@@ -18,21 +18,21 @@ __int64 PspInitializeSystemPartitionPhase0()
   ULONG v1; // ebx
   ACL *PoolWithTag; // rax
   ACL *v3; // rdi
-  _QWORD v5[2]; // [rsp+30h] [rbp-19h] BYREF
-  _OWORD SecurityDescriptor[2]; // [rsp+40h] [rbp-9h] BYREF
-  __int64 v7; // [rsp+60h] [rbp+17h]
-  int v8[2]; // [rsp+68h] [rbp+1Fh] BYREF
-  __int64 v9; // [rsp+70h] [rbp+27h]
-  _QWORD *v10; // [rsp+78h] [rbp+2Fh]
-  int v11; // [rsp+80h] [rbp+37h]
-  int v12; // [rsp+84h] [rbp+3Bh]
-  _OWORD *v13; // [rsp+88h] [rbp+3Fh]
-  __int64 v14; // [rsp+90h] [rbp+47h]
+  _QWORD v5[2]; // [rsp+40h] [rbp-19h] BYREF
+  _OWORD SecurityDescriptor[2]; // [rsp+50h] [rbp-9h] BYREF
+  __int64 v7; // [rsp+70h] [rbp+17h]
+  _DWORD v8[2]; // [rsp+78h] [rbp+1Fh] BYREF
+  __int64 v9; // [rsp+80h] [rbp+27h]
+  _QWORD *v10; // [rsp+88h] [rbp+2Fh]
+  int v11; // [rsp+90h] [rbp+37h]
+  int v12; // [rsp+94h] [rbp+3Bh]
+  _OWORD *v13; // [rsp+98h] [rbp+3Fh]
+  __int64 v14; // [rsp+A0h] [rbp+47h]
 
-  v5[0] = 4194366LL;
-  v12 = 0;
   v8[1] = 0;
+  v12 = 0;
   v7 = 0LL;
+  v5[0] = 4194366LL;
   v5[1] = L"\\KernelObjects\\MemoryPartition0";
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   Acl = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
@@ -55,10 +55,10 @@ __int64 PspInitializeSystemPartitionPhase0()
             v9 = 0LL;
             v14 = 0LL;
             v10 = v5;
-            v13 = SecurityDescriptor;
             v8[0] = 48;
+            v13 = SecurityDescriptor;
             v11 = 512;
-            Acl = PsCreatePartition(0LL, 0LL, 2031619, (int)v8, 0, 1);
+            Acl = PspAllocatePartition((__int64)v8, 0x1F0003u, 0, 0LL, 1, &PspSystemPartition, 0LL);
           }
         }
       }

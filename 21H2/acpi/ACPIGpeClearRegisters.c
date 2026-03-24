@@ -1,25 +1,24 @@
 /*
- * XREFs of ACPIGpeClearRegisters @ 0x1C001FDEC
+ * XREFs of ACPIGpeClearRegisters @ 0x1C0026834
  * Callers:
- *     ACPIGpeClearEventMasks @ 0x1C001FC84 (ACPIGpeClearEventMasks.c)
- *     ACPIEnableInitializeACPI @ 0x1C00244C0 (ACPIEnableInitializeACPI.c)
- *     ACPILoadProcessFADT @ 0x1C00BEF88 (ACPILoadProcessFADT.c)
+ *     ACPIEnableInitializeACPI @ 0x1C0010040 (ACPIEnableInitializeACPI.c)
+ *     ACPIGpeClearEventMasks @ 0x1C0025C40 (ACPIGpeClearEventMasks.c)
+ *     ACPILoadProcessFADT @ 0x1C00BECCC (ACPILoadProcessFADT.c)
  * Callees:
- *     ACPIWriteGpeStatusRegister @ 0x1C001FE48 (ACPIWriteGpeStatusRegister.c)
- *     ACPIReadGpeStatusRegister @ 0x1C001FEBC (ACPIReadGpeStatusRegister.c)
+ *     ACPIWriteGpeStatusRegister @ 0x1C0026890 (ACPIWriteGpeStatusRegister.c)
+ *     ACPIReadGpeStatusRegister @ 0x1C0026904 (ACPIReadGpeStatusRegister.c)
  */
 
 void *ACPIGpeClearRegisters()
 {
   void *result; // rax
-  __int64 i; // rbx
-  __int64 v2; // rdx
+  unsigned int i; // ebx
 
   result = AcpiInformation;
-  for ( i = 0LL; (unsigned int)i < *((unsigned __int16 *)AcpiInformation + 51); i = (unsigned int)(i + 1) )
+  for ( i = 0; i < *((unsigned __int16 *)AcpiInformation + 51); ++i )
   {
-    LOBYTE(v2) = ACPIReadGpeStatusRegister((unsigned int)i) & (*((_BYTE *)GpeEnable + i) | *((_BYTE *)GpeWakeEnable + i));
-    ACPIWriteGpeStatusRegister((unsigned int)i, v2);
+    ACPIReadGpeStatusRegister(i);
+    ACPIWriteGpeStatusRegister(i);
     result = AcpiInformation;
   }
   return result;

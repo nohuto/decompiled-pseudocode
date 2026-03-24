@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwSetSystemPowerState @ 0x1401BB5F0
+ * XREFs of ZwSetSystemPowerState @ 0x1401BB610
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PopIssueActionRequest @ 0x1406DE870 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
  * Callees:
  *     <none>
  */

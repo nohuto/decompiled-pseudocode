@@ -1,15 +1,15 @@
 /*
- * XREFs of SmFpCleanup @ 0x14011D680
+ * XREFs of SmFpCleanup @ 0x14011D6A0
  * Callers:
- *     ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3E68 (-SmFirstTimeInit@@YAJKK@Z.c)
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14011D184 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmFpPreAllocate @ 0x14018E5E8 (SmFpPreAllocate.c)
- *     ?SmReInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140302514 (-SmReInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3E88 (-SmFirstTimeInit@@YAJKK@Z.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14011D1A4 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmFpPreAllocate @ 0x14018E608 (SmFpPreAllocate.c)
+ *     ?SmReInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140302614 (-SmReInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
  * Callees:
- *     SmAcquireReleaseCharges @ 0x1400E3CE4 (SmAcquireReleaseCharges.c)
- *     SmKmFreeMdlForLock @ 0x14015006C (SmKmFreeMdlForLock.c)
+ *     SmAcquireReleaseCharges @ 0x1400E3D04 (SmAcquireReleaseCharges.c)
+ *     SmKmFreeMdlForLock @ 0x14015008C (SmKmFreeMdlForLock.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmFreeMappingAddress @ 0x1406FC4D0 (MmFreeMappingAddress.c)
+ *     MmFreeMappingAddress @ 0x1406FC4B0 (MmFreeMappingAddress.c)
  */
 
 void __fastcall SmFpCleanup(__int64 a1)

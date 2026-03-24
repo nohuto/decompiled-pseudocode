@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_DeletingUCXDeviceOnOperationFailureFor30OnHubSuspend @ 0x1C0020AB0
+ * XREFs of HUBDSM_DeletingUCXDeviceOnOperationFailureFor30OnHubSuspend @ 0x1C001E210
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_DeleteDeviceFromUCX @ 0x1C00285DC (HUBUCX_DeleteDeviceFromUCX.c)
+ *     HUBUCX_DeleteDeviceFromUCX @ 0x1C00259E8 (HUBUCX_DeleteDeviceFromUCX.c)
  */
 
 __int64 __fastcall HUBDSM_DeletingUCXDeviceOnOperationFailureFor30OnHubSuspend(__int64 a1)

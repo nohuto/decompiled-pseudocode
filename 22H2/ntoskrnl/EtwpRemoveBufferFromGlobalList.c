@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpRemoveBufferFromGlobalList @ 0x140411870
+ * XREFs of EtwpRemoveBufferFromGlobalList @ 0x1403F897C
  * Callers:
- *     EtwpAdjustSiloTraceBuffers @ 0x140228540 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x14032ED38 (EtwpAdjustSiloTraceBuffers.c)
  * Callees:
  *     <none>
  */
@@ -10,28 +10,28 @@ _QWORD *__fastcall EtwpRemoveBufferFromGlobalList(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // r8
   _QWORD *result; // rax
-  _QWORD *v4; // rcx
-  _QWORD *v5; // rdx
+  bool i; // zf
+  _QWORD *v5; // rcx
+  _QWORD *v6; // rdx
 
-  v2 = (_QWORD *)(a1 + 80);
-  result = *(_QWORD **)(a1 + 80);
-  if ( result != (_QWORD *)(a1 + 80) )
+  v2 = (_QWORD *)(a1 + 96);
+  result = *(_QWORD **)(a1 + 96);
+  for ( i = result == (_QWORD *)(a1 + 96); ; i = v5 == v2 )
   {
-    while ( result )
+    if ( i )
+      result = 0LL;
+    if ( !result )
+      break;
+    v5 = (_QWORD *)*result;
+    if ( result[2] == a2 )
     {
-      v4 = (_QWORD *)*result;
-      if ( result[2] == a2 )
-      {
-        if ( (_QWORD *)v4[1] != result || (v5 = (_QWORD *)result[1], (_QWORD *)*v5 != result) )
-          __fastfail(3u);
-        *v5 = v4;
-        v4[1] = v5;
-        return result;
-      }
-      result = (_QWORD *)*result;
-      if ( v4 == v2 )
-        result = 0LL;
+      if ( (_QWORD *)v5[1] != result || (v6 = (_QWORD *)result[1], (_QWORD *)*v6 != result) )
+        __fastfail(3u);
+      *v6 = v5;
+      v5[1] = v6;
+      return result;
     }
+    result = (_QWORD *)*result;
   }
-  return 0LL;
+  return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of IopDmaPackResource @ 0x14095A1F0
+ * XREFs of IopDmaPackResource @ 0x1407D50F0
  * Callers:
  *     <none>
  * Callees:
@@ -14,16 +14,16 @@ __int64 __fastcall IopDmaPackResource(__int64 a1, int a2, __int64 a3)
   *(_BYTE *)(a3 + 1) = *(_BYTE *)(a1 + 2);
   v3 = *(_WORD *)(a1 + 4);
   *(_WORD *)(a3 + 2) = v3;
-  if ( (v3 & 0x80u) == 0 )
-  {
-    *(_DWORD *)(a3 + 8) = 0;
-    *(_DWORD *)(a3 + 4) = a2;
-  }
-  else
+  if ( (v3 & 0x80u) != 0 )
   {
     *(_DWORD *)(a3 + 4) = *(_DWORD *)(a1 + 16);
     *(_DWORD *)(a3 + 8) = *(_DWORD *)(a1 + 8);
     *(_BYTE *)(a3 + 12) = *(_BYTE *)(a1 + 20);
+  }
+  else
+  {
+    *(_DWORD *)(a3 + 8) = 0;
+    *(_DWORD *)(a3 + 4) = a2;
   }
   return 0LL;
 }

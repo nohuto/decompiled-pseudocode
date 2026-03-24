@@ -1,7 +1,7 @@
 /*
- * XREFs of ?_TTClip@@YAXPEAUtagTOUCHTARGETINGCONTACT@@JW4tagCLIP_SIDE@@@Z @ 0x1C024D794
+ * XREFs of ?_TTClip@@YAXPEAUtagTOUCHTARGETINGCONTACT@@JW4tagCLIP_SIDE@@@Z @ 0x1C025EB64
  * Callers:
- *     TouchTargetingClipContact @ 0x1C024DE58 (TouchTargetingClipContact.c)
+ *     TouchTargetingClipContact @ 0x1C025F114 (TouchTargetingClipContact.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlWorkerThread @ 0x1401924C0
+ * XREFs of FsRtlWorkerThread @ 0x1401924E0
  * Callers:
  *     <none>
  * Callees:
  *     KeRemoveQueueEx @ 0x140058D60 (KeRemoveQueueEx.c)
- *     KeSetPriorityThread @ 0x1400CD850 (KeSetPriorityThread.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall __noreturn FsRtlWorkerThread(PVOID StartContext)

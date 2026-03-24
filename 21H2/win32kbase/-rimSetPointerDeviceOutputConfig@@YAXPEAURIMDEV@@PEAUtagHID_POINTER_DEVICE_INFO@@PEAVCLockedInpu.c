@@ -1,15 +1,15 @@
 /*
- * XREFs of ?rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C01979CC
+ * XREFs of ?rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C0163ED8
  * Callers:
- *     RIMSetDeviceOutputConfig @ 0x1C0198794 (RIMSetDeviceOutputConfig.c)
+ *     RIMSetDeviceOutputConfig @ 0x1C0164C1C (RIMSetDeviceOutputConfig.c)
  * Callees:
- *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C003C1A0 (--0CLockedInputSpace@@QEAA@XZ.c)
- *     RIMGetVirtualDesktopPhysicalSize @ 0x1C003C470 (RIMGetVirtualDesktopPhysicalSize.c)
- *     EngMulDiv @ 0x1C006E450 (EngMulDiv.c)
- *     HMValidateSharedHandleNoRip @ 0x1C008F240 (HMValidateSharedHandleNoRip.c)
- *     RIMGetMonitorPhysicalSize @ 0x1C0198300 (RIMGetMonitorPhysicalSize.c)
- *     rimUpdatePointerDeviceOrientation @ 0x1C0199B60 (rimUpdatePointerDeviceOrientation.c)
- *     ?GetInputSpace@InputConfig@@SA_NU_LUID@@PEAVCLockedInputSpace@@@Z @ 0x1C01E3A20 (-GetInputSpace@InputConfig@@SA_NU_LUID@@PEAVCLockedInputSpace@@@Z.c)
+ *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C0044158 (--0CLockedInputSpace@@QEAA@XZ.c)
+ *     EngMulDiv @ 0x1C0070E10 (EngMulDiv.c)
+ *     RIMGetVirtualDesktopPhysicalSize @ 0x1C00ABC30 (RIMGetVirtualDesktopPhysicalSize.c)
+ *     HMValidateSharedHandleNoRip @ 0x1C00B3EE8 (HMValidateSharedHandleNoRip.c)
+ *     RIMGetMonitorPhysicalSize @ 0x1C0164840 (RIMGetMonitorPhysicalSize.c)
+ *     rimUpdatePointerDeviceOrientation @ 0x1C0166108 (rimUpdatePointerDeviceOrientation.c)
+ *     ?GetInputSpace@InputConfig@@SA_NU_LUID@@PEAVCLockedInputSpace@@@Z @ 0x1C01B329C (-GetInputSpace@InputConfig@@SA_NU_LUID@@PEAVCLockedInputSpace@@@Z.c)
  */
 
 void __fastcall rimSetPointerDeviceOutputConfig(
@@ -67,10 +67,10 @@ void __fastcall rimSetPointerDeviceOutputConfig(
     *((_QWORD *)a2 + 30) = 0LL;
     *((_DWORD *)a2 + 62) = 0;
   }
-  v11 = *((_DWORD *)a2 + 90);
+  v11 = *((_DWORD *)a2 + 78);
   if ( (v11 & 8) == 0 || (v11 & 0x2000) != 0 )
   {
-    if ( *((_DWORD *)a1 + 334) && (*(_DWORD *)(v6 + 16) & 2) != 0 )
+    if ( *((_DWORD *)a1 + 336) && (*(_DWORD *)(v6 + 16) & 2) != 0 )
     {
       v16 = *((_DWORD *)a2 + 37);
       *((_DWORD *)a2 + 56) = *(_DWORD *)(v6 + 164);
@@ -96,9 +96,9 @@ void __fastcall rimSetPointerDeviceOutputConfig(
     v13 = _mm_srli_si128(*((__m128i *)a2 + 10), 8).m128i_u64[0];
     *((_DWORD *)a2 + 50) = v13 - v12;
     *((_DWORD *)a2 + 51) = HIDWORD(v13) - HIDWORD(v12);
-    if ( *((_DWORD *)a1 + 334) )
+    if ( *((_DWORD *)a1 + 336) )
     {
-      v14 = HMValidateSharedHandleNoRip(*((_QWORD *)a1 + 168));
+      v14 = HMValidateSharedHandleNoRip(*((_QWORD *)a1 + 169));
       v15 = (_OWORD *)RIMGetMonitorPhysicalSize(v25, v14);
     }
     else

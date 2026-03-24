@@ -1,24 +1,22 @@
 /*
- * XREFs of ACPIIrpDispatchDeviceControl @ 0x1C0001410
+ * XREFs of ACPIIrpDispatchDeviceControl @ 0x1C000B8A0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDispatchForwardIrp @ 0x1C0001660 (ACPIDispatchForwardIrp.c)
- *     ACPIIoctlEvalControlMethod @ 0x1C001BC74 (ACPIIoctlEvalControlMethod.c)
- *     ACPIIoctlEnumChildren @ 0x1C001F2D4 (ACPIIoctlEnumChildren.c)
- *     ACPIIoctlRegisterOpRegionHandler @ 0x1C0029204 (ACPIIoctlRegisterOpRegionHandler.c)
- *     ACPIIoctlGetDeviceSpecificData @ 0x1C002B560 (ACPIIoctlGetDeviceSpecificData.c)
- *     ACPIIoctlAsyncEvalControlMethod @ 0x1C002D9AC (ACPIIoctlAsyncEvalControlMethod.c)
- *     ACPIIoctlRegisterDeviceFirmwareLock @ 0x1C002DB1C (ACPIIoctlRegisterDeviceFirmwareLock.c)
- *     ACPIIoctlAcquireGlobalLock @ 0x1C0057FBC (ACPIIoctlAcquireGlobalLock.c)
- *     ACPIIoctlEvaluateUsb4Osc @ 0x1C00587F4 (ACPIIoctlEvaluateUsb4Osc.c)
- *     ACPIIoctlGetDeviceInformation @ 0x1C0058990 (ACPIIoctlGetDeviceInformation.c)
- *     ACPIIoctlQueryDeviceBiosNameEx @ 0x1C0058C04 (ACPIIoctlQueryDeviceBiosNameEx.c)
- *     ACPIIoctlReleaseGlobalLock @ 0x1C0058CE0 (ACPIIoctlReleaseGlobalLock.c)
- *     ACPIIoctlUnRegisterOpRegionHandler @ 0x1C0058D6C (ACPIIoctlUnRegisterOpRegionHandler.c)
- *     ACPIIoctlUnregisterDeviceFirmwareLockHandler @ 0x1C0058DD4 (ACPIIoctlUnregisterDeviceFirmwareLockHandler.c)
- *     ACPIIoctlQueryDeviceBiosName @ 0x1C00AF388 (ACPIIoctlQueryDeviceBiosName.c)
- *     ACPIIoctlTranslateBiosResources @ 0x1C00AF43C (ACPIIoctlTranslateBiosResources.c)
+ *     ACPIDispatchForwardIrp @ 0x1C0001E60 (ACPIDispatchForwardIrp.c)
+ *     ACPIIoctlEvalControlMethod @ 0x1C000BAC4 (ACPIIoctlEvalControlMethod.c)
+ *     ACPIIoctlEnumChildren @ 0x1C0013C10 (ACPIIoctlEnumChildren.c)
+ *     ACPIIoctlRegisterOpRegionHandler @ 0x1C002C0C8 (ACPIIoctlRegisterOpRegionHandler.c)
+ *     ACPIIoctlGetDeviceSpecificData @ 0x1C002C6AC (ACPIIoctlGetDeviceSpecificData.c)
+ *     ACPIIoctlRegisterDeviceFirmwareLock @ 0x1C003093C (ACPIIoctlRegisterDeviceFirmwareLock.c)
+ *     ACPIIoctlAcquireGlobalLock @ 0x1C005721C (ACPIIoctlAcquireGlobalLock.c)
+ *     ACPIIoctlAsyncEvalControlMethod @ 0x1C00572F4 (ACPIIoctlAsyncEvalControlMethod.c)
+ *     ACPIIoctlGetDeviceInformation @ 0x1C005804C (ACPIIoctlGetDeviceInformation.c)
+ *     ACPIIoctlReleaseGlobalLock @ 0x1C00582E0 (ACPIIoctlReleaseGlobalLock.c)
+ *     ACPIIoctlUnRegisterOpRegionHandler @ 0x1C005836C (ACPIIoctlUnRegisterOpRegionHandler.c)
+ *     ACPIIoctlUnregisterDeviceFirmwareLockHandler @ 0x1C00583D4 (ACPIIoctlUnregisterDeviceFirmwareLockHandler.c)
+ *     ACPIIoctlQueryDeviceBiosName @ 0x1C00AFEE0 (ACPIIoctlQueryDeviceBiosName.c)
+ *     ACPIIoctlTranslateBiosResources @ 0x1C00AFF8C (ACPIIoctlTranslateBiosResources.c)
  */
 
 __int64 __fastcall ACPIIrpDispatchDeviceControl(ULONG_PTR BugCheckParameter3, PIRP Irp)
@@ -43,7 +41,7 @@ __int64 __fastcall ACPIIrpDispatchDeviceControl(ULONG_PTR BugCheckParameter3, PI
     BugCheckParameter3 = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
     if ( (Irp->Flags & 0x400000) == 0 )
     {
-      if ( RootDeviceExtension && v5 == *(_QWORD *)(RootDeviceExtension + 768) && (_DWORD)BugCheckParameter3 == 3325952 )
+      if ( RootDeviceExtension && v5 == *(_QWORD *)(RootDeviceExtension + 728) && (_DWORD)BugCheckParameter3 == 3325952 )
       {
         if ( SeSinglePrivilegeCheck((LUID)7LL, RequestorMode) )
           goto LABEL_2;
@@ -62,7 +60,7 @@ __int64 __fastcall ACPIIrpDispatchDeviceControl(ULONG_PTR BugCheckParameter3, PI
       }
       Status = -1073741637;
       Irp->IoStatus.Status = -1073741637;
-      goto LABEL_44;
+      goto LABEL_42;
     }
     if ( (_DWORD)BugCheckParameter3 != 3325956 && (_DWORD)BugCheckParameter3 != 3325952 )
     {
@@ -88,14 +86,14 @@ LABEL_3:
     }
 LABEL_5:
     KeReleaseSpinLock(&AcpiDeviceTreeLock, v7);
-    if ( *(_QWORD *)(v8 + 776) )
+    if ( *(_QWORD *)(v8 + 736) )
     {
       ++Irp->CurrentLocation;
       ++Irp->Tail.Overlay.CurrentStackLocation;
-      return (unsigned int)IofCallDriver(*(PDEVICE_OBJECT *)(v8 + 776), Irp);
+      return (unsigned int)IofCallDriver(*(PDEVICE_OBJECT *)(v8 + 736), Irp);
     }
     Status = Irp->IoStatus.Status;
-LABEL_44:
+LABEL_42:
     IofCompleteRequest(Irp, 0);
     return Status;
   }
@@ -105,8 +103,7 @@ LABEL_44:
     case 0x32C01Cu:
     case 0x32C040u:
     case 0x32C048u:
-      result = ACPIIoctlAsyncEvalControlMethod(v5, Irp, CurrentStackLocation);
-      break;
+      return (unsigned int)ACPIIoctlAsyncEvalControlMethod(v5, Irp, CurrentStackLocation);
     case 0x32C004u:
     case 0x32C018u:
     case 0x32C03Cu:
@@ -139,10 +136,6 @@ LABEL_44:
     case 0x32C038u:
       result = ACPIIoctlGetDeviceSpecificData(v5, Irp, CurrentStackLocation);
       break;
-    case 0x32C04Cu:
-      return (unsigned int)ACPIIoctlEvaluateUsb4Osc(v5, Irp);
-    case 0x32C050u:
-      return (unsigned int)ACPIIoctlQueryDeviceBiosNameEx(v5, Irp, CurrentStackLocation);
     default:
       goto LABEL_3;
   }

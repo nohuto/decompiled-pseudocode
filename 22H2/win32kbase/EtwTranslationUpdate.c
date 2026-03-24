@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTranslationUpdate @ 0x1C016B9D0
+ * XREFs of EtwTranslationUpdate @ 0x1C014CA60
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pqqqq_EtwWriteTransfer @ 0x1C00DFB64 (McTemplateK0pqqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqq_EtwWriteTransfer @ 0x1C0126348 (McTemplateK0pqqqq_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall EtwTranslationUpdate(__int64 a1, int a2, __int64 a3, int a4, int a5)

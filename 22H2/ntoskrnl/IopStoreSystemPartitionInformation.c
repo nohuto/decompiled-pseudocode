@@ -1,17 +1,16 @@
 /*
- * XREFs of IopStoreSystemPartitionInformation @ 0x140B3F574
+ * XREFs of IopStoreSystemPartitionInformation @ 0x140A615B8
  * Callers:
- *     IopMarkBootPartition @ 0x140B3D4F0 (IopMarkBootPartition.c)
+ *     IopMarkBootPartition @ 0x140A61890 (IopMarkBootPartition.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14022C6D0 (RtlStringCchCopyW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwOpenSymbolicLinkObject @ 0x14041CD60 (ZwOpenSymbolicLinkObject.c)
- *     NtSetValueKey @ 0x1406D2AB0 (NtSetValueKey.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     NtQuerySymbolicLinkObject @ 0x1407AAB70 (NtQuerySymbolicLinkObject.c)
- *     IopCreateRegistryKeyEx @ 0x1407DAA18 (IopCreateRegistryKeyEx.c)
- *     IopOpenRegistryKeyEx @ 0x1408135F0 (IopOpenRegistryKeyEx.c)
+ *     RtlStringCchCopyW @ 0x140371E80 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1403FBFE0 (ZwOpenSymbolicLinkObject.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     NtQuerySymbolicLinkObject @ 0x140666310 (NtQuerySymbolicLinkObject.c)
+ *     NtSetValueKey @ 0x1406DCBB0 (NtSetValueKey.c)
+ *     IopCreateRegistryKeyEx @ 0x14073C1E4 (IopCreateRegistryKeyEx.c)
+ *     IopOpenRegistryKeyEx @ 0x1407ACA90 (IopOpenRegistryKeyEx.c)
  */
 
 int __fastcall IopStoreSystemPartitionInformation(__int64 a1, unsigned __int16 *a2)
@@ -21,79 +20,109 @@ int __fastcall IopStoreSystemPartitionInformation(__int64 a1, unsigned __int16 *
   int v5; // ebx
   HANDLE v6; // rbx
   __int64 v7; // rcx
-  __int64 v8; // rdx
-  unsigned __int16 v9; // cx
+  unsigned __int16 v8; // dx
+  __int64 v9; // r8
+  unsigned __int16 v10; // cx
   size_t Size; // [rsp+28h] [rbp-D8h]
-  _WORD v11[2]; // [rsp+30h] [rbp-D0h] BYREF
-  int v12; // [rsp+34h] [rbp-CCh]
-  __int64 v13; // [rsp+38h] [rbp-C8h]
-  HANDLE LinkHandle; // [rsp+40h] [rbp-C0h] BYREF
-  HANDLE Handle; // [rsp+48h] [rbp-B8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
-  HANDLE v17; // [rsp+60h] [rbp-A0h] BYREF
+  _WORD v12[2]; // [rsp+30h] [rbp-D0h] BYREF
+  int v13; // [rsp+34h] [rbp-CCh]
+  __int64 v14; // [rsp+38h] [rbp-C8h]
+  int v15[4]; // [rsp+40h] [rbp-C0h] BYREF
+  HANDLE LinkHandle; // [rsp+50h] [rbp-B0h] BYREF
+  HANDLE Handle; // [rsp+58h] [rbp-A8h] BYREF
+  HANDLE v18; // [rsp+60h] [rbp-A0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-98h] BYREF
-  wchar_t pszDest[256]; // [rsp+A0h] [rbp-60h] BYREF
+  int v20; // [rsp+98h] [rbp-68h] BYREF
+  int v21; // [rsp+9Ch] [rbp-64h]
+  int v22; // [rsp+A0h] [rbp-60h]
+  int v23; // [rsp+A4h] [rbp-5Ch]
+  int v24; // [rsp+A8h] [rbp-58h]
+  int v25; // [rsp+ACh] [rbp-54h]
+  int v26; // [rsp+B0h] [rbp-50h]
+  int v27; // [rsp+B4h] [rbp-4Ch]
+  wchar_t pszDest[256]; // [rsp+C0h] [rbp-40h] BYREF
 
   LinkHandle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   Handle = 0LL;
-  v17 = 0LL;
-  DestinationString = 0LL;
-  v12 = 0;
+  v18 = 0LL;
+  *(_OWORD *)v15 = 0LL;
+  v13 = 0;
   RtlStringCchCopyW(pszDest, 0x100uLL, IoArcHalDeviceName.Buffer);
-  v13 = (__int64)pszDest;
-  v11[0] = IoArcHalDeviceName.Length;
+  v14 = (__int64)pszDest;
+  v12[0] = IoArcHalDeviceName.Length;
   if ( IoArcHalDeviceName.Length > 0x200u )
-    v11[0] = 512;
-  v11[1] = 510;
+    v12[0] = 512;
+  v12[1] = 510;
   while ( 1 )
   {
     ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)v11;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)v12;
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     result = ZwOpenSymbolicLinkObject(&LinkHandle, 1u, &ObjectAttributes);
     if ( result < 0 )
       break;
-    SymbolicLinkObject = NtQuerySymbolicLinkObject(LinkHandle, (unsigned __int64)v11, 0LL);
+    SymbolicLinkObject = NtQuerySymbolicLinkObject(LinkHandle, (unsigned __int64)v12, 0LL);
     result = ObCloseHandle(LinkHandle, 0);
     if ( SymbolicLinkObject < 0 )
       return result;
-    *(_WORD *)(v13 + 2 * ((unsigned __int64)v11[0] >> 1)) = 0;
+    *(_WORD *)(v14 + 2 * ((unsigned __int64)v12[0] >> 1)) = 0;
   }
   if ( result == -1073741788 )
   {
     result = IopOpenRegistryKeyEx(&Handle, 0LL, &CmRegistryMachineSystemName, 0xF003Fu);
     if ( result >= 0 )
     {
-      RtlInitUnicodeString(&DestinationString, L"Setup");
-      v5 = IopCreateRegistryKeyEx(&v17, Handle, &DestinationString, 0xF003Fu, 0, 0LL);
+      *(_QWORD *)&v15[2] = &v20;
+      v20 = 6619219;
+      v21 = 7667828;
+      v22 = 112;
+      v15[0] = 786442;
+      v5 = IopCreateRegistryKeyEx(&v18, Handle, (UNICODE_STRING *)v15, 0xF003Fu, 0, 0LL);
       result = ObCloseHandle(Handle, 0);
       if ( v5 >= 0 )
       {
-        v6 = v17;
+        v6 = v18;
         if ( !InitIsWinPEMode )
         {
-          RtlInitUnicodeString(&DestinationString, L"SystemPartition");
-          LODWORD(Size) = v11[0] + 2;
-          NtSetValueKey((__int64)v6, &DestinationString, 0, 1u, (struct _PRIVILEGE_SET *)v13, Size);
+          v20 = 7929939;
+          LODWORD(Size) = v12[0] + 2;
+          v21 = 7602291;
+          v22 = 7143525;
+          v23 = 6357072;
+          v24 = 7602290;
+          v25 = 7602281;
+          v26 = 7274601;
+          v27 = 110;
+          v15[0] = 2097182;
+          NtSetValueKey((__int64)v18, (unsigned __int64)v15, 0LL, 1LL, (void *)v14, Size);
         }
-        RtlInitUnicodeString(&DestinationString, L"OsLoaderPath");
         v7 = *a2;
+        v20 = 7536719;
+        v8 = v7;
+        v21 = 7274572;
+        v22 = 6553697;
+        v23 = 7471205;
+        v24 = 6357072;
+        v25 = 6815860;
+        LOWORD(v26) = 0;
+        v15[0] = 1703960;
         if ( (unsigned __int16)v7 > 2u )
         {
-          v8 = *((_QWORD *)a2 + 1);
-          if ( *(_WORD *)(v7 + v8 - 2) == 92 )
+          v9 = *((_QWORD *)a2 + 1);
+          if ( *(_WORD *)(v7 + v9 - 2) == 92 )
           {
-            v9 = v7 - 2;
-            *a2 = v9;
-            *(_WORD *)(v9 + v8) = 0;
+            v10 = v7 - 2;
+            *a2 = v10;
+            *(_WORD *)(v10 + v9) = 0;
+            v8 = *a2;
           }
         }
-        LODWORD(Size) = *a2 + 2;
-        NtSetValueKey((__int64)v6, &DestinationString, 0, 1u, *((struct _PRIVILEGE_SET **)a2 + 1), Size);
+        LODWORD(Size) = v8 + 2;
+        NtSetValueKey((__int64)v6, (unsigned __int64)v15, 0LL, 1LL, *((void **)a2 + 1), Size);
         return ObCloseHandle(v6, 0);
       }
     }

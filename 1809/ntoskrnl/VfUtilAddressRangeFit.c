@@ -1,8 +1,8 @@
 /*
  * XREFs of VfUtilAddressRangeFit @ 0x140925FBC
  * Callers:
- *     ViDeadlockRemoveMemoryRangeResources @ 0x14030B17C (ViDeadlockRemoveMemoryRangeResources.c)
- *     ViDeadlockRemoveMemoryRangeThreads @ 0x14030B2DC (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x14030B27C (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x14030B3DC (ViDeadlockRemoveMemoryRangeThreads.c)
  *     ViDeadlockSearchResource @ 0x14093DC2C (ViDeadlockSearchResource.c)
  *     ViDeadlockSearchThread @ 0x14093DCD8 (ViDeadlockSearchThread.c)
  *     ViIrpDatabaseFindPointer @ 0x14093E594 (ViIrpDatabaseFindPointer.c)

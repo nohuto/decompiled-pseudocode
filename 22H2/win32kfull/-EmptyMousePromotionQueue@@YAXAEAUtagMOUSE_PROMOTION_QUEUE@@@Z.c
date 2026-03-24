@@ -1,23 +1,24 @@
 /*
- * XREFs of ?EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C003B21C
+ * XREFs of ?EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C000BC24
  * Callers:
- *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C003B554 (-InitiateWin32kCleanup@@YAHXZ.c)
- *     ?OnPointerInputRetrieval@PointerPromotion@@YAXGKUtagPOINT@@H@Z @ 0x1C015611E (-OnPointerInputRetrieval@PointerPromotion@@YAXGKUtagPOINT@@H@Z.c)
- *     ?CancelAutoPromotion@@YAXXZ @ 0x1C01F7A38 (-CancelAutoPromotion@@YAXXZ.c)
- *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C01F8228 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
- *     ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C01F84A8 (-ResetMousePromotionInfo@@YAXGG@Z.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C000ADD4 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     ?CancelAutoPromotion@@YAXXZ @ 0x1C0217FEC (-CancelAutoPromotion@@YAXXZ.c)
+ *     ?OnPointerInputRetrieval@PointerPromotion@@YAXGKUtagPOINT@@H@Z @ 0x1C02184F0 (-OnPointerInputRetrieval@PointerPromotion@@YAXGKUtagPOINT@@H@Z.c)
+ *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0218808 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ *     ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C0218B40 (-ResetMousePromotionInfo@@YAXGG@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall EmptyMousePromotionQueue(struct tagMOUSE_PROMOTION_QUEUE *a1)
 {
-  _QWORD *i; // rcx
+  _QWORD *v2; // rcx
 
-  for ( i = *(_QWORD **)a1; i; i = *(_QWORD **)a1 )
+  while ( *(_QWORD *)a1 )
   {
-    *(_QWORD *)a1 = *i;
-    Win32FreePool(i);
+    v2 = *(_QWORD **)a1;
+    *(_QWORD *)a1 = **(_QWORD **)a1;
+    Win32FreePool(v2);
   }
   *((_QWORD *)a1 + 1) = 0LL;
 }

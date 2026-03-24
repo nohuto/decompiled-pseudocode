@@ -10,11 +10,11 @@
  *     MiTrimThisWsle @ 0x140087EC0 (MiTrimThisWsle.c)
  *     MI_WSLE_LOG_ACCESS @ 0x140088044 (MI_WSLE_LOG_ACCESS.c)
  *     MiGetVaAge @ 0x1400880B0 (MiGetVaAge.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiTrimWorkingSetTail @ 0x14011C690 (MiTrimWorkingSetTail.c)
- *     MiTrimWorkingSetBuildup @ 0x14011C6F8 (MiTrimWorkingSetBuildup.c)
- *     MiComputeNextWalkPte @ 0x1402B2C14 (MiComputeNextWalkPte.c)
- *     MiInsertVmAccessedEntry @ 0x1402B305C (MiInsertVmAccessedEntry.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiTrimWorkingSetTail @ 0x14011C6B0 (MiTrimWorkingSetTail.c)
+ *     MiTrimWorkingSetBuildup @ 0x14011C718 (MiTrimWorkingSetBuildup.c)
+ *     MiComputeNextWalkPte @ 0x1402B2D14 (MiComputeNextWalkPte.c)
+ *     MiInsertVmAccessedEntry @ 0x1402B315C (MiInsertVmAccessedEntry.c)
  */
 
 __int64 __fastcall MiTrimPte(__int64 a1, unsigned __int64 a2, int a3)

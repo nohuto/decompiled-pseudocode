@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DpiDdiReadVirtualFunctionConfig@@YAJPEAX0GKK@Z @ 0x1C0065950
+ * XREFs of ?DpiDdiReadVirtualFunctionConfig@@YAJPEAX0GKK@Z @ 0x1C0058D30
  * Callers:
  *     <none>
  * Callees:
- *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z @ 0x1C005E398 (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z.c)
- *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C005E510 (--1CInterfaceCallContext@@QEAA@XZ.c)
- *     ?DpiGetVirtualGpuType@@YA?AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C0065D34 (-DpiGetVirtualGpuType@@YA-AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z.c)
- *     DxgkDdiReadVirtualFunctionConfig @ 0x1C036AC30 (DxgkDdiReadVirtualFunctionConfig.c)
+ *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@E@Z @ 0x1C005104C (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@E@Z.c)
+ *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C0051174 (--1CInterfaceCallContext@@QEAA@XZ.c)
+ *     ?DpiGetVirtualGpuType@@YA?AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C00590E0 (-DpiGetVirtualGpuType@@YA-AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z.c)
+ *     DxgkDdiReadVirtualFunctionConfig @ 0x1C0232268 (DxgkDdiReadVirtualFunctionConfig.c)
  */
 
 __int64 __fastcall DpiDdiReadVirtualFunctionConfig(void *a1, void *a2, __int64 a3, int a4, unsigned int a5)
@@ -19,11 +19,11 @@ __int64 __fastcall DpiDdiReadVirtualFunctionConfig(void *a1, void *a2, __int64 a
 
   v8 = 0LL;
   DpiGetVirtualGpuType(a1, &v8);
-  CInterfaceCallContext::CInterfaceCallContext((CInterfaceCallContext *)v9, v8, 0LL, 1, 0);
+  CInterfaceCallContext::CInterfaceCallContext((CInterfaceCallContext *)v9, v8, 0LL, 1);
   VirtualFunctionConfig = v11;
   if ( v11 >= 0 )
   {
-    VirtualFunctionConfig = DxgkDdiReadVirtualFunctionConfig(*(void **)(v10 + 3912), a4, a5);
+    VirtualFunctionConfig = DxgkDdiReadVirtualFunctionConfig(*(void **)(v10 + 3896), a4, a5);
     v11 = VirtualFunctionConfig;
   }
   CInterfaceCallContext::~CInterfaceCallContext((CInterfaceCallContext *)v9);

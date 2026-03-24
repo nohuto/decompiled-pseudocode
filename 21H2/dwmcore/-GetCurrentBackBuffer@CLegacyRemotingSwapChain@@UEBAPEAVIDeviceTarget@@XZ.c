@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetCurrentBackBuffer@CLegacyRemotingSwapChain@@UEBAPEAVIDeviceTarget@@XZ @ 0x1800FFE10
+ * XREFs of ?GetCurrentBackBuffer@CLegacyRemotingSwapChain@@UEBAPEAVIDeviceTarget@@XZ @ 0x1800E6010
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct IDeviceTarget *__fastcall CLegacyRemotingSwapChain::GetCurrentBackBuffer(CLegacyRemotingSwapChain *this)
 {
-  return (struct IDeviceTarget *)(*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 10) + 64LL))(*((_QWORD *)this + 10));
+  return (struct IDeviceTarget *)(*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 4) + 64LL))(*((_QWORD *)this + 4));
 }

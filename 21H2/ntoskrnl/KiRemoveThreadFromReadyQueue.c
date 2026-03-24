@@ -1,10 +1,10 @@
 /*
- * XREFs of KiRemoveThreadFromReadyQueue @ 0x140210484
+ * XREFs of KiRemoveThreadFromReadyQueue @ 0x1402EA768
  * Callers:
- *     KiRemoveThreadFromAnyReadyQueue @ 0x140210C14 (KiRemoveThreadFromAnyReadyQueue.c)
- *     KiNormalPriorityReadyScan @ 0x1402447EC (KiNormalPriorityReadyScan.c)
- *     KiQuantumEnd @ 0x14028FFD0 (KiQuantumEnd.c)
- *     KiSearchForNewThreadOnProcessor @ 0x1402B4130 (KiSearchForNewThreadOnProcessor.c)
+ *     KiQuantumEnd @ 0x140257CF0 (KiQuantumEnd.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x1402EA570 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiFindReadyThread @ 0x1402EA5D0 (KiFindReadyThread.c)
+ *     KiSelectReadyThread @ 0x140347900 (KiSelectReadyThread.c)
  * Callees:
  *     <none>
  */
@@ -24,9 +24,9 @@ __int64 __fastcall KiRemoveThreadFromReadyQueue(__int64 a1, __int64 a2, char a3)
   *v4 = v3;
   v3[1] = v4;
   if ( v4 == v3 )
-    *(_DWORD *)(a1 + 32472) ^= 1 << a3;
-  --*(_DWORD *)(a1 + 33140);
-  result = *(unsigned int *)(a2 + 1432);
-  *(_QWORD *)(a1 + 33144) -= result;
+    *(_DWORD *)(a1 + 31768) ^= 1 << a3;
+  --*(_DWORD *)(a1 + 32436);
+  result = *(unsigned int *)(a2 + 1352);
+  *(_QWORD *)(a1 + 32440) -= result;
   return result;
 }

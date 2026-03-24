@@ -1,31 +1,33 @@
 /*
- * XREFs of KiRestoreProcessorState @ 0x14029B804
+ * XREFs of KiRestoreProcessorState @ 0x1405252F8
  * Callers:
- *     KiFreezeTargetExecution @ 0x14029AF90 (KiFreezeTargetExecution.c)
+ *     KiFreezeTargetExecution @ 0x14051DE60 (KiFreezeTargetExecution.c)
  * Callees:
- *     RtlXRestore @ 0x14022E984 (RtlXRestore.c)
- *     KeContextToKframes @ 0x14041F500 (KeContextToKframes.c)
- *     KiRestoreProcessorControlState @ 0x14041F650 (KiRestoreProcessorControlState.c)
+ *     RtlXRestore @ 0x1402C2DBC (RtlXRestore.c)
+ *     KeContextToKframes @ 0x1403FE020 (KeContextToKframes.c)
+ *     KiRestoreProcessorControlState @ 0x1403FE170 (KiRestoreProcessorControlState.c)
  */
 
-__int64 __fastcall KiRestoreProcessorState(int a1, int a2)
+__int64 __fastcall KiRestoreProcessorState(__int64 a1, __int64 a2)
 {
   struct _KPRCB *CurrentPrcb; // rbx
-  _CONTEXT *Context; // r10
-  unsigned int ContextFlags; // r9d
+  __int64 Context; // r10
+  int v6; // r9d
   char v7; // r11
+  __int64 v9; // [rsp+20h] [rbp-18h]
 
   CurrentPrcb = KeGetCurrentPrcb();
-  Context = CurrentPrcb->Context;
-  ContextFlags = Context->ContextFlags;
-  v7 = Context->SegCs & 1;
+  Context = (__int64)CurrentPrcb->Context;
+  v6 = *(_DWORD *)(Context + 48);
+  v7 = *(_BYTE *)(Context + 56) & 1;
   if ( !v7
-    && ((ContextFlags & 0x100008) == 1048584 || (ContextFlags & 0x100040) == 1048640)
-    && (ContextFlags & 0x100040) == 0x100040
+    && ((v6 & 0x100008) == 1048584 || (v6 & 0x100040) == 1048640)
+    && (v6 & 0x100040) == 0x100040
     && (MEMORY[0xFFFFF780000003E0] & 0xFFFFFFFC) != 0 )
   {
-    RtlXRestore((__int64)&Context->1 + SLODWORD(Context[1].P3Home) + 464, MEMORY[0xFFFFF780000003E0] & 0xFFFFFFFC);
+    RtlXRestore(*(int *)(Context + 1248) + Context + 720, MEMORY[0xFFFFF780000003E0] & 0xFFFFFFFC);
   }
-  KeContextToKframes(a1, a2, (_DWORD)Context, ContextFlags, v7);
-  return KiRestoreProcessorControlState(&CurrentPrcb->ProcessorState);
+  LOBYTE(v9) = v7;
+  KeContextToKframes(a1, a2, Context, v6, v9);
+  return KiRestoreProcessorControlState((__int64)&CurrentPrcb->ProcessorState);
 }

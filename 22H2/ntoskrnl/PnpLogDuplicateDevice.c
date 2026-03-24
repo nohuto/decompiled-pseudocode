@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpLogDuplicateDevice @ 0x140959854
+ * XREFs of PnpLogDuplicateDevice @ 0x1408A2890
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     PnpLogEvent @ 0x140958B60 (PnpLogEvent.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PnpLogEvent @ 0x1408A1F4C (PnpLogEvent.c)
  */
 
 void __fastcall PnpLogDuplicateDevice(PCWSTR SourceString, PCWSTR a2)

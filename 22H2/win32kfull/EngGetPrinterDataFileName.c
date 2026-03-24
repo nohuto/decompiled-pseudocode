@@ -1,5 +1,5 @@
 /*
- * XREFs of EngGetPrinterDataFileName @ 0x1C028C330
+ * XREFs of EngGetPrinterDataFileName @ 0x1C028A790
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 LPWSTR __stdcall EngGetPrinterDataFileName(HDEV hdev)
 {
-  return (LPWSTR)*((_QWORD *)hdev + 187);
+  return (LPWSTR)*((_QWORD *)hdev + 188);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_CheckingIfHubDescriptorRetryCountExceededMax @ 0x1C00090B0
+ * XREFs of HUBHSM_CheckingIfHubDescriptorRetryCountExceededMax @ 0x1C0008DA0
  * Callers:
  *     <none>
  * Callees:

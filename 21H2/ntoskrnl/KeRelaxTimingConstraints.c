@@ -1,44 +1,46 @@
 /*
- * XREFs of KeRelaxTimingConstraints @ 0x140568560
+ * XREFs of KeRelaxTimingConstraints @ 0x140511F98
  * Callers:
- *     KdEnableDebugger @ 0x140565580 (KdEnableDebugger.c)
- *     KiDeferDpcWatchdogViolation @ 0x1405790F8 (KiDeferDpcWatchdogViolation.c)
- *     KeInitSystem @ 0x140B03800 (KeInitSystem.c)
+ *     KdEnableDebugger @ 0x140510D40 (KdEnableDebugger.c)
+ *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
  * Callees:
- *     KiResetGlobalDpcWatchdogProfiler @ 0x140222280 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1402940C8 (KiResetGlobalDpcWatchdogProfiler.c)
  */
 
 bool __fastcall KeRelaxTimingConstraints(int a1)
 {
-  bool v1; // r9
-  __int64 v2; // r8
-  __int64 *v3; // r10
-  __int64 v4; // rcx
-  __int64 v5; // r10
-  __int64 v6; // r11
+  bool v1; // di
+  char v2; // bl
+  __int64 *v3; // rsi
+  __int64 v4; // rbp
+  __int64 v5; // rcx
+  bool result; // al
 
   v1 = KeEnableWatchdogTimeout == 0;
   if ( a1 )
   {
-    LOBYTE(v2) = 0;
+    v2 = 0;
   }
   else
   {
-    LOBYTE(v2) = 1;
+    v2 = 1;
     if ( !KeEnableWatchdogTimeout && (_DWORD)KeNumberProcessors_0 )
     {
       v3 = KiProcessorBlock;
+      v4 = (unsigned int)KeNumberProcessors_0;
       do
       {
-        v4 = *v3;
-        *(_DWORD *)(v4 + 32428) = 0;
-        *(_DWORD *)(v4 + 33116) = 0;
-        KiResetGlobalDpcWatchdogProfiler(v4);
-        v3 = (__int64 *)(v5 + 8);
+        v5 = *v3;
+        *(_DWORD *)(v5 + 31724) = 0;
+        *(_DWORD *)(v5 + 32412) = 0;
+        KiResetGlobalDpcWatchdogProfiler(v5);
+        ++v3;
+        --v4;
       }
-      while ( v6 != v2 );
+      while ( v4 );
     }
   }
+  result = v1;
   KeEnableWatchdogTimeout = v2;
-  return v1;
+  return result;
 }

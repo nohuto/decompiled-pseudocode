@@ -1,15 +1,15 @@
 /*
- * XREFs of SleepQueueRequest @ 0x1C005150C
+ * XREFs of SleepQueueRequest @ 0x1C00675A0
  * Callers:
- *     SleepStall @ 0x1C0006400 (SleepStall.c)
+ *     SleepStall @ 0x1C0021740 (SleepStall.c)
  * Callees:
- *     PushFrame @ 0x1C0053C54 (PushFrame.c)
+ *     PushFrame @ 0x1C0022DD8 (PushFrame.c)
  */
 
-__int64 __fastcall SleepQueueRequest(__int64 a1, unsigned int a2)
+__int64 __fastcall SleepQueueRequest(struct _SLIST_ENTRY *a1, unsigned int a2)
 {
   __int64 v2; // rsi
-  int v4; // ebx
+  int v4; // edi
   __int64 *v5; // r9
   __int64 v6; // r10
   _QWORD *v7; // r8
@@ -23,17 +23,17 @@ __int64 __fastcall SleepQueueRequest(__int64 a1, unsigned int a2)
 
   v15 = 0LL;
   v2 = a2;
-  v4 = PushFrame(a1, 1346718803, 64, (unsigned int)ProcessSleep, (__int64)&v15);
+  v4 = PushFrame(a1, 1346718803, 0x40u, (__int64)ProcessSleep, (__int64 *)&v15);
   if ( v4 >= 0 )
   {
-    byte_1C00702E0 = KeAcquireSpinLockRaiseToDpc(&gmutSleep);
+    byte_1C00831E8 = KeAcquireSpinLockRaiseToDpc(&gmutSleep);
     v5 = &SleepQueue;
     v6 = MEMORY[0xFFFFF78000000008];
     v7 = v15;
     v8 = MEMORY[0xFFFFF78000000008] + 10000 * v2;
     v15[6] = v8;
     v7[7] = a1;
-    for ( i = (__int64 *)qword_1C00702C8; ; i = (__int64 *)i[1] )
+    for ( i = (__int64 *)qword_1C00831D8; ; i = (__int64 *)i[1] )
     {
       if ( i == &SleepQueue )
         goto LABEL_9;
@@ -63,7 +63,7 @@ LABEL_9:
       SleepQueue = (__int64)(v7 + 4);
       ExSetTimer(SleepTimer, v6 - v7[6], 0LL, 0LL);
     }
-    KeReleaseSpinLock(&gmutSleep, byte_1C00702E0);
+    KeReleaseSpinLock(&gmutSleep, byte_1C00831E8);
   }
   return (unsigned int)v4;
 }

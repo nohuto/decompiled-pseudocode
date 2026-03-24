@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPluginQuerySocSubsystemBlockingTime @ 0x14086AD2C
+ * XREFs of PopPluginQuerySocSubsystemBlockingTime @ 0x14086AD0C
  * Callers:
- *     PopFxLogSocSubsystemBlockingTimes @ 0x140869A80 (PopFxLogSocSubsystemBlockingTimes.c)
+ *     PopFxLogSocSubsystemBlockingTimes @ 0x140869A60 (PopFxLogSocSubsystemBlockingTimes.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x1402D73C0 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
  *     RtlHashUnicodeString @ 0x140598BE0 (RtlHashUnicodeString.c)
  */
 

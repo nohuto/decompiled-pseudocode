@@ -1,99 +1,83 @@
 /*
- * XREFs of IopEfiStatusToNTSTATUS @ 0x140950694
+ * XREFs of IopEfiStatusToNTSTATUS @ 0x140899F1C
  * Callers:
- *     IopEnumerateEnvironmentVariablesTrEE @ 0x140950900 (IopEnumerateEnvironmentVariablesTrEE.c)
- *     IopGetEnvironmentVariableTrEE @ 0x140950EF0 (IopGetEnvironmentVariableTrEE.c)
- *     IopQueryEnvironmentVariableInfoTrEE @ 0x140951300 (IopQueryEnvironmentVariableInfoTrEE.c)
- *     IopSetEnvironmentVariableTrEE @ 0x140951520 (IopSetEnvironmentVariableTrEE.c)
+ *     IopEnumerateEnvironmentVariablesTrEE @ 0x14089A1F0 (IopEnumerateEnvironmentVariablesTrEE.c)
+ *     IopGetEnvironmentVariableTrEE @ 0x14089A7C0 (IopGetEnvironmentVariableTrEE.c)
+ *     IopQueryEnvironmentVariableInfoTrEE @ 0x14089AD10 (IopQueryEnvironmentVariableInfoTrEE.c)
+ *     IopSetEnvironmentVariableTrEE @ 0x14089AF20 (IopSetEnvironmentVariableTrEE.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall IopEfiStatusToNTSTATUS(unsigned __int64 a1)
 {
-  unsigned __int64 v1; // rdx
-  unsigned int v2; // r8d
-  __int64 result; // rax
-
-  if ( a1 > 0x800000000000000DuLL )
+  if ( a1 > 0x800000000000000BuLL )
   {
-    switch ( a1 )
-    {
-      case 0x800000000000000EuLL:
-        result = 3221225728LL;
-        break;
-      case 0x800000000000000FuLL:
-      case 0x800000000000001AuLL:
-        result = 3221225506LL;
-        break;
-      case 0x8000000000000010uLL:
-      case 0x8000000000000012uLL:
-        result = 258LL;
-        break;
-      case 0x8000000000000011uLL:
-        result = 3221226098LL;
-        break;
-      case 0x8000000000000013uLL:
-        result = 3221225635LL;
-        break;
-      case 0x8000000000000014uLL:
-        result = 3221225528LL;
-        break;
-      case 0x8000000000000015uLL:
-        result = 3221226048LL;
-        break;
-      default:
-        result = 3221225473LL;
-        break;
-    }
-  }
-  else if ( a1 == 0x800000000000000DuLL )
-  {
-    return 2147483676LL;
-  }
-  else
-  {
-    if ( a1 > 0x8000000000000006uLL )
+    if ( a1 > 0x8000000000000011uLL )
     {
       switch ( a1 )
       {
-        case 0x8000000000000007uLL:
-          return 3221225861LL;
-        case 0x8000000000000008uLL:
-          return 3221225634LL;
-        case 0x8000000000000009uLL:
-          return 3221226580LL;
-        case 0x800000000000000AuLL:
-          return 3221225522LL;
-        case 0x800000000000000BuLL:
-          return 3221225599LL;
+        case 0x8000000000000012uLL:
+          return 258LL;
+        case 0x8000000000000013uLL:
+          return 3221225635LL;
+        case 0x8000000000000014uLL:
+          return 3221225528LL;
+        case 0x8000000000000015uLL:
+          return 3221226048LL;
       }
-      v1 = 0x800000000000000CuLL;
-      v2 = -1073741448;
+      if ( a1 != 0x800000000000001AuLL )
+        return 3221225473LL;
     }
     else
     {
       switch ( a1 )
       {
-        case 0x8000000000000006uLL:
-          return 3221226021LL;
-        case 0uLL:
-          return 0LL;
-        case 0x8000000000000001uLL:
-          return 3221226092LL;
-        case 0x8000000000000002uLL:
-          return 3221225485LL;
-        case 0x8000000000000003uLL:
-          return 3221225659LL;
-        case 0x8000000000000004uLL:
-          return 3221225990LL;
+        case 0x8000000000000011uLL:
+          return 3221226098LL;
+        case 0x800000000000000CuLL:
+          return 3221225848LL;
+        case 0x800000000000000DuLL:
+          return 2147483676LL;
+        case 0x800000000000000EuLL:
+          return 3221225728LL;
       }
-      v1 = 0x8000000000000005uLL;
-      v2 = -1073741789;
+      if ( a1 != 0x800000000000000FuLL )
+        return 258LL;
     }
-    result = 3221225473LL;
-    if ( a1 == v1 )
-      return v2;
+    return 3221225506LL;
   }
-  return result;
+  if ( a1 == 0x800000000000000BuLL )
+    return 3221225599LL;
+  if ( a1 <= 0x8000000000000005uLL )
+  {
+    switch ( a1 )
+    {
+      case 0x8000000000000005uLL:
+        return 3221225507LL;
+      case 0uLL:
+        return 0LL;
+      case 0x8000000000000001uLL:
+        return 3221226092LL;
+      case 0x8000000000000002uLL:
+        return 3221225485LL;
+      case 0x8000000000000003uLL:
+        return 3221225659LL;
+      case 0x8000000000000004uLL:
+        return 3221225990LL;
+    }
+    return 3221225473LL;
+  }
+  switch ( a1 )
+  {
+    case 0x8000000000000006uLL:
+      return 3221226021LL;
+    case 0x8000000000000007uLL:
+      return 3221225861LL;
+    case 0x8000000000000008uLL:
+      return 3221225634LL;
+    case 0x8000000000000009uLL:
+      return 3221226580LL;
+  }
+  return 3221225522LL;
 }

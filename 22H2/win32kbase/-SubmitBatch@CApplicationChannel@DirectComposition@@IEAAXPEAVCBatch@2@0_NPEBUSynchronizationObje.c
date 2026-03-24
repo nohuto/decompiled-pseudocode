@@ -1,17 +1,18 @@
 /*
- * XREFs of ?SubmitBatch@CApplicationChannel@DirectComposition@@IEAAXPEAVCBatch@2@0_NPEBUSynchronizationObject@2@@Z @ 0x1C0028AB0
+ * XREFs of ?SubmitBatch@CApplicationChannel@DirectComposition@@IEAAXPEAVCBatch@2@0_NPEBUSynchronizationObject@2@@Z @ 0x1C005F594
  * Callers:
- *     ?Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_N1PEBUSynchronizationObject@2@PEAVCMilProtocolBlock@@PEAII@Z @ 0x1C0026EA4 (-Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_N1PEBUSynchronizationObject@2@PEAVCMil.c)
- *     NtDCompositionCommitChannel @ 0x1C00271A0 (NtDCompositionCommitChannel.c)
+ *     ?Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z @ 0x1C005E8B4 (-Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z.c)
+ *     NtDCompositionCommitChannel @ 0x1C005EB90 (NtDCompositionCommitChannel.c)
+ *     ?SubmitDwmBatch@CDwmChannel@DirectComposition@@QEAAX_KPEBUSynchronizationObject@2@@Z @ 0x1C005F4DC (-SubmitDwmBatch@CDwmChannel@DirectComposition@@QEAAX_KPEBUSynchronizationObject@2@@Z.c)
  * Callees:
- *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C00667F8 (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
- *     ?SetSynchronizationObject@CBatch@DirectComposition@@QEAAXPEBUSynchronizationObject@2@@Z @ 0x1C00669E4 (-SetSynchronizationObject@CBatch@DirectComposition@@QEAAXPEBUSynchronizationObject@2@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C00578CC (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?SetSynchronizationObject@CBatch@DirectComposition@@QEAAXPEBUSynchronizationObject@2@@Z @ 0x1C01D5B30 (-SetSynchronizationObject@CBatch@DirectComposition@@QEAAXPEBUSynchronizationObject@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CApplicationChannel::SubmitBatch(
         DirectComposition::CApplicationChannel *this,
-        LARGE_INTEGER *a2,
+        struct _SLIST_ENTRY *a2,
         struct DirectComposition::CBatch *a3,
         char a4,
         const struct DirectComposition::SynchronizationObject *a5)
@@ -21,16 +22,16 @@ void __fastcall DirectComposition::CApplicationChannel::SubmitBatch(
   struct _ERESOURCE *v10; // rbx
   __int64 v11; // rdi
   struct _ERESOURCE *v12; // rbx
-  LARGE_INTEGER v13; // rax
+  struct _SLIST_ENTRY *Next; // rax
   union _SLIST_HEADER *v14; // rbx
   struct _ERESOURCE *v15; // rcx
-  struct DirectComposition::CBatch *QuadPart; // rbx
+  struct DirectComposition::CBatch *v16; // rbx
 
   if ( a4 )
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
   else
     PerformanceCounter.QuadPart = 0LL;
-  a2[8] = PerformanceCounter;
+  a2[4].Next = (struct _SLIST_ENTRY *)PerformanceCounter.QuadPart;
   v9 = *(struct _ERESOURCE **)(*((_QWORD *)this + 5) + 8LL);
   KeEnterCriticalRegion();
   ExAcquireResourceSharedLite(v9, 1u);
@@ -52,27 +53,27 @@ void __fastcall DirectComposition::CApplicationChannel::SubmitBatch(
         KeLeaveCriticalRegion(),
         (_DWORD)v12) )
   {
-    v13 = *a2;
+    Next = a2->Next;
     v14 = (union _SLIST_HEADER *)*((_QWORD *)this + 5);
-    a2[3] = *a2;
-    if ( v13.QuadPart )
-      *(_QWORD *)(v13.QuadPart + 24) = a3;
-    ExpInterlockedPushEntrySList(v14 + 6, (PSLIST_ENTRY)a2);
+    *((_QWORD *)&a2[1].Next + 1) = a2->Next;
+    if ( Next )
+      *((_QWORD *)&Next[1].Next + 1) = a3;
+    ExpInterlockedPushEntrySList(v14 + 6, a2);
     KeSetEvent(*(PRKEVENT *)(v14[5].Alignment + 8), 1, 0);
   }
   else
   {
-    if ( (a2[4].LowPart & 1) != 0 )
+    if ( ((__int64)a2[2].Next & 1) != 0 )
       *((_BYTE *)this + 48) &= ~2u;
     do
     {
-      QuadPart = (struct DirectComposition::CBatch *)a2->QuadPart;
-      a2->QuadPart = 0LL;
+      v16 = (struct DirectComposition::CBatch *)a2->Next;
+      a2->Next = 0LL;
       DirectComposition::CBatch::ReturnToApplication((DirectComposition::CBatch *)a2, 0);
-      a2 = (LARGE_INTEGER *)QuadPart;
+      a2 = (struct _SLIST_ENTRY *)v16;
     }
-    while ( QuadPart );
-    (*(void (__fastcall **)(DirectComposition::CApplicationChannel *, _QWORD))(*(_QWORD *)this + 16LL))(this, 0LL);
+    while ( v16 );
+    (*(void (__fastcall **)(DirectComposition::CApplicationChannel *))(*(_QWORD *)this + 16LL))(this);
   }
   v15 = (struct _ERESOURCE *)*((_QWORD *)this + 46);
   if ( v15 )

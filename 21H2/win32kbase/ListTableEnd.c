@@ -1,19 +1,19 @@
 /*
- * XREFs of ListTableEnd @ 0x1C00E79F0
+ * XREFs of ListTableEnd @ 0x1C018283C
  * Callers:
- *     RIMCmActiveContactsEnd @ 0x1C00E756C (RIMCmActiveContactsEnd.c)
- *     ListTableIteratorNext @ 0x1C00E7A48 (ListTableIteratorNext.c)
- *     RIMCmActiveContactsNext @ 0x1C01B6120 (RIMCmActiveContactsNext.c)
+ *     RIMCmActiveContactsEnd @ 0x1C017FD1C (RIMCmActiveContactsEnd.c)
+ *     RIMCmActiveContactsNext @ 0x1C017FD8C (RIMCmActiveContactsNext.c)
+ *     ListTableIteratorNext @ 0x1C01828D8 (ListTableIteratorNext.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall ListTableEnd(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall ListTableEnd(__int64 a1, __int64 a2)
 {
   if ( !*(_QWORD *)a2 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 64);
   if ( !*(_DWORD *)(a2 + 8) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 65);
   *(_QWORD *)a1 = a2;
   *(_DWORD *)(a1 + 8) = *(_DWORD *)(a2 + 8);
   *(_DWORD *)(a1 + 12) = 0;

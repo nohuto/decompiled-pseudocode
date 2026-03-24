@@ -1,9 +1,9 @@
 /*
- * XREFs of rimExtractFrameInfoAndAbandonIncompleteFrame @ 0x1C00E3070
+ * XREFs of rimExtractFrameInfoAndAbandonIncompleteFrame @ 0x1C017A200
  * Callers:
- *     rimDoProcessAnyPointerDeviceInput @ 0x1C01A8348 (rimDoProcessAnyPointerDeviceInput.c)
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01795E8 (rimDoProcessAnyPointerDeviceInput.c)
  * Callees:
- *     rimExtractParallelFrameInfoAndAbandonIncompleteFrame @ 0x1C01A9174 (rimExtractParallelFrameInfoAndAbandonIncompleteFrame.c)
+ *     rimExtractParallelFrameInfoAndAbandonIncompleteFrame @ 0x1C017A474 (rimExtractParallelFrameInfoAndAbandonIncompleteFrame.c)
  */
 
 __int64 __fastcall rimExtractFrameInfoAndAbandonIncompleteFrame(
@@ -21,7 +21,7 @@ __int64 __fastcall rimExtractFrameInfoAndAbandonIncompleteFrame(
   unsigned int v10; // r11d
 
   v10 = 0;
-  if ( (*(_DWORD *)(*(_QWORD *)(a2 + 472) + 360LL) & 2) != 0 )
+  if ( (*(_DWORD *)(*(_QWORD *)(a2 + 480) + 312LL) & 2) != 0 )
   {
     return (unsigned int)rimExtractParallelFrameInfoAndAbandonIncompleteFrame(
                            a1,

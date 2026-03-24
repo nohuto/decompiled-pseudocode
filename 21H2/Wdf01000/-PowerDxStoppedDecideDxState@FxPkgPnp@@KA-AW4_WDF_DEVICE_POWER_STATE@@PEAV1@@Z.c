@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PowerDxStoppedDecideDxState@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C0086A20
+ * XREFs of ?PowerDxStoppedDecideDxState@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C007DA60
  * Callers:
  *     <none>
  * Callees:
- *     ?PowerSendPowerUpEvents@FxPkgPnp@@IEAAXXZ @ 0x1C0015164 (-PowerSendPowerUpEvents@FxPkgPnp@@IEAAXXZ.c)
+ *     ?PowerSendPowerUpEvents@FxPkgPnp@@IEAAXXZ @ 0x1C000E414 (-PowerSendPowerUpEvents@FxPkgPnp@@IEAAXXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerDxStoppedDecideDxState(FxPkgPnp *This, __int64 a2, unsigned __int8 a3)

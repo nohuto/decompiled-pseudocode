@@ -1,5 +1,5 @@
 /*
- * XREFs of MiDecayPfnFullyInitialized @ 0x14011BD50
+ * XREFs of MiDecayPfnFullyInitialized @ 0x14011BD70
  * Callers:
  *     MiCopyDataPageToImagePage @ 0x14002D340 (MiCopyDataPageToImagePage.c)
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
@@ -9,9 +9,9 @@
  *     MiRemoveDecayClusterTimer @ 0x1400293F0 (MiRemoveDecayClusterTimer.c)
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiDecayPfnFullyInitialized(ULONG_PTR BugCheckParameter2)

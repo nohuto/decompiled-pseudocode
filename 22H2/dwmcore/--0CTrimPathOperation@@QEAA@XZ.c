@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0CTrimPathOperation@@QEAA@XZ @ 0x18001536C
+ * XREFs of ??0CTrimPathOperation@@QEAA@XZ @ 0x1801B59B4
  * Callers:
- *     ?GetTrimmedShapeData@CGeometry@@AEBAJAEBVCShape@@PEAVCShapePtr@@@Z @ 0x18001523C (-GetTrimmedShapeData@CGeometry@@AEBAJAEBVCShape@@PEAVCShapePtr@@@Z.c)
+ *     ?GetTrimmedShapeData@CGeometry@@AEBAJAEBVCShape@@PEAVCShapePtr@@@Z @ 0x1801B5AEC (-GetTrimmedShapeData@CGeometry@@AEBAJAEBVCShape@@PEAVCShapePtr@@@Z.c)
  * Callees:
- *     ??0?$CBezierFlattener@MVCMilPoint2F@@@@QEAA@M@Z @ 0x1800159A8 (--0-$CBezierFlattener@MVCMilPoint2F@@@@QEAA@M@Z.c)
- *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x18001FB80 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18003A394 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x180094E70 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ??0?$CBezierFlattener@MVCMilPoint2F@@@@QEAA@M@Z @ 0x1801B5928 (--0-$CBezierFlattener@MVCMilPoint2F@@@@QEAA@M@Z.c)
+ *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x1801B5A28 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
  */
 
 CTrimPathOperation *__fastcall CTrimPathOperation::CTrimPathOperation(CTrimPathOperation *this)
@@ -21,7 +21,11 @@ CTrimPathOperation *__fastcall CTrimPathOperation::CTrimPathOperation(CTrimPathO
   Path::Segment::Segment((char *)this + 64, v2);
   LOBYTE(v3) = 5;
   Path::Segment::Segment((char *)this + 80, v3);
-  CBezierFlattener<float,CMilPoint2F>::CBezierFlattener<float,CMilPoint2F>((char *)this + 112);
-  `vector constructor iterator'((char *)this + 204, 8uLL, 0x10uLL, (void *(*)(void *))CMilPoint2F::CMilPoint2F);
+  CBezierFlattener<float,CMilPoint2F>::CBezierFlattener<float,CMilPoint2F>((__int64)this + 112, 0.25);
+  `vector constructor iterator'(
+    (char *)this + 204,
+    8LL,
+    16LL,
+    (void (__fastcall *)(char *))Microsoft::BamoImpl::BamoPrincipalImpl::AsPrincipal);
   return this;
 }

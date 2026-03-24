@@ -1,100 +1,98 @@
 /*
- * XREFs of PipAddRequestToEdge @ 0x140942760
+ * XREFs of PipAddRequestToEdge @ 0x14089D95C
  * Callers:
- *     PipAddDependencyEdgeBetweenNodes @ 0x14055F864 (PipAddDependencyEdgeBetweenNodes.c)
- *     PipCreateNewDependencyEdge @ 0x14055F904 (PipCreateNewDependencyEdge.c)
- *     PipMergeDependencyEdgeList @ 0x140942B68 (PipMergeDependencyEdgeList.c)
+ *     PipAddDependencyEdgeBetweenNodes @ 0x14050C510 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PipCreateNewDependencyEdge @ 0x14050C5B0 (PipCreateNewDependencyEdge.c)
+ *     PipMergeDependencyEdgeList @ 0x14089DD70 (PipMergeDependencyEdgeList.c)
  * Callees:
- *     PipMergeDependencyTypes @ 0x14055FD38 (PipMergeDependencyTypes.c)
- *     RtlDuplicateUnicodeString @ 0x1406A9D20 (RtlDuplicateUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     PipFreeBindingRequestEntry @ 0x140942AC4 (PipFreeBindingRequestEntry.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PipMergeDependencyTypes @ 0x14050C874 (PipMergeDependencyTypes.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x14068B130 (RtlDuplicateUnicodeString.c)
+ *     PipFreeBindingRequestEntry @ 0x14089DCCC (PipFreeBindingRequestEntry.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-_QWORD *__fastcall PipAddRequestToEdge(__int64 a1, PCUNICODE_STRING *a2)
+__int64 __fastcall PipAddRequestToEdge(__int64 a1, PCUNICODE_STRING *a2)
 {
-  _QWORD *v2; // r14
-  _QWORD *v3; // rdi
+  _QWORD *v2; // rdi
+  _QWORD *v3; // r14
   _QWORD *v4; // r15
-  _QWORD *v5; // rbx
-  _QWORD *v8; // rbp
-  int v9; // ecx
-  __int64 Pool2; // rax
-  int v11; // eax
-  UNICODE_STRING *v12; // rax
-  _QWORD *v13; // rax
+  __int64 v5; // rbx
+  unsigned __int64 v8; // r12
+  _QWORD *v9; // rcx
+  int v10; // edx
+  _QWORD *PoolWithTag; // rax
+  int v12; // eax
+  UNICODE_STRING *v13; // rax
+  _QWORD *v14; // rax
 
-  v2 = (_QWORD *)(a1 + 56);
-  v3 = 0LL;
+  v2 = 0LL;
+  v3 = (_QWORD *)(a1 + 56);
   v4 = *(_QWORD **)(a1 + 56);
   v5 = 0LL;
-  if ( v4 == (_QWORD *)(a1 + 56) )
+  while ( v4 != v3 )
   {
-LABEL_13:
-    Pool2 = ExAllocatePool2(256LL, 40LL, 1399877200LL);
-    v3 = (_QWORD *)Pool2;
-    if ( Pool2 )
+    v8 = (unsigned __int64)v4;
+    if ( v5 )
+      goto LABEL_11;
+    v9 = v4;
+    v4 = (_QWORD *)*v4;
+    v10 = *((_DWORD *)v9 + 4);
+    if ( v10 == *(_DWORD *)a2 )
     {
-      *(_DWORD *)(Pool2 + 32) = *((_DWORD *)a2 + 4);
-      v11 = *(_DWORD *)a2;
-      *((_DWORD *)v3 + 4) = *(_DWORD *)a2;
-      if ( v11 )
+      if ( v10 )
       {
-        if ( v11 == 1 )
-        {
-          v12 = (UNICODE_STRING *)ExAllocatePool2(256LL, 16LL, 1399877200LL);
-          v3[3] = v12;
-          if ( RtlDuplicateUnicodeString(0, a2[1], v12) < 0 )
-          {
-            PipFreeBindingRequestEntry(v3);
-            return 0LL;
-          }
-        }
+        if ( v10 == 1 )
+          v5 = v8 & -(__int64)(RtlEqualUnicodeString((PCUNICODE_STRING)v9[3], a2[1], 0) != 0);
       }
-      else
+      else if ( (PCUNICODE_STRING)v9[3] == a2[1] )
       {
-        v3[3] = a2[1];
+        v5 = (__int64)v9;
       }
-      v13 = (_QWORD *)v2[1];
-      if ( (_QWORD *)*v13 != v2 )
-        __fastfail(3u);
-      *v3 = v2;
-      v3[1] = v13;
-      *v13 = v3;
-      v2[1] = v3;
     }
   }
-  else
+  if ( v5 )
   {
-    while ( !v5 )
+LABEL_11:
+    *(_DWORD *)(v5 + 32) |= *((_DWORD *)a2 + 4);
+    goto LABEL_21;
+  }
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x53706E50u);
+  v2 = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    *((_DWORD *)PoolWithTag + 8) = *((_DWORD *)a2 + 4);
+    v12 = *(_DWORD *)a2;
+    *((_DWORD *)v2 + 4) = *(_DWORD *)a2;
+    if ( v12 )
     {
-      v8 = v4;
-      v4 = (_QWORD *)*v4;
-      v9 = *((_DWORD *)v8 + 4);
-      if ( v9 == *(_DWORD *)a2 )
+      if ( v12 == 1 )
       {
-        if ( v9 )
+        v13 = (UNICODE_STRING *)ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x53706E50u);
+        v2[3] = v13;
+        if ( RtlDuplicateUnicodeString(0, a2[1], v13) < 0 )
         {
-          if ( v9 == 1 && RtlEqualUnicodeString((PCUNICODE_STRING)v8[3], a2[1], 0) )
-            v5 = v8;
+          PipFreeBindingRequestEntry(v2);
+          v2 = 0LL;
+          goto LABEL_21;
         }
-        else if ( (PCUNICODE_STRING)v8[3] == a2[1] )
-        {
-          v5 = v8;
-        }
-      }
-      if ( v4 == v2 )
-      {
-        if ( !v5 )
-          goto LABEL_13;
-        break;
       }
     }
-    *((_DWORD *)v5 + 8) |= *((_DWORD *)a2 + 4);
+    else
+    {
+      v2[3] = a2[1];
+    }
+    v14 = (_QWORD *)v3[1];
+    if ( (_QWORD *)*v14 != v3 )
+      __fastfail(3u);
+    *v2 = v3;
+    v2[1] = v14;
+    *v14 = v2;
+    v3[1] = v2;
   }
+LABEL_21:
   if ( !v5 )
-    v5 = v3;
+    v5 = (__int64)v2;
   if ( v5 )
     PipMergeDependencyTypes(a1, *((_DWORD *)a2 + 4));
   return v5;

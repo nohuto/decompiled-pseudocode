@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ApplyState@CColorSpaceLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x1801D8470
+ * XREFs of ?ApplyState@CColorSpaceLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x18018FFC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CColorSpaceLayer::ApplyState(CColorSpaceLayer *this, struct CDrawingContext *a2)
+__int64 __fastcall CColorSpaceLayer::ApplyState(CExternalLayer *this, struct CDrawingContext *a2)
 {
-  *((_BYTE *)this + 120) = *((_BYTE *)a2 + 8043);
-  *((_BYTE *)a2 + 8043) = 0;
+  *((_BYTE *)this + 120) = *((_BYTE *)a2 + 5956);
+  *((_BYTE *)a2 + 5956) = 0;
   return CExternalLayer::ApplyState(this, a2);
 }

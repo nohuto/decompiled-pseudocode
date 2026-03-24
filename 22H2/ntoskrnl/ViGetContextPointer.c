@@ -1,17 +1,18 @@
 /*
- * XREFs of ViGetContextPointer @ 0x140AC504C
+ * XREFs of ViGetContextPointer @ 0x1409C84E4
  * Callers:
- *     VfInsertContext @ 0x1405CE4D0 (VfInsertContext.c)
- *     VfRemoveContext @ 0x1405CE660 (VfRemoveContext.c)
- *     ViQueryObjectContext @ 0x140AC5104 (ViQueryObjectContext.c)
+ *     VfInsertContext @ 0x1405A0790 (VfInsertContext.c)
+ *     VfRemoveContext @ 0x1405A0960 (VfRemoveContext.c)
+ *     ViQueryObjectContext @ 0x1409C85B4 (ViQueryObjectContext.c)
  * Callees:
- *     IopAllocateIrpExtension @ 0x1402906EC (IopAllocateIrpExtension.c)
+ *     IopAllocateIrpExtension @ 0x1402E6980 (IopAllocateIrpExtension.c)
  */
 
 __int64 __fastcall ViGetContextPointer(__int64 a1, int a2)
 {
   __int64 v2; // rbx
   int v3; // edx
+  int v4; // edx
   _WORD *IrpExtension; // rax
 
   v2 = 0LL;
@@ -20,7 +21,13 @@ __int64 __fastcall ViGetContextPointer(__int64 a1, int a2)
   v3 = a2 - 1;
   if ( !v3 )
     return *(_QWORD *)(a1 + 48) + 72LL;
-  if ( v3 == 1 )
+  v4 = v3 - 1;
+  if ( v4 )
+  {
+    if ( v4 == 1 )
+      return a1 + 1456;
+  }
+  else
   {
     IrpExtension = IopAllocateIrpExtension(a1, 3);
     if ( IrpExtension )

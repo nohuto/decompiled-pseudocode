@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlDiskIOCounterSetCallback @ 0x140815680
+ * XREFs of FsRtlDiskIOCounterSetCallback @ 0x140815660
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     PcwAddInstance @ 0x1406914E0 (PcwAddInstance.c)
- *     FsRtlAddDiskIOCounterInstance @ 0x1408155AC (FsRtlAddDiskIOCounterInstance.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     PcwAddInstance @ 0x1406914C0 (PcwAddInstance.c)
+ *     FsRtlAddDiskIOCounterInstance @ 0x14081558C (FsRtlAddDiskIOCounterInstance.c)
  */
 
 int __fastcall FsRtlDiskIOCounterSetCallback(int a1, __int64 a2)

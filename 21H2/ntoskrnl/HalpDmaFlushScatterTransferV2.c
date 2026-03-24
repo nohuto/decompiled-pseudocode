@@ -1,27 +1,32 @@
 /*
- * XREFs of HalpDmaFlushScatterTransferV2 @ 0x140458D38
+ * XREFs of HalpDmaFlushScatterTransferV2 @ 0x1404CD948
  * Callers:
- *     IoFlushAdapterBuffersV2 @ 0x140393E40 (IoFlushAdapterBuffersV2.c)
+ *     IoFlushAdapterBuffersV2 @ 0x140389E60 (IoFlushAdapterBuffersV2.c)
  * Callees:
- *     HalpDmaGetAdapterCacheAlignment @ 0x14045693C (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaNextContiguousPiece @ 0x14045699C (HalpDmaNextContiguousPiece.c)
- *     HalpDmaSyncMapBuffers @ 0x140457A42 (HalpDmaSyncMapBuffers.c)
- *     HalpDmaFlushBuffer @ 0x140513310 (HalpDmaFlushBuffer.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8C50 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaNextContiguousPiece @ 0x1404B8CB0 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaFlushBuffer @ 0x1404C755C (HalpDmaFlushBuffer.c)
+ *     HalpDmaSyncMapBuffers @ 0x1404C81F4 (HalpDmaSyncMapBuffers.c)
  */
 
-void __fastcall HalpDmaFlushScatterTransferV2(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, char a6)
+void __fastcall HalpDmaFlushScatterTransferV2(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        unsigned __int64 a4,
+        unsigned int a5,
+        char a6)
 {
-  int v10; // edi
+  unsigned int v10; // edi
   __int64 ContiguousPiece; // r15
-  __int64 v12; // r13
+  unsigned __int64 v12; // r12
   __int64 v13; // rcx
-  __int64 v14; // r10
-  __int64 v15; // r9
-  __int64 v16; // rcx
-  unsigned __int64 v17; // rax
-  __int64 v18; // rdx
-  int v19; // [rsp+20h] [rbp-48h]
-  int v20; // [rsp+28h] [rbp-40h]
+  char v14; // r9
+  __int64 v15; // r11
+  __int64 v16; // r10
+  __int64 v17; // rcx
+  unsigned __int64 v18; // rax
+  __int64 v19; // rdx
 
   if ( a3 )
   {
@@ -35,46 +40,42 @@ void __fastcall HalpDmaFlushScatterTransferV2(__int64 a1, __int64 a2, __int64 a3
         {
           ContiguousPiece = (unsigned int)HalpDmaNextContiguousPiece(a1, a2, a3, a4, 0, v10);
           v12 = a4 & 0xFFF;
-          if ( *(_QWORD *)(a1 + 136) < (unsigned __int64)(ContiguousPiece
-                                                        + v12
-                                                        + (*(_QWORD *)(a2
-                                                                     + 8LL
-                                                                     * (unsigned int)((unsigned __int64)(a4 - *(_QWORD *)(a2 + 32)) >> 12)
-                                                                     + 48) << 12)
-                                                        - 1) )
+          if ( *(_QWORD *)(a1 + 136) < v12
+                                     + (*(_QWORD *)(a2 + 8LL * (unsigned int)((a4 - *(_QWORD *)(a2 + 32)) >> 12) + 48) << 12)
+                                     + ContiguousPiece
+                                     - 1 )
             break;
           if ( !*(_BYTE *)(a1 + 437) )
           {
             v13 = (unsigned int)HalpDmaGetAdapterCacheAlignment(a1) - 1;
-            if ( (v13 & v15) != 0 || (v14 & v13) != 0 )
+            if ( (v13 & v16) != 0 || (v15 & v13) != 0 )
               break;
-            LOBYTE(v20) = 0;
-            LOBYTE(v19) = 0;
-            HalpDmaFlushBuffer(v13, a2, a4, (unsigned int)ContiguousPiece, v19, v20);
+            if ( !v14 )
+              HalpDmaFlushBuffer(v13, a2, a4, ContiguousPiece, 0, 0);
           }
-LABEL_13:
+LABEL_14:
           a4 += ContiguousPiece;
           v10 -= ContiguousPiece;
           if ( !v10 )
-            goto LABEL_14;
+            goto LABEL_15;
         }
         HalpDmaSyncMapBuffers(a1, a2, a4, *(_QWORD **)(a3 + 56), ContiguousPiece, 0, 0, 0);
-        v16 = *(_QWORD *)(a3 + 56);
-        v17 = (unsigned __int64)(ContiguousPiece + v12 + 4095) >> 12;
-        if ( (_DWORD)v17 )
+        v17 = *(_QWORD *)(a3 + 56);
+        v18 = (v12 + ContiguousPiece + 4095) >> 12;
+        if ( (_DWORD)v18 )
         {
-          v18 = (unsigned int)v17;
+          v19 = (unsigned int)v18;
           do
           {
-            v16 = *(_QWORD *)(v16 + 8);
-            --v18;
+            v17 = *(_QWORD *)(v17 + 8);
+            --v19;
           }
-          while ( v18 );
+          while ( v19 );
         }
-        *(_QWORD *)(a3 + 56) = v16;
-        goto LABEL_13;
+        *(_QWORD *)(a3 + 56) = v17;
+        goto LABEL_14;
       }
-LABEL_14:
+LABEL_15:
       *(_QWORD *)(a3 + 56) = a3;
     }
   }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vDirectStretch8Narrow@@YAXPEAU_STR_BLT@@@Z @ 0x1C03027E0
+ * XREFs of ?vDirectStretch8Narrow@@YAXPEAU_STR_BLT@@@Z @ 0x1C02DA1C0
  * Callers:
  *     <none>
  * Callees:

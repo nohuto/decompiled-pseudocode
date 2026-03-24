@@ -1,42 +1,43 @@
 /*
- * XREFs of PopUpdateConsoleDisplayState @ 0x140873D64
+ * XREFs of PopUpdateConsoleDisplayState @ 0x1407813E4
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x1406F1BE4 (PopPowerInformationInternal.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     PopCheckResiliencyScenarios @ 0x140700F30 (PopCheckResiliencyScenarios.c)
- *     PopUpdateLastUserInputTime @ 0x1407A7840 (PopUpdateLastUserInputTime.c)
- *     PopSetPowerSettingValueAcDc @ 0x1407A7A80 (PopSetPowerSettingValueAcDc.c)
- *     PopRecordDisplayState @ 0x140873E40 (PopRecordDisplayState.c)
- *     PopDiagTraceConsoleDisplayState @ 0x140873E8C (PopDiagTraceConsoleDisplayState.c)
- *     PopSpoilBatteryEstimate @ 0x140873F1C (PopSpoilBatteryEstimate.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     PopCheckResiliencyScenarios @ 0x1406F2B90 (PopCheckResiliencyScenarios.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1406F2C58 (PopSetPowerSettingValueAcDc.c)
+ *     PopUpdateLastUserInputTime @ 0x1407814C0 (PopUpdateLastUserInputTime.c)
+ *     PopSpoilBatteryEstimate @ 0x140781508 (PopSpoilBatteryEstimate.c)
+ *     PopRecordDisplayState @ 0x140781638 (PopRecordDisplayState.c)
+ *     PopDiagTraceConsoleDisplayState @ 0x140781684 (PopDiagTraceConsoleDisplayState.c)
  */
 
 void __fastcall PopUpdateConsoleDisplayState(unsigned int a1)
 {
   __int64 v2; // rdx
-  int v3; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  int v5; // [rsp+50h] [rbp+8h] BYREF
 
   if ( PopConsoleDisplayState != a1 )
   {
     PopConsoleDisplayState = a1;
     PopDiagTraceConsoleDisplayState();
     PopCheckResiliencyScenarios();
-    v3 = PopConsoleDisplayState;
-    PopSetPowerSettingValueAcDc(&GUID_CONSOLE_DISPLAY_STATE, 4u, &v3);
+    v5 = PopConsoleDisplayState;
+    PopSetPowerSettingValueAcDc(&GUID_CONSOLE_DISPLAY_STATE, 4LL, &v5);
     PopRecordDisplayState(a1);
-    v3 = PopConsoleDisplayState != 0;
-    PopSetPowerSettingValueAcDc(&GUID_MONITOR_POWER_ON, 4u, &v3);
-    ZwUpdateWnfStateData((__int64)&WNF_UBPM_CONSOLE_MONITOR, (__int64)&v3);
-    LOBYTE(v2) = PopConsoleDisplayState == 0;
-    PopSpoilBatteryEstimate(0LL, v2);
+    v5 = PopConsoleDisplayState != 0;
+    PopSetPowerSettingValueAcDc(&GUID_MONITOR_POWER_ON, 4LL, &v5);
+    ZwUpdateWnfStateData((__int64)&WNF_UBPM_CONSOLE_MONITOR, (__int64)&v5);
+    PopSpoilBatteryEstimate(0LL);
     PopAcquireRwLockExclusive((ULONG_PTR)&PopSystemIdleLock);
-    PopUpdateLastUserInputTime();
-    dword_140C09810 = a1;
-    PopReleaseRwLock(&PopSystemIdleLock);
+    PopUpdateLastUserInputTime(v3, v2, v4);
+    dword_140C0F220 = a1;
+    PopReleaseRwLock((ULONG_PTR)&PopSystemIdleLock);
   }
 }

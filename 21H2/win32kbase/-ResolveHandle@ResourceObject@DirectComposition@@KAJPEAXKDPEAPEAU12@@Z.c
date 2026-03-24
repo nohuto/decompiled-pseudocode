@@ -1,16 +1,16 @@
 /*
- * XREFs of ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0093F84
+ * XREFs of ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0082B34
  * Callers:
- *     NtDCompositionRegisterThumbnailVisual @ 0x1C0006AA0 (NtDCompositionRegisterThumbnailVisual.c)
- *     NtDCompositionReferenceSharedResourceOnDwmChannel @ 0x1C0014810 (NtDCompositionReferenceSharedResourceOnDwmChannel.c)
- *     NtDCompositionSetMaterialProperty @ 0x1C0057A50 (NtDCompositionSetMaterialProperty.c)
- *     ?OpenInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJPEAXI_NPEAPEAVCResourceMarshaler@2@@Z @ 0x1C005841C (-OpenInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJPEAXI_NPEAPEAVCResourceM.c)
- *     CreateSharedResourceObject @ 0x1C0058874 (CreateSharedResourceObject.c)
- *     NtDCompositionRegisterVirtualDesktopVisual @ 0x1C0211E50 (NtDCompositionRegisterVirtualDesktopVisual.c)
- *     NtDCompositionSetChildRootVisual @ 0x1C0212060 (NtDCompositionSetChildRootVisual.c)
- *     ?SetBlurredWallpaperSurfaceInternal@CConnection@DirectComposition@@AEAAJPEAXPEBUtagRECT@@@Z @ 0x1C0213654 (-SetBlurredWallpaperSurfaceInternal@CConnection@DirectComposition@@AEAAJPEAXPEBUtagRECT@@@Z.c)
+ *     NtDCompositionRegisterThumbnailVisual @ 0x1C0003B00 (NtDCompositionRegisterThumbnailVisual.c)
+ *     ?OpenInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJPEAXI_NPEAPEAVCResourceMarshaler@2@@Z @ 0x1C004A8DC (-OpenInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJPEAXI_NPEAPEAVCResourceM.c)
+ *     CreateSharedResourceObject @ 0x1C004ADB8 (CreateSharedResourceObject.c)
+ *     NtDCompositionReferenceSharedResourceOnDwmChannel @ 0x1C005CFD0 (NtDCompositionReferenceSharedResourceOnDwmChannel.c)
+ *     NtDCompositionSetMaterialProperty @ 0x1C009D310 (NtDCompositionSetMaterialProperty.c)
+ *     CreateSharedSystemVisualObject @ 0x1C00A4570 (CreateSharedSystemVisualObject.c)
+ *     NtDCompositionRegisterVirtualDesktopVisual @ 0x1C01D28C0 (NtDCompositionRegisterVirtualDesktopVisual.c)
+ *     NtDCompositionSetChildRootVisual @ 0x1C01D2A00 (NtDCompositionSetChildRootVisual.c)
  * Callees:
- *     ?ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z @ 0x1C0093FC8 (-ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z.c)
+ *     ?ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z @ 0x1C0082BC4 (-ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::ResourceObject::ResolveHandle(

@@ -1,25 +1,21 @@
 /*
- * XREFs of VfUtilIsProtectedDriver @ 0x140A81E5C
+ * XREFs of VfUtilIsProtectedDriver @ 0x1409C688C
  * Callers:
- *     VfDriverApplyDifVerification @ 0x140A898F0 (VfDriverApplyDifVerification.c)
- *     VfDriverEnableVerifier @ 0x140A89AB0 (VfDriverEnableVerifier.c)
- *     VfDriverEnableVerifierForAll @ 0x140A89C30 (VfDriverEnableVerifierForAll.c)
+ *     VfDriverEnableVerifier @ 0x1409C8620 (VfDriverEnableVerifier.c)
+ *     VfDriverEnableVerifierForAll @ 0x1409C87B8 (VfDriverEnableVerifierForAll.c)
  * Callees:
- *     MiIsImportOptimizationEnabled @ 0x14029C6DC (MiIsImportOptimizationEnabled.c)
- *     KeIsImageIATProtected @ 0x14056A188 (KeIsImageIATProtected.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
  */
 
-__int64 VfUtilIsProtectedDriver()
+__int64 __fastcall VfUtilIsProtectedDriver(PCUNICODE_STRING String2)
 {
-  bool IsImportOptimizationEnabled; // al
-  __int64 v1; // rcx
-  unsigned int v2; // edx
+  unsigned int v2; // ebx
 
-  IsImportOptimizationEnabled = MiIsImportOptimizationEnabled();
   v2 = 0;
-  if ( IsImportOptimizationEnabled )
-    LOBYTE(v2) = (*(_WORD *)(v1 + 110) & 0x180) != 0;
-  else
-    return (unsigned int)KeIsImageIATProtected(v1);
-  return v2;
+  while ( !RtlEqualUnicodeString((PCUNICODE_STRING)&VfProtectedDriverNames[2 * v2], String2, 1u) )
+  {
+    if ( ++v2 >= 0x12 )
+      return 0LL;
+  }
+  return 1LL;
 }

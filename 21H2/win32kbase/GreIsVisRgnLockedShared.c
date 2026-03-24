@@ -1,12 +1,12 @@
 /*
- * XREFs of GreIsVisRgnLockedShared @ 0x1C01778A0
+ * XREFs of GreIsVisRgnLockedShared @ 0x1C014B470
  * Callers:
  *     <none>
  * Callees:
- *     GreIsSemaphoreSharedByCurrentThread @ 0x1C00B7DC0 (GreIsSemaphoreSharedByCurrentThread.c)
+ *     GreIsSemaphoreSharedByCurrentThread @ 0x1C00A8950 (GreIsSemaphoreSharedByCurrentThread.c)
  */
 
 _BOOL8 GreIsVisRgnLockedShared()
 {
-  return GreIsSemaphoreSharedByCurrentThread(ghsemDCVisRgn);
+  return GreIsSemaphoreSharedByCurrentThread((struct _ERESOURCE *)ghsemDCVisRgn);
 }

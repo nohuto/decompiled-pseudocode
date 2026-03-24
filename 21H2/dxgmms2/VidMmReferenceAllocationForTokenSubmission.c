@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmReferenceAllocationForTokenSubmission @ 0x1C001A7B0
+ * XREFs of VidMmReferenceAllocationForTokenSubmission @ 0x1C0022FB0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReferenceAllocationForTokenSubmission@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_MULTI_ALLOC@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00A94F0 (-ReferenceAllocationForTokenSubmission@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_MULTI_ALL.c)
+ *     ?ReferenceAllocationForTokenSubmission@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_MULTI_ALLOC@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00B2F5C (-ReferenceAllocationForTokenSubmission@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_MULTI_ALL.c)
  */
 
 __int64 __fastcall VidMmReferenceAllocationForTokenSubmission(

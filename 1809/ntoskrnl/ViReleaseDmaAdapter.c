@@ -8,9 +8,9 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmFreeContiguousMemory @ 0x140122FA0 (MmFreeContiguousMemory.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     MmFreeContiguousMemory @ 0x140122FC0 (MmFreeContiguousMemory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ViHalPreprocessOptions @ 0x14092DD28 (ViHalPreprocessOptions.c)
  */
@@ -62,13 +62,13 @@ void __fastcall ViReleaseDmaAdapter(ULONG_PTR a1)
   if ( *(int *)(a1 + 36) > 0 && v10 && (v10 != 1 || !*(_BYTE *)(a1 + 34)) )
   {
     ViHalPreprocessOptions(
-      byte_1404054F4,
+      byte_1404054E8,
       "Too many outstanding reference counts (%x) for adapter %p",
       17LL,
       v10,
       (__int64)v1,
       a1);
-    VfReportIssueWithOptions(0xE6u, 0x11uLL, v11, (ULONG_PTR)v1, a1, byte_1404054F4);
+    VfReportIssueWithOptions(0xE6u, 0x11uLL, v11, (ULONG_PTR)v1, a1, byte_1404054E8);
   }
   ExFreePoolWithTag((PVOID)a1, 0);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of NtUserDefSetText @ 0x1C01496C0
+ * XREFs of NtUserDefSetText @ 0x1C01557F0
  * Callers:
  *     <none>
  * Callees:
- *     DefSetText @ 0x1C00689C0 (DefSetText.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     DefSetText @ 0x1C004B02C (DefSetText.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserDefSetText(__int64 a1, __m128i *a2)
 {
   __int64 v4; // rcx
-  _QWORD *v5; // r9
+  __int64 *v5; // r9
   unsigned int v6; // ebx
   unsigned __int64 v7; // xmm0_8
   ULONG64 v8; // rdx
@@ -18,8 +18,8 @@ __int64 __fastcall NtUserDefSetText(__int64 a1, __m128i *a2)
   __m128i v11; // [rsp+38h] [rbp-20h] BYREF
 
   v11 = 0LL;
-  EnterCrit(0LL, 0LL);
-  v5 = (_QWORD *)ValidateHwnd(a1);
+  EnterCrit(0LL, 1LL);
+  v5 = (__int64 *)ValidateHwnd(a1);
   v6 = 0;
   if ( v5 )
   {

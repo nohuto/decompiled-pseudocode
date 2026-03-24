@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipRegisterFirmwareProviders @ 0x140B30770
+ * XREFs of WmipRegisterFirmwareProviders @ 0x140A73644
  * Callers:
- *     WMIInitialize @ 0x140AFFEF4 (WMIInitialize.c)
+ *     WMIInitialize @ 0x140A3CB54 (WMIInitialize.c)
  * Callees:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
  */
 
 __int64 WmipRegisterFirmwareProviders()
@@ -23,7 +23,7 @@ __int64 WmipRegisterFirmwareProviders()
   v5 = WmipRawSMBiosTableHandler;
   v6 = PnpDriverObject;
   result = NtSetSystemInformation(0x4BuLL, (unsigned __int64)&v1, 24LL);
-  if ( dword_140C15C70 == 1 )
+  if ( dword_140C19850 == 1 )
   {
     v1 = 1179210317;
     v2 = 1;

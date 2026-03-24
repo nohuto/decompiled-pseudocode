@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmParkUnblockIdle @ 0x14023A7D0
+ * XREFs of PpmParkUnblockIdle @ 0x1402B04B0
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140294050 (KeEnumerateNextProcessor.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402F4410 (KeRemoveProcessorAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1402FFAC0 (KeCountSetBitsAffinityEx.c)
- *     PpmPerfQueueAction @ 0x140345110 (PpmPerfQueueAction.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
+ *     KeCountSetBitsAffinityEx @ 0x14027B480 (KeCountSetBitsAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x14033B4A0 (KeRemoveProcessorAffinityEx.c)
+ *     PpmPerfQueueAction @ 0x1403990CC (PpmPerfQueueAction.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 char PpmParkUnblockIdle()
@@ -17,7 +17,7 @@ char PpmParkUnblockIdle()
   __int64 Prcb; // rax
   int v3; // eax
   __int64 v4; // rax
-  int *v5; // [rsp+20h] [rbp-20h] BYREF
+  unsigned __int16 *v5; // [rsp+20h] [rbp-20h] BYREF
   __int64 v6; // [rsp+28h] [rbp-18h]
   __int16 v7; // [rsp+30h] [rbp-10h]
   int v8; // [rsp+32h] [rbp-Eh]
@@ -30,31 +30,31 @@ char PpmParkUnblockIdle()
   v10 = 0;
   if ( PpmIsParkingEnabled )
   {
-    v6 = qword_140C0D118;
-    v5 = &PpmPerfNewUnparkedMask;
+    v6 = qword_140C12BB8;
+    v5 = (unsigned __int16 *)&PpmPerfNewUnparkedMask;
     v7 = 0;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v10, &v5) )
     {
       Prcb = KeGetPrcb(v10);
-      if ( *(_BYTE *)(Prcb + 33669) )
-        *(_BYTE *)(Prcb + 33669) = 0;
+      if ( *(_BYTE *)(Prcb + 32829) )
+        *(_BYTE *)(Prcb + 32829) = 0;
       else
         KeRemoveProcessorAffinityEx(&PpmPerfNewUnparkedMask, v10);
     }
-    v3 = KeCountSetBitsAffinityEx(&PpmPerfNewUnparkedMask);
+    v3 = KeCountSetBitsAffinityEx((unsigned __int16 *)&PpmPerfNewUnparkedMask);
     if ( v3 )
     {
       PpmCheckCount = v3;
-      v6 = qword_140C0D118;
+      v6 = qword_140C12BB8;
       v7 = 0;
-      v5 = &PpmPerfNewUnparkedMask;
+      v5 = (unsigned __int16 *)&PpmPerfNewUnparkedMask;
       while ( !(unsigned int)KeEnumerateNextProcessor(&v10, &v5) )
       {
         v4 = KeGetPrcb(v10);
         PpmPerfQueueAction(v4, 5LL);
       }
-      PpmPerfNewUnparkedMask = 2097153;
-      memset(&unk_140C0D114, 0, 0x104uLL);
+      PpmPerfNewUnparkedMask = 1310721;
+      memset(&unk_140C12BB4, 0, 0xA4uLL);
       return 0;
     }
   }

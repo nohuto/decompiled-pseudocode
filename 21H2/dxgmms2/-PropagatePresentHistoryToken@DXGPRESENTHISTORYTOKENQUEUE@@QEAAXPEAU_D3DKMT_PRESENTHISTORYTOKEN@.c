@@ -1,11 +1,9 @@
 /*
- * XREFs of ?PropagatePresentHistoryToken@DXGPRESENTHISTORYTOKENQUEUE@@QEAAXPEAU_D3DKMT_PRESENTHISTORYTOKEN@@_N111111PEAX@Z @ 0x1C0011A30
+ * XREFs of ?PropagatePresentHistoryToken@DXGPRESENTHISTORYTOKENQUEUE@@QEAAXPEAU_D3DKMT_PRESENTHISTORYTOKEN@@_N11111@Z @ 0x1C00153A0
  * Callers:
- *     ?VidSchiProcessPresentHistoryToken@@YAXPEAU_VIDSCH_GLOBAL@@PEAVHwQueueStagingList@@PEAU_VIDSCH_CONTEXT@@PEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_DEVICE@@PEAUVIDSCH_SUBMIT_DATA2@@T_ULARGE_INTEGER@@_N7@Z @ 0x1C00116E0 (-VidSchiProcessPresentHistoryToken@@YAXPEAU_VIDSCH_GLOBAL@@PEAVHwQueueStagingList@@PEAU_VIDSCH_C.c)
- *     VidSchiPropagatePresentHistoryToken @ 0x1C001863C (VidSchiPropagatePresentHistoryToken.c)
+ *     VidSchiPropagatePresentHistoryToken @ 0x1C00151C8 (VidSchiPropagatePresentHistoryToken.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0ppqqxdqp_EtwWriteTransfer @ 0x1C00368E0 (McTemplateK0ppqqxdqp_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqx_EtwWriteTransfer @ 0x1C002D4F0 (McTemplateK0ppqqx_EtwWriteTransfer.c)
  */
 
 void __fastcall DXGPRESENTHISTORYTOKENQUEUE::PropagatePresentHistoryToken(
@@ -17,63 +15,51 @@ void __fastcall DXGPRESENTHISTORYTOKENQUEUE::PropagatePresentHistoryToken(
         bool a6,
         bool a7)
 {
-  __int64 v11; // rax
-  int v12; // eax
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+60h] [rbp-28h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  int v17; // eax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-28h] BYREF
 
-  if ( bTracingEnabled && Microsoft_Windows_DxgKrnlEnableBits < 0 )
-    McTemplateK0ppqqxdqp_EtwWriteTransfer((_DWORD)SpinLock, (_DWORD)a2, a3, (_DWORD)SpinLock, (char)a2);
-  memset(&LockHandle, 0, sizeof(LockHandle));
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+    McTemplateK0ppqqx_EtwWriteTransfer((_DWORD)SpinLock, (_DWORD)a2, a3, (_DWORD)SpinLock, (char)a2);
   KeAcquireInStackQueuedSpinLock(SpinLock, &LockHandle);
-  v11 = *((unsigned int *)SpinLock + 2);
-  if ( (unsigned int)v11 >= 0x800 )
+  v14 = *((unsigned int *)SpinLock + 2);
+  if ( (unsigned int)v14 >= 0x800 )
   {
-    WdLogSingleEntry1(1LL, 3471LL);
-    DxgCoreInterface[85](
-      0LL,
-      262146LL,
-      0xFFFFFFFFLL,
-      L"m_PresentHistoryHead < D3DKMT_GETPRESENTHISTORY_MAXTOKENS",
-      3471LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v11 = *((unsigned int *)SpinLock + 2);
+    v18 = WdLogNewEntry5_WdAssertion(v12, v11, v13);
+    *(_QWORD *)(v18 + 24) = 3481LL;
+    WdLogEvent5_WdAssertion(v18);
+    v14 = *((unsigned int *)SpinLock + 2);
   }
-  SpinLock[v11 + 10] = (KSPIN_LOCK)a2;
+  SpinLock[v14 + 10] = (KSPIN_LOCK)a2;
   *((_BYTE *)SpinLock + *((unsigned int *)SpinLock + 2) + 16464) = a3 | *((_BYTE *)SpinLock
                                                                         + *((unsigned int *)SpinLock + 2)
                                                                         + 16464) & 0xFE;
-  *((_BYTE *)SpinLock + *((unsigned int *)SpinLock + 2) + 16464) = (2 * a4) | *((_BYTE *)SpinLock
-                                                                              + *((unsigned int *)SpinLock + 2)
-                                                                              + 16464) & 0xFD;
+  v16 = *((unsigned int *)SpinLock + 2);
+  *((_BYTE *)SpinLock + v16 + 16464) = (2 * a4) | *((_BYTE *)SpinLock + v16 + 16464) & 0xFD;
   *((_BYTE *)SpinLock + *((unsigned int *)SpinLock + 2) + 16464) = (4 * a5) | *((_BYTE *)SpinLock
                                                                               + *((unsigned int *)SpinLock + 2)
                                                                               + 16464) & 0xFB;
   *((_BYTE *)SpinLock + *((unsigned int *)SpinLock + 2) + 16464) = (8 * a6) | *((_BYTE *)SpinLock
                                                                               + *((unsigned int *)SpinLock + 2)
                                                                               + 16464) & 0xF7;
-  *((_BYTE *)SpinLock + *((unsigned int *)SpinLock + 2) + 16464) = (16 * a7) | *((_BYTE *)SpinLock
-                                                                               + *((unsigned int *)SpinLock + 2)
-                                                                               + 16464) & 0xEF;
+  v15 = *((unsigned int *)SpinLock + 2);
+  LOBYTE(v16) = (16 * a7) | *((_BYTE *)SpinLock + v15 + 16464) & 0xEF;
+  *((_BYTE *)SpinLock + v15 + 16464) = v16;
   *((_BYTE *)SpinLock + *((unsigned int *)SpinLock + 2) + 16464) &= ~0x20u;
-  *((_BYTE *)SpinLock + *((unsigned int *)SpinLock + 2) + 16464) &= ~0x40u;
-  v12 = ((unsigned __int16)*((_DWORD *)SpinLock + 2) + 1) & 0x7FF;
-  *((_DWORD *)SpinLock + 2) = v12;
-  if ( v12 == *((_DWORD *)SpinLock + 3) )
+  v17 = ((unsigned __int16)*((_DWORD *)SpinLock + 2) + 1) & 0x7FF;
+  *((_DWORD *)SpinLock + 2) = v17;
+  if ( v17 == *((_DWORD *)SpinLock + 3) )
   {
-    WdLogSingleEntry1(1LL, 3489LL);
-    DxgCoreInterface[85](
-      0LL,
-      262146LL,
-      0xFFFFFFFFLL,
-      L"m_PresentHistoryHead != m_PresentHistoryTail",
-      3489LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v19 = WdLogNewEntry5_WdAssertion(v16, v15, v13);
+    *(_QWORD *)(v19 + 24) = 3498LL;
+    WdLogEvent5_WdAssertion(v19);
   }
   KeSetEvent((PRKEVENT)SpinLock[9], 0, 0);
   KeReleaseInStackQueuedSpinLock(&LockHandle);

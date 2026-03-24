@@ -1,81 +1,92 @@
 /*
- * XREFs of NtGdiFONTOBJ_pfdg @ 0x1C02B3200
+ * XREFs of NtGdiFONTOBJ_pfdg @ 0x1C02B4DE0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0009B28 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z @ 0x1C00E8224 (-WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z.c)
- *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C01267F4 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
- *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C012AA04 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
- *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C012ABD8 (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
- *     ??$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z @ 0x1C012AD40 (--$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z.c)
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C001DF14 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z @ 0x1C00A476C (-WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CFBDC (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C013CB7C (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
+ *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C013CD54 (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
+ *     ??$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z @ 0x1C013CEBC (--$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z.c)
+ *     Feature_1508323640__private_IsEnabledDeviceUsage @ 0x1C016A12C (Feature_1508323640__private_IsEnabledDeviceUsage.c)
+ *     ?bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ @ 0x1C016D8BC (-bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ.c)
+ *     ?vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ @ 0x1C02B2070 (-vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ.c)
  */
 
 struct _FD_GLYPHSET *__fastcall NtGdiFONTOBJ_pfdg(__int64 a1)
 {
   struct _FD_GLYPHSET *v2; // rdi
   struct _W32THREAD *ThreadWin32Thread; // rax
-  struct UMPDOBJ *ThreadCurrentObj; // rax
-  struct UMPDOBJ *v5; // rbx
-  unsigned __int64 v6; // rax
-  unsigned __int64 v7; // rsi
-  struct _FD_GLYPHSET *v8; // rsi
-  unsigned int v9; // ebp
-  struct _FD_GLYPHSET *v10; // rax
-  unsigned __int64 v12; // [rsp+48h] [rbp+10h] BYREF
+  struct UMPDOBJ *ThreadCurrentObj; // rbx
+  unsigned __int64 v5; // rax
+  unsigned __int64 v6; // rsi
+  struct _FD_GLYPHSET *v7; // rsi
+  unsigned int v8; // ebp
+  struct _FD_GLYPHSET *v9; // rax
+  unsigned __int64 v11; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = 0LL;
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v5 = ThreadCurrentObj;
   if ( ThreadCurrentObj )
   {
-    ++*((_DWORD *)ThreadCurrentObj + 105);
-    v6 = UMPDOBJ::GetDDIOBJ<_FONTOBJ>((__int64)ThreadCurrentObj, a1);
-    v7 = v6;
-    if ( v6 )
+    if ( (unsigned int)Feature_1508323640__private_IsEnabledDeviceUsage() )
     {
-      v2 = (struct _FD_GLYPHSET *)*((_QWORD *)v5 + 41);
+      if ( !UMPDOBJ::bIncrementEngCallRecursionCount(ThreadCurrentObj) )
+      {
+        ThreadCurrentObj = 0LL;
+        goto LABEL_17;
+      }
+    }
+    else
+    {
+      ++*((_DWORD *)ThreadCurrentObj + 105);
+    }
+    v5 = UMPDOBJ::GetDDIOBJ<_FONTOBJ>((__int64)ThreadCurrentObj, a1);
+    v6 = v5;
+    if ( v5 )
+    {
+      v2 = (struct _FD_GLYPHSET *)*((_QWORD *)ThreadCurrentObj + 41);
       if ( !v2 )
       {
-        v12 = v6;
-        UMPDAcquireRFONTSem((struct RFONTOBJ *)&v12, v5, 0, 0, 0LL);
-        v8 = *(struct _FD_GLYPHSET **)(v7 + 472);
-        if ( v8 )
+        v11 = v5;
+        UMPDAcquireRFONTSem((struct RFONTOBJ *)&v11, ThreadCurrentObj, 0, 0, 0LL);
+        v7 = *(struct _FD_GLYPHSET **)(v6 + 472);
+        if ( v7 )
         {
-          if ( v8 < MmSystemRangeStart )
+          if ( v7 < MmSystemRangeStart )
           {
-            v2 = v8;
-            *((_QWORD *)v5 + 41) = v8;
+            v2 = v7;
+            *((_QWORD *)ThreadCurrentObj + 41) = v7;
           }
           else
           {
-            v9 = 4 * (v8->cGlyphsSupported + 4 * (v8->cRuns + 1));
-            if ( v9 )
+            v8 = 4 * (v7->cGlyphsSupported + 4 * (v7->cRuns + 1));
+            if ( v8 )
             {
-              v10 = (struct _FD_GLYPHSET *)UMPDOBJ::_AllocUserMem(v5, v9, 0);
-              v2 = v10;
-              if ( v10 )
+              v9 = (struct _FD_GLYPHSET *)UMPDOBJ::_AllocUserMem(ThreadCurrentObj, v8, 0);
+              v2 = v9;
+              if ( v9 )
               {
-                if ( (unsigned int)WriteFD_GLYPHSET(v10, v8, v9) )
-                  *((_QWORD *)v5 + 41) = v2;
+                if ( (unsigned int)WriteFD_GLYPHSET(v9, v7, v8) )
+                  *((_QWORD *)ThreadCurrentObj + 41) = v2;
                 else
                   v2 = 0LL;
               }
             }
           }
         }
-        UMPDReleaseRFONTSem((struct RFONTOBJ *)&v12, v5, 0LL, 0LL, 0LL);
-        v12 = 0LL;
-        RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v12);
-        goto LABEL_14;
+        UMPDReleaseRFONTSem((struct RFONTOBJ *)&v11, ThreadCurrentObj, 0LL, 0LL, 0LL);
+        v11 = 0LL;
+        RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v11);
       }
     }
   }
-  if ( v5 )
-LABEL_14:
-    --*((_DWORD *)v5 + 105);
+LABEL_17:
+  if ( ThreadCurrentObj )
+    UMPDOBJ::vDecrementEngCallRecursionCount(ThreadCurrentObj);
   return v2;
 }

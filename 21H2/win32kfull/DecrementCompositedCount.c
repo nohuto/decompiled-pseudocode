@@ -1,10 +1,10 @@
 /*
- * XREFs of DecrementCompositedCount @ 0x1C01E2470
+ * XREFs of DecrementCompositedCount @ 0x1C01E7D0C
  * Callers:
- *     SetVisible @ 0x1C001FE88 (SetVisible.c)
- *     ?DecComposited@@YAXPEAUtagWND@@@Z @ 0x1C0239020 (-DecComposited@@YAXPEAUtagWND@@@Z.c)
+ *     SetVisible @ 0x1C004BD40 (SetVisible.c)
+ *     ?DecComposited@@YAXPEAUtagWND@@@Z @ 0x1C023DC50 (-DecComposited@@YAXPEAUtagWND@@@Z.c)
  * Callees:
- *     FindTimer @ 0x1C01041A4 (FindTimer.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
  */
 
 __int64 DecrementCompositedCount()

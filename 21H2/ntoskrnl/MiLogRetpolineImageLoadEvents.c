@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogRetpolineImageLoadEvents @ 0x1407615BC
+ * XREFs of MiLogRetpolineImageLoadEvents @ 0x14075CCC0
  * Callers:
- *     MmLoadSystemImageEx @ 0x14075FC44 (MmLoadSystemImageEx.c)
- *     MiReloadBootLoadedDrivers @ 0x140B04F8C (MiReloadBootLoadedDrivers.c)
+ *     MiFinalizeImageRetpolineState @ 0x14075CC88 (MiFinalizeImageRetpolineState.c)
+ *     MiReloadBootLoadedDrivers @ 0x140A4F9F0 (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     RtlIsImageFullyRetpolined @ 0x1402D9A20 (RtlIsImageFullyRetpolined.c)
- *     MiLogNonRetpolineImageLoadEvent @ 0x14081BD3C (MiLogNonRetpolineImageLoadEvent.c)
- *     MiConstructNonRetpolineImageLoadRecord @ 0x1409709F4 (MiConstructNonRetpolineImageLoadRecord.c)
+ *     RtlIsImageFullyRetpolined @ 0x140371E28 (RtlIsImageFullyRetpolined.c)
+ *     MiLogNonRetpolineImageLoadEvent @ 0x14075FC2C (MiLogNonRetpolineImageLoadEvent.c)
+ *     MiConstructNonRetpolineImageLoadRecord @ 0x1407D02FC (MiConstructNonRetpolineImageLoadRecord.c)
  */
 
 _QWORD *__fastcall MiLogRetpolineImageLoadEvents(__int64 a1)
@@ -17,7 +17,7 @@ _QWORD *__fastcall MiLogRetpolineImageLoadEvents(__int64 a1)
   result = (_QWORD *)RtlIsImageFullyRetpolined(*(_QWORD *)(a1 + 48));
   if ( !(_DWORD)result )
   {
-    if ( *(_QWORD *)&qword_140C53448 )
+    if ( *(_QWORD *)&qword_140C4EEE0 )
     {
       return (_QWORD *)MiLogNonRetpolineImageLoadEvent(
                          a1 + 88,
@@ -29,13 +29,13 @@ _QWORD *__fastcall MiLogRetpolineImageLoadEvents(__int64 a1)
       result = (_QWORD *)MiConstructNonRetpolineImageLoadRecord(a1);
       if ( result )
       {
-        v3 = (_QWORD *)qword_140C4F438;
-        if ( *(PVOID **)qword_140C4F438 != &qword_140C4F430 )
+        v3 = (_QWORD *)qword_140C4CC80;
+        if ( *(PVOID **)qword_140C4CC80 != &qword_140C4CC78 )
           __fastfail(3u);
-        *result = &qword_140C4F430;
+        *result = &qword_140C4CC78;
         result[1] = v3;
         *v3 = result;
-        qword_140C4F438 = (__int64)result;
+        qword_140C4CC80 = (__int64)result;
       }
     }
   }

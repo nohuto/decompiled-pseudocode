@@ -1,9 +1,10 @@
 /*
- * XREFs of ?HrFindInterface@CWICBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802B1330
+ * XREFs of ?HrFindInterface@CWICBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180263230
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006C500 (-HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CWICBitmapRealization::HrFindInterface(
@@ -46,23 +47,27 @@ LABEL_11:
     if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&IID_IWICDecoderBitmapSource.Data1 )
       v8 = *(_QWORD *)a2->Data4 - *(_QWORD *)IID_IWICDecoderBitmapSource.Data4;
     if ( v8 )
-      return (unsigned int)-2147467262;
-    v13 = 0LL;
-    v9 = *((_QWORD *)this + 3);
-    if ( !v9 )
-      return (unsigned int)-2147467262;
-    v10 = (int (__fastcall ***)(_QWORD, GUID *, __int64 *))(v9 + 8 + *(int *)(*(_QWORD *)(v9 + 8) + 4LL));
-    if ( (**v10)(v10, &IID_IWICDecoderBitmapSource, &v13) < 0 )
     {
-      return (unsigned int)-2147467262;
+      return (unsigned int)CMILCOMBase::HrFindInterface(this, a2, a3);
     }
     else
     {
-      v5 = 0;
-      v11 = v13;
-      *a3 = (void *)(((unsigned __int64)this + 96) & -(__int64)(this != 0LL));
-      if ( v11 )
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
+      v13 = 0LL;
+      v9 = *((_QWORD *)this + 3);
+      if ( v9
+        && (v10 = (int (__fastcall ***)(_QWORD, GUID *, __int64 *))(v9 + 8 + *(int *)(*(_QWORD *)(v9 + 8) + 4LL)),
+            (**v10)(v10, &IID_IWICDecoderBitmapSource, &v13) >= 0) )
+      {
+        v11 = v13;
+        v5 = 0;
+        *a3 = (char *)this + 96;
+        if ( v11 )
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
+      }
+      else
+      {
+        return (unsigned int)-2147467262;
+      }
     }
   }
   return v5;

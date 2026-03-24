@@ -1,11 +1,11 @@
 /*
- * XREFs of PiCMCaptureInterfaceAliasInputData @ 0x1406DB910
+ * XREFs of PiCMCaptureInterfaceAliasInputData @ 0x14072B500
  * Callers:
- *     PiCMGetDeviceInterfaceAlias @ 0x1406DB388 (PiCMGetDeviceInterfaceAlias.c)
+ *     PiCMGetDeviceInterfaceAlias @ 0x14072AE3C (PiCMGetDeviceInterfaceAlias.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1402DF554 (PiControlFreeUserModeCallersBuffer.c)
- *     PiControlMakeUserModeCallersCopy @ 0x14077C610 (PiControlMakeUserModeCallersCopy.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x1402647E0 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406356D0 (PiControlMakeUserModeCallersCopy.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMCaptureInterfaceAliasInputData(unsigned __int64 a1, unsigned int a2, int a3, __int64 a4)
@@ -15,8 +15,8 @@ __int64 __fastcall PiCMCaptureInterfaceAliasInputData(unsigned __int64 a1, unsig
   int UserModeCallersCopy; // ebx
   unsigned __int64 v8; // r8
   _QWORD *v9; // r14
-  __int64 v10; // rcx
-  __int64 v11; // r8
+  void *v10; // rcx
+  unsigned int v11; // r8d
   unsigned __int64 v13; // r8
 
   v5 = 0;
@@ -71,14 +71,14 @@ __int64 __fastcall PiCMCaptureInterfaceAliasInputData(unsigned __int64 a1, unsig
   if ( UserModeCallersCopy >= 0 )
   {
     v9 = (_QWORD *)(a4 + 24);
-    v10 = *(_QWORD *)(a4 + 24);
+    v10 = *(void **)(a4 + 24);
     *(_QWORD *)(a4 + 24) = 0LL;
     if ( v10 )
     {
-      v11 = *(unsigned int *)(a4 + 32);
-      if ( (unsigned int)v11 >= 2 )
+      v11 = *(_DWORD *)(a4 + 32);
+      if ( v11 >= 2 )
       {
-        UserModeCallersCopy = PiControlMakeUserModeCallersCopy(a4 + 24, v10, v11, 2LL, PreviousMode, 1);
+        UserModeCallersCopy = PiControlMakeUserModeCallersCopy((void **)(a4 + 24), v10, v11, 2u, PreviousMode, 1);
         if ( UserModeCallersCopy < 0 )
         {
           *v9 = 0LL;

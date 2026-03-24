@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ProcessSetInnerConeColor@CCompositionSpotLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONSPOTLIGHT_SETINNERCONECOLOR@@@Z @ 0x180226AE8
+ * XREFs of ?ProcessSetInnerConeColor@CCompositionSpotLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONSPOTLIGHT_SETINNERCONECOLOR@@@Z @ 0x1800DEFAC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,8 +11,8 @@ __int64 __fastcall CCompositionSpotLight::ProcessSetInnerConeColor(
         struct CResourceTable *a2,
         const struct tagMILCMD_COMPOSITIONSPOTLIGHT_SETINNERCONECOLOR *a3)
 {
-  return ((__int64 (__fastcall *)(char *, void *, char *))xmmword_1803E4018)(
-           (char *)this + SDWORD2(xmmword_1803E4018),
+  return ((__int64 (__fastcall *)(char *, void *, char *))xmmword_180345A70)(
+           (char *)this + SDWORD2(xmmword_180345A70),
            &CCompositionSpotLight::sc_InnerConeColor,
            (char *)a3 + 8);
 }

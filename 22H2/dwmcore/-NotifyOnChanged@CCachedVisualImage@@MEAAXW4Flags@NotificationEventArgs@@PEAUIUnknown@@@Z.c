@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyOnChanged@CCachedVisualImage@@MEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800BBED0
+ * XREFs of ?NotifyOnChanged@CCachedVisualImage@@MEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180036540
  * Callers:
  *     <none>
  * Callees:

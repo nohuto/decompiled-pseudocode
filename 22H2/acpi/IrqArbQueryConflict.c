@@ -1,11 +1,11 @@
 /*
- * XREFs of IrqArbQueryConflict @ 0x1C009D830
+ * XREFs of IrqArbQueryConflict @ 0x1C00B70E0
  * Callers:
  *     <none>
  * Callees:
- *     PcisuppIsPciDevice @ 0x1C0099F78 (PcisuppIsPciDevice.c)
- *     IrqArbpQueryConflictIsa @ 0x1C009E550 (IrqArbpQueryConflictIsa.c)
- *     ArbQueryConflict @ 0x1C00A2350 (ArbQueryConflict.c)
+ *     PcisuppIsPciDevice @ 0x1C0093BD0 (PcisuppIsPciDevice.c)
+ *     IrqArbpQueryConflictIsa @ 0x1C00B752C (IrqArbpQueryConflictIsa.c)
+ *     ArbQueryConflict @ 0x1C00B8080 (ArbQueryConflict.c)
  */
 
 __int64 __fastcall IrqArbQueryConflict(__int64 a1, __int64 *a2)

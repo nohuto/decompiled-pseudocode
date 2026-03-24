@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlNotifySetCancelRoutine @ 0x140302CF8
+ * XREFs of FsRtlNotifySetCancelRoutine @ 0x140302F58
  * Callers:
- *     FsRtlNotifyCompleteIrp @ 0x14068AA8C (FsRtlNotifyCompleteIrp.c)
- *     FsRtlNotifyFilterChangeDirectoryLite @ 0x1407C5090 (FsRtlNotifyFilterChangeDirectoryLite.c)
- *     FsRtlNotifyFilterChangeDirectory @ 0x140852B70 (FsRtlNotifyFilterChangeDirectory.c)
+ *     FsRtlNotifyFilterChangeDirectory @ 0x140675020 (FsRtlNotifyFilterChangeDirectory.c)
+ *     FsRtlNotifyCompleteIrp @ 0x140675984 (FsRtlNotifyCompleteIrp.c)
+ *     FsRtlNotifyFilterChangeDirectoryLite @ 0x140675B90 (FsRtlNotifyFilterChangeDirectoryLite.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     FsRtlCancelNotify @ 0x14035DB70 (FsRtlCancelNotify.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     FsRtlCancelNotify @ 0x140303070 (FsRtlCancelNotify.c)
  */
 
 char __fastcall FsRtlNotifySetCancelRoutine(__int64 a1, __int64 a2)

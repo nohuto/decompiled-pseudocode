@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiFdoReleaseChildDescriptor @ 0x1C039CEB0
+ * XREFs of DpiFdoReleaseChildDescriptor @ 0x1C02CC080
  * Callers:
- *     DpiFdoCreateChildDescriptor @ 0x1C02177D4 (DpiFdoCreateChildDescriptor.c)
- *     DpiFdoRemoveChildDescriptor @ 0x1C039CF24 (DpiFdoRemoveChildDescriptor.c)
- *     DpiPdoDestroyPdo @ 0x1C03A9580 (DpiPdoDestroyPdo.c)
+ *     DpiFdoCreateChildDescriptor @ 0x1C01978C4 (DpiFdoCreateChildDescriptor.c)
+ *     DpiFdoRemoveChildDescriptor @ 0x1C02CC0F4 (DpiFdoRemoveChildDescriptor.c)
+ *     DpiPdoDestroyPdo @ 0x1C02D9420 (DpiPdoDestroyPdo.c)
  * Callees:
  *     <none>
  */

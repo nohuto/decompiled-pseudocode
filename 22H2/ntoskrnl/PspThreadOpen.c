@@ -1,10 +1,10 @@
 /*
- * XREFs of PspThreadOpen @ 0x1406B8060
+ * XREFs of PspThreadOpen @ 0x140607820
  * Callers:
  *     <none>
  * Callees:
- *     PspIsParentProcess @ 0x1402268CC (PspIsParentProcess.c)
- *     PsTestProtectedProcessIncompatibility @ 0x1406B8204 (PsTestProtectedProcessIncompatibility.c)
+ *     PspIsParentProcess @ 0x140251BF0 (PspIsParentProcess.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x1406079D8 (PsTestProtectedProcessIncompatibility.c)
  */
 
 __int64 __fastcall PspThreadOpen(__int64 a1, char a2, __int64 a3, __int64 a4, int *a5)
@@ -25,7 +25,7 @@ __int64 __fastcall PspThreadOpen(__int64 a1, char a2, __int64 a3, __int64 a4, in
     if ( (unsigned __int8)PsTestProtectedProcessIncompatibility(v11, a3, v9) )
       return 3221225506LL;
   }
-  if ( *(_QWORD *)(a4 + 1584) && !*(_QWORD *)(a3 + 2240) && a2 && (~HIDWORD(xmmword_140C381A0) & *a5) != 0 )
+  if ( *(_QWORD *)(a4 + 1504) && !*(_QWORD *)(a3 + 2240) && a2 && (~HIDWORD(xmmword_140C1E080) & *a5) != 0 )
     return 3221225506LL;
   v12 = *a5;
   if ( (*a5 & 0x40) != 0 )

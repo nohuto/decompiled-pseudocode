@@ -1,33 +1,33 @@
 /*
- * XREFs of PiPnpRtlFreeInstallerClassChangeInfo @ 0x140768E44
+ * XREFs of PiPnpRtlFreeInstallerClassChangeInfo @ 0x140771E2C
  * Callers:
- *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x140768D10 (PiPnpRtlGatherInstallerClassChangeInfo.c)
- *     PiPnpRtlCmActionCallback @ 0x140779F10 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x14076FC7C (PiPnpRtlGatherInstallerClassChangeInfo.c)
  * Callees:
- *     PiDmRemoveCacheReferenceForObject @ 0x14076A0A8 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDmObjectRelease @ 0x14077B394 (PiDmObjectRelease.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x1407488F8 (PiDmRemoveCacheReferenceForObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PiPnpRtlFreeInstallerClassChangeInfo(PVOID P)
+void __fastcall PiPnpRtlFreeInstallerClassChangeInfo(unsigned int **P, __int64 a2, unsigned int *a3)
 {
-  void *v2; // rcx
-  void *v3; // rcx
-  __int64 v4; // rax
+  unsigned int *v4; // rcx
+  unsigned int *v5; // rcx
+  unsigned int *v6; // rax
 
   if ( P )
   {
-    v2 = *(void **)P;
-    if ( v2 )
-      PiDmObjectRelease(v2);
-    v3 = (void *)*((_QWORD *)P + 1);
-    if ( v3 )
-      PiDmObjectRelease(v3);
-    v4 = *((_QWORD *)P + 2);
+    v4 = *P;
     if ( v4 )
+      PiDmObjectRelease(v4);
+    v5 = P[1];
+    if ( v5 )
+      PiDmObjectRelease(v5);
+    v6 = P[2];
+    if ( v6 )
     {
-      PiDmRemoveCacheReferenceForObject(*(unsigned int *)(v4 + 28), *(_QWORD *)(v4 + 16));
-      PiDmObjectRelease(*((PVOID *)P + 2));
+      PiDmRemoveCacheReferenceForObject(v6[7], *((_QWORD *)v6 + 2), a3);
+      PiDmObjectRelease(P[2]);
     }
     ExFreePoolWithTag(P, 0x47706E50u);
   }

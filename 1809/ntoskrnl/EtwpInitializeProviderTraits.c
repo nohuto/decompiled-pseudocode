@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpInitializeProviderTraits @ 0x1407412C0
+ * XREFs of EtwpInitializeProviderTraits @ 0x1407412A0
  * Callers:
  *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
  * Callees:

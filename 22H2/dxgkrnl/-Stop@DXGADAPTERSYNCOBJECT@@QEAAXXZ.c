@@ -1,33 +1,40 @@
 /*
- * XREFs of ?Stop@DXGADAPTERSYNCOBJECT@@QEAAXXZ @ 0x1C01E0724
+ * XREFs of ?Stop@DXGADAPTERSYNCOBJECT@@QEAAXXZ @ 0x1C0292D38
  * Callers:
- *     ?Destroy@DXGSYNCOBJECT@@QEAAXXZ @ 0x1C01A75CC (-Destroy@DXGSYNCOBJECT@@QEAAXXZ.c)
- *     ?Stop@ADAPTER_RENDER@@QEAAXEE@Z @ 0x1C02C20BC (-Stop@ADAPTER_RENDER@@QEAAXEE@Z.c)
- *     ?Destroy@DXGSYNCOBJECTCA@@QEAAXXZ @ 0x1C034F638 (-Destroy@DXGSYNCOBJECTCA@@QEAAXXZ.c)
+ *     ?Stop@ADAPTER_RENDER@@QEAAXEE@Z @ 0x1C021777C (-Stop@ADAPTER_RENDER@@QEAAXEE@Z.c)
+ *     ?Destroy@DXGSYNCOBJECTCA@@QEAAXXZ @ 0x1C0290A48 (-Destroy@DXGSYNCOBJECTCA@@QEAAXXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?ReleaseReference@DXG_SIGNAL_GUEST_CPU_EVENT@@SAXPEAU1@@Z @ 0x1C0048FC0 (-ReleaseReference@DXG_SIGNAL_GUEST_CPU_EVENT@@SAXPEAU1@@Z.c)
- *     ?DdiDestroyCpuEvent@ADAPTER_RENDER@@QEAAJQEAX@Z @ 0x1C02C66B4 (-DdiDestroyCpuEvent@ADAPTER_RENDER@@QEAAJQEAX@Z.c)
+ *     Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage @ 0x1C00261B0 (Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?DdiDestroyCpuEvent@ADAPTER_RENDER@@QEAAJQEAX@Z @ 0x1C00D63BC (-DdiDestroyCpuEvent@ADAPTER_RENDER@@QEAAJQEAX@Z.c)
+ *     ?ReleaseReference@DXG_SIGNAL_GUEST_CPU_EVENT_CBLT@@SAXPEAU1@@Z @ 0x1C00D80A0 (-ReleaseReference@DXG_SIGNAL_GUEST_CPU_EVENT_CBLT@@SAXPEAU1@@Z.c)
  */
 
 void __fastcall DXGADAPTERSYNCOBJECT::Stop(DXGADAPTERSYNCOBJECT *this)
 {
   signed __int64 v1; // rdi
-  __int64 v3; // rax
-  void *v4; // rdx
+  __int64 v3; // r8
+  __int64 v4; // rcx
+  void *v5; // rdx
 
   v1 = *((_QWORD *)this + 4);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)this + 4, 0LL, v1) )
   {
-    v3 = *((_QWORD *)this + 5);
-    if ( v3 )
+    if ( (unsigned int)Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage() )
     {
-      v4 = *(void **)(v3 + 32);
+      v4 = *((_QWORD *)this + 5);
       if ( v4 )
-        ADAPTER_RENDER::DdiDestroyCpuEvent(*((ADAPTER_RENDER **)this + 2), v4);
-      DXG_SIGNAL_GUEST_CPU_EVENT::ReleaseReference(*((struct DXG_SIGNAL_GUEST_CPU_EVENT **)this + 5));
-      *((_QWORD *)this + 5) = 0LL;
+      {
+        v5 = *(void **)(v4 + 48);
+        if ( v5 )
+        {
+          ADAPTER_RENDER::DdiDestroyCpuEvent(*((ADAPTER_RENDER **)this + 2), v5, v3);
+          v4 = *((_QWORD *)this + 5);
+        }
+        DXG_SIGNAL_GUEST_CPU_EVENT_CBLT::ReleaseReference((struct DXG_SIGNAL_GUEST_CPU_EVENT_CBLT *)v4);
+        *((_QWORD *)this + 5) = 0LL;
+      }
     }
-    (*(void (__fastcall **)(signed __int64))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 736LL) + 8LL) + 616LL))(v1);
+    (*(void (__fastcall **)(signed __int64))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 616LL) + 8LL) + 616LL))(v1);
   }
 }

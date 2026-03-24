@@ -1,18 +1,18 @@
 /*
- * XREFs of IopPortFindSuitableRange @ 0x14083B8B0
+ * XREFs of IopPortFindSuitableRange @ 0x1407D0C30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     RtlFindRange @ 0x14083BD60 (RtlFindRange.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlFindRange @ 0x140760360 (RtlFindRange.c)
  */
 
-char __fastcall IopPortFindSuitableRange(__int64 a1, _QWORD *a2)
+char __fastcall IopPortFindSuitableRange(__int64 a1, unsigned __int64 *a2)
 {
   char v3; // r8
-  __int64 v4; // rdx
+  unsigned __int64 v4; // rdx
   __int64 v6; // r9
-  __int64 v7; // rcx
+  unsigned __int64 v7; // rcx
   unsigned __int64 v8; // r10
   unsigned __int64 v9; // r11
 
@@ -40,10 +40,10 @@ char __fastcall IopPortFindSuitableRange(__int64 a1, _QWORD *a2)
                v3,
                *(_QWORD *)(a1 + 328),
                *(_QWORD *)(a1 + 336),
-               (__int64)a2) >= 0
-     || (*(unsigned __int8 (__fastcall **)(__int64, _QWORD *))(a1 + 272))(a1, a2)) )
+               a2) >= 0
+     || (*(unsigned __int8 (__fastcall **)(__int64, unsigned __int64 *))(a1 + 272))(a1, a2)) )
   {
-    a2[1] = *a2 - 1LL + *(_QWORD *)(a2[5] + 16LL);
+    a2[1] = *a2 - 1 + *(_QWORD *)(a2[5] + 16);
     return 1;
   }
   return 0;

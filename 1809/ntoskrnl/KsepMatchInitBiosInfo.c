@@ -3,16 +3,16 @@
  * Callers:
  *     KsepMatchInitMachineInfo @ 0x1409AF1B4 (KsepMatchInitMachineInfo.c)
  * Callees:
- *     KsepLogInfo @ 0x1400F4D18 (KsepLogInfo.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcstoul @ 0x140197CA0 (wcstoul.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     __report_rangecheckfailure @ 0x140268CCC (__report_rangecheckfailure.c)
- *     KsepDebugPrint @ 0x14029FB44 (KsepDebugPrint.c)
- *     KsepRegistryOpenKey @ 0x14067DE78 (KsepRegistryOpenKey.c)
- *     KsepRegistryCloseKey @ 0x1407281A4 (KsepRegistryCloseKey.c)
- *     KsepRegistryQueryMULTISZ @ 0x140728270 (KsepRegistryQueryMULTISZ.c)
- *     KsepRegistryQuerySZ @ 0x14072829C (KsepRegistryQuerySZ.c)
+ *     KsepLogInfo @ 0x1400F4D38 (KsepLogInfo.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcstoul @ 0x140197CC0 (wcstoul.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     __report_rangecheckfailure @ 0x140268DCC (__report_rangecheckfailure.c)
+ *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
+ *     KsepRegistryOpenKey @ 0x14067DE58 (KsepRegistryOpenKey.c)
+ *     KsepRegistryCloseKey @ 0x140728184 (KsepRegistryCloseKey.c)
+ *     KsepRegistryQueryMULTISZ @ 0x140728250 (KsepRegistryQueryMULTISZ.c)
+ *     KsepRegistryQuerySZ @ 0x14072827C (KsepRegistryQuerySZ.c)
  */
 
 __int64 KsepMatchInitBiosInfo()

@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfQueryPackageProcessorCount @ 0x1401B5A80
+ * XREFs of PpmPerfQueryPackageProcessorCount @ 0x1401B5AA0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PpmPerfQueryPackageProcessorCount(int a1)

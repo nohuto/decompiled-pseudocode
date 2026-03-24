@@ -1,7 +1,7 @@
 /*
- * XREFs of _anonymous_namespace_::UpdateKeyStateFlag @ 0x1C00A7EC4
+ * XREFs of _anonymous_namespace_::UpdateKeyStateFlag @ 0x1C002A3A0
  * Callers:
- *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C0061584 (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C003D1EC (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,13 +15,13 @@ __int64 anonymous_namespace_::UpdateKeyStateFlag()
   result = gptiCurrent;
   if ( *(_QWORD *)(gptiCurrent + 456LL) == grpdeskRitInput )
   {
-    for ( i = *(_QWORD **)(grpdeskRitInput + 176LL); i != (_QWORD *)(grpdeskRitInput + 176LL); i = (_QWORD *)*i )
+    for ( i = *(_QWORD **)(grpdeskRitInput + 168LL); i != (_QWORD *)(grpdeskRitInput + 168LL); i = (_QWORD *)*i )
     {
       result = *(i - 39);
+      *(_DWORD *)(result + 388) |= 1u;
       si128 = _mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffffffffffffffff);
-      *(_DWORD *)(result + 396) |= 1u;
-      *(__m128i *)(result + 204) = si128;
-      *(__m128i *)(result + 220) = si128;
+      *(__m128i *)(result + 196) = si128;
+      *(__m128i *)(result + 212) = si128;
     }
   }
   return result;

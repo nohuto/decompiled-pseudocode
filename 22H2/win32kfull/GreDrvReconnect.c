@@ -1,43 +1,37 @@
 /*
- * XREFs of GreDrvReconnect @ 0x1C02DCE84
+ * XREFs of GreDrvReconnect @ 0x1C02BF628
  * Callers:
- *     xxxRemoteReconnect @ 0x1C0132780 (xxxRemoteReconnect.c)
+ *     xxxRemoteReconnect @ 0x1C0161DA0 (xxxRemoteReconnect.c)
  * Callees:
- *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0135194 (--1SEMOBJEX@@QEAA@XZ.c)
- *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0135270 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0163324 (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0163400 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall GreDrvReconnect(Gre::Base *a1)
+__int64 __fastcall GreDrvReconnect(__int64 a1)
 {
-  int v1; // esi
-  int v2; // r12d
-  struct Gre::Base::SESSION_GLOBALS *v3; // r15
-  __int64 *v4; // rbx
-  int v5; // r13d
-  Gre::Base *v6; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v7; // r14
-  __int64 *v8; // rdi
-  __int64 v9; // rdx
-  void (__fastcall *v10)(__int64, __int64 *, _QWORD, _QWORD, _DWORD); // rax
-  int v11; // eax
-  struct Gre::Base::SESSION_GLOBALS *v13; // [rsp+90h] [rbp-80h]
-  _BYTE v14[96]; // [rsp+A0h] [rbp-70h] BYREF
-  _BYTE v15[144]; // [rsp+100h] [rbp-10h] BYREF
-  __int64 *v17; // [rsp+1B0h] [rbp+A0h] BYREF
-  __int64 v18; // [rsp+1B8h] [rbp+A8h] BYREF
+  int v2; // r14d
+  int v3; // edi
+  struct _LDEV *v4; // rbx
+  int v5; // r15d
+  struct PDEV *i; // rsi
+  __int64 v7; // rdx
+  void (__fastcall *v8)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD); // rax
+  int v9; // eax
+  _BYTE v11[96]; // [rsp+90h] [rbp-80h] BYREF
+  _BYTE v12[144]; // [rsp+F0h] [rbp-20h] BYREF
+  struct PDEV *v13; // [rsp+1A0h] [rbp+90h] BYREF
+  __int64 v14; // [rsp+1A8h] [rbp+98h] BYREF
 
-  v1 = 0;
   v2 = 1;
-  v3 = Gre::Base::Globals(a1);
-  v13 = v3;
+  v3 = 0;
   SEMOBJEX::SEMOBJEX(
-    (SEMOBJEX *)v15,
-    *((HSEMAPHORE *)v3 + 10),
+    (SEMOBJEX *)v12,
+    ghsemDynamicModeChange,
     1,
-    *((HSEMAPHORE *)v3 + 15),
+    ghsemGreLock,
     2u,
-    *((HSEMAPHORE *)v3 + 11),
+    ghsemDCVisRgn,
     3u,
     0LL,
     0,
@@ -45,45 +39,47 @@ __int64 __fastcall GreDrvReconnect(Gre::Base *a1)
     0,
     0LL,
     0);
-  v4 = (__int64 *)*((_QWORD *)v3 + 236);
+  v4 = gpldevDrivers;
   do
   {
     if ( !v4 )
       break;
     v5 = 0;
-    if ( v4[2] && *((_DWORD *)v4 + 6) == 1 && *(_QWORD *)(v4[112] + 632) )
+    if ( *((_QWORD *)v4 + 2) && *((_DWORD *)v4 + 6) == 1 && *(_QWORD *)(*((_QWORD *)v4 + 112) + 632LL) )
     {
-      GreAcquireSemaphore(*((_QWORD *)v3 + 1));
-      EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDriverMgmt", *((_QWORD *)v3 + 1), 16LL);
-      v7 = Gre::Base::Globals(v6);
-      v8 = (__int64 *)*((_QWORD *)v7 + 760);
-      do
+      GreAcquireSemaphore(ghsemDriverMgmt);
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
+      for ( i = gppdevList; v3 >= 0 && i && *((struct _LDEV **)i + 224) == v4; i = *(struct PDEV **)i )
       {
-        if ( !v8 || (__int64 *)v8[220] != v4 )
-          break;
-        v17 = v8;
-        if ( (v8[5] & 1) != 0 )
+        v13 = i;
+        if ( (*((_DWORD *)i + 10) & 1) != 0 )
         {
-          EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDriverMgmt");
-          GreReleaseSemaphoreInternal(*((_QWORD *)v7 + 1));
+          EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
+          GreReleaseSemaphoreInternal(ghsemDriverMgmt);
           SEMOBJEX::SEMOBJEX(
-            (SEMOBJEX *)v14,
-            (HSEMAPHORE)v17[7],
+            (SEMOBJEX *)v11,
+            *((HSEMAPHORE *)v13 + 8),
             4,
-            *((HSEMAPHORE *)v7 + 14),
+            ghsemSprite,
             5u,
-            *((HSEMAPHORE *)v7 + 17),
+            ghsemHT,
             6u,
-            (HSEMAPHORE)v17[6],
+            *((HSEMAPHORE *)v13 + 6),
             0xBu,
             0LL,
             0,
             0LL,
             0);
-          PDEVOBJ::vSync((PDEVOBJ *)&v17, (struct _SURFOBJ *)((v17[316] + 24) & -(__int64)(v17[316] != 0)), 0LL, 0);
+          PDEVOBJ::vSync(
+            (PDEVOBJ *)&v13,
+            (struct _SURFOBJ *)((*((_QWORD *)v13 + 319) + 24LL) & -(__int64)(*((_QWORD *)v13 + 319) != 0LL)),
+            0LL,
+            0);
           if ( !v5 )
           {
-            v2 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(v4[112] + 632))(*((_QWORD *)a1 + 3), *((_QWORD *)a1 + 2));
+            v2 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(*((_QWORD *)v4 + 112) + 632LL))(
+                   *(_QWORD *)(a1 + 24),
+                   *(_QWORD *)(a1 + 16));
             v5 = 1;
             if ( v2 )
             {
@@ -92,60 +88,46 @@ __int64 __fastcall GreDrvReconnect(Gre::Base *a1)
             else
             {
               *((_DWORD *)v4 + 15) = 5;
-              v1 = -2143354874;
+              v3 = -2143354874;
             }
           }
-          v9 = v17[222];
-          v18 = v9;
-          if ( v2 == 1 && (*(_DWORD *)(v9 + 24) & 0x800) != 0 )
+          v7 = *((_QWORD *)v13 + 226);
+          v14 = v7;
+          if ( v2 == 1 && (*(_DWORD *)(v7 + 24) & 0x800) != 0 )
           {
-            v10 = (void (__fastcall *)(__int64, __int64 *, _QWORD, _QWORD, _DWORD))v17[355];
-            if ( v10 )
-              v10(v17[221], &v18, 0LL, 0LL, *(_DWORD *)(v9 + 28));
+            v8 = (void (__fastcall *)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))*((_QWORD *)v13 + 358);
+            if ( v8 )
+              v8(*((_QWORD *)v13 + 225), &v14, 0LL, 0LL, *(_DWORD *)(v7 + 28));
           }
-          SEMOBJEX::~SEMOBJEX((SEMOBJEX *)v14);
-          GreAcquireSemaphore(*((_QWORD *)v7 + 1));
-          EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDriverMgmt", *((_QWORD *)v7 + 1), 16LL);
+          SEMOBJEX::~SEMOBJEX((SEMOBJEX *)v11);
+          GreAcquireSemaphore(ghsemDriverMgmt);
+          EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
         }
-        v8 = (__int64 *)*v8;
       }
-      while ( v1 >= 0 );
-      EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDriverMgmt");
-      GreReleaseSemaphoreInternal(*((_QWORD *)v7 + 1));
-      v3 = v13;
-      if ( !v5 && v1 >= 0 )
+      EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
+      GreReleaseSemaphoreInternal(ghsemDriverMgmt);
+      if ( !v5 && v3 >= 0 )
       {
-        SEMOBJEX::SEMOBJEX(
-          (SEMOBJEX *)v14,
-          *((HSEMAPHORE *)v7 + 14),
-          5,
-          *((HSEMAPHORE *)v7 + 17),
-          6u,
-          *((HSEMAPHORE *)v7 + 1),
-          0x10u,
-          0LL,
-          0,
-          0LL,
-          0,
-          0LL,
-          0);
-        v2 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(v4[112] + 632))(*((_QWORD *)a1 + 3), *((_QWORD *)a1 + 2));
+        SEMOBJEX::SEMOBJEX((SEMOBJEX *)v11, ghsemSprite, 5, ghsemHT, 6u, ghsemDriverMgmt, 0xDu, 0LL, 0, 0LL, 0, 0LL, 0);
+        v2 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(*((_QWORD *)v4 + 112) + 632LL))(
+               *(_QWORD *)(a1 + 24),
+               *(_QWORD *)(a1 + 16));
         if ( v2 )
         {
-          v11 = 2;
+          v9 = 2;
         }
         else
         {
-          v1 = -2143354873;
-          v11 = 5;
+          v3 = -2143354873;
+          v9 = 5;
         }
-        *((_DWORD *)v4 + 15) = v11;
-        SEMOBJEX::~SEMOBJEX((SEMOBJEX *)v14);
+        *((_DWORD *)v4 + 15) = v9;
+        SEMOBJEX::~SEMOBJEX((SEMOBJEX *)v11);
       }
     }
-    v4 = (__int64 *)*v4;
+    v4 = *(struct _LDEV **)v4;
   }
-  while ( v1 >= 0 );
-  SEMOBJEX::~SEMOBJEX((SEMOBJEX *)v15);
-  return (unsigned int)v1;
+  while ( v3 >= 0 );
+  SEMOBJEX::~SEMOBJEX((SEMOBJEX *)v12);
+  return (unsigned int)v3;
 }

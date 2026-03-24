@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReturnPfnReferenceCount @ 0x14013B790
+ * XREFs of MiReturnPfnReferenceCount @ 0x14013B7B0
  * Callers:
- *     MiMakeImagePageOk @ 0x1402C44FC (MiMakeImagePageOk.c)
- *     MiIdealClusterPage @ 0x1402C6B14 (MiIdealClusterPage.c)
+ *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
+ *     MiIdealClusterPage @ 0x1402C6C14 (MiIdealClusterPage.c)
  *     MiReleaseProcessReferenceToSessionDataPage @ 0x14060751C (MiReleaseProcessReferenceToSessionDataPage.c)
  *     MiCreateNewSection @ 0x14061B7E0 (MiCreateNewSection.c)
  *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
- *     MiFillPerSessionProtos @ 0x14085C41C (MiFillPerSessionProtos.c)
+ *     MiFillPerSessionProtos @ 0x14085C3FC (MiFillPerSessionProtos.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReturnPfnReferenceCount(__int64 a1)

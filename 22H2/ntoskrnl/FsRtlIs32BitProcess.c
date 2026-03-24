@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlIs32BitProcess @ 0x14093ED80
+ * XREFs of FsRtlIs32BitProcess @ 0x14088BCE0
  * Callers:
  *     <none>
  * Callees:
@@ -8,14 +8,16 @@
 
 char __fastcall FsRtlIs32BitProcess(__int64 a1)
 {
+  __int64 v1; // rdx
   char result; // al
-  __int16 v2; // dx
+  __int16 v3; // cx
 
+  v1 = *(_QWORD *)(a1 + 1408);
   result = 0;
-  if ( *(_QWORD *)(a1 + 1408) )
+  if ( v1 )
   {
-    v2 = *(_WORD *)(a1 + 2412);
-    if ( v2 == 332 || v2 == 452 )
+    v3 = *(_WORD *)(v1 + 8);
+    if ( v3 == 332 || v3 == 452 )
       return 1;
   }
   return result;

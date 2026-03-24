@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_IsRectEmpty @ 0x180102269
+ * XREFs of __imp_load_IsRectEmpty @ 0x1800E87E3
  * Callers:
  *     <none>
  * Callees:

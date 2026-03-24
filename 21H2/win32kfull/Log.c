@@ -1,13 +1,13 @@
 /*
- * XREFs of Log @ 0x1C00957B4
+ * XREFs of Log @ 0x1C001F73C
  * Callers:
- *     ComputeRGBLUTAA @ 0x1C0094050 (ComputeRGBLUTAA.c)
- *     pDCIAdjClr @ 0x1C0094724 (pDCIAdjClr.c)
- *     AdjustSrcDevGamma @ 0x1C00950A4 (AdjustSrcDevGamma.c)
- *     RaisePower @ 0x1C0095584 (RaisePower.c)
+ *     ComputeRGBLUTAA @ 0x1C001BB38 (ComputeRGBLUTAA.c)
+ *     pDCIAdjClr @ 0x1C001C210 (pDCIAdjClr.c)
+ *     AdjustSrcDevGamma @ 0x1C001CB90 (AdjustSrcDevGamma.c)
+ *     RaisePower @ 0x1C001F508 (RaisePower.c)
  * Callees:
- *     FD6DivL @ 0x1C009588C (FD6DivL.c)
- *     FractionToMantissa @ 0x1C00959F0 (FractionToMantissa.c)
+ *     FD6DivL @ 0x1C001F814 (FD6DivL.c)
+ *     FractionToMantissa @ 0x1C001F978 (FractionToMantissa.c)
  */
 
 __int64 __fastcall Log(__int64 a1)
@@ -84,9 +84,9 @@ __int64 __fastcall Log(__int64 a1)
     LODWORD(a1) = 1000 * a1;
   }
   v2 = (int)a1 / 1000000;
-  v3 = *(_DWORD *)&aAapalldelay1[2 * ((int)a1 / 1000000) + 8];
+  v3 = *(_DWORD *)&aAapalldelay4[2 * ((int)a1 / 1000000) + 12];
   v4 = (unsigned int)((int)a1 % 1000000);
   if ( (_DWORD)v4 )
-    v3 += FractionToMantissa(v4, (unsigned int)dword_1C02EB0C0[v2]);
+    v3 += FractionToMantissa(v4, (unsigned int)dword_1C02EE710[v2]);
   return (unsigned int)(v3 + v1);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KeCancelTimerInternal @ 0x140369280
+ * XREFs of KeCancelTimerInternal @ 0x140320F88
  * Callers:
- *     ExpTimerPause @ 0x1403691B8 (ExpTimerPause.c)
- *     ExpTimerAdjust @ 0x14060BDCC (ExpTimerAdjust.c)
+ *     ExpTimerPause @ 0x140320ECC (ExpTimerPause.c)
+ *     ExpTimerAdjust @ 0x1405B66D4 (ExpTimerAdjust.c)
  * Callees:
- *     KiCancelTimer @ 0x140253980 (KiCancelTimer.c)
+ *     KiCancelTimer @ 0x1402C8960 (KiCancelTimer.c)
  */
 
 char __fastcall KeCancelTimerInternal(__int64 a1, _QWORD *a2, int *a3, unsigned int *a4)
@@ -13,7 +13,7 @@ char __fastcall KeCancelTimerInternal(__int64 a1, _QWORD *a2, int *a3, unsigned 
   int v9; // ecx
   int v10; // eax
 
-  v8 = KiCancelTimer(a1, 0);
+  v8 = KiCancelTimer(a1, 0LL, (__int64)a3, (__int64)a4);
   if ( v8 )
   {
     v9 = *(unsigned __int8 *)(a1 + 1);

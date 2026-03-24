@@ -1,7 +1,7 @@
 /*
- * XREFs of ?NotifyISMPenButtonYieldSettingChange@@YAXXZ @ 0x1C01C74D8
+ * XREFs of ?NotifyISMPenButtonYieldSettingChange@@YAXXZ @ 0x1C01D6020
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
  * Callees:
  *     <none>
  */
@@ -13,5 +13,5 @@ void NotifyISMPenButtonYieldSettingChange(void)
 
   v0 = 2;
   v1 = (HIDWORD(gpdwCPUserPreferencesMask) & 0x200) == 0;
-  SendMessageTo(16LL, &v0);
+  SendMessageTo(17LL, &v0);
 }

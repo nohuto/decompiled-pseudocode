@@ -1,25 +1,25 @@
 /*
- * XREFs of ArbRetestAllocation @ 0x1C00A2740
+ * XREFs of ArbRetestAllocation @ 0x1C00B8460
  * Callers:
- *     IrqArbRetestAllocation @ 0x1C009D8A0 (IrqArbRetestAllocation.c)
+ *     IrqArbRetestAllocation @ 0x1C00B7150 (IrqArbRetestAllocation.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     RtlFreeRangeList_0 @ 0x1C0001A1F (RtlFreeRangeList_0.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     ArbpBuildAlternative @ 0x1C00A2EFC (ArbpBuildAlternative.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     RtlFreeRangeList_0 @ 0x1C0031CCF (RtlFreeRangeList_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ArbpBuildAlternative @ 0x1C00957A8 (ArbpBuildAlternative.c)
  */
 
 __int64 __fastcall ArbRetestAllocation(__int64 a1, __int64 ***a2)
 {
   __int64 **v4; // r8
-  NTSTATUS v5; // edi
+  int v5; // edi
   __int64 **i; // rsi
   __int64 *j; // rsi
   __int64 (__fastcall *v8)(__int64, _QWORD *); // rax
   __int64 v10; // [rsp+30h] [rbp-69h] BYREF
   _QWORD v11[10]; // [rsp+40h] [rbp-59h] BYREF
-  _BYTE v12[64]; // [rsp+90h] [rbp-9h] BYREF
+  __int64 v12[8]; // [rsp+90h] [rbp-9h] BYREF
 
   v10 = 0LL;
   memset(v11, 0, sizeof(v11));

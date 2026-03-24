@@ -1,12 +1,15 @@
 /*
- * XREFs of SeQuerySigningPolicyWorker @ 0x1406B7CC4
+ * XREFs of SeQuerySigningPolicyWorker @ 0x140603818
  * Callers:
- *     SeQuerySigningPolicy @ 0x1406B97BC (SeQuerySigningPolicy.c)
+ *     SeQuerySigningPolicy @ 0x14060D450 (SeQuerySigningPolicy.c)
  * Callees:
- *     AppModelPolicy_GetPolicy_Internal @ 0x1402267E8 (AppModelPolicy_GetPolicy_Internal.c)
- *     SeQueryInformationToken @ 0x140719710 (SeQueryInformationToken.c)
- *     SepIsNgenImage @ 0x1407DD9F8 (SepIsNgenImage.c)
- *     SepIsLockedDown @ 0x1409C8DAC (SepIsLockedDown.c)
+ *     AppModelPolicy_GetPolicy_Internal @ 0x14024FD30 (AppModelPolicy_GetPolicy_Internal.c)
+ *     CmIsStateSeparationEnabled @ 0x140323318 (CmIsStateSeparationEnabled.c)
+ *     Feature_WCOSDeveloperMode__private_ReportDeviceUsage @ 0x1403F80D0 (Feature_WCOSDeveloperMode__private_ReportDeviceUsage.c)
+ *     Feature_WldpDeveloperMode__private_ReportDeviceUsage @ 0x1403F8138 (Feature_WldpDeveloperMode__private_ReportDeviceUsage.c)
+ *     SepIsNgenImage @ 0x140603AA8 (SepIsNgenImage.c)
+ *     SeQueryInformationToken @ 0x1406CF990 (SeQueryInformationToken.c)
+ *     SepIsLockedDown @ 0x14091BFEC (SepIsLockedDown.c)
  */
 
 __int64 __fastcall SeQuerySigningPolicyWorker(
@@ -22,132 +25,142 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
   __int64 v12; // rcx
   int v13; // edi
   unsigned __int8 v14; // cl
-  unsigned __int8 *v15; // rax
+  unsigned __int8 v15; // dl
+  NTSTATUS v16; // eax
   unsigned __int8 v17; // al
-  unsigned __int8 v18; // cl
-  unsigned __int8 v19; // dl
-  NTSTATUS v20; // eax
-  char v21[4]; // [rsp+30h] [rbp-20h] BYREF
-  PVOID TokenInformation; // [rsp+34h] [rbp-1Ch] BYREF
-  __int64 v23; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v24; // [rsp+48h] [rbp-8h] BYREF
+  unsigned __int8 v18; // dl
+  char v20[4]; // [rsp+30h] [rbp-30h] BYREF
+  PVOID TokenInformation; // [rsp+34h] [rbp-2Ch] BYREF
+  __int64 v22; // [rsp+40h] [rbp-20h] BYREF
+  _QWORD v23[3]; // [rsp+48h] [rbp-18h] BYREF
 
-  v21[0] = 0;
-  v23 = 0LL;
+  v20[0] = 0;
+  v22 = 0LL;
   HIDWORD(TokenInformation) = 0;
-  v24 = 0LL;
-  LODWORD(v12) = AppModelPolicy_GetPolicy_Internal((int)Token, a2, (int *)&TokenInformation + 1, (int *)&v23, &v24);
-  if ( (int)v12 >= 0 )
+  v23[0] = 0LL;
+  v23[1] = 0LL;
+  LODWORD(v12) = AppModelPolicy_GetPolicy_Internal((int)Token, a2, (int *)&TokenInformation + 1, &v22, v23);
+  if ( (int)v12 < 0 )
+    return (unsigned int)v12;
+  v13 = HIDWORD(TokenInformation);
+  if ( (unsigned int)(HIDWORD(TokenInformation) - 3014657) <= 1 )
   {
-    if ( (unsigned int)(HIDWORD(TokenInformation) - 3014657) > 1
-      || HIDWORD(TokenInformation) == 3014658 && (unsigned int)BYTE4(v23) - 4 > 1 )
-    {
-      v13 = a3 & 1;
-    }
+    if ( CmIsStateSeparationEnabled() )
+      Feature_WCOSDeveloperMode__private_ReportDeviceUsage();
     else
+      Feature_WldpDeveloperMode__private_ReportDeviceUsage();
+    if ( v13 != 3014658 || (unsigned int)BYTE4(v22) - 4 <= 1 )
     {
-      v13 = a3 & 1;
-      if ( !v13 )
+      if ( (a3 & 1) != 0 )
       {
-        if ( !BYTE4(v23) || BYTE4(v23) == 1 )
+        if ( !a4 )
         {
-          v14 = a5;
-        }
-        else
-        {
-          switch ( BYTE4(v23) )
-          {
-            case 2u:
-              *a6 = 8;
-              *a7 = a5;
-              goto LABEL_10;
-            case 3u:
-              v14 = 6;
-              break;
-            case 4u:
-            case 5u:
-              v19 = a5 != 0 ? 3 : 0;
-              *a6 = v19;
-              *a7 = v19;
-              goto LABEL_10;
-            case 6u:
-              v14 = a5 != 2 ? 0 : 2;
-              break;
-            default:
-              goto LABEL_11;
-          }
-        }
-        v15 = a6;
-        goto LABEL_8;
-      }
-      if ( !a4 )
-      {
-        *a6 = 4;
-        *a7 = 4;
-        *a8 = 18;
-        goto LABEL_11;
-      }
-    }
-    if ( a2 && (unsigned __int8)SepIsNgenImage(a2) )
-    {
-      LODWORD(TokenInformation) = 0;
-      v20 = SeQueryInformationToken(Token, TokenIsAppContainer, &TokenInformation);
-      v12 = (unsigned int)v20;
-      if ( v20 < 0 )
-        return (unsigned int)v12;
-      *a6 = 11;
-      if ( !v13 )
-      {
-        LOBYTE(v12) = a5;
-        if ( !(_DWORD)TokenInformation )
-        {
-          *a7 = a5;
-          *a8 = a5 >= 2u ? 0x21 : 0;
-          goto LABEL_11;
-        }
-        LODWORD(v12) = SepIsLockedDown(v12, v21);
-        if ( (int)v12 < 0 )
+          *a6 = 4;
+          *a7 = 4;
+          *a8 = 18;
+LABEL_45:
+          LODWORD(v12) = 0;
           return (unsigned int)v12;
-        if ( v21[0] )
-          v14 = 6;
-        else
-          v14 = a5 != 2 ? 0 : 2;
-        goto LABEL_9;
+        }
+        goto LABEL_23;
       }
+      if ( BYTE4(v22) <= 1u )
+      {
+        v14 = a5;
+      }
+      else
+      {
+        if ( BYTE4(v22) == 2 )
+        {
+          *a6 = 8;
+          *a7 = a5;
+          goto LABEL_44;
+        }
+        if ( BYTE4(v22) != 3 )
+        {
+          if ( BYTE4(v22) <= 3u )
+            goto LABEL_45;
+          if ( BYTE4(v22) > 5u )
+          {
+            if ( BYTE4(v22) != 6 )
+              goto LABEL_45;
+            v14 = a5 != 2 ? 0 : 2;
+            goto LABEL_22;
+          }
+          v15 = a5 != 0 ? 3 : 0;
+          *a6 = v15;
+          *a7 = v15;
+LABEL_44:
+          *a8 = 0;
+          goto LABEL_45;
+        }
+        v14 = 6;
+      }
+LABEL_22:
+      *a6 = v14;
+LABEL_43:
+      *a7 = v14;
+      goto LABEL_44;
+    }
+  }
+LABEL_23:
+  if ( !a2 || !(unsigned __int8)SepIsNgenImage(a2) )
+  {
+LABEL_35:
+    if ( (a3 & 1) != 0 )
+    {
+      v17 = a4;
+      if ( !a4 )
+        v17 = 18;
+      *a8 = v17;
+      *a6 = *((_BYTE *)&SeProtectedMapping + 2 * ((unsigned __int64)v17 >> 4));
+      v18 = *((_BYTE *)&SeProtectedMapping + 2 * ((unsigned __int64)*a8 >> 4) + 1);
+      *a7 = v18;
+      if ( a5 > *a6 )
+      {
+        *a6 = a5;
+        v18 = *a7;
+      }
+      if ( a5 > v18 )
+        *a7 = a5;
+      goto LABEL_45;
+    }
+    v14 = a5;
+    *a6 = a5;
+    goto LABEL_43;
+  }
+  LODWORD(TokenInformation) = 0;
+  v16 = SeQueryInformationToken(Token, TokenIsAppContainer, &TokenInformation);
+  v12 = (unsigned int)v16;
+  if ( v16 >= 0 )
+  {
+    *a6 = 11;
+    if ( (a3 & 1) != 0 )
+    {
       if ( !a4 )
       {
         *a7 = (_DWORD)TokenInformation != 0 ? 6 : 8;
         *a8 = 33;
-        goto LABEL_11;
+        goto LABEL_45;
       }
+      goto LABEL_35;
     }
-    else if ( !v13 )
+    LOBYTE(v12) = a5;
+    if ( !(_DWORD)TokenInformation )
     {
-      v14 = a5;
-      v15 = a6;
-LABEL_8:
-      *v15 = v14;
-LABEL_9:
-      *a7 = v14;
-LABEL_10:
-      *a8 = 0;
-LABEL_11:
-      LODWORD(v12) = 0;
-      return (unsigned int)v12;
-    }
-    v17 = a4;
-    if ( !a4 )
-      v17 = 18;
-    *a8 = v17;
-    *a6 = *((_BYTE *)&SeProtectedMapping + 2 * ((unsigned __int64)v17 >> 4));
-    *a7 = *((_BYTE *)&SeProtectedMapping + 2 * ((unsigned __int64)*a8 >> 4) + 1);
-    v18 = *a6;
-    if ( a5 > *a6 )
-      v18 = a5;
-    *a6 = v18;
-    if ( a5 > *a7 )
       *a7 = a5;
-    goto LABEL_11;
+      *a8 = a5 >= 2u ? 0x21 : 0;
+      goto LABEL_45;
+    }
+    LODWORD(v12) = SepIsLockedDown(v12, v20);
+    if ( (int)v12 >= 0 )
+    {
+      if ( v20[0] )
+        v14 = 6;
+      else
+        v14 = a5 != 2 ? 0 : 2;
+      goto LABEL_43;
+    }
   }
   return (unsigned int)v12;
 }

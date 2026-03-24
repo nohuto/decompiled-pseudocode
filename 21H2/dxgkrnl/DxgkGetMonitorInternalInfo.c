@@ -1,427 +1,416 @@
 /*
- * XREFs of DxgkGetMonitorInternalInfo @ 0x1C01659C0
+ * XREFs of DxgkGetMonitorInternalInfo @ 0x1C011B670
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C000BD00 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0010D08 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ??1?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@QEAA@XZ @ 0x1C002FA24 (--1-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@QEAA@XZ.c)
- *     ?GetMonitorAndLinkHdrCapable@MonitorColorState@DxgMonitor@@QEBAXAEBU_DXGK_MONITORLINKINFO@@AEATMONITOR_AND_LINK_HDR_CAPS@@@Z @ 0x1C01631B4 (-GetMonitorAndLinkHdrCapable@MonitorColorState@DxgMonitor@@QEBAXAEBU_DXGK_MONITORLINKINFO@@AEATM.c)
- *     MonitorGetDisplayHdrSupportLevel @ 0x1C01638C4 (MonitorGetDisplayHdrSupportLevel.c)
- *     MonitorIsMonitorEdidless @ 0x1C0163930 (MonitorIsMonitorEdidless.c)
- *     MonitorGetDisplayIDFromMonitor @ 0x1C01639A0 (MonitorGetDisplayIDFromMonitor.c)
- *     MonitorGetDpiInfoFromDescriptor @ 0x1C0163A38 (MonitorGetDpiInfoFromDescriptor.c)
- *     MonitorGetPseudoSpecializedState @ 0x1C0163BCC (MonitorGetPseudoSpecializedState.c)
- *     DxgkConvertLegacyQDCAdapterAndIdToActual @ 0x1C01658E0 (DxgkConvertLegacyQDCAdapterAndIdToActual.c)
- *     MonitorGetMonitorOrientationsFromMonitor @ 0x1C0165F90 (MonitorGetMonitorOrientationsFromMonitor.c)
- *     MonitorReleaseMonitorHandle @ 0x1C01A05B4 (MonitorReleaseMonitorHandle.c)
- *     MonitorGetMonitorHandle @ 0x1C01A0DA4 (MonitorGetMonitorHandle.c)
- *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C01A442C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
- *     MonitorGetAdvancedColorParams @ 0x1C01A6650 (MonitorGetAdvancedColorParams.c)
- *     MonitorGetNativeFlags @ 0x1C01A67CC (MonitorGetNativeFlags.c)
- *     ?_GetLinkInfo@DXGMONITOR@@QEBAJPEAU_DXGK_MONITORLINKINFO@@@Z @ 0x1C01A69AC (-_GetLinkInfo@DXGMONITOR@@QEBAJPEAU_DXGK_MONITORLINKINFO@@@Z.c)
- *     MonitorGetCCDMonitorID @ 0x1C01B0200 (MonitorGetCCDMonitorID.c)
- *     ?_GetPreferredMonitorSourceMode@MonitorModes@DxgMonitor@@QEBAJPEAU_D3DKMDT_MONITOR_SOURCE_MODE@@@Z @ 0x1C01D7B50 (-_GetPreferredMonitorSourceMode@MonitorModes@DxgMonitor@@QEBAJPEAU_D3DKMDT_MONITOR_SOURCE_MODE@@.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004130 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C0007300 (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ?_GetMonitorHandle@MONITOR_MGR@@SAPEAUHDXGMONITOR__@@PEAVDXGMONITOR@@@Z @ 0x1C000985C (-_GetMonitorHandle@MONITOR_MGR@@SAPEAUHDXGMONITOR__@@PEAVDXGMONITOR@@@Z.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009A04 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     Feature_OemPanelDriverSupport__private_ReportDeviceUsage @ 0x1C0027E80 (Feature_OemPanelDriverSupport__private_ReportDeviceUsage.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C011F70C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0129B38 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_AddReference@DXGMONITOR@@QEAAXPEAX@Z @ 0x1C0129C3C (-_AddReference@DXGMONITOR@@QEAAXPEAX@Z.c)
+ *     MonitorGetAdvancedColorParams @ 0x1C0129D98 (MonitorGetAdvancedColorParams.c)
+ *     MonitorGetNativeFlags @ 0x1C0129F44 (MonitorGetNativeFlags.c)
+ *     MonitorGetMonitorOrientationsFromMonitor @ 0x1C012A00C (MonitorGetMonitorOrientationsFromMonitor.c)
+ *     MonitorGetCCDMonitorID @ 0x1C012A0BC (MonitorGetCCDMonitorID.c)
+ *     MonitorIsMonitorAndLinkHDRCapable @ 0x1C012BAB8 (MonitorIsMonitorAndLinkHDRCapable.c)
+ *     DxgkConvertLegacyQDCAdapterAndIdToActual @ 0x1C012D920 (DxgkConvertLegacyQDCAdapterAndIdToActual.c)
+ *     MonitorReleaseMonitorHandle @ 0x1C012F96C (MonitorReleaseMonitorHandle.c)
+ *     MonitorGetPseudoSpecializedState @ 0x1C013E10C (MonitorGetPseudoSpecializedState.c)
+ *     MonitorGetDpiInfoFromDescriptor @ 0x1C01454BC (MonitorGetDpiInfoFromDescriptor.c)
+ *     MonitorGetPreferredMonitorSourceMode @ 0x1C01489D4 (MonitorGetPreferredMonitorSourceMode.c)
+ *     MonitorGetDisplayIDFromMonitor @ 0x1C01669AC (MonitorGetDisplayIDFromMonitor.c)
+ *     MonitorIsMonitorEdidless @ 0x1C0167C2C (MonitorIsMonitorEdidless.c)
  */
 
-__int64 __fastcall DxgkGetMonitorInternalInfo(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4, __int64 a5)
+__int64 __fastcall DxgkGetMonitorInternalInfo(
+        struct DXGMONITOR *a1,
+        unsigned int a2,
+        __int64 a3,
+        unsigned int *a4,
+        __int64 a5)
 {
-  __int64 v6; // rbx
-  __int64 v7; // rdi
-  __int64 v8; // r13
+  unsigned int v6; // edi
+  __int64 v7; // r12
+  struct HDXGMONITOR__ *MonitorHandle; // r15
   int v9; // eax
-  unsigned int v10; // r14d
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rsi
+  _QWORD *v13; // rcx
+  __int64 v14; // rax
   DXGGLOBAL *Global; // rax
   DWORD LowPart; // ebx
-  struct DXGADAPTER *v13; // rax
-  DXGADAPTER *v14; // rsi
-  int v15; // eax
-  __int64 v16; // r12
-  int MonitorHandle; // eax
-  DXGMONITOR *v18; // r12
-  _DWORD *v19; // rdi
-  _DWORD *v20; // rbx
-  char v21; // cl
-  unsigned int v22; // eax
-  __int64 v23; // rcx
-  __int64 v24; // r8
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  struct DXGADAPTER *v19; // r13
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rdx
+  struct DXGADAPTER *const v23; // rdx
+  int v24; // eax
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  __int64 v28; // r9
+  _QWORD *v29; // rax
+  __int64 v30; // rdx
+  __int64 v31; // rax
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  bool v34; // zf
+  __int64 v35; // rbx
+  __int64 v36; // rax
+  MONITOR_MGR *v37; // rbx
+  __int64 v38; // rax
+  int MonitorInstance; // eax
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  __int64 v42; // rax
+  __int64 v43; // rax
+  DXGMONITOR *v44; // rbx
+  __int64 v45; // rax
+  __int64 v46; // rdx
+  __int64 v47; // rax
   int CCDMonitorID; // eax
+  __int64 v49; // rdx
+  __int64 v50; // rcx
+  __int64 v51; // rsi
+  __int64 v52; // rbx
+  _QWORD *v53; // rax
   int AdvancedColorParams; // eax
-  bool v28; // zf
-  int v29; // edx
-  unsigned int v30; // edx
-  int v31; // eax
-  int v32; // edx
-  int v33; // ebx
-  DXGMONITOR *v34; // rsi
-  int LinkInfo; // eax
-  int v36; // eax
+  __int64 v55; // rdx
+  __int64 v56; // rcx
+  __int64 v57; // r12
+  int v58; // edx
+  char v59; // al
+  int IsMonitorAndLinkHDRCapable; // eax
+  _QWORD *v61; // rax
+  _QWORD *v62; // rax
   int DisplayIDFromMonitor; // eax
-  __int64 v38; // rdx
-  bool v39; // cf
-  int v40; // eax
-  int v41; // eax
-  __int64 v42; // rsi
-  __int64 HighPart; // rbx
-  const wchar_t *v44; // r9
-  __int64 v45; // r14
-  __int64 v46; // r14
-  __int64 v47; // rbx
-  __int64 v48; // rsi
-  __int64 v49; // rbx
-  DXGMONITOR *v50; // rbx
-  int v51; // eax
-  int PreferredMonitorSourceMode; // edi
-  char v53; // [rsp+50h] [rbp-B0h] BYREF
-  bool v54[3]; // [rsp+51h] [rbp-AFh] BYREF
-  int v55; // [rsp+54h] [rbp-ACh] BYREF
-  unsigned int v56; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned int v57; // [rsp+5Ch] [rbp-A4h] BYREF
-  int v58; // [rsp+60h] [rbp-A0h] BYREF
-  __int16 v59; // [rsp+64h] [rbp-9Ch]
-  DXGMONITOR *v60; // [rsp+68h] [rbp-98h] BYREF
-  struct _LUID v61; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v62; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v63; // [rsp+80h] [rbp-80h]
-  _DWORD *v64; // [rsp+88h] [rbp-78h]
-  unsigned __int64 v65; // [rsp+90h] [rbp-70h] BYREF
-  int v66; // [rsp+98h] [rbp-68h] BYREF
-  __int64 v67; // [rsp+A0h] [rbp-60h]
-  char v68; // [rsp+A8h] [rbp-58h]
-  _DXGK_MONITORLINKINFO v69; // [rsp+B0h] [rbp-50h] BYREF
-  _D3DKMDT_MONITOR_SOURCE_MODE v70; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v71; // [rsp+120h] [rbp+20h] BYREF
-  int v72; // [rsp+128h] [rbp+28h]
-  _BYTE v73[144]; // [rsp+130h] [rbp+30h] BYREF
+  unsigned int v64; // edx
+  int v65; // eax
+  char v66; // cl
+  int v67; // eax
+  _DWORD *v68; // rdx
+  __int64 v69; // rcx
+  __int64 v70; // rax
+  __int64 v71; // rcx
+  __int64 v72; // r8
+  unsigned __int8 v74; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE v75[7]; // [rsp+41h] [rbp-BFh] BYREF
+  unsigned __int64 v76; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned int v77; // [rsp+50h] [rbp-B0h] BYREF
+  struct _LUID v78; // [rsp+58h] [rbp-A8h] BYREF
+  struct DXGMONITOR *v79; // [rsp+60h] [rbp-A0h] BYREF
+  int v80; // [rsp+68h] [rbp-98h]
+  int v81; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v82; // [rsp+78h] [rbp-88h]
+  char v83; // [rsp+80h] [rbp-80h]
+  __int128 v84; // [rsp+88h] [rbp-78h] BYREF
+  __int128 v85; // [rsp+98h] [rbp-68h]
+  __int64 v86; // [rsp+A8h] [rbp-58h]
+  int v87; // [rsp+B0h] [rbp-50h]
+  unsigned int *v88; // [rsp+B8h] [rbp-48h]
+  __int64 v89; // [rsp+C0h] [rbp-40h]
+  _DWORD v90[24]; // [rsp+D0h] [rbp-30h] BYREF
+  _BYTE v91[8]; // [rsp+130h] [rbp+30h] BYREF
+  char v92[64]; // [rsp+138h] [rbp+38h] BYREF
+  char v93[72]; // [rsp+178h] [rbp+78h] BYREF
 
-  v66 = -1;
-  v6 = a2;
-  LODWORD(v7) = a1;
-  v64 = a4;
-  v56 = a2;
-  v8 = 1LL;
-  v62 = a1;
-  v63 = a5;
-  v67 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v81 = -1;
+  v6 = (unsigned int)a1;
+  v88 = a4;
+  v7 = a2;
+  v79 = a1;
+  v89 = a5;
+  v82 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v68 = 1;
-    v66 = 2186;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2186);
+    v83 = 1;
+    v81 = 2186;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer((__int64)a1, &EventProfilerEnter, a3, 2186);
   }
   else
   {
-    v68 = 0;
+    v83 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v66, 2186);
-  v61 = 0LL;
-  v57 = 0;
-  v60 = 0LL;
-  v9 = DxgkConvertLegacyQDCAdapterAndIdToActual((struct _LUID *)&v62, v6, &v61, &v57);
-  v10 = v9;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v81, 2186LL);
+  v78 = 0LL;
+  v77 = 0;
+  MonitorHandle = 0LL;
+  v9 = DxgkConvertLegacyQDCAdapterAndIdToActual(&v79, (unsigned int)v7, &v78, &v77);
+  v12 = v9;
   if ( v9 < 0 )
   {
-    v42 = v6;
-    v7 = (unsigned int)v7;
-    HighPart = SHIDWORD(v62);
-    v8 = v9;
-    WdLogSingleEntry4(2LL, SHIDWORD(v62), (unsigned int)v7, v42, v9);
-    v44 = L"Failed to get adapter LUID from LUID (0x%I64x%08I64x), target ID 0x%I64x (Status = 0x%I64x).";
-LABEL_51:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v44, HighPart, v7, v42, v8, 0LL);
-    goto LABEL_21;
+    v13 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+    v13[3] = SHIDWORD(v79);
+    v14 = v6;
+    v13[5] = v7;
+    v13[6] = v12;
+LABEL_11:
+    v13[4] = v14;
+    goto LABEL_12;
   }
-  Global = DXGGLOBAL_GetGlobal();
-  LowPart = v61.LowPart;
-  v13 = DXGGLOBAL::ReferenceAdapterByLuid(Global, v61, &v65);
-  v10 = 0;
-  v65 = (unsigned __int64)v13;
-  v14 = v13;
-  if ( !v13 )
+  Global = DXGGLOBAL::GetGlobal(v11, v10);
+  LowPart = v78.LowPart;
+  v19 = DXGGLOBAL::ReferenceAdapterByLuid(Global, v78, &v76);
+  if ( v19 )
   {
-    v7 = LowPart;
-    HighPart = v61.HighPart;
-    v10 = -1073741811;
-    WdLogSingleEntry4(2LL, v61.HighPart, (unsigned int)v7, -1073741811LL, 0LL);
-    v44 = L"Failed to reference adapter by LUID (0x%I64x%08I64x) in DxgkGetMonitorInternalInfo function, returning 0x%I64x.";
-    v8 = 0LL;
-LABEL_50:
-    v42 = -1073741811LL;
-    goto LABEL_51;
-  }
-  if ( !*((_QWORD *)v13 + 349) )
-  {
-    DXGADAPTER::ReleaseReference(v13);
-    v7 = LowPart;
-    v10 = -1073741811;
-    HighPart = v61.HighPart;
-    WdLogSingleEntry4(2LL, v61.HighPart, (unsigned int)v7, -1073741811LL, 1LL);
-    v44 = L"Caller specified adapter 0x%I64x%08I64x is not a display adapter, returning 0x%I64x";
-    goto LABEL_50;
-  }
-  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v73, v13, 0LL);
-  DXGADAPTER::ReleaseReference(v14);
-  v15 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v73, 0LL);
-  LODWORD(v16) = v15;
-  if ( v15 < 0 )
-  {
-    WdLogSingleEntry3(3LL, v61.HighPart, LowPart, v15);
-  }
-  else
-  {
-    MonitorHandle = MonitorGetMonitorHandle(v14, v57, 0LL, DxgkGetMonitorInternalInfo, &v60);
-    v16 = MonitorHandle;
-    if ( MonitorHandle >= 0 )
+    if ( !*((_QWORD *)v19 + 337) )
     {
-      v18 = v60;
-      if ( !v60 )
+      DXGADAPTER::ReleaseReference(v19);
+      v13 = (_QWORD *)WdLogNewEntry5_WdError(v21, v20);
+      LODWORD(v12) = -1073741811;
+      v13[3] = v78.HighPart;
+      v14 = LowPart;
+      v13[5] = -1073741811LL;
+      v13[6] = 1LL;
+      goto LABEL_11;
+    }
+    v91[1] = 0;
+    COREACCESS::COREACCESS((COREACCESS *)v92, v19);
+    COREACCESS::COREACCESS((COREACCESS *)v93, v23);
+    DXGADAPTER::ReleaseReference(v19);
+    v24 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v91, 0LL);
+    v12 = v24;
+    if ( v24 < 0 )
+    {
+      v29 = (_QWORD *)WdLogNewEntry5_WdWarning(v26, v25, v27);
+      v29[3] = v78.HighPart;
+      v29[4] = LowPart;
+      v29[5] = v12;
+      WdLogEvent5_WdWarning(v29);
+LABEL_61:
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v91, v30);
+      goto LABEL_62;
+    }
+    v31 = WdLogNewEntry5_WdTrace(v26, v25, v27, v28);
+    v34 = v77 == -1;
+    v12 = v77;
+    *(_QWORD *)(v31 + 24) = v77;
+    *(_QWORD *)(v31 + 32) = v19;
+    if ( v34 )
+    {
+      LODWORD(v12) = -1073741811;
+    }
+    else
+    {
+      v35 = *((_QWORD *)v19 + 337);
+      if ( !v35 )
       {
-        WdLogSingleEntry1(1LL, 7527LL);
-        DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"MonitorHandle != NULL", 7527LL, 0LL, 0LL, 0LL, 0LL);
+        v36 = WdLogNewEntry5_WdAssertion(v33, v32);
+        WdLogEvent5_WdAssertion(v36);
+        v35 = *((_QWORD *)v19 + 337);
       }
-      if ( !a3 )
+      v37 = *(MONITOR_MGR **)(v35 + 96);
+      if ( !v37 )
       {
-        v19 = v64;
-        if ( !v64 )
+        v38 = WdLogNewEntry5_WdError(v33, v32);
+        *(_QWORD *)(v38 + 24) = v19;
+        WdLogEvent5_WdError(v38);
+        LODWORD(v12) = -1073741811;
+LABEL_36:
+        v62 = (_QWORD *)WdLogNewEntry5_WdError(v33, v32);
+        v62[3] = SHIDWORD(v79);
+        v62[4] = v6;
+        v62[5] = v7;
+        v62[6] = (int)v12;
+        v62[7] = 0LL;
+        WdLogEvent5_WdError(v62);
+        goto LABEL_61;
+      }
+      v78 = 0LL;
+      MonitorInstance = MONITOR_MGR::_GetMonitorInstance(v37, v77, 0, (struct DXGMONITOR **)&v78);
+      LODWORD(v76) = MonitorInstance;
+      if ( MonitorInstance == -1073741275 )
+      {
+        v42 = WdLogNewEntry5_WdDmmEvent();
+        *(_QWORD *)(v42 + 24) = v12;
+        *(_QWORD *)(v42 + 32) = v37;
+        WdLogEvent5_WdDmmEvent(v42);
+        LODWORD(v12) = -1073741275;
+        goto LABEL_36;
+      }
+      if ( MonitorInstance >= 0 )
+      {
+        v44 = (DXGMONITOR *)v78;
+        if ( !*(_QWORD *)&v78 )
         {
-          v20 = (_DWORD *)v63;
-          if ( !v63 )
-          {
-LABEL_18:
-            if ( (int)MonitorReleaseMonitorHandle(v14, v18, DxgkGetMonitorInternalInfo) < 0 )
-            {
-              WdLogSingleEntry1(1LL, 7692LL);
-              DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"NT_SUCCESS(Status2)", 7692LL, 0LL, 0LL, 0LL, 0LL);
-            }
-            goto LABEL_20;
-          }
-LABEL_13:
-          v57 = 0;
-          v56 = 0;
-          MonitorGetMonitorOrientationsFromMonitor(v18, &v57, &v56);
-          v21 = v57;
-          v22 = v56;
-          if ( v19 && v20 )
-          {
-            *v19 = v57;
-            *v20 = v22;
-          }
-          if ( a3 )
-            *(_DWORD *)(a3 + 932) = (((_BYTE)v22 - v21) & 3) + 1;
-          goto LABEL_18;
+          v45 = WdLogNewEntry5_WdAssertion(v41, v40);
+          WdLogEvent5_WdAssertion(v45);
         }
-LABEL_12:
-        v20 = (_DWORD *)v63;
-        goto LABEL_13;
-      }
-      CCDMonitorID = MonitorGetCCDMonitorID(v18, 0x104u, (unsigned __int16 *)(a3 + 20));
-      if ( CCDMonitorID < 0 )
-      {
-        v46 = SHIDWORD(v62);
-        v47 = CCDMonitorID;
-        WdLogSingleEntry4(2LL, SHIDWORD(v62), (unsigned int)v7, v56, CCDMonitorID);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Failed to get monitor CCD name from adapter 0x%I64x%08I64x target 0x%I64x (Status = 0x%I64x).",
-          v46,
-          (unsigned int)v7,
-          v56,
-          v47,
-          0LL);
-      }
-      LOWORD(v55) = 0;
-      v58 = 0;
-      v59 = 0;
-      memset(&v70, 0, 48);
-      AdvancedColorParams = MonitorGetAdvancedColorParams(v18, &v55, &v70, &v58);
-      if ( AdvancedColorParams >= 0 )
-      {
-        v28 = (_BYTE)v58 == 0;
-        v29 = *(_DWORD *)(a3 + 588);
-        *(_DWORD *)(a3 + 540) = v70.Id;
-        *(_DWORD *)(a3 + 544) = *(&v70.Id + 1);
-        *(_DWORD *)(a3 + 548) = v70.VideoSignalInfo.VideoStandard;
-        *(D3DKMDT_2DREGION *)(a3 + 552) = v70.VideoSignalInfo.TotalSize;
-        *(D3DKMDT_2DREGION *)(a3 + 560) = v70.VideoSignalInfo.ActiveSize;
-        *(D3DDDI_RATIONAL *)(a3 + 568) = v70.VideoSignalInfo.VSyncFreq;
-        *(D3DDDI_RATIONAL *)(a3 + 576) = v70.VideoSignalInfo.HSyncFreq;
-        v30 = ((_BYTE)v59 != 0 ? 2 : 0) | !v28 | v29 & 0xFFFFFFFC;
-        v31 = v30 ^ ((unsigned __int16)v30 ^ (unsigned __int16)(HIBYTE(v59) << 9)) & 0x200;
-        v32 = *(_DWORD *)(a3 + 584);
-        *(_DWORD *)(a3 + 588) = v31;
-        *(_DWORD *)(a3 + 584) = (HIBYTE(v58) != 0 ? 4 : 0) | (BYTE2(v58) != 0 ? 2 : 0) | v32 & 0xFFFFFFF9;
-        if ( v18 )
+        DXGMONITOR::_AddReference(v44, DxgkGetMonitorInternalInfo);
+        MonitorHandle = MONITOR_MGR::_GetMonitorHandle(v44, v46);
+        if ( MonitorHandle )
         {
-          v33 = 0;
-          v55 = 0;
-          MONITOR_MGR::AcquireMonitorShared(&v60, (__int64)v18);
-          v34 = v60;
-          if ( v60 )
+LABEL_28:
+          if ( !a3 )
+            goto LABEL_53;
+          CCDMonitorID = MonitorGetCCDMonitorID(MonitorHandle, 260LL, a3 + 20);
+          v51 = SHIDWORD(v79);
+          v52 = v7;
+          LODWORD(v76) = CCDMonitorID;
+          if ( CCDMonitorID < 0 )
           {
-            *(_QWORD *)&v69.UsageHints.0 = 0LL;
-            v69.DitheringSupport.Value = 0;
-            LinkInfo = DXGMONITOR::_GetLinkInfo(v60, &v69);
-            v58 = LinkInfo;
-            if ( LinkInfo == -1073741275 )
-            {
-              RESOURCE_LOCK_ACCESSOR<DXGMONITOR>::~RESOURCE_LOCK_ACCESSOR<DXGMONITOR>((__int64 *)&v60);
-              goto LABEL_31;
-            }
-            if ( LinkInfo >= 0 )
-            {
-              DxgMonitor::MonitorColorState::GetMonitorAndLinkHdrCapable(
-                *((DxgMonitor::MonitorColorState **)v34 + 28),
-                &v69,
-                (union MONITOR_AND_LINK_HDR_CAPS *)&v55);
-              ExReleaseResourceLite((PERESOURCE)((char *)v34 + 24));
-              KeLeaveCriticalRegion();
-              v33 = v55;
-LABEL_31:
-              v36 = *(_DWORD *)(a3 + 588) ^ (*(_DWORD *)(a3 + 588) ^ (2 * v33)) & 4;
-              *(_DWORD *)(a3 + 588) = v36 ^ ((unsigned __int8)v36 ^ (unsigned __int8)(16 * v33)) & 0x40;
-LABEL_32:
-              if ( (int)MonitorGetDisplayHdrSupportLevel((__int64)v18, (_DWORD *)(a3 + 936)) < 0 )
-                *(_DWORD *)(a3 + 936) = 0;
-              v53 = 0;
-              v54[0] = 0;
-              LOBYTE(v55) = 0;
-              if ( (int)MonitorGetNativeFlags(v18, &v53, v54, &v55) >= 0 )
-                *(_DWORD *)(a3 + 588) = (v53 != 0 ? 8 : 0) | *(_DWORD *)(a3 + 588) & 0xFFFFFFF7;
-              v53 = 1;
-              if ( (int)MonitorIsMonitorEdidless((__int64)v18, (__int64)&v53) >= 0 )
-                *(_DWORD *)(a3 + 588) = (v53 == 0 ? 0x10 : 0) | *(_DWORD *)(a3 + 588) & 0xFFFFFFEF;
-              v61.LowPart = 0;
-              DisplayIDFromMonitor = MonitorGetDisplayIDFromMonitor((__int64)v18, 0, (unsigned int *)&v61, 0LL);
-              v14 = (DXGADAPTER *)v65;
-              v38 = v57;
-              *(_DWORD *)(a3 + 924) = 0;
-              v39 = DisplayIDFromMonitor != -1071841279;
-              v53 = 0;
-              v40 = *(_DWORD *)(a3 + 588);
-              LOBYTE(v55) = 0;
-              v71 = 0LL;
-              v72 = 0;
-              *(_DWORD *)(a3 + 588) = (v39 ? 0x20 : 0) | v40 & 0xFFFFFFDF;
-              *(_DWORD *)(a3 + 928) = 0;
-              if ( (int)MonitorGetDpiInfoFromDescriptor(
-                          (__int64)v14,
-                          v38,
-                          (struct DISPLAY_PREFERRED_MODE_INFO *)&v71,
-                          (unsigned int *)(a3 + 924),
-                          (unsigned int *)(a3 + 928),
-                          (bool *)&v53,
-                          (bool *)&v55) >= 0
-                && v53 )
-              {
-                v10 = 0;
-                *(_QWORD *)(a3 + 916) = v71;
-              }
-              else
-              {
-                memset(&v70, 0, sizeof(v70));
-                if ( v18 )
-                {
-                  MONITOR_MGR::AcquireMonitorShared(&v60, (__int64)v18);
-                  v50 = v60;
-                  v10 = 0;
-                  if ( v60 )
-                  {
-                    PreferredMonitorSourceMode = DxgMonitor::MonitorModes::_GetPreferredMonitorSourceMode(
-                                                   *((DxgMonitor::MonitorModes **)v60 + 29),
-                                                   &v70);
-                    ExReleaseResourceLite((PERESOURCE)((char *)v50 + 24));
-                    KeLeaveCriticalRegion();
-                    v51 = PreferredMonitorSourceMode;
-                  }
-                  else
-                  {
-                    WdLogSingleEntry1(2LL, -1073741275LL);
-                    RESOURCE_LOCK_ACCESSOR<DXGMONITOR>::~RESOURCE_LOCK_ACCESSOR<DXGMONITOR>((__int64 *)&v60);
-                    v51 = -1073741275;
-                  }
-                }
-                else
-                {
-                  v51 = -1073741811;
-                  v10 = 0;
-                }
-                if ( v51 < 0 )
-                  *(_QWORD *)(a3 + 916) = 0LL;
-                else
-                  *(D3DKMDT_2DREGION *)(a3 + 916) = v70.VideoSignalInfo.ActiveSize;
-              }
-              LOBYTE(v55) = 0;
-              v53 = 0;
-              v54[0] = 0;
-              MonitorGetPseudoSpecializedState((__int64)v18, (bool *)&v53, v54, (bool *)&v55);
-              if ( !v53 || (v41 = 128, !v54[0]) )
-                v41 = 0;
-              v19 = v64;
-              *(_DWORD *)(a3 + 588) = (v41 | *(_DWORD *)(a3 + 588) & 0xFFFFFF7F) ^ ((unsigned __int16)(v41 | *(_WORD *)(a3 + 588) & 0xFF7F) ^ (unsigned __int16)((unsigned __int8)v55 << 8)) & 0x100;
-              goto LABEL_12;
-            }
-            RESOURCE_LOCK_ACCESSOR<DXGMONITOR>::~RESOURCE_LOCK_ACCESSOR<DXGMONITOR>((__int64 *)&v60);
-            AdvancedColorParams = v58;
+            v53 = (_QWORD *)WdLogNewEntry5_WdError(v50, v49);
+            v53[4] = v6;
+            v53[6] = (int)v76;
+            v53[3] = v51;
+            v53[5] = v7;
+            WdLogEvent5_WdError(v53);
+          }
+          LOWORD(v76) = 0;
+          v86 = 0LL;
+          v87 = 0;
+          v78.LowPart = 0;
+          LOWORD(v78.HighPart) = 0;
+          v84 = 0LL;
+          v85 = 0LL;
+          AdvancedColorParams = MonitorGetAdvancedColorParams(MonitorHandle, &v76, &v84, &v78);
+          v57 = AdvancedColorParams;
+          if ( AdvancedColorParams < 0 )
+            goto LABEL_33;
+          v34 = LOBYTE(v78.LowPart) == 0;
+          v58 = *(_DWORD *)(a3 + 588);
+          *(_OWORD *)(a3 + 540) = v84;
+          *(_OWORD *)(a3 + 556) = v85;
+          *(_QWORD *)(a3 + 572) = v86;
+          *(_DWORD *)(a3 + 580) = v87;
+          LODWORD(v76) = 0;
+          v59 = BYTE2(v78.LowPart);
+          *(_DWORD *)(a3 + 588) = (LOBYTE(v78.HighPart) != 0 ? 2 : 0) | !v34 | v58 & 0xFFFFFFFC;
+          *(_DWORD *)(a3 + 584) = (HIBYTE(v78.LowPart) != 0 ? 4 : 0) | (v59 != 0 ? 2 : 0) | *(_DWORD *)(a3 + 584) & 0xFFFFFFF9;
+          IsMonitorAndLinkHDRCapable = MonitorIsMonitorAndLinkHDRCapable(MonitorHandle);
+          v57 = IsMonitorAndLinkHDRCapable;
+          if ( IsMonitorAndLinkHDRCapable >= 0 )
+          {
+            *(_DWORD *)(a3 + 588) ^= (*(_DWORD *)(a3 + 588) ^ (2 * v76)) & 4 ^ (*(_BYTE *)(a3 + 588) ^ (*(_BYTE *)(a3 + 588) ^ (unsigned __int8)(2 * v76)) & 4 ^ (unsigned __int8)(16 * v76)) & 0x40;
           }
           else
           {
-            WdLogSingleEntry1(2LL, -1073741275LL);
-            RESOURCE_LOCK_ACCESSOR<DXGMONITOR>::~RESOURCE_LOCK_ACCESSOR<DXGMONITOR>((__int64 *)&v60);
-            AdvancedColorParams = -1073741275;
+LABEL_33:
+            v61 = (_QWORD *)WdLogNewEntry5_WdError(v56, v55);
+            v61[3] = v51;
+            v61[4] = v6;
+            v61[5] = v52;
+            v61[6] = v57;
+            WdLogEvent5_WdError(v61);
           }
+          Feature_OemPanelDriverSupport__private_ReportDeviceUsage();
+          if ( MonitorHandle && (v79 = 0LL, (int)MONITOR_MGR::_GetMonitorFromHandle(MonitorHandle, &v79) >= 0) )
+            *(_DWORD *)(a3 + 936) = *((_DWORD *)v79 + 191);
+          else
+            *(_DWORD *)(a3 + 936) = 0;
+          v74 = 0;
+          LOBYTE(v76) = 0;
+          v75[0] = 0;
+          if ( (int)MonitorGetNativeFlags(MonitorHandle, &v74, &v76, v75) >= 0 )
+            *(_DWORD *)(a3 + 588) = (v74 != 0 ? 8 : 0) | *(_DWORD *)(a3 + 588) & 0xFFFFFFF7;
+          v74 = 1;
+          if ( (int)MonitorIsMonitorEdidless(MonitorHandle, &v74) >= 0 )
+            *(_DWORD *)(a3 + 588) = (v74 == 0 ? 0x10 : 0) | *(_DWORD *)(a3 + 588) & 0xFFFFFFEF;
+          DisplayIDFromMonitor = MonitorGetDisplayIDFromMonitor(MonitorHandle, 0LL, &v76, 0LL);
+          v64 = v77;
+          LOBYTE(v76) = 0;
+          *(_DWORD *)(a3 + 588) = (DisplayIDFromMonitor != -1071841279 ? 0x20 : 0) | *(_DWORD *)(a3 + 588) & 0xFFFFFFDF;
+          v79 = 0LL;
+          v80 = 0;
+          if ( (int)MonitorGetDpiInfoFromDescriptor(
+                      v19,
+                      v64,
+                      (struct DISPLAY_PREFERRED_MODE_INFO *)&v79,
+                      (unsigned int *)(a3 + 924),
+                      (unsigned int *)(a3 + 928),
+                      (__int64)&v76,
+                      0) < 0 )
+          {
+            *(_DWORD *)(a3 + 924) = 0;
+            *(_DWORD *)(a3 + 928) = 0;
+            memset(v90, 0, sizeof(v90));
+            if ( (int)MonitorGetPreferredMonitorSourceMode(MonitorHandle, v90) < 0 )
+            {
+              *(_QWORD *)(a3 + 916) = 0LL;
+              goto LABEL_52;
+            }
+            *(_DWORD *)(a3 + 916) = v90[5];
+            v65 = v90[6];
+          }
+          else
+          {
+            *(_DWORD *)(a3 + 916) = (_DWORD)v79;
+            v65 = HIDWORD(v79);
+          }
+          *(_DWORD *)(a3 + 920) = v65;
+LABEL_52:
+          v75[0] = 0;
+          v74 = 0;
+          MonitorGetPseudoSpecializedState(MonitorHandle, &v74, v75);
+          *(_DWORD *)(a3 + 588) ^= (*(_DWORD *)(a3 + 588) ^ (v74 << 7)) & 0x80 ^ (*(_WORD *)(a3 + 588) ^ (*(_WORD *)(a3 + 588) ^ (v74 << 7)) & 0x80 ^ (unsigned __int16)(v75[0] << 8)) & 0x100;
+LABEL_53:
+          v77 = 0;
+          LODWORD(v76) = 0;
+          MonitorGetMonitorOrientationsFromMonitor(MonitorHandle, &v77, &v76);
+          v66 = v77;
+          v67 = v76;
+          if ( v88 )
+          {
+            v68 = (_DWORD *)v89;
+            if ( v89 )
+            {
+              *v88 = v77;
+              *v68 = v67;
+            }
+          }
+          if ( a3 )
+            *(_DWORD *)(a3 + 932) = (((_BYTE)v67 - v66) & 3) + 1;
+          if ( (int)MonitorReleaseMonitorHandle(v19, MonitorHandle, DxgkGetMonitorInternalInfo) < 0 )
+          {
+            v70 = WdLogNewEntry5_WdAssertion(v69, v30);
+            *(_QWORD *)(v70 + 24) = 7248LL;
+            WdLogEvent5_WdAssertion(v70);
+          }
+          LODWORD(v12) = 0;
+          goto LABEL_61;
         }
-        else
-        {
-          AdvancedColorParams = -1073741811;
-        }
+LABEL_27:
+        v47 = WdLogNewEntry5_WdAssertion(v33, v32);
+        *(_QWORD *)(v47 + 24) = 7080LL;
+        WdLogEvent5_WdAssertion(v47);
+        goto LABEL_28;
       }
-      v48 = SHIDWORD(v62);
-      v49 = AdvancedColorParams;
-      WdLogSingleEntry4(2LL, SHIDWORD(v62), (unsigned int)v7, v56, AdvancedColorParams);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to get monitor HDR caps for adapter 0x%I64x%08I64x target 0x%I64x (Status = 0x%I64x).",
-        v48,
-        (unsigned int)v7,
-        v56,
-        v49,
-        0LL);
-      goto LABEL_32;
+      v43 = WdLogNewEntry5_WdError(v41, v40);
+      *(_QWORD *)(v43 + 24) = v12;
+      *(_QWORD *)(v43 + 32) = v37;
+      WdLogEvent5_WdError(v43);
+      LODWORD(v12) = v76;
     }
-    v45 = SHIDWORD(v62);
-    WdLogSingleEntry5(2LL, SHIDWORD(v62), (unsigned int)v7, v56, MonitorHandle, 0LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to get connected monitor from adapter 0x%I64x%08I64x target 0x%I64x (Status = 0x%I64x).",
-      v45,
-      (unsigned int)v7,
-      v56,
-      v16,
-      0LL);
+    if ( (int)v12 < 0 )
+      goto LABEL_36;
+    goto LABEL_27;
   }
-  v10 = v16;
-LABEL_20:
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v73);
-LABEL_21:
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v66);
-  if ( v68 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v23, &EventProfilerExit, v24, v66);
-  return v10;
+  v13 = (_QWORD *)WdLogNewEntry5_WdError(v18, v17);
+  LODWORD(v12) = -1073741811;
+  v13[3] = v78.HighPart;
+  v13[4] = LowPart;
+  v13[6] = 0LL;
+  v13[5] = -1073741811LL;
+LABEL_12:
+  WdLogEvent5_WdError(v13);
+LABEL_62:
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v81, v22);
+  if ( v83 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v71, &EventProfilerExit, v72, v81);
+  return (unsigned int)v12;
 }

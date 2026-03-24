@@ -1,66 +1,50 @@
 /*
- * XREFs of PopUnlockAfterSleepWorker @ 0x140AA6A10
+ * XREFs of PopUnlockAfterSleepWorker @ 0x140990530
  * Callers:
  *     <none>
  * Callees:
- *     MmUnlockPagableImageSection @ 0x14025A320 (MmUnlockPagableImageSection.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     ExNotifyCallback @ 0x14033BD40 (ExNotifyCallback.c)
- *     PoPushPowerStateTransitionRecordWithCallback @ 0x14058F194 (PoPushPowerStateTransitionRecordWithCallback.c)
- *     PopRunNormalIrpWorkers @ 0x140598C3C (PopRunNormalIrpWorkers.c)
- *     PopReleaseTransitionLock @ 0x140802F44 (PopReleaseTransitionLock.c)
- *     PopClearShutdownMarker @ 0x1409807D4 (PopClearShutdownMarker.c)
- *     PopClearSleepMarker @ 0x1409807E4 (PopClearSleepMarker.c)
- *     PopClearSystemShutdownMarker @ 0x140980828 (PopClearSystemShutdownMarker.c)
- *     PopClearTransitionCheckpoints @ 0x140980868 (PopClearTransitionCheckpoints.c)
- *     PopAdjustHiberFile @ 0x140987D94 (PopAdjustHiberFile.c)
- *     PopClearHibernateDiagnosticInfo @ 0x1409885DC (PopClearHibernateDiagnosticInfo.c)
- *     PopFreeHiberContext @ 0x1409886A0 (PopFreeHiberContext.c)
- *     PopClearSystemSleepCheckpoint @ 0x140996E2C (PopClearSystemSleepCheckpoint.c)
- *     ExSwapinWorkerThreads @ 0x140A00678 (ExSwapinWorkerThreads.c)
- *     CmSetLazyFlushState @ 0x140A11978 (CmSetLazyFlushState.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
- *     PoDelistPowerStateTransitionBlocker @ 0x140AA622C (PoDelistPowerStateTransitionBlocker.c)
+ *     MmUnlockPagableImageSection @ 0x14029B0A0 (MmUnlockPagableImageSection.c)
+ *     ExNotifyCallback @ 0x140307D90 (ExNotifyCallback.c)
+ *     PopRunNormalIrpWorkers @ 0x1403821BC (PopRunNormalIrpWorkers.c)
+ *     RtlBootStatusDisableFlushing @ 0x1403A7300 (RtlBootStatusDisableFlushing.c)
+ *     PopClearHibernateDiagnosticInfo @ 0x1406A688C (PopClearHibernateDiagnosticInfo.c)
+ *     PopClearShutdownMarker @ 0x1406A691C (PopClearShutdownMarker.c)
+ *     PopAdjustHiberFile @ 0x140773C64 (PopAdjustHiberFile.c)
+ *     PopFreeHiberContext @ 0x14077404C (PopFreeHiberContext.c)
+ *     PopClearSystemShutdownMarker @ 0x1407742B0 (PopClearSystemShutdownMarker.c)
+ *     PopClearSystemSleepCheckpoint @ 0x1407742F0 (PopClearSystemSleepCheckpoint.c)
+ *     PopClearSleepMarker @ 0x140774334 (PopClearSleepMarker.c)
+ *     PopClearTransitionCheckpoints @ 0x140774378 (PopClearTransitionCheckpoints.c)
+ *     ExSwapinWorkerThreads @ 0x1407743E4 (ExSwapinWorkerThreads.c)
+ *     CmSetLazyFlushState @ 0x1407745EC (CmSetLazyFlushState.c)
+ *     PopReleaseTransitionLock @ 0x14078D9D4 (PopReleaseTransitionLock.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 LONG PopUnlockAfterSleepWorker()
 {
   __int64 v0; // rcx
+  __int64 v1; // rcx
 
-  PopAcquireRwLockExclusive((ULONG_PTR)&PopUnlockAfterSleepLock);
-  qword_140C3CFE8 = KeGetCurrentThread();
-  if ( PopWaitingForTransitionLock
-    && (int)PoPushPowerStateTransitionRecordWithCallback(
-              KeGetCurrentThread()->ApcState.Process,
-              qword_140C3CFE8,
-              0LL,
-              0LL) < 0 )
-  {
-    PopWaitingForTransitionLock = 0;
-  }
-  PopReleaseRwLock(&PopUnlockAfterSleepLock);
+  qword_140C23C00 = (__int64)KeGetCurrentThread();
   CmSetLazyFlushState(1);
   ExSwapinWorkerThreads(1u);
   ExNotifyCallback(ExCbPowerState, (PVOID)3, (PVOID)1);
   PopRunNormalIrpWorkers();
   MmUnlockPagableImageSection(ExPageLockHandle);
+  RtlBootStatusDisableFlushing(0);
   PopClearTransitionCheckpoints();
   PopClearSleepMarker();
   PopClearSystemSleepCheckpoint(0);
   PopClearShutdownMarker();
   PopClearSystemShutdownMarker();
-  PopFreeHiberContext();
+  PopFreeHiberContext(v0);
   PopAcquirePolicyLock();
   if ( BYTE8(PopCapabilities) )
-    PopAdjustHiberFile(v0);
+    PopAdjustHiberFile(v1);
   PopClearHibernateDiagnosticInfo();
   PopReleasePolicyLock();
-  PopAcquireRwLockExclusive((ULONG_PTR)&PopUnlockAfterSleepLock);
-  qword_140C3CFE8 = 0LL;
-  if ( PopWaitingForTransitionLock )
-    PoDelistPowerStateTransitionBlocker();
-  PopReleaseRwLock(&PopUnlockAfterSleepLock);
+  qword_140C23C00 = 0LL;
   return PopReleaseTransitionLock(1);
 }

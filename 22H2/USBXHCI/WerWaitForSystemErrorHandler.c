@@ -1,7 +1,7 @@
 /*
- * XREFs of WerWaitForSystemErrorHandler @ 0x1C00546D0
+ * XREFs of WerWaitForSystemErrorHandler @ 0x1C0051918
  * Callers:
- *     WerKernelSubmitReport @ 0x1C0053FE0 (WerKernelSubmitReport.c)
+ *     WerKernelSubmitReport @ 0x1C005121C (WerKernelSubmitReport.c)
  * Callees:
  *     <none>
  */

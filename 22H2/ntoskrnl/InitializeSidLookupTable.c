@@ -1,10 +1,10 @@
 /*
- * XREFs of InitializeSidLookupTable @ 0x140824194
+ * XREFs of InitializeSidLookupTable @ 0x14079DA20
  * Callers:
- *     SddlBaseInitialize @ 0x140387A98 (SddlBaseInitialize.c)
+ *     SddlBaseInitialize @ 0x1403B3F70 (SddlBaseInitialize.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x1402979B0 (RtlSubAuthoritySid.c)
- *     RtlInitializeSid @ 0x140782560 (RtlInitializeSid.c)
+ *     RtlSubAuthoritySid @ 0x1403482A0 (RtlSubAuthoritySid.c)
+ *     RtlInitializeSid @ 0x140718B40 (RtlInitializeSid.c)
  */
 
 char InitializeSidLookupTable()
@@ -38,7 +38,7 @@ char InitializeSidLookupTable()
 
   *(_WORD *)&v22.Value[4] = 256;
   *(_DWORD *)v22.Value = 0;
-  v0 = &unk_140C09A40;
+  v0 = &unk_140C0F490;
   v20 = 0;
   v1 = 0;
   v18 = 0;
@@ -57,7 +57,7 @@ char InitializeSidLookupTable()
     if ( *((_BYTE *)v0 - 16) != 1 || !*(_QWORD *)v0 )
     {
       v2 = v0[3];
-      v3 = (char *)&unk_140C09A50 + 104 * v1;
+      v3 = (char *)&unk_140C0F4A0 + 104 * v1;
       *(_QWORD *)v0 = v3;
       v4 = v2 - 1;
       if ( !v4 )
@@ -133,6 +133,6 @@ LABEL_12:
     ++v1;
     v0 += 26;
   }
-  while ( v1 < 0x41 );
+  while ( v1 < 0x3F );
   return 1;
 }

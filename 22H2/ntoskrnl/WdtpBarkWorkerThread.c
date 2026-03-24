@@ -1,14 +1,14 @@
 /*
- * XREFs of WdtpBarkWorkerThread @ 0x140A6F0D0
+ * XREFs of WdtpBarkWorkerThread @ 0x14097FF70
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 LONG __fastcall WdtpBarkWorkerThread(__int64 a1)
 {
-  (*(void (__fastcall **)(__int64))(a1 + 24))(a1 + 141);
-  return KeSetEvent((PRKEVENT)(a1 + 96), 0, 0);
+  (*(void (__fastcall **)(_QWORD))(a1 + 24))(*(_QWORD *)(a1 + 8));
+  return KeSetEvent((PRKEVENT)(a1 + 104), 0, 0);
 }

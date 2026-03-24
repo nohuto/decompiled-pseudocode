@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBREG_UpdateSqmFlags @ 0x1C0082C28
+ * XREFs of HUBREG_UpdateSqmFlags @ 0x1C00816B8
  * Callers:
- *     HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001A650 (HUBPDO_EvtDeviceUsageNotificationEx.c)
- *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0079110 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001A100 (HUBPDO_EvtDeviceUsageNotificationEx.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0077CC0 (HUBPDO_EvtDevicePrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 int __fastcall HUBREG_UpdateSqmFlags(__int64 a1)
@@ -76,14 +76,14 @@ int __fastcall HUBREG_UpdateSqmFlags(__int64 a1)
         v6 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
                WdfDriverGlobals,
                WdfDriverGlobals->Driver,
-               off_1C00671E8);
+               off_1C00661C0);
         LODWORD(v8) = v5;
         result = WPP_RECORDER_SF_d(
                    *(_QWORD *)(v6 + 64),
                    2u,
                    2u,
                    0x79u,
-                   (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids,
+                   (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
                    v8);
       }
       goto LABEL_42;
@@ -218,7 +218,7 @@ LABEL_41:
                2u,
                5u,
                v4,
-               (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids,
+               (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
                v8);
   }
 LABEL_42:

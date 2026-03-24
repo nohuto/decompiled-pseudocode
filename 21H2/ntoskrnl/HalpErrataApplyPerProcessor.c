@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpErrataApplyPerProcessor @ 0x140A536C8
+ * XREFs of HalpErrataApplyPerProcessor @ 0x140999CD0
  * Callers:
- *     HalpPostSleepMP @ 0x140A500C0 (HalpPostSleepMP.c)
- *     HalpErrataInitSystem @ 0x140A54AB0 (HalpErrataInitSystem.c)
+ *     HalpPostSleepMP @ 0x140995864 (HalpPostSleepMP.c)
+ *     HalpErrataInitSystem @ 0x1409A0160 (HalpErrataInitSystem.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x1403AAE80 (HalpGetCpuInfo.c)
+ *     HalpGetCpuInfo @ 0x1403A0F70 (HalpGetCpuInfo.c)
  */
 
 char HalpErrataApplyPerProcessor()

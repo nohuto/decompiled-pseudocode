@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerTraceTimingHardware @ 0x140861740
+ * XREFs of HalpTimerTraceTimingHardware @ 0x1407D5568
  * Callers:
- *     HalpTimerInitSystem @ 0x14037B080 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403AF740 (HalpTimerInitSystem.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void HalpTimerTraceTimingHardware()
@@ -40,7 +40,7 @@ void HalpTimerTraceTimingHardware()
   int *v27; // [rsp+D0h] [rbp+37h]
   __int64 v28; // [rsp+D8h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140C04BB0 > 5 && tlgKeywordOn((__int64)&dword_140C04BB0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140C02E38 > 5 && tlgKeywordOn((__int64)&dword_140C02E38, 0x400000000000LL) )
   {
     v16 = 4LL;
     v18 = 4LL;
@@ -85,6 +85,6 @@ void HalpTimerTraceTimingHardware()
     v13 = v6;
     v28 = 4LL;
     v27 = &v13;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04BB0, (unsigned __int8 *)byte_1400292E9, 0LL, 0LL, 9u, &v14);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02E38, (unsigned __int8 *)byte_140022671, 0LL, 0LL, 9u, &v14);
   }
 }

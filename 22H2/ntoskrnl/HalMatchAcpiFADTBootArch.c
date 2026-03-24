@@ -1,9 +1,9 @@
 /*
- * XREFs of HalMatchAcpiFADTBootArch @ 0x1403A2470
+ * XREFs of HalMatchAcpiFADTBootArch @ 0x1403C4E90
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiGetTable @ 0x140336E50 (HalpAcpiGetTable.c)
+ *     HalpAcpiGetTable @ 0x1402E77D0 (HalpAcpiGetTable.c)
  */
 
 __int64 __fastcall HalMatchAcpiFADTBootArch(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5, int a6)

@@ -1,22 +1,21 @@
 /*
- * XREFs of ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C006CFA0
+ * XREFs of ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C001D00C
  * Callers:
- *     DrvSetMonitorsDimState @ 0x1C0069BFC (DrvSetMonitorsDimState.c)
- *     ?DrvUpdatePDevForWDDMDevice@@YAXVPDEVOBJ@@@Z @ 0x1C006A688 (-DrvUpdatePDevForWDDMDevice@@YAXVPDEVOBJ@@@Z.c)
- *     bSetDeviceSessionUsage @ 0x1C006ACE0 (bSetDeviceSessionUsage.c)
- *     DrvUpdateGraphicsDeviceList @ 0x1C006ADB0 (DrvUpdateGraphicsDeviceList.c)
- *     ?DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z @ 0x1C006BAAC (-DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z.c)
- *     UpdateMonitorDevices @ 0x1C006C2B0 (UpdateMonitorDevices.c)
- *     DrvSetMonitorBrightness @ 0x1C007E8AC (DrvSetMonitorBrightness.c)
- *     xxxRemoteConnect @ 0x1C007EDC0 (xxxRemoteConnect.c)
- *     ?GetMonitorBrightnessCaps@@YAXPEAU_DISPLAYCONFIG_GET_MONITOR_INTERNAL_INFO@@@Z @ 0x1C00BCEF4 (-GetMonitorBrightnessCaps@@YAXPEAU_DISPLAYCONFIG_GET_MONITOR_INTERNAL_INFO@@@Z.c)
- *     DrvSetWddmDeviceMonitorPowerState @ 0x1C00D2E70 (DrvSetWddmDeviceMonitorPowerState.c)
- *     GreGdoDeviceIoControlEx @ 0x1C00D4140 (GreGdoDeviceIoControlEx.c)
- *     ?DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00D4218 (-DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     DrvSetVideoParameters @ 0x1C0174DC4 (DrvSetVideoParameters.c)
- *     EngDeviceIoControl @ 0x1C01772F0 (EngDeviceIoControl.c)
+ *     ?DrvUpdatePDevForWDDMDevice@@YAXVPDEVOBJ@@@Z @ 0x1C000C720 (-DrvUpdatePDevForWDDMDevice@@YAXVPDEVOBJ@@@Z.c)
+ *     ?DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z @ 0x1C001A85C (-DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z.c)
+ *     UpdateMonitorDevices @ 0x1C001CE40 (UpdateMonitorDevices.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001DEE0 (DrvUpdateGraphicsDeviceList.c)
+ *     DrvSetMonitorsDimState @ 0x1C0078260 (DrvSetMonitorsDimState.c)
+ *     DrvSetMonitorBrightness @ 0x1C00783BC (DrvSetMonitorBrightness.c)
+ *     ?GetMonitorBrightnessCaps@@YAXPEAU_DISPLAYCONFIG_GET_MONITOR_INTERNAL_INFO@@@Z @ 0x1C00A5E70 (-GetMonitorBrightnessCaps@@YAXPEAU_DISPLAYCONFIG_GET_MONITOR_INTERNAL_INFO@@@Z.c)
+ *     bSetDeviceSessionUsage @ 0x1C00ADF30 (bSetDeviceSessionUsage.c)
+ *     DrvSetWddmDeviceMonitorPowerState @ 0x1C00C35D0 (DrvSetWddmDeviceMonitorPowerState.c)
+ *     GreGdoDeviceIoControlEx @ 0x1C00C4920 (GreGdoDeviceIoControlEx.c)
+ *     ?DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00C49BC (-DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     DrvSetVideoParameters @ 0x1C0147D10 (DrvSetVideoParameters.c)
+ *     EngDeviceIoControl @ 0x1C014AEA0 (EngDeviceIoControl.c)
  * Callees:
- *     UserRemoteConnectedSessionUsingXddm @ 0x1C006F4B0 (UserRemoteConnectedSessionUsingXddm.c)
+ *     UserRemoteConnectedSessionUsingXddm @ 0x1C001D190 (UserRemoteConnectedSessionUsingXddm.c)
  */
 
 __int64 __fastcall GreDeviceIoControlImpl(
@@ -33,10 +32,9 @@ __int64 __fastcall GreDeviceIoControlImpl(
   unsigned int Status; // ebx
   PIRP v14; // rdi
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-48h] BYREF
-  struct _KEVENT Object; // [rsp+60h] [rbp-38h] BYREF
+  _KEVENT Event; // [rsp+60h] [rbp-38h] BYREF
 
   Status = -1073741822;
-  memset(&Object, 0, sizeof(Object));
   IoStatusBlock = 0LL;
   if ( !DeviceObject )
     return 3221225480LL;
@@ -46,7 +44,7 @@ __int64 __fastcall GreDeviceIoControlImpl(
   {
     return 3221225485LL;
   }
-  KeInitializeEvent(&Object, SynchronizationEvent, 0);
+  KeInitializeEvent(&Event, SynchronizationEvent, 0);
   v14 = IoBuildDeviceIoControlRequest(
           IoControlCode,
           DeviceObject,
@@ -55,7 +53,7 @@ __int64 __fastcall GreDeviceIoControlImpl(
           OutputBuffer,
           OutputBufferLength,
           InternalDeviceIoControl,
-          &Object,
+          &Event,
           &IoStatusBlock);
   if ( v14 )
   {
@@ -64,7 +62,7 @@ __int64 __fastcall GreDeviceIoControlImpl(
     Status = IofCallDriver(DeviceObject, v14);
     if ( Status == 259 )
     {
-      while ( KeWaitForSingleObject(&Object, UserRequest, 0, 1u, 0LL) == 257 )
+      while ( KeWaitForSingleObject(&Event, UserRequest, 0, 1u, 0LL) == 257 )
         ;
       Status = IoStatusBlock.Status;
     }

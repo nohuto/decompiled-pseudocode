@@ -1,15 +1,15 @@
 /*
- * XREFs of CmFcpManagerPublishChangeNotifications @ 0x140923614
+ * XREFs of CmFcpManagerPublishChangeNotifications @ 0x14087E7C4
  * Callers:
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140922DB4 (CmFcManagerUpdateFeatureConfigurations.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14092317C (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD04 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E060 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     CmpWorkItemQueueWork @ 0x1403C7B20 (CmpWorkItemQueueWork.c)
- *     ZwQueryWnfStateData @ 0x14041E4C0 (ZwQueryWnfStateData.c)
- *     ZwUpdateWnfStateData @ 0x14041F2A0 (ZwUpdateWnfStateData.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ZwQueryWnfStateData @ 0x1403FD020 (ZwQueryWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
+ *     CmFcpWorkItemQueueWork @ 0x1404ED9CC (CmFcpWorkItemQueueWork.c)
  */
 
 __int64 __fastcall CmFcpManagerPublishChangeNotifications(__int64 a1, unsigned __int64 a2)
@@ -22,12 +22,12 @@ __int64 __fastcall CmFcpManagerPublishChangeNotifications(__int64 a1, unsigned _
 
   v4 = a2;
   v5 = 0;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&stru_140C49670, 0LL);
-  for ( i = qword_140C49678; (__int64 *)i != &qword_140C49678; i = *(_QWORD *)i )
-    CmpWorkItemQueueWork((PWORK_QUEUE_ITEM)(i + 16));
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140C49670, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&stru_140C49670);
-  KeAbPostRelease((ULONG_PTR)&stru_140C49670);
+  ExAcquirePushLockSharedEx((ULONG_PTR)&stru_140C48310, 0LL);
+  for ( i = qword_140C48318; (__int64 *)i != &qword_140C48318; i = *(_QWORD *)i )
+    CmFcpWorkItemQueueWork((PWORK_QUEUE_ITEM)(i + 16));
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140C48310, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&stru_140C48310);
+  KeAbPostRelease((ULONG_PTR)&stru_140C48310);
   do
   {
     v6 = 0LL;

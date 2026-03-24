@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPlPublishSystemPowerChange @ 0x1405A1678
+ * XREFs of PopPlPublishSystemPowerChange @ 0x14057E6B8
  * Callers:
- *     PopPlNotifyDeviceDState @ 0x14028DB2C (PopPlNotifyDeviceDState.c)
- *     PopPlNotifyDeviceFState @ 0x14035BFE0 (PopPlNotifyDeviceFState.c)
- *     PopPlPublishInitialPowerDraw @ 0x1405A14A0 (PopPlPublishInitialPowerDraw.c)
- *     PopPlUnregisterDevice @ 0x1405A1EC0 (PopPlUnregisterDevice.c)
+ *     PopPlNotifyDeviceDState @ 0x14039FD9C (PopPlNotifyDeviceDState.c)
+ *     PopPlNotifyDeviceFState @ 0x1403A4378 (PopPlNotifyDeviceFState.c)
+ *     PopPlPublishInitialPowerDraw @ 0x14057E4E0 (PopPlPublishInitialPowerDraw.c)
+ *     PopFxUnregisterDevice @ 0x1407B495C (PopFxUnregisterDevice.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x140367920 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14032C1BC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopPlPublishSystemPowerChange(unsigned __int16 *a1, int a2, __int64 a3)
@@ -34,7 +34,7 @@ __int64 __fastcall PopPlPublishSystemPowerChange(unsigned __int16 *a1, int a2, _
 
   if ( a2 )
   {
-    if ( (unsigned int)dword_140C03950 > 5 )
+    if ( (unsigned int)dword_140C02228 > 5 )
     {
       v18[1] = 0;
       v9 = 1;
@@ -51,7 +51,7 @@ __int64 __fastcall PopPlPublishSystemPowerChange(unsigned __int16 *a1, int a2, _
       v10 = a2;
       v20 = 4LL;
       v22 = 4LL;
-      tlgWriteEx_EtwWriteEx((__int64)&dword_140C03950, (unsigned __int8 *)&byte_1400324BB, a3, 1u, v7, v8, 7u, &v12);
+      tlgWriteEx_EtwWriteEx((__int64)&dword_140C02228, (unsigned __int8 *)&dword_14002A254, a3, 1u, v7, v8, 7u, &v12);
     }
     *((_DWORD *)a1 + 7) += a2;
     return (*((__int64 (__fastcall **)(_QWORD, _QWORD))a1 + 5))(*((_QWORD *)a1 + 4), *((unsigned int *)a1 + 7));

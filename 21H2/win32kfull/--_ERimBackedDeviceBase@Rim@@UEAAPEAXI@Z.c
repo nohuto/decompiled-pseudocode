@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_ERimBackedDeviceBase@Rim@@UEAAPEAXI@Z @ 0x1C023EE20
+ * XREFs of ??_ERimBackedDeviceBase@Rim@@UEAAPEAXI@Z @ 0x1C0243610
  * Callers:
  *     <none>
  * Callees:
- *     ?UnInitialize@RimBackedDeviceBase@Rim@@UEAAXXZ @ 0x1C023F230 (-UnInitialize@RimBackedDeviceBase@Rim@@UEAAXXZ.c)
+ *     ?UnInitialize@RimBackedDeviceBase@Rim@@UEAAXXZ @ 0x1C0243A60 (-UnInitialize@RimBackedDeviceBase@Rim@@UEAAXXZ.c)
  */
 
 Rim::RimBackedDeviceBase *__fastcall Rim::RimBackedDeviceBase::`vector deleting destructor'(

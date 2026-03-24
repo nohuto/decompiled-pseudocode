@@ -1,25 +1,21 @@
 /*
- * XREFs of FreeScancodeMap @ 0x1C00C5E40
+ * XREFs of FreeScancodeMap @ 0x1C00B81E0
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 void FreeScancodeMap()
 {
   if ( gpScancodeMap )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpScancodeMap);
+    Win32FreePool(gpScancodeMap);
     gpScancodeMap = 0LL;
   }
   if ( gpFlexMap )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpFlexMap);
+    Win32FreePool((__int64)gpFlexMap);
     gpFlexMap = 0LL;
     gdwFlexMapSize = 0;
   }

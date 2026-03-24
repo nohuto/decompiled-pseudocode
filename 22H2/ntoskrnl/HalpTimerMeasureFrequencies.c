@@ -1,188 +1,219 @@
 /*
- * XREFs of HalpTimerMeasureFrequencies @ 0x14037A528
+ * XREFs of HalpTimerMeasureFrequencies @ 0x1403B0A68
  * Callers:
- *     HalpTimerSelectRoles @ 0x14037A8FC (HalpTimerSelectRoles.c)
+ *     HalpTimerSelectRoles @ 0x1403B0F2C (HalpTimerSelectRoles.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x1402C3000 (KeStallExecutionProcessor.c)
- *     HalpTimerStallExecutionProcessor @ 0x1402C4380 (HalpTimerStallExecutionProcessor.c)
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     HalpTimerReadTimerPairWithLatencyLimit @ 0x14037A820 (HalpTimerReadTimerPairWithLatencyLimit.c)
- *     HalpTimerInitialize @ 0x14037ABD0 (HalpTimerInitialize.c)
- *     HalpTimerDetermineValidTimerPairReadLatency @ 0x14037AE28 (HalpTimerDetermineValidTimerPairReadLatency.c)
- *     HalpTimerScaleCounter @ 0x1403C3EC4 (HalpTimerScaleCounter.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeStallExecutionProcessor @ 0x14022A1F0 (KeStallExecutionProcessor.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     HalpTimerScaleCounter @ 0x140395BF0 (HalpTimerScaleCounter.c)
+ *     HalpTimerReadTimerPairWithLatencyLimit @ 0x1403B0D68 (HalpTimerReadTimerPairWithLatencyLimit.c)
+ *     HalpTimerDetermineValidTimerPairReadLatency @ 0x1403B0E4C (HalpTimerDetermineValidTimerPairReadLatency.c)
+ *     HalpTimerInitialize @ 0x1403B11C4 (HalpTimerInitialize.c)
+ *     HalpTimerStallExecutionProcessor @ 0x1403B1468 (HalpTimerStallExecutionProcessor.c)
+ *     HalpProcessorFence @ 0x1403F9340 (HalpProcessorFence.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-void __fastcall HalpTimerMeasureFrequencies(__int64 a1, __int64 a2)
+unsigned __int64 __fastcall HalpTimerMeasureFrequencies(__int64 a1)
 {
+  unsigned __int64 result; // rax
   ULONG_PTR *v2; // rbx
   int v3; // r12d
-  ULONG_PTR *v5; // rcx
-  ULONG_PTR *v6; // rdi
-  __int64 v7; // rbx
-  _DWORD *v8; // rcx
-  unsigned __int64 v9; // rax
-  ULONG_PTR *v10; // rbx
-  ULONG_PTR *v11; // rdi
-  __int64 v12; // r10
-  _DWORD *v13; // rcx
-  unsigned __int64 v14; // rax
-  unsigned __int64 v15; // r15
-  unsigned __int64 v16; // rcx
-  ULONG_PTR *v17; // rbx
-  ULONG_PTR *v18; // rdi
-  __int64 v19; // r10
-  _DWORD *v20; // rcx
-  ULONG_PTR *v21; // rbx
-  unsigned int v22; // ebp
-  unsigned __int64 v23; // rax
-  unsigned __int64 v24; // r14
-  unsigned __int64 v25; // r8
-  unsigned __int64 v26; // r9
-  __int64 v27; // r11
-  unsigned int v28; // ebp
-  unsigned int *v29; // rdi
-  __int64 v30; // rax
-  void (__fastcall *v31)(__int64); // rdx
+  char v4; // dl
+  ULONG_PTR *v6; // rcx
+  ULONG_PTR *v7; // rsi
+  __int64 v8; // rbx
+  ULONG_PTR *v9; // rbx
+  ULONG_PTR *v10; // rsi
+  ULONG_PTR *v11; // r10
+  unsigned __int64 v12; // r15
+  ULONG_PTR *v13; // rbx
+  ULONG_PTR *v14; // rsi
+  ULONG_PTR *v15; // r10
+  ULONG_PTR *v16; // rsi
+  __int64 v17; // rbx
+  int v18; // ebp
+  unsigned __int64 v19; // rax
+  unsigned __int64 v20; // r14
+  unsigned __int64 v21; // r8
+  unsigned __int64 v22; // r9
+  unsigned int v23; // ebp
+  __int64 v24; // rax
+  __int64 (__fastcall *v25)(__int64); // rdx
   __int64 InternalData; // rax
-  __int64 v33; // rax
-  __int64 v34; // rax
-  __int64 v35; // r10
-  __int64 v36; // rax
-  __int64 v37; // rax
-  __int64 v38; // r10
+  __int64 v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // r10
+  __int64 v30; // rax
+  __int64 v31; // rax
+  __int64 v32; // r10
+  _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h] BYREF
 
+  result = (unsigned __int64)&retaddr;
   v2 = (ULONG_PTR *)HalpRegisteredTimers;
   v3 = *(_DWORD *)(a1 + 224) & 2;
-  LOBYTE(a2) = 0;
+  v4 = 0;
   if ( (ULONG_PTR *)HalpRegisteredTimers != &HalpRegisteredTimers )
   {
     do
     {
-      v5 = v2;
+      v6 = v2;
       v2 = (ULONG_PTR *)*v2;
-      if ( (!v5[24] || (v5[23] & 8) != 0) && (v5[28] & 2) != 0 )
+      if ( v6[24] )
       {
-        HalpTimerInitialize(v5, a2);
-        LOBYTE(a2) = 1;
+        result = *((unsigned int *)v6 + 46);
+        if ( (result & 8) == 0 )
+          continue;
+      }
+      result = *((unsigned int *)v6 + 56);
+      if ( (result & 2) != 0 )
+      {
+        result = HalpTimerInitialize(v6);
+        v4 = 1;
       }
     }
     while ( v2 != &HalpRegisteredTimers );
-    if ( (_BYTE)a2 )
+    if ( v4 )
     {
       KeStallExecutionProcessor(0x5DCu);
-      v6 = (ULONG_PTR *)HalpRegisteredTimers;
-      while ( v6 != &HalpRegisteredTimers )
+      v7 = (ULONG_PTR *)HalpRegisteredTimers;
+      while ( v7 != &HalpRegisteredTimers )
       {
-        v7 = (__int64)v6;
-        v6 = (ULONG_PTR *)*v6;
-        v8 = (_DWORD *)(v7 + 184);
-        if ( (!*(_QWORD *)(v7 + 192) || (*v8 & 8) != 0) && (*(_DWORD *)(v7 + 224) & 2) != 0 && (*v8 & 2) != 0 )
+        v8 = (__int64)v7;
+        v7 = (ULONG_PTR *)*v7;
+        if ( (!*(_QWORD *)(v8 + 192) || (*(_DWORD *)(v8 + 184) & 8) != 0)
+          && (*(_DWORD *)(v8 + 224) & 2) != 0
+          && (*(_DWORD *)(v8 + 184) & 2) != 0 )
         {
           if ( v3 )
           {
-            *(_DWORD *)(v7 + 48) = HalpTimerDetermineValidTimerPairReadLatency(v7, a1);
+            *(_DWORD *)(v8 + 48) = HalpTimerDetermineValidTimerPairReadLatency(v8, a1);
           }
           else
           {
-            InternalData = HalpTimerGetInternalData(v7);
-            *(_QWORD *)(v7 + 16) = (*(__int64 (__fastcall **)(__int64))(v7 + 112))(InternalData);
+            InternalData = HalpTimerGetInternalData(v8);
+            *(_QWORD *)(v8 + 16) = (*(__int64 (__fastcall **)(__int64))(v8 + 112))(InternalData);
           }
         }
       }
-      v9 = __readcr2();
-      __writecr2(v9);
+      HalpProcessorFence();
       if ( (*(_DWORD *)(a1 + 224) & 2) == 0 )
       {
-        v33 = HalpTimerGetInternalData(a1);
-        (*(void (__fastcall **)(__int64, _QWORD))(a1 + 176))(v33, 0LL);
+        v27 = HalpTimerGetInternalData(a1);
+        (*(void (__fastcall **)(__int64, _QWORD))(a1 + 176))(v27, 0LL);
       }
-      v10 = (ULONG_PTR *)HalpRegisteredTimers;
-      while ( v10 != &HalpRegisteredTimers )
+      v9 = (ULONG_PTR *)HalpRegisteredTimers;
+      while ( v9 != &HalpRegisteredTimers )
       {
-        v11 = v10;
-        v12 = (__int64)v10;
-        v10 = (ULONG_PTR *)*v10;
-        v13 = v11 + 23;
-        if ( (!v11[24] || (*v13 & 8) != 0) && (*(_DWORD *)(v12 + 224) & 2) != 0 && (*v13 & 2) != 0 )
+        v10 = v9;
+        v11 = v9;
+        v9 = (ULONG_PTR *)*v9;
+        if ( (!v10[24] || (v10[23] & 8) != 0) && (v11[28] & 2) != 0 && (v11[23] & 2) != 0 )
         {
           if ( v3 )
           {
-            HalpTimerReadTimerPairWithLatencyLimit(*(_DWORD *)(v12 + 48), v12, a1, (_DWORD)v11 + 16, v12 + 24);
+            HalpTimerReadTimerPairWithLatencyLimit(
+              *((_DWORD *)v11 + 12),
+              (_DWORD)v11,
+              a1,
+              (_DWORD)v10 + 16,
+              (__int64)(v11 + 3));
           }
           else
           {
-            v34 = HalpTimerGetInternalData(v12);
-            v11[2] = (*(__int64 (__fastcall **)(__int64))(v35 + 112))(v34);
+            v28 = HalpTimerGetInternalData((__int64)v11);
+            v10[2] = (*(__int64 (__fastcall **)(__int64))(v29 + 112))(v28);
           }
         }
       }
-      v14 = __readcr2();
-      __writecr2(v14);
+      HalpProcessorFence();
       if ( (*(_DWORD *)(a1 + 224) & 2) != 0 )
       {
-        v15 = 1250000LL;
-        HalpTimerStallExecutionProcessor(a1, 1250000LL, 0);
+        v12 = 1250000LL;
+        HalpTimerStallExecutionProcessor(a1, 1250000LL, 0LL);
       }
       else
       {
-        v36 = HalpTimerGetInternalData(a1);
-        v15 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 176))(v36, 1250000LL);
+        v30 = HalpTimerGetInternalData(a1);
+        v12 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 176))(v30, 1250000LL);
       }
-      v16 = __readcr2();
-      __writecr2(v16);
-      v17 = (ULONG_PTR *)HalpRegisteredTimers;
-      while ( v17 != &HalpRegisteredTimers )
+      result = HalpProcessorFence();
+      v13 = (ULONG_PTR *)HalpRegisteredTimers;
+      while ( v13 != &HalpRegisteredTimers )
       {
-        v18 = v17;
-        v19 = (__int64)v17;
-        v17 = (ULONG_PTR *)*v17;
-        v20 = v18 + 23;
-        if ( (!v18[24] || (*v20 & 8) != 0) && (*(_DWORD *)(v19 + 224) & 2) != 0 && (*v20 & 2) != 0 )
+        v14 = v13;
+        v15 = v13;
+        v13 = (ULONG_PTR *)*v13;
+        if ( v14[24] )
         {
-          if ( v3 )
+          result = *((unsigned int *)v14 + 46);
+          if ( (result & 8) == 0 )
+            continue;
+        }
+        result = *((unsigned int *)v15 + 56);
+        if ( (result & 2) != 0 )
+        {
+          result = *((unsigned int *)v15 + 46);
+          if ( (result & 2) != 0 )
           {
-            HalpTimerReadTimerPairWithLatencyLimit(*(_DWORD *)(v19 + 48), v19, a1, (_DWORD)v18 + 32, v19 + 40);
-          }
-          else
-          {
-            v37 = HalpTimerGetInternalData(v19);
-            v18[4] = (*(__int64 (__fastcall **)(__int64))(v38 + 112))(v37);
+            if ( v3 )
+            {
+              result = HalpTimerReadTimerPairWithLatencyLimit(
+                         *((_DWORD *)v15 + 12),
+                         (_DWORD)v15,
+                         a1,
+                         (int)v14 + 32,
+                         (__int64)(v15 + 5));
+            }
+            else
+            {
+              v31 = HalpTimerGetInternalData((__int64)v15);
+              result = (*(__int64 (__fastcall **)(__int64))(v32 + 112))(v31);
+              v14[4] = result;
+            }
           }
         }
       }
-      v21 = (ULONG_PTR *)HalpRegisteredTimers;
-      while ( v21 != &HalpRegisteredTimers )
+      v16 = (ULONG_PTR *)HalpRegisteredTimers;
+      while ( v16 != &HalpRegisteredTimers )
       {
-        v27 = (__int64)v21;
-        v21 = (ULONG_PTR *)*v21;
-        v29 = (unsigned int *)(v27 + 184);
-        if ( (!*(_QWORD *)(v27 + 192) || (*v29 & 8) != 0) && (*(_DWORD *)(v27 + 224) & 2) != 0 )
+        v17 = (__int64)v16;
+        v16 = (ULONG_PTR *)*v16;
+        if ( *(_QWORD *)(v17 + 192) )
         {
-          v22 = *v29;
-          if ( (*v29 & 2) != 0 )
+          result = *(unsigned int *)(v17 + 184);
+          if ( (result & 8) == 0 )
+            continue;
+        }
+        result = *(unsigned int *)(v17 + 224);
+        if ( (result & 2) != 0 )
+        {
+          v18 = *(_DWORD *)(v17 + 184);
+          if ( (v18 & 2) != 0 )
           {
-            v23 = *(_QWORD *)(v27 + 16);
-            v24 = *(_QWORD *)(v27 + 32) - v23;
-            v25 = *(_QWORD *)(v27 + 24);
-            v26 = *(_QWORD *)(v27 + 40) - v25;
-            if ( *(_QWORD *)(v27 + 32) < v23 )
-              v24 += 1LL << *(_DWORD *)(v27 + 220);
-            if ( *(_QWORD *)(v27 + 40) < v25 )
-              v26 += 1LL << *(_DWORD *)(a1 + 220);
+            v19 = *(_QWORD *)(v17 + 16);
+            v20 = *(_QWORD *)(v17 + 32) - v19;
+            v21 = *(_QWORD *)(v17 + 24);
+            v22 = *(_QWORD *)(v17 + 40) - v21;
+            if ( *(_QWORD *)(v17 + 32) < v19 )
+              v20 += 1LL << *(_DWORD *)(v17 + 220);
+            if ( *(_QWORD *)(v17 + 40) < v21 )
+              v22 += 1LL << *(_DWORD *)(a1 + 220);
             if ( v3 )
-              v15 = HalpTimerScaleCounter(v26, *(_QWORD *)(a1 + 192), 10000000LL);
-            v28 = v22 & 0xFFFFFFF7;
-            *v29 = v28;
-            *(_QWORD *)(v27 + 192) = 10000000 * v24 / v15;
-            if ( v27 != a1 && (v28 & 4) == 0 && *(_QWORD *)(v27 + 136) )
+              v12 = HalpTimerScaleCounter(v22, *(_QWORD *)(a1 + 192), 10000000LL);
+            v23 = v18 & 0xFFFFFFF7;
+            result = 10000000 * v20 / v12;
+            *(_DWORD *)(v17 + 184) = v23;
+            *(_QWORD *)(v17 + 192) = result;
+            if ( v17 != a1 && (v23 & 4) == 0 && *(_QWORD *)(v17 + 136) )
             {
-              v30 = HalpTimerGetInternalData(v27);
-              v31(v30);
+              v24 = HalpTimerGetInternalData(v17);
+              result = v25(v24);
             }
           }
         }
       }
     }
   }
+  return result;
 }

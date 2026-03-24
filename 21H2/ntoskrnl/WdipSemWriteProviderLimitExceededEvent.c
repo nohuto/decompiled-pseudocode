@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemWriteProviderLimitExceededEvent @ 0x1409DB0F0
+ * XREFs of WdipSemWriteProviderLimitExceededEvent @ 0x1409306BC
  * Callers:
- *     WdipSemUpdateProviderTableWithEvent @ 0x140840AEC (WdipSemUpdateProviderTableWithEvent.c)
+ *     WdipSemUpdateProviderTableWithEvent @ 0x14079A5E8 (WdipSemUpdateProviderTableWithEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     WdipSemWriteEvent @ 0x14081549C (WdipSemWriteEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     WdipSemWriteEvent @ 0x1407889FC (WdipSemWriteEvent.c)
  */
 
 NTSTATUS __fastcall WdipSemWriteProviderLimitExceededEvent(ULONGLONG a1)

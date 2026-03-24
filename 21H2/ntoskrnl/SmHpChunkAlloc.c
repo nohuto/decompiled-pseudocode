@@ -1,11 +1,11 @@
 /*
- * XREFs of SmHpChunkAlloc @ 0x1403815D4
+ * XREFs of SmHpChunkAlloc @ 0x1402D6EDC
  * Callers:
- *     ?StDmpDummyPageRecordAllocate@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14037E8DC (-StDmpDummyPageRecordAllocate@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
- *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x14037FDA0 (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
+ *     ?StDmpDummyPageRecordAllocate@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x1402D36D8 (-StDmpDummyPageRecordAllocate@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
+ *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x1402D70CC (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
  * Callees:
- *     SmHpBufferAlloc @ 0x14037EAF8 (SmHpBufferAlloc.c)
- *     SmHpBufferUpdateFullness @ 0x140381660 (SmHpBufferUpdateFullness.c)
+ *     SmHpBufferAlloc @ 0x1402C22B4 (SmHpBufferAlloc.c)
+ *     SmHpBufferUpdateFullness @ 0x1402D6F68 (SmHpBufferUpdateFullness.c)
  */
 
 _WORD *__fastcall SmHpChunkAlloc(_DWORD *a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z @ 0x1C022992C
+ * XREFs of ?xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z @ 0x1C0244A64
  * Callers:
- *     xxxSBTrackInit @ 0x1C022A46C (xxxSBTrackInit.c)
+ *     xxxSBTrackInit @ 0x1C0245640 (xxxSBTrackInit.c)
  * Callees:
- *     SystoChar @ 0x1C000C9D4 (SystoChar.c)
- *     xxxInternalGetMessage @ 0x1C006A4F0 (xxxInternalGetMessage.c)
- *     xxxTranslateMessage @ 0x1C00ACC1C (xxxTranslateMessage.c)
- *     xxxWindowEvent @ 0x1C00E71B0 (xxxWindowEvent.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
- *     xxxDispatchMessage @ 0x1C0117884 (xxxDispatchMessage.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     xxxCallMsgFilter @ 0x1C015208E (xxxCallMsgFilter.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     xxxDispatchMessage @ 0x1C006ADB4 (xxxDispatchMessage.c)
+ *     xxxWindowEvent @ 0x1C0081440 (xxxWindowEvent.c)
+ *     xxxInternalGetMessage @ 0x1C00D9C60 (xxxInternalGetMessage.c)
+ *     SystoChar @ 0x1C010B4B0 (SystoChar.c)
+ *     xxxTranslateMessage @ 0x1C0110450 (xxxTranslateMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     xxxCallMsgFilter @ 0x1C01E69DC (xxxCallMsgFilter.c)
  */
 
 void __fastcall xxxSBTrackLoop(struct tagWND *a1, __int64 a2, struct tagSBCALC *a3)
@@ -18,24 +18,19 @@ void __fastcall xxxSBTrackLoop(struct tagWND *a1, __int64 a2, struct tagSBCALC *
   __int64 v6; // rdi
   void (__fastcall *v7)(struct tagWND *, __int64, _QWORD, __int64, struct tagSBCALC *); // rbp
   struct tagWND *v8; // rdx
-  int v9; // ecx
+  unsigned int v9; // eax
   unsigned int v10; // r8d
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rdx
-  unsigned int v14; // eax
-  __int64 v15; // r9
-  void (__fastcall *v16)(struct tagWND *, _QWORD, _QWORD, __int64, struct tagSBCALC *); // r10
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  __int128 v20; // [rsp+30h] [rbp-48h] BYREF
-  __int128 v21; // [rsp+40h] [rbp-38h]
-  __int128 v22; // [rsp+50h] [rbp-28h]
+  __int64 v11; // rdx
+  unsigned int v12; // eax
+  __int64 v13; // r9
+  void (__fastcall *v14)(struct tagWND *, _QWORD, _QWORD, __int64, struct tagSBCALC *); // r10
+  __int128 v15; // [rsp+30h] [rbp-48h] BYREF
+  __int128 v16; // [rsp+40h] [rbp-38h]
+  __int128 v17; // [rsp+50h] [rbp-28h]
 
-  v20 = 0LL;
-  v21 = 0LL;
-  v22 = 0LL;
+  v15 = 0LL;
+  v16 = 0LL;
+  v17 = 0LL;
   v6 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 720LL);
   if ( v6 )
   {
@@ -43,10 +38,10 @@ void __fastcall xxxSBTrackLoop(struct tagWND *a1, __int64 a2, struct tagSBCALC *
     if ( v7 )
     {
       if ( (*(_DWORD *)v6 & 2) != 0 )
-        SetOrClrWF(1, a1, 0x620u, 1);
+        SetOrClrWF(1, (__int64)a1, 0x620u, 1);
       if ( gpqForeground )
       {
-        v8 = *(struct tagWND **)(gpqForeground + 120LL);
+        v8 = *(struct tagWND **)(gpqForeground + 112LL);
         if ( v8 )
         {
           if ( gpqForeground == *(_QWORD *)(gptiCurrent + 432LL) )
@@ -66,24 +61,24 @@ void __fastcall xxxSBTrackLoop(struct tagWND *a1, __int64 a2, struct tagSBCALC *
         v10 = ((*(_DWORD *)v6 & 2) != 0) | 0xFFFFFFFA;
       xxxWindowEvent(0x12u, a1, v10, 0, 0);
       v7(a1, 513LL, 0LL, a2, a3);
-      while ( *(struct tagWND **)(*(_QWORD *)(gptiCurrent + 432LL) + 112LL) == a1
-           && (unsigned int)xxxInternalGetMessage(&v20, 0LL, 0, 0, 1, 1) )
+      while ( *(struct tagWND **)(*(_QWORD *)(gptiCurrent + 432LL) + 104LL) == a1
+           && (unsigned int)xxxInternalGetMessage(&v15, 0LL, 0, 0, 1, 1u) )
       {
-        if ( !(unsigned int)xxxCallMsgFilter((__int64)&v20, 5LL, v11, v12) )
+        if ( !(unsigned int)xxxCallMsgFilter((__int64)&v15, 5) )
         {
-          if ( (_QWORD)v20 == *(_QWORD *)a1
-            && ((unsigned int)(DWORD2(v20) - 512) <= 0xE || (unsigned int)(DWORD2(v20) - 256) <= 9) )
+          if ( (_QWORD)v15 == *(_QWORD *)a1
+            && ((unsigned int)(DWORD2(v15) - 512) <= 0xE || (unsigned int)(DWORD2(v15) - 256) <= 9) )
           {
-            v13 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 720LL);
-            if ( !v13 || !*(_QWORD *)(v13 + 48) )
+            v11 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 720LL);
+            if ( !v11 || !*(_QWORD *)(v11 + 48) )
               return;
-            v14 = SystoChar(DWORD2(v20), SDWORD2(v21));
-            v16(a1, v14, v21, v15, a3);
+            v12 = SystoChar(DWORD2(v15), SDWORD2(v16));
+            v14(a1, v12, v16, v13, a3);
           }
           else
           {
-            xxxTranslateMessage((__int64)&v20, 0);
-            xxxDispatchMessage((__int64 *)&v20, v17, v18, v19);
+            xxxTranslateMessage((__int64)&v15, 0);
+            xxxDispatchMessage((__int64)&v15);
           }
         }
       }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PlaySoundConnect @ 0x1C0377490
+ * XREFs of PlaySoundConnect @ 0x1C037B808
  * Callers:
- *     ?Connect@CUserPlaySound@@AEAAJPEAX@Z @ 0x1C00EFD74 (-Connect@CUserPlaySound@@AEAAJPEAX@Z.c)
+ *     ?Connect@CUserPlaySound@@AEAAJPEAX@Z @ 0x1C012DEBC (-Connect@CUserPlaySound@@AEAAJPEAX@Z.c)
  * Callees:
- *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00EFFE4 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00095E4 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PlaySoundConnect(unsigned int a1, __int64 a2, RPC_BINDING_HANDLE *a3)
@@ -21,28 +21,28 @@ __int64 __fastcall PlaySoundConnect(unsigned int a1, __int64 a2, RPC_BINDING_HAN
   *(_QWORD *)&Template.ProtocolSequence = 3LL;
   memset(&Template.NetworkAddress, 0, 40);
   Security.SecurityQos = (RPC_SECURITY_QOS *)&v6;
-  if ( StringCchPrintfW(
-         v9,
-         0x32uLL,
-         (size_t *)L"PlaySoundKRpc%X",
-         a1,
-         0,
-         a3,
-         0x100000004LL,
-         0x200000000LL,
-         0LL,
-         0LL,
-         a2,
-         1LL,
-         1LL,
-         0LL,
-         0xA00000006LL,
-         0LL) >= 0 )
+  if ( (int)StringCchPrintfW(
+              v9,
+              0x32uLL,
+              (size_t *)L"PlaySoundKRpc%X",
+              a1,
+              0,
+              a3,
+              0x100000004LL,
+              0x200000000LL,
+              0LL,
+              0LL,
+              a2,
+              1LL,
+              1LL,
+              0LL,
+              0xA00000006LL,
+              0LL) >= 0 )
   {
     Template.StringEndpoint = v9;
     v4 = RpcBindingCreateW(&Template, &Security, &Options, a3);
     if ( !v4 )
-      v4 = RpcBindingBind(0LL, *a3, &unk_1C02DD320);
+      v4 = RpcBindingBind(0LL, *a3, &unk_1C02E1380);
     if ( v4 && *a3 )
     {
       RpcBindingFree(a3);

@@ -1,35 +1,38 @@
 /*
- * XREFs of ?GetCertificate@COPM@@QEAAJPEAXW4_DXGKMDT_CERTIFICATE_TYPE@@PEAEK@Z @ 0x1C015B964
+ * XREFs of ?GetCertificate@COPM@@QEAAJPEAXW4_DXGKMDT_CERTIFICATE_TYPE@@PEAEK@Z @ 0x1C00BF1A0
  * Callers:
- *     NtGdiGetCertificateByHandle @ 0x1C015C880 (NtGdiGetCertificateByHandle.c)
+ *     NtGdiGetCertificateByHandle @ 0x1C00BEF40 (NtGdiGetCertificateByHandle.c)
  * Callees:
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00A25A0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
- *     ?GetCertificate@COPMProtectedOutput@@QEAAJW4_DXGKMDT_CERTIFICATE_TYPE@@PEAEK@Z @ 0x1C015B9FC (-GetCertificate@COPMProtectedOutput@@QEAAJW4_DXGKMDT_CERTIFICATE_TYPE@@PEAEK@Z.c)
- *     ?GetHandleObject@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProtectedOutput@@@Z @ 0x1C015BC88 (-GetHandleObject@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProte.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00885A0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?GetCertificate@COPMProtectedOutput@@QEAAJW4_DXGKMDT_CERTIFICATE_TYPE@@PEAEK@Z @ 0x1C00BF240 (-GetCertificate@COPMProtectedOutput@@QEAAJW4_DXGKMDT_CERTIFICATE_TYPE@@PEAEK@Z.c)
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProtectedOutput@@@Z @ 0x1C00BFA40 (-GetHandleObject@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProte.c)
  */
 
 __int64 __fastcall COPM::GetCertificate(
-        void **this,
+        COPM *this,
         void *a2,
         enum _DXGKMDT_CERTIFICATE_TYPE a3,
         unsigned __int8 *a4,
         unsigned int a5)
 {
-  PRKMUTEX *v5; // rbx
+  OPM *v5; // rdi
+  PRKMUTEX *v9; // rbx
   int HandleObject; // edi
   COPMProtectedOutput *v12; // [rsp+40h] [rbp+8h] BYREF
 
-  v5 = (PRKMUTEX *)(this + 6);
-  OPM::CMutex::Lock(this + 6);
+  v12 = this;
+  v5 = qword_1C0250C58;
+  v9 = (PRKMUTEX *)((char *)qword_1C0250C58 + 48);
+  OPM::CMutex::Lock((void **)qword_1C0250C58 + 6);
   v12 = 0LL;
-  HandleObject = OPM::CMonitorHandleTable<COPMProtectedOutput,void *>::GetHandleObject(this + 3, a2, &v12);
+  HandleObject = OPM::CMonitorHandleTable<COPMProtectedOutput,void *>::GetHandleObject((char *)v5 + 24, a2, &v12);
   if ( HandleObject >= 0 )
   {
     HandleObject = COPMProtectedOutput::GetCertificate(v12, a3, a4, a5);
     if ( HandleObject >= 0 )
       HandleObject = 0;
   }
-  if ( *v5 )
-    KeReleaseMutex(*v5, 0);
+  if ( *v9 )
+    KeReleaseMutex(*v9, 0);
   return (unsigned int)HandleObject;
 }

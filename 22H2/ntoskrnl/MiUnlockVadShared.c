@@ -1,34 +1,29 @@
 /*
- * XREFs of MiUnlockVadShared @ 0x14032A204
+ * XREFs of MiUnlockVadShared @ 0x14025A96C
  * Callers:
- *     MiObtainReferencedVadEx @ 0x140274B90 (MiObtainReferencedVadEx.c)
- *     MmQueryVirtualMemory @ 0x1406F8400 (MmQueryVirtualMemory.c)
- *     MiReferenceCfgVad @ 0x1407A511C (MiReferenceCfgVad.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1407A5200 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     NtAreMappedFilesTheSame @ 0x140871B60 (NtAreMappedFilesTheSame.c)
- *     MiHotPatchProcess @ 0x140A37534 (MiHotPatchProcess.c)
- *     MmIsFileMapped @ 0x140A3C65C (MmIsFileMapped.c)
+ *     MiObtainReferencedVadEx @ 0x14021B260 (MiObtainReferencedVadEx.c)
+ *     MiScrubProcessLargePages @ 0x140564434 (MiScrubProcessLargePages.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x14061E9B0 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MmQueryVirtualMemory @ 0x14061ED50 (MmQueryVirtualMemory.c)
+ *     NtAreMappedFilesTheSame @ 0x1406A0330 (NtAreMappedFilesTheSame.c)
+ *     MiReferenceCfgVad @ 0x1406FD0BC (MiReferenceCfgVad.c)
+ *     MiHotPatchImage @ 0x1408CA384 (MiHotPatchImage.c)
+ *     MiHotPatchProcess @ 0x1408CA6A8 (MiHotPatchProcess.c)
+ *     MmIsFileMapped @ 0x1408D1070 (MmIsFileMapped.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
  */
 
-char __fastcall MiUnlockVadShared(__int64 a1, __int64 a2)
+__int64 __fastcall MiUnlockVadShared(__int64 a1, __int64 a2)
 {
-  ULONG_PTR v2; // rdi
-  _QWORD *v4; // rax
+  ULONG_PTR v2; // rbx
 
-  *(_BYTE *)(a1 + 1385) &= ~0x40u;
+  *(_BYTE *)(a1 + 1305) &= ~0x40u;
   v2 = a2 + 40;
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a2 + 40), 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)(a2 + 40));
-  LOBYTE(v4) = KeAbPostRelease(v2);
-  if ( (*(_WORD *)(a1 + 486))++ == 0xFFFF )
-  {
-    v4 = (_QWORD *)(a1 + 152);
-    if ( (_QWORD *)*v4 != v4 )
-      LOBYTE(v4) = KiCheckForKernelApcDelivery();
-  }
-  return (char)v4;
+    ExfReleasePushLockShared(a2 + 40);
+  KeAbPostRelease(v2);
+  return KiLeaveGuardedRegionUnsafe(a1);
 }

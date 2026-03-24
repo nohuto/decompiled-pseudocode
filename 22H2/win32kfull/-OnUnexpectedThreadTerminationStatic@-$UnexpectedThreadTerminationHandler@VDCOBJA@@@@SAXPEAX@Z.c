@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OnUnexpectedThreadTerminationStatic@?$UnexpectedThreadTerminationHandler@VDCOBJA@@@@SAXPEAX@Z @ 0x1C013E610
+ * XREFs of ?OnUnexpectedThreadTerminationStatic@?$UnexpectedThreadTerminationHandler@VDCOBJA@@@@SAXPEAX@Z @ 0x1C0169F80
  * Callers:
  *     <none>
  * Callees:
- *     ?vAltUnlockNoNullSet@XDCOBJ@@QEAAXXZ @ 0x1C013E6D4 (-vAltUnlockNoNullSet@XDCOBJ@@QEAAXXZ.c)
+ *     ?vAltUnlockNoNullSet@XDCOBJ@@QEAAXXZ @ 0x1C0169FEC (-vAltUnlockNoNullSet@XDCOBJ@@QEAAXXZ.c)
  */
 
 void __fastcall UnexpectedThreadTerminationHandler<DCOBJA>::OnUnexpectedThreadTerminationStatic(XDCOBJ *a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryMultipleValueKey @ 0x1401BAB10
+ * XREFs of ZwQueryMultipleValueKey @ 0x1401BAB30
  * Callers:
  *     <none>
  * Callees:

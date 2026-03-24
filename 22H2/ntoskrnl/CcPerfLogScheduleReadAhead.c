@@ -1,14 +1,14 @@
 /*
- * XREFs of CcPerfLogScheduleReadAhead @ 0x140391DB0
+ * XREFs of CcPerfLogScheduleReadAhead @ 0x1403BBBFC
  * Callers:
- *     CcScheduleReadAheadNuma @ 0x140328DDC (CcScheduleReadAheadNuma.c)
+ *     CcScheduleReadAheadEx @ 0x140279480 (CcScheduleReadAheadEx.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall CcPerfLogScheduleReadAhead(
+void __fastcall CcPerfLogScheduleReadAhead(
         __int64 a1,
         _QWORD *a2,
         _QWORD *a3,
@@ -20,38 +20,38 @@ __int64 __fastcall CcPerfLogScheduleReadAhead(
   __int64 v10; // rbx
   __int64 v12; // rdi
   unsigned int v13; // ecx
-  _QWORD *v15; // [rsp+38h] [rbp-41h] BYREF
-  int v16; // [rsp+40h] [rbp-39h]
-  int v17; // [rsp+44h] [rbp-35h]
-  _QWORD v18[10]; // [rsp+48h] [rbp-31h] BYREF
+  _QWORD *v14; // [rsp+38h] [rbp-41h] BYREF
+  int v15; // [rsp+40h] [rbp-39h]
+  int v16; // [rsp+44h] [rbp-35h]
+  _QWORD v17[10]; // [rsp+48h] [rbp-31h] BYREF
 
   v10 = 0LL;
   v12 = 0LL;
-  memset(v18, 0, 0x48uLL);
+  memset(v17, 0, 0x48uLL);
   if ( a2 )
   {
     v10 = a2[6];
     v12 = *(_QWORD *)(a2[5] + 8LL);
-    v18[1] = a2[3];
+    v17[1] = a2[3];
   }
-  v18[2] = *a3;
-  v18[0] = a1;
-  v18[3] = __PAIR64__(a5, a4);
-  v13 = HIDWORD(v18[8]) & 0xFFFFFFFE | (a7 == 1);
-  HIDWORD(v18[8]) = v13;
+  v17[2] = *a3;
+  v17[0] = a1;
+  v17[3] = __PAIR64__(a5, a4);
+  v13 = HIDWORD(v17[8]) & 0xFFFFFFFE | (a7 == 1);
+  HIDWORD(v17[8]) = v13;
   if ( v10 )
   {
-    LODWORD(v18[4]) = *(_DWORD *)(v10 + 52);
-    v18[5] = *(_QWORD *)(v10 + 56);
-    v18[6] = *(_QWORD *)(v10 + 64);
-    HIDWORD(v18[8]) = v13 ^ ((unsigned __int8)v13 ^ (unsigned __int8)(*(_DWORD *)v10 >> 15)) & 2;
-    HIDWORD(v18[7]) = *(_DWORD *)(v10 + 48);
+    LODWORD(v17[4]) = *(_DWORD *)(v10 + 52);
+    v17[5] = *(_QWORD *)(v10 + 56);
+    v17[6] = *(_QWORD *)(v10 + 64);
+    HIDWORD(v17[8]) = v13 ^ ((unsigned __int8)v13 ^ (unsigned __int8)(*(_DWORD *)v10 >> 15)) & 2;
+    HIDWORD(v17[7]) = *(_DWORD *)(v10 + 48);
   }
   if ( v12 )
-    LODWORD(v18[8]) = *(_DWORD *)(v12 + 152);
-  v17 = 0;
-  LOBYTE(v18[7]) = a6;
-  v16 = 72;
-  v15 = v18;
-  return EtwTraceKernelEvent((int)&v15, 1, 0x80020000, 5644, 4200706);
+    LODWORD(v17[8]) = *(_DWORD *)(v12 + 152);
+  v16 = 0;
+  LOBYTE(v17[7]) = a6;
+  v15 = 72;
+  v14 = v17;
+  EtwTraceKernelEvent((__int64)&v14, 1u, 0x80020000, 0x160Cu, 0x401902u);
 }

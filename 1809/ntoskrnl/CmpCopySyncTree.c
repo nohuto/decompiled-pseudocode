@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCopySyncTree @ 0x1407FCB80
+ * XREFs of CmpCopySyncTree @ 0x1407FCB60
  * Callers:
  *     CmpReorganizeHive @ 0x1405A6F70 (CmpReorganizeHive.c)
- *     CmpSaveBootControlSet @ 0x1407E88F0 (CmpSaveBootControlSet.c)
- *     CmpCloneHwProfile @ 0x1407FB5FC (CmpCloneHwProfile.c)
- *     CmpPreserveSystemHiveData @ 0x1407FDCE4 (CmpPreserveSystemHiveData.c)
- *     CmRestoreKey @ 0x1408013CC (CmRestoreKey.c)
- *     CmSaveMergedKeys @ 0x14080231C (CmSaveMergedKeys.c)
- *     CmpLoadHiveVolatile @ 0x140802918 (CmpLoadHiveVolatile.c)
+ *     CmpSaveBootControlSet @ 0x1407E88D0 (CmpSaveBootControlSet.c)
+ *     CmpCloneHwProfile @ 0x1407FB5DC (CmpCloneHwProfile.c)
+ *     CmpPreserveSystemHiveData @ 0x1407FDCC4 (CmpPreserveSystemHiveData.c)
+ *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
+ *     CmSaveMergedKeys @ 0x1408022FC (CmSaveMergedKeys.c)
+ *     CmpLoadHiveVolatile @ 0x1408028F8 (CmpLoadHiveVolatile.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpCopySyncTree2 @ 0x1407FCC24 (CmpCopySyncTree2.c)
+ *     CmpCopySyncTree2 @ 0x1407FCC04 (CmpCopySyncTree2.c)
  */
 
 char __fastcall CmpCopySyncTree(int a1, int a2, ULONG_PTR a3, int a4, int a5, int a6)

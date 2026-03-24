@@ -1,10 +1,12 @@
 /*
- * XREFs of EtwpCovSampCaptureBufferRelease @ 0x14041191C
+ * XREFs of EtwpCovSampCaptureBufferRelease @ 0x1405AE6E8
  * Callers:
- *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408A899C (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
- *     EtwpCovSampCaptureWorkerThread @ 0x1408A8D20 (EtwpCovSampCaptureWorkerThread.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x1405AE624 (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampCaptureSample @ 0x1405AF118 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1409420CC (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x140942B10 (EtwpCovSampCaptureWorkerThread.c)
  * Callees:
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x140469B2A (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x1405AF0A0 (EtwpCovSampCaptureReleaseToLookaside.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureBufferRelease(__int64 a1, __int64 a2)

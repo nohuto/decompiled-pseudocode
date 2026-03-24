@@ -1,15 +1,14 @@
 /*
- * XREFs of ?QueueSerializedWorkItem@CSERIALIZEDWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z @ 0x1C0210808
+ * XREFs of ?QueueSerializedWorkItem@CSERIALIZEDWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z @ 0x1C0185940
  * Callers:
- *     ?CreateTtmDevice@DXGSESSIONMGR@@QEAAJW4TTM_DEVICE_TYPE@@PEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IKPEBGPEAPEAX@Z @ 0x1C02108E8 (-CreateTtmDevice@DXGSESSIONMGR@@QEAAJW4TTM_DEVICE_TYPE@@PEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IKPE.c)
- *     ?DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C031266C (-DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?CloseConsumerResources@DXGDXGIKEYEDMUTEX@@QEAAXXZ @ 0x1C032A7AC (-CloseConsumerResources@DXGDXGIKEYEDMUTEX@@QEAAXXZ.c)
- *     ?DestroyTtmDevice@DXGSESSIONMGR@@QEAAXPEAX@Z @ 0x1C0354F30 (-DestroyTtmDevice@DXGSESSIONMGR@@QEAAXPEAX@Z.c)
+ *     ?CreateTtmDevice@DXGSESSIONMGR@@QEAAJW4TTM_DEVICE_TYPE@@PEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IKPEAPEAX@Z @ 0x1C0185850 (-CreateTtmDevice@DXGSESSIONMGR@@QEAAJW4TTM_DEVICE_TYPE@@PEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IKPE.c)
+ *     ?DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C026962C (-DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?CloseConsumerResources@DXGDXGIKEYEDMUTEX@@QEAAXXZ @ 0x1C0299024 (-CloseConsumerResources@DXGDXGIKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?DestroyTtmDevice@DXGSESSIONMGR@@QEAAXPEAX@Z @ 0x1C029EEF8 (-DestroyTtmDevice@DXGSESSIONMGR@@QEAAXPEAX@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003700 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CSERIALIZEDWORKQUEUE::QueueSerializedWorkItem(
@@ -17,28 +16,46 @@ __int64 __fastcall CSERIALIZEDWORKQUEUE::QueueSerializedWorkItem(
         void (*a2)(void *),
         void *a3)
 {
-  unsigned int v6; // edi
-  __int64 v7; // rax
-  CSERIALIZEDWORKQUEUE *v8; // rbx
-  CSERIALIZEDWORKQUEUE **v9; // rcx
+  unsigned int v3; // edi
+  CSERIALIZEDWORKQUEUE *v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  CSERIALIZEDWORKQUEUE *v12; // rbx
+  __int64 v13; // rdx
+  CSERIALIZEDWORKQUEUE **v14; // rcx
   struct _IO_WORKITEM *WorkItem; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  __int64 v21; // rax
+  __int64 v22; // rax
 
-  v6 = 0;
-  v7 = operator new[](0x20uLL, 0x4B677844u, 256LL);
-  v8 = (CSERIALIZEDWORKQUEUE *)v7;
+  v3 = 0;
+  v7 = (CSERIALIZEDWORKQUEUE *)operator new[](0x20uLL, 0x4B677844u, PagedPool);
+  v12 = v7;
   if ( v7 )
   {
-    *(_QWORD *)(v7 + 16) = a2;
-    *(_QWORD *)(v7 + 24) = a3;
+    *((_QWORD *)v7 + 2) = a2;
+    *((_QWORD *)v7 + 3) = a3;
+  }
+  else
+  {
+    v12 = 0LL;
+  }
+  if ( v12 )
+  {
     DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)this);
-    v9 = this[7];
-    if ( *v9 != (CSERIALIZEDWORKQUEUE *)(this + 6) )
+    v14 = this[6];
+    if ( *v14 != (CSERIALIZEDWORKQUEUE *)(this + 5) )
       __fastfail(3u);
-    *(_QWORD *)v8 = this + 6;
-    *((_QWORD *)v8 + 1) = v9;
-    *v9 = v8;
-    this[7] = (CSERIALIZEDWORKQUEUE **)v8;
-    if ( !*((_BYTE *)this + 64) )
+    *(_QWORD *)v12 = this + 5;
+    *((_QWORD *)v12 + 1) = v14;
+    *v14 = v12;
+    this[6] = (CSERIALIZEDWORKQUEUE **)v12;
+    if ( !*((_BYTE *)this + 56) )
     {
       WorkItem = IoAllocateWorkItem((PDEVICE_OBJECT)g_pDriverObject);
       if ( WorkItem )
@@ -47,36 +64,20 @@ __int64 __fastcall CSERIALIZEDWORKQUEUE::QueueSerializedWorkItem(
       }
       else
       {
-        v6 = -1073741801;
-        WdLogSingleEntry1(6LL, -1073741801LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262145,
-          -1,
-          (__int64)L"Failed to allocate work item for serialized work queue, returning 0x%I64x.",
-          -1073741801LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v3 = -1073741801;
+        v22 = WdLogNewEntry5_WdLowResource(v17, v16, v18, v19);
+        *(_QWORD *)(v22 + 24) = -1073741801LL;
+        WdLogEvent5_WdLowResource(v22);
       }
     }
-    DXGFASTMUTEX::Release((struct _KTHREAD **)this);
+    DXGFASTMUTEX::Release((struct _KTHREAD **)this, v13);
+    return v3;
   }
   else
   {
-    v6 = -1073741801;
-    WdLogSingleEntry1(6LL, -1073741801LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Failed to allocate serialized work item entry, returning 0x%I64x.",
-      -1073741801LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v21 = WdLogNewEntry5_WdLowResource(v9, v8, v10, v11);
+    *(_QWORD *)(v21 + 24) = -1073741801LL;
+    WdLogEvent5_WdLowResource(v21);
+    return 3221225495LL;
   }
-  return v6;
 }

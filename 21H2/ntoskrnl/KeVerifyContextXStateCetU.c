@@ -1,38 +1,37 @@
 /*
- * XREFs of KeVerifyContextXStateCetU @ 0x140298378
+ * XREFs of KeVerifyContextXStateCetU @ 0x14027794C
  * Callers:
- *     KiContinuePreviousModeUser @ 0x140298420 (KiContinuePreviousModeUser.c)
- *     KyRaiseException @ 0x140576820 (KyRaiseException.c)
- *     PspGetSetContextInternal @ 0x1407035C0 (PspGetSetContextInternal.c)
+ *     KiRaiseException @ 0x140521E90 (KiRaiseException.c)
+ *     PspGetSetContextInternal @ 0x1406498B0 (PspGetSetContextInternal.c)
  * Callees:
- *     RtlLocateExtendedFeature2 @ 0x14025CB30 (RtlLocateExtendedFeature2.c)
- *     KiVerifyContextXStateCetUEnabled @ 0x14056E34C (KiVerifyContextXStateCetUEnabled.c)
+ *     RtlLocateExtendedFeature2 @ 0x140381600 (RtlLocateExtendedFeature2.c)
+ *     KiVerifyContextXStateCetUEnabled @ 0x140516020 (KiVerifyContextXStateCetUEnabled.c)
  */
 
-__int64 __fastcall KeVerifyContextXStateCetU(__int64 a1, _DWORD *a2, unsigned __int64 *a3)
+__int64 __fastcall KeVerifyContextXStateCetU(__int64 a1, __int64 a2, unsigned __int64 *a3)
 {
   __int64 result; // rax
-  char *ExtendedFeature2; // r8
+  _QWORD *ExtendedFeature2; // r8
   __int64 v8; // r10
   unsigned __int64 v9; // rax
   __int64 v10; // r9
 
-  if ( (a2[12] & 0x100040) != 0x100040 )
+  if ( (*(_DWORD *)(a2 + 48) & 0x100040) != 0x100040 )
     return 0LL;
-  ExtendedFeature2 = RtlLocateExtendedFeature2(a2 + 308, 0xBu, 0xFFFFF780000003D8uLL, 0LL);
+  ExtendedFeature2 = (_QWORD *)RtlLocateExtendedFeature2(a2 + 1232, 11LL, 0xFFFFF780000003D8uLL);
   if ( !ExtendedFeature2 )
     return 0LL;
-  v8 = (int)a2[312];
+  v8 = *(int *)(a2 + 1248);
   v9 = __readmsr(0x6A7u);
   *a3 = v9;
-  v10 = *(_QWORD *)((_BYTE *)a2 + v8 + 1232) & 0x800LL;
+  v10 = *(_QWORD *)(v8 + a2 + 1232) & 0x800LL;
   if ( (*(_DWORD *)(a1 + 116) & 0x100000) != 0 )
   {
     if ( !v10 )
     {
-      *(_QWORD *)((char *)a2 + v8 + 1232) |= 0x800uLL;
-      *(_QWORD *)ExtendedFeature2 = 1LL;
-      *((_QWORD *)ExtendedFeature2 + 1) = v9;
+      *(_QWORD *)(v8 + a2 + 1232) |= 0x800uLL;
+      *ExtendedFeature2 = 1LL;
+      ExtendedFeature2[1] = v9;
       return 0LL;
     }
     result = KiVerifyContextXStateCetUEnabled(ExtendedFeature2, v9);
@@ -41,7 +40,7 @@ __int64 __fastcall KeVerifyContextXStateCetU(__int64 a1, _DWORD *a2, unsigned __
   }
   else
   {
-    if ( !v10 || !*(_QWORD *)ExtendedFeature2 && !*((_QWORD *)ExtendedFeature2 + 1) )
+    if ( !v10 || !*ExtendedFeature2 && !ExtendedFeature2[1] )
       return 0LL;
     return 3221227018LL;
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of AcpiDiagTraceThermalZoneRundown @ 0x1C0048B0C
+ * XREFs of AcpiDiagTraceThermalZoneRundown @ 0x1C004A12C
  * Callers:
- *     AcpiDiagTraceControlCallback @ 0x1C00481C0 (AcpiDiagTraceControlCallback.c)
+ *     AcpiDiagTraceControlCallback @ 0x1C0049960 (AcpiDiagTraceControlCallback.c)
  * Callees:
- *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0021FCC (ACPIAmliBuildObjectPathnameUnicode.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     AcpiDiagEnumCoolingDevices @ 0x1C0047794 (AcpiDiagEnumCoolingDevices.c)
- *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0047A40 (AcpiDiagTraceActiveCoolingConstraint.c)
- *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C004899C (AcpiDiagTracePassiveCoolingConstraint.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0010920 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0030454 (AcpiDiagTraceActiveCoolingConstraint.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     AcpiDiagEnumCoolingDevices @ 0x1C0049480 (AcpiDiagEnumCoolingDevices.c)
+ *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0049FBC (AcpiDiagTracePassiveCoolingConstraint.c)
  */
 
 void __fastcall AcpiDiagTraceThermalZoneRundown(__int64 a1)
@@ -20,7 +20,7 @@ void __fastcall AcpiDiagTraceThermalZoneRundown(__int64 a1)
   struct _EVENT_DATA_DESCRIPTOR *UserData; // rbx
   _QWORD *v8; // rax
   ULONG v9; // r14d
-  __int64 Pool2; // rax
+  struct _EVENT_DATA_DESCRIPTOR *PoolWithTag; // rax
   int v11; // ecx
   unsigned int v12; // kr00_4
   __int64 v13; // rax
@@ -73,7 +73,7 @@ void __fastcall AcpiDiagTraceThermalZoneRundown(__int64 a1)
   {
     if ( EtwEventEnabled(AcpiDiagHandle, &ACPI_ETW_EVENT_THERMAL_ZONE_RUNDOWN) )
     {
-      if ( (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 760), (__int64)&DestinationString, 1) >= 0 )
+      if ( (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 720), (__int64)&DestinationString) >= 0 )
       {
         v8 = *v3;
         v9 = 30;
@@ -82,41 +82,41 @@ void __fastcall AcpiDiagTraceThermalZoneRundown(__int64 a1)
           v8 = (_QWORD *)*v8;
           ++v9;
         }
-        Pool2 = ExAllocatePool2(64LL, 16LL * v9, 1416651585LL);
-        UserData = (struct _EVENT_DATA_DESCRIPTOR *)Pool2;
-        if ( Pool2 )
+        PoolWithTag = (struct _EVENT_DATA_DESCRIPTOR *)ExAllocatePoolWithTag(NonPagedPoolNx, 16LL * v9, 0x54706341u);
+        UserData = PoolWithTag;
+        if ( PoolWithTag )
         {
           v29 = DestinationString.Length >> 1;
-          *(_QWORD *)Pool2 = &v29;
-          *(_QWORD *)(Pool2 + 8) = 2LL;
+          PoolWithTag->Ptr = (unsigned __int64)&v29;
+          *(_QWORD *)&PoolWithTag->Size = 2LL;
           v11 = 2 * v29;
-          *(_QWORD *)(Pool2 + 16) = DestinationString.Buffer;
-          *(_QWORD *)(Pool2 + 32) = v1 + 16;
-          *(_QWORD *)(Pool2 + 48) = v1 + 20;
-          *(_QWORD *)(Pool2 + 64) = v1 + 4;
-          *(_QWORD *)(Pool2 + 80) = v1 + 8;
-          *(_DWORD *)(Pool2 + 24) = v11;
-          *(_DWORD *)(Pool2 + 28) = 0;
-          *(_QWORD *)(Pool2 + 40) = 4LL;
-          *(_QWORD *)(Pool2 + 56) = 4LL;
-          *(_QWORD *)(Pool2 + 72) = 4LL;
-          *(_QWORD *)(Pool2 + 88) = 4LL;
+          PoolWithTag[1].Ptr = (unsigned __int64)DestinationString.Buffer;
+          PoolWithTag[2].Ptr = v1 + 16;
+          PoolWithTag[3].Ptr = v1 + 20;
+          PoolWithTag[4].Ptr = v1 + 4;
+          PoolWithTag[5].Ptr = v1 + 8;
+          PoolWithTag[1].Size = v11;
+          PoolWithTag[1].Reserved = 0;
+          *(_QWORD *)&PoolWithTag[2].Size = 4LL;
+          *(_QWORD *)&PoolWithTag[3].Size = 4LL;
+          *(_QWORD *)&PoolWithTag[4].Size = 4LL;
+          *(_QWORD *)&PoolWithTag[5].Size = 4LL;
           v12 = *(_DWORD *)(v1 + 12);
           v28 = 12;
           v31 = v12 / 0x64;
-          *(_QWORD *)(Pool2 + 96) = &v31;
-          *(_QWORD *)(Pool2 + 112) = v1 + 36;
-          *(_QWORD *)(Pool2 + 128) = v1 + 76;
-          *(_QWORD *)(Pool2 + 144) = v1 + 28;
-          *(_QWORD *)(Pool2 + 160) = v1 + 104;
-          *(_QWORD *)(Pool2 + 104) = 4LL;
-          *(_QWORD *)(Pool2 + 120) = 40LL;
-          *(_QWORD *)(Pool2 + 136) = 4LL;
-          *(_QWORD *)(Pool2 + 152) = 4LL;
-          *(_QWORD *)(Pool2 + 168) = 4LL;
-          *(_QWORD *)(Pool2 + 176) = &v32;
-          *(_QWORD *)(Pool2 + 184) = 4LL;
-          v32 = AcpiDiagEnumCoolingDevices(v1, 1, 1, Pool2, &v28);
+          PoolWithTag[6].Ptr = (unsigned __int64)&v31;
+          PoolWithTag[7].Ptr = v1 + 36;
+          PoolWithTag[8].Ptr = v1 + 76;
+          PoolWithTag[9].Ptr = v1 + 28;
+          PoolWithTag[10].Ptr = v1 + 104;
+          *(_QWORD *)&PoolWithTag[6].Size = 4LL;
+          *(_QWORD *)&PoolWithTag[7].Size = 40LL;
+          *(_QWORD *)&PoolWithTag[8].Size = 4LL;
+          *(_QWORD *)&PoolWithTag[9].Size = 4LL;
+          *(_QWORD *)&PoolWithTag[10].Size = 4LL;
+          PoolWithTag[11].Ptr = (unsigned __int64)&v32;
+          *(_QWORD *)&PoolWithTag[11].Size = 4LL;
+          v32 = AcpiDiagEnumCoolingDevices(v1, 1, 1, (__int64)PoolWithTag, &v28);
           v13 = v28++;
           UserData[v13].Ptr = (unsigned __int64)&v33;
           *(_QWORD *)&UserData[v13].Size = 4LL;

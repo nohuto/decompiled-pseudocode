@@ -1,158 +1,136 @@
 /*
- * XREFs of IopGetLegacyVetoListDrivers @ 0x1406C2444
+ * XREFs of IopGetLegacyVetoListDrivers @ 0x1406DA720
  * Callers:
- *     IoGetLegacyVetoList @ 0x1407A8E70 (IoGetLegacyVetoList.c)
+ *     IoGetLegacyVetoList @ 0x1406F44A0 (IoGetLegacyVetoList.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x14041B1A0 (ZwOpenDirectoryObject.c)
- *     ZwQueryDirectoryObject @ 0x14041D020 (ZwQueryDirectoryObject.c)
- *     ObReferenceObjectByName @ 0x1406C2D00 (ObReferenceObjectByName.c)
- *     IopAppendLegacyVeto @ 0x14096C704 (IopAppendLegacyVeto.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1403FA520 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x1403FC2A0 (ZwQueryDirectoryObject.c)
+ *     ObReferenceObjectByName @ 0x1406D9EC0 (ObReferenceObjectByName.c)
+ *     IopAppendLegacyVeto @ 0x1408B2368 (IopAppendLegacyVeto.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall IopGetLegacyVetoListDrivers(__int64 a1)
 {
-  _QWORD *Pool2; // rsi
-  char v3; // r14
+  _QWORD *PoolWithTag; // rsi
+  char v3; // r13
   NTSTATUS v4; // ecx
-  unsigned __int16 v5; // r12
+  unsigned __int16 v5; // r14
   _WORD *v6; // rax
   void *v7; // rbx
-  _DWORD **v8; // r15
   int DirectoryObject; // eax
-  unsigned __int16 v10; // r14
-  __int64 v11; // r9
-  PVOID v12; // rbx
-  unsigned int v13; // r13d
-  _DWORD *v14; // rax
-  __int64 v15; // [rsp+20h] [rbp-59h]
-  HANDLE DirectoryHandle; // [rsp+40h] [rbp-39h] BYREF
-  PVOID Object; // [rsp+48h] [rbp-31h] BYREF
-  __int128 v18; // [rsp+50h] [rbp-29h] BYREF
-  _QWORD v19[2]; // [rsp+60h] [rbp-19h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-9h] BYREF
-  unsigned int v21; // [rsp+F0h] [rbp+77h] BYREF
-  int v22; // [rsp+F8h] [rbp+7Fh] BYREF
+  unsigned __int16 v9; // r15
+  __int64 v10; // r9
+  struct _DMA_ADAPTER *v11; // rbx
+  unsigned int v12; // r12d
+  __int64 v13; // [rsp+20h] [rbp-59h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp-39h] BYREF
+  __int128 v15; // [rsp+48h] [rbp-31h] BYREF
+  _QWORD v16[2]; // [rsp+58h] [rbp-21h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-11h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+E8h] [rbp+6Fh] BYREF
+  int v19; // [rsp+F0h] [rbp+77h] BYREF
+  HANDLE DirectoryHandle; // [rsp+F8h] [rbp+7Fh] BYREF
 
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  Object = 0LL;
+  DmaAdapter = 0LL;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-  v19[1] = L"\\Driver";
-  v19[0] = 1048590LL;
-  v21 = 0;
-  v22 = 0;
+  v16[1] = L"\\Driver";
+  v16[0] = 1048590LL;
+  LODWORD(NumberOfBytes) = 0;
+  v19 = 0;
   DirectoryHandle = 0LL;
-  Pool2 = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
+  PoolWithTag = 0LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v16;
   v3 = 1;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)v19;
-  v18 = 0LL;
+  v15 = 0LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v4 = ZwOpenDirectoryObject(&DirectoryHandle, 1u, &ObjectAttributes);
   if ( v4 < 0 )
   {
     **(_DWORD **)(a1 + 24) = v4;
 LABEL_20:
-    v7 = (void *)*((_QWORD *)&v18 + 1);
+    v7 = (void *)*((_QWORD *)&v15 + 1);
     goto LABEL_13;
   }
-  Pool2 = (_QWORD *)ExAllocatePool2(256LL, 202LL, 1869181008LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0xCAuLL, 0x6F697050u);
+  if ( !PoolWithTag )
   {
     **(_DWORD **)(a1 + 24) = -1073741670;
     goto LABEL_20;
   }
   v5 = 188;
-  LODWORD(v18) = 12320768;
-  v6 = (_WORD *)ExAllocatePool2(256LL, 188LL, 1869181008LL);
-  *((_QWORD *)&v18 + 1) = v6;
+  LODWORD(v15) = 12320768;
+  v6 = ExAllocatePoolWithTag(PagedPool, 0xBCuLL, 0x6F697050u);
+  *((_QWORD *)&v15 + 1) = v6;
   v7 = v6;
   if ( !v6 )
   {
     **(_DWORD **)(a1 + 24) = -1073741670;
-    goto LABEL_16;
+    goto LABEL_15;
   }
   *v6 = 0;
-  v8 = (_DWORD **)(a1 + 24);
   while ( 1 )
   {
-    LOBYTE(v15) = v3;
-    DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)Pool2);
-    if ( DirectoryObject != -1073741789 )
-      goto LABEL_6;
-    v13 = v21;
-    ExFreePoolWithTag(Pool2, 0);
-    Pool2 = (_QWORD *)ExAllocatePool2(256LL, v13, 1869181008LL);
-    if ( !Pool2 )
-      break;
-    LOBYTE(v15) = v3;
-    DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)Pool2);
-    v8 = (_DWORD **)(a1 + 24);
-LABEL_6:
+    LOBYTE(v13) = v3;
+    DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)PoolWithTag);
+    if ( DirectoryObject == -1073741789 )
+    {
+      v12 = NumberOfBytes;
+      ExFreePoolWithTag(PoolWithTag, 0);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v12, 0x6F697050u);
+      if ( !PoolWithTag )
+        break;
+      LOBYTE(v13) = v3;
+      DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)PoolWithTag);
+    }
+    v3 = 0;
     if ( DirectoryObject < 0 )
       goto LABEL_13;
-    v10 = *(_WORD *)Pool2 + 18;
-    if ( v10 > v5 )
+    v9 = *(_WORD *)PoolWithTag + 18;
+    if ( v9 > v5 )
     {
       ExFreePoolWithTag(v7, 0);
-      WORD1(v18) = v10;
-      v5 = v10;
-      *((_QWORD *)&v18 + 1) = ExAllocatePool2(256LL, v10, 1869181008LL);
-      v7 = (void *)*((_QWORD *)&v18 + 1);
-      if ( !*((_QWORD *)&v18 + 1) )
-      {
-        v14 = *v8;
-        goto LABEL_34;
-      }
+      WORD1(v15) = v9;
+      v5 = v9;
+      *((_QWORD *)&v15 + 1) = ExAllocatePoolWithTag(PagedPool, v9, 0x6F697050u);
+      v7 = (void *)*((_QWORD *)&v15 + 1);
+      if ( !*((_QWORD *)&v15 + 1) )
+        break;
     }
-    v11 = Pool2[1];
-    LOWORD(v18) = v10 - 2;
-    RtlStringCbPrintfW((NTSTRSAFE_PWSTR)v7, v5, L"\\Driver\\%ws", v11, v15, &v22, &v21);
-    if ( (int)ObReferenceObjectByName(
-                (unsigned int)&v18,
-                576,
-                0,
-                0,
-                (__int64)IoDriverObjectType,
-                0,
-                0,
-                (__int64)&Object) < 0 )
+    v10 = PoolWithTag[1];
+    LOWORD(v15) = v9 - 2;
+    RtlStringCbPrintfW((NTSTRSAFE_PWSTR)v7, v5, L"\\Driver\\%ws", v10, v13, &v19, &NumberOfBytes);
+    if ( (int)ObReferenceObjectByName((unsigned __int64)&v15, 576, 0LL, 0, IoDriverObjectType, 0, 0LL, &DmaAdapter) >= 0 )
     {
-      v8 = (_DWORD **)(a1 + 24);
-    }
-    else
-    {
-      v12 = Object;
-      if ( (*((_DWORD *)Object + 4) & 0x40) != 0 )
+      v11 = DmaAdapter;
+      if ( (*(_DWORD *)&DmaAdapter[1].Version & 0x40) != 0 )
       {
         **(_DWORD **)(a1 + 16) = 11;
         if ( *(_QWORD *)a1 )
-          IopAppendLegacyVeto(a1, Pool2);
+          IopAppendLegacyVeto(a1, PoolWithTag);
       }
-      ObfDereferenceObject(v12);
+      HalPutDmaAdapter(v11);
       if ( **(_DWORD **)(a1 + 16) == 11 && !*(_QWORD *)a1 )
         goto LABEL_20;
-      v8 = (_DWORD **)(a1 + 24);
       if ( **(int **)(a1 + 24) < 0 )
         goto LABEL_20;
     }
-    v7 = (void *)*((_QWORD *)&v18 + 1);
-    v5 = WORD1(v18);
-    v3 = 0;
+    v7 = (void *)*((_QWORD *)&v15 + 1);
+    v5 = WORD1(v15);
   }
-  v14 = *(_DWORD **)(a1 + 24);
-LABEL_34:
-  *v14 = -1073741670;
+  **(_DWORD **)(a1 + 24) = -1073741670;
 LABEL_13:
   if ( v7 )
     ExFreePoolWithTag(v7, 0);
-  if ( Pool2 )
-LABEL_16:
-    ExFreePoolWithTag(Pool2, 0);
+LABEL_15:
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   if ( DirectoryHandle )
     ZwClose(DirectoryHandle);
 }

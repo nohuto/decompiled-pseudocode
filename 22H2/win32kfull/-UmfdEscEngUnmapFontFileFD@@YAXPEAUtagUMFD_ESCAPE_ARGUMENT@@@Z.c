@@ -1,40 +1,31 @@
 /*
- * XREFs of ?UmfdEscEngUnmapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C013FE04
+ * XREFs of ?UmfdEscEngUnmapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C016C1FC
  * Callers:
- *     UmfdDispatchEscape @ 0x1C0076FE0 (UmfdDispatchEscape.c)
+ *     UmfdDispatchEscape @ 0x1C00A76B0 (UmfdDispatchEscape.c)
  * Callees:
- *     ??0AutoSharedUmfdLookupLock@@QEAA@XZ @ 0x1C00741EC (--0AutoSharedUmfdLookupLock@@QEAA@XZ.c)
- *     ?LookUp@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBIPEAPEAU_FONTFILEVIEW@@@Z @ 0x1C0074318 (-LookUp@-$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBIPEAPEAU_FONTFILEVIEW@@.c)
- *     EngUnmapFontFileFD @ 0x1C0114080 (EngUnmapFontFileFD.c)
- *     ??1AutoSharedUmfdLookupLock@@QEAA@XZ @ 0x1C013F038 (--1AutoSharedUmfdLookupLock@@QEAA@XZ.c)
+ *     ?LookUp@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBIPEAPEAU_FONTFILEVIEW@@@Z @ 0x1C00A6F84 (-LookUp@-$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBIPEAPEAU_FONTFILEVIEW@@.c)
+ *     ??0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00A82E4 (--0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     EngUnmapFontFileFD @ 0x1C011D6F0 (EngUnmapFontFileFD.c)
  */
 
 void __fastcall UmfdEscEngUnmapFontFileFD(struct tagUMFD_ESCAPE_ARGUMENT *a1)
 {
   __int64 v2; // rcx
-  NSInstrumentation::CPrioritizedWriterLock *v3; // rcx
-  int v4; // [rsp+30h] [rbp+8h] BYREF
+  int v3; // [rsp+30h] [rbp+8h] BYREF
   ULONG_PTR iFile; // [rsp+38h] [rbp+10h] BYREF
-  __int64 v6; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v5; // [rsp+40h] [rbp+18h] BYREF
 
-  AutoSharedUmfdLookupLock::AutoSharedUmfdLookupLock((AutoSharedUmfdLookupLock *)&v6);
+  AutoSharedPushLock::AutoSharedPushLock((AutoSharedPushLock *)&v5, (struct _EX_PUSH_LOCK *)&UmfdLookupPushLock);
   iFile = 0LL;
-  v3 = *(NSInstrumentation::CPrioritizedWriterLock **)(*(_QWORD *)(SGDGetSessionState(v2) + 32) + 23472LL);
-  if ( v3
-    && (v4 = *((_DWORD *)a1 + 2), NSInstrumentation::CSortedVector<unsigned int,_FONTFILEVIEW *>::LookUp(
-                                    v3,
-                                    &v4,
-                                    &iFile)) )
+  if ( UmfdFileviewLookup )
   {
-    EngUnmapFontFileFD(iFile);
-    if ( v6 )
-    {
-      GreReleasePushLockShared(v6);
-      KeLeaveCriticalRegion();
-    }
+    v3 = *((_DWORD *)a1 + 2);
+    if ( NSInstrumentation::CSortedVector<unsigned int,_FONTFILEVIEW *>::LookUp(v2, &v3, &iFile) )
+      EngUnmapFontFileFD(iFile);
   }
-  else
+  if ( v5 )
   {
-    AutoSharedUmfdLookupLock::~AutoSharedUmfdLookupLock((AutoSharedUmfdLookupLock *)&v6);
+    GreReleasePushLockShared(v5);
+    KeLeaveCriticalRegion();
   }
 }

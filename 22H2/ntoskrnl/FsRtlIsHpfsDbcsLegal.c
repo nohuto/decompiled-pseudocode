@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlIsHpfsDbcsLegal @ 0x14093F750
+ * XREFs of FsRtlIsHpfsDbcsLegal @ 0x14088CC80
  * Callers:
- *     FsRtlIsHpfsDbcsLegal @ 0x14093F750 (FsRtlIsHpfsDbcsLegal.c)
+ *     FsRtlIsHpfsDbcsLegal @ 0x14088CC80 (FsRtlIsHpfsDbcsLegal.c)
  * Callees:
- *     FsRtlDissectDbcs @ 0x14093F000 (FsRtlDissectDbcs.c)
- *     FsRtlIsHpfsDbcsLegal @ 0x14093F750 (FsRtlIsHpfsDbcsLegal.c)
+ *     FsRtlDissectDbcs @ 0x14088C500 (FsRtlDissectDbcs.c)
+ *     FsRtlIsHpfsDbcsLegal @ 0x14088CC80 (FsRtlIsHpfsDbcsLegal.c)
  */
 
 BOOLEAN __stdcall FsRtlIsHpfsDbcsLegal(
@@ -15,109 +15,104 @@ BOOLEAN __stdcall FsRtlIsHpfsDbcsLegal(
 {
   unsigned __int16 Length; // r10
   char v6; // dl
-  bool v7; // zf
   char *Buffer; // rax
-  char *v9; // rbx
-  STRING v10; // xmm1
-  __int16 v11; // ax
-  unsigned int v13; // r9d
-  __int64 v14; // r8
+  char *v8; // rbx
+  STRING v9; // xmm1
+  __int16 v10; // ax
+  unsigned int v12; // r8d
+  unsigned __int64 v13; // r9
+  __int64 v14; // rcx
   STRING RemainingName; // [rsp+20h] [rbp-48h] BYREF
   STRING FirstName; // [rsp+30h] [rbp-38h] BYREF
   ANSI_STRING Path; // [rsp+40h] [rbp-28h] BYREF
 
   Length = DbcsName->Length;
-  if ( !DbcsName->Length )
-    return 0;
-  if ( WildCardsPermissible )
+  if ( DbcsName->Length )
   {
-    if ( Length == 1 )
+    if ( WildCardsPermissible )
     {
-      v6 = *DbcsName->Buffer;
-      if ( v6 == 46 )
-        return 1;
-      v7 = v6 == 34;
-    }
-    else
-    {
-      if ( Length != 2 )
-        goto LABEL_12;
-      Buffer = DbcsName->Buffer;
-      if ( *Buffer == 46 )
+      if ( Length == 1 )
       {
-        v7 = Buffer[1] == 46;
+        v6 = *DbcsName->Buffer;
+        if ( v6 == 46 || v6 == 34 )
+          return 1;
+      }
+      if ( Length == 2 )
+      {
+        Buffer = DbcsName->Buffer;
+        if ( *(_WORD *)Buffer == 11822 || *Buffer == 34 && Buffer[1] == 34 )
+          return 1;
+      }
+    }
+    v8 = DbcsName->Buffer;
+    if ( *v8 != 92 )
+      goto LABEL_14;
+    if ( LeadingBackslashPermissible )
+    {
+      if ( Length <= 1u )
+        return 1;
+      ++v8;
+      --Length;
+      DbcsName->Buffer = v8;
+      --DbcsName->MaximumLength;
+      DbcsName->Length = Length;
+LABEL_14:
+      if ( PathNamePermissible )
+      {
+        v9 = *DbcsName;
+        v10 = _mm_cvtsi128_si32(*(__m128i *)DbcsName);
+        FirstName = 0LL;
+        RemainingName = v9;
+        if ( v10 )
+        {
+          while ( *(_BYTE *)_mm_srli_si128((__m128i)v9, 8).m128i_i8[0] != 92 )
+          {
+            Path = v9;
+            FsRtlDissectDbcs(&Path, &FirstName, &RemainingName);
+            Path = FirstName;
+            if ( !FsRtlIsHpfsDbcsLegal(&Path, WildCardsPermissible, 0, 0) )
+              break;
+            if ( !RemainingName.Length )
+              return 1;
+            v9 = RemainingName;
+          }
+          return 0;
+        }
       }
       else
       {
-        if ( *Buffer != 34 )
-          goto LABEL_12;
-        v7 = Buffer[1] == 34;
-      }
-    }
-    if ( v7 )
-      return 1;
-  }
-LABEL_12:
-  v9 = DbcsName->Buffer;
-  if ( *v9 == 92 )
-  {
-    if ( !LeadingBackslashPermissible )
-      return 0;
-    if ( Length <= 1u )
-      return 1;
-    ++v9;
-    --Length;
-    DbcsName->Buffer = v9;
-    --DbcsName->MaximumLength;
-    DbcsName->Length = Length;
-  }
-  if ( PathNamePermissible )
-  {
-    v10 = *DbcsName;
-    v11 = _mm_cvtsi128_si32(*(__m128i *)DbcsName);
-    FirstName = 0LL;
-    RemainingName = v10;
-    if ( v11 )
-    {
-      while ( *(_BYTE *)_mm_srli_si128((__m128i)v10, 8).m128i_i8[0] != 92 )
-      {
-        Path = v10;
-        FsRtlDissectDbcs(&Path, &FirstName, &RemainingName);
-        Path = FirstName;
-        if ( !FsRtlIsHpfsDbcsLegal(&Path, WildCardsPermissible, 0, 0) )
-          break;
-        if ( !RemainingName.Length )
-          return 1;
-        v10 = RemainingName;
-      }
-      return 0;
-    }
-    return 1;
-  }
-  if ( Length <= 0xFFu )
-  {
-    v13 = 0;
-    if ( !Length )
-      return 1;
-    do
-    {
-      v14 = (unsigned __int8)v9[v13];
-      if ( (unsigned __int8)v14 >= 0x80u && (_BYTE)NlsMbOemCodePageTag && *((_WORD *)NlsOemLeadByteInfo + v14) )
-      {
-        if ( v13 == Length - 1 )
+        if ( Length > 0xFFu )
           return 0;
-        ++v13;
+        v12 = 0;
+        if ( Length )
+        {
+          do
+          {
+            v13 = (unsigned __int8)v8[v12];
+            if ( (unsigned __int8)v13 >= 0x80u && (_BYTE)NlsMbOemCodePageTag && NlsOemLeadByteInfoTable[v13] )
+            {
+              if ( v12 == Length - 1 )
+                return 0;
+              ++v12;
+            }
+            else if ( (v13 & 0x80u) == 0LL
+                   && ((WildCardsPermissible != 0 ? 10 : 2) & *((unsigned __int8 *)qword_140011B10 + v13)) == 0 )
+            {
+              return 0;
+            }
+            ++v12;
+          }
+          while ( v12 < Length );
+          if ( (unsigned __int8)v13 <= 0x2Eu )
+          {
+            v14 = 0x400500000000LL;
+            if ( _bittest64(&v14, v13) )
+              return 0;
+          }
+        }
       }
-      else if ( (v14 & 0x80u) == 0LL
-             && ((WildCardsPermissible != 0 ? 10 : 2) & *((unsigned __int8 *)qword_1400173E0 + v14)) == 0 )
-      {
-        return 0;
-      }
-      ++v13;
+      return 1;
     }
-    while ( v13 < Length );
-    if ( (_BYTE)v14 != 32 && (_BYTE)v14 != 46 )
-      return (_BYTE)v14 != 34;
   }
   return 0;
 }

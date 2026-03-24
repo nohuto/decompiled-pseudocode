@@ -1,22 +1,22 @@
 /*
- * XREFs of RawDispatch @ 0x14064B460
+ * XREFs of RawDispatch @ 0x14064B440
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     FsRtlIsNtstatusExpected @ 0x14012F230 (FsRtlIsNtstatusExpected.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     FsRtlIsNtstatusExpected @ 0x14012F250 (FsRtlIsNtstatusExpected.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     RawFileSystemControl @ 0x1405A25C0 (RawFileSystemControl.c)
- *     RawReadWriteDeviceControl @ 0x14064B398 (RawReadWriteDeviceControl.c)
- *     RawQueryInformation @ 0x140684594 (RawQueryInformation.c)
- *     RawQueryVolumeInformation @ 0x14068460C (RawQueryVolumeInformation.c)
- *     RawCreate @ 0x14068F470 (RawCreate.c)
- *     RawCleanup @ 0x14068F7AC (RawCleanup.c)
- *     RawClose @ 0x14068F918 (RawClose.c)
- *     RawSetInformation @ 0x14088FC64 (RawSetInformation.c)
+ *     RawReadWriteDeviceControl @ 0x14064B378 (RawReadWriteDeviceControl.c)
+ *     RawQueryInformation @ 0x140684574 (RawQueryInformation.c)
+ *     RawQueryVolumeInformation @ 0x1406845EC (RawQueryVolumeInformation.c)
+ *     RawCreate @ 0x14068F450 (RawCreate.c)
+ *     RawCleanup @ 0x14068F78C (RawCleanup.c)
+ *     RawClose @ 0x14068F8F8 (RawClose.c)
+ *     RawSetInformation @ 0x14088FC44 (RawSetInformation.c)
  */
 
 __int64 __fastcall RawDispatch(__int64 a1, IRP *a2)

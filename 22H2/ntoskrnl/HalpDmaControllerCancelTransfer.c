@@ -1,37 +1,36 @@
 /*
- * XREFs of HalpDmaControllerCancelTransfer @ 0x14051650C
+ * XREFs of HalpDmaControllerCancelTransfer @ 0x1404CE3BC
  * Callers:
- *     HalCancelMappedTransfer @ 0x140514450 (HalCancelMappedTransfer.c)
+ *     HalCancelMappedTransfer @ 0x1404CA240 (HalCancelMappedTransfer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiInsertQueueDpc @ 0x14021FD20 (KiInsertQueueDpc.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpDmaControllerCancelTransfer(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v6; // rbx
   unsigned __int8 CurrentIrql; // di
-  char v8; // r14
-  unsigned __int64 v9; // rdx
+  char v8; // r15
+  unsigned __int64 v9; // rcx
   _DWORD *SchedulerAssist; // r10
-  int v11; // r8d
-  volatile signed __int64 *v12; // rsi
+  KSPIN_LOCK *v11; // rbp
   __int64 result; // rax
-  bool v14; // zf
-  unsigned __int8 v15; // al
+  bool v13; // zf
+  unsigned __int8 v14; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v17; // r8
-  int v18; // eax
+  _DWORD *v16; // r8
+  int v17; // eax
 
   v6 = *(_QWORD *)(a1 + 56) + 160LL * a2;
   CurrentIrql = KeGetCurrentIrql();
   v8 = 0;
   if ( CurrentIrql == 15 )
   {
-    v12 = (volatile signed __int64 *)(a1 + 168);
+    v11 = (KSPIN_LOCK *)(a1 + 168);
   }
   else
   {
@@ -41,13 +40,9 @@ __int64 __fastcall HalpDmaControllerCancelTransfer(__int64 a1, unsigned int a2, 
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v9 - 2) <= 0xDu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == (_BYTE)v9 )
-        v11 = 1 << v9;
-      else
-        v11 = (-1LL << (CurrentIrql + 1)) & ((1LL << ((unsigned __int8)v9 + 1)) - 1) & 0xFFFFFFFC;
-      SchedulerAssist[5] |= v11;
+      SchedulerAssist[5] |= (-1LL << (CurrentIrql + 1)) & ((1LL << ((unsigned __int8)v9 + 1)) - 1) & 0xFFFFFFFC;
     }
-    v12 = (volatile signed __int64 *)(a1 + 168);
+    v11 = (KSPIN_LOCK *)(a1 + 168);
     KxAcquireSpinLock((PKSPIN_LOCK)(a1 + 168));
     v8 = 1;
   }
@@ -55,27 +50,30 @@ __int64 __fastcall HalpDmaControllerCancelTransfer(__int64 a1, unsigned int a2, 
   result = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(a1 + 152))(*(_QWORD *)(a1 + 64), a2);
   if ( (_BYTE)result )
   {
-    v14 = *(_QWORD *)(v6 + 8) == 0LL;
+    v13 = *(_QWORD *)(v6 + 8) == 0LL;
     *(_BYTE *)(v6 + 6) = 1;
     *(_DWORD *)(v6 + 32) = 2;
-    if ( !v14 )
+    if ( !v13 )
       result = KiInsertQueueDpc(v6 + 40, 0LL, 0LL, 0LL, 0);
   }
   if ( v8 )
   {
-    KxReleaseSpinLock(v12);
+    KxReleaseSpinLock(v11);
     if ( KiIrqlFlags )
     {
-      v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v17 = CurrentPrcb->SchedulerAssist;
-        v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v14 = (v18 & v17[5]) == 0;
-        v17[5] &= v18;
-        if ( v14 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v14 = KeGetCurrentIrql();
+        if ( v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v16 = CurrentPrcb->SchedulerAssist;
+          v17 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v13 = (v17 & v16[5]) == 0;
+          v16[5] &= v17;
+          if ( v13 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     result = CurrentIrql;

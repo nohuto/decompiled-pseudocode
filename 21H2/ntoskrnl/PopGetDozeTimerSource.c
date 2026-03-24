@@ -1,11 +1,11 @@
 /*
- * XREFs of PopGetDozeTimerSource @ 0x14036976C
+ * XREFs of PopGetDozeTimerSource @ 0x14036CEA4
  * Callers:
- *     PopWnfAudioCallback @ 0x1407EE7A0 (PopWnfAudioCallback.c)
+ *     PopWnfAudioCallback @ 0x140772380 (PopWnfAudioCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PopGetDozeTimerSource()
@@ -20,8 +20,8 @@ __int64 PopGetDozeTimerSource()
 
   v0 = 0;
   v1 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
-  if ( byte_140C22724 )
-    v0 = dword_140C22728;
+  if ( byte_140C233A4 )
+    v0 = dword_140C233A8;
   KxReleaseSpinLock(&PopIdleAoAcDozeS4Lock);
   if ( KiIrqlFlags )
   {

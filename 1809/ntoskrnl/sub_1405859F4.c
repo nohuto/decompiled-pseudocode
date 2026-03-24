@@ -4,7 +4,7 @@
  *     sub_140585FE0 @ 0x140585FE0 (sub_140585FE0.c)
  *     ExpHwidSysVolIfGetDiskInfo @ 0x140586E88 (ExpHwidSysVolIfGetDiskInfo.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     sub_140585A38 @ 0x140585A38 (sub_140585A38.c)
  */
 

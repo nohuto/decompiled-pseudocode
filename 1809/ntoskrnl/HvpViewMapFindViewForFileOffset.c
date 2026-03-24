@@ -5,11 +5,11 @@
  *     HvpViewMapSealRange @ 0x1405A592C (HvpViewMapSealRange.c)
  *     HvpViewMapCOWAndUnsealRange @ 0x1405A5A0C (HvpViewMapCOWAndUnsealRange.c)
  *     HvpMapHiveImageFromViewMap @ 0x1405F9C30 (HvpMapHiveImageFromViewMap.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x1406BA4D0 (HvpViewMapPromoteRangeToMapping.c)
- *     HvpViewMapExtendStorage @ 0x1406CC5C0 (HvpViewMapExtendStorage.c)
- *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140708834 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
- *     HvpViewMapAdjustFlag @ 0x140740928 (HvpViewMapAdjustFlag.c)
- *     HvpViewMapShrinkStorage @ 0x1407F7150 (HvpViewMapShrinkStorage.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1406BA4B0 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapExtendStorage @ 0x1406CC5A0 (HvpViewMapExtendStorage.c)
+ *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140708814 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
+ *     HvpViewMapAdjustFlag @ 0x140740908 (HvpViewMapAdjustFlag.c)
+ *     HvpViewMapShrinkStorage @ 0x1407F7130 (HvpViewMapShrinkStorage.c)
  * Callees:
  *     <none>
  */

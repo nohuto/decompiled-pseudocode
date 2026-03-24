@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventGetEventDescriptorAndProcessorId @ 0x14023BC00
+ * XREFs of PpmEventGetEventDescriptorAndProcessorId @ 0x140398FCC
  * Callers:
- *     PpmEventProcessorPerfStateChange @ 0x14023BABC (PpmEventProcessorPerfStateChange.c)
- *     PpmEventTraceExpectedUtility @ 0x14023BB5C (PpmEventTraceExpectedUtility.c)
- *     PpmEventAutonomousModeChange @ 0x1405D9370 (PpmEventAutonomousModeChange.c)
- *     PpmEventBiosCapChange @ 0x1405D9440 (PpmEventBiosCapChange.c)
- *     PpmEventThermalCapChange @ 0x1405DAC04 (PpmEventThermalCapChange.c)
+ *     PpmEventBiosCapChange @ 0x140392CD0 (PpmEventBiosCapChange.c)
+ *     PpmEventProcessorPerfStateChange @ 0x140398E88 (PpmEventProcessorPerfStateChange.c)
+ *     PpmEventTraceExpectedUtility @ 0x140398F28 (PpmEventTraceExpectedUtility.c)
+ *     PpmEventAutonomousModeChange @ 0x1405792A0 (PpmEventAutonomousModeChange.c)
+ *     PpmEventThermalCapChange @ 0x14057A638 (PpmEventThermalCapChange.c)
  * Callees:
  *     <none>
  */
@@ -15,11 +15,11 @@ __int64 __fastcall PpmEventGetEventDescriptorAndProcessorId(__int64 a1, __int64 
   int v6; // eax
   __int64 result; // rax
 
-  if ( *(_BYTE *)(a1 + 64) )
+  if ( *(_BYTE *)(a1 + 60) )
   {
     a3 = a2;
-    *(_WORD *)a4 = *(unsigned __int8 *)(a1 - 33760);
-    *(_BYTE *)(a4 + 2) = *(_BYTE *)(a1 - 33759);
+    *(_WORD *)a4 = *(unsigned __int8 *)(a1 - 32920);
+    *(_BYTE *)(a4 + 2) = *(_BYTE *)(a1 - 32919);
     v6 = 3;
   }
   else

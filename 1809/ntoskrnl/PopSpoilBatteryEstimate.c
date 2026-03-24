@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSpoilBatteryEstimate @ 0x14071C358
+ * XREFs of PopSpoilBatteryEstimate @ 0x14071C338
  * Callers:
- *     PopSpoilEstimatesOnPowerStateTransitionWorker @ 0x1406E2870 (PopSpoilEstimatesOnPowerStateTransitionWorker.c)
- *     PopUpdateConsoleDisplayState @ 0x14071C278 (PopUpdateConsoleDisplayState.c)
+ *     PopSpoilEstimatesOnPowerStateTransitionWorker @ 0x1406E2850 (PopSpoilEstimatesOnPowerStateTransitionWorker.c)
+ *     PopUpdateConsoleDisplayState @ 0x14071C258 (PopUpdateConsoleDisplayState.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     PopBatteryQueueWork @ 0x1401762AC (PopBatteryQueueWork.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     PopBatteryQueueWork @ 0x1401762CC (PopBatteryQueueWork.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 ULONG __fastcall PopSpoilBatteryEstimate(int a1, unsigned __int8 a2)
@@ -47,7 +47,7 @@ ULONG __fastcall PopSpoilBatteryEstimate(int a1, unsigned __int8 a2)
       v8 = a1;
       v11 = 4;
       v14 = 4;
-      return TlgWrite(&pCallbackContext, &unk_14036ECB5, 0LL, 0LL, 4u, &pData);
+      return TlgWrite(&pCallbackContext, &unk_14036F13C, 0LL, 0LL, 4u, &pData);
     }
   }
   return result;

@@ -1,22 +1,22 @@
 /*
- * XREFs of FsRtlKernelFsControlFile @ 0x1406A4560
+ * XREFs of FsRtlKernelFsControlFile @ 0x14068A050
  * Callers:
- *     SPCallServerHandleFileIntegrityUpdate @ 0x14065EA54 (SPCallServerHandleFileIntegrityUpdate.c)
- *     SPCallServerHandleFileUsnQuery @ 0x14065EE94 (SPCallServerHandleFileUsnQuery.c)
- *     SPCallServerHandleFileIntegrityQuery @ 0x1406605B8 (SPCallServerHandleFileIntegrityQuery.c)
+ *     SPCallServerHandleFileIntegrityUpdate @ 0x140727A04 (SPCallServerHandleFileIntegrityUpdate.c)
+ *     SPCallServerHandleFileIntegrityQuery @ 0x140728024 (SPCallServerHandleFileIntegrityQuery.c)
+ *     SPCallServerHandleFileUsnQuery @ 0x14072854C (SPCallServerHandleFileUsnQuery.c)
  * Callees:
- *     IoAllocateIrpEx @ 0x14022CFA0 (IoAllocateIrpEx.c)
- *     IoCancelIrp @ 0x14022D160 (IoCancelIrp.c)
- *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     MmProbeAndLockPages @ 0x140319E90 (MmProbeAndLockPages.c)
- *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     FsRtlCancellableWaitForMultipleObjects @ 0x1407A11A0 (FsRtlCancellableWaitForMultipleObjects.c)
- *     FsRtlpFreeMdlChain @ 0x14092EF10 (FsRtlpFreeMdlChain.c)
+ *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
+ *     IoAllocateIrpEx @ 0x1402A1700 (IoAllocateIrpEx.c)
+ *     IoCancelIrp @ 0x1402BB2C0 (IoCancelIrp.c)
+ *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     FsRtlCancellableWaitForMultipleObjects @ 0x1405FCB60 (FsRtlCancellableWaitForMultipleObjects.c)
+ *     FsRtlpFreeMdlChain @ 0x14088C460 (FsRtlpFreeMdlChain.c)
  */
 
 __int64 __fastcall FsRtlKernelFsControlFile(
@@ -42,8 +42,9 @@ __int64 __fastcall FsRtlKernelFsControlFile(
   struct _MDL *MdlAddress; // rcx
   PIRP Irp; // [rsp+38h] [rbp-50h]
   __int64 *v24; // [rsp+40h] [rbp-48h]
-  PDEVICE_OBJECT DeviceObject; // [rsp+48h] [rbp-40h] BYREF
-  struct _KEVENT Object; // [rsp+50h] [rbp-38h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+48h] [rbp-40h]
+  PVOID ObjectArray; // [rsp+50h] [rbp-38h] BYREF
+  struct _KEVENT Object; // [rsp+58h] [rbp-30h] BYREF
 
   v7 = a4;
   v11 = 0LL;
@@ -61,7 +62,7 @@ __int64 __fastcall FsRtlKernelFsControlFile(
   v11 = (IRP *)v14;
   Irp = (PIRP)v14;
   if ( !v14 )
-    goto LABEL_23;
+    goto LABEL_21;
   v24 = (__int64 *)(v14 + 184);
   v15 = *(_QWORD *)(v14 + 184);
   *(_WORD *)(v15 - 72) = 1037;
@@ -86,7 +87,7 @@ __int64 __fastcall FsRtlKernelFsControlFile(
       v11->Flags = 16;
       v11->UserBuffer = VirtualAddress;
       if ( VirtualAddress )
-        v11->Flags = 80;
+        v11->Flags |= 0x40u;
     }
     else
     {
@@ -122,7 +123,7 @@ __int64 __fastcall FsRtlKernelFsControlFile(
       MmProbeAndLockPages(Mdl, 0, (LOCK_OPERATION)(v12 != 1));
       goto LABEL_10;
     }
-LABEL_23:
+LABEL_21:
     Status = -1073741670;
     goto LABEL_32;
   }
@@ -140,8 +141,8 @@ LABEL_10:
   *(_BYTE *)(v17 - 69) = -32;
   if ( IofCallDriver(DeviceObject, Irp) == 259 )
   {
-    DeviceObject = (PDEVICE_OBJECT)&Object;
-    if ( FsRtlCancellableWaitForMultipleObjects(1u, (PVOID *)&DeviceObject, WaitAll, 0LL, 0LL, 0LL) == -1073741749 )
+    ObjectArray = &Object;
+    if ( FsRtlCancellableWaitForMultipleObjects(1u, &ObjectArray, WaitAll, 0LL, 0LL, 0LL) == -1073741749 )
     {
       IoCancelIrp(Irp);
       KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);

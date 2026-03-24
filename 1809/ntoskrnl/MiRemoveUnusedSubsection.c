@@ -5,12 +5,12 @@
  *     MiReferenceSubsection @ 0x1400770E4 (MiReferenceSubsection.c)
  *     MiReferenceActiveSubsection @ 0x140077950 (MiReferenceActiveSubsection.c)
  *     MiPrepareSegmentForDeletion @ 0x1400958BC (MiPrepareSegmentForDeletion.c)
- *     MmPurgeSection @ 0x1400E7CE0 (MmPurgeSection.c)
- *     MiDereferenceControlAreaPfnList @ 0x140119E0C (MiDereferenceControlAreaPfnList.c)
+ *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
  * Callees:
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  *     MiReduceUnusedSubsectionCount @ 0x14007BC54 (MiReduceUnusedSubsectionCount.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall MiRemoveUnusedSubsection(__int64 a1)

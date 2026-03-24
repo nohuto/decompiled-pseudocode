@@ -1,57 +1,41 @@
 /*
- * XREFs of RIMGetMonitorPhysicalSize @ 0x1C0198300
+ * XREFs of RIMGetMonitorPhysicalSize @ 0x1C0164840
  * Callers:
- *     RIMCreatePointerDeviceInfo @ 0x1C0190190 (RIMCreatePointerDeviceInfo.c)
- *     RIMVirtCreatePointerDeviceInfo @ 0x1C0196000 (RIMVirtCreatePointerDeviceInfo.c)
- *     ?rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C01979CC (-rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInpu.c)
- *     RIMIDECreatePointerDeviceInfo @ 0x1C019B9FC (RIMIDECreatePointerDeviceInfo.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015C02C (RIMCreatePointerDeviceInfo.c)
+ *     RIMVirtCreatePointerDeviceInfo @ 0x1C0160150 (RIMVirtCreatePointerDeviceInfo.c)
+ *     ?rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C0163ED8 (-rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInpu.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167958 (RIMIDECreatePointerDeviceInfo.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     GetMonitorPhysicalDimensions @ 0x1C0175210 (GetMonitorPhysicalDimensions.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     GetMonitorPhysicalDimensions @ 0x1C0148170 (GetMonitorPhysicalDimensions.c)
  */
 
 __int64 __fastcall RIMGetMonitorPhysicalSize(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi
-  int v4; // edx
-  int v5; // r8d
+  int MonitorPhysicalDimensions; // eax
+  int v5; // edx
   __int64 v6; // rcx
   signed int v7; // eax
   signed int v8; // ecx
-  unsigned int v10; // [rsp+50h] [rbp+8h] BYREF
-  unsigned int v11; // [rsp+58h] [rbp+10h] BYREF
+  unsigned int v10; // [rsp+40h] [rbp+8h] BYREF
+  unsigned int v11; // [rsp+48h] [rbp+10h] BYREF
 
   v10 = 0;
   v11 = 0;
   v2 = a2;
   *(_OWORD *)a1 = 0LL;
   if ( !a2 )
-    v2 = *((_QWORD *)gpDispInfo + 12);
-  if ( (int)GetMonitorPhysicalDimensions(*(_QWORD *)(v2 + 80), &v10, &v11, 0LL, 0LL) < 0
-    && ((v6 = *((_QWORD *)gpDispInfo + 12), v2 == v6)
-     || (int)GetMonitorPhysicalDimensions(*(_QWORD *)(v6 + 80), &v10, &v11, 0LL, 0LL) < 0) )
+    v2 = *(_QWORD *)(gpDispInfo + 96);
+  MonitorPhysicalDimensions = GetMonitorPhysicalDimensions(*(_QWORD *)(v2 + 232), &v10, &v11, 0LL, 0LL);
+  if ( MonitorPhysicalDimensions >= 0 )
+    goto LABEL_9;
+  v6 = *(_QWORD *)(gpDispInfo + 96);
+  if ( v2 != v6 )
+    MonitorPhysicalDimensions = GetMonitorPhysicalDimensions(*(_QWORD *)(v6 + 232), &v10, &v11, 0LL, 0LL);
+  if ( MonitorPhysicalDimensions >= 0 )
   {
-    *(_DWORD *)(a1 + 8) = 20320;
-    *(_DWORD *)(a1 + 12) = 15240;
-    LOBYTE(v4) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-    if ( (_BYTE)v4 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v5) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v4,
-        v5,
-        (_DWORD)gRimLog,
-        3,
-        1,
-        17,
-        (__int64)&WPP_887cd155f3483272104c7a04c9c6159b_Traceguids);
-    }
-  }
-  else
-  {
+LABEL_9:
     v7 = 1000 * v10;
     v8 = 1000 * v11;
     *(_DWORD *)(a1 + 8) = 1000 * v10;
@@ -60,6 +44,16 @@ __int64 __fastcall RIMGetMonitorPhysicalSize(__int64 a1, __int64 a2)
     {
       *(_DWORD *)(a1 + 8) = 20320;
       *(_DWORD *)(a1 + 12) = 15240;
+    }
+  }
+  else
+  {
+    *(_DWORD *)(a1 + 8) = 20320;
+    *(_DWORD *)(a1 + 12) = 15240;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v5) = 3;
+      WPP_RECORDER_SF_((_DWORD)gRimLog, v5, 1, 17, (__int64)&WPP_516b30da09af3a4d670a255114438942_Traceguids);
     }
   }
   return a1;

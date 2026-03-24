@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlCheckOplock @ 0x1402FE610
+ * XREFs of FsRtlCheckOplock @ 0x1402D54B0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlCheckOplockEx2 @ 0x1402FD950 (FsRtlCheckOplockEx2.c)
- *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1402FE6F0 (FsRtlpOplockStoreKeyForDeleteOperation.c)
+ *     FsRtlCheckOplockEx2 @ 0x1402D44D0 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1402D5100 (FsRtlpOplockStoreKeyForDeleteOperation.c)
  */
 
 NTSTATUS __stdcall FsRtlCheckOplock(
@@ -19,7 +19,7 @@ NTSTATUS __stdcall FsRtlCheckOplock(
   ULONG Options; // eax
 
   v9 = 0;
-  FsRtlpOplockStoreKeyForDeleteOperation(Oplock, Irp, 0LL);
+  FsRtlpOplockStoreKeyForDeleteOperation((__int64 *)Oplock, (__int64)Irp, 0);
   if ( !*Oplock && (!Irp || Irp->Tail.Overlay.CurrentStackLocation->MajorFunction) )
     return 0;
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
@@ -32,12 +32,12 @@ NTSTATUS __stdcall FsRtlCheckOplock(
   }
   return FsRtlCheckOplockEx2(
            (__int64 *)Oplock,
-           (__int64)Irp,
+           Irp,
            v9,
            0,
            (__int64)Context,
-           CompletionRoutine,
-           (void (__fastcall *)(__int64, __int64))PostIrpRoutine,
+           (__int64)CompletionRoutine,
+           (__int64)PostIrpRoutine,
            0LL,
            0LL,
            0LL);

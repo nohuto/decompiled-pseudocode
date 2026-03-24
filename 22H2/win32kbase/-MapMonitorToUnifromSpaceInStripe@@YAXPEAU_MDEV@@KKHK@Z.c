@@ -1,7 +1,7 @@
 /*
- * XREFs of ?MapMonitorToUnifromSpaceInStripe@@YAXPEAU_MDEV@@KKHK@Z @ 0x1C0163BDC
+ * XREFs of ?MapMonitorToUnifromSpaceInStripe@@YAXPEAU_MDEV@@KKHK@Z @ 0x1C01458D8
  * Callers:
- *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C001FC24 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C00128E8 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
  * Callees:
  *     <none>
  */
@@ -17,11 +17,11 @@ void __fastcall MapMonitorToUnifromSpaceInStripe(struct _MDEV *a1, unsigned int 
   v5 = 56LL * a2;
   v7 = (int)(float)((float)((float)(*(_DWORD *)((char *)a1 + v5 + 64) - *(_DWORD *)((char *)a1 + v5 + 56))
                           * (float)(96.0
-                                  / (float)((96 * *(_DWORD *)(*(_QWORD *)((char *)a1 + v5 + 40) + 2432LL) + 50) / 0x64u)))
+                                  / (float)((96 * *(_DWORD *)(*(_QWORD *)((char *)a1 + v5 + 40) + 2464LL) + 50) / 0x64u)))
                   + 0.5);
   v8 = (int)(float)((float)((float)(*(_DWORD *)((char *)a1 + v5 + 68) - *(_DWORD *)((char *)a1 + v5 + 60))
                           * (float)(96.0
-                                  / (float)((96 * *(_DWORD *)(*(_QWORD *)((char *)a1 + v5 + 40) + 2432LL) + 50) / 0x64u)))
+                                  / (float)((96 * *(_DWORD *)(*(_QWORD *)((char *)a1 + v5 + 40) + 2464LL) + 50) / 0x64u)))
                   + 0.5);
   if ( a3 == -1 )
   {

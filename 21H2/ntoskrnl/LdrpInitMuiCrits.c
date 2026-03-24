@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpInitMuiCrits @ 0x1402D749C
+ * XREFs of LdrpInitMuiCrits @ 0x1402A98E4
  * Callers:
- *     LdrUnloadAlternateResourceModuleEx @ 0x14025C690 (LdrUnloadAlternateResourceModuleEx.c)
- *     LdrpGetFromMUIMemCache @ 0x1402D72FC (LdrpGetFromMUIMemCache.c)
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1402D7A40 (LdrpGetAlternateResourceModuleHandleEx.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x1403D525C (LdrpSetAlternateResourceModuleHandle.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1402A8B94 (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpGetFromMUIMemCache @ 0x1402A9744 (LdrpGetFromMUIMemCache.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x14037F45C (LdrpSetAlternateResourceModuleHandle.c)
+ *     LdrUnloadAlternateResourceModuleEx @ 0x14037FD70 (LdrUnloadAlternateResourceModuleEx.c)
  * Callees:
- *     KiInitializeMutant @ 0x140261ADC (KiInitializeMutant.c)
- *     NtDelayExecution @ 0x14073A240 (NtDelayExecution.c)
+ *     KiInitializeMutant @ 0x1402ED1DC (KiInitializeMutant.c)
+ *     NtDelayExecution @ 0x14061A3B0 (NtDelayExecution.c)
  */
 
 __int64 LdrpInitMuiCrits()
@@ -26,7 +26,7 @@ __int64 LdrpInitMuiCrits()
     if ( MuiLockInitCount == 2 )
       return result;
   }
-  result = KiInitializeMutant((__int64)&MuiMutex, 0, 1, 0);
+  result = KiInitializeMutant((ULONG_PTR)&MuiMutex);
   MuiLockInitCount = 2;
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpFindGhesEntry @ 0x1403D2A68
+ * XREFs of HalpFindGhesEntry @ 0x1404CF9F8
  * Callers:
- *     HalpGenInitialRead @ 0x140A5AE1C (HalpGenInitialRead.c)
+ *     HalpGenInitialRead @ 0x1409A764C (HalpGenInitialRead.c)
  * Callees:
  *     <none>
  */

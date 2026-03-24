@@ -1,36 +1,34 @@
 /*
- * XREFs of AMLIFreeDataBuffs @ 0x1C001C758
+ * XREFs of AMLIFreeDataBuffs @ 0x1C001D940
  * Callers:
- *     ACPIThermalStartDevice @ 0x1C008F060 (ACPIThermalStartDevice.c)
- *     ACPIAmliEvaluatePcch @ 0x1C008F5E4 (ACPIAmliEvaluatePcch.c)
- *     ACPIAmliEvaluateOsc @ 0x1C008F740 (ACPIAmliEvaluateOsc.c)
- *     AcpiEvaluateDsmMethodOnPciRootBus @ 0x1C008FDE0 (AcpiEvaluateDsmMethodOnPciRootBus.c)
- *     ACPIPepInitializePlatformNotificationSupport @ 0x1C008FED4 (ACPIPepInitializePlatformNotificationSupport.c)
- *     AcpiQueryPciDeviceChassisLabel @ 0x1C0090240 (AcpiQueryPciDeviceChassisLabel.c)
- *     ACPIFanPrepareImpactZoneSupport @ 0x1C0090490 (ACPIFanPrepareImpactZoneSupport.c)
- *     ACPIProcessPhysicalDeviceLocation @ 0x1C0094310 (ACPIProcessPhysicalDeviceLocation.c)
- *     ACPIProcessorDeviceControl @ 0x1C0095160 (ACPIProcessorDeviceControl.c)
- *     AcpiGetIdleWakeInfo @ 0x1C00952D0 (AcpiGetIdleWakeInfo.c)
- *     ACPIThermalBuildConstraints @ 0x1C00956BC (ACPIThermalBuildConstraints.c)
- *     ACPIThermalWorker @ 0x1C00959C0 (ACPIThermalWorker.c)
- *     PnpiUpdateForceActiveBothInterrupts @ 0x1C0096C54 (PnpiUpdateForceActiveBothInterrupts.c)
- *     ACPIProcessPhysicalDeviceLocationPackage @ 0x1C00A035C (ACPIProcessPhysicalDeviceLocationPackage.c)
- *     ACPIQueryCacheCoherencyAttribute @ 0x1C00A0518 (ACPIQueryCacheCoherencyAttribute.c)
- *     ACPIEcGetGpeVector @ 0x1C00AD6A4 (ACPIEcGetGpeVector.c)
- *     ACPIEcGetUid @ 0x1C00AD748 (ACPIEcGetUid.c)
- *     ACPIFanSetTripPoints @ 0x1C00AE4E4 (ACPIFanSetTripPoints.c)
- *     ACPIGetUniqueId @ 0x1C00AF8F0 (ACPIGetUniqueId.c)
- *     ACPIModuleGetSpareProperties @ 0x1C00AF9C0 (ACPIModuleGetSpareProperties.c)
- *     ACPIModuleIsValidSpare @ 0x1C00AFAA0 (ACPIModuleIsValidSpare.c)
- *     ACPIQuerySpareDsm @ 0x1C00AFB78 (ACPIQuerySpareDsm.c)
- *     ACPIPepPlatformEntryExitNotify @ 0x1C00B044C (ACPIPepPlatformEntryExitNotify.c)
+ *     ACPIProcessPhysicalDeviceLocationPackage @ 0x1C0091638 (ACPIProcessPhysicalDeviceLocationPackage.c)
+ *     ACPIThermalBuildConstraints @ 0x1C0091BD0 (ACPIThermalBuildConstraints.c)
+ *     ACPIAmliEvaluatePcch @ 0x1C0098400 (ACPIAmliEvaluatePcch.c)
+ *     AcpiEvaluateDsmMethodOnPciRootBus @ 0x1C0098550 (AcpiEvaluateDsmMethodOnPciRootBus.c)
+ *     AcpiQueryPciDeviceChassisLabel @ 0x1C0099E28 (AcpiQueryPciDeviceChassisLabel.c)
+ *     ACPIQueryCacheCoherencyAttribute @ 0x1C009A070 (ACPIQueryCacheCoherencyAttribute.c)
+ *     ACPIAmliEvaluateOsc @ 0x1C009A3A0 (ACPIAmliEvaluateOsc.c)
+ *     ACPIThermalStartDevice @ 0x1C009A540 (ACPIThermalStartDevice.c)
+ *     ACPIProcessorDeviceControl @ 0x1C009A990 (ACPIProcessorDeviceControl.c)
+ *     ACPIThermalWorker @ 0x1C009AB00 (ACPIThermalWorker.c)
+ *     AcpiGetIdleWakeInfo @ 0x1C009CB40 (AcpiGetIdleWakeInfo.c)
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C009E538 (ACPIProcessPhysicalDeviceLocation.c)
+ *     ACPIEcGetGpeVector @ 0x1C00AEA1C (ACPIEcGetGpeVector.c)
+ *     ACPIEcGetUid @ 0x1C00AEAC0 (ACPIEcGetUid.c)
+ *     ACPIGetUniqueId @ 0x1C00B0440 (ACPIGetUniqueId.c)
+ *     ACPIModuleGetSpareProperties @ 0x1C00B0510 (ACPIModuleGetSpareProperties.c)
+ *     ACPIModuleIsValidSpare @ 0x1C00B05F0 (ACPIModuleIsValidSpare.c)
+ *     ACPIQuerySpareDsm @ 0x1C00B06C8 (ACPIQuerySpareDsm.c)
+ *     ACPIPepInitializePlatformNotificationSupport @ 0x1C00B0EE0 (ACPIPepInitializePlatformNotificationSupport.c)
+ *     ACPIPepPlatformEntryExitNotify @ 0x1C00B1188 (ACPIPepPlatformEntryExitNotify.c)
+ *     PnpiUpdateForceActiveBothInterrupts @ 0x1C00B41DC (PnpiUpdateForceActiveBothInterrupts.c)
  * Callees:
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
+ *     FreeData @ 0x1C00036E8 (FreeData.c)
  */
 
 __int64 __fastcall AMLIFreeDataBuffs(__int64 a1)
 {
-  dword_1C0081AC8 = 0;
-  byte_1C0081ACC = 0;
-  return FreeDataBuffs(a1, 1u);
+  dword_1C0082908 = 0;
+  pszDest = 0;
+  return FreeData(a1);
 }

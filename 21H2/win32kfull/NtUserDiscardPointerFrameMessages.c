@@ -1,49 +1,48 @@
 /*
- * XREFs of NtUserDiscardPointerFrameMessages @ 0x1C01F2690
+ * XREFs of NtUserDiscardPointerFrameMessages @ 0x1C01F7C70
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     xxxDiscardPointerFrameMessagesInternal @ 0x1C01EAEBC (xxxDiscardPointerFrameMessagesInternal.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     xxxDiscardPointerFrameMessagesInternal @ 0x1C01F041C (xxxDiscardPointerFrameMessagesInternal.c)
  */
 
 __int64 __fastcall NtUserDiscardPointerFrameMessages(int a1)
 {
   int v2; // ebx
-  __int64 v3; // rcx
-  _DWORD *v4; // rax
-  __int64 v5; // rcx
+  __int64 v3; // r8
+  __int64 v4; // rcx
+  _DWORD *v5; // rax
+  __int64 v6; // rcx
 
-  EnterCrit(0LL, 0LL);
+  v2 = 1;
+  EnterCrit(0LL, 1LL);
   if ( !a1 || HIWORD(a1) )
   {
-    v5 = 87LL;
-    goto LABEL_12;
+    v6 = 87LL;
+    goto LABEL_10;
   }
-  v2 = 1;
-  v3 = gptiCurrent;
+  v4 = gptiCurrent;
   if ( (unsigned __int16)a1 == 1 )
   {
-    v4 = *(_DWORD **)(gptiCurrent + 1312LL);
-    if ( !v4 || (*v4 & 1) == 0 )
-    {
-LABEL_6:
-      v5 = 5LL;
-LABEL_12:
-      v2 = 0;
-      UserSetLastError(v5, 0LL);
-    }
+    v5 = *(_DWORD **)(gptiCurrent + 1280LL);
+    if ( !v5 || (*v5 & 1) == 0 )
+      goto LABEL_6;
   }
   else
   {
-    if ( (*(_DWORD *)(gptiCurrent + 1256LL) & 0x100) != 0
-      || (*(_DWORD *)(gptiCurrent + 1260LL) & 0x20) != 0
-      || *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 64LL) != gptiCurrent )
+    if ( (*(_DWORD *)(gptiCurrent + 1232LL) & 0x100) != 0 )
     {
-      goto LABEL_6;
+LABEL_6:
+      v6 = 5LL;
+LABEL_10:
+      v2 = 0;
+      UserSetLastError(v6, 0LL, v3);
+      goto LABEL_11;
     }
     v2 = xxxDiscardPointerFrameMessagesInternal(a1);
   }
-  UserSessionSwitchLeaveCrit(v3);
+LABEL_11:
+  UserSessionSwitchLeaveCrit(v4);
   return v2;
 }

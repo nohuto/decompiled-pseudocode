@@ -1,14 +1,14 @@
 /*
- * XREFs of ?AddHolographicComposition@CHolographicManager@@QEAA_NPEAVCHolographicComposition@@@Z @ 0x180295104
+ * XREFs of ?AddHolographicComposition@CHolographicManager@@QEAA_NPEAVCHolographicComposition@@@Z @ 0x180252B18
  * Callers:
- *     ?ProcessCreate@CHolographicComposition@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICCOMPOSITION_CREATE@@@Z @ 0x180298158 (-ProcessCreate@CHolographicComposition@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICCOMPOS.c)
+ *     ?ProcessCreate@CHolographicComposition@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICCOMPOSITION_CREATE@@@Z @ 0x180256268 (-ProcessCreate@CHolographicComposition@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICCOMPOS.c)
  * Callees:
- *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x180024D8C (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
- *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x180024E64 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
- *     ?DwmHolographicCompositionAdd_@CompositorTracing@@QEAAXXZ @ 0x1802956A0 (-DwmHolographicCompositionAdd_@CompositorTracing@@QEAAXXZ.c)
- *     ?EnsureHolographicClient@CHolographicManager@@AEAAJXZ @ 0x180295C00 (-EnsureHolographicClient@CHolographicManager@@AEAAJXZ.c)
- *     ?InitializeClient@CHolographicManager@@AEAAXXZ @ 0x180296188 (-InitializeClient@CHolographicManager@@AEAAXXZ.c)
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18029CF8C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x1800DB3BC (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
+ *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800DB3E0 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
+ *     ?DwmHolographicCompositionAdd_@CompositorTracing@@QEAAXXZ @ 0x1802530A8 (-DwmHolographicCompositionAdd_@CompositorTracing@@QEAAXXZ.c)
+ *     ?EnsureHolographicClient@CHolographicManager@@AEAAJXZ @ 0x1802537B0 (-EnsureHolographicClient@CHolographicManager@@AEAAJXZ.c)
+ *     ?InitializeClient@CHolographicManager@@AEAAXXZ @ 0x180253D18 (-InitializeClient@CHolographicManager@@AEAAXXZ.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A950 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 bool __fastcall CHolographicManager::AddHolographicComposition(
@@ -27,7 +27,7 @@ bool __fastcall CHolographicManager::AddHolographicComposition(
     *((_BYTE *)this + 240) = CHolographicInteropTaskQueue::PostMessageW(
                                *((CHolographicInteropTaskQueue **)this + 6),
                                9u,
-                               (struct IUnknown *)(((unsigned __int64)a2 + 72) & -(__int64)(a2 != 0LL)),
+                               (struct IUnknown *)(((unsigned __int64)a2 + 64) & -(__int64)(a2 != 0LL)),
                                0LL,
                                0LL,
                                0LL,

@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepComputeExpression @ 0x14064AF30
+ * XREFs of AuthzBasepComputeExpression @ 0x1405C1E58
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x140219130 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
  * Callees:
- *     AuthzBasepOperandValueTypesCompatible @ 0x140219C44 (AuthzBasepOperandValueTypesCompatible.c)
- *     AuthzBasepComputeBitwise @ 0x14064AECC (AuthzBasepComputeBitwise.c)
+ *     AuthzBasepOperandValueTypesCompatible @ 0x14024F3D0 (AuthzBasepOperandValueTypesCompatible.c)
+ *     AuthzBasepComputeBitwise @ 0x1405C1DF4 (AuthzBasepComputeBitwise.c)
  */
 
 __int64 __fastcall AuthzBasepComputeExpression(char a1, __int64 a2, __int64 *a3)
@@ -21,7 +21,7 @@ __int64 __fastcall AuthzBasepComputeExpression(char a1, __int64 a2, __int64 *a3)
   if ( !v5 )
     v4 = (__int16 *)a2;
   v9 = *v4;
-  if ( AuthzBasepOperandValueTypesCompatible((__int16 *)a2) && a1 == -93 && v9 == 2 )
+  if ( AuthzBasepOperandValueTypesCompatible(a2) && a1 == -93 && v9 == 2 )
     *a3 = AuthzBasepComputeBitwise(163, a2);
   else
     return (unsigned int)-1073741406;

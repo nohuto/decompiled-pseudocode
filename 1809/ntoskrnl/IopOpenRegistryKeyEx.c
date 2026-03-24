@@ -1,7 +1,7 @@
 /*
- * XREFs of IopOpenRegistryKeyEx @ 0x14073C494
+ * XREFs of IopOpenRegistryKeyEx @ 0x14073C474
  * Callers:
- *     PnpBootDeviceWait @ 0x1401823CC (PnpBootDeviceWait.c)
+ *     PnpBootDeviceWait @ 0x1401823EC (PnpBootDeviceWait.c)
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  *     PnpInitializePnpWatchdogs @ 0x1409C9F5C (PnpInitializePnpWatchdogs.c)
  *     PipCheckSystemFirmwareUpdated @ 0x1409CA088 (PipCheckSystemFirmwareUpdated.c)
@@ -15,7 +15,7 @@
  *     PipInitializeEarlyLaunchDrivers @ 0x1409CC2D4 (PipInitializeEarlyLaunchDrivers.c)
  *     IopStoreSystemPartitionInformation @ 0x1409D62F4 (IopStoreSystemPartitionInformation.c)
  * Callees:
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall IopOpenRegistryKeyEx(HANDLE *a1, void *a2, UNICODE_STRING *a3, ACCESS_MASK a4)

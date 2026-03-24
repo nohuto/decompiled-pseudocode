@@ -1,7 +1,7 @@
 /*
- * XREFs of IcUpdateInterruptProperties @ 0x1C009F858
+ * XREFs of IcUpdateInterruptProperties @ 0x1C00B76A4
  * Callers:
- *     AcpiUpdateInterruptProperties @ 0x1C0084170 (AcpiUpdateInterruptProperties.c)
+ *     AcpiUpdateInterruptProperties @ 0x1C00AF560 (AcpiUpdateInterruptProperties.c)
  * Callees:
  *     <none>
  */
@@ -33,9 +33,9 @@ __int64 __fastcall IcUpdateInterruptProperties(unsigned int a1, int a2, int a3)
       if ( &IcListHead == (__int64 *)v3 )
         return (unsigned int)-1073741275;
     }
-    v7 = 200LL * (a1 - v5);
-    *(_DWORD *)(v7 + v3 + 64) = a2;
-    *(_DWORD *)(v7 + v3 + 60) = a3;
+    v7 = a1 - v5;
+    *(_DWORD *)(200 * v7 + v3 + 64) = a2;
+    *(_DWORD *)(200 * v7 + v3 + 60) = a3;
   }
   return v4;
 }

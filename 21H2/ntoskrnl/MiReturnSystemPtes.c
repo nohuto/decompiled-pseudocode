@@ -1,11 +1,10 @@
 /*
- * XREFs of MiReturnSystemPtes @ 0x14026CE64
+ * XREFs of MiReturnSystemPtes @ 0x1402C1E78
  * Callers:
- *     MiReplenishBitMap @ 0x1402697F0 (MiReplenishBitMap.c)
- *     MiAttemptCoalesce @ 0x14026CB78 (MiAttemptCoalesce.c)
- *     MiReleasePtes @ 0x1402BB6D0 (MiReleasePtes.c)
+ *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
+ *     MiAttemptCoalesce @ 0x140348EC0 (MiAttemptCoalesce.c)
  * Callees:
- *     MiReturnSystemVa @ 0x14026DAB0 (MiReturnSystemVa.c)
+ *     MiReturnSystemVa @ 0x1402FA5E8 (MiReturnSystemVa.c)
  */
 
 __int64 __fastcall MiReturnSystemPtes(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -19,17 +18,17 @@ __int64 __fastcall MiReturnSystemPtes(__int64 a1, __int64 a2, __int64 a3, int a4
 
   v4 = *(_QWORD *)(a1 + 16);
   v5 = 16 * a2;
-  v6 = *(_DWORD *)(a1 + 24) & 2;
+  v6 = *(_DWORD *)(a1 + 24) & 4;
   if ( !v6 )
     v5 = a2;
-  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 80), -a3);
-  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 48), -a3);
+  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 88), -a3);
+  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 56), -a3);
   v7 = 16 * a3;
-  if ( (v6 & 2) == 0 )
+  if ( !v6 )
     v7 = a3;
   v8 = *(unsigned int *)(a1 + 28);
   v9 = (((v4 + 8 * v5) << 25) + (v7 << 28)) >> 16;
-  if ( a4 )
+  if ( a4 == 1 )
     v8 = 13LL;
-  return MiReturnSystemVa((v4 + 8 * v5) << 25 >> 16, v9, v8);
+  return MiReturnSystemVa((v4 + 8 * v5) << 25 >> 16, v9, v8, 0LL);
 }

@@ -1,229 +1,223 @@
 /*
- * XREFs of ?SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z @ 0x1C035EDB0
+ * XREFs of ?SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z @ 0x1C0235DA0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireReference@DXGPROCESS@@QEAAXXZ @ 0x1C00092A8 (-AcquireReference@DXGPROCESS@@QEAAXXZ.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?ActivateVirtualGpu@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C005C3F4 (-ActivateVirtualGpu@DXGVIRTUALMACHINE@@QEAAXXZ.c)
- *     ?AddVirtualGpu@DXGVIRTUALMACHINE@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C005C43C (-AddVirtualGpu@DXGVIRTUALMACHINE@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C018910C (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
- *     ?CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@@Z @ 0x1C0189DE4 (-CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@@Z.c)
- *     ?InitializeVirtualMachine@DXGVIRTUALMACHINE@@QEAAJPEAXE@Z @ 0x1C0336764 (-InitializeVirtualMachine@DXGVIRTUALMACHINE@@QEAAJPEAXE@Z.c)
- *     ?InitializeVmwpProcess@DXGPROCESSVMWP@@QEAAJPEAXPEAVDXGPROCESS@@PEAU_EPROCESS@@2EPEAVDXGVIRTUALMACHINE@@@Z @ 0x1C033693C (-InitializeVmwpProcess@DXGPROCESSVMWP@@QEAAJPEAXPEAVDXGPROCESS@@PEAU_EPROCESS@@2EPEAVDXGVIRTUALM.c)
- *     ?SetVmGuid@DXGVIRTUALMACHINE@@QEAAXPEBU_GUID@@@Z @ 0x1C033780C (-SetVmGuid@DXGVIRTUALMACHINE@@QEAAXPEBU_GUID@@@Z.c)
- *     ?CreateVmBusChannel@DXG_HOST_VIRTUALGPU_VMBUS@@QEAAJPEAXPEAUDXGK_VIRTUAL_GPU_PARAV@@@Z @ 0x1C03621B0 (-CreateVmBusChannel@DXG_HOST_VIRTUALGPU_VMBUS@@QEAAJPEAXPEAUDXGK_VIRTUAL_GPU_PARAV@@@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireReference@DXGPROCESS@@QEAAXXZ @ 0x1C0006C64 (-AcquireReference@DXGPROCESS@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?ActivateVirtualGpu@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C00403F4 (-ActivateVirtualGpu@DXGVIRTUALMACHINE@@QEAAXXZ.c)
+ *     ?AddVirtualGpu@DXGVIRTUALMACHINE@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C004043C (-AddVirtualGpu@DXGVIRTUALMACHINE@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@PEAX@Z @ 0x1C0117234 (-CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@PEAX@Z.c)
+ *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C0117814 (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
+ *     ?CreateVmBusChannel@DXG_HOST_VIRTUALGPU_VMBUS@@QEAAJPEAXPEAUDXGK_VIRTUAL_GPU_PARAV@@@Z @ 0x1C023853C (-CreateVmBusChannel@DXG_HOST_VIRTUALGPU_VMBUS@@QEAAJPEAXPEAUDXGK_VIRTUAL_GPU_PARAV@@@Z.c)
+ *     ?InitializeVirtualMachine@DXGVIRTUALMACHINE@@QEAAJPEAXE@Z @ 0x1C0285624 (-InitializeVirtualMachine@DXGVIRTUALMACHINE@@QEAAJPEAXE@Z.c)
+ *     ?InitializeVmwpProcess@DXGPROCESSVMWP@@QEAAJPEAXPEAVDXGPROCESS@@PEAU_EPROCESS@@2EPEAVDXGVIRTUALMACHINE@@@Z @ 0x1C0285778 (-InitializeVmwpProcess@DXGPROCESSVMWP@@QEAAJPEAXPEAVDXGPROCESS@@PEAU_EPROCESS@@2EPEAVDXGVIRTUALM.c)
  */
 
 __int64 __fastcall DXGK_VIRTUAL_GPU_PARAV::SetVirtualGpuVmBus(
         DXGK_VIRTUAL_GPU_PARAV *this,
         struct _DXGKARG_SETVIRTUALGPUVMBUS *a2)
 {
-  __int64 *v2; // rdi
-  __int64 v5; // rbx
+  __int64 *v2; // r14
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rbx
   struct DXGGLOBAL *Global; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  char *v10; // r14
-  __int64 v11; // rax
-  __int64 v12; // rcx
-  struct _EPROCESS *v13; // r12
-  struct DXGVIRTUALMACHINE *v14; // r15
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  DXGPROCESSVMWP **v11; // rsi
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  int v14; // eax
+  struct _EPROCESS *v15; // r15
+  struct DXGVIRTUALMACHINE *v16; // r14
   __int64 CurrentProcess; // rax
-  __int64 v16; // rdx
-  __int64 v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
   __int64 ProcessDxgProcess; // rbx
-  __int64 v19; // r9
+  __int64 v21; // r8
+  __int64 v22; // r9
   int DxgProcess; // eax
-  DXGPROCESS *v21; // rcx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  __int64 v27; // rax
+  DXGPROCESS *v28; // rcx
   DXGPROCESS **Current; // rax
-  __int64 v23; // r9
-  int v24; // eax
-  __int64 v25; // rdi
-  int v26; // edx
-  const wchar_t *v27; // r9
-  int v28; // ecx
-  DXGPROCESSVMWP *v29; // rdi
-  unsigned __int8 v30; // bl
-  __int64 v31; // rdx
-  __int64 v32; // rcx
-  __int64 v33; // r8
-  __int64 v34; // r9
-  struct _EPROCESS *v35; // rax
-  int v36; // eax
-  struct DXGPROCESSVMWP **v37; // rcx
-  _BYTE v39[8]; // [rsp+50h] [rbp-20h] BYREF
-  DXGPUSHLOCK *v40; // [rsp+58h] [rbp-18h]
-  int v41; // [rsp+60h] [rbp-10h]
-  struct DXGPROCESS *v42; // [rsp+B0h] [rbp+40h] BYREF
-  struct _EPROCESS *v43; // [rsp+B8h] [rbp+48h] BYREF
+  int v30; // eax
+  char v31; // cl
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  struct _EPROCESS *v34; // rax
+  int v35; // eax
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  __int64 v38; // rax
+  DXGVIRTUALMACHINE *v39; // rcx
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  __int64 v42; // rax
+  __int64 v43; // rdx
+  __int64 v44; // rcx
+  _BYTE v46[8]; // [rsp+40h] [rbp-20h] BYREF
+  DXGPUSHLOCK *v47; // [rsp+48h] [rbp-18h]
+  int v48; // [rsp+50h] [rbp-10h]
+  struct DXGPROCESS *v49; // [rsp+A0h] [rbp+40h] BYREF
+  struct _EPROCESS *v50; // [rsp+A8h] [rbp+48h] BYREF
 
-  v2 = (__int64 *)((char *)this + 176);
-  LODWORD(v5) = DXG_HOST_VIRTUALGPU_VMBUS::CreateVmBusChannel((struct VMBCHANNEL__ **)this + 22, a2->VmBusHandle, this);
-  if ( (int)v5 >= 0 )
+  v2 = (__int64 *)((char *)this + 168);
+  LODWORD(v7) = DXG_HOST_VIRTUALGPU_VMBUS::CreateVmBusChannel((struct VMBCHANNEL__ **)this + 21, a2->VmBusHandle, this);
+  if ( (int)v7 >= 0 )
   {
-    Global = DXGGLOBAL_GetGlobal();
-    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v39, (struct _KTHREAD **)Global + 57, 0);
-    DXGPUSHLOCK::AcquireExclusive(v40);
-    v10 = (char *)this + 96;
-    v11 = *((_QWORD *)this + 12);
-    v41 = 2;
-    if ( v11 )
+    Global = DXGGLOBAL::GetGlobal(v6, v5);
+    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v46, (struct _KTHREAD **)Global + 50, 0);
+    DXGPUSHLOCK::AcquireExclusive(v47);
+    v11 = (DXGPROCESSVMWP **)((char *)this + 96);
+    v48 = 2;
+    v12 = *((_QWORD *)this + 12);
+    if ( v12 )
     {
-      if ( !*(_BYTE *)(v11 + 632) )
+      if ( !*(_BYTE *)(v12 + 520) )
       {
-        v25 = 388LL;
-        WdLogSingleEntry1(2LL, 388LL);
-        v27 = L"VMWP process failed to reset";
-        LODWORD(v5) = -1073741823;
-        goto LABEL_38;
+        v42 = WdLogNewEntry5_WdError(v10, v9);
+        *(_QWORD *)(v42 + 24) = 389LL;
+        WdLogEvent5_WdError(v42);
+        LODWORD(v7) = -1073741823;
+        goto LABEL_40;
       }
-      LODWORD(v5) = DXGVIRTUALMACHINE::InitializeVirtualMachine(
-                      *((struct DXGPROCESSVMWP ***)this + 13),
-                      a2->VmBusHandle,
-                      1);
-      if ( (int)v5 < 0 )
+      LODWORD(v7) = DXGVIRTUALMACHINE::InitializeVirtualMachine(*((DXGVIRTUALMACHINE **)this + 13), a2->VmBusHandle, 1u);
+      if ( (int)v7 < 0 )
       {
-        v25 = 400LL;
-        WdLogSingleEntry1(2LL, 400LL);
+        v38 = WdLogNewEntry5_WdError(v44, v43);
+        *(_QWORD *)(v38 + 24) = 401LL;
         goto LABEL_37;
       }
       DXGVIRTUALMACHINE::ActivateVirtualGpu(*((struct _KTHREAD ***)this + 13));
-LABEL_41:
-      *((_BYTE *)this + 154) = 0;
-      goto LABEL_42;
+      goto LABEL_39;
     }
-    v12 = *v2;
-    v43 = 0LL;
+    v13 = *v2;
+    v50 = 0LL;
     if ( g_VgpuDisableVaBackedVm
-      || (int)((__int64 (__fastcall *)(__int64, struct _EPROCESS **))qword_1C0131E38)(v12, &v43) < 0 )
+      || (v14 = ((__int64 (__fastcall *)(__int64, struct _EPROCESS **))qword_1C00B4528)(v13, &v50), v15 = v50, v14 < 0) )
     {
-      v13 = 0LL;
+      v15 = 0LL;
     }
-    else
+    v16 = 0LL;
+    if ( !v15 )
     {
-      v13 = v43;
-      v14 = 0LL;
-      if ( v43 )
+      Current = (DXGPROCESS **)DXGPROCESS::GetCurrent(v13, v9);
+      v49 = (struct DXGPROCESS *)Current;
+      if ( !Current )
+        goto LABEL_22;
+      if ( (*((_BYTE *)Current + 347) & 0x10) == 0 )
       {
-        CurrentProcess = PsGetCurrentProcess(v12, v7, v8, v9);
-        ProcessDxgProcess = PsGetProcessDxgProcess(CurrentProcess);
-        if ( ProcessDxgProcess )
-        {
-          *(_QWORD *)(WdLogNewEntry5_WdTrace(v17, v16) + 24) = ProcessDxgProcess;
-          if ( (*(_DWORD *)(ProcessDxgProcess + 424) & 0x80) == 0 )
-          {
-            DXGPROCESS::DestroyDxgProcess((struct DXGPROCESS *)ProcessDxgProcess);
-            goto LABEL_13;
-          }
-          *(_QWORD *)v10 = ProcessDxgProcess;
-          v14 = *(struct DXGVIRTUALMACHINE **)(ProcessDxgProcess + 608);
-          if ( !v14 )
-            goto LABEL_11;
-          if ( !*((_QWORD *)v14 + 34) )
-          {
-            *(_QWORD *)(ProcessDxgProcess + 608) = 0LL;
-            *((_QWORD *)v14 + 7) = 0LL;
-LABEL_11:
-            DXGPROCESS::DestroyDxgProcess((struct DXGPROCESS *)ProcessDxgProcess);
-            *(_QWORD *)v10 = 0LL;
-          }
-        }
-LABEL_13:
-        if ( *(_QWORD *)v10
-          || (LOBYTE(v19) = a2->VmBusHandle != 0LL,
-              DxgProcess = DXGPROCESS::CreateDxgProcess((struct DXGPROCESS **)this + 12, 0LL, 0LL, v19, v13),
-              v5 = DxgProcess,
-              DxgProcess >= 0) )
-        {
-          v21 = *(DXGPROCESS **)v10;
-LABEL_28:
-          DXGPROCESS::AcquireReference(v21);
-          v29 = *(DXGPROCESSVMWP **)v10;
-          v30 = *((_BYTE *)this + 153);
-          v35 = (struct _EPROCESS *)PsGetCurrentProcess(v32, v31, v33, v34);
-          v36 = DXGPROCESSVMWP::InitializeVmwpProcess(
-                  v29,
-                  a2->VmBusHandle,
-                  *((struct DXGPROCESS **)this + 11),
-                  v35,
-                  v13,
-                  v30,
-                  v14);
-          LODWORD(v5) = v36;
-          if ( v36 < 0 )
-          {
-            v25 = v36;
-            WdLogSingleEntry1(2LL, v36);
-            v27 = L"Failed to setup VM worker process: 0x%I64x";
-LABEL_38:
-            v26 = 0x40000;
-            goto LABEL_39;
-          }
-          v37 = *(struct DXGPROCESSVMWP ***)(*(_QWORD *)v10 + 608LL);
-          *((_QWORD *)this + 13) = v37;
-          LODWORD(v5) = DXGVIRTUALMACHINE::InitializeVirtualMachine(v37, a2->VmBusHandle, 1);
-          if ( (int)v5 < 0 )
-          {
-            v25 = 373LL;
-            WdLogSingleEntry1(2LL, 373LL);
-LABEL_37:
-            v27 = L"Failed to initalize virtual machine";
-            goto LABEL_38;
-          }
-          DXGVIRTUALMACHINE::SetVmGuid(*((struct _GUID **)this + 13), (const struct _GUID *)this + 22);
-          DXGVIRTUALMACHINE::AddVirtualGpu(
-            *((struct _KTHREAD ***)this + 13),
-            (struct _LIST_ENTRY *)((char *)this + 136));
-          goto LABEL_41;
-        }
+        DXGPROCESS::DestroyDxgProcess((struct DXGPROCESS *)Current);
+        Current = 0LL;
+        v49 = 0LL;
+      }
+      if ( !Current )
+      {
 LABEL_22:
-        v25 = v5;
-        WdLogSingleEntry1(6LL, v5);
-        v26 = 262145;
-        v27 = L"Failed to create DXGPROCESS for VMWP process: 0x%I64x";
-LABEL_39:
-        DxgkLogInternalTriageEvent(0LL, v26, -1, (__int64)v27, v25, 0LL, 0LL, 0LL, 0LL);
-LABEL_42:
-        DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v39);
-        return (unsigned int)v5;
+        v30 = DXGPROCESS::CreateDxgProcess(&v49, 0LL, 0LL, a2->VmBusHandle != 0LL, 0LL, 0LL);
+        v7 = v30;
+        if ( v30 < 0 )
+        {
+LABEL_16:
+          v27 = WdLogNewEntry5_WdLowResource(v24, v18, v25, v26);
+          *(_QWORD *)(v27 + 24) = v7;
+          WdLogEvent5_WdLowResource(v27);
+LABEL_40:
+          DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v46);
+          return (unsigned int)v7;
+        }
+        Current = (DXGPROCESS **)v49;
+      }
+      v31 = *((_BYTE *)Current + 347);
+      if ( (v31 & 0x20) != 0 )
+        v28 = Current[62];
+      else
+        v28 = (DXGPROCESS *)((unsigned __int64)Current & -(__int64)((v31 & 0x10) != 0));
+      *v11 = v28;
+      goto LABEL_28;
+    }
+    CurrentProcess = PsGetCurrentProcess(v13, v9);
+    ProcessDxgProcess = PsGetProcessDxgProcess(CurrentProcess);
+    if ( ProcessDxgProcess )
+    {
+      *(_QWORD *)(WdLogNewEntry5_WdTrace(v19, v18, v21, v22) + 24) = ProcessDxgProcess;
+      if ( (*(_BYTE *)(ProcessDxgProcess + 347) & 0x10) != 0 )
+      {
+        *v11 = (DXGPROCESSVMWP *)ProcessDxgProcess;
+        v16 = *(struct DXGVIRTUALMACHINE **)(ProcessDxgProcess + 496);
+        if ( v16 )
+        {
+          if ( *((_QWORD *)v16 + 29) )
+            goto LABEL_14;
+          *(_QWORD *)(ProcessDxgProcess + 496) = 0LL;
+          *((_QWORD *)v16 + 7) = 0LL;
+        }
+        DXGPROCESS::DestroyDxgProcess((struct DXGPROCESS *)ProcessDxgProcess);
+        *v11 = 0LL;
+      }
+      else
+      {
+        DXGPROCESS::DestroyDxgProcess((struct DXGPROCESS *)ProcessDxgProcess);
       }
     }
-    Current = (DXGPROCESS **)DXGPROCESS::GetCurrent(v12, v7, v8, v9);
-    v42 = (struct DXGPROCESS *)Current;
-    if ( !Current )
-      goto LABEL_21;
-    if ( ((_DWORD)Current[53] & 0x80) == 0 )
+LABEL_14:
+    if ( !*v11 )
     {
-      DXGPROCESS::DestroyDxgProcess((struct DXGPROCESS *)Current);
-      Current = 0LL;
-      v42 = 0LL;
+      DxgProcess = DXGPROCESS::CreateDxgProcess(
+                     (struct DXGPROCESS **)this + 12,
+                     0LL,
+                     0LL,
+                     a2->VmBusHandle != 0LL,
+                     v15,
+                     0LL);
+      v7 = DxgProcess;
+      if ( DxgProcess < 0 )
+        goto LABEL_16;
     }
-    if ( !Current )
+    v28 = *v11;
+LABEL_28:
+    DXGPROCESS::AcquireReference(v28, v18);
+    v34 = (struct _EPROCESS *)PsGetCurrentProcess(v33, v32);
+    v35 = DXGPROCESSVMWP::InitializeVmwpProcess(
+            *v11,
+            a2->VmBusHandle,
+            *((struct DXGPROCESS **)this + 11),
+            v34,
+            v15,
+            *((_BYTE *)this + 153),
+            v16);
+    v7 = v35;
+    if ( v35 < 0 )
     {
-LABEL_21:
-      LOBYTE(v23) = a2->VmBusHandle != 0LL;
-      v24 = DXGPROCESS::CreateDxgProcess(&v42, 0LL, 0LL, v23, 0LL);
-      v5 = v24;
-      if ( v24 < 0 )
-        goto LABEL_22;
-      Current = (DXGPROCESS **)v42;
+      v38 = WdLogNewEntry5_WdError(v37, v36);
+      *(_QWORD *)(v38 + 24) = v7;
+LABEL_37:
+      WdLogEvent5_WdError(v38);
+      goto LABEL_40;
     }
-    v28 = *((_DWORD *)Current + 106);
-    if ( (v28 & 0x100) != 0 )
-      v21 = Current[76];
-    else
-      v21 = (DXGPROCESS *)((unsigned __int64)Current & -(__int64)((v28 & 0x80u) != 0));
-    *(_QWORD *)v10 = v21;
-    v14 = 0LL;
-    goto LABEL_28;
+    v39 = (DXGVIRTUALMACHINE *)*((_QWORD *)*v11 + 62);
+    *((_QWORD *)this + 13) = v39;
+    LODWORD(v7) = DXGVIRTUALMACHINE::InitializeVirtualMachine(v39, a2->VmBusHandle, 1u);
+    if ( (int)v7 < 0 )
+    {
+      v38 = WdLogNewEntry5_WdError(v41, v40);
+      *(_QWORD *)(v38 + 24) = 374LL;
+      goto LABEL_37;
+    }
+    *(_OWORD *)(*((_QWORD *)this + 13) + 248LL) = *(_OWORD *)((char *)this + 328);
+    DXGVIRTUALMACHINE::AddVirtualGpu(*((struct _KTHREAD ***)this + 13), (struct _LIST_ENTRY *)((char *)this + 136));
+LABEL_39:
+    *((_BYTE *)this + 154) = 0;
+    goto LABEL_40;
   }
-  return (unsigned int)v5;
+  return (unsigned int)v7;
 }

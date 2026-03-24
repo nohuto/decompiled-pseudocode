@@ -1,41 +1,31 @@
 /*
- * XREFs of IopLiveDumpStartDumpDataBuffering @ 0x140A9C5F8
+ * XREFs of IopLiveDumpStartDumpDataBuffering @ 0x1409AD698
  * Callers:
- *     IopLiveDumpCollectPages @ 0x140A9ABC4 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409AC020 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     IopLiveDumpTrace @ 0x14055A12C (IopLiveDumpTrace.c)
- *     KdDecodeDataBlock @ 0x140567240 (KdDecodeDataBlock.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x140A9B8E4 (IopLiveDumpInitiateCorralStateChange.c)
+ *     KdEncodeDataBlock @ 0x1403B50C8 (KdEncodeDataBlock.c)
+ *     IopLiveDumpTrace @ 0x1405089C4 (IopLiveDumpTrace.c)
+ *     IopLiveDumpTraceCaptureDumpDataBufferingDuration @ 0x140508D5C (IopLiveDumpTraceCaptureDumpDataBufferingDuration.c)
+ *     KdDecodeDataBlock @ 0x140510744 (KdDecodeDataBlock.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x1409ACA98 (IopLiveDumpInitiateCorralStateChange.c)
  */
 
-__int64 __fastcall IopLiveDumpStartDumpDataBuffering(__int64 a1)
+char __fastcall IopLiveDumpStartDumpDataBuffering(const GUID *a1)
 {
   __int64 v2; // r9
-  __int64 *v3; // rdx
-  int v4; // r8d
-  __int64 result; // rax
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  char result; // al
+  __int64 v4; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = 0LL;
+  v4 = 0LL;
   KdDecodeDataBlock();
   IopLiveDumpTrace();
-  IopLiveDumpInitiateCorralStateChange((volatile __int32 *)(a1 + 312), 4, &v6);
+  IopLiveDumpInitiateCorralStateChange((volatile __int32 *)&a1[19], 4LL, &v4, v2);
   IopLiveDumpTrace();
-  if ( KdpBootedNodebug )
+  result = KdEncodeDataBlock();
+  if ( (a1[5].Data1 & 0x80u) != 0 )
   {
-    v2 = KiWaitNever;
-    v3 = (__int64 *)&KdDebuggerDataBlock;
-    KdpDataBlockEncoded = 1;
-    v4 = 116;
-    do
-    {
-      *v3 = v2 ^ __ROR8__((unsigned __int64)&KdpDataBlockEncoded ^ _byteswap_uint64(KiWaitAlways ^ *v3), v2);
-      ++v3;
-      --v4;
-    }
-    while ( v4 );
+    *(_QWORD *)a1[33].Data4 = v4;
+    return IopLiveDumpTraceCaptureDumpDataBufferingDuration(a1);
   }
-  result = v6;
-  *(_QWORD *)(a1 + 528) = v6;
   return result;
 }

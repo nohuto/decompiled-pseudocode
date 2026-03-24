@@ -1,10 +1,10 @@
 /*
- * XREFs of ZwDuplicateToken @ 0x1401B89B0
+ * XREFs of ZwDuplicateToken @ 0x1401B89D0
  * Callers:
- *     RtlCheckTokenMembershipEx @ 0x1400DCB10 (RtlCheckTokenMembershipEx.c)
- *     RtlCheckTokenCapability @ 0x1402ED9B0 (RtlCheckTokenCapability.c)
- *     RtlImpersonateSelfEx @ 0x1406BAE14 (RtlImpersonateSelfEx.c)
- *     RtlpIsAppContainer @ 0x140895484 (RtlpIsAppContainer.c)
+ *     RtlCheckTokenMembershipEx @ 0x1400DCB30 (RtlCheckTokenMembershipEx.c)
+ *     RtlCheckTokenCapability @ 0x1402EDAB0 (RtlCheckTokenCapability.c)
+ *     RtlImpersonateSelfEx @ 0x1406BADF4 (RtlImpersonateSelfEx.c)
+ *     RtlpIsAppContainer @ 0x140895464 (RtlpIsAppContainer.c)
  * Callees:
  *     <none>
  */

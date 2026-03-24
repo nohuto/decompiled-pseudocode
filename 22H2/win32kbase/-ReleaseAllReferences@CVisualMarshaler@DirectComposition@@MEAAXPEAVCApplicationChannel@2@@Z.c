@@ -1,44 +1,40 @@
 /*
- * XREFs of ?ReleaseAllReferences@CVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0032C00
+ * XREFs of ?ReleaseAllReferences@CVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0087570
  * Callers:
- *     ?ReleaseAllReferences@CCrossChannelChildVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C000D350 (-ReleaseAllReferences@CCrossChannelChildVisualMarshaler@DirectComposition@@UEAAXPEAVCApplication.c)
- *     ?ReleaseAllReferences@CCrossChannelParentVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C000EE70 (-ReleaseAllReferences@CCrossChannelParentVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicatio.c)
- *     ?ReleaseAllReferences@CSpriteVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0032BA0 (-ReleaseAllReferences@CSpriteVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@.c)
- *     ?ReleaseAllReferences@CShapeVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00AFF30 (-ReleaseAllReferences@CShapeVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z.c)
- *     ?ReleaseAllReferences@?$CSharedResourceMarshaler@VCVisualMarshaler@DirectComposition@@$01@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00B3670 (-ReleaseAllReferences@-$CSharedResourceMarshaler@VCVisualMarshaler@DirectComposition@@$01@Direct.c)
- *     ?ReleaseAllReferences@CLayerVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00B7810 (-ReleaseAllReferences@CLayerVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z.c)
- *     ?ReleaseAllReferences@CParticleEmitterVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C021D080 (-ReleaseAllReferences@CParticleEmitterVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationCh.c)
- *     ?ReleaseAllReferences@CSceneVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C021D380 (-ReleaseAllReferences@CSceneVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z.c)
- *     ?ReleaseAllReferences@CTextVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C021D460 (-ReleaseAllReferences@CTextVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     ?ReleaseAllReferences@CLayerVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0087460 (-ReleaseAllReferences@CLayerVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     ?ReleaseAllReferences@CHostVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00874B0 (-ReleaseAllReferences@CHostVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     ?ReleaseAllReferences@CSpriteVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0087500 (-ReleaseAllReferences@CSpriteVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@.c)
+ *     ?ReleaseAllReferences@CParticleEmitterVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01DC370 (-ReleaseAllReferences@CParticleEmitterVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationCh.c)
+ *     ?ReleaseAllReferences@CSceneVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01DC670 (-ReleaseAllReferences@CSceneVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     ?ReleaseAllReferences@CTextVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01DC730 (-ReleaseAllReferences@CTextVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     ?ReleaseAllReferences@CShapeVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01E5D60 (-ReleaseAllReferences@CShapeVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     ?ReleaseAllReferences@CCursorVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01ECFE0 (-ReleaseAllReferences@CCursorVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@.c)
+ *     ?ReleaseAllReferences@CCrossChannelChildVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F80C0 (-ReleaseAllReferences@CCrossChannelChildVisualMarshaler@DirectComposition@@UEAAXPEAVCApplication.c)
+ *     ?ReleaseAllReferences@CCrossChannelParentVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F8110 (-ReleaseAllReferences@CCrossChannelParentVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicatio.c)
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C002FD60 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?Clear@CResourceMarshalerArray@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z @ 0x1C005E5E8 (-Clear@CResourceMarshalerArray@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DirectComposition::CVisualMarshaler::ReleaseAllReferences(
         DirectComposition::CVisualMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)
 {
-  struct DirectComposition::CResourceMarshaler *v3; // rdx
+  struct DirectComposition::CResourceMarshaler *v4; // rdx
   struct DirectComposition::CResourceMarshaler *v5; // rdx
   struct DirectComposition::CResourceMarshaler *v6; // rdx
   struct DirectComposition::CResourceMarshaler *v7; // rdx
   struct DirectComposition::CResourceMarshaler *v8; // rdx
   struct DirectComposition::CResourceMarshaler *v9; // rdx
   struct DirectComposition::CResourceMarshaler *v10; // rdx
-  struct DirectComposition::CResourceMarshaler *v11; // rdx
-  unsigned __int64 i; // rsi
-  void *v13; // rdx
-  unsigned __int64 j; // rsi
-  void *v15; // rdx
-  __int64 v16; // rax
-  char v17; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v11; // rax
+  char v12; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 21);
-  if ( v3 )
+  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 21);
+  if ( v4 )
   {
-    DirectComposition::CApplicationChannel::ReleaseResource(a2, v3);
+    DirectComposition::CApplicationChannel::ReleaseResource(a2, v4);
     *((_QWORD *)this + 21) = 0LL;
   }
   v5 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 17);
@@ -77,40 +73,14 @@ void __fastcall DirectComposition::CVisualMarshaler::ReleaseAllReferences(
     DirectComposition::CApplicationChannel::ReleaseResource(a2, v10);
     *((_QWORD *)this + 27) = 0LL;
   }
-  v11 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 29);
-  if ( v11 )
-  {
-    DirectComposition::CApplicationChannel::ReleaseResource(a2, v11);
-    *((_QWORD *)this + 29) = 0LL;
-  }
-  for ( i = 0LL; i < *((_QWORD *)this + 42); ++i )
-    DirectComposition::CApplicationChannel::ReleaseResource(
-      a2,
-      *(struct DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 41) + 8 * i));
-  v13 = (void *)*((_QWORD *)this + 41);
-  if ( v13 )
-  {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v13);
-    *((_QWORD *)this + 41) = 0LL;
-    *((_QWORD *)this + 42) = 0LL;
-    *((_QWORD *)this + 40) = 0LL;
-  }
-  for ( j = 0LL; j < *((_QWORD *)this + 45); ++j )
-    DirectComposition::CApplicationChannel::ReleaseResource(
-      a2,
-      *(struct DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 44) + 8 * j));
-  v15 = (void *)*((_QWORD *)this + 44);
-  if ( v15 )
-  {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v15);
-    *((_QWORD *)this + 44) = 0LL;
-    *((_QWORD *)this + 45) = 0LL;
-    *((_QWORD *)this + 43) = 0LL;
-  }
-  v16 = *(_QWORD *)this;
-  v17 = 0;
-  (*(void (__fastcall **)(DirectComposition::CVisualMarshaler *, struct DirectComposition::CApplicationChannel *, char *))(v16 + 304))(
+  if ( *((_QWORD *)this + 38) )
+    DirectComposition::CResourceMarshalerArray::Clear((DirectComposition::CVisualMarshaler *)((char *)this + 296), a2);
+  if ( *((_QWORD *)this + 41) )
+    DirectComposition::CResourceMarshalerArray::Clear((DirectComposition::CVisualMarshaler *)((char *)this + 320), a2);
+  v11 = *(_QWORD *)this;
+  v12 = 0;
+  (*(void (__fastcall **)(DirectComposition::CVisualMarshaler *, struct DirectComposition::CApplicationChannel *, char *))(v11 + 240))(
     this,
     a2,
-    &v17);
+    &v12);
 }

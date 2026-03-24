@@ -3,11 +3,11 @@
  * Callers:
  *     PipInitializeCoreDriversAndElam @ 0x1409CA89C (PipInitializeCoreDriversAndElam.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetDriverNameFromKeyNode @ 0x140680360 (IopGetDriverNameFromKeyNode.c)
- *     IopOpenRegistryKeyEx @ 0x14073C494 (IopOpenRegistryKeyEx.c)
- *     SeRegisterElamCertResources @ 0x14073C5B4 (SeRegisterElamCertResources.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140680340 (IopGetDriverNameFromKeyNode.c)
+ *     IopOpenRegistryKeyEx @ 0x14073C474 (IopOpenRegistryKeyEx.c)
+ *     SeRegisterElamCertResources @ 0x14073C594 (SeRegisterElamCertResources.c)
  *     PnpInitializeBootStartDriver @ 0x1409CB918 (PnpInitializeBootStartDriver.c)
  */
 

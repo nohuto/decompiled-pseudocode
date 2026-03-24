@@ -1,7 +1,7 @@
 /*
- * XREFs of KdIsThisAKdTrap @ 0x140A6F0C0
+ * XREFs of KdIsThisAKdTrap @ 0x1409B5008
  * Callers:
- *     KiDispatchException @ 0x140299280 (KiDispatchException.c)
+ *     KiDispatchException @ 0x140273320 (KiDispatchException.c)
  * Callees:
  *     <none>
  */

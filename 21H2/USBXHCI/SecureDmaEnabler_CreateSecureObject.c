@@ -1,11 +1,11 @@
 /*
- * XREFs of SecureDmaEnabler_CreateSecureObject @ 0x1C0078700
+ * XREFs of SecureDmaEnabler_CreateSecureObject @ 0x1C0077304
  * Callers:
- *     SecureDmaEnabler_Create @ 0x1C0078584 (SecureDmaEnabler_Create.c)
+ *     SecureDmaEnabler_Create @ 0x1C0077184 (SecureDmaEnabler_Create.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0050250 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall SecureDmaEnabler_CreateSecureObject(__int64 a1)
@@ -14,28 +14,26 @@ __int64 __fastcall SecureDmaEnabler_CreateSecureObject(__int64 a1)
   __int64 v3; // rcx
   int v4; // edx
   int v5; // ebx
-  __int64 v7; // [rsp+30h] [rbp-50h] BYREF
-  __int64 v8; // [rsp+38h] [rbp-48h]
-  GUID v9[2]; // [rsp+40h] [rbp-40h] BYREF
-  __int128 v10; // [rsp+60h] [rbp-20h]
-  __int64 v11; // [rsp+70h] [rbp-10h]
+  __int128 v7; // [rsp+30h] [rbp-50h] BYREF
+  GUID v8[2]; // [rsp+40h] [rbp-40h] BYREF
+  __int128 v9; // [rsp+60h] [rbp-20h]
+  __int64 v10; // [rsp+70h] [rbp-10h]
 
   v1 = *(_QWORD *)(a1 + 8);
   v7 = 0LL;
-  LODWORD(v8) = 0;
   v3 = *(_QWORD *)(v1 + 112);
+  v9 = 0LL;
   v10 = 0LL;
-  v11 = 0LL;
-  LODWORD(v10) = 4;
-  memset(v9, 0, sizeof(v9));
-  *((_QWORD *)&v10 + 1) = *(_QWORD *)(v1 + 568);
-  LOBYTE(v11) = *(_DWORD *)(v1 + 556) == 2;
-  v5 = SecureChannel_SendRequestSynchronously(v3, v9, 56, (__int64)&v7, 16);
+  LODWORD(v9) = 4;
+  memset(v8, 0, sizeof(v8));
+  *((_QWORD *)&v9 + 1) = *(_QWORD *)(v1 + 568);
+  LOBYTE(v10) = *(_DWORD *)(v1 + 556) == 2;
+  v5 = SecureChannel_SendRequestSynchronously(v3, v8, 56, (__int64)&v7, 16);
   if ( v5 >= 0 )
   {
     if ( (int)v7 >= 0 )
     {
-      *(_QWORD *)(a1 + 16) = v8;
+      *(_QWORD *)(a1 + 16) = *((_QWORD *)&v7 + 1);
     }
     else
     {

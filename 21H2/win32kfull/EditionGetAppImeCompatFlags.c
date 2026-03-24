@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionGetAppImeCompatFlags @ 0x1C0207BF0
+ * XREFs of EditionGetAppImeCompatFlags @ 0x1C02075A0
  * Callers:
  *     <none>
  * Callees:
- *     GetAppImeCompatFlags @ 0x1C00F5524 (GetAppImeCompatFlags.c)
+ *     GetAppImeCompatFlags @ 0x1C0106F24 (GetAppImeCompatFlags.c)
  */
 
 __int64 __fastcall EditionGetAppImeCompatFlags(__int64 a1)

@@ -5,7 +5,7 @@
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     MmAllocateContiguousNodeMemory @ 0x1400E6460 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1400E6480 (MmAllocateContiguousNodeMemory.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

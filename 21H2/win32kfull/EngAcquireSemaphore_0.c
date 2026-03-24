@@ -1,5 +1,5 @@
 /*
- * XREFs of EngAcquireSemaphore_0 @ 0x1C01596F0
+ * XREFs of EngAcquireSemaphore_0 @ 0x1C01660B0
  * Callers:
  *     <none>
  * Callees:

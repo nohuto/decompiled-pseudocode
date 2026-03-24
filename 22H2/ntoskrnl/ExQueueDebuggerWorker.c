@@ -1,18 +1,18 @@
 /*
- * XREFs of ExQueueDebuggerWorker @ 0x14029381C
+ * XREFs of ExQueueDebuggerWorker @ 0x1403C661C
  * Callers:
- *     KdExitDebugger @ 0x140AB1008 (KdExitDebugger.c)
- *     ExpWorkerInitialization @ 0x140B674AC (ExpWorkerInitialization.c)
+ *     KdExitDebugger @ 0x1409B7190 (KdExitDebugger.c)
+ *     ExpWorkerInitialization @ 0x140A6AE74 (ExpWorkerInitialization.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
+ *     KeInsertQueueDpc @ 0x14021FD00 (KeInsertQueueDpc.c)
  */
 
-__int64 ExQueueDebuggerWorker()
+char ExQueueDebuggerWorker()
 {
-  __int64 result; // rax
+  signed __int32 v0; // eax
 
-  result = (unsigned int)_InterlockedCompareExchange(&ExpDebuggerWork, 2, 1);
-  if ( (_DWORD)result == 1 )
-    return KiInsertQueueDpc((ULONG_PTR)&ExpDebuggerDpc, 0LL, 0LL, 0LL, 0);
-  return result;
+  v0 = _InterlockedCompareExchange(&ExpDebuggerWork, 2, 1);
+  if ( v0 == 1 )
+    LOBYTE(v0) = KeInsertQueueDpc(&ExpDebuggerDpc, 0LL, 0LL);
+  return v0;
 }

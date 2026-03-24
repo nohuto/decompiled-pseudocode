@@ -1,11 +1,11 @@
 /*
- * XREFs of IovUtilIsInFdoStack @ 0x140AD3B68
+ * XREFs of IovUtilIsInFdoStack @ 0x1409D6AB0
  * Callers:
- *     IovpCallDriver1 @ 0x140ACD170 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x1409CFC5C (IovpCallDriver1.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     IovUtilIsDeviceObjectMarked @ 0x140AD3B14 (IovUtilIsDeviceObjectMarked.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x1409D6A5C (IovUtilIsDeviceObjectMarked.c)
  */
 
 __int64 __fastcall IovUtilIsInFdoStack(__int64 a1)

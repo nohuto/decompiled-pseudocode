@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDrvDbGetNodeSystemRoot @ 0x140815288
+ * XREFs of PiDrvDbGetNodeSystemRoot @ 0x1408B5F64
  * Callers:
- *     PiDrvDbResolveNodeFilePaths @ 0x140814158 (PiDrvDbResolveNodeFilePaths.c)
- *     PiDrvDbQuerySystemPathWin32 @ 0x1408156A0 (PiDrvDbQuerySystemPathWin32.c)
- *     PiDrvDbResolveKeyFilePaths @ 0x14097100C (PiDrvDbResolveKeyFilePaths.c)
+ *     PiDrvDbQuerySystemPathWin32 @ 0x1408B6DB8 (PiDrvDbQuerySystemPathWin32.c)
+ *     PiDrvDbResolveKeyFilePaths @ 0x1408B7874 (PiDrvDbResolveKeyFilePaths.c)
+ *     PiDrvDbResolveNodeFilePaths @ 0x1408B79AC (PiDrvDbResolveNodeFilePaths.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     ExpAllocateStringRoutine @ 0x1407C7520 (ExpAllocateStringRoutine.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PiDrvDbGetNodeSystemRoot(__int64 a1, _QWORD *a2)
 {
   int ObjectProperty; // r8d
-  __int64 StringRoutine; // rax
+  PVOID StringRoutine; // rax
   __int64 v6; // r9
   unsigned __int16 v7; // dx
   unsigned __int64 v8; // rax
@@ -27,7 +27,7 @@ __int64 __fastcall PiDrvDbGetNodeSystemRoot(__int64 a1, _QWORD *a2)
   {
     *(_WORD *)(a1 + 504) = 0;
     *(_WORD *)(a1 + 506) = 520;
-    StringRoutine = ExpAllocateStringRoutine(520LL);
+    StringRoutine = ExpAllocateStringRoutine(0x208uLL);
     *(_QWORD *)(a1 + 512) = StringRoutine;
     if ( !StringRoutine )
       return (unsigned int)-1073741670;
@@ -39,7 +39,7 @@ __int64 __fastcall PiDrvDbGetNodeSystemRoot(__int64 a1, _QWORD *a2)
                        0LL,
                        (__int64)DEVPKEY_DriverDatabase_SystemRoot,
                        (__int64)&v10,
-                       StringRoutine,
+                       (__int64)StringRoutine,
                        *(unsigned __int16 *)(a1 + 506),
                        (__int64)&v11,
                        0);

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetClip@CCursorClip@@QEAAXUtagRECT@@@Z @ 0x1C01DC260
+ * XREFs of ?SetClip@CCursorClip@@QEAAXUtagRECT@@@Z @ 0x1C01A2BE0
  * Callers:
- *     NtUserClipCursor @ 0x1C0143210 (NtUserClipCursor.c)
+ *     NtUserClipCursor @ 0x1C00BEE10 (NtUserClipCursor.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00329E8 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z @ 0x1C00629A4 (-UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C009C3B0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C005B5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005DD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z @ 0x1C006E418 (-UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z.c)
  */
 
 void __fastcall CCursorClip::SetClip(struct tagRECT *this, struct tagRECT *a2)

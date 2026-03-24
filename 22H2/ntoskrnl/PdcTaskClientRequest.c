@@ -1,22 +1,22 @@
 /*
- * XREFs of PdcTaskClientRequest @ 0x140682428
+ * XREFs of PdcTaskClientRequest @ 0x14091B9F0
  * Callers:
- *     PopSwitchUpdateUserShutdownScenarioState @ 0x1406822E8 (PopSwitchUpdateUserShutdownScenarioState.c)
- *     PopPowerAggregatorSessionSwitchWorker @ 0x140993FD0 (PopPowerAggregatorSessionSwitchWorker.c)
+ *     PopPowerAggregatorSessionSwitchWorker @ 0x1408EEAB0 (PopPowerAggregatorSessionSwitchWorker.c)
  * Callees:
- *     PdcPortSendMessageSynchronously @ 0x140200C24 (PdcPortSendMessageSynchronously.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402BD800 (ExfReleasePushLock.c)
- *     memset @ 0x140435400 (memset.c)
- *     PdcAcquireRwLockExclusive @ 0x14068254C (PdcAcquireRwLockExclusive.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x140271AC0 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PdcPortSendMessageSynchronously @ 0x14059579C (PdcPortSendMessageSynchronously.c)
+ *     PdcAcquireRwLockExclusive @ 0x14091BB1C (PdcAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PdcTaskClientRequest(__int64 a1, char a2)
 {
-  signed __int64 *v4; // rsi
-  int v5; // edi
-  __int64 v6; // rcx
+  __int64 v2; // rdi
+  int v4; // ebx
+  signed __int64 *v5; // rsi
+  int v6; // eax
   int v7; // eax
   int v8; // eax
   signed __int64 v9; // rax
@@ -24,52 +24,51 @@ __int64 __fastcall PdcTaskClientRequest(__int64 a1, char a2)
   signed __int64 v11; // rtt
   _DWORD v13[200]; // [rsp+20h] [rbp-328h] BYREF
 
+  v2 = PopSleepStudyTaskClientActivator;
   memset(v13, 0, sizeof(v13));
-  if ( !a1 || *(_DWORD *)a1 != 1667458128 )
+  if ( !PopSleepStudyTaskClientActivator || *(_DWORD *)PopSleepStudyTaskClientActivator != 1667458128 )
     return (unsigned int)-1073741585;
-  v4 = (signed __int64 *)(a1 + 8);
-  PdcAcquireRwLockExclusive(a1 + 8);
-  if ( a2 || *(_DWORD *)(a1 + 48) )
+  v5 = (signed __int64 *)(PopSleepStudyTaskClientActivator + 8);
+  PdcAcquireRwLockExclusive(PopSleepStudyTaskClientActivator + 8);
+  if ( a2 || *(_DWORD *)(v2 + 48) )
   {
-    v5 = 0;
+    v6 = *(_DWORD *)(v2 + 48);
+    v4 = 0;
     if ( a2 )
     {
-      if ( *(_DWORD *)(a1 + 48) )
-        goto LABEL_8;
+      if ( v6 )
+        goto LABEL_12;
     }
-    else if ( *(_DWORD *)(a1 + 48) != 1 )
+    else if ( v6 != 1 )
     {
-LABEL_8:
-      v7 = *(_DWORD *)(a1 + 48);
-      if ( a2 )
-        v8 = v7 + 1;
-      else
-        v8 = v7 - 1;
-      *(_DWORD *)(a1 + 48) = v8;
-      goto LABEL_11;
+      goto LABEL_12;
     }
-    v6 = *(_QWORD *)(a1 + 40);
     v13[10] = 7;
     LOBYTE(v13[14]) = a2 != 0;
-    PdcPortSendMessageSynchronously(v6, (__int64)v13);
-    v5 = *(_DWORD *)(a1 + 52);
-    if ( v5 >= 0 )
-      goto LABEL_8;
+    PdcPortSendMessageSynchronously(*(_QWORD *)(v2 + 40), (__int64)v13);
+    v4 = *(_DWORD *)(v2 + 52);
+    if ( v4 < 0 )
+      goto LABEL_16;
+LABEL_12:
+    v7 = *(_DWORD *)(v2 + 48);
+    if ( a2 )
+      v8 = v7 + 1;
+    else
+      v8 = v7 - 1;
+    *(_DWORD *)(v2 + 48) = v8;
+    goto LABEL_16;
   }
-  else
-  {
-    v5 = -1073741823;
-  }
-LABEL_11:
-  *(_QWORD *)(a1 + 16) = 0LL;
-  _m_prefetchw(v4);
-  v9 = *v4;
-  v10 = *v4 - 16;
-  if ( (*v4 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+  v4 = -1073741823;
+LABEL_16:
+  *(_QWORD *)(v2 + 16) = 0LL;
+  _m_prefetchw(v5);
+  v9 = *v5;
+  v10 = *v5 - 16;
+  if ( (*v5 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
     v10 = 0LL;
-  if ( (v9 & 2) != 0 || (v11 = *v4, v11 != _InterlockedCompareExchange64(v4, v10, v9)) )
-    ExfReleasePushLock((_QWORD *)(a1 + 8));
-  KeAbPostRelease(a1 + 8);
-  KeLeaveCriticalRegion();
-  return (unsigned int)v5;
+  if ( (v9 & 2) != 0 || (v11 = *v5, v11 != _InterlockedCompareExchange64(v5, v10, v9)) )
+    ExfReleasePushLock((_QWORD *)(v2 + 8));
+  KeAbPostRelease(v2 + 8);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return (unsigned int)v4;
 }

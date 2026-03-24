@@ -1,17 +1,15 @@
 /*
- * XREFs of IopFreeMiniCompletionPacket @ 0x14074F700
+ * XREFs of IopFreeMiniCompletionPacket @ 0x1405E4380
  * Callers:
- *     IoRemoveIoCompletion @ 0x1402B7BD0 (IoRemoveIoCompletion.c)
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
- *     IopFreeCompletionListPackets @ 0x1406ACB64 (IopFreeCompletionListPackets.c)
- *     IoFreeMiniCompletionPacket @ 0x14074F6E0 (IoFreeMiniCompletionPacket.c)
- *     NtCreateWorkerFactory @ 0x1407D5050 (NtCreateWorkerFactory.c)
- *     AlpcpAllocateCompletionPacketLookaside @ 0x1407D55E4 (AlpcpAllocateCompletionPacketLookaside.c)
+ *     IoRemoveIoCompletion @ 0x1402043D0 (IoRemoveIoCompletion.c)
+ *     IoFreeMiniCompletionPacket @ 0x14067F4A0 (IoFreeMiniCompletionPacket.c)
+ *     AlpcpAllocateCompletionPacketLookaside @ 0x1406D4B2C (AlpcpAllocateCompletionPacketLookaside.c)
+ *     IopFreeCompletionListPackets @ 0x1406D4FA0 (IopFreeCompletionListPackets.c)
  * Callees:
- *     ExReturnPoolQuota @ 0x140367A64 (ExReturnPoolQuota.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExReturnPoolQuota @ 0x1402AEBCC (ExReturnPoolQuota.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopFreeMiniCompletionPacket(struct _SLIST_ENTRY *P)

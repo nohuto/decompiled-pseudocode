@@ -1,7 +1,7 @@
 /*
- * XREFs of IsKernelDebuggerEnabled @ 0x1C0131F7C
+ * XREFs of IsKernelDebuggerEnabled @ 0x1C01178E4
  * Callers:
- *     ?WatchDogBugCheckMachine@@YAXPEAURawInputManagerObject@@_K111@Z @ 0x1C0173B40 (-WatchDogBugCheckMachine@@YAXPEAURawInputManagerObject@@_K111@Z.c)
+ *     ?WatchDogBugCheckMachine@@YAXPEAURawInputManagerObject@@_K111@Z @ 0x1C0151F24 (-WatchDogBugCheckMachine@@YAXPEAURawInputManagerObject@@_K111@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RewindPacket@VIDMM_PAGING_QUEUE@@QEAAXPEAUVIDMM_PAGING_QUEUE_PACKET@@@Z @ 0x1C00F10BC
+ * XREFs of ?RewindPacket@VIDMM_PAGING_QUEUE@@QEAAXPEAUVIDMM_PAGING_QUEUE_PACKET@@@Z @ 0x1C00BA744
  * Callers:
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00B5730 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008C500 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@ void __fastcall VIDMM_PAGING_QUEUE::RewindPacket(VIDMM_PAGING_QUEUE *this, struc
 {
   __int64 v2; // rbx
   _QWORD *v5; // rax
-  __int64 v6; // rcx
+  __int64 v6; // rdx
   __int64 v7; // rcx
 
   v2 = *((_QWORD *)this + 10);

@@ -1,9 +1,9 @@
 /*
- * XREFs of ObGetHandleInformation @ 0x14097B6A8
+ * XREFs of ObGetHandleInformation @ 0x1408DCE3C
  * Callers:
- *     ExpGetHandleInformation @ 0x1409F6564 (ExpGetHandleInformation.c)
+ *     ExpGetHandleInformation @ 0x14094A3D4 (ExpGetHandleInformation.c)
  * Callees:
- *     ExpSnapShotHandleTables @ 0x1408AB9F2 (ExpSnapShotHandleTables.c)
+ *     ExpSnapShotHandleTables @ 0x14094CC80 (ExpSnapShotHandleTables.c)
  */
 
 __int64 __fastcall ObGetHandleInformation(_DWORD *a1, unsigned int a2, _DWORD *a3)
@@ -15,12 +15,7 @@ __int64 __fastcall ObGetHandleInformation(_DWORD *a1, unsigned int a2, _DWORD *a
   if ( a2 < 8 )
     return 3221225476LL;
   *a1 = 0;
-  result = ExpSnapShotHandleTables(
-             (__int64 (__fastcall *)(char **, _QWORD, volatile signed __int64 *, __int64, int, _DWORD *))ObpCaptureHandleInformation,
-             a1,
-             a2,
-             &v5,
-             0);
+  result = ExpSnapShotHandleTables((unsigned int)ObpCaptureHandleInformation, (_DWORD)a1, a2, (unsigned int)&v5, 0);
   if ( a3 )
     *a3 = v5;
   return result;

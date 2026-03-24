@@ -3,7 +3,7 @@
  * Callers:
  *     KiInitializeMTRR @ 0x1409C56F4 (KiInitializeMTRR.c)
  * Callees:
- *     RtlFindLeastSignificantBit @ 0x14012B8B0 (RtlFindLeastSignificantBit.c)
+ *     RtlFindLeastSignificantBit @ 0x14012B8D0 (RtlFindLeastSignificantBit.c)
  */
 
 __int64 __fastcall KiMaskToLength(ULONGLONG a1)

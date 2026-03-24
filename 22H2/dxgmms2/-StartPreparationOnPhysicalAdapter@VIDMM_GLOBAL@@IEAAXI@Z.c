@@ -1,30 +1,39 @@
 /*
- * XREFs of ?StartPreparationOnPhysicalAdapter@VIDMM_GLOBAL@@IEAAXI@Z @ 0x1C008E944
+ * XREFs of ?StartPreparationOnPhysicalAdapter@VIDMM_GLOBAL@@IEAAXI@Z @ 0x1C0067EF8
  * Callers:
- *     ?StartPreparation@VIDMM_GLOBAL@@IEAAXIPEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@W4_VIDMM_OPERATION@@@Z @ 0x1C008E8AC (-StartPreparation@VIDMM_GLOBAL@@IEAAXIPEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@W4_VIDMM_OPERATION@@@Z.c)
+ *     ?StartPreparation@VIDMM_GLOBAL@@IEAAXIPEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@W4_VIDMM_OPERATION@@@Z @ 0x1C006099C (-StartPreparation@VIDMM_GLOBAL@@IEAAXIPEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@W4_VIDMM_OPERATION@@@Z.c)
+ *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C0067150 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C002E3CC (McTemplateK0p_EtwWriteTransfer.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0023F2C (McTemplateK0p_EtwWriteTransfer.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
-void __fastcall VIDMM_GLOBAL::StartPreparationOnPhysicalAdapter(VIDMM_GLOBAL *this, unsigned int a2, __int64 a3)
+void __fastcall VIDMM_GLOBAL::StartPreparationOnPhysicalAdapter(VIDMM_GLOBAL *this, __int64 a2, __int64 a3)
 {
   __int64 v4; // rdi
-  __int64 v5; // rsi
+  __int64 v5; // rcx
   int v6; // eax
+  __int64 v7; // rax
 
-  v4 = a2;
-  if ( (byte_1C0076981 & 1) != 0 )
-    McTemplateK0p_EtwWriteTransfer((__int64)this, &EventPagingStartPreparation, a3, *((_QWORD *)this + a2 + 143));
-  v5 = v4 + 542;
-  if ( *((_DWORD *)this + v4 + 414) != *((_DWORD *)this + v4 + 478)
-    || *((_DWORD *)this + v5) != *((_DWORD *)this + v4 + 606) )
+  v4 = (unsigned int)a2;
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+    McTemplateK0p_EtwWriteTransfer(
+      (__int64)this,
+      &EventPagingStartPreparation,
+      a3,
+      *((_QWORD *)this + (unsigned int)a2 + 143));
+  v5 = *((unsigned int *)this + v4 + 414);
+  if ( (_DWORD)v5 != *((_DWORD *)this + v4 + 478) || *((_DWORD *)this + v4 + 542) != *((_DWORD *)this + v4 + 606) )
   {
-    g_DxgMmsBugcheckExportIndex = 1;
-    WdLogSingleEntry5(0LL, 270LL, 33LL, this, 0LL, 0LL);
+    v7 = WdLogNewEntry5_WdCriticalError(v5, a2);
+    *(_QWORD *)(v7 + 24) = 270LL;
+    *(_QWORD *)(v7 + 32) = 33LL;
+    *(_QWORD *)(v7 + 40) = this;
+    *(_OWORD *)(v7 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v7);
+    LODWORD(v5) = *((_DWORD *)this + v4 + 414);
   }
-  v6 = *((_DWORD *)this + v4 + 414);
-  *((_DWORD *)this + v4 + 964) = 0;
-  *((_DWORD *)this + v4 + 1028) = v6;
-  *((_DWORD *)this + v4 + 1092) = *((_DWORD *)this + v5);
+  v6 = *((_DWORD *)this + v4 + 542);
+  *((_DWORD *)this + v4 + 960) = 0;
+  *((_DWORD *)this + v4 + 1088) = v6;
+  *((_DWORD *)this + v4 + 1024) = v5;
 }

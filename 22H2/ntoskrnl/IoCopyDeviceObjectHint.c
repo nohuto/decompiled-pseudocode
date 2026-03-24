@@ -1,28 +1,29 @@
 /*
- * XREFs of IoCopyDeviceObjectHint @ 0x1409471B0
+ * XREFs of IoCopyDeviceObjectHint @ 0x1408938C0
  * Callers:
  *     <none>
  * Callees:
- *     IopGetSetSpecificExtension @ 0x140301568 (IopGetSetSpecificExtension.c)
- *     IopGetFileObjectExtension @ 0x14030169C (IopGetFileObjectExtension.c)
+ *     IopGetFileObjectExtension @ 0x1402D6F90 (IopGetFileObjectExtension.c)
+ *     IopGetSetSpecificExtension @ 0x1402D7298 (IopGetSetSpecificExtension.c)
  */
 
 __int64 __fastcall IoCopyDeviceObjectHint(__int64 a1, __int64 a2)
 {
-  int v3; // edx
-  _QWORD *v4; // r8
+  int v2; // edx
+  _QWORD *v3; // r8
+  __int64 v4; // r11
   unsigned int v6; // edx
   _QWORD *v7; // rbx
   __int64 v8; // r8
-  unsigned int SetSpecificExtension; // r10d
-  __int64 v10; // r11
+  unsigned int SetSpecificExtension; // r9d
+  __int64 v10; // r10
   __int64 v11; // [rsp+28h] [rbp-10h]
   _QWORD *FileObjectExtension; // [rsp+50h] [rbp+18h] BYREF
 
   FileObjectExtension = (_QWORD *)IopGetFileObjectExtension(a2, 1, 0LL);
   if ( FileObjectExtension )
     return 3221225473LL;
-  v7 = (_QWORD *)IopGetFileObjectExtension(a1, v3, v4);
+  v7 = (_QWORD *)IopGetFileObjectExtension(v4, v2, v3);
   if ( v7 )
   {
     SetSpecificExtension = IopGetSetSpecificExtension(v10, v6, 0x20u, v6, &FileObjectExtension, (_QWORD *)(v8 & v11));

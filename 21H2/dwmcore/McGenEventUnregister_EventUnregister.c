@@ -1,7 +1,7 @@
 /*
- * XREFs of McGenEventUnregister_EventUnregister @ 0x1802601E4
+ * XREFs of McGenEventUnregister_EventUnregister @ 0x1800E6A20
  * Callers:
- *     ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x180025470 (-DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z.c)
+ *     ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x1800B297C (-DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z.c)
  * Callees:
  *     <none>
  */

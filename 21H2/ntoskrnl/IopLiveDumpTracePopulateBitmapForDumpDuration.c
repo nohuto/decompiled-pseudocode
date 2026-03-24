@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpTracePopulateBitmapForDumpDuration @ 0x14055BD18
+ * XREFs of IopLiveDumpTracePopulateBitmapForDumpDuration @ 0x140509DDC
  * Callers:
- *     IopLiveDumpPopulateBitmapForDump @ 0x140A67608 (IopLiveDumpPopulateBitmapForDump.c)
+ *     IopLiveDumpPopulateBitmapForDump @ 0x1409AD1C8 (IopLiveDumpPopulateBitmapForDump.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x14055A67C (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140508A20 (IopLiveDumpIsTracingEnabled.c)
  */
 
 char __fastcall IopLiveDumpTracePopulateBitmapForDumpDuration(const GUID *a1, __int64 a2, __int64 a3)
@@ -15,28 +15,24 @@ char __fastcall IopLiveDumpTracePopulateBitmapForDumpDuration(const GUID *a1, __
   int v4; // eax
   _DWORD *v5; // rcx
   const EVENT_DESCRIPTOR *v6; // rdx
-  __int64 v8; // [rsp+40h] [rbp-59h] BYREF
-  __int64 v9; // [rsp+48h] [rbp-51h] BYREF
-  __int64 v10; // [rsp+50h] [rbp-49h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+58h] [rbp-41h] BYREF
-  __int64 *v12; // [rsp+68h] [rbp-31h]
-  int v13; // [rsp+70h] [rbp-29h]
-  int v14; // [rsp+74h] [rbp-25h]
-  struct _EVENT_DATA_DESCRIPTOR v15; // [rsp+80h] [rbp-19h] BYREF
-  __int64 *v16; // [rsp+A0h] [rbp+7h]
-  int v17; // [rsp+A8h] [rbp+Fh]
-  int v18; // [rsp+ACh] [rbp+13h]
-  __int64 *v19; // [rsp+B0h] [rbp+17h]
-  int v20; // [rsp+B8h] [rbp+1Fh]
-  int v21; // [rsp+BCh] [rbp+23h]
-  __int64 *v22; // [rsp+C0h] [rbp+27h]
-  int v23; // [rsp+C8h] [rbp+2Fh]
-  int v24; // [rsp+CCh] [rbp+33h]
-  __int64 v25; // [rsp+108h] [rbp+6Fh] BYREF
-  __int64 v26; // [rsp+110h] [rbp+77h] BYREF
+  __int64 v8; // [rsp+48h] [rbp-29h] BYREF
+  __int64 v9; // [rsp+50h] [rbp-21h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+58h] [rbp-19h] BYREF
+  __int64 *v11; // [rsp+68h] [rbp-9h]
+  int v12; // [rsp+70h] [rbp-1h]
+  int v13; // [rsp+74h] [rbp+3h]
+  struct _EVENT_DATA_DESCRIPTOR v14; // [rsp+78h] [rbp+7h] BYREF
+  __int64 *v15; // [rsp+98h] [rbp+27h]
+  int v16; // [rsp+A0h] [rbp+2Fh]
+  int v17; // [rsp+A4h] [rbp+33h]
+  __int64 *v18; // [rsp+A8h] [rbp+37h]
+  int v19; // [rsp+B0h] [rbp+3Fh]
+  int v20; // [rsp+B4h] [rbp+43h]
+  __int64 v21; // [rsp+E0h] [rbp+6Fh] BYREF
+  __int64 v22; // [rsp+E8h] [rbp+77h] BYREF
 
-  v26 = a3;
-  v25 = a2;
+  v22 = a3;
+  v21 = a2;
   LOBYTE(v4) = IopLiveDumpIsTracingEnabled();
   if ( (_BYTE)v4 )
   {
@@ -46,39 +42,35 @@ char __fastcall IopLiveDumpTracePopulateBitmapForDumpDuration(const GUID *a1, __
       if ( (v4 & 1) != 0 )
       {
         UserData.Reserved = 0;
-        v14 = 0;
+        v13 = 0;
         v6 = (const EVENT_DESCRIPTOR *)LIVEDUMP_EVENT_SIZING_WORKFLOW_SYSTEM_QUISCED_POPULATE_BITMAP_FOR_DUMP;
-        UserData.Ptr = (ULONGLONG)&v25;
-        UserData.Size = 8;
-        v12 = &v26;
+        UserData.Ptr = (ULONGLONG)&v21;
+        v11 = &v22;
         if ( (v5[20] & 1) == 0 )
           v6 = &LIVEDUMP_EVENT_CAPTURE_PAGES_WORKFLOW_SYSTEM_QUISCED_POPULATE_BITMAP_FOR_DUMP;
-        v13 = 8;
+        UserData.Size = 8;
+        v12 = 8;
         LOBYTE(v4) = EtwWriteEx(IopLiveDumpEtwRegHandle, v6, 0LL, 0, 0LL, 0LL, 2u, &UserData);
-        if ( (unsigned int)dword_140C064E0 > 5 )
+        if ( (unsigned int)dword_140C044D8 > 5 )
         {
-          LOBYTE(v4) = tlgKeywordOn((__int64)&dword_140C064E0, 0x400000000000LL);
+          LOBYTE(v4) = tlgKeywordOn((__int64)&dword_140C044D8, 0x200000000000LL);
           if ( (_BYTE)v4 )
           {
-            v18 = 0;
-            v21 = 0;
-            v24 = 0;
-            v16 = &v8;
-            v9 = v25;
-            v19 = &v9;
-            v10 = v26;
-            v22 = &v10;
-            v8 = 0x1000000LL;
-            v17 = 8;
-            v20 = 8;
-            v23 = 8;
+            v17 = 0;
+            v20 = 0;
+            v8 = v21;
+            v16 = 8;
+            v15 = &v8;
+            v9 = v22;
+            v18 = &v9;
+            v19 = 8;
             LOBYTE(v4) = tlgWriteTransfer_EtwWriteTransfer(
-                           (__int64)&dword_140C064E0,
-                           (unsigned __int8 *)byte_14002B3E0,
-                           a1 + 60,
-                           a1 + 59,
-                           5u,
-                           &v15);
+                           (__int64)&dword_140C044D8,
+                           (unsigned __int8 *)&word_140024CD6,
+                           a1 + 54,
+                           a1 + 53,
+                           4u,
+                           &v14);
           }
         }
       }

@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBPARENT_ResetInterruptPipe @ 0x1C0007A80
+ * XREFs of HUBPARENT_ResetInterruptPipe @ 0x1C0007310
  * Callers:
- *     HUBHSM_ResettingInterruptPipeOnFailure @ 0x1C0008F10 (HUBHSM_ResettingInterruptPipeOnFailure.c)
+ *     HUBHSM_ResettingInterruptPipeOnFailure @ 0x1C0008750 (HUBHSM_ResettingInterruptPipeOnFailure.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0044EC0 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBPARENT_ResetInterruptPipe(__int64 a1)

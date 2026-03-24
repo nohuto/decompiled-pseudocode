@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPageRead @ 0x1402A3A8C
+ * XREFs of MiPageRead @ 0x14027D14C
  * Callers:
- *     MiReadImageHeaders @ 0x1406A79B8 (MiReadImageHeaders.c)
- *     MiPfExecuteReadList @ 0x140724164 (MiPfExecuteReadList.c)
+ *     MiPfExecuteReadList @ 0x140636824 (MiPfExecuteReadList.c)
+ *     MiReadImageHeaders @ 0x1406FF22C (MiReadImageHeaders.c)
  * Callees:
- *     IoPageReadEx @ 0x1402A66F0 (IoPageReadEx.c)
+ *     IoPageReadEx @ 0x14029C7C0 (IoPageReadEx.c)
  */
 
 __int64 __fastcall MiPageRead(

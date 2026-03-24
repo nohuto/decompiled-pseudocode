@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsAssociatedWithSystemVisual@CCrossChannelParentVisualMarshaler@DirectComposition@@MEAA_NVResourceHandle@@@Z @ 0x1C000D0D0
+ * XREFs of ?IsAssociatedWithSystemVisual@CCrossChannelParentVisualMarshaler@DirectComposition@@MEAA_NVResourceHandle@@@Z @ 0x1C01D4D70
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ bool __fastcall DirectComposition::CCrossChannelParentVisualMarshaler::IsAssocia
   __int64 v2; // r8
   bool result; // al
 
-  v2 = *(_QWORD *)(a1 + 376);
+  v2 = *(_QWORD *)(a1 + 368);
   result = 0;
   if ( v2 )
     return *(_DWORD *)(v2 + 8) == a2;

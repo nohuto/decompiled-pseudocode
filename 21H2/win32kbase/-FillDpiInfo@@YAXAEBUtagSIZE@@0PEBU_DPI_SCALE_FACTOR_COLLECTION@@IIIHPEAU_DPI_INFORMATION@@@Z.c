@@ -1,12 +1,12 @@
 /*
- * XREFs of ?FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C00D3520
+ * XREFs of ?FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C00C3BB8
  * Callers:
- *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0073714 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0011478 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
  * Callees:
- *     ?CalcDpiOverride@DpiInternal@@YA?AUtagSIZE@@AEBU2@0@Z @ 0x1C00D36A8 (-CalcDpiOverride@DpiInternal@@YA-AUtagSIZE@@AEBU2@0@Z.c)
- *     ?CalcDpi@DpiInternal@@YA?AUtagSIZE@@AEBU2@0@Z @ 0x1C00D3784 (-CalcDpi@DpiInternal@@YA-AUtagSIZE@@AEBU2@0@Z.c)
- *     ?RoundToNearestScaleFactor@@YAKIPEBU_DPI_SCALE_FACTOR_COLLECTION@@@Z @ 0x1C01728A0 (-RoundToNearestScaleFactor@@YAKIPEBU_DPI_SCALE_FACTOR_COLLECTION@@@Z.c)
- *     ?SatisfyMinResolutionBarForScaleIdx@DpiInternal@@YAKHHUtagSIZE@@QEBU_DPI_SCALE_FACTOR_COLLECTION@@H@Z @ 0x1C0172934 (-SatisfyMinResolutionBarForScaleIdx@DpiInternal@@YAKHHUtagSIZE@@QEBU_DPI_SCALE_FACTOR_COLLECTION.c)
+ *     ?CalcDpiOverride@DpiInternal@@YA?AUtagSIZE@@AEBU2@0@Z @ 0x1C00C3D30 (-CalcDpiOverride@DpiInternal@@YA-AUtagSIZE@@AEBU2@0@Z.c)
+ *     ?CalcDpi@DpiInternal@@YA?AUtagSIZE@@AEBU2@0@Z @ 0x1C00C3E0C (-CalcDpi@DpiInternal@@YA-AUtagSIZE@@AEBU2@0@Z.c)
+ *     ?RoundToNearestScaleFactor@@YAKIPEBU_DPI_SCALE_FACTOR_COLLECTION@@@Z @ 0x1C0145824 (-RoundToNearestScaleFactor@@YAKIPEBU_DPI_SCALE_FACTOR_COLLECTION@@@Z.c)
+ *     ?SatisfyMinResolutionBarForScaleIdx@DpiInternal@@YAKHHUtagSIZE@@QEBU_DPI_SCALE_FACTOR_COLLECTION@@H@Z @ 0x1C01458D0 (-SatisfyMinResolutionBarForScaleIdx@DpiInternal@@YAKHHUtagSIZE@@QEBU_DPI_SCALE_FACTOR_COLLECTION.c)
  */
 
 void __fastcall FillDpiInfo(
@@ -21,12 +21,17 @@ void __fastcall FillDpiInfo(
 {
   bool v8; // zf
   struct tagSIZE v13; // rax
-  unsigned int v14; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  unsigned int v16; // eax
   unsigned int cy; // edx
-  DpiInternal *v16; // rcx
-  const struct _DPI_SCALE_FACTOR_COLLECTION *v17; // [rsp+20h] [rbp-18h]
-  int v18; // [rsp+28h] [rbp-10h]
-  struct _DPI_INFORMATION *v19; // [rsp+78h] [rbp+40h]
+  __int64 v18; // rax
+  DpiInternal *v19; // rcx
+  __int64 v20; // rax
+  __int64 v21; // rax
+  const struct _DPI_SCALE_FACTOR_COLLECTION *v22; // [rsp+20h] [rbp-18h]
+  int v23; // [rsp+28h] [rbp-10h]
+  struct _DPI_INFORMATION *v24; // [rsp+78h] [rbp+40h]
 
   v8 = a1->cx == 0;
   a8[3] = *a1;
@@ -38,51 +43,62 @@ void __fastcall FillDpiInfo(
     v13 = a8[5];
   a8[6] = v13;
   a8[8].cx = 200;
-  LODWORD(v19) = 20000 * a8[5].cx / 0x6900u;
-  HIDWORD(v19) = 20000 * a8[5].cy / 0x6900u;
-  a8[7] = (struct tagSIZE)v19;
+  LODWORD(v24) = 20000 * a8[5].cx / 0x6900u;
+  HIDWORD(v24) = 20000 * a8[5].cy / 0x6900u;
+  a8[7] = (struct tagSIZE)v24;
+  v14 = (unsigned int)(((int)v24 + HIDWORD(v24)) >> 31);
   if ( a5 )
   {
     if ( !a6 )
-    {
-LABEL_8:
-      v14 = (100 * a5 + 48) / 0x60;
-      goto LABEL_9;
-    }
+      goto LABEL_8;
   }
   else if ( a6 )
   {
-LABEL_21:
-    v14 = RoundToNearestScaleFactor(a6, *(const struct _DPI_SCALE_FACTOR_COLLECTION **)&a3);
+LABEL_26:
+    v16 = RoundToNearestScaleFactor(a6, *(const struct _DPI_SCALE_FACTOR_COLLECTION **)&a3);
     a8[7].cy = a6;
     a8[7].cx = a6;
-    goto LABEL_9;
+    goto LABEL_10;
   }
-  WdLogSingleEntry0(1LL);
+  LODWORD(v14) = ((int)v24 + HIDWORD(v24)) % 2;
+  v18 = WdLogNewEntry5_WdAssertion(2LL, v14);
+  WdLogEvent5_WdAssertion(v18);
+LABEL_8:
   if ( a5 )
-    goto LABEL_8;
+  {
+    v15 = 100 * a5 + 48;
+    LODWORD(v14) = (2863311531u * (unsigned __int64)(unsigned int)v15) >> 32;
+    v16 = (unsigned int)v15 / 0x60;
+    goto LABEL_10;
+  }
   if ( a6 )
-    goto LABEL_21;
-  v16 = 0LL;
+    goto LABEL_26;
+  v19 = 0LL;
   if ( *(_DWORD *)(*(_QWORD *)&a3 + 8LL) != 1 )
   {
     do
     {
-      if ( (unsigned int)(((int)v19 + HIDWORD(v19)) / 2) < *(_DWORD *)(*(_QWORD *)(*(_QWORD *)&a3 + 24LL)
-                                                                     + 4LL * (_QWORD)v16) )
+      if ( (unsigned int)(((int)v24 + HIDWORD(v24)) / 2) < *(_DWORD *)(*(_QWORD *)(*(_QWORD *)&a3 + 24LL)
+                                                                     + 4LL * (_QWORD)v19) )
         break;
-      v16 = (DpiInternal *)(unsigned int)((_DWORD)v16 + 1);
+      v19 = (DpiInternal *)(unsigned int)((_DWORD)v19 + 1);
     }
-    while ( (unsigned int)v16 < *(_DWORD *)(*(_QWORD *)&a3 + 8LL) - 1 );
+    while ( (unsigned int)v19 < *(_DWORD *)(*(_QWORD *)&a3 + 8LL) - 1 );
   }
-  LODWORD(v17) = 0;
-  v14 = DpiInternal::SatisfyMinResolutionBarForScaleIdx(v16, 0, (int)*this, a3, v17, v18);
-LABEL_9:
-  a8[1].cy = v14;
-  if ( !v14 )
-    WdLogSingleEntry0(1LL);
+  LODWORD(v22) = 0;
+  v16 = DpiInternal::SatisfyMinResolutionBarForScaleIdx(v19, 0, (int)*this, a3, v22, v23);
+LABEL_10:
+  a8[1].cy = v16;
+  if ( !v16 )
+  {
+    v20 = WdLogNewEntry5_WdAssertion(v15, v14);
+    WdLogEvent5_WdAssertion(v20);
+  }
   if ( !a8[4].cx || !a8[4].cy )
-    WdLogSingleEntry0(1LL);
+  {
+    v21 = WdLogNewEntry5_WdAssertion(v15, v14);
+    WdLogEvent5_WdAssertion(v21);
+  }
   if ( a5 )
   {
     a8[10].cy = 1234569;

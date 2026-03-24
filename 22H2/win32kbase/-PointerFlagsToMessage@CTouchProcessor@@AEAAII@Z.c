@@ -1,17 +1,15 @@
 /*
- * XREFs of ?PointerFlagsToMessage@CTouchProcessor@@AEAAII@Z @ 0x1C01CDD20
+ * XREFs of ?PointerFlagsToMessage@CTouchProcessor@@AEAAII@Z @ 0x1C01978A8
  * Callers:
- *     ?DeterminePointerTargetWindow@CTouchProcessor@@AEAAXPEAUtagTHREADINFO@@PEAUCPointerInfoNode@@PEAUtagQ@@HPEAHPEAUtagPOINT@@PEAVCInputDest@@@Z @ 0x1C01C1508 (-DeterminePointerTargetWindow@CTouchProcessor@@AEAAXPEAUtagTHREADINFO@@PEAUCPointerInfoNode@@PEA.c)
- *     ?GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInputDest@@@Z @ 0x1C01C48FC (-GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInp.c)
+ *     ?DeterminePointerTargetWindow@CTouchProcessor@@AEAAXPEAUtagTHREADINFO@@PEAUCPointerInfoNode@@PEAUtagQ@@HPEAHPEAUtagPOINT@@PEAVCInputDest@@@Z @ 0x1C018D298 (-DeterminePointerTargetWindow@CTouchProcessor@@AEAAXPEAUtagTHREADINFO@@PEAUCPointerInfoNode@@PEA.c)
+ *     ?GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInputDest@@@Z @ 0x1C018FB6C (-GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInp.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_L @ 0x1C01DA938 (WPP_RECORDER_AND_TRACE_SF_L.c)
+ *     WPP_RECORDER_SF_L @ 0x1C01A131C (WPP_RECORDER_SF_L.c)
  */
 
 __int64 __fastcall CTouchProcessor::PointerFlagsToMessage(CTouchProcessor *this, int a2)
 {
-  bool v3; // al
-  _UNKNOWN **v4; // r8
-  void *v5; // rdx
+  char v3; // [rsp+28h] [rbp-10h]
 
   if ( (a2 & 0x10000) != 0 )
     return 582LL;
@@ -19,16 +17,11 @@ __int64 __fastcall CTouchProcessor::PointerFlagsToMessage(CTouchProcessor *this,
     return 583LL;
   if ( (a2 & 0x20000) != 0 )
     return 581LL;
-  v3 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 8) != 0
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u;
-  v4 = &WPP_RECORDER_INITIALIZED;
-  if ( v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v5 = &WPP_2c5ea56a6e6f31fa38ff36b2483c7d67_Traceguids;
-    LOBYTE(v5) = v3;
-    LOBYTE(v4) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_L(WPP_GLOBAL_Control->AttachedDevice, (_DWORD)v5, (_DWORD)v4, 289, 2);
+    v3 = a2;
+    LOBYTE(a2) = 2;
+    WPP_RECORDER_SF_L((_DWORD)this, a2, 7, 288, (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids, v3);
   }
   return 0LL;
 }

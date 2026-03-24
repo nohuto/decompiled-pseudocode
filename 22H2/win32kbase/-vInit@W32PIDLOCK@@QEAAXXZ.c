@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vInit@W32PIDLOCK@@QEAAXXZ @ 0x1C0078150
+ * XREFs of ?vInit@W32PIDLOCK@@QEAAXXZ @ 0x1C005B66C
  * Callers:
- *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C005ED70 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
+ *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C0027C60 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     Win32AllocPoolNonPaged @ 0x1C005C490 (Win32AllocPoolNonPaged.c)
  */
 
 void __fastcall W32PIDLOCK::vInit(W32PIDLOCK *this)
@@ -18,11 +18,7 @@ void __fastcall W32PIDLOCK::vInit(W32PIDLOCK *this)
   *((_DWORD *)this + 6) = 0;
   *((_DWORD *)this + 5) = 0;
   *((_QWORD *)this + 4) = 0LL;
-  v2 = (struct _KSEMAPHORE *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                               gpLeakTrackingAllocator,
-                               68LL,
-                               0x78uLL,
-                               0x6C323357u);
+  v2 = (struct _KSEMAPHORE *)Win32AllocPoolNonPaged(120LL, 1815229271LL);
   *((_QWORD *)this + 5) = v2;
   if ( v2 )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpCreateHeapEncoding @ 0x1405E8D90
+ * XREFs of RtlpCreateHeapEncoding @ 0x140589818
  * Callers:
- *     RtlCreateHeap @ 0x1407F3B40 (RtlCreateHeap.c)
+ *     RtlCreateHeap @ 0x140768B60 (RtlCreateHeap.c)
  * Callees:
- *     ExGenRandom @ 0x140363220 (ExGenRandom.c)
+ *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
  */
 
 __int64 __fastcall RtlpCreateHeapEncoding(__int64 a1)

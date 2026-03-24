@@ -1,53 +1,48 @@
 /*
- * XREFs of PspSetJobFreezeCountCallback @ 0x14036B6D0
+ * XREFs of PspSetJobFreezeCountCallback @ 0x140328C70
  * Callers:
  *     <none>
  * Callees:
- *     PspComputeExecutionState @ 0x1406A70DC (PspComputeExecutionState.c)
+ *     <none>
  */
 
-__int64 __fastcall PspSetJobFreezeCountCallback(_DWORD *a1, __int64 *a2)
+__int64 __fastcall PspSetJobFreezeCountCallback(__int64 a1, _DWORD *a2)
 {
-  __int64 v3; // rdx
+  int v3; // eax
   int v4; // eax
-  int v5; // r9d
+  __int64 v5; // rdx
   int v6; // eax
-  int v7; // eax
-  int v8; // eax
-  int v9; // eax
+  int v7; // edx
+  int v8; // ecx
+  __int64 result; // rax
   int v10; // eax
-  char v11; // al
-  __int64 v12; // r10
+  int v11; // eax
 
-  v3 = *a2;
-  if ( (*(_DWORD *)v3 & 1) != 0 )
+  if ( (**(_DWORD **)a2 & 1) != 0 )
   {
-    v4 = a1[262];
-    v5 = v4 - 1;
-    v6 = v4 + 1;
-    if ( !*(_BYTE *)(v3 + 4) )
-      v6 = v5;
-    a1[262] = v6;
-    if ( (*(_DWORD *)*a2 & 8) == 0 )
-    {
-      v7 = a1[263];
-      if ( *(_BYTE *)(*a2 + 4) )
-        v8 = v7 + 1;
-      else
-        v8 = v7 - 1;
-      a1[263] = v8;
-    }
-  }
-  if ( (*(_DWORD *)*a2 & 4) != 0 )
-  {
-    v9 = a1[265];
-    if ( *(_BYTE *)(*a2 + 5) )
-      v10 = v9 + 1;
+    v3 = *(_DWORD *)(a1 + 856);
+    if ( *(_BYTE *)(*(_QWORD *)a2 + 4LL) )
+      v4 = v3 + 1;
     else
-      v10 = v9 - 1;
-    a1[265] = v10;
+      v4 = v3 - 1;
+    *(_DWORD *)(a1 + 856) = v4;
   }
-  v11 = PspComputeExecutionState();
-  *(_BYTE *)(v12 + 8) = v11;
-  return 0LL;
+  v5 = *(_QWORD *)a2;
+  if ( (*(_DWORD *)v5 & 4) != 0 )
+  {
+    v10 = *(_DWORD *)(a1 + 864);
+    if ( *(_BYTE *)(v5 + 5) )
+      v11 = v10 + 1;
+    else
+      v11 = v10 - 1;
+    *(_DWORD *)(a1 + 864) = v11;
+  }
+  v6 = *(_DWORD *)(a1 + 856);
+  v7 = *(_DWORD *)(a1 + 864) != 0 ? 2 : 0;
+  v8 = v7 | 1;
+  if ( !v6 )
+    v8 = v7;
+  result = 0LL;
+  a2[2] = v8;
+  return result;
 }

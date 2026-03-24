@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vTransparentCopyS24D32@@YAXPEAUBLTINFO@@@Z @ 0x1C0296B50
+ * XREFs of ?vTransparentCopyS24D32@@YAXPEAUBLTINFO@@@Z @ 0x1C014FC60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C02DCAF8 (-pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ.c)
+ *     ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C014FD54 (-pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vTransparentCopyS24D32(struct BLTINFO *a1)
@@ -13,11 +13,11 @@ void __fastcall vTransparentCopyS24D32(struct BLTINFO *a1)
   int v3; // ebp
   __int64 v4; // rsi
   _DWORD *v5; // rdi
-  _DWORD *v6; // r14
+  int v6; // eax
   int v7; // r12d
-  unsigned __int8 *v8; // r15
-  int v9; // eax
-  int v10; // edx
+  int v8; // edx
+  unsigned __int8 *v9; // r15
+  _DWORD *v10; // r14
   int v11; // [rsp+78h] [rbp+10h]
   __int64 v12; // [rsp+80h] [rbp+18h]
   unsigned int (*v13)(struct _XLATEOBJ *, unsigned int); // [rsp+88h] [rbp+20h]
@@ -32,20 +32,20 @@ void __fastcall vTransparentCopyS24D32(struct BLTINFO *a1)
   while ( v3 )
   {
     --v3;
-    v6 = v5;
+    v10 = v5;
     v7 = v1;
     if ( v1 )
     {
-      v8 = (unsigned __int8 *)(v4 + 1);
+      v9 = (unsigned __int8 *)(v4 + 1);
       do
       {
-        v9 = *v8;
+        v6 = *v9;
         --v7;
-        v10 = v8[1];
-        v8 += 3;
-        if ( (*(v8 - 4) | ((v9 | (v10 << 8)) << 8)) != *((_DWORD *)a1 + 37) )
-          *v6 = ((__int64 (__fastcall *)(__int64))v13)(v12);
-        ++v6;
+        v8 = v9[1];
+        v9 += 3;
+        if ( (*(v9 - 4) | ((v6 | (v8 << 8)) << 8)) != *((_DWORD *)a1 + 37) )
+          *v10 = ((__int64 (__fastcall *)(__int64))v13)(v12);
+        ++v10;
       }
       while ( v7 );
       v1 = v11;

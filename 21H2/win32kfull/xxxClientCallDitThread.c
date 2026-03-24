@@ -1,92 +1,111 @@
 /*
- * XREFs of xxxClientCallDitThread @ 0x1C00771C8
+ * XREFs of xxxClientCallDitThread @ 0x1C0050CD8
  * Callers:
- *     ClientCallDitThread @ 0x1C00773E0 (ClientCallDitThread.c)
+ *     ClientCallDitThread @ 0x1C0050CC0 (ClientCallDitThread.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A08 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A3C (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C0052354 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005240C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00524D0 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052508 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall xxxClientCallDitThread(__int64 a1, __int128 *a2, __int128 *a3)
 {
   int v4; // ebx
   __int64 *v5; // rcx
-  __int64 v6; // rbx
-  __int64 v7; // rcx
-  __int128 *v8; // rcx
-  __int128 v9; // xmm1
-  __int128 v10; // xmm2
-  __int128 v11; // xmm3
-  __int128 v12; // xmm4
-  __int128 v13; // xmm5
-  __int128 v14; // xmm6
-  _BYTE v16[4]; // [rsp+30h] [rbp-128h] BYREF
-  int v17; // [rsp+34h] [rbp-124h] BYREF
-  _QWORD v18[5]; // [rsp+38h] [rbp-120h] BYREF
-  __int64 v19; // [rsp+60h] [rbp-F8h] BYREF
-  __int128 v20; // [rsp+68h] [rbp-F0h]
-  __int128 v21; // [rsp+78h] [rbp-E0h]
-  __int128 v22; // [rsp+88h] [rbp-D0h]
-  __int128 v23; // [rsp+98h] [rbp-C0h]
-  __int128 v24; // [rsp+A8h] [rbp-B0h]
-  __int128 v25; // [rsp+B8h] [rbp-A0h]
-  __int128 v26; // [rsp+C8h] [rbp-90h]
-  __int128 v27; // [rsp+D8h] [rbp-80h]
-  __int128 v28; // [rsp+E8h] [rbp-70h]
-  __int128 v29; // [rsp+F8h] [rbp-60h]
-  __int128 v30; // [rsp+108h] [rbp-50h]
-  __int128 v31; // [rsp+118h] [rbp-40h]
+  __int64 v6; // r8
+  __int64 v7; // rdx
+  ULONG64 v8; // rcx
+  __int128 v9; // xmm3
+  __int128 v10; // xmm4
+  __int128 v11; // xmm5
+  __int128 v12; // xmm6
+  __int128 v13; // xmm7
+  __int128 v14; // xmm8
+  __int64 v15; // xmm0_8
+  char v17; // [rsp+30h] [rbp-188h] BYREF
+  _BYTE v18[3]; // [rsp+31h] [rbp-187h] BYREF
+  int v19; // [rsp+34h] [rbp-184h] BYREF
+  _QWORD v20[5]; // [rsp+38h] [rbp-180h] BYREF
+  __int64 v21; // [rsp+60h] [rbp-158h] BYREF
+  __int128 v22; // [rsp+68h] [rbp-150h]
+  __int128 v23; // [rsp+78h] [rbp-140h]
+  __int128 v24; // [rsp+88h] [rbp-130h]
+  __int128 v25; // [rsp+98h] [rbp-120h]
+  __int128 v26; // [rsp+A8h] [rbp-110h]
+  __int128 v27; // [rsp+B8h] [rbp-100h]
+  __int128 v28; // [rsp+C8h] [rbp-F0h]
+  __int128 v29; // [rsp+D8h] [rbp-E0h]
+  __int128 v30; // [rsp+E8h] [rbp-D0h]
+  __int128 v31; // [rsp+F8h] [rbp-C0h]
+  __int128 v32; // [rsp+108h] [rbp-B0h]
+  __int128 v33; // [rsp+118h] [rbp-A0h]
+  __int128 v34; // [rsp+128h] [rbp-90h]
+  __int128 v35; // [rsp+138h] [rbp-80h]
+  __int128 v36; // [rsp+148h] [rbp-70h]
+  __int128 v37; // [rsp+158h] [rbp-60h]
+  __int64 v38; // [rsp+168h] [rbp-50h]
 
-  v18[0] = 0LL;
-  v17 = 0;
-  v19 = a1;
-  v20 = *a2;
-  v21 = a2[1];
-  v22 = a2[2];
-  v23 = a2[3];
-  v24 = a2[4];
-  v25 = *a3;
-  v26 = a3[1];
-  v27 = a3[2];
-  v28 = a3[3];
-  v29 = a3[4];
-  v30 = a3[5];
-  v31 = a3[6];
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v16);
+  v20[0] = 0LL;
+  v19 = 0;
+  v21 = a1;
+  v22 = *a2;
+  v23 = a2[1];
+  v24 = a2[2];
+  v25 = a2[3];
+  v26 = a2[4];
+  v27 = a2[5];
+  v28 = a2[6];
+  v29 = a2[7];
+  v30 = a2[8];
+  v31 = *a3;
+  v32 = a3[1];
+  v33 = a3[2];
+  v34 = a3[3];
+  v35 = a3[4];
+  v36 = a3[5];
+  v37 = a3[6];
+  v38 = *((_QWORD *)a3 + 14);
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v18);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v17);
   EtwTraceBeginCallback(56LL);
-  v4 = KeUserModeCallback(56LL, &v19, 200LL, v18, &v17);
+  v4 = KeUserModeCallback(56LL, &v21, 272LL, v20, &v19);
   EtwTraceEndCallback(56LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v16);
-  if ( v4 < 0 || v17 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v17);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v18);
+  if ( v4 < 0 || v19 != 24 )
     return 0LL;
-  v5 = (__int64 *)v18[0];
-  if ( (unsigned __int64)(v18[0] + 8LL) < v18[0] || v18[0] + 8LL > MmUserProbeAddress )
+  v5 = (__int64 *)v20[0];
+  if ( (unsigned __int64)(v20[0] + 8LL) < v20[0] || v20[0] + 8LL > MmUserProbeAddress )
     v5 = (__int64 *)MmUserProbeAddress;
   v6 = *v5;
-  v18[1] = *v5;
-  v7 = *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 512);
+  v20[1] = *v5;
+  v7 = *(_QWORD *)(gptiCurrent + 512LL);
   if ( v7 )
   {
     if ( (*(_DWORD *)(v7 + 84) & 1) != 0 && *(__int128 **)(v7 + 96) == a3 )
       return 0LL;
   }
-  v8 = *(__int128 **)(v18[0] + 16LL);
-  if ( v8 + 7 < v8 || (unsigned __int64)(v8 + 7) > MmUserProbeAddress )
-    v8 = (__int128 *)MmUserProbeAddress;
-  v9 = v8[1];
-  v10 = v8[2];
-  v11 = v8[3];
-  v12 = v8[4];
-  v13 = v8[5];
-  v14 = v8[6];
-  *a3 = *v8;
+  v8 = *(_QWORD *)(v20[0] + 16LL);
+  if ( v8 + 120 < v8 || v8 + 120 > MmUserProbeAddress )
+    v8 = MmUserProbeAddress;
+  v9 = *(_OWORD *)(v8 + 16);
+  v10 = *(_OWORD *)(v8 + 32);
+  v11 = *(_OWORD *)(v8 + 48);
+  v12 = *(_OWORD *)(v8 + 64);
+  v13 = *(_OWORD *)(v8 + 80);
+  v14 = *(_OWORD *)(v8 + 96);
+  v15 = *(_QWORD *)(v8 + 112);
+  *a3 = *(_OWORD *)v8;
   a3[1] = v9;
   a3[2] = v10;
   a3[3] = v11;
   a3[4] = v12;
   a3[5] = v13;
   a3[6] = v14;
+  *((_QWORD *)a3 + 14) = v15;
   return (unsigned int)v6;
 }

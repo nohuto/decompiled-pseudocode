@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBMISC_QueryAndCacheRegistryValuesForDevice @ 0x1C0082134
+ * XREFs of HUBMISC_QueryAndCacheRegistryValuesForDevice @ 0x1C007C6B4
  * Callers:
- *     HUBDSM_QueryingRegistryValuesForDevice @ 0x1C0021270 (HUBDSM_QueryingRegistryValuesForDevice.c)
+ *     HUBDSM_QueryingRegistryValuesForDevice @ 0x1C001E9D0 (HUBDSM_QueryingRegistryValuesForDevice.c)
  * Callees:
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
- *     HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C0033DDC (HUBMISC_ConvertUsbDeviceIdsToString.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     HUBREG_QueryUsbHardwareVerifierValue @ 0x1C0082D58 (HUBREG_QueryUsbHardwareVerifierValue.c)
- *     HUBREG_QueryUsbflagsValuesForDevice @ 0x1C0083478 (HUBREG_QueryUsbflagsValuesForDevice.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001870 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C0030EE4 (HUBMISC_ConvertUsbDeviceIdsToString.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     HUBREG_QueryUsbHardwareVerifierValue @ 0x1C007D2C0 (HUBREG_QueryUsbHardwareVerifierValue.c)
+ *     HUBREG_QueryUsbflagsValuesForDevice @ 0x1C007DA10 (HUBREG_QueryUsbflagsValuesForDevice.c)
  */
 
 __int64 __fastcall HUBMISC_QueryAndCacheRegistryValuesForDevice(__int64 a1)
@@ -35,7 +35,7 @@ __int64 __fastcall HUBMISC_QueryAndCacheRegistryValuesForDevice(__int64 a1)
   if ( UsbflagsValuesForDevice < 0 )
   {
     *(_DWORD *)(a1 + 2432) = 1073807366;
-    if ( SLOBYTE(WPP_MAIN_CB.Queue.Wcb.NumberOfChannels) < 0 )
+    if ( SLOBYTE(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) < 0 )
     {
       LODWORD(v6) = UsbflagsValuesForDevice;
       McTemplateK0pq_EtwWriteTransfer(

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCreateControlSet @ 0x140B2C540
+ * XREFs of CmpCreateControlSet @ 0x140A58080
  * Callers:
- *     CmInitSystem1 @ 0x140B15F88 (CmInitSystem1.c)
- *     CmpCreateExtendedControlSets @ 0x140B30CA4 (CmpCreateExtendedControlSets.c)
+ *     CmpCreateExtendedControlSets @ 0x140A584D0 (CmpCreateExtendedControlSets.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1402D17BC (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
+ *     RtlUnicodeStringPrintf @ 0x14036EF9C (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall CmpCreateControlSet(__int64 a1, char a2)
@@ -34,8 +34,8 @@ __int64 __fastcall CmpCreateControlSet(__int64 a1, char a2)
   DestinationString.Buffer = (wchar_t *)v16;
   KeyHandle = 0LL;
   v11 = 0LL;
-  memset(&ObjectAttributes, 0, 44);
   Handle = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   Data = 0;
   ValueKey = RtlUnicodeStringPrintf(&DestinationString, L"\\Registry\\Machine\\%ws", a1);
   if ( ValueKey >= 0 )

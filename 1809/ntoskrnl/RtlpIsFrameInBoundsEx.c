@@ -4,8 +4,8 @@
  *     RtlpWalkFrameChain @ 0x14009EB90 (RtlpWalkFrameChain.c)
  *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
  * Callees:
- *     KeQueryCurrentStackInformation @ 0x1400CAB30 (KeQueryCurrentStackInformation.c)
- *     KeGetNextKernelStackSegment @ 0x14013D358 (KeGetNextKernelStackSegment.c)
+ *     KeQueryCurrentStackInformation @ 0x1400CAB50 (KeQueryCurrentStackInformation.c)
+ *     KeGetNextKernelStackSegment @ 0x14013D378 (KeGetNextKernelStackSegment.c)
  */
 
 char __fastcall RtlpIsFrameInBoundsEx(

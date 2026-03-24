@@ -1,17 +1,17 @@
 /*
- * XREFs of AMLICreateNativeNamespaceObject @ 0x1C0049A18
+ * XREFs of AMLICreateNativeNamespaceObject @ 0x1C0064348
  * Callers:
- *     AcpiReflectNativeObject @ 0x1C0037DA0 (AcpiReflectNativeObject.c)
+ *     AcpiReflectNativeObject @ 0x1C005B8A0 (AcpiReflectNativeObject.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     CreateNativeNameSpaceObject @ 0x1C0049D58 (CreateNativeNameSpaceObject.c)
- *     AMLIGetValidNamespaceName @ 0x1C004ABC8 (AMLIGetValidNamespaceName.c)
- *     FreeObjData @ 0x1C004B564 (FreeObjData.c)
- *     NewObjData @ 0x1C004C1BC (NewObjData.c)
- *     CreateNameSpaceObject @ 0x1C004F12C (CreateNameSpaceObject.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
- *     GetNameSpaceObject @ 0x1C004F748 (GetNameSpaceObject.c)
+ *     FreeObjData @ 0x1C00033D0 (FreeObjData.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     NewObjData @ 0x1C000A9E8 (NewObjData.c)
+ *     GetNameSpaceObject @ 0x1C002183C (GetNameSpaceObject.c)
+ *     CreateNativeNameSpaceObject @ 0x1C0022FC4 (CreateNativeNameSpaceObject.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     AMLIGetValidNamespaceName @ 0x1C0064F8C (AMLIGetValidNamespaceName.c)
  */
 
 __int64 __fastcall AMLICreateNativeNamespaceObject(
@@ -22,103 +22,114 @@ __int64 __fastcall AMLICreateNativeNamespaceObject(
         unsigned int a5,
         _BYTE *a6)
 {
-  _BYTE *v9; // rdi
+  unsigned __int64 v6; // rdi
+  _BYTE *v7; // rsi
   int valid; // ebx
-  __int64 v11; // r14
-  _BYTE *v12; // rax
+  __int64 v12; // r14
+  _BYTE *v13; // rax
   int NameSpaceObject; // eax
-  __int16 v14; // cx
-  __int64 v15; // rdx
-  __int64 v16; // rdx
-  __int64 v18; // rcx
+  __int64 v15; // r9
+  unsigned __int64 v16; // rdi
+  __int16 v17; // cx
   __int128 v19; // xmm1
-  __int64 v20; // [rsp+48h] [rbp-29h] BYREF
-  __int64 v21; // [rsp+50h] [rbp-21h]
-  __int128 v22; // [rsp+58h] [rbp-19h] BYREF
-  __int128 v23; // [rsp+68h] [rbp-9h]
-  _BYTE *v24; // [rsp+78h] [rbp+7h]
+  __int64 v20; // [rsp+28h] [rbp-49h]
+  __int64 v21; // [rsp+30h] [rbp-41h]
+  __int64 v22; // [rsp+38h] [rbp-39h]
+  unsigned __int64 v23; // [rsp+48h] [rbp-29h] BYREF
+  unsigned __int64 v24; // [rsp+50h] [rbp-21h] BYREF
+  __int128 v25; // [rsp+58h] [rbp-19h] BYREF
+  __int128 v26; // [rsp+68h] [rbp-9h]
+  _BYTE *v27; // [rsp+78h] [rbp+7h]
   int Src; // [rsp+80h] [rbp+Fh] BYREF
-  char v26; // [rsp+84h] [rbp+13h]
+  char v29; // [rsp+84h] [rbp+13h]
 
-  v21 = 0LL;
-  v20 = 0LL;
-  v9 = 0LL;
+  v24 = 0LL;
+  v6 = 0LL;
+  v7 = 0LL;
+  v23 = 0LL;
   if ( ((a1 - 6) & 0xFFFFFFFD) != 0 )
     return (unsigned int)-1073741637;
   Src = a2;
-  v26 = 0;
+  v29 = 0;
   valid = AMLIGetValidNamespaceName(&Src, 0LL);
   if ( valid < 0 )
     return (unsigned int)valid;
-  v11 = *a3;
-  if ( !v11 )
+  v12 = *a3;
+  if ( !v12 )
     return (unsigned int)-1073741823;
-  v24 = 0LL;
-  v22 = 0LL;
-  WORD1(v22) = 8;
-  v23 = 0LL;
-  DWORD2(v23) = 200;
+  v27 = 0LL;
+  v25 = 0LL;
+  WORD1(v25) = 8;
+  v26 = 0LL;
+  DWORD2(v26) = 200;
   if ( a1 == 8 )
   {
     if ( a4 > 7 || a5 > 1 )
       return (unsigned int)-1073741637;
-    v12 = (_BYTE *)NewObjData(gpheapGlobal, &v22);
-    v9 = v12;
-    if ( !v12 )
+    v13 = (_BYTE *)NewObjData((struct _SLIST_ENTRY *)gpheapGlobal, (__int64)&v25);
+    v7 = v13;
+    if ( !v13 )
       return (unsigned int)-1073741670;
-    memset(v12, 0, 0xC8uLL);
+    memset(v13, 0, 0xC8uLL);
   }
   *a6 = 0;
-  NameSpaceObject = GetNameSpaceObject(&Src);
+  NameSpaceObject = GetNameSpaceObject(&Src, v12, (__int64 *)&v24, 0);
   valid = NameSpaceObject;
   if ( NameSpaceObject < 0 )
   {
     if ( NameSpaceObject != -1073741772 )
-      goto LABEL_19;
-    valid = CreateNameSpaceObject(gpheapGlobal, &Src, v11, gpNativeNameSpaceOwner, &v20, 0x20000);
+      goto LABEL_26;
+    valid = CreateNameSpaceObject(
+              gpheapGlobal,
+              (unsigned __int8 *)&Src,
+              v12,
+              (struct _EX_RUNDOWN_REF *)gpNativeNameSpaceOwner,
+              &v23,
+              0x20000);
   }
   else
   {
-    if ( a1 != 8 || (v14 = *(_WORD *)(v21 + 66), (unsigned __int16)(v14 - 1) > 3u) && v14 != 8 )
+    if ( a1 != 8 || (v16 = v24, v17 = *(_WORD *)(v24 + 66), (unsigned __int16)(v17 - 1) > 3u) && v17 != 8 )
     {
       valid = -1073741823;
       goto LABEL_19;
     }
-    if ( (*(_WORD *)(v21 + 64) & 0x180) != 0 )
+    if ( (*(_WORD *)(v24 + 64) & 0x180) != 0 )
     {
       valid = -1073741823;
       *a6 = 1;
       goto LABEL_19;
     }
-    valid = CreateNativeNameSpaceObject(384LL, &Src, v11);
-    DereferenceObjectEx(v21, v15);
+    valid = CreateNativeNameSpaceObject(384LL, &Src, v12, v15, v20, v21, v22, (__int64 *)&v23);
+    DereferenceObjectEx(v16);
   }
+  v6 = v23;
+LABEL_26:
   if ( valid >= 0 )
   {
-    v18 = v20;
     if ( a1 == 8 )
     {
-      v19 = v23;
-      *(_OWORD *)(v20 + 64) = v22;
-      *(_OWORD *)(v18 + 80) = v19;
-      *(_QWORD *)(v18 + 96) = v9;
-      v9[193] = a4 & 7;
+      v19 = v26;
+      *(_OWORD *)(v6 + 64) = v25;
+      *(_OWORD *)(v6 + 80) = v19;
+      *(_QWORD *)(v6 + 96) = v7;
+      v7[193] = a4 & 7;
       if ( a5 )
-        v9[192] = 1;
+        v7[192] = 1;
     }
     else
     {
-      *(_WORD *)(v20 + 66) = 6;
+      *(_WORD *)(v6 + 66) = 6;
     }
-    *(_WORD *)(v18 + 64) |= 0x200u;
-    DereferenceObjectEx(v18, v16);
+    *(_WORD *)(v6 + 64) |= 0x200u;
+    DereferenceObjectEx(v6);
     return (unsigned int)valid;
   }
 LABEL_19:
-  if ( v9 )
+  if ( v7 )
   {
-    v24 = v9;
-    FreeObjData(&v22);
+    v27 = v7;
+    FreeObjData((__int64)&v25);
   }
   return (unsigned int)valid;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of Do6251 @ 0x1C0264E0C
+ * XREFs of Do6251 @ 0x1C026785C
  * Callers:
- *     FastExpAA_CY @ 0x1C0266D60 (FastExpAA_CY.c)
+ *     FastExpAA_CY @ 0x1C02697C0 (FastExpAA_CY.c)
  * Callees:
  *     <none>
  */

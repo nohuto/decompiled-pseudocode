@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpPreallocatePageListResources @ 0x140817C48
+ * XREFs of HvlpPreallocatePageListResources @ 0x140817C28
  * Callers:
- *     PopPreallocateHibernateMemory @ 0x1407464EC (PopPreallocateHibernateMemory.c)
+ *     PopPreallocateHibernateMemory @ 0x1407464CC (PopPreallocateHibernateMemory.c)
  * Callees:
- *     MmAllocateIndependentPages @ 0x140108F80 (MmAllocateIndependentPages.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MmAllocateIndependentPages @ 0x140108FA0 (MmAllocateIndependentPages.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 HvlpPreallocatePageListResources()

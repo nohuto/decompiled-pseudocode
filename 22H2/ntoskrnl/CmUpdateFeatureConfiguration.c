@@ -1,48 +1,38 @@
 /*
- * XREFs of CmUpdateFeatureConfiguration @ 0x140A11EDC
+ * XREFs of CmUpdateFeatureConfiguration @ 0x14086B380
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x140231630 (SeAccessCheck.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     CmpAllocatePoolWithQuota @ 0x1406165E8 (CmpAllocatePoolWithQuota.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A26ECC (CmFcManagerOverwriteFeatureConfigurationSection.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140A273A0 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SeAccessCheck @ 0x140206720 (SeAccessCheck.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     CmpAllocatePoolWithQuotaTag @ 0x1404ECD50 (CmpAllocatePoolWithQuotaTag.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD54 (CmFcManagerUpdateFeatureConfigurations.c)
  */
 
 __int64 __fastcall CmUpdateFeatureConfiguration(void *Src, size_t Size, KPROCESSOR_MODE AccessMode)
 {
-  size_t v4; // r14
-  unsigned int *v6; // rdi
-  struct _PRIVILEGE_SET *v7; // rsi
-  BOOLEAN v8; // bl
-  unsigned int v9; // ebx
-  unsigned int *PoolWithQuota; // rax
-  __int64 v11; // rcx
-  unsigned __int64 v12; // rax
-  unsigned __int64 v13; // rdx
-  __int64 v14; // rdx
-  struct _PRIVILEGE_SET *v15; // rax
-  unsigned int updated; // eax
-  unsigned __int64 v17; // rax
-  int v18; // ecx
-  ACCESS_MASK GrantedAccess; // [rsp+60h] [rbp-68h] BYREF
-  unsigned int *v21; // [rsp+68h] [rbp-60h]
-  struct _SECURITY_SUBJECT_CONTEXT SubjectSecurityContext; // [rsp+88h] [rbp-40h] BYREF
-  NTSTATUS AccessStatus; // [rsp+E8h] [rbp+20h] BYREF
+  SIZE_T v4; // rsi
+  struct _PRIVILEGE_SET *v6; // rdi
+  BOOLEAN v7; // bl
+  unsigned int updated; // ebx
+  struct _PRIVILEGE_SET *PoolWithQuotaTag; // rax
+  unsigned __int64 v10; // rax
+  int v11; // ecx
+  ACCESS_MASK GrantedAccess[3]; // [rsp+54h] [rbp-44h] BYREF
+  struct _PRIVILEGE_SET *v14; // [rsp+60h] [rbp-38h]
+  struct _SECURITY_SUBJECT_CONTEXT SubjectSecurityContext; // [rsp+68h] [rbp-30h] BYREF
+  NTSTATUS AccessStatus; // [rsp+B8h] [rbp+20h] BYREF
 
   v4 = (unsigned int)Size;
   AccessStatus = 0;
-  GrantedAccess = 0;
+  GrantedAccess[0] = 0;
   memset(&SubjectSecurityContext, 0, sizeof(SubjectSecurityContext));
   v6 = 0LL;
-  v7 = 0LL;
   SeCaptureSubjectContext(&SubjectSecurityContext);
-  v8 = SeAccessCheck(
+  v7 = SeAccessCheck(
          CmFcFeatureConfigSecurityDescriptor,
          &SubjectSecurityContext,
          0,
@@ -51,93 +41,51 @@ __int64 __fastcall CmUpdateFeatureConfiguration(void *Src, size_t Size, KPROCESS
          0LL,
          &CmFcFeatureConfigMapping,
          AccessMode,
-         &GrantedAccess,
+         GrantedAccess,
          &AccessStatus);
   SeReleaseSubjectContext(&SubjectSecurityContext);
-  if ( !v8 )
+  if ( !v7 )
   {
-    v9 = AccessStatus;
-    goto LABEL_29;
+    updated = AccessStatus;
+    goto LABEL_13;
   }
-  if ( (unsigned int)v4 < 4 )
+  if ( (unsigned int)v4 < 0x10 )
     goto LABEL_4;
-  PoolWithQuota = (unsigned int *)CmpAllocatePoolWithQuota(256LL, v4, 1665559875LL);
-  v6 = PoolWithQuota;
-  v21 = PoolWithQuota;
-  if ( !PoolWithQuota )
-    goto LABEL_6;
-  memmove(PoolWithQuota, Src, v4);
-  v11 = *v6;
-  if ( (_DWORD)v11 )
+  PoolWithQuotaTag = (struct _PRIVILEGE_SET *)CmpAllocatePoolWithQuotaTag(1, v4, 0x63466D43u);
+  v6 = PoolWithQuotaTag;
+  v14 = PoolWithQuotaTag;
+  if ( PoolWithQuotaTag )
   {
-    if ( (_DWORD)v11 != 1 )
-      goto LABEL_28;
-    if ( (_DWORD)v4 == 40 )
+    memmove(PoolWithQuotaTag, Src, v4);
+    v10 = 32LL * (unsigned int)v6->Privilege[0].Luid.HighPart;
+    if ( v10 > 0xFFFFFFFF )
+      goto LABEL_12;
+    v11 = v10 + 16;
+    if ( (int)v10 + 16 < (unsigned int)v10 )
+      goto LABEL_12;
+    if ( v11 != (_DWORD)v4 )
     {
-      if ( v6[4] == 1 )
-      {
-        if ( AccessMode )
-        {
-          v11 = *((_QWORD *)v6 + 3);
-          if ( v11 )
-          {
-            v12 = *((_QWORD *)v6 + 4);
-            if ( (v12 & 3) != 0 )
-              ExRaiseDatatypeMisalignment();
-            v13 = v12 + v11;
-            v11 = 0x7FFFFFFF0000LL;
-            if ( v13 > 0x7FFFFFFF0000LL || v13 < v12 )
-              MEMORY[0x7FFFFFFF0000] = 0;
-          }
-        }
-        v14 = *((_QWORD *)v6 + 3);
-        if ( v14 )
-        {
-          v15 = (struct _PRIVILEGE_SET *)CmpAllocatePoolWithQuota(256LL, v14, 1665559875LL);
-          v7 = v15;
-          if ( !v15 )
-          {
-LABEL_6:
-            v9 = -1073741670;
-            goto LABEL_29;
-          }
-          memmove(v15, *((const void **)v6 + 4), *((_QWORD *)v6 + 3));
-        }
-        updated = CmFcManagerOverwriteFeatureConfigurationSection(
-                    v11,
-                    *((_QWORD *)v6 + 1),
-                    v6[4],
-                    v7,
-                    *((_QWORD *)v6 + 3));
-        goto LABEL_27;
-      }
-      goto LABEL_28;
-    }
 LABEL_4:
-    v9 = -1073741820;
-    goto LABEL_29;
+      updated = -1073741820;
+      goto LABEL_13;
+    }
+    if ( v6->Privilege[0].Luid.LowPart == 1 )
+      updated = CmFcManagerUpdateFeatureConfigurations(
+                  v11,
+                  *(_QWORD *)&v6->PrivilegeCount,
+                  1,
+                  (int)v6 + 16,
+                  v6->Privilege[0].Luid.HighPart);
+    else
+LABEL_12:
+      updated = -1073741811;
   }
-  v17 = 32LL * v6[5];
-  if ( v17 > 0xFFFFFFFF )
-    goto LABEL_28;
-  v18 = v17 + 24;
-  if ( (int)v17 + 24 < (unsigned int)v17 )
-    goto LABEL_28;
-  if ( v18 != (_DWORD)v4 )
-    goto LABEL_4;
-  if ( v6[4] == 1 )
+  else
   {
-    updated = CmFcManagerUpdateFeatureConfigurations(v18, *((_QWORD *)v6 + 1), 1, (int)v6 + 24, v6[5]);
-LABEL_27:
-    v9 = updated;
-    goto LABEL_29;
+    updated = -1073741670;
   }
-LABEL_28:
-  v9 = -1073741811;
-LABEL_29:
+LABEL_13:
   if ( v6 )
-    CmSiFreeMemory((PPRIVILEGE_SET)v6);
-  if ( v7 )
-    CmSiFreeMemory(v7);
-  return v9;
+    CmSiFreeMemory(v6);
+  return updated;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PfpMemoryListQuery @ 0x140160AC0
+ * XREFs of PfpMemoryListQuery @ 0x140160AE0
  * Callers:
  *     PfQuerySuperfetchInformation @ 0x140629AD0 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     MmQueryMemoryListInformation @ 0x1400A89B0 (MmQueryMemoryListInformation.c)
+ *     MmQueryMemoryListInformation @ 0x1400A89D0 (MmQueryMemoryListInformation.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
  */
 

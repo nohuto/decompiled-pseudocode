@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpLogSessionWorkingSetInfo @ 0x1409E3490
+ * XREFs of EtwpLogSessionWorkingSetInfo @ 0x140937004
  * Callers:
- *     EtwpLogMemInfoWs @ 0x1409E2E90 (EtwpLogMemInfoWs.c)
+ *     EtwpLogMemInfoWs @ 0x140936A0C (EtwpLogMemInfoWs.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MmQuerySessionWorkingSetInformation @ 0x140597590 (MmQuerySessionWorkingSetInformation.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MmQuerySessionWorkingSetInformation @ 0x14053C834 (MmQuerySessionWorkingSetInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpLogSessionWorkingSetInfo(__int64 a1)
 {
   void *v2; // rbx
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   char *v4; // rdi
   unsigned int v5; // eax
   __int64 i; // r9
@@ -37,15 +37,15 @@ void __fastcall EtwpLogSessionWorkingSetInfo(__int64 a1)
   {
     if ( v2 )
       ExFreePoolWithTag(v2, 0);
-    Pool2 = ExAllocatePool2(64LL, 40 * v13, 1953985605LL);
-    v2 = (void *)Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 40 * v13, 0x74777445u);
+    v2 = PoolWithTag;
+    if ( !PoolWithTag )
       break;
-    if ( (unsigned int)MmQuerySessionWorkingSetInformation(Pool2, &v13) != -1073741820 )
+    if ( (unsigned int)MmQuerySessionWorkingSetInformation((__int64)PoolWithTag, &v13) != -1073741820 )
     {
       if ( v13 )
       {
-        v4 = (char *)ExAllocatePool2(64LL, 68 * v13, 1953985605LL);
+        v4 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 68 * v13, 0x74777445u);
         if ( v4 )
         {
           v5 = v13;
@@ -76,13 +76,13 @@ void __fastcall EtwpLogSessionWorkingSetInfo(__int64 a1)
           v16 = 68 * v5;
           if ( a1 )
           {
-            EtwpLogKernelEvent((__int64)&UserData, *(_QWORD *)(a1 + 1096), *(_DWORD *)a1, 2u, 0x27Eu, 0x401804u);
+            EtwpLogKernelEvent((__int64)&UserData, *(_QWORD *)(a1 + 1080), *(_DWORD *)a1, 2u, 0x27Eu, 0x401804u);
           }
           else
           {
-            if ( _bittest((_DWORD *)PerfGlobalGroupMask + 1, 0x17u) )
-              EtwTraceKernelEvent((__int64)&UserData, 2u, 0x20800000u, 0x27Eu, 0x401804u);
-            if ( EtwpHostSiloState != -4540 && (*(_DWORD *)(EtwpHostSiloState + 4544) & 0x800000) != 0 )
+            if ( (DWORD1(PerfGlobalGroupMask[0]) & 0x800000) != 0 )
+              EtwTraceKernelEvent((int)&UserData, 2, 0x20800000u, 638, 4200452);
+            if ( EtwpHostSiloState != -4516 && (*(_DWORD *)(EtwpHostSiloState + 4520) & 0x800000) != 0 )
               EtwWrite(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MEMINFO_SESSIONWS, 0LL, 2u, &UserData);
           }
           ExFreePoolWithTag(v4, 0);

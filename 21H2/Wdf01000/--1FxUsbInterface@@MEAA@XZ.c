@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1FxUsbInterface@@MEAA@XZ @ 0x1C007E2D8
+ * XREFs of ??1FxUsbInterface@@MEAA@XZ @ 0x1C0071B98
  * Callers:
- *     ??_EFxUsbInterface@@MEAAPEAXI@Z @ 0x1C007E390 (--_EFxUsbInterface@@MEAAPEAXI@Z.c)
+ *     ??_EFxUsbInterface@@MEAAPEAXI@Z @ 0x1C0071C50 (--_EFxUsbInterface@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0006180 (--1FxNonPagedObject@@UEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0014230 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxUsbInterface::~FxUsbInterface(FxUsbInterface *this)
@@ -17,6 +17,7 @@ void __fastcall FxUsbInterface::~FxUsbInterface(FxUsbInterface *this)
   FxUsbPipe **m_ConfiguredPipes; // rcx
   FxUsbInterfaceSetting *m_Settings; // rcx
   unsigned int v8; // edx
+  unsigned int v9; // r8d
 
   m_UsbDevice = this->m_UsbDevice;
   this->__vftable = (FxUsbInterface_vtbl *)FxUsbInterface::`vftable';
@@ -54,5 +55,5 @@ LABEL_7:
     this,
     76,
     "minkernel\\wdf\\framework\\shared\\targets\\usb\\fxusbinterface.cpp");
-  FxNonPagedObject::~FxNonPagedObject(this, v8);
+  FxNonPagedObject::~FxNonPagedObject(this, v8, v9);
 }

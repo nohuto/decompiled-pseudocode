@@ -1,80 +1,78 @@
 /*
- * XREFs of HvlpReleaseHypercallPage @ 0x1405414B0
+ * XREFs of HvlpReleaseHypercallPage @ 0x1404F30B0
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x140376790 (HvlStartBootLogicalProcessors.c)
- *     HvlGetCoverageData @ 0x14053F668 (HvlGetCoverageData.c)
- *     HvlGetCoverageInfo @ 0x14053F7C8 (HvlGetCoverageInfo.c)
- *     HvlQueryHypervisorTscAdjustment @ 0x14053FAFC (HvlQueryHypervisorTscAdjustment.c)
- *     HvlResetCoverageVector @ 0x14053FCEC (HvlResetCoverageVector.c)
- *     HvlQueryNumaDistance @ 0x1405402F0 (HvlQueryNumaDistance.c)
- *     HvlSetupPhysicalFaultNotificationQueue @ 0x140540680 (HvlSetupPhysicalFaultNotificationQueue.c)
- *     HvlpDepositPages @ 0x140540C44 (HvlpDepositPages.c)
- *     HvlpGetLogicalProcessorProperty @ 0x140540F58 (HvlpGetLogicalProcessorProperty.c)
- *     HvlpGetVpIndexFromApicId @ 0x14054106C (HvlpGetVpIndexFromApicId.c)
- *     HvlpMapStatisticsPage @ 0x1405412E4 (HvlpMapStatisticsPage.c)
- *     HvlpSetLogicalProcessorProperty @ 0x140542084 (HvlpSetLogicalProcessorProperty.c)
- *     HvlpSetupSchedulerAssist @ 0x140542240 (HvlpSetupSchedulerAssist.c)
- *     HvlpStartLogicalProcessor @ 0x1405422D0 (HvlpStartLogicalProcessor.c)
- *     HvlpStartVirtualProcessor @ 0x140542424 (HvlpStartVirtualProcessor.c)
- *     HvlpWithdrawPages @ 0x140542520 (HvlpWithdrawPages.c)
- *     HvlpQueryHypervisorSchedulerType @ 0x140542824 (HvlpQueryHypervisorSchedulerType.c)
- *     HvlDmaGetDmaGuardEnabled @ 0x140543280 (HvlDmaGetDmaGuardEnabled.c)
- *     HvlDmaGetHybridPassthroughReservedRegions @ 0x140543380 (HvlDmaGetHybridPassthroughReservedRegions.c)
- *     HvlDmaMapDeviceLogicalRange @ 0x1405434C0 (HvlDmaMapDeviceLogicalRange.c)
- *     HvlDmaMapDeviceSparsePages @ 0x140543780 (HvlDmaMapDeviceSparsePages.c)
- *     HvlDmaUnmapDeviceSparsePages @ 0x140543B80 (HvlDmaUnmapDeviceSparsePages.c)
- *     HvlEnterSleepState @ 0x140543E60 (HvlEnterSleepState.c)
- *     HvlGetDeviceCapabilities @ 0x140543F30 (HvlGetDeviceCapabilities.c)
- *     HvlGetSystemPasidCapabilities @ 0x1405444F0 (HvlGetSystemPasidCapabilities.c)
- *     HvlHvDebuggerPowerHandler @ 0x140544750 (HvlHvDebuggerPowerHandler.c)
- *     HvlLpReadCpuid @ 0x140544890 (HvlLpReadCpuid.c)
- *     HvlLpReadMultipleMsr @ 0x140544990 (HvlLpReadMultipleMsr.c)
- *     HvlLpWriteMultipleMsr @ 0x140544AE0 (HvlLpWriteMultipleMsr.c)
- *     HvlLpWritebackInvalidate @ 0x140544BD0 (HvlLpWritebackInvalidate.c)
- *     HvlMapDeviceInterrupt @ 0x140544C60 (HvlMapDeviceInterrupt.c)
- *     HvlNotifyAllProcessorsStarted @ 0x140544ED4 (HvlNotifyAllProcessorsStarted.c)
- *     HvlNotifyDebugDeviceAvailable @ 0x140544F60 (HvlNotifyDebugDeviceAvailable.c)
- *     HvlNotifyHpetEnabled @ 0x140545030 (HvlNotifyHpetEnabled.c)
- *     HvlNotifyRootCrashdump @ 0x1405450C8 (HvlNotifyRootCrashdump.c)
- *     HvlQueryAssociatedProcessors @ 0x140545230 (HvlQueryAssociatedProcessors.c)
- *     HvlRegisterDeviceId @ 0x140545360 (HvlRegisterDeviceId.c)
- *     HvlRetargetDeviceInterrupt @ 0x140545660 (HvlRetargetDeviceInterrupt.c)
- *     HvlSetHpetConfig @ 0x140545A40 (HvlSetHpetConfig.c)
- *     HvlSetPartitionProperty @ 0x140545BD4 (HvlSetPartitionProperty.c)
- *     HvlSetQpcBias @ 0x140545D20 (HvlSetQpcBias.c)
- *     HvlSetSystemMachineCheckProperty @ 0x140545E50 (HvlSetSystemMachineCheckProperty.c)
- *     HvlSetSystemSleepProperty @ 0x140545EF0 (HvlSetSystemSleepProperty.c)
- *     HvlUnmapDeviceInterrupt @ 0x140546060 (HvlUnmapDeviceInterrupt.c)
- *     HvlpSlowAcknowledgePageRequest @ 0x140546398 (HvlpSlowAcknowledgePageRequest.c)
- *     HvlpSlowFlushPasidAddressList @ 0x14054645C (HvlpSlowFlushPasidAddressList.c)
- *     HvlpSlowSendSyntheticClusterIpiEx @ 0x14054656C (HvlpSlowSendSyntheticClusterIpiEx.c)
- *     HvlNotifyAcpiReenabled @ 0x1405469DC (HvlNotifyAcpiReenabled.c)
- *     HvlParkedVirtualProcessors @ 0x140546A48 (HvlParkedVirtualProcessors.c)
- *     HvlPrepareForHibernate @ 0x140546BE4 (HvlPrepareForHibernate.c)
- *     HvlPrepareForSecureHibernate @ 0x140546D0C (HvlPrepareForSecureHibernate.c)
- *     HvlpInitializePowerStatistics @ 0x140546FEC (HvlpInitializePowerStatistics.c)
- *     HvlpSetPowerProperty @ 0x1405472F0 (HvlpSetPowerProperty.c)
- *     HvlCollectLivedump @ 0x1405478D4 (HvlCollectLivedump.c)
- *     HvlpCheckTscSync @ 0x140548500 (HvlpCheckTscSync.c)
- *     HvlpLogGuestStateScrubbingStatus @ 0x14054868C (HvlpLogGuestStateScrubbingStatus.c)
- *     HvlpLogIommuInitStatus @ 0x1405489F8 (HvlpLogIommuInitStatus.c)
- *     HvlpDetermineEnlightenments @ 0x140549004 (HvlpDetermineEnlightenments.c)
- *     HvlpQueryExtendedCapabilities @ 0x1405495D8 (HvlpQueryExtendedCapabilities.c)
- *     HvlpSlowFlushAddressSpaceTb @ 0x140549C54 (HvlpSlowFlushAddressSpaceTb.c)
- *     HvlpSlowFlushAddressSpaceTbEx @ 0x140549CFC (HvlpSlowFlushAddressSpaceTbEx.c)
- *     HvlpSlowFlushListTb @ 0x140549E14 (HvlpSlowFlushListTb.c)
- *     HvlpSlowFlushListTbEx @ 0x140549F98 (HvlpSlowFlushListTbEx.c)
- *     HvlpInvokeGetPageListHypercall @ 0x14054A368 (HvlpInvokeGetPageListHypercall.c)
- *     HvlChangeIsolatedMemoryVisibility @ 0x140678E20 (HvlChangeIsolatedMemoryVisibility.c)
- *     HvlGetSparseGpaPagesAccessState @ 0x140678F48 (HvlGetSparseGpaPagesAccessState.c)
- *     HvlMapGpaPages @ 0x1406790B0 (HvlMapGpaPages.c)
- *     HvlMapSparseGpaPages @ 0x140679224 (HvlMapSparseGpaPages.c)
- *     HvlNotifyPageHeat @ 0x140679384 (HvlNotifyPageHeat.c)
- *     HvlpCreateRootVirtualProcessor @ 0x140941354 (HvlpCreateRootVirtualProcessor.c)
- *     HvlpLpCpuid @ 0x140941500 (HvlpLpCpuid.c)
+ *     HvlQueryHypervisorTscAdjustment @ 0x1403829F0 (HvlQueryHypervisorTscAdjustment.c)
+ *     HvlStartBootLogicalProcessors @ 0x1403B62E8 (HvlStartBootLogicalProcessors.c)
+ *     HvlpQueryHypervisorSchedulerType @ 0x1403F04B0 (HvlpQueryHypervisorSchedulerType.c)
+ *     HvlGetCoverageData @ 0x1404F14D8 (HvlGetCoverageData.c)
+ *     HvlGetCoverageInfo @ 0x1404F1630 (HvlGetCoverageInfo.c)
+ *     HvlResetCoverageVector @ 0x1404F1A0C (HvlResetCoverageVector.c)
+ *     HvlQueryNumaDistance @ 0x1404F1F60 (HvlQueryNumaDistance.c)
+ *     HvlSetupPhysicalFaultNotificationQueue @ 0x1404F22E0 (HvlSetupPhysicalFaultNotificationQueue.c)
+ *     HvlpDepositPages @ 0x1404F2884 (HvlpDepositPages.c)
+ *     HvlpGetLogicalProcessorProperty @ 0x1404F2B88 (HvlpGetLogicalProcessorProperty.c)
+ *     HvlpGetVpIndexFromApicId @ 0x1404F2C8C (HvlpGetVpIndexFromApicId.c)
+ *     HvlpMapStatisticsPage @ 0x1404F2EEC (HvlpMapStatisticsPage.c)
+ *     HvlpSetLogicalProcessorProperty @ 0x1404F3B98 (HvlpSetLogicalProcessorProperty.c)
+ *     HvlpSetupSchedulerAssist @ 0x1404F3D5C (HvlpSetupSchedulerAssist.c)
+ *     HvlpStartLogicalProcessor @ 0x1404F3DEC (HvlpStartLogicalProcessor.c)
+ *     HvlpStartVirtualProcessor @ 0x1404F3F44 (HvlpStartVirtualProcessor.c)
+ *     HvlDmaGetDmaGuardEnabled @ 0x1404F4370 (HvlDmaGetDmaGuardEnabled.c)
+ *     HvlDmaMapDeviceLogicalRange @ 0x1404F4470 (HvlDmaMapDeviceLogicalRange.c)
+ *     HvlDmaMapDeviceSparsePages @ 0x1404F4710 (HvlDmaMapDeviceSparsePages.c)
+ *     HvlDmaUnmapDeviceSparsePages @ 0x1404F4A50 (HvlDmaUnmapDeviceSparsePages.c)
+ *     HvlEnterSleepState @ 0x1404F4C20 (HvlEnterSleepState.c)
+ *     HvlHvDebuggerPowerHandler @ 0x1404F5150 (HvlHvDebuggerPowerHandler.c)
+ *     HvlLpReadCpuid @ 0x1404F52B0 (HvlLpReadCpuid.c)
+ *     HvlLpReadMultipleMsr @ 0x1404F53B0 (HvlLpReadMultipleMsr.c)
+ *     HvlLpWriteMultipleMsr @ 0x1404F54F0 (HvlLpWriteMultipleMsr.c)
+ *     HvlLpWritebackInvalidate @ 0x1404F55E0 (HvlLpWritebackInvalidate.c)
+ *     HvlMapDeviceInterrupt @ 0x1404F5670 (HvlMapDeviceInterrupt.c)
+ *     HvlNotifyAllProcessorsStarted @ 0x1404F593C (HvlNotifyAllProcessorsStarted.c)
+ *     HvlNotifyDebugDeviceAvailable @ 0x1404F59C0 (HvlNotifyDebugDeviceAvailable.c)
+ *     HvlNotifyHpetEnabled @ 0x1404F5A80 (HvlNotifyHpetEnabled.c)
+ *     HvlNotifyRootCrashdump @ 0x1404F5B14 (HvlNotifyRootCrashdump.c)
+ *     HvlQueryAssociatedProcessors @ 0x1404F5CA0 (HvlQueryAssociatedProcessors.c)
+ *     HvlRegisterDeviceId @ 0x1404F5DC0 (HvlRegisterDeviceId.c)
+ *     HvlRetargetDeviceInterrupt @ 0x1404F5F80 (HvlRetargetDeviceInterrupt.c)
+ *     HvlSetHpetConfig @ 0x1404F61E0 (HvlSetHpetConfig.c)
+ *     HvlSetPartitionProperty @ 0x1404F6388 (HvlSetPartitionProperty.c)
+ *     HvlSetQpcBias @ 0x1404F6420 (HvlSetQpcBias.c)
+ *     HvlSetSystemMachineCheckProperty @ 0x1404F64C0 (HvlSetSystemMachineCheckProperty.c)
+ *     HvlSetSystemSleepProperty @ 0x1404F6560 (HvlSetSystemSleepProperty.c)
+ *     HvlSvmGetDeviceCapabilities @ 0x1404F6B90 (HvlSvmGetDeviceCapabilities.c)
+ *     HvlSvmGetSystemCapabilities @ 0x1404F6CE0 (HvlSvmGetSystemCapabilities.c)
+ *     HvlUnmapDeviceInterrupt @ 0x1404F6FC0 (HvlUnmapDeviceInterrupt.c)
+ *     HvlpSlowAcknowledgePageRequest @ 0x1404F740C (HvlpSlowAcknowledgePageRequest.c)
+ *     HvlpSlowFlushPasidAddressList @ 0x1404F74C8 (HvlpSlowFlushPasidAddressList.c)
+ *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1404F759C (HvlpSlowSendSyntheticClusterIpiEx.c)
+ *     HvlNotifyAcpiReenabled @ 0x1404F7B68 (HvlNotifyAcpiReenabled.c)
+ *     HvlPrepareForHibernate @ 0x1404F7C70 (HvlPrepareForHibernate.c)
+ *     HvlPrepareForSecureHibernate @ 0x1404F7D94 (HvlPrepareForSecureHibernate.c)
+ *     HvlpConfigureLegacyPowerPolicySetting @ 0x1404F7FA0 (HvlpConfigureLegacyPowerPolicySetting.c)
+ *     HvlpInitializePowerStatistics @ 0x1404F8010 (HvlpInitializePowerStatistics.c)
+ *     HvlpSetPowerProperty @ 0x1404F8398 (HvlpSetPowerProperty.c)
+ *     HvlCollectLivedump @ 0x1404F8898 (HvlCollectLivedump.c)
+ *     HvlpCheckTscSync @ 0x1404F9560 (HvlpCheckTscSync.c)
+ *     HvlpLogGuestStateScrubbingStatus @ 0x1404F96E8 (HvlpLogGuestStateScrubbingStatus.c)
+ *     HvlpLogIommuInitStatus @ 0x1404F9B38 (HvlpLogIommuInitStatus.c)
+ *     HvlpDetermineEnlightenments @ 0x1404FA044 (HvlpDetermineEnlightenments.c)
+ *     HvlpQueryExtendedCapabilities @ 0x1404FA630 (HvlpQueryExtendedCapabilities.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x1404FACE4 (HvlpSlowFlushAddressSpaceTb.c)
+ *     HvlpSlowFlushAddressSpaceTbEx @ 0x1404FAD88 (HvlpSlowFlushAddressSpaceTbEx.c)
+ *     HvlpSlowFlushListTb @ 0x1404FAE9C (HvlpSlowFlushListTb.c)
+ *     HvlpSlowFlushListTbEx @ 0x1404FB01C (HvlpSlowFlushListTbEx.c)
+ *     HvlpInvokeGetPageListHypercall @ 0x1404FB3B0 (HvlpInvokeGetPageListHypercall.c)
+ *     HvlpAddPhysicalMemory @ 0x1405C948C (HvlpAddPhysicalMemory.c)
+ *     HvlNotifyPageHeat @ 0x1405C95C0 (HvlNotifyPageHeat.c)
+ *     HvlGetSparseGpaPagesAccessState @ 0x1405C983C (HvlGetSparseGpaPagesAccessState.c)
+ *     HvlMapGpaPages @ 0x1405C9994 (HvlMapGpaPages.c)
+ *     HvlMapSparseGpaPages @ 0x1405C9AE8 (HvlMapSparseGpaPages.c)
+ *     HvlpCreateRootVirtualProcessor @ 0x14088E7BC (HvlpCreateRootVirtualProcessor.c)
+ *     HvlpLpCpuid @ 0x140A8F2D8 (HvlpLpCpuid.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
  */
 
 char __fastcall HvlpReleaseHypercallPage(__int64 a1)
@@ -88,9 +86,6 @@ char __fastcall HvlpReleaseHypercallPage(__int64 a1)
   bool v7; // zf
   struct _KPRCB *v8; // rax
   int v9; // r8d
-  struct _KPRCB *v10; // rcx
-  _DWORD *v11; // r8
-  int v12; // ett
 
   LODWORD(v1) = *(_DWORD *)a1;
   HypercallCachedPages = 0LL;
@@ -98,19 +93,19 @@ char __fastcall HvlpReleaseHypercallPage(__int64 a1)
   {
     v3 = *(struct _SLIST_ENTRY **)(a1 + 16);
     v3[1].Next = *(_SLIST_ENTRY **)(a1 + 24);
-    LOBYTE(v1) = (unsigned __int8)RtlpInterlockedPushEntrySList((PSLIST_HEADER)(*(_QWORD *)(a1 + 8) + 34496LL), v3);
+    LOBYTE(v1) = (unsigned __int8)RtlpInterlockedPushEntrySList((PSLIST_HEADER)(*(_QWORD *)(a1 + 8) + 33600LL), v3);
   }
   else if ( (v1 & 2) != 0 )
   {
     v4 = *(unsigned __int8 *)(a1 + 8);
     if ( (unsigned __int8)v4 < 2u )
     {
+      LOBYTE(v1) = KiIrqlFlags;
       if ( KiIrqlFlags )
       {
-        LOBYTE(v1) = KeGetCurrentIrql();
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          LOBYTE(v1) = v1 - 2;
+          LOBYTE(v1) = KeGetCurrentIrql() - 2;
           if ( (unsigned __int8)v1 <= 0xDu )
           {
             CurrentPrcb = KeGetCurrentPrcb();
@@ -119,7 +114,7 @@ char __fastcall HvlpReleaseHypercallPage(__int64 a1)
             v7 = ((unsigned int)v1 & SchedulerAssist[5]) == 0;
             SchedulerAssist[5] &= v1;
             if ( v7 )
-              LOBYTE(v1) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              LOBYTE(v1) = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
       }
@@ -141,24 +136,7 @@ char __fastcall HvlpReleaseHypercallPage(__int64 a1)
     v1 = *(_QWORD *)(a1 + 24);
     *(_QWORD *)(HypercallCachedPages + 16) = v1;
     if ( *(_BYTE *)(a1 + 8) )
-    {
-      v10 = KeGetCurrentPrcb();
-      v11 = v10->SchedulerAssist;
-      if ( v11 )
-      {
-        _m_prefetchw(v11);
-        LODWORD(v1) = *v11;
-        do
-        {
-          v12 = v1;
-          LODWORD(v1) = _InterlockedCompareExchange(v11, v1 & 0xFFDFFFFF, v1);
-        }
-        while ( v12 != (_DWORD)v1 );
-        if ( (v1 & 0x200000) != 0 )
-          LOBYTE(v1) = KiRemoveSystemWorkPriorityKick(v10);
-      }
       _enable();
-    }
   }
   return v1;
 }

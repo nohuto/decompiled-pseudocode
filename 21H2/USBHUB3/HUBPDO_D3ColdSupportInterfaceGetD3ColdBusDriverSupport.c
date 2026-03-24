@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPDO_D3ColdSupportInterfaceGetD3ColdBusDriverSupport @ 0x1C007A840
+ * XREFs of HUBPDO_D3ColdSupportInterfaceGetD3ColdBusDriverSupport @ 0x1C0079340
  * Callers:
  *     <none>
  * Callees:

@@ -1,27 +1,21 @@
 /*
- * XREFs of ??0CDirtyRegionAnnotationAllocationSet@@QEAA@XZ @ 0x18006426C
+ * XREFs of ??0CDirtyRegionAnnotationAllocationSet@@QEAA@XZ @ 0x1800445C0
  * Callers:
- *     ??0CDirtyRegion@@IEAA@PEAVCVisualTree@@@Z @ 0x18006414C (--0CDirtyRegion@@IEAA@PEAVCVisualTree@@@Z.c)
+ *     ??0CDirtyRegion@@IEAA@PEAVCVisualTree@@@Z @ 0x1800444A0 (--0CDirtyRegion@@IEAA@PEAVCVisualTree@@@Z.c)
  * Callees:
- *     ??0CDirtyRegionAnnotation@@QEAA@XZ @ 0x1800FA830 (--0CDirtyRegionAnnotation@@QEAA@XZ.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1800949F0 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
  */
 
 CDirtyRegionAnnotationAllocationSet *__fastcall CDirtyRegionAnnotationAllocationSet::CDirtyRegionAnnotationAllocationSet(
         CDirtyRegionAnnotationAllocationSet *this)
 {
-  CDirtyRegionAnnotation *v2; // rdi
-  __int64 v3; // rsi
   CDirtyRegionAnnotationAllocationSet *result; // rax
 
-  v2 = (CDirtyRegionAnnotationAllocationSet *)((char *)this + 32);
-  v3 = 32LL;
-  do
-  {
-    CDirtyRegionAnnotation::CDirtyRegionAnnotation(v2);
-    v2 = (CDirtyRegionAnnotation *)((char *)v2 + 48);
-    --v3;
-  }
-  while ( v3 );
+  `vector constructor iterator'(
+    (char *)this + 32,
+    0x30uLL,
+    0x20uLL,
+    (void *(*)(void *))CDirtyRegionAnnotation::CDirtyRegionAnnotation);
   *((_QWORD *)this + 2) = this;
   *((_QWORD *)this + 3) = this;
   *((_QWORD *)this + 1) = (char *)this + 16;

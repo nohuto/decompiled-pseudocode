@@ -1,31 +1,36 @@
 /*
- * XREFs of ?PurgeCpuVisibleAllocations@VIDMM_MEMORY_SEGMENT@@QEAAXU_VIDMM_PURGE_FLAGS@@PEA_K@Z @ 0x1C00B554C
+ * XREFs of ?PurgeCpuVisibleAllocations@VIDMM_MEMORY_SEGMENT@@QEAAXU_VIDMM_PURGE_FLAGS@@PEA_K@Z @ 0x1C00C3DB0
  * Callers:
- *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C008ACF0 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
+ *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C0067150 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     ?ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0033764 (-ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?UnmapRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0033848 (-UnmapRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?PurgeAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@U_VIDMM_PURGE_FLAGS@@PEA_K@Z @ 0x1C00E66D8 (-PurgeAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@U_VIDMM_PURGE_FLAGS@@PEA_K@Z.c)
- *     ?Rotate@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS_HEAP_INTERFACE@@PEAXW4_MM_ROTATE_DIRECTION@@PEAU_MDL@@_KP6AJ331@Z1TVIDMM_ROTATE_FLAGS@@PEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00E73AC (-Rotate@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS_HEAP_INTERFACE@@PEAXW4_MM_ROTATE_DIRECTION@@PEAU_MD.c)
- *     ?SuspendAccessToAllocation@VIDMM_WORKER_THREAD@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00ED978 (-SuspendAccessToAllocation@VIDMM_WORKER_THREAD@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     ?ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0029530 (-ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?UnmapRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00295D8 (-UnmapRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?PurgeAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@U_VIDMM_PURGE_FLAGS@@PEA_K@Z @ 0x1C00B1074 (-PurgeAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@U_VIDMM_PURGE_FLAGS@@PEA_K@Z.c)
+ *     ?Rotate@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS_HEAP_INTERFACE@@PEAXW4_MM_ROTATE_DIRECTION@@PEAU_MDL@@_KP6AJ331@Z1TVIDMM_ROTATE_FLAGS@@PEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00B21DC (-Rotate@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS_HEAP_INTERFACE@@PEAXW4_MM_ROTATE_DIRECTION@@PEAU_MD.c)
+ *     ?SuspendAccessToAllocation@VIDMM_WORKER_THREAD@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00B8578 (-SuspendAccessToAllocation@VIDMM_WORKER_THREAD@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
-void __fastcall VIDMM_MEMORY_SEGMENT::PurgeCpuVisibleAllocations(__int64 a1, unsigned int a2, __int64 a3)
+void __fastcall VIDMM_MEMORY_SEGMENT::PurgeCpuVisibleAllocations(__int64 a1, unsigned int a2, _QWORD *a3)
 {
-  __int64 v3; // r13
-  _QWORD *v6; // rsi
-  struct _VIDMM_GLOBAL_ALLOC *v7; // rdx
-  __int64 v8; // rax
+  _QWORD *v3; // rbp
+  _QWORD *v6; // rdi
+  DXGFASTMUTEX **v7; // rdx
+  DXGFASTMUTEX *v8; // rax
   _QWORD *v9; // r14
-  struct _VIDMM_GLOBAL_ALLOC *v10; // rsi
+  __int64 v10; // rdi
   __int64 v11; // rcx
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  __int64 v14; // r13
-  int v15; // eax
-  struct _KAPC_STATE ApcState; // [rsp+58h] [rbp-60h] BYREF
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  _QWORD *v14; // rax
+  __int64 v15; // rbp
+  int v16; // eax
+  __int64 v17; // rdx
+  __int64 v18; // r13
+  __int64 v19; // rcx
+  _QWORD *v20; // rax
+  __int64 v21; // [rsp+40h] [rbp-88h]
+  struct _KAPC_STATE ApcState; // [rsp+58h] [rbp-70h] BYREF
 
   v3 = a3;
   if ( (*(_DWORD *)(a1 + 80) & 0x6004) != 0 )
@@ -35,72 +40,91 @@ void __fastcall VIDMM_MEMORY_SEGMENT::PurgeCpuVisibleAllocations(__int64 a1, uns
     v6 = *(_QWORD **)(a1 + 160);
     while ( v6 != (_QWORD *)(a1 + 160) )
     {
-      v7 = (struct _VIDMM_GLOBAL_ALLOC *)(v6 - 51);
+      v7 = (DXGFASTMUTEX **)(v6 - 47);
       v6 = (_QWORD *)*v6;
-      v8 = *((_QWORD *)v7 + 11);
-      if ( v8 && (*(_BYTE *)(v8 + 32) & 1) != 0 )
-        VIDMM_WORKER_THREAD::SuspendAccessToAllocation(**(VIDMM_WORKER_THREAD ***)(a1 + 8), v7);
+      v8 = v7[12];
+      if ( v8 && (*((_BYTE *)v8 + 32) & 1) != 0 )
+        VIDMM_WORKER_THREAD::SuspendAccessToAllocation(**(VIDMM_GLOBAL ****)(a1 + 8), v7);
     }
     v9 = *(_QWORD **)(a1 + 176);
     while ( v9 != (_QWORD *)(a1 + 176) )
     {
-      v10 = (struct _VIDMM_GLOBAL_ALLOC *)(v9 - 51);
+      v10 = (__int64)(v9 - 47);
       v9 = (_QWORD *)*v9;
       KeEnterCriticalRegion();
-      ExAcquirePushLockExclusiveEx((char *)v10 + 504, 0LL);
-      if ( *((int *)v10 + 90) <= 0 )
+      ExAcquirePushLockExclusiveEx(v10 + 472, 0LL);
+      if ( *(_DWORD *)(v10 + 336) )
       {
-        v13 = *((_QWORD *)v10 + 11);
-        if ( v13 && (*(_BYTE *)(v13 + 32) & 1) != 0 )
-        {
-          if ( g_IsInternalReleaseOrDbg )
-            *(_QWORD *)(WdLogNewEntry5_WdTrace(v11) + 24) = v10;
-          v14 = *((_QWORD *)v10 + 11);
-          memset(&ApcState, 0, sizeof(ApcState));
-          KeStackAttachProcess(**(PRKPROCESS **)(v14 + 8), &ApcState);
-          v15 = VIDMM_GLOBAL::Rotate(
-                  *(_QWORD *)(a1 + 8),
-                  *(_QWORD *)(*(_QWORD *)(v14 + 8) + 24LL),
-                  *(_QWORD *)(v14 + 24),
-                  3LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  1,
-                  v10);
-          if ( (int)(v15 + 0x80000000) >= 0 && v15 != -1073741558 )
-          {
-            g_DxgMmsBugcheckExportIndex = 1;
-            WdLogSingleEntry5(0LL, 270LL, 4LL, 3LL, v15, 0LL);
-          }
-          *(_BYTE *)(v14 + 32) &= ~1u;
-          KeUnstackDetachProcess(&ApcState);
-          if ( *((_QWORD *)v10 + 59) )
-          {
-            VIDMM_CPU_HOST_APERTURE::UnmapRange(*(VIDMM_CPU_HOST_APERTURE **)(a1 + 504), v10);
-            VIDMM_CPU_HOST_APERTURE::ReleaseRange(*(VIDMM_CPU_HOST_APERTURE **)(a1 + 504), v10);
-          }
-          v3 = a3;
-        }
-        ExReleasePushLockExclusiveEx((char *)v10 + 504, 0LL);
-        KeLeaveCriticalRegion();
-      }
-      else
-      {
-        ExReleasePushLockExclusiveEx((char *)v10 + 504, 0LL);
+        ExReleasePushLockExclusiveEx(v10 + 472, 0LL);
         KeLeaveCriticalRegion();
         if ( g_IsInternalReleaseOrDbg )
-          *(_QWORD *)(WdLogNewEntry5_WdTrace(v12) + 24) = v10;
-        if ( (*((_DWORD *)v10 + 17) & 0x100) != 0 )
+          *(_QWORD *)(WdLogNewEntry5_WdTrace(v13) + 24) = v10;
+        if ( (*(_DWORD *)(v10 + 76) & 0x100) != 0 )
         {
           if ( g_IsInternalRelease )
           {
-            g_DxgMmsBugcheckExportIndex = 1;
-            WdLogSingleEntry5(0LL, 270LL, 9LL, 0LL, 0LL, 0LL);
+            v14 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v13, v12);
+            v14[3] = 270LL;
+            v14[4] = 9LL;
+            v14[5] = 0LL;
+            v14[6] = 0LL;
+            v14[7] = 0LL;
+            WdLogEvent5_WdCriticalError(v14);
           }
         }
-        VIDMM_GLOBAL::PurgeAllocation(*(_QWORD *)(a1 + 8), v10, a2, v3);
+        VIDMM_GLOBAL::PurgeAllocation(*(VIDMM_GLOBAL **)(a1 + 8), v10, a2, v3);
+      }
+      else
+      {
+        v15 = *(_QWORD *)(v10 + 96);
+        if ( v15 && (*(_BYTE *)(v15 + 32) & 1) != 0 )
+        {
+          if ( g_IsInternalReleaseOrDbg )
+          {
+            *(_QWORD *)(WdLogNewEntry5_WdTrace(v11) + 24) = v10;
+            v15 = *(_QWORD *)(v10 + 96);
+          }
+          memset(&ApcState, 0, sizeof(ApcState));
+          KeStackAttachProcess(**(PRKPROCESS **)(v15 + 8), &ApcState);
+          LODWORD(v21) = 1;
+          v16 = VIDMM_GLOBAL::Rotate(
+                  *(_QWORD *)(a1 + 8),
+                  *(_QWORD *)(*(_QWORD *)(v15 + 8) + 24LL),
+                  *(_QWORD *)(v15 + 24),
+                  3u,
+                  0LL,
+                  0LL,
+                  0LL,
+                  0LL,
+                  v21,
+                  v10);
+          v18 = v16;
+          v19 = v16 + 0x80000000;
+          if ( (int)v19 >= 0 && v16 != -1073741558 )
+          {
+            v20 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v19, v17);
+            v20[6] = v18;
+            v20[7] = 0LL;
+            v20[3] = 270LL;
+            v20[4] = 4LL;
+            v20[5] = 3LL;
+            WdLogEvent5_WdCriticalError(v20);
+          }
+          *(_BYTE *)(v15 + 32) &= ~1u;
+          KeUnstackDetachProcess(&ApcState);
+          if ( *(_QWORD *)(v10 + 440) )
+          {
+            VIDMM_CPU_HOST_APERTURE::UnmapRange(
+              *(VIDMM_CPU_HOST_APERTURE **)(a1 + 488),
+              (struct _VIDMM_GLOBAL_ALLOC *)v10);
+            VIDMM_CPU_HOST_APERTURE::ReleaseRange(
+              *(VIDMM_CPU_HOST_APERTURE **)(a1 + 488),
+              (struct _VIDMM_GLOBAL_ALLOC *)v10);
+          }
+        }
+        ExReleasePushLockExclusiveEx(v10 + 472, 0LL);
+        KeLeaveCriticalRegion();
+        v3 = a3;
       }
     }
   }

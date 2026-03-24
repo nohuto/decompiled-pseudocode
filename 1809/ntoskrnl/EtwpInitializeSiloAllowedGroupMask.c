@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpInitializeSiloAllowedGroupMask @ 0x14074140C
+ * XREFs of EtwpInitializeSiloAllowedGroupMask @ 0x1407413EC
  * Callers:
  *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
  * Callees:
- *     EtwpMapEnableFlags @ 0x1406CBBCC (EtwpMapEnableFlags.c)
+ *     EtwpMapEnableFlags @ 0x1406CBBAC (EtwpMapEnableFlags.c)
  */
 
 unsigned __int64 EtwpInitializeSiloAllowedGroupMask()

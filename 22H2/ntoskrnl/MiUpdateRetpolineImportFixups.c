@@ -1,27 +1,20 @@
 /*
- * XREFs of MiUpdateRetpolineImportFixups @ 0x140325298
+ * XREFs of MiUpdateRetpolineImportFixups @ 0x140397350
  * Callers:
- *     MiUpdateImagePfnImportRelocations @ 0x140324F70 (MiUpdateImagePfnImportRelocations.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x140397174 (MiUpdateImagePfnImportRelocations.c)
  * Callees:
- *     RtlApplyImportRelocationToPage @ 0x140324EB8 (RtlApplyImportRelocationToPage.c)
- *     RtlpApplyGenericRetpolineFixup @ 0x1403253B0 (RtlpApplyGenericRetpolineFixup.c)
- *     RtlpConstructImportRelocationFixup @ 0x140325600 (RtlpConstructImportRelocationFixup.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     RtlApplyImportRelocationToPage @ 0x1402F452C (RtlApplyImportRelocationToPage.c)
  */
 
 __int64 __fastcall MiUpdateRetpolineImportFixups(__int64 a1, __int64 a2, unsigned int a3)
 {
-  int v3; // r15d
-  BOOL v5; // r14d
-  unsigned __int16 *v6; // rbx
-  int v7; // ebp
+  int v3; // r14d
+  BOOL v5; // ebp
+  unsigned __int16 *v6; // rsi
+  int v7; // ebx
   _DWORD *v8; // rdi
   unsigned __int64 v9; // rsi
-  unsigned int v10; // ebx
   __int64 result; // rax
-  __int64 v12; // [rsp+40h] [rbp-58h] BYREF
-  int v13; // [rsp+48h] [rbp-50h]
-  __int16 v14; // [rsp+4Ch] [rbp-4Ch]
 
   v3 = a2;
   v5 = (KiSpeculationFeatures & 0x20000000000LL) == 0;
@@ -42,15 +35,7 @@ __int64 __fastcall MiUpdateRetpolineImportFixups(__int64 a1, __int64 a2, unsigne
     v8 = v6 + 6;
     v9 = (unsigned __int64)v6 + *v6 + 12;
     while ( (unsigned __int64)v8 < v9 )
-    {
-      v10 = *v8 & 0xFFF;
-      v12 = 0LL;
-      v13 = 0;
-      v14 = 0;
-      RtlpConstructImportRelocationFixup(v10 + v7, v3, (_DWORD)Base, (_DWORD)v8, 1, v5, (__int64)&v12);
-      result = RtlpApplyGenericRetpolineFixup(a1, 4096LL, &v12, v10);
-      ++v8;
-    }
+      result = RtlApplyImportRelocationToPage(a1, v7, v3, (int)Base, v8++, 1, 0, v5);
   }
   return result;
 }

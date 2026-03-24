@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DrawMesh2D@CRenderDataBounds@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x18026B200
+ * XREFs of ?DrawMesh2D@CRenderDataBounds@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x18020A730
  * Callers:
  *     <none>
  * Callees:
- *     ?AddBounds@CRenderDataBounds@@IEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800EBE58 (-AddBounds@CRenderDataBounds@@IEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@U.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?AddBounds@CRenderDataBounds@@IEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800CE618 (-AddBounds@CRenderDataBounds@@IEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@U.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRenderDataBounds::DrawMesh2D(
@@ -20,8 +20,8 @@ __int64 __fastcall CRenderDataBounds::DrawMesh2D(
   {
     v4 = *(_QWORD *)a2;
     v6 = 0LL;
-    (*(void (__fastcall **)(struct CGeometry2D *, __int128 *))(v4 + 200))(a2, &v6);
-    CRenderDataBounds::AddBounds((__int64)this, (struct MilRectF *)&v6);
+    (*(void (__fastcall **)(struct CGeometry2D *, __int128 *))(v4 + 216))(a2, &v6);
+    CRenderDataBounds::AddBounds((__int64)this, (float *)&v6);
   }
   return 0LL;
 }

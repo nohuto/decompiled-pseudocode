@@ -1,22 +1,23 @@
 /*
- * XREFs of KsepDbGetDriverShims @ 0x14075C460
+ * XREFs of KsepDbGetDriverShims @ 0x140758C60
  * Callers:
- *     KsepGetShimsForDriver @ 0x14075C7BC (KsepGetShimsForDriver.c)
+ *     KsepGetShimsForDriver @ 0x140758B78 (KsepGetShimsForDriver.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x1402D84BC (KsepPoolAllocatePaged.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     KsepDbGetDriverShimsInternal @ 0x14075C380 (KsepDbGetDriverShimsInternal.c)
- *     KsepDbFreeDriverShims @ 0x14075C424 (KsepDbFreeDriverShims.c)
- *     KseShimDatabaseClose @ 0x14075C588 (KseShimDatabaseClose.c)
- *     KseShimDatabaseOpen @ 0x14075C68C (KseShimDatabaseOpen.c)
+ *     KsepPoolAllocatePaged @ 0x14037174C (KsepPoolAllocatePaged.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     KseShimDatabaseClose @ 0x140758D88 (KseShimDatabaseClose.c)
+ *     KsepDbGetDriverShimsInternal @ 0x140758E8C (KsepDbGetDriverShimsInternal.c)
+ *     KsepDbFreeDriverShims @ 0x140758F30 (KsepDbFreeDriverShims.c)
+ *     KseShimDatabaseOpen @ 0x14075B0E0 (KseShimDatabaseOpen.c)
  */
 
-__int64 __fastcall KsepDbGetDriverShims(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4, unsigned int *a5)
+__int64 __fastcall KsepDbGetDriverShims(__int64 a1, int a2, int a3, _QWORD *a4, unsigned int *a5)
 {
-  _QWORD *v7; // rsi
+  int v6; // r15d
+  const void *v7; // rsi
   unsigned int v8; // edi
   int v9; // eax
-  __int64 *v10; // r13
+  _QWORD *v10; // r13
   unsigned int v11; // ebx
   unsigned int DriverShimsInternal; // eax
   __int64 v13; // r15
@@ -25,11 +26,14 @@ __int64 __fastcall KsepDbGetDriverShims(__int64 a1, __int64 a2, unsigned int a3,
   unsigned int v17; // [rsp+40h] [rbp-20h] BYREF
   unsigned int v18; // [rsp+44h] [rbp-1Ch] BYREF
   void *Src; // [rsp+48h] [rbp-18h] BYREF
-  _QWORD *v20; // [rsp+50h] [rbp-10h] BYREF
-  __int64 *v21; // [rsp+58h] [rbp-8h] BYREF
+  const void *v20; // [rsp+50h] [rbp-10h] BYREF
+  _QWORD *v21; // [rsp+58h] [rbp-8h] BYREF
+  int v22; // [rsp+A0h] [rbp+40h]
   char *Paged; // [rsp+A0h] [rbp+40h]
 
+  v22 = a1;
   Src = 0LL;
+  v6 = a1;
   v20 = 0LL;
   v7 = 0LL;
   v18 = 0;
@@ -45,7 +49,14 @@ __int64 __fastcall KsepDbGetDriverShims(__int64 a1, __int64 a2, unsigned int a3,
   v11 = v9;
   if ( v9 >= 0 )
   {
-    DriverShimsInternal = KsepDbGetDriverShimsInternal(*v21, (__int64)&KsepMatchMachineInfo, a1, a2, a3, &Src, &v18);
+    DriverShimsInternal = KsepDbGetDriverShimsInternal(
+                            *v21,
+                            (unsigned int)&KsepMatchMachineInfo,
+                            v6,
+                            a2,
+                            a3,
+                            (__int64)&Src,
+                            (__int64)&v18);
     v13 = v18;
     v11 = DriverShimsInternal;
     if ( (int)(DriverShimsInternal + 0x80000000) >= 0 && DriverShimsInternal != -1073741275 )
@@ -53,7 +64,14 @@ __int64 __fastcall KsepDbGetDriverShims(__int64 a1, __int64 a2, unsigned int a3,
     v14 = v10[7];
     if ( v14 )
     {
-      v11 = KsepDbGetDriverShimsInternal(v14, (__int64)&KsepMatchMachineInfo, a1, a2, a3, &v20, &v17);
+      v11 = KsepDbGetDriverShimsInternal(
+              v14,
+              (unsigned int)&KsepMatchMachineInfo,
+              v22,
+              a2,
+              a3,
+              (__int64)&v20,
+              (__int64)&v17);
       if ( (int)(v11 + 0x80000000) >= 0 && v11 != -1073741275 )
       {
         v7 = v20;
@@ -93,7 +111,7 @@ __int64 __fastcall KsepDbGetDriverShims(__int64 a1, __int64 a2, unsigned int a3,
         v11 = -1073741275;
 LABEL_9:
         if ( Src )
-          KsepDbFreeDriverShims(Src, v13);
+          KsepDbFreeDriverShims(Src, (unsigned int)v13);
         if ( v7 )
           KsepDbFreeDriverShims(v7, v8);
         goto LABEL_13;

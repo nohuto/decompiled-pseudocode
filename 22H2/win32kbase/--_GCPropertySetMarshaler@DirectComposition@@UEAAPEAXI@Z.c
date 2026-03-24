@@ -1,35 +1,35 @@
 /*
- * XREFs of ??_GCPropertySetMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C00304C0
+ * XREFs of ??_GCPropertySetMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0023820
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 DirectComposition::CPropertySetMarshaler *__fastcall DirectComposition::CPropertySetMarshaler::`scalar deleting destructor'(
         DirectComposition::CPropertySetMarshaler *this,
         char a2)
 {
-  void *v4; // rdx
-  void *v5; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rcx
 
-  v4 = (void *)*((_QWORD *)this + 11);
+  v4 = *((_QWORD *)this + 11);
   if ( v4 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v4);
+    Win32FreePool(v4);
     *((_QWORD *)this + 11) = 0LL;
   }
   *((_DWORD *)this + 25) = 0;
   *((_DWORD *)this + 24) = 0;
-  v5 = (void *)*((_QWORD *)this + 9);
+  v5 = *((_QWORD *)this + 9);
   if ( v5 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v5);
+    Win32FreePool(v5);
     *((_QWORD *)this + 9) = 0LL;
   }
   *((_DWORD *)this + 21) = 0;
   *((_DWORD *)this + 20) = 0;
-  if ( (a2 & 1) != 0 && this )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, this);
+  if ( (a2 & 1) != 0 )
+    Win32FreePool(this);
   return this;
 }

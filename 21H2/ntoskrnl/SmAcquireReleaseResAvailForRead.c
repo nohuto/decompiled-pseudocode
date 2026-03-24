@@ -1,10 +1,10 @@
 /*
- * XREFs of SmAcquireReleaseResAvailForRead @ 0x1403939B8
+ * XREFs of SmAcquireReleaseResAvailForRead @ 0x1402E07D0
  * Callers:
- *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14037AC18 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
- *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x140393778 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
+ *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x1402D90C0 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
+ *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1402E05A0 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
  * Callees:
- *     MmStoreChargeResidentAvailableForRead @ 0x1403B1A00 (MmStoreChargeResidentAvailableForRead.c)
+ *     MmStoreChargeResidentAvailableForRead @ 0x1402E08B4 (MmStoreChargeResidentAvailableForRead.c)
  */
 
 __int64 __fastcall SmAcquireReleaseResAvailForRead(signed __int64 a1, __int64 a2, int a3)
@@ -18,9 +18,9 @@ __int64 __fastcall SmAcquireReleaseResAvailForRead(signed __int64 a1, __int64 a2
 
   if ( a3 )
   {
-    if ( qword_140D321B8 == a1 )
+    if ( qword_140D24178 == a1 )
     {
-      _InterlockedExchange64(&qword_140D321B8, 0LL);
+      _InterlockedExchange64(&qword_140D24178, 0LL);
     }
     else
     {
@@ -56,7 +56,7 @@ __int64 __fastcall SmAcquireReleaseResAvailForRead(signed __int64 a1, __int64 a2
         }
       }
       if ( v6 )
-        _InterlockedExchangeAdd64(&qword_140C591C0, v6);
+        _InterlockedExchangeAdd64(&qword_140C52980, v6);
     }
     return 1;
   }
@@ -65,10 +65,10 @@ __int64 __fastcall SmAcquireReleaseResAvailForRead(signed __int64 a1, __int64 a2
     v10 = MmStoreChargeResidentAvailableForRead(a2);
     if ( !v10 )
     {
-      if ( qword_140D321B8 )
+      if ( qword_140D24178 )
         return 0;
       v10 = 1;
-      if ( a2 != 1 || _InterlockedCompareExchange64(&qword_140D321B8, a1, 0LL) )
+      if ( a2 != 1 || _InterlockedCompareExchange64(&qword_140D24178, a1, 0LL) )
         return 0;
     }
   }

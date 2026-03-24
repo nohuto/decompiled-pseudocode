@@ -1,42 +1,45 @@
 /*
- * XREFs of HvlpMapStatisticsPage @ 0x1405412E4
+ * XREFs of HvlpMapStatisticsPage @ 0x1404F2EEC
  * Callers:
- *     HvlPhase1Initialize @ 0x1403872A4 (HvlPhase1Initialize.c)
- *     HvlpEnableNextLogicalProcessor @ 0x140540E58 (HvlpEnableNextLogicalProcessor.c)
- *     HvlpInitializeBootProcessor @ 0x140541150 (HvlpInitializeBootProcessor.c)
+ *     HvlPhase1Initialize @ 0x1403CF458 (HvlPhase1Initialize.c)
+ *     HvlpEnableNextLogicalProcessor @ 0x1404F2A84 (HvlpEnableNextLogicalProcessor.c)
+ *     HvlpInitializeBootProcessor @ 0x1404F2D6C (HvlpInitializeBootProcessor.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
  */
 
-__int64 __fastcall HvlpMapStatisticsPage(ULONG a1, _OWORD *a2, _QWORD *a3)
+__int64 __fastcall HvlpMapStatisticsPage(int a1, _OWORD *a2, _QWORD *a3)
 {
-  PHYSICAL_ADDRESS *v6; // rbx
-  PHYSICAL_ADDRESS *v7; // rdi
-  __int128 v9; // [rsp+28h] [rbp-49h] BYREF
-  __int64 v10; // [rsp+38h] [rbp-39h]
-  __int64 v11; // [rsp+40h] [rbp-31h]
-  __int128 v12; // [rsp+48h] [rbp-29h] BYREF
-  __int64 v13; // [rsp+58h] [rbp-19h]
-  __int64 v14; // [rsp+60h] [rbp-11h]
-  _BYTE v15[16]; // [rsp+68h] [rbp-9h] BYREF
-  _BYTE v16[48]; // [rsp+78h] [rbp+7h] BYREF
+  _QWORD *v6; // rbx
+  _QWORD *v7; // rax
+  __int64 v8; // r8
+  __int64 v9; // rdx
+  _QWORD *v10; // rdi
+  __int64 v11; // r9
+  __int128 v13; // [rsp+28h] [rbp-49h] BYREF
+  __int128 v14; // [rsp+38h] [rbp-39h]
+  __int128 v15; // [rsp+48h] [rbp-29h] BYREF
+  __int128 v16; // [rsp+58h] [rbp-19h]
+  _BYTE v17[16]; // [rsp+68h] [rbp-9h] BYREF
+  _BYTE v18[48]; // [rsp+78h] [rbp+7h] BYREF
 
+  v15 = 0LL;
+  v16 = 0LL;
   v13 = 0LL;
-  LODWORD(v14) = 0;
-  v10 = 0LL;
-  LODWORD(v11) = 0;
-  v12 = 0LL;
-  v9 = 0LL;
-  v6 = HvlpAcquireHypercallPage((__int64)&v12, 1, (__int64)v16, 24LL);
-  v7 = HvlpAcquireHypercallPage((__int64)&v9, 2, (__int64)v15, 8LL);
-  *(_OWORD *)&v6[1].LowPart = *a2;
-  v6->LowPart = a1;
-  LOWORD(v6) = HvcallInitiateHypercall(108);
-  *a3 = v7->QuadPart << 12;
-  HvlpReleaseHypercallPage(&v9);
-  HvlpReleaseHypercallPage(&v12);
+  v14 = 0LL;
+  v6 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v15, 1, (__int64)v18, 24LL);
+  v7 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v13, 2, (__int64)v17, 8LL);
+  v8 = *((_QWORD *)&v14 + 1);
+  v9 = *((_QWORD *)&v16 + 1);
+  v10 = v7;
+  *(_OWORD *)(v6 + 1) = *a2;
+  *(_DWORD *)v6 = a1;
+  LOWORD(v6) = HvcallInitiateHypercall(108, v9, v8, v11);
+  *a3 = *v10 << 12;
+  HvlpReleaseHypercallPage(&v13);
+  HvlpReleaseHypercallPage(&v15);
   return (_WORD)v6 != 0 ? 0xC0000001 : 0;
 }

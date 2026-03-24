@@ -1,20 +1,19 @@
 /*
- * XREFs of MiLockSectionControlArea @ 0x14028494C
+ * XREFs of MiLockSectionControlArea @ 0x140274944
  * Callers:
- *     MiReferenceExistingControlArea @ 0x14023F590 (MiReferenceExistingControlArea.c)
- *     MmGetImageFileSignatureInformation @ 0x140246FD0 (MmGetImageFileSignatureInformation.c)
- *     MmDisableModifiedWriteOfSection @ 0x140248110 (MmDisableModifiedWriteOfSection.c)
- *     MmOnlySystemCacheViewsPresent @ 0x1402518B0 (MmOnlySystemCacheViewsPresent.c)
- *     MmUpdateSectionIoAttribution @ 0x1402535D8 (MmUpdateSectionIoAttribution.c)
- *     MmIsFileSectionActive @ 0x140258E40 (MmIsFileSectionActive.c)
- *     MiComputeFlushRange @ 0x140283E8C (MiComputeFlushRange.c)
- *     MmEnoughMemoryForWrite @ 0x140284860 (MmEnoughMemoryForWrite.c)
- *     MiFlushDataSection @ 0x14029E64C (MiFlushDataSection.c)
+ *     MmDisableModifiedWriteOfSection @ 0x140271A40 (MmDisableModifiedWriteOfSection.c)
+ *     MmGetImageFileSignatureInformation @ 0x140274340 (MmGetImageFileSignatureInformation.c)
+ *     MiReferenceExistingControlArea @ 0x1402743E4 (MiReferenceExistingControlArea.c)
+ *     MmEnoughMemoryForWrite @ 0x140274618 (MmEnoughMemoryForWrite.c)
+ *     MiComputeFlushRange @ 0x140274890 (MiComputeFlushRange.c)
+ *     MmUpdateSectionIoAttribution @ 0x14028A198 (MmUpdateSectionIoAttribution.c)
+ *     MiFlushDataSection @ 0x1402E8F50 (MiFlushDataSection.c)
+ *     MmOnlySystemCacheViewsPresent @ 0x1402EEC14 (MmOnlySystemCacheViewsPresent.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140356250 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLockSectionControlArea(_QWORD *a1, int a2, KIRQL *a3)
@@ -35,19 +34,19 @@ __int64 __fastcall MiLockSectionControlArea(_QWORD *a1, int a2, KIRQL *a3)
 
   while ( 1 )
   {
-    v6 = ExAcquireSpinLockExclusive(&dword_140C4F100);
+    v6 = ExAcquireSpinLockExclusive(&dword_140C4C980);
     v7 = v6;
     *a3 = v6;
-    v8 = a2 ? *a1 : a1[2];
+    v8 = a2 == 1 ? *a1 : a1[2];
     if ( !v8 )
       break;
-    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(v8 + 72) )
+    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v8 + 72)) )
     {
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4F100);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
       return v8;
     }
     v10 = *a3;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4F100);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
@@ -67,7 +66,7 @@ __int64 __fastcall MiLockSectionControlArea(_QWORD *a1, int a2, KIRQL *a3)
     }
     __writecr8(v10);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4F100);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

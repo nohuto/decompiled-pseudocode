@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CancelAllReclaimedAllocationsInList@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00E0AEC
+ * XREFs of ?CancelAllReclaimedAllocationsInList@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00ACCB8
  * Callers:
- *     ?PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NPEAPEAU2@I_K@Z @ 0x1C0093270 (-PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_N.c)
+ *     ?PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NPEAPEAU2@I_K@Z @ 0x1C006E840 (-PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_N.c)
  * Callees:
- *     ?ReAllocateOldResource@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@E@Z @ 0x1C00FE9C0 (-ReAllocateOldResource@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@E@Z.c)
+ *     ?ReAllocateOldResource@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@E@Z @ 0x1C00C706C (-ReAllocateOldResource@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@E@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::CancelAllReclaimedAllocationsInList(
@@ -12,7 +12,7 @@ void __fastcall VIDMM_GLOBAL::CancelAllReclaimedAllocationsInList(
         unsigned __int8 a3)
 {
   struct _LIST_ENTRY *Flink; // rbx
-  struct _LIST_ENTRY **p_Blink; // rbp
+  struct _LIST_ENTRY *v5; // rbp
   struct _LIST_ENTRY *v6; // rsi
   VIDMM_SEGMENT *v7; // rcx
   struct _VIDMM_GLOBAL_ALLOC *v8; // rdx
@@ -24,10 +24,10 @@ void __fastcall VIDMM_GLOBAL::CancelAllReclaimedAllocationsInList(
   Flink = a2->Flink;
   while ( Flink != a2 )
   {
-    p_Blink = &Flink[-22].Blink;
+    v5 = Flink - 20;
     v6 = Flink;
-    v7 = (VIDMM_SEGMENT *)Flink[-14].Flink;
-    v8 = (struct _VIDMM_GLOBAL_ALLOC *)&Flink[-22].Blink;
+    v7 = (VIDMM_SEGMENT *)Flink[-12].Flink;
+    v8 = (struct _VIDMM_GLOBAL_ALLOC *)&Flink[-20];
     Flink = Flink->Flink;
     VIDMM_SEGMENT::ReAllocateOldResource(v7, v8, a3);
     v9 = v6->Flink;
@@ -36,6 +36,6 @@ void __fastcall VIDMM_GLOBAL::CancelAllReclaimedAllocationsInList(
     Blink->Flink = v9;
     v9->Blink = Blink;
     v6->Flink = 0LL;
-    p_Blink[44] = 0LL;
+    v5[20].Blink = 0LL;
   }
 }

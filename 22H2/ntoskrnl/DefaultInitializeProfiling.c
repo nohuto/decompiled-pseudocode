@@ -1,9 +1,9 @@
 /*
- * XREFs of DefaultInitializeProfiling @ 0x140A95BD0
+ * XREFs of DefaultInitializeProfiling @ 0x1409A7190
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140229340 (KeAddProcessorAffinityEx.c)
  */
 
 __int64 DefaultInitializeProfiling()
@@ -13,19 +13,10 @@ __int64 DefaultInitializeProfiling()
   Number = KeGetPcr()->Prcb.Number;
   if ( !Number )
   {
-    HalpProfileSourceDescriptorListLock = 0LL;
-    HalpNumberOfGpCounters = 0;
-    HalpProfileIntervalLimits = (__int64)DefaultProfileIntervalLimits;
-    qword_140C08C78 = (__int64)&HalpProfileSourceDescriptorListHead;
-    qword_140C08C80 = (__int64)&HalpProfileSourceDescriptorListHead;
-    HalpProfileSourceDescriptorListHead = (__int64)&qword_140C08C78;
-    qword_140C63208 = (__int64)&qword_140C08C78;
-    DefaultCounterStatusPtr = (__int64)&DefaultCounterStatus;
-    HalpCounterStatus = (__int64)&DefaultCounterStatusPtr;
-    HalpProfileSourceDescriptorCount = 1;
-    HalpNumberOfFixedCounters = 1;
-    HalpNumberOfCounters = 1;
-    dword_140C622B8 = 3;
+    qword_140C054D8 = (__int64)&DefaultProfileSourceDescriptorListHead;
+    qword_140C054E0 = (__int64)&DefaultProfileSourceDescriptorListHead;
+    DefaultProfileSourceDescriptorListHead = (__int64)&qword_140C054D8;
+    qword_140C4AFB8 = (__int64)&qword_140C054D8;
   }
-  return KeAddProcessorAffinityEx(word_140C08C90, Number);
+  return KeAddProcessorAffinityEx(word_140C054F0, Number);
 }

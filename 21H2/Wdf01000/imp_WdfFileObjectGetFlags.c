@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfFileObjectGetFlags @ 0x1C0063820
+ * XREFs of imp_WdfFileObjectGetFlags @ 0x1C0048CD0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
  */
 
 __int64 __fastcall imp_WdfFileObjectGetFlags(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFFILEOBJECT__ *FileObject)
@@ -12,7 +12,11 @@ __int64 __fastcall imp_WdfFileObjectGetFlags(_WDF_DRIVER_GLOBALS *DriverGlobals,
   FxFileObject *pFO; // [rsp+30h] [rbp+8h] BYREF
 
   pFO = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)FileObject, 0x1018u, (void **)&pFO);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)FileObject,
+    0x1018u,
+    (void **)&pFO);
   m_FileObject = pFO->m_FileObject.m_FileObject;
   if ( m_FileObject )
     return m_FileObject->Flags;

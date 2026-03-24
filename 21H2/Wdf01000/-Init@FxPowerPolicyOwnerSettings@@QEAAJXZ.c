@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Init@FxPowerPolicyOwnerSettings@@QEAAJXZ @ 0x1C00221E0
+ * XREFs of ?Init@FxPowerPolicyOwnerSettings@@QEAAJXZ @ 0x1C0086670
  * Callers:
- *     ?Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C00225C0 (-Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ *     ?Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0080D30 (-Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
  * Callees:
- *     ?Initialize@MxTimer@@QEAAJPEAXP6AXPEAU_KDPC@@000@ZJ@Z @ 0x1C0013450 (-Initialize@MxTimer@@QEAAJPEAXP6AXPEAU_KDPC@@000@ZJ@Z.c)
- *     ?Reset@FxPowerIdleMachine@@QEAAXXZ @ 0x1C00222E4 (-Reset@FxPowerIdleMachine@@QEAAXXZ.c)
+ *     ?Initialize@MxTimer@@QEAAJPEAXP6AXPEAU_KDPC@@000@ZJ@Z @ 0x1C0014D64 (-Initialize@MxTimer@@QEAAJPEAXP6AXPEAU_KDPC@@000@ZJ@Z.c)
+ *     ?Reset@FxPowerIdleMachine@@QEAAXXZ @ 0x1C0083CFC (-Reset@FxPowerIdleMachine@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxPowerPolicyOwnerSettings::Init(FxPowerPolicyOwnerSettings *this)

@@ -1,30 +1,32 @@
 /*
- * XREFs of ?bSpWndObjTrackedSprite@@YAHPEAVSPRITE@@@Z @ 0x1C027EECC
+ * XREFs of ?bSpWndObjTrackedSprite@@YAHPEAVSPRITE@@@Z @ 0x1C0281170
  * Callers:
- *     ?vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z @ 0x1C0282EA4 (-vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z.c)
+ *     ?vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z @ 0x1C0284904 (-vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall bSpWndObjTrackedSprite(struct SPRITE *a1)
 {
-  __int64 v2; // r8
+  __int64 v1; // r8
+  TRACKOBJ *v2; // rdx
   __int64 i; // rcx
 
-  if ( !*((_QWORD *)a1 + 9) )
+  v1 = *((_QWORD *)a1 + 9);
+  if ( !v1 )
     return 0LL;
-  v2 = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(a1) + 32) + 23664LL);
+  v2 = gpto;
 LABEL_9:
   if ( !v2 )
     return 0LL;
-  for ( i = *(_QWORD *)(v2 + 24); ; i = *(_QWORD *)(i + 160) )
+  for ( i = *((_QWORD *)v2 + 3); ; i = *(_QWORD *)(i + 160) )
   {
     if ( !i )
     {
-      v2 = *(_QWORD *)(v2 + 8);
+      v2 = (TRACKOBJ *)*((_QWORD *)v2 + 1);
       goto LABEL_9;
     }
-    if ( (*(_DWORD *)(i + 184) & 0x200) != 0 && *(_QWORD *)(i + 176) == *((_QWORD *)a1 + 9) )
+    if ( (*(_DWORD *)(i + 184) & 0x200) != 0 && *(_QWORD *)(i + 176) == v1 )
       break;
   }
   return 1LL;

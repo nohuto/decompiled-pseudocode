@@ -1,9 +1,9 @@
 /*
- * XREFs of SecureDump_GetSecureDumpSettings @ 0x1401885A8
+ * XREFs of SecureDump_GetSecureDumpSettings @ 0x1401885C8
  * Callers:
- *     KeCapturePersistentThreadState @ 0x1402825A0 (KeCapturePersistentThreadState.c)
- *     IopInitializeCrashDump @ 0x14074D054 (IopInitializeCrashDump.c)
- *     IoCaptureLiveDump @ 0x14081EFA4 (IoCaptureLiveDump.c)
+ *     KeCapturePersistentThreadState @ 0x1402826A0 (KeCapturePersistentThreadState.c)
+ *     IopInitializeCrashDump @ 0x14074D034 (IopInitializeCrashDump.c)
+ *     IoCaptureLiveDump @ 0x14081EF84 (IoCaptureLiveDump.c)
  * Callees:
  *     <none>
  */

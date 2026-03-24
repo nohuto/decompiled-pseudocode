@@ -1,9 +1,9 @@
 /*
- * XREFs of HvBufferCheckSum @ 0x1407181CC
+ * XREFs of HvBufferCheckSum @ 0x140763E88
  * Callers:
- *     CmAddLogForAction @ 0x14071784C (CmAddLogForAction.c)
- *     CmLogTmRmAction @ 0x140742230 (CmLogTmRmAction.c)
- *     CmpVerifyLogRecord @ 0x14091C7F0 (CmpVerifyLogRecord.c)
+ *     CmpVerifyLogRecord @ 0x1405CCE70 (CmpVerifyLogRecord.c)
+ *     CmAddLogForAction @ 0x1406AFE4C (CmAddLogForAction.c)
+ *     CmLogTmRmAction @ 0x140763AC8 (CmLogTmRmAction.c)
  * Callees:
  *     <none>
  */
@@ -50,12 +50,8 @@ __int64 __fastcall HvBufferCheckSum(__int64 a1, unsigned int a2)
   }
   v9 = v2 ^ v5;
   if ( v9 == -1 )
-  {
-    return (unsigned int)-2;
-  }
-  else if ( !v9 )
-  {
+    v9 = -2;
+  if ( !v9 )
     return 1;
-  }
   return v9;
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of HalpQueryDeviceRelations @ 0x1408602B8
+ * XREFs of HalpQueryDeviceRelations @ 0x1407D0D40
  * Callers:
- *     HalpDispatchPnp @ 0x14081A830 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x140764F80 (HalpDispatchPnp.c)
  * Callees:
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall HalpQueryDeviceRelations(_QWORD *Object, int a2, __int64 *a3)
+__int64 __fastcall HalpQueryDeviceRelations(_QWORD *Object, int a2, _QWORD *a3)
 {
   __int64 v3; // rbx
   __int64 v6; // rbx
-  unsigned int v7; // edi
-  __int64 Pool2; // rax
-  __int64 v10; // rbx
-  __int64 v11; // rax
-  _DWORD *v12; // rax
-  _DWORD *v13; // rsi
-  __int64 v14; // rdi
-  void *v15; // rcx
+  unsigned int v7; // esi
+  __int64 v9; // rax
+  _DWORD *v10; // rax
+  _DWORD *v11; // r14
+  __int64 v12; // rsi
+  void *v13; // rcx
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v15; // rbx
 
   v3 = Object[8];
   if ( *(_DWORD *)v3 == 193 )
@@ -28,16 +28,16 @@ __int64 __fastcall HalpQueryDeviceRelations(_QWORD *Object, int a2, __int64 *a3)
   v7 = 0;
   if ( a2 )
   {
-    if ( a2 != 4 )
+    if ( a2 != 4 || !v6 )
       return 3221225659LL;
-    Pool2 = ExAllocatePool2(256LL, 16LL, 1886150984LL);
-    v10 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x206C6148u);
+    v15 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_DWORD *)Pool2 = 1;
-      *(_QWORD *)(Pool2 + 8) = Object;
+      *(_DWORD *)PoolWithTag = 1;
+      PoolWithTag[1] = Object;
       ObfReferenceObject(Object);
-      *a3 = v10;
+      *a3 = v15;
       return 0LL;
     }
   }
@@ -45,29 +45,29 @@ __int64 __fastcall HalpQueryDeviceRelations(_QWORD *Object, int a2, __int64 *a3)
   {
     if ( !v6 )
       return 3221225659LL;
-    v11 = v6;
+    v9 = v6;
     do
     {
-      v11 = *(_QWORD *)(v11 + 8);
+      v9 = *(_QWORD *)(v9 + 8);
       ++v7;
     }
-    while ( v11 );
-    v12 = (_DWORD *)ExAllocatePool2(256LL, 16LL * v7, 1886150984LL);
-    v13 = v12;
-    if ( v12 )
+    while ( v9 );
+    v10 = ExAllocatePoolWithTag(PagedPool, 16LL * v7, 0x206C6148u);
+    v11 = v10;
+    if ( v10 )
     {
-      *v12 = v7;
-      v14 = 0LL;
+      *v10 = v7;
+      v12 = 0LL;
       do
       {
-        v15 = *(void **)(v6 + 16);
-        *(_QWORD *)&v13[2 * v14 + 2] = v15;
-        ObfReferenceObject(v15);
+        v13 = *(void **)(v6 + 16);
+        *(_QWORD *)&v11[2 * v12 + 2] = v13;
+        ObfReferenceObject(v13);
         v6 = *(_QWORD *)(v6 + 8);
-        v14 = (unsigned int)(v14 + 1);
+        v12 = (unsigned int)(v12 + 1);
       }
       while ( v6 );
-      *a3 = (__int64)v13;
+      *a3 = v11;
       return 0LL;
     }
   }

@@ -1,50 +1,48 @@
 /*
- * XREFs of VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x140927128
+ * XREFs of VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x140884240
  * Callers:
- *     VrpLoadDifferencingHive @ 0x140690FEC (VrpLoadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x1405D5E44 (VrpLoadDifferencingHive.c)
  * Callees:
- *     RtlInsertHeadCircularList @ 0x1402334A0 (RtlInsertHeadCircularList.c)
- *     KeAbPreWait @ 0x14029F580 (KeAbPreWait.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     KeAbPostReleaseEx @ 0x140353BB0 (KeAbPostReleaseEx.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
+ *     RtlInsertHeadCircularList @ 0x1402CC5A4 (RtlInsertHeadCircularList.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPreWait @ 0x1402F30C0 (KeAbPreWait.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
  */
 
 void __fastcall VrpWaitForDiffHiveEntryTransitionOwnerToLeave(__int64 a1)
 {
   ULONG_PTR v2; // rdi
   ULONG_PTR v3; // rsi
-  __int64 *v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  unsigned __int64 v7; // rbx
+  __int64 v4; // rax
+  ULONG_PTR v5; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  struct _KEVENT v9[2]; // [rsp+30h] [rbp-38h] BYREF
+  struct _KEVENT v7[2]; // [rsp+30h] [rbp-38h] BYREF
 
-  memset(v9, 0, sizeof(v9));
-  v9[0].Header.WaitListHead.Blink = (struct _LIST_ENTRY *)KeGetCurrentThread();
-  KeInitializeEvent(&v9[1], SynchronizationEvent, 0);
-  RtlInsertHeadCircularList((__int64 *)(a1 + 48), v9);
+  memset(v7, 0, sizeof(v7));
+  v7[0].Header.WaitListHead.Blink = (struct _LIST_ENTRY *)KeGetCurrentThread();
+  KeInitializeEvent(&v7[1], SynchronizationEvent, 0);
+  RtlInsertHeadCircularList((__int64 *)(a1 + 48), v7);
   v2 = a1 + 24;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 24), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(a1 + 24);
   KeAbPostRelease(a1 + 24);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   v3 = a1 + 40;
-  v4 = (__int64 *)KeAbPreAcquire(v3, 0LL);
-  v7 = (unsigned __int64)v4;
+  v4 = KeAbPreAcquire(v3, 0LL, 0);
+  v5 = v4;
   if ( v4 )
-    KeAbPreWait(v4, v5, v6);
-  KeWaitForSingleObject(&v9[1], Executive, 0, 0, 0LL);
-  if ( v7 )
+    KeAbPreWait(v4);
+  KeWaitForSingleObject(&v7[1], Executive, 0, 0, 0LL);
+  if ( v5 )
   {
-    KeAbPreAcquire(v3, v7);
-    KeAbPostReleaseEx(v3, v7);
+    KeAbPreAcquire(v3, v5, 0);
+    KeAbPostReleaseEx(v3, v5);
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;

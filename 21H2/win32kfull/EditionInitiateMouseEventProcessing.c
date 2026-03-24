@@ -1,10 +1,11 @@
 /*
- * XREFs of EditionInitiateMouseEventProcessing @ 0x1C00FD1C0
+ * XREFs of EditionInitiateMouseEventProcessing @ 0x1C010BD70
  * Callers:
  *     <none>
  * Callees:
- *     WakeRIT @ 0x1C00FD22C (WakeRIT.c)
- *     UserBeep @ 0x1C0214878 (UserBeep.c)
+ *     WakeDIT @ 0x1C010BDD4 (WakeDIT.c)
+ *     WakeRIT @ 0x1C010BE30 (WakeRIT.c)
+ *     UserBeep @ 0x1C0219C78 (UserBeep.c)
  */
 
 __int64 __fastcall EditionInitiateMouseEventProcessing(int a1)
@@ -13,8 +14,8 @@ __int64 __fastcall EditionInitiateMouseEventProcessing(int a1)
 
   if ( _InterlockedCompareExchange(&glDitMouseHandling, 1, 1) )
   {
-    EtwTraceWakeMIT(1LL);
-    result = WakeMIT(1LL);
+    EtwTraceWakeDIT(1LL);
+    result = WakeDIT(1LL);
   }
   else
   {

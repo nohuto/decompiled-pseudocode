@@ -1,197 +1,202 @@
 /*
- * XREFs of ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C02B6644
+ * XREFs of ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C020C968
  * Callers:
- *     ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0219510 (-CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS.c)
- *     ??1DXGADAPTER@@QEAA@XZ @ 0x1C02B5998 (--1DXGADAPTER@@QEAA@XZ.c)
- *     ?Stop@DXGADAPTER@@QEAAXEE@Z @ 0x1C02BA418 (-Stop@DXGADAPTER@@QEAAXEE@Z.c)
+ *     ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C019450C (-CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS.c)
+ *     ??1DXGADAPTER@@QEAA@XZ @ 0x1C020BA34 (--1DXGADAPTER@@QEAA@XZ.c)
+ *     ?Stop@DXGADAPTER@@QEAAXEE@Z @ 0x1C0210244 (-Stop@DXGADAPTER@@QEAAXEE@Z.c)
  * Callees:
- *     ??0DXGGLOBALSHAREMUTEX@@QEAA@XZ @ 0x1C000295C (--0DXGGLOBALSHAREMUTEX@@QEAA@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C00076A0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C0013C40 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqpx_EtwWriteTransfer @ 0x1C0040C98 (McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqpx_EtwWriteTransfer.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A8230 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     DpiReportAdapter @ 0x1C021A0B4 (DpiReportAdapter.c)
- *     ?SetWarpAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0229074 (-SetWarpAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ @ 0x1C02B63B0 (-DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ.c)
- *     ?DestroyPhysicalAdapterData@DXGADAPTER@@QEAAXXZ @ 0x1C02B6AE8 (-DestroyPhysicalAdapterData@DXGADAPTER@@QEAAXXZ.c)
- *     ?Destroy@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C02BBE10 (-Destroy@ADAPTER_DISPLAY@@QEAAXXZ.c)
- *     ?Destroy@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02C0988 (-Destroy@ADAPTER_RENDER@@QEAAXXZ.c)
- *     ?ReleaseAdapterOrdinal@DXGGLOBAL@@QEAAXK@Z @ 0x1C0314CE4 (-ReleaseAdapterOrdinal@DXGGLOBAL@@QEAAXK@Z.c)
- *     ?SetVirtualRenderAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0315868 (-SetVirtualRenderAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?ReleaseSessionAdapterOrdinal@DXGSESSIONDATA@@QEAAXK@Z @ 0x1C035585C (-ReleaseSessionAdapterOrdinal@DXGSESSIONDATA@@QEAAXK@Z.c)
- *     ?NotifyVailAdapter@DXGVAILOBJECT@@SAXH@Z @ 0x1C03620B8 (-NotifyVailAdapter@DXGVAILOBJECT@@SAXH@Z.c)
- *     ?DestroyVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXXZ @ 0x1C03733A0 (-DestroyVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXXZ.c)
- *     ?VmBusSendAdapterStop@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXXZ @ 0x1C0384EEC (-VmBusSendAdapterStop@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXXZ.c)
- *     ?VmBusSendCloseAdapter@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXI@Z @ 0x1C0385868 (-VmBusSendCloseAdapter@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXI@Z.c)
- *     DpiFreeAdapterInfo @ 0x1C0399088 (DpiFreeAdapterInfo.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??0DXGGLOBALSHAREMUTEX@@QEAA@XZ @ 0x1C00085E0 (--0DXGGLOBALSHAREMUTEX@@QEAA@XZ.c)
+ *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C000D994 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqp_EtwWriteTransfer @ 0x1C003A0C4 (McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqp_EtwWriteTransfer.c)
+ *     DpiReportAdapter @ 0x1C0195528 (DpiReportAdapter.c)
+ *     ?SetWarpAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C019EC14 (-SetWarpAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ @ 0x1C020C6D8 (-DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ.c)
+ *     ?DestroyPhysicalAdapterData@DXGADAPTER@@QEAAXXZ @ 0x1C020CDC8 (-DestroyPhysicalAdapterData@DXGADAPTER@@QEAAXXZ.c)
+ *     ?Destroy@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C0211CAC (-Destroy@ADAPTER_DISPLAY@@QEAAXXZ.c)
+ *     ?Destroy@ADAPTER_RENDER@@QEAAXXZ @ 0x1C0216060 (-Destroy@ADAPTER_RENDER@@QEAAXXZ.c)
+ *     ?DestroyVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXXZ @ 0x1C02391E4 (-DestroyVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXXZ.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024DA2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
+ *     ?ReleaseAdapterOrdinal@DXGGLOBAL@@QEAAXK@Z @ 0x1C026B6C8 (-ReleaseAdapterOrdinal@DXGGLOBAL@@QEAAXK@Z.c)
+ *     ?SetVirtualRenderAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C026C220 (-SetVirtualRenderAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?NotifyVailAdapter@DXGVAILOBJECT@@SAXH@Z @ 0x1C02B5E68 (-NotifyVailAdapter@DXGVAILOBJECT@@SAXH@Z.c)
+ *     DpiFreeAdapterInfo @ 0x1C02C6A74 (DpiFreeAdapterInfo.c)
  */
 
 void __fastcall DXGADAPTER::Destroy(DXGADAPTER *this, struct _LUID *a2)
 {
   int v2; // eax
-  ADAPTER_DISPLAY **v3; // rbx
-  int v4; // esi
+  int v3; // esi
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rcx
   DXGGLOBAL *Global; // rax
-  ADAPTER_RENDER *v7; // rcx
-  void (__fastcall *v8)(_QWORD); // rax
-  void (__fastcall *v9)(_QWORD); // rax
-  __int64 v10; // r9
+  ADAPTER_DISPLAY *v9; // rcx
+  ADAPTER_RENDER *v10; // rcx
+  void (__fastcall *v11)(_QWORD); // rax
+  void (__fastcall *v12)(_QWORD); // rax
+  __int64 v13; // r9
   int updated; // eax
-  __int64 v12; // rbx
-  unsigned int v13; // edx
-  struct _LUID *v14; // rdx
-  DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
+  __int64 v15; // rdx
   __int64 v16; // rcx
-  unsigned int v17; // r9d
-  __int64 v18; // rcx
-  DXGGLOBAL *v19; // rax
-  int v20; // [rsp+C0h] [rbp-68h]
-  int v21; // [rsp+D8h] [rbp-50h]
-  _BYTE v22[16]; // [rsp+100h] [rbp-28h] BYREF
-  unsigned int v23; // [rsp+130h] [rbp+8h] BYREF
+  int v17; // ebx
+  __int64 v18; // rax
+  int v19; // eax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  unsigned int v24; // r9d
+  __int64 v25; // rcx
+  DXGGLOBAL *v26; // rax
+  struct _MDL *v27; // [rsp+28h] [rbp-158h]
+  int v28; // [rsp+C0h] [rbp-C0h]
+  int v29; // [rsp+D8h] [rbp-A8h]
+  __int64 v30; // [rsp+100h] [rbp-80h] BYREF
+  __int64 v31; // [rsp+108h] [rbp-78h]
+  int v32; // [rsp+110h] [rbp-70h]
+  int v33; // [rsp+118h] [rbp-68h]
+  unsigned int v34; // [rsp+140h] [rbp-40h] BYREF
 
-  v2 = *((_DWORD *)this + 109);
-  v3 = (ADAPTER_DISPLAY **)((char *)this + 2920);
-  v4 = *((_DWORD *)this + 418);
+  v2 = *((_DWORD *)this + 87);
+  v3 = *((_DWORD *)this + 362);
   *((_BYTE *)this + 208) = 1;
-  if ( (v2 & 0x10) != 0 && !*v3 )
+  if ( (v2 & 0x10) != 0 && !*((_QWORD *)this + 337) )
   {
-    DXGGLOBALSHAREMUTEX::DXGGLOBALSHAREMUTEX((DXGGLOBALSHAREMUTEX *)v22);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v22);
-    if ( *((DXGADAPTER **)DXGGLOBAL::GetGlobal() + 119) == this )
+    DXGGLOBALSHAREMUTEX::DXGGLOBALSHAREMUTEX((DXGGLOBALSHAREMUTEX *)&v30, (__int64)a2);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v30);
+    if ( *((DXGADAPTER **)DXGGLOBAL::GetGlobal(v6, v5) + 103) == this )
     {
-      Global = DXGGLOBAL::GetGlobal();
+      Global = DXGGLOBAL::GetGlobal(v7, (__int64)a2);
       DXGGLOBAL::SetWarpAdapter(Global, 0LL);
       DXGADAPTER::ReleaseReference(this);
     }
-    if ( v22[8] )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v22);
+    if ( (_BYTE)v31 )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v30, (__int64)a2);
   }
-  if ( *v3 )
-    ADAPTER_DISPLAY::Destroy(*v3);
-  v7 = (ADAPTER_RENDER *)*((_QWORD *)this + 366);
-  if ( v7 )
-    ADAPTER_RENDER::Destroy(v7);
-  v8 = (void (__fastcall *)(_QWORD))*((_QWORD *)this + 242);
-  if ( v8 )
-  {
-    v8(*((_QWORD *)this + 240));
-    memset((char *)this + 1912, 0, 0xB8uLL);
-  }
-  v9 = (void (__fastcall *)(_QWORD))*((_QWORD *)this + 266);
+  v9 = (ADAPTER_DISPLAY *)*((_QWORD *)this + 337);
   if ( v9 )
+    ADAPTER_DISPLAY::Destroy(v9);
+  v10 = (ADAPTER_RENDER *)*((_QWORD *)this + 338);
+  if ( v10 )
+    ADAPTER_RENDER::Destroy(v10);
+  v11 = (void (__fastcall *)(_QWORD))*((_QWORD *)this + 214);
+  if ( v11 )
   {
-    v9(*((_QWORD *)this + 264));
-    memset((char *)this + 2104, 0, 0x70uLL);
+    v11(*((_QWORD *)this + 212));
+    memset((char *)this + 1688, 0, 0xB8uLL);
   }
-  if ( *((_BYTE *)this + 4616) )
+  v12 = (void (__fastcall *)(_QWORD))*((_QWORD *)this + 238);
+  if ( v12 )
   {
-    v23 = 0;
-    if ( DXGADAPTER::IsAdapterSessionized(this, a2, &v23, 0LL) )
-      updated = ZwUpdateWnfStateData(&WNF_DX_REMOTE_ADAPTER_STOP, 0LL, 0LL, v10, &v23, 0, 0);
+    v12(*((_QWORD *)this + 236));
+    memset((char *)this + 1880, 0, 0x70uLL);
+  }
+  if ( *((_BYTE *)this + 4368) )
+  {
+    v34 = 0;
+    if ( DXGADAPTER::IsAdapterSessionized(this, a2, &v34, 0LL) )
+      updated = ZwUpdateWnfStateData(&WNF_DX_REMOTE_ADAPTER_STOP, 0LL, 0LL, v13, &v34, 0, 0);
     else
-      updated = ZwUpdateWnfStateData(&WNF_DX_CONSOLE_ADAPTER_STOP, 0LL, 0LL, v10, 0LL, 0, 0);
+      updated = ZwUpdateWnfStateData(&WNF_DX_CONSOLE_ADAPTER_STOP, 0LL, 0LL, v13, 0LL, 0, 0);
+    v17 = updated;
     if ( updated < 0 )
     {
-      v12 = updated;
-      WdLogSingleEntry2(2LL, this, updated);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to send Stop WNF for Adapter=0x%I64x with Status=0x%I64x",
-        (__int64)this,
-        v12,
-        0LL,
-        0LL,
-        0LL);
+      v18 = WdLogNewEntry5_WdError(v16, v15);
+      *(_QWORD *)(v18 + 32) = v17;
+      *(_QWORD *)(v18 + 24) = this;
+      WdLogEvent5_WdError(v18);
     }
-    *((_BYTE *)this + 4616) = 0;
+    *((_BYTE *)this + 4368) = 0;
   }
-  DpiFreeAdapterInfo((char *)this + 1568);
+  DpiFreeAdapterInfo((char *)this + 1392);
   DXGADAPTER::DestroyPhysicalAdapterData(this);
-  memset((char *)this + 280, 0, 0x508uLL);
-  memset((char *)this + 1568, 0, 0x158uLL);
+  memset((char *)this + 272, 0, 0x460uLL);
+  memset((char *)this + 1392, 0, 0x128uLL);
   if ( *((_BYTE *)this + 209) )
   {
-    v13 = *((_DWORD *)this + 1140);
-    if ( v13 )
+    v19 = *((_DWORD *)this + 1078);
+    if ( v19 )
     {
-      DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendCloseAdapter((DXGADAPTER *)((char *)this + 4472), v13);
-      *((_DWORD *)this + 1140) = 0;
+      v30 = 0LL;
+      v31 = 0LL;
+      v32 = 15;
+      v33 = v19;
+      DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(
+        (DXGADAPTER *)((char *)this + 4240),
+        (struct DXGKVMB_COMMAND_BASE *)&v30,
+        0x20u,
+        0LL,
+        0LL,
+        v27);
+      *((_DWORD *)this + 1078) = 0;
     }
-    DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendAdapterStop((DXGADAPTER *)((char *)this + 4472));
-    DXG_GUEST_VIRTUALGPU_VMBUS::DestroyVmBusChannel((DXGADAPTER *)((char *)this + 4472));
-    if ( *((_DWORD *)DXGGLOBAL::GetGlobal() + 442) >= 0x16u )
+    v30 = 0LL;
+    v31 = 0LL;
+    v32 = 30;
+    DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(
+      (DXGADAPTER *)((char *)this + 4240),
+      (struct DXGKVMB_COMMAND_BASE *)&v30,
+      0x18u,
+      0LL,
+      0LL,
+      v27);
+    DXG_GUEST_VIRTUALGPU_VMBUS::DestroyVmBusChannel((DXGADAPTER *)((char *)this + 4240));
+    if ( *((_DWORD *)DXGGLOBAL::GetGlobal(v21, v20) + 408) >= 0x16u )
       DXGADAPTER::DeleteRegistryKeys(this);
   }
-  v14 = (struct _LUID *)*((unsigned int *)this + 60);
-  if ( (_DWORD)v14 != -1 )
+  v22 = *((unsigned int *)this + 58);
+  if ( (_DWORD)v22 != -1 )
   {
-    DXGGLOBAL::ReleaseAdapterOrdinal(*((DXGGLOBAL **)this + 2), (unsigned int)v14);
-    *((_DWORD *)this + 60) = -1;
+    DXGGLOBAL::ReleaseAdapterOrdinal(*((DXGGLOBAL **)this + 2), v22);
+    *((_DWORD *)this + 58) = -1;
   }
-  if ( *((_DWORD *)this + 61) != -1 )
+  v23 = *((_QWORD *)this + 27);
+  if ( v23 )
   {
-    v23 = 0;
-    DXGADAPTER::IsAdapterSessionized(this, v14, &v23, 0LL);
-    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
-                                       *(DXGSESSIONMGR **)(*((_QWORD *)this + 2) + 944LL),
-                                       v23);
-    if ( SessionDataForSpecifiedSession )
-    {
-      DXGSESSIONDATA::ReleaseSessionAdapterOrdinal(SessionDataForSpecifiedSession, *((_DWORD *)this + 61));
-      *((_DWORD *)this + 61) = -1;
-    }
-  }
-  v16 = *((_QWORD *)this + 27);
-  if ( v16 )
-  {
-    DpiReportAdapter(v16, (__int64)this);
+    DpiReportAdapter(v23, (__int64)this);
     if ( bTracingEnabled )
     {
-      v17 = *((_DWORD *)this + 567);
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
+      v24 = *((_DWORD *)this + 511);
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
       {
-        v18 = v17 >> 14;
-        LOBYTE(v18) = v18 & 7;
-        McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqpx_EtwWriteTransfer(
-          v18,
+        v25 = v24 >> 14;
+        LOBYTE(v25) = v25 & 7;
+        McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqp_EtwWriteTransfer(
+          v25,
           &EventDestroyAdapter,
-          v17 >> 31,
+          v24 >> 31,
           *((_QWORD *)this + 27),
           (char)this,
-          v4,
-          *((_QWORD *)this + 277),
-          *((_DWORD *)this + 556),
-          *((_QWORD *)this + 279),
-          *((_DWORD *)this + 560),
-          *((_DWORD *)this + 561),
-          *((_DWORD *)this + 563),
-          *((_DWORD *)this + 564),
-          *((_DWORD *)this + 565),
-          *((_DWORD *)this + 568),
-          *((_DWORD *)this + 562),
-          *((_DWORD *)this + 566),
-          v17,
-          (v17 >> 10) & 0xF,
-          v18,
-          (v17 >> 17) & 7,
-          (v17 & 0x80000000) != 0,
-          *((_DWORD *)this + 569),
-          *((_DWORD *)this + 570),
-          v20,
-          *((_DWORD *)this + 572),
-          *((_DWORD *)this + 573),
-          v21,
-          0,
+          v3,
+          *((_QWORD *)this + 249),
+          *((_DWORD *)this + 500),
+          *((_QWORD *)this + 251),
+          *((_DWORD *)this + 504),
+          *((_DWORD *)this + 505),
+          *((_DWORD *)this + 507),
+          *((_DWORD *)this + 508),
+          *((_DWORD *)this + 509),
+          *((_DWORD *)this + 512),
+          *((_DWORD *)this + 506),
+          *((_DWORD *)this + 510),
+          v24,
+          (v24 >> 10) & 0xF,
+          v25,
+          (v24 >> 17) & 7,
+          (v24 & 0x80000000) != 0,
+          *((_DWORD *)this + 513),
+          *((_DWORD *)this + 514),
+          v28,
+          *((_DWORD *)this + 516),
+          *((_DWORD *)this + 517),
+          v29,
           0,
           0,
           0);
@@ -205,8 +210,8 @@ void __fastcall DXGADAPTER::Destroy(DXGADAPTER *this, struct _LUID *a2)
   }
   if ( *((_BYTE *)this + 209) )
   {
-    v19 = DXGGLOBAL::GetGlobal();
-    DXGGLOBAL::SetVirtualRenderAdapter(v19, 0LL);
+    v26 = DXGGLOBAL::GetGlobal(v23, v22);
+    DXGGLOBAL::SetVirtualRenderAdapter(v26, 0LL);
     if ( *((_BYTE *)this + 211) )
       DXGVAILOBJECT::NotifyVailAdapter(0);
   }

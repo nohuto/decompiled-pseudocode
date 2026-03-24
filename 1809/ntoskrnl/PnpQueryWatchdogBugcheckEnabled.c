@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpQueryWatchdogBugcheckEnabled @ 0x140289B54
+ * XREFs of PnpQueryWatchdogBugcheckEnabled @ 0x140289C54
  * Callers:
  *     PnpDisableWatchdog @ 0x140005B60 (PnpDisableWatchdog.c)
  *     PnpQueryWatchdogTimeout @ 0x140005D00 (PnpQueryWatchdogTimeout.c)
- *     PnpProcessWatchdogWorkItem @ 0x140289A8C (PnpProcessWatchdogWorkItem.c)
+ *     PnpProcessWatchdogWorkItem @ 0x140289B8C (PnpProcessWatchdogWorkItem.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 char PnpQueryWatchdogBugcheckEnabled()

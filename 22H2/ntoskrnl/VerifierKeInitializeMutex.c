@@ -1,12 +1,14 @@
 /*
- * XREFs of VerifierKeInitializeMutex @ 0x140AD64E0
+ * XREFs of VerifierKeInitializeMutex @ 0x1409DAC60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ViKeInitializeMutexCommon @ 0x1409DC03C (ViKeInitializeMutexCommon.c)
+ *     VfDeadlockInitializeResource @ 0x1409DE1C4 (VfDeadlockInitializeResource.c)
  */
 
-__int64 VerifierKeInitializeMutex()
+__int64 __fastcall VerifierKeInitializeMutex(int a1)
 {
-  return ((__int64 (*)(void))pXdvKeInitializeMutex)();
+  ViKeInitializeMutexCommon();
+  return VfDeadlockInitializeResource(a1);
 }

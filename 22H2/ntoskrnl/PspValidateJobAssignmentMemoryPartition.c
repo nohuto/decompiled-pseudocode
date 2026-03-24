@@ -1,8 +1,8 @@
 /*
- * XREFs of PspValidateJobAssignmentMemoryPartition @ 0x14069F680
+ * XREFs of PspValidateJobAssignmentMemoryPartition @ 0x14071F3A8
  * Callers:
- *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
- *     PspImplicitAssignProcessToJob @ 0x1407E653C (PspImplicitAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x140605FB0 (PspImplicitAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x14071E800 (PspAssignProcessToJob.c)
  * Callees:
  *     <none>
  */
@@ -11,33 +11,28 @@ bool __fastcall PspValidateJobAssignmentMemoryPartition(__int64 a1, __int64 a2, 
 {
   __int64 v5; // rcx
 
-  switch ( a4 )
+  if ( a4 == 4 )
   {
-    case 4:
-      if ( *(_QWORD *)(a1 + 1272) == a1 + 1272
-        && !*(_QWORD *)(a1 + 1776)
-        && *(_QWORD *)(a3 + 1296)
-        && *(_QWORD *)(*(_QWORD *)(a3 + 1296) + 1776LL)
-        && *(_QWORD *)(*(_QWORD *)(a3 + 1296) + 1776LL) != -1LL
-        && *(_QWORD *)(*(_QWORD *)(a3 + 1296) + 1776LL) != *(_QWORD *)(a3 + 2520) )
-      {
-        return 0;
-      }
-      break;
-    case 6:
-      return 1;
-    case 7:
-LABEL_7:
-      if ( *(_QWORD *)(a1 + 1776) )
-        return *(_QWORD *)(a2 + 1776) == 0LL;
-      return 1;
+    if ( *(_QWORD *)(a1 + 1056) == a1 + 1056
+      && !*(_QWORD *)(a1 + 1560)
+      && *(_QWORD *)(a3 + 1296)
+      && *(_QWORD *)(*(_QWORD *)(a3 + 1296) + 1560LL)
+      && *(_QWORD *)(*(_QWORD *)(a3 + 1296) + 1560LL) != -1LL
+      && *(_QWORD *)(*(_QWORD *)(a3 + 1296) + 1560LL) != *(_QWORD *)(a3 + 2520) )
+    {
+      return 0;
+    }
+LABEL_3:
+    v5 = *(_QWORD *)(a1 + 1560);
+    if ( (unsigned __int64)(v5 - 1) <= 0xFFFFFFFFFFFFFFFDuLL
+      && *(_QWORD *)(a3 + 2520) != v5
+      && a3 != *(_QWORD *)(v5 + 104) )
+    {
+      return 0;
+    }
+    return ((a4 - 4) & 0xFFFFFFFC) != 0 || a4 == 6 || !*(_QWORD *)(a1 + 1560) || !*(_QWORD *)(a2 + 1560);
   }
-  v5 = *(_QWORD *)(a1 + 1776);
-  if ( (unsigned __int64)(v5 - 1) > 0xFFFFFFFFFFFFFFFDuLL || *(_QWORD *)(a3 + 2520) == v5 || a3 == *(_QWORD *)(v5 + 112) )
-  {
-    if ( ((a4 - 4) & 0xFFFFFFFC) != 0 )
-      return 1;
-    goto LABEL_7;
-  }
-  return 0;
+  if ( (unsigned int)(a4 - 6) > 1 )
+    goto LABEL_3;
+  return ((a4 - 4) & 0xFFFFFFFC) != 0 || a4 == 6 || !*(_QWORD *)(a1 + 1560) || !*(_QWORD *)(a2 + 1560);
 }

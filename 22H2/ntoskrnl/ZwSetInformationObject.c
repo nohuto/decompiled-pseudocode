@@ -1,10 +1,9 @@
 /*
- * XREFs of ZwSetInformationObject @ 0x14041B220
+ * XREFs of ZwSetInformationObject @ 0x1403FA5A0
  * Callers:
- *     DifZwSetInformationObjectWrapper @ 0x1405F7270 (DifZwSetInformationObjectWrapper.c)
- *     CmpCmdHiveClose @ 0x14068B0E4 (CmpCmdHiveClose.c)
- *     CmpCreateHive @ 0x14070247C (CmpCreateHive.c)
- *     CmpFlushBackupHive @ 0x140A1A998 (CmpFlushBackupHive.c)
+ *     CmpCmdHiveClose @ 0x14071C1E4 (CmpCmdHiveClose.c)
+ *     CmpCreateHive @ 0x14071D9E8 (CmpCreateHive.c)
+ *     CmpFlushBackupHive @ 0x140870F90 (CmpFlushBackupHive.c)
  * Callees:
  *     <none>
  */

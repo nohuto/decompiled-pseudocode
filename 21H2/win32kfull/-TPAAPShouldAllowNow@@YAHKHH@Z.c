@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TPAAPShouldAllowNow@@YAHKHH@Z @ 0x1C02120D8
+ * XREFs of ?TPAAPShouldAllowNow@@YAHKHH@Z @ 0x1C0213600
  * Callers:
- *     EditionLegacyTouchPadMouseAllowTap @ 0x1C0212530 (EditionLegacyTouchPadMouseAllowTap.c)
+ *     EditionLegacyTouchPadMouseAllowTap @ 0x1C0213B50 (EditionLegacyTouchPadMouseAllowTap.c)
  * Callees:
- *     ?TPAAPSqmBlockedCount@@YAXH@Z @ 0x1C0212214 (-TPAAPSqmBlockedCount@@YAXH@Z.c)
+ *     ?TPAAPSqmBlockedCount@@YAXH@Z @ 0x1C021373C (-TPAAPSqmBlockedCount@@YAXH@Z.c)
  */
 
 __int64 __fastcall TPAAPShouldAllowNow()
@@ -30,7 +30,7 @@ __int64 __fastcall TPAAPShouldAllowNow()
   v4 = 0LL;
   v5 = 0LL;
   v6 = v3;
-  v7 = (int)gTouchPadParameters[2];
+  v7 = gTouchPadParameters[2];
   if ( (_DWORD)v7 )
   {
     v1 = 1;

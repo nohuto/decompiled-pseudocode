@@ -1,11 +1,11 @@
 /*
- * XREFs of DeferMessagesOnQueue @ 0x1C000BBE8
+ * XREFs of DeferMessagesOnQueue @ 0x1C00056B8
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C012B430 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     ?xxxGetNextSysMsg@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@1PEAVCMultiPerObjectLockExclusivePpiPtiQ@@@Z @ 0x1C0166FE8 (-xxxGetNextSysMsg@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@1PEAVCMultiPerObjectLockExclusivePpiP.c)
  * Callees:
- *     IsHiddenByInputService @ 0x1C000BD34 (IsHiddenByInputService.c)
- *     ?DeferMessage@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C000BD5C (-DeferMessage@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_qiqdd @ 0x1C012B280 (WPP_RECORDER_AND_TRACE_SF_qiqdd.c)
+ *     ?DeferMessage@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C00057B8 (-DeferMessage@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z.c)
+ *     WPP_RECORDER_SF_qiqdd @ 0x1C00585D0 (WPP_RECORDER_SF_qiqdd.c)
+ *     IsHiddenByInputService @ 0x1C0066884 (IsHiddenByInputService.c)
  */
 
 struct tagQMSG *__fastcall DeferMessagesOnQueue(struct tagMLIST *a1, struct tagQMSG *a2)
@@ -17,12 +17,8 @@ struct tagQMSG *__fastcall DeferMessagesOnQueue(struct tagMLIST *a1, struct tagQ
   __int64 v7; // rax
   __int64 v8; // rdx
   __int64 v9; // rdx
-  int v10; // r8d
-  int v11; // r9d
-  int v13; // [rsp+20h] [rbp-58h]
-  int v14; // [rsp+28h] [rbp-50h]
-  char v15; // [rsp+40h] [rbp-38h]
-  char v16; // [rsp+48h] [rbp-30h]
+  int v10; // ecx
+  int v11; // r8d
 
   v2 = 0;
   if ( a2 )
@@ -43,38 +39,24 @@ struct tagQMSG *__fastcall DeferMessagesOnQueue(struct tagMLIST *a1, struct tagQ
         *(_QWORD *)(*(_QWORD *)a2 + 8LL) = v7;
       else
         *((_QWORD *)a1 + 1) = v7;
-      if ( a2 == *((struct tagQMSG **)a1 + 4) )
-        *((_QWORD *)a1 + 4) = 0LL;
       *((_QWORD *)a2 + 1) = 0LL;
       *(_QWORD *)a2 = 0LL;
       DeferMessage(a1, a2);
       if ( !(unsigned int)IsHiddenByInputService(v8) )
       {
         ++v2;
-        LOBYTE(v11) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                   && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) != 0
-                   && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-        if ( (_BYTE)v11 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          v16 = *(_QWORD *)(v9 + 136);
-          v15 = v9;
-          LOBYTE(v9) = v11;
-          LOBYTE(v10) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          WPP_RECORDER_AND_TRACE_SF_qiqdd(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v9,
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_qiqdd(
             v10,
+            v9,
             v11,
-            v13,
-            v14,
-            17,
-            (__int64)&WPP_da10ed9f41f835a692699b91a3623186_Traceguids,
-            v15,
-            v16,
+            16,
+            (__int64)&WPP_fae14e43e2df34d42d304f3db5b27b93_Traceguids,
+            v9,
+            *(_QWORD *)(v9 + 136),
             (char)a1,
             *((_DWORD *)a1 + 5),
             *((_DWORD *)a1 + 4) - v2);
-        }
       }
       a2 = v6;
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoFreeWorkItem @ 0x14012DD70
+ * XREFs of IoFreeWorkItem @ 0x14012DD90
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

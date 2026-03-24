@@ -1,12 +1,11 @@
 /*
- * XREFs of ?GetMonitorIdFromTargetId@DpiPersistence@@YAJIAEBU_LUID@@PEAVVIDPN_MGR@@GPEAG@Z @ 0x1C01844BC
+ * XREFs of ?GetMonitorIdFromTargetId@DpiPersistence@@YAJIAEBU_LUID@@PEAVVIDPN_MGR@@GPEAG@Z @ 0x1C014AA90
  * Callers:
- *     ?AppendMonitorId@DpiPersistence@@YAJIAEBU_LUID@@PEAVVIDPN_MGR@@GPEAG2@Z @ 0x1C01845C4 (-AppendMonitorId@DpiPersistence@@YAJIAEBU_LUID@@PEAVVIDPN_MGR@@GPEAG2@Z.c)
+ *     ?AppendMonitorId@DpiPersistence@@YAJIAEBU_LUID@@PEAVVIDPN_MGR@@GPEAG2@Z @ 0x1C014AB3C (-AppendMonitorId@DpiPersistence@@YAJIAEBU_LUID@@PEAVVIDPN_MGR@@GPEAG2@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z @ 0x1C01832C0 (-ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z.c)
- *     MonitorGetCCDMonitorID @ 0x1C01834A8 (MonitorGetCCDMonitorID.c)
- *     ?GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z @ 0x1C0183694 (-GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z.c)
+ *     MonitorGetCCDMonitorID @ 0x1C0133BCC (MonitorGetCCDMonitorID.c)
+ *     ?ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z @ 0x1C0149F08 (-ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z.c)
+ *     ?GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z @ 0x1C014A020 (-GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z.c)
  */
 
 __int64 __fastcall DpiPersistence::GetMonitorIdFromTargetId(
@@ -16,73 +15,62 @@ __int64 __fastcall DpiPersistence::GetMonitorIdFromTargetId(
         struct VIDPN_MGR *a4,
         unsigned __int16 *a5)
 {
-  __int64 v7; // rbx
-  unsigned int v8; // r14d
+  __int64 v7; // rsi
+  unsigned int v8; // ebp
   int ConnectedMonitorHandle; // eax
-  __int64 v10; // rsi
-  unsigned int v11; // edx
-  struct HDXGMONITOR__ *v12; // r14
-  int v13; // eax
-  __int64 v14; // r15
-  struct HDXGMONITOR__ *v16; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rbx
+  unsigned int v13; // edx
+  struct HDXGMONITOR__ *v14; // rbp
+  int v15; // eax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r14
+  _QWORD *v20; // rax
+  _QWORD *v21; // rax
+  struct HDXGMONITOR__ *v22; // [rsp+20h] [rbp-18h] BYREF
 
-  v16 = 0LL;
+  v22 = 0LL;
   v7 = (unsigned int)this;
   v8 = (unsigned __int16)a4;
-  ConnectedMonitorHandle = VIDPN_MGR::GetConnectedMonitorHandle((VIDPN_MGR *)a3, (unsigned int)this, &v16);
-  v10 = ConnectedMonitorHandle;
+  ConnectedMonitorHandle = VIDPN_MGR::GetConnectedMonitorHandle((VIDPN_MGR *)a3, (unsigned int)this, &v22);
+  v12 = ConnectedMonitorHandle;
   if ( ConnectedMonitorHandle < 0 )
   {
-    WdLogSingleEntry4(2LL, ConnectedMonitorHandle, v7, (int)a2[1], *a2);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to retrieve monitor handle. (Status = 0x%I64x, i_VidPnTargetId = 0x%I64x, i_AdapterLuid = 0x%I64x%08I64x)",
-      v10,
-      v7,
-      (int)a2[1],
-      *a2,
-      0LL);
-    return (unsigned int)v10;
+    v20 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+    v20[5] = (int)a2[1];
+    v20[6] = *a2;
+    v20[3] = v12;
+    goto LABEL_10;
   }
-  v11 = v8;
-  v12 = v16;
-  LODWORD(v10) = MonitorGetCCDMonitorID((DXGMONITOR **)v16, v11, a5);
-  if ( (_DWORD)v10 == -2147483643 )
-    LODWORD(v10) = -1073741789;
-  v13 = VIDPN_MGR::ReleaseMonitorHandle((VIDPN_MGR *)a3, v12);
-  v14 = v13;
-  if ( v13 >= 0 )
+  v13 = v8;
+  v14 = v22;
+  LODWORD(v12) = MonitorGetCCDMonitorID(v22, v13, a5);
+  if ( (_DWORD)v12 == -2147483643 )
+    LODWORD(v12) = -1073741789;
+  v15 = VIDPN_MGR::ReleaseMonitorHandle((VIDPN_MGR *)a3, v14);
+  v18 = v15;
+  if ( v15 >= 0 )
   {
-    if ( (int)v10 < 0 )
-    {
-      WdLogSingleEntry5(2LL, (int)v10, v7, v12, (int)a2[1], *a2);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to get monitor Id. (Status = 0x%I64x, i_VidPnTargetId = 0x%I64x, MonitorHandle = 0x%I64x, i_Adap"
-                  "terLuid = 0x%I64x%08I64x)",
-        (int)v10,
-        v7,
-        (__int64)v12,
-        (int)a2[1],
-        *a2);
-    }
-    return (unsigned int)v10;
+    if ( (int)v12 >= 0 )
+      return (unsigned int)v12;
+    v20 = (_QWORD *)WdLogNewEntry5_WdError(v17, v16);
+    v20[3] = (int)v12;
+    v20[6] = (int)a2[1];
+    v20[7] = *a2;
+    v20[5] = v14;
+LABEL_10:
+    v20[4] = v7;
+    WdLogEvent5_WdError(v20);
+    return (unsigned int)v12;
   }
-  WdLogSingleEntry5(1LL, v13, v7, v12, (int)a2[1], *a2);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    262146,
-    -1,
-    (__int64)L"Failed to release monitor handle. (_Status = 0x%I64x, i_VidPnTargetId = 0x%I64x, MonitorHandle = 0x%I64x, i"
-              "_AdapterLuid = 0x%I64x%08I64x)",
-    v14,
-    v7,
-    (__int64)v12,
-    (int)a2[1],
-    *a2);
-  return (unsigned int)v14;
+  v21 = (_QWORD *)WdLogNewEntry5_WdAssertion(v17, v16);
+  v21[6] = (int)a2[1];
+  v21[7] = *a2;
+  v21[3] = v18;
+  v21[4] = v7;
+  v21[5] = v14;
+  WdLogEvent5_WdAssertion(v21);
+  return (unsigned int)v18;
 }

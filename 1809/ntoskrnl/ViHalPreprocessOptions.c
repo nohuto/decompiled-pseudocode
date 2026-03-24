@@ -30,8 +30,8 @@
  *     ViMapDoubleBuffer @ 0x14092E13C (ViMapDoubleBuffer.c)
  *     ViReleaseDmaAdapter @ 0x14092E59C (ViReleaseDmaAdapter.c)
  * Callees:
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     VfUtilDbgPrint @ 0x14030994C (VfUtilDbgPrint.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     VfUtilDbgPrint @ 0x140309A4C (VfUtilDbgPrint.c)
  */
 
 __int64 ViHalPreprocessOptions(_DWORD *a1, const char *a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, ...)

@@ -1,80 +1,68 @@
 /*
- * XREFs of PpmCheckMakeupSkippedChecks @ 0x140356DE0
+ * XREFs of PpmCheckMakeupSkippedChecks @ 0x1403059D0
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     PpmEventTraceMakeupPerfCheck @ 0x140462DDC (PpmEventTraceMakeupPerfCheck.c)
- *     PpmPerfCompleteMakeup @ 0x14058D134 (PpmPerfCompleteMakeup.c)
- *     PpmPerfMinimumPerfReached @ 0x14058D42C (PpmPerfMinimumPerfReached.c)
- *     PpmParkMaximumCoresParked @ 0x14059D104 (PpmParkMaximumCoresParked.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     PpmPerfCompleteMakeup @ 0x140305AF4 (PpmPerfCompleteMakeup.c)
+ *     PpmPerfMinimumPerfReached @ 0x140305B14 (PpmPerfMinimumPerfReached.c)
+ *     PpmParkMaximumCoresParked @ 0x140305B7C (PpmParkMaximumCoresParked.c)
+ *     PpmEventTraceMakeupPerfCheck @ 0x14057AA44 (PpmEventTraceMakeupPerfCheck.c)
  */
 
 char PpmCheckMakeupSkippedChecks()
 {
   __int64 Prcb; // rax
-  __int64 v2; // rdx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  __int64 v5; // r8
-  __int64 *v6; // r10
-  __int64 v7; // rax
-  __int64 v8; // rdx
-  __int64 v9; // r9
-  __int64 v10; // rcx
-  int v11; // r9d
-  unsigned int v12; // r8d
+  __int64 v2; // r8
+  __int64 *v3; // r10
+  unsigned int v4; // r9d
+  __int64 v5; // rcx
+  unsigned int v6; // r8d
   unsigned __int16 i; // dx
-  __int64 v14; // rax
-  unsigned __int16 *v15; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v16; // [rsp+28h] [rbp-20h]
-  __int64 v17; // [rsp+30h] [rbp-18h]
-  unsigned int v18; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v8; // rax
+  unsigned __int16 *v9[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int16 v10; // [rsp+30h] [rbp-18h]
+  int v11; // [rsp+32h] [rbp-16h]
+  __int16 v12; // [rsp+36h] [rbp-12h]
+  unsigned int v13; // [rsp+50h] [rbp+8h] BYREF
 
-  *(_DWORD *)((char *)&v17 + 2) = 0;
-  HIWORD(v17) = 0;
-  v18 = 0;
+  v11 = 0;
+  v12 = 0;
+  v13 = 0;
   if ( PpmCheckMakeupCount )
   {
     if ( (unsigned __int8)PpmParkMaximumCoresParked() && (unsigned __int8)PpmPerfMinimumPerfReached() )
     {
-      v16 = qword_140C0BE68;
-      v15 = (unsigned __int16 *)&PpmCheckRegistered;
-      LOWORD(v17) = 0;
-      while ( !(unsigned int)KeEnumerateNextProcessor(&v18, &v15) )
+      v9[1] = (unsigned __int16 *)qword_140C113D8[0];
+      v9[0] = (unsigned __int16 *)&PpmCheckRegistered;
+      v10 = 0;
+      while ( !(unsigned int)KeEnumerateNextProcessor(&v13, v9) )
       {
-        Prcb = KeGetPrcb(v18);
-        PpmPerfCompleteMakeup(Prcb + 33968, v2, v3, v4, v15, v16, v17);
+        Prcb = KeGetPrcb(v13);
+        PpmPerfCompleteMakeup(Prcb + 33128);
       }
-      v5 = PpmPerfDomainHead;
-      v6 = &PpmPerfDomainHead;
-      while ( (__int64 *)v5 != v6 )
+      v2 = PpmPerfDomainHead;
+      v3 = &PpmPerfDomainHead;
+      while ( (__int64 *)v2 != v3 )
       {
-        if ( *(_DWORD *)(v5 + 296) )
+        if ( *(_DWORD *)(v2 + 200) )
         {
-          v7 = 0LL;
-          v8 = 0LL;
-          v9 = 0LL;
+          v4 = 0;
           do
           {
-            v10 = *(_QWORD *)(v5 + 312) + 144 * v7;
-            if ( *(_DWORD *)(v10 + 16) == 1 )
-            {
-              PpmPerfCompleteMakeup(*(_QWORD *)v10, v8, v5, v9, v15, v16, v17);
-              LODWORD(v8) = v11;
-            }
-            v7 = (unsigned int)(v8 + 1);
-            v8 = (unsigned int)v7;
-            v9 = (unsigned int)v7;
+            v5 = *(_QWORD *)(v2 + 216) + 136LL * v4;
+            if ( *(_DWORD *)(v5 + 16) == 1 )
+              PpmPerfCompleteMakeup(*(_QWORD *)v5);
+            ++v4;
           }
-          while ( (unsigned int)v7 < *(_DWORD *)(v5 + 296) );
+          while ( v4 < *(_DWORD *)(v2 + 200) );
         }
-        v5 = *(_QWORD *)v5;
+        v2 = *(_QWORD *)v2;
       }
-      v12 = PpmParkNumNodes;
-      for ( i = 0; i < v12; *(_QWORD *)(PpmParkNodes + 192 * v14 + 88) = *(_QWORD *)(PpmParkNodes + 192 * v14 + 80) )
-        v14 = i++;
+      v6 = PpmParkNumNodes;
+      for ( i = 0; i < v6; *(_QWORD *)(PpmParkNodes + 272 * v8 + 112) = *(_QWORD *)(PpmParkNodes + 272 * v8 + 104) )
+        v8 = i++;
       PpmCheckMakeupCount = 0;
     }
     else

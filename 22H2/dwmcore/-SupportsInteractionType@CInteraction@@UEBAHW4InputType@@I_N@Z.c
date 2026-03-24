@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SupportsInteractionType@CInteraction@@UEBAHW4InputType@@I_N@Z @ 0x1800EF6B0
+ * XREFs of ?SupportsInteractionType@CInteraction@@UEBAHW4InputType@@I_N@Z @ 0x1800CCB50
  * Callers:
  *     <none>
  * Callees:
@@ -11,5 +11,5 @@ __int64 __fastcall CInteraction::SupportsInteractionType(__int64 a1, int a2)
   if ( a2 == 7 )
     return 0LL;
   else
-    return CInteractionProcessor::SupportsInteractionType(a1 + 288);
+    return CInteractionProcessor::SupportsInteractionType(a1 + 344);
 }

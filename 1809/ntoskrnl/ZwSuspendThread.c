@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSuspendThread @ 0x1401BB810
+ * XREFs of ZwSuspendThread @ 0x1401BB830
  * Callers:
  *     <none>
  * Callees:

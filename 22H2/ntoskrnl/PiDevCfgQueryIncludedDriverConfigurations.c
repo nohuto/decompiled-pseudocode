@@ -1,230 +1,248 @@
 /*
- * XREFs of PiDevCfgQueryIncludedDriverConfigurations @ 0x140879CB4
+ * XREFs of PiDevCfgQueryIncludedDriverConfigurations @ 0x14076BA48
  * Callers:
- *     PiDevCfgQueryDriverConfiguration @ 0x140879844 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x14076B620 (PiDevCfgQueryDriverConfiguration.c)
  * Callees:
- *     PnpDuplicateUnicodeString @ 0x1403CD820 (PnpDuplicateUnicodeString.c)
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     wcsrchr @ 0x1403DB4B0 (wcsrchr.c)
- *     PiDevCfgGetDriverConfigurationKeyScope @ 0x140561E68 (PiDevCfgGetDriverConfigurationKeyScope.c)
- *     PiDevCfgPushDriverNodeEntry @ 0x1405622F4 (PiDevCfgPushDriverNodeEntry.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     PiDevCfgFreeDriverNode @ 0x1408796E0 (PiDevCfgFreeDriverNode.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x140879844 (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgAppendMultiSz @ 0x14095C6E4 (PiDevCfgAppendMultiSz.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14095F2B8 (PiDevCfgQueryIncludedDriverNode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PnpDuplicateUnicodeString @ 0x14036E360 (PnpDuplicateUnicodeString.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     wcsrchr @ 0x1403D3A00 (wcsrchr.c)
+ *     PiDevCfgGetDriverConfigurationKeyScope @ 0x14050E018 (PiDevCfgGetDriverConfigurationKeyScope.c)
+ *     PiDevCfgPushDriverNodeEntry @ 0x14050E374 (PiDevCfgPushDriverNodeEntry.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x14076B620 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgAppendMultiSz @ 0x1408A4CDC (PiDevCfgAppendMultiSz.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x1408A7698 (PiDevCfgQueryIncludedDriverNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgQueryIncludedDriverConfigurations(__int64 a1)
 {
-  __int64 v1; // r13
+  __int64 v1; // r15
+  unsigned int v2; // r12d
+  _QWORD **v3; // rcx
   int DriverConfiguration; // ebx
-  _QWORD *v4; // rcx
-  PVOID *v5; // rax
-  __int64 v6; // rdi
-  wchar_t *v7; // rsi
-  wchar_t *v8; // r15
-  wchar_t *v9; // r14
-  wchar_t *v10; // rdi
-  int v11; // eax
-  const wchar_t *v12; // rdi
-  bool v13; // cf
-  __int64 v14; // r12
-  wchar_t *v15; // rax
-  int v16; // r8d
-  unsigned int v17; // r14d
+  _QWORD *v6; // rcx
+  PVOID *v7; // rax
+  __int64 v8; // rdi
+  wchar_t *v9; // rsi
+  wchar_t *v10; // r14
+  wchar_t *v11; // rdi
+  wchar_t *v12; // rax
+  const wchar_t *v13; // r13
+  bool v14; // cf
+  int v15; // eax
+  wchar_t *v16; // rax
+  int v17; // r8d
   wchar_t *v18; // rax
-  wchar_t *v19; // rbx
+  wchar_t *v19; // rdi
   __int64 v20; // rax
-  int v21; // eax
-  char *v22; // rdi
-  __int64 v23; // r14
-  __int64 *v24; // r15
-  _QWORD *v25; // rax
-  __int64 *v26; // r12
-  __int64 v27; // rax
-  PVOID v28; // rcx
-  PVOID *v29; // rax
-  _QWORD *v30; // [rsp+30h] [rbp-10h] BYREF
-  PVOID P; // [rsp+38h] [rbp-8h]
-  PVOID v33; // [rsp+88h] [rbp+48h] BYREF
-  __int64 v34; // [rsp+90h] [rbp+50h]
+  __int64 v21; // r14
+  __int64 *v22; // rdi
+  wchar_t *v23; // r15
+  __int64 *v24; // r12
+  int v25; // eax
+  __int64 *v26; // rax
+  __int64 *v27; // rdi
+  __int64 v28; // rcx
+  __int64 v29; // rax
+  _QWORD *v30; // rax
+  const wchar_t *v31; // [rsp+30h] [rbp-38h]
+  __int64 v32; // [rsp+38h] [rbp-30h]
+  _QWORD *v33; // [rsp+40h] [rbp-28h] BYREF
+  PVOID P; // [rsp+48h] [rbp-20h]
+  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-18h] BYREF
+  unsigned int v37; // [rsp+B8h] [rbp+50h]
+  __int64 *v38; // [rsp+C0h] [rbp+58h] BYREF
+  wchar_t *Str2; // [rsp+C8h] [rbp+60h]
 
   v1 = a1;
-  P = &v30;
-  v33 = 0LL;
-  v30 = &v30;
-  if ( !*(_QWORD *)(a1 + 360) )
+  v2 = 0;
+  v33 = &v33;
+  v3 = &v33;
+  DestinationString = 0LL;
+  P = &v33;
+  if ( *(_QWORD *)(v1 + 360) )
   {
-    DriverConfiguration = 0;
-    goto LABEL_3;
-  }
-  DriverConfiguration = PiDevCfgPushDriverNodeEntry((__int64)&v30, a1);
-  if ( DriverConfiguration < 0 )
-    goto LABEL_3;
-  do
-  {
+    DriverConfiguration = PiDevCfgPushDriverNodeEntry((__int64)&v33, v1);
+    if ( DriverConfiguration < 0 )
+      goto LABEL_61;
+    do
+    {
 LABEL_6:
-    if ( v30 == &v30 )
-      goto LABEL_3;
-    v4 = P;
-    if ( *(_QWORD ***)P != &v30 || (v5 = (PVOID *)*((_QWORD *)P + 1), *v5 != P) )
-LABEL_57:
-      __fastfail(3u);
-    P = (PVOID)*((_QWORD *)P + 1);
-    *v5 = &v30;
-    v34 = v4[2];
-    v6 = v34;
-    ExFreePoolWithTag(v4, 0);
-    v7 = *(wchar_t **)(v6 + 360);
-  }
-  while ( !v7 );
-  while ( 1 )
-  {
-    if ( !*v7 )
-    {
-      if ( DriverConfiguration < 0 )
-        break;
-      goto LABEL_6;
+      if ( v33 == &v33 )
+        return (unsigned int)DriverConfiguration;
+      v6 = P;
+      if ( *(_QWORD ***)P != &v33 || (v7 = (PVOID *)*((_QWORD *)P + 1), *v7 != P) )
+LABEL_64:
+        __fastfail(3u);
+      P = (PVOID)*((_QWORD *)P + 1);
+      *v7 = &v33;
+      v8 = v6[2];
+      v32 = v8;
+      ExFreePoolWithTag(v6, 0);
+      v9 = *(wchar_t **)(v8 + 360);
     }
-    v8 = v7;
-    v9 = v7;
-    v10 = wcschr(v7, 0x3Au);
-    v11 = 0;
-    if ( v10 )
+    while ( !v9 );
+    while ( 1 )
     {
-      *v10 = 0;
-      v12 = v10 + 1;
-      v7 = (wchar_t *)v12;
-      v13 = *v9 < 0x2Au;
-      if ( *v9 != 42 || (v13 = 0, v9[1]) )
-        v11 = v13 ? -1 : 1;
-      v14 = (unsigned __int64)v8 & -(__int64)(v11 != 0);
-      v15 = wcsrchr(v12, 0x2Eu);
-      if ( v15 )
+      if ( !*v9 )
       {
-        *v15 = 0;
-        v7 = v15 + 1;
-        v16 = v15[1] - 42;
-        if ( v15[1] == 42 )
-          v16 = v15[2];
+LABEL_58:
+        if ( DriverConfiguration < 0 )
+          goto LABEL_61;
+        goto LABEL_6;
+      }
+      v10 = v9;
+      v11 = v9;
+      v12 = wcschr(v9, 0x3Au);
+      if ( v12 )
+      {
+        v13 = v12 + 1;
+        *v12 = 0;
+        v31 = v12 + 1;
+        v9 = v12 + 1;
+        v14 = *v11 < 0x2Au;
+        if ( *v11 != 42 || (v14 = 0, v11[1]) )
+          v15 = v14 ? -1 : 1;
+        else
+          v15 = 0;
+        Str2 = (wchar_t *)((unsigned __int64)v10 & -(__int64)(v15 != 0));
+        v16 = wcsrchr(v13, 0x2Eu);
         if ( v16 )
         {
-          v7 = v15 + 1;
-          v17 = 0;
-          if ( v15[1] )
+          *v16 = 0;
+          v9 = v16 + 1;
+          v17 = v16[1] - 42;
+          if ( v16[1] == 42 )
+            v17 = v16[2];
+          if ( v17 )
           {
+            v37 = 0;
+            v9 = v16 + 1;
+            if ( v16[1] )
+            {
+              do
+              {
+                v18 = wcschr(v9, 0x2Cu);
+                if ( v18 )
+                {
+                  *v18 = 0;
+                  v19 = v18 + 1;
+                }
+                else
+                {
+                  v20 = -1LL;
+                  do
+                    ++v20;
+                  while ( v9[v20] );
+                  v19 = &v9[v20];
+                }
+                v2 |= PiDevCfgGetDriverConfigurationKeyScope(v9);
+                v9 = v19;
+              }
+              while ( *v19 );
+              v37 = v2;
+            }
+            v2 = 0;
+          }
+          else
+          {
+            v37 = -1;
+          }
+          v38 = 0LL;
+          RtlInitUnicodeString(&DestinationString, v13);
+          v21 = v1 + 368;
+          v22 = *(__int64 **)(v1 + 368);
+          if ( v22 != (__int64 *)(v1 + 368) )
+          {
+            v23 = Str2;
             do
             {
-              v18 = wcschr(v7, 0x2Cu);
-              if ( v18 )
+              v38 = v22;
+              if ( RtlEqualUnicodeString((PCUNICODE_STRING)(v22 + 11), &DestinationString, 1u) )
               {
-                *v18 = 0;
-                v19 = v18 + 1;
+                v24 = v22;
+                if ( !v23 || !wcsicmp((const wchar_t *)v22[6], v23) )
+                  break;
               }
-              else
-              {
-                v20 = -1LL;
-                do
-                  ++v20;
-                while ( v7[v20] );
-                v19 = &v7[v20];
-              }
-              v17 |= PiDevCfgGetDriverConfigurationKeyScope(v7);
-              v7 = v19;
+              v22 = (__int64 *)*v22;
+              v24 = 0LL;
+              v38 = 0LL;
             }
-            while ( *v19 );
-          }
-        }
-        else
-        {
-          v17 = -1;
-        }
-        v21 = PiDevCfgQueryIncludedDriverNode(v34, v14, v12, v17, &v33);
-        DriverConfiguration = v21;
-        if ( v21 < 0 )
-        {
-          *(_DWORD *)(v1 + 428) = v21;
-          break;
-        }
-        v22 = (char *)v33;
-        v23 = v1 + 368;
-        v24 = *(__int64 **)(v1 + 368);
-        if ( v24 != (__int64 *)(v1 + 368) )
-        {
-          do
-          {
-            v26 = v24;
-            if ( RtlEqualUnicodeString((PCUNICODE_STRING)(v24 + 11), (PCUNICODE_STRING)(v22 + 88), 1u)
-              && RtlEqualUnicodeString((PCUNICODE_STRING)(v24 + 5), (PCUNICODE_STRING)(v22 + 40), 1u) )
+            while ( v22 != (__int64 *)v21 );
+            v1 = a1;
+            v13 = v31;
+            if ( v24 )
             {
-              break;
+              v2 = 0;
+              goto LABEL_52;
             }
-            v24 = (__int64 *)*v24;
-            v26 = 0LL;
+            v2 = 0;
           }
-          while ( v24 != (__int64 *)v23 );
-          v1 = a1;
-          if ( v26 )
+          v25 = PiDevCfgQueryIncludedDriverNode(v32, Str2, v13, v37, &v38);
+          DriverConfiguration = v25;
+          if ( v25 < 0 )
           {
-            PiDevCfgFreeDriverNode(v22);
-            goto LABEL_40;
+            *(_DWORD *)(v1 + 412) = v25;
+            goto LABEL_58;
           }
-        }
-        v25 = *(_QWORD **)(v23 + 8);
-        if ( *v25 != v23 )
-          goto LABEL_57;
-        *(_QWORD *)v22 = v23;
-        *((_QWORD *)v22 + 1) = v25;
-        *v25 = v22;
-        *(_QWORD *)(v23 + 8) = v22;
-        DriverConfiguration = PiDevCfgQueryDriverConfiguration((__int64)v22);
-        if ( DriverConfiguration < 0 )
-          break;
-        if ( *((_QWORD *)v22 + 37)
-          && !*(_QWORD *)(v1 + 296)
-          && !PnpDuplicateUnicodeString(v1 + 288, (__int64)(v22 + 288)) )
-        {
-          DriverConfiguration = -1073741670;
-          break;
-        }
-        if ( *((_QWORD *)v22 + 39) )
-        {
-          DriverConfiguration = PiDevCfgAppendMultiSz((PUNICODE_STRING)(v1 + 304));
+          v26 = *(__int64 **)(v21 + 8);
+          if ( *v26 != v21 )
+            goto LABEL_64;
+          v27 = v38;
+          v28 = (__int64)v38;
+          *v38 = v21;
+          *(_QWORD *)(v28 + 8) = v26;
+          *v26 = v28;
+          *(_QWORD *)(v21 + 8) = v28;
+          DriverConfiguration = PiDevCfgQueryDriverConfiguration(v28);
           if ( DriverConfiguration < 0 )
-            break;
-        }
-        if ( *((_QWORD *)v22 + 41) )
-        {
-          DriverConfiguration = PiDevCfgAppendMultiSz((PUNICODE_STRING)(v1 + 320));
+            goto LABEL_61;
+          if ( v27[37] && !*(_QWORD *)(v1 + 296) && !PnpDuplicateUnicodeString(v1 + 288, (__int64)(v27 + 36)) )
+          {
+            DriverConfiguration = -1073741670;
+            goto LABEL_58;
+          }
+          if ( v27[39] )
+          {
+            DriverConfiguration = PiDevCfgAppendMultiSz((PUNICODE_STRING)(v1 + 304));
+            if ( DriverConfiguration < 0 )
+              goto LABEL_61;
+          }
+          if ( v27[41] )
+          {
+            DriverConfiguration = PiDevCfgAppendMultiSz((PUNICODE_STRING)(v1 + 320));
+            if ( DriverConfiguration < 0 )
+              goto LABEL_61;
+          }
+          DriverConfiguration = PiDevCfgPushDriverNodeEntry((__int64)&v33, (__int64)v27);
           if ( DriverConfiguration < 0 )
-            break;
+            goto LABEL_61;
         }
-        DriverConfiguration = PiDevCfgPushDriverNodeEntry((__int64)&v30, (__int64)v22);
-        if ( DriverConfiguration < 0 )
-          break;
       }
+LABEL_52:
+      v29 = -1LL;
+      do
+        ++v29;
+      while ( v9[v29] );
+      v9 += v29 + 1;
     }
-LABEL_40:
-    v27 = -1LL;
-    do
-      ++v27;
-    while ( v7[v27] );
-    v7 += v27 + 1;
   }
-LABEL_3:
-  while ( v30 != &v30 )
+  DriverConfiguration = 0;
+  while ( v33 != &v33 )
   {
-    v28 = P;
-    if ( *(_QWORD ***)P != &v30 )
-      goto LABEL_57;
-    v29 = (PVOID *)*((_QWORD *)P + 1);
-    if ( *v29 != P )
-      goto LABEL_57;
-    P = (PVOID)*((_QWORD *)P + 1);
-    *v29 = &v30;
-    ExFreePoolWithTag(v28, 0);
+    if ( *v3 != &v33 )
+      goto LABEL_64;
+    v30 = v3[1];
+    if ( (_QWORD **)*v30 != v3 )
+      goto LABEL_64;
+    P = v3[1];
+    *v30 = &v33;
+    ExFreePoolWithTag(v3, 0);
+LABEL_61:
+    v3 = (_QWORD **)P;
   }
   return (unsigned int)DriverConfiguration;
 }

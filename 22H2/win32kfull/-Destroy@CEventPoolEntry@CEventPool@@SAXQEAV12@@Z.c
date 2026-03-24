@@ -1,14 +1,14 @@
 /*
- * XREFs of ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C00B72BC
+ * XREFs of ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C012E364
  * Callers:
- *     UmfdQueryFontData @ 0x1C0075AB0 (UmfdQueryFontData.c)
- *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C007FC30 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
- *     ?Destroy@CEventPool@@SAXQEAV1@@Z @ 0x1C00B7264 (-Destroy@CEventPool@@SAXQEAV1@@Z.c)
- *     _CMultipleConsumerWorkQueue::WaitForCompletionAndReleaseWorkItem_::_2_::CEventPoolEntryAutoDestroy::_CEventPoolEntryAutoDestroy @ 0x1C015F524 (_CMultipleConsumerWorkQueue--WaitForCompletionAndReleaseWorkItem_--_2_--CEventPoolEntryAutoDestr.c)
- *     ??1?$CAutoDestroy@VCEventPoolEntry@CEventPool@@@@QEAA@XZ @ 0x1C03073E8 (--1-$CAutoDestroy@VCEventPoolEntry@CEventPool@@@@QEAA@XZ.c)
- *     ?WaitForCompletionAndReleaseWorkItem@CMultipleConsumerWorkQueue@@QEAA_NQEAVCWaitableWorkItem@1@PEBIPEA_N@Z @ 0x1C0307510 (-WaitForCompletionAndReleaseWorkItem@CMultipleConsumerWorkQueue@@QEAA_NQEAVCWaitableWorkItem@1@P.c)
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C009A580 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     ?WaitForCompletionAndReleaseWorkItem@CMultipleConsumerWorkQueue@@QEAA_NQEAVCWaitableWorkItem@1@PEBIPEA_N@Z @ 0x1C00F39E0 (-WaitForCompletionAndReleaseWorkItem@CMultipleConsumerWorkQueue@@QEAA_NQEAVCWaitableWorkItem@1@P.c)
+ *     ?Create@CEventPoolEntry@CEventPool@@SAQEAV12@XZ @ 0x1C00F3D58 (-Create@CEventPoolEntry@CEventPool@@SAQEAV12@XZ.c)
+ *     ?Destroy@CEventPool@@SAXQEAV1@@Z @ 0x1C012E30C (-Destroy@CEventPool@@SAXQEAV1@@Z.c)
+ *     ??1?$CAutoDestroy@VCEventPoolEntry@CEventPool@@@@QEAA@XZ @ 0x1C02DEF48 (--1-$CAutoDestroy@VCEventPoolEntry@CEventPool@@@@QEAA@XZ.c)
+ *     _CMultipleConsumerWorkQueue::WaitForCompletionAndReleaseWorkItem_::_2_::CEventPoolEntryAutoDestroy::_CEventPoolEntryAutoDestroy @ 0x1C02DEFAC (_CMultipleConsumerWorkQueue--WaitForCompletionAndReleaseWorkItem_--_2_--CEventPoolEntryAutoDestr.c)
  * Callees:
- *     ?Destroy@CManualResetEvent@@SAXQEAV1@@Z @ 0x1C00B72F0 (-Destroy@CManualResetEvent@@SAXQEAV1@@Z.c)
+ *     ?Destroy@CManualResetEvent@@SAXQEAV1@@Z @ 0x1C012E398 (-Destroy@CManualResetEvent@@SAXQEAV1@@Z.c)
  */
 
 void __fastcall CEventPool::CEventPoolEntry::Destroy(_QWORD *pv)

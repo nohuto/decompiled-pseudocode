@@ -1,5 +1,5 @@
 /*
- * XREFs of VfAvlInitializeTree @ 0x14030B4CC
+ * XREFs of VfAvlInitializeTree @ 0x14030B5CC
  * Callers:
  *     VfInitVerifierComponents @ 0x1409266D0 (VfInitVerifierComponents.c)
  * Callees:

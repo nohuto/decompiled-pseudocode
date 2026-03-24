@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ResizeWin32kInteropTexture@CHolographicManager@@QEAAXPEAUIHolographicWin32kInteropTexture@@@Z @ 0x180296C10
+ * XREFs of ?ResizeWin32kInteropTexture@CHolographicManager@@QEAAXPEAUIHolographicWin32kInteropTexture@@@Z @ 0x1802546B4
  * Callers:
- *     ?SetSize@CHolographicFrameProcessor@@UEAAJII@Z @ 0x18029FCD0 (-SetSize@CHolographicFrameProcessor@@UEAAJII@Z.c)
+ *     ?SetSize@CHolographicFrameProcessor@@UEAAJII@Z @ 0x18025D0A0 (-SetSize@CHolographicFrameProcessor@@UEAAJII@Z.c)
  * Callees:
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18029CF8C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A950 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 void __fastcall CHolographicManager::ResizeWin32kInteropTexture(RTL_SRWLOCK *this, struct IUnknown *a2)

@@ -1,58 +1,55 @@
 /*
- * XREFs of NtUserSetInternalWindowPos @ 0x1C01DBDA0
+ * XREFs of NtUserSetInternalWindowPos @ 0x1C0201CC0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     xxxSetInternalWindowPos @ 0x1C01F2F6C (xxxSetInternalWindowPos.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     xxxSetInternalWindowPos @ 0x1C0208D4C (xxxSetInternalWindowPos.c)
  */
 
 __int64 __fastcall NtUserSetInternalWindowPos(__int64 a1, int a2, __int128 *a3)
 {
   __int64 v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  struct tagWND *v11; // rdi
-  int v12; // ebx
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int128 v17; // [rsp+28h] [rbp-60h] BYREF
-  __int64 v18; // [rsp+38h] [rbp-50h]
-  __int128 v19; // [rsp+48h] [rbp-40h]
+  __int64 v7; // rcx
+  struct tagWND *v8; // rdi
+  int v9; // ebx
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // rcx
+  __int128 v14; // [rsp+28h] [rbp-60h] BYREF
+  __int64 v15; // [rsp+38h] [rbp-50h]
+  __int128 v16; // [rsp+48h] [rbp-40h]
 
-  v17 = 0LL;
-  v18 = 0LL;
-  EnterCrit(0LL, 0LL);
+  v14 = 0LL;
+  v15 = 0LL;
+  EnterCrit(0LL, 1LL);
   v6 = ValidateHwnd(a1);
-  v11 = (struct tagWND *)v6;
-  v12 = 0;
+  v8 = (struct tagWND *)v6;
+  v9 = 0;
   if ( v6 )
   {
-    v8 = (*(_WORD *)(*(_QWORD *)(v6 + 40) + 42LL) & 0x2FFFu) - 669;
-    if ( (v8 & 0xFFFFFFFD) != 0 )
+    v7 = (*(_WORD *)(*(_QWORD *)(v6 + 40) + 42LL) & 0x2FFFu) - 669;
+    if ( (v7 & 0xFFFFFFFD) != 0 )
     {
-      *(_QWORD *)&v17 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v17;
-      *((_QWORD *)&v17 + 1) = v6;
+      *(_QWORD *)&v14 = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = &v14;
+      *((_QWORD *)&v14 + 1) = v6;
       HMLockObject(v6);
       if ( (a2 & 0xFFFFFFF0) != 0 )
       {
-        UserSetLastError(1004);
+        UserSetLastError(1004LL, v10, v11);
       }
       else
       {
         if ( (unsigned __int64)a3 >= MmUserProbeAddress )
           a3 = (__int128 *)MmUserProbeAddress;
-        v19 = *a3;
-        v12 = xxxSetInternalWindowPos(v11);
+        v16 = *a3;
+        v9 = xxxSetInternalWindowPos(v8);
       }
-      ThreadUnlock1(v14, v13, v15);
+      ThreadUnlock1(v12);
     }
   }
-  UserSessionSwitchLeaveCrit(v8, v7, v9, v10);
-  return v12;
+  UserSessionSwitchLeaveCrit(v7);
+  return v9;
 }

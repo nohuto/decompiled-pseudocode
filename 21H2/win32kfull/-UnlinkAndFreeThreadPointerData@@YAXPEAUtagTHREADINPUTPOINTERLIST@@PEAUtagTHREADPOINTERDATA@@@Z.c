@@ -1,8 +1,8 @@
 /*
- * XREFs of ?UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z @ 0x1C016C620
+ * XREFs of ?UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z @ 0x1C01F1634
  * Callers:
- *     xxxCleanupThreadPointerInputInfo @ 0x1C00F3A00 (xxxCleanupThreadPointerInputInfo.c)
- *     EditionUnlinkAndFreeThreadPointerData @ 0x1C01ECB80 (EditionUnlinkAndFreeThreadPointerData.c)
+ *     xxxCleanupThreadPointerInputInfo @ 0x1C00FD920 (xxxCleanupThreadPointerInputInfo.c)
+ *     EditionUnlinkAndFreeThreadPointerData @ 0x1C01F2310 (EditionUnlinkAndFreeThreadPointerData.c)
  * Callees:
  *     <none>
  */

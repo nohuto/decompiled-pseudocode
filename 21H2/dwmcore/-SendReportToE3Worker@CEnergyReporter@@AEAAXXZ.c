@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SendReportToE3Worker@CEnergyReporter@@AEAAXXZ @ 0x1800E1D20
+ * XREFs of ?SendReportToE3Worker@CEnergyReporter@@AEAAXXZ @ 0x1800CD8C0
  * Callers:
- *     ?SendReportToE3Worker@CEnergyReporter@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_WORK@@@Z @ 0x1800E1D10 (-SendReportToE3Worker@CEnergyReporter@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_WORK@@@Z.c)
+ *     ?SendReportToE3Worker@CEnergyReporter@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_WORK@@@Z @ 0x1800CD8B0 (-SendReportToE3Worker@CEnergyReporter@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_WORK@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -21,12 +21,12 @@ void __fastcall CEnergyReporter::SendReportToE3Worker(RTL_SRWLOCK *this)
   Ptr = (unsigned int)this[14].Ptr;
   if ( Ptr > 0xFFFF )
     LOWORD(Ptr) = -1;
-  v4 = ((unsigned __int64)(unsigned __int16)Ptr << 16) | 2;
+  v4 = ((unsigned __int64)(unsigned __int16)Ptr << 24) | 2;
   if ( LODWORD(this[14].Ptr) > 0xFFFF
-    && (unsigned int)dword_1803D16AC < MEMORY[0x7FFE037C]
-    && !(unsigned __int8)EtwCheckCoverage(&off_1803D16A0) )
+    && (unsigned int)dword_18034561C < MEMORY[0x7FFE037C]
+    && !(unsigned __int8)EtwCheckCoverage(&off_180345610) )
   {
-    NtSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessAffinityMask|0x40, &off_1803D16A0, 0x18u);
+    NtSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessAffinityMask|0x40, &off_180345610, 0x18u);
   }
   SetCITInfo(v4, this[11].Ptr);
   AcquireSRWLockExclusive(v1);

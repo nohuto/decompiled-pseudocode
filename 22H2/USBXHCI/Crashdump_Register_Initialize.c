@@ -1,7 +1,7 @@
 /*
- * XREFs of Crashdump_Register_Initialize @ 0x1C004D758
+ * XREFs of Crashdump_Register_Initialize @ 0x1C004ACAC
  * Callers:
- *     Crashdump_UcxEvtGetDumpData @ 0x1C004D100 (Crashdump_UcxEvtGetDumpData.c)
+ *     Crashdump_UcxEvtGetDumpData @ 0x1C004A630 (Crashdump_UcxEvtGetDumpData.c)
  * Callees:
  *     <none>
  */

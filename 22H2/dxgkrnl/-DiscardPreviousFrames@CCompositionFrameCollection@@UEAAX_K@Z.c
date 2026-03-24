@@ -1,42 +1,42 @@
 /*
- * XREFs of ?DiscardPreviousFrames@CCompositionFrameCollection@@UEAAX_K@Z @ 0x1C00116D0
+ * XREFs of ?DiscardPreviousFrames@CCompositionFrameCollection@@UEAAX_K@Z @ 0x1C0017320
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CCompositionFrameCollection::DiscardPreviousFrames(
         CCompositionFrameCollection *this,
         unsigned __int64 a2)
 {
-  char *v2; // rbx
-  char *v5; // rsi
-  char *v6; // rdi
+  char *v2; // rdi
+  CCompositionFrameCollection *v5; // rbp
+  CCompositionFrameCollection *v6; // rsi
   __int64 v7; // rax
-  char *v8; // r15
+  CCompositionFrameCollection *v8; // rbx
 
   v2 = (char *)this + 32;
   ExAcquirePushLockExclusiveEx((char *)this + 32, 0LL);
   v2[8] = 1;
-  v5 = (char *)*((_QWORD *)this + 3);
-  v6 = (char *)this + 16;
-  if ( v5 != v6 )
+  v5 = (CCompositionFrameCollection *)((char *)this + 16);
+  v6 = (CCompositionFrameCollection *)*((_QWORD *)this + 3);
+  if ( v6 != (CCompositionFrameCollection *)((char *)this + 16) )
   {
     do
     {
-      if ( (*(__int64 (__fastcall **)(_QWORD *))(*((_QWORD *)v5 - 2) + 72LL))((_QWORD *)v5 - 2) >= a2 )
+      if ( (*(__int64 (__fastcall **)(__int64))(*((_QWORD *)v6 - 2) + 72LL))((__int64)v6 - 16) >= a2 )
         break;
-      v7 = *(_QWORD *)v5;
-      v8 = (char *)*((_QWORD *)v5 + 1);
-      if ( *(char **)(*(_QWORD *)v5 + 8LL) != v5 || *(char **)v8 != v5 )
+      v7 = *(_QWORD *)v6;
+      v8 = (CCompositionFrameCollection *)*((_QWORD *)v6 + 1);
+      if ( *(CCompositionFrameCollection **)(*(_QWORD *)v6 + 8LL) != v6 || *(CCompositionFrameCollection **)v8 != v6 )
         __fastfail(3u);
       *(_QWORD *)v8 = v7;
       *(_QWORD *)(v7 + 8) = v8;
-      (*(void (__fastcall **)(_QWORD *))(*((_QWORD *)v5 - 2) + 8LL))((_QWORD *)v5 - 2);
-      v5 = v8;
+      (*(void (__fastcall **)(__int64))(*((_QWORD *)v6 - 2) + 8LL))((__int64)v6 - 16);
+      v6 = v8;
     }
-    while ( v8 != v6 );
+    while ( v8 != v5 );
   }
   if ( v2[8] )
     ExReleasePushLockExclusiveEx(v2, 0LL);

@@ -1,20 +1,20 @@
 /*
- * XREFs of ExRegisterBootDevice @ 0x14063A090
+ * XREFs of ExRegisterBootDevice @ 0x1405B3130
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeSetPriorityThread @ 0x140344340 (KeSetPriorityThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PsCreateSystemThread @ 0x1406F0310 (PsCreateSystemThread.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeSetPriorityThread @ 0x140257AE0 (KeSetPriorityThread.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExRegisterBootDevice(__int64 a1, _QWORD *a2)
@@ -35,9 +35,8 @@ __int64 __fastcall ExRegisterBootDevice(__int64 a1, _QWORD *a2)
   PVOID Object; // [rsp+B8h] [rbp+48h] BYREF
 
   ThreadHandle = 0LL;
-  *(&ObjectAttributes.Length + 1) = 0;
-  *(&ObjectAttributes.Attributes + 1) = 0;
   v4 = 0;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   KeWaitForSingleObject(&ExExternalBootSupportInitializationEvent, Executive, 0, 0, 0LL);
   if ( !ExBootDeviceRemovalHandler )
   {
@@ -59,10 +58,14 @@ __int64 __fastcall ExRegisterBootDevice(__int64 a1, _QWORD *a2)
   KeSetEvent(&ExExternalBootSupportInitializationEvent, 0, 0);
   if ( v4 >= 0 )
   {
-    if ( *(_DWORD *)a1 == 1 && *(_QWORD *)(a1 + 8) && !*(_DWORD *)(a1 + 4) && *(_QWORD *)(a1 + 24) )
+    if ( *(_DWORD *)a1 != 1 || !*(_QWORD *)(a1 + 8) || *(_DWORD *)(a1 + 4) || !*(_QWORD *)(a1 + 24) )
+      v4 = -1073741811;
+    if ( v4 >= 0 )
     {
       PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x504E4442u);
-      if ( PoolWithTag )
+      if ( !PoolWithTag )
+        v4 = -1073741670;
+      if ( v4 >= 0 )
       {
         ObfReferenceObjectWithTag(*(PVOID *)(a1 + 8), 0x746C6644u);
         v6 = *(void **)(a1 + 16);
@@ -74,14 +77,14 @@ __int64 __fastcall ExRegisterBootDevice(__int64 a1, _QWORD *a2)
         *(_OWORD *)(PoolWithTag + 10) = *(_OWORD *)(a1 + 16);
         *((_QWORD *)PoolWithTag + 7) = *(_QWORD *)(a1 + 32);
         v7 = KeAcquireSpinLockRaiseToDpc(&ExBootDeviceListSpinLock);
-        v8 = (_QWORD *)qword_140C157F8;
+        v8 = (_QWORD *)qword_140C193E8;
         v9 = PoolWithTag + 2;
-        if ( *(__int64 **)qword_140C157F8 != &ExBootDeviceList )
+        if ( *(__int64 **)qword_140C193E8 != &ExBootDeviceList )
           __fastfail(3u);
         *v9 = &ExBootDeviceList;
         *((_QWORD *)PoolWithTag + 2) = v8;
         *v8 = v9;
-        qword_140C157F8 = (__int64)(PoolWithTag + 2);
+        qword_140C193E8 = (__int64)(PoolWithTag + 2);
         KxReleaseSpinLock(&ExBootDeviceListSpinLock);
         if ( KiIrqlFlags )
         {
@@ -103,14 +106,6 @@ __int64 __fastcall ExRegisterBootDevice(__int64 a1, _QWORD *a2)
         __writecr8(v7);
         *a2 = PoolWithTag;
       }
-      else
-      {
-        return (unsigned int)-1073741670;
-      }
-    }
-    else
-    {
-      return (unsigned int)-1073741811;
     }
   }
   return (unsigned int)v4;

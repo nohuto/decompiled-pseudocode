@@ -1,10 +1,9 @@
 /*
- * XREFs of IommupValidateMdl @ 0x140526D68
+ * XREFs of IommupValidateMdl @ 0x1404DAD24
  * Callers:
- *     IommuMapIdentityRange @ 0x140525FA0 (IommuMapIdentityRange.c)
- *     IommuMapLogicalRange @ 0x1405261B0 (IommuMapLogicalRange.c)
- *     IommuUnmapIdentityRange @ 0x1405268A0 (IommuUnmapIdentityRange.c)
- *     IommupProcessPhysicalAddress @ 0x140526CC8 (IommupProcessPhysicalAddress.c)
+ *     IommuMapIdentityRange @ 0x1404DA710 (IommuMapIdentityRange.c)
+ *     IommuMapLogicalRange @ 0x1404DA8D0 (IommuMapLogicalRange.c)
+ *     IommuUnmapIdentityRange @ 0x1404DABA0 (IommuUnmapIdentityRange.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of DpiDxgkDdiQueryDeviceDescriptor @ 0x1C02102F0
+ * XREFs of DpiDxgkDdiQueryDeviceDescriptor @ 0x1C0179350
  * Callers:
- *     DpiPdoGetDeviceDescriptor @ 0x1C021003C (DpiPdoGetDeviceDescriptor.c)
- *     DpiGetMonitorDescriptor @ 0x1C0210214 (DpiGetMonitorDescriptor.c)
- *     DpiFdoQueryAdapterInfoIntegratedDisplay2 @ 0x1C039CB6C (DpiFdoQueryAdapterInfoIntegratedDisplay2.c)
+ *     DpiPdoGetDeviceDescriptor @ 0x1C01791A0 (DpiPdoGetDeviceDescriptor.c)
+ *     DpiGetMonitorDescriptor @ 0x1C0184A98 (DpiGetMonitorDescriptor.c)
+ *     DpiFdoQueryAdapterInfoIntegratedDisplay2 @ 0x1C02CBCF0 (DpiFdoQueryAdapterInfoIntegratedDisplay2.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0qqbr1pqqp_EtwWriteTransfer @ 0x1C0066A4C (McTemplateK0qqbr1pqqp_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0qqbr1pqqp_EtwWriteTransfer @ 0x1C0059CD8 (McTemplateK0qqbr1pqqp_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DpiDxgkDdiQueryDeviceDescriptor(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
@@ -17,16 +17,15 @@ __int64 __fastcall DpiDxgkDdiQueryDeviceDescriptor(__int64 a1, __int64 a2, __int
   __int64 v10; // rdx
   __int64 v11; // rcx
   __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // r14
-  _QWORD *v15; // rax
+  __int64 v13; // r14
+  _QWORD *v14; // rax
 
   v4 = 0;
   v5 = (unsigned int)a3;
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     McTemplateK0qqbr1pqqp_EtwWriteTransfer(a1, &EventEnterDdiQueryDeviceDescriptor, a3, 0, 0, 0LL, a2, a3, 0, 0);
   v9 = (*(__int64 (__fastcall **)(__int64, _QWORD, unsigned int *))(a1 + 216))(a2, (unsigned int)v5, a4);
-  v14 = v9;
+  v13 = v9;
   if ( bTracingEnabled )
   {
     v10 = 0LL;
@@ -37,7 +36,7 @@ __int64 __fastcall DpiDxgkDdiQueryDeviceDescriptor(__int64 a1, __int64 a2, __int
       v10 = a4[1];
       v11 = *((_QWORD *)a4 + 1);
     }
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       McTemplateK0qqbr1pqqp_EtwWriteTransfer(
         v11,
         &EventExitDdiQueryDeviceDescriptor,
@@ -50,11 +49,11 @@ __int64 __fastcall DpiDxgkDdiQueryDeviceDescriptor(__int64 a1, __int64 a2, __int
         v9,
         v11);
   }
-  v15 = (_QWORD *)WdLogNewEntry5_WdTrace(v11, v10, v12, v13);
-  v15[4] = v5;
-  v15[3] = a1;
-  v15[5] = *a4;
-  v15[6] = a4[1];
-  v15[7] = v14;
-  return (unsigned int)v14;
+  v14 = (_QWORD *)WdLogNewEntry5_WdTrace(v11, v10);
+  v14[4] = v5;
+  v14[3] = a1;
+  v14[5] = *a4;
+  v14[6] = a4[1];
+  v14[7] = v13;
+  return (unsigned int)v13;
 }

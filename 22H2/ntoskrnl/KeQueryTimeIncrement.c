@@ -1,13 +1,13 @@
 /*
- * XREFs of KeQueryTimeIncrement @ 0x1403118F0
+ * XREFs of KeQueryTimeIncrement @ 0x14024BE00
  * Callers:
- *     sub_1406F2550 @ 0x1406F2550 (sub_1406F2550.c)
- *     FsRtlCancellableWaitForMultipleObjects @ 0x140773CD0 (FsRtlCancellableWaitForMultipleObjects.c)
- *     EtwpSendDataBlock @ 0x140781500 (EtwpSendDataBlock.c)
- *     PfTInitialize @ 0x140848CBC (PfTInitialize.c)
- *     sub_1409F9AF0 @ 0x1409F9AF0 (sub_1409F9AF0.c)
- *     sub_140A4C718 @ 0x140A4C718 (sub_140A4C718.c)
- *     sub_140B3C244 @ 0x140B3C244 (sub_140B3C244.c)
+ *     FsRtlCancellableWaitForMultipleObjects @ 0x1405FCB60 (FsRtlCancellableWaitForMultipleObjects.c)
+ *     sub_1405FD540 @ 0x1405FD540 (sub_1405FD540.c)
+ *     EtwpSendDataBlock @ 0x1407178F4 (EtwpSendDataBlock.c)
+ *     PfTInitialize @ 0x1407BF500 (PfTInitialize.c)
+ *     sub_14094D660 @ 0x14094D660 (sub_14094D660.c)
+ *     sub_14096208C @ 0x14096208C (sub_14096208C.c)
+ *     sub_140A5B300 @ 0x140A5B300 (sub_140A5B300.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0224360
+ * XREFs of ?SetRemarshalingFlags@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01EAB10
  * Callers:
  *     <none>
  * Callees:

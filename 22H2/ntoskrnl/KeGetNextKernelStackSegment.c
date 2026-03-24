@@ -1,10 +1,10 @@
 /*
- * XREFs of KeGetNextKernelStackSegment @ 0x140222C4C
+ * XREFs of KeGetNextKernelStackSegment @ 0x140356088
  * Callers:
- *     KiInSwapKernelStacks @ 0x1402227D4 (KiInSwapKernelStacks.c)
- *     KeEnumerateKernelStackSegments @ 0x140222B90 (KeEnumerateKernelStackSegments.c)
- *     RtlpIsFrameInBoundsEx @ 0x1402A6490 (RtlpIsFrameInBoundsEx.c)
- *     IopMarkPagesForProcessorData @ 0x14055D688 (IopMarkPagesForProcessorData.c)
+ *     RtlpWalkFrameChain @ 0x14021D210 (RtlpWalkFrameChain.c)
+ *     RtlpIsFrameInBoundsEx @ 0x140340838 (RtlpIsFrameInBoundsEx.c)
+ *     KiInSwapKernelStacks @ 0x140355C1C (KiInSwapKernelStacks.c)
+ *     KeEnumerateKernelStackSegments @ 0x140355FEC (KeEnumerateKernelStackSegments.c)
  * Callees:
  *     <none>
  */
@@ -19,10 +19,6 @@ char __fastcall KeGetNextKernelStackSegment(_QWORD *a1, _QWORD *a2, char a3)
     a2[1] = a1[6];
     a2[2] = a1[11];
     a2[3] = a1[5];
-    a2[4] = a1[131];
-    a2[5] = a1[132];
-    a2[6] = a1[129];
-    a2[7] = a1[130];
   }
   else
   {
@@ -31,8 +27,6 @@ char __fastcall KeGetNextKernelStackSegment(_QWORD *a1, _QWORD *a2, char a3)
       return 0;
     *(_OWORD *)a2 = *(_OWORD *)(v3 + 16);
     *((_OWORD *)a2 + 1) = *(_OWORD *)(v3 + 32);
-    *((_OWORD *)a2 + 2) = *(_OWORD *)(v3 + 48);
-    *((_OWORD *)a2 + 3) = *(_OWORD *)(v3 + 64);
   }
   return 1;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PopReadyParentSleep @ 0x140394980
+ * XREFs of PopReadyParentSleep @ 0x140388B60
  * Callers:
- *     PopCompleteNotifyTransitionCommon @ 0x1403945DC (PopCompleteNotifyTransitionCommon.c)
+ *     PopCompleteNotifyTransitionCommon @ 0x1403887B8 (PopCompleteNotifyTransitionCommon.c)
  * Callees:
  *     <none>
  */

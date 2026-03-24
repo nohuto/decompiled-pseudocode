@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPreallocateHibernateMemory @ 0x1407464EC
+ * XREFs of PopPreallocateHibernateMemory @ 0x1407464CC
  * Callers:
- *     PopEnableHiberFile @ 0x140745F9C (PopEnableHiberFile.c)
+ *     PopEnableHiberFile @ 0x140745F7C (PopEnableHiberFile.c)
  * Callees:
- *     MmGetHighestPhysicalPage @ 0x1400A88F8 (MmGetHighestPhysicalPage.c)
+ *     MmGetHighestPhysicalPage @ 0x1400A8918 (MmGetHighestPhysicalPage.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmObtainChargesToLockPagedPool @ 0x1407466F0 (MmObtainChargesToLockPagedPool.c)
- *     HvlpPreallocatePageListResources @ 0x140817C48 (HvlpPreallocatePageListResources.c)
+ *     MmObtainChargesToLockPagedPool @ 0x1407466D0 (MmObtainChargesToLockPagedPool.c)
+ *     HvlpPreallocatePageListResources @ 0x140817C28 (HvlpPreallocatePageListResources.c)
  */
 
 __int64 PopPreallocateHibernateMemory()
@@ -33,7 +33,7 @@ __int64 PopPreallocateHibernateMemory()
   __int64 v18; // [rsp+E0h] [rbp+18h]
   __int64 v19; // [rsp+E8h] [rbp+20h]
 
-  if ( dword_140409DD0 == 2 )
+  if ( dword_140409D90 == 2 )
     v0 = 102400LL;
   else
     v0 = v14;
@@ -69,27 +69,27 @@ __int64 PopPreallocateHibernateMemory()
     {
       if ( (unsigned int)MmObtainChargesToLockPagedPool(PoolWithTag, v10) )
       {
-        qword_140417A88 = (__int64)(v12 + 4096);
+        qword_140417888 = (__int64)(v12 + 4096);
         Length = v10;
-        qword_140417A70 = v12;
-        qword_140417A80 = (__int64)v12;
-        if ( dword_140409DD0 == 2 )
-          qword_140417AD8 = (__int64)&v12[v0];
+        qword_140417870 = v12;
+        qword_140417880 = (__int64)v12;
+        if ( dword_140409D90 == 2 )
+          qword_1404178D8 = (__int64)&v12[v0];
         else
-          qword_140417AD8 = 0LL;
-        LODWORD(xmmword_140417AA0) = v4;
-        *((_QWORD *)&xmmword_140417AA0 + 1) = &v12[v16];
-        LODWORD(xmmword_140417A90) = v4;
-        *((_QWORD *)&xmmword_140417A90 + 1) = &v12[v17];
-        qword_140417AB0 = (__int64)&v12[v18];
-        if ( dword_140409DD0 == 2 )
-          qword_140417AE0 = (__int64)&v12[v7];
+          qword_1404178D8 = 0LL;
+        LODWORD(xmmword_1404178A0) = v4;
+        *((_QWORD *)&xmmword_1404178A0 + 1) = &v12[v16];
+        LODWORD(xmmword_140417890) = v4;
+        *((_QWORD *)&xmmword_140417890 + 1) = &v12[v17];
+        qword_1404178B0 = (__int64)&v12[v18];
+        if ( dword_140409D90 == 2 )
+          qword_1404178E0 = (__int64)&v12[v7];
         else
-          qword_140417AE0 = 0LL;
-        qword_140417AB8 = &v12[v9];
-        qword_140417AC0 = &v12[((_DWORD)v9 + 4159) & 0xFFFFF000];
-        qword_140417AC8 = &v12[v8];
-        qword_140417AD0 = (__int64)&v12[v19];
+          qword_1404178E0 = 0LL;
+        qword_1404178B8 = &v12[v9];
+        qword_1404178C0 = &v12[((_DWORD)v9 + 4159) & 0xFFFFF000];
+        qword_1404178C8 = &v12[v8];
+        qword_1404178D0 = (__int64)&v12[v19];
         return 0LL;
       }
       ExFreePoolWithTag(v12, 0x72626968u);

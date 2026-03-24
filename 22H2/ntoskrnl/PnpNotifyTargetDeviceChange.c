@@ -1,59 +1,62 @@
 /*
- * XREFs of PnpNotifyTargetDeviceChange @ 0x14078386C
+ * XREFs of PnpNotifyTargetDeviceChange @ 0x14071AD38
  * Callers:
- *     PnpProcessCustomDeviceEvent @ 0x1407DB3C0 (PnpProcessCustomDeviceEvent.c)
- *     PiSendTargetDeviceRemoveCompleteNotification @ 0x140869410 (PiSendTargetDeviceRemoveCompleteNotification.c)
- *     PiSendTargetDeviceRemoveCanceledNotification @ 0x140971B28 (PiSendTargetDeviceRemoveCanceledNotification.c)
- *     PipSendTargetDeviceQueryRemoveNotification @ 0x140971EC8 (PipSendTargetDeviceQueryRemoveNotification.c)
+ *     PnpProcessCustomDeviceEvent @ 0x14071A194 (PnpProcessCustomDeviceEvent.c)
+ *     PipSendTargetDeviceQueryRemoveNotification @ 0x140732BBC (PipSendTargetDeviceQueryRemoveNotification.c)
+ *     PiSendTargetDeviceRemoveCompleteNotification @ 0x14074C0E8 (PiSendTargetDeviceRemoveCompleteNotification.c)
+ *     PnpCancelRemoveOnHungDevices @ 0x1408A22D0 (PnpCancelRemoveOnHungDevices.c)
+ *     PiSendTargetDeviceRemoveCanceledNotification @ 0x1408B9090 (PiSendTargetDeviceRemoveCanceledNotification.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     PsGetServerSiloServiceSessionId @ 0x1402C0850 (PsGetServerSiloServiceSessionId.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     PnpNotifyDriverCallback @ 0x140687B60 (PnpNotifyDriverCallback.c)
- *     PnpDereferenceNotify @ 0x14078F938 (PnpDereferenceNotify.c)
- *     IopGetSessionIdFromPDO @ 0x140791464 (IopGetSessionIdFromPDO.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     PsGetCurrentServerSilo @ 0x14025C220 (PsGetCurrentServerSilo.c)
+ *     KeAcquireGuardedMutex @ 0x14026F9E0 (KeAcquireGuardedMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PsGetServerSiloServiceSessionId @ 0x14032D5C0 (PsGetServerSiloServiceSessionId.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     PnpDereferenceNotify @ 0x14071B5F8 (PnpDereferenceNotify.c)
+ *     PnpNotifyDriverCallback @ 0x14071B694 (PnpNotifyDriverCallback.c)
+ *     IopGetSessionIdFromPDO @ 0x14073A6FC (IopGetSessionIdFromPDO.c)
  */
 
 __int64 __fastcall PnpNotifyTargetDeviceChange(GUID *Source1, PVOID Object, __int64 a3, _QWORD *a4)
 {
   unsigned int v6; // esi
   __int64 v8; // rbx
-  _QWORD *v9; // r12
-  _QWORD *v10; // rdi
+  __int64 v9; // rcx
+  GUID *v10; // rdx
+  _QWORD *v11; // rdi
+  _QWORD *v12; // rbx
   __int64 CurrentServerSilo; // rax
-  int SessionIdFromPDO; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  _OWORD *v15; // rdx
-  int v16; // ebx
-  int v17; // eax
-  GUID v18; // xmm0
-  void *v19; // r15
-  int v20; // ebx
-  void *v21; // r13
-  __int64 v22; // rax
-  struct _KTHREAD *v23; // rax
-  char v24; // [rsp+20h] [rbp-58h]
-  int v25; // [rsp+24h] [rbp-54h] BYREF
-  int v26; // [rsp+28h] [rbp-50h]
-  PVOID Objecta; // [rsp+30h] [rbp-48h]
+  _OWORD *v16; // rdx
+  int v17; // ebx
+  int v18; // eax
+  GUID v19; // xmm0
+  void *v20; // r15
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  int v23; // ebx
+  void *v24; // r12
+  __int64 v25; // rax
+  struct _KTHREAD *v26; // rax
+  char v27; // [rsp+20h] [rbp-58h]
+  int v28; // [rsp+24h] [rbp-54h] BYREF
+  int SessionIdFromPDO; // [rsp+28h] [rbp-50h]
+  _QWORD *v30; // [rsp+30h] [rbp-48h]
   PVOID P; // [rsp+38h] [rbp-40h]
-  _QWORD *v29; // [rsp+40h] [rbp-38h]
-  _OWORD v30[2]; // [rsp+48h] [rbp-30h] BYREF
+  _QWORD *v32; // [rsp+40h] [rbp-38h]
+  _OWORD v33[2]; // [rsp+48h] [rbp-30h] BYREF
 
-  v26 = -1;
-  Objecta = Object;
-  v29 = a4;
+  v32 = a4;
   v6 = 0;
-  v25 = 0;
-  memset(v30, 0, sizeof(v30));
+  v28 = 0;
+  SessionIdFromPDO = -1;
+  memset(v33, 0, sizeof(v33));
   ObfReferenceObjectWithTag(Object, 0x4E706E50u);
   v8 = *(_QWORD *)(*((_QWORD *)Object + 39) + 40LL);
   if ( a3 )
@@ -62,113 +65,108 @@ __int64 __fastcall PnpNotifyTargetDeviceChange(GUID *Source1, PVOID Object, __in
   }
   else
   {
-    v18 = *Source1;
-    LODWORD(v30[0]) = 2097153;
-    *(GUID *)((char *)v30 + 4) = v18;
+    v19 = *Source1;
+    LODWORD(v33[0]) = 2097153;
+    *(GUID *)((char *)v33 + 4) = v19;
   }
-  ExAcquireFastMutex(&PnpTargetDeviceNotifyLock);
+  KeAcquireGuardedMutex(&PnpTargetDeviceNotifyLock);
+  v10 = &GUID_TARGET_DEVICE_REMOVE_CANCELLED;
   if ( Source1 == &GUID_TARGET_DEVICE_REMOVE_CANCELLED
     || RtlCompareMemory(Source1, &GUID_TARGET_DEVICE_REMOVE_CANCELLED, 0x10uLL) == 16 )
   {
-    v10 = *(_QWORD **)(v8 + 480);
-    v9 = (_QWORD *)(v8 + 472);
-    v24 = 1;
+    v11 = *(_QWORD **)(v8 + 480);
+    v27 = 1;
   }
   else
   {
-    v9 = (_QWORD *)(v8 + 472);
-    v24 = 0;
-    v10 = *(_QWORD **)(v8 + 472);
+    v11 = *(_QWORD **)(v8 + 472);
+    v27 = 0;
   }
-  while ( v10 != v9 )
+  v12 = (_QWORD *)(v8 + 472);
+  v30 = v12;
+  while ( v11 != v12 )
   {
-    P = v10;
-    CurrentServerSilo = PsGetCurrentServerSilo();
-    if ( *((_DWORD *)v10 + 5) == (unsigned int)PsGetServerSiloServiceSessionId(CurrentServerSilo) )
-    {
-      SessionIdFromPDO = v26;
-    }
-    else
-    {
-      SessionIdFromPDO = IopGetSessionIdFromPDO(Objecta);
-      v26 = SessionIdFromPDO;
-    }
-    ++*((_WORD *)v10 + 28);
-    ExReleaseFastMutex(&PnpTargetDeviceNotifyLock);
+    P = v11;
+    CurrentServerSilo = PsGetCurrentServerSilo(v9, (__int64)v10);
+    if ( *((_DWORD *)v11 + 5) != (unsigned int)PsGetServerSiloServiceSessionId(CurrentServerSilo) )
+      SessionIdFromPDO = IopGetSessionIdFromPDO(Object);
+    ++*((_WORD *)v11 + 28);
+    KeReleaseGuardedMutex(&PnpTargetDeviceNotifyLock);
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    ExAcquireResourceExclusiveLite((PERESOURCE)v10[9], 1u);
-    if ( (SessionIdFromPDO == -1 || *((_DWORD *)v10 + 5) == SessionIdFromPDO) && !*((_BYTE *)v10 + 58) )
+    ExAcquireResourceExclusiveLite((PERESOURCE)v11[9], 1u);
+    if ( (SessionIdFromPDO == -1 || *((_DWORD *)v11 + 5) == SessionIdFromPDO) && !*((_BYTE *)v11 + 58) )
     {
       if ( a3 )
       {
-        *(_QWORD *)(a3 + 24) = v10[10];
-        v15 = (_OWORD *)a3;
+        *(_QWORD *)(a3 + 24) = v11[10];
+        v16 = (_OWORD *)a3;
       }
       else
       {
-        *((_QWORD *)&v30[1] + 1) = v10[10];
-        v15 = v30;
+        *((_QWORD *)&v33[1] + 1) = v11[10];
+        v16 = v33;
       }
-      v16 = PnpNotifyDriverCallback((__int64)v10, (__int64)v15, &v25);
-      ExReleaseResourceLite((PERESOURCE)v10[9]);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      v17 = v25;
-      if ( v16 < 0 )
-        v17 = 0;
-      v25 = v17;
-      if ( v17 < 0
+      v17 = PnpNotifyDriverCallback(v11, v16, &v28);
+      ExReleaseResourceLite((PERESOURCE)v11[9]);
+      KeLeaveCriticalRegion();
+      v18 = v28;
+      if ( v17 < 0 )
+        v18 = 0;
+      v28 = v18;
+      if ( v18 < 0
         && (Source1 == &GUID_TARGET_DEVICE_QUERY_REMOVE
          || RtlCompareMemory(Source1, &GUID_TARGET_DEVICE_QUERY_REMOVE, 0x10uLL) == 16) )
       {
-        if ( v29 )
-          *v29 = v10[6];
-        v19 = v10;
-        *(GUID *)((char *)v30 + 4) = GUID_TARGET_DEVICE_REMOVE_CANCELLED;
-        ExAcquireFastMutex(&PnpTargetDeviceNotifyLock);
+        if ( v32 )
+          *v32 = v11[6];
+        v20 = v11;
+        *(GUID *)((char *)v33 + 4) = GUID_TARGET_DEVICE_REMOVE_CANCELLED;
+        KeAcquireGuardedMutex(&PnpTargetDeviceNotifyLock);
         do
         {
-          v20 = -1;
-          v21 = v10;
-          v22 = PsGetCurrentServerSilo();
-          if ( *((_DWORD *)v10 + 5) != (unsigned int)PsGetServerSiloServiceSessionId(v22) )
-            v20 = IopGetSessionIdFromPDO(Objecta);
-          ++*((_WORD *)v10 + 28);
-          ExReleaseFastMutex(&PnpTargetDeviceNotifyLock);
-          v23 = KeGetCurrentThread();
-          --v23->KernelApcDisable;
-          ExAcquireResourceExclusiveLite((PERESOURCE)v10[9], 1u);
-          if ( (v20 == -1 || *((_DWORD *)v10 + 5) == v20) && !*((_BYTE *)v10 + 58) )
+          v23 = -1;
+          v24 = v11;
+          v25 = PsGetCurrentServerSilo(v22, v21);
+          if ( *((_DWORD *)v11 + 5) != (unsigned int)PsGetServerSiloServiceSessionId(v25) )
+            v23 = IopGetSessionIdFromPDO(Object);
+          ++*((_WORD *)v11 + 28);
+          KeReleaseGuardedMutex(&PnpTargetDeviceNotifyLock);
+          v26 = KeGetCurrentThread();
+          --v26->KernelApcDisable;
+          ExAcquireResourceExclusiveLite((PERESOURCE)v11[9], 1u);
+          if ( (v23 == -1 || *((_DWORD *)v11 + 5) == v23) && !*((_BYTE *)v11 + 58) )
           {
-            *((_QWORD *)&v30[1] + 1) = v10[10];
-            PnpNotifyDriverCallback((__int64)v10, (__int64)v30, 0LL);
+            *((_QWORD *)&v33[1] + 1) = v11[10];
+            PnpNotifyDriverCallback(v11, v33, 0LL);
           }
-          ExReleaseResourceLite((PERESOURCE)v10[9]);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-          ExAcquireFastMutex(&PnpTargetDeviceNotifyLock);
-          v10 = (_QWORD *)v10[1];
-          PnpDereferenceNotify(v21);
-          if ( v21 == v19 )
-            PnpDereferenceNotify(v19);
+          ExReleaseResourceLite((PERESOURCE)v11[9]);
+          KeLeaveCriticalRegion();
+          KeAcquireGuardedMutex(&PnpTargetDeviceNotifyLock);
+          v11 = (_QWORD *)v11[1];
+          PnpDereferenceNotify(v24);
+          if ( v24 == v20 )
+            PnpDereferenceNotify(v20);
         }
-        while ( v10 != v9 );
-        v6 = v25;
+        while ( v11 != v30 );
+        v6 = v28;
         break;
       }
+      v12 = v30;
     }
     else
     {
-      ExReleaseResourceLite((PERESOURCE)v10[9]);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      ExReleaseResourceLite((PERESOURCE)v11[9]);
+      KeLeaveCriticalRegion();
     }
-    ExAcquireFastMutex(&PnpTargetDeviceNotifyLock);
-    if ( v24 )
-      v10 = (_QWORD *)v10[1];
+    KeAcquireGuardedMutex(&PnpTargetDeviceNotifyLock);
+    if ( v27 )
+      v11 = (_QWORD *)v11[1];
     else
-      v10 = (_QWORD *)*v10;
+      v11 = (_QWORD *)*v11;
     PnpDereferenceNotify(P);
   }
-  ExReleaseFastMutex(&PnpTargetDeviceNotifyLock);
-  ObfDereferenceObjectWithTag(Objecta, 0x4E706E50u);
+  KeReleaseGuardedMutex(&PnpTargetDeviceNotifyLock);
+  ObfDereferenceObjectWithTag(Object, 0x4E706E50u);
   return v6;
 }

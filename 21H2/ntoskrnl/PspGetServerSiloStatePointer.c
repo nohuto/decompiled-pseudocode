@@ -1,16 +1,16 @@
 /*
- * XREFs of PspGetServerSiloStatePointer @ 0x1405E0084
+ * XREFs of PspGetServerSiloStatePointer @ 0x140580FA8
  * Callers:
- *     PsStartSiloMonitor @ 0x140852D60 (PsStartSiloMonitor.c)
- *     PsUnregisterSiloMonitor @ 0x1409B1B50 (PsUnregisterSiloMonitor.c)
- *     PspMarkServerSiloAsTerminating @ 0x1409B1DA0 (PspMarkServerSiloAsTerminating.c)
- *     PspNotifyServerSiloCreation @ 0x1409B1E4C (PspNotifyServerSiloCreation.c)
- *     PspNotifyServerSiloTermination @ 0x1409B1F54 (PspNotifyServerSiloTermination.c)
+ *     PsStartSiloMonitor @ 0x1407C3C70 (PsStartSiloMonitor.c)
+ *     PsUnregisterSiloMonitor @ 0x14090B4E0 (PsUnregisterSiloMonitor.c)
+ *     PspMarkServerSiloAsTerminating @ 0x14090B730 (PspMarkServerSiloAsTerminating.c)
+ *     PspNotifyServerSiloCreation @ 0x14090B7DC (PspNotifyServerSiloCreation.c)
+ *     PspNotifyServerSiloTermination @ 0x14090B8E4 (PspNotifyServerSiloTermination.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall PspGetServerSiloStatePointer(__int64 a1)
 {
-  return *(_QWORD *)(a1 + 1464) + 1304LL;
+  return *(_QWORD *)(a1 + 1272) + 1112LL;
 }

@@ -1,25 +1,26 @@
 /*
- * XREFs of __scrt_initialize_crt @ 0x18010F278
+ * XREFs of __scrt_initialize_crt @ 0x1800E6EC0
  * Callers:
- *     dllmain_crt_process_attach @ 0x18010F528 (dllmain_crt_process_attach.c)
+ *     dllmain_crt_process_attach @ 0x1800E7198 (dllmain_crt_process_attach.c)
  * Callees:
- *     __isa_available_init @ 0x18010FB6C (__isa_available_init.c)
- *     __scrt_stub_for_acrt_thread_attach @ 0x1801113B0 (__scrt_stub_for_acrt_thread_attach.c)
- *     __scrt_stub_for_acrt_uninitialize_critical @ 0x1801113BC (__scrt_stub_for_acrt_uninitialize_critical.c)
+ *     __isa_available_init @ 0x1800E79F4 (__isa_available_init.c)
+ *     __scrt_stub_for_acrt_uninitialize_critical @ 0x1800E918C (__scrt_stub_for_acrt_uninitialize_critical.c)
  */
 
 char __fastcall _scrt_initialize_crt(int a1)
 {
   char v1; // al
+  __int64 v2; // rcx
+  __int64 v3; // rcx
 
-  v1 = byte_1803E5680;
+  v1 = byte_180346E51;
   if ( !a1 )
     v1 = 1;
-  byte_1803E5680 = v1;
+  byte_180346E51 = v1;
   _isa_available_init();
-  if ( !(unsigned __int8)_scrt_stub_for_acrt_thread_attach() )
+  if ( !(unsigned __int8)_scrt_stub_for_acrt_uninitialize_critical(v2) )
     return 0;
-  if ( !(unsigned __int8)_scrt_stub_for_acrt_thread_attach() )
+  if ( !(unsigned __int8)_scrt_stub_for_acrt_uninitialize_critical(v3) )
   {
     _scrt_stub_for_acrt_uninitialize_critical(0LL);
     return 0;

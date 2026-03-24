@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpDmaFinalizeDoubleBufferingDisposition @ 0x140B646BC
+ * XREFs of HalpDmaFinalizeDoubleBufferingDisposition @ 0x140A639A4
  * Callers:
- *     HalpDmaInitSystem @ 0x140A90960 (HalpDmaInitSystem.c)
+ *     HalpDmaInitSystem @ 0x14099FFB0 (HalpDmaInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void HalpDmaFinalizeDoubleBufferingDisposition()
@@ -17,7 +17,7 @@ void HalpDmaFinalizeDoubleBufferingDisposition()
   void *v0; // rbx
   _BYTE *v1; // rdi
   NTSTATUS v2; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   size_t v4; // rax
   unsigned int *v5; // rdx
   __int64 v6; // rax
@@ -30,17 +30,18 @@ void HalpDmaFinalizeDoubleBufferingDisposition()
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+7h] BYREF
   _BYTE KeyValueInformation[16]; // [rsp+90h] [rbp+37h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   ResultLength = 0;
   v12[1] = L"\\Registry\\MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management";
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   v0 = 0LL;
   KeyHandle = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
   ValueName.Buffer = L"DynamicMemory";
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)v12;
   v12[0] = 11141288LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v12;
   *(_QWORD *)&ValueName.Length = 1835034LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   if ( !ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) )
   {
@@ -48,17 +49,17 @@ void HalpDmaFinalizeDoubleBufferingDisposition()
     v2 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x10u, &ResultLength);
     if ( (v2 == -2147483643 || v2 == -1073741789) && ResultLength > 0x10 )
     {
-      Pool2 = (void *)ExAllocatePool2(258LL, ResultLength, 0x446C6148u);
-      v0 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, ResultLength, 0x206C6148u);
+      v0 = PoolWithTag;
+      if ( !PoolWithTag )
       {
 LABEL_7:
         if ( KeyHandle )
           ZwClose(KeyHandle);
         return;
       }
-      v1 = Pool2;
-      v2 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Pool2, ResultLength, &ResultLength);
+      v1 = PoolWithTag;
+      v2 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, PoolWithTag, ResultLength, &ResultLength);
     }
     if ( !v2 )
     {
@@ -79,7 +80,7 @@ LABEL_7:
         HalpMaximumPhysicalMemoryAddress = v7;
     }
     if ( v0 )
-      ExFreePoolWithTag(v0, 0x446C6148u);
+      ExFreePoolWithTag(v0, 0x206C6148u);
     goto LABEL_7;
   }
 }

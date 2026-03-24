@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpCollectOpenHandles @ 0x140950424
+ * XREFs of PnpCollectOpenHandles @ 0x1408ABC04
  * Callers:
- *     PipRecordOpenHandleVeto @ 0x14095E7EC (PipRecordOpenHandleVeto.c)
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x14095E874 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140732660 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipRecordOpenHandleVeto @ 0x1408B90CC (PipRecordOpenHandleVeto.c)
  * Callees:
- *     PnpHandleEnumerateHandlesAgainstPdoStack @ 0x140560680 (PnpHandleEnumerateHandlesAgainstPdoStack.c)
- *     IopDebugPrint @ 0x140560D94 (IopDebugPrint.c)
+ *     PnpHandleEnumerateHandlesAgainstPdoStack @ 0x14050CF20 (PnpHandleEnumerateHandlesAgainstPdoStack.c)
+ *     IopDebugPrint @ 0x14050D794 (IopDebugPrint.c)
  */
 
 char __fastcall PnpCollectOpenHandles(PVOID **a1, __int64 a2, __int64 a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetPdeAddress @ 0x14020B2DC
+ * XREFs of MiGetPdeAddress @ 0x140336F4C
  * Callers:
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiEliminateZeroPages @ 0x140696B90 (MiEliminateZeroPages.c)
- *     MiProtectLargeKernelHalRange @ 0x14081F030 (MiProtectLargeKernelHalRange.c)
- *     MiUnmapLargeDriver @ 0x140A49F88 (MiUnmapLargeDriver.c)
+ *     MiEliminateZeroPages @ 0x1406BF340 (MiEliminateZeroPages.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
+ *     MiProtectLargeKernelHalRange @ 0x1407A18A0 (MiProtectLargeKernelHalRange.c)
+ *     MiUnmapLargeDriver @ 0x1408DA794 (MiUnmapLargeDriver.c)
  * Callees:
  *     <none>
  */

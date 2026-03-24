@@ -1,7 +1,8 @@
 /*
- * XREFs of VidSchiIsMmIoFlipPending @ 0x1C001AF30
+ * XREFs of VidSchiIsMmIoFlipPending @ 0x1C00150AC
  * Callers:
- *     VidSchiWaitForDrainFlipQueue @ 0x1C00AA188 (VidSchiWaitForDrainFlipQueue.c)
+ *     VidSchWaitForEvents @ 0x1C0011AA4 (VidSchWaitForEvents.c)
+ *     VidSchiWaitForDrainFlipQueue @ 0x1C00D0C38 (VidSchiWaitForDrainFlipQueue.c)
  * Callees:
  *     <none>
  */
@@ -14,15 +15,14 @@ char __fastcall VidSchiIsMmIoFlipPending(__int64 a1)
   __int64 v5; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   v2 = 0;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1728), &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1712), &LockHandle);
   v3 = *(_DWORD *)(a1 + 40);
   v4 = 0;
   if ( v3 )
   {
-    v5 = a1 + 3200;
-    while ( !*(_QWORD *)v5 || !*(_DWORD *)(*(_QWORD *)v5 + 3000LL) )
+    v5 = a1 + 3104;
+    while ( !*(_QWORD *)v5 || !*(_DWORD *)(*(_QWORD *)v5 + 2352LL) )
     {
       ++v4;
       v5 += 8LL;

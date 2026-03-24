@@ -1,9 +1,9 @@
 /*
- * XREFs of NtDeleteWnfStateData @ 0x14085EAF0
+ * XREFs of NtDeleteWnfStateData @ 0x1407CD7F0
  * Callers:
  *     <none>
  * Callees:
- *     ExpNtDeleteWnfStateData @ 0x14085EB0C (ExpNtDeleteWnfStateData.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407CD80C (ExpNtDeleteWnfStateData.c)
  */
 
 __int64 __fastcall NtDeleteWnfStateData(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpFixupID @ 0x14074CC34
+ * XREFs of PnpFixupID @ 0x1407472D8
  * Callers:
- *     PnpQueryID @ 0x14074C8DC (PnpQueryID.c)
+ *     PnpQueryID @ 0x140747150 (PnpQueryID.c)
  * Callees:
- *     PnpLogEvent @ 0x140947068 (PnpLogEvent.c)
+ *     PnpLogEvent @ 0x1408A1EFC (PnpLogEvent.c)
  */
 
 __int64 __fastcall PnpFixupID(int *a1, unsigned int a2, int a3, unsigned int a4, __int64 a5)
@@ -27,7 +27,7 @@ __int64 __fastcall PnpFixupID(int *a1, unsigned int a2, int a3, unsigned int a4,
   v10 = (unsigned __int64)a1 + 2 * a2;
   if ( (unsigned __int64)a1 < v10 )
   {
-    do
+    while ( 1 )
     {
       v11 = *(_WORD *)v9;
       if ( *(_WORD *)v9 )
@@ -46,7 +46,7 @@ __int64 __fastcall PnpFixupID(int *a1, unsigned int a2, int a3, unsigned int a4,
             v16[0] = 2359330;
             v14 = L"invalid character";
             v15 = 2;
-LABEL_27:
+LABEL_26:
             v17 = v14;
             PnpLogEvent(v13, v16, 3221487672LL, v9, v15);
             return 0LL;
@@ -63,7 +63,7 @@ LABEL_27:
               v14 = L"too many separators";
               v15 = 4;
               v9 = &v18;
-              goto LABEL_27;
+              goto LABEL_26;
             }
           }
         }
@@ -72,6 +72,7 @@ LABEL_27:
       {
         if ( !a3 || v8 && v9 == (int *)((char *)v8 + 2) )
         {
+LABEL_8:
           if ( (unsigned __int64)v9 < v10 && (v7 == a4 || a4 == -1) )
             return (unsigned int)(((char *)v9 - (char *)a1) >> 1) + 1;
           break;
@@ -79,8 +80,9 @@ LABEL_27:
         v8 = v9;
       }
       v9 = (int *)((char *)v9 + 2);
+      if ( (unsigned __int64)v9 >= v10 )
+        goto LABEL_8;
     }
-    while ( (unsigned __int64)v9 < v10 );
   }
   v13 = a5;
   if ( a5 )
@@ -89,7 +91,7 @@ LABEL_27:
     v14 = L"not terminated, too long or invalid number of separators";
     v15 = 0;
     v9 = 0LL;
-    goto LABEL_27;
+    goto LABEL_26;
   }
   return 0LL;
 }

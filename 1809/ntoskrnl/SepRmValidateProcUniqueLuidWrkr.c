@@ -1,9 +1,9 @@
 /*
- * XREFs of SepRmValidateProcUniqueLuidWrkr @ 0x1408A2CB0
+ * XREFs of SepRmValidateProcUniqueLuidWrkr @ 0x1408A2C90
  * Callers:
- *     SepRmCommandServerThread @ 0x1407402C0 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x1407402A0 (SepRmCommandServerThread.c)
  * Callees:
- *     SepIsValidProcUniqueLuid @ 0x1408A385C (SepIsValidProcUniqueLuid.c)
+ *     SepIsValidProcUniqueLuid @ 0x1408A383C (SepIsValidProcUniqueLuid.c)
  */
 
 __int64 __fastcall SepRmValidateProcUniqueLuidWrkr(__int64 a1, __int64 a2)

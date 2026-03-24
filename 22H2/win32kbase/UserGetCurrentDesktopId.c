@@ -1,9 +1,9 @@
 /*
- * XREFs of UserGetCurrentDesktopId @ 0x1C012F828
+ * XREFs of UserGetCurrentDesktopId @ 0x1C011540C
  * Callers:
- *     hdcOpenDCW @ 0x1C005ADC0 (hdcOpenDCW.c)
+ *     hdcOpenDCW @ 0x1C0022A00 (hdcOpenDCW.c)
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00462A0 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
  */
 
 __int64 __fastcall UserGetCurrentDesktopId(_QWORD *a1)
@@ -12,10 +12,10 @@ __int64 __fastcall UserGetCurrentDesktopId(_QWORD *a1)
 
   *a1 = -1LL;
   v2 = 0;
-  if ( *((struct tagDESKTOP **)PtiCurrentShared() + 57) == grpdeskRitInput )
+  if ( *(struct tagDESKTOP **)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456) == grpdeskRitInput )
   {
     v2 = 1;
-    *a1 = ***(_QWORD ***)(*((_QWORD *)PtiCurrentShared() + 57) + 8LL);
+    *a1 = ***(_QWORD ***)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456) + 8LL);
   }
   return v2;
 }

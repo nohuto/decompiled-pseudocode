@@ -1,101 +1,103 @@
 /*
- * XREFs of DpiSharedPowerRegister @ 0x1C038C24C
+ * XREFs of DpiSharedPowerRegister @ 0x1C02CD11C
  * Callers:
- *     DpiFdoDispatchInternalIoctl @ 0x1C02159F0 (DpiFdoDispatchInternalIoctl.c)
+ *     DpiFdoDispatchInternalIoctl @ 0x1C019B2E0 (DpiFdoDispatchInternalIoctl.c)
  * Callees:
- *     DxgRegisterSharedPowerComponent @ 0x1C02E2C8C (DxgRegisterSharedPowerComponent.c)
+ *     DxgRegisterSharedPowerComponent @ 0x1C0251620 (DxgRegisterSharedPowerComponent.c)
  */
 
 __int64 __fastcall DpiSharedPowerRegister(
-        __int64 a1,
+        _QWORD *a1,
         __int64 a2,
-        __int64 a3,
+        unsigned int *a3,
         unsigned int a4,
         __int64 a5,
         int a6,
         _QWORD *a7)
 {
-  __int64 v7; // r14
-  unsigned int v9; // edx
-  bool v10; // zf
-  __int64 v11; // rdx
-  __int64 v12; // rbx
-  void *v13; // r10
-  void (*v14)(void *, void *); // r9
-  void (*v15)(void *, unsigned int, unsigned int, unsigned __int8, void *); // rcx
+  __int64 v7; // rbp
+  _QWORD *v8; // rsi
+  bool v9; // zf
+  __int64 v10; // rbx
+  __int64 v11; // rdi
+  __int64 v12; // rax
+  void (*v14)(void *, void *); // r10
+  void (*v15)(void *, unsigned int, unsigned int, unsigned __int8, void *); // r9
   void (*v16)(void *, void *, unsigned int, unsigned __int8, unsigned int, struct _GUID *__struct_ptr, unsigned int); // rax
   int v17; // eax
 
-  v7 = *(_QWORD *)(a1 + 64);
+  v7 = a1[8];
+  v8 = a1;
   if ( a4 < 0x20 || !a3 )
+    goto LABEL_9;
+  a2 = *a3;
+  if ( (unsigned int)(a2 - 4096) > 2 )
   {
-    v11 = -1073741789LL;
-    LODWORD(v12) = -1073741789;
-    goto LABEL_27;
-  }
-  v9 = *(_DWORD *)a3;
-  if ( (unsigned int)(*(_DWORD *)a3 - 4096) > 2 )
-  {
-    v11 = -1073741127LL;
+    v10 = -1073741127LL;
     goto LABEL_10;
   }
-  switch ( v9 )
+  if ( (_DWORD)a2 == 4096 )
   {
-    case 0x1000u:
-      v10 = a4 == 32;
-      break;
-    case 0x1001u:
-      v10 = a4 == 40;
-      break;
-    case 0x1002u:
-      v10 = a4 == 48;
-      break;
-    default:
-      goto LABEL_13;
+    if ( a4 != 32 )
+      goto LABEL_9;
+    goto LABEL_15;
   }
-  if ( !v10 )
+  if ( (_DWORD)a2 != 4097 )
   {
+    if ( (_DWORD)a2 == 4098 )
+    {
+      v9 = a4 == 48;
+      goto LABEL_8;
+    }
+LABEL_15:
+    a1 = (_QWORD *)*((_QWORD *)a3 + 1);
+    if ( a1 && (v14 = (void (*)(void *, void *))*((_QWORD *)a3 + 3)) != 0LL )
+    {
+      if ( a6 != 32 || !a5 )
+        goto LABEL_9;
+      v15 = 0LL;
+      if ( (unsigned int)a2 >= 0x1001 )
+        v15 = (void (*)(void *, unsigned int, unsigned int, unsigned __int8, void *))*((_QWORD *)a3 + 4);
+      v16 = 0LL;
+      if ( (unsigned int)a2 >= 0x1002 )
+        v16 = (void (*)(void *, void *, unsigned int, unsigned __int8, unsigned int, struct _GUID *__struct_ptr, unsigned int))*((_QWORD *)a3 + 5);
+      v17 = DxgRegisterSharedPowerComponent(
+              *(struct DXGADAPTER **)(v7 + 3896),
+              a1,
+              *((void (**)(void *, enum _DEVICE_POWER_STATE, unsigned __int8, void *))a3 + 2),
+              v14,
+              v15,
+              v16);
+      v11 = v17;
+      if ( v17 >= 0 )
+      {
+        *(_QWORD *)a5 = *(_QWORD *)(v7 + 3896);
+        *(_DWORD *)(a5 + 8) = *(_DWORD *)(v8[8] + 4140LL) != 0 ? 4 : 1;
+        *(_QWORD *)(a5 + 16) = DxgSetSharedPowerComponentStateCB;
+        *(_QWORD *)(a5 + 24) = DxgUnregisterSharedPowerDriverCB;
+        *a7 = 32LL;
+        return (unsigned int)v11;
+      }
+    }
+    else
+    {
+      v11 = -1073741811LL;
+    }
+    v12 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v12 + 24) = v11;
+    goto LABEL_11;
+  }
+  v9 = a4 == 40;
+LABEL_8:
+  if ( v9 )
+    goto LABEL_15;
 LABEL_9:
-    v11 = -1073741789LL;
+  v10 = -1073741789LL;
 LABEL_10:
-    LODWORD(v12) = v11;
-LABEL_27:
-    WdLogSingleEntry1(2LL, v11);
-    return (unsigned int)v12;
-  }
-LABEL_13:
-  v13 = *(void **)(a3 + 8);
-  if ( !v13 || (v14 = *(void (**)(void *, void *))(a3 + 24)) == 0LL )
-  {
-    v12 = -1073741811LL;
-    goto LABEL_22;
-  }
-  if ( a6 != 32 || !a5 )
-    goto LABEL_9;
-  v15 = 0LL;
-  if ( v9 >= 0x1001 )
-    v15 = *(void (**)(void *, unsigned int, unsigned int, unsigned __int8, void *))(a3 + 32);
-  v16 = 0LL;
-  if ( v9 >= 0x1002 )
-    v16 = *(void (**)(void *, void *, unsigned int, unsigned __int8, unsigned int, struct _GUID *__struct_ptr, unsigned int))(a3 + 40);
-  v17 = DxgRegisterSharedPowerComponent(
-          *(struct DXGADAPTER **)(v7 + 3896),
-          v13,
-          *(void (**)(void *, enum _DEVICE_POWER_STATE, unsigned __int8, void *))(a3 + 16),
-          v14,
-          v15,
-          v16);
-  v12 = v17;
-  if ( v17 < 0 )
-  {
-LABEL_22:
-    v11 = v12;
-    goto LABEL_27;
-  }
-  *(_QWORD *)a5 = *(_QWORD *)(v7 + 3896);
-  *(_DWORD *)(a5 + 8) = *(_DWORD *)(*(_QWORD *)(a1 + 64) + 4148LL) != 0 ? 4 : 1;
-  *(_QWORD *)(a5 + 16) = DxgSetSharedPowerComponentStateCB;
-  *(_QWORD *)(a5 + 24) = DxgUnregisterSharedPowerDriverCB;
-  *a7 = 32LL;
-  return (unsigned int)v12;
+  LODWORD(v11) = v10;
+  v12 = WdLogNewEntry5_WdError(a1, a2);
+  *(_QWORD *)(v12 + 24) = v10;
+LABEL_11:
+  WdLogEvent5_WdError(v12);
+  return (unsigned int)v11;
 }

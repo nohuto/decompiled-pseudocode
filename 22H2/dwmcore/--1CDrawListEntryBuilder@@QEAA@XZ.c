@@ -1,122 +1,136 @@
 /*
- * XREFs of ??1CDrawListEntryBuilder@@QEAA@XZ @ 0x180095B5C
+ * XREFs of ??1CDrawListEntryBuilder@@QEAA@XZ @ 0x1800577C0
  * Callers:
- *     ?GenerateDrawList@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18000C640 (-GenerateDrawList@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDraw.c)
- *     ?GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@@Z @ 0x180010390 (-GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEAVCDrawListCache.c)
- *     ?UpdateDrawListCache@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@PEBVCDrawListBrush@@PEAUEffectStage@@IPEAVCDrawListCache@@@Z @ 0x18002FE24 (-UpdateDrawListCache@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@PEBVCDrawListBrush@@PEAUEff.c)
- *     ??1CDrawingContext@@MEAA@XZ @ 0x18003C614 (--1CDrawingContext@@MEAA@XZ.c)
- *     ?Render@CShapeDrawingContext@@QEAAJXZ @ 0x18005AAAC (-Render@CShapeDrawingContext@@QEAAJXZ.c)
- *     ?GenerateDrawList@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180092B10 (-GenerateDrawList@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?GenerateDrawList@CAtlasedRectsGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800B5120 (-GenerateDrawList@CAtlasedRectsGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCac.c)
- *     ?GenerateIntermediateSurfaceBrush@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1@PEAPEAVCSurfaceDrawListBrush@@@Z @ 0x1801FC9F8 (-GenerateIntermediateSurfaceBrush@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1.c)
- *     ?GenerateDrawList@CVisualBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18021F200 (-GenerateDrawList@CVisualBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@.c)
- *     ?GenerateDrawList@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180225D00 (-GenerateDrawList@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawLi.c)
- *     ?GenerateDrawList@CDropShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180229C30 (-GenerateDrawList@CDropShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?GenerateDrawList@CParticleEmitterVisual@@IEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180245728 (-GenerateDrawList@CParticleEmitterVisual@@IEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawLis.c)
- *     ?GenerateDrawList@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18024A2B0 (-GenerateDrawList@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache.c)
- *     ?GenerateDrawList@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18026BB30 (-GenerateDrawList@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?GenerateDrawList@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180006A50 (-GenerateDrawList@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache.c)
+ *     ?GenerateDrawList@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800133C0 (-GenerateDrawList@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDraw.c)
+ *     ??1CDrawingContext@@EEAA@XZ @ 0x18003E1F4 (--1CDrawingContext@@EEAA@XZ.c)
+ *     ?GenerateDrawList@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180057590 (-GenerateDrawList@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?GenerateDrawList@CAtlasedRectsGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180057FC0 (-GenerateDrawList@CAtlasedRectsGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCac.c)
+ *     ?GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEBUD2D_MATRIX_3X2_F@@PEAVCDrawListCache@@@Z @ 0x1800B9780 (-GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEBUD2D_MATRIX_3X2.c)
+ *     ?UpdateDrawListCache@CBrushRenderingGraph@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAUEffectStage@@PEAVCDrawListCache@@@Z @ 0x1800C55A4 (-UpdateDrawListCache@CBrushRenderingGraph@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawLi.c)
+ *     ?GenerateIntermediateSurfaceBrush@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1@PEAPEAVCSurfaceDrawListBrush@@@Z @ 0x18019DC38 (-GenerateIntermediateSurfaceBrush@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1.c)
+ *     ?GenerateDrawList@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801BBDD0 (-GenerateDrawList@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawLi.c)
+ *     ?GenerateDrawList@CHwndBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801C4160 (-GenerateDrawList@CHwndBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?GenerateDrawList@CParticleEmitterVisual@@IEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801E00F4 (-GenerateDrawList@CParticleEmitterVisual@@IEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawLis.c)
+ *     ?GenerateDrawList@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18020BCE0 (-GenerateDrawList@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Render@CShapeDrawingContext@@QEAAJXZ @ 0x18026170C (-Render@CShapeDrawingContext@@QEAAJXZ.c)
  * Callees:
- *     ?Reset@CDrawListEntryBuilder@@QEAAXXZ @ 0x180095D44 (-Reset@CDrawListEntryBuilder@@QEAAXXZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?clear_region@?$vector_facade@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$buffer_impl@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1801B1EF4 (-clear_region@-$vector_facade@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
- *     ?clear_region@?$vector_facade@GV?$buffer_impl@G$0KO@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1801FB33C (-clear_region@-$vector_facade@GV-$buffer_impl@G$0KO@$00Vliberal_expansion_policy@detail@@@detail.c)
- *     ?clear_region@?$vector_facade@PEAVCDrawListEntry@@V?$buffer_impl@PEAVCDrawListEntry@@$03$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1801FB3EC (-clear_region@-$vector_facade@PEAVCDrawListEntry@@V-$buffer_impl@PEAVCDrawListEntry@@$03$00Vlibe.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ??1MeshGraph@Mesh@@QEAA@XZ @ 0x1800579E4 (--1MeshGraph@Mesh@@QEAA@XZ.c)
+ *     ?Clear@Mesh@@AEAAXXZ @ 0x180057B9C (-Clear@Mesh@@AEAAXXZ.c)
+ *     ?Reset@CDrawListEntryBuilder@@QEAAXXZ @ 0x1800934F0 (-Reset@CDrawListEntryBuilder@@QEAAXXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?clear_region@?$vector_facade@GV?$buffer_impl@G$0BO@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18019CFB8 (-clear_region@-$vector_facade@GV-$buffer_impl@G$0BO@$00Vliberal_expansion_policy@detail@@@detail.c)
+ *     ?clear_region@?$vector_facade@UAlign16Chunk@CDrawListEntryBuilder@@V?$buffer_impl@UAlign16Chunk@CDrawListEntryBuilder@@$0DM@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18019D124 (-clear_region@-$vector_facade@UAlign16Chunk@CDrawListEntryBuilder@@V-$buffer_impl@UAlign16Chunk@.c)
  */
 
-void __fastcall CDrawListEntryBuilder::~CDrawListEntryBuilder(CDrawListEntryBuilder *this)
+void __fastcall CDrawListEntryBuilder::~CDrawListEntryBuilder(Mesh::MeshGraph **this)
 {
-  __int64 v2; // r9
-  __int64 v3; // rcx
-  void **v4; // rdi
-  __int64 v5; // r8
-  void *v6; // rsi
-  bool v7; // zf
-  void **v8; // rdi
-  void *v9; // rsi
-  void **v10; // rdi
-  void *v11; // rsi
-  __int64 v12; // rcx
-  void **v13; // rdi
-  void *v14; // rsi
-  __int64 v15; // rcx
+  CDrawListEntry *v2; // rcx
+  CDrawListEntryBuilder **v3; // rsi
+  CDrawListEntryBuilder *v4; // rdi
+  CDrawListEntryBuilder **v5; // rsi
+  CDrawListEntryBuilder *v6; // rdi
+  CDrawListEntryBuilder **v7; // rsi
+  CDrawListEntryBuilder *v8; // rdi
+  Mesh::MeshGraph *v9; // rcx
+  Mesh::MeshGraph *v10; // rsi
+  Mesh::MeshGraph *v11; // rsi
+  Mesh::MeshGraph *v12; // rcx
+  CDrawListEntryBuilder *v13; // rdi
+  __int64 v14; // rax
+  HANDLE ProcessHeap; // rax
   HANDLE v16; // rax
   HANDLE v17; // rax
-  HANDLE ProcessHeap; // rax
-  HANDLE v19; // rax
+  HANDLE v18; // rax
 
-  CDrawListEntryBuilder::Reset(this);
-  v3 = *((_QWORD *)this + 558);
-  if ( v3 )
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v3);
-  v4 = (void **)((char *)this + 4072);
-  v5 = (__int64)(*((_QWORD *)this + 510) - *((_QWORD *)this + 509)) >> 1;
-  if ( v5 )
-    detail::vector_facade<unsigned short,detail::buffer_impl<unsigned short,174,1,detail::liberal_expansion_policy>>::clear_region(
-      (char *)this + 4072,
-      0LL,
-      v5,
-      v2);
-  v6 = *v4;
-  v7 = *((_QWORD *)this + 509) == (_QWORD)this + 4096;
-  *v4 = 0LL;
-  if ( v7 )
+  CDrawListEntryBuilder::Reset((CDrawListEntryBuilder *)this);
+  v2 = this[286];
+  if ( v2 )
+    CDrawListEntry::Release(v2);
+  v3 = this + 273;
+  v4 = this[273];
+  if ( (this[274] - v4) >> 1 )
+  {
+    detail::vector_facade<unsigned short,detail::buffer_impl<unsigned short,30,1,detail::liberal_expansion_policy>>::clear_region(
+      this + 273,
+      0LL);
+    v4 = *v3;
+  }
+  *v3 = 0LL;
+  if ( v4 == (CDrawListEntryBuilder *)(this + 276) )
+    v4 = 0LL;
+  if ( v4 )
+  {
+    ProcessHeap = GetProcessHeap();
+    HeapFree(ProcessHeap, 0, v4);
+  }
+  v5 = this + 148;
+  v6 = this[148];
+  if ( (this[149] - v6) >> 4 )
+  {
+    detail::vector_facade<CDrawListEntryBuilder::Align16Chunk,detail::buffer_impl<CDrawListEntryBuilder::Align16Chunk,60,1,detail::liberal_expansion_policy>>::clear_region(
+      this + 148,
+      0LL);
+    v6 = *v5;
+  }
+  *v5 = 0LL;
+  if ( v6 == (CDrawListEntryBuilder *)(this + 152) )
     v6 = 0LL;
   if ( v6 )
   {
-    ProcessHeap = GetProcessHeap();
-    HeapFree(ProcessHeap, 0, v6);
-  }
-  v8 = (void **)((char *)this + 2112);
-  if ( (__int64)(*((_QWORD *)this + 265) - *((_QWORD *)this + 264)) >> 4 )
-    detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,10,1,detail::liberal_expansion_policy>>::clear_region(
-      (char *)this + 2112,
-      0LL);
-  v9 = *v8;
-  v7 = *((_QWORD *)this + 264) == (_QWORD)this + 2144;
-  *v8 = 0LL;
-  if ( v7 )
-    v9 = 0LL;
-  if ( v9 )
-  {
     v16 = GetProcessHeap();
-    HeapFree(v16, 0, v9);
+    HeapFree(v16, 0, v6);
   }
-  v10 = (void **)((char *)this + 160);
-  if ( (__int64)(*((_QWORD *)this + 21) - *((_QWORD *)this + 20)) >> 4 )
-    detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,10,1,detail::liberal_expansion_policy>>::clear_region(
-      (char *)this + 160,
+  v7 = this + 24;
+  v8 = this[24];
+  if ( (this[25] - v8) >> 4 )
+  {
+    detail::vector_facade<CDrawListEntryBuilder::Align16Chunk,detail::buffer_impl<CDrawListEntryBuilder::Align16Chunk,60,1,detail::liberal_expansion_policy>>::clear_region(
+      this + 24,
       0LL);
-  v11 = *v10;
-  v7 = *((_QWORD *)this + 20) == (_QWORD)this + 192;
-  *v10 = 0LL;
-  if ( v7 )
-    v11 = 0LL;
-  if ( v11 )
+    v8 = *v7;
+  }
+  *v7 = 0LL;
+  if ( v8 == (CDrawListEntryBuilder *)(this + 28) )
+    v8 = 0LL;
+  if ( v8 )
   {
     v17 = GetProcessHeap();
-    HeapFree(v17, 0, v11);
+    HeapFree(v17, 0, v8);
   }
-  v12 = *((_QWORD *)this + 18);
+  v9 = this[23];
+  if ( v9 )
+    (*(void (__fastcall **)(Mesh::MeshGraph *))(*(_QWORD *)v9 + 16LL))(v9);
+  Mesh::Clear((Mesh *)(this + 13));
+  v10 = this[17];
+  if ( v10 )
+  {
+    Mesh::MeshGraph::~MeshGraph(this[17]);
+    operator delete(v10);
+  }
+  v11 = this[15];
+  if ( v11 )
+  {
+    Mesh::MeshGraph::~MeshGraph(this[15]);
+    operator delete(v11);
+  }
+  v12 = this[13];
   if ( v12 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
-  v13 = (void **)((char *)this + 88);
-  if ( (__int64)(*((_QWORD *)this + 12) - *((_QWORD *)this + 11)) >> 3 )
-    detail::vector_facade<CDrawListEntry *,detail::buffer_impl<CDrawListEntry *,4,1,detail::liberal_expansion_policy>>::clear_region((char *)this + 88);
-  v14 = *v13;
-  v7 = *((_QWORD *)this + 11) == (_QWORD)this + 112;
-  *v13 = 0LL;
-  if ( v7 )
-    v14 = 0LL;
+    operator delete(v12);
+  v13 = this[5];
+  v14 = (this[6] - v13) >> 3;
   if ( v14 )
+    this[6] = (Mesh::MeshGraph *)((char *)this[6] - 8 * v14);
+  this[5] = 0LL;
+  if ( v13 == (CDrawListEntryBuilder *)(this + 8) )
+    v13 = 0LL;
+  if ( v13 )
   {
-    v19 = GetProcessHeap();
-    HeapFree(v19, 0, v14);
+    v18 = GetProcessHeap();
+    HeapFree(v18, 0, v13);
   }
-  v15 = *((_QWORD *)this + 10);
-  if ( v15 )
-  {
-    *((_QWORD *)this + 10) = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v15 + 8LL))(v15);
-  }
+  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(this + 4);
 }

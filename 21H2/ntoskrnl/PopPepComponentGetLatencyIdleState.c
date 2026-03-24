@@ -1,8 +1,8 @@
 /*
- * XREFs of PopPepComponentGetLatencyIdleState @ 0x1403BA314
+ * XREFs of PopPepComponentGetLatencyIdleState @ 0x1403CAEFC
  * Callers:
- *     PopPepComponentSetLatency @ 0x14045E4C2 (PopPepComponentSetLatency.c)
- *     PopPepRegisterDevice @ 0x140824268 (PopPepRegisterDevice.c)
+ *     PopPepComponentSetLatency @ 0x14057429C (PopPepComponentSetLatency.c)
+ *     PopPepRegisterDevice @ 0x14078ED18 (PopPepRegisterDevice.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall PopPepComponentGetLatencyIdleState(__int64 a1, unsigned __int
   {
     do
     {
-      if ( *(_QWORD *)(*(_QWORD *)(a1 + 200) + 24 * result) <= a2 )
+      if ( *(_QWORD *)(*(_QWORD *)(a1 + 192) + 24 * result) <= a2 )
         break;
       v3 = (_DWORD)result == 1;
       result = (unsigned int)(result - 1);

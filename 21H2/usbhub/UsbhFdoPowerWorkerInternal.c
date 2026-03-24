@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhFdoPowerWorkerInternal @ 0x1C003B648
+ * XREFs of UsbhFdoPowerWorkerInternal @ 0x1C003C978
  * Callers:
- *     UsbhFdoPowerWorker @ 0x1C003B630 (UsbhFdoPowerWorker.c)
+ *     UsbhFdoPowerWorker @ 0x1C003C960 (UsbhFdoPowerWorker.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 NTSTATUS __fastcall UsbhFdoPowerWorkerInternal(struct _DEVICE_OBJECT *a1, IRP *a2)
@@ -41,7 +41,7 @@ NTSTATUS __fastcall UsbhFdoPowerWorkerInternal(struct _DEVICE_OBJECT *a1, IRP *a
   v4[4] = MinorFunction;
   Log((__int64)a1, 16, 1717858128, 0LL, (__int64)a2);
   if ( *(_BYTE *)(v9 + 1) < 4u )
-    return off_1C005D818[2 * *(unsigned __int8 *)(v9 + 1)](a1, a2);
+    return off_1C005F128[2 * *(unsigned __int8 *)(v9 + 1)](a1, a2);
   v11 = (PDEVICE_OBJECT *)FdoExt((__int64)a1);
   ++a2->CurrentLocation;
   ++a2->Tail.Overlay.CurrentStackLocation;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCompactServiceTable @ 0x140718348
+ * XREFs of MiCompactServiceTable @ 0x140718328
  * Callers:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
  * Callees:
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiSetImageProtection @ 0x1400DA504 (MiSetImageProtection.c)
- *     KeCompactServiceTable @ 0x14017384C (KeCompactServiceTable.c)
- *     RtlFindExportedRoutineByName @ 0x140678EE0 (RtlFindExportedRoutineByName.c)
+ *     MiSetImageProtection @ 0x1400DA524 (MiSetImageProtection.c)
+ *     KeCompactServiceTable @ 0x14017386C (KeCompactServiceTable.c)
+ *     RtlFindExportedRoutineByName @ 0x140678EC0 (RtlFindExportedRoutineByName.c)
  */
 
 __int64 __fastcall MiCompactServiceTable(__int64 a1)

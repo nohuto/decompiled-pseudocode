@@ -1,30 +1,29 @@
 /*
- * XREFs of UNLOCK_HIVE_LOAD @ 0x14068934C
+ * XREFs of UNLOCK_HIVE_LOAD @ 0x1406725C0
  * Callers:
- *     CmpTryToRundownHive @ 0x140208D94 (CmpTryToRundownHive.c)
- *     CmpLoadKeyCommon @ 0x14020AABC (CmpLoadKeyCommon.c)
- *     CmShutdownSystem1 @ 0x14053EBD8 (CmShutdownSystem1.c)
- *     CmShutdownSystem2 @ 0x14053EE38 (CmShutdownSystem2.c)
- *     CmpCompleteUnloadKey @ 0x14067BE48 (CmpCompleteUnloadKey.c)
- *     CmReleaseLoadKeyContext @ 0x1406800D0 (CmReleaseLoadKeyContext.c)
- *     CmpLateUnloadHiveWorker @ 0x140681670 (CmpLateUnloadHiveWorker.c)
- *     CmpPerformUnloadKey @ 0x14069E98C (CmpPerformUnloadKey.c)
- *     CmpDoFlushNextHive @ 0x1407174E0 (CmpDoFlushNextHive.c)
- *     CmLoadAppKey @ 0x14071A870 (CmLoadAppKey.c)
- *     CmKtmNotification @ 0x140741CF0 (CmKtmNotification.c)
- *     CmpResolveHiveLoadConflict @ 0x140914914 (CmpResolveHiveLoadConflict.c)
- *     CmpLazyCommitWorker @ 0x1409194E0 (CmpLazyCommitWorker.c)
+ *     CmpTryToRundownHive @ 0x140361574 (CmpTryToRundownHive.c)
+ *     CmpLoadKeyCommon @ 0x14036195C (CmpLoadKeyCommon.c)
+ *     CmLoadAppKey @ 0x14066FEEC (CmLoadAppKey.c)
+ *     CmReleaseLoadKeyContext @ 0x140671FD0 (CmReleaseLoadKeyContext.c)
+ *     CmpDoFlushNextHive @ 0x140672310 (CmpDoFlushNextHive.c)
+ *     CmKtmNotification @ 0x1406A36F0 (CmKtmNotification.c)
+ *     CmpPerformUnloadKey @ 0x14071A1B8 (CmpPerformUnloadKey.c)
+ *     CmpLateUnloadHiveWorker @ 0x14071C570 (CmpLateUnloadHiveWorker.c)
+ *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
+ *     CmShutdownSystem @ 0x14086B8F8 (CmShutdownSystem.c)
+ *     CmpResolveHiveLoadConflict @ 0x14086E724 (CmpResolveHiveLoadConflict.c)
+ *     CmpLazyCommitWorker @ 0x140872B30 (CmpLazyCommitWorker.c)
  * Callees:
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
-char UNLOCK_HIVE_LOAD()
+_QWORD *UNLOCK_HIVE_LOAD()
 {
   struct _KTHREAD *CurrentThread; // rbx
 
   CurrentThread = KeGetCurrentThread();
   CmpLoadHiveLockOwner = 0LL;
   ExReleasePushLockEx((ULONG_PTR)&CmpLoadHiveLock, 0LL);
-  return KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+  return KeLeaveCriticalRegionThread((__int64)CurrentThread);
 }

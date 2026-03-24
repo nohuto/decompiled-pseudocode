@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkGetMonitorDisplayId @ 0x1C02FCC30
+ * XREFs of DxgkGetMonitorDisplayId @ 0x1C0298250
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkGetMonitorDescriptor@@YAJU_LUID@@IEIPEAIPEAE@Z @ 0x1C01D8850 (-DxgkGetMonitorDescriptor@@YAJU_LUID@@IEIPEAIPEAE@Z.c)
+ *     ?DxgkGetMonitorDescriptor@@YAJU_LUID@@IEIPEAIPEAE@Z @ 0x1C0169900 (-DxgkGetMonitorDescriptor@@YAJU_LUID@@IEIPEAIPEAE@Z.c)
  */
 
 __int64 __fastcall DxgkGetMonitorDisplayId(

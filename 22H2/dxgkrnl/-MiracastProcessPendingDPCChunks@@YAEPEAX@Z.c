@@ -1,56 +1,63 @@
 /*
- * XREFs of ?MiracastProcessPendingDPCChunks@@YAEPEAX@Z @ 0x1C005FC10
+ * XREFs of ?MiracastProcessPendingDPCChunks@@YAEPEAX@Z @ 0x1C0053120
  * Callers:
  *     <none>
  * Callees:
- *     ?AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z @ 0x1C005F9E8 (-AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z.c)
+ *     ?AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z @ 0x1C0052EF8 (-AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z.c)
  */
 
 unsigned __int8 __fastcall MiracastProcessPendingDPCChunks(_WORD *a1)
 {
-  _WORD *v1; // r10
-  __int64 v2; // rcx
+  int v1; // r11d
+  _WORD *v2; // r10
+  __int64 v3; // rcx
   unsigned __int8 result; // al
-  __int64 v4; // r10
-  struct MIRACAST_CHUNK_LIST **v5; // r10
-  struct MIRACAST_CHUNK_LIST *v6; // rdx
+  __int64 v5; // r10
+  struct MIRACAST_CHUNK_LIST **v6; // r10
   struct MIRACAST_CHUNK_LIST *v7; // rdx
+  struct MIRACAST_CHUNK_LIST *v8; // rdx
 
+  v1 = 0;
+  v2 = a1;
   a1[8] = 0;
-  v1 = a1;
-  *((_DWORD *)a1 + 5) = 0;
   *((_BYTE *)a1 + 18) = 0;
-  v2 = *(_QWORD *)a1;
-  if ( *(_BYTE *)(v2 + 3265) )
+  *((_DWORD *)a1 + 5) = 0;
+  v3 = *(_QWORD *)a1;
+  if ( *(_BYTE *)(v3 + 3249) )
   {
-    *((_BYTE *)v1 + 17) = 1;
+    *((_BYTE *)v2 + 17) = 1;
     return 0;
   }
   else
   {
-    if ( *(_BYTE *)(v2 + 3264) )
+    if ( *(_BYTE *)(v3 + 3248) )
     {
       MIRACAST_CHUNK_LIST::AddChunkListToTail(
-        *(MIRACAST_CHUNK_LIST **)(v2 + 3272),
-        *(struct MIRACAST_CHUNK_LIST **)(v2 + 3288));
+        *(MIRACAST_CHUNK_LIST **)(v3 + 3256),
+        *(struct MIRACAST_CHUNK_LIST **)(v3 + 3272));
       MIRACAST_CHUNK_LIST::AddChunkListToTail(
-        *(MIRACAST_CHUNK_LIST **)(*(_QWORD *)v4 + 3272LL),
-        *(struct MIRACAST_CHUNK_LIST **)(*(_QWORD *)v4 + 3280LL));
-      MIRACAST_CHUNK_LIST::AddChunkListToTail(*((MIRACAST_CHUNK_LIST **)*v5 + 409), v5[1]);
-      *(_BYTE *)(*(_QWORD *)v1 + 3264LL) = 0;
-      *((_BYTE *)v1 + 16) = 1;
+        *(MIRACAST_CHUNK_LIST **)(*(_QWORD *)v5 + 3256LL),
+        *(struct MIRACAST_CHUNK_LIST **)(*(_QWORD *)v5 + 3264LL));
+      MIRACAST_CHUNK_LIST::AddChunkListToTail(*((MIRACAST_CHUNK_LIST **)*v6 + 407), v6[1]);
+      *(_BYTE *)(*(_QWORD *)v2 + 3248LL) = v1;
+      v3 = *(_QWORD *)v2;
+      *((_BYTE *)v2 + 16) = 1;
     }
-    v6 = *(struct MIRACAST_CHUNK_LIST **)(*(_QWORD *)v1 + 3280LL);
-    if ( *((_DWORD *)v6 + 4) )
+    v7 = *(struct MIRACAST_CHUNK_LIST **)(v3 + 3264);
+    if ( *((_DWORD *)v7 + 4) != v1 )
     {
-      MIRACAST_CHUNK_LIST::AddChunkListToTail(*((MIRACAST_CHUNK_LIST **)v1 + 1), v6);
-      *((_BYTE *)v1 + 18) = 1;
+      MIRACAST_CHUNK_LIST::AddChunkListToTail(*((MIRACAST_CHUNK_LIST **)v2 + 1), v7);
+      v3 = *(_QWORD *)v2;
+      *((_BYTE *)v2 + 18) = 1;
     }
-    v7 = *(struct MIRACAST_CHUNK_LIST **)(*(_QWORD *)v1 + 3288LL);
-    if ( *((_DWORD *)v7 + 4) )
-      MIRACAST_CHUNK_LIST::AddChunkListToTail(*(MIRACAST_CHUNK_LIST **)(*(_QWORD *)v1 + 3272LL), v7);
+    v8 = *(struct MIRACAST_CHUNK_LIST **)(v3 + 3272);
+    if ( *((_DWORD *)v8 + 4) != v1 )
+    {
+      MIRACAST_CHUNK_LIST::AddChunkListToTail(*(MIRACAST_CHUNK_LIST **)(v3 + 3256), v8);
+      v3 = *(_QWORD *)v2;
+    }
     result = 1;
-    *((_DWORD *)v1 + 5) = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v1 + 3272LL) + 16LL);
+    *((_DWORD *)v2 + 5) = *(_DWORD *)(*(_QWORD *)(v3 + 3256) + 16LL);
   }
   return result;
 }

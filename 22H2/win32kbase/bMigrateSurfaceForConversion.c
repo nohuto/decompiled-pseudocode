@@ -1,485 +1,497 @@
 /*
- * XREFs of bMigrateSurfaceForConversion @ 0x1C015A1C0
+ * XREFs of bMigrateSurfaceForConversion @ 0x1C00BA100
  * Callers:
- *     pProcessDfbSurfacesInternal @ 0x1C015AC60 (pProcessDfbSurfacesInternal.c)
+ *     pProcessDfbSurfacesInternal @ 0x1C00BE880 (pProcessDfbSurfacesInternal.c)
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C003F8A0 (--1SURFREF@@QEAA@XZ.c)
- *     ?vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C003FAF4 (-vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z.c)
- *     INC_SHARE_REF_CNT @ 0x1C00417D0 (INC_SHARE_REF_CNT.c)
- *     DEC_SHARE_REF_CNT @ 0x1C0042440 (DEC_SHARE_REF_CNT.c)
- *     PushThreadGuardedObject @ 0x1C0049F70 (PushThreadGuardedObject.c)
- *     ?bDeleteSurface@SURFREF@@QEAAHH@Z @ 0x1C004BD9C (-bDeleteSurface@SURFREF@@QEAAHH@Z.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C005E508 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     HmgShareLock @ 0x1C00622A0 (HmgShareLock.c)
- *     ?bMap@SURFREFVIEW@@QEAAHPEAU_SURFOBJ@@@Z @ 0x1C008F880 (-bMap@SURFREFVIEW@@QEAAHPEAU_SURFOBJ@@@Z.c)
- *     ?bUnMap@SURFREFVIEW@@QEAAHXZ @ 0x1C009CD20 (-bUnMap@SURFREFVIEW@@QEAAHXZ.c)
- *     ?GetFirstLSurf@SURFACE@@QEAAPEAVSFMLOGICALSURFACE@@XZ @ 0x1C00A68A0 (-GetFirstLSurf@SURFACE@@QEAAPEAVSFMLOGICALSURFACE@@XZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VSFMLOGICALSURFACEREF@@@@QEAA@XZ @ 0x1C00D28A0 (--0-$UnexpectedThreadTerminationHandler@VSFMLOGICALSURFACEREF@@@@QEAA@XZ.c)
- *     ??1?$HmgShareLockResult@VSURFACE@@@@QEAA@XZ @ 0x1C00D28D4 (--1-$HmgShareLockResult@VSURFACE@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?bUnMapImmediate@SURFREFVIEW@@QEAAHXZ @ 0x1C01586C0 (-bUnMapImmediate@SURFREFVIEW@@QEAAHXZ.c)
- *     ?SwapShareCount@OBJECT@@SAXPEAV1@0@Z @ 0x1C0158F00 (-SwapShareCount@OBJECT@@SAXPEAV1@0@Z.c)
- *     HmgQueryAltLock @ 0x1C01595B0 (HmgQueryAltLock.c)
- *     HmgSwapLockedHandleContents @ 0x1C0159680 (HmgSwapLockedHandleContents.c)
- *     ??1SFMLOGICALSURFACEREF@@QEAA@XZ @ 0x1C0159D78 (--1SFMLOGICALSURFACEREF@@QEAA@XZ.c)
- *     ?LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z @ 0x1C0159DC4 (-LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z.c)
- *     IsvSpDwmMigrateLSurfShapeReferenceSupported @ 0x1C02327F4 (IsvSpDwmMigrateLSurfShapeReferenceSupported.c)
- *     vSpDwmMigrateLSurfShapeReferenceWrap @ 0x1C0232988 (vSpDwmMigrateLSurfShapeReferenceWrap.c)
+ *     HmgQueryAltLock @ 0x1C000DE90 (HmgQueryAltLock.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C001DA78 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ?vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C002BE8C (-vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002CB94 (--1SURFREF@@QEAA@XZ.c)
+ *     PopThreadGuardedObject @ 0x1C002D4F0 (PopThreadGuardedObject.c)
+ *     PushThreadGuardedObject @ 0x1C002E110 (PushThreadGuardedObject.c)
+ *     INC_SHARE_REF_CNT @ 0x1C002E2E0 (INC_SHARE_REF_CNT.c)
+ *     DEC_SHARE_REF_CNT @ 0x1C002F510 (DEC_SHARE_REF_CNT.c)
+ *     HmgShareLock @ 0x1C002FC10 (HmgShareLock.c)
+ *     ?bUnMapImmediate@SURFREFVIEW@@QEAAHXZ @ 0x1C007AAA0 (-bUnMapImmediate@SURFREFVIEW@@QEAAHXZ.c)
+ *     ?bMap@SURFREFVIEW@@QEAAHPEAU_SURFOBJ@@@Z @ 0x1C007AAD0 (-bMap@SURFREFVIEW@@QEAAHPEAU_SURFOBJ@@@Z.c)
+ *     ?bUnMap@SURFREFVIEW@@QEAAHXZ @ 0x1C007AFB0 (-bUnMap@SURFREFVIEW@@QEAAHXZ.c)
+ *     ?GetFirstLSurf@SURFACE@@QEAAPEAVSFMLOGICALSURFACE@@XZ @ 0x1C009C0E0 (-GetFirstLSurf@SURFACE@@QEAAPEAVSFMLOGICALSURFACE@@XZ.c)
+ *     ?SwapShareCount@OBJECT@@SAXPEAV1@0@Z @ 0x1C00AB090 (-SwapShareCount@OBJECT@@SAXPEAV1@0@Z.c)
+ *     ?LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z @ 0x1C00AB1BC (-LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z.c)
+ *     IsvSpDwmMigrateLSurfShapeReferenceSupported @ 0x1C00B8008 (IsvSpDwmMigrateLSurfShapeReferenceSupported.c)
+ *     vSpDwmMigrateLSurfShapeReferenceWrap @ 0x1C00B8154 (vSpDwmMigrateLSurfShapeReferenceWrap.c)
+ *     HmgSwapLockedHandleContents @ 0x1C00BE150 (HmgSwapLockedHandleContents.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C00C920C (-bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     ?OnUnexpectedThreadTerminationStatic@?$UnexpectedThreadTerminationHandler@VXEPALOBJ2@@@@SAXPEAX@Z @ 0x1C00C95B0 (-OnUnexpectedThreadTerminationStatic@-$UnexpectedThreadTerminationHandler@VXEPALOBJ2@@@@SAXPEAX@.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VSFMLOGICALSURFACEREF@@@@QEAA@XZ @ 0x1C00CA204 (--0-$UnexpectedThreadTerminationHandler@VSFMLOGICALSURFACEREF@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ??1SFMLOGICALSURFACEREF@@QEAA@XZ @ 0x1C013FA54 (--1SFMLOGICALSURFACEREF@@QEAA@XZ.c)
  */
 
-__int64 __fastcall bMigrateSurfaceForConversion(struct OBJECT *a1, SURFACE *this, int a3, _DWORD *a4)
+__int64 __fastcall bMigrateSurfaceForConversion(SURFACE *this, SURFACE *a2, int a3, _DWORD *a4)
 {
-  unsigned int v7; // r15d
-  struct _SURFOBJ *v8; // r14
-  __int64 v9; // rcx
-  void *v10; // rdx
-  __int64 v11; // rcx
-  struct _ERESOURCE *v12; // r8
-  int v13; // eax
-  struct OBJECT *v14; // r13
-  __int64 v15; // rbx
-  BOOL (__stdcall *v16)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *); // rax
-  __int64 v17; // rax
-  void *v18; // rdx
-  struct _ERESOURCE *v19; // r8
-  const signed __int16 *v20; // r14
-  int v21; // ecx
-  int v22; // r12d
-  unsigned __int16 AltLock; // bx
-  unsigned __int16 v24; // ax
+  unsigned int v7; // r12d
+  struct _SURFOBJ *v8; // rdi
+  void *v9; // rdx
+  struct DC *v10; // r8
+  int v11; // eax
+  SURFACE *v12; // r13
+  __int64 v13; // rbx
+  int v14; // eax
+  void *v15; // rdx
+  struct DC *v16; // r8
+  int v17; // ecx
+  int v18; // ecx
+  __int64 v19; // rsi
+  int AltLock; // eax
+  __int64 v21; // rbx
+  int v22; // edi
+  int v23; // eax
+  int v24; // edi
+  HLSURF v25; // rbx
   struct SFMLOGICALSURFACE *FirstLSurf; // rax
-  struct SFMLOGICALSURFACE *v26; // rbx
-  HLSURF v27; // rax
-  __int64 v28; // rcx
-  __int64 v29; // rax
-  __int64 v30; // rcx
-  __int64 v31; // rax
-  __int64 v32; // rcx
-  __int16 v33; // dx
+  HLSURF *v27; // rsi
+  int v28; // eax
+  __int64 v29; // rcx
+  __int64 v30; // rax
+  __int64 v31; // rcx
+  __int64 v32; // rax
+  __int64 v33; // rcx
   __int16 v34; // r8
-  __int64 v35; // rax
-  __int64 v36; // rcx
-  __int64 v37; // rax
-  __int64 v38; // rcx
-  __int64 v39; // rax
-  __int128 v40; // xmm1
-  __int128 v41; // xmm0
-  __int128 v42; // xmm1
-  __int128 v43; // xmm0
-  __int128 v44; // xmm1
-  __int128 v45; // xmm0
-  __int128 v46; // xmm1
-  __int128 v47; // xmm0
-  __int128 v48; // xmm1
+  __int16 v35; // dx
+  __int64 v36; // rax
+  __int64 v37; // rcx
+  __int64 v38; // rax
+  __int64 v39; // rcx
+  __int64 v40; // rax
+  __int128 v41; // xmm1
+  __int128 v42; // xmm0
+  __int128 v43; // xmm1
+  __int128 v44; // xmm0
+  __int128 v45; // xmm1
+  __int128 v46; // xmm0
+  __int128 v47; // xmm1
+  __int128 v48; // xmm0
   __int128 v49; // xmm1
-  __int128 v50; // xmm0
-  __int128 v51; // xmm1
-  __int128 v52; // xmm0
-  __int128 v53; // xmm1
-  __int128 v54; // xmm0
-  __int128 v55; // xmm1
-  __int128 v56; // xmm0
-  __int128 v57; // xmm1
-  __int64 v58; // rax
-  __int128 v59; // xmm0
-  __int128 v60; // xmm2
-  __int128 v61; // xmm3
-  struct _EPROCESS *v62; // rdx
-  struct _EPROCESS *v63; // rbx
-  __int64 v64; // rax
+  __int128 v50; // xmm1
+  __int128 v51; // xmm0
+  __int128 v52; // xmm1
+  __int128 v53; // xmm0
+  __int128 v54; // xmm1
+  __int128 v55; // xmm0
+  __int128 v56; // xmm1
+  __int128 v57; // xmm0
+  __int128 v58; // xmm1
+  __int64 v59; // rax
+  __int128 v60; // xmm0
+  __int128 v61; // xmm2
+  __int128 v62; // xmm3
+  __int64 v63; // rdx
+  __int64 v64; // rbx
   int v65; // xmm0_4
   int v66; // xmm1_4
-  int v67; // ecx
-  HLSURF *v68; // rbx
+  __int64 v67; // rax
+  int v68; // eax
   HLSURF v69; // rdx
-  struct SFMLOGICALSURFACE *v70; // rbx
-  void *v71; // rdx
-  struct _ERESOURCE *v72; // r8
-  unsigned __int16 v73; // bx
-  unsigned __int16 v74; // ax
-  int v75; // eax
-  void *v76; // rdx
-  struct _ERESOURCE *v77; // r8
-  void *v78; // rdx
-  struct _ERESOURCE *v79; // r8
-  int v81; // [rsp+40h] [rbp-C0h]
-  int v83; // [rsp+44h] [rbp-BCh]
-  BOOL (__stdcall *v84)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *); // [rsp+48h] [rbp-B8h]
-  int v85; // [rsp+48h] [rbp-B8h]
-  SURFACE *v86[2]; // [rsp+50h] [rbp-B0h] BYREF
-  SURFACE *v87[2]; // [rsp+60h] [rbp-A0h] BYREF
-  HLSURF v88; // [rsp+70h] [rbp-90h]
-  _DWORD *v89; // [rsp+78h] [rbp-88h]
-  __int64 v90; // [rsp+80h] [rbp-80h] BYREF
-  __int128 v91; // [rsp+88h] [rbp-78h] BYREF
-  __int128 v92; // [rsp+98h] [rbp-68h]
-  int v93; // [rsp+A8h] [rbp-58h]
-  struct SFMLOGICALSURFACE *v94; // [rsp+B0h] [rbp-50h]
-  _BYTE v95[32]; // [rsp+B8h] [rbp-48h] BYREF
-  __int64 v96; // [rsp+D8h] [rbp-28h]
-  int v97; // [rsp+E0h] [rbp-20h]
-  __int128 v98; // [rsp+F0h] [rbp-10h]
-  __int128 v99; // [rsp+100h] [rbp+0h]
-  __int128 v100; // [rsp+110h] [rbp+10h]
-  __int128 v101; // [rsp+120h] [rbp+20h]
-  __int128 v102; // [rsp+130h] [rbp+30h]
-  __int128 v103; // [rsp+140h] [rbp+40h]
-  __int128 v104; // [rsp+150h] [rbp+50h]
-  __int128 v105; // [rsp+160h] [rbp+60h]
-  __int128 v106; // [rsp+170h] [rbp+70h]
-  __int128 v107; // [rsp+180h] [rbp+80h]
-  __int64 v108; // [rsp+190h] [rbp+90h]
-  __int64 v109; // [rsp+1A0h] [rbp+A0h] BYREF
-  int v110; // [rsp+1A8h] [rbp+A8h]
-  int v111; // [rsp+1ACh] [rbp+ACh]
+  int v70; // eax
+  int v71; // edi
+  __int64 v72; // rcx
+  int v73; // eax
+  void *v74; // rdx
+  struct DC *v75; // r8
+  __int64 v76; // rsi
+  int v77; // eax
+  __int64 v78; // rdi
+  int v79; // ebx
+  int v80; // eax
+  int v81; // eax
+  void *v82; // rdx
+  struct DC *v83; // r8
+  void *v84; // rdx
+  struct DC *v85; // r8
+  int v88; // [rsp+40h] [rbp-C0h]
+  int v89; // [rsp+44h] [rbp-BCh]
+  SURFACE *v90[2]; // [rsp+48h] [rbp-B8h] BYREF
+  int v91; // [rsp+58h] [rbp-A8h]
+  SURFACE *v92[2]; // [rsp+60h] [rbp-A0h] BYREF
+  _DWORD *v93; // [rsp+70h] [rbp-90h]
+  __int64 v94; // [rsp+78h] [rbp-88h] BYREF
+  __int128 v95; // [rsp+80h] [rbp-80h] BYREF
+  __int128 v96; // [rsp+90h] [rbp-70h]
+  int v97; // [rsp+A0h] [rbp-60h]
+  struct _SURFOBJ *v98; // [rsp+A8h] [rbp-58h]
+  struct _SURFOBJ *v99; // [rsp+B0h] [rbp-50h]
+  _BYTE v100[32]; // [rsp+B8h] [rbp-48h] BYREF
+  __int64 v101; // [rsp+D8h] [rbp-28h]
+  int v102; // [rsp+E0h] [rbp-20h]
+  __int128 v103; // [rsp+F0h] [rbp-10h]
+  __int128 v104; // [rsp+100h] [rbp+0h]
+  __int128 v105; // [rsp+110h] [rbp+10h]
+  __int128 v106; // [rsp+120h] [rbp+20h]
+  __int128 v107; // [rsp+130h] [rbp+30h]
+  __int128 v108; // [rsp+140h] [rbp+40h]
+  __int128 v109; // [rsp+150h] [rbp+50h]
+  __int128 v110; // [rsp+160h] [rbp+60h]
+  __int128 v111; // [rsp+170h] [rbp+70h]
+  __int128 v112; // [rsp+180h] [rbp+80h]
+  __int64 v113; // [rsp+190h] [rbp+90h]
+  __int64 v114; // [rsp+1A0h] [rbp+A0h] BYREF
+  int v115; // [rsp+1A8h] [rbp+A8h]
+  int v116; // [rsp+1ACh] [rbp+ACh]
 
-  v110 = *((_DWORD *)a1 + 14);
-  v111 = *((_DWORD *)a1 + 15);
-  v89 = a4;
-  v109 = 0LL;
+  v115 = *((_DWORD *)this + 14);
+  v116 = *((_DWORD *)this + 15);
+  v93 = a4;
+  v114 = 0LL;
   v7 = 1;
-  v86[0] = 0LL;
-  v8 = (struct _SURFOBJ *)(((unsigned __int64)a1 + 24) & -(__int64)(a1 != 0LL));
-  SURFREFVIEW::bMap((SURFREFVIEW *)v86, v8);
-  v87[0] = 0LL;
-  SURFREFVIEW::bMap((SURFREFVIEW *)v87, (struct _SURFOBJ *)(((unsigned __int64)this + 24) & -(__int64)(this != 0LL)));
+  v90[0] = 0LL;
+  v8 = (struct _SURFOBJ *)(((unsigned __int64)this + 24) & -(__int64)(this != 0LL));
+  v99 = v8;
+  SURFREFVIEW::bMap((SURFREFVIEW *)v90, v8);
+  v92[0] = 0LL;
+  v98 = (struct _SURFOBJ *)(((unsigned __int64)a2 + 24) & -(__int64)(a2 != 0LL));
+  SURFREFVIEW::bMap((SURFREFVIEW *)v92, v98);
   *a4 = 0;
-  SGDGetSessionState(v9);
-  v13 = *((_DWORD *)a1 + 28);
-  if ( (v13 & 0x80100000) != 0 )
+  v11 = *((_DWORD *)this + 28);
+  if ( (v11 & 0x80100000) != 0 )
   {
-    SURFREFVIEW::bUnMapImmediate(v87, v10, v12);
-    v87[0] = 0LL;
-    SURFREFVIEW::bUnMapImmediate(v86, v78, v79);
-    v86[0] = 0LL;
-    goto LABEL_81;
+    SURFREFVIEW::bUnMapImmediate(v92, v9, v10);
+    v92[0] = 0LL;
+    SURFREFVIEW::bUnMapImmediate(v90, v84, v85);
+    v90[0] = 0LL;
+    goto LABEL_86;
   }
-  if ( *((_WORD *)a1 + 50) == 3 )
+  if ( *((_WORD *)this + 50) == 3 )
   {
 LABEL_5:
-    v14 = a1;
+    v12 = this;
     goto LABEL_8;
   }
-  if ( *((_WORD *)this + 50) != 3 )
+  if ( *((_WORD *)a2 + 50) != 3 )
   {
-    if ( (v13 & 0x400000) != 0 )
+    if ( (v11 & 0x400000) != 0 )
       goto LABEL_5;
-    if ( !_bittest((const signed __int32 *)this + 28, 0x16u) )
+    if ( (*((_DWORD *)a2 + 28) & 0x400000) == 0 )
     {
-LABEL_81:
+LABEL_86:
       v7 = 0;
-      goto LABEL_82;
+      goto LABEL_87;
     }
   }
-  v14 = this;
+  v12 = a2;
 LABEL_8:
-  v15 = *((_QWORD *)v14 + 6);
-  if ( (*(_DWORD *)(v15 + 40) & 0x20000) != 0 )
-    *((_DWORD *)a1 + 29) |= 0x10u;
+  v13 = *((_QWORD *)v12 + 6);
+  if ( (*(_DWORD *)(v13 + 40) & 0x20000) != 0 )
+    *((_DWORD *)this + 29) |= 0x10u;
   if ( a3
-    || ((*((_DWORD *)v14 + 28) & 0x400) == 0
-      ? (v16 = EngCopyBits)
-      : (v16 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))(v15 + 2816)),
-        v84 = v16,
-        v17 = SGDGetSessionState(v11),
-        ((unsigned int (__fastcall *)(unsigned __int64, struct _SURFOBJ *, _QWORD, __int64, __int64 *, __int64 *))v84)(
-          ((unsigned __int64)this + 24) & -(__int64)(this != 0LL),
-          v8,
-          0LL,
-          *(_QWORD *)(v17 + 24) + 6896LL,
-          &v109,
-          &v109)) )
+    || ((*((_DWORD *)v12 + 28) & 0x400) == 0
+      ? (v14 = ((__int64 (__fastcall *)(unsigned __int64, struct _SURFOBJ *, _QWORD, void *, __int64 *, __int64 *))EngCopyBits)(
+                 ((unsigned __int64)a2 + 24) & -(__int64)(a2 != 0LL),
+                 v8,
+                 0LL,
+                 &xloIdent,
+                 &v114,
+                 &v114))
+      : (v14 = (*(__int64 (__fastcall **)(unsigned __int64, struct _SURFOBJ *, _QWORD, void *, __int64 *, __int64 *))(v13 + 2840))(
+                 ((unsigned __int64)a2 + 24) & -(__int64)(a2 != 0LL),
+                 v8,
+                 0LL,
+                 &xloIdent,
+                 &v114,
+                 &v114)),
+        v14) )
   {
-    if ( (*(_DWORD *)(v15 + 40) & 0x20000) != 0 )
-      *((_DWORD *)a1 + 29) &= ~0x10u;
-    v20 = (const signed __int16 *)((char *)a1 + 102);
-    v85 = *((_DWORD *)a1 + 29) & 0x80;
-    v21 = *(_DWORD *)a1 & 0x800000;
-    if ( v21 && _bittest16(v20, 9u) )
-    {
-      v22 = 1;
-    }
-    else
-    {
-      v22 = 0;
-      if ( !v21 )
-        goto LABEL_24;
-    }
-    if ( (*v20 & 0x400) != 0 )
-    {
-      v83 = 1;
-      goto LABEL_25;
-    }
-LABEL_24:
-    v83 = 0;
-LABEL_25:
-    AltLock = HmgQueryAltLock(*((_QWORD *)a1 + 4));
-    v24 = HmgQueryAltLock(*((_QWORD *)this + 4));
-    if ( !(unsigned int)HmgSwapLockedHandleContents(*((_QWORD *)a1 + 4), AltLock, *((_QWORD *)this + 4), v24, 5) )
+    if ( (*(_DWORD *)(v13 + 40) & 0x20000) != 0 )
+      *((_DWORD *)this + 29) &= ~0x10u;
+    v17 = *(_DWORD *)this;
+    v91 = *((_DWORD *)this + 29) & 0x80;
+    v18 = v17 & 0x800000;
+    if ( !v18 || (v89 = 1, (*((_WORD *)this + 51) & 0x200) == 0) )
+      v89 = 0;
+    if ( !v18 || (v88 = 1, (*((_WORD *)this + 51) & 0x400) == 0) )
+      v88 = 0;
+    v19 = *((_QWORD *)this + 4);
+    AltLock = HmgQueryAltLock(v19);
+    v21 = *((_QWORD *)a2 + 4);
+    v22 = AltLock;
+    v23 = HmgQueryAltLock(v21);
+    if ( !(unsigned int)HmgSwapLockedHandleContents(v19, v22, v21, v23, 5) )
     {
       v7 = 0;
-      goto LABEL_73;
+      goto LABEL_77;
     }
-    v81 = 0;
-    v88 = 0LL;
-    UnexpectedThreadTerminationHandler<SFMLOGICALSURFACEREF>::UnexpectedThreadTerminationHandler<SFMLOGICALSURFACEREF>((__int64)v95);
-    v96 = 0LL;
-    v97 = 0;
-    FirstLSurf = SURFACE::GetFirstLSurf(a1);
-    v94 = FirstLSurf;
-    v26 = FirstLSurf;
+    v24 = 0;
+    v25 = 0LL;
+    UnexpectedThreadTerminationHandler<SFMLOGICALSURFACEREF>::UnexpectedThreadTerminationHandler<SFMLOGICALSURFACEREF>(v100);
+    v101 = 0LL;
+    v102 = 0;
+    FirstLSurf = SURFACE::GetFirstLSurf(this);
+    v27 = (HLSURF *)FirstLSurf;
     if ( !FirstLSurf )
       goto LABEL_35;
-    v81 = -__CFSHR__(*((_DWORD *)FirstLSurf + 61), 3);
+    v24 = -__CFSHR__(*((_DWORD *)FirstLSurf + 61), 3);
     if ( !__CFSHR__(*((_DWORD *)FirstLSurf + 61), 3) )
       goto LABEL_35;
-    if ( qword_1C0294700 && (int)qword_1C0294700() >= 0 )
-    {
-      v27 = qword_1C0294708;
-      if ( qword_1C0294708 )
-        v27 = (HLSURF)((__int64 (__fastcall *)(_QWORD, struct SFMLOGICALSURFACE *, _QWORD, __int64, int))qword_1C0294708)(
-                        *((_QWORD *)a1 + 6),
-                        v26,
-                        0LL,
-                        1LL,
-                        1);
-    }
+    if ( qword_1C02552F0 )
+      v28 = qword_1C02552F0();
     else
-    {
-      v27 = v88;
-    }
-    SFMLOGICALSURFACEREF::LockLogicalSurfaceObj((SFMLOGICALSURFACEREF *)v95, v27);
-    if ( !v96 )
+      v28 = -1073741637;
+    if ( v28 >= 0 && qword_1C02552F8 )
+      v25 = (HLSURF)qword_1C02552F8(*((_QWORD *)this + 6), v27, 0LL, 1LL, 1);
+    SFMLOGICALSURFACEREF::LockLogicalSurfaceObj((SFMLOGICALSURFACEREF *)v100, v25);
+    if ( !v101 )
     {
       v7 = 0;
     }
     else
     {
 LABEL_35:
-      OBJECT::SwapShareCount(a1, this);
-      v28 = *((_QWORD *)a1 + 4);
-      *((_QWORD *)a1 + 70) = this;
-      *((_QWORD *)a1 + 4) = *((_QWORD *)this + 4);
-      v29 = *((_QWORD *)this + 18);
-      *((_QWORD *)this + 4) = v28;
-      v30 = *((_QWORD *)a1 + 18);
-      *((_QWORD *)a1 + 18) = v29;
-      v31 = *((_QWORD *)this + 20);
+      OBJECT::SwapShareCount(this, a2);
+      v29 = *((_QWORD *)this + 4);
+      *((_QWORD *)this + 70) = a2;
+      *((_QWORD *)this + 4) = *((_QWORD *)a2 + 4);
+      v30 = *((_QWORD *)a2 + 18);
+      *((_QWORD *)a2 + 4) = v29;
+      v31 = *((_QWORD *)this + 18);
       *((_QWORD *)this + 18) = v30;
-      v32 = *((_QWORD *)a1 + 20);
-      *((_QWORD *)a1 + 20) = v31;
-      v33 = *((_WORD *)this + 7);
+      v32 = *((_QWORD *)a2 + 20);
+      *((_QWORD *)a2 + 18) = v31;
+      v33 = *((_QWORD *)this + 20);
       *((_QWORD *)this + 20) = v32;
-      v34 = v33 & 0x8000 | *((_WORD *)a1 + 7) & 0x4000;
-      *((_WORD *)a1 + 7) = *((_WORD *)a1 + 7) & 0x8000 | v33 & 0x4000;
-      LODWORD(v31) = *((_DWORD *)this + 42);
-      *((_WORD *)this + 7) = v34;
-      LODWORD(v32) = *((_DWORD *)a1 + 42);
-      *((_DWORD *)a1 + 42) = v31;
-      v35 = *((_QWORD *)this + 22);
+      v34 = *((_WORD *)a2 + 7);
+      *((_QWORD *)a2 + 20) = v33;
+      v35 = v34 & 0x8000 | *((_WORD *)this + 7) & 0x4000;
+      *((_WORD *)this + 7) = *((_WORD *)this + 7) & 0x8000 | v34 & 0x4000;
+      LODWORD(v32) = *((_DWORD *)a2 + 42);
+      *((_WORD *)a2 + 7) = v35;
+      LODWORD(v33) = *((_DWORD *)this + 42);
       *((_DWORD *)this + 42) = v32;
-      v36 = *((_QWORD *)a1 + 22);
-      *((_QWORD *)a1 + 22) = v35;
+      v36 = *((_QWORD *)a2 + 22);
+      *((_DWORD *)a2 + 42) = v33;
+      v37 = *((_QWORD *)this + 22);
       *((_QWORD *)this + 22) = v36;
-      v37 = *((_QWORD *)a1 + 19);
-      *((_QWORD *)a1 + 19) = *((_QWORD *)this + 19);
-      *((_QWORD *)this + 19) = v37;
-      v38 = *((_QWORD *)a1 + 16);
-      *((_QWORD *)a1 + 16) = *((_QWORD *)this + 16);
-      LODWORD(v37) = *((_DWORD *)this + 80);
-      *((_QWORD *)this + 16) = v38;
-      LODWORD(v38) = *((_DWORD *)a1 + 80);
-      *((_DWORD *)a1 + 80) = v37;
-      LODWORD(v37) = *((_DWORD *)this + 81);
+      *((_QWORD *)a2 + 22) = v37;
+      v38 = *((_QWORD *)this + 19);
+      *((_QWORD *)this + 19) = *((_QWORD *)a2 + 19);
+      *((_QWORD *)a2 + 19) = v38;
+      v39 = *((_QWORD *)this + 16);
+      *((_QWORD *)this + 16) = *((_QWORD *)a2 + 16);
+      LODWORD(v38) = *((_DWORD *)a2 + 80);
+      *((_QWORD *)a2 + 16) = v39;
+      LODWORD(v39) = *((_DWORD *)this + 80);
       *((_DWORD *)this + 80) = v38;
-      LODWORD(v38) = *((_DWORD *)a1 + 81);
-      *((_DWORD *)a1 + 81) = v37;
+      LODWORD(v38) = *((_DWORD *)a2 + 81);
+      *((_DWORD *)a2 + 80) = v39;
+      LODWORD(v39) = *((_DWORD *)this + 81);
       *((_DWORD *)this + 81) = v38;
-      v39 = *((_QWORD *)a1 + 61);
-      v40 = *(_OWORD *)((char *)a1 + 344);
-      v98 = *(_OWORD *)((char *)a1 + 328);
-      v41 = *(_OWORD *)((char *)a1 + 360);
-      v99 = v40;
-      v42 = *(_OWORD *)((char *)a1 + 376);
-      v100 = v41;
-      v43 = *(_OWORD *)((char *)a1 + 392);
-      v101 = v42;
-      v44 = *(_OWORD *)((char *)a1 + 408);
-      v102 = v43;
-      v45 = *(_OWORD *)((char *)a1 + 424);
-      v103 = v44;
-      v46 = *(_OWORD *)((char *)a1 + 440);
-      v104 = v45;
-      v47 = *(_OWORD *)((char *)a1 + 456);
-      v105 = v46;
-      v48 = *(_OWORD *)((char *)a1 + 472);
-      v106 = v47;
-      v107 = v48;
-      v108 = v39;
-      *(_OWORD *)((char *)a1 + 328) = *(_OWORD *)((char *)this + 328);
-      *(_OWORD *)((char *)a1 + 344) = *(_OWORD *)((char *)this + 344);
-      *(_OWORD *)((char *)a1 + 360) = *(_OWORD *)((char *)this + 360);
-      *(_OWORD *)((char *)a1 + 376) = *(_OWORD *)((char *)this + 376);
-      *(_OWORD *)((char *)a1 + 392) = *(_OWORD *)((char *)this + 392);
-      *(_OWORD *)((char *)a1 + 408) = *(_OWORD *)((char *)this + 408);
-      *(_OWORD *)((char *)a1 + 424) = *(_OWORD *)((char *)this + 424);
-      *(_OWORD *)((char *)a1 + 440) = *(_OWORD *)((char *)this + 440);
-      *(_OWORD *)((char *)a1 + 456) = *(_OWORD *)((char *)this + 456);
-      *(_OWORD *)((char *)a1 + 472) = *(_OWORD *)((char *)this + 472);
-      *((_QWORD *)a1 + 61) = *((_QWORD *)this + 61);
-      v49 = v99;
-      *(_OWORD *)((char *)this + 328) = v98;
-      v50 = v100;
-      *(_OWORD *)((char *)this + 344) = v49;
-      v51 = v101;
-      *(_OWORD *)((char *)this + 360) = v50;
-      v52 = v102;
-      *(_OWORD *)((char *)this + 376) = v51;
-      v53 = v103;
-      *(_OWORD *)((char *)this + 392) = v52;
-      v54 = v104;
-      *(_OWORD *)((char *)this + 408) = v53;
-      v55 = v105;
-      *(_OWORD *)((char *)this + 424) = v54;
-      v56 = v106;
-      *(_OWORD *)((char *)this + 440) = v55;
-      v57 = v107;
-      v58 = v108;
-      *(_OWORD *)((char *)this + 456) = v56;
-      v59 = *((_OWORD *)this + 31);
-      *(_OWORD *)((char *)this + 472) = v57;
-      *((_QWORD *)this + 61) = v58;
-      v60 = *((_OWORD *)a1 + 31);
-      v61 = *((_OWORD *)a1 + 32);
-      *((_OWORD *)a1 + 31) = v59;
-      *((_OWORD *)a1 + 32) = *((_OWORD *)this + 32);
+      *((_DWORD *)a2 + 81) = v39;
+      v40 = *((_QWORD *)this + 61);
+      v41 = *(_OWORD *)((char *)this + 344);
+      v103 = *(_OWORD *)((char *)this + 328);
+      v42 = *(_OWORD *)((char *)this + 360);
+      v104 = v41;
+      v43 = *(_OWORD *)((char *)this + 376);
+      v105 = v42;
+      v44 = *(_OWORD *)((char *)this + 392);
+      v106 = v43;
+      v45 = *(_OWORD *)((char *)this + 408);
+      v107 = v44;
+      v46 = *(_OWORD *)((char *)this + 424);
+      v108 = v45;
+      v47 = *(_OWORD *)((char *)this + 440);
+      v109 = v46;
+      v48 = *(_OWORD *)((char *)this + 456);
+      v110 = v47;
+      v49 = *(_OWORD *)((char *)this + 472);
+      v111 = v48;
+      v112 = v49;
+      v113 = v40;
+      *(_OWORD *)((char *)this + 328) = *(_OWORD *)((char *)a2 + 328);
+      *(_OWORD *)((char *)this + 344) = *(_OWORD *)((char *)a2 + 344);
+      *(_OWORD *)((char *)this + 360) = *(_OWORD *)((char *)a2 + 360);
+      *(_OWORD *)((char *)this + 376) = *(_OWORD *)((char *)a2 + 376);
+      *(_OWORD *)((char *)this + 392) = *(_OWORD *)((char *)a2 + 392);
+      *(_OWORD *)((char *)this + 408) = *(_OWORD *)((char *)a2 + 408);
+      *(_OWORD *)((char *)this + 424) = *(_OWORD *)((char *)a2 + 424);
+      *(_OWORD *)((char *)this + 440) = *(_OWORD *)((char *)a2 + 440);
+      *(_OWORD *)((char *)this + 456) = *(_OWORD *)((char *)a2 + 456);
+      *(_OWORD *)((char *)this + 472) = *(_OWORD *)((char *)a2 + 472);
+      *((_QWORD *)this + 61) = *((_QWORD *)a2 + 61);
+      v50 = v104;
+      *(_OWORD *)((char *)a2 + 328) = v103;
+      v51 = v105;
+      *(_OWORD *)((char *)a2 + 344) = v50;
+      v52 = v106;
+      *(_OWORD *)((char *)a2 + 360) = v51;
+      v53 = v107;
+      *(_OWORD *)((char *)a2 + 376) = v52;
+      v54 = v108;
+      *(_OWORD *)((char *)a2 + 392) = v53;
+      v55 = v109;
+      *(_OWORD *)((char *)a2 + 408) = v54;
+      v56 = v110;
+      *(_OWORD *)((char *)a2 + 424) = v55;
+      v57 = v111;
+      *(_OWORD *)((char *)a2 + 440) = v56;
+      v58 = v112;
+      v59 = v113;
+      *(_OWORD *)((char *)a2 + 456) = v57;
+      v60 = *((_OWORD *)a2 + 31);
+      *(_OWORD *)((char *)a2 + 472) = v58;
+      *((_QWORD *)a2 + 61) = v59;
+      v61 = *((_OWORD *)this + 31);
+      v62 = *((_OWORD *)this + 32);
       *((_OWORD *)this + 31) = v60;
-      *((_OWORD *)this + 32) = v61;
-      LODWORD(v38) = *((_DWORD *)a1 + 28);
-      *((_DWORD *)a1 + 28) = *((_DWORD *)this + 28) ^ (*((_DWORD *)this + 28) ^ v38) & 0x3B5EF;
-      *((_DWORD *)this + 28) = v38 ^ (*((_DWORD *)this + 28) ^ v38) & 0x3B5EF;
-      LODWORD(v38) = *((_DWORD *)a1 + 29);
-      *((_DWORD *)a1 + 29) = v38 ^ (*((_DWORD *)this + 29) ^ v38) & 0x3FFF;
-      *((_DWORD *)this + 29) ^= (*((_DWORD *)this + 29) ^ v38) & 0x3FFF;
-      LODWORD(v38) = *((_DWORD *)a1 + 28);
-      *((_DWORD *)a1 + 28) = v38 ^ (*((_DWORD *)this + 28) ^ v38) & 0xC00000;
-      *((_DWORD *)this + 28) ^= (*((_DWORD *)this + 28) ^ v38) & 0xC00000;
-      LODWORD(v38) = *((_DWORD *)a1 + 29);
-      *((_DWORD *)a1 + 29) = v38 ^ (*((_DWORD *)this + 29) ^ v38) & 0x390D;
-      v62 = (struct _EPROCESS *)*((_QWORD *)this + 80);
-      *((_DWORD *)this + 29) ^= (*((_DWORD *)this + 29) ^ v38) & 0x390D;
-      v63 = (struct _EPROCESS *)*((_QWORD *)a1 + 80);
-      SURFACE::vAppContainerOwner(a1, v62);
+      *((_OWORD *)this + 32) = *((_OWORD *)a2 + 32);
+      LODWORD(v59) = *((_DWORD *)a2 + 28);
+      *((_OWORD *)a2 + 31) = v61;
+      *((_OWORD *)a2 + 32) = v62;
+      LODWORD(v39) = *((_DWORD *)this + 28);
+      *((_DWORD *)this + 28) = *((_DWORD *)a2 + 28) ^ (v39 ^ v59) & 0x3B5EF;
+      *((_DWORD *)a2 + 28) = v39 ^ (v39 ^ *((_DWORD *)a2 + 28)) & 0x3B5EF;
+      LODWORD(v39) = *((_DWORD *)this + 29);
+      *((_DWORD *)this + 29) = v39 ^ (v39 ^ *((_DWORD *)a2 + 29)) & 0x3FFF;
+      *((_DWORD *)a2 + 29) ^= (v39 ^ *((_DWORD *)a2 + 29)) & 0x3FFF;
+      LODWORD(v39) = *((_DWORD *)this + 28);
+      *((_DWORD *)this + 28) = v39 ^ (v39 ^ *((_DWORD *)a2 + 28)) & 0xC00000;
+      *((_DWORD *)a2 + 28) ^= (v39 ^ *((_DWORD *)a2 + 28)) & 0xC00000;
+      LODWORD(v39) = *((_DWORD *)this + 29);
+      *((_DWORD *)this + 29) = v39 ^ (v39 ^ *((_DWORD *)a2 + 29)) & 0x390D;
+      v63 = *((_QWORD *)a2 + 80);
+      *((_DWORD *)a2 + 29) ^= (v39 ^ *((_DWORD *)a2 + 29)) & 0x390D;
+      v64 = *((_QWORD *)this + 80);
       SURFACE::vAppContainerOwner(this, v63);
-      if ( (*((_DWORD *)a1 + 29) & 0x800) != 0 )
+      SURFACE::vAppContainerOwner(a2, v64);
+      if ( (*((_DWORD *)this + 29) & 0x800) != 0 )
       {
-        v64 = *(_QWORD *)((char *)a1 + 668);
-        v65 = *((_DWORD *)a1 + 165);
-        v66 = *((_DWORD *)a1 + 166);
-        *((_DWORD *)this + 29) |= 0x800u;
-        *((_DWORD *)this + 165) = v65;
-        *((_DWORD *)this + 166) = v66;
-        *(_QWORD *)((char *)this + 668) = v64;
+        v65 = *((_DWORD *)this + 165);
+        v66 = *((_DWORD *)this + 166);
+        v67 = *(_QWORD *)((char *)this + 668);
+        *((_DWORD *)a2 + 29) |= 0x800u;
+        *((_DWORD *)a2 + 165) = v65;
+        *((_DWORD *)a2 + 166) = v66;
+        *(_QWORD *)((char *)a2 + 668) = v67;
       }
-      if ( v22 )
+      if ( v89 )
       {
-        *v20 &= ~0x200u;
-        v67 = *(_DWORD *)this & 0x800000;
-        if ( v67 )
-          *((_WORD *)this + 51) |= 0x200u;
-        if ( v83 && v67 )
-          *((_WORD *)this + 51) |= 0x400u;
-        *v89 = 1;
+        *((_WORD *)this + 51) &= ~0x200u;
+        v68 = *(_DWORD *)a2 & 0x800000;
+        if ( v68 )
+          *((_WORD *)a2 + 51) |= 0x200u;
+        if ( v88 && v68 )
+          *((_WORD *)a2 + 51) |= 0x400u;
+        *v93 = 1;
       }
-      v68 = (HLSURF *)v94;
-      if ( v94 )
+      if ( v27 )
       {
-        UnexpectedThreadTerminationHandler<SFMLOGICALSURFACEREF>::UnexpectedThreadTerminationHandler<SFMLOGICALSURFACEREF>((__int64)&v90);
-        v69 = *v68;
-        *((_QWORD *)&v92 + 1) = 0LL;
-        v93 = 1;
-        SFMLOGICALSURFACEREF::LockLogicalSurfaceObj((SFMLOGICALSURFACEREF *)&v90, v69);
-        if ( v81 && qword_1C02946A0 && (int)qword_1C02946A0() >= 0 && qword_1C02946A8 )
-          qword_1C02946A8(*((_QWORD *)v14 + 6), *((_QWORD *)&v92 + 1), this, v96);
-        while ( 1 )
+        UnexpectedThreadTerminationHandler<SFMLOGICALSURFACEREF>::UnexpectedThreadTerminationHandler<SFMLOGICALSURFACEREF>(&v94);
+        v69 = *v27;
+        *((_QWORD *)&v96 + 1) = 0LL;
+        v97 = 1;
+        SFMLOGICALSURFACEREF::LockLogicalSurfaceObj((SFMLOGICALSURFACEREF *)&v94, v69);
+        if ( v24 )
         {
-          v70 = SURFACE::GetFirstLSurf(a1);
-          if ( !v70 )
-            break;
+          if ( qword_1C0255290 )
+          {
+            v70 = qword_1C0255290();
+            v71 = -1073741637;
+          }
+          else
+          {
+            v71 = -1073741637;
+            v70 = -1073741637;
+          }
+          if ( v70 >= 0 && qword_1C0255298 )
+            qword_1C0255298(*((_QWORD *)v12 + 6), *((_QWORD *)&v96 + 1), a2, v101);
+        }
+        else
+        {
+          v71 = -1073741637;
+        }
+        while ( SURFACE::GetFirstLSurf(this) )
+        {
           if ( (int)IsvSpDwmMigrateLSurfShapeReferenceSupported() >= 0 )
-            vSpDwmMigrateLSurfShapeReferenceWrap(*((_QWORD *)v14 + 6), v70, this);
+            vSpDwmMigrateLSurfShapeReferenceWrap();
         }
-        SFMLOGICALSURFACEREF::~SFMLOGICALSURFACEREF((SFMLOGICALSURFACEREF *)&v90);
+        SFMLOGICALSURFACEREF::~SFMLOGICALSURFACEREF((SFMLOGICALSURFACEREF *)&v94);
       }
-      if ( (*((_DWORD *)this + 29) & 4) != 0 )
+      else
       {
-        v90 = HmgShareLock(*((_QWORD *)this + 18), 5);
-        v91 = 0LL;
-        v92 = 0LL;
+        v71 = -1073741637;
+      }
+      if ( (*((_DWORD *)a2 + 29) & 4) != 0 )
+      {
+        v94 = HmgShareLock(*((_QWORD *)a2 + 18), 5);
+        v95 = 0LL;
+        v96 = 0LL;
         PushThreadGuardedObject(
-          &v91,
-          (__int64)&v90,
+          &v95,
+          (__int64)&v94,
           (__int64)UnexpectedThreadTerminationHandler<HmgShareLockResult<SURFACE>>::OnUnexpectedThreadTerminationStatic);
-        if ( v90
-          && *(_QWORD *)(v90 + 24)
-          && qword_1C02946C0
-          && (int)((__int64 (*)(void))qword_1C02946C0)() >= 0
-          && qword_1C02946C8 )
+        v72 = v94;
+        if ( v94 && *(_QWORD *)(v94 + 24) )
         {
-          qword_1C02946C8(*(_QWORD *)(v90 + 24), (char *)a1 + 24, (char *)this + 24);
+          if ( qword_1C02552B0 )
+          {
+            v73 = qword_1C02552B0();
+            v72 = v94;
+            v71 = v73;
+          }
+          if ( v71 >= 0 && qword_1C02552B8 )
+            qword_1C02552B8(*(_QWORD *)(v72 + 24), v99, v98);
         }
-        HmgShareLockResult<SURFACE>::~HmgShareLockResult<SURFACE>((__int64)&v90);
+        UnexpectedThreadTerminationHandler<XEPALOBJ2>::OnUnexpectedThreadTerminationStatic(&v94);
+        PopThreadGuardedObject(&v95);
       }
-      if ( v85 )
+      if ( v91 )
       {
-        DEC_SHARE_REF_CNT(a1);
-        INC_SHARE_REF_CNT((unsigned int *)this);
+        DEC_SHARE_REF_CNT((unsigned int *)this);
+        INC_SHARE_REF_CNT((unsigned int *)a2);
       }
-      if ( *((_DWORD *)a1 + 2) )
+      if ( *((_DWORD *)this + 2) )
       {
-        *v89 = 1;
-        goto LABEL_70;
+        *v93 = 1;
+LABEL_75:
+        SFMLOGICALSURFACEREF::~SFMLOGICALSURFACEREF((SFMLOGICALSURFACEREF *)v100);
+LABEL_77:
+        if ( !v7 && v89 )
+        {
+          *((_WORD *)a2 + 51) &= ~0x200u;
+          v81 = *(_DWORD *)this & 0x800000;
+          if ( v81 )
+            *((_WORD *)this + 51) |= 0x200u;
+          if ( v88 && v81 )
+            *((_WORD *)this + 51) |= 0x400u;
+        }
+        goto LABEL_84;
       }
-      SURFREF::SURFREF((SURFREF *)&v90, *((HSURF *)a1 + 4));
-      SURFREFVIEW::bUnMapImmediate(v86, v71, v72);
-      v86[0] = 0LL;
-      v7 = SURFREF::bDeleteSurface((SURFREF *)&v90);
+      SURFREF::SURFREF((SURFREF *)&v94, *((HSURF *)this + 4));
+      SURFREFVIEW::bUnMapImmediate(v90, v74, v75);
+      v90[0] = 0LL;
+      v7 = SURFREF::bDeleteSurface(&v94, 0LL);
       if ( !v7 )
-        *((_QWORD *)a1 + 70) = 0LL;
-      SURFREF::~SURFREF((SURFREF *)&v90);
+        *((_QWORD *)this + 70) = 0LL;
+      SURFREF::~SURFREF((SURFREF *)&v94);
       if ( v7 )
-      {
-LABEL_70:
-        SFMLOGICALSURFACEREF::~SFMLOGICALSURFACEREF((SFMLOGICALSURFACEREF *)v95);
-        if ( v7 )
-          goto LABEL_79;
-LABEL_73:
-        if ( v22 )
-        {
-          *((_WORD *)this + 51) &= ~0x200u;
-          v75 = *(_DWORD *)a1 & 0x800000;
-          if ( v75 )
-            *v20 |= 0x200u;
-          if ( v83 && v75 )
-            *v20 |= 0x400u;
-        }
-        goto LABEL_79;
-      }
+        goto LABEL_75;
     }
-    v73 = HmgQueryAltLock(*((_QWORD *)a1 + 4));
-    v74 = HmgQueryAltLock(*((_QWORD *)this + 4));
-    HmgSwapLockedHandleContents(*((_QWORD *)this + 4), v74, *((_QWORD *)a1 + 4), v73, 5);
-    goto LABEL_70;
+    v76 = *((_QWORD *)this + 4);
+    v77 = HmgQueryAltLock(v76);
+    v78 = *((_QWORD *)a2 + 4);
+    v79 = v77;
+    v80 = HmgQueryAltLock(v78);
+    HmgSwapLockedHandleContents(v78, v80, v76, v79, 5);
+    goto LABEL_75;
   }
   v7 = 0;
-LABEL_79:
-  SURFREFVIEW::bUnMapImmediate(v87, v18, v19);
-  v87[0] = 0LL;
-  SURFREFVIEW::bUnMapImmediate(v86, v76, v77);
-  v86[0] = 0LL;
-LABEL_82:
-  SURFREFVIEW::bUnMap((SURFREFVIEW *)v87);
-  SURFREFVIEW::bUnMap((SURFREFVIEW *)v86);
+LABEL_84:
+  SURFREFVIEW::bUnMapImmediate(v92, v15, v16);
+  v92[0] = 0LL;
+  SURFREFVIEW::bUnMapImmediate(v90, v82, v83);
+  v90[0] = 0LL;
+LABEL_87:
+  SURFREFVIEW::bUnMap((SURFREFVIEW *)v92);
+  SURFREFVIEW::bUnMap((SURFREFVIEW *)v90);
   return v7;
 }

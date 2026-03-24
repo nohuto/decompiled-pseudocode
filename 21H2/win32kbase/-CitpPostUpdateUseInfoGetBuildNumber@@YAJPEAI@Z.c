@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CitpPostUpdateUseInfoGetBuildNumber@@YAJPEAI@Z @ 0x1C00A55D4
+ * XREFs of ?CitpPostUpdateUseInfoGetBuildNumber@@YAJPEAI@Z @ 0x1C008F4C4
  * Callers:
- *     ?CitpPostUpdateUseInfoLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00A3F18 (-CitpPostUpdateUseInfoLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpPostUpdateUseInfoLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008CAD0 (-CitpPostUpdateUseInfoLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ?CitpLogFailureWorker@@YAXJPEBDI@Z @ 0x1C023FD24 (-CitpLogFailureWorker@@YAXJPEBDI@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ?CitpLogFailureWorker@@YAXJPEBDI@Z @ 0x1C01FE090 (-CitpLogFailureWorker@@YAXJPEBDI@Z.c)
  */
 
 __int64 __fastcall CitpPostUpdateUseInfoGetBuildNumber(unsigned int *a1)
@@ -22,7 +22,7 @@ __int64 __fastcall CitpPostUpdateUseInfoGetBuildNumber(unsigned int *a1)
   v4 = Version;
   if ( Version < 0 )
   {
-    CitpLogFailureWorker(Version, v3, 0x1373u);
+    CitpLogFailureWorker(Version, v3, 0x1389u);
   }
   else
   {

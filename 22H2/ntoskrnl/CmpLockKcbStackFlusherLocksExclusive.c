@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLockKcbStackFlusherLocksExclusive @ 0x14061633C
+ * XREFs of CmpLockKcbStackFlusherLocksExclusive @ 0x14036B7F8
  * Callers:
- *     CmSaveKey @ 0x140A0BA40 (CmSaveKey.c)
+ *     CmSaveKey @ 0x140729A8C (CmSaveKey.c)
  * Callees:
- *     CmpGetKcbAtLayerHeight @ 0x1406D5850 (CmpGetKcbAtLayerHeight.c)
- *     CmpGetNextActiveHive @ 0x140752570 (CmpGetNextActiveHive.c)
- *     CmpQuitNextActiveHive @ 0x140A26DF4 (CmpQuitNextActiveHive.c)
- *     HvLockHiveFlusherExclusive @ 0x140AF6670 (HvLockHiveFlusherExclusive.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
+ *     CmpGetNextActiveHive @ 0x1406EB310 (CmpGetNextActiveHive.c)
+ *     HvLockHiveFlusherExclusive @ 0x14071D590 (HvLockHiveFlusherExclusive.c)
+ *     CmpQuitNextActiveHive @ 0x14072B22C (CmpQuitNextActiveHive.c)
  */
 
 __int64 __fastcall CmpLockKcbStackFlusherLocksExclusive(__int64 a1)
@@ -31,12 +31,12 @@ __int64 __fastcall CmpLockKcbStackFlusherLocksExclusive(__int64 a1)
         if ( v5 == v6 )
           break;
         if ( (__int16)(v4 - 1) < 0 )
-          goto LABEL_7;
+          goto LABEL_5;
       }
       HvLockHiveFlusherExclusive(v5);
       --v2;
     }
-LABEL_7:
+LABEL_5:
     if ( !v2 )
       return CmpQuitNextActiveHive(v6);
   }

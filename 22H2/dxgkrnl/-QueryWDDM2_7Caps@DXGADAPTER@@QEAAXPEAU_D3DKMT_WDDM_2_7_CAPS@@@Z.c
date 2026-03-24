@@ -1,24 +1,23 @@
 /*
- * XREFs of ?QueryWDDM2_7Caps@DXGADAPTER@@QEAAXPEAU_D3DKMT_WDDM_2_7_CAPS@@@Z @ 0x1C02B960C
+ * XREFs of ?QueryWDDM2_7Caps@DXGADAPTER@@QEAAXPEAU_D3DKMT_WDDM_2_7_CAPS@@@Z @ 0x1C0174B58
  * Callers:
- *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018FB80 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C01309C0 (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall DXGADAPTER::QueryWDDM2_7Caps(DXGADAPTER *this, struct _D3DKMT_WDDM_2_7_CAPS *a2)
 {
-  int v2; // r9d
+  int v3; // r8d
   int v4; // edx
 
-  v2 = 0;
   *(_DWORD *)a2 = 0;
-  if ( *((_QWORD *)this + 366) )
+  if ( *((_QWORD *)this + 338) )
   {
-    LOBYTE(v2) = (**((_DWORD **)this + 353) & 0x18000) != 0;
-    *(_DWORD *)a2 = v2;
-    v4 = v2 | (*(_BYTE *)(*((_QWORD *)this + 366) + 1880LL) != 0 ? 2 : 0);
+    v3 = (**((_DWORD **)this + 325) >> 15) & 1;
+    *(_DWORD *)a2 = v3;
+    v4 = v3 | (*(_BYTE *)(*((_QWORD *)this + 338) + 1649LL) != 0 ? 2 : 0);
     *(_DWORD *)a2 = v4;
-    *(_DWORD *)a2 = v4 | (*((_DWORD *)this + 698) >> 1) & 8;
+    *(_DWORD *)a2 = v4 | (*((_DWORD *)this + 642) >> 1) & 8;
   }
 }

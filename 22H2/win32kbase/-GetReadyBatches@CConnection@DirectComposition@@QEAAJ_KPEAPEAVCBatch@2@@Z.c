@@ -1,10 +1,11 @@
 /*
- * XREFs of ?GetReadyBatches@CConnection@DirectComposition@@QEAAJ_KPEAPEAVCBatch@2@@Z @ 0x1C020AC54
+ * XREFs of ?GetReadyBatches@CConnection@DirectComposition@@QEAAJ_KPEAPEAVCBatch@2@@Z @ 0x1C01D3764
  * Callers:
- *     ?GetBatches@CConnection@DirectComposition@@QEAAJPEAPEBUUCE_RDP_HEADER@@@Z @ 0x1C020AB4C (-GetBatches@CConnection@DirectComposition@@QEAAJPEAPEBUUCE_RDP_HEADER@@@Z.c)
+ *     ?GetBatches@CConnection@DirectComposition@@QEAAJPEAPEBUUCE_RDP_HEADER@@@Z @ 0x1C01D35A4 (-GetBatches@CConnection@DirectComposition@@QEAAJPEAPEBUUCE_RDP_HEADER@@@Z.c)
  * Callees:
- *     ?GetNewBatches@CConnection@DirectComposition@@QEAAXPEAPEAVCBatch@2@@Z @ 0x1C0083C20 (-GetNewBatches@CConnection@DirectComposition@@QEAAXPEAPEAVCBatch@2@@Z.c)
- *     ?KeepOrDeferBatches@CConnection@DirectComposition@@AEAAX_KPEAPEAVCBatch@2@@Z @ 0x1C020ACF8 (-KeepOrDeferBatches@CConnection@DirectComposition@@AEAAX_KPEAPEAVCBatch@2@@Z.c)
+ *     ?GetNewBatches@CConnection@DirectComposition@@QEAAXPEAPEAVCBatch@2@@Z @ 0x1C00B2E80 (-GetNewBatches@CConnection@DirectComposition@@QEAAXPEAPEAVCBatch@2@@Z.c)
+ *     ?GetDeferredBatches@CConnection@DirectComposition@@AEAA_N_KPEAPEAVCBatch@2@1@Z @ 0x1C01D36AC (-GetDeferredBatches@CConnection@DirectComposition@@AEAA_N_KPEAPEAVCBatch@2@1@Z.c)
+ *     ?KeepOrDeferBatches@CConnection@DirectComposition@@AEAAX_KPEAPEAVCBatch@2@@Z @ 0x1C01D37FC (-KeepOrDeferBatches@CConnection@DirectComposition@@AEAAX_KPEAPEAVCBatch@2@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CConnection::GetReadyBatches(
@@ -13,9 +14,8 @@ __int64 __fastcall DirectComposition::CConnection::GetReadyBatches(
         struct DirectComposition::CBatch **a3)
 {
   unsigned int v3; // ebx
-  _QWORD *v7; // rcx
-  _QWORD *v8; // rdx
-  struct DirectComposition::CBatch *v9; // rcx
+  struct DirectComposition::CBatch *v8; // [rsp+40h] [rbp+8h] BYREF
+  struct DirectComposition::CBatch *v9; // [rsp+50h] [rbp+18h] BYREF
 
   v3 = 0;
   *a3 = 0LL;
@@ -26,19 +26,11 @@ __int64 __fastcall DirectComposition::CConnection::GetReadyBatches(
   else
   {
     DirectComposition::CConnection::GetNewBatches((union _SLIST_HEADER *)this, a3);
-    v7 = (_QWORD *)*((_QWORD *)this + 17);
-    if ( v7 )
+    v9 = 0LL;
+    v8 = 0LL;
+    if ( DirectComposition::CConnection::GetDeferredBatches(this, (LARGE_INTEGER)a2, &v9, &v8) )
     {
-      do
-      {
-        v8 = v7;
-        *(_BYTE *)(v7[1] + 49LL) = 0;
-        v7 = (_QWORD *)*v7;
-      }
-      while ( v7 );
-      v9 = (struct DirectComposition::CBatch *)*((_QWORD *)this + 17);
-      *((_QWORD *)this + 17) = 0LL;
-      *v8 = *a3;
+      *(_QWORD *)v8 = *a3;
       *a3 = v9;
     }
     DirectComposition::CConnection::KeepOrDeferBatches(this, a2, a3);

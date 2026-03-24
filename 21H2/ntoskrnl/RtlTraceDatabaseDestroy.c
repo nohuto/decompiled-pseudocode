@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlTraceDatabaseDestroy @ 0x1405EDFF0
+ * XREFs of RtlTraceDatabaseDestroy @ 0x14058EA30
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 char __fastcall RtlTraceDatabaseDestroy(__int64 a1)

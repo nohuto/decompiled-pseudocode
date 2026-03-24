@@ -3,10 +3,10 @@
  * Callers:
  *     PopDecompressHiberBlocks @ 0x140569E60 (PopDecompressHiberBlocks.c)
  *     BgkDestroy @ 0x140951A04 (BgkDestroy.c)
- *     BgkDisplayProgressIndicator @ 0x1409FA84C (BgkDisplayProgressIndicator.c)
+ *     BgkDisplayProgressIndicator @ 0x1409FA85C (BgkDisplayProgressIndicator.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x14016F1E8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F238 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
  *     AnFwDisplayProgressIndicator @ 0x14095129C (AnFwDisplayProgressIndicator.c)
  */
 

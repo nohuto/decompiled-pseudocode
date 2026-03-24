@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpReadDeviceConfiguration @ 0x14084D6C0
+ * XREFs of PnpReadDeviceConfiguration @ 0x140750DD0
  * Callers:
- *     PnpGetDeviceResourcesFromRegistry @ 0x140748B18 (PnpGetDeviceResourcesFromRegistry.c)
+ *     PnpGetDeviceResourcesFromRegistry @ 0x140750824 (PnpGetDeviceResourcesFromRegistry.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpReadDeviceConfiguration(void *a1, int a2, void **a3, _DWORD *a4)
@@ -14,17 +14,18 @@ __int64 __fastcall PnpReadDeviceConfiguration(void *a1, int a2, void **a3, _DWOR
   int v6; // edx
   int v7; // edx
   const WCHAR *v8; // rdx
-  NTSTATUS RegistryValue; // edi
-  unsigned int *v10; // rbx
-  unsigned int v11; // eax
-  __int64 Pool2; // rax
-  unsigned int *v13; // r10
-  unsigned int v14; // r8d
+  NTSTATUS RegistryValue; // ebx
+  unsigned int *v11; // rdi
+  int v12; // eax
+  unsigned int v13; // ecx
+  PVOID PoolWithTag; // rax
+  unsigned int *v15; // r10
+  unsigned int v16; // r8d
   _DWORD *i; // rax
-  unsigned int v16; // edx
-  _DWORD *v17; // rcx
-  __int64 v18; // r9
-  __int64 v19; // rax
+  unsigned int v18; // edx
+  _DWORD *v19; // rcx
+  __int64 v20; // r9
+  __int64 v21; // rax
   PVOID P; // [rsp+40h] [rbp+18h] BYREF
 
   *a3 = 0LL;
@@ -52,56 +53,53 @@ __int64 __fastcall PnpReadDeviceConfiguration(void *a1, int a2, void **a3, _DWOR
   RegistryValue = IopGetRegistryValue(a1, v8, 0, &P);
   if ( RegistryValue >= 0 )
   {
-    v10 = (unsigned int *)P;
-    if ( *((_DWORD *)P + 1) == 8 )
+    v11 = (unsigned int *)P;
+    v12 = *((_DWORD *)P + 1);
+    if ( v12 == 8 && (v13 = *((_DWORD *)P + 3)) != 0 )
     {
-      v11 = *((_DWORD *)P + 3);
-      if ( v11 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v13, 0x75737050u);
+      *a3 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        Pool2 = ExAllocatePool2(256LL, v11, 1970499664LL);
-        *a3 = (void *)Pool2;
-        if ( Pool2 )
+        *a4 = v11[3];
+        memmove(*a3, (char *)v11 + v11[2], v11[3]);
+        v15 = (unsigned int *)*a3;
+        v16 = 0;
+        for ( i = (char *)*a3 + 4; v16 < *v15; i = v19 )
         {
-          *a4 = v10[3];
-          memmove(*a3, (char *)v10 + v10[2], v10[3]);
-          v13 = (unsigned int *)*a3;
-          v14 = 0;
-          for ( i = (char *)*a3 + 4; v14 < *v13; i = v17 )
+          if ( *i == -1 )
           {
-            if ( *i == -1 )
-            {
-              i[1] = 0;
-              *i = 1;
-            }
-            v16 = i[3];
-            v17 = i + 4;
-            if ( v16 )
-            {
-              v18 = v16;
-              do
-              {
-                v19 = 0LL;
-                if ( *(_BYTE *)v17 == 5 )
-                  v19 = (unsigned int)v17[1];
-                v17 = (_DWORD *)((char *)v17 + v19 + 20);
-                --v18;
-              }
-              while ( v18 );
-            }
-            ++v14;
+            i[1] = 0;
+            *i = 1;
           }
-        }
-        else
-        {
-          RegistryValue = -1073741670;
+          v18 = i[3];
+          v19 = i + 4;
+          if ( v18 )
+          {
+            v20 = v18;
+            do
+            {
+              v21 = 0LL;
+              if ( *(_BYTE *)v19 == 5 )
+                v21 = (unsigned int)v19[1];
+              v19 = (_DWORD *)((char *)v19 + v21 + 20);
+              --v20;
+            }
+            while ( v20 );
+          }
+          ++v16;
         }
       }
+      else
+      {
+        RegistryValue = -1073741670;
+      }
     }
-    else
+    else if ( v12 != 8 )
     {
       RegistryValue = -1073741823;
     }
-    ExFreePoolWithTag(v10, 0);
+    ExFreePoolWithTag(v11, 0);
   }
   return (unsigned int)RegistryValue;
 }

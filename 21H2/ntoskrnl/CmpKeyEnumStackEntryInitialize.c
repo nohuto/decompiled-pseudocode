@@ -1,35 +1,36 @@
 /*
- * XREFs of CmpKeyEnumStackEntryInitialize @ 0x14069F244
+ * XREFs of CmpKeyEnumStackEntryInitialize @ 0x140699D0C
  * Callers:
- *     CmpKeyEnumStackReset @ 0x14065BC50 (CmpKeyEnumStackReset.c)
- *     CmpKeyEnumStackStart @ 0x14065C8A4 (CmpKeyEnumStackStart.c)
- *     CmpKeyEnumStackInitialize @ 0x14069F1F4 (CmpKeyEnumStackInitialize.c)
+ *     CmpKeyEnumStackInitialize @ 0x140699CBC (CmpKeyEnumStackInitialize.c)
+ *     CmpKeyEnumStackReset @ 0x140729A4C (CmpKeyEnumStackReset.c)
+ *     CmpKeyEnumStackStart @ 0x14072A18C (CmpKeyEnumStackStart.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall CmpKeyEnumStackEntryInitialize(_DWORD *a1)
+_DWORD *__fastcall CmpKeyEnumStackEntryInitialize(__int64 a1)
 {
-  _DWORD *v2; // rdi
-  __int64 v3; // rsi
-  char *v4; // rbx
-  __int64 result; // rax
+  __int64 v2; // rcx
+  _DWORD *result; // rax
+  __int64 v4; // rbx
 
-  memset(a1, 0, 0x80uLL);
-  HvpGetCellContextReinitialize(a1 + 4);
-  v2 = a1 + 18;
-  v3 = 2LL;
-  v4 = (char *)(a1 + 24);
+  memset((void *)a1, 0, 0x80uLL);
+  *(_DWORD *)(a1 + 16) = -1;
+  v2 = 2LL;
+  *(_WORD *)(a1 + 20) = 0;
+  result = (_DWORD *)(a1 + 72);
+  v4 = a1 + 56;
   do
   {
-    HvpGetCellContextReinitialize(v4 - 40);
-    result = HvpGetCellContextReinitialize(v4);
-    *v2 = -1;
-    v4 += 8;
-    ++v2;
-    --v3;
+    *(_QWORD *)v4 = 0LL;
+    *(_DWORD *)v4 = -1;
+    *(_WORD *)(v4 + 4) = 0;
+    *(_QWORD *)(v4 + 40) = 0LL;
+    *(_DWORD *)(v4 + 40) = -1;
+    v4 += 8LL;
+    *result++ = -1;
+    --v2;
   }
-  while ( v3 );
+  while ( v2 );
   return result;
 }

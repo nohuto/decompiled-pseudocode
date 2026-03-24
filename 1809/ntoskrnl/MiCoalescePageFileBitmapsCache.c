@@ -2,13 +2,13 @@
  * XREFs of MiCoalescePageFileBitmapsCache @ 0x14002A820
  * Callers:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
- *     MiAttemptPageFileReductionApc @ 0x1402B7360 (MiAttemptPageFileReductionApc.c)
- *     MiFinishPageFileExtension @ 0x1402B7E20 (MiFinishPageFileExtension.c)
+ *     MiAttemptPageFileReductionApc @ 0x1402B7460 (MiAttemptPageFileReductionApc.c)
+ *     MiFinishPageFileExtension @ 0x1402B7F20 (MiFinishPageFileExtension.c)
  * Callees:
  *     MiBitmapsCachedEntryLengthChanged @ 0x140028C34 (MiBitmapsCachedEntryLengthChanged.c)
  *     RtlLengthCurrentClearRunForward @ 0x14002AD00 (RtlLengthCurrentClearRunForward.c)
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
- *     MiRescanPageFileBitmapPortion @ 0x1401208EC (MiRescanPageFileBitmapPortion.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
+ *     MiRescanPageFileBitmapPortion @ 0x14012090C (MiRescanPageFileBitmapPortion.c)
  */
 
 __int64 __fastcall MiCoalescePageFileBitmapsCache(__int64 a1, int a2, unsigned int a3)
@@ -210,7 +210,7 @@ LABEL_21:
           v33 = v5 & 0x1F;
           v34 = 0;
           v35 = 31 - v33;
-          v36 = dword_140360B70[v33];
+          v36 = dword_140360C80[v33];
           v37 = 4 * (v5 >> 5);
           v38 = v37 + v32;
           v39 = *(_DWORD *)(v37 + v32) & v36;
@@ -328,7 +328,7 @@ LABEL_57:
       v61 = &v60[v5 >> 5];
       v62 = v5 & 0x1F;
       v63 = 31 - v62;
-      LODWORD(v64) = dword_140360B70[v62] & *v61;
+      LODWORD(v64) = dword_140360C80[v62] & *v61;
       if ( (_DWORD)v64 )
       {
 LABEL_83:

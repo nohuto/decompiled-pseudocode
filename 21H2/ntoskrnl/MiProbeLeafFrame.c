@@ -1,45 +1,70 @@
 /*
- * XREFs of MiProbeLeafFrame @ 0x140247F34
+ * XREFs of MiProbeLeafFrame @ 0x1402FD840
  * Callers:
- *     MmProbeAndLockSelectedPages @ 0x140247CF0 (MmProbeAndLockSelectedPages.c)
- *     MmStoreProbeAndLockPages @ 0x140385584 (MmStoreProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x1402B7460 (MmProbeAndLockSelectedPages.c)
+ *     MmStoreProbeAndLockPages @ 0x1402B7720 (MmStoreProbeAndLockPages.c)
  * Callees:
- *     MiFaultInProbeAddress @ 0x14023C9F8 (MiFaultInProbeAddress.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLockPageLeafPageTable @ 0x14031BF80 (MiLockPageLeafPageTable.c)
- *     MiProbeLeafPteAccess @ 0x14031C290 (MiProbeLeafPteAccess.c)
- *     MiSetProbePagesAhead @ 0x14031C5D0 (MiSetProbePagesAhead.c)
+ *     MiLockPageLeafPageTable @ 0x14020B3E0 (MiLockPageLeafPageTable.c)
+ *     MiProbeLeafPteAccess @ 0x14020B6F0 (MiProbeLeafPteAccess.c)
+ *     MiFaultInProbeAddress @ 0x1402B7988 (MiFaultInProbeAddress.c)
+ *     MiSetProbePagesAhead @ 0x1402FF9B8 (MiSetProbePagesAhead.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
  */
 
-__int64 __fastcall MiProbeLeafFrame(__int64 a1)
+__int64 __fastcall MiProbeLeafFrame(unsigned __int64 *a1)
 {
-  _QWORD *v2; // rdi
+  unsigned __int64 *v2; // rsi
   unsigned int v3; // ecx
+  __int64 v4; // r8
   __int64 result; // rax
-  int v5; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v6; // rdx
+  unsigned __int64 v7; // rbx
+  struct _LIST_ENTRY *Flink; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  int v11; // [rsp+30h] [rbp+8h] BYREF
 
-  v5 = 0;
-  v2 = (_QWORD *)(a1 + 48);
-  v3 = ((__int64 (*)(void))MiLockPageLeafPageTable)();
+  v11 = 0;
+  v2 = a1 + 5;
+  v3 = MiLockPageLeafPageTable(a1);
   if ( *v2 == ZeroPte )
     return v3;
   while ( 1 )
   {
-    result = MiProbeLeafPteAccess(a1, &v5);
+    result = MiProbeLeafPteAccess((__int64)a1, &v11, v4);
     if ( (int)result < 0 )
       break;
-    if ( !v5 )
+    if ( !v11 )
     {
-      *(_QWORD *)(a1 + 136) = ((unsigned __int64)MI_READ_PTE_LOCK_FREE(a1 + 48) >> 12) & 0xFFFFFFFFFFLL;
+      v7 = *v2;
+      if ( (unsigned int)MiPteInShadowRange(a1 + 5, v6)
+        && (MiFlags & 0xC00000) != 0
+        && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+        && (v7 & 1) != 0
+        && ((v7 & 0x20) == 0 || (v7 & 0x42) == 0) )
+      {
+        Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        if ( Flink )
+        {
+          v9 = v7 | 0x20;
+          v10 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)v2 >> 3) & 0x1FF));
+          if ( (v10 & 0x20) == 0 )
+            v9 = v7;
+          v7 = v9;
+          if ( (v10 & 0x42) != 0 )
+            v7 = v9 | 0x42;
+        }
+      }
+      a1[16] = (v7 >> 12) & 0xFFFFFFFFFLL;
       MiSetProbePagesAhead(a1);
       return 0LL;
     }
-    if ( v5 != 1 )
+    if ( v11 != 1 )
     {
-      result = MiFaultInProbeAddress(a1);
+      result = MiFaultInProbeAddress((__int64)a1);
       if ( (int)result < 0 )
       {
-        ++dword_140C52A74;
+        ++dword_140C4E77C;
         return result;
       }
     }

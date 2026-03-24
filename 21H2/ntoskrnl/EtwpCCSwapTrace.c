@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCCSwapTrace @ 0x1403ABFD0
+ * XREFs of EtwpCCSwapTrace @ 0x1403AEF70
  * Callers:
- *     EtwpLogContextSwapEvent @ 0x1403ABB10 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogContextSwapEvent @ 0x1403AEE10 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     EtwpCCSwapFlush @ 0x1403AC3AC (EtwpCCSwapFlush.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     EtwpCCSwapFlush @ 0x1403AF2C8 (EtwpCCSwapFlush.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 struct _KPRCB *__fastcall EtwpCCSwapTrace(__int64 a1, __int64 a2, unsigned int a3, struct _KPRCB **a4)
@@ -27,13 +27,11 @@ struct _KPRCB *__fastcall EtwpCCSwapTrace(__int64 a1, __int64 a2, unsigned int a
   char v20; // al
   int v21; // eax
   unsigned int v22; // ebx
-  int v23; // eax
-  int v24; // r9d
-  char v25; // al
+  char v23; // al
+  unsigned int v24; // eax
+  struct _KPRCB *v25; // rcx
   unsigned int v26; // eax
-  struct _KPRCB *v27; // rcx
-  unsigned int v28; // eax
-  unsigned int v29; // eax
+  unsigned int v27; // eax
   __int64 Src; // [rsp+20h] [rbp-48h] BYREF
 
   result = KeGetCurrentPrcb();
@@ -42,7 +40,7 @@ struct _KPRCB *__fastcall EtwpCCSwapTrace(__int64 a1, __int64 a2, unsigned int a
   Src = 0LL;
   v9 = a3;
   EtwSupport = result->EtwSupport;
-  v11 = (unsigned int *)EtwSupport[a3 + 49];
+  v11 = (unsigned int *)EtwSupport[a3 + 37];
   if ( v11 )
   {
     v12 = *a4;
@@ -53,16 +51,16 @@ struct _KPRCB *__fastcall EtwpCCSwapTrace(__int64 a1, __int64 a2, unsigned int a
     }
     else
     {
-      v29 = MEMORY[0xFFFFF78000000320];
+      v27 = MEMORY[0xFFFFF78000000320];
       *((_QWORD *)v11 + 1) = v12;
       *((_QWORD *)v11 + 2) = v12;
-      v11[1] = v29;
+      v11[1] = v27;
       *v11 = 104;
       memset(v11 + 6, 0, 0x40uLL);
       v6 = a3;
       v14 = 0LL;
     }
-    v15 = *(_DWORD *)(a1 + 1232);
+    v15 = *(_DWORD *)(a1 + 1152);
     v16 = 0;
     if ( v15 )
     {
@@ -84,41 +82,39 @@ struct _KPRCB *__fastcall EtwpCCSwapTrace(__int64 a1, __int64 a2, unsigned int a
       || MEMORY[0xFFFFF78000000320] - v11[1] > 0x1F4
       || (unsigned __int64)*v11 + 8 > 0x400
       || v14 > 0x40000000
-      || *((_BYTE *)EtwSupport + v9 + 384) )
+      || *((_BYTE *)EtwSupport + v9 + 288) )
     {
       EtwpCCSwapFlush(v11, v6, v14);
-      v27 = *a4;
-      v28 = MEMORY[0xFFFFF78000000320];
+      v25 = *a4;
+      v26 = MEMORY[0xFFFFF78000000320];
       *((_QWORD *)v11 + 1) = *a4;
-      *((_QWORD *)v11 + 2) = v27;
-      v11[1] = v28;
+      *((_QWORD *)v11 + 2) = v25;
+      v11[1] = v26;
       *v11 = 104;
       memset(v11 + 6, 0, 0x40uLL);
-      *((_BYTE *)EtwSupport + v9 + 384) = 0;
+      *((_BYTE *)EtwSupport + v9 + 288) = 0;
       v14 = 0LL;
       v11[6] = v15;
       v16 = 0;
     }
     if ( v15 )
     {
-      if ( *(_DWORD *)(a2 + 1232) )
+      if ( *(_DWORD *)(a2 + 1152) )
         v5 = MEMORY[0xFFFFF78000000320] - *(_DWORD *)(a2 + 436);
       v17 = *(_BYTE *)(a1 + 195);
       v18 = v17 - *((char *)v11 + v16 + 88);
       if ( v5 > 1 || v18 > 7 || v14 >= 0x20000 )
       {
         LODWORD(Src) = (4 * v14) | 3;
-        v23 = 0x1FFFF;
-        if ( v5 < 0x1FFFF )
-          v23 = v5;
-        v24 = (32 * v23) | v17 & 0x1F;
-        v25 = *(_BYTE *)(a1 + 388);
-        HIDWORD(Src) = (WORD2(Src) ^ ((unsigned __int8)v16 ^ BYTE4(Src)) & 0xF) & 0x3FF | (v24 << 10);
-        if ( v25 == 5 )
-          v26 = (WORD2(Src) ^ (unsigned __int16)(16 * *(unsigned __int8 *)(a1 + 643))) & 0x3F0 ^ HIDWORD(Src);
+        if ( v5 >= 0x1FFFF )
+          v5 = 0x1FFFF;
+        v23 = *(_BYTE *)(a1 + 388);
+        HIDWORD(Src) = (WORD2(Src) ^ ((unsigned __int8)v16 ^ BYTE4(Src)) & 0xF) & 0x3FF | (((32 * v5) | v17 & 0x1F) << 10);
+        if ( v23 == 5 )
+          v24 = (WORD2(Src) ^ (unsigned __int16)(16 * *(unsigned __int8 *)(a1 + 643))) & 0x3F0 ^ HIDWORD(Src);
         else
-          v26 = (16 * *(unsigned __int8 *)(a1 + 388) - 353) & 0x3F0 | HIDWORD(Src) & 0xFFFFFC0F;
-        HIDWORD(Src) = v26;
+          v24 = (16 * *(unsigned __int8 *)(a1 + 388) - 369) & 0x3F0 | HIDWORD(Src) & 0xFFFFFC0F;
+        HIDWORD(Src) = v24;
         v22 = 8;
       }
       else
@@ -129,7 +125,7 @@ struct _KPRCB *__fastcall EtwpCCSwapTrace(__int64 a1, __int64 a2, unsigned int a
         if ( v20 == 5 )
           v21 = ((unsigned __int16)Src ^ (unsigned __int16)(*(unsigned __int8 *)(a1 + 643) << 9)) & 0x7E00 ^ Src;
         else
-          v21 = ((*(unsigned __int8 *)(a1 + 388) << 9) - 11265) & 0x7E00 | Src & 0xFFFF81FF;
+          v21 = ((*(unsigned __int8 *)(a1 + 388) << 9) - 11777) & 0x7E00 | Src & 0xFFFF81FF;
         LODWORD(Src) = v21;
         v22 = 4;
       }

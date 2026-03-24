@@ -1,11 +1,11 @@
 /*
- * XREFs of XmGroup2ByCL @ 0x140398A40
+ * XREFs of XmGroup2ByCL @ 0x1403C34A0
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x1403B8BCC (XmEvaluateAddressSpecifier.c)
- *     XmSetDataType @ 0x1403B8E88 (XmSetDataType.c)
- *     XmSetDestinationValue @ 0x1403B8F08 (XmSetDestinationValue.c)
+ *     XmSetDestinationValue @ 0x140396898 (XmSetDestinationValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140396914 (XmEvaluateAddressSpecifier.c)
+ *     XmSetDataType @ 0x140396CC8 (XmSetDataType.c)
  */
 
 __int64 __fastcall XmGroup2ByCL(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall XmGroup2ByCL(__int64 a1)
   if ( result )
   {
     *(_DWORD *)(a1 + 108) = *(_BYTE *)(a1 + 28) & 0x1F;
-    XmSetDestinationValue(a1, result);
+    XmSetDestinationValue(a1, (unsigned __int16 *)result);
     *(_DWORD *)(a1 + 124) += v3;
     return 1LL;
   }

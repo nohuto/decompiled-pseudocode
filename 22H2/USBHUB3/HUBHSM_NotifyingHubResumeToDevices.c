@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBHSM_NotifyingHubResumeToDevices @ 0x1C0008AE0
+ * XREFs of HUBHSM_NotifyingHubResumeToDevices @ 0x1C0008320
  * Callers:
  *     <none>
  * Callees:
- *     HUBFDO_SignalPnpPowerEvent @ 0x1C000DFC4 (HUBFDO_SignalPnpPowerEvent.c)
- *     HUBMUX_QueuePowerUpEventToDSMs @ 0x1C00113FC (HUBMUX_QueuePowerUpEventToDSMs.c)
+ *     HUBFDO_SignalPnpPowerEvent @ 0x1C000CDD4 (HUBFDO_SignalPnpPowerEvent.c)
+ *     HUBMUX_QueuePowerUpEventToDSMs @ 0x1C000FFD0 (HUBMUX_QueuePowerUpEventToDSMs.c)
  */
 
 __int64 __fastcall HUBHSM_NotifyingHubResumeToDevices(__int64 a1)

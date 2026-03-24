@@ -1,89 +1,92 @@
 /*
- * XREFs of PsCallEnclave @ 0x1409B68B0
+ * XREFs of PsCallEnclave @ 0x14090D220
  * Callers:
- *     NtCallEnclave @ 0x140429630 (NtCallEnclave.c)
+ *     NtCallEnclave @ 0x140407D00 (NtCallEnclave.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     RtlAvlInsertNodeEx @ 0x140287FA0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x14028AE30 (RtlAvlRemoveNode.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     ZwTerminateProcess @ 0x14041AC20 (ZwTerminateProcess.c)
- *     PsGetBaseTrapFrame @ 0x140463240 (PsGetBaseTrapFrame.c)
- *     RtlCreateEnclaveReturnFrame @ 0x140464238 (RtlCreateEnclaveReturnFrame.c)
- *     RtlPrepareEnclaveCall @ 0x140464390 (RtlPrepareEnclaveCall.c)
- *     VslCallEnclave @ 0x1408A4F78 (VslCallEnclave.c)
- *     PsDereferenceVsmEnclave @ 0x1408A61A4 (PsDereferenceVsmEnclave.c)
- *     PspFindVsmEnclaveThread @ 0x1408A625C (PspFindVsmEnclaveThread.c)
- *     PspSelectVsmEnclaveByNumber @ 0x1408A627A (PspSelectVsmEnclaveByNumber.c)
- *     PspPrepareEnclaveThreadWait @ 0x1409B7ACC (PspPrepareEnclaveThreadWait.c)
- *     PspReleaseEnclaveThread @ 0x1409B7B60 (PspReleaseEnclaveThread.c)
- *     PspRemoveEnclaveThreadWait @ 0x1409B7BBC (PspRemoveEnclaveThreadWait.c)
- *     MmSelectVsmEnclaveByAddress @ 0x140A3EA7C (MmSelectVsmEnclaveByAddress.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     RtlAvlInsertNodeEx @ 0x140296BD0 (RtlAvlInsertNodeEx.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ZwTerminateProcess @ 0x1403F9FA0 (ZwTerminateProcess.c)
+ *     PsGetBaseTrapFrame @ 0x140581260 (PsGetBaseTrapFrame.c)
+ *     RtlCreateEnclaveReturnFrame @ 0x140593160 (RtlCreateEnclaveReturnFrame.c)
+ *     RtlPrepareEnclaveCall @ 0x1405932C8 (RtlPrepareEnclaveCall.c)
+ *     VslCallEnclave @ 0x14088EC44 (VslCallEnclave.c)
+ *     MiHotPatchImageTreeCompare @ 0x1408CA688 (MiHotPatchImageTreeCompare.c)
+ *     MmSelectVsmEnclaveByAddress @ 0x1408D3CC4 (MmSelectVsmEnclaveByAddress.c)
+ *     PsDereferenceVsmEnclave @ 0x14090DEF0 (PsDereferenceVsmEnclave.c)
+ *     PspPrepareEnclaveThreadWait @ 0x14090E460 (PspPrepareEnclaveThreadWait.c)
+ *     PspReleaseEnclaveThread @ 0x14090E4F4 (PspReleaseEnclaveThread.c)
+ *     PspRemoveEnclaveThreadWait @ 0x14090E550 (PspRemoveEnclaveThreadWait.c)
+ *     PspSelectVsmEnclaveByNumber @ 0x14090E600 (PspSelectVsmEnclaveByNumber.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsCallEnclave(unsigned __int64 a1, __int64 a2, NTSTATUS a3, __int64 *a4)
 {
-  __int64 v5; // r12
   struct _KTHREAD *CurrentThread; // r15
   __int64 result; // rax
-  __int64 v8; // rcx
+  __int64 v7; // rcx
   __int64 Process; // rcx
+  unsigned __int64 v9; // r13
   char *v10; // r14
   int EnclaveReturnFrame; // r13d
-  unsigned __int64 *BaseTrapFrame; // rax
-  bool v13; // zf
-  volatile signed __int64 *v14; // r12
-  unsigned __int64 v15; // rsi
-  int v16; // eax
-  PVOID v17; // rcx
-  _DWORD *v18; // rsi
-  unsigned int v19; // eax
-  int v20; // eax
-  int VsmEnclaveThread; // eax
-  __int64 v22; // rcx
-  volatile signed __int64 *v23; // r12
-  _QWORD *v24; // r14
-  bool v25; // r8
-  _QWORD *v26; // rax
-  _BYTE v27[8]; // [rsp+50h] [rbp-A8h] BYREF
-  PVOID v28; // [rsp+58h] [rbp-A0h] BYREF
-  int v29; // [rsp+60h] [rbp-98h] BYREF
-  __int64 v30; // [rsp+68h] [rbp-90h] BYREF
-  unsigned __int64 *v31; // [rsp+70h] [rbp-88h]
-  int v32; // [rsp+78h] [rbp-80h]
-  PVOID P; // [rsp+80h] [rbp-78h] BYREF
-  __int64 v34; // [rsp+88h] [rbp-70h] BYREF
-  __int64 v35; // [rsp+90h] [rbp-68h] BYREF
-  unsigned __int64 v36; // [rsp+98h] [rbp-60h]
-  _QWORD v37[2]; // [rsp+A0h] [rbp-58h] BYREF
-  _BYTE *v38; // [rsp+B0h] [rbp-48h]
-  unsigned __int64 v39; // [rsp+100h] [rbp+8h] BYREF
-  __int64 v40; // [rsp+108h] [rbp+10h]
+  __int64 BaseTrapFrame; // rax
+  __int64 v13; // r8
+  __int64 v14; // r9
+  volatile signed __int64 *v15; // r12
+  __int64 v16; // rsi
+  int v17; // eax
+  PVOID v18; // rcx
+  int v19; // eax
+  _DWORD *v20; // rsi
+  unsigned int v21; // eax
+  int v22; // eax
+  __int64 v23; // rdx
+  __int64 v24; // r8
+  __int64 v25; // rcx
+  int v26; // eax
+  _QWORD *v27; // r14
+  bool v28; // r8
+  _QWORD *v29; // rax
+  char v31; // [rsp+50h] [rbp-A8h] BYREF
+  char v32; // [rsp+51h] [rbp-A7h]
+  PVOID v33; // [rsp+58h] [rbp-A0h] BYREF
+  int v34; // [rsp+60h] [rbp-98h] BYREF
+  __int64 v35; // [rsp+68h] [rbp-90h] BYREF
+  int v36; // [rsp+70h] [rbp-88h]
+  PVOID P; // [rsp+78h] [rbp-80h] BYREF
+  __int64 v38; // [rsp+80h] [rbp-78h] BYREF
+  __int64 v39; // [rsp+88h] [rbp-70h] BYREF
+  unsigned __int64 *v40; // [rsp+90h] [rbp-68h]
+  __int64 v41; // [rsp+98h] [rbp-60h]
+  __int64 v42; // [rsp+A0h] [rbp-58h]
+  _QWORD v43[10]; // [rsp+A8h] [rbp-50h] BYREF
+  unsigned __int64 v44; // [rsp+100h] [rbp+8h] BYREF
+  __int64 v45; // [rsp+108h] [rbp+10h]
   NTSTATUS ExitStatus; // [rsp+110h] [rbp+18h] BYREF
-  __int64 *v42; // [rsp+118h] [rbp+20h]
+  __int64 *v47; // [rsp+118h] [rbp+20h]
 
-  v42 = a4;
+  v47 = a4;
   ExitStatus = a3;
-  v40 = a2;
-  v39 = a1;
-  v5 = a2;
-  v30 = 0LL;
-  v28 = 0LL;
-  v34 = 0LL;
+  v45 = a2;
+  v44 = a1;
   v35 = 0LL;
-  v27[0] = 0;
-  v37[0] = 0LL;
+  v33 = 0LL;
+  v38 = 0LL;
+  v39 = 0LL;
+  v31 = 0;
+  v43[0] = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v37[1] = CurrentThread;
-  v31 = 0LL;
+  v43[1] = CurrentThread;
+  v42 = 0LL;
   if ( CurrentThread->PreviousMode != 1 )
     return 3221225711LL;
-  if ( v39 )
+  if ( v44 )
   {
     if ( a2 )
       return 3221225712LL;
@@ -95,277 +98,280 @@ __int64 __fastcall PsCallEnclave(unsigned __int64 a1, __int64 a2, NTSTATUS a3, _
   if ( (ExitStatus & 0xFFFFFFFE) != 0 )
     return 3221225713LL;
 LABEL_9:
-  v8 = 0x7FFFFFFF0000LL;
+  v7 = 0x7FFFFFFF0000LL;
   if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-    v8 = (__int64)a4;
-  *(_QWORD *)v8 = *(_QWORD *)v8;
-  v30 = *a4;
+    v7 = (__int64)a4;
+  *(_QWORD *)v7 = *(_QWORD *)v7;
+  v35 = *a4;
   Process = (__int64)CurrentThread->ApcState.Process;
   if ( a2 )
-    result = PspSelectVsmEnclaveByNumber(Process, a2, (__int64 *)&v28);
+  {
+    result = PspSelectVsmEnclaveByNumber(Process, a2, &v33);
+    v9 = v44;
+  }
   else
-    result = MmSelectVsmEnclaveByAddress(Process, v39, &v28);
+  {
+    v9 = v44;
+    result = MmSelectVsmEnclaveByAddress(Process, v44, &v33);
+  }
   if ( (int)result < 0 )
     return result;
-  v10 = (char *)v28;
-  if ( !*((_DWORD *)v28 + 10) )
+  v10 = (char *)v33;
+  if ( !*((_DWORD *)v33 + 10) )
   {
     EnclaveReturnFrame = -1073741816;
-    goto LABEL_102;
+    goto LABEL_91;
   }
-  v38 = (char *)v28 + 76;
-  if ( *((_BYTE *)v28 + 76) )
+  if ( *((_BYTE *)v33 + 76) )
   {
     --CurrentThread->KernelApcDisable;
+    v15 = (volatile signed __int64 *)(v10 + 112);
     ExAcquirePushLockExclusiveEx((ULONG_PTR)(v10 + 112), 0LL);
-    v15 = *((_QWORD *)v10 + 13);
-    while ( v15 )
+    v40 = (unsigned __int64 *)(v10 + 104);
+    v16 = *((_QWORD *)v10 + 13);
+    while ( v16 )
     {
-      VsmEnclaveThread = PspFindVsmEnclaveThread(v39, v15);
-      if ( VsmEnclaveThread >= 0 )
+      v22 = MiHotPatchImageTreeCompare(v9, v16);
+      if ( v22 >= 0 )
       {
-        if ( VsmEnclaveThread <= 0 )
+        if ( v22 <= 0 )
           break;
-        v15 = *(_QWORD *)(v15 + 8);
+        v16 = *(_QWORD *)(v16 + 8);
       }
       else
       {
-        v15 = *(_QWORD *)v15;
+        v16 = *(_QWORD *)v16;
       }
     }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v10 + 14, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    if ( (_InterlockedExchangeAdd64(v15, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)v10 + 14);
     KeAbPostRelease((ULONG_PTR)(v10 + 112));
     KeLeaveCriticalRegionThread((__int64)CurrentThread);
-    if ( !v15 )
+    if ( !v16 )
     {
       EnclaveReturnFrame = -1073741800;
-      goto LABEL_101;
+      goto LABEL_90;
     }
-    v36 = v15;
-    goto LABEL_66;
+    v41 = v16;
+    goto LABEL_61;
   }
-  BaseTrapFrame = (unsigned __int64 *)PsGetBaseTrapFrame((__int64)CurrentThread, 0LL);
-  v31 = BaseTrapFrame;
+  BaseTrapFrame = PsGetBaseTrapFrame((__int64)CurrentThread, 0LL);
+  v42 = BaseTrapFrame;
   --CurrentThread->SpecialApcDisable;
   EnclaveReturnFrame = RtlPrepareEnclaveCall(
-                         (__int64)BaseTrapFrame,
+                         BaseTrapFrame,
                          (__int64)a4,
-                         qword_140D1F398,
-                         qword_140D1F3A8,
+                         v13,
+                         v14,
                          (CurrentThread->MiscFlags & 0x100000) != 0,
-                         &v35,
-                         &v34);
-  v13 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v13 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
+                         &v39,
+                         &v38);
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   if ( EnclaveReturnFrame < 0 )
-    goto LABEL_102;
+    goto LABEL_91;
   --CurrentThread->KernelApcDisable;
-  v14 = (volatile signed __int64 *)(v10 + 112);
+  v15 = (volatile signed __int64 *)(v10 + 112);
   ExAcquirePushLockExclusiveEx((ULONG_PTR)(v10 + 112), 0LL);
-  v15 = *((_QWORD *)v10 + 13);
-  while ( v15 )
+  v40 = (unsigned __int64 *)(v10 + 104);
+  v16 = *((_QWORD *)v10 + 13);
+  while ( v16 )
   {
-    v16 = PspFindVsmEnclaveThread((unsigned __int64)CurrentThread, v15);
-    if ( v16 >= 0 )
+    v17 = MiHotPatchImageTreeCompare((unsigned __int64)CurrentThread, v16);
+    if ( v17 >= 0 )
     {
-      if ( v16 <= 0 )
+      if ( v17 <= 0 )
         break;
-      v15 = *(_QWORD *)(v15 + 8);
+      v16 = *(_QWORD *)(v16 + 8);
     }
     else
     {
-      v15 = *(_QWORD *)v15;
+      v16 = *(_QWORD *)v16;
     }
   }
-  if ( !v15 )
+  if ( !v16 )
   {
-    v17 = 0LL;
+    v18 = 0LL;
     P = 0LL;
-    if ( v40 )
+    if ( v45 )
     {
       EnclaveReturnFrame = -1073741584;
     }
     else
     {
-      v20 = *((_DWORD *)v10 + 18);
-      if ( v20 )
+      v19 = *((_DWORD *)v10 + 18);
+      if ( v19 )
       {
-        *((_DWORD *)v10 + 18) = v20 - 1;
+        *((_DWORD *)v10 + 18) = v19 - 1;
         EnclaveReturnFrame = 0;
       }
       else
       {
         EnclaveReturnFrame = PspPrepareEnclaveThreadWait(v10, &P);
-        v17 = P;
+        v18 = P;
       }
-      if ( EnclaveReturnFrame >= 0 && !v17 )
+      if ( EnclaveReturnFrame >= 0 && !v18 )
       {
-LABEL_49:
-        v15 = *((_QWORD *)v10 + 16);
-        *((_QWORD *)v10 + 16) = *(_QWORD *)v15;
-        *(_QWORD *)(v15 + 24) = CurrentThread;
-        *(_QWORD *)(v15 + 32) = 0LL;
-        goto LABEL_50;
+LABEL_45:
+        v16 = *((_QWORD *)v10 + 16);
+        *((_QWORD *)v10 + 16) = *(_QWORD *)v16;
+        *(_QWORD *)(v16 + 24) = CurrentThread;
+        *(_QWORD *)(v16 + 32) = 0LL;
+        goto LABEL_46;
       }
     }
-    if ( (_InterlockedExchangeAdd64(v14, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    if ( (_InterlockedExchangeAdd64(v15, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)v10 + 14);
     KeAbPostRelease((ULONG_PTR)(v10 + 112));
     KeLeaveCriticalRegionThread((__int64)CurrentThread);
     if ( EnclaveReturnFrame < 0 )
     {
-LABEL_101:
-      v10 = (char *)v28;
-      goto LABEL_102;
+LABEL_90:
+      v10 = (char *)v33;
+      goto LABEL_91;
     }
-    v18 = P;
-    v19 = KeWaitForSingleObject(
+    v20 = P;
+    v21 = KeWaitForSingleObject(
             (char *)P + 16,
             Executive,
             1,
             0,
-            (PLARGE_INTEGER)((unsigned __int64)v37 & -(__int64)((ExitStatus & 1) != 0)));
-    v10 = (char *)v28;
-    if ( v19 )
-      EnclaveReturnFrame = PspRemoveEnclaveThreadWait(v28, v18, v19);
+            (PLARGE_INTEGER)((unsigned __int64)v43 & -(__int64)((ExitStatus & 1) != 0)));
+    v10 = (char *)v33;
+    if ( v21 )
+      EnclaveReturnFrame = PspRemoveEnclaveThreadWait(v33, v20, v21);
     else
-      EnclaveReturnFrame = v18[10];
-    ExFreePoolWithTag(v18, 0);
+      EnclaveReturnFrame = v20[10];
+    ExFreePoolWithTag(v20, 0);
     if ( EnclaveReturnFrame )
     {
-      if ( EnclaveReturnFrame != 192
+      if ( (unsigned int)(EnclaveReturnFrame - 257) > 1
         && EnclaveReturnFrame != -1073740526
-        && (unsigned int)(EnclaveReturnFrame - 257) > 1 )
+        && EnclaveReturnFrame != 192 )
       {
         EnclaveReturnFrame = -1073741749;
       }
-      goto LABEL_102;
+      goto LABEL_91;
     }
     --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)v14, 0LL);
-    goto LABEL_49;
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)v15, 0LL);
+    goto LABEL_45;
   }
-LABEL_50:
-  v36 = v15;
-  if ( (_InterlockedExchangeAdd64(v14, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v14);
-  KeAbPostRelease((ULONG_PTR)v14);
+LABEL_46:
+  v41 = v16;
+  if ( (_InterlockedExchangeAdd64(v15, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v15);
+  KeAbPostRelease((ULONG_PTR)v15);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  if ( *(_DWORD *)(v15 + 36) == -1 )
+  if ( *(_DWORD *)(v16 + 36) == -1 )
   {
     EnclaveReturnFrame = -1073741670;
-    goto LABEL_101;
+    goto LABEL_90;
   }
-  v5 = v40;
-LABEL_66:
+LABEL_61:
   --CurrentThread->SpecialApcDisable;
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) |= 0x200u;
-  v29 = *(_DWORD *)(v15 + 32);
-  v10 = (char *)v28;
-  EnclaveReturnFrame = VslCallEnclave((__int64)v28, &v29, &v39, ExitStatus, &v30, &v35, &v34, &ExitStatus, v27);
-  v32 = EnclaveReturnFrame;
+  v34 = *(_DWORD *)(v16 + 32);
+  v10 = (char *)v33;
+  EnclaveReturnFrame = VslCallEnclave((__int64)v33, &v34, &v44, ExitStatus, &v35, &v39, &v38, &ExitStatus, &v31);
+  v36 = EnclaveReturnFrame;
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) &= ~0x200u;
-  v13 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v13 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
-  if ( v27[0] )
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  if ( v31 )
     ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus);
   if ( EnclaveReturnFrame < 0 )
   {
-    if ( !v5 )
-      goto LABEL_96;
-    v39 = 0LL;
+    if ( !v45 )
+      goto LABEL_85;
+    v44 = 0LL;
   }
-  v22 = v39;
-  if ( !v39 )
+  v25 = v44;
+  if ( !v44 )
   {
-    *v42 = v30;
-    if ( v40 )
+    *v47 = v35;
+    if ( v45 )
     {
-      v13 = (*(_DWORD *)(v15 + 36))-- == 1;
-      if ( v13 )
+      if ( (*(_DWORD *)(v16 + 36))-- == 1 )
       {
         --CurrentThread->KernelApcDisable;
         ExAcquirePushLockExclusiveEx((ULONG_PTR)(v10 + 112), 0LL);
-        RtlAvlRemoveNode((unsigned __int64 *)v10 + 13, (unsigned __int64 *)v15);
+        RtlAvlRemoveNode((unsigned __int64 *)v10 + 13, (unsigned __int64 *)v16);
         if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v10 + 14, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
           ExfTryToWakePushLock((volatile signed __int64 *)v10 + 14);
         KeAbPostRelease((ULONG_PTR)(v10 + 112));
         KeLeaveCriticalRegionThread((__int64)CurrentThread);
-        v10 = (char *)v28;
+        v10 = (char *)v33;
       }
     }
-    goto LABEL_96;
+    goto LABEL_85;
   }
   --CurrentThread->SpecialApcDisable;
   EnclaveReturnFrame = RtlCreateEnclaveReturnFrame(
-                         (__int64)v31,
-                         qword_140D1F3A0,
-                         qword_140D1F3A8,
+                         v42,
+                         v23,
+                         v24,
                          *((_QWORD *)v10 + 1),
-                         v22,
+                         v25,
                          ExitStatus,
+                         v39,
+                         v38,
                          v35,
-                         v34,
-                         v30,
                          (CurrentThread->MiscFlags & 0x100000) != 0);
-  v13 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v13 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
-  if ( v5 )
-    goto LABEL_96;
-  if ( *(_DWORD *)(v15 + 36) )
-    goto LABEL_90;
-  *(_DWORD *)(v15 + 32) = v29;
-  --CurrentThread->KernelApcDisable;
-  v23 = (volatile signed __int64 *)(v10 + 112);
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)(v10 + 112), 0LL);
-  v31 = (unsigned __int64 *)(v10 + 104);
-  v24 = (_QWORD *)*((_QWORD *)v10 + 13);
-  v25 = 0;
-  if ( !v24 )
-    goto LABEL_87;
-  while ( (int)PspFindVsmEnclaveThread((unsigned __int64)CurrentThread, (__int64)v24) >= 0 )
-  {
-    v26 = (_QWORD *)v24[1];
-    if ( !v26 )
-    {
-      v25 = 1;
-      goto LABEL_87;
-    }
-LABEL_85:
-    v24 = v26;
-  }
-  v26 = (_QWORD *)*v24;
-  if ( *v24 )
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  if ( v45 )
     goto LABEL_85;
-  v25 = 0;
-LABEL_87:
-  RtlAvlInsertNodeEx(v31, (unsigned __int64)v24, v25, v15);
-  if ( (_InterlockedExchangeAdd64(v23, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v23);
-  KeAbPostRelease((ULONG_PTR)v23);
+  v26 = *(_DWORD *)(v16 + 36);
+  if ( v26 )
+    goto LABEL_79;
+  *(_DWORD *)(v16 + 32) = v34;
+  --CurrentThread->KernelApcDisable;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)v15, 0LL);
+  v27 = (_QWORD *)*v40;
+  v28 = 0;
+  v32 = 0;
+  if ( !v27 )
+    goto LABEL_76;
+  while ( (int)MiHotPatchImageTreeCompare((unsigned __int64)CurrentThread, (__int64)v27) >= 0 )
+  {
+    v29 = (_QWORD *)v27[1];
+    if ( !v29 )
+    {
+      v28 = 1;
+      v32 = 1;
+      goto LABEL_76;
+    }
+LABEL_74:
+    v27 = v29;
+  }
+  v29 = (_QWORD *)*v27;
+  if ( *v27 )
+    goto LABEL_74;
+  v28 = 0;
+  v32 = 0;
+LABEL_76:
+  RtlAvlInsertNodeEx(v40, (unsigned __int64)v27, v28, (_QWORD *)v16);
+  if ( (_InterlockedExchangeAdd64(v15, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v15);
+  KeAbPostRelease((ULONG_PTR)v15);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  v10 = (char *)v28;
-LABEL_90:
-  ++*(_DWORD *)(v15 + 36);
-LABEL_96:
-  if ( !*v38 && !*(_DWORD *)(v15 + 36) )
+  v26 = *(_DWORD *)(v16 + 36);
+  v10 = (char *)v33;
+LABEL_79:
+  *(_DWORD *)(v16 + 36) = v26 + 1;
+LABEL_85:
+  if ( !v10[76] && !*(_DWORD *)(v16 + 36) )
   {
     --CurrentThread->KernelApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)(v10 + 112), 0LL);
-    *(_QWORD *)v15 = *((_QWORD *)v10 + 16);
-    *((_QWORD *)v10 + 16) = v15;
+    *(_QWORD *)v16 = *((_QWORD *)v10 + 16);
+    *((_QWORD *)v10 + 16) = v16;
     PspReleaseEnclaveThread(v10);
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v10 + 14, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)v10 + 14);
     KeAbPostRelease((ULONG_PTR)(v10 + 112));
     KeLeaveCriticalRegionThread((__int64)CurrentThread);
-    goto LABEL_101;
+    goto LABEL_90;
   }
-LABEL_102:
+LABEL_91:
   PsDereferenceVsmEnclave(v10);
   return (unsigned int)EnclaveReturnFrame;
 }

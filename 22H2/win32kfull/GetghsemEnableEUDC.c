@@ -1,12 +1,12 @@
 /*
- * XREFs of GetghsemEnableEUDC @ 0x1C00BD7E0
+ * XREFs of GetghsemEnableEUDC @ 0x1C0135E40
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GetghsemEnableEUDC(__int64 a1)
+HSEMAPHORE GetghsemEnableEUDC()
 {
-  return *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(a1) + 32) + 13288LL);
+  return ghsemEnableEUDC;
 }

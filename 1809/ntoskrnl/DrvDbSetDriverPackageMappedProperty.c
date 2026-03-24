@@ -1,22 +1,22 @@
 /*
- * XREFs of DrvDbSetDriverPackageMappedProperty @ 0x140903304
+ * XREFs of DrvDbSetDriverPackageMappedProperty @ 0x1409032E4
  * Callers:
- *     DrvDbDispatchDriverPackage @ 0x1406D28C0 (DrvDbDispatchDriverPackage.c)
- *     DrvDbSetDriverPackageMappedProperty @ 0x140903304 (DrvDbSetDriverPackageMappedProperty.c)
+ *     DrvDbDispatchDriverPackage @ 0x1406D28A0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbSetDriverPackageMappedProperty @ 0x1409032E4 (DrvDbSetDriverPackageMappedProperty.c)
  * Callees:
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
- *     DrvDbOpenObjectRegKey @ 0x1406D2C98 (DrvDbOpenObjectRegKey.c)
- *     _RegRtlSetValue @ 0x1406FCBC8 (_RegRtlSetValue.c)
- *     DrvDbGetDriverPackageSignerName @ 0x140901E58 (DrvDbGetDriverPackageSignerName.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140901F0C (DrvDbGetDriverPackageSignerScore.c)
- *     DrvDbSetDriverPackageMappedProperty @ 0x140903304 (DrvDbSetDriverPackageMappedProperty.c)
- *     DrvDbSetRegValueMappedProperty @ 0x1409038D8 (DrvDbSetRegValueMappedProperty.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406D2C78 (DrvDbOpenObjectRegKey.c)
+ *     _RegRtlSetValue @ 0x1406FCBA8 (_RegRtlSetValue.c)
+ *     DrvDbGetDriverPackageSignerName @ 0x140901E38 (DrvDbGetDriverPackageSignerName.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x140901EEC (DrvDbGetDriverPackageSignerScore.c)
+ *     DrvDbSetDriverPackageMappedProperty @ 0x1409032E4 (DrvDbSetDriverPackageMappedProperty.c)
+ *     DrvDbSetRegValueMappedProperty @ 0x1409038B8 (DrvDbSetRegValueMappedProperty.c)
  */
 
 __int64 __fastcall DrvDbSetDriverPackageMappedProperty(

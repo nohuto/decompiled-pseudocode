@@ -1,12 +1,12 @@
 /*
- * XREFs of IopStartApcHardError @ 0x14081B670
+ * XREFs of IopStartApcHardError @ 0x14081B650
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsCreateSystemThreadEx @ 0x14066AAE0 (PsCreateSystemThreadEx.c)
+ *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
  */
 
 void __fastcall IopStartApcHardError(PIRP *P)

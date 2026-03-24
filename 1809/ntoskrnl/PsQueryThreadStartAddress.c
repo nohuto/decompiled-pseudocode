@@ -3,7 +3,7 @@
  * Callers:
  *     PspAllocateThread @ 0x1405F7E84 (PspAllocateThread.c)
  *     EtwpPsProvTraceThread @ 0x140623B44 (EtwpPsProvTraceThread.c)
- *     NtQueryInformationThread @ 0x14064A580 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x14064A560 (NtQueryInformationThread.c)
  *     sub_1409AA900 @ 0x1409AA900 (sub_1409AA900.c)
  * Callees:
  *     <none>

@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPICMButtonStartCompletion @ 0x1C002E920
+ * XREFs of ACPICMButtonStartCompletion @ 0x1C0031A50
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
  */
 
 void __fastcall ACPICMButtonStartCompletion(__int64 a1, IRP *a2, int a3)
@@ -28,17 +28,17 @@ void __fastcall ACPICMButtonStartCompletion(__int64 a1, IRP *a2, int a3)
   if ( a3 < 0 )
   {
     IofCompleteRequest(a2, 0);
-    v10 = (const char *)&unk_1C006FB8B;
-    v11 = (const char *)&unk_1C006FB8B;
+    v10 = (const char *)&unk_1C00701BA;
+    v11 = (const char *)&unk_1C00701BA;
     if ( a1 )
     {
       v12 = *(_QWORD *)(a1 + 8);
       v5 = a1;
       if ( (v12 & 0x200000000000LL) != 0 )
       {
-        v10 = *(const char **)(a1 + 608);
+        v10 = *(const char **)(a1 + 568);
         if ( (v12 & 0x400000000000LL) != 0 )
-          v11 = *(const char **)(a1 + 616);
+          v11 = *(const char **)(a1 + 576);
       }
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -51,7 +51,7 @@ void __fastcall ACPICMButtonStartCompletion(__int64 a1, IRP *a2, int a3)
         4u,
         5u,
         0xDu,
-        (__int64)&WPP_72d86d3b604930d5754709d36f3716bf_Traceguids,
+        (__int64)&WPP_2bc47f5d635e376f4e7295df6662785e_Traceguids,
         v7,
         ACPIDispatchPnpTableNames[v13],
         v6,
@@ -62,11 +62,11 @@ void __fastcall ACPICMButtonStartCompletion(__int64 a1, IRP *a2, int a3)
   }
   else
   {
-    *(_DWORD *)(a1 + 368) = 2;
+    *(_DWORD *)(a1 + 328) = 2;
     v4->WorkerRoutine = (void (__fastcall *)(void *))ACPICMButtonStartWorker;
     v4->Parameter = v4;
     v4->List.Flink = 0LL;
-    v9 = *(_LIST_ENTRY **)(a1 + 768);
+    v9 = *(_LIST_ENTRY **)(a1 + 728);
     v4[1].List.Blink = (_LIST_ENTRY *)a2;
     v4[1].List.Flink = v9;
     ExQueueWorkItem(v4, DelayedWorkQueue);

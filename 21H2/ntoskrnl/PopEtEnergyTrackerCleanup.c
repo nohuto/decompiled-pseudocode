@@ -1,26 +1,29 @@
 /*
- * XREFs of PopEtEnergyTrackerCleanup @ 0x14099A23C
+ * XREFs of PopEtEnergyTrackerCleanup @ 0x1408F29B4
  * Callers:
- *     PopEtEnergyTrackerDelete @ 0x14099A400 (PopEtEnergyTrackerDelete.c)
+ *     PopEtEnergyTrackerDelete @ 0x1408F2B80 (PopEtEnergyTrackerDelete.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopEtAggregateKeyCleanup @ 0x140674F0C (PopEtAggregateKeyCleanup.c)
- *     PopEtEnergyTrackerCleanupAggregates @ 0x1406A894C (PopEtEnergyTrackerCleanupAggregates.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopEtEnergyTrackerCleanupAggregates @ 0x14068F45C (PopEtEnergyTrackerCleanupAggregates.c)
+ *     PopEtAggregateKeyCleanup @ 0x14069936C (PopEtAggregateKeyCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopEtEnergyTrackerCleanup(__int64 a1)
 {
   __int64 v2; // rcx
   _QWORD *v3; // rax
-  void *v4; // rcx
-  _QWORD **v5; // rsi
-  unsigned __int64 v6; // rdi
-  unsigned __int64 *v7; // rcx
-  void *v8; // rcx
-  _QWORD *v10; // rbp
-  _QWORD *i; // rcx
+  _QWORD *v4; // rdx
+  unsigned __int64 v5; // r8
+  __int64 v6; // r9
+  void *v7; // rcx
+  __int64 *v8; // rbp
+  __int64 *v9; // rdi
+  __int64 v10; // rcx
+  __int64 *v11; // rsi
+  __int64 *i; // rcx
+  void *v13; // rcx
 
   PopAcquireRwLockExclusive(PopEtGlobals + 16);
   v2 = *(_QWORD *)a1;
@@ -30,50 +33,64 @@ __int64 __fastcall PopEtEnergyTrackerCleanup(__int64 a1)
   *(_QWORD *)(v2 + 8) = v3;
   PopReleaseRwLock(PopEtGlobals + 16);
   PopEtEnergyTrackerCleanupAggregates(a1);
-  v4 = *(void **)(a1 + 56);
-  if ( v4 )
-    ExFreePoolWithTag(v4, 0x54456F50u);
-  v5 = *(_QWORD ***)(a1 + 72);
-  v6 = (unsigned __int64)v5;
+  v7 = *(void **)(a1 + 56);
+  if ( v7 )
+    ExFreePoolWithTag(v7, 0x54456F50u);
+  v8 = *(__int64 **)(a1 + 72);
+  v9 = v8;
   while ( 1 )
   {
-    v7 = (unsigned __int64 *)v6;
-    if ( !v6 )
-      break;
-    v6 = *(_QWORD *)v6;
-    if ( (v6 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
-      v6 = *v7;
-    if ( (v6 & 1) != 0 )
-      break;
-LABEL_17:
-    if ( !v6 )
-      goto LABEL_14;
-    v10 = (_QWORD *)v6;
-    for ( i = v5; (*i & 1) == 0; i = (_QWORD *)*i )
+    if ( !v9 )
+      goto LABEL_11;
+    v10 = *v9;
+    if ( (*v9 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
+      v10 = *v9;
+    if ( (v10 & 1) != 0 )
     {
-      if ( *i == v6 )
+LABEL_11:
+      v4 = v8 + 1;
+      v5 = *(_QWORD *)(a1 + 72) + 8 * ((unsigned __int64)*(unsigned int *)(a1 + 68) >> 5);
+      while ( 1 )
       {
-        *i = *(_QWORD *)v6;
+        if ( (unsigned __int64)v4 >= v5 )
+        {
+          v10 = 0LL;
+          goto LABEL_16;
+        }
+        if ( (*v4 & 1) == 0 )
+          break;
+        ++v4;
+      }
+      v9 = (__int64 *)*v4;
+      v8 = v4;
+      v10 = *v4;
+    }
+    else
+    {
+      v9 = (__int64 *)v10;
+    }
+LABEL_16:
+    if ( !v10 )
+      break;
+    v11 = v9;
+    for ( i = v8; (*i & 1) == 0; i = (__int64 *)*i )
+    {
+      if ( (__int64 *)*i == v9 )
+      {
+        *i = *v9;
         --*(_DWORD *)(a1 + 64);
-        *(_QWORD *)v6 |= 0x8000000000000002uLL;
-        v6 = (unsigned __int64)i;
+        *v9 |= 0x8000000000000002uLL;
+        v9 = i;
         goto LABEL_24;
       }
     }
-    v10 = 0LL;
+    v11 = 0LL;
 LABEL_24:
-    PopEtAggregateKeyCleanup(v10 + 2);
-    ExFreePoolWithTag(v10, 0x54456F50u);
+    PopEtAggregateKeyCleanup(v11 + 2, (__int64)v4, v5, v6);
+    ExFreePoolWithTag(v11, 0x54456F50u);
   }
-  for ( ++v5; (unsigned __int64)v5 < *(_QWORD *)(a1 + 72) + 8 * ((unsigned __int64)*(unsigned int *)(a1 + 68) >> 5); ++v5 )
-  {
-    v6 = (unsigned __int64)*v5;
-    if ( ((unsigned __int8)*v5 & 1) == 0 )
-      goto LABEL_17;
-  }
-LABEL_14:
-  v8 = *(void **)(a1 + 72);
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0x54456F50u);
-  return PopEtAggregateKeyCleanup((_QWORD *)(a1 + 96));
+  v13 = *(void **)(a1 + 72);
+  if ( v13 )
+    ExFreePoolWithTag(v13, 0x54456F50u);
+  return PopEtAggregateKeyCleanup((__int64 *)(a1 + 96), (__int64)v4, v5, v6);
 }

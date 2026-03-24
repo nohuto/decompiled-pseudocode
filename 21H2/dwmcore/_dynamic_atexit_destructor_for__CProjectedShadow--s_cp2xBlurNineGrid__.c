@@ -1,12 +1,16 @@
 /*
- * XREFs of _dynamic_atexit_destructor_for__CProjectedShadow::s_cp2xBlurNineGrid__ @ 0x18010D9B0
+ * XREFs of _dynamic_atexit_destructor_for__CProjectedShadow::s_cp2xBlurNineGrid__ @ 0x1800F9820
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-void dynamic_atexit_destructor_for__CProjectedShadow::s_cp2xBlurNineGrid__()
+__int64 dynamic_atexit_destructor_for__CProjectedShadow::s_cp2xBlurNineGrid__()
 {
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&CProjectedShadow::s_cp2xBlurNineGrid);
+  __int64 result; // rax
+
+  if ( CProjectedShadow::s_cp2xBlurNineGrid )
+    return (*(__int64 (__fastcall **)(struct CNineGridBrush *))(*(_QWORD *)CProjectedShadow::s_cp2xBlurNineGrid + 16LL))(CProjectedShadow::s_cp2xBlurNineGrid);
+  return result;
 }

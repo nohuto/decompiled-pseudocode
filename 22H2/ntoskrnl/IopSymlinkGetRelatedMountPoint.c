@@ -1,27 +1,27 @@
 /*
- * XREFs of IopSymlinkGetRelatedMountPoint @ 0x140880010
+ * XREFs of IopSymlinkGetRelatedMountPoint @ 0x1406837B4
  * Callers:
- *     IopSymlinkRememberJunction @ 0x14087F8E8 (IopSymlinkRememberJunction.c)
- *     IopGraftName @ 0x14087F9E8 (IopGraftName.c)
+ *     IopSymlinkRememberJunction @ 0x140682C94 (IopSymlinkRememberJunction.c)
+ *     IopGraftName @ 0x140683164 (IopGraftName.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall IopSymlinkGetRelatedMountPoint(__int64 a1, unsigned __int16 a2)
 {
-  if ( a1 )
+  if ( !a1 )
+    return a1;
+  do
   {
-    do
-    {
-      if ( (*(_BYTE *)(a1 + 2) & 1) == 0 )
-        return 0LL;
-      if ( *(_WORD *)a1 > a2 )
-        break;
-      a1 = *(_QWORD *)(a1 + 8);
-    }
-    while ( a1 );
-    if ( a1 && (*(_BYTE *)(a1 + 2) & 1) == 0 )
-      return 0LL;
+    if ( (*(_BYTE *)(a1 + 2) & 1) == 0 )
+      break;
+    if ( *(_WORD *)a1 > a2 )
+      break;
+    a1 = *(_QWORD *)(a1 + 8);
   }
-  return a1;
+  while ( a1 );
+  if ( a1 && (*(_BYTE *)(a1 + 2) & 1) == 0 )
+    return 0LL;
+  else
+    return a1;
 }

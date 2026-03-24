@@ -1,12 +1,12 @@
 /*
- * XREFs of ?_LockSetForegroundWindow@@YAHI@Z @ 0x1C01CE668
+ * XREFs of ?_LockSetForegroundWindow@@YAHI@Z @ 0x1C01D2510
  * Callers:
- *     NtUserLockSetForegroundWindow @ 0x1C01F8D80 (NtUserLockSetForegroundWindow.c)
+ *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00788F8 (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0079D94 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     CanForceForeground @ 0x1C007B000 (CanForceForeground.c)
+ *     CanForceForeground @ 0x1C003C530 (CanForceForeground.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004DA78 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004F430 (WPP_RECORDER_SF_q.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -15,71 +15,55 @@ __int64 __fastcall _LockSetForegroundWindow(__int64 a1)
   int v1; // ebx
   __int64 CurrentProcessWin32Process; // rdi
   __int64 v3; // rdx
-  int v4; // r8d
-  int v5; // ebx
-  __int64 v6; // rcx
-  int v7; // r8d
+  int v4; // ecx
+  __int64 v5; // r8
+  int v6; // ebx
+  __int64 v7; // rcx
+  int v8; // ecx
 
   v1 = a1;
   CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
   if ( (unsigned int)IsImmersiveAppRestricted(CurrentProcessWin32Process) )
-    goto LABEL_25;
-  v5 = v1 - 1;
-  if ( !v5 )
+    goto LABEL_13;
+  v6 = v1 - 1;
+  if ( !v6 )
   {
     if ( CanForceForeground(CurrentProcessWin32Process) && !gppiLockSFW )
     {
       MEMORY[0] = CurrentProcessWin32Process;
-      LOBYTE(v3) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-                && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( (_BYTE)v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_q(
-          WPP_GLOBAL_Control->AttachedDevice,
+        LOBYTE(v3) = 4;
+        WPP_RECORDER_SF_q(
+          v8,
           v3,
-          v7,
-          47,
-          4,
           2,
-          47,
-          (__int64)&WPP_76ccfc4204be37e1ff60c5115401253e_Traceguids,
+          37,
+          (__int64)&WPP_c5f688376d5d38c4c83ed2e0b189f019_Traceguids,
           CurrentProcessWin32Process);
       }
       return 1LL;
     }
-LABEL_25:
-    v6 = 5LL;
-    goto LABEL_26;
+LABEL_13:
+    v7 = 5LL;
+    goto LABEL_14;
   }
-  if ( v5 == 1 )
+  if ( v6 == 1 )
   {
     if ( CurrentProcessWin32Process == gppiLockSFW )
     {
       gppiLockSFW = 0LL;
-      LOBYTE(v3) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-                && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( (_BYTE)v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v4) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v3,
-          v4,
-          48,
-          4,
-          2,
-          48,
-          (__int64)&WPP_76ccfc4204be37e1ff60c5115401253e_Traceguids);
+        LOBYTE(v3) = 4;
+        WPP_RECORDER_SF_(v4, v3, 2, 38, (__int64)&WPP_c5f688376d5d38c4c83ed2e0b189f019_Traceguids);
       }
       return 1LL;
     }
-    goto LABEL_25;
+    goto LABEL_13;
   }
-  v6 = 87LL;
-LABEL_26:
-  UserSetLastError(v6, v3);
+  v7 = 87LL;
+LABEL_14:
+  UserSetLastError(v7, v3, v5);
   return 0LL;
 }

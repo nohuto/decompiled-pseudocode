@@ -1,10 +1,10 @@
 /*
- * XREFs of NtUserShowCaret @ 0x1C00725B0
+ * XREFs of NtUserShowCaret @ 0x1C0069BA0
  * Callers:
  *     <none>
  * Callees:
- *     ?UT_CaretSet@@YAHPEAUtagWND@@@Z @ 0x1C00726A8 (-UT_CaretSet@@YAHPEAUtagWND@@@Z.c)
- *     zzzInternalShowCaret @ 0x1C00C2D88 (zzzInternalShowCaret.c)
+ *     ?UT_CaretSet@@YAHPEAUtagWND@@@Z @ 0x1C0069C9C (-UT_CaretSet@@YAHPEAUtagWND@@@Z.c)
+ *     zzzInternalShowCaret @ 0x1C006A12C (zzzInternalShowCaret.c)
  */
 
 __int64 __fastcall NtUserShowCaret(__int64 a1)
@@ -13,7 +13,7 @@ __int64 __fastcall NtUserShowCaret(__int64 a1)
   struct tagWND *v3; // rax
   __int64 v4; // rcx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v2 = 0LL;
   if ( a1 )
   {

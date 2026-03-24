@@ -1,5 +1,5 @@
 /*
- * XREFs of ObCheckActiveHandles @ 0x1406C4408
+ * XREFs of ObCheckActiveHandles @ 0x1406C43E8
  * Callers:
  *     MiFinishCreateSection @ 0x1405DE0B0 (MiFinishCreateSection.c)
  * Callees:

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiClearRangeInPartitionTree @ 0x1402D0CE8
+ * XREFs of MiClearRangeInPartitionTree @ 0x1402D0DE8
  * Callers:
- *     MiAddMdlToPartitionTree @ 0x1402D0638 (MiAddMdlToPartitionTree.c)
+ *     MiAddMdlToPartitionTree @ 0x1402D0738 (MiAddMdlToPartitionTree.c)
  * Callees:
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)

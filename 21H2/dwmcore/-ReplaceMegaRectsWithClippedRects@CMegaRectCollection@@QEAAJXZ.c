@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ReplaceMegaRectsWithClippedRects@CMegaRectCollection@@QEAAJXZ @ 0x1800B57A0
+ * XREFs of ?ReplaceMegaRectsWithClippedRects@CMegaRectCollection@@QEAAJXZ @ 0x180066A7C
  * Callers:
- *     ?Render@CDrawListEntryBatch@@UEAAJXZ @ 0x1800B4BB0 (-Render@CDrawListEntryBatch@@UEAAJXZ.c)
+ *     ?Render@CDrawListEntryBatch@@UEAAJXZ @ 0x180066080 (-Render@CDrawListEntryBatch@@UEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?OccludeRegions@CMegaRectCollection@@AEAAXXZ @ 0x180082128 (-OccludeRegions@CMegaRectCollection@@AEAAXXZ.c)
- *     ?PrepMegaRectData@CMegaRectCollection@@AEAAJXZ @ 0x180084AA0 (-PrepMegaRectData@CMegaRectCollection@@AEAAJXZ.c)
- *     ?UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z @ 0x1800B34D8 (-UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?OccludeRegions@CMegaRectCollection@@AEAAXXZ @ 0x18003A424 (-OccludeRegions@CMegaRectCollection@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PrepMegaRectData@CMegaRectCollection@@AEAAJXZ @ 0x180067040 (-PrepMegaRectData@CMegaRectCollection@@AEAAJXZ.c)
+ *     ?UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z @ 0x18006A09C (-UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
  */
 
 __int64 __fastcall CMegaRectCollection::ReplaceMegaRectsWithClippedRects(CMegaRectCollection *this)
@@ -42,7 +42,7 @@ __int64 __fastcall CMegaRectCollection::ReplaceMegaRectsWithClippedRects(CMegaRe
     v1 = v5;
     if ( v5 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v5, 0x1BBu);
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x1D3u, 0LL);
     }
     else
     {
@@ -58,7 +58,7 @@ __int64 __fastcall CMegaRectCollection::ReplaceMegaRectsWithClippedRects(CMegaRe
           v1 = updated;
           if ( updated < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, updated, 0x1C6u);
+            MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, updated, 0x1DEu, 0LL);
             break;
           }
         }

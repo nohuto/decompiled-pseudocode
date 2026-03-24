@@ -1,8 +1,8 @@
 /*
- * XREFs of ?IsCompositionLight@CSharedReadCompositionLightMarshaler@DirectComposition@@SA_NI@Z @ 0x1C00A6EB8
+ * XREFs of ?IsCompositionLight@CSharedReadCompositionLightMarshaler@DirectComposition@@SA_NI@Z @ 0x1C0093608
  * Callers:
- *     CreateSharedReadCompositionLightMarshaler @ 0x1C00A6A20 (CreateSharedReadCompositionLightMarshaler.c)
- *     ?IsOfType@CSharedReadCompositionLightMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C00A6EA0 (-IsOfType@CSharedReadCompositionLightMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     CreateSharedReadCompositionLightMarshaler @ 0x1C0093230 (CreateSharedReadCompositionLightMarshaler.c)
+ *     ?IsOfType@CSharedReadCompositionLightMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C00935F0 (-IsOfType@CSharedReadCompositionLightMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  * Callees:
  *     <none>
  */

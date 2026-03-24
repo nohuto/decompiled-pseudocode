@@ -1,14 +1,14 @@
 /*
- * XREFs of VslApplyDynamicRelocations @ 0x140B94348
+ * XREFs of VslApplyDynamicRelocations @ 0x140A8F3E4
  * Callers:
- *     MiApplyDynamicRelocations @ 0x140B47844 (MiApplyDynamicRelocations.c)
+ *     MiApplyDynamicRelocations @ 0x140A4F5D8 (MiApplyDynamicRelocations.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslApplyDynamicRelocations(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall VslApplyDynamicRelocations(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD v7[14]; // [rsp+20h] [rbp-88h] BYREF
 

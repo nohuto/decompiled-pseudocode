@@ -1,12 +1,12 @@
 /*
- * XREFs of Bulk_WdfEvtRequestCancel @ 0x1C000B0C0
+ * XREFs of Bulk_WdfEvtRequestCancel @ 0x1C000C600
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     WPP_RECORDER_SF_DDDq @ 0x1C000B234 (WPP_RECORDER_SF_DDDq.c)
- *     TR_QueueDpcForTransferCompletion @ 0x1C000C644 (TR_QueueDpcForTransferCompletion.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     WPP_RECORDER_SF_DDDq @ 0x1C000C774 (WPP_RECORDER_SF_DDDq.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000E954 (TR_QueueDpcForTransferCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall Bulk_WdfEvtRequestCancel(__int64 a1)
@@ -30,7 +30,7 @@ void __fastcall Bulk_WdfEvtRequestCancel(__int64 a1)
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0061090);
+         off_1C0060090);
   v4 = *(_QWORD *)(v3 + 56);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {

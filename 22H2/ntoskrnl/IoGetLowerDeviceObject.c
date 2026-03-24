@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetLowerDeviceObject @ 0x140365D70
+ * XREFs of IoGetLowerDeviceObject @ 0x140326330
  * Callers:
  *     <none>
  * Callees:
- *     IoGetLowerDeviceObjectWithTag @ 0x140365D8C (IoGetLowerDeviceObjectWithTag.c)
+ *     IoGetLowerDeviceObjectWithTag @ 0x14032634C (IoGetLowerDeviceObjectWithTag.c)
  */
 
 PDEVICE_OBJECT __stdcall IoGetLowerDeviceObject(PDEVICE_OBJECT DeviceObject)

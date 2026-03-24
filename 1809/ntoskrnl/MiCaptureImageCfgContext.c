@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCaptureImageCfgContext @ 0x140652250
+ * XREFs of MiCaptureImageCfgContext @ 0x140652230
  * Callers:
- *     MiParseImageLoadConfig @ 0x1406508FC (MiParseImageLoadConfig.c)
+ *     MiParseImageLoadConfig @ 0x1406508DC (MiParseImageLoadConfig.c)
  * Callees:
- *     MiFreeImageCfgContext @ 0x1400DA46C (MiFreeImageCfgContext.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     MiFreeImageCfgContext @ 0x1400DA48C (MiFreeImageCfgContext.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     MiLogRelocationRva @ 0x14064B1AC (MiLogRelocationRva.c)
+ *     MiLogRelocationRva @ 0x14064B18C (MiLogRelocationRva.c)
  */
 
 __int64 __fastcall MiCaptureImageCfgContext(

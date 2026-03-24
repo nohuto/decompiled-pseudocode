@@ -1,7 +1,7 @@
 /*
- * XREFs of UserDereferenceDwmProcess @ 0x1C009BC30
+ * XREFs of UserDereferenceDwmProcess @ 0x1C00862D0
  * Callers:
- *     NtDCompositionSendDwmLpcMessage @ 0x1C00D5730 (NtDCompositionSendDwmLpcMessage.c)
+ *     NtDCompositionSendDwmLpcMessage @ 0x1C00CDE80 (NtDCompositionSendDwmLpcMessage.c)
  * Callees:
  *     <none>
  */

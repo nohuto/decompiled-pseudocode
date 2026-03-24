@@ -1,32 +1,26 @@
 /*
- * XREFs of PopSleepstudyInitialize @ 0x140B02344
+ * XREFs of PopSleepstudyInitialize @ 0x140A40C80
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PopDiagSleepStudyInitialize @ 0x140796B90 (PopDiagSleepStudyInitialize.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     KiInitializeTimer2 @ 0x1403588EC (KiInitializeTimer2.c)
- *     PopSleepstudySendSessionChangeWnf @ 0x140811C98 (PopSleepstudySendSessionChangeWnf.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
+ *     KiInitializeTimer2 @ 0x1402E927C (KiInitializeTimer2.c)
  */
 
-char __fastcall PopSleepstudyInitialize(int a1)
+char PopSleepstudyInitialize()
 {
-  char *v1; // rbx
-  LARGE_INTEGER v3; // [rsp+38h] [rbp+10h] BYREF
+  char *v0; // rbx
+  LARGE_INTEGER v2; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = (char *)&unk_140C20050 + 104 * (unsigned int)dword_140C20048;
-  if ( a1 )
-    return PopSleepstudySendSessionChangeWnf(*((_QWORD *)v1 + 1), *(_DWORD *)v1, *((_DWORD *)v1 + 8));
-  qword_140C1FF68 = 0LL;
+  qword_140C1E458 = 0LL;
   PopSleepstudySessionLock = 0LL;
-  qword_140C1FF88 = (__int64)PopSleepstudySessionContext;
-  PopSleepstudySessionContext[0] = (__int64)PopSleepstudySessionContext;
-  *(_DWORD *)v1 = 0;
-  v1[35] = 0;
-  *((_DWORD *)v1 + 8) &= 0xFF000000;
-  *((_QWORD *)v1 + 2) = RtlGetInterruptTimePrecise(&v3);
-  stru_140C20028.Parameter = 0LL;
-  stru_140C20028.List.Flink = 0LL;
-  word_140C1FFA2 = 0;
-  stru_140C20028.WorkerRoutine = (void (__fastcall *)(void *))PopSleepstudyScenarioStopWorker;
-  return KiInitializeTimer2((__int64)&unk_140C1FFA0, (__int64)PopSleepstudyScenarioStopTimerCallback, 0LL, 8);
+  v0 = (char *)&unk_140C1E518 + 96 * (unsigned int)dword_140C1E510;
+  *(_DWORD *)v0 = 0;
+  *((_DWORD *)v0 + 8) = 1;
+  *((_QWORD *)v0 + 2) = RtlGetInterruptTimePrecise(&v2);
+  stru_140C1E4F0.Parameter = 0LL;
+  stru_140C1E4F0.List.Flink = 0LL;
+  word_140C1E46A = 0;
+  stru_140C1E4F0.WorkerRoutine = (void (__fastcall *)(void *))PopSleepstudyScenarioStopWorker;
+  return KiInitializeTimer2((__int64)&unk_140C1E468, (__int64)PopSleepstudyScenarioStopTimerCallback, 0LL, 8);
 }

@@ -1,72 +1,48 @@
 /*
- * XREFs of DxgkInvalidateHwContextCB @ 0x1C0049340
+ * XREFs of DxgkInvalidateHwContextCB @ 0x1C0042F70
  * Callers:
  *     <none>
  * Callees:
- *     DpiGetDxgAdapter @ 0x1C000B430 (DpiGetDxgAdapter.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     DpiGetDxgAdapter @ 0x1C0013A20 (DpiGetDxgAdapter.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DxgkInvalidateHwContextCB(__int64 a1)
+__int64 __fastcall DxgkInvalidateHwContextCB(__int64 a1, __int64 a2)
 {
-  int v2; // edx
-  int v3; // ecx
-  int v4; // r8d
+  __int64 v3; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
   __int64 DxgAdapter; // rdi
-  int v6; // edx
-  int v7; // ecx
-  int v8; // r8d
+  _QWORD *v7; // rax
+  __int64 v8; // rax
   __int64 v9; // rcx
 
   if ( KeGetCurrentIrql() )
   {
-    WdLogSingleEntry1(1LL, 854LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v3,
-          v2,
-          v4,
-          0LL,
-          2,
-          -1,
-          L"KeGetCurrentIrql() == PASSIVE_LEVEL",
-          854LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v3 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v3 + 24) = 1244LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  DxgAdapter = DpiGetDxgAdapter(*(_QWORD *)a1);
-  if ( !*(_QWORD *)(DxgAdapter + 2928) )
-    WdLogSingleEntry5(0LL, 275LL, 7LL, 0LL, 0LL, 0LL);
-  if ( *(int *)(DxgAdapter + 2552) < 9472 )
+  DxgAdapter = DpiGetDxgAdapter(*(_QWORD *)a1, a2);
+  if ( !*(_QWORD *)(DxgAdapter + 2704) )
   {
-    WdLogSingleEntry1(1LL, 867LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v7,
-          v6,
-          v8,
-          0LL,
-          2,
-          -1,
-          L"pDxgAdapter->GetDriverCaps()->WDDMVersion >= DXGKDDI_WDDMv2_5",
-          867LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v7 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v5, v4);
+    v7[5] = 0LL;
+    v7[6] = 0LL;
+    v7[7] = 0LL;
+    v7[3] = 275LL;
+    v7[4] = 7LL;
+    WdLogEvent5_WdCriticalError(v7);
+  }
+  if ( *(int *)(DxgAdapter + 2328) < 9472 )
+  {
+    v8 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v8 + 24) = 1257LL;
+    WdLogEvent5_WdAssertion(v8);
   }
   v9 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL);
   if ( v9 )
-    return (*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(DxgAdapter + 2928) + 736LL)
+    return (*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(DxgAdapter + 2704) + 616LL)
                                                                   + 8LL)
                                                       + 256LL))(
              v9,

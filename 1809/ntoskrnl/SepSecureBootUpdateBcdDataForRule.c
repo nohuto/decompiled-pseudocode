@@ -1,15 +1,15 @@
 /*
- * XREFs of SepSecureBootUpdateBcdDataForRule @ 0x1408A3564
+ * XREFs of SepSecureBootUpdateBcdDataForRule @ 0x1408A3544
  * Callers:
- *     SepSecureBootCorrectBcd @ 0x1408A3114 (SepSecureBootCorrectBcd.c)
+ *     SepSecureBootCorrectBcd @ 0x1408A30F4 (SepSecureBootCorrectBcd.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiDeleteElement @ 0x1407125BC (BiDeleteElement.c)
- *     BcdSetElementDataWithFlags @ 0x140713390 (BcdSetElementDataWithFlags.c)
- *     BcdGetElementDataWithFlags @ 0x140713570 (BcdGetElementDataWithFlags.c)
- *     SepSecureBootGetPolicyDefaultValue @ 0x1408A33E4 (SepSecureBootGetPolicyDefaultValue.c)
- *     SepSecureBootValidateBcdDataAgainstBcdRule @ 0x1408A36C0 (SepSecureBootValidateBcdDataAgainstBcdRule.c)
+ *     BiDeleteElement @ 0x14071259C (BiDeleteElement.c)
+ *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x140713550 (BcdGetElementDataWithFlags.c)
+ *     SepSecureBootGetPolicyDefaultValue @ 0x1408A33C4 (SepSecureBootGetPolicyDefaultValue.c)
+ *     SepSecureBootValidateBcdDataAgainstBcdRule @ 0x1408A36A0 (SepSecureBootValidateBcdDataAgainstBcdRule.c)
  */
 
 __int64 __fastcall SepSecureBootUpdateBcdDataForRule(__int64 a1, void *a2, __int64 a3)
@@ -27,7 +27,7 @@ __int64 __fastcall SepSecureBootUpdateBcdDataForRule(__int64 a1, void *a2, __int
   char v16; // [rsp+80h] [rbp+18h] BYREF
   __int64 v17; // [rsp+88h] [rbp+20h] BYREF
 
-  v3 = (_WORD *)(qword_1404E1530 + *(unsigned int *)(a1 + 8));
+  v3 = (_WORD *)(qword_1404E14E8 + *(unsigned int *)(a1 + 8));
   PoolWithTag = 0LL;
   PolicyDefaultValue = 0;
   if ( (*(_BYTE *)v3 & 0x1F) == 8 )

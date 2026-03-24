@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIDispatchIrpDepFilterQueryID @ 0x1C0002CC0
+ * XREFs of ACPIDispatchIrpDepFilterQueryID @ 0x1C0010700
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIBuildProcessDelayedDependencyExternalTrigger @ 0x1C0002C40 (ACPIBuildProcessDelayedDependencyExternalTrigger.c)
- *     ACPIDevicePowerFlushQueue @ 0x1C000776C (ACPIDevicePowerFlushQueue.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     ACPIBuildFlushQueue @ 0x1C0094E40 (ACPIBuildFlushQueue.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIBuildProcessDelayedDependencyExternalTrigger @ 0x1C00119AC (ACPIBuildProcessDelayedDependencyExternalTrigger.c)
+ *     ACPIDevicePowerFlushQueue @ 0x1C001C6E0 (ACPIDevicePowerFlushQueue.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ACPIBuildFlushQueue @ 0x1C009E358 (ACPIBuildFlushQueue.c)
  */
 
 __int64 __fastcall ACPIDispatchIrpDepFilterQueryID(ULONG_PTR a1, __int64 a2)

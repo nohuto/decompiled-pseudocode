@@ -1,46 +1,41 @@
 /*
- * XREFs of UserGetMonitorDC @ 0x1C0071A64
+ * XREFs of UserGetMonitorDC @ 0x1C00211C8
  * Callers:
- *     hdcOpenDCW @ 0x1C0071480 (hdcOpenDCW.c)
+ *     hdcOpenDCW @ 0x1C0021590 (hdcOpenDCW.c)
  * Callees:
- *     GetMonitorDC @ 0x1C00183FC (GetMonitorDC.c)
- *     W32GetThreadWin32Thread @ 0x1C0023390 (W32GetThreadWin32Thread.c)
- *     _GetDCEx @ 0x1C002B0A0 (_GetDCEx.c)
- *     GreLockVisRgn @ 0x1C002DE80 (GreLockVisRgn.c)
- *     GreUnlockVisRgn @ 0x1C002E140 (GreUnlockVisRgn.c)
- *     _ReleaseDC @ 0x1C0071B20 (_ReleaseDC.c)
- *     LookupDC @ 0x1C0071B50 (LookupDC.c)
- *     MonitorFromHdev @ 0x1C0071B98 (MonitorFromHdev.c)
+ *     LookupDC @ 0x1C0021280 (LookupDC.c)
+ *     MonitorFromHdev @ 0x1C00212C8 (MonitorFromHdev.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     _GetDCEx @ 0x1C0036C00 (_GetDCEx.c)
+ *     GreUnlockVisRgn @ 0x1C0038AB0 (GreUnlockVisRgn.c)
+ *     GreLockVisRgn @ 0x1C0038CD0 (GreLockVisRgn.c)
+ *     _ReleaseDC @ 0x1C0038E50 (_ReleaseDC.c)
+ *     GetMonitorDC @ 0x1C0039C70 (GetMonitorDC.c)
  */
 
-__int64 __fastcall UserGetMonitorDC(__int64 a1)
+__int64 UserGetMonitorDC()
 {
   __int64 MonitorDC; // rbx
-  struct tagMONITOR *v2; // rsi
-  __int64 v3; // rcx
-  __int64 v4; // r9
-  __int64 v5; // rdx
-  __int64 DCEx; // rdi
-  __int64 v7; // r8
-  __int64 v8; // rax
-  __int64 v9; // rdx
-  int v10; // r8d
+  __int64 v1; // rdi
+  __int64 v2; // rax
+  __int64 DCEx; // rsi
+  __int64 v4; // rax
 
   MonitorDC = 0LL;
-  v2 = (struct tagMONITOR *)MonitorFromHdev(a1);
-  if ( v2 )
+  v1 = MonitorFromHdev();
+  if ( v1 )
   {
-    v3 = *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456);
-    if ( v3 )
+    v2 = *(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 456);
+    if ( v2 )
     {
-      DCEx = GetDCEx(*(_QWORD **)(*(_QWORD *)(v3 + 8) + 24LL), 0LL, 8388611LL, v4);
+      DCEx = GetDCEx(*(_QWORD *)(*(_QWORD *)(v2 + 8) + 24LL), 0LL, 8388611LL);
       if ( DCEx )
       {
-        GreLockVisRgn(*((_QWORD *)gpDispInfo + 5), v5, v7);
-        v8 = LookupDC(DCEx, 1LL);
-        MonitorDC = GetMonitorDC(v8, v2, 1);
+        GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40));
+        v4 = LookupDC(DCEx, 1LL);
+        MonitorDC = GetMonitorDC(v4, v1, 1LL);
         ReleaseDC(DCEx);
-        GreUnlockVisRgn(*((_QWORD *)gpDispInfo + 5), v9, v10);
+        GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40));
       }
     }
   }

@@ -1,11 +1,10 @@
 /*
- * XREFs of InitCreateSystemThreadsMsg @ 0x1C00B8420
+ * XREFs of InitCreateSystemThreadsMsg @ 0x1C00B5150
  * Callers:
- *     ?SendVideoPortCalloutRequest@@YAJPEAU_POWER_INIT@@PEAH@Z @ 0x1C00CD504 (-SendVideoPortCalloutRequest@@YAJPEAU_POWER_INIT@@PEAH@Z.c)
- *     ?SendIVWorkerThreadRequest@@YAJPEAU_IVWORKER_INIT@@@Z @ 0x1C01ED844 (-SendIVWorkerThreadRequest@@YAJPEAU_IVWORKER_INIT@@@Z.c)
+ *     ?SendVideoPortCalloutRequest@@YAJPEAU_POWER_INIT@@PEAH@Z @ 0x1C0118A8C (-SendVideoPortCalloutRequest@@YAJPEAU_POWER_INIT@@PEAH@Z.c)
  * Callees:
- *     CSTPush @ 0x1C00B8480 (CSTPush.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     CSTPush @ 0x1C00B51B0 (CSTPush.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 __fastcall InitCreateSystemThreadsMsg(_DWORD *a1, unsigned int a2, __int64 a3)

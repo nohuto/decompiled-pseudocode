@@ -1,15 +1,13 @@
 /*
- * XREFs of ?CreateNewGenerator@CPrimitiveGroup@@AEAAJPEAPEAVCPrimitiveGroupDrawListGenerator@@@Z @ 0x180010DB4
+ * XREFs of ?CreateNewGenerator@CPrimitiveGroup@@AEAAJPEAPEAVCPrimitiveGroupDrawListGenerator@@@Z @ 0x18009F4F8
  * Callers:
- *     ?EnsureDrawListGenerator@CPrimitiveGroup@@AEAAJXZ @ 0x1800102D4 (-EnsureDrawListGenerator@CPrimitiveGroup@@AEAAJXZ.c)
+ *     ?EnsureDrawListGenerator@CPrimitiveGroup@@AEAAJXZ @ 0x1800BA658 (-EnsureDrawListGenerator@CPrimitiveGroup@@AEAAJXZ.c)
  * Callees:
- *     ?CreateFromSharedSection@CD2DSharedBuffer@@SAJPEAXIPEAVCSharedSection@@PEAPEAUID2D1PrivateCompositorBuffer@@@Z @ 0x180011080 (-CreateFromSharedSection@CD2DSharedBuffer@@SAJPEAXIPEAVCSharedSection@@PEAPEAUID2D1PrivateCompos.c)
- *     ?Create@CPrimitiveGroupDrawListGenerator@@SAJPEAUID2D1PrivateCompositorBuffer@@0AEBV?$span@PEAVIBitmapResource@@$0?0@gsl@@1AEBV?$span@PEAVCPrimitiveColor@@$0?0@4@PEAPEAV1@@Z @ 0x18001119C (-Create@CPrimitiveGroupDrawListGenerator@@SAJPEAUID2D1PrivateCompositorBuffer@@0AEBV-$span@PEAVI.c)
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800255BC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800C4940 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Create@CPrimitiveGroupDrawListGenerator@@SAJPEAUID2D1PrivateCompositorBuffer@@0AEBV?$span@PEAVIBitmapResource@@$0?0@gsl@@1AEBV?$span@PEAVCPrimitiveColor@@$0?0@4@PEAPEAV1@@Z @ 0x180063240 (-Create@CPrimitiveGroupDrawListGenerator@@SAJPEAUID2D1PrivateCompositorBuffer@@0AEBV-$span@PEAVI.c)
+ *     ?CreateFromSharedSection@CD2DSharedBuffer@@SAJPEAXIPEAVCSharedSection@@PEAPEAUID2D1PrivateCompositorBuffer@@@Z @ 0x18009F810 (-CreateFromSharedSection@CD2DSharedBuffer@@SAJPEAXIPEAVCSharedSection@@PEAPEAUID2D1PrivateCompos.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800B8A24 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CPrimitiveGroup::CreateNewGenerator(
@@ -22,11 +20,11 @@ __int64 __fastcall CPrimitiveGroup::CreateNewGenerator(
   __int64 v7; // r14
   void *v8; // rcx
   int v9; // eax
-  unsigned int v10; // ecx
+  __int64 v10; // rcx
   struct ID2D1PrivateCompositorBuffer *v11; // r15
   unsigned int v12; // edi
   int v13; // eax
-  unsigned int v14; // ecx
+  __int64 v14; // rcx
   unsigned int v15; // eax
   __int64 *v16; // r12
   unsigned int v17; // r8d
@@ -35,142 +33,140 @@ __int64 __fastcall CPrimitiveGroup::CreateNewGenerator(
   unsigned int v20; // eax
   unsigned int v21; // eax
   int v22; // eax
-  unsigned int v23; // ecx
+  __int64 v23; // rcx
   __int64 *v24; // rsi
   int v25; // eax
-  unsigned int v26; // ecx
+  __int64 v26; // rcx
   __int64 v27; // r9
   __int64 v28; // rcx
   unsigned int i; // r9d
   unsigned int v30; // eax
   __int64 j; // r8
-  __int64 v32; // rdi
-  __int64 v33; // rsi
-  gsl::details *v34; // rcx
-  __int64 v35; // rsi
-  int v36; // eax
-  unsigned int v37; // ecx
-  __int64 v39; // r8
-  __int64 v40; // rcx
-  __int64 v41[2]; // [rsp+30h] [rbp-30h] BYREF
-  _QWORD v42[2]; // [rsp+40h] [rbp-20h] BYREF
-  _QWORD v43[2]; // [rsp+50h] [rbp-10h] BYREF
-  struct ID2D1PrivateCompositorBuffer *v44; // [rsp+A0h] [rbp+40h] BYREF
-  __int64 v45; // [rsp+A8h] [rbp+48h] BYREF
-  struct ID2D1PrivateCompositorBuffer *v46; // [rsp+B0h] [rbp+50h] BYREF
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  __int64 v34; // rax
+  int v35; // eax
+  __int64 v36; // rcx
+  __int64 v38; // r8
+  __int64 v39; // rcx
+  __int128 v40; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v41; // [rsp+40h] [rbp-20h] BYREF
+  __int128 v42; // [rsp+50h] [rbp-10h] BYREF
+  struct ID2D1PrivateCompositorBuffer *v43; // [rsp+A0h] [rbp+40h] BYREF
+  __int64 v44; // [rsp+A8h] [rbp+48h] BYREF
+  struct ID2D1PrivateCompositorBuffer *v45; // [rsp+B0h] [rbp+50h] BYREF
 
   v2 = 0LL;
   *a2 = 0LL;
-  v4 = (struct CSharedSection *)*((_QWORD *)this + 49);
-  v6 = *((_DWORD *)this + 120);
+  v4 = (struct CSharedSection *)*((_QWORD *)this + 54);
+  v6 = *((_DWORD *)this + 130);
   v7 = 0LL;
-  v8 = (void *)*((_QWORD *)this + 59);
-  v46 = 0LL;
+  v8 = (void *)*((_QWORD *)this + 64);
   v45 = 0LL;
   v44 = 0LL;
-  v9 = CD2DSharedBuffer::CreateFromSharedSection(v8, v6, v4, &v46);
-  v11 = v46;
+  v43 = 0LL;
+  v9 = CD2DSharedBuffer::CreateFromSharedSection(v8, v6, v4, &v45);
+  v11 = v45;
   v12 = v9;
   if ( v9 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x220u, 0LL);
-    goto LABEL_23;
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x272u, 0LL);
+    goto LABEL_20;
   }
   v13 = CD2DSharedBuffer::CreateFromSharedSection(
-          *((void **)this + 61),
-          *((_DWORD *)this + 124),
-          *((struct CSharedSection **)this + 49),
-          &v44);
+          *((void **)this + 66),
+          *((_DWORD *)this + 134),
+          *((struct CSharedSection **)this + 54),
+          &v43);
   v12 = v13;
   if ( v13 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x226u, 0LL);
-    goto LABEL_45;
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x278u, 0LL);
+    goto LABEL_41;
   }
-  v15 = *((_DWORD *)this + 40);
-  v16 = (__int64 *)((char *)this + 264);
-  v17 = *((_DWORD *)this + 102);
-  v18 = *((_DWORD *)this + 103);
-  v19 = *((_DWORD *)this + 56);
+  v15 = *((_DWORD *)this + 50);
+  v16 = (__int64 *)((char *)this + 304);
+  v17 = *((_DWORD *)this + 112);
+  v18 = *((_DWORD *)this + 113);
+  v19 = *((_DWORD *)this + 66);
   if ( v17 >= v15 )
-    v17 = *((_DWORD *)this + 40);
+    v17 = *((_DWORD *)this + 50);
   v20 = v15 - v17;
-  *((_DWORD *)this + 102) = v17;
+  *((_DWORD *)this + 112) = v17;
   if ( v18 >= v20 )
     v18 = v20;
-  v21 = *((_DWORD *)this + 104);
-  *((_DWORD *)this + 103) = v18;
+  v21 = *((_DWORD *)this + 114);
+  *((_DWORD *)this + 113) = v18;
   if ( v21 >= v19 )
     v21 = v19;
-  *((_DWORD *)this + 104) = v21;
-  v22 = DynArrayImpl<0>::Grow((int)this + 264, 8, v18 + v17, 1, 0LL);
+  *((_DWORD *)this + 114) = v21;
+  v22 = DynArrayImpl<0>::Grow((int)this + 304, 8, v18 + v17, 1, 0LL);
   v12 = v22;
   if ( v22 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x22Du, 0LL);
-    goto LABEL_45;
+    MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x27Fu, 0LL);
+    goto LABEL_41;
   }
-  v24 = (__int64 *)((char *)this + 328);
-  *((_DWORD *)this + 72) = *((_DWORD *)this + 102) + *((_DWORD *)this + 103);
-  v25 = DynArrayImpl<0>::Grow((int)this + 328, 8, *((_DWORD *)this + 104), 1, 0LL);
+  v24 = (__int64 *)((char *)this + 368);
+  *((_DWORD *)this + 82) = *((_DWORD *)this + 112) + *((_DWORD *)this + 113);
+  v25 = DynArrayImpl<0>::Grow((int)this + 368, 8, *((_DWORD *)this + 114), 1, 0LL);
   v12 = v25;
   if ( v25 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0x230u, 0LL);
-LABEL_45:
-    v2 = v44;
-    goto LABEL_23;
+    MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0x282u, 0LL);
+LABEL_41:
+    v2 = v43;
+    goto LABEL_20;
   }
   v27 = 0LL;
-  for ( *((_DWORD *)this + 88) = *((_DWORD *)this + 104);
-        (unsigned int)v27 < *((_DWORD *)this + 102);
+  for ( *((_DWORD *)this + 98) = *((_DWORD *)this + 114);
+        (unsigned int)v27 < *((_DWORD *)this + 112);
         v27 = (unsigned int)(v27 + 1) )
   {
-    v28 = *(_QWORD *)(*((_QWORD *)this + 17) + 8 * v27);
-    *(_QWORD *)(*v16 + 8 * v27) = (v28 + 72) & -(__int64)(v28 != 0);
+    v28 = *(_QWORD *)(*((_QWORD *)this + 22) + 8 * v27);
+    *(_QWORD *)(*v16 + 8 * v27) = (v28 + 64) & -(__int64)(v28 != 0);
   }
-  for ( i = 0; i < *((_DWORD *)this + 103); *(_QWORD *)(*v16 + 8 * v39) = (v40 + 72) & -(__int64)(v40 != 0) )
+  for ( i = 0; i < *((_DWORD *)this + 113); *(_QWORD *)(*v16 + 8 * v38) = (v39 + 64) & -(__int64)(v39 != 0) )
   {
-    v39 = i + *((_DWORD *)this + 102);
-    v40 = *(_QWORD *)(*((_QWORD *)this + 17) + 8 * v39);
+    v38 = i + *((_DWORD *)this + 112);
+    v39 = *(_QWORD *)(*((_QWORD *)this + 22) + 8 * v38);
     ++i;
   }
-  v30 = *((_DWORD *)this + 104);
-  for ( j = 0LL; (unsigned int)j < v30; v30 = *((_DWORD *)this + 104) )
+  v30 = *((_DWORD *)this + 114);
+  for ( j = 0LL; (unsigned int)j < v30; v30 = *((_DWORD *)this + 114) )
   {
-    *(_QWORD *)(*v24 + 8 * j) = *(_QWORD *)(*((_QWORD *)this + 25) + 8 * j);
+    *(_QWORD *)(*v24 + 8 * j) = *(_QWORD *)(*((_QWORD *)this + 30) + 8 * j);
     j = (unsigned int)(j + 1);
   }
   v32 = *v16;
-  v33 = *v24;
-  gsl::details::extent_type<-1>::extent_type<-1>(v41, v30);
-  v41[1] = v33;
-  if ( v41[0] == -1
-    || !v33 && v41[0]
-    || (v35 = v32 + 8LL * *((unsigned int *)this + 102),
-        gsl::details::extent_type<-1>::extent_type<-1>(v42, *((unsigned int *)this + 103)),
-        v42[1] = v35,
-        v42[0] == -1LL)
-    || !v35 && v42[0]
-    || (gsl::details::extent_type<-1>::extent_type<-1>(v43, *((unsigned int *)this + 102)), v43[1] = v32, v43[0] == -1LL)
-    || !v32 && v43[0] )
+  v33 = v30;
+  v34 = *v24;
+  *(_QWORD *)&v40 = v33;
+  *((_QWORD *)&v40 + 1) = v34;
+  if ( !v34 && v33
+    || (v33 = *((unsigned int *)this + 112),
+        j = *((unsigned int *)this + 113),
+        *(_QWORD *)&v41 = j,
+        (*((_QWORD *)&v41 + 1) = v32 + 8 * v33) == 0LL)
+    && j
+    || (*(_QWORD *)&v42 = v33, (*((_QWORD *)&v42 + 1) = v32) == 0LL) && v33 )
   {
-    gsl::details::terminate(v34);
-    JUMPOUT(0x180011076LL);
+    ((void (__fastcall *)(__int64, __int64, __int64))`gsl::details::get_terminate_handler'::`2'::handler)(v33, v32, j);
+    __debugbreak();
   }
-  v2 = v44;
-  v36 = CPrimitiveGroupDrawListGenerator::Create(v11, v44, (__int64)v41, (__int64)&v45);
-  v12 = v36;
-  if ( v36 < 0 )
+  v2 = v43;
+  v35 = CPrimitiveGroupDrawListGenerator::Create(v11, v43, &v42, &v41, &v40, &v44);
+  v12 = v35;
+  if ( v35 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v36, 0x25Fu, 0LL);
-    v7 = v45;
+    MilInstrumentationCheckHR_MaybeFailFast(v36, 0LL, 0, v35, 0x2B1u, 0LL);
+    v7 = v44;
   }
   else
   {
-    *a2 = (struct CPrimitiveGroupDrawListGenerator *)v45;
+    *a2 = (struct CPrimitiveGroupDrawListGenerator *)v44;
   }
-LABEL_23:
+LABEL_20:
   if ( v11 )
     (*(void (__fastcall **)(struct ID2D1PrivateCompositorBuffer *))(*(_QWORD *)v11 + 16LL))(v11);
   if ( v2 )

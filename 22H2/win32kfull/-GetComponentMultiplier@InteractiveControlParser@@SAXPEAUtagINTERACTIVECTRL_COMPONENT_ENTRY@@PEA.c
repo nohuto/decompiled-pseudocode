@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetComponentMultiplier@InteractiveControlParser@@SAXPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@PEAJ1@Z @ 0x1C024AC30
+ * XREFs of ?GetComponentMultiplier@InteractiveControlParser@@SAXPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@PEAJ1@Z @ 0x1C025BE64
  * Callers:
- *     ?CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL_CAPABILITIES@@PEAPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@@Z @ 0x1C024A7A4 (-CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL.c)
+ *     ?CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL_CAPABILITIES@@PEAPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@@Z @ 0x1C025B95C (-CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,8 @@ void __fastcall InteractiveControlParser::GetComponentMultiplier(
   int v5; // r8d
   int v6; // eax
   int v7; // eax
-  __int64 v8; // rdx
+  bool v8; // cc
+  __int64 v9; // r9
 
   if ( !*((_QWORD *)a1 + 9) )
   {
@@ -33,38 +34,42 @@ void __fastcall InteractiveControlParser::GetComponentMultiplier(
   {
     case 17:
       v7 = 1000 * *a2;
-LABEL_16:
-      *a2 = v7;
-      goto LABEL_17;
+      break;
     case 19:
       v7 = 2540 * *a2;
-      goto LABEL_16;
+      break;
     case 18:
       v7 = 5730 * *a2;
-      goto LABEL_16;
+      break;
     case 20:
       v7 = 100 * *a2;
-      goto LABEL_16;
+      break;
+    default:
+      if ( v6 || *((_DWORD *)a1 + 4) != 3 )
+        goto LABEL_17;
+      v7 = 36000 * *a2;
+      break;
   }
-  if ( !v6 && *((_DWORD *)a1 + 4) == 3 )
-  {
-    v7 = 36000 * *a2;
-    goto LABEL_16;
-  }
+  *a2 = v7;
 LABEL_17:
+  v8 = v5 <= 0;
   if ( v5 >= 0 )
+    goto LABEL_23;
+  v9 = (unsigned int)-v5;
+  v5 = 0;
+  do
   {
-    for ( ; v5 > 0; *a2 *= 10 )
-      --v5;
+    *a3 *= 10;
+    --v9;
   }
-  else
+  while ( v9 );
+  while ( 1 )
   {
-    v8 = (unsigned int)-v5;
-    do
-    {
-      *a3 *= 10;
-      --v8;
-    }
-    while ( v8 );
+    v8 = v5 <= 0;
+LABEL_23:
+    if ( v8 )
+      break;
+    *a2 *= 10;
+    --v5;
   }
 }

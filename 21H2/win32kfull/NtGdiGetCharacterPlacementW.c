@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiGetCharacterPlacementW @ 0x1C02ACDC0
+ * XREFs of NtGdiGetCharacterPlacementW @ 0x1C02AE690
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     GreGetCharacterPlacementW @ 0x1C02BAA8C (GreGetCharacterPlacementW.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     GreGetCharacterPlacementW @ 0x1C02BC4D0 (GreGetCharacterPlacementW.c)
  */
 
 __int64 __fastcall NtGdiGetCharacterPlacementW(HDC a1, const void *a2, int a3, int a4, __m128i *a5, int a6)

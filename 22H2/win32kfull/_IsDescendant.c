@@ -1,10 +1,10 @@
 /*
- * XREFs of _IsDescendant @ 0x1C00D3E60
+ * XREFs of _IsDescendant @ 0x1C004C578
  * Callers:
- *     CalcVisRgn @ 0x1C0033320 (CalcVisRgn.c)
- *     ?WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z @ 0x1C00D3D3C (-WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z.c)
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
- *     xxxScrollWindowEx @ 0x1C022EE20 (xxxScrollWindowEx.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
+ *     ?WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z @ 0x1C004C510 (-WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z.c)
+ *     xxxScrollWindowEx @ 0x1C00677EC (xxxScrollWindowEx.c)
+ *     CalcVisRgn @ 0x1C00738B0 (CalcVisRgn.c)
  * Callees:
  *     <none>
  */

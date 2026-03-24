@@ -1,9 +1,9 @@
 /*
- * XREFs of ?reset@?$com_ptr_t@V?$CWeakReference@VCVisual@@@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800F6DC0
+ * XREFs of ?reset@?$com_ptr_t@V?$CWeakReference@VCVisual@@@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800DB048
  * Callers:
- *     ?RegisterNotifiers@CVisualReferenceController@@QEAAJPEAVCResourceTable@@@Z @ 0x1800E6CBC (-RegisterNotifiers@CVisualReferenceController@@QEAAJPEAVCResourceTable@@@Z.c)
- *     ?UnRegisterNotifiers@CVisualReferenceController@@UEAAXXZ @ 0x1800E6FD0 (-UnRegisterNotifiers@CVisualReferenceController@@UEAAXXZ.c)
- *     ?Create@CExcludeVisualReference@@SAJPEAVCVisual@@PEAPEAV1@@Z @ 0x1801A9144 (-Create@CExcludeVisualReference@@SAJPEAVCVisual@@PEAPEAV1@@Z.c)
+ *     ?Initialize@CExcludeVisualReference@@IEAAJPEAVCVisual@@@Z @ 0x1800E08D8 (-Initialize@CExcludeVisualReference@@IEAAJPEAVCVisual@@@Z.c)
+ *     ?RegisterNotifiers@CVisualReferenceController@@QEAAJPEAVCResourceTable@@@Z @ 0x1800E0A18 (-RegisterNotifiers@CVisualReferenceController@@QEAAJPEAVCResourceTable@@@Z.c)
+ *     ?UnRegisterNotifiers@CVisualReferenceController@@UEAAXXZ @ 0x1800E18B0 (-UnRegisterNotifiers@CVisualReferenceController@@UEAAXXZ.c)
  * Callees:
  *     <none>
  */

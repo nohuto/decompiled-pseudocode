@@ -1,12 +1,12 @@
 /*
- * XREFs of IopDuplicateDetection @ 0x1408373C4
+ * XREFs of IopDuplicateDetection @ 0x1407AF4B4
  * Callers:
- *     IoReportDetectedDevice @ 0x140836920 (IoReportDetectedDevice.c)
+ *     IoReportDetectedDevice @ 0x1407AED50 (IoReportDetectedDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     IopFindLegacyBusDeviceNode @ 0x14081A9D0 (IopFindLegacyBusDeviceNode.c)
- *     IopQueryResourceHandlerInterface @ 0x14081AB14 (IopQueryResourceHandlerInterface.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     IopFindLegacyBusDeviceNode @ 0x140751A7C (IopFindLegacyBusDeviceNode.c)
+ *     IopQueryResourceHandlerInterface @ 0x140751BBC (IopQueryResourceHandlerInterface.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopDuplicateDetection(unsigned int a1, unsigned int a2, unsigned int a3, _QWORD *a4)
@@ -24,7 +24,7 @@ __int64 __fastcall IopDuplicateDetection(unsigned int a1, unsigned int a2, unsig
   LegacyBusDeviceNode = IopFindLegacyBusDeviceNode(a1, a2);
   if ( !LegacyBusDeviceNode )
     return 3221225488LL;
-  if ( (int)IopQueryResourceHandlerInterface(3, LegacyBusDeviceNode[4], 0, (unsigned __int16 **)&P) < 0 )
+  if ( (int)IopQueryResourceHandlerInterface(3, (struct _DEVICE_OBJECT *)LegacyBusDeviceNode[4], 0, &P) < 0 )
     return 3221225488LL;
   v11 = (void (__fastcall **)(_QWORD))P;
   if ( !P )

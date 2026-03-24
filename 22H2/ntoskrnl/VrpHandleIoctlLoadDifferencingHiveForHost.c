@@ -1,119 +1,95 @@
 /*
- * XREFs of VrpHandleIoctlLoadDifferencingHiveForHost @ 0x140A72664
+ * XREFs of VrpHandleIoctlLoadDifferencingHiveForHost @ 0x140882D90
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x14077B590 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x1405D3110 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     VrpLoadDifferencingHive @ 0x14077BFAC (VrpLoadDifferencingHive.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     VrpLoadDifferencingHive @ 0x1405D5E44 (VrpLoadDifferencingHive.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlLoadDifferencingHiveForHost(__int64 a1, unsigned int a2, KPROCESSOR_MODE a3)
 {
-  int v6; // eax
-  int v7; // ecx
-  int v8; // r8d
-  unsigned int v9; // ebx
-  unsigned int v10; // edx
-  unsigned int v11; // ecx
-  unsigned __int64 v12; // rdx
-  unsigned __int64 v13; // rax
-  _WORD *Pool2; // rsi
-  int v15; // edi
-  __int64 v16; // rax
-  signed __int8 v17; // cf
-  __int64 v18; // rdi
+  _WORD *PoolWithQuotaTag; // rdi
+  int v7; // ebx
+  int v8; // eax
+  int v9; // ecx
+  int v10; // r8d
+  unsigned int v11; // edx
+  unsigned int v12; // ecx
+  unsigned __int64 v13; // rdx
+  unsigned __int64 v14; // rax
   void *Src[2]; // [rsp+40h] [rbp-30h] BYREF
-  UNICODE_STRING v21; // [rsp+50h] [rbp-20h] BYREF
-  __int128 v22; // [rsp+60h] [rbp-10h] BYREF
+  UNICODE_STRING v17; // [rsp+50h] [rbp-20h] BYREF
+  __int128 v18; // [rsp+60h] [rbp-10h] BYREF
 
-  v21 = 0LL;
-  v22 = 0LL;
+  PoolWithQuotaTag = 0LL;
+  v17 = 0LL;
+  v18 = 0LL;
   *(_OWORD *)Src = 0LL;
   if ( a2 < 0x20 )
     return (unsigned int)-1073741811;
-  v6 = *(unsigned __int16 *)(a1 + 8);
-  if ( (v6 & 1) != 0 )
-    return (unsigned int)-1073741811;
-  v7 = *(unsigned __int16 *)(a1 + 10);
-  if ( (v7 & 1) != 0 )
-    return (unsigned int)-1073741811;
-  v8 = *(unsigned __int16 *)(a1 + 12);
-  if ( (v8 & 1) != 0 )
-    return (unsigned int)-1073741811;
-  v9 = 0;
-  if ( !(_WORD)v6 )
-    return (unsigned int)-1073741811;
-  if ( !(_WORD)v7 )
-    return (unsigned int)-1073741811;
-  v10 = v6 + 24;
-  v11 = v10 + v7;
-  if ( v10 > v11 || v11 > v11 + v8 || a2 < v11 + v8 )
+  v8 = *(unsigned __int16 *)(a1 + 8);
+  if ( (v8 & 1) != 0
+    || (v9 = *(unsigned __int16 *)(a1 + 10), (v9 & 1) != 0)
+    || (v10 = *(unsigned __int16 *)(a1 + 12), (v10 & 1) != 0) )
   {
-    return (unsigned int)-1073741811;
-  }
-  else if ( SeSinglePrivilegeCheck(SeBackupPrivilege, a3) && SeSinglePrivilegeCheck(SeRestorePrivilege, a3) )
-  {
-    v12 = *(unsigned __int16 *)(a1 + 8);
-    Src[1] = (void *)(a1 + 24);
-    WORD1(Src[0]) = v12;
-    LOWORD(Src[0]) = v12;
-    v13 = *(unsigned __int16 *)(a1 + 10);
-    WORD1(v22) = v13;
-    LOWORD(v22) = v13;
-    *((_QWORD *)&v22 + 1) = a1 + 24 + 2 * (v12 >> 1);
-    v21.Buffer = (wchar_t *)(*((_QWORD *)&v22 + 1) + 2 * (v13 >> 1));
-    v21.MaximumLength = *(_WORD *)(a1 + 12);
-    v21.Length = v21.MaximumLength;
-    Pool2 = (_WORD *)ExAllocatePool2(257LL, v12 + 10, 1734693462LL);
-    if ( Pool2 )
-    {
-      Pool2[4] = Src[0];
-      memmove(Pool2 + 5, Src[1], LOWORD(Src[0]));
-      v15 = VrpLoadDifferencingHive(
-              (const UNICODE_STRING *)Src,
-              (__int64)&v22,
-              &v21,
-              *(_DWORD *)a1,
-              *(_DWORD *)(a1 + 4) & 1,
-              (*(_DWORD *)(a1 + 4) >> 1) & 1,
-              0,
-              *(void **)(a1 + 16));
-      if ( v15 < 0 )
-      {
-        ExFreePoolWithTag(Pool2, 0);
-        return (unsigned int)v15;
-      }
-      else
-      {
-        v16 = KeAbPreAcquire((__int64)&VrpHostLoadedHivesLock, 0LL);
-        v17 = _interlockedbittestandset64((volatile signed __int32 *)&VrpHostLoadedHivesLock, 0LL);
-        v18 = v16;
-        if ( v17 )
-          ExfAcquirePushLockExclusiveEx(&VrpHostLoadedHivesLock, v16, (__int64)&VrpHostLoadedHivesLock);
-        if ( v18 )
-          *(_BYTE *)(v18 + 18) = 1;
-        *(_QWORD *)Pool2 = VrpHostLoadedHives;
-        VrpHostLoadedHives = (__int64)Pool2;
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&VrpHostLoadedHivesLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&VrpHostLoadedHivesLock);
-        KeAbPostRelease((ULONG_PTR)&VrpHostLoadedHivesLock);
-      }
-    }
-    else
-    {
-      return (unsigned int)-1073741670;
-    }
+    v7 = -1073741811;
   }
   else
   {
-    return (unsigned int)-1073741727;
+    if ( !(_WORD)v8 )
+      return (unsigned int)-1073741811;
+    if ( !(_WORD)v9 )
+      return (unsigned int)-1073741811;
+    v11 = v8 + 24;
+    v12 = v11 + v9;
+    if ( v11 > v12 || v12 > v12 + v10 || a2 < v12 + v10 )
+      return (unsigned int)-1073741811;
+    if ( !SeSinglePrivilegeCheck(SeBackupPrivilege, a3) || !SeSinglePrivilegeCheck(SeRestorePrivilege, a3) )
+      return (unsigned int)-1073741727;
+    v13 = *(unsigned __int16 *)(a1 + 8);
+    Src[1] = (void *)(a1 + 24);
+    WORD1(Src[0]) = v13;
+    LOWORD(Src[0]) = v13;
+    v14 = *(unsigned __int16 *)(a1 + 10);
+    WORD1(v18) = v14;
+    LOWORD(v18) = v14;
+    *((_QWORD *)&v18 + 1) = a1 + 24 + 2 * (v13 >> 1);
+    v17.Buffer = (wchar_t *)(*((_QWORD *)&v18 + 1) + 2 * (v14 >> 1));
+    v17.MaximumLength = *(_WORD *)(a1 + 12);
+    v17.Length = v17.MaximumLength;
+    PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v13 + 10, 0x67655256u);
+    if ( !PoolWithQuotaTag )
+      return (unsigned int)-1073741670;
+    PoolWithQuotaTag[4] = Src[0];
+    memmove(PoolWithQuotaTag + 5, Src[1], LOWORD(Src[0]));
+    v7 = VrpLoadDifferencingHive(
+           (PCUNICODE_STRING)Src,
+           (__int64)&v18,
+           &v17,
+           *(_DWORD *)a1,
+           *(_DWORD *)(a1 + 4) & 1,
+           (*(_DWORD *)(a1 + 4) >> 1) & 1,
+           0,
+           *(_QWORD *)(a1 + 16));
+    if ( v7 >= 0 )
+    {
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&VrpHostLoadedHivesLock, 0LL);
+      *(_QWORD *)PoolWithQuotaTag = VrpHostLoadedHives;
+      VrpHostLoadedHives = (__int64)PoolWithQuotaTag;
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&VrpHostLoadedHivesLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&VrpHostLoadedHivesLock);
+      KeAbPostRelease((ULONG_PTR)&VrpHostLoadedHivesLock);
+      return 0;
+    }
   }
-  return v9;
+  if ( PoolWithQuotaTag )
+    ExFreePoolWithTag(PoolWithQuotaTag, 0);
+  return (unsigned int)v7;
 }

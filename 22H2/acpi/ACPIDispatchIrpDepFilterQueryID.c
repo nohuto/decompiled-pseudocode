@@ -1,31 +1,33 @@
 /*
- * XREFs of ACPIDispatchIrpDepFilterQueryID @ 0x1C0028430
+ * XREFs of ACPIDispatchIrpDepFilterQueryID @ 0x1C0010700
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     ACPIBuildProcessDelayedDependencyExternalTrigger @ 0x1C000E1CC (ACPIBuildProcessDelayedDependencyExternalTrigger.c)
- *     ACPIDevicePowerFlushQueue @ 0x1C001EADC (ACPIDevicePowerFlushQueue.c)
- *     ACPIBuildFlushQueue @ 0x1C007D43C (ACPIBuildFlushQueue.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIBuildProcessDelayedDependencyExternalTrigger @ 0x1C00119AC (ACPIBuildProcessDelayedDependencyExternalTrigger.c)
+ *     ACPIDevicePowerFlushQueue @ 0x1C001C6E0 (ACPIDevicePowerFlushQueue.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ACPIBuildFlushQueue @ 0x1C009E358 (ACPIBuildFlushQueue.c)
  */
 
 __int64 __fastcall ACPIDispatchIrpDepFilterQueryID(ULONG_PTR a1, __int64 a2)
 {
-  _QWORD *DeviceExtension; // rdi
+  __int64 DeviceExtension; // rdi
   KIRQL v5; // bl
   __int64 v6; // rdx
   KIRQL v7; // al
 
-  DeviceExtension = (_QWORD *)ACPIInternalGetDeviceExtension(a1);
+  DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   v5 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-  ACPIBuildProcessDelayedDependencyExternalTrigger((__int64)DeviceExtension);
+  ACPIBuildProcessDelayedDependencyExternalTrigger(DeviceExtension);
   KeReleaseSpinLock(&AcpiDeviceTreeLock, v5);
   LOBYTE(v6) = 1;
   ACPIBuildFlushQueue(DeviceExtension, v6);
   ACPIDevicePowerFlushQueue(DeviceExtension);
   v7 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-  DeviceExtension[3] = AcpiFilterIrpDispatch;
+  *(_QWORD *)(DeviceExtension + 24) = AcpiFilterIrpDispatch;
   KeReleaseSpinLock(&AcpiDeviceTreeLock, v7);
-  return (*(__int64 (__fastcall **)(ULONG_PTR, __int64))(*(_QWORD *)(DeviceExtension[3] + 24LL) + 152LL))(a1, a2);
+  return (*(__int64 (__fastcall **)(ULONG_PTR, __int64))(*(_QWORD *)(*(_QWORD *)(DeviceExtension + 24) + 24LL) + 152LL))(
+           a1,
+           a2);
 }

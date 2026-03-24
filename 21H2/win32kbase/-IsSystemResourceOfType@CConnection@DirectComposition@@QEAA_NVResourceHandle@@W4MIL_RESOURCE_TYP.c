@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsSystemResourceOfType@CConnection@DirectComposition@@QEAA_NVResourceHandle@@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C00146F4
+ * XREFs of ?IsSystemResourceOfType@CConnection@DirectComposition@@QEAA_NVResourceHandle@@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C005D140
  * Callers:
- *     NtDCompositionReferenceSharedResourceOnDwmChannel @ 0x1C0014810 (NtDCompositionReferenceSharedResourceOnDwmChannel.c)
+ *     NtDCompositionReferenceSharedResourceOnDwmChannel @ 0x1C005CFD0 (NtDCompositionReferenceSharedResourceOnDwmChannel.c)
  * Callees:
- *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0013C00 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0059A80 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall DirectComposition::CConnection::IsSystemResourceOfType(__int64 a1, int a2, unsigned int a3)
@@ -25,20 +25,16 @@ bool __fastcall DirectComposition::CConnection::IsSystemResourceOfType(__int64 a
   ExAcquireResourceExclusiveLite(v6, 1u);
   v7 = *(_QWORD **)(a1 + 152);
   v8 = (unsigned int)(a2 - 1);
-  v10 = 0;
-  if ( a2 )
+  if ( a2 && v8 < v7[17] )
   {
-    if ( v8 < v7[17] )
-    {
-      _mm_lfence();
-      v9 = *(_QWORD *)(v8 * v7[18] + v7[14]);
-      if ( v9 )
-      {
-        if ( (*(unsigned __int8 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v9 + 96LL))(v9, a3) )
-          v10 = 1;
-      }
-    }
+    _mm_lfence();
+    v9 = *(_QWORD *)(v8 * v7[18] + v7[14]);
   }
+  else
+  {
+    v9 = 0LL;
+  }
+  v10 = v9 && (*(unsigned __int8 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v9 + 96LL))(v9, a3);
   v11 = *(_QWORD *)(a1 + 152);
   ExReleaseResourceLite(*(PERESOURCE *)(v11 + 32));
   KeLeaveCriticalRegion();

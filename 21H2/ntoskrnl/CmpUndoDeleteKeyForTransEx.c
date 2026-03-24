@@ -1,342 +1,290 @@
 /*
- * XREFs of CmpUndoDeleteKeyForTransEx @ 0x140657ADC
+ * XREFs of CmpUndoDeleteKeyForTransEx @ 0x1405CD308
  * Callers:
- *     CmpCreateChild @ 0x140719278 (CmpCreateChild.c)
+ *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
  * Callees:
- *     CmpDereferenceSecurityNode @ 0x1402A2104 (CmpDereferenceSecurityNode.c)
- *     CmpTransEnlistUowInKcb @ 0x1402A21B0 (CmpTransEnlistUowInKcb.c)
- *     CmpTransEnlistUowInCmTrans @ 0x1402A2204 (CmpTransEnlistUowInCmTrans.c)
- *     CmpFindSecurityCellCacheIndex @ 0x140346D80 (CmpFindSecurityCellCacheIndex.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CmpGetSecurityDescriptorNodeEx @ 0x140657670 (CmpGetSecurityDescriptorNodeEx.c)
- *     HvLockHiveFlusherShared @ 0x14067C50C (HvLockHiveFlusherShared.c)
- *     HvUnlockHiveFlusherShared @ 0x14067C528 (HvUnlockHiveFlusherShared.c)
- *     CmpLockIXLockExclusive @ 0x14067E9B8 (CmpLockIXLockExclusive.c)
- *     CmpAllocateUnitOfWork @ 0x14067EA18 (CmpAllocateUnitOfWork.c)
- *     CmpLockIXLockIntent @ 0x14067EF3C (CmpLockIXLockIntent.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpRundownUnitOfWork @ 0x14071C120 (CmpRundownUnitOfWork.c)
- *     CmListGetPrevElement @ 0x140721F88 (CmListGetPrevElement.c)
- *     HvFreeCell @ 0x14079BD98 (HvFreeCell.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     CmLockHiveSecurityExclusive @ 0x14091C9C8 (CmLockHiveSecurityExclusive.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
- *     CmUnlockHiveSecurity @ 0x140AB4484 (CmUnlockHiveSecurity.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x140206EB0 (CmpFindSecurityCellCacheIndex.c)
+ *     CmpTransEnlistUowInKcb @ 0x140360610 (CmpTransEnlistUowInKcb.c)
+ *     CmpTransEnlistUowInCmTrans @ 0x140361D2C (CmpTransEnlistUowInCmTrans.c)
+ *     CmpDereferenceSecurityNode @ 0x1403F06FC (CmpDereferenceSecurityNode.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x1405CCAF8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     HvUnlockHiveFlusherShared @ 0x14066628C (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x1406662C4 (HvLockHiveFlusherShared.c)
+ *     CmUnlockHiveSecurity @ 0x14066A1E4 (CmUnlockHiveSecurity.c)
+ *     CmLockHiveSecurityExclusive @ 0x14066A204 (CmLockHiveSecurityExclusive.c)
+ *     CmpAllocateUnitOfWork @ 0x1406B8780 (CmpAllocateUnitOfWork.c)
+ *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
+ *     CmpLockIXLockExclusive @ 0x14071D3E0 (CmpLockIXLockExclusive.c)
+ *     CmpLockIXLockIntent @ 0x14071D440 (CmpLockIXLockIntent.c)
+ *     CmpRundownUnitOfWork @ 0x14071D7DC (CmpRundownUnitOfWork.c)
+ *     CmListGetPrevElement @ 0x140768A88 (CmListGetPrevElement.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpUndoDeleteKeyForTransEx(ULONG_PTR BugCheckParameter3, __int64 a2, void *a3)
 {
   __int64 v4; // rcx
-  __int64 v5; // r15
-  ULONG_PTR *v6; // r13
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
+  __int64 v5; // rdi
+  void *v6; // r15
+  __int64 *v7; // r13
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
   __int64 PrevElement; // r14
-  __int64 v11; // rax
-  int v12; // r9d
-  __int64 v13; // rbx
-  unsigned int v14; // esi
-  ULONG_PTR v15; // rcx
-  ULONG_PTR v16; // rdx
-  __int64 CellFlat; // rax
-  __int64 v18; // rcx
-  SIZE_T v19; // rbx
-  ULONG_PTR *PoolWithTag; // rax
-  ULONG_PTR v21; // rcx
-  __int64 CellPaged; // rax
-  __int64 v23; // r15
-  unsigned int v24; // r12d
-  int SecurityDescriptorNode; // ebx
-  ULONG_PTR *v26; // rsi
-  _DWORD *v27; // r12
+  __int64 v12; // rax
+  unsigned int v13; // r9d
+  unsigned int v14; // r12d
+  unsigned int v15; // esi
+  __int64 v16; // rcx
+  __int64 v17; // rdx
+  __int64 v18; // rax
+  __int64 *PoolWithTag; // rax
+  __int64 v20; // rax
+  __int64 v21; // r15
+  int SecurityDescriptorNode; // edi
+  __int64 *v23; // rsi
   _QWORD *UnitOfWork; // rax
-  ULONG_PTR v29; // rax
-  unsigned int v30; // ebx
-  __int64 v31; // rcx
-  __int64 v32; // rcx
-  ULONG_PTR *v33; // rsi
-  __int64 v34; // r14
-  __int64 v35; // rcx
-  ULONG_PTR v36; // rsi
-  unsigned int v37; // r15d
-  ULONG_PTR v38; // rcx
-  __int64 v39; // rax
-  unsigned int v40; // edx
-  ULONG_PTR v41; // rcx
-  _DWORD *v42; // rax
-  __int64 v43; // rax
-  ULONG_PTR v44; // rdx
-  __int64 v45; // rax
-  __int64 v46; // rcx
-  _DWORD v48[2]; // [rsp+40h] [rbp-38h] BYREF
-  unsigned int v49; // [rsp+48h] [rbp-30h] BYREF
-  int v50; // [rsp+4Ch] [rbp-2Ch]
-  _DWORD v51[2]; // [rsp+50h] [rbp-28h] BYREF
-  _DWORD v52[2]; // [rsp+58h] [rbp-20h] BYREF
-  __int64 v53; // [rsp+60h] [rbp-18h]
-  __int64 v54; // [rsp+68h] [rbp-10h]
-  __int64 v55; // [rsp+C0h] [rbp+48h] BYREF
-  __int64 v56; // [rsp+C8h] [rbp+50h]
-  void *Src; // [rsp+D0h] [rbp+58h]
-  ULONG_PTR v58; // [rsp+D8h] [rbp+60h] BYREF
+  int *v25; // rdi
+  int v26; // eax
+  __int64 v27; // rcx
+  ULONG_PTR v28; // rsi
+  __int64 v29; // rax
+  ULONG_PTR v30; // rdx
+  ULONG_PTR v31; // rcx
+  unsigned int v32; // r15d
+  _DWORD *v33; // rax
+  __int64 v34; // rax
+  ULONG_PTR v35; // rdx
+  __int64 v36; // rax
+  ULONG_PTR *v37; // rsi
+  __int64 v38; // r14
+  unsigned int v40; // [rsp+40h] [rbp-38h] BYREF
+  int v41; // [rsp+44h] [rbp-34h]
+  _DWORD v42[2]; // [rsp+48h] [rbp-30h] BYREF
+  _DWORD v43[2]; // [rsp+50h] [rbp-28h] BYREF
+  int *v44; // [rsp+58h] [rbp-20h]
+  __int64 v45; // [rsp+60h] [rbp-18h]
+  __int64 v46; // [rsp+68h] [rbp-10h]
+  ULONG_PTR v47; // [rsp+C0h] [rbp+48h] BYREF
+  __int64 v48; // [rsp+C8h] [rbp+50h]
+  void *v49; // [rsp+D0h] [rbp+58h]
+  __int64 v50; // [rsp+D8h] [rbp+60h] BYREF
 
-  Src = a3;
-  v56 = a2;
-  v51[1] = 0;
-  v52[1] = 0;
+  v49 = a3;
+  v48 = a2;
+  v42[1] = 0;
+  v43[1] = 0;
   v4 = *(_QWORD *)(BugCheckParameter3 + 72);
   v5 = a2;
-  v50 = -1;
-  LODWORD(v58) = -1;
-  v51[0] = -1;
-  v6 = 0LL;
-  v53 = 0LL;
-  v52[0] = -1;
-  v49 = 0;
-  v55 = 0LL;
-  PrevElement = CmListGetPrevElement(v4 + 208, &v55, a3, 0xFFFFFFFFLL);
-  if ( PrevElement )
+  v41 = -1;
+  LODWORD(v47) = -1;
+  v42[0] = -1;
+  v6 = a3;
+  v45 = 0LL;
+  v7 = 0LL;
+  v43[0] = -1;
+  v40 = 0;
+  v50 = 0LL;
+  PrevElement = CmListGetPrevElement(v4 + 208, &v50, a3, 0xFFFFFFFFLL);
+  if ( !PrevElement )
+    return 3221225524LL;
+  do
   {
-    do
+    if ( *(_DWORD *)(PrevElement + 68) == 3 && *(_QWORD *)(PrevElement + 88) == BugCheckParameter3 )
+      break;
+    PrevElement = CmListGetPrevElement(v8, &v50, v9, v10);
+  }
+  while ( PrevElement );
+  if ( !PrevElement )
+    return 3221225524LL;
+  v50 = 0LL;
+  v12 = CmListGetPrevElement(BugCheckParameter3 + 208, &v50, v9, v10);
+  v46 = v12;
+  if ( !v12 || *(_DWORD *)(v12 + 68) != 2 )
+    return 3221225524LL;
+  if ( *(_QWORD *)(BugCheckParameter3 + 288) == v5 )
+  {
+    v14 = *(_DWORD *)(BugCheckParameter3 + 280);
+    v15 = *(_DWORD *)(BugCheckParameter3 + 284);
+  }
+  else
+  {
+    v16 = *(_QWORD *)(BugCheckParameter3 + 32);
+    v17 = *(unsigned int *)(BugCheckParameter3 + 40);
+    v50 = v13;
+    v18 = (*(__int64 (__fastcall **)(__int64, __int64, __int64 *))(v16 + 8))(v16, v17, &v50);
+    if ( !v18 )
+      return 3221225626LL;
+    v14 = *(_DWORD *)(v18 + 36);
+    v15 = *(_DWORD *)(v18 + 40);
+    (*(void (__fastcall **)(_QWORD, __int64 *))(*(_QWORD *)(BugCheckParameter3 + 32) + 16LL))(
+      *(_QWORD *)(BugCheckParameter3 + 32),
+      &v50);
+  }
+  if ( v14 )
+  {
+    PoolWithTag = (__int64 *)ExAllocatePoolWithTag(PagedPool, 8LL * v14, 0x37344D43u);
+    v7 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      if ( *(_DWORD *)(PrevElement + 68) == 3 && *(_QWORD *)(PrevElement + 88) == BugCheckParameter3 )
-        break;
-      PrevElement = CmListGetPrevElement(v7, &v55, v8, v9);
-    }
-    while ( PrevElement );
-    if ( PrevElement )
-    {
-      v55 = 0LL;
-      v11 = CmListGetPrevElement(BugCheckParameter3 + 208, &v55, v8, v9);
-      v54 = v11;
-      if ( v11 )
+      memset(PoolWithTag, 0, 8LL * v14);
+      v20 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _DWORD *))(*(_QWORD *)(BugCheckParameter3 + 32) + 8LL))(
+              *(_QWORD *)(BugCheckParameter3 + 32),
+              v15,
+              v42);
+      v21 = v20;
+      if ( v20 )
       {
-        if ( *(_DWORD *)(v11 + 68) == 2 )
+        LODWORD(v50) = 0;
+        v23 = v7;
+        v44 = (int *)v20;
+        while ( 1 )
         {
-          if ( *(_QWORD *)(BugCheckParameter3 + 288) == v5 )
+          UnitOfWork = (_QWORD *)CmpAllocateUnitOfWork();
+          *v23 = (__int64)UnitOfWork;
+          if ( !UnitOfWork )
+            break;
+          CmpTransEnlistUowInKcb(UnitOfWork, BugCheckParameter3);
+          SecurityDescriptorNode = CmpTransEnlistUowInCmTrans((_QWORD *)*v23, v48);
+          if ( SecurityDescriptorNode < 0 )
+            goto LABEL_45;
+          if ( !(unsigned __int8)CmpLockIXLockIntent(BugCheckParameter3 + 248, *v23)
+            || !(unsigned __int8)CmpLockIXLockExclusive(BugCheckParameter3 + 264, *v23, 1LL) )
           {
-            v13 = *(unsigned int *)(BugCheckParameter3 + 280);
-            v14 = *(_DWORD *)(BugCheckParameter3 + 284);
-            LODWORD(v55) = *(_DWORD *)(BugCheckParameter3 + 280);
+            SecurityDescriptorNode = -1072103423;
+            goto LABEL_45;
           }
-          else
+          v25 = v44;
+          *(_DWORD *)(*v23 + 68) = 6;
+          v26 = *v25;
+          v27 = *v23++;
+          v44 = v25 + 1;
+          *(_DWORD *)(v27 + 88) = v26;
+          LODWORD(v50) = v50 + 1;
+          if ( (unsigned int)v50 >= v14 )
           {
-            v15 = *(_QWORD *)(BugCheckParameter3 + 32);
-            v16 = *(unsigned int *)(BugCheckParameter3 + 40);
-            v48[0] = v12;
-            v48[1] = 0;
-            if ( (*(_BYTE *)(v15 + 140) & 1) != 0 )
-              CellFlat = HvpGetCellFlat(v15, v16);
-            else
-              CellFlat = HvpGetCellPaged(v15);
-            if ( !CellFlat )
-              return 3221225626LL;
-            v18 = *(_QWORD *)(BugCheckParameter3 + 32);
-            v13 = *(unsigned int *)(CellFlat + 36);
-            v14 = *(_DWORD *)(CellFlat + 40);
-            LODWORD(v55) = *(_DWORD *)(CellFlat + 36);
-            if ( (*(_BYTE *)(v18 + 140) & 1) != 0 )
-              HvpReleaseCellFlat(v18, v48);
-            else
-              HvpReleaseCellPaged(v18, v48);
+            (*(void (__fastcall **)(_QWORD, _DWORD *))(*(_QWORD *)(BugCheckParameter3 + 32) + 16LL))(
+              *(_QWORD *)(BugCheckParameter3 + 32),
+              v42);
+            v5 = v48;
+            v6 = v49;
+            goto LABEL_24;
           }
-          if ( !(_DWORD)v13 )
-          {
-            v24 = v55;
-            goto LABEL_47;
-          }
-          v19 = 8 * v13;
-          PoolWithTag = (ULONG_PTR *)ExAllocatePoolWithTag(PagedPool, v19, 0x37344D43u);
-          v6 = PoolWithTag;
-          if ( PoolWithTag )
-          {
-            memset(PoolWithTag, 0, v19);
-            v21 = *(_QWORD *)(BugCheckParameter3 + 32);
-            if ( (*(_BYTE *)(v21 + 140) & 1) != 0 )
-              CellPaged = HvpGetCellFlat(v21, v14);
-            else
-              CellPaged = HvpGetCellPaged(v21);
-            v23 = CellPaged;
-            if ( !CellPaged )
-            {
-              v24 = v55;
-              SecurityDescriptorNode = -1073741670;
-LABEL_75:
-              if ( v24 )
-              {
-LABEL_37:
-                v33 = v6;
-                v34 = v24;
-                do
-                {
-                  if ( *v33 )
-                  {
-                    CmpRundownUnitOfWork(*v33);
-                    ExFreePoolWithTag((PVOID)*v33, 0x77554D43u);
-                  }
-                  ++v33;
-                  --v34;
-                }
-                while ( v34 );
-              }
-LABEL_41:
-              ExFreePoolWithTag(v6, 0x37344D43u);
-              if ( v23 )
-              {
-                v35 = *(_QWORD *)(BugCheckParameter3 + 32);
-                if ( (*(_BYTE *)(v35 + 140) & 1) != 0 )
-                  HvpReleaseCellFlat(v35, v51);
-                else
-                  HvpReleaseCellPaged(v35, v51);
-              }
-              return (unsigned int)SecurityDescriptorNode;
-            }
-            v48[0] = 0;
-            v24 = v55;
-            if ( (_DWORD)v55 )
-            {
-              v26 = v6;
-              v27 = (_DWORD *)CellPaged;
-              while ( 1 )
-              {
-                UnitOfWork = (_QWORD *)CmpAllocateUnitOfWork();
-                *v26 = (ULONG_PTR)UnitOfWork;
-                if ( !UnitOfWork )
-                  break;
-                CmpTransEnlistUowInKcb(UnitOfWork, BugCheckParameter3);
-                SecurityDescriptorNode = CmpTransEnlistUowInCmTrans((_QWORD *)*v26, v56);
-                if ( SecurityDescriptorNode < 0 )
-                  goto LABEL_36;
-                if ( !(unsigned __int8)CmpLockIXLockIntent(BugCheckParameter3 + 248, *v26)
-                  || !(unsigned __int8)CmpLockIXLockExclusive(BugCheckParameter3 + 264, *v26, 1LL) )
-                {
-                  SecurityDescriptorNode = -1072103423;
-                  goto LABEL_36;
-                }
-                v29 = *v26;
-                v30 = ++v48[0];
-                *(_DWORD *)(v29 + 68) = 6;
-                v31 = *v26++;
-                LODWORD(v29) = *v27++;
-                *(_DWORD *)(v31 + 88) = v29;
-                if ( v30 >= (unsigned int)v55 )
-                {
-                  v24 = v55;
-                  goto LABEL_32;
-                }
-              }
-              SecurityDescriptorNode = -1073741670;
-LABEL_36:
-              v24 = v55;
-              goto LABEL_37;
-            }
-LABEL_32:
-            v32 = *(_QWORD *)(BugCheckParameter3 + 32);
-            if ( (*(_BYTE *)(v32 + 140) & 1) != 0 )
-              HvpReleaseCellFlat(v32, v51);
-            else
-              HvpReleaseCellPaged(v32, v51);
-            v5 = v56;
-LABEL_47:
-            v36 = CmpAllocateUnitOfWork();
-            if ( !v36 )
-            {
-              SecurityDescriptorNode = -1073741670;
-              goto LABEL_73;
-            }
-            HvLockHiveFlusherShared(*(_QWORD *)(BugCheckParameter3 + 32));
-            CmLockHiveSecurityExclusive(*(_QWORD *)(BugCheckParameter3 + 32));
-            CmpTransEnlistUowInKcb((_QWORD *)v36, BugCheckParameter3);
-            SecurityDescriptorNode = CmpTransEnlistUowInCmTrans((_QWORD *)v36, v5);
-            if ( SecurityDescriptorNode < 0 )
-            {
-              v37 = v50;
-            }
-            else
-            {
-              if ( !(unsigned __int8)CmpLockIXLockExclusive(BugCheckParameter3 + 248, v36, 0LL)
-                || !(unsigned __int8)CmpLockIXLockExclusive(BugCheckParameter3 + 264, v36, 1LL) )
-              {
-                SecurityDescriptorNode = -1072103423;
-LABEL_71:
-                CmpRundownUnitOfWork(v36);
-                ExFreePoolWithTag((PVOID)v36, 0x77554D43u);
-LABEL_72:
-                CmUnlockHiveSecurity(*(_QWORD *)(BugCheckParameter3 + 32));
-                HvUnlockHiveFlusherShared(*(_QWORD *)(BugCheckParameter3 + 32));
-LABEL_73:
-                if ( !v6 )
-                  return (unsigned int)SecurityDescriptorNode;
-                v23 = 0LL;
-                if ( SecurityDescriptorNode >= 0 )
-                  goto LABEL_41;
-                goto LABEL_75;
-              }
-              *(_QWORD *)(v36 + 88) = 0LL;
-              *(_DWORD *)(v36 + 68) = 9;
-              v37 = -1;
-              *(_DWORD *)(v36 + 96) = -1;
-              *(_BYTE *)(v36 + 100) = 0;
-              v38 = *(_QWORD *)(BugCheckParameter3 + 32);
-              if ( (*(_BYTE *)(v38 + 140) & 1) != 0 )
-                v39 = HvpGetCellFlat(v38, *(unsigned int *)(BugCheckParameter3 + 40));
-              else
-                v39 = HvpGetCellPaged(v38);
-              v40 = *(_DWORD *)(BugCheckParameter3 + 40);
-              v41 = *(_QWORD *)(BugCheckParameter3 + 32);
-              v53 = v39;
-              SecurityDescriptorNode = CmpGetSecurityDescriptorNodeEx(v41, v40, v39, 1u, Src, 1, (unsigned int *)&v58);
-              if ( SecurityDescriptorNode < 0 )
-              {
-                v37 = v58;
-              }
-              else
-              {
-                if ( !CmpFindSecurityCellCacheIndex(*(_QWORD *)(BugCheckParameter3 + 32), v58, &v49) )
-                  KeBugCheckEx(0x51u, 4uLL, 3uLL, BugCheckParameter3, (unsigned int)v58);
-                v42 = *(_DWORD **)(*(_QWORD *)(*(_QWORD *)(BugCheckParameter3 + 32) + 1888LL) + 16LL * v49 + 8);
-                *(_QWORD *)(v36 + 88) = v42;
-                *(_DWORD *)(v36 + 96) = *v42;
-                v43 = v54;
-                *(_BYTE *)(v36 + 100) = 1;
-                v36 = 0LL;
-                *(_DWORD *)(PrevElement + 68) = 13;
-                *(_DWORD *)(v43 + 68) = 14;
-                if ( *(_QWORD *)(BugCheckParameter3 + 288) )
-                {
-                  v44 = *(unsigned int *)(BugCheckParameter3 + 284);
-                  if ( (_DWORD)v44 != -1 )
-                    HvFreeCell(*(_QWORD *)(BugCheckParameter3 + 32), v44);
-                }
-                v45 = v56;
-                *(_DWORD *)(BugCheckParameter3 + 280) = 0;
-                *(_DWORD *)(BugCheckParameter3 + 284) = -1;
-                *(_QWORD *)(BugCheckParameter3 + 288) = v45;
-              }
-            }
-            if ( v37 != -1 )
-              CmpDereferenceSecurityNode(*(_QWORD *)(BugCheckParameter3 + 32), v37);
-            if ( v53 )
-            {
-              v46 = *(_QWORD *)(BugCheckParameter3 + 32);
-              if ( (*(_BYTE *)(v46 + 140) & 1) != 0 )
-                HvpReleaseCellFlat(v46, v52);
-              else
-                HvpReleaseCellPaged(v46, v52);
-            }
-            if ( !v36 )
-              goto LABEL_72;
-            goto LABEL_71;
-          }
-          return 3221225626LL;
         }
       }
+      SecurityDescriptorNode = -1073741670;
+      goto LABEL_45;
     }
+    return 3221225626LL;
   }
-  return 3221225524LL;
+LABEL_24:
+  v28 = CmpAllocateUnitOfWork();
+  if ( v28 )
+  {
+    HvLockHiveFlusherShared(*(_QWORD *)(BugCheckParameter3 + 32));
+    CmLockHiveSecurityExclusive(*(_QWORD *)(BugCheckParameter3 + 32));
+    CmpTransEnlistUowInKcb((_QWORD *)v28, BugCheckParameter3);
+    SecurityDescriptorNode = CmpTransEnlistUowInCmTrans((_QWORD *)v28, v5);
+    if ( SecurityDescriptorNode < 0 )
+    {
+      v32 = v41;
+    }
+    else
+    {
+      if ( !(unsigned __int8)CmpLockIXLockExclusive(BugCheckParameter3 + 248, v28, 0LL)
+        || !(unsigned __int8)CmpLockIXLockExclusive(BugCheckParameter3 + 264, v28, 1LL) )
+      {
+        SecurityDescriptorNode = -1072103423;
+LABEL_43:
+        CmUnlockHiveSecurity(*(_QWORD *)(BugCheckParameter3 + 32));
+        HvUnlockHiveFlusherShared(*(_QWORD *)(BugCheckParameter3 + 32));
+        v21 = 0LL;
+        if ( v28 )
+        {
+          CmpRundownUnitOfWork(v28);
+          ExFreePoolWithTag((PVOID)v28, 0x77554D43u);
+        }
+        goto LABEL_45;
+      }
+      *(_DWORD *)(v28 + 96) = -1;
+      *(_QWORD *)(v28 + 88) = 0LL;
+      *(_DWORD *)(v28 + 68) = 9;
+      *(_BYTE *)(v28 + 100) = 0;
+      v29 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _DWORD *))(*(_QWORD *)(BugCheckParameter3 + 32) + 8LL))(
+              *(_QWORD *)(BugCheckParameter3 + 32),
+              *(unsigned int *)(BugCheckParameter3 + 40),
+              v43);
+      v30 = *(unsigned int *)(BugCheckParameter3 + 40);
+      v31 = *(_QWORD *)(BugCheckParameter3 + 32);
+      v45 = v29;
+      SecurityDescriptorNode = CmpGetSecurityDescriptorNodeEx(v31, v30, v29, 1u, v6, 1, (unsigned int *)&v47);
+      if ( SecurityDescriptorNode < 0 )
+      {
+        v32 = v47;
+      }
+      else
+      {
+        if ( !CmpFindSecurityCellCacheIndex(*(_QWORD *)(BugCheckParameter3 + 32), v47, &v40) )
+          KeBugCheckEx(0x51u, 4uLL, 3uLL, BugCheckParameter3, (unsigned int)v47);
+        v32 = -1;
+        v33 = *(_DWORD **)(*(_QWORD *)(*(_QWORD *)(BugCheckParameter3 + 32) + 1880LL) + 16LL * v40 + 8);
+        *(_QWORD *)(v28 + 88) = v33;
+        *(_DWORD *)(v28 + 96) = *v33;
+        v34 = v46;
+        *(_BYTE *)(v28 + 100) = 1;
+        v28 = 0LL;
+        *(_DWORD *)(PrevElement + 68) = 13;
+        *(_DWORD *)(v34 + 68) = 14;
+        if ( *(_QWORD *)(BugCheckParameter3 + 288) )
+        {
+          v35 = *(unsigned int *)(BugCheckParameter3 + 284);
+          if ( (_DWORD)v35 != -1 )
+            HvFreeCell(*(_QWORD *)(BugCheckParameter3 + 32), v35);
+        }
+        v36 = v48;
+        *(_DWORD *)(BugCheckParameter3 + 280) = 0;
+        *(_DWORD *)(BugCheckParameter3 + 284) = -1;
+        *(_QWORD *)(BugCheckParameter3 + 288) = v36;
+      }
+    }
+    if ( v32 != -1 )
+      CmpDereferenceSecurityNode(*(_QWORD *)(BugCheckParameter3 + 32), v32);
+    if ( v45 )
+      (*(void (__fastcall **)(_QWORD, _DWORD *))(*(_QWORD *)(BugCheckParameter3 + 32) + 16LL))(
+        *(_QWORD *)(BugCheckParameter3 + 32),
+        v43);
+    goto LABEL_43;
+  }
+  SecurityDescriptorNode = -1073741670;
+  v21 = 0LL;
+LABEL_45:
+  if ( v7 )
+  {
+    if ( SecurityDescriptorNode < 0 && v14 )
+    {
+      v37 = (ULONG_PTR *)v7;
+      v38 = v14;
+      do
+      {
+        if ( *v37 )
+        {
+          CmpRundownUnitOfWork(*v37);
+          ExFreePoolWithTag((PVOID)*v37, 0x77554D43u);
+        }
+        ++v37;
+        --v38;
+      }
+      while ( v38 );
+    }
+    ExFreePoolWithTag(v7, 0x37344D43u);
+  }
+  if ( v21 )
+    (*(void (__fastcall **)(_QWORD, _DWORD *))(*(_QWORD *)(BugCheckParameter3 + 32) + 16LL))(
+      *(_QWORD *)(BugCheckParameter3 + 32),
+      v42);
+  return (unsigned int)SecurityDescriptorNode;
 }

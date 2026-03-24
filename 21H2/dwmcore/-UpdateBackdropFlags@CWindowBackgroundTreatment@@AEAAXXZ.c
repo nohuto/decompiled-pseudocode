@@ -1,25 +1,26 @@
 /*
- * XREFs of ?UpdateBackdropFlags@CWindowBackgroundTreatment@@AEAAXXZ @ 0x1800D5278
+ * XREFs of ?UpdateBackdropFlags@CWindowBackgroundTreatment@@AEAAXXZ @ 0x1800C16D8
  * Callers:
- *     ??0CWindowBackgroundTreatment@@AEAA@PEAVCComposition@@PEAVCBrush@@@Z @ 0x1800D5090 (--0CWindowBackgroundTreatment@@AEAA@PEAVCComposition@@PEAVCBrush@@@Z.c)
- *     ?OnChanged@CWindowBackgroundTreatment@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800D5250 (-OnChanged@CWindowBackgroundTreatment@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ??0CWindowBackgroundTreatment@@AEAA@PEAVCComposition@@PEAVCBrush@@@Z @ 0x1800C0F7C (--0CWindowBackgroundTreatment@@AEAA@PEAVCComposition@@PEAVCBrush@@@Z.c)
+ *     ?OnChanged@CWindowBackgroundTreatment@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800C16B0 (-OnChanged@CWindowBackgroundTreatment@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
  * Callees:
- *     ?GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ @ 0x1800D52C4 (-GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ.c)
+ *     ?GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ @ 0x1800C1728 (-GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ.c)
  */
 
 void __fastcall CWindowBackgroundTreatment::UpdateBackdropFlags(CBrush **this)
 {
   struct CBrushRenderingGraph *BrushGraph; // rax
-  CBrush *v3; // rdx
+  char v3; // dl
 
-  BrushGraph = CBrush::GetBrushGraph(this[9]);
-  v3 = 0LL;
-  *((_BYTE *)this + 303) = 0;
+  BrushGraph = CBrush::GetBrushGraph(this[8]);
+  v3 = 0;
+  *((_BYTE *)this + 360) = 0;
   if ( BrushGraph )
   {
-    if ( this != (CBrush **)-303LL )
-      *((_BYTE *)this + 303) = *((_BYTE *)BrushGraph + 196);
-    v3 = (CBrush *)*((_QWORD *)BrushGraph + 26);
+    if ( this != (CBrush **)-360LL )
+      *((_BYTE *)this + 360) = *((_BYTE *)BrushGraph + 197);
+    if ( *((_BYTE *)BrushGraph + 196) )
+      v3 = 1;
   }
-  this[38] = v3;
+  *((_BYTE *)this + 359) = v3;
 }

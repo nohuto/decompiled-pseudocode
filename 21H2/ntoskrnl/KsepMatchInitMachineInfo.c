@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepMatchInitMachineInfo @ 0x140B01388
+ * XREFs of KsepMatchInitMachineInfo @ 0x140A6A0D0
  * Callers:
- *     KseInitialize @ 0x140AFFF64 (KseInitialize.c)
+ *     KsepMatchInitialize @ 0x140A9224C (KsepMatchInitialize.c)
  * Callees:
- *     KsepLogError @ 0x140368C88 (KsepLogError.c)
- *     KsepDebugPrint @ 0x14057D738 (KsepDebugPrint.c)
- *     KsepMatchInitBiosInfo @ 0x140B001A8 (KsepMatchInitBiosInfo.c)
- *     KsepMatchInitCpuInfo @ 0x140B01420 (KsepMatchInitCpuInfo.c)
- *     KsepMatchInitAcpiOemInfo @ 0x140B014B0 (KsepMatchInitAcpiOemInfo.c)
+ *     KsepLogError @ 0x140371F74 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
+ *     KsepMatchInitBiosInfo @ 0x140A6A22C (KsepMatchInitBiosInfo.c)
+ *     KsepMatchInitCpuInfo @ 0x140A6A58C (KsepMatchInitCpuInfo.c)
+ *     KsepMatchInitAcpiOemInfo @ 0x140A6A61C (KsepMatchInitAcpiOemInfo.c)
  */
 
 __int64 KsepMatchInitMachineInfo()
@@ -31,7 +31,7 @@ __int64 KsepMatchInitMachineInfo()
     KsepHistoryErrors[2 * v5] = 655516;
     if ( (v4 & 2) != 0 )
       KsepDebugPrint(0LL, "KSE: KsepMatchInitAcpiOemInfo failed [0x%08x]\n", matched);
-    KsepLogError(0LL, (__int64)"KSE: KsepMatchInitAcpiOemInfo failed [0x%08x]\n", matched);
+    KsepLogError(0, "KSE: KsepMatchInitAcpiOemInfo failed [0x%08x]\n", matched);
   }
   v1 = KsepMatchInitCpuInfo();
   if ( v1 < 0 )
@@ -42,7 +42,7 @@ __int64 KsepMatchInitMachineInfo()
     KsepHistoryErrors[2 * v7] = 655522;
     if ( (v6 & 2) != 0 )
       KsepDebugPrint(0LL, "KSE: KsepMatchInitCpuInfo failed\n [0x%08x]\n", v1);
-    KsepLogError(0LL, (__int64)"KSE: KsepMatchInitCpuInfo failed\n [0x%08x]\n", v1);
+    KsepLogError(0, "KSE: KsepMatchInitCpuInfo failed\n [0x%08x]\n", v1);
   }
   v2 = KsepMatchInitBiosInfo();
   if ( v2 < 0 )
@@ -53,11 +53,11 @@ __int64 KsepMatchInitMachineInfo()
     KsepHistoryErrors[2 * v9] = 655528;
     if ( (v8 & 2) != 0 )
       KsepDebugPrint(0LL, "KSE: KsepMatchInitBiosInfo failed [0x%08x]\n", v2);
-    KsepLogError(0LL, (__int64)"KSE: KsepMatchInitBiosInfo failed [0x%08x]\n", v2);
+    KsepLogError(0, "KSE: KsepMatchInitBiosInfo failed [0x%08x]\n", v2);
   }
-  KsepMatchMachineInfo = (__int64)&xmmword_140C5A8F8;
-  qword_140C2A6E8 = (__int64)&xmmword_140C5AB38;
-  qword_140C2A6F0 = (__int64)&xmmword_140C5AB70;
-  qword_140C2A6F8 = (__int64)&xmmword_140C5ABA8;
+  KsepMatchMachineInfo = (__int64)&xmmword_140C53FB8;
+  qword_140C2AF68 = (__int64)&xmmword_140C541F8;
+  qword_140C2AF70 = (__int64)&xmmword_140C54230;
+  qword_140C2AF78 = (__int64)&xmmword_140C54268;
   return 0LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMarkMdlComplete @ 0x1402AF314
+ * XREFs of MiMarkMdlComplete @ 0x1402AF414
  * Callers:
- *     MmRotatePhysicalView @ 0x14066B930 (MmRotatePhysicalView.c)
+ *     MmRotatePhysicalView @ 0x14066B910 (MmRotatePhysicalView.c)
  * Callees:
  *     MiLocateVadEvent @ 0x140027BCC (MiLocateVadEvent.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall MiMarkMdlComplete(__int64 a1, __int64 a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?PowerIndicateWaitWakeStatus@FxPkgPnp@@QEAAEJ@Z @ 0x1C0086EF4
+ * XREFs of ?PowerIndicateWaitWakeStatus@FxPkgPnp@@QEAAEJ@Z @ 0x1C007DF24
  * Callers:
- *     ?IndicateWakeStatus@FxChildList@@QEAAXJ@Z @ 0x1C005C0B0 (-IndicateWakeStatus@FxChildList@@QEAAXJ@Z.c)
- *     imp_WdfDeviceIndicateWakeStatus @ 0x1C0063A50 (imp_WdfDeviceIndicateWakeStatus.c)
- *     ?PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z @ 0x1C0083BC8 (-PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z.c)
- *     ?PowerPolicyCancelWaitWake@FxPkgPnp@@IEAAEXZ @ 0x1C008C854 (-PowerPolicyCancelWaitWake@FxPkgPnp@@IEAAEXZ.c)
+ *     ?IndicateWakeStatus@FxChildList@@QEAAXJ@Z @ 0x1C003B8C0 (-IndicateWakeStatus@FxChildList@@QEAAXJ@Z.c)
+ *     imp_WdfDeviceIndicateWakeStatus @ 0x1C0049090 (imp_WdfDeviceIndicateWakeStatus.c)
+ *     ?PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z @ 0x1C0079FD0 (-PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z.c)
+ *     ?PowerPolicyCancelWaitWake@FxPkgPnp@@IEAAEXZ @ 0x1C00887E4 (-PowerPolicyCancelWaitWake@FxPkgPnp@@IEAAEXZ.c)
  * Callees:
- *     ?PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z @ 0x1C00158AC (-PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z.c)
- *     ?PowerMakeWakeRequestNonCancelable@FxPkgPnp@@IEAAEJ@Z @ 0x1C0087194 (-PowerMakeWakeRequestNonCancelable@FxPkgPnp@@IEAAEJ@Z.c)
+ *     ?PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z @ 0x1C0011530 (-PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z.c)
+ *     ?PowerMakeWakeRequestNonCancelable@FxPkgPnp@@IEAAEJ@Z @ 0x1C007E134 (-PowerMakeWakeRequestNonCancelable@FxPkgPnp@@IEAAEJ@Z.c)
  */
 
 unsigned __int8 __fastcall FxPkgPnp::PowerIndicateWaitWakeStatus(FxPkgPnp *this, int WaitWakeStatus)

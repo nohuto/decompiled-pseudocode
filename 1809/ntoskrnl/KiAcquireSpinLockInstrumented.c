@@ -1,5 +1,5 @@
 /*
- * XREFs of KiAcquireSpinLockInstrumented @ 0x140290D28
+ * XREFs of KiAcquireSpinLockInstrumented @ 0x140290E28
  * Callers:
  *     KiCallInterruptServiceRoutine @ 0x1400162E0 (KiCallInterruptServiceRoutine.c)
  *     NtCancelTimer @ 0x14001CF40 (NtCancelTimer.c)
@@ -10,16 +10,16 @@
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     NtAssociateWaitCompletionPacket @ 0x140062B00 (NtAssociateWaitCompletionPacket.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopQueueIrpToFileObject @ 0x1400B79D0 (IopQueueIrpToFileObject.c)
- *     IopDequeueIrpFromThread @ 0x1400B8ED0 (IopDequeueIrpFromThread.c)
- *     IopQueueThreadIrp @ 0x1400BC360 (IopQueueThreadIrp.c)
- *     IopCompleteRequest @ 0x1400BFCF0 (IopCompleteRequest.c)
- *     IopfCompleteRequest @ 0x1400C10D0 (IopfCompleteRequest.c)
- *     KiExecuteAllDpcs @ 0x1400C6D20 (KiExecuteAllDpcs.c)
+ *     IopQueueIrpToFileObject @ 0x1400B79F0 (IopQueueIrpToFileObject.c)
+ *     IopDequeueIrpFromThread @ 0x1400B8EF0 (IopDequeueIrpFromThread.c)
+ *     IopQueueThreadIrp @ 0x1400BC380 (IopQueueThreadIrp.c)
+ *     IopCompleteRequest @ 0x1400BFD10 (IopCompleteRequest.c)
+ *     IopfCompleteRequest @ 0x1400C10F0 (IopfCompleteRequest.c)
+ *     KiExecuteAllDpcs @ 0x1400C6D40 (KiExecuteAllDpcs.c)
  * Callees:
  *     KxWaitForSpinLockAndAcquire @ 0x14008CFD0 (KxWaitForSpinLockAndAcquire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     PerfLogSpinLockAcquire @ 0x1403139C4 (PerfLogSpinLockAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     PerfLogSpinLockAcquire @ 0x140313AC4 (PerfLogSpinLockAcquire.c)
  */
 
 void __fastcall KiAcquireSpinLockInstrumented(volatile signed __int32 *a1, __int64 a2, __int64 a3)

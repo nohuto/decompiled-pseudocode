@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpDispatchDevicePanel @ 0x14083D8B0
+ * XREFs of _PnpDispatchDevicePanel @ 0x1407AFBE0
  * Callers:
  *     <none>
  * Callees:
- *     _CmGetMatchingDevicePanelList @ 0x14083D944 (_CmGetMatchingDevicePanelList.c)
- *     _CmGetDevicePanelMappedProperty @ 0x140A28A64 (_CmGetDevicePanelMappedProperty.c)
- *     _CmGetDevicePanelMappedPropertyKeys @ 0x140A28B84 (_CmGetDevicePanelMappedPropertyKeys.c)
- *     _CmGetDevicePanelMappedPropertyLocales @ 0x140A28C14 (_CmGetDevicePanelMappedPropertyLocales.c)
- *     _CmOpenDevicePanelRegKey @ 0x140A28E58 (_CmOpenDevicePanelRegKey.c)
- *     _CmSetDevicePanelMappedProperty @ 0x140A29598 (_CmSetDevicePanelMappedProperty.c)
- *     _CmValidateDevicePanelName @ 0x140A29BBC (_CmValidateDevicePanelName.c)
+ *     _CmValidateDevicePanelName @ 0x1407AFC78 (_CmValidateDevicePanelName.c)
+ *     _CmGetMatchingDevicePanelList @ 0x1407AFE90 (_CmGetMatchingDevicePanelList.c)
+ *     _CmGetDevicePanelMappedProperty @ 0x14097839C (_CmGetDevicePanelMappedProperty.c)
+ *     _CmGetDevicePanelMappedPropertyKeys @ 0x1409784BC (_CmGetDevicePanelMappedPropertyKeys.c)
+ *     _CmGetDevicePanelMappedPropertyLocales @ 0x140978550 (_CmGetDevicePanelMappedPropertyLocales.c)
+ *     _CmOpenDevicePanelRegKey @ 0x140978694 (_CmOpenDevicePanelRegKey.c)
+ *     _CmSetDevicePanelMappedProperty @ 0x140978DBC (_CmSetDevicePanelMappedProperty.c)
  */
 
 __int64 __fastcall PnpDispatchDevicePanel(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, __int64 a5)
@@ -17,10 +17,10 @@ __int64 __fastcall PnpDispatchDevicePanel(__int64 a1, __int64 (__fastcall *a2)()
   __int64 (__fastcall *v5)(); // r8
   __int128 *v6; // r10
   int v7; // r9d
-  int v8; // r9d
   int v9; // r9d
   int v10; // r9d
   int v11; // r9d
+  int v12; // r9d
   int v13; // r9d
   int v14; // r9d
   int v15; // r9d
@@ -33,8 +33,8 @@ __int64 __fastcall PnpDispatchDevicePanel(__int64 a1, __int64 (__fastcall *a2)()
   v7 = a4 - 1;
   if ( !v7 )
     return CmValidateDevicePanelName(a1, v5);
-  v8 = v7 - 1;
-  if ( !v8 )
+  v9 = v7 - 1;
+  if ( !v9 )
     return CmOpenDevicePanelRegKey(
              a1,
              (_DWORD)v5,
@@ -44,16 +44,16 @@ __int64 __fastcall PnpDispatchDevicePanel(__int64 a1, __int64 (__fastcall *a2)()
              *(_BYTE *)(a5 + 4),
              *(_QWORD *)(a5 + 8),
              a5 + 16);
-  v9 = v8 - 1;
-  if ( !v9 )
-    return 3221225474LL;
   v10 = v9 - 1;
   if ( !v10 )
     return 3221225474LL;
   v11 = v10 - 1;
-  if ( v11 )
+  if ( !v11 )
+    return 3221225474LL;
+  v12 = v11 - 1;
+  if ( v12 )
   {
-    v13 = v11 - 1;
+    v13 = v12 - 1;
     if ( v13 )
     {
       v14 = v13 - 1;

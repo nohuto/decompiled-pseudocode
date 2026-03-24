@@ -1,27 +1,26 @@
 /*
- * XREFs of ??1CD3DDevice@@MEAA@XZ @ 0x1800213C4
+ * XREFs of ??1CD3DDevice@@MEAA@XZ @ 0x18002A490
  * Callers:
- *     ??_GCD3DDevice@@MEAAPEAXI@Z @ 0x180020CC0 (--_GCD3DDevice@@MEAAPEAXI@Z.c)
+ *     ??_GCD3DDevice@@MEAAPEAXI@Z @ 0x18002A3D0 (--_GCD3DDevice@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?clear_region@?$vector_facade@VCUnpinResource@CD3DDevice@@V?$buffer_impl@VCUnpinResource@CD3DDevice@@$06$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800059FC (-clear_region@-$vector_facade@VCUnpinResource@CD3DDevice@@V-$buffer_impl@VCUnpinResource@CD3DDev.c)
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EBC0 (--1-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?DestroyAllResources@CD3DDevice@@AEAAXXZ @ 0x180021788 (-DestroyAllResources@CD3DDevice@@AEAAXXZ.c)
- *     ??1CD2DContext@@UEAA@XZ @ 0x1800217BC (--1CD2DContext@@UEAA@XZ.c)
- *     ??1CSurfaceShaderComposer@@QEAA@XZ @ 0x180023F74 (--1CSurfaceShaderComposer@@QEAA@XZ.c)
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ?ProcessPendingUnpin@CD3DDevice@@AEAAJ_N@Z @ 0x18007F718 (-ProcessPendingUnpin@CD3DDevice@@AEAAJ_N@Z.c)
- *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x18008EF8C (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ??$_Destroy_range@V?$allocator@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@std@@@std@@YAXPEAV?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@0@QEAV10@AEAV?$allocator@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@0@@Z @ 0x1800F3678 (--$_Destroy_range@V-$allocator@V-$unique_ptr@VCCheckMPOCache@@U-$default_delete@VCCheckMPOCache@.c)
- *     ??$_Destroy_range@V?$allocator@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@std@@@std@@YAXPEAV?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@0@QEAV10@AEAV?$allocator@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@0@@Z @ 0x1800F8098 (--$_Destroy_range@V-$allocator@V-$unique_ptr@VCAtlasTexture@@U-$default_delete@VCAtlasTexture@@@.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0p_EventWriteTransfer @ 0x180180BF8 (McTemplateU0p_EventWriteTransfer.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
- *     ??1?$CAsyncTask@UD3D12Resources@CD3DDevice@@@@QEAA@XZ @ 0x18027CAB8 (--1-$CAsyncTask@UD3D12Resources@CD3DDevice@@@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?ProcessPendingUnpin@CD3DDevice@@AEAAJ_N@Z @ 0x18002A414 (-ProcessPendingUnpin@CD3DDevice@@AEAAJ_N@Z.c)
+ *     ??_GCSurfaceShaderComposer@@QEAAPEAXI@Z @ 0x18002A908 (--_GCSurfaceShaderComposer@@QEAAPEAXI@Z.c)
+ *     ?DestroyAllResources@CD3DDevice@@AEAAXXZ @ 0x18002AA04 (-DestroyAllResources@CD3DDevice@@AEAAXXZ.c)
+ *     ??1CD2DContext@@UEAA@XZ @ 0x18002AA38 (--1CD2DContext@@UEAA@XZ.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002D2C0 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x180094910 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??1?$vector@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@2@@std@@QEAA@XZ @ 0x1800F1858 (--1-$vector@V-$unique_ptr@VCCheckMPOCache@@U-$default_delete@VCCheckMPOCache@@@std@@@std@@V-$all.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0x_EventWriteTransfer @ 0x1801542D8 (McTemplateU0x_EventWriteTransfer.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
+ *     ??$_Destroy_range@V?$allocator@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@std@@@std@@YAXPEAV?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@0@0AEAV?$allocator@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@0@@Z @ 0x18023D374 (--$_Destroy_range@V-$allocator@V-$unique_ptr@VCAtlasTexture@@U-$default_delete@VCAtlasTexture@@@.c)
+ *     ??_G?$CAsyncTask@UD3D12Resources@CD3DDevice@@@@QEAAPEAXI@Z @ 0x18023D83C (--_G-$CAsyncTask@UD3D12Resources@CD3DDevice@@@@QEAAPEAXI@Z.c)
+ *     ?clear_region@?$vector_facade@VCUnpinResource@CD3DDevice@@V?$buffer_impl@VCUnpinResource@CD3DDevice@@$06$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180240E70 (-clear_region@-$vector_facade@VCUnpinResource@CD3DDevice@@V-$buffer_impl@VCUnpinResource@CD3DDev.c)
  */
 
 void __fastcall CD3DDevice::~CD3DDevice(CD3DDevice *this)
@@ -29,211 +28,202 @@ void __fastcall CD3DDevice::~CD3DDevice(CD3DDevice *this)
   char *v2; // rcx
   __int64 v3; // rcx
   __int64 v4; // rax
-  void *v5; // rdi
-  void *v6; // rcx
+  unsigned int v5; // edx
+  CSurfaceShaderComposer *v6; // rcx
   void *v7; // rcx
-  void *v8; // rcx
-  int v9; // edi
+  int v8; // edi
+  void *v9; // rcx
   void *v10; // rcx
-  void *v11; // rcx
-  int v12; // edi
+  int v11; // edi
+  void *v12; // rcx
   void *v13; // rcx
-  __int64 v14; // rcx
-  CD3DDevice **v15; // rdi
-  CD3DDevice *v16; // rcx
-  __int64 v17; // r8
-  void *v18; // rdi
+  int v14; // edi
+  void *v15; // rcx
+  CD3DDevice **v16; // rdi
+  CD3DDevice *v17; // rcx
+  void *v18; // rcx
   __int64 v19; // rcx
   __int64 v20; // rcx
   __int64 v21; // rcx
   __int64 v22; // rcx
   __int64 v23; // rcx
   __int64 v24; // rcx
-  int v25; // edi
+  __int64 v25; // rcx
+  __int64 v26; // rdi
+  __int64 v27; // rcx
   void *retaddr; // [rsp+28h] [rbp+0h]
 
-  *(_QWORD *)this = &CD3DDevice::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  *(_QWORD *)this = &CD3DDevice::`vftable'{for `CMILCOMBase'};
   *((_QWORD *)this + 2) = &CD3DDevice::`vftable'{for `CD2DContext'};
   CD3DDevice::ProcessPendingUnpin(this, 1);
   CD3DDevice::DestroyAllResources(this);
-  v2 = (char *)*((_QWORD *)this + 117);
+  v2 = (char *)*((_QWORD *)this + 122);
   if ( (unsigned __int64)(v2 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
   {
     CloseHandle(v2);
-    *((_QWORD *)this + 117) = 0LL;
+    *((_QWORD *)this + 122) = 0LL;
   }
-  v3 = *((_QWORD *)this + 70);
+  v3 = *((_QWORD *)this + 75);
   if ( v3 )
   {
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 888LL))(v3);
-    v4 = *((_QWORD *)this + 70);
-    *((_QWORD *)this + 70) = 0LL;
-    if ( *((_QWORD *)this + 57) )
+    v4 = *((_QWORD *)this + 75);
+    *((_QWORD *)this + 75) = 0LL;
+    if ( *((_QWORD *)this + 63) )
       ModuleFailFastForHRESULT(2147549183LL, retaddr);
-    *((_QWORD *)this + 57) = v4;
+    *((_QWORD *)this + 63) = v4;
   }
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
-    McTemplateU0p_EventWriteTransfer(v3, &EVTDESC_HWDEVICE_DESTROY, this);
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+    McTemplateU0x_EventWriteTransfer(v3, &EVTDESC_HWDEVICE_DESTROY, this);
   `vector destructor iterator'(
-    (char *)this + 2272,
+    (char *)this + 2200,
     8uLL,
     4uLL,
     (void (*)(void *))wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>);
   `vector destructor iterator'(
-    (char *)this + 2264,
+    (char *)this + 2192,
     8uLL,
     1uLL,
     (void (*)(void *))wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>);
   `vector destructor iterator'(
-    (char *)this + 1880,
+    (char *)this + 1808,
     8uLL,
     0x30uLL,
-    (void (*)(void *))wil::com_ptr_t<CVisual,wil::err_returncode_policy>::~com_ptr_t<CVisual,wil::err_returncode_policy>);
+    wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>);
   `vector destructor iterator'(
-    (char *)this + 1688,
+    (char *)this + 1616,
     8uLL,
     0x18uLL,
     (void (*)(void *))wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>);
   `vector destructor iterator'(
-    (char *)this + 1592,
+    (char *)this + 1520,
     8uLL,
     0xCuLL,
     (void (*)(void *))wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>);
-  v5 = (void *)*((_QWORD *)this + 198);
-  if ( v5 )
-  {
-    CSurfaceShaderComposer::~CSurfaceShaderComposer(*((CSurfaceShaderComposer **)this + 198));
-    operator delete(v5, 0x80uLL);
-  }
-  v6 = (void *)*((_QWORD *)this + 195);
+  v6 = (CSurfaceShaderComposer *)*((_QWORD *)this + 189);
   if ( v6 )
-  {
-    v25 = 0;
-    if ( *((int *)this + 394) > 0 )
-    {
-      do
-        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)(*((_QWORD *)this + 196) + 8LL * v25++));
-      while ( v25 < *((_DWORD *)this + 394) );
-      v6 = (void *)*((_QWORD *)this + 195);
-    }
-    DefaultHeap::Free(v6);
-    *((_QWORD *)this + 195) = 0LL;
-  }
-  v7 = (void *)*((_QWORD *)this + 196);
+    CSurfaceShaderComposer::`scalar deleting destructor'(v6, v5);
+  v7 = (void *)*((_QWORD *)this + 186);
   if ( v7 )
   {
-    DefaultHeap::Free(v7);
-    *((_QWORD *)this + 196) = 0LL;
-  }
-  *((_DWORD *)this + 394) = 0;
-  v8 = (void *)*((_QWORD *)this + 192);
-  if ( v8 )
-  {
-    v9 = 0;
-    if ( *((int *)this + 388) > 0 )
+    v8 = 0;
+    if ( *((int *)this + 376) > 0 )
     {
       do
-        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)(*((_QWORD *)this + 193) + 16LL * v9++));
-      while ( v9 < *((_DWORD *)this + 388) );
-      v8 = (void *)*((_QWORD *)this + 192);
+        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)(*((_QWORD *)this + 187) + 8LL * v8++));
+      while ( v8 < *((_DWORD *)this + 376) );
+      v7 = (void *)*((_QWORD *)this + 186);
     }
-    DefaultHeap::Free(v8);
-    *((_QWORD *)this + 192) = 0LL;
+    operator delete(v7);
+    *((_QWORD *)this + 186) = 0LL;
   }
-  v10 = (void *)*((_QWORD *)this + 193);
+  v9 = (void *)*((_QWORD *)this + 187);
+  if ( v9 )
+  {
+    operator delete(v9);
+    *((_QWORD *)this + 187) = 0LL;
+  }
+  *((_DWORD *)this + 376) = 0;
+  v10 = (void *)*((_QWORD *)this + 183);
   if ( v10 )
   {
-    DefaultHeap::Free(v10);
-    *((_QWORD *)this + 193) = 0LL;
-  }
-  *((_DWORD *)this + 388) = 0;
-  v11 = (void *)*((_QWORD *)this + 189);
-  if ( v11 )
-  {
-    v12 = 0;
-    if ( *((int *)this + 382) > 0 )
+    v11 = 0;
+    if ( *((int *)this + 370) > 0 )
     {
       do
-        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)(*((_QWORD *)this + 190) + 8LL * v12++));
-      while ( v12 < *((_DWORD *)this + 382) );
-      v11 = (void *)*((_QWORD *)this + 189);
+        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)(*((_QWORD *)this + 184) + 16LL * v11++));
+      while ( v11 < *((_DWORD *)this + 370) );
+      v10 = (void *)*((_QWORD *)this + 183);
     }
-    DefaultHeap::Free(v11);
-    *((_QWORD *)this + 189) = 0LL;
-  }
-  v13 = (void *)*((_QWORD *)this + 190);
-  if ( v13 )
-  {
-    DefaultHeap::Free(v13);
-    *((_QWORD *)this + 190) = 0LL;
-  }
-  *((_DWORD *)this + 382) = 0;
-  v14 = *((_QWORD *)this + 181);
-  if ( v14 )
-  {
-    std::_Destroy_range<std::allocator<std::unique_ptr<CCheckMPOCache>>>(v14, *((_QWORD *)this + 182));
-    std::_Deallocate<16,0>(
-      *((_QWORD *)this + 181),
-      (*((_QWORD *)this + 183) - *((_QWORD *)this + 181)) & 0xFFFFFFFFFFFFFFF8uLL);
-    *((_QWORD *)this + 181) = 0LL;
-    *((_QWORD *)this + 182) = 0LL;
+    operator delete(v10);
     *((_QWORD *)this + 183) = 0LL;
   }
-  v15 = (CD3DDevice **)((char *)this + 1200);
-  v16 = (CD3DDevice *)*((_QWORD *)this + 150);
-  v17 = (__int64)(*((_QWORD *)this + 151) - (_QWORD)v16) >> 5;
-  if ( v17 )
+  v12 = (void *)*((_QWORD *)this + 184);
+  if ( v12 )
+  {
+    operator delete(v12);
+    *((_QWORD *)this + 184) = 0LL;
+  }
+  *((_DWORD *)this + 370) = 0;
+  v13 = (void *)*((_QWORD *)this + 180);
+  if ( v13 )
+  {
+    v14 = 0;
+    if ( *((int *)this + 364) > 0 )
+    {
+      do
+        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)(*((_QWORD *)this + 181) + 8LL * v14++));
+      while ( v14 < *((_DWORD *)this + 364) );
+      v13 = (void *)*((_QWORD *)this + 180);
+    }
+    operator delete(v13);
+    *((_QWORD *)this + 180) = 0LL;
+  }
+  v15 = (void *)*((_QWORD *)this + 181);
+  if ( v15 )
+  {
+    operator delete(v15);
+    *((_QWORD *)this + 181) = 0LL;
+  }
+  *((_DWORD *)this + 364) = 0;
+  std::vector<std::unique_ptr<CCheckMPOCache>>::~vector<std::unique_ptr<CCheckMPOCache>>((char *)this + 1368);
+  v16 = (CD3DDevice **)((char *)this + 1232);
+  v17 = (CD3DDevice *)*((_QWORD *)this + 154);
+  if ( (__int64)(*((_QWORD *)this + 155) - (_QWORD)v17) >> 4 )
   {
     detail::vector_facade<CD3DDevice::CUnpinResource,detail::buffer_impl<CD3DDevice::CUnpinResource,7,1,detail::liberal_expansion_policy>>::clear_region(
-      (__int64 *)this + 150,
-      0LL,
-      v17);
-    v16 = *v15;
+      (char *)this + 1232,
+      0LL);
+    v17 = *v16;
   }
-  *v15 = 0LL;
-  if ( v16 == (CD3DDevice *)((char *)this + 1224) )
-    v16 = 0LL;
-  DefaultHeap::Free(v16);
-  *((_QWORD *)this + 138) = &CD3DResourceManager::`vftable';
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)this + 1080);
-  v18 = (void *)*((_QWORD *)this + 129);
+  *v16 = 0LL;
+  if ( v17 == (CD3DDevice *)((char *)this + 1256) )
+    v17 = 0LL;
+  operator delete(v17);
+  *((_QWORD *)this + 142) = &CD3DResourceManager::`vftable';
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)this + 1120);
+  v18 = (void *)*((_QWORD *)this + 134);
   if ( v18 )
-  {
-    CAsyncTask<CD3DDevice::D3D12Resources>::~CAsyncTask<CD3DDevice::D3D12Resources>(*((_QWORD *)this + 129));
-    operator delete(v18, 0x68uLL);
-  }
-  v19 = *((_QWORD *)this + 126);
+    CAsyncTask<CD3DDevice::D3D12Resources>::`scalar deleting destructor'(v18);
+  v19 = *((_QWORD *)this + 131);
   if ( v19 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v19 + 16LL))(v19);
-  v20 = *((_QWORD *)this + 125);
+  v20 = *((_QWORD *)this + 130);
   if ( v20 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v20 + 16LL))(v20);
-  v21 = *((_QWORD *)this + 124);
+  v21 = *((_QWORD *)this + 129);
   if ( v21 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v21 + 16LL))(v21);
-  v22 = *((_QWORD *)this + 123);
+  v22 = *((_QWORD *)this + 128);
   if ( v22 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v22 + 16LL))(v22);
-  wil::com_ptr_t<CVisual,wil::err_returncode_policy>::~com_ptr_t<CVisual,wil::err_returncode_policy>((__int64 *)this + 72);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 71);
-  v23 = *((_QWORD *)this + 70);
+  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((char *)this + 616);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 76);
+  v23 = *((_QWORD *)this + 75);
   if ( v23 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v23 + 16LL))(v23);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 69);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 68);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 67);
-  v24 = *((_QWORD *)this + 64);
+  v24 = *((_QWORD *)this + 74);
   if ( v24 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v24 + 16LL))(v24);
+  v25 = *((_QWORD *)this + 73);
+  if ( v25 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v25 + 16LL))(v25);
+  v26 = *((_QWORD *)this + 70);
+  if ( v26 )
   {
-    std::_Destroy_range<std::allocator<std::unique_ptr<CAtlasTexture>>>(v24, *((_QWORD *)this + 65));
-    std::_Deallocate<16,0>(
-      *((_QWORD *)this + 64),
-      (*((_QWORD *)this + 66) - *((_QWORD *)this + 64)) & 0xFFFFFFFFFFFFFFF8uLL);
-    *((_QWORD *)this + 64) = 0LL;
-    *((_QWORD *)this + 65) = 0LL;
-    *((_QWORD *)this + 66) = 0LL;
+    std::_Destroy_range<std::allocator<std::unique_ptr<CAtlasTexture>>>(*((_QWORD *)this + 70), *((_QWORD *)this + 71));
+    std::_Deallocate<16,0>(v26, (*((_QWORD *)this + 72) - v26) & 0xFFFFFFFFFFFFFFF8uLL);
+    *((_QWORD *)this + 70) = 0LL;
+    *((_QWORD *)this + 71) = 0LL;
+    *((_QWORD *)this + 72) = 0LL;
   }
-  DynArrayImpl<1>::~DynArrayImpl<1>((char *)this + 464);
+  DynArrayImpl<0>::~DynArrayImpl<0>((char *)this + 512);
   CD2DContext::~CD2DContext((CD3DDevice *)((char *)this + 16));
-  CD3DResourceLeakChecker::~CD3DResourceLeakChecker((CD3DDevice *)((char *)this + 456));
+  v27 = *((_QWORD *)this + 63);
+  if ( v27 && (*(unsigned int (__fastcall **)(__int64))(*(_QWORD *)v27 + 16LL))(v27) )
+  {
+    DebugBreak();
+    ModuleFailFastForHRESULT(2147549183LL, retaddr);
+  }
+  *(_QWORD *)this = &CMILCOMBase::`vftable';
 }

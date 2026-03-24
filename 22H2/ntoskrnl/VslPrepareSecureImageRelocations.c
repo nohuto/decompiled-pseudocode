@@ -1,13 +1,13 @@
 /*
- * XREFs of VslPrepareSecureImageRelocations @ 0x14054E060
+ * XREFs of VslPrepareSecureImageRelocations @ 0x1404FE560
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x1403CE424 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x1403CE69C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     VslpUnlockPagesForTransfer @ 0x140393974 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x1403939C8 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall VslPrepareSecureImageRelocations(
@@ -16,7 +16,7 @@ __int64 __fastcall VslPrepareSecureImageRelocations(
         struct _MDL *a3,
         __int64 a4,
         struct _MDL *a5,
-        unsigned int a6,
+        ULONG a6,
         struct _MDL *a7,
         __int64 a8)
 {

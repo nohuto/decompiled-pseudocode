@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceWindowRenderingOldToNewRedirectionBitmap @ 0x1C00BE5A0
+ * XREFs of EtwTraceWindowRenderingOldToNewRedirectionBitmap @ 0x1C00B3DE0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pppqqqqpppqqqq_EtwWriteTransfer @ 0x1C013CBC8 (McTemplateK0pppqqqqpppqqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pppqqqqpppqqqq_EtwWriteTransfer @ 0x1C0125D68 (McTemplateK0pppqqqqpppqqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceWindowRenderingOldToNewRedirectionBitmap(

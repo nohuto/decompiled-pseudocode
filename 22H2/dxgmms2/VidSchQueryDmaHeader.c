@@ -1,9 +1,9 @@
 /*
- * XREFs of VidSchQueryDmaHeader @ 0x1C0109F60
+ * XREFs of VidSchQueryDmaHeader @ 0x1C00D2EC0
  * Callers:
- *     VidSchCollectDbgInfo @ 0x1C01096F0 (VidSchCollectDbgInfo.c)
+ *     VidSchCollectDbgInfo @ 0x1C00D2670 (VidSchCollectDbgInfo.c)
  * Callees:
- *     VidSchiBlockDriverCallback @ 0x1C010A02C (VidSchiBlockDriverCallback.c)
+ *     VidSchiBlockDriverCallback @ 0x1C00D2FA4 (VidSchiBlockDriverCallback.c)
  */
 
 __int64 __fastcall VidSchQueryDmaHeader(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
@@ -13,17 +13,17 @@ __int64 __fastcall VidSchQueryDmaHeader(__int64 a1, __int64 a2, __int64 a3, int 
   unsigned int v10; // edx
   int *i; // r8
   int v12; // eax
-  __int64 v14; // rcx
+  __int64 v14; // rdx
   unsigned int v15; // [rsp+44h] [rbp+1Ch]
 
   v15 = HIDWORD(a3);
   v6 = a3;
   VidSchiBlockDriverCallback(a1);
-  v9 = *(_DWORD *)(a1 + 2620);
+  v9 = *(_DWORD *)(a1 + 2532);
   v10 = 0;
   if ( !v9 )
     return 3221225485LL;
-  for ( i = (int *)(a2 + 11384); ; i += 56 )
+  for ( i = (int *)(a2 + 11336); ; i += 56 )
   {
     v12 = *i;
     if ( a4 )
@@ -40,8 +40,11 @@ LABEL_7:
   if ( *((_QWORD *)i + 2) != __PAIR64__(v15, v6) )
     goto LABEL_8;
   v14 = 224LL * v10;
-  *(_OWORD *)a5 = *(_OWORD *)(v14 + a2 + 11368);
-  *(_OWORD *)(a5 + 16) = *(_OWORD *)(v14 + a2 + 11384);
-  *(_QWORD *)(a5 + 32) = *(_QWORD *)(v14 + a2 + 11400);
+  *(_DWORD *)a5 = *(_DWORD *)(v14 + a2 + 11320);
+  *(_QWORD *)(a5 + 8) = *(_QWORD *)(v14 + a2 + 11328);
+  *(_DWORD *)(a5 + 16) = *(_DWORD *)(v14 + a2 + 11336);
+  *(_DWORD *)(a5 + 20) = *(_DWORD *)(v14 + a2 + 11340);
+  *(_DWORD *)(a5 + 24) = *(_DWORD *)(v14 + a2 + 11344);
+  *(_QWORD *)(a5 + 32) = *(_QWORD *)(v14 + a2 + 11352);
   return 0LL;
 }

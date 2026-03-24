@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkpInitializePhase1 @ 0x140B6C3E4
+ * XREFs of DbgkpInitializePhase1 @ 0x140A6D628
  * Callers:
- *     DbgkInitialize @ 0x140B524F0 (DbgkInitialize.c)
+ *     DbgkInitialize @ 0x140A6D4AC (DbgkInitialize.c)
  * Callees:
- *     DbgkpGetServerSiloState @ 0x140858F68 (DbgkpGetServerSiloState.c)
- *     DbgkpInitializePhase1SiloState @ 0x140858F94 (DbgkpInitializePhase1SiloState.c)
+ *     DbgkpInitializePhase1SiloState @ 0x1407CA3F4 (DbgkpInitializePhase1SiloState.c)
+ *     DbgkpGetServerSiloState @ 0x1407CA70C (DbgkpGetServerSiloState.c)
  */
 
 __int64 DbgkpInitializePhase1()

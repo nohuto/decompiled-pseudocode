@@ -1,9 +1,9 @@
 /*
- * XREFs of Crashdump_PollForCompletion @ 0x1C004CB90
+ * XREFs of Crashdump_PollForCompletion @ 0x1C004A0C0
  * Callers:
  *     <none>
  * Callees:
- *     Crashdump_EventRing_AsyncPoll @ 0x1C004E090 (Crashdump_EventRing_AsyncPoll.c)
+ *     Crashdump_EventRing_AsyncPoll @ 0x1C004B5C0 (Crashdump_EventRing_AsyncPoll.c)
  */
 
 __int64 __fastcall Crashdump_PollForCompletion(__int64 a1)

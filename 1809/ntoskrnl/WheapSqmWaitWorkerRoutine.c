@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapSqmWaitWorkerRoutine @ 0x1408DD4C0
+ * XREFs of WheapSqmWaitWorkerRoutine @ 0x1408DD4A0
  * Callers:
- *     WheapEtwEnableCallback @ 0x1407614A0 (WheapEtwEnableCallback.c)
+ *     WheapEtwEnableCallback @ 0x140761480 (WheapEtwEnableCallback.c)
  * Callees:
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
- *     WheapSqmCollectWheaOscTelemetry @ 0x140321934 (WheapSqmCollectWheaOscTelemetry.c)
- *     WheapSqmCollectWheaPolicyTelemetry @ 0x1408DC4A4 (WheapSqmCollectWheaPolicyTelemetry.c)
- *     WheapIsSqmLoggerRunning @ 0x1408DD0C4 (WheapIsSqmLoggerRunning.c)
- *     WheapSqmCollectPshedPluginTelemetry @ 0x1408DD374 (WheapSqmCollectPshedPluginTelemetry.c)
+ *     WheapSqmCollectWheaOscTelemetry @ 0x140321A34 (WheapSqmCollectWheaOscTelemetry.c)
+ *     WheapSqmCollectWheaPolicyTelemetry @ 0x1408DC484 (WheapSqmCollectWheaPolicyTelemetry.c)
+ *     WheapIsSqmLoggerRunning @ 0x1408DD0A4 (WheapIsSqmLoggerRunning.c)
+ *     WheapSqmCollectPshedPluginTelemetry @ 0x1408DD354 (WheapSqmCollectPshedPluginTelemetry.c)
  */
 
 __int64 WheapSqmWaitWorkerRoutine()

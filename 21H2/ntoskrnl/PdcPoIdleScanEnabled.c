@@ -1,5 +1,5 @@
 /*
- * XREFs of PdcPoIdleScanEnabled @ 0x140865430
+ * XREFs of PdcPoIdleScanEnabled @ 0x1407D56E0
  * Callers:
  *     <none>
  * Callees:

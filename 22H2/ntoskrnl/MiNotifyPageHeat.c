@@ -1,24 +1,16 @@
 /*
- * XREFs of MiNotifyPageHeat @ 0x14065466C
+ * XREFs of MiNotifyPageHeat @ 0x14055FD04
  * Callers:
- *     MiGetPageChain @ 0x14026C5E0 (MiGetPageChain.c)
- *     MiUpdatePfnForPrefetchByPte @ 0x140272F60 (MiUpdatePfnForPrefetchByPte.c)
- *     MiGetLargePage @ 0x1402D7A80 (MiGetLargePage.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiAllocateLargeZeroPages @ 0x1402E77E0 (MiAllocateLargeZeroPages.c)
- *     MiReplenishPageSlist @ 0x1402E7AD0 (MiReplenishPageSlist.c)
- *     MiDemoteLocalLargePage @ 0x1402E81B0 (MiDemoteLocalLargePage.c)
- *     MiGetLargePageChain @ 0x1402EBA40 (MiGetLargePageChain.c)
- *     MmSetPfnListInfo @ 0x140389DC0 (MmSetPfnListInfo.c)
- *     MiSplitDirectMapPage @ 0x14063F2D4 (MiSplitDirectMapPage.c)
- *     MiChangePageHeatImmediate @ 0x140653E5C (MiChangePageHeatImmediate.c)
- *     MiProcessTransitionHeatBatch @ 0x1406546A4 (MiProcessTransitionHeatBatch.c)
- *     MiPfPrepareReadList @ 0x1406F6350 (MiPfPrepareReadList.c)
- *     MmPrefetchPagesEx @ 0x14073EBE8 (MmPrefetchPagesEx.c)
- *     MiPfPrepareSequentialReadList @ 0x140744BF0 (MiPfPrepareSequentialReadList.c)
+ *     MiGetPageChain @ 0x140212CD0 (MiGetPageChain.c)
+ *     MiGetLargePage @ 0x1402840B4 (MiGetLargePage.c)
+ *     MiReplenishPageSlist @ 0x140298D80 (MiReplenishPageSlist.c)
+ *     MmSetPfnListInfo @ 0x1403733C4 (MmSetPfnListInfo.c)
+ *     MiAddPageToHeatList @ 0x1403F7308 (MiAddPageToHeatList.c)
+ *     MiMakeUnusedImageExtentsCold @ 0x140554328 (MiMakeUnusedImageExtentsCold.c)
+ *     MiProcessTransitionHeatBatch @ 0x14055FD3C (MiProcessTransitionHeatBatch.c)
  * Callees:
- *     MiLogNotifyPageHeat @ 0x140653F9C (MiLogNotifyPageHeat.c)
- *     HvlNotifyPageHeat @ 0x140679384 (HvlNotifyPageHeat.c)
+ *     MiLogNotifyPageHeat @ 0x14055F5B8 (MiLogNotifyPageHeat.c)
+ *     HvlNotifyPageHeat @ 0x1405C95C0 (HvlNotifyPageHeat.c)
  */
 
 __int64 __fastcall MiNotifyPageHeat(unsigned int *a1)
@@ -26,7 +18,7 @@ __int64 __fastcall MiNotifyPageHeat(unsigned int *a1)
   __int64 v2; // rdx
   __int64 result; // rax
 
-  MiLogNotifyPageHeat();
+  MiLogNotifyPageHeat(a1);
   LOBYTE(v2) = KeGetCurrentIrql() < 2u;
   result = HvlNotifyPageHeat(*a1, v2, a1[1], a1 + 4);
   a1[1] = 0;

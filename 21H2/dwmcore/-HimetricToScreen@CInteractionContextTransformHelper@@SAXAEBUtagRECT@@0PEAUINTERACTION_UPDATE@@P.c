@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HimetricToScreen@CInteractionContextTransformHelper@@SAXAEBUtagRECT@@0PEAUINTERACTION_UPDATE@@PEAUINTERACTION_VELOCITY@@1121@Z @ 0x1802ADF30
+ * XREFs of ?HimetricToScreen@CInteractionContextTransformHelper@@SAXAEBUtagRECT@@0PEAUINTERACTION_UPDATE@@PEAUINTERACTION_VELOCITY@@1121@Z @ 0x18026B1A0
  * Callers:
- *     ?TransformOutput@CInteractionContextTransformHelper@@QEAAXAEBUINTERACTION_CHANGESET@@AEBUtagRECT@@1K_NPEAU2@@Z @ 0x1802AE42C (-TransformOutput@CInteractionContextTransformHelper@@QEAAXAEBUINTERACTION_CHANGESET@@AEBUtagRECT.c)
+ *     ?TransformOutput@CInteractionContextTransformHelper@@QEAAXAEBUINTERACTION_CHANGESET@@AEBUtagRECT@@1K_NPEAU2@@Z @ 0x18026B69C (-TransformOutput@CInteractionContextTransformHelper@@QEAAXAEBUINTERACTION_CHANGESET@@AEBUtagRECT.c)
  * Callees:
- *     ?TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_UPDATE@@1@Z @ 0x1802AE05C (-TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_U.c)
- *     ?TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_VELOCITY@@1@Z @ 0x1802AE1BC (-TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_V.c)
+ *     ?TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_UPDATE@@1@Z @ 0x18026B2CC (-TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_U.c)
+ *     ?TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_VELOCITY@@1@Z @ 0x18026B42C (-TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_V.c)
  */
 
 void __fastcall CInteractionContextTransformHelper::HimetricToScreen(
@@ -31,26 +31,27 @@ void __fastcall CInteractionContextTransformHelper::HimetricToScreen(
   }
   if ( a4 && a7 )
     v8 = CInteractionContextTransformHelper::TransformCoordinateSpace(a1, a2, a4, a7);
-  if ( v8 < 0 || a5 && a8 && (int)CInteractionContextTransformHelper::TransformCoordinateSpace(a1, a2, a5, a8) < 0 )
+  if ( v8 < 0 )
+    goto LABEL_12;
+  if ( a5 && a8 )
+    v8 = CInteractionContextTransformHelper::TransformCoordinateSpace(a1, a2, a5, a8);
+  if ( v8 < 0 )
   {
-    if ( !a6 )
-    {
-LABEL_13:
-      if ( a7 )
-      {
-        *(_OWORD *)a7 = 0LL;
-        *((_DWORD *)a7 + 4) = 0;
-      }
-      if ( a8 )
-      {
-        *(_OWORD *)a8 = 0LL;
-        *((_OWORD *)a8 + 1) = 0LL;
-      }
-      return;
-    }
 LABEL_12:
-    *(_OWORD *)a6 = 0LL;
-    *((_OWORD *)a6 + 1) = 0LL;
-    goto LABEL_13;
+    if ( a6 )
+    {
+      *(_OWORD *)a6 = 0LL;
+      *((_OWORD *)a6 + 1) = 0LL;
+    }
+    if ( a7 )
+    {
+      *(_OWORD *)a7 = 0LL;
+      *((_DWORD *)a7 + 4) = 0;
+    }
+    if ( a8 )
+    {
+      *(_OWORD *)a8 = 0LL;
+      *((_OWORD *)a8 + 1) = 0LL;
+    }
   }
 }

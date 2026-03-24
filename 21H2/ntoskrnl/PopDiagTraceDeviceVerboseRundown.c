@@ -1,158 +1,136 @@
 /*
- * XREFs of PopDiagTraceDeviceVerboseRundown @ 0x140804994
+ * XREFs of PopDiagTraceDeviceVerboseRundown @ 0x14067E3D8
  * Callers:
- *     PopDiagTraceFxRundown @ 0x140395A18 (PopDiagTraceFxRundown.c)
+ *     PopDiagTraceFxRundown @ 0x140284428 (PopDiagTraceFxRundown.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     PopPepGetDevicePlatformStateDependents @ 0x140395AE0 (PopPepGetDevicePlatformStateDependents.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     PopPepGetDevicePlatformStateDependents @ 0x14028452C (PopPepGetDevicePlatformStateDependents.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-char __fastcall PopDiagTraceDeviceVerboseRundown(__int64 a1, __int64 a2)
+char __fastcall PopDiagTraceDeviceVerboseRundown(__int64 a1)
 {
-  __int64 v2; // rsi
-  __int64 v5; // rcx
-  UNICODE_STRING *p_DestinationString; // r8
-  int Length; // edx
+  _UNKNOWN **v1; // rax
+  __int64 v3; // rdi
+  __int64 v4; // rcx
+  UNICODE_STRING *p_DestinationString_8; // rdx
+  int Length; // r8d
+  int v7; // ecx
   int v8; // ecx
   int v9; // ecx
-  int v10; // ecx
-  int *v11; // rax
-  REGHANDLE v12; // rbx
-  __int16 v14; // [rsp+30h] [rbp-D0h] BYREF
-  __int16 v15; // [rsp+34h] [rbp-CCh] BYREF
-  __int16 v16; // [rsp+38h] [rbp-C8h] BYREF
-  __int16 v17; // [rsp+3Ch] [rbp-C4h] BYREF
-  int v18; // [rsp+40h] [rbp-C0h] BYREF
-  signed __int32 v19; // [rsp+44h] [rbp-BCh] BYREF
-  int v20; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v21; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v22; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v23; // [rsp+60h] [rbp-A0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-98h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+80h] [rbp-80h] BYREF
-  __int16 *v26; // [rsp+90h] [rbp-70h]
-  __int64 v27; // [rsp+98h] [rbp-68h]
-  __int64 v28; // [rsp+A0h] [rbp-60h]
-  int v29; // [rsp+A8h] [rbp-58h]
-  int v30; // [rsp+ACh] [rbp-54h]
-  __int16 *v31; // [rsp+B0h] [rbp-50h]
-  __int64 v32; // [rsp+B8h] [rbp-48h]
-  __int64 v33; // [rsp+C0h] [rbp-40h]
-  int v34; // [rsp+C8h] [rbp-38h]
-  int v35; // [rsp+CCh] [rbp-34h]
-  __int16 *v36; // [rsp+D0h] [rbp-30h]
-  __int64 v37; // [rsp+D8h] [rbp-28h]
-  __int64 v38; // [rsp+E0h] [rbp-20h]
-  int v39; // [rsp+E8h] [rbp-18h]
-  int v40; // [rsp+ECh] [rbp-14h]
-  int *v41; // [rsp+F0h] [rbp-10h]
-  __int64 v42; // [rsp+F8h] [rbp-8h]
-  __int64 *v43; // [rsp+100h] [rbp+0h]
-  __int64 v44; // [rsp+108h] [rbp+8h]
-  __int64 *v45; // [rsp+110h] [rbp+10h]
-  __int64 v46; // [rsp+118h] [rbp+18h]
-  signed __int32 *v47; // [rsp+120h] [rbp+20h]
-  __int64 v48; // [rsp+128h] [rbp+28h]
-  __int16 *v49; // [rsp+130h] [rbp+30h]
-  __int64 v50; // [rsp+138h] [rbp+38h]
-  wchar_t *Buffer; // [rsp+140h] [rbp+40h]
-  int v52; // [rsp+148h] [rbp+48h]
-  int v53; // [rsp+14Ch] [rbp+4Ch]
-  int *v54; // [rsp+150h] [rbp+50h]
-  __int64 v55; // [rsp+158h] [rbp+58h]
-  __int64 v56; // [rsp+160h] [rbp+60h]
-  __int64 v57; // [rsp+168h] [rbp+68h]
+  __int16 v11; // [rsp+38h] [rbp-D0h] BYREF
+  __int16 v12; // [rsp+3Ch] [rbp-CCh] BYREF
+  int v13; // [rsp+40h] [rbp-C8h] BYREF
+  int v14; // [rsp+44h] [rbp-C4h] BYREF
+  int v15; // [rsp+48h] [rbp-C0h] BYREF
+  signed __int32 v16; // [rsp+4Ch] [rbp-BCh] BYREF
+  __int64 v17; // [rsp+50h] [rbp-B8h] BYREF
+  __int64 v18; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v19; // [rsp+60h] [rbp-A8h] BYREF
+  __int64 DestinationString; // [rsp+68h] [rbp-A0h] BYREF
+  UNICODE_STRING DestinationString_8; // [rsp+70h] [rbp-98h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+88h] [rbp-80h] BYREF
+  __int16 *v23; // [rsp+98h] [rbp-70h]
+  __int64 v24; // [rsp+A0h] [rbp-68h]
+  __int64 v25; // [rsp+A8h] [rbp-60h]
+  int v26; // [rsp+B0h] [rbp-58h]
+  int v27; // [rsp+B4h] [rbp-54h]
+  __int16 *v28; // [rsp+B8h] [rbp-50h]
+  __int64 v29; // [rsp+C0h] [rbp-48h]
+  __int64 v30; // [rsp+C8h] [rbp-40h]
+  int v31; // [rsp+D0h] [rbp-38h]
+  int v32; // [rsp+D4h] [rbp-34h]
+  int *v33; // [rsp+D8h] [rbp-30h]
+  __int64 v34; // [rsp+E0h] [rbp-28h]
+  __int64 v35; // [rsp+E8h] [rbp-20h]
+  int v36; // [rsp+F0h] [rbp-18h]
+  int v37; // [rsp+F4h] [rbp-14h]
+  int *v38; // [rsp+F8h] [rbp-10h]
+  __int64 v39; // [rsp+100h] [rbp-8h]
+  __int64 *v40; // [rsp+108h] [rbp+0h]
+  __int64 v41; // [rsp+110h] [rbp+8h]
+  __int64 *p_DestinationString; // [rsp+118h] [rbp+10h]
+  __int64 v43; // [rsp+120h] [rbp+18h]
+  signed __int32 *v44; // [rsp+128h] [rbp+20h]
+  __int64 v45; // [rsp+130h] [rbp+28h]
+  int *v46; // [rsp+138h] [rbp+30h]
+  __int64 v47; // [rsp+140h] [rbp+38h]
+  wchar_t *Buffer; // [rsp+148h] [rbp+40h]
+  int v49; // [rsp+150h] [rbp+48h]
+  int v50; // [rsp+154h] [rbp+4Ch]
+  __int64 *v51; // [rsp+158h] [rbp+50h]
+  __int64 v52; // [rsp+160h] [rbp+58h]
+  _UNKNOWN *retaddr; // [rsp+180h] [rbp+78h] BYREF
 
-  v2 = *(_QWORD *)(a1 + 48);
-  v21 = v2;
-  v5 = *(_QWORD *)(a1 + 56);
-  v18 = 0;
-  v14 = *(_WORD *)(v2 + 128) >> 1;
-  v15 = *(_WORD *)(v2 + 40) >> 1;
-  v16 = *(_WORD *)(v2 + 56) >> 1;
-  DestinationString = 0LL;
-  PopPepGetDevicePlatformStateDependents(v5, &v18);
-  v23 = *(_QWORD *)(v21 + 16);
-  v22 = *(_QWORD *)(v21 + 32);
-  v19 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 824), 0, 0);
-  if ( *(_QWORD *)(a1 + 1200) )
-  {
-    p_DestinationString = (UNICODE_STRING *)(a1 + 1192);
-  }
-  else
-  {
-    RtlInitUnicodeString(&DestinationString, &word_140867F00);
-    p_DestinationString = &DestinationString;
-  }
-  Length = p_DestinationString->Length;
-  *(_QWORD *)&UserData.Size = 8LL;
-  v17 = (unsigned __int16)Length >> 1;
-  v20 = *(_DWORD *)(a1 + 612);
-  UserData.Ptr = (ULONGLONG)&v21;
-  v26 = &v14;
-  v27 = 2LL;
-  v8 = *(unsigned __int16 *)(v2 + 128);
-  v28 = *(_QWORD *)(v2 + 136);
-  v31 = &v15;
-  v29 = v8;
-  v30 = 0;
-  v32 = 2LL;
-  v9 = *(unsigned __int16 *)(v2 + 40);
-  v33 = *(_QWORD *)(v2 + 48);
-  v36 = &v16;
-  v34 = v9;
-  v35 = 0;
-  v37 = 2LL;
-  v10 = *(unsigned __int16 *)(v2 + 56);
-  v38 = *(_QWORD *)(v2 + 64);
-  v41 = &v18;
-  v43 = &v22;
-  v45 = &v23;
-  v47 = &v19;
-  v49 = &v17;
-  Buffer = p_DestinationString->Buffer;
-  v11 = &v20;
-  v54 = &v20;
-  v39 = v10;
-  v40 = 0;
-  v42 = 4LL;
-  v44 = 8LL;
-  v46 = 8LL;
-  v48 = 4LL;
-  v50 = 2LL;
-  v52 = Length;
-  v53 = 0;
-  v55 = 4LL;
+  v1 = &retaddr;
+  DestinationString_8 = 0LL;
   if ( PopDiagHandleRegistered )
   {
-    v12 = PopDiagHandle;
-    LOBYTE(v11) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEVICE_VERBOSE_RUNDOWN);
-    if ( (_BYTE)v11 )
+    LOBYTE(v1) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEVICE_VERBOSE_RUNDOWN);
+    if ( (_BYTE)v1 )
     {
-      if ( !a2 )
-        LOBYTE(v11) = EtwWrite(v12, &POP_ETW_EVENT_DEVICE_VERBOSE_RUNDOWN, &PopDiagActivityId, 0xEu, &UserData);
-    }
-  }
-  if ( PopDiagSleepStudyHandleRegistered )
-  {
-    LOBYTE(v11) = EtwEventEnabled(PopDiagHandle, &SLEEPSTUDY_EVT_SCENARIO_DEVICE_RUNDOWN);
-    if ( (_BYTE)v11 )
-    {
-      if ( a2 )
+      v3 = *(_QWORD *)(a1 + 48);
+      v4 = *(_QWORD *)(a1 + 56);
+      v15 = 0;
+      v18 = v3;
+      v11 = *(_WORD *)(v3 + 128) >> 1;
+      v12 = *(_WORD *)(v3 + 40) >> 1;
+      LOWORD(v13) = *(_WORD *)(v3 + 56) >> 1;
+      PopPepGetDevicePlatformStateDependents(v4, &v15);
+      DestinationString = *(_QWORD *)(v18 + 16);
+      v19 = *(_QWORD *)(v18 + 32);
+      v16 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 824), 0, 0);
+      if ( *(_QWORD *)(a1 + 1200) )
       {
-        v56 = a2;
-        v57 = 8LL;
-        LOBYTE(v11) = EtwWrite(
-                        PopDiagSleepStudyHandle,
-                        &SLEEPSTUDY_EVT_SCENARIO_DEVICE_RUNDOWN,
-                        &PopDiagActivityId,
-                        0xFu,
-                        &UserData);
+        p_DestinationString_8 = (UNICODE_STRING *)(a1 + 1192);
       }
+      else
+      {
+        RtlInitUnicodeString(&DestinationString_8, &word_1407D7BA0);
+        p_DestinationString_8 = &DestinationString_8;
+      }
+      Length = p_DestinationString_8->Length;
+      *(_QWORD *)&UserData.Size = 8LL;
+      LOWORD(v14) = (unsigned __int16)Length >> 1;
+      LODWORD(v17) = *(_DWORD *)(a1 + 612);
+      UserData.Ptr = (ULONGLONG)&v18;
+      v23 = &v11;
+      v24 = 2LL;
+      v7 = *(unsigned __int16 *)(v3 + 128);
+      v25 = *(_QWORD *)(v3 + 136);
+      v28 = &v12;
+      v26 = v7;
+      v27 = 0;
+      v29 = 2LL;
+      v8 = *(unsigned __int16 *)(v3 + 40);
+      v30 = *(_QWORD *)(v3 + 48);
+      v33 = &v13;
+      v31 = v8;
+      v32 = 0;
+      v34 = 2LL;
+      v9 = *(unsigned __int16 *)(v3 + 56);
+      v35 = *(_QWORD *)(v3 + 64);
+      v38 = &v15;
+      v40 = &v19;
+      p_DestinationString = &DestinationString;
+      v44 = &v16;
+      v46 = &v14;
+      Buffer = p_DestinationString_8->Buffer;
+      v51 = &v17;
+      v36 = v9;
+      v49 = Length;
+      v37 = 0;
+      v39 = 4LL;
+      v41 = 8LL;
+      v43 = 8LL;
+      v45 = 4LL;
+      v47 = 2LL;
+      v50 = 0;
+      v52 = 4LL;
+      LOBYTE(v1) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_DEVICE_VERBOSE_RUNDOWN, &PopDiagActivityId, 0xEu, &UserData);
     }
   }
-  return (char)v11;
+  return (char)v1;
 }

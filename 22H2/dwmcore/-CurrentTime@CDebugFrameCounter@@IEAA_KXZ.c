@@ -1,9 +1,11 @@
 /*
- * XREFs of ?CurrentTime@CDebugFrameCounter@@IEAA_KXZ @ 0x1801F2DA0
+ * XREFs of ?CurrentTime@CDebugFrameCounter@@IEAA_KXZ @ 0x1801628F8
  * Callers:
- *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18004DCC0 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
+ *     ?WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x18006FAB0 (-WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
+ *     ?WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18006FEAC (-WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x180070200 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 unsigned __int64 __fastcall CDebugFrameCounter::CurrentTime(CDebugFrameCounter *this)
@@ -13,10 +15,10 @@ unsigned __int64 __fastcall CDebugFrameCounter::CurrentTime(CDebugFrameCounter *
   unsigned __int64 v3; // rax
 
   result = 0LL;
-  if ( *((_BYTE *)this + 8) )
+  if ( *((_BYTE *)this + 24) )
   {
     v2 = g_qpcFrequency;
-    v3 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 579) + 56LL))(*((_QWORD *)this + 579));
+    v3 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 581) + 120LL))(*((_QWORD *)this + 581));
     return 10000000 * (v3 / v2.QuadPart) + 10000000 * (v3 % v2.QuadPart) / v2.QuadPart;
   }
   return result;

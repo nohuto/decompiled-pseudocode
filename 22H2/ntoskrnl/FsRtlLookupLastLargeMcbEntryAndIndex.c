@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlLookupLastLargeMcbEntryAndIndex @ 0x1403ABFB0
+ * XREFs of FsRtlLookupLastLargeMcbEntryAndIndex @ 0x1404EF080
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     FsRtlLookupLastBaseMcbEntryAndIndex @ 0x140360490 (FsRtlLookupLastBaseMcbEntryAndIndex.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     FsRtlLookupLastBaseMcbEntryAndIndex @ 0x14031C1B0 (FsRtlLookupLastBaseMcbEntryAndIndex.c)
  */
 
 BOOLEAN __stdcall FsRtlLookupLastLargeMcbEntryAndIndex(
@@ -16,6 +16,6 @@ BOOLEAN __stdcall FsRtlLookupLastLargeMcbEntryAndIndex(
 {
   ExAcquireFastMutex(OpaqueMcb->GuardedMutex);
   LOBYTE(Index) = FsRtlLookupLastBaseMcbEntryAndIndex(&OpaqueMcb->BaseMcb, LargeVbn, LargeLbn, Index);
-  ExReleaseFastMutex(OpaqueMcb->GuardedMutex);
+  KeReleaseGuardedMutex(OpaqueMcb->GuardedMutex);
   return (unsigned __int8)Index;
 }

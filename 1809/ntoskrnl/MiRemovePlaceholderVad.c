@@ -1,8 +1,8 @@
 /*
- * XREFs of MiRemovePlaceholderVad @ 0x1402C4DBC
+ * XREFs of MiRemovePlaceholderVad @ 0x1402C4EBC
  * Callers:
- *     MiCoalescePlaceholderAllocations @ 0x140851A18 (MiCoalescePlaceholderAllocations.c)
- *     MiPreparePlaceholderVadReplacement @ 0x14085C850 (MiPreparePlaceholderVadReplacement.c)
+ *     MiCoalescePlaceholderAllocations @ 0x1408519F8 (MiCoalescePlaceholderAllocations.c)
+ *     MiPreparePlaceholderVadReplacement @ 0x14085C830 (MiPreparePlaceholderVadReplacement.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -14,9 +14,9 @@
  *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiRemoveVad @ 0x1402C5020 (MiRemoveVad.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiRemoveVad @ 0x1402C5120 (MiRemoveVad.c)
  */
 
 __int64 __fastcall MiRemovePlaceholderVad(__int64 a1)

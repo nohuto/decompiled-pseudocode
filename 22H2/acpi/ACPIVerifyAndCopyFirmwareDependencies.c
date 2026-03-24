@@ -1,82 +1,121 @@
 /*
- * XREFs of ACPIVerifyAndCopyFirmwareDependencies @ 0x1C00146C0
+ * XREFs of ACPIVerifyAndCopyFirmwareDependencies @ 0x1C002EB38
  * Callers:
- *     ACPIBuildProcessDevicePhaseAdr @ 0x1C000EA70 (ACPIBuildProcessDevicePhaseAdr.c)
- *     ACPIBuildProcessPowerResourcePhaseSetupOnOff @ 0x1C0011120 (ACPIBuildProcessPowerResourcePhaseSetupOnOff.c)
- *     ACPIBuildProcessRunMethodPhaseCheckSta @ 0x1C0011880 (ACPIBuildProcessRunMethodPhaseCheckSta.c)
- *     ACPIBuildProcessThermalZoneCheckType @ 0x1C00124A0 (ACPIBuildProcessThermalZoneCheckType.c)
+ *     ACPIBuildProcessPowerResourcePhaseSetupOnOff @ 0x1C00120A0 (ACPIBuildProcessPowerResourcePhaseSetupOnOff.c)
+ *     ACPIBuildProcessDevicePhaseAdr @ 0x1C00151E0 (ACPIBuildProcessDevicePhaseAdr.c)
+ *     ACPIBuildProcessRunMethodPhaseCheckSta @ 0x1C001EFD0 (ACPIBuildProcessRunMethodPhaseCheckSta.c)
+ *     ACPIBuildProcessThermalZoneCheckType @ 0x1C00300B0 (ACPIBuildProcessThermalZoneCheckType.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_s @ 0x1C000AEC4 (WPP_RECORDER_SF_s.c)
- *     ACPIWriteEventLogEntry @ 0x1C0025F7C (ACPIWriteEventLogEntry.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNameSpaceObject @ 0x1C00483D8 (AMLIGetNameSpaceObject.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_s @ 0x1C0002C50 (WPP_RECORDER_SF_s.c)
+ *     AMLIGetNameSpaceObject @ 0x1C000B01C (AMLIGetNameSpaceObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     ACPIWriteEventLogEntry @ 0x1C0054C98 (ACPIWriteEventLogEntry.c)
  */
 
-__int64 __fastcall ACPIVerifyAndCopyFirmwareDependencies(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 *a3)
+__int64 __fastcall ACPIVerifyAndCopyFirmwareDependencies(__int64 *BugCheckParameter2, __int64 a2, _QWORD *a3)
 {
   unsigned int v3; // ebx
-  __int64 v8; // rax
-  __int64 v9; // rsi
-  int v10; // eax
-  int v11; // edx
-  __int64 Pool2; // rax
-  __int64 v13; // rsi
-  size_t v14; // r8
+  bool v6; // zf
+  unsigned int *v8; // r14
+  SIZE_T v9; // rsi
+  __int64 v10; // r12
+  _OWORD *PoolWithTag; // rax
+  _OWORD *v12; // rsi
+  size_t v13; // r8
+  __int64 v14; // r15
+  unsigned int *v16; // rdi
+  int v17; // ecx
+  __int64 v18; // rax
+  const void **v19; // rdi
+  __int64 v20; // rbp
+  __int64 v21; // r14
+  __int64 v22; // rax
+  unsigned int v23; // [rsp+78h] [rbp+10h]
+  __int64 v24; // [rsp+80h] [rbp+18h] BYREF
 
   v3 = 0;
   *a3 = 0LL;
-  if ( *(_WORD *)(a2 + 2) == 4 )
+  v6 = *(_WORD *)(a2 + 2) == 4;
+  v24 = 0LL;
+  if ( v6 )
   {
-    v8 = *(_QWORD *)(a2 + 32);
-    if ( *(_DWORD *)v8 )
+    v8 = *(unsigned int **)(a2 + 32);
+    v9 = *(unsigned int *)(a2 + 24) + 40LL;
+    v23 = 0;
+    v10 = *v8;
+    if ( (_DWORD)v10 )
     {
-      v9 = v8 + 32;
-      v10 = AMLIGetNameSpaceObject(*(void **)(v8 + 40));
-      if ( v10 >= 0 )
+      v16 = v8 + 8;
+      do
       {
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        v17 = AMLIGetNameSpaceObject(*((_BYTE **)v16 + 1), BugCheckParameter2, (unsigned __int64 *)&v24, 0);
+        if ( v17 < 0 )
         {
-          LOBYTE(v11) = 2;
-          WPP_RECORDER_SF_s(
-            WPP_GLOBAL_Control->DeviceExtension,
-            v11,
-            21,
-            12,
-            (__int64)&WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
-            *(_QWORD *)(v9 + 8));
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            WPP_RECORDER_SF_L(
+              (__int64)WPP_GLOBAL_Control->DeviceExtension,
+              2u,
+              0x15u,
+              0xBu,
+              (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
+              v17);
+          KeBugCheckEx(0xA5u, 0x18uLL, (ULONG_PTR)BugCheckParameter2, *((_QWORD *)v16 + 1), 0LL);
         }
-        KeBugCheckEx(0xA5u, 0x19uLL, BugCheckParameter2, *(_QWORD *)(v9 + 8), 0LL);
+        if ( !v24 || *(_WORD *)(*(_QWORD *)v24 + 66LL) != 6 )
+        {
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            WPP_RECORDER_SF_s(
+              (__int64)WPP_GLOBAL_Control->DeviceExtension,
+              2u,
+              0x15u,
+              0xCu,
+              (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
+              *((const char **)v16 + 1));
+          KeBugCheckEx(0xA5u, 0x19uLL, (ULONG_PTR)BugCheckParameter2, *((_QWORD *)v16 + 1), 0LL);
+        }
+        AMLIDereferenceHandleEx(v24);
+        v18 = *v16;
+        v16 += 10;
+        v9 += v18;
+        v24 = 0LL;
+        ++v23;
       }
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v11) = 2;
-        WPP_RECORDER_SF_d(
-          WPP_GLOBAL_Control->DeviceExtension,
-          v11,
-          21,
-          11,
-          (__int64)&WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
-          v10);
-      }
-      KeBugCheckEx(0xA5u, 0x18uLL, BugCheckParameter2, *(_QWORD *)(v9 + 8), 0LL);
+      while ( v23 < (unsigned int)v10 );
     }
-    Pool2 = ExAllocatePool2(64LL, *(unsigned int *)(a2 + 24) + 40LL, 1332765505LL);
-    v13 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v9, 0x4F706341u);
+    v12 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_OWORD *)Pool2 = *(_OWORD *)a2;
-      *(_OWORD *)(Pool2 + 16) = *(_OWORD *)(a2 + 16);
-      v14 = *(unsigned int *)(Pool2 + 24);
-      *(_QWORD *)(Pool2 + 32) = Pool2 + 40;
-      memmove((void *)(Pool2 + 40), *(const void **)(a2 + 32), v14);
+      *PoolWithTag = *(_OWORD *)a2;
+      PoolWithTag[1] = *(_OWORD *)(a2 + 16);
+      v13 = *((unsigned int *)PoolWithTag + 6);
+      *((_QWORD *)PoolWithTag + 4) = (char *)PoolWithTag + 40;
+      memmove((char *)PoolWithTag + 40, *(const void **)(a2 + 32), v13);
+      v14 = *(unsigned int *)(a2 + 24) + 40LL;
+      if ( (_DWORD)v10 )
+      {
+        v19 = (const void **)(v8 + 8);
+        v20 = *((_QWORD *)v12 + 4) - (_QWORD)v8;
+        v21 = v10;
+        do
+        {
+          *(const void **)((char *)v19 + v20 + 8) = (char *)v12 + v14;
+          memmove((char *)v12 + v14, v19[1], *(unsigned int *)v19);
+          v22 = *(unsigned int *)((char *)v19 + v20);
+          v19 += 5;
+          v14 += v22;
+          --v21;
+        }
+        while ( v21 );
+      }
     }
     else
     {
       v3 = -1073741670;
     }
-    *a3 = v13;
+    *a3 = v12;
     return v3;
   }
   else

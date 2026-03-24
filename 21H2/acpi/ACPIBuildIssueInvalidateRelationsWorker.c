@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIBuildIssueInvalidateRelationsWorker @ 0x1C00272B4
+ * XREFs of ACPIBuildIssueInvalidateRelationsWorker @ 0x1C002AA94
  * Callers:
- *     ACPIBuildIssueInvalidateRelations @ 0x1C0027270 (ACPIBuildIssueInvalidateRelations.c)
- *     ACPIBuildIssueInvalidateRelationsWorker @ 0x1C00272B4 (ACPIBuildIssueInvalidateRelationsWorker.c)
- *     ACPITableUnloadCallBack @ 0x1C00609D0 (ACPITableUnloadCallBack.c)
+ *     ACPIBuildIssueInvalidateRelations @ 0x1C002AA50 (ACPIBuildIssueInvalidateRelations.c)
+ *     ACPIBuildIssueInvalidateRelationsWorker @ 0x1C002AA94 (ACPIBuildIssueInvalidateRelationsWorker.c)
+ *     ACPITableUnloadCallBack @ 0x1C005FBE0 (ACPITableUnloadCallBack.c)
  * Callees:
- *     ACPIBuildIssueInvalidateRelationsWorker @ 0x1C00272B4 (ACPIBuildIssueInvalidateRelationsWorker.c)
- *     ACPIPendingInvalidate @ 0x1C00273EC (ACPIPendingInvalidate.c)
+ *     ACPIBuildIssueInvalidateRelationsWorker @ 0x1C002AA94 (ACPIBuildIssueInvalidateRelationsWorker.c)
+ *     ACPIPendingInvalidate @ 0x1C002E6BC (ACPIPendingInvalidate.c)
  */
 
 void __fastcall ACPIBuildIssueInvalidateRelationsWorker(__int64 a1)
@@ -24,15 +24,15 @@ void __fastcall ACPIBuildIssueInvalidateRelationsWorker(__int64 a1)
     {
       _InterlockedAnd64((volatile signed __int64 *)(a1 + 8), 0xFFFFFBFFFFFFFFFFuLL);
       if ( !(unsigned __int8)ACPIPendingInvalidate(a1) )
-        IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(v6 + 784), BusRelations);
+        IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(v6 + 744), BusRelations);
     }
     else
     {
-      v3 = (_QWORD *)(a1 + 800);
-      v4 = *(_QWORD **)(a1 + 800);
+      v3 = (_QWORD *)(a1 + 760);
+      v4 = *(_QWORD **)(a1 + 760);
       while ( v4 != v3 )
       {
-        v5 = v4 - 102;
+        v5 = v4 - 97;
         v4 = (_QWORD *)*v4;
         if ( (v5[1] & 0x208) == 0x200LL )
           ACPIBuildIssueInvalidateRelationsWorker(v5);

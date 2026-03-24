@@ -2,17 +2,17 @@
  * XREFs of EtwpRealtimeInjectEtwBuffer @ 0x1405C19BC
  * Callers:
  *     EtwpRealtimeDeliverBuffer @ 0x1405C1890 (EtwpRealtimeDeliverBuffer.c)
- *     EtwpRealtimeNotifyConsumers @ 0x1406C9BB4 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x1406C9B94 (EtwpRealtimeNotifyConsumers.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     EtwpFindUserBufferSpace @ 0x1405C1B98 (EtwpFindUserBufferSpace.c)
- *     EtwpFreeUserBufferSpace @ 0x1408C36D4 (EtwpFreeUserBufferSpace.c)
+ *     EtwpFreeUserBufferSpace @ 0x1408C36B4 (EtwpFreeUserBufferSpace.c)
  */
 
 __int64 __fastcall EtwpRealtimeInjectEtwBuffer(_DWORD *a1, __int64 a2, __int64 a3)

@@ -1,17 +1,21 @@
 /*
- * XREFs of MiGetPteFromCopyList @ 0x140283F10
+ * XREFs of MiGetPteFromCopyList @ 0x1402402F0
  * Callers:
- *     MiCopyPage @ 0x140283CF0 (MiCopyPage.c)
- *     MiCopyPagesIntoEnclave @ 0x140A3D034 (MiCopyPagesIntoEnclave.c)
+ *     MiCopyPage @ 0x14023FB90 (MiCopyPage.c)
+ *     MiSwapStackPage @ 0x14031F4BC (MiSwapStackPage.c)
+ *     MiStealPage @ 0x140334CB4 (MiStealPage.c)
+ *     MiAddPagesToEnclave @ 0x140549044 (MiAddPagesToEnclave.c)
+ *     MiCopyPagesIntoEnclave @ 0x1408D21D8 (MiCopyPagesIntoEnclave.c)
+ *     MiFillPerSessionProtos @ 0x1408D8030 (MiFillPerSessionProtos.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F450 (MiInsertTbFlushEntry.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 *__fastcall MiGetPteFromCopyList(unsigned int *a1, __int64 a2, __int64 a3)
@@ -24,18 +28,22 @@ __int64 *__fastcall MiGetPteFromCopyList(unsigned int *a1, __int64 a2, __int64 a
   char v11; // dl
   __int64 ValidPte; // rbx
   __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  char v16; // dl
-  __int64 v17; // rbx
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v22; // r8
-  __int64 v23; // rdx
-  _QWORD v24[24]; // [rsp+20h] [rbp-108h] BYREF
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  char v18; // dl
+  __int64 v19; // rbx
+  __int64 v20; // rdx
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 v24; // r9
+  __int64 v26; // r8
+  __int64 v27; // rdx
+  _QWORD v28[24]; // [rsp+20h] [rbp-108h] BYREF
 
-  memset(v24, 0, 0xB8uLL);
+  memset(v28, 0, 0xB8uLL);
   v6 = 2;
   v7 = 1;
   if ( a3 == -1 )
@@ -43,18 +51,18 @@ __int64 *__fastcall MiGetPteFromCopyList(unsigned int *a1, __int64 a2, __int64 a
   v8 = *a1;
   if ( (int)v8 + v6 > a1[1] )
   {
-    v22 = *a1;
-    LODWORD(v24[1]) = 20;
-    v23 = *((_QWORD *)a1 + 2) << 25;
-    v24[3] = 0LL;
-    MiInsertTbFlushEntry((__int64)v24, v23 >> 16, v22, 0);
-    MiFlushTbList((int *)v24);
+    v26 = *a1;
+    LODWORD(v28[1]) = 20;
+    v27 = *((_QWORD *)a1 + 2) << 25;
+    v28[3] = 0LL;
+    MiInsertTbFlushEntry(v28, v27 >> 16, v26, 0LL);
+    MiFlushTbList(v28);
     v8 = 0LL;
   }
   v9 = 4;
   v10 = (__int64 *)(*((_QWORD *)a1 + 2) + 8 * v8);
   *a1 = v8 + v6;
-  v11 = *(_BYTE *)(48 * a2 - 0x21FFFFFFFFDELL) >> 6;
+  v11 = *(_BYTE *)(48 * a2 - 0x57FFFFFFFDELL) >> 6;
   if ( v11 )
   {
     if ( v11 == 2 )
@@ -65,9 +73,9 @@ __int64 *__fastcall MiGetPteFromCopyList(unsigned int *a1, __int64 a2, __int64 a
     v9 = 12;
   }
   ValidPte = MiMakeValidPte(v10, a2, v9 | 0xA0000000);
-  if ( !MiPteInShadowRange((unsigned __int64)v10) )
+  if ( !(unsigned int)MiPteInShadowRange(v10, v13) )
     goto LABEL_9;
-  if ( !(unsigned int)MiPteHasShadow(v14, v13, v15) )
+  if ( !(unsigned int)MiPteHasShadow(v15, v14, v16, v17) )
   {
     if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
       && (ValidPte & 1) != 0 )
@@ -78,41 +86,41 @@ LABEL_9:
     *v10 = ValidPte;
     goto LABEL_10;
   }
-  if ( !HIBYTE(word_140C66DFC) && (ValidPte & 1) != 0 )
+  if ( !HIBYTE(word_140C4E008) && (ValidPte & 1) != 0 )
     ValidPte |= 0x8000000000000000uLL;
   *v10 = ValidPte;
   MiWritePteShadow(v10, ValidPte);
 LABEL_10:
   if ( a3 != -1 )
   {
-    v16 = *(_BYTE *)(48 * a3 - 0x21FFFFFFFFDELL) >> 6;
-    if ( v16 )
+    v18 = *(_BYTE *)(48 * a3 - 0x57FFFFFFFDELL) >> 6;
+    if ( v18 )
     {
-      if ( v16 == 2 )
+      if ( v18 == 2 )
         v7 = 25;
     }
     else
     {
       v7 = 9;
     }
-    v17 = MiMakeValidPte(v10, a3, v7 | 0x20000000u);
-    if ( !MiPteInShadowRange((unsigned __int64)(v10 + 1)) )
+    v19 = MiMakeValidPte(v10, a3, v7 | 0x20000000u);
+    if ( !(unsigned int)MiPteInShadowRange(v10 + 1, v20) )
       goto LABEL_15;
-    if ( !(unsigned int)MiPteHasShadow(v19, v18, v20) )
+    if ( !(unsigned int)MiPteHasShadow(v22, v21, v23, v24) )
     {
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
-        && (v17 & 1) != 0 )
+        && (v19 & 1) != 0 )
       {
-        v17 |= 0x8000000000000000uLL;
+        v19 |= 0x8000000000000000uLL;
       }
 LABEL_15:
-      v10[1] = v17;
+      v10[1] = v19;
       return v10;
     }
-    if ( !HIBYTE(word_140C66DFC) && (v17 & 1) != 0 )
-      v17 |= 0x8000000000000000uLL;
-    v10[1] = v17;
-    MiWritePteShadow(v10 + 1, v17);
+    if ( !HIBYTE(word_140C4E008) && (v19 & 1) != 0 )
+      v19 |= 0x8000000000000000uLL;
+    v10[1] = v19;
+    MiWritePteShadow(v10 + 1, v19);
   }
   return v10;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of VhdiQueryVolumeVhdFilePath @ 0x140B9C020
+ * XREFs of VhdiQueryVolumeVhdFilePath @ 0x140A951A8
  * Callers:
- *     VhdiInitializeBootDisk @ 0x140B9BD30 (VhdiInitializeBootDisk.c)
+ *     VhdiInitializeBootDisk @ 0x140A94990 (VhdiInitializeBootDisk.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x14041A780 (ZwDeviceIoControlFile.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     ZwDeviceIoControlFile @ 0x1403F9B00 (ZwDeviceIoControlFile.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void *__fastcall VhdiQueryVolumeVhdFilePath(HANDLE FileHandle)
+ULONG_PTR __fastcall VhdiQueryVolumeVhdFilePath(HANDLE FileHandle)
 {
   ULONG OutputBufferLength; // edi
-  void *OutputBuffer; // rax
-  void *v5; // rbx
+  PVOID OutputBuffer; // rax
+  ULONG_PTR v5; // rbx
   NTSTATUS v6; // eax
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-18h] BYREF
 
@@ -21,8 +21,8 @@ void *__fastcall VhdiQueryVolumeVhdFilePath(HANDLE FileHandle)
     return 0LL;
   for ( OutputBufferLength = 520; ; OutputBufferLength *= 2 )
   {
-    OutputBuffer = (void *)ExAllocatePool2(64LL, OutputBufferLength, 0x42646856u);
-    v5 = OutputBuffer;
+    OutputBuffer = ExAllocatePoolWithTag(NonPagedPoolNx, OutputBufferLength, 0x42646856u);
+    v5 = (ULONG_PTR)OutputBuffer;
     if ( !OutputBuffer )
       break;
     v6 = ZwDeviceIoControlFile(
@@ -37,15 +37,18 @@ void *__fastcall VhdiQueryVolumeVhdFilePath(HANDLE FileHandle)
            OutputBuffer,
            OutputBufferLength);
     if ( v6 != -1073741789 )
+      goto LABEL_8;
+    ExFreeHeapPool(v5);
+  }
+  v6 = -1073741801;
+LABEL_8:
+  if ( v6 < 0 )
+  {
+    if ( v5 )
     {
-      if ( v6 < 0 )
-      {
-        ExFreePoolWithTag(v5, 0x42646856u);
-        return 0LL;
-      }
-      return v5;
+      ExFreeHeapPool(v5);
+      return 0LL;
     }
-    ExFreePoolWithTag(v5, 0x42646856u);
   }
   return v5;
 }

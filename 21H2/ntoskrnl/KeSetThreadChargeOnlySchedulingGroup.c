@@ -1,14 +1,13 @@
 /*
- * XREFs of KeSetThreadChargeOnlySchedulingGroup @ 0x140310810
+ * XREFs of KeSetThreadChargeOnlySchedulingGroup @ 0x1402A7120
  * Callers:
- *     PsImpersonateContainerOfThread @ 0x14030F330 (PsImpersonateContainerOfThread.c)
- *     NtSetInformationThread @ 0x14072EC80 (NtSetInformationThread.c)
- *     PspExitThread @ 0x1407A0088 (PspExitThread.c)
+ *     PsImpersonateContainerOfThread @ 0x14021BC90 (PsImpersonateContainerOfThread.c)
+ *     PspExitThread @ 0x14064A838 (PspExitThread.c)
+ *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiStartThreadCycleAccumulation @ 0x140345B70 (KiStartThreadCycleAccumulation.c)
- *     KiEndThreadCycleAccumulation @ 0x140345C80 (KiEndThreadCycleAccumulation.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14022F8C0 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KeSetThreadChargeOnlySchedulingGroup(__int64 a1, __int64 a2)
@@ -22,9 +21,9 @@ char __fastcall KeSetThreadChargeOnlySchedulingGroup(__int64 a1, __int64 a2)
   _DWORD *v11; // rcx
   struct _KPRCB *v12; // rcx
   _DWORD *v13; // rdx
-  _DWORD *SchedulerAssist; // r9
+  _DWORD *v14; // rcx
   _DWORD *v15; // rcx
-  _DWORD *v16; // rcx
+  _DWORD *SchedulerAssist; // r9
   int v17; // eax
   int v18; // eax
   int v19; // eax
@@ -52,8 +51,7 @@ char __fastcall KeSetThreadChargeOnlySchedulingGroup(__int64 a1, __int64 a2)
   }
   CurrentPrcb = KeGetCurrentPrcb();
   _disable();
-  KiEndThreadCycleAccumulation(CurrentPrcb, a1, 0LL, 0LL);
-  KiStartThreadCycleAccumulation(CurrentPrcb, a1, 0LL);
+  KiUpdateTotalCyclesCurrentThread((__int64)CurrentPrcb, a1, 0LL);
   _enable();
   v10 = KeGetCurrentPrcb();
   v24 = 0;
@@ -71,13 +69,13 @@ LABEL_24:
   }
   while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentPrcb->PrcbLock, 0LL) )
   {
-    v15 = v10->SchedulerAssist;
-    if ( v15 )
+    v14 = v10->SchedulerAssist;
+    if ( v14 )
     {
       if ( v10->NestingLevel <= 1u )
       {
-        v18 = v15[6] - 1;
-        v15[6] = v18;
+        v18 = v14[6] - 1;
+        v14[6] = v18;
         if ( !v18 )
           KiRemoveSystemWorkPriorityKick(v10);
       }
@@ -85,13 +83,13 @@ LABEL_24:
     do
       KeYieldProcessorEx(&v24, v7, v8, v9);
     while ( CurrentPrcb->PrcbLock );
-    v16 = v10->SchedulerAssist;
-    if ( v16 )
+    v15 = v10->SchedulerAssist;
+    if ( v15 )
     {
       if ( v10->NestingLevel <= 1u )
       {
-        v19 = v16[6];
-        v16[6] = v19 + 1;
+        v19 = v15[6];
+        v15[6] = v19 + 1;
         if ( v19 == -1 )
           goto LABEL_24;
       }

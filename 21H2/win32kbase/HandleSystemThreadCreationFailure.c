@@ -1,28 +1,28 @@
 /*
- * XREFs of HandleSystemThreadCreationFailure @ 0x1C0148FC0
+ * XREFs of HandleSystemThreadCreationFailure @ 0x1C011D830
  * Callers:
  *     <none>
  * Callees:
- *     ?CSTPop@@YAHPEAIPEAPEAX@Z @ 0x1C00B9BC8 (-CSTPop@@YAHPEAIPEAPEAX@Z.c)
+ *     ?CSTPop@@YAHPEAIPEAPEAX@Z @ 0x1C007C890 (-CSTPop@@YAHPEAIPEAPEAX@Z.c)
  */
 
-__int64 __fastcall HandleSystemThreadCreationFailure(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall HandleSystemThreadCreationFailure(__int64 a1, __int64 a2)
 {
-  struct _KEVENT *v4; // rcx
-  unsigned int v6; // [rsp+30h] [rbp+8h] BYREF
-  void *v7; // [rsp+38h] [rbp+10h] BYREF
+  struct _KEVENT *v2; // rcx
+  unsigned int v4; // [rsp+30h] [rbp+8h] BYREF
+  void *v5; // [rsp+38h] [rbp+10h] BYREF
 
-  v6 = 0;
-  v7 = 0LL;
-  if ( (PVOID)PsGetCurrentProcess(a1, a2, a3, a4) == gpepCSRSS )
+  v4 = 0;
+  v5 = 0LL;
+  if ( (PVOID)PsGetCurrentProcess(a1, a2) == gpepCSRSS )
   {
-    if ( (unsigned int)CSTPop(&v6, &v7) )
+    if ( (unsigned int)CSTPop(&v4, &v5) )
     {
-      if ( v6 == 4 )
+      if ( v4 == 4 )
       {
-        v4 = (struct _KEVENT *)*((_QWORD *)v7 + 1);
-        if ( v4 )
-          KeSetEvent(v4, 1, 0);
+        v2 = (struct _KEVENT *)*((_QWORD *)v5 + 1);
+        if ( v2 )
+          KeSetEvent(v2, 1, 0);
       }
     }
   }

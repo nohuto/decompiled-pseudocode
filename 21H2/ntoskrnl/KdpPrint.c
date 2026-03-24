@@ -1,20 +1,20 @@
 /*
- * XREFs of KdpPrint @ 0x140A7434C
+ * XREFs of KdpPrint @ 0x1409B96C8
  * Callers:
- *     KdpTrap @ 0x140A6F1FC (KdpTrap.c)
+ *     KdpTrap @ 0x1409BAA20 (KdpTrap.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KdEnterDebugger @ 0x140A6F7A0 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x140A6F900 (KdExitDebugger.c)
- *     KdpQuickMoveMemory @ 0x140A70244 (KdpQuickMoveMemory.c)
- *     KdpPrintString @ 0x140A7131C (KdpPrintString.c)
- *     KdLogDbgPrint @ 0x140A73FF0 (KdLogDbgPrint.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KdEnterDebugger @ 0x1409B7028 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1409B7190 (KdExitDebugger.c)
+ *     KdLogDbgPrint @ 0x1409B9380 (KdLogDbgPrint.c)
+ *     KdpQuickMoveMemory @ 0x1409B9CF0 (KdpQuickMoveMemory.c)
+ *     KdpPrintString @ 0x1409BA7A0 (KdpPrintString.c)
  */
 
 __int64 __fastcall KdpPrint(
         unsigned int a1,
         unsigned int a2,
-        char *a3,
+        unsigned __int64 a3,
         unsigned __int16 a4,
         char a5,
         __int64 a6,
@@ -27,9 +27,9 @@ __int64 __fastcall KdpPrint(
   unsigned __int16 v11; // r10
   unsigned __int64 v12; // rdx
   void *v13; // rsp
-  char *v14; // r9
+  unsigned __int64 v14; // r9
   char v15; // bl
-  _BYTE v17[480]; // [rsp+0h] [rbp-200h] BYREF
+  char v17[480]; // [rsp+0h] [rbp-200h] BYREF
   __int128 v18; // [rsp+200h] [rbp+0h] BYREF
 
   v18 = 0LL;
@@ -52,12 +52,12 @@ __int64 __fastcall KdpPrint(
     {
       if ( v11 )
       {
-        v12 = (unsigned __int64)&a3[v11];
-        if ( v12 > 0x7FFFFFFF0000LL || v12 < (unsigned __int64)a3 )
+        v12 = a3 + v11;
+        if ( v12 > 0x7FFFFFFF0000LL || v12 < a3 )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
       v13 = alloca(512LL);
-      KdpQuickMoveMemory((__int64)v17, a3, v11);
+      KdpQuickMoveMemory(v17, a3, v11);
       a3 = v14;
     }
     *((_QWORD *)&v18 + 1) = a3;
@@ -66,7 +66,7 @@ __int64 __fastcall KdpPrint(
     if ( !(_BYTE)KdDebuggerNotPresent || KdEventLoggingPresent )
     {
       v15 = KdEnterDebugger(a6);
-      v10 = KdpPrintString((unsigned __int16 *)&v18) ? 0x80000003 : 0;
+      v10 = (unsigned __int8)KdpPrintString(&v18) != 0 ? 0x80000003 : 0;
       KdExitDebugger(v15);
     }
     else

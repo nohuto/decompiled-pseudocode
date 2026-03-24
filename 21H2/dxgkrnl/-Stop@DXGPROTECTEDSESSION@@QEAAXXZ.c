@@ -1,32 +1,43 @@
 /*
- * XREFs of ?Stop@DXGPROTECTEDSESSION@@QEAAXXZ @ 0x1C033A184
+ * XREFs of ?Stop@DXGPROTECTEDSESSION@@QEAAXXZ @ 0x1C0288A20
  * Callers:
- *     ?Stop@ADAPTER_DISPLAY@@QEAAXE@Z @ 0x1C02C2C38 (-Stop@ADAPTER_DISPLAY@@QEAAXE@Z.c)
- *     ?DestroyProtectedSession@ADAPTER_DISPLAY@@QEAAXPEAVDXGPROTECTEDSESSION@@@Z @ 0x1C03398D8 (-DestroyProtectedSession@ADAPTER_DISPLAY@@QEAAXPEAVDXGPROTECTEDSESSION@@@Z.c)
+ *     ?Stop@ADAPTER_DISPLAY@@QEAAXE@Z @ 0x1C0214EA8 (-Stop@ADAPTER_DISPLAY@@QEAAXE@Z.c)
+ *     ?DestroyProtectedSession@ADAPTER_DISPLAY@@QEAAXPEAVDXGPROTECTEDSESSION@@@Z @ 0x1C028833C (-DestroyProtectedSession@ADAPTER_DISPLAY@@QEAAXPEAVDXGPROTECTEDSESSION@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?SetSessionStatus@DXGPROTECTEDSESSION@@QEAAJW4_DXGK_PROTECTED_SESSION_STATUS@@@Z @ 0x1C0058164 (-SetSessionStatus@DXGPROTECTEDSESSION@@QEAAJW4_DXGK_PROTECTED_SESSION_STATUS@@@Z.c)
- *     ?DestroyCoreState@DXGPROTECTEDSESSION@@QEAAJXZ @ 0x1C0339844 (-DestroyCoreState@DXGPROTECTEDSESSION@@QEAAJXZ.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?SetSessionStatus@DXGPROTECTEDSESSION@@QEAAJW4_DXGK_PROTECTED_SESSION_STATUS@@@Z @ 0x1C0048E30 (-SetSessionStatus@DXGPROTECTEDSESSION@@QEAAJW4_DXGK_PROTECTED_SESSION_STATUS@@@Z.c)
+ *     ?DdiDestroyProtectedSession@ADAPTER_DISPLAY@@QEAAJPEAX@Z @ 0x1C021A110 (-DdiDestroyProtectedSession@ADAPTER_DISPLAY@@QEAAJPEAX@Z.c)
  */
 
 void __fastcall DXGPROTECTEDSESSION::Stop(DXGPROTECTEDSESSION *this)
 {
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // rax
+  void *v9; // rdx
+
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(*((_QWORD *)this + 2) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 1174LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetAdapter()->IsCoreResourceExclusiveOwner()",
-      1174LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v4 = WdLogNewEntry5_WdAssertion(v3, v2);
+    *(_QWORD *)(v4 + 24) = 1174LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  DXGPROTECTEDSESSION::DestroyCoreState(this);
+  if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(*((_QWORD *)this + 2) + 16LL)) )
+  {
+    v8 = WdLogNewEntry5_WdAssertion(v6, v5);
+    *(_QWORD *)(v8 + 24) = 1063LL;
+    WdLogEvent5_WdAssertion(v8);
+  }
+  v9 = (void *)*((_QWORD *)this + 18);
+  if ( v9 )
+  {
+    ADAPTER_DISPLAY::DdiDestroyProtectedSession(*((ADAPTER_DISPLAY **)this + 2), v9, v7);
+    *((_QWORD *)this + 18) = 0LL;
+  }
   *((_DWORD *)this + 6) = 3;
   DXGPROTECTEDSESSION::SetSessionStatus(this, DXGK_PROTECTED_SESSION_STATUS_INVALID);
 }

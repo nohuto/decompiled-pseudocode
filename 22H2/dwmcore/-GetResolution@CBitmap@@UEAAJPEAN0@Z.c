@@ -1,27 +1,28 @@
 /*
- * XREFs of ?GetResolution@CBitmap@@UEAAJPEAN0@Z @ 0x180281850
+ * XREFs of ?GetResolution@CBitmap@@UEAAJPEAN0@Z @ 0x180217A20
  * Callers:
- *     ?GetResolution@CBitmap@@WDA@EAAJPEAN0@Z @ 0x18011D300 (-GetResolution@CBitmap@@WDA@EAAJPEAN0@Z.c)
+ *     ?GetResolution@CBitmap@@WCI@EAAJPEAN0@Z @ 0x1800F54F0 (-GetResolution@CBitmap@@WCI@EAAJPEAN0@Z.c)
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034CA4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
  */
 
-__int64 __fastcall CBitmap::GetResolution(CBitmap *this, double *a2, double *a3)
+__int64 __fastcall CBitmap::GetResolution(struct _RTL_CRITICAL_SECTION *this, double *a2, double *a3)
 {
-  struct _RTL_CRITICAL_SECTION *v7; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v6; // ebx
+  struct _RTL_CRITICAL_SECTION *v8; // [rsp+30h] [rbp+8h] BYREF
 
-  v7 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 56);
-  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 56));
+  v8 = this + 3;
+  EnterCriticalSection(this + 3);
+  v6 = 0;
   if ( a2 && a3 )
   {
-    *a2 = *((float *)this + 28);
-    *a3 = *((float *)this + 29);
-    CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v7);
-    return 0LL;
+    *a2 = *(float *)&this[4].OwningThread;
+    *a3 = *((float *)&this[4].OwningThread + 1);
   }
   else
   {
-    CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v7);
-    return 2147942487LL;
+    v6 = -2147024809;
   }
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v8);
+  return v6;
 }

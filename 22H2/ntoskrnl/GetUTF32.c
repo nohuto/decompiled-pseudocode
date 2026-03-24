@@ -1,18 +1,17 @@
 /*
- * XREFs of GetUTF32 @ 0x1405AFC84
+ * XREFs of GetUTF32 @ 0x14058D0A4
  * Callers:
- *     punycode_encode @ 0x1409BFDB8 (punycode_encode.c)
+ *     punycode_encode @ 0x140916F74 (punycode_encode.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall GetUTF32(unsigned __int16 *a1)
 {
-  int v1; // edx
+  __int64 result; // rax
 
-  v1 = *a1;
-  if ( (unsigned __int16)(v1 + 10240) > 0x7FFu )
-    return *a1;
-  else
-    return ((v1 - 55287) << 10) + (unsigned int)a1[1];
+  result = *a1;
+  if ( (unsigned __int16)(result + 10240) <= 0x7FFu )
+    return (unsigned int)a1[1] + (((_DWORD)result - 55287) << 10);
+  return result;
 }

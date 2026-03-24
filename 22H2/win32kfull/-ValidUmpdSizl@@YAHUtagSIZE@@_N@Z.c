@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ValidUmpdSizl@@YAHUtagSIZE@@_N@Z @ 0x1C02C7620
+ * XREFs of ?ValidUmpdSizl@@YAHUtagSIZE@@_N@Z @ 0x1C015D0EC
  * Callers:
- *     NtGdiEngCreateBitmap @ 0x1C02C9260 (NtGdiEngCreateBitmap.c)
- *     NtGdiEngCreateDeviceBitmap @ 0x1C02C94D0 (NtGdiEngCreateDeviceBitmap.c)
- *     NtGdiEngCreateDeviceSurface @ 0x1C02C9520 (NtGdiEngCreateDeviceSurface.c)
+ *     NtGdiEngCreateBitmap @ 0x1C015CF30 (NtGdiEngCreateBitmap.c)
+ *     NtGdiEngCreateDeviceSurface @ 0x1C015D070 (NtGdiEngCreateDeviceSurface.c)
+ *     NtGdiEngCreateDeviceBitmap @ 0x1C02B22D0 (NtGdiEngCreateDeviceBitmap.c)
  * Callees:
  *     <none>
  */

@@ -1,40 +1,39 @@
 /*
- * XREFs of MiInitializeEnclavePfn @ 0x1405A95FC
+ * XREFs of MiInitializeEnclavePfn @ 0x14054AA28
  * Callers:
- *     MiAddPagesToEnclave @ 0x1405A7D28 (MiAddPagesToEnclave.c)
- *     MiCopyPagesIntoEnclave @ 0x140979274 (MiCopyPagesIntoEnclave.c)
- *     MiCreateHardwareEnclave @ 0x140979A34 (MiCreateHardwareEnclave.c)
+ *     MiAddPagesToEnclave @ 0x140549104 (MiAddPagesToEnclave.c)
+ *     MiCopyPagesIntoEnclave @ 0x1408D2188 (MiCopyPagesIntoEnclave.c)
+ *     MiCreateHardwareEnclave @ 0x1408D28D0 (MiCreateHardwareEnclave.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402CCC50 (MiSwizzleInvalidPte.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiInitializeEnclavePfn(__int64 a1, __int64 a2, char a3)
+__int64 __fastcall MiInitializeEnclavePfn(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  _KPROCESS *Process; // rbx
-  __int64 v6; // r14
+  char v4; // di
+  __int64 v6; // rsi
   unsigned __int64 v7; // rbp
-  char v8; // cl
-  unsigned __int64 v9; // rax
+  unsigned __int64 v8; // rcx
+  char v9; // al
   unsigned __int8 v10; // dl
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v14; // zf
 
-  Process = KeGetCurrentThread()->ApcState.Process;
-  v6 = 48 * a1 - 0x220000000000LL;
-  v7 = (unsigned __int8)MiLockPageInline(v6);
-  v8 = *(_BYTE *)(v6 + 34) & 0xFE;
-  *(_QWORD *)v6 ^= (*(_QWORD *)v6 ^ ((unsigned __int64)Process >> 3)) & 0xFFFFFFFFFFELL;
-  *(_BYTE *)(v6 + 34) = v8 | 6;
-  v9 = *(_QWORD *)(v6 + 24) & 0xC000000000000001uLL;
+  v4 = a3;
+  v6 = 48 * a1 - 0x58000000000LL;
+  v7 = (unsigned __int8)MiLockPageInline(v6, a2, a3, a4);
+  *(_BYTE *)(v6 + 34) = *(_BYTE *)(v6 + 34) & 0xF8 | 6;
+  v8 = *(_QWORD *)(v6 + 24) & 0xC000000000000001uLL;
   *(_WORD *)(v6 + 32) = 1;
-  *(_QWORD *)(v6 + 24) = v9 | 1;
-  *(_BYTE *)(v6 + 34) |= 0x10u;
+  v9 = *(_BYTE *)(v6 + 34);
+  *(_QWORD *)(v6 + 24) = v8 | 1;
+  *(_BYTE *)(v6 + 34) = v9 | 0x10;
   *(_QWORD *)(v6 + 8) = a2;
-  *(_QWORD *)(v6 + 16) = MiSwizzleInvalidPte(32LL * (a3 & 0x1F));
+  *(_QWORD *)(v6 + 16) = MiSwizzleInvalidPte(32LL * (v4 & 0x1F));
   _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )

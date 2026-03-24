@@ -1,207 +1,169 @@
 /*
- * XREFs of rimGetCompleteFrameAndReleaseHoldingFrame @ 0x1C01A6FEC
+ * XREFs of rimGetCompleteFrameAndReleaseHoldingFrame @ 0x1C0172298
  * Callers:
- *     RIMCompletePointerDeviceFrame @ 0x1C01A62A0 (RIMCompletePointerDeviceFrame.c)
+ *     RIMCompletePointerDeviceFrame @ 0x1C01714F4 (RIMCompletePointerDeviceFrame.c)
  * Callees:
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
- *     ?DbgDumpNode@@YAXKPEAUtagRIMPOINTERINFONODE@@@Z @ 0x1C00E66FE (-DbgDumpNode@@YAXKPEAUtagRIMPOINTERINFONODE@@@Z.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
- *     rimFindHoldingFrame @ 0x1C01A6DDC (rimFindHoldingFrame.c)
- *     rimReclaimHoldingFrame @ 0x1C01A7B2C (rimReclaimHoldingFrame.c)
- *     ApiSetEtwTraceBeginPointerFrameCommit @ 0x1C020C68C (ApiSetEtwTraceBeginPointerFrameCommit.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     Win32AllocPoolZInit @ 0x1C0028440 (Win32AllocPoolZInit.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     rimFindHoldingFrame @ 0x1C00A6778 (rimFindHoldingFrame.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
+ *     ?DumpPointerEventInt@@YAXPEAUtagPOINTEREVENTINT@@@Z @ 0x1C0170ADC (-DumpPointerEventInt@@YAXPEAUtagPOINTEREVENTINT@@@Z.c)
+ *     rimReclaimHoldingFrame @ 0x1C0172A50 (rimReclaimHoldingFrame.c)
+ *     ApiSetEtwTraceBeginPointerFrameCommit @ 0x1C01CE900 (ApiSetEtwTraceBeginPointerFrameCommit.c)
  */
 
-__int64 __fastcall rimGetCompleteFrameAndReleaseHoldingFrame(__int64 a1, __int64 a2, __int64 *a3)
+__int64 __fastcall rimGetCompleteFrameAndReleaseHoldingFrame(__int64 a1, __int64 a2, _QWORD *a3)
 {
   unsigned int v3; // ebx
-  __int64 v5; // rdx
   __int64 v6; // rcx
-  _QWORD *HoldingFrame; // rsi
-  __int64 v8; // r8
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 *v11; // rdx
-  int v12; // eax
-  __int64 v13; // r15
-  unsigned int v14; // r14d
-  PVOID v15; // rbp
-  __int64 v16; // rdx
-  __int64 v17; // rax
-  __int64 Pool2; // rdi
-  __int64 v19; // r13
-  unsigned int v20; // ebp
-  __int64 i; // r14
-  __int64 v22; // r12
-  _OWORD *v23; // rcx
-  __int64 v24; // r15
-  __int64 v25; // r14
-  char v26; // r12
-  __int64 v27; // r8
-  int v28; // eax
-  unsigned int v29; // eax
-  PVOID BackTrace[20]; // [rsp+20h] [rbp-C8h] BYREF
+  _QWORD *HoldingFrame; // rdi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 *v10; // rdx
+  int v11; // eax
+  __int64 v12; // r15
+  unsigned int v13; // esi
+  _DWORD *v14; // rax
+  _DWORD *v15; // r14
+  unsigned int v16; // ebp
+  _QWORD *v17; // rax
+  __int64 i; // rsi
+  __int64 v19; // r12
+  _OWORD *v20; // rcx
+  __int64 v21; // rsi
+  __int64 v22; // r15
+  int v23; // eax
+  unsigned int v24; // eax
 
   v3 = 0;
   *a3 = 0LL;
   HoldingFrame = rimFindHoldingFrame(a1, a2);
   if ( !HoldingFrame )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v5, v8);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 981);
   if ( !*((_DWORD *)HoldingFrame + 4) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v5, v8);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 982);
   if ( HoldingFrame[3] != *(_QWORD *)(a2 + 16) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v5, v8);
-  v9 = *((unsigned int *)HoldingFrame + 10);
-  if ( !(_DWORD)v9 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 983);
+  v8 = *((unsigned int *)HoldingFrame + 10);
+  if ( !(_DWORD)v8 )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v9, v8);
-    v9 = *((unsigned int *)HoldingFrame + 10);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 984);
+    v8 = *((unsigned int *)HoldingFrame + 10);
   }
-  if ( (_DWORD)v9 != *((_DWORD *)HoldingFrame + 11) )
+  if ( (_DWORD)v8 != *((_DWORD *)HoldingFrame + 11) )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v9, v8);
-    v9 = *((unsigned int *)HoldingFrame + 10);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 985);
+    v8 = *((unsigned int *)HoldingFrame + 10);
   }
-  ApiSetEtwTraceBeginPointerFrameCommit(v6, v9);
-  v10 = HoldingFrame[7];
-  v11 = 0LL;
-  while ( v10 )
+  ApiSetEtwTraceBeginPointerFrameCommit(v6, v8);
+  v9 = HoldingFrame[7];
+  v10 = 0LL;
+  while ( v9 )
   {
-    v12 = *(_DWORD *)(v10 + 4);
-    v10 = *(_QWORD *)(v10 + 16);
-    v11 = (__int64 *)(((v12 + 7) & 0xFFFFFFF8) + (_DWORD)v11 + 24);
+    v11 = *(_DWORD *)(v9 + 4);
+    v9 = *(_QWORD *)(v9 + 16);
+    v10 = (__int64 *)(((v11 + 7) & 0xFFFFFFF8) + (_DWORD)v10 + 24);
   }
-  v13 = (unsigned int)(192 * *((_DWORD *)HoldingFrame + 10));
-  v14 = (_DWORD)v11 + v13 + 240;
-  if ( !v14 )
-    goto LABEL_47;
-  v15 = gpLeakTrackingAllocator;
-  v16 = v14;
-  if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x66637352) != 0x66637352
-    || (v17 = 0LL, !*((_DWORD *)gpLeakTrackingAllocator + 11)) )
+  v12 = (unsigned int)(192 * *((_DWORD *)HoldingFrame + 10));
+  v13 = (_DWORD)v10 + v12 + 128;
+  if ( v13 )
   {
-LABEL_19:
-    Pool2 = ExAllocatePool2(260LL, v14);
-    goto LABEL_20;
-  }
-  while ( *((_DWORD *)gpLeakTrackingAllocator + v17) != 1717793618 )
-  {
-    if ( ++v17 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-      goto LABEL_19;
-  }
-  v26 = 0;
-  if ( v14 < 0x1000uLL || (v14 & 0xFFF) != 0 )
-  {
-    v26 = 1;
-    v16 = v14 + 16LL;
-  }
-  Pool2 = ExAllocatePool2(260LL, v16);
-  if ( Pool2 )
-  {
-    memset(BackTrace, 0, sizeof(BackTrace));
-    RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-    if ( v26 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
+    v14 = Win32AllocPoolZInit(v13, 1717793618LL);
+    v15 = v14;
+    if ( v14 )
     {
-      if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-             (__int64)v15,
-             (const void *)Pool2,
-             (struct NSInstrumentation::CBackTrace *)BackTrace) )
+      *v14 = v13;
+      v16 = 0;
+      v17 = v14 + 2;
+      v17[1] = v17;
+      *v17 = v17;
+      v15[6] = *((_DWORD *)HoldingFrame + 10);
+      *((_QWORD *)v15 + 4) = HoldingFrame[3];
+      *((_QWORD *)v15 + 5) = HoldingFrame[4];
+      *((_QWORD *)v15 + 15) = v15 + 32;
+      for ( i = HoldingFrame[9]; v16 < *((_DWORD *)HoldingFrame + 10); i += 192LL )
       {
-        Pool2 += 16LL;
-LABEL_20:
-        v19 = Pool2;
-        if ( !Pool2 )
-          goto LABEL_47;
-        goto LABEL_21;
-      }
-    }
-    else if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                (__int64)v15,
-                Pool2,
-                (struct NSInstrumentation::CBackTrace *)BackTrace) )
-    {
-      v19 = Pool2;
-LABEL_21:
-      *(_DWORD *)Pool2 = v14;
-      *(_QWORD *)(Pool2 + 16) = Pool2 + 8;
-      v20 = 0;
-      *(_QWORD *)(Pool2 + 8) = Pool2 + 8;
-      *(_DWORD *)(Pool2 + 24) = *((_DWORD *)HoldingFrame + 10);
-      v10 = HoldingFrame[3];
-      *(_QWORD *)(Pool2 + 32) = v10;
-      *(_QWORD *)(Pool2 + 48) = HoldingFrame[4];
-      *(_QWORD *)(Pool2 + 232) = Pool2 + 240;
-      for ( i = HoldingFrame[9]; v20 < *((_DWORD *)HoldingFrame + 10); i += 192LL )
-      {
-        v22 = 192LL * v20;
-        v23 = (_OWORD *)(v22 + *(_QWORD *)(Pool2 + 232));
-        *v23 = *(_OWORD *)i;
-        v23[1] = *(_OWORD *)(i + 16);
-        v23[2] = *(_OWORD *)(i + 32);
-        v23[3] = *(_OWORD *)(i + 48);
-        v23[4] = *(_OWORD *)(i + 64);
-        v23[5] = *(_OWORD *)(i + 80);
-        v23[6] = *(_OWORD *)(i + 96);
-        v23[7] = *(_OWORD *)(i + 112);
-        v23[8] = *(_OWORD *)(i + 128);
-        v23[9] = *(_OWORD *)(i + 144);
-        v23[10] = *(_OWORD *)(i + 160);
-        v23[11] = *(_OWORD *)(i + 176);
-        DbgDumpNode(v20, (struct tagRIMPOINTERINFONODE *)i);
+        v19 = 192LL * v16;
+        v20 = (_OWORD *)(v19 + *((_QWORD *)v15 + 15));
+        *v20 = *(_OWORD *)i;
+        v20[1] = *(_OWORD *)(i + 16);
+        v20[2] = *(_OWORD *)(i + 32);
+        v20[3] = *(_OWORD *)(i + 48);
+        v20[4] = *(_OWORD *)(i + 64);
+        v20[5] = *(_OWORD *)(i + 80);
+        v20[6] = *(_OWORD *)(i + 96);
+        v20[7] = *(_OWORD *)(i + 112);
+        v20[8] = *(_OWORD *)(i + 128);
+        v20[9] = *(_OWORD *)(i + 144);
+        v20[10] = *(_OWORD *)(i + 160);
+        v20[11] = *(_OWORD *)(i + 176);
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v10) = 4;
+          WPP_RECORDER_SF_d(
+            (_DWORD)gRimLog,
+            (_DWORD)v10,
+            1,
+            26,
+            (__int64)&WPP_9651681dcc2638ebeb0ec510677294f4_Traceguids,
+            v16);
+        }
+        DumpPointerEventInt((struct tagPOINTEREVENTINT *)(i + 8), (int)v10);
         if ( i == HoldingFrame[10] )
         {
-          v10 = v22 + *(_QWORD *)(Pool2 + 232);
-          *(_QWORD *)(Pool2 + 216) = v10;
+          v9 = v19 + *((_QWORD *)v15 + 15);
+          *((_QWORD *)v15 + 13) = v9;
         }
-        ++v20;
+        ++v16;
       }
-      *(_DWORD *)(Pool2 + 28) = *((_DWORD *)HoldingFrame + 12);
-      if ( HoldingFrame[7] )
+      v15[7] = *((_DWORD *)HoldingFrame + 12);
+      v21 = HoldingFrame[7];
+      if ( v21 )
       {
-        v24 = *(_QWORD *)(Pool2 + 232) + v13;
-        *(_QWORD *)(v19 + 224) = v24;
-        v25 = HoldingFrame[7];
-        while ( v25 )
-        {
-          while ( 1 )
-          {
-            *(_DWORD *)v24 = *(_DWORD *)v25;
-            *(_DWORD *)(v24 + 4) = *(_DWORD *)(v25 + 4);
-            *(_QWORD *)(v24 + 8) = v24 + 24;
-            memmove((void *)(v24 + 24), *(const void **)(v25 + 8), *(unsigned int *)(v25 + 4));
-            v11 = (__int64 *)(v25 + 16);
-            v28 = *(_DWORD *)(v25 + 4) + 7;
-            *(_QWORD *)(v24 + 16) = 0LL;
-            v25 = *(_QWORD *)(v25 + 16);
-            v29 = (v28 & 0xFFFFFFF8) + 24;
-            v10 = 0LL;
-            if ( v25 )
-            {
-              v10 = v24 + v29;
-              *(_QWORD *)(v24 + 16) = v10;
-              v25 = *v11;
-            }
-            v24 = v10;
-            if ( !v10 )
-              break;
-            if ( !v25 )
-              goto LABEL_44;
-          }
-          if ( !v25 )
-            break;
-LABEL_44:
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, v11, v27);
-        }
+        v22 = *((_QWORD *)v15 + 15) + v12;
+        *((_QWORD *)v15 + 14) = v22;
+        v21 = HoldingFrame[7];
       }
+      else
+      {
+        v22 = *((_QWORD *)v15 + 14);
+      }
+      while ( v21 )
+      {
+        while ( 1 )
+        {
+          *(_DWORD *)v22 = *(_DWORD *)v21;
+          *(_DWORD *)(v22 + 4) = *(_DWORD *)(v21 + 4);
+          *(_QWORD *)(v22 + 8) = v22 + 24;
+          memmove((void *)(v22 + 24), *(const void **)(v21 + 8), *(unsigned int *)(v21 + 4));
+          v10 = (__int64 *)(v21 + 16);
+          v23 = *(_DWORD *)(v21 + 4) + 7;
+          *(_QWORD *)(v22 + 16) = 0LL;
+          v21 = *(_QWORD *)(v21 + 16);
+          v24 = (v23 & 0xFFFFFFF8) + 24;
+          v9 = 0LL;
+          if ( v21 )
+          {
+            v9 = v22 + v24;
+            *(_QWORD *)(v22 + 16) = v9;
+            v21 = *v10;
+          }
+          v22 = v9;
+          if ( !v9 )
+            break;
+          if ( !v21 )
+            goto LABEL_31;
+        }
+        if ( !v21 )
+          break;
+LABEL_31:
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1139);
+      }
+      *a3 = v15;
       v3 = 1;
-      *a3 = Pool2;
-      goto LABEL_47;
     }
-    ExFreePoolWithTag((PVOID)Pool2, 0);
   }
-LABEL_47:
-  rimReclaimHoldingFrame(v10, v11, HoldingFrame);
+  rimReclaimHoldingFrame(v9, v10, HoldingFrame);
   return v3;
 }

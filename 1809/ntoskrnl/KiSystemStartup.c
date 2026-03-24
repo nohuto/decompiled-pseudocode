@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiIdleLoop @ 0x1401C0500 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x1401C0520 (KiIdleLoop.c)
  *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
  *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
  *     KiInitializeXSave @ 0x1405732C0 (KiInitializeXSave.c)

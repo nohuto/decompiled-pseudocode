@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddVisualChild@CApplicationChannel@DirectComposition@@QEAAJIIHI@Z @ 0x1C0085974
+ * XREFs of ?AddVisualChild@CApplicationChannel@DirectComposition@@QEAAJIIHI@Z @ 0x1C0025E4C
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C008A134 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C007E324 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
  * Callees:
- *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C0085EE4 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C00263C8 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::AddVisualChild(
@@ -16,60 +16,63 @@ __int64 __fastcall DirectComposition::CApplicationChannel::AddVisualChild(
 {
   __int64 v5; // rbx
   unsigned __int64 v6; // r10
-  __int64 v10; // rax
-  __int64 v11; // rcx
-  struct DirectComposition::CResourceMarshaler *v12; // rsi
+  struct DirectComposition::CResourceMarshaler *v10; // rsi
+  unsigned __int64 v11; // rdx
+  __int64 v12; // r14
   unsigned __int64 v13; // rdx
-  __int64 v14; // rax
-  __int64 v15; // rcx
-  __int64 v16; // r14
-  unsigned __int64 v17; // r8
-  __int64 v18; // rax
-  __int64 v19; // rcx
-  int v20; // ebx
-  char v22; // [rsp+68h] [rbp+10h] BYREF
+  int v14; // ebx
+  char v16; // [rsp+68h] [rbp+10h] BYREF
 
   v5 = 0LL;
-  v22 = 0;
+  v16 = 0;
   v6 = (unsigned int)(a2 - 1);
-  if ( a2
-    && v6 < *((_QWORD *)this + 10)
-    && (_mm_lfence(),
-        v10 = *((_QWORD *)this + 7),
-        v11 = v6 * *((_QWORD *)this + 11),
-        (v12 = *(struct DirectComposition::CResourceMarshaler **)(v11 + v10)) != 0LL) )
+  if ( a2 && v6 < *((_QWORD *)this + 10) )
   {
-    if ( !(*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(*(_QWORD *)v12 + 96LL))(*(_QWORD *)(v11 + v10), 195LL) )
-      return (unsigned int)-1073741811;
-    v13 = (unsigned int)(a3 - 1);
-    if ( !a3 )
-      return (unsigned int)-1073741811;
-    if ( v13 >= *((_QWORD *)this + 10) )
-      return (unsigned int)-1073741811;
     _mm_lfence();
-    v14 = *((_QWORD *)this + 7);
-    v15 = v13 * *((_QWORD *)this + 11);
-    v16 = *(_QWORD *)(v15 + v14);
-    if ( !v16 )
+    v10 = *(struct DirectComposition::CResourceMarshaler **)(v6 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
+  }
+  else
+  {
+    v10 = 0LL;
+  }
+  if ( v10 )
+  {
+    if ( !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)v10 + 96LL))(
+            v10,
+            195LL) )
       return (unsigned int)-1073741811;
-    if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(*(_QWORD *)v16 + 96LL))(*(_QWORD *)(v15 + v14), 195LL)
-      && (!a5
-       || (v17 = a5 - 1, v17 < *((_QWORD *)this + 10))
-       && (_mm_lfence(),
-           v18 = *((_QWORD *)this + 7),
-           v19 = v17 * *((_QWORD *)this + 11),
-           (v5 = *(_QWORD *)(v19 + v18)) != 0)
-       && (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(*(_QWORD *)v5 + 96LL))(*(_QWORD *)(v19 + v18), 195LL)) )
+    v11 = (unsigned int)(a3 - 1);
+    if ( a3 && v11 < *((_QWORD *)this + 10) )
     {
-      v20 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, DirectComposition::CApplicationChannel *, __int64, _QWORD, __int64, char *))(*(_QWORD *)v12 + 224LL))(
-              v12,
+      _mm_lfence();
+      v12 = *(_QWORD *)(v11 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
+    }
+    else
+    {
+      v12 = 0LL;
+    }
+    if ( !v12 || !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v12 + 96LL))(v12, 195LL) )
+      return (unsigned int)-1073741811;
+    if ( !a5 )
+      goto LABEL_16;
+    v13 = a5 - 1;
+    if ( v13 < *((_QWORD *)this + 10) )
+    {
+      _mm_lfence();
+      v5 = *(_QWORD *)(v13 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
+    }
+    if ( v5 && (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v5 + 96LL))(v5, 195LL) )
+    {
+LABEL_16:
+      v14 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, DirectComposition::CApplicationChannel *, __int64, _QWORD, __int64, char *))(*(_QWORD *)v10 + 224LL))(
+              v10,
               this,
-              v16,
+              v12,
               a4,
               v5,
-              &v22);
-      if ( v20 >= 0 && v22 )
-        DirectComposition::CApplicationChannel::PutResourceOnUpdatedList(this, v12);
+              &v16);
+      if ( v14 >= 0 && v16 )
+        DirectComposition::CApplicationChannel::PutResourceOnUpdatedList(this, v10);
     }
     else
     {
@@ -80,5 +83,5 @@ __int64 __fastcall DirectComposition::CApplicationChannel::AddVisualChild(
   {
     return (unsigned int)-1073741790;
   }
-  return (unsigned int)v20;
+  return (unsigned int)v14;
 }

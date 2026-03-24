@@ -1,20 +1,20 @@
 /*
- * XREFs of IoQueryEnvironmentVariableInfoEx @ 0x14093E6A8
+ * XREFs of IoQueryEnvironmentVariableInfoEx @ 0x140899BD4
  * Callers:
- *     NtQueryEnvironmentVariableInfoEx @ 0x140A00D00 (NtQueryEnvironmentVariableInfoEx.c)
+ *     NtQueryEnvironmentVariableInfoEx @ 0x140954940 (NtQueryEnvironmentVariableInfoEx.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     IopOpenSystemVariableDevice @ 0x14093F56C (IopOpenSystemVariableDevice.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     IopOpenSystemVariableDevice @ 0x14089AA6C (IopOpenSystemVariableDevice.c)
  */
 
 __int64 __fastcall IoQueryEnvironmentVariableInfoEx(unsigned int a1, PDEVICE_OBJECT *a2, __int64 *a3, __int64 *a4)
 {
   int v8; // ebx
-  PVOID Object; // [rsp+40h] [rbp-89h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp-89h] BYREF
   __int64 v11; // [rsp+48h] [rbp-81h] BYREF
   PDEVICE_OBJECT DeviceObject; // [rsp+50h] [rbp-79h] BYREF
   __int64 v13; // [rsp+58h] [rbp-71h] BYREF
@@ -32,27 +32,27 @@ __int64 __fastcall IoQueryEnvironmentVariableInfoEx(unsigned int a1, PDEVICE_OBJ
   __int64 *v25; // [rsp+C0h] [rbp-9h]
   int v26; // [rsp+C8h] [rbp-1h]
   int v27; // [rsp+CCh] [rbp+3h]
-  PVOID *p_Object; // [rsp+D0h] [rbp+7h]
+  PADAPTER_OBJECT *p_DmaAdapter; // [rsp+D0h] [rbp+7h]
   int v29; // [rsp+D8h] [rbp+Fh]
   int v30; // [rsp+DCh] [rbp+13h]
 
   DeviceObject = 0LL;
-  Object = 0LL;
+  DmaAdapter = 0LL;
   v11 = 0LL;
-  v8 = IopOpenSystemVariableDevice((PFILE_OBJECT *)&Object, &DeviceObject);
+  v8 = IopOpenSystemVariableDevice((PFILE_OBJECT *)&DmaAdapter, &DeviceObject);
   if ( v8 >= 0 )
   {
-    v8 = (*(__int64 (__fastcall **)(PVOID, PDEVICE_OBJECT, _QWORD, PDEVICE_OBJECT *, __int64 *, __int64 *))(v11 + 24))(
-           Object,
+    v8 = (*(__int64 (__fastcall **)(PADAPTER_OBJECT, PDEVICE_OBJECT, _QWORD, PDEVICE_OBJECT *, __int64 *, __int64 *))(v11 + 24))(
+           DmaAdapter,
            DeviceObject,
            a1,
            a2,
            a3,
            a4);
-    if ( Object )
-      ObfDereferenceObject(Object);
+    if ( DmaAdapter )
+      HalPutDmaAdapter(DmaAdapter);
   }
-  if ( (unsigned int)dword_140C06518 > 5 && tlgKeywordOn((__int64)&dword_140C06518, 0x200000000000LL) )
+  if ( (unsigned int)dword_140C04510 > 5 && tlgKeywordOn((__int64)&dword_140C04510, 0x200000000000LL) )
   {
     v18 = 0;
     v21 = 0;
@@ -66,15 +66,21 @@ __int64 __fastcall IoQueryEnvironmentVariableInfoEx(unsigned int a1, PDEVICE_OBJ
     v22 = &v13;
     v14 = *a4;
     v25 = &v14;
-    p_Object = &Object;
+    p_DmaAdapter = &DmaAdapter;
     v17 = 4;
     v20 = 8;
     v23 = 8;
     v26 = 8;
     v29 = 4;
     LODWORD(v11) = a1;
-    LODWORD(Object) = v8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C06518, (unsigned __int8 *)byte_14002B848, 0LL, 0LL, 7u, &v15);
+    LODWORD(DmaAdapter) = v8;
+    tlgWriteTransfer_EtwWriteTransfer(
+      (__int64)&dword_140C04510,
+      (unsigned __int8 *)&dword_140024F0C,
+      0LL,
+      0LL,
+      7u,
+      &v15);
   }
   return (unsigned int)v8;
 }

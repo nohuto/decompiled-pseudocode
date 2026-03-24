@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlCreateAtomTableEx @ 0x140339C30
+ * XREFs of RtlCreateAtomTableEx @ 0x14032D350
  * Callers:
- *     RtlCreateAtomTable @ 0x1407B05C0 (RtlCreateAtomTable.c)
+ *     RtlCreateAtomTable @ 0x1406A6AF0 (RtlCreateAtomTable.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlpFreeAtom @ 0x14069EC78 (RtlpFreeAtom.c)
- *     RtlpAllocateAtom @ 0x14075AD10 (RtlpAllocateAtom.c)
- *     RtlpInitializeLockAtomTable @ 0x1407B05DC (RtlpInitializeLockAtomTable.c)
- *     RtlpInitializeHandleTableForAtomTable @ 0x1407B05EC (RtlpInitializeHandleTableForAtomTable.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlpFreeAtom @ 0x1406862EC (RtlpFreeAtom.c)
+ *     RtlpInitializeLockAtomTable @ 0x1406A6B0C (RtlpInitializeLockAtomTable.c)
+ *     RtlpInitializeHandleTableForAtomTable @ 0x1406A6B1C (RtlpInitializeHandleTableForAtomTable.c)
+ *     RtlpAllocateAtom @ 0x1406A6C84 (RtlpAllocateAtom.c)
  */
 
 NTSTATUS __fastcall RtlCreateAtomTableEx(unsigned int a1, int a2, _QWORD *a3)
 {
-  int v3; // ebx
+  int v3; // edi
   int v6; // ebp
   NTSTATUS result; // eax
   size_t v8; // rsi
   _DWORD *Atom; // rax
-  _DWORD *v10; // rdi
+  _DWORD *v10; // rbx
   ULONGLONG v11; // [rsp+50h] [rbp+18h] BYREF
 
-  v3 = 0;
   v11 = 0LL;
+  v3 = 0;
   if ( *a3 )
     return v3;
   v6 = 37;

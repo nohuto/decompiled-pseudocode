@@ -1,46 +1,36 @@
 /*
- * XREFs of IoVerifierCheckForSettingsChange @ 0x140AC1BF0
+ * XREFs of IoVerifierCheckForSettingsChange @ 0x1409C46E4
  * Callers:
- *     IoVerifierInit @ 0x140AC1CAC (IoVerifierInit.c)
- *     ViSettingsIoCheckForChanges @ 0x140ADBF18 (ViSettingsIoCheckForChanges.c)
+ *     IoVerifierInit @ 0x1409C477C (IoVerifierInit.c)
+ *     ViSettingsIoCheckForChanges @ 0x1409E0610 (ViSettingsIoCheckForChanges.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool3 @ 0x140AAF430 (ExAllocatePool3.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1402BC770 (ExAllocatePoolWithTagPriority.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-void __fastcall IoVerifierCheckForSettingsChange(char a1)
+__int64 __fastcall IoVerifierCheckForSettingsChange(char a1)
 {
+  __int64 result; // rax
   unsigned int i; // eax
-  ULONG_PTR v2; // rbx
-  void *Pool3; // rax
-  __int64 v4; // [rsp+30h] [rbp-18h] BYREF
-  int v5; // [rsp+38h] [rbp-10h]
-  int v6; // [rsp+3Ch] [rbp-Ch]
+  SIZE_T v3; // rbx
 
-  v6 = 0;
-  v4 = 1LL;
-  v5 = 32;
-  if ( (a1 & 0x10) != 0 )
+  if ( (a1 & 0x10) == 0 )
+    return (unsigned int)_InterlockedExchange(&IovpDisabledWithoutReboot, 1);
+  _InterlockedExchange(&IovpEnabledInThePast, 1);
+  result = (unsigned int)_InterlockedExchange(&IovpDisabledWithoutReboot, 0);
+  if ( !IovIrpTraces && IovIrpTracesLength )
   {
-    _InterlockedExchange(&IovpEnabledInThePast, 1);
-    _InterlockedExchange(&IovpDisabledWithoutReboot, 0);
-    if ( !IovIrpTraces && IovIrpTracesLength && (VfRuleClasses & 0x400000) == 0 )
+    for ( i = 2; i < 0x100000; i *= 2 )
     {
-      for ( i = 2; i < 0x100000; i *= 2 )
-      {
-        if ( i >= IovIrpTracesLength )
-          break;
-      }
-      v2 = (unsigned __int64)i << 7;
-      IovIrpTracesLength = i;
-      Pool3 = (void *)ExAllocatePool3(64LL, v2, 0x54496656u, (__int64)&v4, 1u);
-      IovIrpTraces = (__int64)Pool3;
-      if ( Pool3 )
-        memset(Pool3, 0, v2);
+      if ( i >= IovIrpTracesLength )
+        break;
     }
+    v3 = (unsigned __int64)i << 7;
+    IovIrpTracesLength = i;
+    result = (__int64)ExAllocatePoolWithTagPriority(NonPagedPoolNx, v3, 0x54496656u, HighPoolPriority);
+    IovIrpTraces = result;
+    if ( result )
+      return (__int64)memset((void *)result, 0, v3);
   }
-  else
-  {
-    _InterlockedExchange(&IovpDisabledWithoutReboot, 1);
-  }
+  return result;
 }

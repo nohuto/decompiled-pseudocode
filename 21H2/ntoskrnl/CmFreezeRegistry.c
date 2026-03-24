@@ -1,118 +1,116 @@
 /*
- * XREFs of CmFreezeRegistry @ 0x140918C40
+ * XREFs of CmFreezeRegistry @ 0x1408720F0
  * Callers:
- *     NtFreezeRegistry @ 0x14090E7A0 (NtFreezeRegistry.c)
+ *     NtFreezeRegistry @ 0x1408684C0 (NtFreezeRegistry.c)
  * Callees:
- *     CmpDisableLazyFlush @ 0x14025E900 (CmpDisableLazyFlush.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     CmpFlushHive @ 0x1406885A4 (CmpFlushHive.c)
- *     HvMarkBaseBlockDirty @ 0x1406CA514 (HvMarkBaseBlockDirty.c)
- *     CmpGetNextActiveHive @ 0x14071B350 (CmpGetNextActiveHive.c)
- *     CmpLockRegistryExclusive @ 0x14071B6EC (CmpLockRegistryExclusive.c)
- *     CmThawRegistry @ 0x140918E48 (CmThawRegistry.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
- *     CmpReleaseShutdownRundown @ 0x140AB42A0 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140AB46D0 (CmpAcquireShutdownRundown.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     CmpDisableLazyFlush @ 0x1402D3FFC (CmpDisableLazyFlush.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
+ *     CmpGetNextActiveHive @ 0x140672520 (CmpGetNextActiveHive.c)
+ *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
+ *     HvMarkBaseBlockDirty @ 0x1406BCFEC (HvMarkBaseBlockDirty.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
+ *     CmThawRegistry @ 0x140872330 (CmThawRegistry.c)
  */
 
-__int64 __fastcall CmFreezeRegistry(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall CmFreezeRegistry(int a1)
 {
-  int v3; // ebp
-  int v4; // ebx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 *i; // rax
-  struct _EX_RUNDOWN_REF *v13; // rdi
-  int v14; // eax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
   struct _KTHREAD *CurrentThread; // rax
-  struct _EX_RUNDOWN_REF *j; // rcx
+  int v2; // ebx
+  struct _EX_RUNDOWN_REF *i; // rcx
   __int64 *NextActiveHive; // rax
-  struct _EX_RUNDOWN_REF *v22; // rdi
+  __int64 v6; // rdi
+  int v7; // eax
+  struct _KTHREAD *v8; // rax
+  struct _EX_RUNDOWN_REF *j; // rcx
+  __int64 *v10; // rax
+  struct _EX_RUNDOWN_REF *v11; // rdi
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  __int64 v17; // [rsp+20h] [rbp-18h]
 
-  v3 = a1;
-  v4 = 0;
-  if ( (unsigned __int8)CmpAcquireShutdownRundown(a1, a2, a3) )
+  CurrentThread = KeGetCurrentThread();
+  v2 = 0;
+  --CurrentThread->KernelApcDisable;
+  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
   {
     CmpLockRegistryExclusive();
     if ( CmpFreezeThawState )
     {
-      v4 = -1073741431;
-      CmpUnlockRegistry(v6, v5, v7, v8);
+      v2 = -1073741431;
+      CmpUnlockRegistry();
     }
     else
     {
-      for ( i = CmpGetNextActiveHive(0LL); ; i = CmpGetNextActiveHive(v13) )
+      for ( i = 0LL; ; i = (struct _EX_RUNDOWN_REF *)v6 )
       {
-        v13 = (struct _EX_RUNDOWN_REF *)i;
-        if ( !i )
-          break;
-        if ( (i[20] & 3) == 0 )
-        {
-          *(_OWORD *)(i[8] + 4056) = *(_OWORD *)(i[8] + 112);
-          *(_OWORD *)(i[8] + 4040) = *(_OWORD *)(i[8] + 148);
-          *(_OWORD *)(i[8] + 4072) = *(_OWORD *)(i[8] + 128);
-          *(_OWORD *)(i[8] + 112) = 0LL;
-          *(_OWORD *)(i[8] + 148) = 0LL;
-          *(_OWORD *)(i[8] + 128) = 0LL;
-          *(_DWORD *)(i[8] + 164) = 0;
-          if ( (i[514] & 0x300) != 0x100 && !*((_DWORD *)i + 26) )
-          {
-            ExAcquirePushLockExclusiveEx((ULONG_PTR)(i + 10), 0LL);
-            HvMarkBaseBlockDirty((__int64)v13);
-            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&v13[10], 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-              ExfTryToWakePushLock(&v13[10]);
-            KeAbPostRelease((ULONG_PTR)&v13[10]);
-          }
-        }
-      }
-      v14 = CmFreezeThawTimeoutInSeconds;
-      CmpFreezeThawState = 1;
-      if ( v3 )
-        v14 = v3;
-      KiSetTimerEx((unsigned __int64)&CmpFreezeThawTimer, -10000000LL * v14, 0, 0, (__int64)&CmpFreezeThawDpc);
-      CmpDisableLazyFlush(2u);
-      CmpUnlockRegistry(v16, v15, v17, v18);
-      CurrentThread = KeGetCurrentThread();
-      --CurrentThread->KernelApcDisable;
-      for ( j = 0LL; ; j = v22 )
-      {
-        NextActiveHive = CmpGetNextActiveHive(j);
-        v22 = (struct _EX_RUNDOWN_REF *)NextActiveHive;
+        NextActiveHive = CmpGetNextActiveHive(i);
+        v6 = (__int64)NextActiveHive;
         if ( !NextActiveHive )
           break;
         if ( (NextActiveHive[20] & 3) == 0 )
         {
-          v4 = CmpFlushHive((ULONG_PTR)NextActiveHive, 0xDu);
-          if ( v4 < 0 )
+          *(_OWORD *)(NextActiveHive[8] + 4056) = *(_OWORD *)(NextActiveHive[8] + 112);
+          *(_OWORD *)(NextActiveHive[8] + 4040) = *(_OWORD *)(NextActiveHive[8] + 148);
+          *(_OWORD *)(NextActiveHive[8] + 4072) = *(_OWORD *)(NextActiveHive[8] + 128);
+          *(_OWORD *)(NextActiveHive[8] + 112) = 0LL;
+          *(_OWORD *)(NextActiveHive[8] + 148) = 0LL;
+          *(_OWORD *)(NextActiveHive[8] + 128) = 0LL;
+          *(_DWORD *)(NextActiveHive[8] + 164) = 0;
+          if ( (NextActiveHive[519] & 0x300) != 0x100 && !*((_DWORD *)NextActiveHive + 26) )
           {
-            ExReleaseRundownProtection(v22 + 205);
-            CmThawRegistry();
-            v4 = -1073741491;
+            ExAcquirePushLockExclusiveEx((ULONG_PTR)(NextActiveHive + 10), 0LL);
+            HvMarkBaseBlockDirty(v6);
+            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 80), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+              ExfTryToWakePushLock(v6 + 80);
+            KeAbPostRelease(v6 + 80);
+          }
+        }
+      }
+      v7 = CmFreezeThawTimeoutInSeconds;
+      CmpFreezeThawState = 1;
+      if ( a1 )
+        v7 = a1;
+      KiSetTimerEx((__int64)&CmpFreezeThawTimer, -10000000LL * v7, 0, 0, (__int64)&CmpFreezeThawDpc);
+      CmpDisableLazyFlush(2u);
+      CmpUnlockRegistry();
+      v8 = KeGetCurrentThread();
+      --v8->KernelApcDisable;
+      for ( j = 0LL; ; j = v11 )
+      {
+        v10 = CmpGetNextActiveHive(j);
+        v11 = (struct _EX_RUNDOWN_REF *)v10;
+        if ( !v10 )
+          break;
+        if ( (v10[20] & 3) == 0 )
+        {
+          v2 = CmpFlushHive((ULONG_PTR)v10, 0xDu);
+          if ( v2 < 0 )
+          {
+            ExReleaseRundownProtection_0(v11 + 204);
+            CmThawRegistry(v13, v12, v14, v15, v17);
+            v2 = -1073741491;
             break;
           }
         }
       }
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     }
-    CmpReleaseShutdownRundown(v10, v9, v11);
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   else
   {
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return (unsigned int)-1073741431;
   }
-  return (unsigned int)v4;
+  return (unsigned int)v2;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_Configuring @ 0x1C0008800
+ * XREFs of HUBHSM_Configuring @ 0x1C0008040
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_GetControllerInfo @ 0x1C0028844 (HUBUCX_GetControllerInfo.c)
+ *     HUBUCX_GetControllerInfo @ 0x1C0025C44 (HUBUCX_GetControllerInfo.c)
  */
 
 __int64 __fastcall HUBHSM_Configuring(__int64 a1)

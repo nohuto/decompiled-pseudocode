@@ -1,5 +1,5 @@
 /*
- * XREFs of GetPanCopyBits @ 0x1C029E330
+ * XREFs of GetPanCopyBits @ 0x1C02972F0
  * Callers:
  *     <none>
  * Callees:

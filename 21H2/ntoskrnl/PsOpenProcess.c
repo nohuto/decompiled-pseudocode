@@ -1,26 +1,26 @@
 /*
- * XREFs of PsOpenProcess @ 0x1407292A0
+ * XREFs of PsOpenProcess @ 0x14065A730
  * Callers:
- *     NtAlpcOpenSenderProcess @ 0x1406657C0 (NtAlpcOpenSenderProcess.c)
- *     NtOpenProcess @ 0x140727770 (NtOpenProcess.c)
+ *     NtAlpcOpenSenderProcess @ 0x1405DFFA0 (NtAlpcOpenSenderProcess.c)
+ *     NtOpenProcess @ 0x1407100A0 (NtOpenProcess.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     SepDeleteAccessState @ 0x1403478A0 (SepDeleteAccessState.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x140347A20 (SepCreateAccessStateFromSubjectContext.c)
- *     PsGetProcessId @ 0x140361530 (PsGetProcessId.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PsLookupProcessThreadByCid @ 0x140663880 (PsLookupProcessThreadByCid.c)
- *     SePrivilegedServiceAuditAlarm @ 0x140726520 (SePrivilegedServiceAuditAlarm.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     SeCaptureSubjectContextEx @ 0x14072A390 (SeCaptureSubjectContextEx.c)
- *     SePrivilegeCheck @ 0x14072B5E0 (SePrivilegeCheck.c)
- *     PsLookupProcessByProcessId @ 0x1407A8720 (PsLookupProcessByProcessId.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x14027B6A0 (PsGetProcessId.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x14027C800 (SepCreateAccessStateFromSubjectContext.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SeDeleteAccessState @ 0x1405DC900 (SeDeleteAccessState.c)
+ *     PsLookupProcessByProcessId @ 0x140625880 (PsLookupProcessByProcessId.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14062771C (SePrivilegedServiceAuditAlarm.c)
+ *     SePrivilegeCheck @ 0x140654F40 (SePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x140657C60 (SeCaptureSubjectContextEx.c)
+ *     PsLookupProcessThreadByCid @ 0x14069F110 (PsLookupProcessThreadByCid.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PsOpenProcess(
@@ -31,158 +31,158 @@ __int64 __fastcall PsOpenProcess(
         char a5,
         KPROCESSOR_MODE a6)
 {
-  int v9; // r14d
-  bool v10; // al
-  int v11; // esi
-  KPROCESSOR_MODE AccessMode; // r12
-  ULONG v13; // esi
-  char v14; // cl
-  int v15; // ebx
-  int v16; // r13d
-  int v17; // esi
+  int v10; // r12d
+  __int64 v11; // rcx
+  bool v12; // dl
+  char v13; // al
+  KPROCESSOR_MODE AccessMode; // r13
+  int v15; // ecx
+  int v16; // ebx
+  int v17; // r14d
   GENERIC_MAPPING *v18; // rbx
   struct _KPROCESS *v19; // rdx
-  KPROCESSOR_MODE v20; // r15
+  KPROCESSOR_MODE v20; // di
   LUID v21; // rbx
   BOOLEAN v22; // al
   BOOLEAN v23; // bl
   NTSTATUS v24; // eax
-  ACCESS_MASK v25; // eax
-  __int64 v27; // rcx
+  GENERIC_MAPPING *v25; // rbx
+  ACCESS_MASK v26; // eax
   char v28; // [rsp+42h] [rbp-346h] BYREF
   KPROCESSOR_MODE v29; // [rsp+43h] [rbp-345h] BYREF
   ACCESS_MASK v30; // [rsp+44h] [rbp-344h]
   ULONG HandleAttributes; // [rsp+48h] [rbp-340h]
   int v32; // [rsp+4Ch] [rbp-33Ch]
-  unsigned int v33; // [rsp+50h] [rbp-338h] BYREF
-  ACCESS_MASK v34; // [rsp+58h] [rbp-330h] BYREF
-  ULONG v35; // [rsp+60h] [rbp-328h] BYREF
-  PEPROCESS Process; // [rsp+68h] [rbp-320h] BYREF
-  ACCESS_MASK v37; // [rsp+70h] [rbp-318h]
-  int Flink; // [rsp+78h] [rbp-310h]
-  PVOID Object; // [rsp+80h] [rbp-308h] BYREF
-  HANDLE Handle; // [rsp+88h] [rbp-300h] BYREF
-  HANDLE ProcessId[2]; // [rsp+90h] [rbp-2F8h] BYREF
-  __int64 v42; // [rsp+A0h] [rbp-2E8h] BYREF
-  _QWORD *v43; // [rsp+A8h] [rbp-2E0h]
-  struct _SECURITY_SUBJECT_CONTEXT SubjectSecurityContext; // [rsp+B0h] [rbp-2D8h] BYREF
-  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+D0h] [rbp-2B8h] BYREF
-  struct _PRIVILEGE_SET RequiredPrivileges; // [rsp+F0h] [rbp-298h] BYREF
+  PEPROCESS Process; // [rsp+50h] [rbp-338h] BYREF
+  ACCESS_MASK v34; // [rsp+58h] [rbp-330h]
+  int Flink; // [rsp+60h] [rbp-328h]
+  unsigned int v36; // [rsp+64h] [rbp-324h] BYREF
+  ACCESS_MASK v37; // [rsp+68h] [rbp-320h] BYREF
+  ULONG v38; // [rsp+6Ch] [rbp-31Ch] BYREF
+  int v39; // [rsp+70h] [rbp-318h] BYREF
+  ACCESS_MASK v40; // [rsp+78h] [rbp-310h] BYREF
+  int v41; // [rsp+80h] [rbp-308h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+88h] [rbp-300h] BYREF
+  HANDLE Handle; // [rsp+90h] [rbp-2F8h] BYREF
+  HANDLE ProcessId[2]; // [rsp+98h] [rbp-2F0h] BYREF
+  __int64 v45; // [rsp+A8h] [rbp-2E0h] BYREF
+  _QWORD *v46; // [rsp+B0h] [rbp-2D8h]
+  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+B8h] [rbp-2D0h] BYREF
+  struct _SECURITY_SUBJECT_CONTEXT SubjectSecurityContext; // [rsp+D8h] [rbp-2B0h] BYREF
+  struct _PRIVILEGE_SET RequiredPrivileges; // [rsp+F8h] [rbp-290h] BYREF
   struct _ACCESS_STATE PassedAccessState; // [rsp+110h] [rbp-278h] BYREF
-  _QWORD v48[28]; // [rsp+1B0h] [rbp-1D8h] BYREF
+  _QWORD v51[28]; // [rsp+1B0h] [rbp-1D8h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+290h] [rbp-F8h] BYREF
-  ACCESS_MASK *v50; // [rsp+2A0h] [rbp-E8h]
-  __int64 v51; // [rsp+2A8h] [rbp-E0h]
-  unsigned int *v52; // [rsp+2B0h] [rbp-D8h]
-  __int64 v53; // [rsp+2B8h] [rbp-D0h]
-  struct _EVENT_DATA_DESCRIPTOR v54; // [rsp+2C0h] [rbp-C8h] BYREF
-  unsigned int *v55; // [rsp+2E0h] [rbp-A8h]
-  __int64 v56; // [rsp+2E8h] [rbp-A0h]
-  ACCESS_MASK *v57; // [rsp+2F0h] [rbp-98h]
-  __int64 v58; // [rsp+2F8h] [rbp-90h]
-  ULONG *v59; // [rsp+300h] [rbp-88h]
-  __int64 v60; // [rsp+308h] [rbp-80h]
-  char *v61; // [rsp+310h] [rbp-78h]
-  __int64 v62; // [rsp+318h] [rbp-70h]
-  KPROCESSOR_MODE *v63; // [rsp+320h] [rbp-68h]
-  __int64 v64; // [rsp+328h] [rbp-60h]
-  __int64 *v65; // [rsp+330h] [rbp-58h]
-  __int64 v66; // [rsp+338h] [rbp-50h]
+  ACCESS_MASK *v53; // [rsp+2A0h] [rbp-E8h]
+  __int64 v54; // [rsp+2A8h] [rbp-E0h]
+  int *v55; // [rsp+2B0h] [rbp-D8h]
+  __int64 v56; // [rsp+2B8h] [rbp-D0h]
+  struct _EVENT_DATA_DESCRIPTOR v57; // [rsp+2C0h] [rbp-C8h] BYREF
+  unsigned int *v58; // [rsp+2E0h] [rbp-A8h]
+  __int64 v59; // [rsp+2E8h] [rbp-A0h]
+  ACCESS_MASK *v60; // [rsp+2F0h] [rbp-98h]
+  __int64 v61; // [rsp+2F8h] [rbp-90h]
+  ULONG *v62; // [rsp+300h] [rbp-88h]
+  __int64 v63; // [rsp+308h] [rbp-80h]
+  char *v64; // [rsp+310h] [rbp-78h]
+  __int64 v65; // [rsp+318h] [rbp-70h]
+  KPROCESSOR_MODE *v66; // [rsp+320h] [rbp-68h]
+  __int64 v67; // [rsp+328h] [rbp-60h]
+  __int64 *v68; // [rsp+330h] [rbp-58h]
+  __int64 v69; // [rsp+338h] [rbp-50h]
 
   v30 = a2;
-  v43 = (_QWORD *)a1;
-  v37 = a2;
+  v46 = (_QWORD *)a1;
+  v34 = a2;
   memset(&PassedAccessState, 0, sizeof(PassedAccessState));
-  memset(v48, 0, sizeof(v48));
+  memset(v51, 0, sizeof(v51));
   *(_OWORD *)ProcessId = 0LL;
   Handle = 0LL;
-  Object = 0LL;
-  v9 = 0;
+  DmaAdapter = 0LL;
+  v10 = 0;
   v32 = 0;
   Process = 0LL;
   Flink = -1;
   if ( a5 )
   {
-    v27 = a1;
+    v11 = a1;
     if ( a1 >= 0x7FFFFFFF0000LL )
-      v27 = 0x7FFFFFFF0000LL;
-    *(_QWORD *)v27 = *(_QWORD *)v27;
-    if ( (a3 & 3) == 0 )
+      v11 = 0x7FFFFFFF0000LL;
+    *(_QWORD *)v11 = *(_QWORD *)v11;
+    if ( (a3 & 3) != 0 )
+      ExRaiseDatatypeMisalignment();
+    v12 = *(_QWORD *)(a3 + 16) != 0LL;
+    HandleAttributes = *(_DWORD *)(a3 + 24) & 0x1DF2;
+    if ( a4 )
     {
-      v10 = *(_QWORD *)(a3 + 16) != 0LL;
-      v13 = *(_DWORD *)(a3 + 24) & 0x1DF2;
-      HandleAttributes = v13;
-      if ( !a4 )
-      {
-        v14 = 0;
-        goto LABEL_34;
-      }
-      if ( ((unsigned __int8)a4 & 3) == 0 )
-      {
-        *(_OWORD *)ProcessId = *a4;
-        v14 = 1;
-        LOWORD(v13) = HandleAttributes;
-LABEL_34:
-        AccessMode = a6;
-        goto LABEL_6;
-      }
+      if ( ((unsigned __int8)a4 & 3) != 0 )
+        ExRaiseDatatypeMisalignment();
+      *(_OWORD *)ProcessId = *a4;
+      v13 = 1;
     }
-    ExRaiseDatatypeMisalignment();
-  }
-  v10 = *(_QWORD *)(a3 + 16) != 0LL;
-  v11 = 73714;
-  AccessMode = a6;
-  if ( a6 )
-    v11 = 7666;
-  v13 = *(_DWORD *)(a3 + 24) & v11;
-  HandleAttributes = v13;
-  if ( a4 )
-  {
-    *(_OWORD *)ProcessId = *a4;
-    v14 = 1;
+    else
+    {
+      v13 = 0;
+    }
+    AccessMode = a6;
   }
   else
   {
-    v14 = 0;
+    v12 = *(_QWORD *)(a3 + 16) != 0LL;
+    v15 = 73714;
+    AccessMode = a6;
+    if ( a6 )
+      v15 = 7666;
+    HandleAttributes = *(_DWORD *)(a3 + 24) & v15;
+    if ( a4 )
+    {
+      *(_OWORD *)ProcessId = *a4;
+      v13 = 1;
+    }
+    else
+    {
+      v13 = 0;
+    }
   }
-LABEL_6:
-  if ( v10 || !v14 )
+  if ( v12 || !v13 )
   {
-    v15 = -1073741776;
-    goto LABEL_38;
+    v16 = -1073741776;
+    goto LABEL_45;
   }
-  if ( !ProcessId[1] )
+  if ( ProcessId[1] )
   {
-    v15 = PsLookupProcessByProcessId(ProcessId[0], &Process);
-    if ( v15 >= 0 )
-      goto LABEL_10;
-LABEL_38:
-    v25 = v30;
-    goto LABEL_23;
+    v16 = PsLookupProcessThreadByCid(ProcessId, &Process, &DmaAdapter);
+    if ( v16 >= 0 )
+    {
+      HalPutDmaAdapter(DmaAdapter);
+      goto LABEL_21;
+    }
+LABEL_45:
+    v26 = v30;
+    goto LABEL_46;
   }
-  v15 = PsLookupProcessThreadByCid((__int64)ProcessId, &Process, &Object);
-  if ( v15 < 0 )
-    goto LABEL_38;
-  ObfDereferenceObject(Object);
-LABEL_10:
+  v16 = PsLookupProcessByProcessId(ProcessId[0], &Process);
+  if ( v16 < 0 )
+    goto LABEL_45;
+LABEL_21:
   Flink = (int)Process[1].Header.WaitListHead.Flink;
-  v16 = 0;
-  v17 = v13 & 0x400;
-  v9 = 1;
+  v17 = 0;
+  v18 = (GENERIC_MAPPING *)((char *)PsProcessType + 76);
+  v19 = KeGetCurrentThread()->ApcState.Process;
+  memset(&SubjectContext, 0, sizeof(SubjectContext));
+  SeCaptureSubjectContextEx(KeGetCurrentThread(), v19, &SubjectContext);
+  v16 = SepCreateAccessStateFromSubjectContext(&SubjectContext, &PassedAccessState, v51, a2, v18);
+  if ( v16 < 0 )
+  {
+LABEL_38:
+    v10 = 0;
+    goto LABEL_45;
+  }
+  v10 = 1;
+  v32 = 1;
   while ( 1 )
   {
-    v18 = (GENERIC_MAPPING *)((char *)PsProcessType + 76);
-    v19 = KeGetCurrentThread()->ApcState.Process;
-    memset(&SubjectContext, 0, sizeof(SubjectContext));
-    SeCaptureSubjectContextEx(KeGetCurrentThread(), v19, &SubjectContext);
-    v15 = SepCreateAccessStateFromSubjectContext(&SubjectContext, &PassedAccessState, v48, v30, v18);
-    if ( v15 < 0 )
-    {
-      v9 = 0;
-      goto LABEL_38;
-    }
-    v32 = 1;
-    if ( !v17 || (v20 = 1, v16) )
+    if ( (HandleAttributes & 0x400) == 0 || (v20 = 1, v17) )
       v20 = AccessMode;
     v21 = SeDebugPrivilege;
     memset(&SubjectSecurityContext, 0, sizeof(SubjectSecurityContext));
@@ -194,7 +194,7 @@ LABEL_10:
     v22 = SePrivilegeCheck(&RequiredPrivileges, &SubjectSecurityContext, v20);
     v23 = v22;
     if ( v20 )
-      SePrivilegedServiceAuditAlarm(0LL, (__int64 *)&SubjectSecurityContext, (int *)&RequiredPrivileges, v22);
+      SePrivilegedServiceAuditAlarm(0, (__int64 *)&SubjectSecurityContext, (__int64)&RequiredPrivileges, v22);
     SeReleaseSubjectContext(&SubjectSecurityContext);
     if ( v23 )
     {
@@ -212,56 +212,64 @@ LABEL_10:
             (POBJECT_TYPE)PsProcessType,
             AccessMode,
             &Handle);
-    v15 = v24;
+    v16 = v24;
     if ( v24 >= 0 )
       break;
-    if ( !v17 || v24 != -1073741790 || v16 )
+    if ( (HandleAttributes & 0x400) == 0 || v24 != -1073741790 || v17 )
+      goto LABEL_45;
+    v17 = 1;
+    SeDeleteAccessState((struct _SECURITY_SUBJECT_CONTEXT *)&PassedAccessState);
+    v25 = (GENERIC_MAPPING *)((char *)PsProcessType + 76);
+    memset(&SubjectContext, 0, sizeof(SubjectContext));
+    SeCaptureSubjectContextEx(KeGetCurrentThread(), KeGetCurrentThread()->ApcState.Process, &SubjectContext);
+    v16 = SepCreateAccessStateFromSubjectContext(&SubjectContext, &PassedAccessState, v51, v30, v25);
+    if ( v16 < 0 )
       goto LABEL_38;
-    v16 = 1;
-    SepDeleteAccessState((__int64)&PassedAccessState);
-    SeReleaseSubjectContext(&PassedAccessState.SubjectSecurityContext);
   }
-  if ( v16 && (unsigned int)dword_140C03048 > 5 && tlgKeywordOn((__int64)&dword_140C03048, 0x400000000000LL) )
+  if ( v17 && (unsigned int)dword_140C01AB0 > 5 && tlgKeywordOn((__int64)&dword_140C01AB0, 0x400000000000LL) )
   {
-    v33 = (unsigned int)PsGetProcessId(Process);
-    v55 = &v33;
-    v56 = 4LL;
-    v34 = v30;
-    v57 = &v34;
-    v58 = 4LL;
-    v35 = HandleAttributes;
-    v59 = &v35;
-    v60 = 4LL;
+    v36 = (unsigned int)PsGetProcessId(Process);
+    v58 = &v36;
+    v59 = 4LL;
+    v37 = v30;
+    v60 = &v37;
+    v61 = 4LL;
+    v38 = HandleAttributes;
+    v62 = &v38;
+    v63 = 4LL;
     v28 = a5;
-    v61 = &v28;
-    v62 = 1LL;
+    v64 = &v28;
+    v65 = 1LL;
     v29 = AccessMode;
-    v63 = &v29;
-    v64 = 1LL;
-    v42 = 0x1000000LL;
-    v65 = &v42;
-    v66 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03048, (unsigned __int8 *)byte_1400341B0, 0LL, 0LL, 8u, &v54);
+    v66 = &v29;
+    v67 = 1LL;
+    v45 = 0x1000000LL;
+    v68 = &v45;
+    v69 = 8LL;
+    tlgWriteTransfer_EtwWriteTransfer(
+      (__int64)&dword_140C01AB0,
+      (unsigned __int8 *)&dword_14002C1B4,
+      0LL,
+      0LL,
+      8u,
+      &v57);
   }
-  *v43 = Handle;
-  v25 = v30;
-LABEL_23:
-  v33 = v15;
-  v34 = v25;
-  v35 = Flink;
-  UserData.Ptr = (ULONGLONG)&v35;
+  *v46 = Handle;
+  v26 = v30;
+LABEL_46:
+  v41 = v16;
+  v40 = v26;
+  v39 = Flink;
+  UserData.Ptr = (ULONGLONG)&v39;
   *(_QWORD *)&UserData.Size = 4LL;
-  v50 = &v34;
-  v51 = 4LL;
-  v52 = &v33;
-  v53 = 4LL;
+  v53 = &v40;
+  v54 = 4LL;
+  v55 = &v41;
+  v56 = 4LL;
   EtwWrite(EtwApiCallsProvRegHandle, &KERNEL_AUDIT_API_OPENPROCESS, 0LL, 3u, &UserData);
-  if ( v9 )
-  {
-    SepDeleteAccessState((__int64)&PassedAccessState);
-    SeReleaseSubjectContext(&PassedAccessState.SubjectSecurityContext);
-  }
+  if ( v10 )
+    SeDeleteAccessState((struct _SECURITY_SUBJECT_CONTEXT *)&PassedAccessState);
   if ( Process )
-    ObfDereferenceObject(Process);
-  return (unsigned int)v15;
+    HalPutDmaAdapter((PADAPTER_OBJECT)Process);
+  return (unsigned int)v16;
 }

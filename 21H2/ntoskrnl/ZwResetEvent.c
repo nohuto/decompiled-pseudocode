@@ -1,11 +1,10 @@
 /*
- * XREFs of ZwResetEvent @ 0x14041E7A0
+ * XREFs of ZwResetEvent @ 0x1403FD2E0
  * Callers:
- *     DifZwResetEventWrapper @ 0x1406266A0 (DifZwResetEventWrapper.c)
- *     PfSnVolumeCheckSeekPenalty @ 0x1406D958C (PfSnVolumeCheckSeekPenalty.c)
- *     PfSnVolumeCheckIsSdBus @ 0x1406DBCB4 (PfSnVolumeCheckIsSdBus.c)
- *     PiDrvDbLoadNodeWorkerCallback @ 0x1407F3CF0 (PiDrvDbLoadNodeWorkerCallback.c)
- *     PnpHardwareConfigCreateBootDriverFlags @ 0x14082EA28 (PnpHardwareConfigCreateBootDriverFlags.c)
+ *     PfSnVolumeCheckSeekPenalty @ 0x1406C6E70 (PfSnVolumeCheckSeekPenalty.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140725DB0 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PnpHardwareConfigCreateBootDriverFlags @ 0x1407AC1F4 (PnpHardwareConfigCreateBootDriverFlags.c)
+ *     PfSnVolumeCheckIsSdBus @ 0x1408E09DC (PfSnVolumeCheckIsSdBus.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,10 @@
 /*
- * XREFs of NullifyLookasideRef @ 0x1C01FEFF0
+ * XREFs of NullifyLookasideRef @ 0x1C0221190
  * Callers:
- *     ??$ClearStackReferences@UtagPOPUPMENU@@@@YAXPEAUtagPOPUPMENU@@@Z @ 0x1C013C908 (--$ClearStackReferences@UtagPOPUPMENU@@@@YAXPEAUtagPOPUPMENU@@@Z.c)
- *     ??$FreeIsolatedTypeAndClearStackReferences@UtagPOPUPMENU@@V?$CTypeIsolation@$0GAAA@$0GA@@NSInstrumentation@@@@YAXPEAUtagPOPUPMENU@@@Z @ 0x1C013C924 (--$FreeIsolatedTypeAndClearStackReferences@UtagPOPUPMENU@@V-$CTypeIsolation@$0GAAA@$0GA@@NSInstr.c)
- *     MNFlushDestroyedPopups @ 0x1C01FF380 (MNFlushDestroyedPopups.c)
- *     xxxMNEndMenuState @ 0x1C01FF9F0 (xxxMNEndMenuState.c)
- *     xxxMNStartMenuState @ 0x1C020009C (xxxMNStartMenuState.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
+ *     MNFlushDestroyedPopups @ 0x1C0221530 (MNFlushDestroyedPopups.c)
+ *     xxxMNEndMenuState @ 0x1C0221C40 (xxxMNEndMenuState.c)
+ *     xxxMNStartMenuState @ 0x1C02224D0 (xxxMNStartMenuState.c)
  * Callees:
  *     <none>
  */

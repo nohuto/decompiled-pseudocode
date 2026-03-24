@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIThermalCheckNativeTemperatureSupport @ 0x1C00957C8
+ * XREFs of ACPIThermalCheckNativeTemperatureSupport @ 0x1C009A900
  * Callers:
- *     ACPIThermalWorker @ 0x1C00962F0 (ACPIThermalWorker.c)
+ *     ACPIThermalWorker @ 0x1C009AB00 (ACPIThermalWorker.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of AcpiDiagInitialize @ 0x1C00BB8FC
+ * XREFs of AcpiDiagInitialize @ 0x1C00BDE98
  * Callers:
- *     DriverEntry @ 0x1C00BBAC8 (DriverEntry.c)
+ *     DriverEntry @ 0x1C00BB98C (DriverEntry.c)
  * Callees:
- *     AcpiDiagRequeueThermalPollingTimer @ 0x1C00478A0 (AcpiDiagRequeueThermalPollingTimer.c)
- *     OSOpenHandle @ 0x1C008EB74 (OSOpenHandle.c)
- *     OSCloseHandle @ 0x1C00954DC (OSCloseHandle.c)
- *     OSReadRegValue @ 0x1C00968B0 (OSReadRegValue.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C00A1684 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     AcpiDiagRequeueThermalPollingTimer @ 0x1C004958C (AcpiDiagRequeueThermalPollingTimer.c)
+ *     OSOpenHandle @ 0x1C008FBB8 (OSOpenHandle.c)
+ *     OSCloseHandle @ 0x1C0096D0C (OSCloseHandle.c)
+ *     OSReadRegValue @ 0x1C0097444 (OSReadRegValue.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C00A3490 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 __int64 AcpiDiagInitialize()
@@ -27,7 +27,7 @@ __int64 AcpiDiagInitialize()
     (PETWENABLECALLBACK)AcpiDiagThermalPollingTraceControlCallback,
     0LL,
     &AcpiDiagThermalPollingHandle);
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_1C007E0E8);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((ULONGLONG *)&dword_1C007F0E8);
   v1 = OSOpenHandle("\\Registry\\Machine\\System\\CurrentControlSet\\Services\\ACPI\\Parameters", 0LL, (__int64)&v4);
   if ( v1 >= 0 )
   {

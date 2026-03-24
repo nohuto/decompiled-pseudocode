@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OnDisconnected@DataProviderProxy@@MEAAJXZ @ 0x1801BE030
+ * XREFs of ?OnDisconnected@DataProviderProxy@@MEAAJXZ @ 0x180181AF0
  * Callers:
  *     <none>
  * Callees:
- *     ?RemoveDataProvider@DataProviderManager@@QEAAJPEAVDataProviderProxy@@@Z @ 0x180195704 (-RemoveDataProvider@DataProviderManager@@QEAAJPEAVDataProviderProxy@@@Z.c)
+ *     ?RemoveDataProvider@DataProviderManager@@QEAAJPEAVDataProviderProxy@@@Z @ 0x180164E78 (-RemoveDataProvider@DataProviderManager@@QEAAJPEAVDataProviderProxy@@@Z.c)
  */
 
 __int64 __fastcall DataProviderProxy::OnDisconnected(DataProviderManager **this)

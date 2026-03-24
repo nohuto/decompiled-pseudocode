@@ -1,49 +1,37 @@
 /*
- * XREFs of PsIsProcessLoggingEnabled @ 0x1402EDD98
+ * XREFs of PsIsProcessLoggingEnabled @ 0x1402072F0
  * Callers:
- *     MiReadWriteVirtualMemory @ 0x14079E7C0 (MiReadWriteVirtualMemory.c)
- *     NtProtectVirtualMemory @ 0x1407BEBF0 (NtProtectVirtualMemory.c)
+ *     MiReadWriteVirtualMemory @ 0x1405F6190 (MiReadWriteVirtualMemory.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall PsIsProcessLoggingEnabled(__int64 a1, __int64 a2, int a3)
+bool __fastcall PsIsProcessLoggingEnabled(__int64 a1, int a2)
 {
-  unsigned int v3; // r10d
-  int v4; // eax
-  _DWORD *v5; // r9
+  int v2; // r8d
+  _DWORD *v3; // r9
 
-  v3 = 0;
-  v4 = 0;
-  v5 = 0LL;
-  if ( a3 != 16 )
+  v2 = 0;
+  v3 = 0LL;
+  if ( a2 == 16 )
   {
-    switch ( a3 )
-    {
-      case 8:
-        v4 = 0x20000000;
-        if ( a1 != a2 )
-          v4 = 0x10000000;
-        break;
-      case 32:
-        v4 = 0x2000000;
-        goto LABEL_3;
-      case 2:
-        v4 = 0x100000;
-        break;
-      case 2048:
-        v4 = 0x80000;
-        break;
-      default:
-        goto LABEL_4;
-    }
-    v5 = (_DWORD *)(a2 + 2172);
-    goto LABEL_4;
+    v2 = 0x1000000;
+    v3 = (_DWORD *)(a1 + 1120);
+    return (v2 & *v3) != 0;
   }
-  v4 = 0x1000000;
-LABEL_3:
-  v5 = (_DWORD *)(a2 + 1120);
-LABEL_4:
-  LOBYTE(v3) = (v4 & *v5) != 0;
-  return v3;
+  if ( a2 != 32 )
+  {
+    if ( a2 == 2 )
+    {
+      v2 = 0x100000;
+      v3 = (_DWORD *)(a1 + 2172);
+    }
+    else if ( a2 == 2048 )
+    {
+      v2 = 0x80000;
+      v3 = (_DWORD *)(a1 + 2172);
+    }
+    return (v2 & *v3) != 0;
+  }
+  return (*(_DWORD *)(a1 + 1120) & 0x2000000) != 0;
 }

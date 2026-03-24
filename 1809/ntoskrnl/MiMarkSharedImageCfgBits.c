@@ -9,8 +9,8 @@
  *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
  *     MiIsCfgBitMapPageShared @ 0x140076150 (MiIsCfgBitMapPageShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiGetControlAreaLoadConfig @ 0x1400D94F4 (MiGetControlAreaLoadConfig.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiGetControlAreaLoadConfig @ 0x1400D9514 (MiGetControlAreaLoadConfig.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     MiCopyToCfgBitMap @ 0x1405F2A10 (MiCopyToCfgBitMap.c)
  */
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?TryAcquire@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAHXZ @ 0x1C00046EC
+ * XREFs of ?TryAcquire@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAHXZ @ 0x1C0002CB4
  * Callers:
- *     ?NotifyProcessThaw@DXGDEVICE@@QEAAXXZ @ 0x1C016AC04 (-NotifyProcessThaw@DXGDEVICE@@QEAAXXZ.c)
- *     ?DxgkCddIssueSyncObjectOpForDevice@@YAJII_KH@Z @ 0x1C016ADC0 (-DxgkCddIssueSyncObjectOpForDevice@@YAJII_KH@Z.c)
- *     ?NotifyProcessFreeze@DXGDEVICE@@QEAAXXZ @ 0x1C018B774 (-NotifyProcessFreeze@DXGDEVICE@@QEAAXXZ.c)
- *     ?SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPROCESS@@USIGNAL_SYNC_OBJ_FLAGS@@@Z @ 0x1C01CA320 (-SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPRO.c)
- *     ?CheckPrimaryContent@VIDPNSOURCEINFO@@QEAAJXZ @ 0x1C02F6DB8 (-CheckPrimaryContent@VIDPNSOURCEINFO@@QEAAJXZ.c)
- *     ?SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z @ 0x1C031B6B8 (-SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z.c)
+ *     ?NotifyProcessThaw@DXGDEVICE@@QEAAXXZ @ 0x1C00ECEF4 (-NotifyProcessThaw@DXGDEVICE@@QEAAXXZ.c)
+ *     ?NotifyProcessFreeze@DXGDEVICE@@QEAAXXZ @ 0x1C00EDA08 (-NotifyProcessFreeze@DXGDEVICE@@QEAAXXZ.c)
+ *     ?SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPROCESS@@_N6@Z @ 0x1C0105B50 (-SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPRO.c)
+ *     ?DxgkCddIssueSyncObjectOpForDevice@@YAJII_KH@Z @ 0x1C022CED0 (-DxgkCddIssueSyncObjectOpForDevice@@YAJII_KH@Z.c)
+ *     ?SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z @ 0x1C026F85C (-SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z.c)
+ *     ?CheckPrimaryContent@VIDPNSOURCEINFO@@QEAAJXZ @ 0x1C02BA00C (-CheckPrimaryContent@VIDPNSOURCEINFO@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -17,11 +17,11 @@ __int64 __fastcall DXGDEVICEACCESSLOCKEXCLUSIVE::TryAcquire(DXGDEVICEACCESSLOCKE
   bool v3; // zf
   struct _KEVENT *v4; // rcx
   struct _KEVENT *v5; // rcx
-  int v6; // edi
+  unsigned int v6; // edi
   __int64 v7; // rbx
 
   v2 = *(_QWORD *)this;
-  v3 = *(_DWORD *)(v2 + 464) == 2;
+  v3 = *(_DWORD *)(v2 + 432) == 2;
   v4 = *(struct _KEVENT **)(v2 + 16);
   if ( v3 )
     v5 = v4 + 5;
@@ -38,5 +38,9 @@ __int64 __fastcall DXGDEVICEACCESSLOCKEXCLUSIVE::TryAcquire(DXGDEVICEACCESSLOCKE
       KeLeaveCriticalRegion();
     *((_DWORD *)this + 2) = v6;
   }
-  return *((unsigned int *)this + 2);
+  else
+  {
+    return *((unsigned int *)this + 2);
+  }
+  return v6;
 }

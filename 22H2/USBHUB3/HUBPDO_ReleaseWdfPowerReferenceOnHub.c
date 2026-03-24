@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPDO_ReleaseWdfPowerReferenceOnHub @ 0x1C001B3D0
+ * XREFs of HUBPDO_ReleaseWdfPowerReferenceOnHub @ 0x1C0019758
  * Callers:
- *     HUBDSM_ReleasingPowerReferenceOnHubOnEnumerationFailure @ 0x1C001FC40 (HUBDSM_ReleasingPowerReferenceOnHubOnEnumerationFailure.c)
+ *     HUBDSM_ReleasingPowerReferenceOnHubOnEnumerationFailure @ 0x1C001D230 (HUBDSM_ReleasingPowerReferenceOnHubOnEnumerationFailure.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBPDO_ReleaseWdfPowerReferenceOnHub(__int64 a1)
@@ -21,7 +21,7 @@ void __fastcall HUBPDO_ReleaseWdfPowerReferenceOnHub(__int64 a1)
       WdfDriverGlobals,
       v3,
       0LL,
-      9594LL,
+      9192LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubpdo.c");
     KeLowerIrql(v2);
     _InterlockedAnd((volatile signed __int32 *)(a1 + 1636), 0xFFFFFEFF);

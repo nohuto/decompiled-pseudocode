@@ -1,18 +1,18 @@
 /*
- * XREFs of ?GdiDeleteSprite@@YAJPEAUHDEV__@@PEAUHWND__@@PEAX@Z @ 0x1C001C570
+ * XREFs of ?GdiDeleteSprite@@YAJPEAUHDEV__@@PEAUHWND__@@PEAX@Z @ 0x1C00ED398
  * Callers:
- *     GreTransferSpriteStateToDwmState @ 0x1C00597AC (GreTransferSpriteStateToDwmState.c)
- *     ?GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z @ 0x1C00C8FF0 (-GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z.c)
+ *     GreTransferSpriteStateToDwmState @ 0x1C00EA26C (GreTransferSpriteStateToDwmState.c)
+ *     ?GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z @ 0x1C00EF150 (-GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z.c)
  * Callees:
- *     ?bRedirectionBitmap@SURFACE@@QEAAHXZ @ 0x1C001C2F4 (-bRedirectionBitmap@SURFACE@@QEAAHXZ.c)
- *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C001C318 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
- *     ?pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C001D7AC (-pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
- *     ?pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX_N@Z @ 0x1C027F53C (-pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX_N@Z.c)
+ *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00ED604 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ?bRedirectionBitmap@SURFACE@@QEAAHXZ @ 0x1C00EFE88 (-bRedirectionBitmap@SURFACE@@QEAAHXZ.c)
+ *     ?pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C00F0050 (-pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
+ *     ?pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C0281748 (-pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
  */
 
-__int64 __fastcall GdiDeleteSprite(Gre::Base *a1, HWND a2, void *a3)
+__int64 __fastcall GdiDeleteSprite(HDEV a1, HWND a2, void *a3)
 {
-  Gre::Base *v6; // rbp
+  HDEV v6; // rbp
   unsigned int v7; // ebx
   struct _SPRITESTATE *v8; // rcx
   struct SPRITE *Sprite; // rax
@@ -20,28 +20,29 @@ __int64 __fastcall GdiDeleteSprite(Gre::Base *a1, HWND a2, void *a3)
   __int64 v11; // rdi
   int v12; // esi
   struct _METASPRITE *MetaSprite; // rdi
-  int v15; // r9d
-  unsigned int v16; // r10d
-  int v17; // esi
-  unsigned int v18; // r15d
-  int v19; // r13d
-  __int64 v20; // r14
-  int v21; // eax
+  unsigned int v15; // r9d
+  unsigned int v16; // r15d
+  int v17; // r14d
+  __int64 v18; // rax
+  __int64 v19; // r14
+  int v20; // eax
+  _DWORD *v21; // rax
   unsigned int v22; // r14d
   __int64 v23; // rcx
   __int64 i; // rax
   int v25; // eax
-  __int64 v26; // [rsp+20h] [rbp-58h]
-  _BYTE v27[80]; // [rsp+28h] [rbp-50h] BYREF
-  Gre::Base *v31; // [rsp+98h] [rbp+20h] BYREF
+  HDEV v26; // [rsp+20h] [rbp-58h] BYREF
+  __int64 v27; // [rsp+28h] [rbp-50h]
+  W32PIDLOCK *v28; // [rsp+30h] [rbp-48h]
+  _BYTE v29[64]; // [rsp+38h] [rbp-40h] BYREF
+  int v32; // [rsp+98h] [rbp+20h]
 
-  v31 = a1;
-  Gre::Base::Globals(a1);
-  SPRITELOCK::SPRITELOCK((SPRITELOCK *)v27, (struct PDEVOBJ *)&v31);
-  v6 = v31;
+  v26 = a1;
+  SPRITELOCK::SPRITELOCK((SPRITELOCK *)v29, (struct PDEVOBJ *)&v26);
+  v6 = v26;
   v7 = 0;
-  v8 = (Gre::Base *)((char *)v31 + 80);
-  if ( !*((_DWORD *)v31 + 35) )
+  v8 = (struct _SPRITESTATE *)(v26 + 22);
+  if ( !*((_DWORD *)v26 + 37) )
   {
     Sprite = pSpGetSprite(v8, a2, a3);
     v10 = Sprite;
@@ -57,9 +58,9 @@ __int64 __fastcall GdiDeleteSprite(Gre::Base *a1, HWND a2, void *a3)
         v25 = *(_DWORD *)(v11 + 92);
         if ( (v25 & 2) == 0 )
         {
-          *(_QWORD *)(v11 + 480) = a2;
-          *(_DWORD *)(v11 + 92) = v25 | 2;
           *(_QWORD *)(v11 + 472) = a1;
+          *(_DWORD *)(v11 + 92) = v25 | 2;
+          *(_QWORD *)(v11 + 480) = a2;
           *(_QWORD *)(v11 + 488) = a3;
           *(_DWORD *)(v11 + 496) = 1;
           *(_DWORD *)v10 |= 0x400u;
@@ -72,63 +73,75 @@ LABEL_4:
         vSpDeleteSprite(v10);
       goto LABEL_5;
     }
-LABEL_8:
+LABEL_6:
     v7 = -2143354870;
     goto LABEL_5;
   }
-  MetaSprite = pSpGetMetaSprite(v8, a2, a3, 0);
+  MetaSprite = pSpGetMetaSprite(v8, a2, a3);
   if ( !MetaSprite )
-    goto LABEL_8;
-  v17 = v15 + 1;
-  v18 = 0;
-  v19 = v15 + 1;
-  if ( !v16 )
+    goto LABEL_6;
+  v16 = 0;
+  v32 = 1;
+  v17 = 1;
+  if ( !v15 )
     goto LABEL_20;
   do
   {
-    v26 = *((_QWORD *)MetaSprite + v18 + 3);
-    v20 = *(_QWORD *)(v26 + 128);
-    if ( v20 && (unsigned int)SURFACE::bRedirectionBitmap((SURFACE *)(v20 - 24)) )
+    v27 = *((_QWORD *)MetaSprite + v16 + 3);
+    v18 = *(_QWORD *)(v27 + 128);
+    if ( v18 )
     {
-      W32PIDLOCK::vLockSingleThread((W32PIDLOCK *)(v20 + 248));
-      if ( *(_DWORD *)(v20 + 300) )
+      v19 = v18 - 24;
+      if ( (unsigned int)SURFACE::bRedirectionBitmap((SURFACE *)(v18 - 24)) )
       {
-        v21 = *(_DWORD *)(v20 + 92);
-        if ( (v21 & 2) == 0 )
+        v28 = (W32PIDLOCK *)(v19 + 272);
+        W32PIDLOCK::vLockSingleThread((W32PIDLOCK *)(v19 + 272));
+        if ( *(_DWORD *)(v19 + 324) )
         {
-          *(_QWORD *)(v20 + 472) = a1;
-          *(_DWORD *)(v20 + 92) = v21 | 2;
-          *(_QWORD *)(v20 + 480) = a2;
-          *(_QWORD *)(v20 + 488) = a3;
-          *(_DWORD *)(v20 + 496) = v17;
-          *(_DWORD *)v26 |= 0x400u;
-          *((_DWORD *)MetaSprite + 4) |= 0x400u;
+          v20 = *(_DWORD *)(v19 + 116);
+          if ( (v20 & 2) == 0 )
+          {
+            *(_DWORD *)(v19 + 116) = v20 | 2;
+            v21 = (_DWORD *)v27;
+            *(_QWORD *)(v19 + 496) = a1;
+            *(_QWORD *)(v19 + 504) = a2;
+            *(_QWORD *)(v19 + 512) = a3;
+            *(_DWORD *)(v19 + 520) = 1;
+            *v21 |= 0x400u;
+            *((_DWORD *)MetaSprite + 4) |= 0x400u;
+          }
+          v17 = 0;
+          v32 = 0;
         }
-        v19 = 0;
+        else
+        {
+          v17 = v32;
+        }
+        W32PIDLOCK::vUnlockSingleThread(v28);
       }
-      W32PIDLOCK::vUnlockSingleThread((W32PIDLOCK *)(v20 + 248));
+      else
+      {
+        v17 = v32;
+      }
     }
-    v16 = *((_DWORD *)v6 + 35);
-    v18 += v17;
+    v15 = *((_DWORD *)v6 + 37);
+    ++v16;
   }
-  while ( v18 < v16 );
-  if ( v19 )
+  while ( v16 < v15 );
+  if ( v17 )
   {
 LABEL_20:
     v22 = 0;
-    if ( v16 )
+    if ( v15 )
     {
       do
-      {
-        vSpDeleteSprite(*((struct SPRITE **)MetaSprite + v22 + 3));
-        v22 += v17;
-      }
-      while ( v22 < *((_DWORD *)v6 + 35) );
+        vSpDeleteSprite(*((struct SPRITE **)MetaSprite + v22++ + 3));
+      while ( v22 < *((_DWORD *)v6 + 37) );
     }
-    v23 = *((_QWORD *)v6 + 19);
+    v23 = *((_QWORD *)v6 + 20);
     if ( (struct _METASPRITE *)v23 == MetaSprite )
     {
-      *((_QWORD *)v6 + 19) = *((_QWORD *)MetaSprite + 1);
+      *((_QWORD *)v6 + 20) = *((_QWORD *)MetaSprite + 1);
     }
     else
     {
@@ -139,6 +152,6 @@ LABEL_20:
     Win32FreePool(MetaSprite);
   }
 LABEL_5:
-  SPRITELOCK::~SPRITELOCK((SPRITELOCK *)v27);
+  SPRITELOCK::~SPRITELOCK((SPRITELOCK *)v29);
   return v7;
 }

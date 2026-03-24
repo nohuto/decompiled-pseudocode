@@ -1,24 +1,23 @@
 /*
- * XREFs of ?EnsureD2DFactory@CD2DFactory@@QEAAJXZ @ 0x1800AE0C4
+ * XREFs of ?EnsureD2DFactory@CD2DFactory@@QEAAJXZ @ 0x1800B3414
  * Callers:
- *     ?Startup@@YAJXZ @ 0x1800ADFB4 (-Startup@@YAJXZ.c)
+ *     ?Startup@@YAJXZ @ 0x1800B2F78 (-Startup@@YAJXZ.c)
  * Callees:
- *     ?Register@CMesh2DEffect@@SAJPEAVCD2DFactory@@@Z @ 0x1800AE1A0 (-Register@CMesh2DEffect@@SAJPEAVCD2DFactory@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Register@CMesh2DEffect@@SAJPEAVCD2DFactory@@@Z @ 0x1800B34E4 (-Register@CMesh2DEffect@@SAJPEAVCD2DFactory@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD2DFactory::EnsureD2DFactory(CD2DFactory *this)
 {
   unsigned int v1; // ebx
   HRESULT Factory; // eax
-  unsigned int v3; // ecx
+  __int64 v3; // rcx
   __int64 v4; // rcx
   struct CD2DFactory *v5; // rcx
   int v6; // eax
-  unsigned int v7; // ecx
-  unsigned int v9; // ecx
-  unsigned int v10; // [rsp+20h] [rbp-18h]
+  __int64 v7; // rcx
+  unsigned int v9; // [rsp+20h] [rbp-18h]
   CD2DFactory *pFactoryOptions; // [rsp+40h] [rbp+8h] BYREF
 
   pFactoryOptions = this;
@@ -31,36 +30,35 @@ __int64 __fastcall CD2DFactory::EnsureD2DFactory(CD2DFactory *this)
               D2D1_FACTORY_TYPE_MULTI_THREADED,
               &GUID_bb12d362_daee_4b9a_aa1d_14ba401cfa1f,
               (const D2D1_FACTORY_OPTIONS *)&pFactoryOptions,
-              (void **)&g_DeviceManager);
+              &g_DeviceManager);
   v1 = Factory;
   if ( Factory < 0 )
   {
-    v10 = 31;
-    goto LABEL_11;
+    v9 = 31;
+    goto LABEL_13;
   }
-  v4 = *(&g_DeviceManager + 1);
+  v4 = (__int64)*(&g_DeviceManager + 1);
   *(&g_DeviceManager + 1) = 0LL;
   if ( v4 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
-  Factory = (*(__int64 (__fastcall **)(_QWORD, GUID *, char *))*g_DeviceManager)(
+  Factory = (**(__int64 (__fastcall ***)(void *, GUID *, void **))g_DeviceManager)(
               g_DeviceManager,
               &GUID_6f72c0a2_6db7_46e9_9b62_b58a23f4928b,
-              (char *)&g_DeviceManager + 8);
+              &g_DeviceManager + 1);
   v1 = Factory;
   if ( Factory < 0 )
   {
-    v10 = 33;
-LABEL_11:
-    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, Factory, v10, 0LL);
+    v9 = 33;
+LABEL_13:
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, Factory, v9, 0LL);
     return v1;
   }
-  (*(void (__fastcall **)(_QWORD, _QWORD))(**(&g_DeviceManager + 1) + 48LL))(*(&g_DeviceManager + 1), 0LL);
+  (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)*(&g_DeviceManager + 1) + 48LL))(*(&g_DeviceManager + 1), 0LL);
   v6 = CMesh2DEffect::Register(v5);
   v1 = v6;
   if ( v6 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xB5u, 0LL);
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v1, 0x2Cu, 0LL);
-  }
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xB8u, 0LL);
+  if ( (v1 & 0x80000000) != 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v1, 0x2Cu, 0LL);
   return v1;
 }

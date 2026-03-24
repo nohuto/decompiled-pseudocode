@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReserveEnclavePages @ 0x1402BE6D8
+ * XREFs of MiReserveEnclavePages @ 0x1402BE7D8
  * Callers:
- *     MiAddPagesToEnclave @ 0x1402BC7E4 (MiAddPagesToEnclave.c)
- *     MiCreateHardwareEnclave @ 0x140859BB0 (MiCreateHardwareEnclave.c)
+ *     MiAddPagesToEnclave @ 0x1402BC8E4 (MiAddPagesToEnclave.c)
+ *     MiCreateHardwareEnclave @ 0x140859B90 (MiCreateHardwareEnclave.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetEnclavePage @ 0x1402BDC48 (MiGetEnclavePage.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetEnclavePage @ 0x1402BDD48 (MiGetEnclavePage.c)
  */
 
 __int64 __fastcall MiReserveEnclavePages(__int64 a1, __int64 a2, unsigned __int64 a3)

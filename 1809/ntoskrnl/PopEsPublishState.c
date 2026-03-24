@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEsPublishState @ 0x140762CA4
+ * XREFs of PopEsPublishState @ 0x140762C84
  * Callers:
- *     PopEsWorker @ 0x14071C8A0 (PopEsWorker.c)
- *     PopEsUpdateState @ 0x14071C9D4 (PopEsUpdateState.c)
+ *     PopEsWorker @ 0x14071C880 (PopEsWorker.c)
+ *     PopEsUpdateState @ 0x14071C9B4 (PopEsUpdateState.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
  */
 

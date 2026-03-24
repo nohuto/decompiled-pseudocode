@@ -1,12 +1,12 @@
 /*
- * XREFs of PopBatteryQueryStatus @ 0x14086D2FC
+ * XREFs of PopBatteryQueryStatus @ 0x14086D2DC
  * Callers:
- *     PopBatteryWorker @ 0x140719DA0 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x140719D80 (PopBatteryWorker.c)
  * Callees:
- *     IofCallDriver @ 0x1400B8DD0 (IofCallDriver.c)
- *     IoSynchronousCallDriver @ 0x1401281F0 (IoSynchronousCallDriver.c)
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     PopPrepareIoctl @ 0x1407514A0 (PopPrepareIoctl.c)
+ *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
+ *     IoSynchronousCallDriver @ 0x140128210 (IoSynchronousCallDriver.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     PopPrepareIoctl @ 0x140751480 (PopPrepareIoctl.c)
  */
 
 NTSTATUS __fastcall PopBatteryQueryStatus(__int64 a1, char a2)

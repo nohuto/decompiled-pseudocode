@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403A63E4
+ * XREFs of ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403C88D0
  * Callers:
- *     SmFirstTimeInit @ 0x1407B82C4 (SmFirstTimeInit.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x140352B08 (-SmFirstTimeInit@@YAJKK@Z.c)
  * Callees:
- *     SmFpPreAllocate @ 0x1403A6478 (SmFpPreAllocate.c)
+ *     SmFpPreAllocate @ 0x1403C8964 (SmFpPreAllocate.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmStorePrepare(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmStorePrepare(__int64 a1)
   v2 = 21;
   v8 = 1049217;
   v11 = 1049217;
-  v3 = *(_DWORD *)(a1 + 1856);
+  v3 = *(_DWORD *)(a1 + 1840);
   if ( (v3 & 2) != 0 )
     v2 = 1048597;
   v9 = v2;
@@ -42,7 +42,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmStorePrepare(__int64 a1)
         *v7++ &= 0xF00FFFFF;
     }
   }
-  result = SmFpPreAllocate((PEX_SPIN_LOCK)(a1 + 1544));
+  result = SmFpPreAllocate((PEX_SPIN_LOCK)(a1 + 1536));
   if ( (int)result >= 0 )
   {
     result = SmFpPreAllocate((PEX_SPIN_LOCK)(a1 + 1424));

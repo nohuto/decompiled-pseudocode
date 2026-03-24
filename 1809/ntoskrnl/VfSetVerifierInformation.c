@@ -1,7 +1,7 @@
 /*
  * XREFs of VfSetVerifierInformation @ 0x14094AA20
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  *     VfFaultsSetParameters @ 0x1409384A0 (VfFaultsSetParameters.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)

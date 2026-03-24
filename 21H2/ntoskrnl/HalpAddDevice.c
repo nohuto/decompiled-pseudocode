@@ -1,40 +1,35 @@
 /*
- * XREFs of HalpAddDevice @ 0x14081E300
+ * XREFs of HalpAddDevice @ 0x1407AE4B0
  * Callers:
- *     HalpDriverEntry @ 0x14081E150 (HalpDriverEntry.c)
+ *     HalpDriverEntry @ 0x1407AE100 (HalpDriverEntry.c)
  * Callees:
- *     IoAttachDeviceToDeviceStack @ 0x14024FBC0 (IoAttachDeviceToDeviceStack.c)
- *     IoDeleteDevice @ 0x1402D3820 (IoDeleteDevice.c)
- *     HalAcpiGetTable @ 0x1403B8380 (HalAcpiGetTable.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     IoCreateDevice @ 0x14074ED50 (IoCreateDevice.c)
- *     HalpPostPnpInitialize @ 0x14081E450 (HalpPostPnpInitialize.c)
- *     HalpIsUefiFirmwareResourceTablePresent @ 0x14081E924 (HalpIsUefiFirmwareResourceTablePresent.c)
+ *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
+ *     IoAttachDeviceToDeviceStack @ 0x140381290 (IoAttachDeviceToDeviceStack.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
+ *     HalpPostPnpInitialize @ 0x1407AE5C8 (HalpPostPnpInitialize.c)
+ *     HalpIsUefiFirmwareResourceTablePresent @ 0x1407AE878 (HalpIsUefiFirmwareResourceTablePresent.c)
  */
 
 NTSTATUS __fastcall HalpAddDevice(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT TargetDevice)
 {
   NTSTATUS v4; // eax
-  struct _DEVICE_OBJECT *v5; // rbx
+  struct _DEVICE_OBJECT *v5; // rdi
   PDEVICE_OBJECT v6; // rcx
-  _QWORD *DeviceExtension; // rsi
+  _QWORD *DeviceExtension; // rbx
   PDEVICE_OBJECT v8; // rax
-  _QWORD *v9; // rdi
   NTSTATUS result; // eax
-  PDEVICE_OBJECT v11; // r14
-  _QWORD *v12; // rbx
-  PDEVICE_OBJECT v13; // rax
-  PDEVICE_OBJECT v14; // rcx
-  _QWORD *v15; // rax
-  PDEVICE_OBJECT DeviceObject; // [rsp+40h] [rbp-10h] BYREF
-  PDEVICE_OBJECT v17; // [rsp+48h] [rbp-8h] BYREF
-  PDEVICE_OBJECT SourceDevice; // [rsp+A0h] [rbp+50h] BYREF
-  PDEVICE_OBJECT v19; // [rsp+A8h] [rbp+58h] BYREF
+  PDEVICE_OBJECT v10; // rsi
+  _QWORD *v11; // rdi
+  PDEVICE_OBJECT v12; // rcx
+  _QWORD *v13; // rax
+  PDEVICE_OBJECT v14; // [rsp+40h] [rbp-28h] BYREF
+  PDEVICE_OBJECT SourceDevice; // [rsp+80h] [rbp+18h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+88h] [rbp+20h] BYREF
 
   DeviceObject = 0LL;
   SourceDevice = 0LL;
-  v19 = 0LL;
-  v17 = 0LL;
+  v14 = 0LL;
   v4 = IoCreateDevice(DriverObject, 0x28u, 0LL, 0x2Au, 0, 0, &SourceDevice);
   if ( v4 < 0 )
     KeBugCheckEx(0x5Cu, 0x10EuLL, v4, 0LL, 0LL);
@@ -49,48 +44,34 @@ NTSTATUS __fastcall HalpAddDevice(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT Ta
   if ( v8 )
   {
     DeviceExtension[4] = v8;
-    v9 = 0LL;
-    if ( HalAcpiGetTable(0LL, 1414353488) && IoCreateDevice(DriverObject, 0x30u, 0LL, 0x2Au, 0x80u, 0, &v19) >= 0 )
-    {
-      v13 = v19;
-      v9 = v19->DeviceExtension;
-      *(_DWORD *)v9 = 192;
-      v9[1] = 0LL;
-      v9[2] = v13;
-      v9[3] = DeviceExtension;
-      *((_DWORD *)v9 + 8) = 132;
-      v13->Flags &= ~0x80u;
-    }
     result = IoCreateDevice(DriverObject, 0x30u, 0LL, 0x2Au, 0x80u, 0, &DeviceObject);
     if ( result >= 0 )
     {
-      v11 = DeviceObject;
+      v10 = DeviceObject;
       AcpiRootPdo = DeviceObject;
-      v12 = DeviceObject->DeviceExtension;
-      *(_DWORD *)v12 = 192;
-      v12[1] = 0LL;
-      v12[2] = v11;
-      v12[3] = DeviceExtension;
-      *((_DWORD *)v12 + 8) = 129;
-      if ( v9 )
-        v9[1] = v12;
-      if ( (unsigned __int8)HalpIsUefiFirmwareResourceTablePresent()
-        && IoCreateDevice(DriverObject, 0x30u, 0LL, 0x2Au, 0x80u, 0, &v17) >= 0 )
+      v11 = DeviceObject->DeviceExtension;
+      v11[1] = 0LL;
+      *(_DWORD *)v11 = 192;
+      v11[2] = v10;
+      v11[3] = DeviceExtension;
+      *((_DWORD *)v11 + 8) = 129;
+      if ( (unsigned __int8)HalpIsUefiFirmwareResourceTablePresent() )
       {
-        v14 = v17;
-        v15 = v17->DeviceExtension;
-        *(_DWORD *)v15 = 192;
-        v15[1] = 0LL;
-        v15[2] = v14;
-        v15[3] = DeviceExtension;
-        *((_DWORD *)v15 + 8) = 131;
-        v12[1] = v15;
-        v14->Flags &= ~0x80u;
+        if ( IoCreateDevice(DriverObject, 0x30u, 0LL, 0x2Au, 0x80u, 0, &v14) >= 0 )
+        {
+          v12 = v14;
+          v13 = v14->DeviceExtension;
+          v13[1] = 0LL;
+          *(_DWORD *)v13 = 192;
+          v13[2] = v12;
+          v13[3] = DeviceExtension;
+          *((_DWORD *)v13 + 8) = 131;
+          v11[1] = v13;
+          v12->Flags &= ~0x80u;
+        }
       }
-      v11->Flags &= ~0x80u;
-      if ( v9 )
-        v12 = v9;
-      DeviceExtension[1] = v12;
+      v10->Flags &= ~0x80u;
+      DeviceExtension[1] = v11;
       HalpPostPnpInitialize();
       return 0;
     }

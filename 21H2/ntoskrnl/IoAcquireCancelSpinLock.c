@@ -1,12 +1,12 @@
 /*
- * XREFs of IoAcquireCancelSpinLock @ 0x14022A5C0
+ * XREFs of IoAcquireCancelSpinLock @ 0x14029CF20
  * Callers:
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402A4E10 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1404173E4 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x140354E00 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0B48 (FsRtlpRemoveAndCompleteRHIrp.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x140311C70 (KxWaitForLockOwnerShip.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14045A10C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x14022EEA0 (KxWaitForLockOwnerShip.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1405163CC (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
@@ -17,8 +17,9 @@ void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
   __int64 v5; // rbx
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *v7; // rdx
+  _QWORD *v8; // rdx
   _DWORD *SchedulerAssist; // r9
-  int v9; // eax
+  int v10; // eax
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
@@ -36,9 +37,9 @@ void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
   {
     if ( CurrentPrcb->NestingLevel <= 1u )
     {
-      v9 = v7[6];
-      v7[6] = v9 + 1;
-      if ( v9 == -1 )
+      v10 = v7[6];
+      v7[6] = v10 + 1;
+      if ( v10 == -1 )
         KiRemoveSystemWorkPriorityKick(CurrentPrcb);
     }
   }
@@ -46,9 +47,11 @@ void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
   {
     KiAcquireQueuedSpinLockInstrumented(v5, v4);
   }
-  else if ( _InterlockedExchange64(v4, v5) )
+  else
   {
-    KxWaitForLockOwnerShip(v5);
+    v8 = (_QWORD *)_InterlockedExchange64(v4, v5);
+    if ( v8 )
+      KxWaitForLockOwnerShip(v5, v8);
   }
   *Irql = CurrentIrql;
 }

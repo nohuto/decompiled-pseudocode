@@ -1,26 +1,27 @@
 /*
- * XREFs of SepAdtPrivilegedServiceAuditAlarm @ 0x1407C8A64
+ * XREFs of SepAdtPrivilegedServiceAuditAlarm @ 0x140627C28
  * Callers:
- *     SePrivilegedServiceAuditAlarm @ 0x1406C38CC (SePrivilegedServiceAuditAlarm.c)
- *     NtPrivilegedServiceAuditAlarm @ 0x1407C87E0 (NtPrivilegedServiceAuditAlarm.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x140627B3C (SePrivilegedServiceAuditAlarm.c)
+ *     NtPrivilegedServiceAuditAlarm @ 0x14069A6E0 (NtPrivilegedServiceAuditAlarm.c)
+ *     PfQuerySuperfetchInformation @ 0x1406CD5D0 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14020BB20 (PsGetCurrentThreadProcess.c)
- *     SepAdtLogAuditRecord @ 0x14039B490 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SepAdtAuditPrivilegeUseWithContext @ 0x1406C34DC (SepAdtAuditPrivilegeUseWithContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742C84 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1409D1CF0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PsGetCurrentThreadProcess @ 0x140316F60 (PsGetCurrentThreadProcess.c)
+ *     SepAdtLogAuditRecord @ 0x1403C20B4 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x140627E10 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14062F1D8 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x140925950 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepAdtPrivilegedServiceAuditAlarm(
-        __int64 a1,
+        int a1,
         const int *a2,
-        __int64 a3,
+        unsigned __int16 *a3,
         __int64 a4,
         __int64 a5,
-        unsigned int *a6,
+        int *a6,
         char a7)
 {
   __int64 *v8; // rdx
@@ -34,10 +35,10 @@ void __fastcall SepAdtPrivilegedServiceAuditAlarm(
   int v16; // eax
   int v17; // ecx
   int v18; // eax
-  unsigned int v19; // eax
+  int v19; // eax
   int v20; // eax
   __int64 v21; // [rsp+38h] [rbp-D0h] BYREF
-  PVOID P; // [rsp+40h] [rbp-C8h]
+  PVOID P; // [rsp+40h] [rbp-C8h] BYREF
   const int *v23; // [rsp+48h] [rbp-C0h]
   struct _LIST_ENTRY *Flink; // [rsp+50h] [rbp-B8h]
   _QWORD Src[132]; // [rsp+58h] [rbp-B0h] BYREF
@@ -45,15 +46,15 @@ void __fastcall SepAdtPrivilegedServiceAuditAlarm(
   v23 = a2;
   v8 = &v21;
   P = 0LL;
-  v9 = (unsigned __int16 *)a3;
+  v9 = a3;
   LOWORD(v21) = 0;
   LOBYTE(a3) = a7 == 0;
   LOBYTE(v8) = a7;
-  if ( SepAdtAuditPrivilegeUseWithContext(a6, (__int64)v8, a3, a1, &v21) )
+  if ( (unsigned __int8)SepAdtAuditPrivilegeUseWithContext((_DWORD)a6, (_DWORD)v8, (_DWORD)a3, a1, (__int64)&v21) )
   {
     CurrentThreadProcess = PsGetCurrentThreadProcess();
     Flink = CurrentThreadProcess[1].Header.WaitListHead.Flink;
-    AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess);
+    AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx(CurrentThreadProcess, &P);
     if ( AllocatedFullProcessImageName >= 0 )
     {
       if ( a4 )

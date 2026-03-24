@@ -1,45 +1,30 @@
 /*
- * XREFs of AllocThreadBufferWithTag @ 0x1C005ABE0
+ * XREFs of AllocThreadBufferWithTag @ 0x1C007A930
  * Callers:
- *     AllocFreeTmpBuffer @ 0x1C005AB80 (AllocFreeTmpBuffer.c)
- *     ?CaptureDEVMODEW@@YAPEAU_devicemodeW@@REAU1@@Z @ 0x1C0158750 (-CaptureDEVMODEW@@YAPEAU_devicemodeW@@REAU1@@Z.c)
- *     ?CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z @ 0x1C0158840 (-CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z.c)
+ *     ?CaptureDEVMODEW@@YAPEAU_devicemodeW@@REAU1@@Z @ 0x1C007A540 (-CaptureDEVMODEW@@YAPEAU_devicemodeW@@REAU1@@Z.c)
+ *     ?CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z @ 0x1C007A620 (-CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z.c)
  * Callees:
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_4d7361c25cefbba13618e79d09554cff__unsigned___int64_&_ @ 0x1C0026468 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_4d7361c25cefbba13618e.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall AllocThreadBufferWithTag(unsigned int a1, unsigned int a2, char a3)
+_QWORD *__fastcall AllocThreadBufferWithTag(unsigned int a1, unsigned int a2, char a3)
 {
-  __int64 v3; // rdi
-  const void *v4; // rbp
-  __int64 v5; // rsi
-  unsigned int v6; // eax
-  unsigned __int64 v7; // rbx
-  NSInstrumentation::CLeakTrackingAllocator *v8; // r14
-  int v9; // eax
-  __int64 Pool2; // rbx
+  __int64 v3; // rsi
+  _QWORD *v5; // rbp
+  unsigned int v6; // ebx
+  _QWORD *v7; // rbx
+  struct _KTHREAD *CurrentThread; // r14
+  __int64 v9; // rdx
+  __int64 v10; // rcx
   __int64 *ThreadWin32Thread; // rax
   __int64 v12; // rcx
-  __int64 *v13; // rax
+  _QWORD *v13; // rax
   unsigned int v15; // ecx
-  _QWORD *v16; // rax
-  char v17; // r15
-  __int64 v18; // [rsp+20h] [rbp-E8h] BYREF
-  unsigned __int64 v19; // [rsp+28h] [rbp-E0h] BYREF
-  _QWORD v20[2]; // [rsp+30h] [rbp-D8h] BYREF
-  PVOID BackTrace[20]; // [rsp+40h] [rbp-C8h] BYREF
-  unsigned int v22; // [rsp+110h] [rbp+8h] BYREF
-  unsigned __int64 v23; // [rsp+128h] [rbp+20h] BYREF
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // edi
+  __int64 CurrentThreadProcess; // rax
 
   v3 = 0LL;
-  v4 = (const void *)a2;
   v5 = 0LL;
   if ( a1 < 0xFFFFEFDF )
   {
@@ -51,126 +36,41 @@ __int64 __fastcall AllocThreadBufferWithTag(unsigned int a1, unsigned int a2, ch
       a1 = v15 - 32;
     }
     v6 = a1 + 32;
-    if ( a1 != -32 )
+    if ( a1 != -32 && qword_1C0256D10 && (int)qword_1C0256D10() >= 0 )
     {
-      v7 = v6;
-      v8 = gpLeakTrackingAllocator;
-      v22 = a2;
-      v18 = 260LL;
-      v19 = v6;
-      v9 = *(_DWORD *)gpLeakTrackingAllocator;
-      if ( !*(_DWORD *)gpLeakTrackingAllocator )
+      v7 = qword_1C0256D18 ? (_QWORD *)qword_1C0256D18(33LL, v6, a2) : 0LL;
+      if ( v7 )
       {
-        Pool2 = ExAllocatePool2(262LL, (unsigned int)v7, a2);
-        if ( Pool2 )
-          _InterlockedIncrement64((volatile signed __int64 *)v8 + 14);
-        goto LABEL_7;
-      }
-      if ( v9 == 1 )
-      {
-        if ( NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, a2) )
-        {
-          if ( v7 + 16 >= v7 )
-          {
-            v16 = (_QWORD *)ExAllocatePool2(v18 | 2, v7 + 16, v22);
-            Pool2 = (__int64)v16;
-            if ( !v16
-              || (_InterlockedIncrement64((volatile signed __int64 *)v8 + 14),
-                  *v16 = v4,
-                  Pool2 = (__int64)(v16 + 2),
-                  v16 == (_QWORD *)-16LL) )
-            {
-              NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-                *((NSInstrumentation::CPointerHashTable **)v8 + 1),
-                v4);
-            }
-          }
-          else
-          {
-            Pool2 = 0LL;
-          }
-        }
-        else
-        {
-          Pool2 = 0LL;
-        }
-        goto LABEL_7;
-      }
-      if ( v9 == 2 )
-      {
-        v23 = 0LL;
-        if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, a2, &v23) )
-        {
-          v20[0] = &v18;
-          v20[1] = &v22;
-          Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_4d7361c25cefbba13618e79d09554cff__unsigned___int64___(
-                    (__int64)v8,
-                    (__int64)v20,
-                    &v19);
-          goto LABEL_7;
-        }
-        v17 = 0;
-        if ( v7 < 0x1000 || (v7 & 0xFFF) != 0 )
-        {
-          v7 += 16LL;
-          v17 = 1;
-          v19 = v7;
-        }
-        Pool2 = ExAllocatePool2(262LL, v7, (unsigned int)v4);
-        if ( Pool2 )
-        {
-          _InterlockedIncrement64((volatile signed __int64 *)v8 + 16);
-          NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-          if ( v17 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-          {
-            if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                    v8,
-                                    Pool2,
-                                    v23,
-                                    BackTrace) )
-            {
-              Pool2 += 16LL;
-              goto LABEL_7;
-            }
-          }
-          else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                       v8,
-                                       Pool2,
-                                       v23,
-                                       BackTrace) )
-          {
-            goto LABEL_7;
-          }
-          _InterlockedIncrement64((volatile signed __int64 *)v8 + 17);
-          _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-        }
-      }
-      Pool2 = 0LL;
-LABEL_7:
-      if ( Pool2 )
-      {
-        v5 = Pool2 + 32;
+        v5 = v7 + 4;
         KeEnterCriticalRegion();
-        ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-        if ( ThreadWin32Thread )
-          v3 = *ThreadWin32Thread;
-        *(_QWORD *)(Pool2 + 16) = v5;
-        *(_QWORD *)(Pool2 + 24) = FreeThreadBufferWithTag;
+        CurrentThread = KeGetCurrentThread();
+        if ( !(unsigned __int8)KeIsAttachedProcess()
+          || (CurrentProcess = PsGetCurrentProcess(v10, v9),
+              ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+              CurrentThreadProcess = PsGetCurrentThreadProcess(),
+              ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+        {
+          ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+          if ( ThreadWin32Thread )
+            v3 = *ThreadWin32Thread;
+        }
+        v7[3] = FreeThreadBufferWithTag;
+        v7[2] = v5;
         if ( v3 )
         {
           v12 = *(_QWORD *)(v3 + 88);
-          v13 = (__int64 *)(v3 + 88);
+          v13 = (_QWORD *)(v3 + 88);
           if ( *(_QWORD *)(v12 + 8) != v3 + 88 )
             __fastfail(3u);
-          *(_QWORD *)Pool2 = v12;
-          *(_QWORD *)(Pool2 + 8) = v13;
-          *(_QWORD *)(v12 + 8) = Pool2;
-          *v13 = Pool2;
+          *v7 = v12;
+          v7[1] = v13;
+          *(_QWORD *)(v12 + 8) = v7;
+          *v13 = v7;
         }
         else
         {
-          *(_QWORD *)(Pool2 + 8) = Pool2;
-          *(_QWORD *)Pool2 = Pool2;
+          v7[1] = v7;
+          *v7 = v7;
         }
         KeLeaveCriticalRegion();
       }

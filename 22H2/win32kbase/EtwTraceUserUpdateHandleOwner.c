@@ -1,27 +1,17 @@
 /*
- * XREFs of EtwTraceUserUpdateHandleOwner @ 0x1C00A2178
+ * XREFs of EtwTraceUserUpdateHandleOwner @ 0x1C009B7E8
  * Callers:
- *     HMChangeOwnerThreadWorker @ 0x1C00A1CD8 (HMChangeOwnerThreadWorker.c)
- *     HMChangeOwnerPheProcessWorker @ 0x1C00A1FE8 (HMChangeOwnerPheProcessWorker.c)
+ *     HMChangeOwnerPheProcessWorker @ 0x1C009B668 (HMChangeOwnerPheProcessWorker.c)
+ *     HMChangeOwnerThreadWorker @ 0x1C00A66E4 (HMChangeOwnerThreadWorker.c)
  * Callees:
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C00DFACC (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C01262A8 (McTemplateK0pqqq_EtwWriteTransfer.c)
  */
 
-void __fastcall EtwTraceUserUpdateHandleOwner(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall EtwTraceUserUpdateHandleOwner(int a1, char a2, int a3)
 {
-  char v4; // bl
-  char v5; // di
-  int v6; // esi
-  _DWORD *v7; // rax
-  int v8; // ecx
-  int v9; // r8d
+  __int64 result; // rax
 
-  v4 = a3;
-  v5 = a2;
-  v6 = a1;
   if ( (Microsoft_Windows_Win32kEnableBits & 0x20000000000LL) != 0 )
-  {
-    v7 = (_DWORD *)SGDGetUserSessionState(a1, a2, a3, a4);
-    McTemplateK0pqqq_EtwWriteTransfer(v8, (unsigned int)&UserUpdateHandleOwner, v9, v6, v5, *v7, v4);
-  }
+    return McTemplateK0pqqq_EtwWriteTransfer(a1, (unsigned int)&UserUpdateHandleOwner, a3, a1, a2);
+  return result;
 }

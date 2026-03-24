@@ -1,11 +1,11 @@
 /*
- * XREFs of SepIsLockedDown @ 0x1409C599C
+ * XREFs of SepIsLockedDown @ 0x14091BF9C
  * Callers:
- *     SeQuerySigningPolicyWorker @ 0x1406718F8 (SeQuerySigningPolicyWorker.c)
+ *     SeQuerySigningPolicyWorker @ 0x140603818 (SeQuerySigningPolicyWorker.c)
  * Callees:
- *     ZwQueryLicenseValue @ 0x14041E2C0 (ZwQueryLicenseValue.c)
- *     ExQueryFastCacheDevLicense @ 0x140699500 (ExQueryFastCacheDevLicense.c)
- *     KIsSideloadingEnabled @ 0x140A0AC70 (KIsSideloadingEnabled.c)
+ *     ZwQueryLicenseValue @ 0x1403FCE20 (ZwQueryLicenseValue.c)
+ *     ExQueryFastCacheDevLicense @ 0x1406B7B70 (ExQueryFastCacheDevLicense.c)
+ *     KIsSideloadingEnabled @ 0x14095EFA4 (KIsSideloadingEnabled.c)
  */
 
 __int64 __fastcall SepIsLockedDown(unsigned __int8 a1, _BYTE *a2)

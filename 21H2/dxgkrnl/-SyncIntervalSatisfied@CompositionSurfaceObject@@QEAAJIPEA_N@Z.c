@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SyncIntervalSatisfied@CompositionSurfaceObject@@QEAAJIPEA_N@Z @ 0x1C0077020
+ * XREFs of ?SyncIntervalSatisfied@CompositionSurfaceObject@@QEAAJIPEA_N@Z @ 0x1C0064FE8
  * Callers:
- *     ?CanReleaseAnalogToken@CFlipToken@@UEAAJIPEA_N@Z @ 0x1C0076BB0 (-CanReleaseAnalogToken@CFlipToken@@UEAAJIPEA_N@Z.c)
+ *     ?CanReleaseAnalogToken@CFlipToken@@UEAAJIPEA_N@Z @ 0x1C0064C70 (-CanReleaseAnalogToken@CFlipToken@@UEAAJIPEA_N@Z.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00069FC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C0006A48 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C0010D40 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
  */
 
 __int64 __fastcall CompositionSurfaceObject::SyncIntervalSatisfied(
@@ -14,8 +14,8 @@ __int64 __fastcall CompositionSurfaceObject::SyncIntervalSatisfied(
 {
   int v6; // eax
   bool v7; // r9
-  unsigned int v8; // esi
-  unsigned int v9; // edx
+  unsigned int v8; // edi
+  unsigned int v9; // r8d
 
   *a3 = 1;
   v6 = CPushLock::AcquireLockShared((CompositionSurfaceObject *)((char *)this + 48));
@@ -23,7 +23,8 @@ __int64 __fastcall CompositionSurfaceObject::SyncIntervalSatisfied(
   v8 = v6;
   if ( v6 >= 0 )
   {
-    if ( !a2 || (v9 = *((_DWORD *)this + 33)) == 0 || a2 > v9 || v9 - a2 > 4 || *((_QWORD *)this + 18) )
+    v9 = *((_DWORD *)this + 31);
+    if ( !v9 || a2 > v9 || v9 - a2 > 4 || *((_QWORD *)this + 17) )
       v7 = 1;
     *a3 = v7;
     CPushLock::ReleaseLock((CompositionSurfaceObject *)((char *)this + 48));

@@ -1,34 +1,34 @@
 /*
- * XREFs of PnpRegMultiSzToUnicodeStrings @ 0x140B10B2C
+ * XREFs of PnpRegMultiSzToUnicodeStrings @ 0x140A5CF00
  * Callers:
- *     PiInitCacheGroupInformation @ 0x140B10A4C (PiInitCacheGroupInformation.c)
+ *     PiInitCacheGroupInformation @ 0x140A5CE20 (PiInitCacheGroupInformation.c)
  * Callees:
- *     PnpFreeUnicodeStringList @ 0x1403D2224 (PnpFreeUnicodeStringList.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PnpFreeUnicodeStringList @ 0x1403C34C4 (PnpFreeUnicodeStringList.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PnpRegMultiSzToUnicodeStrings(_DWORD *a1, __int64 *a2, unsigned int *a3)
+__int64 __fastcall PnpRegMultiSzToUnicodeStrings(_DWORD *a1, PVOID **a2, unsigned int *a3)
 {
-  __int64 *v3; // r12
+  PVOID **v3; // r13
   _WORD *v5; // rcx
   _WORD *v6; // rdi
   unsigned int v7; // edx
   _WORD *v8; // rax
   unsigned int v9; // eax
-  unsigned int v10; // r13d
-  __int64 Pool2; // rax
+  unsigned int v10; // r12d
+  PVOID *PoolWithTag; // rax
   unsigned int v12; // ebp
   _WORD *v13; // rbx
   const void *v14; // r15
   _WORD *v15; // rsi
   unsigned int v17; // r14d
-  void *v18; // rax
+  PVOID v18; // rax
   PVOID *v19; // r12
   __int64 v20; // r13
   PVOID *v21; // rcx
   unsigned int v22; // ebx
-  void *v23; // rax
+  PVOID v23; // rax
   PVOID *v24; // rdi
   unsigned int v25; // [rsp+60h] [rbp+8h]
 
@@ -59,9 +59,9 @@ __int64 __fastcall PnpRegMultiSzToUnicodeStrings(_DWORD *a1, __int64 *a2, unsign
     v9 = v7;
   v10 = v9;
   v25 = v9;
-  Pool2 = ExAllocatePool2(256LL, 16LL * v9, 0x75737050u);
-  *v3 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (PVOID *)ExAllocatePoolWithTag(PagedPool, 16LL * v9, 0x75737050u);
+  *v3 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
   v12 = 0;
   v13 = (_WORD *)((char *)a1 + (unsigned int)a1[2]);
@@ -70,9 +70,9 @@ __int64 __fastcall PnpRegMultiSzToUnicodeStrings(_DWORD *a1, __int64 *a2, unsign
   {
 LABEL_26:
     v22 = (_DWORD)v13 - (_DWORD)v14;
-    v23 = (void *)ExAllocatePool2(256LL, v22 + 2LL, 0x75737050u);
-    v24 = (PVOID *)*a2;
-    *(_QWORD *)(*a2 + 16LL * v12 + 8) = v23;
+    v23 = ExAllocatePoolWithTag(PagedPool, v22 + 2LL, 0x75737050u);
+    v24 = *a2;
+    (*a2)[2 * v12 + 1] = v23;
     if ( v23 )
     {
       if ( v22 )
@@ -97,8 +97,8 @@ LABEL_15:
       goto LABEL_16;
   }
   v17 = (_DWORD)v13 - (_DWORD)v14 + 2;
-  v18 = (void *)ExAllocatePool2(256LL, v17, 0x75737050u);
-  v19 = (PVOID *)*v3;
+  v18 = ExAllocatePoolWithTag(PagedPool, v17, 0x75737050u);
+  v19 = *v3;
   v20 = 2LL * v12;
   v19[2 * v12 + 1] = v18;
   if ( !v18 )

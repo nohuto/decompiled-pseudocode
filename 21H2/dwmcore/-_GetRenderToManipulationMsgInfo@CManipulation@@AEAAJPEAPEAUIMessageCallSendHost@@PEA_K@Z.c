@@ -1,13 +1,13 @@
 /*
- * XREFs of ?_GetRenderToManipulationMsgInfo@CManipulation@@AEAAJPEAPEAUIMessageCallSendHost@@PEA_K@Z @ 0x1801F529C
+ * XREFs of ?_GetRenderToManipulationMsgInfo@CManipulation@@AEAAJPEAPEAUIMessageCallSendHost@@PEA_K@Z @ 0x1801D57A4
  * Callers:
- *     ?SetAutoReset_RenderThread@CManipulation@@QEAAJ_N@Z @ 0x1801F45D4 (-SetAutoReset_RenderThread@CManipulation@@QEAAJ_N@Z.c)
- *     ?SetCaptureState_RenderThread@CManipulation@@QEAAJW4CaptureState@@@Z @ 0x1801F46CC (-SetCaptureState_RenderThread@CManipulation@@QEAAJW4CaptureState@@@Z.c)
+ *     ?SetAutoReset_RenderThread@CManipulation@@QEAAJ_N@Z @ 0x1801D4B48 (-SetAutoReset_RenderThread@CManipulation@@QEAAJ_N@Z.c)
+ *     ?SetCaptureState_RenderThread@CManipulation@@QEAAJW4CaptureState@@@Z @ 0x1801D4C34 (-SetCaptureState_RenderThread@CManipulation@@QEAAJW4CaptureState@@@Z.c)
  * Callees:
- *     ?GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z @ 0x18006D8F4 (-GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D5E60 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z @ 0x1800625D8 (-GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z.c)
+ *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800A9824 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
  */
 
 __int64 __fastcall CManipulation::_GetRenderToManipulationMsgInfo(
@@ -31,7 +31,7 @@ __int64 __fastcall CManipulation::_GetRenderToManipulationMsgInfo(
   v8 = ManipulationManager;
   if ( ManipulationManager < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, ManipulationManager, 0x309u);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, ManipulationManager, 0x30Bu, 0LL);
   }
   else
   {
@@ -50,13 +50,13 @@ __int64 __fastcall CManipulation::_GetRenderToManipulationMsgInfo(
       else
       {
         v8 = -2147467259;
-        MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, -2147467259, 0x30Du);
+        MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147467259, 0x30Fu, 0LL);
       }
     }
     else
     {
       v8 = -2147467259;
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, -2147467259, 0x30Bu);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147467259, 0x30Du, 0LL);
     }
   }
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v13);

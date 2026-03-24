@@ -1,17 +1,17 @@
 /*
- * XREFs of BgpClearScreen @ 0x140327614
+ * XREFs of BgpClearScreen @ 0x140327714
  * Callers:
- *     BgpDisplaySafeToPowerOffScreen @ 0x140328754 (BgpDisplaySafeToPowerOffScreen.c)
- *     BgpFwDisplayBugCheckScreen @ 0x140328A0C (BgpFwDisplayBugCheckScreen.c)
+ *     BgpDisplaySafeToPowerOffScreen @ 0x140328854 (BgpDisplaySafeToPowerOffScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140328B0C (BgpFwDisplayBugCheckScreen.c)
  *     AnFwDisplayFade @ 0x14094EBA8 (AnFwDisplayFade.c)
  *     AnFwDisplayBackgroundUpdate @ 0x1409516AC (AnFwDisplayBackgroundUpdate.c)
  *     BgpConsoleClearScreenEx @ 0x140953578 (BgpConsoleClearScreenEx.c)
  *     AnFwpBackgroundUpdateTimer @ 0x140953FF0 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
- *     BgpGxDrawRectangle @ 0x14016EE10 (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x14016F1C0 (BgpGetBitsPerPixel.c)
- *     BgpGxFillRectangle @ 0x14016F908 (BgpGxFillRectangle.c)
- *     BgpGxInitializeRectangle @ 0x14017B510 (BgpGxInitializeRectangle.c)
+ *     BgpGxDrawRectangle @ 0x14016EE30 (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x14016F1E0 (BgpGetBitsPerPixel.c)
+ *     BgpGxFillRectangle @ 0x14016F928 (BgpGxFillRectangle.c)
+ *     BgpGxInitializeRectangle @ 0x14017B530 (BgpGxInitializeRectangle.c)
  */
 
 __int64 __fastcall BgpClearScreen(unsigned int a1)
@@ -58,10 +58,10 @@ __int64 __fastcall BgpClearScreen(unsigned int a1)
     v13 = v5;
   }
   BitsPerPixel = BgpGetBitsPerPixel();
-  result = BgpGxInitializeRectangle((int *)&v12, BitsPerPixel, (__int64)&unk_1404DEB80, 0x2000u);
+  result = BgpGxInitializeRectangle((int *)&v12, BitsPerPixel, (__int64)&unk_1404DEB40, 0x2000u);
   if ( (int)result >= 0 )
   {
-    BgpGxFillRectangle((__int64)&unk_1404DEB80, a1);
+    BgpGxFillRectangle((__int64)&unk_1404DEB40, a1);
     v11 = 0;
     for ( i = 0; v11 < v4; i = v11 )
     {
@@ -70,9 +70,9 @@ __int64 __fastcall BgpClearScreen(unsigned int a1)
       {
         do
         {
-          BgpGxDrawRectangle((__int64)&unk_1404DEB80, (__int64)&v15);
-          if ( (byte_1404DEB90 & 0x10) != 0 )
-            BgpGxFillRectangle((__int64)&unk_1404DEB80, a1);
+          BgpGxDrawRectangle((__int64)&unk_1404DEB40, (__int64)&v15);
+          if ( (byte_1404DEB50 & 0x10) != 0 )
+            BgpGxFillRectangle((__int64)&unk_1404DEB40, a1);
           v15 += v9;
         }
         while ( v15 < v3 );

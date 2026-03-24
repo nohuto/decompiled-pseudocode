@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIIoctlTranslateBiosResources @ 0x1C00AF43C
+ * XREFs of ACPIIoctlTranslateBiosResources @ 0x1C00AFF8C
  * Callers:
- *     ACPIIrpDispatchDeviceControl @ 0x1C0001410 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIIrpDispatchDeviceControl @ 0x1C000B8A0 (ACPIIrpDispatchDeviceControl.c)
  * Callees:
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     PnpBiosResourcesToNtResources @ 0x1C009832C (PnpBiosResourcesToNtResources.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  */
 
 __int64 __fastcall ACPIIoctlTranslateBiosResources(ULONG_PTR a1, IRP *a2, __int64 a3)
@@ -23,7 +23,7 @@ __int64 __fastcall ACPIIoctlTranslateBiosResources(ULONG_PTR a1, IRP *a2, __int6
     if ( v5 >= 8 )
     {
       a2->IoStatus.Information = 0LL;
-      v4 = PnpBiosResourcesToNtResources(a1, a2->AssociatedIrp.MasterIrp, 4LL, (__int64 *)&P);
+      v4 = PnpBiosResourcesToNtResources(a1, a2->AssociatedIrp.MasterIrp, 4LL, (unsigned int **)&P);
       if ( v4 >= 0 && P )
       {
         MasterIrp = a2->AssociatedIrp.MasterIrp;

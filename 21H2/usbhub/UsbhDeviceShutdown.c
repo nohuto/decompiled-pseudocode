@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhDeviceShutdown @ 0x1C0041F00
+ * XREFs of UsbhDeviceShutdown @ 0x1C00431B0
  * Callers:
  *     <none>
  * Callees:
- *     UsbhUxdShutdown @ 0x1C005A8E0 (UsbhUxdShutdown.c)
+ *     UsbhUxdShutdown @ 0x1C005BFA4 (UsbhUxdShutdown.c)
  */
 
 __int64 __fastcall UsbhDeviceShutdown(__int64 a1, IRP *a2)

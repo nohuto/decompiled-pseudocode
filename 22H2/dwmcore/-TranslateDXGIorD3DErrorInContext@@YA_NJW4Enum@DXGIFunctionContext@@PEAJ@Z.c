@@ -1,29 +1,28 @@
 /*
- * XREFs of ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x180073594
+ * XREFs of ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x18007A274
  * Callers:
- *     ?AppendGeometry@CD3DBatchExecutionContext@@AEAAJIIAEBV?$span@$$CBG$0?0@gsl@@PEAPEAX1@Z @ 0x180072F50 (-AppendGeometry@CD3DBatchExecutionContext@@AEAAJIIAEBV-$span@$$CBG$0-0@gsl@@PEAPEAX1@Z.c)
- *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180074FA0 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
- *     ?GetPresentStatisticsDWM@CLegacySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS_DWM@@@Z @ 0x180076280 (-GetPresentStatisticsDWM@CLegacySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS_DWM@@@Z.c)
- *     ?RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ @ 0x1800A9100 (-RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ.c)
- *     ?CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z @ 0x1800A983C (-CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z.c)
- *     ?ProcessUpdate@CCompositionSurfaceBitmap@@UEAAJPEBVCResourceTable@@PEBUtagMILCMD_COMPOSITIONSURFACEBITMAP@@@Z @ 0x1800BB000 (-ProcessUpdate@CCompositionSurfaceBitmap@@UEAAJPEBVCResourceTable@@PEBUtagMILCMD_COMPOSITIONSURF.c)
- *     ?GetDXGIOutput@CDisplayManager@@QEAAJIPEAPEAUIDXGIOutputDWM@@@Z @ 0x1800CAD6C (-GetDXGIOutput@CDisplayManager@@QEAAJIPEAPEAUIDXGIOutputDWM@@@Z.c)
- *     ?CreateNewDevice@CDeviceManager@@AEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x1800CDD10 (-CreateNewDevice@CDeviceManager@@AEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ?GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x1800CEB40 (-GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z.c)
- *     ?GetPrimaryAdapterLuid@CDisplayManager@@QEAA?AU_LUID@@XZ @ 0x1800CEB6C (-GetPrimaryAdapterLuid@CDisplayManager@@QEAA-AU_LUID@@XZ.c)
- *     ?Create@CRedirectedGDISurface@@SAHPEAUHLSURF__@@PEAVCGdiSpriteBitmap@@PEAVCLegacySurfaceManager@@PEAPEAV1@@Z @ 0x1800F258C (-Create@CRedirectedGDISurface@@SAHPEAUHLSURF__@@PEAVCGdiSpriteBitmap@@PEAVCLegacySurfaceManager@.c)
- *     ?EnsureSwapChain@CRemoteRenderTarget@@IEAAJXZ @ 0x180109638 (-EnsureSwapChain@CRemoteRenderTarget@@IEAAJXZ.c)
- *     ?DrawMesh2D@CGlobalDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x1801B6500 (-DrawMesh2D@CGlobalDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z.c)
- *     ?CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x1801ECA1C (-CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ.c)
- *     ?EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z @ 0x1801ECFA4 (-EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z.c)
- *     ?Present@CCaptureRenderTarget@@UEAAJ_N@Z @ 0x1801ED54C (-Present@CCaptureRenderTarget@@UEAAJ_N@Z.c)
- *     ?ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801EF82C (-ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
- *     ?TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801EFA94 (-TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
- *     ?EnsureSharedRenderTargets@CMagnifierRenderTarget@@AEAAJXZ @ 0x1801F00C0 (-EnsureSharedRenderTargets@CMagnifierRenderTarget@@AEAAJXZ.c)
- *     ?GetDXGIOutput@CDisplayManager@@QEAAJU_LUID@@IPEAPEAUIDXGIOutputDWM@@@Z @ 0x18028F27C (-GetDXGIOutput@CDisplayManager@@QEAAJU_LUID@@IPEAPEAUIDXGIOutputDWM@@@Z.c)
- *     ?ValidateLuidAndMonitor@CDisplayManager@@QEAAJU_LUID@@PEAUHMONITOR__@@@Z @ 0x18028F6F4 (-ValidateLuidAndMonitor@CDisplayManager@@QEAAJU_LUID@@PEAUHMONITOR__@@@Z.c)
- *     ?GetPresentStatistics@CLegacySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x18029B150 (-GetPresentStatistics@CLegacySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z.c)
- *     ?GetPresentStatistics@CCompSwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x18029E610 (-GetPresentStatistics@CCompSwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z.c)
+ *     ?GetDXGIOutput@CDisplayManager@@QEAAJIPEAPEAUIDXGIOutputDWM@@@Z @ 0x180025C60 (-GetDXGIOutput@CDisplayManager@@QEAAJIPEAPEAUIDXGIOutputDWM@@@Z.c)
+ *     ?CreateNewDevice@CDeviceManager@@AEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18002E5EC (-CreateNewDevice@CDeviceManager@@AEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x180030F08 (-GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z.c)
+ *     ?GetPrimaryAdapter@CDisplayManager@@QEAAJPEAPEAUIDXGIAdapter1@@@Z @ 0x180030FC4 (-GetPrimaryAdapter@CDisplayManager@@QEAAJPEAPEAUIDXGIAdapter1@@@Z.c)
+ *     ?CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z @ 0x180032E7C (-CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z.c)
+ *     ?RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ @ 0x180033848 (-RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ.c)
+ *     ?ProcessUpdate@CCompositionSurfaceBitmap@@UEAAJPEBVCResourceTable@@PEBUtagMILCMD_COMPOSITIONSURFACEBITMAP@@@Z @ 0x180036E80 (-ProcessUpdate@CCompositionSurfaceBitmap@@UEAAJPEBVCResourceTable@@PEBUtagMILCMD_COMPOSITIONSURF.c)
+ *     ?GetPresentStatisticsDWM@CLegacySwapChain@@UEBAJPEAUDXGI_FRAME_STATISTICS_DWM@@PEAU_UNSIGNED_RATIO@@@Z @ 0x1800776C4 (-GetPresentStatisticsDWM@CLegacySwapChain@@UEBAJPEAUDXGI_FRAME_STATISTICS_DWM@@PEAU_UNSIGNED_RAT.c)
+ *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180077800 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180078718 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
+ *     ?AppendGeometry@CD3DBatchExecutionContext@@AEAAJIIAEBV?$span@$$CBG$0?0@gsl@@PEAPEAX1@Z @ 0x180079690 (-AppendGeometry@CD3DBatchExecutionContext@@AEAAJIIAEBV-$span@$$CBG$0-0@gsl@@PEAPEAX1@Z.c)
+ *     ?GetPresentStatistics@CLegacySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x1800C46B8 (-GetPresentStatistics@CLegacySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z.c)
+ *     ?Initialize@CRedirectedGDISurface@@IEAAJPEAUHLSURF__@@PEAVCGdiSpriteBitmap@@@Z @ 0x1800D1B4C (-Initialize@CRedirectedGDISurface@@IEAAJPEAUHLSURF__@@PEAVCGdiSpriteBitmap@@@Z.c)
+ *     ?EnsureSwapChain@CRemoteRenderTarget@@IEAAJXZ @ 0x1800E3D90 (-EnsureSwapChain@CRemoteRenderTarget@@IEAAJXZ.c)
+ *     ?EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z @ 0x1800ED664 (-EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z.c)
+ *     ?CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x1801874B4 (-CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ.c)
+ *     ?Present@CCaptureRenderTarget@@UEAAJ_N@Z @ 0x18018780C (-Present@CCaptureRenderTarget@@UEAAJ_N@Z.c)
+ *     ?ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x180189EE4 (-ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
+ *     ?TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x18018A038 (-TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
+ *     ?EnsureSharedRenderTargets@CMagnifierRenderTarget@@AEAAJXZ @ 0x18018B0B4 (-EnsureSharedRenderTargets@CMagnifierRenderTarget@@AEAAJXZ.c)
+ *     ?DrawMesh2D@CDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x18018DE40 (-DrawMesh2D@CDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z.c)
+ *     ?GetPresentStatistics@CCompSwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x180250FA0 (-GetPresentStatistics@CCompSwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -33,75 +32,52 @@ char __fastcall TranslateDXGIorD3DErrorInContext(int a1, int a2, _DWORD *a3)
   char v3; // r9
   int v4; // eax
   bool v5; // zf
-  int v7; // edx
-  int v8; // edx
-  int v9; // edx
-  int v10; // edx
-  int v11; // edx
-  int v12; // edx
-  int v13; // edx
-  bool v14; // zf
-  int v15; // edx
-  int v16; // edx
-  int v17; // edx
-  int v18; // edx
-  unsigned int v19; // ecx
-  int v20; // eax
-  bool v21; // zf
-  int v22; // edx
-  unsigned __int64 v23; // rax
-  __int64 v24; // rdx
+  bool v7; // zf
+  unsigned int v8; // ecx
+  int v9; // eax
+  bool v10; // zf
+  unsigned __int64 v11; // rax
+  __int64 v12; // rdx
 
   v3 = 0;
   if ( a2 > 8 )
   {
-    v7 = a2 - 9;
-    if ( !v7 )
+    switch ( a2 )
     {
-      if ( a1 != -2147024890 && a1 != -2147024809 && a1 != -2147023728 && a1 != -2147024895 )
-      {
-        v21 = a1 == -1071243253;
+      case 10:
+        if ( a1 != -1071243253 && a1 != -2147023728 )
+        {
+          v10 = a1 == -2147024890;
+          goto LABEL_39;
+        }
         goto LABEL_40;
-      }
-      goto LABEL_41;
-    }
-    v8 = v7 - 1;
-    if ( !v8 )
-    {
-      if ( a1 != -1071243253 && a1 != -2147023728 )
-      {
-        v21 = a1 == -2147024890;
+      case 9:
+        if ( a1 != -2147024890 && a1 != -2147024809 && a1 != -2147023728 && a1 != -2147024895 )
+        {
+          v10 = a1 == -1071243253;
+          goto LABEL_39;
+        }
         goto LABEL_40;
-      }
-      goto LABEL_41;
-    }
-    v9 = v8 - 1;
-    if ( !v9 )
-    {
-      if ( a1 != -1071243253 && a1 != -2147023728 && a1 != -2147024890 )
-      {
-        v21 = a1 == -2147024809;
+      case 11:
+        if ( a1 != -1071243253 && a1 != -2147023728 && a1 != -2147024890 )
+        {
+          v10 = a1 == -2147024809;
+LABEL_39:
+          if ( !v10 )
+            return v3;
+        }
 LABEL_40:
-        if ( !v21 )
-          return v3;
-      }
-LABEL_41:
-      *a3 = 0;
-      return 1;
+        *a3 = 0;
+        return 1;
     }
-    v10 = v9 - 1;
-    if ( !v10 || (v11 = v10 - 1) == 0 )
+    if ( a2 <= 13 )
     {
-      v14 = a1 == -2003292412;
-LABEL_26:
-      if ( !v14 )
-        return v3;
-      goto LABEL_27;
+      v7 = a1 == -2003292412;
+      goto LABEL_25;
     }
-    v12 = v11 - 1;
-    if ( v12 )
+    if ( a2 != 14 )
     {
-      if ( v12 != 1 )
+      if ( a2 != 15 )
         return v3;
 LABEL_4:
       if ( (unsigned int)(a1 + 2005270523) > 0x1B || (v4 = 134217733, !_bittest(&v4, a1 + 2005270523)) )
@@ -112,114 +88,103 @@ LABEL_4:
           goto LABEL_8;
         }
       }
-      goto LABEL_27;
+LABEL_70:
+      *a3 = -2003304307;
+      return 1;
     }
     if ( a1 == -2147024882 )
     {
       *a3 = -2005532292;
       return 1;
     }
-    v19 = a1 + 2005270523;
-    if ( v19 > 0x1B )
+    v8 = a1 + 2005270523;
+    if ( v8 > 0x1B )
       return v3;
-    v20 = 134217733;
-LABEL_35:
-    if ( !_bittest(&v20, v19) )
+    v9 = 134217733;
+LABEL_34:
+    if ( !_bittest(&v9, v8) )
       return v3;
-LABEL_27:
-    *a3 = -2003304307;
-    return 1;
+    goto LABEL_70;
   }
-  if ( a2 == 8 )
+  switch ( a2 )
   {
-    if ( a1 != -2003292404
-      && a1 != -2003304307
-      && a1 != -2003304442
-      && a1 != -2005530509
-      && a1 != -2147024809
-      && a1 != -2005270523
-      && a1 != -2005270521
-      && a1 != -2005532292
-      && a1 != -2005530512
-      && a1 != -1071243253 )
-    {
-      v21 = a1 == -2003304290;
-      goto LABEL_40;
-    }
-    goto LABEL_41;
-  }
-  if ( !a2 )
-    goto LABEL_4;
-  v13 = a2 - 1;
-  if ( !v13 )
-  {
-    if ( a1 == 142213127 || a1 == -2005270491 || a1 == -2005270494 )
-      goto LABEL_66;
-    if ( (unsigned int)(a1 + 2005270523) <= 2 || a1 == -2005532292 || a1 == -2147467259 )
-      goto LABEL_27;
-    v14 = a1 == -2005270496;
-    goto LABEL_26;
-  }
-  v15 = v13 - 1;
-  if ( !v15 )
-  {
-    v23 = (unsigned int)(a1 + 2005270524);
-    if ( (unsigned int)v23 <= 0x21 )
-    {
-      v24 = 0x240000001LL;
-      if ( _bittest64(&v24, v23) )
-        goto LABEL_66;
-    }
-    if ( a1 == 142213127 )
-      goto LABEL_66;
-    if ( a1 == -2147467259 )
-      goto LABEL_27;
-    v19 = a1 + 2005270526;
-    if ( v19 > 0x1E )
-      return v3;
-    v20 = 1073741865;
-    goto LABEL_35;
-  }
-  v16 = v15 - 1;
-  if ( !v16 )
-  {
-    if ( a1 == -805306246 || a1 == -805306355 || a1 == -805306282 || a1 == -805306367 )
-      goto LABEL_66;
-LABEL_33:
-    v19 = a1 + 2005270523;
-    if ( v19 > 0x1D )
-      return v3;
-    v20 = 671088645;
-    goto LABEL_35;
-  }
-  v17 = v16 - 1;
-  if ( v17 )
-  {
-    v18 = v17 - 1;
-    if ( v18 )
-    {
-      v22 = v18 - 1;
-      if ( v22 )
+    case 8:
+      if ( a1 != -2003292404
+        && a1 != -2003304307
+        && a1 != -2003304442
+        && a1 != -2005530509
+        && a1 != -2147024809
+        && a1 != -2005270523
+        && a1 != -2005270521
+        && a1 != -2005532292
+        && a1 != -2005530512
+        && a1 != -1071243253 )
       {
-        if ( v22 != 1 )
-          return v3;
-        if ( a1 != -2005530509 && a1 != -2147024809 && a1 != -2005270523 && a1 != -2005270521 && a1 != -2003304442 )
-        {
-          v21 = a1 == -2003304307;
-          goto LABEL_40;
-        }
-        goto LABEL_41;
+        v10 = a1 == -2003304290;
+        goto LABEL_39;
       }
+      goto LABEL_40;
+    case 0:
+      goto LABEL_4;
+    case 1:
+      if ( a1 == 142213127 || a1 == -2005270491 || a1 == -2005270494 )
+        goto LABEL_63;
+      if ( (unsigned int)(a1 + 2005270523) <= 2 || a1 == -2005532292 || a1 == -2147467259 )
+        goto LABEL_70;
+      v7 = a1 == -2005270496;
+LABEL_25:
+      if ( !v7 )
+        return v3;
+      goto LABEL_70;
+    case 2:
+      v11 = (unsigned int)(a1 + 2005270524);
+      if ( (unsigned int)v11 <= 0x21 )
+      {
+        v12 = 0x240000001LL;
+        if ( _bittest64(&v12, v11) )
+          goto LABEL_63;
+      }
+      if ( a1 == 142213127 )
+        goto LABEL_63;
+      if ( a1 == -2147467259 )
+        goto LABEL_70;
+      v8 = a1 + 2005270526;
+      if ( v8 > 0x1E )
+        return v3;
+      v9 = 1073741865;
+      goto LABEL_34;
+    case 3:
+      if ( a1 == -805306246 || a1 == -805306355 || a1 == -805306282 || a1 == -805306367 )
+        goto LABEL_63;
+      goto LABEL_32;
+  }
+  if ( a2 != 4 )
+  {
+    if ( a2 <= 4 )
+      return v3;
+    if ( a2 <= 6 )
+    {
+LABEL_32:
+      v8 = a1 + 2005270523;
+      if ( v8 > 0x1D )
+        return v3;
+      v9 = 671088645;
+      goto LABEL_34;
     }
-    goto LABEL_33;
+    if ( a1 != -2005530509 && a1 != -2147024809 && a1 != -2005270523 && a1 != -2005270521 && a1 != -2003304442 )
+    {
+      v10 = a1 == -2003304307;
+      goto LABEL_39;
+    }
+    goto LABEL_40;
   }
   if ( a1 == -2147467263 || a1 == -2147024809 || a1 == -2005270526 || a1 == -2147024865 )
-    goto LABEL_66;
+    goto LABEL_63;
   v5 = a1 == -2003304291;
 LABEL_8:
   if ( v5 )
   {
-LABEL_66:
+LABEL_63:
     *a3 = -2003304442;
     return 1;
   }

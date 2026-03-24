@@ -1,40 +1,51 @@
 /*
- * XREFs of ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C00D9014
+ * XREFs of ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C00C7F00
  * Callers:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C002E3D4 (--1DCOBJ@@QEAA@XZ.c)
- *     hbmSelectBitmap @ 0x1C009A990 (hbmSelectBitmap.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C016B168 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C003B478 (--1DCOBJ@@QEAA@XZ.c)
+ *     hbmSelectBitmap @ 0x1C00911B0 (hbmSelectBitmap.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C013E1B4 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
  * Callees:
- *     HmgDecrementExclusiveReferenceCountEx @ 0x1C0021550 (HmgDecrementExclusiveReferenceCountEx.c)
- *     ?GetUserAttr@XDCOBJ@@AEAAPEAU_DC_ATTR@@XZ @ 0x1C0021E20 (-GetUserAttr@XDCOBJ@@AEAAPEAU_DC_ATTR@@XZ.c)
- *     ?RestoreAttributes@DC@@QEAAXPEAU_DC_ATTR@@@Z @ 0x1C00231C0 (-RestoreAttributes@DC@@QEAAXPEAU_DC_ATTR@@@Z.c)
- *     bDeleteDCInternalEx @ 0x1C002DFD0 (bDeleteDCInternalEx.c)
+ *     ?RestoreAttributes@DC@@QEAAXPEAU_DC_ATTR@@@Z @ 0x1C002BCC0 (-RestoreAttributes@DC@@QEAAXPEAU_DC_ATTR@@@Z.c)
+ *     HmgDecrementExclusiveReferenceCountEx @ 0x1C002DEB0 (HmgDecrementExclusiveReferenceCountEx.c)
+ *     ?GetUserAttr@XDCOBJ@@AEAAPEAU_DC_ATTR@@XZ @ 0x1C002F120 (-GetUserAttr@XDCOBJ@@AEAAPEAU_DC_ATTR@@XZ.c)
+ *     bDeleteDCInternalEx @ 0x1C003B2C0 (bDeleteDCInternalEx.c)
  */
 
 void __fastcall XDCOBJ::vUnlockFast(XDCOBJ *this)
 {
-  struct _DC_ATTR *UserAttr; // rax
-  int *v3; // rcx
-  int v4; // edx
-  HDC v5; // rdi
-  int v6; // [rsp+30h] [rbp+8h] BYREF
+  DC *v2; // rdi
+  DC *v3; // rax
+  struct _DC_ATTR *UserAttr; // rdx
+  int *v5; // rcx
+  int v6; // edx
+  HDC v7; // rdi
+  int v8; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( *((_DWORD *)this + 2) && (*(_DWORD *)(*(_QWORD *)this + 44LL) & 2) != 0 )
+  if ( *((_DWORD *)this + 2) )
   {
-    if ( !*((_DWORD *)this + 3) )
+    v2 = *(DC **)this;
+    if ( (*(_DWORD *)(*(_QWORD *)this + 44LL) & 2) != 0 )
     {
-      UserAttr = XDCOBJ::GetUserAttr(this);
-      if ( UserAttr )
-        DC::RestoreAttributes(*(DC **)this, UserAttr);
+      v3 = *(DC **)this;
+      if ( !*((_DWORD *)this + 3) )
+      {
+        UserAttr = XDCOBJ::GetUserAttr(this);
+        v3 = v2;
+        if ( UserAttr )
+        {
+          DC::RestoreAttributes(v2, UserAttr);
+          v3 = *(DC **)this;
+        }
+      }
+      *((_DWORD *)v3 + 11) &= ~2u;
+      *((_DWORD *)this + 2) = 0;
     }
-    *(_DWORD *)(*(_QWORD *)this + 44LL) &= ~2u;
-    *((_DWORD *)this + 2) = 0;
   }
-  v3 = *(int **)this;
-  v4 = *((_DWORD *)this + 3);
-  v6 = 0;
-  v5 = *(HDC *)v3;
-  HmgDecrementExclusiveReferenceCountEx(v3, v4, &v6);
-  if ( v6 )
-    bDeleteDCInternalEx(v5, 0LL);
+  v5 = *(int **)this;
+  v6 = *((_DWORD *)this + 3);
+  v8 = 0;
+  v7 = *(HDC *)v5;
+  HmgDecrementExclusiveReferenceCountEx(v5, v6, &v8);
+  if ( v8 )
+    bDeleteDCInternalEx(v7, 0LL);
 }

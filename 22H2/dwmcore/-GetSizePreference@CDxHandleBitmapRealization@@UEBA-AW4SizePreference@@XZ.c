@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSizePreference@CDxHandleBitmapRealization@@UEBA?AW4SizePreference@@XZ @ 0x180108CF0
+ * XREFs of ?GetSizePreference@CDxHandleBitmapRealization@@UEBA?AW4SizePreference@@XZ @ 0x1800E3820
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CDxHandleBitmapRealization::GetSizePreference(__int64 a1)
 {
-  return *(unsigned int *)(a1 - 248);
+  return *(unsigned int *)(a1 - 216);
 }

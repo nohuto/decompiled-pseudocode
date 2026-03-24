@@ -1,13 +1,12 @@
 /*
- * XREFs of ?SetResourceHandleArrayProperty@CApplicationChannel@DirectComposition@@QEAAJIIPEB_K_K@Z @ 0x1C020C80C
+ * XREFs of ?SetResourceHandleArrayProperty@CApplicationChannel@DirectComposition@@QEAAJIIPEB_K_K@Z @ 0x1C01D518C
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C002D930 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C007F5B4 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
  * Callees:
- *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002C184 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z @ 0x1C002EB40 (-LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C00935A0 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C0027838 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
+ *     Win32AllocPoolWithQuota @ 0x1C002AA40 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::SetResourceHandleArrayProperty(
@@ -17,46 +16,57 @@ __int64 __fastcall DirectComposition::CApplicationChannel::SetResourceHandleArra
         const unsigned __int64 *a4,
         unsigned __int64 a5)
 {
-  char *Quota; // rbx
-  NSInstrumentation::CLeakTrackingAllocator *v9; // rcx
+  __int64 v5; // rbx
+  unsigned __int64 v6; // r10
   struct DirectComposition::CResourceMarshaler *v10; // rsi
   int v11; // edi
-  unsigned int v12; // edx
-  __int64 v13; // rcx
-  _BYTE v15[40]; // [rsp+30h] [rbp-28h] BYREF
+  unsigned __int64 v12; // rdi
+  unsigned int v13; // edx
+  __int64 v14; // rcx
+  char v16; // [rsp+58h] [rbp+10h] BYREF
 
-  v15[0] = 0;
-  Quota = 0LL;
-  v10 = DirectComposition::CApplicationChannel::LookupResourceMarshaler(this, a2);
+  v5 = 0LL;
+  v16 = 0;
+  v6 = (unsigned int)(a2 - 1);
+  if ( a2 && v6 < *((_QWORD *)this + 10) )
+  {
+    _mm_lfence();
+    v10 = *(struct DirectComposition::CResourceMarshaler **)(v6 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
+  }
+  else
+  {
+    v10 = 0LL;
+  }
   if ( v10 )
   {
+    v12 = a5;
     if ( a5 )
     {
-      Quota = (char *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(v9, 260LL, 8 * a5, 0x66624344u);
-      if ( !Quota )
+      v5 = Win32AllocPoolWithQuota(8 * a5, 0x66624344u);
+      if ( !v5 )
         return (unsigned int)-1073741801;
-      v12 = 0;
-      v13 = 0LL;
+      v13 = 0;
+      v14 = 0LL;
       do
       {
-        ++v12;
-        *(_QWORD *)&Quota[8 * v13] = a4[v13];
-        v13 = v12;
+        ++v13;
+        *(_QWORD *)(v5 + 8 * v14) = a4[v14];
+        v14 = v13;
       }
-      while ( v12 < a5 );
+      while ( v13 < v12 );
     }
-    v11 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, _QWORD, char *, unsigned __int64, _BYTE *))(*(_QWORD *)v10 + 232LL))(
+    v11 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, _QWORD, __int64, unsigned __int64, char *))(*(_QWORD *)v10 + 136LL))(
             v10,
             a3,
-            Quota,
-            a5,
-            v15);
+            v5,
+            v12,
+            &v16);
     if ( v11 < 0 )
     {
-      if ( Quota )
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, Quota);
+      if ( v5 )
+        Win32FreePool(v5);
     }
-    else if ( v15[0] )
+    else if ( v16 )
     {
       DirectComposition::CApplicationChannel::PutResourceOnUpdatedList(this, v10);
     }

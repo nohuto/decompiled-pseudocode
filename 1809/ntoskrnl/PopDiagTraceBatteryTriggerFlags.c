@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceBatteryTriggerFlags @ 0x14071A404
+ * XREFs of PopDiagTraceBatteryTriggerFlags @ 0x14071A3E4
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14071A168 (PopBatteryApplyCompositeState.c)
- *     PopResetCBTriggers @ 0x140747C4C (PopResetCBTriggers.c)
- *     PopRecalculateCBTriggerLevels @ 0x14086DBF0 (PopRecalculateCBTriggerLevels.c)
+ *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
+ *     PopResetCBTriggers @ 0x140747C2C (PopResetCBTriggers.c)
+ *     PopRecalculateCBTriggerLevels @ 0x14086DBD0 (PopRecalculateCBTriggerLevels.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 int __fastcall PopDiagTraceBatteryTriggerFlags(unsigned int *a1, __int64 a2)
@@ -38,8 +38,8 @@ int __fastcall PopDiagTraceBatteryTriggerFlags(unsigned int *a1, __int64 a2)
   __int64 v26; // [rsp+B8h] [rbp+3Fh]
 
   v2 = *a1;
-  v3 = unk_140417860 & 1;
-  v4 = dword_1404179B0;
+  v3 = unk_140417940 & 1;
+  v4 = dword_140417A90;
   if ( (unsigned int)v2 < 4 )
   {
     v5 = (unsigned int)v2;
@@ -71,7 +71,7 @@ int __fastcall PopDiagTraceBatteryTriggerFlags(unsigned int *a1, __int64 a2)
           v22 = 1LL;
           v24 = 1LL;
           v26 = 4LL;
-          LODWORD(v2) = TlgWrite(&pCallbackContext, &unk_14036F6CC, 0LL, 0LL, 8u, &pData);
+          LODWORD(v2) = TlgWrite(&pCallbackContext, &unk_14036FA67, 0LL, 0LL, 8u, &pData);
         }
       }
     }

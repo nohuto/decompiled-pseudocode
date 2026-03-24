@@ -1,77 +1,61 @@
 /*
- * XREFs of KiNpxNotAvailableFault @ 0x14042E840
+ * XREFs of KiNpxNotAvailableFault @ 0x14040C680
  * Callers:
- *     KiNpxNotAvailableFaultShadow @ 0x140AB54C0 (KiNpxNotAvailableFaultShadow.c)
+ *     KiNpxNotAvailableFaultShadow @ 0x140A144C0 (KiNpxNotAvailableFaultShadow.c)
  * Callees:
- *     KiSaveDebugRegisterState @ 0x14041F920 (KiSaveDebugRegisterState.c)
- *     KiNpxNotAvailableFault @ 0x14042E840 (KiNpxNotAvailableFault.c)
- *     KiBugCheckDispatch @ 0x140434DC0 (KiBugCheckDispatch.c)
- *     KiExceptionDispatch @ 0x140434E40 (KiExceptionDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x1404357C0 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSaveDebugRegisterState @ 0x1403FE440 (KiSaveDebugRegisterState.c)
+ *     KiNpxNotAvailableFault @ 0x14040C680 (KiNpxNotAvailableFault.c)
+ *     KiBugCheckDispatch @ 0x140412740 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x140413B80 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __noreturn KiNpxNotAvailableFault()
 {
   struct _KTHREAD *CurrentThread; // r10
-  unsigned __int64 v4; // rcx
+  unsigned __int64 v1; // rcx
   unsigned __int16 BpbKernelSpecCtrl; // ax
   unsigned __int16 BpbState; // dx
-  unsigned __int64 v7; // rax
-  unsigned __int64 v8; // r9
-  unsigned __int64 v9; // r8
-  void *retaddr; // [rsp+168h] [rbp+E8h]
-  char v11; // [rsp+170h] [rbp+F0h]
-  __int16 v12; // [rsp+178h] [rbp+F8h]
+  unsigned __int64 v4; // r9
+  unsigned __int64 v5; // r8
+  char v6; // [rsp+170h] [rbp+F0h]
+  __int16 v7; // [rsp+178h] [rbp+F8h]
 
-  if ( (v11 & 1) != 0 )
+  if ( (v6 & 1) != 0 )
   {
     if ( (KiKvaShadow & 1) == 0 )
       __asm { swapgs }
     _mm_lfence();
-    if ( KeGetPcr()->Prcb.KernelShadowStackInitial )
-    {
-      __asm { rdsspq  rdx }
-      if ( _RDX == KeGetPcr()->Prcb.TransitionShadowStack + 8 )
-      {
-        __asm
-        {
-          rstorssp qword ptr [rcx]
-          saveprevssp
-        }
-      }
-    }
     CurrentThread = KeGetCurrentThread();
-    v4 = *(_QWORD *)&CurrentThread->Process[2].ActiveProcessors.Count;
-    __writegsqword(0x858u, v4);
+    v1 = *(_QWORD *)&CurrentThread->Process[2].ActiveProcessors.Count;
+    __writegsqword(0x858u, v1);
     __writegsword(0x852u, KeGetPcr()->Prcb.BpbRetpolineExitSpecCtrl);
-    LOWORD(v4) = KeGetPcr()->Prcb.BpbState;
-    __writegsword(0x854u, v4);
+    LOWORD(v1) = KeGetPcr()->Prcb.BpbState;
+    __writegsword(0x854u, v1);
     BpbKernelSpecCtrl = KeGetPcr()->Prcb.BpbKernelSpecCtrl;
     if ( KeGetPcr()->Prcb.BpbCurrentSpecCtrl != BpbKernelSpecCtrl )
     {
       __writegsword(0x864u, BpbKernelSpecCtrl);
-      v4 = 72LL;
+      v1 = 72LL;
       __writemsr(0x48u, BpbKernelSpecCtrl);
     }
     BpbState = KeGetPcr()->Prcb.BpbState;
     if ( (BpbState & 8) != 0 )
     {
-      v4 = 73LL;
+      v1 = 73LL;
       __writemsr(0x49u, 1uLL);
       BpbState = KeGetPcr()->Prcb.BpbState;
     }
     if ( (BpbState & 2) != 0 )
-      JUMPOUT(0x14042EAADLL);
+      JUMPOUT(0x14040C8B5LL);
     if ( (BpbState & 0x200) != 0 )
-      KiFlushBhbDuringTrapEntryOrExit(v4);
+      KiFlushBhbDuringTrapEntryOrExit(v1);
     _mm_lfence();
     __writegsbyte(0x856u, 0);
     if ( (CurrentThread->Header.Reserved1 & 3) != 0 )
-      KiSaveDebugRegisterState(v4);
+      KiSaveDebugRegisterState(v1);
   }
   else
   {
-    __asm { rdsspq  rdx }
     _mm_lfence();
     if ( (KeGetPcr()->Prcb.BpbState & 1) != 0 )
       __writemsr(0x48u, KeGetPcr()->Prcb.BpbCurrentSpecCtrl);
@@ -80,25 +64,11 @@ void __noreturn KiNpxNotAvailableFault()
   }
   _mm_getcsr();
   _mm_setcsr(KeGetPcr()->Prcb.MxCsr);
-  if ( (_BYTE)KeSmapEnabled && (v11 & 1) != 0 )
+  if ( (_BYTE)KeSmapEnabled && (v6 & 1) != 0 )
     __asm { stac }
-  if ( (KeFeatureBits & 0x80000000000000LL) != 0 )
-  {
-    v7 = __readmsr(0x1C5u);
-    __writemsr(0x1C5u, 0LL);
-  }
-  else
-  {
-    v7 = 0LL;
-  }
-  if ( (v12 & 0x200) != 0 )
+  if ( (v7 & 0x200) != 0 )
     _enable();
-  if ( (v11 & 1) != 0 )
-  {
-    if ( v7 )
-      KiExceptionDispatch(268435472LL, 1LL, retaddr, v7);
-  }
-  v8 = __readcr4();
-  v9 = __readcr0();
-  KiBugCheckDispatch(127LL, 7LL, v9, v8);
+  v4 = __readcr4();
+  v5 = __readcr0();
+  KiBugCheckDispatch(127LL, 7LL, v5, v4);
 }

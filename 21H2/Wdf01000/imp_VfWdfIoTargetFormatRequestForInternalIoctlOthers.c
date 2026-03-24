@@ -1,16 +1,16 @@
 /*
- * XREFs of imp_VfWdfIoTargetFormatRequestForInternalIoctlOthers @ 0x1C00C2960
+ * XREFs of imp_VfWdfIoTargetFormatRequestForInternalIoctlOthers @ 0x1C00C1960
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall imp_VfWdfIoTargetFormatRequestForInternalIoctlOthers(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFIOTARGET__ *IoTarget,
         WDFREQUEST__ *Request,
-        __int64 IoctlCode,
+        unsigned int IoctlCode,
         WDFMEMORY__ *OtherArg1,
         _WDFMEMORY_OFFSET *OtherArg1Offset,
         WDFMEMORY__ *OtherArg2,
@@ -18,7 +18,7 @@ __int64 __fastcall imp_VfWdfIoTargetFormatRequestForInternalIoctlOthers(
         WDFMEMORY__ *OtherArg4,
         _WDFMEMORY_OFFSET *OtherArg4Offset)
 {
-  return ((__int64 (__fastcall *)(_WDF_DRIVER_GLOBALS *, WDFIOTARGET__ *, WDFREQUEST__ *, __int64, WDFMEMORY__ *, _WDFMEMORY_OFFSET *, WDFMEMORY__ *, _WDFMEMORY_OFFSET *, WDFMEMORY__ *, _WDFMEMORY_OFFSET *))WdfVersion.Functions.pfnWdfIoTargetFormatRequestForInternalIoctlOthers)(
+  return ((__int64 (__fastcall *)(_WDF_DRIVER_GLOBALS *, WDFIOTARGET__ *, WDFREQUEST__ *, _QWORD, WDFMEMORY__ *, _WDFMEMORY_OFFSET *, WDFMEMORY__ *, _WDFMEMORY_OFFSET *, WDFMEMORY__ *, _WDFMEMORY_OFFSET *))WdfVersion.Functions.pfnWdfIoTargetFormatRequestForInternalIoctlOthers)(
            DriverGlobals,
            IoTarget,
            Request,

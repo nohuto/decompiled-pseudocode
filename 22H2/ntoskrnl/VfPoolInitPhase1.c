@@ -1,31 +1,32 @@
 /*
- * XREFs of VfPoolInitPhase1 @ 0x140ADB118
+ * XREFs of VfPoolInitPhase1 @ 0x1409E0230
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x140AC3CE8 (VfInitSystemNoRebootNeeded.c)
- *     ViInitSystemPhase1 @ 0x140B75DE4 (ViInitSystemPhase1.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409C6D50 (VfInitSystemNoRebootNeeded.c)
+ *     ViInitSystemPhase1 @ 0x140A6FD8C (ViInitSystemPhase1.c)
  * Callees:
- *     InitializeSListHead @ 0x140221440 (InitializeSListHead.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     PsCreateSystemThread @ 0x1407B86B0 (PsCreateSystemThread.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     InitializeSListHead @ 0x140352660 (InitializeSListHead.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThread @ 0x1406FDA10 (PsCreateSystemThread.c)
  */
 
-NTSTATUS VfPoolInitPhase1()
+unsigned __int64 VfPoolInitPhase1()
 {
-  NTSTATUS result; // eax
+  unsigned __int64 result; // rax
   char *v1; // rbx
   HANDLE v2; // rcx
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
-  HANDLE ThreadHandle; // [rsp+90h] [rbp+20h] BYREF
-  PVOID Object; // [rsp+98h] [rbp+28h] BYREF
+  HANDLE ThreadHandle; // [rsp+80h] [rbp+10h] BYREF
+  PVOID Object; // [rsp+88h] [rbp+18h] BYREF
 
   ThreadHandle = 0LL;
-  *(&ObjectAttributes.Attributes + 1) = 0;
   *(&ObjectAttributes.Length + 1) = 0;
-  if ( (VfRuleClasses & 0x400000) == 0 || (result = MmVerifierData, (MmVerifierData & 1) != 0) )
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  result = (unsigned int)MmVerifierData;
+  if ( (MmVerifierData & 0x400000) == 0 || (MmVerifierData & 1) != 0 )
   {
-    v1 = (char *)&unk_140CF8168;
+    v1 = (char *)&unk_140CECCE8;
     do
     {
       KeInitializeEvent((PRKEVENT)v1 - 1, SynchronizationEvent, 0);
@@ -34,15 +35,14 @@ NTSTATUS VfPoolInitPhase1()
       ObjectAttributes.Length = 48;
       ObjectAttributes.Attributes = 512;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      result = PsCreateSystemThread(
-                 &ThreadHandle,
-                 0,
-                 &ObjectAttributes,
-                 0LL,
-                 0LL,
-                 ViPoolDelayFreeTrimThreadRoutine,
-                 v1 - 40);
-      if ( result >= 0 )
+      if ( PsCreateSystemThread(
+             &ThreadHandle,
+             0,
+             &ObjectAttributes,
+             0LL,
+             0LL,
+             ViPoolDelayFreeTrimThreadRoutine,
+             v1 - 40) >= 0 )
       {
         Object = 0LL;
         ObReferenceObjectByHandle(ThreadHandle, 0, (POBJECT_TYPE)PsThreadType, 0, &Object, 0LL);
@@ -50,11 +50,12 @@ NTSTATUS VfPoolInitPhase1()
         *(_QWORD *)v1 = Object;
         ZwClose(v2);
         InitializeSListHead((PSLIST_HEADER)(v1 - 40));
-        result = _InterlockedExchange((volatile __int32 *)v1 + 2, 1);
+        _InterlockedExchange((volatile __int32 *)v1 + 2, 1);
       }
       v1 += 64;
+      result = (unsigned __int64)byte_140CECD68;
     }
-    while ( (__int64)v1 < (__int64)byte_140CF81E8 );
+    while ( (__int64)v1 < (__int64)byte_140CECD68 );
   }
   return result;
 }

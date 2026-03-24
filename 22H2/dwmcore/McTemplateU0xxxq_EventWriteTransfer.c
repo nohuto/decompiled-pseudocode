@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateU0xxxq_EventWriteTransfer @ 0x18020535C
+ * XREFs of McTemplateU0xxxq_EventWriteTransfer @ 0x1801A6988
  * Callers:
- *     ?DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbleStopwatch@@_KPEAUIDCompositionDirectInkSuperWetRenderer@@PEAUIUnknown@@PEAUComputeScribbleLatencyData@@@Z @ 0x180204D4C (-DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbl.c)
- *     ?DoTextureUpdates@CHolographicClient@@AEAAXXZ @ 0x1802ACB50 (-DoTextureUpdates@CHolographicClient@@AEAAXXZ.c)
+ *     ?DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbleStopwatch@@_KPEAUIUnknown@@AEAV?$vector@UComputeScribbleLatencyData@@V?$allocator@UComputeScribbleLatencyData@@@std@@@std@@@Z @ 0x1800EF4C0 (-DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbl.c)
+ *     ?DoTextureUpdates@CHolographicClient@@AEAAXXZ @ 0x18025AC5C (-DoTextureUpdates@CHolographicClient@@AEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0xxxq_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, ...)
@@ -44,5 +44,5 @@ ULONG McTemplateU0xxxq_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2
   va_copy(v8, va2);
   va_copy(v10, va3);
   v11 = 4LL;
-  return McGenEventWrite_EventWriteTransfer(&Microsoft_Windows_Dwm_Core_Provider_Context, a2, v13, 5u, &v3);
+  return McGenEventWrite_EventWriteTransfer(Microsoft_Windows_Dwm_Core_Provider_Context, a2, v13, 5u, &v3);
 }

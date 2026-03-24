@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpGetVirtualizationID @ 0x140A19DEC
+ * XREFs of CmpGetVirtualizationID @ 0x1406EBA84
  * Callers:
- *     CmRealKCBToVirtualPath @ 0x140A186B8 (CmRealKCBToVirtualPath.c)
- *     CmpGetVirtualStoreRoot @ 0x140A19D34 (CmpGetVirtualStoreRoot.c)
+ *     CmRealKCBToVirtualPath @ 0x1406EB88C (CmRealKCBToVirtualPath.c)
+ *     CmpGetVirtualStoreRoot @ 0x14087095C (CmpGetVirtualStoreRoot.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeQueryUserSidToken @ 0x140714EB0 (SeQueryUserSidToken.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     CmpEffectiveTokenForSubject @ 0x1407BAB8C (CmpEffectiveTokenForSubject.c)
- *     RtlConvertSidToUnicodeString @ 0x1407FB3F0 (RtlConvertSidToUnicodeString.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     SeQueryUserSidToken @ 0x1406544B4 (SeQueryUserSidToken.c)
+ *     RtlConvertSidToUnicodeString @ 0x1406ED390 (RtlConvertSidToUnicodeString.c)
+ *     CmpEffectiveTokenForSubject @ 0x1406ED760 (CmpEffectiveTokenForSubject.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpGetVirtualizationID(PUNICODE_STRING Destination, __int64 a2)
 {
   __int64 v4; // rax
   NTSTATUS v5; // edi
-  __int64 v6; // rdx
-  wchar_t *Pool2; // rax
+  SIZE_T v6; // rdx
+  wchar_t *PoolWithTag; // rax
   int v9; // [rsp+20h] [rbp-88h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+28h] [rbp-80h] BYREF
   _BYTE Sid[80]; // [rsp+40h] [rbp-68h] BYREF
@@ -28,7 +28,7 @@ __int64 __fastcall CmpGetVirtualizationID(PUNICODE_STRING Destination, __int64 a
   v9 = 0;
   UnicodeString = 0LL;
   memset(Sid, 0, 0x44uLL);
-  v4 = CmpEffectiveTokenForSubject((__int64 *)a2, &v9);
+  v4 = CmpEffectiveTokenForSubject(a2, &v9);
   if ( v9 == 2 && *(int *)(a2 + 8) < 2 )
     v4 = *(_QWORD *)(a2 + 16);
   SeQueryUserSidToken(v4, Sid, 0x44u, 0LL);
@@ -37,9 +37,9 @@ __int64 __fastcall CmpGetVirtualizationID(PUNICODE_STRING Destination, __int64 a
   {
     v6 = (unsigned __int16)(UnicodeString.Length + 20);
     Destination->MaximumLength = v6;
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, v6, 1700154691LL);
-    Destination->Buffer = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v6, 0x65564D43u);
+    Destination->Buffer = PoolWithTag;
+    if ( PoolWithTag )
     {
       RtlCopyUnicodeString(Destination, &UnicodeString);
       RtlAppendUnicodeToString(Destination, L"_Classes");
@@ -49,6 +49,6 @@ __int64 __fastcall CmpGetVirtualizationID(PUNICODE_STRING Destination, __int64 a
       v5 = -1073741670;
     }
   }
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&UnicodeString);
   return (unsigned int)v5;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpCheckForResource @ 0x14063D44C
+ * XREFs of ExpCheckForResource @ 0x1405B5624
  * Callers:
- *     ExpFreePoolChecks @ 0x140216974 (ExpFreePoolChecks.c)
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
+ *     ExpFreePoolChecks @ 0x140297F0C (ExpFreePoolChecks.c)
+ *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     VfCheckForResource @ 0x140AA144C (VfCheckForResource.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfCheckForResource @ 0x1409E248C (VfCheckForResource.c)
  */
 
 __int64 __fastcall ExpCheckForResource(__int64 *a1, ULONG_PTR a2)
@@ -22,9 +22,7 @@ __int64 __fastcall ExpCheckForResource(__int64 *a1, ULONG_PTR a2)
   int v10; // eax
   bool v11; // zf
 
-  if ( (MmVerifierData & 0x800) != 0
-    && (MmVerifierData & 0x10) != 0
-    && (unsigned int)VfCheckForResource((ULONG_PTR)a1, a2)
+  if ( (MmVerifierData & 0x800) != 0 && (unsigned int)VfCheckForResource((ULONG_PTR)a1, a2)
     || (unsigned int)KeNumberProcessors_0 > 1
     || (ExResourceCheckFlags & 1) == 0 )
   {

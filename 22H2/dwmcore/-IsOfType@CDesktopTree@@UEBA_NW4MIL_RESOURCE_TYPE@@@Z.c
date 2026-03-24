@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CDesktopTree@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180104920
+ * XREFs of ?IsOfType@CDesktopTree@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E02A0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CDesktopTree::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 53;
+  return a2 == 51;
 }

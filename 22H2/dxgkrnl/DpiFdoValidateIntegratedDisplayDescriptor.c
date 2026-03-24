@@ -1,79 +1,93 @@
 /*
- * XREFs of DpiFdoValidateIntegratedDisplayDescriptor @ 0x1C039DAFC
+ * XREFs of DpiFdoValidateIntegratedDisplayDescriptor @ 0x1C02CD038
  * Callers:
- *     DpiFdoCreateRelatedObjects @ 0x1C02110C8 (DpiFdoCreateRelatedObjects.c)
+ *     DpiFdoCreateRelatedObjects @ 0x1C0188434 (DpiFdoCreateRelatedObjects.c)
  * Callees:
- *     DpiIsValidEdid @ 0x1C001FACC (DpiIsValidEdid.c)
- *     DpiFdoValidateDxgkColorimetry @ 0x1C0222EA0 (DpiFdoValidateDxgkColorimetry.c)
+ *     DpiIsValidEdid @ 0x1C0020F4C (DpiIsValidEdid.c)
+ *     DpiFdoValidateDxgkColorimetry @ 0x1C02CCD64 (DpiFdoValidateDxgkColorimetry.c)
  */
 
 __int64 __fastcall DpiFdoValidateIntegratedDisplayDescriptor(__int64 a1, __int64 a2)
 {
-  unsigned int *v3; // rdi
-  __int64 v5; // rbx
-  int v6; // ecx
-  __int64 v7; // r9
-  unsigned __int64 v8; // rdx
-  unsigned int v9; // eax
-  unsigned __int64 v10; // rcx
-  char v11; // al
-  __int64 v12; // r8
+  unsigned int *v2; // rbx
+  __int64 v5; // rdi
+  __int64 v6; // rcx
+  _QWORD *v7; // rax
+  unsigned __int64 v8; // rcx
+  char v9; // al
 
-  v3 = *(unsigned int **)(a2 + 104);
+  v2 = *(unsigned int **)(a2 + 104);
   v5 = *(unsigned int *)(a2 + 24);
-  v6 = *(_DWORD *)(*(_QWORD *)(a1 + 3912) + 2820LL);
-  if ( *v3 >= 0x10 )
+  v6 = *(unsigned int *)(*(_QWORD *)(a1 + 3896) + 2596LL);
+  if ( *v2 >= 0x10 )
   {
-    v7 = 1LL;
-    v8 = (unsigned __int64)*v3 >> 4;
+    v7 = (_QWORD *)WdLogNewEntry5_WdError(v6, a2);
+    v8 = (unsigned __int64)*v2 >> 4;
+    v7[5] = 1LL;
 LABEL_25:
-    WdLogSingleEntry3(2LL, v8, v5, v7);
-    return 3221225485LL;
+    v7[3] = v8;
+    v7[4] = v5;
+    goto LABEL_26;
   }
-  v9 = v3[16];
-  if ( v9 >= 0x1000 )
+  if ( v2[16] >= 0x1000 )
   {
-    v8 = (unsigned __int64)v9 >> 12;
-    v7 = 2LL;
+    v7 = (_QWORD *)WdLogNewEntry5_WdError(v6, a2);
+    v8 = (unsigned __int64)v2[16] >> 12;
+    v7[5] = 2LL;
     goto LABEL_25;
   }
-  if ( (v6 != 2300 || *(_DWORD *)(a1 + 1124) != 1297040209)
-    && (int)DpiFdoValidateDxgkColorimetry((__int64)(v3 + 17)) < 0 )
+  if ( ((_DWORD)v6 != 2300 || *(_DWORD *)(a1 + 1124) != 1297040209)
+    && (int)DpiFdoValidateDxgkColorimetry(v2 + 17, v5) < 0 )
   {
     return 3221225485LL;
   }
-  v10 = *((unsigned __int8 *)v3 + 120);
-  v7 = 3LL;
-  if ( (unsigned __int8)(v10 - 1) > 3u
-    || (v10 = *((unsigned __int8 *)v3 + 121), v7 = 4LL, (unsigned __int8)(v10 - 1) > 4u) )
+  if ( (unsigned __int8)(*((_BYTE *)v2 + 120) - 1) > 3u )
   {
-    v8 = v10;
+    v7 = (_QWORD *)WdLogNewEntry5_WdError(v6, a2);
+    v8 = *((unsigned __int8 *)v2 + 120);
+    v7[5] = 3LL;
     goto LABEL_25;
   }
-  if ( *((_BYTE *)v3 + 122) <= 0x10u )
+  if ( (unsigned __int8)(*((_BYTE *)v2 + 121) - 1) > 4u )
   {
-    v11 = *((_BYTE *)v3 + 123);
-    if ( v11 == 1 )
+    v7 = (_QWORD *)WdLogNewEntry5_WdError(v6, a2);
+    v8 = *((unsigned __int8 *)v2 + 121);
+    v7[5] = 4LL;
+    goto LABEL_25;
+  }
+  if ( *((_BYTE *)v2 + 122) <= 0x10u )
+  {
+    v9 = *((_BYTE *)v2 + 123);
+    if ( v9 == 1 )
     {
       if ( *(_WORD *)(a2 + 94) < 0x80u || !DpiIsValidEdid(*(_QWORD *)(a2 + 112)) )
       {
-        v12 = 8LL;
-LABEL_16:
-        WdLogSingleEntry2(2LL, v5, v12);
-        return 3221225485LL;
+        v7 = (_QWORD *)WdLogNewEntry5_WdError(v6, a2);
+        v7[3] = v5;
+        v7[4] = 8LL;
+        goto LABEL_26;
       }
     }
-    else if ( v11 != 2 )
+    else if ( v9 != 2 )
     {
-      v8 = *((unsigned __int8 *)v3 + 123);
-      v7 = 6LL;
+      v7 = (_QWORD *)WdLogNewEntry5_WdError(v6, a2);
+      v8 = *((unsigned __int8 *)v2 + 123);
+      v7[5] = 6LL;
       goto LABEL_25;
     }
-    if ( (v3[16] & 0x200) == 0 || *(_BYTE *)(a1 + 2695) || *(_BYTE *)(a1 + 2692) )
+    if ( (v2[16] & 0x200) == 0 || *(_BYTE *)(a1 + 2695) || *(_BYTE *)(a1 + 2692) )
       return 0LL;
-    v12 = 10LL;
-    goto LABEL_16;
+    v7 = (_QWORD *)WdLogNewEntry5_WdError(v6, a2);
+    v7[3] = v5;
+    v7[4] = 10LL;
+    goto LABEL_26;
   }
-  WdLogSingleEntry4(2LL, *((unsigned __int8 *)v3 + 122), 16LL, v5, 5LL);
+  v7 = (_QWORD *)WdLogNewEntry5_WdError(v6, a2);
+  v7[3] = *((unsigned __int8 *)v2 + 122);
+  v7[4] = 16LL;
+  v7[5] = v5;
+  v7[6] = 5LL;
+LABEL_26:
+  WdLogEvent5_WdError(v7);
   return 3221225485LL;
 }

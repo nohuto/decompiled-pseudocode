@@ -1,151 +1,142 @@
 /*
- * XREFs of ?PresentCddPrimary@ADAPTER_DISPLAY@@QEAAJPEAVDXGCONTEXT@@IPEAVCOREDEVICEACCESS@@@Z @ 0x1C0167DE0
+ * XREFs of ?PresentCddPrimary@ADAPTER_DISPLAY@@QEAAJPEAVDXGCONTEXT@@IPEAVCOREDEVICEACCESS@@@Z @ 0x1C02142C8
  * Callers:
- *     ?DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C0167B20 (-DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
- *     ?DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z @ 0x1C0168160 (-DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z.c)
- *     DxgkGetSharedPrimaryHandle @ 0x1C02D1FF0 (DxgkGetSharedPrimaryHandle.c)
- *     ?PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z @ 0x1C02DFFE0 (-PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z.c)
+ *     ?DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z @ 0x1C00DE810 (-DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z.c)
+ *     ?PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z @ 0x1C01968D4 (-PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z.c)
+ *     ?DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C0212D30 (-DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
+ *     DxgkGetSharedPrimaryHandle @ 0x1C0223E60 (DxgkGetSharedPrimaryHandle.c)
  * Callees:
- *     ?GetCddDisplayMode@ADAPTER_DISPLAY@@QEBAAEBU_D3DKMT_DISPLAYMODE@@I@Z @ 0x1C0001008 (-GetCddDisplayMode@ADAPTER_DISPLAY@@QEBAAEBU_D3DKMT_DISPLAYMODE@@I@Z.c)
- *     ?IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ @ 0x1C0001560 (-IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ.c)
- *     ?IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C0002AE8 (-IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z.c)
- *     ?Release@COREDEVICEACCESS@@QEAAXXZ @ 0x1C00046C0 (-Release@COREDEVICEACCESS@@QEAAXXZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z @ 0x1C000538C (-AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0005BA8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?GetCddPrimaryAllocation@ADAPTER_DISPLAY@@QEBAPEAVDXGADAPTERALLOCATION@@IE@Z @ 0x1C0173348 (-GetCddPrimaryAllocation@ADAPTER_DISPLAY@@QEBAPEAVDXGADAPTERALLOCATION@@IE@Z.c)
- *     ?FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@I_N@Z @ 0x1C018AF08 (-FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@I_N@Z.c)
- *     ?SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z @ 0x1C0194C28 (-SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z.c)
+ *     ?GetCddDisplayMode@ADAPTER_DISPLAY@@QEBAAEBU_D3DKMT_DISPLAYMODE@@I@Z @ 0x1C0001850 (-GetCddDisplayMode@ADAPTER_DISPLAY@@QEBAAEBU_D3DKMT_DISPLAYMODE@@I@Z.c)
+ *     ?AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z @ 0x1C000278C (-AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0002910 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Release@COREDEVICEACCESS@@QEAAXXZ @ 0x1C000A008 (-Release@COREDEVICEACCESS@@QEAAXXZ.c)
+ *     ?IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C000A4B4 (-IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?GetCddPrimaryAllocation@ADAPTER_DISPLAY@@QEBAPEAVDXGADAPTERALLOCATION@@IE@Z @ 0x1C00E3390 (-GetCddPrimaryAllocation@ADAPTER_DISPLAY@@QEBAPEAVDXGADAPTERALLOCATION@@IE@Z.c)
+ *     ?SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z @ 0x1C00EA8F4 (-SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z.c)
+ *     ?FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@@Z @ 0x1C00EF2E8 (-FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@@Z.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::PresentCddPrimary(
-        PERESOURCE **this,
+        ADAPTER_DISPLAY *this,
         struct DXGCONTEXT *a2,
         unsigned int a3,
         struct COREDEVICEACCESS *a4)
 {
-  __int64 v5; // rdi
-  int v8; // eax
-  __int64 v9; // r14
-  struct DXGADAPTERALLOCATION *CddPrimaryAllocation; // r14
+  __int64 v5; // rsi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  int v11; // eax
   __int64 v12; // rdx
-  PERESOURCE *v13; // rax
-  _QWORD *v14; // rbx
+  __int64 v13; // rcx
+  __int64 v14; // rbx
+  _QWORD *v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  struct DXGADAPTERALLOCATION *CddPrimaryAllocation; // r14
+  __int64 v19; // rdx
+  __int64 v20; // rax
+  _QWORD *v21; // rbx
   const struct _D3DKMT_DISPLAYMODE *CddDisplayMode; // rax
-  int v16; // eax
-  const wchar_t *v17; // r9
-  int v18; // eax
-  _QWORD *v19; // [rsp+50h] [rbp-B0h] BYREF
-  _QWORD *v20; // [rsp+58h] [rbp-A8h] BYREF
-  _QWORD v21[2]; // [rsp+60h] [rbp-A0h] BYREF
-  __int128 v22; // [rsp+70h] [rbp-90h] BYREF
-  _OWORD v23[3]; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v24; // [rsp+B0h] [rbp-50h]
-  _QWORD v25[18]; // [rsp+C0h] [rbp-40h] BYREF
+  int v23; // eax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  int v26; // eax
+  _QWORD *v28; // [rsp+30h] [rbp-D0h] BYREF
+  _QWORD *v29; // [rsp+38h] [rbp-C8h] BYREF
+  _QWORD v30[2]; // [rsp+40h] [rbp-C0h] BYREF
+  __int128 v31; // [rsp+50h] [rbp-B0h] BYREF
+  int v32; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v33; // [rsp+64h] [rbp-9Ch]
+  int v34; // [rsp+6Ch] [rbp-94h]
+  _QWORD *v35; // [rsp+70h] [rbp-90h]
+  __int128 v36; // [rsp+78h] [rbp-88h]
+  __int64 v37; // [rsp+88h] [rbp-78h]
+  _QWORD v38[18]; // [rsp+90h] [rbp-70h] BYREF
 
   v5 = a3;
-  if ( DXGADAPTER::IsCoreResourceExclusiveOwner(this[2]) )
-    goto LABEL_19;
-  if ( !a4 )
+  if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*((PERESOURCE **)this + 2)) )
   {
-    WdLogSingleEntry1(1LL, 1602LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pCoreAccess != NULL", 1602LL, 0LL, 0LL, 0LL, 0LL);
+    if ( !a4 )
+    {
+      v10 = WdLogNewEntry5_WdAssertion(v9, v8);
+      *(_QWORD *)(v10 + 24) = 1559LL;
+      WdLogEvent5_WdAssertion(v10);
+    }
+    COREDEVICEACCESS::Release(a4, v8);
+    v11 = COREDEVICEACCESS::AcquireExclusive((__int64)a4, 1LL);
+    v14 = v11;
+    if ( v11 < 0 )
+    {
+      v15 = (_QWORD *)WdLogNewEntry5_WdError(v13, v12);
+      v15[3] = *((_QWORD *)this + 2);
+      v15[4] = v14;
+LABEL_14:
+      WdLogEvent5_WdError(v15);
+      return (unsigned int)v14;
+    }
   }
-  COREDEVICEACCESS::Release(a4);
-  v8 = COREDEVICEACCESS::AcquireExclusive((__int64)a4, 1LL);
-  v9 = v8;
-  if ( v8 >= 0 )
+  if ( !ADAPTER_DISPLAY::IsVidPnSourceActive(this, (unsigned int)v5) )
   {
-LABEL_19:
-    if ( !ADAPTER_DISPLAY::IsVidPnSourceActive((ADAPTER_DISPLAY *)this, v5) )
-    {
-      WdLogSingleEntry3(2LL, v5, this[2], -1071775738LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Cannot present CDD primary on an inactive source 0x%I64x on adapter 0x%I64x (status = 0x%I64x)",
-        v5,
-        (__int64)this[2],
-        -1071775738LL,
-        0LL,
-        0LL);
-      return 3223191558LL;
-    }
-    CddPrimaryAllocation = ADAPTER_DISPLAY::GetCddPrimaryAllocation((ADAPTER_DISPLAY *)this, v5, 0);
-    if ( CddPrimaryAllocation )
-    {
-      if ( !DXGADAPTER::IsFullWDDMAdapter((DXGADAPTER *)this[2]) )
-        goto LABEL_13;
-      DXGDEVICE::FlushScheduler(*((_QWORD *)a2 + 2), 1LL, 4294967293LL);
-      v12 = *((_QWORD *)CddPrimaryAllocation + 1);
-      v19 = v21;
-      v21[0] = *((_QWORD *)a2 + 23);
-      v21[1] = *((_QWORD *)CddPrimaryAllocation + 2);
-      v13 = this[2];
-      v22 = 0LL;
-      v14 = v13[366];
-      (*(void (__fastcall **)(_QWORD, __int64, __int128 *, char *, _QWORD))(*(_QWORD *)(v14[95] + 8LL) + 208LL))(
-        v14[96],
-        v12,
-        &v22,
-        (char *)&v22 + 8,
-        0LL);
-      memset(v25, 0, sizeof(v25));
-      LODWORD(v25[2]) = 3;
-      v20 = v25;
-      HIDWORD(v25[3]) = 1;
-      v25[4] = &v19;
-      CddDisplayMode = ADAPTER_DISPLAY::GetCddDisplayMode((DXGADAPTER **)this, v5);
-      *(_QWORD *)((char *)&v25[7] + 4) = 0LL;
-      *(_QWORD *)((char *)&v25[8] + 4) = *(_QWORD *)&CddDisplayMode->Width;
-      v24 = 0LL;
-      v23[0] = 0LL;
-      HIDWORD(v25[13]) = 1;
-      v23[1] = (unsigned __int64)&v20;
-      *(_OWORD *)((char *)&v25[11] + 4) = *(_OWORD *)((char *)&v25[7] + 4);
-      LODWORD(v23[0]) = v5;
-      *(_OWORD *)((char *)&v25[9] + 4) = *(_OWORD *)((char *)&v25[7] + 4);
-      HIDWORD(v23[0]) = 1;
-      v23[2] = 0LL;
-      v16 = (*(__int64 (__fastcall **)(_QWORD, _OWORD *))(*(_QWORD *)(v14[92] + 8LL) + 824LL))(v14[93], v23);
-      v9 = v16;
-      if ( v16 < 0 )
-      {
-        WdLogSingleEntry3(2LL, v5, this[2], v16);
-        v17 = L"Failed to set CDD primary on source 0x%I64x on adapter 0x%I64x via MPO3 (status = 0x%I64x)";
-      }
-      else
-      {
+    v15 = (_QWORD *)WdLogNewEntry5_WdError(v17, v16);
+    v14 = -1071775738LL;
 LABEL_13:
-        v18 = ADAPTER_DISPLAY::SetVidPnSourceVisibility((ADAPTER_DISPLAY *)this, v5, 1u, 0x20u, 1u);
-        v9 = v18;
-        if ( v18 >= 0 )
-          return (unsigned int)v9;
-        WdLogSingleEntry3(2LL, v5, this[2], v18);
-        v17 = L"Failed to turn visibility on source 0x%I64x on adapter 0x%I64x via MPO3 (status = 0x%I64x)";
-      }
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v17, v5, (__int64)this[2], v9, 0LL, 0LL);
-      return (unsigned int)v9;
+    v15[3] = v5;
+    v15[4] = *((_QWORD *)this + 2);
+    v15[5] = v14;
+    goto LABEL_14;
+  }
+  CddPrimaryAllocation = ADAPTER_DISPLAY::GetCddPrimaryAllocation(this, (unsigned int)v5, 0);
+  if ( CddPrimaryAllocation )
+  {
+    DXGDEVICE::FlushScheduler(*((_QWORD **)a2 + 2), 1u);
+    v19 = *((_QWORD *)CddPrimaryAllocation + 1);
+    v28 = v30;
+    v30[0] = *((_QWORD *)a2 + 23);
+    v30[1] = *((_QWORD *)CddPrimaryAllocation + 2);
+    v20 = *((_QWORD *)this + 2);
+    v31 = 0LL;
+    v21 = *(_QWORD **)(v20 + 2704);
+    (*(void (__fastcall **)(_QWORD, __int64, __int128 *, char *, _QWORD))(*(_QWORD *)(v21[80] + 8LL) + 224LL))(
+      v21[81],
+      v19,
+      &v31,
+      (char *)&v31 + 8,
+      0LL);
+    memset(v38, 0, sizeof(v38));
+    LODWORD(v38[2]) = 3;
+    v29 = v38;
+    HIDWORD(v38[3]) = 1;
+    v38[4] = &v28;
+    CddDisplayMode = ADAPTER_DISPLAY::GetCddDisplayMode((DXGADAPTER **)this, v5);
+    *(_QWORD *)((char *)&v38[7] + 4) = 0LL;
+    HIDWORD(v38[8]) = CddDisplayMode->Width;
+    LODWORD(CddDisplayMode) = CddDisplayMode->Height;
+    v33 = 0LL;
+    v37 = 0LL;
+    LODWORD(v38[9]) = (_DWORD)CddDisplayMode;
+    HIDWORD(v38[13]) = 1;
+    v32 = v5;
+    *(_OWORD *)((char *)&v38[11] + 4) = *(_OWORD *)((char *)&v38[7] + 4);
+    v34 = 1;
+    *(_OWORD *)((char *)&v38[9] + 4) = *(_OWORD *)((char *)&v38[7] + 4);
+    v35 = &v29;
+    v36 = 0LL;
+    v23 = (*(__int64 (__fastcall **)(_QWORD, int *))(*(_QWORD *)(v21[77] + 8LL) + 824LL))(v21[78], &v32);
+    v14 = v23;
+    if ( v23 < 0
+      || (v26 = ADAPTER_DISPLAY::SetVidPnSourceVisibility(this, (unsigned int)v5, 1u, 32, 1u), v14 = v26, v26 < 0) )
+    {
+      v15 = (_QWORD *)WdLogNewEntry5_WdError(v25, v24);
+      goto LABEL_13;
     }
-    LODWORD(v9) = -1073741811;
   }
   else
   {
-    WdLogSingleEntry2(2LL, this[2], v8);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to acquire device core access exclusive on adapter 0x%I64x (Status = 0x%I64x).",
-      (__int64)this[2],
-      v9,
-      0LL,
-      0LL,
-      0LL);
+    LODWORD(v14) = -1073741811;
   }
-  return (unsigned int)v9;
+  return (unsigned int)v14;
 }

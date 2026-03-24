@@ -1,9 +1,9 @@
 /*
- * XREFs of SepAdtMarshallAuditRecord @ 0x140186FFC
+ * XREFs of SepAdtMarshallAuditRecord @ 0x14018701C
  * Callers:
- *     SepAdtLogAuditRecord @ 0x140186DA0 (SepAdtLogAuditRecord.c)
+ *     SepAdtLogAuditRecord @ 0x140186DC0 (SepAdtLogAuditRecord.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,7 +1,7 @@
 /*
- * XREFs of RegisterExternalTranslatorInterface @ 0x1C0084850
+ * XREFs of RegisterExternalTranslatorInterface @ 0x1C009FBD4
  * Callers:
- *     QueryExternalTranslatorInterface @ 0x1C00844A4 (QueryExternalTranslatorInterface.c)
+ *     QueryExternalTranslatorInterface @ 0x1C009F8E4 (QueryExternalTranslatorInterface.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ __int64 __fastcall RegisterExternalTranslatorInterface(void *a1, void *a2, struc
     0,
     a2,
     ExternalTranslatorDriverObjectReference,
-    (PDRIVER_NOTIFICATION_CALLBACK_ROUTINE)NotifyExternalTranslationInterfaceChange,
+    NotifyExternalTranslationInterfaceChange,
     0LL,
     &ExternalTranslatorNotificationEntry);
   ExReleaseResourceLite(&ExternalTranslatorInterfaceLock);

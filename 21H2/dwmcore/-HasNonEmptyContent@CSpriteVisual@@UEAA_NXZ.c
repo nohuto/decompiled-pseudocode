@@ -1,30 +1,36 @@
 /*
- * XREFs of ?HasNonEmptyContent@CSpriteVisual@@UEAA_NXZ @ 0x1800CBBD0
+ * XREFs of ?HasNonEmptyContent@CSpriteVisual@@UEAA_NXZ @ 0x1800B8210
  * Callers:
  *     <none>
  * Callees:
- *     ?GetDropShadow@CSpriteVisual@@IEBAPEAVCDropShadow@@XZ @ 0x1800159FC (-GetDropShadow@CSpriteVisual@@IEBAPEAVCDropShadow@@XZ.c)
- *     ?HasProjectedShadowReceivers@CVisual@@QEAA_NXZ @ 0x1800CBC68 (-HasProjectedShadowReceivers@CVisual@@QEAA_NXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x18000C27C (-GetProjectedShadowReceivers@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocato.c)
+ *     ?GetDropShadow@CSpriteVisual@@AEBAPEAVCDropShadow@@XZ @ 0x1800B828C (-GetDropShadow@CSpriteVisual@@AEBAPEAVCDropShadow@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-char __fastcall CSpriteVisual::HasNonEmptyContent(CSpriteVisual *this)
+bool __fastcall CSpriteVisual::HasNonEmptyContent(CSpriteVisual *this)
 {
-  char v2; // bl
-  __int64 v3; // rcx
+  __int64 v2; // rcx
+  bool result; // al
+  int v4; // r10d
   struct CDropShadow *DropShadow; // rax
+  _QWORD *ProjectedShadowReceivers; // rax
 
-  v2 = 0;
-  v3 = *((_QWORD *)this + 32);
-  if ( v3 && !(*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v3 + 192LL))(v3) )
-    return 1;
-  if ( CVisual::HasProjectedShadowReceivers(this) )
-    return 1;
-  if ( (**((_DWORD **)this + 29) & 0x10000) != 0 )
+  v2 = *((_QWORD *)this + 31);
+  result = 1;
+  if ( !v2 || (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v2 + 208LL))(v2) )
   {
-    DropShadow = CSpriteVisual::GetDropShadow(this);
-    if ( !(*(unsigned __int8 (__fastcall **)(struct CDropShadow *))(*(_QWORD *)DropShadow + 192LL))(DropShadow) )
-      return 1;
+    v4 = **((_DWORD **)this + 28);
+    if ( (v4 & 0x20000) == 0
+      || (ProjectedShadowReceivers = (_QWORD *)CVisual::GetProjectedShadowReceivers((__int64)this),
+          *ProjectedShadowReceivers == ProjectedShadowReceivers[1]) )
+    {
+      if ( (v4 & 0x10000) == 0 )
+        return 0;
+      DropShadow = CSpriteVisual::GetDropShadow(this);
+      if ( (*(unsigned __int8 (__fastcall **)(struct CDropShadow *))(*(_QWORD *)DropShadow + 208LL))(DropShadow) )
+        return 0;
+    }
   }
-  return v2;
+  return result;
 }

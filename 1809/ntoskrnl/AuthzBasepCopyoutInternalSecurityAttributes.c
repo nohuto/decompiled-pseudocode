@@ -4,8 +4,8 @@
  *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x1405BF698 (AuthzBasepQueryInternalSecurityAttributesToken.c)
  * Callees:
  *     AuthzBasepCopyoutInternalSecurityAttributeValues @ 0x140014820 (AuthzBasepCopyoutInternalSecurityAttributeValues.c)
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     AuthzBasepProbeAndInsertTailList @ 0x140583BD8 (AuthzBasepProbeAndInsertTailList.c)
  */
 

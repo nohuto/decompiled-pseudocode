@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiCloseEventQueue @ 0x140882250
+ * XREFs of TtmiCloseEventQueue @ 0x140882230
  * Callers:
- *     TtmiWriteEventToAllQueues @ 0x140880670 (TtmiWriteEventToAllQueues.c)
+ *     TtmiWriteEventToAllQueues @ 0x140880650 (TtmiWriteEventToAllQueues.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

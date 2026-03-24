@@ -1,17 +1,16 @@
 /*
- * XREFs of ?ResetBitmapCache@CRenderTargetBitmap@@IEAAXXZ @ 0x180068170
+ * XREFs of ?ResetBitmapCache@CRenderTargetBitmap@@IEAAXXZ @ 0x1800651D0
  * Callers:
- *     ?SetPurpose@CScratchRenderTargetBitmap@@QEAAXAEBVCResourceTag@@_N@Z @ 0x1800BAE00 (-SetPurpose@CScratchRenderTargetBitmap@@QEAAXAEBVCResourceTag@@_N@Z.c)
- *     ?SetSDRBoost@CRenderTargetBitmap@@UEAAXM@Z @ 0x1800BCDD0 (-SetSDRBoost@CRenderTargetBitmap@@UEAAXM@Z.c)
- *     ?SetDisplayId@CRenderTargetBitmap@@UEAAXVDisplayId@@@Z @ 0x1800BCE30 (-SetDisplayId@CRenderTargetBitmap@@UEAAXVDisplayId@@@Z.c)
- *     ?SetColorSpace@CRenderTargetBitmap@@UEAAXW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1800BCEB0 (-SetColorSpace@CRenderTargetBitmap@@UEAAXW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     ?SetAlphaMode@CRenderTargetBitmap@@UEAAXW4DXGI_ALPHA_MODE@@@Z @ 0x1800BCF30 (-SetAlphaMode@CRenderTargetBitmap@@UEAAXW4DXGI_ALPHA_MODE@@@Z.c)
- *     ?SetProtected@CRenderTargetBitmap@@UEAAX_N@Z @ 0x1800E72C0 (-SetProtected@CRenderTargetBitmap@@UEAAX_N@Z.c)
- *     ?SetProtected@CStereoRenderTargetBitmap@@UEAAX_N@Z @ 0x1802A7A30 (-SetProtected@CStereoRenderTargetBitmap@@UEAAX_N@Z.c)
+ *     ?SetPurpose@CScratchRenderTargetBitmap@@QEAAXAEBVCResourceTag@@_N@Z @ 0x180060AFC (-SetPurpose@CScratchRenderTargetBitmap@@QEAAXAEBVCResourceTag@@_N@Z.c)
+ *     ?SetAlphaMode@CRenderTargetBitmap@@UEAAXW4DXGI_ALPHA_MODE@@@Z @ 0x180062AB0 (-SetAlphaMode@CRenderTargetBitmap@@UEAAXW4DXGI_ALPHA_MODE@@@Z.c)
+ *     ?SetDisplayId@CRenderTargetBitmap@@UEAAXVDisplayId@@@Z @ 0x1800D0960 (-SetDisplayId@CRenderTargetBitmap@@UEAAXVDisplayId@@@Z.c)
+ *     ?SetColorSpace@CRenderTargetBitmap@@UEAAXW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1800D4530 (-SetColorSpace@CRenderTargetBitmap@@UEAAXW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?SetSDRBoost@CRenderTargetBitmap@@UEAAXM@Z @ 0x1800D5680 (-SetSDRBoost@CRenderTargetBitmap@@UEAAXM@Z.c)
+ *     ?SetProtected@CRenderTargetBitmap@@UEAAX_N@Z @ 0x1800DE2F0 (-SetProtected@CRenderTargetBitmap@@UEAAX_N@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800681EC (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800688C4 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CRenderTargetBitmap::ResetBitmapCache(CRenderTargetBitmap *this)

@@ -1,10 +1,7 @@
 /*
- * XREFs of ExtractAggregateFieldTypes @ 0x14021345C
+ * XREFs of ExtractAggregateFieldTypes @ 0x14036DA8C
  * Callers:
- *     _tlgWriteAgg @ 0x140212EB4 (_tlgWriteAgg.c)
- *     MiLogPeriodicTelemetry @ 0x14021F674 (MiLogPeriodicTelemetry.c)
- *     MiLogSlabEntriesDemote @ 0x1403D6500 (MiLogSlabEntriesDemote.c)
- *     MiLogSlabEntryAllocateFailure @ 0x14065715C (MiLogSlabEntryAllocateFailure.c)
+ *     _tlgWriteAgg @ 0x14036D53C (_tlgWriteAgg.c)
  * Callees:
  *     <none>
  */
@@ -12,13 +9,13 @@
 unsigned __int8 __fastcall ExtractAggregateFieldTypes(__int64 a1, __int64 a2)
 {
   __int64 v2; // rcx
-  unsigned __int8 v3; // r9
+  unsigned __int8 v3; // r8
   unsigned __int64 v5; // r10
   char *v6; // rcx
   char v7; // al
   __int64 v9; // rax
   char v11; // al
-  char v12; // r8
+  char v12; // r9
   char v13; // dl
 
   v2 = *(_QWORD *)(a2 + 16);

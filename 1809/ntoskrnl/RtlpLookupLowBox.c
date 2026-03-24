@@ -2,12 +2,12 @@
  * XREFs of RtlpLookupLowBox @ 0x1400892B0
  * Callers:
  *     RtlQueryAtomInAtomTable @ 0x1405F5840 (RtlQueryAtomInAtomTable.c)
- *     RtlDeleteAtomFromAtomTable @ 0x1406AD270 (RtlDeleteAtomFromAtomTable.c)
- *     RtlPinAtomInAtomTable @ 0x1406B7C90 (RtlPinAtomInAtomTable.c)
- *     RtlQueryAtomsInAtomTable @ 0x140893748 (RtlQueryAtomsInAtomTable.c)
+ *     RtlDeleteAtomFromAtomTable @ 0x1406AD250 (RtlDeleteAtomFromAtomTable.c)
+ *     RtlPinAtomInAtomTable @ 0x1406B7C70 (RtlPinAtomInAtomTable.c)
+ *     RtlQueryAtomsInAtomTable @ 0x140893728 (RtlQueryAtomsInAtomTable.c)
  * Callees:
- *     RtlpQueryLowBoxId @ 0x1400CCD10 (RtlpQueryLowBoxId.c)
- *     RtlpAllowsLowBoxAccess @ 0x1401330A0 (RtlpAllowsLowBoxAccess.c)
+ *     RtlpQueryLowBoxId @ 0x1400CCD30 (RtlpQueryLowBoxId.c)
+ *     RtlpAllowsLowBoxAccess @ 0x1401330C0 (RtlpAllowsLowBoxAccess.c)
  */
 
 __int64 *__fastcall RtlpLookupLowBox(__int64 a1, __int64 a2, char a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlValidateCorrelationVector @ 0x1409BB8C0
+ * XREFs of RtlValidateCorrelationVector @ 0x140916270
  * Callers:
- *     RtlIncrementCorrelationVector @ 0x1409BB750 (RtlIncrementCorrelationVector.c)
+ *     RtlIncrementCorrelationVector @ 0x140916100 (RtlIncrementCorrelationVector.c)
  * Callees:
- *     strncmp @ 0x1403E0910 (strncmp.c)
- *     RtlpGetCorrelationVectorEndPosition @ 0x1405EC264 (RtlpGetCorrelationVectorEndPosition.c)
- *     RtlpGetCorrelationVectorBufferLength @ 0x1409BBA8C (RtlpGetCorrelationVectorBufferLength.c)
- *     RtlpGetLastContiguosBase64Position @ 0x1409BBAB0 (RtlpGetLastContiguosBase64Position.c)
+ *     strncmp @ 0x1403D1540 (strncmp.c)
+ *     RtlpGetCorrelationVectorEndPosition @ 0x14058CC14 (RtlpGetCorrelationVectorEndPosition.c)
+ *     RtlpGetCorrelationVectorBufferLength @ 0x140916434 (RtlpGetCorrelationVectorBufferLength.c)
+ *     RtlpGetLastContiguosBase64Position @ 0x140916458 (RtlpGetLastContiguosBase64Position.c)
  */
 
 __int64 __fastcall RtlValidateCorrelationVector(_BYTE *a1, __int64 a2, __int64 a3)
@@ -18,8 +18,7 @@ __int64 __fastcall RtlValidateCorrelationVector(_BYTE *a1, __int64 a2, __int64 a
   __int64 v9; // rbx
   __int64 v10; // rbp
   int v11; // ecx
-  __int64 v12; // r8
-  _BYTE *v13; // rdx
+  __int64 v12; // rdx
 
   if ( !a1 )
     return 3221225485LL;
@@ -53,14 +52,12 @@ __int64 __fastcall RtlValidateCorrelationVector(_BYTE *a1, __int64 a2, __int64 a
       v12 = v8;
       if ( v9 < v10 )
       {
-        v13 = &a1[v9 + 1];
         do
         {
-          if ( (unsigned __int8)(*v13 - 48) > 9u )
+          if ( (unsigned __int8)(a1[v9 + 1] - 48) > 9u )
             break;
           ++v8;
           ++v9;
-          ++v13;
           ++v11;
         }
         while ( v9 < v10 );

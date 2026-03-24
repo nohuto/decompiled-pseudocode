@@ -1,5 +1,5 @@
 /*
- * XREFs of KiMachineCheckControl @ 0x1401C7D00
+ * XREFs of KiMachineCheckControl @ 0x1401C7D20
  * Callers:
  *     <none>
  * Callees:

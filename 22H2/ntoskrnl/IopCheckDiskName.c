@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCheckDiskName @ 0x140387828
+ * XREFs of IopCheckDiskName @ 0x1403B3AC8
  * Callers:
- *     IopGetBootDiskInformationLite @ 0x140B55268 (IopGetBootDiskInformationLite.c)
+ *     IopGetBootDiskInformationLite @ 0x140A45940 (IopGetBootDiskInformationLite.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     RtlPrefixString @ 0x1407C39E0 (RtlPrefixString.c)
- *     RtlCharToInteger @ 0x140823C40 (RtlCharToInteger.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     RtlPrefixString @ 0x140679630 (RtlPrefixString.c)
+ *     RtlCharToInteger @ 0x14079D6E0 (RtlCharToInteger.c)
  */
 
 char __fastcall IopCheckDiskName(const STRING *a1, const STRING *a2, ULONG *a3)
@@ -22,7 +22,7 @@ char __fastcall IopCheckDiskName(const STRING *a1, const STRING *a2, ULONG *a3)
     RtlInitAnsiString(&DestinationString, &a2->Buffer[a1->Length]);
     if ( DestinationString.Length > 0xAu )
     {
-      if ( RtlPrefixString(&stru_1400026C0, &DestinationString, 0) )
+      if ( RtlPrefixString(&String1, &DestinationString, 0) )
         RtlCharToInteger((PCSZ)DestinationString.Buffer + 10, 0xAu, a3);
     }
   }

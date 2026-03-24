@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDcCompareUpdateProperties @ 0x1406D75C0
+ * XREFs of PiDcCompareUpdateProperties @ 0x140768AC0
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1403E1D90 (memcmp.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
  */
 
 __int64 __fastcall PiDcCompareUpdateProperties(struct _RTL_AVL_TABLE *Table, PVOID FirstStruct, PVOID SecondStruct)

@@ -1,23 +1,24 @@
 /*
- * XREFs of KiReleaseThreadStateLock @ 0x14035D0F8
+ * XREFs of KiReleaseThreadStateLock @ 0x1402EA480
  * Callers:
- *     KeTryToFreezeThreadStack @ 0x140201DF4 (KeTryToFreezeThreadStack.c)
- *     KiSetAffinityThread @ 0x14020EC24 (KiSetAffinityThread.c)
- *     MiSwapStackPage @ 0x140249930 (MiSwapStackPage.c)
- *     KiSetPriorityThread @ 0x140344A30 (KiSetPriorityThread.c)
- *     KeQueryTotalCycleTimeThread @ 0x140345800 (KeQueryTotalCycleTimeThread.c)
- *     KiApplyForegroundBoostThread @ 0x14035CAD8 (KiApplyForegroundBoostThread.c)
- *     KiSetIdealProcessorThread @ 0x14035D00C (KiSetIdealProcessorThread.c)
- *     KeUpdateThreadTag @ 0x14035D6A0 (KeUpdateThreadTag.c)
- *     KiSetThreadSchedulingGroup @ 0x14035EE9C (KiSetThreadSchedulingGroup.c)
- *     KiRemoveThreadFromSchedulingGroup @ 0x14035EF6C (KiRemoveThreadFromSchedulingGroup.c)
- *     KiUpdateThreadCpuSets @ 0x1403D3170 (KiUpdateThreadCpuSets.c)
- *     KiSendHeteroRescheduleIntRequestHelper @ 0x140574B54 (KiSendHeteroRescheduleIntRequestHelper.c)
- *     KiSetHeteroPolicyThread @ 0x140574FA4 (KiSetHeteroPolicyThread.c)
- *     KeAbCrossThreadDelete @ 0x1405757C0 (KeAbCrossThreadDelete.c)
- *     KeSetThreadSchedulerAssist @ 0x140576AA4 (KeSetThreadSchedulerAssist.c)
+ *     KeQueryTotalCycleTimeThread @ 0x14022EEF0 (KeQueryTotalCycleTimeThread.c)
+ *     KiSetPriorityThread @ 0x1402302A0 (KiSetPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
+ *     MiSwapStackPage @ 0x1402C605C (MiSwapStackPage.c)
+ *     KiApplyForegroundBoostThread @ 0x1402EA08C (KiApplyForegroundBoostThread.c)
+ *     KeSetIdealProcessorThreadEx @ 0x1402EAD48 (KeSetIdealProcessorThreadEx.c)
+ *     KiSetThreadSchedulingGroup @ 0x1402EC058 (KiSetThreadSchedulingGroup.c)
+ *     KiRemoveThreadFromSchedulingGroup @ 0x1402EC1B8 (KiRemoveThreadFromSchedulingGroup.c)
+ *     KiSetAffinityThread @ 0x1402EC3D4 (KiSetAffinityThread.c)
+ *     KeUpdateThreadTag @ 0x14036BF50 (KeUpdateThreadTag.c)
+ *     KiUpdateThreadCpuSets @ 0x1403C628C (KiUpdateThreadCpuSets.c)
+ *     KeTryToFreezeThreadStack @ 0x140513388 (KeTryToFreezeThreadStack.c)
+ *     KeSetThreadSchedulerAssist @ 0x14051E5C8 (KeSetThreadSchedulerAssist.c)
+ *     KiSendHeteroRescheduleIntRequestHelper @ 0x14051FFF0 (KiSendHeteroRescheduleIntRequestHelper.c)
+ *     KiSetHeteroPolicyThread @ 0x140520364 (KiSetHeteroPolicyThread.c)
+ *     KeAbCrossThreadDelete @ 0x140520E78 (KeAbCrossThreadDelete.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiReleaseThreadStateLock(__int64 a1, __int64 a2, volatile signed __int64 *a3)

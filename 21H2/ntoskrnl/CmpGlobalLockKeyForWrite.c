@@ -1,12 +1,13 @@
 /*
- * XREFs of CmpGlobalLockKeyForWrite @ 0x14080FBCC
+ * XREFs of CmpGlobalLockKeyForWrite @ 0x1407C31E0
  * Callers:
- *     CmLockKeyForWrite @ 0x14080F9EC (CmLockKeyForWrite.c)
+ *     CmLockKeyForWrite @ 0x1407C2FF0 (CmLockKeyForWrite.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     CmpUnlockGlobalKeyLockTracker @ 0x14080FCA4 (CmpUnlockGlobalKeyLockTracker.c)
- *     CmpLockGlobalKeyLockTrackerExclusive @ 0x14080FCD0 (CmpLockGlobalKeyLockTrackerExclusive.c)
- *     CmpCreateGlobalKeyLockEntry @ 0x14080FD00 (CmpCreateGlobalKeyLockEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     CmpCreateGlobalKeyLockEntry @ 0x1407C32FC (CmpCreateGlobalKeyLockEntry.c)
  */
 
 __int64 __fastcall CmpGlobalLockKeyForWrite(__int64 a1, __int64 *a2)
@@ -14,16 +15,17 @@ __int64 __fastcall CmpGlobalLockKeyForWrite(__int64 a1, __int64 *a2)
   struct _KTHREAD *CurrentThread; // rax
   __int64 GlobalKeyLockEntry; // rbx
   unsigned int v6; // edi
-  __int64 *v7; // rax
+  struct _KTHREAD *v7; // rax
+  __int64 *v8; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockSharedEx((ULONG_PTR)&CmpKeyLockTracker, 0LL);
-  GlobalKeyLockEntry = qword_140C49228;
+  GlobalKeyLockEntry = qword_140C47E28;
   v6 = 0;
   while ( 1 )
   {
-    if ( (__int64 *)GlobalKeyLockEntry == &qword_140C49228 )
+    if ( (__int64 *)GlobalKeyLockEntry == &qword_140C47E28 )
       goto LABEL_5;
     if ( *(_QWORD *)(GlobalKeyLockEntry + 24) == a1 )
       break;
@@ -35,23 +37,27 @@ __int64 __fastcall CmpGlobalLockKeyForWrite(__int64 a1, __int64 *a2)
       __fastfail(0xEu);
 LABEL_8:
     *a2 = GlobalKeyLockEntry;
-    CmpUnlockGlobalKeyLockTracker();
+    ExReleasePushLockEx((ULONG_PTR)&CmpKeyLockTracker, 0LL);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return v6;
   }
 LABEL_5:
-  CmpUnlockGlobalKeyLockTracker();
+  ExReleasePushLockEx((ULONG_PTR)&CmpKeyLockTracker, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   GlobalKeyLockEntry = CmpCreateGlobalKeyLockEntry(a1);
   if ( GlobalKeyLockEntry )
   {
     *(_WORD *)(a1 + 8) |= 0x80u;
-    CmpLockGlobalKeyLockTrackerExclusive();
-    v7 = (__int64 *)qword_140C49230;
-    if ( *(__int64 **)qword_140C49230 != &qword_140C49228 )
+    v7 = KeGetCurrentThread();
+    --v7->KernelApcDisable;
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&CmpKeyLockTracker, 0LL);
+    v8 = (__int64 *)qword_140C47E30;
+    if ( *(__int64 **)qword_140C47E30 != &qword_140C47E28 )
       __fastfail(3u);
-    *(_QWORD *)GlobalKeyLockEntry = &qword_140C49228;
-    *(_QWORD *)(GlobalKeyLockEntry + 8) = v7;
-    *v7 = GlobalKeyLockEntry;
-    qword_140C49230 = GlobalKeyLockEntry;
+    *(_QWORD *)GlobalKeyLockEntry = &qword_140C47E28;
+    *(_QWORD *)(GlobalKeyLockEntry + 8) = v8;
+    *v8 = GlobalKeyLockEntry;
+    qword_140C47E30 = GlobalKeyLockEntry;
     goto LABEL_8;
   }
   return (unsigned int)-1073741670;

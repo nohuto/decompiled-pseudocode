@@ -1,16 +1,16 @@
 /*
- * XREFs of ?SignalMonitoredFence@VIDMM_GLOBAL@@QEAAXIPEAU_VIDSCH_SYNC_OBJECT@@_KPEA_N@Z @ 0x1C00E7A3C
+ * XREFs of ?SignalMonitoredFence@VIDMM_GLOBAL@@QEAAXIPEAU_VIDSCH_SYNC_OBJECT@@_KPEA_N@Z @ 0x1C00B2794
  * Callers:
- *     ?EndPreparation@VIDMM_GLOBAL@@IEAAXIPEAU_KEVENT@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C008E9C8 (-EndPreparation@VIDMM_GLOBAL@@IEAAXIPEAU_KEVENT@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z.c)
- *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C0095820 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ *     ?EndPreparation@VIDMM_GLOBAL@@IEAAXIPEAU_KEVENT@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C0060A40 (-EndPreparation@VIDMM_GLOBAL@@IEAAXIPEAU_KEVENT@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z.c)
+ *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C006DDC0 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?DdiSignalMonitoredFence@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_SIGNALMONITOREDFENCE@@@Z @ 0x1C002C8A4 (-DdiSignalMonitoredFence@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_SIGNALMONITOREDFENCE@@@Z.c)
- *     VidSchGetDriverPagingHwQueue @ 0x1C003FE2C (VidSchGetDriverPagingHwQueue.c)
- *     ?SetupForBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0091F60 (-SetupForBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BU.c)
- *     ?CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@JHPEAX@Z @ 0x1C0092140 (-CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_B.c)
- *     ?SetupForBuildPagingBuffer@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0092384 (-SetupForBuildPagingBuffer@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGING.c)
- *     ?GetPagingProcessGpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAA_KPEAVVIDMM_GLOBAL@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@I@Z @ 0x1C00F0B20 (-GetPagingProcessGpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAA_KPEAVVIDMM_GLOBAL@@PEAUVIDMM_MONITORED_FEN.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?DdiSignalMonitoredFence@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_SIGNALMONITOREDFENCE@@@Z @ 0x1C002261C (-DdiSignalMonitoredFence@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_SIGNALMONITOREDFENCE@@@Z.c)
+ *     VidSchGetDriverPagingHwQueue @ 0x1C0034DA4 (VidSchGetDriverPagingHwQueue.c)
+ *     ?SetupForBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0063C58 (-SetupForBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BU.c)
+ *     ?SetupForBuildPagingBuffer@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0063E34 (-SetupForBuildPagingBuffer@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGING.c)
+ *     ?CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@JHPEAX@Z @ 0x1C0074148 (-CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_B.c)
+ *     ?GetPagingProcessGpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAA_KPEAVVIDMM_GLOBAL@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@I@Z @ 0x1C00BA524 (-GetPagingProcessGpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAA_KPEAVVIDMM_GLOBAL@@PEAUVIDMM_MONITORED_FEN.c)
  */
 
 void __fastcall VIDMM_GLOBAL::SignalMonitoredFence(
@@ -33,21 +33,21 @@ void __fastcall VIDMM_GLOBAL::SignalMonitoredFence(
   struct _DXGKARG_BUILDPAGINGBUFFER v17; // [rsp+90h] [rbp-70h] BYREF
 
   v6 = a2;
-  if ( *(_BYTE *)(*(_QWORD *)(*((_QWORD *)this + 2) + 744LL) + 55LL)
-    && !*((_BYTE *)this + 7088)
+  if ( *(_BYTE *)(*(_QWORD *)(*((_QWORD *)this + 2) + 624LL) + 55LL)
+    && !*((_BYTE *)this + 7080)
     && *((_QWORD *)this + a2 + 143)
     && (*(_DWORD *)(*((_QWORD *)this + a2 + 79) + 32LL) & 4) != 0
-    && *((_QWORD *)this + a2 + 813) )
+    && *((_QWORD *)this + a2 + 811) )
   {
-    if ( *((struct _VIDSCH_SYNC_OBJECT **)this + a2 + 749) == a3 )
+    if ( *((struct _VIDSCH_SYNC_OBJECT **)this + a2 + 747) == a3 )
     {
       v8 = 1;
-      if ( *((_BYTE *)this + a2 + 4641) )
+      if ( *((_BYTE *)this + a2 + 4625) )
       {
         *a5 = 1;
         return;
       }
-      *((_BYTE *)this + a2 + 4641) = 1;
+      *((_BYTE *)this + a2 + 4625) = 1;
     }
     else
     {
@@ -57,7 +57,7 @@ void __fastcall VIDMM_GLOBAL::SignalMonitoredFence(
     VIDMM_GLOBAL::SetupForBuildPagingBuffer(this, v6, v9, &v17);
     do
     {
-      VIDMM_GLOBAL::SetupForBuildPagingBufferIteration(this, v6, 0LL, &v17);
+      VIDMM_GLOBAL::SetupForBuildPagingBufferIteration(this, (unsigned int)v6, 0LL, &v17);
       v10 = (VIDMM_FENCE_STORAGE_PAGE *)*((_QWORD *)a3 + 7);
       v16.DmaBufferGpuVirtualAddress = v17.DmaBufferGpuVirtualAddress;
       v16.DmaBufferPrivateDataSize = v17.DmaBufferPrivateDataSize;
@@ -81,7 +81,7 @@ void __fastcall VIDMM_GLOBAL::SignalMonitoredFence(
       v16.MonitoredFenceValue = a4;
       v17.Fill.FillSize = a4;
       v16.KernelSubmissionType = DXGK_KERNEL_SUBMISSION_BUILD_PAGING_BUFFER;
-      v16.hHwQueue = (HANDLE)VidSchGetDriverPagingHwQueue(*(_QWORD *)(v12 + 744), v6);
+      v16.hHwQueue = (HANDLE)VidSchGetDriverPagingHwQueue(*(_QWORD *)(v12 + 624), v6);
       v14 = ADAPTER_RENDER::DdiSignalMonitoredFence(v13, v17.hSystemContext, &v16);
       v17.DmaBufferPrivateDataSize = v16.DmaBufferPrivateDataSize;
       v15 = v14;
@@ -89,12 +89,12 @@ void __fastcall VIDMM_GLOBAL::SignalMonitoredFence(
       v17.MultipassOffset = v16.MultipassOffset;
       v17.pDmaBuffer = v16.pDmaBuffer;
       v17.pDmaBufferPrivateData = v16.pDmaBufferPrivateData;
-      VIDMM_GLOBAL::CompleteBuildPagingBufferIteration(this, v6, 0LL, &v17, v14, 0, 0LL);
+      VIDMM_GLOBAL::CompleteBuildPagingBufferIteration(this, (unsigned int)v6, 0LL, &v17, v14, 0, 0LL);
     }
     while ( v15 == -1071775743 );
     *a5 = v15 >= 0;
     if ( v8 )
-      *((_BYTE *)this + v6 + 4641) = 0;
+      *((_BYTE *)this + v6 + 4625) = 0;
   }
   else
   {

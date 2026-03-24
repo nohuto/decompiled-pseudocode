@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vComputeUncoveredSpriteRegion@RGNOBJ@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C00B6D90
+ * XREFs of ?vComputeUncoveredSpriteRegion@RGNOBJ@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C00F0A24
  * Callers:
- *     ?vSpComputeUncoveredRegion@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00B6CA0 (-vSpComputeUncoveredRegion@@YAXPEAU_SPRITESTATE@@H@Z.c)
+ *     ?vSpComputeUncoveredRegion@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00F0934 (-vSpComputeUncoveredRegion@@YAXPEAU_SPRITESTATE@@H@Z.c)
  * Callees:
- *     ?vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00B69FC (-vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z.c)
- *     ?bEnum@ENUMUNCOVERED@@QEAAHPEAU_RECTL@@@Z @ 0x1C00B6F00 (-bEnum@ENUMUNCOVERED@@QEAAHPEAU_RECTL@@@Z.c)
+ *     ?vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00F0830 (-vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?bEnum@ENUMUNCOVERED@@QEAAHPEAU_RECTL@@@Z @ 0x1C00F0B9C (-bEnum@ENUMUNCOVERED@@QEAAHPEAU_RECTL@@@Z.c)
  */
 
 void __fastcall RGNOBJ::vComputeUncoveredSpriteRegion(RGNOBJ *this, struct PDEVOBJ *a2)
@@ -30,10 +30,10 @@ void __fastcall RGNOBJ::vComputeUncoveredSpriteRegion(RGNOBJ *this, struct PDEVO
   v13 = 0LL;
   v5 = *(_DWORD **)(v2 + 88);
   RGNOBJ::vSet(this);
-  if ( !*(_DWORD *)(v3 + 196) )
-    vSpComputeSpriteRanges((struct _SPRITESTATE *)(v3 + 80));
-  v6 = *(_QWORD *)(v3 + 216);
-  v14 = *(_DWORD *)(v3 + 132);
+  if ( !*(_DWORD *)(v3 + 204) )
+    vSpComputeSpriteRanges((struct _SPRITESTATE *)(v3 + 88));
+  v6 = *(_QWORD *)(v3 + 224);
+  v14 = *(_DWORD *)(v3 + 140);
   v15 = v6;
   v17 = v6 + 8;
   v16 = *(_QWORD *)(v6 + 8) + v6;
@@ -82,7 +82,7 @@ void __fastcall RGNOBJ::vComputeUncoveredSpriteRegion(RGNOBJ *this, struct PDEVO
     v12[1] = bottom;
     v12[2] = 0x7FFFFFFF;
     v12[3] = 0;
-    *(_QWORD *)(*(_QWORD *)this + 40LL) = v12 + 4;
+    *(_QWORD *)(*(_QWORD *)this + 40LL) = (char *)v12 + (unsigned int)(4 * *v12 + 16);
     *(_DWORD *)(*(_QWORD *)this + 84LL) = v11 + 1;
     *(_DWORD *)(*(_QWORD *)this + 80LL) = 0;
     *(_DWORD *)(*(_QWORD *)this + 80LL) += *(_DWORD *)(*(_QWORD *)this + 40LL) - *(_DWORD *)(*(_QWORD *)this + 88LL);

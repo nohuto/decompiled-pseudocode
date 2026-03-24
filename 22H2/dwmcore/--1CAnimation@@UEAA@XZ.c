@@ -1,13 +1,14 @@
 /*
- * XREFs of ??1CAnimation@@UEAA@XZ @ 0x1800C6300
+ * XREFs of ??1CAnimation@@UEAA@XZ @ 0x1800BBA04
  * Callers:
- *     ??_GCAnimation@@UEAAPEAXI@Z @ 0x1800C6280 (--_GCAnimation@@UEAAPEAXI@Z.c)
+ *     ??_GCAnimation@@UEAAPEAXI@Z @ 0x1800BB9C0 (--_GCAnimation@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097870 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
- *     ?UpdateAnimateValues@CAnimation@@UEAA_NXZ @ 0x1800C5C00 (-UpdateAnimateValues@CAnimation@@UEAA_NXZ.c)
- *     ?EndAnimation@CAnimation@@AEAAXXZ @ 0x1800C64CC (-EndAnimation@CAnimation@@AEAAXXZ.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D54D8 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180065C00 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?UpdateAnimateValues@CAnimation@@UEAAXXZ @ 0x1800BB420 (-UpdateAnimateValues@CAnimation@@UEAAXXZ.c)
+ *     ?EndAnimation@CAnimation@@AEAAXXZ @ 0x1800BBC4C (-EndAnimation@CAnimation@@AEAAXXZ.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800BFE98 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CAnimation::~CAnimation(CAnimation *this)
@@ -17,64 +18,68 @@ void __fastcall CAnimation::~CAnimation(CAnimation *this)
   __int64 v4; // rcx
   __int64 v5; // rcx
   __int64 v6; // r8
-  unsigned int v7; // esi
-  __int64 v8; // rcx
-  __int64 v9; // rdx
-  __int64 v10; // rcx
+  void *v7; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
   __int64 i; // r9
-  __int64 v12; // rcx
+  __int64 v11; // rcx
+  unsigned int v12; // edi
+  __int64 v13; // rcx
 
   *(_QWORD *)this = &CAnimation::`vftable'{for `CResource'};
-  v2 = (CAnimation *)((char *)this + 64);
-  v3 = *((_BYTE *)this + 121) == 0;
+  v2 = (CAnimation *)((char *)this + 56);
+  v3 = (*((_BYTE *)this + 112) & 2) == 0;
   *(_QWORD *)v2 = &CAnimation::`vftable'{for `IAnimationResource'};
-  *((_QWORD *)this + 14) = &CAnimation::`vftable';
-  if ( v3 && *((_QWORD *)this + 16) && *((_DWORD *)this + 24) )
+  *((_QWORD *)this + 13) = &CAnimation::`vftable';
+  if ( v3 && *((_QWORD *)this + 15) && *((_DWORD *)this + 22) )
     CAnimation::UpdateAnimateValues(v2);
-  v4 = *((_QWORD *)this + 16);
+  v4 = *((_QWORD *)this + 15);
   if ( v4 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4);
   v5 = *((_QWORD *)this + 29);
   if ( v5 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
   CAnimation::EndAnimation(this);
-  if ( *((_BYTE *)this + 121) && *((_DWORD *)this + 24) )
+  if ( (*((_BYTE *)this + 112) & 2) != 0 && *((_DWORD *)this + 22) )
   {
-    v7 = 0;
+    v12 = 0;
     do
     {
-      v8 = *(_QWORD *)(*((_QWORD *)this + 9) + 16LL * v7);
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
-      ++v7;
+      v13 = *(_QWORD *)(*((_QWORD *)this + 8) + 16LL * v12);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v13 + 16LL))(v13);
+      ++v12;
     }
-    while ( v7 < *((_DWORD *)this + 24) );
-    *((_DWORD *)this + 24) = 0;
-    DynArrayImpl<0>::ShrinkToSize((char *)this + 72, 16LL);
+    while ( v12 < *((_DWORD *)this + 22) );
+    *((_DWORD *)this + 22) = 0;
+    DynArrayImpl<0>::ShrinkToSize((char *)this + 64, 16LL);
   }
   v6 = *((_QWORD *)this + 18);
   if ( v6 )
   {
-    v9 = *(unsigned int *)(v6 + 88);
-    v10 = 0LL;
-    for ( i = *(_QWORD *)(v6 + 64); (unsigned int)v10 < (unsigned int)v9; v10 = (unsigned int)(v10 + 1) )
+    v8 = *(unsigned int *)(v6 + 80);
+    v9 = 0LL;
+    for ( i = *(_QWORD *)(v6 + 56); (unsigned int)v9 < (unsigned int)v8; v9 = (unsigned int)(v9 + 1) )
     {
-      if ( this == *(CAnimation **)(i + 8 * v10) )
+      if ( this == *(CAnimation **)(i + 8 * v9) )
         break;
     }
-    if ( (unsigned int)v10 < (unsigned int)v9 )
+    if ( (unsigned int)v9 < (unsigned int)v8 )
     {
-      while ( (unsigned int)v10 < (int)v9 - 1 )
+      while ( (unsigned int)v9 < (int)v8 - 1 )
       {
-        *(_QWORD *)(i + 8 * v10) = *(_QWORD *)(i + 8LL * (unsigned int)(v10 + 1));
-        v10 = (unsigned int)(v10 + 1);
-        v9 = *(unsigned int *)(v6 + 88);
+        *(_QWORD *)(i + 8 * v9) = *(_QWORD *)(i + 8LL * (unsigned int)(v9 + 1));
+        v9 = (unsigned int)(v9 + 1);
+        v8 = *(unsigned int *)(v6 + 80);
       }
-      *(_DWORD *)(v6 + 88) = v9 - 1;
+      *(_DWORD *)(v6 + 80) = v8 - 1;
     }
-    v12 = *((_QWORD *)this + 18);
-    if ( v12 )
-      (*(void (__fastcall **)(__int64, __int64, __int64, __int64))(*(_QWORD *)v12 + 16LL))(v12, v9, v6, i);
+    v11 = *((_QWORD *)this + 18);
+    if ( v11 )
+      (*(void (__fastcall **)(__int64, __int64, __int64, __int64))(*(_QWORD *)v11 + 16LL))(v11, v8, v6, i);
   }
+  v7 = (void *)*((_QWORD *)this + 16);
+  if ( v7 )
+    operator delete(v7);
   DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 152);
   CBaseAnimation::~CBaseAnimation(this);
 }

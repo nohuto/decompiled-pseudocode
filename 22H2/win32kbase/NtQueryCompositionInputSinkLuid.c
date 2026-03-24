@@ -1,53 +1,30 @@
 /*
- * XREFs of NtQueryCompositionInputSinkLuid @ 0x1C0096700
+ * XREFs of NtQueryCompositionInputSinkLuid @ 0x1C0092F90
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C0083A80 (-ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z.c)
  */
 
-__int64 __fastcall NtQueryCompositionInputSinkLuid(void *a1, _QWORD *a2)
+__int64 __fastcall NtQueryCompositionInputSinkLuid(void *a1, _QWORD *a2, __int64 a3)
 {
-  _QWORD *v3; // rsi
-  NTSTATUS v4; // edi
-  _QWORD **v5; // r14
-  bool v6; // sf
-  __int64 v7; // rbx
-  PVOID Object; // [rsp+60h] [rbp+18h] BYREF
+  int v4; // edi
+  __int64 v5; // rbx
+  PVOID Object; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v8; // [rsp+48h] [rbp+20h]
 
-  v3 = 0LL;
+  v8 = 0LL;
   Object = 0LL;
-  v4 = ObReferenceObjectByHandle(a1, 1u, ExCompositionObjectType, 1, &Object, 0LL);
-  v5 = (_QWORD **)Object;
-  if ( v4 < 0 )
-    goto LABEL_17;
-  if ( (***((unsigned __int8 (__fastcall ****)(_QWORD))Object + 1))(*((_QWORD *)Object + 1)) )
-  {
-    if ( (*(unsigned int (__fastcall **)(_QWORD *))(*v5[1] + 16LL))(v5[1]) == 2 )
-      v3 = v5;
-    else
-      v4 = -1073741788;
-  }
-  else
-  {
-    v4 = -1073741816;
-  }
-  v6 = v4 < 0;
-  if ( v4 < 0 )
-  {
-    ObfDereferenceObject(v5);
-LABEL_17:
-    v6 = v4 < 0;
-  }
-  if ( v6 )
-    v3 = 0LL;
+  LOBYTE(a3) = 1;
+  v4 = CompositionInputObject::ResolveHandle(a1, 1LL, a3, (struct CompositionInputObject **)&Object);
   if ( v4 >= 0 )
   {
-    v7 = v3[2];
-    ObfDereferenceObject(v3);
+    v5 = *((_QWORD *)Object + 2);
+    v8 = v5;
+    ObfDereferenceObject(Object);
     if ( a2 + 1 < a2 || (unsigned __int64)(a2 + 1) > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    *a2 = v7;
+    *a2 = v5;
   }
   return (unsigned int)v4;
 }

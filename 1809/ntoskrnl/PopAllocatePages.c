@@ -2,10 +2,10 @@
  * XREFs of PopAllocatePages @ 0x14056BBD0
  * Callers:
  *     PopBuildMemoryImageHeader @ 0x14056B820 (PopBuildMemoryImageHeader.c)
- *     PopAllocateHiberContext @ 0x1406DF554 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
  * Callees:
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     PopGenerateMdl @ 0x1401449B0 (PopGenerateMdl.c)
+ *     PopGenerateMdl @ 0x1401449D0 (PopGenerateMdl.c)
  */
 
 PVOID __fastcall PopAllocatePages(__int64 a1)

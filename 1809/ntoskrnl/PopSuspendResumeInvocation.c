@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSuspendResumeInvocation @ 0x1406E1704
+ * XREFs of PopSuspendResumeInvocation @ 0x1406E16E4
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopSuspendResumeInvocation(_BYTE *a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of IrqLibpParseMadt @ 0x1C00ABCA8
+ * XREFs of IrqLibpParseMadt @ 0x1C00BD72C
  * Callers:
- *     AcpiIrqLibConfigureLibrary @ 0x1C00ABA58 (AcpiIrqLibConfigureLibrary.c)
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00BD584 (AcpiIrqLibConfigureLibrary.c)
  * Callees:
- *     ProcessorAddInstance @ 0x1C009A7D4 (ProcessorAddInstance.c)
- *     IcAddGicInstance @ 0x1C009EB0C (IcAddGicInstance.c)
- *     IcAddApicInstance @ 0x1C00AC1D4 (IcAddApicInstance.c)
+ *     ProcessorAddInstance @ 0x1C0097B80 (ProcessorAddInstance.c)
+ *     IcAddGicInstance @ 0x1C00B75E0 (IcAddGicInstance.c)
+ *     IcAddApicInstance @ 0x1C00BD844 (IcAddApicInstance.c)
  */
 
 __int64 __fastcall IrqLibpParseMadt(__int64 a1)
@@ -14,8 +14,8 @@ __int64 __fastcall IrqLibpParseMadt(__int64 a1)
   unsigned __int64 v2; // rdi
   _BYTE *v3; // r8
   __int64 v4; // rdx
+  unsigned int v5; // ecx
   __int64 result; // rax
-  unsigned int v6; // ecx
   __int16 v7; // ax
   bool v8; // cf
   __int64 v9; // rax
@@ -38,7 +38,7 @@ __int64 __fastcall IrqLibpParseMadt(__int64 a1)
             if ( (_BYTE)v4 == 12 )
             {
               result = IcAddApicInstance(*(unsigned int *)(v1 + 8));
-              goto LABEL_35;
+              goto LABEL_9;
             }
             break;
           case 2:
@@ -62,20 +62,24 @@ __int64 __fastcall IrqLibpParseMadt(__int64 a1)
           case 9:
             if ( (_BYTE)v4 == 16 && (*(_BYTE *)(v1 + 8) & 1) != 0 )
             {
-LABEL_19:
-              v6 = *(_DWORD *)(v1 + 4);
-              goto LABEL_34;
+LABEL_39:
+              v5 = *(_DWORD *)(v1 + 4);
+LABEL_8:
+              result = ProcessorAddInstance(v5, -1);
+LABEL_9:
+              if ( (int)result < 0 )
+                return result;
             }
             break;
           case 0xB:
             if ( (unsigned __int8)v4 >= 0x28u && (*(_BYTE *)(v1 + 12) & 1) != 0 )
             {
               if ( (unsigned int)IrqLibGicVersion < 3 )
-                goto LABEL_19;
+                goto LABEL_39;
               if ( (unsigned __int8)v4 >= 0x4Cu )
               {
-                v6 = (*(_QWORD *)(v1 + 68) >> 8) ^ (*(_DWORD *)(v1 + 68) ^ (*(_DWORD *)(v1 + 68) >> 8)) & 0xFFFFFF;
-                goto LABEL_34;
+                v5 = (*(_QWORD *)(v1 + 68) >> 8) ^ (*(_DWORD *)(v1 + 68) ^ (*(_DWORD *)(v1 + 68) >> 8)) & 0xFFFFFF;
+                goto LABEL_8;
               }
             }
             break;
@@ -83,19 +87,15 @@ LABEL_19:
             if ( *(_BYTE *)v1 == 12 && (unsigned __int8)v4 >= 0x18u )
             {
               result = IcAddGicInstance(*(_DWORD *)(v1 + 16));
-              goto LABEL_35;
+              goto LABEL_9;
             }
             break;
         }
       }
       else if ( (_BYTE)v4 == 8 && (*(_BYTE *)(v1 + 4) & 1) != 0 )
       {
-        v6 = *(unsigned __int8 *)(v1 + 3);
-LABEL_34:
-        result = ProcessorAddInstance(v6, -1);
-LABEL_35:
-        if ( (int)result < 0 )
-          return result;
+        v5 = *(unsigned __int8 *)(v1 + 3);
+        goto LABEL_8;
       }
       v1 += *(unsigned __int8 *)(v1 + 1);
       v3 = (_BYTE *)(v1 + 2);

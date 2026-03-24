@@ -1,16 +1,16 @@
 /*
- * XREFs of MmScrubMemory @ 0x14085FCE4
+ * XREFs of MmScrubMemory @ 0x14085FCC4
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ExQueueWorkItemToPartition @ 0x1400D2ECC (ExQueueWorkItemToPartition.c)
- *     KeWaitForGate @ 0x1400FA2E4 (KeWaitForGate.c)
- *     KeInitializeGate @ 0x14013A354 (KeInitializeGate.c)
+ *     ExQueueWorkItemToPartition @ 0x1400D2EEC (ExQueueWorkItemToPartition.c)
+ *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
+ *     KeInitializeGate @ 0x14013A374 (KeInitializeGate.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     MiScrubProcesses @ 0x14085FBE0 (MiScrubProcesses.c)
+ *     MiScrubProcesses @ 0x14085FBC0 (MiScrubProcesses.c)
  */
 
 NTSTATUS __fastcall MmScrubMemory(void *a1, void *a2, _QWORD *a3)

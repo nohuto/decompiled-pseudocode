@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlDmaUnmapDeviceSparsePages @ 0x140546900
+ * XREFs of HvlDmaUnmapDeviceSparsePages @ 0x1404F4DD0
  * Callers:
  *     <none>
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14039D8F0 (HvlpReleaseHypercallPage.c)
- *     HvcallFastExtended @ 0x14039DD80 (HvcallFastExtended.c)
- *     HvcallInitiateHypercall @ 0x14039DF00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x14039DF90 (HvlpAcquireHypercallPage.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HvlpHvToNtStatus @ 0x14054CA70 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
+ *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
+ *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlDmaUnmapDeviceSparsePages(__int64 a1, __int64 a2, unsigned __int64 *a3)
@@ -16,8 +16,8 @@ __int64 __fastcall HvlDmaUnmapDeviceSparsePages(__int64 a1, __int64 a2, unsigned
   bool v3; // zf
   __int64 result; // rax
   unsigned __int64 v8; // rdx
-  unsigned __int64 v9; // rbp
-  int v10; // r14d
+  unsigned __int64 v9; // r14
+  int v10; // r15d
   int v11; // esi
   _QWORD *v12; // rcx
   unsigned int v13; // r8d
@@ -28,10 +28,10 @@ __int64 __fastcall HvlDmaUnmapDeviceSparsePages(__int64 a1, __int64 a2, unsigned
   __int64 v18; // rax
   unsigned __int16 v19; // bx
   __int64 v20; // rax
-  __int64 v21; // [rsp+30h] [rbp-D8h]
-  __int64 v22; // [rsp+38h] [rbp-D0h]
-  _OWORD v23[2]; // [rsp+40h] [rbp-C8h] BYREF
-  _BYTE v24[112]; // [rsp+60h] [rbp-A8h] BYREF
+  __int64 v21; // [rsp+38h] [rbp-79h]
+  __int64 v22; // [rsp+40h] [rbp-71h]
+  _OWORD v23[2]; // [rsp+48h] [rbp-69h] BYREF
+  _BYTE v24[112]; // [rsp+68h] [rbp-49h] BYREF
 
   v3 = *(_BYTE *)(a1 + 4) == 0;
   memset(v23, 0, sizeof(v23));
@@ -66,11 +66,11 @@ __int64 __fastcall HvlDmaUnmapDeviceSparsePages(__int64 a1, __int64 a2, unsigned
         v14 = 0;
         v11 &= ~0x10000u;
       }
+      LODWORD(v21) = v11;
       v12[1] = 0LL;
       v12[2] = 0LL;
       *v12 = -1LL;
       *((_DWORD *)v12 + 4) &= 0xFFFFFFF0;
-      LODWORD(v21) = v11;
       *((_DWORD *)v12 + 5) = *(_DWORD *)a1;
       if ( v13 )
       {
@@ -89,7 +89,7 @@ __int64 __fastcall HvlDmaUnmapDeviceSparsePages(__int64 a1, __int64 a2, unsigned
       HIDWORD(v21) = v10;
       if ( v14 )
       {
-        v18 = HvcallFastExtended(v21, (__int64)v24, 8 * v13 + 24, 0LL, 0);
+        v18 = HvcallFastExtended(v21, (__int64)v24, 8 * v13 + 24, 0, 0);
         v19 = v18;
         WORD2(v22) = WORD2(v18);
       }

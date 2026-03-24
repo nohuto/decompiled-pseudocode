@@ -1,28 +1,35 @@
 /*
- * XREFs of ?SetContentType@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@@@Z @ 0x1C0069B4C
+ * XREFs of ?SetContentType@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@@@Z @ 0x1C000E08C
  * Callers:
- *     ??0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C006A568 (--0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_.c)
- *     ?DmmUpdateContentOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@@@Z @ 0x1C03AEF64 (-DmmUpdateContentOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@.c)
+ *     ??0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C000DE88 (--0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_.c)
+ *     ?DmmUpdateContentOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@@@Z @ 0x1C02DF6D0 (-DmmUpdateContentOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall DMMVIDPNPRESENTPATH::SetContentType(
-        DMMVIDPNPRESENTPATH *this,
-        enum _D3DKMDT_VIDPN_PRESENT_PATH_CONTENT a2)
+__int64 __fastcall DMMVIDPNPRESENTPATH::SetContentType(DMMVIDPNPRESENTPATH *this, __int64 a2)
 {
   __int64 v2; // rbx
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // rax
 
-  if ( a2 == D3DKMDT_VPPC_GRAPHICS || a2 == D3DKMDT_VPPC_VIDEO || a2 == D3DKMDT_VPPC_NOTSPECIFIED )
+  v2 = (int)a2;
+  if ( (int)a2 > 0 && ((_DWORD)a2 == 255 || (int)a2 <= 2) )
   {
     *((_DWORD *)this + 41) = a2;
     return 0LL;
   }
   else
   {
-    v2 = a2;
-    WdLogSingleEntry1(2LL, a2);
-    WdLogSingleEntry1(3LL, v2);
+    v4 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v4 + 24) = v2;
+    WdLogEvent5_WdError(v4);
+    v8 = WdLogNewEntry5_WdWarning(v6, v5, v7);
+    *(_QWORD *)(v8 + 24) = v2;
+    WdLogEvent5_WdWarning(v8);
     return 3223192398LL;
   }
 }

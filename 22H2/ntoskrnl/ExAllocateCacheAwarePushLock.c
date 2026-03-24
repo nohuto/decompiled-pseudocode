@@ -1,119 +1,125 @@
 /*
- * XREFs of ExAllocateCacheAwarePushLock @ 0x1403A7860
+ * XREFs of ExAllocateCacheAwarePushLock @ 0x1403C8090
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     KeQueryNodeActiveAffinity @ 0x140305880 (KeQueryNodeActiveAffinity.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305CD0 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306B20 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExFreeCacheAwarePushLock @ 0x140609980 (ExFreeCacheAwarePushLock.c)
- *     ExAllocatePool3 @ 0x140AAF430 (ExAllocatePool3.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402BC810 (ExpAllocatePoolWithTagFromNode.c)
+ *     KeQueryNodeActiveAffinity @ 0x1403544E0 (KeQueryNodeActiveAffinity.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreeCacheAwarePushLock @ 0x1405B3D70 (ExFreeCacheAwarePushLock.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 *__fastcall ExAllocateCacheAwarePushLock(char a1)
+ULONG_PTR __fastcall ExAllocateCacheAwarePushLock(char a1)
 {
-  char v1; // r15
-  unsigned __int64 v2; // rbx
-  __int64 *Pool2; // rdi
-  __int64 v4; // rax
-  __int64 *v5; // rcx
-  __int64 v6; // rsi
-  __int64 *v7; // rbx
-  unsigned int v9; // eax
-  unsigned int v10; // ebp
-  __int64 *v11; // r13
-  struct _KPRCB *v12; // rax
-  USHORT v13; // cx
-  __int64 Pool3; // rax
-  unsigned int v15; // [rsp+30h] [rbp-58h]
-  __int128 v16; // [rsp+38h] [rbp-50h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+48h] [rbp-40h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-30h] BYREF
+  char v1; // r12
+  int v2; // r13d
+  POOL_TYPE v3; // esi
+  PVOID PoolWithTag; // rax
+  ULONG_PTR v5; // rbx
+  char *v6; // rax
+  char *v7; // rdi
+  _QWORD *v8; // rax
+  __int64 v9; // rbp
+  ULONG_PTR v10; // rdi
+  unsigned int v12; // eax
+  unsigned int v13; // r15d
+  struct _KPRCB *v14; // rax
+  USHORT v15; // cx
+  _QWORD *PoolWithTagFromNode; // rax
+  _QWORD *v17; // rdi
+  unsigned int v18; // [rsp+30h] [rbp-68h]
+  _QWORD *v19; // [rsp+38h] [rbp-60h]
+  struct _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-58h] BYREF
+  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+50h] [rbp-48h] BYREF
 
   v1 = 0;
+  v2 = a1 & 1;
   Affinity = 0LL;
-  v2 = (-(__int64)((a1 & 1) != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256;
-  v16 = 0LL;
+  v3 = v2 != 0 ? NonPagedPoolNx : PagedPool;
   PreviousAffinity = 0LL;
-  Pool2 = (__int64 *)ExAllocatePool2(v2, 256LL, 1885563984LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(v3, 0x100uLL, 0x70636C50u);
+  v5 = (ULONG_PTR)PoolWithTag;
+  if ( !PoolWithTag )
     return 0LL;
+  memset(PoolWithTag, 0, 0x100uLL);
   if ( KeNumberNodes == 1 )
   {
-    v4 = ExAllocatePool2(v2, 4096LL, 1818455120LL);
-    if ( v4 )
+    v6 = (char *)ExAllocatePoolWithTag(v3, 0x1000uLL, 0x6C636C50u);
+    v7 = v6;
+    if ( v6 )
     {
-      v5 = Pool2;
-      v6 = 32LL;
+      memset(v6, 0, 0x1000uLL);
+      v8 = (_QWORD *)v5;
+      v9 = 32LL;
       do
       {
-        *(_QWORD *)v4 = 0LL;
-        *(_BYTE *)(v4 + 8) = 1;
-        *(_QWORD *)(v4 + 16) = Pool2;
-        *v5 = v4;
-        v4 += 128LL;
-        ++v5;
-        --v6;
+        *(_QWORD *)v7 = 0LL;
+        v7[8] = 1;
+        *((_QWORD *)v7 + 2) = v5;
+        *v8 = v7;
+        v7 += 128;
+        ++v8;
+        --v9;
       }
-      while ( v6 );
-      return Pool2;
+      while ( v9 );
+      return v5;
     }
-    v7 = 0LL;
-LABEL_28:
-    ExFreeCacheAwarePushLock(Pool2);
-    return v7;
+    v10 = 0LL;
   }
-  v9 = KeNumberProcessors_0;
-  v10 = 0;
-  v15 = KeNumberProcessors_0;
-  v11 = Pool2;
-  while ( 1 )
+  else
   {
-    v12 = v10 >= v9 ? KeGetCurrentPrcb() : (struct _KPRCB *)KeGetPrcb(v10);
-    v13 = v12->SchedulerSubNode->Affinity.Reserved[0];
-    if ( (v2 & 0x40) != 0 )
+    v12 = KeNumberProcessors_0;
+    v13 = 0;
+    v18 = KeNumberProcessors_0;
+    v19 = (_QWORD *)v5;
+    while ( 1 )
     {
-      LOBYTE(v16) = 3;
-      DWORD2(v16) = v13 | 0x80000000;
-      Pool3 = ExAllocatePool3(v2, 128, 1818455120, (unsigned int)&v16, 1);
-    }
-    else
-    {
-      KeQueryNodeActiveAffinity(v13, &Affinity, 0LL);
-      if ( v1 )
+      v14 = v13 >= v12 ? KeGetCurrentPrcb() : (struct _KPRCB *)KeGetPrcb(v13);
+      v15 = v14->ParentNode->Affinity.Reserved[0];
+      if ( v2 )
       {
-        KeSetSystemGroupAffinityThread(&Affinity, 0LL);
+        PoolWithTagFromNode = (_QWORD *)ExpAllocatePoolWithTagFromNode(NonPagedPoolNx, 0x80uLL, 0x6C636C50u, v15, 0);
       }
       else
       {
-        KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
-        v1 = 1;
+        KeQueryNodeActiveAffinity(v15, &Affinity, 0LL);
+        if ( v1 )
+        {
+          KeSetSystemGroupAffinityThread(&Affinity, 0LL);
+        }
+        else
+        {
+          KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
+          v1 = 1;
+        }
+        PoolWithTagFromNode = ExAllocatePoolWithTag(v3, 0x80uLL, 0x6C636C50u);
       }
-      Pool3 = ExAllocatePool2(v2, 128LL, 1818455120LL);
+      v17 = PoolWithTagFromNode;
+      if ( !PoolWithTagFromNode )
+        break;
+      memset(PoolWithTagFromNode, 0, 0x80uLL);
+      ++v13;
+      v17[2] = v5;
+      *v19++ = v17;
+      if ( v13 >= 0x20 )
+      {
+        v10 = v5;
+        v5 = 0LL;
+        goto LABEL_25;
+      }
+      v12 = v18;
     }
-    if ( !Pool3 )
-      break;
-    *(_QWORD *)Pool3 = 0LL;
-    ++v10;
-    *(_BYTE *)(Pool3 + 8) = 0;
-    *(_QWORD *)(Pool3 + 16) = Pool2;
-    *v11++ = Pool3;
-    if ( v10 >= 0x20 )
-    {
-      v7 = Pool2;
-      Pool2 = 0LL;
-      goto LABEL_25;
-    }
-    v9 = v15;
-  }
-  v7 = 0LL;
+    v10 = 0LL;
 LABEL_25:
-  if ( v1 )
-    KeRevertToUserGroupAffinityThread(&PreviousAffinity);
-  if ( Pool2 )
-    goto LABEL_28;
-  return v7;
+    if ( v1 )
+      KeRevertToUserGroupAffinityThread(&PreviousAffinity);
+  }
+  if ( v5 )
+    ExFreeCacheAwarePushLock(v5);
+  return v10;
 }

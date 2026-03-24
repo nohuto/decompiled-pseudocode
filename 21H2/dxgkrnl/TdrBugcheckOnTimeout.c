@@ -1,19 +1,19 @@
 /*
- * XREFs of TdrBugcheckOnTimeout @ 0x1C0306F50
+ * XREFs of TdrBugcheckOnTimeout @ 0x1C0266680
  * Callers:
- *     ?PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02BCC18 (-PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02C452C (-Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z @ 0x1C0305110 (-TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z.c)
- *     ?TdrDereferenceRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0306300 (-TdrDereferenceRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
- *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0306540 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?TdrResetFromTimeout@@YAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0306790 (-TdrResetFromTimeout@@YAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?TdrResetFromTimeoutAsync@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0306870 (-TdrResetFromTimeoutAsync@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ @ 0x1C0306C90 (-Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ.c)
- *     ?TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z @ 0x1C03BF2E0 (-TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z.c)
+ *     ?PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C020E358 (-PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0216870 (-Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z @ 0x1C02647B0 (-TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z.c)
+ *     ?TdrDereferenceRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0265A04 (-TdrDereferenceRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0265C30 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrResetFromTimeout@@YAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0265E90 (-TdrResetFromTimeout@@YAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrResetFromTimeoutAsync@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0265F70 (-TdrResetFromTimeoutAsync@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ @ 0x1C02663D0 (-Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ.c)
+ *     ?TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z @ 0x1C0300064 (-TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z.c)
  * Callees:
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C03063CC (-TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?TdrUpdateDbgBuffer@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C03069FC (-TdrUpdateDbgBuffer@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0265AC4 (-TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrUpdateDbgBuffer@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0266138 (-TdrUpdateDbgBuffer@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
  */
 
 void __fastcall __noreturn TdrBugcheckOnTimeout(ULONG_PTR BugCheckParameter1, int a2, int a3)
@@ -36,11 +36,11 @@ void __fastcall __noreturn TdrBugcheckOnTimeout(ULONG_PTR BugCheckParameter1, in
   if ( BugCheckParameter1 )
   {
     TdrUpdateDbgBuffer(v6);
-    if ( *(_QWORD *)(BugCheckParameter1 + 2848) )
+    if ( *(_QWORD *)(BugCheckParameter1 + 2840) )
     {
-      if ( *(_QWORD *)(BugCheckParameter1 + 2856) )
+      if ( *(_QWORD *)(BugCheckParameter1 + 2848) )
       {
-        v7 = *(_DWORD *)(BugCheckParameter1 + 2856);
+        v7 = *(_DWORD *)(BugCheckParameter1 + 2848);
         if ( v7 )
         {
           if ( v7 < 0x1000 )
@@ -49,14 +49,14 @@ void __fastcall __noreturn TdrBugcheckOnTimeout(ULONG_PTR BugCheckParameter1, in
           v9 = (__int64)PoolWithTag;
           if ( PoolWithTag )
           {
-            memmove(PoolWithTag, *(const void **)(BugCheckParameter1 + 2848), *(_QWORD *)(BugCheckParameter1 + 2856));
-            v10 = *(_DWORD *)(BugCheckParameter1 + 2856);
+            memmove(PoolWithTag, *(const void **)(BugCheckParameter1 + 2840), *(_QWORD *)(BugCheckParameter1 + 2848));
+            v10 = *(_DWORD *)(BugCheckParameter1 + 2848);
             if ( v10 )
             {
-              qword_1C01320C8 = v9;
-              dword_1C01320C4 = v10;
+              qword_1C00B46C8 = v9;
+              dword_1C00B46C4 = v10;
             }
-            WdDbgReportCancel(*(_QWORD *)(BugCheckParameter1 + 2840));
+            WdDbgReportCancel(*(_QWORD *)(BugCheckParameter1 + 2832));
           }
         }
       }

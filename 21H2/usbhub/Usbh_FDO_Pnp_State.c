@@ -1,18 +1,18 @@
 /*
- * XREFs of Usbh_FDO_Pnp_State @ 0x1C0043A98
+ * XREFs of Usbh_FDO_Pnp_State @ 0x1C0044D48
  * Callers:
- *     UsbhFdoSystemPowerState @ 0x1C0007740 (UsbhFdoSystemPowerState.c)
- *     UsbhAddDevice @ 0x1C0041550 (UsbhAddDevice.c)
- *     UsbhFdoPnp_RemoveDevice @ 0x1C0042760 (UsbhFdoPnp_RemoveDevice.c)
- *     UsbhFdoPnp_StartDevice @ 0x1C0042970 (UsbhFdoPnp_StartDevice.c)
- *     UsbhFdoPnp_StopDevice @ 0x1C0042B90 (UsbhFdoPnp_StopDevice.c)
- *     UsbhFdoPnp_SurpriseRemove @ 0x1C0042C20 (UsbhFdoPnp_SurpriseRemove.c)
- *     UsbhInitCallbackWorker @ 0x1C0043010 (UsbhInitCallbackWorker.c)
+ *     UsbhFdoSystemPowerState @ 0x1C000E9B0 (UsbhFdoSystemPowerState.c)
+ *     UsbhAddDevice @ 0x1C0042800 (UsbhAddDevice.c)
+ *     UsbhFdoPnp_RemoveDevice @ 0x1C0043A10 (UsbhFdoPnp_RemoveDevice.c)
+ *     UsbhFdoPnp_StartDevice @ 0x1C0043C20 (UsbhFdoPnp_StartDevice.c)
+ *     UsbhFdoPnp_StopDevice @ 0x1C0043E40 (UsbhFdoPnp_StopDevice.c)
+ *     UsbhFdoPnp_SurpriseRemove @ 0x1C0043ED0 (UsbhFdoPnp_SurpriseRemove.c)
+ *     UsbhInitCallbackWorker @ 0x1C00442C0 (UsbhInitCallbackWorker.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     UsbhAcquireFdoPnpLock @ 0x1C0031220 (UsbhAcquireFdoPnpLock.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     UsbhAcquireFdoPnpLock @ 0x1C0032554 (UsbhAcquireFdoPnpLock.c)
  */
 
 __int64 __fastcall Usbh_FDO_Pnp_State(__int64 a1, int a2)

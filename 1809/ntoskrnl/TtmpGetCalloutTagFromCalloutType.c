@@ -1,8 +1,8 @@
 /*
- * XREFs of TtmpGetCalloutTagFromCalloutType @ 0x14087E0AC
+ * XREFs of TtmpGetCalloutTagFromCalloutType @ 0x14087E08C
  * Callers:
- *     TtmpStartCallout @ 0x14087E600 (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x14087E6EC (TtmpStopCallout.c)
+ *     TtmpStartCallout @ 0x14087E5E0 (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x14087E6CC (TtmpStopCallout.c)
  * Callees:
  *     <none>
  */

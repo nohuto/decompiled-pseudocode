@@ -1,12 +1,12 @@
 /*
- * XREFs of SmStoreCompressionStart @ 0x1408AB720
+ * XREFs of SmStoreCompressionStart @ 0x1408AB700
  * Callers:
- *     MmProcessWorkingSetControl @ 0x14085EDA0 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x14085ED80 (MmProcessWorkingSetControl.c)
  * Callees:
  *     SmpKeyedStoreEntryGet @ 0x140011FDC (SmpKeyedStoreEntryGet.c)
  *     MmQueryProcessWorkingSetSwapPages @ 0x14001284C (MmQueryProcessWorkingSetSwapPages.c)
- *     MmStoreFlushOutstandingEvictions @ 0x1402C4264 (MmStoreFlushOutstandingEvictions.c)
- *     SmSwapStore @ 0x1406D1050 (SmSwapStore.c)
+ *     MmStoreFlushOutstandingEvictions @ 0x1402C4364 (MmStoreFlushOutstandingEvictions.c)
+ *     SmSwapStore @ 0x1406D1030 (SmSwapStore.c)
  */
 
 int SmStoreCompressionStart()

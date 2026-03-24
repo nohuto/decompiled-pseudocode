@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBUCX_NotifyForwardProgress @ 0x1C00292E8
+ * XREFs of HUBUCX_NotifyForwardProgress @ 0x1C00266C8
  * Callers:
- *     HUBFDO_EvtDeviceUsageNotification @ 0x1C000D8D0 (HUBFDO_EvtDeviceUsageNotification.c)
+ *     HUBFDO_EvtDeviceUsageNotification @ 0x1C000C740 (HUBFDO_EvtDeviceUsageNotification.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_NotifyForwardProgress(__int64 a1)
@@ -66,7 +66,7 @@ __int64 __fastcall HUBUCX_NotifyForwardProgress(__int64 a1)
       2u,
       3u,
       0x47u,
-      (__int64)&WPP_e357673766b030573709eddce5304229_Traceguids,
+      (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
       v8);
   }
   return (unsigned int)v6;

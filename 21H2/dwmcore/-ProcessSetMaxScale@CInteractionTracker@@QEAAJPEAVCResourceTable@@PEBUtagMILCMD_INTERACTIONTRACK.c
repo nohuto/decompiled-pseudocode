@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetMaxScale@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMAXSCALE@@@Z @ 0x18021C164
+ * XREFs of ?ProcessSetMaxScale@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMAXSCALE@@@Z @ 0x1801CACB8
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?SetMaxScale@CInteractionTracker@@AEAAXM@Z @ 0x18021D158 (-SetMaxScale@CInteractionTracker@@AEAAXM@Z.c)
+ *     ?SetMaxScale@CInteractionTracker@@AEAAXM@Z @ 0x1801CC174 (-SetMaxScale@CInteractionTracker@@AEAAXM@Z.c)
  */
 
 __int64 __fastcall CInteractionTracker::ProcessSetMaxScale(

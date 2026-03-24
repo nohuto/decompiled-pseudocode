@@ -1,19 +1,19 @@
 /*
- * XREFs of ViThunkFindAllSpecialTables @ 0x140A93C34
+ * XREFs of ViThunkFindAllSpecialTables @ 0x1409D908C
  * Callers:
- *     VfThunkApplyDriverAddedThunks @ 0x140A934D8 (VfThunkApplyDriverAddedThunks.c)
- *     ViThunkReplaceAllThunkedImports @ 0x140A94324 (ViThunkReplaceAllThunkedImports.c)
+ *     VfThunkApplyDriverAddedThunks @ 0x1409D8AA4 (VfThunkApplyDriverAddedThunks.c)
+ *     ViThunkReplaceAllThunkedImports @ 0x1409D9354 (ViThunkReplaceAllThunkedImports.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     ViThunkFindNextSpecialTable @ 0x140A93E2C (ViThunkFindNextSpecialTable.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ViThunkFindNextSpecialTable @ 0x1409D913C (ViThunkFindNextSpecialTable.c)
  */
 
 _QWORD *__fastcall ViThunkFindAllSpecialTables(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebp
   __int64 NextSpecialTable; // rdi
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v6; // rbx
   __int64 v7; // rsi
 
@@ -21,11 +21,11 @@ _QWORD *__fastcall ViThunkFindAllSpecialTables(__int64 a1, __int64 a2)
   NextSpecialTable = ViThunkFindNextSpecialTable(a1, a2);
   if ( !NextSpecialTable )
     return 0LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(256LL, 8LL * (unsigned int)(ViVerifierSpecialThunkTables + 1), 0x74566D4Du);
-  v6 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8LL * (unsigned int)(ViVerifierSpecialThunkTables + 1), 0x74566D4Du);
+  v6 = PoolWithTag;
+  if ( !PoolWithTag )
     return 0LL;
-  memset(Pool2, 0, 8LL * (unsigned int)(ViVerifierSpecialThunkTables + 1));
+  memset(PoolWithTag, 0, 8LL * (unsigned int)(ViVerifierSpecialThunkTables + 1));
   v7 = 0LL;
   do
   {

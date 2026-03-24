@@ -1,5 +1,5 @@
 /*
- * XREFs of DbgkpTriageDumpRestoreState @ 0x1407FDCA0
+ * XREFs of DbgkpTriageDumpRestoreState @ 0x1407260C0
  * Callers:
  *     <none>
  * Callees:

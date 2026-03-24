@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlAddBaseMcbEntryEx @ 0x140110980
+ * XREFs of FsRtlAddBaseMcbEntryEx @ 0x1401109A0
  * Callers:
- *     FsRtlAddLargeMcbEntry @ 0x140110360 (FsRtlAddLargeMcbEntry.c)
- *     FsRtlAddBaseMcbEntry @ 0x140110960 (FsRtlAddBaseMcbEntry.c)
+ *     FsRtlAddLargeMcbEntry @ 0x140110380 (FsRtlAddLargeMcbEntry.c)
+ *     FsRtlAddBaseMcbEntry @ 0x140110980 (FsRtlAddBaseMcbEntry.c)
  * Callees:
- *     FsRtlAddEntry @ 0x140110F4C (FsRtlAddEntry.c)
- *     FsRtlFindLargeIndex @ 0x140111064 (FsRtlFindLargeIndex.c)
- *     FsRtlRemoveLargeEntry @ 0x1401110F4 (FsRtlRemoveLargeEntry.c)
- *     EvaluateCurrentState @ 0x1401B3674 (EvaluateCurrentState.c)
+ *     FsRtlAddEntry @ 0x140110F6C (FsRtlAddEntry.c)
+ *     FsRtlFindLargeIndex @ 0x140111084 (FsRtlFindLargeIndex.c)
+ *     FsRtlRemoveLargeEntry @ 0x140111114 (FsRtlRemoveLargeEntry.c)
+ *     EvaluateCurrentState @ 0x1401B3694 (EvaluateCurrentState.c)
  */
 
 NTSTATUS __stdcall FsRtlAddBaseMcbEntryEx(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG Lbn, LONGLONG SectorCount)
@@ -66,11 +66,8 @@ NTSTATUS __stdcall FsRtlAddBaseMcbEntryEx(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG 
   ULONG v60; // [rsp+24h] [rbp-34h]
   unsigned int v61; // [rsp+60h] [rbp+8h] BYREF
 
-  if ( (unsigned int)EvaluateCurrentState(&g_Feature_1983059257_60412419_FeatureDescriptorDetails)
-    && (Vbn < 0 || Lbn < 0 || SectorCount <= 0) )
-  {
+  if ( (unsigned int)EvaluateCurrentState(&reg_FeatureDescriptors_a) && (Vbn < 0 || Lbn < 0 || SectorCount <= 0) )
     return -1073741811;
-  }
   v9 = 0;
   v10 = 0;
   PairCount = Mcb->PairCount;

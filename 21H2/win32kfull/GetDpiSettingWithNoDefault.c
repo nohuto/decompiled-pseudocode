@@ -1,10 +1,10 @@
 /*
- * XREFs of GetDpiSettingWithNoDefault @ 0x1C00C8D80
+ * XREFs of GetDpiSettingWithNoDefault @ 0x1C00E5590
  * Callers:
- *     GetDpiSetting @ 0x1C00C8D60 (GetDpiSetting.c)
- *     ?PerformWin8DpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C01589B8 (-PerformWin8DpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z.c)
+ *     GetDpiSetting @ 0x1C00E5570 (GetDpiSetting.c)
+ *     ?PerformWin8DpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C01D43E8 (-PerformWin8DpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall GetDpiSettingWithNoDefault(int a1, unsigned int *a2)

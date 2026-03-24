@@ -1,16 +1,15 @@
 /*
- * XREFs of MiDecrementSubsection @ 0x1403A5F2C
+ * XREFs of MiDecrementSubsection @ 0x140325E50
  * Callers:
- *     MiTrimSection @ 0x1402EF974 (MiTrimSection.c)
- *     MiTrimSharedPage @ 0x1403A5C5C (MiTrimSharedPage.c)
- *     MiLocateSharedPageViews @ 0x140636550 (MiLocateSharedPageViews.c)
- *     MiPurgeBadFileOnlyPages @ 0x14063EAE0 (MiPurgeBadFileOnlyPages.c)
+ *     MiTrimSharedPage @ 0x14026F088 (MiTrimSharedPage.c)
+ *     MiTrimSection @ 0x14026FD60 (MiTrimSection.c)
+ *     MiPurgeBadFileOnlyPages @ 0x140541830 (MiPurgeBadFileOnlyPages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecrementSubsections @ 0x14029F910 (MiDecrementSubsections.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B424 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiDecrementSubsections @ 0x140295740 (MiDecrementSubsections.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055502C (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiDecrementSubsection(__int64 *BugCheckParameter2)
@@ -33,16 +32,19 @@ __int64 __fastcall MiDecrementSubsection(__int64 *BugCheckParameter2)
   v6 = 0;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v10 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+        v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v10 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v3);
@@ -50,7 +52,7 @@ __int64 __fastcall MiDecrementSubsection(__int64 *BugCheckParameter2)
   {
     LOBYTE(v6) = *(_QWORD *)(v1 + 64) != 0LL;
     return MiReturnCrossPartitionSectionCharges(
-             *(_QWORD *)(qword_140C674C8 + 8LL * (*(_WORD *)(v1 + 60) & 0x3FF)),
+             *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(v1 + 60) & 0x3FF)),
              v6,
              v4);
   }

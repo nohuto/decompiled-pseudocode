@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ProcessAddConditionAnimationResources@CConditionalExpression@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CONDITIONALEXPRESSION_ADDCONDITIONANIMATIONRESOURCES@@PEBXI@Z @ 0x180228250
+ * XREFs of ?ProcessAddConditionAnimationResources@CConditionalExpression@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CONDITIONALEXPRESSION_ADDCONDITIONANIMATIONRESOURCES@@PEBXI@Z @ 0x1801BDBF0
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x180049524 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800F2C10 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$_Emplace_reallocate@UConditionExpressionListEntry@CConditionalExpression@@@?$vector@UConditionExpressionListEntry@CConditionalExpression@@V?$allocator@UConditionExpressionListEntry@CConditionalExpression@@@std@@@std@@QEAAPEAUConditionExpressionListEntry@CConditionalExpression@@QEAU23@$$QEAU23@@Z @ 0x1802273A4 (--$_Emplace_reallocate@UConditionExpressionListEntry@CConditionalExpression@@@-$vector@UConditio.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A1010 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800A9CA4 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$_Emplace_reallocate@UConditionExpressionListEntry@CConditionalExpression@@@?$vector@UConditionExpressionListEntry@CConditionalExpression@@V?$allocator@UConditionExpressionListEntry@CConditionalExpression@@@std@@@std@@QEAAPEAUConditionExpressionListEntry@CConditionalExpression@@QEAU23@$$QEAU23@@Z @ 0x1801BCDE0 (--$_Emplace_reallocate@UConditionExpressionListEntry@CConditionalExpression@@@-$vector@UConditio.c)
  */
 
 __int64 __fastcall CConditionalExpression::ProcessAddConditionAnimationResources(
@@ -17,8 +17,8 @@ __int64 __fastcall CConditionalExpression::ProcessAddConditionAnimationResources
         const struct tagMILCMD_CONDITIONALEXPRESSION_ADDCONDITIONANIMATIONRESOURCES *a3,
         unsigned int *a4)
 {
-  int v4; // r12d
-  CResourceTable *v7; // rbx
+  int v4; // r14d
+  CConditionalExpression *v8; // rbx
   unsigned int v9; // edx
   struct CResource *ResourceWithoutType; // rax
   __int64 v11; // rcx
@@ -33,109 +33,111 @@ __int64 __fastcall CConditionalExpression::ProcessAddConditionAnimationResources
   __int128 *v20; // rdx
   _OWORD *v21; // rdx
   __int64 v22; // rcx
-  int v23; // r9d
-  unsigned int v25; // [rsp+20h] [rbp-20h]
-  __int128 v26; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v28; // [rsp+90h] [rbp+50h] BYREF
+  __int64 v23; // rax
+  int v25; // r9d
+  unsigned int v26; // [rsp+20h] [rbp-20h]
+  __int128 v27; // [rsp+30h] [rbp-10h] BYREF
+  __int64 v29; // [rsp+90h] [rbp+50h] BYREF
 
   v4 = 0;
-  v7 = a2;
+  v8 = this;
   if ( *((_DWORD *)a3 + 2) )
   {
     while ( 1 )
     {
       v9 = *a4;
-      v26 = 0LL;
-      ResourceWithoutType = CResourceTable::GetResourceWithoutType(v7, v9);
+      v27 = 0LL;
+      ResourceWithoutType = CResourceTable::GetResourceWithoutType(a2, v9);
       v12 = ResourceWithoutType;
       if ( !ResourceWithoutType
         || !(*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)ResourceWithoutType + 56LL))(
               ResourceWithoutType,
-              60LL) )
+              58LL) )
       {
         break;
       }
       (*(void (__fastcall **)(struct CResource *))(*(_QWORD *)v12 + 8LL))(v12);
       v13 = a4[1];
-      *(_QWORD *)&v26 = v12;
-      v14 = CResourceTable::GetResourceWithoutType(v7, v13);
+      *(_QWORD *)&v27 = v12;
+      v14 = CResourceTable::GetResourceWithoutType(a2, v13);
       v15 = (__int64)v14;
       if ( !v14
-        || !(*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)v14 + 56LL))(v14, 60LL)
-        && !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v15 + 56LL))(v15, 112LL) )
+        || !(*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)v14 + 56LL))(v14, 58LL)
+        && !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v15 + 56LL))(v15, 110LL) )
       {
-        v25 = 89;
-        goto LABEL_24;
+        v26 = 89;
+        goto LABEL_25;
       }
-      v28 = v15;
-      Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef(&v28);
-      v28 = 0LL;
-      *((_QWORD *)&v26 + 1) = v15;
-      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v28);
+      v29 = v15;
+      Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef(&v29);
+      v29 = 0LL;
+      *((_QWORD *)&v27 + 1) = v15;
+      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v29);
       a4 += 2;
-      (*(void (__fastcall **)(struct CResource *, CConditionalExpression *))(*(_QWORD *)v12 + 216LL))(v12, this);
-      (*(void (__fastcall **)(__int64, CConditionalExpression *))(*(_QWORD *)v15 + 216LL))(v15, this);
-      v16 = (*(__int64 (__fastcall **)(struct CResource *))(*(_QWORD *)v12 + 232LL))(v12);
+      (*(void (__fastcall **)(struct CResource *, CConditionalExpression *))(*(_QWORD *)v12 + 232LL))(v12, v8);
+      (*(void (__fastcall **)(__int64, CConditionalExpression *))(*(_QWORD *)v15 + 232LL))(v15, v8);
+      v16 = (*(__int64 (__fastcall **)(struct CResource *))(*(_QWORD *)v12 + 248LL))(v12);
       v17 = v16;
       if ( v16 < 0 )
       {
-        v23 = v16;
-        v25 = 103;
-        goto LABEL_25;
+        v25 = v16;
+        v26 = 103;
+        goto LABEL_26;
       }
-      v18 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v15 + 232LL))(v15);
+      v18 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v15 + 248LL))(v15);
       v17 = v18;
       if ( v18 < 0 )
       {
         MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x68u, 0LL);
-        goto LABEL_26;
+        goto LABEL_27;
       }
-      v20 = (__int128 *)*((_QWORD *)this + 44);
-      if ( v20 == *((__int128 **)this + 45) )
+      v8 = this;
+      v20 = (__int128 *)*((_QWORD *)this + 41);
+      if ( *((__int128 **)this + 42) == v20 )
       {
         std::vector<CConditionalExpression::ConditionExpressionListEntry>::_Emplace_reallocate<CConditionalExpression::ConditionExpressionListEntry>(
-          (__int64 *)this + 43,
+          (__int64 *)this + 40,
           (__int64)v20,
-          &v26);
+          &v27);
       }
       else
       {
         *(_QWORD *)v20 = 0LL;
-        if ( v20 != &v26 )
+        if ( v20 != &v27 )
         {
           *(_QWORD *)v20 = v12;
-          *(_QWORD *)&v26 = 0LL;
+          *(_QWORD *)&v27 = 0LL;
         }
         v21 = (__int128 *)((char *)v20 + 8);
         *(_QWORD *)v21 = 0LL;
-        if ( v21 != (__int128 *)((char *)&v26 + 8) )
+        if ( v21 != (__int128 *)((char *)&v27 + 8) )
         {
           *(_QWORD *)v21 = v15;
-          *((_QWORD *)&v26 + 1) = 0LL;
+          *((_QWORD *)&v27 + 1) = 0LL;
         }
-        *((_QWORD *)this + 44) += 16LL;
+        *((_QWORD *)this + 41) += 16LL;
       }
-      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v26 + 1);
-      v22 = v26;
-      if ( (_QWORD)v26 )
+      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v27 + 1);
+      v22 = v27;
+      if ( (_QWORD)v27 )
       {
-        *(_QWORD *)&v26 = 0LL;
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v22 + 16LL))(v22);
+        v23 = *(_QWORD *)v27;
+        *(_QWORD *)&v27 = 0LL;
+        (*(void (__fastcall **)(__int64))(v23 + 16))(v22);
       }
       if ( (unsigned int)++v4 >= *((_DWORD *)a3 + 2) )
         return 0;
-      v7 = a2;
     }
-    v25 = 77;
-LABEL_24:
-    v23 = -2003303421;
-    v17 = -2003303421;
+    v26 = 77;
 LABEL_25:
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v23, v25, 0LL);
+    v25 = -2003303421;
+    v17 = -2003303421;
 LABEL_26:
-    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v26 + 1);
-    if ( (_QWORD)v26 )
-      (*(void (__fastcall **)(_QWORD))(*(_QWORD *)v26 + 16LL))(v26);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v25, v26, 0LL);
+LABEL_27:
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v27 + 1);
+    if ( (_QWORD)v27 )
+      (*(void (__fastcall **)(_QWORD))(*(_QWORD *)v27 + 16LL))(v27);
   }
   else
   {

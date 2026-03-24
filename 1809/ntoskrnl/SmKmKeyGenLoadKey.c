@@ -1,13 +1,13 @@
 /*
- * XREFs of SmKmKeyGenLoadKey @ 0x1408ACFA0
+ * XREFs of SmKmKeyGenLoadKey @ 0x1408ACF80
  * Callers:
- *     SmKmKeyGenNewKey @ 0x1408AD110 (SmKmKeyGenNewKey.c)
+ *     SmKmKeyGenNewKey @ 0x1408AD0F0 (SmKmKeyGenNewKey.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall SmKmKeyGenLoadKey(UNICODE_STRING *a1, __int64 a2, HANDLE *a3)

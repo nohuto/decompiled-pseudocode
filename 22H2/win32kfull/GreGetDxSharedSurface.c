@@ -1,68 +1,72 @@
 /*
- * XREFs of GreGetDxSharedSurface @ 0x1C000AE98
+ * XREFs of GreGetDxSharedSurface @ 0x1C0118B5C
  * Callers:
- *     WindowRedirectionBitmapMatchesMonitorAdapter @ 0x1C000AE0C (WindowRedirectionBitmapMatchesMonitorAdapter.c)
- *     CreateOrGetRedirectionBitmap @ 0x1C00D564C (CreateOrGetRedirectionBitmap.c)
- *     NtUserHwndQueryRedirectionInfo @ 0x1C0154A60 (NtUserHwndQueryRedirectionInfo.c)
- *     DxgkEngGetRedirBitmapSharedHandle @ 0x1C015A330 (DxgkEngGetRedirBitmapSharedHandle.c)
+ *     CreateOrGetRedirectionBitmap @ 0x1C00BEDE8 (CreateOrGetRedirectionBitmap.c)
+ *     WindowRedirectionBitmapMatchesMonitorAdapter @ 0x1C0118A6C (WindowRedirectionBitmapMatchesMonitorAdapter.c)
+ *     NtUserHwndQueryRedirectionInfo @ 0x1C01FCC40 (NtUserHwndQueryRedirectionInfo.c)
+ *     DxgkEngGetRedirBitmapSharedHandle @ 0x1C02773B0 (DxgkEngGetRedirBitmapSharedHandle.c)
  * Callees:
- *     ?uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ @ 0x1C000B0D4 (-uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ.c)
- *     ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z @ 0x1C000B164 (--0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z.c)
- *     UserIsWindowWithNoRedirectionBitmap @ 0x1C000B35C (UserIsWindowWithNoRedirectionBitmap.c)
- *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C007AD98 (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
- *     ?AdapterLuid@SFMLOGICALSURFACE@@QEAA?AU_LUID@@XZ @ 0x1C01597F8 (-AdapterLuid@SFMLOGICALSURFACE@@QEAA-AU_LUID@@XZ.c)
+ *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C0017620 (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
+ *     ?uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ @ 0x1C0118DB0 (-uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ.c)
+ *     ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z @ 0x1C0118DDC (--0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z.c)
+ *     UserIsWindowWithNoRedirectionBitmap @ 0x1C0118E1C (UserIsWindowWithNoRedirectionBitmap.c)
+ *     ?AdapterLuid@SFMLOGICALSURFACE@@QEAA?AU_LUID@@XZ @ 0x1C015F5A8 (-AdapterLuid@SFMLOGICALSURFACE@@QEAA-AU_LUID@@XZ.c)
  */
 
 __int64 __fastcall GreGetDxSharedSurface(HWND a1, _QWORD *a2, _DWORD *a3, _DWORD *a4, _DWORD *a5, _QWORD *a6)
 {
   unsigned int v10; // esi
-  Gre::Base *v11; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v12; // r15
-  __int64 v13; // rcx
-  __int64 v14; // rbx
-  __int64 v15; // rsi
-  __int64 v16; // rbp
-  __int64 v17; // rcx
-  char v18; // al
-  __int64 v19; // rcx
-  SFMLOGICALSURFACE *v21; // rcx
-  __int64 v22; // r9
-  _QWORD v23[7]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // rbx
+  __int64 v13; // rsi
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v17; // r8
+  unsigned int v18; // eax
+  unsigned int *v19; // r9
+  __int64 v20; // r8
+  __int64 v21; // rcx
+  __int64 v22; // r8
+  SFMLOGICALSURFACE *v24; // rcx
+  __int64 v25; // r9
+  unsigned int v26; // eax
+  unsigned int *v27; // r10
+  SFMLOGICALSURFACE *v28; // rcx
+  _QWORD v29[5]; // [rsp+20h] [rbp-28h] BYREF
 
   v10 = -1071775733;
-  if ( (unsigned int)IsDwmActive() )
+  if ( g_pDwmState )
   {
-    v12 = Gre::Base::Globals(v11);
-    GreAcquireSemaphoreSharedInternal(*((_QWORD *)v12 + 9));
-    EtwTraceGreLockAcquireSemaphoreShared(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v12 + 9));
-    if ( !(unsigned int)IsDwmActive() || (unsigned int)UserIsWindowWithNoRedirectionBitmap(a1) )
+    GreAcquireSemaphoreSharedInternal(ghsemDwmState);
+    EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDwmState", ghsemDwmState);
+    if ( (unsigned int)UserIsWindowWithNoRedirectionBitmap(a1) )
     {
-LABEL_21:
-      EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
-      GreReleaseSemaphoreInternal(*((_QWORD *)v12 + 9));
+LABEL_19:
+      EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
+      GreReleaseSemaphoreInternal(ghsemDwmState);
       return v10;
     }
-    DWMALTSPRITEREF::DWMALTSPRITEREF((DWMALTSPRITEREF *)v23, a1, 0LL);
-    v14 = v23[0];
-    if ( !v23[0] )
+    DWMALTSPRITEREF::DWMALTSPRITEREF((DWMALTSPRITEREF *)v29, a1, 0LL);
+    v12 = v29[0];
+    if ( !v29[0] )
     {
       v10 = -1073741811;
-LABEL_19:
-      if ( v14 )
-        DEC_SHARE_REF_CNT(v14);
-      goto LABEL_21;
+LABEL_17:
+      if ( v12 )
+        DEC_SHARE_REF_CNT(v12, v11);
+      goto LABEL_19;
     }
-    v15 = *(_QWORD *)(v23[0] + 144LL);
-    if ( v23[0] != -88LL )
+    v13 = *(_QWORD *)(v29[0] + 168LL);
+    if ( v29[0] != -88LL )
     {
       KeEnterCriticalRegion();
-      GreAcquirePushLockShared(v14 + 88);
+      GreAcquirePushLockShared(v12 + 88);
     }
-    if ( !*(_DWORD *)(*(_QWORD *)(SGDGetSessionState(v13) + 32) + 8692LL)
-      || !*(_QWORD *)(v15 + 184)
-      || !(unsigned int)SFMLOGICALSURFACE::bDeviceBitmap((SFMLOGICALSURFACE *)v15)
-      || (unsigned int)UserIsRemoteConnection() && !(unsigned int)UserIsRemoteAndNotDisconnectConnection() )
+    if ( !*(_QWORD *)(v13 + 184)
+      || !(unsigned int)SFMLOGICALSURFACE::bDeviceBitmap((SFMLOGICALSURFACE *)v13)
+      || (unsigned int)UserIsRemoteConnection(v14, v11, v15, v16)
+      && !(unsigned int)UserIsRemoteAndNotDisconnectConnection() )
     {
       *a2 = 0LL;
       v10 = -1073741822;
@@ -71,48 +75,48 @@ LABEL_19:
       *a6 = 0LL;
       *a3 = 0;
       a3[1] = 0;
-      goto LABEL_17;
+      goto LABEL_15;
     }
-    if ( *(_QWORD *)(v15 + 192) )
+    if ( *(_QWORD *)(v13 + 192) )
     {
-      SFMLOGICALSURFACE::AdapterLuid((SFMLOGICALSURFACE *)v15);
-      if ( (*a5 & 4) == 0 || (*(_DWORD *)(v15 + 244) & 0x100) != 0 || v23[0] == *(_QWORD *)a3 )
+      SFMLOGICALSURFACE::AdapterLuid((SFMLOGICALSURFACE *)v13);
+      if ( (*a5 & 4) == 0 || (*(_DWORD *)(v13 + 244) & 0x100) != 0 || v29[0] == *(_QWORD *)a3 )
       {
-        *a2 = v22;
-        *a4 = *(_DWORD *)(v15 + 208);
-        *a5 = SFMLOGICALSURFACE::uiDxPresentFlags(v21);
-        v17 = **(_QWORD **)&SFMLOGICALSURFACE::AdapterLuid((SFMLOGICALSURFACE *)v15);
-        goto LABEL_14;
+        *a2 = v25;
+        *a4 = *(_DWORD *)(v13 + 208);
+        v26 = SFMLOGICALSURFACE::uiDxPresentFlags(v24);
+        *v27 = v26;
+        v21 = **(_QWORD **)&SFMLOGICALSURFACE::AdapterLuid(v28);
+        goto LABEL_12;
       }
     }
     else
     {
-      v16 = *(_QWORD *)(v15 + 184);
-      if ( (*a5 & 4) == 0 || (*(_DWORD *)(v16 + 92) & 0x400) != 0 || *(_QWORD *)(v16 + 552) == *(_QWORD *)a3 )
+      v17 = *(_QWORD *)(v13 + 184);
+      if ( (*a5 & 4) == 0 || (*(_DWORD *)(v17 + 92) & 0x400) != 0 || *(_QWORD *)(v17 + 552) == *(_QWORD *)a3 )
       {
-        *a2 = *(_QWORD *)(v16 + 544);
+        *a2 = *(_QWORD *)(v17 + 544);
         *a4 = 87;
-        *a5 = SFMLOGICALSURFACE::uiDxPresentFlags((SFMLOGICALSURFACE *)v15);
-        v17 = *(_QWORD *)(v16 + 552);
-LABEL_14:
-        *(_QWORD *)a3 = v17;
-        v18 = SFMLOGICALSURFACE::uiDxPresentFlags((SFMLOGICALSURFACE *)v15);
-        v19 = *(unsigned int *)(*(_QWORD *)(v15 + 184) + 68LL);
-        if ( (v18 & 2) != 0 )
-          v19 |= 0x8000000000000000uLL;
+        v18 = SFMLOGICALSURFACE::uiDxPresentFlags((SFMLOGICALSURFACE *)v13);
+        *v19 = v18;
+        v21 = *(_QWORD *)(v20 + 552);
+LABEL_12:
+        *(_QWORD *)a3 = v21;
+        if ( (SFMLOGICALSURFACE::uiDxPresentFlags((SFMLOGICALSURFACE *)v13) & 2) != 0 )
+          v22 |= 0x8000000000000000uLL;
         v10 = 0;
-        *a6 = v19;
-        goto LABEL_17;
+        *a6 = v22;
+        goto LABEL_15;
       }
     }
     v10 = -1071775484;
-LABEL_17:
-    if ( v14 != -88 )
+LABEL_15:
+    if ( v12 != -88 )
     {
-      GreReleasePushLockShared(v14 + 88);
+      GreReleasePushLockShared(v12 + 88);
       KeLeaveCriticalRegion();
     }
-    goto LABEL_19;
+    goto LABEL_17;
   }
   return v10;
 }

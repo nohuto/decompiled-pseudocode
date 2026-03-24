@@ -1,20 +1,17 @@
 /*
- * XREFs of HalpAllocateHalCounters @ 0x140505964
+ * XREFs of HalpAllocateHalCounters @ 0x1404B90B4
  * Callers:
- *     EmonAllocateCounter @ 0x14051FE4C (EmonAllocateCounter.c)
- *     EmonMarkCountersReserved @ 0x1405206E4 (EmonMarkCountersReserved.c)
- *     Amd64AllocateCounter @ 0x14052B218 (Amd64AllocateCounter.c)
+ *     EmonAllocateCounter @ 0x1404D3060 (EmonAllocateCounter.c)
+ *     Amd64AllocateCounter @ 0x1404DD728 (Amd64AllocateCounter.c)
+ *     HalAllocateHardwareCounters @ 0x140864280 (HalAllocateHardwareCounters.c)
  * Callees:
  *     <none>
  */
 
 __int64 HalpAllocateHalCounters()
 {
-  struct _KPRCB *CurrentPrcb; // rcx
-
-  CurrentPrcb = KeGetCurrentPrcb();
-  if ( (_InterlockedExchangeAdd((volatile signed __int32 *)&CurrentPrcb->HalReserved[2], 2u) & 1) == 0 )
+  if ( (_InterlockedExchangeAdd(&HalpPmuInUse, 2u) & 1) == 0 )
     return 0LL;
-  _InterlockedExchangeAdd((volatile signed __int32 *)&CurrentPrcb->HalReserved[2], 0xFFFFFFFE);
+  _InterlockedExchangeAdd(&HalpPmuInUse, 0xFFFFFFFE);
   return 3221225473LL;
 }

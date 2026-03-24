@@ -1,38 +1,44 @@
 /*
- * XREFs of WheapCreatePerProcessorInfo @ 0x140B2F394
+ * XREFs of WheapCreatePerProcessorInfo @ 0x140A62E88
  * Callers:
- *     WheaInitialize @ 0x140AFF910 (WheaInitialize.c)
+ *     WheaInitialize @ 0x140A6305C (WheaInitialize.c)
  * Callees:
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 WheapCreatePerProcessorInfo()
 {
-  ULONG_PTR v0; // rsi
-  unsigned int v1; // ebx
-  __int64 Pool2; // rdi
+  ULONG_PTR v0; // rbp
+  SIZE_T v1; // rsi
+  char *PoolWithTag; // rax
+  unsigned int v3; // ebx
+  char *v4; // rdi
   __int64 Prcb; // rax
 
   v0 = (unsigned int)KeNumberProcessors_0;
-  v1 = 0;
-  Pool2 = ExAllocatePool2(64LL, 24LL * (unsigned int)KeNumberProcessors_0, 0x61656857u);
-  if ( !Pool2 )
+  v1 = 24LL * (unsigned int)KeNumberProcessors_0;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v1, 0x61656857u);
+  v3 = 0;
+  v4 = PoolWithTag;
+  if ( !PoolWithTag )
   {
     LODWORD(WheapStatus) = WheapStatus + 1;
     HIDWORD(WheapStatus) |= 0x10u;
     KeBugCheckEx(0x122u, 2uLL, v0, 0LL, 0LL);
   }
+  memset(PoolWithTag, 0, v1);
   if ( (_DWORD)v0 )
   {
     do
     {
-      Prcb = KeGetPrcb(v1++);
-      *(_QWORD *)(Prcb + 34464) = Pool2;
-      Pool2 += 24LL;
+      Prcb = KeGetPrcb(v3++);
+      *(_QWORD *)(Prcb + 33568) = v4;
+      v4 += 24;
     }
-    while ( v1 < (unsigned int)v0 );
+    while ( v3 < (unsigned int)v0 );
   }
   return 0LL;
 }

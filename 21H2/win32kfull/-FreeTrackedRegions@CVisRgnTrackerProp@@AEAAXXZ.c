@@ -1,16 +1,29 @@
 /*
- * XREFs of ?FreeTrackedRegions@CVisRgnTrackerProp@@AEAAXXZ @ 0x1C00B4D1C
+ * XREFs of ?FreeTrackedRegions@CVisRgnTrackerProp@@AEAAXXZ @ 0x1C00E9548
  * Callers:
- *     zzzComposeDesktop @ 0x1C00B2FD8 (zzzComposeDesktop.c)
- *     ?Delete@CVisRgnTrackerProp@@UEAAXXZ @ 0x1C00B4CC0 (-Delete@CVisRgnTrackerProp@@UEAAXXZ.c)
+ *     ?Delete@CVisRgnTrackerProp@@UEAAXXZ @ 0x1C00E94F0 (-Delete@CVisRgnTrackerProp@@UEAAXXZ.c)
+ *     zzzComposeDesktop @ 0x1C00EC878 (zzzComposeDesktop.c)
  * Callees:
- *     ?FreeTrackedRegion@CVisRgnTrackerProp@@AEAAXI@Z @ 0x1C00B4D50 (-FreeTrackedRegion@CVisRgnTrackerProp@@AEAAXI@Z.c)
+ *     <none>
  */
 
 void __fastcall CVisRgnTrackerProp::FreeTrackedRegions(CVisRgnTrackerProp *this)
 {
-  signed int i; // ebx
+  _QWORD *v1; // rbx
+  __int64 v2; // rdi
 
-  for ( i = 0; i < 3; ++i )
-    CVisRgnTrackerProp::FreeTrackedRegion(this, i);
+  v1 = (_QWORD *)((char *)this + 40);
+  v2 = 3LL;
+  do
+  {
+    if ( *v1 )
+    {
+      GreSetRegionOwner(*v1, 2147483650LL);
+      GreDeleteObject(*v1);
+      *v1 = 0LL;
+    }
+    ++v1;
+    --v2;
+  }
+  while ( v2 );
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeRotateVadEvent @ 0x140A31330
+ * XREFs of MiFreeRotateVadEvent @ 0x1406A4400
  * Callers:
- *     MiReleaseVadEventBlocks @ 0x1406FB68C (MiReleaseVadEventBlocks.c)
- *     MiFreeRotateView @ 0x140A31368 (MiFreeRotateView.c)
+ *     MiReleaseVadEventBlocks @ 0x14063AAB0 (MiReleaseVadEventBlocks.c)
+ *     MiFreeRotateView @ 0x1408C85CC (MiFreeRotateView.c)
  * Callees:
- *     PsReturnProcessNonPagedPoolQuota @ 0x14028B210 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiFreeInPageSupportBlock @ 0x1402BD2CC (MiFreeInPageSupportBlock.c)
+ *     MiFreeInPageSupportBlock @ 0x14027CF5C (MiFreeInPageSupportBlock.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140298A60 (PsReturnProcessNonPagedPoolQuota.c)
  */
 
 __int64 __fastcall MiFreeRotateVadEvent(__int64 a1)

@@ -1,18 +1,14 @@
 /*
- * XREFs of PipUnlinkDeviceObjectAndDependencyNode @ 0x14085CB58
+ * XREFs of PipUnlinkDeviceObjectAndDependencyNode @ 0x14089E0A4
  * Callers:
- *     IoResolveDependency @ 0x1403CBF80 (IoResolveDependency.c)
- *     PipDeleteAllDependencyRelations @ 0x14085C97C (PipDeleteAllDependencyRelations.c)
+ *     IoResolveDependency @ 0x1403BE1B0 (IoResolveDependency.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PipDeleteDependencyNode @ 0x14085CA14 (PipDeleteDependencyNode.c)
+ *     PipDeleteDependencyNode @ 0x1407CD6B0 (PipDeleteDependencyNode.c)
  */
 
-void __fastcall PipUnlinkDeviceObjectAndDependencyNode(_QWORD *a1, __int64 a2)
+void __fastcall PipUnlinkDeviceObjectAndDependencyNode(__int64 a1, __int64 a2)
 {
-  if ( *(_QWORD *)(a2 + 72) != a2 + 72 )
-    ObfDereferenceObjectWithTag(a1, 0x44706E50u);
-  *(_QWORD *)(a1[39] + 80LL) = 0LL;
+  *(_QWORD *)(*(_QWORD *)(a1 + 312) + 80LL) = 0LL;
   *(_QWORD *)(a2 + 48) = 0LL;
   if ( (*(_DWORD *)(a2 + 88))-- == 1 )
     PipDeleteDependencyNode((_QWORD *)a2);

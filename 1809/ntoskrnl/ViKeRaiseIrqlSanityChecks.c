@@ -14,7 +14,7 @@
  *     VerifierPortKeAcquireSpinLockNoXdv @ 0x14093A9D0 (VerifierPortKeAcquireSpinLockNoXdv.c)
  *     ViKeAcquireSpinLockRaiseToDpcCommon @ 0x14093AD74 (ViKeAcquireSpinLockRaiseToDpcCommon.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1400CACE4 (KeAreInterruptsEnabled.c)
+ *     KeAreInterruptsEnabled @ 0x1400CAD04 (KeAreInterruptsEnabled.c)
  *     MmVerifierTrimMemory @ 0x140924C08 (MmVerifierTrimMemory.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  *     VfKeIrqlTransitionReserveLogEntry @ 0x14093AC40 (VfKeIrqlTransitionReserveLogEntry.c)

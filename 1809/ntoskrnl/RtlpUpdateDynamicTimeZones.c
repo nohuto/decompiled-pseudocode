@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpUpdateDynamicTimeZones @ 0x140734DE4
+ * XREFs of RtlpUpdateDynamicTimeZones @ 0x140734DC4
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140734694 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140734674 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlpFindRegTziForCurrentYear @ 0x140180F1C (RtlpFindRegTziForCurrentYear.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x1401B87B0 (ZwEnumerateKey.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x140180F3C (RtlpFindRegTziForCurrentYear.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1401B87D0 (ZwEnumerateKey.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
  *     RtlpGetRegistryHandle @ 0x1405C7774 (RtlpGetRegistryHandle.c)
- *     RtlWriteRegistryValue @ 0x1406C2280 (RtlWriteRegistryValue.c)
+ *     RtlWriteRegistryValue @ 0x1406C2260 (RtlWriteRegistryValue.c)
  */
 
 char __fastcall RtlpUpdateDynamicTimeZones(__int16 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PiUEventDereferenceEventEntry @ 0x140782728
+ * XREFs of PiUEventDereferenceEventEntry @ 0x14071A38C
  * Callers:
- *     PiUEventDequeuePendingEventWorker @ 0x14078258C (PiUEventDequeuePendingEventWorker.c)
- *     PiUEventProcessEventWorker @ 0x1407825F0 (PiUEventProcessEventWorker.c)
- *     PiUEventNotifyUserMode @ 0x140783EFC (PiUEventNotifyUserMode.c)
+ *     PiUEventProcessEventWorker @ 0x14071A1F0 (PiUEventProcessEventWorker.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x14071A334 (PiUEventDequeuePendingEventWorker.c)
+ *     PiUEventNotifyUserMode @ 0x14071A80C (PiUEventNotifyUserMode.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     PiUEventFreeEventEntry @ 0x140782B1C (PiUEventFreeEventEntry.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PiUEventFreeEventEntry @ 0x14071A3F0 (PiUEventFreeEventEntry.c)
  */
 
 __int64 __fastcall PiUEventDereferenceEventEntry(PVOID P)
@@ -19,7 +19,7 @@ __int64 __fastcall PiUEventDereferenceEventEntry(PVOID P)
   v2 = --*((_DWORD *)P + 14);
   if ( *((_BYTE *)P + 68) && v2 == 1 )
     KeSetEvent(*((PRKEVENT *)P + 3), 0, 0);
-  ExReleaseFastMutex(*((PFAST_MUTEX *)P + 2));
+  KeReleaseGuardedMutex(*((PKGUARDED_MUTEX *)P + 2));
   if ( !v2 )
     PiUEventFreeEventEntry(P);
   return v2;

@@ -1,45 +1,44 @@
 /*
- * XREFs of HalpMcExportAndChargeNeededData @ 0x140824960
+ * XREFs of HalpMcExportAndChargeNeededData @ 0x140791838
  * Callers:
- *     HalMcFinishMicrocode @ 0x1403BAEE8 (HalMcFinishMicrocode.c)
+ *     HalMcFinishMicrocode @ 0x1403A8370 (HalMcFinishMicrocode.c)
  * Callees:
- *     MmObtainChargesToLockPagedPool @ 0x14081D080 (MmObtainChargesToLockPagedPool.c)
- *     HalpMcExportAllData @ 0x1408249CC (HalpMcExportAllData.c)
- *     HalpUnloadMicrocode @ 0x14090A3F0 (HalpUnloadMicrocode.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MmObtainChargesToLockPagedPool @ 0x1407918C0 (MmObtainChargesToLockPagedPool.c)
+ *     HalpMcExportAllData @ 0x140791900 (HalpMcExportAllData.c)
+ *     HalpUnloadMicrocode @ 0x1408661D0 (HalpUnloadMicrocode.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 HalpMcExportAndChargeNeededData()
+__int64 __fastcall HalpMcExportAndChargeNeededData(__int64 a1)
 {
-  __int64 v0; // rax
-  void *v1; // rbx
-  unsigned int v2; // edi
+  __int64 v2; // rax
+  void *v3; // rbx
+  unsigned int v4; // edi
   __int64 result; // rax
-  unsigned int v4; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v6; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = 0;
-  v0 = HalpMcExportAllData(&v4, 256LL);
-  v1 = (void *)v0;
-  if ( v0 )
+  v6 = 0;
+  v2 = HalpMcExportAllData(&v6, a1, 1LL);
+  v3 = (void *)v2;
+  if ( v2 )
   {
-    v2 = v4;
-    result = MmObtainChargesToLockPagedPool(v0, v4);
+    v4 = v6;
+    result = MmObtainChargesToLockPagedPool(v2, v6);
+    HalpMcUpdateDataCharged = (_DWORD)result != 0;
     if ( (_DWORD)result )
     {
-      HalpMcUpdateDataCharged = 1;
-LABEL_4:
-      HalpMcUpdateData = v1;
-      LODWORD(HalpMcUpdateDataSize) = v2;
+LABEL_3:
+      HalpMcUpdateData = v3;
+      LODWORD(HalpMcUpdateDataSize) = v4;
       return result;
     }
-    HalpMcUpdateDataCharged = 0;
-    ExFreePoolWithTag(v1, 0x636C6148u);
-    result = HalpMcExportAllData(&v4, 64LL);
-    v1 = (void *)result;
+    ExFreePoolWithTag(v3, 0x206C6148u);
+    result = HalpMcExportAllData(&v6, a1, 512LL);
+    v3 = (void *)result;
     if ( result )
     {
-      v2 = v4;
-      goto LABEL_4;
+      v4 = v6;
+      goto LABEL_3;
     }
   }
   return HalpUnloadMicrocode();

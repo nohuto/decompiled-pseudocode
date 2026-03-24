@@ -1,48 +1,29 @@
 /*
- * XREFs of PnpRecordBlackbox @ 0x140785ADC
+ * XREFs of PnpRecordBlackbox @ 0x1406F03A0
  * Callers:
- *     PnpDisableWatchdog @ 0x140782B7C (PnpDisableWatchdog.c)
- *     PnpDisableAndFreeEventWatchdog @ 0x140785A5C (PnpDisableAndFreeEventWatchdog.c)
- *     PnpCallAddDevice @ 0x140792B3C (PnpCallAddDevice.c)
- *     PnpCallDriverEntry @ 0x1407E2148 (PnpCallDriverEntry.c)
- *     PnpDelayedRemoveWorker @ 0x140881B60 (PnpDelayedRemoveWorker.c)
- *     PnpWatchdogFirstChanceCallback @ 0x140957B90 (PnpWatchdogFirstChanceCallback.c)
+ *     PnpDisableWatchdog @ 0x1406F02D0 (PnpDisableWatchdog.c)
+ *     PnpCallDriverEntry @ 0x140770084 (PnpCallDriverEntry.c)
+ *     PnpWatchdogWorkItem @ 0x1408ABAE0 (PnpWatchdogWorkItem.c)
  * Callees:
- *     PnpRecordBlackboxDeviceCompletionQueueInformation @ 0x140782BCC (PnpRecordBlackboxDeviceCompletionQueueInformation.c)
- *     PnpRecordBlackboxPnpEventWorkerInformation @ 0x140784394 (PnpRecordBlackboxPnpEventWorkerInformation.c)
- *     PnpRecordBlackboxDelayedRemoveWorkerInformation @ 0x14096ED9C (PnpRecordBlackboxDelayedRemoveWorkerInformation.c)
+ *     PnpRecordBlackboxPnpEventWorkerInformation @ 0x1406F0524 (PnpRecordBlackboxPnpEventWorkerInformation.c)
+ *     PnpRecordBlackboxDeviceCompletionQueueInformation @ 0x14076B01C (PnpRecordBlackboxDeviceCompletionQueueInformation.c)
+ *     PnpRecordBlackboxDelayedRemoveWorkerInformation @ 0x1408B8D68 (PnpRecordBlackboxDelayedRemoveWorkerInformation.c)
  */
 
-void __fastcall PnpRecordBlackbox(__int64 a1, int a2)
+__int64 __fastcall PnpRecordBlackbox(__int64 a1, int a2)
 {
-  int v2; // edx
-  int v3; // edx
-  int v4; // edx
+  __int64 result; // rax
 
-  v2 = a2 - 1;
-  if ( v2 )
+  switch ( a2 )
   {
-    v3 = v2 - 1;
-    if ( v3 )
-    {
-      v4 = v3 - 1;
-      if ( v4 )
-      {
-        if ( (unsigned int)(v4 - 1) >= 2 )
-          __fastfail(5u);
-      }
-      else
-      {
-        PnpRecordBlackboxDelayedRemoveWorkerInformation();
-      }
-    }
-    else
-    {
-      PnpRecordBlackboxDeviceCompletionQueueInformation(a1);
-    }
+    case 1:
+      return PnpRecordBlackboxPnpEventWorkerInformation();
+    case 2:
+      return PnpRecordBlackboxDeviceCompletionQueueInformation();
+    case 3:
+      return PnpRecordBlackboxDelayedRemoveWorkerInformation();
   }
-  else
-  {
-    PnpRecordBlackboxPnpEventWorkerInformation(a1);
-  }
+  if ( a2 <= 3 || a2 > 5 )
+    __fastfail(5u);
+  return result;
 }

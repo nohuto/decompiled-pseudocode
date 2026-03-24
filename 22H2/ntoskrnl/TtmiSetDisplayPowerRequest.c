@@ -1,28 +1,28 @@
 /*
- * XREFs of TtmiSetDisplayPowerRequest @ 0x1409A4C4C
+ * XREFs of TtmiSetDisplayPowerRequest @ 0x1408FF288
  * Callers:
- *     TtmpDispatchSetDisplayPowerRequest @ 0x1409A69D4 (TtmpDispatchSetDisplayPowerRequest.c)
+ *     TtmpDispatchSetDisplayPowerRequest @ 0x140901080 (TtmpDispatchSetDisplayPowerRequest.c)
  * Callees:
- *     TtmiScheduleSessionWorker @ 0x1409A4B54 (TtmiScheduleSessionWorker.c)
- *     TtmpFindPowerRequestEntryById @ 0x1409A5348 (TtmpFindPowerRequestEntryById.c)
- *     TtmiLogDisplayPowerRequestSet @ 0x1409A81F4 (TtmiLogDisplayPowerRequestSet.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
- *     TtmiGetTerminalById @ 0x1409AB110 (TtmiGetTerminalById.c)
- *     TtmiSetPendingOnOffRequest @ 0x1409AB548 (TtmiSetPendingOnOffRequest.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     TtmiGetTerminalById @ 0x1408FD82C (TtmiGetTerminalById.c)
+ *     TtmiSetPendingOnOffRequest @ 0x1408FDB78 (TtmiSetPendingOnOffRequest.c)
+ *     TtmiScheduleSessionWorker @ 0x1408FF190 (TtmiScheduleSessionWorker.c)
+ *     TtmpFindPowerRequestEntryById @ 0x1408FF9BC (TtmpFindPowerRequestEntryById.c)
+ *     TtmiLogDisplayPowerRequestSet @ 0x140902914 (TtmiLogDisplayPowerRequestSet.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall TtmiSetDisplayPowerRequest(__int64 a1, _DWORD *a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall TtmiSetDisplayPowerRequest(__int64 a1, unsigned int *a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v4; // ebx
-  int v9; // r8d
-  __int64 v10; // rdx
-  __int64 v11; // rsi
+  __int64 v9; // rdx
+  __int64 v10; // rsi
   __int64 i; // r10
-  __int64 *v13; // r10
-  int v14; // ecx
-  _DWORD *Pool2; // rax
+  __int64 *v12; // r10
+  unsigned int v13; // ecx
+  bool v14; // r14
+  _QWORD *PoolWithTag; // rax
   __int64 v16; // r8
   __int64 v17; // r9
   _QWORD *v18; // rax
@@ -31,9 +31,9 @@ __int64 __fastcall TtmiSetDisplayPowerRequest(__int64 a1, _DWORD *a2, unsigned i
   __int64 j; // r10
   _QWORD *v22; // r10
   __int64 v24; // rdx
-  _QWORD *v25; // rax
-  int v26; // eax
-  int v27; // eax
+  _QWORD *v25; // r8
+  unsigned int v26; // eax
+  unsigned int v27; // eax
   __int64 v28; // [rsp+30h] [rbp-28h] BYREF
   _QWORD v29[4]; // [rsp+38h] [rbp-20h] BYREF
 
@@ -44,56 +44,56 @@ __int64 __fastcall TtmiSetDisplayPowerRequest(__int64 a1, _DWORD *a2, unsigned i
   {
     if ( !(unsigned __int8)TtmpFindPowerRequestEntryById(a1, a3, &v28) )
     {
-      v10 = 818LL;
+      v9 = 818LL;
 LABEL_28:
       v4 = -1073741275;
       goto LABEL_29;
     }
-    v11 = v28 + 48;
-    for ( i = *(_QWORD *)(v28 + 48); i != v11; i = *v13 )
+    v10 = v28 + 48;
+    for ( i = *(_QWORD *)(v28 + 48); i != v10; i = *v12 )
     {
-      if ( (int)TtmiGetTerminalById(v29, a1) >= 0 && *(_DWORD *)(v29[0] + 28LL) == a2[7] )
+      if ( (int)TtmiGetTerminalById(v29, a1, *(_DWORD *)(i - 8)) >= 0 && *(_DWORD *)(v29[0] + 28LL) == a2[7] )
       {
         v4 = -1073741270;
-        v10 = 861LL;
+        v9 = 861LL;
         goto LABEL_29;
       }
     }
     if ( a2[8] == -1 )
     {
       v4 = -1073741675;
-      v10 = 874LL;
+      v9 = 874LL;
       goto LABEL_29;
     }
-    v14 = a2[10];
-    if ( (unsigned int)(v14 - 2) > 1 )
+    v13 = a2[10];
+    v14 = v13 - 2 <= 1;
+    if ( v13 == 2 )
+      TtmiSetPendingOnOffRequest(a1, a2, 1, 8u, 0x54416455u);
+    if ( !v14 )
     {
       v4 = -1073741637;
       goto LABEL_31;
     }
-    if ( v14 == 2 )
-    {
-      LOBYTE(v9) = 1;
-      TtmiSetPendingOnOffRequest(a1, (_DWORD)a2, v9, 8, 1413571669);
-    }
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, 24LL, 1381004372LL);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x52507454u);
+    if ( !PoolWithTag )
     {
       v4 = -1073741670;
       v16 = 0xFFFFFFFFLL;
       v17 = 3221225626LL;
-      v10 = 892LL;
+      v9 = 892LL;
       goto LABEL_30;
     }
-    *Pool2 = a2[7];
-    v18 = Pool2 + 2;
-    v19 = *(_QWORD **)(v11 + 8);
-    if ( *v19 == v11 )
+    *(_OWORD *)PoolWithTag = 0LL;
+    PoolWithTag[2] = 0LL;
+    *(_DWORD *)PoolWithTag = a2[7];
+    v18 = PoolWithTag + 1;
+    v19 = *(_QWORD **)(v10 + 8);
+    if ( *v19 == v10 )
     {
-      *v18 = v11;
+      *v18 = v10;
       v18[1] = v19;
       *v19 = v18;
-      *(_QWORD *)(v11 + 8) = v18;
+      *(_QWORD *)(v10 + 8) = v18;
       ++a2[8];
       goto LABEL_31;
     }
@@ -101,7 +101,7 @@ LABEL_28:
   }
   if ( !(unsigned __int8)TtmpFindPowerRequestEntryById(a1, a3, &v28) )
   {
-    v10 = 934LL;
+    v9 = 937LL;
     goto LABEL_28;
   }
   v20 = v28 + 48;
@@ -109,10 +109,10 @@ LABEL_28:
   {
     if ( j == v20 )
     {
-      v10 = 978LL;
+      v9 = 981LL;
       goto LABEL_28;
     }
-    if ( (int)TtmiGetTerminalById(v29, a1) >= 0 && *(_DWORD *)(v29[0] + 28LL) == a2[7] )
+    if ( (int)TtmiGetTerminalById(v29, a1, *(_DWORD *)(j - 8)) >= 0 && *(_DWORD *)(v29[0] + 28LL) == a2[7] )
       break;
   }
   v24 = *v22;
@@ -136,14 +136,14 @@ LABEL_38:
   else
   {
     v4 = -1073741811;
-    v10 = 1005LL;
+    v9 = 1008LL;
 LABEL_29:
     v17 = 0xFFFFFFFFLL;
     v16 = v4;
 LABEL_30:
-    TtmiLogError("TtmiSetDisplayPowerRequest", v10, v16, v17);
+    TtmiLogError("TtmiSetDisplayPowerRequest", v9, v16, v17);
   }
 LABEL_31:
-  TtmiLogDisplayPowerRequestSet((unsigned int)a2[7], a3, a4, v4);
+  TtmiLogDisplayPowerRequestSet(a2[7], a3, a4, v4);
   return v4;
 }

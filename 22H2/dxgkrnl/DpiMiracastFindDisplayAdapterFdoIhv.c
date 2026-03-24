@@ -1,12 +1,12 @@
 /*
- * XREFs of DpiMiracastFindDisplayAdapterFdoIhv @ 0x1C0227C34
+ * XREFs of DpiMiracastFindDisplayAdapterFdoIhv @ 0x1C0174C90
  * Callers:
- *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C020667C (DxgkMiracastQueryMiracastSupportInternal.c)
- *     DpiMiracastFindDisplayAdapterFdo @ 0x1C039EDDC (DpiMiracastFindDisplayAdapterFdo.c)
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C0174DC4 (DxgkMiracastQueryMiracastSupportInternal.c)
+ *     DpiMiracastFindDisplayAdapterFdo @ 0x1C02CE404 (DpiMiracastFindDisplayAdapterFdo.c)
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0005C0C (DpiCheckForOutstandingD3Requests.c)
- *     DpiGetFdoFromDevice @ 0x1C0012788 (DpiGetFdoFromDevice.c)
- *     DpiEnableD3Requests @ 0x1C01987EC (DpiEnableD3Requests.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001FC54 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiGetFdoFromDevice @ 0x1C001FD24 (DpiGetFdoFromDevice.c)
+ *     DpiEnableD3Requests @ 0x1C00ECD4C (DpiEnableD3Requests.c)
  */
 
 __int64 __fastcall DpiMiracastFindDisplayAdapterFdoIhv(__int64 *a1)
@@ -18,7 +18,7 @@ __int64 __fastcall DpiMiracastFindDisplayAdapterFdoIhv(__int64 *a1)
   __int64 result; // rax
 
   v2 = -1073741275;
-  FdoFromDevice = (struct _IO_REMOVE_LOCK *)DpiGetFdoFromDevice(qword_1C0140740);
+  FdoFromDevice = (struct _IO_REMOVE_LOCK *)DpiGetFdoFromDevice(qword_1C00B2DB8);
   v4 = (__int64)FdoFromDevice;
   if ( FdoFromDevice )
   {
@@ -30,11 +30,11 @@ __int64 __fastcall DpiMiracastFindDisplayAdapterFdoIhv(__int64 *a1)
       ExAcquireResourceSharedLite(*(PERESOURCE *)(v4 + 168), 1u);
       v5 = *(_DWORD *)(v4 + 236);
       if ( (v5 == 2 || *(_DWORD *)(v4 + 240) == 2 && ((v5 - 3) & 0xFFFFFFFC) == 0 && v5 != 4)
-        && *(_DWORD *)(v4 + 3240) != -1
-        && *(_QWORD *)(v4 + 4872) )
+        && *(_DWORD *)(v4 + 3224) != -1
+        && *(_QWORD *)(v4 + 4928) )
       {
         v2 = 0;
-        goto LABEL_11;
+        goto LABEL_9;
       }
       if ( *(_BYTE *)(v4 + 484) )
         DpiEnableD3Requests(*(_QWORD *)(v4 + 24));
@@ -44,7 +44,7 @@ __int64 __fastcall DpiMiracastFindDisplayAdapterFdoIhv(__int64 *a1)
     }
     v4 = 0LL;
   }
-LABEL_11:
+LABEL_9:
   result = v2;
   *a1 = v4;
   return result;

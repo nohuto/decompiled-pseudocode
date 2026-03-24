@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0dp_EtwWriteTransfer @ 0x1C0037BA0
+ * XREFs of McTemplateK0dp_EtwWriteTransfer @ 0x1C002D09C
  * Callers:
- *     VidSchiResetEngine @ 0x1C003B80C (VidSchiResetEngine.c)
- *     VidSchInvalidateHwContext @ 0x1C0044230 (VidSchInvalidateHwContext.c)
+ *     VidSchiResetEngine @ 0x1C0030B80 (VidSchiResetEngine.c)
+ *     VidSchInvalidateHwContext @ 0x1C0039E50 (VidSchInvalidateHwContext.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BD2C (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023ECC (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall McTemplateK0dp_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)

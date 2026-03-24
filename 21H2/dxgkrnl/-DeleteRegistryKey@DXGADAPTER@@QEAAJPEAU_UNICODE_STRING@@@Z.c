@@ -1,141 +1,124 @@
 /*
- * XREFs of ?DeleteRegistryKey@DXGADAPTER@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C02B9F98
+ * XREFs of ?DeleteRegistryKey@DXGADAPTER@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C020B958
  * Callers:
- *     ?DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ @ 0x1C02BA328 (-DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ.c)
+ *     ?DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ @ 0x1C020BC48 (-DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C0019BFC (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ??1DXG_REGISTRY_KEY_LIST@@QEAA@XZ @ 0x1C0301D90 (--1DXG_REGISTRY_KEY_LIST@@QEAA@XZ.c)
- *     ?AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@Z @ 0x1C0301DD4 (-AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@.c)
- *     ?InsertHead@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0303A38 (-InsertHead@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
- *     ?ReadNextPath@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0304254 (-ReadNextPath@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C000C680 (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ??1DXG_REGISTRY_KEY_LIST@@QEAA@XZ @ 0x1C0261984 (--1DXG_REGISTRY_KEY_LIST@@QEAA@XZ.c)
+ *     ?AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@Z @ 0x1C02619C8 (-AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@.c)
+ *     ?InsertHead@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0263434 (-InsertHead@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?ReadNextPath@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0263C48 (-ReadNextPath@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
  */
 
 __int64 __fastcall DXGADAPTER::DeleteRegistryKey(DXGADAPTER *this, struct _UNICODE_STRING *a2)
 {
   unsigned int v2; // edi
-  __int64 v3; // rsi
-  NTSTATUS v4; // eax
+  __int64 v3; // rax
+  __int64 v4; // rbx
   NTSTATUS v5; // eax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  NTSTATUS v8; // eax
   int appended; // eax
   int inserted; // eax
-  const wchar_t *v8; // r9
-  int v9; // eax
-  NTSTATUS v10; // eax
-  NTSTATUS v11; // eax
-  void *KeyHandle; // [rsp+50h] [rbp-B0h] BYREF
-  struct _UNICODE_STRING v14; // [rsp+58h] [rbp-A8h] BYREF
-  _QWORD v15[2]; // [rsp+68h] [rbp-98h] BYREF
-  _QWORD v16[2]; // [rsp+78h] [rbp-88h] BYREF
-  ULONG ResultLength; // [rsp+88h] [rbp-78h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-70h] BYREF
-  struct _KEY_FULL_INFORMATION KeyInformation; // [rsp+C0h] [rbp-40h] BYREF
-  char v20; // [rsp+F0h] [rbp-10h] BYREF
+  int v11; // eax
+  NTSTATUS v12; // eax
+  NTSTATUS v13; // eax
+  __int64 v14; // rax
+  void *KeyHandle; // [rsp+30h] [rbp-D0h] BYREF
+  struct _UNICODE_STRING v17; // [rsp+38h] [rbp-C8h] BYREF
+  _QWORD v18[2]; // [rsp+48h] [rbp-B8h] BYREF
+  _QWORD v19[2]; // [rsp+58h] [rbp-A8h] BYREF
+  ULONG ResultLength; // [rsp+68h] [rbp-98h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-90h] BYREF
+  struct _KEY_FULL_INFORMATION KeyInformation; // [rsp+A0h] [rbp-60h] BYREF
+  char v23; // [rsp+D0h] [rbp-30h] BYREF
 
-  *(_QWORD *)&v14.Length = 34078720LL;
+  *(_QWORD *)&v17.Length = 34078720LL;
   v2 = 0;
-  v15[1] = v15;
-  v15[0] = v15;
-  v16[1] = v16;
-  v16[0] = v16;
-  v14.Buffer = (wchar_t *)&v20;
+  v18[1] = v18;
+  v18[0] = v18;
+  v19[1] = v19;
+  v19[0] = v19;
+  v17.Buffer = (wchar_t *)&v23;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   KeyHandle = 0LL;
   memset(&KeyInformation, 0, sizeof(KeyInformation));
   if ( *((_BYTE *)this + 210) )
   {
-    WdLogSingleEntry1(4LL, 12420LL);
+    v3 = WdLogNewEntry5_WdEvent(this, a2);
+    *(_QWORD *)(v3 + 24) = 11671LL;
+    WdLogEvent5_WdEvent(v3);
   }
   else
   {
-    RtlUnicodeStringCopy(&v14, a2);
-    LODWORD(v3) = DXG_REGISTRY_KEY_LIST::InsertHead((DXG_REGISTRY_KEY_LIST *)v15, &v14);
-    while ( (_QWORD *)v15[0] != v15 )
+    RtlUnicodeStringCopy(&v17, a2);
+    LODWORD(v4) = DXG_REGISTRY_KEY_LIST::InsertHead((DXG_REGISTRY_KEY_LIST *)v18, &v17);
+    while ( (_QWORD *)v18[0] != v18 )
     {
-      DXG_REGISTRY_KEY_LIST::ReadNextPath((DXG_REGISTRY_KEY_LIST *)v15, &v14);
+      DXG_REGISTRY_KEY_LIST::ReadNextPath((DXG_REGISTRY_KEY_LIST *)v18, &v17);
       ObjectAttributes.Length = 48;
-      ObjectAttributes.ObjectName = &v14;
+      ObjectAttributes.ObjectName = &v17;
       ObjectAttributes.RootDirectory = 0LL;
       ObjectAttributes.Attributes = 576;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      v4 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
-      v3 = v4;
-      if ( v4 < 0 )
+      v5 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
+      v4 = v5;
+      if ( v5 < 0
+        || (ResultLength = 0,
+            v8 = ZwQueryKey(KeyHandle, KeyFullInformation, &KeyInformation, 0x30u, &ResultLength),
+            v4 = v8,
+            v8 < 0)
+        || (appended = DXG_REGISTRY_KEY_LIST::AppendSubKeys(
+                         (DXG_REGISTRY_KEY_LIST *)v18,
+                         KeyHandle,
+                         &KeyInformation,
+                         &v17),
+            v4 = appended,
+            appended < 0)
+        || (inserted = DXG_REGISTRY_KEY_LIST::InsertHead((DXG_REGISTRY_KEY_LIST *)v19, &v17), v4 = inserted,
+                                                                                              inserted < 0) )
       {
-LABEL_15:
-        WdLogSingleEntry1(2LL, v3);
-        v8 = L"Failed to open Registry key for DeleteRegistryKeys (status = 0x%I64x).";
-        goto LABEL_25;
-      }
-      ResultLength = 0;
-      v5 = ZwQueryKey(KeyHandle, KeyFullInformation, &KeyInformation, 0x30u, &ResultLength);
-      v3 = v5;
-      if ( v5 < 0 )
-      {
-        WdLogSingleEntry1(2LL, v5);
-        v8 = L"Failed to query key for VmBusGetRegistryKeys (status = 0x%I64x).";
-        goto LABEL_25;
-      }
-      appended = DXG_REGISTRY_KEY_LIST::AppendSubKeys((DXG_REGISTRY_KEY_LIST *)v15, KeyHandle, &KeyInformation, &v14);
-      v3 = appended;
-      if ( appended < 0 )
-      {
-        WdLogSingleEntry1(2LL, appended);
-        v8 = L"Failed to append sub keys for DeleteRegistryKeys (status = 0x%I64x).";
-        goto LABEL_25;
-      }
-      inserted = DXG_REGISTRY_KEY_LIST::InsertHead((DXG_REGISTRY_KEY_LIST *)v16, &v14);
-      v3 = inserted;
-      if ( inserted < 0 )
-      {
-        WdLogSingleEntry1(2LL, inserted);
-        v8 = L"Failed to insert RegPath to RegKeyList for DeleteRegistryKeys (status = 0x%I64x).";
-LABEL_25:
-        DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v8, v3, 0LL, 0LL, 0LL, 0LL);
-        goto LABEL_26;
+LABEL_19:
+        v14 = WdLogNewEntry5_WdError(v7, v6);
+        *(_QWORD *)(v14 + 24) = v4;
+        WdLogEvent5_WdError(v14);
+        goto LABEL_20;
       }
       if ( KeyHandle )
         ZwClose(KeyHandle);
       KeyHandle = 0LL;
     }
-    while ( (_QWORD *)v16[0] != v16 )
+    while ( (_QWORD *)v19[0] != v19 )
     {
-      v9 = DXG_REGISTRY_KEY_LIST::ReadNextPath((DXG_REGISTRY_KEY_LIST *)v16, &v14);
-      v3 = v9;
-      if ( v9 < 0 )
-      {
-        WdLogSingleEntry1(2LL, v9);
-        v8 = L"Failed to read next registry path for DeleteRegistryKeys (status = 0x%I64x).";
-        goto LABEL_25;
-      }
-      ObjectAttributes.Length = 48;
-      ObjectAttributes.ObjectName = &v14;
-      ObjectAttributes.RootDirectory = 0LL;
-      ObjectAttributes.Attributes = 576;
-      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      v10 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
-      v3 = v10;
-      if ( v10 < 0 )
-        goto LABEL_15;
-      v11 = ZwDeleteKey(KeyHandle);
-      v3 = v11;
+      v11 = DXG_REGISTRY_KEY_LIST::ReadNextPath((DXG_REGISTRY_KEY_LIST *)v19, &v17);
+      v4 = v11;
       if ( v11 < 0 )
-      {
-        WdLogSingleEntry1(2LL, v11);
-        v8 = L"Failed to delete Registry key for DeleteRegistryKeys (status = 0x%I64x).";
-        goto LABEL_25;
-      }
+        goto LABEL_19;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.ObjectName = &v17;
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.Attributes = 576;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v12 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
+      v4 = v12;
+      if ( v12 < 0 )
+        goto LABEL_19;
+      v13 = ZwDeleteKey(KeyHandle);
+      v4 = v13;
+      if ( v13 < 0 )
+        goto LABEL_19;
       if ( KeyHandle )
         ZwClose(KeyHandle);
       KeyHandle = 0LL;
     }
-LABEL_26:
+LABEL_20:
     if ( KeyHandle )
       ZwClose(KeyHandle);
-    v2 = v3;
+    v2 = v4;
   }
-  DXG_REGISTRY_KEY_LIST::~DXG_REGISTRY_KEY_LIST((DXG_REGISTRY_KEY_LIST *)v16);
-  DXG_REGISTRY_KEY_LIST::~DXG_REGISTRY_KEY_LIST((DXG_REGISTRY_KEY_LIST *)v15);
+  DXG_REGISTRY_KEY_LIST::~DXG_REGISTRY_KEY_LIST((DXG_REGISTRY_KEY_LIST *)v19);
+  DXG_REGISTRY_KEY_LIST::~DXG_REGISTRY_KEY_LIST((DXG_REGISTRY_KEY_LIST *)v18);
   return v2;
 }

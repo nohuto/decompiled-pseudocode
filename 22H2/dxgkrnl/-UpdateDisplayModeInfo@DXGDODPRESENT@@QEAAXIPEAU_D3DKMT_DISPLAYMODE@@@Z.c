@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UpdateDisplayModeInfo@DXGDODPRESENT@@QEAAXIPEAU_D3DKMT_DISPLAYMODE@@@Z @ 0x1C03D4BE8
+ * XREFs of ?UpdateDisplayModeInfo@DXGDODPRESENT@@QEAAXIPEAU_D3DKMT_DISPLAYMODE@@@Z @ 0x1C030077C
  * Callers:
- *     ?SetDisplayModeInfo@ADAPTER_DISPLAY@@QEAAXIQEBU_DXGK_DISPLAYMODE_INFO@@@Z @ 0x1C0001F1C (-SetDisplayModeInfo@ADAPTER_DISPLAY@@QEAAXIQEBU_DXGK_DISPLAYMODE_INFO@@@Z.c)
+ *     ?SetDisplayModeInfo@ADAPTER_DISPLAY@@QEAAXIQEBU_DXGK_DISPLAYMODE_INFO@@@Z @ 0x1C0001B7C (-SetDisplayModeInfo@ADAPTER_DISPLAY@@QEAAXIQEBU_DXGK_DISPLAYMODE_INFO@@@Z.c)
  * Callees:
- *     ?UpdateDisplayModeInfo@BLTQUEUE@@QEAAXU_D3DDDI_RATIONAL@@I@Z @ 0x1C01DE320 (-UpdateDisplayModeInfo@BLTQUEUE@@QEAAXU_D3DDDI_RATIONAL@@I@Z.c)
+ *     ?UpdateDisplayModeInfo@BLTQUEUE@@QEAAXU_D3DDDI_RATIONAL@@I@Z @ 0x1C00DF688 (-UpdateDisplayModeInfo@BLTQUEUE@@QEAAXU_D3DDDI_RATIONAL@@I@Z.c)
  */
 
 void __fastcall DXGDODPRESENT::UpdateDisplayModeInfo(
@@ -20,7 +20,7 @@ void __fastcall DXGDODPRESENT::UpdateDisplayModeInfo(
   else
     RefreshRate = a3->RefreshRate;
   BLTQUEUE::UpdateDisplayModeInfo(
-    (struct _D3DDDI_RATIONAL *)(*((_QWORD *)this + 1) + 2920 * v3),
+    (struct _D3DDDI_RATIONAL *)(*((_QWORD *)this + 1) + 2904 * v3),
     RefreshRate,
     a3->Height);
 }

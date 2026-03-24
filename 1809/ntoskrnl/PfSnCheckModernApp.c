@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnCheckModernApp @ 0x140667720
+ * XREFs of PfSnCheckModernApp @ 0x140667700
  * Callers:
- *     PfSnBeginAppLaunch @ 0x140666C14 (PfSnBeginAppLaunch.c)
+ *     PfSnBeginAppLaunch @ 0x140666BF4 (PfSnBeginAppLaunch.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
- *     RtlQueryPackageIdentity @ 0x1400A5010 (RtlQueryPackageIdentity.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlQueryPackageIdentity @ 0x1400A5030 (RtlQueryPackageIdentity.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
  */
 

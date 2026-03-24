@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDirectedDripsInitializeBroadcast @ 0x140867E1C
+ * XREFs of PopDirectedDripsInitializeBroadcast @ 0x140867DFC
  * Callers:
- *     PopDirectedDripsNotifyDrivers @ 0x140868178 (PopDirectedDripsNotifyDrivers.c)
+ *     PopDirectedDripsNotifyDrivers @ 0x140868158 (PopDirectedDripsNotifyDrivers.c)
  * Callees:
- *     IoControlPnpDeviceActionQueue @ 0x140135350 (IoControlPnpDeviceActionQueue.c)
- *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x1402D73E4 (PopFxBuildDirectedDripsCandidateDeviceList.c)
- *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x1402D7D80 (PopFxDestroyDirectedDripsCandidateDeviceList.c)
- *     PoInitializeBroadcast @ 0x1406E0AC4 (PoInitializeBroadcast.c)
- *     PopDirectedDripsBuildBroadcastTree @ 0x14087BFB8 (PopDirectedDripsBuildBroadcastTree.c)
+ *     IoControlPnpDeviceActionQueue @ 0x140135370 (IoControlPnpDeviceActionQueue.c)
+ *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x1402D74E4 (PopFxBuildDirectedDripsCandidateDeviceList.c)
+ *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x1402D7E80 (PopFxDestroyDirectedDripsCandidateDeviceList.c)
+ *     PoInitializeBroadcast @ 0x1406E0AA4 (PoInitializeBroadcast.c)
+ *     PopDirectedDripsBuildBroadcastTree @ 0x14087BF98 (PopDirectedDripsBuildBroadcastTree.c)
  */
 
 __int64 __fastcall PopDirectedDripsInitializeBroadcast(unsigned __int32 *a1)

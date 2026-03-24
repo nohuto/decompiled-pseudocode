@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsValid@CSynchronizationInfo@DirectComposition@@MEBA_NXZ @ 0x1C00C9DA0
+ * XREFs of ?IsValid@CSynchronizationInfo@DirectComposition@@MEBA_NXZ @ 0x1C00BC120
  * Callers:
  *     <none>
  * Callees:

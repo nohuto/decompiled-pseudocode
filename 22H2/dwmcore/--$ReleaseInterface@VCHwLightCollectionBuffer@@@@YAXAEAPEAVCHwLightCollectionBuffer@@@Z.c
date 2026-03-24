@@ -1,12 +1,18 @@
 /*
- * XREFs of ??$ReleaseInterface@VCHwLightCollectionBuffer@@@@YAXAEAPEAVCHwLightCollectionBuffer@@@Z @ 0x18003C780
+ * XREFs of ??$ReleaseInterface@VCHwLightCollectionBuffer@@@@YAXAEAPEAVCHwLightCollectionBuffer@@@Z @ 0x180064DC4
  * Callers:
- *     ?Create@CHwLightCollectionBuffer@@SAJPEBULightInfo@@I_NPEAPEAV1@@Z @ 0x180017890 (-Create@CHwLightCollectionBuffer@@SAJPEBULightInfo@@I_NPEAPEAV1@@Z.c)
- *     ?RetrieveCurrentLightBufferForContextNoRef@CLightStack@@QEAAJPEAVCDrawingContext@@PEBVCMILMatrix@@PEAPEAVCHwLightCollectionBuffer@@@Z @ 0x18003136C (-RetrieveCurrentLightBufferForContextNoRef@CLightStack@@QEAAJPEAVCDrawingContext@@PEBVCMILMatrix.c)
- *     ??1CLightStack@@QEAA@XZ @ 0x18003C748 (--1CLightStack@@QEAA@XZ.c)
- *     ?Clear@CLightStack@@QEAAXXZ @ 0x18003C7BC (-Clear@CLightStack@@QEAAXXZ.c)
+ *     ?RetrieveCurrentLightBufferForContextNoRef@CLightStack@@QEAAJPEAVCDrawingContext@@PEBVCMILMatrix@@PEAPEAVCHwLightCollectionBuffer@@@Z @ 0x18000F8F0 (-RetrieveCurrentLightBufferForContextNoRef@CLightStack@@QEAAJPEAVCDrawingContext@@PEBVCMILMatrix.c)
+ *     ?Create@CHwLightCollectionBuffer@@SAJPEBULightInfo@@I_NPEAPEAV1@@Z @ 0x18000FD00 (-Create@CHwLightCollectionBuffer@@SAJPEBULightInfo@@I_NPEAPEAV1@@Z.c)
+ *     ??1CLightStack@@QEAA@XZ @ 0x180062D90 (--1CLightStack@@QEAA@XZ.c)
+ *     ??1CExpression@@UEAA@XZ @ 0x180062E70 (--1CExpression@@UEAA@XZ.c)
+ *     ?SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMaskType@@E_K@Z @ 0x180064C24 (-SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMa.c)
+ *     ??1CBaseExpression@@UEAA@XZ @ 0x180065568 (--1CBaseExpression@@UEAA@XZ.c)
+ *     ?Clear@CLightStack@@QEAAXXZ @ 0x18008E42C (-Clear@CLightStack@@QEAAXXZ.c)
+ *     ??1CInteraction@@MEAA@XZ @ 0x1800E0A04 (--1CInteraction@@MEAA@XZ.c)
+ *     ?SetVisual@CInteraction@@QEAAJPEAVCVisual@@@Z @ 0x1800E16CC (-SetVisual@CInteraction@@QEAAJPEAVCVisual@@@Z.c)
+ *     ?UnRegisterNotifiers@CInteraction@@UEAAXXZ @ 0x1801C6F80 (-UnRegisterNotifiers@CInteraction@@UEAAXXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ReleaseInterface<CHwLightCollectionBuffer>(__int64 *a1)

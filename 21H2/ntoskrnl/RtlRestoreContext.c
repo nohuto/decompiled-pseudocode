@@ -1,18 +1,17 @@
 /*
- * XREFs of RtlRestoreContext @ 0x140429CA0
+ * XREFs of RtlRestoreContext @ 0x140407D00
  * Callers:
- *     RtlGuardRestoreContext @ 0x140294C30 (RtlGuardRestoreContext.c)
+ *     RtlGuardRestoreContext @ 0x1402772A8 (RtlGuardRestoreContext.c)
  * Callees:
- *     KeCheckStackAndTargetAddress @ 0x140236890 (KeCheckStackAndTargetAddress.c)
- *     ZwContinue @ 0x14041BFC0 (ZwContinue.c)
- *     KeKernelShadowStackRestoreContext @ 0x140569380 (KeKernelShadowStackRestoreContext.c)
+ *     KeCheckStackAndTargetAddress @ 0x1402B2030 (KeCheckStackAndTargetAddress.c)
+ *     ZwContinue @ 0x1403FAC00 (ZwContinue.c)
  */
 
 __int64 __fastcall RtlRestoreContext(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        __int64 a4,
+        int a4,
         int a5,
         int a6,
         int a7,
@@ -42,41 +41,53 @@ __int64 __fastcall RtlRestoreContext(
         __int64 a31)
 {
   __int64 v31; // rax
-  __int64 v35; // rcx
-  _QWORD v37[154]; // [rsp-30h] [rbp-520h] BYREF
-  _DWORD v38[8]; // [rsp+4A0h] [rbp-50h] BYREF
-  _QWORD _4C0[7]; // [rsp+4C0h] [rbp-30h] BYREF
-  __int16 vars8; // [rsp+4F8h] [rbp+8h]
-  int vars10; // [rsp+500h] [rbp+10h]
-  __int64 vars18; // [rsp+508h] [rbp+18h]
-  __int16 vars20; // [rsp+510h] [rbp+20h]
+  _QWORD v34[154]; // [rsp-98h] [rbp-520h] BYREF
+  _QWORD _458[7]; // [rsp+458h] [rbp-30h] BYREF
+  __int16 vars8; // [rsp+490h] [rbp+8h]
+  int vars10; // [rsp+498h] [rbp+10h]
+  __int64 vars18; // [rsp+4A0h] [rbp+18h]
+  __int16 vars20; // [rsp+4A8h] [rbp+20h]
 
-  if ( !a2 )
+  if ( a2 )
   {
-LABEL_6:
-    if ( (*(_DWORD *)(a1 + 48) & 0xFFFFFF3F) == 0x10000F )
+    if ( *(_DWORD *)a2 == -2147483607 && *(_DWORD *)(a2 + 24) )
     {
-      _mm_setcsr(*(_DWORD *)(a1 + 52));
-      KeCheckStackAndTargetAddress(*(_QWORD *)(a1 + 248), *(_QWORD *)(a1 + 152));
-      v35 = a1;
-      if ( (KiKernelCetEnabled & 1) != 0 )
-      {
-        __asm { rdsspq  rdx }
-        KeKernelShadowStackRestoreContext(a1, _RDX, a2);
-        v35 = a1;
-      }
-      vars20 = *(_WORD *)(v35 + 66);
-      vars18 = *(_QWORD *)(v35 + 152);
-      vars10 = *(_DWORD *)(v35 + 68);
-      vars8 = *(_WORD *)(v35 + 56);
-      _4C0[6] = *(_QWORD *)(v35 + 248);
-      _disable();
-      __asm { iretq }
+      qmemcpy(v34, (const void *)a1, sizeof(v34));
+      _458[3] = v34[19];
+      _458[0] = v34[31];
+      return RcFrameConsolidation(
+               a2,
+               (unsigned int)RcFrameConsolidation,
+               (unsigned int)_458,
+               a4,
+               a5,
+               a6,
+               a7,
+               a8,
+               a9,
+               a10,
+               a11,
+               a12,
+               a13,
+               a14,
+               a15,
+               a16,
+               a17,
+               a18,
+               a19,
+               a20,
+               a21,
+               a22,
+               a23,
+               a24,
+               a25,
+               a26,
+               a27,
+               a28,
+               a29,
+               a30,
+               a31);
     }
-    return ZwContinue(a1, 0LL);
-  }
-  if ( *(_DWORD *)a2 != -2147483607 || !*(_DWORD *)(a2 + 24) )
-  {
     if ( *(_DWORD *)a2 == -2147483610 )
     {
       v31 = *(_QWORD *)(a2 + 32);
@@ -102,50 +113,18 @@ LABEL_6:
       *(_OWORD *)(a1 + 640) = *(_OWORD *)(v31 + 224);
       *(_OWORD *)(a1 + 656) = *(_OWORD *)(v31 + 240);
     }
-    goto LABEL_6;
   }
-  qmemcpy(v37, (const void *)a1, sizeof(v37));
-  if ( (v37[6] & 0x100080) == 0x100080 )
+  if ( (*(_DWORD *)(a1 + 48) & 0xFFFFFFBF) == 0x10000F )
   {
-    v38[6] = a1 + 1232 - (unsigned int)v38 + *(_DWORD *)(a1 + 1256);
-    v38[7] = *(_DWORD *)(a1 + 1260);
-    v38[2] = *(_DWORD *)(a1 + 1240);
-    v38[3] = *(_DWORD *)(a1 + 1244);
-    v38[0] = -1232;
-    v38[1] = a1 + 1232 - (unsigned int)v38 + *(_DWORD *)(a1 + 1236);
+    _mm_setcsr(*(_DWORD *)(a1 + 52));
+    KeCheckStackAndTargetAddress(*(_QWORD *)(a1 + 248), *(_QWORD *)(a1 + 152));
+    vars20 = *(_WORD *)(a1 + 66);
+    vars18 = *(_QWORD *)(a1 + 152);
+    vars10 = *(_DWORD *)(a1 + 68);
+    vars8 = *(_WORD *)(a1 + 56);
+    _458[6] = *(_QWORD *)(a1 + 248);
+    _disable();
+    __asm { iretq }
   }
-  _4C0[3] = v37[19];
-  _4C0[0] = v37[31];
-  return RcFrameConsolidation(
-           a2,
-           (unsigned int)RcFrameConsolidation,
-           (unsigned int)_4C0,
-           a2,
-           a5,
-           a6,
-           a7,
-           a8,
-           a9,
-           a10,
-           a11,
-           a12,
-           a13,
-           a14,
-           a15,
-           a16,
-           a17,
-           a18,
-           a19,
-           a20,
-           a21,
-           a22,
-           a23,
-           a24,
-           a25,
-           a26,
-           a27,
-           a28,
-           a29,
-           a30,
-           a31);
+  return ZwContinue(a1, 0LL);
 }

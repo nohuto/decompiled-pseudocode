@@ -1,10 +1,10 @@
 /*
- * XREFs of HalacpiIrqTranslateResourcesIsa @ 0x14084F1B0
+ * XREFs of HalacpiIrqTranslateResourcesIsa @ 0x1407C09F0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIsInterruptTypeSecondary @ 0x1403B4C50 (HalpIsInterruptTypeSecondary.c)
- *     TranslateGlobalVectorToIsaVector @ 0x14084F488 (TranslateGlobalVectorToIsaVector.c)
+ *     HalpIsInterruptTypeSecondary @ 0x1403C5290 (HalpIsInterruptTypeSecondary.c)
+ *     TranslateGlobalVectorToIsaVector @ 0x1407C0CE8 (TranslateGlobalVectorToIsaVector.c)
  */
 
 __int64 __fastcall HalacpiIrqTranslateResourcesIsa(
@@ -21,15 +21,14 @@ __int64 __fastcall HalacpiIrqTranslateResourcesIsa(
   char v10; // bp
   unsigned int v13; // edx
   __int64 result; // rax
-  __int16 v15; // r10
-  unsigned int v16; // ecx
-  _DWORD *v17; // rax
-  unsigned int v18; // edx
-  int v19; // [rsp+48h] [rbp+10h] BYREF
+  unsigned int v15; // ecx
+  _DWORD *v16; // rax
+  unsigned int v17; // edx
+  int v18; // [rsp+48h] [rbp+10h] BYREF
 
   v7 = *a2;
   v8 = a7;
-  v19 = 0;
+  v18 = 0;
   v10 = 0;
   *a7 = v7;
   *((_DWORD *)v8 + 4) = *((_DWORD *)a2 + 4);
@@ -44,36 +43,34 @@ __int64 __fastcall HalacpiIrqTranslateResourcesIsa(
   }
   if ( a3 != 1 )
     return 0LL;
-  result = TranslateGlobalVectorToIsaVector(*((unsigned __int16 *)a2 + 2), &v19);
+  result = TranslateGlobalVectorToIsaVector(*((unsigned __int16 *)a2 + 2), &v18);
   if ( (int)result >= 0 )
   {
-    *((_WORD *)v8 + 2) = v19;
-    result = TranslateGlobalVectorToIsaVector(*((unsigned int *)a2 + 2), &v19);
+    *((_WORD *)v8 + 2) = v18;
+    result = TranslateGlobalVectorToIsaVector(*((unsigned int *)a2 + 2), &v18);
     if ( (int)result >= 0 )
     {
-      *((_DWORD *)v8 + 2) = v19;
-      if ( v15 == 9 )
+      *((_DWORD *)v8 + 2) = v18;
+      if ( *((_WORD *)v8 + 2) == 9 )
       {
-        v16 = 0;
+        v15 = 0;
         if ( a4 )
         {
-          v17 = (_DWORD *)(a5 + 12);
-          do
+          v16 = (_DWORD *)(a5 + 12);
+          while ( 1 )
           {
-            v18 = *(v17 - 1);
-            if ( v18 < 9 )
-            {
-              if ( v18 >= 2 && *v17 <= 2u )
-                v10 = 1;
-            }
-            else if ( *v17 <= 9u )
-            {
-              return 0LL;
-            }
-            ++v16;
-            v17 += 8;
+            v17 = *(v16 - 1);
+            if ( v17 >= 9 && *v16 <= 9u )
+              break;
+            if ( v17 >= 2 && *v16 <= 2u )
+              v10 = 1;
+            ++v15;
+            v16 += 8;
+            if ( v15 >= a4 )
+              goto LABEL_20;
           }
-          while ( v16 < a4 );
+          v10 = 0;
+LABEL_20:
           if ( v10 )
           {
             *((_WORD *)v8 + 2) = 2;

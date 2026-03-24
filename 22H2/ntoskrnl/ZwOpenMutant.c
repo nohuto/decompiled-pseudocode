@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwOpenMutant @ 0x14041CC40
+ * XREFs of ZwOpenMutant @ 0x1403FBEC0
  * Callers:
- *     BiGetCurrentBcdMutantHandle @ 0x140807C14 (BiGetCurrentBcdMutantHandle.c)
+ *     BiAcquireBcdSyncMutant @ 0x140784838 (BiAcquireBcdSyncMutant.c)
  * Callees:
  *     <none>
  */

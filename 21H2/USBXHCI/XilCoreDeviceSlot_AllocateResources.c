@@ -1,15 +1,16 @@
 /*
- * XREFs of XilCoreDeviceSlot_AllocateResources @ 0x1C00164C4
+ * XREFs of XilCoreDeviceSlot_AllocateResources @ 0x1C00161E8
  * Callers:
- *     XilDeviceSlot_PrepareHardware @ 0x1C0016478 (XilDeviceSlot_PrepareHardware.c)
+ *     XilDeviceSlot_PrepareHardware @ 0x1C0015BCC (XilDeviceSlot_PrepareHardware.c)
  * Callees:
- *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009E10 (XilCoreCommonBuffer_AcquireBuffers.c)
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     CommonBuffer_AcquireBuffer @ 0x1C000FA9C (CommonBuffer_AcquireBuffer.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_i @ 0x1C00156C4 (WPP_RECORDER_SF_i.c)
- *     CommonBuffer_QueueWorkItem @ 0x1C0018AB8 (CommonBuffer_QueueWorkItem.c)
- *     XilCoreDeviceSlot_FreeResources @ 0x1C0050CC8 (XilCoreDeviceSlot_FreeResources.c)
+ *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009B00 (XilCoreCommonBuffer_AcquireBuffers.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     CommonBuffer_AcquireBuffer @ 0x1C000E440 (CommonBuffer_AcquireBuffer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     CommonBuffer_QueueWorkItem @ 0x1C0019468 (CommonBuffer_QueueWorkItem.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     XilCoreDeviceSlot_FreeResources @ 0x1C00500C4 (XilCoreDeviceSlot_FreeResources.c)
  */
 
 __int64 __fastcall XilCoreDeviceSlot_AllocateResources(__int64 a1)
@@ -30,11 +31,12 @@ __int64 __fastcall XilCoreDeviceSlot_AllocateResources(__int64 a1)
   _QWORD *v15; // r9
   __int64 v16; // r10
   int v17; // eax
-  __int64 Pool2; // rax
-  __int64 v19; // rdx
-  __int64 v20; // rax
-  int v22; // r9d
-  char v23; // [rsp+60h] [rbp+8h] BYREF
+  SIZE_T v18; // rbx
+  PVOID PoolWithTag; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rax
+  int v23; // r9d
+  char v24; // [rsp+60h] [rbp+8h] BYREF
 
   v1 = (_QWORD *)(a1 + 40);
   v3 = *(_QWORD *)(*(_QWORD *)a1 + 8LL);
@@ -46,98 +48,106 @@ __int64 __fastcall XilCoreDeviceSlot_AllocateResources(__int64 a1)
   *(_QWORD *)(a1 + 24) = v6;
   if ( !v6 )
   {
-    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_25;
-    v22 = 13;
-LABEL_24:
-    LOBYTE(v7) = 2;
-    WPP_RECORDER_SF_(
-      *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
-      v7,
-      10,
-      v22,
-      (__int64)&WPP_cb7a5c278baa3da630509d7564b04261_Traceguids);
-    goto LABEL_25;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v23 = 13;
+LABEL_19:
+      LOBYTE(v7) = 2;
+      WPP_RECORDER_SF_(
+        *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
+        v7,
+        10,
+        v23,
+        (__int64)&WPP_57b4ec5b2a77395746dfb5e96c966fbd_Traceguids);
+    }
+LABEL_20:
+    v12 = -1073741670;
+    goto LABEL_21;
   }
-  v8 = *(_DWORD *)(v5 + 92);
+  v8 = *(_DWORD *)(v5 + 96);
   *(_DWORD *)(a1 + 20) = v8;
   if ( !v8 )
-    goto LABEL_11;
+  {
+LABEL_11:
+    v17 = (unsigned __int8)*(_DWORD *)(v5 + 84);
+    *(_DWORD *)(a1 + 16) = v17;
+    v18 = 8LL * (unsigned int)(v17 + 1);
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v18, 0x49434858u);
+    *(_QWORD *)(a1 + 56) = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      memset(PoolWithTag, 0, v18);
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v20 = *(_QWORD *)(a1 + 24);
+        v21 = *(_QWORD *)(v20 + 16);
+        LOBYTE(v20) = 4;
+        WPP_RECORDER_SF_i(
+          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 8LL) + 72LL),
+          v20,
+          10,
+          17,
+          (__int64)&WPP_57b4ec5b2a77395746dfb5e96c966fbd_Traceguids,
+          v21);
+      }
+      v12 = 0;
+      goto LABEL_15;
+    }
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v23 = 16;
+      goto LABEL_19;
+    }
+    goto LABEL_20;
+  }
   v9 = CommonBuffer_AcquireBuffer(v4, 8 * v8, a1, 846490707);
   *(_QWORD *)(a1 + 32) = v9;
   if ( !v9 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_25;
-    v22 = 14;
-    goto LABEL_24;
+      goto LABEL_20;
+    v23 = 14;
+    goto LABEL_19;
   }
   v10 = *(_DWORD *)(a1 + 20);
-  v23 = 0;
-  v12 = XilCoreCommonBuffer_AcquireBuffers((__int64)v4 + 88, v10, 0x1000u, (int)v1, a1, 863267923, &v23);
-  if ( v23 )
+  v24 = 0;
+  v12 = XilCoreCommonBuffer_AcquireBuffers((__int64)v4 + 88, v10, 0x1000u, (int)v1, a1, 863267923, &v24);
+  if ( v24 )
     CommonBuffer_QueueWorkItem(v4);
-  if ( v12 < 0 )
+  if ( v12 >= 0 )
   {
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v11) = 2;
-      WPP_RECORDER_SF_d(
-        *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
-        v11,
-        10,
-        15,
-        (__int64)&WPP_cb7a5c278baa3da630509d7564b04261_Traceguids,
-        v12);
-    }
-    goto LABEL_26;
-  }
-  v13 = *(_QWORD *)(a1 + 32);
-  v14 = 0LL;
-  v15 = (_QWORD *)*v1;
-  v16 = *(_QWORD *)(v13 + 16);
-  if ( *(_DWORD *)(a1 + 20) )
-  {
-    do
-    {
-      *(_QWORD *)(v16 + 8 * v14) = v15[3];
-      v14 = (unsigned int)(v14 + 1);
-      v15 = (_QWORD *)*v15;
-    }
-    while ( (unsigned int)v14 < *(_DWORD *)(a1 + 20) );
     v13 = *(_QWORD *)(a1 + 32);
-  }
-  **(_QWORD **)(*(_QWORD *)(a1 + 24) + 16LL) = *(_QWORD *)(v13 + 24);
-LABEL_11:
-  v17 = (unsigned __int8)*(_DWORD *)(v5 + 80);
-  *(_DWORD *)(a1 + 16) = v17;
-  Pool2 = ExAllocatePool2(64LL, 8LL * (unsigned int)(v17 + 1), 1229146200LL);
-  *(_QWORD *)(a1 + 56) = Pool2;
-  if ( !Pool2 )
-  {
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    v14 = 0LL;
+    v15 = (_QWORD *)*v1;
+    v16 = *(_QWORD *)(v13 + 16);
+    if ( *(_DWORD *)(a1 + 20) )
     {
-      v22 = 16;
-      goto LABEL_24;
+      do
+      {
+        *(_QWORD *)(v16 + 8 * v14) = v15[3];
+        v14 = (unsigned int)(v14 + 1);
+        v15 = (_QWORD *)*v15;
+      }
+      while ( (unsigned int)v14 < *(_DWORD *)(a1 + 20) );
+      v13 = *(_QWORD *)(a1 + 32);
     }
-LABEL_25:
-    v12 = -1073741670;
-LABEL_26:
-    XilCoreDeviceSlot_FreeResources(a1);
-    return (unsigned int)v12;
+    **(_QWORD **)(*(_QWORD *)(a1 + 24) + 16LL) = *(_QWORD *)(v13 + 24);
+    goto LABEL_11;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v19 = *(_QWORD *)(a1 + 24);
-    v20 = *(_QWORD *)(v19 + 16);
-    LOBYTE(v19) = 4;
-    WPP_RECORDER_SF_i(
-      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 8LL) + 72LL),
-      v19,
+    LOBYTE(v11) = 2;
+    WPP_RECORDER_SF_d(
+      *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
+      v11,
       10,
-      17,
-      (__int64)&WPP_cb7a5c278baa3da630509d7564b04261_Traceguids,
-      v20);
+      15,
+      (__int64)&WPP_57b4ec5b2a77395746dfb5e96c966fbd_Traceguids,
+      v12);
   }
-  return 0;
+LABEL_15:
+  if ( v12 < 0 )
+LABEL_21:
+    XilCoreDeviceSlot_FreeResources(a1);
+  return (unsigned int)v12;
 }

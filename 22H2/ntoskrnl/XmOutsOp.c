@@ -1,19 +1,19 @@
 /*
- * XREFs of XmOutsOp @ 0x140533C90
+ * XREFs of XmOutsOp @ 0x1404E62F0
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmGetStringAddress @ 0x140398FFC (XmGetStringAddress.c)
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
- *     x86BiosWriteIoSpace @ 0x1403C2310 (x86BiosWriteIoSpace.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
+ *     x86BiosWriteIoSpace @ 0x140398EA0 (x86BiosWriteIoSpace.c)
+ *     XmGetStringAddress @ 0x1403C0A5C (XmGetStringAddress.c)
  */
 
 char __fastcall XmOutsOp(__int64 a1)
 {
   char result; // al
   int v3; // edi
-  unsigned __int16 i; // si
-  unsigned __int16 *StringAddress; // rax
+  __int16 i; // si
+  int *StringAddress; // rax
 
   result = 0;
   v3 = 1;
@@ -32,8 +32,8 @@ char __fastcall XmOutsOp(__int64 a1)
   }
   for ( i = *(_WORD *)(a1 + 108); v3; --v3 )
   {
-    StringAddress = (unsigned __int16 *)XmGetStringAddress(a1, *(_DWORD *)(a1 + 116), 6u);
-    XmSetSourceValue(a1, StringAddress);
+    StringAddress = XmGetStringAddress(a1, *(_DWORD *)(a1 + 116), 6u);
+    XmSetSourceValue(a1, (unsigned __int16 *)StringAddress);
     result = x86BiosWriteIoSpace(*(unsigned int *)(a1 + 120), i, *(_DWORD *)(a1 + 108));
   }
   return result;

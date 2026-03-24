@@ -1,10 +1,10 @@
 /*
- * XREFs of MmFreePagesFromMdl @ 0x1401373B0
+ * XREFs of MmFreePagesFromMdl @ 0x1401373D0
  * Callers:
- *     sub_1401AD750 @ 0x1401AD750 (sub_1401AD750.c)
- *     PopFreeHiberContext @ 0x1406DFFC0 (PopFreeHiberContext.c)
- *     MmAllocateNonCachedMemory @ 0x14084DC60 (MmAllocateNonCachedMemory.c)
- *     MmFreeNonCachedMemory @ 0x14084DE40 (MmFreeNonCachedMemory.c)
+ *     sub_1401AD770 @ 0x1401AD770 (sub_1401AD770.c)
+ *     PopFreeHiberContext @ 0x1406DFFA0 (PopFreeHiberContext.c)
+ *     MmAllocateNonCachedMemory @ 0x14084DC40 (MmAllocateNonCachedMemory.c)
+ *     MmFreeNonCachedMemory @ 0x14084DE20 (MmFreeNonCachedMemory.c)
  *     ResFwFreeContext @ 0x14094E218 (ResFwFreeContext.c)
  * Callees:
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)

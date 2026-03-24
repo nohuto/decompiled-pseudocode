@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSetupUserPresencePredictionNotification @ 0x140865D88
+ * XREFs of PopSetupUserPresencePredictionNotification @ 0x1407D4F78
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1407DB2B0 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x140694970 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 PopSetupUserPresencePredictionNotification()

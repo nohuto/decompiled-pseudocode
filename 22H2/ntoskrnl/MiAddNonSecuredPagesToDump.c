@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddNonSecuredPagesToDump @ 0x14062F398
+ * XREFs of MiAddNonSecuredPagesToDump @ 0x1405377A4
  * Callers:
- *     MmGetDumpRange @ 0x1406303F0 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x1405386B0 (MmGetDumpRange.c)
  * Callees:
- *     MiIsPageSecured @ 0x1402EED30 (MiIsPageSecured.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     MiIsPageSecured @ 0x14030C4B8 (MiIsPageSecured.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiAddNonSecuredPagesToDump(
@@ -12,47 +12,47 @@ __int64 __fastcall MiAddNonSecuredPagesToDump(
         __int64 a2,
         __int64 a3)
 {
-  __int64 v3; // r15
-  __int64 v4; // r14
-  __int64 v6; // rbx
-  unsigned int v7; // esi
-  __int64 v8; // rdi
-  __int64 v9; // rbp
+  unsigned int v3; // r11d
+  __int64 v4; // rsi
+  __int64 v5; // rdi
+  __int64 v7; // rbp
+  __int64 v8; // rbx
+  __int64 v9; // r10
   __int64 result; // rax
+  __int64 v11; // r10
 
-  v3 = a3;
-  v4 = a2;
-  v6 = 0LL;
-  v7 = 0;
-  v8 = 48 * a2 - 0x220000000000LL;
+  v3 = 0;
+  v4 = a3;
+  v5 = a2;
   if ( a3 )
   {
-    v9 = a2 + 1;
+    v7 = a2 + 1;
+    v8 = 48 * a2 - 0x58000000000LL;
     do
     {
-      if ( (unsigned int)MiIsPageSecured(v8) )
+      if ( MiIsPageSecured(v8) )
       {
-        if ( v6 )
+        if ( v9 )
         {
-          result = (*a1)(a1, v4, v6, 258LL);
-          v7 = result;
+          result = (*a1)(a1, v5, v9, 258LL);
+          v3 = result;
           if ( (int)result < 0 )
             return result;
         }
-        v4 = v9;
-        v6 = 0LL;
+        v5 = v7;
+        v11 = 0LL;
       }
       else
       {
-        ++v6;
+        v11 = v9 + 1;
       }
       v8 += 48LL;
-      ++v9;
-      --v3;
+      ++v7;
+      --v4;
     }
-    while ( v3 );
-    if ( v6 )
-      return (unsigned int)(*a1)(a1, v4, v6, 258LL);
+    while ( v4 );
+    if ( v11 )
+      return (unsigned int)(*a1)(a1, v5, v11, 258LL);
   }
-  return v7;
+  return v3;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?xxxSend3FingerTapHotkey@@YAXXZ @ 0x1C0212260
+ * XREFs of ?xxxSend3FingerTapHotkey@@YAXXZ @ 0x1C021387C
  * Callers:
- *     Send3FingerTapHotkey @ 0x1C02125D0 (Send3FingerTapHotkey.c)
+ *     Send3FingerTapHotkey @ 0x1C0213DC0 (Send3FingerTapHotkey.c)
  * Callees:
- *     xxxSendInput @ 0x1C007EDD4 (xxxSendInput.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     xxxSendInput @ 0x1C00C0268 (xxxSendInput.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void xxxSend3FingerTapHotkey(void)

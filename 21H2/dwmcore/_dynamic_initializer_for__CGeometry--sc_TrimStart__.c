@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CGeometry::sc_TrimStart__ @ 0x180001550
+ * XREFs of _dynamic_initializer_for__CGeometry::sc_TrimStart__ @ 0x180001510
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CGeometry::sc_TrimStart__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D1AE0 = (unsigned __int64)CGeometry::SetTrimInvalidatingAnimatedProperty;
-  qword_1803D1AF0 = v1;
+  xmmword_180345BF0 = (unsigned __int64)CGeometry::SetTrimInvalidatingAnimatedProperty;
+  qword_180345C00 = v1;
   return result;
 }

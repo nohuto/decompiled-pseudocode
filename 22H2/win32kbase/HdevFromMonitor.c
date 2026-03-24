@@ -1,8 +1,9 @@
 /*
- * XREFs of HdevFromMonitor @ 0x1C0011FC0
+ * XREFs of HdevFromMonitor @ 0x1C00AE440
  * Callers:
- *     DestroyMonitorDCs @ 0x1C00122F0 (DestroyMonitorDCs.c)
- *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0060D08 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     SnapshotMonitorRects @ 0x1C00AE340 (SnapshotMonitorRects.c)
+ *     DestroyMonitorDCs @ 0x1C00C34E0 (DestroyMonitorDCs.c)
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C00C77F4 (-zzzUpdateUserScreen@@YAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -10,17 +11,25 @@
 __int64 __fastcall HdevFromMonitor(__int64 a1)
 {
   unsigned int v1; // edx
-  __int64 v2; // r9
-  unsigned int v3; // r8d
+  __int64 i; // r8
+  __int64 v4; // r9
+  unsigned int v5; // r8d
 
   v1 = 0;
-  v2 = *((_QWORD *)gpDispInfo + 2);
-  v3 = *(_DWORD *)(v2 + 20);
-  if ( !v3 )
-    return 0xFFFFFFFFLL;
-  while ( *(_QWORD *)(56LL * v1 + v2 + 40) != *(_QWORD *)(a1 + 80) )
+  for ( i = *(_QWORD *)(gpDispInfo + 104); ; i = *(_QWORD *)(i + 56) )
   {
-    if ( ++v1 >= v3 )
+    if ( !i )
+      return 0xFFFFFFFFLL;
+    if ( i == a1 )
+      break;
+  }
+  v4 = *(_QWORD *)(gpDispInfo + 16);
+  v5 = *(_DWORD *)(v4 + 20);
+  if ( !v5 )
+    return 0xFFFFFFFFLL;
+  while ( *(_QWORD *)(56LL * v1 + v4 + 40) != *(_QWORD *)(a1 + 232) )
+  {
+    if ( ++v1 >= v5 )
       return 0xFFFFFFFFLL;
   }
   return v1;

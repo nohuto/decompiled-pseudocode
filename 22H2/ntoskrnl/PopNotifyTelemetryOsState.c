@@ -1,10 +1,10 @@
 /*
- * XREFs of PopNotifyTelemetryOsState @ 0x1409926B4
+ * XREFs of PopNotifyTelemetryOsState @ 0x140776414
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     PopTransitionTelemetryOsState @ 0x1408037CC (PopTransitionTelemetryOsState.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     PopTransitionTelemetryOsState @ 0x1407938D4 (PopTransitionTelemetryOsState.c)
  */
 
 __int64 __fastcall PopNotifyTelemetryOsState(__int64 a1, int a2, int a3, __int64 a4, char a5)
@@ -12,38 +12,39 @@ __int64 __fastcall PopNotifyTelemetryOsState(__int64 a1, int a2, int a3, __int64
   unsigned int v5; // r10d
   char v8; // r9
   int v9; // r11d
-  int v10; // r10d
-  int v11; // ecx
+  unsigned int v11; // r10d
+  __int64 v12; // rcx
 
   v5 = 0;
-  if ( dword_140C03950 && tlgKeywordOn((__int64)&dword_140C03950, 0x800000000000LL) )
+  if ( dword_140C02228 && tlgKeywordOn((__int64)&dword_140C02228, 0x800000000000LL) )
   {
     if ( (unsigned int)(v9 - 4) <= 2 )
     {
-      v11 = 2;
+      v12 = 2LL;
       LOBYTE(v5) = v9 == 5;
-      v10 = v5 + 1;
-      return (unsigned int)PopTransitionTelemetryOsState(v11, v10);
+      v11 = v5 + 1;
     }
-    if ( (unsigned int)(v9 - 2) <= 1 )
+    else
     {
-      v10 = 4;
-      v11 = 4 - (a5 != 0);
+      if ( (unsigned int)(v9 - 2) > 1 )
+        return v5;
+      v11 = 4;
+      v12 = 4 - (unsigned int)(a5 != 0);
       if ( v9 == 3 || a3 == 5 )
       {
         if ( (v8 & 8) != 0 )
         {
-          v10 = 3;
+          v11 = 3;
         }
         else
         {
-          v10 = 5;
+          v11 = 5;
           if ( (unsigned int)(a2 - 2) <= 2 )
-            v10 = 8;
+            v11 = 8;
         }
       }
-      return (unsigned int)PopTransitionTelemetryOsState(v11, v10);
     }
+    return (unsigned int)PopTransitionTelemetryOsState(v12, v11);
   }
   return v5;
 }

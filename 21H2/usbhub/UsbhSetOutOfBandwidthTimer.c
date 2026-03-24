@@ -1,29 +1,31 @@
 /*
- * XREFs of UsbhSetOutOfBandwidthTimer @ 0x1C002D0CC
+ * XREFs of UsbhSetOutOfBandwidthTimer @ 0x1C002E4CC
  * Callers:
- *     UsbhSelectConfigOrInterfaceComplete @ 0x1C002CE50 (UsbhSelectConfigOrInterfaceComplete.c)
+ *     UsbhSelectConfigOrInterfaceComplete @ 0x1C002E250 (UsbhSelectConfigOrInterfaceComplete.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhReferenceListAdd @ 0x1C001AD54 (UsbhReferenceListAdd.c)
- *     UsbhSetTimer @ 0x1C002D368 (UsbhSetTimer.c)
+ *     UsbhReferenceListAdd @ 0x1C0001AE8 (UsbhReferenceListAdd.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     UsbhSetTimer @ 0x1C002E77C (UsbhSetTimer.c)
  */
 
 void __fastcall UsbhSetOutOfBandwidthTimer(__int64 a1, unsigned __int16 a2, int a3, int a4)
 {
   __int64 PortData; // rbp
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   char *v9; // rsi
   char v10; // [rsp+28h] [rbp-10h]
 
   PortData = UsbhGetPortData(a1, a2);
   if ( PortData )
   {
-    Pool2 = ExAllocatePool2(64LL, 160LL, 1112885333LL);
-    v9 = (char *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 0xA0uLL, 0x42554855u);
+    v9 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      if ( (int)UsbhReferenceListAdd(a1, Pool2, 1951875663) < 0 )
+      memset(PoolWithTag, 0, 0xA0uLL);
+      if ( (int)UsbhReferenceListAdd(a1, (__int64)v9, 1951875663) < 0 )
         goto LABEL_6;
       *(_DWORD *)v9 = 1331118703;
       *((_QWORD *)v9 + 2) = a1;

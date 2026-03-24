@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCovSampLookasideGrow @ 0x140603978
+ * XREFs of EtwpCovSampLookasideGrow @ 0x1405AF2FC
  * Callers:
- *     EtwpCovSampCaptureWorkerThread @ 0x1408A8D20 (EtwpCovSampCaptureWorkerThread.c)
- *     EtwpCovSampCaptureContextStart @ 0x1409F0AAC (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCovSampCaptureContextStart @ 0x140942308 (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x140942B10 (EtwpCovSampCaptureWorkerThread.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
@@ -17,7 +17,7 @@ __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
   __int64 v2; // rbp
   unsigned int v5; // ebx
   struct _SLIST_ENTRY *v6; // rdi
-  volatile signed __int64 *v7; // r14
+  KSPIN_LOCK *v7; // r14
   unsigned __int64 v8; // rsi
   unsigned int v9; // eax
   _SLIST_ENTRY *v10; // rax
@@ -36,8 +36,8 @@ __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
     v6 = (struct _SLIST_ENTRY *)(*(__int64 (**)(void))(v2 + 48))();
     if ( v6 )
     {
-      v7 = (volatile signed __int64 *)(a1 + 632);
-      v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 632));
+      v7 = (KSPIN_LOCK *)(a1 + 264);
+      v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 264));
       if ( *(_DWORD *)(a2 + 40) && (v9 = *(_DWORD *)(a2 + 52), v9 < *(_DWORD *)(a2 + 56)) )
       {
         *(_DWORD *)(a2 + 52) = v9 + 1;
@@ -62,16 +62,19 @@ __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
       KxReleaseSpinLock(v7);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-          v17 = (v16 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v16;
-          if ( v17 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+            v17 = (v16 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v16;
+            if ( v17 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(v8);

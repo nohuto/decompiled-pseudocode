@@ -1,74 +1,72 @@
 /*
- * XREFs of ?IsPointerWindowFrameMessage@CTouchProcessor@@QEAAH_KPEAUHWND__@@I_JH@Z @ 0x1C01CCF40
+ * XREFs of ?IsPointerWindowFrameMessage@CTouchProcessor@@QEAAH_KPEAUHWND__@@I_JH@Z @ 0x1C0196DE0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C00B9418 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00B9500 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C00E4A4E (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
- *     ?GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z @ 0x1C01C7440 (-GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z.c)
- *     ?GetPointerEventTarget@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@PEAPEAUHWND__@@@Z @ 0x1C01C8964 (-GetPointerEventTarget@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@PEAPEAUHWND__@@@Z.c)
- *     ?ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@KW4CPointerInputFramePhase@@@Z @ 0x1C01D1DD4 (-ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@KW4CPointerInputFramePhase@@@Z.c)
- *     ?UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C01D8320 (-UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
- *     IsPointerInputMessageWithState @ 0x1C01DA82C (IsPointerInputMessageWithState.c)
+ *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCC60 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ?UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00CD2DC (-UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C0187408 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ?GetPointerEventTarget@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@PEAPEAUHWND__@@@Z @ 0x1C0192F68 (-GetPointerEventTarget@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@PEAPEAUHWND__@@@Z.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01970E4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@K@Z @ 0x1C019ABD8 (-ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@K@Z.c)
+ *     IsPointerInputMessageWithState @ 0x1C01A1218 (IsPointerInputMessageWithState.c)
  */
 
 __int64 __fastcall CTouchProcessor::IsPointerWindowFrameMessage(
-        struct _KTHREAD **this,
-        void *a2,
+        CTouchProcessor *this,
+        unsigned int *a2,
         HWND a3,
         unsigned int a4,
-        unsigned __int64 a5,
+        __int64 a5,
         int a6)
 {
   unsigned int v9; // ebx
-  CTouchProcessor *v11; // rcx
-  struct CPointerMsgData *NonConstMsgData; // rax
-  CTouchProcessor *v13; // rcx
-  __int64 v14; // rdi
-  struct CPointerMsgData *v15; // rbp
-  struct _KTHREAD **v16; // rcx
-  CPointerInfoNode *v17; // r14
-  __int64 v18; // rdx
+  const struct CPointerInputFrame *v11; // rdi
+  CTouchProcessor *v12; // rcx
+  __int64 v13; // rax
+  CPointerInfoNode *v14; // r14
+  __int64 v15; // rdx
   int PointerEventTarget; // eax
-  HWND v21; // [rsp+20h] [rbp-68h] BYREF
-  CInpLockGuard *v22[7]; // [rsp+28h] [rbp-60h] BYREF
+  HWND v18; // [rsp+20h] [rbp-68h] BYREF
+  CInpLockGuard *v19[7]; // [rsp+28h] [rbp-60h] BYREF
 
   v9 = 0;
-  v21 = 0LL;
+  v18 = 0LL;
   CInpLockGuardExclusiveIfNeeded::CInpLockGuardExclusiveIfNeeded(
-    (CInpLockGuardExclusiveIfNeeded *)v22,
-    (struct CInpLockGuard *)(this + 4),
+    (CInpLockGuardExclusiveIfNeeded *)v19,
+    (CTouchProcessor *)((char *)this + 40),
     a2);
   if ( (unsigned int)IsPointerInputMessageWithState(a4) && (!a6 || a4 - 585 > 1) )
   {
-    NonConstMsgData = CTouchProcessor::GetNonConstMsgData(v11, (__int64)a2);
-    if ( NonConstMsgData )
+    if ( a2 )
     {
-      v14 = CTouchProcessor::ReferenceFrame(this, *((unsigned int *)NonConstMsgData + 7));
-      if ( v14 )
+      v11 = CTouchProcessor::ReferenceFrame(this, a2[7]);
+      if ( v11 )
       {
-        v15 = CTouchProcessor::GetNonConstMsgData(v13, a5);
-        if ( !v15 )
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 13657);
-        if ( *((_DWORD *)v15 + 7) == *(_DWORD *)(v14 + 40) )
+        if ( !a5 )
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13050);
+        if ( *(_DWORD *)(a5 + 28) == *((_DWORD *)v11 + 10) )
         {
-          if ( *((_DWORD *)v15 + 8) >= *(_DWORD *)(v14 + 48) )
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 13664);
-          v17 = (CPointerInfoNode *)(*(_QWORD *)(v14 + 240) + 480LL * *((unsigned int *)v15 + 8));
-          if ( !(unsigned int)CPointerInfoNode::IsValid(v17) )
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 13666);
-          v16 = this;
-          if ( (*(_DWORD *)v17 & 0x100) != 0 )
+          v13 = *(unsigned int *)(a5 + 32);
+          if ( (unsigned int)v13 >= *((_DWORD *)v11 + 12) )
           {
-            PointerEventTarget = CTouchProcessor::GetPointerEventTarget(this, v17, &v21);
-            v18 = v14;
-            v16 = this;
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13058);
+            v13 = *(unsigned int *)(a5 + 32);
+          }
+          v14 = (CPointerInfoNode *)(*((_QWORD *)v11 + 17) + 480 * v13);
+          if ( !(unsigned int)CPointerInfoNode::IsValid(v14) )
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13060);
+          v12 = this;
+          if ( (*(_DWORD *)v14 & 0x100) != 0 )
+          {
+            PointerEventTarget = CTouchProcessor::GetPointerEventTarget((struct _KTHREAD **)this, v14, &v18);
+            v15 = (__int64)v11;
+            v12 = this;
             if ( PointerEventTarget )
             {
-              CTouchProcessor::UnreferenceFrame(this, v14);
-              LOBYTE(v9) = v21 == a3;
+              CTouchProcessor::UnreferenceFrame((__int64)this, (__int64)v11);
+              LOBYTE(v9) = v18 == a3;
               goto LABEL_19;
             }
             goto LABEL_16;
@@ -76,15 +74,15 @@ __int64 __fastcall CTouchProcessor::IsPointerWindowFrameMessage(
         }
         else
         {
-          v16 = this;
+          v12 = this;
         }
-        v18 = v14;
+        v15 = (__int64)v11;
 LABEL_16:
-        CTouchProcessor::UnreferenceFrame(v16, v18);
+        CTouchProcessor::UnreferenceFrame((__int64)v12, v15);
       }
     }
   }
 LABEL_19:
-  CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v22);
+  CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v19);
   return v9;
 }

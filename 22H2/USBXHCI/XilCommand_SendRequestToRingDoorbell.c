@@ -1,11 +1,11 @@
 /*
- * XREFs of XilCommand_SendRequestToRingDoorbell @ 0x1C0031FD8
+ * XREFs of XilCommand_SendRequestToRingDoorbell @ 0x1C0030450
  * Callers:
- *     XilCommand_WriteDoorbell @ 0x1C000AC28 (XilCommand_WriteDoorbell.c)
+ *     XilCommand_WriteDoorbell @ 0x1C00071A8 (XilCommand_WriteDoorbell.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall XilCommand_SendRequestToRingDoorbell(__int64 a1)
@@ -55,7 +55,7 @@ LABEL_7:
                (_DWORD)v5,
                7,
                v6,
-               (__int64)&WPP_db21d8d52d393cb96c062fdb7e607301_Traceguids,
+               (__int64)&WPP_4b601d8e2e913b6c42a65f3f32a61124_Traceguids,
                result);
     }
   }

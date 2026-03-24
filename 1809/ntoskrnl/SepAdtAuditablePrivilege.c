@@ -1,5 +1,5 @@
 /*
- * XREFs of SepAdtAuditablePrivilege @ 0x1402FF968
+ * XREFs of SepAdtAuditablePrivilege @ 0x1402FFA68
  * Callers:
  *     SepAdtTokenRightAdjusted @ 0x14060A2D8 (SepAdtTokenRightAdjusted.c)
  * Callees:

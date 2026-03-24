@@ -1,51 +1,50 @@
 /*
- * XREFs of HvlLpWriteMultipleMsr @ 0x140544AE0
+ * XREFs of HvlLpWriteMultipleMsr @ 0x1404F54F0
  * Callers:
  *     <none>
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
  */
 
-__int64 __fastcall HvlLpWriteMultipleMsr(ULONG a1, unsigned int a2, ULONG *a3, PHYSICAL_ADDRESS *a4)
+__int64 __fastcall HvlLpWriteMultipleMsr(int a1, unsigned int a2, int *a3, __int64 *a4)
 {
-  __int64 v6; // rsi
-  unsigned __int64 v7; // r9
-  PHYSICAL_ADDRESS *v11; // rax
-  PHYSICAL_ADDRESS *v12; // rcx
-  ULONG v13; // eax
-  PHYSICAL_ADDRESS v14; // rax
-  unsigned int v15; // ebx
-  __int128 v16; // [rsp+28h] [rbp-30h] BYREF
-  __int64 v17; // [rsp+38h] [rbp-20h]
-  __int64 v18; // [rsp+40h] [rbp-18h]
+  unsigned __int64 v6; // r9
+  __int64 v8; // rsi
+  _QWORD *v11; // rax
+  __int64 v12; // r9
+  _DWORD *v13; // rcx
+  int v14; // eax
+  __int64 v15; // rax
+  unsigned int v16; // ebx
+  __int128 v17; // [rsp+28h] [rbp-30h] BYREF
+  __int128 v18; // [rsp+38h] [rbp-20h]
 
-  v6 = a2;
-  v7 = 32LL * a2;
-  v16 = 0LL;
+  v6 = 32LL * a2;
+  v8 = a2;
   v17 = 0LL;
-  LODWORD(v18) = 0;
-  if ( v7 > 0x1000 )
+  v18 = 0LL;
+  if ( v6 > 0x1000 )
     return 3221225485LL;
-  v11 = HvlpAcquireHypercallPage((__int64)&v16, 1, 0LL, v7);
+  v11 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v17, 1, 0LL, v6);
   if ( a2 )
   {
-    v12 = v11 + 1;
+    v13 = v11 + 1;
     do
     {
-      v12[-1].LowPart = a1;
-      v12[-1].HighPart = 65537;
-      v13 = *a3++;
-      v12->LowPart = v13;
-      v12 += 4;
-      v14 = *a4++;
-      v12[-3] = v14;
-      --v6;
+      *(v13 - 2) = a1;
+      *(v13 - 1) = 65537;
+      v14 = *a3++;
+      *v13 = v14;
+      v13 += 8;
+      v15 = *a4++;
+      *((_QWORD *)v13 - 3) = v15;
+      --v8;
     }
-    while ( v6 );
+    while ( v8 );
   }
-  v15 = (unsigned __int16)HvcallInitiateHypercall(137) != 0 ? 0xC0000001 : 0;
-  HvlpReleaseHypercallPage((__int64)&v16);
-  return v15;
+  v16 = (unsigned __int16)HvcallInitiateHypercall(137, *((__int64 *)&v18 + 1), 0LL, v12) != 0 ? 0xC0000001 : 0;
+  HvlpReleaseHypercallPage((__int64)&v17);
+  return v16;
 }

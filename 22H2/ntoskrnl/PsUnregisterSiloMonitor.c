@@ -1,88 +1,89 @@
 /*
- * XREFs of PsUnregisterSiloMonitor @ 0x1409B40C0
+ * XREFs of PsUnregisterSiloMonitor @ 0x14090B530
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293330 (PdcCreateWatchdogAroundClientCall.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PspGetHostSiloStorage @ 0x1405A39A4 (PspGetHostSiloStorage.c)
- *     PspGetServerSiloStatePointer @ 0x1405A39B4 (PspGetServerSiloStatePointer.c)
- *     PspGetNextSilo @ 0x1406A31F4 (PspGetNextSilo.c)
- *     PspStorageFreeSlot @ 0x1409B7EF4 (PspStorageFreeSlot.c)
- *     PspStorageRemoveObject @ 0x1409B7FC4 (PspStorageRemoveObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     HalSystemVectorDispatchEntry @ 0x1402526A0 (HalSystemVectorDispatchEntry.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PspGetHostSiloStorage @ 0x140580ED8 (PspGetHostSiloStorage.c)
+ *     PspGetServerSiloStatePointer @ 0x140580EE8 (PspGetServerSiloStatePointer.c)
+ *     PspGetNextSilo @ 0x140617F50 (PspGetNextSilo.c)
+ *     PspStorageFreeSlot @ 0x14090EF94 (PspStorageFreeSlot.c)
+ *     PspStorageRemoveObject @ 0x14090F02C (PspStorageRemoveObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PsUnregisterSiloMonitor(char *P)
+void __fastcall PsUnregisterSiloMonitor(void (__fastcall **P)(_QWORD))
 {
   struct _KTHREAD *CurrentThread; // rax
-  PVOID **v3; // rsi
+  _DWORD *v3; // r9
+  void (__fastcall *v4)(_QWORD); // rax
   void *i; // rcx
   void *NextSilo; // rax
-  void *v6; // rbp
-  __int64 v7; // rax
-  void (__fastcall *v8)(_QWORD); // rcx
-  PVOID *v9; // rax
+  void *v7; // rsi
+  __int64 v8; // rax
+  PVOID *v9; // rcx
+  _DWORD *v10; // r9
   __int64 HostSiloStorage; // rax
-  __int64 v11; // r8
-  int v12; // ebx
-  $115DCDF994C6370D29323EAB0E0C9502 v13; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v12; // r8
+  int v13; // ebx
+  _OWORD v14[3]; // [rsp+20h] [rbp-48h] BYREF
 
-  memset(&v13, 0, sizeof(v13));
+  memset(v14, 0, sizeof(v14));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PspSiloMonitorLock, 0LL);
-  v3 = (PVOID **)(P + 8);
+  v4 = *P;
   if ( *(_OWORD *)P != 0LL )
   {
-    if ( *((_QWORD *)P + 4) )
+    if ( P[4] )
     {
-      KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)&v13);
-      for ( i = 0LL; ; i = v6 )
+      KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v14, v3);
+      for ( i = 0LL; ; i = v7 )
       {
         NextSilo = PspGetNextSilo(i, 1);
-        v6 = NextSilo;
+        v7 = NextSilo;
         if ( !NextSilo )
           break;
         if ( (unsigned int)(*(_DWORD *)PspGetServerSiloStatePointer((__int64)NextSilo) - 1) <= 2 )
-          (*((void (__fastcall **)(void *))P + 4))(v6);
+          ((void (__fastcall **)(void *))P)[4](v7);
       }
-      if ( P[16] )
+      if ( *((_BYTE *)P + 16) )
       {
-        v7 = PdcCreateWatchdogAroundClientCall();
-        (*((void (__fastcall **)(__int64))P + 4))(v7);
+        v8 = HalSystemVectorDispatchEntry();
+        P[4](v8);
       }
-      KiUnstackDetachProcess(&v13);
+      KiUnstackDetachProcess((__int64)v14, 0);
+      v4 = *P;
     }
-    v8 = *(void (__fastcall **)(_QWORD))P;
-    if ( *(char **)(*(_QWORD *)P + 8LL) != P || (v9 = *v3, **v3 != P) )
+    if ( *((void (__fastcall ***)(_QWORD))v4 + 1) != P || (v9 = (PVOID *)P[1], *v9 != P) )
       __fastfail(3u);
-    *v9 = v8;
-    *((_QWORD *)v8 + 1) = v9;
-    *(_QWORD *)P = 0LL;
-    *v3 = 0LL;
+    *v9 = v4;
+    *((_QWORD *)v4 + 1) = v9;
+    *P = 0LL;
+    P[1] = 0LL;
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PspSiloMonitorLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&PspSiloMonitorLock);
   KeAbPostRelease((ULONG_PTR)&PspSiloMonitorLock);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  if ( P[16] )
+  if ( *((_BYTE *)P + 16) )
   {
-    KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)&v13);
+    KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v14, v10);
     HostSiloStorage = PspGetHostSiloStorage();
-    LOBYTE(v11) = 1;
-    v12 = PspStorageRemoveObject(HostSiloStorage, *((unsigned int *)P + 5), v11, 0LL);
-    KiUnstackDetachProcess(&v13);
-    if ( v12 )
+    LOBYTE(v12) = 1;
+    v13 = PspStorageRemoveObject(HostSiloStorage, *((unsigned int *)P + 5), v12, 0LL);
+    KiUnstackDetachProcess((__int64)v14, 0);
+    if ( v13 )
     {
-      if ( v12 != -1073741275 )
+      if ( v13 != -1073741275 )
         NT_ASSERT("Status == ((NTSTATUS)0x00000000L) || Status == ((NTSTATUS)0xC0000225L)");
     }
   }

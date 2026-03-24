@@ -1,13 +1,13 @@
 /*
- * XREFs of AcpiGetFullyQualifiedBiosName @ 0x1C00AE070
+ * XREFs of AcpiGetFullyQualifiedBiosName @ 0x1C00AF420
  * Callers:
  *     <none>
  * Callees:
- *     ACPIAmliBuildObjectPathname @ 0x1C0006528 (ACPIAmliBuildObjectPathname.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNameSpaceObject @ 0x1C0018260 (AMLIGetNameSpaceObject.c)
- *     OSConvertDeviceHandleToNSHANDLE @ 0x1C004998C (OSConvertDeviceHandleToNSHANDLE.c)
- *     ACPIInitUnicodeString @ 0x1C009257C (ACPIInitUnicodeString.c)
+ *     AMLIGetNameSpaceObject @ 0x1C000B01C (AMLIGetNameSpaceObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIAmliBuildObjectPathname @ 0x1C00116E4 (ACPIAmliBuildObjectPathname.c)
+ *     OSConvertDeviceHandleToNSHANDLE @ 0x1C00118BC (OSConvertDeviceHandleToNSHANDLE.c)
+ *     ACPIInitUnicodeString @ 0x1C0099D70 (ACPIInitUnicodeString.c)
  */
 
 __int64 __fastcall AcpiGetFullyQualifiedBiosName(ULONG_PTR a1, __int64 a2, struct _UNICODE_STRING *a3, _DWORD *a4)
@@ -17,17 +17,17 @@ __int64 __fastcall AcpiGetFullyQualifiedBiosName(ULONG_PTR a1, __int64 a2, struc
   unsigned __int16 Length; // cx
   UNICODE_STRING SourceString; // [rsp+20h] [rbp-28h] BYREF
   PVOID P; // [rsp+58h] [rbp+10h] BYREF
-  volatile signed __int32 *v13; // [rsp+68h] [rbp+20h] BYREF
+  __int64 v13; // [rsp+68h] [rbp+20h] BYREF
 
   v13 = 0LL;
   SourceString = 0LL;
   P = 0LL;
   *a4 = 0;
   v7 = (__int64 *)OSConvertDeviceHandleToNSHANDLE(a1);
-  v8 = AMLIGetNameSpaceObject(*(_BYTE **)(a2 + 8), v7, &v13, 0);
+  v8 = AMLIGetNameSpaceObject(*(_BYTE **)(a2 + 8), v7, (unsigned __int64 *)&v13, 0);
   if ( v8 >= 0 )
   {
-    v8 = ACPIAmliBuildObjectPathname((__int64)v13, &P, 1);
+    v8 = ACPIAmliBuildObjectPathname(v13, (char **)&P, 1);
     if ( v8 >= 0 )
     {
       v8 = ACPIInitUnicodeString(&SourceString, (const char *)P);

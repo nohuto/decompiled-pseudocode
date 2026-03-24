@@ -1,12 +1,12 @@
 /*
- * XREFs of ?FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1800BC42C
+ * XREFs of ?FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x180037708
  * Callers:
- *     ??1CRenderData@@MEAA@XZ @ 0x1800BBEE8 (--1CRenderData@@MEAA@XZ.c)
- *     ?Reset@CDataStreamWriter@@QEAAXXZ @ 0x1800BC380 (-Reset@CDataStreamWriter@@QEAAXXZ.c)
- *     ?FreeBatchPool@CInternalMilCmdConnection@@AEAAXXZ @ 0x1800BC3C0 (-FreeBatchPool@CInternalMilCmdConnection@@AEAAXXZ.c)
- *     ??_GCCommandBatch@@QEAAPEAXI@Z @ 0x1801B581C (--_GCCommandBatch@@QEAAPEAXI@Z.c)
+ *     ??1CRenderData@@MEAA@XZ @ 0x1800370DC (--1CRenderData@@MEAA@XZ.c)
+ *     ?Reset@CDataStreamWriter@@QEAAXXZ @ 0x18003765C (-Reset@CDataStreamWriter@@QEAAXXZ.c)
+ *     ?FreeBatchPool@CInternalMilCmdConnection@@AEAAXXZ @ 0x18003769C (-FreeBatchPool@CInternalMilCmdConnection@@AEAAXXZ.c)
+ *     ??_GCCommandBatch@@QEAAPEAXI@Z @ 0x18014EC50 (--_GCCommandBatch@@QEAAPEAXI@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CDataStreamWriter::FreeBlocks(CDataStreamWriter *this, struct _LIST_ENTRY *a2)

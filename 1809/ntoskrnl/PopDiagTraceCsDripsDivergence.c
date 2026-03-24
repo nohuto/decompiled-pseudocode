@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceCsDripsDivergence @ 0x1402DF6B0
+ * XREFs of PopDiagTraceCsDripsDivergence @ 0x1402DF7B0
  * Callers:
- *     PopDripsWatchdogDiagnosticWorker @ 0x14086E440 (PopDripsWatchdogDiagnosticWorker.c)
- *     PopDripsWatchdogWorkerRoutine @ 0x140879C40 (PopDripsWatchdogWorkerRoutine.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x14086E420 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogWorkerRoutine @ 0x140879C20 (PopDripsWatchdogWorkerRoutine.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PopDiagTraceCsDripsDivergence(int a1, __int64 a2, __int64 a3)

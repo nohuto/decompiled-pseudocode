@@ -1,8 +1,8 @@
 /*
- * XREFs of MiShouldLockPteDirectly @ 0x14022948C
+ * XREFs of MiShouldLockPteDirectly @ 0x14030CA20
  * Callers:
- *     MiIsPageTableLocked @ 0x140228C50 (MiIsPageTableLocked.c)
- *     MiUnlockNestedPageTableWritePte @ 0x1402292C0 (MiUnlockNestedPageTableWritePte.c)
+ *     MiIsPageTableLocked @ 0x1402BD028 (MiIsPageTableLocked.c)
+ *     MiUnlockNestedPageTableWritePte @ 0x14030C84C (MiUnlockNestedPageTableWritePte.c)
  * Callees:
  *     <none>
  */

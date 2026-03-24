@@ -1,10 +1,10 @@
 /*
- * XREFs of NtRIMSetExtendedDeviceProperty @ 0x1C0175570
+ * XREFs of NtRIMSetExtendedDeviceProperty @ 0x1C0154080
  * Callers:
  *     <none>
  * Callees:
- *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0072E20 (RawInputManagerDeviceObjectResolveHandle.c)
- *     RIMSetExtendedPointerDeviceProperty @ 0x1C0199950 (RIMSetExtendedPointerDeviceProperty.c)
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0058C60 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     RIMSetExtendedPointerDeviceProperty @ 0x1C016BF3C (RIMSetExtendedPointerDeviceProperty.c)
  */
 
 __int64 __fastcall NtRIMSetExtendedDeviceProperty(char *a1, ULONG64 a2, int a3)
@@ -23,7 +23,7 @@ __int64 __fastcall NtRIMSetExtendedDeviceProperty(char *a1, ULONG64 a2, int a3)
   v4 = RawInputManagerDeviceObjectResolveHandle(a1, 3u, 1, &Object);
   if ( v4 < 0 )
     goto LABEL_14;
-  v5 = Object ? (char *)Object + 72 : 0LL;
+  v5 = Object ? (char *)Object + 88 : 0LL;
   if ( (*((_DWORD *)v5 + 50) & 0x80u) != 0
     && (*((_DWORD *)v5 + 46) & 0x2000) != 0
     && !*(_DWORD *)(*((_QWORD *)v5 + 48) + 16LL) )
@@ -32,7 +32,7 @@ __int64 __fastcall NtRIMSetExtendedDeviceProperty(char *a1, ULONG64 a2, int a3)
       v3 = MmUserProbeAddress;
     v7 = *(_OWORD *)v3;
     v8 = *(_DWORD *)(v3 + 16);
-    v4 = RIMSetExtendedPointerDeviceProperty(*((_QWORD *)v5 + 59), &v7);
+    v4 = RIMSetExtendedPointerDeviceProperty(*((_QWORD *)v5 + 60), &v7);
   }
   else
   {

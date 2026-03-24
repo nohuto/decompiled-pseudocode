@@ -1,13 +1,13 @@
 /*
- * XREFs of IopIsDescendantNode @ 0x1407668C8
+ * XREFs of IopIsDescendantNode @ 0x140738684
  * Callers:
- *     PnpUnlinkDeviceRemovalRelations @ 0x140766258 (PnpUnlinkDeviceRemovalRelations.c)
- *     PnpQueuePendingSurpriseRemoval @ 0x140810CB4 (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x140737ADC (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x140737C58 (PnpUnlinkDeviceRemovalRelations.c)
  * Callees:
- *     PipIsDeviceInDeviceObjectList @ 0x140767E88 (PipIsDeviceInDeviceObjectList.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x1407378FC (PipIsDeviceInDeviceObjectList.c)
  */
 
-__int64 __fastcall IopIsDescendantNode(_QWORD *a1, __int64 a2)
+bool __fastcall IopIsDescendantNode(unsigned int **a1, __int64 a2)
 {
   __int64 v2; // r8
   unsigned __int64 v3; // rdx

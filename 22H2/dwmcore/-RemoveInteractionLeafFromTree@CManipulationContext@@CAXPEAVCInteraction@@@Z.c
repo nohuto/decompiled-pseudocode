@@ -1,50 +1,59 @@
 /*
- * XREFs of ?RemoveInteractionLeafFromTree@CManipulationContext@@CAXPEAVCInteraction@@@Z @ 0x1801A55F0
+ * XREFs of ?RemoveInteractionLeafFromTree@CManipulationContext@@CAXPEAVCInteraction@@@Z @ 0x1802350C0
  * Callers:
- *     ?CleanStaleFork@CManipulationContext@@AEAAXW4InputType@@PEAVCInteraction@@@Z @ 0x1801A40B8 (-CleanStaleFork@CManipulationContext@@AEAAXW4InputType@@PEAVCInteraction@@@Z.c)
- *     ?CleanTreeState@CManipulationContext@@SAXPEAVCInteraction@@PEAV1@PEAVCComposition@@_NW4InputType@@@Z @ 0x1801A425C (-CleanTreeState@CManipulationContext@@SAXPEAVCInteraction@@PEAV1@PEAVCComposition@@_NW4InputType.c)
+ *     ?CleanStaleFork@CManipulationContext@@AEAAXW4InputType@@PEAVCInteraction@@@Z @ 0x180233D18 (-CleanStaleFork@CManipulationContext@@AEAAXW4InputType@@PEAVCInteraction@@@Z.c)
+ *     ?CleanTreeState@CManipulationContext@@SAXPEAVCInteraction@@PEAV1@PEAVCComposition@@_NW4InputType@@@Z @ 0x180233EB0 (-CleanTreeState@CManipulationContext@@SAXPEAVCInteraction@@PEAV1@PEAVCComposition@@_NW4InputType.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800BB2A0 (_tlgWriteTransfer_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180152990 (_tlgWriteTransfer_EventWriteTransfer.c)
  */
 
 void __fastcall CManipulationContext::RemoveInteractionLeafFromTree(struct CInteraction *a1)
 {
   __int64 v2; // rcx
   __int64 v3; // rcx
-  __int64 v4; // rcx
-  __int64 v5; // rcx
-  struct CInteraction *v6; // [rsp+30h] [rbp-48h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v7; // [rsp+38h] [rbp-40h] BYREF
-  struct CInteraction **v8; // [rsp+58h] [rbp-20h]
-  int v9; // [rsp+60h] [rbp-18h]
-  int v10; // [rsp+64h] [rbp-14h]
+  __int64 v4; // rax
+  struct CInteraction *v5; // [rsp+30h] [rbp-48h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+38h] [rbp-40h] BYREF
+  struct CInteraction **v7; // [rsp+58h] [rbp-20h]
+  int v8; // [rsp+60h] [rbp-18h]
+  int v9; // [rsp+64h] [rbp-14h]
 
-  if ( (unsigned int)dword_1803E3798 > 4 && tlgKeywordOn((__int64)&dword_1803E3798, 2LL) )
+  if ( (unsigned int)dword_180344E80 > 4 && (qword_180344E90 & 2) != 0 && (qword_180344E98 & 2) == qword_180344E98 )
   {
-    v10 = 0;
-    v8 = &v6;
-    v6 = a1;
-    v9 = 8;
-    tlgWriteTransfer_EventWriteTransfer(v2, (unsigned __int8 *)dword_18037DDB2, 0LL, 0LL, 3u, &v7);
+    v5 = a1;
+    v7 = &v5;
+    v9 = 0;
+    v8 = 8;
+    tlgWriteTransfer_EventWriteTransfer(
+      (__int64)&dword_180344E80,
+      (unsigned __int8 *)dword_1802ED44D,
+      0LL,
+      0LL,
+      3u,
+      &v6);
   }
-  (*(void (__fastcall **)(char *))(*((_QWORD *)a1 + 8) + 48LL))((char *)a1 + 64);
-  v3 = *((_QWORD *)a1 + 27);
+  (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)a1 + 48LL))(a1);
+  v2 = *((_QWORD *)a1 + 26);
+  if ( v2 )
+  {
+    if ( *(struct CInteraction **)(v2 + 232) == a1 )
+      *(_QWORD *)(v2 + 232) = *((_QWORD *)a1 + 27);
+    *((_QWORD *)a1 + 26) = 0LL;
+  }
+  v3 = *((_QWORD *)a1 + 28);
   if ( v3 )
   {
-    if ( *(struct CInteraction **)(v3 + 240) == a1 )
-      *(_QWORD *)(v3 + 240) = *((_QWORD *)a1 + 28);
+    *(_QWORD *)(v3 + 216) = *((_QWORD *)a1 + 27);
+    *((_QWORD *)a1 + 28) = 0LL;
+    v3 = 0LL;
+  }
+  v4 = *((_QWORD *)a1 + 27);
+  if ( v4 )
+  {
+    *(_QWORD *)(v4 + 224) = v3;
     *((_QWORD *)a1 + 27) = 0LL;
   }
-  v4 = *((_QWORD *)a1 + 29);
-  if ( v4 )
-    *(_QWORD *)(v4 + 224) = *((_QWORD *)a1 + 28);
-  v5 = *((_QWORD *)a1 + 28);
-  if ( v5 )
-    *(_QWORD *)(v5 + 232) = *((_QWORD *)a1 + 29);
-  *((_QWORD *)a1 + 29) = 0LL;
-  *((_QWORD *)a1 + 28) = 0LL;
-  *((_QWORD *)a1 + 26) = 0LL;
+  *((_QWORD *)a1 + 25) = 0LL;
 }

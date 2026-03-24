@@ -1,8 +1,8 @@
 /*
- * XREFs of PopPrintUserActivityPresence @ 0x1406DCBE8
+ * XREFs of PopPrintUserActivityPresence @ 0x1406DCBC8
  * Callers:
- *     PopSetSessionUserStatus @ 0x1406DC9D8 (PopSetSessionUserStatus.c)
- *     PopEvaluateGlobalUserStatus @ 0x1406DCAB8 (PopEvaluateGlobalUserStatus.c)
+ *     PopSetSessionUserStatus @ 0x1406DC9B8 (PopSetSessionUserStatus.c)
+ *     PopEvaluateGlobalUserStatus @ 0x1406DCA98 (PopEvaluateGlobalUserStatus.c)
  * Callees:
  *     <none>
  */

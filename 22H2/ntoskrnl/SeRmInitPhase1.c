@@ -1,40 +1,42 @@
 /*
- * XREFs of SeRmInitPhase1 @ 0x140B647DC
+ * XREFs of SeRmInitPhase1 @ 0x140A4BA3C
  * Callers:
- *     Phase1InitializationIoReady @ 0x140B532AC (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreatePort @ 0x14041BE20 (ZwCreatePort.c)
- *     PsCreateSystemThread @ 0x1407B86B0 (PsCreateSystemThread.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408034B4 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140843BA4 (AuthzBasepInitializeSystemSecurityAttributes.c)
- *     SepAdtInitializeAuditingOptions @ 0x140B648B0 (SepAdtInitializeAuditingOptions.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreatePort @ 0x1403FB120 (ZwCreatePort.c)
+ *     PsCreateSystemThread @ 0x1406FDA10 (PsCreateSystemThread.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078CF94 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x14079E4F8 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ *     SepAdtInitializeAuditingOptions @ 0x140A4BB0C (SepAdtInitializeAuditingOptions.c)
  */
 
 char SeRmInitPhase1()
 {
   __int64 v0; // rcx
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  _QWORD v4[3]; // [rsp+40h] [rbp-38h] BYREF
-  int v5; // [rsp+58h] [rbp-20h]
-  int v6; // [rsp+5Ch] [rbp-1Ch]
-  __int128 v7; // [rsp+60h] [rbp-18h]
+  __int64 v1; // rcx
+  _DWORD v3[2]; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v4; // [rsp+48h] [rbp-30h]
+  const wchar_t *v5; // [rsp+50h] [rbp-28h]
+  int v6; // [rsp+58h] [rbp-20h]
+  int v7; // [rsp+5Ch] [rbp-1Ch]
+  __int128 v8; // [rsp+60h] [rbp-18h]
 
+  v3[1] = 0;
+  v7 = 0;
+  v4 = 0LL;
   v6 = 0;
-  v4[1] = 0LL;
-  v5 = 0;
-  v4[0] = 48LL;
-  v4[2] = L" \"";
-  v7 = 0LL;
-  if ( (int)ZwCreatePort((__int64)&Handle, (__int64)v4) < 0 )
+  v3[0] = 48;
+  v5 = L" \"";
+  v8 = 0LL;
+  if ( (int)ZwCreatePort((__int64)&qword_140D2EB70, (__int64)v3) < 0 )
     return 0;
   SepAdtInitializeAuditingOptions(v0);
   if ( PsCreateSystemThread(&ThreadHandle, 0x38u, 0LL, 0LL, 0LL, (PKSTART_ROUTINE)SepRmCommandServerThread, 0LL) < 0 )
     return 0;
-  AuthzBasepInitializeSystemSecurityAttributes(v2, v1);
+  AuthzBasepInitializeSystemSecurityAttributes(v1);
   ZwClose(ThreadHandle);
   ThreadHandle = 0LL;
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C06550, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((ULONGLONG *)&dword_140C02B70, 0LL, 0LL);
   return 1;
 }

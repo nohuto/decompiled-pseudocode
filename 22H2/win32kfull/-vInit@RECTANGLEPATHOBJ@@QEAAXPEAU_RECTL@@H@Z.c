@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vInit@RECTANGLEPATHOBJ@@QEAAXPEAU_RECTL@@H@Z @ 0x1C028703C
+ * XREFs of ?vInit@RECTANGLEPATHOBJ@@QEAAXPEAU_RECTL@@H@Z @ 0x1C01431D0
  * Callers:
- *     GreRectangle @ 0x1C02ACBA0 (GreRectangle.c)
+ *     GreRectangle @ 0x1C0143B30 (GreRectangle.c)
  * Callees:
  *     <none>
  */
@@ -10,9 +10,10 @@ void __fastcall RECTANGLEPATHOBJ::vInit(RECTANGLEPATHOBJ *this, struct _RECTL *a
 {
   int v5; // eax
   int v6; // eax
-  int v7; // edx
-  int v8; // ecx
-  int v9; // eax
+  int v7; // r8d
+  int v8; // eax
+  int v9; // edx
+  int v10; // ecx
 
   *((_DWORD *)this + 104) = 15;
   *((_QWORD *)this + 50) = 0LL;
@@ -43,16 +44,18 @@ void __fastcall RECTANGLEPATHOBJ::vInit(RECTANGLEPATHOBJ *this, struct _RECTL *a
   *((_DWORD *)this + 34) = v6;
   v7 = 16 * a2->top;
   *((_DWORD *)this + 33) = v7;
-  v8 = 16 * a2->bottom;
-  *((_DWORD *)this + 35) = v8;
-  v9 = v8;
+  v8 = v7;
+  v9 = 16 * a2->bottom;
+  *((_DWORD *)this + 35) = v9;
+  v10 = v9;
   if ( a3 )
   {
+    v8 = v9;
+    v10 = v7;
     v9 = v7;
-    v7 = v8;
   }
   *((_DWORD *)this + 111) = v9;
-  *((_DWORD *)this + 113) = v9;
-  *((_DWORD *)this + 107) = v7;
-  *((_DWORD *)this + 109) = v7;
+  *((_DWORD *)this + 113) = v10;
+  *((_DWORD *)this + 107) = v8;
+  *((_DWORD *)this + 109) = v8;
 }

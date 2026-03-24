@@ -4,13 +4,13 @@
  *     MiCreatePrototypePtes @ 0x140095B30 (MiCreatePrototypePtes.c)
  *     MiExtendSection @ 0x14061C4C8 (MiExtendSection.c)
  *     MiCreatePagingFileMap @ 0x14061EB18 (MiCreatePagingFileMap.c)
- *     MiCopyDirectMapHeader @ 0x140852BC4 (MiCopyDirectMapHeader.c)
+ *     MiCopyDirectMapHeader @ 0x140852BA4 (MiCopyDirectMapHeader.c)
  * Callees:
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MiEncodeProtoFill @ 0x140093A8C (MiEncodeProtoFill.c)
  *     MiMakeSubsectionPte @ 0x140095B00 (MiMakeSubsectionPte.c)
  *     MiMakeDemandZeroPte @ 0x140097EE0 (MiMakeDemandZeroPte.c)
- *     MiInitializeFaultVaListCore @ 0x1402AE9C8 (MiInitializeFaultVaListCore.c)
+ *     MiInitializeFaultVaListCore @ 0x1402AEAC8 (MiInitializeFaultVaListCore.c)
  */
 
 void __fastcall MiInitializePrototypePtes(char *a1, __int64 a2, unsigned __int16 *a3, int a4)

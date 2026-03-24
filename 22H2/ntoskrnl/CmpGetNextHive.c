@@ -1,59 +1,40 @@
 /*
- * XREFs of CmpGetNextHive @ 0x14076A460
+ * XREFs of CmpGetNextHive @ 0x1406E9BF4
  * Callers:
- *     CmpDoFlushAll @ 0x1402F694C (CmpDoFlushAll.c)
- *     CmLoadAppKey @ 0x140769B50 (CmLoadAppKey.c)
- *     CmpBlockHiveWrites @ 0x140A13854 (CmpBlockHiveWrites.c)
- *     CmpUnblockHiveWrites @ 0x140A13A24 (CmpUnblockHiveWrites.c)
+ *     CmpDoFlushAll @ 0x14037D80C (CmpDoFlushAll.c)
+ *     CmpUnblockHiveWrites @ 0x1406E8B98 (CmpUnblockHiveWrites.c)
+ *     CmpBlockHiveWrites @ 0x1406E8C40 (CmpBlockHiveWrites.c)
+ *     CmLoadAppKey @ 0x1406E8CDC (CmLoadAppKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD800 (ExfReleasePushLock.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     CmpDeleteHive @ 0x14074EBE4 (CmpDeleteHive.c)
- *     CmpReferenceHive @ 0x14076AA9C (CmpReferenceHive.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
+ *     CmpDeleteHive @ 0x14071BAC4 (CmpDeleteHive.c)
  */
 
 __int64 *__fastcall CmpGetNextHive(volatile signed __int32 *P)
 {
-  __int64 *v2; // rdi
-  __int64 **v3; // r14
-  unsigned __int64 v4; // rsi
-  __int64 *v5; // r8
-  __int64 **v6; // r8
-  signed __int64 v7; // rdx
-  ULONG_PTR v8; // rtt
+  __int64 *v1; // rdi
+  __int64 **v3; // rsi
+  __int64 *v4; // r8
+  __int64 **v5; // r8
 
-  v2 = 0LL;
+  v1 = 0LL;
   v3 = (__int64 **)&CmpHiveListHead;
   if ( P )
-    v3 = (__int64 **)(P + 402);
-  v4 = KeAbPreAcquire((__int64)&CmpHiveListHeadLock, 0LL);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpHiveListHeadLock, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)&CmpHiveListHeadLock, 0LL, v4, (__int64)&CmpHiveListHeadLock);
-  if ( v4 )
-    *(_BYTE *)(v4 + 18) = 1;
-  v5 = *v3;
-  while ( v5 != &CmpHiveListHead )
+    v3 = (__int64 **)(P + 400);
+  ExAcquirePushLockSharedEx((ULONG_PTR)&CmpHiveListHeadLock, 0LL);
+  v4 = *v3;
+  while ( v4 != &CmpHiveListHead )
   {
-    v2 = v5 - 201;
-    if ( (unsigned __int8)CmpReferenceHive(v5 - 201) )
+    v1 = v4 - 200;
+    if ( CmpReferenceHive((__int64)(v4 - 200)) )
       break;
-    v5 = *v6;
-    v2 = 0LL;
+    v4 = *v5;
+    v1 = 0LL;
   }
-  _m_prefetchw(&CmpHiveListHeadLock);
-  v7 = CmpHiveListHeadLock - 16;
-  if ( (CmpHiveListHeadLock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-    v7 = 0LL;
-  if ( (CmpHiveListHeadLock & 2) != 0
-    || (v8 = CmpHiveListHeadLock,
-        v8 != _InterlockedCompareExchange64((volatile signed __int64 *)&CmpHiveListHeadLock, v7, CmpHiveListHeadLock)) )
-  {
-    ExfReleasePushLock(&CmpHiveListHeadLock);
-  }
-  KeAbPostRelease((ULONG_PTR)&CmpHiveListHeadLock);
-  if ( P && _InterlockedExchangeAdd(P + 1058, 0xFFFFFFFF) == 1 )
-    CmpDeleteHive(P);
-  return v2;
+  ExReleasePushLockEx((ULONG_PTR)&CmpHiveListHeadLock, 0LL);
+  if ( P && _InterlockedExchangeAdd(P + 1068, 0xFFFFFFFF) == 1 )
+    CmpDeleteHive((PVOID)P);
+  return v1;
 }

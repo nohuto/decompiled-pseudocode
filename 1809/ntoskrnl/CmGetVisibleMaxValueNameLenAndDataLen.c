@@ -4,7 +4,7 @@
  *     CmpQueryKeyDataFromNode @ 0x1405D3570 (CmpQueryKeyDataFromNode.c)
  *     CmpQueryKeyDataFromCache @ 0x1405D79A0 (CmpQueryKeyDataFromCache.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmGetVisibleMaxValueNameLenAndDataLen(

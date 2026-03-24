@@ -1,67 +1,83 @@
 /*
- * XREFs of DxgkProcessLockScreen @ 0x1C016BEC0
+ * XREFs of DxgkProcessLockScreen @ 0x1C029E280
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C017F1B0 (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
- *     ?FindRemoteOutputDuplMgr@@YAPEAVOUTPUTDUPL_MGR@@XZ @ 0x1C01A90A0 (-FindRemoteOutputDuplMgr@@YAPEAVOUTPUTDUPL_MGR@@XZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DxgIsRemoteSessionUsingXddmMonitors@@YAHXZ @ 0x1C01E1158 (-DxgIsRemoteSessionUsingXddmMonitors@@YAHXZ.c)
- *     ?ProcessLockScreenActive@OUTPUTDUPL_MGR@@QEAAXXZ @ 0x1C032E290 (-ProcessLockScreenActive@OUTPUTDUPL_MGR@@QEAAXXZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C000B9F0 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?FindRemoteOutputDuplMgr@@YAPEAVOUTPUTDUPL_MGR@@XZ @ 0x1C0123CD0 (-FindRemoteOutputDuplMgr@@YAPEAVOUTPUTDUPL_MGR@@XZ.c)
+ *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C013C28C (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
+ *     ?ProcessLockScreenActive@OUTPUTDUPL_MGR@@QEAAXXZ @ 0x1C029C560 (-ProcessLockScreenActive@OUTPUTDUPL_MGR@@QEAAXXZ.c)
  */
 
 void __fastcall DxgkProcessLockScreen(__int64 a1, __int64 a2, __int64 a3)
 {
-  struct DXGGLOBAL *Global; // rax
+  __int64 v3; // rdx
   __int64 v4; // rcx
   __int64 v5; // r8
-  OUTPUTDUPL_MGR *RemoteOutputDuplMgr; // rax
-  int v7; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+58h] [rbp-20h]
-  char v9; // [rsp+60h] [rbp-18h]
+  __int64 v6; // r9
+  DXGPROCESS *Current; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  struct DXGGLOBAL *Global; // rax
+  OUTPUTDUPL_CONTEXT **RemoteOutputDuplMgr; // rax
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  int v18; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v19; // [rsp+28h] [rbp-20h]
+  char v20; // [rsp+30h] [rbp-18h]
 
-  v7 = -1;
-  v8 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v18 = -1;
+  v19 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v9 = 1;
-    v7 = 2194;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v20 = 1;
+    v18 = 2194;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2194);
   }
   else
   {
-    v9 = 0;
+    v20 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v7, 2194);
-  if ( DXGPROCESS::GetCurrent() )
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v18, 2194LL);
+  Current = DXGPROCESS::GetCurrent(v4, v3, v5, v6);
+  if ( Current )
   {
-    if ( (unsigned int)DxgIsRemoteSessionUsingXddmMonitors() )
+    if ( DXGPROCESS::IsRemoteConnection(Current) )
     {
-      RemoteOutputDuplMgr = FindRemoteOutputDuplMgr();
+      RemoteOutputDuplMgr = (OUTPUTDUPL_CONTEXT **)FindRemoteOutputDuplMgr(v13, v12);
       if ( RemoteOutputDuplMgr )
         OUTPUTDUPL_MGR::ProcessLockScreenActive(RemoteOutputDuplMgr);
     }
     else
     {
-      Global = DXGGLOBAL::GetGlobal();
-      DXGGLOBAL::IterateAdaptersWithCallback(Global, ProcessLockScreenAdapterCallback, 0LL, 4LL);
+      Global = DXGGLOBAL::GetGlobal(v13, v12);
+      DXGGLOBAL::IterateAdaptersWithCallback(
+        (__int64)Global,
+        (__int64 (__fastcall *)(_QWORD *, __int64))ProcessLockScreenAdapterCallback,
+        0LL,
+        4);
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, 3992LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Invalid process context.", 3992LL, 0LL, 0LL, 0LL, 0LL);
+    v10 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v10 + 24) = 3993LL;
+    WdLogEvent5_WdError(v10);
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v7);
-  if ( v9 )
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v18, v11);
+  if ( v20 )
   {
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v4, &EventProfilerExit, v5, v7);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v16, &EventProfilerExit, v17, v18);
   }
 }

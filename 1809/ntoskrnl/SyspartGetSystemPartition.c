@@ -1,10 +1,10 @@
 /*
- * XREFs of SyspartGetSystemPartition @ 0x1408F4ED8
+ * XREFs of SyspartGetSystemPartition @ 0x1408F4EB8
  * Callers:
- *     CmpMountPreloadedHives @ 0x140735800 (CmpMountPreloadedHives.c)
+ *     CmpMountPreloadedHives @ 0x1407357E0 (CmpMountPreloadedHives.c)
  * Callees:
- *     SiGetSystemDeviceName @ 0x1406BEFE4 (SiGetSystemDeviceName.c)
- *     SiQuerySystemInformationString @ 0x140714E7C (SiQuerySystemInformationString.c)
+ *     SiGetSystemDeviceName @ 0x1406BEFC4 (SiGetSystemDeviceName.c)
+ *     SiQuerySystemInformationString @ 0x140714E5C (SiQuerySystemInformationString.c)
  */
 
 __int64 __fastcall SyspartGetSystemPartition(void *a1, __int64 a2, unsigned int *a3)

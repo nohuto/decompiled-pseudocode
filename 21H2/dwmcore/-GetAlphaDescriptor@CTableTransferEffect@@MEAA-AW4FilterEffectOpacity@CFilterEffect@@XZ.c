@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAlphaDescriptor@CTableTransferEffect@@MEAA?AW4FilterEffectOpacity@CFilterEffect@@XZ @ 0x180242180
+ * XREFs of ?GetAlphaDescriptor@CTableTransferEffect@@MEAA?AW4FilterEffectOpacity@CFilterEffect@@XZ @ 0x1801F0B30
  * Callers:
  *     <none>
  * Callees:
@@ -10,10 +10,10 @@ __int64 __fastcall CTableTransferEffect::GetAlphaDescriptor(__int64 a1)
 {
   __int64 result; // rax
 
-  if ( *(_BYTE *)(a1 + 163) )
+  if ( *(_BYTE *)(a1 + 155) )
     return 2LL;
   result = 1LL;
-  if ( !*(_DWORD *)(a1 + 312) )
+  if ( !*(_DWORD *)(a1 + 304) )
     return 2LL;
   return result;
 }

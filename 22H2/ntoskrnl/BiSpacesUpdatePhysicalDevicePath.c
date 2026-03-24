@@ -1,130 +1,125 @@
 /*
- * XREFs of BiSpacesUpdatePhysicalDevicePath @ 0x140671814
+ * XREFs of BiSpacesUpdatePhysicalDevicePath @ 0x1405C3F1C
  * Callers:
- *     BiUpdateEfiEntry @ 0x140A5EF5C (BiUpdateEfiEntry.c)
+ *     BiUpdateEfiEntry @ 0x1409731BC (BiUpdateEfiEntry.c)
  * Callees:
- *     swprintf_s @ 0x1403DDD60 (swprintf_s.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     BiLogMessage @ 0x140807BA0 (BiLogMessage.c)
- *     SyspartGetPhysicalPartitions @ 0x140A5F27C (SyspartGetPhysicalPartitions.c)
- *     SyspartIsSpace @ 0x140A5F3E8 (SyspartIsSpace.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     swprintf_s @ 0x1403D61F0 (swprintf_s.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     BiLogMessage @ 0x140784C9C (BiLogMessage.c)
+ *     SyspartGetPhysicalPartitions @ 0x1409734EC (SyspartGetPhysicalPartitions.c)
+ *     SyspartIsSpace @ 0x14097365C (SyspartIsSpace.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall BiSpacesUpdatePhysicalDevicePath(_OWORD **a1)
+__int64 __fastcall BiSpacesUpdatePhysicalDevicePath(ULONG_PTR *a1)
 {
   _DWORD *v2; // rcx
-  unsigned int IsSpace; // ebx
+  int IsSpace; // ebx
   unsigned int v4; // ebp
-  wchar_t *Pool2; // r12
-  __int64 v6; // rax
+  wchar_t *PoolWithTag; // r12
+  wchar_t *v6; // rax
   wchar_t *v7; // rsi
   __int64 v8; // rdx
-  __int64 v9; // rax
+  _DWORD *v9; // rax
   _DWORD *v10; // rdi
-  __int64 v11; // rax
-  unsigned int v12; // r13d
-  __int64 v13; // rax
-  _OWORD *v14; // rbp
-  _DWORD *v15; // r15
-  __int64 v17; // [rsp+20h] [rbp-38h]
-  char v18; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int PhysicalPartitions; // eax
+  __int64 v12; // rax
+  unsigned int v13; // r13d
+  _OWORD *v14; // rax
+  _OWORD *v15; // rbp
+  ULONG_PTR v16; // r15
+  __int64 v18; // [rsp+20h] [rbp-38h]
+  char v19; // [rsp+60h] [rbp+8h] BYREF
 
-  v2 = *a1;
+  v2 = (_DWORD *)*a1;
   IsSpace = 0;
-  v18 = 0;
+  v19 = 0;
   v4 = 108;
-  if ( !v2 )
+  if ( *v2 == 2 )
   {
-    BiLogMessage(3LL, L"BiSpacesUpdatePhysicalDevicePath null APPLICATION DEVICE");
-    return (unsigned int)-1073741811;
-  }
-  if ( *v2 != 2 )
-    return IsSpace;
-  IsSpace = SyspartIsSpace(v2 + 5, &v18);
-  if ( (IsSpace & 0x80000000) != 0 )
-  {
-    BiLogMessage(4LL, L"SyspartIsSpace failed for %s", (char *)*a1 + 20);
-    return IsSpace;
-  }
-  if ( !v18 )
-    return IsSpace;
-  Pool2 = (wchar_t *)ExAllocatePool2(258LL, 520LL, 1262764866LL);
-  v6 = ExAllocatePool2(258LL, 520LL, 1262764866LL);
-  v7 = (wchar_t *)v6;
-  if ( Pool2 && v6 )
-  {
-    v8 = 22LL;
-    if ( *((_WORD *)*a1 + 10) != 92 )
-      v8 = 20LL;
-    swprintf_s(Pool2, 0x104uLL, L"%s\\%s", L"\\??\\GLOBALROOT", (char *)*a1 + v8);
-    while ( 1 )
+    IsSpace = SyspartIsSpace(v2 + 5, &v19);
+    if ( IsSpace >= 0 )
     {
-      v9 = ExAllocatePool2(258LL, v4, 1262764866LL);
-      v10 = (_DWORD *)v9;
-      if ( !v9 )
-        break;
-      IsSpace = SyspartGetPhysicalPartitions(Pool2, v9, v4);
-      if ( (int)(IsSpace + 0x80000000) >= 0 && IsSpace != -2147483643 )
+      if ( v19 )
       {
-        BiLogMessage(4LL, L"SyspartGetPhysicalPartitions failed with error code: %x", IsSpace);
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x208uLL, 0x4B444342u);
+        v6 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x208uLL, 0x4B444342u);
+        v7 = v6;
+        if ( PoolWithTag && v6 )
+        {
+          v8 = 22LL;
+          if ( *(_WORD *)(*a1 + 20) != 92 )
+            v8 = 20LL;
+          swprintf_s(PoolWithTag, 0x104uLL, L"%s\\%s", L"\\??\\GLOBALROOT", *a1 + v8);
+          while ( 1 )
+          {
+            v9 = ExAllocatePoolWithTag(PagedPool, v4, 0x4B444342u);
+            v10 = v9;
+            if ( !v9 )
+              goto LABEL_26;
+            PhysicalPartitions = SyspartGetPhysicalPartitions(PoolWithTag, v9, v4);
+            IsSpace = PhysicalPartitions;
+            if ( ((PhysicalPartitions + 0x80000000) & 0x80000000) == 0 && PhysicalPartitions != -2147483643 )
+              break;
+            if ( v10[1] <= v4 )
+            {
+              if ( v10[2] )
+              {
+                LODWORD(v18) = v10[5];
+                swprintf_s(v7, 0x104uLL, L"\\Device\\Harddisk%u\\Partition%u", (unsigned int)v10[4], v18);
+                v12 = -1LL;
+                do
+                  ++v12;
+                while ( v7[v12] );
+                v13 = 2 * v12 + 2;
+                v14 = ExAllocatePoolWithTag(PagedPool, (unsigned int)(2 * v12 + 62), 0x4B444342u);
+                v15 = v14;
+                if ( v14 )
+                {
+                  v16 = *a1;
+                  *v14 = *(_OWORD *)*a1;
+                  v14[1] = *(_OWORD *)(v16 + 16);
+                  v14[2] = *(_OWORD *)(v16 + 32);
+                  *((_QWORD *)v14 + 6) = *(_QWORD *)(v16 + 48);
+                  *((_DWORD *)v14 + 14) = *(_DWORD *)(v16 + 56);
+                  memmove((char *)v14 + 20, v7, v13);
+                  if ( v16 )
+                    ExFreeHeapPool(v16);
+                  *a1 = (ULONG_PTR)v15;
+                }
+                else
+                {
+                  IsSpace = -1073741801;
+                }
+              }
+              else
+              {
+                IsSpace = -1073741823;
+              }
+              goto LABEL_25;
+            }
+            v4 = v10[1];
+            ExFreeHeapPool((ULONG_PTR)v10);
+          }
+          BiLogMessage(4LL, L"SyspartGetPhysicalPartitions failed with error code: %x", PhysicalPartitions);
+LABEL_25:
+          ExFreeHeapPool((ULONG_PTR)v10);
+          goto LABEL_27;
+        }
+LABEL_26:
+        IsSpace = -1073741801;
 LABEL_27:
-        ExFreePoolWithTag(v10, 0x4B444342u);
-        goto LABEL_30;
+        if ( PoolWithTag )
+          ExFreeHeapPool((ULONG_PTR)PoolWithTag);
+        if ( v7 )
+          ExFreeHeapPool((ULONG_PTR)v7);
       }
-      if ( v10[1] <= v4 )
-      {
-        if ( v10[2] )
-        {
-          LODWORD(v17) = v10[5];
-          swprintf_s(v7, 0x104uLL, L"\\Device\\Harddisk%u\\Partition%u", (unsigned int)v10[4], v17);
-          v11 = -1LL;
-          do
-            ++v11;
-          while ( v7[v11] );
-          v12 = 2 * v11 + 2;
-          v13 = ExAllocatePool2(258LL, (unsigned int)(2 * v11 + 62), 1262764866LL);
-          v14 = (_OWORD *)v13;
-          if ( v13 )
-          {
-            v15 = *a1;
-            *(_OWORD *)v13 = **a1;
-            *(_OWORD *)(v13 + 16) = *((_OWORD *)v15 + 1);
-            *(_OWORD *)(v13 + 32) = *((_OWORD *)v15 + 2);
-            *(_QWORD *)(v13 + 48) = *((_QWORD *)v15 + 6);
-            *(_DWORD *)(v13 + 56) = v15[14];
-            memmove((void *)(v13 + 20), v7, v12);
-            if ( v15 )
-              ExFreePoolWithTag(v15, 0x4B444342u);
-            *a1 = v14;
-          }
-          else
-          {
-            IsSpace = -1073741801;
-          }
-        }
-        else
-        {
-          IsSpace = -1073741823;
-        }
-        goto LABEL_27;
-      }
-      v4 = v10[1];
-      ExFreePoolWithTag(v10, 0x4B444342u);
     }
-    IsSpace = -1073741801;
+    else
+    {
+      BiLogMessage(4LL, L"SyspartIsSpace failed for %s", *a1 + 20);
+    }
   }
-  else
-  {
-    IsSpace = -1073741801;
-    if ( !Pool2 )
-      goto LABEL_31;
-  }
-LABEL_30:
-  ExFreePoolWithTag(Pool2, 0x4B444342u);
-LABEL_31:
-  if ( v7 )
-    ExFreePoolWithTag(v7, 0x4B444342u);
-  return IsSpace;
+  return (unsigned int)IsSpace;
 }

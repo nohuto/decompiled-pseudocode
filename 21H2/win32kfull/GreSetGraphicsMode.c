@@ -1,11 +1,11 @@
 /*
- * XREFs of GreSetGraphicsMode @ 0x1C02BEBA8
+ * XREFs of GreSetGraphicsMode @ 0x1C02C0208
  * Callers:
- *     DrawFrameControl @ 0x1C00BF6FC (DrawFrameControl.c)
- *     ?FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z @ 0x1C00C28B8 (-FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z.c)
+ *     DrawFrameControl @ 0x1C0045C38 (DrawFrameControl.c)
+ *     ?FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z @ 0x1C011BB0C (-FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z.c)
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall GreSetGraphicsMode(HDC a1, int a2)

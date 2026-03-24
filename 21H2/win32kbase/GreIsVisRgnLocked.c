@@ -1,5 +1,5 @@
 /*
- * XREFs of GreIsVisRgnLocked @ 0x1C0177870
+ * XREFs of GreIsVisRgnLocked @ 0x1C014B440
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 _BOOL8 GreIsVisRgnLocked()
 {
-  return ExIsResourceAcquiredExclusiveLite(ghsemDCVisRgn) != 0;
+  return ExIsResourceAcquiredExclusiveLite((PERESOURCE)ghsemDCVisRgn) != 0;
 }

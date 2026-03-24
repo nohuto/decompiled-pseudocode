@@ -5,14 +5,14 @@
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
- *     ExGetFirmwareEnvironmentVariable @ 0x1406CADC0 (ExGetFirmwareEnvironmentVariable.c)
- *     PopRecordSleepCheckpoint @ 0x1406DEFFC (PopRecordSleepCheckpoint.c)
- *     PopClearSystemSleepCheckpoint @ 0x1406E0258 (PopClearSystemSleepCheckpoint.c)
- *     RtlGetSystemBootStatusEx @ 0x140760D20 (RtlGetSystemBootStatusEx.c)
- *     PopRecordSleepCheckpointSource @ 0x1408661A0 (PopRecordSleepCheckpointSource.c)
- *     PopDiagTraceDirtyTransition @ 0x1409F7FB8 (PopDiagTraceDirtyTransition.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x1406CADA0 (ExGetFirmwareEnvironmentVariable.c)
+ *     PopRecordSleepCheckpoint @ 0x1406DEFDC (PopRecordSleepCheckpoint.c)
+ *     PopClearSystemSleepCheckpoint @ 0x1406E0238 (PopClearSystemSleepCheckpoint.c)
+ *     RtlGetSystemBootStatusEx @ 0x140760D00 (RtlGetSystemBootStatusEx.c)
+ *     PopRecordSleepCheckpointSource @ 0x140866180 (PopRecordSleepCheckpointSource.c)
+ *     PopDiagTraceDirtyTransition @ 0x1409F7FC8 (PopDiagTraceDirtyTransition.c)
  */
 
 char __fastcall PopCheckShutdownMarker(int a1)
@@ -76,24 +76,24 @@ char __fastcall PopCheckShutdownMarker(int a1)
   v46 = 16;
   RtlGetSystemBootStatusEx((__int64)&v40, 3u, 0LL);
   PopBsdPhysicalPowerButtonInfoAtBoot = PopBsdPhysicalPowerButtonInfo;
-  xmmword_14043FE90 = xmmword_14043FEE0;
-  xmmword_14043FEA0 = xmmword_14043FEF0;
+  xmmword_14043FEC0 = xmmword_14043FE90;
+  xmmword_14043FED0 = xmmword_14043FEA0;
   if ( _mm_srli_si128((__m128i)PopBsdPhysicalPowerButtonInfo, 8).m128i_u32[0]
     && pCallbackContext.LevelPlus1 > 5
     && TlgKeywordOn(&pCallbackContext, 0x200000000000uLL) )
   {
     v10 = WORD2(v3);
-    v12 = WORD6(xmmword_14043FE90);
+    v12 = WORD6(xmmword_14043FEC0);
     v15 = BYTE6(v3);
     v11 = v3;
     v13 = v3;
     v4 = HIBYTE(v3);
     v7 = v4 & 1;
-    v14 = HIWORD(*((_QWORD *)&xmmword_14043FE90 + 1));
+    v14 = HIWORD(*((_QWORD *)&xmmword_14043FEC0 + 1));
     v20 = &PopBsdPhysicalPowerButtonInfoAtBoot;
     v22 = &v10;
     v24 = &v11;
-    v26 = &xmmword_14043FE90;
+    v26 = &xmmword_14043FEC0;
     v28 = &v12;
     v30 = &v13;
     v32 = &v14;
@@ -111,12 +111,12 @@ char __fastcall PopCheckShutdownMarker(int a1)
     v35 = 4LL;
     v37 = 1LL;
     v39 = 1LL;
-    TlgWrite(&pCallbackContext, &unk_14036E760, 0LL, 0LL, 0xCu, &pData);
+    TlgWrite(&pCallbackContext, &unk_14036E870, 0LL, 0LL, 0xCu, &pData);
   }
   PopBsdPowerTransitionExtensionAtBoot = PopBsdPowerTransitionExtension;
-  xmmword_14043FEC0 = xmmword_14043C608;
+  xmmword_14043FF10 = xmmword_14043C608;
   PopBsdPowerTransitionAtBoot = PopBsdPowerTransition;
-  xmmword_14043FF10 = *(_OWORD *)&Buffer;
+  xmmword_14043FEF0 = *(_OWORD *)&Buffer;
   if ( (PopSimulate & 0x200) != 0 )
     BYTE8(PopBsdPowerTransitionAtBoot) |= 1u;
   PopAutoChkCausedReboot = (BYTE14(PopBsdPowerTransition) & 0x10) != 0;

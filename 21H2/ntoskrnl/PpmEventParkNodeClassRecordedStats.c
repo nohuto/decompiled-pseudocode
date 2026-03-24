@@ -1,89 +1,68 @@
 /*
- * XREFs of PpmEventParkNodeClassRecordedStats @ 0x1405DA274
+ * XREFs of PpmEventParkNodeClassRecordedStats @ 0x140579CCC
  * Callers:
- *     PpmParkRecordNodeStatistics @ 0x14021C050 (PpmParkRecordNodeStatistics.c)
+ *     PpmParkRecordNodeStatistics @ 0x1402896A0 (PpmParkRecordNodeStatistics.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-char __fastcall PpmEventParkNodeClassRecordedStats(
-        __int16 a1,
-        __int64 a2,
-        char a3,
-        char a4,
-        char a5,
-        __int64 a6,
-        char a7)
+char __fastcall PpmEventParkNodeClassRecordedStats(__int16 a1, __int64 a2, char a3, __int64 a4, char a5)
 {
-  _UNKNOWN **v7; // rax
-  REGHANDLE v8; // rbx
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-61h] BYREF
-  __int64 *v11; // [rsp+58h] [rbp-51h]
-  int v12; // [rsp+60h] [rbp-49h]
-  int v13; // [rsp+64h] [rbp-45h]
-  char *v14; // [rsp+68h] [rbp-41h]
-  int v15; // [rsp+70h] [rbp-39h]
-  int v16; // [rsp+74h] [rbp-35h]
-  char *v17; // [rsp+78h] [rbp-31h]
-  int v18; // [rsp+80h] [rbp-29h]
-  int v19; // [rsp+84h] [rbp-25h]
-  __int64 v20; // [rsp+88h] [rbp-21h]
-  int v21; // [rsp+90h] [rbp-19h]
-  int v22; // [rsp+94h] [rbp-15h]
-  __int64 v23; // [rsp+98h] [rbp-11h]
-  int v24; // [rsp+A0h] [rbp-9h]
-  int v25; // [rsp+A4h] [rbp-5h]
-  char *v26; // [rsp+A8h] [rbp-1h]
-  int v27; // [rsp+B0h] [rbp+7h]
-  int v28; // [rsp+B4h] [rbp+Bh]
-  char *v29; // [rsp+B8h] [rbp+Fh]
-  int v30; // [rsp+C0h] [rbp+17h]
-  int v31; // [rsp+C4h] [rbp+1Bh]
-  _UNKNOWN *retaddr; // [rsp+F0h] [rbp+47h] BYREF
-  __int16 v33; // [rsp+F8h] [rbp+4Fh] BYREF
-  __int64 v34; // [rsp+100h] [rbp+57h] BYREF
-  char v35; // [rsp+108h] [rbp+5Fh] BYREF
-  char v36; // [rsp+110h] [rbp+67h] BYREF
+  _UNKNOWN **v5; // rax
+  REGHANDLE v7; // rbx
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-31h] BYREF
+  __int64 *v10; // [rsp+58h] [rbp-21h]
+  int v11; // [rsp+60h] [rbp-19h]
+  int v12; // [rsp+64h] [rbp-15h]
+  char *v13; // [rsp+68h] [rbp-11h]
+  int v14; // [rsp+70h] [rbp-9h]
+  int v15; // [rsp+74h] [rbp-5h]
+  char *v16; // [rsp+78h] [rbp-1h]
+  int v17; // [rsp+80h] [rbp+7h]
+  int v18; // [rsp+84h] [rbp+Bh]
+  __int64 v19; // [rsp+88h] [rbp+Fh]
+  int v20; // [rsp+90h] [rbp+17h]
+  int v21; // [rsp+94h] [rbp+1Bh]
+  __int64 v22; // [rsp+98h] [rbp+1Fh]
+  int v23; // [rsp+A0h] [rbp+27h]
+  int v24; // [rsp+A4h] [rbp+2Bh]
+  _UNKNOWN *retaddr; // [rsp+D0h] [rbp+57h] BYREF
+  __int16 v26; // [rsp+D8h] [rbp+5Fh] BYREF
+  __int64 v27; // [rsp+E0h] [rbp+67h] BYREF
+  char v28; // [rsp+E8h] [rbp+6Fh] BYREF
 
-  v7 = &retaddr;
-  v36 = a4;
-  v35 = a3;
-  v34 = a2;
-  v33 = a1;
+  v5 = &retaddr;
+  v28 = a3;
+  v27 = a2;
+  v26 = a1;
   if ( PpmEtwRegistered )
   {
-    v8 = PpmEtwHandle;
-    LOBYTE(v7) = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PARK_NODE_CLASS_STATS);
-    if ( (_BYTE)v7 )
+    v7 = PpmEtwHandle;
+    LOBYTE(v5) = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PARK_NODE_CLASS_STATS);
+    if ( (_BYTE)v5 )
     {
       UserData.Reserved = 0;
-      v13 = 0;
-      v16 = 0;
-      v19 = 0;
-      v22 = 0;
-      v25 = 0;
-      v28 = 0;
-      v31 = 0;
-      UserData.Ptr = (ULONGLONG)&v33;
-      v11 = &v34;
-      v14 = &v35;
-      v17 = &a7;
-      v12 = 8;
-      v15 = 1;
-      v18 = 1;
-      v27 = 1;
-      v23 = *(_QWORD *)(a6 + 8);
-      v24 = 8 * *(_DWORD *)(a6 + 40);
-      v26 = &v36;
-      v29 = &a5;
-      v20 = a6 + 40;
-      v30 = 1;
+      v12 = 0;
+      v15 = 0;
+      v18 = 0;
+      v21 = 0;
+      v24 = 0;
+      UserData.Ptr = (ULONGLONG)&v26;
+      v10 = &v27;
+      v13 = &v28;
+      v16 = &a5;
+      v22 = *(_QWORD *)(a4 + 8);
+      v23 = 8 * *(_DWORD *)(a4 + 40);
+      v14 = 1;
+      v17 = 1;
+      v19 = a4 + 40;
       UserData.Size = 2;
-      v21 = 4;
-      LOBYTE(v7) = EtwWriteEx(v8, &PPM_ETW_PARK_NODE_CLASS_STATS, 0LL, 0, 0LL, 0LL, 8u, &UserData);
+      v11 = 8;
+      v20 = 4;
+      LOBYTE(v5) = EtwWriteEx(v7, &PPM_ETW_PARK_NODE_CLASS_STATS, 0LL, 0, 0LL, 0LL, 6u, &UserData);
     }
   }
-  return (char)v7;
+  return (char)v5;
 }

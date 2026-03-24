@@ -1,26 +1,24 @@
 /*
- * XREFs of ?_AddExternalPathsToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJPEAVDXGADAPTER@@@Z @ 0x1C03AD350
+ * XREFs of ?_AddExternalPathsToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJPEAVDXGADAPTER@@@Z @ 0x1C02EDB10
  * Callers:
- *     ?_AddExternalPathsAdaptersCallback@BTL_TOPOLOGY_CONSTRUCTOR@@CAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C03AD310 (-_AddExternalPathsAdaptersCallback@BTL_TOPOLOGY_CONSTRUCTOR@@CAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     ?_AddExternalPathsAdaptersCallback@BTL_TOPOLOGY_CONSTRUCTOR@@CAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C02EDAD0 (-_AddExternalPathsAdaptersCallback@BTL_TOPOLOGY_CONSTRUCTOR@@CAJPEAVDXGADAPTER@@PEAX@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000D514 (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C000F13C (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z @ 0x1C000F304 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z.c)
- *     ?reset@?$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z @ 0x1C000FBD8 (-reset@-$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z.c)
- *     ?IsTargetInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z @ 0x1C0010C30 (-IsTargetInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z.c)
- *     ?IsSourceInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z @ 0x1C0011D9C (-IsSourceInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z.c)
- *     ??1?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@QEAA@XZ @ 0x1C002FA24 (--1-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@QEAA@XZ.c)
- *     ?_IsVirtualModeSupportDisabled@DXGMONITOR@@QEBA_NXZ @ 0x1C01A5490 (-_IsVirtualModeSupportDisabled@DXGMONITOR@@QEBA_NXZ.c)
- *     ?CreateClientVidPnFromLastClientCommitedVidPn@VIDPN_MGR@@QEAAJPEAV?$auto_rc@VDMMVIDPN@@@@@Z @ 0x1C01A62D4 (-CreateClientVidPnFromLastClientCommitedVidPn@VIDPN_MGR@@QEAAJPEAV-$auto_rc@VDMMVIDPN@@@@@Z.c)
- *     ?GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z @ 0x1C01A8564 (-GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z.c)
- *     ?AddPathToVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GEW4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@@Z @ 0x1C01AA0E0 (-AddPathToVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_IM.c)
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C01ABE88 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
- *     ?CreateClientVidPn@VIDPN_MGR@@QEAAJPEAV?$auto_rc@VDMMVIDPN@@@@@Z @ 0x1C01B0CF4 (-CreateClientVidPn@VIDPN_MGR@@QEAAJPEAV-$auto_rc@VDMMVIDPN@@@@@Z.c)
- *     ?_AddPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEBU_LUID@@IIW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1_N22@Z @ 0x1C03ADC4C (-_AddPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEBU_LUID@@IIW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLO.c)
- *     ?_GetFirstBestSecondaryTarget@BTL_TOPOLOGY_CONSTRUCTOR@@CAPEBVDMMVIDEOPRESENTTARGET@@AEBVDMMVIDEOPRESENTTARGETSET@@@Z @ 0x1C03AEE84 (-_GetFirstBestSecondaryTarget@BTL_TOPOLOGY_CONSTRUCTOR@@CAPEBVDMMVIDEOPRESENTTARGET@@AEBVDMMVIDE.c)
- *     ?_GetNextBestSecondaryTarget@BTL_TOPOLOGY_CONSTRUCTOR@@CAPEBVDMMVIDEOPRESENTTARGET@@AEBV2@AEBVDMMVIDEOPRESENTTARGETSET@@@Z @ 0x1C03AEF20 (-_GetNextBestSecondaryTarget@BTL_TOPOLOGY_CONSTRUCTOR@@CAPEBVDMMVIDEOPRESENTTARGET@@AEBV2@AEBVDM.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C00055D4 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ?IsTargetInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z @ 0x1C0007F58 (-IsTargetInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00081AC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z @ 0x1C00085F4 (-reset@-$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z.c)
+ *     ?IsSourceInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z @ 0x1C000B5A8 (-IsSourceInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z.c)
+ *     ?GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z @ 0x1C01106EC (-GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z.c)
+ *     ?AddPathToVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GEW4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@@Z @ 0x1C01242A0 (-AddPathToVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_IM.c)
+ *     ?CreateClientVidPn@VIDPN_MGR@@QEAAJPEAV?$auto_rc@VDMMVIDPN@@@@@Z @ 0x1C0125A5C (-CreateClientVidPn@VIDPN_MGR@@QEAAJPEAV-$auto_rc@VDMMVIDPN@@@@@Z.c)
+ *     ?CreateClientVidPnFromLastClientCommitedVidPn@VIDPN_MGR@@QEAAJPEAV?$auto_rc@VDMMVIDPN@@@@@Z @ 0x1C0125B70 (-CreateClientVidPnFromLastClientCommitedVidPn@VIDPN_MGR@@QEAAJPEAV-$auto_rc@VDMMVIDPN@@@@@Z.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0129B38 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_IsVirtualModeSuportDisabled@DXGMONITOR@@QEAA_NXZ @ 0x1C012A2E8 (-_IsVirtualModeSuportDisabled@DXGMONITOR@@QEAA_NXZ.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013527C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     ?_AddPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEBU_LUID@@IIW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1_N2@Z @ 0x1C02EE600 (-_AddPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEBU_LUID@@IIW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLO.c)
+ *     ?_GetFirstBestSecondaryTarget@BTL_TOPOLOGY_CONSTRUCTOR@@CAPEBVDMMVIDEOPRESENTTARGET@@AEBVDMMVIDEOPRESENTTARGETSET@@@Z @ 0x1C02EF9C4 (-_GetFirstBestSecondaryTarget@BTL_TOPOLOGY_CONSTRUCTOR@@CAPEBVDMMVIDEOPRESENTTARGET@@AEBVDMMVIDE.c)
+ *     ?_GetNextBestSecondaryTarget@BTL_TOPOLOGY_CONSTRUCTOR@@CAPEBVDMMVIDEOPRESENTTARGET@@AEBV2@AEBVDMMVIDEOPRESENTTARGETSET@@@Z @ 0x1C02EFA6C (-_GetNextBestSecondaryTarget@BTL_TOPOLOGY_CONSTRUCTOR@@CAPEBVDMMVIDEOPRESENTTARGET@@AEBV2@AEBVDM.c)
  */
 
 __int64 __fastcall BTL_TOPOLOGY_CONSTRUCTOR::_AddExternalPathsToTopology(
@@ -28,391 +26,511 @@ __int64 __fastcall BTL_TOPOLOGY_CONSTRUCTOR::_AddExternalPathsToTopology(
         struct DXGADAPTER *a2)
 {
   BTL_TOPOLOGY_CONSTRUCTOR *v3; // r12
-  VIDPN_MGR *v4; // r15
+  VIDPN_MGR *v4; // r13
   __int64 v5; // rax
-  __int64 v6; // rbx
-  int v7; // eax
-  unsigned int v8; // ebx
-  struct DMMVIDPNTOPOLOGY *v9; // r13
-  unsigned int i; // esi
+  unsigned int v6; // r14d
+  __int64 v7; // r15
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rbx
   __int64 v11; // rax
-  unsigned __int16 v12; // cx
+  int v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rdi
+  _QWORD *v16; // rax
+  _QWORD *v17; // rax
+  __int64 v18; // rax
+  unsigned __int16 v19; // cx
   const struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rax
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v14; // rdi
-  int v15; // eax
-  int v16; // esi
-  __int64 v17; // rdi
-  const struct DMMVIDEOPRESENTTARGET *j; // rax
-  unsigned int v19; // r10d
-  __int64 v20; // r12
-  DXGMONITOR *v21; // rbx
-  char IsVirtualModeSupportDisabled; // si
-  bool v23; // cl
-  char v24; // al
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v21; // rbx
+  int v22; // eax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // rbx
+  bool v26; // r13
+  const struct DMMVIDEOPRESENTTARGET *i; // rax
+  __int64 v28; // r15
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  char *v31; // r8
+  __int64 v32; // r13
+  struct _FAST_MUTEX *v33; // rcx
+  char IsVirtualModeSuportDisabled; // r12
+  __int64 v35; // rax
+  int MonitorInstance; // eax
+  __int64 v37; // rax
+  __int64 v38; // rax
+  struct DXGMONITOR *v39; // r15
+  __int64 v40; // rax
+  __int64 v41; // rax
   unsigned int PathSourceFromTarget; // eax
-  __int64 v26; // rsi
-  struct DMMVIDPNTOPOLOGY *v27; // r10
-  int v28; // eax
-  int v29; // eax
-  const struct DMMVIDEOPRESENTTARGET *v30; // r13
+  __int64 v43; // r15
+  struct DMMVIDPNTOPOLOGY *v44; // r10
+  int v45; // eax
+  __int64 v46; // rdx
+  __int64 v47; // rcx
+  int v48; // eax
+  const struct DMMVIDEOPRESENTTARGET *v49; // r14
   const struct DMMVIDEOPRESENTTARGET *FirstBestSecondaryTarget; // rax
-  __int64 v32; // r12
-  unsigned int v33; // esi
-  DXGMONITOR *v34; // rbx
-  char v35; // si
-  bool v36; // cl
-  char v37; // al
-  struct DMMVIDPNTOPOLOGY *v38; // r10
-  int v39; // eax
-  int v41; // eax
-  int v42; // [rsp+50h] [rbp-29h]
-  DMMVIDPNTOPOLOGY *v43; // [rsp+58h] [rbp-21h]
-  DXGMONITOR *v44; // [rsp+60h] [rbp-19h] BYREF
-  __int64 v45; // [rsp+68h] [rbp-11h] BYREF
-  __int64 v46; // [rsp+70h] [rbp-9h] BYREF
-  DXGMONITOR *v47; // [rsp+78h] [rbp-1h] BYREF
-  VIDPN_MGR *v48; // [rsp+80h] [rbp+7h]
-  __int64 v49[9]; // [rsp+88h] [rbp+Fh] BYREF
-  char v51; // [rsp+E8h] [rbp+6Fh]
-  char v52; // [rsp+E8h] [rbp+6Fh]
-  char v53; // [rsp+F0h] [rbp+77h]
-  char v54; // [rsp+F0h] [rbp+77h]
-  bool v55; // [rsp+F8h] [rbp+7Fh]
-  bool v56; // [rsp+F8h] [rbp+7Fh]
+  __int64 v51; // rdx
+  __int64 v52; // rax
+  _QWORD *v53; // rax
+  __int64 v54; // rcx
+  __int64 v55; // rcx
+  __int64 v56; // r14
+  __int64 v57; // rdx
+  __int64 v58; // rcx
+  struct DMMVIDPNTOPOLOGY *v59; // r10
+  __int64 v60; // r13
+  struct _FAST_MUTEX *v61; // rcx
+  char v62; // r12
+  __int64 v63; // rax
+  int v64; // eax
+  __int64 v65; // rax
+  __int64 v66; // rax
+  struct DXGMONITOR *v67; // r14
+  __int64 v68; // rax
+  __int64 v69; // rax
+  unsigned int v70; // r14d
+  int v71; // eax
+  __int64 v72; // rdx
+  __int64 v73; // rcx
+  int v74; // eax
+  const struct DMMVIDEOPRESENTTARGET *v75; // r15
+  int v76; // eax
+  __int64 v77; // rdx
+  __int64 v79; // rax
+  struct DMMVIDPNTOPOLOGY *v80; // [rsp+40h] [rbp-29h]
+  __int64 v81; // [rsp+48h] [rbp-21h] BYREF
+  __int64 v82; // [rsp+50h] [rbp-19h] BYREF
+  struct DXGMONITOR *v83; // [rsp+58h] [rbp-11h] BYREF
+  DMMVIDPNTOPOLOGY *v84; // [rsp+60h] [rbp-9h]
+  struct DXGMONITOR *v85; // [rsp+68h] [rbp-1h] BYREF
+  VIDPN_MGR *v86; // [rsp+70h] [rbp+7h]
+  __int64 v87[9]; // [rsp+78h] [rbp+Fh] BYREF
+  bool v89; // [rsp+D8h] [rbp+6Fh]
+  bool v90; // [rsp+E0h] [rbp+77h]
+  int v91; // [rsp+E8h] [rbp+7Fh]
 
   v3 = this;
-  v4 = *(VIDPN_MGR **)(*((_QWORD *)a2 + 349) + 104LL);
-  v48 = v4;
-  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(v49, (__int64)v4);
-  v5 = *((_QWORD *)a2 + 349);
-  v46 = 0LL;
-  v44 = 0LL;
-  if ( *(_BYTE *)(v5 + 290) && (int)VIDPN_MGR::CreateClientVidPnFromLastClientCommitedVidPn(v4, &v46) >= 0 )
+  v4 = *(VIDPN_MGR **)(*((_QWORD *)a2 + 337) + 88LL);
+  v86 = v4;
+  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(v87, (__int64)v4);
+  v5 = *((_QWORD *)a2 + 337);
+  v6 = 0;
+  v82 = 0LL;
+  v7 = 0LL;
+  v84 = 0LL;
+  if ( *(_BYTE *)(v5 + 250) && (int)VIDPN_MGR::CreateClientVidPnFromLastClientCommitedVidPn(v4, &v82) >= 0 )
   {
-    v6 = v46;
-    if ( !v46 )
-      WdLogSingleEntry0(1LL);
-    v44 = (DXGMONITOR *)(v6 + 96);
-  }
-  v45 = 0LL;
-  v7 = VIDPN_MGR::CreateClientVidPn(v4, &v45);
-  v8 = v7;
-  if ( v7 < 0 )
-  {
-    WdLogSingleEntry4(2LL, v7, a2, *((int *)a2 + 102), *((unsigned int *)a2 + 101));
-    goto LABEL_87;
-  }
-  v9 = (struct DMMVIDPNTOPOLOGY *)(v45 + 96);
-  v43 = (DMMVIDPNTOPOLOGY *)(v45 + 96);
-  if ( v45 == -96 )
-  {
-    WdLogSingleEntry4(2LL, -96LL, a2, *((int *)a2 + 102), *((unsigned int *)a2 + 101));
-    v8 = -1073741823;
-    goto LABEL_87;
-  }
-  for ( i = 0; ; ++i )
-  {
-    v11 = *(_QWORD *)(*(_QWORD *)v3 + 64LL);
-    v12 = v11 ? *(_WORD *)(v11 + 20) : 0;
-    if ( i >= v12 )
-      break;
-    PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor(*(CCD_TOPOLOGY **)v3, i);
-    v14 = PathDescriptor;
-    if ( *((_DWORD *)PathDescriptor + 4) == *((_DWORD *)a2 + 101)
-      && *((_DWORD *)PathDescriptor + 5) == *((_DWORD *)a2 + 102) )
+    v10 = v82;
+    if ( !v82 )
     {
-      v15 = VIDPN_MGR::AddPathToVidPnTopology(
+      v11 = WdLogNewEntry5_WdAssertion(v9, v8);
+      WdLogEvent5_WdAssertion(v11);
+    }
+    v7 = v10 + 96;
+    v84 = (DMMVIDPNTOPOLOGY *)(v10 + 96);
+  }
+  v81 = 0LL;
+  v12 = VIDPN_MGR::CreateClientVidPn(v4, &v81);
+  v15 = v12;
+  if ( v12 < 0 )
+  {
+    v16 = (_QWORD *)WdLogNewEntry5_WdError(v14, v13);
+    v16[3] = v15;
+    v16[4] = a2;
+    v16[5] = *((int *)a2 + 80);
+    v16[6] = *((unsigned int *)a2 + 79);
+LABEL_19:
+    WdLogEvent5_WdError(v16);
+    goto LABEL_114;
+  }
+  v80 = (struct DMMVIDPNTOPOLOGY *)(v81 + 96);
+  if ( v81 == -96 )
+  {
+    v17 = (_QWORD *)WdLogNewEntry5_WdError(v14, v13);
+    v17[3] = -96LL;
+    v17[4] = a2;
+    v17[5] = *((int *)a2 + 80);
+    v17[6] = *((unsigned int *)a2 + 79);
+    WdLogEvent5_WdError(v17);
+    LODWORD(v15) = -1073741823;
+    goto LABEL_114;
+  }
+  while ( 1 )
+  {
+    v18 = *(_QWORD *)(*(_QWORD *)v3 + 64LL);
+    v19 = v18 ? *(_WORD *)(v18 + 20) : 0;
+    if ( v6 >= v19 )
+      break;
+    PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor(*(CCD_TOPOLOGY **)v3, v6);
+    v21 = PathDescriptor;
+    if ( *((_DWORD *)PathDescriptor + 4) == *((_DWORD *)a2 + 79)
+      && *((_DWORD *)PathDescriptor + 5) == *((_DWORD *)a2 + 80) )
+    {
+      v22 = VIDPN_MGR::AddPathToVidPnTopology(
               v4,
-              v9,
+              v80,
               *((_DWORD *)PathDescriptor + 6),
               *((_DWORD *)PathDescriptor + 7),
               (enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE)255,
-              i,
+              v6,
               0,
               D3DKMDT_MCC_IGNORE);
-      v8 = v15;
-      if ( v15 < 0 )
+      v15 = v22;
+      if ( v22 < 0 )
       {
-        WdLogSingleEntry5(
-          2LL,
-          v15,
-          *((int *)v14 + 5),
-          *((unsigned int *)v14 + 4),
-          *((unsigned int *)v14 + 6),
-          *((unsigned int *)v14 + 7));
-        goto LABEL_87;
+        v16 = (_QWORD *)WdLogNewEntry5_WdError(v24, v23);
+        v16[3] = v15;
+        v16[4] = *((int *)v21 + 5);
+        v16[5] = *((unsigned int *)v21 + 4);
+        v16[6] = *((unsigned int *)v21 + 6);
+        v16[7] = *((unsigned int *)v21 + 7);
+        goto LABEL_19;
       }
     }
+    ++v6;
   }
-  v16 = -1071774975;
-  v42 = -1071774975;
-  _InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)v4 + 15) + 72LL));
-  v17 = *((_QWORD *)v4 + 15);
-  if ( v44 )
+  v91 = -1071774975;
+  _InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)v4 + 10) + 72LL));
+  v25 = *((_QWORD *)v4 + 10);
+  v26 = 0;
+  v90 = 0;
+  v89 = 0;
+  if ( v7 )
   {
-    for ( j = BTL_TOPOLOGY_CONSTRUCTOR::_GetFirstBestSecondaryTarget((const struct DMMVIDEOPRESENTTARGETSET *)v17);
+    for ( i = BTL_TOPOLOGY_CONSTRUCTOR::_GetFirstBestSecondaryTarget((const struct DMMVIDEOPRESENTTARGETSET *)v25);
           ;
-          j = BTL_TOPOLOGY_CONSTRUCTOR::_GetNextBestSecondaryTarget(v30, (const struct DMMVIDEOPRESENTTARGETSET *)v17) )
+          i = BTL_TOPOLOGY_CONSTRUCTOR::_GetNextBestSecondaryTarget(v49, (const struct DMMVIDEOPRESENTTARGETSET *)v25) )
     {
-      v30 = j;
-      if ( !j )
-        goto LABEL_51;
-      if ( !DMMVIDPNTOPOLOGY::IsTargetInTopology(v43, *((_DWORD *)j + 6))
-        && (v19 != *((_DWORD *)v3 + 6)
-         || *((_DWORD *)a2 + 101) != *((_DWORD *)v3 + 3)
-         || *((_DWORD *)a2 + 102) != *((_DWORD *)v3 + 4))
-        && *((_QWORD *)v30 + 14)
-        && !*((_DWORD *)v30 + 23) )
+      v49 = i;
+      if ( !i )
+        goto LABEL_62;
+      v28 = *((unsigned int *)i + 6);
+      if ( DMMVIDPNTOPOLOGY::IsTargetInTopology(v80, *((_DWORD *)i + 6))
+        || (_DWORD)v28 == *((_DWORD *)v3 + 6)
+        && *((_DWORD *)a2 + 79) == *((_DWORD *)v3 + 3)
+        && *((_DWORD *)a2 + 80) == *((_DWORD *)v3 + 4)
+        || !*((_QWORD *)v49 + 14)
+        || *((_DWORD *)v49 + 22) )
       {
-        break;
+        continue;
       }
-LABEL_49:
-      ;
-    }
-    if ( v19 == -1 )
-      goto LABEL_96;
-    v20 = *((_QWORD *)a2 + 349);
-    if ( !v20 )
-    {
-      WdLogSingleEntry1(2LL, 9372LL);
-LABEL_95:
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"The selected adapter is render-only",
-        9372LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      v19 = *((_DWORD *)v30 + 6);
-LABEL_96:
-      WdLogSingleEntry2(2LL, v19, a2);
-      v8 = -1073741811;
-      goto LABEL_85;
-    }
-    MONITOR_MGR::AcquireMonitorShared(&v47, (__int64)a2, v19);
-    v21 = v47;
-    if ( v47 )
-    {
-      if ( *((_DWORD *)v47 + 78) != 1 )
-        WdLogSingleEntry0(1LL);
-      IsVirtualModeSupportDisabled = DXGMONITOR::_IsVirtualModeSupportDisabled(v21);
-      ExReleaseResourceLite((PERESOURCE)((char *)v21 + 24));
-      KeLeaveCriticalRegion();
-      if ( IsVirtualModeSupportDisabled )
+      if ( (_DWORD)v28 != -1 )
+        break;
+      LODWORD(v15) = -1073741811;
+LABEL_50:
+      if ( (int)v15 < 0 )
+        goto LABEL_64;
+      if ( !*((_BYTE *)v3 + 10) || !v26 )
       {
-        v23 = 1;
-        v55 = 1;
-        v53 = 1;
-LABEL_38:
-        v51 = 1;
-LABEL_39:
-        v3 = this;
-        v8 = 0;
-        if ( *((_BYTE *)this + 10) && v23
-          || (PathSourceFromTarget = DMMVIDPNTOPOLOGY::GetPathSourceFromTarget(v44, *((unsigned int *)v30 + 6)),
-              v26 = PathSourceFromTarget,
-              PathSourceFromTarget == -1)
-          || DMMVIDPNTOPOLOGY::IsSourceInTopology(v43, PathSourceFromTarget)
-          || (v28 = VIDPN_MGR::AddPathToVidPnTopology(
-                      v48,
-                      v27,
-                      v26,
-                      *((_DWORD *)v30 + 6),
-                      (enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE)255,
-                      0xFFFFu,
-                      0,
-                      D3DKMDT_MCC_IGNORE),
-              v8 = v28,
-              v28 == -1071774975) )
+        PathSourceFromTarget = DMMVIDPNTOPOLOGY::GetPathSourceFromTarget(v84, *((unsigned int *)v49 + 6), v31);
+        v43 = PathSourceFromTarget;
+        if ( PathSourceFromTarget != -1 && !DMMVIDPNTOPOLOGY::IsSourceInTopology(v80, PathSourceFromTarget) )
         {
-          v16 = v42;
+          v45 = VIDPN_MGR::AddPathToVidPnTopology(
+                  v86,
+                  v44,
+                  v43,
+                  *((_DWORD *)v49 + 6),
+                  (enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE)255,
+                  0xFFFFu,
+                  0,
+                  D3DKMDT_MCC_IGNORE);
+          v15 = v45;
+          if ( v45 != -1071774975 )
+          {
+            if ( v45 < 0 )
+            {
+              v53 = (_QWORD *)WdLogNewEntry5_WdError(v47, v46);
+              v53[3] = v15;
+              v53[4] = *((int *)a2 + 80);
+              v53[5] = *((unsigned int *)a2 + 79);
+              v53[6] = v43;
+              v55 = *((unsigned int *)v49 + 6);
+LABEL_66:
+              v53[7] = v55;
+              goto LABEL_118;
+            }
+            LODWORD(v15) = BTL_TOPOLOGY_CONSTRUCTOR::_AddPathToTopology(
+                             v3,
+                             (const struct _LUID *)((char *)a2 + 316),
+                             v43,
+                             *((_DWORD *)v49 + 6),
+                             (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY)*((_DWORD *)v49 + 20),
+                             (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY)*((_DWORD *)v49 + 21),
+                             !v90,
+                             !v26);
+            v48 = v91;
+            if ( (int)v15 >= 0 )
+              v48 = v15;
+            v91 = v48;
+          }
+        }
+      }
+    }
+    v32 = *((_QWORD *)a2 + 337);
+    if ( !v32 )
+    {
+      v52 = WdLogNewEntry5_WdError(v30, v29);
+      *(_QWORD *)(v52 + 24) = 9262LL;
+      WdLogEvent5_WdError(v52);
+      LODWORD(v15) = -1073741811;
+LABEL_64:
+      v53 = (_QWORD *)WdLogNewEntry5_WdError(v30, v29);
+      v54 = *((unsigned int *)v49 + 6);
+LABEL_117:
+      v53[4] = a2;
+      v53[3] = v54;
+LABEL_118:
+      WdLogEvent5_WdError(v53);
+      goto LABEL_112;
+    }
+    v33 = *(struct _FAST_MUTEX **)(v32 + 96);
+    IsVirtualModeSuportDisabled = 0;
+    if ( !v33 )
+    {
+      v35 = WdLogNewEntry5_WdError(0LL, v29);
+      *(_QWORD *)(v35 + 24) = a2;
+      WdLogEvent5_WdError(v35);
+      LODWORD(v15) = -1073741811;
+LABEL_38:
+      v38 = WdLogNewEntry5_WdAssertion(v30, v29);
+      *(_QWORD *)(v38 + 24) = (int)v15;
+      WdLogEvent5_WdAssertion(v38);
+LABEL_48:
+      v3 = this;
+      v26 = v89;
+      goto LABEL_50;
+    }
+    v83 = 0LL;
+    MonitorInstance = MONITOR_MGR::_GetMonitorInstance(v33, (unsigned int)v28, 1, &v83);
+    LODWORD(v15) = MonitorInstance;
+    if ( MonitorInstance == -1073741275 )
+    {
+      v37 = WdLogNewEntry5_WdDmmEvent(v30, v29);
+      *(_QWORD *)(v37 + 24) = v28;
+      *(_QWORD *)(v37 + 32) = a2;
+      WdLogEvent5_WdDmmEvent(v37);
+    }
+    else
+    {
+      if ( MonitorInstance >= 0 )
+      {
+        v39 = v83;
+        if ( !v83 || *((_DWORD *)v83 + 108) != 1 )
+        {
+          v40 = WdLogNewEntry5_WdAssertion(v30, v29);
+          WdLogEvent5_WdAssertion(v40);
+        }
+        if ( !v39 )
+        {
+          v41 = WdLogNewEntry5_WdAssertion(v30, v29);
+          WdLogEvent5_WdAssertion(v41);
+        }
+        KeEnterCriticalRegion();
+        ExAcquireResourceSharedLite((PERESOURCE)((char *)v39 + 296), 1u);
+        IsVirtualModeSuportDisabled = DXGMONITOR::_IsVirtualModeSuportDisabled(v39);
+        ExReleaseResourceLite((PERESOURCE)((char *)v39 + 296));
+        KeLeaveCriticalRegion();
+        LODWORD(v15) = 0;
+        goto LABEL_45;
+      }
+      if ( MonitorInstance != -1073741632 )
+      {
+LABEL_37:
+        if ( (int)v15 < 0 )
+          goto LABEL_38;
+LABEL_45:
+        if ( IsVirtualModeSuportDisabled )
+        {
+          v89 = 1;
+          v90 = 1;
         }
         else
         {
-          if ( v28 < 0 )
-          {
-            WdLogSingleEntry5(
-              2LL,
-              v28,
-              *((int *)a2 + 102),
-              *((unsigned int *)a2 + 101),
-              v26,
-              *((unsigned int *)v30 + 6));
-            goto LABEL_85;
-          }
-          v29 = BTL_TOPOLOGY_CONSTRUCTOR::_AddPathToTopology(
-                  this,
-                  (const struct _LUID *)((char *)a2 + 404),
-                  v26,
-                  *((_DWORD *)v30 + 6),
-                  (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY)*((_DWORD *)v30 + 20),
-                  (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY)*((_DWORD *)v30 + 21),
-                  !v55,
-                  v53 != 1,
-                  v51 != 1);
-          v16 = v42;
-          v8 = v29;
-          if ( v29 >= 0 )
-            v16 = v29;
-          v42 = v16;
+          v89 = *(_BYTE *)(v32 + 250) == 0;
+          v90 = *(_BYTE *)(v32 + 249) == 0;
         }
-        goto LABEL_49;
+        goto LABEL_48;
       }
     }
-    else
-    {
-      WdLogSingleEntry1(2LL, -1073741632LL);
-      RESOURCE_LOCK_ACCESSOR<DXGMONITOR>::~RESOURCE_LOCK_ACCESSOR<DXGMONITOR>((__int64 *)&v47);
-    }
-    v24 = *(_BYTE *)(v20 + 289);
-    v55 = v24 == 0;
-    v23 = *(_BYTE *)(v20 + 290) == 0;
-    v53 = v23;
-    if ( v24 )
-    {
-      v51 = 0;
-      if ( (*(_DWORD *)(v20 + 24) & 0x20) != 0 )
-        goto LABEL_39;
-    }
-    goto LABEL_38;
+    LODWORD(v15) = 0;
+    goto LABEL_37;
   }
-LABEL_51:
-  FirstBestSecondaryTarget = BTL_TOPOLOGY_CONSTRUCTOR::_GetFirstBestSecondaryTarget((const struct DMMVIDEOPRESENTTARGETSET *)v17);
-LABEL_81:
-  v30 = FirstBestSecondaryTarget;
+LABEL_62:
+  FirstBestSecondaryTarget = BTL_TOPOLOGY_CONSTRUCTOR::_GetFirstBestSecondaryTarget((const struct DMMVIDEOPRESENTTARGETSET *)v25);
+LABEL_108:
+  v75 = FirstBestSecondaryTarget;
   if ( FirstBestSecondaryTarget )
   {
-    if ( DMMVIDPNTOPOLOGY::IsTargetInTopology(v43, *((_DWORD *)FirstBestSecondaryTarget + 6))
-      || v19 == *((_DWORD *)v3 + 6)
-      && *((_DWORD *)a2 + 101) == *((_DWORD *)v3 + 3)
-      && *((_DWORD *)a2 + 102) == *((_DWORD *)v3 + 4)
-      || !*((_QWORD *)v30 + 14) )
+    v56 = *((unsigned int *)FirstBestSecondaryTarget + 6);
+    if ( DMMVIDPNTOPOLOGY::IsTargetInTopology(v80, *((_DWORD *)FirstBestSecondaryTarget + 6))
+      || (_DWORD)v56 == *((_DWORD *)v3 + 6)
+      && *((_DWORD *)a2 + 79) == *((_DWORD *)v3 + 3)
+      && *((_DWORD *)a2 + 80) == *((_DWORD *)v3 + 4)
+      || !*((_QWORD *)v75 + 14) )
     {
-      goto LABEL_80;
+      goto LABEL_107;
     }
-    if ( v19 == -1 )
-      goto LABEL_96;
-    v32 = *((_QWORD *)a2 + 349);
-    v33 = 0;
-    if ( !v32 )
+    if ( (_DWORD)v56 == -1 )
     {
-      WdLogSingleEntry1(2LL, 9372LL);
-      goto LABEL_95;
+      LODWORD(v15) = -1073741811;
+      goto LABEL_94;
     }
-    MONITOR_MGR::AcquireMonitorShared(&v44, (__int64)a2, v19);
-    v34 = v44;
-    if ( v44 )
+    v60 = *((_QWORD *)a2 + 337);
+    if ( !v60 )
     {
-      if ( *((_DWORD *)v44 + 78) != 1 )
-        WdLogSingleEntry0(1LL);
-      v35 = DXGMONITOR::_IsVirtualModeSupportDisabled(v34);
-      ExReleaseResourceLite((PERESOURCE)((char *)v34 + 24));
-      KeLeaveCriticalRegion();
-      if ( v35 )
+      v79 = WdLogNewEntry5_WdError(v58, v57);
+      *(_QWORD *)(v79 + 24) = 9262LL;
+      WdLogEvent5_WdError(v79);
+      LODWORD(v15) = -1073741811;
+LABEL_116:
+      v53 = (_QWORD *)WdLogNewEntry5_WdError(v58, v57);
+      v54 = *((unsigned int *)v75 + 6);
+      goto LABEL_117;
+    }
+    v61 = *(struct _FAST_MUTEX **)(v60 + 96);
+    v62 = 0;
+    if ( !v61 )
+    {
+      v63 = WdLogNewEntry5_WdError(0LL, v57);
+      *(_QWORD *)(v63 + 24) = a2;
+      WdLogEvent5_WdError(v63);
+      LODWORD(v15) = -1073741811;
+LABEL_82:
+      v66 = WdLogNewEntry5_WdAssertion(v58, v57);
+      *(_QWORD *)(v66 + 24) = (int)v15;
+      WdLogEvent5_WdAssertion(v66);
+LABEL_92:
+      v3 = this;
+      v59 = v80;
+LABEL_94:
+      if ( (int)v15 < 0 )
+        goto LABEL_116;
+      if ( *((_BYTE *)v3 + 10) && v89 )
+        goto LABEL_107;
+      v70 = 0;
+      if ( !*(_DWORD *)(*((_QWORD *)a2 + 337) + 80LL) )
+        goto LABEL_107;
+      while ( 1 )
       {
-        v36 = 1;
-        v56 = 1;
-        v54 = 1;
-        v33 = 0;
-        goto LABEL_70;
+        if ( !DMMVIDPNTOPOLOGY::IsSourceInTopology(v59, v70) )
+        {
+          v71 = VIDPN_MGR::AddPathToVidPnTopology(
+                  v86,
+                  v59,
+                  v70,
+                  *((_DWORD *)v75 + 6),
+                  (enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE)255,
+                  0xFFFFu,
+                  0,
+                  D3DKMDT_MCC_IGNORE);
+          v15 = v71;
+          if ( v71 != -1071774975 )
+          {
+            if ( v71 < 0 )
+            {
+              v53 = (_QWORD *)WdLogNewEntry5_WdError(v73, v72);
+              v53[3] = v15;
+              v53[4] = *((int *)a2 + 80);
+              v53[5] = *((unsigned int *)a2 + 79);
+              v53[6] = v70;
+              v55 = *((unsigned int *)v75 + 6);
+              goto LABEL_66;
+            }
+            LODWORD(v15) = BTL_TOPOLOGY_CONSTRUCTOR::_AddPathToTopology(
+                             v3,
+                             (const struct _LUID *)((char *)a2 + 316),
+                             v70,
+                             *((_DWORD *)v75 + 6),
+                             (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY)*((_DWORD *)v75 + 20),
+                             (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY)*((_DWORD *)v75 + 21),
+                             !v90,
+                             !v89);
+            v74 = v91;
+            if ( (int)v15 >= 0 )
+              v74 = v15;
+            v91 = v74;
+LABEL_107:
+            FirstBestSecondaryTarget = BTL_TOPOLOGY_CONSTRUCTOR::_GetNextBestSecondaryTarget(
+                                         v75,
+                                         (const struct DMMVIDEOPRESENTTARGETSET *)v25);
+            goto LABEL_108;
+          }
+          v59 = v80;
+        }
+        if ( ++v70 >= *(_DWORD *)(*((_QWORD *)a2 + 337) + 80LL) )
+          goto LABEL_107;
       }
-      v33 = 0;
+    }
+    v85 = 0LL;
+    v64 = MONITOR_MGR::_GetMonitorInstance(v61, (unsigned int)v56, 1, &v85);
+    LODWORD(v15) = v64;
+    if ( v64 == -1073741275 )
+    {
+      v65 = WdLogNewEntry5_WdDmmEvent(v58, v57);
+      *(_QWORD *)(v65 + 24) = v56;
+      *(_QWORD *)(v65 + 32) = a2;
+      WdLogEvent5_WdDmmEvent(v65);
     }
     else
     {
-      WdLogSingleEntry1(2LL, -1073741632LL);
-      RESOURCE_LOCK_ACCESSOR<DXGMONITOR>::~RESOURCE_LOCK_ACCESSOR<DXGMONITOR>((__int64 *)&v44);
-    }
-    v37 = *(_BYTE *)(v32 + 289);
-    v56 = v37 == 0;
-    v36 = *(_BYTE *)(v32 + 290) == 0;
-    v54 = v36;
-    if ( v37 )
-    {
-      v52 = 0;
-      if ( (*(_DWORD *)(v32 + 24) & 0x20) != 0 )
+      if ( v64 >= 0 )
       {
-LABEL_71:
-        v3 = this;
-        v8 = 0;
-        if ( *((_BYTE *)this + 10) && v36 || !*(_DWORD *)(*((_QWORD *)a2 + 349) + 96LL) )
+        v67 = v85;
+        if ( !v85 || *((_DWORD *)v85 + 108) != 1 )
         {
-LABEL_79:
-          v16 = v42;
-          goto LABEL_80;
+          v68 = WdLogNewEntry5_WdAssertion(v58, v57);
+          WdLogEvent5_WdAssertion(v68);
         }
-        v38 = v43;
-        while ( 1 )
+        if ( !v67 )
         {
-          if ( !DMMVIDPNTOPOLOGY::IsSourceInTopology(v38, v33) )
-          {
-            v39 = VIDPN_MGR::AddPathToVidPnTopology(
-                    v48,
-                    v38,
-                    v33,
-                    *((_DWORD *)v30 + 6),
-                    (enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE)255,
-                    0xFFFFu,
-                    0,
-                    D3DKMDT_MCC_IGNORE);
-            v8 = v39;
-            if ( v39 != -1071774975 )
-            {
-              if ( v39 < 0 )
-              {
-                WdLogSingleEntry5(
-                  2LL,
-                  v39,
-                  *((int *)a2 + 102),
-                  *((unsigned int *)a2 + 101),
-                  v33,
-                  *((unsigned int *)v30 + 6));
-                goto LABEL_85;
-              }
-              v41 = BTL_TOPOLOGY_CONSTRUCTOR::_AddPathToTopology(
-                      this,
-                      (const struct _LUID *)((char *)a2 + 404),
-                      v33,
-                      *((_DWORD *)v30 + 6),
-                      (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY)*((_DWORD *)v30 + 20),
-                      (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY)*((_DWORD *)v30 + 21),
-                      !v56,
-                      v54 != 1,
-                      v52 != 1);
-              v16 = v42;
-              v8 = v41;
-              if ( v41 >= 0 )
-                v16 = v41;
-              v42 = v16;
-LABEL_80:
-              FirstBestSecondaryTarget = BTL_TOPOLOGY_CONSTRUCTOR::_GetNextBestSecondaryTarget(
-                                           v30,
-                                           (const struct DMMVIDEOPRESENTTARGETSET *)v17);
-              goto LABEL_81;
-            }
-            v38 = v43;
-          }
-          if ( ++v33 >= *(_DWORD *)(*((_QWORD *)a2 + 349) + 96LL) )
-            goto LABEL_79;
+          v69 = WdLogNewEntry5_WdAssertion(v58, v57);
+          WdLogEvent5_WdAssertion(v69);
         }
+        KeEnterCriticalRegion();
+        ExAcquireResourceSharedLite((PERESOURCE)((char *)v67 + 296), 1u);
+        v62 = DXGMONITOR::_IsVirtualModeSuportDisabled(v67);
+        ExReleaseResourceLite((PERESOURCE)((char *)v67 + 296));
+        KeLeaveCriticalRegion();
+        LODWORD(v15) = 0;
+        goto LABEL_89;
+      }
+      if ( v64 != -1073741632 )
+      {
+LABEL_81:
+        if ( (int)v15 < 0 )
+          goto LABEL_82;
+LABEL_89:
+        if ( v62 )
+        {
+          v89 = 1;
+          v90 = 1;
+        }
+        else
+        {
+          v89 = *(_BYTE *)(v60 + 250) == 0;
+          v90 = *(_BYTE *)(v60 + 249) == 0;
+        }
+        goto LABEL_92;
       }
     }
-LABEL_70:
-    v52 = 1;
-    goto LABEL_71;
+    LODWORD(v15) = 0;
+    goto LABEL_81;
   }
-  if ( v8 != -1071774975 )
-    v16 = v8;
-  v8 = v16;
-LABEL_85:
-  if ( v17 )
-    ReferenceCounted::Release((ReferenceCounted *)(v17 + 64));
-LABEL_87:
-  auto_rc<DMMVIDPN>::reset(&v45, 0LL);
-  auto_rc<DMMVIDPN>::reset(&v46, 0LL);
-  DXGFASTMUTEX::Release((struct _KTHREAD **)(v49[0] + 40));
-  return v8;
+  v76 = v91;
+  if ( (_DWORD)v15 != -1071774975 )
+    v76 = v15;
+  LODWORD(v15) = v76;
+LABEL_112:
+  if ( v25 )
+    ReferenceCounted::Release((ReferenceCounted *)(v25 + 64), v51);
+LABEL_114:
+  auto_rc<DMMVIDPN>::reset(&v81, 0LL);
+  auto_rc<DMMVIDPN>::reset(&v82, 0LL);
+  DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v87[0] + 40), v77);
+  return (unsigned int)v15;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetProperty@CHueRotationEffect@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1802588F0
+ * XREFs of ?SetProperty@CHueRotationEffect@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801F6160
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CHueRotationEffect::SetProperty(_QWORD *a1, int a2, int a3, float *a4)
@@ -17,7 +17,7 @@ __int64 __fastcall CHueRotationEffect::SetProperty(_QWORD *a1, int a2, int a3, f
   if ( a3 != 18 )
     goto LABEL_8;
   v4 = *a4;
-  v5 = (float *)(a1 + 22);
+  v5 = (float *)(a1 + 19);
   if ( a2 )
     v5 = 0LL;
   if ( v5 )
@@ -28,7 +28,7 @@ __int64 __fastcall CHueRotationEffect::SetProperty(_QWORD *a1, int a2, int a3, f
       *v5 = v4;
       (*(void (__fastcall **)(_QWORD *, _QWORD, _QWORD))(v6 + 72))(a1, 0LL, 0LL);
     }
-    return v5 == 0LL ? 0x80070057 : 0;
+    return 0;
   }
   else
   {

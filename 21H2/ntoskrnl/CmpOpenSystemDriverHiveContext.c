@@ -1,37 +1,37 @@
 /*
- * XREFs of CmpOpenSystemDriverHiveContext @ 0x140B12AF0
+ * XREFs of CmpOpenSystemDriverHiveContext @ 0x140A61428
  * Callers:
- *     CmGetSystemDriverList @ 0x140B12C84 (CmGetSystemDriverList.c)
+ *     CmGetSystemDriverList @ 0x140A5F174 (CmGetSystemDriverList.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     RtlCreateUnicodeString @ 0x14066A0F0 (RtlCreateUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
- *     CmObReferenceObjectByHandle @ 0x140AB4630 (CmObReferenceObjectByHandle.c)
+ *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     CmObReferenceObjectByHandle @ 0x14066461C (CmObReferenceObjectByHandle.c)
+ *     RtlCreateUnicodeString @ 0x1406748C0 (RtlCreateUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpOpenSystemDriverHiveContext(PCUNICODE_STRING Source, __int64 a2)
 {
-  __int16 v4; // ax
-  PVOID v5; // rdi
+  unsigned __int16 Length; // ax
+  struct _DMA_ADAPTER *v5; // rdi
   int appended; // ebx
   __int64 v7; // r8
   UNICODE_STRING Destination; // [rsp+30h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
   HANDLE KeyHandle; // [rsp+A0h] [rbp+30h] BYREF
-  PVOID v12; // [rsp+B0h] [rbp+40h] BYREF
+  struct _DMA_ADAPTER *v12; // [rsp+B0h] [rbp+40h] BYREF
 
-  v4 = Source->Length + 4;
+  Length = Source->Length;
   *(&Destination.MaximumLength + 2) = 0;
-  *(_DWORD *)&Destination.MaximumLength = (unsigned __int16)(CmRegistryMachineName.Length + v4);
-  v5 = 0LL;
-  memset(&ObjectAttributes, 0, 44);
   v12 = 0LL;
+  *(_DWORD *)&Destination.MaximumLength = (unsigned __int16)(CmRegistryMachineName.Length + Length + 4);
   KeyHandle = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  v5 = 0LL;
   Destination.Length = 0;
   Destination.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, Destination.MaximumLength, 0x20204D43u);
   if ( Destination.Buffer )

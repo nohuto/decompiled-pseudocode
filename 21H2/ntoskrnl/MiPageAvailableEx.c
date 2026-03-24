@@ -1,9 +1,8 @@
 /*
- * XREFs of MiPageAvailableEx @ 0x1403AD018
+ * XREFs of MiPageAvailableEx @ 0x140319464
  * Callers:
- *     MiDecreaseAvailablePages @ 0x140264D88 (MiDecreaseAvailablePages.c)
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140599EBC (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiDecreaseAvailablePages @ 0x140319380 (MiDecreaseAvailablePages.c)
+ *     MiPageAvailable @ 0x14055BFB4 (MiPageAvailable.c)
  * Callees:
  *     <none>
  */

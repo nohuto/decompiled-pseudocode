@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiArblibGetNextAlias @ 0x1C00ABF58
+ * XREFs of AcpiArblibGetNextAlias @ 0x1C00AD2A0
  * Callers:
- *     AcpiArblibIsAliasedRangeAvailable @ 0x1C00ABF8C (AcpiArblibIsAliasedRangeAvailable.c)
- *     AcpiPortarbAddAllocation @ 0x1C00B11A0 (AcpiPortarbAddAllocation.c)
- *     AcpiPortarbBacktrackAllocation @ 0x1C00B12A0 (AcpiPortarbBacktrackAllocation.c)
+ *     AcpiArblibIsAliasedRangeAvailable @ 0x1C00AD37C (AcpiArblibIsAliasedRangeAvailable.c)
+ *     AcpiPortarbAddAllocation @ 0x1C00B1F50 (AcpiPortarbAddAllocation.c)
+ *     AcpiPortarbBacktrackAllocation @ 0x1C00B2050 (AcpiPortarbBacktrackAllocation.c)
  * Callees:
  *     <none>
  */

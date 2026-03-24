@@ -1,48 +1,45 @@
 /*
- * XREFs of CreateMiniNtBootKey @ 0x140B91794
+ * XREFs of CreateMiniNtBootKey @ 0x140A8C0B0
  * Callers:
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3AAD4 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     ExTryToAcquireFastMutex @ 0x14033DAE0 (ExTryToAcquireFastMutex.c)
- *     swprintf_s @ 0x1403DDD60 (swprintf_s.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExTryToAcquireFastMutex @ 0x1402E3D10 (ExTryToAcquireFastMutex.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     swprintf_s @ 0x1403D61F0 (swprintf_s.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char CreateMiniNtBootKey()
 {
   NTSTATUS v0; // ebx
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   wchar_t *v2; // rdi
-  __int64 v3; // rax
+  struct _KPRCB *CurrentPrcb; // rax
   struct _KTHREAD *CurrentThread; // rax
-  struct _KTHREAD *v5; // rcx
-  bool v6; // zf
   unsigned __int8 CurrentIrql; // cl
-  _DWORD *SchedulerAssist; // r8
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-49h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-39h] BYREF
-  struct _FAST_MUTEX FastMutex; // [rsp+80h] [rbp-9h] BYREF
-  ULONG Disposition; // [rsp+F0h] [rbp+67h] BYREF
-  HANDLE KeyHandle; // [rsp+F8h] [rbp+6Fh] BYREF
-  HANDLE Handle; // [rsp+100h] [rbp+77h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-39h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-29h] BYREF
+  struct _FAST_MUTEX FastMutex; // [rsp+80h] [rbp+7h] BYREF
+  ULONG Disposition; // [rsp+E0h] [rbp+67h] BYREF
+  HANDLE KeyHandle; // [rsp+E8h] [rbp+6Fh] BYREF
+  HANDLE Handle; // [rsp+F0h] [rbp+77h] BYREF
 
   Disposition = 0;
   KeyHandle = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   v0 = 0;
-  memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, 0x200uLL, 0x74696E49u);
-  v2 = Pool2;
-  if ( !Pool2 )
-    goto LABEL_18;
-  swprintf_s(Pool2, 0x100uLL, L"%s\\Control", CmRegistryMachineSystemCurrentControlSet.Buffer);
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x74696E49u);
+  v2 = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_12;
+  swprintf_s(PoolWithTag, 0x100uLL, L"%s\\Control", CmRegistryMachineSystemCurrentControlSet.Buffer);
   v2[255] = 0;
   RtlInitUnicodeString(&DestinationString, v2);
   ObjectAttributes.Length = 48;
@@ -51,46 +48,42 @@ char CreateMiniNtBootKey()
   ObjectAttributes.Attributes = 64;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v0 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
-  if ( v0 >= 0 )
-  {
-    Handle = 0LL;
-    RtlInitUnicodeString(&DestinationString, L"MiniNT");
-    ObjectAttributes.RootDirectory = KeyHandle;
-    ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = &DestinationString;
-    ObjectAttributes.Attributes = 64;
-    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v0 = ZwCreateKey(&Handle, 0xF003Fu, &ObjectAttributes, 0, 0LL, 1u, &Disposition);
-    if ( v0 >= 0 )
-      ZwClose(Handle);
-    ZwClose(KeyHandle);
-  }
   if ( v0 < 0 )
-LABEL_18:
+    goto LABEL_12;
+  Handle = 0LL;
+  RtlInitUnicodeString(&DestinationString, L"MiniNT");
+  ObjectAttributes.RootDirectory = KeyHandle;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v0 = ZwCreateKey(&Handle, 0xF003Fu, &ObjectAttributes, 0, 0LL, 1u, &Disposition);
+  if ( v0 >= 0 )
+    ZwClose(Handle);
+  ZwClose(KeyHandle);
+  if ( v0 < 0 )
+LABEL_12:
     KeBugCheckEx(0x32u, v0, 6uLL, 0LL, 0LL);
   ExFreePoolWithTag(v2, 0);
-  LOBYTE(v3) = InitForceInline;
+  LOBYTE(CurrentPrcb) = InitForceInline;
   if ( InitForceInline == 1 )
   {
-    memset(&FastMutex, 0, 52);
+    memset(&FastMutex, 0, sizeof(FastMutex));
     ExTryToAcquireFastMutex(&FastMutex);
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    v5 = KeGetCurrentThread();
-    v6 = v5->SpecialApcDisable++ == -1;
-    if ( v6 && ($C71981A45BEB2B45F82C232A7085991E *)v5->ApcState.ApcListHead[0].Flink != &v5->152 )
-      KiCheckForKernelApcDelivery();
+    KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    LOBYTE(v3) = KiIrqlFlags;
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    LOBYTE(CurrentPrcb) = KiIrqlFlags;
+    if ( KiIrqlFlags )
     {
-      SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      LODWORD(v3) = 4;
-      if ( CurrentIrql != 2 )
-        v3 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v3;
+      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        *((_DWORD *)CurrentPrcb->SchedulerAssist + 5) |= ~((unsigned __int8)(1LL << (CurrentIrql + 1)) - 1) & 4;
+      }
     }
   }
-  return v3;
+  return (char)CurrentPrcb;
 }

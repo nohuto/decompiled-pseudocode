@@ -1,13 +1,13 @@
 /*
- * XREFs of ?BmpDevTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KK@Z @ 0x1C0299570
+ * XREFs of ?BmpDevTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KK@Z @ 0x1C029ACA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ??0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C0297AF8 (--0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
- *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C0297B30 (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
- *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x1C0299790 (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
- *     ?bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C0299814 (-bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ??0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C0299278 (--0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C02992B0 (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
+ *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x1C029AEB4 (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
+ *     ?bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C029AF38 (-bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
  */
 
 __int64 __fastcall BmpDevTransparentBlt(
@@ -20,15 +20,15 @@ __int64 __fastcall BmpDevTransparentBlt(
         unsigned int a7,
         unsigned int a8)
 {
-  unsigned int v12; // ebp
+  unsigned int v12; // esi
   BOOL (__stdcall *v13)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, ULONG, ULONG); // rax
   __int64 HDEV; // rax
-  struct _DISPSURF *i; // rdi
-  __int64 v16; // r10
+  struct _DISPSURF *i; // rbx
+  __int64 v16; // r9
   int v17; // eax
-  struct _SURFOBJ *DevBitmap; // rbx
-  struct _SURFOBJ *v19; // rax
-  __int64 v20; // r10
+  struct _SURFOBJ *DevBitmap; // rax
+  __int64 v19; // r10
+  __int64 v20; // r11
   __int64 v22; // [rsp+50h] [rbp-48h] BYREF
   __int64 v23; // [rsp+58h] [rbp-40h] BYREF
   struct SURFACE *v24; // [rsp+60h] [rbp-38h] BYREF
@@ -40,7 +40,7 @@ __int64 __fastcall BmpDevTransparentBlt(
   if ( a1 )
   {
     v13 = ((__int64)a1[1].hsurf & 0x8000) != 0
-        ? (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, ULONG, ULONG))*((_QWORD *)a1->hdev + 407)
+        ? (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, ULONG, ULONG))*((_QWORD *)a1->hdev + 410)
         : EngTransparentBlt;
     v12 = ((__int64 (__fastcall *)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *))v13)(a1, a2, a3);
     HDEV = UserGetHDEV();
@@ -48,28 +48,28 @@ __int64 __fastcall BmpDevTransparentBlt(
     {
       if ( (*(_DWORD *)(HDEV + 40) & 0x20000000) != 0 )
       {
-        for ( i = **(struct _DISPSURF ***)(HDEV + 1768); i; i = *(struct _DISPSURF **)i )
+        for ( i = **(struct _DISPSURF ***)(HDEV + 1800); i; i = *(struct _DISPSURF **)i )
         {
           v16 = *((_QWORD *)i + 6);
           v22 = v16;
           if ( v16 )
           {
-            if ( (*(_DWORD *)(v16 + 1792) & 0x8000000) != 0 )
+            if ( (*(_DWORD *)(v16 + 1824) & 0x8000000) != 0 )
             {
-              v17 = *(_DWORD *)(v16 + 2096);
+              v17 = *(_DWORD *)(v16 + 2128);
               if ( (v17 & 0x1000) != 0 && (v17 & 0x8000) != 0 )
               {
-                if ( *(_QWORD *)(*(_QWORD *)(v16 + 1760) + 656LL) )
+                if ( *(_QWORD *)(*(_QWORD *)(v16 + 1792) + 656LL) )
                 {
                   MARK_ACCDRV_NOTIFICATION::MARK_ACCDRV_NOTIFICATION(
                     (MARK_ACCDRV_NOTIFICATION *)&v23,
                     (struct PDEVOBJ *)&v22,
                     a1);
-                  DevBitmap = GetDevBitmap(i, a2);
-                  v19 = GetDevBitmap(i, a1);
-                  (*(void (__fastcall **)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _RECTL *, unsigned int, unsigned int))(*(_QWORD *)(v20 + 1760) + 656LL))(
-                    v19,
+                  GetDevBitmap(i, a2);
+                  DevBitmap = GetDevBitmap(i, a1);
+                  (*(void (__fastcall **)(struct _SURFOBJ *, __int64, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _RECTL *, unsigned int, unsigned int))(v19 + 656))(
                     DevBitmap,
+                    v20,
                     a3,
                     a4,
                     a5,

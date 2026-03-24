@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlSwitchToVsmVtl1 @ 0x14041A4E0
+ * XREFs of HvlSwitchToVsmVtl1 @ 0x1403F9860
  * Callers:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
  * Callees:
- *     HvlpSwitchToVsmVtl1RetpolineHelper @ 0x14041A630 (HvlpSwitchToVsmVtl1RetpolineHelper.c)
+ *     HvlpSwitchToVsmVtl1RetpolineHelper @ 0x1403F99B0 (HvlpSwitchToVsmVtl1RetpolineHelper.c)
  */
 
 __int64 __fastcall HvlSwitchToVsmVtl1(__int64 a1, __int64 *a2, __int64 a3)

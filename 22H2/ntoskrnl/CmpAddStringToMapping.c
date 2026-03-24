@@ -1,26 +1,27 @@
 /*
- * XREFs of CmpAddStringToMapping @ 0x1407E4470
+ * XREFs of CmpAddStringToMapping @ 0x1406A4D14
  * Callers:
- *     CmpVEAddHiveToSIDMappingTable @ 0x1407E43D0 (CmpVEAddHiveToSIDMappingTable.c)
+ *     CmpVEAddHiveToSIDMappingTable @ 0x1406A4C74 (CmpVEAddHiveToSIDMappingTable.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     CmpHashUnicodeComponent @ 0x140708D90 (CmpHashUnicodeComponent.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     CmpHashUnicodeComponent @ 0x1406E3014 (CmpHashUnicodeComponent.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpAddStringToMapping(const void **a1, __int64 a2)
 {
   unsigned int v4; // ebx
-  char *v5; // rdx
-  __int64 v6; // r9
-  void *v7; // r9
-  int v8; // eax
-  __int64 v9; // r8
-  PVOID v11; // rdi
-  void *Pool2; // rax
+  char *v5; // rcx
+  __int64 v6; // rdx
+  PVOID v7; // rax
+  int v8; // edi
+  char *v9; // r14
+  __int64 v10; // rbp
+  PVOID v12; // rdi
+  PVOID PoolWithTag; // rax
 
   v4 = 0;
   ExAcquireFastMutex(&CmpSIDMappingLock);
@@ -31,19 +32,19 @@ __int64 __fastcall CmpAddStringToMapping(const void **a1, __int64 a2)
   }
   if ( CmpSIDToHiveMappingCount + 1 >= (unsigned int)CmpSIDToHiveMappingSize )
   {
-    v11 = CmpSIDToHiveMapping;
-    Pool2 = (void *)ExAllocatePool2(256LL, 32LL * (unsigned int)(CmpSIDToHiveMappingSize + 4), 1700154691LL);
-    CmpSIDToHiveMapping = Pool2;
-    if ( !Pool2 )
+    v12 = CmpSIDToHiveMapping;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 32LL * (unsigned int)(CmpSIDToHiveMappingSize + 4), 0x65564D43u);
+    CmpSIDToHiveMapping = PoolWithTag;
+    if ( !PoolWithTag )
     {
-      CmpSIDToHiveMapping = v11;
+      CmpSIDToHiveMapping = v12;
       goto LABEL_11;
     }
     CmpSIDToHiveMappingSize += 4;
-    if ( v11 )
+    if ( v12 )
     {
-      memmove(Pool2, v11, 32LL * (unsigned int)CmpSIDToHiveMappingCount);
-      ExFreePoolWithTag(v11, 0x65564D43u);
+      memmove(PoolWithTag, v12, 32LL * (unsigned int)CmpSIDToHiveMappingCount);
+      ExFreePoolWithTag(v12, 0x65564D43u);
     }
   }
   v5 = (char *)CmpSIDToHiveMapping;
@@ -51,8 +52,11 @@ __int64 __fastcall CmpAddStringToMapping(const void **a1, __int64 a2)
   *(_QWORD *)((char *)CmpSIDToHiveMapping + v6 + 24) = a2;
   *(_WORD *)&v5[v6] = *(_WORD *)a1;
   *(_WORD *)&v5[v6 + 2] = *(_WORD *)a1;
-  v7 = (void *)ExAllocatePool2(256LL, *(unsigned __int16 *)a1, 1700154691LL);
-  *((_QWORD *)CmpSIDToHiveMapping + 4 * (unsigned int)CmpSIDToHiveMappingCount + 1) = v7;
+  v7 = ExAllocatePoolWithTag(PagedPool, *(unsigned __int16 *)a1, 0x65564D43u);
+  v8 = CmpSIDToHiveMappingCount;
+  v9 = (char *)CmpSIDToHiveMapping;
+  v10 = 32LL * (unsigned int)CmpSIDToHiveMappingCount;
+  *(_QWORD *)((char *)CmpSIDToHiveMapping + v10 + 8) = v7;
   if ( !v7 )
   {
 LABEL_11:
@@ -60,10 +64,9 @@ LABEL_11:
     goto LABEL_5;
   }
   memmove(v7, a1[1], *(unsigned __int16 *)a1);
-  v8 = CmpHashUnicodeComponent((__m128i *)a1);
-  v9 = 32LL * (unsigned int)CmpSIDToHiveMappingCount++;
-  *(_DWORD *)((char *)CmpSIDToHiveMapping + v9 + 16) = v8;
+  *(_DWORD *)&v9[v10 + 16] = CmpHashUnicodeComponent(a1);
+  CmpSIDToHiveMappingCount = v8 + 1;
 LABEL_5:
-  ExReleaseFastMutex(&CmpSIDMappingLock);
+  KeReleaseGuardedMutex(&CmpSIDMappingLock);
   return v4;
 }

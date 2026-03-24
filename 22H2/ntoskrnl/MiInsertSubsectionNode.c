@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInsertSubsectionNode @ 0x1402E3E28
+ * XREFs of MiInsertSubsectionNode @ 0x1402F994C
  * Callers:
- *     MiAppendSubsectionChain @ 0x1402931B8 (MiAppendSubsectionChain.c)
- *     MiCreateDataFileMap @ 0x140745EF0 (MiCreateDataFileMap.c)
+ *     MiAppendSubsectionChain @ 0x1402F97CC (MiAppendSubsectionChain.c)
+ *     MiCreateDataFileMap @ 0x14061C3F4 (MiCreateDataFileMap.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlInsertNodeEx @ 0x140287FA0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x140296BD0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MiInsertSubsectionNode(__int64 a1, unsigned __int64 a2, int a3)
@@ -27,7 +27,7 @@ char __fastcall MiInsertSubsectionNode(__int64 a1, unsigned __int64 a2, int a3)
   int v17; // eax
   bool v18; // zf
 
-  v3 = (unsigned __int64 *)(a1 + 280);
+  v3 = (unsigned __int64 *)(a1 + 272);
   if ( a3 )
     v6 = 17;
   else
@@ -64,7 +64,7 @@ char __fastcall MiInsertSubsectionNode(__int64 a1, unsigned __int64 a2, int a3)
       v7 = v12;
     }
   }
-  result = RtlAvlInsertNodeEx(v3, (unsigned __int64)v7, v8, a2 + 56);
+  result = RtlAvlInsertNodeEx(v3, (unsigned __int64)v7, v8, (_QWORD *)(a2 + 56));
   ++v3[1];
   v3[2] = a2;
   if ( v6 != 17 )
@@ -72,16 +72,19 @@ char __fastcall MiInsertSubsectionNode(__int64 a1, unsigned __int64 a2, int a3)
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v17 = ~(unsigned __int16)(-1LL << (v6 + 1));
-        v18 = (v17 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v17;
-        if ( v18 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v17 = ~(unsigned __int16)(-1LL << (v6 + 1));
+          v18 = (v17 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v17;
+          if ( v18 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     result = v6;

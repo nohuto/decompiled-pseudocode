@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UMPD_ldevFillTable@@YAHPEAU_LDEV@@PEBH@Z @ 0x1C012B5C4
+ * XREFs of ?UMPD_ldevFillTable@@YAHPEAU_LDEV@@PEBH@Z @ 0x1C01164DC
  * Callers:
- *     ?UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z @ 0x1C012B4D0 (-UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z.c)
+ *     ?UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z @ 0x1C01163D8 (-UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall UMPD_ldevFillTable(struct _LDEV *a1, const int *a2)
@@ -30,7 +30,7 @@ __int64 __fastcall UMPD_ldevFillTable(struct _LDEV *a1, const int *a2)
   while ( 1 )
   {
     v6 = (unsigned int)(v6 - 1);
-    if ( !*(_QWORD *)&v2[8 * dword_1C02ED850[v6]] )
+    if ( !*(_QWORD *)&v2[8 * dword_1C02EC0E0[v6]] )
       break;
     if ( !(_DWORD)v6 )
     {

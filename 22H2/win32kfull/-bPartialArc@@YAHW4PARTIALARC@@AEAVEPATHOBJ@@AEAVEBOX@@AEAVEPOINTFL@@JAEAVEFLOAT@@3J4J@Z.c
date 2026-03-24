@@ -1,18 +1,17 @@
 /*
- * XREFs of ?bPartialArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@JAEAVEFLOAT@@3J4J@Z @ 0x1C02C58D4
+ * XREFs of ?bPartialArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@JAEAVEFLOAT@@3J4J@Z @ 0x1C02B00E4
  * Callers:
- *     GreAngleArc @ 0x1C02AB948 (GreAngleArc.c)
- *     NtGdiArcInternal @ 0x1C02C6710 (NtGdiArcInternal.c)
+ *     GreAngleArc @ 0x1C029F740 (GreAngleArc.c)
+ *     NtGdiArcInternal @ 0x1C02B0BC0 (NtGdiArcInternal.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?bPolyBezierTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C015ADD6 (-bPolyBezierTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
- *     ?bPartialQuadrantArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@AEAVEFLOAT@@34@Z @ 0x1C02C5B70 (-bPartialQuadrantArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@AEAVEFLOAT@@34@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?bPartialQuadrantArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@AEAVEFLOAT@@34@Z @ 0x1C02B0388 (-bPartialQuadrantArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@AEAVEFLOAT@@34@Z.c)
  */
 
 __int64 __fastcall bPartialArc(
         unsigned int a1,
         EPATHOBJ *a2,
-        struct _POINTL *a3,
+        __int64 a3,
         __int64 a4,
         char a5,
         __int64 a6,
@@ -21,17 +20,17 @@ __int64 __fastcall bPartialArc(
         __int64 a9,
         int a10)
 {
-  int v12; // esi
+  int v12; // r13d
   int v13; // edi
-  __int64 v14; // r14
-  __int64 v15; // r15
-  __int64 v16; // r12
-  __int64 v17; // r13
+  __int64 v14; // rsi
+  __int64 v15; // r14
+  __int64 v16; // r15
+  __int64 v17; // r12
   struct _POINTL v18; // rax
-  LONG v19; // eax
+  int v19; // eax
   struct _POINTL v20; // rax
   struct _POINTL v21; // rax
-  LONG y; // eax
+  int v22; // eax
   struct _POINTL v23; // rax
   int v24; // eax
   struct _POINTL v27; // [rsp+68h] [rbp-21h] BYREF
@@ -45,53 +44,53 @@ __int64 __fastcall bPartialArc(
     v13 = bPartialQuadrantArc(a1, a2, a3);
     if ( v12 == a8 )
       return (unsigned int)(bPartialQuadrantArc(0LL, a2, a3) & v13);
-    v14 = (1922922357LL * a3[6].x) >> 32;
-    v15 = (1922922357LL * a3[6].y) >> 32;
-    v16 = (1922922357LL * a3[7].x) >> 32;
-    v17 = (1922922357LL * a3[7].y) >> 32;
+    v14 = (1922922357LL * *(int *)(a3 + 48)) >> 32;
+    v15 = (1922922357LL * *(int *)(a3 + 52)) >> 32;
+    v16 = (1922922357LL * *(int *)(a3 + 56)) >> 32;
+    v17 = (1922922357LL * *(int *)(a3 + 60)) >> 32;
     while ( 1 )
     {
       if ( !v12 )
       {
-        v27 = a3[1];
+        v27 = *(struct _POINTL *)(a3 + 8);
         v23 = v27;
         v27.x -= v16;
         v27.y -= v17;
         v28 = v23.x - v14;
         v29 = v23.y - v15;
         v30 = v23;
-        v30.x = v23.x - a3[6].x;
-        y = a3[6].y;
+        v30.x = v23.x - *(_DWORD *)(a3 + 48);
+        v22 = *(_DWORD *)(a3 + 52);
         goto LABEL_14;
       }
       if ( v12 == 1 )
       {
-        v27 = a3[2];
+        v27 = *(struct _POINTL *)(a3 + 16);
         v21 = v27;
         v27.x += v14;
         v27.y += v15;
         v28 = v21.x - v16;
         v29 = v21.y - v17;
         v30 = v21;
-        v30.x = v21.x - a3[7].x;
-        y = a3[7].y;
+        v30.x = v21.x - *(_DWORD *)(a3 + 56);
+        v22 = *(_DWORD *)(a3 + 60);
 LABEL_14:
-        v30.y -= y;
+        v30.y -= v22;
         goto LABEL_15;
       }
       if ( v12 == 2 )
         break;
       if ( v12 == 3 )
       {
-        v27 = a3[4];
+        v27 = *(struct _POINTL *)(a3 + 32);
         v18 = v27;
         v27.x -= v14;
         v27.y -= v15;
         v28 = v16 + v18.x;
         v29 = v17 + v18.y;
         v30 = v18;
-        v30.x = a3[7].x + v18.x;
-        v19 = a3[7].y;
+        v30.x = *(_DWORD *)(a3 + 56) + v18.x;
+        v19 = *(_DWORD *)(a3 + 60);
 LABEL_11:
         v30.y += v19;
       }
@@ -102,15 +101,15 @@ LABEL_15:
       if ( v24 == a8 )
         return (unsigned int)(bPartialQuadrantArc(0LL, a2, a3) & v13);
     }
-    v27 = a3[3];
+    v27 = *(struct _POINTL *)(a3 + 24);
     v20 = v27;
     v27.x += v16;
     v27.y += v17;
     v28 = v14 + v20.x;
     v29 = v15 + v20.y;
     v30 = v20;
-    v30.x = a3[6].x + v20.x;
-    v19 = a3[6].y;
+    v30.x = *(_DWORD *)(a3 + 48) + v20.x;
+    v19 = *(_DWORD *)(a3 + 52);
     goto LABEL_11;
   }
   return (unsigned int)bPartialQuadrantArc(a1, a2, a3);

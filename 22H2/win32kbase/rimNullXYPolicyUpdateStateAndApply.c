@@ -1,61 +1,65 @@
 /*
- * XREFs of rimNullXYPolicyUpdateStateAndApply @ 0x1C01AAC08
+ * XREFs of rimNullXYPolicyUpdateStateAndApply @ 0x1C017BA9C
  * Callers:
- *     rimApplyPointerDevicePolicies @ 0x1C00E2D30 (rimApplyPointerDevicePolicies.c)
+ *     rimApplyPointerDevicePolicies @ 0x1C0178FB0 (rimApplyPointerDevicePolicies.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00744D4 (WPP_RECORDER_AND_TRACE_SF_d.c)
- *     RIMCmAddContactSuppressionReasons @ 0x1C01AFF90 (RIMCmAddContactSuppressionReasons.c)
- *     RIMCmRemoveContactSuppressionReasons @ 0x1C01B0A84 (RIMCmRemoveContactSuppressionReasons.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0047F78 (WPP_RECORDER_SF_d.c)
+ *     RIMCmAddContactSuppressionReasons @ 0x1C017FDC4 (RIMCmAddContactSuppressionReasons.c)
+ *     RIMCmRemoveContactSuppressionReasons @ 0x1C01804B8 (RIMCmRemoveContactSuppressionReasons.c)
  */
 
 __int64 __fastcall rimNullXYPolicyUpdateStateAndApply(__int64 a1, _DWORD *a2, int a3, int a4)
 {
+  _DWORD *v4; // rbx
   __int64 result; // rax
-  char v7; // dl
-  char v8; // dl
+  unsigned int v7; // edi
+  int v8; // eax
+  __int64 v9; // r8
+  int v10; // eax
 
+  v4 = a2;
   if ( *(_DWORD *)(a1 + 24) == 5 )
   {
     if ( !a3 && !a4 )
       return RIMCmRemoveContactSuppressionReasons(a1, a2, 32LL);
-    if ( (a2[611] & 6) != 2 )
+    v7 = 2;
+    if ( (a2[605] & 6) == 2 )
     {
-      v7 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-        && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( v7 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_AND_TRACE_SF_d(
-          (__int64)WPP_GLOBAL_Control->AttachedDevice,
-          v7,
-          WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-          (__int64)gRimLog,
-          4u,
-          1u,
-          0x2Du,
-          (__int64)&WPP_acebe0338cf732913f05b3829fd55bbc_Traceguids,
-          *a2);
+      v7 = 32;
     }
-    goto LABEL_25;
+    else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v8 = *a2;
+      LOBYTE(a2) = 4;
+      WPP_RECORDER_SF_d(
+        (_DWORD)gRimLog,
+        (_DWORD)a2,
+        1,
+        45,
+        (__int64)&WPP_fa968752f5ee31807da3aa7ca7449649_Traceguids,
+        v8);
+    }
+    v9 = v7;
+    goto LABEL_15;
   }
   if ( a3 || a4 )
   {
-    v8 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-      && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( v8 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_AND_TRACE_SF_d(
-        (__int64)WPP_GLOBAL_Control->AttachedDevice,
-        v8,
-        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-        (__int64)gRimLog,
-        4u,
-        1u,
-        0x2Eu,
-        (__int64)&WPP_acebe0338cf732913f05b3829fd55bbc_Traceguids,
-        *a2);
-LABEL_25:
-    result = RIMCmAddContactSuppressionReasons(a1, a2);
-    a2[611] |= 0x8000u;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v10 = *a2;
+      LOBYTE(a2) = 4;
+      WPP_RECORDER_SF_d(
+        (_DWORD)gRimLog,
+        (_DWORD)a2,
+        1,
+        46,
+        (__int64)&WPP_fa968752f5ee31807da3aa7ca7449649_Traceguids,
+        v10);
+    }
+    v9 = 2LL;
+LABEL_15:
+    result = RIMCmAddContactSuppressionReasons(a1, v4, v9);
+    v4[605] |= 0x8000u;
   }
   return result;
 }

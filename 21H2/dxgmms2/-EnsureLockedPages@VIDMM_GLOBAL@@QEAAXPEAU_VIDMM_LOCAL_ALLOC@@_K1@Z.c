@@ -1,42 +1,55 @@
 /*
- * XREFs of ?EnsureLockedPages@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@_K1@Z @ 0x1C00D6598
+ * XREFs of ?EnsureLockedPages@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@_K1@Z @ 0x1C00AF44C
  * Callers:
- *     ?UnlockAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@_K1EE@Z @ 0x1C0085F74 (-UnlockAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@_K1EE@Z.c)
+ *     ?UnlockAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@_K1EE@Z @ 0x1C0064F24 (-UnlockAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@_K1EE@Z.c)
  * Callees:
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     ?VidMmiProbeAndLockAllocation@@YAPEAU_VIDMM_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@PEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C007BE50 (-VidMmiProbeAndLockAllocation@@YAPEAU_VIDMM_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     ?VidMmiProbeAndLockAllocation@@YAPEAU_VIDMM_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@PEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C0063904 (-VidMmiProbeAndLockAllocation@@YAPEAU_VIDMM_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@.c)
  */
 
 void __fastcall VIDMM_GLOBAL::EnsureLockedPages(
         VIDMM_GLOBAL *this,
         struct _VIDMM_LOCAL_ALLOC *a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+        __int64 a3,
+        SIZE_T a4)
 {
-  VIDMM_GLOBAL *v8; // rbx
-  __int64 v9; // rcx
-  PRKPROCESS *v10; // rcx
-  void **v11; // rax
-  void *v12; // rcx
-  VIDMM_GLOBAL **v13; // rcx
-  struct _KAPC_STATE ApcState; // [rsp+50h] [rbp-68h] BYREF
+  __int64 v8; // rcx
+  VIDMM_GLOBAL *v9; // rbx
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  PRKPROCESS *v13; // rcx
+  void **v14; // rax
+  void *v15; // rcx
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  _QWORD *v19; // rax
+  VIDMM_GLOBAL **v20; // rcx
+  struct _KAPC_STATE ApcState; // [rsp+30h] [rbp-68h] BYREF
 
-  v8 = (VIDMM_GLOBAL *)operator new(32LL, 0x39356956u, 256LL);
-  if ( !v8 )
+  v9 = (VIDMM_GLOBAL *)operator new[](0x20uLL, 0x39356956u, PagedPool);
+  if ( !v9 )
   {
-    _InterlockedIncrement(&dword_1C006E860);
-    WdLogSingleEntry1(6LL, 24571LL);
-    DxgkLogInternalTriageEvent(v9, 262145LL);
+    _InterlockedIncrement(&dword_1C00507B0);
+    v10 = WdLogNewEntry5_WdLowResource(v8);
+    *(_QWORD *)(v10 + 24) = 24413LL;
+    WdLogEvent5_WdLowResource(v10);
 LABEL_5:
-    WdLogSingleEntry5(0LL, 270LL, 55LL, 0LL, 0LL, 0LL);
+    v19 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v12, v11);
+    v19[5] = 0LL;
+    v19[6] = 0LL;
+    v19[7] = 0LL;
+    v19[3] = 270LL;
+    v19[4] = 55LL;
+    WdLogEvent5_WdCriticalError(v19);
     return;
   }
-  v10 = (PRKPROCESS *)*((_QWORD *)a2 + 1);
+  v13 = (PRKPROCESS *)*((_QWORD *)a2 + 1);
   memset(&ApcState, 0, sizeof(ApcState));
-  KeStackAttachProcess(*v10, &ApcState);
-  *((_QWORD *)v8 + 2) = VidMmiProbeAndLockAllocation(
+  KeStackAttachProcess(*v13, &ApcState);
+  *((_QWORD *)v9 + 2) = VidMmiProbeAndLockAllocation(
                           *(struct _VIDMM_GLOBAL_ALLOC **)a2,
                           a3,
                           a4,
@@ -44,20 +57,21 @@ LABEL_5:
                           0LL,
                           a2);
   KeUnstackDetachProcess(&ApcState);
-  v11 = (void **)*((_QWORD *)a2 + 1);
-  v12 = *v11;
-  *((_QWORD *)v8 + 3) = *v11;
-  ObfReferenceObject(v12);
-  if ( !*((_QWORD *)v8 + 2) )
+  v14 = (void **)*((_QWORD *)a2 + 1);
+  v15 = *v14;
+  *((_QWORD *)v9 + 3) = *v14;
+  ObfReferenceObject(v15);
+  if ( !*((_QWORD *)v9 + 2) )
   {
-    WdLogSingleEntry0(3LL);
+    v18 = WdLogNewEntry5_WdWarning(v17, v16);
+    WdLogEvent5_WdWarning(v18);
     goto LABEL_5;
   }
-  v13 = (VIDMM_GLOBAL **)*((_QWORD *)this + 5002);
-  if ( *v13 != (VIDMM_GLOBAL *)((char *)this + 40008) )
+  v20 = (VIDMM_GLOBAL **)*((_QWORD *)this + 5001);
+  if ( *v20 != (VIDMM_GLOBAL *)((char *)this + 40000) )
     __fastfail(3u);
-  *(_QWORD *)v8 = (char *)this + 40008;
-  *((_QWORD *)v8 + 1) = v13;
-  *v13 = v8;
-  *((_QWORD *)this + 5002) = v8;
+  *(_QWORD *)v9 = (char *)this + 40000;
+  *((_QWORD *)v9 + 1) = v20;
+  *v20 = v9;
+  *((_QWORD *)this + 5001) = v9;
 }

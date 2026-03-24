@@ -2,14 +2,14 @@
  * XREFs of EtwpIsGuidAllowed @ 0x1405C560C
  * Callers:
  *     EtwpAddRegEntryToGroup @ 0x1405C2750 (EtwpAddRegEntryToGroup.c)
- *     EtwpIsRegEntryAllowed @ 0x1406578E4 (EtwpIsRegEntryAllowed.c)
- *     EtwpDisallowedGuidAddition @ 0x1408B50C4 (EtwpDisallowedGuidAddition.c)
- *     EtwpDisallowedGuidRemoval @ 0x1408B5378 (EtwpDisallowedGuidRemoval.c)
+ *     EtwpIsRegEntryAllowed @ 0x1406578C4 (EtwpIsRegEntryAllowed.c)
+ *     EtwpDisallowedGuidAddition @ 0x1408B50A4 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x1408B5358 (EtwpDisallowedGuidRemoval.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     bsearch @ 0x140195CB0 (bsearch.c)
+ *     bsearch @ 0x140195CD0 (bsearch.c)
  */
 
 bool __fastcall EtwpIsGuidAllowed(__int64 a1, const void *a2)

@@ -1,35 +1,26 @@
 /*
- * XREFs of HalpGetDynamicDevicePointer @ 0x140933974
+ * XREFs of HalpGetDynamicDevicePointer @ 0x140778DD4
  * Callers:
- *     HalpQueryAcpiRealTimeClock @ 0x140932EB8 (HalpQueryAcpiRealTimeClock.c)
- *     HalpSetAcpiRealTimeClock @ 0x140932FC8 (HalpSetAcpiRealTimeClock.c)
- *     HalpArmAcpiWakeAlarm @ 0x140934EF0 (HalpArmAcpiWakeAlarm.c)
- *     HalpQueryAcpiWakeAlarmSystemPowerState @ 0x14093508C (HalpQueryAcpiWakeAlarmSystemPowerState.c)
+ *     HalpArmAcpiWakeAlarm @ 0x140778D88 (HalpArmAcpiWakeAlarm.c)
+ *     HalpQueryAcpiRealTimeClock @ 0x140863F3C (HalpQueryAcpiRealTimeClock.c)
+ *     HalpSetAcpiRealTimeClock @ 0x140864020 (HalpSetAcpiRealTimeClock.c)
+ *     HalpQueryAcpiWakeAlarmSystemPowerState @ 0x140866390 (HalpQueryAcpiWakeAlarmSystemPowerState.c)
  * Callees:
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
  */
 
-__int64 __fastcall HalpGetDynamicDevicePointer(__int64 a1, _QWORD *a2)
+PVOID HalpGetDynamicDevicePointer()
 {
-  unsigned int v2; // ebx
-  PVOID v5; // rdi
+  PVOID v0; // rbx
 
-  v2 = 0;
   if ( !HalpDynamicDevicesReady )
-    return 3221226645LL;
+    return 0LL;
   KeWaitForSingleObject(&HalpDynamicDeviceInterfaceLock, WrExecutive, 0, 0, 0LL);
-  v5 = HalpDynamicDevices;
+  v0 = HalpDynamicDevices;
   if ( HalpDynamicDevices )
-  {
     ObfReferenceObject(HalpDynamicDevices);
-    *a2 = v5;
-  }
-  else
-  {
-    v2 = -1073741275;
-  }
   KeSetEvent(&HalpDynamicDeviceInterfaceLock, 0, 0);
-  return v2;
+  return v0;
 }

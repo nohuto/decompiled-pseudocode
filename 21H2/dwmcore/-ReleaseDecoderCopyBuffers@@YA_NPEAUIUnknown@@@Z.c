@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseDecoderCopyBuffers@@YA_NPEAUIUnknown@@@Z @ 0x1802B3D9C
+ * XREFs of ?ReleaseDecoderCopyBuffers@@YA_NPEAUIUnknown@@@Z @ 0x18026C05C
  * Callers:
- *     ?CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x1802AF0D0 (-CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z.c)
+ *     ?CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x1802190D0 (-CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall ReleaseDecoderCopyBuffers(struct IUnknown *a1)

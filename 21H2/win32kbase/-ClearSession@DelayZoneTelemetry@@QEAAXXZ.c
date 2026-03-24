@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ClearSession@DelayZoneTelemetry@@QEAAXXZ @ 0x1C01F7C78
+ * XREFs of ?ClearSession@DelayZoneTelemetry@@QEAAXXZ @ 0x1C01BD41C
  * Callers:
- *     ?OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z @ 0x1C01E5FB0 (-OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z.c)
+ *     ?OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z @ 0x1C01AD050 (-OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z.c)
  * Callees:
- *     ?ClearInputPanelRects@DelayZoneTelemetry@@QEAAXXZ @ 0x1C009E9B8 (-ClearInputPanelRects@DelayZoneTelemetry@@QEAAXXZ.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ?UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z @ 0x1C01F80B0 (-UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z.c)
+ *     ?ClearInputPanelRects@DelayZoneTelemetry@@QEAAXXZ @ 0x1C0074984 (-ClearInputPanelRects@DelayZoneTelemetry@@QEAAXXZ.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ?UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z @ 0x1C01BD84C (-UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z.c)
  */
 
 void __fastcall DelayZoneTelemetry::ClearSession(DelayZoneTelemetry *this)

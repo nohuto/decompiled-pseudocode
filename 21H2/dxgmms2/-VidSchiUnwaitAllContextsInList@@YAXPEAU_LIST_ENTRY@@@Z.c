@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VidSchiUnwaitAllContextsInList@@YAXPEAU_LIST_ENTRY@@@Z @ 0x1C00363F8
+ * XREFs of ?VidSchiUnwaitAllContextsInList@@YAXPEAU_LIST_ENTRY@@@Z @ 0x1C002CE20
  * Callers:
- *     VidSchiUnwaitAllContexts @ 0x1C003ADB8 (VidSchiUnwaitAllContexts.c)
+ *     VidSchiUnwaitAllContexts @ 0x1C0032190 (VidSchiUnwaitAllContexts.c)
  * Callees:
- *     VidSchiUnwaitContext @ 0x1C000E938 (VidSchiUnwaitContext.c)
+ *     VidSchiUnwaitContext @ 0x1C0010FC8 (VidSchiUnwaitContext.c)
  */
 
 void __fastcall VidSchiUnwaitAllContextsInList(struct _LIST_ENTRY *a1)
@@ -16,6 +16,6 @@ void __fastcall VidSchiUnwaitAllContextsInList(struct _LIST_ENTRY *a1)
     if ( a1->Flink == a1 )
       break;
     LODWORD(Flink[11].Flink) = 0;
-    VidSchiUnwaitContext((__int64)&Flink[-1].Blink, 0x6F8Du);
+    VidSchiUnwaitContext((__int64)&Flink[-1].Blink, 0x6A0Du);
   }
 }

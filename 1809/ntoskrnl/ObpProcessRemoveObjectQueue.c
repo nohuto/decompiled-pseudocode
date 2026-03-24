@@ -1,21 +1,21 @@
 /*
- * XREFs of ObpProcessRemoveObjectQueue @ 0x1406919E0
+ * XREFs of ObpProcessRemoveObjectQueue @ 0x1406919C0
  * Callers:
  *     <none>
  * Callees:
  *     MmGetNextSession @ 0x140012740 (MmGetNextSession.c)
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
  *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14010DFA4 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     MmDetachSession @ 0x14011A5A0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A630 (MmAttachSession.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ExfUnblockPushLock @ 0x1401B7430 (ExfUnblockPushLock.c)
- *     ObpRemoveObjectRoutine @ 0x140645E80 (ObpRemoveObjectRoutine.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x140691B80 (ObpHandleRevocationBlockRemoveObject.c)
- *     MmQuitNextSession @ 0x1406CF670 (MmQuitNextSession.c)
- *     ObpDeregisterObject @ 0x140862BE0 (ObpDeregisterObject.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14010DFC4 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
+ *     ObpRemoveObjectRoutine @ 0x140645E60 (ObpRemoveObjectRoutine.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x140691B60 (ObpHandleRevocationBlockRemoveObject.c)
+ *     MmQuitNextSession @ 0x1406CF650 (MmQuitNextSession.c)
+ *     ObpDeregisterObject @ 0x140862BC0 (ObpDeregisterObject.c)
  */
 
 void ObpProcessRemoveObjectQueue()

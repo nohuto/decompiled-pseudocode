@@ -1,15 +1,15 @@
 /*
  * XREFs of EtwpWriteProcessStarted @ 0x1405B2408
  * Callers:
- *     EtwTraceProcess @ 0x14066C548 (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x14066C528 (EtwTraceProcess.c)
  * Callees:
  *     _TlgCreateWsz @ 0x140012934 (_TlgCreateWsz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     _TlgCreateSid @ 0x140012F98 (_TlgCreateSid.c)
  *     PsGetProcessSessionId @ 0x140092310 (PsGetProcessSessionId.c)
- *     PsGetProcessStartKey @ 0x1400CCB90 (PsGetProcessStartKey.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     PsGetProcessStartKey @ 0x1400CCBB0 (PsGetProcessStartKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     MmGetSessionCreateTime @ 0x1405B3894 (MmGetSessionCreateTime.c)
  */
 
@@ -113,7 +113,7 @@ char __fastcall EtwpWriteProcessStarted(__int64 a1, int *a2, __int64 a3, unsigne
       v50 = v53;
       v51 = 2LL;
       v53[1] = 0;
-      LOBYTE(v4) = TlgWrite(&stru_140400308, &unk_140373753, 0LL, 0LL, 0x13u, &pData);
+      LOBYTE(v4) = TlgWrite(&stru_140400308, &unk_140372F4E, 0LL, 0LL, 0x13u, &pData);
     }
   }
   return v4;

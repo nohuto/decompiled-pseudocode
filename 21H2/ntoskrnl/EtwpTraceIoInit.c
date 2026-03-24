@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTraceIoInit @ 0x14062FB50
+ * XREFs of EtwpTraceIoInit @ 0x1405A9A30
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x140281380 (EtwTraceSiloKernelEvent.c)
- *     PsGetThreadServerSilo @ 0x140347690 (PsGetThreadServerSilo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     PsGetThreadServerSilo @ 0x140206540 (PsGetThreadServerSilo.c)
+ *     EtwTraceSiloKernelEvent @ 0x14025A84C (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpTraceIoInit(__int64 a1)
@@ -39,7 +39,7 @@ __int64 __fastcall EtwpTraceIoInit(__int64 a1)
   {
     ThreadServerSilo = PsGetThreadServerSilo(*(_QWORD *)(a1 + 152));
     v8 = a1;
-    v6 = *(_DWORD *)(v4 + 1232);
+    v6 = *(_DWORD *)(v4 + 1152);
   }
   else
   {

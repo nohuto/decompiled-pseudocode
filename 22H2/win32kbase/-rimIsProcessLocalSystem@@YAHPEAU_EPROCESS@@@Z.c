@@ -1,8 +1,8 @@
 /*
- * XREFs of ?rimIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C01AC51C
+ * XREFs of ?rimIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C017D070
  * Callers:
- *     rimObsIsRegisteredObserverAllowed @ 0x1C01AC91C (rimObsIsRegisteredObserverAllowed.c)
- *     rimObsCheckForObservationPermissions @ 0x1C01AD668 (rimObsCheckForObservationPermissions.c)
+ *     rimObsIsRegisteredObserverAllowed @ 0x1C017D2FC (rimObsIsRegisteredObserverAllowed.c)
+ *     rimObsCheckForObservationPermissions @ 0x1C017DDB4 (rimObsCheckForObservationPermissions.c)
  * Callees:
  *     <none>
  */

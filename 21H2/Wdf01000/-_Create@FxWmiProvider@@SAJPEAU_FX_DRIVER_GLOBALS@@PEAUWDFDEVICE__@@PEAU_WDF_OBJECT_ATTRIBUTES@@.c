@@ -1,24 +1,24 @@
 /*
- * XREFs of ?_Create@FxWmiProvider@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_WMI_PROVIDER_CONFIG@@PEAPEAUWDFWMIPROVIDER__@@PEAPEAV1@@Z @ 0x1C0025E7C
+ * XREFs of ?_Create@FxWmiProvider@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_WMI_PROVIDER_CONFIG@@PEAPEAUWDFWMIPROVIDER__@@PEAPEAV1@@Z @ 0x1C003E4DC
  * Callers:
- *     imp_WdfWmiInstanceCreate @ 0x1C0025AA0 (imp_WdfWmiInstanceCreate.c)
- *     imp_WdfWmiProviderCreate @ 0x1C005DDA0 (imp_WdfWmiProviderCreate.c)
+ *     imp_WdfWmiInstanceCreate @ 0x1C003D8D0 (imp_WdfWmiInstanceCreate.c)
+ *     imp_WdfWmiProviderCreate @ 0x1C003DD20 (imp_WdfWmiProviderCreate.c)
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C0005B30 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
- *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C00062C0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ?AddProvider@FxWmiIrpHandler@@QEAAJPEAVFxWmiProvider@@PEAE@Z @ 0x1C0026040 (-AddProvider@FxWmiIrpHandler@@QEAAJPEAVFxWmiProvider@@PEAE@Z.c)
- *     ??0FxWmiProvider@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_WMI_PROVIDER_CONFIG@@PEAVFxDevice@@@Z @ 0x1C0026138 (--0FxWmiProvider@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_WMI_PROVIDER_CONFIG@@PEAVFxDevice@@@Z.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_DDd @ 0x1C0052E4C (WPP_IFR_SF_DDd.c)
- *     ?DecrementUpdateCount@FxWmiIrpHandler@@AEAAXXZ @ 0x1C005E01C (-DecrementUpdateCount@FxWmiIrpHandler@@AEAAXXZ.c)
- *     WPP_IFR_SF_Dddd @ 0x1C005E29C (WPP_IFR_SF_Dddd.c)
- *     ?RemoveProvider@FxWmiIrpHandler@@IEAAXPEAVFxWmiProvider@@@Z @ 0x1C005F30C (-RemoveProvider@FxWmiIrpHandler@@IEAAXPEAVFxWmiProvider@@@Z.c)
- *     ?UpdateGuids@FxWmiIrpHandler@@AEAAXXZ @ 0x1C005F37C (-UpdateGuids@FxWmiIrpHandler@@AEAAXXZ.c)
+ *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000A0E0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C000B520 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_DDd @ 0x1C002E6DC (WPP_IFR_SF_DDd.c)
+ *     ??0FxWmiProvider@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_WMI_PROVIDER_CONFIG@@PEAVFxDevice@@@Z @ 0x1C003DF44 (--0FxWmiProvider@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_WMI_PROVIDER_CONFIG@@PEAVFxDevice@@@Z.c)
+ *     ?DecrementUpdateCount@FxWmiIrpHandler@@AEAAXXZ @ 0x1C003E268 (-DecrementUpdateCount@FxWmiIrpHandler@@AEAAXXZ.c)
+ *     WPP_IFR_SF_Dddd @ 0x1C003E778 (WPP_IFR_SF_Dddd.c)
+ *     ?AddProvider@FxWmiIrpHandler@@QEAAJPEAVFxWmiProvider@@PEAE@Z @ 0x1C003FC98 (-AddProvider@FxWmiIrpHandler@@QEAAJPEAVFxWmiProvider@@PEAE@Z.c)
+ *     ?RemoveProvider@FxWmiIrpHandler@@IEAAXPEAVFxWmiProvider@@@Z @ 0x1C0040244 (-RemoveProvider@FxWmiIrpHandler@@IEAAXPEAVFxWmiProvider@@@Z.c)
+ *     ?UpdateGuids@FxWmiIrpHandler@@AEAAXXZ @ 0x1C00402B4 (-UpdateGuids@FxWmiIrpHandler@@AEAAXXZ.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxWmiProvider::_Create(
@@ -34,22 +34,21 @@ __int64 __fastcall FxWmiProvider::_Create(
   unsigned int v10; // r8d
   unsigned __int16 v11; // r9
   unsigned int _a2; // ecx
+  unsigned int v13; // ebx
   unsigned int Flags; // edx
-  FxWmiProvider *v14; // rax
-  FxWmiProvider *v15; // rax
-  FxWmiProvider *v16; // rbx
-  int v17; // edi
-  unsigned int v18; // ebx
-  unsigned __int16 v19; // r9
-  const _GUID *AssignDriverAsDefaultParent; // [rsp+20h] [rbp-69h]
-  int _a3; // [rsp+30h] [rbp-59h]
-  int globals; // [rsp+38h] [rbp-51h]
-  int v23; // [rsp+40h] [rbp-49h]
-  unsigned __int8 update[8]; // [rsp+50h] [rbp-39h] BYREF
-  FxDevice *pDevice; // [rsp+58h] [rbp-31h] BYREF
-  void *hProvider; // [rsp+60h] [rbp-29h] BYREF
-  FxPoolTypeOrPoolFlags v27; // [rsp+70h] [rbp-19h] BYREF
-  _GUID zeroGuid; // [rsp+80h] [rbp-9h] BYREF
+  unsigned __int16 v15; // r9
+  FxWmiProvider *v16; // rax
+  FxWmiProvider *v17; // rax
+  FxWmiProvider *v18; // rbx
+  int v19; // edi
+  const _GUID *_a1; // [rsp+20h] [rbp-60h]
+  int _a3; // [rsp+30h] [rbp-50h]
+  int globals; // [rsp+38h] [rbp-48h]
+  int v23; // [rsp+40h] [rbp-40h]
+  unsigned __int8 update[8]; // [rsp+50h] [rbp-30h] BYREF
+  FxDevice *pDevice; // [rsp+58h] [rbp-28h] BYREF
+  void *hProvider; // [rsp+60h] [rbp-20h] BYREF
+  _GUID zeroGuid; // [rsp+68h] [rbp-18h] BYREF
 
   pDevice = 0LL;
   hProvider = 0LL;
@@ -62,100 +61,9 @@ __int64 __fastcall FxWmiProvider::_Create(
   if ( (int)result >= 0 )
   {
     _a2 = WmiProviderConfig->Size;
-    if ( WmiProviderConfig->Size == 40 )
+    if ( WmiProviderConfig->Size != 40 )
     {
-      Flags = WmiProviderConfig->Flags;
-      if ( (Flags & 0xFFFFFFF8) != 0 )
-      {
-        v18 = -1073741811;
-        WPP_IFR_SF_DDd(
-          m_Globals,
-          (unsigned __int8)WPP_FxWmiProvider_cpp_Traceguids,
-          0xCu,
-          0xBu,
-          WPP_FxWmiProvider_cpp_Traceguids,
-          Flags,
-          7,
-          -1073741811);
-      }
-      else
-      {
-        if ( (Flags & 0xFFFFFFFB) != 0 && (Flags & 4) != 0 )
-        {
-          v19 = 12;
-          v18 = -1073741811;
-        }
-        else
-        {
-          if ( WmiProviderConfig->EvtWmiProviderFunctionControl && (Flags & 6) == 0 )
-          {
-            WPP_IFR_SF_Dddd(
-              m_Globals,
-              Flags,
-              v10,
-              v11,
-              AssignDriverAsDefaultParent,
-              WmiProviderConfig->Flags,
-              _a3,
-              globals,
-              v23);
-            return 3221225485LL;
-          }
-          zeroGuid = 0LL;
-          if ( RtlCompareMemory(&WmiProviderConfig->Guid, &zeroGuid, 0x10uLL) == 16 )
-          {
-            v18 = -1073741811;
-            v19 = 14;
-          }
-          else
-          {
-            *(_QWORD *)&v27.UsePoolType = 0LL;
-            v27.u.PoolFlags = 64LL;
-            v14 = (FxWmiProvider *)FxObjectHandleAllocCommon(
-                                     m_Globals,
-                                     &v27,
-                                     0xD8uLL,
-                                     0,
-                                     ProviderAttributes,
-                                     0,
-                                     FxObjectTypeExternal);
-            if ( v14 )
-            {
-              FxWmiProvider::FxWmiProvider(v14, m_Globals, WmiProviderConfig, pDevice);
-              v16 = v15;
-              if ( v15 )
-              {
-                v17 = FxWmiIrpHandler::AddProvider(pDevice->m_PkgWmi, v15, update);
-                if ( v17 >= 0 )
-                {
-                  v17 = FxObject::Commit(v16, (_FX_DRIVER_GLOBALS *)ProviderAttributes, &hProvider, pDevice, 1u);
-                  if ( v17 >= 0 )
-                  {
-                    *WmiProvider = (WDFWMIPROVIDER__ *)hProvider;
-                    *Provider = v16;
-                    if ( update[0] )
-                      FxWmiIrpHandler::UpdateGuids(pDevice->m_PkgWmi);
-                    return (unsigned int)v17;
-                  }
-                  FxWmiIrpHandler::RemoveProvider(pDevice->m_PkgWmi, v16);
-                }
-                if ( update[0] )
-                  FxWmiIrpHandler::DecrementUpdateCount(pDevice->m_PkgWmi);
-                FxObject::ClearEvtCallbacks(v16);
-                ((void (*)(void))v16->DeleteObject)();
-                return (unsigned int)v17;
-              }
-            }
-            v18 = -1073741670;
-            v19 = 15;
-          }
-        }
-        WPP_IFR_SF_d(m_Globals, 2u, 0xCu, v19, WPP_FxWmiProvider_cpp_Traceguids, v18);
-      }
-    }
-    else
-    {
-      v18 = -1073741820;
+      v13 = -1073741820;
       WPP_IFR_SF_DDd(
         m_Globals,
         (unsigned __int8)WPP_FxWmiProvider_cpp_Traceguids,
@@ -165,8 +73,92 @@ __int64 __fastcall FxWmiProvider::_Create(
         _a2,
         40,
         -1073741820);
+      return v13;
     }
-    return v18;
+    Flags = WmiProviderConfig->Flags;
+    if ( (Flags & 0xFFFFFFF8) != 0 )
+    {
+      v13 = -1073741811;
+      WPP_IFR_SF_DDd(
+        m_Globals,
+        (unsigned __int8)WPP_FxWmiProvider_cpp_Traceguids,
+        0xCu,
+        0xBu,
+        WPP_FxWmiProvider_cpp_Traceguids,
+        Flags,
+        7,
+        -1073741811);
+      return v13;
+    }
+    if ( (Flags & 0xFFFFFFFB) != 0 && (Flags & 4) != 0 )
+    {
+      v15 = 12;
+      v13 = -1073741811;
+LABEL_9:
+      WPP_IFR_SF_d(m_Globals, 2u, 0xCu, v15, WPP_FxWmiProvider_cpp_Traceguids, v13);
+      return v13;
+    }
+    if ( !WmiProviderConfig->EvtWmiProviderFunctionControl || (Flags & 6) != 0 )
+    {
+      zeroGuid = 0LL;
+      if ( RtlCompareMemory(&WmiProviderConfig->Guid, &zeroGuid, 0x10uLL) == 16 )
+      {
+        v13 = -1073741811;
+        v15 = 14;
+        goto LABEL_9;
+      }
+      v16 = (FxWmiProvider *)FxObjectHandleAlloc(
+                               m_Globals,
+                               ExDefaultNonPagedPoolType,
+                               0xD8uLL,
+                               0,
+                               ProviderAttributes,
+                               0,
+                               FxObjectTypeExternal);
+      if ( v16 )
+      {
+        FxWmiProvider::FxWmiProvider(v16, m_Globals, WmiProviderConfig, pDevice);
+        v18 = v17;
+      }
+      else
+      {
+        v18 = 0LL;
+      }
+      if ( !v18 )
+      {
+        v13 = -1073741670;
+        v15 = 15;
+        goto LABEL_9;
+      }
+      v19 = FxWmiIrpHandler::AddProvider(pDevice->m_PkgWmi, v18, update);
+      if ( v19 < 0 )
+        goto LABEL_27;
+      v19 = FxObject::Commit(v18, (_FX_DRIVER_GLOBALS *)ProviderAttributes, &hProvider, pDevice, 1u);
+      if ( v19 >= 0 )
+        *WmiProvider = (WDFWMIPROVIDER__ *)hProvider;
+      else
+        FxWmiIrpHandler::RemoveProvider(pDevice->m_PkgWmi, v18);
+      if ( v19 < 0 )
+      {
+LABEL_27:
+        if ( update[0] )
+          FxWmiIrpHandler::DecrementUpdateCount(pDevice->m_PkgWmi);
+        FxObject::ClearEvtCallbacks(v18);
+        v18->DeleteObject(v18);
+      }
+      else
+      {
+        *Provider = v18;
+        if ( update[0] )
+          FxWmiIrpHandler::UpdateGuids(pDevice->m_PkgWmi);
+      }
+      return (unsigned int)v19;
+    }
+    else
+    {
+      WPP_IFR_SF_Dddd(m_Globals, Flags, v10, v11, _a1, WmiProviderConfig->Flags, _a3, globals, v23);
+      return 3221225485LL;
+    }
   }
   return result;
 }

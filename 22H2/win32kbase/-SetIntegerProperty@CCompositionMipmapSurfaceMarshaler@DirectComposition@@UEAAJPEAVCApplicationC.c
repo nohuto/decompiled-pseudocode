@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CCompositionMipmapSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C022F960
+ * XREFs of ?SetIntegerProperty@CCompositionMipmapSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F7250
  * Callers:
  *     <none>
  * Callees:

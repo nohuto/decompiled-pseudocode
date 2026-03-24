@@ -1,35 +1,36 @@
 /*
- * XREFs of McTemplateU0xd_EventWriteTransfer @ 0x18012FFAC
+ * XREFs of McTemplateU0xd_EventWriteTransfer @ 0x18017D2C8
  * Callers:
- *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z @ 0x180087434 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z.c)
+ *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@PEBVCDirtyRegion@@@Z @ 0x1800905F0 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@PEBVCDirtyRegion@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0xd_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4)
+ULONG __fastcall McTemplateU0xd_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  _QWORD v5[3]; // [rsp+30h] [rbp-48h] BYREF
-  int v6; // [rsp+48h] [rbp-30h]
-  int v7; // [rsp+4Ch] [rbp-2Ch]
-  int *v8; // [rsp+50h] [rbp-28h]
-  int v9; // [rsp+58h] [rbp-20h]
-  int v10; // [rsp+5Ch] [rbp-1Ch]
-  __int64 v11; // [rsp+90h] [rbp+18h] BYREF
-  int v12; // [rsp+98h] [rbp+20h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+30h] [rbp-48h] BYREF
+  __int64 *v6; // [rsp+40h] [rbp-38h]
+  int v7; // [rsp+48h] [rbp-30h]
+  int v8; // [rsp+4Ch] [rbp-2Ch]
+  int *v9; // [rsp+50h] [rbp-28h]
+  int v10; // [rsp+58h] [rbp-20h]
+  int v11; // [rsp+5Ch] [rbp-1Ch]
+  __int64 v12; // [rsp+90h] [rbp+18h] BYREF
+  int v13; // [rsp+98h] [rbp+20h] BYREF
 
-  v12 = a4;
-  v11 = a3;
-  v5[2] = &v11;
-  v7 = 0;
-  v6 = 8;
-  v8 = &v12;
-  v10 = 0;
-  v9 = 4;
+  v13 = a4;
+  v12 = a3;
+  v6 = &v12;
+  v8 = 0;
+  v7 = 8;
+  v9 = &v13;
+  v11 = 0;
+  v10 = 4;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_OVERLAY_CHECKOCCLUSION,
            a3,
-           3LL,
-           v5);
+           3u,
+           &v5);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetTrapFrameMode @ 0x1403D5ED0
+ * XREFs of KiGetTrapFrameMode @ 0x140394460
  * Callers:
- *     KiSwInterruptDispatch @ 0x1403E3F70 (KiSwInterruptDispatch.c)
+ *     KiSwInterruptDispatch @ 0x1403DC520 (KiSwInterruptDispatch.c)
  * Callees:
  *     <none>
  */

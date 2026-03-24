@@ -1,30 +1,30 @@
 /*
- * XREFs of ?CreateRenderingEffect@CBrushRenderingEffectFactory@@UEAAJV?$span@PEBVCDrawListBrush@@$0?0@gsl@@PEAPEAVCRenderingEffect@@@Z @ 0x180030440
+ * XREFs of ?CreateRenderingEffect@CBrushRenderingEffectFactory@@UEAAJV?$span@PEBVCDrawListBrush@@$0?0@gsl@@PEAPEAVCRenderingEffect@@@Z @ 0x18004E2D0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCBrushRenderingEffect@@@Z @ 0x180030514 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCBrushRenderingEffect@@@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ??0CBrushRenderingEffect@@QEAA@PEAVCRenderingTechnique@@V?$span@PEBVCDrawListBrush@@$0?0@gsl@@V?$span@_N$0?0@3@@Z @ 0x180095E9C (--0CBrushRenderingEffect@@QEAA@PEAVCRenderingTechnique@@V-$span@PEBVCDrawListBrush@@$0-0@gsl@@V-.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CBrushRenderingEffect@@QEAA@PEAVCRenderingTechnique@@V?$span@PEBVCDrawListBrush@@$0?0@gsl@@V?$span@_N$0?0@3@@Z @ 0x18004F74C (--0CBrushRenderingEffect@@QEAA@PEAVCRenderingTechnique@@V-$span@PEBVCDrawListBrush@@$0-0@gsl@@V-.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCBrushRenderingEffect@@@Z @ 0x18005871C (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCBrushRenderingEffect@@@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CBrushRenderingEffectFactory::CreateRenderingEffect(
         struct CBrushRenderingEffect *a1,
         __int128 *a2,
-        __int64 *a3)
+        _QWORD *a3)
 {
-  unsigned int v6; // ebx
+  unsigned int v6; // edi
   struct CObjectCache *ObjectCache; // rax
   _QWORD *v8; // rcx
   int v9; // r10d
   __int128 v10; // xmm1
   __int64 v11; // rdx
-  __int64 v12; // rax
-  __int64 v13; // rdi
-  _QWORD v15[2]; // [rsp+30h] [rbp-28h] BYREF
-  __int128 v16; // [rsp+40h] [rbp-18h] BYREF
+  void *v12; // rax
+  __int128 v14; // [rsp+30h] [rbp-38h]
+  __int128 v15; // [rsp+40h] [rbp-28h] BYREF
+  __int128 v16; // [rsp+50h] [rbp-18h] BYREF
 
   v6 = 0;
   ObjectCache = CThreadContext::GetObjectCache(a1);
@@ -36,29 +36,25 @@ __int64 __fastcall CBrushRenderingEffectFactory::CreateRenderingEffect(
     *((_QWORD *)ObjectCache + 1) = *v8;
     *((_DWORD *)ObjectCache + 1) = v9 - 1;
   }
-  if ( !v8 )
+  if ( v8 || (v12 = DefaultHeap::Alloc(0x168uLL), (v8 = v12) != 0LL) )
   {
-    v8 = DefaultHeap::Alloc(0x110uLL);
-    if ( !v8 )
-      goto LABEL_8;
+    v10 = *a2;
+    v11 = *((_QWORD *)a1 + 2);
+    *((_QWORD *)&v14 + 1) = (char *)a1 + 32;
+    *(_QWORD *)&v14 = 4LL;
+    v15 = v14;
+    v16 = v10;
+    v12 = (void *)CBrushRenderingEffect::CBrushRenderingEffect(v8, v11, &v16, &v15);
   }
-  v10 = *a2;
-  v11 = *((_QWORD *)a1 + 1);
-  v15[1] = (char *)a1 + 16;
-  v15[0] = 4LL;
-  v16 = v10;
-  v12 = CBrushRenderingEffect::CBrushRenderingEffect(v8, v11, &v16, v15);
-  v13 = v12;
   if ( v12 )
   {
-    CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v12 + 8));
-    *a3 = v13;
+    _InterlockedIncrement((volatile signed __int32 *)v12 + 2);
+    *a3 = v12;
   }
   else
   {
-LABEL_8:
     v6 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v8, 0LL, 0, -2147024882, 0x4Bu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v8, 0LL, 0, -2147024882, 0x49u, 0LL);
   }
   return v6;
 }

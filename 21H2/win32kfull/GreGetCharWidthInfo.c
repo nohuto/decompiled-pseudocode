@@ -1,14 +1,14 @@
 /*
- * XREFs of GreGetCharWidthInfo @ 0x1C01089C4
+ * XREFs of GreGetCharWidthInfo @ 0x1C011E394
  * Callers:
- *     NtGdiGetCharWidthInfo @ 0x1C0108960 (NtGdiGetCharWidthInfo.c)
+ *     NtGdiGetCharWidthInfo @ 0x1C011E330 (NtGdiGetCharWidthInfo.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C00364E0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093AC0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreGetCharWidthInfo(HDC a1, _DWORD *a2)
@@ -32,7 +32,7 @@ __int64 __fastcall GreGetCharWidthInfo(HDC a1, _DWORD *a2)
     if ( (unsigned int)RFONTOBJ::bInit((RFONTOBJ *)&v13, (struct XDCOBJ *)v10, 0, 2u) )
       GreAcquireSemaphore(*(_QWORD *)(v13 + 504));
     v4 = v13;
-    if ( v13 && *(_QWORD *)(*(_QWORD *)(v13 + 96) + 3056LL) )
+    if ( v13 && *(_QWORD *)(*(_QWORD *)(v13 + 96) + 3080LL) )
     {
       v5 = *(_DWORD *)(v13 + 696);
       if ( (*(_DWORD *)(*(_QWORD *)(v10[0] + 976LL) + 340LL) & 0x802) == 0x802 )

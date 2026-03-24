@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vRestorePath@@YAXAEAVXDCOBJ@@J@Z @ 0x1C028712C
+ * XREFs of ?vRestorePath@@YAXAEAVXDCOBJ@@J@Z @ 0x1C02863A0
  * Callers:
- *     GreSaveDCInternal @ 0x1C0092580 (GreSaveDCInternal.c)
+ *     <none>
  * Callees:
  *     <none>
  */

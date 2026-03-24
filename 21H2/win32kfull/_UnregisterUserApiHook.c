@@ -1,16 +1,17 @@
 /*
- * XREFs of _UnregisterUserApiHook @ 0x1C01220B0
+ * XREFs of _UnregisterUserApiHook @ 0x1C0136AF0
  * Callers:
- *     NtUserUnregisterUserApiHook @ 0x1C01FFEC0 (NtUserUnregisterUserApiHook.c)
+ *     NtUserUnregisterUserApiHook @ 0x1C0204030 (NtUserUnregisterUserApiHook.c)
  * Callees:
- *     RemoveHmodDependency @ 0x1C0025104 (RemoveHmodDependency.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     RemoveHmodDependency @ 0x1C00203BC (RemoveHmodDependency.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall UnregisterUserApiHook(__int64 a1)
 {
   __int64 v1; // rdx
+  __int64 v2; // r8
 
   if ( PsGetCurrentProcessWin32Process(a1) == gppiUserApiHook )
   {
@@ -27,7 +28,7 @@ __int64 __fastcall UnregisterUserApiHook(__int64 a1)
   }
   else
   {
-    UserSetLastError(5LL, v1);
+    UserSetLastError(5LL, v1, v2);
     return 0LL;
   }
 }

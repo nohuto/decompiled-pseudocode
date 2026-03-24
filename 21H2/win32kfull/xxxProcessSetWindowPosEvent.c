@@ -1,48 +1,49 @@
 /*
- * XREFs of xxxProcessSetWindowPosEvent @ 0x1C009AE90
+ * XREFs of xxxProcessSetWindowPosEvent @ 0x1C0124A40
  * Callers:
- *     xxxProcessEventMessage @ 0x1C005C220 (xxxProcessEventMessage.c)
+ *     xxxProcessEventMessage @ 0x1C00C1918 (xxxProcessEventMessage.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     xxxEndDeferWindowPosEx @ 0x1C004720C (xxxEndDeferWindowPosEx.c)
- *     InternalBeginDeferWindowPos @ 0x1C0048E6C (InternalBeginDeferWindowPos.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     ??9?$RedirectedFieldhMonitor@PEAUHMONITOR__@@@tagWND@@QEBAEAEBQEAUHMONITOR__@@@Z @ 0x1C00146D0 (--9-$RedirectedFieldhMonitor@PEAUHMONITOR__@@@tagWND@@QEBAEAEBQEAUHMONITOR__@@@Z.c)
+ *     InternalBeginDeferWindowPos @ 0x1C006BA00 (InternalBeginDeferWindowPos.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C006EDBC (xxxEndDeferWindowPosEx.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
-__int64 __fastcall xxxProcessSetWindowPosEvent(__int64 a1)
+void __fastcall xxxProcessSetWindowPosEvent(__int64 a1)
 {
-  __int64 v2; // rsi
+  void **v2; // rsi
   int v3; // eax
-  __int64 v4; // rbx
+  unsigned __int64 *v4; // rdi
   int i; // ebp
-  __int64 v7; // rax
-  __int64 v8; // rcx
+  __int64 v6; // rax
+  _QWORD *v7; // rdx
+  __int64 v8; // r9
 
-  v2 = InternalBeginDeferWindowPos(*(_DWORD *)(a1 + 28));
+  v2 = (void **)InternalBeginDeferWindowPos(*(_DWORD *)(a1 + 28));
   if ( v2 )
   {
-    memmove(*(void **)(v2 + 40), *(const void **)(a1 + 40), 168LL * *(int *)(a1 + 28));
+    memmove(v2[5], *(const void **)(a1 + 40), 168LL * *(int *)(a1 + 28));
     v3 = *(_DWORD *)(a1 + 28);
-    v4 = *(_QWORD *)(v2 + 40);
-    *(_DWORD *)(v2 + 28) = v3;
+    v4 = (unsigned __int64 *)v2[5];
+    *((_DWORD *)v2 + 7) = v3;
     for ( i = v3 - 1; i >= 0; --i )
     {
-      if ( (*(_DWORD *)(v4 + 156) & 0x20) != 0 )
+      if ( (*((_DWORD *)v4 + 39) & 0x20) != 0 )
       {
-        if ( *(_QWORD *)v4 )
+        if ( *v4 )
         {
-          v7 = HMValidateHandleNoSecure(*(_QWORD *)v4, 1);
-          if ( v7 )
+          v6 = HMValidateHandleNoSecure(*v4, 1);
+          if ( v6 )
           {
-            v8 = *(_QWORD *)(*(_QWORD *)(v7 + 40) + 256LL);
-            if ( v8 != *(_QWORD *)(v4 + 128) )
-              *(_QWORD *)(v4 + 128) = v8;
+            if ( tagWND::RedirectedFieldhMonitor<HMONITOR__ *>::operator!=(v6 + 215, v4 + 16) )
+              *v7 = *(_QWORD *)(*(_QWORD *)(v8 + 40) + 256LL);
           }
         }
       }
-      v4 += 168LL;
+      v4 += 21;
     }
     xxxEndDeferWindowPosEx((struct tagSMWP *)v2, 0);
   }
-  return Win32FreePool(a1);
+  Win32FreePool((void *)a1);
 }

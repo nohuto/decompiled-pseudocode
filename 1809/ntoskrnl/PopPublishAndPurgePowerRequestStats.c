@@ -1,19 +1,19 @@
 /*
- * XREFs of PopPublishAndPurgePowerRequestStats @ 0x14087AE3C
+ * XREFs of PopPublishAndPurgePowerRequestStats @ 0x14087AE1C
  * Callers:
- *     PopStatsNotifyPowerRequestCsState @ 0x14087B190 (PopStatsNotifyPowerRequestCsState.c)
+ *     PopStatsNotifyPowerRequestCsState @ 0x14087B170 (PopStatsNotifyPowerRequestCsState.c)
  * Callees:
  *     PoQueryStopWatch @ 0x140001DC4 (PoQueryStopWatch.c)
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgCreateWsz @ 0x140012934 (_TlgCreateWsz.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     RtlRandomEx @ 0x14013DAA0 (RtlRandomEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PopDiagTraceSleepStudyBlocker @ 0x1402E1DC8 (PopDiagTraceSleepStudyBlocker.c)
- *     PoResetStopWatch @ 0x1402E916C (PoResetStopWatch.c)
+ *     RtlRandomEx @ 0x14013DAC0 (RtlRandomEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PopDiagTraceSleepStudyBlocker @ 0x1402E1EC8 (PopDiagTraceSleepStudyBlocker.c)
+ *     PoResetStopWatch @ 0x1402E926C (PoResetStopWatch.c)
  *     PopAvlDeleteStatsForPowerRequest @ 0x14058883C (PopAvlDeleteStatsForPowerRequest.c)
  *     PopGetStopWatchByRequestType @ 0x1405888A4 (PopGetStopWatchByRequestType.c)
- *     PopGetBlockedPhaseGuid @ 0x14087AE14 (PopGetBlockedPhaseGuid.c)
+ *     PopGetBlockedPhaseGuid @ 0x14087ADF4 (PopGetBlockedPhaseGuid.c)
  */
 
 void __fastcall PopPublishAndPurgePowerRequestStats(char *Buffer, char a2)
@@ -103,7 +103,7 @@ void __fastcall PopPublishAndPurgePowerRequestStats(char *Buffer, char a2)
         v41 = &v12;
         v40 = 4LL;
         v42 = 1LL;
-        TlgWrite(&pCallbackContext, &unk_1403710E1, 0LL, 0LL, 7u, &pData);
+        TlgWrite(&pCallbackContext, &unk_1403711F1, 0LL, 0LL, 7u, &pData);
       }
       if ( v13 )
       {

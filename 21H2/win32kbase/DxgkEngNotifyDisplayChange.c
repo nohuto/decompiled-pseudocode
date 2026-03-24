@@ -1,11 +1,11 @@
 /*
- * XREFs of DxgkEngNotifyDisplayChange @ 0x1C007F550
+ * XREFs of DxgkEngNotifyDisplayChange @ 0x1C014A8B0
  * Callers:
- *     xxxRemoteConnect @ 0x1C007EDC0 (xxxRemoteConnect.c)
- *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C014790C (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     xxxRemoteConnect @ 0x1C01177E0 (xxxRemoteConnect.c)
+ *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0119628 (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
- *     UserNotifyDisplayChange @ 0x1C0078BB0 (UserNotifyDisplayChange.c)
- *     GreIncrementDisplaySettingsUniqueness @ 0x1C00C1E50 (GreIncrementDisplaySettingsUniqueness.c)
+ *     UserNotifyDisplayChange @ 0x1C00150E0 (UserNotifyDisplayChange.c)
+ *     GreIncrementDisplaySettingsUniqueness @ 0x1C00B2FB0 (GreIncrementDisplaySettingsUniqueness.c)
  */
 
 __int64 __fastcall DxgkEngNotifyDisplayChange(char a1)

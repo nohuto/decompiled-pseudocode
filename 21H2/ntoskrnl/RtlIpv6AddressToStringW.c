@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIpv6AddressToStringW @ 0x1402527A0
+ * XREFs of RtlIpv6AddressToStringW @ 0x14037E430
  * Callers:
- *     RtlIpv6AddressToStringExW @ 0x140252690 (RtlIpv6AddressToStringExW.c)
- *     AdtpBuildIPv6Strings @ 0x140A1B050 (AdtpBuildIPv6Strings.c)
+ *     RtlIpv6AddressToStringExW @ 0x14037E350 (RtlIpv6AddressToStringExW.c)
+ *     AdtpBuildIPv6Strings @ 0x14096D1C4 (AdtpBuildIPv6Strings.c)
  * Callees:
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
  */
 
 PWSTR __stdcall RtlIpv6AddressToStringW(const struct in6_addr *Addr, PWSTR S)
@@ -18,16 +18,16 @@ PWSTR __stdcall RtlIpv6AddressToStringW(const struct in6_addr *Addr, PWSTR S)
   int v9; // edx
   __int64 i; // r8
   int v11; // r9d
-  int v12; // ecx
-  int v13; // edx
+  int v12; // eax
+  __int64 v13; // r15
   int v14; // eax
-  int v15; // eax
-  int v16; // eax
-  __int64 v17; // r15
-  int v18; // eax
-  __int64 v19; // rsi
-  __int64 v20; // r13
+  __int64 v15; // rsi
+  __int64 v16; // r13
+  int v17; // eax
+  int v19; // ecx
+  int v20; // edx
   int v21; // eax
+  int v22; // eax
   USHORT v23; // ax
   USHORT v24; // r10
   int v25; // ecx
@@ -37,38 +37,46 @@ PWSTR __stdcall RtlIpv6AddressToStringW(const struct in6_addr *Addr, PWSTR S)
   v2 = 8;
   v3 = S + 46;
   v4 = S;
-  if ( *(_DWORD *)Addr->u.Byte || Addr->u.Word[2] || Addr->u.Word[3] || !Addr->u.Word[6] )
-    goto LABEL_5;
-  v23 = Addr->u.Word[4];
-  if ( v23 )
+  if ( !*(_DWORD *)Addr->u.Byte && !Addr->u.Word[2] && !Addr->u.Word[3] && Addr->u.Word[6] )
   {
-    if ( v23 == 0xFFFF && !Addr->u.Word[5] )
+    v23 = Addr->u.Word[4];
+    if ( v23 )
     {
-      v27 = swprintf_s(
-              S,
-              0x2EuLL,
-              L"::ffff:0:%u.%u.%u.%u",
-              Addr->u.Byte[12],
-              Addr->u.Byte[13],
-              Addr->u.Byte[14],
-              Addr->u.Byte[15]);
-      return &v4[v27];
+      if ( v23 == 0xFFFF && !Addr->u.Word[5] )
+      {
+        v27 = swprintf_s(
+                S,
+                0x2EuLL,
+                L"::ffff:0:%u.%u.%u.%u",
+                Addr->u.Byte[12],
+                Addr->u.Byte[13],
+                Addr->u.Byte[14],
+                Addr->u.Byte[15]);
+        return &v4[v27];
+      }
+    }
+    else
+    {
+      v24 = Addr->u.Word[5];
+      if ( ((v24 + 1) & 0xFFFE) == 0 )
+      {
+        v25 = Addr->u.Byte[14];
+        v26 = &Src;
+        if ( v24 )
+          v26 = "ffff:";
+        v27 = swprintf_s(
+                S,
+                0x2EuLL,
+                L"::%hs%u.%u.%u.%u",
+                v26,
+                Addr->u.Byte[12],
+                Addr->u.Byte[13],
+                v25,
+                Addr->u.Byte[15]);
+        return &v4[v27];
+      }
     }
   }
-  else
-  {
-    v24 = Addr->u.Word[5];
-    if ( ((v24 + 1) & 0xFFFE) == 0 )
-    {
-      v25 = Addr->u.Byte[14];
-      v26 = &Src;
-      if ( v24 )
-        v26 = "ffff:";
-      v27 = swprintf_s(S, 0x2EuLL, L"::%hs%u.%u.%u.%u", v26, Addr->u.Byte[12], Addr->u.Byte[13], v25, Addr->u.Byte[15]);
-      return &v4[v27];
-    }
-  }
-LABEL_5:
   v6 = 0;
   v7 = 0;
   v8 = 0;
@@ -84,45 +92,45 @@ LABEL_5:
     }
     else
     {
-      v12 = v6 - v7;
-      v13 = v9 - v8 + 1;
-      v14 = v8;
-      if ( v13 <= v6 - v7 )
-        v14 = v7;
-      v7 = v14;
-      v15 = v11;
-      if ( v13 <= v12 )
-        v15 = v6;
-      v6 = v15;
+      v19 = v6 - v7;
+      v20 = v9 - v8 + 1;
+      v21 = v8;
+      if ( v20 <= v6 - v7 )
+        v21 = v7;
+      v7 = v21;
+      v22 = v11;
+      if ( v20 <= v19 )
+        v22 = v6;
+      v6 = v22;
     }
     v9 = v11;
   }
-  v16 = 0;
+  v12 = 0;
   if ( v6 - v7 > 1 )
-    v16 = v6;
-  v17 = v16;
-  v18 = 0;
+    v12 = v6;
+  v13 = v12;
+  v14 = 0;
   if ( v6 - v7 > 1 )
-    v18 = v7;
-  v19 = 0LL;
-  v20 = v18;
+    v14 = v7;
+  v15 = 0LL;
+  v16 = v14;
   do
   {
-    if ( v19 >= v17 || v20 > v19 )
+    if ( v15 >= v13 || v16 > v15 )
     {
-      if ( v19 && v19 != v17 )
+      if ( v15 && v15 != v13 )
         v4 += swprintf_s(v4, v3 - v4, L":");
-      v21 = swprintf_s(v4, v3 - v4, L"%x", (unsigned __int16)__ROR2__(Addr->u.Word[v19], 8));
+      v17 = swprintf_s(v4, v3 - v4, L"%x", (unsigned __int16)__ROR2__(Addr->u.Word[v15], 8));
     }
     else
     {
-      v21 = swprintf_s(v4, v3 - v4, L"::");
-      v19 = v17 - 1;
+      v17 = swprintf_s(v4, v3 - v4, L"::");
+      v15 = v13 - 1;
     }
-    ++v19;
-    v4 += v21;
+    ++v15;
+    v4 += v17;
   }
-  while ( v19 < v2 );
+  while ( v15 < v2 );
   if ( v2 < 8 )
     v4 += swprintf_s(
             v4,

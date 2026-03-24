@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpSegHeapAddSegment @ 0x1402472B4
+ * XREFs of RtlpHpSegHeapAddSegment @ 0x1402CB7DC
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x140350070 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegContextReserve @ 0x14036FAB0 (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x1403099F0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegContextReserve @ 0x14037B380 (RtlpHpSegContextReserve.c)
  * Callees:
  *     <none>
  */

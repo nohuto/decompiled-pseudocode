@@ -1,176 +1,84 @@
 /*
- * XREFs of ?ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z @ 0x1C00670F8
+ * XREFs of ?ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z @ 0x1C000A048
  * Callers:
- *     xxxSafeLoadKeyboardLayoutEx @ 0x1C0067010 (xxxSafeLoadKeyboardLayoutEx.c)
+ *     xxxSafeLoadKeyboardLayoutEx @ 0x1C00099F0 (xxxSafeLoadKeyboardLayoutEx.c)
  * Callees:
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     GetWindowsDirectoryDevicePath @ 0x1C0067A0C (GetWindowsDirectoryDevicePath.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x1C00CE408 (_wcsnicmp.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     GetWindowsDirectoryDevicePath @ 0x1C000A2C0 (GetWindowsDirectoryDevicePath.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1C00C584C (_wcsnicmp.c)
  */
 
 void *__fastcall ConvertHandleAndVerifyLoc(HANDLE Handle)
 {
-  NSInstrumentation::CLeakTrackingAllocator *v1; // rdi
-  int v2; // eax
-  PVOID v4; // rsi
-  __int64 Pool2; // rbx
-  NTSTATUS v6; // eax
-  const WCHAR *v7; // rdx
-  WCHAR *v8; // rdx
-  WCHAR *v9; // rcx
-  NTSTATUS v10; // eax
-  void *v11; // rdx
-  _QWORD *v13; // rax
-  __int64 v14; // r10
+  PVOID v2; // rbx
+  WCHAR *v3; // rsi
+  NTSTATUS v4; // eax
+  const WCHAR *v5; // rdx
+  WCHAR *v6; // rdx
+  WCHAR *v7; // rcx
+  NTSTATUS v8; // eax
+  void *v9; // rdx
   __int16 ProcessMachine; // ax
-  unsigned int Destination; // [rsp+68h] [rbp-A0h] BYREF
-  struct _UNICODE_STRING Destination_8; // [rsp+70h] [rbp-98h] BYREF
-  void *FileHandle; // [rsp+80h] [rbp-88h] BYREF
-  PVOID Object[2]; // [rsp+88h] [rbp-80h] BYREF
-  ULONG ReturnLength; // [rsp+98h] [rbp-70h] BYREF
-  __int64 v21; // [rsp+A0h] [rbp-68h] BYREF
-  __int64 v22; // [rsp+A8h] [rbp-60h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-58h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C0h] [rbp-48h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+F0h] [rbp-18h] BYREF
-  PVOID BackTrace[20]; // [rsp+108h] [rbp+0h] BYREF
-  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+1A8h] [rbp+A0h] BYREF
+  struct _UNICODE_STRING Destination_8; // [rsp+68h] [rbp-A0h] BYREF
+  void *FileHandle; // [rsp+78h] [rbp-90h] BYREF
+  ULONG ReturnLength; // [rsp+80h] [rbp-88h] BYREF
+  PVOID Object; // [rsp+88h] [rbp-80h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+90h] [rbp-78h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp-68h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+D0h] [rbp-38h] BYREF
+  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+E8h] [rbp-20h] BYREF
 
-  v1 = gpLeakTrackingAllocator;
   FileHandle = 0LL;
   ReturnLength = 0;
-  v22 = 520LL;
-  v2 = *(_DWORD *)gpLeakTrackingAllocator;
-  Destination = 1651209045;
-  v21 = 260LL;
-  v4 = 0LL;
+  v2 = 0LL;
   Destination_8 = 0LL;
-  if ( !v2 )
-  {
-    Pool2 = ExAllocatePool2(260LL, 520LL, 1651209045LL);
-    if ( Pool2 )
-      _InterlockedIncrement64((volatile signed __int64 *)v1 + 14);
-    goto LABEL_4;
-  }
-  if ( v2 != 1 )
-  {
-    if ( v2 == 2 )
-    {
-      Object[0] = 0LL;
-      if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(
-              gpLeakTrackingAllocator,
-              0x626B7355u,
-              (unsigned __int64 *)Object) )
-      {
-        Object[0] = &v21;
-        Object[1] = &Destination;
-        Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                  (__int64)v1,
-                  (__int64)Object,
-                  &v22);
-        goto LABEL_4;
-      }
-      Pool2 = ExAllocatePool2(v14, 536LL, 1651209045LL);
-      if ( Pool2 )
-      {
-        _InterlockedIncrement64((volatile signed __int64 *)v1 + 16);
-        NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-        if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-        {
-          if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                  v1,
-                                  Pool2,
-                                  Object[0],
-                                  BackTrace) )
-          {
-            Pool2 += 16LL;
-            goto LABEL_4;
-          }
-        }
-        else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                     v1,
-                                     Pool2,
-                                     Object[0],
-                                     BackTrace) )
-        {
-          goto LABEL_4;
-        }
-        _InterlockedIncrement64((volatile signed __int64 *)v1 + 17);
-        _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-      }
-    }
-LABEL_34:
-    Pool2 = 0LL;
-    goto LABEL_4;
-  }
-  if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x626B7355u) )
-    goto LABEL_34;
-  v13 = (_QWORD *)ExAllocatePool2(v21 & 0xFFFFFFFFFFFFFFFDuLL, 536LL, Destination);
-  Pool2 = (__int64)v13;
-  if ( !v13
-    || (_InterlockedIncrement64((volatile signed __int64 *)v1 + 14),
-        *v13 = 1651209045LL,
-        Pool2 = (__int64)(v13 + 2),
-        v13 == (_QWORD *)-16LL) )
-  {
-    NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-      *((NSInstrumentation::CPointerHashTable **)v1 + 1),
-      (const void *)0x626B7355);
-  }
-LABEL_4:
+  v3 = (WCHAR *)Win32AllocPool(520LL, 1651209045LL);
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
   IoStatusBlock = 0LL;
-  if ( !Pool2 )
+  if ( !v3 )
     return FileHandle;
   if ( Handle )
   {
-    Object[0] = 0LL;
-    v6 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)IoFileObjectType, 1, Object, 0LL);
-    v4 = Object[0];
-    if ( v6 >= 0 && ObQueryNameString(Object[0], &ObjectNameInfo, 0x218u, &ReturnLength) >= 0 )
+    Object = 0LL;
+    v4 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)IoFileObjectType, 1, &Object, 0LL);
+    v2 = Object;
+    if ( v4 >= 0 && ObQueryNameString(Object, &ObjectNameInfo, 0x218u, &ReturnLength) >= 0 )
     {
-      Destination_8.Buffer = (PWSTR)Pool2;
+      Destination_8.Buffer = v3;
       *(_DWORD *)&Destination_8.Length = 34078720;
       if ( (int)GetWindowsDirectoryDevicePath(&Destination_8) >= 0 )
       {
         if ( (*((_DWORD *)gptiCurrent + 122) & 0x100) == 0 )
         {
-LABEL_10:
-          v7 = L"\\system32\\";
-          goto LABEL_11;
+LABEL_7:
+          v5 = L"\\system32\\";
+          goto LABEL_8;
         }
         ProcessMachine = PsWow64GetProcessMachine(**((_QWORD **)gptiCurrent + 53));
         if ( ProcessMachine == 332 )
         {
-          v7 = L"\\SysWoW64\\";
+          v5 = L"\\SysWoW64\\";
         }
         else
         {
           if ( ProcessMachine != 452 )
-            goto LABEL_10;
-          v7 = L"\\SysArm32\\";
+            goto LABEL_7;
+          v5 = L"\\SysArm32\\";
         }
-LABEL_11:
-        RtlAppendUnicodeToString(&Destination_8, v7);
+LABEL_8:
+        RtlAppendUnicodeToString(&Destination_8, v5);
         if ( !wcsnicmp(ObjectNameInfo.Name.Buffer, Destination_8.Buffer, (unsigned __int64)Destination_8.Length >> 1) )
         {
-          v8 = &ObjectNameInfo.Name.Buffer[(unsigned __int64)Destination_8.Length >> 1];
-          v9 = &v8[(unsigned int)((ObjectNameInfo.Name.Length - (unsigned __int64)Destination_8.Length) >> 1)];
-          while ( v8 < v9 )
+          v6 = &ObjectNameInfo.Name.Buffer[(unsigned __int64)Destination_8.Length >> 1];
+          v7 = &v6[(unsigned int)((ObjectNameInfo.Name.Length - (unsigned __int64)Destination_8.Length) >> 1)];
+          while ( v6 < v7 )
           {
-            if ( *v8 == 92 )
-              goto LABEL_19;
-            ++v8;
+            if ( *v6 == 92 )
+              goto LABEL_16;
+            ++v6;
           }
           RtlInitUnicodeString(&DestinationString, ObjectNameInfo.Name.Buffer);
           ObjectAttributes.Length = 48;
@@ -178,18 +86,18 @@ LABEL_11:
           ObjectAttributes.Attributes = 512;
           ObjectAttributes.ObjectName = &DestinationString;
           *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-          v10 = ZwCreateFile(&FileHandle, 1u, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 1u, 1u, 0x24u, 0LL, 0);
-          v11 = FileHandle;
-          if ( v10 < 0 )
-            v11 = 0LL;
-          FileHandle = v11;
+          v8 = ZwCreateFile(&FileHandle, 1u, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 1u, 1u, 0x24u, 0LL, 0);
+          v9 = FileHandle;
+          if ( v8 < 0 )
+            v9 = 0LL;
+          FileHandle = v9;
         }
       }
     }
   }
-LABEL_19:
-  NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (void *)Pool2);
-  if ( v4 )
-    ObfDereferenceObject(v4);
+LABEL_16:
+  Win32FreePool(v3);
+  if ( v2 )
+    ObfDereferenceObject(v2);
   return FileHandle;
 }

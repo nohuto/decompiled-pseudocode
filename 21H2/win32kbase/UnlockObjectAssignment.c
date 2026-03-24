@@ -1,10 +1,10 @@
 /*
- * XREFs of UnlockObjectAssignment @ 0x1C00199F0
+ * XREFs of UnlockObjectAssignment @ 0x1C0045F10
  * Callers:
- *     DestroyProcessInfo @ 0x1C00188FC (DestroyProcessInfo.c)
- *     UserDeleteW32Thread @ 0x1C0019A70 (UserDeleteW32Thread.c)
- *     HMFreeObject @ 0x1C004E3F0 (HMFreeObject.c)
- *     xxxDestroyThreadInfo @ 0x1C00C64AC (xxxDestroyThreadInfo.c)
+ *     HMFreeObject @ 0x1C0007F10 (HMFreeObject.c)
+ *     xxxDestroyThreadInfo @ 0x1C003EFB0 (xxxDestroyThreadInfo.c)
+ *     DestroyProcessInfo @ 0x1C0045950 (DestroyProcessInfo.c)
+ *     UserDeleteW32Thread @ 0x1C011C830 (UserDeleteW32Thread.c)
  * Callees:
  *     <none>
  */

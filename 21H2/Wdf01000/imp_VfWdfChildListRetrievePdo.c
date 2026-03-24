@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_VfWdfChildListRetrievePdo @ 0x1C00C0180
+ * XREFs of imp_VfWdfChildListRetrievePdo @ 0x1C00BF1D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 WDFDEVICE__ *__fastcall imp_VfWdfChildListRetrievePdo(

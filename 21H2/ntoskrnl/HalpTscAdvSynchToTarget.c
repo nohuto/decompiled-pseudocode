@@ -1,74 +1,67 @@
 /*
- * XREFs of HalpTscAdvSynchToTarget @ 0x140398190
+ * XREFs of HalpTscAdvSynchToTarget @ 0x1404C1368
  * Callers:
- *     HalpTscAdvSynchLeader @ 0x1403AC640 (HalpTscAdvSynchLeader.c)
+ *     HalpTscAdvSynchLeader @ 0x14039CC94 (HalpTscAdvSynchLeader.c)
  * Callees:
- *     HalpTscAdvSynchCalculateRemoteDelta @ 0x1403ACC4C (HalpTscAdvSynchCalculateRemoteDelta.c)
- *     HalpTscTraceProcessorSynchronization @ 0x1403ACEA4 (HalpTscTraceProcessorSynchronization.c)
- *     HalpTscAdvSynchSkewCounter @ 0x14050DA5C (HalpTscAdvSynchSkewCounter.c)
+ *     HalpTscAdvSynchCalculateRemoteDelta @ 0x14039D104 (HalpTscAdvSynchCalculateRemoteDelta.c)
+ *     HalpTscTraceProcessorSynchronization @ 0x14039D3B4 (HalpTscTraceProcessorSynchronization.c)
+ *     HalpTscAdvSynchSkewCounter @ 0x1404C1114 (HalpTscAdvSynchSkewCounter.c)
  */
 
 __int64 __fastcall HalpTscAdvSynchToTarget(unsigned int a1)
 {
-  __int64 v2; // rsi
+  __int64 v2; // rbp
   __int64 v3; // rbx
-  unsigned int v4; // edi
-  int v5; // r14d
-  unsigned int v6; // ebp
-  __int64 result; // rax
   unsigned int i; // edi
-  __int64 v9; // rbp
-  __int64 v10; // rbx
-  __int64 v11; // r8
+  __int64 v5; // rsi
+  __int64 v6; // r15
+  __int64 v7; // rbx
+  unsigned int v8; // edi
+  unsigned int v9; // esi
+  __int64 v10; // r15
+  __int64 result; // rax
+  __int64 v12; // [rsp+20h] [rbp-28h]
 
-  if ( !HalpTscAdjustAvailable )
-    HalpTscAdvSynchSkewCounter(0LL);
-  v2 = HalpTscAdvSynchCalculateRemoteDelta(a1, 0LL);
+  HalpTscAdvSynchSkewCounter(0LL);
+  v2 = 0LL;
   v3 = 0x7FFFFFFFFFFFFFFFLL;
-  if ( !HalpTscAdjustAvailable )
+  for ( i = 0; i < HalpTscSyncRecalculateSkews; ++i )
   {
-    for ( i = 0; i < HalpTscSyncRecalculateSkews; ++i )
+    v5 = v3;
+    v6 = HalpTscAdvSynchCalculateRemoteDelta(a1, (unsigned int)HalpTscRequestedIterations, 0LL);
+    v7 = 100LL;
+    do
     {
-      v9 = v3;
-      v10 = v2;
-      do
-        HalpTscAdvSynchSkewCounter(0LL);
-      while ( v11 != 1 );
-      v2 = HalpTscAdvSynchCalculateRemoteDelta(a1, 0LL);
-      v3 = (v2 - v10) / 100;
-      if ( v3 >= v9 )
-        v3 = v9;
+      HalpTscAdvSynchSkewCounter(0LL);
+      --v7;
     }
-    *(_DWORD *)(HalpTscSkewOffset + 4LL * KeGetCurrentPrcb()->Number) = v3;
+    while ( v7 );
+    v2 = HalpTscAdvSynchCalculateRemoteDelta(a1, (unsigned int)HalpTscRequestedIterations, 0LL);
+    v3 = (v2 - v6) / 100;
+    if ( v3 >= v5 )
+      v3 = v5;
   }
-  v4 = 0;
-  v5 = 0;
-  v6 = 0;
+  v8 = 0;
+  v9 = 0;
+  *(_DWORD *)(HalpTscSkewOffset + 4LL * KeGetCurrentPrcb()->Number) = v3;
   do
   {
-    if ( !v4 )
+    v10 = v3 + v2;
+    if ( !v8 )
+      HalpTscAdvSynchSkewCounter(v3 + v2);
+    v2 = HalpTscAdvSynchCalculateRemoteDelta(a1, (unsigned int)HalpTscRequestedIterations, 0LL);
+    if ( !v8 )
     {
-      if ( HalpTscAdjustAvailable )
-      {
-        v5 = v2;
-        __writemsr(0x3Bu, v2 + __readmsr(0x3Bu));
-      }
-      else
-      {
-        v5 = v3 + v2;
-        HalpTscAdvSynchSkewCounter(v3 + v2);
-      }
+      LODWORD(v12) = v9;
+      HalpTscTraceProcessorSynchronization(a1, KeGetCurrentPrcb()->Number, v2, v10, v12);
     }
-    v2 = HalpTscAdvSynchCalculateRemoteDelta(a1, 0LL);
-    if ( !v4 )
-      HalpTscTraceProcessorSynchronization(a1, KeGetCurrentPrcb()->Number, v2, v5, v6);
-    ++v4;
+    ++v8;
     if ( (unsigned __int64)(v2 + 24) > 0x30 )
-      v4 = 0;
-    ++v6;
+      v8 = 0;
+    ++v9;
   }
-  while ( v4 < 2 && v6 < 0x32 );
+  while ( v9 < 0x32 && v8 < 2 );
   result = HalpTscWaves;
-  *(_DWORD *)(HalpTscWaves + 4LL * KeGetCurrentPrcb()->Number) = v6;
+  *(_DWORD *)(HalpTscWaves + 4LL * KeGetCurrentPrcb()->Number) = v9;
   return result;
 }

@@ -1,33 +1,36 @@
 /*
- * XREFs of PpmParkReportUnparkedCore @ 0x14046316C
+ * XREFs of PpmParkReportUnparkedCore @ 0x14057D8A0
  * Callers:
- *     PpmPerfAction @ 0x1402BF990 (PpmPerfAction.c)
+ *     PpmPerfAction @ 0x140220730 (PpmPerfAction.c)
  * Callees:
- *     KeInterlockedClearProcessorAffinityEx @ 0x1403413F0 (KeInterlockedClearProcessorAffinityEx.c)
- *     KeTransitionProcessorParkState @ 0x14057D8FC (KeTransitionProcessorParkState.c)
- *     PpmEventCoreParkingStateChange @ 0x140599EDC (PpmEventCoreParkingStateChange.c)
+ *     KeTransitionProcessorParkState @ 0x1405253EC (KeTransitionProcessorParkState.c)
+ *     PpmEventCoreParkingStateChange @ 0x140579458 (PpmEventCoreParkingStateChange.c)
  */
 
 _BYTE *__fastcall PpmParkReportUnparkedCore(__int64 a1)
 {
-  int v2; // edx
+  __int64 v2; // rax
   _BYTE *result; // rax
 
-  KeTransitionProcessorParkState(a1, 0LL);
-  v2 = *(_DWORD *)(a1 + 36);
-  *(_BYTE *)(a1 + 34060) = 0;
-  KeInterlockedClearProcessorAffinityEx((__int64)PpmPerfCoreParkingMask, v2);
-  if ( *(_BYTE *)(a1 + 33659) )
+  KeTransitionProcessorParkState(a1, 0);
+  v2 = *(unsigned int *)(a1 + 36);
+  *(_BYTE *)(a1 + 33212) = 0;
+  _InterlockedAnd64(
+    &qword_140C11488[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[v2] >> 6],
+    ~(1LL << (KiProcessorIndexToNumberMappingTable[v2] & 0x3F)));
+  if ( *(_BYTE *)(a1 + 32819) )
   {
-    KeInterlockedClearProcessorAffinityEx((__int64)PpmParkSoftParkingMask, *(_DWORD *)(a1 + 36));
-    *(_BYTE *)(a1 + 33659) = 0;
+    _InterlockedAnd64(
+      &qword_140C12988[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)] >> 6],
+      ~(1LL << (KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)] & 0x3F)));
+    *(_BYTE *)(a1 + 32819) = 0;
   }
   PpmEventCoreParkingStateChange(a1);
-  result = *(_BYTE **)(a1 + 33600);
+  result = *(_BYTE **)(a1 + 0x8000);
   if ( result )
   {
     if ( *result == 1 )
-      *(_BYTE *)(a1 + 33669) = 1;
+      *(_BYTE *)(a1 + 32829) = 1;
   }
   return result;
 }

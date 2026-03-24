@@ -1,35 +1,28 @@
 /*
- * XREFs of DxgkReleaseAdapterFdoReference @ 0x1C02C3248
+ * XREFs of DxgkReleaseAdapterFdoReference @ 0x1C0218208
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C0200110 (DpiFdoStartAdapter.c)
- *     DpiFdoResetFdo @ 0x1C039D034 (DpiFdoResetFdo.c)
+ *     DpiFdoStartAdapter @ 0x1C0189268 (DpiFdoStartAdapter.c)
+ *     DpiFdoResetFdo @ 0x1C02CC204 (DpiFdoResetFdo.c)
  * Callees:
- *     ?ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ @ 0x1C00049F4 (-ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?ClearDeviceObject@DXGADAPTER@@QEAAXXZ @ 0x1C0042FA4 (-ClearDeviceObject@DXGADAPTER@@QEAAXXZ.c)
+ *     ?ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ @ 0x1C0007DCC (-ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ.c)
  */
 
-__int64 __fastcall DxgkReleaseAdapterFdoReference(DXGADAPTER *this)
+__int64 __fastcall DxgkReleaseAdapterFdoReference(DXGADAPTER *a1, __int64 a2)
 {
-  if ( this )
+  __int64 v2; // rax
+
+  if ( a1 )
   {
-    DXGADAPTER::ClearDeviceObject(this);
-    DXGADAPTER::ReleaseReferenceNoTracking(this);
+    *((_QWORD *)a1 + 27) = 0LL;
+    *((_QWORD *)a1 + 28) = 0LL;
+    DXGADAPTER::ReleaseReferenceNoTracking(a1);
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"No pAdapter specified, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v2 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v2 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v2);
     return 3221225485LL;
   }
 }

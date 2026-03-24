@@ -1,13 +1,13 @@
 /*
- * XREFs of xxxSendMessageBSM @ 0x1C00A67B0
+ * XREFs of xxxSendMessageBSM @ 0x1C003EBE0
  * Callers:
- *     ?BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z @ 0x1C0097B44 (-BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z.c)
- *     xxxWrapSendMessageBSM @ 0x1C00A3220 (xxxWrapSendMessageBSM.c)
+ *     ?BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z @ 0x1C00EAF38 (-BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z.c)
+ *     xxxWrapSendMessageBSM @ 0x1C011D500 (xxxWrapSendMessageBSM.c)
  * Callees:
- *     PopAndFreeW32ThreadLock @ 0x1C005BDE0 (PopAndFreeW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     ExchangeW32ThreadLock @ 0x1C00A68FC (ExchangeW32ThreadLock.c)
- *     ?xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z @ 0x1C00A6928 (-xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z.c)
+ *     ExchangeW32ThreadLock @ 0x1C003ED2C (ExchangeW32ThreadLock.c)
+ *     ?xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z @ 0x1C003ED58 (-xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1890 (PopAndFreeW32ThreadLock.c)
  */
 
 __int64 __fastcall xxxSendMessageBSM(
@@ -19,8 +19,8 @@ __int64 __fastcall xxxSendMessageBSM(
         int a6)
 {
   unsigned int v6; // esi
-  _QWORD *v10; // rbx
-  _QWORD *i; // rdi
+  _QWORD *v10; // rdi
+  _QWORD *i; // rbx
   __int128 v13; // [rsp+30h] [rbp-30h] BYREF
   __int64 v14; // [rsp+40h] [rbp-20h]
   __int128 v15; // [rsp+48h] [rbp-18h] BYREF
@@ -39,8 +39,8 @@ __int64 __fastcall xxxSendMessageBSM(
 LABEL_4:
   if ( !v10 )
   {
-    PopAndFreeW32ThreadLock((__int64)&v13);
-    PopAndFreeW32ThreadLock((__int64)&v15);
+    PopAndFreeW32ThreadLock(&v13);
+    PopAndFreeW32ThreadLock(&v15);
     return v6;
   }
   ObfReferenceObject(v10);
@@ -58,7 +58,7 @@ LABEL_4:
     if ( !v6 && (*((_DWORD *)a5 + 1) & 1) != 0 )
       break;
   }
-  PopAndFreeW32ThreadLock((__int64)&v13);
-  PopAndFreeW32ThreadLock((__int64)&v15);
+  PopAndFreeW32ThreadLock(&v13);
+  PopAndFreeW32ThreadLock(&v15);
   return 0LL;
 }

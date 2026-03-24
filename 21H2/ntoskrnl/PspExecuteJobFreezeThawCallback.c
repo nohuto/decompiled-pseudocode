@@ -1,19 +1,19 @@
 /*
- * XREFs of PspExecuteJobFreezeThawCallback @ 0x1402498B0
+ * XREFs of PspExecuteJobFreezeThawCallback @ 0x1402C1930
  * Callers:
  *     <none>
  * Callees:
- *     PspChangeProcessExecutionState @ 0x140687754 (PspChangeProcessExecutionState.c)
- *     PspGetNextJobProcess @ 0x1406CA970 (PspGetNextJobProcess.c)
+ *     PspChangeProcessExecutionState @ 0x140605D50 (PspChangeProcessExecutionState.c)
+ *     PspGetNextJobProcess @ 0x1406ABE00 (PspGetNextJobProcess.c)
  */
 
 __int64 __fastcall PspExecuteJobFreezeThawCallback(__int64 a1, int *a2)
 {
   struct _KTHREAD *CurrentThread; // rbp
   __int64 v4; // rsi
-  ULONG_PTR v5; // r9
-  ULONG_PTR v6; // rax
-  ULONG_PTR v7; // rbx
+  struct _KPROCESS *v5; // r9
+  struct _KPROCESS *v6; // rax
+  struct _KPROCESS *v7; // rbx
   int v9; // eax
   __int128 v10; // [rsp+20h] [rbp-28h] BYREF
   __int64 v11; // [rsp+30h] [rbp-18h]
@@ -25,11 +25,11 @@ __int64 __fastcall PspExecuteJobFreezeThawCallback(__int64 a1, int *a2)
   v5 = 0LL;
   while ( 1 )
   {
-    v6 = ((__int64 (__fastcall *)(__int64, struct _KTHREAD *, __int128 *, ULONG_PTR))PspGetNextJobProcess)(
-           a1,
-           CurrentThread,
-           &v10,
-           v5);
+    v6 = (struct _KPROCESS *)((__int64 (__fastcall *)(__int64, struct _KTHREAD *, __int128 *, struct _KPROCESS *))PspGetNextJobProcess)(
+                               a1,
+                               CurrentThread,
+                               &v10,
+                               v5);
     v7 = v6;
     if ( !v6 )
       break;

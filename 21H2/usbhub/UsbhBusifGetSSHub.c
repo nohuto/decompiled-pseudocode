@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhBusifGetSSHub @ 0x1C004BAC0
+ * XREFs of UsbhBusifGetSSHub @ 0x1C004CEC0
  * Callers:
- *     UsbhPdoPnp_QueryInterface @ 0x1C00552A0 (UsbhPdoPnp_QueryInterface.c)
+ *     UsbhPdoPnp_QueryInterface @ 0x1C0056940 (UsbhPdoPnp_QueryInterface.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 __int64 __fastcall UsbhBusifGetSSHub(__int64 a1, __int64 a2, __int64 a3)

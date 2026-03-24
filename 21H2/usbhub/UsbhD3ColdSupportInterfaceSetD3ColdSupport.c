@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhD3ColdSupportInterfaceSetD3ColdSupport @ 0x1C00535C0
+ * XREFs of UsbhD3ColdSupportInterfaceSetD3ColdSupport @ 0x1C0054C20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 unsigned int __fastcall UsbhD3ColdSupportInterfaceSetD3ColdSupport(__int64 a1, char a2)

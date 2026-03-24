@@ -1,23 +1,30 @@
 /*
- * XREFs of RtlpFillMemoryRandomUp @ 0x14067B140
+ * XREFs of RtlpFillMemoryRandomUp @ 0x1405905DC
  * Callers:
- *     RtlpGenericRandomPatternWorker @ 0x14067B698 (RtlpGenericRandomPatternWorker.c)
+ *     RtlpGenericRandomPatternWorker @ 0x140590B4C (RtlpGenericRandomPatternWorker.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlpFillMemoryRandomUp(unsigned __int64 *a1, __int64 a2, unsigned __int64 a3, __int64 a4)
+unsigned __int64 __fastcall RtlpFillMemoryRandomUp(unsigned __int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
-  unsigned __int64 *v4; // rdx
-  __int64 result; // rax
+  unsigned __int64 v4; // r10
+  unsigned __int64 result; // rax
+  unsigned __int64 *v6; // rdx
 
-  v4 = a1 + 512;
-  while ( a1 < v4 )
+  v4 = 0LL;
+  result = a1 + 4096;
+  v6 = (unsigned __int64 *)a1;
+  if ( (a1 + 4096 >= a1 ? 0x200 : 0) != 0 )
   {
-    *a1 = a3;
-    result = a3 & 0xF;
-    a3 = *(_QWORD *)(a4 + 8 * result) ^ (a3 >> 4);
-    ++a1;
+    do
+    {
+      *v6++ = a3;
+      result = a3 >> 4;
+      ++v4;
+      a3 = (a3 >> 4) ^ *(_QWORD *)(a4 + 8 * (a3 & 0xF));
+    }
+    while ( v4 < (a1 + 4096 >= a1 ? 0x200 : 0) );
   }
   return result;
 }

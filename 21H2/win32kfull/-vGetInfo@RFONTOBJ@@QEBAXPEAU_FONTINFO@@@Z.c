@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vGetInfo@RFONTOBJ@@QEBAXPEAU_FONTINFO@@@Z @ 0x1C02A729C
+ * XREFs of ?vGetInfo@RFONTOBJ@@QEBAXPEAU_FONTINFO@@@Z @ 0x1C02A8B08
  * Callers:
- *     FONTOBJ_vGetInfo @ 0x1C0291310 (FONTOBJ_vGetInfo.c)
+ *     FONTOBJ_vGetInfo @ 0x1C02937C0 (FONTOBJ_vGetInfo.c)
  * Callees:
  *     <none>
  */

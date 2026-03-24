@@ -1,67 +1,60 @@
 /*
- * XREFs of RtlIsValidOemCharacter @ 0x1409BBB30
+ * XREFs of RtlIsValidOemCharacter @ 0x1409164D0
  * Callers:
- *     GetNextWchar @ 0x1406AA3A0 (GetNextWchar.c)
+ *     GetNextWchar @ 0x14068B9B8 (GetNextWchar.c)
  * Callees:
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1407CDA20 (RtlpIsUtf8Process.c)
+ *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
+ *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
  */
 
 BOOLEAN __stdcall RtlIsValidOemCharacter(PWCHAR Char)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
-  __int64 v3; // r8
-  char *v4; // rax
-  char v5; // dl
-  __int64 v6; // rdx
-  __int64 v7; // r10
+  char IsUtf8Process; // al
+  __int64 v3; // rcx
+  WCHAR v4; // r10
+  __int64 v5; // r9
+  __int16 v6; // ax
+  unsigned __int64 v7; // rax
   __int64 v8; // rcx
-  WCHAR v9; // dx
-  __int16 v10; // r11
-  __int64 v11; // r10
-  __int16 v12; // ax
-  unsigned int v13; // ecx
-  __int64 v14; // r9
-  unsigned __int16 v15; // dx
-  __int64 v16; // r10
-  signed __int32 v18[10]; // [rsp+0h] [rbp-28h] BYREF
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  __int64 v11; // r9
 
-  RtlpIsUtf8Process();
-  _InterlockedOr(v18, 0);
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  v3 = CurrentServerSiloGlobals[154];
-  v4 = (char *)(CurrentServerSiloGlobals + 133);
-  if ( v5 != 1 )
+  IsUtf8Process = RtlpIsUtf8Process(1);
+  v3 = *Char;
+  if ( IsUtf8Process != 1 )
   {
-    v6 = *((_QWORD *)v4 + 12);
-    v7 = *((_QWORD *)v4 + 13);
-    v8 = *Char;
-    if ( *((_WORD *)v4 + 38) )
+    if ( (_BYTE)NlsMbOemCodePageTag )
     {
-      v13 = *(unsigned __int16 *)(v7 + 2 * v8);
-      v14 = *(unsigned __int16 *)(*((_QWORD *)v4 + 19) + 2 * ((unsigned __int64)v13 >> 8));
-      if ( (_WORD)v14 )
-        v15 = *(_WORD *)(*((_QWORD *)v4 + 15) + 2 * (v14 + (unsigned __int8)v13));
+      v7 = *(unsigned __int16 *)(NlsUnicodeToMbOemData + 2 * v3);
+      v8 = (unsigned __int8)v7;
+      v9 = (unsigned __int16)NlsOemLeadByteInfoTable[v7 >> 8];
+      if ( (_WORD)v9 )
+      {
+        v10 = NlsMbOemCodePageTables;
+        v8 += v9;
+      }
       else
-        v15 = *(_WORD *)(v6 + 2LL * (unsigned __int8)v13);
-      v9 = NLS_UPCASE(v3, v15);
-      v12 = *(_WORD *)(v16 + 2LL * v9);
+      {
+        v10 = NlsOemToUnicodeData;
+      }
+      v4 = NLS_UPCASE(*(_WORD *)(v10 + 2 * v8));
+      v6 = *(_WORD *)(v11 + 2LL * v4);
     }
     else
     {
-      v9 = NLS_UPCASE(v3, *(_WORD *)(v6 + 2LL * *(unsigned __int8 *)(v8 + v7)));
-      v12 = *(char *)(v9 + v11);
+      v4 = NLS_UPCASE(*(_WORD *)(NlsOemToUnicodeData + 2LL * *(unsigned __int8 *)(v3 + NlsUnicodeToOemData)));
+      v6 = *(char *)(v4 + v5);
     }
-    if ( v12 != v10 )
+    if ( v6 != OemDefaultChar )
     {
-      *Char = v9;
+      *Char = v4;
       return 1;
     }
     return 0;
   }
-  if ( *Char > 0x7Fu )
+  if ( (unsigned int)v3 > 0x7F )
     return 0;
-  *Char = NLS_UPCASE(v3, *Char);
+  *Char = NLS_UPCASE(v3);
   return 1;
 }

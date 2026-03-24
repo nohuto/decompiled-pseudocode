@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CreateSection@CSharedSectionMarshaler@DirectComposition@@EEAAJ_KPEAPEAX@Z @ 0x1C00B01E0
+ * XREFs of ?CreateSection@CSharedSectionMarshaler@DirectComposition@@EEAAJ_KPEAPEAX@Z @ 0x1C00A6B10
  * Callers:
  *     <none>
  * Callees:

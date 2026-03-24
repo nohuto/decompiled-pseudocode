@@ -1,16 +1,16 @@
 /*
- * XREFs of IopChildToRootTranslation @ 0x140820B7C
+ * XREFs of IopChildToRootTranslation @ 0x140751614
  * Callers:
- *     PnpBuildCmResourceList @ 0x14082071C (PnpBuildCmResourceList.c)
+ *     PnpBuildCmResourceList @ 0x140751180 (PnpBuildCmResourceList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     IopFindLegacyBusDeviceNode @ 0x1408217D8 (IopFindLegacyBusDeviceNode.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     IopFindLegacyBusDeviceNode @ 0x14075228C (IopFindLegacyBusDeviceNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopChildToRootTranslation(
-        _QWORD *a1,
+        _QWORD *LegacyBusDeviceNode,
         unsigned int a2,
         unsigned int a3,
         int a4,
@@ -19,95 +19,91 @@ __int64 __fastcall IopChildToRootTranslation(
 {
   unsigned int v6; // ebp
   bool v10; // r14
-  _DWORD *Pool2; // rdi
+  _DWORD *PoolWithTag; // rdi
   _DWORD *v12; // rsi
   __int64 v13; // r13
-  __int64 *v14; // rax
-  unsigned int v16; // r11d
-  _QWORD *v17; // r9
-  __int64 v18; // rcx
-  int v19; // eax
-  _DWORD *v20; // rcx
-  __int64 LegacyBusDeviceNode; // rax
-  bool v23; // [rsp+98h] [rbp+20h]
+  unsigned int v14; // r11d
+  _QWORD *v15; // r9
+  __int64 *v16; // rax
+  __int64 v17; // rcx
+  int v18; // eax
+  _DWORD *v19; // rcx
+  bool v22; // [rsp+98h] [rbp+20h]
 
   v6 = 0;
   v10 = 0;
-  v23 = a4 == 1;
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, 20LL, 538996816LL);
-  if ( !Pool2 )
+  v22 = a4 == 1;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x14uLL, 0x20207050u);
+  if ( !PoolWithTag )
     return 3221225626LL;
-  v12 = (_DWORD *)ExAllocatePool2(256LL, 20LL, 538996816LL);
+  v12 = ExAllocatePoolWithTag(PagedPool, 0x14uLL, 0x20207050u);
   if ( !v12 )
   {
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
     return 3221225626LL;
   }
-  *(_OWORD *)Pool2 = *(_OWORD *)a5;
-  Pool2[4] = *(_DWORD *)(a5 + 16);
-  if ( a1 )
-  {
-    v13 = a1[4];
-    goto LABEL_5;
-  }
-  LegacyBusDeviceNode = IopFindLegacyBusDeviceNode(a2, a3);
-  v13 = 0LL;
-  a1 = (_QWORD *)LegacyBusDeviceNode;
+  *(_OWORD *)PoolWithTag = *(_OWORD *)a5;
+  PoolWithTag[4] = *(_DWORD *)(a5 + 16);
   if ( LegacyBusDeviceNode )
   {
-LABEL_5:
-    while ( !v10 )
+    v13 = LegacyBusDeviceNode[4];
+  }
+  else
+  {
+    LegacyBusDeviceNode = (_QWORD *)IopFindLegacyBusDeviceNode(a2, a3);
+    v13 = 0LL;
+  }
+  while ( 1 )
+  {
+    while ( 1 )
     {
-      if ( a1 != IopRootDeviceNode || v23 )
+      if ( !LegacyBusDeviceNode || v10 )
       {
-        v14 = (__int64 *)a1[63];
-        if ( v14 != a1 + 63 )
-        {
-          while ( *((_BYTE *)v14 + 16) != *(_BYTE *)a5 )
-          {
-            v14 = (__int64 *)*v14;
-            if ( v14 == a1 + 63 )
-              goto LABEL_8;
-          }
-          v18 = v14[3];
-          if ( v18 )
-          {
-            v19 = (*(__int64 (__fastcall **)(_QWORD, _DWORD *, _QWORD, _QWORD, _QWORD, __int64, _DWORD *))(v18 + 32))(
-                    *(_QWORD *)(v18 + 8),
-                    Pool2,
-                    0LL,
-                    0LL,
-                    0LL,
-                    v13,
-                    v12);
-            v6 = v19;
-            v20 = Pool2;
-            if ( v19 < 0 )
-            {
-              ExFreePoolWithTag(Pool2, 0);
-              goto LABEL_11;
-            }
-            Pool2 = v12;
-            v10 = v19 == 288;
-            v12 = v20;
-          }
-        }
-LABEL_8:
-        a1 = (_QWORD *)a1[2];
+        *a6 = PoolWithTag;
+        goto LABEL_20;
       }
-      else
+      if ( LegacyBusDeviceNode != IopRootDeviceNode || v22 )
+        break;
+      v22 = 1;
+      LegacyBusDeviceNode = (_QWORD *)IopFindLegacyBusDeviceNode(a2, a3);
+      if ( LegacyBusDeviceNode == v15 && !a2 )
+        LegacyBusDeviceNode = (_QWORD *)IopFindLegacyBusDeviceNode(v14, 0LL);
+    }
+    v16 = (__int64 *)LegacyBusDeviceNode[63];
+    if ( v16 != LegacyBusDeviceNode + 63 )
+    {
+      while ( *((_BYTE *)v16 + 16) != *(_BYTE *)a5 )
       {
-        v23 = 1;
-        a1 = (_QWORD *)IopFindLegacyBusDeviceNode(a2, a3);
-        if ( a1 == v17 && !a2 )
-          a1 = (_QWORD *)IopFindLegacyBusDeviceNode(v16, 0LL);
+        v16 = (__int64 *)*v16;
+        if ( v16 == LegacyBusDeviceNode + 63 )
+          goto LABEL_12;
       }
-      if ( !a1 )
+      v17 = v16[3];
+      if ( v17 )
         break;
     }
+LABEL_12:
+    LegacyBusDeviceNode = (_QWORD *)LegacyBusDeviceNode[2];
   }
-  *a6 = Pool2;
-LABEL_11:
+  v18 = (*(__int64 (__fastcall **)(_QWORD, _DWORD *, _QWORD, _QWORD, _QWORD, __int64, _DWORD *))(v17 + 32))(
+          *(_QWORD *)(v17 + 8),
+          PoolWithTag,
+          0LL,
+          0LL,
+          0LL,
+          v13,
+          v12);
+  v6 = v18;
+  v19 = PoolWithTag;
+  if ( v18 >= 0 )
+  {
+    PoolWithTag = v12;
+    v10 = v18 == 288;
+    v12 = v19;
+    goto LABEL_12;
+  }
+  ExFreePoolWithTag(PoolWithTag, 0);
+LABEL_20:
   ExFreePoolWithTag(v12, 0);
   return v6;
 }

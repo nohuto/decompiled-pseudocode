@@ -1,22 +1,22 @@
 /*
- * XREFs of PsIsThreadInSilo @ 0x1402F6170
+ * XREFs of PsIsThreadInSilo @ 0x14025C988
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x140690378 (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpHandleIoctlLoadDifferencingHive @ 0x140690CFC (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x140691898 (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlGetVirtualRootKey @ 0x1407F5E04 (VrpHandleIoctlGetVirtualRootKey.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1407F5F80 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1409262FC (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x1405D29EC (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x1405D2C9C (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1405D2FAC (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14088289C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlGetVirtualRootKey @ 0x140882BB8 (VrpHandleIoctlGetVirtualRootKey.c)
  * Callees:
- *     PsIsProcessInSilo @ 0x140300B74 (PsIsProcessInSilo.c)
- *     PspIsSiloInSilo @ 0x1406E1570 (PspIsSiloInSilo.c)
+ *     PsIsProcessInSilo @ 0x14025CA38 (PsIsProcessInSilo.c)
+ *     PspIsSiloInSilo @ 0x1406BF51C (PspIsSiloInSilo.c)
  */
 
 char __fastcall PsIsThreadInSilo(__int64 a1, __int64 a2)
 {
   if ( !a2 )
     return 1;
-  if ( *(_QWORD *)(a1 + 1624) == -3LL )
+  if ( *(_QWORD *)(a1 + 1544) == -3LL )
     return PsIsProcessInSilo(*(_QWORD *)(a1 + 544));
-  return (unsigned __int8)PspIsSiloInSilo(*(_QWORD *)(a1 + 1624)) != 0;
+  return (unsigned __int8)PspIsSiloInSilo(*(_QWORD *)(a1 + 1544)) != 0;
 }

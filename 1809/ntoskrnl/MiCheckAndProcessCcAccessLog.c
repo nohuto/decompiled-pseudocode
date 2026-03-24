@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckAndProcessCcAccessLog @ 0x14013B828
+ * XREFs of MiCheckAndProcessCcAccessLog @ 0x14013B848
  * Callers:
  *     MiEmptyAccessLogs @ 0x140010D20 (MiEmptyAccessLogs.c)
  * Callees:
  *     MiQueuePageAccessLog @ 0x140088980 (MiQueuePageAccessLog.c)
- *     MiReturnCcAccessLog @ 0x1400DFA4C (MiReturnCcAccessLog.c)
+ *     MiReturnCcAccessLog @ 0x1400DFA6C (MiReturnCcAccessLog.c)
  */
 
 void __fastcall MiCheckAndProcessCcAccessLog(__int64 a1, int a2)

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSwapHardFaultPage @ 0x1402CFE5C
+ * XREFs of MiSwapHardFaultPage @ 0x1402CFF5C
  * Callers:
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
- *     MiIdealClusterPage @ 0x1402C6B14 (MiIdealClusterPage.c)
+ *     MiIdealClusterPage @ 0x1402C6C14 (MiIdealClusterPage.c)
  * Callees:
  *     MiRemoveLockedPageCharge @ 0x1400304A0 (MiRemoveLockedPageCharge.c)
  *     MiPfnReferenceCountIsZero @ 0x140030E00 (MiPfnReferenceCountIsZero.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCopyPfnEntryEx @ 0x14010DFE0 (MiCopyPfnEntryEx.c)
- *     MiUpdateTransitionPteFrame @ 0x140118984 (MiUpdateTransitionPteFrame.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120EE4 (MiLockNestedPageAtDpcInline.c)
+ *     MiCopyPfnEntryEx @ 0x14010E000 (MiCopyPfnEntryEx.c)
+ *     MiUpdateTransitionPteFrame @ 0x1401189A4 (MiUpdateTransitionPteFrame.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
  */
 
 __int64 __fastcall MiSwapHardFaultPage(unsigned __int64 a1, ULONG_PTR a2, __int64 a3)

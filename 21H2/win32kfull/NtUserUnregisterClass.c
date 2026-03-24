@@ -1,33 +1,33 @@
 /*
- * XREFs of NtUserUnregisterClass @ 0x1C0070F40
+ * XREFs of NtUserUnregisterClass @ 0x1C00696D0
  * Callers:
  *     <none>
  * Callees:
- *     _UnregisterClass @ 0x1C0071084 (_UnregisterClass.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     _UnregisterClass @ 0x1C0069828 (_UnregisterClass.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _W32ExceptionHandler @ 0x1C025D4E4 (_W32ExceptionHandler.c)
  */
 
-__int64 __fastcall NtUserUnregisterClass(unsigned int *a1, __int64 a2, ULONG64 a3)
+__int64 __fastcall NtUserUnregisterClass(ULONG64 a1, __int64 a2, ULONG64 a3)
 {
-  __int64 v6; // rcx
+  int v6; // ecx
   ULONG64 v7; // rbx
   ULONG64 v8; // rdx
   _BYTE **v9; // rax
   ULONG64 v10; // rcx
   int v11; // ebx
-  __int128 v13; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v14; // [rsp+60h] [rbp-18h]
-  int v15; // [rsp+98h] [rbp+20h]
+  __int128 v13; // [rsp+38h] [rbp-20h] BYREF
+  __int64 v14; // [rsp+48h] [rbp-10h]
+  int v15; // [rsp+78h] [rbp+20h]
 
   v13 = 0LL;
   v14 = 0LL;
-  EnterCrit(0LL, 0LL);
-  if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-    a1 = (unsigned int *)MmUserProbeAddress;
-  v6 = *a1;
-  v15 = *a1;
-  v7 = *((_QWORD *)a1 + 1);
+  EnterCrit(0LL, 1LL);
+  if ( a1 >= MmUserProbeAddress )
+    a1 = MmUserProbeAddress;
+  v6 = *(_DWORD *)a1;
+  v15 = *(_DWORD *)a1;
+  v7 = *(_QWORD *)(a1 + 8);
   if ( (v7 & 0xFFFFFFFFFFFF0000uLL) != 0 )
   {
     if ( (v7 & 1) != 0 )
@@ -37,20 +37,20 @@ __int64 __fastcall NtUserUnregisterClass(unsigned int *a1, __int64 a2, ULONG64 a
     if ( v8 < MmUserProbeAddress && (unsigned __int16)v6 <= HIWORD(v15) )
     {
       if ( (v6 & 1) != 0 )
-        goto LABEL_10;
+        goto LABEL_11;
       if ( v8 > v7 )
         goto LABEL_13;
     }
     if ( (v6 & 1) == 0 )
     {
-LABEL_11:
+LABEL_12:
       **v9 = 0;
       goto LABEL_13;
     }
-LABEL_10:
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v6);
+LABEL_11:
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 10151LL);
     v9 = (_BYTE **)MmUserProbeAddress;
-    goto LABEL_11;
+    goto LABEL_12;
   }
 LABEL_13:
   v11 = UnregisterClass(v7, a2, &v13);

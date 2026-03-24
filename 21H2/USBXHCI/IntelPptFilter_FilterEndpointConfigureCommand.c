@@ -1,13 +1,13 @@
 /*
- * XREFs of IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C007A2E8
+ * XREFs of IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C00792E8
  * Callers:
- *     IntelPptFilter_FilterCommand @ 0x1C007A100 (IntelPptFilter_FilterCommand.c)
- *     IntelPptFilter_FilterCommandCompletion @ 0x1C007A220 (IntelPptFilter_FilterCommandCompletion.c)
+ *     IntelPptFilter_FilterCommand @ 0x1C0079100 (IntelPptFilter_FilterCommand.c)
+ *     IntelPptFilter_FilterCommandCompletion @ 0x1C0079220 (IntelPptFilter_FilterCommandCompletion.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     IntelPptFilter_CheckAndIncreaseEndpointCount @ 0x1C007A020 (IntelPptFilter_CheckAndIncreaseEndpointCount.c)
- *     IntelPptFilter_DecreaseEndpointCount @ 0x1C007A090 (IntelPptFilter_DecreaseEndpointCount.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     IntelPptFilter_CheckAndIncreaseEndpointCount @ 0x1C0079020 (IntelPptFilter_CheckAndIncreaseEndpointCount.c)
+ *     IntelPptFilter_DecreaseEndpointCount @ 0x1C0079090 (IntelPptFilter_DecreaseEndpointCount.c)
  */
 
 __int64 __fastcall IntelPptFilter_FilterEndpointConfigureCommand(__int64 a1, __int64 a2, char a3)
@@ -21,7 +21,8 @@ __int64 __fastcall IntelPptFilter_FilterEndpointConfigureCommand(__int64 a1, __i
   unsigned int v11; // ecx
   unsigned __int8 j; // dl
   int v13; // ebx
-  int v14; // edx
+  bool v14; // sf
+  int v15; // edx
 
   v3 = *(_DWORD **)(a2 + 72);
   v5 = -4;
@@ -34,9 +35,14 @@ __int64 __fastcall IntelPptFilter_FilterEndpointConfigureCommand(__int64 a1, __i
   for ( j = 0; v11; v11 &= v11 - 1 )
     ++j;
   v13 = j - v10;
+  v14 = v13 < 0;
   if ( v13 <= 0 )
+    goto LABEL_14;
+  if ( a3 )
   {
-    if ( v13 < 0 && a3 == 1 )
+    v14 = v13 < 0;
+LABEL_14:
+    if ( v14 && a3 == 1 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
@@ -53,8 +59,6 @@ __int64 __fastcall IntelPptFilter_FilterEndpointConfigureCommand(__int64 a1, __i
     }
     return 4;
   }
-  if ( a3 )
-    return 4;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v5) = 4;
@@ -70,10 +74,10 @@ __int64 __fastcall IntelPptFilter_FilterEndpointConfigureCommand(__int64 a1, __i
     return 4;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v14) = 3;
+    LOBYTE(v15) = 3;
     WPP_RECORDER_SF_(
       *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
-      v14,
+      v15,
       16,
       15,
       (__int64)&WPP_0f3e6ee050e235607aa5f43a2d147c91_Traceguids);

@@ -3,7 +3,7 @@
  * Callers:
  *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
  * Callees:
- *     PfLogEvent @ 0x1400D53D8 (PfLogEvent.c)
+ *     PfLogEvent @ 0x1400D53F8 (PfLogEvent.c)
  *     PfTAccessTracingCleanup @ 0x14056598C (PfTAccessTracingCleanup.c)
  *     PfTAccessTracingStart @ 0x140565FF4 (PfTAccessTracingStart.c)
  *     MmPerformMemoryListCommand @ 0x14056EA20 (MmPerformMemoryListCommand.c)

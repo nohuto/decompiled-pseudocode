@@ -1,17 +1,17 @@
 /*
- * XREFs of ?CreateHRGN@CRegion@@QEBAJPEAPEAUHRGN__@@@Z @ 0x18010A828
+ * XREFs of ?CreateHRGN@CRegion@@QEBAJPEAPEAUHRGN__@@@Z @ 0x1800E51E0
  * Callers:
- *     ?Present@CLegacyRemotingSwapChain@@UEAAJPEBVCRegion@@@Z @ 0x18010A740 (-Present@CLegacyRemotingSwapChain@@UEAAJPEBVCRegion@@@Z.c)
- *     ?RailAppPresent@CLegacyRemotingSwapChain@@UEAAJ_KAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x1802A3CC0 (-RailAppPresent@CLegacyRemotingSwapChain@@UEAAJ_KAEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@U.c)
+ *     ?Present@CLegacyRemotingSwapChain@@UEAAJXZ @ 0x1800E5120 (-Present@CLegacyRemotingSwapChain@@UEAAJXZ.c)
+ *     ?RailAppPresent@CLegacyRemotingSwapChain@@UEAAJ_KAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180251D50 (-RailAppPresent@CLegacyRemotingSwapChain@@UEAAJ_KAEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@U.c)
  * Callees:
- *     ?GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z @ 0x180041694 (-GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z.c)
- *     ?GetRectangleCount@CRegion@FastRegion@@QEBAIXZ @ 0x1800416CC (-GetRectangleCount@CRegion@FastRegion@@QEBAIXZ.c)
- *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x180042744 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800DCA44 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?GetRectangleCount@CRegion@FastRegion@@QEBAIXZ @ 0x18009B798 (-GetRectangleCount@CRegion@FastRegion@@QEBAIXZ.c)
+ *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x18009B7D4 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z @ 0x18009D684 (-GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z.c)
+ *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800C47D0 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CRegion::CreateHRGN(int **this, HRGN *a2)
@@ -53,7 +53,7 @@ __int64 __fastcall CRegion::CreateHRGN(int **this, HRGN *a2)
       if ( !v13 )
       {
         v6 = -2147024882;
-        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024882, 0x5Fu, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024882, 0x5Eu, 0LL);
         return (unsigned int)v6;
       }
       p_Data = v13;
@@ -99,7 +99,7 @@ __int64 __fastcall CRegion::CreateHRGN(int **this, HRGN *a2)
       v6 = (unsigned __int16)LastError | 0x80070000;
     if ( v6 >= 0 )
       v6 = -2003304445;
-    MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v6, 0x7Bu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v6, 0x75u, 0LL);
     if ( v10 )
       operator delete(v10);
   }
@@ -121,7 +121,7 @@ LABEL_3:
       v6 = (unsigned __int16)v8 | 0x80070000;
     if ( v6 >= 0 )
       v6 = -2003304445;
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v6, 0x4Au, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v6, 0x49u, 0LL);
   }
   return (unsigned int)v6;
 }

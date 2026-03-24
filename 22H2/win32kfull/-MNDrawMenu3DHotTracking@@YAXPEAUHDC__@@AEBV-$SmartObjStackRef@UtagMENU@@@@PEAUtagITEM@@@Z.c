@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MNDrawMenu3DHotTracking@@YAXPEAUHDC__@@AEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0233A28
+ * XREFs of ?MNDrawMenu3DHotTracking@@YAXPEAUHDC__@@AEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C024B7A8
  * Callers:
- *     xxxDrawMenuItem @ 0x1C0234CAC (xxxDrawMenuItem.c)
+ *     xxxDrawMenuItem @ 0x1C004470C (xxxDrawMenuItem.c)
  * Callees:
- *     NtGdiPatBlt @ 0x1C00DBEF0 (NtGdiPatBlt.c)
+ *     NtGdiPatBlt @ 0x1C00B3F50 (NtGdiPatBlt.c)
  */
 
 __int64 __fastcall MNDrawMenu3DHotTracking(HDC a1, __int64 a2, __int64 a3)
@@ -12,14 +12,14 @@ __int64 __fastcall MNDrawMenu3DHotTracking(HDC a1, __int64 a2, __int64 a3)
   int v7; // edx
   __int64 v8; // r8
   __int64 v9; // r12
-  int v10; // ebp
-  int v11; // r15d
+  LONG v10; // ebp
+  LONG v11; // r15d
   int v12; // edi
   int v13; // esi
   __int64 v14; // r14
 
-  result = *(_QWORD *)a3;
-  if ( !*(_QWORD *)(*(_QWORD *)a3 + 96LL) || (*(_DWORD *)(result + 4) & 0x20000000) == 0 )
+  if ( !*(_QWORD *)(*(_QWORD *)a3 + 96LL)
+    || (result = *(unsigned int *)(*(_QWORD *)a3 + 4LL), (result & 0x20000000) == 0) )
   {
     result = *(_QWORD *)(**(_QWORD **)a2 + 40LL);
     if ( (*(_DWORD *)(result + 40) & 1) == 0 )

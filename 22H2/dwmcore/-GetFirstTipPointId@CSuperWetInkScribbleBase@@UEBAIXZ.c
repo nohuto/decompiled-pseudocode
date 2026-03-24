@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetFirstTipPointId@CSuperWetInkScribbleBase@@UEBAIXZ @ 0x180108EF0
+ * XREFs of ?GetFirstTipPointId@CSuperWetInkScribbleBase@@UEBAIXZ @ 0x1800E36A0
  * Callers:
  *     <none>
  * Callees:

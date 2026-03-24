@@ -1,61 +1,79 @@
 /*
- * XREFs of PipDeleteAllDependencyRelations @ 0x14085C97C
+ * XREFs of PipDeleteAllDependencyRelations @ 0x1407CD600
  * Callers:
- *     PnpDeleteAllDependencyRelations @ 0x14077503C (PnpDeleteAllDependencyRelations.c)
+ *     PnpDeleteAllDependencyRelations @ 0x1406B314C (PnpDeleteAllDependencyRelations.c)
  * Callees:
- *     PiListEntryToDependencyEdge @ 0x14055F84C (PiListEntryToDependencyEdge.c)
- *     PipFreeDependencyEdge @ 0x14055FBE4 (PipFreeDependencyEdge.c)
- *     PipDeleteDependencyNode @ 0x14085CA14 (PipDeleteDependencyNode.c)
- *     PipConvertResolutionsToReservations @ 0x14085CA7C (PipConvertResolutionsToReservations.c)
- *     PipUnlinkDeviceObjectAndDependencyNode @ 0x14085CB58 (PipUnlinkDeviceObjectAndDependencyNode.c)
- *     PipAttemptDependentStart @ 0x1409428B8 (PipAttemptDependentStart.c)
+ *     PiListEntryToDependencyEdge @ 0x14050C4F8 (PiListEntryToDependencyEdge.c)
+ *     PipFreeDependencyEdge @ 0x14050C720 (PipFreeDependencyEdge.c)
+ *     PipDeleteDependencyNode @ 0x1407CD6B0 (PipDeleteDependencyNode.c)
+ *     PipConvertResolutionsToReservations @ 0x1407CD718 (PipConvertResolutionsToReservations.c)
+ *     PipAttemptDependentStart @ 0x14089DAB4 (PipAttemptDependentStart.c)
  */
 
-void __fastcall PipDeleteAllDependencyRelations(__int64 a1)
+__int64 __fastcall PipDeleteAllDependencyRelations(__int64 a1)
 {
-  __int64 v2; // rbx
-  _QWORD *v3; // rdi
-  _QWORD *v4; // r14
-  bool v5; // zf
-  _DWORD *v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rax
-  __int64 v9; // rdi
-  void *v10; // rcx
+  __int64 result; // rax
+  __int64 v3; // rbx
+  _QWORD *v4; // rdi
+  _QWORD *v5; // r14
+  bool v6; // zf
+  int v7; // eax
+  _DWORD *v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  __int64 v11; // rdi
+  void *v12; // rcx
+  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
+  result = (__int64)&retaddr;
   if ( a1 )
   {
-    v2 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 80LL);
-    if ( v2 )
-    {
-      ++*(_DWORD *)(v2 + 88);
-      PipConvertResolutionsToReservations(v2);
-      v3 = *(_QWORD **)(v2 + 16);
-      while ( v3 != (_QWORD *)(v2 + 16) )
-      {
-        v6 = (_DWORD *)PiListEntryToDependencyEdge((__int64)v3, 0);
-        v3 = (_QWORD *)*v3;
-        PipFreeDependencyEdge(v6, v7);
-      }
-      v4 = *(_QWORD **)(v2 + 32);
-      while ( v4 != (_QWORD *)(v2 + 32) )
-      {
-        v8 = PiListEntryToDependencyEdge((__int64)v4, 1);
-        v4 = (_QWORD *)*v4;
-        v9 = *(_QWORD *)(v8 + 40);
-        ++*(_DWORD *)(v9 + 88);
-        PipFreeDependencyEdge((_DWORD *)v8, 0LL);
-        v10 = *(void **)(v9 + 48);
-        if ( v10 && *(_QWORD *)(v9 + 16) != v9 + 16 )
-          PipAttemptDependentStart(v10);
-        v5 = (*(_DWORD *)(v9 + 88))-- == 1;
-        if ( v5 )
-          PipDeleteDependencyNode((PVOID)v9);
-      }
-      PipUnlinkDeviceObjectAndDependencyNode(a1, v2);
-      v5 = (*(_DWORD *)(v2 + 88))-- == 1;
-      if ( v5 )
-        PipDeleteDependencyNode((PVOID)v2);
-    }
+    result = *(_QWORD *)(a1 + 312);
+    v3 = *(_QWORD *)(result + 80);
   }
+  else
+  {
+    v3 = 0LL;
+  }
+  if ( v3 )
+  {
+    ++*(_DWORD *)(v3 + 88);
+    PipConvertResolutionsToReservations(v3);
+    v4 = *(_QWORD **)(v3 + 16);
+    while ( v4 != (_QWORD *)(v3 + 16) )
+    {
+      v8 = (_DWORD *)PiListEntryToDependencyEdge((__int64)v4, 0);
+      v4 = (_QWORD *)*v4;
+      PipFreeDependencyEdge(v8, v9);
+    }
+    v5 = *(_QWORD **)(v3 + 32);
+    while ( v5 != (_QWORD *)(v3 + 32) )
+    {
+      v10 = PiListEntryToDependencyEdge((__int64)v5, 1);
+      v5 = (_QWORD *)*v5;
+      v11 = *(_QWORD *)(v10 + 40);
+      ++*(_DWORD *)(v11 + 88);
+      PipFreeDependencyEdge((_DWORD *)v10, 0LL);
+      v12 = *(void **)(v11 + 48);
+      if ( v12 && *(_QWORD *)(v11 + 16) != v11 + 16 )
+        PipAttemptDependentStart(v12);
+      v6 = (*(_DWORD *)(v11 + 88))-- == 1;
+      if ( v6 )
+        PipDeleteDependencyNode((PVOID)v11);
+    }
+    *(_QWORD *)(*(_QWORD *)(a1 + 312) + 80LL) = 0LL;
+    *(_QWORD *)(v3 + 48) = 0LL;
+    v6 = (*(_DWORD *)(v3 + 88))-- == 1;
+    v7 = *(_DWORD *)(v3 + 88);
+    if ( v6 )
+    {
+      PipDeleteDependencyNode((PVOID)v3);
+      v7 = *(_DWORD *)(v3 + 88);
+    }
+    result = (unsigned int)(v7 - 1);
+    *(_DWORD *)(v3 + 88) = result;
+    if ( !(_DWORD)result )
+      return PipDeleteDependencyNode((PVOID)v3);
+  }
+  return result;
 }

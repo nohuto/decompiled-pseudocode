@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpCreateOutputSIGNATURE @ 0x1409FC108
+ * XREFs of ExpCreateOutputSIGNATURE @ 0x14094FD4C
  * Callers:
- *     ExpTranslateEfiPath @ 0x1409FE5F4 (ExpTranslateEfiPath.c)
- *     ExpTranslateNtPath @ 0x1409FEC6C (ExpTranslateNtPath.c)
+ *     ExpTranslateEfiPath @ 0x14095223C (ExpTranslateEfiPath.c)
+ *     ExpTranslateNtPath @ 0x1409528B4 (ExpTranslateNtPath.c)
  * Callees:
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
- *     wcscat_s @ 0x1403E7610 (wcscat_s.c)
- *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
- *     RtlStringFromGUIDEx @ 0x1407454A8 (RtlStringFromGUIDEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
+ *     wcscat_s @ 0x1403D81D0 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
+ *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpCreateOutputSIGNATURE(

@@ -1,18 +1,18 @@
 /*
- * XREFs of ExInitializePoolTracker @ 0x140B61AFC
+ * XREFs of ExInitializePoolTracker @ 0x140A68AF4
  * Callers:
- *     ExInitializePoolHeapManagement @ 0x1403970EC (ExInitializePoolHeapManagement.c)
+ *     ExInitializePoolHeapManagement @ 0x1403C3584 (ExInitializePoolHeapManagement.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     ExGenRandom @ 0x1403173F0 (ExGenRandom.c)
- *     ExpPlFindLimitEntry @ 0x14035C8E8 (ExpPlFindLimitEntry.c)
- *     ExpInitializePoolTrackerTable @ 0x140398524 (ExpInitializePoolTrackerTable.c)
- *     ExpPoolTrackerChargeEntry @ 0x1403BA09C (ExpPoolTrackerChargeEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTracePool @ 0x1405FD220 (EtwTracePool.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140607BA8 (ExpInsertPoolTrackerExpansion.c)
- *     ExpSeedHotTags @ 0x140B61D18 (ExpSeedHotTags.c)
+ *     ExGenRandom @ 0x14022C200 (ExGenRandom.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x1402E7388 (ExpInsertPoolTrackerExpansion.c)
+ *     ExAllocateHeapPages @ 0x140375EA8 (ExAllocateHeapPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     EtwTracePool @ 0x1405A7C04 (EtwTracePool.c)
+ *     MmGetNumberOfPhysicalPages @ 0x1406C8500 (MmGetNumberOfPhysicalPages.c)
+ *     ExpSeedHotTags @ 0x140A68D80 (ExpSeedHotTags.c)
  */
 
 __int64 ExInitializePoolTracker()
@@ -21,118 +21,156 @@ __int64 ExInitializePoolTracker()
   unsigned __int64 v1; // rdi
   unsigned __int64 v2; // rbx
   __int64 v3; // rdi
-  int v4; // ecx
-  __int64 result; // rax
-  unsigned __int64 v6; // rbx
-  __int64 v7; // r14
-  int v8; // edx
-  __int64 v9; // rcx
-  _QWORD *LimitEntry; // rax
-  __int64 v11; // rdi
-  __int64 v12; // rax
-  int v13; // ebp
-  __int64 v14; // r13
-  __int64 v15; // r12
-  int v16; // r15d
-  unsigned __int64 OldIrql; // rsi
+  unsigned __int64 v4; // rbx
+  int v5; // ecx
+  void *HeapPages; // rax
+  void *v7; // r9
+  __int64 v8; // rax
+  size_t v9; // r8
+  unsigned __int64 v10; // rbp
+  __int64 v11; // rbx
+  int v12; // eax
+  int v13; // ecx
+  unsigned int v14; // edi
+  unsigned __int64 OldIrql; // rbx
+  unsigned __int64 v17; // rax
+  __int64 v18; // rax
+  int v19; // r14d
+  __int64 v20; // r13
+  __int64 v21; // rsi
+  int v22; // r15d
   unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *v19; // r10
+  struct _KPRCB *v24; // r10
   _DWORD *SchedulerAssist; // r9
-  int v21; // eax
-  bool v22; // zf
+  int v26; // eax
+  bool v27; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-48h] BYREF
 
   CurrentPrcb = KeGetCurrentPrcb();
-  v1 = CurrentPrcb->InterruptTime ^ CurrentPrcb->KeSystemCalls ^ MEMORY[0xFFFFF78000000018] ^ __rdtsc() ^ ((unsigned __int64)MEMORY[0xFFFFF78000000014] << 32);
+  v1 = CurrentPrcb->KeSystemCalls ^ CurrentPrcb->InterruptTime ^ MEMORY[0xFFFFF78000000018] ^ __rdtsc() ^ ((unsigned __int64)MEMORY[0xFFFFF78000000014] << 32);
   v2 = (unsigned __int64)(unsigned int)ExGenRandom(0) << 32;
   v3 = ((unsigned int)ExGenRandom(0) | v2) ^ v1;
+  v4 = 4096LL;
   if ( !v3 )
     v3 = 1LL;
-  _BitScanReverse((unsigned int *)&v4, KeLargestCacheLine);
+  _BitScanReverse((unsigned int *)&v5, KeLargestCacheLine);
   ExpPoolQuotaCookie = v3;
-  *(_DWORD *)((char *)&Mm64BitPhysicalAddress + 1) = 1 << v4;
-  if ( (unsigned int)(1 << v4) < 0x10 )
+  *(_DWORD *)((char *)&Mm64BitPhysicalAddress + 3) = 1 << v5;
+  if ( (unsigned int)(1 << v5) < 0x10 )
   {
-    *(_DWORD *)((char *)&Mm64BitPhysicalAddress + 1) = 16;
+    *(_DWORD *)((char *)&Mm64BitPhysicalAddress + 3) = 16;
   }
-  else if ( (unsigned int)(1 << v4) > 0x1000 )
+  else if ( (unsigned int)(1 << v5) > 0x1000 )
   {
-    *(_DWORD *)((char *)&Mm64BitPhysicalAddress + 1) = 4096;
+    *(_DWORD *)((char *)&Mm64BitPhysicalAddress + 3) = 4096;
   }
-  result = ExpInitializePoolTrackerTable();
-  if ( (int)result < 0 )
-    return result;
-  ExPoolTagTables = (void *)PoolTrackTable;
+  if ( PoolTrackTableSize )
+  {
+    v4 = 64LL;
+    if ( (unsigned __int64)PoolTrackTableSize >= 0x40 )
+    {
+      _BitScanReverse64(&v17, PoolTrackTableSize);
+      v4 = 1LL << v17;
+    }
+  }
+  else
+  {
+    PoolTrackTableSize = 4096LL;
+    if ( (unsigned __int64)MmGetNumberOfPhysicalPages(0) > 0x10000 )
+      goto LABEL_8;
+    v4 = 512LL;
+  }
+  for ( PoolTrackTableSize = v4; ; PoolTrackTableSize = v4 )
+  {
+LABEL_8:
+    if ( v4 + 1 > 0x492492492492492LL )
+      goto LABEL_32;
+    HeapPages = (void *)ExAllocateHeapPages();
+    PoolTrackTable = (__int64)HeapPages;
+    v7 = HeapPages;
+    if ( HeapPages )
+      break;
+    v4 = PoolTrackTableSize;
+    if ( PoolTrackTableSize == 1 )
+      return 3221225626LL;
+LABEL_32:
+    v4 >>= 1;
+  }
+  ExPoolTagTables = HeapPages;
+  v8 = PoolTrackTableSize - 1;
+  v9 = 56 * ++PoolTrackTableSize;
+  PoolTrackTableMask = v8;
+  memset(v7, 0, v9);
   ExpSeedHotTags();
-  ExpTaggedPoolLock = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v6 = (80 * PoolTrackTableSize + 4095) & 0xFFFFFFFFFFFFF000uLL;
+  ExpTaggedPoolLock = 0LL;
+  v10 = (56 * PoolTrackTableSize + 4095) & 0xFFFFFFFFFFFFF000uLL;
   if ( PoolHitTag == 1819242320 )
     __debugbreak();
-  v12 = DWORD1(PerfGlobalGroupMask[0]);
+  v18 = DWORD1(PerfGlobalGroupMask[0]);
   if ( (BYTE4(PerfGlobalGroupMask[0]) & 0x41) != 0 )
-    EtwTracePool(0xE20u, 512, 1819242320, PoolTrackTable, (80 * PoolTrackTableSize + 4095) & 0xFFFFFFFFFFFFF000uLL);
-  LODWORD(v12) = KeGetPcr()->Prcb.Number;
-  v13 = PoolTrackTableMask;
-  v14 = PoolTrackTableSize;
-  v11 = PoolTrackTableMask & 0x40DEDA5;
-  v15 = (__int64)*(&ExPoolTagTables + v12);
-  v16 = PoolTrackTableMask & 0x40DEDA5;
-  do
+    EtwTracePool(0xE20u, 512, 0x6C6F6F50u, PoolTrackTable, (56 * PoolTrackTableSize + 4095) & 0xFFFFFFFFFFFFF000uLL);
+  LODWORD(v18) = KeGetPcr()->Prcb.Number;
+  v19 = PoolTrackTableMask;
+  v20 = PoolTrackTableSize;
+  v14 = PoolTrackTableMask & 0x40DEDA5;
+  v21 = (__int64)*(&ExPoolTagTables + v18);
+  v22 = PoolTrackTableMask & 0x40DEDA5;
+  while ( 1 )
   {
-    while ( 1 )
+    v11 = 56LL * v14;
+    v12 = *(_DWORD *)(v11 + v21);
+    if ( v12 == 1819242320 )
+      break;
+    if ( v12 )
+      goto LABEL_16;
+    v13 = *(_DWORD *)(v11 + PoolTrackTable);
+    if ( v13 )
     {
-      v7 = v15 + 80 * v11;
-      if ( *(_DWORD *)v7 == 1819242320 )
+      *(_DWORD *)(v11 + v21) = v13;
+      continue;
+    }
+    if ( v14 == v20 - 1 )
+    {
+LABEL_16:
+      v14 = v19 & (v14 + 1);
+      if ( v14 == v22 )
       {
-        ExpPoolTrackerChargeEntry(1, v6, v15 + 80 * v11);
+        ExpInsertPoolTrackerExpansion(0x6C6F6F50u, v10, 0x200u);
         return 0LL;
       }
-      if ( *(_DWORD *)v7 )
-        break;
-      v8 = *(_DWORD *)(PoolTrackTable + 80 * v11);
-      if ( v8 )
+    }
+    else
+    {
+      KeAcquireInStackQueuedSpinLock(&ExpTaggedPoolLock, &LockHandle);
+      if ( !*(_DWORD *)(v11 + PoolTrackTable) )
       {
-        *(_DWORD *)v7 = v8;
-        v9 = *(_QWORD *)(PoolTrackTable + 80 * v11 + 72);
-        if ( v9 )
-          *(_QWORD *)(v7 + 72) = v9;
+        *(_DWORD *)(v11 + PoolTrackTable) = 1819242320;
+        *(_DWORD *)(v11 + v21) = 1819242320;
       }
-      else
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      OldIrql = LockHandle.OldIrql;
+      if ( KiIrqlFlags )
       {
-        if ( (unsigned int)v11 == v14 - 1 )
-          break;
-        KeAcquireInStackQueuedSpinLock(&ExpTaggedPoolLock, &LockHandle);
-        if ( !*(_DWORD *)(PoolTrackTable + 80 * v11) )
-        {
-          LimitEntry = ExpPlFindLimitEntry(1819242320);
-          *(_QWORD *)(PoolTrackTable + 80 * v11 + 72) = LimitEntry;
-          *(_QWORD *)(v7 + 72) = LimitEntry;
-          *(_DWORD *)(PoolTrackTable + 80 * v11) = 1819242320;
-          *(_DWORD *)v7 = 1819242320;
-        }
-        KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-        OldIrql = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
           {
-            v19 = KeGetCurrentPrcb();
-            SchedulerAssist = v19->SchedulerAssist;
-            v21 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-            v22 = (v21 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v21;
-            if ( v22 )
-              KiRemoveSystemWorkPriorityKick((__int64)v19);
+            v24 = KeGetCurrentPrcb();
+            SchedulerAssist = v24->SchedulerAssist;
+            v26 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v27 = (v26 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v26;
+            if ( v27 )
+              KiRemoveSystemWorkPriorityKick((__int64)v24);
           }
         }
-        __writecr8(OldIrql);
       }
+      __writecr8(OldIrql);
     }
-    v11 = v13 & (unsigned int)(v11 + 1);
   }
-  while ( (_DWORD)v11 != v16 );
-  ExpInsertPoolTrackerExpansion(0x6C6F6F50u, v6, 0x200u);
+  _InterlockedIncrement64((volatile signed __int64 *)(v11 + v21 + 16));
+  _InterlockedExchangeAdd64((volatile signed __int64 *)(v11 + v21 + 8), v10);
   return 0LL;
 }

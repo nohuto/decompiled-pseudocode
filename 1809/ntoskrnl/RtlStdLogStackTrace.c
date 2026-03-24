@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlStdLogStackTrace @ 0x1402ECFB8
+ * XREFs of RtlStdLogStackTrace @ 0x1402ED0B8
  * Callers:
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     ExpInitializeResource @ 0x14016BC90 (ExpInitializeResource.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     ExpInitializeResource @ 0x14016BCB0 (ExpInitializeResource.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1400CCC90 (RtlCaptureStackBackTrace.c)
- *     RtlpStdLogCapturedStackTrace @ 0x1402ED59C (RtlpStdLogCapturedStackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
+ *     RtlpStdLogCapturedStackTrace @ 0x1402ED69C (RtlpStdLogCapturedStackTrace.c)
  */
 
 __int64 __fastcall RtlStdLogStackTrace(PKSPIN_LOCK SpinLock, int a2)

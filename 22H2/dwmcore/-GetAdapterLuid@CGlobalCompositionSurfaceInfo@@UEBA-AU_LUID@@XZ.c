@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAdapterLuid@CGlobalCompositionSurfaceInfo@@UEBA?AU_LUID@@XZ @ 0x1801079A0
+ * XREFs of ?GetAdapterLuid@CGlobalCompositionSurfaceInfo@@UEBA?AU_LUID@@XZ @ 0x1800E2D90
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 struct _LUID __fastcall CGlobalCompositionSurfaceInfo::GetAdapterLuid(CGlobalCompositionSurfaceInfo *this, _QWORD *a2)
 {
-  *a2 = *(_QWORD *)((char *)this + 140);
+  *a2 = *(_QWORD *)((char *)this + 148);
   return (struct _LUID)a2;
 }

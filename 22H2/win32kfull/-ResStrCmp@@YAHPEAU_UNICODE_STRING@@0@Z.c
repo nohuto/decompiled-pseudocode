@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ResStrCmp@@YAHPEAU_UNICODE_STRING@@0@Z @ 0x1C008FE08
+ * XREFs of ?ResStrCmp@@YAHPEAU_UNICODE_STRING@@0@Z @ 0x1C0049BCC
  * Callers:
- *     NtUserFindExistingCursorIcon @ 0x1C008F910 (NtUserFindExistingCursorIcon.c)
+ *     ?SearchIconCache@@YAPEAUtagCURSOR@@PEAU1@GPEAU_UNICODE_STRING@@0PEAUtagCURSORFIND@@@Z @ 0x1C0049AF0 (-SearchIconCache@@YAPEAUtagCURSOR@@PEAU1@GPEAU_UNICODE_STRING@@0PEAUtagCURSORFIND@@@Z.c)
  * Callees:
  *     <none>
  */

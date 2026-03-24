@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InitializeCoreMessagingIocp@CGlobalMit@@CAXPEAX@Z @ 0x18002DB40
+ * XREFs of ?InitializeCoreMessagingIocp@CGlobalMit@@CAXPEAX@Z @ 0x1800AD6E4
  * Callers:
- *     ?Run@CGlobalMit@@MEAAKXZ @ 0x18002B940 (-Run@CGlobalMit@@MEAAKXZ.c)
+ *     ?Run@CGlobalMit@@MEAAKXZ @ 0x1800AD4F0 (-Run@CGlobalMit@@MEAAKXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CGlobalMit::InitializeCoreMessagingIocp(void *a1)

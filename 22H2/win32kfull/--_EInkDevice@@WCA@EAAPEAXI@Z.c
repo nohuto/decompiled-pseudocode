@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_EInkDevice@@WCA@EAAPEAXI@Z @ 0x1C0141B00
+ * XREFs of ??_EInkDevice@@WCA@EAAPEAXI@Z @ 0x1C016DEF0
  * Callers:
  *     <none>
  * Callees:

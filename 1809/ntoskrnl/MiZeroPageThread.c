@@ -1,5 +1,5 @@
 /*
- * XREFs of MiZeroPageThread @ 0x1401791E0
+ * XREFs of MiZeroPageThread @ 0x140179200
  * Callers:
  *     <none>
  * Callees:
@@ -10,21 +10,21 @@
  *     MiUnlinkNodeLargePage @ 0x140064290 (MiUnlinkNodeLargePage.c)
  *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C20 (KeQueryNodeActiveAffinity.c)
- *     MiMapPagesToZero @ 0x1400F90C0 (MiMapPagesToZero.c)
- *     KeFindFirstSetLeftGroupAffinity @ 0x140127FB0 (KeFindFirstSetLeftGroupAffinity.c)
- *     KeSetIdealProcessorThreadEx @ 0x14015CE2C (KeSetIdealProcessorThreadEx.c)
- *     MiInitializeColorTable @ 0x14016A4AC (MiInitializeColorTable.c)
- *     MiDeleteZeroThreadContext @ 0x140185094 (MiDeleteZeroThreadContext.c)
- *     MiGetHugePageToZero @ 0x140185444 (MiGetHugePageToZero.c)
- *     MiZeroBootLargePages @ 0x140192534 (MiZeroBootLargePages.c)
- *     MiSetZeroPageThreadPriority @ 0x14019303C (MiSetZeroPageThreadPriority.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     HvlNotifyLongSpinWait @ 0x1402712D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298230 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C178 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
+ *     MiMapPagesToZero @ 0x1400F90E0 (MiMapPagesToZero.c)
+ *     KeFindFirstSetLeftGroupAffinity @ 0x140127FD0 (KeFindFirstSetLeftGroupAffinity.c)
+ *     KeSetIdealProcessorThreadEx @ 0x14015CE4C (KeSetIdealProcessorThreadEx.c)
+ *     MiInitializeColorTable @ 0x14016A4CC (MiInitializeColorTable.c)
+ *     MiDeleteZeroThreadContext @ 0x1401850B4 (MiDeleteZeroThreadContext.c)
+ *     MiGetHugePageToZero @ 0x140185464 (MiGetHugePageToZero.c)
+ *     MiZeroBootLargePages @ 0x140192554 (MiZeroBootLargePages.c)
+ *     MiSetZeroPageThreadPriority @ 0x14019305C (MiSetZeroPageThreadPriority.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

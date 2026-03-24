@@ -1,105 +1,109 @@
 /*
- * XREFs of IopFreeIrp @ 0x140348640
+ * XREFs of IopFreeIrp @ 0x140353570
  * Callers:
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
- *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
- *     IovFreeIrpPrivate @ 0x140A80820 (IovFreeIrpPrivate.c)
+ *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
+ *     IopCompleteRequest @ 0x140342B20 (IopCompleteRequest.c)
+ *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
+ *     IovFreeIrpPrivate @ 0x1409C51D0 (IovFreeIrpPrivate.c)
  * Callees:
- *     IopFreeIrpExtension @ 0x14020B888 (IopFreeIrpExtension.c)
- *     ExReturnPoolQuota @ 0x140367A64 (ExReturnPoolQuota.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     IopFreeReserveIrp @ 0x140556A74 (IopFreeReserveIrp.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExReturnPoolQuota @ 0x1402AEBCC (ExReturnPoolQuota.c)
+ *     IopFreeIrpExtension @ 0x1402ED7A0 (IopFreeIrpExtension.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     IopFreeReserveIrp @ 0x140500B24 (IopFreeReserveIrp.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall IopFreeIrp(ULONG_PTR BugCheckParameter1)
+void __fastcall IopFreeIrp(ULONG_PTR BugCheckParameter1, __int64 a2)
 {
-  char v2; // al
-  __int64 v3; // rcx
-  struct _KPRCB *CurrentPrcb; // r10
-  char v5; // al
-  __int16 v6; // r9
-  __int64 v7; // r9
-  __int64 v8; // rdi
-  __int64 v9; // rcx
-  __int64 v10; // rdi
-  char v11; // al
+  char v3; // al
+  __int64 v4; // rcx
+  struct _KPRCB *CurrentPrcb; // r9
+  char v6; // al
+  __int16 v7; // r8
+  __int64 v8; // r8
+  __int64 v9; // rdi
+  __int64 v10; // rcx
+  __int64 v11; // rdi
+  char v12; // al
 
   if ( *(_WORD *)BugCheckParameter1 != 6 )
-    KeBugCheckEx(0x44u, BugCheckParameter1, 0x29CEuLL, 0LL, 0LL);
+    KeBugCheckEx(0x44u, BugCheckParameter1, 0x2636uLL, 0LL, 0LL);
   *(_WORD *)BugCheckParameter1 = 0;
-  v2 = *(_BYTE *)(BugCheckParameter1 + 71);
-  if ( (v2 & 0x40) != 0 )
+  v3 = *(_BYTE *)(BugCheckParameter1 + 71);
+  if ( (v3 & 0x40) != 0 )
   {
     IopFreeIrpExtension(BugCheckParameter1, -1, 1);
-    v2 = *(_BYTE *)(BugCheckParameter1 + 71);
+    v3 = *(_BYTE *)(BugCheckParameter1 + 71);
   }
-  if ( (v2 & 0x21) == 0x21 )
+  if ( (v3 & 0x21) == 0x21 )
   {
-    IopFreeReserveIrp(BugCheckParameter1);
+    IopFreeReserveIrp(BugCheckParameter1, a2);
   }
   else
   {
-    v3 = *(unsigned __int16 *)(BugCheckParameter1 + 4);
-    if ( (unsigned int)v3 >= (unsigned int)KeNumberProcessors_0 )
+    v4 = *(unsigned __int16 *)(BugCheckParameter1 + 4);
+    if ( (unsigned int)v4 >= (unsigned int)KeNumberProcessors_0 )
     {
       CurrentPrcb = KeGetCurrentPrcb();
     }
     else
     {
       _mm_lfence();
-      CurrentPrcb = (struct _KPRCB *)KiProcessorBlock[v3];
+      CurrentPrcb = (struct _KPRCB *)KiProcessorBlock[v4];
     }
-    v5 = *(_BYTE *)(BugCheckParameter1 + 71);
-    if ( (v5 & 8) != 0 )
+    v6 = *(_BYTE *)(BugCheckParameter1 + 71);
+    if ( (v6 & 8) != 0 )
     {
-      *(_BYTE *)(BugCheckParameter1 + 71) = v5 ^ 8;
+      *(_BYTE *)(BugCheckParameter1 + 71) = v6 ^ 8;
       _InterlockedIncrement(&CurrentPrcb->LookasideIrpFloat);
-      v5 = *(_BYTE *)(BugCheckParameter1 + 71);
+      v6 = *(_BYTE *)(BugCheckParameter1 + 71);
     }
-    if ( (v5 & 4) != 0
+    if ( (v6 & 4) != 0
       && ((IopIrpStackProfilerFlags & 3) == 0
-       || (v6 = *(_WORD *)(BugCheckParameter1 + 2), v6 == 72 * (char)IopLargeIrpStackLocations + 208)
-       || v6 == 72 * (char)IopMediumIrpStackLocations + 208
-       || v6 == 280) )
+       || (v7 = *(_WORD *)(BugCheckParameter1 + 2), v7 == 72 * (char)IopLargeIrpStackLocations + 208)
+       || v7 == 72 * (char)IopMediumIrpStackLocations + 208
+       || v7 == 280) )
     {
-      v7 = *(unsigned __int16 *)(BugCheckParameter1 + 2);
-      if ( (unsigned __int16)v7 >= (unsigned __int16)(72 * (char)IopLargeIrpStackLocations + 208) )
+      v8 = *(unsigned __int16 *)(BugCheckParameter1 + 2);
+      if ( (unsigned __int16)v8 < (unsigned __int16)(72 * (char)IopLargeIrpStackLocations + 208) )
       {
-        v8 = 2080LL;
-        v9 = 2088LL;
-      }
-      else if ( (unsigned __int16)v7 < (unsigned __int16)(72 * (char)IopMediumIrpStackLocations + 208) )
-      {
-        v8 = 2048LL;
-        v9 = 2056LL;
+        if ( (unsigned __int16)v8 >= (unsigned __int16)(72 * (char)IopMediumIrpStackLocations + 208) )
+        {
+          v9 = 2064LL;
+          v10 = 2072LL;
+        }
+        else
+        {
+          v9 = 2048LL;
+          v10 = 2056LL;
+        }
       }
       else
       {
-        v8 = 2064LL;
-        v9 = 2072LL;
+        v9 = 2080LL;
+        v10 = 2088LL;
       }
-      *(_QWORD *)(BugCheckParameter1 + 56) = v7;
-      v10 = *(_QWORD *)((char *)&CurrentPrcb->MxCsr + v8);
-      ++*(_DWORD *)(v10 + 28);
-      if ( *(_WORD *)v10 < *(_WORD *)(v10 + 16)
-        || (++*(_DWORD *)(v10 + 32),
-            v10 = *(_QWORD *)((char *)&CurrentPrcb->MxCsr + v9),
-            ++*(_DWORD *)(v10 + 28),
-            *(_WORD *)v10 < *(_WORD *)(v10 + 16)) )
+      *(_QWORD *)(BugCheckParameter1 + 56) = v8;
+      v11 = *(_QWORD *)((char *)&CurrentPrcb->MxCsr + v9);
+      ++*(_DWORD *)(v11 + 28);
+      if ( *(_WORD *)v11 < *(_WORD *)(v11 + 16)
+        || (++*(_DWORD *)(v11 + 32),
+            v11 = *(_QWORD *)((char *)&CurrentPrcb->MxCsr + v10),
+            ++*(_DWORD *)(v11 + 28),
+            *(_WORD *)v11 < *(_WORD *)(v11 + 16)) )
       {
-        v11 = *(_BYTE *)(BugCheckParameter1 + 71);
-        if ( (v11 & 1) != 0 )
+        v12 = *(_BYTE *)(BugCheckParameter1 + 71);
+        if ( (v12 & 1) != 0 )
         {
-          *(_BYTE *)(BugCheckParameter1 + 71) = v11 ^ 1;
+          *(_BYTE *)(BugCheckParameter1 + 71) = v12 ^ 1;
           ExReturnPoolQuota(BugCheckParameter1);
         }
-        RtlpInterlockedPushEntrySList((PSLIST_HEADER)v10, (PSLIST_ENTRY)BugCheckParameter1);
+        RtlpInterlockedPushEntrySList((PSLIST_HEADER)v11, (PSLIST_ENTRY)BugCheckParameter1);
       }
       else
       {
-        ++*(_DWORD *)(v10 + 32);
+        ++*(_DWORD *)(v11 + 32);
         ExFreePoolWithTag((PVOID)BugCheckParameter1, 0);
       }
     }

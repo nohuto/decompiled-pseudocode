@@ -3,7 +3,7 @@
  * Callers:
  *     BgpTxtDisplayString @ 0x1409545A0 (BgpTxtDisplayString.c)
  * Callees:
- *     BgpGxDrawRectangle @ 0x14016EE10 (BgpGxDrawRectangle.c)
+ *     BgpGxDrawRectangle @ 0x14016EE30 (BgpGxDrawRectangle.c)
  */
 
 __int64 __fastcall BgpTxtClearRegion(__int64 a1)

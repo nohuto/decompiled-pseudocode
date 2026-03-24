@@ -1,9 +1,9 @@
 /*
- * XREFs of SeDeleteObjectAuditAlarm @ 0x1409CE120
+ * XREFs of SeDeleteObjectAuditAlarm @ 0x1409213E0
  * Callers:
  *     <none>
  * Callees:
- *     SeDeleteObjectAuditAlarmWithTransaction @ 0x1409CE140 (SeDeleteObjectAuditAlarmWithTransaction.c)
+ *     SeDeleteObjectAuditAlarmWithTransaction @ 0x140921400 (SeDeleteObjectAuditAlarmWithTransaction.c)
  */
 
 void __stdcall SeDeleteObjectAuditAlarm(PVOID Object, HANDLE Handle)

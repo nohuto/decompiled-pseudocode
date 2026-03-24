@@ -1,61 +1,63 @@
 /*
- * XREFs of NtUserGetCurrentInputMessageSource @ 0x1C00A1400
+ * XREFs of NtUserGetCurrentInputMessageSource @ 0x1C0104C60
  * Callers:
  *     <none>
  * Callees:
- *     ?_GetCurrentInputMessageSource@@YAHHPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00A14E4 (-_GetCurrentInputMessageSource@@YAHHPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?_GetCurrentInputMessageSource@@YAHHPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0104D48 (-_GetCurrentInputMessageSource@@YAHHPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
  */
 
-__int64 __fastcall NtUserGetCurrentInputMessageSource(ULONG64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserGetCurrentInputMessageSource(ULONG64 a1)
 {
-  __int64 v4; // rbx
-  _BYTE *v5; // rdx
-  ULONG64 v6; // rcx
+  __int64 v2; // rbx
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  ULONG64 v5; // rcx
   int CurrentInputMessageSource; // edi
-  __int64 v8; // r8
-  __int64 v9; // r9
-  int v10; // edx
-  __int64 v12; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v13; // [rsp+58h] [rbp+10h]
+  int v7; // edx
+  __int64 v8; // rcx
+  _BYTE *v9; // rdx
+  __int64 v11; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v12; // [rsp+58h] [rbp+10h]
 
-  v4 = 0LL;
-  v12 = 0LL;
-  EnterSharedCrit(a1, a2, a3);
+  v2 = 0LL;
+  v11 = 0LL;
+  EnterSharedCrit(0LL, 1LL);
   if ( a1 )
   {
-    CurrentInputMessageSource = _GetCurrentInputMessageSource(0, (struct tagINPUT_MESSAGE_SOURCE *)&v12);
+    CurrentInputMessageSource = _GetCurrentInputMessageSource(0, (struct tagINPUT_MESSAGE_SOURCE *)&v11);
     if ( CurrentInputMessageSource )
     {
-      v10 = v12;
-      if ( (((_DWORD)v12 - 18) & 0xFFFFFFEF) == 0 )
-        v10 = 2;
-      LODWORD(v12) = v10;
-      if ( PsGetCurrentProcessWow64Process() )
+      v7 = v11;
+      v8 = (unsigned int)(v11 - 18);
+      if ( (v8 & 0xFFFFFFEF) == 0 )
+        v7 = 2;
+      LODWORD(v11) = v7;
+      if ( PsGetCurrentProcessWow64Process(v8) )
       {
-        v13 = 1LL;
+        v12 = 1LL;
       }
       else
       {
-        v13 = 4LL;
-        v4 = 3LL;
+        v12 = 4LL;
+        v2 = 3LL;
       }
-      if ( (v4 & a1) != 0 )
+      if ( (v2 & a1) != 0 )
         ExRaiseDatatypeMisalignment();
-      v6 = MmUserProbeAddress;
-      v5 = (_BYTE *)a1;
+      v5 = MmUserProbeAddress;
+      v9 = (_BYTE *)a1;
       if ( a1 >= MmUserProbeAddress )
-        v5 = (_BYTE *)MmUserProbeAddress;
-      *v5 = *v5;
-      v5[7] = v5[7];
-      *(_QWORD *)a1 = v12;
+        v9 = (_BYTE *)MmUserProbeAddress;
+      *v9 = *v9;
+      v9[7] = v9[7];
+      *(_QWORD *)a1 = v11;
     }
   }
   else
   {
-    UserSetLastError(87LL);
+    UserSetLastError(87LL, v3, v4);
     CurrentInputMessageSource = 0;
   }
-  UserSessionSwitchLeaveCrit(v6, v5, v8, v9);
+  UserSessionSwitchLeaveCrit(v5);
   return CurrentInputMessageSource;
 }

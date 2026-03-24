@@ -1,51 +1,66 @@
 /*
- * XREFs of ?DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAU_D3DKMDT_2DREGION@@PEAU_D3DDDI_RATIONAL@@@Z @ 0x1C03ACE24
+ * XREFs of ?DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAU_D3DKMDT_2DREGION@@PEAU_D3DDDI_RATIONAL@@@Z @ 0x1C02DCE30
  * Callers:
- *     ?PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@I_KPEAU_DXGK_DISPLAYMODE_INFO@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@EEPEAPEAU2@@Z @ 0x1C01F434C (-PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM.c)
- *     DxgkOpmGetRedirectionInfo @ 0x1C02C2AFC (DxgkOpmGetRedirectionInfo.c)
- *     ?GetCurrentTvStandard@@YAIPEAVDXGADAPTER@@I@Z @ 0x1C03963A8 (-GetCurrentTvStandard@@YAIPEAVDXGADAPTER@@I@Z.c)
+ *     DxgkOpmGetRedirectionInfo @ 0x1C0217FB0 (DxgkOpmGetRedirectionInfo.c)
+ *     ?PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@I_KPEAU_D3DKMT_DISPLAYMODE@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@EEPEAPEAU2@@Z @ 0x1C025DA64 (-PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM.c)
+ *     ?GetCurrentTvStandard@@YAIPEAVDXGADAPTER@@I@Z @ 0x1C0295058 (-GetCurrentTvStandard@@YAIPEAVDXGADAPTER@@I@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?reset@?$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z @ 0x1C0005DCC (-reset@-$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z.c)
- *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C0007078 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
- *     ?AcquireLastClientCommittedVidPnRef@VIDPN_MGR@@QEBAPEBVDMMVIDPN@@XZ @ 0x1C0007298 (-AcquireLastClientCommittedVidPnRef@VIDPN_MGR@@QEBAPEBVDMMVIDPN@@XZ.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00072BC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ @ 0x1C000A568 (-AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ.c)
- *     ?FindById@?$IndexedSet@VDMMVIDPNTARGET@@@@QEBAPEAVDMMVIDPNTARGET@@I@Z @ 0x1C000A5B0 (-FindById@-$IndexedSet@VDMMVIDPNTARGET@@@@QEBAPEAVDMMVIDPNTARGET@@I@Z.c)
- *     ?IsTargetInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z @ 0x1C000A5E4 (-IsTargetInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C0171364 (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?reset@?$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z @ 0x1C0006764 (-reset@-$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z.c)
+ *     ?FindById@?$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C0009260 (-FindById@-$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
+ *     ?IsTargetInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z @ 0x1C0009364 (-IsTargetInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C0009550 (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C0009724 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
+ *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C012C6F0 (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
+ *     ?DmmCalculatePresentationVSync@@YAXPEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@PEAU_D3DDDI_RATIONAL@@@Z @ 0x1C0144C30 (-DmmCalculatePresentationVSync@@YAXPEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@PEAU_D3DDDI_RATIONAL@@@Z.c)
  */
 
 __int64 __fastcall DmmGetClientVidPnTargetModeInfo(
         DXGADAPTER *a1,
-        unsigned int a2,
+        __int64 a2,
         enum _D3DKMDT_VIDEO_SIGNAL_STANDARD *a3,
         unsigned int *a4,
         unsigned __int8 *a5,
-        VIDPN_MGR *a6,
+        enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING *a6,
         struct _D3DKMDT_2DREGION *a7,
         struct _D3DDDI_RATIONAL *a8)
 {
-  unsigned int v8; // edi
+  unsigned int v8; // ebx
   __int64 v9; // r12
-  unsigned __int8 *v11; // r15
-  _DWORD *v12; // rbp
+  unsigned __int8 *v11; // r13
+  enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING *v12; // r15
   struct _D3DKMDT_2DREGION *v13; // rsi
   struct _D3DDDI_RATIONAL *v14; // r14
-  char v16; // r13
-  __int64 v17; // rax
-  __int64 v18; // rax
-  const struct DMMVIDPN *ClientCommittedVidPnRef; // rax
-  int v20; // edx
-  __int64 v21; // r8
-  DMMVIDPNTARGET *v22; // r10
-  struct DMMVIDPNTARGETMODESET *v23; // rbx
+  __int64 v15; // rax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // rax
+  __int64 v20; // rbp
+  __int64 v21; // rbp
+  __int64 v22; // rax
+  __int64 v23; // rax
   __int64 v24; // rdx
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // rdi
+  __int64 v31; // r10
+  __int64 v32; // rax
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // rax
+  __int64 v36; // rax
+  __int64 v37; // rdi
+  __int64 v38; // rax
+  __int64 v39; // rax
+  enum _D3DKMDT_VIDEO_SIGNAL_STANDARD *v40; // rcx
+  __int64 v41; // rdx
 
   v8 = 0;
-  v9 = a2;
+  v9 = (unsigned int)a2;
   if ( a3 )
     *a3 = D3DKMDT_VSS_UNINITIALIZED;
   if ( a4 )
@@ -55,7 +70,7 @@ __int64 __fastcall DmmGetClientVidPnTargetModeInfo(
     *a5 = 0;
   v12 = a6;
   if ( a6 )
-    *(_DWORD *)a6 = 0;
+    *a6 = D3DDDI_VSSLO_UNINITIALIZED;
   v13 = a7;
   if ( a7 )
     *a7 = 0LL;
@@ -64,96 +79,118 @@ __int64 __fastcall DmmGetClientVidPnTargetModeInfo(
     *a8 = 0LL;
   if ( !a1 )
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v15 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v15 + 24) = 0LL;
+LABEL_15:
+    WdLogEvent5_WdError(v15);
     return 3223191554LL;
   }
-  v16 = 1;
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(a1) )
-    WdLogSingleEntry0(1LL);
-  v17 = *((_QWORD *)a1 + 365);
-  if ( !v17 )
   {
-    WdLogSingleEntry1(2LL, a1);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter handle 0x%I64x is a render only adapter.",
-      (__int64)a1,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3223191554LL;
+    v19 = WdLogNewEntry5_WdAssertion(v18, v17);
+    WdLogEvent5_WdAssertion(v19);
   }
-  v18 = *(_QWORD *)(v17 + 104);
-  a6 = (VIDPN_MGR *)v18;
-  if ( v18 )
+  v20 = *((_QWORD *)a1 + 337);
+  if ( !v20 )
   {
-    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>((__int64)&a8, v18);
+    v15 = WdLogNewEntry5_WdError(v18, v17);
+    *(_QWORD *)(v15 + 24) = a1;
+    goto LABEL_15;
+  }
+  v21 = *(_QWORD *)(v20 + 88);
+  if ( v21 )
+  {
+    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>((__int64 *)&a8, v21);
+    v23 = *(_QWORD *)(v21 + 88);
     a5 = 0LL;
-    ClientCommittedVidPnRef = VIDPN_MGR::AcquireLastClientCommittedVidPnRef(a6);
-    auto_rc<DMMVIDPN const>::reset((__int64 *)&a5, (__int64)ClientCommittedVidPnRef);
+    if ( v23 )
+    {
+      _InterlockedIncrement((volatile signed __int32 *)(v23 + 32));
+      v24 = *(_QWORD *)(v21 + 88);
+    }
+    else
+    {
+      v24 = 0LL;
+    }
+    auto_rc<DMMVIDPN const>::reset((__int64 *)&a5, v24);
     if ( a5 )
     {
-      if ( IndexedSet<DMMVIDPNTARGET>::FindById(*((_QWORD *)a5 + 39), v9) )
+      v30 = IndexedSet<DMMVIDEOPRESENTTARGET>::FindById(*((_QWORD *)a5 + 39), v9);
+      if ( v30 )
       {
-        if ( DMMVIDPNTOPOLOGY::IsTargetInTopology((DMMVIDPNTOPOLOGY *)(v21 + 96), v20) )
+        if ( DMMVIDPNTOPOLOGY::IsTargetInTopology((DMMVIDPNTOPOLOGY *)(v31 + 96), v9) )
         {
-          v23 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(v22);
-          a7 = (struct _D3DKMDT_2DREGION *)v23;
-          if ( !*((_QWORD *)v23 + 18) )
-            WdLogSingleEntry0(1LL);
-          v24 = *((_QWORD *)v23 + 18);
-          a6 = *(VIDPN_MGR **)(v24 + 152);
+          v36 = *(_QWORD *)(v30 + 104);
+          if ( v36 )
+          {
+            _InterlockedIncrement((volatile signed __int32 *)(v36 + 96));
+            v37 = *(_QWORD *)(v30 + 104);
+          }
+          else
+          {
+            v37 = 0LL;
+          }
+          v38 = *(_QWORD *)(v37 + 144);
+          a7 = (struct _D3DKMDT_2DREGION *)v37;
+          if ( !v38 )
+          {
+            v39 = WdLogNewEntry5_WdAssertion(v34, v33);
+            WdLogEvent5_WdAssertion(v39);
+            v38 = *(_QWORD *)(v37 + 144);
+          }
+          a6 = *(enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING **)(v38 + 92);
+          DmmCalculatePresentationVSync(
+            (const struct _D3DKMDT_VIDEO_SIGNAL_INFO *)(v38 + 72),
+            (struct _D3DDDI_RATIONAL *)&a6);
           if ( a3 )
-            *a3 = *(enum _D3DKMDT_VIDEO_SIGNAL_STANDARD *)(v24 + 72);
+            *a3 = *v40;
           if ( a4 )
             *a4 = DmmMapVSyncFromRationalToInteger(
                     (const struct _D3DDDI_RATIONAL *)&a6,
-                    (enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING)((int)(*(_DWORD *)(*((_QWORD *)v23 + 18) + 120LL) << 29) >> 29),
+                    (unsigned int)((int)(*(_DWORD *)(*(_QWORD *)(v37 + 144) + 120LL) << 29) >> 29),
                     0LL);
           if ( v11 )
-          {
-            if ( (int)(*(_DWORD *)(*((_QWORD *)v23 + 18) + 120LL) << 29) >> 29 != 2
-              && (int)(*(_DWORD *)(*((_QWORD *)v23 + 18) + 120LL) << 29) >> 29 != 3 )
-            {
-              v16 = 0;
-            }
-            *v11 = v16;
-          }
+            *v11 = (unsigned int)(((int)(*(_DWORD *)(*(_QWORD *)(v37 + 144) + 120LL) << 29) >> 29) - 2) <= 1;
           if ( v12 )
-            *v12 = (int)(*(_DWORD *)(*((_QWORD *)v23 + 18) + 120LL) << 29) >> 29;
+            *v12 = (int)(*(_DWORD *)(*(_QWORD *)(v37 + 144) + 120LL) << 29) >> 29;
           if ( v13 )
-            *v13 = *(struct _D3DKMDT_2DREGION *)(*((_QWORD *)v23 + 18) + 84LL);
+            *v13 = *(struct _D3DKMDT_2DREGION *)(*(_QWORD *)(v37 + 144) + 84LL);
           if ( v14 )
-            *v14 = *(struct _D3DDDI_RATIONAL *)(*((_QWORD *)v23 + 18) + 152LL);
+            *v14 = *(struct _D3DDDI_RATIONAL *)(*(_QWORD *)(v37 + 144) + 92LL);
           auto_rc<DMMVIDPNTARGETMODESET>::reset((__int64 *)&a7, 0LL);
         }
         else
         {
-          WdLogSingleEntry1(2LL, v9);
+          v35 = WdLogNewEntry5_WdError(v34, v33);
+          *(_QWORD *)(v35 + 24) = v9;
+          WdLogEvent5_WdError(v35);
           v8 = -1071774912;
         }
       }
       else
       {
-        WdLogSingleEntry1(2LL, v9);
+        v32 = WdLogNewEntry5_WdError(v29, v28);
+        *(_QWORD *)(v32 + 24) = v9;
+        WdLogEvent5_WdError(v32);
         v8 = -1071774971;
       }
     }
     else
     {
-      WdLogSingleEntry1(2LL, a1);
+      v27 = WdLogNewEntry5_WdError(v26, v25);
+      *(_QWORD *)(v27 + 24) = a1;
+      WdLogEvent5_WdError(v27);
       v8 = -1071774884;
     }
     auto_rc<DMMVIDPN const>::reset((__int64 *)&a5, 0LL);
-    DXGFASTMUTEX::Release((struct _KTHREAD **)&a8[5]);
+    DXGFASTMUTEX::Release(*(struct _KTHREAD ***)&a8[5], v41);
     return v8;
   }
   else
   {
-    WdLogSingleEntry1(2LL, a1);
+    v22 = WdLogNewEntry5_WdError(v18, v17);
+    *(_QWORD *)(v22 + 24) = a1;
+    WdLogEvent5_WdError(v22);
     return 3223192373LL;
   }
 }

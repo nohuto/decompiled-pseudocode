@@ -1,5 +1,5 @@
 /*
- * XREFs of ObReferenceObjectSafe @ 0x14010C0F0
+ * XREFs of ObReferenceObjectSafe @ 0x14010C110
  * Callers:
  *     AlpcpDispatchConnectionRequest @ 0x140613B5C (AlpcpDispatchConnectionRequest.c)
  *     AlpcpReceiveLegacyMessage @ 0x140613E70 (AlpcpReceiveLegacyMessage.c)
@@ -10,19 +10,19 @@
  *     AlpcpDisconnectPort @ 0x1406196F0 (AlpcpDisconnectPort.c)
  *     AlpcpProcessSynchronousRequest @ 0x140633A30 (AlpcpProcessSynchronousRequest.c)
  *     AlpcpDispatchNewMessage @ 0x140635340 (AlpcpDispatchNewMessage.c)
- *     AlpcpReferenceConnectedPort @ 0x14068ED54 (AlpcpReferenceConnectedPort.c)
- *     WmipProcessEvent @ 0x14068F1CC (WmipProcessEvent.c)
- *     AlpcpQueryRemoteView @ 0x1406A6218 (AlpcpQueryRemoteView.c)
- *     CmUnRegisterCallback @ 0x1407EB030 (CmUnRegisterCallback.c)
- *     KiSwapToUmsThread @ 0x140845790 (KiSwapToUmsThread.c)
- *     AlpcpPortQueryServerInfo @ 0x14084ACE8 (AlpcpPortQueryServerInfo.c)
- *     AlpcpReferenceMessageByWaitingThread @ 0x14084B2D8 (AlpcpReferenceMessageByWaitingThread.c)
- *     ObpCreateTypeArray @ 0x140862308 (ObpCreateTypeArray.c)
- *     PspDisassociateUmsThreadFromPrimary @ 0x14088EDF0 (PspDisassociateUmsThreadFromPrimary.c)
- *     PspRundownUmsThreadForApcDelivery @ 0x14088F16C (PspRundownUmsThreadForApcDelivery.c)
+ *     AlpcpReferenceConnectedPort @ 0x14068ED34 (AlpcpReferenceConnectedPort.c)
+ *     WmipProcessEvent @ 0x14068F1AC (WmipProcessEvent.c)
+ *     AlpcpQueryRemoteView @ 0x1406A61F8 (AlpcpQueryRemoteView.c)
+ *     CmUnRegisterCallback @ 0x1407EB010 (CmUnRegisterCallback.c)
+ *     KiSwapToUmsThread @ 0x140845770 (KiSwapToUmsThread.c)
+ *     AlpcpPortQueryServerInfo @ 0x14084ACC8 (AlpcpPortQueryServerInfo.c)
+ *     AlpcpReferenceMessageByWaitingThread @ 0x14084B2B8 (AlpcpReferenceMessageByWaitingThread.c)
+ *     ObpCreateTypeArray @ 0x1408622E8 (ObpCreateTypeArray.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x14088EDD0 (PspDisassociateUmsThreadFromPrimary.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x14088F14C (PspRundownUmsThreadForApcDelivery.c)
  *     IovpBuildDriverObjectList @ 0x14092442C (IovpBuildDriverObjectList.c)
  * Callees:
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
  */
 
 char __fastcall ObReferenceObjectSafe(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBFDO_GetDeviceCapabilities @ 0x1C000C2C8
+ * XREFs of HUBFDO_GetDeviceCapabilities @ 0x1C000BEE0
  * Callers:
- *     HUBFDO_EvtDeviceAdd @ 0x1C0074380 (HUBFDO_EvtDeviceAdd.c)
+ *     HUBFDO_EvtDeviceAdd @ 0x1C00732C0 (HUBFDO_EvtDeviceAdd.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBFDO_GetDeviceCapabilities(__int64 a1, _DWORD *a2, __int64 a3)
@@ -59,7 +59,7 @@ __int64 __fastcall HUBFDO_GetDeviceCapabilities(__int64 a1, _DWORD *a2, __int64 
             &v13)
       && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      WPP_RECORDER_SF_(a3, 2u, 5u, 0xAu, (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids);
+      WPP_RECORDER_SF_(a3, 2u, 5u, 0xAu, (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids);
     }
     v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 2032))(WdfDriverGlobals, v10);
   }

@@ -1,23 +1,20 @@
 /*
- * XREFs of UserIsWindowOnDesktopAndComposed @ 0x1C005AC34
+ * XREFs of UserIsWindowOnDesktopAndComposed @ 0x1C00EA9D4
  * Callers:
- *     GreTransferDwmStateToSpriteState @ 0x1C00587CC (GreTransferDwmStateToSpriteState.c)
- *     GreTransferSpriteStateToDwmState @ 0x1C00597AC (GreTransferSpriteStateToDwmState.c)
+ *     GreTransferSpriteStateToDwmState @ 0x1C00EA26C (GreTransferSpriteStateToDwmState.c)
+ *     GreTransferDwmStateToSpriteState @ 0x1C00EAC4C (GreTransferDwmStateToSpriteState.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
  */
 
-__int64 __fastcall UserIsWindowOnDesktopAndComposed(__int64 a1, __int64 a2)
+__int64 __fastcall UserIsWindowOnDesktopAndComposed(unsigned __int64 a1, __int64 a2)
 {
-  __int64 v2; // rdi
   unsigned int v3; // ebx
   __int64 v4; // rax
 
-  v2 = a2;
   v3 = 0;
-  LOBYTE(a2) = 1;
-  v4 = HMValidateHandleNoSecure(a1, a2);
-  if ( v4 && v2 == ***(_QWORD ***)(*(_QWORD *)(v4 + 24) + 8LL) )
+  v4 = HMValidateHandleNoSecure(a1, 1);
+  if ( v4 && a2 == ***(_QWORD ***)(*(_QWORD *)(v4 + 24) + 8LL) )
     return (unsigned int)IsWindowDesktopComposed(v4) != 0;
   return v3;
 }

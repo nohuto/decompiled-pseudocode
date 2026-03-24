@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CGeometryOnlyDrawListBrush@@UEBA_NW4DrawListBrushType@@@Z @ 0x1800E74C0
+ * XREFs of ?IsOfType@CGeometryOnlyDrawListBrush@@UEBA_NW4DrawListBrushType@@@Z @ 0x1800CBD20
  * Callers:
  *     <none>
  * Callees:

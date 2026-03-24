@@ -1,5 +1,5 @@
 /*
- * XREFs of Get96DpiServerInfo @ 0x1C009A420
+ * XREFs of Get96DpiServerInfo @ 0x1C0091250
  * Callers:
  *     <none>
  * Callees:

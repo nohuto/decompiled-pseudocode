@@ -1,11 +1,11 @@
 /*
- * XREFs of UserSetTimer @ 0x1C0243AE8
+ * XREFs of UserSetTimer @ 0x1C024825C
  * Callers:
- *     RawInputThread @ 0x1C005CC60 (RawInputThread.c)
- *     vEnableSynchronize @ 0x1C011C670 (vEnableSynchronize.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
+ *     vEnableSynchronize @ 0x1C012FA40 (vEnableSynchronize.c)
  * Callees:
- *     InternalSetTimer @ 0x1C0075120 (InternalSetTimer.c)
- *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C00791A0 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C004F094 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     InternalSetTimer @ 0x1C0080820 (InternalSetTimer.c)
  */
 
 __int64 __fastcall UserSetTimer(int a1)
@@ -17,7 +17,7 @@ __int64 __fastcall UserSetTimer(int a1)
   v4 = a1;
   ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)&v4);
   if ( gptmrMaster )
-    v2 = InternalSetTimer(0LL, 0LL, 0x32u, (__int64)GreSynchronizeTimer, 0, 132);
+    v2 = InternalSetTimer(0LL, 0LL, 50LL, (__int64)GreSynchronizeTimer, 0, 132);
   else
     v2 = 0LL;
   if ( !v4 )

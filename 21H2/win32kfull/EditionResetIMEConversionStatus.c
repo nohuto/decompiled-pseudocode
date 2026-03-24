@@ -1,5 +1,5 @@
 /*
- * XREFs of EditionResetIMEConversionStatus @ 0x1C0122DD0
+ * XREFs of EditionResetIMEConversionStatus @ 0x1C01376A0
  * Callers:
  *     <none>
  * Callees:

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDispatchPnp@FxPkgFdo@@EEAAPEBQ6AJPEAVFxPkgPnp@@PEAVFxIrp@@@ZXZ @ 0x1C000BFA0
+ * XREFs of ?GetDispatchPnp@FxPkgFdo@@EEAAPEBQ6AJPEAVFxPkgPnp@@PEAVFxIrp@@@ZXZ @ 0x1C000DF00
  * Callers:
  *     <none>
  * Callees:

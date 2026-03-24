@@ -1,81 +1,68 @@
 /*
- * XREFs of KiUpdateXSaveSizeAndVolatileFeatures @ 0x140A56014
+ * XREFs of KiUpdateXSaveSizeAndVolatileFeatures @ 0x1409A1850
  * Callers:
- *     KiInitializeXSave @ 0x140A56780 (KiInitializeXSave.c)
+ *     KiInitializeXSave @ 0x14099BC40 (KiInitializeXSave.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall KiUpdateXSaveSizeAndVolatileFeatures(__int64 *a1)
 {
-  unsigned __int64 v1; // r9
-  unsigned int v2; // r10d
+  unsigned __int64 v1; // r8
+  unsigned int v2; // r11d
   __int64 v4; // r10
-  unsigned __int64 k; // r8
+  unsigned __int64 k; // r9
   unsigned int v6; // r11d
-  int v7; // eax
   __int64 result; // rax
-  unsigned int v9; // r11d
-  unsigned __int64 v10; // r8
-  unsigned __int64 i; // r9
-  unsigned int v12; // ecx
-  unsigned __int64 v13; // r8
-  unsigned __int64 j; // r11
-  unsigned int v15; // ecx
-  unsigned int v16; // ecx
+  unsigned int v8; // r10d
+  unsigned __int64 v9; // r9
+  unsigned __int64 i; // r8
+  unsigned int v11; // ecx
+  unsigned __int64 v12; // r9
+  unsigned __int64 j; // rbx
+  unsigned int v14; // r10d
 
   v1 = *a1;
   *((_DWORD *)a1 + 4) = 576;
   v2 = 2;
   *((_DWORD *)a1 + 138) = 576;
-  *((_DWORD *)a1 + 208) = 576;
   if ( (*((_DWORD *)a1 + 5) & 2) != 0 )
   {
-    v9 = 2;
-    v10 = (unsigned __int64)a1[68] >> 2;
+    v8 = 2;
+    v9 = (unsigned __int64)a1[68] >> 2;
     for ( i = v1 >> 2; i; i >>= 1 )
     {
-      if ( v9 >= 0x40 )
+      if ( v8 >= 0x40 )
         break;
       if ( (i & 1) != 0 )
       {
-        v12 = *((_DWORD *)a1 + 4);
-        if ( (v10 & 1) != 0 )
+        v11 = *((_DWORD *)a1 + 4);
+        if ( (v9 & 1) != 0 )
         {
-          v12 = (v12 + 63) & 0xFFFFFFC0;
-          *((_DWORD *)a1 + 4) = v12;
+          v11 = (v11 + 63) & 0xFFFFFFC0;
+          *((_DWORD *)a1 + 4) = v11;
         }
-        LODWORD(a1[v9 + 3]) = v12;
-        *((_DWORD *)a1 + 4) += HIDWORD(a1[v9 + 3]);
+        LODWORD(a1[v8 + 3]) = v11;
+        *((_DWORD *)a1 + 4) += HIDWORD(a1[v8 + 3]);
       }
-      v10 >>= 1;
-      ++v9;
+      v9 >>= 1;
+      ++v8;
     }
     v1 = *a1;
-    v13 = (*a1 | (unsigned __int64)a1[67]) >> 2;
-    for ( j = (unsigned __int64)a1[68] >> 2; v13; v13 >>= 1 )
+    v12 = (*a1 | (unsigned __int64)a1[67]) >> 2;
+    for ( j = (unsigned __int64)a1[68] >> 2; v12; v12 >>= 1 )
     {
       if ( v2 >= 0x40 )
         break;
-      if ( (v13 & 1) != 0 )
+      if ( (v12 & 1) != 0 )
       {
-        v15 = *((_DWORD *)a1 + 138);
+        v14 = *((_DWORD *)a1 + 138);
         if ( (j & 1) != 0 )
         {
-          v15 = (v15 + 63) & 0xFFFFFFC0;
-          *((_DWORD *)a1 + 138) = v15;
+          v14 = (v14 + 63) & 0xFFFFFFC0;
+          *((_DWORD *)a1 + 138) = v14;
         }
-        *((_DWORD *)a1 + 138) = *((_DWORD *)a1 + v2 + 139) + v15;
-        if ( v2 != 18 )
-        {
-          v16 = *((_DWORD *)a1 + 208);
-          if ( (j & 1) != 0 )
-          {
-            v16 = (v16 + 63) & 0xFFFFFFC0;
-            *((_DWORD *)a1 + 208) = v16;
-          }
-          *((_DWORD *)a1 + 208) = *((_DWORD *)a1 + v2 + 139) + v16;
-        }
+        *((_DWORD *)a1 + 138) = v14 + *((_DWORD *)a1 + v2 + 139);
       }
       j >>= 1;
       ++v2;
@@ -96,13 +83,10 @@ __int64 __fastcall KiUpdateXSaveSizeAndVolatileFeatures(__int64 *a1)
       }
       v4 = (unsigned int)(v4 + 1);
     }
-    v7 = *((_DWORD *)a1 + 4);
-    *((_DWORD *)a1 + 138) = v7;
-    *((_DWORD *)a1 + 208) = v7;
+    *((_DWORD *)a1 + 138) = *((_DWORD *)a1 + 4);
   }
-  a1[103] &= v1;
-  a1[1] = v1 & 0xBFFFFFFFFFFFFFEFuLL;
   result = a1[67] & 0x800;
+  a1[1] = v1 & 0xBFFFFFFFFFFFFFEFuLL;
   a1[102] = result;
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of ACPIRootPowerCallBack @ 0x1C003D620
+ * XREFs of ACPIRootPowerCallBack @ 0x1C0031590
  * Callers:
  *     <none>
  * Callees:
- *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
- *     ACPISetDeviceWorker @ 0x1C00474F4 (ACPISetDeviceWorker.c)
- *     OSCloseHandle @ 0x1C008DB48 (OSCloseHandle.c)
- *     OSCreateHandle @ 0x1C008DB64 (OSCreateHandle.c)
- *     OSWriteRegValue @ 0x1C008EC40 (OSWriteRegValue.c)
+ *     ACPISetDeviceWorker @ 0x1C0013470 (ACPISetDeviceWorker.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398 (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     OSCloseHandle @ 0x1C0096D0C (OSCloseHandle.c)
+ *     OSCreateHandle @ 0x1C0096D28 (OSCreateHandle.c)
+ *     OSWriteRegValue @ 0x1C0096E28 (OSWriteRegValue.c)
  */
 
-void __fastcall ACPIRootPowerCallBack(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)
+void __fastcall ACPIRootPowerCallBack(__int64 CallbackContext, PVOID Argument1, PVOID Argument2)
 {
   int v4; // ebx
   KIRQL v5; // al
@@ -70,7 +70,7 @@ LABEL_15:
         }
         Data = v9;
         KeReleaseSpinLock(&gdwGContextSpinLock, v8);
-        ACPISetDeviceWorker(CallbackContext, 31LL);
+        ACPISetDeviceWorker(CallbackContext, 31);
       }
       else
       {

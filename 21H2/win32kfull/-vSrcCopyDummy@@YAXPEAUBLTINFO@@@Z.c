@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vSrcCopyDummy@@YAXPEAUBLTINFO@@@Z @ 0x1C0123C60
+ * XREFs of ?vSrcCopyDummy@@YAXPEAUBLTINFO@@@Z @ 0x1C01379C0
  * Callers:
  *     <none>
  * Callees:

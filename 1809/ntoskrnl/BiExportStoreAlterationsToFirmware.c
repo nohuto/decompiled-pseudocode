@@ -1,11 +1,11 @@
 /*
- * XREFs of BiExportStoreAlterationsToFirmware @ 0x1406E1964
+ * XREFs of BiExportStoreAlterationsToFirmware @ 0x1406E1944
  * Callers:
- *     BcdForciblyUnloadStore @ 0x1406E173C (BcdForciblyUnloadStore.c)
- *     BiCloseStore @ 0x140710F68 (BiCloseStore.c)
+ *     BcdForciblyUnloadStore @ 0x1406E171C (BcdForciblyUnloadStore.c)
+ *     BiCloseStore @ 0x140710F48 (BiCloseStore.c)
  * Callees:
- *     BiGetFirmwareType @ 0x140713D2C (BiGetFirmwareType.c)
- *     BiExportStoreAlterationsToEfi @ 0x1408F39F8 (BiExportStoreAlterationsToEfi.c)
+ *     BiGetFirmwareType @ 0x140713D0C (BiGetFirmwareType.c)
+ *     BiExportStoreAlterationsToEfi @ 0x1408F39D8 (BiExportStoreAlterationsToEfi.c)
  */
 
 __int64 __fastcall BiExportStoreAlterationsToFirmware(__int64 a1)

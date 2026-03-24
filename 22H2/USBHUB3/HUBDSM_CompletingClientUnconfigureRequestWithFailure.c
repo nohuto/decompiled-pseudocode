@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_CompletingClientUnconfigureRequestWithFailure @ 0x1C001F310
+ * XREFs of HUBDSM_CompletingClientUnconfigureRequestWithFailure @ 0x1C001C900
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_CompleteClientSerialRequestWithLastStatus @ 0x1C0015950 (HUBPDO_CompleteClientSerialRequestWithLastStatus.c)
- *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C00286A8 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
+ *     HUBPDO_CompleteClientSerialRequestWithLastStatus @ 0x1C0014490 (HUBPDO_CompleteClientSerialRequestWithLastStatus.c)
+ *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C0025AB4 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
  */
 
 __int64 __fastcall HUBDSM_CompletingClientUnconfigureRequestWithFailure(__int64 a1)

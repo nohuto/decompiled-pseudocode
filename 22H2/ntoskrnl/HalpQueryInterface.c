@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpQueryInterface @ 0x140829FD4
+ * XREFs of HalpQueryInterface @ 0x140764820
  * Callers:
- *     HalpDispatchPnp @ 0x140829D70 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x1407645A0 (HalpDispatchPnp.c)
  * Callees:
  *     <none>
  */
@@ -39,10 +39,10 @@ __int64 __fastcall HalpQueryInterface(
         if ( !a4 )
           return 3221225485LL;
         *(_QWORD *)(a6 + 8) = a4;
-        *(_QWORD *)(a6 + 40) = HalPnpGetDmaAdapter;
+        *(_QWORD *)(a6 + 40) = HaliGetDmaAdapter;
         *(_QWORD *)(a6 + 16) = xHalTimerWatchdogStop;
-        *(_QWORD *)(a6 + 48) = PdcCreateWatchdogAroundClientCall;
-        *(_QWORD *)(a6 + 56) = PdcCreateWatchdogAroundClientCall;
+        *(_QWORD *)(a6 + 48) = HalSystemVectorDispatchEntry;
+        *(_QWORD *)(a6 + 56) = HalSystemVectorDispatchEntry;
         *(_QWORD *)(a6 + 24) = xHalTimerWatchdogStop;
         *(_QWORD *)(a6 + 32) = 0LL;
         return 0LL;

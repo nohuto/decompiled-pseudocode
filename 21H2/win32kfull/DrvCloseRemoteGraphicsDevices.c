@@ -1,9 +1,9 @@
 /*
- * XREFs of DrvCloseRemoteGraphicsDevices @ 0x1C0153958
+ * XREFs of DrvCloseRemoteGraphicsDevices @ 0x1C0163914
  * Callers:
- *     xxxRemoteReconnect @ 0x1C01528E0 (xxxRemoteReconnect.c)
+ *     xxxRemoteReconnect @ 0x1C0162570 (xxxRemoteReconnect.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -14,9 +14,13 @@ struct tagGRAPHICS_DEVICE *DrvCloseRemoteGraphicsDevices()
   struct tagGRAPHICS_DEVICE *v2; // rdi
   struct tagGRAPHICS_DEVICE *v3; // rsi
   struct tagGRAPHICS_DEVICE *v4; // rax
+  __int64 v5; // rax
 
   if ( !(unsigned int)UserIsUserCritSecIn() )
-    WdLogSingleEntry0(1LL);
+  {
+    v5 = WdLogNewEntry5_WdAssertion();
+    WdLogEvent5_WdAssertion(v5);
+  }
   result = gpRemoteGraphicsDeviceList;
   v1 = gpRemoteGraphicsDeviceList;
   if ( gpRemoteGraphicsDeviceList )

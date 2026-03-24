@@ -1,12 +1,12 @@
 /*
- * XREFs of NtMakeTemporaryObject @ 0x1406C7370
+ * XREFs of NtMakeTemporaryObject @ 0x1406C7350
  * Callers:
  *     IopReassignSystemRoot @ 0x1409DB7D0 (IopReassignSystemRoot.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObMakeTemporaryObject @ 0x1406C73F0 (ObMakeTemporaryObject.c)
- *     SeDeleteObjectAuditAlarmWithTransaction @ 0x1408A0640 (SeDeleteObjectAuditAlarmWithTransaction.c)
+ *     ObMakeTemporaryObject @ 0x1406C73D0 (ObMakeTemporaryObject.c)
+ *     SeDeleteObjectAuditAlarmWithTransaction @ 0x1408A0620 (SeDeleteObjectAuditAlarmWithTransaction.c)
  */
 
 NTSTATUS __stdcall NtMakeTemporaryObject(HANDLE Handle)

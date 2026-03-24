@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpServiceMainThreadBoost @ 0x1401593B4
+ * XREFs of PfpServiceMainThreadBoost @ 0x1401593D4
  * Callers:
  *     PfpScenCtxScenarioSet @ 0x14056EA68 (PfpScenCtxScenarioSet.c)
  * Callees:
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF20 (KeSetActualBasePriorityThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PfpServiceMainThreadBoost(__int64 a1, __int64 *a2)

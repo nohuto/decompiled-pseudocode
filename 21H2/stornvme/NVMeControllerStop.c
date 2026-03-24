@@ -1,17 +1,17 @@
 /*
- * XREFs of NVMeControllerStop @ 0x1C00195A8
+ * XREFs of NVMeControllerStop @ 0x1C000E85C
  * Callers:
- *     NVMeHwAdapterControl @ 0x1C0005860 (NVMeHwAdapterControl.c)
+ *     NVMeHwAdapterControl @ 0x1C0006080 (NVMeHwAdapterControl.c)
  * Callees:
- *     FreeMsiInfo @ 0x1C000642C (FreeMsiInfo.c)
- *     FreeProcessorInfo @ 0x1C00078F8 (FreeProcessorInfo.c)
- *     memset @ 0x1C00109C0 (memset.c)
- *     AdminQueuesFreeResources @ 0x1C0017C84 (AdminQueuesFreeResources.c)
- *     IoQueuesDeletion @ 0x1C0017F20 (IoQueuesDeletion.c)
- *     IoQueuesFreeResources @ 0x1C00181C4 (IoQueuesFreeResources.c)
- *     NVMeDisableThrottling @ 0x1C001967C (NVMeDisableThrottling.c)
- *     NVMeFreeHostMemoryBuffer @ 0x1C00196F4 (NVMeFreeHostMemoryBuffer.c)
- *     NVMePowerCleanUp @ 0x1C0019BC8 (NVMePowerCleanUp.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     AdminQueuesFreeResources @ 0x1C000B248 (AdminQueuesFreeResources.c)
+ *     FreeMsiInfo @ 0x1C000B5A0 (FreeMsiInfo.c)
+ *     FreeProcessorInfo @ 0x1C000B660 (FreeProcessorInfo.c)
+ *     IoQueuesDeletion @ 0x1C000C3E0 (IoQueuesDeletion.c)
+ *     IoQueuesFreeResources @ 0x1C000C684 (IoQueuesFreeResources.c)
+ *     NVMeDisableThrottling @ 0x1C000E930 (NVMeDisableThrottling.c)
+ *     NVMeFreeHostMemoryBuffer @ 0x1C000EA6C (NVMeFreeHostMemoryBuffer.c)
+ *     NVMePowerCleanUp @ 0x1C000FE54 (NVMePowerCleanUp.c)
  */
 
 char __fastcall NVMeControllerStop(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -35,24 +35,24 @@ char __fastcall NVMeControllerStop(__int64 a1, __int64 a2, __int64 a3, __int64 a
 
   v5 = IoQueuesDeletion(a1, a2, a3, a4);
   NVMePowerCleanUp(a1);
-  if ( *(_QWORD *)(a1 + 3800) )
+  if ( *(_QWORD *)(a1 + 3784) )
     NVMeFreeHostMemoryBuffer(a1);
   IoQueuesFreeResources(a1, v6, v7, v8);
   AdminQueuesFreeResources(a1, v9, v10, v11);
   FreeProcessorInfo(a1, v12, v13, v14);
   FreeMsiInfo(a1, v15, v16, v17);
-  if ( !*(_BYTE *)(a1 + 20) )
+  if ( !*(_BYTE *)(a1 + 16) )
   {
-    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 224); i = (unsigned int)(i + 1) )
+    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 208); i = (unsigned int)(i + 1) )
     {
-      v20 = *(_QWORD *)(a1 + 8 * i + 1752);
+      v20 = *(_QWORD *)(a1 + 8 * i + 1736);
       if ( v20 )
         StorPortExtendedFunction(1LL, a1, v20, v18);
     }
   }
-  memset((void *)(a1 + 1752), 0, 0x7F8uLL);
-  *(_DWORD *)(a1 + 212) = 0;
-  *(_DWORD *)(a1 + 224) = 0;
+  memset((void *)(a1 + 1736), 0, 0x7F8uLL);
+  *(_DWORD *)(a1 + 196) = 0;
+  *(_DWORD *)(a1 + 208) = 0;
   NVMeDisableThrottling(a1);
   return v5;
 }

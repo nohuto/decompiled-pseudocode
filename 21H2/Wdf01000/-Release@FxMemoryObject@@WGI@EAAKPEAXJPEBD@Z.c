@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Release@FxMemoryObject@@WGI@EAAKPEAXJPEBD@Z @ 0x1C00370B0
+ * XREFs of ?Release@FxMemoryObject@@WGI@EAAKPEAXJPEBD@Z @ 0x1C001D8F0
  * Callers:
  *     <none>
  * Callees:

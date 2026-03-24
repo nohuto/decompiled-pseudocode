@@ -1,9 +1,8 @@
 /*
- * XREFs of ZwOpenKeyEx @ 0x14041CBC0
+ * XREFs of ZwOpenKeyEx @ 0x1403FBE40
  * Callers:
- *     DifZwOpenKeyExWrapper @ 0x1405F1BD0 (DifZwOpenKeyExWrapper.c)
- *     _RegRtlOpenKeyTransacted @ 0x1406CEE20 (_RegRtlOpenKeyTransacted.c)
- *     MfgInitSystem @ 0x140B76340 (MfgInitSystem.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406BB4DC (_RegRtlOpenKeyTransacted.c)
+ *     MfgInitSystem @ 0x140A73924 (MfgInitSystem.c)
  * Callees:
  *     <none>
  */

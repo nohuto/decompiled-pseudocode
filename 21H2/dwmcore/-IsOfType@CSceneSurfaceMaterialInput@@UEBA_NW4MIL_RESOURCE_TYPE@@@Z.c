@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CSceneSurfaceMaterialInput@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18023E7A0
+ * XREFs of ?IsOfType@CSceneSurfaceMaterialInput@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801EC0A0
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ bool __fastcall CSceneSurfaceMaterialInput::IsOfType(__int64 a1, int a2)
   int v3; // eax
   bool result; // al
 
-  v2 = a2 - 155;
+  v2 = a2 - 156;
   result = 0;
   if ( v2 <= 9 )
   {

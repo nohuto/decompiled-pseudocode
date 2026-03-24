@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqObjectManagerMakeInconsistent @ 0x14082AF08
+ * XREFs of PiDqObjectManagerMakeInconsistent @ 0x14082AEE8
  * Callers:
- *     PiPnpRtlObjectEventWorker @ 0x1406F1F40 (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1406F1F20 (PiPnpRtlObjectEventWorker.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
  */
 
 void __fastcall PiDqObjectManagerMakeInconsistent(__int64 a1)

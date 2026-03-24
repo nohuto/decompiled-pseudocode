@@ -1,9 +1,9 @@
 /*
- * XREFs of xHalTranslateBusAddress @ 0x140543090
+ * XREFs of xHalTranslateBusAddress @ 0x1404F17A0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 void __noreturn xHalTranslateBusAddress()

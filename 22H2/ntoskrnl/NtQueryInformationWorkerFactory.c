@@ -1,15 +1,15 @@
 /*
- * XREFs of NtQueryInformationWorkerFactory @ 0x14060F7A0
+ * XREFs of NtQueryInformationWorkerFactory @ 0x1405B9730
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ExSystemExceptionFilter @ 0x140865F70 (ExSystemExceptionFilter.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExSystemExceptionFilter @ 0x1407D4E30 (ExSystemExceptionFilter.c)
  */
 
 NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, unsigned __int64 a3, int a4, _DWORD *a5)
@@ -77,39 +77,42 @@ NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, unsig
     v22 = 0LL;
     *(_QWORD *)&v23 = *((_QWORD *)v12 + 14);
     WORD4(v23) = 0;
-    BYTE10(v23) = (v12[408] & 8) != 0;
+    BYTE10(v23) = (v12[312] & 8) != 0;
     v13 = *((_QWORD *)v12 + 2);
     v14 = *(_DWORD *)(v13 + 28);
     BYTE11(v23) = v14 == 0;
-    BYTE12(v23) = *((_DWORD *)v12 + 100) != 0;
+    BYTE12(v23) = *((_DWORD *)v12 + 76) != 0;
     *(_WORD *)((char *)&v23 + 13) = *(_WORD *)(v13 + 32);
-    LODWORD(v24) = *((_DWORD *)v12 + 101);
-    *(_QWORD *)((char *)&v24 + 4) = *((_QWORD *)v12 + 47);
-    HIDWORD(v24) = *((_DWORD *)v12 + 98);
+    LODWORD(v24) = *((_DWORD *)v12 + 77);
+    *(_QWORD *)((char *)&v24 + 4) = *((_QWORD *)v12 + 35);
+    HIDWORD(v24) = *((_DWORD *)v12 + 74);
     LODWORD(v25) = v14;
-    DWORD1(v25) = *((_DWORD *)v12 + 97);
+    DWORD1(v25) = *((_DWORD *)v12 + 73);
     DWORD2(v25) = *(_DWORD *)(v13 + 24);
     *(_QWORD *)&v26 = 0LL;
     *((_QWORD *)&v26 + 1) = *((_QWORD *)v12 + 3);
     *(_QWORD *)&v27 = *((_QWORD *)v12 + 4);
     *((_QWORD *)&v27 + 1) = *(_QWORD *)(*((_QWORD *)v12 + 6) + 1088LL);
     v28 = *(_OWORD *)(v12 + 56);
-    LODWORD(v29) = *((_DWORD *)v12 + 104);
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+    LODWORD(v29) = *((_DWORD *)v12 + 80);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v19 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v20 = (v19 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v19;
-        if ( v20 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-        v12 = (char *)Object;
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v19 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v20 = (v19 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v19;
+          if ( v20 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          v12 = (char *)Object;
+        }
       }
     }
     __writecr8(OldIrql);

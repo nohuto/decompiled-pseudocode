@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetIntegerProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C022CD40
+ * XREFs of ?SetIntegerProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F3E10
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00900D0 (-SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I.c)
+ *     ?SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0085550 (-SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I.c)
  */
 
 __int64 __fastcall DirectComposition::CNaturalAnimationMarshaler::SetIntegerProperty(
@@ -23,20 +23,20 @@ __int64 __fastcall DirectComposition::CNaturalAnimationMarshaler::SetIntegerProp
       return DirectComposition::CBaseExpressionMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);
     if ( a4 <= 1 )
     {
-      if ( *((_DWORD *)this + 47) == (_DWORD)a4 )
+      if ( *((_DWORD *)this + 44) == (_DWORD)a4 )
         return result;
-      *((_DWORD *)this + 47) = a4;
+      *((_DWORD *)this + 44) = a4;
       goto LABEL_11;
     }
     return 3221225485LL;
   }
   if ( a4 > 2 )
     return 3221225485LL;
-  if ( *((_DWORD *)this + 48) == (_DWORD)a4 )
+  if ( *((_DWORD *)this + 45) == (_DWORD)a4 )
     return result;
-  *((_DWORD *)this + 48) = a4;
+  *((_DWORD *)this + 45) = a4;
 LABEL_11:
-  *((_DWORD *)this + 4) |= 0x20000u;
+  *((_DWORD *)this + 4) |= 0x10000u;
   *a5 = 1;
   return result;
 }

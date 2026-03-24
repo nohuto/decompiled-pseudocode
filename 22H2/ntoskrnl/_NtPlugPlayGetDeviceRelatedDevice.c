@@ -1,11 +1,11 @@
 /*
- * XREFs of _NtPlugPlayGetDeviceRelatedDevice @ 0x14079A9EC
+ * XREFs of _NtPlugPlayGetDeviceRelatedDevice @ 0x140693D48
  * Callers:
- *     _CmGetDeviceParent @ 0x14079A844 (_CmGetDeviceParent.c)
- *     _CmGetDeviceChildren @ 0x14083AE90 (_CmGetDeviceChildren.c)
+ *     _CmGetDeviceParent @ 0x140693B94 (_CmGetDeviceParent.c)
+ *     _CmGetDeviceChildren @ 0x140979DEC (_CmGetDeviceChildren.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     _PnpCtxGetNtPlugPlayRoutine @ 0x14079AD6C (_PnpCtxGetNtPlugPlayRoutine.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     _PnpCtxGetNtPlugPlayRoutine @ 0x1406BA220 (_PnpCtxGetNtPlugPlayRoutine.c)
  */
 
 __int64 __fastcall NtPlugPlayGetDeviceRelatedDevice(

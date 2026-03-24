@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwAllocMem @ 0x140953348
+ * XREFs of PiSwAllocMem @ 0x1408AE8E8
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x140765DC0 (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074DBB8 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiSwAllocMem(__int64 a1)
+PVOID __fastcall PiSwAllocMem(SIZE_T NumberOfBytes)
 {
-  return ExAllocatePool2(256LL, a1, 1466986064LL);
+  return ExAllocatePoolWithTag(PagedPool, NumberOfBytes, 0x57706E50u);
 }

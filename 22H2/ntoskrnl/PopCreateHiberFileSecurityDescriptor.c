@@ -1,29 +1,29 @@
 /*
- * XREFs of PopCreateHiberFileSecurityDescriptor @ 0x140800FBC
+ * XREFs of PopCreateHiberFileSecurityDescriptor @ 0x14079D224
  * Callers:
- *     PopCreateHiberFile @ 0x140800B90 (PopCreateHiberFile.c)
+ *     PopCreateHiberFile @ 0x14079BC20 (PopCreateHiberFile.c)
  * Callees:
- *     RtlGetAce @ 0x140227A80 (RtlGetAce.c)
- *     RtlSubAuthoritySid @ 0x1402979B0 (RtlSubAuthoritySid.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735770 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     RtlInitializeSid @ 0x140782560 (RtlInitializeSid.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlGetAce @ 0x140347A20 (RtlGetAce.c)
+ *     RtlSubAuthoritySid @ 0x1403482A0 (RtlSubAuthoritySid.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1406D5220 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     RtlInitializeSid @ 0x140718B40 (RtlInitializeSid.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 ACL *PopCreateHiberFileSecurityDescriptor()
 {
   ACL *v0; // rbx
   ACL *v1; // rdi
-  unsigned __int8 *Pool2; // rax
+  unsigned __int8 *PoolWithTag; // rax
   unsigned __int8 *Src; // rsi
   __int64 v4; // rbp
   ACL *v5; // rax
-  __int64 v6; // rax
+  ACL *v6; // rax
   NTSTATUS SecurityDescriptor; // eax
   ACL *v8; // rcx
   _BYTE *IdentifierAuthority; // [rsp+50h] [rbp+8h] BYREF
@@ -32,17 +32,17 @@ ACL *PopCreateHiberFileSecurityDescriptor()
   WORD2(IdentifierAuthority) = 256;
   LODWORD(IdentifierAuthority) = 0;
   v1 = 0LL;
-  Pool2 = (unsigned __int8 *)ExAllocatePool2(256LL, 12LL, 1919052136LL);
-  Src = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (unsigned __int8 *)ExAllocatePoolWithTag(PagedPool, 0xCuLL, 0x72626968u);
+  Src = PoolWithTag;
+  if ( !PoolWithTag )
     return v0;
-  if ( RtlInitializeSid(Pool2, (PSID_IDENTIFIER_AUTHORITY)&IdentifierAuthority, 1u) >= 0 )
+  if ( RtlInitializeSid(PoolWithTag, (PSID_IDENTIFIER_AUTHORITY)&IdentifierAuthority, 1u) >= 0 )
   {
     *RtlSubAuthoritySid(Src, 0) = 0;
     v4 = 4 * (unsigned int)Src[1] + 24;
     if ( (unsigned int)v4 >= 4 * (unsigned int)Src[1] + 16 )
     {
-      v5 = (ACL *)ExAllocatePool2(256LL, (unsigned int)v4, 1919052136LL);
+      v5 = (ACL *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v4, 0x72626968u);
       v1 = v5;
       if ( v5 )
       {
@@ -51,11 +51,11 @@ ACL *PopCreateHiberFileSecurityDescriptor()
           IdentifierAuthority = 0LL;
           RtlGetAce(v1, 0, (PVOID *)&IdentifierAuthority);
           IdentifierAuthority[1] |= 2u;
-          v6 = ExAllocatePool2(256LL, v4 + 40, 1919052136LL);
-          v0 = (ACL *)v6;
+          v6 = (ACL *)ExAllocatePoolWithTag(PagedPool, v4 + 40, 0x72626968u);
+          v0 = v6;
           if ( v6 )
           {
-            memmove((void *)(v6 + 40), v1, (unsigned int)v4);
+            memmove(&v6[5], v1, (unsigned int)v4);
             SecurityDescriptor = RtlCreateSecurityDescriptor(v0, 1u);
             v8 = v0;
             if ( SecurityDescriptor >= 0 )

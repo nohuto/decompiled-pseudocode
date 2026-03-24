@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlDowncaseUnicodeString @ 0x1406A2C00
+ * XREFs of RtlDowncaseUnicodeString @ 0x1406A2BE0
  * Callers:
  *     <none>
  * Callees:
  *     ExFreePool @ 0x14034D780 (ExFreePool.c)
- *     ExpAllocateStringRoutine @ 0x1406B2120 (ExpAllocateStringRoutine.c)
+ *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
  */
 
 NTSTATUS __stdcall RtlDowncaseUnicodeString(

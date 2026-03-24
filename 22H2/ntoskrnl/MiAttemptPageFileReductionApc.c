@@ -1,331 +1,327 @@
 /*
- * XREFs of MiAttemptPageFileReductionApc @ 0x140637DE0
+ * XREFs of MiAttemptPageFileReductionApc @ 0x140542A10
  * Callers:
  *     <none>
  * Callees:
- *     RtlClearBits @ 0x14022DA20 (RtlClearBits.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiChargeCommit @ 0x1402763A0 (MiChargeCommit.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiOkToShrinkPageFiles @ 0x140292CC0 (MiOkToShrinkPageFiles.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x140294A1C (MiInvalidatePageFileBitmapsCache.c)
- *     RtlFindLastBackwardRunClear @ 0x140294DA0 (RtlFindLastBackwardRunClear.c)
- *     MiCoalescePageFileBitmapsCache @ 0x140295338 (MiCoalescePageFileBitmapsCache.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReduceCommitLimits @ 0x1406565CC (MiReduceCommitLimits.c)
+ *     RtlClearBits @ 0x140206DC0 (RtlClearBits.c)
+ *     MiChargeCommit @ 0x14021AA90 (MiChargeCommit.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     RtlSetBits @ 0x1402D9750 (RtlSetBits.c)
+ *     MiOkToShrinkPageFiles @ 0x1402E9E2C (MiOkToShrinkPageFiles.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x140330EC0 (MiCoalescePageFileBitmapsCache.c)
+ *     RtlFindLastBackwardRunClear @ 0x140333650 (RtlFindLastBackwardRunClear.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x140333BF0 (MiInvalidatePageFileBitmapsCache.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReduceCommitLimits @ 0x14055057C (MiReduceCommitLimits.c)
  */
 
 LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
 {
   unsigned int Flink; // r13d
-  unsigned __int64 v2; // rbx
-  unsigned __int64 v3; // r15
+  __int64 v2; // rbx
+  unsigned int v3; // eax
   unsigned __int64 Flink_high; // rdx
-  unsigned int v5; // eax
-  int v6; // r8d
-  int v7; // eax
-  __int64 v8; // rcx
-  unsigned __int64 v9; // r9
-  __int64 v10; // r15
-  __int64 v11; // rsi
-  __int64 v12; // rsi
+  int v5; // r8d
+  unsigned __int64 v6; // r15
+  __int64 v7; // rcx
+  unsigned __int64 v8; // r9
+  __int64 v9; // r15
+  __int64 v10; // rcx
+  __int64 v11; // rdi
+  __int64 v12; // rdi
   __int16 v13; // ax
   KIRQL v14; // al
   __int64 v15; // rcx
-  int v16; // r10d
+  int v16; // esi
   unsigned __int64 v17; // r12
-  __int64 v18; // r11
-  RTL_BITMAP *v19; // r9
-  unsigned __int64 v20; // r8
-  char v21; // cl
-  unsigned int *Buffer; // r9
-  unsigned __int64 v23; // rdi
-  unsigned __int64 v24; // rcx
-  unsigned int v25; // r10d
-  ULONG v26; // ebx
+  RTL_BITMAP *v18; // r10
+  const signed __int32 *v19; // r8
+  unsigned int v20; // eax
+  const signed __int32 *v21; // rdx
+  unsigned __int64 v22; // rbx
+  unsigned __int64 v23; // rcx
+  unsigned int v24; // esi
   ULONG LastBackwardRunClear; // eax
-  unsigned __int64 v28; // r14
-  __int64 v29; // rcx
-  __int64 v30; // rax
-  unsigned __int64 v31; // rdi
-  __int64 v32; // r8
-  unsigned __int64 v33; // rax
-  unsigned __int8 v34; // al
-  struct _KPRCB *v35; // r10
-  _DWORD *v36; // r9
-  int v37; // eax
-  bool v38; // zf
-  RTL_BITMAP *v39; // rcx
+  ULONG v26; // eax
+  int v27; // r9d
+  unsigned __int64 v28; // rdx
+  unsigned __int64 v29; // rsi
+  volatile LONG *v30; // rcx
+  unsigned __int8 v31; // al
+  struct _KPRCB *v32; // r10
+  _DWORD *v33; // r9
+  int v34; // eax
+  bool v35; // zf
+  __int64 v36; // rcx
+  __int64 v37; // rax
+  unsigned __int64 v38; // r14
+  __int64 v39; // r8
+  unsigned __int64 v40; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v43; // eax
-  __int64 v44; // r12
-  unsigned __int8 v45; // al
-  struct _KPRCB *v46; // r10
-  _DWORD *v47; // r9
-  int v48; // eax
-  KIRQL v49; // al
-  __int64 v50; // rdx
-  unsigned __int64 v51; // r15
-  RTL_BITMAP *v52; // rbx
-  unsigned __int8 v53; // al
-  struct _KPRCB *v54; // r9
-  _DWORD *v55; // r8
-  int v56; // eax
-  unsigned __int64 v58; // [rsp+30h] [rbp-49h]
-  unsigned int v59; // [rsp+38h] [rbp-41h]
-  unsigned __int64 v60; // [rsp+40h] [rbp-39h]
+  int v44; // eax
+  __int64 v45; // r12
+  KIRQL v46; // al
+  __int64 v47; // rdx
+  unsigned __int64 v48; // r15
+  RTL_BITMAP *v49; // rbx
+  unsigned __int8 v50; // al
+  struct _KPRCB *v51; // r9
+  _DWORD *v52; // r8
+  int v53; // eax
+  unsigned __int64 v55; // [rsp+30h] [rbp-49h]
+  unsigned int v56; // [rsp+38h] [rbp-41h]
+  _DWORD *v57; // [rsp+40h] [rbp-39h]
   ULONG StartingRunIndex; // [rsp+48h] [rbp-31h] BYREF
-  ULONG v62; // [rsp+4Ch] [rbp-2Dh] BYREF
-  _DWORD *v63; // [rsp+50h] [rbp-29h]
-  __int64 v64; // [rsp+58h] [rbp-21h]
-  PEX_SPIN_LOCK SpinLock; // [rsp+60h] [rbp-19h]
-  __int64 v66; // [rsp+68h] [rbp-11h]
-  RTL_BITMAP BitMapHeader; // [rsp+70h] [rbp-9h] BYREF
-  RTL_BITMAP v68; // [rsp+80h] [rbp+7h] BYREF
-  PRTL_BITMAP v69; // [rsp+90h] [rbp+17h]
-  PRTL_BITMAP v70; // [rsp+98h] [rbp+1Fh]
+  ULONG v59; // [rsp+4Ch] [rbp-2Dh] BYREF
+  __int64 v60; // [rsp+50h] [rbp-29h]
+  PRTL_BITMAP v61; // [rsp+58h] [rbp-21h]
+  __int64 v62; // [rsp+60h] [rbp-19h]
+  __int64 v63; // [rsp+68h] [rbp-11h]
+  volatile LONG *v64; // [rsp+70h] [rbp-9h]
+  PRTL_BITMAP v65; // [rsp+78h] [rbp-1h]
+  RTL_BITMAP BitMapHeader; // [rsp+80h] [rbp+7h] BYREF
+  RTL_BITMAP v67; // [rsp+90h] [rbp+17h] BYREF
   struct _KEVENT *Event; // [rsp+E0h] [rbp+67h]
-  int v72; // [rsp+F8h] [rbp+7Fh]
+  int v69; // [rsp+F8h] [rbp+7Fh]
 
   Event = a1;
   StartingRunIndex = 0;
-  v62 = 0;
+  v59 = 0;
   Flink = (unsigned int)a1[1].Header.WaitListHead.Flink;
   v2 = *(_QWORD *)&a1[1].Header.Lock;
-  *(_QWORD *)&BitMapHeader.SizeOfBitMap = 0LL;
-  LODWORD(BitMapHeader.Buffer) = 0;
-  *(_QWORD *)&v68.SizeOfBitMap = 0LL;
-  LODWORD(v68.Buffer) = 0;
+  BitMapHeader = 0LL;
+  v67 = 0LL;
   if ( Flink >= 0x10 )
   {
-    LOBYTE(v7) = MiOkToShrinkPageFiles(*(_QWORD *)(v2 + 17576), *(_QWORD *)(v2 + 17816));
-    if ( !v7 )
+    if ( !MiOkToShrinkPageFiles(*(_QWORD *)(v2 + 7464), *(_QWORD *)(v2 + 7592)) )
       return KeSetEvent(Event, 0, 0);
-    v5 = *(_DWORD *)(v2 + 17048);
-    v6 = 1;
-    v64 = 0x8000LL;
+    v3 = *(_DWORD *)(v2 + 6936);
+    v5 = 1;
+    v62 = 0x8000LL;
     Flink_high = 0x4000LL;
-    v10 = (((v9 * (unsigned __int128)0xCCCCCCCCCCCCCCCDuLL) >> 64) & 0xFFFFFFFFFFFFFFF8uLL) - v8;
+    v9 = (((v8 * (unsigned __int128)0xCCCCCCCCCCCCCCCDuLL) >> 64) & 0xFFFFFFFFFFFFFFF8uLL) - v7;
     a1 = Event;
-    v3 = v10 - 0x8000;
+    v6 = v9 - 0x8000;
     Flink = 0;
   }
   else
   {
-    v64 = 0LL;
-    v3 = 0x7FFFFFFFFFFFFFFFLL;
+    v62 = 0LL;
+    v3 = Flink + 1;
     Flink_high = HIDWORD(a1[1].Header.WaitListHead.Flink);
-    v5 = Flink + 1;
-    v6 = 0;
+    v5 = 0;
+    v6 = 0x7FFFFFFFFFFFFFFFLL;
   }
-  v59 = v5;
-  v72 = v6;
-  v58 = Flink_high;
-  if ( Flink < v5 )
+  v56 = v3;
+  v69 = v5;
+  v55 = Flink_high;
+  if ( Flink < v3 )
   {
-    v11 = 8LL * Flink + 17056;
-    v66 = v11;
-    v63 = (_DWORD *)&a1[1].Header.WaitListHead.Blink + Flink;
+    v10 = (__int64)&a1[1].Header.WaitListHead.Blink + 4 * Flink;
+    v11 = 8LL * Flink + 6944;
+    v57 = (_DWORD *)v10;
+    v63 = v11;
     while ( 1 )
     {
-      if ( Flink_high > v3 )
+      if ( Flink_high > v6 )
         return KeSetEvent(Event, 0, 0);
       v12 = *(_QWORD *)(v11 + v2);
       v13 = *(_WORD *)(v12 + 204);
-      if ( ((v13 & 0x10) == 0 || !v6)
+      if ( ((v13 & 0x10) == 0 || !v5)
         && (v13 & 0x40) == 0
         && *(_QWORD *)v12 != *(_QWORD *)(v12 + 16)
         && *(_QWORD *)(v12 + 24) >= Flink_high )
       {
         break;
       }
-LABEL_61:
+LABEL_55:
+      v10 += 4LL;
+      v11 = v63 + 8;
+      v57 = (_DWORD *)v10;
       ++Flink;
-      ++v63;
-      v11 = v66 + 8;
-      v66 += 8LL;
-      if ( Flink >= v59 )
+      v63 += 8LL;
+      if ( Flink >= v56 )
         return KeSetEvent(Event, 0, 0);
-      v6 = v72;
+      v5 = v69;
     }
     v2 = *(_QWORD *)(v12 + 248);
     v60 = v2;
-    SpinLock = (PEX_SPIN_LOCK)(v12 + 232);
+    v64 = (volatile LONG *)(v12 + 232);
     v14 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v12 + 232));
     v15 = *(_QWORD *)(v12 + 112);
     v16 = *(_DWORD *)v12;
     v17 = v14;
-    v18 = *(_QWORD *)(v15 + 16);
-    v19 = (RTL_BITMAP *)(v15 + 24);
-    v20 = (unsigned __int64)(unsigned int)(*(_DWORD *)v12 - 1) >> 3;
-    v69 = (PRTL_BITMAP)(v15 + 8);
-    v21 = (v16 - 1) & 7;
-    v70 = v19;
-    if ( ((*(char *)(v18 + v20) >> v21) & 1) == 0 )
+    v18 = (RTL_BITMAP *)(v15 + 8);
+    v19 = *(const signed __int32 **)(v15 + 16);
+    v20 = *(_DWORD *)v12 - 1;
+    v61 = (PRTL_BITMAP)(v15 + 8);
+    v65 = (PRTL_BITMAP)(v15 + 24);
+    if ( _bittest(v19, v20) == 1 || (v21 = *(const signed __int32 **)(v15 + 32), _bittest(v21, v20) == 1) )
     {
-      Buffer = v19->Buffer;
-      if ( ((*((char *)Buffer + v20) >> v21) & 1) == 0 )
+      v28 = v55;
+      v29 = 0LL;
+      v27 = v69;
+    }
+    else
+    {
+      v22 = *(_QWORD *)v12 - *(_QWORD *)(v12 + 16);
+      if ( v6 <= v22 )
+        v22 = v6;
+      v23 = (*(_QWORD *)v12 - v22) & 0xFFFFFFFFFFFFFFE0uLL;
+      v24 = v16 - v23;
+      v23 >>= 5;
+      BitMapHeader.SizeOfBitMap = v24;
+      v67.SizeOfBitMap = v24;
+      BitMapHeader.Buffer = (unsigned int *)&v19[v23];
+      v67.Buffer = (unsigned int *)&v21[v23];
+      LastBackwardRunClear = RtlFindLastBackwardRunClear(&BitMapHeader, v24 - 1, &StartingRunIndex);
+      if ( LastBackwardRunClear <= v22 )
+        v22 = LastBackwardRunClear;
+      v26 = RtlFindLastBackwardRunClear(&v67, v24 - 1, &v59);
+      v27 = v69;
+      v28 = v55;
+      v18 = v61;
+      v29 = v26;
+      if ( v22 <= v26 )
+        v29 = v22;
+      v2 = v60;
+      if ( !v69 )
+        v29 &= ~(v55 - 1);
+    }
+    if ( v29 )
+    {
+      v36 = *(_QWORD *)v12;
+      v37 = *(_QWORD *)(v12 + 240);
+      v38 = *(_QWORD *)v12 - v29;
+      if ( !v37 )
+        goto LABEL_43;
+      do
       {
-        v23 = v3;
-        if ( v3 > *(_QWORD *)v12 - *(_QWORD *)(v12 + 16) )
-          v23 = *(_QWORD *)v12 - *(_QWORD *)(v12 + 16);
-        v24 = (*(_QWORD *)v12 - v23) & 0xFFFFFFFFFFFFFFE0uLL;
-        v25 = v16 - v24;
-        v24 >>= 5;
-        BitMapHeader.SizeOfBitMap = v25;
-        v68.SizeOfBitMap = v25;
-        BitMapHeader.Buffer = (unsigned int *)(v18 + 4 * v24);
-        v26 = v25 - 1;
-        v68.Buffer = &Buffer[v24];
-        LastBackwardRunClear = RtlFindLastBackwardRunClear(&BitMapHeader, v25 - 1, &StartingRunIndex);
-        if ( LastBackwardRunClear <= v23 )
-          v23 = LastBackwardRunClear;
-        v28 = RtlFindLastBackwardRunClear(&v68, v26, &v62);
-        if ( v23 <= v28 )
-          v28 = v23;
-        if ( !v72 )
-          v28 &= ~(v58 - 1);
-        if ( v28 )
+        v39 = v37;
+        v37 = *(_QWORD *)(v37 + 8);
+      }
+      while ( v37 );
+      v40 = *(_QWORD *)(v39 - 8);
+      if ( !v40 || v38 > v40 )
+        goto LABEL_43;
+      v38 = v40 + 1;
+      if ( v40 + 1 >= v40 )
+      {
+        v29 = v36 - v38;
+        if ( !v27 )
         {
-          v29 = *(_QWORD *)v12;
-          v30 = *(_QWORD *)(v12 + 240);
-          v31 = *(_QWORD *)v12 - v28;
-          if ( !v30 )
-            goto LABEL_40;
-          do
+          v29 &= ~(v28 - 1);
+          v38 = v36 - v29;
+        }
+        if ( v29 )
+        {
+LABEL_43:
+          *(_QWORD *)(v12 + 24) -= v29;
+          *(_QWORD *)(v12 + 48) -= v29;
+          *(_QWORD *)v12 = v38;
+          RtlSetBits(v18, v38, v29);
+          RtlSetBits(v65, v38, v29);
+          MiInvalidatePageFileBitmapsCache(v12, v38, v29, 0LL);
+          ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v12 + 232));
+          if ( KiIrqlFlags )
           {
-            v32 = v30;
-            v30 = *(_QWORD *)(v30 + 8);
-          }
-          while ( v30 );
-          v33 = *(_QWORD *)(v32 - 8);
-          if ( !v33 || v31 > v33 )
-            goto LABEL_40;
-          v31 = v33 + 1;
-          if ( v33 + 1 >= v33 )
-          {
-            v28 = v29 - v31;
-            if ( !v72 )
+            if ( (KiIrqlFlags & 1) != 0 )
             {
-              v28 &= ~(v58 - 1);
-              v31 = v29 - v28;
+              CurrentIrql = KeGetCurrentIrql();
+              if ( CurrentIrql <= 0xFu && (unsigned __int8)v17 <= 0xFu && CurrentIrql >= 2u )
+              {
+                CurrentPrcb = KeGetCurrentPrcb();
+                SchedulerAssist = CurrentPrcb->SchedulerAssist;
+                v44 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
+                v35 = (v44 & SchedulerAssist[5]) == 0;
+                SchedulerAssist[5] &= v44;
+                if ( v35 )
+                  KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+              }
             }
-            if ( v28 )
+          }
+          __writecr8(v17);
+          v6 -= v29;
+          if ( (*(_BYTE *)(v12 + 204) & 0x10) == 0 )
+          {
+            v45 = v29 + v62;
+            if ( !(unsigned int)MiChargeCommit(v2, v29 + v62, 2u) )
             {
-LABEL_40:
-              v39 = v69;
-              *(_QWORD *)(v12 + 24) -= v28;
-              *(_QWORD *)(v12 + 48) -= v28;
-              *(_QWORD *)v12 = v31;
-              RtlSetBits(v39, v31, v28);
-              RtlSetBits(v70, v31, v28);
-              MiInvalidatePageFileBitmapsCache(v12, v31, v28, 0LL);
+              v46 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v12 + 232));
+              v47 = *(_QWORD *)(v12 + 112);
+              *(_QWORD *)(v12 + 24) += v29;
+              *(_QWORD *)(v12 + 48) += v29;
+              *(_QWORD *)v12 = v29 + v38;
+              v48 = v46;
+              v49 = (RTL_BITMAP *)(v47 + 24);
+              RtlClearBits((PRTL_BITMAP)(v47 + 8), v38, v29);
+              RtlClearBits(v49, v38, v29);
+              if ( v38 < *(unsigned int *)(v12 + 120) )
+                *(_DWORD *)(v12 + 120) = v38;
+              MiCoalescePageFileBitmapsCache(v12, 0, v38);
               ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v12 + 232));
               if ( KiIrqlFlags )
               {
-                CurrentIrql = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v17 <= 0xFu && CurrentIrql >= 2u )
+                if ( (KiIrqlFlags & 1) != 0 )
                 {
-                  CurrentPrcb = KeGetCurrentPrcb();
-                  SchedulerAssist = CurrentPrcb->SchedulerAssist;
-                  v43 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
-                  v38 = (v43 & SchedulerAssist[5]) == 0;
-                  SchedulerAssist[5] &= v43;
-                  if ( v38 )
-                    KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-                }
-              }
-              __writecr8(v17);
-              v2 = v60;
-              v3 -= v28;
-              if ( (*(_BYTE *)(v12 + 204) & 0x10) == 0 )
-              {
-                v44 = v28 + v64;
-                if ( !(unsigned int)MiChargeCommit(v60, v28 + v64, 2uLL) )
-                {
-                  v49 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v12 + 232));
-                  v50 = *(_QWORD *)(v12 + 112);
-                  *(_QWORD *)(v12 + 24) += v28;
-                  *(_QWORD *)(v12 + 48) += v28;
-                  *(_QWORD *)v12 = v28 + v31;
-                  v51 = v49;
-                  v52 = (RTL_BITMAP *)(v50 + 24);
-                  RtlClearBits((PRTL_BITMAP)(v50 + 8), v31, v28);
-                  RtlClearBits(v52, v31, v28);
-                  if ( v31 < *(unsigned int *)(v12 + 120) )
-                    *(_DWORD *)(v12 + 120) = v31;
-                  MiCoalescePageFileBitmapsCache(v12, 0, v31);
-                  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v12 + 232));
-                  if ( KiIrqlFlags )
+                  v50 = KeGetCurrentIrql();
+                  if ( v50 <= 0xFu && (unsigned __int8)v48 <= 0xFu && v50 >= 2u )
                   {
-                    v53 = KeGetCurrentIrql();
-                    if ( (KiIrqlFlags & 1) != 0 && v53 <= 0xFu && (unsigned __int8)v51 <= 0xFu && v53 >= 2u )
-                    {
-                      v54 = KeGetCurrentPrcb();
-                      v55 = v54->SchedulerAssist;
-                      v56 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v51 + 1));
-                      v38 = (v56 & v55[5]) == 0;
-                      v55[5] &= v56;
-                      if ( v38 )
-                        KiRemoveSystemWorkPriorityKick((__int64)v54);
-                    }
+                    v51 = KeGetCurrentPrcb();
+                    v52 = v51->SchedulerAssist;
+                    v53 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v48 + 1));
+                    v35 = (v53 & v52[5]) == 0;
+                    v52[5] &= v53;
+                    if ( v35 )
+                      KiRemoveSystemWorkPriorityKick((__int64)v51);
                   }
-                  __writecr8(v51);
-                  return KeSetEvent(Event, 0, 0);
                 }
-                MiReduceCommitLimits(v60, v28, 0LL);
-                MiReturnCommit(v60, v44);
               }
-              *v63 = v31;
-              goto LABEL_60;
+              __writecr8(v48);
+              return KeSetEvent(Event, 0, 0);
             }
+            MiReduceCommitLimits(v2, v29, 0LL);
+            MiReturnCommit(v2, v45);
           }
-          ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-          if ( KiIrqlFlags )
-          {
-            v34 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v34 >= 2u )
-            {
-              v35 = KeGetCurrentPrcb();
-              v36 = v35->SchedulerAssist;
-              v37 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
-              v38 = (v37 & v36[5]) == 0;
-              v36[5] &= v37;
-              if ( v38 )
-                KiRemoveSystemWorkPriorityKick((__int64)v35);
-            }
-          }
-          v2 = v60;
-LABEL_59:
-          __writecr8(v17);
-LABEL_60:
-          Flink_high = v58;
-          goto LABEL_61;
+          v10 = (__int64)v57;
+          *v57 = v38;
+          goto LABEL_54;
         }
-        v2 = v60;
       }
+      v30 = v64;
     }
-    ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
+    else
+    {
+      v30 = (volatile LONG *)(v12 + 232);
+    }
+    ExReleaseSpinLockExclusiveFromDpcLevel(v30);
     if ( KiIrqlFlags )
     {
-      v45 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v45 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v45 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v46 = KeGetCurrentPrcb();
-        v47 = v46->SchedulerAssist;
-        v48 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
-        v38 = (v48 & v47[5]) == 0;
-        v47[5] &= v48;
-        if ( v38 )
-          KiRemoveSystemWorkPriorityKick((__int64)v46);
+        v31 = KeGetCurrentIrql();
+        if ( v31 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v31 >= 2u )
+        {
+          v32 = KeGetCurrentPrcb();
+          v33 = v32->SchedulerAssist;
+          v34 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
+          v35 = (v34 & v33[5]) == 0;
+          v33[5] &= v34;
+          if ( v35 )
+            KiRemoveSystemWorkPriorityKick((__int64)v32);
+        }
       }
     }
-    goto LABEL_59;
+    __writecr8(v17);
+    v10 = (__int64)v57;
+LABEL_54:
+    Flink_high = v55;
+    goto LABEL_55;
   }
   return KeSetEvent(Event, 0, 0);
 }

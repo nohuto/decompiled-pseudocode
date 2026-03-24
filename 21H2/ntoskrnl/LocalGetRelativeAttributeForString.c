@@ -1,20 +1,20 @@
 /*
- * XREFs of LocalGetRelativeAttributeForString @ 0x1409D23E8
+ * XREFs of LocalGetRelativeAttributeForString @ 0x1409285E0
  * Callers:
- *     LocalGetAclForString @ 0x140675DA8 (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1407878AC (LocalGetAclForString.c)
  * Callees:
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     iswspace @ 0x1403E1C10 (iswspace.c)
- *     wcstoxq @ 0x1403E3A4C (wcstoxq.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     LocalGetSidForString @ 0x140675CC0 (LocalGetSidForString.c)
- *     SddlpAlloc @ 0x14067757C (SddlpAlloc.c)
- *     DecodeAttributeName @ 0x1409D01AC (DecodeAttributeName.c)
- *     GetDigitFromChar @ 0x1409D08CC (GetDigitFromChar.c)
- *     GetFlags @ 0x1409D094C (GetFlags.c)
- *     GetValueType @ 0x1409D1B40 (GetValueType.c)
- *     IsLegalAttributeChar2 @ 0x1409D1CA0 (IsLegalAttributeChar2.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     iswspace @ 0x1403D2850 (iswspace.c)
+ *     wcstoxq @ 0x1403D46CC (wcstoxq.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SddlpAlloc @ 0x140674548 (SddlpAlloc.c)
+ *     LocalGetSidForString @ 0x140787E40 (LocalGetSidForString.c)
+ *     DecodeAttributeName @ 0x140926D14 (DecodeAttributeName.c)
+ *     GetDigitFromChar @ 0x140927374 (GetDigitFromChar.c)
+ *     GetFlags @ 0x1409273F0 (GetFlags.c)
+ *     GetValueType @ 0x140927D30 (GetValueType.c)
+ *     IsLegalAttributeChar2 @ 0x140927E90 (IsLegalAttributeChar2.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall LocalGetRelativeAttributeForString(
@@ -85,11 +85,11 @@ __int64 __fastcall LocalGetRelativeAttributeForString(
   PVOID v64; // rdx
   unsigned __int64 *v65; // r12
   wint_t v66; // ax
-  unsigned __int16 *jj; // r9
+  __int16 *jj; // r9
   unsigned int v68; // r8d
   wint_t *v69; // r9
   unsigned int v70; // r8d
-  unsigned __int16 *v71; // r8
+  __int16 *v71; // r8
   __int64 v72; // r8
   __int64 v73; // r8
   __int64 v74; // r10
@@ -102,44 +102,45 @@ __int64 __fastcall LocalGetRelativeAttributeForString(
   _QWORD *v81; // rcx
   wint_t v82; // ax
   wint_t kk; // cx
-  WCHAR v84; // ax
-  WCHAR *v85; // r15
-  unsigned int v86; // ecx
-  size_t v87; // rbx
-  unsigned __int64 v88; // rax
+  WCHAR *v84; // r15
+  unsigned int v85; // edx
+  WCHAR v86; // cx
+  WCHAR v87; // ax
+  size_t v88; // rbx
   unsigned __int64 v89; // rax
-  _WORD *v90; // [rsp+48h] [rbp-41h]
-  int v91; // [rsp+50h] [rbp-39h]
-  int v92; // [rsp+54h] [rbp-35h] BYREF
+  unsigned __int64 v90; // rax
+  _WORD *v91; // [rsp+48h] [rbp-41h]
+  int v92; // [rsp+50h] [rbp-39h]
+  int v93; // [rsp+54h] [rbp-35h] BYREF
   PWSTR EndPointer; // [rsp+58h] [rbp-31h] BYREF
-  unsigned int v94; // [rsp+60h] [rbp-29h]
-  int v95; // [rsp+64h] [rbp-25h] BYREF
+  unsigned int v95; // [rsp+60h] [rbp-29h]
+  int v96; // [rsp+64h] [rbp-25h] BYREF
   PSID Sid; // [rsp+68h] [rbp-21h] BYREF
   PVOID P; // [rsp+70h] [rbp-19h] BYREF
-  __int64 v98; // [rsp+78h] [rbp-11h]
-  char v99; // [rsp+D8h] [rbp+4Fh] BYREF
-  _QWORD *v100; // [rsp+E0h] [rbp+57h]
-  _QWORD *v101; // [rsp+E8h] [rbp+5Fh]
-  unsigned int *v102; // [rsp+F0h] [rbp+67h]
+  __int64 v99; // [rsp+78h] [rbp-11h]
+  char v100; // [rsp+D8h] [rbp+4Fh] BYREF
+  _QWORD *v101; // [rsp+E0h] [rbp+57h]
+  _QWORD *v102; // [rsp+E8h] [rbp+5Fh]
+  unsigned int *v103; // [rsp+F0h] [rbp+67h]
 
-  v102 = a4;
-  v101 = a3;
-  v100 = a2;
+  v103 = a4;
+  v102 = a3;
+  v101 = a2;
   v8 = 0;
   EndPointer = 0LL;
   v9 = 0LL;
-  v90 = 0LL;
+  v91 = 0LL;
   v10 = 0;
   P = 0LL;
   v11 = 0;
   a7 = 0;
-  v95 = 0;
-  v91 = 0;
-  v99 = 0;
+  v96 = 0;
+  v92 = 0;
+  v100 = 0;
   a8 = 0;
   LOBYTE(a5) = 0;
   Sid = 0LL;
-  v92 = 0;
+  v93 = 0;
   if ( !a1 || !a2 || !a3 || !a4 )
   {
     ValueType = 87;
@@ -156,10 +157,8 @@ __int64 __fastcall LocalGetRelativeAttributeForString(
   if ( *v14 != 34 )
     return 1336;
   v16 = (__int64)(v14 + 1);
-  for ( j = (unsigned __int16 *)v16; IsLegalAttributeChar2(*j); ++j )
+  for ( j = (unsigned __int16 *)v16; IsLegalAttributeChar2(*j) && v18; ++j )
   {
-    if ( !v18 )
-      return 1336;
     if ( v10 + 1 < v10 )
       return 534;
     ++v10;
@@ -174,10 +173,10 @@ __int64 __fastcall LocalGetRelativeAttributeForString(
     do
       ++v20;
     while ( *((_WORD *)P + v20) );
-    v98 = (unsigned int)(v20 + 1);
-    v21 = 2 * v98 + 20;
+    v99 = (unsigned int)(v20 + 1);
+    v21 = 2 * v99 + 20;
     a6 = v21;
-    if ( (unsigned int)(2 * v98) >= 0xFFFFFFEC )
+    if ( (unsigned int)(2 * v99) >= 0xFFFFFFEC )
     {
       ValueType = 534;
 LABEL_24:
@@ -201,11 +200,11 @@ LABEL_24:
     do
       ++k;
     while ( iswspace(*k) );
-    ValueType = GetFlags(k, &EndPointer, &v95);
+    ValueType = GetFlags(k, &EndPointer, &v96);
     if ( ValueType )
       goto LABEL_24;
     v24 = EndPointer;
-    if ( (v95 & 0xFFC0) != 0 )
+    if ( (v96 & 0xFFC0) != 0 )
       goto LABEL_34;
     while ( iswspace(*v24) )
       ++v24;
@@ -220,11 +219,11 @@ LABEL_24:
       {
         while ( 1 )
         {
-          v92 = 0;
-          v50 = wcstoxq(0LL, v26, &EndPointer, 0, 0, &v92);
+          v93 = 0;
+          v50 = wcstoxq(0LL, v26, &EndPointer, 0, 0, &v93);
           if ( EndPointer == v26 && !v50 )
             goto LABEL_142;
-          if ( v92 )
+          if ( v93 )
             goto LABEL_155;
           v51 = EndPointer;
           ++v11;
@@ -331,7 +330,7 @@ LABEL_129:
 LABEL_86:
         ValueType = 1336;
 LABEL_132:
-        v9 = v90;
+        v9 = v91;
         goto LABEL_25;
       }
       if ( a7 == 5 )
@@ -343,7 +342,7 @@ LABEL_132:
           {
             for ( n = v34; iswspace(n); n = *v26 )
               ++v26;
-            ValueType = LocalGetSidForString(v26, &Sid, &EndPointer, &v99);
+            ValueType = LocalGetSidForString(v26, &Sid, &EndPointer, &v100);
             if ( ValueType )
               goto LABEL_132;
             v36 = Sid;
@@ -362,7 +361,7 @@ LABEL_125:
             v21 = v39 + 4;
             if ( v39 + 4 < v39 )
               goto LABEL_131;
-            if ( v99 )
+            if ( v100 )
             {
               ExFreePoolWithTag(v36, 0);
               Sid = 0LL;
@@ -398,18 +397,18 @@ LABEL_149:
               ValueType = 534;
             }
             v57 = v56 & 0xFFFFFFFC;
-            v94 = v57;
+            v95 = v57;
             v58 = SddlpAlloc(v57);
-            v90 = v58;
+            v91 = v58;
             v9 = v58;
             if ( !v58 )
             {
               ValueType = 8;
               goto LABEL_25;
             }
-            v59 = v98;
+            v59 = v99;
             v58[2] = a7;
-            v60 = v95;
+            v60 = v96;
             v9[3] = 0;
             *((_DWORD *)v9 + 2) = v60;
             v61 = 2LL * v59;
@@ -427,40 +426,40 @@ LABEL_149:
               {
                 while ( 1 )
                 {
-                  v92 = 0;
-                  v89 = wcstoxq(0LL, v25, &EndPointer, 0, 0, &v92);
-                  if ( EndPointer == v25 && !v89 )
-                    goto LABEL_238;
-                  if ( v92 )
+                  v93 = 0;
+                  v90 = wcstoxq(0LL, v25, &EndPointer, 0, 0, &v93);
+                  if ( EndPointer == v25 && !v90 )
+                    goto LABEL_239;
+                  if ( v93 )
                   {
-LABEL_239:
+LABEL_240:
                     ValueType = 534;
                     goto LABEL_25;
                   }
-                  *(_DWORD *)&v9[2 * v91 + 8] = v63;
-                  *v65 = v89;
+                  *(_DWORD *)&v9[2 * v92 + 8] = v63;
+                  *v65 = v90;
                   v63 += 8;
                   v25 = EndPointer;
                   v65 = (unsigned __int64 *)((char *)v9 + v63);
-                  ++v91;
+                  ++v92;
                   if ( iswspace(*EndPointer) )
                   {
                     do
                       ++v25;
                     while ( iswspace(*v25) );
-                    v57 = v94;
+                    v57 = v95;
                   }
                   v66 = *v25;
                   if ( *v25 != 44 )
                     goto LABEL_198;
                   if ( !*++v25 )
-                    goto LABEL_238;
+                    goto LABEL_239;
                 }
               }
               goto LABEL_198;
             }
             if ( a7 == 2 )
-              goto LABEL_219;
+              goto LABEL_220;
             if ( a7 != 3 )
             {
               if ( a7 == 5 )
@@ -472,22 +471,22 @@ LABEL_239:
                   {
                     for ( ii = v66; iswspace(ii); ii = *v25 )
                       ++v25;
-                    ValueType = LocalGetSidForString(v25, &Sid, &EndPointer, &v99);
+                    ValueType = LocalGetSidForString(v25, &Sid, &EndPointer, &v100);
                     if ( ValueType )
                       goto LABEL_25;
                     v78 = Sid;
                     if ( !Sid )
                       goto LABEL_25;
                     v79 = RtlLengthSid(Sid);
-                    *(_DWORD *)&v9[2 * v91 + 8] = v63;
+                    *(_DWORD *)&v9[2 * v92 + 8] = v63;
                     v80 = v63 + 4;
                     v63 = v79 + v80;
                     *(_DWORD *)v65 = v79;
                     memmove((char *)v9 + v80, v78, v79);
-                    ++v91;
+                    ++v92;
                     v25 = EndPointer;
                     v65 = (unsigned __int64 *)((char *)v9 + v63);
-                    if ( v99 )
+                    if ( v100 )
                     {
                       ExFreePoolWithTag(v78, 0);
                       Sid = 0LL;
@@ -498,13 +497,13 @@ LABEL_239:
                     if ( *v25 != 44 )
                     {
                       if ( v66 != 41 )
-                        goto LABEL_238;
-                      v57 = v94;
+                        goto LABEL_239;
+                      v57 = v95;
                       goto LABEL_198;
                     }
                     v66 = *++v25;
                     if ( !*v25 )
-                      goto LABEL_238;
+                      goto LABEL_239;
                   }
                 }
                 goto LABEL_198;
@@ -512,7 +511,7 @@ LABEL_239:
               if ( a7 != 6 )
               {
                 if ( a7 != 16 )
-                  goto LABEL_238;
+                  goto LABEL_239;
                 v66 = *v25;
                 if ( *v25 )
                 {
@@ -523,90 +522,90 @@ LABEL_239:
                       do
                         ++v25;
                       while ( iswspace(*v25) );
-                      v57 = v94;
+                      v57 = v95;
                     }
-                    for ( jj = v25; GetDigitFromChar(*jj, &a6); jj = v69 + 1 )
+                    for ( jj = (__int16 *)v25; GetDigitFromChar(*jj, &a6); jj = (__int16 *)(v69 + 1) )
                       ;
                     v70 = v68 >> 1;
-                    *(_DWORD *)&v9[2 * v91 + 8] = v63;
+                    *(_DWORD *)&v9[2 * v92 + 8] = v63;
                     *(_DWORD *)v65 = v70;
                     v63 += v70 + 4;
-                    v71 = v69 - 1;
-                    while ( v71 > v25 )
+                    v71 = (__int16 *)(v69 - 1);
+                    while ( v71 > (__int16 *)v25 )
                     {
                       if ( !GetDigitFromChar(*v71, &a8) || !GetDigitFromChar(*(_WORD *)(v72 - 2), &a5) )
-                        goto LABEL_238;
-                      v71 = (unsigned __int16 *)(v73 - 4);
+                        goto LABEL_239;
+                      v71 = (__int16 *)(v73 - 4);
                       *(_BYTE *)(v75 + v74) = a8 | (16 * a5);
                     }
-                    if ( v71 == v25 )
+                    if ( v71 == (__int16 *)v25 )
                     {
                       if ( !GetDigitFromChar(*v71, &a8) )
-                        goto LABEL_238;
+                        goto LABEL_239;
                       *v76 = a8;
                     }
                     v25 = v69;
-                    ++v91;
+                    ++v92;
                     v65 = (unsigned __int64 *)((char *)v9 + v63);
                     if ( iswspace(*v69) )
                     {
                       do
                         ++v25;
                       while ( iswspace(*v25) );
-                      v57 = v94;
+                      v57 = v95;
                     }
                     v66 = *v25;
                     if ( *v25 != 44 )
                       break;
                     v66 = *++v25;
                     if ( !*v25 )
-                      goto LABEL_238;
+                      goto LABEL_239;
                   }
                 }
 LABEL_198:
                 if ( v66 == 41 )
                 {
 LABEL_199:
-                  v81 = v100;
-                  *v101 = v9;
-                  *v102 = v57;
+                  v81 = v101;
+                  *v102 = v9;
+                  *v103 = v57;
                   *v81 = v25 + 1;
                   goto LABEL_25;
                 }
-LABEL_238:
+LABEL_239:
                 ValueType = 1336;
                 goto LABEL_25;
               }
-LABEL_219:
+LABEL_220:
               v66 = *v25;
               if ( *v25 )
               {
                 while ( 1 )
                 {
-                  v92 = 0;
-                  v88 = wcstoxq(0LL, v25, &EndPointer, 0, 1, &v92);
-                  if ( EndPointer == v25 && !v88 )
-                    goto LABEL_238;
-                  if ( v92 )
+                  v93 = 0;
+                  v89 = wcstoxq(0LL, v25, &EndPointer, 0, 1, &v93);
+                  if ( EndPointer == v25 && !v89 )
                     goto LABEL_239;
-                  *(_DWORD *)&v9[2 * v91 + 8] = v63;
-                  *v65 = v88;
+                  if ( v93 )
+                    goto LABEL_240;
+                  *(_DWORD *)&v9[2 * v92 + 8] = v63;
+                  *v65 = v89;
                   v63 += 8;
                   v25 = EndPointer;
                   v65 = (unsigned __int64 *)((char *)v9 + v63);
-                  ++v91;
+                  ++v92;
                   if ( iswspace(*EndPointer) )
                   {
                     do
                       ++v25;
                     while ( iswspace(*v25) );
-                    v9 = v90;
+                    v9 = v91;
                   }
                   v66 = *v25;
                   if ( *v25 != 44 )
                     goto LABEL_198;
                   if ( !*++v25 )
-                    goto LABEL_238;
+                    goto LABEL_239;
                 }
               }
               goto LABEL_198;
@@ -620,35 +619,43 @@ LABEL_219:
                   ++v25;
                 if ( *v25 != 34 )
                   break;
-                v84 = v25[1];
-                v85 = v25 + 1;
-                v86 = 0;
-                while ( v84 != 34 )
+                v84 = v25 + 1;
+                v85 = 0;
+                if ( v25[1] != 34 )
                 {
-                  if ( !v84 )
-                    goto LABEL_86;
-                  ++v85;
-                  ++v86;
-                  v84 = *v85;
+                  v86 = v25[1];
+                  do
+                  {
+                    v87 = v86;
+                    if ( !v86 )
+                      break;
+                    ++v84;
+                    ++v85;
+                    v87 = *v84;
+                    v86 = *v84;
+                  }
+                  while ( *v84 != 34 );
+                  if ( v87 != 34 )
+                    break;
                 }
-                *(_DWORD *)&v90[2 * v91 + 8] = v63;
-                v63 += 2 * v86 + 2;
-                v87 = 2LL * v86;
-                memmove(v65, v25 + 1, v87);
-                v25 = v85 + 1;
-                *(_WORD *)((char *)v65 + v87) = 0;
-                v65 = (unsigned __int64 *)((char *)v90 + v63);
-                ++v91;
+                *(_DWORD *)&v91[2 * v92 + 8] = v63;
+                v63 += 2 * v85 + 2;
+                v88 = 2LL * v85;
+                memmove(v65, v25 + 1, v88);
+                v25 = v84 + 1;
+                *(_WORD *)((char *)v65 + v88) = 0;
+                v65 = (unsigned __int64 *)((char *)v91 + v63);
+                ++v92;
                 while ( iswspace(*v25) )
                   ++v25;
                 v82 = *v25;
                 if ( *v25 != 44 )
                 {
-                  v9 = v90;
+                  v9 = v91;
                   if ( v82 != 41 )
-                    goto LABEL_238;
-                  v57 = v94;
-                  goto LABEL_217;
+                    goto LABEL_239;
+                  v57 = v95;
+                  goto LABEL_218;
                 }
                 v82 = *++v25;
                 if ( !*v25 )
@@ -657,7 +664,7 @@ LABEL_219:
             }
             else
             {
-LABEL_217:
+LABEL_218:
               if ( v82 == 41 )
                 goto LABEL_199;
             }
@@ -721,14 +728,14 @@ LABEL_34:
     v45 = a7;
     while ( 1 )
     {
-      v92 = 0;
-      v46 = wcstoxq(0LL, v26, &EndPointer, 0, 1, &v92);
+      v93 = 0;
+      v46 = wcstoxq(0LL, v26, &EndPointer, 0, 1, &v93);
       if ( EndPointer == v26 && !v46 )
       {
         ValueType = 1336;
         goto LABEL_125;
       }
-      if ( v92 )
+      if ( v93 )
         goto LABEL_131;
       if ( v45 == 6 && v46 > 1 )
         goto LABEL_86;

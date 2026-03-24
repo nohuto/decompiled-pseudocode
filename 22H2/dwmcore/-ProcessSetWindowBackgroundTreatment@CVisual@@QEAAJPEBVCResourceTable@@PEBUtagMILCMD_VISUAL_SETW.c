@@ -1,20 +1,17 @@
 /*
- * XREFs of ?ProcessSetWindowBackgroundTreatment@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETWINDOWBACKGROUNDTREATMENT@@@Z @ 0x1800A4A78
+ * XREFs of ?ProcessSetWindowBackgroundTreatment@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETWINDOWBACKGROUNDTREATMENT@@@Z @ 0x1800C0C14
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ??2CContent@@KAPEAX_K@Z @ 0x1800388C8 (--2CContent@@KAPEAX_K@Z.c)
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18004A8DC (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z @ 0x1800991C8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?UpdateBackdropVisualImageForWindowBackgroundTreatment@CVisual@@AEAAXXZ @ 0x1800A4B7C (-UpdateBackdropVisualImageForWindowBackgroundTreatment@CVisual@@AEAAXXZ.c)
- *     ?GetWindowBackgroundTreatmentInternal@CVisual@@QEBAPEAVCWindowBackgroundTreatment@@XZ @ 0x1800A4BAC (-GetWindowBackgroundTreatmentInternal@CVisual@@QEBAPEAVCWindowBackgroundTreatment@@XZ.c)
- *     ??4?$ComPtr@VCWindowBackgroundTreatment@@@WRL@Microsoft@@QEAAAEAV012@PEAVCWindowBackgroundTreatment@@@Z @ 0x1800A4C0C (--4-$ComPtr@VCWindowBackgroundTreatment@@@WRL@Microsoft@@QEAAAEAV012@PEAVCWindowBackgroundTreatm.c)
- *     ??0CWindowBackgroundTreatment@@AEAA@PEAVCComposition@@PEAVCBrush@@@Z @ 0x1800A4C7C (--0CWindowBackgroundTreatment@@AEAA@PEAVCComposition@@PEAVCBrush@@@Z.c)
- *     ?SetWindowBackgroundTreatmentInternal@CVisual@@QEAAXPEAVCWindowBackgroundTreatment@@@Z @ 0x1800A4D90 (-SetWindowBackgroundTreatmentInternal@CVisual@@QEAAXPEAVCWindowBackgroundTreatment@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009FAF8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3484 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?SetWindowBackgroundTreatmentInternal@CVisual@@QEAAXPEAVCWindowBackgroundTreatment@@@Z @ 0x1800C0CE4 (-SetWindowBackgroundTreatmentInternal@CVisual@@QEAAXPEAVCWindowBackgroundTreatment@@@Z.c)
+ *     ??4?$ComPtr@VCWindowBackgroundTreatment@@@WRL@Microsoft@@QEAAAEAV012@PEAVCWindowBackgroundTreatment@@@Z @ 0x1800C0D70 (--4-$ComPtr@VCWindowBackgroundTreatment@@@WRL@Microsoft@@QEAAAEAV012@PEAVCWindowBackgroundTreatm.c)
+ *     ??0CWindowBackgroundTreatment@@AEAA@PEAVCComposition@@PEAVCBrush@@@Z @ 0x1800C0DCC (--0CWindowBackgroundTreatment@@AEAA@PEAVCComposition@@PEAVCBrush@@@Z.c)
+ *     ??$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z @ 0x1800C16BC (--$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z.c)
+ *     ?GetWindowBackgroundTreatmentInternal@CVisual@@QEBAPEAVCWindowBackgroundTreatment@@XZ @ 0x1800C16EC (-GetWindowBackgroundTreatmentInternal@CVisual@@QEBAPEAVCWindowBackgroundTreatment@@XZ.c)
  */
 
 __int64 __fastcall CVisual::ProcessSetWindowBackgroundTreatment(
@@ -25,65 +22,48 @@ __int64 __fastcall CVisual::ProcessSetWindowBackgroundTreatment(
   unsigned int v4; // ebx
   unsigned int v5; // edx
   struct CBrush *Resource; // rsi
-  unsigned int v8; // ecx
+  __int64 v8; // rcx
   struct CWindowBackgroundTreatment *WindowBackgroundTreatmentInternal; // rax
   struct CComposition *v10; // rbx
   CWindowBackgroundTreatment *v11; // rax
-  unsigned int v12; // ecx
-  struct CWindowBackgroundTreatment *v13; // rsi
-  int v14; // eax
-  int v16; // r9d
-  unsigned int v17; // [rsp+20h] [rbp-18h]
-  struct CWindowBackgroundTreatment *v18; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v12; // rcx
+  __int64 v14; // rcx
+  struct CWindowBackgroundTreatment *v15; // [rsp+50h] [rbp+18h] BYREF
 
   v4 = 0;
   v5 = *((_DWORD *)a3 + 2);
   Resource = 0LL;
-  if ( v5 )
+  if ( v5 && (Resource = (struct CBrush *)CResourceTable::GetResource((__int64)a2, v5, 0xEu)) == 0LL )
   {
-    Resource = (struct CBrush *)CResourceTable::GetResource((__int64)a2, v5, 0x11u);
-    if ( !Resource )
-    {
-      v4 = -2003303421;
-      v17 = 2596;
-      goto LABEL_12;
-    }
+    v4 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2003303421, 0xAB0u, 0LL);
   }
-  WindowBackgroundTreatmentInternal = CVisual::GetWindowBackgroundTreatmentInternal((CVisual *)this);
-  if ( !WindowBackgroundTreatmentInternal || *((struct CBrush **)WindowBackgroundTreatmentInternal + 9) != Resource )
+  else
   {
-    CResource::UnRegisterNotifierInternal((CResource *)this, WindowBackgroundTreatmentInternal);
-    v10 = this[2];
-    v18 = 0LL;
-    v11 = (CWindowBackgroundTreatment *)CContent::operator new(0x160uLL);
-    if ( v11 )
-      v11 = CWindowBackgroundTreatment::CWindowBackgroundTreatment(v11, v10, Resource);
-    Microsoft::WRL::ComPtr<CWindowBackgroundTreatment>::operator=(&v18, v11);
-    v13 = v18;
-    if ( v18 )
+    WindowBackgroundTreatmentInternal = CVisual::GetWindowBackgroundTreatmentInternal((CVisual *)this);
+    v15 = WindowBackgroundTreatmentInternal;
+    if ( !WindowBackgroundTreatmentInternal || *((struct CBrush **)WindowBackgroundTreatmentInternal + 8) != Resource )
     {
-      v14 = CResource::RegisterNotifier((CResource *)this, v18);
-      v4 = v14;
-      if ( v14 >= 0 )
+      ReleaseInterface<CResource>(&v15);
+      v10 = this[2];
+      v15 = 0LL;
+      v11 = (CWindowBackgroundTreatment *)operator new(0x198uLL);
+      if ( v11 )
+        v11 = CWindowBackgroundTreatment::CWindowBackgroundTreatment(v11, v10, Resource);
+      Microsoft::WRL::ComPtr<CWindowBackgroundTreatment>::operator=(&v15, v11);
+      if ( v15 )
       {
-        (*(void (__fastcall **)(struct CWindowBackgroundTreatment *))(*(_QWORD *)v13 + 16LL))(v13);
-        CVisual::SetWindowBackgroundTreatmentInternal((CVisual *)this, v13);
-        CVisual::UpdateBackdropVisualImageForWindowBackgroundTreatment((CVisual *)this);
+        v4 = 0;
+        CVisual::SetWindowBackgroundTreatmentInternal((CVisual *)this, v15);
         CVisual::PropagateFlags((__int64)this, 5u);
-        return v4;
       }
-      v16 = v14;
-      v17 = 2607;
-LABEL_16:
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v16, v17, 0LL);
-      return v4;
+      else
+      {
+        v4 = -2147024882;
+        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147024882, 0x14u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024882, 0xAB9u, 0LL);
+      }
     }
-    v4 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147024882, 0x14u, 0LL);
-    v17 = 2606;
-LABEL_12:
-    v16 = v4;
-    goto LABEL_16;
   }
   return v4;
 }

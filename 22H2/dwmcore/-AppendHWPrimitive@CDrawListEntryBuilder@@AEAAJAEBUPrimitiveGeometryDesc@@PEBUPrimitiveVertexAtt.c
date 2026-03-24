@@ -1,1561 +1,1269 @@
 /*
- * XREFs of ?AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@@Z @ 0x18005F4C0
+ * XREFs of ?AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@PEBVMatrix3x2F@D2D1@@@Z @ 0x180096030
  * Callers:
- *     ?InsertHW@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@PEBV?$vector_facade@UPrimitiveSubRect@CDrawListEntryBuilder@@V?$buffer_impl@UPrimitiveSubRect@CDrawListEntryBuilder@@$08$00Vliberal_expansion_policy@detail@@@detail@@@detail@@_N@Z @ 0x18005CDC0 (-InsertHW@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDe.c)
+ *     ?InsertHW@CDrawListEntryBuilder@@AEAAJUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@PEBUD2D_MATRIX_3X2_F@@@Z @ 0x180095E78 (-InsertHW@CDrawListEntryBuilder@@AEAAJUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@.c)
  * Callees:
- *     ?IsAxisAlignedRectangle@CShapePtr@@QEBA_NXZ @ 0x1800094E0 (-IsAxisAlignedRectangle@CShapePtr@@QEBA_NXZ.c)
- *     ?SetSingleRect@CRectanglesShape@@QEAAXAEBUMilRectF@@@Z @ 0x180012A64 (-SetSingleRect@CRectanglesShape@@QEAAXAEBUMilRectF@@@Z.c)
- *     ?Transform@CPolygonBuilder@@QEAAXAEBUD2D_MATRIX_3X2_F@@@Z @ 0x180014A00 (-Transform@CPolygonBuilder@@QEAAXAEBUD2D_MATRIX_3X2_F@@@Z.c)
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCPolygonBuilder@@@Z @ 0x1800305D8 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCPolygonBuilder@@@Z.c)
- *     ?clear_region@?$vector_facade@UD2D_POINT_2F@@V?$buffer_impl@UD2D_POINT_2F@@$0CI@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180030774 (-clear_region@-$vector_facade@UD2D_POINT_2F@@V-$buffer_impl@UD2D_POINT_2F@@$0CI@$00Vliberal_expa.c)
- *     ?D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x180032E84 (-D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?IsAxisAlignedRectangle@CShape@@QEBA_NXZ @ 0x180046168 (-IsAxisAlignedRectangle@CShape@@QEBA_NXZ.c)
- *     ?RectangleShapeFullyContains@CCpuClip@@SA_NPEBVCShape@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x180049394 (-RectangleShapeFullyContains@CCpuClip@@SA_NPEBVCShape@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@.c)
- *     ?Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z @ 0x180058648 (-Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z.c)
- *     ?ExtractBuiltHWPrimitiveEntry@CDrawListEntryBuilder@@AEAAJIPEAVCPrimitiveColor@@PEBU_D3DCOLORVALUE@@@Z @ 0x18005B8D0 (-ExtractBuiltHWPrimitiveEntry@CDrawListEntryBuilder@@AEAAJIPEAVCPrimitiveColor@@PEBU_D3DCOLORVAL.c)
- *     ??0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x18005C8F8 (--0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z.c)
- *     ?AppendHWGeometry@CDrawListEntryBuilder@@AEAAXAEBUMeshDesc@Mesh@@PEBUPrimitiveVertexAttributesDesc@@@Z @ 0x18005DB20 (-AppendHWGeometry@CDrawListEntryBuilder@@AEAAXAEBUMeshDesc@Mesh@@PEBUPrimitiveVertexAttributesDe.c)
- *     ?FillContainsRect@CRoundedRectangleGeometryData@@QEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x18005E4B0 (-FillContainsRect@CRoundedRectangleGeometryData@@QEBA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@.c)
- *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180071B00 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
- *     ?CalcVertexAAOffsets@Mesh@@SAXAEBUMeshDesc@1@PEAUVertexAAOffsetDesc@1@_N@Z @ 0x1800727B4 (-CalcVertexAAOffsets@Mesh@@SAXAEBUMeshDesc@1@PEAUVertexAAOffsetDesc@1@_N@Z.c)
- *     ?Inflate@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z @ 0x180075B5C (-Inflate@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z.c)
- *     ?AppendCpuClipAntialiasHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUMeshDesc@Mesh@@PEBUPrimitiveVertexAttributesDesc@@_N2PEA_N@Z @ 0x18007D930 (-AppendCpuClipAntialiasHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUMeshDesc@Mesh@@PEBUPrimitiveV.c)
- *     ?TryGetMeshAAOffsetsForRoundedRectangle@CMeshCacheManager@@AEAAPEAVVertexAAOffsetsResource@Mesh@@AEBUMeshDesc@3@PEBVCRoundedRectangleShape@@AEBVMatrix3x2F@D2D1@@_N@Z @ 0x18007F778 (-TryGetMeshAAOffsetsForRoundedRectangle@CMeshCacheManager@@AEAAPEAVVertexAAOffsetsResource@Mesh@.c)
- *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x18008065C (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
- *     ?Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x1800806BC (-Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
- *     ?TryOptimizedCombinePaths@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x180080750 (-TryOptimizedCombinePaths@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
- *     ?DoesContain@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x180081148 (-DoesContain@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ?resize@?$vector_facade@W4D2D1_EDGE_FLAGS@@V?$buffer_impl@W4D2D1_EDGE_FLAGS@@$0CI@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAX_KAEBW4D2D1_EDGE_FLAGS@@@Z @ 0x1800B0DF8 (-resize@-$vector_facade@W4D2D1_EDGE_FLAGS@@V-$buffer_impl@W4D2D1_EDGE_FLAGS@@$0CI@$00Vliberal_ex.c)
- *     ?TryGetMeshAAOffsets@CMeshCacheManager@@QEAAPEAVVertexAAOffsetsResource@Mesh@@AEBUMeshDesc@3@PEBVCShape@@AEBVMatrix3x2F@D2D1@@_N@Z @ 0x1800B2440 (-TryGetMeshAAOffsets@CMeshCacheManager@@QEAAPEAVVertexAAOffsetsResource@Mesh@@AEBUMeshDesc@3@PEB.c)
- *     ?clear_region@?$vector_facade@W4D2D1_EDGE_FLAGS@@V?$buffer_impl@W4D2D1_EDGE_FLAGS@@$0CI@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800B24B8 (-clear_region@-$vector_facade@W4D2D1_EDGE_FLAGS@@V-$buffer_impl@W4D2D1_EDGE_FLAGS@@$0CI@$00Vlibe.c)
- *     ?Is2DAxisAlignedPreserving@CMILMatrix@@QEBA_NXZ @ 0x1800B2900 (-Is2DAxisAlignedPreserving@CMILMatrix@@QEBA_NXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArray@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0A@@@QEAAJPEFBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@I@Z @ 0x1800C5890 (-AddMultipleAndSet@-$DynArray@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
- *     ?ResolveEdgeFlags@CEdgeFlagsMap@@QEBAXV?$StridedSpan@$$CBUD2D_VECTOR_2F@@@@PEBUD2D_POINT_2F@@W4D2D1_EDGE_FLAGS@@PEAUResolveEdgeFlagsResult@1@M@Z @ 0x1800D4A54 (-ResolveEdgeFlags@CEdgeFlagsMap@@QEBAXV-$StridedSpan@$$CBUD2D_VECTOR_2F@@@@PEBUD2D_POINT_2F@@W4D.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D54D8 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     ?CalcEdgeDirections@Mesh@@SAXPEBUD2D_POINT_2F@@_KV?$StridedSpan@UD2D_VECTOR_2F@@@@M@Z @ 0x1800D7EC0 (-CalcEdgeDirections@Mesh@@SAXPEBUD2D_POINT_2F@@_KV-$StridedSpan@UD2D_VECTOR_2F@@@@M@Z.c)
- *     ?AddEdgeFlags@CEdgeFlagsMap@@QEAAXAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@PEBVMatrix3x3@@M@Z @ 0x1800D9EF4 (-AddEdgeFlags@CEdgeFlagsMap@@QEAAXAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@PEBVMatrix3x3@@M@Z.c)
- *     ?ClipRectAndEdgeFlags@@YA?AW4D2D1_EDGE_FLAGS@@AEBUD2D_RECT_F@@W41@01PEAU2@PEAW41@@Z @ 0x1800D9FD4 (-ClipRectAndEdgeFlags@@YA-AW4D2D1_EDGE_FLAGS@@AEBUD2D_RECT_F@@W41@01PEAU2@PEAW41@@Z.c)
- *     ?reserve_region@?$vector_facade@UVertexAAOffsetDesc@Mesh@@V?$buffer_impl@UVertexAAOffsetDesc@Mesh@@$0CI@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAUVertexAAOffsetDesc@Mesh@@_K0@Z @ 0x1800DA7A0 (-reserve_region@-$vector_facade@UVertexAAOffsetDesc@Mesh@@V-$buffer_impl@UVertexAAOffsetDesc@Mes.c)
- *     ?resize@?$vector_facade@_NV?$buffer_impl@_N$0CI@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAX_KAEB_N@Z @ 0x1800DA90C (-resize@-$vector_facade@_NV-$buffer_impl@_N$0CI@$00Vliberal_expansion_policy@detail@@@detail@@@d.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800DC518 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ?clear_region@?$vector_facade@UVertexAAOffsetDesc@Mesh@@V?$buffer_impl@UVertexAAOffsetDesc@Mesh@@$0CI@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800E2280 (-clear_region@-$vector_facade@UVertexAAOffsetDesc@Mesh@@V-$buffer_impl@UVertexAAOffsetDesc@Mesh@.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ??4?$com_ptr_t@VCPolygonBuilder@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCPolygonBuilder@@@Z @ 0x1800EE72C (--4-$com_ptr_t@VCPolygonBuilder@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCPolygonBuilde.c)
- *     ?MakeRectangleEdgeFlags@@YA?AW4D2D1_EDGE_FLAGS@@W41@000@Z @ 0x1800F76B8 (-MakeRectangleEdgeFlags@@YA-AW4D2D1_EDGE_FLAGS@@W41@000@Z.c)
- *     ?DecomposeRectangleEdgeFlags@@YAXW4D2D1_EDGE_FLAGS@@PEAW41@111@Z @ 0x1800FA6A0 (-DecomposeRectangleEdgeFlags@@YAXW4D2D1_EDGE_FLAGS@@PEAW41@111@Z.c)
- *     ??0?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAA@XZ @ 0x180105360 (--0-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAA@XZ.c)
- *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@std@@PEAX@1@@Z @ 0x18010E404 (--$_Erase_tree@V-$allocator@U-$_Tree_node@U-$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@st.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?_Destroy@?$_Variant_base@Umonostate@std@@VCRectangleMapStrategy@CEdgeFlagsMap@@VCPolygonMapStrategy@4@@std@@QEAAXXZ @ 0x1801FB2C0 (-_Destroy@-$_Variant_base@Umonostate@std@@VCRectangleMapStrategy@CEdgeFlagsMap@@VCPolygonMapStra.c)
- *     ?clear_region@?$vector_facade@_NV?$buffer_impl@_N$0CI@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1801FB46C (-clear_region@-$vector_facade@_NV-$buffer_impl@_N$0CI@$00Vliberal_expansion_policy@detail@@@deta.c)
- *     ?ConvertContextDependentClipToLocal@CCpuClip@@AEAAJXZ @ 0x1801FC1B0 (-ConvertContextDependentClipToLocal@CCpuClip@@AEAAJXZ.c)
+ *     ?DecomposeMatrixIntoScaleAndRemaining@D2DMatrixHelper@@YAXAEBUD2D_MATRIX_3X2_F@@PEAM1PEAU2@@Z @ 0x180007B4C (-DecomposeMatrixIntoScaleAndRemaining@D2DMatrixHelper@@YAXAEBUD2D_MATRIX_3X2_F@@PEAM1PEAU2@@Z.c)
+ *     ?ClipRectAndEdgeFlags@@YA_NAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@01PEAU1@PEAW42@@Z @ 0x180012ED0 (-ClipRectAndEdgeFlags@@YA_NAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@01PEAU1@PEAW42@@Z.c)
+ *     ?SetSingleRect@CRectanglesShape@@QEAAXAEBUMilRectF@@@Z @ 0x180012FEC (-SetSingleRect@CRectanglesShape@@QEAAXAEBUMilRectF@@@Z.c)
+ *     ?ResolveClip@CCpuClip@@QEAAJPEAPEBVCShape@@@Z @ 0x180018434 (-ResolveClip@CCpuClip@@QEAAJPEAPEBVCShape@@@Z.c)
+ *     ?Invert@Matrix3x2F@D2D1@@QEAA_NXZ @ 0x180018594 (-Invert@Matrix3x2F@D2D1@@QEAA_NXZ.c)
+ *     ?IsEmpty@CShapePtr@@QEBA_NXZ @ 0x18001A758 (-IsEmpty@CShapePtr@@QEBA_NXZ.c)
+ *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180058584 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
+ *     ?AddMultipleAndSet@?$DynArray@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0A@@@QEAAJPEFBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@I@Z @ 0x180059560 (-AddMultipleAndSet@-$DynArray@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z @ 0x180061AA4 (-expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z.c)
+ *     ?resize@?$vector_facade@GV?$buffer_impl@G$0BO@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAX_KAEBG@Z @ 0x180061ACC (-resize@-$vector_facade@GV-$buffer_impl@G$0BO@$00Vliberal_expansion_policy@detail@@@detail@@@det.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ?Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x1800680DC (-Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
+ *     ?FullyContains@CCpuClip@@QEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBUD2D_MATRIX_3X2_F@@@Z @ 0x18006AD5C (-FullyContains@CCpuClip@@QEBA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotN.c)
+ *     ?IsAxisAlignedRectangle@CShape@@QEBA_NXZ @ 0x18006C25C (-IsAxisAlignedRectangle@CShape@@QEBA_NXZ.c)
+ *     ?GenerateGeometry@Mesh@@QEAAJ_N0AEBV?$StridedSpan@UVertexXYW_ColorDW@@@@AEBV?$StridedSpan@UVertexAAFixupBase@@@@PEAHGPEAG3@Z @ 0x180088540 (-GenerateGeometry@Mesh@@QEAAJ_N0AEBV-$StridedSpan@UVertexXYW_ColorDW@@@@AEBV-$StridedSpan@UVerte.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?GetGeometryCount@Mesh@@QEAAJ_N0PEAH1@Z @ 0x180096ED4 (-GetGeometryCount@Mesh@@QEAAJ_N0PEAH1@Z.c)
+ *     ?TransformHWGeometryAndComputeUV@CDrawListEntryBuilder@@AEAAXPEBUPrimitiveVertexAttributesDesc@@AEBVMatrix3x2F@D2D1@@1I@Z @ 0x180097000 (-TransformHWGeometryAndComputeUV@CDrawListEntryBuilder@@AEAAXPEBUPrimitiveVertexAttributesDesc@@.c)
+ *     ?CreateRectangleMesh@Mesh@@QEAAJAEBUContentInfo@1@AEBUD2D_RECT_F@@K@Z @ 0x180098490 (-CreateRectangleMesh@Mesh@@QEAAJAEBUContentInfo@1@AEBUD2D_RECT_F@@K@Z.c)
+ *     ??$Is2DAxisAlignedPreserving@$00@CMILMatrix@@AEBA_N_N@Z @ 0x1800C1EDC (--$Is2DAxisAlignedPreserving@$00@CMILMatrix@@AEBA_N_N@Z.c)
+ *     ??0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800C4488 (--0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C876C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ??$uninitialized_copy@V?$move_iterator@PEAUAlign16Chunk@CDrawListEntryBuilder@@@std@@V?$checked_array_iterator@PEAUAlign16Chunk@CDrawListEntryBuilder@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUAlign16Chunk@CDrawListEntryBuilder@@@stdext@@V?$move_iterator@PEAUAlign16Chunk@CDrawListEntryBuilder@@@0@0V12@@Z @ 0x1800CDBDC (--$uninitialized_copy@V-$move_iterator@PEAUAlign16Chunk@CDrawListEntryBuilder@@@std@@V-$checked_.c)
+ *     ??0?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAA@XZ @ 0x1800E1C40 (--0-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     ??4?$com_ptr_t@VCColorGradientStop@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorGradientStop@@@Z @ 0x1800EFDF4 (--4-$com_ptr_t@VCColorGradientStop@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorGradi.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?clear_region@?$vector_facade@PEAVCDesktopTree@@V?$buffer_impl@PEAVCDesktopTree@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180155E6C (-clear_region@-$vector_facade@PEAVCDesktopTree@@V-$buffer_impl@PEAVCDesktopTree@@$00$00Vliberal_.c)
+ *     ?clear_region@?$vector_facade@PEAVIMonitorTarget@@V?$buffer_impl@PEAVIMonitorTarget@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180163A40 (-clear_region@-$vector_facade@PEAVIMonitorTarget@@V-$buffer_impl@PEAVIMonitorTarget@@$01$00Vlibe.c)
+ *     ??$uninitialized_copy@V?$move_iterator@PEAUD2D_RECT_F@@@std@@V?$checked_array_iterator@PEAUD2D_RECT_F@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUD2D_RECT_F@@@stdext@@V?$move_iterator@PEAUD2D_RECT_F@@@0@0V12@@Z @ 0x18019C3DC (--$uninitialized_copy@V-$move_iterator@PEAUD2D_RECT_F@@@std@@V-$checked_array_iterator@PEAUD2D_R.c)
+ *     ??$move_backward@V?$move_iterator@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@std@@V?$checked_array_iterator@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@stdext@@V?$move_iterator@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@0@0V12@@Z @ 0x18019C5FC (--$move_backward@V-$move_iterator@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UN.c)
+ *     ?clear_region@?$vector_facade@W4D2D1_EDGE_FLAGS@@V?$buffer_impl@W4D2D1_EDGE_FLAGS@@$07$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18019D084 (-clear_region@-$vector_facade@W4D2D1_EDGE_FLAGS@@V-$buffer_impl@W4D2D1_EDGE_FLAGS@@$07$00Vlibera.c)
+ *     ?clear_region@?$vector_facade@UAlign16Chunk@CDrawListEntryBuilder@@V?$buffer_impl@UAlign16Chunk@CDrawListEntryBuilder@@$0DM@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18019D124 (-clear_region@-$vector_facade@UAlign16Chunk@CDrawListEntryBuilder@@V-$buffer_impl@UAlign16Chunk@.c)
+ *     ?clear_region@?$vector_facade@W4D2D1_EDGE_FLAGS@@V?$buffer_impl@W4D2D1_EDGE_FLAGS@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18019D2B4 (-clear_region@-$vector_facade@W4D2D1_EDGE_FLAGS@@V-$buffer_impl@W4D2D1_EDGE_FLAGS@@$0BA@$00Vlibe.c)
+ *     ?insert@?$vector_facade@UAlign16Chunk@CDrawListEntryBuilder@@V?$buffer_impl@UAlign16Chunk@CDrawListEntryBuilder@@$0DM@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@UAlign16Chunk@CDrawListEntryBuilder@@@2@V?$basic_iterator@$$CBUAlign16Chunk@CDrawListEntryBuilder@@@2@_KAEBUAlign16Chunk@CDrawListEntryBuilder@@@Z @ 0x18019D49C (-insert@-$vector_facade@UAlign16Chunk@CDrawListEntryBuilder@@V-$buffer_impl@UAlign16Chunk@CDrawL.c)
+ *     ?CreatePolygonMesh@Mesh@@QEAAJAEBUContentInfo@1@PEBUD2D_POINT_2F@@PEBW4D2D1_EDGE_FLAGS@@H@Z @ 0x1801A093C (-CreatePolygonMesh@Mesh@@QEAAJAEBUContentInfo@1@PEBUD2D_POINT_2F@@PEBW4D2D1_EDGE_FLAGS@@H@Z.c)
+ *     ?AddEdgeFlags@CEdgeFlagsMap@@QEAAXAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@AEBVMatrix3x3@@@Z @ 0x1801A2810 (-AddEdgeFlags@CEdgeFlagsMap@@QEAAXAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@AEBVMatrix3x3@@@Z.c)
+ *     ?ResolveEdgeFlags@CEdgeFlagsMap@@QEBAXV?$span@$$CBUD2D_POINT_2F@@$0?0@gsl@@W4D2D1_EDGE_FLAGS@@PEAV?$vector_facade@W4D2D1_EDGE_FLAGS@@V?$buffer_impl@W4D2D1_EDGE_FLAGS@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@PEA_N@Z @ 0x1801A2C58 (-ResolveEdgeFlags@CEdgeFlagsMap@@QEBAXV-$span@$$CBUD2D_POINT_2F@@$0-0@gsl@@W4D2D1_EDGE_FLAGS@@PE.c)
+ *     ?Build@CDrawListPolygonBuilder@@QEAAJPEBVCShape@@@Z @ 0x1801A3250 (-Build@CDrawListPolygonBuilder@@QEAAJPEBVCShape@@@Z.c)
+ *     ?GetScaleDimensions@D2DMatrixHelper@@YAXAEBUD2D_MATRIX_3X2_F@@PEAM1@Z @ 0x18021F244 (-GetScaleDimensions@D2DMatrixHelper@@YAXAEBUD2D_MATRIX_3X2_F@@PEAM1@Z.c)
  */
 
 __int64 __fastcall CDrawListEntryBuilder::AppendHWPrimitive(
         CDrawListEntryBuilder *this,
         const struct PrimitiveGeometryDesc *a2,
-        struct D2D_MATRIX_3X2_F **a3)
+        const struct PrimitiveVertexAttributesDesc *a3,
+        const struct D2D_MATRIX_3X2_F *a4)
 {
-  char v4; // bl
-  CShape *v7; // r15
-  void *v8; // rcx
-  float v9; // xmm11_4
-  float v10; // xmm12_4
-  _QWORD *v11; // rax
-  _BYTE *v12; // r12
-  unsigned int v13; // xmm7_4
-  unsigned int v14; // xmm8_4
-  unsigned int v15; // xmm9_4
-  unsigned int v16; // xmm10_4
-  struct D2D_MATRIX_3X2_F *v17; // r9
-  bool v18; // zf
-  __int64 v19; // r8
-  char v20; // di
-  int v21; // eax
-  unsigned int v22; // ecx
-  int v23; // esi
-  unsigned int v24; // edi
-  unsigned int v25; // xmm2_4
-  unsigned int v26; // xmm3_4
-  unsigned int v27; // xmm4_4
-  unsigned int v28; // xmm5_4
-  unsigned int v29; // r10d
-  BOOL v30; // edi
-  bool *v31; // rcx
-  bool v32; // di
-  char v33; // si
-  _BYTE *v34; // rdi
-  __int64 v35; // r8
-  bool *v36; // rdi
-  _BYTE *v37; // rdi
-  __int64 v38; // rax
-  char v39; // cl
-  _BYTE *v40; // rcx
-  _BYTE *v41; // rdx
-  void *v42; // rsi
-  void *v43; // rcx
-  CShape **v45; // rdi
-  __int64 *v46; // rbx
-  const struct CMILMatrix *v47; // rdi
-  int v49; // eax
-  int BuiltHWPrimitiveEntry; // eax
-  unsigned int v51; // ecx
-  int v52; // eax
-  unsigned int v53; // ecx
-  CRectanglesShape *v54; // rax
-  unsigned int v55; // xmm1_4
-  CShape *v56; // rdi
-  CMILMatrix *v57; // rax
-  int v58; // eax
-  __int64 v59; // rdx
-  unsigned int v60; // ecx
-  unsigned int v61; // xmm7_4
-  unsigned int v62; // xmm8_4
-  unsigned int v63; // xmm9_4
-  unsigned int v64; // xmm10_4
-  int v65; // eax
-  __int64 v66; // rdx
-  unsigned int v67; // ecx
-  CRectanglesShape *v68; // rax
-  __int64 v69; // rax
-  unsigned int v70; // ecx
-  unsigned int v71; // edi
-  CPolygonBuilder **v72; // rsi
-  __int64 v73; // rcx
-  __int64 v74; // r8
-  __int64 *v75; // rcx
-  __int64 v76; // r8
-  int v77; // eax
-  unsigned int v78; // ecx
-  CPolygonBuilder *v79; // rcx
-  __int64 v80; // rdx
-  CMeshCacheManager *v81; // rdi
-  struct Mesh::VertexAAOffsetsResource *MeshAAOffsetsForRoundedRectangle; // rax
-  __int64 v83; // r8
-  unsigned __int64 v84; // rdx
-  __int64 v85; // rbx
-  _OWORD *v86; // rax
-  LPVOID v87; // rdx
-  __int64 v88; // r9
-  bool *v89; // rcx
-  __int64 v90; // rax
-  __int128 v91; // xmm0
-  struct Mesh::VertexAAOffsetDesc *v92; // rdx
-  bool v93; // al
-  int v94; // eax
-  unsigned int v95; // ecx
-  unsigned __int64 v96; // rdi
-  unsigned int v97; // edx
-  __int64 v98; // rcx
-  struct CObjectCache *ObjectCache; // rdx
-  _DWORD *v100; // rax
-  int v101; // edi
-  unsigned int v102; // ecx
-  int v103; // eax
-  unsigned int v104; // ecx
-  CShape *v105; // rdi
-  __m128 v106; // xmm4
-  __m128 v107; // xmm4
-  __m128 v108; // xmm4
-  __m128 v109; // xmm1
-  CMeshCacheManager *v110; // rcx
-  int appended; // eax
-  unsigned int v112; // ecx
-  __int64 v113; // r9
-  __int64 v114; // r8
-  __int64 v115; // rdx
-  __int64 v116; // rcx
-  int RectangleEdgeFlags; // eax
-  unsigned __int64 v118; // rdx
-  __int64 v119; // rbx
-  _OWORD *v120; // rax
-  unsigned int v121; // edx
-  __int64 v122; // rcx
-  __int64 v123; // rcx
-  int v124; // xmm1_4
-  char *v125; // rax
-  int v126; // eax
-  unsigned int v127; // ecx
-  CMILMatrix *v128; // rax
-  int v129; // eax
-  unsigned int v130; // ecx
-  unsigned int v131; // ecx
-  int v132; // eax
-  unsigned int v133; // ecx
-  unsigned int v134; // ecx
-  unsigned int v135; // ecx
-  _BYTE *v136; // rcx
-  __int64 v137; // r8
-  bool *v138; // rcx
-  _BYTE *v139; // rcx
-  _BYTE *v140; // rcx
-  __int64 v141; // r8
-  bool *v142; // rcx
-  _BYTE *v143; // rcx
-  __int64 v144; // r8
-  bool *v145; // rcx
-  _BYTE *v146; // rcx
-  _BYTE *v147; // rcx
-  __int64 v148; // r8
-  bool *v149; // rcx
-  _BYTE *v150; // rcx
-  __int64 v151; // r8
-  bool *v152; // rcx
-  _BYTE *v153; // rcx
-  __int64 v154; // r8
-  bool *v155; // rcx
-  int v156; // eax
-  unsigned int v157; // ecx
-  _BYTE *v158; // rcx
-  __int64 v159; // r8
-  bool *v160; // rcx
+  unsigned int v4; // r12d
+  char v6; // r15
+  const struct D2D_MATRIX_3X2_F *v7; // rdi
+  const struct CShape *v10; // r14
+  bool v11; // zf
+  __int64 v12; // rdx
+  _QWORD *v13; // rax
+  char *v14; // r15
+  float v15; // xmm1_4
+  FLOAT v16; // xmm0_4
+  int v17; // esi
+  __int128 v18; // xmm0
+  Mesh *v19; // rsi
+  int v20; // eax
+  __int64 v21; // rcx
+  unsigned __int64 v22; // rdi
+  char v23; // r15
+  bool v24; // r12
+  bool v25; // r15
+  int GeometryCount; // eax
+  __int64 v27; // rcx
+  __int64 v28; // r10
+  __int64 *v29; // r9
+  __int64 v30; // r11
+  unsigned int v31; // eax
+  unsigned __int64 v32; // rsi
+  __int64 v33; // rcx
+  __int64 v34; // rax
+  __int64 v35; // rdx
+  __int64 v36; // r8
+  unsigned __int64 v37; // r10
+  __int64 v38; // rcx
+  __int64 v39; // rcx
+  __int64 v40; // rcx
+  __int64 v41; // rax
+  __int64 v42; // rsi
+  _OWORD *v43; // rsi
+  __int64 v44; // r11
+  __int64 v45; // r10
+  char *v46; // rsi
+  __int64 v47; // rax
+  unsigned __int64 v48; // rcx
+  __int64 v49; // r8
+  unsigned __int64 v50; // rsi
+  bool v51; // sf
+  __int64 v52; // rcx
+  __int64 v53; // rax
+  __int64 v54; // rdi
+  _OWORD *v55; // rsi
+  __int64 v56; // rsi
+  __int64 v57; // rax
+  int Geometry; // eax
+  __int64 v59; // rcx
+  int v60; // ecx
+  FLOAT m11; // r12d
+  __int64 v62; // r8
+  __int64 v63; // r9
+  unsigned __int64 v64; // rsi
+  __int64 v65; // r9
+  unsigned __int64 v66; // rsi
+  __int64 v67; // r8
+  __int64 v68; // r10
+  _BYTE *v69; // rsi
+  _BYTE *v70; // rsi
+  _BYTE *v71; // rsi
+  _BYTE *v72; // rcx
+  _BYTE *v73; // rdx
+  __int64 v74; // rcx
+  unsigned __int64 v76; // rsi
+  LPVOID v77; // rax
+  __int64 v78; // r8
+  __int64 v79; // rdx
+  LPVOID v80; // rdi
+  CDrawListEntryBuilder *v81; // rcx
+  __int64 v82; // rsi
+  unsigned __int64 v83; // rsi
+  LPVOID v84; // rax
+  __int64 v85; // r8
+  __int64 v86; // rdx
+  LPVOID v87; // rdi
+  CDrawListEntryBuilder *v88; // rcx
+  __int64 v89; // xmm1_8
+  float v90; // xmm8_4
+  __m128 m11_low; // xmm9
+  float v92; // xmm10_4
+  int v93; // eax
+  __int64 v94; // rdx
+  __int64 v95; // rcx
+  __m128 v96; // xmm7
+  float v97; // xmm11_4
+  float v98; // xmm9_4
+  float v99; // xmm10_4
+  int v100; // eax
+  __int64 v101; // rcx
+  __m128 v102; // xmm7
+  __m128 v103; // xmm7
+  __m128 v104; // xmm7
+  int v105; // r9d
+  float v106; // xmm2_4
+  float v107; // xmm7_4
+  int v108; // eax
+  __int64 v109; // rcx
+  __int128 v110; // xmm0
+  __int64 v111; // xmm1_8
+  CMILMatrix *v112; // rax
+  int v113; // eax
+  __int64 v114; // rcx
+  LPVOID *v115; // rcx
+  __int64 v116; // rdx
+  int v117; // eax
+  __int64 v118; // rcx
+  float *v119; // r9
+  int v120; // r9d
+  enum D2D1_EDGE_FLAGS *v121; // rcx
+  LPVOID *v122; // rax
+  CDrawListPolygonBuilder *v123; // rcx
+  _DWORD *v124; // rdi
+  char v125; // di
+  __int64 v126; // r8
+  __int64 v127; // rax
+  __int64 v128; // rdx
+  __int64 v129; // rcx
+  int PolygonMesh; // eax
+  __int64 v131; // rcx
+  enum D2D1_EDGE_FLAGS *v132; // rcx
+  bool v133; // sf
+  __int128 v134; // xmm0
+  bool v135; // sf
+  bool v136; // sf
+  bool v137; // sf
+  int v138; // esi
   HANDLE ProcessHeap; // rax
-  HANDLE v162; // rax
-  HANDLE v163; // rax
-  _BYTE *v164; // rcx
-  __int64 v165; // r8
-  bool *v166; // rcx
-  char v167; // [rsp+38h] [rbp-D0h]
-  char v168; // [rsp+39h] [rbp-CFh]
-  char v169; // [rsp+39h] [rbp-CFh]
-  char v170; // [rsp+3Ah] [rbp-CEh]
-  char v171; // [rsp+3Bh] [rbp-CDh]
-  char v172; // [rsp+3Bh] [rbp-CDh]
-  char v173; // [rsp+3Ch] [rbp-CCh]
-  char v174; // [rsp+3Dh] [rbp-CBh] BYREF
-  bool v175; // [rsp+3Eh] [rbp-CAh]
-  int v176; // [rsp+40h] [rbp-C8h] BYREF
-  int v177; // [rsp+44h] [rbp-C4h] BYREF
-  struct D2D_MATRIX_3X2_F *v178[2]; // [rsp+48h] [rbp-C0h] BYREF
-  struct _D3DCOLORVALUE *v179; // [rsp+58h] [rbp-B0h] BYREF
-  int v180; // [rsp+60h] [rbp-A8h]
-  int v181; // [rsp+68h] [rbp-A0h] BYREF
-  __int128 v182; // [rsp+70h] [rbp-98h]
-  bool v183[16]; // [rsp+80h] [rbp-88h] BYREF
-  __int128 v184; // [rsp+90h] [rbp-78h]
-  _QWORD v185[3]; // [rsp+B0h] [rbp-58h] BYREF
-  char v186; // [rsp+C8h] [rbp-40h]
-  __int128 v187; // [rsp+D8h] [rbp-30h] BYREF
-  __int128 v188; // [rsp+E8h] [rbp-20h]
-  __int128 v189; // [rsp+F8h] [rbp-10h]
-  __int128 v190; // [rsp+108h] [rbp+0h]
-  int v191; // [rsp+118h] [rbp+10h]
-  int v192; // [rsp+128h] [rbp+20h] BYREF
-  __int64 v193; // [rsp+130h] [rbp+28h]
-  __int128 *v194; // [rsp+138h] [rbp+30h]
-  D2D1_MATRIX_3X2_F *p_matrix; // [rsp+140h] [rbp+38h]
-  void *v196; // [rsp+148h] [rbp+40h]
-  bool *v197; // [rsp+150h] [rbp+48h]
-  int v198; // [rsp+158h] [rbp+50h]
-  char v199; // [rsp+15Ch] [rbp+54h]
-  char v200; // [rsp+15Dh] [rbp+55h]
-  __int16 v201; // [rsp+15Eh] [rbp+56h]
-  D2D1_MATRIX_3X2_F matrix; // [rsp+178h] [rbp+70h] BYREF
-  CRectanglesShape *v203; // [rsp+198h] [rbp+90h] BYREF
-  unsigned int v204; // [rsp+1A0h] [rbp+98h]
-  unsigned int v205; // [rsp+1A4h] [rbp+9Ch]
-  bool *v206[2]; // [rsp+1A8h] [rbp+A0h] BYREF
-  _OWORD v207[3]; // [rsp+1B8h] [rbp+B0h] BYREF
-  int v208; // [rsp+1E8h] [rbp+E0h] BYREF
-  __int128 v209; // [rsp+1F8h] [rbp+F0h] BYREF
-  CShape *v210[2]; // [rsp+208h] [rbp+100h] BYREF
-  struct D2D_MATRIX_3X2_F v211; // [rsp+218h] [rbp+110h] BYREF
-  const unsigned int *v212; // [rsp+238h] [rbp+130h] BYREF
-  void *v213; // [rsp+240h] [rbp+138h]
-  void *v214; // [rsp+248h] [rbp+140h] BYREF
-  _BYTE *v215; // [rsp+250h] [rbp+148h]
-  int v216; // [rsp+258h] [rbp+150h]
-  __int64 v217; // [rsp+25Ch] [rbp+154h]
-  _BYTE v218[16]; // [rsp+268h] [rbp+160h] BYREF
-  void *v219; // [rsp+278h] [rbp+170h]
-  __int128 v220; // [rsp+288h] [rbp+180h] BYREF
-  LPVOID v221; // [rsp+298h] [rbp+190h] BYREF
-  _BYTE *v222; // [rsp+2A0h] [rbp+198h]
-  char *v223; // [rsp+2A8h] [rbp+1A0h]
-  _BYTE v224[160]; // [rsp+2B0h] [rbp+1A8h] BYREF
-  char v225; // [rsp+350h] [rbp+248h] BYREF
-  LPVOID lpMem; // [rsp+358h] [rbp+250h] BYREF
-  _BYTE *v227; // [rsp+360h] [rbp+258h]
-  char *v228; // [rsp+368h] [rbp+260h]
-  _BYTE v229[1280]; // [rsp+370h] [rbp+268h] BYREF
-  char v230; // [rsp+870h] [rbp+768h] BYREF
-  __int128 v231; // [rsp+878h] [rbp+770h] BYREF
-  __int128 v232; // [rsp+888h] [rbp+780h]
-  char v233; // [rsp+898h] [rbp+790h]
-  unsigned __int8 v234; // [rsp+899h] [rbp+791h]
+  HANDLE v140; // rax
+  HANDLE v141; // rax
+  int *v142; // [rsp+20h] [rbp-E0h]
+  unsigned int v143; // [rsp+20h] [rbp-E0h]
+  void *v144; // [rsp+28h] [rbp-D8h]
+  __int64 v145; // [rsp+30h] [rbp-D0h]
+  char right_low; // [rsp+50h] [rbp-B0h]
+  char v147[3]; // [rsp+51h] [rbp-AFh] BYREF
+  __int64 v148; // [rsp+54h] [rbp-ACh] BYREF
+  unsigned __int16 v149[2]; // [rsp+5Ch] [rbp-A4h] BYREF
+  struct D2D_MATRIX_3X2_F v150; // [rsp+60h] [rbp-A0h] BYREF
+  int v151; // [rsp+80h] [rbp-80h] BYREF
+  struct D2D_MATRIX_3X2_F v152; // [rsp+84h] [rbp-7Ch] BYREF
+  _OWORD *v153; // [rsp+A0h] [rbp-60h]
+  LPVOID *v154; // [rsp+B0h] [rbp-50h]
+  D2D1_MATRIX_3X2_F v155; // [rsp+B8h] [rbp-48h] BYREF
+  int v156; // [rsp+D0h] [rbp-30h] BYREF
+  unsigned int v157; // [rsp+D4h] [rbp-2Ch]
+  __int128 v158; // [rsp+D8h] [rbp-28h] BYREF
+  __int128 v159; // [rsp+F0h] [rbp-10h] BYREF
+  __int128 v160; // [rsp+100h] [rbp+0h]
+  __int128 v161; // [rsp+110h] [rbp+10h]
+  __int128 v162; // [rsp+120h] [rbp+20h]
+  int v163; // [rsp+130h] [rbp+30h]
+  __int128 v164; // [rsp+140h] [rbp+40h] BYREF
+  float v165; // [rsp+150h] [rbp+50h]
+  float v166; // [rsp+154h] [rbp+54h]
+  struct D2D_RECT_F v167; // [rsp+160h] [rbp+60h] BYREF
+  _OWORD *v168; // [rsp+170h] [rbp+70h]
+  CShape *v169[2]; // [rsp+180h] [rbp+80h] BYREF
+  struct D2D_MATRIX_3X2_F v170; // [rsp+190h] [rbp+90h] BYREF
+  struct D2D_RECT_F v171; // [rsp+1B0h] [rbp+B0h] BYREF
+  struct D2D_RECT_F v172; // [rsp+1C0h] [rbp+C0h] BYREF
+  void **v173; // [rsp+1D0h] [rbp+D0h] BYREF
+  __int64 v174; // [rsp+1D8h] [rbp+D8h]
+  void *v175; // [rsp+1E0h] [rbp+E0h] BYREF
+  _BYTE *v176; // [rsp+1E8h] [rbp+E8h]
+  int v177; // [rsp+1F0h] [rbp+F0h]
+  __int64 v178; // [rsp+1F4h] [rbp+F4h]
+  _BYTE v179[16]; // [rsp+200h] [rbp+100h] BYREF
+  __int64 v180; // [rsp+210h] [rbp+110h]
+  D2D1_MATRIX_3X2_F matrix; // [rsp+220h] [rbp+120h] BYREF
+  __int128 v182; // [rsp+238h] [rbp+138h] BYREF
+  int v183; // [rsp+248h] [rbp+148h]
+  enum D2D1_EDGE_FLAGS *v184; // [rsp+250h] [rbp+150h] BYREF
+  _BYTE *v185; // [rsp+258h] [rbp+158h]
+  char *v186; // [rsp+260h] [rbp+160h]
+  _BYTE v187[64]; // [rsp+268h] [rbp+168h] BYREF
+  char v188; // [rsp+2A8h] [rbp+1A8h] BYREF
+  LPVOID v189; // [rsp+2B0h] [rbp+1B0h] BYREF
+  _BYTE *v190; // [rsp+2B8h] [rbp+1B8h]
+  LPVOID *v191; // [rsp+2C0h] [rbp+1C0h]
+  _BYTE v192[64]; // [rsp+2C8h] [rbp+1C8h] BYREF
+  LPVOID v193; // [rsp+308h] [rbp+208h] BYREF
+  _BYTE *v194; // [rsp+310h] [rbp+210h]
+  LPVOID *p_lpMem; // [rsp+318h] [rbp+218h]
+  _BYTE v196[128]; // [rsp+320h] [rbp+220h] BYREF
+  LPVOID lpMem; // [rsp+3A0h] [rbp+2A0h] BYREF
+  _BYTE *v198; // [rsp+3A8h] [rbp+2A8h]
+  char *v199; // [rsp+3B0h] [rbp+2B0h]
+  _BYTE v200[128]; // [rsp+3B8h] [rbp+2B8h] BYREF
+  char v201; // [rsp+438h] [rbp+338h] BYREF
 
-  v212 = &CRectanglesShape::`vftable';
-  v191 = 0;
-  v214 = v218;
-  v179 = 0LL;
-  v215 = v218;
-  v213 = 0LL;
   v4 = 0;
-  v216 = 1;
-  v217 = 1LL;
-  v167 = 0;
-  v220 = 0LL;
-  v7 = 0LL;
-  LOBYTE(v180) = 0;
-  TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>(v218);
-  v8 = 0LL;
-  v9 = 0.0;
-  v10 = 0.0;
-  v219 = 0LL;
-  *(_OWORD *)&v211.m11 = *(_OWORD *)&_xmm;
-  *(_QWORD *)&v211.m[2][0] = 0LL;
-  if ( !*((_BYTE *)this + 4474) || (v11 = (_QWORD *)*((_QWORD *)this + 2), !*v11) && !v11[10] )
+  v157 = *((_DWORD *)this + 544);
+  *(_QWORD *)&v171.left = a4;
+  v183 = 0;
+  *(_QWORD *)&v167.left = 0LL;
+  v173 = &CRectanglesShape::`vftable';
+  v174 = 0LL;
+  v175 = v179;
+  v6 = 0;
+  right_low = 0;
+  v176 = v179;
+  v7 = a4;
+  LOBYTE(v167.right) = 0;
+  v177 = 1;
+  v182 = 0LL;
+  v10 = 0LL;
+  v178 = 1LL;
+  TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>(v179);
+  v11 = *((_DWORD *)this + 3) == 1;
+  v189 = v192;
+  v12 = 0LL;
+  v180 = 0LL;
+  v190 = v192;
+  v191 = &v193;
+  v193 = v196;
+  v194 = v196;
+  p_lpMem = &lpMem;
+  lpMem = v200;
+  v198 = v200;
+  v199 = &v201;
+  v154 = &v189;
+  v147[0] = 0;
+  if ( v11 )
   {
-    v12 = (char *)a2 + 24;
-    goto LABEL_5;
-  }
-  v18 = (*((_BYTE *)a2 + 24) & 1) == 0;
-  v12 = (char *)a2 + 24;
-  *(_OWORD *)v210 = 0LL;
-  if ( v18 )
-  {
-    *(_OWORD *)v210 = *(_OWORD *)a2;
+    LODWORD(v148) = 0;
   }
   else
   {
-    v126 = (*(__int64 (__fastcall **)(_QWORD, CShape **, _QWORD))(**(_QWORD **)a2 + 48LL))(*(_QWORD *)a2, v210, 0LL);
-    v24 = v126;
-    if ( v126 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v127, 0LL, 0, v126, 0x31Du, 0LL);
-      goto LABEL_58;
-    }
+    v11 = (*((_BYTE *)a2 + 24) & 4) == 0;
+    v4 = *((_DWORD *)a2 + 4);
+    LODWORD(v148) = v4;
+    if ( !v11 && v4 )
+      *((_BYTE *)this + 2297) = 1;
   }
-  v45 = (CShape **)*((_QWORD *)this + 2);
-  if ( *((_BYTE *)this + 4473) )
-    v178[0] = (struct D2D_MATRIX_3X2_F *)((char *)this + 56);
-  else
-    v178[0] = 0LL;
-  v203 = 0LL;
-  v208 = 0;
-  if ( *((_BYTE *)v45 + 112) )
+  if ( v7 )
   {
-    if ( !CShapePtr::IsAxisAlignedRectangle(v45 + 10)
-      && (*(unsigned int (__fastcall **)(CShape *))(*(_QWORD *)v45[10] + 8LL))(v45[10]) )
+    v89 = *(_QWORD *)&v7->m[2][0];
+    *(_OWORD *)&matrix.m11 = *(_OWORD *)&v7->m11;
+    *(_QWORD *)&matrix.m[2][0] = v89;
+    if ( !D2D1IsMatrixInvertible(&matrix) )
+      goto LABEL_64;
+    v12 = v180;
+  }
+  else
+  {
+    *(_OWORD *)&matrix.m11 = _xmm;
+    *(_QWORD *)&matrix.m[2][0] = 0LL;
+  }
+  if ( !*((_BYTE *)this + 2296) || (v13 = (_QWORD *)*((_QWORD *)this + 2), !*v13) && !v13[2] )
+  {
+    v14 = (char *)a2 + 24;
+LABEL_9:
+    if ( (*v14 & 1) != 0 )
     {
-      goto LABEL_92;
-    }
-    v46 = (__int64 *)v45[10];
-    if ( v178[0] )
-    {
-      v128 = CMILMatrix::CMILMatrix((CMILMatrix *)&v181, v178[0]);
-      v47 = (const struct CMILMatrix *)v206;
-      *(_OWORD *)v206 = *(_OWORD *)v128;
-      v207[0] = *((_OWORD *)v128 + 1);
-      v207[1] = *((_OWORD *)v128 + 2);
-      v207[2] = *((_OWORD *)v128 + 3);
-      v208 = *((_DWORD *)v128 + 16);
+      v10 = *(const struct CShape **)a2;
+      CShapePtr::Release((CShapePtr *)&v167);
+      right_low = 0;
+      v122 = (LPVOID *)*((_QWORD *)a2 + 1);
+      v155 = matrix;
+      if ( v122 )
+        v154 = v122;
     }
     else
     {
-      v47 = v203;
+      HIDWORD(v178) = 0;
+      if ( v175 != v176 )
+      {
+        operator delete(v175);
+        v12 = v180;
+        v175 = v176;
+        LODWORD(v178) = v177;
+      }
+      if ( v12 )
+      {
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
+        v180 = 0LL;
+      }
+      v171 = (struct D2D_RECT_F)_xmm;
+      DynArray<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,0>::AddMultipleAndSet(
+        (__int64)&v175,
+        &v171,
+        1LL);
+      v15 = *((float *)a2 + 1);
+      v16 = *((float *)a2 + 2) - *(float *)a2;
+      v155.dx = *(FLOAT *)a2;
+      v155.dy = v15;
+      v10 = (const struct CShape *)&v173;
+      *(_QWORD *)&v155.m[0][1] = 0LL;
+      v155.m11 = v16;
+      v155.m22 = *((float *)a2 + 3) - v15;
+      D2D1::Matrix3x2F::SetProduct(
+        (D2D1::Matrix3x2F *)&v170,
+        (const struct D2D1::Matrix3x2F *)&v155,
+        (const struct D2D1::Matrix3x2F *)&matrix);
+      v155 = v170;
     }
+    v17 = 2;
+    v151 = 2;
+    goto LABEL_16;
+  }
+  v11 = (*((_BYTE *)a2 + 24) & 1) == 0;
+  v14 = (char *)a2 + 24;
+  v164 = 0LL;
+  if ( v11 )
+  {
+    v164 = *(_OWORD *)a2;
   }
   else
   {
-    if ( (!(*(unsigned __int8 (__fastcall **)(CShape *, int *))(*(_QWORD *)*v45 + 64LL))(*v45, &v176) || v176 != 1)
-      && (*(unsigned int (__fastcall **)(CShape *))(*(_QWORD *)*v45 + 8LL))(*v45) )
+    v108 = (*(__int64 (__fastcall **)(_QWORD, __int128 *, _QWORD))(**(_QWORD **)a2 + 32LL))(*(_QWORD *)a2, &v164, 0LL);
+    LODWORD(v22) = v108;
+    if ( v108 < 0 )
     {
-      goto LABEL_92;
+      MilInstrumentationCheckHR_MaybeFailFast(v109, 0LL, 0, v108, 0x308u, 0LL);
+      goto LABEL_125;
     }
-    v46 = (__int64 *)*v45;
-    v47 = (const struct CMILMatrix *)(v45 + 1);
-    if ( v178[0] )
+    v7 = *(const struct D2D_MATRIX_3X2_F **)&v171.left;
+  }
+  if ( CCpuClip::FullyContains(*((_QWORD *)this + 2), (__int64)&v164, v7) )
+  {
+    v12 = v180;
+    goto LABEL_9;
+  }
+  v90 = *(float *)&FLOAT_1_0;
+  v163 = 0;
+  if ( v7 )
+  {
+    if ( (*v14 & 1) != 0 )
     {
-      CMILMatrix::CMILMatrix((CMILMatrix *)&v192, v178[0]);
-      CMILMatrix::Multiply((const struct CMILMatrix *)&v192, v47, (struct CMILMatrix *)v206);
-      v47 = (const struct CMILMatrix *)v206;
+      v110 = *(_OWORD *)&matrix.m11;
+      v111 = *(_QWORD *)&matrix.m[2][0];
+      m11_low = (__m128)(unsigned int)FLOAT_1_0;
+      v155 = matrix;
+      v92 = *(float *)&FLOAT_1_0;
+    }
+    else
+    {
+      D2DMatrixHelper::DecomposeMatrixIntoScaleAndRemaining(
+        (D2DMatrixHelper *)&matrix,
+        &v152,
+        (float *)&v151,
+        &v155.m11);
+      v111 = *(_QWORD *)&v155.m[2][0];
+      v110 = *(_OWORD *)&v155.m11;
+      m11_low = (__m128)LODWORD(v152.m11);
+      v92 = *(float *)&v151;
+    }
+    *(_QWORD *)&v170.m[2][0] = v111;
+    *(_OWORD *)&v170.m11 = v110;
+    D2D1::Matrix3x2F::Invert(&v170);
+    v112 = CMILMatrix::CMILMatrix((CMILMatrix *)&v184, &v170);
+    v159 = *(_OWORD *)v112;
+    v160 = *((_OWORD *)v112 + 1);
+    v161 = *((_OWORD *)v112 + 2);
+    v162 = *((_OWORD *)v112 + 3);
+    v163 = *((_DWORD *)v112 + 16);
+  }
+  else
+  {
+    m11_low = (__m128)(unsigned int)FLOAT_1_0;
+    v92 = *(float *)&FLOAT_1_0;
+    *(_OWORD *)&v155.m11 = _xmm;
+    *(_QWORD *)&v155.m[2][0] = 0LL;
+    v159 = _xmm;
+    v160 = _xmm;
+    v161 = _xmm;
+    v162 = _xmm;
+    LOWORD(v163) = 32085;
+  }
+  v93 = CCpuClip::ResolveClip(*((CCpuClip **)this + 2), v169);
+  LODWORD(v22) = v93;
+  if ( v93 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v95, 0LL, 0, v93, 0x348u, 0LL);
+    goto LABEL_125;
+  }
+  if ( (*v14 & 1) != 0 )
+  {
+    v113 = CShape::Combine(*(_QWORD *)a2, v94, (__int64)v169[0], (__int64)&v159, 1, &v171);
+    LODWORD(v22) = v113;
+    if ( v113 >= 0 )
+    {
+      v10 = *(const struct CShape **)&v171.left;
+      CShapePtr::Release((CShapePtr *)&v167);
+      *(_QWORD *)&v167.left = v10;
+      right_low = 1;
+      v115 = &v189;
+      LOBYTE(v167.right) = 1;
+      if ( *((_QWORD *)a2 + 1) )
+        v115 = (LPVOID *)*((_QWORD *)a2 + 1);
+      v154 = v115;
+      goto LABEL_140;
+    }
+    MilInstrumentationCheckHR_MaybeFailFast(v114, 0LL, 0, v113, 0x353u, 0LL);
+LABEL_125:
+    v6 = 0;
+    goto LABEL_65;
+  }
+  v22 = (unsigned __int64)v169[0];
+  v96 = m11_low;
+  v96.m128_f32[0] = m11_low.m128_f32[0] * *(float *)a2;
+  v97 = v92 * *((float *)a2 + 1);
+  v98 = m11_low.m128_f32[0] * *((float *)a2 + 2);
+  v99 = v92 * *((float *)a2 + 3);
+  *(_QWORD *)&v164 = __PAIR64__(LODWORD(v97), v96.m128_u32[0]);
+  *((_QWORD *)&v164 + 1) = __PAIR64__(LODWORD(v99), LODWORD(v98));
+  if ( !CShape::IsAxisAlignedRectangle(v169[0]) || !(unsigned __int8)CMILMatrix::Is2DAxisAlignedPreserving<1>(&v159) )
+  {
+    CRectanglesShape::SetSingleRect((CRectanglesShape *)&v173, (const struct MilRectF *)&v164);
+    v117 = CShape::Combine((__int64)&v173, v116, v22, (__int64)&v159, 1, &v171);
+    LODWORD(v22) = v117;
+    if ( v117 >= 0 )
+    {
+      v10 = *(const struct CShape **)&v171.left;
+      CShapePtr::Release((CShapePtr *)&v167);
+      *(_QWORD *)&v167.left = v10;
+      right_low = 1;
+      LOBYTE(v167.right) = 1;
+      *(_OWORD *)v169 = v164;
+      CEdgeFlagsMap::AddEdgeFlags(&v189, &v164, v4, &Matrix3x3::Identity);
+      v154 = &v189;
+LABEL_140:
+      v17 = 1;
+      v22 = (unsigned __int64)v10;
+      v151 = 1;
+      v147[0] = 1;
+      goto LABEL_111;
+    }
+    MilInstrumentationCheckHR_MaybeFailFast(v118, 0LL, 0, v117, 0x38Eu, 0LL);
+    goto LABEL_125;
+  }
+  v171 = 0LL;
+  v100 = (*(__int64 (__fastcall **)(unsigned __int64, struct D2D_RECT_F *, __int128 *))(*(_QWORD *)v22 + 32LL))(
+           v22,
+           &v171,
+           &v159);
+  LODWORD(v22) = v100;
+  if ( v100 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v101, 0LL, 0, v100, 0x36Cu, 0LL);
+    goto LABEL_125;
+  }
+  v102 = _mm_shuffle_ps(v96, v96, 225);
+  v102.m128_f32[0] = v97;
+  v103 = _mm_shuffle_ps(v102, v102, 198);
+  v103.m128_f32[0] = v98;
+  v104 = _mm_shuffle_ps(v103, v103, 39);
+  v104.m128_f32[0] = v99;
+  *(__m128 *)v169 = _mm_shuffle_ps(v104, v104, 57);
+  v158 = *(_OWORD *)v169;
+  v172 = v171;
+  if ( *((_BYTE *)this + 28) )
+    v105 = 50529027;
+  else
+    v105 = 0;
+  if ( ClipRectAndEdgeFlags((__int64)&v158, v4, (__int64)&v172, v105, v169, (int *)&v148) )
+  {
+    v147[0] = 1;
+    v164 = *(_OWORD *)v169;
+  }
+  CRectanglesShape::SetSingleRect((CRectanglesShape *)&v173, (const struct MilRectF *)&v164);
+  CShapePtr::Release((CShapePtr *)&v167);
+  v4 = v148;
+  v10 = (const struct CShape *)&v173;
+  *(float *)&v151 = 0.0;
+  v17 = 0;
+  right_low = 0;
+  LOBYTE(v167.right) = 0;
+  v22 = (unsigned __int64)&v173;
+  *(_QWORD *)&v167.left = &v173;
+LABEL_111:
+  if ( !CShapePtr::IsEmpty((CShapePtr *)&v167) )
+  {
+    v106 = *((float *)this + 1);
+    v107 = *(float *)&FLOAT_1_0;
+    LODWORD(v148) = (_DWORD)FLOAT_1_0;
+    HIDWORD(v148) = (_DWORD)FLOAT_1_0;
+    if ( v106 < 1.0 || *((float *)this + 2) < 1.0 )
+    {
+      HIDWORD(v164) = *((_DWORD *)this + 2);
+      *(float *)&v164 = v106;
+      *(_QWORD *)((char *)&v164 + 4) = 0LL;
+      v165 = 0.0 - (float)(v106 * 0.0);
+      v166 = 0.0 - (float)(*((float *)&v164 + 3) * 0.0);
+      D2D1::Matrix3x2F::SetProduct(
+        (D2D1::Matrix3x2F *)&v170,
+        (const struct D2D1::Matrix3x2F *)&v155,
+        (const struct D2D1::Matrix3x2F *)&v164);
+      v150 = v170;
+      D2DMatrixHelper::GetScaleDimensions(
+        (D2DMatrixHelper *)&v150,
+        (const struct D2D_MATRIX_3X2_F *)&v148,
+        (float *)&v148 + 1,
+        v119);
+      v90 = *(float *)&v148;
+      v107 = *((float *)&v148 + 1);
+    }
+    v164 = 0LL;
+    v20 = (*(__int64 (__fastcall **)(unsigned __int64, __int128 *, _QWORD))(*(_QWORD *)v22 + 32LL))(v22, &v164, 0LL);
+    LODWORD(v22) = v20;
+    if ( v20 < 0 )
+    {
+      v143 = 947;
+      goto LABEL_145;
+    }
+    if ( (float)((float)(*((float *)&v164 + 2) - *(float *)&v164) * v90) <= 0.015625
+      || (float)((float)(*((float *)&v164 + 3) - *((float *)&v164 + 1)) * v107) <= 0.015625 )
+    {
+      CShapePtr::Release((CShapePtr *)&v167);
+      v10 = *(const struct CShape **)&v167.left;
+      right_low = LOBYTE(v167.right);
     }
   }
-  if ( v46 )
+LABEL_16:
+  if ( !v10 || (*(unsigned __int8 (__fastcall **)(const struct CShape *))(*(_QWORD *)v10 + 16LL))(v10) )
+    goto LABEL_61;
+  if ( a3 )
   {
-    if ( (*(unsigned int (__fastcall **)(__int64 *))(*v46 + 8))(v46)
-       ? CCpuClip::RectangleShapeFullyContains(v46, (struct MilRectF *)v210, v47)
-       : CRoundedRectangleGeometryData::FillContainsRect(v46[2] + 16, (struct MilRectF *)v210, v47) )
+    v18 = *(_OWORD *)a3;
+    LOBYTE(v183) = *((_BYTE *)a3 + 16);
+  }
+  else
+  {
+    v18 = _xmm;
+  }
+  v182 = v18;
+  if ( (*(unsigned __int8 (__fastcall **)(const struct CShape *, int *))(*(_QWORD *)v10 + 40LL))(v10, &v156)
+    && v156 == 1 )
+  {
+    v171 = 0LL;
+    (*(void (__fastcall **)(const struct CShape *, struct D2D_RECT_F *, __int64))(*(_QWORD *)v10 + 48LL))(
+      v10,
+      &v171,
+      1LL);
+    v19 = (CDrawListEntryBuilder *)((char *)this + 104);
+    v167 = v171;
+    v20 = Mesh::CreateRectangleMesh(
+            (CDrawListEntryBuilder *)((char *)this + 104),
+            (const struct Mesh::ContentInfo *)&v182,
+            &v167,
+            v4);
+    LODWORD(v22) = v20;
+    if ( v20 >= 0 )
     {
-      v8 = v219;
-      v4 = 0;
-LABEL_5:
-      v170 = 0;
-      v171 = 0;
-      if ( (*v12 & 1) != 0 )
+LABEL_23:
+      if ( (_DWORD)v22 )
+        goto LABEL_60;
+      v23 = *v14;
+      v148 = 0LL;
+      v24 = (v23 & 4) != 0;
+      v25 = (v23 & 2) != 0;
+      GeometryCount = Mesh::GetGeometryCount(v19, v25, v24, (int *)&v148 + 1, (int *)&v148);
+      LODWORD(v22) = GeometryCount;
+      if ( GeometryCount < 0 )
       {
-        v7 = *(CShape **)a2;
-        CShapePtr::Release((CShapePtr *)&v179);
-        v167 = 0;
+        MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, GeometryCount, 0x480u, 0LL);
+LABEL_147:
+        v120 = v22;
+        v143 = 1063;
+        goto LABEL_148;
+      }
+      if ( (int)v148 <= 0 )
+      {
+LABEL_60:
+        CDrawListEntryBuilder::TransformHWGeometryAndComputeUV(
+          this,
+          a3,
+          (const struct D2D1::Matrix3x2F *)&matrix,
+          (const struct D2D1::Matrix3x2F *)&v155,
+          v157);
+        v17 = v151;
+LABEL_61:
+        ++*((_DWORD *)this + 568);
+        if ( !v147[0] )
+          goto LABEL_62;
+        if ( **((_QWORD **)this + 2) )
+          ++*((_DWORD *)this + 24);
+        if ( !v17 )
+        {
+          ++dword_180347368;
+          goto LABEL_63;
+        }
+        v138 = v17 - 1;
+        if ( !v138 )
+        {
+          ++dword_18034736C;
+          goto LABEL_63;
+        }
+        if ( v138 == 1 )
+LABEL_62:
+          ++dword_180347364;
+LABEL_63:
+        v6 = right_low;
+LABEL_64:
+        LODWORD(v22) = 0;
+        goto LABEL_65;
+      }
+      v22 = (unsigned __int64)this + 192;
+      v28 = *((_QWORD *)this + 24);
+      v29 = (__int64 *)((char *)this + 1184);
+      v30 = *((_QWORD *)this + 25);
+      v31 = 8 * *(_DWORD *)this + 16;
+      v32 = (v30 - v28) >> 4;
+      v169[0] = (CShape *)((__int64)(*((_QWORD *)this + 149) - *((_QWORD *)this + 148)) >> 4);
+      v33 = *((_QWORD *)this + 274) - *((_QWORD *)this + 273);
+      LODWORD(v154) = v31;
+      LODWORD(v152.m11) = v31 >> 4;
+      v34 = HIDWORD(v148) * (v31 >> 4);
+      *(_QWORD *)&v152.m[1][1] = v28;
+      *(_QWORD *)&v158 = v32;
+      *(_QWORD *)&v171.left = v33 >> 1;
+      v35 = (unsigned int)v34;
+      *(_QWORD *)&v164 = (unsigned int)v34;
+      *(_QWORD *)&v167.left = v34 + v32;
+      if ( v34 + v32 <= v32 )
+      {
+        detail::vector_facade<CDrawListEntryBuilder::Align16Chunk,detail::buffer_impl<CDrawListEntryBuilder::Align16Chunk,60,1,detail::liberal_expansion_policy>>::clear_region(
+          v22,
+          *(_QWORD *)&v167.left);
+        v29 = (__int64 *)((char *)this + 1184);
       }
       else
       {
-        v13 = *((_DWORD *)a2 + 3);
-        v14 = *((_DWORD *)a2 + 2);
-        v15 = *((_DWORD *)a2 + 1);
-        v16 = *(_DWORD *)a2;
-        HIDWORD(v217) = 0;
-        if ( v214 != v215 )
+        if ( (*((_QWORD *)this + 26) - v30) >> 4 < (unsigned __int64)(unsigned int)v34 )
         {
-          operator delete(v214);
-          v8 = v219;
-          v214 = v215;
-          LODWORD(v217) = v216;
+          v76 = detail::liberal_expansion_policy::expand(
+                  (detail::liberal_expansion_policy *)((*((_QWORD *)this + 26) - v28) >> 4),
+                  (*((_QWORD *)this + 26) - v28) >> 4,
+                  v34 + v32);
+          v77 = operator new(saturated_mul(v76, 0x10uLL));
+          v78 = *((_QWORD *)this + 25);
+          v79 = *((_QWORD *)this + 24);
+          *(_QWORD *)&v150.m11 = v77;
+          v80 = v77;
+          *(_OWORD *)&v150.m[1][0] = (unsigned __int64)v158;
+          *(_QWORD *)&v170.m[2][0] = 0LL;
+          *(_OWORD *)&v170.m11 = *(_OWORD *)&v150.m11;
+          std::uninitialized_copy<std::move_iterator<CDrawListEntryBuilder::Align16Chunk *>,stdext::checked_array_iterator<CDrawListEntryBuilder::Align16Chunk *>>(
+            &v150,
+            v79,
+            v78,
+            &v170);
+          v81 = (CDrawListEntryBuilder *)*((_QWORD *)this + 24);
+          *((_QWORD *)this + 24) = v80;
+          v22 = (unsigned __int64)this + 192;
+          if ( v81 == (CDrawListEntryBuilder *)((char *)this + 224) )
+            v81 = 0LL;
+          operator delete(v81);
+          v28 = *(_QWORD *)v22;
+          v29 = (__int64 *)((char *)this + 1184);
+          v35 = v164;
+          v30 = *(_QWORD *)v22 + 16 * v158;
+          v82 = *(_QWORD *)v22 + 16 * v76;
+          *(_QWORD *)&v152.m[1][1] = *(_QWORD *)v22;
+          *((_QWORD *)this + 26) = v82;
+          v32 = v158;
+          *((_QWORD *)this + 25) = v30;
         }
-        if ( v8 )
+        *(_OWORD *)&v150.m[1][0] = (unsigned __int64)v35;
+        v36 = (v30 - v28) >> 4;
+        v37 = v36 - v32;
+        v38 = 16 * v36 + *(_QWORD *)&v152.m[1][1];
+        *(_QWORD *)&v150.m11 = v38;
+        *(_QWORD *)&v172.left = v38;
+        if ( v35 )
         {
-          (*(void (__fastcall **)(void *))(*(_QWORD *)v8 + 16LL))(v8);
-          v219 = 0LL;
+          *(_QWORD *)&v172.left = 16 * v36 + *(_QWORD *)&v152.m[1][1];
+          if ( !v38 )
+            goto LABEL_223;
         }
-        v203 = (CRectanglesShape *)__PAIR64__(v15, v16);
-        v204 = v14;
-        v205 = v13;
-        DynArray<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,0>::AddMultipleAndSet(
-          &v214,
-          &v203,
-          1LL);
-        v7 = (CShape *)&v212;
+        *(_QWORD *)&v150.m[2][0] = v35;
+        v39 = v36 - v32;
+        if ( v35 < v37 )
+          v39 = v35;
+        v167 = *(struct D2D_RECT_F *)&v150.m11;
+        v40 = 16 * v39;
+        v41 = v30 - v40;
+        v168 = (_OWORD *)v35;
+        if ( v30 != v30 - v40 )
+        {
+          *(_QWORD *)&v172.left += 16 * v35;
+          v153 = v168;
+          do
+          {
+            v38 = v30 - 16;
+            v30 -= 16LL;
+            if ( !*(_QWORD *)&v167.left )
+              goto LABEL_223;
+            if ( !v153 )
+              goto LABEL_223;
+            v153 = (_OWORD *)((char *)v153 - 1);
+            *(_QWORD *)&v172.left -= 16LL;
+            v22 = (unsigned __int64)this + 192;
+            if ( (unsigned __int64)v153 >= *(_QWORD *)&v167.right )
+              goto LABEL_223;
+            **(_OWORD **)&v172.left = *(_OWORD *)v38;
+          }
+          while ( v30 != v41 );
+        }
+        if ( v37 > v35 )
+        {
+          v38 = *(_QWORD *)&v152.m[1][1];
+          *(_QWORD *)&v150.m11 = *(_QWORD *)&v152.m[1][1];
+          *(_QWORD *)&v150.m[1][0] = v36;
+          v133 = v36 < 0;
+          if ( v36 )
+          {
+            if ( !*(_QWORD *)&v152.m[1][1] )
+              goto LABEL_223;
+            v133 = v36 < 0;
+          }
+          if ( v133 && v36 )
+            goto LABEL_223;
+          *(_QWORD *)&v150.m[2][0] = v36;
+          v42 = 16 * v32;
+          *(_OWORD *)&v170.m11 = *(_OWORD *)&v150.m11;
+          *(_QWORD *)&v170.m[2][0] = v36;
+          std::move_backward<std::move_iterator<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded> *>,stdext::checked_array_iterator<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded> *>>(
+            &v150,
+            *(_QWORD *)&v152.m[1][1] + v42,
+            *(_QWORD *)&v152.m[1][1] + 16 * (v36 - v35),
+            &v170,
+            v142,
+            v144);
+          v35 = v164;
+          v29 = (__int64 *)((char *)this + 1184);
+        }
+        else
+        {
+          v42 = 16 * v32;
+        }
+        v43 = (_OWORD *)(*(_QWORD *)&v152.m[1][1] + v42);
+        *(_QWORD *)(v22 + 8) += 16 * v35;
+        if ( v35 )
+        {
+          *v43 = 0LL;
+          qmemcpy(v43 + 1, v43, 8 * ((unsigned __int64)(16 * v35 - 9) >> 3));
+        }
       }
-      goto LABEL_11;
-    }
-  }
-LABEL_92:
-  v54 = (CRectanglesShape *)*((_QWORD *)this + 2);
-  v4 = 1;
-  v170 = 1;
-  v171 = 0;
-  v203 = v54;
-  if ( *((_BYTE *)v54 + 112) )
-  {
-    if ( !*((_QWORD *)v54 + 10) )
-    {
-      v129 = CCpuClip::ConvertContextDependentClipToLocal(v54);
-      v24 = v129;
-      if ( v129 < 0 )
+      v44 = *v29;
+      v45 = v29[1];
+      *(_QWORD *)&v167.left = v44;
+      v46 = (char *)v169[0] + (unsigned int)(HIDWORD(v148) * LODWORD(v152.m11));
+      v22 = (v45 - v44) >> 4;
+      *(_QWORD *)&v172.left = v22;
+      if ( (unsigned __int64)v46 <= v22 )
       {
-        v4 = 0;
-        MilInstrumentationCheckHR_MaybeFailFast(v130, 0LL, 0, v129, 0x85u, 0LL);
-        MilInstrumentationCheckHR_MaybeFailFast(v131, 0LL, 0, v24, 0x32Du, 0LL);
+        detail::vector_facade<CDrawListEntryBuilder::Align16Chunk,detail::buffer_impl<CDrawListEntryBuilder::Align16Chunk,60,1,detail::liberal_expansion_policy>>::clear_region(
+          v29,
+          v46);
+      }
+      else
+      {
+        v47 = v29[2];
+        v35 = (__int64)&v46[-v22];
+        *(_QWORD *)&v164 = &v46[-v22];
+        v48 = (v47 - v45) >> 4;
+        if ( v48 < (unsigned __int64)&v46[-v22] )
+        {
+          v83 = detail::liberal_expansion_policy::expand(
+                  (detail::liberal_expansion_policy *)v48,
+                  (v47 - v44) >> 4,
+                  (unsigned __int64)v169[0] + (unsigned int)(HIDWORD(v148) * LODWORD(v152.m11)));
+          v84 = operator new(saturated_mul(v83, 0x10uLL));
+          v85 = *((_QWORD *)this + 149);
+          v86 = *((_QWORD *)this + 148);
+          *(_QWORD *)&v150.m11 = v84;
+          v87 = v84;
+          *(_OWORD *)&v150.m[1][0] = *(unsigned __int64 *)&v172.left;
+          *(_QWORD *)&v170.m[2][0] = 0LL;
+          *(_OWORD *)&v170.m11 = *(_OWORD *)&v150.m11;
+          std::uninitialized_copy<std::move_iterator<CDrawListEntryBuilder::Align16Chunk *>,stdext::checked_array_iterator<CDrawListEntryBuilder::Align16Chunk *>>(
+            &v150,
+            v86,
+            v85,
+            &v170);
+          v88 = (CDrawListEntryBuilder *)*((_QWORD *)this + 148);
+          *((_QWORD *)this + 148) = v87;
+          if ( v88 == (CDrawListEntryBuilder *)((char *)this + 1216) )
+            v88 = 0LL;
+          operator delete(v88);
+          v22 = *(_QWORD *)&v172.left;
+          v29 = (__int64 *)((char *)this + 1184);
+          v44 = *((_QWORD *)this + 148);
+          v35 = v164;
+          v45 = v44 + 16LL * *(_QWORD *)&v172.left;
+          *(_QWORD *)&v167.left = v44;
+          *((_QWORD *)this + 150) = v44 + 16 * v83;
+          *((_QWORD *)this + 149) = v45;
+        }
+        v38 = 0LL;
+        *(_OWORD *)&v150.m[1][0] = (unsigned __int64)v35;
+        v49 = (v45 - v44) >> 4;
+        v50 = v49 - v22;
+        *(_QWORD *)&v150.m11 = v44 + 16 * v49;
+        v51 = v35 < 0;
+        if ( v35 )
+        {
+          if ( !(v44 + 16 * v49) )
+            goto LABEL_223;
+          v51 = v35 < 0;
+        }
+        if ( v51 && v35 )
+          goto LABEL_223;
+        *(_QWORD *)&v150.m[2][0] = v35;
+        v52 = ((v45 - v44) >> 4) - v22;
+        if ( v35 < v50 )
+          v52 = v35;
+        *(_OWORD *)&v170.m11 = *(_OWORD *)&v150.m11;
+        v38 = 16 * v52;
+        v53 = v45 - v38;
+        *(_QWORD *)&v170.m[2][0] = v35;
+        if ( v45 != v45 - v38 )
+        {
+          v153 = (_OWORD *)(*(_QWORD *)&v150.m11 + 16 * v35);
+          *(_QWORD *)&v152.m[1][1] = *(_QWORD *)&v170.m[2][0];
+          do
+          {
+            v38 = v45 - 16;
+            v45 -= 16LL;
+            if ( !*(_QWORD *)&v170.m11 )
+              goto LABEL_223;
+            if ( !*(_QWORD *)&v152.m[1][1] )
+              goto LABEL_223;
+            --*(_QWORD *)&v152.m[1][1];
+            --v153;
+            v22 = *(_QWORD *)&v172.left;
+            if ( *(_QWORD *)&v152.m[1][1] >= *(_QWORD *)&v170.m[1][0] )
+              goto LABEL_223;
+            v134 = *(_OWORD *)v38;
+            v38 = (__int64)v153;
+            *v153 = v134;
+          }
+          while ( v45 != v53 );
+        }
+        if ( v50 > v35 )
+        {
+          *(_QWORD *)&v170.m11 = v44;
+          *(_QWORD *)&v170.m[1][0] = v49;
+          v135 = v49 < 0;
+          if ( v49 )
+          {
+            if ( !v44 )
+              goto LABEL_223;
+            v135 = v49 < 0;
+          }
+          if ( v135 && v49 )
+            goto LABEL_223;
+          *(_QWORD *)&v170.m[2][0] = v49;
+          v54 = 16 * v22;
+          *(_OWORD *)&v150.m11 = *(_OWORD *)&v170.m11;
+          *(_QWORD *)&v150.m[2][0] = v49;
+          std::move_backward<std::move_iterator<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded> *>,stdext::checked_array_iterator<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded> *>>(
+            &v170,
+            v44 + v54,
+            v44 + 16 * (v49 - v35),
+            &v150,
+            v142,
+            v144);
+          v35 = v164;
+          v29 = (__int64 *)((char *)this + 1184);
+          v44 = *(_QWORD *)&v167.left;
+        }
+        else
+        {
+          v54 = 16 * v22;
+        }
+        v55 = (_OWORD *)(v44 + v54);
+        v29[1] += 16 * v35;
+        if ( v35 )
+        {
+          *v55 = 0LL;
+          qmemcpy(v55 + 1, v55, 8 * ((unsigned __int64)(16 * v35 - 9) >> 3));
+        }
+      }
+      v22 = *(_QWORD *)&v171.left;
+      v149[0] = 0;
+      detail::vector_facade<unsigned short,detail::buffer_impl<unsigned short,30,1,detail::liberal_expansion_policy>>::resize(
+        (__int64 *)this + 273,
+        *(_QWORD *)&v171.left + (int)v148,
+        v149);
+      v56 = v158;
+      *(_QWORD *)&v164 = *((_QWORD *)this + 24) + 16 * v158;
+      *(_QWORD *)&v167.left = *((_QWORD *)this + 148) + 16 * (__int64)v169[0];
+      v57 = *((_QWORD *)this + 273);
+      *((_QWORD *)&v164 + 1) = __PAIR64__(HIDWORD(v148), (unsigned int)v154);
+      LODWORD(v167.right) = (_DWORD)v154;
+      v167.bottom = *((FLOAT *)&v148 + 1);
+      Geometry = Mesh::GenerateGeometry(
+                   (CDrawListEntryBuilder *)((char *)this + 104),
+                   v25,
+                   v24,
+                   (__int64)&v164,
+                   (__int64)&v167,
+                   (float *)&v148 + 1,
+                   *((_WORD *)this + 1088),
+                   (unsigned __int16 *)(v57 + 2 * v22),
+                   (int *)&v148);
+      LODWORD(v22) = Geometry;
+      if ( Geometry < 0 )
+      {
+LABEL_226:
+        MilInstrumentationCheckHR_MaybeFailFast(v59, 0LL, 0, Geometry, 0x4AAu, 0LL);
+        goto LABEL_147;
+      }
+      v60 = HIDWORD(v148);
+      *((_DWORD *)this + 544) += HIDWORD(v148);
+      m11 = v152.m11;
+      v62 = *((_QWORD *)this + 25);
+      v63 = *((_QWORD *)this + 24);
+      v172 = 0LL;
+      v38 = v56 + (unsigned int)(LODWORD(v152.m11) * v60);
+      v64 = (v62 - v63) >> 4;
+      if ( v38 > v64 )
+      {
+        *(_QWORD *)&v167.left = v62;
+        detail::vector_facade<CDrawListEntryBuilder::Align16Chunk,detail::buffer_impl<CDrawListEntryBuilder::Align16Chunk,60,1,detail::liberal_expansion_policy>>::insert(
+          (_DWORD)this + 192,
+          (unsigned int)&v164,
+          (unsigned int)&v167,
+          v38 - v64,
+          (__int64)&v172);
+      }
+      else
+      {
+        v22 = (v62 - 16 * v38 - v63) >> 4;
+        v35 = v38 + v22;
+        if ( v38 + v22 > v64 )
+        {
+LABEL_225:
+          std::_Xoverflow_error("overflow");
+          __debugbreak();
+          goto LABEL_226;
+        }
+        if ( v35 != v64 )
+        {
+          *(_QWORD *)&v170.m11 = v63;
+          *(_QWORD *)&v170.m[1][0] = (v62 - v63) >> 4;
+          v136 = v38 < 0;
+          if ( v38 )
+          {
+            if ( !v63 )
+              goto LABEL_223;
+            v136 = v38 < 0;
+          }
+          if ( v136 && v38 )
+            goto LABEL_223;
+          *(_QWORD *)&v170.m[2][0] = v38;
+          *(_OWORD *)&v150.m11 = *(_OWORD *)&v170.m11;
+          *(_QWORD *)&v150.m[2][0] = v38;
+          std::uninitialized_copy<std::move_iterator<D2D_RECT_F *>,stdext::checked_array_iterator<D2D_RECT_F *>>(
+            &v170,
+            v63 + 16 * v35,
+            v63 + 16 * v64,
+            &v150,
+            v142,
+            v144,
+            v145);
+          v62 = *((_QWORD *)this + 25);
+        }
+        *((_QWORD *)this + 25) = v62 - 16 * v22;
+      }
+      v38 = *((_QWORD *)this + 149);
+      v65 = *((_QWORD *)this + 148);
+      v66 = (v38 - v65) >> 4;
+      v67 = (__int64)v169[0] + (unsigned int)(HIDWORD(v148) * LODWORD(m11));
+      *(_OWORD *)v169 = 0LL;
+      if ( v67 > v66 )
+      {
+        *(_QWORD *)&v167.left = v38;
+        detail::vector_facade<CDrawListEntryBuilder::Align16Chunk,detail::buffer_impl<CDrawListEntryBuilder::Align16Chunk,60,1,detail::liberal_expansion_policy>>::insert(
+          (_DWORD)this + 1184,
+          (unsigned int)&v164,
+          (unsigned int)&v167,
+          v67 - v66,
+          (__int64)v169);
+        goto LABEL_59;
+      }
+      v22 = (v38 - 16 * v67 - v65) >> 4;
+      v35 = v22 + v67;
+      if ( v22 + v67 <= v66 )
+      {
+        v68 = v65 + 16 * v66;
+        if ( v35 == v66 )
+        {
+LABEL_58:
+          *((_QWORD *)this + 149) = v38 - 16 * v22;
+LABEL_59:
+          v149[0] = 0;
+          detail::vector_facade<unsigned short,detail::buffer_impl<unsigned short,30,1,detail::liberal_expansion_policy>>::resize(
+            (__int64 *)this + 273,
+            *(_QWORD *)&v171.left + (int)v148,
+            v149);
+          goto LABEL_60;
+        }
+        *(_QWORD *)&v170.m11 = v65;
+        *(_QWORD *)&v170.m[1][0] = (v38 - v65) >> 4;
+        v137 = v67 < 0;
+        if ( !v67 )
+        {
+LABEL_221:
+          if ( !v137 || !v67 )
+            goto LABEL_224;
+          goto LABEL_223;
+        }
+        if ( v65 )
+        {
+          v137 = v67 < 0;
+          goto LABEL_221;
+        }
+LABEL_223:
+        _o__invalid_parameter_noinfo_noreturn(v38, v35);
+        __debugbreak();
+LABEL_224:
+        *(_QWORD *)&v170.m[2][0] = v67;
+        *(_OWORD *)&v150.m11 = *(_OWORD *)&v170.m11;
+        *(_QWORD *)&v150.m[2][0] = v67;
+        std::uninitialized_copy<std::move_iterator<D2D_RECT_F *>,stdext::checked_array_iterator<D2D_RECT_F *>>(
+          &v170,
+          v65 + 16 * v35,
+          v68,
+          &v150,
+          v142,
+          v144,
+          v145);
+        v38 = *((_QWORD *)this + 149);
         goto LABEL_58;
       }
-      v54 = v203;
+      goto LABEL_225;
     }
-    v56 = (CShape *)*((_QWORD *)v54 + 10);
-    v210[0] = v56;
-    CMILMatrix::SetToIdentity((CMILMatrix *)&v187);
+    v143 = 1015;
   }
   else
   {
-    v55 = *((_DWORD *)v54 + 3);
-    v56 = *(CShape **)v54;
-    matrix.m11 = *((FLOAT *)v54 + 2);
-    *(_QWORD *)&matrix.m[0][1] = __PAIR64__(*((_DWORD *)v54 + 6), v55);
-    *(_QWORD *)&matrix.m[1][1] = __PAIR64__(*((_DWORD *)v54 + 14), *((_DWORD *)v54 + 7));
-    matrix.dy = *((FLOAT *)v54 + 15);
-    v210[0] = v56;
-    D2D1InvertMatrix(&matrix);
-    v57 = CMILMatrix::CMILMatrix((CMILMatrix *)&v192, &matrix);
-    v187 = *(_OWORD *)v57;
-    v188 = *((_OWORD *)v57 + 1);
-    v189 = *((_OWORD *)v57 + 2);
-    v190 = *((_OWORD *)v57 + 3);
-    v191 = *((_DWORD *)v57 + 16);
-  }
-  if ( *((_BYTE *)this + 4473) )
-  {
-    CMILMatrix::CMILMatrix((CMILMatrix *)v206, (const struct D2D_MATRIX_3X2_F *)((char *)this + 32));
-    CMILMatrix::Multiply((CMILMatrix *)&v187, (const struct CMILMatrix *)v206);
-  }
-  v58 = (*(__int64 (__fastcall **)(CShape *, __int128 *, __int128 *))(*(_QWORD *)v56 + 48LL))(v56, &v220, &v187);
-  v24 = v58;
-  if ( v58 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v60, 0LL, 0, v58, 0x336u, 0LL);
-  }
-  else if ( (*v12 & 1) != 0 )
-  {
-    v132 = CShape::Combine(*(_QWORD *)a2, v59, v210[0], &v187, 1, &v203);
-    v24 = v132;
-    if ( v132 >= 0 )
+    v123 = (CDrawListPolygonBuilder *)*((_QWORD *)this + 23);
+    if ( !v123 )
     {
-      v7 = v203;
-      CShapePtr::Release((CShapePtr *)&v179);
-      goto LABEL_104;
-    }
-    MilInstrumentationCheckHR_MaybeFailFast(v133, 0LL, 0, v132, 0x342u, 0LL);
-  }
-  else
-  {
-    v61 = *((_DWORD *)a2 + 3);
-    v62 = *((_DWORD *)a2 + 2);
-    v63 = *((_DWORD *)a2 + 1);
-    v64 = *(_DWORD *)a2;
-    LODWORD(v203) = *(_DWORD *)a2;
-    HIDWORD(v203) = v63;
-    v204 = v62;
-    v205 = v61;
-    TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::Inflate(&v203);
-    if ( (unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::DoesContain(&v203, &v220) )
-    {
-      v105 = v210[0];
-      v171 = 1;
-      if ( CShape::IsAxisAlignedRectangle(v210[0]) && CMILMatrix::Is2DAxisAlignedPreserving((CMILMatrix *)&v187) )
+      v124 = DefaultHeap::Alloc(0xB0uLL);
+      if ( v124 )
       {
-        CRectanglesShape::SetSingleRect((CRectanglesShape *)&v212, (const struct MilRectF *)&v220);
-        CShapePtr::Release((CShapePtr *)&v179);
-        v7 = (CShape *)&v212;
-        v167 = 0;
-        v173 = 0;
-LABEL_12:
-        if ( !(*(unsigned __int8 (__fastcall **)(CShape *))(*(_QWORD *)v7 + 16LL))(v7) )
+        v124[3] = 0;
+        memset_0(v124 + 8, 0, 0x90uLL);
+        *(_QWORD *)v124 = &CDrawListPolygonBuilder::`vftable'{for `CMILCOMBase'};
+        *((_QWORD *)v124 + 2) = &CDrawListPolygonBuilder::`vftable'{for `ID2D1GeometrySink'};
+        v124[2] = 0;
+        *((_QWORD *)v124 + 3) = v124 + 12;
+        *((_QWORD *)v124 + 4) = v124 + 12;
+        *((_QWORD *)v124 + 5) = v124 + 44;
+      }
+      else
+      {
+        v124 = 0LL;
+      }
+      wil::com_ptr_t<CColorGradientStop,wil::err_returncode_policy>::operator=((char *)this + 184, v124);
+      v123 = (CDrawListPolygonBuilder *)*((_QWORD *)this + 23);
+      if ( !v123 )
+      {
+        LODWORD(v22) = -2147024882;
+        MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, -2147024882, 0x3FEu, 0LL);
+        goto LABEL_152;
+      }
+    }
+    v20 = CDrawListPolygonBuilder::Build(v123, v10);
+    LODWORD(v22) = v20;
+    if ( v20 >= 0 )
+    {
+      v125 = v147[0];
+      if ( *((_DWORD *)this + 3) == 1 || v147[0] && !*((_BYTE *)this + 28) )
+        v126 = 0LL;
+      else
+        v126 = 3LL;
+      v184 = (enum D2D1_EDGE_FLAGS *)v187;
+      v185 = v187;
+      v186 = &v188;
+      v127 = *((_QWORD *)this + 23);
+      v128 = *(_QWORD *)(v127 + 24);
+      v129 = (*(_QWORD *)(v127 + 32) - v128) >> 3;
+      if ( !v128 && (_DWORD)v129 )
+      {
+        ((void (__fastcall *)(__int64, _QWORD, __int64))`gsl::details::get_terminate_handler'::`2'::handler)(
+          v129,
+          0LL,
+          v126);
+        __debugbreak();
+      }
+      *(_QWORD *)&v167.left = (unsigned int)v129;
+      *(_QWORD *)&v167.right = v128;
+      CEdgeFlagsMap::ResolveEdgeFlags((_DWORD)v154, (unsigned int)&v167, v126, (unsigned int)&v184, (__int64)v147);
+      if ( !v125 || (v11 = v147[0] == 0, v147[0] = 1, v11) )
+        v147[0] = 0;
+      v19 = (CDrawListEntryBuilder *)((char *)this + 104);
+      PolygonMesh = Mesh::CreatePolygonMesh(
+                      (CDrawListEntryBuilder *)((char *)this + 104),
+                      (const struct Mesh::ContentInfo *)&v182,
+                      *(const struct D2D_POINT_2F **)(*((_QWORD *)this + 23) + 24LL),
+                      v184,
+                      (__int64)(*(_QWORD *)(*((_QWORD *)this + 23) + 32LL) - *(_QWORD *)(*((_QWORD *)this + 23) + 24LL)) >> 3);
+      LODWORD(v22) = PolygonMesh;
+      if ( PolygonMesh < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v131, 0LL, 0, PolygonMesh, 0x421u, 0LL);
+        v121 = v184;
+        if ( (v185 - (_BYTE *)v184) >> 2 )
         {
-          v17 = (struct D2D_MATRIX_3X2_F *)v185;
-          v168 = 0;
-          v18 = (*v12 & 1) == 0;
-          v19 = 0LL;
-          v174 = 0;
-          LODWORD(v179) = 0;
-          v177 = 0;
-          v186 = 0;
-          v178[0] = (struct D2D_MATRIX_3X2_F *)v185;
-          if ( v18 )
-          {
-            if ( *((_DWORD *)this + 3) == 1 )
-            {
-              v17 = 0LL;
-              LODWORD(v179) = 0;
-            }
-            else
-            {
-              v17 = (struct D2D_MATRIX_3X2_F *)*((unsigned int *)a2 + 4);
-              LODWORD(v179) = *((_DWORD *)a2 + 4);
-            }
-            v173 = 0;
-            if ( v4 )
-            {
-              v69 = *((_QWORD *)this + 2);
-              v70 = 50529027;
-              v168 = 0;
-              v173 = 0;
-              v177 = 50529027;
-              if ( *(_DWORD *)(v69 + 96) == 1 )
-                v70 = 0;
-              if ( v171 )
-              {
-                LODWORD(v179) = v70;
-                v20 = 0;
-                v170 = v4;
-                v173 = 0;
-                v168 = 0;
-              }
-              else
-              {
-                v209 = v220;
-                *(_OWORD *)&matrix.m11 = v220;
-                v71 = ~(unsigned int)ClipRectAndEdgeFlags(&matrix, v70, a2, v17, &v209, &v176) & 0x3030303;
-                v177 = v71;
-                if ( v7 && CShape::IsAxisAlignedRectangle(v7) )
-                {
-                  v20 = 0;
-                  LODWORD(v179) = v176;
-                  v170 = v4;
-                }
-                else
-                {
-                  *(_OWORD *)v178 = *(_OWORD *)a2;
-                  if ( (v71 & 0x3000000) != 0 )
-                    LODWORD(v178[0]) = -8388609;
-                  if ( (v71 & 3) != 0 )
-                    HIDWORD(v178[0]) = -8388609;
-                  if ( (v71 & 0x300) != 0 )
-                    LODWORD(v178[1]) = 2139095039;
-                  if ( (v71 & 0x30000) != 0 )
-                    HIDWORD(v178[1]) = 2139095039;
-                  CEdgeFlagsMap::AddEdgeFlags(v185, v178, (unsigned int)v179, 0LL, LODWORD(FLOAT_0_000081380211));
-                  v170 = v4;
-                  v178[0] = (struct D2D_MATRIX_3X2_F *)v185;
-                  v173 = v174;
-                  v20 = v174;
-                  v168 = v174;
-                }
-              }
-LABEL_18:
-              LOBYTE(v176) = 0;
-              v181 = 1015021568;
-              v221 = v224;
-              v222 = v224;
-              v223 = &v225;
-              v206[0] = (bool *)v207 + 8;
-              v206[1] = (bool *)v207 + 8;
-              *(_QWORD *)&v207[0] = &v208;
-              lpMem = v229;
-              v227 = v229;
-              v228 = &v230;
-              v182 = 0LL;
-              *(_OWORD *)v183 = 0LL;
-              v184 = 0LL;
-              if ( v7
-                && (*(unsigned __int8 (__fastcall **)(CShape *, CShape **, __int64, struct D2D_MATRIX_3X2_F *))(*(_QWORD *)v7 + 64LL))(
-                     v7,
-                     v210,
-                     v19,
-                     v17)
-                && LODWORD(v210[0]) == 1 )
-              {
-                if ( v211.m11 == 1.0 && v211.m12 == 0.0 && v211.m21 == 0.0 && v211.m22 == 1.0 && v9 == 0.0 && v10 == 0.0 )
-                {
-                  v209 = 0LL;
-                  v21 = (*(__int64 (__fastcall **)(CShape *, __int128 *, _QWORD))(*(_QWORD *)v7 + 48LL))(v7, &v209, 0LL);
-                  v23 = v21;
-                  v24 = v21;
-                  if ( v21 >= 0 )
-                  {
-                    v25 = v209;
-                    v26 = DWORD1(v209);
-                    v27 = DWORD2(v209);
-                    v28 = HIDWORD(v209);
-                    v29 = (unsigned int)v179;
-                    v182 = v209;
-                    BYTE12(v184) = 1;
-                    *(_DWORD *)v183 = (_DWORD)v179;
-                    v183[4] = (v177 & 3) == 0;
-                    v183[5] = (v177 & 0x300) == 0;
-                    v183[6] = (v177 & 0x30000) == 0;
-                    v183[7] = (v177 & 0x3000000) == 0;
-                    v30 = 0;
-                    if ( ((unsigned __int16)v179 & 0x300) != 0x300 )
-                      v30 = ((unsigned __int8)v179 & 3) != 3 && ((unsigned int)v179 & 0x3000000) != 50331648;
-                    LOBYTE(v30) = ((unsigned int)v179 & 0x30000) == 196608 || !v30;
-                    v177 = v30;
-                    if ( *((_BYTE *)this + 4475) && (*v12 & 2) != 0 )
-                    {
-                      v49 = (unsigned __int8)v176;
-                      if ( (float)((float)(*((float *)&v209 + 3) - *((float *)&v209 + 1))
-                                 * (float)(*((float *)&v209 + 2) - *(float *)&v209)) >= (float)CCommonRegistryData::MegaRectSize )
-                        v49 = 1;
-                      v176 = v49;
-                    }
-                    v31 = v206[0];
-                    v172 = v4;
-                    goto LABEL_32;
-                  }
-                  MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x140u, 0LL);
-                  MilInstrumentationCheckHR_MaybeFailFast(v135, 0LL, 0, v23, 0x3F5u, 0LL);
-                  v136 = lpMem;
-                  v137 = (v227 - (_BYTE *)lpMem) >> 5;
-                  if ( v137 )
-                  {
-                    detail::vector_facade<Mesh::VertexAAOffsetDesc,detail::buffer_impl<Mesh::VertexAAOffsetDesc,40,1,detail::liberal_expansion_policy>>::clear_region(
-                      &lpMem,
-                      0LL,
-                      v137);
-                    v136 = lpMem;
-                  }
-                  lpMem = 0LL;
-                  if ( v136 == v229 )
-                    v136 = 0LL;
-                  operator delete(v136);
-                  v138 = v206[0];
-                  if ( v206[1] != v206[0] )
-                  {
-                    detail::vector_facade<bool,detail::buffer_impl<bool,40,1,detail::liberal_expansion_policy>>::clear_region(
-                      v206,
-                      0LL,
-                      v206[1] - v206[0]);
-                    v138 = v206[0];
-                  }
-                  v206[0] = 0LL;
-                  if ( v138 == (bool *)((char *)v207 + 8) )
-                    v138 = 0LL;
-                  operator delete(v138);
-                  v139 = v221;
-                  if ( (v222 - (_BYTE *)v221) >> 2 )
-                  {
-                    detail::vector_facade<enum D2D1_EDGE_FLAGS,detail::buffer_impl<enum D2D1_EDGE_FLAGS,40,1,detail::liberal_expansion_policy>>::clear_region(
-                      &v221,
-                      0LL);
-                    v139 = v221;
-                  }
-                  v221 = 0LL;
-                  if ( v139 == v224 )
-                    v139 = 0LL;
-                  goto LABEL_356;
-                }
-                v168 = v20;
-              }
-              v72 = (CPolygonBuilder **)((char *)this + 144);
-              v172 = v4;
-              v73 = *((_QWORD *)this + 18);
-              v173 = 1;
-              if ( v73 )
-              {
-                v74 = *(_QWORD *)(v73 + 24);
-                v75 = (__int64 *)(v73 + 16);
-                v76 = (v74 - *v75) >> 3;
-                if ( v76 )
-                  detail::vector_facade<D2D_POINT_2F,detail::buffer_impl<D2D_POINT_2F,40,1,detail::liberal_expansion_policy>>::clear_region(
-                    v75,
-                    0LL,
-                    v76);
-              }
-              else
-              {
-                ObjectCache = CThreadContext::GetObjectCache(0LL);
-                v100 = 0LL;
-                v101 = *((_DWORD *)ObjectCache + 1);
-                if ( v101 )
-                {
-                  v100 = (_DWORD *)*((_QWORD *)ObjectCache + 1);
-                  *((_QWORD *)ObjectCache + 1) = *(_QWORD *)v100;
-                  *((_DWORD *)ObjectCache + 1) = v101 - 1;
-                }
-                if ( v100 || (v100 = DefaultHeap::Alloc(0x168uLL)) != 0LL )
-                {
-                  v100[2] = 0;
-                  *(_QWORD *)v100 = &CPolygonBuilder::`vftable';
-                  *((_QWORD *)v100 + 2) = v100 + 10;
-                  *((_QWORD *)v100 + 3) = v100 + 10;
-                  *((_QWORD *)v100 + 4) = v100 + 90;
-                }
-                else
-                {
-                  v100 = 0LL;
-                }
-                wil::com_ptr_t<CPolygonBuilder,wil::err_returncode_policy>::operator=((char *)this + 144, v100);
-                if ( !*v72 )
-                {
-                  v24 = -2147024882;
-                  MilInstrumentationCheckHR_MaybeFailFast(v102, 0LL, 0, -2147024882, 0x414u, 0LL);
-                  v140 = lpMem;
-                  v141 = (v227 - (_BYTE *)lpMem) >> 5;
-                  if ( v141 )
-                  {
-                    detail::vector_facade<Mesh::VertexAAOffsetDesc,detail::buffer_impl<Mesh::VertexAAOffsetDesc,40,1,detail::liberal_expansion_policy>>::clear_region(
-                      &lpMem,
-                      0LL,
-                      v141);
-                    v140 = lpMem;
-                  }
-                  lpMem = 0LL;
-                  if ( v140 == v229 )
-                    v140 = 0LL;
-                  operator delete(v140);
-                  v142 = v206[0];
-                  if ( v206[1] != v206[0] )
-                  {
-                    detail::vector_facade<bool,detail::buffer_impl<bool,40,1,detail::liberal_expansion_policy>>::clear_region(
-                      v206,
-                      0LL,
-                      v206[1] - v206[0]);
-                    v142 = v206[0];
-                  }
-                  v206[0] = 0LL;
-                  if ( v142 == (bool *)((char *)v207 + 8) )
-                    v142 = 0LL;
-                  operator delete(v142);
-                  v139 = v221;
-                  if ( (v222 - (_BYTE *)v221) >> 2 )
-                  {
-                    detail::vector_facade<enum D2D1_EDGE_FLAGS,detail::buffer_impl<enum D2D1_EDGE_FLAGS,40,1,detail::liberal_expansion_policy>>::clear_region(
-                      &v221,
-                      0LL);
-                    v139 = v221;
-                  }
-                  v221 = 0LL;
-                  if ( v139 == v224 )
-                    v139 = 0LL;
-                  goto LABEL_356;
-                }
-              }
-              v77 = (*(__int64 (__fastcall **)(CShape *, CPolygonBuilder *, __int64, struct D2D_MATRIX_3X2_F *))(*(_QWORD *)v7 + 32LL))(
-                      v7,
-                      *v72,
-                      v76,
-                      v17);
-              v24 = v77;
-              if ( v77 >= 0 )
-              {
-                if ( !D2D1::Matrix3x2F::IsIdentity((D2D1::Matrix3x2F *)&v211) )
-                  CPolygonBuilder::Transform(*v72, &v211);
-                v79 = *v72;
-                BYTE12(v184) = 0;
-                v177 = 0;
-                v80 = (unsigned int)((__int64)(*((_QWORD *)v79 + 3) - *((_QWORD *)v79 + 2)) >> 3);
-                *(_QWORD *)&v182 = (unsigned int)v80;
-                *((_QWORD *)&v182 + 1) = *((_QWORD *)v79 + 2);
-                detail::vector_facade<enum D2D1_EDGE_FLAGS,detail::buffer_impl<enum D2D1_EDGE_FLAGS,40,1,detail::liberal_expansion_policy>>::resize(
-                  &v221,
-                  v80,
-                  &v177);
-                v174 = 0;
-                detail::vector_facade<bool,detail::buffer_impl<bool,40,1,detail::liberal_expansion_policy>>::resize(
-                  v206,
-                  v182,
-                  &v174);
-                v81 = 0LL;
-                if ( g_pComposition )
-                  v81 = (CMeshCacheManager *)*((_QWORD *)g_pComposition + 35);
-                if ( !(*(unsigned int (__fastcall **)(CShape *))(*(_QWORD *)v7 + 8LL))(v7)
-                  && (MeshAAOffsetsForRoundedRectangle = CMeshCacheManager::TryGetMeshAAOffsetsForRoundedRectangle(
-                                                           v81,
-                                                           (const struct Mesh::MeshDesc *)&v181,
-                                                           v7,
-                                                           (const struct D2D1::Matrix3x2F *)&v211,
-                                                           1)) != 0LL )
-                {
-                  v87 = (char *)MeshAAOffsetsForRoundedRectangle + 24;
-                }
-                else
-                {
-                  v84 = (v227 - (_BYTE *)lpMem) >> 5;
-                  if ( (unsigned __int64)v182 <= v84 )
-                  {
-                    detail::vector_facade<Mesh::VertexAAOffsetDesc,detail::buffer_impl<Mesh::VertexAAOffsetDesc,40,1,detail::liberal_expansion_policy>>::clear_region(
-                      &lpMem,
-                      (32 * (__int64)v182) >> 5,
-                      (v227 - ((_BYTE *)lpMem + 32 * v182)) >> 5);
-                  }
-                  else
-                  {
-                    v85 = v182 - v84;
-                    v86 = (_OWORD *)detail::vector_facade<Mesh::VertexAAOffsetDesc,detail::buffer_impl<Mesh::VertexAAOffsetDesc,40,1,detail::liberal_expansion_policy>>::reserve_region(
-                                      &lpMem,
-                                      v84,
-                                      v182 - v84);
-                    if ( v85 )
-                    {
-                      *v86 = 0LL;
-                      v86[1] = 0LL;
-                      qmemcpy(v86 + 2, v86, 8 * ((unsigned __int64)(32 * v85 - 25) >> 3));
-                    }
-                  }
-                  *(_QWORD *)&matrix.m11 = lpMem;
-                  LODWORD(matrix.m22) = v182;
-                  LODWORD(matrix.m21) = 32;
-                  Mesh::CalcEdgeDirections(*((_QWORD *)&v182 + 1), v182, &matrix);
-                  v87 = lpMem;
-                }
-                *(_QWORD *)&v183[8] = v87;
-                if ( !v172 || *(_DWORD *)(*((_QWORD *)this + 2) + 96LL) == 1 )
-                  v88 = 0LL;
-                else
-                  v88 = 3LL;
-                v89 = (bool *)v221;
-                v90 = (v222 - (_BYTE *)v221) >> 2;
-                *(_QWORD *)&matrix.m11 = v90;
-                if ( v90 == -1
-                  || (*(_QWORD *)&matrix.m[1][0] = v221) == 0LL && v90
-                  || (v91 = *(_OWORD *)&matrix.m11,
-                      v89 = v206[0],
-                      *(_QWORD *)&matrix.m11 = v206[1] - v206[0],
-                      v231 = v91,
-                      v206[1] - v206[0] == -1)
-                  || (*(bool **)&matrix.m[1][0] = v206[0]) == 0LL && v206[1] )
-                {
-                  ((void (__fastcall *)(bool *, LPVOID, __int64, __int64))`gsl::details::get_terminate_handler'::`2'::handler)(
-                    v89,
-                    v87,
-                    v83,
-                    v88);
-                  __debugbreak();
-                }
-                v232 = *(_OWORD *)&matrix.m11;
-                LODWORD(matrix.m22) = v182;
-                *(_QWORD *)&matrix.m11 = v87;
-                LODWORD(matrix.m21) = 32;
-                CEdgeFlagsMap::ResolveEdgeFlags(v178[0], (unsigned int)&matrix, DWORD2(v182), v88, (__int64)&v231, v181);
-                v177 = v234;
-                v170 = v168;
-                v4 = v168;
-                if ( v172 )
-                {
-                  v170 = v168;
-                  if ( v233 )
-                  {
-                    v4 = 1;
-                    v170 = 1;
-                  }
-                }
-                v31 = v206[0];
-                v29 = (unsigned int)v221;
-                v28 = HIDWORD(v182);
-                v27 = DWORD2(v182);
-                v26 = DWORD1(v182);
-                v25 = v182;
-                *(_QWORD *)v183 = v221;
-                *(bool **)&v184 = v206[0];
-LABEL_32:
-                if ( a3 )
-                {
-                  v178[0] = a3[2];
-                  v179 = (struct _D3DCOLORVALUE *)a3;
-                }
-                else
-                {
-                  v178[0] = 0LL;
-                  v179 = 0LL;
-                }
-                v32 = (*((_DWORD *)this + 6) & 0x2000) != 0;
-                v33 = 0;
-                v174 = v32;
-                v169 = 0;
-                if ( v4 && *(_QWORD *)(*((_QWORD *)this + 2) + 104LL) )
-                {
-                  v93 = (*v12 & 4) == 0;
-                  v175 = v93;
-                  if ( BYTE12(v184) )
-                  {
-                    *(_QWORD *)&v231 = __PAIR64__(v26, v25);
-                    *((_QWORD *)&v231 + 1) = __PAIR64__(v26, v27);
-                    *(_QWORD *)&v232 = __PAIR64__(v28, v27);
-                    *((_QWORD *)&v232 + 1) = __PAIR64__(v28, v25);
-                    DecomposeRectangleEdgeFlags(v29, &matrix.m[1][1], &matrix, &matrix.m[0][1], matrix.m[1]);
-                    v201 = 0;
-                    v194 = &v231;
-                    p_matrix = &matrix;
-                    v196 = &unk_1802DF210;
-                    v197 = &v183[4];
-                    v198 = DWORD2(v184);
-                    v200 = BYTE13(v184);
-                    v192 = v181;
-                    v199 = 0;
-                    v193 = 4LL;
-                    appended = CDrawListEntryBuilder::AppendCpuClipAntialiasHWPrimitive(
-                                 this,
-                                 (const struct Mesh::MeshDesc *)&v192,
-                                 (const struct PrimitiveVertexAttributesDesc *)a3,
-                                 v175,
-                                 v32,
-                                 &v183[4]);
-                    v24 = appended;
-                    if ( appended < 0 )
-                    {
-                      MilInstrumentationCheckHR_MaybeFailFast(v112, 0LL, 0, appended, 0x4A0u, 0LL);
-                      v143 = lpMem;
-                      v144 = (v227 - (_BYTE *)lpMem) >> 5;
-                      if ( v144 )
-                      {
-                        detail::vector_facade<Mesh::VertexAAOffsetDesc,detail::buffer_impl<Mesh::VertexAAOffsetDesc,40,1,detail::liberal_expansion_policy>>::clear_region(
-                          &lpMem,
-                          0LL,
-                          v144);
-                        v143 = lpMem;
-                      }
-                      lpMem = 0LL;
-                      if ( v143 == v229 )
-                        v143 = 0LL;
-                      operator delete(v143);
-                      v145 = v206[0];
-                      if ( v206[1] != v206[0] )
-                      {
-                        detail::vector_facade<bool,detail::buffer_impl<bool,40,1,detail::liberal_expansion_policy>>::clear_region(
-                          v206,
-                          0LL,
-                          v206[1] - v206[0]);
-                        v145 = v206[0];
-                      }
-                      v206[0] = 0LL;
-                      if ( v145 == (bool *)((char *)v207 + 8) )
-                        v145 = 0LL;
-                      operator delete(v145);
-                      v146 = v221;
-                      if ( (v222 - (_BYTE *)v221) >> 2 )
-                      {
-                        detail::vector_facade<enum D2D1_EDGE_FLAGS,detail::buffer_impl<enum D2D1_EDGE_FLAGS,40,1,detail::liberal_expansion_policy>>::clear_region(
-                          &v221,
-                          0LL);
-                        v146 = v221;
-                      }
-                      v221 = 0LL;
-                      if ( v146 == v224 )
-                        v146 = 0LL;
-                      goto LABEL_337;
-                    }
-                    v113 = 0LL;
-                    v114 = 0LL;
-                    v115 = 0LL;
-                    if ( v183[6] )
-                      v113 = 3LL;
-                    v116 = 0LL;
-                    if ( v183[5] )
-                      v114 = 3LL;
-                    if ( v183[4] )
-                      v115 = 3LL;
-                    if ( v183[7] )
-                      v116 = 3LL;
-                    RectangleEdgeFlags = MakeRectangleEdgeFlags(v116, v115, v114, v113);
-                    if ( !RectangleEdgeFlags )
-                      goto LABEL_35;
-                    *(_DWORD *)v183 |= RectangleEdgeFlags;
-                    v33 = 1;
-                    v169 = 1;
-                  }
-                  else
-                  {
-                    v94 = CDrawListEntryBuilder::AppendCpuClipAntialiasHWPrimitive(
-                            this,
-                            (const struct Mesh::MeshDesc *)&v181,
-                            (const struct PrimitiveVertexAttributesDesc *)a3,
-                            v93,
-                            v32,
-                            v31);
-                    v24 = v94;
-                    if ( v94 < 0 )
-                    {
-                      MilInstrumentationCheckHR_MaybeFailFast(v95, 0LL, 0, v94, 0x4B9u, 0LL);
-                      v147 = lpMem;
-                      v148 = (v227 - (_BYTE *)lpMem) >> 5;
-                      if ( v148 )
-                      {
-                        detail::vector_facade<Mesh::VertexAAOffsetDesc,detail::buffer_impl<Mesh::VertexAAOffsetDesc,40,1,detail::liberal_expansion_policy>>::clear_region(
-                          &lpMem,
-                          0LL,
-                          v148);
-                        v147 = lpMem;
-                      }
-                      lpMem = 0LL;
-                      if ( v147 == v229 )
-                        v147 = 0LL;
-                      operator delete(v147);
-                      v149 = v206[0];
-                      if ( v206[1] != v206[0] )
-                      {
-                        detail::vector_facade<bool,detail::buffer_impl<bool,40,1,detail::liberal_expansion_policy>>::clear_region(
-                          v206,
-                          0LL,
-                          v206[1] - v206[0]);
-                        v149 = v206[0];
-                      }
-                      v206[0] = 0LL;
-                      if ( v149 == (bool *)((char *)v207 + 8) )
-                        v149 = 0LL;
-                      operator delete(v149);
-                      v146 = v221;
-                      if ( (v222 - (_BYTE *)v221) >> 2 )
-                      {
-                        detail::vector_facade<enum D2D1_EDGE_FLAGS,detail::buffer_impl<enum D2D1_EDGE_FLAGS,40,1,detail::liberal_expansion_policy>>::clear_region(
-                          &v221,
-                          0LL);
-                        v146 = v221;
-                      }
-                      v221 = 0LL;
-                      if ( v146 == v224 )
-                        v146 = 0LL;
-                      goto LABEL_337;
-                    }
-                    v96 = v182;
-                    v97 = 0;
-                    if ( !(_QWORD)v182 )
-                      goto LABEL_35;
-                    v98 = 0LL;
-                    do
-                    {
-                      if ( v206[0][v98] )
-                      {
-                        v33 = 1;
-                        *((_DWORD *)v221 + v98) = 3;
-                        v96 = v182;
-                      }
-                      v98 = ++v97;
-                    }
-                    while ( v97 < v96 );
-                    v169 = v33;
-                    if ( !v33 )
-                      goto LABEL_35;
-                  }
-                  LOBYTE(v177) = 1;
-                }
-LABEL_35:
-                if ( !BYTE12(v184) )
-                {
-                  v92 = (struct Mesh::VertexAAOffsetDesc *)lpMem;
-                  if ( *(LPVOID *)&v183[8] == lpMem )
-                    goto LABEL_152;
-                  v110 = 0LL;
-                  if ( g_pComposition )
-                    v110 = (CMeshCacheManager *)*((_QWORD *)g_pComposition + 35);
-                  if ( !CMeshCacheManager::TryGetMeshAAOffsets(
-                          v110,
-                          (const struct Mesh::MeshDesc *)&v181,
-                          v7,
-                          (const struct D2D1::Matrix3x2F *)&v211,
-                          0) )
-                  {
-                    v118 = (v227 - (_BYTE *)lpMem) >> 5;
-                    if ( (unsigned __int64)v182 <= v118 )
-                    {
-                      detail::vector_facade<Mesh::VertexAAOffsetDesc,detail::buffer_impl<Mesh::VertexAAOffsetDesc,40,1,detail::liberal_expansion_policy>>::clear_region(
-                        &lpMem,
-                        (32 * (__int64)v182) >> 5,
-                        (v227 - ((_BYTE *)lpMem + 32 * v182)) >> 5);
-                    }
-                    else
-                    {
-                      v119 = v182 - v118;
-                      v120 = (_OWORD *)detail::vector_facade<Mesh::VertexAAOffsetDesc,detail::buffer_impl<Mesh::VertexAAOffsetDesc,40,1,detail::liberal_expansion_policy>>::reserve_region(
-                                         &lpMem,
-                                         v118,
-                                         v182 - v118);
-                      if ( v119 )
-                      {
-                        *v120 = 0LL;
-                        v120[1] = 0LL;
-                        qmemcpy(v120 + 2, v120, 8 * ((unsigned __int64)(32 * v119 - 25) >> 3));
-                        v33 = v169;
-                      }
-                    }
-                    v121 = 0;
-                    if ( (_QWORD)v182 )
-                    {
-                      v122 = 0LL;
-                      do
-                      {
-                        ++v121;
-                        v123 = 32 * v122;
-                        v124 = *(_DWORD *)(v123 + *(_QWORD *)&v183[8] + 4);
-                        v125 = (char *)lpMem;
-                        *(_DWORD *)((char *)lpMem + v123) = *(_DWORD *)(v123 + *(_QWORD *)&v183[8]);
-                        *(_DWORD *)&v125[v123 + 4] = v124;
-                        v122 = v121;
-                      }
-                      while ( v121 < (unsigned __int64)v182 );
-                    }
-                    v4 = v170;
-                    *(_QWORD *)&v183[8] = lpMem;
-                    Mesh::CalcVertexAAOffsets(
-                      (const struct Mesh::MeshDesc *)&v181,
-                      (struct Mesh::VertexAAOffsetDesc *)lpMem,
-                      0);
-                    goto LABEL_36;
-                  }
-                  v92 = (struct Mesh::VertexAAOffsetDesc *)lpMem;
-                  if ( *(LPVOID *)&v183[8] == lpMem )
-LABEL_152:
-                    Mesh::CalcVertexAAOffsets((const struct Mesh::MeshDesc *)&v181, v92, 0);
-                }
-LABEL_36:
-                if ( (_BYTE)v176 )
-                {
-                  BuiltHWPrimitiveEntry = CDrawListEntryBuilder::ExtractBuiltHWPrimitiveEntry(
-                                            this,
-                                            0,
-                                            (struct CPrimitiveColor *)v178[0],
-                                            v179);
-                  v24 = BuiltHWPrimitiveEntry;
-                  if ( BuiltHWPrimitiveEntry < 0 )
-                  {
-                    MilInstrumentationCheckHR_MaybeFailFast(v51, 0LL, 0, BuiltHWPrimitiveEntry, 0x4F2u, 0LL);
-                    v153 = lpMem;
-                    v154 = (v227 - (_BYTE *)lpMem) >> 5;
-                    if ( v154 )
-                    {
-                      detail::vector_facade<Mesh::VertexAAOffsetDesc,detail::buffer_impl<Mesh::VertexAAOffsetDesc,40,1,detail::liberal_expansion_policy>>::clear_region(
-                        &lpMem,
-                        0LL,
-                        v154);
-                      v153 = lpMem;
-                    }
-                    lpMem = 0LL;
-                    if ( v153 == v229 )
-                      v153 = 0LL;
-                    operator delete(v153);
-                    v155 = v206[0];
-                    if ( v206[1] != v206[0] )
-                    {
-                      detail::vector_facade<bool,detail::buffer_impl<bool,40,1,detail::liberal_expansion_policy>>::clear_region(
-                        v206,
-                        0LL,
-                        v206[1] - v206[0]);
-                      v155 = v206[0];
-                    }
-                    v206[0] = 0LL;
-                    if ( v155 == (bool *)((char *)v207 + 8) )
-                      v155 = 0LL;
-                    operator delete(v155);
-                    v146 = v221;
-                    if ( (v222 - (_BYTE *)v221) >> 2 )
-                    {
-                      detail::vector_facade<enum D2D1_EDGE_FLAGS,detail::buffer_impl<enum D2D1_EDGE_FLAGS,40,1,detail::liberal_expansion_policy>>::clear_region(
-                        &v221,
-                        0LL);
-                      v146 = v221;
-                    }
-                    v221 = 0LL;
-                    if ( v146 == v224 )
-                      v146 = 0LL;
-                    goto LABEL_337;
-                  }
-                  BYTE13(v184) = (*v12 & 2) != 0;
-                  DWORD2(v184) = 0;
-                  CDrawListEntryBuilder::AppendHWGeometry(
-                    this,
-                    (const struct Mesh::MeshDesc *)&v181,
-                    (const struct PrimitiveVertexAttributesDesc *)a3);
-                  v52 = CDrawListEntryBuilder::ExtractBuiltHWPrimitiveEntry(
-                          this,
-                          8,
-                          (struct CPrimitiveColor *)v178[0],
-                          v179);
-                  v24 = v52;
-                  if ( v52 < 0 )
-                  {
-                    MilInstrumentationCheckHR_MaybeFailFast(v53, 0LL, 0, v52, 0x4FCu, 0LL);
-                    v150 = lpMem;
-                    v151 = (v227 - (_BYTE *)lpMem) >> 5;
-                    if ( v151 )
-                    {
-                      detail::vector_facade<Mesh::VertexAAOffsetDesc,detail::buffer_impl<Mesh::VertexAAOffsetDesc,40,1,detail::liberal_expansion_policy>>::clear_region(
-                        &lpMem,
-                        0LL,
-                        v151);
-                      v150 = lpMem;
-                    }
-                    lpMem = 0LL;
-                    if ( v150 == v229 )
-                      v150 = 0LL;
-                    operator delete(v150);
-                    v152 = v206[0];
-                    if ( v206[1] != v206[0] )
-                    {
-                      detail::vector_facade<bool,detail::buffer_impl<bool,40,1,detail::liberal_expansion_policy>>::clear_region(
-                        v206,
-                        0LL,
-                        v206[1] - v206[0]);
-                      v152 = v206[0];
-                    }
-                    v206[0] = 0LL;
-                    if ( v152 == (bool *)((char *)v207 + 8) )
-                      v152 = 0LL;
-                    operator delete(v152);
-                    v146 = v221;
-                    if ( (v222 - (_BYTE *)v221) >> 2 )
-                    {
-                      detail::vector_facade<enum D2D1_EDGE_FLAGS,detail::buffer_impl<enum D2D1_EDGE_FLAGS,40,1,detail::liberal_expansion_policy>>::clear_region(
-                        &v221,
-                        0LL);
-                      v146 = v221;
-                    }
-                    v221 = 0LL;
-                    if ( v146 == v224 )
-                      v146 = 0LL;
-                    goto LABEL_337;
-                  }
-                  BYTE13(v184) = 0;
-                }
-                else
-                {
-                  BYTE13(v184) = (*v12 & 2) != 0;
-                }
-                if ( (*v12 & 4) != 0 && (_BYTE)v177 )
-                {
-                  if ( !v33 || v174 )
-                  {
-                    DWORD2(v184) = 1;
-                    *((_BYTE *)this + 4476) = 1;
-                  }
-                  else
-                  {
-                    *((_BYTE *)this + 4476) = 1;
-                    DWORD2(v184) = 3;
-                  }
-                }
-                else
-                {
-                  DWORD2(v184) = 0;
-                }
-                CDrawListEntryBuilder::AppendHWGeometry(
-                  this,
-                  (const struct Mesh::MeshDesc *)&v181,
-                  (const struct PrimitiveVertexAttributesDesc *)a3);
-                if ( *((_DWORD *)this + 1112) >= 0xC8u )
-                {
-                  v156 = CDrawListEntryBuilder::ExtractBuiltHWPrimitiveEntry(
-                           this,
-                           0,
-                           (struct CPrimitiveColor *)v178[0],
-                           v179);
-                  v24 = v156;
-                  if ( v156 < 0 )
-                  {
-                    MilInstrumentationCheckHR_MaybeFailFast(v157, 0LL, 0, v156, 0x521u, 0LL);
-                    v158 = lpMem;
-                    v159 = (v227 - (_BYTE *)lpMem) >> 5;
-                    if ( v159 )
-                    {
-                      detail::vector_facade<Mesh::VertexAAOffsetDesc,detail::buffer_impl<Mesh::VertexAAOffsetDesc,40,1,detail::liberal_expansion_policy>>::clear_region(
-                        &lpMem,
-                        0LL,
-                        v159);
-                      v158 = lpMem;
-                    }
-                    lpMem = 0LL;
-                    if ( v158 == v229 )
-                      v158 = 0LL;
-                    operator delete(v158);
-                    v160 = v206[0];
-                    if ( v206[1] != v206[0] )
-                    {
-                      detail::vector_facade<bool,detail::buffer_impl<bool,40,1,detail::liberal_expansion_policy>>::clear_region(
-                        v206,
-                        0LL,
-                        v206[1] - v206[0]);
-                      v160 = v206[0];
-                    }
-                    v206[0] = 0LL;
-                    if ( v160 == (bool *)((char *)v207 + 8) )
-                      v160 = 0LL;
-                    operator delete(v160);
-                    v146 = v221;
-                    if ( (v222 - (_BYTE *)v221) >> 2 )
-                    {
-                      detail::vector_facade<enum D2D1_EDGE_FLAGS,detail::buffer_impl<enum D2D1_EDGE_FLAGS,40,1,detail::liberal_expansion_policy>>::clear_region(
-                        &v221,
-                        0LL);
-                      v146 = v221;
-                    }
-                    v221 = 0LL;
-                    if ( v146 == v224 )
-                      v146 = 0LL;
-LABEL_337:
-                    operator delete(v146);
-                    std::_Variant_base<std::monostate,CEdgeFlagsMap::CRectangleMapStrategy,CEdgeFlagsMap::CPolygonMapStrategy>::_Destroy(v185);
-LABEL_57:
-                    v4 = v167;
-                    goto LABEL_58;
-                  }
-                }
-                v34 = lpMem;
-                v35 = (v227 - (_BYTE *)lpMem) >> 5;
-                if ( v35 )
-                {
-                  detail::vector_facade<Mesh::VertexAAOffsetDesc,detail::buffer_impl<Mesh::VertexAAOffsetDesc,40,1,detail::liberal_expansion_policy>>::clear_region(
-                    &lpMem,
-                    0LL,
-                    v35);
-                  v34 = lpMem;
-                }
-                lpMem = 0LL;
-                if ( v34 != v229 && v34 )
-                {
-                  ProcessHeap = GetProcessHeap();
-                  HeapFree(ProcessHeap, 0, v34);
-                }
-                v36 = v206[0];
-                if ( v206[1] != v206[0] )
-                  v206[1] = v206[0];
-                v206[0] = 0LL;
-                if ( v36 != (bool *)((char *)v207 + 8) && v36 )
-                {
-                  v162 = GetProcessHeap();
-                  HeapFree(v162, 0, v36);
-                }
-                v37 = v221;
-                v38 = (v222 - (_BYTE *)v221) >> 2;
-                if ( v38 )
-                  v222 -= 4 * v38;
-                v221 = 0LL;
-                if ( v37 != v224 && v37 )
-                {
-                  v163 = GetProcessHeap();
-                  HeapFree(v163, 0, v37);
-                }
-                if ( v186 && v186 != -1 && v186 != 1 )
-                {
-                  std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const,Microsoft::BamoImpl::BufferStream *>>>::_Erase_tree<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const,Microsoft::BamoImpl::BufferStream *>,void *>>>(
-                    v185,
-                    v185,
-                    *(_QWORD *)(v185[0] + 8LL));
-                  std::_Deallocate<16,0>(v185[0], 48LL);
-                }
-                v39 = v172;
-LABEL_53:
-                if ( v4 && **((_QWORD **)this + 2) )
-                  *((_BYTE *)this + 4472) = 1;
-                if ( v39 )
-                {
-                  if ( v173 )
-                    ++dword_1803E5ADC;
-                  else
-                    ++dword_1803E5AD8;
-                }
-                else
-                {
-                  ++dword_1803E5AD4;
-                }
-                v24 = 0;
-                goto LABEL_57;
-              }
-              MilInstrumentationCheckHR_MaybeFailFast(v78, 0LL, 0, v77, 0x41Bu, 0LL);
-              v164 = lpMem;
-              v165 = (v227 - (_BYTE *)lpMem) >> 5;
-              if ( v165 )
-              {
-                detail::vector_facade<Mesh::VertexAAOffsetDesc,detail::buffer_impl<Mesh::VertexAAOffsetDesc,40,1,detail::liberal_expansion_policy>>::clear_region(
-                  &lpMem,
-                  0LL,
-                  v165);
-                v164 = lpMem;
-              }
-              lpMem = 0LL;
-              if ( v164 == v229 )
-                v164 = 0LL;
-              operator delete(v164);
-              v166 = v206[0];
-              if ( v206[1] != v206[0] )
-              {
-                detail::vector_facade<bool,detail::buffer_impl<bool,40,1,detail::liberal_expansion_policy>>::clear_region(
-                  v206,
-                  0LL,
-                  v206[1] - v206[0]);
-                v166 = v206[0];
-              }
-              v206[0] = 0LL;
-              if ( v166 == (bool *)((char *)v207 + 8) )
-                v166 = 0LL;
-              operator delete(v166);
-              v139 = v221;
-              if ( (v222 - (_BYTE *)v221) >> 2 )
-              {
-                detail::vector_facade<enum D2D1_EDGE_FLAGS,detail::buffer_impl<enum D2D1_EDGE_FLAGS,40,1,detail::liberal_expansion_policy>>::clear_region(
-                  &v221,
-                  0LL);
-                v139 = v221;
-              }
-              v221 = 0LL;
-              if ( v139 == v224 )
-                v139 = 0LL;
-LABEL_356:
-              operator delete(v139);
-              std::_Variant_base<std::monostate,CEdgeFlagsMap::CRectangleMapStrategy,CEdgeFlagsMap::CPolygonMapStrategy>::_Destroy(v185);
-              goto LABEL_57;
-            }
-          }
-          else
-          {
-            v170 = v4;
-            v173 = 0;
-            if ( *((_QWORD *)a2 + 1) )
-              v17 = (struct D2D_MATRIX_3X2_F *)*((_QWORD *)a2 + 1);
-            v178[0] = v17;
-          }
-          v20 = 0;
-          goto LABEL_18;
+          detail::vector_facade<enum D2D1_EDGE_FLAGS,detail::buffer_impl<enum D2D1_EDGE_FLAGS,16,1,detail::liberal_expansion_policy>>::clear_region(
+            &v184,
+            0LL);
+          v121 = v184;
         }
-LABEL_190:
-        v39 = v4;
-        goto LABEL_53;
+        v184 = 0LL;
+        if ( v121 == (enum D2D1_EDGE_FLAGS *)v187 )
+          v121 = 0LL;
+        operator delete(v121);
+        goto LABEL_152;
       }
-      CShapePtr::Release((CShapePtr *)&v179);
-      v7 = v105;
-      v106 = _mm_shuffle_ps((__m128)(unsigned int)v187, (__m128)(unsigned int)v187, 225);
-      v106.m128_f32[0] = *((float *)&v187 + 1);
-      v167 = 0;
-      v107 = _mm_shuffle_ps(v106, v106, 198);
-      v107.m128_f32[0] = *(float *)&v188;
-      v108 = _mm_shuffle_ps(v107, v107, 39);
-      v109 = _mm_unpacklo_ps((__m128)(unsigned int)v190, (__m128)DWORD1(v190));
-      v108.m128_f32[0] = *((float *)&v188 + 1);
-      LODWORD(v10) = _mm_shuffle_ps(v109, v109, 85).m128_u32[0];
-      *(_QWORD *)&v211.m[2][0] = v109.m128_u64[0];
-      v9 = v109.m128_f32[0];
-      *(__m128 *)&matrix.m11 = _mm_shuffle_ps(v108, v108, 57);
-      *(_OWORD *)&v211.m11 = *(_OWORD *)&matrix.m11;
-LABEL_11:
-      v173 = 0;
-      if ( !v7 )
-        goto LABEL_190;
-      goto LABEL_12;
-    }
-    HIDWORD(v217) = 0;
-    DynArrayImpl<0>::ShrinkToSize(&v214, 16LL);
-    if ( v219 )
-    {
-      (*(void (__fastcall **)(void *))(*(_QWORD *)v219 + 16LL))(v219);
-      v219 = 0LL;
-    }
-    *(_QWORD *)&v209 = __PAIR64__(v63, v64);
-    *((_QWORD *)&v209 + 1) = __PAIR64__(v61, v62);
-    DynArray<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,0>::AddMultipleAndSet(
-      &v214,
-      &v209,
-      1LL);
-    v65 = CShape::TryOptimizedCombinePaths(&v212, 0LL, v210[0], &v187, 1, &v203);
-    v176 = v65;
-    v24 = v65;
-    if ( v65 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v67, 0LL, 0, v65, 0x1CCu, 0LL);
-    }
-    else
-    {
-      v68 = v203;
-      if ( v203 )
+      v132 = v184;
+      if ( (v185 - (_BYTE *)v184) >> 2 )
       {
-LABEL_103:
-        v7 = v68;
-LABEL_104:
-        v167 = 1;
-        goto LABEL_11;
+        detail::vector_facade<enum D2D1_EDGE_FLAGS,detail::buffer_impl<enum D2D1_EDGE_FLAGS,16,1,detail::liberal_expansion_policy>>::clear_region(
+          &v184,
+          0LL);
+        v132 = v184;
       }
-      v103 = CShape::D2DCombine(
-               (__int64)&v212,
-               v66,
-               (__int64)v210[0],
-               (__int64)&v187,
-               D2D1_COMBINE_MODE_INTERSECT,
-               &v203);
-      v176 = v103;
-      v24 = v103;
-      if ( v103 >= 0 )
-      {
-        v68 = v203;
-        goto LABEL_103;
-      }
-      MilInstrumentationCheckHR_MaybeFailFast(v104, 0LL, 0, v103, 0x1D7u, 0LL);
+      v184 = 0LL;
+      if ( v132 == (enum D2D1_EDGE_FLAGS *)v187 )
+        v132 = 0LL;
+      operator delete(v132);
+      goto LABEL_23;
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v134, 0LL, 0, v176, 0x36Cu, 0LL);
+    v143 = 1025;
   }
-  v4 = 0;
-LABEL_58:
-  v40 = v214;
-  v41 = v215;
-  v212 = &CRectanglesShape::`vftable';
-  HIDWORD(v217) = 0;
-  if ( v214 != v215 )
+LABEL_145:
+  v120 = v20;
+LABEL_148:
+  MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v120, v143, 0LL);
+LABEL_152:
+  v6 = right_low;
+LABEL_65:
+  v69 = lpMem;
+  if ( (v198 - (_BYTE *)lpMem) >> 3 )
   {
-    operator delete(v214);
-    v41 = v215;
-    v40 = v215;
-    v214 = v215;
-    LODWORD(v217) = v216;
+    detail::vector_facade<IMonitorTarget *,detail::buffer_impl<IMonitorTarget *,2,1,detail::liberal_expansion_policy>>::clear_region(&lpMem);
+    v69 = lpMem;
   }
-  v42 = v219;
-  if ( v219 )
+  lpMem = 0LL;
+  if ( v69 != v200 && v69 )
   {
-    (*(void (__fastcall **)(void *))(*(_QWORD *)v219 + 16LL))(v219);
-    v41 = v215;
-    v42 = 0LL;
-    v40 = v214;
-    v219 = 0LL;
+    ProcessHeap = GetProcessHeap();
+    HeapFree(ProcessHeap, 0, v69);
   }
-  if ( v40 != v41 )
+  v70 = v193;
+  if ( (v194 - (_BYTE *)v193) >> 3 )
   {
-    operator delete(v40);
-    v214 = v42;
+    detail::vector_facade<CDesktopTree *,detail::buffer_impl<CDesktopTree *,1,1,detail::liberal_expansion_policy>>::clear_region(&v193);
+    v70 = v193;
   }
-  v43 = v213;
-  if ( v213 )
+  v193 = 0LL;
+  if ( v70 != v196 && v70 )
   {
-    v213 = v42;
-    (*(void (__fastcall **)(void *))(*(_QWORD *)v43 + 16LL))(v43);
+    v140 = GetProcessHeap();
+    HeapFree(v140, 0, v70);
   }
-  if ( v4 && v7 )
-    (**(void (__fastcall ***)(CShape *, __int64))v7)(v7, 1LL);
-  return v24;
+  v71 = v189;
+  if ( (v190 - (_BYTE *)v189) >> 2 )
+  {
+    detail::vector_facade<enum D2D1_EDGE_FLAGS,detail::buffer_impl<enum D2D1_EDGE_FLAGS,8,1,detail::liberal_expansion_policy>>::clear_region(&v189);
+    v71 = v189;
+  }
+  v189 = 0LL;
+  if ( v71 != v192 && v71 )
+  {
+    v141 = GetProcessHeap();
+    HeapFree(v141, 0, v71);
+  }
+  v72 = v175;
+  v73 = v176;
+  v173 = &CRectanglesShape::`vftable';
+  HIDWORD(v178) = 0;
+  if ( v175 != v176 )
+  {
+    operator delete(v175);
+    v73 = v176;
+    v72 = v176;
+    v175 = v176;
+    LODWORD(v178) = v177;
+  }
+  if ( v180 )
+  {
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v180 + 16LL))(v180);
+    v73 = v176;
+    v72 = v175;
+    v180 = 0LL;
+  }
+  if ( v72 != v73 )
+  {
+    operator delete(v72);
+    v175 = 0LL;
+  }
+  v74 = v174;
+  if ( v174 )
+  {
+    v174 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v74 + 16LL))(v74);
+  }
+  if ( v6 && v10 )
+    (**(void (__fastcall ***)(const struct CShape *, __int64))v10)(v10, 1LL);
+  return (unsigned int)v22;
 }

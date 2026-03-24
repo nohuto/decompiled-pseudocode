@@ -1,5 +1,5 @@
 /*
- * XREFs of ProcgrpQueryActiveProcessorCountEx @ 0x1C0091DF0
+ * XREFs of ProcgrpQueryActiveProcessorCountEx @ 0x1C0091F10
  * Callers:
  *     <none>
  * Callees:

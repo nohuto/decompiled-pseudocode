@@ -1,16 +1,15 @@
 /*
- * XREFs of MiChargePartitionResidentAvailable @ 0x14028DC40
+ * XREFs of MiChargePartitionResidentAvailable @ 0x1402B0CC8
  * Callers:
- *     MiLockProtoPoolPage @ 0x140273AF0 (MiLockProtoPoolPage.c)
- *     MiChargeResident @ 0x1402821F4 (MiChargeResident.c)
- *     MiMakePageAvoidRead @ 0x1402BBEE0 (MiMakePageAvoidRead.c)
- *     MiProbeLockFrame @ 0x14031BAB0 (MiProbeLockFrame.c)
- *     MiResolveProtoPteFault @ 0x14031EAA0 (MiResolveProtoPteFault.c)
- *     MiLockPageTablePage @ 0x14031F940 (MiLockPageTablePage.c)
- *     MiObtainFaultCharges @ 0x140329630 (MiObtainFaultCharges.c)
- *     MiFlushSectionInternal @ 0x140329730 (MiFlushSectionInternal.c)
- *     MiCheckProtoPtePageState @ 0x140337B00 (MiCheckProtoPtePageState.c)
- *     MiChargeForLockedPage @ 0x140337F60 (MiChargeForLockedPage.c)
+ *     MiLockPageTablePage @ 0x140209DF0 (MiLockPageTablePage.c)
+ *     MiProbeLockFrame @ 0x14020ACD0 (MiProbeLockFrame.c)
+ *     MiResolveProtoPteFault @ 0x1402153D0 (MiResolveProtoPteFault.c)
+ *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
+ *     MiObtainFaultCharges @ 0x14021BA90 (MiObtainFaultCharges.c)
+ *     MiChargeResident @ 0x14025A658 (MiChargeResident.c)
+ *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
+ *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
+ *     MiChargeForLockedPage @ 0x140328AA0 (MiChargeForLockedPage.c)
  * Callees:
  *     <none>
  */
@@ -36,7 +35,7 @@ __int64 __fastcall MiChargePartitionResidentAvailable(__int64 a1, unsigned __int
 
   if ( a2 + a3 >= a2 || a3 == 0xFFFFFFFFLL )
   {
-    v5 = *(_QWORD *)(a1 + 16960);
+    v5 = *(_QWORD *)(a1 + 7168);
     v6 = 0LL;
     if ( v5 < 1024 && (ULONG_PTR *)a1 == &MiSystemPartition )
     {
@@ -46,9 +45,9 @@ __int64 __fastcall MiChargePartitionResidentAvailable(__int64 a1, unsigned __int
         v19 = (unsigned int)KeNumberProcessors_0;
         do
         {
-          if ( *(_DWORD *)(*v18 + 34460) != -1 )
+          if ( *(_DWORD *)(*v18 + 33564) != -1 )
           {
-            v20 = _InterlockedExchange((volatile __int32 *)(*v18 + 34460), -1);
+            v20 = _InterlockedExchange((volatile __int32 *)(*v18 + 33564), -1);
             if ( v20 != -1 )
               v6 += v20;
           }
@@ -61,7 +60,7 @@ __int64 __fastcall MiChargePartitionResidentAvailable(__int64 a1, unsigned __int
       {
         v21 = v6 - a2;
         if ( v21 )
-          _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 16960), v21);
+          _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v21);
         return 3LL;
       }
       a2 -= v6;
@@ -72,19 +71,19 @@ LABEL_45:
       if ( a3 != 0xFFFFFFFFLL )
       {
 LABEL_46:
-        ++dword_140C52B2C;
+        ++dword_140C4E7F4;
         if ( v6 )
-          _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 16960), v6);
+          _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v6);
         return 0LL;
       }
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 16960), -(__int64)a2);
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), -(__int64)a2);
       return 3LL;
     }
     while ( 1 )
     {
       if ( a2 + a3 > v5 && a3 != 0xFFFFFFFFLL )
         goto LABEL_46;
-      v7 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 16960), v5 - a2, v5);
+      v7 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 7168), v5 - a2, v5);
       if ( v5 == v7 )
         break;
       v5 = v7;
@@ -103,52 +102,55 @@ LABEL_46:
         {
           _InterlockedCompareExchange((volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable, 0, -1);
           CachedResidentAvailable = 0;
-          goto LABEL_10;
+          goto LABEL_9;
         }
       }
-      else if ( CachedResidentAvailable < 0x40 && v8 > 1024 )
+      else if ( CachedResidentAvailable < 0x40 )
       {
-LABEL_10:
-        v12 = 128 - CachedResidentAvailable;
-        if ( v8 == _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 16960), v8 - v12, v8) )
+LABEL_9:
+        if ( v8 > 1024 )
         {
-          v13 = KeGetCurrentPrcb();
-          v14 = (int)v13->CachedResidentAvailable;
-          if ( (_DWORD)v14 != -1 )
+          v12 = 128 - CachedResidentAvailable;
+          if ( v8 == _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 7168), v8 - v12, v8) )
           {
-            if ( v12 + v14 <= 0x100 )
+            v13 = KeGetCurrentPrcb();
+            v14 = (int)v13->CachedResidentAvailable;
+            if ( (_DWORD)v14 != -1 )
             {
-              do
+              if ( v12 + v14 <= 0x100 )
               {
-                if ( v12 >= 0x80000 )
-                  break;
-                v16 = _InterlockedCompareExchange(
-                        (volatile signed __int32 *)&v13->CachedResidentAvailable,
-                        v12 + v14,
-                        v14);
-                v15 = (_DWORD)v14 == v16;
-                LODWORD(v14) = v16;
-                if ( v15 )
-                  return (unsigned int)(v9 + 2);
+                do
+                {
+                  if ( v12 >= 0x80000 )
+                    break;
+                  v16 = _InterlockedCompareExchange(
+                          (volatile signed __int32 *)&v13->CachedResidentAvailable,
+                          v12 + v14,
+                          v14);
+                  v15 = (_DWORD)v14 == v16;
+                  LODWORD(v14) = v16;
+                  if ( v15 )
+                    return (unsigned int)(v9 + 2);
+                }
+                while ( v16 != -1 && v12 + v16 <= 0x100 );
               }
-              while ( v16 != -1 && v12 + v16 <= 0x100 );
+              if ( (int)v14 > 192
+                && (_DWORD)v14 == _InterlockedCompareExchange(
+                                    (volatile signed __int32 *)&v13->CachedResidentAvailable,
+                                    192,
+                                    v14) )
+              {
+                v12 += (int)v14 - 192;
+              }
             }
-            if ( (int)v14 > 192
-              && (_DWORD)v14 == _InterlockedCompareExchange(
-                                  (volatile signed __int32 *)&v13->CachedResidentAvailable,
-                                  192,
-                                  v14) )
-            {
-              v12 += (int)v14 - 192;
-            }
+            if ( v12 )
+              _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v12);
           }
-          if ( v12 )
-            _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 16960), v12);
         }
       }
     }
     return (unsigned int)(v9 + 2);
   }
-  ++dword_140C52B28;
+  ++dword_140C4E7F0;
   return 0LL;
 }

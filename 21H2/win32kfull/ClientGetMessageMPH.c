@@ -1,63 +1,145 @@
 /*
- * XREFs of ClientGetMessageMPH @ 0x1C00E3BC8
+ * XREFs of ClientGetMessageMPH @ 0x1C0054358
  * Callers:
- *     NtUserPeekMessage @ 0x1C00552B0 (NtUserPeekMessage.c)
- *     xxxInternalGetMessage @ 0x1C00A4B4C (xxxInternalGetMessage.c)
- *     NtUserGetMessage @ 0x1C00E3AC0 (NtUserGetMessage.c)
+ *     NtUserGetMessage @ 0x1C0055130 (NtUserGetMessage.c)
+ *     NtUserPeekMessage @ 0x1C0055560 (NtUserPeekMessage.c)
+ *     xxxInternalGetMessage @ 0x1C00D9FB0 (xxxInternalGetMessage.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A08 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A3C (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     <none>
  */
 
 __int64 __fastcall ClientGetMessageMPH(_OWORD *a1, __int64 a2, int a3, int a4, int a5, int a6)
 {
-  int v7; // ebx
-  __int64 *v8; // rcx
-  __int64 v9; // rbx
+  _OWORD *v6; // r15
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 v8; // rdi
+  __int64 v9; // rdx
   __int64 v10; // rcx
-  _OWORD *v11; // rcx
-  __int128 v12; // xmm1
-  __int128 v13; // xmm2
-  __int64 v15; // [rsp+48h] [rbp-20h] BYREF
-  int v16; // [rsp+50h] [rbp-18h]
-  int v17; // [rsp+54h] [rbp-14h]
-  int v18; // [rsp+58h] [rbp-10h]
-  int v19; // [rsp+5Ch] [rbp-Ch]
-  unsigned __int64 v20; // [rsp+78h] [rbp+10h] BYREF
-  int v21; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v11; // r8
+  __int64 *ThreadWin32Thread; // rax
+  char v13; // bl
+  char v14; // bl
+  __int64 v15; // rcx
+  bool v16; // di
+  int v17; // r12d
+  __int64 v18; // rcx
+  struct _KTHREAD *v19; // r14
+  __int64 v20; // rsi
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 *v24; // rax
+  __int64 *v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // rdx
+  _OWORD *v28; // rcx
+  __int128 v29; // xmm1
+  __int128 v30; // xmm2
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v34; // rcx
+  __int64 CurrentThreadProcess; // rax
+  unsigned int DLT; // eax
+  tagDomLock *DomainLockRef; // rax
+  __int64 v38; // rax
+  int v39; // edi
+  __int64 v40; // rcx
+  __int64 v41; // rax
+  unsigned int v42; // eax
+  tagDomLock *v43; // rax
+  __int64 v44; // [rsp+48h] [rbp-40h] BYREF
+  int v45; // [rsp+50h] [rbp-38h]
+  int v46; // [rsp+54h] [rbp-34h]
+  int v47; // [rsp+58h] [rbp-30h]
+  int v48; // [rsp+5Ch] [rbp-2Ch]
+  unsigned __int64 v49; // [rsp+98h] [rbp+10h] BYREF
+  int v50; // [rsp+A0h] [rbp+18h] BYREF
 
-  v20 = 0LL;
-  v21 = 0;
-  v15 = a2;
-  v16 = a3;
-  v17 = a4;
-  v18 = a5;
-  v19 = a6;
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&a5);
-  EtwTraceBeginCallback(73LL);
-  v7 = KeUserModeCallback(73LL, &v15, 24LL, &v20, &v21);
-  EtwTraceEndCallback(73LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&a5);
-  if ( v7 < 0 || v21 != 24 )
-    return 0LL;
-  v8 = (__int64 *)v20;
-  if ( v20 + 8 < v20 || v20 + 8 > MmUserProbeAddress )
-    v8 = (__int64 *)MmUserProbeAddress;
-  v9 = *v8;
-  v10 = *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 512);
-  if ( v10 )
+  v6 = a1;
+  v49 = 0LL;
+  v50 = 0;
+  v44 = a2;
+  v45 = a3;
+  v46 = a4;
+  v47 = a5;
+  v48 = a6;
+  if ( gdwInAtomicOperation )
   {
-    if ( (*(_DWORD *)(v10 + 84) & 1) != 0 && *(_OWORD **)(v10 + 96) == a1 )
+    a1 = (_OWORD *)gdwExtraInstrumentations;
+    if ( (gdwExtraInstrumentations & 1) != 0 )
+      KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  }
+  CurrentThread = KeGetCurrentThread();
+  v8 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+    || (CurrentProcess = PsGetCurrentProcess(v10, v9, v11),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v34),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v8 = *ThreadWin32Thread;
+  }
+  LOBYTE(a5) = *(_BYTE *)(v8 + 1480);
+  v13 = a5;
+  *(_BYTE *)(v8 + 1480) = 0;
+  v14 = v13 & 1;
+  if ( v14 )
+  {
+    tagObjLock::UnLockExclusive((tagObjLock *)(v8 + 392));
+    DLT = DLT_THREADINFO::getDLT();
+    DomainLockRef = (tagDomLock *)GetDomainLockRef(DLT);
+    tagDomLock::UnLockShared(DomainLockRef);
+  }
+  v16 = !ExIsResourceAcquiredExclusiveLite(gpresUser) && ExIsResourceAcquiredSharedLite(gpresUser);
+  UserSessionSwitchLeaveCrit(v15);
+  EtwTraceBeginCallback(73LL);
+  v17 = KeUserModeCallback(73LL, &v44, 24LL, &v49, &v50);
+  EtwTraceEndCallback(73LL);
+  if ( v16 )
+    EnterSharedCrit(0LL, 1LL);
+  else
+    EnterCrit(0LL, 1LL);
+  v19 = KeGetCurrentThread();
+  v20 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(v18)
+    || (v38 = PsGetCurrentProcess(v22, v21, v23),
+        v39 = PsGetProcessSessionIdEx(v38),
+        v41 = PsGetCurrentThreadProcess(v40),
+        v39 == (unsigned int)PsGetProcessSessionIdEx(v41)) )
+  {
+    v24 = (__int64 *)PsGetThreadWin32Thread(v19);
+    if ( v24 )
+      v20 = *v24;
+  }
+  if ( v14 )
+  {
+    v42 = DLT_THREADINFO::getDLT();
+    v43 = (tagDomLock *)GetDomainLockRef(v42);
+    tagDomLock::LockShared(v43);
+    tagObjLock::LockExclusive((tagObjLock *)(v20 + 392));
+  }
+  *(_BYTE *)(v20 + 1480) = a5;
+  if ( v17 < 0 || v50 != 24 )
+    return 0LL;
+  v25 = (__int64 *)v49;
+  if ( v49 + 8 < v49 || v49 + 8 > MmUserProbeAddress )
+    v25 = (__int64 *)MmUserProbeAddress;
+  v26 = *v25;
+  v27 = *(_QWORD *)(gptiCurrent + 512LL);
+  if ( v27 )
+  {
+    if ( (*(_DWORD *)(v27 + 84) & 1) != 0 && *(_OWORD **)(v27 + 96) == v6 )
       return 0LL;
   }
-  v11 = *(_OWORD **)(v20 + 16);
-  if ( v11 + 3 < v11 || (unsigned __int64)(v11 + 3) > MmUserProbeAddress )
-    v11 = (_OWORD *)MmUserProbeAddress;
-  v12 = v11[1];
-  v13 = v11[2];
-  *a1 = *v11;
-  a1[1] = v12;
-  a1[2] = v13;
-  return (unsigned int)v9;
+  v28 = *(_OWORD **)(v49 + 16);
+  if ( v28 + 3 < v28 || (unsigned __int64)(v28 + 3) > MmUserProbeAddress )
+    v28 = (_OWORD *)MmUserProbeAddress;
+  v29 = v28[1];
+  v30 = v28[2];
+  *v6 = *v28;
+  v6[1] = v29;
+  v6[2] = v30;
+  return (unsigned int)v26;
 }

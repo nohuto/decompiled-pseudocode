@@ -1,27 +1,31 @@
 /*
- * XREFs of KiTryToAcquireSpinLockInstrumented @ 0x14045FE8C
+ * XREFs of KiTryToAcquireSpinLockInstrumented @ 0x140516904
  * Callers:
- *     KxTryToAcquireSpinLock @ 0x14020D904 (KxTryToAcquireSpinLock.c)
- *     KdPollBreakIn @ 0x140331D10 (KdPollBreakIn.c)
- *     KeTryToAcquireSpinLockAtDpcLevel @ 0x1403CCA30 (KeTryToAcquireSpinLockAtDpcLevel.c)
+ *     KiRemoveEntryTimer @ 0x140247100 (KiRemoveEntryTimer.c)
+ *     KiCancelTimer @ 0x1402C8960 (KiCancelTimer.c)
+ *     KxTryToAcquireSpinLock @ 0x140329D48 (KxTryToAcquireSpinLock.c)
  * Callees:
- *     PerfLogSpinLockAcquire @ 0x140600D74 (PerfLogSpinLockAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PerfLogSpinLockAcquire @ 0x1405AB314 (PerfLogSpinLockAcquire.c)
  */
 
 char __fastcall KiTryToAcquireSpinLockInstrumented(volatile signed __int32 *a1)
 {
-  struct _KPRCB *CurrentPrcb; // r8
-  unsigned int InterruptCount; // r10d
-  int v3; // r11d
-  char v4; // bl
-  char v5; // r9
+  struct _KPRCB *CurrentPrcb; // rbx
+  unsigned int InterruptCount; // r14d
+  int v3; // r15d
+  char v5; // si
   unsigned __int64 v6; // rax
-  unsigned __int64 v7; // rax
+  _DWORD *SchedulerAssist; // rcx
+  int v8; // eax
+  _DWORD *v9; // rcx
+  char v10; // di
+  int v11; // eax
+  unsigned __int64 v12; // rax
 
   CurrentPrcb = KeGetCurrentPrcb();
   InterruptCount = 0;
   v3 = 0;
-  v4 = 1;
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
   {
     v5 = 1;
@@ -33,19 +37,42 @@ char __fastcall KiTryToAcquireSpinLockInstrumented(volatile signed __int32 *a1)
   {
     v5 = 0;
   }
+  SchedulerAssist = CurrentPrcb->SchedulerAssist;
+  if ( SchedulerAssist )
+  {
+    if ( CurrentPrcb->NestingLevel <= 1u )
+    {
+      v8 = SchedulerAssist[6];
+      SchedulerAssist[6] = v8 + 1;
+      if ( v8 == -1 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+    }
+  }
   if ( _interlockedbittestandset64(a1, 0LL) )
   {
-    v4 = 0;
+    v9 = CurrentPrcb->SchedulerAssist;
+    v10 = 0;
+    if ( v9 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v11 = v9[6] - 1;
+        v9[6] = v11;
+        if ( !v11 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
     _mm_pause();
   }
   else
   {
     ++CurrentPrcb->SynchCounters.SpinLockAcquireCount;
+    v10 = 1;
     if ( v5 )
     {
-      v7 = __rdtsc();
-      PerfLogSpinLockAcquire((_DWORD)a1, v7, v7 - v3, 0, InterruptCount, 0);
+      v12 = __rdtsc();
+      PerfLogSpinLockAcquire((_DWORD)a1, v12, v12 - v3, 0, InterruptCount, 0);
     }
   }
-  return v4;
+  return v10;
 }

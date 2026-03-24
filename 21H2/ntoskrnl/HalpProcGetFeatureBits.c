@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpProcGetFeatureBits @ 0x1403BAD80
+ * XREFs of HalpProcGetFeatureBits @ 0x1403A803C
  * Callers:
- *     HalpProcInitSystem @ 0x140A54E70 (HalpProcInitSystem.c)
- *     HalpProcInitDiscard @ 0x140AF8908 (HalpProcInitDiscard.c)
+ *     HalpProcInitSystem @ 0x14099B4C0 (HalpProcInitSystem.c)
+ *     HalpProcInitDiscard @ 0x140A394E4 (HalpProcInitDiscard.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x1403AAE80 (HalpGetCpuInfo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HalpIsHvIptSupported @ 0x14050E7EC (HalpIsHvIptSupported.c)
+ *     HalpGetCpuInfo @ 0x1403A0F70 (HalpGetCpuInfo.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpIsHvIptSupported @ 0x1404C239C (HalpIsHvIptSupported.c)
  */
 
 __int64 HalpProcGetFeatureBits()
@@ -18,7 +18,7 @@ __int64 HalpProcGetFeatureBits()
   int v9; // ecx
   int v10; // r11d
   unsigned int v11; // r11d
-  unsigned __int8 v28[24]; // [rsp+20h] [rbp-20h] BYREF
+  unsigned __int8 v28[72]; // [rsp+20h] [rbp-50h] BYREF
 
   v28[0] = 0;
   if ( !KeGetCurrentPrcb()->CpuID )

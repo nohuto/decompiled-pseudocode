@@ -1,9 +1,9 @@
 /*
  * XREFs of VfMajorTestStartedPdoStack @ 0x140935BB0
  * Callers:
- *     PpvUtilTestStartedPdoStack @ 0x14015A470 (PpvUtilTestStartedPdoStack.c)
+ *     PpvUtilTestStartedPdoStack @ 0x14015A490 (PpvUtilTestStartedPdoStack.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     IovUtilIsVerifiedDeviceStack @ 0x140935658 (IovUtilIsVerifiedDeviceStack.c)
  */
 

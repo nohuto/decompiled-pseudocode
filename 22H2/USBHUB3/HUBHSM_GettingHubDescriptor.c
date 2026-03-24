@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_GettingHubDescriptor @ 0x1C0009820
+ * XREFs of HUBHSM_GettingHubDescriptor @ 0x1C0009060
  * Callers:
  *     <none>
  * Callees:
- *     HUBHTX_GetHubDescriptorUsingControlTransfer @ 0x1C00035F0 (HUBHTX_GetHubDescriptorUsingControlTransfer.c)
+ *     HUBHTX_GetHubDescriptorUsingControlTransfer @ 0x1C0002FC0 (HUBHTX_GetHubDescriptorUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBHSM_GettingHubDescriptor(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

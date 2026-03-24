@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlQueryInformationAcl @ 0x140724B00
+ * XREFs of RtlQueryInformationAcl @ 0x14065FAA0
  * Callers:
- *     SepAppendAceToTokenDefaultDacl @ 0x140257C7C (SepAppendAceToTokenDefaultDacl.c)
- *     SepSetProcessTrustLabelAceForToken @ 0x14041A13C (SepSetProcessTrustLabelAceForToken.c)
- *     SepAppendAceToTokenObjectAcl @ 0x140724550 (SepAppendAceToTokenObjectAcl.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x1402C91B4 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1403F8C44 (SepSetProcessTrustLabelAceForToken.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x14065F440 (SepAppendAceToTokenObjectAcl.c)
  * Callees:
- *     RtlFirstFreeAce @ 0x140724CE0 (RtlFirstFreeAce.c)
+ *     RtlFirstFreeAce @ 0x14065B880 (RtlFirstFreeAce.c)
  */
 
 __int64 __fastcall RtlQueryInformationAcl(unsigned __int8 *a1, _DWORD *a2, unsigned int a3, int a4)
@@ -29,7 +29,7 @@ __int64 __fastcall RtlQueryInformationAcl(unsigned __int8 *a1, _DWORD *a2, unsig
         return 3221225475LL;
       if ( a3 >= 0xC )
       {
-        if ( (unsigned __int8)RtlFirstFreeAce(a1, &v12) )
+        if ( RtlFirstFreeAce((__int64)a1, &v12) )
         {
           v9 = v12;
           *a2 = *((unsigned __int16 *)a1 + 2);

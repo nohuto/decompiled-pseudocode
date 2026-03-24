@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x140A2A168
+ * XREFs of _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x1407307CC
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x1407894A8 (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x14073A544 (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     _CmOpenDeviceRegKey @ 0x14077F2EC (_CmOpenDeviceRegKey.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
  */
 
 __int64 __fastcall CmDeleteDeviceMappedPropertyFromDriverKeyRegValue(__int64 a1, __int64 a2, __int64 a3)
@@ -17,19 +17,19 @@ __int64 __fastcall CmDeleteDeviceMappedPropertyFromDriverKeyRegValue(__int64 a1,
   DEVPROPKEY *v8; // r10
   DEVPROPKEY **v9; // rsi
   __int64 v10; // rcx
-  unsigned int v11; // ebx
-  int v12; // eax
+  int v11; // eax
+  unsigned int v12; // ebx
   const WCHAR *v13; // rdx
   HANDLE v14; // rsi
   NTSTATUS inited; // eax
-  __int64 v16; // rax
+  __int64 v17; // rax
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-18h] BYREF
   HANDLE KeyHandle; // [rsp+78h] [rbp+20h] BYREF
 
   KeyHandle = 0LL;
   v4 = *(_DWORD *)(a3 + 16);
   v5 = 0;
-  v7 = &off_140A3B370;
+  v7 = &off_1409868A0;
   do
   {
     v8 = *v7;
@@ -49,14 +49,13 @@ __int64 __fastcall CmDeleteDeviceMappedPropertyFromDriverKeyRegValue(__int64 a1,
   while ( v5 < 0xD );
   if ( !v9 )
     return (unsigned int)-1073741802;
-  v12 = CmOpenDeviceRegKey(a1, a2, 18, 0, 2, 0, (__int64)&KeyHandle, 0LL);
-  v11 = v12;
-  if ( v12 == -1073741772 )
+  v11 = CmOpenDeviceRegKey(a1, a2, 18, 0, 2, 0, (__int64)&KeyHandle, 0LL);
+  v12 = v11;
+  if ( v11 == -1073741772 )
   {
-    v11 = 0;
-    goto LABEL_24;
+    v12 = 0;
   }
-  if ( v12 >= 0 )
+  else if ( v11 >= 0 )
   {
     v13 = (const WCHAR *)v9[2];
     v14 = KeyHandle;
@@ -65,30 +64,31 @@ __int64 __fastcall CmDeleteDeviceMappedPropertyFromDriverKeyRegValue(__int64 a1,
     if ( inited >= 0 )
       inited = ZwDeleteValueKey(v14, &DestinationString);
     if ( inited == -1073741772 )
-      goto LABEL_18;
-    if ( inited == -1073741444 )
-      goto LABEL_24;
-    if ( inited >= 0 )
+      goto LABEL_16;
+    if ( inited != -1073741444 )
     {
-LABEL_18:
-      if ( *(_DWORD *)(a3 + 16) == 2 )
+      if ( inited >= 0 )
       {
-        v16 = *(_QWORD *)a3 - *(_QWORD *)&DEVPKEY_Device_DriverDate.fmtid.Data1;
-        if ( *(_QWORD *)a3 == *(_QWORD *)&DEVPKEY_Device_DriverDate.fmtid.Data1 )
-          v16 = *(_QWORD *)(a3 + 8) - *(_QWORD *)DEVPKEY_Device_DriverDate.fmtid.Data4;
-        if ( !v16 )
+LABEL_16:
+        if ( *(_DWORD *)(a3 + 16) == 2 )
         {
-          DestinationString = 0LL;
-          if ( RtlInitUnicodeStringEx(&DestinationString, L"DriverDate") >= 0 )
-            ZwDeleteValueKey(KeyHandle, &DestinationString);
+          v17 = *(_QWORD *)a3 - *(_QWORD *)&DEVPKEY_Device_DriverDate.fmtid.Data1;
+          if ( *(_QWORD *)a3 == *(_QWORD *)&DEVPKEY_Device_DriverDate.fmtid.Data1 )
+            v17 = *(_QWORD *)(a3 + 8) - *(_QWORD *)DEVPKEY_Device_DriverDate.fmtid.Data4;
+          if ( !v17 )
+          {
+            DestinationString = 0LL;
+            if ( RtlInitUnicodeStringEx(&DestinationString, L"DriverDate") >= 0 )
+              ZwDeleteValueKey(KeyHandle, &DestinationString);
+          }
         }
+        goto LABEL_17;
       }
-      goto LABEL_24;
+      v12 = inited;
     }
-    v11 = inited;
   }
-LABEL_24:
+LABEL_17:
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  return v11;
+  return v12;
 }

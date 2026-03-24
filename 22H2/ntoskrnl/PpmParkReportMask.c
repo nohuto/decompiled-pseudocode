@@ -1,28 +1,29 @@
 /*
- * XREFs of PpmParkReportMask @ 0x14035A760
+ * XREFs of PpmParkReportMask @ 0x14030F3B0
  * Callers:
  *     <none>
  * Callees:
- *     KiCopyAffinityEx @ 0x1402544A0 (KiCopyAffinityEx.c)
- *     KeIsEqualAffinityEx @ 0x1402BFEA0 (KeIsEqualAffinityEx.c)
- *     KeCpuSetReportParkedProcessors @ 0x14039D3C4 (KeCpuSetReportParkedProcessors.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HvlParkedVirtualProcessors @ 0x140546A48 (HvlParkedVirtualProcessors.c)
- *     MmReportParkedProcessors @ 0x140655EB8 (MmReportParkedProcessors.c)
+ *     KeCopyAffinityEx @ 0x1402BBAE0 (KeCopyAffinityEx.c)
+ *     KeCpuSetReportParkedProcessors @ 0x14035EDA0 (KeCpuSetReportParkedProcessors.c)
+ *     KeIsEqualAffinityEx @ 0x1403C1EB0 (KeIsEqualAffinityEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HvlParkedVirtualProcessors @ 0x1404F7BD0 (HvlParkedVirtualProcessors.c)
  */
 
 char PpmParkReportMask()
 {
+  __int64 v1; // rdx
+
   if ( PpmIsParkingEnabled
     && !(unsigned int)KeIsEqualAffinityEx(PpmPerfCoreParkingMask, &PpmPerfReportedCoreParkingMask) )
   {
-    KiCopyAffinityEx((__int64)&PpmPerfReportedCoreParkingMask, word_140C0D902, PpmPerfCoreParkingMask);
-    if ( KeGetCurrentPrcb()->PowerState.Hypervisor >= ProcHypervisorPower )
+    KeCopyAffinityEx((__int64)&PpmPerfReportedCoreParkingMask, PpmPerfCoreParkingMask);
+    if ( KeGetCurrentPrcb()->PowerState.Hypervisor == ProcHypervisorPower )
       HvlParkedVirtualProcessors();
     if ( PpmParkMaskHandler )
       PpmParkMaskHandler(PpmCheckTime, PpmPerfCoreParkingMask);
-    KeCpuSetReportParkedProcessors(PpmPerfCoreParkingMask);
-    MmReportParkedProcessors();
+    LOBYTE(v1) = 2;
+    KeCpuSetReportParkedProcessors(PpmPerfCoreParkingMask, v1);
   }
   return 1;
 }

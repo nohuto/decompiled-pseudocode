@@ -1,60 +1,63 @@
 /*
- * XREFs of ?pConvertDfbSurfaceToDibNKAPC@@YAXPEAX00@Z @ 0x1C02B93C0
+ * XREFs of ?pConvertDfbSurfaceToDibNKAPC@@YAXPEAX00@Z @ 0x1C0158EF0
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0026DCC (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0028338 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ??1DCVISRGNSHARELOCK@@QEAA@XZ @ 0x1C004033C (--1DCVISRGNSHARELOCK@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGELOCK@@QEAA@XZ @ 0x1C02B7800 (--0DYNAMICMODECHANGELOCK@@QEAA@XZ.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018C00 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C008393C (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0DYNAMICMODECHANGELOCK@@QEAA@XZ @ 0x1C0159080 (--0DYNAMICMODECHANGELOCK@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 void __fastcall pConvertDfbSurfaceToDibNKAPC(HSURF a1, void *a2, void *a3)
 {
-  __int64 v4; // rcx
-  int v5; // eax
-  __int64 v6; // rbx
-  _BYTE v7[32]; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v8; // [rsp+50h] [rbp-10h]
-  __int64 v9; // [rsp+70h] [rbp+10h] BYREF
-  __int64 v10; // [rsp+88h] [rbp+28h] BYREF
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  int v6; // eax
+  __int64 v7; // rbx
+  __int64 v8; // rdx
+  DYNAMICMODECHANGESHARELOCK *v9; // rcx
+  _BYTE v10[32]; // [rsp+30h] [rbp-30h] BYREF
+  __int64 v11; // [rsp+50h] [rbp-10h]
+  __int64 v12; // [rsp+70h] [rbp+10h] BYREF
+  __int64 v13; // [rsp+88h] [rbp+28h] BYREF
 
   UserEnterUserCritSec(a1, a2, a3);
-  DYNAMICMODECHANGELOCK::DYNAMICMODECHANGELOCK((DYNAMICMODECHANGELOCK *)&v9);
-  SURFREF::SURFREF((SURFREF *)v7, a1);
-  v4 = v8;
-  if ( v8 )
+  DYNAMICMODECHANGELOCK::DYNAMICMODECHANGELOCK((DYNAMICMODECHANGELOCK *)&v12);
+  SURFREF::SURFREF((SURFREF *)v10, a1);
+  v5 = v11;
+  if ( v11 )
   {
-    v5 = *(_DWORD *)(v8 + 116);
-    if ( (v5 & 0x20) != 0 )
+    v6 = *(_DWORD *)(v11 + 116);
+    if ( (v6 & 0x20) != 0 )
     {
       ++glpConvertDfbSurfaceToDibNKAPC;
-      *(_DWORD *)(v8 + 116) = v5 & 0xFFFFFFDF;
-      v4 = v8;
-      if ( *(_WORD *)(v8 + 100) == 3 )
+      *(_DWORD *)(v11 + 116) = v6 & 0xFFFFFFDF;
+      v5 = v11;
+      if ( *(_WORD *)(v11 + 100) == 3 )
       {
-        v10 = ghsemGreLock;
+        v13 = ghsemGreLock;
         GreAcquireSemaphore(ghsemGreLock);
         GreAcquireSemaphore(ghsemDCVisRgn);
         EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDCVisRgn", ghsemDCVisRgn, 3LL);
-        v9 = ghsemSprite;
+        v12 = ghsemSprite;
         GreAcquireSemaphore(ghsemSprite);
-        v6 = v8;
-        DEC_SHARE_REF_CNT(v8);
-        v8 = 0LL;
-        pProcessDfbSurfaces2(v6, 1LL, 1LL);
-        SEMOBJ::vUnlock((SEMOBJ *)&v9);
-        DCVISRGNSHARELOCK::~DCVISRGNSHARELOCK((DCVISRGNSHARELOCK *)&v9);
-        SEMOBJ::vUnlock((SEMOBJ *)&v10);
-        v4 = v8;
+        v7 = v11;
+        DEC_SHARE_REF_CNT(v11, v8);
+        v11 = 0LL;
+        pProcessDfbSurfaces2(v7, 1LL, 1LL);
+        SEMOBJ::vUnlock((SEMOBJ *)&v12);
+        EtwTraceGreLockReleaseSemaphore(L"ghsemDCVisRgn", ghsemDCVisRgn);
+        GreReleaseSemaphoreInternal(ghsemDCVisRgn);
+        SEMOBJ::vUnlock((SEMOBJ *)&v13);
+        v5 = v11;
       }
     }
-    if ( v4 )
-      DEC_SHARE_REF_CNT(v4);
+    if ( v5 )
+      DEC_SHARE_REF_CNT(v5, v4);
   }
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v7);
-  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v9);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v10);
+  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v9);
   UserLeaveUserCritSec();
 }

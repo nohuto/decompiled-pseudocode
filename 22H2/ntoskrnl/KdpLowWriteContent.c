@@ -1,12 +1,12 @@
 /*
- * XREFs of KdpLowWriteContent @ 0x140AB69DC
+ * XREFs of KdpLowWriteContent @ 0x1409BA450
  * Callers:
- *     KdpDeleteBreakpoint @ 0x140AB2AB8 (KdpDeleteBreakpoint.c)
- *     KdpSuspendAllBreakpoints @ 0x140AB6CF4 (KdpSuspendAllBreakpoints.c)
+ *     KdpDeleteBreakpoint @ 0x1409BA248 (KdpDeleteBreakpoint.c)
+ *     KdpSuspendAllBreakpoints @ 0x1409BA758 (KdpSuspendAllBreakpoints.c)
  * Callees:
- *     KdpIsBreakpoint @ 0x1405680F8 (KdpIsBreakpoint.c)
- *     KdpCopyCodeStream @ 0x140AB6650 (KdpCopyCodeStream.c)
- *     KdpRemoveBreakpoint @ 0x140AB6AAC (KdpRemoveBreakpoint.c)
+ *     KdpIsBreakpoint @ 0x140511E48 (KdpIsBreakpoint.c)
+ *     KdpCopyCodeStream @ 0x1409B9A9C (KdpCopyCodeStream.c)
+ *     KdpRemoveBreakpoint @ 0x1409BA520 (KdpRemoveBreakpoint.c)
  */
 
 bool __fastcall KdpLowWriteContent(unsigned int a1)
@@ -27,7 +27,7 @@ bool __fastcall KdpLowWriteContent(unsigned int a1)
   if ( (v2 & 0x10) == 0 && (unsigned int)KdpIsBreakpoint((__int64)v1, v1 + 24) == 1 )
     return 1;
   if ( (int)KdpCopyCodeStream(
-              (char *)(*(_QWORD *)v1 & ~(unsigned __int64)(unsigned __int8)v1[37]),
+              (PVOID)(*(_QWORD *)v1 & ~(unsigned __int64)(unsigned __int8)v1[37]),
               (__int64)&v4,
               (unsigned __int8)v1[36],
               4) < 0 )

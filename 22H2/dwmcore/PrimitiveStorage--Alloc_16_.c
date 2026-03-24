@@ -1,171 +1,147 @@
 /*
- * XREFs of PrimitiveStorage::Alloc_16_ @ 0x18005BD50
+ * XREFs of PrimitiveStorage::Alloc_16_ @ 0x180055F10
  * Callers:
- *     ?Create@CDrawListPrimitive@@SAJAEBV?$StridedSpan@$$CBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AEBV?$StridedSpan@$$CBUVertexAAFixup_UVxN@@@@IV?$span@G$0?0@gsl@@AEBUD2D_VECTOR_2F@@_NPEAPEAV1@@Z @ 0x18004217C (-Create@CDrawListPrimitive@@SAJAEBV-$StridedSpan@$$CBU-$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AEBV.c)
- *     ?ExtractBuiltHWPrimitiveEntry@CDrawListEntryBuilder@@AEAAJIPEAVCPrimitiveColor@@PEBU_D3DCOLORVALUE@@@Z @ 0x18005B8D0 (-ExtractBuiltHWPrimitiveEntry@CDrawListEntryBuilder@@AEAAJIPEAVCPrimitiveColor@@PEBU_D3DCOLORVAL.c)
- *     ?Create@CCpuClipAntialiasDrawListEntry@@SAJAEBUCpuClipAntialiasEntryParams@@$$QEAV?$unique_ptr@VUVData@CCpuClipAntialiasSink@@U?$default_delete@VUVData@CCpuClipAntialiasSink@@@std@@@std@@PEAPEAV1@@Z @ 0x18007C1A8 (-Create@CCpuClipAntialiasDrawListEntry@@SAJAEBUCpuClipAntialiasEntryParams@@$$QEAV-$unique_ptr@V.c)
- *     ?CreateInstanced@CDrawListPrimitive@@SAJAEBV?$StridedSpan@$$CBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@IV?$span@$$CBG$0?0@gsl@@V?$span@UInstance_Pos4_QRot_ColorDW_Size2@@$0?0@4@_NW4Enum@ParticleSortMode@@PEAPEAV1@@Z @ 0x180201D60 (-CreateInstanced@CDrawListPrimitive@@SAJAEBV-$StridedSpan@$$CBU-$Vertex_UVxN@UVertexXYW_ColorDW@.c)
+ *     ?ExtractBuiltHWPrimitiveEntry@CDrawListEntryBuilder@@AEAAJ_NPEAVCPrimitiveColor@@PEBU_D3DCOLORVALUE@@@Z @ 0x1800554C0 (-ExtractBuiltHWPrimitiveEntry@CDrawListEntryBuilder@@AEAAJ_NPEAVCPrimitiveColor@@PEBU_D3DCOLORVA.c)
+ *     ?Create@CDrawListPrimitive@@SAJ_NAEBV?$StridedSpan@$$CBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AEBV?$StridedSpan@$$CBUVertexAAFixup_UVxN@@@@IV?$span@G$0?0@gsl@@AEBUD2D_VECTOR_2F@@0PEAPEAV1@@Z @ 0x180067378 (-Create@CDrawListPrimitive@@SAJ_NAEBV-$StridedSpan@$$CBU-$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AE.c)
+ *     ?CreateInstanced@CDrawListPrimitive@@SAJAEBV?$StridedSpan@$$CBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@IV?$span@$$CBG$0?0@gsl@@V?$span@UInstance_Pos4_QRot_ColorDW_Size2@@$0?0@4@AEBUD2D_VECTOR_2F@@_NW4Enum@ParticleSortMode@@PEAPEAV1@@Z @ 0x1801A3388 (-CreateInstanced@CDrawListPrimitive@@SAJAEBV-$StridedSpan@$$CBU-$Vertex_UVxN@UVertexXYW_ColorDW@.c)
  * Callees:
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCDrawListPrimitive8@@@Z @ 0x180030664 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCDrawListPrimitive8@@@Z.c)
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??0CInlineStorageBase@PrimitiveStorage@@QEAA@AEBUGeometryCounts@CDrawListPrimitive@@I@Z @ 0x1800DF370 (--0CInlineStorageBase@PrimitiveStorage@@QEAA@AEBUGeometryCounts@CDrawListPrimitive@@I@Z.c)
- *     ??0CThreadContext@@AEAA@XZ @ 0x1800FED20 (--0CThreadContext@@AEAA@XZ.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800561B8 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCDrawListPrimitive8@@@Z @ 0x180057E14 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCDrawListPrimitive8@@@Z.c)
+ *     ??0CInlineStorageBase@PrimitiveStorage@@QEAA@AEBUGeometryCounts@CDrawListPrimitive@@I@Z @ 0x1800589B0 (--0CInlineStorageBase@PrimitiveStorage@@QEAA@AEBUGeometryCounts@CDrawListPrimitive@@I@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 PrimitiveStorage::CInlineStorageBase *__fastcall PrimitiveStorage::Alloc_16_(
         struct CDrawListPrimitive::GeometryCounts *a1)
 {
-  int v2; // eax
-  _DWORD *Value; // rdi
-  int v4; // ecx
-  char *v5; // r9
-  __int64 v6; // r8
+  PrimitiveStorage::CInlineStorageBase *v1; // rbx
+  int v3; // eax
+  int Current; // eax
+  struct CThreadContext *v5; // rcx
+  _OWORD *v6; // r10
   int v7; // edx
-  __int64 v8; // rcx
-  __int64 v9; // rax
-  __int64 v10; // rdx
+  __int64 v8; // r9
+  __int128 v9; // xmm0
+  int v10; // edx
   __int64 v11; // rcx
-  void **v12; // rax
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
   PrimitiveStorage::CInlineStorageBase *result; // rax
-  char *v14; // rax
-  __int64 v15; // r8
-  int v16; // edx
-  __int64 v17; // rcx
-  __int64 v18; // rax
-  HANDLE ProcessHeap; // rax
   struct CObjectCache *ObjectCache; // rax
+  unsigned int v17; // r8d
+  PrimitiveStorage::CInlineStorageBase *v18; // rsi
+  int v19; // edx
+  PrimitiveStorage::CInlineStorageBase *v20; // rax
   unsigned int v21; // r8d
-  PrimitiveStorage::CInlineStorageBase *v22; // rdi
-  int v23; // edx
-  CThreadContext *v24; // rax
-  unsigned int v25; // ecx
-  CThreadContext *v26; // rax
-  __int128 v27; // [rsp+30h] [rbp-50h]
-  __int128 v28; // [rsp+30h] [rbp-50h]
-  __int128 v29; // [rsp+40h] [rbp-40h]
-  void *retaddr; // [rsp+88h] [rbp+8h]
+  PrimitiveStorage::CInlineStorageBase *v22; // rsi
+  unsigned int v23; // ecx
+  __int128 v24; // [rsp+20h] [rbp-50h]
+  __int128 v25; // [rsp+20h] [rbp-50h]
+  __int128 v26; // [rsp+30h] [rbp-40h]
+  void *retaddr; // [rsp+78h] [rbp+8h]
+  struct CThreadContext *v28; // [rsp+80h] [rbp+10h] BYREF
 
+  v1 = 0LL;
   if ( *(_DWORD *)a1 )
   {
-    v2 = *((_DWORD *)a1 + 2);
-    if ( v2 != 2 || *((_DWORD *)a1 + 4) )
-      goto LABEL_15;
-    if ( *(_DWORD *)a1 <= 4u && *((_DWORD *)a1 + 3) <= 6u )
+    v3 = *((_DWORD *)a1 + 2);
+    if ( v3 == 2 && !*((_DWORD *)a1 + 4) )
     {
-      Value = TlsGetValue(CThreadContext::s_dwTlsIndex);
-      if ( !Value )
+      if ( *(_DWORD *)a1 <= 4u && *((_DWORD *)a1 + 3) <= 6u )
       {
-        v24 = (CThreadContext *)operator new(0x190uLL);
-        if ( !v24 || (v26 = CThreadContext::CThreadContext(v24), (Value = v26) == 0LL) )
+        Current = CThreadContext::GetCurrent(&v28);
+        if ( Current < 0 )
+          ModuleFailFastForHRESULT((unsigned int)Current, retaddr);
+        v5 = v28;
+        v6 = 0LL;
+        v7 = *((_DWORD *)v28 + 27);
+        if ( v7 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, -2147024882, 0x42u, 0LL);
-          ModuleFailFastForHRESULT(2147942414LL, retaddr);
+          v6 = (_OWORD *)*((_QWORD *)v28 + 14);
+          *((_QWORD *)v28 + 14) = *(_QWORD *)v6;
+          *((_DWORD *)v5 + 27) = v7 - 1;
         }
-        TlsSetValue(CThreadContext::s_dwTlsIndex, v26);
+        if ( v6 || (v6 = DefaultHeap::Alloc(0x1A8uLL)) != 0LL )
+        {
+          v8 = *(unsigned int *)a1;
+          v9 = *(_OWORD *)a1;
+          v1 = (PrimitiveStorage::CInlineStorageBase *)v6;
+          v10 = *((_DWORD *)a1 + 2) + 2;
+          *(_QWORD *)&v24 = (char *)v6
+                          + (((((_BYTE)v6 + 104) & 0xF) + 15) & 0x10)
+                          - (unsigned __int64)(((_BYTE)v6 + 104) & 0xF)
+                          + 104;
+          *((_QWORD *)&v24 + 1) = v24 + (unsigned int)(8 * v10 * *(_DWORD *)a1);
+          v11 = (unsigned int)(8 * v10 * *((_DWORD *)a1 + 1)) + *((_QWORD *)&v24 + 1);
+          v12 = *((unsigned int *)a1 + 3);
+          ++CHWDrawListEngineMetrics::s_cDrawListPrimitives;
+          *(_OWORD *)((char *)v6 + 8) = v9;
+          v13 = v11 + 8 * v8;
+          *(_QWORD *)&v26 = v11;
+          v14 = v13 + 2 * v12;
+          *((_QWORD *)&v26 + 1) = v13;
+          LODWORD(v12) = *((_DWORD *)a1 + 4);
+          v6[2] = v24;
+          *((_DWORD *)v6 + 6) = v12;
+          v6[3] = v26;
+          *(_QWORD *)v6 = &PrimitiveStorage::CCachableStorage<CDrawListPrimitive4,16>::`vftable';
+          *((_QWORD *)v6 + 8) = v14;
+        }
+        return v1;
       }
-      v4 = Value[53];
-      v5 = 0LL;
-      if ( v4 )
+      if ( *(_DWORD *)a1 <= 8u && *((_DWORD *)a1 + 3) <= 0x1Eu )
       {
-        v5 = (char *)*((_QWORD *)Value + 27);
-        *((_QWORD *)Value + 27) = *(_QWORD *)v5;
-        Value[53] = v4 - 1;
+        ObjectCache = CThreadContext::GetObjectCache(a1);
+        v18 = 0LL;
+        v19 = *((_DWORD *)ObjectCache + 1);
+        if ( v19 )
+        {
+          v18 = (PrimitiveStorage::CInlineStorageBase *)*((_QWORD *)ObjectCache + 1);
+          *((_QWORD *)ObjectCache + 1) = *(_QWORD *)v18;
+          *((_DWORD *)ObjectCache + 1) = v19 - 1;
+        }
+        if ( v18 || (v18 = (PrimitiveStorage::CInlineStorageBase *)DefaultHeap::Alloc(0x2F8uLL)) != 0LL )
+        {
+          PrimitiveStorage::CInlineStorageBase::CInlineStorageBase(v18, a1, v17);
+          v1 = v18;
+          *(_QWORD *)v18 = &PrimitiveStorage::CCachableStorage<CDrawListPrimitive8,16>::`vftable';
+        }
+        return v1;
       }
-      if ( !v5 )
-      {
-        v5 = (char *)DefaultHeap::Alloc(0x1B0uLL);
-        if ( !v5 )
-          return 0LL;
-      }
-      v6 = *(unsigned int *)a1;
-      v7 = *((_DWORD *)a1 + 2) + 2;
-      *(_QWORD *)&v27 = &v5[(((((_BYTE)v5 + 112) & 0xF) + 15) & 0x10)
-                          - (unsigned __int64)(((_BYTE)v5 + 112) & 0xF)
-                          + 112];
-      *((_QWORD *)&v27 + 1) = (unsigned int)(8 * v7 * *(_DWORD *)a1) + (_QWORD)v27;
-      v8 = (unsigned int)(8 * *((_DWORD *)a1 + 1) * v7) + *((_QWORD *)&v27 + 1);
-      v9 = *((unsigned int *)a1 + 3);
-      *(_OWORD *)(v5 + 8) = *(_OWORD *)a1;
-      *(_QWORD *)&v29 = v8;
-      v10 = v8 + 8 * v6;
-      v11 = v10 + 2 * v9;
-      *((_DWORD *)v5 + 6) = *((_DWORD *)a1 + 4);
-      v12 = &PrimitiveStorage::CCachableStorage<CDrawListPrimitive4,16>::`vftable';
-      goto LABEL_11;
     }
-    if ( *(_DWORD *)a1 > 8u || *((_DWORD *)a1 + 3) > 0x1Eu )
-    {
-LABEL_15:
-      v14 = (char *)DefaultHeap::Alloc(
-                      (unsigned int)(2
-                                   * (*((_DWORD *)a1 + 3)
-                                    + 4
-                                    * (*((_DWORD *)a1 + 1) * (v2 + 2)
-                                     + *(_DWORD *)a1 * (v2 + 3)
-                                     + 6 * *((_DWORD *)a1 + 4)))
-                                   + 15)
-                    + 112LL);
-      v5 = v14;
-      if ( !v14 )
-        return 0LL;
-      v15 = *(unsigned int *)a1;
-      v16 = *((_DWORD *)a1 + 2) + 2;
-      *(_QWORD *)&v27 = &v14[(((((_BYTE)v14 + 112) & 0xF) + 15) & 0x10)
-                           - (unsigned __int64)(((_BYTE)v14 + 112) & 0xF)
-                           + 112];
-      *((_QWORD *)&v27 + 1) = (unsigned int)(8 * v16 * *(_DWORD *)a1) + (_QWORD)v27;
-      v17 = (unsigned int)(8 * *((_DWORD *)a1 + 1) * v16) + *((_QWORD *)&v27 + 1);
-      v18 = *((unsigned int *)a1 + 3);
-      *(_OWORD *)(v5 + 8) = *(_OWORD *)a1;
-      *(_QWORD *)&v29 = v17;
-      v10 = v17 + 8 * v15;
-      v11 = v10 + 2 * v18;
-      *((_DWORD *)v5 + 6) = *((_DWORD *)a1 + 4);
-      v12 = &PrimitiveStorage::CDynamicInlineStorage::`vftable';
-LABEL_11:
-      ++CHWDrawListEngineMetrics::s_cDrawListPrimitives;
-      *((_QWORD *)&v29 + 1) = v10;
-      *((_OWORD *)v5 + 2) = v27;
-      *((_OWORD *)v5 + 3) = v29;
-      *((_QWORD *)v5 + 8) = v11;
-      *(_QWORD *)v5 = v12;
-      return (PrimitiveStorage::CInlineStorageBase *)v5;
-    }
-    ObjectCache = CThreadContext::GetObjectCache(a1);
-    v22 = 0LL;
-    v23 = *((_DWORD *)ObjectCache + 1);
-    if ( v23 )
-    {
-      v22 = (PrimitiveStorage::CInlineStorageBase *)*((_QWORD *)ObjectCache + 1);
-      *((_QWORD *)ObjectCache + 1) = *(_QWORD *)v22;
-      *((_DWORD *)ObjectCache + 1) = v23 - 1;
-    }
-    if ( v22 || (v22 = (PrimitiveStorage::CInlineStorageBase *)DefaultHeap::Alloc(0x300uLL)) != 0LL )
-    {
-      PrimitiveStorage::CInlineStorageBase::CInlineStorageBase(v22, a1, v21);
-      *(_QWORD *)v22 = &PrimitiveStorage::CCachableStorage<CDrawListPrimitive8,16>::`vftable';
-    }
+    v20 = (PrimitiveStorage::CInlineStorageBase *)DefaultHeap::Alloc(
+                                                    (unsigned int)(2
+                                                                 * (*((_DWORD *)a1 + 3)
+                                                                  + 4
+                                                                  * (*(_DWORD *)a1 * (v3 + 3)
+                                                                   + *((_DWORD *)a1 + 1) * (v3 + 2)
+                                                                   + 6 * *((_DWORD *)a1 + 4)))
+                                                                 + 15)
+                                                  + 104LL);
+    v22 = v20;
+    if ( !v20 )
+      return 0LL;
+    PrimitiveStorage::CInlineStorageBase::CInlineStorageBase(v20, a1, v21);
+    *(_QWORD *)v22 = &PrimitiveStorage::CDynamicInlineStorage::`vftable';
     return v22;
   }
   else
   {
-    ProcessHeap = GetProcessHeap();
-    result = (PrimitiveStorage::CInlineStorageBase *)HeapAlloc(ProcessHeap, 0, 0x70uLL);
-    if ( result )
-    {
-      *(_QWORD *)&v28 = 0LL;
-      *((_QWORD *)&v28 + 1) = *((unsigned int *)a1 + 2);
-      *(_QWORD *)result = &CDrawListPrimitive0::`vftable';
-      *((_OWORD *)result + 2) = 0LL;
-      *(_OWORD *)((char *)result + 8) = v28;
-      *((_DWORD *)result + 6) = 0;
-      ++CHWDrawListEngineMetrics::s_cDrawListPrimitives;
-      *((_OWORD *)result + 3) = 0LL;
-      *((_QWORD *)result + 8) = 0LL;
-    }
+    result = (PrimitiveStorage::CInlineStorageBase *)DefaultHeap::Alloc(0x68uLL);
+    if ( !result )
+      return v1;
+    v23 = *((_DWORD *)a1 + 2);
+    ++CHWDrawListEngineMetrics::s_cDrawListPrimitives;
+    *((_QWORD *)&v25 + 1) = v23;
+    *((_OWORD *)result + 2) = 0LL;
+    *(_QWORD *)&v25 = 0LL;
+    *((_OWORD *)result + 3) = 0LL;
+    *(_QWORD *)result = &PrimitiveStorage::CEmptyStorage::`vftable';
+    *(_OWORD *)((char *)result + 8) = v25;
+    *((_DWORD *)result + 6) = 0;
+    *((_QWORD *)result + 8) = 0LL;
   }
   return result;
 }

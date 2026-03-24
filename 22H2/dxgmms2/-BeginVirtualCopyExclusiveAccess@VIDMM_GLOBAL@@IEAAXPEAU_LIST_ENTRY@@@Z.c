@@ -1,12 +1,12 @@
 /*
- * XREFs of ?BeginVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00E0684
+ * XREFs of ?BeginVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00AC91C
  * Callers:
- *     ?UnmapVideoApertureSegmentInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@I_K1T_LARGE_INTEGER@@H@Z @ 0x1C0086610 (-UnmapVideoApertureSegmentInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@I_K1T_LARGE_INTE.c)
- *     ?MapVideoApertureSegmentInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@I_K1PEAU_MDL@@KHH@Z @ 0x1C009174C (-MapVideoApertureSegmentInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@I_K1PEAU_MDL@@KHH@.c)
+ *     ?MapVideoApertureSegmentInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@I_K1PEAU_MDL@@KHH@Z @ 0x1C00AFF5C (-MapVideoApertureSegmentInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@I_K1PEAU_MDL@@KHH@.c)
+ *     ?UnmapVideoApertureSegmentInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@I_K1T_LARGE_INTEGER@@H@Z @ 0x1C00B30BC (-UnmapVideoApertureSegmentInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@I_K1T_LARGE_INTE.c)
  * Callees:
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C00017A4 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     VidSchSuspendResumeDevice @ 0x1C0002D30 (VidSchSuspendResumeDevice.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C00010B8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     VidSchSuspendResumeDevice @ 0x1C0012470 (VidSchSuspendResumeDevice.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024D70 (McTemplateK0q_EtwWriteTransfer.c)
  */
 
 void __fastcall VIDMM_GLOBAL::BeginVirtualCopyExclusiveAccess(VIDMM_GLOBAL *this, struct _LIST_ENTRY *a2)
@@ -18,14 +18,14 @@ void __fastcall VIDMM_GLOBAL::BeginVirtualCopyExclusiveAccess(VIDMM_GLOBAL *this
   struct _LIST_ENTRY *v7; // rdi
   struct _LIST_ENTRY *Blink; // rax
 
-  v2 = (_QWORD **)((char *)this + 44608);
-  DXGPUSHLOCK::AcquireShared((VIDMM_GLOBAL *)((char *)this + 44512));
+  v2 = (_QWORD **)((char *)this + 44568);
+  DXGPUSHLOCK::AcquireShared((VIDMM_GLOBAL *)((char *)this + 44472));
   for ( i = *v2; i != v2; i = (_QWORD *)*i )
   {
     v7 = (struct _LIST_ENTRY *)(i - 2);
-    if ( !*(i - 2) && *(i - 23) )
+    if ( !*(i - 2) && *(i - 22) )
     {
-      VidSchSuspendResumeDevice((struct _VIDSCH_DEVICE *)*(i - 22), 1, 0, 2);
+      VidSchSuspendResumeDevice((struct _VIDSCH_DEVICE *)*(i - 21), 1, 0, 2);
       Blink = a2->Blink;
       if ( Blink->Flink != a2 )
         __fastfail(3u);
@@ -35,6 +35,6 @@ void __fastcall VIDMM_GLOBAL::BeginVirtualCopyExclusiveAccess(VIDMM_GLOBAL *this
       a2->Blink = v7;
     }
   }
-  if ( byte_1C0076981 < 0 )
-    McTemplateK0q_EtwWriteTransfer(v4, (__int64)&EventProfilerEnter, v5, 8018);
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v4, &EventProfilerEnter, v5, 8018);
 }

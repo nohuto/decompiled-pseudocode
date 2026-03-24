@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SmStMapPhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1405F72A8
+ * XREFs of ?SmStMapPhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x140599568
  * Callers:
- *     ?SmStMapRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z @ 0x1403792A8 (-SmStMapRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z.c)
+ *     ?SmStMapRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z @ 0x1402DE760 (-SmStMapRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z.c)
  * Callees:
- *     SmFpAllocate @ 0x14037DA00 (SmFpAllocate.c)
+ *     SmFpAllocate @ 0x1402E0D78 (SmFpAllocate.c)
  */
 
-__int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStMapPhysicalRegion(
+unsigned __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStMapPhysicalRegion(
         __int64 a1,
         unsigned int a2,
         unsigned int a3,
@@ -18,7 +18,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStMapPhysicalRegion(
   __int64 v7; // rbp
   __int64 v8; // rax
   unsigned __int64 v9; // rdx
-  __int64 v10; // rcx
+  unsigned __int64 v10; // rcx
 
   v5 = *(_QWORD *)(a1 + 6216);
   v6 = a2;

@@ -1,19 +1,37 @@
 /*
- * XREFs of MiInsertDecayClusterTimer @ 0x14021A95C
+ * XREFs of MiInsertDecayClusterTimer @ 0x140307924
  * Callers:
- *     MiInsertPageInList @ 0x14026EAE0 (MiInsertPageInList.c)
+ *     MiInsertPageInList @ 0x1402A6E90 (MiInsertPageInList.c)
  * Callees:
- *     MiRelinkDecayClusterTimer @ 0x14021A9BC (MiRelinkDecayClusterTimer.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     <none>
  */
 
-void __fastcall MiInsertDecayClusterTimer(__int64 a1)
+unsigned __int64 __fastcall MiInsertDecayClusterTimer(__int64 a1)
 {
-  __int64 v2; // rbx
+  ULONG_PTR v1; // r9
+  __int64 v2; // r11
+  __int64 v3; // rdx
+  __int64 v4; // rbx
+  unsigned __int64 result; // rax
+  unsigned __int64 v6; // rdx
+  ULONG_PTR v7; // r10
 
-  v2 = *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C68280);
-  MiRelinkDecayClusterTimer(a1, *(unsigned int *)(v2 + 15776));
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C68280);
+  v1 = (a1 + 0x58000000000LL) / 48 - qword_140C4E9A0;
+  v2 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL));
+  v3 = *(unsigned int *)(v2 + 4824);
+  v4 = v3;
+  *(_BYTE *)(a1 + 34) = ((unsigned __int8)*(_DWORD *)(v2 + 4824) << 6) | *(_BYTE *)(a1 + 34) & 0x3F;
+  result = *(_QWORD *)(v2 + 8 * v3 + 4792);
+  v6 = result >> 1;
+  LODWORD(v6) = (result >> 1) & 0x7FFFFFFF;
+  v7 = v1 << 33;
+  *(_QWORD *)(a1 + 8) = 2 * (((unsigned int)result >> 1) | 0xFFFFFFFF00000000uLL);
+  if ( v6 == 0x7FFFFFFF )
+    result = v7 | result & 0x1FFFFFFFFLL;
+  else
+    *(_QWORD *)(48 * (qword_140C4E9A0 + v6) - 0x58000000000LL + 8) = v7 | *(_QWORD *)(48 * (qword_140C4E9A0 + v6)
+                                                                                    - 0x58000000000LL
+                                                                                    + 8) & 0x1FFFFFFFFLL;
+  *(_QWORD *)(v2 + 8 * v4 + 4792) = result ^ (result ^ (2 * v1)) & 0xFFFFFFFE;
+  return result;
 }

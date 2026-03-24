@@ -1,46 +1,43 @@
 /*
- * XREFs of ?IsAnyMessageNonDelegated@CPointerInfoNode@@QEBAHXZ @ 0x1C01CC984
+ * XREFs of ?IsAnyMessageNonDelegated@CPointerInfoNode@@QEBAHXZ @ 0x1C019674C
  * Callers:
- *     ?SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z @ 0x1C01D4AC0 (-SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z.c)
+ *     ?SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z @ 0x1C019CA50 (-SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C00E4A4E (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01970E4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
  */
 
 __int64 __fastcall CPointerInfoNode::IsAnyMessageNonDelegated(CPointerInfoNode *this)
 {
   __int64 result; // rax
-  _DWORD *v3; // rcx
-  unsigned int v4; // ebx
+  int *v2; // rcx
+  unsigned int v3; // edx
+  int v4; // eax
   int v5; // eax
   int v6; // eax
-  int v7; // eax
 
   result = CPointerInfoNode::IsValid(this);
-  v4 = 0;
+  v3 = 0;
   if ( (_DWORD)result )
   {
-    if ( !gbIgnoreStressedOutStuff && (*v3 & 0x80000) == 0 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 400);
-    v5 = *(_DWORD *)this;
-    if ( (*(_DWORD *)this & 0x100000) == 0
-      || (v5 & 0x400000) != 0
-      || (v5 & 0x800000) != 0 && ((v5 & 0x1000000) == 0 || (v5 & 0x4000000) != 0) )
+    v4 = *v2;
+    if ( (*v2 & 0x100000) == 0
+      || (v4 & 0x400000) != 0
+      || (v4 & 0x800000) != 0 && ((v4 & 0x1000000) == 0 || (v4 & 0x4000000) != 0) )
     {
       return 1;
     }
-    if ( (v5 & 0x8000000) != 0 && ((v5 & 0x10000000) == 0 || (v5 & 0x40000000) != 0) )
+    if ( (v4 & 0x8000000) != 0 && ((v4 & 0x10000000) == 0 || (v4 & 0x40000000) != 0) )
       return 1;
-    if ( v5 < 0 )
+    if ( v4 < 0 )
     {
-      v6 = *((_DWORD *)this + 1);
-      if ( (v6 & 1) == 0 || (v6 & 4) != 0 )
+      v5 = v2[1];
+      if ( (v5 & 1) == 0 || (v5 & 4) != 0 )
         return 1;
     }
-    v7 = *((_DWORD *)this + 1);
-    if ( (v7 & 8) != 0 && ((v7 & 0x10) == 0 || (v7 & 0x40) != 0) )
+    v6 = v2[1];
+    if ( (v6 & 8) != 0 && ((v6 & 0x10) == 0 || (v6 & 0x40) != 0) )
       return 1;
-    return v4;
+    return v3;
   }
   return result;
 }

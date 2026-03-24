@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PanDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C02929E0
+ * XREFs of ?PanDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C0294FD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall PanDisablePDEV(struct DHPDEV__ *a1)

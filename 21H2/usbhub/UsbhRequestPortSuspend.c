@@ -1,16 +1,16 @@
 /*
- * XREFs of UsbhRequestPortSuspend @ 0x1C001A734
+ * XREFs of UsbhRequestPortSuspend @ 0x1C0016130
  * Callers:
- *     UsbhWaitConnect @ 0x1C0019D60 (UsbhWaitConnect.c)
+ *     UsbhWaitConnect @ 0x1C000ABD0 (UsbhWaitConnect.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhSuspendPort @ 0x1C000D884 (UsbhSuspendPort.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhSignalSuspendEvent @ 0x1C00349E0 (UsbhSignalSuspendEvent.c)
- *     UsbhBusUnlatchPdo @ 0x1C004C104 (UsbhBusUnlatchPdo.c)
- *     UsbhDeletePdo @ 0x1C00537BC (UsbhDeletePdo.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSuspendPort @ 0x1C00138BC (UsbhSuspendPort.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhSignalSuspendEvent @ 0x1C0035C9C (UsbhSignalSuspendEvent.c)
+ *     UsbhBusUnlatchPdo @ 0x1C004D510 (UsbhBusUnlatchPdo.c)
+ *     UsbhDeletePdo @ 0x1C0054E1C (UsbhDeletePdo.c)
  */
 
 __int64 __fastcall UsbhRequestPortSuspend(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 a5)
@@ -38,11 +38,11 @@ __int64 __fastcall UsbhRequestPortSuspend(__int64 a1, __int64 a2, char a3, __int
     return v8;
   }
   v9 = *(_QWORD *)(a4 + 376);
-  *(_BYTE *)(v9 + 132) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
+  *(_BYTE *)(v9 + 132) = KeAcquireSpinLockRaiseToDpc(&HubG);
   *(_DWORD *)(v9 + 136) = 1;
   *(_DWORD *)(v9 + 88) = 2018460752;
   *(_DWORD *)(v9 + 92) = 19;
-  WPP_MAIN_CB.Dpc.DeferredRoutine = (void (__fastcall *)(_KDPC *, void *, void *, void *))v9;
+  qword_1C006C500 = v9;
   *(_QWORD *)(v9 + 24) = KeGetCurrentThread();
   if ( PdoExt(a5)[281] == 2 )
   {
@@ -53,10 +53,10 @@ __int64 __fastcall UsbhRequestPortSuspend(__int64 a1, __int64 a2, char a3, __int
   {
     v11 = *(_QWORD *)(a4 + 376);
     *(_DWORD *)(v11 + 136) = 0;
-    WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+    qword_1C006C500 = 0LL;
     v12 = *(_BYTE *)(v11 + 132);
     *(_DWORD *)(v11 + 88) = 1734964085;
-    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v12);
+    KeReleaseSpinLock(&HubG, v12);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     WPP_RECORDER_SF_d(

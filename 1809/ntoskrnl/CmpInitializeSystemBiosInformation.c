@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpInitializeSystemBiosInformation @ 0x1409F3A28
+ * XREFs of CmpInitializeSystemBiosInformation @ 0x1409F3A30
  * Callers:
  *     CmpInitializeMachineDependentConfiguration @ 0x1409C1D98 (CmpInitializeMachineDependentConfiguration.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpBuildRegMultiSz @ 0x1409F3948 (CmpBuildRegMultiSz.c)
+ *     CmpBuildRegMultiSz @ 0x1409F3950 (CmpBuildRegMultiSz.c)
  */
 
 void __fastcall CmpInitializeSystemBiosInformation(__int64 a1)

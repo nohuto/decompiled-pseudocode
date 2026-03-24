@@ -1,10 +1,10 @@
 /*
- * XREFs of AsiAddDataToSchema @ 0x14032201C
+ * XREFs of AsiAddDataToSchema @ 0x14032211C
  * Callers:
- *     ApiSetComposeSchema @ 0x140321D18 (ApiSetComposeSchema.c)
+ *     ApiSetComposeSchema @ 0x140321E18 (ApiSetComposeSchema.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

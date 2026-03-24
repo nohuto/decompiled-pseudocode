@@ -1,21 +1,21 @@
 /*
- * XREFs of CmFcpChangeSubscriptionWrapper @ 0x1409234E0
+ * XREFs of CmFcpChangeSubscriptionWrapper @ 0x14087E3C0
  * Callers:
  *     <none>
  * Callees:
- *     MmDetachSession @ 0x140231240 (MmDetachSession.c)
- *     MmAttachSession @ 0x1402312E0 (MmAttachSession.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     MmGetSessionById @ 0x1402DF880 (MmGetSessionById.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     MmGetSessionById @ 0x140206410 (MmGetSessionById.c)
+ *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
+ *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     MmQuitNextSession @ 0x1406C3770 (MmQuitNextSession.c)
  */
 
-ULONG_PTR __fastcall CmFcpChangeSubscriptionWrapper(__int64 a1, __int64 a2)
+_KPROCESS *__fastcall CmFcpChangeSubscriptionWrapper(__int64 a1, __int64 a2)
 {
   int v2; // eax
-  void *v3; // rbx
-  ULONG_PTR result; // rax
+  struct _DMA_ADAPTER *v3; // rbx
+  _KPROCESS *result; // rax
   _OWORD v7[3]; // [rsp+20h] [rbp-48h] BYREF
 
   v2 = *(_DWORD *)(a1 + 72);
@@ -23,17 +23,17 @@ ULONG_PTR __fastcall CmFcpChangeSubscriptionWrapper(__int64 a1, __int64 a2)
   memset(v7, 0, sizeof(v7));
   if ( (v2 & 1) == 0 )
     goto LABEL_4;
-  result = MmGetSessionById(*(_DWORD *)(a1 + 76));
-  v3 = (void *)result;
+  result = (_KPROCESS *)MmGetSessionById(*(unsigned int *)(a1 + 76), a2);
+  v3 = (struct _DMA_ADAPTER *)result;
   if ( !result )
     return result;
-  if ( (int)MmAttachSession(result) >= 0 )
+  if ( (int)MmAttachSession(result, (__int64)v7) >= 0 )
   {
 LABEL_4:
-    result = (*(__int64 (__fastcall **)(__int64))(a1 + 64))(a2);
+    result = (_KPROCESS *)(*(__int64 (__fastcall **)(__int64))(a1 + 64))(a2);
     if ( !v3 )
       return result;
     MmDetachSession((__int64)v3, (__int64)v7);
   }
-  return ObfDereferenceObject(v3);
+  return (_KPROCESS *)MmQuitNextSession(v3);
 }

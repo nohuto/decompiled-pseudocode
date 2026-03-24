@@ -11,8 +11,8 @@
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
  *     MiDereferenceControlAreaBySection @ 0x14007645C (MiDereferenceControlAreaBySection.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiDereferencePerSessionProtos @ 0x1406C8FD0 (MiDereferencePerSessionProtos.c)
- *     MiLogSectionObjectEvent @ 0x14084E888 (MiLogSectionObjectEvent.c)
+ *     MiDereferencePerSessionProtos @ 0x1406C8FB0 (MiDereferencePerSessionProtos.c)
+ *     MiLogSectionObjectEvent @ 0x14084E868 (MiLogSectionObjectEvent.c)
  */
 
 __int64 __fastcall MiSectionDelete(__int64 a1)

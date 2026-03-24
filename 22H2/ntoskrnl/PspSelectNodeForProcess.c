@@ -1,63 +1,58 @@
 /*
- * XREFs of PspSelectNodeForProcess @ 0x140705E5C
+ * XREFs of PspSelectNodeForProcess @ 0x140695698
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     RtlRandomEx @ 0x140292480 (RtlRandomEx.c)
+ *     <none>
  */
 
 __int64 PspSelectNodeForProcess()
 {
-  ULONG v0; // eax
-  unsigned int v1; // edx
-  __int64 v2; // r9
-  unsigned int v3; // ecx
-  __int64 v4; // r10
-  ULONG Seed; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v0; // r8
+  unsigned int v1; // ecx
+  unsigned __int32 v2; // edx
+  __int64 v3; // r9
 
-  if ( PspIdealNodeRandomized )
-    v0 = RtlRandomEx(&Seed);
-  else
-    v0 = _InterlockedIncrement(&PspProcessNodeAssignment);
-  v1 = v0 % (unsigned __int16)KeNumberNodes;
-  v2 = 0LL;
-  v3 = 0;
-  if ( KeNumberNodes )
+  v0 = 0LL;
+  v1 = 0;
+  v2 = _InterlockedIncrement(&PspProcessNodeAssignment) % (unsigned int)(unsigned __int16)KeNumberNodes;
+  if ( !KeNumberNodes )
+    goto LABEL_9;
+  while ( 1 )
   {
-    while ( 1 )
+    v3 = KeNodeBlock[(unsigned __int16)v2];
+    if ( (*(_BYTE *)(v3 + 181) & 0x10) == 0 )
     {
-      v4 = KeNodeBlock[(unsigned __int16)v1];
-      if ( *(_DWORD *)(v4 + 16) )
-      {
-        if ( (*(_BYTE *)(v4 + 10) & 1) == 0 )
-          break;
-      }
-      ++v3;
-      LOWORD(v1) = v1 + 1;
-      if ( (unsigned __int16)v1 >= (unsigned __int16)KeNumberNodes )
-        LOWORD(v1) = 0;
-      if ( v3 >= (unsigned __int16)KeNumberNodes )
-      {
-        v3 = 0;
-        while ( 1 )
-        {
-          v4 = KeNodeBlock[(unsigned __int16)v1];
-          if ( *(_DWORD *)(v4 + 16) )
-            goto LABEL_6;
-          ++v3;
-          LOWORD(v1) = v1 + 1;
-          if ( (unsigned __int16)v1 >= (unsigned __int16)KeNumberNodes )
-            LOWORD(v1) = 0;
-          if ( v3 >= (unsigned __int16)KeNumberNodes )
-            goto LABEL_7;
-        }
-      }
+      if ( *(_QWORD *)(v3 + 136) )
+        break;
     }
-LABEL_6:
-    v2 = v4;
+    ++v1;
+    LOWORD(v2) = v2 + 1;
+    if ( (unsigned __int16)v2 >= (unsigned __int16)KeNumberNodes )
+      LOWORD(v2) = 0;
+    if ( v1 >= (unsigned __int16)KeNumberNodes )
+      goto LABEL_9;
   }
-LABEL_7:
-  if ( !PspIdealNodeRandomized && v3 )
-    _InterlockedExchangeAdd(&PspProcessNodeAssignment, v3);
-  return v2;
+  v0 = KeNodeBlock[(unsigned __int16)v2];
+  if ( !v3 )
+  {
+LABEL_9:
+    v1 = 0;
+    if ( !KeNumberNodes )
+      return v0;
+    while ( !*(_QWORD *)(KeNodeBlock[(unsigned __int16)v2] + 136) )
+    {
+      ++v1;
+      LOWORD(v2) = v2 + 1;
+      if ( (unsigned __int16)v2 >= (unsigned __int16)KeNumberNodes )
+        LOWORD(v2) = 0;
+      if ( v1 >= (unsigned __int16)KeNumberNodes )
+        goto LABEL_16;
+    }
+    v0 = KeNodeBlock[(unsigned __int16)v2];
+  }
+LABEL_16:
+  if ( v1 )
+    _InterlockedExchangeAdd(&PspProcessNodeAssignment, v1);
+  return v0;
 }

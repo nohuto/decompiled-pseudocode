@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PostCOMPOSITEDInvalidateAPC@@YAHQEAUtagWND@@PEBUtagRECT@@@Z @ 0x1C01E20E4
+ * XREFs of ?PostCOMPOSITEDInvalidateAPC@@YAHQEAUtagWND@@PEBUtagRECT@@@Z @ 0x1C01E7934
  * Callers:
- *     FlushWEFCOMPOSITEDDCEBounds @ 0x1C016BA80 (FlushWEFCOMPOSITEDDCEBounds.c)
+ *     FlushWEFCOMPOSITEDDCEBounds @ 0x1C01E7E80 (FlushWEFCOMPOSITEDDCEBounds.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PostCOMPOSITEDInvalidateAPC(struct tagWND *const a1, const struct tagRECT *a2)

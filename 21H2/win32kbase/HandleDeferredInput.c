@@ -1,252 +1,157 @@
 /*
- * XREFs of HandleDeferredInput @ 0x1C0001240
+ * XREFs of HandleDeferredInput @ 0x1C0001830
  * Callers:
- *     NtUserSetInputServiceState @ 0x1C00ADCA0 (NtUserSetInputServiceState.c)
+ *     NtUserSetInputServiceState @ 0x1C009AB50 (NtUserSetInputServiceState.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_qiqdd @ 0x1C0001790 (WPP_RECORDER_AND_TRACE_SF_qiqdd.c)
- *     ?UpdateISODState@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C000187C (-UpdateISODState@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z.c)
- *     ?_UpdateTelemetryBuffer@KeyboardInputTelemetry@@AEAAX_NK@Z @ 0x1C0001974 (-_UpdateTelemetryBuffer@KeyboardInputTelemetry@@AEAAX_NK@Z.c)
- *     ?GetKeyboardInputLatency@KeyboardInputTelemetry@@CAK_K@Z @ 0x1C0001A68 (-GetKeyboardInputLatency@KeyboardInputTelemetry@@CAK_K@Z.c)
- *     ApiSetEditionDelQEntry @ 0x1C0001AA0 (ApiSetEditionDelQEntry.c)
- *     ApiSetEditionWakeSomeone @ 0x1C0001BD0 (ApiSetEditionWakeSomeone.c)
- *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003D298 (WPP_RECORDER_AND_TRACE_SF_qq.c)
- *     UpdateKeyStateForMessage @ 0x1C009C520 (UpdateKeyStateForMessage.c)
- *     ?LogHanging@KeyboardInputTelemetry@@CAXPEAUtagTHREADINFO@@_K@Z @ 0x1C0168CB0 (-LogHanging@KeyboardInputTelemetry@@CAXPEAUtagTHREADINFO@@_K@Z.c)
+ *     WPP_RECORDER_SF_qiqdd @ 0x1C0001B60 (WPP_RECORDER_SF_qiqdd.c)
+ *     ?UpdateISODState@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C0001C44 (-UpdateISODState@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z.c)
+ *     ApiSetEditionDelQEntry @ 0x1C0001CB0 (ApiSetEditionDelQEntry.c)
+ *     ?EndKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@QEAAXPEAUtagQMSG@@_N@Z @ 0x1C0001D70 (-EndKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@QEAAXPEAUtagQMSG@@_N@Z.c)
+ *     ApiSetEditionWakeSomeone @ 0x1C000201C (ApiSetEditionWakeSomeone.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C004B460 (WPP_RECORDER_SF_qq.c)
+ *     UpdateKeyStateForMessage @ 0x1C0092D70 (UpdateKeyStateForMessage.c)
  */
 
-void __fastcall HandleDeferredInput(__int64 a1, int a2, int a3)
+__int64 __fastcall HandleDeferredInput(__int64 a1, int a2, int a3)
 {
-  __int64 v3; // rbp
-  _UNKNOWN **v7; // r8
-  __int64 **v8; // r15
-  __int64 *v9; // rdi
-  __int64 v10; // r8
-  int v11; // ecx
-  char v12; // r14
-  unsigned int ThreadId; // eax
-  unsigned __int64 v14; // rcx
-  bool v15; // bl
-  unsigned int KeyboardInputLatency; // eax
-  int v17; // eax
-  int v18; // edx
-  __int64 v19; // r8
-  __int64 *v20; // rbx
-  char v21; // cl
+  __int64 v3; // rdi
+  int v4; // r9d
+  bool v6; // r10
+  __int64 v8; // rax
+  char v9; // r13
+  __int64 v10; // rax
+  __int128 *v11; // r8
+  __int64 result; // rax
+  __int64 **v13; // r12
+  __int64 *v14; // rbx
+  __int64 v15; // rdx
+  KeyboardInputTelemetry *v16; // rcx
+  char v17; // r14
+  int v18; // eax
+  int v19; // edx
+  int v20; // ecx
+  int v21; // r8d
   int v22; // edx
-  unsigned int v23; // eax
-  unsigned int v24; // eax
-  __int64 v25; // rax
-  int v26; // r9d
-  __int64 v27; // r8
-  int v28; // ecx
-  int v29; // [rsp+20h] [rbp-78h]
-  int v30; // [rsp+28h] [rbp-70h]
-  int v31; // [rsp+38h] [rbp-60h]
+  __int64 *i; // rbx
+  int v24; // ecx
+  __int64 v25; // r8
+  bool v26; // [rsp+B8h] [rbp+48h]
 
   v3 = *(_QWORD *)(a1 + 432);
-  v7 = &WPP_RECORDER_INITIALIZED;
-  v8 = (__int64 **)(v3 + 24);
-  v9 = *(__int64 **)(v3 + 24);
-  if ( v9 )
-  {
-    while ( 1 )
-    {
-      v10 = v9[13];
-      if ( v10 != a1
-        || (unsigned int)(*((_DWORD *)v9 + 6) - 256) > 9
-        || (v11 = *((_DWORD *)v9 + 25), (v11 & 0x2000) == 0)
-        && (v11 & 0x4000) == 0
-        && ((*(_DWORD *)(v10 + 1256) & 0x1000000) == 0 || (v11 & 0x8000) != 0) )
-      {
-        v9 = (__int64 *)*v9;
-        goto LABEL_47;
-      }
-      if ( (*(_DWORD *)(a1 + 1256) & 0x1000000) == 0 || (v12 = 1, a3 == *((_DWORD *)v9 + 39)) )
-        v12 = 0;
-      if ( a2 == 6 )
-      {
-        if ( v12 )
-        {
-LABEL_10:
-          ThreadId = (unsigned int)PsGetThreadId(*(PETHREAD *)v10);
-          v14 = v9[17];
-          if ( v14 && dword_1C029E3FC == ThreadId )
-          {
-            v15 = ((*((_DWORD *)v9 + 6) - 257) & 0xFFFFFFFB) == 0;
-            KeyboardInputLatency = KeyboardInputTelemetry::GetKeyboardInputLatency(v14);
-            KeyboardInputTelemetry::_UpdateTelemetryBuffer(
-              (KeyboardInputTelemetry *)&`KeyboardInputTelemetry::_GetInstance'::`2'::instance,
-              v15,
-              KeyboardInputLatency);
-          }
-          goto LABEL_13;
-        }
-        if ( (v11 & 0x40000) == 0 )
-        {
-          UpdateKeyStateForMessage(a1, v9);
-          *((_DWORD *)v9 + 25) |= 0x40000u;
-          return;
-        }
-      }
-      if ( a2 != 4 )
-        goto LABEL_10;
-      KeyboardInputTelemetry::LogHanging((struct tagTHREADINFO *)v9[13], v9[16]);
-LABEL_13:
-      if ( (*(_DWORD *)(a1 + 1256) & 0x1000000) == 0 && (*((_DWORD *)v9 + 25) & 0x2000) != 0 )
-        *(_DWORD *)(v9[13] + 1256) &= ~0x20000000u;
-      v17 = *((_DWORD *)v9 + 25);
-      if ( (v17 & 0x2000) != 0 || (v17 & 0x4000) != 0 || (v17 & 0x10000) != 0 )
-      {
-        *((_DWORD *)v9 + 25) = v17 & 0xFFFE9FFF;
-        ++*(_DWORD *)(v3 + 40);
-        v17 = *((_DWORD *)v9 + 25);
-      }
-      *((_DWORD *)v9 + 25) = v17 | 0x8000;
-      InputTraceLogging::Delivery::UpdateISODState((const struct tagQMSG *)v9);
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40000) == 0
-        || (LOBYTE(v18) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-      {
-        LOBYTE(v18) = 0;
-      }
-      LOBYTE(v19) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( (_BYTE)v18 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_AND_TRACE_SF_qiqdd(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v18,
-          v19,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          v29,
-          v30,
-          11,
-          v31,
-          (char)v9,
-          v9[17],
-          v3 + 24,
-          *(_DWORD *)(v3 + 44),
-          *(_DWORD *)(v3 + 40));
-      if ( a2 != 2 && !v12 )
-      {
-        v27 = *((unsigned int *)v9 + 6);
-        v28 = 0;
-        if ( a2 == 5 )
-          v28 = 0x4000000;
-        *((_DWORD *)v9 + 25) = *((_DWORD *)v9 + 25) & 0xFBFFFFFF | v28 | 0x20000;
-        ApiSetEditionWakeSomeone(v3, a1, v27, v9);
-LABEL_30:
-        v7 = &WPP_RECORDER_INITIALIZED;
-        break;
-      }
-      if ( v9 == *(__int64 **)(v3 + 80) )
-      {
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40000) == 0
-          || (LOBYTE(v18) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-        {
-          LOBYTE(v18) = 0;
-        }
-        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-          || (LOBYTE(v19) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-        {
-          LOBYTE(v19) = 0;
-        }
-        if ( (_BYTE)v18 || (_BYTE)v19 )
-          WPP_RECORDER_AND_TRACE_SF_qq(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v18,
-            v19,
-            WPP_MAIN_CB.Queue.ListEntry.Flink,
-            5,
-            19,
-            12,
-            (__int64)&WPP_4a7a621c478c3bdbcccab5865eab953f_Traceguids,
-            v3,
-            *(_QWORD *)(v3 + 80));
-        *(_QWORD *)(v3 + 80) = 0LL;
-      }
-      if ( (*((_DWORD *)v9 + 25) & 0x40000) == 0 )
-        UpdateKeyStateForMessage(a1, v9);
-      ApiSetEditionDelQEntry(v3 + 24, v9, v19);
-      if ( !v12 )
-        goto LABEL_30;
-      v9 = *v8;
-LABEL_47:
-      if ( !v9 )
-        goto LABEL_30;
-    }
-  }
-  v20 = *v8;
-  v21 = 1;
-  if ( *v8 )
-  {
-    while ( 1 )
-    {
-      v22 = *((_DWORD *)v20 + 25);
-      if ( __CFSHR__(v22, 15) && a2 != 4 && v20[13] == a1 )
-        break;
-      if ( (v22 & 0x10000) != 0 || __CFSHR__(*((_DWORD *)v20 + 25), 15) )
-      {
-        v25 = v20[13];
-        if ( v25 == a1 || *((_DWORD *)v20 + 24) == 4 )
-        {
-          *(_DWORD *)(v25 + 1256) &= ~0x20000000u;
-          *((_DWORD *)v20 + 25) &= 0xFFFE9FFF;
-          v26 = *(_DWORD *)(v3 + 40) + 1;
-          *(_DWORD *)(v3 + 40) = v26;
-          LOBYTE(v22) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                     && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40000) != 0
-                     && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-          if ( (_BYTE)v22 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_qiqdd(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v22,
-              (_DWORD)v7,
-              WPP_MAIN_CB.Queue.ListEntry.Flink,
-              v29,
-              v30,
-              13,
-              v31,
-              (char)v20,
-              v20[17],
-              v3 + 24,
-              *(_DWORD *)(v3 + 44),
-              v26);
-          }
-          *((_DWORD *)v20 + 25) |= 0x20000u;
-          InputTraceLogging::Delivery::UpdateISODState((const struct tagQMSG *)v20);
-          ApiSetEditionWakeSomeone(v3, a1, *((unsigned int *)v20 + 6), v20);
-          v21 = 0;
-        }
-      }
-      v20 = (__int64 *)*v20;
-      v7 = &WPP_RECORDER_INITIALIZED;
-      if ( !v20 )
-      {
-        if ( !v21 )
-          return;
-        goto LABEL_37;
-      }
-    }
-  }
+  v4 = a3;
+  v6 = a2 == 4;
+  v26 = a2 == 4;
+  v8 = *(_QWORD *)(v3 + 120);
+  v9 = 1;
+  if ( v8 )
+    v10 = *(_QWORD *)(v8 + 16);
   else
+    v10 = 0LL;
+  v11 = &gObjDummyLock;
+  if ( v10 )
+    LODWORD(v11) = v10 + 392;
+  result = *(_QWORD *)(v3 + 96);
+  v13 = (__int64 **)(v3 + 24);
+  v14 = *(__int64 **)(v3 + 24);
+  if ( !v14 )
+    goto LABEL_28;
+  while ( 1 )
   {
-LABEL_37:
-    if ( dword_1C029E348 )
+    v15 = v14[13];
+    if ( v15 != a1
+      || (result = (unsigned int)(*((_DWORD *)v14 + 6) - 256), (unsigned int)result > 9)
+      || (v16 = (KeyboardInputTelemetry *)*((unsigned int *)v14 + 25), ((unsigned int)v16 & 0x10000) == 0)
+      && ((unsigned int)v16 & 0x20000) == 0
+      && ((*(_DWORD *)(v15 + 1232) & 0x1000000) == 0 || ((unsigned int)v16 & 0x40000) != 0) )
     {
-      v23 = KeyboardInputTelemetry::GetKeyboardInputLatency(`KeyboardInputTelemetry::_GetInstance'::`2'::instance);
-      if ( dword_1C029E348 + dword_1C029E34C >= (unsigned int)dword_1C029E34C )
+      v14 = (__int64 *)*v14;
+      goto LABEL_46;
+    }
+    if ( v9 )
+    {
+      v9 = 0;
+      KeyboardInputTelemetry::EndKeyboardEventProcessingByInputService(v16, (struct tagQMSG *)v14, v6);
+      v4 = a3;
+    }
+    if ( (*(_DWORD *)(a1 + 1232) & 0x1000000) == 0 || (v17 = 1, v4 == *((_DWORD *)v14 + 39)) )
+      v17 = 0;
+    if ( a2 == 6 && !v17 && (*((_DWORD *)v14 + 25) & 0x200000) == 0 )
+    {
+      result = UpdateKeyStateForMessage(a1, v14);
+      *((_DWORD *)v14 + 25) |= 0x200000u;
+      return result;
+    }
+    if ( (*(_DWORD *)(a1 + 1232) & 0x1000000) == 0 && (*((_DWORD *)v14 + 25) & 0x10000) != 0 )
+      *(_DWORD *)(v14[13] + 1232) &= ~0x20000000u;
+    v18 = *((_DWORD *)v14 + 25);
+    if ( (v18 & 0x10000) != 0 || (v18 & 0x20000) != 0 || (v18 & 0x80000) != 0 )
+    {
+      *((_DWORD *)v14 + 25) = v18 & 0xFFF4FFFF;
+      ++*(_DWORD *)(v3 + 40);
+      v18 = *((_DWORD *)v14 + 25);
+    }
+    *((_DWORD *)v14 + 25) = v18 | 0x40000;
+    InputTraceLogging::Delivery::UpdateISODState((const struct tagQMSG *)v14);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_qiqdd(v20, v19, v21, 11);
+    v22 = 0;
+    if ( a2 != 2 && !v17 )
+      break;
+    if ( v14 == *(__int64 **)(v3 + 80) )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
       {
-        v24 = dword_1C029E354 + v23;
-        if ( v24 >= dword_1C029E354 )
-        {
-          ++dword_1C029E350;
-          dword_1C029E354 = v24;
-          dword_1C029E34C += dword_1C029E348;
-        }
+        LOBYTE(v22) = 5;
+        WPP_RECORDER_SF_qq(
+          (_DWORD)gBaseLog,
+          v22,
+          19,
+          12,
+          (__int64)&WPP_1c7a2d3f68873b8e54a3fdd9a54d5a8c_Traceguids,
+          v3,
+          *(_QWORD *)(v3 + 80));
       }
-      dword_1C029E348 = 0;
+      *(_QWORD *)(v3 + 80) = 0LL;
+    }
+    if ( (*((_DWORD *)v14 + 25) & 0x200000) == 0 )
+      UpdateKeyStateForMessage(a1, v14);
+    result = ApiSetEditionDelQEntry(v3 + 24, v14);
+    v14 = *v13;
+    if ( !v17 )
+      goto LABEL_28;
+    v4 = a3;
+    v6 = v26;
+LABEL_46:
+    if ( !v14 )
+      goto LABEL_28;
+  }
+  if ( a2 == 5 )
+    v14[4] = 229LL;
+  v25 = *((unsigned int *)v14 + 6);
+  *((_DWORD *)v14 + 25) |= 0x100000u;
+  result = ApiSetEditionWakeSomeone(v3, a1, v25, v14);
+LABEL_28:
+  for ( i = *v13; i; i = (__int64 *)*i )
+  {
+    v24 = *((_DWORD *)i + 25);
+    result = (unsigned int)-__CFSHR__(v24, 18);
+    if ( __CFSHR__(v24, 18) && a2 != 4 && i[13] == a1 )
+      break;
+    if ( (v24 & 0x80000) != 0 || __CFSHR__(v24, 18) )
+    {
+      result = i[13];
+      if ( result == a1 || *((_DWORD *)i + 24) == 4 )
+      {
+        *(_DWORD *)(result + 1232) &= ~0x20000000u;
+        *((_DWORD *)i + 25) &= 0xFFF4FFFF;
+        ++*(_DWORD *)(v3 + 40);
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_qiqdd(v24, (unsigned int)&WPP_RECORDER_INITIALIZED, (_DWORD)v11, 13);
+        *((_DWORD *)i + 25) |= 0x100000u;
+        InputTraceLogging::Delivery::UpdateISODState((const struct tagQMSG *)i);
+        result = ApiSetEditionWakeSomeone(v3, a1, *((unsigned int *)i + 6), i);
+      }
     }
   }
+  return result;
 }

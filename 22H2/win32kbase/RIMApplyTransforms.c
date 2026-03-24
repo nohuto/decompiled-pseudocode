@@ -1,14 +1,14 @@
 /*
- * XREFs of RIMApplyTransforms @ 0x1C018F430
+ * XREFs of RIMApplyTransforms @ 0x1C01642B8
  * Callers:
- *     rimTransformGeometry @ 0x1C00E339E (rimTransformGeometry.c)
+ *     rimTransformGeometry @ 0x1C017CEA4 (rimTransformGeometry.c)
  * Callees:
- *     RIMTransformPointerDevicePointToPhysical @ 0x1C00E1258 (RIMTransformPointerDevicePointToPhysical.c)
- *     RIMApplyDisplayOrientationToPointerProps @ 0x1C018F2E4 (RIMApplyDisplayOrientationToPointerProps.c)
- *     RIMSetContactBoundary @ 0x1C018FD80 (RIMSetContactBoundary.c)
- *     RIMTransformCoordinates @ 0x1C01901F4 (RIMTransformCoordinates.c)
- *     RIMTransformPhysicalPointToScreen @ 0x1C0190788 (RIMTransformPhysicalPointToScreen.c)
- *     ApiSetTransformForInputMagnification @ 0x1C02082D0 (ApiSetTransformForInputMagnification.c)
+ *     RIMApplyDisplayOrientationToPointerProps @ 0x1C01640A0 (RIMApplyDisplayOrientationToPointerProps.c)
+ *     RIMSetContactBoundary @ 0x1C01649F4 (RIMSetContactBoundary.c)
+ *     RIMTransformCoordinates @ 0x1C0164E6C (RIMTransformCoordinates.c)
+ *     RIMTransformPhysicalPointToScreen @ 0x1C01653D8 (RIMTransformPhysicalPointToScreen.c)
+ *     RIMTransformPointerDevicePointToPhysical @ 0x1C016544C (RIMTransformPointerDevicePointToPhysical.c)
+ *     ApiSetTransformForInputMagnification @ 0x1C01D11A0 (ApiSetTransformForInputMagnification.c)
  */
 
 __int64 __fastcall RIMApplyTransforms(__int64 a1, int a2, __int64 a3, int a4, _DWORD *a5)
@@ -23,13 +23,13 @@ __int64 __fastcall RIMApplyTransforms(__int64 a1, int a2, __int64 a3, int a4, _D
   int v16; // ecx
   int v18; // [rsp+60h] [rbp+8h] BYREF
 
-  v5 = *(_DWORD *)(a1 + 360);
+  v5 = *(_DWORD *)(a1 + 312);
   v6 = 0;
   if ( (v5 & 8) == 0 || (v5 & 0x2000) != 0 )
   {
     v18 = 0;
     RIMTransformCoordinates(a1, a2, a3 + 4, a4, (__int64)&v18);
-    v11 = (*(_DWORD *)(a1 + 360) & 0x200) == 0;
+    v11 = (*(_DWORD *)(a1 + 312) & 0x200) == 0;
     v12 = a5;
     *a5 = v18;
     if ( v11 )
@@ -44,8 +44,8 @@ __int64 __fastcall RIMApplyTransforms(__int64 a1, int a2, __int64 a3, int a4, _D
     if ( (unsigned int)(*(_DWORD *)(a1 + 24) - 1) <= 4 )
       RIMApplyDisplayOrientationToPointerProps(*(_DWORD *)(a1 + 224), (unsigned int *)(a3 + 56));
   }
-  RIMTransformPointerDevicePointToPhysical(a1, *(_QWORD *)(a3 + 4), (_DWORD *)(a3 + 120));
-  v13 = *(_DWORD *)(a1 + 360);
+  RIMTransformPointerDevicePointToPhysical(a1, *(_QWORD *)(a3 + 4), a3 + 120);
+  v13 = *(_DWORD *)(a1 + 312);
   if ( (v13 & 8) == 0 || (v13 & 0x2000) != 0 )
   {
     v6 = RIMTransformPhysicalPointToScreen(a1, a3 + 120, a3 + 112);
@@ -65,7 +65,7 @@ __int64 __fastcall RIMApplyTransforms(__int64 a1, int a2, __int64 a3, int a4, _D
   {
     if ( ((*(_DWORD *)(a1 + 224) - 2) & 0xFFFFFFFD) == 0 )
     {
-      v15 = *(_DWORD *)(a1 + 360);
+      v15 = *(_DWORD *)(a1 + 312);
       if ( (v15 & 8) == 0 || (v15 & 0x2000) != 0 )
       {
         v16 = *(_DWORD *)(a3 + 24);

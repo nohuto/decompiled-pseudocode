@@ -1,11 +1,11 @@
 /*
- * XREFs of VmpLogColdHint @ 0x14062A6D4
+ * XREFs of VmpLogColdHint @ 0x1405A3F4C
  * Callers:
- *     VmColdPagesHint @ 0x140628D00 (VmColdPagesHint.c)
+ *     VmColdPagesHint @ 0x1405A27D0 (VmColdPagesHint.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x14024A9B0 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall VmpLogColdHint(__int64 a1, __int64 a2)
@@ -47,7 +47,7 @@ void __fastcall VmpLogColdHint(__int64 a1, __int64 a2)
       v12 = v7;
       v20 = 8LL;
       v22 = 8LL;
-      tlgWriteEx_EtwWriteEx(v6, (unsigned __int8 *)&byte_14003478B, v4, 0, v8, v9, 6u, &v14);
+      tlgWriteEx_EtwWriteEx(v6, (unsigned __int8 *)&byte_14002C4B9, v4, 0, v8, v9, 6u, &v14);
     }
   }
 }

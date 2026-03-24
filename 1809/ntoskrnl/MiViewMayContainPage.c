@@ -1,7 +1,7 @@
 /*
- * XREFs of MiViewMayContainPage @ 0x1400EADE0
+ * XREFs of MiViewMayContainPage @ 0x1400EAE00
  * Callers:
- *     MiTrimSection @ 0x1400EAB84 (MiTrimSection.c)
+ *     MiTrimSection @ 0x1400EABA4 (MiTrimSection.c)
  * Callees:
  *     MiEndingOffsetWithLock @ 0x140031000 (MiEndingOffsetWithLock.c)
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)

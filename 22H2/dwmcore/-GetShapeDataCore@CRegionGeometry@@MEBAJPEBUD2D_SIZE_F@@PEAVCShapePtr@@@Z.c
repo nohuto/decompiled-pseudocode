@@ -1,14 +1,14 @@
 /*
- * XREFs of ?GetShapeDataCore@CRegionGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1800F15A0
+ * XREFs of ?GetShapeDataCore@CRegionGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1800D44F0
  * Callers:
  *     <none>
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800DC518 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ?BuildFromRects@CRegionShape@@QEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@I@Z @ 0x1800F1660 (-BuildFromRects@CRegionShape@@QEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ?BuildFromRects@CRegionShape@@QEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@I@Z @ 0x18009B5CC (-BuildFromRects@CRegionShape@@QEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C876C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRegionGeometry::GetShapeDataCore(
@@ -17,34 +17,41 @@ __int64 __fastcall CRegionGeometry::GetShapeDataCore(
         struct CShapePtr *a3)
 {
   unsigned int v4; // esi
-  _QWORD *v6; // rax
+  void *v6; // rax
   __int64 v7; // rcx
-  _QWORD *v8; // rbx
+  __int64 v8; // rbx
   __int64 v9; // rdx
   __int64 v10; // rax
   __int64 v12; // rcx
 
   v4 = 0;
   v6 = operator new(0x60uLL);
-  v8 = v6;
+  v8 = (__int64)v6;
   if ( v6 )
   {
     memset_0(v6, 0, 0x60uLL);
-    *v8 = &CRegionShape::`vftable';
-    v8[2] = v8 + 3;
-    *((_DWORD *)v8 + 6) = 0;
-    v8[11] = 0LL;
-    v9 = *((_QWORD *)this + 18);
-    v10 = (*((_QWORD *)this + 19) - v9) >> 4;
+    *(_QWORD *)v8 = &CRegionShape::`vftable';
+    *(_QWORD *)(v8 + 16) = v8 + 24;
+    *(_DWORD *)(v8 + 24) = 0;
+    *(_QWORD *)(v8 + 88) = 0LL;
+  }
+  else
+  {
+    v8 = 0LL;
+  }
+  if ( v8 )
+  {
+    v9 = *((_QWORD *)this + 17);
+    v10 = (*((_QWORD *)this + 18) - v9) >> 4;
     if ( v10 )
     {
-      CRegionShape::BuildFromRects(v8, v9, (unsigned int)v10);
+      CRegionShape::BuildFromRects(v8, v9, v10);
     }
     else
     {
-      *(_DWORD *)v8[2] = 0;
-      v12 = v8[11];
-      v8[11] = 0LL;
+      **(_DWORD **)(v8 + 16) = 0;
+      v12 = *(_QWORD *)(v8 + 88);
+      *(_QWORD *)(v8 + 88) = 0LL;
       if ( v12 )
         (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
     }
@@ -55,7 +62,7 @@ __int64 __fastcall CRegionGeometry::GetShapeDataCore(
   else
   {
     v4 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147024882, 0x1Cu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147024882, 0x1Bu, 0LL);
   }
   return v4;
 }

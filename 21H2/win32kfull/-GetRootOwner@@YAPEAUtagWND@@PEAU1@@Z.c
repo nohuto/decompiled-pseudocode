@@ -1,13 +1,14 @@
 /*
- * XREFs of ?GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0107F54
+ * XREFs of ?GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0035300
  * Callers:
- *     _anonymous_namespace_::EligibleWindow @ 0x1C006A184 (_anonymous_namespace_--EligibleWindow.c)
- *     SetWindowGroupBand @ 0x1C00810A4 (SetWindowGroupBand.c)
- *     ?TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z @ 0x1C008176C (-TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z.c)
- *     ?SetTopmostEnum@@YAXPEAUtagWND@@HH@Z @ 0x1C0107E94 (-SetTopmostEnum@@YAXPEAUtagWND@@HH@Z.c)
- *     ?xxxProcessPositionEvent@ShellWindowPos@@YAXPEAUtagQMSG@@@Z @ 0x1C02377B8 (-xxxProcessPositionEvent@ShellWindowPos@@YAXPEAUtagQMSG@@@Z.c)
+ *     ?TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z @ 0x1C00365F4 (-TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z.c)
+ *     SetWindowGroupBand @ 0x1C00366E8 (SetWindowGroupBand.c)
+ *     ?SetTopmostEnum@@YAXPEAUtagWND@@HH@Z @ 0x1C0039240 (-SetTopmostEnum@@YAXPEAUtagWND@@HH@Z.c)
+ *     _anonymous_namespace_::EligibleWindow @ 0x1C004B788 (_anonymous_namespace_--EligibleWindow.c)
+ *     _lambda_cb10391b5661d01073277e9ca426a942_::_lambda_invoker_cdecl_ @ 0x1C00DAB20 (_lambda_cb10391b5661d01073277e9ca426a942_--_lambda_invoker_cdecl_.c)
+ *     ?TemplateWindow@CWindow@@QEAA_NPEAUtagWND@@W4TemplateWindowOptions@@@Z @ 0x1C0240AD8 (-TemplateWindow@CWindow@@QEAA_NPEAUtagWND@@W4TemplateWindowOptions@@@Z.c)
  * Callees:
- *     ?GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0082690 (-GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00385DC (-GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
  */
 
 struct tagWND *__fastcall GetRootOwner(struct tagWND *a1)

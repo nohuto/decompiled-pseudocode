@@ -1,18 +1,18 @@
 /*
- * XREFs of BgpTxtDisplayString @ 0x140AB1844
+ * XREFs of BgpTxtDisplayString @ 0x1409F7784
  * Callers:
- *     BgDisplayString @ 0x140AB08A0 (BgDisplayString.c)
+ *     BgDisplayString @ 0x1409F6570 (BgDisplayString.c)
  * Callees:
- *     BgpGxDrawRectangle @ 0x1403A7F70 (BgpGxDrawRectangle.c)
- *     BgpRasPrintGlyph @ 0x1403A8390 (BgpRasPrintGlyph.c)
- *     BgpGxFillRectangle @ 0x1403A8954 (BgpGxFillRectangle.c)
- *     BgpFoGetTextMetrics @ 0x1403CAD78 (BgpFoGetTextMetrics.c)
- *     BgpFoGetAdvanceWidth @ 0x14064D880 (BgpFoGetAdvanceWidth.c)
- *     BgpGxRectangleDestroy @ 0x140AAD3E0 (BgpGxRectangleDestroy.c)
- *     BgpGxRectangleCreate @ 0x140AAD404 (BgpGxRectangleCreate.c)
- *     BgpGxBlendRectangle @ 0x140AB14B4 (BgpGxBlendRectangle.c)
- *     BgpTxtClearRegion @ 0x140AB1814 (BgpTxtClearRegion.c)
- *     TxtpJustifyRectangle @ 0x140AB1A78 (TxtpJustifyRectangle.c)
+ *     BgpGxDrawRectangle @ 0x14039BE98 (BgpGxDrawRectangle.c)
+ *     BgpFoGetTextMetrics @ 0x14039C78C (BgpFoGetTextMetrics.c)
+ *     BgpGxFillRectangle @ 0x14039C9C0 (BgpGxFillRectangle.c)
+ *     BgpRasPrintGlyph @ 0x1403B1B48 (BgpRasPrintGlyph.c)
+ *     BgpFoGetAdvanceWidth @ 0x1405C45B0 (BgpFoGetAdvanceWidth.c)
+ *     BgpGxRectangleDestroy @ 0x1409F2290 (BgpGxRectangleDestroy.c)
+ *     BgpGxRectangleCreate @ 0x1409F32C0 (BgpGxRectangleCreate.c)
+ *     BgpGxBlendRectangle @ 0x1409F73F0 (BgpGxBlendRectangle.c)
+ *     BgpTxtClearRegion @ 0x1409F7754 (BgpTxtClearRegion.c)
+ *     TxtpJustifyRectangle @ 0x1409F79B8 (TxtpJustifyRectangle.c)
  */
 
 __int64 __fastcall BgpTxtDisplayString(__int64 a1, __int16 *a2, __int64 a3, int a4, __m128i *a5)
@@ -28,33 +28,36 @@ __int64 __fastcall BgpTxtDisplayString(__int64 a1, __int16 *a2, __int64 a3, int 
   unsigned int v14; // ecx
   unsigned int v15; // eax
   int v16; // eax
-  __m128i *v17; // r15
-  unsigned int v18; // ecx
-  int v19; // eax
-  unsigned int v20; // r13d
-  int v21; // eax
-  unsigned int *v22; // rcx
-  int v23; // eax
-  _BYTE *v24; // rsi
-  __int64 v26; // [rsp+38h] [rbp-28h]
-  __int64 v27; // [rsp+50h] [rbp-10h] BYREF
-  unsigned int v28; // [rsp+58h] [rbp-8h]
-  _BYTE *v29; // [rsp+A0h] [rbp+40h] BYREF
-  int v30; // [rsp+B0h] [rbp+50h] BYREF
-  __int64 v31; // [rsp+B8h] [rbp+58h] BYREF
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  _DWORD *v19; // r9
+  __m128i *v20; // r15
+  unsigned int v21; // ecx
+  int v22; // eax
+  unsigned int v23; // r13d
+  int v24; // eax
+  unsigned int *v25; // rcx
+  int v26; // eax
+  _BYTE *v27; // rsi
+  __int64 v29; // [rsp+38h] [rbp-28h]
+  __int64 v30; // [rsp+50h] [rbp-10h] BYREF
+  unsigned int v31; // [rsp+58h] [rbp-8h]
+  _BYTE *v32; // [rsp+A0h] [rbp+40h] BYREF
+  int v33; // [rsp+B0h] [rbp+50h] BYREF
+  __int64 v34; // [rsp+B8h] [rbp+58h] BYREF
 
-  v27 = 0LL;
-  v30 = 0;
+  v30 = 0LL;
+  v33 = 0;
   v6 = a2;
-  v31 = 0LL;
-  v28 = 0;
-  v29 = 0LL;
+  v34 = 0LL;
+  v31 = 0;
+  v32 = 0LL;
   a5 = 0LL;
-  if ( !a1 || (*(_DWORD *)(a1 + 72) & 1) == 0 )
+  if ( !a1 || (*(_DWORD *)(a1 + 64) & 1) == 0 )
     return 3221225485LL;
   if ( a2 )
   {
-    if ( *(_DWORD *)(a1 + 76) )
+    if ( *(_DWORD *)(a1 + 68) )
     {
       return (unsigned int)-1073741811;
     }
@@ -72,10 +75,10 @@ __int64 __fastcall BgpTxtDisplayString(__int64 a1, __int16 *a2, __int64 a3, int 
         v12 = a2;
         while ( 1 )
         {
-          AdvanceWidth = BgpFoGetAdvanceWidth(v11, (unsigned __int16)*v12, (int)&v30, a4, 0LL);
+          AdvanceWidth = BgpFoGetAdvanceWidth(v11, (unsigned __int16)*v12, (int)&v33, a4, 0LL);
           if ( AdvanceWidth < 0 )
             break;
-          v9 += v30;
+          v9 += v33;
           v11 = a1 + 40;
           ++v10;
           ++v12;
@@ -86,72 +89,72 @@ __int64 __fastcall BgpTxtDisplayString(__int64 a1, __int16 *a2, __int64 a3, int 
       else
       {
 LABEL_13:
-        AdvanceWidth = BgpFoGetTextMetrics(a1 + 40, (__int64)&v29);
+        AdvanceWidth = BgpFoGetTextMetrics(a1 + 40, (__int64)&v32);
         if ( AdvanceWidth >= 0 )
         {
           v13 = *(_DWORD *)(a1 + 12);
-          v14 = HIDWORD(v29);
-          v28 = v9;
-          if ( HIDWORD(v29) > v13 )
+          v14 = HIDWORD(v32);
+          v31 = v9;
+          if ( HIDWORD(v32) > v13 )
             v14 = v13;
           v15 = *(_DWORD *)(a1 + 8);
-          HIDWORD(v27) = v14;
+          HIDWORD(v30) = v14;
           if ( v9 > v15 )
             v9 = v15;
-          LODWORD(v27) = v9;
-          v16 = BgpGxRectangleCreate(&v27, 32, (__int64 *)&a5);
-          v17 = a5;
+          LODWORD(v30) = v9;
+          v16 = BgpGxRectangleCreate(&v30, 32, (__int64 *)&a5);
+          v20 = a5;
           AdvanceWidth = v16;
           if ( v16 >= 0 )
           {
             BgpGxFillRectangle((__int64)a5, *(_DWORD *)(a1 + 40));
-            v18 = 0;
-            v19 = 0;
-            v20 = 0;
-            v31 = 0LL;
+            v21 = 0;
+            v22 = 0;
+            v23 = 0;
+            v34 = 0LL;
             if ( (_DWORD)v8 )
             {
               while ( 1 )
               {
-                v21 = BgpRasPrintGlyph(v17, a1 + 40, *v6, v18, v19, 0, &v30, v26, 0LL);
-                AdvanceWidth = v21;
-                if ( v21 == -2147483643 )
+                v24 = BgpRasPrintGlyph(v20, a1 + 40, *v6, v21, v22, 0, &v33, v29, 0LL);
+                AdvanceWidth = v24;
+                if ( v24 == -2147483643 )
                   break;
-                if ( v21 < 0 )
+                if ( v24 < 0 )
                   goto LABEL_30;
-                v18 = v30 + v31;
-                LODWORD(v31) = v18;
-                if ( v18 > v9 )
+                v21 = v33 + v34;
+                LODWORD(v34) = v21;
+                if ( v21 > v9 )
                   break;
-                ++v20;
+                ++v23;
                 ++v6;
-                if ( v20 >= (unsigned int)v8 )
+                if ( v23 >= (unsigned int)v8 )
                   break;
-                v19 = HIDWORD(v31);
+                v22 = HIDWORD(v34);
               }
             }
-            TxtpJustifyRectangle(a1, &v27, &v31);
-            v22 = *(unsigned int **)(a1 + 24);
-            v29 = 0LL;
-            v23 = BgpGxBlendRectangle(v22, v17, (int *)&v31, (__int64 *)&v29);
-            v24 = v29;
-            AdvanceWidth = v23;
-            if ( v23 >= 0 )
+            TxtpJustifyRectangle(a1, &v30, &v34);
+            v25 = *(unsigned int **)(a1 + 24);
+            v32 = 0LL;
+            v26 = BgpGxBlendRectangle(v25, (__int64)v20, (__int64)&v34, (unsigned __int64)&v32);
+            v27 = v32;
+            AdvanceWidth = v26;
+            if ( v26 >= 0 )
             {
               AdvanceWidth = BgpTxtClearRegion(a1);
               if ( AdvanceWidth >= 0 )
               {
-                HIDWORD(v31) = *(_DWORD *)(a1 + 4);
-                LODWORD(v31) = *(_DWORD *)a1 + v31;
-                AdvanceWidth = BgpGxDrawRectangle(v24, (__int64)&v31);
+                HIDWORD(v34) = *(_DWORD *)(a1 + 4);
+                LODWORD(v34) = *(_DWORD *)a1 + v34;
+                AdvanceWidth = BgpGxDrawRectangle(v27, (__int64)&v34);
               }
             }
-            if ( v24 )
-              BgpGxRectangleDestroy((__int64)v24);
+            if ( v27 )
+              BgpGxRectangleDestroy((__int64)v27, v17, v18, v19);
           }
 LABEL_30:
-          if ( v17 )
-            BgpGxRectangleDestroy((__int64)v17);
+          if ( v20 )
+            BgpGxRectangleDestroy((__int64)v20, v17, v18, v19);
         }
       }
     }

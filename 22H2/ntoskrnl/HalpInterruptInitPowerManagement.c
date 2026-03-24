@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptInitPowerManagement @ 0x14039529C
+ * XREFs of HalpInterruptInitPowerManagement @ 0x1403BD770
  * Callers:
- *     HalpInterruptInitSystem @ 0x140A8A2E0 (HalpInterruptInitSystem.c)
+ *     HalpInterruptInitSystem @ 0x14099EA00 (HalpInterruptInitSystem.c)
  * Callees:
- *     PoFxActivateComponent @ 0x140287170 (PoFxActivateComponent.c)
- *     PoFxStartDevicePowerManagement @ 0x140395E40 (PoFxStartDevicePowerManagement.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PoFxRegisterCoreDevice @ 0x140837B60 (PoFxRegisterCoreDevice.c)
+ *     PoFxActivateComponent @ 0x140262040 (PoFxActivateComponent.c)
+ *     PoFxStartDevicePowerManagement @ 0x1403BD9C0 (PoFxStartDevicePowerManagement.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PoFxRegisterCoreDevice @ 0x1407B4E00 (PoFxRegisterCoreDevice.c)
  */
 
 __int64 HalpInterruptInitPowerManagement()
@@ -46,9 +46,9 @@ __int64 HalpInterruptInitPowerManagement()
     v6 = HalpInterruptPowerCriticalTransitionCallback;
     v10 = 1;
     v8 = v0;
-    v1 = PoFxRegisterCoreDevice(v0 + 44, v3, v0 + 46);
-    PoFxActivateComponent(v0[46], 0LL, 0);
-    PoFxStartDevicePowerManagement(v0[46]);
+    v1 = PoFxRegisterCoreDevice(v0 + 41, v3, v0 + 43);
+    PoFxActivateComponent(v0[43], 0LL, 0);
+    PoFxStartDevicePowerManagement(v0[43]);
     v0 = (ULONG_PTR *)*v0;
   }
   return v1;

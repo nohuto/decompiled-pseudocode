@@ -1,8 +1,8 @@
 /*
- * XREFs of PopSetModernStandbyTransitionReason @ 0x14086F550
+ * XREFs of PopSetModernStandbyTransitionReason @ 0x14086F530
  * Callers:
- *     PdcPoCsEnterExitReason @ 0x14086EC30 (PdcPoCsEnterExitReason.c)
- *     PopPdcEngagePhases @ 0x14086F238 (PopPdcEngagePhases.c)
+ *     PdcPoCsEnterExitReason @ 0x14086EC10 (PdcPoCsEnterExitReason.c)
+ *     PopPdcEngagePhases @ 0x14086F218 (PopPdcEngagePhases.c)
  * Callees:
  *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
  */

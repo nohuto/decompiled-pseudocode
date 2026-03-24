@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReleasePteCopyList @ 0x140131840
+ * XREFs of MiReleasePteCopyList @ 0x140131860
  * Callers:
  *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiAddPagesToEnclave @ 0x1402BC7E4 (MiAddPagesToEnclave.c)
- *     MiCopyPagesIntoEnclave @ 0x1408594AC (MiCopyPagesIntoEnclave.c)
- *     MiFillPerSessionProtos @ 0x14085C41C (MiFillPerSessionProtos.c)
- *     MmRelocatePfnList @ 0x14085F328 (MmRelocatePfnList.c)
- *     MiReleaseScrubPacket @ 0x14085FAC4 (MiReleaseScrubPacket.c)
+ *     MiAddPagesToEnclave @ 0x1402BC8E4 (MiAddPagesToEnclave.c)
+ *     MiCopyPagesIntoEnclave @ 0x14085948C (MiCopyPagesIntoEnclave.c)
+ *     MiFillPerSessionProtos @ 0x14085C3FC (MiFillPerSessionProtos.c)
+ *     MmRelocatePfnList @ 0x14085F308 (MmRelocatePfnList.c)
+ *     MiReleaseScrubPacket @ 0x14085FAA4 (MiReleaseScrubPacket.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  */

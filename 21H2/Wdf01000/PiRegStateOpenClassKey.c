@@ -1,12 +1,12 @@
 /*
- * XREFs of PiRegStateOpenClassKey @ 0x1C00BEBF4
+ * XREFs of PiRegStateOpenClassKey @ 0x1C00BD484
  * Callers:
- *     PpRegStateReadCreateClassCreationSettings @ 0x1C00BEF84 (PpRegStateReadCreateClassCreationSettings.c)
- *     PpRegStateUpdateStackCreationSettings @ 0x1C00BF0E8 (PpRegStateUpdateStackCreationSettings.c)
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C00BD814 (PpRegStateReadCreateClassCreationSettings.c)
+ *     PpRegStateUpdateStackCreationSettings @ 0x1C00BD978 (PpRegStateUpdateStackCreationSettings.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     CmRegUtilCreateWstrKey @ 0x1C00BF3C0 (CmRegUtilCreateWstrKey.c)
- *     CmRegUtilOpenExistingWstrKey @ 0x1C00BF498 (CmRegUtilOpenExistingWstrKey.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     CmRegUtilCreateWstrKey @ 0x1C00BDC50 (CmRegUtilCreateWstrKey.c)
+ *     CmRegUtilOpenExistingWstrKey @ 0x1C00BDD24 (CmRegUtilOpenExistingWstrKey.c)
  */
 
 int __fastcall PiRegStateOpenClassKey(

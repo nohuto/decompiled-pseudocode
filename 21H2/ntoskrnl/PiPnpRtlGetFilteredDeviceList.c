@@ -1,47 +1,47 @@
 /*
- * XREFs of PiPnpRtlGetFilteredDeviceList @ 0x1406DCD40
+ * XREFs of PiPnpRtlGetFilteredDeviceList @ 0x14063ACF4
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140779F10 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyExW @ 0x1402E0340 (RtlStringCchCopyExW.c)
- *     wcschr @ 0x1403E32C0 (wcschr.c)
- *     PiDmGetCmObjectListFromCache @ 0x1406DCFC0 (PiDmGetCmObjectListFromCache.c)
- *     PiDmGetCmObjectConstraintListFromCache @ 0x1407773E8 (PiDmGetCmObjectConstraintListFromCache.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlStringCchCopyExW @ 0x140265430 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     wcschr @ 0x1403D3F10 (wcschr.c)
+ *     PiDmGetCmObjectConstraintListFromCache @ 0x140639FE8 (PiDmGetCmObjectConstraintListFromCache.c)
+ *     PiDmGetCmObjectListFromCache @ 0x1406C0324 (PiDmGetCmObjectListFromCache.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlGetFilteredDeviceList(__int64 a1)
 {
   int v1; // eax
-  __int64 v3; // rdx
-  bool v4; // cf
-  char v5; // al
-  __int64 v6; // rax
+  wchar_t *PoolWithTag; // rsi
+  __int64 v4; // rdx
+  bool v5; // cf
+  char v6; // al
+  _WORD *v7; // rax
   NTSTATUS inited; // ebx
-  __int64 v10; // r9
-  char v11; // al
-  int v12; // eax
-  const wchar_t *v13; // rax
-  int v14; // ebx
-  wchar_t *v15; // rax
-  wchar_t *Pool2; // rsi
+  const WCHAR *v11; // rdx
+  __int64 v12; // r9
+  char v13; // al
+  NTSTATUS CmObjectListFromCache; // eax
+  PVOID v15; // rcx
+  ULONG v16; // edx
   __int64 v17; // r9
   char v18; // al
-  ULONG v19; // edx
-  wchar_t *v20; // rcx
-  const WCHAR *v21; // rdx
-  __int64 v22; // r9
-  char v23; // al
-  NTSTATUS CmObjectListFromCache; // eax
+  int v19; // eax
+  const wchar_t *v20; // rax
+  int v21; // ebx
+  wchar_t *v22; // rax
+  __int64 v23; // r9
+  char v24; // al
   int pcchRemaining; // [rsp+20h] [rbp-49h]
   int pcchRemaininga; // [rsp+20h] [rbp-49h]
-  int dwFlags; // [rsp+28h] [rbp-41h]
+  unsigned int dwFlags; // [rsp+28h] [rbp-41h]
   __int64 dwFlagsa; // [rsp+28h] [rbp-41h]
   __int64 dwFlagsb; // [rsp+28h] [rbp-41h]
   __int64 dwFlagsc; // [rsp+28h] [rbp-41h]
-  __int64 v31; // [rsp+30h] [rbp-39h]
+  unsigned int *v31; // [rsp+30h] [rbp-39h]
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-29h] BYREF
   __int128 v33; // [rsp+50h] [rbp-19h] BYREF
   __int128 v34; // [rsp+60h] [rbp-9h]
@@ -50,7 +50,7 @@ __int64 __fastcall PiPnpRtlGetFilteredDeviceList(__int64 a1)
   int v37; // [rsp+79h] [rbp+10h]
   __int16 v38; // [rsp+7Dh] [rbp+14h]
   char v39; // [rsp+7Fh] [rbp+16h]
-  wchar_t *v40; // [rsp+80h] [rbp+17h]
+  PVOID P; // [rsp+80h] [rbp+17h]
   __int64 v41; // [rsp+88h] [rbp+1Fh]
   __int64 v42; // [rsp+90h] [rbp+27h]
   __int64 v43; // [rsp+98h] [rbp+2Fh]
@@ -61,6 +61,7 @@ __int64 __fastcall PiPnpRtlGetFilteredDeviceList(__int64 a1)
   v37 = 0;
   v38 = 0;
   v39 = 0;
+  PoolWithTag = 0LL;
   HIDWORD(v41) = 0;
   ppszDestEnd = 0LL;
   v44 = 0LL;
@@ -68,152 +69,162 @@ __int64 __fastcall PiPnpRtlGetFilteredDeviceList(__int64 a1)
   v34 = 0LL;
   DestinationString = 0LL;
   if ( (v1 & 0x7C) != 0 )
-    return (unsigned int)-1073741802;
-  if ( (v1 & 1) != 0 )
   {
-    v13 = *(const wchar_t **)(a1 + 16);
-    if ( v13 )
+    inited = -1073741802;
+LABEL_30:
+    if ( PoolWithTag )
     {
-      v14 = 0;
-      while ( *v13 )
+      v16 = 1198550608;
+      v15 = PoolWithTag;
+      goto LABEL_15;
+    }
+  }
+  else
+  {
+    if ( (v1 & 1) != 0 )
+    {
+      v20 = *(const wchar_t **)(a1 + 16);
+      if ( v20 )
       {
-        if ( *v13 == 92 )
-          break;
-        if ( (unsigned int)++v14 > 2 )
-          break;
-        v15 = wcschr(v13, 0x5Cu);
-        if ( v15 )
+        v21 = 0;
+        while ( *v20 )
         {
-          v13 = v15 + 1;
-          if ( v13 )
-            continue;
-        }
-        Pool2 = (wchar_t *)ExAllocatePool2(256LL, 400LL, 1198550608LL);
-        if ( !Pool2 )
-          return (unsigned int)-1073741670;
-        inited = RtlStringCchCopyExW(Pool2, 0xC8uLL, *(NTSTRSAFE_PCWSTR *)(a1 + 16), &ppszDestEnd, &v44, 0x800u);
-        if ( inited >= 0 )
-        {
-          if ( v44 < 2 )
+          if ( *v20 == 92 )
+            break;
+          if ( (unsigned int)++v21 > 2 )
+            break;
+          v22 = wcschr(v20, 0x5Cu);
+          if ( v22 )
           {
-            inited = -1073741811;
+            v20 = v22 + 1;
+            if ( v20 )
+              continue;
           }
-          else
+          PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x190uLL, 0x47706E50u);
+          if ( !PoolWithTag )
+            return (unsigned int)-1073741670;
+          inited = RtlStringCchCopyExW(PoolWithTag, 0xC8uLL, *(NTSTRSAFE_PCWSTR *)(a1 + 16), &ppszDestEnd, &v44, 0x800u);
+          if ( inited >= 0 )
           {
-            *(_DWORD *)ppszDestEnd = 92;
-            inited = RtlInitUnicodeStringEx(&DestinationString, Pool2);
-            if ( inited >= 0 )
+            if ( v44 < 2 )
             {
-              v17 = *(_QWORD *)(a1 + 48);
-              *(_QWORD *)&v33 = &DestinationString;
-              v18 = BYTE1(*(_DWORD *)(a1 + 24)) & 1;
-              *(_DWORD *)((char *)&v33 + 9) = 0;
-              BYTE8(v33) = v18;
-              v34 = *(_OWORD *)(a1 + 32);
-              dwFlagsb = *(_QWORD *)(a1 + 64);
-              pcchRemaining = *(_DWORD *)(a1 + 56);
-              *(_WORD *)((char *)&v33 + 13) = 0;
-              HIBYTE(v33) = 0;
-              inited = PiDmGetCmObjectListFromCache(
-                         1,
-                         (unsigned int)PiPnpRtlEnumeratorFilterCallback,
-                         (unsigned int)&v33,
-                         v17,
-                         pcchRemaining,
-                         dwFlagsb);
+              inited = -1073741811;
+            }
+            else
+            {
+              *(_DWORD *)ppszDestEnd = 92;
+              inited = RtlInitUnicodeStringEx(&DestinationString, PoolWithTag);
+              if ( inited >= 0 )
+              {
+                v23 = *(_QWORD *)(a1 + 48);
+                *(_QWORD *)&v33 = &DestinationString;
+                v24 = BYTE1(*(_DWORD *)(a1 + 24)) & 1;
+                *(_DWORD *)((char *)&v33 + 9) = 0;
+                BYTE8(v33) = v24;
+                v34 = *(_OWORD *)(a1 + 32);
+                dwFlagsc = *(_QWORD *)(a1 + 64);
+                pcchRemaininga = *(_DWORD *)(a1 + 56);
+                *(_WORD *)((char *)&v33 + 13) = 0;
+                HIBYTE(v33) = 0;
+                inited = PiDmGetCmObjectListFromCache(
+                           1,
+                           (unsigned int)&PiPnpRtlEnumeratorFilterCallback,
+                           (unsigned int)&v33,
+                           v23,
+                           pcchRemaininga,
+                           dwFlagsc);
+              }
             }
           }
+          goto LABEL_30;
         }
-        v19 = 1198550608;
-        v20 = Pool2;
-        goto LABEL_26;
       }
+      return (unsigned int)-1073741811;
     }
-    return (unsigned int)-1073741811;
-  }
-  if ( (v1 & 2) == 0 )
-  {
-    if ( (v1 & 0x80u) == 0 )
+    if ( (v1 & 2) == 0 )
     {
-      v10 = *(_QWORD *)(a1 + 48);
-      v4 = (v1 & 0x100) != 0;
-      *(_DWORD *)((char *)&v33 + 9) = 0;
-      v11 = BYTE8(v33);
+      if ( (v1 & 0x80u) == 0 )
+      {
+        v17 = *(_QWORD *)(a1 + 48);
+        v5 = (v1 & 0x100) != 0;
+        *(_DWORD *)((char *)&v33 + 9) = 0;
+        v18 = BYTE8(v33);
+        if ( v5 )
+          v18 = 1;
+        *(_WORD *)((char *)&v33 + 13) = 0;
+        BYTE8(v33) = v18;
+        v34 = *(_OWORD *)(a1 + 32);
+        dwFlagsb = *(_QWORD *)(a1 + 64);
+        v19 = *(_DWORD *)(a1 + 56);
+        HIBYTE(v33) = 0;
+        return (unsigned int)PiDmGetCmObjectListFromCache(
+                               1,
+                               (unsigned int)&PiPnpRtlEnumeratorFilterCallback,
+                               (unsigned int)&v33,
+                               v17,
+                               v19,
+                               dwFlagsb);
+      }
+      v4 = *(_QWORD *)(a1 + 16);
       if ( v4 )
-        v11 = 1;
-      *(_WORD *)((char *)&v33 + 13) = 0;
-      BYTE8(v33) = v11;
-      v34 = *(_OWORD *)(a1 + 32);
+      {
+        v5 = (v1 & 0x100) != 0;
+        *(_DWORD *)((char *)&v33 + 9) = 0;
+        v6 = BYTE8(v33);
+        if ( v5 )
+          v6 = 1;
+        *(_WORD *)((char *)&v33 + 13) = 0;
+        BYTE8(v33) = v6;
+        v34 = *(_OWORD *)(a1 + 32);
+        v31 = *(unsigned int **)(a1 + 64);
+        dwFlags = *(_DWORD *)(a1 + 56);
+        v7 = *(_WORD **)(a1 + 48);
+        HIBYTE(v33) = 0;
+        return (unsigned int)PiDmGetCmObjectConstraintListFromCache(
+                               5,
+                               v4,
+                               (__int64)&PiPnpRtlEnumeratorFilterCallback,
+                               (__int64)&v33,
+                               v7,
+                               dwFlags,
+                               v31);
+      }
+      return (unsigned int)-1073741811;
+    }
+    v11 = *(const WCHAR **)(a1 + 16);
+    if ( !v11 )
+      return (unsigned int)-1073741811;
+    inited = RtlInitUnicodeStringEx(&DestinationString, v11);
+    if ( inited >= 0 )
+    {
+      v12 = *(_QWORD *)(a1 + 48);
+      p_DestinationString = &DestinationString;
+      v13 = BYTE1(*(_DWORD *)(a1 + 24)) & 1;
+      v37 = 0;
+      v36 = v13;
+      v42 = *(_QWORD *)(a1 + 32);
+      v43 = *(_QWORD *)(a1 + 40);
       dwFlagsa = *(_QWORD *)(a1 + 64);
-      v12 = *(_DWORD *)(a1 + 56);
-      HIBYTE(v33) = 0;
-      return (unsigned int)PiDmGetCmObjectListFromCache(
-                             1,
-                             (unsigned int)PiPnpRtlEnumeratorFilterCallback,
-                             (unsigned int)&v33,
-                             v10,
-                             v12,
-                             dwFlagsa);
-    }
-    v3 = *(_QWORD *)(a1 + 16);
-    if ( v3 )
-    {
-      v4 = (v1 & 0x100) != 0;
-      *(_DWORD *)((char *)&v33 + 9) = 0;
-      v5 = BYTE8(v33);
-      if ( v4 )
-        v5 = 1;
-      *(_WORD *)((char *)&v33 + 13) = 0;
-      BYTE8(v33) = v5;
-      v34 = *(_OWORD *)(a1 + 32);
-      v31 = *(_QWORD *)(a1 + 64);
-      dwFlags = *(_DWORD *)(a1 + 56);
-      v6 = *(_QWORD *)(a1 + 48);
-      HIBYTE(v33) = 0;
-      return (unsigned int)PiDmGetCmObjectConstraintListFromCache(
-                             5,
-                             v3,
-                             (unsigned int)PiPnpRtlEnumeratorFilterCallback,
-                             (unsigned int)&v33,
-                             v6,
-                             dwFlags,
-                             v31);
-    }
-    return (unsigned int)-1073741811;
-  }
-  v21 = *(const WCHAR **)(a1 + 16);
-  if ( !v21 )
-    return (unsigned int)-1073741811;
-  inited = RtlInitUnicodeStringEx(&DestinationString, v21);
-  if ( inited >= 0 )
-  {
-    v22 = *(_QWORD *)(a1 + 48);
-    p_DestinationString = &DestinationString;
-    v23 = BYTE1(*(_DWORD *)(a1 + 24)) & 1;
-    v37 = 0;
-    v36 = v23;
-    v42 = *(_QWORD *)(a1 + 32);
-    v43 = *(_QWORD *)(a1 + 40);
-    dwFlagsc = *(_QWORD *)(a1 + 64);
-    pcchRemaininga = *(_DWORD *)(a1 + 56);
-    v38 = 0;
-    v39 = 0;
-    v41 = 0LL;
-    v40 = 0LL;
-    CmObjectListFromCache = PiDmGetCmObjectListFromCache(
-                              1,
-                              (unsigned int)PiPnpRtlServiceFilterCallback,
-                              (unsigned int)&p_DestinationString,
-                              v22,
-                              pcchRemaininga,
-                              dwFlagsc);
-    v20 = v40;
-    inited = CmObjectListFromCache;
-    if ( v40 )
-    {
-      v19 = 0;
-LABEL_26:
-      ExFreePoolWithTag(v20, v19);
+      pcchRemaining = *(_DWORD *)(a1 + 56);
+      v38 = 0;
+      v39 = 0;
+      v41 = 0LL;
+      P = 0LL;
+      CmObjectListFromCache = PiDmGetCmObjectListFromCache(
+                                1,
+                                (unsigned int)PiPnpRtlServiceFilterCallback,
+                                (unsigned int)&p_DestinationString,
+                                v12,
+                                pcchRemaining,
+                                dwFlagsa);
+      v15 = P;
+      inited = CmObjectListFromCache;
+      if ( P )
+      {
+        v16 = 0;
+LABEL_15:
+        ExFreePoolWithTag(v15, v16);
+      }
     }
   }
   return (unsigned int)inited;

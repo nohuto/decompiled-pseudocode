@@ -1,11 +1,11 @@
 /*
- * XREFs of BCryptDecrypt @ 0x1405F3C10
+ * XREFs of BCryptDecrypt @ 0x140595990
  * Callers:
- *     SmCrAuthDecrypt @ 0x1405FD85C (SmCrAuthDecrypt.c)
+ *     SmCrAuthDecrypt @ 0x1405A0070 (SmCrAuthDecrypt.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall BCryptDecrypt(
@@ -38,7 +38,7 @@ NTSTATUS __stdcall BCryptDecrypt(
             cbOutput,
             pcbResult,
             0);
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(SepBCryptExtensionHost + 64));
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(SepBCryptExtensionHost + 64));
   }
   return v14;
 }

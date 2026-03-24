@@ -1,8 +1,8 @@
 /*
- * XREFs of PfTTraceListTrim @ 0x140865438
+ * XREFs of PfTTraceListTrim @ 0x140865418
  * Callers:
- *     PfTTraceListAdd @ 0x14064B8E0 (PfTTraceListAdd.c)
- *     PfTCleanup @ 0x1408651FC (PfTCleanup.c)
+ *     PfTTraceListAdd @ 0x14064B8C0 (PfTTraceListAdd.c)
+ *     PfTCleanup @ 0x1408651DC (PfTCleanup.c)
  * Callees:
  *     <none>
  */

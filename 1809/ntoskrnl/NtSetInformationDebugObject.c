@@ -1,5 +1,5 @@
 /*
- * XREFs of NtSetInformationDebugObject @ 0x1408101A0
+ * XREFs of NtSetInformationDebugObject @ 0x140810180
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtSetInformationDebugObject(

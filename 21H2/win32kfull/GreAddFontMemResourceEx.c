@@ -1,14 +1,14 @@
 /*
- * XREFs of GreAddFontMemResourceEx @ 0x1C0287318
+ * XREFs of GreAddFontMemResourceEx @ 0x1C028A458
  * Callers:
- *     NtGdiAddFontMemResourceEx @ 0x1C02AC7A0 (NtGdiAddFontMemResourceEx.c)
+ *     NtGdiAddFontMemResourceEx @ 0x1C02AE030 (NtGdiAddFontMemResourceEx.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
- *     ?bInitPrivatePFT@@YAHXZ @ 0x1C0270730 (-bInitPrivatePFT@@YAHXZ.c)
- *     ?hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z @ 0x1C0270D90 (-hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z.c)
- *     ?bCreateFontFileView@@YAHPEBU_FONTFILEVIEW@@PEBUtagDOWNLOADFONTHEADER@@KPEAPEAPEAU1@K@Z @ 0x1C0286C48 (-bCreateFontFileView@@YAHPEBU_FONTFILEVIEW@@PEBUtagDOWNLOADFONTHEADER@@KPEAPEAPEAU1@K@Z.c)
- *     cMapRemoteFonts @ 0x1C028769C (cMapRemoteFonts.c)
- *     vUnmapRemoteFonts @ 0x1C0287B80 (vUnmapRemoteFonts.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?bInitPrivatePFT@@YAHXZ @ 0x1C0272AA0 (-bInitPrivatePFT@@YAHXZ.c)
+ *     ?hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z @ 0x1C0272F10 (-hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z.c)
+ *     ?bCreateFontFileView@@YAHPEBU_FONTFILEVIEW@@PEBUtagDOWNLOADFONTHEADER@@KPEAPEAPEAU1@K@Z @ 0x1C0289DBC (-bCreateFontFileView@@YAHPEBU_FONTFILEVIEW@@PEBUtagDOWNLOADFONTHEADER@@KPEAPEAPEAU1@K@Z.c)
+ *     cMapRemoteFonts @ 0x1C028A838 (cMapRemoteFonts.c)
+ *     vUnmapRemoteFonts @ 0x1C028AD20 (vUnmapRemoteFonts.c)
  */
 
 __int64 __fastcall GreAddFontMemResourceEx(

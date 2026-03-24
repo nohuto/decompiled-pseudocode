@@ -1,36 +1,37 @@
 /*
- * XREFs of NtThawRegistry @ 0x140A0F1B0
+ * XREFs of NtThawRegistry @ 0x140869A30
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     CmThawRegistry @ 0x140A135E0 (CmThawRegistry.c)
- *     CmpDetachFromRegistryProcess @ 0x140AF6230 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     CmThawRegistry @ 0x140872380 (CmThawRegistry.c)
  */
 
 __int64 NtThawRegistry()
 {
-  unsigned int v0; // ebx
-  __int128 v2; // [rsp+20h] [rbp-58h] BYREF
-  _OWORD v3[3]; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v0; // rdx
+  __int64 v1; // r8
+  _DWORD *v2; // r9
+  unsigned int v3; // ebx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  _OWORD v9[3]; // [rsp+20h] [rbp-48h] BYREF
 
-  v2 = 0LL;
-  memset(v3, 0, sizeof(v3));
-  CmpInitializeThreadInfo((__int64)&v2);
+  memset(v9, 0, sizeof(v9));
   if ( SeSinglePrivilegeCheck(SeBackupPrivilege, KeGetCurrentThread()->PreviousMode) )
   {
-    CmpAttachToRegistryProcess(v3);
-    v0 = CmThawRegistry();
-    CmpDetachFromRegistryProcess(v3);
+    CmpAttachToRegistryProcess((__int64)v9, v0, v1, v2);
+    v3 = CmThawRegistry(v5, v4, v6, v7, *(_QWORD *)&v9[0], *((_QWORD *)&v9[0] + 1));
+    KiUnstackDetachProcess((__int64)v9, 0);
   }
   else
   {
-    v0 = -1073741727;
+    return (unsigned int)-1073741727;
   }
-  CmCleanupThreadInfo((__int64 *)&v2);
-  return v0;
+  return v3;
 }

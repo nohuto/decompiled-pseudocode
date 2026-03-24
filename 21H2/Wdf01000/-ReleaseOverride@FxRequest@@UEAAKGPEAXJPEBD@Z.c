@@ -1,17 +1,17 @@
 /*
- * XREFs of ?ReleaseOverride@FxRequest@@UEAAKGPEAXJPEBD@Z @ 0x1C00688B0
+ * XREFs of ?ReleaseOverride@FxRequest@@UEAAKGPEAXJPEBD@Z @ 0x1C004F160
  * Callers:
  *     <none>
  * Callees:
- *     ?Release@FxObject@@UEAAKPEAXJPEBD@Z @ 0x1C000AC50 (-Release@FxObject@@UEAAKPEAXJPEBD@Z.c)
- *     ?ReleaseIrpReference@FxRequest@@QEAAXXZ @ 0x1C0068854 (-ReleaseIrpReference@FxRequest@@QEAAXXZ.c)
+ *     ?Release@FxObject@@UEAAKPEAXJPEBD@Z @ 0x1C0002940 (-Release@FxObject@@UEAAKPEAXJPEBD@Z.c)
+ *     ?ReleaseIrpReference@FxRequest@@QEAAXXZ @ 0x1C004F104 (-ReleaseIrpReference@FxRequest@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxRequest::ReleaseOverride(
         FxRequest *this,
         unsigned __int16 Offset,
-        void *Tag,
-        int Line,
+        FxObjectDebugLeakDetection *Tag,
+        unsigned int Line,
         char *File)
 {
   if ( !Offset )

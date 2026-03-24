@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CEffectGroupMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0228380
+ * XREFs of ?SetRemarshalingFlags@CEffectGroupMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DEFE0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0216428 (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DFBB4 (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CEffectGroupMarshaler::SetRemarshalingFlags(
@@ -11,12 +11,12 @@ char __fastcall DirectComposition::CEffectGroupMarshaler::SetRemarshalingFlags(
 {
   char v2; // di
 
-  if ( *((float *)this + 20) != 1.0 )
+  if ( *((float *)this + 18) != 1.0 )
     *((_DWORD *)this + 4) |= 0x80u;
   v2 = 0;
-  if ( *((_DWORD *)this + 21) )
+  if ( *((_DWORD *)this + 19) )
     *((_DWORD *)this + 4) |= 0x100u;
-  if ( *((_QWORD *)this + 11) )
+  if ( *((_QWORD *)this + 10) )
     *((_DWORD *)this + 4) |= 0x200u;
   if ( DirectComposition::CPropertyChangeResourceMarshaler::SetRemarshalingFlags(this)
     || (*((_DWORD *)this + 4) & 0x380) != 0 )

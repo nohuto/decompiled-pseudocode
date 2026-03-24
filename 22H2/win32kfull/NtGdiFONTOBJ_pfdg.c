@@ -1,47 +1,47 @@
 /*
- * XREFs of NtGdiFONTOBJ_pfdg @ 0x1C02CCBC0
+ * XREFs of NtGdiFONTOBJ_pfdg @ 0x1C02B4450
  * Callers:
  *     <none>
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z @ 0x1C0098760 (-WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     ??$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z @ 0x1C0298B0C (--$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z.c)
- *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C0299658 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
- *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C02BFC6C (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
- *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C02BFF40 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C001DE74 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z @ 0x1C00A461C (-WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C013C6B4 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
+ *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C013C88C (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
+ *     ??$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z @ 0x1C013C9F4 (--$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z.c)
  */
 
-struct UMPDOBJ *__fastcall NtGdiFONTOBJ_pfdg(__int64 a1)
+struct _FD_GLYPHSET *__fastcall NtGdiFONTOBJ_pfdg(__int64 a1)
 {
-  void *v2; // rdi
+  struct _FD_GLYPHSET *v2; // rdi
   struct _W32THREAD *ThreadWin32Thread; // rax
-  struct UMPDOBJ *result; // rax
+  struct UMPDOBJ *ThreadCurrentObj; // rax
   struct UMPDOBJ *v5; // rbx
   unsigned __int64 v6; // rax
   unsigned __int64 v7; // rsi
   struct _FD_GLYPHSET *v8; // rsi
   unsigned int v9; // ebp
-  char *v10; // rax
-  unsigned __int64 v11; // [rsp+48h] [rbp+10h] BYREF
+  struct _FD_GLYPHSET *v10; // rax
+  unsigned __int64 v12; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = 0LL;
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  result = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v5 = result;
-  if ( result )
+  ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
+  v5 = ThreadCurrentObj;
+  if ( ThreadCurrentObj )
   {
-    ++*((_DWORD *)result + 109);
-    v6 = UMPDOBJ::GetDDIOBJ<_FONTOBJ>((__int64)result, a1);
+    ++*((_DWORD *)ThreadCurrentObj + 105);
+    v6 = UMPDOBJ::GetDDIOBJ<_FONTOBJ>((__int64)ThreadCurrentObj, a1);
     v7 = v6;
     if ( v6 )
     {
-      v2 = (void *)*((_QWORD *)v5 + 41);
+      v2 = (struct _FD_GLYPHSET *)*((_QWORD *)v5 + 41);
       if ( !v2 )
       {
-        v11 = v6;
-        UMPDAcquireRFONTSem((struct RFONTOBJ *)&v11, v5, 0, 0, 0LL);
+        v12 = v6;
+        UMPDAcquireRFONTSem((struct RFONTOBJ *)&v12, v5, 0, 0, 0LL);
         v8 = *(struct _FD_GLYPHSET **)(v7 + 472);
         if ( v8 )
         {
@@ -55,11 +55,11 @@ struct UMPDOBJ *__fastcall NtGdiFONTOBJ_pfdg(__int64 a1)
             v9 = 4 * (v8->cGlyphsSupported + 4 * (v8->cRuns + 1));
             if ( v9 )
             {
-              v10 = UMPDOBJ::_AllocUserMem(v5, v9, 0);
+              v10 = (struct _FD_GLYPHSET *)UMPDOBJ::_AllocUserMem(v5, v9, 0);
               v2 = v10;
               if ( v10 )
               {
-                if ( (unsigned int)WriteFD_GLYPHSET((struct _FD_GLYPHSET *)v10, v8, v9) )
+                if ( (unsigned int)WriteFD_GLYPHSET(v10, v8, v9) )
                   *((_QWORD *)v5 + 41) = v2;
                 else
                   v2 = 0LL;
@@ -67,13 +67,13 @@ struct UMPDOBJ *__fastcall NtGdiFONTOBJ_pfdg(__int64 a1)
             }
           }
         }
-        UMPDReleaseRFONTSem((struct RFONTOBJ *)&v11, v5, 0LL, 0LL, 0LL);
-        v11 = 0LL;
-        RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v11);
+        UMPDReleaseRFONTSem((struct RFONTOBJ *)&v12, v5, 0LL, 0LL, 0LL);
+        v12 = 0LL;
+        RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v12);
       }
     }
-    --*((_DWORD *)v5 + 109);
-    return (struct UMPDOBJ *)v2;
+    if ( v5 )
+      --*((_DWORD *)v5 + 105);
   }
-  return result;
+  return v2;
 }

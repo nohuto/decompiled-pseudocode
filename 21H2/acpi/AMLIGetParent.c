@@ -1,24 +1,24 @@
 /*
- * XREFs of AMLIGetParent @ 0x1C000A040
+ * XREFs of AMLIGetParent @ 0x1C001B348
  * Callers:
- *     OSNotifyCreateProcessor @ 0x1C0005604 (OSNotifyCreateProcessor.c)
- *     IsPciDeviceWorker @ 0x1C0007A10 (IsPciDeviceWorker.c)
- *     AMLIIterateParentNext @ 0x1C00083A0 (AMLIIterateParentNext.c)
- *     OSNotifyCreateDevice @ 0x1C0009C54 (OSNotifyCreateDevice.c)
- *     OSNotifyCreateOperationRegion @ 0x1C000A0B4 (OSNotifyCreateOperationRegion.c)
- *     IsPciBusAsyncWorker @ 0x1C000B380 (IsPciBusAsyncWorker.c)
- *     PciConfigSpaceHandlerWorker @ 0x1C000C920 (PciConfigSpaceHandlerWorker.c)
- *     GetOpRegionScope @ 0x1C001CE9C (GetOpRegionScope.c)
- *     CmosConfigSpaceHandler @ 0x1C004E110 (CmosConfigSpaceHandler.c)
- *     ACPIDevicePowerProcessPhase2SystemSubPhase1 @ 0x1C0050360 (ACPIDevicePowerProcessPhase2SystemSubPhase1.c)
- *     ACPIDevicePowerProcessPhase5SystemSubPhase3 @ 0x1C0050C20 (ACPIDevicePowerProcessPhase5SystemSubPhase3.c)
- *     ACPIDevicePowerProcessPhase5SystemSubPhase4 @ 0x1C0050DC0 (ACPIDevicePowerProcessPhase5SystemSubPhase4.c)
- *     OSNotifyDeviceCheck @ 0x1C0059804 (OSNotifyDeviceCheck.c)
- *     AcpiSetupNativeMethodContext @ 0x1C005C860 (AcpiSetupNativeMethodContext.c)
- *     InternalRawAccessOpRegionHandler @ 0x1C005D960 (InternalRawAccessOpRegionHandler.c)
- *     ACPIRootIrpQueryPower @ 0x1C005FAC0 (ACPIRootIrpQueryPower.c)
- *     ACPIRootInitialize @ 0x1C008F8C0 (ACPIRootInitialize.c)
- *     AcpiArblibAllocateArbiterInstance @ 0x1C00ABA30 (AcpiArblibAllocateArbiterInstance.c)
+ *     OSNotifyCreateProcessor @ 0x1C001622C (OSNotifyCreateProcessor.c)
+ *     IsPciDeviceWorker @ 0x1C00166E0 (IsPciDeviceWorker.c)
+ *     IsPciBusAsyncWorker @ 0x1C0017710 (IsPciBusAsyncWorker.c)
+ *     GetOpRegionScope @ 0x1C0017C54 (GetOpRegionScope.c)
+ *     OSNotifyCreateOperationRegion @ 0x1C00182E8 (OSNotifyCreateOperationRegion.c)
+ *     PciConfigSpaceHandlerWorker @ 0x1C00184A0 (PciConfigSpaceHandlerWorker.c)
+ *     OSNotifyCreateDevice @ 0x1C001B3BC (OSNotifyCreateDevice.c)
+ *     AMLIIterateParentNext @ 0x1C002F1F4 (AMLIIterateParentNext.c)
+ *     CmosConfigSpaceHandler @ 0x1C004F2A0 (CmosConfigSpaceHandler.c)
+ *     ACPIDevicePowerProcessPhase2SystemSubPhase1 @ 0x1C0050FF0 (ACPIDevicePowerProcessPhase2SystemSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase3 @ 0x1C00516B0 (ACPIDevicePowerProcessPhase5SystemSubPhase3.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase4 @ 0x1C0051860 (ACPIDevicePowerProcessPhase5SystemSubPhase4.c)
+ *     OSNotifyDeviceCheck @ 0x1C0058AC4 (OSNotifyDeviceCheck.c)
+ *     AcpiSetupNativeMethodContext @ 0x1C005B9C0 (AcpiSetupNativeMethodContext.c)
+ *     InternalRawAccessOpRegionHandler @ 0x1C005CA50 (InternalRawAccessOpRegionHandler.c)
+ *     ACPIRootIrpQueryPower @ 0x1C005ECB0 (ACPIRootIrpQueryPower.c)
+ *     ACPIRootInitialize @ 0x1C0097FAC (ACPIRootInitialize.c)
+ *     AcpiArblibAllocateArbiterInstance @ 0x1C00ACD30 (AcpiArblibAllocateArbiterInstance.c)
  * Callees:
  *     <none>
  */
@@ -32,9 +32,9 @@ __int64 __fastcall AMLIGetParent(__int64 a1)
   v3 = *(_QWORD *)(*(_QWORD *)a1 + 16LL);
   if ( v3 )
   {
-    dword_1C0081AC8 = 0;
+    dword_1C0082908 = 0;
     v3 += 120LL;
-    byte_1C0081ACC = 0;
+    pszDest = 0;
     if ( (gdwfAMLI & 4) != 0 )
       _InterlockedIncrement((volatile signed __int32 *)(v3 + 8));
   }

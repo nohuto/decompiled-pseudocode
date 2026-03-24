@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CNineGridBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00AABF0
+ * XREFs of ?SetIntegerProperty@CNineGridBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00A3660
  * Callers:
  *     <none>
  * Callees:

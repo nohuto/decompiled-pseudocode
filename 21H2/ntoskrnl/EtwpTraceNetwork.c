@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpTraceNetwork @ 0x1404600C0
+ * XREFs of EtwpTraceNetwork @ 0x1405A9B90
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwpNetProvTraceNetwork @ 0x14045FEE2 (EtwpNetProvTraceNetwork.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpNetProvTraceNetwork @ 0x1405A8F28 (EtwpNetProvTraceNetwork.c)
  */
 
-void __fastcall EtwpTraceNetwork(unsigned __int16 a1, ULONGLONG a2, ULONG a3)
+__int64 __fastcall EtwpTraceNetwork(__int16 a1, ULONGLONG a2, ULONG a3)
 {
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-28h] BYREF
 
   UserData.Reserved = 0;
   UserData.Ptr = a2;
   UserData.Size = a3;
-  if ( EtwpHostSiloState != -4540 && (*(_DWORD *)(EtwpHostSiloState + 4540) & 0x10000) != 0 )
+  if ( EtwpHostSiloState != -4516 && (*(_DWORD *)(EtwpHostSiloState + 4516) & 0x10000) != 0 )
     EtwpNetProvTraceNetwork(&UserData, a1);
-  EtwTraceKernelEvent((__int64)&UserData, 1u, 0x10000u, a1, 0x401802u);
+  return EtwTraceKernelEvent((int)&UserData, 1, 0x10000u, a1, 4200450);
 }

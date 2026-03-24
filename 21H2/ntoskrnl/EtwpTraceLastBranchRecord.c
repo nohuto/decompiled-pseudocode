@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpTraceLastBranchRecord @ 0x1404608E8
+ * XREFs of EtwpTraceLastBranchRecord @ 0x1405B02B4
  * Callers:
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x1403AB658 (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x1403ABB10 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1403AEB1C (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x1403AEE10 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     KeQueryCurrentStackInformation @ 0x140294D90 (KeQueryCurrentStackInformation.c)
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeGetCurrentStackPointer @ 0x14041FAB0 (KeGetCurrentStackPointer.c)
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     _alloca_probe @ 0x14042A4D0 (_alloca_probe.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeQueryCurrentStackInformation @ 0x140277230 (KeQueryCurrentStackInformation.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeGetCurrentStackPointer @ 0x1403FE5D0 (KeGetCurrentStackPointer.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     _alloca_probe @ 0x1404084A0 (_alloca_probe.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall EtwpTraceLastBranchRecord(__int64 a1, _QWORD *a2, _KTHREAD *a3, int a4)
@@ -76,14 +76,14 @@ void __fastcall EtwpTraceLastBranchRecord(__int64 a1, _QWORD *a2, _KTHREAD *a3, 
           v10 = 1;
           v13 = &v21;
         }
-        if ( ((int (__fastcall *)(_QWORD, unsigned int *, int *))off_140C01FD8[0])((unsigned int)v11, v13, &v22) >= 0
+        if ( ((int (__fastcall *)(_QWORD, unsigned int *, int *))off_140C00988[0])((unsigned int)v11, v13, &v22) >= 0
           && v22 )
         {
-          v16 = *(_QWORD *)(a1 + 1096);
+          v16 = *(_QWORD *)(a1 + 1080);
           DWORD2(v25) = v6[1].CycleTime;
           HIDWORD(v25) = v6[1].CurrentRunTime;
           *(_QWORD *)&v25 = *a2;
-          v17 = *(_QWORD *)(a1 + 1024);
+          v17 = *(_QWORD *)(a1 + 1008);
           v20 = a4 & 0xFFFFE600 | 2;
           v18 = *(_DWORD *)(v17 + 4);
           v30 = 0;

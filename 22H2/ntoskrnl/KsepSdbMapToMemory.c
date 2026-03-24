@@ -1,43 +1,39 @@
 /*
- * XREFs of KsepSdbMapToMemory @ 0x140694E7C
+ * XREFs of KsepSdbMapToMemory @ 0x140755244
  * Callers:
- *     KseShimDatabaseOpen @ 0x140694C20 (KseShimDatabaseOpen.c)
+ *     KseShimDatabaseOpen @ 0x14075A8D0 (KseShimDatabaseOpen.c)
  * Callees:
- *     KsepLogError @ 0x14020A5CC (KsepLogError.c)
- *     MiRemoveFromSystemSpace @ 0x1402137A0 (MiRemoveFromSystemSpace.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x14041AFE0 (ZwCreateSection.c)
- *     KsepDebugPrint @ 0x140580D64 (KsepDebugPrint.c)
- *     SdbInitDatabaseInMemory @ 0x1406951D8 (SdbInitDatabaseInMemory.c)
- *     SdbGetDatabaseEdition @ 0x140695518 (SdbGetDatabaseEdition.c)
- *     MiMapViewInSystemSpace @ 0x1406AD6A4 (MiMapViewInSystemSpace.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     KsepLogError @ 0x140372754 (KsepLogError.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x1403FA360 (ZwCreateSection.c)
+ *     KsepDebugPrint @ 0x140526E28 (KsepDebugPrint.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     MmUnmapViewInSystemSpace @ 0x14068F560 (MmUnmapViewInSystemSpace.c)
+ *     MmMapViewInSystemSpace @ 0x1406A2470 (MmMapViewInSystemSpace.c)
+ *     SdbInitDatabaseInMemory @ 0x140755900 (SdbInitDatabaseInMemory.c)
+ *     SdbGetDatabaseEdition @ 0x140755CA0 (SdbGetDatabaseEdition.c)
  */
 
 __int64 __fastcall KsepSdbMapToMemory(PCWSTR SourceString, __int64 a2)
 {
-  PVOID v3; // rsi
-  NTSTATUS v4; // eax
-  NTSTATUS v5; // edi
-  int v6; // ecx
-  const char *v7; // rbx
-  NTSTATUS v9; // eax
-  ULONG_PTR v10; // r14
-  __int64 inited; // rcx
-  int v12; // eax
-  int v13; // eax
-  int v14; // eax
-  int v15; // eax
-  ULONG_PTR BugCheckParameter1; // [rsp+40h] [rbp-39h] BYREF
+  struct _DMA_ADAPTER *v3; // rsi
+  __int64 inited; // r14
+  NTSTATUS v5; // ebx
+  __int64 v6; // rax
+  NTSTATUS v8; // eax
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rax
+  PVOID MappedBase; // [rsp+40h] [rbp-39h] BYREF
   PVOID Object; // [rsp+48h] [rbp-31h] BYREF
-  __int64 v18; // [rsp+50h] [rbp-29h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-21h] BYREF
-  __int64 v20; // [rsp+88h] [rbp+Fh] BYREF
-  UNICODE_STRING DestinationString; // [rsp+90h] [rbp+17h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A0h] [rbp+27h] BYREF
+  ULONG_PTR ViewSize; // [rsp+50h] [rbp-29h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-21h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-11h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-1h] BYREF
   HANDLE FileHandle; // [rsp+F0h] [rbp+77h] BYREF
   HANDLE SectionHandle; // [rsp+F8h] [rbp+7Fh] BYREF
 
@@ -45,17 +41,17 @@ __int64 __fastcall KsepSdbMapToMemory(PCWSTR SourceString, __int64 a2)
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
   FileHandle = 0LL;
   SectionHandle = 0LL;
-  BugCheckParameter1 = 0LL;
+  MappedBase = 0LL;
   DestinationString = 0LL;
   v3 = 0LL;
+  inited = 0LL;
   IoStatusBlock = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.ObjectName = &DestinationString;
   ObjectAttributes.RootDirectory = 0LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  v4 = ZwOpenFile(&FileHandle, 0x80000000, &ObjectAttributes, &IoStatusBlock, 5u, 0);
-  v5 = v4;
-  if ( v4 >= 0 )
+  v5 = ZwOpenFile(&FileHandle, 0x80000000, &ObjectAttributes, &IoStatusBlock, 5u, 0);
+  if ( v5 >= 0 )
   {
     ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = 0LL;
@@ -65,62 +61,56 @@ __int64 __fastcall KsepSdbMapToMemory(PCWSTR SourceString, __int64 a2)
     v5 = ZwCreateSection(&SectionHandle, 4u, &ObjectAttributes, 0LL, 2u, 0x8000000u, FileHandle);
     if ( v5 < 0 )
     {
-      v12 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-      v7 = "KSE: ZwCreateSection Failed!\n";
-      KsepHistoryErrors[2 * v12 + 1] = v5;
-      KsepHistoryErrors[2 * v12] = 590528;
+      v9 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+      KsepHistoryErrors[2 * v9 + 1] = v5;
+      KsepHistoryErrors[2 * v9] = 590528;
+      if ( (KsepDebugFlag & 2) != 0 )
+        KsepDebugPrint(0LL, "KSE: ZwCreateSection Failed!\n");
+      KsepLogError(0, "KSE: ZwCreateSection Failed!\n");
     }
     else
     {
       Object = 0LL;
-      v9 = ObReferenceObjectByHandle(SectionHandle, 0xF001Fu, MmSectionObjectType, 0, &Object, 0LL);
-      v3 = Object;
-      v5 = v9;
-      if ( v9 < 0 )
+      v8 = ObReferenceObjectByHandle(SectionHandle, 0xF001Fu, MmSectionObjectType, 0, &Object, 0LL);
+      v3 = (struct _DMA_ADAPTER *)Object;
+      v5 = v8;
+      if ( v8 < 0 )
       {
-        v13 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-        v7 = "KSE: ObRefByHandle(section) failed!\n";
-        KsepHistoryErrors[2 * v13 + 1] = v5;
-        KsepHistoryErrors[2 * v13] = 590542;
+        v10 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+        KsepHistoryErrors[2 * v10 + 1] = v5;
+        KsepHistoryErrors[2 * v10] = 590542;
+        if ( (KsepDebugFlag & 2) != 0 )
+          KsepDebugPrint(0LL, "KSE: ObRefByHandle(section) failed!\n");
+        KsepLogError(0, "KSE: ObRefByHandle(section) failed!\n");
       }
       else
       {
-        v18 = 0LL;
-        v20 = 0LL;
-        v5 = MiMapViewInSystemSpace(
-               (_DWORD)Object,
-               (unsigned int)&BugCheckParameter1,
-               (unsigned int)&v18,
-               (unsigned int)&v20,
-               0LL,
-               0LL);
+        ViewSize = 0LL;
+        v5 = MmMapViewInSystemSpace(Object, &MappedBase, &ViewSize);
         if ( v5 < 0 )
         {
-          v14 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          v7 = "KSE: Unable to map view of section!\n";
-          KsepHistoryErrors[2 * v14 + 1] = v5;
-          KsepHistoryErrors[2 * v14] = 590555;
+          v11 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+          KsepHistoryErrors[2 * v11 + 1] = v5;
+          KsepHistoryErrors[2 * v11] = 590555;
+          if ( (KsepDebugFlag & 2) != 0 )
+            KsepDebugPrint(0LL, "KSE: Unable to map view of section!\n");
+          KsepLogError(0, "KSE: Unable to map view of section!\n");
         }
         else
         {
-          v10 = BugCheckParameter1;
-          inited = SdbInitDatabaseInMemory(BugCheckParameter1, (unsigned int)v18);
-          if ( inited )
+          inited = SdbInitDatabaseInMemory(MappedBase, (unsigned int)ViewSize);
+          if ( !inited )
           {
-            v5 = 0;
-            *(_QWORD *)(a2 + 16) = FileHandle;
-            *(_QWORD *)(a2 + 24) = SectionHandle;
-            *(_QWORD *)(a2 + 32) = v3;
-            *(_QWORD *)(a2 + 8) = v10;
-            *(_QWORD *)a2 = inited;
-            *(_DWORD *)(a2 + 48) = SdbGetDatabaseEdition(*(_QWORD *)(inited + 8));
-            return (unsigned int)v5;
+            v5 = -1073741823;
+            v12 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+            KsepHistoryErrors[2 * v12 + 1] = -1073741823;
+            KsepHistoryErrors[2 * v12] = 590564;
+            if ( (KsepDebugFlag & 2) != 0 )
+              KsepDebugPrint(0LL, "KSE: SdbInitDatabaseInMemory Failed!\n");
+            KsepLogError(0, "KSE: SdbInitDatabaseInMemory Failed!\n");
+            goto LABEL_6;
           }
-          v5 = -1073741823;
-          v15 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          v7 = "KSE: SdbInitDatabaseInMemory Failed!\n";
-          KsepHistoryErrors[2 * v15 + 1] = -1073741823;
-          KsepHistoryErrors[2 * v15] = 590564;
+          v5 = 0;
         }
       }
     }
@@ -128,17 +118,27 @@ __int64 __fastcall KsepSdbMapToMemory(PCWSTR SourceString, __int64 a2)
   else
   {
     v6 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    v7 = "KSE: ZwOpenFile failed opening DB file!\n";
-    KsepHistoryErrors[2 * v6 + 1] = v4;
+    KsepHistoryErrors[2 * v6 + 1] = v5;
     KsepHistoryErrors[2 * v6] = 590506;
+    if ( (KsepDebugFlag & 2) != 0 )
+      KsepDebugPrint(0LL, "KSE: ZwOpenFile failed opening DB file!\n");
+    KsepLogError(0, "KSE: ZwOpenFile failed opening DB file!\n");
   }
-  if ( (KsepDebugFlag & 2) != 0 )
-    KsepDebugPrint(0LL, v7);
-  KsepLogError(0LL, (__int64)v7);
-  if ( BugCheckParameter1 )
-    MiRemoveFromSystemSpace(BugCheckParameter1, 1);
+  if ( v5 >= 0 )
+  {
+    *(_QWORD *)(a2 + 16) = FileHandle;
+    *(_QWORD *)(a2 + 24) = SectionHandle;
+    *(_QWORD *)(a2 + 8) = MappedBase;
+    *(_QWORD *)(a2 + 32) = v3;
+    *(_QWORD *)a2 = inited;
+    *(_DWORD *)(a2 + 48) = SdbGetDatabaseEdition(*(_QWORD *)(inited + 8));
+    return (unsigned int)v5;
+  }
+LABEL_6:
+  if ( MappedBase )
+    MmUnmapViewInSystemSpace(MappedBase);
   if ( v3 )
-    ObfDereferenceObject(v3);
+    HalPutDmaAdapter(v3);
   if ( SectionHandle )
     ZwClose(SectionHandle);
   if ( FileHandle )

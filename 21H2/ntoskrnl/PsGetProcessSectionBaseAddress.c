@@ -1,9 +1,8 @@
 /*
- * XREFs of PsGetProcessSectionBaseAddress @ 0x1402A07F0
+ * XREFs of PsGetProcessSectionBaseAddress @ 0x1402502F0
  * Callers:
- *     PopEtGetProcessVersionInfo @ 0x1406744E0 (PopEtGetProcessVersionInfo.c)
- *     PopEtGetProcessImageInfo @ 0x1406746F0 (PopEtGetProcessImageInfo.c)
- *     EtwpQueryProcessOtherInfo @ 0x14070BACC (EtwpQueryProcessOtherInfo.c)
+ *     EtwpQueryProcessOtherInfo @ 0x140602928 (EtwpQueryProcessOtherInfo.c)
+ *     PopEtGetProcessImageInfo @ 0x14069898C (PopEtGetProcessImageInfo.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,9 @@
 /*
- * XREFs of ?GetProcessor@CPTPProcessorFactory@@SAPEAVCPTPProcessor@@PEAUDEVICEINFO@@@Z @ 0x1C01DF380
+ * XREFs of ?GetProcessor@CPTPProcessorFactory@@SAPEAVCPTPProcessor@@PEAUDEVICEINFO@@@Z @ 0x1C00CD6A0
  * Callers:
- *     _lambda_0ea3833fecfc7a67e7cb38c46f5cb3a9_::_lambda_invoker_cdecl_ @ 0x1C00D48D0 (_lambda_0ea3833fecfc7a67e7cb38c46f5cb3a9_--_lambda_invoker_cdecl_.c)
- *     _lambda_8102d3965b5d38067ca2d55e8bb485aa_::_lambda_invoker_cdecl_ @ 0x1C00D4940 (_lambda_8102d3965b5d38067ca2d55e8bb485aa_--_lambda_invoker_cdecl_.c)
- *     ?CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z @ 0x1C01BC6B8 (-CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z.c)
- *     ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C01C4F38 (-GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z.c)
- *     ?OnPTPInertiaTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01E27C0 (-OnPTPInertiaTimerNotification@CHidInput@@EEAAJXZ.c)
- *     ?OnPTPTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01E2970 (-OnPTPTimerNotification@CHidInput@@EEAAJXZ.c)
- *     ?ProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C01E2DA0 (-ProcessInput@CHidInput@@EEAAJPEAXKK0@Z.c)
+ *     _lambda_753f1a24f15e9d4fbe47901cff45fae9_::_lambda_invoker_cdecl_ @ 0x1C00CD5A0 (_lambda_753f1a24f15e9d4fbe47901cff45fae9_--_lambda_invoker_cdecl_.c)
+ *     _lambda_fa6a589edf23ed69d06e62f02aabf114_::_lambda_invoker_cdecl_ @ 0x1C00CD630 (_lambda_fa6a589edf23ed69d06e62f02aabf114_--_lambda_invoker_cdecl_.c)
+ *     ?CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z @ 0x1C0189634 (-CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,8 +12,8 @@ struct CPTPProcessor *__fastcall CPTPProcessorFactory::GetProcessor(struct DEVIC
 {
   struct CPTPProcessor *result; // rax
 
-  result = (struct CPTPProcessor *)*((_QWORD *)a1 + 59);
+  result = (struct CPTPProcessor *)*((_QWORD *)a1 + 60);
   if ( result )
-    return (struct CPTPProcessor *)*((_QWORD *)result + 132);
+    return (struct CPTPProcessor *)*((_QWORD *)result + 125);
   return result;
 }

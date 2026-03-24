@@ -1,21 +1,21 @@
 /*
- * XREFs of PfpCreateEvent @ 0x140752E90
+ * XREFs of PfpCreateEvent @ 0x140752E70
  * Callers:
- *     PfTStart @ 0x140752A9C (PfTStart.c)
- *     PfpScenCtxStart @ 0x140752E14 (PfpScenCtxStart.c)
+ *     PfTStart @ 0x140752A7C (PfTStart.c)
+ *     PfpScenCtxStart @ 0x140752DF4 (PfpScenCtxStart.c)
  *     PfpParametersInitialize @ 0x1409D472C (PfpParametersInitialize.c)
  *     PfSnInitializePrefetcher @ 0x1409D48C4 (PfSnInitializePrefetcher.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateEvent @ 0x1401B8A70 (ZwCreateEvent.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1401B8A90 (ZwCreateEvent.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
  */
 
 __int64 __fastcall PfpCreateEvent(UNICODE_STRING *a1, EVENT_TYPE a2, PVOID *a3)

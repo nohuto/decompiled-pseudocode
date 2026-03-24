@@ -1,10 +1,10 @@
 /*
- * XREFs of _RtlpMuiRegSerializeRegistryInfo @ 0x140846DE0
+ * XREFs of _RtlpMuiRegSerializeRegistryInfo @ 0x14078F7A8
  * Callers:
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A1214 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A8028 (RtlpMuiRegCreateKernelRegistryInfo.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall RtlpMuiRegSerializeRegistryInfo(__int64 a1, _OWORD *a2, unsigned int *a3)
@@ -32,10 +32,8 @@ __int64 __fastcall RtlpMuiRegSerializeRegistryInfo(__int64 a1, _OWORD *a2, unsig
   unsigned int v26; // eax
   const void *v27; // rdx
   unsigned int v29; // ecx
-  unsigned int v30; // eax
-  unsigned int v31; // eax
-  const void *v32; // rdx
-  const void *v33; // rdx
+  const void *v30; // rdx
+  const void *v31; // rdx
 
   v3 = 0;
   if ( !a1 || !a3 )
@@ -89,18 +87,16 @@ __int64 __fastcall RtlpMuiRegSerializeRegistryInfo(__int64 a1, _OWORD *a2, unsig
   v17 = *(_DWORD *)(a1 + 148);
   if ( v17 && *(_QWORD *)(a1 + 128) )
   {
-    v30 = v11 + v17;
-    if ( v30 < v11 )
+    if ( v17 + v11 < v11 )
       return (unsigned int)-1073741811;
-    v11 = (v30 + 7) & 0xFFFFFFF8;
+    v11 = (v17 + v11 + 7) & 0xFFFFFFF8;
   }
   v18 = *(_DWORD *)(a1 + 160);
   if ( v18 && *(_QWORD *)(a1 + 152) )
   {
-    v31 = v11 + v18;
-    if ( v31 < v11 )
+    if ( v18 + v11 < v11 )
       return (unsigned int)-1073741811;
-    v11 = (v31 + 7) & 0xFFFFFFF8;
+    v11 = (v18 + v11 + 7) & 0xFFFFFFF8;
   }
   v19 = *(_DWORD *)(a1 + 144);
   if ( !v19 || !*(_QWORD *)(a1 + 136) )
@@ -169,10 +165,10 @@ LABEL_22:
       }
       if ( *(_DWORD *)(a1 + 148) )
       {
-        v32 = *(const void **)(a1 + 128);
-        if ( v32 )
+        v30 = *(const void **)(a1 + 128);
+        if ( v30 )
         {
-          memmove(v21, v32, *(unsigned int *)(a1 + 148));
+          memmove(v21, v30, *(unsigned int *)(a1 + 148));
           *((_QWORD *)a2 + 16) = (char *)v21 - (char *)a2;
           v21 = (_QWORD *)((char *)a2 + ((v10 + *(_DWORD *)(a1 + 148) + 7) & 0xFFFFFFF8));
           v10 = (v10 + *(_DWORD *)(a1 + 148) + 7) & 0xFFFFFFF8;
@@ -180,10 +176,10 @@ LABEL_22:
       }
       if ( *(_DWORD *)(a1 + 160) )
       {
-        v33 = *(const void **)(a1 + 152);
-        if ( v33 )
+        v31 = *(const void **)(a1 + 152);
+        if ( v31 )
         {
-          memmove(v21, v33, *(unsigned int *)(a1 + 160));
+          memmove(v21, v31, *(unsigned int *)(a1 + 160));
           *((_QWORD *)a2 + 19) = (char *)v21 - (char *)a2;
           v21 = (_QWORD *)((char *)a2 + ((v10 + *(_DWORD *)(a1 + 160) + 7) & 0xFFFFFFF8));
         }

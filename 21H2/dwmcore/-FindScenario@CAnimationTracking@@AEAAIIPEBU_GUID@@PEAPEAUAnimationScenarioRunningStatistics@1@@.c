@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FindScenario@CAnimationTracking@@AEAAIIPEBU_GUID@@PEAPEAUAnimationScenarioRunningStatistics@1@@Z @ 0x1800775C4
+ * XREFs of ?FindScenario@CAnimationTracking@@AEAAIIPEBU_GUID@@PEAPEAUAnimationScenarioRunningStatistics@1@@Z @ 0x1800B1B98
  * Callers:
- *     ?BeginAnimationScenario@CAnimationTracking@@QEAAJIPEBUDCOMPOSITION_TELEMETRY_ANIMATION_SCENARIO_PACKED_INFO@@PEBGAEBUTelFrameInfo@1@@Z @ 0x180017F1C (-BeginAnimationScenario@CAnimationTracking@@QEAAJIPEBUDCOMPOSITION_TELEMETRY_ANIMATION_SCENARIO_.c)
- *     ?UnrefAnimationScenario@CAnimationTracking@@QEAAXI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z @ 0x180076FE8 (-UnrefAnimationScenario@CAnimationTracking@@QEAAXI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z.c)
- *     ?EnsureScenario@CAnimationTracking@@AEAAJPEBUDCOMPOSITION_TELEMETRY_ANIMATION_SCENARIO_PACKED_INFO@@PEBGIPEBU_GUID@@AEBUTelFrameInfo@1@PEAPEAUAnimationScenarioRunningStatistics@1@@Z @ 0x180077304 (-EnsureScenario@CAnimationTracking@@AEAAJPEBUDCOMPOSITION_TELEMETRY_ANIMATION_SCENARIO_PACKED_IN.c)
+ *     ?BeginAnimationScenario@CAnimationTracking@@QEAAJIPEBUDCOMPOSITION_TELEMETRY_ANIMATION_SCENARIO_PACKED_INFO@@PEBGAEBUTelFrameInfo@1@@Z @ 0x1800B132C (-BeginAnimationScenario@CAnimationTracking@@QEAAJIPEBUDCOMPOSITION_TELEMETRY_ANIMATION_SCENARIO_.c)
+ *     ?UnrefAnimationScenario@CAnimationTracking@@QEAAXI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z @ 0x1800B1558 (-UnrefAnimationScenario@CAnimationTracking@@QEAAXI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z.c)
+ *     ?EnsureScenario@CAnimationTracking@@AEAAJPEBUDCOMPOSITION_TELEMETRY_ANIMATION_SCENARIO_PACKED_INFO@@PEBGIPEBU_GUID@@AEBUTelFrameInfo@1@PEAPEAUAnimationScenarioRunningStatistics@1@@Z @ 0x1800B18D0 (-EnsureScenario@CAnimationTracking@@AEAAJPEBUDCOMPOSITION_TELEMETRY_ANIMATION_SCENARIO_PACKED_IN.c)
  * Callees:
  *     <none>
  */
@@ -19,9 +19,9 @@ __int64 __fastcall CAnimationTracking::FindScenario(
   unsigned int v6; // r11d
   __int64 v7; // rdi
   __int64 v8; // rcx
-  __int64 v9; // rax
-  bool v10; // zf
+  bool v9; // zf
   __int64 result; // rax
+  __int64 v11; // rax
 
   v4 = *((_DWORD *)this + 6);
   v5 = 0LL;
@@ -36,24 +36,24 @@ __int64 __fastcall CAnimationTracking::FindScenario(
       {
         if ( a3 )
         {
-          v9 = *(_QWORD *)(v8 + 4) - *(_QWORD *)&a3->Data1;
-          if ( !v9 )
-            v9 = *(_QWORD *)(v8 + 12) - *(_QWORD *)a3->Data4;
-          v10 = v9 == 0;
+          v11 = *(_QWORD *)(v8 + 4) - *(_QWORD *)&a3->Data1;
+          if ( !v11 )
+            v11 = *(_QWORD *)(v8 + 12) - *(_QWORD *)a3->Data4;
+          v9 = v11 == 0;
         }
         else
         {
           if ( !a2 )
-            goto LABEL_9;
-          v10 = a2 == *(_DWORD *)v8;
+            goto LABEL_10;
+          v9 = a2 == *(_DWORD *)v8;
         }
-        if ( v10 )
+        if ( v9 )
         {
           v5 = *(struct CAnimationTracking::AnimationScenarioRunningStatistics **)(v7 + 8LL * v6);
           break;
         }
       }
-LABEL_9:
+LABEL_10:
       ++v6;
     }
     while ( v6 < v4 );

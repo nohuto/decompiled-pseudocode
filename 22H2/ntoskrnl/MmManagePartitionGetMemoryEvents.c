@@ -1,10 +1,10 @@
 /*
- * XREFs of MmManagePartitionGetMemoryEvents @ 0x1407EA6D0
+ * XREFs of MmManagePartitionGetMemoryEvents @ 0x1407D1BBC
  * Callers:
- *     NtManagePartition @ 0x140760280 (NtManagePartition.c)
+ *     NtManagePartition @ 0x1406762C0 (NtManagePartition.c)
  * Callees:
- *     ObOpenObjectByPointer @ 0x1407379D0 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     ObOpenObjectByPointer @ 0x140653F10 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall MmManagePartitionGetMemoryEvents(PVOID **a1, __int64 a2, KPROCESSOR_MODE AccessMode)
@@ -12,8 +12,8 @@ __int64 __fastcall MmManagePartitionGetMemoryEvents(PVOID **a1, __int64 a2, KPRO
   PVOID *v3; // r13
   ULONG v6; // edx
   HANDLE *Handle; // rbp
-  HANDLE *v8; // r15
-  HANDLE *v9; // r14
+  HANDLE *v8; // r14
+  HANDLE *v9; // r15
   NTSTATUS v10; // esi
 
   v3 = *a1;
@@ -28,10 +28,10 @@ __int64 __fastcall MmManagePartitionGetMemoryEvents(PVOID **a1, __int64 a2, KPRO
   *(_QWORD *)(a2 + 24) = 0LL;
   v9 = (HANDLE *)(a2 + 32);
   *(_QWORD *)(a2 + 32) = 0LL;
-  v10 = ObOpenObjectByPointer(v3[40], v6, 0LL, *(_DWORD *)(a2 + 8), (POBJECT_TYPE)ExEventObjectType, AccessMode, Handle);
+  v10 = ObOpenObjectByPointer(v3[37], v6, 0LL, *(_DWORD *)(a2 + 8), (POBJECT_TYPE)ExEventObjectType, AccessMode, Handle);
   if ( v10 < 0
     || (v10 = ObOpenObjectByPointer(
-                v3[41],
+                v3[38],
                 *(_DWORD *)(a2 + 4),
                 0LL,
                 *(_DWORD *)(a2 + 8),
@@ -40,7 +40,7 @@ __int64 __fastcall MmManagePartitionGetMemoryEvents(PVOID **a1, __int64 a2, KPRO
                 (PHANDLE)(a2 + 24)),
         v10 < 0)
     || (v10 = ObOpenObjectByPointer(
-                v3[42],
+                v3[39],
                 *(_DWORD *)(a2 + 4),
                 0LL,
                 *(_DWORD *)(a2 + 8),

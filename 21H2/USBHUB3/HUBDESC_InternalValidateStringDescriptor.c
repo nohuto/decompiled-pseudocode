@@ -1,17 +1,17 @@
 /*
- * XREFs of HUBDESC_InternalValidateStringDescriptor @ 0x1C00399FC
+ * XREFs of HUBDESC_InternalValidateStringDescriptor @ 0x1C003917C
  * Callers:
- *     HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor @ 0x1C0020830 (HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor.c)
- *     HUBDSM_ValidatingAndLoggingBillboardStringDescriptor @ 0x1C00209C0 (HUBDSM_ValidatingAndLoggingBillboardStringDescriptor.c)
- *     HUBDTX_ValidateAndCacheLanguageIdStringDescriptor @ 0x1C0029AE4 (HUBDTX_ValidateAndCacheLanguageIdStringDescriptor.c)
- *     HUBDTX_ValidateAndCacheProductIdStringDescriptor @ 0x1C002A03C (HUBDTX_ValidateAndCacheProductIdStringDescriptor.c)
- *     HUBDTX_ValidateAndCacheSerialNumberStringDescriptor @ 0x1C002A218 (HUBDTX_ValidateAndCacheSerialNumberStringDescriptor.c)
+ *     HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor @ 0x1C0020420 (HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor.c)
+ *     HUBDSM_ValidatingAndLoggingBillboardStringDescriptor @ 0x1C00205B0 (HUBDSM_ValidatingAndLoggingBillboardStringDescriptor.c)
+ *     HUBDTX_ValidateAndCacheLanguageIdStringDescriptor @ 0x1C0029610 (HUBDTX_ValidateAndCacheLanguageIdStringDescriptor.c)
+ *     HUBDTX_ValidateAndCacheProductIdStringDescriptor @ 0x1C002995C (HUBDTX_ValidateAndCacheProductIdStringDescriptor.c)
+ *     HUBDTX_ValidateAndCacheSerialNumberStringDescriptor @ 0x1C0029B38 (HUBDTX_ValidateAndCacheSerialNumberStringDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_DD @ 0x1C0002204 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_Ddd @ 0x1C0032CA4 (WPP_RECORDER_SF_Ddd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C003243C (WPP_RECORDER_SF_ddd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall HUBDESC_InternalValidateStringDescriptor(
@@ -45,7 +45,7 @@ char __fastcall HUBDESC_InternalValidateStringDescriptor(
       v18 = 2;
       *a3 = a2;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_Ddd(a5, a2, (__int64)a3, 0xF0u, v15);
+        WPP_RECORDER_SF_ddd(a5, a2, (__int64)a3, 0xF0u, v15);
       (*(void (__fastcall **)(_QWORD, __int64))(a6 + 24))(*(_QWORD *)(a6 + 40), 129LL);
     }
     if ( *a1 <= 2u )
@@ -53,7 +53,7 @@ char __fastcall HUBDESC_InternalValidateStringDescriptor(
       v18 = 2;
       *a3 = v7;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_d(a5, 2u, 5u, 0xF1u, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids, v7);
+        WPP_RECORDER_SF_d(a5, 2u, 5u, 0xF1u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v7);
       (*(void (__fastcall **)(_QWORD, __int64))(a6 + 24))(*(_QWORD *)(a6 + 40), 130LL);
     }
     if ( a1[1] != 3 )
@@ -62,7 +62,7 @@ char __fastcall HUBDESC_InternalValidateStringDescriptor(
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
         LODWORD(v16) = a1[1];
-        WPP_RECORDER_SF_DD(a5, 2u, 5u, 0xF2u, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids, v16, 3);
+        WPP_RECORDER_SF_dD(a5, 2u, 5u, 0xF2u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v16, 3);
       }
       (*(void (__fastcall **)(_QWORD, __int64))(a6 + 24))(*(_QWORD *)(a6 + 40), 133LL);
     }
@@ -76,7 +76,7 @@ char __fastcall HUBDESC_InternalValidateStringDescriptor(
       {
         LODWORD(v17) = v14;
         LODWORD(v16) = v13;
-        WPP_RECORDER_SF_DD(a5, 2u, 5u, 0xF3u, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids, v16, v17);
+        WPP_RECORDER_SF_dD(a5, 2u, 5u, 0xF3u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v16, v17);
       }
       (*(void (__fastcall **)(_QWORD, __int64))(a6 + 24))(*(_QWORD *)(a6 + 40), 128LL);
     }
@@ -86,7 +86,7 @@ char __fastcall HUBDESC_InternalValidateStringDescriptor(
       {
         LODWORD(v17) = v7;
         LODWORD(v16) = *a1;
-        WPP_RECORDER_SF_DD(a5, 2u, 5u, 0xF4u, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids, v16, v17);
+        WPP_RECORDER_SF_dD(a5, 2u, 5u, 0xF4u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v16, v17);
       }
       (*(void (__fastcall **)(_QWORD, __int64))(a6 + 24))(*(_QWORD *)(a6 + 40), 134LL);
     }
@@ -98,11 +98,11 @@ char __fastcall HUBDESC_InternalValidateStringDescriptor(
     *a3 = 0;
     v9 = a5;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_d(a5, 2u, 5u, 0xEFu, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids, a2);
+      WPP_RECORDER_SF_d(a5, 2u, 5u, 0xEFu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, a2);
     (*(void (__fastcall **)(_QWORD, __int64))(a6 + 24))(*(_QWORD *)(a6 + 40), 131LL);
   }
   v10 = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_(v9, 2u, 5u, 0xF5u, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids);
+    WPP_RECORDER_SF_(v9, 2u, 5u, 0xF5u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
   return v10;
 }

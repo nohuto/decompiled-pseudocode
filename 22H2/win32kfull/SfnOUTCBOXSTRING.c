@@ -1,14 +1,15 @@
 /*
- * XREFs of SfnOUTCBOXSTRING @ 0x1C0157610
+ * XREFs of SfnOUTCBOXSTRING @ 0x1C0159C90
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     ClientGetListboxString @ 0x1C020576C (ClientGetListboxString.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ClientGetListboxString @ 0x1C0159EC4 (ClientGetListboxString.c)
  */
 
 __int64 __fastcall SfnOUTCBOXSTRING(
-        __int64 *a1,
+        _QWORD *a1,
         unsigned int a2,
         __int64 a3,
         __int64 a4,
@@ -17,38 +18,33 @@ __int64 __fastcall SfnOUTCBOXSTRING(
         int a7,
         __int64 a8)
 {
-  __int64 v12; // rcx
+  _QWORD *v11; // rbx
+  int v12; // edi
   __int64 result; // rax
-  int v14; // ebx
+  int v14; // ecx
+  __int64 ThreadWin32Thread; // rax
   unsigned int ListboxString; // ebx
-  __int64 v16; // rdx
   __int64 v17; // rcx
-  __int64 v18; // r8
-  __int128 v19; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v20; // [rsp+60h] [rbp-28h]
+  _QWORD v18[4]; // [rsp+50h] [rbp-28h] BYREF
 
-  v19 = 0LL;
-  v20 = 0LL;
+  v18[2] = 0LL;
+  v11 = a1;
   if ( a1 )
-    v12 = *a1;
-  else
-    LODWORD(v12) = 0;
-  result = HMValidateHandleNoSecure(v12, 1);
+    a1 = (_QWORD *)*a1;
+  v12 = 1;
+  result = HMValidateHandleNoSecure((unsigned __int64)a1, 1);
   if ( result )
   {
-    v14 = *(_DWORD *)(a1[5] + 28);
-    ThreadLock(a1, &v19);
-    ListboxString = ClientGetListboxString(
-                      a1,
-                      a2,
-                      a3,
-                      a4,
-                      a5,
-                      a6,
-                      a7,
-                      ((v14 & 0x200) == 0) & (unsigned __int8)((v14 & 0x30) != 0),
-                      a8);
-    ThreadUnlock1(v17, v16, v18);
+    v14 = *(_DWORD *)(v11[5] + 28LL);
+    if ( (v14 & 0x200) != 0 || (v14 & 0x30) == 0 )
+      v12 = 0;
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    v18[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+    *(_QWORD *)(ThreadWin32Thread + 416) = v18;
+    v18[1] = v11;
+    HMLockObject(v11);
+    ListboxString = ClientGetListboxString(v11, a2, a3, a4, a5, a6, a7, v12, a8);
+    ThreadUnlock1(v17);
     return ListboxString;
   }
   return result;

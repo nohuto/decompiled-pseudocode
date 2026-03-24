@@ -1,23 +1,21 @@
 /*
- * XREFs of MiClearCommitReleaseState @ 0x14061806C
+ * XREFs of MiClearCommitReleaseState @ 0x14052B418
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x14071FAC8 (MmCleanProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x14063896C (MmCleanProcessAddressSpace.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall MiClearCommitReleaseState(__int64 a1)
 {
-  volatile LONG *SharedVm; // rbx
+  LONG *SharedVm; // rbx
   KIRQL v3; // al
-  __int64 v4; // r8
-  __int64 v5; // r9
 
-  SharedVm = (volatile LONG *)MiGetSharedVm(a1);
+  SharedVm = MiGetSharedVm(a1);
   v3 = ExAcquireSpinLockExclusive(SharedVm);
-  *((_DWORD *)SharedVm + 1) = 0;
+  SharedVm[1] = 0;
   *(_BYTE *)(a1 + 187) &= 0x9Fu;
-  MiUnlockWorkingSetExclusive(a1, v3, v4, v5);
+  MiUnlockWorkingSetExclusive(a1, v3);
 }

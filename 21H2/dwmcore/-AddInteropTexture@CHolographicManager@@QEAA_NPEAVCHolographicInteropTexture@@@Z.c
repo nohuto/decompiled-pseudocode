@@ -1,17 +1,17 @@
 /*
- * XREFs of ?AddInteropTexture@CHolographicManager@@QEAA_NPEAVCHolographicInteropTexture@@@Z @ 0x180295460
+ * XREFs of ?AddInteropTexture@CHolographicManager@@QEAA_NPEAVCHolographicInteropTexture@@@Z @ 0x180252E70
  * Callers:
- *     ?ProcessCreate@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINTEROPTEXTURE_CREATE@@@Z @ 0x18029BB94 (-ProcessCreate@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINT.c)
+ *     ?ProcessCreate@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINTEROPTEXTURE_CREATE@@@Z @ 0x180259644 (-ProcessCreate@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINT.c)
  * Callees:
- *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x180024D8C (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
- *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x180024E64 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ @ 0x1801932D8 (-GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ.c)
- *     ??$_Emplace_reallocate@AEBQEAVCHolographicInteropTexture@@@?$vector@PEAVCHolographicInteropTexture@@V?$allocator@PEAVCHolographicInteropTexture@@@std@@@std@@QEAAPEAPEAVCHolographicInteropTexture@@QEAPEAV2@AEBQEAV2@@Z @ 0x180294B60 (--$_Emplace_reallocate@AEBQEAVCHolographicInteropTexture@@@-$vector@PEAVCHolographicInteropTextu.c)
- *     ?DwmHolographicInteropTextureAdd_@CompositorTracing@@QEAAXI_N@Z @ 0x180295988 (-DwmHolographicInteropTextureAdd_@CompositorTracing@@QEAAXI_N@Z.c)
- *     ?FindInteropTextureByBindId@CHolographicManager@@AEAAPEAVCHolographicInteropTexture@@I@Z @ 0x180295E80 (-FindInteropTextureByBindId@CHolographicManager@@AEAAPEAVCHolographicInteropTexture@@I@Z.c)
- *     ?RegisterStereoscopicContentConsumer@CStereoscopicContentManager@@QEAAXPEAVCHolographicInteropTexture@@@Z @ 0x180297BC8 (-RegisterStereoscopicContentConsumer@CStereoscopicContentManager@@QEAAXPEAVCHolographicInteropTe.c)
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18029CF8C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x1800DB3BC (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
+ *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800DB3E0 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
+ *     ?GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ @ 0x180155AC4 (-GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ.c)
+ *     ??$_Emplace_reallocate@PEBVCVisual@@@?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@QEAAPEAPEBVCVisual@@QEAPEBV2@$$QEAPEBV2@@Z @ 0x180164828 (--$_Emplace_reallocate@PEBVCVisual@@@-$vector@PEBVCVisual@@V-$allocator@PEBVCVisual@@@std@@@std@.c)
+ *     ?DwmHolographicInteropTextureAdd_@CompositorTracing@@QEAAXI_N@Z @ 0x1802533C8 (-DwmHolographicInteropTextureAdd_@CompositorTracing@@QEAAXI_N@Z.c)
+ *     ?FindInteropTextureByBindId@CHolographicManager@@AEAAPEAVCHolographicInteropTexture@@I@Z @ 0x1802539FC (-FindInteropTextureByBindId@CHolographicManager@@AEAAPEAVCHolographicInteropTexture@@I@Z.c)
+ *     ?RegisterStereoscopicContentConsumer@CStereoscopicContentManager@@QEAAXPEAVCHolographicInteropTexture@@@Z @ 0x180255B64 (-RegisterStereoscopicContentConsumer@CStereoscopicContentManager@@QEAAXPEAVCHolographicInteropTe.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A950 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 bool __fastcall CHolographicManager::AddInteropTexture(
@@ -24,74 +24,65 @@ bool __fastcall CHolographicManager::AddInteropTexture(
   struct CHolographicInteropTexture *InteropTextureByBindId; // rdi
   bool v7; // r15
   __int64 v8; // r8
-  __int64 v9; // r9
-  _BYTE *v10; // rdx
-  CHolographicInteropTaskQueue *v11; // rcx
-  struct IUnknown *v12; // r8
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
+  unsigned int **v9; // rdx
+  CHolographicInteropTaskQueue *v10; // rcx
+  struct IUnknown *v11; // r8
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
   CStereoscopicContentManager *StereoscopicContentManager; // rax
-  unsigned int v18; // edi
-  __int64 v19; // rcx
-  CompositorTracing *v20; // rcx
-  struct CHolographicInteropTexture *v22; // [rsp+68h] [rbp+10h] BYREF
+  unsigned int v16; // edi
+  __int64 v17; // rcx
+  CompositorTracing *v18; // rcx
+  struct CHolographicInteropTexture *v20; // [rsp+68h] [rbp+10h] BYREF
 
-  v22 = a2;
+  v20 = a2;
   v2 = (RTL_SRWLOCK *)((char *)this + 104);
   v4 = (unsigned int *)a2;
   v5 = 0;
   AcquireSRWLockShared((PSRWLOCK)this + 13);
-  InteropTextureByBindId = CHolographicManager::FindInteropTextureByBindId(this, v4[56]);
+  InteropTextureByBindId = CHolographicManager::FindInteropTextureByBindId(this, v4[52]);
   ReleaseSRWLockShared(v2);
   if ( !InteropTextureByBindId )
   {
     v7 = 0;
     AcquireSRWLockExclusive(v2);
-    CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v4 + 2));
-    v10 = (_BYTE *)*((_QWORD *)this + 19);
-    if ( v10 == *((_BYTE **)this + 20) )
+    CMILCOMBase::InternalAddRef((CMILCOMBase *)v4);
+    v9 = (unsigned int **)*((_QWORD *)this + 19);
+    if ( *((unsigned int ***)this + 20) == v9 )
     {
-      std::vector<CHolographicInteropTexture *>::_Emplace_reallocate<CHolographicInteropTexture * const &>(
-        (const void **)this + 18,
-        v10,
-        &v22);
-      v4 = (unsigned int *)v22;
+      std::vector<CVisual const *>::_Emplace_reallocate<CVisual const *>((__int64 *)this + 18, v9, &v20);
+      v4 = (unsigned int *)v20;
     }
     else
     {
-      *(_QWORD *)v10 = v4;
+      *v9 = v4;
       *((_QWORD *)this + 19) += 8LL;
     }
-    v11 = (CHolographicInteropTaskQueue *)*((_QWORD *)this + 6);
-    if ( v11 && *((_BYTE *)this + 240) )
+    v10 = (CHolographicInteropTaskQueue *)*((_QWORD *)this + 6);
+    if ( v10 && *((_BYTE *)this + 240) )
     {
       if ( v4 )
-        v12 = (struct IUnknown *)(v4 + 20);
+        v11 = (struct IUnknown *)(v4 + 18);
       else
-        v12 = 0LL;
-      v5 = CHolographicInteropTaskQueue::PostMessageW(v11, 2u, v12, 0LL, 0LL, 0LL, 0LL);
+        v11 = 0LL;
+      v5 = CHolographicInteropTaskQueue::PostMessageW(v10, 2u, v11, 0LL, 0LL, 0LL, 0LL);
     }
-    if ( CComposition::GetStereoscopicContentManager(*((CComposition **)this + 3), (__int64)v10, v8, v9) )
+    if ( CComposition::GetStereoscopicContentManager(*((CComposition **)this + 3), (__int64)v9, v8) )
     {
-      StereoscopicContentManager = CComposition::GetStereoscopicContentManager(
-                                     *((CComposition **)this + 3),
-                                     v13,
-                                     v15,
-                                     v16);
+      StereoscopicContentManager = CComposition::GetStereoscopicContentManager(*((CComposition **)this + 3), v12, v14);
       CStereoscopicContentManager::RegisterStereoscopicContentConsumer(
         StereoscopicContentManager,
         (struct CHolographicInteropTexture *)v4);
       v7 = 1;
     }
-    v18 = v4[56];
-    if ( CompositorTracing::IsEnabled(v14) )
+    v16 = v4[52];
+    if ( CompositorTracing::IsEnabled(v13) )
     {
       wil::details::static_lazy<CompositorTracing>::get(
-        v19,
+        v17,
         _lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_);
-      CompositorTracing::DwmHolographicInteropTextureAdd_(v20, v18, v7);
+      CompositorTracing::DwmHolographicInteropTextureAdd_(v18, v16, v7);
     }
     ReleaseSRWLockExclusive(v2);
   }

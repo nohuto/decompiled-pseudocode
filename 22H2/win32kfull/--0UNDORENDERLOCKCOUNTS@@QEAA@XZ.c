@@ -1,16 +1,16 @@
 /*
- * XREFs of ??0UNDORENDERLOCKCOUNTS@@QEAA@XZ @ 0x1C0016F70
+ * XREFs of ??0UNDORENDERLOCKCOUNTS@@QEAA@XZ @ 0x1C0128DF4
  * Callers:
- *     GreStretchBltInternal @ 0x1C00FF3A0 (GreStretchBltInternal.c)
+ *     GreStretchBltInternal @ 0x1C00B49B0 (GreStretchBltInternal.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
 UNDORENDERLOCKCOUNTS *__fastcall UNDORENDERLOCKCOUNTS::UNDORENDERLOCKCOUNTS(UNDORENDERLOCKCOUNTS *this)
 {
   __int64 ThreadWin32Thread; // rax
 
-  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   *((_QWORD *)this + 1) = ThreadWin32Thread;
   if ( ThreadWin32Thread )
   {

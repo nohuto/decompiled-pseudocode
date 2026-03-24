@@ -1,13 +1,13 @@
 /*
- * XREFs of IopReferenceIoAttributionFromProcess @ 0x1400DF228
+ * XREFs of IopReferenceIoAttributionFromProcess @ 0x1400DF248
  * Callers:
- *     IopSetDiskIoAttributionFromProcess @ 0x1400DF094 (IopSetDiskIoAttributionFromProcess.c)
- *     IoReferenceIoAttributionFromThread @ 0x1400DF1BC (IoReferenceIoAttributionFromThread.c)
- *     IopSetDiskIoAttributionExtension @ 0x1400DF550 (IopSetDiskIoAttributionExtension.c)
+ *     IopSetDiskIoAttributionFromProcess @ 0x1400DF0B4 (IopSetDiskIoAttributionFromProcess.c)
+ *     IoReferenceIoAttributionFromThread @ 0x1400DF1DC (IoReferenceIoAttributionFromThread.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1400DF570 (IopSetDiskIoAttributionExtension.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IopReferenceIoAttributionFromProcess(__int64 a1, char a2, _QWORD *a3)

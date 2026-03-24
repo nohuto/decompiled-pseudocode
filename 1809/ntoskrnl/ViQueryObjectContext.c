@@ -1,10 +1,10 @@
 /*
  * XREFs of ViQueryObjectContext @ 0x140927E00
  * Callers:
- *     VfQueryDeviceContext @ 0x140309B60 (VfQueryDeviceContext.c)
- *     VfQueryDriverContext @ 0x140309BA0 (VfQueryDriverContext.c)
- *     VfQueryIrpContext @ 0x140309BE0 (VfQueryIrpContext.c)
- *     VfQueryThreadContext @ 0x140309C20 (VfQueryThreadContext.c)
+ *     VfQueryDeviceContext @ 0x140309C60 (VfQueryDeviceContext.c)
+ *     VfQueryDriverContext @ 0x140309CA0 (VfQueryDriverContext.c)
+ *     VfQueryIrpContext @ 0x140309CE0 (VfQueryIrpContext.c)
+ *     VfQueryThreadContext @ 0x140309D20 (VfQueryThreadContext.c)
  * Callees:
  *     ViGetContextPointer @ 0x140927D34 (ViGetContextPointer.c)
  *     ViLockContextPointer @ 0x140927DBC (ViLockContextPointer.c)

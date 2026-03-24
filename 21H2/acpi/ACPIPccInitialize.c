@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIPccInitialize @ 0x1C00AFC38
+ * XREFs of ACPIPccInitialize @ 0x1C00B0788
  * Callers:
- *     ACPILoadProcessRSDT @ 0x1C00BD9F8 (ACPILoadProcessRSDT.c)
+ *     ACPILoadProcessRSDT @ 0x1C00BE744 (ACPILoadProcessRSDT.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     AcpiTranslateAccessSize @ 0x1C00AB9E4 (AcpiTranslateAccessSize.c)
- *     AcpiPccInitializeSubspace @ 0x1C00B0024 (AcpiPccInitializeSubspace.c)
- *     AcpiPccInterruptSupported @ 0x1C00B022C (AcpiPccInterruptSupported.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     AcpiTranslateAccessSize @ 0x1C00ACCE4 (AcpiTranslateAccessSize.c)
+ *     AcpiPccInitializeSubspace @ 0x1C00B0B64 (AcpiPccInitializeSubspace.c)
  */
 
 __int64 __fastcall ACPIPccInitialize(__int64 a1)
@@ -18,27 +18,23 @@ __int64 __fastcall ACPIPccInitialize(__int64 a1)
   unsigned __int64 v6; // rdx
   __int64 v7; // rax
   __int64 v8; // r15
-  __int64 v9; // r14
+  PVOID PoolWithTag; // rax
+  __int64 v10; // rbp
   __int64 i; // rbx
-  char v11; // r10
-  bool v12; // cf
+  char v12; // cl
   unsigned __int8 v13; // al
-  char v14; // r10
-  __int64 v15; // r11
-  unsigned int v16; // eax
-  unsigned int v17; // eax
-  __int64 v18; // r8
-  unsigned __int128 v19; // rax
-  unsigned __int64 v20; // kr00_8
-  unsigned __int64 v21; // rdx
-  void *v22; // rcx
-  int v23; // r9d
-  __int64 v24; // rcx
-  __int64 v25; // r14
-  signed __int32 v27[8]; // [rsp+0h] [rbp-58h] BYREF
+  bool v14; // cf
+  char *v15; // r10
+  unsigned __int64 v16; // r11
+  unsigned __int64 v17; // rcx
+  unsigned __int64 v18; // kr00_8
+  __int64 v19; // rcx
+  unsigned __int64 v20; // rdx
+  char v21; // dl
+  __int64 v22; // rcx
+  signed __int32 v24[8]; // [rsp+0h] [rbp-58h] BYREF
   union _LARGE_INTEGER PerformanceFrequency; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v29; // [rsp+68h] [rbp+10h]
-  __int64 Pool2; // [rsp+70h] [rbp+18h]
+  __int64 v26; // [rsp+68h] [rbp+10h]
 
   v1 = *(unsigned int *)(a1 + 4);
   v2 = (char *)(a1 + 48);
@@ -62,9 +58,9 @@ __int64 __fastcall ACPIPccInitialize(__int64 a1)
     if ( v4 )
     {
       v8 = v4;
-      Pool2 = ExAllocatePool2(64LL, 656LL * v4, 1299211073LL);
-      v9 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 648LL * v4, 0x4D706341u);
+      v10 = (__int64)PoolWithTag;
+      if ( !PoolWithTag )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_(
@@ -72,96 +68,89 @@ __int64 __fastcall ACPIPccInitialize(__int64 a1)
             2u,
             0x15u,
             0xBu,
-            (__int64)&WPP_cb83180b771632eba63c2d8b4b5a28e5_Traceguids);
+            (__int64)&WPP_79609623c0e33e2afa48dee71fa9caab_Traceguids);
         return 0LL;
       }
+      memset(PoolWithTag, 0, 648LL * v4);
       KeQueryPerformanceCounter(&PerformanceFrequency);
-      for ( i = v9 + 90; ; i += 656LL )
+      for ( i = v10 + 90; ; i += 648LL )
       {
-        v11 = *v2;
-        if ( !*v2 )
-        {
-          v12 = (unsigned __int8)v2[1] < 0x3Eu;
-          goto LABEL_17;
-        }
+        v12 = *v2;
         v13 = v2[1];
-        if ( v11 == 1 )
+        if ( !*v2 || v12 == 1 )
           break;
-        if ( v11 == 2 )
+        if ( v12 == 2 )
         {
-          v12 = v13 < 0x5Au;
-LABEL_17:
-          if ( !v12 )
-          {
-            *(_BYTE *)(i - 90) = v11;
-            *(_QWORD *)(i - 2) = *((_QWORD *)v2 + 3);
-            *(_DWORD *)(i + 6) = *((_DWORD *)v2 + 8);
-            *(_BYTE *)(i + 1) = AcpiTranslateAccessSize(*(_BYTE *)(i + 1), *(_BYTE *)(i - 1), *(_BYTE *)i);
-            *(_QWORD *)(i - 18) = *(_QWORD *)(v2 + 36);
-            *(_QWORD *)(i - 26) = *(_QWORD *)(v2 + 44);
-            *(_DWORD *)(i + 22) = *((_DWORD *)v2 + 4);
-            *(_QWORD *)(i + 14) = *((_QWORD *)v2 + 1);
-            v16 = *((_DWORD *)v2 + 13);
-            *(_DWORD *)(i - 82) = v16;
-            if ( v16 < 0x1F4 )
-              v16 = 500;
-            *(_DWORD *)(i - 78) = v16;
-            *(_DWORD *)(i - 74) = *((_DWORD *)v2 + 14) / 0x3Cu;
-            v17 = *((unsigned __int16 *)v2 + 30);
-            *(_DWORD *)(i - 70) = v17;
-            v18 = v17;
-            v20 = v17;
-            v19 = v17 * (unsigned __int128)(unsigned __int64)PerformanceFrequency.QuadPart;
-            v29 = *((_QWORD *)&v19 + 1);
-            if ( is_mul_ok(v20, PerformanceFrequency.QuadPart) )
-            {
-              v21 = (unsigned __int64)v19 / 0xF4240;
-            }
-            else
-            {
-              *(_QWORD *)(i + 206) = -1LL;
-              v21 = v18 * (PerformanceFrequency.QuadPart / 1000000);
-            }
-            *(_QWORD *)(i + 206) = v21;
-            *(_DWORD *)(i - 86) ^= (*(_DWORD *)(i - 86) ^ *(_DWORD *)(a1 + 36)) & 1;
-            if ( v14 != 1 || (*(_BYTE *)(i + 26) = v2[6], (v2[6] & 2) != 0) )
-            {
-              if ( v14 == 2 )
-              {
-                *(_BYTE *)(i + 26) = v2[6];
-                *(_QWORD *)(i + 110) = *(_QWORD *)(v2 + 62);
-                *(_DWORD *)(i + 118) = *(_DWORD *)(v2 + 70);
-                *(_QWORD *)(i + 126) = *(_QWORD *)(v2 + 74);
-                *(_QWORD *)(i + 134) = *(_QWORD *)(v2 + 82);
-              }
-              if ( (unsigned __int8)(v14 - 1) <= 1u )
-                *(_DWORD *)(i + 94) = *(_DWORD *)(v2 + 2);
-              if ( (unsigned __int8)AcpiPccInterruptSupported(v15) )
-                *(_DWORD *)(i - 78) += v23;
-              if ( (int)AcpiPccInitializeSubspace(v22) >= 0 )
-              {
-                v24 = *(_QWORD *)(i - 50);
-                *(_QWORD *)(i - 66) = v24 + 8;
-                *(_DWORD *)(i - 58) = *(_DWORD *)(i + 22) - 8;
-                *(_QWORD *)(i - 42) = v24 + 4;
-                *(_QWORD *)(i - 34) = v24 + 6;
-                *(_DWORD *)(i - 86) = *(_DWORD *)(i - 86) & 0xFFFFFFE1 | 4;
-              }
-            }
-          }
+          v14 = v13 < 0x5Au;
+          goto LABEL_16;
         }
+LABEL_28:
         v2 += (unsigned __int8)v2[1];
         if ( !--v8 )
         {
-          v25 = Pool2;
-          _InterlockedOr(v27, 0);
-          AcpiPccSubspaces = v25;
+          _InterlockedOr(v24, 0);
+          AcpiPccSubspaces = v10;
           AcpiPccSubspaceCount = v4;
           return 0LL;
         }
       }
-      v12 = v13 < 0x3Eu;
-      goto LABEL_17;
+      v14 = v13 < 0x3Eu;
+LABEL_16:
+      if ( !v14 )
+      {
+        *(_BYTE *)(i - 90) = v12;
+        *(_QWORD *)(i - 2) = *((_QWORD *)v2 + 3);
+        *(_DWORD *)(i + 6) = *((_DWORD *)v2 + 8);
+        *(_BYTE *)(i + 1) = AcpiTranslateAccessSize(*(_BYTE *)(i + 1), *(_BYTE *)(i - 1), *(_BYTE *)i);
+        *(_QWORD *)(i - 18) = *(_QWORD *)(v2 + 36);
+        *(_QWORD *)(i - 26) = *(_QWORD *)(v2 + 44);
+        *(_DWORD *)(i + 22) = *((_DWORD *)v2 + 4);
+        *(_QWORD *)(i + 14) = *((_QWORD *)v2 + 1);
+        *(_DWORD *)(i - 82) = *((_DWORD *)v2 + 13);
+        *(_DWORD *)(i - 78) = *((_DWORD *)v2 + 14) / 0x3Cu;
+        v17 = *((unsigned __int16 *)v2 + 30);
+        *(_DWORD *)(i - 74) = v17;
+        v18 = v17;
+        v26 = (v17 * (unsigned __int128)(unsigned __int64)PerformanceFrequency.QuadPart) >> 64;
+        v19 = v17 * PerformanceFrequency.QuadPart;
+        if ( is_mul_ok(v18, PerformanceFrequency.QuadPart) )
+        {
+          v20 = (unsigned __int64)(((unsigned __int64)v19 * (unsigned __int128)v16) >> 64) >> 18;
+        }
+        else
+        {
+          *(_QWORD *)(i + 206) = -1LL;
+          v20 = *(unsigned int *)(i - 74)
+              * (((unsigned __int64)((unsigned __int128)(PerformanceFrequency.QuadPart * (__int128)(__int64)v16) >> 64) >> 63)
+               + ((__int64)((unsigned __int128)(PerformanceFrequency.QuadPart * (__int128)(__int64)v16) >> 64) >> 18));
+        }
+        *(_QWORD *)(i + 206) = v20;
+        v21 = *v15;
+        *(_DWORD *)(i - 86) ^= (*(_DWORD *)(i - 86) ^ *(_DWORD *)(a1 + 36)) & 1;
+        if ( v21 != 1 || (*(_BYTE *)(i + 26) = v2[6], (v2[6] & 2) != 0) )
+        {
+          if ( v21 == 2 )
+          {
+            *(_BYTE *)(i + 26) = v2[6];
+            *(_QWORD *)(i + 110) = *(_QWORD *)(v2 + 62);
+            *(_DWORD *)(i + 118) = *(_DWORD *)(v2 + 70);
+            *(_QWORD *)(i + 126) = *(_QWORD *)(v2 + 74);
+            *(_QWORD *)(i + 134) = *(_QWORD *)(v2 + 82);
+          }
+          if ( (unsigned __int8)(v21 - 1) <= 1u )
+            *(_DWORD *)(i + 94) = *(_DWORD *)(v2 + 2);
+          if ( (int)AcpiPccInitializeSubspace(v15) >= 0 )
+          {
+            v22 = *(_QWORD *)(i - 50);
+            *(_QWORD *)(i - 66) = v22 + 8;
+            *(_DWORD *)(i - 58) = *(_DWORD *)(i + 22) - 8;
+            *(_QWORD *)(i - 42) = v22 + 4;
+            *(_QWORD *)(i - 34) = v22 + 6;
+            *(_DWORD *)(i - 86) = *(_DWORD *)(i - 86) & 0xFFFFFFE1 | 4;
+          }
+        }
+      }
+      goto LABEL_28;
     }
   }
   return 0LL;

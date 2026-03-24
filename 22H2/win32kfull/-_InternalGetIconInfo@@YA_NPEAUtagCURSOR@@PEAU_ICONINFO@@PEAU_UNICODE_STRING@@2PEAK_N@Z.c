@@ -1,17 +1,16 @@
 /*
- * XREFs of ?_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z @ 0x1C002BA80
+ * XREFs of ?_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z @ 0x1C0066A58
  * Callers:
- *     NtUserGetIconInfo @ 0x1C002BFF0 (NtUserGetIconInfo.c)
- *     ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C01C0C04 (-_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z.c)
- *     ?GetCursorHeight@@YAHXZ @ 0x1C0225430 (-GetCursorHeight@@YAHXZ.c)
+ *     ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C0007F90 (-_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z.c)
+ *     NtUserGetIconInfo @ 0x1C0067230 (NtUserGetIconInfo.c)
+ *     ?GetCursorHeight@@YAHXZ @ 0x1C0242064 (-GetCursorHeight@@YAHXZ.c)
  * Callees:
- *     GetCursorSizeFromIndex @ 0x1C0027404 (GetCursorSizeFromIndex.c)
- *     ?GreCreateDIBitmapReal@@YAPEAUHBITMAP__@@PEAUHDC__@@KAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIPEAXK3K_KPEAPEAX@Z @ 0x1C002AB30 (-GreCreateDIBitmapReal@@YAPEAUHBITMAP__@@PEAUHDC__@@KAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIPEAXK.c)
- *     GreCreateCompatibleBitmapInternal @ 0x1C0057310 (GreCreateCompatibleBitmapInternal.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     GreStretchBltInternal @ 0x1C00FF3A0 (GreStretchBltInternal.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?GetVirtualizedCursorSize@@YAXPEAUtagCURSOR@@PEAH1@Z @ 0x1C0066F34 (-GetVirtualizedCursorSize@@YAXPEAUtagCURSOR@@PEAH1@Z.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AADE8 (GreCreateCompatibleBitmapInternal.c)
+ *     GreCreateDIBitmapReal @ 0x1C00ABE5C (GreCreateDIBitmapReal.c)
+ *     GreStretchBltInternal @ 0x1C00B49B0 (GreStretchBltInternal.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 char __fastcall _InternalGetIconInfo(
@@ -22,177 +21,166 @@ char __fastcall _InternalGetIconInfo(
         unsigned int *a5,
         bool a6)
 {
-  struct tagCURSOR *v6; // rsi
-  unsigned int v7; // r15d
-  INT v8; // r12d
-  char v9; // al
-  unsigned int v10; // eax
+  struct tagCURSOR *v7; // rbx
+  __int64 v8; // rsi
+  unsigned int v9; // r14d
+  int v10; // edi
+  unsigned int v11; // eax
   __int64 Bitmap; // r13
-  __int64 v12; // rbx
-  HDC v13; // rcx
   __int64 DIBitmapReal; // rax
-  int v15; // eax
-  __int64 v16; // rcx
-  const UNICODE_STRING *v17; // rdx
-  unsigned int DpiForSystem; // eax
-  int v20; // ecx
-  INT CursorSizeFromIndex; // ebx
-  struct tagCURSOR **v22; // rsi
-  __int64 v23; // rcx
-  int v24; // r8d
-  int v25; // r9d
-  int v26; // [rsp+70h] [rbp-E8h]
-  __int64 v27; // [rsp+88h] [rbp-D0h]
-  __int64 v28; // [rsp+90h] [rbp-C8h]
-  __int64 v32[3]; // [rsp+B8h] [rbp-A0h] BYREF
-  __int16 v33; // [rsp+D0h] [rbp-88h]
-  unsigned int v34[3]; // [rsp+E0h] [rbp-78h] BYREF
-  __int64 v35; // [rsp+ECh] [rbp-6Ch]
-  int v36; // [rsp+F4h] [rbp-64h]
-  __int64 v37; // [rsp+F8h] [rbp-60h]
-  int v38; // [rsp+100h] [rbp-58h]
-  __int64 v39; // [rsp+104h] [rbp-54h]
+  __int64 v14; // rax
+  int v15; // r8d
+  int v16; // eax
+  struct _ICONINFO *v17; // rdi
+  __int64 v18; // rcx
+  struct _UNICODE_STRING *v19; // rdx
+  struct tagCURSOR **v21; // rbx
+  int v22; // r9d
+  int v23; // r10d
+  INT b; // [rsp+70h] [rbp-B8h] BYREF
+  int v25[2]; // [rsp+78h] [rbp-B0h] BYREF
+  __int64 v26; // [rsp+80h] [rbp-A8h]
+  __int64 v27; // [rsp+88h] [rbp-A0h]
+  __int64 v28; // [rsp+90h] [rbp-98h]
+  struct _ICONINFO *v29; // [rsp+98h] [rbp-90h]
+  PUNICODE_STRING DestinationString; // [rsp+A0h] [rbp-88h]
+  unsigned int *v31; // [rsp+A8h] [rbp-80h]
+  int v32; // [rsp+B8h] [rbp-70h]
+  unsigned int v33; // [rsp+BCh] [rbp-6Ch]
+  int v34; // [rsp+C0h] [rbp-68h]
+  __int64 v35; // [rsp+C4h] [rbp-64h]
+  int v36; // [rsp+CCh] [rbp-5Ch]
+  __int64 v37; // [rsp+D0h] [rbp-58h]
+  int v38; // [rsp+D8h] [rbp-50h]
+  __int64 v39; // [rsp+DCh] [rbp-4Ch]
 
-  v6 = a1;
+  DestinationString = a4;
+  v29 = a2;
+  v7 = a1;
+  v31 = a5;
+  v8 = 0LL;
+  b = 0;
+  v25[0] = 0;
   if ( (*((_DWORD *)a1 + 20) & 8) != 0 )
   {
-    v22 = (struct tagCURSOR **)*((_QWORD *)a1 + 12);
-    if ( !v22 )
+    v21 = (struct tagCURSOR **)*((_QWORD *)a1 + 12);
+    if ( !v21 )
       return 0;
-    v6 = *v22;
+    v7 = *v21;
   }
-  v7 = *((_DWORD *)v6 + 35);
-  v8 = *((_DWORD *)v6 + 36);
-  if ( *((_WORD *)v6 + 37) == 1 || (a1 = (struct tagCURSOR *)atomUSER32, v9 = 0, *((_WORD *)v6 + 36) == atomUSER32) )
-    v9 = 1;
-  if ( v9 )
+  GetVirtualizedCursorSize(v7, &b, v25);
+  v9 = b;
+  b = b != *((_DWORD *)v7 + 35);
+  if ( a6 || !*((_QWORD *)v7 + 12) )
   {
-    DpiForSystem = GetDpiForSystem(a1, a2);
-    if ( DpiForSystem >= 0x90 )
-    {
-      if ( DpiForSystem >= 0xC0 )
-      {
-        if ( DpiForSystem >= 0x120 )
-          v20 = 4 - (DpiForSystem < 0x180);
-        else
-          v20 = 2;
-      }
-      else
-      {
-        v20 = 1;
-      }
-    }
-    else
-    {
-      v20 = 0;
-    }
-    CursorSizeFromIndex = GetCursorSizeFromIndex(v20);
-    v7 = EngMulDiv(v7, CursorSizeFromIndex, *((_DWORD *)v6 + 19));
-    v8 = EngMulDiv(v8, CursorSizeFromIndex, *((_DWORD *)v6 + 19));
+    v10 = v25[0];
+    v11 = v25[0];
   }
-  v26 = *((_DWORD *)v6 + 35);
-  if ( a6 || !*((_QWORD *)v6 + 12) )
-    v10 = v8;
   else
-    v10 = v8 / 2;
-  Bitmap = GreCreateBitmap(v7, v10, 1LL, 1LL, 0LL);
+  {
+    v10 = v25[0];
+    v11 = v25[0] / 2;
+  }
+  Bitmap = GreCreateBitmap(v9, v11, 1LL);
+  v26 = Bitmap;
   if ( !Bitmap )
     return 0;
-  v12 = 0LL;
-  if ( *((_QWORD *)v6 + 12) )
+  *(_QWORD *)v25 = 0LL;
+  if ( *((_QWORD *)v7 + 12) )
   {
-    if ( *((_DWORD *)v6 + 34) == 32 )
+    if ( *((_DWORD *)v7 + 34) == 32 )
     {
       v37 = 0LL;
       v39 = 0LL;
-      v34[0] = 40;
-      v34[1] = v7;
-      v34[2] = v8 / 2;
+      v32 = 40;
+      v33 = v9;
+      v34 = v10 / 2;
       v35 = 2097153LL;
       v36 = 0;
       v38 = 0;
-      v13 = *(HDC *)(gpDispInfo + 64LL);
-      memset(v32, 0, sizeof(v32));
-      v33 = 0;
-      DIBitmapReal = GreCreateDIBitmapReal(v13, 0, v32, v34, 0, 0x2Cu, 0LL, 0, 0LL, 0, 0LL, 0LL);
+      DIBitmapReal = GreCreateDIBitmapReal(*(HDC *)(gpDispInfo + 64LL), 0, 44, 0, 0LL, 0, 0LL, 0, 0LL, 0LL);
     }
     else
     {
-      DIBitmapReal = GreCreateCompatibleBitmapInternal(*(_QWORD *)(gpDispInfo + 64LL), v7, v8 / 2, 0, 0LL, 0LL);
+      DIBitmapReal = GreCreateCompatibleBitmapInternal(*(HDC *)(gpDispInfo + 64LL), 0LL, 0LL);
     }
-    v12 = DIBitmapReal;
+    v8 = DIBitmapReal;
+    *(_QWORD *)v25 = DIBitmapReal;
     if ( !DIBitmapReal )
     {
       GreDeleteObject(Bitmap);
       return 0;
     }
   }
-  v27 = GreSelectBitmap(ghdcMem2, *((_QWORD *)v6 + 11));
+  v27 = GreSelectBitmap(ghdcMem2, *((_QWORD *)v7 + 11));
   v28 = GreSelectBitmap(ghdcMem, Bitmap);
-  if ( v7 == v26 )
+  v14 = *((_QWORD *)v7 + 12);
+  if ( b )
   {
-    if ( a6 || !*((_QWORD *)v6 + 12) )
-      v15 = v8;
+    if ( !v14 || a6 )
+      v22 = *((_DWORD *)v7 + 36);
     else
-      v15 = v8 / 2;
-    NtGdiBitBltInternal(ghdcMem, 0, 0, v7, v15, ghdcMem2, 0, 0, 13369376, 0xFFFFFF, 0);
+      v22 = *((_DWORD *)v7 + 36) >> 1;
+    if ( !v14 || a6 )
+      v23 = v10;
+    else
+      v23 = v10 / 2;
+    GreStretchBltInternal(ghdcMem, 0, v23, ghdcMem2, 0, 0, *((_DWORD *)v7 + 35), v22, 13369376, 0xFFFFFF, 0);
   }
   else
   {
-    v23 = *((_QWORD *)v6 + 12);
-    if ( !v23 || a6 )
-      v24 = *((_DWORD *)v6 + 36);
+    if ( !v14 || a6 )
+      v15 = v10;
     else
-      v24 = *((_DWORD *)v6 + 36) >> 1;
-    if ( !v23 || a6 )
-      v25 = v8;
-    else
-      v25 = v8 / 2;
-    GreStretchBltInternal(ghdcMem, v25, ghdcMem2, 0, 0, *((_DWORD *)v6 + 35), v24, 13369376, 0xFFFFFF, 0);
+      v15 = v10 / 2;
+    NtGdiBitBltInternal(ghdcMem, 0, 0, v9, v15, ghdcMem2, 0, 0, 13369376, 0xFFFFFF, 0);
   }
-  if ( v12 )
+  if ( v8 )
   {
-    GreSelectBitmap(ghdcMem2, *((_QWORD *)v6 + 12));
-    GreSelectBitmap(ghdcMem, v12);
-    if ( v7 == v26 )
-      NtGdiBitBltInternal(ghdcMem, 0, 0, v7, v8 / 2, ghdcMem2, 0, 0, 13369376, 0, 0);
-    else
+    GreSelectBitmap(ghdcMem2, *((_QWORD *)v7 + 12));
+    GreSelectBitmap(ghdcMem, v8);
+    v16 = v10 / 2;
+    if ( b )
       GreStretchBltInternal(
         ghdcMem,
-        v8 / 2,
+        0,
+        v16,
         ghdcMem2,
         0,
         0,
-        *((_DWORD *)v6 + 35),
-        *((_DWORD *)v6 + 36) >> 1,
+        *((_DWORD *)v7 + 35),
+        *((_DWORD *)v7 + 36) >> 1,
         13369376,
         0,
         0);
+    else
+      NtGdiBitBltInternal(ghdcMem, 0, 0, v9, v16, ghdcMem2, 0, 0, 13369376, 0, 0);
   }
   GreSelectBitmap(ghdcMem2, v27);
   GreSelectBitmap(ghdcMem, v28);
-  *(_DWORD *)a2 = *((_WORD *)v6 + 37) == 3;
-  *((_DWORD *)a2 + 1) = EngMulDiv(*((__int16 *)v6 + 42), v7, *((_DWORD *)v6 + 35));
-  *((_DWORD *)a2 + 2) = EngMulDiv(*((__int16 *)v6 + 43), v7, *((_DWORD *)v6 + 35));
-  *((_QWORD *)a2 + 2) = Bitmap;
-  *((_QWORD *)a2 + 3) = v12;
+  v17 = v29;
+  *(_DWORD *)v29 = *((_WORD *)v7 + 37) == 3;
+  *((_DWORD *)v17 + 1) = EngMulDiv(*((__int16 *)v7 + 42), v9, *((_DWORD *)v7 + 35));
+  *((_DWORD *)v17 + 2) = EngMulDiv(*((__int16 *)v7 + 43), v9, *((_DWORD *)v7 + 35));
+  *((_QWORD *)v17 + 2) = v26;
+  *((_QWORD *)v17 + 3) = v8;
   if ( a3 )
   {
-    v16 = *((unsigned __int16 *)v6 + 36);
-    if ( (_WORD)v16 )
-      a3->Length = UserGetAtomName(v16, a3->Buffer, a3->MaximumLength >> 1);
+    v18 = *((unsigned __int16 *)v7 + 36);
+    if ( (_WORD)v18 )
+      a3->Length = UserGetAtomName(v18, a3->Buffer, a3->MaximumLength >> 1);
     else
       a3->Length = 0;
   }
-  if ( a4 )
+  if ( DestinationString )
   {
-    v17 = (const UNICODE_STRING *)((char *)v6 + 56);
-    if ( (*((_QWORD *)v6 + 8) & 0xFFFFFFFFFFFF0000uLL) != 0 )
-      RtlCopyUnicodeString(a4, v17);
+    v19 = (struct _UNICODE_STRING *)((char *)v7 + 56);
+    if ( (*((_QWORD *)v7 + 8) & 0xFFFFFFFFFFFF0000uLL) != 0 )
+      RtlCopyUnicodeString(DestinationString, v19);
     else
-      *a4 = *v17;
+      *DestinationString = *v19;
   }
-  if ( a5 )
-    *a5 = *((_DWORD *)v6 + 34);
+  if ( v31 )
+    *v31 = *((_DWORD *)v7 + 34);
   return 1;
 }

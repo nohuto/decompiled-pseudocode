@@ -1,5 +1,5 @@
 /*
- * XREFs of MiDeprioritizeVad @ 0x140136D9C
+ * XREFs of MiDeprioritizeVad @ 0x140136DBC
  * Callers:
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  * Callees:
@@ -9,9 +9,9 @@
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiDeprioritizeVirtualAddresses @ 0x1402AB5BC (MiDeprioritizeVirtualAddresses.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x1402AB6BC (MiDeprioritizeVirtualAddresses.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PfCheckDeprioritizeFile @ 0x140666270 (PfCheckDeprioritizeFile.c)
+ *     PfCheckDeprioritizeFile @ 0x140666250 (PfCheckDeprioritizeFile.c)
  */
 
 void __fastcall MiDeprioritizeVad(char *P, unsigned __int64 a2)

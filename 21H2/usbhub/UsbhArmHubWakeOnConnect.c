@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhArmHubWakeOnConnect @ 0x1C003B588
+ * XREFs of UsbhArmHubWakeOnConnect @ 0x1C003C8B8
  * Callers:
- *     UsbhFdoSetPowerDx_Action @ 0x1C0009A20 (UsbhFdoSetPowerDx_Action.c)
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000F880 (UsbhFdoSetPowerDx_Action.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhArmHubForWakeDetect @ 0x1C000AE98 (UsbhArmHubForWakeDetect.c)
- *     UsbhSetHubRemoteWake @ 0x1C002CF94 (UsbhSetHubRemoteWake.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhArmHubForWakeDetect @ 0x1C0010064 (UsbhArmHubForWakeDetect.c)
+ *     UsbhSetHubRemoteWake @ 0x1C002E394 (UsbhSetHubRemoteWake.c)
  */
 
 __int64 __fastcall UsbhArmHubWakeOnConnect(PDEVICE_OBJECT DeviceObject)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIThermalReevaluateConstraintsWorker @ 0x1C0041AE0
+ * XREFs of ACPIThermalReevaluateConstraintsWorker @ 0x1C002DB00
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     AcpiDiagTraceDeviceActiveCooling @ 0x1C0007D80 (AcpiDiagTraceDeviceActiveCooling.c)
- *     AcpiDiagTraceDevicePassiveCooling @ 0x1C0008024 (AcpiDiagTraceDevicePassiveCooling.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     AcpiDiagTraceDeviceActiveCooling @ 0x1C002DC40 (AcpiDiagTraceDeviceActiveCooling.c)
+ *     AcpiDiagTraceDevicePassiveCooling @ 0x1C0049BB8 (AcpiDiagTraceDevicePassiveCooling.c)
  */
 
 void __fastcall ACPIThermalReevaluateConstraintsWorker(ULONG_PTR IoObject, _BYTE *Context, PIO_WORKITEM IoWorkItem)
@@ -13,14 +13,15 @@ void __fastcall ACPIThermalReevaluateConstraintsWorker(ULONG_PTR IoObject, _BYTE
   __int64 DeviceExtension; // r15
   KIRQL v5; // bp
   __int64 **v6; // r14
-  __int64 *v7; // rdx
-  unsigned __int8 v8; // si
-  char v9; // di
-  unsigned __int8 v10; // cl
-  bool v11; // zf
-  __int64 v12; // rdx
-  __int64 v13; // rdx
-  struct _KEVENT *v14; // rcx
+  __int64 *v7; // rcx
+  unsigned __int8 v8; // di
+  char v9; // si
+  unsigned __int8 v10; // dl
+  __int64 v11; // rdx
+  struct _KEVENT *v12; // rcx
+  bool v13; // zf
+  __int64 v14; // rdx
+  __int64 v15; // rdx
 
   DeviceExtension = ACPIInternalGetDeviceExtension(IoObject);
   v5 = KeAcquireSpinLockRaiseToDpc(&AcpiThermalConstraintLock);
@@ -35,12 +36,12 @@ void __fastcall ACPIThermalReevaluateConstraintsWorker(ULONG_PTR IoObject, _BYTE
       v9 = 0;
       while ( v7 != (__int64 *)v6 )
       {
+        v10 = v8;
         if ( *((_BYTE *)v7 + 36) )
         {
-          v10 = *((_BYTE *)v7 + 37);
-          if ( v10 >= v8 )
-            v10 = v8;
-          v8 = v10;
+          v8 = *((_BYTE *)v7 + 37);
+          if ( v8 >= v10 )
+            v8 = v10;
         }
         else if ( *((_BYTE *)v7 + 39) )
         {
@@ -51,33 +52,35 @@ void __fastcall ACPIThermalReevaluateConstraintsWorker(ULONG_PTR IoObject, _BYTE
       KeReleaseSpinLock(&AcpiThermalConstraintLock, v5);
       if ( v8 != Context[42] )
       {
-        v11 = Context[40] == 0;
+        v13 = Context[40] == 0;
         Context[42] = v8;
-        if ( !v11 )
+        if ( !v13 )
         {
-          AcpiDiagTraceDevicePassiveCooling(DeviceExtension, v8);
-          LOBYTE(v12) = v8;
-          PoSetThermalPassiveCooling(*((_QWORD *)Context + 8), v12);
+          LOBYTE(v11) = v8;
+          AcpiDiagTraceDevicePassiveCooling(DeviceExtension, v11);
+          LOBYTE(v15) = v8;
+          PoSetThermalPassiveCooling(*((_QWORD *)Context + 8), v15);
         }
       }
       if ( v9 != Context[43] )
       {
-        v11 = Context[41] == 0;
+        v13 = Context[41] == 0;
         Context[43] = v9;
-        if ( !v11 )
+        if ( !v13 )
         {
-          AcpiDiagTraceDeviceActiveCooling(DeviceExtension, v9);
-          LOBYTE(v13) = v9;
-          PoSetThermalActiveCooling(*((_QWORD *)Context + 8), v13);
+          LOBYTE(v11) = v9;
+          AcpiDiagTraceDeviceActiveCooling(DeviceExtension, v11);
+          LOBYTE(v14) = v9;
+          PoSetThermalActiveCooling(*((_QWORD *)Context + 8), v14);
         }
       }
       v5 = KeAcquireSpinLockRaiseToDpc(&AcpiThermalConstraintLock);
     }
     while ( Context[44] );
   }
-  v14 = (struct _KEVENT *)*((_QWORD *)Context + 7);
+  v12 = (struct _KEVENT *)*((_QWORD *)Context + 7);
   Context[45] = 0;
-  if ( v14 )
-    KeSetEvent(v14, 0, 0);
+  if ( v12 )
+    KeSetEvent(v12, 0, 0);
   KeReleaseSpinLock(&AcpiThermalConstraintLock, v5);
 }

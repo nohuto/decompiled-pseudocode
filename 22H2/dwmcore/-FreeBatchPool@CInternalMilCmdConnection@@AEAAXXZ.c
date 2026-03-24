@@ -1,11 +1,11 @@
 /*
- * XREFs of ?FreeBatchPool@CInternalMilCmdConnection@@AEAAXXZ @ 0x1800BC3C0
+ * XREFs of ?FreeBatchPool@CInternalMilCmdConnection@@AEAAXXZ @ 0x18003769C
  * Callers:
- *     ?ClearBatchCaches@CInternalMilCmdConnection@@UEAA_NK@Z @ 0x1800E5510 (-ClearBatchCaches@CInternalMilCmdConnection@@UEAA_NK@Z.c)
- *     ??1CInternalMilCmdConnection@@UEAA@XZ @ 0x1801B57E8 (--1CInternalMilCmdConnection@@UEAA@XZ.c)
+ *     ?ClearCaches@CInternalMilCmdConnection@@UEAA_NK@Z @ 0x1800C8640 (-ClearCaches@CInternalMilCmdConnection@@UEAA_NK@Z.c)
+ *     ??1CInternalMilCmdConnection@@EEAA@XZ @ 0x18014EC08 (--1CInternalMilCmdConnection@@EEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1800BC42C (-FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x180037708 (-FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CInternalMilCmdConnection::FreeBatchPool(union _SLIST_HEADER *this)
@@ -15,7 +15,7 @@ void __fastcall CInternalMilCmdConnection::FreeBatchPool(union _SLIST_HEADER *th
   struct _LIST_ENTRY *v3; // rdi
   CDataStreamWriter *v4; // rcx
 
-  v2 = InterlockedFlushSList(this + 10);
+  v2 = InterlockedFlushSList(this + 12);
   while ( v2 )
   {
     v3 = (struct _LIST_ENTRY *)&v2[-4];

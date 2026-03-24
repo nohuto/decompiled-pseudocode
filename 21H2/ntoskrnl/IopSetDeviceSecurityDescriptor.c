@@ -1,17 +1,17 @@
 /*
- * XREFs of IopSetDeviceSecurityDescriptor @ 0x1406DB04C
+ * XREFs of IopSetDeviceSecurityDescriptor @ 0x14076B26C
  * Callers:
- *     IopGetSetSecurityObject @ 0x14071E8F0 (IopGetSetSecurityObject.c)
- *     IopSetDeviceSecurityDescriptors @ 0x1408104FC (IopSetDeviceSecurityDescriptors.c)
+ *     IopGetSetSecurityObject @ 0x14064F760 (IopGetSetSecurityObject.c)
+ *     IopSetDeviceSecurityDescriptors @ 0x140780C90 (IopSetDeviceSecurityDescriptors.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ObLogSecurityDescriptor @ 0x140724E60 (ObLogSecurityDescriptor.c)
- *     ObDereferenceSecurityDescriptor @ 0x140725730 (ObDereferenceSecurityDescriptor.c)
- *     SeSetSecurityDescriptorInfo @ 0x1407258E0 (SeSetSecurityDescriptorInfo.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     SeSetSecurityDescriptorInfo @ 0x14065F260 (SeSetSecurityDescriptorInfo.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14065F6A0 (ObDereferenceSecurityDescriptor.c)
+ *     ObLogSecurityDescriptor @ 0x14065FEB0 (ObLogSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetDeviceSecurityDescriptor(__int64 a1, ULONG *a2, void *a3, POOL_TYPE a4, PGENERIC_MAPPING a5)
@@ -19,11 +19,13 @@ __int64 __fastcall IopSetDeviceSecurityDescriptor(__int64 a1, ULONG *a2, void *a
   struct _KTHREAD *CurrentThread; // rdi
   GENERIC_MAPPING *GenericMapping; // r13
   volatile signed __int64 *v11; // rbx
-  NTSTATUS v12; // ebp
-  __int64 v13; // rdx
+  int v12; // ebp
+  unsigned int v13; // edx
+  __int64 v15; // [rsp+30h] [rbp-38h] BYREF
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+70h] [rbp+8h] BYREF
 
   ObjectsSecurityDescriptor = 0LL;
+  v15 = 0LL;
   CurrentThread = KeGetCurrentThread();
   GenericMapping = a5;
   while ( 1 )
@@ -34,12 +36,12 @@ __int64 __fastcall IopSetDeviceSecurityDescriptor(__int64 a1, ULONG *a2, void *a
     if ( v11 && _InterlockedExchangeAdd64(v11 - 3, 1uLL) <= 0 )
       __fastfail(0xEu);
     ExReleaseResourceLite(&IopSecurityResource);
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
     ObjectsSecurityDescriptor = (PSECURITY_DESCRIPTOR)v11;
     v12 = SeSetSecurityDescriptorInfo(0LL, a2, a3, &ObjectsSecurityDescriptor, a4, GenericMapping);
     if ( v12 < 0 )
       break;
-    v12 = ObLogSecurityDescriptor(ObjectsSecurityDescriptor);
+    v12 = ObLogSecurityDescriptor((char *)ObjectsSecurityDescriptor, &v15, 1u);
     ExFreePoolWithTag(ObjectsSecurityDescriptor, 0);
     if ( v12 < 0 )
       goto LABEL_13;
@@ -47,24 +49,24 @@ __int64 __fastcall IopSetDeviceSecurityDescriptor(__int64 a1, ULONG *a2, void *a
     ExAcquireResourceExclusiveLite(&IopSecurityResource, 1u);
     if ( *(volatile signed __int64 **)(a1 + 272) == v11 )
     {
-      *(_QWORD *)(a1 + 272) = 0LL;
+      *(_QWORD *)(a1 + 272) = v15;
       *(_DWORD *)(*(_QWORD *)(a1 + 312) + 32LL) &= ~0x800u;
       ExReleaseResourceLite(&IopSecurityResource);
-      KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
-      v13 = 2LL;
+      KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      v13 = 2;
 LABEL_9:
-      ObDereferenceSecurityDescriptor(v11, v13);
+      ObDereferenceSecurityDescriptor((__int64)v11, v13);
       return (unsigned int)v12;
     }
     ExReleaseResourceLite(&IopSecurityResource);
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
-    ObDereferenceSecurityDescriptor(v11, 1LL);
-    ObDereferenceSecurityDescriptor(0LL, 1LL);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    ObDereferenceSecurityDescriptor((__int64)v11, 1u);
+    ObDereferenceSecurityDescriptor(v15, 1u);
   }
   if ( v11 )
   {
 LABEL_13:
-    v13 = 1LL;
+    v13 = 1;
     goto LABEL_9;
   }
   return (unsigned int)v12;

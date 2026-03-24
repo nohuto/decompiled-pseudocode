@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_sqSD @ 0x1C00529B0
+ * XREFs of WPP_RECORDER_SF_sqSD @ 0x1C00532D8
  * Callers:
- *     ACPIInternalNotifyAvailableDeviceObject @ 0x1C00A0270 (ACPIInternalNotifyAvailableDeviceObject.c)
+ *     ACPIInternalNotifyAvailableDeviceObject @ 0x1C00A2218 (ACPIInternalNotifyAvailableDeviceObject.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_sqSD(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, int a6, ...)
@@ -51,7 +51,7 @@ __int64 WPP_RECORDER_SF_sqSD(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, const char *, __int64, __int64 *, __int64, const wchar_t *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_6f88517ea7123f8ddbeafbeda42a4256_Traceguids,
+      &WPP_6862a416d8603aba0a2e2af82566a863_Traceguids,
       21LL,
       "ACPIInternalNotifyAvailableDeviceObject",
       v12 + 1,
@@ -78,7 +78,7 @@ __int64 WPP_RECORDER_SF_sqSD(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int
            a1,
            2LL,
            6LL,
-           &WPP_6f88517ea7123f8ddbeafbeda42a4256_Traceguids,
+           &WPP_6862a416d8603aba0a2e2af82566a863_Traceguids,
            v15,
            "ACPIInternalNotifyAvailableDeviceObject");
 }

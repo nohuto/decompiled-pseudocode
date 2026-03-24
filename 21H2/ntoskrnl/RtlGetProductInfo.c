@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetProductInfo @ 0x14025B190
+ * XREFs of RtlGetProductInfo @ 0x1402D0C50
  * Callers:
- *     ExGetSuiteMask @ 0x14082CDB4 (ExGetSuiteMask.c)
- *     ExpInitSystemPhase1 @ 0x140AFCEF0 (ExpInitSystemPhase1.c)
+ *     ExGetSuiteMask @ 0x1407BDAC0 (ExGetSuiteMask.c)
+ *     ExpInitSystemPhase1 @ 0x140A3CEBC (ExpInitSystemPhase1.c)
  * Callees:
- *     CompareVersions @ 0x14025B2D0 (CompareVersions.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryLicenseValue @ 0x14041E2C0 (ZwQueryLicenseValue.c)
+ *     CompareVersions @ 0x1402D0D90 (CompareVersions.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryLicenseValue @ 0x1403FCE20 (ZwQueryLicenseValue.c)
  */
 
 BOOLEAN __stdcall RtlGetProductInfo(
@@ -44,7 +44,7 @@ BOOLEAN __stdcall RtlGetProductInfo(
   *ReturnedProductType = 0;
   v16[0] = OSMajorVersion;
   v16[1] = OSMinorVersion;
-  v17 = xmmword_140015DB0;
+  v17 = xmmword_140012350;
   v16[2] = SpMajorVersion;
   v16[3] = SpMinorVersion;
   if ( (int)CompareVersions(v16, &v17) < 0 )

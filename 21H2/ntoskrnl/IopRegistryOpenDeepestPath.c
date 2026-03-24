@@ -1,10 +1,10 @@
 /*
- * XREFs of IopRegistryOpenDeepestPath @ 0x14084C474
+ * XREFs of IopRegistryOpenDeepestPath @ 0x1407B3DB4
  * Callers:
- *     IopRegistryInitializeCallbacks @ 0x14084C25C (IopRegistryInitializeCallbacks.c)
- *     IopRegistryCallback @ 0x14084C370 (IopRegistryCallback.c)
+ *     IopRegistryInitializeCallbacks @ 0x1407B3B90 (IopRegistryInitializeCallbacks.c)
+ *     IopRegistryCallback @ 0x1407B3CB0 (IopRegistryCallback.c)
  * Callees:
- *     IopOpenRegistryKey @ 0x1406DE960 (IopOpenRegistryKey.c)
+ *     IopOpenRegistryKey @ 0x140769AA4 (IopOpenRegistryKey.c)
  */
 
 __int64 __fastcall IopRegistryOpenDeepestPath(UNICODE_STRING *a1, _QWORD *a2, bool *a3)

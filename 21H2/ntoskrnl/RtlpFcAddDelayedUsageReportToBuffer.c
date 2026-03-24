@@ -1,34 +1,35 @@
 /*
- * XREFs of RtlpFcAddDelayedUsageReportToBuffer @ 0x1405EE634
+ * XREFs of RtlpFcAddDelayedUsageReportToBuffer @ 0x14058F23C
  * Callers:
- *     CmFcManagerNotifyFeatureUsage @ 0x14053FE50 (CmFcManagerNotifyFeatureUsage.c)
+ *     CmFcManagerNotifyFeatureUsage @ 0x1404ED834 (CmFcManagerNotifyFeatureUsage.c)
  * Callees:
- *     RtlBackoff @ 0x14029F5C0 (RtlBackoff.c)
- *     RtlInterlockedSetClearRun @ 0x1402E28A0 (RtlInterlockedSetClearRun.c)
+ *     RtlInterlockedSetClearRun @ 0x140268460 (RtlInterlockedSetClearRun.c)
+ *     RtlBackoff @ 0x1402F3100 (RtlBackoff.c)
  */
 
 __int64 __fastcall RtlpFcAddDelayedUsageReportToBuffer(volatile signed __int32 *a1, _QWORD *a2)
 {
-  unsigned int v2; // esi
-  unsigned __int32 v5; // ebp
+  unsigned int v2; // edi
+  unsigned __int32 v5; // esi
   int v6; // r14d
   char *v7; // r15
-  unsigned __int32 v8; // r8d
+  unsigned __int32 v8; // r9d
   unsigned __int32 i; // eax
-  unsigned int v10; // r10d
-  __int64 v11; // rbx
-  __int64 *v12; // rbx
-  __int64 j; // rdx
+  unsigned int v10; // r11d
+  unsigned int v11; // edx
+  __int64 *v12; // rdx
+  __int64 j; // r8
   unsigned __int64 v14; // rax
   unsigned __int32 v15; // eax
-  __int64 v17; // [rsp+20h] [rbp-48h] BYREF
-  volatile signed __int32 *v18; // [rsp+28h] [rbp-40h]
-  unsigned int v19; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v16; // rbp
+  __int64 v18; // [rsp+20h] [rbp-48h] BYREF
+  volatile signed __int32 *v19; // [rsp+28h] [rbp-40h]
+  unsigned int v20; // [rsp+70h] [rbp+8h] BYREF
 
   v2 = 0;
-  v17 = 64LL;
-  v19 = 0;
-  v18 = a1 + 2;
+  v18 = 64LL;
+  v20 = 0;
+  v19 = a1 + 2;
   while ( 1 )
   {
     _m_prefetchw((const void *)a1);
@@ -41,14 +42,14 @@ __int64 __fastcall RtlpFcAddDelayedUsageReportToBuffer(volatile signed __int32 *
     }
     if ( v5 == _InterlockedCompareExchange(a1, v5 + 1, v5) )
       break;
-    RtlBackoff(&v19);
+    RtlBackoff(&v20);
   }
-  v6 = ((unsigned __int8)v18 & 4) != 0LL ? 0x20 : 0;
-  v7 = (char *)v18 - (((unsigned __int8)v18 & 4) != 0LL ? 4 : 0);
+  v6 = ((unsigned __int8)v19 & 4) != 0LL ? 0x20 : 0;
+  v7 = (char *)v19 - (((unsigned __int8)v19 & 4) != 0LL ? 4 : 0);
   do
   {
-    v8 = v5 < (unsigned int)v17 ? v5 : 0;
-    for ( i = v17 - 1; ; i = v15 - 1 )
+    v8 = v5 < (unsigned int)v18 ? v5 : 0;
+    for ( i = v18 - 1; ; i = v15 - 1 )
     {
       v10 = v6 + i;
       if ( i - v8 == -1 )
@@ -60,28 +61,28 @@ __int64 __fastcall RtlpFcAddDelayedUsageReportToBuffer(volatile signed __int32 *
           goto LABEL_8;
       }
       _BitScanForward64(&v14, ~j);
-      v11 = (unsigned int)v14 + ((unsigned int)(((char *)v12 - v7) >> 3) << 6);
-      if ( (unsigned int)v11 > v10 )
+      v11 = v14 + ((unsigned int)(((char *)v12 - v7) >> 3) << 6);
+      if ( v11 > v10 )
       {
 LABEL_8:
-        v11 = 0xFFFFFFFFLL;
-        goto LABEL_15;
+        v11 = -1;
       }
-      if ( (_DWORD)v11 != -1 )
+      else if ( v11 != -1 )
+      {
         break;
-LABEL_15:
+      }
       if ( !v8 )
-        goto LABEL_20;
+        break;
       v15 = v5 + 1;
       v8 = 0;
-      if ( v5 + 1 > (unsigned int)v17 )
-        v15 = v17;
+      if ( v5 + 1 > (unsigned int)v18 )
+        v15 = v18;
     }
-    v11 = (unsigned int)(v11 - v6);
-LABEL_20:
-    ;
+    v16 = v11 - v6;
+    if ( v11 == -1 )
+      v16 = 0xFFFFFFFFLL;
   }
-  while ( !(unsigned int)RtlInterlockedSetClearRun((__int64)&v17, v11, 1u) );
-  *(_QWORD *)&a1[3 * v11 + 5] = *a2;
+  while ( !(unsigned int)RtlInterlockedSetClearRun((__int64)&v18, v16, 1u) );
+  *(_QWORD *)&a1[3 * v16 + 5] = *a2;
   return v2;
 }

@@ -3,7 +3,7 @@
  * Callers:
  *     MiPerformFixups @ 0x1405DFB58 (MiPerformFixups.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall MiApplyCompressedFixups(

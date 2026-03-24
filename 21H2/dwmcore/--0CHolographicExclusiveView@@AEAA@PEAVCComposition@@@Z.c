@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CHolographicExclusiveView@@AEAA@PEAVCComposition@@@Z @ 0x180298B84
+ * XREFs of ??0CHolographicExclusiveView@@AEAA@PEAVCComposition@@@Z @ 0x180256C58
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800BE0A8 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2008 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
  *     <none>
  */
@@ -17,12 +17,12 @@ CHolographicExclusiveView *__fastcall CHolographicExclusiveView::CHolographicExc
   *((_QWORD *)this + 3) = 0LL;
   *((_QWORD *)this + 5) = 0LL;
   *((_DWORD *)this + 8) = 0;
-  *((_QWORD *)this + 9) = 0LL;
-  *((_QWORD *)this + 11) = 0LL;
-  *((_QWORD *)this + 13) = 0LL;
+  *((_QWORD *)this + 8) = 0LL;
+  *((_QWORD *)this + 10) = 0LL;
+  *((_QWORD *)this + 12) = 0LL;
   *(_QWORD *)this = &CHolographicExclusiveView::`vftable';
-  InitializeSRWLock((PSRWLOCK)this + 51);
+  InitializeSRWLock((PSRWLOCK)this + 50);
   result = this;
-  *((_QWORD *)this + 8) = *(_QWORD *)(*((_QWORD *)this + 2) + 264LL);
+  *((_QWORD *)this + 7) = *(_QWORD *)(*((_QWORD *)this + 2) + 136LL);
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_StartingTimerForEnumRetryOnRenum @ 0x1C0020910
+ * XREFs of HUBDSM_StartingTimerForEnumRetryOnRenum @ 0x1C001DEF0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_StartEnumRetryTimer @ 0x1C002E69C (HUBMISC_StartEnumRetryTimer.c)
+ *     HUBMISC_StartEnumRetryTimer @ 0x1C002B5E4 (HUBMISC_StartEnumRetryTimer.c)
  */
 
 __int64 __fastcall HUBDSM_StartingTimerForEnumRetryOnRenum(__int64 a1)

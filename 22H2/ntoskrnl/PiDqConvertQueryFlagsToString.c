@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDqConvertQueryFlagsToString @ 0x14095C164
+ * XREFs of PiDqConvertQueryFlagsToString @ 0x1408A4758
  * Callers:
- *     PiDqIrpQueryCreate @ 0x1407F97F8 (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryCreate @ 0x1406A7E9C (PiDqIrpQueryCreate.c)
  * Callees:
- *     RtlStringCbCopyExW @ 0x14034E1C0 (RtlStringCbCopyExW.c)
+ *     RtlStringCbCopyExW @ 0x14031BC50 (RtlStringCbCopyExW.c)
  */
 
 NTSTATUS __fastcall PiDqConvertQueryFlagsToString(unsigned int a1, wchar_t *a2, unsigned int a3, unsigned int *a4)

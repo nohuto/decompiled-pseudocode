@@ -1,162 +1,135 @@
 /*
- * XREFs of ?ProcessSegmentUpdate@CGenericInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GENERICINK_SEGMENTUPDATE@@PEBXI@Z @ 0x180216120
+ * XREFs of ?ProcessSegmentUpdate@CGenericInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GENERICINK_SEGMENTUPDATE@@PEBXI@Z @ 0x1801C3474
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?TryAddRectangle@CRegion@@QEAAJAEBUtagRECT@@@Z @ 0x18001501C (-TryAddRectangle@CRegion@@QEAAJAEBUtagRECT@@@Z.c)
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?MilWerRegisterMemoryBlock@@YAXPEBXI@Z @ 0x1800EEFB8 (-MilWerRegisterMemoryBlock@@YAXPEBXI@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?OnUpdatedInkReceived@CSuperWetInkManager@@QEAAXPEAVCSuperWetSource@@@Z @ 0x1801A7CA8 (-OnUpdatedInkReceived@CSuperWetInkManager@@QEAAXPEAVCSuperWetSource@@@Z.c)
- *     ?AddMultipleAndSet@?$DynArray@E$0A@@@QEAAJPEFBEI@Z @ 0x1801C6584 (-AddMultipleAndSet@-$DynArray@E$0A@@@QEAAJPEFBEI@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$AppendRects@UtagRECT@@@CRegion@@QEAAXPEBUtagRECT@@I@Z @ 0x1800989E0 (--$AppendRects@UtagRECT@@@CRegion@@QEAAXPEBUtagRECT@@I@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?AddMultipleAndSet@?$DynArray@E$0A@@@QEAAJPEFBEI@Z @ 0x1801898BC (-AddMultipleAndSet@-$DynArray@E$0A@@@QEAAJPEFBEI@Z.c)
  */
 
 __int64 __fastcall CGenericInk::ProcessSegmentUpdate(
         CGenericInk *this,
         struct CResourceTable *a2,
-        struct tagRECT *a3,
+        const struct tagMILCMD_GENERICINK_SEGMENTUPDATE *a3,
         const void *a4,
-        unsigned int Size)
+        unsigned int a5)
 {
-  LONG right; // eax
-  void *v8; // rbx
-  __int64 v9; // rcx
-  unsigned int v10; // r12d
-  unsigned int v11; // edi
-  unsigned int v12; // eax
-  unsigned int v13; // esi
-  __int64 v14; // rcx
-  unsigned int v15; // ecx
-  int v16; // r13d
-  LONG v17; // r15d
-  int v18; // eax
-  __int64 v19; // rcx
-  unsigned int v20; // eax
-  int v21; // ecx
-  __int64 v22; // rbp
-  unsigned int v23; // ecx
-  unsigned int v24; // r13d
-  __int64 v25; // rcx
-  struct tagRECT *v26; // rdx
-  __int64 v27; // rcx
-  int v28; // edi
-  int v29; // eax
-  unsigned int v31; // [rsp+20h] [rbp-A8h]
-  unsigned int v32; // [rsp+40h] [rbp-88h]
-  LONG v33; // [rsp+44h] [rbp-84h]
-  __int64 v34; // [rsp+48h] [rbp-80h]
-  struct tagRECT v35; // [rsp+50h] [rbp-78h] BYREF
-  struct tagRECT v36; // [rsp+60h] [rbp-68h]
-  __int64 v37; // [rsp+70h] [rbp-58h]
-  void *retaddr; // [rsp+C8h] [rbp+0h]
+  __int64 v5; // r12
+  CGenericInk *v7; // rbx
+  unsigned int v8; // eax
+  int v9; // edi
+  __int64 v10; // rcx
+  int v11; // r9d
+  unsigned int v12; // r8d
+  int v13; // r15d
+  int v14; // eax
+  unsigned int v15; // edx
+  __int64 v16; // rbp
+  unsigned int v17; // eax
+  int v18; // esi
+  int v19; // r13d
+  unsigned int v20; // r15d
+  unsigned int v21; // r13d
+  unsigned int v22; // r14d
+  __int64 v23; // r11
+  __int128 *v24; // rcx
+  unsigned int v26; // [rsp+20h] [rbp-78h]
+  unsigned int v27; // [rsp+20h] [rbp-78h]
+  __int128 v28; // [rsp+40h] [rbp-58h] BYREF
 
-  right = a3[1].right;
-  v35 = *a3;
-  v33 = right;
-  v36 = v35;
-  v37 = *(_QWORD *)&a3[1].left;
-  v8 = operator new(Size);
-  memcpy_0(v8, a4, Size);
-  v10 = 0;
-  v11 = _mm_cvtsi128_si32(_mm_srli_si128((__m128i)v35, 12));
-  if ( v11 )
+  v5 = 0LL;
+  v7 = this;
+  if ( *((_DWORD *)a3 + 3) )
   {
-    v12 = Size / v11;
-    if ( !(Size / v11) )
+    v8 = a5 / *((_DWORD *)a3 + 3);
+    if ( !v8 )
     {
-      v31 = 536;
+      v26 = 497;
 LABEL_7:
-      v13 = -2147024809;
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, -2147024809, v31);
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, -2147024809, 0x38u);
-      goto LABEL_26;
+      v9 = -2147024809;
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, v26, 0LL);
+      v27 = 48;
+LABEL_8:
+      v11 = v9;
+LABEL_26:
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v11, v27, 0LL);
+      return (unsigned int)v9;
     }
-    v9 = *((unsigned int *)this + 64);
-    if ( (_DWORD)v9 )
+    this = (CGenericInk *)*((unsigned int *)this + 58);
+    if ( (_DWORD)this )
     {
-      if ( v12 != (_DWORD)v9 )
+      if ( v8 != (_DWORD)this )
       {
-        v31 = 544;
+        v26 = 505;
         goto LABEL_7;
       }
     }
     else
     {
-      *((_DWORD *)this + 64) = v12;
+      *((_DWORD *)v7 + 58) = v8;
     }
   }
-  v15 = *((_DWORD *)this + 64);
-  if ( v15 )
-    v16 = *((_DWORD *)this + 62) / v15;
+  v12 = *((_DWORD *)v7 + 58);
+  if ( v12 )
+    v13 = *((_DWORD *)v7 + 56) / v12;
   else
-    v16 = 0;
-  v17 = v36.right;
-  *((_DWORD *)this + 62) = v36.right * v15;
-  v18 = DynArray<unsigned char,0>::AddMultipleAndSet((unsigned __int64)this + 224, v8, Size);
-  v13 = v18;
-  if ( v18 < 0 )
+    v13 = 0;
+  *((_DWORD *)v7 + 56) = v12 * *((_DWORD *)a3 + 2);
+  v14 = DynArray<unsigned char,0>::AddMultipleAndSet((__int64)v7 + 200, a4, a5);
+  v9 = v14;
+  if ( v14 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0LL, v18, 0x40u);
+    v11 = v14;
+    v27 = 56;
+    goto LABEL_26;
   }
-  else
+  v15 = *((_DWORD *)a3 + 4);
+  *((_DWORD *)v7 + 59) = v15;
+  *((_DWORD *)v7 + 60) = *((_DWORD *)a3 + 5);
+  v16 = (__int64)(*((_QWORD *)v7 + 19) - *((_QWORD *)v7 + 18)) >> 3;
+  if ( (_DWORD)v16 )
   {
-    v20 = v37;
-    v21 = HIDWORD(v37);
-    *((_DWORD *)this + 65) = v37;
-    *((_DWORD *)this + 66) = v21;
-    v22 = (__int64)(*((_QWORD *)this + 22) - *((_QWORD *)this + 21)) >> 3;
-    if ( (_DWORD)v22 )
+    v17 = *((_DWORD *)a3 + 3);
+    v18 = *((_DWORD *)a3 + 2);
+    v19 = v18 + v17;
+    if ( v15 > v17 )
+      v18 += v17 - v15;
+    v20 = v13 - v18;
+    v21 = v19 - v18;
+    v22 = 0;
+    v28 = 0LL;
+    while ( 1 )
     {
-      v23 = v17 + v11;
-      if ( v20 > v11 )
-        v17 = v11 + v17 - v20;
-      v24 = v16 - v17;
-      v32 = v23 - v17;
-      v25 = 0LL;
-      v34 = 0LL;
-      v35 = 0LL;
-      do
+      v24 = &v28;
+      if ( v22 )
+        v24 = 0LL;
+      v23 = *(_QWORD *)(*(_QWORD *)(v5 + *((_QWORD *)v7 + 18)) + 80LL);
+      v9 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD, _DWORD, _DWORD, __int128 *))(*(_QWORD *)v23 + 48LL))(
+             v23,
+             v20,
+             *((_QWORD *)v7 + 25) + (unsigned int)(v18 * *((_DWORD *)v7 + 58)),
+             v21,
+             *((_DWORD *)v7 + 59),
+             *((_DWORD *)v7 + 58),
+             v24);
+      if ( v9 < 0 )
+        break;
+      ++v22;
+      v5 += 8LL;
+      if ( v22 >= (unsigned int)v16 )
       {
-        v26 = &v35;
-        v27 = *(_QWORD *)(*(_QWORD *)(v25 + *((_QWORD *)this + 21)) + 80LL);
-        if ( v10 )
-          v26 = 0LL;
-        v28 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD, _DWORD, _DWORD, struct tagRECT *))(*(_QWORD *)v27 + 48LL))(
-                v27,
-                v24,
-                *((_QWORD *)this + 28) + (unsigned int)(v17 * *((_DWORD *)this + 64)),
-                v32,
-                *((_DWORD *)this + 65),
-                *((_DWORD *)this + 64),
-                v26);
-        if ( v28 < 0 )
-        {
-          MilWerRegisterMemoryBlock(
-            *(const void **)(*((_QWORD *)this + 2) + 632LL),
-            *(_DWORD *)(*((_QWORD *)this + 2) + 640LL));
-          ModuleFailFastForHRESULT((unsigned int)v28, retaddr);
-        }
-        ++v10;
-        v25 = v34 + 8;
-        v34 += 8LL;
+        CRegion::AppendRects<tagRECT>((const struct FastRegion::Internal::CRgnData **)v7 + 31, (__int64)&v28, 1u);
+        goto LABEL_23;
       }
-      while ( v10 < (unsigned int)v22 );
-      v29 = CRegion::TryAddRectangle((CGenericInk *)((char *)this + 272), &v35);
-      if ( v29 < 0 )
-        ModuleFailFastForHRESULT((unsigned int)v29, retaddr);
     }
-    *((_DWORD *)this + 98) = v33;
-    (*(void (__fastcall **)(CGenericInk *, __int64))(*(_QWORD *)this + 72LL))(this, 3LL);
-    (*(void (__fastcall **)(CGenericInk *, __int64, CGenericInk *))(*(_QWORD *)this + 72LL))(this, 1LL, this);
-    CSuperWetInkManager::OnUpdatedInkReceived(*(CSuperWetInkManager **)(*((_QWORD *)this + 2) + 256LL), this);
+    v27 = 91;
+    goto LABEL_8;
   }
-LABEL_26:
-  if ( v8 )
-    DefaultHeap::Free(v8);
-  return v13;
+LABEL_23:
+  (*(void (__fastcall **)(CGenericInk *, __int64))(*(_QWORD *)v7 + 72LL))(v7, 3LL);
+  (*(void (__fastcall **)(CGenericInk *, __int64, CGenericInk *))(*(_QWORD *)v7 + 72LL))(v7, 1LL, v7);
+  return (unsigned int)v9;
 }

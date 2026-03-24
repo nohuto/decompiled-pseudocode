@@ -1,300 +1,315 @@
 /*
- * XREFs of MiExtendSection @ 0x1406A3A68
+ * XREFs of MiExtendSection @ 0x140689798
  * Callers:
- *     MmExtendSection @ 0x1406A377C (MmExtendSection.c)
+ *     MmExtendSection @ 0x1406894BC (MmExtendSection.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     MiAppendSubsectionChain @ 0x14022CBE0 (MiAppendSubsectionChain.c)
- *     MiSetSubsectionBase @ 0x14022CD50 (MiSetSubsectionBase.c)
- *     MiUpdateSystemProtoPtesTree @ 0x14026EA80 (MiUpdateSystemProtoPtesTree.c)
- *     MiDeleteSubsectionPages @ 0x140273390 (MiDeleteSubsectionPages.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     MiDecrementSubsectionViewCount @ 0x1402869C0 (MiDecrementSubsectionViewCount.c)
- *     MiIncrementSubsectionViewCount @ 0x140286EC0 (MiIncrementSubsectionViewCount.c)
- *     MiGetControlAreaPartition @ 0x14030EC14 (MiGetControlAreaPartition.c)
- *     MiSubsectionNeedsExtents @ 0x140597BA8 (MiSubsectionNeedsExtents.c)
- *     MiGetSubsectionCharges @ 0x1405C4980 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405C4B8C (MiReturnCrossPartitionSectionCharges.c)
- *     MiInitializePrototypePtes @ 0x1406F4768 (MiInitializePrototypePtes.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     MiDeleteSubsectionPages @ 0x140239170 (MiDeleteSubsectionPages.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiGetControlAreaPartition @ 0x14025B3A4 (MiGetControlAreaPartition.c)
+ *     MiAppendSubsectionChain @ 0x1402A147C (MiAppendSubsectionChain.c)
+ *     MiSetSubsectionBase @ 0x1402A1874 (MiSetSubsectionBase.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x1402F8260 (MiUpdateSystemProtoPtesTree.c)
+ *     MiDecrementSubsectionViewCount @ 0x140315170 (MiDecrementSubsectionViewCount.c)
+ *     MiIncrementSubsectionViewCount @ 0x140315DE0 (MiIncrementSubsectionViewCount.c)
+ *     MiControlAreaUsingExtents @ 0x140332C50 (MiControlAreaUsingExtents.c)
+ *     MiSubsectionNeedsExtents @ 0x14053CE40 (MiSubsectionNeedsExtents.c)
+ *     MiGetSubsectionCharges @ 0x140554EC8 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
+ *     MiInitializePrototypePtes @ 0x1406E82FC (MiInitializePrototypePtes.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 MiExtendSection(__int64 a1, _QWORD *a2, unsigned int a3, __int64 a4, ...)
 {
   __int64 v4; // r10
   __int128 *v5; // r14
-  unsigned int v7; // r15d
-  unsigned __int64 v8; // rdx
+  unsigned __int64 v7; // r9
+  unsigned int v8; // r12d
   __int128 v9; // xmm1
-  char v10; // al
+  int v10; // eax
   __int128 v11; // xmm0
   __int128 v12; // xmm1
   unsigned __int64 v13; // rbp
-  unsigned __int64 v14; // r8
-  __int64 v15; // rax
+  unsigned __int64 v14; // rdx
+  unsigned __int64 v15; // rsi
   __int128 v16; // xmm0
-  unsigned __int64 v17; // rsi
-  int v18; // r13d
-  __int128 v19; // xmm1
-  __int128 v20; // xmm0
-  __int128 v21; // xmm1
-  unsigned __int64 v22; // rbx
-  unsigned int v23; // edi
+  int v17; // r15d
+  __int128 v18; // xmm1
+  __int128 v19; // xmm0
+  __int128 v20; // xmm1
+  unsigned __int64 v21; // rbx
+  unsigned int v22; // edi
   _QWORD *Pool; // rax
-  _QWORD *v25; // rdx
-  unsigned int v26; // r8d
-  __int64 v27; // rdi
-  __int16 v28; // cx
-  unsigned int v29; // r9d
-  __int64 v30; // rax
-  unsigned __int64 v31; // rbx
-  __int16 v32; // cx
+  _QWORD *v24; // rdx
+  unsigned int v25; // r8d
+  __int64 v26; // rdi
+  __int16 v27; // cx
+  unsigned int v28; // r9d
+  __int64 v29; // rax
+  unsigned __int64 v30; // rbx
+  __int64 v31; // rax
   int appended; // eax
-  __int16 v34; // r8
-  unsigned __int64 v35; // rdx
-  __int64 v37; // rbx
+  __int16 v33; // r8
+  unsigned __int64 v34; // rdx
+  __int64 v36; // rdi
+  __int64 v37; // rbp
   unsigned __int64 v38; // rax
-  unsigned __int64 v39; // r14
-  __int64 *v40; // rdi
-  unsigned __int64 v41; // rax
-  PVOID v42; // r15
-  __int64 v43; // rbp
-  unsigned __int64 v44; // r14
-  int SubsectionCharges; // edi
+  unsigned __int64 v39; // r15
+  unsigned __int64 v40; // rcx
+  unsigned int v41; // eax
+  unsigned __int64 v42; // rcx
+  PVOID v43; // r12
+  int v44; // ebx
+  __int64 v45; // r8
+  unsigned __int64 v46; // r14
+  int SubsectionCharges; // ebx
   __int64 ControlAreaPartition; // rax
-  __int64 v47; // rbp
-  unsigned __int64 v48; // [rsp+20h] [rbp-108h]
-  unsigned __int64 v49; // [rsp+28h] [rbp-100h]
-  __int64 v50; // [rsp+30h] [rbp-F8h]
-  __int128 v51; // [rsp+40h] [rbp-E8h] BYREF
-  __int128 Privileges; // [rsp+50h] [rbp-D8h]
-  __int128 v53; // [rsp+60h] [rbp-C8h]
-  __int128 v54; // [rsp+70h] [rbp-B8h]
-  __int128 v55; // [rsp+80h] [rbp-A8h]
-  __int128 v56; // [rsp+90h] [rbp-98h]
-  __int128 v57; // [rsp+A0h] [rbp-88h]
-  __int128 v58; // [rsp+B0h] [rbp-78h]
-  __int128 v59; // [rsp+C0h] [rbp-68h]
-  __int64 v60; // [rsp+D0h] [rbp-58h]
-  __int64 v61; // [rsp+130h] [rbp+8h]
-  __int64 v65; // [rsp+148h] [rbp+20h]
-  __int64 *v66; // [rsp+150h] [rbp+28h] BYREF
-  va_list va; // [rsp+150h] [rbp+28h]
-  va_list va1; // [rsp+158h] [rbp+30h] BYREF
+  __int64 v49; // r8
+  __int64 v50; // r14
+  __int64 v51; // rbp
+  __int64 v52; // [rsp+20h] [rbp-F8h]
+  unsigned __int64 v53; // [rsp+28h] [rbp-F0h]
+  unsigned __int64 v54; // [rsp+30h] [rbp-E8h]
+  __int64 v55; // [rsp+38h] [rbp-E0h]
+  __int128 v56; // [rsp+40h] [rbp-D8h] BYREF
+  __int128 Privileges; // [rsp+50h] [rbp-C8h]
+  __int128 v58; // [rsp+60h] [rbp-B8h]
+  __int128 v59; // [rsp+70h] [rbp-A8h]
+  __int128 v60; // [rsp+80h] [rbp-98h]
+  __int128 v61; // [rsp+90h] [rbp-88h]
+  __int128 v62; // [rsp+A0h] [rbp-78h]
+  __int128 v63; // [rsp+B0h] [rbp-68h]
+  __int128 v64; // [rsp+C0h] [rbp-58h]
+  int v65; // [rsp+120h] [rbp+8h]
+  __int64 v69; // [rsp+138h] [rbp+20h]
+  __int64 *v70; // [rsp+140h] [rbp+28h] BYREF
+  va_list va; // [rsp+140h] [rbp+28h]
+  va_list va1; // [rsp+148h] [rbp+30h] BYREF
 
   va_start(va1, a4);
   va_start(va, a4);
-  v66 = va_arg(va1, __int64 *);
-  v5 = &v51;
-  v61 = *(_QWORD *)a1;
+  v70 = va_arg(va1, __int64 *);
+  v5 = &v56;
+  v52 = *(_QWORD *)a1;
   v4 = *(_QWORD *)a1;
-  v7 = a3;
-  *v66 = 0LL;
-  v8 = (8 * a4 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-  v50 = *(_QWORD *)v4;
+  v7 = (8 * a4 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+  v8 = a3;
+  *v70 = 0LL;
+  v55 = *(_QWORD *)v4;
   v9 = *(_OWORD *)(a1 + 16);
-  v10 = *(_BYTE *)(v4 + 62);
-  v51 = *(_OWORD *)a1;
-  v48 = v8;
+  v10 = *(_DWORD *)(v4 + 56);
+  v56 = *(_OWORD *)a1;
+  v53 = v7;
   v11 = *(_OWORD *)(a1 + 32);
   Privileges = v9;
   v12 = *(_OWORD *)(a1 + 48);
   v13 = 0LL;
-  v53 = v11;
-  v14 = (-(__int64)((v10 & 0xC) != 0) & 0x100000) + 0x100000;
-  v15 = *(_QWORD *)(a1 + 144);
+  v58 = v11;
+  v14 = (-(__int64)((v10 & 0x40000000) != 0) & 0x100000) + 0x100000;
+  v15 = 0LL;
   v16 = *(_OWORD *)(a1 + 64);
-  v17 = 0LL;
-  v18 = 0;
-  v49 = v14;
-  v54 = v12;
-  v19 = *(_OWORD *)(a1 + 80);
-  v55 = v16;
-  v20 = *(_OWORD *)(a1 + 96);
-  v56 = v19;
-  v21 = *(_OWORD *)(a1 + 128);
-  v57 = v20;
-  v58 = *(_OWORD *)(a1 + 112);
-  v59 = v21;
-  v60 = v15;
-  if ( v7 )
-    DWORD1(v54) ^= (DWORD1(v54) ^ (DWORD1(v54) - v7)) & 0x3FFFFFFF;
-  v22 = 0LL;
-  while ( 1 )
+  v17 = 0;
+  v54 = v14;
+  v59 = v12;
+  v18 = *(_OWORD *)(a1 + 80);
+  v60 = v16;
+  v19 = *(_OWORD *)(a1 + 96);
+  v61 = v18;
+  v20 = *(_OWORD *)(a1 + 128);
+  v62 = v19;
+  v63 = *(_OWORD *)(a1 + 112);
+  v64 = v20;
+  if ( a3 )
+    DWORD1(v59) ^= (DWORD1(v59) ^ (DWORD1(v59) - a3)) & 0x3FFFFFFF;
+  v21 = 0LL;
+  do
   {
-    if ( v8 - v13 > v14 )
-      v23 = v14;
+    if ( v7 - v13 > v14 )
+      v22 = v14;
     else
-      v23 = v8 - v13;
-    Pool = MiAllocatePool(64, 0x98uLL, 0x64536D4Du);
-    v25 = Pool;
+      v22 = v7 - v13;
+    Pool = MiAllocatePool(64, 0x90uLL, 0x64536D4Du);
+    v24 = Pool;
     if ( !Pool )
     {
-      v37 = Privileges;
-LABEL_46:
+      v36 = Privileges;
+LABEL_49:
       SubsectionCharges = -1073741670;
-      goto LABEL_47;
+      goto LABEL_50;
     }
-    v26 = v23 >> 3;
+    v25 = v22 >> 3;
     Pool[11] = Pool + 10;
     Pool[10] = Pool + 10;
     *((_QWORD *)v5 + 2) = Pool;
-    *Pool = v61;
-    *((_DWORD *)Pool + 11) = v23 >> 3;
-    v13 += v23;
+    *Pool = v52;
+    *((_DWORD *)Pool + 11) = v22 >> 3;
+    v13 += v22;
     if ( v13 > 8 * a4 )
       *((_DWORD *)Pool + 13) ^= (*((_DWORD *)Pool + 13) ^ ((v13 >> 3) - a4)) & 0x3FFFFFFF;
-    v27 = v50;
-    v28 = Pool[4] & 0xFFC1 | (2 * ((*(_BYTE *)(v50 + 14) >> 1) & 0x1F));
-    *((_WORD *)Pool + 16) = v28;
-    if ( v5 == &v51 )
+    v26 = v55;
+    v27 = Pool[4] & 0xFFC1 | (2 * ((*(_BYTE *)(v55 + 14) >> 1) & 0x1F));
+    *((_WORD *)Pool + 16) = v27;
+    if ( v5 == &v56 )
     {
       *((_WORD *)v5 + 17) &= 0xFu;
-      v29 = *((_DWORD *)v5 + 11);
-      v30 = *((unsigned int *)v5 + 9);
-      v31 = (unsigned __int64)((_WORD)v5[2] & 0xFFC0) << 26;
-      *((_DWORD *)v5 + 10) = v29;
-      v22 = v30 | v31;
-      v28 = *((_WORD *)v25 + 16);
+      v28 = *((_DWORD *)v5 + 11);
+      v29 = *((unsigned int *)v5 + 9);
+      v30 = (unsigned __int64)((_WORD)v5[2] & 0xFFC0) << 26;
+      *((_DWORD *)v5 + 10) = v28;
+      v21 = v29 | v30;
+      v27 = *((_WORD *)v24 + 16);
     }
     else
     {
-      v29 = *((_DWORD *)v5 + 10);
+      v28 = *((_DWORD *)v5 + 10);
     }
-    v22 += v29;
-    *((_DWORD *)v25 + 9) = v22;
-    *((_WORD *)v25 + 16) = v28 & 0x3F | (WORD2(v22) << 6);
-    if ( v13 >= v48 )
-      break;
-    *((_DWORD *)v25 + 10) = v26;
-    v5 = (__int128 *)v25;
-    v8 = v48;
-    v14 = v49;
+    v31 = v28;
+    v7 = v53;
+    v21 += v31;
+    *((_DWORD *)v24 + 9) = v21;
+    *((_WORD *)v24 + 16) = v27 & 0x3F | (WORD2(v21) << 6);
+    if ( v13 < v53 )
+    {
+      *((_DWORD *)v24 + 10) = v25;
+    }
+    else
+    {
+      *((_DWORD *)v24 + 10) = (*a2 >> 12) - v21;
+      *((_WORD *)v24 + 17) = *((_WORD *)v24 + 17) & 0xF | (16 * *(_WORD *)a2);
+    }
+    v5 = (__int128 *)v24;
+    v14 = v54;
   }
-  v32 = *((_WORD *)v25 + 17);
-  *((_DWORD *)v25 + 10) = (*a2 >> 12) - v22;
-  *((_WORD *)v25 + 17) = (16 * *(_WORD *)a2) | v32 & 0xF;
-  if ( v7 && (*(_BYTE *)(v61 + 62) & 0xC) != 0 && *(_QWORD *)(a1 + 8) )
+  while ( v13 < v53 );
+  if ( v8 && MiControlAreaUsingExtents(v52) && *(_QWORD *)(a1 + 8) )
   {
     MiSubsectionNeedsExtents((_DWORD *)a1);
-    *v66 = a1;
+    *v70 = a1;
   }
-  appended = MiAppendSubsectionChain((__int64 *)a1, (__int64)&v51, 0);
+  appended = MiAppendSubsectionChain((__int64 *)a1, (__int64)&v56, 0);
   if ( !appended )
   {
-LABEL_14:
-    v34 = *(_WORD *)(v27 + 12);
-    v35 = (*(unsigned int *)(v27 + 8) | ((unsigned __int64)(v34 & 0x3FF) << 32)) + a4 + v7;
-    *(_DWORD *)(v27 + 8) += a4 + v7;
-    *(_WORD *)(v27 + 12) = v34 ^ (v34 ^ WORD2(v35)) & 0x3FF;
+LABEL_16:
+    v33 = *(_WORD *)(v26 + 12);
+    v34 = (*(unsigned int *)(v26 + 8) | ((unsigned __int64)(v33 & 0x3FF) << 32)) + a4 + v8;
+    *(_DWORD *)(v26 + 8) += a4 + v8;
+    *(_WORD *)(v26 + 12) = v33 ^ (v33 ^ WORD2(v34)) & 0x3FF;
     return 0LL;
   }
-  v37 = Privileges;
-LABEL_16:
+  v36 = Privileges;
+LABEL_18:
+  v37 = v36;
   if ( (appended & 1) != 0 )
   {
-    v38 = v48;
-    v18 |= 1u;
+    v38 = v53;
+    v65 = v17 | 1;
     v39 = 0LL;
-    v40 = (__int64 *)v37;
     while ( 1 )
     {
-      v41 = v38 - v39;
-      if ( v41 > v49 )
-        LODWORD(v41) = v49;
-      v39 += (unsigned int)v41;
-      v42 = MiAllocatePool(274, (unsigned int)v41, 0x74536D4Du);
-      if ( !v42 )
-        goto LABEL_46;
-      MiInitializePrototypePtes((ULONG_PTR)v42);
-      if ( (*(_BYTE *)(v61 + 62) & 0xC) != 0 )
+      v40 = v38;
+      v41 = v54;
+      v42 = v40 - v39;
+      if ( v42 <= v54 )
+        v41 = v42;
+      v39 += v41;
+      v43 = MiAllocatePool(274, v41, 0x74536D4Du);
+      if ( !v43 )
+        break;
+      v44 = *(_DWORD *)(v52 + 56) & 0x40000000;
+      MiInitializePrototypePtes((ULONG_PTR)v43);
+      if ( v44 )
       {
-        if ( !*v66 )
-          *v66 = (__int64)v40;
+        if ( !*v70 )
+          *v70 = v37;
       }
-      else if ( (v18 & 2) != 0 )
+      else if ( (v65 & 2) != 0 )
       {
-        MiDecrementSubsectionViewCount(v40, 0);
+        MiDecrementSubsectionViewCount((_QWORD *)v37, 0LL, v45);
       }
-      MiSetSubsectionBase(v40, (__int64)v42, 0xFFFFFFFF, 0LL);
-      MiUpdateSystemProtoPtesTree((__int64)(v40 + 15), 1);
-      v38 = v48;
-      v40 = (__int64 *)v40[2];
-      if ( v39 >= v48 )
+      MiSetSubsectionBase((__int64 *)v37, (__int64)v43, 0xFFFFFFFF);
+      MiUpdateSystemProtoPtesTree((unsigned __int64 *)(v37 + 112), 1);
+      v38 = v53;
+      v37 = *(_QWORD *)(v37 + 16);
+      if ( v39 >= v53 )
       {
-        v7 = a3;
-        goto LABEL_26;
+        v17 = v65;
+        v8 = a3;
+        goto LABEL_28;
       }
     }
+    LOBYTE(v17) = v65;
+    goto LABEL_49;
   }
-  v18 |= 2u;
-  v43 = v37;
+  v17 |= 2u;
   while ( 1 )
   {
-    v44 = *(_DWORD *)(v43 + 44) - (*(_DWORD *)(v43 + 52) & 0x3FFFFFFFu);
-    SubsectionCharges = MiGetSubsectionCharges(v43, v44);
+    v46 = *(_DWORD *)(v37 + 44) - (*(_DWORD *)(v37 + 52) & 0x3FFFFFFFu);
+    SubsectionCharges = MiGetSubsectionCharges(v37, v46);
     if ( SubsectionCharges < 0 )
       break;
-    if ( (int)MiIncrementSubsectionViewCount((_QWORD *)v43, 56) <= 1 )
+    if ( (int)MiIncrementSubsectionViewCount((_QWORD *)v37, 56LL) <= 1 )
     {
-      v17 += v44;
+      v15 += v46;
       break;
     }
-    v43 = *(_QWORD *)(v43 + 16);
-    if ( !v43 )
+    v37 = *(_QWORD *)(v37 + 16);
+    if ( !v37 )
     {
-      if ( v7 )
+      if ( v8 )
       {
-        SubsectionCharges = MiGetSubsectionCharges(a1, v7);
+        SubsectionCharges = MiGetSubsectionCharges(a1, v8);
         if ( SubsectionCharges < 0 )
           break;
-        v17 += v7;
+        v15 += v8;
       }
-LABEL_26:
-      appended = MiAppendSubsectionChain((__int64 *)a1, (__int64)&v51, v18);
+LABEL_28:
+      appended = MiAppendSubsectionChain((__int64 *)a1, (__int64)&v56, v17);
       if ( appended )
-        goto LABEL_16;
-      v27 = v50;
-      goto LABEL_14;
+        goto LABEL_18;
+      v26 = v55;
+      goto LABEL_16;
     }
   }
-LABEL_47:
-  ControlAreaPartition = MiGetControlAreaPartition(v61);
-  v65 = ControlAreaPartition;
-  if ( v17 )
+LABEL_50:
+  ControlAreaPartition = MiGetControlAreaPartition(v52);
+  v69 = ControlAreaPartition;
+  v50 = ControlAreaPartition;
+  if ( v15 )
   {
-    MiReturnCrossPartitionSectionCharges(ControlAreaPartition, 1, v17);
-    v17 = 0LL;
+    MiReturnCrossPartitionSectionCharges(ControlAreaPartition, 1u, v15);
+    v15 = 0LL;
   }
-  if ( v37 )
+  if ( v36 )
   {
     do
     {
-      v47 = *(_QWORD *)(v37 + 16);
-      if ( (*(_BYTE *)(v61 + 62) & 0xC) != 0 )
+      v51 = *(_QWORD *)(v36 + 16);
+      if ( (*(_DWORD *)(v52 + 56) & 0x40000000) != 0 )
       {
-        if ( *(_QWORD *)(v37 + 8) )
+        if ( *(_QWORD *)(v36 + 8) )
         {
-          v66 = 0LL;
-          MiDeleteSubsectionPages((__int64 *)v37, (__int64)va);
+          v70 = 0LL;
+          MiDeleteSubsectionPages((__int64 *)v36, (__int64)va);
         }
       }
       else
       {
-        if ( (v18 & 2) != 0 && (*(_DWORD *)(v37 + 48) & 0x3FFFFFFF) != 0 )
-          v17 += MiDecrementSubsectionViewCount((_QWORD *)v37, 24);
-        if ( *(_QWORD *)(v37 + 8) )
+        if ( (v17 & 2) != 0 && (*(_DWORD *)(v36 + 48) & 0x3FFFFFFF) != 0 )
+          v15 += MiDecrementSubsectionViewCount((_QWORD *)v36, 24LL, v49);
+        if ( *(_QWORD *)(v36 + 8) )
         {
-          MiUpdateSystemProtoPtesTree(v37 + 120, 0);
-          ExFreePoolWithTag(*(PVOID *)(v37 + 8), 0);
+          MiUpdateSystemProtoPtesTree((unsigned __int64 *)(v36 + 112), 0);
+          ExFreePoolWithTag(*(PVOID *)(v36 + 8), 0);
         }
       }
-      CmSiFreeMemory((PPRIVILEGE_SET)v37);
-      v37 = v47;
+      CmSiFreeMemory((PPRIVILEGE_SET)v36);
+      v36 = v51;
     }
-    while ( v47 );
-    if ( v17 )
-      MiReturnCrossPartitionSectionCharges(v65, 1, v17);
+    while ( v51 );
+    v50 = v69;
   }
+  if ( v15 )
+    MiReturnCrossPartitionSectionCharges(v50, 1u, v15);
   return (unsigned int)SubsectionCharges;
 }

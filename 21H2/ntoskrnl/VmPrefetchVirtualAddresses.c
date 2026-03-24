@@ -1,14 +1,14 @@
 /*
- * XREFs of VmPrefetchVirtualAddresses @ 0x1409D8CF8
+ * XREFs of VmPrefetchVirtualAddresses @ 0x14092E850
  * Callers:
- *     MmInSwapWorkingSet @ 0x14025F4D4 (MmInSwapWorkingSet.c)
- *     NtSetInformationVirtualMemory @ 0x140753430 (NtSetInformationVirtualMemory.c)
+ *     MmInSwapWorkingSet @ 0x14035C504 (MmInSwapWorkingSet.c)
+ *     NtSetInformationVirtualMemory @ 0x14070F280 (NtSetInformationVirtualMemory.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     VmpPrefetchVirtualAddresses @ 0x14062B1A8 (VmpPrefetchVirtualAddresses.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     VmpPrefetchVirtualAddresses @ 0x1405A4584 (VmpPrefetchVirtualAddresses.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VmPrefetchVirtualAddresses(_QWORD *Src, unsigned __int64 a2, int a3)
@@ -22,7 +22,7 @@ __int64 __fastcall VmPrefetchVirtualAddresses(_QWORD *Src, unsigned __int64 a2, 
 
   v4 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v7 = (volatile LONG *)Process[2].Affinity.StaticBitmap[5];
+  v7 = (volatile LONG *)Process[2].Affinity.Bitmap[5];
   if ( v7 )
   {
     if ( a3 )

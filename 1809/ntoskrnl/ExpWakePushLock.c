@@ -5,11 +5,11 @@
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfReleasePushLockExclusive @ 0x140091570 (ExfReleasePushLockExclusive.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExfReleasePushLockSharedEx @ 0x14010756C (ExfReleasePushLockSharedEx.c)
+ *     ExfReleasePushLockSharedEx @ 0x14010758C (ExfReleasePushLockSharedEx.c)
  * Callees:
  *     KiAbApplyWakeupBoost @ 0x1400240DC (KiAbApplyWakeupBoost.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall ExpWakePushLock(volatile signed __int64 *a1, signed __int64 a2)

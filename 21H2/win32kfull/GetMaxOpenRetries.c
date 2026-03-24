@@ -1,5 +1,5 @@
 /*
- * XREFs of GetMaxOpenRetries @ 0x1C0122DA0
+ * XREFs of GetMaxOpenRetries @ 0x1C01371A0
  * Callers:
  *     <none>
  * Callees:

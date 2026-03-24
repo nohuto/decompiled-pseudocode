@@ -1,34 +1,34 @@
 /*
- * XREFs of AuthzBasepOperandValueTypesCompatible @ 0x140219C44
+ * XREFs of AuthzBasepOperandValueTypesCompatible @ 0x14024F3D0
  * Callers:
- *     AuthzBasepValueInSet @ 0x140218D80 (AuthzBasepValueInSet.c)
- *     AuthzBasepEvaluateExpression @ 0x140219B90 (AuthzBasepEvaluateExpression.c)
- *     AuthzBasepComputeExpression @ 0x14064AF30 (AuthzBasepComputeExpression.c)
+ *     AuthzBasepEvaluateExpression @ 0x14024F320 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepValueInSet @ 0x14024FF78 (AuthzBasepValueInSet.c)
+ *     AuthzBasepComputeExpression @ 0x1405C1E58 (AuthzBasepComputeExpression.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall AuthzBasepOperandValueTypesCompatible(__int16 *a1)
+bool __fastcall AuthzBasepOperandValueTypesCompatible(__int64 a1)
 {
   int v1; // eax
   _WORD *v3; // r10
-  __int16 *v4; // r9
-  __int16 *v5; // r8
-  __int16 v6; // cx
-  __int16 v7; // r8
-  __int64 v10; // rcx
+  _WORD *v4; // r9
+  __int16 *v5; // rcx
+  __int16 v6; // r8
+  __int16 v7; // cx
+  __int64 v10; // rdx
   char v11; // al
 
-  v1 = *((_DWORD *)a1 + 3);
-  if ( v1 != 1 && *((_DWORD *)a1 + 13) != 1 )
-    return *a1 == a1[20];
-  v3 = a1 + 20;
-  v4 = a1;
-  v5 = a1 + 20;
+  v1 = *(_DWORD *)(a1 + 12);
+  if ( v1 != 1 && *(_DWORD *)(a1 + 52) != 1 )
+    return *(_WORD *)a1 == *(_WORD *)(a1 + 40);
+  v3 = (_WORD *)(a1 + 40);
+  v4 = (_WORD *)a1;
+  v5 = (__int16 *)(a1 + 40);
   if ( v1 != 1 )
   {
-    v4 = a1 + 20;
-    v5 = a1;
+    v4 = v3;
+    v5 = (__int16 *)a1;
   }
   v6 = *v4;
   if ( *v4 == 16 && *((_BYTE *)v4 + 4) )
@@ -38,10 +38,24 @@ bool __fastcall AuthzBasepOperandValueTypesCompatible(__int16 *a1)
   {
     if ( (unsigned __int16)(v6 - 2) <= 1u )
       return 1;
-    return *a1 == *v3;
   }
-  if ( (unsigned __int16)(v7 - 1) > 1u || v6 != 2 )
+  else
   {
+    if ( (unsigned __int16)(v7 - 1) <= 1u && v6 == 2 )
+    {
+      v10 = *((_QWORD *)v4 + 4);
+      v11 = *(_BYTE *)(v10 + 8);
+      if ( v7 == 2 )
+      {
+        if ( v11 != 2 )
+          return 1;
+      }
+      else if ( v7 == 1 && (v11 == 2 || *(_QWORD *)v10 <= 0x7FFFFFFFFFFFFFFFuLL) )
+      {
+        return 1;
+      }
+      return 0;
+    }
     if ( v7 == 6 )
     {
       if ( v6 == 2 )
@@ -51,18 +65,6 @@ bool __fastcall AuthzBasepOperandValueTypesCompatible(__int16 *a1)
     {
       return 1;
     }
-    return *a1 == *v3;
   }
-  v10 = *((_QWORD *)v4 + 4);
-  v11 = *(_BYTE *)(v10 + 8);
-  if ( v7 == 2 )
-  {
-    if ( v11 != 2 )
-      return 1;
-  }
-  else if ( v7 == 1 && (v11 == 2 || *(_QWORD *)v10 <= 0x7FFFFFFFFFFFFFFFuLL) )
-  {
-    return 1;
-  }
-  return 0;
+  return *(_WORD *)a1 == *v3;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of Etw_EndpointCreate @ 0x1C000B7CC
+ * XREFs of Etw_EndpointCreate @ 0x1C0009744
  * Callers:
- *     Endpoint_Create @ 0x1C006D664 (Endpoint_Create.c)
+ *     Endpoint_Create @ 0x1C006A5F0 (Endpoint_Create.c)
  * Callees:
- *     McTemplateK0pppnnn_EtwWriteTransfer @ 0x1C004AF0C (McTemplateK0pppnnn_EtwWriteTransfer.c)
+ *     McTemplateK0pppnnn_EtwWriteTransfer @ 0x1C0048954 (McTemplateK0pppnnn_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Etw_EndpointCreate(__int64 a1, _QWORD *a2)
 {
   __int64 result; // rax
 
-  if ( (WPP_MAIN_CB.AlignmentRequirement & 2) != 0 )
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc & 2) != 0 )
     return McTemplateK0pppnnn_EtwWriteTransfer(
              (int)a2 + 103,
              (unsigned int)&USBXHCI_ETW_EVENT_ENDPOINT_CREATE,

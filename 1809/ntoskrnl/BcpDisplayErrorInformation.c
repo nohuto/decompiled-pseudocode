@@ -1,13 +1,13 @@
 /*
- * XREFs of BcpDisplayErrorInformation @ 0x140327FB0
+ * XREFs of BcpDisplayErrorInformation @ 0x1403280B0
  * Callers:
- *     BgpFwDisplayBugCheckScreen @ 0x140328A0C (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140328B0C (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     BcpConvertBugDataToString @ 0x1403279F4 (BcpConvertBugDataToString.c)
- *     BcpDisplayCriticalCharacter @ 0x140327B8C (BcpDisplayCriticalCharacter.c)
- *     BcpDisplayCriticalString @ 0x140327C54 (BcpDisplayCriticalString.c)
- *     BcpSanitizeDriverName @ 0x1403286A0 (BcpSanitizeDriverName.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     BcpConvertBugDataToString @ 0x140327AF4 (BcpConvertBugDataToString.c)
+ *     BcpDisplayCriticalCharacter @ 0x140327C8C (BcpDisplayCriticalCharacter.c)
+ *     BcpDisplayCriticalString @ 0x140327D54 (BcpDisplayCriticalString.c)
+ *     BcpSanitizeDriverName @ 0x1403287A0 (BcpSanitizeDriverName.c)
  */
 
 __int64 __fastcall BcpDisplayErrorInformation(

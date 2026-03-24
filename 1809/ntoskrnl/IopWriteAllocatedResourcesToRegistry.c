@@ -1,18 +1,18 @@
 /*
- * XREFs of IopWriteAllocatedResourcesToRegistry @ 0x14072E0BC
+ * XREFs of IopWriteAllocatedResourcesToRegistry @ 0x14072E09C
  * Callers:
- *     IopLegacyResourceAllocation @ 0x14072CEB4 (IopLegacyResourceAllocation.c)
- *     IoReportDetectedDevice @ 0x14072D240 (IoReportDetectedDevice.c)
- *     PnpReleaseResourcesInternal @ 0x14072DDE0 (PnpReleaseResourcesInternal.c)
- *     PnpBuildCmResourceLists @ 0x14072DFBC (PnpBuildCmResourceLists.c)
- *     PnpRestoreResourcesInternal @ 0x14083B544 (PnpRestoreResourcesInternal.c)
+ *     IopLegacyResourceAllocation @ 0x14072CE94 (IopLegacyResourceAllocation.c)
+ *     IoReportDetectedDevice @ 0x14072D220 (IoReportDetectedDevice.c)
+ *     PnpReleaseResourcesInternal @ 0x14072DDC0 (PnpReleaseResourcesInternal.c)
+ *     PnpBuildCmResourceLists @ 0x14072DF9C (PnpBuildCmResourceLists.c)
+ *     PnpRestoreResourcesInternal @ 0x14083B524 (PnpRestoreResourcesInternal.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1401B9B90 (ZwDeleteValueKey.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
  *     _CmOpenDeviceRegKey @ 0x1405C6EF0 (_CmOpenDeviceRegKey.c)
  */
 

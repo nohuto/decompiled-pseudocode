@@ -1,54 +1,40 @@
 /*
- * XREFs of CmpSetValueKeyNew @ 0x14079B2C0
+ * XREFs of CmpSetValueKeyNew @ 0x14070A140
  * Callers:
- *     CmSetValueKey @ 0x140720260 (CmSetValueKey.c)
+ *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
  * Callees:
- *     HvpMarkCellDirty @ 0x14071F300 (HvpMarkCellDirty.c)
- *     CmpFreeValue @ 0x14079B22C (CmpFreeValue.c)
- *     CmpAddValueKeyNew @ 0x14079B758 (CmpAddValueKeyNew.c)
- *     CmpAddValueToListEx @ 0x14079B920 (CmpAddValueToListEx.c)
+ *     CmpFreeValue @ 0x14066B438 (CmpFreeValue.c)
+ *     CmpAddValueKeyNew @ 0x140709FA0 (CmpAddValueKeyNew.c)
+ *     CmpAddValueToList @ 0x14087B3B8 (CmpAddValueToList.c)
+ *     HvMarkCellDirty @ 0x14087BCE8 (HvMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpSetValueKeyNew(
-        ULONG_PTR a1,
+        ULONG_PTR BugCheckParameter2,
         __int64 a2,
-        __int64 a3,
-        __int64 a4,
+        unsigned __int16 *a3,
+        int a4,
         int a5,
-        __int64 a6,
-        int a7,
+        void *a6,
+        size_t a7,
         int a8)
 {
-  __int64 v8; // rbx
-  int v10; // edi
-  unsigned int v11; // ebx
-  int v13; // [rsp+20h] [rbp-38h]
-  __int64 v14; // [rsp+20h] [rbp-38h]
-  int v15; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v8; // rsi
+  unsigned int v12; // eax
+  unsigned int v13; // edi
+  size_t Size; // [rsp+20h] [rbp-18h]
 
-  v15 = -1;
   v8 = a2 + 36;
-  if ( !*(_DWORD *)(a2 + 36) || (v10 = HvpMarkCellDirty(a1, *(unsigned int *)(a2 + 40), 0), v10 >= 0) )
+  if ( *(_DWORD *)(a2 + 36) && !(unsigned __int8)HvMarkCellDirty(BugCheckParameter2, *(unsigned int *)(a2 + 40), 0LL) )
+    return 3221225853LL;
+  LODWORD(Size) = a7;
+  v12 = CmpAddValueKeyNew(BugCheckParameter2, a3, a5, a6, Size, a8);
+  v13 = v12;
+  if ( v12 != -1 )
   {
-    v13 = a7;
-    v10 = CmpAddValueKeyNew(a1, v13, a8, (__int64)&v15);
-    if ( v10 < 0 )
-    {
-      v11 = v15;
-    }
-    else
-    {
-      v14 = v8;
-      v11 = v15;
-      v10 = CmpAddValueToListEx(a1, v14, 1);
-      if ( v10 >= 0 )
-      {
-        v11 = -1;
-        v10 = 0;
-      }
-    }
-    if ( v11 != -1 )
-      CmpFreeValue(a1, v11);
+    if ( (int)CmpAddValueToList(BugCheckParameter2, v12, a4, a8, v8) >= 0 )
+      return 0LL;
+    CmpFreeValue(BugCheckParameter2, v13);
   }
-  return (unsigned int)v10;
+  return 3221225626LL;
 }

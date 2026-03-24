@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpTimerSetProfilingTarget @ 0x14037BBC4
+ * XREFs of HalpTimerSetProfilingTarget @ 0x140377DA8
  * Callers:
- *     EmonSetInterval @ 0x14037BA00 (EmonSetInterval.c)
- *     Amd64SetInterval @ 0x14052A160 (Amd64SetInterval.c)
+ *     EmonSetInterval @ 0x140377C80 (EmonSetInterval.c)
+ *     Amd64SetInterval @ 0x1404DE140 (Amd64SetInterval.c)
  * Callees:
  *     <none>
  */

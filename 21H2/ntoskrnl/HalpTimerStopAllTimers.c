@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerStopAllTimers @ 0x1405033CC
+ * XREFs of HalpTimerStopAllTimers @ 0x1404B6AEC
  * Callers:
- *     HalReturnToFirmware @ 0x14050A7E0 (HalReturnToFirmware.c)
+ *     HalReturnToFirmware @ 0x1404BE1A0 (HalReturnToFirmware.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void HalpTimerStopAllTimers()

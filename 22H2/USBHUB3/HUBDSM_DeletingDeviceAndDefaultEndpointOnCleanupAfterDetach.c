@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupAfterDetach @ 0x1C001F5A0
+ * XREFs of HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupAfterDetach @ 0x1C001CB90
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_SignalPnpPowerEvent @ 0x1C0019754 (HUBPDO_SignalPnpPowerEvent.c)
- *     HUBUCX_DeleteDeviceFromUCX @ 0x1C00285DC (HUBUCX_DeleteDeviceFromUCX.c)
- *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C00286A8 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
- *     HUBUCX_DeleteDefaultEndpointFromUCX @ 0x1C0028760 (HUBUCX_DeleteDefaultEndpointFromUCX.c)
+ *     HUBPDO_SignalPnpPowerEvent @ 0x1C001810C (HUBPDO_SignalPnpPowerEvent.c)
+ *     HUBUCX_DeleteDeviceFromUCX @ 0x1C00259E8 (HUBUCX_DeleteDeviceFromUCX.c)
+ *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C0025AB4 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
+ *     HUBUCX_DeleteDefaultEndpointFromUCX @ 0x1C0025B60 (HUBUCX_DeleteDefaultEndpointFromUCX.c)
  */
 
 __int64 __fastcall HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupAfterDetach(__int64 a1)

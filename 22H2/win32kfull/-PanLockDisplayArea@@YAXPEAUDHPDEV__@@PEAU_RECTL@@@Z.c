@@ -1,14 +1,14 @@
 /*
- * XREFs of ?PanLockDisplayArea@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C029C370
+ * XREFs of ?PanLockDisplayArea@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C02952E0
  * Callers:
  *     <none>
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00DC2A8 (-vOrder@ERECTL@@QEAAXXZ.c)
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00F3FD0 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z @ 0x1C029D1A4 (-ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00B121C (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00B7698 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z @ 0x1C0296104 (-ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z.c)
  */
 
 void __fastcall PanLockDisplayArea(struct DHPDEV__ *a1, struct _RECTL *a2)
@@ -26,7 +26,7 @@ void __fastcall PanLockDisplayArea(struct DHPDEV__ *a1, struct _RECTL *a2)
   __int64 v13; // rbx
   HSEMAPHORE *v14; // rdi
   __int64 v15; // r15
-  char *v16; // rbx
+  _BYTE *v16; // rbx
   HSEMAPHORE *v17; // rdi
   __int64 v18; // r14
   __int128 v19; // [rsp+30h] [rbp-89h] BYREF
@@ -36,8 +36,7 @@ void __fastcall PanLockDisplayArea(struct DHPDEV__ *a1, struct _RECTL *a2)
   int v23; // [rsp+54h] [rbp-65h]
   __int64 v24; // [rsp+58h] [rbp-61h]
   __int64 v25; // [rsp+60h] [rbp-59h]
-  _BYTE v26[80]; // [rsp+70h] [rbp-49h] BYREF
-  char v27; // [rsp+C0h] [rbp+7h] BYREF
+  _BYTE v26[96]; // [rsp+70h] [rbp-49h] BYREF
 
   v19 = (__int128)*a2;
   ERECTL::vOrder((ERECTL *)&v19);
@@ -61,7 +60,7 @@ void __fastcall PanLockDisplayArea(struct DHPDEV__ *a1, struct _RECTL *a2)
     v10 = a1 + 18 * v7 + 2 * v6 + 30;
     *(_QWORD *)&v19 = v10;
 LABEL_3:
-    memset_0(v26, 0, 0x51uLL);
+    memset(v26, 0, 0x51uLL);
     KeWaitForSingleObject((PVOID)(*((_QWORD *)a1 + 98) + 32LL), UserRequest, 0, 0, 0LL);
     v11 = v24;
     for ( i = v7; i < v11; ++i )
@@ -82,7 +81,7 @@ LABEL_3:
           }
         }
         v15 = 8LL;
-        v16 = &v27;
+        v16 = &v26[80];
         v17 = (HSEMAPHORE *)(a1 + 190);
         do
         {

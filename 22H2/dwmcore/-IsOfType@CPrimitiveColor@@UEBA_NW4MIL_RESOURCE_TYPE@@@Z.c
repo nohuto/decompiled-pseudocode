@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CPrimitiveColor@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C5770
+ * XREFs of ?IsOfType@CPrimitiveColor@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F620
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CPrimitiveColor::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 128;
+  return a2 == 126;
 }

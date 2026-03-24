@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InitializeInterface@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPN_INTERFACE@@@Z @ 0x1C02163F8
+ * XREFs of ?InitializeInterface@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPN_INTERFACE@@@Z @ 0x1C017D438
  * Callers:
- *     ?_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C0215D08 (-_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ.c)
+ *     ?_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C017D184 (-_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -10,8 +10,13 @@ void __fastcall DXGK_VIDPN_INTERFACE_V1_IMPL::InitializeInterface(
         DXGK_VIDPN_INTERFACE_V1_IMPL *this,
         struct _DXGK_VIDPN_INTERFACE *a2)
 {
+  __int64 v3; // rax
+
   if ( !this )
-    WdLogSingleEntry0(1LL);
+  {
+    v3 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    WdLogEvent5_WdAssertion(v3);
+  }
   *(_DWORD *)this = 1;
   *((_QWORD *)this + 1) = DXGK_VIDPN_INTERFACE_V1_IMPL::GetTopology;
   *((_QWORD *)this + 4) = DXGK_VIDPN_INTERFACE_V1_IMPL::CreateNewSourceModeSet;

@@ -1,22 +1,21 @@
 /*
- * XREFs of MiUpdateAvailableEvents @ 0x1403C3E64
+ * XREFs of MiUpdateAvailableEvents @ 0x1403B6A44
  * Callers:
- *     MiDecreaseAvailablePages @ 0x140264D88 (MiDecreaseAvailablePages.c)
- *     MiInsertLargePageInNodeList @ 0x1402BEEA0 (MiInsertLargePageInNodeList.c)
- *     MiInsertPageInList @ 0x1402BF9C0 (MiInsertPageInList.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402C6EB0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402C8740 (MiUnlinkFreeOrZeroedPage.c)
- *     MiUnlinkNodeLargePageHelper @ 0x1402CB2D0 (MiUnlinkNodeLargePageHelper.c)
- *     MiUnlinkPageFromListEx @ 0x140326870 (MiUnlinkPageFromListEx.c)
- *     MiIncreaseAvailablePages @ 0x140338BF0 (MiIncreaseAvailablePages.c)
- *     MiUpdatePageThresholdsDpc @ 0x1403C3DF0 (MiUpdatePageThresholdsDpc.c)
- *     MiInitializeMemoryEvents @ 0x14082BD64 (MiInitializeMemoryEvents.c)
+ *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x1402363C0 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiIncreaseAvailablePages @ 0x1402FEEE0 (MiIncreaseAvailablePages.c)
+ *     MiDecreaseAvailablePages @ 0x140319380 (MiDecreaseAvailablePages.c)
+ *     MiInsertPageInList @ 0x140326800 (MiInsertPageInList.c)
+ *     MiInsertProtectedStandbyPage @ 0x140329470 (MiInsertProtectedStandbyPage.c)
+ *     MiUpdatePageThresholdsDpc @ 0x1403B69D0 (MiUpdatePageThresholdsDpc.c)
+ *     MiInitializeMemoryEvents @ 0x1407A06D4 (MiInitializeMemoryEvents.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUpdateAvailableEvents(_QWORD *a1)
@@ -32,15 +31,15 @@ __int64 __fastcall MiUpdateAvailableEvents(_QWORD *a1)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(a1 + 1960, &LockHandle);
-  v2 = a1[2112];
+  KeAcquireInStackQueuedSpinLock(a1 + 616, &LockHandle);
+  v2 = a1[888];
   v3 = (struct _KEVENT *)a1[35];
-  if ( v2 <= a1[1993] )
+  if ( v2 <= a1[646] )
     KeSetEvent(v3, 0, 0);
   else
     KeResetEvent(v3);
   v4 = (struct _KEVENT *)a1[36];
-  if ( v2 <= a1[1994] )
+  if ( v2 <= a1[647] )
     KeResetEvent(v4);
   else
     KeSetEvent(v4, 0, 0);

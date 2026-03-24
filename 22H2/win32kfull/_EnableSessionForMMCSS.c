@@ -1,10 +1,10 @@
 /*
- * XREFs of _EnableSessionForMMCSS @ 0x1C01E3780
+ * XREFs of _EnableSessionForMMCSS @ 0x1C010B8B0
  * Callers:
- *     NtUserEnableSessionForMMCSS @ 0x1C01CF4F0 (NtUserEnableSessionForMMCSS.c)
+ *     <none>
  * Callees:
- *     WakeRIT @ 0x1C00A4548 (WakeRIT.c)
- *     ?ToggleMMCSSForDT@@YAXXZ @ 0x1C01BE828 (-ToggleMMCSSForDT@@YAXXZ.c)
+ *     ?ToggleMMCSSForDT@@YAXXZ @ 0x1C010B93C (-ToggleMMCSSForDT@@YAXXZ.c)
+ *     WakeRIT @ 0x1C010BAB0 (WakeRIT.c)
  */
 
 __int64 __fastcall EnableSessionForMMCSS(int a1)
@@ -14,10 +14,6 @@ __int64 __fastcall EnableSessionForMMCSS(int a1)
   __int64 v4; // rcx
   __int64 v5; // r8
   __int64 CurrentProcess; // rax
-  __int64 v7; // rcx
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
 
   GreLockDwmState();
   v2 = 0LL;
@@ -28,10 +24,10 @@ __int64 __fastcall EnableSessionForMMCSS(int a1)
       _InterlockedOr(gpsi, 0x1000u);
     else
       _InterlockedAnd(gpsi, 0xFFFFEFFF);
-    WakeRIT(4u);
-    ToggleMMCSSForDT(v9, v8, v10);
+    WakeRIT(4LL);
+    ToggleMMCSSForDT();
     v2 = 1LL;
   }
-  GreUnlockDwmState(v7);
+  GreUnlockDwmState();
   return v2;
 }

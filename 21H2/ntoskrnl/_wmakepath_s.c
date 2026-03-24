@@ -1,9 +1,9 @@
 /*
- * XREFs of _wmakepath_s @ 0x1403E6AE0
+ * XREFs of _wmakepath_s @ 0x1403D76B0
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl wmakepath_s(
@@ -19,12 +19,14 @@ errno_t __cdecl wmakepath_s(
   wchar_t v9; // ax
   __int16 v10; // ax
   char *v11; // rcx
-  char *v12; // rcx
+  wchar_t v12; // r8
+  char *v13; // rcx
+  errno_t v14; // ebx
 
   if ( !PathResult || !SIZE )
   {
-    xHalTimerWatchdogStop();
-    return 22;
+    v14 = 22;
+    goto LABEL_33;
   }
   v7 = 0LL;
   v8 = PathResult;
@@ -32,7 +34,7 @@ errno_t __cdecl wmakepath_s(
   {
     v7 = 2LL;
     if ( SIZE <= 2 )
-      goto LABEL_29;
+      goto LABEL_30;
     *PathResult = *Drive;
     PathResult[1] = 58;
     v8 = PathResult + 2;
@@ -49,13 +51,13 @@ errno_t __cdecl wmakepath_s(
         if ( v10 != 47 && v10 != 92 )
         {
           if ( ++v7 >= SIZE )
-            goto LABEL_29;
+            goto LABEL_30;
           *v8++ = 92;
         }
         goto LABEL_15;
       }
     }
-    goto LABEL_29;
+    goto LABEL_30;
   }
 LABEL_15:
   if ( Filename && *Filename )
@@ -67,38 +69,44 @@ LABEL_15:
       if ( !*(wchar_t *)((char *)++v8 + (_QWORD)v11) )
         goto LABEL_20;
     }
-    goto LABEL_29;
+    goto LABEL_30;
   }
 LABEL_20:
-  if ( Ext && *Ext )
+  if ( !Ext )
+    goto LABEL_29;
+  v12 = *Ext;
+  if ( !*Ext || *Ext == 46 )
   {
-    if ( *Ext == 46 )
-      goto LABEL_25;
-    if ( ++v7 < SIZE )
-    {
-      *v8++ = 46;
-      if ( *Ext )
-      {
 LABEL_25:
-        v12 = (char *)((char *)Ext - (char *)v8);
-        while ( ++v7 < SIZE )
-        {
-          *v8 = *(wchar_t *)((char *)v8 + (_QWORD)v12);
-          if ( !*(wchar_t *)((char *)++v8 + (_QWORD)v12) )
-            goto LABEL_28;
-        }
-        goto LABEL_29;
+    if ( v12 )
+    {
+      v13 = (char *)((char *)Ext - (char *)v8);
+      while ( ++v7 < SIZE )
+      {
+        *v8 = *(wchar_t *)((char *)v8 + (_QWORD)v13);
+        if ( !*(wchar_t *)((char *)++v8 + (_QWORD)v13) )
+          goto LABEL_29;
       }
-      goto LABEL_28;
+      goto LABEL_30;
     }
 LABEL_29:
-    *PathResult = 0;
-    xHalTimerWatchdogStop();
-    return 34;
+    if ( v7 + 1 <= SIZE )
+    {
+      *v8 = 0;
+      return 0;
+    }
+    goto LABEL_30;
   }
-LABEL_28:
-  if ( v7 + 1 > SIZE )
-    goto LABEL_29;
-  *v8 = 0;
-  return 0;
+  if ( ++v7 < SIZE )
+  {
+    *v8++ = 46;
+    v12 = *Ext;
+    goto LABEL_25;
+  }
+LABEL_30:
+  *PathResult = 0;
+  v14 = 34;
+LABEL_33:
+  xHalTimerWatchdogStop();
+  return v14;
 }

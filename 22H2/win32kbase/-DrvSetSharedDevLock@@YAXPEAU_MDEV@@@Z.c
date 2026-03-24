@@ -1,15 +1,15 @@
 /*
- * XREFs of ?DrvSetSharedDevLock@@YAXPEAU_MDEV@@@Z @ 0x1C0161D00
+ * XREFs of ?DrvSetSharedDevLock@@YAXPEAU_MDEV@@@Z @ 0x1C014495C
  * Callers:
- *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C001B5AC (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0013A90 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
  * Callees:
- *     GreDeleteSemaphore @ 0x1C0077EE0 (GreDeleteSemaphore.c)
+ *     GreDeleteSemaphore @ 0x1C005C290 (GreDeleteSemaphore.c)
  */
 
 void __fastcall DrvSetSharedDevLock(struct _MDEV *a1)
 {
   unsigned int i; // edi
-  __int64 v3; // rax
+  __int64 v3; // rdx
   _QWORD *v4; // rbx
   struct _ERESOURCE *v5; // rcx
   signed __int32 v6; // ett
@@ -29,8 +29,9 @@ void __fastcall DrvSetSharedDevLock(struct _MDEV *a1)
         do
           v6 = *((_DWORD *)v4 + 10);
         while ( v6 != _InterlockedCompareExchange((volatile signed __int32 *)v4 + 10, v6 | 0x10000, v6) );
+        v3 = v4[3];
       }
-      v4[6] = *(_QWORD *)(v4[3] + 48LL);
+      v4[6] = *(_QWORD *)(v3 + 48);
     }
   }
 }

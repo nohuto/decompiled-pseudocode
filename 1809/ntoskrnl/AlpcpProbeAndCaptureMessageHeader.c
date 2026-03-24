@@ -6,8 +6,8 @@
  *     AlpcpReplyLegacySynchronousRequest @ 0x140615538 (AlpcpReplyLegacySynchronousRequest.c)
  *     AlpcpAcceptConnectPort @ 0x140619CD8 (AlpcpAcceptConnectPort.c)
  *     AlpcpSendLegacySynchronousRequest @ 0x14061A900 (AlpcpSendLegacySynchronousRequest.c)
- *     NtAlpcOpenSenderThread @ 0x1406B74A0 (NtAlpcOpenSenderThread.c)
- *     AlpcpCopyRequestData @ 0x14084A8D0 (AlpcpCopyRequestData.c)
+ *     NtAlpcOpenSenderThread @ 0x1406B7480 (NtAlpcOpenSenderThread.c)
+ *     AlpcpCopyRequestData @ 0x14084A8B0 (AlpcpCopyRequestData.c)
  * Callees:
  *     <none>
  */

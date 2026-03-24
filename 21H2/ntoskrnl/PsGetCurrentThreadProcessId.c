@@ -1,20 +1,20 @@
 /*
- * XREFs of PsGetCurrentThreadProcessId @ 0x1402A7BC0
+ * XREFs of PsGetCurrentThreadProcessId @ 0x1402ED5E0
  * Callers:
- *     SeAuditHandleCreation @ 0x1406CE5F8 (SeAuditHandleCreation.c)
- *     EtwpNotifyGuid @ 0x1406EF64C (EtwpNotifyGuid.c)
- *     CmpCreateKeyBody @ 0x14072E210 (CmpCreateKeyBody.c)
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
- *     PiSwIrpStartCreateWorker @ 0x140765DC0 (PiSwIrpStartCreateWorker.c)
- *     PiDqIrpQueryCreate @ 0x1407768EC (PiDqIrpQueryCreate.c)
- *     PiUEventHandleRegistration @ 0x14078D764 (PiUEventHandleRegistration.c)
- *     EtwpEnableGuid @ 0x14079028C (EtwpEnableGuid.c)
- *     NtTraceControl @ 0x1407954F0 (NtTraceControl.c)
- *     EtwpRegisterSecurityProvider @ 0x140865050 (EtwpRegisterSecurityProvider.c)
- *     PiSwQueuedCreateInfoCreate @ 0x1409539A8 (PiSwQueuedCreateInfoCreate.c)
- *     PoShutdownBugCheck @ 0x14098FCB0 (PoShutdownBugCheck.c)
- *     EtwpNotifyDisallowedGuidChange @ 0x1409E448C (EtwpNotifyDisallowedGuidChange.c)
- *     EtwpRegisterPrivateSession @ 0x1409EBDD0 (EtwpRegisterPrivateSession.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     PiDqIrpQueryCreate @ 0x14062F0BC (PiDqIrpQueryCreate.c)
+ *     SeAuditHandleCreation @ 0x1406B0F68 (SeAuditHandleCreation.c)
+ *     EtwpNotifyGuid @ 0x1406E1804 (EtwpNotifyGuid.c)
+ *     PiUEventHandleRegistration @ 0x1406E20B0 (PiUEventHandleRegistration.c)
+ *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
+ *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
+ *     CmpCreateKeyBody @ 0x1406FC690 (CmpCreateKeyBody.c)
+ *     HalpSetSystemInformation @ 0x1407333E0 (HalpSetSystemInformation.c)
+ *     EtwpRegisterSecurityProvider @ 0x1407D5260 (EtwpRegisterSecurityProvider.c)
+ *     PoShutdownBugCheck @ 0x1408E75C0 (PoShutdownBugCheck.c)
+ *     EtwpDisallowedGuidAddition @ 0x140933C04 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x140933EEC (EtwpDisallowedGuidRemoval.c)
+ *     EtwpRegisterPrivateSession @ 0x14093F3A8 (EtwpRegisterPrivateSession.c)
  * Callees:
  *     <none>
  */

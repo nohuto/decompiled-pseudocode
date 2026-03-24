@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpiClearAllocatedMemory @ 0x1C0091D58
+ * XREFs of PnpiClearAllocatedMemory @ 0x1C009D8C8
  * Callers:
- *     PnpBiosResourcesToNtResources @ 0x1C008EFEC (PnpBiosResourcesToNtResources.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  * Callees:
  *     <none>
  */

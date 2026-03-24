@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlDebuggerSupportInitialize @ 0x140193EF4
+ * XREFs of HvlDebuggerSupportInitialize @ 0x140193F14
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     strncmp @ 0x140194DE0 (strncmp.c)
- *     strstr @ 0x140194EA0 (strstr.c)
- *     atol @ 0x140194F50 (atol.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     strncmp @ 0x140194E00 (strncmp.c)
+ *     strstr @ 0x140194EC0 (strstr.c)
+ *     atol @ 0x140194F70 (atol.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of Control_EP_OkToReclaimTransfersOnCancel @ 0x1C0042220
+ * XREFs of Control_EP_OkToReclaimTransfersOnCancel @ 0x1C003FD10
  * Callers:
  *     <none>
  * Callees:
- *     TR_QueueDpcForTransferCompletion @ 0x1C000F2B4 (TR_QueueDpcForTransferCompletion.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000E954 (TR_QueueDpcForTransferCompletion.c)
  */
 
 void __fastcall Control_EP_OkToReclaimTransfersOnCancel(__int64 a1)

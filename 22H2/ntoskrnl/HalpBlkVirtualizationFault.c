@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkVirtualizationFault @ 0x140B15980
+ * XREFs of HalpBlkVirtualizationFault @ 0x140A18980
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkFatalErrorHalt @ 0x140B150B0 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkFatalErrorHalt @ 0x140A180B0 (HalpBlkFatalErrorHalt.c)
  */
 
 void __fastcall __noreturn HalpBlkVirtualizationFault(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

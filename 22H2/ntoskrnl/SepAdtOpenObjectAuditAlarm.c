@@ -1,34 +1,34 @@
 /*
- * XREFs of SepAdtOpenObjectAuditAlarm @ 0x1409CC218
+ * XREFs of SepAdtOpenObjectAuditAlarm @ 0x14091F4E8
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0580 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C10C0 (SepAccessCheckAndAuditAlarm.c)
- *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
- *     SeAuditHandleCreation @ 0x1407DCE08 (SeAuditHandleCreation.c)
- *     NtOpenObjectAuditAlarm @ 0x1407DFA00 (NtOpenObjectAuditAlarm.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x140862CC0 (SeOpenObjectAuditAlarmForNonObObject.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CE210 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1405ECE20 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406265D0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     ObpCreateHandle @ 0x140643C70 (ObpCreateHandle.c)
+ *     NtOpenObjectAuditAlarm @ 0x14068BC10 (NtOpenObjectAuditAlarm.c)
+ *     SeAuditHandleCreation @ 0x140694128 (SeAuditHandleCreation.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x1407D2660 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x140921860 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14020BB20 (PsGetCurrentThreadProcess.c)
- *     ObpIsKernelHandle @ 0x1402BEB24 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x14039B490 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     SepCheckAndCopySelfRelativeSD @ 0x1405B8D48 (SepCheckAndCopySelfRelativeSD.c)
- *     SepAdtAuditThisEventWithContext @ 0x1406C3580 (SepAdtAuditThisEventWithContext.c)
- *     SepSecurityDescriptorStrictLength @ 0x14070DA6C (SepSecurityDescriptorStrictLength.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742C84 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepSDContainsAttributeACE @ 0x1409D1338 (SepSDContainsAttributeACE.c)
- *     SepAuditFailed @ 0x1409D1CF0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObpIsKernelHandle @ 0x1402C8F50 (ObpIsKernelHandle.c)
+ *     PsGetCurrentThreadProcess @ 0x140316F60 (PsGetCurrentThreadProcess.c)
+ *     SepAdtLogAuditRecord @ 0x1403C20B4 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SepCheckAndCopySelfRelativeSD @ 0x140596C68 (SepCheckAndCopySelfRelativeSD.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627EE0 (SepAdtAuditThisEventWithContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14062F1D8 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepSDContainsAttributeACE @ 0x140924DD4 (SepSDContainsAttributeACE.c)
+ *     SepSecurityDescriptorStrictLength @ 0x140924E2C (SepSecurityDescriptorStrictLength.c)
+ *     SepAuditFailed @ 0x140925950 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 bool __fastcall SepAdtOpenObjectAuditAlarm(
-        __int16 a1,
+        unsigned __int16 a1,
         const int *a2,
-        __int64 *a3,
+        unsigned __int64 *a3,
         unsigned __int16 *a4,
         unsigned __int16 *a5,
         __int16 *a6,
@@ -48,381 +48,394 @@ bool __fastcall SepAdtOpenObjectAuditAlarm(
 {
   __int16 *v19; // r12
   __int64 v21; // rbx
-  __int128 *v23; // rax
+  void *v22; // rdi
+  __int128 *v24; // rcx
   _KPROCESS *CurrentThreadProcess; // rax
   int AllocatedFullProcessImageName; // esi
-  __int64 *v26; // rax
-  __int64 v27; // rdi
-  unsigned __int8 v28; // r9
-  int v29; // eax
-  const int *v30; // rcx
-  __int64 v31; // r10
-  int v32; // eax
+  __int64 *v27; // rax
+  __int64 v28; // rdi
+  unsigned __int8 v29; // r9
+  int v30; // eax
+  const int *v31; // rcx
+  __int64 v32; // r10
   int v33; // eax
   int v34; // eax
+  int v35; // eax
+  int v36; // eax
   bool IsKernelHandle; // al
-  unsigned __int64 v36; // r8
-  __int64 v37; // rcx
-  unsigned __int64 v38; // rcx
-  __int64 v39; // rax
-  __int64 v40; // rbx
-  __int64 v41; // rcx
-  PVOID v42; // r13
-  int v43; // ecx
-  size_t v44; // r15
-  char *Pool2; // rax
-  char *v46; // rdi
-  unsigned int v47; // eax
-  __int64 v48; // rax
-  int v49; // ebx
-  __int64 v50; // rax
-  int v51; // eax
+  unsigned __int64 v38; // r8
+  __int64 v39; // rcx
+  unsigned __int64 v40; // rcx
+  __int64 v41; // rax
+  __int64 v42; // rbx
+  __int64 v43; // rcx
+  void *v44; // rbx
+  int v45; // ecx
+  size_t v46; // r13
+  size_t v47; // r15
+  char *PoolWithTag; // rax
+  char *v49; // rdi
+  unsigned int v50; // eax
+  __int64 v51; // rax
   __int64 v52; // rax
-  unsigned int v53; // ecx
+  int v53; // eax
   unsigned int v54; // edx
-  unsigned __int16 v55; // r13
-  _WORD *v56; // rax
-  char *v57; // rax
-  _OWORD *v58; // r9
-  __int64 v59; // rdx
-  unsigned int v60; // r8d
-  _DWORD *v61; // r10
-  __int64 v62; // rcx
-  unsigned __int16 *v63; // rdx
-  int v64; // ecx
-  unsigned int v65; // ebx
-  int v66; // ecx
-  int v67; // eax
-  __int64 v68; // rcx
-  int v69; // eax
-  __int16 v70; // [rsp+28h] [rbp-E0h] BYREF
-  char v71; // [rsp+2Ah] [rbp-DEh] BYREF
-  int v72; // [rsp+2Ch] [rbp-DCh]
-  size_t Size; // [rsp+30h] [rbp-D8h] BYREF
-  PVOID Src; // [rsp+38h] [rbp-D0h] BYREF
-  PVOID v75; // [rsp+40h] [rbp-C8h] BYREF
-  _QWORD *v76; // [rsp+48h] [rbp-C0h]
-  __int16 *v77; // [rsp+50h] [rbp-B8h] BYREF
-  PVOID v78; // [rsp+58h] [rbp-B0h]
-  PVOID P; // [rsp+60h] [rbp-A8h]
-  __int64 v80; // [rsp+68h] [rbp-A0h]
-  const int *v81; // [rsp+70h] [rbp-98h]
-  __int64 v82; // [rsp+78h] [rbp-90h]
-  __int64 *v83; // [rsp+80h] [rbp-88h]
-  __int128 *v84; // [rsp+88h] [rbp-80h]
-  __int16 *v85; // [rsp+90h] [rbp-78h]
-  struct _SECURITY_SUBJECT_CONTEXT v86; // [rsp+98h] [rbp-70h] BYREF
-  _QWORD v87[132]; // [rsp+B8h] [rbp-50h] BYREF
-  __int128 v88; // [rsp+4D8h] [rbp+3D0h] BYREF
+  unsigned int v55; // ecx
+  __int64 v56; // rax
+  unsigned __int16 v57; // r15
+  _WORD *v58; // r8
+  char *v59; // rax
+  _OWORD *v60; // r9
+  __int64 v61; // rdx
+  unsigned int v62; // r8d
+  _DWORD *v63; // r10
+  char *v64; // r12
+  __int64 v65; // rcx
+  int v66; // eax
+  __int64 v67; // rax
+  unsigned __int16 *v68; // rdx
+  int v69; // ecx
+  unsigned int v70; // ebx
+  int v71; // ecx
+  int v72; // eax
+  __int16 *v73; // rcx
+  int v74; // eax
+  __int16 v75; // [rsp+28h] [rbp-E0h] BYREF
+  char v76; // [rsp+2Ah] [rbp-DEh] BYREF
+  unsigned __int16 v77; // [rsp+2Ch] [rbp-DCh]
+  void *Src; // [rsp+30h] [rbp-D8h] BYREF
+  size_t Size; // [rsp+38h] [rbp-D0h] BYREF
+  PVOID v80; // [rsp+40h] [rbp-C8h] BYREF
+  const int *v81; // [rsp+48h] [rbp-C0h]
+  _QWORD *v82; // [rsp+50h] [rbp-B8h]
+  __int16 *v83; // [rsp+58h] [rbp-B0h] BYREF
+  PVOID v84; // [rsp+60h] [rbp-A8h]
+  PVOID P; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 v86; // [rsp+70h] [rbp-98h]
+  __int64 v87; // [rsp+78h] [rbp-90h]
+  unsigned __int64 *v88; // [rsp+80h] [rbp-88h]
+  __int128 *v89; // [rsp+88h] [rbp-80h]
+  __int16 *v90; // [rsp+90h] [rbp-78h]
+  struct _SECURITY_SUBJECT_CONTEXT v91; // [rsp+98h] [rbp-70h] BYREF
+  _QWORD v92[132]; // [rsp+B8h] [rbp-50h] BYREF
+  __int128 v93; // [rsp+4D8h] [rbp+3D0h] BYREF
 
   v19 = a6;
-  LOWORD(v72) = a1;
+  v77 = a1;
   v21 = 0LL;
-  v80 = a19;
-  v83 = a3;
+  v86 = a19;
+  v22 = 0LL;
+  v88 = a3;
   v81 = a2;
-  v76 = a8;
-  v86.PrimaryToken = a8;
-  v85 = a6;
-  v77 = a6;
-  v78 = 0LL;
+  v82 = a8;
+  v91.PrimaryToken = a8;
+  v90 = a6;
+  v83 = a6;
+  v84 = 0LL;
   P = 0LL;
-  *(_QWORD *)&v86.ImpersonationLevel = 0LL;
-  v86.ProcessAuditId = 0LL;
-  v88 = 0LL;
+  *(_QWORD *)&v91.ImpersonationLevel = 0LL;
+  v91.ProcessAuditId = 0LL;
+  v93 = 0LL;
   Size = 0LL;
   Src = 0LL;
-  v75 = 0LL;
-  v71 = 0;
-  v70 = 0;
-  v86.ClientToken = a7;
-  if ( !SepAdtAuditThisEventWithContext(124LL, a12, a12 == 0, &v86) )
+  v80 = 0LL;
+  v76 = 0;
+  v75 = 0;
+  v91.ClientToken = a7;
+  if ( !(unsigned __int8)SepAdtAuditThisEventWithContext(124LL, a12, a12 == 0, &v91) )
     return 1;
-  v23 = &v88;
+  v24 = &v93;
   if ( a18 )
-    v23 = a18;
-  v84 = v23;
+    v24 = a18;
+  v89 = v24;
   CurrentThreadProcess = PsGetCurrentThreadProcess();
-  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess);
+  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, (__int64)&P);
   if ( AllocatedFullProcessImageName >= 0 )
   {
     if ( a7 )
     {
       v21 = a7[3];
-      v26 = (__int64 *)a7[19];
+      v27 = (__int64 *)a7[19];
     }
     else
     {
-      v26 = (__int64 *)v76[19];
+      v27 = (__int64 *)v82[19];
     }
-    v27 = v76[3];
-    v82 = *v26;
-    memset(v87, 0, 0x418uLL);
-    v28 = a12;
-    v29 = 8;
-    HIDWORD(v87[0]) = 4656;
-    LOWORD(v87[2]) = v72;
-    WORD1(v87[2]) = 8;
+    v28 = v82[3];
+    v87 = *v27;
+    memset(v92, 0, 0x418uLL);
+    v29 = a12;
+    v30 = 8;
+    HIDWORD(v92[0]) = 4656;
+    LOWORD(v92[2]) = v77;
+    WORD1(v92[2]) = 8;
     if ( a14 == 2 )
-      v29 = 3;
-    LODWORD(v87[0]) = v29;
+      v30 = 3;
+    LODWORD(v92[0]) = v30;
     if ( !a12 )
-      WORD1(v87[2]) = 16;
-    v30 = &SeSubsystemName;
-    v31 = 4LL;
-    v87[6] = v82;
+      WORD1(v92[2]) = 16;
+    v31 = &SeSubsystemName;
+    v32 = 4LL;
+    v92[6] = v87;
     if ( v81 )
-      v30 = v81;
-    LODWORD(v87[3]) = 4;
-    LODWORD(v87[7]) = 1;
-    v32 = *(unsigned __int8 *)(v82 + 1);
-    v87[10] = v30;
-    v87[11] = 0x800000005LL;
-    v87[12] = v21;
-    HIDWORD(v87[3]) = 4 * v32 + 8;
-    v33 = *(unsigned __int16 *)v30 + 16;
-    HIDWORD(v87[7]) = v33;
+      v31 = v81;
+    LODWORD(v92[3]) = 4;
+    LODWORD(v92[7]) = 1;
+    v33 = *(unsigned __int8 *)(v87 + 1);
+    v92[10] = v31;
+    v92[11] = 0x800000005LL;
+    v92[12] = v21;
+    HIDWORD(v92[3]) = 4 * v33 + 8;
+    v34 = *(unsigned __int16 *)v31 + 16;
+    HIDWORD(v92[7]) = v34;
     if ( !a7 )
-      v87[12] = v27;
-    LODWORD(v87[15]) = 1;
-    HIDWORD(v87[15]) = v33;
-    v87[18] = v30;
+      v92[12] = v28;
+    LODWORD(v92[15]) = 1;
+    HIDWORD(v92[15]) = v34;
+    v92[18] = v31;
     if ( !a4 )
     {
       AllocatedFullProcessImageName = -1073741811;
-      goto LABEL_42;
+LABEL_19:
+      v22 = Src;
+      goto LABEL_20;
     }
-    HIDWORD(v87[19]) = *a4 + 16;
-    LODWORD(v87[19]) = 1;
-    v87[22] = a4;
+    v35 = *a4 + 16;
+    v92[22] = a4;
+    HIDWORD(v92[19]) = v35;
+    LODWORD(v92[19]) = 1;
     if ( a5 )
     {
-      if ( (_WORD)v72 == 117 || (LODWORD(v87[23]) = 1, (_WORD)v72 == 129) )
-        LODWORD(v87[23]) = 2;
-      v34 = *a5;
-      v87[26] = a5;
-      HIDWORD(v87[23]) = v34 + 16;
+      if ( v77 == 117 || (LODWORD(v92[23]) = 1, v77 == 129) )
+        LODWORD(v92[23]) = 2;
+      v36 = *a5;
+      v92[26] = a5;
+      HIDWORD(v92[23]) = v36 + 16;
     }
-    v87[27] = 0x80000000BLL;
-    if ( v83 )
+    v92[27] = 0x80000000BLL;
+    if ( v88 )
     {
-      IsKernelHandle = ObpIsKernelHandle(*v83, 0);
-      v38 = v37 ^ 0xFFFFFFFF80000000uLL;
+      IsKernelHandle = ObpIsKernelHandle(*v88, 0);
+      v40 = v39 ^ 0xFFFFFFFF80000000uLL;
       if ( !IsKernelHandle )
-        v38 = v36;
-      v87[28] = v38 & 0xFFFFFFFFFFFFFFFCuLL;
+        v40 = v38;
+      v92[28] = v40 & 0xFFFFFFFFFFFFFFFCuLL;
     }
     else
     {
-      v87[28] = 0LL;
+      v92[28] = 0LL;
     }
-    v87[34] = v84;
-    v39 = a10;
-    v87[31] = 0x100000000DLL;
-    LODWORD(v87[35]) = 7;
-    HIDWORD(v87[35]) = v31;
-    v87[37] = v31;
-    if ( !v28 )
-      v39 = a9;
-    v40 = v80;
-    v87[36] = v39;
-    LODWORD(v87[1]) = 9;
-    if ( v80 && (v41 = *(_QWORD *)(v80 + 72)) != 0 )
+    v92[34] = v89;
+    v41 = a10;
+    v92[31] = 0x100000000DLL;
+    LODWORD(v92[35]) = 7;
+    HIDWORD(v92[35]) = v32;
+    v92[37] = v32;
+    if ( !v29 )
+      v41 = a9;
+    v42 = v86;
+    v92[36] = v41;
+    if ( v86 && (v43 = *(_QWORD *)(v86 + 72)) != 0 )
     {
       AllocatedFullProcessImageName = SepCheckAndCopySelfRelativeSD(
-                                        *(__int16 **)(v41 + 56),
+                                        *(__int16 **)(v43 + 56),
                                         &Src,
-                                        (ULONG *)&Size,
-                                        (_BYTE *)&v70 + 1);
-      if ( AllocatedFullProcessImageName < 0 )
-        goto LABEL_42;
-      AllocatedFullProcessImageName = SepCheckAndCopySelfRelativeSD(
-                                        *(__int16 **)(*(_QWORD *)(v40 + 72) + 64LL),
-                                        &v75,
                                         (ULONG *)&Size + 1,
-                                        &v71);
+                                        (_BYTE *)&v75 + 1);
       if ( AllocatedFullProcessImageName < 0 )
-        goto LABEL_42;
-      v42 = Src;
-      if ( Src || v75 )
+        goto LABEL_102;
+      AllocatedFullProcessImageName = SepCheckAndCopySelfRelativeSD(
+                                        *(__int16 **)(*(_QWORD *)(v42 + 72) + 64LL),
+                                        &v80,
+                                        (ULONG *)&Size,
+                                        &v76);
+      if ( AllocatedFullProcessImageName < 0 )
+        goto LABEL_102;
+      v44 = Src;
+      if ( Src || v80 )
       {
-        v43 = 8;
-        goto LABEL_40;
+        v45 = 8;
+        goto LABEL_55;
       }
     }
     else
     {
-      v42 = Src;
+      v44 = Src;
     }
-    v43 = 0;
-LABEL_40:
-    v44 = (unsigned int)(HIDWORD(Size) - v43 + Size + 152);
-    Pool2 = (char *)ExAllocatePool2(256LL, (unsigned int)v44, 1883333971LL);
-    v46 = Pool2;
-    if ( !Pool2 )
+    v45 = 0;
+LABEL_55:
+    v46 = HIDWORD(Size);
+    LODWORD(v81) = HIDWORD(Size) + Size - v45 + 152;
+    v47 = (unsigned int)v81;
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v81, 0x70416553u);
+    v49 = PoolWithTag;
+    if ( !PoolWithTag )
     {
       AllocatedFullProcessImageName = -1073741670;
-      goto LABEL_42;
+      goto LABEL_19;
     }
-    memset(Pool2, 0, v44);
-    v47 = a10;
-    *((_DWORD *)v46 + 34) = a12;
-    if ( !a12 )
-      v47 = a9;
-    *((_DWORD *)v46 + 33) = 4;
-    *(_DWORD *)v46 = v47 & 0xFDFFFFFF;
-    if ( v80 )
-    {
-      v48 = *(_QWORD *)(v80 + 72);
-      if ( v48 )
-      {
-        *(_OWORD *)(v46 + 4) = *(_OWORD *)(v48 + 88);
-        *(_OWORD *)(v46 + 20) = *(_OWORD *)(v48 + 104);
-        *(_OWORD *)(v46 + 36) = *(_OWORD *)(v48 + 120);
-        *(_OWORD *)(v46 + 52) = *(_OWORD *)(v48 + 136);
-        *(_OWORD *)(v46 + 68) = *(_OWORD *)(v48 + 152);
-        *(_OWORD *)(v46 + 84) = *(_OWORD *)(v48 + 168);
-        *(_OWORD *)(v46 + 100) = *(_OWORD *)(v48 + 184);
-        *(_OWORD *)(v46 + 116) = *(_OWORD *)(v48 + 200);
-      }
-    }
-    v49 = Size;
-    if ( v42 )
-      memmove(v46 + 144, v42, (unsigned int)Size);
-    if ( v75 )
-      memmove(&v46[v49 + 144], v75, HIDWORD(Size));
+    memset(PoolWithTag, 0, v47);
     v50 = a10;
-    HIDWORD(v87[39]) = v44;
-    LODWORD(v87[39]) = 29;
-    v87[42] = v46;
-    v87[43] = 0x40000000ALL;
+    *((_DWORD *)v49 + 34) = a12;
     if ( !a12 )
       v50 = a9;
-    v87[44] = v50;
-    if ( a11 )
+    *((_DWORD *)v49 + 33) = 4;
+    *(_DWORD *)v49 = v50 & 0xFDFFFFFF;
+    if ( v86 )
     {
-      v51 = *a11;
-      if ( *a11 )
+      v51 = *(_QWORD *)(v86 + 72);
+      if ( v51 )
       {
-        LODWORD(v87[47]) = 8;
-        v87[50] = a11;
-        HIDWORD(v87[47]) = 12 * v51 + 8;
+        *(_OWORD *)(v49 + 4) = *(_OWORD *)(v51 + 88);
+        *(_OWORD *)(v49 + 20) = *(_OWORD *)(v51 + 104);
+        *(_OWORD *)(v49 + 36) = *(_OWORD *)(v51 + 120);
+        *(_OWORD *)(v49 + 52) = *(_OWORD *)(v51 + 136);
+        *(_OWORD *)(v49 + 68) = *(_OWORD *)(v51 + 152);
+        *(_OWORD *)(v49 + 84) = *(_OWORD *)(v51 + 168);
+        *(_OWORD *)(v49 + 100) = *(_OWORD *)(v51 + 184);
+        *(_OWORD *)(v49 + 116) = *(_OWORD *)(v51 + 200);
       }
     }
-    LODWORD(v87[1]) = 12;
-    v52 = 12LL;
+    if ( v44 )
+      memmove(v49 + 144, v44, v46);
+    if ( v80 )
+      memmove(&v49[v46 + 144], v80, (unsigned int)Size);
+    HIDWORD(v92[39]) = (_DWORD)v81;
+    v52 = a10;
+    LODWORD(v92[39]) = 29;
+    v92[42] = v49;
+    v92[43] = 0x40000000ALL;
+    if ( !a12 )
+      v52 = a9;
+    v92[44] = v52;
+    if ( a11 )
+    {
+      v53 = *a11;
+      if ( *a11 )
+      {
+        LODWORD(v92[47]) = 8;
+        v92[50] = a11;
+        HIDWORD(v92[47]) = 12 * v53 + 8;
+      }
+    }
+    v54 = 12;
+    LODWORD(v92[1]) = 12;
     if ( a16 )
     {
-      v53 = 0;
-      v54 = 0;
-      v55 = 2 - (a12 != 0);
-      v56 = (_WORD *)(a15 + 2);
+      v55 = 0;
+      v56 = 0LL;
+      v57 = 2 - (a12 != 0);
+      v58 = (_WORD *)(a15 + 2);
       do
       {
-        if ( !v54 || (v55 & *v56) != 0 )
-          ++v53;
-        ++v54;
-        v56 += 24;
+        if ( !v55 || (v57 & *v58) != 0 )
+          v56 = (unsigned int)(v56 + 1);
+        ++v55;
+        v58 += 24;
       }
-      while ( v54 < a16 );
-      v52 = 12LL;
-      if ( v53 )
+      while ( v55 < a16 );
+      if ( (_DWORD)v56 )
       {
-        v57 = (char *)ExAllocatePool2(256LL, 24LL * v53, 1883333971LL);
-        v78 = v57;
-        if ( !v57 )
+        v59 = (char *)ExAllocatePoolWithTag(PagedPool, 24 * v56, 0x70416553u);
+        v84 = v59;
+        if ( !v59 )
         {
           AllocatedFullProcessImageName = -1073741670;
-LABEL_100:
-          ExFreePoolWithTag(v46, 0);
-          goto LABEL_42;
+LABEL_101:
+          ExFreePoolWithTag(v49, 0);
+LABEL_102:
+          v22 = Src;
+          goto LABEL_20;
         }
-        v58 = (_OWORD *)(a15 + 4);
-        v59 = 0LL;
-        v60 = 0;
-        v61 = a17;
+        v60 = (_OWORD *)(a15 + 4);
+        v61 = 0LL;
+        v62 = 0;
+        v63 = a17;
+        v64 = v59;
         do
         {
-          if ( !v60 || (v55 & *((_WORD *)v58 - 1)) != 0 )
+          if ( !v62 || (v57 & *((_WORD *)v60 - 1)) != 0 )
           {
-            v62 = 3 * v59;
-            *(_OWORD *)&v57[8 * v62] = *v58;
-            *(_WORD *)&v57[8 * v62 + 18] = *((_WORD *)v58 - 2);
-            if ( v60 )
+            v65 = 3 * v61;
+            *(_OWORD *)&v59[8 * v65] = *v60;
+            *(_WORD *)&v59[8 * v65 + 18] = *((_WORD *)v60 - 2);
+            if ( v62 )
             {
-              *(_WORD *)&v57[24 * v59 + 16] = 0;
+              *(_WORD *)&v59[24 * v61 + 16] = 0;
               if ( a17 && a12 )
-                *(_DWORD *)&v57[24 * v59 + 20] = *v61;
+                *(_DWORD *)&v59[24 * v61 + 20] = *v63;
             }
             else
             {
-              *(_WORD *)&v57[24 * v59 + 16] = 1;
-              *(_DWORD *)&v57[24 * v59 + 20] = 0;
+              *(_WORD *)&v59[24 * v61 + 16] = 1;
+              *(_DWORD *)&v59[24 * v61 + 20] = 0;
             }
-            v59 = (unsigned int)(v59 + 1);
+            v61 = (unsigned int)(v61 + 1);
           }
-          ++v60;
-          v58 += 3;
-          ++v61;
+          ++v62;
+          v60 += 3;
+          ++v63;
         }
-        while ( v60 < a16 );
-        v87[54] = v57;
-        v19 = v85;
-        HIDWORD(v87[51]) = 24 * v59;
-        v52 = 13LL;
-        LODWORD(v87[51]) = 9;
-        v87[53] = 4LL;
-        LODWORD(v87[1]) = 13;
-        HIDWORD(v87[0]) = 4661;
+        while ( v62 < a16 );
+        v66 = 3 * v61;
+        v92[54] = v64;
+        v19 = v90;
+        v54 = 13;
+        HIDWORD(v92[51]) = 8 * v66;
+        LODWORD(v92[51]) = 9;
+        v92[53] = 4LL;
+        LODWORD(v92[1]) = 13;
+        HIDWORD(v92[0]) = 4661;
       }
     }
-    v63 = (unsigned __int16 *)P;
-    LODWORD(v87[4 * v52 + 3]) = 27;
-    HIDWORD(v87[4 * LODWORD(v87[1]) + 3]) = 4;
-    v87[4 * LODWORD(v87[1]) + 4] = *((unsigned int *)v76 + 32);
-    ++LODWORD(v87[1]);
-    LODWORD(v87[4 * LODWORD(v87[1]) + 3]) = 11;
-    HIDWORD(v87[4 * LODWORD(v87[1]) + 3]) = 8;
-    v87[4 * LODWORD(v87[1]) + 4] = a13;
-    ++LODWORD(v87[1]);
-    LODWORD(v87[4 * LODWORD(v87[1]) + 3]) = 2;
-    HIDWORD(v87[4 * LODWORD(v87[1]) + 3]) = *v63 + 16;
-    v64 = (unsigned __int16)v72;
-    v87[4 * LODWORD(v87[1]) + 6] = v63;
-    v65 = ++LODWORD(v87[1]);
-    v66 = v64 - 117;
-    if ( (!v66 || v66 == 12) && v19 && HIDWORD(v87[0]) == 4656 && (unsigned __int8)SepSDContainsAttributeACE(v19) )
+    v67 = v54;
+    v68 = (unsigned __int16 *)P;
+    LODWORD(v92[4 * v67 + 3]) = 27;
+    HIDWORD(v92[4 * LODWORD(v92[1]) + 3]) = 4;
+    v92[4 * LODWORD(v92[1]) + 4] = *((unsigned int *)v82 + 32);
+    ++LODWORD(v92[1]);
+    LODWORD(v92[4 * LODWORD(v92[1]) + 3]) = 11;
+    HIDWORD(v92[4 * LODWORD(v92[1]) + 3]) = 8;
+    v92[4 * LODWORD(v92[1]) + 4] = a13;
+    ++LODWORD(v92[1]);
+    LODWORD(v92[4 * LODWORD(v92[1]) + 3]) = 2;
+    HIDWORD(v92[4 * LODWORD(v92[1]) + 3]) = *v68 + 16;
+    v69 = v77;
+    v92[4 * LODWORD(v92[1]) + 6] = v68;
+    v70 = ++LODWORD(v92[1]);
+    v71 = v69 - 117;
+    if ( (!v71 || v71 == 12) && v19 && HIDWORD(v92[0]) == 4656 && (unsigned __int8)SepSDContainsAttributeACE(v19) )
     {
-      v67 = SepCheckAndCopySelfRelativeSD(v19, (PVOID *)&v77, (ULONG *)&Size, &v70);
-      v19 = v77;
-      AllocatedFullProcessImageName = v67;
-      if ( v67 < 0 )
-        goto LABEL_98;
-      v68 = (__int64)v77;
-      LODWORD(v87[4 * v65 + 3]) = 31;
-      v69 = SepSecurityDescriptorStrictLength(v68);
-      HIDWORD(v87[4 * LODWORD(v87[1]) + 3]) = v69;
-      v87[4 * LODWORD(v87[1]) + 6] = v19;
-      v87[4 * LODWORD(v87[1]) + 4] = 32LL;
-      v87[4 * LODWORD(v87[1]) + 5] = 0LL;
-      v65 = v87[1];
+      v72 = SepCheckAndCopySelfRelativeSD(v19, (PVOID *)&v83, (ULONG *)&Size + 1, &v75);
+      v19 = v83;
+      AllocatedFullProcessImageName = v72;
+      if ( v72 < 0 )
+        goto LABEL_99;
+      v73 = v83;
+      LODWORD(v92[4 * v70 + 3]) = 31;
+      v74 = SepSecurityDescriptorStrictLength(v73);
+      HIDWORD(v92[4 * LODWORD(v92[1]) + 3]) = v74;
+      v92[4 * LODWORD(v92[1]) + 6] = v19;
+      v92[4 * LODWORD(v92[1]) + 4] = 32LL;
+      v92[4 * LODWORD(v92[1]) + 5] = 0LL;
+      v70 = v92[1];
     }
-    LODWORD(v87[1]) = v65 + 1;
-    SepAdtLogAuditRecord(v87);
-LABEL_98:
-    if ( v78 )
-      ExFreePoolWithTag(v78, 0);
-    goto LABEL_100;
+    LODWORD(v92[1]) = v70 + 1;
+    SepAdtLogAuditRecord(v92);
+LABEL_99:
+    if ( v84 )
+      ExFreePoolWithTag(v84, 0);
+    goto LABEL_101;
   }
-LABEL_42:
+LABEL_20:
   if ( P )
     ExFreePoolWithTag(P, 0);
-  if ( (_BYTE)v70 && v19 )
+  if ( (_BYTE)v75 && v19 )
     ExFreePoolWithTag(v19, 0);
-  if ( HIBYTE(v70) && Src )
-    ExFreePoolWithTag(Src, 0);
-  if ( v71 && v75 )
-    ExFreePoolWithTag(v75, 0);
+  if ( HIBYTE(v75) && v22 )
+    ExFreePoolWithTag(v22, 0);
+  if ( v76 && v80 )
+    ExFreePoolWithTag(v80, 0);
   if ( AllocatedFullProcessImageName < 0 )
     SepAuditFailed((unsigned int)AllocatedFullProcessImageName);
   return AllocatedFullProcessImageName >= 0;

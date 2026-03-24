@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfSetIsochDelayShouldBeSkipped @ 0x1C00227E0
+ * XREFs of HUBDSM_CheckingIfSetIsochDelayShouldBeSkipped @ 0x1C0022390
  * Callers:
  *     <none>
  * Callees:

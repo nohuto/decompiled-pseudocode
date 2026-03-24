@@ -1,17 +1,17 @@
 /*
- * XREFs of ?StopMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z @ 0x1C01B5C2C
+ * XREFs of ?StopMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z @ 0x1C01E0D18
  * Callers:
- *     ?GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z @ 0x1C01500FC (-GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z.c)
- *     PostMousePointerLeaveAndCleanup @ 0x1C01B6970 (PostMousePointerLeaveAndCleanup.c)
+ *     ?GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z @ 0x1C01DFF2C (-GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z.c)
+ *     PostMousePointerLeaveAndCleanup @ 0x1C01E1AE0 (PostMousePointerLeaveAndCleanup.c)
  * Callees:
- *     FindTimer @ 0x1C003BF24 (FindTimer.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
  */
 
 void __fastcall StopMiPIdleNotificationTimer(struct tagWND *a1)
 {
   __int64 v1; // r8
 
-  v1 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 1352LL);
+  v1 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 1280LL);
   if ( *(_QWORD *)a1 == *(_QWORD *)(v1 + 8) )
   {
     *(_QWORD *)(v1 + 8) = 0LL;

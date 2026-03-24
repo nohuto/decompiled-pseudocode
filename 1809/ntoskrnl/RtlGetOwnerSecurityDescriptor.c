@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlGetOwnerSecurityDescriptor @ 0x1406AD1E0
+ * XREFs of RtlGetOwnerSecurityDescriptor @ 0x1406AD1C0
  * Callers:
  *     CmpCheckExeOwnerForPca @ 0x14058093C (CmpCheckExeOwnerForPca.c)
  *     CmpCheckKeyOwnerForPca @ 0x140580A4C (CmpCheckKeyOwnerForPca.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB24 (PspAllocateAndQueryNotificationChannel.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1406D6658 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x1406F05A8 (PipChangeDeviceObjectFromRegistryProperties.c)
- *     CmpCopySaclToVirtualKey @ 0x1407F4B70 (CmpCopySaclToVirtualKey.c)
- *     RtlReplaceSidInSd @ 0x140893F00 (RtlReplaceSidInSd.c)
- *     LocalConvertSDToStringSD_Rev1 @ 0x1408A59E0 (LocalConvertSDToStringSD_Rev1.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB04 (PspAllocateAndQueryNotificationChannel.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x1406D6638 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x1406F0588 (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     CmpCopySaclToVirtualKey @ 0x1407F4B50 (CmpCopySaclToVirtualKey.c)
+ *     RtlReplaceSidInSd @ 0x140893EE0 (RtlReplaceSidInSd.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x1408A59C0 (LocalConvertSDToStringSD_Rev1.c)
  * Callees:
  *     <none>
  */

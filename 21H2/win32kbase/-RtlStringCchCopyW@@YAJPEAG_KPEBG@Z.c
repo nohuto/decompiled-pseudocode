@@ -1,32 +1,39 @@
 /*
- * XREFs of ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0047358
+ * XREFs of ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000FA94
  * Callers:
- *     ?_BeginKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@AEAAXI@Z @ 0x1C00018E8 (-_BeginKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@AEAAXI@Z.c)
- *     FastGetProfileStringW @ 0x1C0019800 (FastGetProfileStringW.c)
- *     ?GetSpriteFillColor@@YAKXZ @ 0x1C0046C98 (-GetSpriteFillColor@@YAKXZ.c)
- *     NtUserGetHDevName @ 0x1C0046FB0 (NtUserGetHDevName.c)
- *     DrvGetHdevName @ 0x1C00470C0 (DrvGetHdevName.c)
- *     EtwTraceAuditApiSetWindowsHookEx @ 0x1C0047100 (EtwTraceAuditApiSetWindowsHookEx.c)
- *     ?UserInitialize@@YAJXZ @ 0x1C005F1A8 (-UserInitialize@@YAJXZ.c)
- *     xxxUpdatePerUserAccessPackSettings @ 0x1C0060150 (xxxUpdatePerUserAccessPackSettings.c)
- *     ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C00BEE40 (-GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z.c)
- *     WinSqmAddToStreamEx @ 0x1C01678C0 (WinSqmAddToStreamEx.c)
- *     ?LogHanging@KeyboardInputTelemetry@@CAXPEAUtagTHREADINFO@@_K@Z @ 0x1C0168CB0 (-LogHanging@KeyboardInputTelemetry@@CAXPEAUtagTHREADINFO@@_K@Z.c)
- *     rimReadSingleDigitizerToMonitorMappings @ 0x1C01976C4 (rimReadSingleDigitizerToMonitorMappings.c)
- *     InitCreateUserSubsystem @ 0x1C02E32B8 (InitCreateUserSubsystem.c)
+ *     ?BeginKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@QEAAXI@Z @ 0x1C0001F30 (-BeginKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@QEAAXI@Z.c)
+ *     xxxUpdatePerUserAccessPackSettings @ 0x1C000DFA0 (xxxUpdatePerUserAccessPackSettings.c)
+ *     FastGetProfileStringW @ 0x1C000F190 (FastGetProfileStringW.c)
+ *     NtUserGetHDevName @ 0x1C000F660 (NtUserGetHDevName.c)
+ *     DrvGetHdevName @ 0x1C000FA60 (DrvGetHdevName.c)
+ *     ?UserInitialize@@YAJXZ @ 0x1C0068284 (-UserInitialize@@YAJXZ.c)
+ *     ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C009F904 (-GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z.c)
+ *     ?GetSpriteFillColor@@YAKXZ @ 0x1C00C70E0 (-GetSpriteFillColor@@YAKXZ.c)
+ *     EtwTraceAuditApiSetWindowsHookEx @ 0x1C01214D0 (EtwTraceAuditApiSetWindowsHookEx.c)
+ *     WinSqmAddToStreamEx @ 0x1C013A2A0 (WinSqmAddToStreamEx.c)
+ *     ?LogHanging@KeyboardInputTelemetry@@CAXPEAUtagTHREADINFO@@_K@Z @ 0x1C013B878 (-LogHanging@KeyboardInputTelemetry@@CAXPEAUtagTHREADINFO@@_K@Z.c)
+ *     rimReadSingleDigitizerToMonitorMappings @ 0x1C0163CB0 (rimReadSingleDigitizerToMonitorMappings.c)
+ *     InitCreateUserSubsystem @ 0x1C0299BFC (InitCreateUserSubsystem.c)
  * Callees:
- *     RtlStringCopyWorkerW @ 0x1C0047380 (RtlStringCopyWorkerW.c)
+ *     RtlStringCopyWorkerW @ 0x1C00C73D4 (RtlStringCopyWorkerW.c)
  */
 
-NTSTATUS __fastcall RtlStringCchCopyW(unsigned __int16 *a1, size_t a2, size_t *a3)
+__int64 __fastcall RtlStringCchCopyW(unsigned __int16 *a1, size_t a2, size_t *a3)
 {
-  NTSTATUS result; // eax
-  size_t v4; // [rsp+20h] [rbp-18h]
+  int v3; // r9d
+  size_t v5; // [rsp+20h] [rbp-18h]
 
-  if ( a2 - 1 <= 0x7FFFFFFE )
-    return RtlStringCopyWorkerW(a1, a2, a3, (STRSAFE_PCNZWCH)a3, v4);
-  result = -1073741811;
-  if ( a2 )
-    *a1 = 0;
-  return result;
+  v3 = 0;
+  if ( a2 - 1 > 0x7FFFFFFE )
+    v3 = -1073741811;
+  if ( v3 < 0 )
+  {
+    if ( a2 )
+      *a1 = 0;
+  }
+  else
+  {
+    return (unsigned int)RtlStringCopyWorkerW(a1, a2, a3, (STRSAFE_PCNZWCH)a3, v5);
+  }
+  return (unsigned int)v3;
 }

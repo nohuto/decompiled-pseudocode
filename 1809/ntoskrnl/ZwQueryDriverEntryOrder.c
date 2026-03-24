@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryDriverEntryOrder @ 0x1401BA910
+ * XREFs of ZwQueryDriverEntryOrder @ 0x1401BA930
  * Callers:
  *     <none>
  * Callees:

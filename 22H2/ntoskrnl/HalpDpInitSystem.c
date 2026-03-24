@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDpInitSystem @ 0x140A91760
+ * XREFs of HalpDpInitSystem @ 0x1409A11D0
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x14031F8FC (HalpInterruptModel.c)
- *     HalpDpInitDiscard @ 0x140B6B400 (HalpDpInitDiscard.c)
+ *     HalpInterruptModel @ 0x14037ADC4 (HalpInterruptModel.c)
+ *     HalpDpInitDiscard @ 0x140A6D3F4 (HalpDpInitDiscard.c)
  */
 
 __int64 HalpDpInitSystem()
@@ -20,14 +20,14 @@ __int64 HalpDpInitSystem()
     }
     else if ( v0 == 17 )
     {
-      off_140C01A88[0] = (__int64 (__fastcall *)())HalpDpReplaceBegin;
-      off_140C01A90[0] = HalpDpReplaceTarget;
-      off_140C01A98[0] = HalpDpReplaceControl;
-      off_140C01AA0[0] = (__int64 (__fastcall *)())HalpDpReplaceEnd;
-      off_140C01AE8[0] = HalpInterruptMaskLevelTriggeredLines;
-      off_140C01AF8[0] = HalpDpGetInterruptReplayState;
-      off_140C01B00[0] = HalpDpReplayInterrupts;
-      off_140C01AF0[0] = HalpInterruptUnmaskLevelTriggeredLines;
+      off_140C00678[0] = (__int64 (__fastcall *)())HalpDpReplaceBegin;
+      off_140C00680[0] = HalpDpReplaceTarget;
+      off_140C00688[0] = HalpDpReplaceControl;
+      off_140C00690[0] = (__int64 (__fastcall *)())HalpDpReplaceEnd;
+      off_140C006D8[0] = HalpInterruptMaskLevelTriggeredLines;
+      off_140C006E8[0] = HalpDpGetInterruptReplayState;
+      off_140C006F0[0] = HalpDpReplayInterrupts;
+      off_140C006E0[0] = HalpInterruptUnmaskLevelTriggeredLines;
     }
   }
   return 0LL;

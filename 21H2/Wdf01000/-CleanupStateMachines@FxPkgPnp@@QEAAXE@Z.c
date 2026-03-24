@@ -1,18 +1,18 @@
 /*
- * XREFs of ?CleanupStateMachines@FxPkgPnp@@QEAAXE@Z @ 0x1C0030434
+ * XREFs of ?CleanupStateMachines@FxPkgPnp@@QEAAXE@Z @ 0x1C007FBA8
  * Callers:
- *     ?DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z @ 0x1C00301DC (-DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z.c)
- *     ?ProcessRemoveDeviceOverload@FxPkgPdo@@EEAAJPEAVFxIrp@@@Z @ 0x1C0083850 (-ProcessRemoveDeviceOverload@FxPkgPdo@@EEAAJPEAVFxIrp@@@Z.c)
- *     ?ProcessDelayedDeletion@FxPkgPnp@@QEAAXXZ @ 0x1C00888B0 (-ProcessDelayedDeletion@FxPkgPnp@@QEAAXXZ.c)
- *     ?ProcessRemoveDeviceOverload@FxPkgFdo@@EEAAJPEAVFxIrp@@@Z @ 0x1C0089A90 (-ProcessRemoveDeviceOverload@FxPkgFdo@@EEAAJPEAVFxIrp@@@Z.c)
+ *     ?DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z @ 0x1C0051B74 (-DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z.c)
+ *     ?ProcessRemoveDeviceOverload@FxPkgPdo@@EEAAJPEAVFxIrp@@@Z @ 0x1C00796E0 (-ProcessRemoveDeviceOverload@FxPkgPdo@@EEAAJPEAVFxIrp@@@Z.c)
+ *     ?ProcessDelayedDeletion@FxPkgPnp@@QEAAXXZ @ 0x1C00821CC (-ProcessDelayedDeletion@FxPkgPnp@@QEAAXXZ.c)
+ *     ?ProcessRemoveDeviceOverload@FxPkgFdo@@EEAAJPEAVFxIrp@@@Z @ 0x1C0084700 (-ProcessRemoveDeviceOverload@FxPkgFdo@@EEAAJPEAVFxIrp@@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     ??0FxCREvent@@QEAA@E@Z @ 0x1C001AC84 (--0FxCREvent@@QEAA@E@Z.c)
- *     ?SetFinished@FxEventQueue@@QEAAEPEAUFxCREvent@@@Z @ 0x1C0030530 (-SetFinished@FxEventQueue@@QEAAEPEAUFxCREvent@@@Z.c)
- *     ?ReleasePowerThread@FxPkgPnp@@AEAAXXZ @ 0x1C00305C8 (-ReleasePowerThread@FxPkgPnp@@AEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?CleanupPowerCallback@FxPowerPolicyOwnerSettings@@QEAAXXZ @ 0x1C008A810 (-CleanupPowerCallback@FxPowerPolicyOwnerSettings@@QEAAXXZ.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     ??0FxCREvent@@QEAA@E@Z @ 0x1C0017CE0 (--0FxCREvent@@QEAA@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?ReleasePowerThread@FxPkgPnp@@AEAAXXZ @ 0x1C008267C (-ReleasePowerThread@FxPkgPnp@@AEAAXXZ.c)
+ *     ?CleanupPowerCallback@FxPowerPolicyOwnerSettings@@QEAAXXZ @ 0x1C00863CC (-CleanupPowerCallback@FxPowerPolicyOwnerSettings@@QEAAXXZ.c)
+ *     ?SetFinished@FxEventQueue@@QEAAEPEAUFxCREvent@@@Z @ 0x1C008AF64 (-SetFinished@FxEventQueue@@QEAAEPEAUFxCREvent@@@Z.c)
  */
 
 void __fastcall FxPkgPnp::CleanupStateMachines(FxPkgPnp *this, unsigned __int8 CleanupPnp)

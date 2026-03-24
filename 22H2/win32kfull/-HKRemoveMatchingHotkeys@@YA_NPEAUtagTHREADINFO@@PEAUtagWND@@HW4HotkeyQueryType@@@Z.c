@@ -1,144 +1,143 @@
 /*
- * XREFs of ?HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C0042C40
+ * XREFs of ?HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C00329E0
  * Callers:
- *     ?_UnregisterHotKey@@YAHPEAUtagWND@@H@Z @ 0x1C0042BDC (-_UnregisterHotKey@@YAHPEAUtagWND@@H@Z.c)
- *     DestroyWindowsHotKeys @ 0x1C013ADE8 (DestroyWindowsHotKeys.c)
+ *     _UnregisterHotKey @ 0x1C0032850 (_UnregisterHotKey.c)
+ *     DestroyThreadsHotKeys @ 0x1C00329B0 (DestroyThreadsHotKeys.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
  * Callees:
- *     ?HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z @ 0x1C0042F14 (-HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z.c)
- *     ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C00437DC (-NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z.c)
+ *     ?HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z @ 0x1C0032FB8 (-HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z.c)
+ *     ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C003309C (-NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z.c)
  */
 
-__int64 __fastcall HKRemoveMatchingHotkeys(struct tagHOTKEY *a1, __int64 a2, int a3, int a4)
+__int64 __fastcall HKRemoveMatchingHotkeys(__int64 a1, __int64 a2, int a3, int a4)
 {
-  unsigned __int8 v4; // bp
-  __int64 v6; // rsi
-  int v7; // r15d
-  __int64 v8; // r14
-  struct tagHOTKEY *v9; // r12
-  __int64 v10; // rax
-  struct tagHOTKEY *v11; // rbx
-  struct tagHOTKEY **v12; // rdi
-  _QWORD *v14; // r15
-  char v15; // al
-  _QWORD *v16; // rcx
-  struct tagCHILDHOTKEY *v17; // rdx
-  _QWORD *v18; // rcx
-  _QWORD *v19; // rax
-  bool v20; // zf
-  _QWORD *v21; // [rsp+20h] [rbp-48h]
+  int v5; // r10d
+  __int64 v6; // r9
+  __int64 v7; // r8
+  unsigned __int8 v8; // dl
+  __int64 v9; // rbx
+  struct tagHOTKEY *v10; // rdi
+  struct tagHOTKEY **v11; // rsi
+  _QWORD *v13; // r15
+  char v14; // al
+  struct tagHOTKEY *v15; // rcx
+  _QWORD *v16; // r12
+  __int64 v17; // rcx
+  _QWORD *v18; // rax
+  char v19; // [rsp+20h] [rbp-48h]
 
-  v4 = 0;
-  v6 = 0LL;
-  v7 = a3;
-  v8 = a2;
-  v9 = a1;
+  v5 = a3;
+  v6 = a2;
+  v7 = a1;
+  v8 = 0;
+  v19 = 0;
+  v9 = 0LL;
   do
   {
-    v10 = SGDGetUserSessionState(a1) + 12736;
-    v11 = *(struct tagHOTKEY **)(v10 + 8 * v6);
-    v12 = (struct tagHOTKEY **)(v10 + 8 * v6);
-    if ( !v11 )
+    v10 = (struct tagHOTKEY *)(&gphkHashTable)[v9];
+    v11 = (struct tagHOTKEY **)&(&gphkHashTable)[v9];
+    if ( !v10 )
       goto LABEL_3;
     do
     {
-      if ( a4 == 3 )
-      {
-        if ( *(struct tagHOTKEY **)v11 == v9 && *((_QWORD *)v11 + 2) == v8 && *((_DWORD *)v11 + 10) == v7 )
-          goto LABEL_15;
-        goto LABEL_7;
-      }
       if ( a4 )
       {
-        if ( a4 != 1 )
+        switch ( a4 )
         {
-          if ( a4 == 2 )
-          {
-            if ( *((_QWORD *)v11 + 2) == v8 && *((_DWORD *)v11 + 10) == v7 )
-              goto LABEL_15;
-          }
-          else if ( a4 == 4 )
-          {
-            goto LABEL_15;
-          }
-          goto LABEL_7;
+          case 1:
+            if ( *((_QWORD *)v10 + 2) == v6 )
+              goto LABEL_8;
+            break;
+          case 2:
+            goto LABEL_20;
+          case 3:
+            if ( *(_QWORD *)v10 == v7 )
+            {
+LABEL_20:
+              if ( *((_QWORD *)v10 + 2) == v6 && *((_DWORD *)v10 + 8) == v5 )
+              {
+LABEL_8:
+                if ( !HKRemoveHotkeyOrMakePlaceholder(v11) )
+                  v11 = (struct tagHOTKEY **)((char *)*v11 + 40);
+                v8 = 1;
+                v19 = 1;
+                goto LABEL_15;
+              }
+            }
+            break;
+          case 4:
+            goto LABEL_8;
         }
-        v20 = *((_QWORD *)v11 + 2) == v8;
+      }
+      else if ( *(_QWORD *)v10 == v7 )
+      {
+        goto LABEL_8;
+      }
+      v13 = (_QWORD *)*((_QWORD *)v10 + 6);
+      v14 = 0;
+      if ( v13 == (_QWORD *)((char *)v10 + 48) )
+        goto LABEL_13;
+      do
+      {
+        v16 = (_QWORD *)*v13;
+        if ( a4 )
+        {
+          if ( a4 == 1 )
+          {
+            if ( *(v13 - 2) != v6 )
+              goto LABEL_28;
+          }
+          else if ( a4 != 2 && (a4 != 3 || *(v13 - 3) != v7) || *(v13 - 2) != v6 || *((_DWORD *)v13 - 1) != v5 )
+          {
+            goto LABEL_28;
+          }
+        }
+        else if ( *(v13 - 3) != v7 )
+        {
+          goto LABEL_28;
+        }
+        NotifyHotKeyRegistrationChanged(v10, (struct tagCHILDHOTKEY *const)(v13 - 3), 0);
+        HMAssignmentUnlock(v13 - 2);
+        v17 = *v13;
+        if ( *(_QWORD **)(*v13 + 8LL) != v13 || (v18 = (_QWORD *)v13[1], (_QWORD *)*v18 != v13) )
+          __fastfail(3u);
+        *v18 = v17;
+        *(_QWORD *)(v17 + 8) = v18;
+        Win32FreePool(v13 - 3);
+        v7 = a1;
+        v14 = 1;
+        v6 = a2;
+        v5 = a3;
+LABEL_28:
+        v13 = v16;
+      }
+      while ( v16 != (_QWORD *)((char *)v10 + 48) );
+      v8 = v19;
+LABEL_13:
+      v15 = *v11;
+      v8 |= v14;
+      v19 = v8;
+      if ( (*((_WORD *)*v11 + 13) & 0x100) != 0
+        && *((struct tagHOTKEY **)v15 + 6) == (struct tagHOTKEY *)((char *)v15 + 48) )
+      {
+        *v11 = (struct tagHOTKEY *)*((_QWORD *)v15 + 5);
+        Win32FreePool(v15);
+        v8 = v19;
       }
       else
       {
-        v20 = *(_QWORD *)v11 == (_QWORD)v9;
+        v11 = (struct tagHOTKEY **)((char *)v15 + 40);
       }
-      if ( v20 )
-      {
 LABEL_15:
-        if ( !HKRemoveHotkeyOrMakePlaceholder(v12) )
-          v12 = (struct tagHOTKEY **)((char *)*v12 + 48);
-        v4 = 1;
-        goto LABEL_11;
-      }
-LABEL_7:
-      v14 = (_QWORD *)*((_QWORD *)v11 + 7);
-      v15 = 0;
-      if ( v14 != (_QWORD *)((char *)v11 + 56) )
-      {
-        do
-        {
-          v16 = (_QWORD *)*v14;
-          v17 = (struct tagCHILDHOTKEY *)(v14 - 4);
-          v21 = (_QWORD *)*v14;
-          if ( a4 )
-          {
-            if ( a4 == 1 )
-            {
-              if ( *((_QWORD *)v17 + 1) == a2 )
-                goto LABEL_30;
-            }
-            else if ( (a4 == 2 || a4 == 3 && *(struct tagHOTKEY **)v17 == v9)
-                   && *((_QWORD *)v17 + 1) == a2
-                   && *((_DWORD *)v17 + 5) == a3 )
-            {
-LABEL_30:
-              NotifyHotKeyRegistrationChanged(v11, v17, 0);
-              HMAssignmentUnlock(v14 - 3);
-              v18 = (_QWORD *)*v14;
-              if ( *(_QWORD **)(*v14 + 8LL) != v14 || (v19 = (_QWORD *)v14[1], (_QWORD *)*v19 != v14) )
-                __fastfail(3u);
-              *v19 = v18;
-              v18[1] = v19;
-              Win32FreePool(v14 - 4);
-              v16 = v21;
-              v15 = 1;
-            }
-          }
-          else if ( *(struct tagHOTKEY **)v17 == v9 )
-          {
-            goto LABEL_30;
-          }
-          v14 = v16;
-        }
-        while ( v16 != (_QWORD *)((char *)v11 + 56) );
-      }
-      a1 = *v12;
-      v4 |= v15;
-      if ( _bittest16((const signed __int16 *)*v12 + 17, 8u)
-        && *((struct tagHOTKEY **)a1 + 7) == (struct tagHOTKEY *)((char *)a1 + 56) )
-      {
-        *v12 = (struct tagHOTKEY *)*((_QWORD *)a1 + 6);
-        Win32FreePool(a1);
-      }
-      else
-      {
-        v12 = (struct tagHOTKEY **)((char *)a1 + 48);
-      }
-      v7 = a3;
-      v8 = a2;
-LABEL_11:
-      v11 = *v12;
+      v10 = *v11;
+      v7 = a1;
+      v6 = a2;
+      v5 = a3;
     }
-    while ( *v12 );
+    while ( *v11 );
 LABEL_3:
-    v6 = (unsigned int)(v6 + 1);
+    v9 = (unsigned int)(v9 + 1);
   }
-  while ( (unsigned int)v6 < 0x80 );
-  return v4;
+  while ( (unsigned int)v9 < 0x80 );
+  return v8;
 }

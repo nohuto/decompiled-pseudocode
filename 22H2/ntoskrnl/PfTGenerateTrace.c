@@ -1,11 +1,11 @@
 /*
- * XREFs of PfTGenerateTrace @ 0x14079D0B4
+ * XREFs of PfTGenerateTrace @ 0x14062F29C
  * Callers:
- *     PfTLoggingWorker @ 0x14083A720 (PfTLoggingWorker.c)
+ *     PfTLoggingWorker @ 0x1407AD3A0 (PfTLoggingWorker.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     PfTTraceListAdd @ 0x14075F1E8 (PfTTraceListAdd.c)
- *     PfTCreateTraceDump @ 0x14079D100 (PfTCreateTraceDump.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140253F54 (KiQueryUnbiasedInterruptTime.c)
+ *     PfTCreateTraceDump @ 0x14062F2F0 (PfTCreateTraceDump.c)
+ *     PfTTraceListAdd @ 0x14062FFAC (PfTTraceListAdd.c)
  */
 
 __int64 PfTGenerateTrace()
@@ -17,8 +17,8 @@ __int64 PfTGenerateTrace()
   v0 = PfTCreateTraceDump(&v2);
   if ( v0 >= 0 )
   {
-    ++dword_140C65570;
-    qword_140C65300 = KiQueryUnbiasedInterruptTime();
+    ++dword_140C4FEF0;
+    qword_140C4FC80 = KiQueryUnbiasedInterruptTime();
     PfTTraceListAdd(v2);
   }
   return (unsigned int)v0;

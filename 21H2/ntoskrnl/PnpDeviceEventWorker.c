@@ -1,26 +1,26 @@
 /*
- * XREFs of PnpDeviceEventWorker @ 0x1407D5E30
+ * XREFs of PnpDeviceEventWorker @ 0x1406E78D0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireGuardedMutex @ 0x14029ECC0 (KeAcquireGuardedMutex.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     IoSetActivityIdThread @ 0x1402DE9B0 (IoSetActivityIdThread.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PnpProcessDeferredRegistrations @ 0x14070A064 (PnpProcessDeferredRegistrations.c)
- *     PnpDisableWatchdog @ 0x14074D6EC (PnpDisableWatchdog.c)
- *     PnpEnableWatchdog @ 0x14074ECA8 (PnpEnableWatchdog.c)
- *     PnpProcessTargetDeviceEvent @ 0x14076C3C0 (PnpProcessTargetDeviceEvent.c)
- *     PnpProcessCustomDeviceEvent @ 0x14078AC7C (PnpProcessCustomDeviceEvent.c)
- *     PiUEventNotifyUserMode @ 0x14078B2D4 (PiUEventNotifyUserMode.c)
- *     PnpNotifyDeviceClassChange @ 0x14078D5D8 (PnpNotifyDeviceClassChange.c)
- *     PnpCompleteDeviceEvent @ 0x1407D78A0 (PnpCompleteDeviceEvent.c)
- *     PnpNotifyHwProfileChange @ 0x14094488C (PnpNotifyHwProfileChange.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     IoSetActivityIdThread @ 0x1402EE4E0 (IoSetActivityIdThread.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeAcquireGuardedMutex @ 0x1402EF360 (KeAcquireGuardedMutex.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PnpDisableWatchdog @ 0x1406774E0 (PnpDisableWatchdog.c)
+ *     PnpEnableWatchdog @ 0x140677554 (PnpEnableWatchdog.c)
+ *     PnpProcessCustomDeviceEvent @ 0x1406E60D8 (PnpProcessCustomDeviceEvent.c)
+ *     PiUEventNotifyUserMode @ 0x1406E675C (PiUEventNotifyUserMode.c)
+ *     PnpCompleteDeviceEvent @ 0x1406E7458 (PnpCompleteDeviceEvent.c)
+ *     PnpProcessDeferredRegistrations @ 0x1406E76EC (PnpProcessDeferredRegistrations.c)
+ *     PnpNotifyDeviceClassChange @ 0x14073D5D8 (PnpNotifyDeviceClassChange.c)
+ *     PnpProcessTargetDeviceEvent @ 0x14074B120 (PnpProcessTargetDeviceEvent.c)
+ *     PnpNotifyHwProfileChange @ 0x14089FAC8 (PnpNotifyHwProfileChange.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpDeviceEventWorker(PVOID P)
@@ -39,18 +39,19 @@ void __fastcall PnpDeviceEventWorker(PVOID P)
   int v13; // eax
   _QWORD *v14; // rbx
   __int64 v15; // rcx
-  PVOID Pa; // [rsp+30h] [rbp-48h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-40h] BYREF
-  struct _LIST_ENTRY v18; // [rsp+48h] [rbp-30h] BYREF
+  PVOID Pa; // [rsp+30h] [rbp-30h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-28h] BYREF
+  struct _LIST_ENTRY v18; // [rsp+48h] [rbp-18h] BYREF
 
   v18 = 0LL;
+  Pa = 0LL;
   DestinationString = 0LL;
   PnpDeviceEventThread = (__int64)KeGetCurrentThread();
   if ( KeWaitForSingleObject((PVOID)(PnpDeviceEventList + 8), Executive, 0, 0, 0LL) < 0 )
   {
     KeAcquireGuardedMutex(&PnpNotificationInProgressLock);
     KeSetEvent(&PnpEventQueueEmpty, 0, 0);
-    BYTE2(NlsMbOemCodePageTag) = 0;
+    BYTE2(NlsMbCodePageTag) = 0;
     KeReleaseGuardedMutex(&PnpNotificationInProgressLock);
     PnpDeviceEventThread = 0LL;
     return;
@@ -86,9 +87,9 @@ void __fastcall PnpDeviceEventWorker(PVOID P)
     if ( v8 && !*(_QWORD *)(*(_QWORD *)(v8 + 312) + 40LL) )
       v9 = -1073741810;
     if ( PnpShutdownEvent.Header.SignalState
-      && !_InterlockedCompareExchange64((volatile signed __int64 *)&PnpDeviceActionThread, 0LL, 0LL) )
+      && !_InterlockedCompareExchange64((volatile signed __int64 *)PnpDeviceActionThread, 0LL, 0LL) )
     {
-      goto LABEL_26;
+      v9 = -1073741431;
     }
     if ( v9 < 0 )
       goto LABEL_25;
@@ -96,21 +97,27 @@ void __fastcall PnpDeviceEventWorker(PVOID P)
     v10 = *((_DWORD *)v5 + 32);
     if ( v10 > 4 )
     {
-      if ( v10 >= 6 )
+      if ( v10 < 6 )
+        goto LABEL_40;
+      if ( v10 > 8 )
       {
-        if ( v10 <= 8 )
-          goto LABEL_25;
-        if ( v10 == 9 || v10 == 11 || v10 == 10 )
+        if ( v10 != 11 && v10 != 9 && v10 != 10 )
         {
-          v13 = PiUEventNotifyUserMode((__int64)v5);
-          goto LABEL_24;
+LABEL_40:
+          v9 = -1073741823;
+          goto LABEL_25;
         }
+        v13 = PiUEventNotifyUserMode((__int64)v5);
+LABEL_24:
+        v9 = v13;
       }
+LABEL_25:
+      if ( v9 == 259 )
+        goto LABEL_29;
+      goto LABEL_26;
     }
-    else
+    if ( v10 != 4 )
     {
-      if ( v10 == 4 )
-        goto LABEL_32;
       if ( !v10 )
       {
         v9 = PiUEventNotifyUserMode((__int64)v5);
@@ -121,29 +128,22 @@ void __fastcall PnpDeviceEventWorker(PVOID P)
       v11 = v10 - 1;
       if ( !v11 )
       {
-        v13 = PnpProcessTargetDeviceEvent((__int64 *)&Pa);
-LABEL_24:
-        v9 = v13;
-LABEL_25:
-        if ( v9 == 259 )
-          goto LABEL_29;
-        goto LABEL_26;
-      }
-      v12 = v11 - 1;
-      if ( !v12 )
-      {
-        RtlInitUnicodeString(&DestinationString, (PCWSTR)v5 + 88);
-        PnpNotifyDeviceClassChange((__int128 *)v5 + 7, (_DWORD *)v5 + 40, (__int64)&DestinationString);
-LABEL_32:
-        PiUEventNotifyUserMode((__int64)v5);
-        goto LABEL_26;
-      }
-      if ( v12 == 1 )
-      {
-        v13 = PnpProcessCustomDeviceEvent(&Pa);
+        v13 = PnpProcessTargetDeviceEvent(&Pa);
         goto LABEL_24;
       }
+      v12 = v11 - 1;
+      if ( v12 )
+      {
+        if ( v12 != 1 )
+          goto LABEL_40;
+        v13 = PnpProcessCustomDeviceEvent((__int64 *)&Pa);
+        goto LABEL_24;
+      }
+      RtlInitUnicodeString(&DestinationString, (PCWSTR)v5 + 88);
+      PnpNotifyDeviceClassChange(v5 + 14, v5 + 20, &DestinationString);
     }
+    PiUEventNotifyUserMode((__int64)v5);
+    v9 = 0;
 LABEL_26:
     v14 = Pa;
     v15 = *((_QWORD *)Pa + 13);
@@ -152,7 +152,7 @@ LABEL_26:
       PnpDisableWatchdog(v15);
       v14[13] = 0LL;
     }
-    PnpCompleteDeviceEvent(Pa);
+    PnpCompleteDeviceEvent(Pa, v9);
 LABEL_29:
     PnpProcessDeferredRegistrations();
     if ( v2 )
@@ -160,7 +160,7 @@ LABEL_29:
   }
   KeAcquireGuardedMutex(&PnpNotificationInProgressLock);
   KeSetEvent(&PnpEventQueueEmpty, 0, 0);
-  BYTE2(NlsMbOemCodePageTag) = 0;
+  BYTE2(NlsMbCodePageTag) = 0;
   PnpProcessDeferredRegistrations();
   KeReleaseGuardedMutex(&PnpNotificationInProgressLock);
   KeReleaseGuardedMutex((PKGUARDED_MUTEX)(PnpDeviceEventList + 64));

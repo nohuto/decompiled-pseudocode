@@ -1,7 +1,7 @@
 /*
- * XREFs of ?UnlockAndFreeCPDs@@YAXPEAPEAU_CALLPROCDATA@@@Z @ 0x1C0013FF0
+ * XREFs of ?UnlockAndFreeCPDs@@YAXPEAPEAU_CALLPROCDATA@@@Z @ 0x1C01319C4
  * Callers:
- *     DestroyClass @ 0x1C00EAB74 (DestroyClass.c)
+ *     DestroyClass @ 0x1C0078FA0 (DestroyClass.c)
  * Callees:
  *     <none>
  */

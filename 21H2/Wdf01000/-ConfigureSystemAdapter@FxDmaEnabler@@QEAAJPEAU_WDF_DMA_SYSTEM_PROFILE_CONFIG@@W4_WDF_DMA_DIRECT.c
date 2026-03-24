@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ConfigureSystemAdapter@FxDmaEnabler@@QEAAJPEAU_WDF_DMA_SYSTEM_PROFILE_CONFIG@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C0055204
+ * XREFs of ?ConfigureSystemAdapter@FxDmaEnabler@@QEAAJPEAU_WDF_DMA_SYSTEM_PROFILE_CONFIG@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C0031AEC
  * Callers:
- *     imp_WdfDmaEnablerConfigureSystemProfile @ 0x1C0053440 (imp_WdfDmaEnablerConfigureSystemProfile.c)
+ *     imp_WdfDmaEnablerConfigureSystemProfile @ 0x1C002ECD0 (imp_WdfDmaEnablerConfigureSystemProfile.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?ConfigureDmaAdapter@FxDmaEnabler@@AEAAJPEAU_DEVICE_DESCRIPTION@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002DB68 (-ConfigureDmaAdapter@FxDmaEnabler@@AEAAJPEAU_DEVICE_DESCRIPTION@@W4_WDF_DMA_DIRECTION@@@Z.c)
- *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002DC98 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_qLLd @ 0x1C0055760 (WPP_IFR_SF_qLLd.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002F470 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
+ *     ?ConfigureDmaAdapter@FxDmaEnabler@@AEAAJPEAU_DEVICE_DESCRIPTION@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C0031AA4 (-ConfigureDmaAdapter@FxDmaEnabler@@AEAAJPEAU_DEVICE_DESCRIPTION@@W4_WDF_DMA_DIRECTION@@@Z.c)
+ *     WPP_IFR_SF_qLLd @ 0x1C0032784 (WPP_IFR_SF_qLLd.c)
  */
 
 __int64 __fastcall FxDmaEnabler::ConfigureSystemAdapter(
@@ -25,8 +25,8 @@ __int64 __fastcall FxDmaEnabler::ConfigureSystemAdapter(
   unsigned int m_MaximumLength; // eax
   _CM_PARTIAL_RESOURCE_DESCRIPTOR *DmaDescriptor; // rcx
   unsigned int Vector; // eax
-  unsigned __int64 PreallocatedSGListSize; // rdi
-  unsigned __int64 Pool2; // rax
+  SIZE_T PreallocatedSGListSize; // rdi
+  PVOID PoolWithTag; // rax
   const void *ObjectHandleUnchecked; // rax
   char v17; // r8
   FxDmaEnabler *v18; // rcx
@@ -78,9 +78,9 @@ __int64 __fastcall FxDmaEnabler::ConfigureSystemAdapter(
       {
         PreallocatedSGListSize = this->m_DuplexAdapterInfo[1].PreallocatedSGListSize;
       }
-      Pool2 = ExAllocatePool2(64LL, PreallocatedSGListSize, this->m_Globals->Tag);
-      this->m_SGList.ScatterGatherProfile.Lookaside.L.ListHead.Alignment = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, PreallocatedSGListSize, this->m_Globals->Tag);
+      this->m_SGList.ScatterGatherProfile.Lookaside.L.ListHead.Alignment = (unsigned __int64)PoolWithTag;
+      if ( PoolWithTag )
       {
         v17 = *((_BYTE *)this + 380) | 0x20;
         this->m_SGListSize = PreallocatedSGListSize;

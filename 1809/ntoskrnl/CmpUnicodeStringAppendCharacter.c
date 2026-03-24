@@ -1,8 +1,8 @@
 /*
  * XREFs of CmpUnicodeStringAppendCharacter @ 0x140581078
  * Callers:
- *     CmpDoWritethroughReparse @ 0x14063C100 (CmpDoWritethroughReparse.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x1407F3BD0 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpDoWritethroughReparse @ 0x14063C0E0 (CmpDoWritethroughReparse.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x1407F3BB0 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
  *     <none>
  */

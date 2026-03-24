@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlAreNamesEqual @ 0x14010B2A0
+ * XREFs of RtlAreNamesEqual @ 0x14010B2C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpUpcaseUnicodeStringPrivate @ 0x1400A44D8 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x1400A44F8 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  */
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlQueryHypervisorProcessorNodeNumber @ 0x140543B00
+ * XREFs of HvlQueryHypervisorProcessorNodeNumber @ 0x1404F22A0
  * Callers:
  *     <none>
  * Callees:
- *     HvlpGetLpcbByLpIndex @ 0x14039E528 (HvlpGetLpcbByLpIndex.c)
+ *     HvlpGetLpcbByLpIndex @ 0x140390CF8 (HvlpGetLpcbByLpIndex.c)
  */
 
 __int64 __fastcall HvlQueryHypervisorProcessorNodeNumber(unsigned int a1)

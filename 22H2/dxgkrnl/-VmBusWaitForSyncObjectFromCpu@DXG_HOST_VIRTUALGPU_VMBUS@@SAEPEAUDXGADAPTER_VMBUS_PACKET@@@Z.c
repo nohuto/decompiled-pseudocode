@@ -1,144 +1,147 @@
 /*
- * XREFs of ?VmBusWaitForSyncObjectFromCpu@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0395070
+ * XREFs of ?VmBusWaitForSyncObjectFromCpu@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0251270
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireReference@DXG_SIGNAL_GUEST_CPU_EVENT@@SAXPEAU1@@Z @ 0x1C0048EF0 (-AcquireReference@DXG_SIGNAL_GUEST_CPU_EVENT@@SAXPEAU1@@Z.c)
- *     ?ReleaseReference@DXG_SIGNAL_GUEST_CPU_EVENT@@SAXPEAU1@@Z @ 0x1C0048FC0 (-ReleaseReference@DXG_SIGNAL_GUEST_CPU_EVENT@@SAXPEAU1@@Z.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B804 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGC.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     ?DxgkWaitForSynchronizationObjectFromCpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@HPEAX1@Z @ 0x1C01D5710 (-DxgkWaitForSynchronizationObjectFromCpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFRO.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0040634 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGC.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     ?DxgkWaitForSynchronizationObjectFromCpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@HPEAX@Z @ 0x1C0127994 (-DxgkWaitForSynchronizationObjectFromCpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFRO.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusWaitForSyncObjectFromCpu(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // bl
+  __int64 v2; // rdx
+  __int64 v3; // rcx
   __int64 v4; // rax
-  __int64 v5; // r15
-  __int64 Pool2; // rdi
+  char v5; // bl
+  __int64 v6; // rax
   __int64 v7; // rax
-  __int64 v8; // rcx
-  unsigned __int64 v9; // rax
-  unsigned __int64 v10; // rcx
-  unsigned int v11; // eax
-  unsigned int v12; // ecx
-  __int64 v13; // rax
-  _BYTE v15[8]; // [rsp+50h] [rbp-9h] BYREF
-  DXGPUSHLOCK *v16; // [rsp+58h] [rbp-1h]
-  int v17; // [rsp+60h] [rbp+7h]
-  struct _D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU v18; // [rsp+68h] [rbp+Fh] BYREF
-  int v19; // [rsp+C0h] [rbp+67h] BYREF
+  unsigned __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r14
+  void *v11; // rdi
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  unsigned __int64 v14; // rax
+  unsigned int v15; // eax
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  _OWORD *PoolWithTag; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  __int64 v23; // rax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // rax
+  _BYTE v29[8]; // [rsp+20h] [rbp-40h] BYREF
+  DXGPUSHLOCK *v30; // [rsp+28h] [rbp-38h]
+  int v31; // [rsp+30h] [rbp-30h]
+  struct _D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU v32; // [rsp+38h] [rbp-28h] BYREF
+  int v33; // [rsp+80h] [rbp+20h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v15, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v16);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 0;
-  v17 = 1;
-  if ( *(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v29, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v30);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 0;
+  v31 = 1;
+  if ( !*(_BYTE *)(v4 + 165) )
   {
-    v4 = CastToVmBusCommand<DXGKVMB_COMMAND_VSYNCREMOTINGCTRL>((__int64)a1);
-    v5 = v4;
-    if ( v4 )
+    v6 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v6 + 24) = 3668LL;
+    WdLogEvent5_WdError(v6);
+    goto LABEL_24;
+  }
+  v7 = CastToVmBusCommand<DXGKVMB_COMMAND_VSYNCREMOTINGCTRL>((__int64)a1);
+  v10 = v7;
+  if ( !v7 )
+    goto LABEL_24;
+  v33 = -1073741811;
+  memset(&v32, 0, sizeof(v32));
+  v11 = 0LL;
+  v12 = *(unsigned int *)(v7 + 28);
+  v13 = *(_QWORD *)(v10 + 40);
+  if ( (_DWORD)v12
+    && (v8 = (unsigned int)v12, v9 = 0xFFFFFFFFLL, v14 = 4 * v12, v14 <= 0xFFFFFFFF)
+    && (v8 *= 8LL, v8 <= 0xFFFFFFFF) )
+  {
+    v15 = v14 + 56;
+    if ( v15 < 0x38 )
     {
-      v19 = -1073741811;
-      memset(&v18, 0, sizeof(v18));
-      Pool2 = 0LL;
-      v7 = *(unsigned int *)(v4 + 28);
-      if ( (_DWORD)v7 && (v8 = (unsigned int)v7, v9 = 4 * v7, v9 <= 0xFFFFFFFF) && (v10 = 8 * v8, v10 <= 0xFFFFFFFF) )
+      v17 = WdLogNewEntry5_WdWarning(v8, v13, 0xFFFFFFFFLL);
+      *(_QWORD *)(v17 + 24) = 3688LL;
+    }
+    else
+    {
+      v16 = v15 + (unsigned int)v8;
+      if ( (unsigned int)v16 < v15 )
       {
-        v11 = v9 + 56;
-        if ( v11 < 0x38 )
+        v17 = WdLogNewEntry5_WdWarning(v16, v13, 0xFFFFFFFFLL);
+        *(_QWORD *)(v17 + 24) = 3693LL;
+      }
+      else if ( *((_DWORD *)a1 + 22) >= (unsigned int)v16 )
+      {
+        if ( v13 )
         {
-          WdLogSingleEntry1(3LL, 4178LL);
-        }
-        else
-        {
-          v12 = v11 + v10;
-          if ( v12 < v11 )
+          PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x18uLL, 0x4B677844u);
+          v11 = PoolWithTag;
+          if ( PoolWithTag )
           {
-            WdLogSingleEntry1(3LL, 4183LL);
-          }
-          else if ( *((_DWORD *)a1 + 36) >= v12 )
-          {
-            if ( *(_QWORD *)(v5 + 40) )
-            {
-              Pool2 = ExAllocatePool2(64LL, 40LL, 1265072196LL);
-              if ( Pool2 )
-              {
-                v13 = *(_QWORD *)(v5 + 40);
-                *(_QWORD *)Pool2 = *(_QWORD *)(*((_QWORD *)a1 + 10) + 104LL) + 160LL;
-                *(_QWORD *)(Pool2 + 8) = v13;
-                *(_BYTE *)(Pool2 + 16) = *(_BYTE *)(v5 + 48);
-                *(_BYTE *)(Pool2 + 19) = (*(_DWORD *)(*((_QWORD *)a1 + 11) + 424LL) & 0x10) != 0;
-                DXG_SIGNAL_GUEST_CPU_EVENT::AcquireReference((struct DXG_SIGNAL_GUEST_CPU_EVENT *)Pool2);
-                v18.ObjectHandleArray = (const D3DKMT_HANDLE *)(v5 + 56);
-                v18.FenceValueArray = (const UINT64 *)(v5 + 4 * (*(unsigned int *)(v5 + 28) + 14LL));
-                v18.Flags.Value = *(_DWORD *)(v5 + 32);
-                v18.hDevice = *(_DWORD *)(v5 + 24);
-                v18.ObjectCount = *(_DWORD *)(v5 + 28);
-                v18.hAsyncEvent = (HANDLE)Pool2;
-                v19 = DxgkWaitForSynchronizationObjectFromCpuInternal(&v18, 0, (struct DXGDEVICE *)Pool2, 0LL);
-              }
-              else
-              {
-                WdLogSingleEntry1(6LL, 4204LL);
-                DxgkLogInternalTriageEvent(
-                  0LL,
-                  262145,
-                  -1,
-                  (__int64)L"Failed to allocate memory for DXG_SIGNAL_GUEST_CPU_EVENT",
-                  4204LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL);
-                v19 = -1073741801;
-              }
-            }
-            else
-            {
-              WdLogSingleEntry1(3LL, 4197LL);
-            }
+            *PoolWithTag = 0LL;
+            *((_QWORD *)PoolWithTag + 2) = 0LL;
+            *(_QWORD *)PoolWithTag = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 5) + 104LL) + 128LL);
+            *((_QWORD *)PoolWithTag + 1) = *(_QWORD *)(v10 + 40);
+            *((_BYTE *)PoolWithTag + 16) = *(_BYTE *)(v10 + 48);
+            v32.ObjectHandleArray = (const D3DKMT_HANDLE *)(v10 + 56);
+            v32.FenceValueArray = (const UINT64 *)(v10 + 4 * (*(unsigned int *)(v10 + 28) + 14LL));
+            v32.Flags.Value = *(_DWORD *)(v10 + 32);
+            v32.hDevice = *(_DWORD *)(v10 + 24);
+            v32.ObjectCount = *(_DWORD *)(v10 + 28);
+            v32.hAsyncEvent = PoolWithTag;
+            v33 = DxgkWaitForSynchronizationObjectFromCpuInternal(&v32, 0, PoolWithTag);
           }
           else
           {
-            WdLogSingleEntry1(3LL, 4188LL);
+            v23 = WdLogNewEntry5_WdLowResource(v20, v19, v21, v22);
+            *(_QWORD *)(v23 + 24) = 3714LL;
+            WdLogEvent5_WdLowResource(v23);
+            v33 = -1073741801;
           }
+          goto LABEL_20;
         }
+        v17 = WdLogNewEntry5_WdWarning(v16, 0LL, 0xFFFFFFFFLL);
+        *(_QWORD *)(v17 + 24) = 3707LL;
       }
       else
       {
-        WdLogSingleEntry1(3LL, 4173LL);
+        v17 = WdLogNewEntry5_WdWarning(v16, v13, 0xFFFFFFFFLL);
+        *(_QWORD *)(v17 + 24) = 3698LL;
       }
-      VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 16), &v19, 4u);
-      if ( v19 < 0 )
-      {
-        if ( Pool2 )
-          DXG_SIGNAL_GUEST_CPU_EVENT::ReleaseReference((struct DXG_SIGNAL_GUEST_CPU_EVENT *)Pool2);
-        WdLogSingleEntry1(3LL, 4237LL);
-      }
-      v3 = 1;
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, 4158LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"The adapter is already closed by the guest",
-      4158LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v17 = WdLogNewEntry5_WdWarning(v8, v13, v9);
+    *(_QWORD *)(v17 + 24) = 3683LL;
   }
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v15);
-  return v3;
+  WdLogEvent5_WdWarning(v17);
+LABEL_20:
+  VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), &v33, 4u);
+  if ( v33 < 0 )
+  {
+    v27 = WdLogNewEntry5_WdWarning(v25, v24, v26);
+    *(_QWORD *)(v27 + 24) = 3742LL;
+    WdLogEvent5_WdWarning(v27);
+    if ( v11 )
+      ExFreePoolWithTag(v11, 0x4B677844u);
+  }
+  v5 = 1;
+LABEL_24:
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v29);
+  return v5;
 }

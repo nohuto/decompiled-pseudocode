@@ -1,15 +1,15 @@
 /*
- * XREFs of ??$EmitAddTargets@UtagMILCMD_COMPOSITIONLIGHT_ADDTARGETS@@@CCompositionLightMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@1@PEAPEAVCResourceMarshaler@1@PEAI2W4MILCMD@@@Z @ 0x1C000A488
+ * XREFs of ??$EmitAddTargets@UtagMILCMD_COMPOSITIONLIGHT_ADDTARGETS@@@CCompositionLightMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@1@PEAPEAVCResourceMarshaler@1@PEAI2W4MILCMD@@@Z @ 0x1C0097118
  * Callers:
- *     ?EmitAddTargets@CCompositionLightMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@W4Enum@CompositionLightProperty@@@Z @ 0x1C000A444 (-EmitAddTargets@CCompositionLightMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@W4Enum@Compo.c)
+ *     ?EmitAddTargets@CCompositionLightMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@W4Enum@CompositionLightProperty@@@Z @ 0x1C00970D4 (-EmitAddTargets@CCompositionLightMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@W4Enum@Compo.c)
  * Callees:
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C000B6D8 (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005B9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 bool __fastcall DirectComposition::CCompositionLightMarshaler::EmitAddTargets<tagMILCMD_COMPOSITIONLIGHT_ADDTARGETS>(
         __int64 a1,
-        struct DirectComposition::CBatch **a2,
+        struct DirectComposition::CBatch ***a2,
         __int64 a3,
         _DWORD *a4,
         void *a5)
@@ -28,7 +28,7 @@ bool __fastcall DirectComposition::CCompositionLightMarshaler::EmitAddTargets<ta
   {
     do
     {
-      v10 = (void *)(4096LL - *(_QWORD *)(*((_QWORD *)*a2 + 17) + 40LL));
+      v10 = (void *)(4096LL - *((_QWORD *)(*a2)[17] + 5));
       a5 = v10;
       if ( (unsigned __int64)v10 < 0x14 )
       {
@@ -47,7 +47,7 @@ bool __fastcall DirectComposition::CCompositionLightMarshaler::EmitAddTargets<ta
       *(_QWORD *)(v12 + 4) = 0LL;
       *((_DWORD *)v12 + 3) = 0;
       *((_DWORD *)v12 + 1) = 83;
-      *((_DWORD *)v12 + 2) = *(_DWORD *)(a1 + 32);
+      *((_DWORD *)v12 + 2) = *(_DWORD *)(a1 + 24);
       *((_DWORD *)v12 + 3) = v11;
       v14 = *v5;
       if ( (_DWORD)v11 )
@@ -56,7 +56,7 @@ bool __fastcall DirectComposition::CCompositionLightMarshaler::EmitAddTargets<ta
         do
         {
           v16 = v14++;
-          *v13++ = *(_DWORD *)(*(_QWORD *)(a3 + 8 * v16) + 32LL);
+          *v13++ = *(_DWORD *)(*(_QWORD *)(a3 + 8 * v16) + 24LL);
           --v15;
         }
         while ( v15 );

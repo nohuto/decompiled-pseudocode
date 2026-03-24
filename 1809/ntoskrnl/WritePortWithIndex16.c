@@ -1,9 +1,9 @@
 /*
- * XREFs of WritePortWithIndex16 @ 0x14032DD80
+ * XREFs of WritePortWithIndex16 @ 0x14032DE80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall WritePortWithIndex16(__int64 a1, unsigned __int8 a2, unsigned __int8 a3)

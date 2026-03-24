@@ -1,12 +1,12 @@
 /*
- * XREFs of xxxMNButtonUp @ 0x1C02305F0
+ * XREFs of xxxMNButtonUp @ 0x1C023737C
  * Callers:
- *     xxxHandleMenuMessages @ 0x1C022D700 (xxxHandleMenuMessages.c)
- *     xxxMenuWindowProc @ 0x1C0234200 (xxxMenuWindowProc.c)
+ *     xxxHandleMenuMessages @ 0x1C0233F78 (xxxHandleMenuMessages.c)
+ *     xxxMenuWindowProc @ 0x1C023BBA0 (xxxMenuWindowProc.c)
  * Callees:
- *     ?xxxMNDismissWithNotify@@YAXPEAUtagMENUSTATE@@AEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@I_J@Z @ 0x1C022F774 (-xxxMNDismissWithNotify@@YAXPEAUtagMENUSTATE@@AEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITE.c)
- *     xxxMNCancel @ 0x1C0230708 (xxxMNCancel.c)
- *     xxxMNOpenHierarchy @ 0x1C02325D0 (xxxMNOpenHierarchy.c)
+ *     ?xxxMNDismissWithNotify@@YAXPEAUtagMENUSTATE@@AEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@I_J@Z @ 0x1C02360A8 (-xxxMNDismissWithNotify@@YAXPEAUtagMENUSTATE@@AEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITE.c)
+ *     xxxMNCancel @ 0x1C0237494 (xxxMNCancel.c)
+ *     xxxMNOpenHierarchy @ 0x1C0239AB8 (xxxMNOpenHierarchy.c)
  */
 
 __int64 __fastcall xxxMNButtonUp(__int64 *a1, __int64 a2, int a3)
@@ -34,7 +34,7 @@ __int64 __fastcall xxxMNButtonUp(__int64 *a1, __int64 a2, int a3)
             if ( (result & 0x80u) != 0LL )
             {
               **(_DWORD **)*a1 &= ~0x80u;
-              return xxxMNCancel(a2);
+              return xxxMNCancel(a2, 0, 0);
             }
             goto LABEL_10;
           }
@@ -45,8 +45,8 @@ LABEL_12:
             result = *(unsigned int *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)*a1 + 40LL) + 40LL) + 44LL);
             if ( *(_DWORD *)(*(_QWORD *)*a1 + 80LL) < (unsigned int)result )
             {
-              result = *(int *)(*(_QWORD *)*a1 + 80LL);
-              v8 = (_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)*a1 + 40LL) + 88LL) + 96 * result);
+              result = *(_QWORD *)(*(_QWORD *)*a1 + 40LL);
+              v8 = (_QWORD *)(*(_QWORD *)(result + 88) + 96LL * *(int *)(*(_QWORD *)*a1 + 80LL));
               if ( (*(_DWORD *)*v8 & 0x800) == 0 )
               {
                 result = *(unsigned int *)(*v8 + 4LL);

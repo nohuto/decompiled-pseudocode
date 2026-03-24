@@ -1,105 +1,98 @@
 /*
- * XREFs of ?DeviceCDROMNotify@@YAJPEAU_TARGET_DEVICE_CUSTOM_NOTIFICATION@@PEAU_CDROM_NOTIFY@@@Z @ 0x1C01B1DA0
+ * XREFs of ?DeviceCDROMNotify@@YAJPEAU_TARGET_DEVICE_CUSTOM_NOTIFICATION@@PEAU_CDROM_NOTIFY@@@Z @ 0x1C01DD4E0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ShowAutorunCursor @ 0x1C01A90E0 (ShowAutorunCursor.c)
- *     ??0CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C01B1BF0 (--0CTempW32ThreadNonPaged@@QEAA@XZ.c)
- *     ??1CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C01B1D50 (--1CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ShowAutorunCursor @ 0x1C01D3DD0 (ShowAutorunCursor.c)
  */
 
 __int64 __fastcall DeviceCDROMNotify(char *NotificationStructure, unsigned int *Context)
 {
-  __int64 v4; // rax
-  int v5; // eax
-  __int64 v6; // rax
-  struct _LIST_ENTRY *v7; // rax
-  struct _LIST_ENTRY *v8; // rbx
+  __int64 v3; // rax
+  int v4; // eax
+  __int64 v5; // rax
+  struct _LIST_ENTRY *v6; // rax
+  struct _LIST_ENTRY *v7; // rdi
   struct _LIST_ENTRY *Flink; // rax
-  struct _FAST_MUTEX *v10; // rcx
+  struct _FAST_MUTEX *v9; // rcx
+  __int64 v10; // rax
   __int64 v11; // rax
-  __int64 v12; // rcx
-  unsigned int **v13; // rax
-  __int64 v14; // rax
-  _BYTE v16[208]; // [rsp+20h] [rbp-E8h] BYREF
+  unsigned int **v12; // rcx
+  __int64 v13; // rax
 
-  CTempW32ThreadNonPaged::CTempW32ThreadNonPaged((CTempW32ThreadNonPaged *)v16);
   if ( gProtocolType )
-    goto LABEL_26;
-  v4 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_IO_MEDIA_ARRIVAL.Data1;
-  if ( !v4 )
-    v4 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_IO_MEDIA_ARRIVAL.Data4;
-  if ( !v4 )
+    return 0LL;
+  v3 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_IO_MEDIA_ARRIVAL.Data1;
+  if ( !v3 )
+    v3 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_IO_MEDIA_ARRIVAL.Data4;
+  if ( !v3 )
   {
-    v5 = 1;
+    v4 = 1;
     goto LABEL_10;
   }
-  v6 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_IO_MEDIA_REMOVAL.Data1;
-  if ( !v6 )
-    v6 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_IO_MEDIA_REMOVAL.Data4;
-  if ( !v6 )
+  v5 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_IO_MEDIA_REMOVAL.Data1;
+  if ( !v5 )
+    v5 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_IO_MEDIA_REMOVAL.Data4;
+  if ( !v5 )
   {
-    v5 = 2;
+    v4 = 2;
 LABEL_10:
-    Context[8] = v5;
-    v7 = (struct _LIST_ENTRY *)Win32AllocPoolNonPagedZInit(Context[4], 1886417749LL);
-    v8 = v7;
-    if ( v7 )
+    Context[8] = v4;
+    v6 = (struct _LIST_ENTRY *)Win32AllocPoolNonPaged(Context[4], 1886417749LL);
+    v7 = v6;
+    if ( v6 )
     {
-      memmove(v7, Context, Context[4]);
+      memmove(v6, Context, Context[4]);
       ExEnterCriticalRegionAndAcquireFastMutexUnsafe(gMediaChangeMutex);
       Flink = gMediaChangeList.Flink;
       if ( gMediaChangeList.Flink->Blink == &gMediaChangeList )
       {
-        v8->Blink = &gMediaChangeList;
-        v10 = gMediaChangeMutex;
-        v8->Flink = Flink;
-        Flink->Blink = v8;
-        gMediaChangeList.Flink = v8;
-        ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(v10);
+        v7->Blink = &gMediaChangeList;
+        v9 = gMediaChangeMutex;
+        v7->Flink = Flink;
+        Flink->Blink = v7;
+        gMediaChangeList.Flink = v7;
+        ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(v9);
         KeSetEvent((PRKEVENT)gpEventMediaChange, 1, 0);
-        goto LABEL_26;
+        return 0LL;
       }
 LABEL_21:
       __fastfail(3u);
     }
-    goto LABEL_26;
+    return 0LL;
   }
-  v11 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data1;
-  if ( !v11 )
-    v11 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data4;
-  if ( !v11 )
+  v10 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data1;
+  if ( !v10 )
+    v10 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data4;
+  if ( !v10 )
   {
     ExEnterCriticalRegionAndAcquireFastMutexUnsafe(gMediaChangeMutex);
     if ( !gCDROMClassRegistrationEntry )
     {
       ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(gMediaChangeMutex);
-      goto LABEL_26;
+      return 0LL;
     }
-    v12 = *(_QWORD *)Context;
+    v11 = *(_QWORD *)Context;
     if ( *(unsigned int **)(*(_QWORD *)Context + 8LL) == Context )
     {
-      v13 = (unsigned int **)*((_QWORD *)Context + 1);
-      if ( *v13 == Context )
+      v12 = (unsigned int **)*((_QWORD *)Context + 1);
+      if ( *v12 == Context )
       {
-        *v13 = (unsigned int *)v12;
-        *(_QWORD *)(v12 + 8) = v13;
+        *v12 = (unsigned int *)v11;
+        *(_QWORD *)(v11 + 8) = v12;
         ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(gMediaChangeMutex);
         IoUnregisterPlugPlayNotification(*((PVOID *)Context + 3));
         Win32FreePool(Context);
-        goto LABEL_26;
+        return 0LL;
       }
     }
     goto LABEL_21;
   }
-  v14 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_IO_DEVICE_BECOMING_READY.Data1;
-  if ( !v14 )
-    v14 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_IO_DEVICE_BECOMING_READY.Data4;
-  if ( !v14 )
+  v13 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_IO_DEVICE_BECOMING_READY.Data1;
+  if ( !v13 )
+    v13 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_IO_DEVICE_BECOMING_READY.Data4;
+  if ( !v13 )
     ShowAutorunCursor(10 * *((_DWORD *)NotificationStructure + 11));
-LABEL_26:
-  CTempW32ThreadNonPaged::~CTempW32ThreadNonPaged((CTempW32ThreadNonPaged *)v16);
   return 0LL;
 }

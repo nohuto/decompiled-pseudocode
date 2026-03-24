@@ -1,21 +1,21 @@
 /*
- * XREFs of UsbDevice_CompleteConfigureEndpointRequest @ 0x1C00085DC
+ * XREFs of UsbDevice_CompleteConfigureEndpointRequest @ 0x1C000793C
  * Callers:
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008988 (UsbDevice_QueueConfigureEndpointEvent.c)
- *     UsbDevice_HandleUnhandledEventReceivedState @ 0x1C00493D0 (UsbDevice_HandleUnhandledEventReceivedState.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     UsbDevice_HandleUnhandledEventReceivedState @ 0x1C0046A54 (UsbDevice_HandleUnhandledEventReceivedState.c)
  * Callees:
- *     WPP_RECORDER_SF_dqqd @ 0x1C000AEBC (WPP_RECORDER_SF_dqqd.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     McTemplateK0ppqqqq_EtwWriteTransfer @ 0x1C004B1FC (McTemplateK0ppqqqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_dqqd @ 0x1C0007A5C (WPP_RECORDER_SF_dqqd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     McTemplateK0ppqqqq_EtwWriteTransfer @ 0x1C0048C44 (McTemplateK0ppqqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall UsbDevice_CompleteConfigureEndpointRequest(__int64 a1, int a2, int a3, int a4)
 {
-  __int64 v5; // rsi
+  __int64 v5; // rbp
   unsigned int v6; // edi
   _BYTE *v7; // rcx
-  unsigned int v8; // ebp
+  unsigned int v8; // esi
   bool v9; // zf
 
   if ( !*(_QWORD *)(a1 + 440) )
@@ -47,7 +47,7 @@ __int64 __fastcall UsbDevice_CompleteConfigureEndpointRequest(__int64 a1, int a2
   *(_QWORD *)(a1 + 440) = 0LL;
   *(_QWORD *)(a1 + 592) = 0LL;
   *(_BYTE *)(a1 + 452) = 0;
-  if ( (WPP_MAIN_CB.AlignmentRequirement & 2) != 0 )
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc & 2) != 0 )
     McTemplateK0ppqqqq_EtwWriteTransfer(
       *(unsigned __int8 *)(a1 + 571),
       a2,

@@ -1,7 +1,7 @@
 /*
- * XREFs of MmPurgeSection @ 0x1400E7CE0
+ * XREFs of MmPurgeSection @ 0x1400E7D00
  * Callers:
- *     CcPurgeCacheSection @ 0x1400E7A80 (CcPurgeCacheSection.c)
+ *     CcPurgeCacheSection @ 0x1400E7AA0 (CcPurgeCacheSection.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
@@ -19,21 +19,21 @@
  *     MiDecrementSubsectionViewCount @ 0x1400794C0 (MiDecrementSubsectionViewCount.c)
  *     MiInsertUnusedSubsection @ 0x14007B7DC (MiInsertUnusedSubsection.c)
  *     MiRemoveUnusedSubsection @ 0x14007BBC8 (MiRemoveUnusedSubsection.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiCanFileBeTruncatedInternal @ 0x1400E85F0 (MiCanFileBeTruncatedInternal.c)
- *     MiWaitForPageWriteCompletion @ 0x1400F9AD4 (MiWaitForPageWriteCompletion.c)
- *     MiInvalidateCollidedIos @ 0x140117D28 (MiInvalidateCollidedIos.c)
- *     MiCapturePageFileInfoInline @ 0x140119DB0 (MiCapturePageFileInfoInline.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiChangingSubsectionProtos @ 0x1402B5330 (MiChangingSubsectionProtos.c)
- *     MiSubsectionProtosCreated @ 0x1402B6F4C (MiSubsectionProtosCreated.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4BB4 (MiReturnCrossPartitionSectionCharges.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C178 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiCanFileBeTruncatedInternal @ 0x1400E8610 (MiCanFileBeTruncatedInternal.c)
+ *     MiWaitForPageWriteCompletion @ 0x1400F9AF4 (MiWaitForPageWriteCompletion.c)
+ *     MiInvalidateCollidedIos @ 0x140117D48 (MiInvalidateCollidedIos.c)
+ *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiChangingSubsectionProtos @ 0x1402B5430 (MiChangingSubsectionProtos.c)
+ *     MiSubsectionProtosCreated @ 0x1402B704C (MiSubsectionProtosCreated.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 char __fastcall MmPurgeSection(SECTION_OBJECT_POINTERS *a1, __int64 *a2, __int64 a3, int a4, _BYTE *a5)

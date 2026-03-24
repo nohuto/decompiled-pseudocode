@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpCheckTestsigningEnabled @ 0x140706FF4
+ * XREFs of ExpCheckTestsigningEnabled @ 0x140706FD4
  * Callers:
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
  * Callees:

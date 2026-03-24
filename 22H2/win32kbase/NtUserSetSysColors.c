@@ -1,170 +1,121 @@
 /*
- * XREFs of NtUserSetSysColors @ 0x1C00919E0
+ * XREFs of NtUserSetSysColors @ 0x1C000D5C0
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C0048330 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     HMUnlockObject @ 0x1C0056D70 (HMUnlockObject.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     xxxSetSysColors @ 0x1C005F814 (xxxSetSysColors.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     CreateProfileUserName @ 0x1C0091D90 (CreateProfileUserName.c)
- *     CheckAccessEx @ 0x1C0091E70 (CheckAccessEx.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     CreateProfileUserName @ 0x1C000DC60 (CreateProfileUserName.c)
+ *     xxxSetSysColors @ 0x1C00205DC (xxxSetSysColors.c)
+ *     Win32AllocPoolWithQuota @ 0x1C002AA40 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     EnterCrit @ 0x1C002FF70 (EnterCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     CheckAccessEx @ 0x1C0044418 (CheckAccessEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
-__int64 __fastcall NtUserSetSysColors(
-        __int64 a1,
-        NSInstrumentation::CLeakTrackingAllocator *a2,
-        NSInstrumentation::CLeakTrackingAllocator *a3,
-        __int64 a4)
+__int64 __fastcall NtUserSetSysColors(unsigned int a1, char *a2, char *a3, int a4)
 {
-  __int64 v6; // r13
-  char *v7; // rsi
-  char *v8; // r14
-  struct tagTHREADINFO *v9; // rax
-  __int64 v10; // rcx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v12; // rdx
-  char v13; // al
-  __int64 *v14; // rbx
-  int v15; // eax
-  ULONG64 v16; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v17; // rcx
-  __int64 v18; // rbx
-  char *QuotaZInit; // rax
-  unsigned __int64 v20; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v21; // rcx
-  char *v22; // rax
-  __int64 v23; // rbx
-  __int64 v24; // rcx
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  __int64 v27; // r8
-  __int64 v28; // r9
-  int v29; // r15d
-  _DWORD v31[2]; // [rsp+40h] [rbp-98h] BYREF
-  void *v32; // [rsp+48h] [rbp-90h]
-  void *v33; // [rsp+50h] [rbp-88h]
-  __int128 v34; // [rsp+60h] [rbp-78h] BYREF
-  __int64 v35; // [rsp+70h] [rbp-68h]
-  __int128 v36; // [rsp+78h] [rbp-60h] BYREF
-  __int64 v37; // [rsp+88h] [rbp-50h]
-  __int128 v38; // [rsp+90h] [rbp-48h] BYREF
-  __int64 v39; // [rsp+A0h] [rbp-38h]
-  unsigned int v40; // [rsp+F8h] [rbp+20h]
+  __int64 v7; // r12
+  void *v8; // rdi
+  void *v9; // rsi
+  int v10; // eax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  __int64 v15; // rbx
+  char *v16; // rcx
+  void *v17; // rax
+  void *v18; // rax
+  __int64 v19; // rbx
+  int v20; // ecx
+  __int64 v21; // rcx
+  int v22; // r14d
+  _DWORD v24[2]; // [rsp+38h] [rbp-90h] BYREF
+  void *v25; // [rsp+40h] [rbp-88h]
+  void *v26; // [rsp+48h] [rbp-80h]
+  __int128 v27; // [rsp+58h] [rbp-70h] BYREF
+  __int64 v28; // [rsp+68h] [rbp-60h]
+  __int128 v29; // [rsp+70h] [rbp-58h] BYREF
+  __int64 v30; // [rsp+80h] [rbp-48h]
+  __int128 v31; // [rsp+88h] [rbp-40h] BYREF
+  __int64 v32; // [rsp+98h] [rbp-30h]
 
-  v40 = a4;
-  v6 = (unsigned int)a1;
-  v7 = 0LL;
-  v32 = 0LL;
+  v7 = a1;
   v8 = 0LL;
-  v33 = 0LL;
-  v34 = 0LL;
-  v35 = 0LL;
-  v38 = 0LL;
-  v39 = 0LL;
-  v36 = 0LL;
-  v37 = 0LL;
-  v31[0] = 0x2000;
-  v31[1] = -1;
-  LOBYTE(a1) = 1;
-  v9 = (struct tagTHREADINFO *)PrivateAPI::_anonymous_namespace_::EnterCritInternal(a1, (__int64)a2, (__int64)a3, a4);
-  gptiCurrent = v9;
-  if ( v9 )
-  {
-    *((_DWORD *)v9 + 387) = 1;
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v10);
-    v12 = CurrentProcessWin32Process;
-    if ( CurrentProcessWin32Process )
-      v12 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-    if ( v12 && (*(_DWORD *)(v12 + 12) & 0x8000) != 0 )
-    {
-      if ( (*((_DWORD *)gptiCurrent + 122) & 0x1000000) == 0 || (v13 = 1, (*((_DWORD *)gptiCurrent + 318) & 0x80u) != 0) )
-        v13 = 0;
-      if ( v13 )
-      {
-        while ( 1 )
-        {
-          v14 = (__int64 *)gpSharedUserCritDeferredUnlockListHead;
-          if ( !gpSharedUserCritDeferredUnlockListHead )
-            break;
-          gpSharedUserCritDeferredUnlockListHead = (struct tagKERNELHANDLETABLEENTRY *)*((_QWORD *)gpSharedUserCritDeferredUnlockListHead
-                                                                                       + 2);
-          v14[2] = 0LL;
-          if ( !*(_DWORD *)(*v14 + 8) )
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 4237LL);
-          HMUnlockObject(*v14);
-        }
-      }
-    }
-  }
+  v25 = 0LL;
+  v9 = 0LL;
+  v26 = 0LL;
+  v27 = 0LL;
+  v28 = 0LL;
+  v31 = 0LL;
+  v32 = 0LL;
+  v29 = 0LL;
+  v30 = 0LL;
+  v24[0] = 0x2000;
+  v24[1] = -1;
+  EnterCrit(0LL, 1LL);
   if ( (*((_DWORD *)gptiCurrent + 122) & 0x20000000) != 0 )
-    v15 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)gptiCurrent + 53) + 760LL) + 24LL) & 8;
+    v10 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)gptiCurrent + 53) + 768LL) + 24LL) & 8;
   else
-    v15 = 0;
-  if ( v15 || !(unsigned __int8)CheckAccessEx(*((_QWORD *)gptiCurrent + 53) + 888LL, v31, 0LL) )
+    v10 = 0;
+  if ( v10 || !(unsigned __int8)CheckAccessEx(*((_QWORD *)gptiCurrent + 53) + 880LL, v24, 0LL) )
   {
-    v29 = 0;
-    UserSetLastError(5);
+    v22 = 0;
+    UserSetLastError(5LL);
   }
   else
   {
-    if ( (_DWORD)v6 )
+    if ( (_DWORD)v7 )
     {
-      v18 = 4 * v6;
-      if ( 4 * v6 )
+      v15 = 4 * v7;
+      if ( 4 * v7 )
       {
-        if ( ((PsGetCurrentProcessWow64Process() == 0 ? 3 : 0) & (unsigned __int8)a2) != 0 )
+        if ( ((PsGetCurrentProcessWow64Process(v12) == 0 ? 3 : 0) & (unsigned __int8)a2) != 0 )
           ExRaiseDatatypeMisalignment();
-        v17 = (NSInstrumentation::CLeakTrackingAllocator *)((char *)a2 + v18);
-        v16 = MmUserProbeAddress;
-        if ( (unsigned __int64)a2 + v18 > MmUserProbeAddress || v17 < a2 )
+        v16 = &a2[v15];
+        if ( (unsigned __int64)&a2[v15] > MmUserProbeAddress || v16 < a2 )
           *(_BYTE *)MmUserProbeAddress = 0;
-        if ( v18 )
+        if ( v15 )
         {
-          if ( ((PsGetCurrentProcessWow64Process() == 0 ? 3 : 0) & (unsigned __int8)a3) != 0 )
+          if ( ((PsGetCurrentProcessWow64Process(v16) == 0 ? 3 : 0) & (unsigned __int8)a3) != 0 )
             ExRaiseDatatypeMisalignment();
-          v17 = (NSInstrumentation::CLeakTrackingAllocator *)((char *)a3 + v18);
-          v16 = MmUserProbeAddress;
-          if ( (unsigned __int64)a3 + v18 > MmUserProbeAddress || v17 < a3 )
+          if ( (unsigned __int64)&a3[v15] > MmUserProbeAddress || &a3[v15] < a3 )
             *(_BYTE *)MmUserProbeAddress = 0;
         }
       }
-      QuotaZInit = (char *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v17, v16, 4 * v6, 0x72637355u);
-      v7 = QuotaZInit;
-      v32 = QuotaZInit;
-      if ( !QuotaZInit )
+      v17 = (void *)Win32AllocPoolWithQuota(4 * v7, 1919120213LL);
+      v8 = v17;
+      v25 = v17;
+      if ( !v17 )
         ExRaiseStatus(-1073741801);
-      memmove(QuotaZInit, a2, 4 * v6);
-      v22 = (char *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v21, v20, 4 * v6, 0x76637355u);
-      v8 = v22;
-      v33 = v22;
-      if ( !v22 )
+      memmove(v17, a2, 4 * v7);
+      v18 = (void *)Win32AllocPoolWithQuota(4 * v7, 1986229077LL);
+      v9 = v18;
+      v26 = v18;
+      if ( !v18 )
         ExRaiseStatus(-1073741801);
-      memmove(v22, a3, 4 * v6);
+      memmove(v18, a3, 4 * v7);
     }
-    if ( qword_1C0295450 )
-      qword_1C0295450(v7, &v38, Win32FreePool);
-    if ( qword_1C0295450 )
-      qword_1C0295450(v8, &v36, Win32FreePool);
-    v23 = CreateProfileUserName(&v34);
-    v29 = xxxSetSysColors(v24, v6, v7, v8, v40);
-    if ( v23 && qword_1C0295558 )
-      qword_1C0295558(&v34);
-    if ( qword_1C0295460 )
-      qword_1C0295460(&v36);
-    if ( qword_1C0295460 )
-      qword_1C0295460(&v38);
-    if ( v7 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v7);
+    if ( qword_1C0255FC0 )
+      qword_1C0255FC0(v8, &v31, Win32FreePool);
+    if ( qword_1C0255FC0 )
+      qword_1C0255FC0(v9, &v29, Win32FreePool);
+    v19 = CreateProfileUserName(&v27, v11, v13, v14);
+    v22 = xxxSetSysColors(v20, v7, (_DWORD)v8, (_DWORD)v9, a4);
+    if ( v19 && qword_1C02560E8 )
+      qword_1C02560E8(&v27);
+    if ( qword_1C0255FD0 )
+      qword_1C0255FD0(&v29);
+    if ( qword_1C0255FD0 )
+      qword_1C0255FD0(&v31);
     if ( v8 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v8);
+      Win32FreePool(v8);
+    if ( v9 )
+      Win32FreePool(v9);
   }
-  UserSessionSwitchLeaveCrit(v26, v25, v27, v28);
-  return v29;
+  UserSessionSwitchLeaveCrit(v21);
+  return v22;
 }

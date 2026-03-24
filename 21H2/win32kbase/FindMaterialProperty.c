@@ -1,8 +1,8 @@
 /*
- * XREFs of FindMaterialProperty @ 0x1C00592EC
+ * XREFs of FindMaterialProperty @ 0x1C009D654
  * Callers:
- *     FindOrCreateMaterialProperty @ 0x1C0057BB8 (FindOrCreateMaterialProperty.c)
- *     NtDCompositionGetMaterialProperty @ 0x1C0057CE0 (NtDCompositionGetMaterialProperty.c)
+ *     FindOrCreateMaterialProperty @ 0x1C009D478 (FindOrCreateMaterialProperty.c)
+ *     NtDCompositionGetMaterialProperty @ 0x1C009D540 (NtDCompositionGetMaterialProperty.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall FindMaterialProperty(__int64 a1, __int64 a2, _QWORD *a3)
   __int128 v3; // rax
   __int64 v4; // rbx
   _QWORD *v6; // rax
-  __int128 Buffer; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v8; // [rsp+20h] [rbp-28h] BYREF
   __int64 v9; // [rsp+30h] [rbp-18h]
 
   *((_QWORD *)&v3 + 1) = a2;
@@ -20,9 +20,9 @@ __int64 __fastcall FindMaterialProperty(__int64 a1, __int64 a2, _QWORD *a3)
   v4 = 0LL;
   if ( !Table )
     return 3221225659LL;
-  Buffer = v3;
+  v8 = v3;
   v9 = 0LL;
-  v6 = RtlLookupElementGenericTable(Table, &Buffer);
+  v6 = RtlLookupElementGenericTable(Table, &v8);
   if ( v6 )
     v4 = v6[2];
   *a3 = v4;

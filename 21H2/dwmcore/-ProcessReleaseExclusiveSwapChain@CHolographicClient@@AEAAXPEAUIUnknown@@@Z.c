@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ProcessReleaseExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18029E7DC
+ * XREFs of ?ProcessReleaseExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025BF54
  * Callers:
- *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x18029E414 (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
- *     ?UninitializeResources@CHolographicClient@@AEAAXXZ @ 0x18029F1AC (-UninitializeResources@CHolographicClient@@AEAAXXZ.c)
+ *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x18025BBAC (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?UninitializeResources@CHolographicClient@@AEAAXXZ @ 0x18025C65C (-UninitializeResources@CHolographicClient@@AEAAXXZ.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?DeactivateView@CHolographicExclusiveView@@QEAAXPEAVCHolographicClient@@@Z @ 0x180298F8C (-DeactivateView@CHolographicExclusiveView@@QEAAXPEAVCHolographicClient@@@Z.c)
- *     ?OnSwapChainRelease@CHolographicExclusiveView@@QEAAXXZ @ 0x18029910C (-OnSwapChainRelease@CHolographicExclusiveView@@QEAAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?DeactivateView@CHolographicExclusiveView@@QEAAXPEAVCHolographicClient@@@Z @ 0x180257038 (-DeactivateView@CHolographicExclusiveView@@QEAAXPEAVCHolographicClient@@@Z.c)
+ *     ?OnSwapChainRelease@CHolographicExclusiveView@@QEAAXXZ @ 0x1802571D0 (-OnSwapChainRelease@CHolographicExclusiveView@@QEAAXXZ.c)
  */
 
 void __fastcall CHolographicClient::ProcessReleaseExclusiveSwapChain(CHolographicClient *this, struct IUnknown *a2)
@@ -23,7 +23,7 @@ void __fastcall CHolographicClient::ProcessReleaseExclusiveSwapChain(CHolographi
   {
     v3 = (struct IUnknown **)v5;
     v4 = (CHolographicExclusiveView *)*((_QWORD *)this + 25);
-    if ( v4 == v5 && !*((_BYTE *)v4 + 83) )
+    if ( v4 == v5 && !*((_BYTE *)v4 + 75) )
     {
       CHolographicExclusiveView::DeactivateView(v4, this);
       Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 25);

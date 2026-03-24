@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0pzzq_EtwWriteTransfer @ 0x1C005C280
+ * XREFs of McTemplateK0pzzq_EtwWriteTransfer @ 0x1C0040174
  * Callers:
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005BFAC (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
- *     ?VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ @ 0x1C0358FC8 (-VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C00400A4 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ @ 0x1C0230C38 (-VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0013C40 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C000BC78 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pzzq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifySyncOnlyMessages @ 0x1C0392120
+ * XREFs of VerifySyncOnlyMessages @ 0x1C0395090
  * Callers:
  *     <none>
  * Callees:

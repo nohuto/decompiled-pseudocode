@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UpdateTransform@CompositionInputObject@@QEAAJAEBUtagINPUT_TRANSFORM@@@Z @ 0x1C0095FF0
+ * XREFs of ?UpdateTransform@CompositionInputObject@@QEAAJAEBUtagINPUT_TRANSFORM@@@Z @ 0x1C00022F0
  * Callers:
- *     NtUpdateInputSinkTransforms @ 0x1C0095E60 (NtUpdateInputSinkTransforms.c)
+ *     NtUpdateInputSinkTransforms @ 0x1C0002160 (NtUpdateInputSinkTransforms.c)
  * Callees:
- *     ?UnlockAndRelease@CInputSink@@QEBA_NXZ @ 0x1C0096060 (-UnlockAndRelease@CInputSink@@QEBA_NXZ.c)
- *     ?LockForWrite@CompositionInputObject@@QEAAJPEAPEAVCInputSink@@@Z @ 0x1C00960F0 (-LockForWrite@CompositionInputObject@@QEAAJPEAPEAVCInputSink@@@Z.c)
+ *     ?LockForWrite@CompositionInputObject@@QEAAJPEAPEAVCInputSink@@@Z @ 0x1C005A580 (-LockForWrite@CompositionInputObject@@QEAAJPEAPEAVCInputSink@@@Z.c)
+ *     ?UnlockAndRelease@CInputSink@@QEBA_NXZ @ 0x1C005CD60 (-UnlockAndRelease@CInputSink@@QEBA_NXZ.c)
  */
 
 __int64 __fastcall CompositionInputObject::UpdateTransform(
@@ -20,10 +20,10 @@ __int64 __fastcall CompositionInputObject::UpdateTransform(
   if ( v3 >= 0 )
   {
     v4 = v6;
-    *(_OWORD *)((char *)v6 + 88) = *(_OWORD *)a2;
-    *(_OWORD *)((char *)v4 + 104) = *((_OWORD *)a2 + 1);
-    *(_OWORD *)((char *)v4 + 120) = *((_OWORD *)a2 + 2);
-    *(_OWORD *)((char *)v4 + 136) = *((_OWORD *)a2 + 3);
+    *((_OWORD *)v6 + 6) = *(_OWORD *)a2;
+    *((_OWORD *)v4 + 7) = *((_OWORD *)a2 + 1);
+    *((_OWORD *)v4 + 8) = *((_OWORD *)a2 + 2);
+    *((_OWORD *)v4 + 9) = *((_OWORD *)a2 + 3);
     CInputSink::UnlockAndRelease(v4);
   }
   return (unsigned int)v3;

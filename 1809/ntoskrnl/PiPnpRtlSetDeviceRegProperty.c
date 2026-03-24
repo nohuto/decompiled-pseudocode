@@ -1,18 +1,18 @@
 /*
- * XREFs of PiPnpRtlSetDeviceRegProperty @ 0x1406F696C
+ * XREFs of PiPnpRtlSetDeviceRegProperty @ 0x1406F694C
  * Callers:
- *     PiDevCfgSetDeviceRegProp @ 0x1406F6920 (PiDevCfgSetDeviceRegProp.c)
- *     PiCMSetRegistryProperty @ 0x140838EC4 (PiCMSetRegistryProperty.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x1406F6900 (PiDevCfgSetDeviceRegProp.c)
+ *     PiCMSetRegistryProperty @ 0x140838EA4 (PiCMSetRegistryProperty.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     _CmIsRootEnumeratedDevice @ 0x14059C4CC (_CmIsRootEnumeratedDevice.c)
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
  *     SeAuditingWithTokenForSubcategory @ 0x14060A3C0 (SeAuditingWithTokenForSubcategory.c)
- *     _CmSetDeviceRegProp @ 0x1406E2A44 (_CmSetDeviceRegProp.c)
- *     PiAuditDeviceEnableDisableRequest @ 0x14083CF78 (PiAuditDeviceEnableDisableRequest.c)
+ *     _CmSetDeviceRegProp @ 0x1406E2A24 (_CmSetDeviceRegProp.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x14083CF58 (PiAuditDeviceEnableDisableRequest.c)
  */
 
 __int64 __fastcall PiPnpRtlSetDeviceRegProperty(

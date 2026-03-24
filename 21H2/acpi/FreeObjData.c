@@ -1,232 +1,214 @@
 /*
- * XREFs of FreeObjData @ 0x1C0018AA0
+ * XREFs of FreeObjData @ 0x1C00033D0
  * Callers:
- *     RunContext @ 0x1C0010A50 (RunContext.c)
- *     ParseCall @ 0x1C00123D0 (ParseCall.c)
- *     ParseScope @ 0x1C0014A90 (ParseScope.c)
- *     ExprOp2_64 @ 0x1C0016CF0 (ExprOp2_64.c)
- *     FreeData @ 0x1C001840C (FreeData.c)
- *     FreeNameSpaceObjects @ 0x1C00186E0 (FreeNameSpaceObjects.c)
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     ACPIGetWorkerForInteger @ 0x1C00249F0 (ACPIGetWorkerForInteger.c)
- *     Simulator_DuplicateObjData @ 0x1C0064D30 (Simulator_DuplicateObjData.c)
- *     Simulator_Free_Arguments @ 0x1C0064DF4 (Simulator_Free_Arguments.c)
- *     AMLICreateNativeNamespaceObject @ 0x1C00655C8 (AMLICreateNativeNamespaceObject.c)
- *     AMLIAddNextNamespaceOverrideObject @ 0x1C0065C08 (AMLIAddNextNamespaceOverrideObject.c)
- *     AMLICreateOverrideObjectDep @ 0x1C0065F88 (AMLICreateOverrideObjectDep.c)
- *     ProcessLoadTable @ 0x1C006A9B0 (ProcessLoadTable.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     FreeData @ 0x1C00036E8 (FreeData.c)
+ *     FreeNameSpaceObjects @ 0x1C0003A50 (FreeNameSpaceObjects.c)
+ *     RunContext @ 0x1C0004DD0 (RunContext.c)
+ *     ParseCall @ 0x1C0006B60 (ParseCall.c)
+ *     ParseScope @ 0x1C0008890 (ParseScope.c)
+ *     ExprOp2_64 @ 0x1C0020F60 (ExprOp2_64.c)
+ *     ACPIGetWorkerForInteger @ 0x1C0026CF0 (ACPIGetWorkerForInteger.c)
+ *     Simulator_DuplicateObjData @ 0x1C0063AB0 (Simulator_DuplicateObjData.c)
+ *     Simulator_Free_Arguments @ 0x1C0063B74 (Simulator_Free_Arguments.c)
+ *     AMLICreateNativeNamespaceObject @ 0x1C0064348 (AMLICreateNativeNamespaceObject.c)
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C006498C (AMLIAddNextNamespaceOverrideObject.c)
+ *     AMLICreateOverrideObjectDep @ 0x1C0064D04 (AMLICreateOverrideObjectDep.c)
+ *     ProcessLoadTable @ 0x1C006A1F0 (ProcessLoadTable.c)
  * Callees:
- *     HeapInsertFreeList @ 0x1C0017940 (HeapInsertFreeList.c)
- *     DereferenceObjectEx @ 0x1C00189F4 (DereferenceObjectEx.c)
- *     HeapFree @ 0x1C0018DD0 (HeapFree.c)
- *     PerformMutexDriverCallbacks @ 0x1C002AEB8 (PerformMutexDriverCallbacks.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     GetObjectTypeName @ 0x1C0066810 (GetObjectTypeName.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     HeapInsertFreeList @ 0x1C0002F50 (HeapInsertFreeList.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     PerformMutexDriverCallbacks @ 0x1C0010328 (PerformMutexDriverCallbacks.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
  */
 
 void __fastcall FreeObjData(__int64 a1)
 {
   int v1; // eax
-  unsigned __int64 *v3; // rcx
+  _QWORD *v3; // rdi
   _QWORD *v4; // rbx
-  _QWORD *v5; // rdi
-  __int64 v6; // r10
-  _QWORD *v7; // rax
-  _QWORD *i; // rdx
-  _QWORD *v9; // rcx
-  _QWORD *v10; // r8
-  __int64 v11; // rcx
-  _QWORD *v12; // rax
-  _QWORD *v13; // r8
+  __int64 v5; // r9
+  _QWORD *v6; // rax
+  _QWORD *i; // r8
+  _QWORD *v8; // rcx
+  _QWORD *v9; // rdx
+  __int64 v10; // rcx
+  _QWORD *v11; // rax
+  _QWORD *v12; // rdx
+  __int64 v13; // rcx
   __int64 v14; // rcx
-  __int64 v15; // rcx
-  _QWORD *v16; // rax
-  _QWORD *v17; // rdi
-  _QWORD *v18; // rbx
-  __int64 v19; // r9
-  _QWORD *v20; // rax
+  _QWORD *v15; // rax
+  _QWORD *v16; // rdi
+  _QWORD *v17; // rax
   _QWORD *j; // rdx
-  _QWORD *v22; // rcx
+  _QWORD *v19; // rcx
+  _QWORD *v20; // r8
+  __int64 v21; // rcx
+  _QWORD *v22; // rax
   _QWORD *v23; // r8
-  __int64 v24; // rcx
-  _QWORD *v25; // rax
-  _QWORD *v26; // r8
-  _QWORD *v27; // rbx
-  __int64 v28; // rcx
-  _QWORD *v29; // rax
-  bool v30; // zf
-  __int64 v31; // rbx
+  _QWORD *v24; // rbx
+  __int64 v25; // rcx
+  _QWORD *v26; // rax
+  __int64 v27; // rbx
+  __int64 v28; // r10
+  __int64 v29; // rcx
+  _QWORD *v30; // rax
+  __int64 v31; // r10
   __int64 v32; // rcx
-  __int64 v33; // rcx
-  _QWORD *v34; // rax
-  __int64 v35; // r10
-  __int64 v36; // rcx
-  _QWORD *v37; // rax
-  __int64 v38; // r9
-  __int64 v39; // rcx
-  _QWORD *v40; // rax
-  unsigned __int64 v41; // rax
-  _QWORD *v42; // rdi
-  unsigned __int64 v43; // rax
+  _QWORD *v33; // rax
+  __int64 v34; // rcx
+  __int64 v35; // rcx
+  _QWORD *v36; // rax
+  __int64 *v37; // rcx
+  __int64 v38; // rax
+  __int64 v39; // rax
   int ObjectTypeName; // eax
 
   v1 = *(unsigned __int16 *)(a1 + 2);
-  switch ( v1 )
+  if ( v1 == 4 )
   {
-    case 4:
-      v4 = *(_QWORD **)(a1 + 32);
-      *((_DWORD *)v4 - 4) = 0;
-      v5 = v4 - 2;
-      byte_1C0082868 = KeAcquireSpinLockRaiseToDpc(&gmutHeap);
-      v6 = *(v4 - 1);
-      v7 = *(_QWORD **)(v6 + 40);
-      for ( i = (_QWORD *)(v6 + 40); v7 != i; v7 = (_QWORD *)*v7 )
+    v3 = *(_QWORD **)(a1 + 32);
+    *((_DWORD *)v3 - 4) = 0;
+    v4 = v3 - 2;
+    NewIrql = KeAcquireSpinLockRaiseToDpc(&gmutHeap);
+    v5 = *(v3 - 1);
+    v6 = *(_QWORD **)(v5 + 40);
+    for ( i = (_QWORD *)(v5 + 40); v6 != i; v6 = (_QWORD *)*v6 )
+    {
+      if ( v3 < v6 )
+        break;
+    }
+    v8 = (_QWORD *)v6[1];
+    if ( (_QWORD *)*v8 != v6 )
+      goto LABEL_45;
+    v3[1] = v8;
+    *v3 = v6;
+    *v8 = v3;
+    v6[1] = v3;
+    v9 = (_QWORD *)*v3;
+    v10 = *v3 - 16LL;
+    if ( (_QWORD *)*v3 != i )
+    {
+      v31 = *((unsigned int *)v4 + 1);
+      if ( (_QWORD *)v10 == (_QWORD *)((char *)v4 + v31) )
       {
-        if ( v4 < v7 )
-          break;
+        *((_DWORD *)v4 + 1) = v31 + *(_DWORD *)(v10 + 4);
+        v32 = *v9;
+        if ( *(_QWORD **)(*v9 + 8LL) != v9 )
+          goto LABEL_45;
+        v33 = (_QWORD *)v9[1];
+        if ( (_QWORD *)*v33 != v9 )
+          goto LABEL_45;
+        *v33 = v32;
+        *(_QWORD *)(v32 + 8) = v33;
       }
-      v9 = (_QWORD *)v7[1];
-      if ( (_QWORD *)*v9 != v7 )
-        goto LABEL_48;
-      v4[1] = v9;
-      *v4 = v7;
-      *v9 = v4;
-      v7[1] = v4;
-      v10 = (_QWORD *)*v4;
-      v11 = *v4 - 16LL;
-      if ( (_QWORD *)*v4 != i )
+    }
+    v11 = (_QWORD *)v4[3];
+    v12 = v11 - 2;
+    if ( v11 != i )
+    {
+      v13 = *((unsigned int *)v12 + 1);
+      if ( v4 == (_QWORD *)((char *)v12 + v13) )
       {
-        v38 = *((unsigned int *)v5 + 1);
-        if ( (_QWORD *)v11 == (_QWORD *)((char *)v5 + v38) )
-        {
-          *((_DWORD *)v5 + 1) = v38 + *(_DWORD *)(v11 + 4);
-          v39 = *v10;
-          if ( *(_QWORD **)(*v10 + 8LL) != v10 )
-            goto LABEL_48;
-          v40 = (_QWORD *)v10[1];
-          if ( (_QWORD *)*v40 != v10 )
-            goto LABEL_48;
-          *v40 = v39;
-          *(_QWORD *)(v39 + 8) = v40;
-        }
+        *((_DWORD *)v12 + 1) = *((_DWORD *)v4 + 1) + v13;
+        v14 = *v3;
+        if ( *(_QWORD **)(*v3 + 8LL) != v3 )
+          goto LABEL_45;
+        v15 = (_QWORD *)v3[1];
+        if ( (_QWORD *)*v15 != v3 )
+          goto LABEL_45;
+        *v15 = v14;
+        v4 = v12;
+        *(_QWORD *)(v14 + 8) = v15;
       }
-      v12 = (_QWORD *)v5[3];
-      v13 = v12 - 2;
-      if ( v12 != i )
-      {
-        v14 = *((unsigned int *)v13 + 1);
-        if ( v5 == (_QWORD *)((char *)v13 + v14) )
-        {
-          *((_DWORD *)v13 + 1) = *((_DWORD *)v5 + 1) + v14;
-          v15 = *v4;
-          if ( *(_QWORD **)(*v4 + 8LL) != v4 )
-            goto LABEL_48;
-          v16 = (_QWORD *)v4[1];
-          if ( (_QWORD *)*v16 != v4 )
-            goto LABEL_48;
-          *v16 = v15;
-          v5 = v13;
-          *(_QWORD *)(v15 + 8) = v16;
-        }
-      }
-      if ( *(_QWORD *)(v6 + 32) <= (unsigned __int64)v5 + *((unsigned int *)v5 + 1) )
-      {
-        *(_QWORD *)(v6 + 32) = v5;
-        v42 = v5 + 2;
-        v28 = *v42;
-        if ( *(_QWORD **)(*v42 + 8LL) != v42 )
-          goto LABEL_48;
-        v29 = (_QWORD *)v42[1];
-        v30 = *v29 == (_QWORD)v42;
-        goto LABEL_46;
-      }
-LABEL_18:
-      KeReleaseSpinLock(&gmutHeap, byte_1C0082868);
+    }
+    if ( *(_QWORD *)(v5 + 32) > (unsigned __int64)v4 + *((unsigned int *)v4 + 1) )
+    {
+LABEL_13:
+      KeReleaseSpinLock(&gmutHeap, NewIrql);
       return;
-    case 3:
-      v17 = *(_QWORD **)(a1 + 32);
-      *((_DWORD *)v17 - 4) = 0;
-      v18 = v17 - 2;
-      byte_1C0082868 = KeAcquireSpinLockRaiseToDpc(&gmutHeap);
-      v19 = *(v17 - 1);
-      v20 = *(_QWORD **)(v19 + 40);
-      for ( j = (_QWORD *)(v19 + 40); v20 != j; v20 = (_QWORD *)*v20 )
+    }
+    goto LABEL_21;
+  }
+  if ( v1 == 3 )
+  {
+    v16 = *(_QWORD **)(a1 + 32);
+    *((_DWORD *)v16 - 4) = 0;
+    v4 = v16 - 2;
+    NewIrql = KeAcquireSpinLockRaiseToDpc(&gmutHeap);
+    v5 = *(v16 - 1);
+    v17 = *(_QWORD **)(v5 + 40);
+    for ( j = (_QWORD *)(v5 + 40); v17 != j; v17 = (_QWORD *)*v17 )
+    {
+      if ( v16 < v17 )
+        break;
+    }
+    v19 = (_QWORD *)v17[1];
+    if ( (_QWORD *)*v19 != v17 )
+      goto LABEL_45;
+    v16[1] = v19;
+    *v16 = v17;
+    *v19 = v16;
+    v17[1] = v16;
+    v20 = (_QWORD *)*v16;
+    v21 = *v16 - 16LL;
+    if ( (_QWORD *)*v16 != j )
+    {
+      v28 = *((unsigned int *)v4 + 1);
+      if ( (_QWORD *)v21 == (_QWORD *)((char *)v4 + v28) )
       {
-        if ( v17 < v20 )
-          break;
+        *((_DWORD *)v4 + 1) = v28 + *(_DWORD *)(v21 + 4);
+        v29 = *v20;
+        if ( *(_QWORD **)(*v20 + 8LL) != v20 )
+          goto LABEL_45;
+        v30 = (_QWORD *)v20[1];
+        if ( (_QWORD *)*v30 != v20 )
+          goto LABEL_45;
+        *v30 = v29;
+        *(_QWORD *)(v29 + 8) = v30;
       }
-      v22 = (_QWORD *)v20[1];
-      if ( (_QWORD *)*v22 != v20 )
-        goto LABEL_48;
-      v17[1] = v22;
-      *v17 = v20;
-      *v22 = v17;
-      v20[1] = v17;
-      v23 = (_QWORD *)*v17;
-      v24 = *v17 - 16LL;
-      if ( (_QWORD *)*v17 != j )
+    }
+    v22 = (_QWORD *)v4[3];
+    v23 = v22 - 2;
+    if ( v22 != j )
+    {
+      v34 = *((unsigned int *)v23 + 1);
+      if ( v4 == (_QWORD *)((char *)v23 + v34) )
       {
-        v35 = *((unsigned int *)v18 + 1);
-        if ( (_QWORD *)v24 == (_QWORD *)((char *)v18 + v35) )
-        {
-          *((_DWORD *)v18 + 1) = v35 + *(_DWORD *)(v24 + 4);
-          v36 = *v23;
-          if ( *(_QWORD **)(*v23 + 8LL) != v23 )
-            goto LABEL_48;
-          v37 = (_QWORD *)v23[1];
-          if ( (_QWORD *)*v37 != v23 )
-            goto LABEL_48;
-          *v37 = v36;
-          *(_QWORD *)(v36 + 8) = v37;
-        }
+        *((_DWORD *)v23 + 1) = *((_DWORD *)v4 + 1) + v34;
+        v35 = *v16;
+        if ( *(_QWORD **)(*v16 + 8LL) != v16 )
+          goto LABEL_45;
+        v36 = (_QWORD *)v16[1];
+        if ( (_QWORD *)*v36 != v16 )
+          goto LABEL_45;
+        *v36 = v35;
+        v4 = v23;
+        *(_QWORD *)(v35 + 8) = v36;
       }
-      v25 = (_QWORD *)v18[3];
-      v26 = v25 - 2;
-      if ( v25 != j )
+    }
+    if ( *(_QWORD *)(v5 + 32) > (unsigned __int64)v4 + *((unsigned int *)v4 + 1) )
+      goto LABEL_13;
+LABEL_21:
+    *(_QWORD *)(v5 + 32) = v4;
+    v24 = v4 + 2;
+    v25 = *v24;
+    if ( *(_QWORD **)(*v24 + 8LL) == v24 )
+    {
+      v26 = (_QWORD *)v24[1];
+      if ( (_QWORD *)*v26 == v24 )
       {
-        v32 = *((unsigned int *)v26 + 1);
-        if ( v18 == (_QWORD *)((char *)v26 + v32) )
-        {
-          *((_DWORD *)v26 + 1) = *((_DWORD *)v18 + 1) + v32;
-          v33 = *v17;
-          if ( *(_QWORD **)(*v17 + 8LL) != v17 )
-            goto LABEL_48;
-          v34 = (_QWORD *)v17[1];
-          if ( (_QWORD *)*v34 != v17 )
-            goto LABEL_48;
-          *v34 = v33;
-          v18 = v26;
-          *(_QWORD *)(v33 + 8) = v34;
-        }
+        *v26 = v25;
+        *(_QWORD *)(v25 + 8) = v26;
+        goto LABEL_13;
       }
-      if ( *(_QWORD *)(v19 + 32) <= (unsigned __int64)v18 + *((unsigned int *)v18 + 1) )
-      {
-        *(_QWORD *)(v19 + 32) = v18;
-        v27 = v18 + 2;
-        v28 = *v27;
-        if ( *(_QWORD **)(*v27 + 8LL) != v27 )
-          goto LABEL_48;
-        v29 = (_QWORD *)v27[1];
-        v30 = *v29 == (_QWORD)v27;
-LABEL_46:
-        if ( v30 )
-        {
-          *v29 = v28;
-          *(_QWORD *)(v28 + 8) = v29;
-          goto LABEL_18;
-        }
-LABEL_48:
-        __fastfail(3u);
-      }
-      goto LABEL_18;
-    case 14:
-      v31 = *(_QWORD *)(a1 + 32);
-      *(_DWORD *)(v31 - 16) = 0;
-      byte_1C0082868 = KeAcquireSpinLockRaiseToDpc(&gmutHeap);
-      HeapInsertFreeList(*(_QWORD *)(v31 - 8), (unsigned int *)(v31 - 16));
-      goto LABEL_18;
+    }
+LABEL_45:
+    __fastfail(3u);
   }
   switch ( *(_WORD *)(a1 + 2) )
   {
@@ -236,40 +218,46 @@ LABEL_48:
     case 0xA:
     case 0xB:
     case 0xC:
-      goto LABEL_5;
+      goto LABEL_43;
     case 5:
     case 0x83:
-      v3 = *(unsigned __int64 **)(a1 + 32);
-      v41 = *v3;
-      goto LABEL_42;
+      v37 = *(__int64 **)(a1 + 32);
+      v38 = *v37;
+      goto LABEL_41;
     case 9:
       PerformMutexDriverCallbacks(1, *(_QWORD *)(a1 + 32), 0, 0, 0);
-      goto LABEL_5;
+      goto LABEL_43;
+    case 0xE:
+      v27 = *(_QWORD *)(a1 + 32);
+      *(_DWORD *)(v27 - 16) = 0;
+      NewIrql = KeAcquireSpinLockRaiseToDpc(&gmutHeap);
+      HeapInsertFreeList(*(_QWORD *)(v27 - 8), (unsigned int *)(v27 - 16));
+      goto LABEL_13;
     case 0x82:
-      v3 = *(unsigned __int64 **)(a1 + 32);
-      v43 = *v3;
-      if ( *v3 )
-        goto LABEL_51;
-      goto LABEL_52;
+      v37 = *(__int64 **)(a1 + 32);
+      v39 = *v37;
+      if ( *v37 )
+        goto LABEL_48;
+      goto LABEL_49;
     case 0x84:
-      v3 = *(unsigned __int64 **)(a1 + 32);
-      v43 = *v3;
-      if ( *v3 )
+      v37 = *(__int64 **)(a1 + 32);
+      v39 = *v37;
+      if ( *v37 )
       {
-LABEL_51:
-        DereferenceObjectEx(v43);
-        v3 = *(unsigned __int64 **)(a1 + 32);
+LABEL_48:
+        DereferenceObjectEx(v39, 0LL);
+        v37 = *(__int64 **)(a1 + 32);
       }
-LABEL_52:
-      v41 = v3[1];
-LABEL_42:
-      if ( v41 )
+LABEL_49:
+      v38 = v37[1];
+LABEL_41:
+      if ( v38 )
       {
-        DereferenceObjectEx(v41);
-LABEL_5:
-        v3 = *(unsigned __int64 **)(a1 + 32);
+        DereferenceObjectEx(v38, 0LL);
+LABEL_43:
+        v37 = *(__int64 **)(a1 + 32);
       }
-      HeapFree(v3);
+      HeapFree(v37);
       break;
     default:
       LogError(3222536195LL);

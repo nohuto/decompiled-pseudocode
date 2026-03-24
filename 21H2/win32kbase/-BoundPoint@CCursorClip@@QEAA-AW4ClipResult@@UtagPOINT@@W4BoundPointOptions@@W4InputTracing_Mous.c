@@ -1,14 +1,14 @@
 /*
- * XREFs of ?BoundPoint@CCursorClip@@QEAA?AW4ClipResult@@UtagPOINT@@W4BoundPointOptions@@W4InputTracing_MouseUpdatePositionReason@@PEAU3@@Z @ 0x1C006D2A0
+ * XREFs of ?BoundPoint@CCursorClip@@QEAA?AW4ClipResult@@UtagPOINT@@W4BoundPointOptions@@W4InputTracing_MouseUpdatePositionReason@@PEAU3@@Z @ 0x1C006FAD0
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     ?ApplySystemClips@CCursorClip@@AEAA_NUtagPOINT@@W4BoundPointOptions@@PEAU2@@Z @ 0x1C006D350 (-ApplySystemClips@CCursorClip@@AEAA_NUtagPOINT@@W4BoundPointOptions@@PEAU2@@Z.c)
- *     ?ApplyAppClip@CCursorClip@@AEAA_NUtagPOINT@@PEAU2@@Z @ 0x1C006D550 (-ApplyAppClip@CCursorClip@@AEAA_NUtagPOINT@@PEAU2@@Z.c)
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C0096098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0096160 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U1@U?$_tlgWrapSz@D@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@333AEBU?$_tlgWrapSz@D@@33@Z @ 0x1C01DB64C (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U1@U-$_tlgWrapSz@D@@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEB.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C005A5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005CD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?ApplySystemClips@CCursorClip@@AEAA_NUtagPOINT@@W4BoundPointOptions@@PEAU2@@Z @ 0x1C006FB80 (-ApplySystemClips@CCursorClip@@AEAA_NUtagPOINT@@W4BoundPointOptions@@PEAU2@@Z.c)
+ *     ?ApplyAppClip@CCursorClip@@AEAA_NUtagPOINT@@PEAU2@@Z @ 0x1C006FD34 (-ApplyAppClip@CCursorClip@@AEAA_NUtagPOINT@@PEAU2@@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U1@U?$_tlgWrapSz@D@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@333AEBU?$_tlgWrapSz@D@@33@Z @ 0x1C01A2874 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U1@U-$_tlgWrapSz@D@@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEB.c)
  */
 
 __int64 __fastcall CCursorClip::BoundPoint(
@@ -20,16 +20,18 @@ __int64 __fastcall CCursorClip::BoundPoint(
 {
   struct tagPOINT *v9; // r14
   unsigned int v10; // r15d
-  int v12; // esi
-  const char *v13; // rax
-  LONG x; // [rsp+60h] [rbp-10h] BYREF
-  LONG v15; // [rsp+64h] [rbp-Ch] BYREF
-  __int64 v16; // [rsp+68h] [rbp-8h] BYREF
-  __int64 v17; // [rsp+B0h] [rbp+40h] BYREF
-  __int64 v18; // [rsp+B8h] [rbp+48h] BYREF
-  __int64 v19; // [rsp+C0h] [rbp+50h] BYREF
+  LONG y; // ecx
+  LONG x; // edx
+  int v14; // esi
+  const char *v15; // rax
+  LONG v16; // [rsp+60h] [rbp-10h] BYREF
+  LONG v17; // [rsp+64h] [rbp-Ch] BYREF
+  __int64 v18; // [rsp+68h] [rbp-8h] BYREF
+  __int64 v19; // [rsp+B0h] [rbp+40h] BYREF
+  __int64 v20; // [rsp+B8h] [rbp+48h] BYREF
+  __int64 v21; // [rsp+C0h] [rbp+50h] BYREF
 
-  v18 = (__int64)a2;
+  v20 = (__int64)a2;
   CPushLock::AcquireLockExclusive((CPushLock *)(a1 + 8));
   v9 = a5;
   v10 = 0;
@@ -44,43 +46,45 @@ __int64 __fastcall CCursorClip::BoundPoint(
                             v9) )
       v10 = 2;
   }
-  if ( (unsigned int)dword_1C028EE70 > 4 && tlgKeywordOn((__int64)&dword_1C028EE70, 64LL) )
+  if ( (unsigned int)dword_1C024BA90 > 4 && tlgKeywordOn((__int64)&dword_1C024BA90, 64LL) )
   {
-    LODWORD(v19) = a1[64];
+    y = v9->y;
+    x = v9->x;
+    LODWORD(v21) = a1[18];
     LODWORD(a5) = a3;
     if ( a4 )
     {
-      v12 = a4 - 1;
-      if ( v12 )
+      v14 = a4 - 1;
+      if ( v14 )
       {
-        if ( v12 == 1 )
-          v13 = "ActiveCursorTracking";
+        if ( v14 == 1 )
+          v15 = "ActiveCursorTracking";
         else
-          v13 = "UNKNOWN";
+          v15 = "UNKNOWN";
       }
       else
       {
-        v13 = "SetCursorPos";
+        v15 = "SetCursorPos";
       }
     }
     else
     {
-      v13 = "MouseInput";
+      v15 = "MouseInput";
     }
-    v16 = (__int64)v13;
-    LODWORD(v17) = v9->y;
-    x = v9->x;
-    LODWORD(v18) = HIDWORD(v18);
-    v15 = a2.x;
+    v18 = (__int64)v15;
+    LODWORD(v20) = HIDWORD(v20);
+    LODWORD(v19) = y;
+    v16 = x;
+    v17 = a2.x;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-      (int)&dword_1C028EE70,
-      (__int64)&v15,
-      (__int64)&v18,
-      (__int64)&x,
+      (int)&dword_1C024BA90,
       (__int64)&v17,
+      (__int64)&v20,
       (__int64)&v16,
+      (__int64)&v19,
+      (__int64)&v18,
       (__int64)&a5,
-      (__int64)&v19);
+      (__int64)&v21);
   }
   CPushLock::ReleaseLock((CPushLock *)(a1 + 8));
   return v10;

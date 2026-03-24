@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ExDestroyHandle @ 0x1405FB318 (ExDestroyHandle.c)
  *     ExMapHandleToPointerEx @ 0x1405FC384 (ExMapHandleToPointerEx.c)

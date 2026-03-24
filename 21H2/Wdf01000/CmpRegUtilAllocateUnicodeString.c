@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpRegUtilAllocateUnicodeString @ 0x1C00BF8A8
+ * XREFs of CmpRegUtilAllocateUnicodeString @ 0x1C00BE134
  * Callers:
- *     CmRegUtilUcValueSetUcString @ 0x1C00BF6A0 (CmRegUtilUcValueSetUcString.c)
+ *     CmRegUtilUcValueSetUcString @ 0x1C00BDF2C (CmRegUtilUcValueSetUcString.c)
  * Callees:
  *     <none>
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of ACPIInternalGetDeviceCapabilities @ 0x1C0087F70
+ * XREFs of ACPIInternalGetDeviceCapabilities @ 0x1C00A226C
  * Callers:
- *     ACPIMatchHardwareAddress @ 0x1C0088CF8 (ACPIMatchHardwareAddress.c)
- *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C00952FC (ACPISystemPowerQueryDeviceCapabilities.c)
+ *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C009F074 (ACPISystemPowerQueryDeviceCapabilities.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     ACPIInternalSendSynchronousIrp @ 0x1C008823C (ACPIInternalSendSynchronousIrp.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1C009E0DC (ACPIInternalSendSynchronousIrp.c)
  */
 
 __int64 __fastcall ACPIInternalGetDeviceCapabilities(PDEVICE_OBJECT DeviceObject, _DWORD *a2)
 {
-  _QWORD v5[9]; // [rsp+20h] [rbp-58h] BYREF
+  _QWORD v5[10]; // [rsp+20h] [rbp-58h] BYREF
+  unsigned __int64 v6; // [rsp+88h] [rbp+10h] BYREF
 
-  memset(v5, 0, sizeof(v5));
+  memset(v5, 0, 0x48uLL);
   LOWORD(v5[0]) = 2331;
   v5[1] = a2;
   memset(a2, 0, 0x40uLL);
   *a2 = 65600;
   a2[2] = -1;
   a2[3] = -1;
-  return ACPIInternalSendSynchronousIrp(DeviceObject);
+  return ACPIInternalSendSynchronousIrp(DeviceObject, (__int64)v5, &v6);
 }

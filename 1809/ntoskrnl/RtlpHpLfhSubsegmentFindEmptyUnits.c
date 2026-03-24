@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentFindEmptyUnits @ 0x14010E8B0
+ * XREFs of RtlpHpLfhSubsegmentFindEmptyUnits @ 0x14010E8D0
  * Callers:
- *     RtlpHpLfhSubsegmentFree @ 0x14010E810 (RtlpHpLfhSubsegmentFree.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x1402FD5FC (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhSubsegmentFree @ 0x14010E830 (RtlpHpLfhSubsegmentFree.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1402FD6FC (RtlpHpLfhSubsegmentDecommitPages.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,12 @@
 /*
- * XREFs of ACPIDereferenceWaitWakePowerRequest @ 0x1C00447E0
+ * XREFs of ACPIDereferenceWaitWakePowerRequest @ 0x1C0025774
  * Callers:
- *     ACPIDeviceCancelWaitWakeIrpCallBack @ 0x1C001C470 (ACPIDeviceCancelWaitWakeIrpCallBack.c)
- *     ACPIDeviceCompleteRequest @ 0x1C001C97C (ACPIDeviceCompleteRequest.c)
- *     ACPIDeviceInitializePowerRequest @ 0x1C001CFB8 (ACPIDeviceInitializePowerRequest.c)
- *     ACPIDeviceIrpWaitWakeRequestPending @ 0x1C001E2C0 (ACPIDeviceIrpWaitWakeRequestPending.c)
- *     ACPIWakeDisconnectWakeInterrupts @ 0x1C00450DC (ACPIWakeDisconnectWakeInterrupts.c)
+ *     ACPIDeviceCompleteRequest @ 0x1C001EAE8 (ACPIDeviceCompleteRequest.c)
+ *     ACPIDeviceIrpWaitWakeRequestPending @ 0x1C00255F0 (ACPIDeviceIrpWaitWakeRequestPending.c)
+ *     ACPIDeviceCancelWaitWakeIrpCallBack @ 0x1C00505E0 (ACPIDeviceCancelWaitWakeIrpCallBack.c)
  * Callees:
- *     ACPIFreeWaitWakePowerRequest @ 0x1C0044A10 (ACPIFreeWaitWakePowerRequest.c)
- *     ACPIWakeEmulationDisable @ 0x1C0045274 (ACPIWakeEmulationDisable.c)
+ *     ACPIFreeWaitWakePowerRequest @ 0x1C00617D0 (ACPIFreeWaitWakePowerRequest.c)
+ *     ACPIWakeEmulationDisable @ 0x1C0061DEC (ACPIWakeEmulationDisable.c)
  */
 
 void __fastcall ACPIDereferenceWaitWakePowerRequest(char *Entry)

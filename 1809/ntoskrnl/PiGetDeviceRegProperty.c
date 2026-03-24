@@ -2,18 +2,18 @@
  * XREFs of PiGetDeviceRegProperty @ 0x140587C10
  * Callers:
  *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)
- *     IopPnPDispatch @ 0x140702B50 (IopPnPDispatch.c)
+ *     IopPnPDispatch @ 0x140702B30 (IopPnPDispatch.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcschr @ 0x1401976B0 (wcschr.c)
- *     wcsstr @ 0x140197930 (wcsstr.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcschr @ 0x1401976D0 (wcschr.c)
+ *     wcsstr @ 0x140197950 (wcsstr.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PnpFindAlternateStringData @ 0x140587E34 (PnpFindAlternateStringData.c)
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
- *     RtlFormatMessageEx @ 0x1408913B4 (RtlFormatMessageEx.c)
+ *     RtlFormatMessageEx @ 0x140891394 (RtlFormatMessageEx.c)
  */
 
 __int64 __fastcall PiGetDeviceRegProperty(int a1, __int64 a2, int a3, unsigned int a4, wchar_t *Src, int *a6)

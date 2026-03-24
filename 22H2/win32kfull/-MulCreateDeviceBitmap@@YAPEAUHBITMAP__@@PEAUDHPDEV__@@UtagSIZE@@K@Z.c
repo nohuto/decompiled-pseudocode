@@ -1,13 +1,13 @@
 /*
- * XREFs of ?MulCreateDeviceBitmap@@YAPEAUHBITMAP__@@PEAUDHPDEV__@@UtagSIZE@@K@Z @ 0x1C015BB30
+ * XREFs of ?MulCreateDeviceBitmap@@YAPEAUHBITMAP__@@PEAUDHPDEV__@@UtagSIZE@@K@Z @ 0x1C02A2200
  * Callers:
  *     <none>
  * Callees:
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0030084 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?pAllocateAndInitializeMDSURF@@YAPEAU_MDSURF@@PEAU_VDEV@@@Z @ 0x1C02B2E70 (-pAllocateAndInitializeMDSURF@@YAPEAU_MDSURF@@PEAU_VDEV@@@Z.c)
- *     ?vSetupDevBitmap@@YAXPEAVPDEVOBJ@@PEAVSURFACE@@@Z @ 0x1C02B31A0 (-vSetupDevBitmap@@YAXPEAVPDEVOBJ@@PEAVSURFACE@@@Z.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C00838AC (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ?pAllocateAndInitializeMDSURF@@YAPEAU_MDSURF@@PEAU_VDEV@@@Z @ 0x1C02A6940 (-pAllocateAndInitializeMDSURF@@YAPEAU_MDSURF@@PEAU_VDEV@@@Z.c)
+ *     ?vSetupDevBitmap@@YAXPEAVPDEVOBJ@@PEAVSURFACE@@@Z @ 0x1C02A6C5C (-vSetupDevBitmap@@YAXPEAVPDEVOBJ@@PEAVSURFACE@@@Z.c)
  */
 
 HBITMAP __fastcall MulCreateDeviceBitmap(struct DHPDEV__ *a1, SIZEL sizl, ULONG iFormat)
@@ -15,12 +15,12 @@ HBITMAP __fastcall MulCreateDeviceBitmap(struct DHPDEV__ *a1, SIZEL sizl, ULONG 
   __int64 **v3; // rsi
   struct _MDSURF *v4; // rdi
   HBITMAP Bitmap; // rbp
-  __int64 *v9; // rcx
-  __int64 (__fastcall *v10)(__int64, SIZEL, _QWORD); // rax
-  HSURF v11; // rax
-  HSURF v12; // r12
-  SURFOBJ *v13; // r14
-  __int64 v14; // rcx
+  __int64 *v9; // rax
+  HSURF v10; // rax
+  HSURF v11; // r12
+  SURFOBJ *v12; // r14
+  __int64 v13; // rcx
+  __int64 v14; // rdx
   _BYTE v16[32]; // [rsp+30h] [rbp-58h] BYREF
   __int64 v17; // [rsp+50h] [rbp-38h]
   __int64 *v18; // [rsp+90h] [rbp+8h] BYREF
@@ -34,41 +34,34 @@ HBITMAP __fastcall MulCreateDeviceBitmap(struct DHPDEV__ *a1, SIZEL sizl, ULONG 
     {
       v9 = v3[6];
       v18 = v9;
-      if ( (v9[224] & 0x8000000) != 0 )
+      if ( (v9[228] & 0x8000000) != 0 && v9[346] )
       {
-        v10 = (__int64 (__fastcall *)(__int64, SIZEL, _QWORD))v9[343];
-        if ( v10 )
+        v10 = (HSURF)((__int64 (__fastcall *)(__int64, SIZEL, _QWORD))v9[346])(v9[225], sizl, iFormat);
+        v11 = v10;
+        v12 = v10 ? EngLockSurface(v10) : 0LL;
+        if ( v12 )
         {
-          v11 = (HSURF)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))v10)(v9[221], sizl, iFormat);
-          v12 = v11;
-          if ( v11 )
+          if ( !v4 )
           {
-            v13 = EngLockSurface(v11);
-            if ( v13 )
+            v4 = pAllocateAndInitializeMDSURF((struct _VDEV *)a1);
+            if ( !v4 )
+              goto LABEL_20;
+            Bitmap = EngCreateBitmap(sizl, 0, iFormat, 1u, 0LL);
+            if ( !Bitmap )
             {
-              if ( !v4 )
-              {
-                v4 = pAllocateAndInitializeMDSURF((struct _VDEV *)a1);
-                if ( !v4 )
-                  goto LABEL_18;
-                Bitmap = EngCreateBitmap(sizl, 0, iFormat, 1u, 0LL);
-                if ( !Bitmap )
-                {
-                  EngFreeMem(v4);
-LABEL_18:
-                  EngUnlockSurface(v13);
-                  EngDeleteSurface(v12);
-                  return 0LL;
-                }
-              }
-              v14 = *((_QWORD *)v4 + 1);
-              *(_QWORD *)v4 = a1;
-              *(_QWORD *)(v14 + 8LL * *((unsigned int *)v3 + 4)) = v13;
-              LODWORD(v13[1].hsurf) |= 0x80000u;
-              *(_QWORD *)&v13[1].cjBits = Bitmap;
-              vSetupDevBitmap((struct PDEVOBJ *)&v18, (struct SURFACE *)&v13[-1].pvScan0);
+              EngFreeMem(v4);
+LABEL_20:
+              EngUnlockSurface(v12);
+              EngDeleteSurface(v11);
+              return 0LL;
             }
           }
+          v13 = *((_QWORD *)v4 + 1);
+          *(_QWORD *)v4 = a1;
+          *(_QWORD *)(v13 + 8LL * *((unsigned int *)v3 + 4)) = v12;
+          LODWORD(v12[1].hsurf) |= 0x80000u;
+          *(_QWORD *)&v12[1].cjBits = Bitmap;
+          vSetupDevBitmap((struct PDEVOBJ *)&v18, (struct SURFACE *)&v12[-1].pvScan0);
         }
       }
       v3 = (__int64 **)*v3;
@@ -84,7 +77,7 @@ LABEL_18:
         *(_QWORD *)(v17 + 24) = v4;
         EngAssociateSurface((HSURF)Bitmap, *((HDEV *)a1 + 4), *((_DWORD *)a1 + 17));
         if ( v17 )
-          DEC_SHARE_REF_CNT(v17);
+          DEC_SHARE_REF_CNT(v17, v14);
       }
       UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v16);
     }

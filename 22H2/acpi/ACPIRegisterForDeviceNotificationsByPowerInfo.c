@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPIRegisterForDeviceNotificationsByPowerInfo @ 0x1C0039794
+ * XREFs of ACPIRegisterForDeviceNotificationsByPowerInfo @ 0x1C000E024
  * Callers:
- *     ACPIRegisterForDeviceNotifications @ 0x1C0039700 (ACPIRegisterForDeviceNotifications.c)
- *     ACPIRegisterForDeviceNotificationsByDeviceExtension @ 0x1C0039768 (ACPIRegisterForDeviceNotificationsByDeviceExtension.c)
+ *     ACPIRegisterForDeviceNotifications @ 0x1C000DFE0 (ACPIRegisterForDeviceNotifications.c)
+ *     ACPIRegisterForDeviceNotificationsByDeviceExtension @ 0x1C005C688 (ACPIRegisterForDeviceNotificationsByDeviceExtension.c)
  * Callees:
  *     <none>
  */
@@ -11,26 +11,26 @@ __int64 __fastcall ACPIRegisterForDeviceNotificationsByPowerInfo(__int64 a1, __i
 {
   __int64 v4; // rbp
   unsigned int v7; // esi
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   void *v9; // rbx
   _QWORD *v10; // r12
   KIRQL v11; // al
 
-  v4 = a1 - 376;
+  v4 = a1 - 336;
   v7 = -1073741823;
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 32LL, 1299211073LL);
-  v9 = Pool2;
-  v10 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x4D706341u);
+  v9 = PoolWithTag;
+  v10 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *Pool2 = 0LL;
-    Pool2[2] = DispatchNotificationWorker;
-    Pool2[3] = v4;
+    *PoolWithTag = 0LL;
+    PoolWithTag[2] = DispatchNotificationWorker;
+    PoolWithTag[3] = v4;
   }
   v11 = KeAcquireSpinLockRaiseToDpc(&NotifyHandlerLock);
   if ( !*(_QWORD *)(a1 + 16) )
   {
-    if ( *(_QWORD *)(v4 + 928) || (*(_QWORD *)(v4 + 928) = v9, v9 = 0LL, v10) )
+    if ( *(_QWORD *)(v4 + 888) || (*(_QWORD *)(v4 + 888) = v9, v9 = 0LL, v10) )
     {
       *(_QWORD *)(a1 + 16) = a2;
       v7 = 0;

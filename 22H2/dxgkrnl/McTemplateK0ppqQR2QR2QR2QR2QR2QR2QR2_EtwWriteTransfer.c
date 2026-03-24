@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0ppqQR2QR2QR2QR2QR2QR2QR2_EtwWriteTransfer @ 0x1C004E8FC
+ * XREFs of McTemplateK0ppqQR2QR2QR2QR2QR2QR2QR2_EtwWriteTransfer @ 0x1C0044B40
  * Callers:
- *     TraceDxgkPatchLocationList @ 0x1C004EA88 (TraceDxgkPatchLocationList.c)
+ *     TraceDxgkPatchLocationList @ 0x1C0044CC8 (TraceDxgkPatchLocationList.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0ppqQR2QR2QR2QR2QR2QR2QR2_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
@@ -68,16 +68,10 @@ NTSTATUS McTemplateK0ppqQR2QR2QR2QR2QR2QR2QR2_EtwWriteTransfer(__int64 a1, __int
   v42 = va_arg(va3, _QWORD);
   v43 = va_arg(va3, _QWORD);
   v44 = va_arg(va3, _QWORD);
-  v6 = 8LL;
-  v13 = 0;
   va_copy(v5, va);
   va_copy(v7, va1);
   va_copy(v9, va2);
   v11 = v38;
-  v16 = 0;
-  v19 = 0;
-  v22 = 0;
-  v25 = 0;
   v14 = v39;
   v17 = v40;
   v20 = v41;
@@ -85,14 +79,20 @@ NTSTATUS McTemplateK0ppqQR2QR2QR2QR2QR2QR2QR2_EtwWriteTransfer(__int64 a1, __int
   v26 = v43;
   v29 = v44;
   v12 = 4 * v36;
+  v13 = 0;
   v15 = 4 * v36;
+  v16 = 0;
   v18 = 4 * v36;
+  v19 = 0;
   v21 = 4 * v36;
+  v22 = 0;
   v24 = 4 * v36;
+  v25 = 0;
   v27 = 4 * v36;
   v28 = 0;
   v30 = 4 * v36;
   v31 = 0;
+  v6 = 8LL;
   v8 = 8LL;
   v10 = 4LL;
   return McGenEventWrite_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, &EventPatchLocationList, a3, 0xBu, &v4);

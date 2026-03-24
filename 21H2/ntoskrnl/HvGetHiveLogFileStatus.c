@@ -1,11 +1,11 @@
 /*
- * XREFs of HvGetHiveLogFileStatus @ 0x14068A5A8
+ * XREFs of HvGetHiveLogFileStatus @ 0x140724678
  * Callers:
- *     CmpGenerateFlushControlData @ 0x1406890A0 (CmpGenerateFlushControlData.c)
+ *     CmpGenerateFlushControlData @ 0x140724134 (CmpGenerateFlushControlData.c)
  * Callees:
- *     CmpIsWriteQueueActive @ 0x14020AA74 (CmpIsWriteQueueActive.c)
- *     RtlAreBitsClear @ 0x14020AED0 (RtlAreBitsClear.c)
- *     HvpCountSetRangesInVector @ 0x14079878C (HvpCountSetRangesInVector.c)
+ *     PoIsInitializedStopWatch @ 0x140263FA8 (PoIsInitializedStopWatch.c)
+ *     RtlAreBitsClear @ 0x140362AD0 (RtlAreBitsClear.c)
+ *     HvpCountSetRangesInVector @ 0x1406463C4 (HvpCountSetRangesInVector.c)
  */
 
 char __fastcall HvGetHiveLogFileStatus(__int64 a1, unsigned int a2, int *a3)
@@ -25,11 +25,11 @@ char __fastcall HvGetHiveLogFileStatus(__int64 a1, unsigned int a2, int *a3)
      + 8LL * (unsigned int)HvpCountSetRangesInVector((PRTL_BITMAP)(a1 + 88));
   if ( RtlAreBitsClear((PRTL_BITMAP)(a1 + 88), 0, 8u) )
     v6 += 4104LL;
-  v7 = *(unsigned int *)(a1 + 180);
+  v7 = *(unsigned int *)(a1 + 176);
   v8 = 0;
   *a3 = 0;
   v9 = v6 + v7;
-  if ( *(_BYTE *)(a1 + 195) )
+  if ( *(_BYTE *)(a1 + 191) )
   {
     v8 = 2;
     *a3 = 2;
@@ -39,26 +39,26 @@ char __fastcall HvGetHiveLogFileStatus(__int64 a1, unsigned int a2, int *a3)
     v8 |= 4u;
     *a3 = v8;
   }
-  if ( *(_DWORD *)(a1 + 172) == -1 )
+  if ( *(_DWORD *)(a1 + 168) == -1 )
   {
     v8 |= 8u;
     *a3 = v8;
   }
   if ( v8 )
   {
-    LOBYTE(v11) = CmpIsWriteQueueActive((_QWORD *)(a1 + 4208));
+    LOBYTE(v11) = PoIsInitializedStopWatch((_QWORD *)(a1 + 4248));
     if ( (_BYTE)v11 )
     {
       v12 = v8 | 1;
       goto LABEL_14;
     }
   }
-  v10 = *(unsigned int *)(a1 + 180);
+  v10 = *(unsigned int *)(a1 + 176);
   if ( v10 + v6 >= v4 )
   {
     v8 |= 0x10u;
     *a3 = v8;
-    LODWORD(v10) = *(_DWORD *)(a1 + 180);
+    LODWORD(v10) = *(_DWORD *)(a1 + 176);
   }
   v11 = v6 + (unsigned int)v10;
   if ( v11 >= v4 )

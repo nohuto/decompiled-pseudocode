@@ -1,72 +1,73 @@
 /*
- * XREFs of ?bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z @ 0x1C0293610
+ * XREFs of ?bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z @ 0x1C028F7E0
  * Callers:
- *     ?bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C00DC33C (-bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     ?bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C00B853C (-bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
  * Callees:
- *     ?pSurfMskOut@BLTRECORD@@QEAAPEAVSURFACE@@XZ @ 0x1C00BBD9C (-pSurfMskOut@BLTRECORD@@QEAAPEAVSURFACE@@XZ.c)
- *     EngStretchBlt @ 0x1C00D7260 (EngStretchBlt.c)
- *     ?vMirror@BLTRECORD@@QEAAXPEAVERECTL@@@Z @ 0x1C00DCB40 (-vMirror@BLTRECORD@@QEAAXPEAVERECTL@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     EngStretchBlt @ 0x1C00B12F0 (EngStretchBlt.c)
+ *     ?pSurfMskOut@BLTRECORD@@QEAAPEAVSURFACE@@XZ @ 0x1C00B8D30 (-pSurfMskOut@BLTRECORD@@QEAAPEAVSURFACE@@XZ.c)
+ *     ?vMirror@BLTRECORD@@QEAAXPEAVERECTL@@@Z @ 0x1C00B8D4C (-vMirror@BLTRECORD@@QEAAXPEAVERECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall BLTRECORD::bStretch(BLTRECORD *this, struct SURFMEM *a2, ULONG a3)
+__int64 __fastcall BLTRECORD::bStretch(RECTL *this, struct SURFMEM *a2, ULONG a3)
 {
-  int v6; // edx
-  int v7; // ecx
-  LONG v8; // edx
-  LONG v9; // r8d
-  struct SURFACE *v10; // rax
-  __int64 v11; // r8
-  __int64 v12; // rcx
-  __int64 result; // rax
+  unsigned int v3; // ebx
+  int v4; // r9d
+  int v8; // ecx
+  LONG v9; // edx
+  LONG v10; // r9d
+  struct SURFACE *v11; // rax
+  __int64 v12; // r8
+  __int64 v13; // rdx
+  __int64 v14; // rcx
   POINTL pptlHTOrg; // [rsp+60h] [rbp-9h] BYREF
-  int v15; // [rsp+68h] [rbp-1h] BYREF
-  __int64 v16; // [rsp+6Ch] [rbp+3h]
-  int v17; // [rsp+74h] [rbp+Bh]
+  _DWORD v17[4]; // [rsp+68h] [rbp-1h] BYREF
   __int64 v18; // [rsp+78h] [rbp+Fh]
   int v19; // [rsp+80h] [rbp+17h]
   int v20; // [rsp+84h] [rbp+1Bh]
   RECTL prclDest; // [rsp+88h] [rbp+1Fh] BYREF
 
-  v15 = 1;
-  v16 = 0LL;
-  v6 = *((_DWORD *)this + 39) - *((_DWORD *)this + 37);
-  LODWORD(v16) = *((_DWORD *)this + 38) - *((_DWORD *)this + 36);
-  HIDWORD(v16) = v6;
-  v17 = 0;
+  v3 = 0;
+  v4 = this[10].left - this[9].right;
+  v17[2] = this[10].top - this[9].bottom;
+  v17[3] = 0;
   v20 = 0;
+  v17[0] = 1;
+  v17[1] = v4;
   v18 = 0LL;
-  v7 = *((_DWORD *)BLTRECORD::pSurfMskOut(this) + 28) & 0x40000;
-  prclDest.bottom = v8;
-  v19 = v7;
+  v8 = *((_DWORD *)BLTRECORD::pSurfMskOut((BLTRECORD *)this) + 28) & 0x40000;
+  prclDest.bottom = v9;
+  v19 = v8;
   *(_QWORD *)&prclDest.left = 0LL;
-  prclDest.right = v9;
-  BLTRECORD::vMirror(this, (struct ERECTL *)&prclDest);
-  SURFMEM::bCreateDIB(a2, (struct _DEVBITMAPINFO *)&v15, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0);
-  if ( !*(_QWORD *)a2 )
-    return 0LL;
-  pptlHTOrg = 0LL;
-  v10 = BLTRECORD::pSurfMskOut(this);
-  if ( !EngStretchBlt(
-          (SURFOBJ *)(v11 + 24),
-          (SURFOBJ *)(((unsigned __int64)v10 + 24) & -(__int64)(v10 != 0LL)),
-          0LL,
-          0LL,
-          0LL,
-          0LL,
-          &pptlHTOrg,
-          &prclDest,
-          (RECTL *)((char *)this + 184),
-          0LL,
-          a3) )
-    return 0LL;
-  *((_DWORD *)this + 53) &= ~0x20000u;
-  v12 = *((_QWORD *)this + 10);
-  *((_DWORD *)this + 46) = 0;
-  *((_DWORD *)this + 47) = 0;
-  if ( v12 )
-    DEC_SHARE_REF_CNT(v12);
-  result = 1LL;
-  *((_QWORD *)this + 10) = *(_QWORD *)a2;
-  return result;
+  prclDest.right = v10;
+  BLTRECORD::vMirror((BLTRECORD *)this, (struct ERECTL *)&prclDest);
+  SURFMEM::bCreateDIB(a2, (struct _DEVBITMAPINFO *)v17, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0);
+  if ( *(_QWORD *)a2 )
+  {
+    pptlHTOrg = 0LL;
+    v11 = BLTRECORD::pSurfMskOut((BLTRECORD *)this);
+    if ( EngStretchBlt(
+           (SURFOBJ *)(v12 + 24),
+           (SURFOBJ *)(((unsigned __int64)v11 + 24) & -(__int64)(v11 != 0LL)),
+           0LL,
+           0LL,
+           0LL,
+           0LL,
+           &pptlHTOrg,
+           &prclDest,
+           this + 12,
+           0LL,
+           a3) )
+    {
+      this[13].bottom &= ~0x20000u;
+      v14 = *(_QWORD *)&this[5].left;
+      this[12].left = 0;
+      this[12].top = 0;
+      if ( v14 )
+        DEC_SHARE_REF_CNT(v14, v13);
+      v3 = 1;
+      *(_QWORD *)&this[5].left = *(_QWORD *)a2;
+    }
+  }
+  return v3;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of InbvPortInitialize @ 0x14065445C
+ * XREFs of InbvPortInitialize @ 0x1405C9D38
  * Callers:
- *     HdlspEnableTerminal @ 0x140AA9594 (HdlspEnableTerminal.c)
+ *     HdlspEnableTerminal @ 0x1409EF52C (HdlspEnableTerminal.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140215340 (MmMapIoSpaceEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall InbvPortInitialize(
@@ -17,32 +17,32 @@ char __fastcall InbvPortInitialize(
         char a7,
         char a8)
 {
-  unsigned __int8 v8; // r11
-  char v10; // bl
+  char v9; // bl
+  _DWORD *v10; // r13
   __int64 v11; // r8
-  _DWORD *v12; // r13
-  __int64 v14; // rbp
-  __int64 *v15; // r14
+  __int64 v13; // rbp
+  __int64 *v14; // r14
+  unsigned __int8 v15; // al
   char v16; // di
   char v17; // si
   int v18; // eax
   __int64 (__fastcall **v19)(_QWORD, char *, __int64, _DWORD *, char); // rax
 
-  v8 = a6;
-  v10 = 1;
+  v9 = 1;
+  v10 = a4;
   v11 = 1LL;
-  v12 = a4;
   if ( a2 )
     v11 = a2;
   if ( (unsigned int)v11 > 4 )
     return 0;
-  v14 = (unsigned int)(v11 - 1);
-  v15 = (__int64 *)((char *)&Ports + 40 * v14);
-  if ( *v15 )
+  v13 = (unsigned int)(v11 - 1);
+  v14 = (__int64 *)((char *)&Ports + 40 * v13);
+  if ( *v14 )
     return 0;
+  v15 = a6;
   if ( a6 )
   {
-    v10 = a8;
+    v9 = a8;
     v17 = a7;
     v16 = a5;
   }
@@ -51,16 +51,15 @@ char __fastcall InbvPortInitialize(
     v16 = 0;
     v17 = 8;
     if ( a3 )
-    {
-      v8 = 1;
-      goto LABEL_12;
-    }
-    a3 = (unsigned int)v11;
+      v15 = 1;
+    else
+      a3 = (unsigned int)v11;
   }
-  if ( !a3 || a6 >= 0x15u )
+  if ( !a3 )
     return 0;
-LABEL_12:
-  UartHardwareDriver = (__int64)UartHardwareDrivers[v8];
+  if ( v15 >= 0x13u )
+    return 0;
+  UartHardwareDriver = (__int64)UartHardwareDrivers[v15];
   if ( !UartHardwareDriver )
     return 0;
   if ( v16 )
@@ -69,14 +68,14 @@ LABEL_12:
     if ( !a3 )
       return 0;
   }
-  *v15 = a3;
+  *v14 = a3;
   v18 = 19200;
   if ( a1 )
     v18 = a1;
-  LOBYTE(a4) = v10;
-  dword_140D04CF8[10 * v14] = v18;
+  LOBYTE(a4) = v9;
+  dword_140CFA4E8[10 * v13] = v18;
   LOBYTE(v11) = v16;
   v19 = (__int64 (__fastcall **)(_QWORD, char *, __int64, _DWORD *, char))UartHardwareDriver;
-  *v12 = v14;
-  return (*v19)(0LL, (char *)&Ports + 40 * v14, v11, a4, v17);
+  *v10 = v13;
+  return (*v19)(0LL, (char *)&Ports + 40 * v13, v11, a4, v17);
 }

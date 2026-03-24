@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDeviceConstraintsEnforced @ 0x1402E7058
+ * XREFs of PopDeviceConstraintsEnforced @ 0x1402E7158
  * Callers:
- *     PopDripsWatchdogDfxCallback @ 0x14086E2E0 (PopDripsWatchdogDfxCallback.c)
- *     PopDripsWatchdogPs4Callback @ 0x14086E650 (PopDripsWatchdogPs4Callback.c)
- *     PopDripsCallbackTakeAction @ 0x140879568 (PopDripsCallbackTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x1408797A8 (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogDfxCallback @ 0x14086E2C0 (PopDripsWatchdogDfxCallback.c)
+ *     PopDripsWatchdogPs4Callback @ 0x14086E630 (PopDripsWatchdogPs4Callback.c)
+ *     PopDripsCallbackTakeAction @ 0x140879548 (PopDripsCallbackTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x140879788 (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool PopDeviceConstraintsEnforced()

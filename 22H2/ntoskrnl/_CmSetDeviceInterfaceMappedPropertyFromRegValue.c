@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x140881418
+ * XREFs of _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x140765944
  * Callers:
- *     _CmSetDeviceInterfaceMappedProperty @ 0x14086DA58 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x1407657F4 (_CmSetDeviceInterfaceMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1406CC2A8 (_CmOpenDeviceInterfaceRegKey.c)
- *     _PnpCtxRegCreateKey @ 0x1407983D0 (_PnpCtxRegCreateKey.c)
- *     _RegRtlSetValue @ 0x1407D4F54 (_RegRtlSetValue.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _PnpCtxRegCreateKey @ 0x1406B4340 (_PnpCtxRegCreateKey.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1406B6624 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _RegRtlSetValue @ 0x140768114 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
@@ -15,7 +15,7 @@ __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
         void *a3,
         __int64 a4,
         unsigned int a5,
-        void *a6,
+        __int64 a6,
         ULONG a7)
 {
   unsigned int v7; // r11d
@@ -33,17 +33,19 @@ __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
   HANDLE v24; // rdx
   __int64 v25; // rax
   __int64 v26; // rax
-  HANDLE v27; // [rsp+48h] [rbp-8h] BYREF
+  HANDLE KeyHandle; // [rsp+40h] [rbp-10h] BYREF
+  HANDLE v28; // [rsp+48h] [rbp-8h] BYREF
   HANDLE Handle; // [rsp+88h] [rbp+38h] BYREF
 
   v7 = *(_DWORD *)(a4 + 16);
   v8 = 0;
-  v27 = 0LL;
+  v28 = 0LL;
+  KeyHandle = 0LL;
   Handle = 0LL;
   if ( v7 < 2 )
     return (unsigned int)-1073741264;
   v13 = 0LL;
-  v14 = &off_140A77E78;
+  v14 = &off_140983A08;
   do
   {
     v15 = *v14;
@@ -80,7 +82,7 @@ __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
 LABEL_11:
   if ( !a3 )
   {
-    v8 = CmOpenDeviceInterfaceRegKey(a1, a2, 0x30u, v13, 1, 0, (__int64)&v27, 0LL);
+    v8 = CmOpenDeviceInterfaceRegKey(a1, a2, 0x30u, v13, 1, 0, (__int64)&v28, 0LL);
     if ( v8 < 0 )
       goto LABEL_21;
   }
@@ -92,29 +94,29 @@ LABEL_11:
       v23 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceInterface_FriendlyName.fmtid.Data4;
     if ( !v23 )
     {
-      v24 = v27;
+      v24 = v28;
       if ( a3 )
         v24 = a3;
-      Key = PnpCtxRegCreateKey(a1, (__int64)v24);
+      Key = PnpCtxRegCreateKey(a1, (__int64)v24, (__int64)L"Device Parameters", 0, 2u, 0LL, (__int64)&KeyHandle, 0LL);
       if ( Key == -1073741444 )
-        goto LABEL_26;
+        goto LABEL_45;
       if ( Key < 0 )
-        goto LABEL_27;
-      Key = RegRtlSetValue(0LL, L"FriendlyName", 1u, a6, a7);
+        goto LABEL_36;
+      Key = RegRtlSetValue(KeyHandle, a7);
 LABEL_19:
       if ( Key != -1073741444 )
       {
         if ( Key >= 0 )
           goto LABEL_21;
-LABEL_27:
+LABEL_36:
         v8 = Key;
         goto LABEL_21;
       }
-LABEL_26:
+LABEL_45:
       v8 = -1073741772;
       goto LABEL_21;
     }
-LABEL_53:
+LABEL_55:
     v8 = -1073741264;
     goto LABEL_21;
   }
@@ -126,7 +128,7 @@ LABEL_53:
       if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_DeviceInterface_Enabled.fmtid.Data1 )
         v25 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceInterface_Enabled.fmtid.Data4;
       if ( !v25 )
-        goto LABEL_52;
+        goto LABEL_54;
     }
     if ( v19 == 4 )
     {
@@ -135,28 +137,30 @@ LABEL_53:
         v26 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceInterface_ClassGuid.fmtid.Data4;
       if ( !v26 )
       {
-LABEL_52:
+LABEL_54:
         v8 = -1073741790;
         goto LABEL_21;
       }
     }
-    goto LABEL_53;
+    goto LABEL_55;
   }
   v20 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_InstanceId.fmtid.Data1;
   if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_InstanceId.fmtid.Data1 )
     v20 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_InstanceId.fmtid.Data4;
   if ( v20 )
-    goto LABEL_53;
+    goto LABEL_55;
   v8 = CmOpenDeviceInterfaceRegKey(a1, a2, 0x31u, v13, 2, 0, (__int64)&Handle, 0LL);
   if ( v8 >= 0 )
   {
-    Key = RegRtlSetValue(Handle, L"DeviceInstance", 1u, a6, a7);
+    Key = RegRtlSetValue(Handle, a7);
     goto LABEL_19;
   }
 LABEL_21:
   if ( Handle )
     ZwClose(Handle);
-  if ( v27 )
-    ZwClose(v27);
+  if ( KeyHandle )
+    ZwClose(KeyHandle);
+  if ( v28 )
+    ZwClose(v28);
   return (unsigned int)v8;
 }

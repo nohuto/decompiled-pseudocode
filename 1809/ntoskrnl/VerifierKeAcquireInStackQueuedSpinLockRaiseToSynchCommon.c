@@ -4,7 +4,7 @@
  *     VerifierKeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x1409396A0 (VerifierKeAcquireInStackQueuedSpinLockRaiseToSynch.c)
  *     VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchNoReboot @ 0x140939780 (VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchNoReboot.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x140290690 (KeAcquireInStackQueuedSpinLockRaiseToSynch.c)
+ *     KeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x140290790 (KeAcquireInStackQueuedSpinLockRaiseToSynch.c)
  *     VfUtilCheckKernelAddress @ 0x1409260A4 (VfUtilCheckKernelAddress.c)
  *     ViTargetIncrementCounter @ 0x14093507C (ViTargetIncrementCounter.c)
  *     ViKeRaiseIrqlSanityChecks @ 0x14093B048 (ViKeRaiseIrqlSanityChecks.c)

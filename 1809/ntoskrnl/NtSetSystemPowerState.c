@@ -1,10 +1,10 @@
 /*
  * XREFs of NtSetSystemPowerState @ 0x14056DF00
  * Callers:
- *     NtShutdownSystem @ 0x1408CDBF0 (NtShutdownSystem.c)
+ *     NtShutdownSystem @ 0x1408CDBD0 (NtShutdownSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  */
 

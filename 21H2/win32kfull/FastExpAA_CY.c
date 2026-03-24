@@ -1,22 +1,22 @@
 /*
- * XREFs of FastExpAA_CY @ 0x1C0266D60
+ * XREFs of FastExpAA_CY @ 0x1C02697C0
  * Callers:
  *     <none>
  * Callees:
- *     GetFixupScan @ 0x1C0005AE0 (GetFixupScan.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     AlphaBlendBGRF @ 0x1C02640B0 (AlphaBlendBGRF.c)
- *     Do1141 @ 0x1C02646D0 (Do1141.c)
- *     Do13 @ 0x1C02647EC (Do13.c)
- *     Do1319 @ 0x1C02648B0 (Do1319.c)
- *     Do3121 @ 0x1C0264984 (Do3121.c)
- *     Do3263 @ 0x1C0264A8C (Do3263.c)
- *     Do35 @ 0x1C0264BBC (Do35.c)
- *     Do5225 @ 0x1C0264CB4 (Do5225.c)
- *     Do6251 @ 0x1C0264E0C (Do6251.c)
- *     MappingBGRF @ 0x1C0269064 (MappingBGRF.c)
+ *     GetFixupScan @ 0x1C00C79F0 (GetFixupScan.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     AlphaBlendBGRF @ 0x1C0266B00 (AlphaBlendBGRF.c)
+ *     Do1141 @ 0x1C0267120 (Do1141.c)
+ *     Do13 @ 0x1C026723C (Do13.c)
+ *     Do1319 @ 0x1C0267300 (Do1319.c)
+ *     Do3121 @ 0x1C02673D4 (Do3121.c)
+ *     Do3263 @ 0x1C02674DC (Do3263.c)
+ *     Do35 @ 0x1C026760C (Do35.c)
+ *     Do5225 @ 0x1C0267704 (Do5225.c)
+ *     Do6251 @ 0x1C026785C (Do6251.c)
+ *     MappingBGRF @ 0x1C026BC84 (MappingBGRF.c)
  */
 
 __int64 __fastcall FastExpAA_CY(__int64 a1)
@@ -86,51 +86,52 @@ __int64 __fastcall FastExpAA_CY(__int64 a1)
   char *v65; // [rsp+68h] [rbp-A0h]
   unsigned __int8 *v66; // [rsp+70h] [rbp-98h]
   unsigned __int8 *v67; // [rsp+78h] [rbp-90h]
-  __int128 v68; // [rsp+80h] [rbp-88h]
-  __int64 v69; // [rsp+90h] [rbp-78h]
-  __int64 v70; // [rsp+98h] [rbp-70h]
-  __int64 v71; // [rsp+A0h] [rbp-68h]
-  __int64 v72; // [rsp+A8h] [rbp-60h]
-  __int64 (__fastcall *v73)(int, int, int, int, int); // [rsp+B0h] [rbp-58h]
-  unsigned __int16 *v74; // [rsp+B8h] [rbp-50h]
-  __int64 (__fastcall *v75)(int, int, int, int, __int64, int); // [rsp+C0h] [rbp-48h]
-  __int64 v76; // [rsp+C8h] [rbp-40h]
-  int v77; // [rsp+D8h] [rbp-30h] BYREF
-  char v78; // [rsp+E0h] [rbp-28h]
-  int v79; // [rsp+118h] [rbp+10h]
-  __int64 v80; // [rsp+160h] [rbp+58h]
-  unsigned int v81; // [rsp+16Ch] [rbp+64h]
-  int v82; // [rsp+174h] [rbp+6Ch]
-  void (__fastcall *v83)(int *); // [rsp+198h] [rbp+90h]
-  void (__fastcall *v84)(int *, __int64, __int64, __int64, __int64, __int64, __int64, int, __int64); // [rsp+1E8h] [rbp+E0h]
-  __int64 v85; // [rsp+1F0h] [rbp+E8h]
-  __int64 v86; // [rsp+208h] [rbp+100h]
-  __int64 v87; // [rsp+210h] [rbp+108h]
-  __int64 v88; // [rsp+258h] [rbp+150h]
-  __int64 v89; // [rsp+260h] [rbp+158h]
-  __int64 v90; // [rsp+270h] [rbp+168h]
-  __int64 v91; // [rsp+278h] [rbp+170h]
-  __int64 v92; // [rsp+280h] [rbp+178h]
-  int v93; // [rsp+288h] [rbp+180h]
-  int v94; // [rsp+28Ch] [rbp+184h]
-  int v95; // [rsp+290h] [rbp+188h]
-  __int64 v96; // [rsp+298h] [rbp+190h]
-  __int64 v97; // [rsp+2A0h] [rbp+198h]
-  __int64 v98; // [rsp+2A8h] [rbp+1A0h]
-  int v99; // [rsp+2B0h] [rbp+1A8h]
+  char *v68; // [rsp+80h] [rbp-88h]
+  char *v69; // [rsp+88h] [rbp-80h]
+  __int64 v70; // [rsp+90h] [rbp-78h]
+  __int64 v71; // [rsp+98h] [rbp-70h]
+  __int64 v72; // [rsp+A0h] [rbp-68h]
+  __int64 v73; // [rsp+A8h] [rbp-60h]
+  __int64 (__fastcall *v74)(int, int, int, int, int); // [rsp+B0h] [rbp-58h]
+  unsigned __int16 *v75; // [rsp+B8h] [rbp-50h]
+  __int64 (__fastcall *v76)(int, int, int, int, __int64, int); // [rsp+C0h] [rbp-48h]
+  __int64 v77; // [rsp+C8h] [rbp-40h]
+  int v78; // [rsp+D8h] [rbp-30h] BYREF
+  char v79; // [rsp+E0h] [rbp-28h]
+  int v80; // [rsp+118h] [rbp+10h]
+  __int64 v81; // [rsp+160h] [rbp+58h]
+  unsigned int v82; // [rsp+16Ch] [rbp+64h]
+  int v83; // [rsp+174h] [rbp+6Ch]
+  void (__fastcall *v84)(int *); // [rsp+198h] [rbp+90h]
+  void (__fastcall *v85)(int *, __int64, __int64, __int64, __int64, __int64, __int64, int, __int64); // [rsp+1E8h] [rbp+E0h]
+  __int64 v86; // [rsp+1F0h] [rbp+E8h]
+  __int64 v87; // [rsp+208h] [rbp+100h]
+  __int64 v88; // [rsp+210h] [rbp+108h]
+  __int64 v89; // [rsp+258h] [rbp+150h]
+  __int64 v90; // [rsp+260h] [rbp+158h]
+  __int64 v91; // [rsp+270h] [rbp+168h]
+  __int64 v92; // [rsp+278h] [rbp+170h]
+  __int64 v93; // [rsp+280h] [rbp+178h]
+  int v94; // [rsp+288h] [rbp+180h]
+  int v95; // [rsp+28Ch] [rbp+184h]
+  int v96; // [rsp+290h] [rbp+188h]
+  __int64 v97; // [rsp+298h] [rbp+190h]
+  __int64 v98; // [rsp+2A0h] [rbp+198h]
+  __int64 v99; // [rsp+2A8h] [rbp+1A0h]
+  int v100; // [rsp+2B0h] [rbp+1A8h]
   void *Src; // [rsp+2F0h] [rbp+1E8h]
-  __int64 v101; // [rsp+2F8h] [rbp+1F0h]
-  __int64 v102; // [rsp+300h] [rbp+1F8h]
-  __int64 v103; // [rsp+308h] [rbp+200h]
-  __int64 v104; // [rsp+310h] [rbp+208h]
-  __int64 v105; // [rsp+318h] [rbp+210h]
-  __int64 v106; // [rsp+320h] [rbp+218h]
-  int v107; // [rsp+328h] [rbp+220h]
+  __int64 v102; // [rsp+2F8h] [rbp+1F0h]
+  __int64 v103; // [rsp+300h] [rbp+1F8h]
+  __int64 v104; // [rsp+308h] [rbp+200h]
+  __int64 v105; // [rsp+310h] [rbp+208h]
+  __int64 v106; // [rsp+318h] [rbp+210h]
+  __int64 v107; // [rsp+320h] [rbp+218h]
+  int v108; // [rsp+328h] [rbp+220h]
 
   v1 = 4LL;
-  v76 = a1;
+  v77 = a1;
   v3 = (_OWORD *)a1;
-  v4 = &v77;
+  v4 = &v78;
   do
   {
     v5 = v3[1];
@@ -154,8 +155,9 @@ __int64 __fastcall FastExpAA_CY(__int64 a1)
   }
   while ( v1 );
   v12 = *v3;
-  v69 = 0LL;
+  v68 = 0LL;
   v13 = v3[1];
+  v70 = 0LL;
   *(_OWORD *)v4 = v12;
   v14 = v3[2];
   *((_OWORD *)v4 + 1) = v13;
@@ -166,64 +168,63 @@ __int64 __fastcall FastExpAA_CY(__int64 a1)
   *((_OWORD *)v4 + 3) = v15;
   *((_OWORD *)v4 + 4) = v16;
   *((_QWORD *)v4 + 10) = v17;
-  v68 = 0LL;
   if ( !*(_QWORD *)(a1 + 536) )
-    return v81;
-  v19 = v86;
+    return v82;
+  v19 = v87;
   v20 = GraySharpenInput;
-  v21 = v107;
-  v22 = v105;
-  v23 = v106;
-  v24 = *(_QWORD *)(v86 + 96);
-  v63 = v107;
-  **(_WORD **)(v86 + 88) += *(unsigned __int8 *)(v86 + 82);
+  v21 = v108;
+  v22 = v106;
+  v23 = v107;
+  v24 = *(_QWORD *)(v87 + 96);
+  v63 = v108;
+  **(_WORD **)(v87 + 88) += *(unsigned __int8 *)(v87 + 82);
   *(_WORD *)(v24 - 2) += *(unsigned __int8 *)(v19 + 83);
   v25 = v21 * *(unsigned __int8 *)(v19 + 83);
-  v72 = v22 - v21 * *(unsigned __int8 *)(v19 + 82);
-  v26 = v87;
-  v70 = v87;
-  v27 = *(_QWORD *)(v87 + 96);
+  v73 = v22 - v21 * *(unsigned __int8 *)(v19 + 82);
+  v26 = v88;
+  v71 = v88;
+  v27 = *(_QWORD *)(v88 + 96);
   v28 = v25 + v23;
-  LOWORD(v25) = *(unsigned __int8 *)(v87 + 83);
-  v29 = *(unsigned __int16 **)(v87 + 88);
-  v71 = v28;
+  LOWORD(v25) = *(unsigned __int8 *)(v88 + 83);
+  v29 = *(unsigned __int16 **)(v88 + 88);
+  v72 = v28;
   *(_WORD *)(v27 - 2) += v25;
   v30 = *(unsigned __int8 *)(v26 + 80);
-  v61 = v78 & 4;
-  v31 = (char *)(*(_QWORD *)(v26 + 32) + (-(__int64)((v78 & 4) != 0) & 0xFFFFFFFFFFFFFFFAuLL) + 9);
+  v61 = v79 & 4;
+  v31 = (char *)(*(_QWORD *)(v26 + 32) + (-(__int64)((v79 & 4) != 0) & 0xFFFFFFFFFFFFFFFAuLL) + 9);
   v65 = v31;
-  v32 = ((v78 & 4) != 0 ? 6 : 18) + v79;
-  v33 = v79;
+  v32 = ((v79 & 4) != 0 ? 6 : 18) + v80;
+  v33 = v80;
   v34 = (unsigned __int8 *)&v31[v32 + v32];
   v66 = (unsigned __int8 *)&v31[v32];
   v35 = (char *)&v34[v32];
   v67 = v34;
   v36 = (char *)&v34[v32 + v32];
-  *(_QWORD *)&v68 = &v34[v32];
-  *((_QWORD *)&v68 + 1) = v36;
+  v68 = (char *)&v34[v32];
+  v69 = v36;
   v37 = GrayFastExpAA_CX;
-  if ( (v78 & 4) == 0 )
+  if ( (v79 & 4) == 0 )
     v37 = (__int64 (__fastcall *)(int, int, int, int, int))FastExpAA_CX;
-  v73 = v37;
-  if ( (v78 & 4) == 0 )
+  v74 = v37;
+  if ( (v79 & 4) == 0 )
     v20 = SharpenInput;
-  v75 = v20;
-  GetFixupScan((__int64)&v77, v35);
+  v76 = v20;
+  GetFixupScan((__int64)&v78, v35);
   if ( !v30 )
-    v77 |= 0x20u;
-  GetFixupScan((__int64)&v77, v36);
+    v78 |= 0x20u;
+  GetFixupScan((__int64)&v78, v36);
   if ( v30 < 2 )
-    v77 |= 0x20u;
+    v78 |= 0x20u;
   Src = (char *)Src + 9;
   v38 = -3;
   do
   {
     for ( i = 0LL; i < 4; ++i )
       (&v65)[i] = (char *)(&v66)[i];
-    *((_QWORD *)&v68 + 1) = v31;
-    GetFixupScan((__int64)&v77, v31);
+    v69 = v31;
+    GetFixupScan((__int64)&v78, v31);
     v40 = v67;
-    v20(0, (int)v67, (int)v67, v68, (__int64)v31, v33);
+    v20(0, (int)v67, (int)v67, (int)v68, (__int64)v31, v33);
     v31 = v65;
     v41 = ++v38 < 0;
     v64 = v38;
@@ -232,23 +233,23 @@ __int64 __fastcall FastExpAA_CY(__int64 a1)
       v42 = *v29++;
       v62 = v42;
       v43 = v42;
-      v74 = v29;
+      v75 = v29;
       v44 = v42;
       if ( !v38 )
       {
-        v43 = *(unsigned __int8 *)(v70 + 82) + v42;
+        v43 = *(unsigned __int8 *)(v71 + 82) + v42;
         v62 = v43;
       }
       v45 = Src;
       if ( v42 )
       {
         v46 = v66;
-        v47 = v81;
+        v47 = v82;
         while ( 1 )
         {
           --v44;
           if ( !v47 )
-            return *(unsigned int *)(v76 + 148);
+            return *(unsigned int *)(v77 + 148);
           switch ( v43 )
           {
             case 1:
@@ -329,48 +330,48 @@ LABEL_58:
           v57 = (-(__int64)(v61 != 0) & 0xFFFFFFFFFFFFFFFEuLL) + 3;
           memmove(&v45[-v57], v45, v57);
           memmove(&v45[v33], &v45[v33 - v57], v57);
-          v73(v86, (int)v45, v72, v71, v63);
-          v58 = v77;
-          if ( (v77 & 0x80u) != 0 )
+          v74(v87, (int)v45, v73, v72, v63);
+          v58 = v78;
+          if ( (v78 & 0x80u) != 0 )
           {
-            v83(&v77);
-            v58 = v77;
+            v84(&v78);
+            v58 = v78;
           }
           if ( (v58 & 0x800) != 0 )
           {
-            AlphaBlendBGRF(&v77);
-            LOBYTE(v58) = v77;
+            AlphaBlendBGRF(&v78);
+            LOBYTE(v58) = v78;
           }
           if ( (v58 & 0x10) != 0 )
           {
-            MappingBGRF(v101, v102, v89, v96);
-            v59 = v99 + v96;
-            if ( v59 == v97 )
-              v59 = v98;
-            v96 = v59;
+            MappingBGRF(v102, v103, v90, v97);
+            v59 = v100 + v97;
+            if ( v59 == v98 )
+              v59 = v99;
+            v97 = v59;
           }
-          v84(&v77, v103, v104, v80, v88, v90, v90 + v94, v95, v85);
+          v85(&v78, v104, v105, v81, v89, v91, v91 + v95, v96, v86);
           v43 = v62;
-          v60 = v93 + v90;
-          if ( v60 == v91 )
-            v60 = v92;
-          v80 += v82;
-          v47 = v81 - 1;
-          v90 = v60;
-          --v81;
+          v60 = v94 + v91;
+          if ( v60 == v92 )
+            v60 = v93;
+          v81 += v83;
+          v47 = v82 - 1;
+          v91 = v60;
+          --v82;
           if ( !v44 )
           {
             v38 = v64;
-            v29 = v74;
+            v29 = v75;
             goto LABEL_71;
           }
         }
       }
     }
-    v47 = v81;
+    v47 = v82;
 LABEL_71:
-    v20 = v75;
+    v20 = v76;
   }
   while ( v47 );
-  return *(unsigned int *)(v76 + 148);
+  return *(unsigned int *)(v77 + 148);
 }

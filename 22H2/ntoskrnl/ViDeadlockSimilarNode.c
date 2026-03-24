@@ -1,12 +1,19 @@
 /*
- * XREFs of ViDeadlockSimilarNode @ 0x140ADAEB8
+ * XREFs of ViDeadlockSimilarNode @ 0x1409DFE78
  * Callers:
- *     VfDeadlockAcquireResource @ 0x140AD7DAC (VfDeadlockAcquireResource.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5D8 (VfDeadlockAcquireResource.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall ViDeadlockSimilarNode(__int64 a1, int a2, __int64 a3)
+__int64 __fastcall ViDeadlockSimilarNode(__int64 a1, int a2, __int64 a3)
 {
-  return a1 == *(_QWORD *)(*(_QWORD *)(a3 + 56) + 8LL) && a2 == ((*(_DWORD *)(a3 + 72) >> 1) & 1);
+  __int64 result; // rax
+
+  if ( a1 != *(_QWORD *)(*(_QWORD *)(a3 + 56) + 8LL) )
+    return 0LL;
+  result = 1LL;
+  if ( a2 != ((*(_DWORD *)(a3 + 72) >> 1) & 1) )
+    return 0LL;
+  return result;
 }

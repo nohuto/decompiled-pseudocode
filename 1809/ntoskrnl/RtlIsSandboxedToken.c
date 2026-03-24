@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlIsSandboxedToken @ 0x14064A350
+ * XREFs of RtlIsSandboxedToken @ 0x14064A330
  * Callers:
  *     IopCheckInitiatorHint @ 0x1400A39EC (IopCheckInitiatorHint.c)
- *     NtSetInformationFile @ 0x140100E70 (NtSetInformationFile.c)
+ *     NtSetInformationFile @ 0x140100E90 (NtSetInformationFile.c)
  *     ObpParseSymbolicLinkEx @ 0x1405BBEB0 (ObpParseSymbolicLinkEx.c)
  *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
  *     IopXxxControlFile @ 0x1405E8BD0 (IopXxxControlFile.c)
- *     NtDuplicateToken @ 0x14064A030 (NtDuplicateToken.c)
- *     SepFilterToken @ 0x140657CEC (SepFilterToken.c)
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
- *     ObpCreateDirectoryObject @ 0x1406ADCFC (ObpCreateDirectoryObject.c)
- *     CmpCheckCreateAccess @ 0x1406B5674 (CmpCheckCreateAccess.c)
- *     ObCreateSymbolicLink @ 0x1406B721C (ObCreateSymbolicLink.c)
+ *     NtDuplicateToken @ 0x14064A010 (NtDuplicateToken.c)
+ *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
+ *     ObpCreateDirectoryObject @ 0x1406ADCDC (ObpCreateDirectoryObject.c)
+ *     CmpCheckCreateAccess @ 0x1406B5654 (CmpCheckCreateAccess.c)
+ *     ObCreateSymbolicLink @ 0x1406B71FC (ObCreateSymbolicLink.c)
  * Callees:
  *     ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator @ 0x14004D510 (ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
  */
 
 bool __fastcall RtlIsSandboxedToken(PSECURITY_SUBJECT_CONTEXT SubjectContext, KPROCESSOR_MODE a2)

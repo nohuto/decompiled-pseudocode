@@ -1,7 +1,7 @@
 /*
- * XREFs of SetDpiDepSysMet @ 0x1C006C800
+ * XREFs of SetDpiDepSysMet @ 0x1C006F900
  * Callers:
- *     InitLoadResources @ 0x1C006C520 (InitLoadResources.c)
+ *     InitLoadResources @ 0x1C006F680 (InitLoadResources.c)
  * Callees:
  *     <none>
  */

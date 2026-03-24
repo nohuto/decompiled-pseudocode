@@ -1,126 +1,106 @@
 /*
- * XREFs of KiDispatchException @ 0x14030CAC0
+ * XREFs of KiDispatchException @ 0x14033C330
  * Callers:
- *     KiInitializeUserApc @ 0x14030EFF8 (KiInitializeUserApc.c)
- *     KxExceptionDispatchOnExceptionStack @ 0x14041F5A0 (KxExceptionDispatchOnExceptionStack.c)
- *     KiExceptionDispatch @ 0x140434340 (KiExceptionDispatch.c)
- *     KiFastFailDispatch @ 0x140434840 (KiFastFailDispatch.c)
- *     KiRaiseException @ 0x1405789A0 (KiRaiseException.c)
- *     PspInitializeThunkContext @ 0x14077070C (PspInitializeThunkContext.c)
- *     PspFreeUserFiberShadowStack @ 0x1409B1208 (PspFreeUserFiberShadowStack.c)
+ *     KiInitializeUserApc @ 0x140309CE4 (KiInitializeUserApc.c)
+ *     KxExceptionDispatchOnExceptionStack @ 0x1403FE6C0 (KxExceptionDispatchOnExceptionStack.c)
+ *     KiExceptionDispatch @ 0x140411DC0 (KiExceptionDispatch.c)
+ *     KiFastFailDispatch @ 0x140412280 (KiFastFailDispatch.c)
+ *     KiRaiseException @ 0x140521DD0 (KiRaiseException.c)
+ *     KiParkUmsThread @ 0x140525E60 (KiParkUmsThread.c)
+ *     PspInitializeThunkContext @ 0x1406C07E0 (PspInitializeThunkContext.c)
+ *     KiSwapToUmsThread @ 0x1408BD970 (KiSwapToUmsThread.c)
+ *     PspFreeUserFiberShadowStack @ 0x14090A1C4 (PspFreeUserFiberShadowStack.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x14020B9C0 (ObGetCurrentIrql.c)
- *     RtlDispatchException @ 0x1402A3CA0 (RtlDispatchException.c)
- *     RtlpCopyExtendedContext @ 0x14030D2C0 (RtlpCopyExtendedContext.c)
- *     RtlGetExtendedContextLength2 @ 0x14030D5B0 (RtlGetExtendedContextLength2.c)
- *     RtlInitializeExtendedContext2 @ 0x14030D6A0 (RtlInitializeExtendedContext2.c)
- *     KePopulateContinuationContext @ 0x14030DD38 (KePopulateContinuationContext.c)
- *     KdTrap @ 0x14030DD5C (KdTrap.c)
- *     KiPreprocessFault @ 0x14030DD94 (KiPreprocessFault.c)
- *     KeContextFromKframes @ 0x14030DF40 (KeContextFromKframes.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwTerminateProcess @ 0x14041AC20 (ZwTerminateProcess.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KeContextToKframes @ 0x14041E4C0 (KeContextToKframes.c)
- *     _alloca_probe @ 0x140429450 (_alloca_probe.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetupForInstrumentationReturn @ 0x140571030 (KiSetupForInstrumentationReturn.c)
- *     KeCopyExceptionRecord @ 0x140578940 (KeCopyExceptionRecord.c)
- *     KiTpHandleTrap @ 0x14057ED10 (KiTpHandleTrap.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     PsWow64GetProcessMachine @ 0x1407711B0 (PsWow64GetProcessMachine.c)
- *     DbgkForwardException @ 0x140939614 (DbgkForwardException.c)
- *     KdIsThisAKdTrap @ 0x140AB6EC4 (KdIsThisAKdTrap.c)
+ *     ObGetCurrentIrql @ 0x14025EDF0 (ObGetCurrentIrql.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeCopyExceptionRecord @ 0x14032CED8 (KeCopyExceptionRecord.c)
+ *     KdTrap @ 0x14033C88C (KdTrap.c)
+ *     KiPreprocessFault @ 0x14033C940 (KiPreprocessFault.c)
+ *     KeContextFromKframes @ 0x14033CB10 (KeContextFromKframes.c)
+ *     RtlDispatchException @ 0x14033E580 (RtlDispatchException.c)
+ *     RtlGetExtendedContextLength2 @ 0x14033F5D0 (RtlGetExtendedContextLength2.c)
+ *     RtlpCopyExtendedContext @ 0x14033F8C0 (RtlpCopyExtendedContext.c)
+ *     RtlInitializeExtendedContext2 @ 0x14033FFD0 (RtlInitializeExtendedContext2.c)
+ *     KePopulateContinuationContext @ 0x14034063C (KePopulateContinuationContext.c)
+ *     KiSetupForInstrumentationReturn @ 0x14036C8F8 (KiSetupForInstrumentationReturn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwTerminateProcess @ 0x1403F9FA0 (ZwTerminateProcess.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     KeContextToKframes @ 0x1403FD6A0 (KeContextToKframes.c)
+ *     _alloca_probe @ 0x140407B20 (_alloca_probe.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KiTpHandleTrap @ 0x14051D110 (KiTpHandleTrap.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     DbgkForwardException @ 0x140732540 (DbgkForwardException.c)
+ *     KdIsThisAKdTrap @ 0x1409B5008 (KdIsThisAKdTrap.c)
  */
 
-__int16 __fastcall KiDispatchException(NTSTATUS *a1, __int64 a2, __int64 a3, unsigned __int8 a4, char a5)
+char __fastcall KiDispatchException(NTSTATUS *a1, unsigned __int64 a2, __int64 a3, unsigned __int8 a4, char a5)
 {
-  _KPROCESS *Process; // rdx
-  unsigned int v10; // r14d
-  unsigned __int64 v11; // rsi
-  unsigned __int64 v12; // rax
-  void *v13; // rsp
+  char v5; // r12
+  _KPROCESS *Process; // rcx
+  __int64 v9; // r15
+  unsigned __int64 v10; // rax
+  void *v11; // rsp
+  __int64 v12; // r9
+  unsigned int v13; // r15d
   __int64 v14; // r8
   __int64 v15; // r9
-  __int64 v16; // r8
+  __int64 v16; // rdx
   struct _KTHREAD *v17; // rax
-  NTSTATUS v18; // esi
-  NTSTATUS v19; // eax
-  unsigned __int64 v20; // rcx
-  unsigned __int64 v22; // rdx
-  struct _KPRCB *v23; // r8
-  _DWORD *v24; // rdx
-  int v25; // ett
-  struct _KPRCB *CurrentPrcb; // rcx
+  unsigned __int64 v18; // r12
   char IsThisAKdTrap; // al
-  char v28; // r8
-  NTSTATUS v29; // r9d
-  _KPROCESS *v30; // rdx
-  struct _KPRCB *v31; // r8
-  signed __int32 *v32; // rdx
-  signed __int32 v33; // eax
-  signed __int32 v34; // ett
-  unsigned __int64 v35; // r8
-  _QWORD *v36; // rdi
-  _OWORD *v37; // rsi
-  int v38; // ecx
-  __int64 v39; // r9
-  __int64 v40; // rdx
-  __int64 v41; // rcx
-  __int64 v42; // r8
-  __int64 v43; // r9
-  __int64 v44; // r10
-  bool v45; // zf
-  __int64 v46; // r8
-  _DWORD *SchedulerAssist; // r8
-  int v48; // ett
+  int v20; // r8d
+  _KPROCESS *v21; // rdx
+  unsigned __int64 v22; // rdx
+  unsigned __int64 v23; // r15
+  unsigned __int64 v24; // rcx
+  _QWORD *v25; // rcx
+  unsigned __int64 v26; // rbx
+  int v27; // ecx
+  __int64 v28; // r9
+  NTSTATUS v29; // r15d
   ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-10h]
-  int v51; // [rsp+30h] [rbp+0h] BYREF
-  int v52; // [rsp+34h] [rbp+4h]
-  int v53; // [rsp+38h] [rbp+8h]
-  NTSTATUS v54; // [rsp+3Ch] [rbp+Ch]
-  unsigned int v55; // [rsp+40h] [rbp+10h] BYREF
-  __int64 v56; // [rsp+48h] [rbp+18h]
-  unsigned __int64 v57; // [rsp+50h] [rbp+20h]
-  __int64 v58; // [rsp+58h] [rbp+28h] BYREF
-  _KPROCESS *v59; // [rsp+60h] [rbp+30h]
-  unsigned __int64 v60; // [rsp+68h] [rbp+38h]
-  struct _KTHREAD *CurrentThread; // [rsp+70h] [rbp+40h]
-  unsigned __int64 v62; // [rsp+78h] [rbp+48h]
-  __int64 v63; // [rsp+80h] [rbp+50h]
-  NTSTATUS *v64; // [rsp+88h] [rbp+58h]
-  int *v65; // [rsp+90h] [rbp+60h]
-  __int64 v66; // [rsp+A0h] [rbp+70h]
-  _QWORD *v67; // [rsp+A8h] [rbp+78h]
-  _QWORD *v68; // [rsp+B0h] [rbp+80h]
-  _QWORD *v69; // [rsp+B8h] [rbp+88h]
-  _QWORD *v70; // [rsp+C0h] [rbp+90h]
-  unsigned __int64 v71; // [rsp+C8h] [rbp+98h]
-  int v72; // [rsp+D0h] [rbp+A0h]
-  _DWORD v73[37]; // [rsp+D4h] [rbp+A4h] BYREF
-  __int128 v74; // [rsp+170h] [rbp+140h] BYREF
-  __int128 v75; // [rsp+180h] [rbp+150h]
+  int v33; // [rsp+30h] [rbp+0h] BYREF
+  unsigned int v34; // [rsp+34h] [rbp+4h]
+  int v35; // [rsp+38h] [rbp+8h]
+  unsigned __int64 v36; // [rsp+40h] [rbp+10h]
+  unsigned int v37; // [rsp+48h] [rbp+18h] BYREF
+  _KPROCESS *v38; // [rsp+50h] [rbp+20h]
+  __int64 v39; // [rsp+58h] [rbp+28h] BYREF
+  unsigned __int64 v40; // [rsp+60h] [rbp+30h]
+  struct _KTHREAD *CurrentThread; // [rsp+68h] [rbp+38h]
+  unsigned __int64 v42; // [rsp+70h] [rbp+40h]
+  NTSTATUS *v43; // [rsp+78h] [rbp+48h]
+  _QWORD *v44; // [rsp+80h] [rbp+50h]
+  unsigned __int64 v45; // [rsp+88h] [rbp+58h]
+  _OWORD *v46; // [rsp+90h] [rbp+60h]
+  unsigned __int64 v47; // [rsp+98h] [rbp+68h]
+  int *v48; // [rsp+A8h] [rbp+78h]
+  __int64 v49; // [rsp+B0h] [rbp+80h]
+  int v50; // [rsp+C0h] [rbp+90h]
+  _DWORD v51[37]; // [rsp+C4h] [rbp+94h] BYREF
+  __int128 v52; // [rsp+160h] [rbp+130h] BYREF
+  __int64 v53; // [rsp+170h] [rbp+140h]
 
-  LOWORD(v51) = a4;
-  v63 = a3;
-  v56 = a2;
-  v64 = a1;
-  v66 = a3;
-  v58 = 0LL;
-  v55 = 0;
-  memset(v73, 0, sizeof(v73));
-  v74 = 0LL;
-  v75 = 0LL;
+  v5 = a4;
+  LOWORD(v33) = a4;
+  v36 = a2;
+  v43 = a1;
+  v49 = a3;
+  v39 = 0LL;
+  v37 = 0;
+  memset(v51, 0, sizeof(v51));
+  v52 = 0LL;
+  v53 = 0LL;
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
-  v59 = Process;
-  __incgsdword(0x82F0u);
-  if ( a5 && Process && *(_QWORD *)&Process[2].Affinity.Count )
+  v38 = Process;
+  __incgsdword(0x8030u);
+  if ( a5 && *(_QWORD *)&Process[2].Affinity.Count )
   {
-    v18 = *a1;
+    v29 = *a1;
     switch ( *a1 )
     {
       case 268435458:
@@ -133,148 +113,91 @@ __int16 __fastcall KiDispatchException(NTSTATUS *a1, __int64 a2, __int64 a3, uns
         *a1 = -1073741819;
         break;
     }
-    if ( ObGetCurrentIrql() < 2u )
+    if ( ObGetCurrentIrql() < 2u
+      && (v5 || (*a1 == -2147483647 || (unsigned int)(*a1 + 1073741819) <= 1)
+             && *((_QWORD *)a1 + 5) <= 0x7FFFFFFF0000uLL) )
     {
-      if ( a4
-        || ((v19 = *a1, *a1 == -1073741819) || v19 == -2147483647 || v19 == -1073741818)
-        && *((_QWORD *)a1 + 5) <= 0x7FFFFFFF0000uLL )
-      {
-        LOWORD(v17) = ((__int64 (__fastcall *)(NTSTATUS *, __int64, __int64, _QWORD, unsigned __int8))xmmword_140C38180)(
-                        a1,
-                        a2,
-                        a3,
-                        0LL,
-                        a4);
-        if ( (_BYTE)v17 )
-          return (__int16)v17;
-      }
+      LOBYTE(v17) = ((__int64 (__fastcall *)(NTSTATUS *, unsigned __int64, __int64, _QWORD, char))xmmword_140C1E060)(
+                      a1,
+                      v36,
+                      a3,
+                      0LL,
+                      v5);
+      if ( (_BYTE)v17 )
+        return (char)v17;
     }
-    *a1 = v18;
-    Process = v59;
+    *a1 = v29;
+    Process = v38;
   }
-  v10 = 1048607;
-  v53 = 1048607;
-  v11 = 0LL;
-  if ( a4 )
+  v34 = 1048607;
+  v9 = 0LL;
+  if ( v5 )
   {
     if ( (KeFeatureBits & 0x800000) != 0 )
     {
-      v10 = 1048671;
-      v53 = 1048671;
+      v34 = 1048671;
       if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
       {
-        v20 = MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708];
+        v9 = MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708];
         if ( ((MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708]) & 0x800LL) != 0
           && (HIDWORD(Process[2].ReadyListHead.Blink) & 0x4000) == 0 )
         {
-          v20 &= ~0x800uLL;
+          v9 &= ~0x800uLL;
         }
-        v11 = v20 & 0xFFFFFFFFFFF9FFFFuLL;
-        if ( (a1[1] & 0x80u) == 0 )
-          v11 = v20;
-        if ( (unsigned __int16)PsWow64GetProcessMachine(Process) == 332 )
-          v11 &= 0xFFFFFFFFFFF9FFFFuLL;
       }
     }
   }
-  else
-  {
-    if ( (_BYTE)KiKernelCetEnabled )
-      v10 = 1048735;
-    v53 = v10;
-  }
-  RtlGetExtendedContextLength2(v10, &v55, v11);
-  v12 = v55 + 15LL;
-  if ( v12 <= v55 )
-    v12 = 0xFFFFFFFFFFFFFF0LL;
-  v13 = alloca(v12 & 0xFFFFFFFFFFFFFFF0uLL);
-  v65 = &v51;
-  if ( (_BYTE)v51 )
-    memset(&v51, 0, v55);
-  RtlInitializeExtendedContext2(&v51, v10, &v58, v11);
-  KeContextFromKframes(a3, v56, &v51);
+  RtlGetExtendedContextLength2(v34, &v37, v9);
+  v10 = v37 + 15LL;
+  if ( v10 <= v37 )
+    v10 = 0xFFFFFFFFFFFFFF0LL;
+  v11 = alloca(v10 & 0xFFFFFFFFFFFFFFF0uLL);
+  v48 = &v33;
+  if ( v5 )
+    memset(&v33, 0, v37);
+  v12 = v9;
+  v13 = v34;
+  RtlInitializeExtendedContext2(&v33, v34, &v39, v12);
+  KeContextFromKframes(a3, v36, &v33);
   if ( *a1 == -2147483645 )
   {
-    --*(_QWORD *)&v73[21];
+    --*(_QWORD *)&v51[25];
     if ( (KiDynamicTraceMask & 2) != 0 )
     {
-      --*(_QWORD *)(a3 + 360);
       LOBYTE(v15) = a5;
-      LOBYTE(v14) = v51;
-      if ( (unsigned __int8)KiTpHandleTrap(a1, &v51, v14, v15) )
-        goto LABEL_18;
-      ++*(_QWORD *)(a3 + 360);
+      LOBYTE(v14) = v5;
+      if ( (unsigned __int8)KiTpHandleTrap(a1, &v33, v14, v15) )
+        goto LABEL_14;
     }
   }
-  LOBYTE(v14) = v51;
-  if ( (unsigned __int8)KiPreprocessFault((int)a1, (int)&v51, v14) )
-    goto LABEL_18;
-  if ( !(_BYTE)v51 )
+  LOBYTE(v14) = v5;
+  if ( (unsigned __int8)KiPreprocessFault((int)a1, (int)&v33, v14) )
+    goto LABEL_14;
+  if ( !v5 )
   {
     if ( (!a5
-       || !(unsigned __int8)KdTrap(a3, v56, (_DWORD)a1, (unsigned int)&v51, v51, v51)
-       && !RtlDispatchException((ULONG_PTR)a1, (__int64)&v51))
-      && !(unsigned __int8)KdTrap(a3, v56, (_DWORD)a1, (unsigned int)&v51, 0, 1) )
+       || !(unsigned __int8)KdTrap(a3, v36, (_DWORD)a1, (unsigned int)&v33, 0, 0)
+       && !(unsigned __int8)RtlDispatchException(a1, &v33))
+      && !(unsigned __int8)KdTrap(a3, v36, (_DWORD)a1, (unsigned int)&v33, 0, 1) )
     {
       KeBugCheckEx(0x1Eu, *a1, *((_QWORD *)a1 + 2), *((_QWORD *)a1 + 4), *((_QWORD *)a1 + 5));
     }
-LABEL_18:
-    LOBYTE(BugCheckParameter4) = v51;
-    LOWORD(v17) = KeContextToKframes(a3, v56, (unsigned int)&v51, (_DWORD)v59, BugCheckParameter4);
-    if ( !BYTE1(v51) )
-      return (__int16)v17;
-    _disable();
-    LOWORD(v17) = KiSetupForInstrumentationReturn(a3);
-    CurrentPrcb = KeGetCurrentPrcb();
-    SchedulerAssist = CurrentPrcb->SchedulerAssist;
-    if ( !SchedulerAssist )
-      goto LABEL_92;
-    _m_prefetchw(SchedulerAssist);
-    LODWORD(v17) = *SchedulerAssist;
-    do
-    {
-      v48 = (int)v17;
-      LODWORD(v17) = _InterlockedCompareExchange(SchedulerAssist, (unsigned int)v17 & 0xFFDFFFFF, (signed __int32)v17);
-    }
-    while ( v48 != (_DWORD)v17 );
-    if ( ((unsigned int)v17 & 0x200000) == 0 )
-      goto LABEL_92;
-    goto LABEL_91;
+    goto LABEL_14;
   }
-  v22 = v71;
-  v57 = v71;
-  v62 = v71;
-  if ( (HIDWORD(v59[2].Header.WaitListHead.Flink) & 1) == 0 )
+  v18 = *(_QWORD *)&v51[1];
+  v42 = *(_QWORD *)&v51[1];
+  if ( (HIDWORD(v38[2].Header.WaitListHead.Flink) & 1) == 0 )
   {
     v17 = KeGetCurrentThread();
-    if ( v17->ApcState.Process[1].Affinity.StaticBitmap[30]
-      && *a1 == -2147483646
-      && (*(_DWORD *)(a3 + 376) & 0x40000) != 0 )
+    if ( v17->ApcState.Process[1].AffinityPadding[10] && *a1 == -2147483646 && (*(_DWORD *)(a3 + 376) & 0x40000) != 0 )
     {
       _disable();
       *(_DWORD *)(a3 + 376) &= ~0x40000u;
-      v23 = KeGetCurrentPrcb();
-      v24 = v23->SchedulerAssist;
-      if ( !v24 )
-        goto LABEL_92;
-      _m_prefetchw(v24);
-      LODWORD(v17) = *v24;
-      do
-      {
-        v25 = (int)v17;
-        LODWORD(v17) = _InterlockedCompareExchange(v24, (unsigned int)v17 & 0xFFDFFFFF, (signed __int32)v17);
-      }
-      while ( v25 != (_DWORD)v17 );
-      if ( ((unsigned int)v17 & 0x200000) == 0 )
-        goto LABEL_92;
-      CurrentPrcb = v23;
-LABEL_91:
-      LOWORD(v17) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-LABEL_92:
+LABEL_75:
       _enable();
-      return (__int16)v17;
+      return (char)v17;
     }
-    if ( (v60 & 0xFFF8) == 0x20 )
+    if ( ((unsigned __int16)CurrentThread & 0xFFF8) == 0x20 )
     {
       if ( *a1 == -2147483645 )
       {
@@ -284,103 +207,101 @@ LABEL_92:
       {
         *a1 = 1073741854;
       }
-      v22 = (unsigned int)v22 & 0xFFFFFFF0;
-      v57 = v22;
-      v62 = v22;
+      v18 = (unsigned int)v18 & 0xFFFFFFF0;
+      v42 = v18;
     }
   }
   if ( a5 )
   {
-    v54 = *a1;
+    LODWORD(v38) = *a1;
     IsThisAKdTrap = KdIsThisAKdTrap(a1);
-    BYTE1(v51) = IsThisAKdTrap;
-    v30 = KeGetCurrentThread()->ApcState.Process;
-    if ( !v30[1].Affinity.StaticBitmap[29] && !KdIgnoreUmExceptions && v29 != -2147483597 || IsThisAKdTrap )
+    BYTE1(v33) = IsThisAKdTrap;
+    v21 = KeGetCurrentThread()->ApcState.Process;
+    if ( !v21[1].AffinityPadding[9] && !KdIgnoreUmExceptions && v20 != -2147483597 || IsThisAKdTrap )
     {
-      if ( (unsigned __int8)KdTrap(a3, v56, (_DWORD)a1, (unsigned int)&v51, v28, 0) )
-        goto LABEL_18;
-      v29 = v54;
+      if ( (unsigned __int8)KdTrap(a3, v36, (_DWORD)a1, (unsigned int)&v33, v33, 0) )
+      {
+        v5 = v33;
+LABEL_14:
+        LOBYTE(BugCheckParameter4) = v5;
+        LOBYTE(v17) = KeContextToKframes(a3, v36, (unsigned int)&v33, v40, BugCheckParameter4);
+        if ( !BYTE1(v33) )
+          return (char)v17;
+        _disable();
+        LOBYTE(v17) = KiSetupForInstrumentationReturn(a3);
+        goto LABEL_75;
+      }
+      v20 = (int)v38;
     }
-    if ( v29 == -2147483597 || (LOBYTE(v30) = 1, LOWORD(v17) = DbgkForwardException(a1, v30, 0LL), !(_BYTE)v17) )
+    if ( v20 == -2147483597 || (LOBYTE(v21) = 1, LOBYTE(v17) = DbgkForwardException(a1, v21), !(_BYTE)v17) )
     {
       _disable();
       *(_DWORD *)(a3 + 376) &= ~0x100u;
-      v31 = KeGetCurrentPrcb();
-      v32 = (signed __int32 *)v31->SchedulerAssist;
-      if ( v32 )
-      {
-        _m_prefetchw(v32);
-        v33 = *v32;
-        do
-        {
-          v34 = v33;
-          v33 = _InterlockedCompareExchange(v32, v33 & 0xFFDFFFFF, v33);
-        }
-        while ( v34 != v33 );
-        if ( (v33 & 0x200000) != 0 )
-          KiRemoveSystemWorkPriorityKick(v31);
-      }
       _enable();
-      v72 = -1073741819;
-      v52 = 0;
-      v35 = v57;
-      v60 = v57;
-      if ( (v10 & 0x100040) == 0x100040 )
+      v50 = -1073741819;
+      v35 = 0;
+      v22 = v18;
+      v40 = v18;
+      if ( (v13 & 0x100040) == 0x100040 )
       {
-        v35 = (v57 - *(unsigned int *)(v58 + 20)) & 0xFFFFFFFFFFFFFFC0uLL;
-        v60 = v35;
+        v22 = (v18 - *(unsigned int *)(v39 + 20)) & 0xFFFFFFFFFFFFFFC0uLL;
+        v40 = v22;
       }
-      v36 = (_QWORD *)((v35 - 40) & 0xFFFFFFFFFFFFFFF0uLL);
-      v67 = v36;
-      v68 = v36 - 20;
-      v37 = v36 - 24;
-      v69 = v36 - 24;
-      v70 = v36 - 178;
-      LODWORD(v74) = -1232;
-      DWORD1(v74) = v57 - ((_DWORD)v36 - 1424);
-      *((_QWORD *)&v74 + 1) = 0x4D0FFFFFB30LL;
-      LODWORD(v75) = v35 - ((_DWORD)v36 - 192);
-      DWORD1(v75) = v57 - v35;
-      ProbeForWrite(v36 - 178, v57 - (_QWORD)(v36 - 178), 0x10u);
-      v36[3] = v57;
-      *v36 = *((_QWORD *)v65 + 31);
-      KeCopyExceptionRecord(v36 - 20, a1);
-      LOBYTE(v38) = 1;
-      RtlpCopyExtendedContext(v38, (_DWORD)v36 - 192, (unsigned int)&v74, v53, v58, 0LL);
-      *v37 = v74;
-      v37[1] = v75;
+      v36 = (v22 - 40) & 0xFFFFFFFFFFFFFFF0uLL;
+      v44 = (_QWORD *)v36;
+      v46 = (_OWORD *)(v36 - 160);
+      v47 = v36 - 192;
+      v23 = v36 - 1424;
+      v45 = v36 - 1424;
+      LODWORD(v52) = -1232;
+      v24 = v18 - (v36 - 1424);
+      DWORD1(v52) = v18 - (v36 - 1424);
+      *((_QWORD *)&v52 + 1) = 0x4D0FFFFFB30LL;
+      LODWORD(v53) = v22 - (v36 - 192);
+      HIDWORD(v53) = v18 - v22;
+      if ( v24 - 1 > 0xFFE )
+      {
+        ProbeForWrite((volatile void *)(v36 - 1424), v18 - (v36 - 1424), 0x10u);
+        v25 = (_QWORD *)v36;
+      }
+      else
+      {
+        if ( v23 >= 0x7FFFFFFF0000LL )
+          v23 = 0x7FFFFFFF0000LL;
+        *(_BYTE *)v23 = *(_BYTE *)v23;
+        *(_BYTE *)(v23 + v24 - 1) = *(_BYTE *)(v23 + v24 - 1);
+        v25 = v44;
+        v23 = v45;
+      }
+      v25[3] = v18;
+      *v25 = *(_QWORD *)&v51[25];
+      KeCopyExceptionRecord(v46, (__int64)a1);
+      v26 = v47;
+      LOBYTE(v27) = 1;
+      RtlpCopyExtendedContext(v27, v47, (unsigned int)&v52, v34, v39, 0LL);
+      *(_OWORD *)v26 = v52;
+      *(_QWORD *)(v26 + 16) = v53;
       --CurrentThread->SpecialApcDisable;
-      v52 = 1;
-      KePopulateContinuationContext(*(_QWORD *)(v63 + 360));
-      *(_QWORD *)(v39 + 384) = v36 - 178;
-      *(_WORD *)(v39 + 368) = 51;
-      *(_QWORD *)(v39 + 360) = qword_140D1F340;
-      KiSetupForInstrumentationReturn(v39);
-      LOWORD(v17) = *(_WORD *)(v44 + 486);
-      v45 = (_WORD)v17 == 0xFFFF;
-      LOWORD(v17) = (_WORD)v17 + 1;
-      *(_WORD *)(v44 + 486) = (_WORD)v17;
-      if ( v45 )
-      {
-        v17 = (struct _KTHREAD *)(v44 + 152);
-        if ( *(struct _KTHREAD **)&v17->Header.Lock != v17 )
-          LOWORD(v17) = KiCheckForKernelApcDelivery(v41, v40, v42, v43);
-      }
-      v52 = 0;
+      v35 = 1;
+      KePopulateContinuationContext(*(_QWORD *)(a3 + 360));
+      *(_QWORD *)(a3 + 384) = v23;
+      *(_WORD *)(a3 + 368) = 51;
+      *(_QWORD *)(a3 + 360) = KeUserExceptionDispatcher;
+      KiSetupForInstrumentationReturn(a3);
+      LOBYTE(v17) = KiLeaveGuardedRegionUnsafe(v28);
+      v35 = 0;
     }
   }
   else
   {
     LOBYTE(v16) = 1;
-    LOBYTE(v22) = 1;
-    LOWORD(v17) = DbgkForwardException(a1, v22, v16);
+    LOBYTE(v17) = DbgkForwardException(a1, v16);
     if ( !(_BYTE)v17 )
     {
-      LOBYTE(v46) = 1;
-      LOWORD(v17) = DbgkForwardException(a1, 0LL, v46);
+      LOBYTE(v17) = DbgkForwardException(a1, 0LL);
       if ( !(_BYTE)v17 )
-        LOWORD(v17) = ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, *a1);
+        LOBYTE(v17) = ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, *a1);
     }
   }
-  return (__int16)v17;
+  return (char)v17;
 }

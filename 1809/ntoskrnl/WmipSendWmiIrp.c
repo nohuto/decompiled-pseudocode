@@ -3,15 +3,15 @@
  * Callers:
  *     WmipQueryAllData @ 0x14059DBCC (WmipQueryAllData.c)
  *     WmipQuerySetExecuteSI @ 0x1405FBF88 (WmipQuerySetExecuteSI.c)
- *     WmipRegisterOrUpdateDS @ 0x1406C9988 (WmipRegisterOrUpdateDS.c)
- *     WmipEnableCollectionForNewGuid @ 0x140708014 (WmipEnableCollectionForNewGuid.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x140708610 (WmipDisableCollectionForRemovedGuid.c)
- *     WmipSendEnableDisableRequest @ 0x14070A88C (WmipSendEnableDisableRequest.c)
- *     WmipDereferenceEvent @ 0x1408B33B8 (WmipDereferenceEvent.c)
- *     WmipProcessLegacyEtwCallback @ 0x1408B4590 (WmipProcessLegacyEtwCallback.c)
+ *     WmipRegisterOrUpdateDS @ 0x1406C9968 (WmipRegisterOrUpdateDS.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140707FF4 (WmipEnableCollectionForNewGuid.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x1407085F0 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipSendEnableDisableRequest @ 0x14070A86C (WmipSendEnableDisableRequest.c)
+ *     WmipDereferenceEvent @ 0x1408B3398 (WmipDereferenceEvent.c)
+ *     WmipProcessLegacyEtwCallback @ 0x1408B4570 (WmipProcessLegacyEtwCallback.c)
  * Callees:
  *     IoAllocateIrp @ 0x14008E4E0 (IoAllocateIrp.c)
- *     IoFreeIrp @ 0x1400B9650 (IoFreeIrp.c)
+ *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
  *     WmipForwardWmiIrp @ 0x1405FB974 (WmipForwardWmiIrp.c)
  */
 

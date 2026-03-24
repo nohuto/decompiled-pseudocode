@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetHandleArrayProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJIPEAPEAX_KPEA_N@Z @ 0x1C0235A50
+ * XREFs of ?SetHandleArrayProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJIPEAPEAX_KPEA_N@Z @ 0x1C01F5190
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?ReleaseBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAAXXZ @ 0x1C0235978 (-ReleaseBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAAXXZ @ 0x1C01F50C4 (-ReleaseBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAAXXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CCaptureRenderTargetMarshaler::SetHandleArrayProperty(
@@ -15,9 +15,9 @@ __int64 __fastcall DirectComposition::CCaptureRenderTargetMarshaler::SetHandleAr
         bool *Object)
 {
   bool *v5; // r12
-  NTSTATUS v6; // esi
+  NTSTATUS v6; // ebp
   __int64 i; // r14
-  __int64 v11; // rbp
+  __int64 v11; // rsi
   struct _OBJECT_TYPE *v12; // rax
   void *v13; // rcx
 
@@ -31,34 +31,34 @@ __int64 __fastcall DirectComposition::CCaptureRenderTargetMarshaler::SetHandleAr
       v11 = (unsigned int)i;
       if ( (unsigned int)i >= a4 )
         break;
-      v12 = (struct _OBJECT_TYPE *)((__int64 (*)(void))qword_1C0296840)();
+      v12 = (struct _OBJECT_TYPE *)((__int64 (*)(void))qword_1C0251A58)();
       v13 = a3[i];
       Object = 0LL;
       v6 = ObReferenceObjectByHandle(v13, 0xF0001u, v12, 1, (PVOID *)&Object, 0LL);
       if ( v6 < 0 )
-      {
-        if ( a3 && (_DWORD)i )
-        {
-          do
-          {
-            ObfDereferenceObject(*a3++);
-            --v11;
-          }
-          while ( v11 );
-        }
-        return (unsigned int)v6;
-      }
+        goto LABEL_10;
       a3[i] = Object;
     }
-    if ( *((_QWORD *)this + 14) )
+    if ( *((_QWORD *)this + 13) )
     {
       DirectComposition::CCaptureRenderTargetMarshaler::ReleaseBuffers(this);
       *((_DWORD *)this + 4) |= 0x100u;
     }
-    *((_QWORD *)this + 13) = 0LL;
-    *((_QWORD *)this + 14) = a4;
-    *((_QWORD *)this + 12) = a3;
+    *((_QWORD *)this + 12) = 0LL;
+    *((_QWORD *)this + 11) = a3;
+    a3 = 0LL;
+    *((_QWORD *)this + 13) = a4;
     *v5 = 1;
+LABEL_10:
+    if ( a3 && (_DWORD)i )
+    {
+      do
+      {
+        ObfDereferenceObject(*a3++);
+        --v11;
+      }
+      while ( v11 );
+    }
   }
   else
   {

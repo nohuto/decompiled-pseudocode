@@ -1,10 +1,8 @@
 /*
- * XREFs of RtlStringVPrintfWorkerW @ 0x1C000BA0C
+ * XREFs of RtlStringVPrintfWorkerW @ 0x1C0002898
  * Callers:
- *     RtlStringCchPrintfExW @ 0x1C000B730 (RtlStringCchPrintfExW.c)
- *     RtlStringCchPrintfW @ 0x1C000B900 (RtlStringCchPrintfW.c)
- *     RtlStringCbPrintfExW @ 0x1C0017B4C (RtlStringCbPrintfExW.c)
- *     RtlStringCbPrintfW @ 0x1C0017D20 (RtlStringCbPrintfW.c)
+ *     RtlStringCbPrintfExW @ 0x1C0002788 (RtlStringCbPrintfExW.c)
+ *     RtlStringCbPrintfW @ 0x1C004E02C (RtlStringCbPrintfW.c)
  * Callees:
  *     <none>
  */
@@ -30,10 +28,10 @@ NTSTATUS __stdcall RtlStringVPrintfWorkerW(
   else if ( v9 != v5 )
   {
     v5 = v9;
-    goto LABEL_7;
+    goto LABEL_5;
   }
   pszDest[v5] = 0;
-LABEL_7:
+LABEL_5:
   if ( pcchNewDestLength )
     *pcchNewDestLength = v5;
   return v8;

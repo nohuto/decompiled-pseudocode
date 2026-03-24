@@ -1,47 +1,49 @@
 /*
- * XREFs of MiDeletePfnBitMaps @ 0x14097E6E8
+ * XREFs of MiDeletePfnBitMaps @ 0x1408D864C
  * Callers:
- *     MiDeletePartitionResources @ 0x1405BDFF8 (MiDeletePartitionResources.c)
- *     MiCreatePfnBitMaps @ 0x14082ACF0 (MiCreatePfnBitMaps.c)
+ *     MiDeletePartitionResources @ 0x140561918 (MiDeletePartitionResources.c)
+ *     MiCreatePfnBitMaps @ 0x1407B94E4 (MiCreatePfnBitMaps.c)
  * Callees:
- *     MiDeleteSparseRange @ 0x14097E850 (MiDeleteSparseRange.c)
+ *     MiDeleteSparseRange @ 0x1408D8750 (MiDeleteSparseRange.c)
  */
 
 __int64 __fastcall MiDeletePfnBitMaps(ULONG_PTR *a1)
 {
-  __int64 *v1; // r14
-  unsigned __int64 v2; // rbp
-  unsigned int i; // edi
-  unsigned __int64 v5; // rcx
-  ULONG_PTR *v6; // rbx
+  __int64 *v2; // r14
+  unsigned int i; // esi
+  unsigned __int64 v4; // rcx
+  ULONG_PTR *v5; // rdi
+  ULONG_PTR v6; // rcx
   __int64 result; // rax
 
-  v1 = MiLargePageSizes;
-  v2 = qword_140C50840 + 1;
+  v2 = MiLargePageSizes;
   for ( i = 0; i < 3; ++i )
   {
     if ( i >= 2 )
     {
       if ( a1 != &MiSystemPartition )
         goto LABEL_7;
-      v5 = 512LL;
-      v6 = a1 + 1996;
+      v4 = 512LL;
+      v5 = a1 + 769;
     }
     else
     {
-      v5 = *v1;
-      v6 = &a1[2 * i + 1978];
+      v4 = *v2;
+      v5 = &a1[2 * i + 634];
     }
-    MiDeleteSparseRange(*v6, (unsigned int)((((v2 / v5 + (v2 % v5 != 0) + 7LL) >> 3) + 4095) >> 12));
-    *v6 = 0LL;
+    MiDeleteSparseRange(
+      *v5,
+      (unsigned int)((((0x1000000000LL / v4 + (0x1000000000LL % v4 != 0) + 7LL) >> 3) + 4095) >> 12));
+    *v5 = 0LL;
 LABEL_7:
-    ++v1;
+    ++v2;
   }
-  MiDeleteSparseRange(a1[1984], (unsigned int)((((((v2 & 0x3FFFF) != 0) + (v2 >> 18) + 7) >> 3) + 4095) >> 12));
-  a1[1984] = 0LL;
-  MiDeleteSparseRange(a1[1985], (unsigned int)((2 * ((v2 >> 18) + ((v2 & 0x3FFFF) != 0)) + 4095) >> 12));
-  a1[1985] = 0LL;
-  result = MiDeleteSparseRange(a1[1982], (unsigned int)(((v2 >> 9) + ((v2 & 0x1FF) != 0) + 4095LL) >> 12));
-  a1[1982] = 0LL;
+  MiDeleteSparseRange(a1[640], 8LL);
+  a1[640] = 0LL;
+  MiDeleteSparseRange(a1[641], 128LL);
+  v6 = a1[638];
+  a1[641] = 0LL;
+  result = MiDeleteSparseRange(v6, 0x8000LL);
+  a1[638] = 0LL;
   return result;
 }

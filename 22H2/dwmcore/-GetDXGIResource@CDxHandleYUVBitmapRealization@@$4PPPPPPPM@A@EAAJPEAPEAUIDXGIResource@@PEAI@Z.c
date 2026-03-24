@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDXGIResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAJPEAPEAUIDXGIResource@@PEAI@Z @ 0x180122FC0
+ * XREFs of ?GetDXGIResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAJPEAPEAUIDXGIResource@@PEAI@Z @ 0x1800F89A0
  * Callers:
  *     <none>
  * Callees:

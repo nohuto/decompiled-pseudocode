@@ -38,10 +38,10 @@ ULONG __stdcall RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
       v7 = v3 - v6;
       if ( v3 >= v6 )
       {
-        if ( v7 < (unsigned __int8)byte_14035FCE4[8 * v5] )
+        if ( v7 < (unsigned __int8)byte_14035FDF4[8 * v5] )
         {
-          v8 = (unsigned __int16)word_14035FCE6[4 * v5];
-          if ( byte_14035FCE5[8 * v5] == 1 )
+          v8 = (unsigned __int16)word_14035FDF6[4 * v5];
+          if ( byte_14035FDF5[8 * v5] == 1 )
             return (unsigned __int16)RtlpStatusTable[v7 + v8];
           else
             return (unsigned __int16)RtlpStatusTable[2 * v7 + v8] | ((unsigned __int16)RtlpStatusTable[2 * v7 + 1 + v8] << 16);

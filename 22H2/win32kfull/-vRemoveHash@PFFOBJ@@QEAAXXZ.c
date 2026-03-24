@@ -1,92 +1,87 @@
 /*
- * XREFs of ?vRemoveHash@PFFOBJ@@QEAAXXZ @ 0x1C0115DB0
+ * XREFs of ?vRemoveHash@PFFOBJ@@QEAAXXZ @ 0x1C00B9EB4
  * Callers:
- *     ?bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z @ 0x1C007BD70 (-bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z.c)
- *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C0112870 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
- *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C01149B0 (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
- *     ?bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAVPDEVOBJ@@I@Z @ 0x1C013E7D4 (-bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAVPDEVOBJ@@I@Z.c)
- *     ?bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAU_FONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PEAU_UNIVERSAL_FONT_ID@@PEAH@Z @ 0x1C026AF54 (-bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAU_FONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PE.c)
- *     ?hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z @ 0x1C026B460 (-hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z.c)
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C00A20A8 (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ *     ?bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z @ 0x1C00A55D0 (-bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z.c)
+ *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C00BAC64 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
+ *     ?bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAVPDEVOBJ@@I@Z @ 0x1C016A2E4 (-bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAVPDEVOBJ@@I@Z.c)
+ *     ?bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAU_FONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PEAU_UNIVERSAL_FONT_ID@@PEAH@Z @ 0x1C027258C (-bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAU_FONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PE.c)
+ *     ?hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z @ 0x1C0272930 (-hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z.c)
  * Callees:
- *     ?vFree@FHOBJ@@QEAAXXZ @ 0x1C008AC80 (-vFree@FHOBJ@@QEAAXXZ.c)
- *     ?bInPrivatePFT@PFFOBJ@@QEBAHXZ @ 0x1C00A8EE4 (-bInPrivatePFT@PFFOBJ@@QEBAHXZ.c)
- *     ?bValid@FHOBJ@@QEBAHXZ @ 0x1C0116800 (-bValid@FHOBJ@@QEBAHXZ.c)
- *     ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C011681C (-vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z.c)
+ *     ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C00B9FE0 (-vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z.c)
+ *     ?bValid@FHOBJ@@QEBAHXZ @ 0x1C00BAAD4 (-bValid@FHOBJ@@QEBAHXZ.c)
+ *     ?vFree@FHOBJ@@QEAAXXZ @ 0x1C00E64E4 (-vFree@FHOBJ@@QEAAXXZ.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 void __fastcall PFFOBJ::vRemoveHash(PFFOBJ *this)
 {
-  __int64 v2; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v3; // rdi
-  __int64 v4; // rax
-  __int64 v5; // rsi
-  _QWORD *v6; // rcx
-  __int64 v7; // rsi
-  _QWORD *v8; // rax
-  __int64 v9; // rcx
-  __int64 *v10; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v11; // [rsp+28h] [rbp-28h]
-  _QWORD v12[2]; // [rsp+30h] [rbp-20h] BYREF
-  _QWORD v13[2]; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v14; // [rsp+60h] [rbp+10h] BYREF
+  __int64 v2; // r8
+  struct _FONTHASH **v3; // rdx
+  __int64 v4; // rdi
+  __int64 v5; // r8
+  __int64 v6; // r8
+  struct _FONTHASH **v7; // [rsp+20h] [rbp-30h] BYREF
+  struct _FONTHASH *v8; // [rsp+28h] [rbp-28h]
+  _QWORD v9[2]; // [rsp+30h] [rbp-20h] BYREF
+  _QWORD v10[2]; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v11; // [rsp+60h] [rbp+10h] BYREF
 
-  v3 = Gre::Base::Globals(this);
-  ++*(_DWORD *)(*((_QWORD *)v3 + 241) + 1573016LL);
-  v4 = *(_QWORD *)this;
+  ++*(_DWORD *)(gpGdiSharedMemory + 1573016LL);
+  v2 = *(_QWORD *)this;
   if ( *(_QWORD *)(*(_QWORD *)this + 80LL) )
   {
-    v5 = *(_QWORD *)(SGDGetSessionState(v2) + 32);
-    if ( PFFOBJ::bInPrivatePFT(this) )
-      v6 = (_QWORD *)*((_QWORD *)v3 + 796);
-    else
-      v6 = *(_QWORD **)(v5 + 20272);
-    v12[0] = v6;
-    v10 = v6 + 1;
-    v7 = 0LL;
-    v11 = v6[1];
-    v12[1] = *v6;
-    v8 = v6 + 2;
-    v9 = *(_QWORD *)this;
-    v13[0] = v8;
-    v13[1] = *v8;
-    if ( *(_DWORD *)(v9 + 208) )
+    v3 = gpPFTPublic;
+    if ( *(struct PFT **const *)(v2 + 128) == gpPFTPrivate )
+      v3 = gpPFTPrivate;
+    v4 = 0LL;
+    v9[0] = v3;
+    v7 = v3 + 1;
+    v8 = v3[1];
+    v9[1] = *v3;
+    v10[0] = v3 + 2;
+    v10[1] = v3[2];
+    if ( *(_DWORD *)(v2 + 208) )
     {
       do
       {
-        v14 = *(_QWORD *)(v9 + 8 * v7 + 216);
-        if ( (*(_DWORD *)(v14 + 12) & 8) == 0 )
+        v11 = *(_QWORD *)(v2 + 8 * v4 + 216);
+        if ( (*(_DWORD *)(v11 + 12) & 8) == 0 )
         {
-          if ( (unsigned int)FHOBJ::bValid((FHOBJ *)&v10) )
-            FHOBJ::vDelete((FHOBJ *)&v10, (struct PFEOBJ *)&v14);
-          if ( (unsigned int)FHOBJ::bValid((FHOBJ *)v12) )
-            FHOBJ::vDelete((FHOBJ *)v12, (struct PFEOBJ *)&v14);
+          if ( (unsigned int)FHOBJ::bValid((FHOBJ *)&v7) )
+            FHOBJ::vDelete((FHOBJ *)&v7, (struct PFEOBJ *)&v11);
+          if ( (unsigned int)FHOBJ::bValid((FHOBJ *)v9) )
+            FHOBJ::vDelete((FHOBJ *)v9, (struct PFEOBJ *)&v11);
         }
-        if ( (unsigned int)FHOBJ::bValid((FHOBJ *)v13) )
-          FHOBJ::vDelete((FHOBJ *)v13, (struct PFEOBJ *)&v14);
-        v9 = *(_QWORD *)this;
-        v7 = (unsigned int)(v7 + 1);
+        if ( (unsigned int)FHOBJ::bValid((FHOBJ *)v10) )
+          FHOBJ::vDelete((FHOBJ *)v10, (struct PFEOBJ *)&v11);
+        v2 = *(_QWORD *)this;
+        v4 = (unsigned int)(v4 + 1);
       }
-      while ( (unsigned int)v7 < *(_DWORD *)(*(_QWORD *)this + 208LL) );
+      while ( (unsigned int)v4 < *(_DWORD *)(*(_QWORD *)this + 208LL) );
     }
-    if ( *(_QWORD *)(*(_QWORD *)this + 88LL) == *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(v9) + 32) + 23448LL)
-      && !*(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 80LL) + 8LL) )
-    {
-      --*((_DWORD *)v3 + 40);
-    }
+    if ( *(struct PDEV **)(v2 + 88) == qword_1C0340AC0 && !*(_DWORD *)(*(_QWORD *)(v2 + 80) + 8LL) )
+      --gcTrueTypeFonts;
   }
   else
   {
-    v10 = (__int64 *)(v4 + 104);
-    v11 = *(_QWORD *)(v4 + 104);
-    if ( (unsigned int)FHOBJ::bValid((FHOBJ *)&v10) )
-      FHOBJ::vFree((FHOBJ *)&v10);
-    v10 = (__int64 *)(*(_QWORD *)this + 112LL);
-    v11 = *v10;
-    if ( (unsigned int)FHOBJ::bValid((FHOBJ *)&v10) )
-      FHOBJ::vFree((FHOBJ *)&v10);
-    v10 = (__int64 *)(*(_QWORD *)this + 120LL);
-    v11 = *v10;
-    if ( (unsigned int)FHOBJ::bValid((FHOBJ *)&v10) )
-      FHOBJ::vFree((FHOBJ *)&v10);
+    v7 = (struct _FONTHASH **)(v2 + 104);
+    v8 = *(struct _FONTHASH **)(v2 + 104);
+    if ( (unsigned int)FHOBJ::bValid((FHOBJ *)&v7) )
+    {
+      FHOBJ::vFree((FHOBJ *)&v7);
+      v5 = *(_QWORD *)this;
+    }
+    v7 = (struct _FONTHASH **)(v5 + 112);
+    v8 = *(struct _FONTHASH **)(v5 + 112);
+    if ( (unsigned int)FHOBJ::bValid((FHOBJ *)&v7) )
+    {
+      FHOBJ::vFree((FHOBJ *)&v7);
+      v6 = *(_QWORD *)this;
+    }
+    v7 = (struct _FONTHASH **)(v6 + 120);
+    v8 = *(struct _FONTHASH **)(v6 + 120);
+    if ( (unsigned int)FHOBJ::bValid((FHOBJ *)&v7) )
+      FHOBJ::vFree((FHOBJ *)&v7);
   }
 }

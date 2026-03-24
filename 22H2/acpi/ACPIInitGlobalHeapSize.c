@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIInitGlobalHeapSize @ 0x1C00878C8
+ * XREFs of ACPIInitGlobalHeapSize @ 0x1C00977FC
  * Callers:
- *     ACPIInitializeAMLI @ 0x1C00A92E4 (ACPIInitializeAMLI.c)
+ *     ACPIInitializeAMLI @ 0x1C00BCC5C (ACPIInitializeAMLI.c)
  * Callees:
- *     OSOpenHandle @ 0x1C008DF20 (OSOpenHandle.c)
- *     OSReadRegValue @ 0x1C008E6B0 (OSReadRegValue.c)
+ *     OSOpenHandle @ 0x1C008FBB8 (OSOpenHandle.c)
+ *     OSReadRegValue @ 0x1C0097444 (OSReadRegValue.c)
  */
 
 __int64 ACPIInitGlobalHeapSize()
@@ -12,7 +12,12 @@ __int64 ACPIInitGlobalHeapSize()
   __int64 v0; // rdx
   int v1; // ecx
   unsigned int v2; // ebx
+  unsigned int v4; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v5; // [rsp+38h] [rbp+10h] BYREF
+  HANDLE Handle; // [rsp+40h] [rbp+18h] BYREF
 
+  Handle = 0LL;
+  v4 = 0;
   v0 = *(_QWORD *)AcpiInformation;
   v1 = *(_DWORD *)(*(_QWORD *)AcpiInformation + 10LL) - 1431589462;
   if ( *(_DWORD *)(*(_QWORD *)AcpiInformation + 10LL) == 1431589462 )
@@ -24,10 +29,19 @@ __int64 ACPIInitGlobalHeapSize()
   else
   {
     v2 = 0x100000;
-    if ( (int)OSOpenHandle("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\ACPI") >= 0
-      && (int)OSReadRegValue("AMLIGlobalHeapSize") >= 0 )
+    if ( (int)OSOpenHandle("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\ACPI", 0LL, (__int64)&Handle) >= 0 )
     {
-      return 0x8000;
+      v5 = 4;
+      if ( (int)OSReadRegValue("AMLIGlobalHeapSize", Handle, &v4, &v5) >= 0 )
+      {
+        v2 = v4;
+        if ( v4 <= 0x8000 )
+          v2 = 0x8000;
+        if ( v2 >= 0x800000 )
+          v2 = 0x800000;
+      }
+      if ( Handle )
+        ZwClose(Handle);
     }
   }
   return v2;

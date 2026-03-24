@@ -1,113 +1,76 @@
 /*
- * XREFs of ?QueueSystemCommandAndWaitInternal@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@AEAVVIDMM_PAGING_QUEUE@@PEAU_VIDSCH_SYNC_OBJECT@@_N@Z @ 0x1C0092BE0
+ * XREFs of ?QueueSystemCommandAndWaitInternal@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@AEAVVIDMM_PAGING_QUEUE@@PEAU_VIDSCH_SYNC_OBJECT@@_N@Z @ 0x1C0073C88
  * Callers:
- *     ?QueueSystemCleanupCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C00919FC (-QueueSystemCleanupCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
- *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0091AD8 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
- *     ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C00AB050 (-CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_D.c)
- *     ?QueueLazySystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C00E6B14 (-QueueLazySystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     ?QueueSystemCleanupCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0073EA4 (-QueueSystemCleanupCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0088380 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     ?QueueLazySystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C00B16A4 (-QueueLazySystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
  * Callees:
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0005F60 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?WaitForFences@VIDMM_GLOBAL@@QEAAXPEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI1@Z @ 0x1C00959C0 (-WaitForFences@VIDMM_GLOBAL@@QEAAXPEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI1@Z.c)
- *     ?AppendReadyPacket@VIDMM_PAGING_QUEUE@@QEAAXPEAUVIDMM_PAGING_QUEUE_PACKET@@PEA_K@Z @ 0x1C0096D30 (-AppendReadyPacket@VIDMM_PAGING_QUEUE@@QEAAXPEAUVIDMM_PAGING_QUEUE_PACKET@@PEA_K@Z.c)
- *     ?GetNewPacket@VIDMM_PAGING_QUEUE@@QEAAPEAUVIDMM_PAGING_QUEUE_PACKET@@XZ @ 0x1C00F0E74 (-GetNewPacket@VIDMM_PAGING_QUEUE@@QEAAPEAUVIDMM_PAGING_QUEUE_PACKET@@XZ.c)
+ *     ?WaitForFences@VIDMM_GLOBAL@@QEAAXPEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI1@Z @ 0x1C006BB80 (-WaitForFences@VIDMM_GLOBAL@@QEAAXPEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI1@Z.c)
+ *     ?AppendReadyPacket@VIDMM_PAGING_QUEUE@@QEAAXPEAUVIDMM_PAGING_QUEUE_PACKET@@PEA_K@Z @ 0x1C0073894 (-AppendReadyPacket@VIDMM_PAGING_QUEUE@@QEAAXPEAUVIDMM_PAGING_QUEUE_PACKET@@PEA_K@Z.c)
+ *     ?GetNewPacket@VIDMM_PAGING_QUEUE@@QEAAPEAUVIDMM_PAGING_QUEUE_PACKET@@XZ @ 0x1C0073DA4 (-GetNewPacket@VIDMM_PAGING_QUEUE@@QEAAPEAUVIDMM_PAGING_QUEUE_PACKET@@XZ.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::QueueSystemCommandAndWaitInternal(
         VIDMM_GLOBAL *this,
         struct _VIDMM_SYSTEM_COMMAND *a2,
-        struct VIDMM_PAGING_QUEUE *a3,
+        PVOID *a3,
         struct _VIDSCH_SYNC_OBJECT *a4,
         bool a5)
 {
-  __int64 v5; // rbx
-  struct VIDMM_PAGING_QUEUE **v10; // rsi
-  struct VIDMM_PAGING_QUEUE *v11; // r15
-  struct VIDMM_PAGING_QUEUE **NewPacket; // rbx
-  struct VIDMM_PAGING_QUEUE *v13; // rax
-  __int64 v14; // rcx
-  char v15; // si
-  unsigned __int64 v17; // [rsp+40h] [rbp-58h] BYREF
-  struct _VIDSCH_SYNC_OBJECT *v18; // [rsp+48h] [rbp-50h] BYREF
-  PVOID Object; // [rsp+50h] [rbp-48h] BYREF
-  struct _KEVENT Event; // [rsp+58h] [rbp-40h] BYREF
-  unsigned int v21; // [rsp+B0h] [rbp+18h] BYREF
+  struct VIDMM_PAGING_QUEUE_PACKET *NewPacket; // rax
+  struct VIDMM_PAGING_QUEUE_PACKET *v10; // rbx
+  char v11; // di
+  bool v12; // si
+  struct _VIDSCH_SYNC_OBJECT *v14; // [rsp+40h] [rbp-20h] BYREF
+  struct _KEVENT Event; // [rsp+48h] [rbp-18h] BYREF
+  unsigned int v16; // [rsp+98h] [rbp+38h] BYREF
+  PVOID Object; // [rsp+A8h] [rbp+48h] BYREF
 
-  v5 = *((_QWORD *)a3 + 10);
-  v21 = 0;
-  KeEnterCriticalRegion();
-  ExAcquirePushLockExclusiveEx(v5 + 144, 0LL);
-  v10 = (struct VIDMM_PAGING_QUEUE **)((char *)a3 + 16);
-  *(_QWORD *)(v5 + 152) = KeGetCurrentThread();
-  v11 = (struct VIDMM_PAGING_QUEUE *)*((_QWORD *)a3 + 13);
-  *((_QWORD *)a3 + 13) = (char *)v11 + 1;
-  NewPacket = (struct VIDMM_PAGING_QUEUE **)*((_QWORD *)a3 + 2);
-  if ( NewPacket[1] != (struct VIDMM_PAGING_QUEUE *)((char *)a3 + 16)
-    || (v13 = *NewPacket, *((struct VIDMM_PAGING_QUEUE ***)*NewPacket + 1) != NewPacket) )
-  {
-    __fastfail(3u);
-  }
-  *v10 = v13;
-  *((_QWORD *)v13 + 1) = v10;
-  v14 = *((_QWORD *)a3 + 10) + 144LL;
-  *(_QWORD *)(v14 + 8) = 0LL;
-  ExReleasePushLockExclusiveEx(v14, 0LL);
-  KeLeaveCriticalRegion();
-  if ( NewPacket == v10 )
-  {
-    NewPacket = (struct VIDMM_PAGING_QUEUE **)operator new(160LL, 0x38346956u, 256LL);
-    if ( !NewPacket )
-    {
-      NewPacket = 0LL;
-      goto LABEL_6;
-    }
-  }
-  else
-  {
-    memset(NewPacket, 0, 0xA0uLL);
-  }
-  NewPacket[5] = v11;
-LABEL_6:
+  v16 = 0;
+  NewPacket = VIDMM_PAGING_QUEUE::GetNewPacket((VIDMM_PAGING_QUEUE *)a3);
+  v10 = NewPacket;
   if ( !a4 || *(_DWORD *)a2 == 118 )
   {
-    v15 = 0;
+    v11 = 0;
   }
   else
   {
-    v15 = 1;
+    v11 = 1;
     if ( !NewPacket )
     {
-      v17 = *((_QWORD *)a3 + 12);
-      v18 = a4;
-      VIDMM_GLOBAL::WaitForFences(this, &v18, &v17, 1u, 0LL);
-      NewPacket = (struct VIDMM_PAGING_QUEUE **)VIDMM_PAGING_QUEUE::GetNewPacket(a3);
+      Object = a3[12];
+      v14 = a4;
+      VIDMM_GLOBAL::WaitForFences(this, &v14, (unsigned __int64 *)&Object, 1u, 0LL);
+      v10 = VIDMM_PAGING_QUEUE::GetNewPacket((VIDMM_PAGING_QUEUE *)a3);
     }
   }
-  *((_BYTE *)NewPacket + 24) = 0;
-  *((_BYTE *)NewPacket + 25) = v15;
-  v17 = 0LL;
-  *((_OWORD *)NewPacket + 3) = *(_OWORD *)a2;
-  *((_OWORD *)NewPacket + 4) = *((_OWORD *)a2 + 1);
-  *((_OWORD *)NewPacket + 5) = *((_OWORD *)a2 + 2);
-  *((_OWORD *)NewPacket + 6) = *((_OWORD *)a2 + 3);
-  *((_OWORD *)NewPacket + 7) = *((_OWORD *)a2 + 4);
-  NewPacket[16] = (struct VIDMM_PAGING_QUEUE *)*((_QWORD *)a2 + 10);
-  memset(&Event, 0, sizeof(Event));
-  if ( !v15 )
+  Object = 0LL;
+  *((_BYTE *)v10 + 24) = 0;
+  *((_BYTE *)v10 + 25) = v11;
+  *((_OWORD *)v10 + 3) = *(_OWORD *)a2;
+  *((_OWORD *)v10 + 4) = *((_OWORD *)a2 + 1);
+  *((_OWORD *)v10 + 5) = *((_OWORD *)a2 + 2);
+  *((_OWORD *)v10 + 6) = *((_OWORD *)a2 + 3);
+  *((_OWORD *)v10 + 7) = *((_OWORD *)a2 + 4);
+  *((_QWORD *)v10 + 16) = *((_QWORD *)a2 + 10);
+  if ( !v11 )
   {
     KeInitializeEvent(&Event, SynchronizationEvent, 0);
-    NewPacket[7] = (struct VIDMM_PAGING_QUEUE *)&Event;
+    *((_QWORD *)v10 + 7) = &Event;
   }
+  v12 = a5;
   if ( a5 )
   {
-    v21 = -1073741776;
-    NewPacket[10] = (struct VIDMM_PAGING_QUEUE *)&v21;
-    VIDMM_PAGING_QUEUE::AppendReadyPacket(a3, (struct VIDMM_PAGING_QUEUE_PACKET *)NewPacket, &v17);
-    if ( v15 )
+    v16 = -1073741776;
+    *((_QWORD *)v10 + 10) = &v16;
+  }
+  VIDMM_PAGING_QUEUE::AppendReadyPacket((VIDMM_PAGING_QUEUE *)a3, v10, (unsigned __int64 *)&Object);
+  if ( v12 )
+  {
+    if ( v11 )
     {
-      v18 = (struct _VIDSCH_SYNC_OBJECT *)v17;
-      Object = a4;
-      VIDMM_GLOBAL::WaitForFences(this, (struct _VIDSCH_SYNC_OBJECT **)&Object, (const unsigned __int64 *)&v18, 1u, 0LL);
+      v14 = a4;
+      VIDMM_GLOBAL::WaitForFences(this, &v14, (unsigned __int64 *)&Object, 1u, 0LL);
     }
     else
     {
@@ -115,9 +78,5 @@ LABEL_6:
       KeWaitForMultipleObjects(1u, &Object, WaitAny, Executive, 0, 0, 0LL, 0LL);
     }
   }
-  else
-  {
-    VIDMM_PAGING_QUEUE::AppendReadyPacket(a3, (struct VIDMM_PAGING_QUEUE_PACKET *)NewPacket, &v17);
-  }
-  return v21;
+  return v16;
 }

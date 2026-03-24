@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RemoveChildList@FxDevice@@UEAAXPEAVFxChildList@@@Z @ 0x1C00692D0
+ * XREFs of ?RemoveChildList@FxDevice@@UEAAXPEAVFxChildList@@@Z @ 0x1C0050DC0
  * Callers:
  *     <none>
  * Callees:
- *     ?RemoveChildList@FxPkgPnp@@QEAAXPEAVFxChildList@@@Z @ 0x1C0088918 (-RemoveChildList@FxPkgPnp@@QEAAXPEAVFxChildList@@@Z.c)
+ *     ?RemoveChildList@FxPkgPnp@@QEAAXPEAVFxChildList@@@Z @ 0x1C0082754 (-RemoveChildList@FxPkgPnp@@QEAAXPEAVFxChildList@@@Z.c)
  */
 
 void __fastcall FxDevice::RemoveChildList(FxDevice *this, FxChildList *List)

@@ -1,32 +1,41 @@
 /*
- * XREFs of ?LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z @ 0x1C00072FC
+ * XREFs of ?LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z @ 0x1C000FE74
  * Callers:
- *     NtQueryCompositionSurfaceFrameRate @ 0x1C0002340 (NtQueryCompositionSurfaceFrameRate.c)
- *     NtQueryCompositionSurfaceHDRMetaData @ 0x1C0003EC0 (NtQueryCompositionSurfaceHDRMetaData.c)
- *     NtOpenCompositionSurfaceRealizationInfo @ 0x1C0004AD0 (NtOpenCompositionSurfaceRealizationInfo.c)
- *     NtQueryCompositionSurfaceBinding @ 0x1C0004DC0 (NtQueryCompositionSurfaceBinding.c)
- *     NtQueryCompositionSurfaceRenderingRealization @ 0x1C00050A0 (NtQueryCompositionSurfaceRenderingRealization.c)
- *     NtOpenCompositionSurfaceDirtyRegion @ 0x1C00052D0 (NtOpenCompositionSurfaceDirtyRegion.c)
- *     NtOpenCompositionSurfaceSectionInfo @ 0x1C0077640 (NtOpenCompositionSurfaceSectionInfo.c)
- *     ?Initialize@CContentResource@@IEAAJXZ @ 0x1C008124C (-Initialize@CContentResource@@IEAAJXZ.c)
+ *     NtQueryCompositionSurfaceHDRMetaData @ 0x1C000E1C0 (NtQueryCompositionSurfaceHDRMetaData.c)
+ *     NtQueryCompositionSurfaceBinding @ 0x1C000F2D0 (NtQueryCompositionSurfaceBinding.c)
+ *     NtOpenCompositionSurfaceSwapChainHandleInfo @ 0x1C000F4E0 (NtOpenCompositionSurfaceSwapChainHandleInfo.c)
+ *     NtOpenCompositionSurfaceDirtyRegion @ 0x1C000F7A0 (NtOpenCompositionSurfaceDirtyRegion.c)
+ *     NtQueryCompositionSurfaceRenderingRealization @ 0x1C000F9E0 (NtQueryCompositionSurfaceRenderingRealization.c)
+ *     NtOpenCompositionSurfaceSectionInfo @ 0x1C0065930 (NtOpenCompositionSurfaceSectionInfo.c)
+ *     ?Initialize@CContentResource@@IEAAJXZ @ 0x1C006E0E0 (-Initialize@CContentResource@@IEAAJXZ.c)
  * Callees:
- *     <none>
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CompositionSurfaceObject::LockForRead(
-        CompositionSurfaceObject *this,
-        const struct CCompositionSurface **a2)
+__int64 __fastcall CompositionSurfaceObject::LockForRead(char *Object, const struct CCompositionSurface **a2)
 {
-  NTSTATUS v4; // r8d
+  NTSTATUS v4; // ebx
 
   *a2 = 0LL;
-  v4 = ObReferenceObjectByPointer(this, 3u, g_pDxgkCompositionObjectType, 0);
+  v4 = ObReferenceObjectByPointer(Object, 3u, g_pDxgkCompositionObjectType, 0);
   if ( v4 >= 0 )
   {
-    KeEnterCriticalRegion();
-    ExAcquirePushLockSharedEx((char *)this + 48, 0LL);
     v4 = 0;
-    *a2 = (CompositionSurfaceObject *)((char *)this + 40);
+    if ( (**((unsigned __int8 (__fastcall ***)(char *))Object + 6))(Object + 48) )
+    {
+      KeEnterCriticalRegion();
+      ExAcquirePushLockSharedEx(Object + 56, 0LL);
+      if ( (**((unsigned __int8 (__fastcall ***)(char *))Object + 6))(Object + 48) )
+        goto LABEL_4;
+      CPushLock::ReleaseLock((CPushLock *)(Object + 48));
+    }
+    v4 = -1073741816;
+LABEL_4:
+    if ( v4 < 0 )
+      ObfDereferenceObject(Object);
+    else
+      *a2 = (const struct CCompositionSurface *)(Object + 40);
   }
   return (unsigned int)v4;
 }

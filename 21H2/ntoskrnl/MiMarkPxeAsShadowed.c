@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMarkPxeAsShadowed @ 0x1403C2810
+ * XREFs of MiMarkPxeAsShadowed @ 0x1403B5E54
  * Callers:
- *     MiInitializeShadowPageTable @ 0x14082A974 (MiInitializeShadowPageTable.c)
+ *     MiInitializeShadowPageTable @ 0x1407A0368 (MiInitializeShadowPageTable.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiMarkPxeAsShadowed(unsigned int a1)
@@ -21,7 +21,7 @@ __int64 __fastcall MiMarkPxeAsShadowed(unsigned int a1)
   memset(&LockHandle, 0, sizeof(LockHandle));
   v1 = ((a1 >> 3) & 0x1FF) - 256;
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  _bittestandset((signed __int32 *)qword_140C51B04, v1);
+  _bittestandset((signed __int32 *)qword_140C4E27C, v1);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   result = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;

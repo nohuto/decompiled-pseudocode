@@ -1,37 +1,35 @@
 /*
- * XREFs of ?AddUnclaimedToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x18001AF00
+ * XREFs of ?AddUnclaimedToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1800DCD6C
  * Callers:
- *     ?ProcessLegacyTokens@CGlobalSurfaceManager@@AEAAJXZ @ 0x180045160 (-ProcessLegacyTokens@CGlobalSurfaceManager@@AEAAJXZ.c)
+ *     ?ProcessSurfaceUpdates@CGlobalSurfaceManager@@UEAAJXZ @ 0x18009C570 (-ProcessSurfaceUpdates@CGlobalSurfaceManager@@UEAAJXZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     ?HrAlloc@@YAJ_KPEAPEAX@Z @ 0x1800EC53C (-HrAlloc@@YAJ_KPEAPEAX@Z.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
+ *     ?HrAlloc@@YAJ_KPEAPEAX@Z @ 0x1800373B8 (-HrAlloc@@YAJ_KPEAPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
  */
 
 __int64 __fastcall CLegacySurfaceManager::AddUnclaimedToken(
         CLegacySurfaceManager *this,
         const struct _D3DKMT_PRESENTHISTORYTOKEN *a2)
 {
-  unsigned __int64 v3; // rcx
+  SIZE_T v3; // rcx
   int v5; // eax
-  unsigned int v6; // ecx
-  void *v7; // rsi
+  __int64 v6; // rcx
+  void *v7; // rdi
   unsigned int v8; // ebx
-  unsigned int v9; // ecx
+  __int64 v9; // rcx
   unsigned int v10; // eax
   unsigned int v11; // edx
-  unsigned int v12; // edi
-  int v14; // eax
-  unsigned int v15; // ecx
-  unsigned int v16; // ecx
-  __int128 v17; // [rsp+30h] [rbp-18h] BYREF
+  int v13; // eax
+  __int64 v14; // rcx
+  __int128 v15; // [rsp+30h] [rbp-18h] BYREF
   void *lpMem; // [rsp+58h] [rbp+10h] BYREF
 
   lpMem = 0LL;
   v3 = *((unsigned int *)a2 + 1);
-  v17 = 0LL;
+  v15 = 0LL;
   v5 = HrAlloc(v3, &lpMem);
   v7 = lpMem;
   v8 = v5;
@@ -43,31 +41,30 @@ __int64 __fastcall CLegacySurfaceManager::AddUnclaimedToken(
   {
     memcpy_0(lpMem, a2, *((unsigned int *)a2 + 1));
     v10 = *((_DWORD *)this + 32);
-    *((_QWORD *)&v17 + 1) = v7;
+    *((_QWORD *)&v15 + 1) = v7;
     v11 = v10 + 1;
     if ( v10 + 1 < v10 )
     {
       v8 = -2147024362;
-      v12 = -2147024362;
       MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024362, 0xB5u, 0LL);
     }
     else
     {
-      v12 = 0;
       if ( v11 <= *((_DWORD *)this + 31) )
       {
-        *(_OWORD *)(*((_QWORD *)this + 13) + 16LL * v10) = v17;
+        v8 = 0;
+        *(_OWORD *)(*((_QWORD *)this + 13) + 16LL * v10) = v15;
         *((_DWORD *)this + 32) = v11;
-        return v12;
+        return v8;
       }
-      v14 = DynArrayImpl<0>::AddMultipleAndSet((char *)this + 104, 16LL, 1LL, &v17);
-      v12 = v14;
-      v8 = v14;
-      if ( v14 >= 0 )
-        return v12;
-      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0xC0u, 0LL);
+      v13 = DynArrayImpl<0>::AddMultipleAndSet((__int64)this + 104, 16, 1, &v15);
+      v8 = v13;
+      if ( v13 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0xC0u, 0LL);
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v12, 0x40u, 0LL);
+    if ( (v8 & 0x80000000) == 0 )
+      return v8;
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v8, 0x40u, 0LL);
   }
   if ( v7 )
     operator delete(v7);

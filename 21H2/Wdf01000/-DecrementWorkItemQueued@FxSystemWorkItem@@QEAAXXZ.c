@@ -1,8 +1,7 @@
 /*
- * XREFs of ?DecrementWorkItemQueued@FxSystemWorkItem@@QEAAXXZ @ 0x1C0003628
+ * XREFs of ?DecrementWorkItemQueued@FxSystemWorkItem@@QEAAXXZ @ 0x1C0055F10
  * Callers:
- *     ?_WorkItemThunk@FxSystemWorkItem@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C0003600 (-_WorkItemThunk@FxSystemWorkItem@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z.c)
- *     ?Dispose@FxSystemWorkItem@@EEAAEXZ @ 0x1C0013AA0 (-Dispose@FxSystemWorkItem@@EEAAEXZ.c)
+ *     ?Dispose@FxSystemWorkItem@@EEAAEXZ @ 0x1C0055F50 (-Dispose@FxSystemWorkItem@@EEAAEXZ.c)
  * Callees:
  *     <none>
  */

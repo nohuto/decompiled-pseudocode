@@ -1,29 +1,24 @@
 /*
- * XREFs of ExpNextYearDpcRoutine @ 0x140606150
+ * XREFs of ExpNextYearDpcRoutine @ 0x1405B2410
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     PsIsHostSilo @ 0x1402D5230 (PsIsHostSilo.c)
  */
 
-void __fastcall ExpNextYearDpcRoutine(
-        struct _KDPC *Dpc,
-        _QWORD *DeferredContext,
-        PVOID SystemArgument1,
-        PVOID SystemArgument2)
+void __fastcall ExpNextYearDpcRoutine(__int64 a1, void *a2)
 {
-  _QWORD *v4; // rax
-  __int64 v5; // rbx
+  __int64 v3; // rcx
+  __int64 v4; // rdi
 
-  v4 = &PspHostSiloGlobals;
-  if ( DeferredContext )
-    v4 = (_QWORD *)DeferredContext[186];
-  v5 = v4[157];
-  if ( _InterlockedIncrement((volatile signed __int32 *)(v5 + 928)) == 1 )
+  v4 = *((_QWORD *)PsGetServerSiloGlobals((__int64)a2) + 133);
+  if ( _InterlockedIncrement((volatile signed __int32 *)(v4 + 928)) == 1 )
   {
-    if ( DeferredContext )
-      ObfReferenceObjectWithTag(DeferredContext, 0x53707845u);
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)(v5 + 896), DelayedWorkQueue);
+    if ( !PsIsHostSilo(v3) )
+      ObfReferenceObjectWithTag(a2, 0x53707845u);
+    ExQueueWorkItem((PWORK_QUEUE_ITEM)(v4 + 896), DelayedWorkQueue);
   }
 }

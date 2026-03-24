@@ -1,35 +1,35 @@
 /*
- * XREFs of DrvDbUnregisterDatabase @ 0x140A6D964
+ * XREFs of DrvDbUnregisterDatabase @ 0x14097E860
  * Callers:
- *     PiDrvDbRegisterNode @ 0x140813CBC (PiDrvDbRegisterNode.c)
- *     PiDrvDbUnregisterNode @ 0x140971524 (PiDrvDbUnregisterNode.c)
+ *     PiDrvDbRegisterNode @ 0x1407A3CA8 (PiDrvDbRegisterNode.c)
  * Callees:
- *     DrvDbFindDatabaseNode @ 0x140877BE4 (DrvDbFindDatabaseNode.c)
- *     DrvDbDestroyDatabaseNode @ 0x140A6D9C0 (DrvDbDestroyDatabaseNode.c)
+ *     DrvDbFindDatabaseNode @ 0x14060258C (DrvDbFindDatabaseNode.c)
+ *     DrvDbDestroyDatabaseNode @ 0x14097E8BC (DrvDbDestroyDatabaseNode.c)
  */
 
 __int64 __fastcall DrvDbUnregisterDatabase(__int64 a1, const WCHAR *a2)
 {
   __int64 v2; // rbx
   __int64 result; // rax
-  const UNICODE_STRING *v4; // rdx
-  const UNICODE_STRING *v5; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v4; // r8
+  const UNICODE_STRING *v5; // rdx
+  const UNICODE_STRING *v6; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = PiDrvDbCtx;
-  v5 = 0LL;
-  result = DrvDbFindDatabaseNode(PiDrvDbCtx, a2, &v5);
+  v6 = 0LL;
+  result = DrvDbFindDatabaseNode(PiDrvDbCtx, a2, &v6);
   if ( (int)result >= 0 )
   {
-    v4 = v5;
-    if ( (*(_DWORD *)&v5[4].Length & 1) != 0 )
+    v5 = v6;
+    if ( ((__int64)v6[3].Buffer & 1) != 0 )
     {
       return 3221225485LL;
     }
     else
     {
-      if ( *(const UNICODE_STRING **)(v2 + 48) == v5 )
-        *(_QWORD *)(v2 + 48) = 0LL;
-      return DrvDbDestroyDatabaseNode(v2, v4);
+      if ( *(const UNICODE_STRING **)(v2 + 40) == v6 )
+        *(_QWORD *)(v2 + 40) = 0LL;
+      return DrvDbDestroyDatabaseNode(v2, v5, v4);
     }
   }
   return result;

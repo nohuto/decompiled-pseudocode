@@ -1,20 +1,18 @@
 /*
- * XREFs of GetgpniFontsDirectoryAndScratch @ 0x1C00BE380
+ * XREFs of GetgpniFontsDirectoryAndScratch @ 0x1C0137080
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GetgpniFontsDirectoryAndScratch(_QWORD *a1, _QWORD *a2, _QWORD *a3)
+wchar_t *__fastcall GetgpniFontsDirectoryAndScratch(_QWORD *a1, _QWORD *a2, _QWORD *a3)
 {
-  __int64 v6; // r9
-  __int64 result; // rax
+  wchar_t *result; // rax
 
-  v6 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  *a1 = v6 + 19912;
-  *a2 = v6 + 19920;
-  result = *(_QWORD *)(v6 + 19904);
-  *a3 = result;
+  *a1 = &gpniFontsDirectory;
+  *a2 = &gpniScratch;
+  result = gpwszFontsDirectory;
+  *a3 = gpwszFontsDirectory;
   return result;
 }

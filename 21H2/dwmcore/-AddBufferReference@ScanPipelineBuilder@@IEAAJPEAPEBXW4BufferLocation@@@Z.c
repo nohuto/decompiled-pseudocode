@@ -1,11 +1,11 @@
 /*
- * XREFs of ?AddBufferReference@ScanPipelineBuilder@@IEAAJPEAPEBXW4BufferLocation@@@Z @ 0x1802AFF5C
+ * XREFs of ?AddBufferReference@ScanPipelineBuilder@@IEAAJPEAPEBXW4BufferLocation@@@Z @ 0x180219EA0
  * Callers:
- *     ?AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecificData@@W4Subpipe@1@@Z @ 0x1802B008C (-AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecif.c)
- *     ?ConvertDestBufferReferences@ScanPipelineBuilder@@IEAAJXZ @ 0x1802B062C (-ConvertDestBufferReferences@ScanPipelineBuilder@@IEAAJXZ.c)
+ *     ?AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecificData@@W4Subpipe@1@@Z @ 0x180219FD0 (-AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecif.c)
+ *     ?ConvertDestBufferReferences@ScanPipelineBuilder@@IEAAJXZ @ 0x18021A574 (-ConvertDestBufferReferences@ScanPipelineBuilder@@IEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800CB358 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8AF4 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
  */
 
 __int64 __fastcall ScanPipelineBuilder::AddBufferReference(_QWORD *a1, _QWORD *a2, int a3)
@@ -42,11 +42,11 @@ __int64 __fastcall ScanPipelineBuilder::AddBufferReference(_QWORD *a1, _QWORD *a
           *(_DWORD *)(v4 + 560) = v7;
           return v8;
         }
-        v9 = DynArrayImpl<0>::AddMultipleAndSet(v4 + 536, 8u, 1, &v14);
+        v9 = DynArrayImpl<0>::AddMultipleAndSet(v4 + 536, 8, 1, &v14);
 LABEL_14:
         v8 = v9;
         if ( v9 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0xC0u);
+          MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xC0u, 0LL);
         return v8;
       }
     }
@@ -65,12 +65,12 @@ LABEL_14:
           *(_DWORD *)(v4 + 616) = v12;
           return v8;
         }
-        v9 = DynArrayImpl<0>::AddMultipleAndSet(v4 + 592, 8u, 1, &v14);
+        v9 = DynArrayImpl<0>::AddMultipleAndSet(v4 + 592, 8, 1, &v14);
         goto LABEL_14;
       }
     }
     v8 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(1LL, 0LL, 0LL, -2147024362, 0xB5u);
+    MilInstrumentationCheckHR_MaybeFailFast(1LL, 0LL, 0, -2147024362, 0xB5u, 0LL);
     return v8;
   }
   *a2 = *(_QWORD *)(a1[1] + 8LL * (unsigned int)(a3 - 3));

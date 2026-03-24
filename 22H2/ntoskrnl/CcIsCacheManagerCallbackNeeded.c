@@ -1,5 +1,5 @@
 /*
- * XREFs of CcIsCacheManagerCallbackNeeded @ 0x14033AA20
+ * XREFs of CcIsCacheManagerCallbackNeeded @ 0x140303DE0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CcIsCacheManagerCallbackNeeded(int a1)
 {
-  return a1 && a1 == -1073700856;
+  return a1 == -1073700856;
 }

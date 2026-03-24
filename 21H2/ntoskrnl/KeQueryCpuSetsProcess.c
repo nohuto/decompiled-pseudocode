@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryCpuSetsProcess @ 0x140572490
+ * XREFs of KeQueryCpuSetsProcess @ 0x14051C654
  * Callers:
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1403127E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiGetProcessCpuSetMaskPointer @ 0x1403D3254 (KiGetProcessCpuSetMaskPointer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14031C8D0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiGetProcessCpuSetMaskPointer @ 0x1403C6370 (KiGetProcessCpuSetMaskPointer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQueryCpuSetsProcess(__int64 a1, _QWORD *a2, __int64 a3, int a4)
@@ -26,7 +26,7 @@ __int64 __fastcall KeQueryCpuSetsProcess(__int64 a1, _QWORD *a2, __int64 a3, int
   unsigned int v19; // [rsp+60h] [rbp+18h] BYREF
 
   v19 = 0;
-  v6 = 32;
+  v6 = 20;
   ProcessCpuSetMaskPointer = KiGetProcessCpuSetMaskPointer(a1, a4, &v19);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
@@ -37,7 +37,7 @@ __int64 __fastcall KeQueryCpuSetsProcess(__int64 a1, _QWORD *a2, __int64 a3, int
   }
   ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
   v10 = v19;
-  if ( v19 > 0x20 || (v6 = v19) != 0 )
+  if ( v19 > 0x14 || (v6 = v19) != 0 )
   {
     v11 = ProcessCpuSetMaskPointer - (_QWORD)a2;
     v12 = v6;

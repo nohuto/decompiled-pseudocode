@@ -1,11 +1,11 @@
 /*
- * XREFs of ?BTreeMergeNodes@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUSEARCH_RESULT@1@PEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@@@@Z @ 0x1405BBFBC
+ * XREFs of ?BTreeMergeNodes@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUSEARCH_RESULT@1@PEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@@@@Z @ 0x140381364
  * Callers:
- *     ?BTreeDeleteEx@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1405BA03C (-BTreeDeleteEx@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAA.c)
+ *     ?BTreeDeleteEx@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1402634A4 (-BTreeDeleteEx@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAA.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ?BTreeDeleteEx@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1405BA03C (-BTreeDeleteEx@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAA.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ?BTreeDeleteEx@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1402634A4 (-BTreeDeleteEx@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAA.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall B_TREE<_SM_PAGE_KEY,SMKM_STORE_MGR<SM_TRAITS>::SMKM_FRONTEND_ENTRY,4096,B_TREE_DUMMY_NODE_POOL,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeMergeNodes(
@@ -13,55 +13,52 @@ __int64 __fastcall B_TREE<_SM_PAGE_KEY,SMKM_STORE_MGR<SM_TRAITS>::SMKM_FRONTEND_
         __int64 a2,
         unsigned __int64 a3)
 {
-  _QWORD *v6; // rbx
-  void **v8; // rdx
-  int v9; // r8d
-  unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // rdi
-  __int64 v12; // rsi
-  _DWORD *v13; // rax
-  size_t v14; // r8
-  void *v15; // rcx
-  __int64 v16; // rcx
+  _QWORD *v3; // rbx
+  void **v4; // r10
+  _DWORD *v7; // rdx
+  unsigned __int64 v8; // rdi
+  __int64 v9; // rbp
+  unsigned __int64 v10; // rax
+  size_t v11; // r8
+  void *v12; // rcx
   __int64 result; // rax
+  __int64 v14; // rcx
 
-  v6 = (_QWORD *)a3;
-  v8 = (void **)(*(_QWORD *)a2 + 16LL * (unsigned int)(*(_DWORD *)(a2 + 24) - 1));
-  v9 = a3 & 1;
-  if ( v9 )
-    v6 = *v8;
+  v3 = (_QWORD *)a3;
+  v4 = (void **)(*(_QWORD *)a2 + 16LL * (unsigned int)(*(_DWORD *)(a2 + 24) - 1));
+  v7 = *(v4 - 1);
+  if ( (a3 & 1) != 0 )
+    v3 = *v4;
+  v8 = a3 & 0xFFFFFFFFFFFFFFFEuLL;
+  if ( (a3 & 1) == 0 )
+    v8 = (unsigned __int64)*v4;
+  v9 = (unsigned __int16)*(_DWORD *)v8;
   v10 = a3 & 0xFFFFFFFFFFFFFFFEuLL;
-  v11 = v10;
-  if ( !v9 )
-  {
-    v11 = (unsigned __int64)*v8;
+  if ( (a3 & 1) == 0 )
     v10 = a3;
-  }
-  v12 = (unsigned __int16)*(_DWORD *)v11;
-  v13 = *(v8 - 1);
-  if ( v11 == v10 )
+  if ( v8 == v10 )
   {
-    v13 -= 4;
-    *(v8 - 1) = v13;
+    v7 -= 4;
+    *(v4 - 1) = v7;
   }
-  if ( *(_BYTE *)(v11 + 3) )
+  if ( *(_BYTE *)(v8 + 3) )
   {
-    *(_QWORD *)(v11 + 8) = v6[1];
-    v14 = 8LL * (unsigned __int16)*(_DWORD *)v6;
-    v15 = (void *)(v11 + 8 * (v12 + 2));
+    *(_QWORD *)(v8 + 8) = v3[1];
+    v11 = 8LL * (unsigned __int16)*(_DWORD *)v3;
+    v12 = (void *)(v8 + 8 * (v9 + 2));
   }
   else
   {
-    v16 = 2 * v12;
-    LODWORD(v12) = v12 + 1;
-    *(_DWORD *)(v11 + 8 * v16 + 16) = *v13;
-    *(_QWORD *)(v11 + 8 * v16 + 24) = v6[1];
-    v14 = 16LL * (unsigned __int16)*(_DWORD *)v6;
-    v15 = (void *)(v11 + 16 * ((unsigned int)v12 + 1LL));
+    v14 = 2 * v9;
+    LODWORD(v9) = v9 + 1;
+    *(_DWORD *)(v8 + 8 * v14 + 16) = *v7;
+    *(_QWORD *)(v8 + 8 * v14 + 24) = v3[1];
+    v11 = 16LL * (unsigned __int16)*(_DWORD *)v3;
+    v12 = (void *)(v8 + 16 * ((unsigned int)v9 + 1LL));
   }
-  memmove(v15, v6 + 2, v14);
-  *(_WORD *)v11 = *(_WORD *)v6 + v12;
-  ExFreePoolWithTag(v6, 0);
+  memmove(v12, v3 + 2, v11);
+  *(_WORD *)v8 = v9 + *(_WORD *)v3;
+  ExFreePoolWithTag(v3, 0);
   --*(_DWORD *)(a2 + 24);
   result = B_TREE<_SM_PAGE_KEY,SMKM_STORE_MGR<SM_TRAITS>::SMKM_FRONTEND_ENTRY,4096,B_TREE_DUMMY_NODE_POOL,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeDeleteEx(
              a1,

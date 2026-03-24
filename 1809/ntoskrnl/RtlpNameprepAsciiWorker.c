@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpNameprepAsciiWorker @ 0x140896D50
+ * XREFs of RtlpNameprepAsciiWorker @ 0x140896D30
  * Callers:
- *     RtlIdnToAscii @ 0x140896C60 (RtlIdnToAscii.c)
- *     RtlIdnToNameprepUnicode @ 0x140896C90 (RtlIdnToNameprepUnicode.c)
+ *     RtlIdnToAscii @ 0x140896C40 (RtlIdnToAscii.c)
+ *     RtlIdnToNameprepUnicode @ 0x140896C70 (RtlIdnToNameprepUnicode.c)
  * Callees:
- *     IdnaMemAlloc @ 0x1402F4344 (IdnaMemAlloc.c)
- *     RtlpNameprepAsciiRealWorker @ 0x1402F4658 (RtlpNameprepAsciiRealWorker.c)
+ *     IdnaMemAlloc @ 0x1402F4444 (IdnaMemAlloc.c)
+ *     RtlpNameprepAsciiRealWorker @ 0x1402F4758 (RtlpNameprepAsciiRealWorker.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpDeleteSymbolicLinkName @ 0x14068E1B4
+ * XREFs of ObpDeleteSymbolicLinkName @ 0x14068E194
  * Callers:
  *     ObpDeleteNameCheck @ 0x1405A9740 (ObpDeleteNameCheck.c)
  *     ObCloseHandleTableEntry @ 0x1405E6360 (ObCloseHandleTableEntry.c)
- *     ObpMarkDirectoryObjectsTemporary @ 0x14068DAF8 (ObpMarkDirectoryObjectsTemporary.c)
- *     ObShutdownSystem @ 0x140860D2C (ObShutdownSystem.c)
+ *     ObpMarkDirectoryObjectsTemporary @ 0x14068DAD8 (ObpMarkDirectoryObjectsTemporary.c)
+ *     ObShutdownSystem @ 0x140860D0C (ObShutdownSystem.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
  */
 
 _UNKNOWN **__fastcall ObpDeleteSymbolicLinkName(__int64 a1)

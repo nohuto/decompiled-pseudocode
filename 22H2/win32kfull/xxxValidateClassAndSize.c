@@ -1,174 +1,180 @@
 /*
- * XREFs of xxxValidateClassAndSize @ 0x1C0020EA4
+ * XREFs of xxxValidateClassAndSize @ 0x1C0167A7C
  * Callers:
- *     xxxTooltipWndProc @ 0x1C001FBD0 (xxxTooltipWndProc.c)
- *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C0020C7C (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
- *     xxxSwitchWndProc @ 0x1C01CB5E0 (xxxSwitchWndProc.c)
- *     xxxMenuWindowProc @ 0x1C021A810 (xxxMenuWindowProc.c)
- *     xxxSBWndProc @ 0x1C022AA50 (xxxSBWndProc.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00462FC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     xxxTooltipWndProc @ 0x1C00DAED0 (xxxTooltipWndProc.c)
+ *     xxxSwitchWndProc @ 0x1C01F4C80 (xxxSwitchWndProc.c)
+ *     xxxMenuWindowProc @ 0x1C023B5E0 (xxxMenuWindowProc.c)
+ *     xxxSBWndProc @ 0x1C0245BA0 (xxxSBWndProc.c)
  * Callees:
- *     xxxDefWindowProc @ 0x1C0020FF0 (xxxDefWindowProc.c)
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0024460 (PopAndFreeAlwaysW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     xxxClientAllocWindowClassExtraBytes @ 0x1C0099F1C (xxxClientAllocWindowClassExtraBytes.c)
- *     xxxClientFreeWindowClassExtraBytes @ 0x1C00EBECC (xxxClientFreeWindowClassExtraBytes.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     xxxDefWindowProc @ 0x1C00484E0 (xxxDefWindowProc.c)
+ *     xxxClientFreeWindowClassExtraBytes @ 0x1C0051984 (xxxClientFreeWindowClassExtraBytes.c)
+ *     xxxClientAllocWindowClassExtraBytes @ 0x1C0051DAC (xxxClientAllocWindowClassExtraBytes.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BF9A0 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     PopW32ThreadLock @ 0x1C01280B0 (PopW32ThreadLock.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-__int64 __fastcall xxxValidateClassAndSize(__int64 a1, int a2, __int64 a3, __int64 a4, __int16 a5, int a6, _QWORD *a7)
+__int64 __fastcall xxxValidateClassAndSize(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        __int16 a5,
+        int a6,
+        __int64 *a7)
 {
   __int64 v8; // r10
   __int16 v9; // ax
-  __int16 v10; // si
+  __int16 v11; // si
   __int64 v12; // r8
   unsigned int v13; // r9d
   unsigned int v14; // r10d
-  __int64 v15; // rdx
-  unsigned int v16; // ecx
-  __int64 v17; // r13
-  __int64 v18; // rax
-  __int64 v19; // r15
-  __int64 v20; // r8
-  unsigned int v21; // ecx
-  unsigned int v22; // edx
-  __int64 v23; // rcx
-  size_t v24; // rsi
-  void *v25; // rdi
-  __int64 v26; // rax
-  __int64 v27; // rax
-  __int64 v28; // rdx
-  __int64 ThreadWin32Thread; // rax
-  __int128 v30; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v31; // [rsp+30h] [rbp-38h]
+  __int64 v15; // r13
+  __int64 v16; // rax
+  __int64 v17; // r15
+  __int64 v18; // r8
+  unsigned int v19; // ecx
+  unsigned int v20; // edx
+  __int64 v21; // rcx
+  size_t v22; // rsi
+  void *v23; // rdi
+  __int64 v24; // rax
+  __int64 v25; // rdx
+  __int64 v26; // rdx
+  unsigned int v27; // ecx
+  __int128 v28; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v29; // [rsp+30h] [rbp-38h]
 
   *a7 = 0LL;
   v8 = *(_QWORD *)(a1 + 40);
-  if ( (*(_DWORD *)(v8 + 232) & 0x10) == 0 )
+  if ( (*(_DWORD *)(v8 + 232) & 0x800) != 0 )
+    return 0LL;
+  v9 = *(_WORD *)(v8 + 42);
+  if ( (v9 & 0xD000) != 0 )
   {
-    v9 = *(_WORD *)(v8 + 42);
-    if ( (v9 & 0xD000) != 0 )
+    if ( (v9 & 0x1000) != 0 )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 2585LL);
+    return 0LL;
+  }
+  v11 = a5;
+  if ( v9 != a5 )
+  {
+    if ( v9 )
+      return 0LL;
+    if ( (_DWORD)a2 != a6 )
     {
-      if ( (v9 & 0x1000) != 0 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 2541LL);
+      *a7 = xxxDefWindowProc((struct tagWND *)a1, a2, a3, a4);
       return 0LL;
     }
-    v10 = a5;
-    if ( v9 == a5 )
-      return 1LL;
-    if ( !v9 )
+    *(_WORD *)(v8 + 42) = 4096;
+    v12 = *(_QWORD *)(a1 + 40);
+    v13 = *(_DWORD *)(v12 + 252);
+    v14 = *(unsigned __int16 *)(gpsi + 2LL * ((a5 & 0x2FFFu) - 666) + 328);
+    if ( v13 + 320 >= v14 )
     {
-      if ( a2 != a6 )
+      v26 = *(_QWORD *)(a1 + 280);
+      if ( v26 )
       {
-        *a7 = xxxDefWindowProc((struct tagWND *)a1);
-        return 0LL;
-      }
-      *(_WORD *)(v8 + 42) = 4096;
-      v12 = *(_QWORD *)(a1 + 40);
-      v13 = *(_DWORD *)(v12 + 248);
-      v14 = *(unsigned __int16 *)(gpsi + 2LL * ((a5 & 0x2FFFu) - 666) + 328);
-      if ( v13 + 328 >= v14 )
-      {
-        v15 = *(_QWORD *)(a1 + 280);
-        if ( v15 )
+        v27 = 0;
+        if ( v13 )
         {
-          v16 = 0;
-          if ( v13 )
+          while ( !*(_BYTE *)(v27 + v26) )
           {
-            while ( !*(_BYTE *)(v16 + v15) )
-            {
-              if ( ++v16 >= v13 )
-                goto LABEL_15;
-            }
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2726LL);
+            if ( ++v27 >= v13 )
+              goto LABEL_42;
           }
-LABEL_15:
-          memset_0(*(void **)(a1 + 280), 0, *(unsigned int *)(*(_QWORD *)(a1 + 40) + 248LL));
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2769LL);
+          v12 = *(_QWORD *)(a1 + 40);
         }
-        goto LABEL_11;
+LABEL_42:
+        memset(*(void **)(a1 + 280), 0, *(unsigned int *)(v12 + 252));
       }
-      if ( *(_DWORD *)(v12 + 200) + v13 + 328 < v14 )
+    }
+    else
+    {
+      if ( v13 + *(_DWORD *)(v12 + 200) + 320 < v14 )
       {
         *(_WORD *)(v12 + 42) &= ~0x1000u;
         return 0LL;
       }
-      v30 = 0LL;
-      v31 = 0LL;
-      v17 = v14 - 328;
-      v18 = Win32AllocPoolZInit(v17, 1937208149LL);
-      v19 = v18;
-      if ( !v18 )
+      v28 = 0LL;
+      v29 = 0LL;
+      v15 = v14 - 320;
+      v16 = Win32AllocPoolZInit(v15, 1937208149LL);
+      v17 = v16;
+      if ( !v16 )
       {
-LABEL_27:
+LABEL_15:
         *(_WORD *)(*(_QWORD *)(a1 + 40) + 42LL) &= ~0x1000u;
         return 0LL;
       }
-      PushW32ThreadLock(v18, &v30, Win32FreePool);
-      v20 = *(_QWORD *)(a1 + 280);
-      if ( v20 )
+      PushW32ThreadLock(v16, &v28, (__int64)Win32FreePool);
+      v18 = *(_QWORD *)(a1 + 280);
+      if ( v18 )
       {
-        v21 = 0;
-        v22 = *(_DWORD *)(*(_QWORD *)(a1 + 40) + 248LL);
-        if ( v22 )
+        v19 = 0;
+        v20 = *(_DWORD *)(*(_QWORD *)(a1 + 40) + 252LL);
+        if ( v20 )
         {
-          while ( !*(_BYTE *)(v21 + v20) )
+          while ( !*(_BYTE *)(v19 + v18) )
           {
-            if ( ++v21 >= v22 )
-              goto LABEL_29;
+            if ( ++v19 >= v20 )
+              goto LABEL_22;
           }
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2636LL);
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2680LL);
         }
-LABEL_29:
+LABEL_22:
         Win32FreePool(*(void **)(a1 + 280));
         *(_QWORD *)(a1 + 280) = 0LL;
       }
-      *(_DWORD *)(*(_QWORD *)(a1 + 40) + 248LL) = 0;
-      v23 = *(_QWORD *)(a1 + 40);
-      v24 = *(unsigned int *)(v23 + 200);
-      if ( (_DWORD)v24 )
+      *(_DWORD *)(*(_QWORD *)(a1 + 40) + 252LL) = 0;
+      v21 = *(_QWORD *)(a1 + 40);
+      v22 = *(unsigned int *)(v21 + 200);
+      if ( (_DWORD)v22 )
       {
-        v25 = (void *)xxxClientAllocWindowClassExtraBytes((unsigned int)v24);
-        if ( !v25 || (v23 = *(_QWORD *)(a1 + 40), (*(_WORD *)(v23 + 42) & 0xC000) != 0) )
+        v23 = (void *)xxxClientAllocWindowClassExtraBytes((unsigned int)v22, a1);
+        if ( !v23 || (v21 = *(_QWORD *)(a1 + 40), (*(_WORD *)(v21 + 42) & 0xC000) != 0) )
         {
-LABEL_26:
-          PopAndFreeAlwaysW32ThreadLock(&v30);
-          goto LABEL_27;
+LABEL_25:
+          PopAndFreeAlwaysW32ThreadLock((__int64)&v28);
+          goto LABEL_15;
         }
       }
       else
       {
-        v25 = 0LL;
+        v23 = 0LL;
       }
-      v26 = *(_QWORD *)(v23 + 296);
-      if ( v26 )
+      v24 = *(_QWORD *)(v21 + 296);
+      if ( v24 )
       {
-        if ( v25 )
-          memmove(v25, (const void *)(v26 + v17), v24);
-        v27 = *(_QWORD *)(a1 + 40);
-        v28 = *(_QWORD *)(v27 + 296);
-        *(_QWORD *)(v27 + 296) = v25;
-        *(_DWORD *)(*(_QWORD *)(a1 + 40) + 200LL) = v24;
-        xxxClientFreeWindowClassExtraBytes(a1, v28);
+        if ( v23 )
+        {
+          memmove(v23, (const void *)(v24 + v15), v22);
+          v21 = *(_QWORD *)(a1 + 40);
+        }
+        v25 = *(_QWORD *)(v21 + 296);
+        *(_QWORD *)(v21 + 296) = v23;
+        *(_DWORD *)(*(_QWORD *)(a1 + 40) + 200LL) = v22;
+        xxxClientFreeWindowClassExtraBytes(a1, v25);
         if ( (*(_WORD *)(*(_QWORD *)(a1 + 40) + 42LL) & 0xC000) != 0 )
-          goto LABEL_26;
+          goto LABEL_25;
       }
       else
       {
-        *(_QWORD *)(v23 + 296) = v25;
-        *(_DWORD *)(*(_QWORD *)(a1 + 40) + 200LL) = v24;
+        *(_QWORD *)(v21 + 296) = v23;
+        *(_DWORD *)(*(_QWORD *)(a1 + 40) + 200LL) = v22;
       }
-      ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
-      *(_QWORD *)(ThreadWin32Thread + 16) = v30;
-      *(_QWORD *)(a1 + 280) = v19;
-      *(_DWORD *)(*(_QWORD *)(a1 + 40) + 248LL) = v17;
-      v10 = a5;
-LABEL_11:
-      *(_WORD *)(*(_QWORD *)(a1 + 40) + 42LL) = v10;
-      *(_WORD *)(*(_QWORD *)(a1 + 40) + 42LL) &= ~0x1000u;
-      return 1LL;
+      PopW32ThreadLock(&v28);
+      *(_QWORD *)(a1 + 280) = v17;
+      *(_DWORD *)(*(_QWORD *)(a1 + 40) + 252LL) = v15;
+      v11 = a5;
     }
+    *(_WORD *)(*(_QWORD *)(a1 + 40) + 42LL) = v11;
+    *(_WORD *)(*(_QWORD *)(a1 + 40) + 42LL) &= ~0x1000u;
   }
-  return 0LL;
+  return 1LL;
 }

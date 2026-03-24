@@ -1,20 +1,20 @@
 /*
- * XREFs of OSOpenUnicodeHandle @ 0x1C008E3EC
+ * XREFs of OSOpenUnicodeHandle @ 0x1C008FC50
  * Callers:
- *     OSOpenHandle @ 0x1C008DF20 (OSOpenHandle.c)
- *     OSOpenLargestSubkey @ 0x1C008DFF0 (OSOpenLargestSubkey.c)
- *     ACPIThermalGetOverrideHandle @ 0x1C009590C (ACPIThermalGetOverrideHandle.c)
- *     OSReadAcpiConfigurationData @ 0x1C00AA304 (OSReadAcpiConfigurationData.c)
- *     IrqPolicyConfigure @ 0x1C00AC2B4 (IrqPolicyConfigure.c)
- *     IrqPolicyGetDistributionDisposition @ 0x1C00AC3AC (IrqPolicyGetDistributionDisposition.c)
+ *     OSOpenHandle @ 0x1C008FBB8 (OSOpenHandle.c)
+ *     ACPIThermalGetOverrideHandle @ 0x1C0098A58 (ACPIThermalGetOverrideHandle.c)
+ *     OSOpenLargestSubkey @ 0x1C00B2AB4 (OSOpenLargestSubkey.c)
+ *     IsHypervisorCpcCapable @ 0x1C00B54B0 (IsHypervisorCpcCapable.c)
+ *     OSReadAcpiConfigurationData @ 0x1C00BC3BC (OSReadAcpiConfigurationData.c)
+ *     IrqPolicyConfigure @ 0x1C00BC884 (IrqPolicyConfigure.c)
+ *     IrqPolicyGetDistributionDisposition @ 0x1C00BCAA0 (IrqPolicyGetDistributionDisposition.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
  */
 
 __int64 __fastcall OSOpenUnicodeHandle(struct _UNICODE_STRING *a1, void *a2, void **a3)
 {
-  int v3; // edx
-  NTSTATUS v4; // ebx
+  NTSTATUS v3; // ebx
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-38h] BYREF
 
   *(&ObjectAttributes.Length + 1) = 0;
@@ -23,17 +23,14 @@ __int64 __fastcall OSOpenUnicodeHandle(struct _UNICODE_STRING *a1, void *a2, voi
   ObjectAttributes.ObjectName = a1;
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
-  v4 = ZwOpenKey(a3, 0x20019u, &ObjectAttributes);
-  if ( v4 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v3) = 2;
-    WPP_RECORDER_SF_d(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v3,
-      11,
-      13,
-      (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
-      v4);
-  }
-  return (unsigned int)v4;
+  v3 = ZwOpenKey(a3, 0x20019u, &ObjectAttributes);
+  if ( v3 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_L(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      2u,
+      0xBu,
+      0xDu,
+      (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
+      v3);
+  return (unsigned int)v3;
 }

@@ -1,154 +1,133 @@
 /*
- * XREFs of PspInitializeThunkContext @ 0x140702CA4
+ * XREFs of PspInitializeThunkContext @ 0x140647A20
  * Callers:
- *     PspUserThreadStartup @ 0x140702420 (PspUserThreadStartup.c)
+ *     PspUserThreadStartup @ 0x140646E40 (PspUserThreadStartup.c)
  * Callees:
- *     KePopulateContinuationContext @ 0x140294A38 (KePopulateContinuationContext.c)
- *     RtlGetExtendedContextLength2 @ 0x1402956D0 (RtlGetExtendedContextLength2.c)
- *     RtlInitializeExtendedContext2 @ 0x140297D10 (RtlInitializeExtendedContext2.c)
- *     KiDispatchException @ 0x140299280 (KiDispatchException.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _alloca_probe @ 0x14042A4D0 (_alloca_probe.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PspCallThreadNotifyRoutines @ 0x1406F8640 (PspCallThreadNotifyRoutines.c)
- *     PspCreateUserContext @ 0x140702C3C (PspCreateUserContext.c)
- *     RtlCopyContext @ 0x140702F70 (RtlCopyContext.c)
- *     PspSetContextThreadInternal @ 0x1407043D0 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x1407045D0 (PspGetContextThreadInternal.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
+ *     KiDispatchException @ 0x140273320 (KiDispatchException.c)
+ *     RtlGetExtendedContextLength @ 0x140276470 (RtlGetExtendedContextLength.c)
+ *     RtlInitializeExtendedContext @ 0x1402764F0 (RtlInitializeExtendedContext.c)
+ *     KePopulateContinuationContext @ 0x14027762C (KePopulateContinuationContext.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404084A0 (_alloca_probe.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PspCallThreadNotifyRoutines @ 0x14061B3C0 (PspCallThreadNotifyRoutines.c)
+ *     PspSetContextThreadInternal @ 0x140647C9C (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x140647E54 (PspGetContextThreadInternal.c)
+ *     RtlCopyContext @ 0x1406480E8 (RtlCopyContext.c)
+ *     PspCreateUserContext @ 0x140648760 (PspCreateUserContext.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
  */
 
 char PspInitializeThunkContext()
 {
-  struct _KTHREAD *CurrentThread; // r14
-  int v1; // ecx
-  __int64 v2; // rsi
-  unsigned int v3; // r12d
-  $CEA84C04E3712D858E5667A507841A2A *v4; // rax
-  int v5; // ebx
-  SIZE_T v6; // r15
-  unsigned __int64 v7; // rax
-  void *v8; // rsp
-  int v9; // r9d
-  char *v10; // r13
-  void *InstrumentationCallback; // rdx
-  __int64 v12; // rcx
-  int *v13; // r15
+  struct _KTHREAD *CurrentThread; // r15
+  unsigned int v1; // r14d
+  int ExtendedContextLength; // ebx
+  SIZE_T v3; // rsi
+  unsigned __int64 v4; // rax
+  void *v5; // rsp
+  int v6; // r9d
+  volatile void *v7; // r13
+  __int64 InstrumentationCallback; // rdx
+  __int64 v9; // rcx
+  char result; // al
   _QWORD *InitialStack; // rdx
-  _QWORD *v16; // r8
-  int v18; // [rsp+30h] [rbp+0h] BYREF
+  _QWORD *i; // r8
+  int v13; // [rsp+30h] [rbp+0h] BYREF
   _DWORD Size[3]; // [rsp+34h] [rbp+4h] BYREF
-  __int64 v20; // [rsp+40h] [rbp+10h]
-  __int64 v21; // [rsp+48h] [rbp+18h] BYREF
-  int *v22; // [rsp+50h] [rbp+20h]
-  struct _KTHREAD *v23; // [rsp+58h] [rbp+28h]
-  ULONG_PTR v24[3]; // [rsp+60h] [rbp+30h] BYREF
-  int v25; // [rsp+78h] [rbp+48h]
-  _DWORD v26[31]; // [rsp+7Ch] [rbp+4Ch] BYREF
-  _QWORD v27[154]; // [rsp+100h] [rbp+D0h] BYREF
+  _QWORD v15[2]; // [rsp+40h] [rbp+10h] BYREF
+  NTSTATUS v16[2]; // [rsp+50h] [rbp+20h] BYREF
+  __int64 v17; // [rsp+58h] [rbp+28h]
+  __int64 v18; // [rsp+60h] [rbp+30h]
+  int v19; // [rsp+68h] [rbp+38h]
+  _DWORD v20[31]; // [rsp+6Ch] [rbp+3Ch] BYREF
+  __int64 v21[154]; // [rsp+F0h] [rbp+C0h] BYREF
 
-  memset(v26, 0, sizeof(v26));
+  memset(v20, 0, sizeof(v20));
   memset(Size, 0, sizeof(Size));
-  v21 = 0LL;
+  v15[0] = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v23 = CurrentThread;
-  v1 = CurrentThread->MiscFlags & 0x100000;
-  v2 = v1 != 0 ? 0x800 : 0;
-  v20 = v2;
-  v3 = v1 != 0 ? 1048667 : 1048603;
-  LODWORD(v4) = RtlGetExtendedContextLength2(v3, Size, (unsigned int)v2);
-  v5 = (int)v4;
-  if ( (int)v4 >= 0 )
+  v15[1] = CurrentThread;
+  v1 = ((unsigned int)CurrentThread->MiscFlags >> 14) & 0x40 | 0x10001B;
+  ExtendedContextLength = RtlGetExtendedContextLength(v1, (__int64)Size);
+  if ( ExtendedContextLength >= 0 )
   {
-    v6 = Size[0];
-    v7 = Size[0] + 15LL;
-    if ( v7 <= Size[0] )
-      v7 = 0xFFFFFFFFFFFFFF0LL;
-    v8 = alloca(v7 & 0xFFFFFFFFFFFFFFF0uLL);
-    v22 = &v18;
-    memset(&v18, 0, Size[0]);
-    LODWORD(v4) = RtlInitializeExtendedContext2((__int64)&v18, v3, &Size[1], v2);
-    v5 = (int)v4;
-    if ( (int)v4 >= 0 )
+    v3 = Size[0];
+    v4 = Size[0] + 15LL;
+    if ( v4 <= Size[0] )
+      v4 = 0xFFFFFFFFFFFFFF0LL;
+    v5 = alloca(v4 & 0xFFFFFFFFFFFFFFF0uLL);
+    memset(&v13, 0, Size[0]);
+    ExtendedContextLength = RtlInitializeExtendedContext((__int64)&v13, v1, (__int64)&Size[1]);
+    if ( ExtendedContextLength >= 0 )
     {
-      memset(v27, 0, sizeof(v27));
+      memset(v21, 0, sizeof(v21));
       --CurrentThread->SpecialApcDisable;
       PspCallThreadNotifyRoutines(CurrentThread, 1u, 1);
-      LOBYTE(v9) = 1;
-      LODWORD(v4) = PspGetContextThreadInternal((_DWORD)CurrentThread, (unsigned int)&v18, 0, v9, 0);
-      v5 = (int)v4;
-      v18 = (int)v4;
-      if ( (int)v4 >= 0 )
+      LOBYTE(v6) = 1;
+      ExtendedContextLength = PspGetContextThreadInternal((_DWORD)CurrentThread, (unsigned int)&v13, 0, v6, 0);
+      v13 = ExtendedContextLength;
+      if ( ExtendedContextLength >= 0 )
       {
-        v10 = (char *)((*(_QWORD *)&v26[19] - v6) & 0xFFFFFFFFFFFFFFF0uLL);
-        v27[19] = v10 - 40;
-        PspCreateUserContext((__int64)v27, 0, qword_140D07168, (__int64)v10, (__int64)PspSystemDlls[0][4]);
-        InstrumentationCallback = CurrentThread->ApcState.Process->InstrumentationCallback;
+        v7 = (volatile void *)((*(_QWORD *)&v20[23] - v3) & 0xFFFFFFFFFFFFFFF0uLL);
+        v21[19] = (__int64)v7 - 40;
+        PspCreateUserContext(
+          (unsigned int)v21,
+          0,
+          PspLoaderInitRoutine,
+          (v20[23] - v3) & 0xFFFFFFF0,
+          *((_QWORD *)PspSystemDlls + 5));
+        InstrumentationCallback = (__int64)CurrentThread->ApcState.Process->InstrumentationCallback;
         if ( InstrumentationCallback )
         {
-          v27[25] = v27[31];
-          v27[31] = InstrumentationCallback;
+          v21[25] = v21[31];
+          v21[31] = InstrumentationCallback;
         }
-        v12 = (__int64)v10;
-        if ( v6 - 1 > 0xFFE )
+        v9 = (__int64)v7;
+        if ( v3 - 1 > 0xFFE )
         {
-          ProbeForWrite(v10, v6, 0x10u);
+          ProbeForWrite(v7, v3, 0x10u);
         }
         else
         {
-          if ( (unsigned __int64)v10 >= 0x7FFFFFFF0000LL )
-            v12 = 0x7FFFFFFF0000LL;
-          *(_BYTE *)v12 = *(_BYTE *)v12;
-          *(_BYTE *)(v12 + v6 - 1) = *(_BYTE *)(v12 + v6 - 1);
+          if ( (unsigned __int64)v7 >= 0x7FFFFFFF0000LL )
+            v9 = 0x7FFFFFFF0000LL;
+          *(_BYTE *)v9 = *(_BYTE *)v9;
+          *(_BYTE *)(v9 + v3 - 1) = *(_BYTE *)(v9 + v3 - 1);
         }
-        LODWORD(v4) = RtlInitializeExtendedContext2((__int64)v10, v3, &v21, v20);
-        v5 = (int)v4;
-        v18 = (int)v4;
-        if ( (int)v4 >= 0 )
+        ExtendedContextLength = RtlInitializeExtendedContext((__int64)v7, v1, (__int64)v15);
+        v13 = ExtendedContextLength;
+        if ( ExtendedContextLength >= 0 )
         {
-          v13 = v22;
-          LODWORD(v4) = RtlCopyContext(v10, v3, v22);
-          v5 = (int)v4;
-          v18 = (int)v4;
-          if ( (int)v4 >= 0 )
-            LOBYTE(v4) = (unsigned __int8)KePopulateContinuationContext(*((_QWORD *)v13 + 31));
+          ExtendedContextLength = RtlCopyContext(v7, v1, &v13);
+          v13 = ExtendedContextLength;
+          if ( ExtendedContextLength >= 0 )
+            KePopulateContinuationContext(v21[7]);
         }
-        if ( v5 >= 0 )
-        {
-          LODWORD(v4) = PspSetContextThreadInternal(CurrentThread, 2);
-          v5 = (int)v4;
-        }
+        if ( ExtendedContextLength >= 0 )
+          ExtendedContextLength = PspSetContextThreadInternal(CurrentThread, 2);
       }
     }
   }
-  if ( CurrentThread->SpecialApcDisable++ == -1 )
+  result = KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  if ( ExtendedContextLength < 0 )
   {
-    v4 = &CurrentThread->152;
-    if ( ($CEA84C04E3712D858E5667A507841A2A *)v4->ApcState.ApcListHead[0].Flink != v4 )
-      LOBYTE(v4) = KiCheckForKernelApcDelivery();
-  }
-  if ( v5 < 0 )
-  {
-    v24[2] = qword_140D07168;
-    v24[0] = (unsigned int)v5;
-    v25 = 0;
-    v24[1] = 0LL;
+    v16[1] = 0;
+    v18 = PspLoaderInitRoutine;
+    v16[0] = ExtendedContextLength;
+    v19 = 0;
+    v17 = 0LL;
     InitialStack = CurrentThread->InitialStack;
-    v16 = InitialStack;
-    if ( (InitialStack[1] & 1LL) != 0 )
-    {
-      do
-        v16 = (_QWORD *)v16[5];
-      while ( (v16[1] & 1) != 0 );
-    }
+    for ( i = InitialStack; (i[1] & 1) != 0; i = (_QWORD *)i[5] )
+      ;
     if ( (InitialStack[1] & 1LL) != 0 )
     {
       do
         InitialStack = (_QWORD *)InitialStack[5];
       while ( (InitialStack[1] & 1) != 0 );
     }
-    LOBYTE(v4) = KiDispatchException((NTSTATUS *)v24, (__int64)(InitialStack - 90), (__int64)(v16 - 50), 1u, 0);
+    return KiDispatchException(v16, (unsigned __int64)(InitialStack - 90), (__int64)(i - 50), 1u, 0);
   }
-  return (char)v4;
+  return result;
 }

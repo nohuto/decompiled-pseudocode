@@ -1,27 +1,27 @@
 /*
- * XREFs of ExpProfileCreate @ 0x140A03D28
+ * XREFs of ExpProfileCreate @ 0x14095A5AC
  * Callers:
- *     NtCreateProfile @ 0x140A04440 (NtCreateProfile.c)
- *     NtCreateProfileEx @ 0x140A04520 (NtCreateProfileEx.c)
+ *     NtCreateProfile @ 0x14095AC60 (NtCreateProfile.c)
+ *     NtCreateProfileEx @ 0x14095AD40 (NtCreateProfileEx.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KiCopyAffinityEx @ 0x1402544A0 (KiCopyAffinityEx.c)
- *     KeVerifyGroupAffinity @ 0x140321194 (KeVerifyGroupAffinity.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     ExIsRestrictedCaller @ 0x1407D8DA4 (ExIsRestrictedCaller.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     KeCopyAffinityEx @ 0x1402BBAE0 (KeCopyAffinityEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeVerifyGroupAffinity @ 0x140377C24 (KeVerifyGroupAffinity.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     ExIsRestrictedCaller @ 0x140686630 (ExIsRestrictedCaller.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     ObInsertObject @ 0x140701A90 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1407023B0 (ObCreateObject.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall ExpProfileCreate(
-        __int64 *a1,
-        ULONG_PTR a2,
+NTSTATUS __fastcall ExpProfileCreate(
+        unsigned __int64 a1,
+        void *a2,
         unsigned __int64 a3,
         unsigned __int64 a4,
         int a5,
@@ -32,73 +32,66 @@ __int64 __fastcall ExpProfileCreate(
         unsigned __int64 a10,
         char a11)
 {
-  __int128 *v14; // rbx
-  __int64 result; // rax
-  unsigned __int64 v16; // rcx
-  unsigned __int64 v17; // r15
+  __int128 *v15; // rbx
+  NTSTATUS result; // eax
+  unsigned __int64 v17; // rcx
   char PreviousMode; // di
   __int64 v19; // rcx
   __int64 v20; // rax
-  unsigned __int64 v21; // rsi
   int inserted; // ebx
-  char *v23; // rdi
-  __int64 Tag; // [rsp+20h] [rbp-218h]
-  int v25; // [rsp+54h] [rbp-1E4h] BYREF
-  PVOID Object; // [rsp+58h] [rbp-1E0h] BYREF
-  unsigned __int64 v27; // [rsp+60h] [rbp-1D8h]
-  PVOID v28; // [rsp+68h] [rbp-1D0h] BYREF
-  volatile void *Address; // [rsp+70h] [rbp-1C8h]
-  __int64 v30; // [rsp+78h] [rbp-1C0h] BYREF
-  __int64 *v31; // [rsp+80h] [rbp-1B8h]
-  __int128 v32; // [rsp+88h] [rbp-1B0h] BYREF
-  __int128 v33; // [rsp+A0h] [rbp-198h] BYREF
-  __int64 v34; // [rsp+B0h] [rbp-188h]
-  __int128 v35; // [rsp+B8h] [rbp-180h] BYREF
-  __int128 v36; // [rsp+C8h] [rbp-170h]
-  __int128 v37; // [rsp+D8h] [rbp-160h]
-  _DWORD v38[68]; // [rsp+F0h] [rbp-148h] BYREF
+  _QWORD *v22; // rbx
+  int v23; // [rsp+54h] [rbp-174h] BYREF
+  PVOID Object; // [rsp+58h] [rbp-170h] BYREF
+  volatile void *Address; // [rsp+60h] [rbp-168h]
+  PVOID v26; // [rsp+68h] [rbp-160h] BYREF
+  HANDLE Handle; // [rsp+70h] [rbp-158h] BYREF
+  _QWORD *v28; // [rsp+78h] [rbp-150h]
+  __int128 v29; // [rsp+80h] [rbp-148h] BYREF
+  __int128 v30; // [rsp+98h] [rbp-130h] BYREF
+  __int64 v31; // [rsp+A8h] [rbp-120h]
+  __int128 v32; // [rsp+B0h] [rbp-118h] BYREF
+  __int128 v33; // [rsp+C0h] [rbp-108h]
+  __int128 v34; // [rsp+D0h] [rbp-F8h]
+  _DWORD v35[44]; // [rsp+E0h] [rbp-E8h] BYREF
 
-  v27 = a3;
-  v31 = a1;
+  v28 = (_QWORD *)a1;
   Address = a6;
-  v14 = (__int128 *)a10;
-  memset(&v38[2], 0, 0x100uLL);
+  v15 = (__int128 *)a10;
+  memset(&v35[2], 0, 0xA0uLL);
+  v29 = 0LL;
+  Handle = 0LL;
   v32 = 0LL;
-  v30 = 0LL;
-  v35 = 0LL;
-  v36 = 0LL;
-  *(_QWORD *)&v37 = 0LL;
-  DWORD2(v37) = 0;
-  Object = 0LL;
-  v28 = 0LL;
   v33 = 0LL;
   v34 = 0LL;
+  Object = 0LL;
+  v26 = 0LL;
+  v30 = 0LL;
+  v31 = 0LL;
   if ( !Length )
-    return 3221225717LL;
+    return -1073741579;
   if ( (unsigned int)(a5 - 2) > 0x1D )
-    return 3221225485LL;
-  v16 = (a4 >> a5) + 1;
+    return -1073741811;
+  v17 = (a4 >> a5) + 1;
   if ( !(a4 % (1LL << a5)) )
-    v16 = a4 >> a5;
-  if ( v16 > (unsigned __int64)Length >> 2 )
-    return 3221225507LL;
-  v17 = a3 + a4;
+    v17 = a4 >> a5;
+  if ( v17 > (unsigned __int64)Length >> 2 )
+    return -1073741789;
   if ( a3 + a4 < a4 )
-    return 2147483653LL;
-  LODWORD(v33) = a8;
-  v25 = 0;
-  if ( ((int (__fastcall *)(__int64, __int64, __int128 *, int *))off_140C020E8[0])(1LL, 24LL, &v33, &v25) < 0
-    || v25 != 24
-    || !BYTE4(v33) )
+    return -2147483643;
+  LODWORD(v30) = a8;
+  v23 = 0;
+  if ( ((int (__fastcall *)(__int64, __int64, __int128 *, int *))off_140C00A68[0])(1LL, 24LL, &v30, &v23) < 0
+    || v23 != 24
+    || !BYTE4(v30) )
   {
-    return 3221225659LL;
+    return -1073741637;
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v19 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)v31 < 0x7FFFFFFF0000LL )
-      v19 = (__int64)v31;
+    v19 = a1;
+    if ( a1 >= 0x7FFFFFFF0000LL )
+      v19 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v19 = *(_QWORD *)v19;
     ProbeForWrite(Address, Length, 4u);
     if ( !a11 )
@@ -113,85 +106,71 @@ __int64 __fastcall ExpProfileCreate(
       }
     }
   }
-  v38[0] = 2097153;
-  memset(&v38[1], 0, 0x104uLL);
+  v35[0] = 1310721;
+  memset(&v35[1], 0, 0xA4uLL);
   while ( a9 )
   {
     if ( !PreviousMode || a11 )
-      v32 = *v14;
+      v29 = *v15;
     else
-      v32 = *v14;
-    if ( !KeVerifyGroupAffinity((__int64)&v32, 0) )
-      return 3221225485LL;
-    if ( LOWORD(v38[0]) <= WORD4(v32) )
-    {
-      if ( HIWORD(v38[0]) <= WORD4(v32) )
-        goto LABEL_34;
-      LOWORD(v38[0]) = WORD4(v32) + 1;
-    }
-    *(_QWORD *)&v38[2 * WORD4(v32) + 2] |= v32;
-LABEL_34:
+      v29 = *v15;
+    if ( !KeVerifyGroupAffinity((__int64)&v29, 0) )
+      return -1073741811;
+    if ( LOWORD(v35[0]) <= WORD4(v29) )
+      LOWORD(v35[0]) = WORD4(v29) + 1;
+    *(_QWORD *)&v35[2 * WORD4(v29) + 2] |= v29;
     --a9;
-    ++v14;
+    ++v15;
   }
   if ( a2 )
   {
-    result = ObpReferenceObjectByHandleWithTag(
+    result = ObReferenceObjectByHandleWithTag(
                a2,
-               1024,
-               (__int64)PsProcessType,
+               0x400u,
+               (POBJECT_TYPE)PsProcessType,
                PreviousMode,
                0x66507845u,
                &Object,
-               0LL,
                0LL);
-    if ( (int)result >= 0 )
-    {
-      v21 = v27;
-      goto LABEL_43;
-    }
+    if ( result < 0 )
+      return result;
   }
   else
   {
-    v21 = v27;
-    if ( v27 <= 0x7FFFFFFEFFFFLL && PreviousMode && !SeSinglePrivilegeCheck(SeSystemProfilePrivilege, PreviousMode) )
-      return 3221225569LL;
+    if ( a3 <= 0x7FFFFFFEFFFFLL && PreviousMode && !SeSinglePrivilegeCheck(SeSystemProfilePrivilege, PreviousMode) )
+      return -1073741727;
     Object = 0LL;
-LABEL_43:
-    if ( (unsigned int)ExIsRestrictedCaller(PreviousMode) && a4 && (v17 > 0x7FFFFFFF0000LL || v17 < v21) )
-      MEMORY[0x7FFFFFFF0000] = 0;
-    LODWORD(v35) = 48;
-    *((_QWORD *)&v35 + 1) = 0LL;
-    DWORD2(v36) = 32;
-    *(_QWORD *)&v36 = 0LL;
-    v37 = 0LL;
-    inserted = ObCreateObjectEx(0, ExProfileObjectType, (__int64)&v35, PreviousMode, Tag, 336, 0, 952, &v28, 0LL);
-    if ( inserted < 0 )
-    {
-      if ( Object )
-        ObfDereferenceObjectWithTag(Object, 0x66507845u);
-    }
-    else
-    {
-      v23 = (char *)v28;
-      *(_QWORD *)v28 = Object;
-      *((_QWORD *)v23 + 1) = v21;
-      *((_QWORD *)v23 + 2) = a4;
-      *((_QWORD *)v23 + 3) = Address;
-      *((_DWORD *)v23 + 8) = Length;
-      *((_DWORD *)v23 + 9) = a5;
-      *((_QWORD *)v23 + 6) = 0LL;
-      *((_DWORD *)v23 + 16) = 0;
-      *((_DWORD *)v23 + 17) = a8;
-      *((_QWORD *)v23 + 9) = 2097153LL;
-      memset(v23 + 80, 0, 0x100uLL);
-      KiCopyAffinityEx((__int64)(v23 + 72), *((_WORD *)v23 + 37), (unsigned __int16 *)v38);
-      inserted = ObInsertObjectEx(v23, 0LL, 1, 0, 0, 0LL, &v30);
-      LODWORD(v27) = inserted;
-      if ( inserted >= 0 )
-        *v31 = v30;
-    }
-    return (unsigned int)inserted;
   }
-  return result;
+  if ( ExIsRestrictedCaller(PreviousMode) && a4 && (a3 + a4 > 0x7FFFFFFF0000LL || a3 + a4 < a3) )
+    MEMORY[0x7FFFFFFF0000] = 0;
+  LODWORD(v32) = 48;
+  *((_QWORD *)&v32 + 1) = 0LL;
+  DWORD2(v33) = 32;
+  *(_QWORD *)&v33 = 0LL;
+  v34 = 0LL;
+  inserted = ObCreateObject(0, ExProfileObjectType, (int)&v32, PreviousMode, 0, 240, 0, 488, &v26);
+  if ( inserted < 0 )
+  {
+    if ( Object )
+      ObfDereferenceObjectWithTag(Object, 0x66507845u);
+  }
+  else
+  {
+    v22 = v26;
+    *(_QWORD *)v26 = Object;
+    v22[1] = a3;
+    v22[2] = a4;
+    v22[3] = Address;
+    *((_DWORD *)v22 + 8) = Length;
+    *((_DWORD *)v22 + 9) = a5;
+    v22[6] = 0LL;
+    *((_DWORD *)v22 + 16) = 0;
+    *((_DWORD *)v22 + 17) = a8;
+    KeCopyAffinityEx((__int64)(v22 + 9), (unsigned __int16 *)v35);
+    inserted = ObInsertObject(v22, 0LL, 1u, 0, 0LL, &Handle);
+    LODWORD(Address) = inserted;
+    if ( inserted >= 0 )
+      *v28 = Handle;
+  }
+  return inserted;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?BeginTransaction@DXGVIRTUALMACHINE@@QEAAXPEAUDXGKVMB_GUEST_TRANSACTION@@@Z @ 0x1C0396998
+ * XREFs of ?BeginTransaction@DXGVIRTUALMACHINE@@QEAAXPEAUDXGKVMB_GUEST_TRANSACTION@@@Z @ 0x1C02BEDDC
  * Callers:
- *     ?DxgkpDuplicateHandleToVm@@YAJPEAU_D3DKMT_DUPLICATEHANDLE@@@Z @ 0x1C0326D24 (-DxgkpDuplicateHandleToVm@@YAJPEAU_D3DKMT_DUPLICATEHANDLE@@@Z.c)
+ *     ?DxgkpDuplicateHandleToVm@@YAJPEAU_D3DKMT_DUPLICATEHANDLE@@@Z @ 0x1C0277CDC (-DxgkpDuplicateHandleToVm@@YAJPEAU_D3DKMT_DUPLICATEHANDLE@@@Z.c)
  * Callees:
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
  */
 
 void __fastcall DXGVIRTUALMACHINE::BeginTransaction(DXGVIRTUALMACHINE *this, struct DXGKVMB_GUEST_TRANSACTION *a2)
@@ -12,9 +12,9 @@ void __fastcall DXGVIRTUALMACHINE::BeginTransaction(DXGVIRTUALMACHINE *this, str
   char *v5; // rbx
   char **v6; // rax
 
-  v2 = (char *)this + 344;
-  DXGPUSHLOCK::AcquireExclusive((DXGVIRTUALMACHINE *)((char *)this + 344));
-  v5 = (char *)this + 376;
+  v2 = (char *)this + 304;
+  DXGPUSHLOCK::AcquireExclusive((DXGVIRTUALMACHINE *)((char *)this + 304));
+  v5 = (char *)this + 336;
   v6 = (char **)*((_QWORD *)v5 + 1);
   if ( *v6 != v5 )
     __fastfail(3u);

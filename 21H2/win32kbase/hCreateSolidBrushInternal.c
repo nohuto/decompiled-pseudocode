@@ -1,12 +1,12 @@
 /*
- * XREFs of hCreateSolidBrushInternal @ 0x1C0063600
+ * XREFs of hCreateSolidBrushInternal @ 0x1C001BB90
  * Callers:
- *     GreCreateSolidBrush @ 0x1C0062880 (GreCreateSolidBrush.c)
- *     SetSysColor @ 0x1C0062BAC (SetSysColor.c)
+ *     SetSysColor @ 0x1C001F3E0 (SetSysColor.c)
+ *     GreCreateSolidBrush @ 0x1C00B69E0 (GreCreateSolidBrush.c)
  * Callees:
- *     ?GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z @ 0x1C0062FA0 (-GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z.c)
- *     ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C0063670 (--1BRUSHMEMOBJ@@QEAA@XZ.c)
- *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C00636C0 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
+ *     ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C001BC00 (--1BRUSHMEMOBJ@@QEAA@XZ.c)
+ *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C001BC50 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
+ *     ?GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z @ 0x1C001C830 (-GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z.c)
  */
 
 HBRUSH __fastcall hCreateSolidBrushInternal(unsigned int a1, int a2, HBRUSH a3, int a4)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?UseLegacyPresent@CLegacyRenderTarget@@MEBA_NXZ @ 0x180106440
+ * XREFs of ?UseLegacyPresent@CLegacyRenderTarget@@MEBA_NXZ @ 0x1800E2240
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CLegacyRenderTarget::UseLegacyPresent(CLegacyRenderTarget *this)
 {
-  return *((_BYTE *)this + 18696);
+  return *((_BYTE *)this + 18584);
 }

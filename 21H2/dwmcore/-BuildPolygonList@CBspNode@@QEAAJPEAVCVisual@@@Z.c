@@ -1,11 +1,11 @@
 /*
- * XREFs of ?BuildPolygonList@CBspNode@@QEAAJPEAVCVisual@@@Z @ 0x180246E14
+ * XREFs of ?BuildPolygonList@CBspNode@@QEAAJPEAVCVisual@@@Z @ 0x1801FA78C
  * Callers:
- *     ??$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonListBuilder@@W4WalkDirection@@@Z @ 0x1801DE7C0 (--$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonLi.c)
+ *     ??$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonListBuilder@@W4WalkDirection@@@Z @ 0x18019B150 (--$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonLi.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddToBspPolygonList@CVisual@@IEAAJPEAVCPolygon@@@Z @ 0x1801F6C30 (-AddToBspPolygonList@CVisual@@IEAAJPEAVCPolygon@@@Z.c)
- *     std::_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180246B18 (std--_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddToBspPolygonList@CVisual@@IEAAJPEAVCPolygon@@@Z @ 0x1801AD124 (-AddToBspPolygonList@CVisual@@IEAAJPEAVCPolygon@@@Z.c)
+ *     std::_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x1801FA51C (std--_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
  */
 
 __int64 __fastcall CBspNode::BuildPolygonList(CBspNode *this, struct CVisual *a2)
@@ -21,7 +21,7 @@ __int64 __fastcall CBspNode::BuildPolygonList(CBspNode *this, struct CVisual *a2
   if ( (unsigned __int64)((__int64)(*((_QWORD *)this + 5) - (_QWORD)v2) >> 3) > 1 )
   {
     std::_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___(
-      *((char **)this + 4),
+      *((__int64 **)this + 4),
       *((char **)this + 5),
       (__int64)(*((_QWORD *)this + 5) - (_QWORD)v2) >> 3,
       v9);
@@ -33,7 +33,7 @@ __int64 __fastcall CBspNode::BuildPolygonList(CBspNode *this, struct CVisual *a2
     v3 = v6;
     if ( v6 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0xCFu);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xD7u, 0LL);
       return v3;
     }
     ++v2;

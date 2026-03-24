@@ -1,9 +1,9 @@
 /*
- * XREFs of UpdatePointerRedirIsAlive @ 0x1C005FD1C
+ * XREFs of UpdatePointerRedirIsAlive @ 0x1C007C23C
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     IsPointerInputRedirected @ 0x1C01ECBC4 (IsPointerInputRedirected.c)
- *     _RegisterPointerInputTarget @ 0x1C01ED194 (_RegisterPointerInputTarget.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     IsPointerInputRedirected @ 0x1C01F2354 (IsPointerInputRedirected.c)
+ *     _RegisterPointerInputTarget @ 0x1C01F2924 (_RegisterPointerInputTarget.c)
  * Callees:
  *     <none>
  */

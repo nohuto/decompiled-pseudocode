@@ -1,42 +1,40 @@
 /*
- * XREFs of PopCreateDynamicIrpWorker @ 0x14039653C
+ * XREFs of PopCreateDynamicIrpWorker @ 0x1403A51D0
  * Callers:
- *     PopRunMaximumIrpWorkers @ 0x140396464 (PopRunMaximumIrpWorkers.c)
- *     PopIrpWorkerControl @ 0x1403DEE60 (PopIrpWorkerControl.c)
+ *     PopRunMaximumIrpWorkers @ 0x14038C3E0 (PopRunMaximumIrpWorkers.c)
+ *     PopIrpWorkerControl @ 0x1403CBFB0 (PopIrpWorkerControl.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     PopCreatePowerThread @ 0x1403B5088 (PopCreatePowerThread.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     PopCreatePowerThread @ 0x1403A5238 (PopCreatePowerThread.c)
  */
 
 __int64 __fastcall PopCreateDynamicIrpWorker(__int64 a1)
 {
   _QWORD *v2; // rax
-  unsigned int v3; // ebx
-  void *v4; // rdi
-  int PowerThread; // esi
+  void *v3; // rbx
+  int PowerThread; // edi
 
   v2 = ExAllocateFromNPagedLookasideList(&PopDynamicIrpWorkerLookaside);
-  v3 = 0;
-  v4 = v2;
+  v3 = v2;
   if ( !v2 )
   {
-    v3 = -1073741670;
-LABEL_6:
+    PowerThread = -1073741670;
+LABEL_7:
+    if ( v3 )
+      ExFreeToNPagedLookasideList(&PopDynamicIrpWorkerLookaside, v3);
     ExAcquireFastMutex(&PopIrpWorkerMutex);
     --PopIrpWorkerPendingCount;
     KeReleaseGuardedMutex(&PopIrpWorkerMutex);
-    return v3;
+    return (unsigned int)PowerThread;
   }
   *v2 = a1;
   PowerThread = PopCreatePowerThread(PopIrpWorker, v2);
+  if ( PowerThread >= 0 )
+    PowerThread = 0;
   if ( PowerThread < 0 )
-  {
-    ExFreeToNPagedLookasideList(&PopDynamicIrpWorkerLookaside, v4);
-    v3 = PowerThread;
-    goto LABEL_6;
-  }
-  return v3;
+    goto LABEL_7;
+  return (unsigned int)PowerThread;
 }

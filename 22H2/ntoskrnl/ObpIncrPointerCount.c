@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpIncrPointerCount @ 0x14025A124
+ * XREFs of ObpIncrPointerCount @ 0x14021BF80
  * Callers:
- *     PsImpersonateContainerOfThread @ 0x140259DC0 (PsImpersonateContainerOfThread.c)
- *     IoGetAttachedDeviceReference @ 0x140259FE0 (IoGetAttachedDeviceReference.c)
- *     ExpApplyPriorityBoost @ 0x1402A8420 (ExpApplyPriorityBoost.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A9090 (NtWaitForWorkViaWorkerFactory.c)
- *     ObDuplicateObject @ 0x1406FB9A0 (ObDuplicateObject.c)
- *     ObInheritObjectHandle @ 0x1407B0AAC (ObInheritObjectHandle.c)
- *     ObpReferenceProcessObjectByHandle @ 0x1407BD8F4 (ObpReferenceProcessObjectByHandle.c)
+ *     PsImpersonateContainerOfThread @ 0x14021BC50 (PsImpersonateContainerOfThread.c)
+ *     IopCallDriverReference @ 0x14022B670 (IopCallDriverReference.c)
+ *     IoGetAttachedDeviceReference @ 0x14022C380 (IoGetAttachedDeviceReference.c)
+ *     ExpApplyPriorityBoost @ 0x14022E970 (ExpApplyPriorityBoost.c)
+ *     PsGetThreadProperty @ 0x1402EFE20 (PsGetThreadProperty.c)
+ *     ObInheritObjectHandle @ 0x140606A84 (ObInheritObjectHandle.c)
+ *     ObpReferenceProcessObjectByHandle @ 0x140665280 (ObpReferenceProcessObjectByHandle.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 signed __int64 __fastcall ObpIncrPointerCount(volatile signed __int64 *a1)

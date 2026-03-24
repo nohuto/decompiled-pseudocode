@@ -1,12 +1,12 @@
 /*
- * XREFs of ?xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C02292D0
+ * XREFs of ?xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C02443D0
  * Callers:
  *     <none>
  * Callees:
- *     _SetSystemTimer @ 0x1C0006474 (_SetSystemTimer.c)
- *     _GetMessagePos @ 0x1C00AE3A4 (_GetMessagePos.c)
- *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C02293C0 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
- *     xxxTrackBox @ 0x1C022B3F0 (xxxTrackBox.c)
+ *     _SetSystemTimer @ 0x1C002CA18 (_SetSystemTimer.c)
+ *     _GetMessagePos @ 0x1C010F9A0 (_GetMessagePos.c)
+ *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C02444C0 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
+ *     xxxTrackBox @ 0x1C0246580 (xxxTrackBox.c)
  */
 
 void __fastcall xxxContScroll(struct tagWND *a1)
@@ -18,7 +18,7 @@ void __fastcall xxxContScroll(struct tagWND *a1)
   v2 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 720LL);
   if ( v2 )
   {
-    GetMessagePos();
+    GetMessagePos((__int64)a1);
     xxxTrackBox(a1);
     if ( v2 == *(_QWORD *)(*((_QWORD *)a1 + 2) + 720LL) && (*(_DWORD *)v2 & 1) != 0 )
     {

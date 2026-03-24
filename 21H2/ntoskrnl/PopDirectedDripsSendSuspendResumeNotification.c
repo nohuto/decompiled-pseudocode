@@ -1,23 +1,23 @@
 /*
- * XREFs of PopDirectedDripsSendSuspendResumeNotification @ 0x14098C390
+ * XREFs of PopDirectedDripsSendSuspendResumeNotification @ 0x1408E39AC
  * Callers:
- *     PopDirectedDripsNotifyAppsAndServices @ 0x14098C0DC (PopDirectedDripsNotifyAppsAndServices.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x1408E3608 (PopDirectedDripsNotifyAppsAndServices.c)
  * Callees:
- *     MmGetNextSession @ 0x1402A1770 (MmGetNextSession.c)
- *     MmGetSessionId @ 0x140300B40 (MmGetSessionId.c)
- *     PopUmpoSendLegacyEvent @ 0x1407FE938 (PopUmpoSendLegacyEvent.c)
- *     PopSuspendResumeInvocation @ 0x140807718 (PopSuspendResumeInvocation.c)
+ *     MmGetSessionId @ 0x140253550 (MmGetSessionId.c)
+ *     MmGetNextSession @ 0x1402D5F90 (MmGetNextSession.c)
+ *     PopUmpoSendLegacyEvent @ 0x140774E88 (PopUmpoSendLegacyEvent.c)
+ *     PopSuspendResumeInvocation @ 0x14077967C (PopSuspendResumeInvocation.c)
  */
 
 __int64 __fastcall PopDirectedDripsSendSuspendResumeNotification(char a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // di
   __int64 result; // rax
-  void *i; // rcx
+  struct _DMA_ADAPTER *i; // rcx
   __int64 v7; // rdx
   __int64 v8; // r8
   __int64 v9; // r9
-  void *v10; // rbx
+  struct _DMA_ADAPTER *v10; // rbx
   __int128 v11; // [rsp+20h] [rbp-10h] BYREF
   __int64 v12; // [rsp+50h] [rbp+20h] BYREF
 
@@ -27,7 +27,7 @@ __int64 __fastcall PopDirectedDripsSendSuspendResumeNotification(char a1, __int6
     for ( i = 0LL; ; i = v10 )
     {
       result = MmGetNextSession(i);
-      v10 = (void *)result;
+      v10 = (struct _DMA_ADAPTER *)result;
       if ( !result )
         break;
       v12 = 0LL;

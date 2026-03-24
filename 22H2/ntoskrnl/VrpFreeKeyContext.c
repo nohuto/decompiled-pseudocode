@@ -1,14 +1,14 @@
 /*
- * XREFs of VrpFreeKeyContext @ 0x14068EC34
+ * XREFs of VrpFreeKeyContext @ 0x1405D5A80
  * Callers:
- *     VrpPostOpenOrCreate @ 0x14068DF0C (VrpPostOpenOrCreate.c)
- *     VrpRegistryCallback @ 0x14068E300 (VrpRegistryCallback.c)
- *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A578 (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpPreLoadKey @ 0x14077A954 (VrpPreLoadKey.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpRegistryCallback @ 0x1405D3FD0 (VrpRegistryCallback.c)
+ *     VrpPostOpenOrCreate @ 0x1405D4420 (VrpPostOpenOrCreate.c)
+ *     VrpPreLoadKey @ 0x1408833DC (VrpPreLoadKey.c)
  * Callees:
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8BC0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     VrpDecommissionKeyContext @ 0x14068EC6C (VrpDecommissionKeyContext.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402C2A00 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     VrpDecommissionKeyContext @ 0x1405D5AB8 (VrpDecommissionKeyContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall VrpFreeKeyContext(PVOID *P)

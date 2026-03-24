@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFindProcessImageHotPatchRecord @ 0x140854E38
+ * XREFs of MiFindProcessImageHotPatchRecord @ 0x140854E18
  * Callers:
- *     MiHotPatchImage @ 0x140855350 (MiHotPatchImage.c)
+ *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
  *     SeQueryUserSidToken @ 0x1406102AC (SeQueryUserSidToken.c)
- *     MiFindHotPatchRecord @ 0x140682224 (MiFindHotPatchRecord.c)
- *     MiFindUserSidHotPatchContext @ 0x140854F80 (MiFindUserSidHotPatchContext.c)
+ *     MiFindHotPatchRecord @ 0x140682204 (MiFindHotPatchRecord.c)
+ *     MiFindUserSidHotPatchContext @ 0x140854F60 (MiFindUserSidHotPatchContext.c)
  */
 
 __int64 __fastcall MiFindProcessImageHotPatchRecord(

@@ -1,16 +1,16 @@
 /*
- * XREFs of KeSetIntervalProfile @ 0x1409751C8
+ * XREFs of KeSetIntervalProfile @ 0x140734774
  * Callers:
- *     EtwpTimeProfileStart @ 0x1409E6BF8 (EtwpTimeProfileStart.c)
- *     EtwpCoverageSamplerStart @ 0x1409F3488 (EtwpCoverageSamplerStart.c)
- *     NtSetIntervalProfile @ 0x140A04670 (NtSetIntervalProfile.c)
- *     KiInitializeCacheErrataSupport @ 0x140B9723C (KiInitializeCacheErrataSupport.c)
+ *     NtSetIntervalProfile @ 0x140734720 (NtSetIntervalProfile.c)
+ *     EtwpEnableKernelTrace @ 0x140793068 (EtwpEnableKernelTrace.c)
+ *     EtwpCoverageSamplerStart @ 0x1409471DC (EtwpCoverageSamplerStart.c)
+ *     KiInitializeCacheErrataSupport @ 0x140A920CC (KiInitializeCacheErrataSupport.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     KeGenericProcessorCallback @ 0x140305A04 (KeGenericProcessorCallback.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiSanitizeProfileInterval @ 0x1405795D8 (KiSanitizeProfileInterval.c)
- *     KeQueryIntervalProfile @ 0x140975100 (KeQueryIntervalProfile.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     KeGenericProcessorCallback @ 0x14035C6D8 (KeGenericProcessorCallback.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiSanitizeProfileInterval @ 0x140522400 (KiSanitizeProfileInterval.c)
+ *     KeQueryIntervalProfile @ 0x1407344C4 (KeQueryIntervalProfile.c)
  */
 
 void __fastcall KeSetIntervalProfile(int a1, int a2)
@@ -29,31 +29,29 @@ void __fastcall KeSetIntervalProfile(int a1, int a2)
   v6 = a1;
   v7 = 0LL;
   v4 = a1;
-  if ( (WORD2(PerfGlobalGroupMask[0]) & 0x402) != 0 )
+  if ( (WORD2(PerfGlobalGroupMask) & 0x402) != 0 )
     IntervalProfile = KeQueryIntervalProfile(a2);
   if ( !a2 )
   {
-    if ( (KiCacheErrataMonitor & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
+    if ( (KiCacheErrataMonitor & 0xFFFFFFFFFFFFFFFCuLL) == 0 )
     {
-      KiSanitizeProfileInterval(&v6);
-      v4 = v6;
+LABEL_5:
+      v7 = __PAIR64__(v4, a2);
+      KeGenericProcessorCallback(
+        (unsigned __int16 *)KeActiveProcessors,
+        (void (__fastcall *)(struct _KPRCB *, __int64))KiSetIntervalWorker,
+        (__int64)&v7,
+        1);
+      goto LABEL_6;
     }
-    goto LABEL_6;
+    KiSanitizeProfileInterval(&v6);
+    v4 = v6;
   }
   if ( a2 != 1 )
-  {
-LABEL_6:
-    v7 = __PAIR64__(v4, a2);
-    KeGenericProcessorCallback(
-      KeActiveProcessors,
-      (void (__fastcall *)(struct _KPRCB *, __int64))KiSetIntervalWorker,
-      (__int64)&v7,
-      1);
-    goto LABEL_7;
-  }
+    goto LABEL_5;
   KiProfileAlignmentFixupInterval = v4;
-LABEL_7:
-  if ( (WORD2(PerfGlobalGroupMask[0]) & 0x402) != 0 )
+LABEL_6:
+  if ( (WORD2(PerfGlobalGroupMask) & 0x402) != 0 )
   {
     v5 = KeQueryIntervalProfile(a2);
     if ( v5 != IntervalProfile )
@@ -64,7 +62,7 @@ LABEL_7:
       v9 = v8;
       v8[2] = IntervalProfile;
       v10 = 12;
-      EtwTraceKernelEvent((int)&v9, 1, 0x20000402u, 3912, 4200706);
+      EtwTraceKernelEvent((__int64)&v9, 1u, 0x20000402u, 0xF48u, 0x401902u);
     }
   }
 }

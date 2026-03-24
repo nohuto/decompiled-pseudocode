@@ -1,25 +1,24 @@
 /*
- * XREFs of KiEnableKvaShadowing @ 0x140A59FA4
+ * XREFs of KiEnableKvaShadowing @ 0x14099F860
  * Callers:
- *     KiInitializeProcessorState @ 0x14082A324 (KiInitializeProcessorState.c)
- *     KiInitializeBootStructures @ 0x140A57680 (KiInitializeBootStructures.c)
+ *     KxInitializeProcessorState @ 0x14079FD80 (KxInitializeProcessorState.c)
+ *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
  * Callees:
- *     HvlRescindEnlightenments @ 0x14025E878 (HvlRescindEnlightenments.c)
- *     KiSetAddressPolicy @ 0x140347550 (KiSetAddressPolicy.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     KiInitializeDescriptorIst @ 0x1403C2554 (KiInitializeDescriptorIst.c)
- *     KiIsKvaLeakSimulated @ 0x1403C25A4 (KiIsKvaLeakSimulated.c)
- *     KiIsKvaShadowDisabled @ 0x1403C25B8 (KiIsKvaShadowDisabled.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     KiShadowProcessorAllocation @ 0x140A5A148 (KiShadowProcessorAllocation.c)
- *     KiInitializeIdt @ 0x140A5A324 (KiInitializeIdt.c)
+ *     KiSetAddressPolicy @ 0x1402079D0 (KiSetAddressPolicy.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     HvlRescindEnlightenments @ 0x1402D3F48 (HvlRescindEnlightenments.c)
+ *     KiInitializeDescriptorIst @ 0x1403B5BB8 (KiInitializeDescriptorIst.c)
+ *     KiIsKvaLeakSimulated @ 0x1403B5C08 (KiIsKvaLeakSimulated.c)
+ *     KiIsKvaShadowDisabled @ 0x1403B5C1C (KiIsKvaShadowDisabled.c)
+ *     KiShadowProcessorAllocation @ 0x14099F9F4 (KiShadowProcessorAllocation.c)
+ *     KiInitializeIdt @ 0x14099FAC8 (KiInitializeIdt.c)
  */
 
 __int64 __fastcall KiEnableKvaShadowing(__int64 a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  char v4; // cl
+  __int64 v2; // rcx
+  __int64 v3; // rdx
+  __int64 v4; // rcx
   unsigned __int64 v5; // rax
   __int64 v6; // rdx
   __int64 v7; // r11
@@ -30,33 +29,30 @@ __int64 __fastcall KiEnableKvaShadowing(__int64 a1)
 
   if ( KiIsKvaShadowDisabled() )
   {
-    KiIsKvaShadowConfigDisabled = 1;
+    BYTE1(Mm64BitPhysicalAddress) = 1;
     return 1LL;
   }
   if ( (KeFeatureBits2 & 0x18000) == 0x8000 )
-    *(_QWORD *)(v3 + 11520) = 3LL;
-  v4 = KiKernelCetEnabled;
-  if ( !(_BYTE)KiKernelCetEnabled && KiIsKvaLeakSimulated() )
+    *(_QWORD *)(v2 + 11520) = 3LL;
+  if ( KiIsKvaLeakSimulated() )
     KiKvaLeakageSimulate = 1;
   if ( !KiKvaLeakage && !KiKvaLeakageSimulate )
     return 1LL;
-  if ( v4 )
-    KeBugCheckEx(0x5Du, 0x4B766120uLL, 0x4B434554uLL, 0LL, 0LL);
   v5 = __readcr3();
-  *(_QWORD *)(a1 + 40576) = v5;
-  *(_QWORD *)(v2 + 4216) = *(_QWORD *)(v2 + 4100);
-  KiInitializeDescriptorIst(a1, v2);
+  *(_QWORD *)(v4 + 36480) = v5;
+  *(_QWORD *)(v3 + 4216) = *(_QWORD *)(v3 + 4100);
+  KiInitializeDescriptorIst(v4, v3);
   *(_QWORD *)(v7 + 4100) = v7 + 16896;
   if ( !*(_DWORD *)(a1 + 36) )
   {
     LOBYTE(v6) = 1;
     KiInitializeIdt(v7, v6);
     KeGetCurrentThread()->ApcState.Process->AddressPolicy = 1;
-    byte_140D32E90 = 1;
-    _InterlockedOr(dword_140D3337C, 0x4000u);
+    byte_140D24D90 = 1;
+    _InterlockedOr(dword_140D2527C, 0x4000u);
     KiSetAddressPolicy();
-    *(_WORD *)(a1 + 40618) = 24;
-    v10 = *(_QWORD *)(a1 + 35232);
+    *(_WORD *)(a1 + 36522) = 24;
+    v10 = *(_QWORD *)(a1 + 34208);
     if ( (v10 & 0x40000000000LL) != 0 )
     {
       v11 = __readcr4();
@@ -64,23 +60,23 @@ __int64 __fastcall KiEnableKvaShadowing(__int64 a1)
       v12 = __readcr3();
       __writecr3(v12 | 2);
       KiFlushPcid |= 1u;
-      v10 = *(_QWORD *)(a1 + 35232);
+      v10 = *(_QWORD *)(a1 + 34208);
     }
     if ( (v10 & 0x240000000000LL) == 0x240000000000LL )
       KiFlushPcid |= 2u;
     HvlRescindEnlightenments();
     KiKvaShadow = 1;
     KiKvaShadowMode = 2 - (KiFlushPcid != 0);
-    goto LABEL_12;
+    goto LABEL_10;
   }
   if ( (unsigned int)KiShadowProcessorAllocation(a1, v7) )
   {
-    v8 = *(_WORD *)(KeGetPrcb(0) + 40618);
-    *(_DWORD *)(a1 + 40600) |= 2u;
-    *(_WORD *)(a1 + 40618) = v8;
-LABEL_12:
+    v8 = *(_WORD *)(KeGetPrcb(0) + 36522);
+    *(_DWORD *)(a1 + 36504) |= 2u;
+    *(_WORD *)(a1 + 36522) = v8;
+LABEL_10:
     if ( KiFlushPcid )
-      _interlockedbittestandset64((volatile signed __int32 *)(a1 + 40576), 0x3FuLL);
+      _interlockedbittestandset64((volatile signed __int32 *)(a1 + 36480), 0x3FuLL);
     return 1LL;
   }
   return 0LL;

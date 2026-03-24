@@ -1,22 +1,22 @@
 /*
- * XREFs of NtQuerySection @ 0x1407BA510
+ * XREFs of NtQuerySection @ 0x14068C1C0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     MmGetSectionInformation @ 0x1407BA640 (MmGetSectionInformation.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     MmGetSectionInformation @ 0x140621350 (MmGetSectionInformation.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtQuerySection(HANDLE Handle, unsigned int a2, volatile void *a3, SIZE_T a4, unsigned __int64 *a5)
+__int64 __fastcall NtQuerySection(HANDLE Handle, int a2, volatile void *a3, SIZE_T a4, unsigned __int64 *a5)
 {
   KPROCESSOR_MODE PreviousMode; // r15
   __int64 v10; // rcx
   unsigned __int64 v11; // rbx
-  NTSTATUS SectionInformation; // edi
-  __int64 v13; // rdx
-  PVOID v14; // rsi
+  int SectionInformation; // edi
+  int v13; // edx
+  struct _DMA_ADAPTER *v14; // rsi
   PVOID Object; // [rsp+30h] [rbp-28h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -55,14 +55,14 @@ __int64 __fastcall NtQuerySection(HANDLE Handle, unsigned int a2, volatile void 
   if ( SectionInformation >= 0 )
   {
     v13 = a2;
-    v14 = Object;
-    SectionInformation = MmGetSectionInformation(Object, v13, a3);
+    v14 = (struct _DMA_ADAPTER *)Object;
+    SectionInformation = MmGetSectionInformation((__int64)Object, v13, (__int64)a3);
     if ( SectionInformation >= 0 )
     {
       if ( a5 )
         *a5 = v11;
     }
-    ObfDereferenceObject(v14);
+    HalPutDmaAdapter(v14);
   }
   return (unsigned int)SectionInformation;
 }

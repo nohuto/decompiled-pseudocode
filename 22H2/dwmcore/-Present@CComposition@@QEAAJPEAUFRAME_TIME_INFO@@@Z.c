@@ -1,69 +1,70 @@
 /*
- * XREFs of ?Present@CComposition@@QEAAJPEAUFRAME_TIME_INFO@@@Z @ 0x18004D4D4
+ * XREFs of ?Present@CComposition@@QEAAJPEAUFRAME_TIME_INFO@@@Z @ 0x180075400
  * Callers:
- *     ?PresentFrame@CPartitionVerticalBlankScheduler@@AEAA_NPEAVCFrameInfo@@I@Z @ 0x180050B80 (-PresentFrame@CPartitionVerticalBlankScheduler@@AEAA_NPEAVCFrameInfo@@I@Z.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x180070200 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
  * Callees:
- *     ?Present@CRenderTargetManager@@QEAAJXZ @ 0x18004D3B0 (-Present@CRenderTargetManager@@QEAAJXZ.c)
- *     ?ProcessRenderingStatus@CComposition@@QEAAXJ@Z @ 0x180050A78 (-ProcessRenderingStatus@CComposition@@QEAAXJ@Z.c)
- *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180053040 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McTemplateU0xx_EventWriteTransfer @ 0x18012E000 (McTemplateU0xx_EventWriteTransfer.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Present@CRenderTargetManager@@QEAAJXZ @ 0x18006ED24 (-Present@CRenderTargetManager@@QEAAJXZ.c)
+ *     ?ProcessRenderingStatus@CComposition@@QEAAXJ@Z @ 0x1800736CC (-ProcessRenderingStatus@CComposition@@QEAAXJ@Z.c)
+ *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180077800 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     McTemplateU0xx_EventWriteTransfer @ 0x180155FC8 (McTemplateU0xx_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CComposition::Present(CComposition *this, struct FRAME_TIME_INFO *a2)
 {
-  __int64 v3; // rcx
-  int v4; // eax
-  unsigned int v5; // ecx
-  __int64 v6; // r8
-  int v7; // ebx
-  int v8; // eax
-  unsigned int v9; // ecx
-  int v10; // esi
-  __int64 v11; // rcx
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  int v5; // eax
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  int v8; // ebx
+  int v9; // eax
+  __int64 v10; // rcx
+  int v11; // esi
+  __int64 v12; // rcx
   LARGE_INTEGER PerformanceCount; // [rsp+30h] [rbp-28h] BYREF
-  _BYTE v14[16]; // [rsp+38h] [rbp-20h] BYREF
+  _BYTE v15[16]; // [rsp+38h] [rbp-20h] BYREF
 
   PerformanceCount.QuadPart = 0LL;
-  *((_QWORD *)this + 61) = a2;
+  *((_QWORD *)this + 43) = a2;
   QueryPerformanceCounter(&PerformanceCount);
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
     ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))McTemplateU0xx_EventWriteTransfer)(
-      v3,
+      v4,
       &EVTDESC_MILEVENT_MEDIA_UCE_PRESENTEVENT_Start,
       this,
       (LARGE_INTEGER)PerformanceCount.QuadPart);
-  v4 = CRenderTargetManager::Present(*((struct CRenderTarget ****)this + 27));
-  v7 = v4;
-  if ( v4 < 0 )
+  v5 = CRenderTargetManager::Present(*((CRenderTargetManager **)this + 11), v3);
+  v8 = v5;
+  if ( v5 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x395u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x319u, 0LL);
   }
   else if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
   {
     McGenEventWrite_EventWriteTransfer(
       &Microsoft_Windows_Dwm_Core_Provider_Context,
       &EVTDESC_SCHEDULE_DXGI_PRESENT_SUCCEEDED,
-      v6,
+      v7,
       1LL,
-      v14);
+      v15);
   }
-  CComposition::ProcessRenderingStatus(this, v7);
-  v8 = CComposition::PostPresent(this, v7 != 0);
-  v10 = v8;
-  if ( v8 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x3A1u, 0LL);
-  if ( !v7 || v7 >= 0 && v10 < 0 )
-    v7 = v10;
+  CComposition::ProcessRenderingStatus(this, v8);
+  v9 = CComposition::PostPresent(this, v8 != 0);
+  v11 = v9;
+  if ( v9 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x325u, 0LL);
+  if ( !v8 || v8 >= 0 && v11 < 0 )
+    v8 = v11;
   QueryPerformanceCounter(&PerformanceCount);
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
     ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))McTemplateU0xx_EventWriteTransfer)(
-      v11,
+      v12,
       &EVTDESC_MILEVENT_MEDIA_UCE_PRESENTEVENT_Stop,
       this,
       (LARGE_INTEGER)PerformanceCount.QuadPart);
-  *((_QWORD *)this + 61) = 0LL;
-  return (unsigned int)v7;
+  *((_QWORD *)this + 43) = 0LL;
+  return (unsigned int)v8;
 }

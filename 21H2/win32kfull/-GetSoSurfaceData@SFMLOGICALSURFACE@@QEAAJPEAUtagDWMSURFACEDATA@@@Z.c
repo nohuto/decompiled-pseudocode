@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetSoSurfaceData@SFMLOGICALSURFACE@@QEAAJPEAUtagDWMSURFACEDATA@@@Z @ 0x1C00854F4
+ * XREFs of ?GetSoSurfaceData@SFMLOGICALSURFACE@@QEAAJPEAUtagDWMSURFACEDATA@@@Z @ 0x1C00172EC
  * Callers:
- *     GreDwmGetSurfaceData @ 0x1C00855CC (GreDwmGetSurfaceData.c)
+ *     GreDwmGetSurfaceData @ 0x1C00170D8 (GreDwmGetSurfaceData.c)
  * Callees:
- *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C0084F94 (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
+ *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C0017620 (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
  */
 
 __int64 __fastcall SFMLOGICALSURFACE::GetSoSurfaceData(SFMLOGICALSURFACE *this, struct tagDWMSURFACEDATA *a2)
@@ -24,7 +24,9 @@ __int64 __fastcall SFMLOGICALSURFACE::GetSoSurfaceData(SFMLOGICALSURFACE *this, 
     *((_DWORD *)a2 + 1) = *((_DWORD *)this + 68);
     *((_DWORD *)a2 + 2) = *((_DWORD *)this + 69);
     *((_DWORD *)a2 + 3) = 6;
-    goto LABEL_15;
+LABEL_12:
+    v7 = qword_1C033D618;
+    goto LABEL_7;
   }
   *((_DWORD *)a2 + 1) = v2[8];
   *((_DWORD *)a2 + 2) = v2[9];
@@ -39,9 +41,7 @@ __int64 __fastcall SFMLOGICALSURFACE::GetSoSurfaceData(SFMLOGICALSURFACE *this, 
   if ( v2[18] != 6 )
   {
     *(_DWORD *)a2 = 0;
-LABEL_15:
-    v7 = qword_1C0337CE0;
-    goto LABEL_7;
+    goto LABEL_12;
   }
   if ( (unsigned int)SFMLOGICALSURFACE::bDeviceBitmap(this) )
   {
@@ -53,7 +53,7 @@ LABEL_7:
     return (unsigned int)ObjectType;
   }
   v9 = (void *)v6[28];
-  *((_QWORD *)a2 + 4) = qword_1C0337CE0;
+  *((_QWORD *)a2 + 4) = qword_1C033D618;
   if ( v9 )
   {
     *(_DWORD *)a2 = 1;

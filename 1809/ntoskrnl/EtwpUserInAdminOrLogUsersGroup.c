@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpUserInAdminOrLogUsersGroup @ 0x1408BC02C
+ * XREFs of EtwpUserInAdminOrLogUsersGroup @ 0x1408BC00C
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A6C (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     RtlCheckTokenMembership @ 0x1400DCAF0 (RtlCheckTokenMembership.c)
+ *     RtlCheckTokenMembership @ 0x1400DCB10 (RtlCheckTokenMembership.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlAllocateAndInitializeSidEx @ 0x14089384C (RtlAllocateAndInitializeSidEx.c)
+ *     RtlAllocateAndInitializeSidEx @ 0x14089382C (RtlAllocateAndInitializeSidEx.c)
  */
 
 bool EtwpUserInAdminOrLogUsersGroup()

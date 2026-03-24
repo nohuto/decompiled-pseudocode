@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CursorToString@InputTraceLogging@@CAPEBDPEAUtagCURSOR@@@Z @ 0x1C01A8764
+ * XREFs of ?CursorToString@InputTraceLogging@@CAPEBDPEAUtagCURSOR@@@Z @ 0x1C01D37E4
  * Callers:
- *     LockQCursor @ 0x1C005B5D0 (LockQCursor.c)
- *     ?SetCursorImage@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@0IW4CursorImageReason@12@KK@Z @ 0x1C005D1EC (-SetCursorImage@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@0IW4CursorImageReason@12@KK@Z.c)
+ *     LockQCursor @ 0x1C00128F0 (LockQCursor.c)
+ *     ?SetCursorImage@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@0IW4CursorImageReason@12@KK@Z @ 0x1C002A628 (-SetCursorImage@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@0IW4CursorImageReason@12@KK@Z.c)
  * Callees:
- *     ?CurIndexName@InputTraceLogging@@CAPEBDI@Z @ 0x1C01A8718 (-CurIndexName@InputTraceLogging@@CAPEBDI@Z.c)
+ *     ?CurIndexName@InputTraceLogging@@CAPEBDI@Z @ 0x1C01D3798 (-CurIndexName@InputTraceLogging@@CAPEBDI@Z.c)
  */
 
 const char *__fastcall InputTraceLogging::CursorToString(struct tagCURSOR *a1)

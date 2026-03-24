@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetCorrelationVectorLastDotPosition @ 0x1405AF7FC
+ * XREFs of RtlpGetCorrelationVectorLastDotPosition @ 0x14058CB9C
  * Callers:
- *     RtlIncrementCorrelationVector @ 0x1409BEE80 (RtlIncrementCorrelationVector.c)
+ *     RtlIncrementCorrelationVector @ 0x140916150 (RtlIncrementCorrelationVector.c)
  * Callees:
- *     RtlpGetCorrelationVectorBufferLength @ 0x1409BF1C0 (RtlpGetCorrelationVectorBufferLength.c)
+ *     RtlpGetCorrelationVectorBufferLength @ 0x140916484 (RtlpGetCorrelationVectorBufferLength.c)
  */
 
 __int64 __fastcall RtlpGetCorrelationVectorLastDotPosition(__int64 a1, __int64 a2)

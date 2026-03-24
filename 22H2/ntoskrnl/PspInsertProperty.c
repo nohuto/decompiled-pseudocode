@@ -1,74 +1,77 @@
 /*
- * XREFs of PspInsertProperty @ 0x1403C46C4
+ * XREFs of PspInsertProperty @ 0x1402EFD30
  * Callers:
- *     PsSetThreadProperty @ 0x1403C4530 (PsSetThreadProperty.c)
- *     PsSetJobProperty @ 0x1405A3EF0 (PsSetJobProperty.c)
+ *     PsSetThreadProperty @ 0x1402EFC70 (PsSetThreadProperty.c)
+ *     PsSetJobProperty @ 0x1405813F0 (PsSetJobProperty.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     PspFindPropertySetEntry @ 0x1403326E4 (PspFindPropertySetEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PspFindPropertySetEntry @ 0x1402F01A8 (PspFindPropertySetEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PspInsertProperty(KSPIN_LOCK *a1, __int64 a2, void *a3)
 {
-  int v3; // edi
-  KSPIN_LOCK *Pool2; // rbx
+  int v6; // edi
+  _QWORD *PoolWithTag; // rbx
   unsigned __int64 v8; // rbp
   KSPIN_LOCK v9; // rax
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v14; // eax
   bool v15; // zf
 
-  v3 = 0;
-  Pool2 = (KSPIN_LOCK *)ExAllocatePool2(64LL, 32LL, 1349742672LL);
-  if ( Pool2 )
+  v6 = 0;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x50737050u);
+  if ( PoolWithTag )
   {
     v8 = KeAcquireSpinLockRaiseToDpc(a1 + 2);
     if ( PspFindPropertySetEntry(a1, a2) )
     {
-      v3 = -1073741771;
+      v6 = -1073741771;
     }
     else
     {
-      Pool2[2] = a2;
-      Pool2[3] = (KSPIN_LOCK)a3;
+      PoolWithTag[2] = a2;
+      PoolWithTag[3] = a3;
       v9 = *a1;
       if ( *(KSPIN_LOCK **)(*a1 + 8) != a1 )
         __fastfail(3u);
-      *Pool2 = v9;
-      Pool2[1] = (KSPIN_LOCK)a1;
-      *(_QWORD *)(v9 + 8) = Pool2;
-      *a1 = (KSPIN_LOCK)Pool2;
+      *PoolWithTag = v9;
+      PoolWithTag[1] = a1;
+      *(_QWORD *)(v9 + 8) = PoolWithTag;
+      *a1 = (KSPIN_LOCK)PoolWithTag;
       ObfReferenceObjectWithTag(a3, 0x72507350u);
     }
-    KxReleaseSpinLock((volatile signed __int64 *)a1 + 2);
+    KxReleaseSpinLock(a1 + 2);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-        v15 = (v14 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v14;
-        if ( v15 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+          v15 = (v14 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v14;
+          if ( v15 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v8);
-    if ( v3 < 0 )
-      ExFreePoolWithTag(Pool2, 0x50737050u);
+    if ( v6 < 0 )
+      ExFreePoolWithTag(PoolWithTag, 0x50737050u);
   }
   else
   {
     return (unsigned int)-1073741801;
   }
-  return (unsigned int)v3;
+  return (unsigned int)v6;
 }

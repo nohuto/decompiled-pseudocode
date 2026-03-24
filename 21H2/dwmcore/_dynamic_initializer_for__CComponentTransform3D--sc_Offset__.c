@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CComponentTransform3D::sc_Offset__ @ 0x1800019B0
+ * XREFs of _dynamic_initializer_for__CComponentTransform3D::sc_Offset__ @ 0x1800017D0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CComponentTransform3D::sc_Offset__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D0280 = (unsigned __int64)CPropertyChangeResource::SetAnimatedProperty;
-  qword_1803D0290 = v1;
+  xmmword_180344130 = (unsigned __int64)CPropertyChangeResource::SetAnimatedProperty;
+  qword_180344140 = v1;
   return result;
 }

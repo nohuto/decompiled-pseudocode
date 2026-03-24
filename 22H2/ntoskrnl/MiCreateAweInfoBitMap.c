@@ -1,59 +1,56 @@
 /*
- * XREFs of MiCreateAweInfoBitMap @ 0x140A415B0
+ * XREFs of MiCreateAweInfoBitMap @ 0x1408D59DC
  * Callers:
- *     MiAllocateAweInfo @ 0x140A4009C (MiAllocateAweInfo.c)
- *     MiResizeAweBitMap @ 0x140A42180 (MiResizeAweBitMap.c)
+ *     MiAllocateAweInfo @ 0x1408D4BD0 (MiAllocateAweInfo.c)
+ *     MiResizeAweBitMap @ 0x1408D6534 (MiResizeAweBitMap.c)
  * Callees:
- *     PsChargeProcessNonPagedPoolQuota @ 0x140289A20 (PsChargeProcessNonPagedPoolQuota.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiGetAweInfoPartition @ 0x14064A8C8 (MiGetAweInfoPartition.c)
- *     MiGetAwePageSize @ 0x14064A988 (MiGetAwePageSize.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140297040 (PsChargeProcessNonPagedPoolQuota.c)
+ *     ExGetCallBackBlockRoutine @ 0x140381AA0 (ExGetCallBackBlockRoutine.c)
+ *     MiGetAweInfoPartition @ 0x14054C2D4 (MiGetAweInfoPartition.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateAweInfoBitMap(__int64 a1)
 {
-  _KPROCESS *Process; // rsi
+  _KPROCESS *Process; // r14
   __int64 v3; // rbx
-  __int16 v4; // ax
-  unsigned __int64 AwePageSize; // rax
-  unsigned __int64 v6; // rbx
-  PVOID Pool; // rbp
-  int v8; // esi
+  unsigned __int64 v4; // rax
+  __int16 v5; // ax
+  unsigned __int64 v6; // rax
+  unsigned __int64 v7; // rbx
+  PVOID Pool; // rsi
   __int64 result; // rax
+  int v10; // ebp
 
   Process = KeGetCurrentThread()->ApcState.Process;
-  if ( (*(_DWORD *)(a1 + 8) & 8) != 0 )
-    v3 = 0xFFFFFFFFFFLL;
-  else
-    v3 = *(_QWORD *)(MiGetAweInfoPartition(a1) + 17032);
-  if ( Process[1].Affinity.StaticBitmap[30] )
+  v3 = *(_QWORD *)(MiGetAweInfoPartition(a1) + 6920);
+  v4 = Process[1].AffinityPadding[10];
+  if ( v4 )
   {
-    v4 = WORD2(Process[2].Affinity.StaticBitmap[20]);
-    if ( (v4 == 332 || v4 == 452) && (unsigned __int64)(v3 + 1) > 0x100000000LL )
+    v5 = *(_WORD *)(v4 + 8);
+    if ( (v5 == 332 || v5 == 452) && (unsigned __int64)(v3 + 1) > 0x100000000LL )
       v3 = 0xFFFFFFFFLL;
   }
-  AwePageSize = MiGetAwePageSize(a1);
-  if ( AwePageSize == 1 )
-    v6 = v3 + 1;
+  v6 = ExGetCallBackBlockRoutine(a1);
+  if ( v6 == 1 )
+    v7 = v3 + 1;
   else
-    v6 = (~(AwePageSize - 1) & (v3 + AwePageSize - 1)) / AwePageSize;
-  if ( *(_QWORD *)(a1 + 24) == v6 )
-    return 3221225626LL;
-  Pool = MiAllocatePool(64, 8 * ((v6 >> 6) + ((v6 & 0x3F) != 0)), 0x4C646156u);
+    v7 = (~(v6 - 1) & (v3 + v6 - 1)) / v6;
+  Pool = MiAllocatePool(64, 8 * ((v7 >> 6) + ((v7 & 0x3F) != 0)), 0x4C646156u);
   if ( !Pool )
     return 3221225626LL;
-  if ( (*(_DWORD *)(a1 + 8) & 1) != 0
-    && (v8 = PsChargeProcessNonPagedPoolQuota(Process, 8 * ((v6 >> 6) + ((v6 & 0x3F) != 0))), v8 < 0) )
+  if ( (*(_DWORD *)a1 & 1) != 0
+    && (v10 = PsChargeProcessNonPagedPoolQuota(Process, 8 * ((v7 >> 6) + ((v7 & 0x3F) != 0))), v10 < 0) )
   {
     ExFreePoolWithTag(Pool, 0);
-    return (unsigned int)v8;
+    return (unsigned int)v10;
   }
   else
   {
-    *(_QWORD *)(a1 + 24) = v6;
+    *(_QWORD *)(a1 + 16) = v7;
     result = 0LL;
-    *(_QWORD *)(a1 + 32) = Pool;
+    *(_QWORD *)(a1 + 24) = Pool;
   }
   return result;
 }

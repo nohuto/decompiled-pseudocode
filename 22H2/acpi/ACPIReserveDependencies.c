@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIReserveDependencies @ 0x1C00145EC
+ * XREFs of ACPIReserveDependencies @ 0x1C004C8F4
  * Callers:
- *     ACPIAddInitializationDependencies @ 0x1C000BA98 (ACPIAddInitializationDependencies.c)
- *     ACPIConvertDependenciesToPnpReservations @ 0x1C00143C8 (ACPIConvertDependenciesToPnpReservations.c)
+ *     ACPIAddInitializationDependencies @ 0x1C0011578 (ACPIAddInitializationDependencies.c)
+ *     ACPIConvertDependenciesToPnpReservations @ 0x1C00118D8 (ACPIConvertDependenciesToPnpReservations.c)
  * Callees:
- *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
- *     WPP_RECORDER_SF_sL @ 0x1C0015638 (WPP_RECORDER_SF_sL.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0010920 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     WPP_RECORDER_SF_sL @ 0x1C004CB4C (WPP_RECORDER_SF_sL.c)
  */
 
 __int64 __fastcall ACPIReserveDependencies(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall ACPIReserveDependencies(__int64 a1, __int64 a2)
   __int128 v7; // [rsp+40h] [rbp-18h] BYREF
 
   v7 = 0LL;
-  v4 = ACPIAmliBuildObjectPathnameUnicode(a2, (__int64)&v7, 3);
+  v4 = ACPIAmliBuildObjectPathnameUnicode(a2, (__int64)&v7);
   AMLIDereferenceHandleEx(a2);
   if ( v4 >= 0 )
   {
@@ -29,7 +29,7 @@ __int64 __fastcall ACPIReserveDependencies(__int64 a1, __int64 a2)
       v5,
       21,
       20,
-      (__int64)&WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       *((__int64 *)&v7 + 1),
       v4);
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C02CE278
+ * XREFs of ?vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C02CFCE4
  * Callers:
- *     ?vAddEndCap@WIDENER@@IEAAXXZ @ 0x1C012EE88 (-vAddEndCap@WIDENER@@IEAAXXZ.c)
- *     ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C012EF14 (-vAddStartCap@WIDENER@@IEAAXXZ.c)
+ *     ?vAddEndCap@WIDENER@@IEAAXXZ @ 0x1C013F400 (-vAddEndCap@WIDENER@@IEAAXXZ.c)
+ *     ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C013F48C (-vAddStartCap@WIDENER@@IEAAXXZ.c)
  * Callees:
- *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0017E64 (-bIsZero@EFLOAT@@QEBAHXZ.c)
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
- *     ?efWorldLength@STYLER@@IEAA?AVEFLOAT@@VEVECTORFX@@@Z @ 0x1C02CDD4C (-efWorldLength@STYLER@@IEAA-AVEFLOAT@@VEVECTORFX@@@Z.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0098748 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
+ *     ?efWorldLength@STYLER@@IEAA?AVEFLOAT@@VEVECTORFX@@@Z @ 0x1C02CF518 (-efWorldLength@STYLER@@IEAA-AVEFLOAT@@VEVECTORFX@@@Z.c)
  */
 
 void __fastcall WIDENER::vVecSquareCompute(WIDENER *this, struct LINEDATA *a2)

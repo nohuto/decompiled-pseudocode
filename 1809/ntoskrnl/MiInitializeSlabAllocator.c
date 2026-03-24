@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeSlabAllocator @ 0x14017EEDC
+ * XREFs of MiInitializeSlabAllocator @ 0x14017EEFC
  * Callers:
- *     MiInitializePartition @ 0x14072AB48 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14072AB28 (MiInitializePartition.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void *__fastcall MiInitializeSlabAllocator(_QWORD *a1, int a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpCmciInit @ 0x140A5AAF0
+ * XREFs of HalpCmciInit @ 0x1409A1244
  * Callers:
- *     HalpCmcWorkerRoutine @ 0x140908680 (HalpCmcWorkerRoutine.c)
- *     HalpInitializeCmc @ 0x140A5AA64 (HalpInitializeCmc.c)
+ *     HalpCmcWorkerRoutine @ 0x140864440 (HalpCmcWorkerRoutine.c)
+ *     HalpInitializeCmc @ 0x1409A11B8 (HalpInitializeCmc.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     HalpCmciInitializeErrorPacket @ 0x1403D2750 (HalpCmciInitializeErrorPacket.c)
- *     HalpCmciLoadThresholdConfiguration @ 0x1403D2888 (HalpCmciLoadThresholdConfiguration.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HalpCmciInitProcessor @ 0x140A53718 (HalpCmciInitProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpCmciLoadThresholdConfiguration @ 0x1403C55B8 (HalpCmciLoadThresholdConfiguration.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpCmciInitProcessor @ 0x140999D20 (HalpCmciInitProcessor.c)
+ *     HalpCmciInitializeErrorPacket @ 0x1409A136C (HalpCmciInitializeErrorPacket.c)
  */
 
 void __fastcall HalpCmciInit(__int64 a1)
@@ -19,7 +19,7 @@ void __fastcall HalpCmciInit(__int64 a1)
   LARGE_INTEGER PerformanceCounter; // rdi
   ULONG v3; // ebp
   ULONG ActiveProcessorCount; // r15d
-  unsigned int *v5; // r14
+  int *v5; // r14
   unsigned int v6; // ecx
   struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 i; // rsi
@@ -48,10 +48,10 @@ void __fastcall HalpCmciInit(__int64 a1)
       else
         p_PreviousAffinity = &PreviousAffinity;
       KeSetSystemGroupAffinityThread(&Affinity, p_PreviousAffinity);
-      for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; i; i = *(_QWORD *)(i + 184) )
+      for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; i; i = *(_QWORD *)(i + 176) )
       {
-        v9 = *(_QWORD *)(i + 172);
-        *(LARGE_INTEGER *)(i + 112) = PerformanceCounter;
+        v9 = *(_QWORD *)(i + 164);
+        *(LARGE_INTEGER *)(i + 104) = PerformanceCounter;
         HalpCmciInitializeErrorPacket(a1, v9);
         HalpCmciInitProcessor(a1, v9);
       }

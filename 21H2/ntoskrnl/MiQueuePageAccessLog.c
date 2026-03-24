@@ -1,17 +1,17 @@
 /*
- * XREFs of MiQueuePageAccessLog @ 0x140233AA0
+ * XREFs of MiQueuePageAccessLog @ 0x14025C02C
  * Callers:
- *     MiReturnCcAccessLog @ 0x140233A4C (MiReturnCcAccessLog.c)
- *     MiTrimOrAgeWorkingSet @ 0x14030C260 (MiTrimOrAgeWorkingSet.c)
- *     MiEmptyPageAccessLog @ 0x140334400 (MiEmptyPageAccessLog.c)
- *     MiCheckAndProcessCcAccessLog @ 0x1403760B4 (MiCheckAndProcessCcAccessLog.c)
- *     MiGetCcAccessLog @ 0x1406AC9A4 (MiGetCcAccessLog.c)
+ *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
+ *     MiEmptyPageAccessLog @ 0x14025BC70 (MiEmptyPageAccessLog.c)
+ *     MiReturnCcAccessLog @ 0x1402C811C (MiReturnCcAccessLog.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x1403A3614 (MiCheckAndProcessCcAccessLog.c)
+ *     MiGetCcAccessLog @ 0x1406AD20C (MiGetCcAccessLog.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     MmFreeAccessPfnBuffer @ 0x14035FA80 (MmFreeAccessPfnBuffer.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     MmFreeAccessPfnBuffer @ 0x1402D4628 (MmFreeAccessPfnBuffer.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall MiQueuePageAccessLog(struct _SLIST_ENTRY *P)
@@ -20,13 +20,13 @@ void __fastcall MiQueuePageAccessLog(struct _SLIST_ENTRY *P)
   int v3; // ebx
 
   *((_QWORD *)&P[1].Next + 1) = MEMORY[0xFFFFF78000000320];
-  *((_DWORD *)&P->Next + 3) = dword_140CF5E50;
-  if ( !ExAcquireRundownProtection(&RunRef) )
+  *((_DWORD *)&P->Next + 3) = dword_140CEC350;
+  if ( !ExAcquireRundownProtection_0(&RunRef) )
     goto LABEL_9;
   Alignment_low = LOWORD(ListHead.Alignment);
-  if ( LOWORD(ListHead.Alignment) >= (unsigned int)dword_140CF5E28 )
+  if ( LOWORD(ListHead.Alignment) >= (unsigned int)dword_140CEC328 )
   {
-    _InterlockedExchangeAdd((volatile signed __int32 *)&xmmword_140C4EC70, 0x64u);
+    _InterlockedExchangeAdd((volatile signed __int32 *)&xmmword_140C4FED0, 0x64u);
     v3 = 0;
   }
   else
@@ -36,7 +36,7 @@ void __fastcall MiQueuePageAccessLog(struct _SLIST_ENTRY *P)
       KeSetEvent(&Event, 0, 0);
     v3 = 1;
   }
-  ExReleaseRundownProtection(&RunRef);
+  ExReleaseRundownProtection_0(&RunRef);
   if ( !v3 )
 LABEL_9:
     MmFreeAccessPfnBuffer(P);

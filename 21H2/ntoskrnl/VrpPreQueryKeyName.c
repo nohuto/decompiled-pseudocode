@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpPreQueryKeyName @ 0x140926DD8
+ * XREFs of VrpPreQueryKeyName @ 0x140883EF0
  * Callers:
- *     VrpRegistryCallback @ 0x140780EF0 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1405D3FD0 (VrpRegistryCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwActivityIdControl @ 0x1402DFD70 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x1402B1640 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
@@ -36,7 +36,7 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
   EtwActivityIdControl(3u, &ActivityId);
   v2 = *(_QWORD *)(a1 + 40);
   v13[1] = v2;
-  if ( (unsigned int)dword_140C038A0 <= 2 )
+  if ( (unsigned int)dword_140C02168 <= 2 )
   {
     v3 = &EmptyUnicodeString;
   }
@@ -54,8 +54,8 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
     v19 = v5;
     v20 = 0;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C038A0,
-      (unsigned __int8 *)byte_14002A90D,
+      (__int64)&dword_140C02168,
+      (unsigned __int8 *)qword_140024450,
       &ActivityId,
       0LL,
       4u,
@@ -82,7 +82,7 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
   {
     v10 = -1073741820;
   }
-  if ( (unsigned int)dword_140C038A0 > 5 )
+  if ( (unsigned int)dword_140C02168 > 5 )
   {
     if ( *(_QWORD *)(v2 + 24) )
       v3 = v8;
@@ -95,8 +95,8 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
     LODWORD(v13[0]) = v10;
     v22 = 4LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C038A0,
-      (unsigned __int8 *)&byte_14002A707,
+      (__int64)&dword_140C02168,
+      (unsigned __int8 *)&dword_1400241FC,
       &ActivityId,
       0LL,
       5u,

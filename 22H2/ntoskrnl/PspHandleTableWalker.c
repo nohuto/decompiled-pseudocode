@@ -1,9 +1,9 @@
 /*
- * XREFs of PspHandleTableWalker @ 0x1405A3FD0
+ * XREFs of PspHandleTableWalker @ 0x1405817C0
  * Callers:
  *     <none>
  * Callees:
- *     ExpUnblockPushLock @ 0x140209468 (ExpUnblockPushLock.c)
+ *     ExpUnblockPushLock @ 0x1402F4D68 (ExpUnblockPushLock.c)
  */
 
 char __fastcall PspHandleTableWalker(__int64 a1, volatile signed __int64 *a2, int a3, __int64 a4)

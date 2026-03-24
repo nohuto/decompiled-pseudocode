@@ -1,13 +1,12 @@
 /*
- * XREFs of NtUserfnINLPMDICREATESTRUCT @ 0x1C01E1600
+ * XREFs of NtUserfnINLPMDICREATESTRUCT @ 0x1C0205270
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitLargeUnicodeString @ 0x1C0065A48 (RtlInitLargeUnicodeString.c)
- *     RtlInitLargeAnsiString @ 0x1C00BD434 (RtlInitLargeAnsiString.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     RtlInitLargeUnicodeString @ 0x1C0033F1C (RtlInitLargeUnicodeString.c)
+ *     RtlInitLargeAnsiString @ 0x1C0033F68 (RtlInitLargeAnsiString.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall NtUserfnINLPMDICREATESTRUCT(
@@ -20,78 +19,68 @@ __int64 __fastcall NtUserfnINLPMDICREATESTRUCT(
         int a7)
 {
   __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rdx
-  __int64 v16; // rdx
-  __int64 v17; // rdx
-  _OWORD v19[3]; // [rsp+40h] [rbp-68h] BYREF
-  __int64 v20; // [rsp+70h] [rbp-38h]
-  _BYTE v21[16]; // [rsp+78h] [rbp-30h] BYREF
-  _BYTE v22[24]; // [rsp+88h] [rbp-20h] BYREF
+  __int64 v12; // rdx
+  __int64 v13; // rdx
+  _OWORD v15[6]; // [rsp+40h] [rbp-68h] BYREF
 
-  memset_0(v19, 0, 0x58uLL);
-  PtiCurrentShared(v12, v11, v13, v14);
+  memset(v15, 0, 0x58uLL);
   if ( a4 >= MmUserProbeAddress )
     a4 = MmUserProbeAddress;
-  v19[0] = *(_OWORD *)a4;
-  v19[1] = *(_OWORD *)(a4 + 16);
-  v19[2] = *(_OWORD *)(a4 + 32);
-  v20 = *(_QWORD *)(a4 + 48);
-  v15 = *((_QWORD *)&v19[0] + 1);
+  v15[0] = *(_OWORD *)a4;
+  v15[1] = *(_OWORD *)(a4 + 16);
+  v15[2] = *(_OWORD *)(a4 + 32);
+  *(_QWORD *)&v15[3] = *(_QWORD *)(a4 + 48);
+  v11 = *((_QWORD *)&v15[0] + 1);
   if ( !a7 )
   {
-    if ( *((_QWORD *)&v19[0] + 1) )
+    if ( *((_QWORD *)&v15[0] + 1) )
     {
-      if ( (BYTE8(v19[0]) & 1) != 0 )
+      if ( (BYTE8(v15[0]) & 1) != 0 )
         goto LABEL_17;
-      v15 = *((_QWORD *)&v19[0] + 1);
+      v11 = *((_QWORD *)&v15[0] + 1);
     }
-    RtlInitLargeUnicodeString((__int64)v21, v15);
-    v17 = *(_QWORD *)&v19[0];
-    if ( (*(_QWORD *)&v19[0] & 0xFFFFFFFFFFFF0000uLL) != 0 )
+    RtlInitLargeUnicodeString((__int64)&v15[3] + 8, v11);
+    v13 = *(_QWORD *)&v15[0];
+    if ( (*(_QWORD *)&v15[0] & 0xFFFFFFFFFFFF0000uLL) != 0 )
     {
-      if ( *(_QWORD *)&v19[0] )
+      if ( *(_QWORD *)&v15[0] )
       {
-        if ( (v19[0] & 1) != 0 )
+        if ( (v15[0] & 1) != 0 )
 LABEL_17:
           ExRaiseDatatypeMisalignment();
-        v17 = *(_QWORD *)&v19[0];
+        v13 = *(_QWORD *)&v15[0];
       }
     }
     else
     {
-      v17 = 0LL;
+      v13 = 0LL;
     }
-    RtlInitLargeUnicodeString((__int64)v22, v17);
-    return (*((__int64 (__fastcall **)(__int64, _QWORD, __int64, _OWORD *, __int64))&WPP_MAIN_CB.SectorSize
-            + ((a6 + 6) & 0x1F)))(
+    RtlInitLargeUnicodeString((__int64)&v15[4] + 8, v13);
+    return ((__int64 (__fastcall *)(__int64, _QWORD, __int64, _OWORD *, __int64))mpFnidPfn[(a6 + 6) & 0x1F])(
              a1,
              a2,
              a3,
-             v19,
+             v15,
              a5);
   }
-  if ( *((_QWORD *)&v19[0] + 1) )
-    v15 = *((_QWORD *)&v19[0] + 1);
-  RtlInitLargeAnsiString((__int64)v21, v15);
-  v16 = *(_QWORD *)&v19[0];
-  if ( (*(_QWORD *)&v19[0] & 0xFFFFFFFFFFFF0000uLL) != 0 )
+  if ( *((_QWORD *)&v15[0] + 1) )
+    v11 = *((_QWORD *)&v15[0] + 1);
+  RtlInitLargeAnsiString((__int64)&v15[3] + 8, v11);
+  v12 = *(_QWORD *)&v15[0];
+  if ( (*(_QWORD *)&v15[0] & 0xFFFFFFFFFFFF0000uLL) != 0 )
   {
-    if ( *(_QWORD *)&v19[0] )
-      v16 = *(_QWORD *)&v19[0];
+    if ( *(_QWORD *)&v15[0] )
+      v12 = *(_QWORD *)&v15[0];
   }
   else
   {
-    v16 = 0LL;
+    v12 = 0LL;
   }
-  RtlInitLargeAnsiString((__int64)v22, v16);
-  return (*((__int64 (__fastcall **)(__int64, _QWORD, __int64, _OWORD *, __int64))&WPP_MAIN_CB.SectorSize
-          + ((a6 + 6) & 0x1F)))(
+  RtlInitLargeAnsiString((__int64)&v15[4] + 8, v12);
+  return ((__int64 (__fastcall *)(__int64, _QWORD, __int64, _OWORD *, __int64))mpFnidPfn[(a6 + 6) & 0x1F])(
            a1,
            a2,
            a3,
-           v19,
+           v15,
            a5);
 }

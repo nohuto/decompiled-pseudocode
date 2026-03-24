@@ -1,156 +1,135 @@
 /*
- * XREFs of CcPostWorkQueueAsyncRead @ 0x1402C0BD4
+ * XREFs of CcPostWorkQueueAsyncRead @ 0x140278CE4
  * Callers:
- *     CcAsyncCopyRead @ 0x1402C1040 (CcAsyncCopyRead.c)
- *     CcAsyncReadWorker @ 0x1403BE4A0 (CcAsyncReadWorker.c)
+ *     CcAsyncCopyRead @ 0x140278AC0 (CcAsyncCopyRead.c)
+ *     CcAsyncReadWorker @ 0x1403B72F0 (CcAsyncReadWorker.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     CcFreeWorkQueueEntry @ 0x14029C270 (CcFreeWorkQueueEntry.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x1402AD220 (ExpAllocatePoolWithTagFromNode.c)
- *     ExQueueWorkItemToPartition @ 0x1402B956C (ExQueueWorkItemToPartition.c)
- *     CcShouldSpinAsyncReadWorkerThread @ 0x1402C0E58 (CcShouldSpinAsyncReadWorkerThread.c)
- *     CcCompleteAsyncRead @ 0x1402C1400 (CcCompleteAsyncRead.c)
- *     CcPerfLogWorkItemEnqueue @ 0x1403939D4 (CcPerfLogWorkItemEnqueue.c)
+ *     CcFreeWorkQueueEntry @ 0x14027733C (CcFreeWorkQueueEntry.c)
+ *     CcCompleteAsyncRead @ 0x140277CC0 (CcCompleteAsyncRead.c)
+ *     ExQueueWorkItemToPartition @ 0x140277F2C (ExQueueWorkItemToPartition.c)
+ *     CcShouldSpinAsyncReadWorkerThread @ 0x140278EE8 (CcShouldSpinAsyncReadWorkerThread.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x1403BCF4C (CcPerfLogWorkItemEnqueue.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CcPostWorkQueueAsyncRead(PSLIST_ENTRY ListEntry, __int64 a2)
 {
-  _SLIST_ENTRY *Next; // r13
-  __int64 v5; // r15
-  __int64 Next_high; // r12
-  __int64 *v7; // rbp
-  __int64 v8; // rdi
-  char v9; // r14
-  _QWORD *v10; // rax
+  char v2; // r12
+  _SLIST_ENTRY *Next; // rdi
+  __int64 Next_high; // r15
+  char v7; // bp
+  _QWORD *v8; // rax
   __int64 result; // rax
-  _QWORD *v12; // r10
-  __int64 v13; // r14
-  _QWORD *v14; // rcx
-  __int64 v15; // r15
-  _QWORD *v16; // r12
-  __int64 PoolWithTagFromNode; // rax
-  __int64 v18; // r14
-  __int64 v19; // rdx
-  _QWORD *v20; // rax
-  __int64 v21; // [rsp+30h] [rbp-48h]
-  char v22; // [rsp+80h] [rbp+8h]
-  int v23; // [rsp+90h] [rbp+18h]
-  ULONG_PTR BugCheckParameter2; // [rsp+98h] [rbp+20h] BYREF
+  _QWORD *v10; // r10
+  ULONG_PTR v11; // rbp
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v13; // rsi
+  __int64 v14; // rdx
+  _QWORD *v15; // rax
+  ULONG_PTR BugCheckParameter2; // [rsp+50h] [rbp+8h] BYREF
 
-  Next = ListEntry[9].Next;
   BugCheckParameter2 = 0LL;
-  v5 = *((_QWORD *)&ListEntry[8].Next + 1);
+  v2 = 0;
+  Next = ListEntry[8].Next;
   Next_high = HIDWORD(ListEntry[7].Next);
-  v7 = (__int64 *)(&Next[72].Next + 1);
-  v8 = *((_QWORD *)&ListEntry[9].Next + 1);
-  v22 = 0;
-  v21 = v5;
-  v23 = HIDWORD(ListEntry[7].Next);
-  if ( !CcEnablePerVolumeLazyWriter )
-    v7 = (__int64 *)(v5 + 1224);
-  if ( (xmmword_140D1EAD0 & 0x20000) != 0 )
+  if ( (xmmword_140CFC490 & 0x20000) != 0 )
     CcPerfLogWorkItemEnqueue(a2, ListEntry, 0LL, 0LL);
-  if ( LODWORD(ListEntry[8].Next) != 5 )
+  if ( *((_BYTE *)&ListEntry[7].Next + 8) != 5 )
   {
-    v13 = 16 * Next_high;
-    v14 = (_QWORD *)(16 * Next_high + *(_QWORD *)(v8 + 264));
-    v15 = 4 * Next_high;
-    v16 = (_QWORD *)(v8 + 248);
-    if ( (_QWORD *)*v14 != v14 || *(_DWORD *)(v15 + *v16) >= (unsigned int)CcMaxNumberCompleteAsyncReadExWorkItems )
+    if ( *(_QWORD *)(16 * Next_high + *((_QWORD *)&Next[54].Next + 1)) == 16 * Next_high
+                                                                        + *((_QWORD *)&Next[54].Next + 1)
+      && (result = (unsigned int)CcMaxNumberCompleteAsyncReadExWorkItems,
+          *(_DWORD *)(*((_QWORD *)&Next[53].Next + 1) + 4 * Next_high) < (unsigned int)CcMaxNumberCompleteAsyncReadExWorkItems) )
     {
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)v7, 0LL);
-      v19 = v13 + *(_QWORD *)(v8 + 264);
-      if ( *(_QWORD *)v19 != v19 || *(_DWORD *)(v15 + *v16) >= (unsigned int)CcMaxNumberCompleteAsyncReadExWorkItems )
-      {
-        v20 = *(_QWORD **)(v19 + 8);
-        if ( *v20 != v19 )
-LABEL_32:
-          __fastfail(3u);
-        ListEntry->Next = (_SLIST_ENTRY *)v19;
-        *((_QWORD *)&ListEntry->Next + 1) = v20;
-        *v20 = ListEntry;
-        *(_QWORD *)(v19 + 8) = ListEntry;
-        v22 = 1;
-      }
-      result = ExReleasePushLockEx(v7, 0LL);
-      if ( v22 )
-        return result;
+      v11 = (ULONG_PTR)&Next[56];
     }
-    PoolWithTagFromNode = ExpAllocatePoolWithTagFromNode(
-                            NonPagedPoolNx,
-                            0x50uLL,
-                            1901552451LL,
-                            *(_DWORD *)(v8 + 24) | 0x80000000,
-                            0);
-    v18 = PoolWithTagFromNode;
-    if ( !PoolWithTagFromNode )
+    else
+    {
+      v11 = (ULONG_PTR)&Next[56];
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&Next[56], 0LL);
+      v14 = 16 * Next_high + *((_QWORD *)&Next[54].Next + 1);
+      if ( *(_QWORD *)v14 != v14
+        || *(_DWORD *)(*((_QWORD *)&Next[53].Next + 1) + 4 * Next_high) >= (unsigned int)CcMaxNumberCompleteAsyncReadExWorkItems )
+      {
+        v15 = *(_QWORD **)(v14 + 8);
+        if ( *v15 != v14 )
+LABEL_27:
+          __fastfail(3u);
+        ListEntry->Next = (_SLIST_ENTRY *)v14;
+        v2 = 1;
+        *((_QWORD *)&ListEntry->Next + 1) = v15;
+        *v15 = ListEntry;
+        *(_QWORD *)(v14 + 8) = ListEntry;
+      }
+      result = ExReleasePushLockEx((ULONG_PTR)&Next[56], 0LL);
+    }
+    if ( v2 )
+      return result;
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x71576343u);
+    v13 = PoolWithTag;
+    if ( !PoolWithTag )
     {
       **((_DWORD **)&ListEntry[4].Next + 1) = -1073741670;
-      CcCompleteAsyncRead(ListEntry);
+      CcCompleteAsyncRead((__int64)ListEntry);
       return CcFreeWorkQueueEntry(ListEntry);
     }
-    *(_DWORD *)(PoolWithTagFromNode + 32) = 4;
-    *(_QWORD *)(PoolWithTagFromNode + 56) = v21;
-    *(_DWORD *)(PoolWithTagFromNode + 36) = v23;
-    *(_QWORD *)(PoolWithTagFromNode + 64) = Next;
-    *(_QWORD *)(PoolWithTagFromNode + 72) = v8;
-    *(_QWORD *)(PoolWithTagFromNode + 48) = ListEntry;
-    *(_QWORD *)PoolWithTagFromNode = 0LL;
-    *(_QWORD *)(PoolWithTagFromNode + 16) = CcCompleteAsyncReadWorker;
-    *(_QWORD *)(PoolWithTagFromNode + 24) = PoolWithTagFromNode;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)v7, 0LL);
-    *(_DWORD *)(v18 + 40) = *(_DWORD *)(v15 + *v16);
-    ++*(_DWORD *)(*v16 + v15);
-    v5 = v21;
-    if ( _InterlockedIncrement64((volatile signed __int64 *)(v21 + 1296)) <= 1 )
+    PoolWithTag[8] = 4;
+    *((_QWORD *)PoolWithTag + 7) = Next;
+    *((_QWORD *)PoolWithTag + 6) = ListEntry;
+    PoolWithTag[9] = Next_high;
+    *(_QWORD *)PoolWithTag = 0LL;
+    *((_QWORD *)PoolWithTag + 2) = CcCompleteAsyncReadWorker;
+    *((_QWORD *)PoolWithTag + 3) = PoolWithTag;
+    ExAcquirePushLockExclusiveEx(v11, 0LL);
+    v13[10] = (*(_DWORD *)(*((_QWORD *)&Next[53].Next + 1) + 4 * Next_high))++;
+    if ( _InterlockedIncrement64((volatile signed __int64 *)&Next[60].Next + 1) <= 1 )
       __fastfail(0xEu);
-    if ( Next && _InterlockedIncrement64((volatile signed __int64 *)&Next->Next + 1) <= 1 )
-      __fastfail(0xEu);
-    ExReleasePushLockEx(v7, 0LL);
-    *(_QWORD *)v18 = 0LL;
-    result = ExQueueWorkItemToPartition((_QWORD *)v18, 46, *(_DWORD *)(v8 + 24), *(_QWORD *)(v21 + 8));
-    v12 = (_QWORD *)BugCheckParameter2;
-LABEL_11:
-    if ( v12 )
+    ExReleasePushLockEx(v11, 0LL);
+    *(_QWORD *)v13 = 0LL;
+    result = ExQueueWorkItemToPartition(v13, 46, 0xFFFFFFFF, *((_QWORD *)&Next->Next + 1));
+    v10 = (_QWORD *)BugCheckParameter2;
+LABEL_9:
+    if ( v10 )
     {
-      *v12 = 0LL;
-      return ExQueueWorkItemToPartition(v12, 0, *(_DWORD *)(v8 + 24), *(_QWORD *)(v5 + 8));
+      *v10 = 0LL;
+      return ExQueueWorkItemToPartition(v10, 0, 0xFFFFFFFF, *((_QWORD *)&Next->Next + 1));
     }
     return result;
   }
-  v9 = 0;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)v7, 0LL);
-  v10 = *(_QWORD **)(a2 + 8);
-  if ( *v10 != a2 )
-    goto LABEL_32;
-  *((_QWORD *)&ListEntry->Next + 1) = v10;
+  v7 = 0;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&Next[56], 0LL);
+  v8 = *(_QWORD **)(a2 + 8);
+  if ( *v8 != a2 )
+    goto LABEL_27;
+  *((_QWORD *)&ListEntry->Next + 1) = v8;
   ListEntry->Next = (_SLIST_ENTRY *)a2;
-  *v10 = ListEntry;
+  *v8 = ListEntry;
   *(_QWORD *)(a2 + 8) = ListEntry;
-  if ( *(_QWORD *)(*(_QWORD *)(v8 + 264) + 16 * Next_high) == *(_QWORD *)(v8 + 264) + 16 * Next_high
-    || *(_DWORD *)(*(_QWORD *)(v8 + 240) + 4 * Next_high) <= 1u )
+  if ( *(_QWORD *)(*((_QWORD *)&Next[54].Next + 1) + 16 * Next_high) == *((_QWORD *)&Next[54].Next + 1) + 16 * Next_high
+    || *((_DWORD *)&Next[53].Next->Next + Next_high) <= 1u )
   {
-    KeSetEvent((PRKEVENT)(*(_QWORD *)(v8 + 272) + 24 * Next_high), 0, 0);
+    KeSetEvent((PRKEVENT)Next[55].Next + Next_high, 0, 0);
   }
   else
   {
-    v9 = 1;
+    v7 = 1;
   }
-  result = ExReleasePushLockEx(v7, 0LL);
-  if ( !v9 )
+  result = ExReleasePushLockEx((ULONG_PTR)&Next[56], 0LL);
+  if ( !v7 )
   {
-    result = CcShouldSpinAsyncReadWorkerThread(v5, v8, &BugCheckParameter2, (unsigned int)Next_high);
-    v12 = (_QWORD *)BugCheckParameter2;
+    result = CcShouldSpinAsyncReadWorkerThread(Next, &BugCheckParameter2, (unsigned int)Next_high);
+    v10 = (_QWORD *)BugCheckParameter2;
     if ( (_BYTE)result )
     {
       if ( !BugCheckParameter2 )
         return result;
-      result = *(_QWORD *)(v8 + 280);
+      result = *((_QWORD *)&Next[55].Next + 1);
       *(_DWORD *)(result + 4 * (101 * Next_high + *(unsigned int *)(BugCheckParameter2 + 40))) = 0;
     }
-    goto LABEL_11;
+    goto LABEL_9;
   }
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopErrorLogRequeueEntry @ 0x14028624C
+ * XREFs of IopErrorLogRequeueEntry @ 0x14028634C
  * Callers:
- *     IopErrorLogThread @ 0x14070C3B0 (IopErrorLogThread.c)
+ *     IopErrorLogThread @ 0x14070C390 (IopErrorLogThread.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IopErrorLogRequeueEntry(__int64 *a1)

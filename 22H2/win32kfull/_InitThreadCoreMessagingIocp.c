@@ -1,57 +1,59 @@
 /*
- * XREFs of _InitThreadCoreMessagingIocp @ 0x1C00AAF84
+ * XREFs of _InitThreadCoreMessagingIocp @ 0x1C011E320
  * Callers:
- *     NtUserInitThreadCoreMessagingIocp @ 0x1C00AAED0 (NtUserInitThreadCoreMessagingIocp.c)
+ *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
-__int64 __fastcall InitThreadCoreMessagingIocp(__int64 a1)
+__int64 __fastcall InitThreadCoreMessagingIocp(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v1; // rdi
-  __int64 v4; // rcx
-  _QWORD v5[2]; // [rsp+20h] [rbp-48h] BYREF
-  _DWORD v6[2]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v7; // [rsp+38h] [rbp-30h]
-  __int64 v8; // [rsp+40h] [rbp-28h]
-  int v9; // [rsp+48h] [rbp-20h]
-  int v10; // [rsp+4Ch] [rbp-1Ch]
-  __int128 v11; // [rsp+50h] [rbp-18h]
+  __int64 v3; // rdi
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v8; // rcx
+  _QWORD v9[2]; // [rsp+20h] [rbp-48h] BYREF
+  _DWORD v10[2]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v11; // [rsp+38h] [rbp-30h]
+  __int64 v12; // [rsp+40h] [rbp-28h]
+  int v13; // [rsp+48h] [rbp-20h]
+  int v14; // [rsp+4Ch] [rbp-1Ch]
+  __int128 v15; // [rsp+50h] [rbp-18h]
 
-  v1 = 0LL;
-  v6[1] = 0;
-  v10 = 0;
+  v3 = 0LL;
+  v10[1] = 0;
+  v14 = 0;
   if ( gptiCurrent != *(_QWORD *)(a1 + 16) )
   {
-    v4 = 5LL;
+    v8 = 5LL;
 LABEL_9:
-    UserSetLastError(v4);
-    return v1;
+    UserSetLastError(v8, a2, a3);
+    return v3;
   }
-  if ( *(_QWORD *)(gptiCurrent + 1504LL) )
+  if ( *(_QWORD *)(gptiCurrent + 1464LL) )
   {
-    v4 = 1247LL;
+    v8 = 1247LL;
     goto LABEL_9;
   }
-  v6[0] = 48;
-  v7 = 0LL;
-  v9 = 512;
-  v8 = 0LL;
+  v10[0] = 48;
   v11 = 0LL;
-  if ( (int)ZwAllocateReserveObject(gptiCurrent + 1496LL, v6, 1LL) < 0 )
+  v13 = 512;
+  v12 = 0LL;
+  v15 = 0LL;
+  if ( (int)ZwAllocateReserveObject(gptiCurrent + 1456LL, v10, 1LL) < 0 )
   {
-    UserSetLastError(14LL);
-    *(_QWORD *)(gptiCurrent + 1496LL) = 0LL;
+    UserSetLastError(14LL, v5, v6);
+    *(_QWORD *)(gptiCurrent + 1456LL) = 0LL;
   }
   else
   {
-    v1 = *(_QWORD *)(gptiCurrent + 1472LL);
-    if ( v1 )
+    v3 = *(_QWORD *)(gptiCurrent + 1432LL);
+    if ( v3 )
     {
-      v5[0] = gptiCurrent + 1504LL;
-      v5[1] = a1;
-      HMAssignmentLock(v5, 0LL);
+      v9[0] = gptiCurrent + 1464LL;
+      v9[1] = a1;
+      HMAssignmentLock(v9);
     }
   }
-  return v1;
+  return v3;
 }

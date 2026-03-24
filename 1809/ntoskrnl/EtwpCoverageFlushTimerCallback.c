@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCoverageFlushTimerCallback @ 0x14013B870
+ * XREFs of EtwpCoverageFlushTimerCallback @ 0x14013B890
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
  */
 
 void __fastcall EtwpCoverageFlushTimerCallback(__int64 a1, __int64 a2)

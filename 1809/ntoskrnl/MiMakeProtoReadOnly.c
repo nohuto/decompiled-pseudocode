@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMakeProtoReadOnly @ 0x1402AFDF8
+ * XREFs of MiMakeProtoReadOnly @ 0x1402AFEF8
  * Callers:
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
  *     MiResolveTransitionFault @ 0x14003AC00 (MiResolveTransitionFault.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 char __fastcall MiMakeProtoReadOnly(unsigned __int64 a1)

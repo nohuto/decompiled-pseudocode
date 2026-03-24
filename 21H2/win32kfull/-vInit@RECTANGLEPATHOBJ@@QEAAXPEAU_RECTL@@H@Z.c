@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vInit@RECTANGLEPATHOBJ@@QEAAXPEAU_RECTL@@H@Z @ 0x1C0139280
+ * XREFs of ?vInit@RECTANGLEPATHOBJ@@QEAAXPEAU_RECTL@@H@Z @ 0x1C014377C
  * Callers:
- *     GreRectangle @ 0x1C0136C70 (GreRectangle.c)
+ *     GreRectangle @ 0x1C01440E0 (GreRectangle.c)
  * Callees:
  *     <none>
  */

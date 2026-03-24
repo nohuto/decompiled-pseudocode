@@ -1,11 +1,11 @@
 /*
- * XREFs of IoInvalidateDeviceState @ 0x1402DCE00
+ * XREFs of IoInvalidateDeviceState @ 0x1403A5140
  * Callers:
  *     <none>
  * Callees:
- *     PnpRequestDeviceAction @ 0x1402DCF44 (PnpRequestDeviceAction.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     PnpRequestDeviceAction @ 0x140370854 (PnpRequestDeviceAction.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 void __stdcall IoInvalidateDeviceState(PDEVICE_OBJECT PhysicalDeviceObject)
@@ -75,6 +75,6 @@ void __stdcall IoInvalidateDeviceState(PDEVICE_OBJECT PhysicalDeviceObject)
 LABEL_18:
     KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)PhysicalDeviceObject, 0LL, 0LL);
   }
-  if ( DeviceNode[75] == 778 )
-    PnpRequestDeviceAction(PhysicalDeviceObject, 0LL, 0LL, 0LL);
+  if ( DeviceNode[75] == 776 )
+    PnpRequestDeviceAction(PhysicalDeviceObject, 11, 0, 0LL, 0LL, 0LL, 0LL);
 }

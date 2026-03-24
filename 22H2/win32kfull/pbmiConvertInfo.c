@@ -1,67 +1,67 @@
 /*
- * XREFs of pbmiConvertInfo @ 0x1C02C4F68
+ * XREFs of pbmiConvertInfo @ 0x1C02AFD58
  * Callers:
- *     GreSetDIBits @ 0x1C02DE7F8 (GreSetDIBits.c)
+ *     GreSetDIBits @ 0x1C02C0758 (GreSetDIBits.c)
  * Callees:
- *     <none>
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
  */
 
-__int64 __fastcall pbmiConvertInfo(unsigned __int16 *a1, __int64 a2, __int64 a3, __int64 a4)
+char *__fastcall pbmiConvertInfo(unsigned __int16 *a1)
 {
-  int v4; // edx
-  int v6; // ebx
-  __int64 v7; // rax
-  __int64 v8; // rcx
-  char *v10; // r8
-  _BYTE *v11; // rdx
-  unsigned __int16 v12; // ax
-  char v13; // al
+  int v1; // edx
+  int v3; // ebx
+  char *v4; // rax
+  char *v5; // rcx
+  char *v7; // r8
+  _BYTE *v8; // rdx
+  unsigned __int16 v9; // ax
+  char v10; // al
 
-  v4 = a1[5];
-  if ( v4 == 1 )
+  v1 = a1[5];
+  if ( v1 == 1 )
   {
-    v6 = 2;
+    v3 = 2;
   }
   else if ( a1[5] == 4 )
   {
-    v6 = 16;
+    v3 = 16;
   }
   else if ( a1[5] == 8 )
   {
-    v6 = 256;
+    v3 = 256;
   }
   else
   {
-    v6 = 0;
-    if ( v4 != 16 && v4 != 24 && v4 != 32 )
+    v3 = 0;
+    if ( v1 != 16 && v1 != 24 && v1 != 32 )
       return 0LL;
   }
-  v7 = Win32AllocPool((unsigned int)(4 * v6 + 40), 1886221383LL, a3, a4);
-  v8 = v7;
-  if ( !v7 )
+  v4 = (char *)PALLOCMEM2((unsigned int)(4 * v3 + 40), 1886221383LL, 0);
+  v5 = v4;
+  if ( !v4 )
     return 0LL;
-  *(_DWORD *)v7 = 40;
-  v10 = (char *)(a1 + 6);
-  v11 = (_BYTE *)(v7 + 40);
-  *(_DWORD *)(v7 + 4) = a1[2];
-  *(_DWORD *)(v7 + 8) = a1[3];
-  *(_WORD *)(v7 + 12) = a1[4];
-  v12 = a1[5];
-  *(_DWORD *)(v8 + 16) = 0;
-  *(_DWORD *)(v8 + 20) = 0;
-  *(_DWORD *)(v8 + 24) = 0;
-  *(_DWORD *)(v8 + 28) = 0;
-  *(_DWORD *)(v8 + 32) = 0;
-  *(_DWORD *)(v8 + 36) = 0;
-  for ( *(_WORD *)(v8 + 14) = v12; v6; --v6 )
+  *(_DWORD *)v4 = 40;
+  v7 = (char *)(a1 + 6);
+  v8 = v4 + 40;
+  *((_DWORD *)v4 + 1) = a1[2];
+  *((_DWORD *)v4 + 2) = a1[3];
+  *((_WORD *)v4 + 6) = a1[4];
+  v9 = a1[5];
+  *((_DWORD *)v5 + 4) = 0;
+  *((_DWORD *)v5 + 5) = 0;
+  *((_DWORD *)v5 + 6) = 0;
+  *((_DWORD *)v5 + 7) = 0;
+  *((_DWORD *)v5 + 8) = 0;
+  *((_DWORD *)v5 + 9) = 0;
+  for ( *((_WORD *)v5 + 7) = v9; v3; --v3 )
   {
-    v11[2] = v10[2];
-    v11[1] = v10[1];
-    v13 = *v10;
-    v10 += 3;
-    *v11 = v13;
-    v11[3] = 0;
-    v11 += 4;
+    v8[2] = v7[2];
+    v8[1] = v7[1];
+    v10 = *v7;
+    v7 += 3;
+    *v8 = v10;
+    v8[3] = 0;
+    v8 += 4;
   }
-  return v8;
+  return v5;
 }

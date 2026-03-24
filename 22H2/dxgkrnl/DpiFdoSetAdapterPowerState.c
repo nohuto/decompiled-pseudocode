@@ -1,247 +1,255 @@
 /*
- * XREFs of DpiFdoSetAdapterPowerState @ 0x1C01F07A0
+ * XREFs of DpiFdoSetAdapterPowerState @ 0x1C0175240
  * Callers:
- *     DpiFdoHandleDevicePower @ 0x1C01F0390 (DpiFdoHandleDevicePower.c)
- *     DpiLdaPowerDownAllAdaptersInChain @ 0x1C03A861C (DpiLdaPowerDownAllAdaptersInChain.c)
- *     DpiLdaPowerUpAdapterInChain @ 0x1C03A87A8 (DpiLdaPowerUpAdapterInChain.c)
+ *     DpiFdoHandleDevicePower @ 0x1C0175FC0 (DpiFdoHandleDevicePower.c)
+ *     DpiLdaPowerDownAllAdaptersInChain @ 0x1C02D843C (DpiLdaPowerDownAllAdaptersInChain.c)
+ *     DpiLdaPowerUpAdapterInChain @ 0x1C02D85E8 (DpiLdaPowerUpAdapterInChain.c)
  * Callees:
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     DxgkReportAdapterPowerRapidHpdTrigerEvent @ 0x1C001A65C (DxgkReportAdapterPowerRapidHpdTrigerEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     DpiIsPowerRuntimeDStateTransition @ 0x1C0198AB0 (DpiIsPowerRuntimeDStateTransition.c)
- *     DpiDxgkDdiSetPowerState @ 0x1C01F0BF4 (DpiDxgkDdiSetPowerState.c)
- *     DpiRequestIoPowerState @ 0x1C01F0CB0 (DpiRequestIoPowerState.c)
- *     DpiFdoDetectPostDevice @ 0x1C01F6410 (DpiFdoDetectPostDevice.c)
- *     DpiAcquirePostDisplayInfoFromBgfx @ 0x1C01F66A0 (DpiAcquirePostDisplayInfoFromBgfx.c)
- *     DpiFdoRebootForSurpriseRemoval @ 0x1C039CD78 (DpiFdoRebootForSurpriseRemoval.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     DpiCorrectPowerAction @ 0x1C001FFB8 (DpiCorrectPowerAction.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     DpiIsPowerRuntimeDStateTransition @ 0x1C012E4DC (DpiIsPowerRuntimeDStateTransition.c)
+ *     DpiDxgkDdiSetPowerState @ 0x1C0175DD0 (DpiDxgkDdiSetPowerState.c)
+ *     DpiRequestIoPowerState @ 0x1C01763B0 (DpiRequestIoPowerState.c)
+ *     DpiFdoDetectPostDevice @ 0x1C0179F40 (DpiFdoDetectPostDevice.c)
+ *     DpiAcquirePostDisplayInfoFromBgfx @ 0x1C017A1CC (DpiAcquirePostDisplayInfoFromBgfx.c)
+ *     DpiFdoRebootForSurpriseRemoval @ 0x1C02CBF1C (DpiFdoRebootForSurpriseRemoval.c)
  */
 
-__int64 __fastcall DpiFdoSetAdapterPowerState(PDEVICE_OBJECT DeviceObject, __int64 State, __int64 a3, int a4, int a5)
+__int64 __fastcall DpiFdoSetAdapterPowerState(
+        PDEVICE_OBJECT DeviceObject,
+        POWER_STATE State,
+        int a3,
+        unsigned int a4,
+        unsigned int a5)
 {
   char *DeviceExtension; // rdi
-  POWER_STATE v6; // r12d
-  int v8; // ebx
-  __int64 v9; // rcx
-  struct _IO_WORKITEM *WorkItem; // rax
+  unsigned int v6; // esi
+  int v10; // eax
+  __int64 v11; // rdx
   __int64 v12; // rcx
-  unsigned int v13; // eax
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  __int64 v16; // rcx
+  __int64 v13; // r8
+  bool v14; // zf
+  __int64 v15; // rcx
+  __int64 v16; // rax
   __int64 v17; // r8
-  _BYTE v18[4]; // [rsp+30h] [rbp-31h] BYREF
-  unsigned int v19; // [rsp+34h] [rbp-2Dh]
-  int v20; // [rsp+38h] [rbp-29h]
-  int v21; // [rsp+3Ch] [rbp-25h]
-  PDEVICE_OBJECT v22; // [rsp+40h] [rbp-21h]
-  int v23; // [rsp+48h] [rbp-19h] BYREF
-  __int64 v24; // [rsp+50h] [rbp-11h]
-  char v25; // [rsp+58h] [rbp-9h]
-  _OWORD v26[2]; // [rsp+60h] [rbp-1h] BYREF
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  char v21; // al
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  struct _IO_WORKITEM *WorkItem; // rax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // r9
+  __int64 v30; // rax
+  char v31[4]; // [rsp+30h] [rbp-31h] BYREF
+  unsigned int v32; // [rsp+34h] [rbp-2Dh]
+  int v33; // [rsp+38h] [rbp-29h]
+  PDEVICE_OBJECT v34; // [rsp+40h] [rbp-21h]
+  int v35; // [rsp+48h] [rbp-19h] BYREF
+  __int64 v36; // [rsp+50h] [rbp-11h]
+  char v37; // [rsp+58h] [rbp-9h]
+  _OWORD v38[2]; // [rsp+60h] [rbp-1h] BYREF
 
   DeviceExtension = (char *)DeviceObject->DeviceExtension;
-  v21 = a4;
-  v6.SystemState = State;
-  v20 = a3;
-  v19 = 0;
-  if ( (int)State > *((_DWORD *)DeviceExtension + 71) )
+  v6 = 0;
+  v33 = a3;
+  v32 = 0;
+  if ( State.SystemState > *((_DWORD *)DeviceExtension + 71) )
   {
-    PoSetPowerState(DeviceObject, DevicePowerState, (POWER_STATE)State);
+    PoSetPowerState(DeviceObject, DevicePowerState, State);
     if ( *((_QWORD *)DeviceExtension + 2) == 0x274727044LL )
     {
       KeEnterCriticalRegion();
-      ExAcquireResourceExclusiveLite((PERESOURCE)(DeviceExtension + 3808), 1u);
-      *((POWER_STATE *)DeviceExtension + 71) = v6;
-      ExReleaseResourceLite((PERESOURCE)(DeviceExtension + 3808));
+      ExAcquireResourceExclusiveLite((PERESOURCE)(DeviceExtension + 3792), 1u);
+      *((POWER_STATE *)DeviceExtension + 71) = State;
+      ExReleaseResourceLite((PERESOURCE)(DeviceExtension + 3792));
       KeLeaveCriticalRegion();
       if ( *((_DWORD *)DeviceExtension + 59) == 2 )
       {
-        DpiRequestIoPowerState(DeviceObject, 1LL);
-        v13 = ((__int64 (__fastcall *)(_DWORD, _DWORD, _DWORD, _DWORD, _DWORD))DpiDxgkDdiSetPowerState)(
+        v21 = DeviceExtension[4144];
+        if ( a5 == 2 )
+        {
+          v6 = v21 != 0 ? 128 : 8;
+        }
+        else if ( a5 == 3 )
+        {
+          v6 = v21 != 0 ? 128 : 16;
+        }
+        else if ( a5 - 4 <= 2 )
+        {
+          v6 = 32;
+        }
+        DpiRequestIoPowerState(DeviceObject, 1LL, v20, v6);
+        v32 = ((__int64 (__fastcall *)(_DWORD, _DWORD, _DWORD, _DWORD, _DWORD))DpiDxgkDdiSetPowerState)(
                 *((_QWORD *)DeviceExtension + 5),
                 *((_QWORD *)DeviceExtension + 6),
                 -1,
-                (POWER_STATE)v6.SystemState,
+                (POWER_STATE)State.SystemState,
                 a5);
-        ++*((_DWORD *)DeviceExtension + 1077);
-        v19 = v13;
       }
-      if ( v20 == 5 && (PDEVICE_OBJECT)qword_1C0140740 == DeviceObject && dword_1C01407F0 == 3 )
+      if ( v33 == 5 && (PDEVICE_OBJECT)qword_1C00B2DB8 == DeviceObject && dword_1C00B2E68 == 3 )
       {
-        byte_1C0140810 = 1;
-        LOBYTE(v12) = 1;
-        InbvNotifyDisplayOwnershipChange(v12, DpiEnterSystemDisplay);
+        byte_1C00B2E88 = 1;
+        LOBYTE(v19) = 1;
+        InbvNotifyDisplayOwnershipChange(v19, DpiEnterSystemDisplay);
       }
-      return v19;
+      return v32;
     }
-    *((POWER_STATE *)DeviceExtension + 71) = v6;
-    if ( *((_DWORD *)DeviceExtension + 59) == 2 )
+    v14 = *((_DWORD *)DeviceExtension + 59) == 2;
+    *((POWER_STATE *)DeviceExtension + 71) = State;
+    if ( v14 )
       return ((__int64 (__fastcall *)(_DWORD, _DWORD, _DWORD, _DWORD, _DWORD))DpiDxgkDdiSetPowerState)(
                *((_QWORD *)DeviceExtension + 5),
                *((_QWORD *)DeviceExtension + 6),
                -1,
-               (POWER_STATE)v6.SystemState,
+               (POWER_STATE)State.SystemState,
                a5);
   }
-  else if ( (int)State < *((_DWORD *)DeviceExtension + 71) )
+  else if ( State.SystemState < *((_DWORD *)DeviceExtension + 71) )
   {
-    v8 = a5;
-    v20 = a5;
-    if ( a5 == 3 )
+    v10 = DpiCorrectPowerAction((__int64)DeviceObject, a4, a5);
+    v14 = *((_DWORD *)DeviceExtension + 4) == 1953656900;
+    v33 = v10;
+    if ( v14 && *((_DWORD *)DeviceExtension + 5) == 2 )
     {
-      if ( a4 == 2 || a4 == 3 || a4 == 4 )
+      v34 = 0LL;
+      if ( (PDEVICE_OBJECT)qword_1C00B2DB8 == DeviceObject )
       {
-        v8 = 2;
-        v20 = 2;
-        WdLogSingleEntry1(4LL, DeviceObject);
-      }
-      else if ( a4 == 5 )
-      {
-        WdLogSingleEntry1(4LL, DeviceObject);
-      }
-      else
-      {
-        WdLogSingleEntry1(2LL, DeviceObject);
-      }
-    }
-    if ( *((_QWORD *)DeviceExtension + 2) == 0x274727044LL )
-    {
-      v9 = *((unsigned int *)DeviceExtension + 59);
-      v22 = 0LL;
-      if ( ((_DWORD)v9 == 2
-         || *((_DWORD *)DeviceExtension + 60) == 2 && (((_DWORD)v9 - 3) & 0xFFFFFFFC) == 0 && (_DWORD)v9 != 4)
-        && *((_DWORD *)DeviceExtension + 921) )
-      {
-        DxgkReportAdapterPowerRapidHpdTrigerEvent((_QWORD *)DeviceExtension + 334);
-      }
-      if ( (PDEVICE_OBJECT)qword_1C0140740 == DeviceObject )
-      {
-        if ( byte_1C0140810 && dword_1C01407F0 == 3 )
+        if ( dword_1C00B2E68 == 3 && byte_1C00B2E88 )
         {
-          LOBYTE(State) = 1;
-          DpiAcquirePostDisplayInfoFromBgfx(&xmmword_1C0140750, State, 0LL);
-          byte_1C0140810 = 0;
-          dword_1C014083C = 1;
-          v22 = DeviceObject;
+          LOBYTE(v11) = 1;
+          DpiAcquirePostDisplayInfoFromBgfx(&xmmword_1C00B2DC8, v11, 0LL);
+          byte_1C00B2E88 = 0;
+          dword_1C00B2EB4 = 1;
+          v34 = DeviceObject;
         }
-        if ( v21 == 5 )
+        if ( a4 == 5 )
         {
-          if ( !byte_1C0140809 )
+          if ( !byte_1C00B2E81 )
           {
-            v14 = *((_QWORD *)DeviceExtension + 3);
-            v18[0] = 0;
-            if ( (int)DpiFdoDetectPostDevice(v14, v18) >= 0 && v18[0] != DeviceExtension[1152] )
+            v15 = *((_QWORD *)DeviceExtension + 3);
+            v31[0] = 0;
+            if ( (int)DpiFdoDetectPostDevice(v15, v31) >= 0 && v31[0] != DeviceExtension[1152] )
               DpiFdoRebootForSurpriseRemoval(DeviceObject, 0LL);
           }
-          v15 = *((_QWORD *)DeviceExtension + 489);
-          if ( (!v15 || *(int *)(v15 + 2820) <= 1105) && byte_1C0140495 )
+          v16 = *((_QWORD *)DeviceExtension + 487);
+          if ( (!v16 || *(int *)(v16 + 2596) <= 1105) && byte_1C00B2B16 )
           {
-            v23 = -1;
-            v24 = 0LL;
-            if ( (qword_1C013F870 & 2) != 0 )
+            v35 = -1;
+            v36 = 0LL;
+            if ( (qword_1C00B19B0 & 2) != 0 )
             {
-              v25 = 1;
-              v23 = 8007;
-              if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-                McTemplateK0q_EtwWriteTransfer(v9, &EventProfilerEnter, a3, 8007);
+              v37 = 1;
+              v35 = 8007;
+              if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+                McTemplateK0q_EtwWriteTransfer(v12, &EventProfilerEnter, v13, 8007);
             }
             else
             {
-              v25 = 0;
+              v37 = 0;
             }
-            DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v23, 8007);
-            memset(v26, 0, sizeof(v26));
-            LODWORD(v26[0]) = 18;
-            x86BiosCall(16LL, v26);
-            xmmword_1C0140760 = 0LL;
-            DWORD2(xmmword_1C0140760) = -1;
-            xmmword_1C0140750 = 0LL;
-            memset(&xmmword_1C0140770, 0, 0x80uLL);
-            DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v23);
-            if ( v25 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-              McTemplateK0q_EtwWriteTransfer(v16, &EventProfilerExit, v17, v23);
+            DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v35, 8007LL);
+            memset(v38, 0, sizeof(v38));
+            LODWORD(v38[0]) = 18;
+            x86BiosCall(16LL, v38);
+            xmmword_1C00B2DD8 = 0LL;
+            DWORD2(xmmword_1C00B2DD8) = -1;
+            xmmword_1C00B2DC8 = 0LL;
+            memset(&xmmword_1C00B2DE8, 0, 0x80uLL);
+            DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v35, v22);
+            if ( v37 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+              McTemplateK0q_EtwWriteTransfer(v23, &EventProfilerExit, v24, v35);
           }
         }
       }
       if ( *((_DWORD *)DeviceExtension + 59) == 2 )
       {
-        if ( *((_QWORD *)DeviceExtension + 3) == qword_1C0140740 )
+        if ( *((_QWORD *)DeviceExtension + 3) == qword_1C00B2DB8 )
         {
-          qword_1C01407F8 = (__int64)KeGetCurrentThread();
-          qword_1C0140800 = (__int64)v22;
+          qword_1C00B2E70 = (__int64)KeGetCurrentThread();
+          qword_1C00B2E78 = (__int64)v34;
         }
         ((void (__fastcall *)(_DWORD, _DWORD, _DWORD, _DWORD, _DWORD))DpiDxgkDdiSetPowerState)(
           *((_QWORD *)DeviceExtension + 5),
           *((_QWORD *)DeviceExtension + 6),
           -1,
-          (POWER_STATE)v6.SystemState,
-          v20);
-        ++*((_DWORD *)DeviceExtension + 1077);
-        if ( (struct _KTHREAD *)qword_1C01407F8 == KeGetCurrentThread() )
+          (POWER_STATE)State.SystemState,
+          v33);
+        if ( (struct _KTHREAD *)qword_1C00B2E70 == KeGetCurrentThread() )
         {
-          qword_1C0140800 = 0LL;
-          qword_1C01407F8 = 0LL;
+          qword_1C00B2E78 = 0LL;
+          qword_1C00B2E70 = 0LL;
         }
-        if ( (PDEVICE_OBJECT)qword_1C0140740 == DeviceObject && dword_1C01407F0 == 3 )
+        if ( (PDEVICE_OBJECT)qword_1C00B2DB8 == DeviceObject && dword_1C00B2E68 == 3 )
         {
-          xmmword_1C0140760 = 0LL;
-          DWORD2(xmmword_1C0140760) = -1;
-          xmmword_1C0140750 = 0LL;
-          memset(&xmmword_1C0140770, 0, 0x80uLL);
+          xmmword_1C00B2DD8 = 0LL;
+          DWORD2(xmmword_1C00B2DD8) = -1;
+          xmmword_1C00B2DC8 = 0LL;
+          memset(&xmmword_1C00B2DE8, 0, 0x80uLL);
         }
-        v19 = DpiRequestIoPowerState(DeviceObject, 2LL);
+        v32 = DpiRequestIoPowerState(DeviceObject, 2LL, v17, 0LL);
         KeEnterCriticalRegion();
-        ExAcquireResourceExclusiveLite((PERESOURCE)(DeviceExtension + 3808), 1u);
-        *((POWER_STATE *)DeviceExtension + 71) = v6;
-        ExReleaseResourceLite((PERESOURCE)(DeviceExtension + 3808));
+        ExAcquireResourceExclusiveLite((PERESOURCE)(DeviceExtension + 3792), 1u);
+        *((POWER_STATE *)DeviceExtension + 71) = State;
+        ExReleaseResourceLite((PERESOURCE)(DeviceExtension + 3792));
         KeLeaveCriticalRegion();
         if ( DpiIsPowerRuntimeDStateTransition((__int64)DeviceExtension) )
         {
-          if ( byte_1C0140499 )
+          if ( byte_1C00B2B1A )
           {
-            DeviceExtension[3529] = 1;
+            DeviceExtension[3513] = 1;
           }
           else
           {
             WorkItem = IoAllocateWorkItem(DeviceObject);
             if ( WorkItem )
+            {
               IoQueueWorkItemEx(WorkItem, DpiFdoInvalidateChildWorkItem, DelayedWorkQueue, 0LL);
+            }
             else
-              WdLogSingleEntry1(6LL, -1073741670LL);
+            {
+              v30 = WdLogNewEntry5_WdLowResource(v27, v26, v28, v29);
+              *(_QWORD *)(v30 + 24) = -1073741670LL;
+              WdLogEvent5_WdLowResource(v30);
+            }
           }
         }
         else
         {
-          DeviceExtension[3529] = 1;
-          _InterlockedAnd((volatile signed __int32 *)DeviceExtension + 915, 0xFFFFFFFE);
+          DeviceExtension[3513] = 1;
+          _InterlockedAnd((volatile signed __int32 *)DeviceExtension + 911, 0xFFFFFFFE);
           IoInvalidateDeviceRelations(*((PDEVICE_OBJECT *)DeviceExtension + 19), BusRelations);
         }
       }
       else
       {
         KeEnterCriticalRegion();
-        ExAcquireResourceExclusiveLite((PERESOURCE)(DeviceExtension + 3808), 1u);
-        *((POWER_STATE *)DeviceExtension + 71) = v6;
-        ExReleaseResourceLite((PERESOURCE)(DeviceExtension + 3808));
+        ExAcquireResourceExclusiveLite((PERESOURCE)(DeviceExtension + 3792), 1u);
+        *((POWER_STATE *)DeviceExtension + 71) = State;
+        ExReleaseResourceLite((PERESOURCE)(DeviceExtension + 3792));
         KeLeaveCriticalRegion();
       }
     }
     else
     {
       if ( *((_DWORD *)DeviceExtension + 59) == 2 )
-        v19 = ((__int64 (__fastcall *)(_DWORD, _DWORD, _DWORD, _DWORD, _DWORD))DpiDxgkDdiSetPowerState)(
+        v32 = ((__int64 (__fastcall *)(_DWORD, _DWORD, _DWORD, _DWORD, _DWORD))DpiDxgkDdiSetPowerState)(
                 *((_QWORD *)DeviceExtension + 5),
                 *((_QWORD *)DeviceExtension + 6),
                 -1,
-                (POWER_STATE)v6.SystemState,
-                v8);
-      *((POWER_STATE *)DeviceExtension + 71) = v6;
+                (POWER_STATE)State.SystemState,
+                v10);
+      *((POWER_STATE *)DeviceExtension + 71) = State;
     }
-    PoSetPowerState(DeviceObject, DevicePowerState, v6);
-    return v19;
+    PoSetPowerState(DeviceObject, DevicePowerState, State);
+    return v32;
   }
   return 0LL;
 }

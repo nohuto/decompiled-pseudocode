@@ -1,15 +1,15 @@
 /*
- * XREFs of ?xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C0216BBC
+ * XREFs of ?xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C021C148
  * Callers:
- *     ?xxxCleanupDdeConv@@YAXPEAUtagWND@@@Z @ 0x1C0216060 (-xxxCleanupDdeConv@@YAXPEAUtagWND@@@Z.c)
- *     xxxDDETrackGetMessageHook @ 0x1C0217AA8 (xxxDDETrackGetMessageHook.c)
- *     xxxDDETrackPostHook @ 0x1C0217FF8 (xxxDDETrackPostHook.c)
- *     xxxDDETrackWindowDying @ 0x1C0218544 (xxxDDETrackWindowDying.c)
+ *     ?xxxCleanupDdeConv@@YAXPEAUtagWND@@@Z @ 0x1C021B90C (-xxxCleanupDdeConv@@YAXPEAUtagWND@@@Z.c)
+ *     xxxDDETrackGetMessageHook @ 0x1C021CCF4 (xxxDDETrackGetMessageHook.c)
+ *     xxxDDETrackPostHook @ 0x1C021D08C (xxxDDETrackPostHook.c)
+ *     xxxDDETrackWindowDying @ 0x1C021D538 (xxxDDETrackWindowDying.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00788F8 (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     xxxClientFreeDDEHandle @ 0x1C022C468 (xxxClientFreeDDEHandle.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004F430 (WPP_RECORDER_SF_q.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     xxxClientFreeDDEHandle @ 0x1C0232B48 (xxxClientFreeDDEHandle.c)
  */
 
 void __fastcall xxxFreeListFree(struct tagFREELIST *a1)
@@ -17,11 +17,11 @@ void __fastcall xxxFreeListFree(struct tagFREELIST *a1)
   struct tagFREELIST *v1; // rbx
   int v2; // edi
   int v3; // edx
-  __int64 v4; // r8
+  int v4; // ecx
   __int64 ThreadWin32Thread; // rax
   struct tagFREELIST *v6; // rcx
-  __int128 v7; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+60h] [rbp-18h]
+  __int128 v7; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v8; // [rsp+40h] [rbp-18h]
 
   if ( a1 )
   {
@@ -34,22 +34,18 @@ void __fastcall xxxFreeListFree(struct tagFREELIST *a1)
       PushW32ThreadLock((__int64)v1, &v7, (__int64)FreeListFree);
       if ( !v2 )
       {
-        LOBYTE(v3) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                  && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x2000) != 0
-                  && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-        LOBYTE(v4) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        if ( (_BYTE)v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_AND_TRACE_SF_q(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v3,
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v3) = 4;
+          WPP_RECORDER_SF_q(
             v4,
-            55,
-            4,
+            v3,
             14,
             55,
-            (__int64)&WPP_b8232c44b11d3b42055fa312fd74cb4b_Traceguids,
+            (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids,
             *((_QWORD *)v1 + 1));
-        xxxClientFreeDDEHandle(*((_QWORD *)v1 + 1), *((unsigned int *)v1 + 4), v4);
+        }
+        xxxClientFreeDDEHandle(*((_QWORD *)v1 + 1), *((unsigned int *)v1 + 4));
       }
       ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
       *(_QWORD *)(ThreadWin32Thread + 16) = v7;

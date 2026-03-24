@@ -1,19 +1,19 @@
 /*
- * XREFs of ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C013789C
+ * XREFs of ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C0144D6C
  * Callers:
- *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0032FD0 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
- *     NtGdiFillPath @ 0x1C0136730 (NtGdiFillPath.c)
- *     NtGdiCloseFigure @ 0x1C0136A90 (NtGdiCloseFigure.c)
- *     NtGdiSelectClipPath @ 0x1C01376C0 (NtGdiSelectClipPath.c)
- *     NtGdiFlattenPath @ 0x1C02ABDD0 (NtGdiFlattenPath.c)
- *     NtGdiPathToRegion @ 0x1C02AC150 (NtGdiPathToRegion.c)
- *     NtGdiStrokeAndFillPath @ 0x1C02AC2B0 (NtGdiStrokeAndFillPath.c)
- *     NtGdiStrokePath @ 0x1C02AC450 (NtGdiStrokePath.c)
- *     NtGdiWidenPath @ 0x1C02AC590 (NtGdiWidenPath.c)
+ *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0092390 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
+ *     NtGdiFillPath @ 0x1C0143B80 (NtGdiFillPath.c)
+ *     NtGdiCloseFigure @ 0x1C0143F00 (NtGdiCloseFigure.c)
+ *     NtGdiSelectClipPath @ 0x1C0144B80 (NtGdiSelectClipPath.c)
+ *     NtGdiFlattenPath @ 0x1C02AD660 (NtGdiFlattenPath.c)
+ *     NtGdiPathToRegion @ 0x1C02AD9E0 (NtGdiPathToRegion.c)
+ *     NtGdiStrokeAndFillPath @ 0x1C02ADB40 (NtGdiStrokeAndFillPath.c)
+ *     NtGdiStrokePath @ 0x1C02ADCE0 (NtGdiStrokePath.c)
+ *     NtGdiWidenPath @ 0x1C02ADE20 (NtGdiWidenPath.c)
  * Callees:
- *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C0137840 (--1XEPATHOBJ@@QEAA@XZ.c)
- *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C0138854 (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
- *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C0282D44 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
+ *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C0144D0C (--1XEPATHOBJ@@QEAA@XZ.c)
+ *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C0145D54 (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
+ *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C0286614 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
  */
 
 XEPATHOBJ *__fastcall XEPATHOBJ::XEPATHOBJ(XEPATHOBJ *this, DC **a2)

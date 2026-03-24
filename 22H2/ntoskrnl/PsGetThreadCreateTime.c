@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetThreadCreateTime @ 0x1405A3E00
+ * XREFs of PsGetThreadCreateTime @ 0x140581300
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall PsGetThreadCreateTime(__int64 a1)
 {
-  return *(_QWORD *)(a1 + 1152);
+  return *(_QWORD *)(a1 + 1072);
 }

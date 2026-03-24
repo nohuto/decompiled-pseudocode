@@ -1,90 +1,96 @@
 /*
- * XREFs of RtlpIsDuplicateAce @ 0x1406C39C0
+ * XREFs of RtlpIsDuplicateAce @ 0x1406D3350
  * Callers:
- *     RtlpGenerateInheritedAce @ 0x1406C3D10 (RtlpGenerateInheritedAce.c)
+ *     RtlpGenerateInheritedAce @ 0x1406D57F0 (RtlpGenerateInheritedAce.c)
  * Callees:
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
- *     RtlpCompareKnownObjectAces @ 0x1409BC708 (RtlpCompareKnownObjectAces.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
+ *     RtlpCompareKnownObjectAces @ 0x140913E1C (RtlpCompareKnownObjectAces.c)
  */
 
 char __fastcall RtlpIsDuplicateAce(__int64 a1, unsigned __int8 *a2)
 {
-  unsigned __int8 v4; // cl
-  unsigned __int8 *v5; // rbx
-  int v6; // ebp
-  int v7; // edi
-  int v8; // r13d
-  int v9; // r12d
-  __int64 v10; // rcx
-  int v11; // r14d
-  unsigned __int8 v12; // r9
-  __int64 v13; // rdx
-  unsigned __int8 v15; // dl
-  int v16; // r8d
-  int v17; // ecx
-  int v18; // r8d
+  unsigned __int8 v4; // dl
+  int v5; // eax
+  unsigned __int8 *v6; // rbx
+  char v7; // cl
+  int v8; // r12d
+  char v9; // r8
+  int v10; // edi
+  char v11; // dl
+  int v12; // r14d
+  int v13; // r13d
+  __int64 v14; // rcx
+  int v15; // r15d
+  unsigned __int8 v16; // r9
+  __int64 v17; // rdx
+  int v19; // r8d
+  int v20; // ecx
+  int v21; // r8d
 
   if ( *a2 <= 8u && *a2 != 4 )
   {
     v4 = a2[1];
     if ( (v4 & 0x10) != 0 )
     {
-      v5 = (unsigned __int8 *)(a1 + 8);
-      v6 = *((_DWORD *)a2 + 1);
-      v7 = 0;
-      if ( (v4 & 2) == 0 )
-        v6 = 0;
+      v5 = *(unsigned __int16 *)(a1 + 4);
+      v6 = (unsigned __int8 *)(a1 + 8);
+      v7 = v4 & 2;
       v8 = *((_DWORD *)a2 + 1);
-      if ( (v4 & 1) == 0 )
-        v8 = 0;
-      v9 = 0;
-      if ( (v4 & 8) == 0 )
-        v9 = *((_DWORD *)a2 + 1);
-      if ( *(unsigned __int16 *)(a1 + 4) - 1 <= 0 )
+      v9 = v4 & 1;
+      v10 = 0;
+      v11 = v4 & 8;
+      if ( v5 - 1 <= 0 )
         return 0;
+      v12 = *((_DWORD *)a2 + 1);
+      v13 = v12;
+      if ( !v7 )
+        v12 = 0;
+      if ( !v9 )
+        v13 = 0;
+      if ( v11 )
+        v8 = 0;
       while ( 1 )
       {
-        v10 = *v5;
-        v11 = v6;
-        if ( (unsigned __int8)v10 > 8u )
+        v14 = *v6;
+        v15 = v12;
+        if ( (unsigned __int8)v14 > 8u )
           goto LABEL_19;
-        if ( (_BYTE)v10 == 4 )
+        if ( (_BYTE)v14 == 4 )
           goto LABEL_19;
-        v12 = v5[1];
-        if ( (v12 & 0x10) == 0 )
+        v16 = v6[1];
+        if ( (v16 & 0x10) == 0 )
           goto LABEL_19;
-        v13 = *a2;
-        if ( (unsigned __int8)v10 >= 5u )
+        v17 = *a2;
+        if ( (unsigned __int8)v14 >= 5u )
         {
-          if ( (unsigned __int8)(v13 - 5) > 3u || !(unsigned __int8)RtlpCompareKnownObjectAces(v5, a2) )
+          if ( (unsigned __int8)(v17 - 5) > 3u || !(unsigned __int8)RtlpCompareKnownObjectAces(v6, a2) )
             goto LABEL_19;
         }
-        else if ( (unsigned __int8)(v13 - 5) <= 3u
-               || *((_BYTE *)&RtlBaseAceType + v13) != *((_BYTE *)&RtlBaseAceType + v10)
-               || *((_BYTE *)RtlIsSystemAceType + v13) && ((a2[1] ^ v12) & 0xC0) != 0
-               || !RtlEqualSid(a2 + 8, v5 + 8) )
+        else if ( (unsigned __int8)(v17 - 5) <= 3u
+               || *((_BYTE *)&RtlBaseAceType + v17) != *((_BYTE *)&RtlBaseAceType + v14)
+               || *((_BYTE *)&RtlIsSystemAceType + v17) && ((a2[1] ^ v16) & 0xC0) != 0
+               || !RtlEqualSid(a2 + 8, v6 + 8) )
         {
           goto LABEL_19;
         }
-        v15 = v5[1];
-        v16 = ~*((_DWORD *)v5 + 1);
-        v6 &= v16;
-        if ( (v15 & 2) == 0 )
-          v6 = v11;
-        v17 = v8 & ~*((_DWORD *)v5 + 1);
-        if ( (v15 & 1) == 0 )
-          v17 = v8;
-        v18 = v9 & v16;
-        v8 = v17;
-        if ( (v15 & 8) != 0 )
-          v18 = v9;
-        v9 = v18;
-        if ( !(v6 | v17 | v18) )
+        v19 = ~*((_DWORD *)v6 + 1);
+        v12 &= v19;
+        if ( (v6[1] & 2) == 0 )
+          v12 = v15;
+        v20 = v13 & ~*((_DWORD *)v6 + 1);
+        if ( (v6[1] & 1) == 0 )
+          v20 = v13;
+        v21 = v8 & v19;
+        v13 = v20;
+        if ( (v6[1] & 8) != 0 )
+          v21 = v8;
+        v8 = v21;
+        if ( !(v12 | v20 | v21) )
           return 1;
 LABEL_19:
-        ++v7;
-        v5 += *((unsigned __int16 *)v5 + 1);
-        if ( v7 >= *(unsigned __int16 *)(a1 + 4) - 1 )
+        ++v10;
+        v6 += *((unsigned __int16 *)v6 + 1);
+        if ( v10 >= *(unsigned __int16 *)(a1 + 4) - 1 )
           return 0;
       }
     }

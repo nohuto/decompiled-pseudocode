@@ -3,9 +3,9 @@
  * Callers:
  *     MiWaitForCollidedFaultComplete @ 0x140003F00 (MiWaitForCollidedFaultComplete.c)
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
- *     MiPrivateFixup @ 0x140125E20 (MiPrivateFixup.c)
- *     MiMakeImagePageOk @ 0x1402C44FC (MiMakeImagePageOk.c)
- *     MiIdealClusterPage @ 0x1402C6B14 (MiIdealClusterPage.c)
+ *     MiPrivateFixup @ 0x140125E40 (MiPrivateFixup.c)
+ *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
+ *     MiIdealClusterPage @ 0x1402C6C14 (MiIdealClusterPage.c)
  * Callees:
  *     MiFindActualFaultingPte @ 0x14002D0E8 (MiFindActualFaultingPte.c)
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)

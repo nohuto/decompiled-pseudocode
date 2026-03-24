@@ -1,15 +1,15 @@
 /*
- * XREFs of IsvMirrorIncludeNotifySupported @ 0x1C0097F9C
+ * XREFs of IsvMirrorIncludeNotifySupported @ 0x1C0082188
  * Callers:
- *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C003B100 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C00CA320 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 IsvMirrorIncludeNotifySupported()
 {
-  if ( qword_1C0294680 )
-    return qword_1C0294680();
+  if ( qword_1C0255270 )
+    return qword_1C0255270();
   else
     return 3221225659LL;
 }

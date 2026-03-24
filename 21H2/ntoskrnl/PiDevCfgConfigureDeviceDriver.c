@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceDriver @ 0x1406976D0
+ * XREFs of PiDevCfgConfigureDeviceDriver @ 0x140767490
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1407702BC (PiDevCfgConfigureDevice.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x14094ED84 (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x1408AA8EC (PpDevCfgProcessDeviceExtensions.c)
  * Callees:
- *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x140697760 (PiDevCfgConfigureDeviceDriverConfiguration.c)
+ *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x140767520 (PiDevCfgConfigureDeviceDriverConfiguration.c)
  */
 
-__int64 __fastcall PiDevCfgConfigureDeviceDriver(int a1, int a2, __int64 a3, _DWORD *a4, _DWORD *a5)
+__int64 __fastcall PiDevCfgConfigureDeviceDriver(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *a5)
 {
   _DWORD *v5; // rbp
   __int64 v8; // r8
   int v11; // ecx
-  __int64 *v12; // rdi
-  __int64 i; // rbx
+  __int64 **v12; // rdi
+  __int64 **i; // rbx
   _DWORD v15[4]; // [rsp+40h] [rbp-28h] BYREF
   int v16; // [rsp+80h] [rbp+18h] BYREF
 
@@ -21,21 +21,21 @@ __int64 __fastcall PiDevCfgConfigureDeviceDriver(int a1, int a2, __int64 a3, _DW
   v16 = 0;
   v8 = *(_QWORD *)(a3 + 32);
   v15[0] = 0;
-  v11 = PiDevCfgConfigureDeviceDriverConfiguration(a1, a2, v8, -1, 0LL, 0LL, (__int64)a4, (__int64)a5);
+  v11 = PiDevCfgConfigureDeviceDriverConfiguration(a1, a2, v8, 0xFFFFFFFFLL, 0LL, 0LL, a4, a5);
   if ( v11 >= 0 )
   {
-    v12 = (__int64 *)(a3 + 368);
-    for ( i = *v12; (__int64 *)i != v12; i = *(_QWORD *)i )
+    v12 = (__int64 **)(a3 + 368);
+    for ( i = (__int64 **)*v12; i != v12; i = (__int64 **)*i )
     {
       v11 = PiDevCfgConfigureDeviceDriverConfiguration(
               a1,
               a2,
-              *(_QWORD *)(i + 32),
-              *(_DWORD *)(i + 104),
-              (__int64)PiDevCfgConfigurePropertyMatchCallback,
+              i[4],
+              *((unsigned int *)i + 26),
+              PiDevCfgConfigurePropertyMatchCallback,
               i,
-              (__int64)&v16,
-              (__int64)v15);
+              &v16,
+              v15);
       if ( v11 < 0 )
         break;
       if ( a4 )

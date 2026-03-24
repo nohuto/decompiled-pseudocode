@@ -1,25 +1,25 @@
 /*
- * XREFs of HalpHandlePreviousMcaErrors @ 0x140A61424
+ * XREFs of HalpHandlePreviousMcaErrors @ 0x1409A6CB0
  * Callers:
- *     HalpInitializeMce @ 0x140A5A6CC (HalpInitializeMce.c)
+ *     HalpInitializeMce @ 0x1409A0E1C (HalpInitializeMce.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HalpMceInitializeErrorPacketContents @ 0x140A5A9F8 (HalpMceInitializeErrorPacketContents.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A61564 (HalpHandlePreviousMcaErrorsOnProcessor.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpMceInitializeErrorPacketContents @ 0x1409A114C (HalpMceInitializeErrorPacketContents.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x1409A6DF0 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall HalpHandlePreviousMcaErrors(char a1)
 {
-  GUID *Pool2; // rax
+  GUID *PoolWithTag; // rax
   GUID *v3; // rsi
   ULONG v4; // edi
   ULONG ActiveProcessorCount; // ebp
-  unsigned int *v6; // r14
+  int *v6; // r14
   unsigned int v7; // edx
   struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 v9; // rcx
@@ -29,11 +29,11 @@ void __fastcall HalpHandlePreviousMcaErrors(char a1)
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;
-  Pool2 = (GUID *)ExAllocatePool2(64LL, 372LL, 1466720584LL);
-  v3 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (GUID *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x160uLL, 0x206C6148u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    HalpMceInitializeErrorPacketContents(Pool2);
+    HalpMceInitializeErrorPacketContents(PoolWithTag);
     v4 = 0;
     ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
     if ( ActiveProcessorCount )
@@ -51,10 +51,10 @@ void __fastcall HalpHandlePreviousMcaErrors(char a1)
         else
           p_PreviousAffinity = &PreviousAffinity;
         KeSetSystemGroupAffinityThread(&Affinity, p_PreviousAffinity);
-        for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; i; i = *(_QWORD *)(i + 184) )
+        for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; i; i = *(_QWORD *)(i + 176) )
         {
           LOBYTE(v9) = a1;
-          HalpHandlePreviousMcaErrorsOnProcessor(v9, v3, *(_QWORD *)(i + 172));
+          HalpHandlePreviousMcaErrorsOnProcessor(v9, v3, *(_QWORD *)(i + 164));
         }
         ++v4;
         ++v6;
@@ -62,6 +62,6 @@ void __fastcall HalpHandlePreviousMcaErrors(char a1)
       while ( v4 < ActiveProcessorCount );
     }
     KeRevertToUserGroupAffinityThread(&PreviousAffinity);
-    ExFreePoolWithTag(v3, 0x576C6148u);
+    ExFreePoolWithTag(v3, 0x206C6148u);
   }
 }

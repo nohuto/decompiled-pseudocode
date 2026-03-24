@@ -1,20 +1,20 @@
 /*
- * XREFs of NtPrivilegeObjectAuditAlarm @ 0x14081A150
+ * XREFs of NtPrivilegeObjectAuditAlarm @ 0x14078BA20
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     SepProbeAndCaptureString_U @ 0x140723E0C (SepProbeAndCaptureString_U.c)
- *     SeCheckAuditPrivilege @ 0x140724008 (SeCheckAuditPrivilege.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x1407241BC (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     SepAuditFailed @ 0x1409CF1A0 (SepAuditFailed.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SepProbeAndCaptureString_U @ 0x1406273E8 (SepProbeAndCaptureString_U.c)
+ *     SeCheckAuditPrivilege @ 0x14062759C (SeCheckAuditPrivilege.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x14062792C (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtPrivilegeObjectAuditAlarm(
@@ -27,11 +27,11 @@ NTSTATUS __stdcall NtPrivilegeObjectAuditAlarm(
 {
   char PreviousMode; // bl
   NTSTATUS v11; // ebx
-  PVOID v12; // rdi
+  struct _DMA_ADAPTER *v12; // rdi
   ULONG PrivilegeCount; // edi
-  unsigned int v14; // ecx
-  char *v15; // rdx
-  ULONG *Pool2; // rax
+  SIZE_T v14; // rdx
+  char *v15; // rcx
+  ULONG *PoolWithTag; // rax
   ULONG *v17; // rsi
   PVOID v18; // rbx
   __int64 v20; // rcx
@@ -64,10 +64,10 @@ LABEL_28:
     SepAuditFailed(v20);
     return v11;
   }
-  v12 = Object;
+  v12 = (struct _DMA_ADAPTER *)Object;
   if ( *((_DWORD *)Object + 48) == 2 && *((int *)Object + 49) < 1 )
   {
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     v11 = -1073741659;
     goto LABEL_30;
   }
@@ -84,29 +84,29 @@ LABEL_16:
   if ( Privileges->PrivilegeCount >= 0x43 )
   {
     v11 = -1073741811;
-    v12 = Object;
+    v12 = (struct _DMA_ADAPTER *)Object;
     goto LABEL_16;
   }
   v14 = 12 * PrivilegeCount + 8;
   if ( 12 * PrivilegeCount != -8 )
   {
-    v15 = (char *)Privileges + v14;
+    v15 = (char *)Privileges + (unsigned int)v14;
     if ( (unsigned __int64)v15 > 0x7FFFFFFF0000LL || v15 < (char *)Privileges )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  Pool2 = (ULONG *)ExAllocatePool2(256LL, v14, 1917871443LL);
-  v17 = Pool2;
-  v22 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (ULONG *)ExAllocatePoolWithTag(PagedPool, v14, 0x72506553u);
+  v17 = PoolWithTag;
+  v22 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memmove(Pool2, Privileges, 12 * PrivilegeCount + 8);
+    memmove(PoolWithTag, Privileges, 12 * PrivilegeCount + 8);
     *v17 = PrivilegeCount;
   }
   else
   {
     v11 = -1073741670;
   }
-  v12 = Object;
+  v12 = (struct _DMA_ADAPTER *)Object;
 LABEL_19:
   if ( v11 < 0 )
   {
@@ -115,7 +115,7 @@ LABEL_19:
     if ( P )
       ExFreePoolWithTag(P, 0);
     SeReleaseSubjectContext(&SubjectContext);
-    ObfDereferenceObject(v12);
+    HalPutDmaAdapter(v12);
     if ( v11 != -1073741670 )
       return v11;
     v20 = 3221225626LL;
@@ -138,6 +138,6 @@ LABEL_19:
   if ( v18 )
     ExFreePoolWithTag(v18, 0);
   SeReleaseSubjectContext(&SubjectContext);
-  ObfDereferenceObject(v12);
+  HalPutDmaAdapter(v12);
   return 0;
 }

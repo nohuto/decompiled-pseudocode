@@ -1,13 +1,13 @@
 /*
- * XREFs of xxxCleanupMotherDesktopWindow @ 0x1C01226E8
+ * XREFs of xxxCleanupMotherDesktopWindow @ 0x1C00D6DA4
  * Callers:
- *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C0099B78 (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
- *     xxxDesktopThread @ 0x1C00A4360 (xxxDesktopThread.c)
- *     ?xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00A4A14 (-xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
- *     xxxCreateWindowStation @ 0x1C00D22F8 (xxxCreateWindowStation.c)
+ *     xxxCreateWindowStation @ 0x1C000C6EC (xxxCreateWindowStation.c)
+ *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00D8838 (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ *     xxxDesktopThread @ 0x1C00D9750 (xxxDesktopThread.c)
+ *     ?xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00D9EC4 (-xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
  * Callees:
- *     SetVisible @ 0x1C001FE88 (SetVisible.c)
- *     xxxDestroyWindow @ 0x1C0062330 (xxxDestroyWindow.c)
+ *     SetVisible @ 0x1C004BD40 (SetVisible.c)
+ *     xxxDestroyWindow @ 0x1C007DCA0 (xxxDestroyWindow.c)
  */
 
 __int64 __fastcall xxxCleanupMotherDesktopWindow(__int64 a1)
@@ -21,6 +21,6 @@ __int64 __fastcall xxxCleanupMotherDesktopWindow(__int64 a1)
   SetVisible(v2, 0);
   result = HMAssignmentUnlock(v1);
   if ( result )
-    return xxxDestroyWindow(v2);
+    return xxxDestroyWindow((unsigned __int64)v2);
   return result;
 }

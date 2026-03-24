@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNotifyLidStateChange @ 0x14086C1F0
+ * XREFs of PopNotifyLidStateChange @ 0x14086C1D0
  * Callers:
- *     PdcPoReportLidState @ 0x14086EE30 (PdcPoReportLidState.c)
+ *     PdcPoReportLidState @ 0x14086EE10 (PdcPoReportLidState.c)
  * Callees:
  *     ExNotifyCallback @ 0x14008E560 (ExNotifyCallback.c)
  *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
- *     PopTriggerMonitorPowerEvent @ 0x140876274 (PopTriggerMonitorPowerEvent.c)
+ *     PopTriggerMonitorPowerEvent @ 0x140876254 (PopTriggerMonitorPowerEvent.c)
  */
 
 __int64 __fastcall PopNotifyLidStateChange(char a1)

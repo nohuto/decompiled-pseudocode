@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpGetRegistryDword @ 0x1403D2D2C
+ * XREFs of PnpGetRegistryDword @ 0x1403B738C
  * Callers:
- *     PipDmgGetDriverDmarCompatLevel @ 0x14084EA70 (PipDmgGetDriverDmarCompatLevel.c)
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
- *     PnpInitializePnpWatchdogs @ 0x140B23270 (PnpInitializePnpWatchdogs.c)
- *     PnpQueryWatchdogTimeoutConfiguration @ 0x140B232DC (PnpQueryWatchdogTimeoutConfiguration.c)
+ *     PipDmgGetDriverDmarCompatLevel @ 0x14076E404 (PipDmgGetDriverDmarCompatLevel.c)
+ *     PnpInitializePnpWatchdogs @ 0x140A53858 (PnpInitializePnpWatchdogs.c)
+ *     PiDmaGuardProcessRegistry @ 0x140A538C4 (PiDmaGuardProcessRegistry.c)
+ *     PnpQueryWatchdogTimeoutConfiguration @ 0x140A538F4 (PnpQueryWatchdogTimeoutConfiguration.c)
  * Callees:
- *     PnpValidateRegistryDword @ 0x1402088DC (PnpValidateRegistryDword.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PnpValidateRegistryDword @ 0x14039A9C8 (PnpValidateRegistryDword.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetRegistryDword(void *a1, __int64 a2, _DWORD *a3)

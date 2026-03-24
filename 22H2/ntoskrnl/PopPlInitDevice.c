@@ -1,54 +1,56 @@
 /*
- * XREFs of PopPlInitDevice @ 0x1409A05E8
+ * XREFs of PopPlInitDevice @ 0x1408F96AC
  * Callers:
- *     PopPlInitDevices @ 0x1409A06F0 (PopPlInitDevices.c)
+ *     PopPlInitDevices @ 0x1408F97C8 (PopPlInitDevices.c)
  * Callees:
- *     PopPlInitComponents @ 0x1409A04B4 (PopPlInitComponents.c)
- *     PopPlInitWString @ 0x1409A0960 (PopPlInitWString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopPlInitComponents @ 0x1408F9578 (PopPlInitComponents.c)
+ *     PopPlInitWString @ 0x1408F9A4C (PopPlInitWString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PopPlInitDevice(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4, UNICODE_STRING **a5)
+__int64 __fastcall PopPlInitDevice(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4, __int64 *a5)
 {
-  UNICODE_STRING *v5; // rbx
+  __int64 v5; // rbx
   int inited; // edi
-  UNICODE_STRING *Pool2; // rax
+  PVOID PoolWithTag; // rax
   _QWORD *v12; // rcx
   __int64 v13; // r8
 
   v5 = 0LL;
   if ( a2 + 44 <= a4 )
   {
-    Pool2 = (UNICODE_STRING *)ExAllocatePool2(64LL, 88LL, 1817210704LL);
-    v5 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x58uLL, 0x6C506F50u);
+    v5 = (__int64)PoolWithTag;
+    if ( PoolWithTag )
     {
-      inited = PopPlInitWString(Pool2);
+      memset(PoolWithTag, 0, 0x58uLL);
+      inited = PopPlInitWString((PUNICODE_STRING)v5);
       if ( inited < 0 )
         goto LABEL_9;
-      *(_QWORD *)&v5[1].Length = a1;
-      v12 = &v5[2].MaximumLength + 1;
+      *(_QWORD *)(v5 + 16) = a1;
+      v12 = (_QWORD *)(v5 + 36);
       v13 = 4LL;
       do
       {
-        *v12 = *(_QWORD *)((char *)v12 + a2 - (_QWORD)v5 - 32);
+        *v12 = *(_QWORD *)((char *)v12 + a2 - v5 - 32);
         ++v12;
         --v13;
       }
       while ( v13 );
       inited = PopPlInitComponents(
-                 (__int64)v5,
+                 v5,
                  (__int128 *)(a3 + *(unsigned int *)(a2 + 40)),
                  *(unsigned int *)(a2 + 36),
                  a3,
                  a4,
-                 (unsigned __int64 *)&v5[4].Buffer,
-                 &v5[5].Length);
+                 (unsigned __int64 *)(v5 + 72),
+                 (_QWORD *)(v5 + 80));
       if ( inited < 0 )
       {
 LABEL_9:
-        ExFreePoolWithTag(v5, 0x6C506F50u);
+        ExFreePoolWithTag((PVOID)v5, 0x6C506F50u);
         v5 = 0LL;
       }
     }

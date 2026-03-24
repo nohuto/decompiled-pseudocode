@@ -1,21 +1,20 @@
 /*
- * XREFs of PiControlGetDevicePowerData @ 0x14096D930
+ * XREFs of PiControlGetDevicePowerData @ 0x1408B34E4
  * Callers:
- *     PiControlGetPropertyData @ 0x140792C60 (PiControlGetPropertyData.c)
+ *     PiControlGetPropertyData @ 0x140690D50 (PiControlGetPropertyData.c)
  * Callees:
- *     PipIsDevNodeDNStarted @ 0x14022B1A0 (PipIsDevNodeDNStarted.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     PopLockGetDoDevicePowerState @ 0x14058F2B0 (PopLockGetDoDevicePowerState.c)
- *     PpIrpQueryCapabilities @ 0x14079BE48 (PpIrpQueryCapabilities.c)
+ *     PipIsDevNodeDNStarted @ 0x14032E358 (PipIsDevNodeDNStarted.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopLockGetDoDevicePowerState @ 0x14056F42C (PopLockGetDoDevicePowerState.c)
+ *     PpIrpQueryCapabilities @ 0x1407478A8 (PpIrpQueryCapabilities.c)
  */
 
 __int64 __fastcall PiControlGetDevicePowerData(__int64 a1, __int64 a2, unsigned int a3, _OWORD *a4, _DWORD *a5)
 {
-  size_t v5; // r12
+  size_t v5; // r15
   unsigned int v8; // ebx
-  __int64 result; // rax
   int DoDevicePowerState; // eax
   int v11; // ecx
   __int64 v12; // r9
@@ -41,12 +40,12 @@ __int64 __fastcall PiControlGetDevicePowerData(__int64 a1, __int64 a2, unsigned 
   LODWORD(Src) = 56;
   if ( (unsigned int)v5 < 4 )
   {
-    result = 2147483653LL;
-    goto LABEL_61;
+    *a5 = 56;
+    return 2147483653LL;
   }
-  if ( (int)PpIrpQueryCapabilities(*(_QWORD **)(a1 + 32), v25) < 0 )
+  if ( (int)PpIrpQueryCapabilities(*(struct _DEVICE_OBJECT **)(a1 + 32), v25) < 0 )
     return 3221225486LL;
-  if ( (unsigned int)PipIsDevNodeDNStarted(a1) )
+  if ( PipIsDevNodeDNStarted(a1) )
   {
     DoDevicePowerState = PopLockGetDoDevicePowerState(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 312LL));
     if ( !DoDevicePowerState )
@@ -191,8 +190,6 @@ LABEL_42:
       memmove(a4, &Src, v5);
     v8 = -2147483643;
   }
-  result = v8;
-LABEL_61:
   *a5 = 56;
-  return result;
+  return v8;
 }

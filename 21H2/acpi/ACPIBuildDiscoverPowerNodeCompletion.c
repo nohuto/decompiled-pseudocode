@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIBuildDiscoverPowerNodeCompletion @ 0x1C0049DB0
+ * XREFs of ACPIBuildDiscoverPowerNodeCompletion @ 0x1C004B4B0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildCompleteCommon @ 0x1C00095D8 (ACPIBuildCompleteCommon.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_sqqDqs @ 0x1C004BCCC (WPP_RECORDER_SF_sqqDqs.c)
+ *     ACPIBuildCompleteCommon @ 0x1C001A6D0 (ACPIBuildCompleteCommon.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sqqDqs @ 0x1C004CF24 (WPP_RECORDER_SF_sqqDqs.c)
  */
 
 void __fastcall ACPIBuildDiscoverPowerNodeCompletion(__int64 a1, int a2, __int64 a3, int a4)

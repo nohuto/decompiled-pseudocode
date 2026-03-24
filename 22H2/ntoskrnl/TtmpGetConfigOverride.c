@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpGetConfigOverride @ 0x1409A37FC
+ * XREFs of TtmpGetConfigOverride @ 0x1408FCE2C
  * Callers:
- *     TtmpInitializeWatchdogTimeouts @ 0x1409A391C (TtmpInitializeWatchdogTimeouts.c)
+ *     TtmpInitializeWatchdogTimeouts @ 0x1408FCF48 (TtmpInitializeWatchdogTimeouts.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
  */
 
 char __fastcall TtmpGetConfigOverride(__int64 a1, const WCHAR *a2, _DWORD *a3)
@@ -20,16 +20,17 @@ char __fastcall TtmpGetConfigOverride(__int64 a1, const WCHAR *a2, _DWORD *a3)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+7h] BYREF
   __int128 KeyValueInformation; // [rsp+90h] [rbp+37h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   ResultLength = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   ValueName = 0LL;
   KeyValueInformation = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\Power");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0

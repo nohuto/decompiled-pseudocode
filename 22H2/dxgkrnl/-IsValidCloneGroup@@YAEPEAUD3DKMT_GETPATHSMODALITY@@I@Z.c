@@ -1,36 +1,41 @@
 /*
- * XREFs of ?IsValidCloneGroup@@YAEPEAUD3DKMT_GETPATHSMODALITY@@I@Z @ 0x1C02FC5D8
+ * XREFs of ?IsValidCloneGroup@@YAEPEAUD3DKMT_GETPATHSMODALITY@@I@Z @ 0x1C0297C24
  * Callers:
- *     ?IsValidCloneConfiguration@@YAEPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C02FC544 (-IsValidCloneConfiguration@@YAEPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     ?IsValidCloneConfiguration@@YAEPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0297B84 (-IsValidCloneConfiguration@@YAEPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
  * Callees:
- *     ?IsVirtualModeSupported@@YAEAEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C02FC6A8 (-IsVirtualModeSupported@@YAEAEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z.c)
+ *     ?IsVirtualModeSupported@@YAEAEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C0297CF8 (-IsVirtualModeSupported@@YAEAEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z.c)
  */
 
 char __fastcall IsValidCloneGroup(struct D3DKMT_GETPATHSMODALITY *a1, unsigned int a2)
 {
-  char v3; // di
-  unsigned __int8 v4; // al
-  _DWORD *v5; // r11
+  char v3; // si
+  char *v4; // rbx
+  unsigned __int8 v5; // al
   int v6; // r9d
-  unsigned int v7; // r10d
-  char v8; // r8
-  unsigned __int8 i; // si
-  char *v10; // r9
-  __int64 v11; // r9
+  unsigned int v7; // r11d
+  char v8; // r9
+  unsigned __int8 i; // bp
+  char *v10; // r10
+  __int64 v11; // r10
 
   v3 = 1;
-  v4 = IsVirtualModeSupported((struct D3DKMT_GETPATHSMODALITY *)((char *)a1 + 296 * a2 + 56));
+  v4 = (char *)a1 + 272 * a2;
+  v5 = IsVirtualModeSupported((struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(v4 + 48));
   v7 = v6 + 1;
   v8 = 0;
-  for ( i = v4; v7 < *((unsigned __int16 *)a1 + 10); ++v7 )
+  for ( i = v5; v7 < *((unsigned __int16 *)a1 + 10); ++v7 )
   {
-    v10 = (char *)a1 + 296 * v7;
-    if ( v5[60] == *((_DWORD *)v10 + 60) )
+    v10 = (char *)a1 + 272 * v7;
+    if ( *((_DWORD *)v4 + 58) == *((_DWORD *)v10 + 58) )
     {
-      i &= -(IsVirtualModeSupported((struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(v10 + 56)) != 0);
-      if ( v5[20] != *(_DWORD *)(v11 + 80) || v5[18] != *(_DWORD *)(v11 + 72) || v5[19] != *(_DWORD *)(v11 + 76) )
+      i &= -(IsVirtualModeSupported((struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(v10 + 48)) != 0);
+      if ( *((_DWORD *)v4 + 18) != *(_DWORD *)(v11 + 72)
+        || *((_DWORD *)v4 + 16) != *(_DWORD *)(v11 + 64)
+        || *((_DWORD *)v4 + 17) != *(_DWORD *)(v11 + 68) )
+      {
         v3 = v8;
-      *(_QWORD *)(v11 + 56) |= 0x2000000000uLL;
+      }
+      *(_QWORD *)(v11 + 48) |= 0x2000000000uLL;
     }
   }
   if ( i || v3 )

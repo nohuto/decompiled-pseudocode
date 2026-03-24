@@ -1,33 +1,45 @@
 /*
- * XREFs of ?MiPConvertPoint@@YA?AUtagPOINT@@PEBU1@@Z @ 0x1C01DBC98
+ * XREFs of ?MiPConvertPoint@@YA?AUtagPOINT@@PEBU1@@Z @ 0x1C01E0A58
  * Callers:
- *     ?GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z @ 0x1C016ABDA (-GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z.c)
+ *     ?GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z @ 0x1C01E04EC (-GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z.c)
  * Callees:
- *     MiPGetPhysicalRect @ 0x1C0110BD4 (MiPGetPhysicalRect.c)
- *     GetScreenRect @ 0x1C0110C1C (GetScreenRect.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005BA00 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     MiPGetPhysicalRect @ 0x1C0122C5C (MiPGetPhysicalRect.c)
+ *     GetScreenRect @ 0x1C0122CA4 (GetScreenRect.c)
  */
 
 struct tagPOINT __fastcall MiPConvertPoint(const struct tagPOINT *a1)
 {
   __m128i v2; // xmm7
-  __int64 v3; // rdx
-  __m128i v4; // xmm6
+  __m128i v3; // xmm6
+  int v4; // eax
   int v5; // eax
   int v6; // eax
-  __m128i v8; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v9; // [rsp+60h] [rbp+8h]
+  __int64 v7; // rcx
+  __m128i v9; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v10; // [rsp+68h] [rbp+10h]
 
-  v2 = *(__m128i *)MiPGetPhysicalRect(&v8);
-  v4 = *GetScreenRect(&v8, v3);
-  v5 = _mm_cvtsi128_si32(v4);
-  LODWORD(v9) = EngMulDiv(
-                  a1->x - v5,
-                  _mm_cvtsi128_si32(_mm_srli_si128(v2, 8)),
-                  _mm_cvtsi128_si32(_mm_srli_si128(v4, 8)) - v5);
-  v6 = _mm_cvtsi128_si32(_mm_srli_si128(v4, 4));
-  HIDWORD(v9) = EngMulDiv(
-                  a1->y - v6,
-                  _mm_cvtsi128_si32(_mm_srli_si128(v2, 12)),
-                  _mm_cvtsi128_si32(_mm_srli_si128(v4, 12)) - v6);
-  return (struct tagPOINT)v9;
+  if ( (W32GetCurrentThreadDpiAwarenessContext((__int64)a1) & 0xF) == 2 )
+  {
+    v7 = *(_QWORD *)(*gpDispInfo + 24LL);
+    LODWORD(v10) = 2540 * (a1->x - (int)v7) / *(unsigned __int16 *)(gpsi + 6998LL);
+    v6 = 2540 * (a1->y - HIDWORD(v7)) / *(unsigned __int16 *)(gpsi + 6998LL);
+  }
+  else
+  {
+    v2 = *(__m128i *)MiPGetPhysicalRect(&v9);
+    v3 = *GetScreenRect(&v9);
+    v4 = _mm_cvtsi128_si32(v3);
+    LODWORD(v10) = EngMulDiv(
+                     a1->x - v4,
+                     _mm_cvtsi128_si32(_mm_srli_si128(v2, 8)),
+                     _mm_cvtsi128_si32(_mm_srli_si128(v3, 8)) - v4);
+    v5 = _mm_cvtsi128_si32(_mm_srli_si128(v3, 4));
+    v6 = EngMulDiv(
+           a1->y - v5,
+           _mm_cvtsi128_si32(_mm_srli_si128(v2, 12)),
+           _mm_cvtsi128_si32(_mm_srli_si128(v3, 12)) - v5);
+  }
+  HIDWORD(v10) = v6;
+  return (struct tagPOINT)v10;
 }

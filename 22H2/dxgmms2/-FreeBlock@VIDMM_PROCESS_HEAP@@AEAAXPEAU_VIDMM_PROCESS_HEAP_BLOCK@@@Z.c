@@ -1,15 +1,13 @@
 /*
- * XREFs of ?FreeBlock@VIDMM_PROCESS_HEAP@@AEAAXPEAU_VIDMM_PROCESS_HEAP_BLOCK@@@Z @ 0x1C01043B4
+ * XREFs of ?FreeBlock@VIDMM_PROCESS_HEAP@@AEAAXPEAU_VIDMM_PROCESS_HEAP_BLOCK@@@Z @ 0x1C00CB6B4
  * Callers:
- *     ?AllocateSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX2PEAEE@Z @ 0x1C0103CD4 (-AllocateSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX2PEAE.c)
- *     ?FreeSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C0104544 (-FreeSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@@Z.c)
+ *     ?AllocateSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX2PEAEE@Z @ 0x1C00CAFF0 (-AllocateSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX2PEAE.c)
+ *     ?FreeSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C00CB834 (-FreeSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0005500 (--3@YAXPEAX@Z.c)
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0019964 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ??_GVIDMM_LINEAR_POOL@@QEAAPEAXI@Z @ 0x1C002D79C (--_GVIDMM_LINEAR_POOL@@QEAAPEAXI@Z.c)
- *     McTemplateK0pxqqt_EtwWriteTransfer @ 0x1C00321E4 (McTemplateK0pxqqt_EtwWriteTransfer.c)
- *     ?VidMmDereferenceObjectAsync@@YAXPEAX@Z @ 0x1C009DC74 (-VidMmDereferenceObjectAsync@@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     McTemplateK0pxqqt_EtwWriteTransfer @ 0x1C0027F6C (McTemplateK0pxqqt_EtwWriteTransfer.c)
+ *     ??_GVIDMM_LINEAR_POOL@@QEAAPEAXI@Z @ 0x1C0028504 (--_GVIDMM_LINEAR_POOL@@QEAAPEAXI@Z.c)
+ *     ?VidMmDereferenceObjectAsync@@YAXPEAX@Z @ 0x1C00873E8 (-VidMmDereferenceObjectAsync@@YAXPEAX@Z.c)
  */
 
 void __fastcall VIDMM_PROCESS_HEAP::FreeBlock(VIDMM_PROCESS_HEAP *this, struct _VIDMM_PROCESS_HEAP_BLOCK *a2)
@@ -18,16 +16,14 @@ void __fastcall VIDMM_PROCESS_HEAP::FreeBlock(VIDMM_PROCESS_HEAP *this, struct _
   __int64 v4; // r8
   char **v6; // rdx
   int v7; // ecx
-  __int64 *v8; // rdi
-  void *v9; // rcx
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  int v11; // eax
-  _QWORD *v12; // rcx
-  bool v13; // zf
-  __int64 v14; // rax
-  __int64 v15; // rcx
-  __int64 v16; // r9
-  VIDMM_LINEAR_POOL *v17; // rcx
+  void *v8; // rcx
+  int v9; // eax
+  _QWORD *v10; // rcx
+  bool v11; // zf
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  __int64 v14; // r9
+  VIDMM_LINEAR_POOL *v15; // rcx
 
   v2 = (char *)a2 + 8;
   v4 = *((_QWORD *)a2 + 1);
@@ -41,59 +37,52 @@ void __fastcall VIDMM_PROCESS_HEAP::FreeBlock(VIDMM_PROCESS_HEAP *this, struct _
   v7 = *((_DWORD *)a2 + 20);
   if ( (unsigned int)(v7 - 3) > 3 )
   {
-    v9 = (void *)*((_QWORD *)a2 + 7);
-    if ( v9 )
-      MmUnsecureVirtualMemory(v9);
-    VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-    v8 = (__int64 *)((char *)a2 + 40);
-    (*((void (__fastcall **)(__int64, char *, char *, __int64))VirtualMemoryInterface + 2))(
-      -1LL,
-      (char *)a2 + 32,
-      (char *)a2 + 40,
-      0x8000LL);
+    v8 = (void *)*((_QWORD *)a2 + 7);
+    if ( v8 )
+      MmUnsecureVirtualMemory(v8);
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)a2 + 4, (PSIZE_T)a2 + 5, 0x8000u);
   }
   else
   {
     if ( (unsigned int)(v7 - 5) <= 1 )
       MmUnmapViewInSystemSpace(*((PVOID *)a2 + 4));
     ObCloseHandle(*((HANDLE *)a2 + 12), (*((_QWORD *)a2 + 12) & 0xFFFFFFFF80000000uLL) == 0);
-    VidMmDereferenceObjectAsync(*((PVOID *)a2 + 11));
-    v8 = (__int64 *)((char *)a2 + 40);
+    VidMmDereferenceObjectAsync(*((struct _LIST_ENTRY **)a2 + 11));
   }
-  *(_QWORD *)(*((_QWORD *)this + 1) + 144LL) -= *v8;
+  *(_QWORD *)(*((_QWORD *)this + 1) + 144LL) -= *((_QWORD *)a2 + 5);
   --*(_DWORD *)(*((_QWORD *)this + 1) + 152LL);
-  v11 = *((_DWORD *)a2 + 20);
-  v12 = (_QWORD *)*((_QWORD *)this + 1);
-  if ( v11 == 1 )
+  v9 = *((_DWORD *)a2 + 20);
+  v10 = (_QWORD *)*((_QWORD *)this + 1);
+  if ( v9 == 1 )
   {
-    v12[21] -= *v8;
+    v10[21] -= *((_QWORD *)a2 + 5);
   }
   else
   {
-    v13 = v11 == 2;
-    v14 = *v8;
-    if ( v13 )
-      v12[23] -= v14;
+    v11 = v9 == 2;
+    v12 = *((_QWORD *)a2 + 5);
+    if ( v11 )
+      v10[23] -= v12;
     else
-      v12[25] -= v14;
+      v10[25] -= v12;
   }
   if ( bTracingEnabled )
   {
-    v15 = *((unsigned int *)a2 + 20);
-    v16 = (unsigned int)(v15 - 3) > 3 ? *((_QWORD *)a2 + 4) : *((_QWORD *)a2 + 11);
-    if ( (byte_1C0076982 & 2) != 0 )
+    v13 = *((unsigned int *)a2 + 20);
+    v14 = (unsigned int)(v13 - 3) > 3 ? *((_QWORD *)a2 + 4) : *((_QWORD *)a2 + 11);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
       McTemplateK0pxqqt_EtwWriteTransfer(
-        v15,
+        v13,
         &EventDestroyProcessAllocation,
-        *v8,
-        v16,
-        *v8,
-        *((_DWORD *)a2 + 20),
-        *(_DWORD *)(*((_QWORD *)this + 1) + 8LL),
+        *((_QWORD *)a2 + 5),
+        v14,
+        *((_QWORD *)a2 + 5),
+        v13,
+        *(_QWORD *)(*((_QWORD *)this + 1) + 8LL),
         1);
   }
-  v17 = (VIDMM_LINEAR_POOL *)*((_QWORD *)a2 + 9);
-  if ( v17 )
-    VIDMM_LINEAR_POOL::`scalar deleting destructor'(v17);
+  v15 = (VIDMM_LINEAR_POOL *)*((_QWORD *)a2 + 9);
+  if ( v15 )
+    VIDMM_LINEAR_POOL::`scalar deleting destructor'(v15);
   operator delete(a2);
 }

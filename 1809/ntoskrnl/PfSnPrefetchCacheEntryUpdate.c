@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnPrefetchCacheEntryUpdate @ 0x140666140
+ * XREFs of PfSnPrefetchCacheEntryUpdate @ 0x140666120
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x140665EB8 (PfSnSetPrefetcherInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x140665E98 (PfSnSetPrefetcherInformation.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     PfSnPrefetchCacheEntryGet @ 0x140668158 (PfSnPrefetchCacheEntryGet.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x140668138 (PfSnPrefetchCacheEntryGet.c)
  */
 
 _QWORD *__fastcall PfSnPrefetchCacheEntryUpdate(_DWORD *a1)

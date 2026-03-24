@@ -1,12 +1,12 @@
 /*
- * XREFs of draw_gray_nf_ntb_o_to_temp_start @ 0x1C00EDD70
+ * XREFs of draw_gray_nf_ntb_o_to_temp_start @ 0x1C0102980
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
-unsigned __int64 __fastcall draw_gray_nf_ntb_o_to_temp_start(
+__int64 __fastcall draw_gray_nf_ntb_o_to_temp_start(
         unsigned __int64 a1,
         unsigned int a2,
         __int64 a3,
@@ -15,18 +15,18 @@ unsigned __int64 __fastcall draw_gray_nf_ntb_o_to_temp_start(
         int a6,
         int a7)
 {
-  __int64 v9; // rdx
-  unsigned __int64 result; // rax
+  __int64 result; // rax
+  __int64 v10; // rdx
   unsigned __int64 v11; // rsi
   unsigned __int64 v12; // rdi
   __int64 v13; // rbx
 
-  v9 = 3LL * a2;
-  result = a1 + 8 * v9;
-  if ( a1 < result )
+  result = a2;
+  v10 = 3LL * a2;
+  if ( a1 < a1 + 8 * v10 )
   {
     v11 = a1 + 16;
-    v12 = (8 * v9 - 1) / 0x18uLL + 1;
+    v12 = (8 * v10 - 1) / 0x18uLL + 1;
     do
     {
       v13 = **(_QWORD **)(v11 - 8);

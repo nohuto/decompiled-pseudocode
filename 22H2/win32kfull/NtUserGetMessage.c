@@ -1,54 +1,51 @@
 /*
- * XREFs of NtUserGetMessage @ 0x1C01266B0
+ * XREFs of NtUserGetMessage @ 0x1C0055090
  * Callers:
  *     <none>
  * Callees:
- *     ClientGetMessageMPH @ 0x1C000359C (ClientGetMessageMPH.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
+ *     ClientGetMessageMPH @ 0x1C00542B8 (ClientGetMessageMPH.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserGetMessage(_OWORD *a1, __int64 a2, int a3, int a4)
 {
-  int v8; // ebx
   int MessageMPH; // eax
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int128 v13; // xmm1
-  __int128 v14; // xmm2
-  ULONG64 v15; // rcx
-  __int128 v17; // [rsp+48h] [rbp-40h] BYREF
-  __int128 v18; // [rsp+58h] [rbp-30h]
-  __int128 v19; // [rsp+68h] [rbp-20h]
+  int v9; // edi
+  __int128 v10; // xmm1
+  __int128 v11; // xmm2
+  ULONG64 v12; // rcx
+  __int128 v14; // [rsp+48h] [rbp-40h] BYREF
+  __int128 v15; // [rsp+58h] [rbp-30h]
+  __int128 v16; // [rsp+68h] [rbp-20h]
 
-  v17 = 0LL;
-  v18 = 0LL;
-  v19 = 0LL;
-  EnterCrit(0LL, 0LL);
-  v8 = 0;
+  v14 = 0LL;
+  v15 = 0LL;
+  v16 = 0LL;
+  EnterCrit(0LL, 1LL);
   if ( ((a4 | a3) & 0xFFFE0000) != 0 )
   {
-    UserSetLastError(87);
+    v9 = 0;
+    UserSetLastError(87LL);
   }
   else
   {
-    if ( *(int *)(*(_QWORD *)(gptiCurrent + 448LL) + 28LL) > 0 )
-      MessageMPH = ClientGetMessageMPH(&v17, a2, a3, a4, 1, 1);
+    if ( *(int *)(*(_QWORD *)(gptiCurrent + 448LL) + 20LL) > 0 )
+      MessageMPH = ClientGetMessageMPH(&v14, a2, a3, a4, 1, 1);
     else
-      MessageMPH = xxxRealInternalGetMessage((unsigned int)&v17, a2, a3, a4, 1uLL, 1);
-    v8 = MessageMPH;
-    HIDWORD(v17) = 0;
-    HIDWORD(v19) = 0;
-    v13 = v18;
-    v14 = v19;
-    v15 = MmUserProbeAddress;
+      MessageMPH = xxxRealInternalGetMessage((unsigned int)&v14, a2, a3, a4, 1uLL, 1);
+    v9 = MessageMPH;
+    HIDWORD(v14) = 0;
+    HIDWORD(v16) = 0;
+    v10 = v15;
+    v11 = v16;
+    v12 = MmUserProbeAddress;
     if ( (unsigned __int64)a1 >= MmUserProbeAddress )
       a1 = (_OWORD *)MmUserProbeAddress;
-    *a1 = v17;
-    a1[1] = v13;
-    a1[2] = v14;
+    *a1 = v14;
+    a1[1] = v10;
+    a1[2] = v11;
   }
-  UserSessionSwitchLeaveCrit(v15, v10, v11, v12);
-  return v8;
+  UserSessionSwitchLeaveCrit(v12);
+  return v9;
 }

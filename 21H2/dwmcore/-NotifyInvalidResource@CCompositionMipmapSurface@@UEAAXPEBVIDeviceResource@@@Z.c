@@ -1,10 +1,10 @@
 /*
- * XREFs of ?NotifyInvalidResource@CCompositionMipmapSurface@@UEAAXPEBVIDeviceResource@@@Z @ 0x18020D0F0
+ * XREFs of ?NotifyInvalidResource@CCompositionMipmapSurface@@UEAAXPEBVIDeviceResource@@@Z @ 0x1801BA5B0
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800198A8 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?RemoveResourceNotifier@CD3DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x180032CF0 (-RemoveResourceNotifier@CD3DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?RemoveResourceNotifier@CD3DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x180048170 (-RemoveResourceNotifier@CD3DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
  */
 
 void __fastcall CCompositionMipmapSurface::NotifyInvalidResource(
@@ -12,8 +12,8 @@ void __fastcall CCompositionMipmapSurface::NotifyInvalidResource(
         const struct IDeviceResource *a2)
 {
   CD3DResource::RemoveResourceNotifier(
-    *(CD3DResource **)(this + 88),
-    (const struct IDeviceResourceNotify *)(this & ((unsigned __int128)-(__int128)(this - 80) >> 64)));
+    (CD3DResource *)(*(_QWORD *)(this + 88) + 24LL),
+    (const struct IDeviceResourceNotify *)(this & ((unsigned __int128)-(__int128)(this - 72) >> 64)));
   Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)(this + 88));
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)(this + 72));
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?DxgkNetDispAccessCheck@@YAJPEAVDXGPROCESS@@@Z @ 0x1C00464D0
+ * XREFs of ?DxgkNetDispAccessCheck@@YAJPEAVDXGPROCESS@@@Z @ 0x1C003E704
  * Callers:
- *     DxgkNetDispQueryMiracastDisplayDeviceStatus @ 0x1C02D3720 (DxgkNetDispQueryMiracastDisplayDeviceStatus.c)
- *     DxgkNetDispStartMiracastDisplayDevice @ 0x1C02D3A10 (DxgkNetDispStartMiracastDisplayDevice.c)
- *     DxgkNetDispStopMiracastDisplayDevice @ 0x1C02D3CA0 (DxgkNetDispStopMiracastDisplayDevice.c)
+ *     DxgkNetDispQueryMiracastDisplayDeviceStatus @ 0x1C0225080 (DxgkNetDispQueryMiracastDisplayDeviceStatus.c)
+ *     DxgkNetDispStartMiracastDisplayDevice @ 0x1C02252B0 (DxgkNetDispStartMiracastDisplayDevice.c)
+ *     DxgkNetDispStopMiracastDisplayDevice @ 0x1C0225520 (DxgkNetDispStopMiracastDisplayDevice.c)
  * Callees:
- *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C00049B8 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C000B9F0 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DxgkNetDispAccessCheck(struct DXGPROCESS *this)
@@ -15,7 +15,7 @@ __int64 __fastcall DxgkNetDispAccessCheck(struct DXGPROCESS *this)
   NTSTATUS Acl; // ebx
   struct _ACL *v3; // rdi
   ULONG v4; // eax
-  void *v5; // rax
+  PVOID v5; // rax
   void *v6; // rsi
   ULONG v7; // ebx
   struct _ACL *v8; // rax
@@ -39,7 +39,7 @@ __int64 __fastcall DxgkNetDispAccessCheck(struct DXGPROCESS *this)
     memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
     v4 = RtlLengthRequiredSid(6u);
-    v5 = (void *)operator new[](v4, 0x4B677844u, 256LL);
+    v5 = operator new[](v4, 0x4B677844u, PagedPool);
     v6 = v5;
     if ( !v5 )
       goto LABEL_13;
@@ -53,7 +53,7 @@ __int64 __fastcall DxgkNetDispAccessCheck(struct DXGPROCESS *this)
     *RtlSubAuthoritySid(v6, 4u) = -849792585;
     *RtlSubAuthoritySid(v6, 5u) = 1316708627;
     v7 = RtlLengthSid(v6) + 20;
-    v8 = (struct _ACL *)operator new[](v7, 0x4B677844u, 256LL);
+    v8 = (struct _ACL *)operator new[](v7, 0x4B677844u, PagedPool);
     v3 = v8;
     if ( v8 )
     {

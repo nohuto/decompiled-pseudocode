@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PowerEnableWakeAtBusOverload@FxPkgPnp@@MEAAJXZ @ 0x1C000BAC0
+ * XREFs of ?PowerEnableWakeAtBusOverload@FxPkgPnp@@MEAAJXZ @ 0x1C000D9F0
  * Callers:
  *     <none>
  * Callees:

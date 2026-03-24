@@ -1,52 +1,50 @@
 /*
- * XREFs of NtUserGetClassName @ 0x1C00E0FA0
+ * XREFs of NtUserGetClassName @ 0x1C00D6460
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserGetClassName(__int64 a1, __int64 a2, ULONG64 a3)
+__int64 __fastcall NtUserGetClassName(__int64 a1, int a2, ULONG64 a3)
 {
-  ULONG64 v3; // rsi
-  int v4; // r14d
   unsigned int AtomName; // edi
   __int64 v7; // rcx
-  __int64 v8; // rbx
-  volatile void *v9; // rsi
-  unsigned int v10; // ecx
-  unsigned int v11; // ecx
-  unsigned __int16 v13; // [rsp+20h] [rbp-48h]
-  int v14; // [rsp+28h] [rbp-40h]
+  __int64 v8; // r14
+  volatile void *v9; // rbx
+  __int64 v10; // rax
+  __int64 v11; // rcx
+  __int64 v12; // rdx
+  int v14; // [rsp+28h] [rbp-50h]
 
-  v3 = a3;
-  v4 = a2;
   AtomName = 0;
-  EnterSharedCrit(a1, a2, a3);
+  EnterSharedCrit(0LL, 1LL);
   v8 = ValidateHwnd(a1);
   if ( v8 )
   {
-    if ( v3 >= MmUserProbeAddress )
-      v3 = MmUserProbeAddress;
-    v14 = *(_DWORD *)v3;
-    v9 = *(volatile void **)(v3 + 8);
-    ProbeForWrite(v9, HIWORD(v14), 2u);
-    v13 = *(_WORD *)(*(_QWORD *)(*(_QWORD *)(v8 + 136) + 8LL) + 2LL);
-    if ( v4 )
+    if ( a3 >= MmUserProbeAddress )
+      a3 = MmUserProbeAddress;
+    v14 = *(_DWORD *)a3;
+    v9 = *(volatile void **)(a3 + 8);
+    ProbeForWrite(v9, (unsigned __int16)HIWORD(*(_DWORD *)a3), 2u);
+    v10 = *(_QWORD *)(*(_QWORD *)(v8 + 136) + 8LL);
+    v11 = *(unsigned __int16 *)(v10 + 2);
+    if ( a2 )
     {
       if ( (*(_WORD *)(*(_QWORD *)(v8 + 40) + 42LL) & 0x2FFF) != 0 )
       {
-        v10 = (*(_WORD *)(*(_QWORD *)(v8 + 40) + 42LL) & 0x2FFF) - 666;
-        if ( v10 < 0x1F )
+        v12 = (*(_WORD *)(*(_QWORD *)(v8 + 40) + 42LL) & 0x2FFFu) - 666;
+        if ( (unsigned int)v12 < 0x1F )
         {
           _mm_lfence();
-          v11 = byte_1C02E8B98[v10];
-          if ( (_BYTE)v11 != 25 )
-            v13 = *(_WORD *)(gpsi + 2LL * v11 + 868);
+          if ( byte_1C02EBF00[v12] == 25 )
+            v11 = *(unsigned __int16 *)(v10 + 2);
+          else
+            v11 = *(unsigned __int16 *)(gpsi + 2LL * byte_1C02EBF00[v12] + 868);
         }
       }
     }
-    AtomName = UserGetAtomName(v13, v9, HIWORD(v14) >> 1);
+    AtomName = UserGetAtomName(v11, v9, HIWORD(v14) >> 1);
   }
   UserSessionSwitchLeaveCrit(v7);
   return AtomName;

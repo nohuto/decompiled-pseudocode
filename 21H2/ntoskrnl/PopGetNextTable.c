@@ -1,11 +1,11 @@
 /*
- * XREFs of PopGetNextTable @ 0x14038C118
+ * XREFs of PopGetNextTable @ 0x140383660
  * Callers:
- *     PopWriteHiberImage @ 0x140A4C0E8 (PopWriteHiberImage.c)
- *     PopCompressHiberBlocks @ 0x140A4C204 (PopCompressHiberBlocks.c)
+ *     PopWriteHiberImage @ 0x140993C74 (PopWriteHiberImage.c)
+ *     PopCompressHiberBlocks @ 0x14099432C (PopCompressHiberBlocks.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     MmMapMemoryDumpMdlEx2 @ 0x14038C498 (MmMapMemoryDumpMdlEx2.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     MmMapMemoryDumpMdlEx2 @ 0x1403839D0 (MmMapMemoryDumpMdlEx2.c)
  */
 
 __int64 __fastcall PopGetNextTable(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, char a5, __int64 a6)
@@ -74,15 +74,15 @@ __int64 __fastcall PopGetNextTable(__int64 a1, unsigned __int64 a2, __int64 a3, 
         v31 = v29 + *(_QWORD *)(a2 + 24);
         v32 = *(_DWORD *)(a2 + 32) - v31;
         v33 = *(_QWORD *)(a2 + 40) + (v29 << 12);
-        if ( v32 <= v30 )
-        {
-          *(_QWORD *)(a1 + 104) = *(_QWORD *)a2;
-          v34 = 0LL;
-        }
-        else
+        if ( v32 > v30 )
         {
           v34 = v29 + v30;
           v32 = v30;
+        }
+        else
+        {
+          *(_QWORD *)(a1 + 104) = *(_QWORD *)a2;
+          v34 = 0LL;
         }
         *(_QWORD *)(a1 + 112) = v34;
         *(_QWORD *)(v9 + 8LL * v37++) = (16 * v31) | ((_BYTE)v32 - 1) & 0xF;
@@ -125,7 +125,7 @@ LABEL_37:
     if ( v20 != v19 )
     {
       v21 = v16 & 0x1F;
-      if ( (*v20 | *((_DWORD *)qword_140015FA0 + v21)) == -1 )
+      if ( (*v20 | *((_DWORD *)qword_140011C70 + v21)) == -1 )
       {
         v16 = v16 - v21 + 32;
         for ( ++v20; v20 < v19 && *v20 == -1; ++v20 )
@@ -141,7 +141,7 @@ LABEL_37:
     if ( v20 != v19 )
     {
       v22 = v16 & 0x1F;
-      if ( (*v20 & ~*((_DWORD *)qword_140015FA0 + v22)) == 0 )
+      if ( (*v20 & ~*((_DWORD *)qword_140011C70 + v22)) == 0 )
       {
         a2 = (unsigned int)(32 - v22);
         v24 = (unsigned int)a2 <= v15;

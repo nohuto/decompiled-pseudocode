@@ -1,51 +1,47 @@
 /*
- * XREFs of IoRegisterIoTracking @ 0x140949020
+ * XREFs of IoRegisterIoTracking @ 0x1408956A0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     IopIrpExtensionControl @ 0x1405559D0 (IopIrpExtensionControl.c)
- *     IoPerfInit @ 0x140558F78 (IoPerfInit.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     IopIrpExtensionControl @ 0x140500B18 (IopIrpExtensionControl.c)
+ *     IoPerfInit @ 0x140507A60 (IoPerfInit.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IoRegisterIoTracking(__int64 a1, _QWORD *a2)
 {
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v5; // rdi
   __int64 result; // rax
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v8; // rax
-  struct _KTHREAD *v9; // rax
 
   *a2 = 0LL;
-  Pool2 = ExAllocatePool2(64LL, 24LL, 1918136137LL);
-  v5 = (_QWORD *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x72546F49u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *(_QWORD *)(Pool2 + 16) = *(_QWORD *)(a1 + 8);
+  *(_OWORD *)PoolWithTag = 0LL;
+  PoolWithTag[2] = 0LL;
+  PoolWithTag[2] = *(_QWORD *)(a1 + 8);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&IopPerfIoTrackingLock, 0LL);
-  v8 = (_QWORD *)qword_140C5DBA8;
-  if ( *(__int64 **)qword_140C5DBA8 != &IopPerfIoTrackingListHead )
+  v8 = (_QWORD *)qword_140C45BD8;
+  if ( *(__int64 **)qword_140C45BD8 != &IopPerfIoTrackingListHead )
     __fastfail(3u);
   *v5 = &IopPerfIoTrackingListHead;
   v5[1] = v8;
   *v8 = v5;
-  qword_140C5DBA8 = (__int64)v5;
+  qword_140C45BD8 = (__int64)v5;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&IopPerfIoTrackingLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&IopPerfIoTrackingLock);
   KeAbPostRelease((ULONG_PTR)&IopPerfIoTrackingLock);
-  v9 = KeGetCurrentThread();
-  if ( v9->SpecialApcDisable++ == -1
-    && ($C71981A45BEB2B45F82C232A7085991E *)v9->ApcState.ApcListHead[0].Flink != &v9->152 )
-  {
-    KiCheckForKernelApcDelivery();
-  }
+  KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   IopIrpExtensionControl(2, 1);
   IoPerfInit(2);
   result = 0LL;

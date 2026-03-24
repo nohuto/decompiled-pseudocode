@@ -1,17 +1,17 @@
 /*
- * XREFs of PsQueryTotalCycleTimeProcess @ 0x1406C73D0
+ * XREFs of PsQueryTotalCycleTimeProcess @ 0x1409078C0
  * Callers:
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
  * Callees:
- *     KeUpdateTotalCyclesCurrentThread @ 0x1402481DC (KeUpdateTotalCyclesCurrentThread.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeFlushProcessWriteBuffers @ 0x1402F374C (KeFlushProcessWriteBuffers.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeFlushProcessWriteBuffers @ 0x14027AD04 (KeFlushProcessWriteBuffers.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KeUpdateTotalCyclesCurrentThread @ 0x1405134C8 (KeUpdateTotalCyclesCurrentThread.c)
  */
 
-__int64 __fastcall PsQueryTotalCycleTimeProcess(__int64 a1, __int64 a2)
+__int64 __fastcall PsQueryTotalCycleTimeProcess(__int64 a1, unsigned __int64 *a2)
 {
   struct _KTHREAD *CurrentThread; // rbp
   signed __int64 *v5; // rbx
@@ -31,7 +31,7 @@ __int64 __fastcall PsQueryTotalCycleTimeProcess(__int64 a1, __int64 a2)
   v8 = *v7;
   while ( v8 != v7 )
   {
-    v9 = *(v8 - 158);
+    v9 = *(v8 - 148);
     v8 = (_QWORD *)*v8;
     v6 += v9;
   }

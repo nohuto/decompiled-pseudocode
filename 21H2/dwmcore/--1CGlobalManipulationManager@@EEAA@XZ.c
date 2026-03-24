@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1CGlobalManipulationManager@@EEAA@XZ @ 0x180272368
+ * XREFs of ??1CGlobalManipulationManager@@EEAA@XZ @ 0x180221510
  * Callers:
- *     ??_ECGlobalManipulationManager@@EEAAPEAXI@Z @ 0x1802725E0 (--_ECGlobalManipulationManager@@EEAAPEAXI@Z.c)
+ *     ??_ECGlobalManipulationManager@@EEAAPEAXI@Z @ 0x1802217A0 (--_ECGlobalManipulationManager@@EEAAPEAXI@Z.c)
  * Callees:
- *     ?ShutDownManipulationThread@CManipulationManager@@IEAAXXZ @ 0x18017F9F4 (-ShutDownManipulationThread@CManipulationManager@@IEAAXXZ.c)
- *     ?UnloadRuntime@CMmcssTask@@AEAAXXZ @ 0x1801939A4 (-UnloadRuntime@CMmcssTask@@AEAAXXZ.c)
+ *     ?UnloadRuntime@CMmcssTask@@AEAAXXZ @ 0x1801638F4 (-UnloadRuntime@CMmcssTask@@AEAAXXZ.c)
+ *     ?ShutDownManipulationThread@CManipulationManager@@IEAAXXZ @ 0x1802275BC (-ShutDownManipulationThread@CManipulationManager@@IEAAXXZ.c)
  */
 
 void __fastcall CGlobalManipulationManager::~CGlobalManipulationManager(CGlobalManipulationManager *this)

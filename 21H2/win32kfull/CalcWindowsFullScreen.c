@@ -1,23 +1,23 @@
 /*
- * XREFs of CalcWindowsFullScreen @ 0x1C01127D0
+ * XREFs of CalcWindowsFullScreen @ 0x1C0125640
  * Callers:
  *     <none>
  * Callees:
- *     CalcWindowFullScreen @ 0x1C006C0E8 (CalcWindowFullScreen.c)
+ *     CalcWindowFullScreen @ 0x1C006AA64 (CalcWindowFullScreen.c)
  */
 
-_QWORD *__fastcall CalcWindowsFullScreen(__int64 a1)
+__int64 __fastcall CalcWindowsFullScreen(__int64 a1)
 {
-  _QWORD *result; // rax
-  _QWORD **v2; // rbx
+  __int64 result; // rax
+  __int64 *v2; // rbx
 
-  result = *(_QWORD **)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 24LL) + 112LL);
+  result = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 24LL) + 112LL);
   if ( result )
   {
     while ( 1 )
     {
-      v2 = (_QWORD **)(result + 11);
-      if ( !result[11] )
+      v2 = (__int64 *)(result + 88);
+      if ( !*(_QWORD *)(result + 88) )
         break;
       CalcWindowFullScreen((struct tagWND *)result);
       result = *v2;

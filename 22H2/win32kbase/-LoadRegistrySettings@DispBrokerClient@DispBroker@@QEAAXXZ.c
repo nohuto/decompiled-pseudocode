@@ -1,18 +1,23 @@
 /*
- * XREFs of ?LoadRegistrySettings@DispBrokerClient@DispBroker@@QEAAXXZ @ 0x1C000F9DC
+ * XREFs of ?LoadRegistrySettings@DispBrokerClient@DispBroker@@QEAAXXZ @ 0x1C009AD60
  * Callers:
- *     ?DispBrokerUpdateKernelDisplayPolicies@@YAXXZ @ 0x1C000F8FC (-DispBrokerUpdateKernelDisplayPolicies@@YAXXZ.c)
- *     Win32UserInitialize @ 0x1C02DBF90 (Win32UserInitialize.c)
+ *     ?DispBrokerUpdateKernelDisplayPolicies@@YAXXZ @ 0x1C009ACB4 (-DispBrokerUpdateKernelDisplayPolicies@@YAXXZ.c)
+ *     Win32UserInitialize @ 0x1C0297BBC (Win32UserInitialize.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DispBroker::DispBrokerClient::LoadRegistrySettings(DispBroker::DispBrokerClient *this)
 {
   int v1; // ebx
+  int v3; // eax
 
   v1 = 0;
-  if ( qword_1C0296018 && (int)qword_1C0296018() >= 0 && qword_1C0296020 )
-    v1 = qword_1C0296020();
+  if ( qword_1C0256C08 )
+    v3 = qword_1C0256C08();
+  else
+    v3 = -1073741637;
+  if ( v3 >= 0 && qword_1C0256C10 )
+    v1 = qword_1C0256C10();
   *(_DWORD *)this = v1;
 }

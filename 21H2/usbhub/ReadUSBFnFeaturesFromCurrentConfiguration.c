@@ -1,14 +1,14 @@
 /*
- * XREFs of ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C005C1EC
+ * XREFs of ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C005D870
  * Callers:
- *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C005C534 (UsbDualRoleFeaturesQueryLocalMachine.c)
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C005DBB8 (UsbDualRoleFeaturesQueryLocalMachine.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_Sd @ 0x1C00507CC (WPP_RECORDER_SF_Sd.c)
- *     WPP_RECORDER_SF_SS @ 0x1C005A9C4 (WPP_RECORDER_SF_SS.c)
- *     CheckUSBFnConfiguration @ 0x1C005B99C (CheckUSBFnConfiguration.c)
- *     MyRegOpenKeyForRead @ 0x1C005C7F8 (MyRegOpenKeyForRead.c)
- *     MyRegQueryString @ 0x1C005C878 (MyRegQueryString.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_Sd @ 0x1C0051E1C (WPP_RECORDER_SF_Sd.c)
+ *     WPP_RECORDER_SF_SS @ 0x1C005C0E4 (WPP_RECORDER_SF_SS.c)
+ *     CheckUSBFnConfiguration @ 0x1C005D03C (CheckUSBFnConfiguration.c)
+ *     MyRegOpenKeyForRead @ 0x1C005DE7C (MyRegOpenKeyForRead.c)
+ *     MyRegQueryString @ 0x1C005DEF8 (MyRegQueryString.c)
  */
 
 __int64 __fastcall ReadUSBFnFeaturesFromCurrentConfiguration(_DWORD *a1, char a2)

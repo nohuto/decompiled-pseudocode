@@ -1,79 +1,76 @@
 /*
- * XREFs of GetDpiDependentMetric @ 0x1C00F0DA0
+ * XREFs of GetDpiDependentMetric @ 0x1C0061430
  * Callers:
- *     ?xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z @ 0x1C0014A74 (-xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z.c)
- *     xxxCreateWindowSmIcon @ 0x1C001FABC (xxxCreateWindowSmIcon.c)
- *     xxxUpdateSystemIconsFromRegistry @ 0x1C001FD1C (xxxUpdateSystemIconsFromRegistry.c)
- *     xxxCreateClassSmIcon @ 0x1C0020AF8 (xxxCreateClassSmIcon.c)
- *     _DrawIconEx @ 0x1C0028030 (_DrawIconEx.c)
- *     ?_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z @ 0x1C002DBDC (-_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z.c)
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
- *     ?xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z @ 0x1C0062F3C (-xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z.c)
- *     xxxCheckFullScreen @ 0x1C009687C (xxxCheckFullScreen.c)
- *     _SystemParametersInfoForDpi @ 0x1C00A033C (_SystemParametersInfoForDpi.c)
- *     ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C00A2B74 (-GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z.c)
- *     ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00AB228 (-GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z.c)
- *     FindNCHit @ 0x1C00AD74C (FindNCHit.c)
- *     xxxDrawCaptionBar @ 0x1C00C689C (xxxDrawCaptionBar.c)
- *     CalcSBStuff @ 0x1C00C7878 (CalcSBStuff.c)
- *     CalcSBStuff2 @ 0x1C00C7CF4 (CalcSBStuff2.c)
- *     GetCaptionHeight @ 0x1C00ECE00 (GetCaptionHeight.c)
- *     xxxInitSendValidateMinMaxInfoEx @ 0x1C00ED180 (xxxInitSendValidateMinMaxInfoEx.c)
- *     GetWindowBordersForDpiWithCompatFlags2 @ 0x1C00EDCBC (GetWindowBordersForDpiWithCompatFlags2.c)
- *     ?CalculateContentRect@@YA?AUtagRECT@@PEBUtagWND@@PEAH@Z @ 0x1C00EE150 (-CalculateContentRect@@YA-AUtagRECT@@PEBUtagWND@@PEAH@Z.c)
- *     InternalGetRealClientRect @ 0x1C00EF568 (InternalGetRealClientRect.c)
- *     GetWindowNCMetrics @ 0x1C00F0894 (GetWindowNCMetrics.c)
- *     ?UpdateFrameControlMetricsSize@@YAFPEAUOEMBITMAPSET@@I@Z @ 0x1C00F09D0 (-UpdateFrameControlMetricsSize@@YAFPEAUOEMBITMAPSET@@I@Z.c)
- *     GetWindowNCMetricsForDpi @ 0x1C00F0B8C (GetWindowNCMetricsForDpi.c)
- *     xxxCalcClientRect @ 0x1C010ACC0 (xxxCalcClientRect.c)
- *     ?CreateDPIBitmapStrip@@YAHI@Z @ 0x1C01159A0 (-CreateDPIBitmapStrip@@YAHI@Z.c)
- *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01BF620 (_ScaleSystemMetricForDPIWithoutCache.c)
- *     ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C01C0C04 (-_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z.c)
- *     ?xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z @ 0x1C01C8170 (-xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z.c)
- *     ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01C9060 (-InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z.c)
- *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C01EEA38 (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z.c)
- *     MNPositionSysMenu @ 0x1C01FF5E4 (MNPositionSysMenu.c)
- *     ?xxxMNPositionHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUtagMONITOR@@@Z @ 0x1C02160D4 (-xxxMNPositionHierarchy@@YAIAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUt.c)
- *     xxxMNFindWindowFromPoint @ 0x1C0217C90 (xxxMNFindWindowFromPoint.c)
- *     ?xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z @ 0x1C02243DC (-xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z.c)
- *     ?CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C0228A60 (-CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z.c)
- *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0229B1C (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
- *     DrawSize @ 0x1C0229DC8 (DrawSize.c)
- *     xxxSBWndProc @ 0x1C022AA50 (xxxSBWndProc.c)
- *     ?DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z @ 0x1C022B9A4 (-DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z.c)
- *     xxxCalcCaptionButton @ 0x1C022BDD0 (xxxCalcCaptionButton.c)
- *     xxxGetMenuBarInfo @ 0x1C0230D6C (xxxGetMenuBarInfo.c)
- *     xxxMNInvertItem @ 0x1C0235660 (xxxMNInvertItem.c)
- *     xxxRealDrawMenuItem @ 0x1C0236930 (xxxRealDrawMenuItem.c)
- *     ?xxxMNItemSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAUtagPOINT@@@Z @ 0x1C0237E5C (-xxxMNItemSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAU.c)
- *     xxxMNCompute @ 0x1C0238860 (xxxMNCompute.c)
+ *     xxxCreateClassSmIcon @ 0x1C0023628 (xxxCreateClassSmIcon.c)
+ *     xxxCreateWindowSmIcon @ 0x1C00250E0 (xxxCreateWindowSmIcon.c)
+ *     xxxUpdateSystemIconsFromRegistry @ 0x1C0025790 (xxxUpdateSystemIconsFromRegistry.c)
+ *     xxxDeferWindowPosAndCheckPoint @ 0x1C003E8DC (xxxDeferWindowPosAndCheckPoint.c)
+ *     ?ComputeMaxTrackSize@@YA?AUtagSIZE@@UtagRECT@@G@Z @ 0x1C0042484 (-ComputeMaxTrackSize@@YA-AUtagSIZE@@UtagRECT@@G@Z.c)
+ *     _DrawIconEx @ 0x1C0043EF4 (_DrawIconEx.c)
+ *     ?CreateDPIBitmapStrip@@YAHI@Z @ 0x1C0045924 (-CreateDPIBitmapStrip@@YAHI@Z.c)
+ *     GetCaptionHeight @ 0x1C0047254 (GetCaptionHeight.c)
+ *     xxxMNCompute @ 0x1C0047BA4 (xxxMNCompute.c)
+ *     ?xxxMNItemSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAUtagPOINT@@@Z @ 0x1C0048148 (-xxxMNItemSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAU.c)
+ *     xxxCalcClientRect @ 0x1C004A800 (xxxCalcClientRect.c)
+ *     GetWindowBordersWithDpiAwareness @ 0x1C004AE0C (GetWindowBordersWithDpiAwareness.c)
+ *     ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C004B9B8 (-GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z.c)
+ *     _AdjustWindowRectExForDpi @ 0x1C004E6DC (_AdjustWindowRectExForDpi.c)
+ *     ?xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z @ 0x1C0060FB4 (-xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z.c)
+ *     CalcSBStuff2 @ 0x1C0063AB4 (CalcSBStuff2.c)
+ *     CalcSBStuff @ 0x1C0063D00 (CalcSBStuff.c)
+ *     GetWindowNCMetricsForDpi @ 0x1C00640E0 (GetWindowNCMetricsForDpi.c)
+ *     SetTiledRect @ 0x1C0064334 (SetTiledRect.c)
+ *     xxxInitSendValidateMinMaxInfoEx @ 0x1C0064CA0 (xxxInitSendValidateMinMaxInfoEx.c)
+ *     ?_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z @ 0x1C0065454 (-_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z.c)
+ *     xxxCheckFullScreen @ 0x1C007C55C (xxxCheckFullScreen.c)
+ *     xxxGetMenuBarInfo @ 0x1C008AA48 (xxxGetMenuBarInfo.c)
+ *     xxxDrawCaptionBar @ 0x1C00DCAB8 (xxxDrawCaptionBar.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
+ *     GetWindowNCMetrics @ 0x1C00E0960 (GetWindowNCMetrics.c)
+ *     ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00E0F70 (-GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z.c)
+ *     ?UpdateFrameControlMetricsSize@@YAFPEAUOEMBITMAPSET@@I@Z @ 0x1C010741C (-UpdateFrameControlMetricsSize@@YAFPEAUOEMBITMAPSET@@I@Z.c)
+ *     _SystemParametersInfoForDpi @ 0x1C010F5AC (_SystemParametersInfoForDpi.c)
+ *     InternalGetRealClientRect @ 0x1C0111200 (InternalGetRealClientRect.c)
+ *     FindNCHit @ 0x1C0122188 (FindNCHit.c)
+ *     MNPositionSysMenu @ 0x1C0155548 (MNPositionSysMenu.c)
+ *     ?xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z @ 0x1C0157A04 (-xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z.c)
+ *     ?xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z @ 0x1C01D6CF4 (-xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z.c)
+ *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01EA020 (_ScaleSystemMetricForDPIWithoutCache.c)
+ *     ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01F2678 (-InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z.c)
+ *     ?xxxInitializeMoveSizeDataProgrammaticArrangement@@YAXPEAUtagWND@@W4_WARR_ACTIONS@@W4_WARR_STATES@@W4_WINDOW_ARRANGEMENT_SCENARIO@@PEAU_MOVESIZEDATA@@PEAJ@Z @ 0x1C020E724 (-xxxInitializeMoveSizeDataProgrammaticArrangement@@YAXPEAUtagWND@@W4_WARR_ACTIONS@@W4_WARR_STATE.c)
+ *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAU_MOVESIZEDATA@@@Z @ 0x1C020E968 (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAU_MOVESIZEDATA@@@Z.c)
+ *     ?xxxMNPositionHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUtagMONITOR@@@Z @ 0x1C0235D70 (-xxxMNPositionHierarchy@@YAIAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUt.c)
+ *     xxxMNFindWindowFromPoint @ 0x1C0238110 (xxxMNFindWindowFromPoint.c)
+ *     ?xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z @ 0x1C023E3AC (-xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z.c)
+ *     ?CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C0243B98 (-CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z.c)
+ *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0244C54 (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
+ *     DrawSize @ 0x1C0244F00 (DrawSize.c)
+ *     xxxSBWndProc @ 0x1C0245BA0 (xxxSBWndProc.c)
+ *     ?DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z @ 0x1C0246EAC (-DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z.c)
+ *     xxxCalcCaptionButton @ 0x1C0247188 (xxxCalcCaptionButton.c)
+ *     xxxMNInvertItem @ 0x1C024C7C0 (xxxMNInvertItem.c)
+ *     xxxRealDrawMenuItem @ 0x1C024D2E4 (xxxRealDrawMenuItem.c)
  * Callees:
- *     _EnsureDpiDepSysMetCacheForPlateau @ 0x1C01BF5AC (_EnsureDpiDepSysMetCacheForPlateau.c)
+ *     GetDpiCacheSlot @ 0x1C006148C (GetDpiCacheSlot.c)
+ *     _EnsureDpiDepSysMetCacheForPlateau @ 0x1C01E9FA0 (_EnsureDpiDepSysMetCacheForPlateau.c)
  */
 
-__int64 __fastcall GetDpiDependentMetric(int a1, int a2)
+__int64 __fastcall GetDpiDependentMetric(__int64 a1, unsigned int a2)
 {
-  int v2; // r8d
-  __int64 v3; // rbx
+  int DpiCacheSlot; // eax
+  __int64 v4; // r11
+  __int64 v5; // rsi
+  __int64 v6; // rdi
   __int64 result; // rax
 
-  v2 = -1;
-  if ( a2 == *(unsigned __int16 *)(gpsi + 6998LL) )
-  {
-    v2 = 0;
-  }
-  else if ( a2 >= 96 && a2 == 24 * (a2 / 0x18u) )
-  {
-    v2 = (a2 - 72) / 24;
-    if ( v2 >= 18 )
-      v2 = -1;
-  }
-  v3 = a1 + 30LL * v2;
-  result = *(unsigned int *)(gpsi + 4 * v3 + 2284);
+  DpiCacheSlot = GetDpiCacheSlot(a2);
+  v5 = v4;
+  v6 = 30LL * DpiCacheSlot;
+  result = *(unsigned int *)(gpsi + 4 * (v6 + v4) + 2284);
   if ( (_DWORD)result == -1 )
   {
-    EnsureDpiDepSysMetCacheForPlateau((unsigned int)a2);
-    result = *(unsigned int *)(gpsi + 4 * v3 + 2284);
+    EnsureDpiDepSysMetCacheForPlateau(a2);
+    result = *(unsigned int *)(gpsi + 4 * (v5 + v6) + 2284);
     if ( (_DWORD)result == -1 )
       return 0LL;
   }

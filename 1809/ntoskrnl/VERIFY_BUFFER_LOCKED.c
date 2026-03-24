@@ -8,7 +8,7 @@
  *     VfMapTransfer @ 0x14092BAB0 (VfMapTransfer.c)
  *     VfMapTransferEx @ 0x14092BC70 (VfMapTransferEx.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     MmAreMdlPagesLocked @ 0x140924CC8 (MmAreMdlPagesLocked.c)
  *     ViHalPreprocessOptions @ 0x14092DD28 (ViHalPreprocessOptions.c)
  */
@@ -20,7 +20,7 @@ void __fastcall VERIFY_BUFFER_LOCKED(ULONG_PTR a1)
   v2 = *(_WORD *)(a1 + 10) & 0x804;
   if ( !(unsigned int)MmAreMdlPagesLocked((_DWORD *)a1) && !v2 )
   {
-    ViHalPreprocessOptions(byte_14040545C, "DMA Pages Not Locked! MDL %p for DMA not locked", (const void *)0xE);
-    VfReportIssueWithOptions(0xE6u, 0xEuLL, a1, 0LL, 0LL, byte_14040545C);
+    ViHalPreprocessOptions(byte_140405458, "DMA Pages Not Locked! MDL %p for DMA not locked", (const void *)0xE);
+    VfReportIssueWithOptions(0xE6u, 0xEuLL, a1, 0LL, 0LL, byte_140405458);
   }
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetCurrentQPCTime@CPartitionVerticalBlankScheduler@@UEBA_KXZ @ 0x1800FA600
+ * XREFs of ?GetCurrentQPCTime@CPartitionVerticalBlankScheduler@@UEBA_KXZ @ 0x1800E1C40
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 unsigned __int64 __fastcall CPartitionVerticalBlankScheduler::GetCurrentQPCTime(CPartitionVerticalBlankScheduler *this)
 {
-  return *((_QWORD *)this + 2147);
+  return *((_QWORD *)this + 1990);
 }

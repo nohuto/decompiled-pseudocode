@@ -1,18 +1,18 @@
 /*
- * XREFs of PopBootStatAccessCheck @ 0x1407EC0D4
+ * XREFs of PopBootStatAccessCheck @ 0x1407C1BDC
  * Callers:
- *     PopBootStatGet @ 0x1407ECA68 (PopBootStatGet.c)
- *     PopBootStatSet @ 0x1407EEFF8 (PopBootStatSet.c)
- *     PopBootStatCheckIntegrity @ 0x14084E3B0 (PopBootStatCheckIntegrity.c)
- *     PopBootStatRestoreDefaults @ 0x140997160 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatSet @ 0x14077F168 (PopBootStatSet.c)
+ *     PopBootStatGet @ 0x1407C18F0 (PopBootStatGet.c)
+ *     PopBootStatCheckIntegrity @ 0x1408F2344 (PopBootStatCheckIntegrity.c)
+ *     PopBootStatRestoreDefaults @ 0x1408F2588 (PopBootStatRestoreDefaults.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SeAccessCheck @ 0x140231630 (SeAccessCheck.c)
- *     ObReleaseObjectSecurityEx @ 0x1406C3160 (ObReleaseObjectSecurityEx.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObpGetObjectSecurity @ 0x140736720 (ObpGetObjectSecurity.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
+ *     SeAccessCheck @ 0x140206720 (SeAccessCheck.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     ObReleaseObjectSecurity @ 0x1406D81D0 (ObReleaseObjectSecurity.c)
+ *     ObpGetObjectSecurity @ 0x1406D85C0 (ObpGetObjectSecurity.c)
  */
 
 int __fastcall PopBootStatAccessCheck(void *a1, KPROCESSOR_MODE a2, ACCESS_MASK a3)
@@ -23,21 +23,21 @@ int __fastcall PopBootStatAccessCheck(void *a1, KPROCESSOR_MODE a2, ACCESS_MASK 
   KPROCESSOR_MODE AccessMode; // [rsp+40h] [rbp-1h]
   NTSTATUS AccessStatus; // [rsp+58h] [rbp+17h] BYREF
   ACCESS_MASK GrantedAccess; // [rsp+5Ch] [rbp+1Bh] BYREF
-  PVOID Object; // [rsp+60h] [rbp+1Fh] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+60h] [rbp+1Fh] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+68h] [rbp+27h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+70h] [rbp+2Fh] BYREF
-  char v14; // [rsp+C0h] [rbp+7Fh] BYREF
+  BOOLEAN MemoryAllocated; // [rsp+C0h] [rbp+7Fh] BYREF
 
   GrantedAccess = 0;
-  v14 = 0;
+  MemoryAllocated = 0;
   SecurityDescriptor = 0LL;
-  Object = 0LL;
+  DmaAdapter = 0LL;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
-  result = ObReferenceObjectByHandle(a1, 0, 0LL, 0, &Object, 0LL);
+  result = ObReferenceObjectByHandle(a1, 0, 0LL, 0, (PVOID *)&DmaAdapter, 0LL);
   AccessStatus = result;
   if ( result >= 0 )
   {
-    result = ObpGetObjectSecurity((__int64)Object, &SecurityDescriptor, &v14, 0);
+    result = ObpGetObjectSecurity((__int64)DmaAdapter, &SecurityDescriptor, &MemoryAllocated, 0);
     AccessStatus = result;
     if ( result >= 0 )
     {
@@ -62,13 +62,13 @@ int __fastcall PopBootStatAccessCheck(void *a1, KPROCESSOR_MODE a2, ACCESS_MASK 
       AccessStatus = result;
       if ( v6 )
       {
-        ObReleaseObjectSecurityEx(v6, v14, (__int64)Object);
+        ObReleaseObjectSecurity(v6, MemoryAllocated);
         result = AccessStatus;
       }
     }
-    if ( Object )
+    if ( DmaAdapter )
     {
-      ObfDereferenceObject(Object);
+      HalPutDmaAdapter(DmaAdapter);
       return AccessStatus;
     }
   }

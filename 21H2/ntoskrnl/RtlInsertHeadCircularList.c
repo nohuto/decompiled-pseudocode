@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInsertHeadCircularList @ 0x1402334A0
+ * XREFs of RtlInsertHeadCircularList @ 0x1402CC5A4
  * Callers:
- *     KeCaptureWaitChainHeadEx @ 0x140233430 (KeCaptureWaitChainHeadEx.c)
- *     ExpPrepareToWaitForResourceShared @ 0x1402597A8 (ExpPrepareToWaitForResourceShared.c)
- *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x140927128 (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
+ *     ExpPrepareToWaitForResourceShared @ 0x1402D0DCC (ExpPrepareToWaitForResourceShared.c)
+ *     KeCaptureWaitChainHeadEx @ 0x14038FE30 (KeCaptureWaitChainHeadEx.c)
+ *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x140884240 (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
  * Callees:
  *     <none>
  */

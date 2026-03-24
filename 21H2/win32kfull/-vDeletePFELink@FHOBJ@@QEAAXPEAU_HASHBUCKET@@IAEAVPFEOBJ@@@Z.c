@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vDeletePFELink@FHOBJ@@QEAAXPEAU_HASHBUCKET@@IAEAVPFEOBJ@@@Z @ 0x1C0012F2C
+ * XREFs of ?vDeletePFELink@FHOBJ@@QEAAXPEAU_HASHBUCKET@@IAEAVPFEOBJ@@@Z @ 0x1C009F758
  * Callers:
- *     ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C0012B4C (-vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z.c)
+ *     ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C00BA340 (-vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z.c)
  * Callees:
- *     ?flFontType@PFEOBJ@@QEAAKXZ @ 0x1C0013154 (-flFontType@PFEOBJ@@QEAAKXZ.c)
+ *     ?flFontType@PFEOBJ@@QEAAKXZ @ 0x1C009EC8C (-flFontType@PFEOBJ@@QEAAKXZ.c)
  */
 
 void __fastcall FHOBJ::vDeletePFELink(FHOBJ *this, struct _HASHBUCKET *a2, unsigned int a3, struct PFEOBJ *a4)

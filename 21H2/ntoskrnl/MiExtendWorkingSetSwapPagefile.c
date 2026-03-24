@@ -1,10 +1,10 @@
 /*
- * XREFs of MiExtendWorkingSetSwapPagefile @ 0x14097FF04
+ * XREFs of MiExtendWorkingSetSwapPagefile @ 0x1408D9ACC
  * Callers:
- *     MmOutSwapWorkingSet @ 0x140260144 (MmOutSwapWorkingSet.c)
- *     MmOutSwapVirtualAddresses @ 0x140375974 (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapVirtualAddresses @ 0x14035BCDC (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapWorkingSet @ 0x14035C7D0 (MmOutSwapWorkingSet.c)
  * Callees:
- *     MiIssuePageExtendRequest @ 0x14059C99C (MiIssuePageExtendRequest.c)
+ *     MiIssuePageExtendRequest @ 0x140543944 (MiIssuePageExtendRequest.c)
  */
 
 __int64 __fastcall MiExtendWorkingSetSwapPagefile(__int64 a1, __int64 a2, unsigned int a3)

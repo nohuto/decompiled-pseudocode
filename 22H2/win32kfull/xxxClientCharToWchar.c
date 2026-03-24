@@ -1,37 +1,45 @@
 /*
- * XREFs of xxxClientCharToWchar @ 0x1C02117B0
+ * XREFs of xxxClientCharToWchar @ 0x1C0231948
  * Callers:
- *     EditionClientCharToWchar @ 0x1C01CBB80 (EditionClientCharToWchar.c)
+ *     EditionClientCharToWchar @ 0x1C01F54B0 (EditionClientCharToWchar.c)
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBE98 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBF84 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00522B4 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005236C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052430 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052468 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
  */
 
-__int64 __fastcall xxxClientCharToWchar(__int16 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall xxxClientCharToWchar(__int16 a1, __int16 a2)
 {
-  int v4; // ebx
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  ULONG64 v7; // rcx
-  char v9; // [rsp+50h] [rbp+8h] BYREF
-  __int16 v10; // [rsp+58h] [rbp+10h] BYREF
-  __int16 v11; // [rsp+5Ah] [rbp+12h]
-  int v12; // [rsp+60h] [rbp+18h] BYREF
-  unsigned __int64 v13; // [rsp+68h] [rbp+20h] BYREF
+  int v2; // ebx
+  __int64 *v3; // rcx
+  __int64 result; // rax
+  _QWORD v5[5]; // [rsp+30h] [rbp-28h] BYREF
+  char v6; // [rsp+60h] [rbp+8h] BYREF
+  char v7; // [rsp+68h] [rbp+10h] BYREF
+  __int16 v8; // [rsp+70h] [rbp+18h] BYREF
+  __int16 v9; // [rsp+72h] [rbp+1Ah]
+  int v10; // [rsp+78h] [rbp+20h] BYREF
 
-  v13 = 0LL;
-  v12 = 0;
-  v10 = a1;
-  v11 = a2;
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v9, a2, a3, a4);
+  v5[0] = 0LL;
+  v10 = 0;
+  v8 = a1;
+  v9 = a2;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v7);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v6);
   EtwTraceBeginCallback(82LL);
-  v4 = KeUserModeCallback(82LL, &v10, 4LL, &v13, &v12);
+  v2 = KeUserModeCallback(82LL, &v8, 4LL, v5, &v10);
   EtwTraceEndCallback(82LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v9, v5, v6);
-  if ( v4 < 0 || v12 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v6);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v7);
+  if ( v2 < 0 || v10 != 24 )
     return 95LL;
-  v7 = v13;
-  if ( v13 + 8 < v13 || v13 + 8 > MmUserProbeAddress )
-    v7 = MmUserProbeAddress;
-  return *(_QWORD *)v7;
+  v3 = (__int64 *)v5[0];
+  if ( (unsigned __int64)(v5[0] + 8LL) < v5[0] || v5[0] + 8LL > MmUserProbeAddress )
+    v3 = (__int64 *)MmUserProbeAddress;
+  result = *v3;
+  v5[1] = *v3;
+  return result;
 }

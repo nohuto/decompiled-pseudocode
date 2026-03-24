@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Release@CChannel@DirectComposition@@QEAAKXZ @ 0x1C0021510
+ * XREFs of ?Release@CChannel@DirectComposition@@QEAAKXZ @ 0x1C005A59C
  * Callers:
- *     ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C00215A0 (-DestroyHandle@CChannel@DirectComposition@@SAJI@Z.c)
- *     ?Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z @ 0x1C0023020 (-Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z.c)
- *     ??1CConnection@DirectComposition@@AEAA@XZ @ 0x1C0083968 (--1CConnection@DirectComposition@@AEAA@XZ.c)
- *     ?UnlockAndUnreference@CChannel@DirectComposition@@UEAAXXZ @ 0x1C020C9F0 (-UnlockAndUnreference@CChannel@DirectComposition@@UEAAXXZ.c)
+ *     ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C005A4F8 (-DestroyHandle@CChannel@DirectComposition@@SAJI@Z.c)
+ *     ?Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z @ 0x1C005BDF0 (-Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z.c)
+ *     ??1CConnection@DirectComposition@@AEAA@XZ @ 0x1C00AB6C4 (--1CConnection@DirectComposition@@AEAA@XZ.c)
+ *     ?UnlockAndUnreference@CChannel@DirectComposition@@UEAAXXZ @ 0x1C01D52E0 (-UnlockAndUnreference@CChannel@DirectComposition@@UEAAXXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CChannel::Release(DirectComposition::CChannel *this)

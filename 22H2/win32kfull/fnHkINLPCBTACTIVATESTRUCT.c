@@ -1,46 +1,50 @@
 /*
- * XREFs of fnHkINLPCBTACTIVATESTRUCT @ 0x1C02102D8
+ * XREFs of fnHkINLPCBTACTIVATESTRUCT @ 0x1C015C41C
  * Callers:
- *     xxxCallCtfHook @ 0x1C00A0F14 (xxxCallCtfHook.c)
- *     xxxHkCallHook @ 0x1C0120850 (xxxHkCallHook.c)
+ *     xxxCallCtfHook @ 0x1C0052874 (xxxCallCtfHook.c)
+ *     xxxHkCallHook @ 0x1C005CA10 (xxxHkCallHook.c)
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBE98 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBF84 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00522B4 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005236C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052430 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052468 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
  */
 
-__int64 __fastcall fnHkINLPCBTACTIVATESTRUCT(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall fnHkINLPCBTACTIVATESTRUCT(int a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5)
 {
   int v5; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  ULONG64 v8; // rcx
-  _DWORD v10[2]; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v11; // [rsp+48h] [rbp-30h]
-  __int128 v12; // [rsp+50h] [rbp-28h]
-  __int64 v13; // [rsp+60h] [rbp-18h]
-  __int64 v14; // [rsp+68h] [rbp-10h]
-  char v15; // [rsp+80h] [rbp+8h] BYREF
-  int v16; // [rsp+88h] [rbp+10h] BYREF
-  unsigned __int64 v17; // [rsp+90h] [rbp+18h] BYREF
+  ULONG64 v6; // rcx
+  _DWORD v8[2]; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v9; // [rsp+48h] [rbp-30h]
+  __int128 v10; // [rsp+50h] [rbp-28h]
+  __int64 v11; // [rsp+60h] [rbp-18h]
+  __int64 v12; // [rsp+68h] [rbp-10h]
+  char v13; // [rsp+80h] [rbp+8h] BYREF
+  int v14; // [rsp+88h] [rbp+10h] BYREF
+  unsigned __int64 v15; // [rsp+90h] [rbp+18h] BYREF
 
-  v17 = 0LL;
-  v16 = 0;
-  v10[1] = 0;
-  v10[0] = a1;
-  v11 = a2;
-  *(_DWORD *)(a3 + 4) = 0;
-  v12 = *(_OWORD *)a3;
-  v13 = a4;
-  v14 = a5;
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v15, a2, a3, a4);
+  v15 = 0LL;
+  v14 = 0;
+  v8[1] = 0;
+  v8[0] = a1;
+  v9 = a2;
+  *((_DWORD *)a3 + 1) = 0;
+  v10 = *a3;
+  v11 = a4;
+  v12 = a5;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&a5);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v13);
   EtwTraceBeginCallback(41LL);
-  v5 = KeUserModeCallback(41LL, v10, 48LL, &v17, &v16);
+  v5 = KeUserModeCallback(41LL, v8, 48LL, &v15, &v14);
   EtwTraceEndCallback(41LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v15, v6, v7);
-  if ( v5 < 0 || v16 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v13);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&a5);
+  if ( v5 < 0 || v14 != 24 )
     return 0LL;
-  v8 = v17;
-  if ( v17 + 8 < v17 || v17 + 8 > MmUserProbeAddress )
-    v8 = MmUserProbeAddress;
-  return *(_QWORD *)v8;
+  v6 = v15;
+  if ( v15 + 8 < v15 || v15 + 8 > MmUserProbeAddress )
+    v6 = MmUserProbeAddress;
+  return *(_QWORD *)v6;
 }

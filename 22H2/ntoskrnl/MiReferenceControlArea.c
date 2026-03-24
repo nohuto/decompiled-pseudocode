@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReferenceControlArea @ 0x140288198
+ * XREFs of MiReferenceControlArea @ 0x1402D6FD4
  * Callers:
- *     MiCreateImageOrDataSection @ 0x1407233C0 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x1406545A0 (MiCreateImageOrDataSection.c)
  * Callees:
- *     MiControlAreaRequiresCharge @ 0x140214CE4 (MiControlAreaRequiresCharge.c)
- *     MiReferenceActiveControlArea @ 0x140219930 (MiReferenceActiveControlArea.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiValidateControlAreaPartition @ 0x1402A24D4 (MiValidateControlAreaPartition.c)
- *     KeAbPostReleaseEx @ 0x1402BD4C0 (KeAbPostReleaseEx.c)
- *     MiReleaseControlAreaWaiters @ 0x1402E3F2C (MiReleaseControlAreaWaiters.c)
- *     KeAbPreWait @ 0x1402FD270 (KeAbPreWait.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312010 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeWaitForGate @ 0x14034A780 (KeWaitForGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlReleaseFile @ 0x140723980 (FsRtlReleaseFile.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiControlAreaRequiresCharge @ 0x14025A51C (MiControlAreaRequiresCharge.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1402610E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeAbPreWait @ 0x140273740 (KeAbPreWait.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     MiValidateControlAreaPartition @ 0x1402D79E4 (MiValidateControlAreaPartition.c)
+ *     MiReleaseControlAreaWaiters @ 0x1402D7A34 (MiReleaseControlAreaWaiters.c)
+ *     MiReferenceActiveControlArea @ 0x1402D7AF8 (MiReferenceActiveControlArea.c)
+ *     KeAbPostReleaseEx @ 0x1402E3DB0 (KeAbPostReleaseEx.c)
+ *     KeWaitForGate @ 0x1402ED0C4 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlReleaseFile @ 0x140655100 (FsRtlReleaseFile.c)
  */
 
 __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
@@ -74,70 +74,79 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
     SectionObjectPointer += 2;
   while ( 1 )
   {
-    v8 = ExAcquireSpinLockExclusive(&dword_140C65640);
+    v8 = ExAcquireSpinLockExclusive(&dword_140C4C980);
     v9 = *SectionObjectPointer;
     v10 = v8;
     if ( !*SectionObjectPointer )
     {
       *SectionObjectPointer = a2;
-      v15 = KeAbPreAcquire((__int64)SectionObjectPointer, 0LL);
+      v15 = KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, 0LL, 0LL);
       if ( v15 )
-        *(_BYTE *)(v15 + 18) = 1;
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65640);
+        *(_BYTE *)(v15 + 26) |= 1u;
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v42 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v3 = (v42 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v42;
-          if ( v3 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v42 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v3 = (v42 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v42;
+            if ( v3 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       __writecr8(v10);
       *a3 = a2;
       return 0LL;
     }
-    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(v9 + 72) )
+    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v9 + 72)) )
       break;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65640);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
     if ( KiIrqlFlags )
     {
-      v20 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v20 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v21 = KeGetCurrentPrcb();
-        v22 = v21->SchedulerAssist;
-        v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-        v3 = (v23 & v22[5]) == 0;
-        v22[5] &= v23;
-        if ( v3 )
-          KiRemoveSystemWorkPriorityKick(v21);
+        v20 = KeGetCurrentIrql();
+        if ( v20 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v20 >= 2u )
+        {
+          v21 = KeGetCurrentPrcb();
+          v22 = v21->SchedulerAssist;
+          v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+          v3 = (v23 & v22[5]) == 0;
+          v22[5] &= v23;
+          if ( v3 )
+            KiRemoveSystemWorkPriorityKick(v21);
+        }
       }
     }
     __writecr8(v10);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65640);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
   v11 = MiValidateControlAreaPartition(a1, v9);
   if ( v11 < 0 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
     if ( KiIrqlFlags )
     {
-      v24 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v24 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v25 = KeGetCurrentPrcb();
-        v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-        v27 = v25->SchedulerAssist;
-        v3 = (v26 & v27[5]) == 0;
-        v27[5] &= v26;
-        if ( v3 )
-          KiRemoveSystemWorkPriorityKick(v25);
+        v24 = KeGetCurrentIrql();
+        if ( v24 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v24 >= 2u )
+        {
+          v25 = KeGetCurrentPrcb();
+          v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+          v27 = v25->SchedulerAssist;
+          v3 = (v26 & v27[5]) == 0;
+          v27[5] &= v26;
+          if ( v3 )
+            KiRemoveSystemWorkPriorityKick(v25);
+        }
       }
     }
 LABEL_55:
@@ -162,36 +171,42 @@ LABEL_55:
           ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
           if ( KiIrqlFlags )
           {
-            v32 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v32 >= 2u )
+            if ( (KiIrqlFlags & 1) != 0 )
             {
-              v33 = KeGetCurrentPrcb();
-              v34 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-              v35 = v33->SchedulerAssist;
-              v3 = (v34 & v35[5]) == 0;
-              v35[5] &= v34;
-              if ( v3 )
-                KiRemoveSystemWorkPriorityKick(v33);
+              v32 = KeGetCurrentIrql();
+              if ( v32 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v32 >= 2u )
+              {
+                v33 = KeGetCurrentPrcb();
+                v34 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+                v35 = v33->SchedulerAssist;
+                v3 = (v34 & v35[5]) == 0;
+                v35[5] &= v34;
+                if ( v3 )
+                  KiRemoveSystemWorkPriorityKick(v33);
+              }
             }
           }
           v11 = -1073740277;
           goto LABEL_55;
         }
       }
-      active = MiReferenceActiveControlArea((_DWORD *)a1, v9);
+      active = MiReferenceActiveControlArea(a1, v9);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
       if ( KiIrqlFlags )
       {
-        v36 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v36 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          v37 = KeGetCurrentPrcb();
-          v38 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-          v39 = v37->SchedulerAssist;
-          v3 = (v38 & v39[5]) == 0;
-          v39[5] &= v38;
-          if ( v3 )
-            KiRemoveSystemWorkPriorityKick(v37);
+          v36 = KeGetCurrentIrql();
+          if ( v36 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v36 >= 2u )
+          {
+            v37 = KeGetCurrentPrcb();
+            v38 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+            v39 = v37->SchedulerAssist;
+            v3 = (v38 & v39[5]) == 0;
+            v39[5] &= v38;
+            if ( v3 )
+              KiRemoveSystemWorkPriorityKick(v37);
+          }
         }
       }
       __writecr8(v10);
@@ -199,7 +214,7 @@ LABEL_55:
       *a3 = v9;
       return 0LL;
     }
-    v16 = KeAbPreAcquire((__int64)SectionObjectPointer, 0LL);
+    v16 = KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, 0LL, 0LL);
     v19 = v16;
     if ( v16 )
       KeAbPreWait(v16, v17, v18);
@@ -214,16 +229,19 @@ LABEL_55:
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
     if ( KiIrqlFlags )
     {
-      v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v28 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v29 = KeGetCurrentPrcb();
-        v30 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-        v31 = v29->SchedulerAssist;
-        v3 = (v30 & v31[5]) == 0;
-        v31[5] &= v30;
-        if ( v3 )
-          KiRemoveSystemWorkPriorityKick(v29);
+        v28 = KeGetCurrentIrql();
+        if ( v28 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v28 >= 2u )
+        {
+          v29 = KeGetCurrentPrcb();
+          v30 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+          v31 = v29->SchedulerAssist;
+          v3 = (v30 & v31[5]) == 0;
+          v31[5] &= v30;
+          if ( v3 )
+            KiRemoveSystemWorkPriorityKick(v29);
+        }
       }
     }
     __writecr8(v10);
@@ -236,7 +254,7 @@ LABEL_55:
     KeWaitForGate(&v45, 18LL);
     if ( v19 )
     {
-      KeAbPreAcquire((__int64)SectionObjectPointer, v19);
+      KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, v19, 0LL);
       KeAbPostReleaseEx((ULONG_PTR)SectionObjectPointer);
     }
     *a3 = 0LL;

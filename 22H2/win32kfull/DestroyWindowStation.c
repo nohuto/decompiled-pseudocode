@@ -1,42 +1,47 @@
 /*
- * XREFs of DestroyWindowStation @ 0x1C00A84B0
+ * XREFs of DestroyWindowStation @ 0x1C0114D50
  * Callers:
  *     <none>
  * Callees:
- *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C00E2FC0 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C004EFF4 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
  */
 
 __int64 __fastcall DestroyWindowStation(__int64 a1)
 {
   __int64 v1; // rbx
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 *i; // rdi
-  __int64 v8; // rax
-  char v9; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v3; // rcx
+  _QWORD *v4; // rdi
+  __int64 v5; // rax
+  int v6; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 8);
   if ( *(_DWORD *)(a1 + 20) == 1 )
   {
-    ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)&v9);
-    for ( i = (__int64 *)grpWinStaList; ; i = (__int64 *)(v8 + 8) )
+    ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)&v6);
+    v4 = (_QWORD *)grpWinStaList;
+    if ( grpWinStaList )
     {
-      v8 = *i;
-      if ( !*i )
-        break;
-      if ( v1 == v8 )
+      v3 = grpWinStaList;
+      do
       {
-        UnlockObjectAssignment(i);
-        *i = *(_QWORD *)(v1 + 8);
+        v5 = v3;
+        if ( v1 == v3 )
+          break;
+        v4 = (_QWORD *)(v3 + 8);
+        v5 = *(_QWORD *)(v3 + 8);
+        v3 = v5;
+      }
+      while ( v5 );
+      if ( v5 )
+      {
+        UnlockObjectAssignment(v4);
+        *v4 = *(_QWORD *)(v1 + 8);
         *(_QWORD *)(v1 + 8) = 0LL;
-        break;
       }
     }
     *(_DWORD *)(v1 + 64) |= 0x100u;
-    if ( !v9 )
-      UserSessionSwitchLeaveCrit(v4, v3, v5, v6);
+    if ( !v6 )
+      UserSessionSwitchLeaveCrit(v3);
   }
   return 0LL;
 }

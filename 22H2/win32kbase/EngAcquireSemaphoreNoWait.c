@@ -1,5 +1,5 @@
 /*
- * XREFs of EngAcquireSemaphoreNoWait @ 0x1C00ADB20
+ * XREFs of EngAcquireSemaphoreNoWait @ 0x1C00A50D0
  * Callers:
  *     <none>
  * Callees:
@@ -10,6 +10,7 @@ BOOL __stdcall EngAcquireSemaphoreNoWait(HSEMAPHORE hsem)
 {
   int v1; // ebx
   BOOLEAN v3; // al
+  __int64 v5; // rcx
 
   v1 = 0;
   if ( hsem )
@@ -21,7 +22,7 @@ BOOL __stdcall EngAcquireSemaphoreNoWait(HSEMAPHORE hsem)
     if ( !v3 )
     {
       KeLeaveCriticalRegion();
-      PsLeavePriorityRegion();
+      PsLeavePriorityRegion(v5);
     }
   }
   return v1;

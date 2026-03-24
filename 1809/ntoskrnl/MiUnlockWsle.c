@@ -6,7 +6,7 @@
  *     MmUnmapViewInSystemCache @ 0x140078710 (MmUnmapViewInSystemCache.c)
  *     MiTerminateWsle @ 0x14007ACA0 (MiTerminateWsle.c)
  *     MiTerminateWsleCluster @ 0x14007B968 (MiTerminateWsleCluster.c)
- *     MiUnlockVa @ 0x14015E080 (MiUnlockVa.c)
+ *     MiUnlockVa @ 0x14015E0A0 (MiUnlockVa.c)
  * Callees:
  *     MiUnlockPageTableCharges @ 0x14001A320 (MiUnlockPageTableCharges.c)
  *     MiGetEffectivePagePriorityThread @ 0x14001AEA8 (MiGetEffectivePagePriorityThread.c)

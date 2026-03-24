@@ -1,11 +1,11 @@
 /*
- * XREFs of PfFbBufferListInitialize @ 0x140751FD4
+ * XREFs of PfFbBufferListInitialize @ 0x140751FB4
  * Callers:
- *     PfTInitialize @ 0x140751D78 (PfTInitialize.c)
+ *     PfTInitialize @ 0x140751D58 (PfTInitialize.c)
  * Callees:
  *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void __fastcall PfFbBufferListInitialize(PKSPIN_LOCK SpinLock, __int64 a2, char a3)

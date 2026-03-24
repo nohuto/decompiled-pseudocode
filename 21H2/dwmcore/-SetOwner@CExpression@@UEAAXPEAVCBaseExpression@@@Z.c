@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SetOwner@CExpression@@UEAAXPEAVCBaseExpression@@@Z @ 0x180214DB0
+ * XREFs of ?SetOwner@CExpression@@UEAAXPEAVCBaseExpression@@@Z @ 0x1801C17F0
  * Callers:
  *     <none>
  * Callees:
- *     ?UnregisterSources@CExpression@@IEAAXXZ @ 0x18006FC4C (-UnregisterSources@CExpression@@IEAAXXZ.c)
+ *     ?UnregisterSources@CExpression@@IEAAXXZ @ 0x180065288 (-UnregisterSources@CExpression@@IEAAXXZ.c)
  */
 
 void __fastcall CExpression::SetOwner(CExpression *this, struct CBaseExpression *a2)
 {
-  if ( *((_QWORD *)this + 56) )
+  if ( *((_QWORD *)this + 53) )
     CExpression::UnregisterSources(this);
-  *((_QWORD *)this + 56) = a2;
+  *((_QWORD *)this + 53) = a2;
 }

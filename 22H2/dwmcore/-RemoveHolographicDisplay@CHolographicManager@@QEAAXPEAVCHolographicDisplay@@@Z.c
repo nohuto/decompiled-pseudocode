@@ -1,13 +1,13 @@
 /*
- * XREFs of ?RemoveHolographicDisplay@CHolographicManager@@QEAAXPEAVCHolographicDisplay@@@Z @ 0x1802A607C
+ * XREFs of ?RemoveHolographicDisplay@CHolographicManager@@QEAAXPEAVCHolographicDisplay@@@Z @ 0x180253FF0
  * Callers:
- *     ?DetachFromChannel@CHolographicDisplay@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1802A7BB0 (-DetachFromChannel@CHolographicDisplay@@UEAAXPEAVCChannelContext@@_N@Z.c)
+ *     ?DetachFromChannel@CHolographicDisplay@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1802561E0 (-DetachFromChannel@CHolographicDisplay@@UEAAXPEAVCChannelContext@@_N@Z.c)
  * Callees:
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x1800FB8E4 (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
- *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800FB924 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
- *     ?DwmHolographicDisplayRemove_@CompositorTracing@@QEAAXI@Z @ 0x1802A50F0 (-DwmHolographicDisplayRemove_@CompositorTracing@@QEAAXI@Z.c)
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x1802AC48C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x1800DB20C (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
+ *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800DB230 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
+ *     ?DwmHolographicDisplayRemove_@CompositorTracing@@QEAAXI@Z @ 0x180252F90 (-DwmHolographicDisplayRemove_@CompositorTracing@@QEAAXI@Z.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A660 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 void __fastcall CHolographicManager::RemoveHolographicDisplay(RTL_SRWLOCK *this, struct CHolographicDisplay *a2)
@@ -22,12 +22,12 @@ void __fastcall CHolographicManager::RemoveHolographicDisplay(RTL_SRWLOCK *this,
 
   if ( a2 )
   {
-    v4 = *((_DWORD *)a2 + 22);
+    v4 = *((_DWORD *)a2 + 20);
     if ( CompositorTracing::IsEnabled((__int64)this) )
     {
       wil::details::static_lazy<CompositorTracing>::get(
         v5,
-        (void (__cdecl *)())_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_);
+        _lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_);
       CompositorTracing::DwmHolographicDisplayRemove_(v6, v4);
     }
   }
@@ -53,12 +53,12 @@ void __fastcall CHolographicManager::RemoveHolographicDisplay(RTL_SRWLOCK *this,
       CHolographicInteropTaskQueue::PostMessageW(
         v10,
         7u,
-        (struct IUnknown *)(((unsigned __int64)a2 + 72) & -(__int64)(a2 != 0LL)),
+        (struct IUnknown *)(((unsigned __int64)a2 + 64) & -(__int64)(a2 != 0LL)),
         0LL,
         0LL,
         0LL,
         0LL);
-    CResource::InternalRelease(a2);
+    CRenderTargetBitmap::Release(a2);
   }
   ReleaseSRWLockExclusive(this + 13);
 }

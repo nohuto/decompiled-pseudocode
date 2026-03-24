@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bConvertDwordToFloat@@YAHKPEAM@Z @ 0x1C0033960
+ * XREFs of ?bConvertDwordToFloat@@YAHKPEAM@Z @ 0x1C00224E0
  * Callers:
- *     ?ProbeAndConvertXFORM@@YAHPEAU_XFORML@@0@Z @ 0x1C00338A0 (-ProbeAndConvertXFORM@@YAHPEAU_XFORML@@0@Z.c)
+ *     ?ProbeAndConvertXFORM@@YAHPEAU_XFORML@@0@Z @ 0x1C0022420 (-ProbeAndConvertXFORM@@YAHPEAU_XFORML@@0@Z.c)
  * Callees:
  *     <none>
  */

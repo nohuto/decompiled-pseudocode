@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DrvAcquireChangeDisplaySettingLocks@@YAXXZ @ 0x1C0077C34
+ * XREFs of ?DrvAcquireChangeDisplaySettingLocks@@YAXXZ @ 0x1C0014464
  * Callers:
- *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C00760D4 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0012620 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void DrvAcquireChangeDisplaySettingLocks(void)
@@ -13,13 +13,13 @@ void DrvAcquireChangeDisplaySettingLocks(void)
   HSEMAPHORE v0; // rax
 
   v0 = 0LL;
-  if ( qword_1C029B178 )
-    v0 = (HSEMAPHORE)qword_1C029B178();
+  if ( qword_1C02563F8 )
+    v0 = (HSEMAPHORE)qword_1C02563F8();
   EngAcquireSemaphore(v0);
-  EngAcquireSemaphore((HSEMAPHORE)ghsemDynamicModeChange);
+  EngAcquireSemaphore(ghsemDynamicModeChange);
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDynamicModeChange", ghsemDynamicModeChange, 1LL);
-  EngAcquireSemaphore((HSEMAPHORE)ghsemGreLock);
+  EngAcquireSemaphore(ghsemGreLock);
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemGreLock", ghsemGreLock, 2LL);
-  EngAcquireSemaphore((HSEMAPHORE)ghsemDCVisRgn);
+  EngAcquireSemaphore(ghsemDCVisRgn);
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDCVisRgn", ghsemDCVisRgn, 3LL);
 }

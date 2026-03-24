@@ -1,30 +1,30 @@
 /*
- * XREFs of CmQueryLayeredKey @ 0x14035D634
+ * XREFs of CmQueryLayeredKey @ 0x140200A78
  * Callers:
- *     CmQueryKey @ 0x1406D7280 (CmQueryKey.c)
+ *     CmQueryKey @ 0x1405F5810 (CmQueryKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     KCBNeedsVirtualImage_0 @ 0x1406164B0 (KCBNeedsVirtualImage_0.c)
- *     CmpQueryKeyDataFromKeyNodeStack @ 0x14061733C (CmpQueryKeyDataFromKeyNodeStack.c)
- *     CmpIsKeyStackSymlink @ 0x1406D32B0 (CmpIsKeyStackSymlink.c)
- *     CmpUnlockKcbStack @ 0x1406D5418 (CmpUnlockKcbStack.c)
- *     CmpLockKcbStackShared @ 0x1406D56E8 (CmpLockKcbStackShared.c)
- *     CmpGetKcbAtLayerHeight @ 0x1406D5850 (CmpGetKcbAtLayerHeight.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7C1C (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpConstructNameWithStatus @ 0x1406D7C60 (CmpConstructNameWithStatus.c)
- *     SeCaptureSubjectContextEx @ 0x1407380F0 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     CmpInitializeKcbStack @ 0x1407D2114 (CmpInitializeKcbStack.c)
- *     CmpCleanupKcbStack @ 0x1407D21BC (CmpCleanupKcbStack.c)
- *     CmpInitializeKeyNodeStack @ 0x1407D21DC (CmpInitializeKeyNodeStack.c)
- *     CmpCleanupKeyNodeStack @ 0x1407D2230 (CmpCleanupKeyNodeStack.c)
- *     CmGetKeyFlags @ 0x1407EAFB0 (CmGetKeyFlags.c)
- *     CmpStartKeyNodeStackFromKcbStack @ 0x140A203FC (CmpStartKeyNodeStackFromKcbStack.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140AF6160 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140AF62F0 (CmpIsKeyDeletedForKeyBody.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KCBNeedsVirtualImage_0 @ 0x1404EC8B0 (KCBNeedsVirtualImage_0.c)
+ *     CmpQueryKeyDataFromKeyNodeStack @ 0x1404ED99C (CmpQueryKeyDataFromKeyNodeStack.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
+ *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpCleanupKcbStack @ 0x140648A80 (CmpCleanupKcbStack.c)
+ *     CmpLockKcbStackShared @ 0x140648B00 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x140648B60 (CmpUnlockKcbStack.c)
+ *     CmpIsKeyStackSymlink @ 0x1406492A0 (CmpIsKeyStackSymlink.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140649D20 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpCleanupKeyNodeStack @ 0x14067E048 (CmpCleanupKeyNodeStack.c)
+ *     CmpInitializeKeyNodeStack @ 0x14067E190 (CmpInitializeKeyNodeStack.c)
+ *     CmGetKeyFlags @ 0x1406A50B0 (CmGetKeyFlags.c)
+ *     CmpInitializeKcbStack @ 0x1406A6630 (CmpInitializeKcbStack.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x1406D0A20 (SeCaptureSubjectContextEx.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1406DEB20 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x1408766FC (CmpStartKeyNodeStackFromKcbStack.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmQueryLayeredKey(__int64 a1, int a2, unsigned int *a3, unsigned int a4, unsigned int *a5)
@@ -56,7 +56,7 @@ __int64 __fastcall CmQueryLayeredKey(__int64 a1, int a2, unsigned int *a3, unsig
   _BYTE v34[80]; // [rsp+C0h] [rbp-98h] BYREF
 
   memset(v31, 0, sizeof(v31));
-  memset(v34, 0, 0x4AuLL);
+  memset(v34, 0, sizeof(v34));
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   CmpInitializeKcbStack(v31);
   v29 = 0;
@@ -131,7 +131,7 @@ __int64 __fastcall CmQueryLayeredKey(__int64 a1, int a2, unsigned int *a3, unsig
   }
   if ( a2 == 8 )
   {
-    if ( (*(_DWORD *)(*(_QWORD *)(v9 + 32) + 4112LL) & 1) != 0 )
+    if ( (*(_DWORD *)(*(_QWORD *)(v9 + 32) + 4152LL) & 1) != 0 )
       v23 = v32 & 0xFFFFFFFE;
     else
       v23 = v32 | 1;

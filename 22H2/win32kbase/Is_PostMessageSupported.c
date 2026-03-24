@@ -1,15 +1,15 @@
 /*
- * XREFs of Is_PostMessageSupported @ 0x1C02331C4
+ * XREFs of Is_PostMessageSupported @ 0x1C01FC4E0
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 Is_PostMessageSupported()
 {
-  if ( qword_1C0295790 )
-    return qword_1C0295790();
+  if ( qword_1C0256330 )
+    return qword_1C0256330();
   else
     return 3221225659LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCheckFunctionAccess @ 0x14087F580
+ * XREFs of IoCheckFunctionAccess @ 0x140760CD0
  * Callers:
  *     <none>
  * Callees:
- *     SeQuerySecurityAccessMask @ 0x1407ACF28 (SeQuerySecurityAccessMask.c)
- *     SeSetSecurityAccessMask @ 0x1407BC614 (SeSetSecurityAccessMask.c)
+ *     SeQuerySecurityAccessMask @ 0x14066C268 (SeQuerySecurityAccessMask.c)
+ *     SeSetSecurityAccessMask @ 0x14067BB98 (SeSetSecurityAccessMask.c)
  */
 
 NTSTATUS __stdcall IoCheckFunctionAccess(
@@ -27,39 +27,48 @@ NTSTATUS __stdcall IoCheckFunctionAccess(
 
   v6 = 0;
   v15 = 0;
-  if ( MajorFunction > 0xAu )
+  if ( MajorFunction > 9u )
   {
-    if ( MajorFunction == 11 )
+    if ( MajorFunction == 10 )
     {
-      if ( (~GrantedAccess & IopSetFsOperationAccess[*(int *)Arg2]) != 0 )
+      if ( (~GrantedAccess & IopQueryFsOperationAccess[*(int *)Arg2]) != 0 )
         return -1073741790;
       return v6;
     }
+    if ( MajorFunction == 11 )
+    {
+      v11 = (~GrantedAccess & IopSetFsOperationAccess[*(int *)Arg2]) != 0;
+      goto LABEL_20;
+    }
     if ( MajorFunction != 12 )
     {
-      switch ( MajorFunction )
+      if ( MajorFunction > 0xCu )
       {
-        case 0xDu:
-        case 0xEu:
-        case 0xFu:
+        if ( MajorFunction <= 0xFu )
+        {
           v14 = (unsigned __int16)IoControlCode >> 14;
           if ( v14 && (v14 & GrantedAccess) == 0 )
             return -1073741790;
           return v6;
-        case 0x11u:
-          v7 = GrantedAccess & 3;
-          goto LABEL_8;
-        case 0x14u:
-          SeQuerySecurityAccessMask(*(_DWORD *)Arg1, &v15);
-          break;
-        case 0x15u:
-          SeSetSecurityAccessMask(*(_DWORD *)Arg1, &v15);
-          break;
-        default:
-          return -1073741808;
+        }
+        switch ( MajorFunction )
+        {
+          case 0x11u:
+            v7 = GrantedAccess & 3;
+            goto LABEL_8;
+          case 0x14u:
+            SeQuerySecurityAccessMask(*(_DWORD *)Arg1, &v15);
+            break;
+          case 0x15u:
+            SeSetSecurityAccessMask(*(_DWORD *)Arg1, &v15);
+            break;
+          default:
+            return -1073741808;
+        }
+        v11 = (v15 & ~v13) != 0;
+        goto LABEL_20;
       }
-      v11 = (v15 & ~v13) != 0;
-      goto LABEL_20;
+      return -1073741808;
     }
 LABEL_18:
     v10 = (GrantedAccess & 1) == 0;
@@ -71,9 +80,9 @@ LABEL_20:
   }
   switch ( MajorFunction )
   {
-    case 0xAu:
-      v11 = (~GrantedAccess & IopQueryFsOperationAccess[*(int *)Arg2]) != 0;
-      goto LABEL_20;
+    case 9u:
+      v10 = ~(_BYTE)GrantedAccess & 2;
+      goto LABEL_19;
     case 0u:
     case 2u:
       return v6;
@@ -97,9 +106,6 @@ LABEL_8:
         goto LABEL_19;
       case 8u:
         v10 = ~(_BYTE)GrantedAccess & 0x10;
-        goto LABEL_19;
-      case 9u:
-        v10 = ~(_BYTE)GrantedAccess & 2;
         goto LABEL_19;
     }
     return -1073741808;

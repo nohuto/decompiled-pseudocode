@@ -1,7 +1,8 @@
 /*
- * XREFs of IsMessageParentWindow @ 0x1C005A7C4
+ * XREFs of IsMessageParentWindow @ 0x1C004C5B0
  * Callers:
- *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C005A330 (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
+ *     ?GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C004C33C (-GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C00E9D5C (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
  * Callees:
  *     <none>
  */

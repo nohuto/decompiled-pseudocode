@@ -1,7 +1,7 @@
 /*
- * XREFs of ProcessDelayedSdc @ 0x1C0154E10
+ * XREFs of ProcessDelayedSdc @ 0x1C0163DF0
  * Callers:
- *     PowerOnGdi @ 0x1C0154D30 (PowerOnGdi.c)
+ *     PowerOnGdi @ 0x1C0163CF0 (PowerOnGdi.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall ProcessDelayedSdc(__int64 a1)
   __int64 result; // rax
 
   if ( gulDelayedSwitchAction && !gProtocolType )
-    xxxUserSetDisplayConfig(0LL, 0LL, gulDelayedSwitchAction, 0LL, grpdeskRitInput, 0, 0LL, 0LL, 0LL, a1, 0LL);
+    xxxUserSetDisplayConfig(0LL, 0LL, gulDelayedSwitchAction, 0LL, grpdeskRitInput, 0, 0LL, 0LL, 0LL, a1);
   result = gulDelayedSwitchAction;
   gulDelayedSwitchAction = 0;
   return result;

@@ -1,43 +1,45 @@
 /*
- * XREFs of ?ScrutinizeFontLoad@@YAJW4_W32KFontSourceType@@PEBG@Z @ 0x1C00F7AC8
+ * XREFs of ?ScrutinizeFontLoad@@YAJW4_W32KFontSourceType@@PEBG@Z @ 0x1C0134FCC
  * Callers:
- *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C000D29C (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
- *     ?bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAVPDEVOBJ@@@Z @ 0x1C02707FC (-bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAVPDEVOBJ@@@Z.c)
- *     ?bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAU_FONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PEAU_UNIVERSAL_FONT_ID@@PEAH@Z @ 0x1C02709E0 (-bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAU_FONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PE.c)
- *     ?hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z @ 0x1C0270D90 (-hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z.c)
+ *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C00A871C (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
+ *     ?bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAVPDEVOBJ@@I@Z @ 0x1C016AB44 (-bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAVPDEVOBJ@@I@Z.c)
+ *     ?bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAU_FONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PEAU_UNIVERSAL_FONT_ID@@PEAH@Z @ 0x1C0272B6C (-bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAU_FONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PE.c)
+ *     ?hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z @ 0x1C0272F10 (-hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z.c)
  * Callees:
- *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C0011710 (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
- *     ?IsCurrentProcessUmfdHostNoLock@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00F7BD8 (-IsCurrentProcessUmfdHostNoLock@UmfdHostLifeTimeManager@@SA_NXZ.c)
- *     ?LogFontLoadAttempt@@YAXPEAXW4_W32KFontSourceType@@PEBGH@Z @ 0x1C02704FC (-LogFontLoadAttempt@@YAXPEAXW4_W32KFontSourceType@@PEBGH@Z.c)
+ *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C00A8E80 (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
+ *     ?IsCurrentProcessUmfdHostNoLock@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00A8ED8 (-IsCurrentProcessUmfdHostNoLock@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     ?LogFontLoadAttempt@@YAXPEAXW4_W32KFontSourceType@@PEBGH@Z @ 0x1C0272868 (-LogFontLoadAttempt@@YAXPEAXW4_W32KFontSourceType@@PEBGH@Z.c)
  */
 
-NTSTATUS __fastcall ScrutinizeFontLoad(unsigned int a1, const unsigned __int16 *a2)
+NTSTATUS __fastcall ScrutinizeFontLoad(__int64 a1, __int64 a2, __int64 a3)
 {
+  unsigned int v4; // esi
   struct _KTHREAD *CurrentThread; // rcx
   PEPROCESS ThreadProcess; // rax
   NTSTATUS result; // eax
-  NTSTATUS v7; // ebx
-  struct UmfdTls *v8; // rax
-  __int64 v9; // rcx
-  const unsigned __int16 *v10; // r8
+  NTSTATUS v8; // ebx
+  struct UmfdTls *v9; // rax
+  __int64 v10; // rcx
   const unsigned __int16 *v11; // r8
+  const unsigned __int16 *v12; // r8
   HANDLE ProcessHandle; // [rsp+60h] [rbp+18h] BYREF
   int ProcessInformation; // [rsp+68h] [rbp+20h] BYREF
-  int v14; // [rsp+6Ch] [rbp+24h]
+  int v15; // [rsp+6Ch] [rbp+24h]
 
   ProcessHandle = 0LL;
-  v14 = 0;
+  v15 = 0;
+  v4 = a1;
   ProcessInformation = 9;
-  if ( UmfdHostLifeTimeManager::IsCurrentProcessUmfdHostNoLock()
+  if ( UmfdHostLifeTimeManager::IsCurrentProcessUmfdHostNoLock(a1, a2, a3)
     && UmfdHostLifeTimeManager::s_SessionRasterizerInitialized )
   {
-    v8 = UmfdTls::EnsureTls();
-    if ( !v8 )
-      return -1073741801;
-    v9 = *((_QWORD *)v8 + 3);
+    v9 = UmfdTls::EnsureTls();
     if ( !v9 )
       return -1073741801;
-    CurrentThread = *(struct _KTHREAD **)(v9 + 16);
+    v10 = *((_QWORD *)v9 + 3);
+    if ( !v10 )
+      return -1073741801;
+    CurrentThread = *(struct _KTHREAD **)(v10 + 16);
     if ( !CurrentThread )
       return -1073741801;
   }
@@ -49,27 +51,27 @@ NTSTATUS __fastcall ScrutinizeFontLoad(unsigned int a1, const unsigned __int16 *
   result = ObOpenObjectByPointer(ThreadProcess, 0x200u, 0LL, 0x400u, (POBJECT_TYPE)PsProcessType, 0, &ProcessHandle);
   if ( result >= 0 )
   {
-    v7 = ZwQueryInformationProcess(ProcessHandle, ProcessCookie|ProcessUserModeIOPL, &ProcessInformation, 8u, 0LL);
-    if ( v7 >= 0 )
+    v8 = ZwQueryInformationProcess(ProcessHandle, ProcessCookie|ProcessUserModeIOPL, &ProcessInformation, 8u, 0LL);
+    if ( v8 >= 0 )
     {
-      if ( (v14 & 1) != 0 )
+      if ( (v15 & 1) != 0 )
       {
-        v10 = &word_1C02E3794;
+        v11 = &word_1C02E597C;
         if ( a2 )
-          v10 = a2;
-        LogFontLoadAttempt(ProcessHandle, a1, v10);
-        v7 = -1073741790;
+          v11 = (const unsigned __int16 *)a2;
+        LogFontLoadAttempt(ProcessHandle, v4, v11);
+        v8 = -1073741790;
       }
-      else if ( (v14 & 2) != 0 )
+      else if ( (v15 & 2) != 0 )
       {
-        v11 = &word_1C02E3794;
+        v12 = &word_1C02E597C;
         if ( a2 )
-          v11 = a2;
-        LogFontLoadAttempt(ProcessHandle, a1, v11);
+          v12 = (const unsigned __int16 *)a2;
+        LogFontLoadAttempt(ProcessHandle, v4, v12);
       }
     }
     ZwClose(ProcessHandle);
-    return v7;
+    return v8;
   }
   return result;
 }

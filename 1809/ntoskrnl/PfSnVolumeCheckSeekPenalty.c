@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnVolumeCheckSeekPenalty @ 0x14065CD00
+ * XREFs of PfSnVolumeCheckSeekPenalty @ 0x14065CCE0
  * Callers:
- *     PfSnOpenVolumesForPrefetch @ 0x14065DC6C (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x14065DC4C (PfSnOpenVolumesForPrefetch.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x1401B81F0 (ZwWaitForSingleObject.c)
- *     ZwDeviceIoControlFile @ 0x1401B8250 (ZwDeviceIoControlFile.c)
- *     ZwResetEvent @ 0x1401BAF90 (ZwResetEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1401B8210 (ZwWaitForSingleObject.c)
+ *     ZwDeviceIoControlFile @ 0x1401B8270 (ZwDeviceIoControlFile.c)
+ *     ZwResetEvent @ 0x1401BAFB0 (ZwResetEvent.c)
  */
 
 __int64 __fastcall PfSnVolumeCheckSeekPenalty(HANDLE *a1, void *a2)

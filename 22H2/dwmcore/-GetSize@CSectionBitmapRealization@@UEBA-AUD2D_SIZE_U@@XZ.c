@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetSize@CSectionBitmapRealization@@UEBA?AUD2D_SIZE_U@@XZ @ 0x180108C50
+ * XREFs of ?GetSize@CSectionBitmapRealization@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1800E3790
  * Callers:
- *     ?GetSize@CSectionBitmapRealization@@$4PPPPPPPM@II@EBA?AUD2D_SIZE_U@@XZ @ 0x180121C60 (-GetSize@CSectionBitmapRealization@@$4PPPPPPPM@II@EBA-AUD2D_SIZE_U@@XZ.c)
- *     ?GetSize@CSectionBitmapRealization@@$4PPPPPPPM@KI@EBA?AUD2D_SIZE_U@@XZ @ 0x180121C80 (-GetSize@CSectionBitmapRealization@@$4PPPPPPPM@KI@EBA-AUD2D_SIZE_U@@XZ.c)
- *     ?GetSize@CSectionBitmapRealization@@$4PPPPPPPM@MI@EBA?AUD2D_SIZE_U@@XZ @ 0x1801220A0 (-GetSize@CSectionBitmapRealization@@$4PPPPPPPM@MI@EBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?GetSize@CSectionBitmapRealization@@$4PPPPPPPM@II@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F7F60 (-GetSize@CSectionBitmapRealization@@$4PPPPPPPM@II@EBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?GetSize@CSectionBitmapRealization@@$4PPPPPPPM@KI@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F7F80 (-GetSize@CSectionBitmapRealization@@$4PPPPPPPM@KI@EBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?GetSize@CSectionBitmapRealization@@$4PPPPPPPM@MI@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F81B0 (-GetSize@CSectionBitmapRealization@@$4PPPPPPPM@MI@EBA-AUD2D_SIZE_U@@XZ.c)
  * Callees:
  *     <none>
  */

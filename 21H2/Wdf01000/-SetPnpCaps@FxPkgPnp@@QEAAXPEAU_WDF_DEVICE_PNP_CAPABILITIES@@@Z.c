@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetPnpCaps@FxPkgPnp@@QEAAXPEAU_WDF_DEVICE_PNP_CAPABILITIES@@@Z @ 0x1C002B444
+ * XREFs of ?SetPnpCaps@FxPkgPnp@@QEAAXPEAU_WDF_DEVICE_PNP_CAPABILITIES@@@Z @ 0x1C0082A10
  * Callers:
- *     imp_WdfDeviceSetPnpCapabilities @ 0x1C002B1D0 (imp_WdfDeviceSetPnpCapabilities.c)
+ *     imp_WdfDeviceSetPnpCapabilities @ 0x1C00487A0 (imp_WdfDeviceSetPnpCapabilities.c)
  * Callees:
  *     <none>
  */

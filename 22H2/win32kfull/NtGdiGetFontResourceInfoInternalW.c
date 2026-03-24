@@ -1,13 +1,14 @@
 /*
- * XREFs of NtGdiGetFontResourceInfoInternalW @ 0x1C02C2EE0
+ * XREFs of NtGdiGetFontResourceInfoInternalW @ 0x1C02AE880
  * Callers:
  *     <none>
  * Callees:
- *     ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C009A9A4 (-bCheckAndCapThePath@@YAHPEAGPEBGKK@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     GetFontResourceInfoInternalW @ 0x1C03036BC (GetFontResourceInfoInternalW.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C010E6E8 (-bCheckAndCapThePath@@YAHPEAGPEBGKK@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     GetFontResourceInfoInternalW @ 0x1C02DAA08 (GetFontResourceInfoInternalW.c)
  */
 
 __int64 __fastcall NtGdiGetFontResourceInfoInternalW(
@@ -22,23 +23,21 @@ __int64 __fastcall NtGdiGetFontResourceInfoInternalW(
   unsigned __int16 *v10; // rdi
   unsigned int FontResourceInfoInternalW; // esi
   unsigned int *v12; // rbx
-  ULONG64 v13; // rdx
-  __int64 v14; // r8
-  _DWORD *v15; // rcx
-  ULONG64 v16; // rax
-  __int64 v18; // [rsp+70h] [rbp-168h] BYREF
-  unsigned __int16 *v19; // [rsp+78h] [rbp-160h]
-  void *v20; // [rsp+80h] [rbp-158h]
-  _BYTE v21[96]; // [rsp+90h] [rbp-148h] BYREF
-  unsigned __int16 v22[80]; // [rsp+F0h] [rbp-E8h] BYREF
+  _DWORD *v13; // rcx
+  ULONG64 v14; // rax
+  __int64 v16; // [rsp+70h] [rbp-168h] BYREF
+  unsigned __int16 *v17; // [rsp+78h] [rbp-160h]
+  void *v18; // [rsp+80h] [rbp-158h]
+  _BYTE v19[96]; // [rsp+90h] [rbp-148h] BYREF
+  unsigned __int16 v20[80]; // [rsp+F0h] [rbp-E8h] BYREF
 
-  v19 = a1;
-  v20 = a6;
+  v17 = a1;
+  v18 = a6;
   v10 = 0LL;
   FontResourceInfoInternalW = 0;
-  v18 = 0LL;
+  v16 = 0LL;
   v12 = 0LL;
-  memset_0(v21, 0, 0x5CuLL);
+  memset(v19, 0, 0x5CuLL);
   if ( a2 > 1 )
   {
     if ( a2 > 0x50 )
@@ -48,41 +47,40 @@ __int64 __fastcall NtGdiGetFontResourceInfoInternalW(
     }
     else
     {
-      v10 = v22;
+      v10 = v20;
     }
     if ( v10 )
-      FontResourceInfoInternalW = bCheckAndCapThePath(v10, v19, a2, a3);
+      FontResourceInfoInternalW = bCheckAndCapThePath(v10, v17, a2, a3);
   }
   if ( a4 <= 0x5C )
   {
-    v12 = (unsigned int *)v21;
+    v12 = (unsigned int *)v19;
   }
-  else if ( a4 > 0x2710000 || (v12 = (unsigned int *)Win32AllocPoolZInit(a4, 1886221383LL)) == 0LL )
+  else if ( a4 > 0x2710000 || (v12 = (unsigned int *)PALLOCMEM2(a4, 1886221383LL, 1)) == 0LL )
   {
     FontResourceInfoInternalW = 0;
   }
   if ( FontResourceInfoInternalW )
   {
-    FontResourceInfoInternalW = GetFontResourceInfoInternalW(v10, a2, a3, a4, (__int64)&v18, v12, a7);
+    FontResourceInfoInternalW = GetFontResourceInfoInternalW(v10, a2, a3, a4, (__int64)&v16, v12, a7);
     if ( FontResourceInfoInternalW )
     {
-      v15 = (_DWORD *)a5;
-      v13 = MmUserProbeAddress;
+      v13 = (_DWORD *)a5;
       if ( a5 >= MmUserProbeAddress )
-        v15 = (_DWORD *)MmUserProbeAddress;
-      *v15 = v18;
+        v13 = (_DWORD *)MmUserProbeAddress;
+      *v13 = v16;
       if ( a4 )
       {
-        v16 = (ULONG64)a6 + a4;
-        if ( v16 > MmUserProbeAddress || v16 <= (unsigned __int64)a6 )
+        v14 = (ULONG64)a6 + a4;
+        if ( v14 > MmUserProbeAddress || v14 <= (unsigned __int64)a6 )
           *(_BYTE *)MmUserProbeAddress = 0;
         memmove(a6, v12, a4);
       }
     }
   }
-  if ( v10 && v10 != v22 )
-    FreeTmpBuffer(v10, v13, v14);
-  if ( v12 && v12 != (unsigned int *)v21 )
+  if ( v10 && v10 != v20 )
+    FreeTmpBuffer(v10);
+  if ( v12 && v12 != (unsigned int *)v19 )
     Win32FreePool(v12);
   return FontResourceInfoInternalW;
 }

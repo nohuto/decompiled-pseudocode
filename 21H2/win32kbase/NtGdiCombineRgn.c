@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiCombineRgn @ 0x1C006EFD0
+ * XREFs of NtGdiCombineRgn @ 0x1C003BB80
  * Callers:
  *     <none>
  * Callees:
- *     GreCombineRgn @ 0x1C006EFF0 (GreCombineRgn.c)
+ *     GreCombineRgn @ 0x1C0039860 (GreCombineRgn.c)
  */
 
 __int64 __fastcall NtGdiCombineRgn(HRGN a1, HRGN a2, HRGN a3, int a4)

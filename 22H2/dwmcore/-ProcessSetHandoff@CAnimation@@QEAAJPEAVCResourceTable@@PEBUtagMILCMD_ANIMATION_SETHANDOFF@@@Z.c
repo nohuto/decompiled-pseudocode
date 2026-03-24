@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessSetHandoff@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_SETHANDOFF@@@Z @ 0x18021FC64
+ * XREFs of ?ProcessSetHandoff@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_SETHANDOFF@@@Z @ 0x1801B6340
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3484 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CAnimation::ProcessSetHandoff(
@@ -23,7 +23,7 @@ __int64 __fastcall CAnimation::ProcessSetHandoff(
     Resource = CResourceTable::GetResource((__int64)a2, v6, 2u);
     *((_QWORD *)this + 29) = Resource;
     (*(void (__fastcall **)(__int64))(*(_QWORD *)Resource + 8LL))(Resource);
-    *((_BYTE *)this + 125) = *((_BYTE *)a3 + 32) != 0;
+    *((_BYTE *)this + 112) = *((_BYTE *)this + 112) & 0xDF | (*((_BYTE *)a3 + 32) != 0 ? 0x20 : 0);
     *((_QWORD *)this + 31) = *((_QWORD *)a3 + 5);
     *((_QWORD *)this + 32) = *((_QWORD *)a3 + 6);
   }

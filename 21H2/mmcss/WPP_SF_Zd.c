@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_SF_Zd @ 0x1C00047E8
+ * XREFs of WPP_SF_Zd @ 0x1C0004538
  * Callers:
- *     CiDispatchInitialize @ 0x1C000D270 (CiDispatchInitialize.c)
- *     CiConfigReadDWORD @ 0x1C000D830 (CiConfigReadDWORD.c)
- *     CiConfigQueryValue @ 0x1C000DE00 (CiConfigQueryValue.c)
+ *     CiConfigReadDWORD @ 0x1C000D1F0 (CiConfigReadDWORD.c)
+ *     CiConfigQueryValue @ 0x1C000DE80 (CiConfigQueryValue.c)
+ *     CiDispatchInitialize @ 0x1C000E050 (CiDispatchInitialize.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00033D0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00031A0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_SF_Zd(__int64 a1, unsigned __int16 a2, __int64 a3, const wchar_t *a4, ...)

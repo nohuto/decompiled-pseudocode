@@ -1,62 +1,64 @@
 /*
- * XREFs of ?EtwpGetThreadInfoFlags@@YAKQEAUtagTHREADINFO@@@Z @ 0x1C00473DC
+ * XREFs of ?EtwpGetThreadInfoFlags@@YAKQEAUtagTHREADINFO@@@Z @ 0x1C0055548
  * Callers:
- *     EtwTraceMessageCheckDelay @ 0x1C0046060 (EtwTraceMessageCheckDelay.c)
- *     EtwTraceAuditApiRegisterRawInputDevices @ 0x1C0046680 (EtwTraceAuditApiRegisterRawInputDevices.c)
- *     EtwTraceInputProcessDelay @ 0x1C0049830 (EtwTraceInputProcessDelay.c)
- *     EtwTraceProcessWindowInfo @ 0x1C0087200 (EtwTraceProcessWindowInfo.c)
- *     xxxDestroyThreadInfo @ 0x1C00C64AC (xxxDestroyThreadInfo.c)
- *     ?EtwCaptureStateCallback@@YAXXZ @ 0x1C014BCC8 (-EtwCaptureStateCallback@@YAXXZ.c)
+ *     xxxDestroyThreadInfo @ 0x1C003EFB0 (xxxDestroyThreadInfo.c)
+ *     EtwTraceAuditApiRegisterRawInputDevices @ 0x1C0054EC0 (EtwTraceAuditApiRegisterRawInputDevices.c)
+ *     EtwTraceProcessWindowInfo @ 0x1C0079A30 (EtwTraceProcessWindowInfo.c)
+ *     ?EtwCaptureStateCallback@@YAXXZ @ 0x1C0120B28 (-EtwCaptureStateCallback@@YAXXZ.c)
+ *     EtwTraceInputProcessDelay @ 0x1C0122370 (EtwTraceInputProcessDelay.c)
+ *     EtwTraceMessageCheckDelay @ 0x1C0122C00 (EtwTraceMessageCheckDelay.c)
  * Callees:
  *     <none>
  */
 
 int __fastcall EtwpGetThreadInfoFlags(struct tagTHREADINFO *const a1)
 {
-  __int64 v1; // r8
+  __int64 v1; // r10
   int v3; // r9d
-  int v4; // r8d
-  int v5; // ecx
+  int v4; // ecx
+  int v5; // r9d
   int v6; // edx
   int v7; // ecx
   int v8; // edx
-  int v9; // ecx
-  int v10; // edx
-  __int64 v11; // rcx
+  int v9; // r8d
+  int v10; // ecx
+  int v11; // edx
+  __int64 v12; // rcx
   int result; // eax
 
-  v1 = *((_QWORD *)a1 + 157);
-  v3 = ((int)v1 < 0) + 2;
-  if ( (v1 & 0x100000000LL) == 0 )
-    v3 = (*((_QWORD *)a1 + 157) & 0x80000000LL) != 0;
-  if ( (v1 & 0x200000000LL) != 0 )
-    v3 |= 4u;
-  v4 = *((_DWORD *)a1 + 122);
-  v5 = v3 | 8;
+  v1 = *((_QWORD *)a1 + 154);
+  v3 = ((v1 & 0x100000000LL) != 0) + 2;
+  if ( (v1 & 0x200000000LL) == 0 )
+    v3 = (v1 & 0x100000000LL) != 0;
+  v4 = v3 | 4;
+  if ( (v1 & 0x400000000LL) == 0 )
+    v4 = v3;
+  v5 = *((_DWORD *)a1 + 122);
+  v6 = v4 | 8;
   if ( !*((_DWORD *)a1 + 225) )
-    v5 = v3;
-  v6 = v5 | 0x10;
+    v6 = v4;
+  v7 = v6 | 0x10;
   if ( !*((_DWORD *)a1 + 224) )
-    v6 = v5;
-  v7 = v6 | 0x20;
-  if ( v4 >= 0 )
     v7 = v6;
-  v8 = v7 | 0x40;
-  if ( (*((_DWORD *)a1 + 122) & 1) == 0 )
+  v8 = v7 | 0x20;
+  if ( v5 >= 0 )
     v8 = v7;
-  v9 = v8 | 0x200;
-  if ( (v4 & 0x400) == 0 )
+  v9 = v8 | 0x40;
+  if ( (v5 & 1) == 0 )
     v9 = v8;
-  v10 = v9 | 0x80;
-  if ( !*((_QWORD *)a1 + 148) )
+  v10 = v9 | 0x200;
+  if ( (v5 & 0x400) == 0 )
     v10 = v9;
-  v11 = *((_QWORD *)a1 + 54);
-  result = v10;
-  if ( v11 && *(_DWORD *)(v11 + 40) )
-    result = v10 | 0x100;
+  v11 = v10 | 0x80;
+  if ( !*((_QWORD *)a1 + 145) )
+    v11 = v10;
+  v12 = *((_QWORD *)a1 + 54);
+  result = v11;
+  if ( v12 && *(_DWORD *)(v12 + 40) )
+    result = v11 | 0x100;
   if ( gptiForeground == a1 )
     result |= 0x400u;
-  if ( v11 == gpqForeground )
+  if ( v12 == gpqForeground )
     return result | 0x800;
   return result;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDrvDbQuerySystemPathWin32 @ 0x14083E394
+ * XREFs of PiDrvDbQuerySystemPathWin32 @ 0x14083E374
  * Callers:
- *     PiDrvDbResolveFilePathKeyValues @ 0x14083E5DC (PiDrvDbResolveFilePathKeyValues.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x14083E5BC (PiDrvDbResolveFilePathKeyValues.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PiDrvDbFindNode @ 0x14028B284 (PiDrvDbFindNode.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PiDrvDbFindNode @ 0x14028B384 (PiDrvDbFindNode.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     RtlCreateUnicodeString @ 0x14065AA30 (RtlCreateUnicodeString.c)
- *     IoQueryFileDosDeviceName @ 0x14065F5D0 (IoQueryFileDosDeviceName.c)
- *     RtlDuplicateUnicodeString @ 0x1406D3C20 (RtlDuplicateUnicodeString.c)
- *     PiDrvDbGetNodeSystemRoot @ 0x14083D6D8 (PiDrvDbGetNodeSystemRoot.c)
+ *     RtlCreateUnicodeString @ 0x14065AA10 (RtlCreateUnicodeString.c)
+ *     IoQueryFileDosDeviceName @ 0x14065F5B0 (IoQueryFileDosDeviceName.c)
+ *     RtlDuplicateUnicodeString @ 0x1406D3C00 (RtlDuplicateUnicodeString.c)
+ *     PiDrvDbGetNodeSystemRoot @ 0x14083D6B8 (PiDrvDbGetNodeSystemRoot.c)
  */
 
 __int64 __fastcall PiDrvDbQuerySystemPathWin32(UNICODE_STRING *String2, PUNICODE_STRING DestinationString)

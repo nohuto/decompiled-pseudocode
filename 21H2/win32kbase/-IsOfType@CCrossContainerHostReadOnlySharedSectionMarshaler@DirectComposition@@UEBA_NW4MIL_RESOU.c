@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C02291B0
+ * XREFs of ?IsOfType@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C01E9480
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 47 || a2 == 169;
+  return a2 == 47 || a2 == 170;
 }

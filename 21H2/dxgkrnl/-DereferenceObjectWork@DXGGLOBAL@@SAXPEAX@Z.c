@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DereferenceObjectWork@DXGGLOBAL@@SAXPEAX@Z @ 0x1C03099E0
+ * XREFs of ?DereferenceObjectWork@DXGGLOBAL@@SAXPEAX@Z @ 0x1C0268F00
  * Callers:
  *     <none>
  * Callees:

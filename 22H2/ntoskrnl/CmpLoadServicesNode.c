@@ -1,40 +1,36 @@
 /*
- * XREFs of CmpLoadServicesNode @ 0x140B5C124
+ * XREFs of CmpLoadServicesNode @ 0x140A602C8
  * Callers:
- *     CmpFindDrivers @ 0x140B5D88C (CmpFindDrivers.c)
+ *     CmpFindDrivers @ 0x140A60F64 (CmpFindDrivers.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpFindSubKeyByName @ 0x1408264AC (CmpFindSubKeyByName.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByName @ 0x1407ACD14 (CmpFindSubKeyByName.c)
  */
 
-bool __fastcall CmpLoadServicesNode(ULONG_PTR BugCheckParameter3, ULONG_PTR a2, __int64 *a3, unsigned int *a4)
+bool __fastcall CmpLoadServicesNode(__int64 a1, __int64 a2, __int64 *a3, __int64 a4)
 {
-  __int64 CellFlat; // rax
+  __int64 v7; // rax
   unsigned int SubKeyByName; // edi
-  __int64 CellPaged; // rax
-  __int64 v11; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v9; // rax
+  bool result; // al
+  int v11; // [rsp+30h] [rbp+8h] BYREF
+  int v12; // [rsp+34h] [rbp+Ch]
 
-  v11 = 0xFFFFFFFFLL;
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(BugCheckParameter3, a2, &v11);
-  else
-    CellFlat = HvpGetCellPaged(BugCheckParameter3, a2, (unsigned int *)&v11);
-  if ( !CellFlat )
-    return 0;
-  SubKeyByName = CmpFindSubKeyByName(BugCheckParameter3);
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(BugCheckParameter3, &v11);
-  else
-    HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v11);
-  if ( SubKeyByName == -1 )
-    return 0;
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    CellPaged = HvpGetCellFlat(BugCheckParameter3, SubKeyByName, a4);
-  else
-    CellPaged = HvpGetCellPaged(BugCheckParameter3, SubKeyByName, a4);
-  *a3 = CellPaged;
-  return CellPaged != 0;
+  v11 = -1;
+  v12 = 0;
+  v7 = (*(__int64 (__fastcall **)(__int64, __int64, int *))(a1 + 8))(a1, a2, &v11);
+  result = 0;
+  if ( v7 )
+  {
+    SubKeyByName = CmpFindSubKeyByName(a1, v7, (__int64)&CmpServicesString);
+    (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v11);
+    if ( SubKeyByName != -1 )
+    {
+      v9 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64))(a1 + 8))(a1, SubKeyByName, a4);
+      *a3 = v9;
+      if ( v9 )
+        return 1;
+    }
+  }
+  return result;
 }

@@ -1,21 +1,30 @@
 /*
- * XREFs of ?VidSchiAsyncReCreateSchedulingLog@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C003ECC8
+ * XREFs of ?VidSchiAsyncReCreateSchedulingLog@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0036430
  * Callers:
- *     VidSchDdiNotifyDpc @ 0x1C00054C0 (VidSchDdiNotifyDpc.c)
- *     VidSchDdiNotifyDpcWorker @ 0x1C0038574 (VidSchDdiNotifyDpcWorker.c)
- *     VidSchCaptureLogs @ 0x1C00F40A0 (VidSchCaptureLogs.c)
+ *     VidSchDdiNotifyDpc @ 0x1C0006AC0 (VidSchDdiNotifyDpc.c)
+ *     VidSchDdiNotifyDpcWorker @ 0x1C002EE08 (VidSchDdiNotifyDpcWorker.c)
+ *     VidSchCaptureLogs @ 0x1C00D0F90 (VidSchCaptureLogs.c)
  * Callees:
- *     ?VidSchiQueueAsyncOperation@@YAJPEAU_VIDSCH_NODE@@W4VIDSCH_ASYNC_OPERATION_TYPE@@PEATVIDSCH_ASYNC_OPERATION_DATA@@@Z @ 0x1C0040240 (-VidSchiQueueAsyncOperation@@YAJPEAU_VIDSCH_NODE@@W4VIDSCH_ASYNC_OPERATION_TYPE@@PEATVIDSCH_ASYN.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 void __fastcall VidSchiAsyncReCreateSchedulingLog(struct _VIDSCH_NODE *a1)
 {
-  struct _VIDSCH_NODE *v1; // [rsp+20h] [rbp-18h] BYREF
-  unsigned int v2; // [rsp+28h] [rbp-10h]
-  int v3; // [rsp+2Ch] [rbp-Ch]
+  struct _WORK_QUEUE_ITEM *v2; // rax
+  __int128 v3; // [rsp+20h] [rbp-18h]
 
-  v3 = 0;
-  v1 = a1;
-  v2 = (byte_1C006E943 & 2) != 0 ? 0x2000 : 2048;
-  VidSchiQueueAsyncOperation(a1, v2, &v1);
+  *(_QWORD *)&v3 = a1;
+  *((_QWORD *)&v3 + 1) = bTracingEnabled != 0 ? 0x2000 : 2048;
+  v2 = (struct _WORK_QUEUE_ITEM *)operator new[](0x40uLL, 0x66356956u, (POOL_TYPE)512);
+  if ( v2 )
+  {
+    v2[1].List.Flink = (struct _LIST_ENTRY *)a1;
+    _InterlockedAdd((volatile signed __int32 *)a1 + 2798, 1u);
+    LODWORD(v2[1].List.Blink) = 1;
+    *(_OWORD *)&v2[1].WorkerRoutine = v3;
+    v2->List.Flink = 0LL;
+    v2->WorkerRoutine = (PWORKER_THREAD_ROUTINE)VidSchiProcessAsyncOperation;
+    v2->Parameter = v2;
+    ExQueueWorkItem(v2, DelayedWorkQueue);
+  }
 }

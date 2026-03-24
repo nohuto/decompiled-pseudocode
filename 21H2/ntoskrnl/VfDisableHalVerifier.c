@@ -1,10 +1,10 @@
 /*
- * XREFs of VfDisableHalVerifier @ 0x1405FE548
+ * XREFs of VfDisableHalVerifier @ 0x1405A0F98
  * Callers:
- *     IoWriteCrashDump @ 0x140553244 (IoWriteCrashDump.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x1405554B0 (IopWriteCapsuleTriageDumpToFirmware.c)
- *     VfAllocateCrashDumpRegisters @ 0x140A84950 (VfAllocateCrashDumpRegisters.c)
- *     VfNotifyOfHibernate @ 0x140A8682C (VfNotifyOfHibernate.c)
+ *     IoWriteCrashDump @ 0x140502CD0 (IoWriteCrashDump.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x140504C0C (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     VfAllocateCrashDumpRegisters @ 0x1409CAD90 (VfAllocateCrashDumpRegisters.c)
+ *     VfNotifyOfHibernate @ 0x1409CCB8C (VfNotifyOfHibernate.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?UninitializeResources@CHolographicClient@@AEAAXXZ @ 0x1802AE6BC
+ * XREFs of ?UninitializeResources@CHolographicClient@@AEAAXXZ @ 0x18025C36C
  * Callers:
- *     ?ProcessRemoveComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802ADD88 (-ProcessRemoveComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessRemoveComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025BCF0 (-ProcessRemoveComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
  * Callees:
- *     ?ProcessReleaseExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802ADCE8 (-ProcessReleaseExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessRemoveExclusiveModeProxy@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802ADED8 (-ProcessRemoveExclusiveModeProxy@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessRemoveExclusiveView@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802ADF60 (-ProcessRemoveExclusiveView@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
- *     ?ProcessRemoveTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AE018 (-ProcessRemoveTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessReleaseExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025BC64 (-ProcessReleaseExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessRemoveExclusiveModeProxy@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025BDF8 (-ProcessRemoveExclusiveModeProxy@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessRemoveExclusiveView@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025BE84 (-ProcessRemoveExclusiveView@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessRemoveTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025BF1C (-ProcessRemoveTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
  */
 
 void __fastcall CHolographicClient::UninitializeResources(CHolographicClient *this)
@@ -29,7 +29,7 @@ void __fastcall CHolographicClient::UninitializeResources(CHolographicClient *th
   for ( j = v4; j >= 0; --j )
   {
     v6 = *(_QWORD *)(*((_QWORD *)this + 9) + 8 * j);
-    if ( !*(_BYTE *)(v6 + 83) )
+    if ( !*(_BYTE *)(v6 + 75) )
     {
       CHolographicClient::ProcessReleaseExclusiveSwapChain(this, (struct IUnknown *)v6);
       CHolographicClient::ProcessRemoveExclusiveView(this, *(struct IUnknown **)(*((_QWORD *)this + 9) + 8 * j));

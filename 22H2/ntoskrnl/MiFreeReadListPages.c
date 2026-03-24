@@ -1,46 +1,47 @@
 /*
- * XREFs of MiFreeReadListPages @ 0x140721450
+ * XREFs of MiFreeReadListPages @ 0x1406362C4
  * Callers:
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiReleaseReadListResources @ 0x1407213C0 (MiReleaseReadListResources.c)
+ *     MiPfPutPagesInTransition @ 0x14027BCA0 (MiPfPutPagesInTransition.c)
+ *     MiReleaseReadListResources @ 0x140636234 (MiReleaseReadListResources.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x14020B9E4 (MiPartitionIdToPointer.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiReturnFaultCharges @ 0x14035F870 (MiReturnFaultCharges.c)
- *     MiGetPfnLink @ 0x140374DEC (MiGetPfnLink.c)
- *     MiFreeReadListPageList @ 0x1407214EC (MiFreeReadListPageList.c)
+ *     MiReturnFaultCharges @ 0x1402E4184 (MiReturnFaultCharges.c)
+ *     MiPartitionIdToPointer @ 0x1403253D8 (MiPartitionIdToPointer.c)
+ *     MiGetPfnLink @ 0x14032C1B0 (MiGetPfnLink.c)
+ *     MiReleaseFreshPage @ 0x140357CD4 (MiReleaseFreshPage.c)
+ *     MiFreeReadListPageList @ 0x14063634C (MiFreeReadListPageList.c)
  */
 
 void __fastcall MiFreeReadListPages(__int64 a1)
 {
   __int64 v2; // rax
-  __int64 v3; // r14
-  __int64 v4; // rdi
+  __int64 v3; // rbp
+  unsigned __int64 v4; // rdi
   __int64 *v5; // rbx
-  __int64 v6; // rsi
-  __int64 v7; // r8
-  __int64 i; // rbp
+  __int64 v6; // r14
+  __int64 v7; // rsi
+  __int64 v8; // rdx
   __int64 v9; // r8
-  __int64 v10; // [rsp+40h] [rbp+8h] BYREF
+  _DWORD *v10; // r9
+  __int64 v11; // [rsp+40h] [rbp+8h] BYREF
 
-  v10 = 0LL;
-  v2 = MiFreeReadListPageList(a1 + 40, &v10);
-  v3 = v10;
+  v11 = 0LL;
+  v2 = MiFreeReadListPageList(a1 + 40, &v11);
+  v3 = v11;
   v4 = v2;
   v5 = (__int64 *)(a1 + 48);
   v6 = 4LL;
   do
   {
-    v7 = *v5;
-    for ( i = 0LL; *v5; ++i )
+    v7 = 0LL;
+    while ( *v5 )
     {
-      *v5 = MiGetPfnLink(v7);
+      *v5 = MiGetPfnLink(*v5);
       if ( !v3 )
-        v3 = MiPartitionIdToPointer((*(_QWORD *)(v9 + 40) >> 43) & 0x3FF);
-      MiReleaseFreshPage(v9);
-      v7 = *v5;
+        v3 = MiPartitionIdToPointer((*(_QWORD *)(v9 + 40) >> 39) & 0x3FF);
+      MiReleaseFreshPage(v9, v8, v9, v10);
+      ++v7;
     }
-    v4 += i;
+    v4 += v7;
     ++v5;
     --v6;
   }

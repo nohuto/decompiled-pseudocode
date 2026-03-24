@@ -1,402 +1,374 @@
 /*
- * XREFs of ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C009C270
+ * XREFs of ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8
  * Callers:
- *     xxxSetModernAppWindow @ 0x1C0002004 (xxxSetModernAppWindow.c)
- *     xxxSetWindowData @ 0x1C004F920 (xxxSetWindowData.c)
- *     NtUserSetParent @ 0x1C0105390 (NtUserSetParent.c)
- *     xxxResetTooltip @ 0x1C0118B6C (xxxResetTooltip.c)
- *     ?xxxEstablishWebviewHostComponentRelationship@@YAXPEAUtagWND@@0@Z @ 0x1C0210694 (-xxxEstablishWebviewHostComponentRelationship@@YAXPEAUtagWND@@0@Z.c)
- *     xxxSetBridgeWindowChild @ 0x1C0210798 (xxxSetBridgeWindowChild.c)
- *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C023EA24 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
+ *     xxxSetModernAppWindow @ 0x1C00058B0 (xxxSetModernAppWindow.c)
+ *     xxxResetTooltip @ 0x1C002B3FC (xxxResetTooltip.c)
+ *     xxxSetWindowData @ 0x1C008A238 (xxxSetWindowData.c)
+ *     NtUserSetParent @ 0x1C0119660 (NtUserSetParent.c)
+ *     ?xxxEstablishWebviewHostComponentRelationship@@YAXPEAUtagWND@@0@Z @ 0x1C020902C (-xxxEstablishWebviewHostComponentRelationship@@YAXPEAUtagWND@@0@Z.c)
+ *     xxxSetBridgeWindowChild @ 0x1C0209198 (xxxSetBridgeWindowChild.c)
+ *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C0242F50 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
  * Callees:
- *     ?TraceChildWindowDpiTelemetry@@YAXPEAUtagWND@@0W4_CHILD_WINDOW_DPI_TELEMETRY@@@Z @ 0x1C0002DA0 (-TraceChildWindowDpiTelemetry@@YAXPEAUtagWND@@0W4_CHILD_WINDOW_DPI_TELEMETRY@@@Z.c)
- *     ChangeRedirectionParentInDCEs @ 0x1C001FCCC (ChangeRedirectionParentInDCEs.c)
- *     UnredirectDCEs @ 0x1C0020208 (UnredirectDCEs.c)
- *     RedirectDCEs @ 0x1C00204E0 (RedirectDCEs.c)
- *     zzzEndDeferWinEventNotify @ 0x1C0048944 (zzzEndDeferWinEventNotify.c)
- *     xxxSetWindowPos @ 0x1C0048A4C (xxxSetWindowPos.c)
- *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C0049764 (zzzLockDisplayAreaAndInvalidateDCCache.c)
- *     GetStyleWindow @ 0x1C004CDA0 (GetStyleWindow.c)
- *     ?CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z @ 0x1C004EC00 (-CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z.c)
- *     ?LockPointer@@YA?AU_LOCKASSIGNPAIR@@PEAV?$SharedUserObjPointerFieldspwndParent@UtagWND@@@tagWND@@PEAX@Z @ 0x1C0060FF4 (-LockPointer@@YA-AU_LOCKASSIGNPAIR@@PEAV-$SharedUserObjPointerFieldspwndParent@UtagWND@@@tagWND@.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C00699A0 (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
- *     ?BuildWindowListWithDpiBoundaryInfo@@YAPEAUtagWLDBI@@PEAUtagWND@@0PEAUtagBWL@@PEAH@Z @ 0x1C006A228 (-BuildWindowListWithDpiBoundaryInfo@@YAPEAUtagWLDBI@@PEAUtagWND@@0PEAUtagBWL@@PEAH@Z.c)
- *     CalcWindowFullScreen @ 0x1C006C0E8 (CalcWindowFullScreen.c)
- *     ?GetWindowCloakState@@YAKPEBUtagWND@@@Z @ 0x1C006D740 (-GetWindowCloakState@@YAKPEBUtagWND@@@Z.c)
- *     _IsTopLevelWindow @ 0x1C006D904 (_IsTopLevelWindow.c)
- *     LinkWindow @ 0x1C006F9A0 (LinkWindow.c)
- *     _GetDesktopWindow @ 0x1C006FF60 (_GetDesktopWindow.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     UnlinkWindow @ 0x1C0072CAC (UnlinkWindow.c)
- *     xxxWindowEvent @ 0x1C0073AB0 (xxxWindowEvent.c)
- *     xxxInheritWindowMonitor @ 0x1C0075834 (xxxInheritWindowMonitor.c)
- *     ValidateNewParent @ 0x1C0075A78 (ValidateNewParent.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0079D94 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z @ 0x1C0081DAC (-zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z.c)
- *     ?GetRecalcProperty@CRecalcProp@@CAPEAV1@PEBUtagWND@@@Z @ 0x1C0082264 (-GetRecalcProperty@CRecalcProp@@CAPEAV1@PEBUtagWND@@@Z.c)
- *     CalcForegroundInsertAfter @ 0x1C0085330 (CalcForegroundInsertAfter.c)
- *     ResetWindowTransform @ 0x1C009B010 (ResetWindowTransform.c)
- *     _SetDeferredDpiStateForWindowAndChildren @ 0x1C009C90C (_SetDeferredDpiStateForWindowAndChildren.c)
- *     SetWindowSubtreeCoreWindowStatus @ 0x1C009CA7C (SetWindowSubtreeCoreWindowStatus.c)
- *     _ScreenToClient @ 0x1C009CB08 (_ScreenToClient.c)
- *     IsImmersiveAppIORestricted @ 0x1C009CB44 (IsImmersiveAppIORestricted.c)
- *     ?IsWindowShellCloaked@@YAHQEAUtagWND@@H@Z @ 0x1C009D490 (-IsWindowShellCloaked@@YAHQEAUtagWND@@H@Z.c)
- *     zzzAttachThreadInput @ 0x1C009D530 (zzzAttachThreadInput.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     PostShellHookMessages @ 0x1C00A6110 (PostShellHookMessages.c)
- *     ?RemoveRecalcProperty@CRecalcProp@@CAXPEAUtagWND@@@Z @ 0x1C00B0BF8 (-RemoveRecalcProperty@CRecalcProp@@CAXPEAUtagWND@@@Z.c)
- *     DecomposeWindowIfNeeded @ 0x1C00B3750 (DecomposeWindowIfNeeded.c)
- *     ?IsChildWindowDpiIsolationEnabled@@YA_NPEAUtagWND@@0@Z @ 0x1C00FECFC (-IsChildWindowDpiIsolationEnabled@@YA_NPEAUtagWND@@0@Z.c)
- *     ?FreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C0109E90 (-FreeListFree@@YAXPEAUtagFREELIST@@@Z.c)
- *     xxxTurnOffCompositing @ 0x1C01E2C78 (xxxTurnOffCompositing.c)
- *     HasMessageRootWindow @ 0x1C0210758 (HasMessageRootWindow.c)
- *     ?xxxForceUpdateProcessDpiAwarenessContext@@YAXPEAUtagWND@@K@Z @ 0x1C0238468 (-xxxForceUpdateProcessDpiAwarenessContext@@YAXPEAUtagWND@@K@Z.c)
- *     ?xxxUpdateWindowPositionsForDpiBoundaryChange@@YAXPEAUtagWLDBI@@@Z @ 0x1C02388A8 (-xxxUpdateWindowPositionsForDpiBoundaryChange@@YAXPEAUtagWLDBI@@@Z.c)
+ *     TraceChildWindowDpiTelemetry @ 0x1C00010A4 (TraceChildWindowDpiTelemetry.c)
+ *     zzzAttachThreadInput @ 0x1C00115F8 (zzzAttachThreadInput.c)
+ *     _SetDeferredDpiStateForWindowAndChildren @ 0x1C0013BBC (_SetDeferredDpiStateForWindowAndChildren.c)
+ *     SetWindowSubtreeCoreWindowStatus @ 0x1C0013D1C (SetWindowSubtreeCoreWindowStatus.c)
+ *     ?LockPointer@@YA?AU_LOCKASSIGNPAIR@@PEAV?$SharedUserObjPointerFieldspwndParent@UtagWND@@@tagWND@@PEAX@Z @ 0x1C0013DA4 (-LockPointer@@YA-AU_LOCKASSIGNPAIR@@PEAV-$SharedUserObjPointerFieldspwndParent@UtagWND@@@tagWND@.c)
+ *     _ScreenToClient @ 0x1C0013DCC (_ScreenToClient.c)
+ *     IsImmersiveAppIORestricted @ 0x1C0013E08 (IsImmersiveAppIORestricted.c)
+ *     IsWindowShellCloaked @ 0x1C0014650 (IsWindowShellCloaked.c)
+ *     DecomposeWindowIfNeeded @ 0x1C0035334 (DecomposeWindowIfNeeded.c)
+ *     zzzSetWindowCompositionCloak @ 0x1C0036D90 (zzzSetWindowCompositionCloak.c)
+ *     CalcForegroundInsertAfter @ 0x1C0038B7C (CalcForegroundInsertAfter.c)
+ *     PostShellHookMessages @ 0x1C00435E0 (PostShellHookMessages.c)
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EK@Z @ 0x1C0049254 (-xxxShowWindowEx@@YAHPEAUtagWND@@EK@Z.c)
+ *     UnredirectDCEs @ 0x1C004C23C (UnredirectDCEs.c)
+ *     RedirectDCEs @ 0x1C004C510 (RedirectDCEs.c)
+ *     ChangeRedirectionParentInDCEs @ 0x1C004C6DC (ChangeRedirectionParentInDCEs.c)
+ *     GetWindowCloakState @ 0x1C004DC0C (GetWindowCloakState.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     CalcWindowFullScreen @ 0x1C006AA64 (CalcWindowFullScreen.c)
+ *     xxxSetWindowPos @ 0x1C006BC54 (xxxSetWindowPos.c)
+ *     xxxInheritWindowMonitor @ 0x1C006C878 (xxxInheritWindowMonitor.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DF44 (zzzEndDeferWinEventNotify.c)
+ *     BuildWindowListWithDpiBoundaryInfo @ 0x1C006F994 (BuildWindowListWithDpiBoundaryInfo.c)
+ *     _IsTopLevelWindow @ 0x1C006FC88 (_IsTopLevelWindow.c)
+ *     LinkWindow @ 0x1C006FD00 (LinkWindow.c)
+ *     _GetDesktopWindow @ 0x1C00704C0 (_GetDesktopWindow.c)
+ *     GetStyleWindow @ 0x1C0071560 (GetStyleWindow.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C0072764 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     ValidateNewParent @ 0x1C0078E18 (ValidateNewParent.c)
+ *     UnlinkWindow @ 0x1C007E978 (UnlinkWindow.c)
+ *     xxxWindowEvent @ 0x1C00814D0 (xxxWindowEvent.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?FreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C00F1720 (-FreeListFree@@YAXPEAUtagFREELIST@@@Z.c)
+ *     IsChildWindowDpiIsolationEnabled @ 0x1C0111F18 (IsChildWindowDpiIsolationEnabled.c)
+ *     ResetWindowTransform @ 0x1C0132FCC (ResetWindowTransform.c)
+ *     xxxForceUpdateProcessDpiAwarenessContext @ 0x1C01E646C (xxxForceUpdateProcessDpiAwarenessContext.c)
+ *     xxxUpdateWindowPositionsForDpiBoundaryChange @ 0x1C01E6824 (xxxUpdateWindowPositionsForDpiBoundaryChange.c)
+ *     xxxTurnOffCompositing @ 0x1C01E85B0 (xxxTurnOffCompositing.c)
+ *     HasMessageRootWindow @ 0x1C0209108 (HasMessageRootWindow.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-struct tagWND *__fastcall xxxSetParentWorker(struct tagWND *this, struct tagWND *a2, struct tagWND *a3, int a4)
+struct tagWND *__fastcall xxxSetParentWorker(struct tagWND *a1, struct tagWND *a2, struct tagWND *a3, int a4)
 {
-  struct tagWND *v5; // rdi
-  __int64 v7; // rdx
-  struct tagWND *v8; // r8
+  __int64 v5; // rdx
+  __int64 v6; // r8
   struct tagWND *DesktopWindow; // r15
-  struct tagWND *v10; // r13
-  __int64 v11; // rax
-  __int64 v12; // rdx
+  struct tagWND *v8; // r13
+  __int64 v9; // rax
+  __int64 v10; // rdi
+  __int64 ThreadWin32Thread; // rcx
+  int v12; // eax
   __int64 v13; // rcx
-  __int64 v14; // r8
-  int v15; // eax
-  int v16; // esi
+  int v14; // esi
   __int64 StyleWindow; // rax
-  __int64 v18; // r14
-  _DWORD *v19; // r9
-  unsigned int v20; // eax
-  __int64 v21; // r9
-  __int64 v22; // rdx
+  __int64 v16; // r14
+  __int64 v17; // rax
+  _DWORD *v18; // r9
+  int v19; // eax
+  __int64 v20; // r9
+  __int64 v21; // rdx
+  __int64 v22; // rax
   __int64 v23; // rax
-  __int64 v24; // rax
+  _QWORD *v24; // r12
   __int64 v25; // rcx
   __int64 v26; // rdx
   __int64 v27; // rcx
-  __int64 v28; // rdx
-  int v29; // r12d
-  struct tagFREELIST *v30; // r14
-  struct tagWND *v31; // rdx
-  __int64 v32; // rdx
-  __int64 v33; // rcx
-  __int64 v34; // r8
-  __int64 v35; // rbx
-  __int64 v36; // rdx
-  __int64 v37; // rcx
-  __int64 v38; // r8
-  __int64 v40; // rcx
-  int v41; // eax
-  int v42; // edx
-  __int64 v43; // rdx
-  int v44; // ecx
-  bool v45; // cf
-  struct CRecalcProp *RecalcProperty; // rax
-  int v47; // edx
-  int v48; // r8d
-  __int64 v49; // rcx
-  int v50; // [rsp+48h] [rbp-69h] BYREF
-  unsigned int v51; // [rsp+50h] [rbp-61h] BYREF
-  unsigned int v52; // [rsp+54h] [rbp-5Dh]
-  struct tagFREELIST *v53; // [rsp+58h] [rbp-59h]
-  int v54; // [rsp+60h] [rbp-51h]
-  __int128 v55; // [rsp+68h] [rbp-49h] BYREF
-  __int64 v56; // [rsp+78h] [rbp-39h]
-  __int64 v57; // [rsp+80h] [rbp-31h]
-  __int128 v58; // [rsp+88h] [rbp-29h] BYREF
-  __int128 v59; // [rsp+98h] [rbp-19h] BYREF
-  __int64 v60; // [rsp+A8h] [rbp-9h]
-  __int128 v61; // [rsp+B0h] [rbp-1h] BYREF
-  __int64 v62; // [rsp+C0h] [rbp+Fh]
-  _QWORD v63[8]; // [rsp+C8h] [rbp+17h] BYREF
-  char v64; // [rsp+118h] [rbp+67h] BYREF
-  struct tagWND *v65; // [rsp+120h] [rbp+6Fh]
-  int v66; // [rsp+130h] [rbp+7Fh]
+  __int64 v28; // r9
+  int v29; // r9d
+  struct tagFREELIST *v30; // rdi
+  __int64 v31; // rdx
+  __int64 v32; // rbx
+  __int64 v34; // rcx
+  int v35; // eax
+  __int64 v36; // rcx
+  __int64 v37; // rdx
+  int v38; // r8d
+  __int64 v39; // rcx
+  __int64 v40; // r9
+  int v41; // [rsp+48h] [rbp-79h] BYREF
+  _DWORD v42[2]; // [rsp+50h] [rbp-71h] BYREF
+  struct tagFREELIST *v43; // [rsp+58h] [rbp-69h]
+  int v44; // [rsp+60h] [rbp-61h]
+  __int128 v45; // [rsp+68h] [rbp-59h] BYREF
+  __int64 v46; // [rsp+78h] [rbp-49h]
+  __int64 v47; // [rsp+80h] [rbp-41h]
+  _BYTE v48[8]; // [rsp+88h] [rbp-39h] BYREF
+  _QWORD v49[3]; // [rsp+90h] [rbp-31h] BYREF
+  _QWORD v50[4]; // [rsp+A8h] [rbp-19h] BYREF
+  __int128 v51; // [rsp+C8h] [rbp+7h] BYREF
+  _BYTE v52[64]; // [rsp+D8h] [rbp+17h] BYREF
+  int v53; // [rsp+128h] [rbp+67h]
 
-  v66 = a4;
-  v65 = a2;
-  v53 = 0LL;
-  v62 = 0LL;
-  v60 = 0LL;
-  v56 = 0LL;
-  v5 = 0LL;
-  v50 = 0;
-  if ( a2 != (struct tagWND *)-3LL )
-    v5 = a2;
-  v61 = 0LL;
-  v59 = 0LL;
-  v55 = 0LL;
-  DesktopWindow = (struct tagWND *)GetDesktopWindow((__int64)this);
-  v10 = 0LL;
-  v11 = *((_QWORD *)this + 3);
-  if ( v11 )
-    v10 = *(struct tagWND **)(v11 + 104);
-  if ( this == DesktopWindow || this == v10 )
-    goto LABEL_103;
-  if ( !v5 )
-    v5 = DesktopWindow;
-  if ( v8 && (*((struct tagWND **)v8 + 13) != v5 || v8 == this) )
+  v50[2] = 0LL;
+  v49[2] = 0LL;
+  v46 = 0LL;
+  v43 = 0LL;
+  v41 = 0;
+  v53 = 5;
+  v45 = 0LL;
+  DesktopWindow = (struct tagWND *)GetDesktopWindow(a1);
+  v8 = 0LL;
+  v9 = *((_QWORD *)a1 + 3);
+  if ( v9 )
+    v8 = *(struct tagWND **)(v9 + 104);
+  if ( a1 == DesktopWindow || a1 == v8 )
+    goto LABEL_99;
+  v10 = (__int64)DesktopWindow;
+  if ( v5 )
+    v10 = v5;
+  if ( v6 && (*(_QWORD *)(v6 + 104) != v10 || (struct tagWND *)v6 == a1) )
     return 0LL;
   if ( (unsigned int)IsImmersiveAppIORestricted(*(_QWORD *)(gptiCurrent + 424LL))
-    && (unsigned int)HasMessageRootWindow(this)
-    && !(unsigned int)HasMessageRootWindow(v5) )
+    && (unsigned int)HasMessageRootWindow(a1)
+    && !(unsigned int)HasMessageRootWindow(v10) )
   {
-LABEL_103:
-    v49 = 5LL;
-LABEL_104:
-    UserSetLastError(v49, v7);
+LABEL_99:
+    v39 = 5LL;
+LABEL_100:
+    UserSetLastError(v39);
     return 0LL;
   }
-  if ( v5 != DesktopWindow
-    && v5 != v10
-    && *(_QWORD *)(*((_QWORD *)this + 2) + 424LL) == *(_QWORD *)(*((_QWORD *)v5 + 2) + 424LL)
-    && (((unsigned __int8)*(_DWORD *)(*((_QWORD *)v5 + 5) + 288LL) ^ *(_BYTE *)(*((_QWORD *)this + 5) + 288LL)) & 0xF) != 0
-    && !IsChildWindowDpiIsolationEnabled(this, v5) )
+  if ( (struct tagWND *)v10 != DesktopWindow
+    && (struct tagWND *)v10 != v8
+    && *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) == *(_QWORD *)(*(_QWORD *)(v10 + 16) + 424LL)
+    && (((unsigned __int8)*(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL) ^ *(_BYTE *)(*(_QWORD *)(v10 + 40) + 288LL)) & 0xF) != 0
+    && !(unsigned int)IsChildWindowDpiIsolationEnabled(a1, v10) )
   {
-    TraceChildWindowDpiTelemetry((__int64)this, (__int64)v5, 1);
-    v49 = 5023LL;
-    goto LABEL_104;
+    TraceChildWindowDpiTelemetry((__int64)a1, v10, 1);
+    v39 = 5023LL;
+    goto LABEL_100;
   }
-  ThreadLock((__int64)v5, (__int64 *)&v59);
-  if ( !(unsigned int)ValidateNewParent(this, v5)
-    || (v15 = xxxShowWindowEx((ULONG_PTR)this, 0, 0),
-        v13 = *((_QWORD *)this + 5),
-        v16 = v15,
-        v54 = v15,
+  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  v49[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v49;
+  v49[1] = v10;
+  if ( v10 )
+    HMLockObject(v10);
+  if ( !(unsigned int)ValidateNewParent(a1, v10, 0LL)
+    || (v12 = xxxShowWindowEx(a1, 0, 0),
+        v13 = *((_QWORD *)a1 + 5),
+        v14 = v12,
+        v44 = v12,
         (*(_BYTE *)(v13 + 31) & 0x10) != 0) )
   {
-LABEL_111:
-    ThreadUnlock1(v13, v12, v14);
+LABEL_107:
+    ThreadUnlock1();
     return 0LL;
   }
-  if ( (*(_DWORD *)(v13 + 232) & 2) != 0 )
-    DecomposeWindowIfNeeded(this);
-  if ( !(unsigned int)ValidateNewParent(this, v5) )
+  if ( (*(_DWORD *)(v13 + 232) & 0x20) != 0 )
+    DecomposeWindowIfNeeded(a1);
+  if ( !(unsigned int)ValidateNewParent(a1, v10, 0LL) )
   {
-    if ( v16 && *(char *)(*((_QWORD *)this + 5) + 19LL) >= 0 )
-      xxxShowWindowEx((ULONG_PTR)this, 1u, 0);
-    goto LABEL_111;
+    if ( v14 && *(char *)(*((_QWORD *)a1 + 5) + 19LL) >= 0 )
+      xxxShowWindowEx(a1, 1u, 0);
+    goto LABEL_107;
   }
   ++gdwDeferWinEvent;
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v64);
-  StyleWindow = GetStyleWindow((__int64)this, 2848);
-  v18 = *((_QWORD *)this + 13);
-  v57 = StyleWindow;
-  ThreadLock(v18, (__int64 *)&v61);
-  v19 = (_DWORD *)*((_QWORD *)this + 5);
-  if ( (*(_BYTE *)(*(_QWORD *)(v18 + 40) + 26LL) & 0x40) != 0 )
-    v20 = v19[24];
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v48);
+  StyleWindow = GetStyleWindow(a1, 2848LL);
+  v16 = *((_QWORD *)a1 + 13);
+  v47 = StyleWindow;
+  v17 = W32GetThreadWin32Thread(KeGetCurrentThread());
+  v50[0] = *(_QWORD *)(v17 + 416);
+  *(_QWORD *)(v17 + 416) = v50;
+  v50[1] = v16;
+  if ( v16 )
+    HMLockObject(v16);
+  v18 = (_DWORD *)*((_QWORD *)a1 + 5);
+  if ( (*(_BYTE *)(*(_QWORD *)(v16 + 40) + 26LL) & 0x40) != 0 )
+    v19 = v18[24];
   else
-    v20 = v19[22];
-  v51 = v20;
-  v52 = v19[23];
-  ScreenToClient(v18, &v51);
-  if ( *(_DWORD *)(v21 + 236) != 1 )
+    v19 = v18[22];
+  v42[0] = v19;
+  v42[1] = v18[23];
+  ScreenToClient(v16, v42);
+  if ( *(_DWORD *)(v20 + 236) != 1 && ((struct tagWND *)v10 == DesktopWindow || (struct tagWND *)v10 == v8) )
+    SetOrClrWF(1LL, a1, 2056LL, 1LL);
+  if ( (struct tagWND *)v10 == DesktopWindow )
   {
-    if ( v5 != DesktopWindow && v5 != v10 )
-      goto LABEL_24;
-    SetOrClrWF(1, this, 0x808u, 1);
-  }
-  if ( v5 == DesktopWindow )
-  {
-    if ( (struct tagWND *)v18 == DesktopWindow )
-      goto LABEL_25;
-    if ( (unsigned int)IsWindowShellCloaked((struct tagWND *const)v18, 0) )
+    if ( (struct tagWND *)v16 != DesktopWindow )
     {
-      LODWORD(v55) = 1;
-      zzzSetWindowCompositionCloak(this, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v55, 2u);
-    }
-    if ( (*(_DWORD *)(PsGetCurrentProcessWin32Process(v40) + 820) & 0x30) == 0x10
-      && (GetWindowCloakState(this) & 1) != 0 )
-    {
-      LODWORD(v55) = 0;
-      zzzSetWindowCompositionCloak(this, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v55, 1u);
-    }
-    v41 = *((_DWORD *)this + 80);
-    if ( (v41 & 0x400) != 0 )
-    {
-      *((_DWORD *)this + 80) = v41 & 0xFFFFFBFF;
-      PostShellHookMessages(54LL, *(_QWORD *)this);
-    }
-    v42 = 5;
-LABEL_72:
-    WindowMargins::CheckForChanges(this, v42);
-    goto LABEL_25;
-  }
-LABEL_24:
-  if ( (struct tagWND *)v18 == DesktopWindow )
-  {
-    if ( (unsigned int)IsWindowShellCloaked(this, 1) )
-      zzzSetWindowCompositionCloak(this, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v55, 2u);
-    ResetWindowTransform((__int64)this);
-    RecalcProperty = CRecalcProp::GetRecalcProperty(this);
-    if ( RecalcProperty )
-    {
-      if ( *((_DWORD *)RecalcProperty + 10) )
+      if ( (unsigned int)IsWindowShellCloaked((struct tagWND *)v16) )
       {
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x400000) == 0
-          || (LOBYTE(v47) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
+        LODWORD(v45) = 1;
+        zzzSetWindowCompositionCloak(a1, &v45, 2LL);
+      }
+      if ( (*(_DWORD *)(PsGetCurrentProcessWin32Process() + 820) & 0x30) == 0x10 && (GetWindowCloakState(a1) & 1) != 0 )
+      {
+        LODWORD(v45) = 0;
+        zzzSetWindowCompositionCloak(a1, &v45, 1LL);
+      }
+      v34 = *((_QWORD *)a1 + 5);
+      v35 = *(_DWORD *)(v34 + 232);
+      if ( (v35 & 0x8000) != 0 )
+      {
+        *(_DWORD *)(v34 + 232) = v35 & 0xFFFF7FFF;
+        PostShellHookMessages(54LL, *(_QWORD *)a1);
+      }
+    }
+  }
+  else if ( (struct tagWND *)v16 == DesktopWindow )
+  {
+    if ( (unsigned int)IsWindowShellCloaked(a1) )
+      zzzSetWindowCompositionCloak(a1, &v45, 2LL);
+    ResetWindowTransform(a1);
+  }
+  UnlinkWindow(a1, v16);
+  v51 = *(_OWORD *)LockPointer(v52, (char *)a1 + 104, v10);
+  HMAssignmentLock(&v51);
+  if ( v10 )
+    v21 = (unsigned int)-__CFSHR__(*(_DWORD *)(*(_QWORD *)(v10 + 40) + 232LL), 25);
+  else
+    v21 = 0LL;
+  SetWindowSubtreeCoreWindowStatus(a1, v21);
+  if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0x40) != 0 )
+  {
+    v22 = *((_QWORD *)a1 + 15);
+    if ( v22 )
+    {
+      if ( (*(_BYTE *)(*(_QWORD *)(v22 + 40) + 24LL) & 8) != 0 )
+        SetOrClrWF(1LL, a1, 2056LL, 1LL);
+    }
+  }
+  if ( v10 == GetDesktopWindow(a1) && (*(_BYTE *)(*((_QWORD *)a1 + 5) + 24LL) & 8) == 0 )
+  {
+    CalcWindowFullScreen(a1);
+    CalcForegroundInsertAfter(a1);
+  }
+  LinkWindow(a1);
+  if ( a2 == (struct tagWND *)-3LL && !(unsigned int)IsWindowShellCloaked(a1) )
+  {
+    LODWORD(v45) = 1;
+    zzzSetWindowCompositionCloak(a1, &v45, 2LL);
+  }
+  v23 = GetStyleWindow(a1, 2848LL);
+  if ( v47 )
+  {
+    if ( v23 )
+    {
+      if ( v47 != v23 )
+        ChangeRedirectionParentInDCEs(a1);
+    }
+    else
+    {
+      UnredirectDCEs(a1);
+    }
+  }
+  else if ( v23 )
+  {
+    RedirectDCEs(a1);
+  }
+  if ( v10 == GetDesktopWindow(a1) && (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 4) == 0 )
+  {
+    SetOrClrWF(1LL, a1, 3844LL, 1LL);
+    zzzLockDisplayAreaAndInvalidateDCCache(a1, 1LL, 0LL);
+  }
+  if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0xC0) == 0x40 )
+  {
+    v24 = (_QWORD *)((char *)a1 + 104);
+    if ( *((_QWORD *)a1 + 13) != GetDesktopWindow(a1) )
+    {
+      v25 = *((_QWORD *)a1 + 2);
+      v26 = *(_QWORD *)(v16 + 16);
+      if ( v25 != v26 )
+        zzzAttachThreadInput(v25, v26, 0);
+    }
+    if ( v10 != GetDesktopWindow(a1) )
+    {
+      v27 = *((_QWORD *)a1 + 2);
+      v28 = *(_QWORD *)(v10 + 16);
+      if ( v27 == v28 )
+      {
+        if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 235LL) & 1) != 0
+          && (unsigned int)IsTopLevelWindow(v10)
+          && (unsigned int)IsDesktopApp(*(_QWORD *)(v40 + 424)) )
         {
-          LOBYTE(v47) = 0;
-        }
-        if ( (_BYTE)v47 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v48) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          WPP_RECORDER_AND_TRACE_SF_(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v47,
-            v48,
-            38,
-            3,
-            23,
-            38,
-            (__int64)&WPP_ae2841d0c36d308aa24769b0b53bcff9_Traceguids);
+          *(_DWORD *)(v10 + 324) |= 8u;
         }
       }
       else
       {
-        CRecalcProp::RemoveRecalcProperty(this);
-      }
-    }
-    v42 = 6;
-    goto LABEL_72;
-  }
-LABEL_25:
-  UnlinkWindow(this, v18);
-  v58 = *(_OWORD *)LockPointer(v63, (__int64)this + 104, (__int64)v5);
-  HMAssignmentLock(&v58, 0LL);
-  if ( !v5 || (v22 = 1LL, (*((_DWORD *)v5 + 80) & 0x1000) == 0) )
-    v22 = 0LL;
-  SetWindowSubtreeCoreWindowStatus(this, v22);
-  if ( (*(_BYTE *)(*((_QWORD *)this + 5) + 31LL) & 0x40) != 0 )
-  {
-    v23 = *((_QWORD *)this + 15);
-    if ( v23 )
-    {
-      if ( (*(_BYTE *)(*(_QWORD *)(v23 + 40) + 24LL) & 8) != 0 )
-        SetOrClrWF(1, this, 0x808u, 1);
-    }
-  }
-  if ( v5 == (struct tagWND *)GetDesktopWindow((__int64)this) && (*(_BYTE *)(*((_QWORD *)this + 5) + 24LL) & 8) == 0 )
-  {
-    CalcWindowFullScreen(this);
-    a3 = CalcForegroundInsertAfter(this);
-  }
-  LinkWindow(this, a3, (__int64)v5);
-  if ( v65 == (struct tagWND *)-3LL && !(unsigned int)IsWindowShellCloaked(this, 1) )
-  {
-    LODWORD(v55) = 1;
-    zzzSetWindowCompositionCloak(this, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v55, 2u);
-  }
-  v24 = GetStyleWindow((__int64)this, 2848);
-  if ( v57 )
-  {
-    if ( v24 )
-    {
-      if ( v57 != v24 )
-        ChangeRedirectionParentInDCEs(this, 1u);
-    }
-    else
-    {
-      UnredirectDCEs(this);
-    }
-  }
-  else if ( v24 )
-  {
-    RedirectDCEs(this);
-  }
-  if ( v5 == (struct tagWND *)GetDesktopWindow((__int64)this) && (*(_BYTE *)(*((_QWORD *)this + 5) + 31LL) & 4) == 0 )
-  {
-    SetOrClrWF(1, this, 0xF04u, 1);
-    zzzLockDisplayAreaAndInvalidateDCCache((__int64)this, 1, 0LL);
-  }
-  if ( (*(_BYTE *)(*((_QWORD *)this + 5) + 31LL) & 0xC0) == 0x40 )
-  {
-    if ( *((_QWORD *)this + 13) != GetDesktopWindow((__int64)this) )
-    {
-      v25 = *((_QWORD *)this + 2);
-      v26 = *(_QWORD *)(v18 + 16);
-      if ( v25 != v26 )
-        zzzAttachThreadInput(v25, v26, 0LL);
-    }
-    if ( v5 != (struct tagWND *)GetDesktopWindow((__int64)this) )
-    {
-      v27 = *((_QWORD *)this + 2);
-      v28 = *((_QWORD *)v5 + 2);
-      if ( v27 != v28 )
-      {
-        v45 = v66 != 0;
-        v66 = -v66;
-        zzzAttachThreadInput(v27, v28, v45 ? 32769 : 1);
+        zzzAttachThreadInput(v27, v28, a4 != 0 ? -32767 : 1);
       }
     }
   }
-  if ( v5 == v10 || (struct tagWND *)v18 == v10 )
-    v29 = 21;
   else
-    v29 = 5;
-  if ( _bittest((const signed __int32 *)(v18 + 320), 0x13u) || _bittest((const signed __int32 *)this + 80, 0x13u) )
   {
-    v43 = *((_QWORD *)this + 5);
-    v44 = *(_DWORD *)(v43 + 288);
-    if ( (v44 & 0xF) == 2 && (v44 & 0xF0) == 0x10 )
-      *((_DWORD *)this + 80) &= ~0x80000u;
-    *(_DWORD *)(v43 + 232) &= ~0x400u;
-    v29 |= 0x20u;
+    v24 = (_QWORD *)((char *)a1 + 104);
   }
-  IsTopLevelWindow((__int64)this);
-  SetDeferredDpiStateForWindowAndChildren(this);
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v64);
+  if ( (struct tagWND *)v10 == v8 || (struct tagWND *)v16 == v8 )
+  {
+    v29 = 21;
+    v53 = 21;
+  }
+  else
+  {
+    v29 = 5;
+  }
+  if ( (*(_DWORD *)(*(_QWORD *)(v16 + 40) + 232LL) & 0x10000000) != 0
+    || (*(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) & 0x10000000) != 0 )
+  {
+    v36 = *((_QWORD *)a1 + 5);
+    v37 = v36;
+    v38 = *(_DWORD *)(v36 + 288);
+    if ( (v38 & 0xF) == 2 && (v38 & 0xF0) == 0x10 )
+    {
+      *(_DWORD *)(v36 + 232) &= ~0x10000000u;
+      v37 = *((_QWORD *)a1 + 5);
+    }
+    *(_DWORD *)(v37 + 232) &= ~0x8000000u;
+    v53 = v29 | 0x20;
+  }
+  IsTopLevelWindow(a1);
+  SetDeferredDpiStateForWindowAndChildren(a1);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v48);
   zzzEndDeferWinEventNotify();
-  if ( GetStyleWindow(*((_QWORD *)this + 13), 2818) )
-    xxxTurnOffCompositing(this, 0LL);
-  xxxWindowEvent(0x800Fu, this, 0, 0, 1);
-  if ( !v5 || v5 == DesktopWindow || (struct tagWND *)v18 == DesktopWindow )
+  if ( GetStyleWindow(*v24, 2818LL) )
+    xxxTurnOffCompositing(a1, 0LL);
+  xxxWindowEvent(0x800Fu, 1u);
+  if ( !v10 || (struct tagWND *)v10 == DesktopWindow || (struct tagWND *)v16 == DesktopWindow )
   {
     v30 = 0LL;
-    goto LABEL_55;
+    goto LABEL_57;
   }
-  if ( *(_QWORD *)(*(_QWORD *)(v18 + 40) + 256LL) == *(_QWORD *)(*((_QWORD *)v5 + 5) + 256LL) )
+  if ( *(_QWORD *)(*(_QWORD *)(v16 + 40) + 256LL) == *(_QWORD *)(*(_QWORD *)(v10 + 40) + 256LL) )
   {
-    v30 = v53;
-LABEL_55:
-    xxxSetWindowPos(this, 0LL, v51, v52, 0, 0, v29);
-    goto LABEL_56;
+    v30 = v43;
+LABEL_57:
+    xxxSetWindowPos(a1, 0, 0, v53);
+    goto LABEL_58;
   }
-  v30 = BuildWindowListWithDpiBoundaryInfo(this, (struct tagWND *)v18, 0LL, &v50);
-  if ( !v50 )
-    goto LABEL_55;
-LABEL_56:
-  v31 = (struct tagWND *)*((_QWORD *)this + 13);
-  if ( !v31
-    || (((unsigned __int8)*(_DWORD *)(*((_QWORD *)this + 5) + 288LL) ^ *(_BYTE *)(*((_QWORD *)v31 + 5) + 288LL)) & 0xF) == 0
-    || v31 == DesktopWindow
-    || v31 == v10
-    || IsChildWindowDpiIsolationEnabled(this, v31) )
+  v30 = (struct tagFREELIST *)BuildWindowListWithDpiBoundaryInfo(a1, v16, 0LL, &v41);
+  if ( !v41 )
+    goto LABEL_57;
+LABEL_58:
+  v31 = *v24;
+  if ( !*v24
+    || (((unsigned __int8)*(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL) ^ *(_BYTE *)(*(_QWORD *)(v31 + 40) + 288LL)) & 0xF) == 0
+    || (struct tagWND *)v31 == DesktopWindow
+    || (struct tagWND *)v31 == v8
+    || (unsigned int)IsChildWindowDpiIsolationEnabled(a1, v31) )
   {
-    xxxInheritWindowMonitor(this, 0LL, 0);
+    xxxInheritWindowMonitor(a1);
   }
   else
   {
-    xxxForceUpdateProcessDpiAwarenessContext(this, *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 13) + 40LL) + 288LL));
+    xxxForceUpdateProcessDpiAwarenessContext(a1, *(_DWORD *)(*(_QWORD *)(*v24 + 40LL) + 288LL));
   }
   if ( v30 )
   {
     xxxUpdateWindowPositionsForDpiBoundaryChange(v30);
     FreeListFree(v30);
   }
-  if ( v54 )
-    xxxShowWindowEx((ULONG_PTR)this, 1u, 0);
-  v35 = ThreadUnlock1(v33, v32, v34);
-  ThreadUnlock1(v37, v36, v38);
-  return (struct tagWND *)v35;
+  if ( v44 )
+    xxxShowWindowEx(a1, 1u, 0);
+  v32 = ThreadUnlock1();
+  ThreadUnlock1();
+  return (struct tagWND *)v32;
 }

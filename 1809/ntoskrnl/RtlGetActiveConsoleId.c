@@ -2,17 +2,17 @@
  * XREFs of RtlGetActiveConsoleId @ 0x140010890
  * Callers:
  *     PopGetConsoleDisplayRequestCount @ 0x1400108EC (PopGetConsoleDisplayRequestCount.c)
- *     PopPowerButtonWorkCallback @ 0x1402E46A0 (PopPowerButtonWorkCallback.c)
- *     IopParseDevice @ 0x14063CD00 (IopParseDevice.c)
- *     PopNotifyConsoleUserPresent @ 0x1406DBBE4 (PopNotifyConsoleUserPresent.c)
- *     PoBlockConsoleSwitch @ 0x1406DDC30 (PoBlockConsoleSwitch.c)
- *     PfpProcessScenarioPhase @ 0x14071BBDC (PfpProcessScenarioPhase.c)
- *     TtmpDisplayBurstPowerSettingCallback @ 0x140761640 (TtmpDisplayBurstPowerSettingCallback.c)
- *     PiCMQueryRemove @ 0x140838654 (PiCMQueryRemove.c)
+ *     PopPowerButtonWorkCallback @ 0x1402E47A0 (PopPowerButtonWorkCallback.c)
+ *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
+ *     PopNotifyConsoleUserPresent @ 0x1406DBBC4 (PopNotifyConsoleUserPresent.c)
+ *     PoBlockConsoleSwitch @ 0x1406DDC10 (PoBlockConsoleSwitch.c)
+ *     PfpProcessScenarioPhase @ 0x14071BBBC (PfpProcessScenarioPhase.c)
+ *     TtmpDisplayBurstPowerSettingCallback @ 0x140761620 (TtmpDisplayBurstPowerSettingCallback.c)
+ *     PiCMQueryRemove @ 0x140838634 (PiCMQueryRemove.c)
  * Callees:
  *     PsGetThreadServerSilo @ 0x14007E5E0 (PsGetThreadServerSilo.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
- *     KeIsExecutingInArbitraryThreadContext @ 0x1401B42CC (KeIsExecutingInArbitraryThreadContext.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1401B42EC (KeIsExecutingInArbitraryThreadContext.c)
  */
 
 __int64 RtlGetActiveConsoleId()

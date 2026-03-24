@@ -1,13 +1,13 @@
 /*
- * XREFs of PrintIndent @ 0x1C004E4A4
+ * XREFs of PrintIndent @ 0x1C00668F0
  * Callers:
- *     ParsePackage @ 0x1C0058180 (ParsePackage.c)
- *     ParseField @ 0x1C005AB50 (ParseField.c)
- *     ParseFieldList @ 0x1C005B250 (ParseFieldList.c)
- *     ParseScope @ 0x1C005C240 (ParseScope.c)
- *     ParseTerm @ 0x1C005C7B0 (ParseTerm.c)
+ *     ParseTerm @ 0x1C0007480 (ParseTerm.c)
+ *     ParseScope @ 0x1C0008890 (ParseScope.c)
+ *     ParseFieldList @ 0x1C0021C38 (ParseFieldList.c)
+ *     ParseField @ 0x1C0021D30 (ParseField.c)
+ *     ParsePackage @ 0x1C0022100 (ParsePackage.c)
  * Callees:
- *     ConPrintf @ 0x1C004D7D8 (ConPrintf.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
  */
 
 ULONG __fastcall PrintIndent(__int64 a1)
@@ -16,7 +16,7 @@ ULONG __fastcall PrintIndent(__int64 a1)
   int i; // ebx
 
   result = ConPrintf("\n%I64x: ", *(_QWORD *)(a1 + 120));
-  for ( i = 0; i < dword_1C006F834; ++i )
+  for ( i = 0; i < dword_1C0082804; ++i )
     result = ConPrintf("| ");
   return result;
 }

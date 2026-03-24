@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwConvertBetweenAuxiliaryCounterAndPerformanceCounter @ 0x1401B9550
+ * XREFs of ZwConvertBetweenAuxiliaryCounterAndPerformanceCounter @ 0x1401B9570
  * Callers:
  *     <none>
  * Callees:

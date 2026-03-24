@@ -1,323 +1,310 @@
 /*
- * XREFs of TR_Create @ 0x1C006DE38
+ * XREFs of TR_Create @ 0x1C006AD7C
  * Callers:
- *     Endpoint_UcxEvtEndpointStaticStreamsAdd @ 0x1C003C910 (Endpoint_UcxEvtEndpointStaticStreamsAdd.c)
- *     Endpoint_Create @ 0x1C006D664 (Endpoint_Create.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsAdd @ 0x1C003A7A0 (Endpoint_UcxEvtEndpointStaticStreamsAdd.c)
+ *     Endpoint_Create @ 0x1C006A5F0 (Endpoint_Create.c)
  * Callees:
- *     Controller_IsSecureDevice @ 0x1C000B128 (Controller_IsSecureDevice.c)
- *     Endpoint_IsProxyEndpoint @ 0x1C000B1C8 (Endpoint_IsProxyEndpoint.c)
- *     TR_AcquireSegment @ 0x1C000B1D8 (TR_AcquireSegment.c)
- *     TR_EnsureSegments @ 0x1C000B270 (TR_EnsureSegments.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
- *     TR_CreateSecureObject @ 0x1C004129C (TR_CreateSecureObject.c)
- *     WPP_RECORDER_SF_DDDd @ 0x1C0041E60 (WPP_RECORDER_SF_DDDd.c)
- *     XilUsbDevice_IsSecureUsbDevice @ 0x1C00480B4 (XilUsbDevice_IsSecureUsbDevice.c)
- *     Counter_CreateTransferRingInstance @ 0x1C006E2B4 (Counter_CreateTransferRingInstance.c)
- *     Bulk_GetConfiguration @ 0x1C00752F0 (Bulk_GetConfiguration.c)
+ *     Controller_IsSecureDevice @ 0x1C0009764 (Controller_IsSecureDevice.c)
+ *     Endpoint_IsProxyEndpoint @ 0x1C0009774 (Endpoint_IsProxyEndpoint.c)
+ *     TR_AcquireSegment @ 0x1C0009844 (TR_AcquireSegment.c)
+ *     TR_EnsureSegments @ 0x1C00098D0 (TR_EnsureSegments.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     TR_CreateSecureObject @ 0x1C003EDAC (TR_CreateSecureObject.c)
+ *     WPP_RECORDER_SF_DDDd @ 0x1C003F950 (WPP_RECORDER_SF_DDDd.c)
+ *     XilUsbDevice_IsSecureUsbDevice @ 0x1C004573C (XilUsbDevice_IsSecureUsbDevice.c)
+ *     Counter_CreateTransferRingInstance @ 0x1C006B1A0 (Counter_CreateTransferRingInstance.c)
+ *     Bulk_GetConfiguration @ 0x1C0071D14 (Bulk_GetConfiguration.c)
  */
 
 __int64 __fastcall TR_Create(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 *a5)
 {
   char IsProxyEndpoint; // al
-  int v10; // r11d
-  __int64 v11; // rax
-  int v12; // ecx
-  int v13; // edx
-  int v14; // edx
-  bool v15; // zf
-  int v16; // eax
-  int v17; // r10d
-  int v18; // eax
-  unsigned int v19; // r8d
-  __int64 (__fastcall **v20)(); // r15
-  int v21; // eax
-  __int64 (__fastcall *v22)(); // rax
-  char v23; // al
-  int v24; // r9d
-  __int64 v25; // rdx
-  int v26; // r10d
-  int v27; // ecx
-  int v28; // edx
+  int v9; // edx
+  __int64 v10; // rax
+  int v11; // ecx
+  int v12; // ebx
+  bool v13; // zf
+  unsigned int v14; // eax
+  __int64 (__fastcall **v15)(); // r12
+  unsigned int v16; // edi
+  int v17; // eax
+  __int64 (__fastcall *v18)(); // rax
+  char v19; // al
+  int v20; // edx
+  int v21; // ecx
+  __int64 v22; // rdx
+  int v23; // edx
   int SecureObject; // edi
-  __int64 v30; // rax
-  __int128 v31; // xmm0
-  __int64 v32; // rbx
-  __int128 v33; // xmm1
-  unsigned __int64 v34; // rax
+  __int64 v25; // rax
+  __int128 v26; // xmm0
+  __int64 v27; // rbx
+  __int128 v28; // xmm1
   char IsSecureUsbDevice; // al
-  int v36; // r8d
-  __int64 (__fastcall *v37)(); // r8
+  int v30; // edx
+  int v31; // r8d
+  int v32; // r9d
+  int v33; // r8d
+  __int64 (__fastcall *v34)(); // r8
   char IsSecureDevice; // al
-  bool v40; // cf
-  int v41; // r9d
-  __int64 v42; // rax
-  char v43; // [rsp+28h] [rbp-D8h]
-  int v44; // [rsp+30h] [rbp-D0h]
-  char v45; // [rsp+38h] [rbp-C8h]
-  char v46; // [rsp+40h] [rbp-C0h]
-  __int128 v47; // [rsp+50h] [rbp-B0h] BYREF
-  __int128 v48; // [rsp+60h] [rbp-A0h]
-  __int128 v49; // [rsp+70h] [rbp-90h]
-  void *v50; // [rsp+80h] [rbp-80h]
-  __int128 v51; // [rsp+88h] [rbp-78h] BYREF
-  __int128 v52; // [rsp+98h] [rbp-68h]
-  __int64 (__fastcall **v53)(); // [rsp+A8h] [rbp-58h]
-  __int128 v54; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v55; // [rsp+C0h] [rbp-40h]
-  __int128 v56; // [rsp+C8h] [rbp-38h] BYREF
-  __int64 v57; // [rsp+D8h] [rbp-28h]
-  _QWORD v58[12]; // [rsp+E0h] [rbp-20h] BYREF
-  unsigned __int64 v59; // [rsp+178h] [rbp+78h] BYREF
+  bool v37; // cf
+  int v38; // r9d
+  __int64 v39; // rax
+  char v40; // [rsp+28h] [rbp-D8h]
+  int v41; // [rsp+30h] [rbp-D0h]
+  char v42; // [rsp+38h] [rbp-C8h]
+  char v43; // [rsp+40h] [rbp-C0h]
+  _BYTE v44[40]; // [rsp+50h] [rbp-B0h] BYREF
+  __int128 v45; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v46; // [rsp+88h] [rbp-78h]
+  __int64 v47; // [rsp+90h] [rbp-70h]
+  __int128 v48; // [rsp+98h] [rbp-68h]
+  void *v49; // [rsp+A8h] [rbp-58h]
+  __int128 v50; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v51; // [rsp+C0h] [rbp-40h]
+  _QWORD v52[3]; // [rsp+C8h] [rbp-38h] BYREF
+  _QWORD v53[18]; // [rsp+E0h] [rbp-20h] BYREF
+  unsigned __int64 v54; // [rsp+188h] [rbp+88h] BYREF
+  __int64 v55; // [rsp+190h] [rbp+90h]
 
-  LODWORD(v57) = 0;
-  LODWORD(v55) = 0;
-  LODWORD(v50) = 0;
-  v56 = 0LL;
-  v54 = 0LL;
-  v47 = 0LL;
-  v48 = 0LL;
-  v49 = 0LL;
-  memset(v58, 0, sizeof(v58));
-  v59 = 0LL;
+  v55 = a3;
+  DWORD1(v45) = 0;
   v51 = 0LL;
-  v53 = 0LL;
-  v52 = 0LL;
+  v46 = 0LL;
+  v50 = 0LL;
+  v54 = 0LL;
+  memset(&v44[12], 0, 28);
   IsProxyEndpoint = Endpoint_IsProxyEndpoint(a2);
-  v10 = -1;
+  v9 = -1;
   if ( IsProxyEndpoint )
   {
-    v12 = 16776704;
-    v13 = -1;
+    v11 = 16776704;
   }
   else
   {
-    v11 = *(_QWORD *)(a1 + 96);
-    v12 = *(_DWORD *)(v11 + 16);
-    v13 = *(_DWORD *)(v11 + 20);
+    v10 = *(_QWORD *)(a1 + 96);
+    v11 = *(_DWORD *)(v10 + 16);
+    v9 = *(_DWORD *)(v10 + 20);
   }
-  DWORD2(v51) = v13;
-  DWORD1(v51) = v12 - 4096;
-  v14 = 3;
-  v15 = (*(_BYTE *)(a2 + 99) & 3) == 0;
-  v16 = *(_BYTE *)(a2 + 99) & 3;
-  LODWORD(v51) = v16;
-  v17 = 1;
-  if ( v15 )
+  *(_DWORD *)&v44[8] = v9;
+  *(_DWORD *)&v44[4] = v11 - 4096;
+  v12 = 3;
+  v13 = (*(_BYTE *)(a2 + 99) & 3) == 0;
+  v14 = *(_BYTE *)(a2 + 99) & 3;
+  *(_DWORD *)v44 = v14;
+  if ( v13 )
   {
-    v20 = ControlFunctionTable;
-    HIDWORD(v51) = 1;
-    LODWORD(v52) = 384;
-    v53 = ControlFunctionTable;
+    v12 = 1;
+    v15 = ControlFunctionTable;
+    v16 = 384;
+    *(_DWORD *)&v44[12] = 1;
+    *(_DWORD *)&v44[16] = 384;
+    *(_QWORD *)&v44[32] = ControlFunctionTable;
     IsSecureDevice = Controller_IsSecureDevice(a1);
-    v40 = (*(_QWORD *)(a1 + 336) & 8) != 0;
-    DWORD2(v52) = IsSecureDevice != 0 ? 0 : 0x200;
-    DWORD1(v52) = v40 ? 4096 : 512;
+    v37 = (*(_QWORD *)(a1 + 336) & 8) != 0;
+    *(_DWORD *)&v44[24] = IsSecureDevice != 0 ? 0 : 0x200;
+    *(_DWORD *)&v44[20] = v37 ? 4096 : 512;
+  }
+  else if ( v14 == 1 )
+  {
+    v16 = 440;
+    *(_DWORD *)&v44[12] = 3;
+    v15 = IsochFunctionTable;
+    *(_DWORD *)&v44[16] = 440;
+    *(_QWORD *)&v44[32] = IsochFunctionTable;
+    *(_QWORD *)&v44[20] = 512LL;
   }
   else
   {
-    v18 = v16 - 1;
-    if ( v18 )
-    {
-      if ( (unsigned int)(v18 - 1) > 1 )
-        return (unsigned int)-1073741823;
-      Bulk_GetConfiguration(a1, &v51);
-      v19 = v52;
-      v20 = v53;
-      v14 = HIDWORD(v51);
-    }
-    else
-    {
-      v20 = IsochFunctionTable;
-      v19 = 440;
-      HIDWORD(v51) = 3;
-      LODWORD(v52) = 440;
-      v53 = IsochFunctionTable;
-      *(_QWORD *)((char *)&v52 + 4) = 512LL;
-    }
+    if ( v14 <= 1 )
+      return (unsigned int)-1073741823;
+    Bulk_GetConfiguration(a1, v44);
+    v15 = *(__int64 (__fastcall ***)())&v44[32];
+    v16 = *(_DWORD *)&v44[16];
+    v12 = *(_DWORD *)&v44[12];
   }
-  v21 = v58[10];
-  LODWORD(v58[0]) = 96;
-  LODWORD(v58[1]) = 2;
-  if ( v14 == 2 )
-    v21 = v10;
-  HIDWORD(v58[0]) = v14;
-  LODWORD(v58[10]) = v21;
-  v58[2] = v20[20];
-  v22 = v20[21];
-  *(_QWORD *)&v48 = 0LL;
-  v58[9] = v22;
-  v50 = off_1C0063388;
-  *((_QWORD *)&v49 + 1) = v19;
-  *((_QWORD *)&v47 + 1) = TR_WdfEvtCleanupCallback;
-  *(_QWORD *)&v47 = 56LL;
-  DWORD2(v48) = v17;
-  HIDWORD(v48) = v17;
-  *(_QWORD *)&v49 = a3;
-  v23 = Endpoint_IsProxyEndpoint(a2);
-  v25 = *(_QWORD *)a1;
-  v27 = v26;
-  if ( v23 )
-    v27 = v24;
-  DWORD2(v48) = v27;
+  memset(v53, 0, 0x60uLL);
+  v17 = v53[10];
+  LODWORD(v53[0]) = 96;
+  LODWORD(v53[1]) = 2;
+  HIDWORD(v53[0]) = v12;
+  if ( v12 == 2 )
+    v17 = -1;
+  LODWORD(v53[10]) = v17;
+  v53[2] = v15[20];
+  v18 = v15[21];
+  v46 = 0LL;
+  v53[9] = v18;
+  v49 = off_1C0060388;
+  *((_QWORD *)&v48 + 1) = v16;
+  *((_QWORD *)&v45 + 1) = TR_WdfEvtCleanupCallback;
+  *(_QWORD *)&v48 = v55;
+  *(_QWORD *)&v45 = 56LL;
+  v47 = 0x100000001LL;
+  v19 = Endpoint_IsProxyEndpoint(a2);
+  v21 = 1;
+  if ( v19 )
+    v21 = v20;
+  v22 = *(_QWORD *)a1;
+  LODWORD(v47) = v21;
   SecureObject = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD *, __int128 *, unsigned __int64 *))(WdfFunctions_01023 + 1216))(
                    WdfDriverGlobals,
-                   v25,
-                   v58,
-                   &v47,
-                   &v59);
+                   v22,
+                   v53,
+                   &v45,
+                   &v54);
   if ( SecureObject < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return (unsigned int)SecureObject;
-    v41 = 10;
-    v46 = SecureObject;
-    v45 = a4;
-    v36 = *(unsigned __int8 *)(*(_QWORD *)(a2 + 16) + 135LL);
-    v44 = *(_DWORD *)(a2 + 144);
-    v43 = *(_BYTE *)(*(_QWORD *)(a2 + 16) + 135LL);
-LABEL_29:
-    LOBYTE(v28) = 2;
+    v38 = 10;
+    v43 = SecureObject;
+    v42 = a4;
+    v33 = *(unsigned __int8 *)(*(_QWORD *)(a2 + 16) + 135LL);
+    v41 = *(_DWORD *)(a2 + 144);
+    v40 = *(_BYTE *)(*(_QWORD *)(a2 + 16) + 135LL);
+LABEL_30:
+    LOBYTE(v23) = 2;
     WPP_RECORDER_SF_DDDd(
       *(_QWORD *)(a1 + 72),
-      v28,
-      v36,
+      v23,
+      v33,
+      v38,
+      (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
+      v40,
       v41,
-      (__int64)&WPP_9ff532af533633cb75752ac9b9d63831_Traceguids,
-      v43,
-      v44,
-      v45,
-      v46);
+      v42,
+      v43);
     return (unsigned int)SecureObject;
   }
-  v30 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, unsigned __int64, void *))(WdfFunctions_01023 + 1616))(
+  v25 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, unsigned __int64, void *))(WdfFunctions_01023 + 1616))(
           WdfDriverGlobals,
-          v59,
-          off_1C0063388);
-  v31 = v51;
-  v32 = v30;
-  v33 = v52;
-  *(_QWORD *)(v30 + 40) = a1;
-  *(_OWORD *)v30 = v31;
-  *(_QWORD *)&v31 = v53;
-  *(_OWORD *)(v30 + 16) = v33;
-  *(_QWORD *)(v30 + 32) = v31;
-  *(_QWORD *)(v30 + 48) = *(_QWORD *)(a2 + 16);
-  *(_QWORD *)(v30 + 56) = a2;
-  *(_DWORD *)(v30 + 64) = a4;
-  v34 = v59;
-  *(_QWORD *)(v32 + 304) = 0LL;
-  *(_DWORD *)(v32 + 312) = 0;
-  *(_QWORD *)(v32 + 72) = v34;
-  IsSecureUsbDevice = Controller_IsSecureDevice(a1);
-  if ( IsSecureUsbDevice )
+          v54,
+          off_1C0060388);
+  v26 = *(_OWORD *)v44;
+  v27 = v25;
+  v28 = *(_OWORD *)&v44[16];
+  *(_QWORD *)(v25 + 40) = a1;
+  *(_OWORD *)v25 = v26;
+  *(_QWORD *)&v26 = *(_QWORD *)&v44[32];
+  *(_OWORD *)(v25 + 16) = v28;
+  *(_QWORD *)(v25 + 32) = v26;
+  *(_QWORD *)(v25 + 48) = *(_QWORD *)(a2 + 16);
+  *(_QWORD *)(v25 + 56) = a2;
+  *(_DWORD *)(v25 + 64) = a4;
+  *(_QWORD *)(v25 + 72) = v54;
+  *(_QWORD *)(v25 + 304) = 0LL;
+  *(_DWORD *)(v25 + 312) = 0;
+  if ( Controller_IsSecureDevice(a1) )
   {
-    if ( *(_DWORD *)(a1 + 604) == 2 )
+    if ( *(_DWORD *)(a1 + 556) == 2 )
       IsSecureUsbDevice = XilUsbDevice_IsSecureUsbDevice(*(_QWORD *)(a2 + 16));
     else
       IsSecureUsbDevice = 1;
   }
-  *(_BYTE *)(v32 + 280) = IsSecureUsbDevice;
-  KeInitializeSpinLock((PKSPIN_LOCK)(v32 + 96));
-  v15 = *(_BYTE *)(v32 + 280) == 0;
-  *(_QWORD *)(v32 + 216) = v32 + 208;
-  *(_QWORD *)(v32 + 208) = v32 + 208;
-  *(_QWORD *)(v32 + 232) = v32 + 224;
-  *(_QWORD *)(v32 + 224) = v32 + 224;
-  if ( v15 )
+  else
   {
-    SecureObject = TR_EnsureSegments(v32, 1u, 0);
+    IsSecureUsbDevice = 0;
+  }
+  *(_BYTE *)(v27 + 280) = IsSecureUsbDevice;
+  KeInitializeSpinLock((PKSPIN_LOCK)(v27 + 96));
+  *(_QWORD *)(v27 + 216) = v27 + 208;
+  *(_QWORD *)(v27 + 208) = v27 + 208;
+  *(_QWORD *)(v27 + 232) = v27 + 224;
+  *(_QWORD *)(v27 + 224) = v27 + 224;
+  if ( *(_BYTE *)(v27 + 280) )
+  {
+    SecureObject = TR_CreateSecureObject(v27, v30, v31, v32);
+    if ( SecureObject < 0 )
+      return (unsigned int)SecureObject;
+    *((_QWORD *)&v50 + 1) = v15[24];
+    LODWORD(v50) = 24;
+    v49 = 0LL;
+    v46 = 0LL;
+    LOBYTE(v51) = 1;
+    v48 = v54;
+    v45 = 0LL;
+    LODWORD(v45) = 56;
+    v47 = 0x100000001LL;
+    SecureObject = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int128 *, __int128 *, __int64))(WdfFunctions_01023 + 3032))(
+                     WdfDriverGlobals,
+                     &v50,
+                     &v45,
+                     v27 + 88);
     if ( SecureObject < 0 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return (unsigned int)SecureObject;
-      v42 = *(_QWORD *)(v32 + 48);
-      v41 = 12;
+      v38 = 11;
       goto LABEL_28;
     }
   }
   else
   {
-    SecureObject = TR_CreateSecureObject(v32);
-    if ( SecureObject < 0 )
-      return (unsigned int)SecureObject;
-    *((_QWORD *)&v54 + 1) = v20[24];
-    *(_QWORD *)&v54 = 24LL;
-    v50 = 0LL;
-    v55 = 1LL;
-    *(_QWORD *)&v48 = 0LL;
-    v49 = v59;
-    v47 = 0LL;
-    *((_QWORD *)&v48 + 1) = 0x100000001LL;
-    LODWORD(v47) = 56;
-    SecureObject = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int128 *, __int128 *, __int64))(WdfFunctions_01023 + 3032))(
-                     WdfDriverGlobals,
-                     &v54,
-                     &v47,
-                     v32 + 88);
+    SecureObject = TR_EnsureSegments(v27, 1u, 0);
     if ( SecureObject < 0 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return (unsigned int)SecureObject;
-      v41 = 11;
-      goto LABEL_27;
+      v39 = *(_QWORD *)(v27 + 48);
+      v38 = 12;
+      goto LABEL_29;
     }
   }
-  v37 = v20[22];
-  if ( v37 )
+  v34 = v15[22];
+  if ( v34 )
   {
     SecureObject = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, unsigned __int64, __int64 (__fastcall *)(), __int64))(WdfFunctions_01023 + 1328))(
                      WdfDriverGlobals,
-                     v59,
-                     v37,
-                     v32);
+                     v54,
+                     v34,
+                     v27);
     if ( SecureObject < 0 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return (unsigned int)SecureObject;
-      v41 = 13;
-      goto LABEL_27;
+      v38 = 13;
+      goto LABEL_28;
     }
   }
-  *((_QWORD *)&v56 + 1) = v20[23];
-  *(_QWORD *)&v56 = 24LL;
-  v50 = 0LL;
-  v57 = 1LL;
-  *(_QWORD *)&v48 = 0LL;
-  v49 = v59;
-  v47 = 0LL;
-  *((_QWORD *)&v48 + 1) = 0x100000001LL;
-  LODWORD(v47) = 56;
-  SecureObject = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int128 *, __int128 *, __int64))(WdfFunctions_01023
-                                                                                                 + 888))(
+  v52[1] = v15[23];
+  v52[0] = 24LL;
+  v49 = 0LL;
+  v46 = 0LL;
+  v52[2] = 1LL;
+  v48 = v54;
+  v45 = 0LL;
+  LODWORD(v45) = 56;
+  v47 = 0x100000001LL;
+  SecureObject = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD *, __int128 *, __int64))(WdfFunctions_01023 + 888))(
                    WdfDriverGlobals,
-                   &v56,
-                   &v47,
-                   v32 + 80);
+                   v52,
+                   &v45,
+                   v27 + 80);
   if ( SecureObject < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return (unsigned int)SecureObject;
-    v41 = 14;
-    goto LABEL_27;
+    v38 = 14;
+    goto LABEL_28;
   }
-  *(_QWORD *)(v32 + 176) = TR_AcquireSegment(v32);
-  SecureObject = ((__int64 (__fastcall *)(__int64))*v20)(v32);
+  *(_QWORD *)(v27 + 176) = TR_AcquireSegment(v27);
+  SecureObject = ((__int64 (__fastcall *)(__int64))*v15)(v27);
   if ( SecureObject < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return (unsigned int)SecureObject;
-    v41 = 15;
-LABEL_27:
-    v42 = *(_QWORD *)(a2 + 16);
+    v38 = 15;
 LABEL_28:
-    v46 = SecureObject;
-    v45 = a4;
-    v44 = *(_DWORD *)(a2 + 144);
-    v43 = *(_BYTE *)(v42 + 135);
-    goto LABEL_29;
+    v39 = *(_QWORD *)(a2 + 16);
+LABEL_29:
+    v43 = SecureObject;
+    v42 = a4;
+    v41 = *(_DWORD *)(a2 + 144);
+    v40 = *(_BYTE *)(v39 + 135);
+    goto LABEL_30;
   }
-  Counter_CreateTransferRingInstance(*(_QWORD *)(v32 + 56), *(unsigned int *)(v32 + 64), v32 + 240);
-  *a5 = v32;
+  Counter_CreateTransferRingInstance(*(_QWORD *)(v27 + 56), *(unsigned int *)(v27 + 64), v27 + 240);
+  *a5 = v27;
   return (unsigned int)SecureObject;
 }

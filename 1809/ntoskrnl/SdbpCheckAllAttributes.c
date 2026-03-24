@@ -1,20 +1,20 @@
 /*
- * XREFs of SdbpCheckAllAttributes @ 0x140720364
+ * XREFs of SdbpCheckAllAttributes @ 0x140720344
  * Callers:
- *     SdbpCheckMatchingFiles @ 0x140721470 (SdbpCheckMatchingFiles.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x1408E6A00 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingFiles @ 0x140721450 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x1408E69E0 (SdbpCheckMatchingWildcardFiles.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AslAlloc @ 0x14067C7A0 (AslAlloc.c)
- *     SdbReadDWORDTag @ 0x14067CDB8 (SdbReadDWORDTag.c)
- *     SdbFindFirstTag @ 0x14067D1A0 (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
- *     SdbpCheckAttribute @ 0x1407205A0 (SdbpCheckAttribute.c)
- *     AslFileAllocAndGetAttributes @ 0x140720674 (AslFileAllocAndGetAttributes.c)
- *     SdbReadQWORDTag @ 0x140721108 (SdbReadQWORDTag.c)
- *     SdbGetStringTagPtr @ 0x140721730 (SdbGetStringTagPtr.c)
+ *     AslAlloc @ 0x14067C780 (AslAlloc.c)
+ *     SdbReadDWORDTag @ 0x14067CD98 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x14067D180 (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbpCheckAttribute @ 0x140720580 (SdbpCheckAttribute.c)
+ *     AslFileAllocAndGetAttributes @ 0x140720654 (AslFileAllocAndGetAttributes.c)
+ *     SdbReadQWORDTag @ 0x1407210E8 (SdbReadQWORDTag.c)
+ *     SdbGetStringTagPtr @ 0x140721710 (SdbGetStringTagPtr.c)
  */
 
 __int64 __fastcall SdbpCheckAllAttributes(int *a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)

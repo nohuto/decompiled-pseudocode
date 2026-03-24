@@ -1,7 +1,7 @@
 /*
- * XREFs of IsRegistryKeyLocked @ 0x1406BC428
+ * XREFs of IsRegistryKeyLocked @ 0x1406BC408
  * Callers:
- *     NtLockProductActivationKeys @ 0x1406BC050 (NtLockProductActivationKeys.c)
+ *     NtLockProductActivationKeys @ 0x1406BC030 (NtLockProductActivationKeys.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)

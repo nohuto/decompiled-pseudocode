@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetEnclaveModuleList @ 0x1402BEAC0
+ * XREFs of MmGetEnclaveModuleList @ 0x1402BEBC0
  * Callers:
- *     PsGetProcessEnclaveModuleInfo @ 0x1402EBDD0 (PsGetProcessEnclaveModuleInfo.c)
+ *     PsGetProcessEnclaveModuleInfo @ 0x1402EBED0 (PsGetProcessEnclaveModuleInfo.c)
  * Callees:
  *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
  *     MiUnlockAndDereferenceVadShared @ 0x1400754A0 (MiUnlockAndDereferenceVadShared.c)

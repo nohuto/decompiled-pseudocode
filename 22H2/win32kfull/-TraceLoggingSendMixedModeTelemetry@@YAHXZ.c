@@ -1,11 +1,10 @@
 /*
- * XREFs of ?TraceLoggingSendMixedModeTelemetry@@YAHXZ @ 0x1C00124BC
+ * XREFs of ?TraceLoggingSendMixedModeTelemetry@@YAHXZ @ 0x1C0134000
  * Callers:
- *     NtUserTraceLoggingSendMixedModeTelemetry @ 0x1C0012480 (NtUserTraceLoggingSendMixedModeTelemetry.c)
+ *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0040C00 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1C0041D94 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D1C24 (_tlgWriteTransfer_EtwWriteTransfer.c)
  */
 
 __int64 TraceLoggingSendMixedModeTelemetry(void)
@@ -16,13 +15,15 @@ __int64 TraceLoggingSendMixedModeTelemetry(void)
   int v4; // [rsp+60h] [rbp-18h]
   int v5; // [rsp+64h] [rbp-14h]
 
-  if ( (unsigned int)dword_1C0354098 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1C0354098, 0x200000000000LL) )
+  if ( (unsigned int)dword_1C032A3D8 > 5
+    && (qword_1C032A3E8 & 0x200000000000LL) != 0
+    && (qword_1C032A3F0 & 0x200000000000LL) == qword_1C032A3F0 )
   {
     v5 = 0;
     v3 = &v1;
     v1 = 0x1000000LL;
     v4 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C0354098, (int)&dword_1C031C545, 0, 0, 3u, &v2);
+    tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C032A3D8, (int)&dword_1C02F20FD, 0, 0, 3u, &v2);
   }
   return 1LL;
 }

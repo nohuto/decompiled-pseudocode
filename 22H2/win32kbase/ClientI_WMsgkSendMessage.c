@@ -1,7 +1,7 @@
 /*
- * XREFs of ClientI_WMsgkSendMessage @ 0x1C00C57DC
+ * XREFs of ClientI_WMsgkSendMessage @ 0x1C007642C
  * Callers:
- *     WmsgpPostMessage @ 0x1C02BFD34 (WmsgpPostMessage.c)
+ *     WmsgpPostMessage @ 0x1C027E2F0 (WmsgpPostMessage.c)
  * Callees:
  *     <none>
  */
@@ -11,5 +11,5 @@ CLIENT_CALL_RETURN __fastcall ClientI_WMsgkSendMessage(__int64 a1, __int64 a2, i
   int v7; // [rsp+38h] [rbp-10h]
 
   v7 = 0;
-  return Ndr64AsyncClientCall((MIDL_STUBLESS_PROXY_INFO *)&stru_1C023CD90, 0, 0LL, a1, a2, a3, a4, v7);
+  return Ndr64AsyncClientCall((MIDL_STUBLESS_PROXY_INFO *)&pProxyInfo, 0, 0LL, a1, a2, a3, a4, v7);
 }

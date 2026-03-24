@@ -1,7 +1,7 @@
 /*
- * XREFs of MiLockStealSystemVm @ 0x1400E9958
+ * XREFs of MiLockStealSystemVm @ 0x1400E9978
  * Callers:
- *     MiStealPage @ 0x1400EBF24 (MiStealPage.c)
+ *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
@@ -9,12 +9,12 @@
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
  *     MiVaIsPageFileHash @ 0x14009DA88 (MiVaIsPageFileHash.c)
- *     MiGetSessionVm @ 0x1400E943C (MiGetSessionVm.c)
- *     MiSynchronizeSystemVa @ 0x1400E9F48 (MiSynchronizeSystemVa.c)
- *     MiUnlockStealVm @ 0x1400ECD44 (MiUnlockStealVm.c)
- *     MiAttachToOwningSession @ 0x14011A4AC (MiAttachToOwningSession.c)
- *     MiSmallVaStillMapsFrame @ 0x1401349D4 (MiSmallVaStillMapsFrame.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
+ *     MiSynchronizeSystemVa @ 0x1400E9F68 (MiSynchronizeSystemVa.c)
+ *     MiUnlockStealVm @ 0x1400ECD64 (MiUnlockStealVm.c)
+ *     MiAttachToOwningSession @ 0x14011A4CC (MiAttachToOwningSession.c)
+ *     MiSmallVaStillMapsFrame @ 0x1401349F4 (MiSmallVaStillMapsFrame.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLockStealSystemVm(__int64 a1, unsigned __int8 a2, unsigned __int64 a3, __int64 a4)

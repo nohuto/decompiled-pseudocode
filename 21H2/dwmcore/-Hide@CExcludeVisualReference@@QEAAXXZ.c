@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Hide@CExcludeVisualReference@@QEAAXXZ @ 0x1801A9238
+ * XREFs of ?Hide@CExcludeVisualReference@@QEAAXXZ @ 0x1801742FC
  * Callers:
- *     ?ShowHideCursors@CComposition@@IEAAX_N@Z @ 0x1800F7F34 (-ShowHideCursors@CComposition@@IEAAX_N@Z.c)
- *     ?HideVisuals@CVisualGroup@@QEAAXXZ @ 0x1801FF0F8 (-HideVisuals@CVisualGroup@@QEAAXXZ.c)
+ *     ?ShowHideCursors@CComposition@@IEAAX_N@Z @ 0x1800DF22C (-ShowHideCursors@CComposition@@IEAAX_N@Z.c)
+ *     ?HideVisuals@CVisualGroup@@QEAAXXZ @ 0x1801AC150 (-HideVisuals@CVisualGroup@@QEAAXXZ.c)
  * Callees:
- *     ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x1801A9220 (-GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ.c)
+ *     ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x1800E5648 (-GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ.c)
  */
 
 void __fastcall CExcludeVisualReference::Hide(CExcludeVisualReference *this)
@@ -16,8 +16,8 @@ void __fastcall CExcludeVisualReference::Hide(CExcludeVisualReference *this)
   Visual = CExcludeVisualReference::GetVisual(this);
   if ( Visual )
   {
-    v3 = *((_BYTE *)Visual + 102);
-    *((_BYTE *)Visual + 102) = v3 | 4;
+    v3 = *((_BYTE *)Visual + 94);
+    *((_BYTE *)Visual + 94) = v3 | 4;
     *(_BYTE *)(v2 + 20) = (v3 & 4) != 0;
     *(_DWORD *)(v2 + 16) = 2;
   }

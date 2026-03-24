@@ -1,44 +1,38 @@
 /*
- * XREFs of CmpGetBootValueData @ 0x140B14F3C
+ * XREFs of CmpGetBootValueData @ 0x140A5FFE0
  * Callers:
- *     CmpGetSystemControlValues @ 0x140B14B1C (CmpGetSystemControlValues.c)
+ *     CmpGetSystemControlValues @ 0x140A5FC0C (CmpGetSystemControlValues.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 char __fastcall CmpGetBootValueData(__int64 a1, __int64 a2, char *a3, unsigned int a4)
 {
-  size_t v4; // r12
+  size_t v4; // r15
   unsigned int v6; // eax
   const void *v8; // rax
-  ULONG_PTR v9; // rdx
-  ULONG_PTR v10; // rdx
-  char v11; // r14
-  __int64 CellFlat; // rax
-  __int64 v13; // r15
-  ULONG_PTR v14; // rdx
-  __int64 CellPaged; // rax
-  __int64 v16; // r13
-  unsigned int v17; // esi
-  unsigned __int16 v18; // r12
-  ULONG_PTR v19; // rdx
-  const void *v20; // rax
-  size_t v21; // r8
-  __int64 v23; // [rsp+20h] [rbp-10h] BYREF
-  __int64 v24; // [rsp+28h] [rbp-8h] BYREF
-  __int64 v25; // [rsp+70h] [rbp+40h] BYREF
-  __int64 v26; // [rsp+78h] [rbp+48h] BYREF
-  char *v27; // [rsp+80h] [rbp+50h]
+  __int64 v9; // rdx
+  char v10; // bl
+  __int64 v11; // rax
+  __int64 v12; // r13
+  __int64 v13; // rax
+  unsigned int v14; // r14d
+  unsigned __int16 v15; // r15
+  const void *v16; // rax
+  size_t v17; // r8
+  _DWORD v19[2]; // [rsp+20h] [rbp-20h] BYREF
+  _DWORD v20[2]; // [rsp+28h] [rbp-18h] BYREF
+  __int64 v21; // [rsp+30h] [rbp-10h]
+  __int64 v22; // [rsp+80h] [rbp+40h] BYREF
+  int v23; // [rsp+88h] [rbp+48h] BYREF
+  int v24; // [rsp+8Ch] [rbp+4Ch]
 
-  v27 = a3;
-  v25 = a1;
+  v22 = a1;
   v4 = a4;
+  v20[1] = 0;
   v6 = *(_DWORD *)(a2 + 4);
-  v24 = 0xFFFFFFFFLL;
+  v20[0] = -1;
   if ( v6 >= 0x80000000 )
   {
     memmove(a3, (const void *)(a2 + 8), a4);
@@ -46,97 +40,79 @@ LABEL_3:
     LOBYTE(v8) = 1;
     return (char)v8;
   }
-  if ( (unsigned int)dword_140D6CDBC >= 4 && v6 - 16345 <= 0x7FFFC026 )
+  if ( (unsigned int)dword_140D5C834 < 4 || v6 - 16345 > 0x7FFFC026 )
   {
-    v10 = *(unsigned int *)(a2 + 8);
-    v23 = 0xFFFFFFFFLL;
-    v11 = 1;
-    v25 = 0xFFFFFFFFLL;
-    v26 = 0xFFFFFFFFLL;
-    if ( (byte_140D6CD6C & 1) != 0 )
-      CellFlat = HvpGetCellFlat((ULONG_PTR)&CmControlHive, v10, &v23);
-    else
-      CellFlat = HvpGetCellPaged((ULONG_PTR)&CmControlHive, v10, (unsigned int *)&v23);
-    v13 = CellFlat;
-    if ( CellFlat )
+    v8 = (const void *)((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140D5C768)(
+                         &CmControlHive,
+                         *(unsigned int *)(a2 + 8),
+                         v20);
+    if ( !v8 )
+      return (char)v8;
+    memmove(a3, v8, v4);
+    ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140D5C770)(&CmControlHive, v20);
+    goto LABEL_3;
+  }
+  v9 = *(unsigned int *)(a2 + 8);
+  v19[0] = -1;
+  v19[1] = 0;
+  v10 = 1;
+  v24 = 0;
+  v22 = 0xFFFFFFFFLL;
+  v23 = -1;
+  v11 = ((__int64 (__fastcall *)(ULONG_PTR *, __int64, _DWORD *))qword_140D5C768)(&CmControlHive, v9, v19);
+  v12 = v11;
+  if ( v11 )
+  {
+    v13 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, int *))qword_140D5C768)(
+            &CmControlHive,
+            *(unsigned int *)(v11 + 4),
+            &v23);
+    v21 = v13;
+    if ( v13 )
     {
-      v14 = *(unsigned int *)(CellFlat + 4);
-      if ( (byte_140D6CD6C & 1) != 0 )
-        CellPaged = HvpGetCellFlat((ULONG_PTR)&CmControlHive, v14, &v26);
-      else
-        CellPaged = HvpGetCellPaged((ULONG_PTR)&CmControlHive, v14, (unsigned int *)&v26);
-      v16 = CellPaged;
-      if ( CellPaged )
+      v14 = *(_DWORD *)(a2 + 4);
+      if ( v14 > (unsigned int)v4 )
+        v14 = v4;
+      v15 = 0;
+      if ( *(_WORD *)(v12 + 2) )
       {
-        v17 = *(_DWORD *)(a2 + 4);
-        if ( v17 > (unsigned int)v4 )
-          v17 = v4;
-        v18 = 0;
-        if ( *(_WORD *)(v13 + 2) )
+        while ( 1 )
         {
-          while ( 1 )
+          v16 = (const void *)((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, __int64 *))qword_140D5C768)(
+                                &CmControlHive,
+                                *(unsigned int *)(v13 + 4LL * v15),
+                                &v22);
+          if ( !v16 )
+            break;
+          v17 = v14;
+          if ( v14 > 0x3FD8 )
+            v17 = 16344LL;
+          memmove(&a3[16344 * v15], v16, v17);
+          ((void (__fastcall *)(ULONG_PTR *, __int64 *))qword_140D5C770)(&CmControlHive, &v22);
+          if ( v14 > 0x3FD8 )
           {
-            v19 = *(unsigned int *)(v16 + 4LL * v18);
-            v20 = (const void *)((byte_140D6CD6C & 1) != 0
-                               ? HvpGetCellFlat((ULONG_PTR)&CmControlHive, v19, &v25)
-                               : HvpGetCellPaged((ULONG_PTR)&CmControlHive, v19, (unsigned int *)&v25));
-            if ( !v20 )
-              break;
-            v21 = v17;
-            if ( v17 > 0x3FD8 )
-              v21 = 16344LL;
-            memmove(&v27[16344 * v18], v20, v21);
-            if ( (byte_140D6CD6C & 1) != 0 )
-              HvpReleaseCellFlat((__int64)&CmControlHive, &v25);
-            else
-              HvpReleaseCellPaged((__int64)&CmControlHive, (unsigned int *)&v25);
-            if ( v17 > 0x3FD8 )
-            {
-              v17 -= 16344;
-              if ( ++v18 < *(_WORD *)(v13 + 2) )
-                continue;
-            }
-            goto LABEL_29;
+            v13 = v21;
+            v14 -= 16344;
+            if ( ++v15 < *(_WORD *)(v12 + 2) )
+              continue;
           }
-          v11 = 0;
+          goto LABEL_18;
         }
-LABEL_29:
-        if ( (byte_140D6CD6C & 1) != 0 )
-          HvpReleaseCellFlat((__int64)&CmControlHive, &v26);
-        else
-          HvpReleaseCellPaged((__int64)&CmControlHive, (unsigned int *)&v26);
+        v10 = 0;
       }
-      else
-      {
-        v11 = 0;
-      }
-      if ( (byte_140D6CD6C & 1) != 0 )
-        HvpReleaseCellFlat((__int64)&CmControlHive, &v23);
-      else
-        HvpReleaseCellPaged((__int64)&CmControlHive, (unsigned int *)&v23);
+LABEL_18:
+      ((void (__fastcall *)(ULONG_PTR *, int *))qword_140D5C770)(&CmControlHive, &v23);
     }
     else
     {
-      v11 = 0;
+      v10 = 0;
     }
-    LOBYTE(v8) = v11;
+    ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140D5C770)(&CmControlHive, v19);
   }
   else
   {
-    v9 = *(unsigned int *)(a2 + 8);
-    if ( (byte_140D6CD6C & 1) != 0 )
-      v8 = (const void *)HvpGetCellFlat((ULONG_PTR)&CmControlHive, v9, &v24);
-    else
-      v8 = (const void *)HvpGetCellPaged((ULONG_PTR)&CmControlHive, v9, (unsigned int *)&v24);
-    if ( v8 )
-    {
-      memmove(a3, v8, v4);
-      if ( (byte_140D6CD6C & 1) != 0 )
-        HvpReleaseCellFlat((__int64)&CmControlHive, &v24);
-      else
-        HvpReleaseCellPaged((__int64)&CmControlHive, (unsigned int *)&v24);
-      goto LABEL_3;
-    }
+    v10 = 0;
   }
+  LOBYTE(v8) = v10;
   return (char)v8;
 }

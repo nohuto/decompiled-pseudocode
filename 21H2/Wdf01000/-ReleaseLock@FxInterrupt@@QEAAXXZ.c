@@ -1,15 +1,16 @@
 /*
- * XREFs of ?ReleaseLock@FxInterrupt@@QEAAXXZ @ 0x1C00399AC
+ * XREFs of ?ReleaseLock@FxInterrupt@@QEAAXXZ @ 0x1C0003DA4
  * Callers:
- *     ?_InterruptThunk@FxInterrupt@@CAEPEAU_KINTERRUPT@@PEAX@Z @ 0x1C0002950 (-_InterruptThunk@FxInterrupt@@CAEPEAU_KINTERRUPT@@PEAX@Z.c)
- *     ?_InterruptDisableThunk@FxInterrupt@@CAEPEAX@Z @ 0x1C000F0A0 (-_InterruptDisableThunk@FxInterrupt@@CAEPEAX@Z.c)
- *     ?_InterruptEnableThunk@FxInterrupt@@CAEPEAX@Z @ 0x1C00144D0 (-_InterruptEnableThunk@FxInterrupt@@CAEPEAX@Z.c)
- *     ?_InterruptSynchronizeThunk@FxInterrupt@@CAEPEAX@Z @ 0x1C0039A60 (-_InterruptSynchronizeThunk@FxInterrupt@@CAEPEAX@Z.c)
- *     ?InvokeWakeInterruptEvtIsr@FxInterrupt@@QEAAXXZ @ 0x1C008D308 (-InvokeWakeInterruptEvtIsr@FxInterrupt@@QEAAXXZ.c)
+ *     ?_InterruptThunk@FxInterrupt@@CAEPEAU_KINTERRUPT@@PEAX@Z @ 0x1C0003C30 (-_InterruptThunk@FxInterrupt@@CAEPEAU_KINTERRUPT@@PEAX@Z.c)
+ *     imp_WdfInterruptReleaseLock @ 0x1C0003D40 (imp_WdfInterruptReleaseLock.c)
+ *     ?_InterruptDisableThunk@FxInterrupt@@CAEPEAX@Z @ 0x1C001A070 (-_InterruptDisableThunk@FxInterrupt@@CAEPEAX@Z.c)
+ *     ?_InterruptEnableThunk@FxInterrupt@@CAEPEAX@Z @ 0x1C001A0E0 (-_InterruptEnableThunk@FxInterrupt@@CAEPEAX@Z.c)
+ *     ?InvokeWakeInterruptEvtIsr@FxInterrupt@@QEAAXXZ @ 0x1C0089B6C (-InvokeWakeInterruptEvtIsr@FxInterrupt@@QEAAXXZ.c)
+ *     ?_InterruptSynchronizeThunk@FxInterrupt@@CAEPEAX@Z @ 0x1C0089EB0 (-_InterruptSynchronizeThunk@FxInterrupt@@CAEPEAX@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 void __fastcall FxInterrupt::ReleaseLock(FxInterrupt *this)
@@ -34,7 +35,7 @@ void __fastcall FxInterrupt::ReleaseLock(FxInterrupt *this)
     }
     else
     {
-      _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this);
+      _a1 = FxObject::GetObjectHandleUnchecked(this);
       WPP_IFR_SF_q(this->m_Globals, 2u, 0xCu, 0x1Du, WPP_InterruptObject_cpp_Traceguids, _a1);
       FxVerifierDbgBreakPoint(this->m_Globals);
     }

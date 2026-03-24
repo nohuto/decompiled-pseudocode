@@ -1,18 +1,18 @@
 /*
- * XREFs of IoRevokeHandlesForProcess @ 0x1402845C0
+ * XREFs of IoRevokeHandlesForProcess @ 0x1402846C0
  * Callers:
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
  *     IopGetDevicePDO @ 0x140019CF4 (IopGetDevicePDO.c)
  *     PsGetCurrentSilo @ 0x14004D350 (PsGetCurrentSilo.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PnpDisableUserModeNotifications @ 0x140288934 (PnpDisableUserModeNotifications.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PnpDisableUserModeNotifications @ 0x140288A34 (PnpDisableUserModeNotifications.c)
  *     ObReferenceProcessHandleTable @ 0x1405D1160 (ObReferenceProcessHandleTable.c)
  *     ObOpenObjectByNameEx @ 0x1405E2E30 (ObOpenObjectByNameEx.c)
- *     ExEnumHandleTable @ 0x14068FAF0 (ExEnumHandleTable.c)
- *     ObDereferenceProcessHandleTable @ 0x1406A95A0 (ObDereferenceProcessHandleTable.c)
- *     PsIsProcessAppContainer @ 0x1406B8208 (PsIsProcessAppContainer.c)
+ *     ExEnumHandleTable @ 0x14068FAD0 (ExEnumHandleTable.c)
+ *     ObDereferenceProcessHandleTable @ 0x1406A9580 (ObDereferenceProcessHandleTable.c)
+ *     PsIsProcessAppContainer @ 0x1406B81E8 (PsIsProcessAppContainer.c)
  */
 
 __int64 __fastcall IoRevokeHandlesForProcess(__int64 a1, void *a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopMemInitialize @ 0x1407379D8
+ * XREFs of IopMemInitialize @ 0x1407379B8
  * Callers:
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ArbAddMmConfigRangeAsBootReserved @ 0x140737C00 (ArbAddMmConfigRangeAsBootReserved.c)
- *     RtlAddRange @ 0x140738710 (RtlAddRange.c)
- *     ArbAddInaccessibleAllocationRange @ 0x140738F60 (ArbAddInaccessibleAllocationRange.c)
- *     ArbInitializeArbiterInstance @ 0x14073913C (ArbInitializeArbiterInstance.c)
+ *     ArbAddMmConfigRangeAsBootReserved @ 0x140737BE0 (ArbAddMmConfigRangeAsBootReserved.c)
+ *     RtlAddRange @ 0x1407386F0 (RtlAddRange.c)
+ *     ArbAddInaccessibleAllocationRange @ 0x140738F40 (ArbAddInaccessibleAllocationRange.c)
+ *     ArbInitializeArbiterInstance @ 0x14073911C (ArbInitializeArbiterInstance.c)
  */
 
 int __fastcall IopMemInitialize(__int64 a1, int a2)

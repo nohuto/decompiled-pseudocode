@@ -1,192 +1,187 @@
 /*
- * XREFs of ?xxxDeactivate@@YAXPEAUtagTHREADINFO@@KW4DeactivateOption@@@Z @ 0x1C004AD48
+ * XREFs of ?xxxDeactivate@@YAXPEAUtagTHREADINFO@@KW4DeactivateOption@@@Z @ 0x1C00319A0
  * Callers:
- *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C0061584 (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
- *     xxxProcessEventMessage @ 0x1C0125270 (xxxProcessEventMessage.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C003D1EC (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     xxxProcessEventMessage @ 0x1C00C15B8 (xxxProcessEventMessage.c)
  * Callees:
- *     ?xxxFocusSetInputContext@@YAXPEAUtagWND@@HH@Z @ 0x1C004BB10 (-xxxFocusSetInputContext@@YAXPEAUtagWND@@HH@Z.c)
- *     LockW32Thread @ 0x1C0061F84 (LockW32Thread.c)
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     _anonymous_namespace_::xxxSendNCActivateMessage @ 0x1C0066A48 (_anonymous_namespace_--xxxSendNCActivateMessage.c)
- *     ?xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z @ 0x1C0066CF0 (-xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z.c)
- *     PostIAMShellHookMessage @ 0x1C00D34E8 (PostIAMShellHookMessage.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
- *     SetWakeBit @ 0x1C0118350 (SetWakeBit.c)
- *     xxxSendMessage @ 0x1C0127178 (xxxSendMessage.c)
- *     ?zzzInputFocusLostWindowEventImpl@@YAXPEAUtagWND@@PEAUtagQ@@W4INPUTFOCUSEVENTSOURCE@@@Z @ 0x1C013A930 (-zzzInputFocusLostWindowEventImpl@@YAXPEAUtagWND@@PEAUtagQ@@W4INPUTFOCUSEVENTSOURCE@@@Z.c)
+ *     PostIAMShellHookMessageEx @ 0x1C002DAB0 (PostIAMShellHookMessageEx.c)
+ *     xxxFocusSetInputContext @ 0x1C00349DC (xxxFocusSetInputContext.c)
+ *     zzzInputFocusLostWindowEvent @ 0x1C0034F7C (zzzInputFocusLostWindowEvent.c)
+ *     _anonymous_namespace_::xxxSendNCActivateMessage @ 0x1C003A690 (_anonymous_namespace_--xxxSendNCActivateMessage.c)
+ *     ??0?$CLockDomainExclusive@VDLT_ACTIVE@@@@QEAA@XZ @ 0x1C003ADDC (--0-$CLockDomainExclusive@VDLT_ACTIVE@@@@QEAA@XZ.c)
+ *     ?xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z @ 0x1C003C880 (-xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z.c)
+ *     LockW32Thread @ 0x1C003D9CC (LockW32Thread.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     SetWakeBit @ 0x1C0051880 (SetWakeBit.c)
+ *     xxxSendMessage @ 0x1C005D594 (xxxSendMessage.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
  */
 
-struct tagWND *__fastcall xxxDeactivate(__int64 a1, int a2, char a3)
+__int64 __fastcall xxxDeactivate(__int64 a1, unsigned int a2, char a3)
 {
-  __int64 v4; // rcx
-  int v5; // r12d
-  struct tagWND *result; // rax
-  int v8; // r13d
-  int v9; // eax
+  unsigned int v3; // r13d
+  char v4; // bl
+  int v6; // r12d
+  __int64 result; // rax
+  int v8; // eax
+  __int64 v9; // rsi
   __int64 v10; // rcx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // rdi
-  __int64 v15; // r14
-  unsigned __int64 v16; // r12
-  int v17; // r15d
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // rax
-  __int64 v22; // rdx
+  __int64 v11; // rsi
+  __int64 v12; // r13
+  unsigned __int64 v13; // rbx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  int v17; // ebx
+  __int64 v18; // rax
+  bool v19; // zf
+  __int64 v20; // rax
+  __int64 v21; // rbx
+  __int64 v22; // rcx
   __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  __int64 v27; // r8
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  tagQ *v31; // rcx
-  struct tagWND *v32; // rdi
-  __int128 v33; // [rsp+28h] [rbp-59h] BYREF
-  __int64 v34; // [rsp+38h] [rbp-49h]
-  __int128 v35; // [rsp+40h] [rbp-41h] BYREF
-  char *v36; // [rsp+58h] [rbp-29h] BYREF
-  __int64 v37; // [rsp+60h] [rbp-21h]
-  __int128 v38; // [rsp+68h] [rbp-19h] BYREF
-  __int64 v39; // [rsp+78h] [rbp-9h]
-  __int128 v40; // [rsp+80h] [rbp-1h] BYREF
-  __int64 v41; // [rsp+90h] [rbp+Fh]
-  __int128 v42; // [rsp+98h] [rbp+17h] BYREF
-  __int64 v43; // [rsp+A8h] [rbp+27h]
+  __int64 v24; // rcx
+  __int64 v25; // [rsp+28h] [rbp-49h] BYREF
+  __int64 v26; // [rsp+30h] [rbp-41h]
+  __int128 v27; // [rsp+38h] [rbp-39h] BYREF
+  __int64 v28; // [rsp+48h] [rbp-29h]
+  __int128 v29; // [rsp+50h] [rbp-21h] BYREF
+  __int64 v30; // [rsp+60h] [rbp-11h]
+  __int128 v31; // [rsp+68h] [rbp-9h] BYREF
+  __int64 v32; // [rsp+78h] [rbp+7h]
+  __int128 v33; // [rsp+80h] [rbp+Fh] BYREF
+  __int64 v34; // [rsp+90h] [rbp+1Fh]
 
-  v39 = 0LL;
+  v30 = 0LL;
+  v28 = 0LL;
+  v3 = a2;
   v34 = 0LL;
-  v4 = *(_QWORD *)(a1 + 432);
-  v5 = a2;
-  v43 = 0LL;
-  v41 = 0LL;
-  result = (struct tagWND *)gptiCurrent;
-  v8 = 0;
-  v38 = 0LL;
+  v32 = 0LL;
+  v4 = a3;
+  v29 = 0LL;
+  v6 = 0;
+  v27 = 0LL;
+  result = *(_QWORD *)(a1 + 432);
   v33 = 0LL;
-  v42 = 0LL;
-  v40 = 0LL;
-  v35 = 0LL;
-  if ( !*(_QWORD *)(v4 + 128) )
+  v31 = 0LL;
+  if ( !*(_QWORD *)(result + 120) )
     return result;
   if ( a1 != gptiCurrent )
+    LockW32Thread(a1, &v33);
+  v8 = *(_DWORD *)(a1 + 488);
+  if ( (v8 & 0x200) == 0 )
   {
-    LockW32Thread(a1, &v42);
-    v4 = *(_QWORD *)(a1 + 432);
+    v6 = 1;
+    *(_DWORD *)(a1 + 488) = v8 | 0x200;
   }
-  v9 = *(_DWORD *)(a1 + 488);
-  if ( (v9 & 0x200) == 0 )
-  {
-    v8 = 1;
-    *(_DWORD *)(a1 + 488) = v9 | 0x200;
-  }
-  v10 = *(_QWORD *)(v4 + 112);
+  v9 = *(_QWORD *)(a1 + 432);
+  v10 = *(_QWORD *)(v9 + 104);
   if ( v10 )
   {
-    *(_QWORD *)&v38 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v38;
-    *((_QWORD *)&v38 + 1) = v10;
+    *(_QWORD *)&v29 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v29;
+    *((_QWORD *)&v29 + 1) = v10;
     HMLockObject(v10);
-    xxxSendMessage(*(_QWORD *)(*(_QWORD *)(a1 + 432) + 112LL), 31LL, 0LL, 0LL);
-    ThreadUnlock1(v12, v11, v13);
+    xxxSendMessage(*(_QWORD *)(*(_QWORD *)(a1 + 432) + 104LL), 31LL, 0LL, 0LL);
+    ThreadUnlock1(v23);
     SetWakeBit(a1, 2LL);
+    v9 = *(_QWORD *)(a1 + 432);
   }
-  v14 = *(_QWORD *)(*(_QWORD *)(a1 + 432) + 128LL);
-  if ( !v14 )
+  v11 = *(_QWORD *)(v9 + 120);
+  if ( v11 )
   {
-    v14 = -1LL;
-    *(_QWORD *)&v35 = a1;
-    v17 = a3 & 1;
-    v15 = a1;
-    goto LABEL_18;
+    v12 = *(_QWORD *)(v11 + 16);
+    LockW32Thread(v12, &v31);
+    *(_QWORD *)&v27 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v27;
+    *((_QWORD *)&v27 + 1) = v11;
+    HMLockObject(v11);
+    v13 = (unsigned __int64)(*(_BYTE *)(*(_QWORD *)(v11 + 40) + 31LL) & 0x20) << 16;
+    if ( (a3 & 1) == 0 && !(unsigned __int8)anonymous_namespace_::xxxSendNCActivateMessage((struct tagWND *)v11) )
+    {
+      ThreadUnlock1(v14);
+      result = PopAndFreeW32ThreadLock(&v31);
+      goto LABEL_28;
+    }
+    xxxSendMessage(v11, 6LL, v13, 0LL);
+    v15 = *(_QWORD *)(a1 + 432);
+    if ( *(_QWORD *)(v15 + 120) == v11 )
+    {
+      v26 = *(_QWORD *)(v15 + 120);
+      v25 = v15 + 128;
+      HMAssignmentLock(&v25);
+      CLockDomainExclusive<DLT_ACTIVE>::CLockDomainExclusive<DLT_ACTIVE>(&v25);
+      HMAssignmentUnlock(*(_QWORD *)(a1 + 432) + 120LL);
+    }
+    SetOrClrWF(0LL, v11, 64LL, 1LL);
+    PostIAMShellHookMessageEx(*(_QWORD *)(gptiCurrent + 456LL), 0x25u, *(_QWORD *)v11);
+    ThreadUnlock1(v16);
+    v17 = *(_DWORD *)(v12 + 488) & 1;
+    v18 = v12;
+    if ( v17 )
+      v18 = 0LL;
+    v25 = v18;
+    PopAndFreeW32ThreadLock(&v31);
+    v19 = v17 == 0;
+    v20 = 0LL;
+    v4 = a3;
+    if ( v19 )
+      v20 = v12;
+    v3 = a2;
   }
-  v15 = *(_QWORD *)(v14 + 16);
-  LockW32Thread(v15, &v40);
-  *(_QWORD *)&v33 = *(_QWORD *)(gptiCurrent + 416LL);
-  *(_QWORD *)(gptiCurrent + 416LL) = &v33;
-  *((_QWORD *)&v33 + 1) = v14;
-  HMLockObject(v14);
-  v16 = (unsigned __int64)(*(_BYTE *)(*(_QWORD *)(v14 + 40) + 31LL) & 0x20) << 16;
-  v17 = a3 & 1;
-  if ( v17 || (unsigned __int8)anonymous_namespace_::xxxSendNCActivateMessage((struct tagWND *)v14) )
+  else
   {
-    xxxSendMessage(v14, 6LL, v16, 0LL);
-    v21 = *(_QWORD *)(a1 + 432);
-    if ( *(_QWORD *)(v21 + 128) == v14 )
+    v11 = -1LL;
+    v25 = a1;
+    v20 = a1;
+  }
+  if ( v20 )
+  {
+    v26 = v3;
+    xxxSendActivateAppMessage((const struct tagAAS *)&v25);
+  }
+  result = *(_QWORD *)(a1 + 432);
+  if ( *(_QWORD *)(result + 120) != v11 )
+    goto LABEL_21;
+  *(_QWORD *)&v27 = *(_QWORD *)(gptiCurrent + 416LL);
+  *(_QWORD *)(gptiCurrent + 416LL) = &v27;
+  *((_QWORD *)&v27 + 1) = v11;
+  HMLockObject(v11);
+  if ( (v4 & 1) != 0 || (unsigned __int8)anonymous_namespace_::xxxSendNCActivateMessage((struct tagWND *)v11) )
+  {
+    xxxSendMessage(v11, 6LL, 0LL, 0LL);
+    ThreadUnlock1(v24);
+    result = *(_QWORD *)(a1 + 432);
+    if ( *(_QWORD *)(result + 120) == v11 )
     {
-      v37 = *(_QWORD *)(v21 + 128);
-      v36 = (char *)(v21 + 136);
-      HMAssignmentLock(&v36, 0LL);
-      tagQ::SetActiveWindow(*(tagQ **)(a1 + 432), 0LL);
+      v26 = *(_QWORD *)(result + 120);
+      v25 = result + 128;
+      HMAssignmentLock(&v25);
+      HMAssignmentUnlock(*(_QWORD *)(a1 + 432) + 120LL);
+      result = *(_QWORD *)(a1 + 432);
     }
-    SetOrClrWF(0LL, v14, 64LL, 1LL);
-    PostIAMShellHookMessage(37LL, *(_QWORD *)v14);
-    ThreadUnlock1(v23, v22, v24);
-    if ( (*(_BYTE *)(v15 + 488) & 1) != 0 )
-      v15 = 0LL;
-    *(_QWORD *)&v35 = v15;
-    PopAndFreeW32ThreadLock(&v40);
-    v5 = a2;
-LABEL_18:
-    if ( v15 )
-    {
-      HIDWORD(v35) &= 0xFFFFFFFC;
-      DWORD2(v35) = v5;
-      xxxSendActivateAppMessage((const struct tagAAS *)&v35);
-    }
-    result = *(struct tagWND **)(a1 + 432);
-    if ( *((_QWORD *)result + 16) == v14 )
-    {
-      *(_QWORD *)&v33 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v33;
-      *((_QWORD *)&v33 + 1) = v14;
-      HMLockObject(v14);
-      if ( !v17 && !(unsigned __int8)anonymous_namespace_::xxxSendNCActivateMessage((struct tagWND *)v14) )
-      {
-LABEL_33:
-        result = (struct tagWND *)ThreadUnlock1(v26, v25, v27);
-        goto LABEL_34;
-      }
-      xxxSendMessage(v14, 6LL, 0LL, 0LL);
-      ThreadUnlock1(v29, v28, v30);
-      result = *(struct tagWND **)(a1 + 432);
-      if ( *((_QWORD *)result + 16) == v14 )
-      {
-        v37 = *((_QWORD *)result + 16);
-        v36 = (char *)result + 136;
-        HMAssignmentLock(&v36, 0LL);
-        result = tagQ::SetActiveWindow(*(tagQ **)(a1 + 432), 0LL);
-      }
-    }
-    v31 = *(tagQ **)(a1 + 432);
-    if ( !*((_QWORD *)v31 + 15) )
-      goto LABEL_34;
-    result = tagQ::UnlockFocusWnd(v31);
-    v32 = result;
+LABEL_21:
+    if ( !*(_QWORD *)(result + 112) )
+      goto LABEL_28;
+    result = HMAssignmentUnlock(result + 112);
+    v21 = result;
     if ( !result )
-      goto LABEL_34;
-    *(_QWORD *)&v33 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v33;
-    *((_QWORD *)&v33 + 1) = result;
+      goto LABEL_28;
+    *(_QWORD *)&v27 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v27;
+    *((_QWORD *)&v27 + 1) = result;
     HMLockObject(result);
     if ( *(_QWORD *)(a1 + 432) == gpqForeground )
-      zzzInputFocusLostWindowEventImpl(v32, gpqForeground, 8LL);
-    xxxSendMessage(v32, 8LL, 0LL, 0LL);
-    v26 = gpsi;
+      zzzInputFocusLostWindowEvent(v21, 8LL);
+    xxxSendMessage(v21, 8LL, 0LL, 0LL);
+    v22 = gpsi;
     if ( (*gpsi & 4) != 0 )
-      xxxFocusSetInputContext(v32, 0, 0);
-    goto LABEL_33;
+      xxxFocusSetInputContext(v21, 0LL, 0LL);
   }
-  ThreadUnlock1(v19, v18, v20);
-  result = (struct tagWND *)PopAndFreeW32ThreadLock(&v40);
-LABEL_34:
-  if ( v8 )
+  result = ThreadUnlock1(v22);
+LABEL_28:
+  if ( v6 )
     *(_DWORD *)(a1 + 488) &= ~0x200u;
   if ( a1 != gptiCurrent )
-    return (struct tagWND *)PopAndFreeW32ThreadLock(&v42);
+    return PopAndFreeW32ThreadLock(&v33);
   return result;
 }

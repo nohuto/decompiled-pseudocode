@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfDmaEnablerGetMaximumScatterGatherElements @ 0x1C00535D0
+ * XREFs of imp_WdfDmaEnablerGetMaximumScatterGatherElements @ 0x1C002F2B0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
  */
 
 unsigned __int64 __fastcall imp_WdfDmaEnablerGetMaximumScatterGatherElements(
@@ -14,7 +14,7 @@ unsigned __int64 __fastcall imp_WdfDmaEnablerGetMaximumScatterGatherElements(
 
   pDmaEnabler = 0LL;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)DmaEnabler,
     0x1400u,
     (void **)&pDmaEnabler);

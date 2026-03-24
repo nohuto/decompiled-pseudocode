@@ -1,47 +1,46 @@
 /*
- * XREFs of NtUserCheckWindowThreadDesktop @ 0x1C01F1C20
+ * XREFs of NtUserCheckWindowThreadDesktop @ 0x1C01F71C0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     GetConsoleDesktop @ 0x1C01E4070 (GetConsoleDesktop.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     GetConsoleDesktop @ 0x1C01E987C (GetConsoleDesktop.c)
  */
 
-__int64 __fastcall NtUserCheckWindowThreadDesktop(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserCheckWindowThreadDesktop(__int64 a1, unsigned int a2)
 {
-  unsigned int v3; // esi
-  __int64 v5; // rax
-  __int64 v6; // rcx
-  int v7; // ebx
-  __int64 v8; // rdi
-  __int64 v9; // rax
-  __int64 v10; // rdx
+  __int64 v4; // rax
+  __int64 v5; // rcx
+  int v6; // ebx
+  __int64 v7; // rdi
+  __int64 v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // r8
   _QWORD v12[3]; // [rsp+20h] [rbp-18h] BYREF
   __int64 v13; // [rsp+50h] [rbp+18h] BYREF
   __int64 v14; // [rsp+58h] [rbp+20h] BYREF
 
-  v3 = a2;
-  EnterSharedCrit(a1, a2, a3);
-  v5 = ValidateHwnd(a1);
-  v7 = 0;
-  v8 = v5;
-  if ( v5 )
+  EnterSharedCrit(0LL, 1LL);
+  v4 = ValidateHwnd(a1);
+  v6 = 0;
+  v7 = v4;
+  if ( v4 )
   {
-    v9 = PtiFromThreadId(v3);
-    if ( v9 )
+    v8 = PtiFromThreadId(a2);
+    if ( v8 )
     {
-      v7 = ValidatePwndDesktop(v8, v9);
+      v6 = ValidatePwndDesktop(v7, v8);
     }
     else
     {
       v14 = 0LL;
       v13 = 0LL;
-      if ( (int)GetConsoleDesktop(v3, v12, &v13, &v14) < 0 )
-        UserSetLastError(87LL, v10);
+      if ( (int)GetConsoleDesktop(a2, v12, &v13, &v14) < 0 )
+        UserSetLastError(87LL, v9, v10);
       else
-        LOBYTE(v7) = *(_QWORD *)(v8 + 24) == v13;
+        LOBYTE(v6) = *(_QWORD *)(v7 + 24) == v13;
     }
   }
-  UserSessionSwitchLeaveCrit(v6);
-  return v7;
+  UserSessionSwitchLeaveCrit(v5);
+  return v6;
 }

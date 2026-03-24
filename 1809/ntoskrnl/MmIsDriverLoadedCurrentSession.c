@@ -1,5 +1,5 @@
 /*
- * XREFs of MmIsDriverLoadedCurrentSession @ 0x14071E1E0
+ * XREFs of MmIsDriverLoadedCurrentSession @ 0x14071E1C0
  * Callers:
  *     VfThunkApplyMandatoryThunks @ 0x140936A5C (VfThunkApplyMandatoryThunks.c)
  *     VfThunkApplyThunks @ 0x140936B30 (VfThunkApplyThunks.c)

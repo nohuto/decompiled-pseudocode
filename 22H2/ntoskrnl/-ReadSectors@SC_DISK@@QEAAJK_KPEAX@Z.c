@@ -1,22 +1,22 @@
 /*
- * XREFs of ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x140675BFC
+ * XREFs of ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1405C6F78
  * Callers:
- *     ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAVGPT_ENTRY@@@Z @ 0x1406743AC (-ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAVGPT_ENTRY@@@Z.c)
- *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x140674434 (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
- *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x140675C40 (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
- *     ?ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x1406761A8 (-ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1406765EC (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x1405C6FBC (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
+ *     ?ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C7518 (-ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C7950 (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z @ 0x1405C7CC4 (-ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z.c)
+ *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x1405C7D4C (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall SC_DISK::ReadSectors(SC_DISK *this, int a2, __int64 a3, void *a4)
 {
   if ( !a4 )
-    a4 = (void *)*((_QWORD *)this + 33);
+    a4 = (void *)*((_QWORD *)this + 32);
   return (*(__int64 (__fastcall **)(SC_DISK *, __int64, _QWORD, void *))(*(_QWORD *)this + 56LL))(
            this,
-           a3 << *((_DWORD *)this + 60),
-           (unsigned int)(a2 << *((_DWORD *)this + 60)),
+           a3 << *((_DWORD *)this + 58),
+           (unsigned int)(a2 << *((_DWORD *)this + 58)),
            a4);
 }

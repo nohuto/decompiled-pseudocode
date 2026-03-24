@@ -1,22 +1,22 @@
 /*
- * XREFs of MiOpenHotPatchFile @ 0x14085690C
+ * XREFs of MiOpenHotPatchFile @ 0x1408568EC
  * Callers:
- *     MiLoadHotPatch @ 0x1408559F8 (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x140855C58 (MiLoadHotPatchForUserSid.c)
- *     MiPerformImageHotPatch @ 0x140856CA0 (MiPerformImageHotPatch.c)
+ *     MiLoadHotPatch @ 0x1408559D8 (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140855C38 (MiLoadHotPatchForUserSid.c)
+ *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
  *     RtlImageNtHeaderEx @ 0x14009D860 (RtlImageNtHeaderEx.c)
- *     MiCreateSystemSection @ 0x1400F58FC (MiCreateSystemSection.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
+ *     MiCreateSystemSection @ 0x1400F591C (MiCreateSystemSection.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     MiUnmapImageInSystemSpace @ 0x1406508AC (MiUnmapImageInSystemSpace.c)
- *     MiMapImageInSystemSpace @ 0x140650E60 (MiMapImageInSystemSpace.c)
- *     RtlFindHotPatchBase @ 0x140899CB0 (RtlFindHotPatchBase.c)
- *     RtlFindHotPatchInformation @ 0x140899CDC (RtlFindHotPatchInformation.c)
+ *     MiUnmapImageInSystemSpace @ 0x14065088C (MiUnmapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x140650E40 (MiMapImageInSystemSpace.c)
+ *     RtlFindHotPatchBase @ 0x140899C90 (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x140899CBC (RtlFindHotPatchInformation.c)
  */
 
 __int64 __fastcall MiOpenHotPatchFile(

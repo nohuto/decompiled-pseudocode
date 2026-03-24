@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCSparseBitmapBitmaskRead @ 0x14022FB20
+ * XREFs of RtlCSparseBitmapBitmaskRead @ 0x1402A2380
  * Callers:
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
- *     RtlpHpFreeHeap @ 0x140364128 (RtlpHpFreeHeap.c)
- *     RtlpHpGetOwnerHeap @ 0x140366CB0 (RtlpHpGetOwnerHeap.c)
- *     RtlpHpMetadataCommit @ 0x14036F520 (RtlpHpMetadataCommit.c)
- *     RtlpHpExtrasSetPresent @ 0x1405F2F80 (RtlpHpExtrasSetPresent.c)
- *     RtlpHpSizeHeapInternal @ 0x1405F30C0 (RtlpHpSizeHeapInternal.c)
+ *     RtlpHpGetOwnerHeap @ 0x1402FACE4 (RtlpHpGetOwnerHeap.c)
+ *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     RtlpHpFreeHeap @ 0x140342100 (RtlpHpFreeHeap.c)
+ *     RtlpHpMetadataCommit @ 0x1403CB0F4 (RtlpHpMetadataCommit.c)
+ *     RtlpHpExtrasSetPresent @ 0x1405949DC (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpSizeHeapInternal @ 0x140594B2C (RtlpHpSizeHeapInternal.c)
  * Callees:
  *     <none>
  */

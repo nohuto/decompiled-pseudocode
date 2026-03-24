@@ -1,21 +1,21 @@
 /*
- * XREFs of PiUpdateDeviceResourceLists @ 0x14096F2BC
+ * XREFs of PiUpdateDeviceResourceLists @ 0x1408B518C
  * Callers:
- *     PiProcessQueryDeviceState @ 0x14079379C (PiProcessQueryDeviceState.c)
+ *     PiProcessQueryDeviceState @ 0x140745EDC (PiProcessQueryDeviceState.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PnpCopyResourceList @ 0x14096C978 (PnpCopyResourceList.c)
- *     IopQueryBusResourceUpdateInterface @ 0x14096CF88 (IopQueryBusResourceUpdateInterface.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PnpCopyResourceList @ 0x1408B25F0 (PnpCopyResourceList.c)
+ *     IopQueryBusResourceUpdateInterface @ 0x1408B2BD0 (IopQueryBusResourceUpdateInterface.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiUpdateDeviceResourceLists(_QWORD *a1)
 {
-  _QWORD *v2; // rcx
-  void *v3; // rsi
-  void *v4; // rdi
+  struct _DEVICE_OBJECT *v2; // rcx
+  PVOID v3; // rsi
+  PVOID v4; // rdi
   __int64 result; // rax
   void (__fastcall **v6)(_QWORD); // r14
   int v7; // ebx
@@ -27,11 +27,11 @@ __int64 __fastcall PiUpdateDeviceResourceLists(_QWORD *a1)
 
   Src = 0LL;
   v10 = 0LL;
-  v2 = (_QWORD *)a1[4];
+  v2 = (struct _DEVICE_OBJECT *)a1[4];
   v3 = 0LL;
   P = 0LL;
   v4 = 0LL;
-  result = IopQueryBusResourceUpdateInterface(v2, (USHORT **)&P);
+  result = IopQueryBusResourceUpdateInterface(v2, &P);
   if ( (int)result < 0 )
     return result;
   v6 = (void (__fastcall **)(_QWORD))P;
@@ -59,7 +59,7 @@ LABEL_13:
           ExFreePoolWithTag(v9, 0);
         a1[52] = v3;
         a1[53] = v4;
-        ExReleaseFastMutex(&PiResourceListLock);
+        KeReleaseGuardedMutex(&PiResourceListLock);
         goto LABEL_13;
       }
     }

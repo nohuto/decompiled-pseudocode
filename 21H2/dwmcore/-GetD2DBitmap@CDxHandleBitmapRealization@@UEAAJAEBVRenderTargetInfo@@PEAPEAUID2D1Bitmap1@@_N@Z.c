@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetD2DBitmap@CDxHandleBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x1802A40D8
+ * XREFs of ?GetD2DBitmap@CDxHandleBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x1802645B4
  * Callers:
- *     ?GetD2DBitmap@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x18010B7B0 (-GetD2DBitmap@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bit.c)
- *     ?GetD2DBitmap@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x18010B7D0 (-GetD2DBitmap@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bi.c)
+ *     ?GetD2DBitmap@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x1800F8AC0 (-GetD2DBitmap@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bit.c)
+ *     ?GetD2DBitmap@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x1800F8AD0 (-GetD2DBitmap@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bi.c)
  * Callees:
- *     ?GetCachedBitmap@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x180018F24 (-GetCachedBitmap@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetCachedBitmap@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x18001E6C0 (-GetCachedBitmap@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDxHandleBitmapRealization::GetD2DBitmap(
@@ -23,19 +23,19 @@ __int64 __fastcall CDxHandleBitmapRealization::GetD2DBitmap(
   __int64 v12; // rcx
 
   *a3 = 0LL;
-  v4 = (CDxHandleBitmapRealization *)((char *)this - 464);
-  v8 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)this - 58) + 64LL))((char *)this - 464);
+  v4 = (CDxHandleBitmapRealization *)((char *)this - 432);
+  v8 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)this - 54) + 56LL))((char *)this - 432);
   v10 = v8;
   if ( v8 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0xC0u);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xC0u, 0LL);
   }
   else
   {
     CachedBitmap = CD2DBitmapCache::GetCachedBitmap(v4, a2, a3, a4);
     v10 = CachedBitmap;
     if ( CachedBitmap < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, CachedBitmap, 0xC2u);
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, CachedBitmap, 0xC2u, 0LL);
   }
   return v10;
 }

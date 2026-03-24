@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpStartCLFSLog @ 0x14070E7AC
+ * XREFs of CmpStartCLFSLog @ 0x14070E78C
  * Callers:
- *     CmpStartRMLog @ 0x14070E334 (CmpStartRMLog.c)
+ *     CmpStartRMLog @ 0x14070E314 (CmpStartRMLog.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsRestoreImpersonation @ 0x140648D30 (PsRestoreImpersonation.c)
- *     PsDisableImpersonation @ 0x140648E90 (PsDisableImpersonation.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x140706594 (CmpAddRemoveContainerToCLFSLog.c)
+ *     PsRestoreImpersonation @ 0x140648D10 (PsRestoreImpersonation.c)
+ *     PsDisableImpersonation @ 0x140648E70 (PsDisableImpersonation.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x140706574 (CmpAddRemoveContainerToCLFSLog.c)
  */
 
 __int64 __fastcall CmpStartCLFSLog(

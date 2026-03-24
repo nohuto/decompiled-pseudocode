@@ -1,36 +1,40 @@
 /*
- * XREFs of HsaProcessDeviceExceptions @ 0x140532C98
+ * XREFs of HsaProcessDeviceExceptions @ 0x1404E3FAC
  * Callers:
- *     HsaInitializeIommu @ 0x140A64A00 (HsaInitializeIommu.c)
+ *     HsaInitializeIommu @ 0x1409AA5F0 (HsaInitializeIommu.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     HalpHsapInitializeReservedDomain @ 0x140530474 (HalpHsapInitializeReservedDomain.c)
- *     HsaUpdateDeviceTableEntry @ 0x1405330B8 (HsaUpdateDeviceTableEntry.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpHsapInitializeReservedDomain @ 0x1404E16F4 (HalpHsapInitializeReservedDomain.c)
+ *     HsaUpdateDeviceTableEntry @ 0x1404E43F8 (HsaUpdateDeviceTableEntry.c)
  */
 
 __int64 __fastcall HsaProcessDeviceExceptions(__int64 a1)
 {
-  int v2; // r9d
-  _DWORD *v3; // rcx
-  int v4; // esi
-  int v5; // ebx
+  _DWORD *v2; // rdx
+  int v3; // esi
+  int v4; // ebx
   __int64 i; // rbx
-  int v7; // edx
-  _DWORD v9[32]; // [rsp+50h] [rbp-88h] BYREF
+  unsigned int v6; // eax
+  int v7; // r9d
+  __int64 v9; // [rsp+50h] [rbp-68h] BYREF
+  int v10; // [rsp+58h] [rbp-60h]
+  _DWORD v11[20]; // [rsp+60h] [rbp-58h] BYREF
 
-  memset(v9, 0, 0x78uLL);
-  v3 = *(_DWORD **)(a1 + 216);
+  memset(v11, 0, sizeof(v11));
+  v2 = *(_DWORD **)(a1 + 216);
+  v3 = 0;
+  v9 = 0LL;
   v4 = 0;
-  v5 = 0;
-  if ( *v3 )
+  v10 = 0;
+  if ( *v2 )
   {
     while ( 1 )
     {
-      v4 = HalpHsapInitializeReservedDomain(a1, (__int64)&v3[4 * v5 + 2]);
-      if ( v4 < 0 )
+      v3 = HalpHsapInitializeReservedDomain(a1, (__int64)&v2[4 * v4 + 2]);
+      if ( v3 < 0 )
         break;
-      v3 = *(_DWORD **)(a1 + 216);
-      if ( (unsigned int)++v5 >= *v3 )
+      v2 = *(_DWORD **)(a1 + 216);
+      if ( (unsigned int)++v4 >= *v2 )
         goto LABEL_4;
     }
   }
@@ -41,13 +45,16 @@ LABEL_4:
     {
       if ( *(_DWORD *)(i + 16) == *(_DWORD *)(a1 + 160) )
       {
-        memset(&v9[1], 0, 116);
-        LOBYTE(v2) = 1;
-        v7 = *(_DWORD *)(i + 24);
-        v9[0] = 1;
-        HsaUpdateDeviceTableEntry(a1, v7, 0, v2, (__int64)v9, 1, 1);
+        memset(v11, 0, sizeof(v11));
+        v6 = *(_DWORD *)(i + 24);
+        LOBYTE(v7) = 1;
+        v11[1] = 0;
+        v10 = 0;
+        v9 = v6 | 0x100000000LL;
+        v11[0] = 1;
+        HsaUpdateDeviceTableEntry(a1, (unsigned int)&v9, 0, v7, (__int64)v11, 1, 1);
       }
     }
   }
-  return (unsigned int)v4;
+  return (unsigned int)v3;
 }

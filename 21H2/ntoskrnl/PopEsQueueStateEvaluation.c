@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEsQueueStateEvaluation @ 0x1407EEF7C
+ * XREFs of PopEsQueueStateEvaluation @ 0x14077FFBC
  * Callers:
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
- *     PopBatteryApplyCompositeState @ 0x1407EE90C (PopBatteryApplyCompositeState.c)
- *     PopEsPowerSettingPolicyCallback @ 0x140864350 (PopEsPowerSettingPolicyCallback.c)
- *     PopEsInStandbyEvaluate @ 0x14099A030 (PopEsInStandbyEvaluate.c)
+ *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FC1C (PopBatteryApplyCompositeState.c)
+ *     PopEsPowerSettingPolicyCallback @ 0x1407D4530 (PopEsPowerSettingPolicyCallback.c)
+ *     PopEsInStandbyEvaluate @ 0x1408F27A0 (PopEsInStandbyEvaluate.c)
  * Callees:
- *     PopEsWorkItemSchedule @ 0x1407EEF9C (PopEsWorkItemSchedule.c)
+ *     PopEsWorkItemSchedule @ 0x14077FFDC (PopEsWorkItemSchedule.c)
  */
 
 __int64 __fastcall PopEsQueueStateEvaluation(char a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCoverageCheckCP @ 0x1409E512C
+ * XREFs of EtwpCoverageCheckCP @ 0x140934F68
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x1406D435C (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x140771BB8 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
- *     TelemetryCoverageTableLocateInternal @ 0x14024F548 (TelemetryCoverageTableLocateInternal.c)
- *     EtwpCoverageValidateCP @ 0x14024F59C (EtwpCoverageValidateCP.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     TelemetryCoverageTableLocateInternal @ 0x1402C858C (TelemetryCoverageTableLocateInternal.c)
+ *     EtwpCoverageValidateCP @ 0x1402C85E0 (EtwpCoverageValidateCP.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
 __int64 __fastcall EtwpCoverageCheckCP(__int64 a1, __int64 a2)
@@ -48,7 +48,7 @@ __int64 __fastcall EtwpCoverageCheckCP(__int64 a1, __int64 a2)
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCoverageLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(&EtwpCoverageLock);
     KeAbPostRelease((ULONG_PTR)&EtwpCoverageLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return v4;
 }

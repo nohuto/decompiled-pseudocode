@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMapImageInSystemSpace @ 0x140650E60
+ * XREFs of MiMapImageInSystemSpace @ 0x140650E40
  * Callers:
- *     MiSetPagesModified @ 0x1402AA6EC (MiSetPagesModified.c)
- *     MiRelocateImage @ 0x14064FEE4 (MiRelocateImage.c)
- *     MiValidateSectionCreate @ 0x140652E30 (MiValidateSectionCreate.c)
- *     MiGetSystemAddressForImage @ 0x140682F60 (MiGetSystemAddressForImage.c)
- *     MiParseComImage @ 0x1406C06DC (MiParseComImage.c)
- *     MiOpenHotPatchFile @ 0x14085690C (MiOpenHotPatchFile.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x14085A39C (MiLoadSectionIntoVsmEnclave.c)
- *     MiCreateSessionDriverProtos @ 0x14085F13C (MiCreateSessionDriverProtos.c)
+ *     MiSetPagesModified @ 0x1402AA7EC (MiSetPagesModified.c)
+ *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
+ *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
+ *     MiGetSystemAddressForImage @ 0x140682F40 (MiGetSystemAddressForImage.c)
+ *     MiParseComImage @ 0x1406C06BC (MiParseComImage.c)
+ *     MiOpenHotPatchFile @ 0x1408568EC (MiOpenHotPatchFile.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x14085A37C (MiLoadSectionIntoVsmEnclave.c)
+ *     MiCreateSessionDriverProtos @ 0x14085F11C (MiCreateSessionDriverProtos.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -19,10 +19,10 @@
  *     MiReferenceActiveSubsection @ 0x140077950 (MiReferenceActiveSubsection.c)
  *     MiControlAreaRequiresCharge @ 0x140079E68 (MiControlAreaRequiresCharge.c)
  *     MiGetControlAreaPartition @ 0x1400938A8 (MiGetControlAreaPartition.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x1402A3134 (MiReturnCrossPartitionControlAreaCharges.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x1402A3234 (MiReturnCrossPartitionControlAreaCharges.c)
  *     MiMapViewInSystemSpace @ 0x1405DF3F4 (MiMapViewInSystemSpace.c)
- *     MiMapImageInSystemProcess @ 0x14084C394 (MiMapImageInSystemProcess.c)
+ *     MiMapImageInSystemProcess @ 0x14084C374 (MiMapImageInSystemProcess.c)
  */
 
 __int64 __fastcall MiMapImageInSystemSpace(__int64 *a1, int a2, __int64 a3)

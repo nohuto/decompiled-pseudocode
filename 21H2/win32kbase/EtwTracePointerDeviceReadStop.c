@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTracePointerDeviceReadStop @ 0x1C014E3A0
+ * XREFs of EtwTracePointerDeviceReadStop @ 0x1C0123780
  * Callers:
- *     ApiSetEtwTracePointerDeviceReadStop @ 0x1C020CB24 (ApiSetEtwTracePointerDeviceReadStop.c)
+ *     ApiSetEtwTracePointerDeviceReadStop @ 0x1C01CEB5C (ApiSetEtwTracePointerDeviceReadStop.c)
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C014F270 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124580 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTracePointerDeviceReadStop(__int64 a1)

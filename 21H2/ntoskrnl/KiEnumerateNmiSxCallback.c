@@ -1,10 +1,10 @@
 /*
- * XREFs of KiEnumerateNmiSxCallback @ 0x140389334
+ * XREFs of KiEnumerateNmiSxCallback @ 0x140380E44
  * Callers:
- *     KiEnumerateCallback @ 0x1403892D0 (KiEnumerateCallback.c)
- *     KeIsNmiCallbackRegisteredForDriver @ 0x14056A19C (KeIsNmiCallbackRegisteredForDriver.c)
+ *     KiEnumerateCallback @ 0x140380DE0 (KiEnumerateCallback.c)
+ *     KeIsNmiCallbackRegistered @ 0x140514240 (KeIsNmiCallbackRegistered.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiEnumerateNmiSxCallback(PVOID **a1, unsigned __int8 *a2, _QWORD *a3)

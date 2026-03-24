@@ -4,11 +4,11 @@
  *     PopUnicodeStringDeepCopy @ 0x140588974 (PopUnicodeStringDeepCopy.c)
  *     CmpLinkHiveToMaster @ 0x1405B8C48 (CmpLinkHiveToMaster.c)
  *     CmpGetSymbolicLinkTarget @ 0x1405D7CC0 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoWritethroughReparse @ 0x14063C100 (CmpDoWritethroughReparse.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1406CF688 (CmpLogTransactionAbortedWithChildName.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x1407F3BD0 (CmpVEExecuteVirtualStoreParseLogic.c)
- *     VrpHandleIoctlInitializeJobForVreg @ 0x140808CA0 (VrpHandleIoctlInitializeJobForVreg.c)
- *     AslpPathWildcardAllocMatchNode @ 0x1408EB810 (AslpPathWildcardAllocMatchNode.c)
+ *     CmpDoWritethroughReparse @ 0x14063C0E0 (CmpDoWritethroughReparse.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406CF668 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x1407F3BB0 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140808C80 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x1408EB7F0 (AslpPathWildcardAllocMatchNode.c)
  * Callees:
  *     RtlUnicodeStringValidateWorker @ 0x140017850 (RtlUnicodeStringValidateWorker.c)
  */

@@ -2,14 +2,14 @@
  * XREFs of SepAppendAceToTokenObjectAcl @ 0x1405C9190
  * Callers:
  *     SepFinalizeTokenAcls @ 0x140582ABC (SepFinalizeTokenAcls.c)
- *     SeCopyClientToken @ 0x140649E94 (SeCopyClientToken.c)
- *     NtCreateLowBoxToken @ 0x140654F90 (NtCreateLowBoxToken.c)
+ *     SeCopyClientToken @ 0x140649E74 (SeCopyClientToken.c)
+ *     NtCreateLowBoxToken @ 0x140654F70 (NtCreateLowBoxToken.c)
  * Callees:
  *     RtlFindAceBySid @ 0x1400160E0 (RtlFindAceBySid.c)
  *     RtlGetAce @ 0x140016260 (RtlGetAce.c)
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)

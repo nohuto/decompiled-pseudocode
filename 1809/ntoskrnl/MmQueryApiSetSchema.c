@@ -1,8 +1,8 @@
 /*
- * XREFs of MmQueryApiSetSchema @ 0x14013905C
+ * XREFs of MmQueryApiSetSchema @ 0x14013907C
  * Callers:
- *     KiMarkBugCheckRegions @ 0x1401A0110 (KiMarkBugCheckRegions.c)
- *     PsQueryCurrentApiSetSchema @ 0x1406CB458 (PsQueryCurrentApiSetSchema.c)
+ *     KiMarkBugCheckRegions @ 0x1401A0130 (KiMarkBugCheckRegions.c)
+ *     PsQueryCurrentApiSetSchema @ 0x1406CB438 (PsQueryCurrentApiSetSchema.c)
  *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
  * Callees:
  *     <none>

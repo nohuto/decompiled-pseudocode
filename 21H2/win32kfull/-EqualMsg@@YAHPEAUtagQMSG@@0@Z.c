@@ -1,7 +1,7 @@
 /*
- * XREFs of ?EqualMsg@@YAHPEAUtagQMSG@@0@Z @ 0x1C00AB660
+ * XREFs of ?EqualMsg@@YAHPEAUtagQMSG@@0@Z @ 0x1C006694C
  * Callers:
- *     ?xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z @ 0x1C00AB408 (-xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z.c)
+ *     ?xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z @ 0x1C00662E8 (-xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z.c)
  * Callees:
  *     <none>
  */

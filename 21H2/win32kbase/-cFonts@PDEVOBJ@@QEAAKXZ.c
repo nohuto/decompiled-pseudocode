@@ -1,27 +1,37 @@
 /*
- * XREFs of ?cFonts@PDEVOBJ@@QEAAKXZ @ 0x1C0078F90
+ * XREFs of ?cFonts@PDEVOBJ@@QEAAKXZ @ 0x1C0099D70
  * Callers:
- *     ?GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z @ 0x1C002E448 (-GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z.c)
- *     ?vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C0078DE0 (-vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z.c)
+ *     ?vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C0099BB0 (-vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z.c)
+ *     ?GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z @ 0x1C00CA2A8 (-GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall PDEVOBJ::cFonts(PDEVOBJ *this)
 {
-  __int64 v1; // rdx
-  __int64 (__fastcall *v4)(_QWORD, _QWORD, _QWORD, __int64 *); // rax
-  __int64 v5; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int32 v2; // ecx
+  __int64 result; // rax
+  __int64 v4; // rdx
+  __int64 (__fastcall *v5)(_QWORD, _QWORD, _QWORD, __int64 *); // rax
+  unsigned __int32 v6; // eax
+  __int64 v7; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)this;
-  v5 = 0LL;
-  if ( *(_DWORD *)(v1 + 2072) == -1 )
+  v2 = 0;
+  v7 = 0LL;
+  result = *(unsigned int *)(*(_QWORD *)this + 2104LL);
+  if ( (_DWORD)result == -1 )
   {
-    v4 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64 *))(v1 + 2872);
-    if ( v4 )
-      *(_DWORD *)(*(_QWORD *)this + 2072LL) = v4(*(_QWORD *)(v1 + 1768), 0LL, 0LL, &v5);
-    else
-      *(_DWORD *)(v1 + 2072) = 0;
+    v4 = *(_QWORD *)this;
+    v5 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64 *))(*(_QWORD *)this + 2896LL);
+    if ( v5 )
+    {
+      v6 = v5(*(_QWORD *)(v4 + 1800), 0LL, 0LL, &v7);
+      v4 = *(_QWORD *)this;
+      v2 = v6;
+    }
+    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(v4 + 2104), v2, -1);
+    if ( (_DWORD)result == -1 )
+      return v2;
   }
-  return *(unsigned int *)(*(_QWORD *)this + 2072LL);
+  return result;
 }

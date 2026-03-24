@@ -1,7 +1,7 @@
 /*
- * XREFs of memcmp @ 0x1C001A690
+ * XREFs of memcmp @ 0x1C00189C0
  * Callers:
- *     CompareEventEntry @ 0x1C004BBC8 (CompareEventEntry.c)
+ *     CompareEventEntry @ 0x1C003DB98 (CompareEventEntry.c)
  * Callees:
  *     <none>
  */

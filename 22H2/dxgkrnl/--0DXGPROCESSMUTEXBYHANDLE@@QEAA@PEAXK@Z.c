@@ -1,16 +1,16 @@
 /*
- * XREFs of ??0DXGPROCESSMUTEXBYHANDLE@@QEAA@PEAXK@Z @ 0x1C01DF1B4
+ * XREFs of ??0DXGPROCESSMUTEXBYHANDLE@@QEAA@PEAXK@Z @ 0x1C00ED4E0
  * Callers:
- *     DxgkQueryProcessOfferInfo @ 0x1C01DF080 (DxgkQueryProcessOfferInfo.c)
- *     DxgkQueryStatisticsInternal @ 0x1C02D4710 (DxgkQueryStatisticsInternal.c)
- *     DxgkQueryVidPnExclusiveOwnership @ 0x1C02D52A0 (DxgkQueryVidPnExclusiveOwnership.c)
- *     DxgkChangeVideoMemoryReservationInternal @ 0x1C02D924C (DxgkChangeVideoMemoryReservationInternal.c)
- *     DxgkQueryVideoMemoryInfo @ 0x1C02DB0A0 (DxgkQueryVideoMemoryInfo.c)
- *     DxgkGetProcessDeviceRemovalSupport @ 0x1C0346610 (DxgkGetProcessDeviceRemovalSupport.c)
- *     DxgkGetProcessSchedulingPriorityBand @ 0x1C0346860 (DxgkGetProcessSchedulingPriorityBand.c)
- *     DxgkGetProcessSchedulingPriorityClass @ 0x1C0346C20 (DxgkGetProcessSchedulingPriorityClass.c)
- *     DxgkSetProcessSchedulingPriorityBand @ 0x1C03471C0 (DxgkSetProcessSchedulingPriorityBand.c)
- *     DxgkTrimProcessCommitment @ 0x1C0347D40 (DxgkTrimProcessCommitment.c)
+ *     DxgkQueryVideoMemoryInfo @ 0x1C00DF030 (DxgkQueryVideoMemoryInfo.c)
+ *     DxgkQueryProcessOfferInfo @ 0x1C00ED2F0 (DxgkQueryProcessOfferInfo.c)
+ *     DxgkQueryVidPnExclusiveOwnership @ 0x1C0170930 (DxgkQueryVidPnExclusiveOwnership.c)
+ *     DxgkQueryStatisticsInternal @ 0x1C0226088 (DxgkQueryStatisticsInternal.c)
+ *     DxgkChangeVideoMemoryReservationInternal @ 0x1C02299AC (DxgkChangeVideoMemoryReservationInternal.c)
+ *     DxgkGetProcessDeviceRemovalSupport @ 0x1C0286B90 (DxgkGetProcessDeviceRemovalSupport.c)
+ *     DxgkGetProcessSchedulingPriorityBand @ 0x1C0286E10 (DxgkGetProcessSchedulingPriorityBand.c)
+ *     DxgkGetProcessSchedulingPriorityClass @ 0x1C0287220 (DxgkGetProcessSchedulingPriorityClass.c)
+ *     DxgkSetProcessSchedulingPriorityBand @ 0x1C02877B0 (DxgkSetProcessSchedulingPriorityBand.c)
+ *     DxgkTrimProcessCommitment @ 0x1C0288380 (DxgkTrimProcessCommitment.c)
  * Callees:
  *     <none>
  */

@@ -1,58 +1,47 @@
 /*
- * XREFs of IopIrpHasValidCombinationOfExtensionTypes @ 0x140459D9C
+ * XREFs of IopIrpHasValidCombinationOfExtensionTypes @ 0x140507D60
  * Callers:
- *     IopSetCopyInformationExtension @ 0x140417D50 (IopSetCopyInformationExtension.c)
- *     IoSetAdapterCryptoEngineExtension @ 0x140559350 (IoSetAdapterCryptoEngineExtension.c)
- *     IoSetFsTrackOffsetState @ 0x1405593B0 (IoSetFsTrackOffsetState.c)
- *     IoSetFsZeroingOffsetRequired @ 0x140559460 (IoSetFsZeroingOffsetRequired.c)
- *     IopPerfCallDriver @ 0x14055969C (IopPerfCallDriver.c)
+ *     IopSetCopyInformationExtension @ 0x1403F15CC (IopSetCopyInformationExtension.c)
+ *     IoSetAdapterCryptoEngineExtension @ 0x140507BF0 (IoSetAdapterCryptoEngineExtension.c)
+ *     IoSetFsTrackOffsetState @ 0x140507C50 (IoSetFsTrackOffsetState.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x140507CF0 (IoSetFsZeroingOffsetRequired.c)
+ *     IopPerfCallDriver @ 0x140507FC0 (IopPerfCallDriver.c)
  * Callees:
- *     FeatureServicing_40851744_EnableKey @ 0x14065863C (FeatureServicing_40851744_EnableKey.c)
+ *     <none>
  */
 
-bool __fastcall IopIrpHasValidCombinationOfExtensionTypes(__int64 a1, __int64 a2, __int64 a3)
+char __fastcall IopIrpHasValidCombinationOfExtensionTypes(__int64 a1, int a2)
 {
-  int v3; // edi
-  __int64 v4; // rbx
-  int v5; // eax
-  int v6; // edx
-  int v7; // ecx
-  __int16 v8; // cx
-  __int16 v10; // ax
+  __int64 v3; // r8
+  int v4; // edx
+  __int16 v5; // cx
+  __int16 v7; // ax
 
-  v3 = a2;
   if ( *(char *)(a1 + 71) < 0 )
     return 1;
-  v4 = *(_QWORD *)(a1 + 200);
-  if ( !v4 )
+  v3 = *(_QWORD *)(a1 + 200);
+  if ( !v3 )
     return 1;
-  v5 = EnableFeatureServicing_40851744;
-  if ( (unsigned int)EnableFeatureServicing_40851744 >= 2 )
-    v5 = (unsigned __int8)FeatureServicing_40851744_EnableKey(a1, a2, a3);
-  v6 = 1 << v3;
-  v7 = (1 << v3) & 0xB2;
-  if ( v5 )
+  v4 = 1 << a2;
+  if ( (v4 & 0xB2) != 0 )
   {
-    if ( !v7 )
+    v5 = *(_WORD *)(v3 + 2);
+    if ( (v5 & 0xB2) == 0 || (v5 & 0xB2) == v4 )
+      return 1;
+    if ( a2 != 1 && (v5 & 2) != 0 )
     {
-      if ( (v6 & 0x200) == 0 )
-        return 1;
-      v10 = *(_WORD *)(v4 + 2);
-      return (v10 & 0x200) == 0 || (v10 & 0x200) == v6;
+      *(_QWORD *)(v3 + 40) = 0LL;
+      *(_WORD *)(v3 + 2) = v5 & 0xFFFE;
+      return 1;
     }
   }
-  else if ( !v7 )
+  else
   {
-    return 1;
-  }
-  v8 = *(_WORD *)(v4 + 2);
-  if ( (v8 & 0xB2) == 0 || (v8 & 0xB2) == v6 )
-    return 1;
-  if ( v3 != 1 && (v8 & 2) != 0 )
-  {
-    *(_QWORD *)(v4 + 40) = 0LL;
-    *(_WORD *)(v4 + 2) = v8 & 0xFFFE;
-    return 1;
+    if ( (v4 & 0x200) == 0 )
+      return 1;
+    v7 = *(_WORD *)(v3 + 2);
+    if ( (v7 & 0x200) == 0 || (v7 & 0x200) == v4 )
+      return 1;
   }
   return 0;
 }

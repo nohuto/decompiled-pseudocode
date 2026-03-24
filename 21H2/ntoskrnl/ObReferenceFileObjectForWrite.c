@@ -1,25 +1,25 @@
 /*
- * XREFs of ObReferenceFileObjectForWrite @ 0x14071E230
+ * XREFs of ObReferenceFileObjectForWrite @ 0x140650510
  * Callers:
- *     NtCopyFileChunk @ 0x1406588A0 (NtCopyFileChunk.c)
- *     NtWriteFile @ 0x14071D850 (NtWriteFile.c)
+ *     NtCopyFileChunk @ 0x1405CDD80 (NtCopyFileChunk.c)
+ *     NtWriteFile @ 0x140650420 (NtWriteFile.c)
  * Callees:
- *     ExHandleLogBadReference @ 0x14025032C (ExHandleLogBadReference.c)
- *     ExFastReplenishHandleTableEntry @ 0x140251008 (ExFastReplenishHandleTableEntry.c)
- *     HalPutDmaAdapter @ 0x140251C40 (HalPutDmaAdapter.c)
- *     ExSlowReplenishHandleTableEntry @ 0x1402AC270 (ExSlowReplenishHandleTableEntry.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ObpIncrPointerCountEx @ 0x1402F3424 (ObpIncrPointerCountEx.c)
- *     ExLockHandleTableEntry @ 0x1402F344C (ExLockHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x14041AC40 (ExfUnblockPushLock.c)
- *     ObpPushStackInfo @ 0x1405C5EC8 (ObpPushStackInfo.c)
- *     ExpLookupHandleTableEntry @ 0x140733340 (ExpLookupHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1407ED9FC (ExpBlockOnLockedHandleEntry.c)
- *     ObpAuditObjectAccess @ 0x1409851A4 (ObpAuditObjectAccess.c)
+ *     ExHandleLogBadReference @ 0x1402011C8 (ExHandleLogBadReference.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
+ *     ObpIncrPointerCountEx @ 0x1402BC014 (ObpIncrPointerCountEx.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExFastReplenishHandleTableEntry @ 0x1402C9410 (ExFastReplenishHandleTableEntry.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x140348800 (ExSlowReplenishHandleTableEntry.c)
+ *     ExLockHandleTableEntry @ 0x140348860 (ExLockHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
+ *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140685788 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x1406F11F0 (ExpLookupHandleTableEntry.c)
+ *     ObpAuditObjectAccess @ 0x1408DCAC4 (ObpAuditObjectAccess.c)
  */
 
 __int64 __fastcall ObReferenceFileObjectForWrite(
-        ULONG_PTR BugCheckParameter1,
+        __int64 BugCheckParameter1,
         char a2,
         struct _DMA_ADAPTER **a3,
         _DWORD *a4)
@@ -28,7 +28,7 @@ __int64 __fastcall ObReferenceFileObjectForWrite(
   unsigned __int64 v5; // rdi
   ULONG_PTR v7; // r12
   _KPROCESS *Process; // rax
-  __int64 v9; // rbx
+  ULONG_PTR v9; // rbx
   __int64 *v10; // rax
   __int64 *v11; // r14
   __int64 v12; // rax
@@ -46,18 +46,18 @@ __int64 __fastcall ObReferenceFileObjectForWrite(
   unsigned __int64 v24; // rcx
   int v26; // eax
   unsigned int v27; // edi
-  int v28; // ecx
+  int v28; // eax
   signed __int32 v29[8]; // [rsp+0h] [rbp-78h] BYREF
   __int128 v30; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v31; // [rsp+80h] [rbp+8h]
+  ULONG_PTR v31; // [rsp+80h] [rbp+8h]
 
   CurrentThread = KeGetCurrentThread();
   v5 = 0LL;
   v7 = BugCheckParameter1;
   v30 = 0LL;
-  if ( (BugCheckParameter1 & 0x80000000) != 0LL )
+  if ( (int)BugCheckParameter1 < 0 )
   {
-    if ( !a2 && BugCheckParameter1 <= 0xFFFFFFFFFFFFFFFDuLL )
+    if ( !a2 && BugCheckParameter1 != -1 && BugCheckParameter1 != -2 )
     {
       v9 = ObpKernelHandleTable;
       v7 = BugCheckParameter1 ^ 0xFFFFFFFF80000000uLL;
@@ -68,7 +68,7 @@ __int64 __fastcall ObReferenceFileObjectForWrite(
   else
   {
     Process = CurrentThread->ApcState.Process;
-    v9 = Process[1].Affinity.StaticBitmap[28];
+    v9 = Process[1].AffinityPadding[8];
     v31 = v9;
     if ( (Process[1].DirectoryTableBase & 0x400000000000000LL) != 0 )
     {
@@ -86,6 +86,7 @@ LABEL_3:
         {
           if ( (v14 & 1) != 0 )
           {
+            BugCheckParameter1 = v13;
             *(_QWORD *)&v16 = v14;
             *((_QWORD *)&v16 + 1) = v13;
             v17 = _InterlockedCompareExchange128(v11, v13, v14 - 2, (signed __int64 *)&v16);
@@ -100,13 +101,17 @@ LABEL_3:
                 v5 = (v15 >> 16) & 0xFFFFFFFFFFFFFFF0uLL;
                 goto LABEL_10;
               }
-              *(_QWORD *)&v30 = ((unsigned int)v14 ^ (2 * (unsigned int)((unsigned __int64)v15 >> 1) - 2)) & 0x1FFFE ^ (unsigned __int64)v14;
+              *(_QWORD *)&v30 = v15 ^ ((unsigned int)v15 ^ (2 * (unsigned int)((unsigned __int64)v15 >> 1) - 2)) & 0x1FFFE;
               v5 = ((__int64)v30 >> 16) & 0xFFFFFFFFFFFFFFF0uLL;
               ObpIncrPointerCountEx((volatile signed __int64 *)v5, 32752);
-              v28 = ExFastReplenishHandleTableEntry(v11, (signed __int64 *)&v30, 32752);
+              v28 = ExFastReplenishHandleTableEntry(v11, (unsigned __int64 *)&v30, 32752);
+              BugCheckParameter1 = v28;
               if ( v28 )
-                _InterlockedExchangeAdd64((volatile signed __int64 *)v5, -v28);
-LABEL_29:
+              {
+                BugCheckParameter1 = (unsigned int)-v28;
+                _InterlockedExchangeAdd64((volatile signed __int64 *)v5, (int)BugCheckParameter1);
+              }
+LABEL_30:
               LODWORD(v13) = DWORD2(v30);
               v14 = v30;
               goto LABEL_10;
@@ -115,7 +120,7 @@ LABEL_29:
           }
           else
           {
-            ExpBlockOnLockedHandleEntry(v9, v11, v14);
+            ExpBlockOnLockedHandleEntry(v9, v11);
             _m_prefetchw(v11);
             v13 = v11[1];
             *(_QWORD *)&v30 = *v11;
@@ -130,15 +135,16 @@ LABEL_29:
           v26 = ExSlowReplenishHandleTableEntry((unsigned __int64 *)v11);
           ObpIncrPointerCountEx((volatile signed __int64 *)v5, v26 + 1);
           _InterlockedExchangeAdd64(v11, 1uLL);
+          BugCheckParameter1 = v9 + 48;
           _InterlockedOr(v29, 0);
           if ( *(_QWORD *)(v9 + 48) )
           {
-            ExfUnblockPushLock((volatile __int64 *)(v9 + 48), 0LL);
+            ExfUnblockPushLock((volatile __int64 *)BugCheckParameter1, 0LL);
             LODWORD(v13) = DWORD2(v30);
             v14 = v30;
             goto LABEL_10;
           }
-          goto LABEL_29;
+          goto LABEL_30;
         }
       }
       else
@@ -156,15 +162,15 @@ LABEL_29:
 LABEL_10:
       v18 = CurrentThread->KernelApcDisable++ == -1;
       if ( v18
-        && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152
+        && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152
         && !CurrentThread->SpecialApcDisable )
       {
-        KiCheckForKernelApcDelivery();
+        KiCheckForKernelApcDelivery(BugCheckParameter1);
       }
       if ( !v11 )
       {
         v27 = -1073741816;
-LABEL_35:
+LABEL_36:
         *a3 = 0LL;
         return v27;
       }
@@ -198,7 +204,7 @@ LABEL_22:
               return 0LL;
             }
             v27 = -1073741816;
-            goto LABEL_52;
+            goto LABEL_53;
           }
           v27 = -1073700858;
         }
@@ -211,9 +217,9 @@ LABEL_22:
       {
         v27 = -1073741788;
       }
-LABEL_52:
+LABEL_53:
       HalPutDmaAdapter(v19);
-      goto LABEL_35;
+      goto LABEL_36;
     }
   }
   return 3221225480LL;

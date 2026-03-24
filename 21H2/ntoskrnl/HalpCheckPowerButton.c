@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpCheckPowerButton @ 0x140417010
+ * XREFs of HalpCheckPowerButton @ 0x1403EFEB0
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiPmRegisterRead @ 0x1403B41A0 (HalpAcpiPmRegisterRead.c)
- *     HalpShutdown @ 0x14050AABC (HalpShutdown.c)
- *     InbvCheckDisplayOwnership @ 0x140550BA0 (InbvCheckDisplayOwnership.c)
+ *     HalpAcpiPmRegisterRead @ 0x140399640 (HalpAcpiPmRegisterRead.c)
+ *     HalpShutdown @ 0x1404BE490 (HalpShutdown.c)
+ *     InbvCheckDisplayOwnership @ 0x1404FEF30 (InbvCheckDisplayOwnership.c)
  */
 
 void HalpCheckPowerButton()
@@ -13,15 +13,19 @@ void HalpCheckPowerButton()
   __int16 v0; // bx
   __int16 v1; // [rsp+40h] [rbp+8h] BYREF
 
+  v0 = 0;
   v1 = 0;
-  if ( ((_DWORD)KiBugCheckData || (unsigned __int8)InbvCheckDisplayOwnership()) && HalpShutdownContext && PmRegisters[0] )
+  if ( ((_DWORD)KiBugCheckData || (unsigned __int8)InbvCheckDisplayOwnership()) && HalpShutdownContext )
   {
-    HalpAcpiPmRegisterRead(0, 0, (__int64)&v1, 2u, 0LL);
-    v0 = v1;
-    if ( byte_140C4A530 )
+    if ( PmRegisters[0] )
     {
-      HalpAcpiPmRegisterRead(3, 0, (__int64)&v1, 2u, 0LL);
-      v0 |= v1;
+      HalpAcpiPmRegisterRead(0, 0, (__int64)&v1, 2u, 0LL);
+      v0 = v1;
+      if ( byte_140C490F0 )
+      {
+        HalpAcpiPmRegisterRead(3, 0, (__int64)&v1, 2u, 0LL);
+        v0 |= v1;
+      }
     }
     if ( (v0 & 0x8100) == 0x100 )
       HalpShutdown();

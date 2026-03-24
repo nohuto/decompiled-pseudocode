@@ -1,18 +1,19 @@
 /*
- * XREFs of ?EndQFrameNodeDeferment@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@PEAUCPointerInfoNode@@PEAUCPointerInputFrame@@_K@Z @ 0x1C01C2494
+ * XREFs of ?EndQFrameNodeDeferment@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@PEAUCPointerInfoNode@@PEAUCPointerInputFrame@@_K@Z @ 0x1C018E0A4
  * Callers:
- *     ?AdjustEdgyFrameInputDest@CTouchProcessor@@QEAAXPEAXUtagINPUTDEST@@@Z @ 0x1C01BA4B0 (-AdjustEdgyFrameInputDest@CTouchProcessor@@QEAAXPEAXUtagINPUTDEST@@@Z.c)
+ *     ?AdjustEdgyFrameInputDest@CTouchProcessor@@QEAAXPEAXUtagINPUTDEST@@@Z @ 0x1C0187FC0 (-AdjustEdgyFrameInputDest@CTouchProcessor@@QEAAXPEAXUtagINPUTDEST@@@Z.c)
  * Callees:
- *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0056A68 (-SetEmpty@CInputDest@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?InitializeQFrameCoalesceState@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@H@Z @ 0x1C00E4796 (-InitializeQFrameCoalesceState@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@H@Z.c)
- *     ??0CInputDest@@QEAA@QEAUtagWND@@@Z @ 0x1C01B526C (--0CInputDest@@QEAA@QEAUtagWND@@@Z.c)
- *     ?ProcessQFrameNode@CTouchProcessor@@QEAAXPEAUCPointerQFrame@@PEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z @ 0x1C01D1448 (-ProcessQFrameNode@CTouchProcessor@@QEAAXPEAUCPointerQFrame@@PEBUCPointerInputFrame@@PEAUCPointe.c)
- *     ?ReferencePreviousFrameByDeviceInt@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@PEBU2@@Z @ 0x1C01D2874 (-ReferencePreviousFrameByDeviceInt@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@PEBU2@@Z.c)
- *     ?TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z @ 0x1C01D7F3C (-TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z.c)
- *     ?UnreferenceFrameInt@CTouchProcessor@@AEAAKPEAUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C01D86C8 (-UnreferenceFrameInt@CTouchProcessor@@AEAAKPEAUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
- *     ApiSetEditionGetInputDelegate @ 0x1C02061F0 (ApiSetEditionGetInputDelegate.c)
+ *     _HMObjectFromHandle @ 0x1C0031AF0 (_HMObjectFromHandle.c)
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0043D04 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?UnreferenceFrameInt@CTouchProcessor@@AEAAKPEAUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00CD33C (-UnreferenceFrameInt@CTouchProcessor@@AEAAKPEAUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??0CInputDest@@QEAA@QEAUtagWND@@@Z @ 0x1C0182B4C (--0CInputDest@@QEAA@QEAUtagWND@@@Z.c)
+ *     ?InitializeQFrameCoalesceState@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@H@Z @ 0x1C01965D0 (-InitializeQFrameCoalesceState@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@H@Z.c)
+ *     ?ProcessQFrameNode@CTouchProcessor@@QEAAXPEAUCPointerQFrame@@PEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z @ 0x1C019A394 (-ProcessQFrameNode@CTouchProcessor@@QEAAXPEAUCPointerQFrame@@PEBUCPointerInputFrame@@PEAUCPointe.c)
+ *     ?ReferencePreviousFrameByDeviceInt@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@PEBU2@@Z @ 0x1C019B0B0 (-ReferencePreviousFrameByDeviceInt@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@PEBU2@@Z.c)
+ *     ?TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z @ 0x1C019F35C (-TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z.c)
+ *     ApiSetEditionGetInputDelegate @ 0x1C01CB95C (ApiSetEditionGetInputDelegate.c)
  */
 
 void __fastcall CTouchProcessor::EndQFrameNodeDeferment(
@@ -24,38 +25,38 @@ void __fastcall CTouchProcessor::EndQFrameNodeDeferment(
 {
   CTouchProcessor *v9; // rcx
   const struct CPointerInputFrame *v10; // rbx
-  _OWORD v11[7]; // [rsp+30h] [rbp-D0h] BYREF
-  _OWORD v12[5]; // [rsp+A0h] [rbp-60h] BYREF
-  __int128 v13; // [rsp+F0h] [rbp-10h]
-  __int128 v14; // [rsp+100h] [rbp+0h]
+  struct tagWND *v11; // rax
+  _OWORD v12[7]; // [rsp+30h] [rbp-D0h] BYREF
+  _OWORD v13[5]; // [rsp+A0h] [rbp-60h] BYREF
+  __int128 v14; // [rsp+F0h] [rbp-10h]
+  __int128 v15; // [rsp+100h] [rbp+0h]
 
-  if ( this[5] != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15564);
+  if ( this[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14895);
   v10 = CTouchProcessor::ReferencePreviousFrameByDeviceInt((CTouchProcessor *)this, a4);
   if ( *((_QWORD *)a2 + 1) != -1LL )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15568);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14899);
   *((_DWORD *)a3 + 1) &= ~0x100u;
-  *((_DWORD *)a4 + 57) &= ~2u;
+  *((_DWORD *)a4 + 31) &= ~2u;
   *((_QWORD *)a2 + 1) = a5;
   CTouchProcessor::InitializeQFrameCoalesceState(v9, a2, v10 != 0LL);
-  CInputDest::CInputDest(
-    (CInputDest *)v12,
-    *((struct tagWND *const *)gpKernelHandleTable + 3 * (unsigned __int16)*((_DWORD *)a3 + 48)));
-  if ( HIDWORD(v13) )
+  v11 = (struct tagWND *)HMObjectFromHandle(*((_QWORD *)a3 + 24));
+  CInputDest::CInputDest((CInputDest *)v13, v11);
+  if ( HIDWORD(v14) )
   {
-    v11[0] = v12[0];
-    v11[2] = v12[2];
-    v11[1] = v12[1];
-    v11[4] = v12[4];
-    v11[3] = v12[3];
-    v11[6] = v14;
-    v11[5] = v13;
-    if ( ApiSetEditionGetInputDelegate(v11) )
+    v12[0] = v13[0];
+    v12[2] = v13[2];
+    v12[1] = v13[1];
+    v12[4] = v13[4];
+    v12[3] = v13[3];
+    v12[6] = v15;
+    v12[5] = v14;
+    if ( ApiSetEditionGetInputDelegate(v12) )
       *(_DWORD *)a3 |= 0x100000u;
   }
   CTouchProcessor::ProcessQFrameNode((CTouchProcessor *)this, a2, v10, a3);
   CTouchProcessor::TryCoalesceQFrame((CTouchProcessor *)this, a4, v10, a2);
   if ( v10 )
-    CTouchProcessor::UnreferenceFrameInt(this, v10);
-  CInputDest::SetEmpty((CInputDest *)v12);
+    CTouchProcessor::UnreferenceFrameInt((CTouchProcessor *)this, (__int64)v10);
+  CInputDest::SetEmpty((CInputDest *)v13);
 }

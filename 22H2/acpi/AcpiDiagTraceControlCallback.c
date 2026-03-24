@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiDiagTraceControlCallback @ 0x1C0007C80
+ * XREFs of AcpiDiagTraceControlCallback @ 0x1C0049960
  * Callers:
  *     <none>
  * Callees:
- *     AcpiDiagTraceDeviceCoolingRundown @ 0x1C0007ECC (AcpiDiagTraceDeviceCoolingRundown.c)
- *     AcpiDiagTraceFanRundown @ 0x1C000842C (AcpiDiagTraceFanRundown.c)
- *     AcpiDiagTraceThermalZoneRundown @ 0x1C0008DBC (AcpiDiagTraceThermalZoneRundown.c)
+ *     AcpiDiagTraceDeviceCoolingRundown @ 0x1C0049A60 (AcpiDiagTraceDeviceCoolingRundown.c)
+ *     AcpiDiagTraceFanRundown @ 0x1C0049EAC (AcpiDiagTraceFanRundown.c)
+ *     AcpiDiagTraceThermalZoneRundown @ 0x1C004A12C (AcpiDiagTraceThermalZoneRundown.c)
  */
 
 void __fastcall AcpiDiagTraceControlCallback(

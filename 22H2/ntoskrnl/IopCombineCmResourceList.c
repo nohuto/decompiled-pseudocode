@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCombineCmResourceList @ 0x140812B38
+ * XREFs of IopCombineCmResourceList @ 0x1407B61AC
  * Callers:
- *     IopAllocateLegacyBootResources @ 0x140B3D848 (IopAllocateLegacyBootResources.c)
+ *     IopAllocateLegacyBootResources @ 0x140A674D8 (IopAllocateLegacyBootResources.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     PnpDetermineResourceListSize @ 0x1407906DC (PnpDetermineResourceListSize.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PnpDetermineResourceListSize @ 0x14075020C (PnpDetermineResourceListSize.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _DWORD *__fastcall IopCombineCmResourceList(_DWORD *Src, _DWORD *a2)
@@ -14,7 +14,7 @@ _DWORD *__fastcall IopCombineCmResourceList(_DWORD *Src, _DWORD *a2)
   __int64 v6; // rbx
   int v7; // eax
   unsigned int v8; // r14d
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
 
   if ( !Src )
     return a2;
@@ -26,11 +26,11 @@ _DWORD *__fastcall IopCombineCmResourceList(_DWORD *Src, _DWORD *a2)
   if ( (_DWORD)v6 && v7 )
   {
     v8 = v7 - 4;
-    Pool2 = (_DWORD *)ExAllocatePool2(256LL, (unsigned int)(v7 - 4 + v6), 538996816LL);
-    v5 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(v7 - 4 + v6), 0x20207050u);
+    v5 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memmove(Pool2, Src, (unsigned int)v6);
+      memmove(PoolWithTag, Src, (unsigned int)v6);
       memmove((char *)v5 + v6, a2 + 1, v8);
       *v5 += *a2;
     }

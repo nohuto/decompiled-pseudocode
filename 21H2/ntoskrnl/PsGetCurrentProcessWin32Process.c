@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetCurrentProcessWin32Process @ 0x1402232F0
+ * XREFs of PsGetCurrentProcessWin32Process @ 0x140293A30
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 unsigned __int64 PsGetCurrentProcessWin32Process()
 {
-  return KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[15];
+  return KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[15];
 }

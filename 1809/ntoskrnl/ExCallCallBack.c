@@ -4,15 +4,15 @@
  *     NtFindAtom @ 0x1405F4A40 (NtFindAtom.c)
  *     PsInvokeWin32Callout @ 0x1405F4E90 (PsInvokeWin32Callout.c)
  *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
- *     KeUserModeCallback @ 0x140646480 (KeUserModeCallback.c)
- *     PsConvertToGuiThread @ 0x1406AAFC0 (PsConvertToGuiThread.c)
- *     NtAddAtomEx @ 0x1406AC980 (NtAddAtomEx.c)
- *     NtDeleteAtom @ 0x1406AD220 (NtDeleteAtom.c)
- *     NtQueryInformationAtom @ 0x1406ADF70 (NtQueryInformationAtom.c)
+ *     KeUserModeCallback @ 0x140646460 (KeUserModeCallback.c)
+ *     PsConvertToGuiThread @ 0x1406AAFA0 (PsConvertToGuiThread.c)
+ *     NtAddAtomEx @ 0x1406AC960 (NtAddAtomEx.c)
+ *     NtDeleteAtom @ 0x1406AD200 (NtDeleteAtom.c)
+ *     NtQueryInformationAtom @ 0x1406ADF50 (NtQueryInformationAtom.c)
  * Callees:
  *     ExDereferenceCallBackBlock @ 0x140088AA0 (ExDereferenceCallBackBlock.c)
  *     ExReferenceCallBackBlock @ 0x140088AF0 (ExReferenceCallBackBlock.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExCallCallBack(signed __int64 *a1, __int64 a2, __int64 a3)

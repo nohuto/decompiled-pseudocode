@@ -1,11 +1,11 @@
 /*
- * XREFs of IrtClearDeletedMsiMappings @ 0x1C00A03FC
+ * XREFs of IrtClearDeletedMsiMappings @ 0x1C0095F7C
  * Callers:
- *     IrqArbCommitAllocation @ 0x1C009D050 (IrqArbCommitAllocation.c)
+ *     IrqArbCommitAllocation @ 0x1C0093900 (IrqArbCommitAllocation.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     PcisuppGetBusSlotNumber @ 0x1C0099958 (PcisuppGetBusSlotNumber.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     PcisuppGetBusSlotNumber @ 0x1C0095E18 (PcisuppGetBusSlotNumber.c)
  */
 
 NTSTATUS __fastcall IrtClearDeletedMsiMappings(__int64 a1)

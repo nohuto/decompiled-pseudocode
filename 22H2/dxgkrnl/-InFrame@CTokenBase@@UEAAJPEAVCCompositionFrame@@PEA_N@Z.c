@@ -1,5 +1,5 @@
 /*
- * XREFs of ?InFrame@CTokenBase@@UEAAJPEAVCCompositionFrame@@PEA_N@Z @ 0x1C001A040
+ * XREFs of ?InFrame@CTokenBase@@UEAAJPEAVCCompositionFrame@@PEA_N@Z @ 0x1C001B8A0
  * Callers:
  *     <none>
  * Callees:

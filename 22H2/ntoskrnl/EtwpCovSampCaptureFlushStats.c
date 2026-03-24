@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCovSampCaptureFlushStats @ 0x1408A8B6C
+ * XREFs of EtwpCovSampCaptureFlushStats @ 0x140942898
  * Callers:
- *     EtwpCoverageSamplerQuery @ 0x1408AA478 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCoverageSamplerQuery @ 0x140946474 (EtwpCoverageSamplerQuery.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x14033ADA0 (KeQueryMaximumProcessorCountEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140344740 (KeQueryMaximumProcessorCountEx.c)
  */
 
 ULONG __fastcall EtwpCovSampCaptureFlushStats(__int64 a1, _DWORD *a2)

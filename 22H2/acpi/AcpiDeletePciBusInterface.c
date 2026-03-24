@@ -1,37 +1,33 @@
 /*
- * XREFs of AcpiDeletePciBusInterface @ 0x1C008A2B4
+ * XREFs of AcpiDeletePciBusInterface @ 0x1C00A21D8
  * Callers:
- *     ACPIFilterIrpRemoveDevice @ 0x1C0028860 (ACPIFilterIrpRemoveDevice.c)
+ *     ACPIFilterIrpRemoveDevice @ 0x1C002CC90 (ACPIFilterIrpRemoveDevice.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     IsPciDevice @ 0x1C00358C8 (IsPciDevice.c)
+ *     IsPciDevice @ 0x1C0017E30 (IsPciDevice.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall AcpiDeletePciBusInterface(__int64 a1)
 {
-  unsigned __int8 v1; // cf
-  volatile signed __int32 *v3; // rcx
   __int64 result; // rax
-  __int128 Object; // [rsp+30h] [rbp-28h] BYREF
-  __int128 v6; // [rsp+40h] [rbp-18h]
-  char v7; // [rsp+60h] [rbp+8h] BYREF
+  volatile signed __int32 *v3; // rcx
+  _BYTE Event[32]; // [rsp+30h] [rbp-28h] BYREF
+  char v5; // [rsp+60h] [rbp+8h] BYREF
 
-  v1 = _bittest64((const signed __int64 *)(a1 + 8), 0x33u);
-  v7 = 0;
-  Object = 0LL;
-  v6 = 0LL;
-  if ( v1 || !*(_QWORD *)(a1 + 80) )
+  v5 = 0;
+  memset(Event, 0, sizeof(Event));
+  if ( (*(_QWORD *)(a1 + 8) & 0x8000000000000LL) != 0 || !*(_QWORD *)(a1 + 80) )
     return 0LL;
-  KeInitializeEvent((PRKEVENT)&Object, SynchronizationEvent, 0);
-  v3 = *(volatile signed __int32 **)(a1 + 760);
-  DWORD2(v6) = -1073741275;
-  result = IsPciDevice(v3, (__int64)AmlisuppCompletePassive, (__int64)&Object, &v7);
+  KeInitializeEvent((PRKEVENT)Event, SynchronizationEvent, 0);
+  v3 = *(volatile signed __int32 **)(a1 + 720);
+  *(_DWORD *)&Event[24] = -1073741275;
+  result = IsPciDevice(v3, (__int64)AmlisuppCompletePassive, (__int64)Event, &v5);
   if ( (_DWORD)result == 259 )
   {
-    KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
-    result = DWORD2(v6);
+    KeWaitForSingleObject(Event, Executive, 0, 0, 0LL);
+    result = *(unsigned int *)&Event[24];
   }
-  if ( (int)result >= 0 && v7 )
+  if ( (int)result >= 0 && v5 )
   {
     _InterlockedAnd((volatile signed __int32 *)(a1 + 88), 0xFFFFFEFF);
     (*(void (__fastcall **)(_QWORD))(*(_QWORD *)(a1 + 80) + 24LL))(*(_QWORD *)(*(_QWORD *)(a1 + 80) + 8LL));

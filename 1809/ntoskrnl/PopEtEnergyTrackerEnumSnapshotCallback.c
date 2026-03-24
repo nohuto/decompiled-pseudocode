@@ -1,5 +1,5 @@
 /*
- * XREFs of PopEtEnergyTrackerEnumSnapshotCallback @ 0x1406C4C80
+ * XREFs of PopEtEnergyTrackerEnumSnapshotCallback @ 0x1406C4C60
  * Callers:
  *     PopEtEnumEnergyTrackers @ 0x140606A78 (PopEtEnumEnergyTrackers.c)
  * Callees:

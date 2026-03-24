@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyInvalidResource@CAtlasTexture@@UEAAXPEBVIDeviceResource@@@Z @ 0x18029C9B0
+ * XREFs of ?NotifyInvalidResource@CAtlasTexture@@UEAAXPEBVIDeviceResource@@@Z @ 0x18024C620
  * Callers:
  *     <none>
  * Callees:

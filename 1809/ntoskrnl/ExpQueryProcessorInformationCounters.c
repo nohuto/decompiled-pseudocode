@@ -3,10 +3,10 @@
  * Callers:
  *     ExProcessorCounterSetCallback @ 0x1405CD7B0 (ExProcessorCounterSetCallback.c)
  * Callees:
- *     PoGetIdleTimes @ 0x1400A7300 (PoGetIdleTimes.c)
- *     PoGetPerfStateAndParkingInfo @ 0x140131C84 (PoGetPerfStateAndParkingInfo.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PoGetIdleTimes @ 0x1400A7320 (PoGetIdleTimes.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x140131CA4 (PoGetPerfStateAndParkingInfo.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall ExpQueryProcessorInformationCounters(__int64 a1, char a2, char a3, char a4, __int64 a5)

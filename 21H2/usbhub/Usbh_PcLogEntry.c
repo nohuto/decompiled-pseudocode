@@ -1,9 +1,9 @@
 /*
- * XREFs of Usbh_PcLogEntry @ 0x1C0035B48
+ * XREFs of Usbh_PcLogEntry @ 0x1C0036E04
  * Callers:
- *     UsbhHubSyncSuspendPortEvent @ 0x1C00334E8 (UsbhHubSyncSuspendPortEvent.c)
+ *     UsbhHubSyncSuspendPortEvent @ 0x1C003484C (UsbhHubSyncSuspendPortEvent.c)
  * Callees:
- *     Usbh_UsbdReadFrameCounter @ 0x1C001AE7C (Usbh_UsbdReadFrameCounter.c)
+ *     Usbh_UsbdReadFrameCounter @ 0x1C0001BF8 (Usbh_UsbdReadFrameCounter.c)
  */
 
 __int64 __fastcall Usbh_PcLogEntry(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, __int16 a6, char a7, char a8)

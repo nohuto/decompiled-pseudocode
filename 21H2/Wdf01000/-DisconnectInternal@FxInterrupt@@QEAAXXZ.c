@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DisconnectInternal@FxInterrupt@@QEAAXXZ @ 0x1C000D484
+ * XREFs of ?DisconnectInternal@FxInterrupt@@QEAAXXZ @ 0x1C00049BC
  * Callers:
- *     ?Disconnect@FxInterrupt@@QEAAJK@Z @ 0x1C000D374 (-Disconnect@FxInterrupt@@QEAAJK@Z.c)
+ *     ?Disconnect@FxInterrupt@@QEAAJK@Z @ 0x1C00048C0 (-Disconnect@FxInterrupt@@QEAAJK@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxInterrupt::DisconnectInternal(FxInterrupt *this)

@@ -1,66 +1,31 @@
 /*
- * XREFs of rimQueueCompleteFrame @ 0x1C01A4E88
+ * XREFs of rimQueueCompleteFrame @ 0x1C0175DAC
  * Callers:
- *     rimProcessCompleteFrame @ 0x1C00E28C0 (rimProcessCompleteFrame.c)
+ *     rimProcessCompleteFrame @ 0x1C0174F58 (rimProcessCompleteFrame.c)
  * Callees:
- *     isChildPartition @ 0x1C004FE70 (isChildPartition.c)
- *     RawInputManagerDeviceObjectReference @ 0x1C0078960 (RawInputManagerDeviceObjectReference.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?QueueFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMCOMPLETEFRAME@@@Z @ 0x1C01A403C (-QueueFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMCOMPLETEFRAME@@@Z.c)
- *     ?QueueFrame@RIM@TelemetryDebug@InputTraceLogging@@SAXAEBUTELEMETRY_POINTER_FRAME_TIMES@@@Z @ 0x1C01A4120 (-QueueFrame@RIM@TelemetryDebug@InputTraceLogging@@SAXAEBUTELEMETRY_POINTER_FRAME_TIMES@@@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_qi @ 0x1C01A43A0 (WPP_RECORDER_AND_TRACE_SF_qi.c)
+ *     ?QueueFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMCOMPLETEFRAME@@@Z @ 0x1C0173B34 (-QueueFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMCOMPLETEFRAME@@@Z.c)
+ *     WPP_RECORDER_SF_qi @ 0x1C0174070 (WPP_RECORDER_SF_qi.c)
  */
 
-void __fastcall rimQueueCompleteFrame(__int64 a1, __int64 a2, __int64 a3)
+_QWORD *__fastcall rimQueueCompleteFrame(__int64 a1, __int64 a2, __int64 a3)
 {
-  LARGE_INTEGER PerformanceCounter; // rbx
-  __int64 v7; // r9
-  char v8; // dl
-  _QWORD *v9; // rdx
-  _QWORD *v10; // rax
-  int v11; // [rsp+20h] [rbp-48h]
-  int v12; // [rsp+28h] [rbp-40h]
-  int v13; // [rsp+38h] [rbp-30h]
+  int v6; // edx
+  int v7; // r8d
+  _QWORD *v8; // rdx
+  _QWORD *result; // rax
 
-  PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  *(LARGE_INTEGER *)((isChildPartition() ? 0x48 : 0) + a3 + 56) = PerformanceCounter;
-  if ( (int)RawInputManagerDeviceObjectReference(*(void **)(a2 + 32)) < 0 )
-  {
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 487);
-    if ( a3 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)a3);
-  }
-  else
-  {
-    InputTraceLogging::RIM::QueueFrame((const struct RIMDEV *)a2, (const struct RIMCOMPLETEFRAME *)a3);
-    InputTraceLogging::TelemetryDebug::RIM::QueueFrame((const struct TELEMETRY_POINTER_FRAME_TIMES *)(a3 + 48));
-    v7 = *(_QWORD *)(a2 + 192) + 1LL;
-    *(_QWORD *)(a2 + 192) = v7;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (v8 = 1, (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0)
-      || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-    {
-      v8 = 0;
-    }
-    if ( v8 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_AND_TRACE_SF_qi(
-        (__int64)WPP_GLOBAL_Control->AttachedDevice,
-        v8,
-        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-        v7,
-        v11,
-        v12,
-        0x10u,
-        v13);
-    v9 = *(_QWORD **)(a1 + 752);
-    v10 = (_QWORD *)(a3 + 8);
-    if ( *v9 != a1 + 744 )
-      __fastfail(3u);
-    *v10 = a1 + 744;
-    *(_QWORD *)(a3 + 16) = v9;
-    *v9 = v10;
-    *(_QWORD *)(a1 + 752) = v10;
-    *(_QWORD *)(a3 + 40) = *(_QWORD *)(a2 + 32);
-  }
+  InputTraceLogging::RIM::QueueFrame((const struct RIMDEV *)a2, (const struct RIMCOMPLETEFRAME *)a3);
+  *(LARGE_INTEGER *)(a3 + 72) = KeQueryPerformanceCounter(0LL);
+  ++*(_QWORD *)(a2 + 192);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qi((unsigned int)&WPP_RECORDER_INITIALIZED, v6, v7, 16);
+  v8 = *(_QWORD **)(a1 + 560);
+  result = (_QWORD *)(a3 + 8);
+  if ( *v8 != a1 + 552 )
+    __fastfail(3u);
+  *result = a1 + 552;
+  *(_QWORD *)(a3 + 16) = v8;
+  *v8 = result;
+  *(_QWORD *)(a1 + 560) = result;
+  return result;
 }

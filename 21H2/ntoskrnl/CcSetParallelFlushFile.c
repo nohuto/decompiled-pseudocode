@@ -1,33 +1,40 @@
 /*
- * XREFs of CcSetParallelFlushFile @ 0x140238FE0
+ * XREFs of CcSetParallelFlushFile @ 0x14030FB70
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall CcSetParallelFlushFile(PFILE_OBJECT FileObject, BOOLEAN EnableParallelFlush)
 {
   PSECTION_OBJECT_POINTERS SectionObjectPointer; // rax
-  _QWORD *SharedCacheMap; // rdi
+  _DWORD *SharedCacheMap; // rbx
+  __int64 Partition; // rax
+  int v6; // eax
+  unsigned int v7; // eax
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v9; // eax
-  bool v10; // zf
+  int v12; // eax
+  bool v13; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   SectionObjectPointer = FileObject->SectionObjectPointer;
   memset(&LockHandle, 0, sizeof(LockHandle));
   SharedCacheMap = SectionObjectPointer->SharedCacheMap;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(SharedCacheMap[66] + 704LL), &LockHandle);
+  Partition = CcGetPartition(SharedCacheMap);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(Partition + 128), &LockHandle);
+  v6 = SharedCacheMap[38];
   if ( EnableParallelFlush )
-    *((_DWORD *)SharedCacheMap + 38) |= 0x40000u;
+    v7 = v6 | 0x40000;
   else
-    *((_DWORD *)SharedCacheMap + 38) &= ~0x40000u;
+    v7 = v6 & 0xFFFBFFFF;
+  SharedCacheMap[38] = v7;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
@@ -39,10 +46,10 @@ void __stdcall CcSetParallelFlushFile(PFILE_OBJECT FileObject, BOOLEAN EnablePar
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v9 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v10 = (v9 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v9;
-        if ( v10 )
+        v12 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v13 = (v12 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v12;
+        if ( v13 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCInputManager@@MEAAPEAXI@Z @ 0x1801A2CC0
+ * XREFs of ??_GCInputManager@@MEAAPEAXI@Z @ 0x180221D40
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     ??1CInputManager@@MEAA@XZ @ 0x1801A2BC8 (--1CInputManager@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??1CInputManager@@MEAA@XZ @ 0x180221BDC (--1CInputManager@@MEAA@XZ.c)
  */
 
 CInputManager *__fastcall CInputManager::`scalar deleting destructor'(CInputManager *this, char a2)

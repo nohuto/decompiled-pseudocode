@@ -1,10 +1,10 @@
 /*
- * XREFs of _anonymous_namespace_::HasThreadRequestedHittestMouseWheelRouting @ 0x1C01FAD28
+ * XREFs of _anonymous_namespace_::HasThreadRequestedHittestMouseWheelRouting @ 0x1C01C080C
  * Callers:
- *     ?AppCompatWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ @ 0x1C01F9450 (-AppCompatWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ.c)
- *     ?HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ @ 0x1C01FAD64 (-HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ.c)
+ *     ?AppCompatWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ @ 0x1C01BED4C (-AppCompatWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ.c)
+ *     ?HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ @ 0x1C01C0848 (-HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ.c)
  * Callees:
- *     _anonymous_namespace_::ResolveApplicationFrameChildThread @ 0x1C01FC648 (_anonymous_namespace_--ResolveApplicationFrameChildThread.c)
+ *     _anonymous_namespace_::ResolveApplicationFrameChildThread @ 0x1C01C1FE4 (_anonymous_namespace_--ResolveApplicationFrameChildThread.c)
  */
 
 char __fastcall anonymous_namespace_::HasThreadRequestedHittestMouseWheelRouting(__int64 a1)

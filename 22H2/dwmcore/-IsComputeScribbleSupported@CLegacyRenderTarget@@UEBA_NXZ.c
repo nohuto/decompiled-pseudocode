@@ -1,38 +1,35 @@
 /*
- * XREFs of ?IsComputeScribbleSupported@CLegacyRenderTarget@@UEBA_NXZ @ 0x1801E7950
+ * XREFs of ?IsComputeScribbleSupported@CLegacyRenderTarget@@UEBA_NXZ @ 0x180184730
  * Callers:
  *     <none>
  * Callees:
- *     ?GetEffectiveDirectFlipMode@COverlayContext@@QEBA?AW4Enum@DirectFlipMode@@XZ @ 0x18008BA64 (-GetEffectiveDirectFlipMode@COverlayContext@@QEBA-AW4Enum@DirectFlipMode@@XZ.c)
- *     McTemplateU0q_EventWriteTransfer @ 0x18012DEC4 (McTemplateU0q_EventWriteTransfer.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152674 (McTemplateU0q_EventWriteTransfer.c)
+ *     ?GetEffectiveDirectFlipMode@COverlayContext@@QEBA?AW4Enum@DirectFlipMode@@XZ @ 0x18017BECC (-GetEffectiveDirectFlipMode@COverlayContext@@QEBA-AW4Enum@DirectFlipMode@@XZ.c)
  */
 
 bool __fastcall CLegacyRenderTarget::IsComputeScribbleSupported(CLegacyRenderTarget *this)
 {
   __int64 v2; // r8
 
-  if ( !*((_QWORD *)this + 5) )
+  if ( !*((_QWORD *)this + 3) )
   {
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x100000) != 0 )
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x40000) != 0 )
     {
       v2 = 10LL;
 LABEL_7:
-      McTemplateU0q_EventWriteTransfer(
-        (__int64)&Microsoft_Windows_Dwm_Core_Provider_Context,
-        (__int64)&EVTDESC_COMPUTESCRIBBLE_INCOMPATIBLE,
-        v2);
+      McTemplateU0q_EventWriteTransfer((__int64)this, &EVTDESC_COMPUTESCRIBBLE_INCOMPATIBLE, v2);
       return 0;
     }
     return 0;
   }
-  if ( (unsigned int)COverlayContext::GetEffectiveDirectFlipMode((__int64)this + 56) )
+  if ( (unsigned int)COverlayContext::GetEffectiveDirectFlipMode((__int64)this + 336) )
   {
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x100000) != 0 )
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x40000) != 0 )
     {
       v2 = 1LL;
       goto LABEL_7;
     }
     return 0;
   }
-  return (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 5) + 296LL))(*((_QWORD *)this + 5));
+  return (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 3) + 232LL))(*((_QWORD *)this + 3));
 }

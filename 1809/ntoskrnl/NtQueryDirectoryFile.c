@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryDirectoryFile @ 0x1406B4E10
+ * XREFs of NtQueryDirectoryFile @ 0x1406B4DF0
  * Callers:
  *     <none>
  * Callees:

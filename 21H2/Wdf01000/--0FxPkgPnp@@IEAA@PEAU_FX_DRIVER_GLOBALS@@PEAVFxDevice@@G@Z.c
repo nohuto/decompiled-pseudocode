@@ -1,14 +1,14 @@
 /*
- * XREFs of ??0FxPkgPnp@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z @ 0x1C00234F4
+ * XREFs of ??0FxPkgPnp@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z @ 0x1C007EA8C
  * Callers:
- *     ??0FxPkgPdo@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z @ 0x1C00212E4 (--0FxPkgPdo@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z.c)
- *     ??0FxPkgFdo@@AEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z @ 0x1C0022DA4 (--0FxPkgFdo@@AEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z.c)
+ *     ??0FxPkgPdo@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z @ 0x1C0078BA8 (--0FxPkgPdo@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z.c)
+ *     ??0FxPkgFdo@@AEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z @ 0x1C0083F40 (--0FxPkgFdo@@AEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z.c)
  * Callees:
- *     ??0FxThreadedEventQueue@@QEAA@E@Z @ 0x1C0023958 (--0FxThreadedEventQueue@@QEAA@E@Z.c)
- *     ??0FxEventQueue@@QEAA@E@Z @ 0x1C0023998 (--0FxEventQueue@@QEAA@E@Z.c)
- *     ??0FxWaitLockInternal@@QEAA@XZ @ 0x1C00239E0 (--0FxWaitLockInternal@@QEAA@XZ.c)
- *     ??0FxPackage@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z @ 0x1C00242E8 (--0FxPackage@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z.c)
- *     memset @ 0x1C0036C00 (memset.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     ??0FxWaitLockInternal@@QEAA@XZ @ 0x1C00622B4 (--0FxWaitLockInternal@@QEAA@XZ.c)
+ *     ??0FxPackage@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z @ 0x1C0078180 (--0FxPackage@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z.c)
+ *     ??0FxEventQueue@@QEAA@E@Z @ 0x1C008ADE4 (--0FxEventQueue@@QEAA@E@Z.c)
+ *     ??0FxThreadedEventQueue@@QEAA@E@Z @ 0x1C008AE2C (--0FxThreadedEventQueue@@QEAA@E@Z.c)
  */
 
 void __fastcall FxPkgPnp::FxPkgPnp(
@@ -62,11 +62,11 @@ void __fastcall FxPkgPnp::FxPkgPnp(
   this->m_PowerPolicyMachine.m_HistoryIndex = ((int)v10 + 1) % (unsigned int)this->m_PowerPolicyMachine.m_QueueDepth;
   this->m_PowerPolicyMachine.m_States.History[v10] = 1280;
   this->m_PowerPolicyMachine.m_SingularEventsPresent = 0;
-  this->m_DeviceD0Entry.__vftable = (FxPnpDeviceD0Entry_vtbl *)FxPnpDeviceD0Entry::`vftable';
-  this->m_DeviceD0Exit.__vftable = (FxPnpDeviceD0Exit_vtbl *)FxPnpDeviceD0Exit::`vftable';
-  this->m_DeviceD0EntryPostHardwareEnabled.__vftable = (FxPnpDeviceD0EntryPostHwEnabled_vtbl *)FxPnpDeviceD0EntryPostHwEnabled::`vftable';
-  this->m_DeviceD0ExitPreHardwareDisabled.__vftable = (FxPnpDeviceD0ExitPreHwDisabled_vtbl *)FxPnpDeviceD0ExitPreHwDisabled::`vftable';
-  this->m_DevicePrepareHardware.__vftable = (FxPnpDevicePrepareHardware_vtbl *)FxPnpDevicePrepareHardware::`vftable';
+  this->m_DeviceD0Entry.__vftable = (FxPrePostCallback_vtbl *)FxPnpDeviceD0Entry::`vftable';
+  this->m_DeviceD0Exit.__vftable = (FxPrePostCallback_vtbl *)FxPnpDeviceD0Exit::`vftable';
+  this->m_DeviceD0EntryPostHardwareEnabled.__vftable = (FxPrePostCallback_vtbl *)FxPnpDeviceD0EntryPostHwEnabled::`vftable';
+  this->m_DeviceD0ExitPreHardwareDisabled.__vftable = (FxPrePostCallback_vtbl *)FxPnpDeviceD0ExitPreHwDisabled::`vftable';
+  this->m_DevicePrepareHardware.__vftable = (FxPrePostCallback_vtbl *)FxPnpDevicePrepareHardware::`vftable';
   this->m_DeviceUsageNotification.m_Method = 0LL;
   this->m_DeviceUsageNotificationEx.m_Method = 0LL;
   this->m_DeviceRelationsQuery.m_Method = 0LL;
@@ -76,8 +76,8 @@ void __fastcall FxPkgPnp::FxPkgPnp(
   this->m_DeviceD0Exit.m_Method = 0LL;
   this->m_DevicePrepareHardware.m_Method = 0LL;
   this->m_DeviceReleaseHardware.m_Method = 0LL;
-  this->m_DeviceReleaseHardware.__vftable = (FxPnpDeviceReleaseHardware_vtbl *)FxPnpDeviceReleaseHardware::`vftable';
-  this->m_DeviceSurpriseRemoval.__vftable = (FxPnpDeviceSurpriseRemoval_vtbl *)FxPnpDeviceSurpriseRemoval::`vftable';
+  this->m_DeviceReleaseHardware.__vftable = (FxPrePostCallback_vtbl *)FxPnpDeviceReleaseHardware::`vftable';
+  this->m_DeviceSurpriseRemoval.__vftable = (FxPrePostCallback_vtbl *)FxPnpDeviceSurpriseRemoval::`vftable';
   this->m_DeviceQueryStop.m_Method = 0LL;
   this->m_DeviceQueryRemove.m_Method = 0LL;
   this->m_DeviceSurpriseRemoval.m_Method = 0LL;

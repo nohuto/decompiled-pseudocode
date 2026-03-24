@@ -1,26 +1,26 @@
 /*
- * XREFs of SepSetTokenCapabilities @ 0x140799BB0
+ * XREFs of SepSetTokenCapabilities @ 0x1405DD33C
  * Callers:
- *     SepGetAnonymousToken @ 0x14021F764 (SepGetAnonymousToken.c)
- *     NtCreateLowBoxToken @ 0x14078DDF0 (NtCreateLowBoxToken.c)
- *     SepFilterToken @ 0x14078E3F0 (SepFilterToken.c)
- *     SepDuplicateToken @ 0x1407CDED0 (SepDuplicateToken.c)
+ *     SepGetAnonymousToken @ 0x14036016C (SepGetAnonymousToken.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     NtCreateLowBoxToken @ 0x140676580 (NtCreateLowBoxToken.c)
+ *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
  * Callees:
- *     SepFreeTokenCapabilities @ 0x1402493D4 (SepFreeTokenCapabilities.c)
- *     RtlSidHashInitialize @ 0x1402E1660 (RtlSidHashInitialize.c)
- *     SepLengthSidAndAttributesArray @ 0x140799CF0 (SepLengthSidAndAttributesArray.c)
- *     SeCaptureSidAndAttributesArray @ 0x140799DB0 (SeCaptureSidAndAttributesArray.c)
- *     RtlIsParentOfChildAppContainer @ 0x1409B9218 (RtlIsParentOfChildAppContainer.c)
- *     SepInsertOrReferenceSharedSidEntries @ 0x1409CED4C (SepInsertOrReferenceSharedSidEntries.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     SepFreeTokenCapabilities @ 0x1402F5860 (SepFreeTokenCapabilities.c)
+ *     RtlSidHashInitialize @ 0x140355DE0 (RtlSidHashInitialize.c)
+ *     SepLengthSidAndAttributesArray @ 0x1405DD4AC (SepLengthSidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x1405DD560 (SeCaptureSidAndAttributesArray.c)
+ *     RtlIsParentOfChildAppContainer @ 0x140673594 (RtlIsParentOfChildAppContainer.c)
+ *     SepInsertOrReferenceSharedSidEntries @ 0x140925464 (SepInsertOrReferenceSharedSidEntries.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, unsigned int a4)
 {
   __int64 result; // rax
   unsigned int v8; // ebp
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v10; // rsi
   int v11; // eax
   unsigned int v12; // ebp
@@ -28,9 +28,9 @@ __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, unsig
   int v14; // [rsp+28h] [rbp-50h]
   int v15; // [rsp+30h] [rbp-48h]
   __int64 v16; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v17; // [rsp+80h] [rbp+8h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+80h] [rbp+8h] BYREF
 
-  LODWORD(v17) = 0;
+  LODWORD(NumberOfBytes) = 0;
   v16 = 0LL;
   if ( *(_QWORD *)(a1 + 792) )
   {
@@ -56,16 +56,16 @@ __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, unsig
       result = SepLengthSidAndAttributesArray(a3);
       if ( (int)result < 0 )
         return result;
-      v8 = v17;
+      v8 = NumberOfBytes;
     }
-    Pool2 = ExAllocatePool2(256LL, v8, 1934845267LL);
-    v10 = (void *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v8, 0x73536553u);
+    v10 = PoolWithTag;
+    if ( PoolWithTag )
     {
       if ( SepTokenCapabilitySidSharingEnabled )
-        v11 = SepInsertOrReferenceSharedSidEntries(a3, Pool2, a4);
+        v11 = SepInsertOrReferenceSharedSidEntries(a3, PoolWithTag, a4);
       else
-        v11 = SeCaptureSidAndAttributesArray(a3, v8, v14, v15, (__int64)&v16, (__int64)&v17);
+        v11 = SeCaptureSidAndAttributesArray(a3, v8, v14, v15, (__int64)&v16, (__int64)&NumberOfBytes);
       v12 = v11;
       if ( v11 < 0 )
       {

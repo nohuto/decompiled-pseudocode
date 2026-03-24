@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpCombineAcls @ 0x14069A9C0
+ * XREFs of RtlpCombineAcls @ 0x1406838B0
  * Callers:
- *     RtlpSetSecurityObject @ 0x140726700 (RtlpSetSecurityObject.c)
- *     RtlpNewSecurityObject @ 0x1407CE760 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x14065E3C0 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x1406FF5F0 (RtlpNewSecurityObject.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpCombineAcls(
@@ -20,64 +20,66 @@ __int64 __fastcall RtlpCombineAcls(
         char **a7,
         _DWORD *a8)
 {
-  unsigned __int8 *v8; // r13
-  unsigned int v9; // r14d
-  unsigned int v11; // r10d
-  char *PoolWithTag; // rdi
+  unsigned __int8 *v8; // r12
+  unsigned int v9; // edi
+  unsigned __int8 *v10; // r15
+  unsigned int v12; // r9d
+  char *PoolWithTag; // r14
   unsigned int v16; // edx
   unsigned __int8 *v17; // rcx
-  unsigned int j; // ebx
-  unsigned int v19; // ebx
-  unsigned int v20; // r15d
-  char *v21; // rbp
-  _WORD *v22; // rbx
-  unsigned int v23; // ecx
-  __int64 v24; // rax
+  unsigned int j; // ebp
+  unsigned int v19; // ebp
+  _WORD *v20; // rsi
+  unsigned int v21; // ebp
+  char *v22; // r15
+  __int64 v23; // rax
+  char *v24; // rsi
+  unsigned int v25; // ebx
   __int64 result; // rax
-  unsigned __int8 *v26; // rcx
-  unsigned int n; // r8d
-  _WORD *v28; // rsi
-  unsigned int nn; // r13d
-  __int64 v30; // rax
-  unsigned __int8 *v31; // rbx
-  unsigned int i; // r15d
-  unsigned __int8 *v33; // rcx
-  unsigned int k; // ebx
-  unsigned __int8 *v35; // rcx
-  unsigned int m; // ebx
-  unsigned __int8 *v37; // rcx
+  unsigned __int8 *v27; // rcx
+  unsigned int n; // r10d
+  _WORD *v29; // rbp
+  unsigned int mm; // r15d
+  __int64 v31; // rax
+  unsigned __int8 *v32; // r10
+  unsigned int i; // ebp
+  unsigned __int16 *v34; // rbp
+  unsigned int v35; // ecx
+  char *v36; // r12
+  __int64 v37; // rax
+  unsigned __int8 *v38; // rcx
+  unsigned int k; // ebp
+  _WORD *v40; // rbx
+  unsigned int jj; // ebp
+  __int64 v42; // rax
+  unsigned __int8 *v43; // rcx
+  unsigned int m; // r10d
+  unsigned __int8 *v45; // rcx
   unsigned int ii; // r8d
-  _WORD *v39; // rbx
-  unsigned int kk; // esi
-  __int64 v41; // rax
-  _WORD *v42; // rsi
-  unsigned int mm; // r13d
-  __int64 v44; // rax
-  _WORD *v45; // rbx
-  __int64 v46; // rax
-  unsigned __int16 *v47; // rbx
-  unsigned int v48; // ecx
-  char *v49; // r13
-  __int64 v50; // rax
-  char *v51; // [rsp+28h] [rbp-40h]
-  int v52; // [rsp+70h] [rbp+8h]
-  unsigned int jj; // [rsp+70h] [rbp+8h]
+  _WORD *v47; // rbx
+  unsigned int kk; // ebp
+  __int64 v49; // rax
+  _WORD *v50; // rbx
+  __int64 v51; // rax
+  char *v52; // [rsp+28h] [rbp-40h]
+  int v53; // [rsp+70h] [rbp+8h]
   unsigned int v54; // [rsp+70h] [rbp+8h]
 
-  v8 = a5;
+  v8 = a6;
   v9 = 0;
-  v11 = 2;
-  v52 = 2;
+  v10 = a5;
+  v12 = 2;
+  v53 = 2;
   PoolWithTag = 0LL;
   if ( __PAIR128__((unsigned __int64)a1, (unsigned __int64)a2) != 0 || a3 || a4 || a5 || a6 )
   {
     v16 = 8;
     if ( a1 )
     {
-      v31 = a1 + 8;
-      for ( i = 0; i < *((unsigned __int16 *)a1 + 2); v31 += *((unsigned __int16 *)v31 + 1) )
+      v32 = a1 + 8;
+      for ( i = 0; i < *((unsigned __int16 *)a1 + 2); v32 += *((unsigned __int16 *)v32 + 1) )
       {
-        switch ( *v31 )
+        switch ( *v32 )
         {
           case 2u:
           case 3u:
@@ -87,15 +89,15 @@ __int64 __fastcall RtlpCombineAcls(
           case 0xEu:
           case 0xFu:
           case 0x10u:
-            if ( v16 + *((unsigned __int16 *)v31 + 1) < v16 )
-              goto LABEL_120;
-            v16 += *((unsigned __int16 *)v31 + 1);
+            if ( v16 + *((unsigned __int16 *)v32 + 1) < v16 )
+              goto LABEL_106;
+            v16 += *((unsigned __int16 *)v32 + 1);
             if ( a8 )
               *a8 |= 8u;
-            if ( *a1 > v11 )
+            if ( *a1 > v12 )
             {
-              v11 = *a1;
-              v52 = v11;
+              v12 = *a1;
+              v53 = v12;
             }
             break;
           default:
@@ -112,14 +114,14 @@ __int64 __fastcall RtlpCombineAcls(
         if ( *v17 == 17 )
         {
           if ( v16 + *((unsigned __int16 *)v17 + 1) < v16 )
-            goto LABEL_120;
+            goto LABEL_106;
           v16 += *((unsigned __int16 *)v17 + 1);
           if ( a8 )
             *a8 |= 0x10u;
-          if ( *a2 > v11 )
+          if ( *a2 > v12 )
           {
-            v11 = *a2;
-            v52 = v11;
+            v12 = *a2;
+            v53 = v12;
           }
         }
         ++j;
@@ -127,20 +129,20 @@ __int64 __fastcall RtlpCombineAcls(
     }
     if ( a5 )
     {
-      v33 = a5 + 8;
-      for ( k = 0; k < *((unsigned __int16 *)a5 + 2); v33 += *((unsigned __int16 *)v33 + 1) )
+      v38 = a5 + 8;
+      for ( k = 0; k < *((unsigned __int16 *)a5 + 2); v38 += *((unsigned __int16 *)v38 + 1) )
       {
-        if ( *v33 == 20 )
+        if ( *v38 == 20 )
         {
-          if ( v16 + *((unsigned __int16 *)v33 + 1) < v16 )
-            goto LABEL_120;
-          v16 += *((unsigned __int16 *)v33 + 1);
+          if ( v16 + *((unsigned __int16 *)v38 + 1) < v16 )
+            goto LABEL_106;
+          v16 += *((unsigned __int16 *)v38 + 1);
           if ( a8 )
             *a8 |= 0x80u;
-          if ( *a5 > v11 )
+          if ( *a5 > v12 )
           {
-            v11 = *a5;
-            v52 = v11;
+            v12 = *a5;
+            v53 = v12;
           }
         }
         ++k;
@@ -148,39 +150,39 @@ __int64 __fastcall RtlpCombineAcls(
     }
     if ( a6 )
     {
-      v35 = a6 + 8;
-      for ( m = 0; m < *((unsigned __int16 *)a6 + 2); v35 += *((unsigned __int16 *)v35 + 1) )
+      v43 = a6 + 8;
+      for ( m = 0; m < *((unsigned __int16 *)a6 + 2); v43 += *((unsigned __int16 *)v43 + 1) )
       {
-        if ( *v35 == 21 )
+        if ( *v43 == 21 )
         {
-          if ( v16 + *((unsigned __int16 *)v35 + 1) < v16 )
-            goto LABEL_120;
-          v16 += *((unsigned __int16 *)v35 + 1);
+          if ( v16 + *((unsigned __int16 *)v43 + 1) < v16 )
+            goto LABEL_106;
+          v16 += *((unsigned __int16 *)v43 + 1);
           if ( a8 )
             *a8 |= 0x100u;
-          if ( *a6 > v11 )
-            v11 = *a6;
-          v52 = v11;
+          if ( *a6 > v12 )
+            v12 = *a6;
+          v53 = v12;
         }
         ++m;
       }
     }
     if ( a3 )
     {
-      v26 = a3 + 8;
-      for ( n = 0; n < *((unsigned __int16 *)a3 + 2); v26 += *((unsigned __int16 *)v26 + 1) )
+      v27 = a3 + 8;
+      for ( n = 0; n < *((unsigned __int16 *)a3 + 2); v27 += *((unsigned __int16 *)v27 + 1) )
       {
-        if ( *v26 == 18 )
+        if ( *v27 == 18 )
         {
-          if ( v16 + *((unsigned __int16 *)v26 + 1) < v16 )
-            goto LABEL_120;
-          v16 += *((unsigned __int16 *)v26 + 1);
+          if ( v16 + *((unsigned __int16 *)v27 + 1) < v16 )
+            goto LABEL_106;
+          v16 += *((unsigned __int16 *)v27 + 1);
           if ( a8 )
             *a8 |= 0x20u;
-          if ( *a3 > v11 )
+          if ( *a3 > v12 )
           {
-            v11 = *a3;
-            v52 = v11;
+            v12 = *a3;
+            v53 = v12;
           }
         }
         ++n;
@@ -188,27 +190,27 @@ __int64 __fastcall RtlpCombineAcls(
     }
     if ( a4 )
     {
-      v37 = a4 + 8;
-      for ( ii = 0; ii < *((unsigned __int16 *)a4 + 2); v37 += *((unsigned __int16 *)v37 + 1) )
+      v45 = a4 + 8;
+      for ( ii = 0; ii < *((unsigned __int16 *)a4 + 2); v45 += *((unsigned __int16 *)v45 + 1) )
       {
-        if ( *v37 == 19 )
+        if ( *v45 == 19 )
         {
-          if ( v16 + *((unsigned __int16 *)v37 + 1) < v16 )
-            goto LABEL_120;
-          v16 += *((unsigned __int16 *)v37 + 1);
+          if ( v16 + *((unsigned __int16 *)v45 + 1) < v16 )
+            goto LABEL_106;
+          v16 += *((unsigned __int16 *)v45 + 1);
           if ( a8 )
             *a8 |= 0x40u;
-          if ( *a4 > v11 )
-            v11 = *a4;
-          v52 = v11;
+          if ( *a4 > v12 )
+            v12 = *a4;
+          v53 = v12;
         }
         ++ii;
       }
     }
     if ( v16 + 3 < v16 )
     {
-LABEL_120:
-      v20 = -1073741675;
+LABEL_106:
+      v25 = -1073741675;
     }
     else
     {
@@ -218,32 +220,31 @@ LABEL_120:
       {
         if ( v19 < 8 )
         {
-          v20 = -1073741789;
+          v25 = -1073741789;
         }
         else
         {
-          if ( (unsigned int)(v52 - 2) <= 2 && v19 <= 0xFFFC )
+          if ( (unsigned int)(v53 - 2) <= 2 && v19 <= 0xFFFC )
           {
             memset(PoolWithTag, 0, v19);
-            *PoolWithTag = v52;
-            v20 = 0;
+            *PoolWithTag = v53;
             *((_WORD *)PoolWithTag + 1) = v19;
             PoolWithTag[1] = 0;
             *((_DWORD *)PoolWithTag + 1) = 0;
-            v51 = 0LL;
+            v52 = 0LL;
             if ( PoolWithTag + 8 <= &PoolWithTag[(unsigned __int16)v19] )
-              v51 = PoolWithTag + 8;
+              v52 = PoolWithTag + 8;
             if ( a1 )
             {
-              v47 = (unsigned __int16 *)(a1 + 8);
-              v48 = 0;
+              v34 = (unsigned __int16 *)(a1 + 8);
+              v35 = 0;
               v54 = 0;
               if ( *((_WORD *)a1 + 2) )
               {
-                v49 = v51;
+                v36 = v52;
                 do
                 {
-                  switch ( *(_BYTE *)v47 )
+                  switch ( *(_BYTE *)v34 )
                   {
                     case 2:
                     case 3:
@@ -253,11 +254,11 @@ LABEL_120:
                     case 0xE:
                     case 0xF:
                     case 0x10:
-                      memmove(v49, v47, v47[1]);
+                      memmove(v36, v34, v34[1]);
                       ++*((_WORD *)PoolWithTag + 2);
-                      v50 = v47[1];
-                      v48 = v54;
-                      v49 += v50;
+                      v37 = v34[1];
+                      v35 = v54;
+                      v36 += v37;
                       break;
                     case 4:
                     case 5:
@@ -266,126 +267,133 @@ LABEL_120:
                     case 0xA:
                     case 0xB:
                     case 0xC:
-                      v48 = v54;
-                      goto LABEL_82;
+                      v35 = v54;
+                      goto LABEL_58;
                     default:
-LABEL_82:
-                      LOWORD(v50) = v47[1];
+LABEL_58:
+                      LOWORD(v37) = v34[1];
                       break;
                   }
-                  ++v48;
-                  v47 = (unsigned __int16 *)((char *)v47 + (unsigned __int16)v50);
-                  v54 = v48;
+                  ++v35;
+                  v34 = (unsigned __int16 *)((char *)v34 + (unsigned __int16)v37);
+                  v54 = v35;
                 }
-                while ( v48 < *((unsigned __int16 *)a1 + 2) );
-                v51 = v49;
-                v20 = 0;
-                v8 = a5;
+                while ( v35 < *((unsigned __int16 *)a1 + 2) );
+                v10 = a5;
+                v52 = v36;
+                v8 = a6;
               }
             }
-            v21 = v51;
             if ( a2 )
             {
-              v22 = a2 + 8;
-              v23 = 0;
-              for ( jj = 0; v23 < *((unsigned __int16 *)a2 + 2); jj = v23 )
+              v20 = a2 + 8;
+              v21 = 0;
+              if ( *((_WORD *)a2 + 2) )
               {
-                LOWORD(v24) = v22[1];
-                if ( *(_BYTE *)v22 == 17 )
+                v22 = v52;
+                do
                 {
-                  memmove(v21, v22, (unsigned __int16)v22[1]);
-                  ++*((_WORD *)PoolWithTag + 2);
-                  v24 = (unsigned __int16)v22[1];
-                  v23 = jj;
-                  v21 += v24;
+                  LOWORD(v23) = v20[1];
+                  if ( *(_BYTE *)v20 == 17 )
+                  {
+                    memmove(v22, v20, (unsigned __int16)v20[1]);
+                    ++*((_WORD *)PoolWithTag + 2);
+                    v23 = (unsigned __int16)v20[1];
+                    v22 += v23;
+                  }
+                  ++v21;
+                  v20 = (_WORD *)((char *)v20 + (unsigned __int16)v23);
                 }
-                ++v23;
-                v22 = (_WORD *)((char *)v22 + (unsigned __int16)v24);
+                while ( v21 < *((unsigned __int16 *)a2 + 2) );
+                v52 = v22;
+                v10 = a5;
+              }
+            }
+            v24 = v52;
+            if ( v10 )
+            {
+              v40 = v10 + 8;
+              for ( jj = 0; jj < *((unsigned __int16 *)v10 + 2); v40 = (_WORD *)((char *)v40 + (unsigned __int16)v42) )
+              {
+                LOWORD(v42) = v40[1];
+                if ( *(_BYTE *)v40 == 20 )
+                {
+                  memmove(v24, v40, (unsigned __int16)v40[1]);
+                  ++*((_WORD *)PoolWithTag + 2);
+                  v42 = (unsigned __int16)v40[1];
+                  v24 += v42;
+                }
+                ++jj;
               }
             }
             if ( v8 )
             {
-              v39 = v8 + 8;
-              for ( kk = 0; kk < *((unsigned __int16 *)v8 + 2); v39 = (_WORD *)((char *)v39 + (unsigned __int16)v41) )
+              v47 = v8 + 8;
+              for ( kk = 0; kk < *((unsigned __int16 *)v8 + 2); v47 = (_WORD *)((char *)v47 + (unsigned __int16)v49) )
               {
-                LOWORD(v41) = v39[1];
-                if ( *(_BYTE *)v39 == 20 )
+                LOWORD(v49) = v47[1];
+                if ( *(_BYTE *)v47 == 21 )
                 {
-                  memmove(v21, v39, (unsigned __int16)v39[1]);
+                  memmove(v24, v47, (unsigned __int16)v47[1]);
                   ++*((_WORD *)PoolWithTag + 2);
-                  v41 = (unsigned __int16)v39[1];
-                  v21 += v41;
+                  v49 = (unsigned __int16)v47[1];
+                  v24 += v49;
                 }
                 ++kk;
               }
             }
-            if ( a6 )
+            if ( a3 )
             {
-              v42 = a6 + 8;
-              for ( mm = 0; mm < *((unsigned __int16 *)a6 + 2); v42 = (_WORD *)((char *)v42 + (unsigned __int16)v44) )
+              v29 = a3 + 8;
+              for ( mm = 0; mm < *((unsigned __int16 *)a3 + 2); v29 = (_WORD *)((char *)v29 + (unsigned __int16)v31) )
               {
-                LOWORD(v44) = v42[1];
-                if ( *(_BYTE *)v42 == 21 )
+                LOWORD(v31) = v29[1];
+                if ( *(_BYTE *)v29 == 18 )
                 {
-                  memmove(v21, v42, (unsigned __int16)v42[1]);
+                  memmove(v24, v29, (unsigned __int16)v29[1]);
                   ++*((_WORD *)PoolWithTag + 2);
-                  v44 = (unsigned __int16)v42[1];
-                  v21 += v44;
+                  v31 = (unsigned __int16)v29[1];
+                  v24 += v31;
                 }
                 ++mm;
               }
             }
-            if ( a3 )
+            if ( a4 && (v50 = a4 + 8, *((_WORD *)a4 + 2)) )
             {
-              v28 = a3 + 8;
-              for ( nn = 0; nn < *((unsigned __int16 *)a3 + 2); v28 = (_WORD *)((char *)v28 + (unsigned __int16)v30) )
+              do
               {
-                LOWORD(v30) = v28[1];
-                if ( *(_BYTE *)v28 == 18 )
+                LOWORD(v51) = v50[1];
+                if ( *(_BYTE *)v50 == 19 )
                 {
-                  memmove(v21, v28, (unsigned __int16)v28[1]);
+                  memmove(v24, v50, (unsigned __int16)v50[1]);
                   ++*((_WORD *)PoolWithTag + 2);
-                  v30 = (unsigned __int16)v28[1];
-                  v21 += v30;
+                  v51 = (unsigned __int16)v50[1];
+                  v24 += v51;
                 }
-                ++nn;
+                ++v9;
+                v50 = (_WORD *)((char *)v50 + (unsigned __int16)v51);
               }
+              while ( v9 < *((unsigned __int16 *)a4 + 2) );
+              v25 = 0;
             }
-            if ( a4 )
+            else
             {
-              v45 = a4 + 8;
-              if ( *((_WORD *)a4 + 2) )
-              {
-                do
-                {
-                  LOWORD(v46) = v45[1];
-                  if ( *(_BYTE *)v45 == 19 )
-                  {
-                    memmove(v21, v45, (unsigned __int16)v45[1]);
-                    ++*((_WORD *)PoolWithTag + 2);
-                    v46 = (unsigned __int16)v45[1];
-                    v21 += v46;
-                  }
-                  ++v9;
-                  v45 = (_WORD *)((char *)v45 + (unsigned __int16)v46);
-                }
-                while ( v9 < *((unsigned __int16 *)a4 + 2) );
-              }
+              v25 = 0;
             }
-            goto LABEL_33;
+            goto LABEL_36;
           }
-          v20 = -1073741811;
+          v25 = -1073741811;
         }
         ExFreePoolWithTag(PoolWithTag, 0);
         PoolWithTag = 0LL;
       }
       else
       {
-        v20 = -1073741801;
+        v25 = -1073741801;
       }
     }
-LABEL_33:
-    result = v20;
+LABEL_36:
+    result = v25;
     *a7 = PoolWithTag;
     return result;
   }

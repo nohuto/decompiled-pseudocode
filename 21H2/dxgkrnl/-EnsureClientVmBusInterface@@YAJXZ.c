@@ -1,47 +1,45 @@
 /*
- * XREFs of ?EnsureClientVmBusInterface@@YAJXZ @ 0x1C0364350
+ * XREFs of ?EnsureClientVmBusInterface@@YAJXZ @ 0x1C0239EE4
  * Callers:
- *     ?Initialize@DXGVMBUSCHANNEL@@IEAAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@E@Z @ 0x1C0355888 (-Initialize@DXGVMBUSCHANNEL@@IEAAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@E@Z.c)
- *     ?CreateClientVmBusChannel@@YAJPEAXPEAU_DEVICE_OBJECT@@U_GUID@@2PEBU_UNICODE_STRING@@PEAU_VMB_CHANNEL_STATE_CHANGE_CALLBACKS@@P6AXPEAUVMBCHANNEL__@@PEAUVMBPACKETCOMPLETION__@@0II@ZP6AX5I@ZPEAPEAU5@@Z @ 0x1C036141C (-CreateClientVmBusChannel@@YAJPEAXPEAU_DEVICE_OBJECT@@U_GUID@@2PEBU_UNICODE_STRING@@PEAU_VMB_CHA.c)
+ *     ?CreateClientVmBusChannel@@YAJPEAXPEAU_DEVICE_OBJECT@@U_GUID@@2PEBU_UNICODE_STRING@@PEAU_VMB_CHANNEL_STATE_CHANGE_CALLBACKS@@P6AXPEAUVMBCHANNEL__@@PEAUVMBPACKETCOMPLETION__@@0II@ZP6AX5I@ZPEAPEAU5@@Z @ 0x1C0237984 (-CreateClientVmBusChannel@@YAJPEAXPEAU_DEVICE_OBJECT@@U_GUID@@2PEBU_UNICODE_STRING@@PEAU_VMB_CHA.c)
+ *     ?Initialize@DXGVMBUSCHANNEL@@IEAAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@E@Z @ 0x1C02B2F6C (-Initialize@DXGVMBUSCHANNEL@@IEAAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@E@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
-__int64 EnsureClientVmBusInterface(void)
+__int64 __fastcall EnsureClientVmBusInterface(__int64 a1, __int64 a2)
 {
   struct DXGGLOBAL *Global; // rax
-  unsigned int v1; // edi
-  struct DXGGLOBAL *v2; // rax
+  unsigned int v3; // ebx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  struct DXGGLOBAL *v6; // rax
   NTSTATUS DeviceObjectPointer; // eax
-  __int64 v4; // rsi
-  PIRP v5; // rax
-  IRP *v6; // rdx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r14
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  PIRP v14; // rax
+  __int64 v15; // rcx
+  IRP *v16; // rdx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  NTSTATUS Status; // eax
-  __int64 v9; // rbx
-  struct DXGGLOBAL *v10; // rax
-  struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp+7h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp+17h] BYREF
-  struct _KEVENT Event; // [rsp+70h] [rbp+27h] BYREF
-  PDEVICE_OBJECT DeviceObject; // [rsp+B0h] [rbp+67h] BYREF
-  PFILE_OBJECT FileObject; // [rsp+B8h] [rbp+6Fh] BYREF
+  NTSTATUS Status; // edi
+  struct DXGGLOBAL *v19; // rax
+  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-30h] BYREF
+  struct _KEVENT Event; // [rsp+60h] [rbp-20h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+A0h] [rbp+20h] BYREF
+  PFILE_OBJECT FileObject; // [rsp+A8h] [rbp+28h] BYREF
 
-  Global = DXGGLOBAL_GetGlobal();
-  DXGPUSHLOCK::AcquireExclusive((struct DXGGLOBAL *)((char *)Global + 928));
-  v1 = 0;
-  if ( g_VgpuVmBusInterfaceRefCount )
-  {
-    ((void (__fastcall *)(__int64))qword_1C0131B90)(qword_1C0131B88);
-    ++g_VgpuVmBusInterfaceRefCount;
-    v2 = DXGGLOBAL_GetGlobal();
-    *((_QWORD *)v2 + 117) = 0LL;
-    ExReleasePushLockExclusiveEx((char *)v2 + 928, 0LL);
-  }
-  else
+  Global = DXGGLOBAL::GetGlobal(a1, a2);
+  DXGPUSHLOCK::AcquireExclusive((struct DXGGLOBAL *)((char *)Global + 768));
+  v3 = 0;
+  if ( !g_VgpuVmBusInterfaceRefCount )
   {
     memset(&g_VgpuVmBusInterface, 0, 0x318uLL);
     DeviceObject = 0LL;
@@ -49,24 +47,23 @@ __int64 EnsureClientVmBusInterface(void)
     DestinationString = 0LL;
     RtlInitUnicodeString(&DestinationString, L"\\Device\\VMBus\\kmcl_interface");
     DeviceObjectPointer = IoGetDeviceObjectPointer(&DestinationString, 0x1F01FFu, &FileObject, &DeviceObject);
-    v4 = DeviceObjectPointer;
+    v10 = DeviceObjectPointer;
     if ( DeviceObjectPointer >= 0 )
     {
-      memset(&Event, 0, sizeof(Event));
       IoStatusBlock = 0LL;
       KeInitializeEvent(&Event, SynchronizationEvent, 0);
-      v5 = IoBuildSynchronousFsdRequest(0x1Bu, DeviceObject, 0LL, 0, 0LL, &Event, &IoStatusBlock);
-      v6 = v5;
-      if ( v5 )
+      v14 = IoBuildSynchronousFsdRequest(0x1Bu, DeviceObject, 0LL, 0, 0LL, &Event, &IoStatusBlock);
+      v16 = v14;
+      if ( v14 )
       {
-        CurrentStackLocation = v5->Tail.Overlay.CurrentStackLocation;
+        CurrentStackLocation = v14->Tail.Overlay.CurrentStackLocation;
         CurrentStackLocation[-1].MinorFunction = 8;
         CurrentStackLocation[-1].Parameters.WMI.ProviderId = (ULONG_PTR)&KMCL_CLIENT_INTERFACE_TYPE;
         CurrentStackLocation[-1].Parameters.Create.Options = 65896;
         CurrentStackLocation[-1].Parameters.Read.ByteOffset.QuadPart = (LONGLONG)&g_VgpuVmBusInterface;
         CurrentStackLocation[-1].Parameters.CreatePipe.Parameters = 0LL;
-        v6->IoStatus.Status = -1073741637;
-        Status = IofCallDriver(DeviceObject, v6);
+        v16->IoStatus.Status = -1073741637;
+        Status = IofCallDriver(DeviceObject, v16);
         if ( Status == 259 )
         {
           Status = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
@@ -76,57 +73,38 @@ __int64 EnsureClientVmBusInterface(void)
         if ( Status >= 0 )
         {
           g_VgpuVmBusInterfaceRefCount = 1;
+          goto LABEL_14;
         }
-        else
-        {
-          v9 = Status;
-          WdLogSingleEntry2(2LL, Status, 16113LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"IoCallDriver failed: 0x%I64x",
-            v9,
-            16113LL,
-            0LL,
-            0LL,
-            0LL);
-        }
+        v11 = WdLogNewEntry5_WdError(v13, v12);
+        *(_QWORD *)(v11 + 24) = Status;
+        *(_QWORD *)(v11 + 32) = 14188LL;
       }
       else
       {
-        WdLogSingleEntry2(2LL, -1073741670LL, 16085LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"IoBuildSynchronousFsdRequest failed: 0x%I64x",
-          -1073741670LL,
-          16085LL,
-          0LL,
-          0LL,
-          0LL);
+        v11 = WdLogNewEntry5_WdError(v15, 0LL);
+        *(_QWORD *)(v11 + 24) = -1073741670LL;
+        *(_QWORD *)(v11 + 32) = 14160LL;
       }
     }
     else
     {
-      WdLogSingleEntry1(2LL, DeviceObjectPointer);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"IoGetDeviceObjectPointer failed: 0x%I64x",
-        v4,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v11 = WdLogNewEntry5_WdError(v9, v8);
+      *(_QWORD *)(v11 + 24) = v10;
     }
-    v10 = DXGGLOBAL_GetGlobal();
-    *((_QWORD *)v10 + 117) = 0LL;
-    ExReleasePushLockExclusiveEx((char *)v10 + 928, 0LL);
-    v1 = v4;
+    WdLogEvent5_WdError(v11);
+LABEL_14:
+    v19 = DXGGLOBAL::GetGlobal(v13, v12);
+    *((_QWORD *)v19 + 97) = 0LL;
+    ExReleasePushLockExclusiveEx((char *)v19 + 768, 0LL);
+    v3 = v10;
+    goto LABEL_15;
   }
+  ((void (__fastcall *)(__int64))qword_1C00B4280)(qword_1C00B4278);
+  ++g_VgpuVmBusInterfaceRefCount;
+  v6 = DXGGLOBAL::GetGlobal(v5, v4);
+  *((_QWORD *)v6 + 97) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)v6 + 768, 0LL);
+LABEL_15:
   KeLeaveCriticalRegion();
-  return v1;
+  return v3;
 }

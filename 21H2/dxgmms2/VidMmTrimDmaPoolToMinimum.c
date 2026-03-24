@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmTrimDmaPoolToMinimum @ 0x1C002D5D0
+ * XREFs of VidMmTrimDmaPoolToMinimum @ 0x1C0023190
  * Callers:
  *     <none>
  * Callees:
- *     ?TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z @ 0x1C00E0D38 (-TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z.c)
+ *     ?TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z @ 0x1C00BB2A4 (-TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z.c)
  */
 
 void __fastcall VidMmTrimDmaPoolToMinimum(VIDMM_DMA_POOL *a1)

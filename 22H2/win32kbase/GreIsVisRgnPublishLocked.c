@@ -1,15 +1,12 @@
 /*
- * XREFs of GreIsVisRgnPublishLocked @ 0x1C016A600
+ * XREFs of GreIsVisRgnPublishLocked @ 0x1C014B7D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall GreIsVisRgnPublishLocked(__int64 a1)
+_BOOL8 GreIsVisRgnPublishLocked()
 {
-  __int64 v1; // rax
-
-  v1 = SGDGetSessionState(a1);
-  return ExIsResourceAcquiredExclusiveLite(*(PERESOURCE *)(*(_QWORD *)(v1 + 24) + 128LL)) != 0;
+  return ExIsResourceAcquiredExclusiveLite((PERESOURCE)ghsemVisRgnPublish) != 0;
 }

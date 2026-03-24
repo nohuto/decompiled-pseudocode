@@ -1,7 +1,7 @@
 /*
- * XREFs of PopDirectedDripsDiagTracePs4Initiator @ 0x1402E7678
+ * XREFs of PopDirectedDripsDiagTracePs4Initiator @ 0x1402E7778
  * Callers:
- *     PopDirectedDripsBuildBroadcastTree @ 0x14087BFB8 (PopDirectedDripsBuildBroadcastTree.c)
+ *     PopDirectedDripsBuildBroadcastTree @ 0x14087BF98 (PopDirectedDripsBuildBroadcastTree.c)
  * Callees:
  *     <none>
  */

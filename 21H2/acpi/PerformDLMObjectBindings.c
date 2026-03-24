@@ -1,9 +1,9 @@
 /*
- * XREFs of PerformDLMObjectBindings @ 0x1C0066E9C
+ * XREFs of PerformDLMObjectBindings @ 0x1C0065AE8
  * Callers:
- *     ACPIBuildProcessRunMethodPhasePostProcessResult @ 0x1C004AA30 (ACPIBuildProcessRunMethodPhasePostProcessResult.c)
+ *     ACPIBuildProcessRunMethodPhasePostProcessResult @ 0x1C004BF20 (ACPIBuildProcessRunMethodPhasePostProcessResult.c)
  * Callees:
- *     ParseDLMObjectInternal @ 0x1C0066C60 (ParseDLMObjectInternal.c)
+ *     ParseDLMObjectInternal @ 0x1C00658A8 (ParseDLMObjectInternal.c)
  */
 
 __int64 __fastcall PerformDLMObjectBindings(__int64 a1, __int64 a2)

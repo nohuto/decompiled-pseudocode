@@ -1,12 +1,12 @@
 /*
- * XREFs of DefaultSetInterval @ 0x14050CA60
+ * XREFs of DefaultSetInterval @ 0x1404BE6B0
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerSetTimerBackedProfileInterval @ 0x14050A6A0 (HalpTimerSetTimerBackedProfileInterval.c)
+ *     HalpTimerSetTimerBackedProfileInterval @ 0x1404C18F4 (HalpTimerSetTimerBackedProfileInterval.c)
  */
 
-__int64 __fastcall DefaultSetInterval(int a1, unsigned int *a2)
+__int64 __fastcall DefaultSetInterval(int a1, int *a2)
 {
   __int64 v4; // rdx
   unsigned int v5; // eax
@@ -16,9 +16,9 @@ __int64 __fastcall DefaultSetInterval(int a1, unsigned int *a2)
 
   if ( a1 )
     return 3221225659LL;
-  v4 = (unsigned __int8)byte_140C08C8C;
+  v4 = (unsigned __int8)byte_140C054EC;
   v5 = *a2;
-  v6 = HIDWORD(DefaultProfileIntervalLimits[(unsigned __int8)byte_140C08C8C]);
+  v6 = HIDWORD(DefaultProfileIntervalLimits[(unsigned __int8)byte_140C054EC]);
   if ( *a2 < v6 )
   {
     *a2 = v6;
@@ -32,6 +32,6 @@ __int64 __fastcall DefaultSetInterval(int a1, unsigned int *a2)
   }
   v8 = HalpTimerSetTimerBackedProfileInterval(v5);
   *a2 = v8;
-  dword_140C08C88 = v8;
+  dword_140C054E8 = v8;
   return 0LL;
 }

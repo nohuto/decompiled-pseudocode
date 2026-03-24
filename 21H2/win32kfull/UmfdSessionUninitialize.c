@@ -1,11 +1,11 @@
 /*
- * XREFs of UmfdSessionUninitialize @ 0x1C011D640
+ * XREFs of UmfdSessionUninitialize @ 0x1C01326D0
  * Callers:
  *     <none>
  * Callees:
- *     ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C011AC34 (-Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z.c)
- *     ?SessionUninitialize@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C011D6EC (-SessionUninitialize@UmfdHostLifeTimeManager@@CAXXZ.c)
- *     ?Uninitialize@UmfdAllocation@@SAXXZ @ 0x1C011D77C (-Uninitialize@UmfdAllocation@@SAXXZ.c)
+ *     ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C012E624 (-Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z.c)
+ *     ?SessionUninitialize@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C013277C (-SessionUninitialize@UmfdHostLifeTimeManager@@CAXXZ.c)
+ *     ?Uninitialize@UmfdAllocation@@SAXXZ @ 0x1C013280C (-Uninitialize@UmfdAllocation@@SAXXZ.c)
  */
 
 void UmfdSessionUninitialize()

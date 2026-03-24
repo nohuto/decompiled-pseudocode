@@ -1,10 +1,10 @@
 /*
- * XREFs of NotifyUserMSBDAIfApplicable @ 0x1C00604F4
+ * XREFs of NotifyUserMSBDAIfApplicable @ 0x1C0052B38
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C01FB06C (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C018071C (DpiFdoStartAdapter.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 NTSTATUS NotifyUserMSBDAIfApplicable()

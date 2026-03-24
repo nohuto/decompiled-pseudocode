@@ -1,66 +1,62 @@
 /*
- * XREFs of BiAdjustPrivilege @ 0x14080870C
+ * XREFs of BiAdjustPrivilege @ 0x140785C10
  * Callers:
- *     BiAcquirePrivilege @ 0x140808628 (BiAcquirePrivilege.c)
- *     BiReleasePrivilege @ 0x1408086B4 (BiReleasePrivilege.c)
+ *     BiReleasePrivilege @ 0x140785B38 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140785B90 (BiAcquirePrivilege.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenThreadTokenEx @ 0x14041AC80 (ZwOpenThreadTokenEx.c)
- *     ZwOpenProcessTokenEx @ 0x14041ACA0 (ZwOpenProcessTokenEx.c)
- *     ZwAdjustPrivilegesToken @ 0x14041AEC0 (ZwAdjustPrivilegesToken.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenThreadTokenEx @ 0x1403FA000 (ZwOpenThreadTokenEx.c)
+ *     ZwOpenProcessTokenEx @ 0x1403FA020 (ZwOpenProcessTokenEx.c)
+ *     ZwAdjustPrivilegesToken @ 0x1403FA240 (ZwAdjustPrivilegesToken.c)
  */
 
 __int64 __fastcall BiAdjustPrivilege(unsigned int a1, char a2, bool *a3)
 {
-  NTSTATUS v6; // ebx
+  int v6; // ebx
   int v7; // eax
-  int v8; // eax
-  NTSTATUS v10; // eax
+  NTSTATUS v9; // eax
   HANDLE Handle; // [rsp+30h] [rbp-40h] BYREF
-  int v12; // [rsp+38h] [rbp-38h]
-  __int64 v13; // [rsp+40h] [rbp-30h]
-  int v14; // [rsp+48h] [rbp-28h]
-  __int64 v15; // [rsp+4Ch] [rbp-24h]
-  int v16; // [rsp+54h] [rbp-1Ch]
-  __int128 v17; // [rsp+58h] [rbp-18h]
+  int v11; // [rsp+38h] [rbp-38h]
+  __int64 v12; // [rsp+40h] [rbp-30h]
+  int v13; // [rsp+48h] [rbp-28h]
+  __int64 v14; // [rsp+4Ch] [rbp-24h]
+  int v15; // [rsp+54h] [rbp-1Ch]
+  __int128 v16; // [rsp+58h] [rbp-18h]
 
-  v12 = 0;
-  v16 = 0;
+  v11 = 0;
+  v15 = 0;
   Handle = (HANDLE)-1LL;
-  v17 = 0LL;
+  v16 = 0LL;
   if ( (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 8) != 0 )
   {
     v6 = ZwOpenThreadTokenEx((HANDLE)0xFFFFFFFFFFFFFFFELL, 0x28u, 1u, 0x200u, &Handle);
     if ( v6 >= 0 )
       goto LABEL_3;
-    v10 = ZwOpenThreadTokenEx((HANDLE)0xFFFFFFFFFFFFFFFELL, 0x28u, 0, 0x200u, &Handle);
+    v9 = ZwOpenThreadTokenEx((HANDLE)0xFFFFFFFFFFFFFFFELL, 0x28u, 0, 0x200u, &Handle);
   }
   else
   {
-    v10 = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0x28u, 0x200u, &Handle);
+    v9 = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0x28u, 0x200u, &Handle);
   }
-  v6 = v10;
+  v6 = v9;
 LABEL_3:
   if ( v6 >= 0 )
   {
-    v13 = a1;
-    v15 = a1;
+    v12 = a1;
+    v14 = a1;
     v7 = 0;
-    v14 = 1;
+    v13 = 1;
     if ( a2 )
       v7 = 2;
-    v16 = v7;
-    v8 = ZwAdjustPrivilegesToken((__int64)Handle, 0LL);
-    v6 = v8;
-    if ( v8 == 262 )
-    {
+    v15 = v7;
+    v6 = ZwAdjustPrivilegesToken((__int64)Handle, 0LL);
+    if ( v6 == 262 )
       v6 = -1073741727;
-    }
-    else if ( v8 >= 0 )
+    if ( v6 >= 0 )
     {
-      if ( (_DWORD)v17 )
-        *a3 = (BYTE12(v17) & 2) != 0;
+      if ( (_DWORD)v16 )
+        *a3 = (BYTE12(v16) & 2) != 0;
       else
         *a3 = a2 != 0;
     }

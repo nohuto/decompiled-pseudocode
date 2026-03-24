@@ -1,13 +1,13 @@
 /*
- * XREFs of Interrupter_DeInitializeAfterOffload @ 0x1C003BDEC
+ * XREFs of Interrupter_DeInitializeAfterOffload @ 0x1C003B8B8
  * Callers:
- *     Controller_DecrementNumberOfEndpointsOffloaded @ 0x1C003142C (Controller_DecrementNumberOfEndpointsOffloaded.c)
+ *     Controller_DecrementNumberOfEndpointsOffloaded @ 0x1C0031164 (Controller_DecrementNumberOfEndpointsOffloaded.c)
  * Callees:
- *     XilRegister_ReadUlong @ 0x1C00139CC (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0013B7C (XilRegister_WriteUlong.c)
- *     XilRegister_WriteUlong64 @ 0x1C0014420 (XilRegister_WriteUlong64.c)
- *     WPP_RECORDER_SF_i @ 0x1C00156C4 (WPP_RECORDER_SF_i.c)
- *     XilRegister_ReadUlong64 @ 0x1C003D554 (XilRegister_ReadUlong64.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     XilRegister_WriteUlong64 @ 0x1C00142E0 (XilRegister_WriteUlong64.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     XilRegister_ReadUlong64 @ 0x1C003CFDC (XilRegister_ReadUlong64.c)
  */
 
 __int64 __fastcall Interrupter_DeInitializeAfterOffload(__int64 a1)
@@ -42,13 +42,13 @@ __int64 __fastcall Interrupter_DeInitializeAfterOffload(__int64 a1)
   v3 = *(_QWORD *)(v2 + 8);
   v4 = *(unsigned int **)(v2 + 24);
   v5 = *(_QWORD *)(v3 + 88);
-  if ( *(_BYTE *)(v5 + 129) )
+  if ( *(_BYTE *)(v5 + 137) )
     Ulong = *v4;
   else
     Ulong = XilRegister_ReadUlong(*(_QWORD *)(v3 + 88), v4);
   v7 = *(unsigned int **)(v2 + 24);
   v8 = Ulong & 0xFFFFFFFD;
-  if ( *(_BYTE *)(v5 + 129) )
+  if ( *(_BYTE *)(v5 + 137) )
   {
     *v7 = v8;
     _InterlockedOr(v26, 0);
@@ -58,14 +58,14 @@ __int64 __fastcall Interrupter_DeInitializeAfterOffload(__int64 a1)
     XilRegister_WriteUlong(v5, v7, v8);
   }
   v9 = *(unsigned int **)(v2 + 24);
-  if ( *(_BYTE *)(v5 + 129) )
+  if ( *(_BYTE *)(v5 + 137) )
     v10 = *v9;
   else
     v10 = XilRegister_ReadUlong(v5, v9);
   if ( (v10 & 1) != 0 )
   {
     v11 = *(int **)(v2 + 24);
-    if ( *(_BYTE *)(v5 + 129) )
+    if ( *(_BYTE *)(v5 + 137) )
     {
       *v11 = v10;
       _InterlockedOr(v26, 0);
@@ -110,7 +110,7 @@ LABEL_25:
   v19 = v15 != 0 ? i : 0;
   v20 = *(_QWORD *)(v2 + 24) + 24LL;
   v21 = v15 != 0 ? v12 : 0;
-  if ( !*(_BYTE *)(v5 + 129) )
+  if ( !*(_BYTE *)(v5 + 137) )
     XilRegister_ReadUlong64(v5, v20);
   v22 = v21 & 7 | (*(_QWORD *)(*(_QWORD *)(v2 + 144) + 24LL) + 16 * v19) & 0xFFFFFFFFFFFFFFF0uLL;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
@@ -120,13 +120,13 @@ LABEL_25:
       *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
       v20,
       9,
-      65,
-      (__int64)&WPP_84765f96df013c20a94fd65d5e9532b8_Traceguids,
+      64,
+      (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
       v22);
   }
   v23 = *(_QWORD *)(v2 + 24);
   v24 = (_DWORD *)(v23 + 24);
-  if ( !*(_BYTE *)(v5 + 129) )
+  if ( !*(_BYTE *)(v5 + 137) )
     return XilRegister_WriteUlong64(v5, v24, v22);
   result = *(_QWORD *)(*(_QWORD *)(v5 + 8) + 336LL);
   if ( (result & 1) != 0 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CVector3Force@@QEAA@PEAUIAccelerator@@00@Z @ 0x180225840
+ * XREFs of ??0CVector3Force@@QEAA@PEAUIAccelerator@@00@Z @ 0x1801D72E8
  * Callers:
- *     ?InitializeForces@CNaturalAnimation@@AEAAXXZ @ 0x180226998 (-InitializeForces@CNaturalAnimation@@AEAAXXZ.c)
+ *     ?InitializeForces@CNaturalAnimation@@AEAAXXZ @ 0x1801D82CC (-InitializeForces@CNaturalAnimation@@AEAAXXZ.c)
  * Callees:
- *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800DF980 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
- *     ?GetD3DMatrix@CMILMatrix@@QEBA?AU_D3DMATRIX@@XZ @ 0x1800E0B5C (-GetD3DMatrix@CMILMatrix@@QEBA-AU_D3DMATRIX@@XZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3644 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?GetD3DMatrix@CMILMatrix@@QEBA?AU_D3DMATRIX@@XZ @ 0x1800E110C (-GetD3DMatrix@CMILMatrix@@QEBA-AU_D3DMATRIX@@XZ.c)
  */
 
 CVector3Force *__fastcall CVector3Force::CVector3Force(
@@ -22,7 +22,7 @@ CVector3Force *__fastcall CVector3Force::CVector3Force(
 
   *((_DWORD *)this + 2) = 0;
   *(_QWORD *)this = &CVector3Force::`vftable';
-  D3DMatrix = CMILMatrix::GetD3DMatrix((struct _D3DMATRIX *)&CMILMatrix::Identity, &v13);
+  D3DMatrix = CMILMatrix::GetD3DMatrix(&CMILMatrix::Identity, &v13);
   v8 = *(_OWORD *)&D3DMatrix->_21;
   v9 = *(_OWORD *)&D3DMatrix->_31;
   v10 = *(_OWORD *)&D3DMatrix->_41;

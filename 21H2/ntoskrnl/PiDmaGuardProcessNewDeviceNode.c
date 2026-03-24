@@ -1,25 +1,26 @@
 /*
- * XREFs of PiDmaGuardProcessNewDeviceNode @ 0x140749848
+ * XREFs of PiDmaGuardProcessNewDeviceNode @ 0x1407655E0
  * Callers:
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PipDmgDestroyIommuExtension @ 0x140749814 (PipDmgDestroyIommuExtension.c)
- *     PiIommuGetInterface @ 0x1407498EC (PiIommuGetInterface.c)
- *     PiIommuAllocateExtension @ 0x14084C604 (PiIommuAllocateExtension.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PiIommuGetInterface @ 0x140765678 (PiIommuGetInterface.c)
+ *     PipDmgDestroyIommuExtension @ 0x140765EC4 (PipDmgDestroyIommuExtension.c)
+ *     PiIommuPutInterface @ 0x140765EF8 (PiIommuPutInterface.c)
+ *     PiIommuAllocateExtension @ 0x140765F1C (PiIommuAllocateExtension.c)
  */
 
 __int64 __fastcall PiDmaGuardProcessNewDeviceNode(ULONG_PTR MaxDataSize)
 {
-  unsigned int Extension; // ebx
+  unsigned int Extension; // edi
   __int64 v4; // rax
-  _QWORD v5[12]; // [rsp+30h] [rbp-68h] BYREF
+  _BYTE v5[80]; // [rsp+30h] [rbp-58h] BYREF
 
-  memset(v5, 0, 0x58uLL);
+  memset(v5, 0, sizeof(v5));
   PipDmgDestroyIommuExtension(MaxDataSize);
+  Extension = 0;
   if ( (int)PiIommuGetInterface(*(_QWORD *)(MaxDataSize + 32)) >= 0 )
   {
     if ( *(_QWORD *)(MaxDataSize + 720) )
@@ -46,12 +47,7 @@ __int64 __fastcall PiDmaGuardProcessNewDeviceNode(ULONG_PTR MaxDataSize)
       KeBugCheckEx(0xCAu, 0x11uLL, MaxDataSize, *(_QWORD *)(MaxDataSize + 720), *(unsigned int *)(MaxDataSize + 704));
     }
     Extension = PiIommuAllocateExtension(MaxDataSize, v5, MaxDataSize + 720);
-    if ( v5[3] )
-      ((void (__fastcall *)(_QWORD))v5[3])(v5[1]);
-  }
-  else
-  {
-    return 0;
+    PiIommuPutInterface(v5);
   }
   return Extension;
 }

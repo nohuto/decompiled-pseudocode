@@ -1,30 +1,39 @@
 /*
- * XREFs of DpiPollDisplayChildren @ 0x1C03876C0
+ * XREFs of DpiPollDisplayChildren @ 0x1C02C6C3C
  * Callers:
- *     DxgkSetDisplayMode @ 0x1C01C2EF0 (DxgkSetDisplayMode.c)
- *     ?PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02CF750 (-PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_.c)
- *     ?PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C030B034 (-PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCEN.c)
- *     ?_HandlePowerOnInternal@USB4_POWERON_WORK_QUEUE@@QEAAXPEAUUSB4_POWERON_WORK_CONTEXT@@@Z @ 0x1C03B62E0 (-_HandlePowerOnInternal@USB4_POWERON_WORK_QUEUE@@QEAAXPEAUUSB4_POWERON_WORK_CONTEXT@@@Z.c)
+ *     DxgkSetDisplayMode @ 0x1C014C630 (DxgkSetDisplayMode.c)
+ *     ?PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0221AB8 (-PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_.c)
+ *     ?PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C026A4BC (-PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCEN.c)
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
- *     DpiFdoInvalidateChildRelations @ 0x1C01F3230 (DpiFdoInvalidateChildRelations.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
+ *     DpiFdoInvalidateChildRelations @ 0x1C0179340 (DpiFdoInvalidateChildRelations.c)
  */
 
 __int64 __fastcall DpiPollDisplayChildren(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v3; // rbx
   NTSTATUS v7; // eax
-  unsigned int v8; // edi
-  __int64 v9; // r8
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // rdi
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // rax
 
   v3 = *(_QWORD *)(a1 + 64);
   v7 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v3 + 64), 0LL, File, 1u, 0x20u);
-  v8 = v7;
+  v11 = v7;
   if ( v7 < 0 )
   {
-    WdLogSingleEntry2(3LL, a1, v7);
-    return v8;
+    v12 = WdLogNewEntry5_WdWarning(v9, v8, v10);
+    *(_QWORD *)(v12 + 24) = a1;
+    *(_QWORD *)(v12 + 32) = v11;
+    WdLogEvent5_WdWarning(v12);
+    return (unsigned int)v11;
   }
   KeEnterCriticalRegion();
   if ( *(_BYTE *)(v3 + 484) )
@@ -32,24 +41,27 @@ __int64 __fastcall DpiPollDisplayChildren(__int64 a1, unsigned int a2, __int64 a
   ExAcquireResourceSharedLite(*(PERESOURCE *)(v3 + 168), 1u);
   if ( *(_DWORD *)(v3 + 236) != 2 )
   {
-    v8 = -1073741823;
-    v9 = -1073741823LL;
+    LODWORD(v11) = -1073741823;
+    v16 = WdLogNewEntry5_WdWarning(v14, v13, v15);
+    *(_QWORD *)(v16 + 32) = -1073741823LL;
 LABEL_11:
-    WdLogSingleEntry2(3LL, a1, v9);
+    *(_QWORD *)(v16 + 24) = a1;
+    WdLogEvent5_WdWarning(v16);
     goto LABEL_12;
   }
-  if ( *(_DWORD *)(v3 + 3984) == 1 || *(_DWORD *)(v3 + 284) != 1 )
+  if ( *(_DWORD *)(v3 + 3976) == 1 || *(_DWORD *)(v3 + 284) != 1 )
   {
-    v9 = -1073741661LL;
-    v8 = -1073741661;
+    LODWORD(v11) = -1073741661;
+    v16 = WdLogNewEntry5_WdWarning(v14, v13, v15);
+    *(_QWORD *)(v16 + 32) = -1073741661LL;
     goto LABEL_11;
   }
-  v8 = DpiFdoInvalidateChildRelations(a1, a2, a3);
+  LODWORD(v11) = DpiFdoInvalidateChildRelations(a1, a2, a3);
 LABEL_12:
   if ( *(_BYTE *)(v3 + 484) )
     DpiEnableD3Requests(*(_QWORD *)(v3 + 24));
   ExReleaseResourceLite(*(PERESOURCE *)(v3 + 168));
   KeLeaveCriticalRegion();
   IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v3 + 64), 0LL, 0x20u);
-  return v8;
+  return (unsigned int)v11;
 }

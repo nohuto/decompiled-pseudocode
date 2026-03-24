@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmIdleUpdatePlatformDependencies @ 0x14099DCE8
+ * XREFs of PpmIdleUpdatePlatformDependencies @ 0x1408F68E8
  * Callers:
- *     PpmInstallPlatformIdleStates @ 0x1409824C0 (PpmInstallPlatformIdleStates.c)
+ *     PpmInstallPlatformIdleStates @ 0x1408E22F0 (PpmInstallPlatformIdleStates.c)
  * Callees:
  *     <none>
  */
@@ -11,21 +11,14 @@ __int64 __fastcall PpmIdleUpdatePlatformDependencies(__int64 a1)
   __int64 result; // rax
   bool v2; // zf
   __int64 v3; // r8
-  int i; // r10d
+  int i; // r9d
   __int64 v5; // r11
 
   result = HvlpFlags;
   if ( (HvlpFlags & 2) != 0 )
-  {
-    result = (unsigned int)HvlEnlightenments;
-    if ( (HvlEnlightenments & 0x10000000) != 0 )
-      return result;
     v2 = (HvlEnlightenments & 0x400) == 0;
-  }
   else
-  {
     v2 = HvlHypervisorConnected == 0;
-  }
   if ( !v2 )
   {
     v3 = 0LL;

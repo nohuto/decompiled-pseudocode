@@ -1,17 +1,17 @@
 /*
- * XREFs of ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C00BA604
+ * XREFs of ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C00A06C4
  * Callers:
- *     NtGdiCreateColorSpace @ 0x1C016D250 (NtGdiCreateColorSpace.c)
- *     bInitICM @ 0x1C02DDB24 (bInitICM.c)
+ *     NtGdiCreateColorSpace @ 0x1C0148BD0 (NtGdiCreateColorSpace.c)
+ *     bInitICM @ 0x1C0299608 (bInitICM.c)
  * Callees:
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C00369B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     AllocateObject @ 0x1C003DE70 (AllocateObject.c)
- *     ??1HmgInsertObjectHelper@@QEAA@XZ @ 0x1C003F2C0 (--1HmgInsertObjectHelper@@QEAA@XZ.c)
- *     HmgDecrementShareReferenceCountEx @ 0x1C00421F0 (HmgDecrementShareReferenceCountEx.c)
- *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z @ 0x1C0047860 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z.c)
- *     FreeObject @ 0x1C0088C60 (FreeObject.c)
- *     EngSetLastError @ 0x1C00AADD0 (EngSetLastError.c)
- *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C0150A68 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0010F04 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     FreeObject @ 0x1C002BC40 (FreeObject.c)
+ *     AllocateObject @ 0x1C002BCC0 (AllocateObject.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C002F680 (HmgDecrementShareReferenceCountEx.c)
+ *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z @ 0x1C0035EA0 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z.c)
+ *     ??1HmgInsertObjectHelper@@QEAA@XZ @ 0x1C00360A8 (--1HmgInsertObjectHelper@@QEAA@XZ.c)
+ *     EngSetLastError @ 0x1C009F430 (EngSetLastError.c)
+ *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C013BC44 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
  */
 
 struct HOBJ__ *__fastcall GreCreateColorSpace(struct _LOGCOLORSPACEEXW *a1)
@@ -23,11 +23,11 @@ struct HOBJ__ *__fastcall GreCreateColorSpace(struct _LOGCOLORSPACEEXW *a1)
   v1 = 0LL;
   if ( *(_DWORD *)a1 == 1347637059 && *((_DWORD *)a1 + 1) == 1024 && *((_DWORD *)a1 + 2) == 588 )
   {
-    Object = AllocateObject(616LL, 9u, 0);
+    Object = AllocateObject(0x268uLL, 9LL, 0);
     if ( Object )
     {
       HmgInsertObjectHelper::HmgInsertObjectHelper((HmgInsertObjectHelper *)v5);
-      v1 = HmgInsertObjectHelper::Insert((HmgInsertObjectHelper *)v5, (struct OBJECT *)Object, 1u, 0, 9);
+      v1 = HmgInsertObjectHelper::Insert((HmgInsertObjectHelper *)v5, (struct OBJECT *)Object, 1u, 0, 9u);
       if ( v1 )
       {
         *(_DWORD *)(Object + 24) = *(_DWORD *)a1;
@@ -43,11 +43,11 @@ struct HOBJ__ *__fastcall GreCreateColorSpace(struct _LOGCOLORSPACEEXW *a1)
         *(_DWORD *)(Object + 88) = *((_DWORD *)a1 + 16);
         RtlStringCchCopyW((unsigned __int16 *)(Object + 92), 0x104uLL, (size_t *)((char *)a1 + 68));
         *(_DWORD *)(Object + 612) = *((_DWORD *)a1 + 147);
-        HmgDecrementShareReferenceCountEx((int *)Object, 0LL);
+        HmgDecrementShareReferenceCountEx(Object, 0LL);
       }
       else
       {
-        FreeObject((void *)Object, 9u);
+        FreeObject(Object, 9);
       }
       HmgInsertObjectHelper::~HmgInsertObjectHelper((HmgInsertObjectHelper *)v5);
     }

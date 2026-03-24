@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInitializeDiscardReplaceContext @ 0x1407F9EEC
+ * XREFs of CmpInitializeDiscardReplaceContext @ 0x1407F9ECC
  * Callers:
- *     CmDeleteLayeredKey @ 0x14026CBCC (CmDeleteLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x14026CCCC (CmDeleteLayeredKey.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall CmpInitializeDiscardReplaceContext(__int64 a1)

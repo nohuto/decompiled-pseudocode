@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiCreateOPMProtectedOutputs @ 0x1C015C560
+ * XREFs of NtGdiCreateOPMProtectedOutputs @ 0x1C00BFD80
  * Callers:
  *     <none>
  * Callees:
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C00BF7E0 (AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList.c)
- *     DrvCreatePhysicalMonitorObjects @ 0x1C0165F80 (DrvCreatePhysicalMonitorObjects.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C00B49C0 (AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList.c)
+ *     DrvCreatePhysicalMonitorObjects @ 0x1C00BFE10 (DrvCreatePhysicalMonitorObjects.c)
  */
 
 __int64 __fastcall NtGdiCreateOPMProtectedOutputs(
@@ -18,17 +18,13 @@ __int64 __fastcall NtGdiCreateOPMProtectedOutputs(
   __int64 result; // rax
   unsigned int v9; // edi
   int PhysicalMonitorObjects; // ebx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
 
   result = AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList();
   v9 = 0;
   if ( (int)result >= 0 )
   {
     PhysicalMonitorObjects = DrvCreatePhysicalMonitorObjects(a1, UserMode, a3, a4, Address);
-    UserSessionSwitchLeaveCrit(v12, v11, v13, v14);
+    UserSessionSwitchLeaveCrit();
     if ( PhysicalMonitorObjects < 0 )
       return (unsigned int)PhysicalMonitorObjects;
     return v9;

@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SetScale@CInteractionTracker@@AEAAXMW4TrackerUpdateType@1@@Z @ 0x1801332C0
+ * XREFs of ?SetScale@CInteractionTracker@@AEAAXMW4TrackerUpdateType@1@@Z @ 0x1801CC53C
  * Callers:
- *     ?EnsureScaleIsGreaterThanOrEqualToMin@CInteractionTracker@@AEAAXXZ @ 0x180132A6A (-EnsureScaleIsGreaterThanOrEqualToMin@CInteractionTracker@@AEAAXXZ.c)
- *     ?EnsureScaleIsLessThanOrEqualToMax@CInteractionTracker@@AEAAXXZ @ 0x180132AA4 (-EnsureScaleIsLessThanOrEqualToMax@CInteractionTracker@@AEAAXXZ.c)
- *     ?SetProperty@CInteractionTracker@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180235040 (-SetProperty@CInteractionTracker@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
- *     ?SetRequestedScale@CInteractionTracker@@AEAA_NM@Z @ 0x18023537C (-SetRequestedScale@CInteractionTracker@@AEAA_NM@Z.c)
- *     ?BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteractionTracker@@PEAV2@W4InteractionTrackerBindingModeFlags@@@Z @ 0x180237A2C (-BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteracti.c)
- *     ?SetCustomAnimationFinalValue@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractionTracker@@PEAVCKeyframeAnimation@@W4CustomAnimationTarget@@@Z @ 0x180238CBC (-SetCustomAnimationFinalValue@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractionTracker@@P.c)
- *     ?UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z @ 0x18023935C (-UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z.c)
+ *     ?EnsureScaleIsGreaterThanOrEqualToMin@CInteractionTracker@@AEAAXXZ @ 0x1801C93B8 (-EnsureScaleIsGreaterThanOrEqualToMin@CInteractionTracker@@AEAAXXZ.c)
+ *     ?EnsureScaleIsLessThanOrEqualToMax@CInteractionTracker@@AEAAXXZ @ 0x1801C93F4 (-EnsureScaleIsLessThanOrEqualToMax@CInteractionTracker@@AEAAXXZ.c)
+ *     ?SetProperty@CInteractionTracker@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801CC180 (-SetProperty@CInteractionTracker@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?SetRequestedScale@CInteractionTracker@@AEAA_NM@Z @ 0x1801CC4A8 (-SetRequestedScale@CInteractionTracker@@AEAA_NM@Z.c)
+ *     ?BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteractionTracker@@PEAV2@W4InteractionTrackerBindingModeFlags@@@Z @ 0x1801CE908 (-BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteracti.c)
+ *     ?SetCustomAnimationFinalValue@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractionTracker@@PEAVCKeyframeAnimation@@W4CustomAnimationTarget@@@Z @ 0x1801CFE14 (-SetCustomAnimationFinalValue@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractionTracker@@P.c)
+ *     ?UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z @ 0x1801D04AC (-UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z.c)
  * Callees:
- *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180098F64 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z @ 0x180133212 (-SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z.c)
- *     ?UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z @ 0x18023935C (-UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z.c)
+ *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180066030 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z @ 0x1801CC018 (-SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z.c)
+ *     ?UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z @ 0x1801D04AC (-UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z.c)
  */
 
 void __fastcall CInteractionTracker::SetScale(__int64 a1, float a2, int a3)
@@ -29,48 +29,55 @@ void __fastcall CInteractionTracker::SetScale(__int64 a1, float a2, int a3)
   float v14; // xmm1_4
   float v15[4]; // [rsp+20h] [rbp-38h] BYREF
 
-  v4 = *(float *)(a1 + 136);
+  v4 = *(float *)(a1 + 128);
   v5 = fmaxf(0.001, a2);
   if ( v5 == v4 )
     return;
-  v7 = *(CInteractionTrackerBindingManager **)(a1 + 640);
+  v7 = *(CInteractionTrackerBindingManager **)(a1 + 632);
   v8 = 0;
-  *(float *)(a1 + 136) = v5;
+  *(float *)(a1 + 128) = v5;
   v9 = v5 / v4;
-  if ( v7 && !a3 )
+  if ( v7 )
   {
-    CInteractionTrackerBindingManager::UpdateBoundTrackerScale(v7, (struct CInteractionTracker *)a1, v5, 0);
-    v7 = *(CInteractionTrackerBindingManager **)(a1 + 640);
+    if ( !a3 )
+    {
+      CInteractionTrackerBindingManager::UpdateBoundTrackerScale(v7, (struct CInteractionTracker *)a1, v5, 0);
+      v7 = *(CInteractionTrackerBindingManager **)(a1 + 632);
+    }
   }
-  v10 = *(_DWORD *)(a1 + 176);
+  else
+  {
+    v7 = 0LL;
+  }
+  v10 = *(_DWORD *)(a1 + 168);
   v11 = 0;
   if ( !v10 )
   {
-LABEL_11:
+LABEL_12:
     v11 = 1;
-    goto LABEL_12;
+    goto LABEL_13;
   }
   v12 = v10 - 2;
   if ( v12 )
   {
-    if ( v12 != 1 || *(_QWORD *)(a1 + 352) || !*(_QWORD *)(a1 + 360) || (*(_BYTE *)(a1 + 541) & 2) != 0 )
-      goto LABEL_12;
-    goto LABEL_11;
+    if ( v12 != 1 || *(_QWORD *)(a1 + 344) || !*(_QWORD *)(a1 + 352) || (*(_BYTE *)(a1 + 533) & 2) != 0 )
+      goto LABEL_13;
+    goto LABEL_12;
   }
-  v11 = *(_QWORD *)(a1 + 472) != 0LL;
-LABEL_12:
-  if ( !v7 || (*(_BYTE *)(a1 + 541) & 1) != 0 )
+  v11 = *(_QWORD *)(a1 + 464) != 0LL;
+LABEL_13:
+  if ( !v7 || (*(_BYTE *)(a1 + 533) & 1) != 0 )
     v8 = 1;
   if ( ((unsigned __int8)v8 & v11) != 0 )
   {
-    v13 = *(float *)(a1 + 152);
-    v14 = *(float *)(a1 + 84);
-    v15[0] = (float)((float)(*(float *)(a1 + 80) - *(float *)(a1 + 148)) * v9) + *(float *)(a1 + 148);
-    v15[2] = *(float *)(a1 + 88);
+    v13 = *(float *)(a1 + 144);
+    v14 = *(float *)(a1 + 76);
+    v15[0] = (float)((float)(*(float *)(a1 + 72) - *(float *)(a1 + 140)) * v9) + *(float *)(a1 + 140);
+    v15[2] = *(float *)(a1 + 80);
     v15[1] = (float)((float)(v14 - v13) * v9) + v13;
     CInteractionTracker::SetPosition(a1, (__int64)v15, 0);
   }
-  *(_BYTE *)(a1 + 540) |= 2u;
+  *(_BYTE *)(a1 + 532) |= 2u;
   CResource::InvalidateAnimationSources((CResource *)a1, 2);
   CResource::InvalidateAnimationSources((CResource *)a1, 59);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ClearInputPanelRects@DelayZoneTelemetry@@QEAAXXZ @ 0x1C009E9B8
+ * XREFs of ?ClearInputPanelRects@DelayZoneTelemetry@@QEAAXXZ @ 0x1C0074984
  * Callers:
- *     ?Uninitialize@DelayZonePalmRejection@@SAXXZ @ 0x1C009E908 (-Uninitialize@DelayZonePalmRejection@@SAXXZ.c)
- *     ?ClearSession@DelayZoneTelemetry@@QEAAXXZ @ 0x1C01F7C78 (-ClearSession@DelayZoneTelemetry@@QEAAXXZ.c)
+ *     ?Uninitialize@DelayZonePalmRejection@@SAXXZ @ 0x1C00748E0 (-Uninitialize@DelayZonePalmRejection@@SAXXZ.c)
+ *     ?ClearSession@DelayZoneTelemetry@@QEAAXXZ @ 0x1C01BD41C (-ClearSession@DelayZoneTelemetry@@QEAAXXZ.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 void __fastcall DelayZoneTelemetry::ClearInputPanelRects(DelayZoneTelemetry *this)
@@ -12,22 +12,20 @@ void __fastcall DelayZoneTelemetry::ClearInputPanelRects(DelayZoneTelemetry *thi
   char *v1; // rdi
   char *v2; // rbx
   char *v3; // rax
-  char *v4; // rdx
-  char **v5; // rcx
+  __int64 v4; // rcx
+  char **v5; // rdx
 
   v1 = (char *)this + 12288;
   v2 = (char *)*((_QWORD *)this + 1536);
   while ( v2 != v1 )
   {
     v3 = *(char **)v2;
-    v4 = v2;
+    v4 = (__int64)v2;
     v2 = v3;
-    if ( *((char **)v3 + 1) != v4 || (v5 = (char **)*((_QWORD *)v4 + 1), *v5 != v4) )
+    if ( *((_QWORD *)v3 + 1) != v4 || (v5 = *(char ***)(v4 + 8), *v5 != (char *)v4) )
       __fastfail(3u);
     *v5 = v3;
     *((_QWORD *)v3 + 1) = v5;
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      v4);
+    Win32FreePool(v4);
   }
 }

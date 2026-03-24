@@ -1,9 +1,9 @@
 /*
- * XREFs of unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX @ 0x1C01BB370
+ * XREFs of unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX @ 0x1C01D4338
  * Callers:
- *     xxxGetListBoxInfo @ 0x1C0230BF0 (xxxGetListBoxInfo.c)
+ *     xxxGetListBoxInfo @ 0x1C0248FB0 (xxxGetListBoxInfo.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX(_QWORD *a1)
@@ -13,13 +13,16 @@ __int64 __fastcall unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX(_QWORD *a1)
 
   if ( !a1 )
     return 0LL;
-  if ( _bittest16((const signed __int16 *)(a1[5] + 42LL), 0xCu) )
-    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTellMeIf", 0x20000, 882);
   v2 = a1[5];
+  if ( (*(_WORD *)(v2 + 42) & 0x1000) != 0 )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTellMeIf", 0x20000, 1105);
+    v2 = a1[5];
+  }
   v3 = *(_WORD *)(v2 + 42);
   if ( (v3 & 0x1000) != 0 || (v3 & 0x2FFF) != 0x2A6 && **(_WORD **)(a1[17] + 8LL) != *(_WORD *)(gpsi + 874LL) )
     return 0LL;
-  if ( *(_DWORD *)(v2 + 248) )
+  if ( *(_DWORD *)(v2 + 252) )
     return a1[35];
   return *(_QWORD *)(v2 + 296);
 }

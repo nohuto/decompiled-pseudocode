@@ -1,9 +1,9 @@
 /*
- * XREFs of PiPnpRtlEnumDevicesCallback @ 0x140948520
+ * XREFs of PiPnpRtlEnumDevicesCallback @ 0x1408A32C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PiPnpRtlEnumDevicesCallback(__int64 a1, __int64 a2, _BYTE *a3)

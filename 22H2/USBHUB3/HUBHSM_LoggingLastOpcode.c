@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_LoggingLastOpcode @ 0x1C000A1C0
+ * XREFs of HUBHSM_LoggingLastOpcode @ 0x1C0009A00
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ll @ 0x1C003FA78 (WPP_RECORDER_SF_ll.c)
+ *     WPP_RECORDER_SF_ll @ 0x1C003D798 (WPP_RECORDER_SF_ll.c)
  */
 
 __int64 __fastcall HUBHSM_LoggingLastOpcode(__int64 a1, __int64 a2, int a3, int a4)

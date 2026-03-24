@@ -1,16 +1,16 @@
 /*
- * XREFs of MiTracingEnabledCallback @ 0x140866350
+ * XREFs of MiTracingEnabledCallback @ 0x1408D7A60
  * Callers:
  *     <none>
  * Callees:
- *     MiLogHotPatchRundown @ 0x140A39720 (MiLogHotPatchRundown.c)
+ *     MiLogHotPatchRundown @ 0x1408CC00C (MiLogHotPatchRundown.c)
  */
 
-__int64 __fastcall MiTracingEnabledCallback(__int64 a1, int a2, __int64 a3, char a4)
+struct _EX_RUNDOWN_REF *__fastcall MiTracingEnabledCallback(__int64 a1, int a2, __int64 a3, char a4)
 {
-  __int64 result; // rax
+  struct _EX_RUNDOWN_REF *result; // rax
 
-  result = (unsigned int)(a2 - 1);
+  result = (struct _EX_RUNDOWN_REF *)(unsigned int)(a2 - 1);
   if ( (unsigned int)result <= 1 && (a4 & 0x20) != 0 )
     return MiLogHotPatchRundown();
   return result;

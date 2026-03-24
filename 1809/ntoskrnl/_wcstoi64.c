@@ -1,9 +1,9 @@
 /*
- * XREFs of _wcstoi64 @ 0x1401980F8
+ * XREFs of _wcstoi64 @ 0x140198118
  * Callers:
- *     PiNormalizeDeviceText @ 0x1406FDD60 (PiNormalizeDeviceText.c)
+ *     PiNormalizeDeviceText @ 0x1406FDD40 (PiNormalizeDeviceText.c)
  * Callees:
- *     wcstoxq @ 0x140198128 (wcstoxq.c)
+ *     wcstoxq @ 0x140198148 (wcstoxq.c)
  */
 
 __int64 __cdecl wcstoi64(const wchar_t *Str, wchar_t **EndPtr, int Radix)

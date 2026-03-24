@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpApplyPrewaitBoost @ 0x1400D1BB8
+ * XREFs of ExpApplyPrewaitBoost @ 0x1400D1BD8
  * Callers:
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1400B19F0 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireSharedWaitForExclusive @ 0x140165E60 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x1400B1A10 (ExpAcquireSharedStarveExclusive.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x140165E80 (ExAcquireSharedWaitForExclusive.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x1400B6B20 (PsGetIoPriorityThread.c)
- *     ExpApplyPriorityBoost @ 0x1400CEA00 (ExpApplyPriorityBoost.c)
+ *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
+ *     ExpApplyPriorityBoost @ 0x1400CEA20 (ExpApplyPriorityBoost.c)
  */
 
 void ExpApplyPrewaitBoost()

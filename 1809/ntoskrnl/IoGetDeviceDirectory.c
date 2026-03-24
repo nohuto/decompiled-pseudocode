@@ -1,21 +1,21 @@
 /*
- * XREFs of IoGetDeviceDirectory @ 0x140824A10
+ * XREFs of IoGetDeviceDirectory @ 0x1408249F0
  * Callers:
  *     <none>
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
  *     PnpGetObjectProperty @ 0x140599EC8 (PnpGetObjectProperty.c)
  *     ExUuidCreate @ 0x1406062C0 (ExUuidCreate.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     _PnpSetObjectProperty @ 0x1406E5644 (_PnpSetObjectProperty.c)
- *     PiGetStateRootPath @ 0x14070E160 (PiGetStateRootPath.c)
- *     PnpConcatenateUnicodeStrings @ 0x14070F85C (PnpConcatenateUnicodeStrings.c)
- *     PiBuildAndOpenDeviceDirectoryPath @ 0x140824EBC (PiBuildAndOpenDeviceDirectoryPath.c)
+ *     _PnpSetObjectProperty @ 0x1406E5624 (_PnpSetObjectProperty.c)
+ *     PiGetStateRootPath @ 0x14070E140 (PiGetStateRootPath.c)
+ *     PnpConcatenateUnicodeStrings @ 0x14070F83C (PnpConcatenateUnicodeStrings.c)
+ *     PiBuildAndOpenDeviceDirectoryPath @ 0x140824E9C (PiBuildAndOpenDeviceDirectoryPath.c)
  */
 
 __int64 __fastcall IoGetDeviceDirectory(__int64 a1, int a2, int a3, __int64 a4, __int64 *a5)
@@ -100,7 +100,7 @@ __int64 __fastcall IoGetDeviceDirectory(__int64 a1, int a2, int a3, __int64 a4, 
             do
             {
               v17 = *(_WORD *)(*(_QWORD *)&SourceString.Data1 + 2 * v16);
-              if ( v17 > 0x7Fu || (byte_14035C600[v17] & 1) == 0 )
+              if ( v17 > 0x7Fu || (byte_14035C710[v17] & 1) == 0 )
                 goto LABEL_26;
               v16 = ++v15;
             }
@@ -143,9 +143,9 @@ LABEL_26:
             v21 = v29.Buffer[v20];
             if ( v21 > 0x7Fu )
               break;
-            if ( (byte_14035C600[v21] & 1) == 0 )
+            if ( (byte_14035C710[v21] & 1) == 0 )
             {
-              v29.Buffer[v20] = (byte_14035C600[v21] & 1) + 35;
+              v29.Buffer[v20] = (byte_14035C710[v21] & 1) + 35;
               Length = v29.Length;
             }
             if ( ++v20 >= (unsigned int)(Length >> 1) )

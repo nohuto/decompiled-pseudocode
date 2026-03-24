@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DeviceClassCDROMNotify@@YAJPEAU_DEVICE_INTERFACE_CHANGE_NOTIFICATION@@PEAX@Z @ 0x1C01D89F0
+ * XREFs of ?DeviceClassCDROMNotify@@YAJPEAU_DEVICE_INTERFACE_CHANGE_NOTIFICATION@@PEAX@Z @ 0x1C01DDCA0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall DeviceClassCDROMNotify(char *NotificationStructure, PVOID Context)
@@ -27,7 +27,7 @@ __int64 __fastcall DeviceClassCDROMNotify(char *NotificationStructure, PVOID Con
     && IoGetDeviceObjectPointer(*((PUNICODE_STRING *)NotificationStructure + 5), 0x80u, &FileObject, &DeviceObject) >= 0 )
   {
     v4 = **((unsigned __int16 **)NotificationStructure + 5) + 40;
-    v5 = Win32AllocPoolZInit(v4, 1886417749LL);
+    v5 = Win32AllocPool(v4, 1886417749LL);
     v6 = (struct _LIST_ENTRY *)v5;
     if ( v5 )
     {

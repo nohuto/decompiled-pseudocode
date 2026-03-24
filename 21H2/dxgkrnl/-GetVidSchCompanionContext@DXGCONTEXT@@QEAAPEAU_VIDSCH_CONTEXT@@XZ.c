@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetVidSchCompanionContext@DXGCONTEXT@@QEAAPEAU_VIDSCH_CONTEXT@@XZ @ 0x1C02E220C
+ * XREFs of ?GetVidSchCompanionContext@DXGCONTEXT@@QEAAPEAU_VIDSCH_CONTEXT@@XZ @ 0x1C022EA70
  * Callers:
- *     DxgkUpdateGpuVirtualAddress @ 0x1C02D96E0 (DxgkUpdateGpuVirtualAddress.c)
- *     ?GetVidMmCompanionContext@DXGCONTEXT@@QEAAPEAUVIDMM_COMPANION_CONTEXT@@XZ @ 0x1C02E21A0 (-GetVidMmCompanionContext@DXGCONTEXT@@QEAAPEAUVIDMM_COMPANION_CONTEXT@@XZ.c)
+ *     DxgkUpdateGpuVirtualAddress @ 0x1C022ABB0 (DxgkUpdateGpuVirtualAddress.c)
+ *     ?GetVidMmCompanionContext@DXGCONTEXT@@QEAAPEAUVIDMM_COMPANION_CONTEXT@@XZ @ 0x1C022EA04 (-GetVidMmCompanionContext@DXGCONTEXT@@QEAAPEAUVIDMM_COMPANION_CONTEXT@@XZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 struct _VIDSCH_CONTEXT *__fastcall DXGCONTEXT::GetVidSchCompanionContext(DXGCONTEXT *this)
@@ -16,23 +16,23 @@ struct _VIDSCH_CONTEXT *__fastcall DXGCONTEXT::GetVidSchCompanionContext(DXGCONT
   __int64 v5; // [rsp+30h] [rbp-28h]
   int v6; // [rsp+38h] [rbp-20h]
 
-  result = (struct _VIDSCH_CONTEXT *)*((_QWORD *)this + 33);
+  result = (struct _VIDSCH_CONTEXT *)*((_QWORD *)this + 35);
   if ( !result )
   {
     v5 = 0LL;
     v6 = 0;
     v3 = *((_QWORD *)this + 2);
     v4 = 0LL;
-    LODWORD(v3) = *(_DWORD *)(*(_QWORD *)(v3 + 40) + 432LL);
+    LODWORD(v3) = *(_DWORD *)(*(_QWORD *)(v3 + 40) + 352LL);
     HIDWORD(v4) = 0;
     LODWORD(v4) = 64;
     HIDWORD(v5) = v3;
-    DWORD2(v4) = *((_DWORD *)this + 100);
-    result = (struct _VIDSCH_CONTEXT *)(*(__int64 (__fastcall **)(DXGCONTEXT *, __int128 *))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 624LL) + 8LL)
+    DWORD2(v4) = *((_DWORD *)this + 104);
+    result = (struct _VIDSCH_CONTEXT *)(*(__int64 (__fastcall **)(DXGCONTEXT *, __int128 *))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 616LL) + 8LL)
                                                                                            + 216LL))(
                                          this,
                                          &v4);
-    *((_QWORD *)this + 33) = result;
+    *((_QWORD *)this + 35) = result;
   }
   return result;
 }

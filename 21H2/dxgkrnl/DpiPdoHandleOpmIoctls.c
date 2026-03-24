@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiPdoHandleOpmIoctls @ 0x1C01ED968
+ * XREFs of DpiPdoHandleOpmIoctls @ 0x1C01739E0
  * Callers:
- *     DpiPdoDispatchInternalIoctl @ 0x1C01E4480 (DpiPdoDispatchInternalIoctl.c)
+ *     DpiPdoDispatchInternalIoctl @ 0x1C0169250 (DpiPdoDispatchInternalIoctl.c)
  * Callees:
- *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C0020F80 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
- *     DxgkAttemptOpmVmBusRedirect @ 0x1C01EDB94 (DxgkAttemptOpmVmBusRedirect.c)
+ *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C001CC94 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
+ *     DxgkAttemptOpmVmBusRedirect @ 0x1C0173BE8 (DxgkAttemptOpmVmBusRedirect.c)
  */
 
 __int64 __fastcall DpiPdoHandleOpmIoctls(__int64 a1, __int64 a2)
@@ -13,7 +13,7 @@ __int64 __fastcall DpiPdoHandleOpmIoctls(__int64 a1, __int64 a2)
   _DWORD *v3; // rbx
   __int64 v4; // rcx
   unsigned __int64 *v5; // rdi
-  void **v6; // r12
+  _DWORD *v6; // r12
   char *v7; // r13
   unsigned int v8; // r14d
   unsigned int v9; // r15d
@@ -27,7 +27,7 @@ __int64 __fastcall DpiPdoHandleOpmIoctls(__int64 a1, __int64 a2)
   v3 = (_DWORD *)(a2 + 48);
   v4 = *(_QWORD *)(a2 + 184);
   v5 = (unsigned __int64 *)(a2 + 56);
-  v6 = *(void ***)(a2 + 112);
+  v6 = *(_DWORD **)(a2 + 112);
   v13 = (unsigned __int64 *)(a2 + 48);
   v7 = *(char **)(v4 + 32);
   v8 = *(_DWORD *)(v4 + 24);

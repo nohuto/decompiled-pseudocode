@@ -1,57 +1,44 @@
 /*
- * XREFs of PopAnsiStringToUnicodeString @ 0x1407F0ED0
+ * XREFs of PopAnsiStringToUnicodeString @ 0x14062BF48
  * Callers:
- *     PopPowerRequestStatsGetIdForRequest @ 0x1407F0C38 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopAvlGetPowerRequestKey @ 0x14062BAEC (PopAvlGetPowerRequestKey.c)
  * Callees:
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     RtlxAnsiStringToUnicodeSize @ 0x14075A820 (RtlxAnsiStringToUnicodeSize.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     RtlxAnsiStringToUnicodeSize @ 0x14062C7D0 (RtlxAnsiStringToUnicodeSize.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall PopAnsiStringToUnicodeString(PUNICODE_STRING DestinationString, PCANSI_STRING SourceString)
 {
-  ULONG v4; // eax
-  unsigned int v5; // ebp
+  ULONG v4; // ebp
   PVOID *p_Buffer; // rbx
-  __int64 Pool2; // r15
-  wchar_t **v8; // r14
+  PVOID PoolWithTag; // r14
   NTSTATUS result; // eax
 
   v4 = RtlxAnsiStringToUnicodeSize(SourceString);
-  v5 = 0xFFFF;
   p_Buffer = (PVOID *)&DestinationString->Buffer;
   if ( v4 > 0xFFFF )
   {
     if ( *p_Buffer )
-    {
-      v8 = &DestinationString->Buffer;
       goto LABEL_7;
-    }
+    v4 = 0xFFFF;
   }
-  else
+  if ( !*p_Buffer || DestinationString->MaximumLength < v4 )
   {
-    v5 = v4;
-    if ( *p_Buffer )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v4, 0x54515750u);
+    if ( PoolWithTag )
     {
-      v8 = &DestinationString->Buffer;
-      if ( DestinationString->MaximumLength >= v4 )
-        goto LABEL_7;
+      if ( *p_Buffer )
+        ExFreePoolWithTag(*p_Buffer, 0);
+      *p_Buffer = PoolWithTag;
+      DestinationString->Length = 0;
+      DestinationString->MaximumLength = v4;
     }
-  }
-  Pool2 = ExAllocatePool2(256LL, v5, 1414616912LL);
-  v8 = &DestinationString->Buffer;
-  if ( Pool2 )
-  {
-    if ( *p_Buffer )
-      ExFreePoolWithTag(*p_Buffer, 0);
-    *p_Buffer = (PVOID)Pool2;
-    DestinationString->Length = 0;
-    DestinationString->MaximumLength = v5;
   }
 LABEL_7:
   result = RtlAnsiStringToUnicodeString(DestinationString, SourceString, 0);
   if ( result >= 0 )
-    (*v8)[(unsigned __int64)DestinationString->Length >> 1] = 0;
+    *((_WORD *)*p_Buffer + ((unsigned __int64)DestinationString->Length >> 1)) = 0;
   return result;
 }

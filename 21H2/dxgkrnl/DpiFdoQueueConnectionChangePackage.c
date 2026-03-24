@@ -1,32 +1,31 @@
 /*
- * XREFs of DpiFdoQueueConnectionChangePackage @ 0x1C00608A8
+ * XREFs of DpiFdoQueueConnectionChangePackage @ 0x1C0021058
  * Callers:
- *     DpiFdoHandleDisplayDetectControl @ 0x1C0024A9C (DpiFdoHandleDisplayDetectControl.c)
- *     DpIndicateChildStatus @ 0x1C005EEC0 (DpIndicateChildStatus.c)
+ *     DpiFdoHandleDisplayDetectControl @ 0x1C0020478 (DpiFdoHandleDisplayDetectControl.c)
+ *     DpIndicateChildStatus @ 0x1C0050BC0 (DpIndicateChildStatus.c)
  * Callees:
- *     DpIndicateConnectorChange @ 0x1C0025880 (DpIndicateConnectorChange.c)
+ *     DpIndicateConnectorChange @ 0x1C0050E80 (DpIndicateConnectorChange.c)
  */
 
 __int64 __fastcall DpiFdoQueueConnectionChangePackage(__int64 a1, _QWORD *a2, char a3)
 {
-  KSPIN_LOCK *v3; // r14
-  unsigned int v7; // esi
-  char v8; // bp
+  unsigned int v3; // esi
+  char v4; // bp
+  KSPIN_LOCK *v7; // rcx
   _QWORD *v9; // rcx
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  v3 = (KSPIN_LOCK *)(a1 + 3488);
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  v7 = 0;
-  v8 = 0;
+  v3 = 0;
+  v4 = 0;
+  v7 = (KSPIN_LOCK *)(a1 + 3488);
   if ( KeGetCurrentIrql() >= 2u )
   {
-    KeAcquireInStackQueuedSpinLockAtDpcLevel(v3, &LockHandle);
+    KeAcquireInStackQueuedSpinLockAtDpcLevel(v7, &LockHandle);
   }
   else
   {
-    v8 = 1;
-    KeAcquireInStackQueuedSpinLock(v3, &LockHandle);
+    v4 = 1;
+    KeAcquireInStackQueuedSpinLock(v7, &LockHandle);
   }
   if ( a2 )
   {
@@ -39,10 +38,10 @@ __int64 __fastcall DpiFdoQueueConnectionChangePackage(__int64 a1, _QWORD *a2, ch
     *(_QWORD *)(a1 + 3504) = a2;
   }
   if ( a3 && *(_BYTE *)(a1 + 3512) )
-    v7 = DpIndicateConnectorChange(*(PDEVICE_OBJECT *)(a1 + 24));
-  if ( v8 )
+    v3 = DpIndicateConnectorChange(*(PDEVICE_OBJECT *)(a1 + 24));
+  if ( v4 )
     KeReleaseInStackQueuedSpinLock(&LockHandle);
   else
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  return v7;
+  return v3;
 }

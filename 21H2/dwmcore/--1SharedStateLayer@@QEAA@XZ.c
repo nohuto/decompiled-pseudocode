@@ -1,5 +1,5 @@
 /*
- * XREFs of ??1SharedStateLayer@@QEAA@XZ @ 0x1800FFDC0
+ * XREFs of ??1SharedStateLayer@@QEAA@XZ @ 0x1800C0310
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,5 @@
 
 void __fastcall SharedStateLayer::~SharedStateLayer(SharedStateLayer *this)
 {
-  __int64 v1; // rcx
-
-  v1 = *((_QWORD *)this + 4);
-  if ( v1 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v1 + 8LL))(v1);
+  wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::~com_ptr_t<CRenderingEffect,wil::err_returncode_policy>((char *)this + 32);
 }

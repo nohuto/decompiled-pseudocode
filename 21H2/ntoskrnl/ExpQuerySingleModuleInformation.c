@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpQuerySingleModuleInformation @ 0x1409F75A0
+ * XREFs of ExpQuerySingleModuleInformation @ 0x14094B220
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpConvertLdrEntryToModuleInfo @ 0x140759410 (ExpConvertLdrEntryToModuleInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x1407B179C (ExpConvertLdrEntryToModuleInfo.c)
  */
 
 __int64 __fastcall ExpQuerySingleModuleInformation(unsigned __int64 *a1, unsigned int a2, char a3, _DWORD *a4)
@@ -48,7 +48,7 @@ __int64 __fastcall ExpQuerySingleModuleInformation(unsigned __int64 *a1, unsigne
   v12 = -1073741275;
 LABEL_11:
   ExReleaseResourceLite(&PsLoadedModuleResource);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v12 >= 0 )
     *a4 = 328;
   return (unsigned int)v12;

@@ -2,7 +2,7 @@
  * XREFs of CmpPerformCompleteKcbCacheLookup @ 0x1405E5320
  * Callers:
  *     CmpGetSymbolicLinkTarget @ 0x1405D7CC0 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
  * Callees:
  *     ExpAcquireFastMutexContended @ 0x140005480 (ExpAcquireFastMutexContended.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
@@ -12,8 +12,8 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     CmpDereferenceKeyControlBlockWithLock @ 0x1405A942C (CmpDereferenceKeyControlBlockWithLock.c)
  *     CmpUnlockHashEntryByKcb @ 0x1405AA470 (CmpUnlockHashEntryByKcb.c)
  *     CmpLockHashEntryExclusiveByKcb @ 0x1405AA61C (CmpLockHashEntryExclusiveByKcb.c)
@@ -24,12 +24,12 @@
  *     CmpUnlockHashEntry @ 0x1405D19F8 (CmpUnlockHashEntry.c)
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406441C0 (CmpDereferenceKeyControlBlock.c)
- *     CmpGetComponentNameAtIndex @ 0x140644780 (CmpGetComponentNameAtIndex.c)
- *     CmpFreeKeyControlBlock @ 0x140692C14 (CmpFreeKeyControlBlock.c)
- *     CmpRecordParseFailure @ 0x140698280 (CmpRecordParseFailure.c)
- *     CmpCompareUnicodeString @ 0x1406B65B8 (CmpCompareUnicodeString.c)
- *     CmpWaitForHiveMount @ 0x1407555C4 (CmpWaitForHiveMount.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406441A0 (CmpDereferenceKeyControlBlock.c)
+ *     CmpGetComponentNameAtIndex @ 0x140644760 (CmpGetComponentNameAtIndex.c)
+ *     CmpFreeKeyControlBlock @ 0x140692BF4 (CmpFreeKeyControlBlock.c)
+ *     CmpRecordParseFailure @ 0x140698260 (CmpRecordParseFailure.c)
+ *     CmpCompareUnicodeString @ 0x1406B6598 (CmpCompareUnicodeString.c)
+ *     CmpWaitForHiveMount @ 0x1407555A4 (CmpWaitForHiveMount.c)
  */
 
 __int64 __fastcall CmpPerformCompleteKcbCacheLookup(

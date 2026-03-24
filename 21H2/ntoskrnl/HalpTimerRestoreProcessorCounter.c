@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerRestoreProcessorCounter @ 0x1403914B8
+ * XREFs of HalpTimerRestoreProcessorCounter @ 0x1403866AC
  * Callers:
- *     HalpPostSleepMP @ 0x140A500C0 (HalpPostSleepMP.c)
+ *     HalpPostSleepMP @ 0x140995864 (HalpPostSleepMP.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *__fastcall HalpTimerRestoreProcessorCounter(__int64 a1, __int64 a2))(_QWORD, _QWORD, _QWORD)
@@ -14,13 +14,13 @@ __int64 (__fastcall *__fastcall HalpTimerRestoreProcessorCounter(__int64 a1, __i
   LODWORD(a2) = KeGetPcr()->Prcb.Number;
   result = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))HalpTimerSavedProcessorCounter;
   v3 = *(_QWORD *)(HalpTimerSavedProcessorCounter + 8 * a2);
-  if ( qword_140C4C488 )
+  if ( qword_140C4A188 )
   {
     if ( !(_DWORD)a2 && HalpTimerIsReferenceTimeSaved )
     {
-      result = qword_140C4C648;
-      if ( qword_140C4C648 )
-        return (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C4C648(
+      result = qword_140C4A348;
+      if ( qword_140C4A348 )
+        return (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C4A348(
                                                                  (unsigned int)HalpTimerSavedSequenceNumber,
                                                                  HalpTimerSavedReferenceTime,
                                                                  v3);

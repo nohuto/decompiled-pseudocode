@@ -1,138 +1,75 @@
 /*
- * XREFs of MmRemovePhysicalMemory @ 0x140A2D280
+ * XREFs of MmRemovePhysicalMemory @ 0x1408C63C0
  * Callers:
- *     WheapClearPoison @ 0x140A08560 (WheapClearPoison.c)
+ *     WheapClearPoison @ 0x14095D9A4 (WheapClearPoison.c)
  * Callees:
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     MiFindContiguousPagesEx @ 0x1403BA9B8 (MiFindContiguousPagesEx.c)
- *     MiFreeContiguousPages @ 0x1403C337C (MiFreeContiguousPages.c)
- *     MiReferenceRemovePartition @ 0x14061BE1C (MiReferenceRemovePartition.c)
- *     MiRemoveBadPages @ 0x14062A4B0 (MiRemoveBadPages.c)
- *     MiReturnBadPagesToBadList @ 0x14062AC18 (MiReturnBadPagesToBadList.c)
- *     MiAddRangeToPartitionTree @ 0x140658B8C (MiAddRangeToPartitionTree.c)
- *     MiDeletePartitionPageNodes @ 0x140659464 (MiDeletePartitionPageNodes.c)
- *     MiInsertPartitionPages @ 0x14065A4F0 (MiInsertPartitionPages.c)
- *     MiRemovePhysicalMemory @ 0x140A2CCBC (MiRemovePhysicalMemory.c)
- *     MiSpecialPurposeMemoryRemoved @ 0x140A478B4 (MiSpecialPurposeMemoryRemoved.c)
+ *     MiFindContiguousPages @ 0x140281D60 (MiFindContiguousPages.c)
+ *     MiFreeContiguousPages @ 0x1402E91B8 (MiFreeContiguousPages.c)
+ *     MiRemoveBadPages @ 0x14052EB08 (MiRemoveBadPages.c)
+ *     MiReturnBadPagesToBadList @ 0x14052EF38 (MiReturnBadPagesToBadList.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5FDC (MiRemovePhysicalMemory.c)
  */
 
 NTSTATUS __stdcall MmRemovePhysicalMemory(PPHYSICAL_ADDRESS StartAddress, PLARGE_INTEGER NumberOfBytes)
 {
-  unsigned __int64 QuadPart; // rsi
-  unsigned __int16 *v3; // rbx
-  unsigned __int64 v4; // r14
-  int v6; // ecx
-  bool v7; // r15
-  unsigned __int64 v8; // rsi
-  NTSTATUS inserted; // edi
-  int ContiguousPages; // eax
-  bool v11; // zf
-  int v12; // ecx
-  unsigned __int64 *v14; // [rsp+70h] [rbp-9h] BYREF
-  __int128 v15; // [rsp+78h] [rbp-1h]
-  int v16; // [rsp+88h] [rbp+Fh]
-  int v17; // [rsp+8Ch] [rbp+13h]
-  LONGLONG v18; // [rsp+E0h] [rbp+67h]
-  unsigned __int16 *v19; // [rsp+E8h] [rbp+6Fh] BYREF
-  unsigned __int64 v20; // [rsp+F0h] [rbp+77h] BYREF
-  __int64 v21; // [rsp+F8h] [rbp+7Fh] BYREF
+  unsigned __int64 QuadPart; // rbx
+  ULONG_PTR v4; // rdx
+  unsigned __int64 v5; // rbx
+  __int64 v6; // rcx
+  bool v7; // si
+  ULONG_PTR v8; // rdx
+  NTSTATUS result; // eax
+  NTSTATUS v10; // edi
+  __int64 v11; // r8
+  _DWORD *v12; // r9
+  ULONG_PTR BugCheckParameter2; // [rsp+70h] [rbp+8h] BYREF
 
-  QuadPart = StartAddress->QuadPart;
-  v3 = 0LL;
-  v4 = (unsigned __int64)NumberOfBytes->QuadPart >> 12;
-  v18 = StartAddress->QuadPart;
-  v6 = StartAddress->QuadPart;
-  v21 = 0LL;
-  v17 = 0;
-  v19 = 0LL;
-  v20 = 0LL;
-  v7 = (v18 & 1) != 0 && (v18 & 0xFFF) != 0;
+  QuadPart = NumberOfBytes->QuadPart;
+  v4 = StartAddress->QuadPart;
+  v5 = QuadPart >> 12;
+  BugCheckParameter2 = StartAddress->QuadPart;
+  v6 = (unsigned int)BugCheckParameter2;
+  v7 = (BugCheckParameter2 & 1) != 0 && (BugCheckParameter2 & 0xFFF) != 0;
   if ( v7 )
   {
-    LODWORD(v18) = v6 & 0xFFFFFFFE;
-    QuadPart = v18;
+    v6 = (unsigned int)BugCheckParameter2 & 0xFFFFFFFE;
+    LODWORD(BugCheckParameter2) = BugCheckParameter2 & 0xFFFFFFFE;
+    v4 = BugCheckParameter2;
   }
-  v8 = QuadPart >> 12;
-  if ( v8 >= v4 + v8 )
-  {
-    inserted = -1073741585;
-    goto LABEL_26;
-  }
-  inserted = MiReferenceRemovePartition(v8, (__int64 *)&v19);
-  if ( inserted < 0 )
-  {
-    v3 = v19;
-    goto LABEL_26;
-  }
+  v8 = v4 >> 12;
+  BugCheckParameter2 = v8;
+  if ( v8 >= v8 + v5 )
+    return -1073741585;
   if ( v7 )
-  {
-    v3 = v19;
-    if ( v19 != MiSystemPartition )
-    {
-      inserted = -1073741637;
-      goto LABEL_26;
-    }
-    ContiguousPages = MiRemoveBadPages((__int64)v19, v8, v4);
-  }
+    result = MiRemoveBadPages(v6, v8, v5);
   else
+    result = MiFindContiguousPages(
+               (__int64)&MiSystemPartition,
+               v8,
+               v8 + v5 - 1,
+               0LL,
+               v5,
+               1u,
+               0x80000000,
+               0x80000000,
+               202375168,
+               0LL,
+               (__int64 *)&BugCheckParameter2);
+  if ( result >= 0 )
   {
-    v3 = v19;
-    ContiguousPages = MiFindContiguousPagesEx(
-                        (__int64)v19,
-                        v8,
-                        v4 + v8 - 1,
-                        0LL,
-                        0,
-                        v4,
-                        1u,
-                        0x80000000,
-                        0x80000000,
-                        202375168,
-                        1,
-                        0LL,
-                        &v21);
-  }
-  inserted = ContiguousPages;
-  if ( ContiguousPages >= 0 )
-  {
-    if ( v3 == MiSystemPartition )
+    v10 = MiRemovePhysicalMemory(BugCheckParameter2, v5, 0x10u);
+    if ( v10 < 0 )
     {
-      inserted = MiRemovePhysicalMemory(v8, v4, 0x20u);
-      if ( inserted < 0 )
-      {
-LABEL_14:
-        if ( v7 )
-          MiReturnBadPagesToBadList(v8, v4);
-        else
-          MiFreeContiguousPages(v8, v4);
-        goto LABEL_26;
-      }
+      if ( v7 )
+        MiReturnBadPagesToBadList(BugCheckParameter2, v5, v11, v12);
+      else
+        MiFreeContiguousPages(BugCheckParameter2, v5, v11, v12);
     }
     else
     {
-      if ( !(unsigned int)MiAddRangeToPartitionTree(&v20, v8, v4, 2) )
-      {
-        inserted = -1073741670;
-        goto LABEL_26;
-      }
-      v11 = *((_BYTE *)v3 + 4) >= 0;
-      v14 = &v20;
-      v12 = 2055;
-      if ( !v11 )
-        v12 = 3079;
-      v16 = v12;
-      v15 = 0LL;
-      inserted = MiInsertPartitionPages((__int16 *)v3, (__int64)MiSystemPartition, (__int64)&v14, v4, 0LL);
-      if ( inserted < 0 )
-        goto LABEL_14;
-      if ( (*((_DWORD *)v3 + 1) & 0x80u) != 0 )
-        MiSpecialPurposeMemoryRemoved(v3);
+      NumberOfBytes->QuadPart = v5 << 12;
     }
-    NumberOfBytes->QuadPart = v4 << 12;
+    return v10;
   }
-LABEL_26:
-  MiDeletePartitionPageNodes(&v20);
-  if ( v3 )
-    PsDereferencePartition(*((_QWORD *)v3 + 25));
-  return inserted;
+  return result;
 }

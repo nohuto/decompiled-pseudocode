@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vComputeUncoveredSpriteRegion@RGNOBJ@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C001EA6C
+ * XREFs of ?vComputeUncoveredSpriteRegion@RGNOBJ@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C00F06D4
  * Callers:
- *     ?vSpComputeUncoveredRegion@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C001E96C (-vSpComputeUncoveredRegion@@YAXPEAU_SPRITESTATE@@H@Z.c)
+ *     ?vSpComputeUncoveredRegion@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00F05E4 (-vSpComputeUncoveredRegion@@YAXPEAU_SPRITESTATE@@H@Z.c)
  * Callees:
- *     ?vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C001E774 (-vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z.c)
- *     ?bEnum@ENUMUNCOVERED@@QEAAHPEAU_RECTL@@@Z @ 0x1C001EBD0 (-bEnum@ENUMUNCOVERED@@QEAAHPEAU_RECTL@@@Z.c)
+ *     ?vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00F04E0 (-vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?bEnum@ENUMUNCOVERED@@QEAAHPEAU_RECTL@@@Z @ 0x1C00F084C (-bEnum@ENUMUNCOVERED@@QEAAHPEAU_RECTL@@@Z.c)
  */
 
 void __fastcall RGNOBJ::vComputeUncoveredSpriteRegion(RGNOBJ *this, struct PDEVOBJ *a2)
@@ -12,8 +12,8 @@ void __fastcall RGNOBJ::vComputeUncoveredSpriteRegion(RGNOBJ *this, struct PDEVO
   __int64 v2; // rax
   __int64 v3; // rdi
   _DWORD *v5; // rbx
-  int v6; // eax
-  unsigned int v7; // r14d
+  __int64 v6; // rcx
+  unsigned int v7; // r15d
   LONG top; // edx
   __int64 v9; // r11
   LONG bottom; // edi
@@ -28,22 +28,22 @@ void __fastcall RGNOBJ::vComputeUncoveredSpriteRegion(RGNOBJ *this, struct PDEVO
   v2 = *(_QWORD *)this;
   v3 = *(_QWORD *)a2;
   v13 = 0LL;
-  v5 = *(_DWORD **)(v2 + 32);
+  v5 = *(_DWORD **)(v2 + 88);
   RGNOBJ::vSet(this);
-  if ( !*(_DWORD *)(v3 + 196) )
-    vSpComputeSpriteRanges((struct _SPRITESTATE *)(v3 + 80));
-  v6 = *(_DWORD *)(v3 + 132);
-  v15 = *(_QWORD *)(v3 + 216);
-  v14 = v6;
-  v16 = *(_QWORD *)(v15 + 8) + v15;
-  v17 = v15 + 8;
+  if ( !*(_DWORD *)(v3 + 204) )
+    vSpComputeSpriteRanges((struct _SPRITESTATE *)(v3 + 88));
+  v6 = *(_QWORD *)(v3 + 224);
+  v14 = *(_DWORD *)(v3 + 140);
+  v15 = v6;
+  v17 = v6 + 8;
+  v16 = *(_QWORD *)(v6 + 8) + v6;
   if ( (unsigned int)ENUMUNCOVERED::bEnum((ENUMUNCOVERED *)&v14, &v13) )
   {
     v7 = 0x80000000;
     top = v13.top;
     v9 = 0LL;
     bottom = v13.top;
-    v11 = *(_DWORD *)(*(_QWORD *)this + 52LL);
+    v11 = *(_DWORD *)(*(_QWORD *)this + 84LL);
     while ( 1 )
     {
       if ( top != v7 )
@@ -82,8 +82,9 @@ void __fastcall RGNOBJ::vComputeUncoveredSpriteRegion(RGNOBJ *this, struct PDEVO
     v12[1] = bottom;
     v12[2] = 0x7FFFFFFF;
     v12[3] = 0;
-    *(_QWORD *)(*(_QWORD *)this + 40LL) = v12 + 4;
-    *(_DWORD *)(*(_QWORD *)this + 52LL) = v11 + 1;
-    *(_DWORD *)(*(_QWORD *)this + 48LL) = *(_DWORD *)(*(_QWORD *)this + 40LL) - *(_DWORD *)(*(_QWORD *)this + 32LL);
+    *(_QWORD *)(*(_QWORD *)this + 40LL) = (char *)v12 + (unsigned int)(4 * *v12 + 16);
+    *(_DWORD *)(*(_QWORD *)this + 84LL) = v11 + 1;
+    *(_DWORD *)(*(_QWORD *)this + 80LL) = 0;
+    *(_DWORD *)(*(_QWORD *)this + 80LL) += *(_DWORD *)(*(_QWORD *)this + 40LL) - *(_DWORD *)(*(_QWORD *)this + 88LL);
   }
 }

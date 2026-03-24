@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpApplyStackWalkIdFilter @ 0x140637438
+ * XREFs of EtwpApplyStackWalkIdFilter @ 0x1405AC0A4
  * Callers:
- *     EtwpEventWriteFull @ 0x140300E50 (EtwpEventWriteFull.c)
- *     EtwpApplyStackWalkFilterOnUserEvent @ 0x1409F4F8C (EtwpApplyStackWalkFilterOnUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14025DF60 (EtwpEventWriteFull.c)
+ *     EtwpApplyStackWalkFilterOnUserEvent @ 0x140940A5C (EtwpApplyStackWalkFilterOnUserEvent.c)
  * Callees:
- *     EtwpPerfectHashFunctionSearch @ 0x140300B00 (EtwpPerfectHashFunctionSearch.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpPerfectHashFunctionSearch @ 0x14025F44C (EtwpPerfectHashFunctionSearch.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall EtwpApplyStackWalkIdFilter(__int16 a1, __int64 a2, unsigned int a3, char a4)

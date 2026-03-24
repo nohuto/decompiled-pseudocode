@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmCreateOrdinalInstanceKey @ 0x140772E98
+ * XREFs of _CmCreateOrdinalInstanceKey @ 0x140769228
  * Callers:
- *     _CmGetDeviceSoftwareKey @ 0x1406C7604 (_CmGetDeviceSoftwareKey.c)
+ *     _CmGetDeviceSoftwareKey @ 0x1406A784C (_CmGetDeviceSoftwareKey.c)
  * Callees:
- *     wcstoul @ 0x1403E3880 (wcstoul.c)
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
- *     _ultow_s @ 0x1403E6130 (_ultow_s.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _PnpCtxRegCreateKey @ 0x140772A24 (_PnpCtxRegCreateKey.c)
+ *     wcstoul @ 0x1403D4500 (wcstoul.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
+ *     _ultow_s @ 0x1403D6D00 (_ultow_s.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _PnpCtxRegCreateKey @ 0x14063B560 (_PnpCtxRegCreateKey.c)
  */
 
 __int64 __fastcall CmCreateOrdinalInstanceKey(__int64 a1, __int64 a2, wchar_t *a3, __int64 a4, __int64 a5, HANDLE *a6)
 {
-  unsigned int v6; // ebx
+  unsigned int v9; // ebx
   unsigned int v10; // ebp
   unsigned int v11; // r15d
   unsigned int i; // edi
@@ -26,9 +26,9 @@ __int64 __fastcall CmCreateOrdinalInstanceKey(__int64 a1, __int64 a2, wchar_t *a
   HANDLE Handle[2]; // [rsp+40h] [rbp-38h] BYREF
   int v22; // [rsp+98h] [rbp+20h] BYREF
 
-  v6 = 0;
   v22 = 0;
   Handle[0] = 0LL;
+  v9 = 0;
   v10 = wcstoul(L"999A", 0LL, 36);
   v11 = wcstoul(L"ZZZZ", 0LL, 36);
   if ( v10 - 1 > 0xFFFFFFFD || v11 - 1 > 0xFFFFFFFD )
@@ -118,5 +118,5 @@ LABEL_20:
     }
     *a6 = Handle[0];
   }
-  return v6;
+  return v9;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpDeviceCompletionQueueGetCompletedRequest @ 0x14018D948
+ * XREFs of PnpDeviceCompletionQueueGetCompletedRequest @ 0x14018D968
  * Callers:
- *     PnpDeviceCompletionProcessCompletedRequests @ 0x1406E6B10 (PnpDeviceCompletionProcessCompletedRequests.c)
+ *     PnpDeviceCompletionProcessCompletedRequests @ 0x1406E6AF0 (PnpDeviceCompletionProcessCompletedRequests.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PnpDeviceCompletionQueueGetCompletedRequest()

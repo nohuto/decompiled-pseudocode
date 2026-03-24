@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmiRetrieveEventFromQueue @ 0x1409AB284
+ * XREFs of TtmiRetrieveEventFromQueue @ 0x14090558C
  * Callers:
- *     TtmpDispatchGetTerminalEvent @ 0x1409A69EC (TtmpDispatchGetTerminalEvent.c)
+ *     TtmpDispatchGetTerminalEvent @ 0x140900E10 (TtmpDispatchGetTerminalEvent.c)
  * Callees:
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
- *     TtmiLogQueueDequeueEvent @ 0x1409A90B4 (TtmiLogQueueDequeueEvent.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     TtmiLogQueueDequeueEvent @ 0x1409033B0 (TtmiLogQueueDequeueEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall TtmiRetrieveEventFromQueue(__int64 a1, _OWORD *a2)
@@ -31,7 +31,7 @@ __int64 __fastcall TtmiRetrieveEventFromQueue(__int64 a1, _OWORD *a2)
   if ( !*(_BYTE *)(a1 + 168) )
   {
     v5 = -1073740032;
-    v6 = 476;
+    v6 = 477;
 LABEL_3:
     TtmiLogError("TtmiRetrieveEventFromQueue", v6, -1, v5);
     goto LABEL_13;
@@ -41,7 +41,7 @@ LABEL_3:
   if ( v8 == (_QWORD *)(a1 + 152) )
   {
     v5 = -2147483622;
-    v6 = 481;
+    v6 = 482;
     goto LABEL_3;
   }
   if ( (_QWORD *)v8[1] != v7 || (v9 = *v8, *(_QWORD **)(*v8 + 8LL) != v8) )
@@ -74,6 +74,6 @@ LABEL_3:
   ExFreePoolWithTag(v8, 0x716D7454u);
 LABEL_13:
   ExReleaseResourceLite((PERESOURCE)(a1 + 24));
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v5;
 }

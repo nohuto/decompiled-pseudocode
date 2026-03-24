@@ -1,27 +1,27 @@
 /*
- * XREFs of AuthzBasepFinaliseSecurityAttributesList @ 0x1402256E0
+ * XREFs of AuthzBasepFinaliseSecurityAttributesList @ 0x1402D6BD0
  * Callers:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224D10 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x140225390 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402506CC (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1402D6890 (AuthzBasepDuplicateSecurityAttributes.c)
  * Callees:
- *     AuthzBasepCommitSecurityAttributeChanges @ 0x140225750 (AuthzBasepCommitSecurityAttributeChanges.c)
- *     AuthzBasepRollbackSecurityAttributeChanges @ 0x14066EFE0 (AuthzBasepRollbackSecurityAttributeChanges.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     AuthzBasepCommitSecurityAttributeChanges @ 0x1402D6C40 (AuthzBasepCommitSecurityAttributeChanges.c)
+ *     AuthzBasepRollbackSecurityAttributeChanges @ 0x1405C14E0 (AuthzBasepRollbackSecurityAttributeChanges.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall AuthzBasepFinaliseSecurityAttributesList(__int64 a1, char a2)
 {
-  _QWORD *v3; // rsi
+  _QWORD *v4; // rbx
   _QWORD *result; // rax
-  _QWORD *v6; // rbx
+  _QWORD *v6; // rsi
   _QWORD *v7; // rdx
   char v8; // al
 
-  v3 = (_QWORD *)(a1 + 32);
+  v4 = (_QWORD *)(a1 + 32);
   while ( 1 )
   {
-    result = (_QWORD *)*v3;
-    if ( (_QWORD *)*v3 == v3 )
+    result = (_QWORD *)*v4;
+    if ( (_QWORD *)*v4 == v4 )
       break;
     v6 = result - 2;
     v7 = result - 2;

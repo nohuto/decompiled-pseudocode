@@ -1,16 +1,16 @@
 /*
- * XREFs of SepLinkLogonSessions @ 0x140353CA0
+ * XREFs of SepLinkLogonSessions @ 0x14032C264
  * Callers:
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     SepDeReferenceLogonSessionDirect @ 0x1403704D0 (SepDeReferenceLogonSessionDirect.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     SepDuplicateToken @ 0x140729BF0 (SepDuplicateToken.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     SepReferenceLogonSession @ 0x1407C38A4 (SepReferenceLogonSession.c)
- *     SepStopReferencingLogonSession @ 0x1407F0E20 (SepStopReferencingLogonSession.c)
- *     SepRemoveTokenLogonSession @ 0x1409D03E4 (SepRemoveTokenLogonSession.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x140348824 (SepDeReferenceLogonSessionDirect.c)
+ *     SepReferenceLogonSession @ 0x1405DC7C4 (SepReferenceLogonSession.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     SepDuplicateToken @ 0x140651490 (SepDuplicateToken.c)
+ *     SepStopReferencingLogonSession @ 0x1406F0290 (SepStopReferencingLogonSession.c)
+ *     SepRemoveTokenLogonSession @ 0x140923C20 (SepRemoveTokenLogonSession.c)
  */
 
 __int64 __fastcall SepLinkLogonSessions(__int64 a1, void *a2, KPROCESSOR_MODE a3)
@@ -31,13 +31,12 @@ __int64 __fastcall SepLinkLogonSessions(__int64 a1, void *a2, KPROCESSOR_MODE a3
 
   v13 = 0LL;
   v19 = 0LL;
-  v15 = 0LL;
   v5 = 0LL;
-  *(_QWORD *)&v18 = 0LL;
+  v15 = 0LL;
   v6 = 0LL;
-  DWORD2(v18) = 0;
   v16 = 0LL;
   v17 = 0LL;
+  v18 = 0LL;
   if ( !SeSinglePrivilegeCheck(SeCreateTokenPrivilege, a3) )
   {
     v9 = -1073741727;
@@ -96,7 +95,7 @@ LABEL_26:
   *(_QWORD *)(*((_QWORD *)v13 + 27) + 48LL) = v13;
   *(_QWORD *)(*((_QWORD *)v13 + 27) + 16LL) = *(_QWORD *)(*((_QWORD *)v19 + 27) + 8LL);
   *(_DWORD *)(*((_QWORD *)v13 + 27) + 32LL) |= 4u;
-  if ( HIDWORD(NlsMbOemCodePageTag) )
+  if ( SeTokenLeakTracking )
   {
     SepRemoveTokenLogonSession(v13);
     SepRemoveTokenLogonSession(v19);

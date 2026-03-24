@@ -1,67 +1,65 @@
 /*
- * XREFs of ExpCovResetInformation @ 0x140A07104
+ * XREFs of ExpCovResetInformation @ 0x1409580B4
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402BD800 (ExfReleasePushLock.c)
- *     ExfAcquirePushLockExclusive @ 0x1402FCDF0 (ExfAcquirePushLockExclusive.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlDuplicateUnicodeString @ 0x1407B7570 (RtlDuplicateUnicodeString.c)
- *     MmEnumerateSystemImages @ 0x140828110 (MmEnumerateSystemImages.c)
- *     ExpCovDeleteUnloadedModuleEntry @ 0x140A06408 (ExpCovDeleteUnloadedModuleEntry.c)
- *     ExpCovIsUnLoadedModulePresent @ 0x140A065C4 (ExpCovIsUnLoadedModulePresent.c)
- *     ExpCovReadRequestBuffer @ 0x140A06F8C (ExpCovReadRequestBuffer.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x140271AC0 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusive @ 0x1402732F0 (ExfAcquirePushLockExclusive.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlDuplicateUnicodeString @ 0x14066FCD0 (RtlDuplicateUnicodeString.c)
+ *     MmEnumerateSystemImages @ 0x140792C70 (MmEnumerateSystemImages.c)
+ *     ExpCovDeleteUnloadedModuleEntry @ 0x1409573D0 (ExpCovDeleteUnloadedModuleEntry.c)
+ *     ExpCovIsUnLoadedModulePresent @ 0x14095758C (ExpCovIsUnLoadedModulePresent.c)
+ *     ExpCovReadRequestBuffer @ 0x140957F2C (ExpCovReadRequestBuffer.c)
  */
 
 __int64 __fastcall ExpCovResetInformation(unsigned __int64 a1, unsigned int a2)
 {
-  __int64 v5; // rax
-  int v6; // esi
+  int v5; // esi
   struct _KTHREAD *CurrentThread; // rax
   __int64 *i; // rbx
-  __int64 *v9; // r14
-  int v10; // [rsp+20h] [rbp-98h] BYREF
+  __int64 *v8; // r14
+  int v9; // [rsp+20h] [rbp-98h] BYREF
   UNICODE_STRING StringIn; // [rsp+28h] [rbp-90h] BYREF
-  __int128 v12; // [rsp+38h] [rbp-80h] BYREF
-  __int64 v13; // [rsp+48h] [rbp-70h]
-  UNICODE_STRING v14[4]; // [rsp+50h] [rbp-68h] BYREF
-  UNICODE_STRING v15; // [rsp+90h] [rbp-28h] BYREF
+  __int128 v11; // [rsp+38h] [rbp-80h] BYREF
+  __int64 v12; // [rsp+48h] [rbp-70h]
+  UNICODE_STRING v13[4]; // [rsp+50h] [rbp-68h] BYREF
+  UNICODE_STRING v14; // [rsp+90h] [rbp-28h] BYREF
 
-  memset(v14, 0, sizeof(v14));
+  memset(v13, 0, sizeof(v13));
   StringIn = 0LL;
-  v10 = 0;
+  v9 = 0;
   if ( !ExCovMaxPagedPoolToUse )
     return 3221225506LL;
   if ( a2 < 0x18 )
     return 3221225476LL;
-  v5 = 0x7FFFFFFF0000LL;
-  if ( a1 < 0x7FFFFFFF0000LL )
-    v5 = a1;
-  v12 = *(_OWORD *)v5;
-  v13 = *(_QWORD *)(v5 + 16);
-  v6 = ExpCovReadRequestBuffer((int *)&v12, &StringIn, &v15, &v10);
-  if ( v6 >= 0 )
+  if ( a1 >= 0x7FFFFFFF0000LL )
+    a1 = 0x7FFFFFFF0000LL;
+  v11 = *(_OWORD *)a1;
+  v12 = *(_QWORD *)(a1 + 16);
+  v5 = ExpCovReadRequestBuffer((int *)&v11, &StringIn, &v14, &v9);
+  if ( v5 >= 0 )
   {
-    *(_DWORD *)&v14[3].Length = v10;
-    v14[2] = v15;
-    if ( !StringIn.Buffer || (v6 = RtlDuplicateUnicodeString(1u, &StringIn, &v14[1]), v6 >= 0) )
+    *(_DWORD *)&v13[3].Length = v9;
+    v13[2] = v14;
+    if ( !StringIn.Buffer || (v5 = RtlDuplicateUnicodeString(1u, &StringIn, &v13[1]), v5 >= 0) )
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v6 = MmEnumerateSystemImages((__int64 (__fastcall *)(PVOID *, __int64))ExpCovResetInfoCallBack, (__int64)v14);
-      if ( v6 >= 0 )
+      v5 = MmEnumerateSystemImages((__int64 (__fastcall *)(PVOID *, __int64))ExpCovResetInfoCallBack, (__int64)v13);
+      if ( v5 >= 0 )
       {
         ExfAcquirePushLockExclusive((__int64)&ExpCovPushLock);
         for ( i = (__int64 *)ExpCovUnloadedModuleList; i != &ExpCovUnloadedModuleList; i = (__int64 *)*i )
         {
-          v9 = i;
-          if ( i[7] && ExpCovIsUnLoadedModulePresent((__int64)i, v10, &StringIn, &v15) )
+          v8 = i;
+          if ( i[7] && ExpCovIsUnLoadedModulePresent((__int64)i, v9, &StringIn, &v14) )
           {
             i = (__int64 *)i[1];
-            ExpCovDeleteUnloadedModuleEntry(v9);
+            ExpCovDeleteUnloadedModuleEntry(v8);
           }
         }
         ExfReleasePushLock(&ExpCovPushLock);
@@ -70,8 +68,8 @@ __int64 __fastcall ExpCovResetInformation(unsigned __int64 a1, unsigned int a2)
     }
   }
   if ( StringIn.Buffer )
-    RtlFreeUnicodeString(&StringIn);
-  if ( v14[1].Buffer )
-    RtlFreeUnicodeString(&v14[1]);
-  return (unsigned int)v6;
+    RtlFreeAnsiString(&StringIn);
+  if ( v13[1].Buffer )
+    RtlFreeAnsiString(&v13[1]);
+  return (unsigned int)v5;
 }

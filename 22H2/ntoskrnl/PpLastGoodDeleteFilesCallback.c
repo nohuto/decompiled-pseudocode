@@ -1,12 +1,12 @@
 /*
- * XREFs of PpLastGoodDeleteFilesCallback @ 0x140958300
+ * XREFs of PpLastGoodDeleteFilesCallback @ 0x1408A1720
  * Callers:
  *     <none>
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwSetInformationFile @ 0x14041AB80 (ZwSetInformationFile.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     IopFileUtilClearAttributes @ 0x14096EEB0 (IopFileUtilClearAttributes.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1403F9F00 (ZwSetInformationFile.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     IopFileUtilClearAttributes @ 0x1408B436C (IopFileUtilClearAttributes.c)
  */
 
 NTSTATUS __fastcall PpLastGoodDeleteFilesCallback(UNICODE_STRING *a1, __int64 a2, char a3)
@@ -17,9 +17,9 @@ NTSTATUS __fastcall PpLastGoodDeleteFilesCallback(UNICODE_STRING *a1, __int64 a2
   HANDLE FileHandle; // [rsp+80h] [rbp+10h] BYREF
   char FileInformation; // [rsp+90h] [rbp+20h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   FileHandle = 0LL;
-  *(&ObjectAttributes.Length + 1) = 0;
   IoStatusBlock = 0LL;
   IopFileUtilClearAttributes();
   ObjectAttributes.RootDirectory = 0LL;

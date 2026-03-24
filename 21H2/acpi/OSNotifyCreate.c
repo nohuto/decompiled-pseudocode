@@ -1,18 +1,18 @@
 /*
- * XREFs of OSNotifyCreate @ 0x1C0009DF0
+ * XREFs of OSNotifyCreate @ 0x1C001D650
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     OSNotifyCreateProcessor @ 0x1C0005604 (OSNotifyCreateProcessor.c)
- *     OSNotifyCreateDevice @ 0x1C0009C54 (OSNotifyCreateDevice.c)
- *     WPP_RECORDER_SF_qsL @ 0x1C0009F30 (WPP_RECORDER_SF_qsL.c)
- *     OSNotifyCreateOperationRegion @ 0x1C000A0B4 (OSNotifyCreateOperationRegion.c)
- *     OSNotifyCreatePowerResource @ 0x1C002A294 (OSNotifyCreatePowerResource.c)
- *     OSNotifyCreateThermalZone @ 0x1C002D154 (OSNotifyCreateThermalZone.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     OSNotifyCreateProcessor @ 0x1C001622C (OSNotifyCreateProcessor.c)
+ *     OSNotifyCreateOperationRegion @ 0x1C00182E8 (OSNotifyCreateOperationRegion.c)
+ *     OSNotifyCreateDevice @ 0x1C001B3BC (OSNotifyCreateDevice.c)
+ *     WPP_RECORDER_SF_qsL @ 0x1C001D830 (WPP_RECORDER_SF_qsL.c)
+ *     OSNotifyCreatePowerResource @ 0x1C002DF34 (OSNotifyCreatePowerResource.c)
+ *     OSNotifyCreateThermalZone @ 0x1C002F970 (OSNotifyCreateThermalZone.c)
  */
 
-__int64 __fastcall OSNotifyCreate(int a1, ULONG_PTR a2)
+__int64 __fastcall OSNotifyCreate(int a1, __int64 a2)
 {
   KIRQL v4; // si
   char Device; // al
@@ -24,21 +24,21 @@ __int64 __fastcall OSNotifyCreate(int a1, ULONG_PTR a2)
   {
     case 6:
       Device = OSNotifyCreateDevice(a2, 0LL);
+LABEL_3:
+      v6 = Device;
       goto LABEL_4;
     case 10:
       Device = OSNotifyCreateOperationRegion(a2);
-LABEL_4:
-      v6 = Device;
-      goto LABEL_5;
+      goto LABEL_3;
     case 11:
       Device = OSNotifyCreatePowerResource(a2);
-      goto LABEL_4;
+      goto LABEL_3;
     case 12:
       Device = OSNotifyCreateProcessor(a2, 0LL);
-      goto LABEL_4;
+      goto LABEL_3;
     case 13:
       Device = OSNotifyCreateThermalZone(a2, 0LL);
-      goto LABEL_4;
+      goto LABEL_3;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     WPP_RECORDER_SF_D(
@@ -49,12 +49,12 @@ LABEL_4:
       (__int64)&WPP_3b815367ceb5375a01194b74e08b1a28_Traceguids,
       a1);
   v6 = 0;
-LABEL_5:
+LABEL_4:
   KeReleaseSpinLock(&AcpiDeviceTreeLock, v4);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    dword_1C00819A0 = *(_DWORD *)(*(_QWORD *)a2 + 40LL);
-    byte_1C00819A4 = 0;
+    dword_1C0082780 = *(_DWORD *)(*(_QWORD *)a2 + 40LL);
+    byte_1C0082784 = 0;
     WPP_RECORDER_SF_qsL(
       WPP_GLOBAL_Control->DeviceExtension,
       v7,
@@ -62,7 +62,7 @@ LABEL_5:
       11,
       (__int64)&WPP_3b815367ceb5375a01194b74e08b1a28_Traceguids,
       a2,
-      (__int64)&dword_1C00819A0,
+      (__int64)&dword_1C0082780,
       v6);
   }
   return 0LL;

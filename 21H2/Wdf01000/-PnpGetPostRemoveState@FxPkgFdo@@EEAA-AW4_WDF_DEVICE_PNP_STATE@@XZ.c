@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PnpGetPostRemoveState@FxPkgFdo@@EEAA?AW4_WDF_DEVICE_PNP_STATE@@XZ @ 0x1C000BFD0
+ * XREFs of ?PnpGetPostRemoveState@FxPkgFdo@@EEAA?AW4_WDF_DEVICE_PNP_STATE@@XZ @ 0x1C000DF30
  * Callers:
  *     <none>
  * Callees:

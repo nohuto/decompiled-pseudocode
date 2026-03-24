@@ -1,19 +1,19 @@
 /*
- * XREFs of UsbhIdleIrp_ReleaseIrp @ 0x1C0057B74
+ * XREFs of UsbhIdleIrp_ReleaseIrp @ 0x1C0059244
  * Callers:
- *     UsbhIdleExIrp_IdleReady @ 0x1C00571C4 (UsbhIdleExIrp_IdleReady.c)
- *     UsbhIdleIrp_CB_Canceled @ 0x1C0057338 (UsbhIdleIrp_CB_Canceled.c)
- *     UsbhIdleIrp_CB_Complete @ 0x1C0057434 (UsbhIdleIrp_CB_Complete.c)
- *     UsbhIdleIrp_CB_Pending @ 0x1C005755C (UsbhIdleIrp_CB_Pending.c)
- *     UsbhIdleIrp_NoIrp @ 0x1C0057830 (UsbhIdleIrp_NoIrp.c)
- *     UsbhIdleIrp_WaitWorker @ 0x1C0057C88 (UsbhIdleIrp_WaitWorker.c)
+ *     UsbhIdleExIrp_IdleReady @ 0x1C0058894 (UsbhIdleExIrp_IdleReady.c)
+ *     UsbhIdleIrp_CB_Canceled @ 0x1C0058A08 (UsbhIdleIrp_CB_Canceled.c)
+ *     UsbhIdleIrp_CB_Complete @ 0x1C0058B04 (UsbhIdleIrp_CB_Complete.c)
+ *     UsbhIdleIrp_CB_Pending @ 0x1C0058C2C (UsbhIdleIrp_CB_Pending.c)
+ *     UsbhIdleIrp_NoIrp @ 0x1C0058F00 (UsbhIdleIrp_NoIrp.c)
+ *     UsbhIdleIrp_WaitWorker @ 0x1C0059358 (UsbhIdleIrp_WaitWorker.c)
  * Callees:
- *     UsbhClearPdoIdleReady @ 0x1C0004AC0 (UsbhClearPdoIdleReady.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhEtwLogDeviceIrpEvent @ 0x1C000E150 (UsbhEtwLogDeviceIrpEvent.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     WPP_RECORDER_SF_dqqD @ 0x1C0058178 (WPP_RECORDER_SF_dqqD.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhClearPdoIdleReady @ 0x1C0013058 (UsbhClearPdoIdleReady.c)
+ *     UsbhEtwLogDeviceIrpEvent @ 0x1C0013F80 (UsbhEtwLogDeviceIrpEvent.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     WPP_RECORDER_SF_dqqD @ 0x1C0059848 (WPP_RECORDER_SF_dqqD.c)
  */
 
 __int64 __fastcall UsbhIdleIrp_ReleaseIrp(__int64 a1, ULONG_PTR a2, IRP *a3, int a4)

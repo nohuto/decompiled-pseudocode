@@ -1,13 +1,11 @@
 /*
- * XREFs of ?Draw@CSynchronousSuperWetInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180241250
+ * XREFs of ?Draw@CSynchronousSuperWetInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801EFAB8
  * Callers:
- *     ?Draw@CSynchronousSuperWetInk@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180107B90 (-Draw@CSynchronousSuperWetInk@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawLi.c)
+ *     ?Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180013694 (-Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@.c)
+ *     ?Draw@CSynchronousSuperWetInk@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F6AA0 (-Draw@CSynchronousSuperWetInk@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawLi.c)
  * Callees:
- *     ?OnUpdatedInkReceived@CSuperWetInkManager@@QEAAXPEAVCSuperWetSource@@@Z @ 0x1801A7CA8 (-OnUpdatedInkReceived@CSuperWetInkManager@@QEAAXPEAVCSuperWetSource@@@Z.c)
- *     ?TryRegisterSuperWetForDraw@CSuperWetInkManager@@QEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x1801A88E0 (-TryRegisterSuperWetForDraw@CSuperWetInkManager@@QEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@.c)
- *     ?GetPerFrameDataId@CSynchronousSuperWetInk@@AEBAIXZ @ 0x180241404 (-GetPerFrameDataId@CSynchronousSuperWetInk@@AEBAIXZ.c)
- *     ?IsSuperWetCompatible@CSynchronousSuperWetInk@@AEBA_NXZ @ 0x1802414D4 (-IsSuperWetCompatible@CSynchronousSuperWetInk@@AEBA_NXZ.c)
- *     ?PullNewPerFrameData@CSynchronousSuperWetInk@@AEAAXIPEA_N@Z @ 0x180241AF4 (-PullNewPerFrameData@CSynchronousSuperWetInk@@AEAAXIPEA_N@Z.c)
+ *     ?TryRegisterSuperWetForDraw@CSuperWetInkManager@@QEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x180195F44 (-TryRegisterSuperWetForDraw@CSuperWetInkManager@@QEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@.c)
+ *     ?IsSuperWetCompatible@CSynchronousSuperWetInk@@AEBA_NXZ @ 0x1801EFB94 (-IsSuperWetCompatible@CSynchronousSuperWetInk@@AEBA_NXZ.c)
  */
 
 __int64 __fastcall CSynchronousSuperWetInk::Draw(
@@ -16,24 +14,17 @@ __int64 __fastcall CSynchronousSuperWetInk::Draw(
         const struct D2D_SIZE_F *a3,
         struct CDrawListCache *a4)
 {
-  CSynchronousSuperWetInk *v4; // rbx
-  CSynchronousSuperWetInk *v7; // rcx
-  CSuperWetInkManager *v8; // rsi
-  unsigned int PerFrameDataId; // eax
-  bool v11; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  struct CDrawingContext *v6; // r10
+  bool v8; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = (CSynchronousSuperWetInk *)((char *)this - 320);
-  if ( CSynchronousSuperWetInk::IsSuperWetCompatible((CSynchronousSuperWetInk *)((char *)this - 320)) )
-  {
-    v8 = *(CSuperWetInkManager **)(*((_QWORD *)this - 38) + 256LL);
-    PerFrameDataId = CSynchronousSuperWetInk::GetPerFrameDataId(v7);
-    CSynchronousSuperWetInk::PullNewPerFrameData(v4, PerFrameDataId, &v11);
-    if ( v11 )
-    {
-      CSuperWetInkManager::OnUpdatedInkReceived(v8, v4);
-      *((_BYTE *)this - 224) = 0;
-    }
-    CSuperWetInkManager::TryRegisterSuperWetForDraw(v8, v4, a2, 0, &v11);
-  }
+  if ( CSynchronousSuperWetInk::IsSuperWetCompatible((CSynchronousSuperWetInk *)((char *)this - 280)) )
+    CSuperWetInkManager::TryRegisterSuperWetForDraw(
+      *(CSuperWetInkManager **)(*(_QWORD *)(v5 - 264) + 128LL),
+      (struct CSuperWetSource *)((v5 - 168) & -(__int64)(v4 != 0)),
+      v6,
+      0,
+      &v8);
   return 0LL;
 }

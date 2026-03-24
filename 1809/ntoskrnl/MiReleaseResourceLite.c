@@ -1,5 +1,5 @@
 /*
- * XREFs of MiReleaseResourceLite @ 0x1402A1738
+ * XREFs of MiReleaseResourceLite @ 0x1402A1838
  * Callers:
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  * Callees:

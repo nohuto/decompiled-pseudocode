@@ -1,5 +1,5 @@
 /*
- * XREFs of ObpCreateSymbolicLinkName @ 0x1406C4460
+ * XREFs of ObpCreateSymbolicLinkName @ 0x1406C4440
  * Callers:
  *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
  * Callees:
@@ -10,8 +10,8 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1400DDB2C (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
+ *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1400DDB4C (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
  *     ObpLookupDirectoryEntryEx @ 0x140624DC0 (ObpLookupDirectoryEntryEx.c)
  */

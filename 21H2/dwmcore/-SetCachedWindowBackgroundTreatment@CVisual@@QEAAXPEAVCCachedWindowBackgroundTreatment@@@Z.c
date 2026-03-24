@@ -1,69 +1,53 @@
 /*
- * XREFs of ?SetCachedWindowBackgroundTreatment@CVisual@@QEAAXPEAVCCachedWindowBackgroundTreatment@@@Z @ 0x18000A7B0
+ * XREFs of ?SetCachedWindowBackgroundTreatment@CVisual@@QEAAXPEAVCCachedWindowBackgroundTreatment@@@Z @ 0x180011C60
  * Callers:
- *     ?GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z @ 0x1800099AC (-GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@.c)
+ *     ?GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEAAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z @ 0x180010F6C (-GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEAAJAEBUD2D_SIZE_F@@PEAUEffectInput@@.c)
  * Callees:
- *     ?ReserveSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@SAAEAT?$_Align_type@N$07@std@@PEAPEAV12@I@Z @ 0x18004C27C (-ReserveSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@SAAEAT-$_Align_type@N$07@std@@PEAP.c)
- *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x18004D2F4 (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
+ *     ?ReserveSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@SAAEAT?$_Align_type@N$07@std@@PEAPEAV12@I@Z @ 0x1800C65A4 (-ReserveSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@SAAEAT-$_Align_type@N$07@std@@PEAP.c)
+ *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x1800C666C (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
  */
 
 void __fastcall CVisual::SetCachedWindowBackgroundTreatment(CVisual *this, struct CCachedWindowBackgroundTreatment *a2)
 {
-  unsigned int **v2; // rcx
-  _QWORD *v3; // r11
-  unsigned int *v5; // r10
-  unsigned int v6; // eax
-  unsigned int *v7; // rcx
+  _QWORD *v2; // r10
+  _DWORD *v3; // r11
+  int v5; // eax
   unsigned int Slot; // eax
-  __int64 v9; // r10
-  char v10; // r11
-  __int64 v11; // rcx
-  _BYTE *v12; // rdx
-  unsigned int v13; // eax
+  char v7; // r10
+  __int64 v8; // r11
+  __int64 v9; // rcx
+  _BYTE *v10; // rdx
+  unsigned int i; // eax
 
-  v2 = (unsigned int **)((char *)this + 232);
-  v3 = 0LL;
-  v5 = *v2;
-  v6 = **v2;
+  v2 = 0LL;
+  v3 = (_DWORD *)*((_QWORD *)this + 28);
+  v5 = *v3 & 0x100000;
   if ( a2 )
   {
-    if ( (v6 & 0x100000) == 0 )
+    if ( v5 )
     {
-      *(_QWORD *)CSparseAlignedStorage<8,8>::AllocatedStorage::ReserveSlot(v2, 12LL) = a2;
-      return;
-    }
-    v11 = v5[1];
-    v12 = v5 + 2;
-    v13 = 0;
-    if ( (_DWORD)v11 )
-    {
-      while ( *v12 != 12 )
+      v9 = (unsigned int)v3[1];
+      v10 = v3 + 2;
+      for ( i = 0; i < (unsigned int)v9; ++v10 )
       {
-        ++v13;
-        ++v12;
-        if ( v13 >= (unsigned int)v11 )
-          goto LABEL_11;
+        if ( *v10 == 12 )
+          break;
+        ++i;
       }
+      if ( i < (unsigned int)v9 )
+        v2 = (_QWORD *)((char *)v3 + 8LL * i - (((_BYTE)v9 + 15) & 7) + v9 + 15);
+      *v2 = a2;
     }
     else
     {
-LABEL_11:
-      if ( v13 >= (unsigned int)v11 )
-      {
-LABEL_13:
-        *v3 = a2;
-        return;
-      }
+      *(_QWORD *)CSparseAlignedStorage<8,8>::AllocatedStorage::ReserveSlot((char *)this + 224, 12LL) = a2;
     }
-    v3 = (_QWORD *)((char *)v5 + 8LL * v13 - (((_BYTE)v11 + 15) & 7) + v11 + 15);
-    goto LABEL_13;
   }
-  if ( (v6 & 0x100000) != 0 )
+  else if ( v5 )
   {
-    v7 = *v2;
-    *v5 = v6 & 0xFFEFFFFF;
-    Slot = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v7, 12LL);
-    if ( Slot < *(_DWORD *)(v9 + 4) )
-      *(_BYTE *)(Slot + v9 + 8) = v10;
+    *v3 &= ~0x100000u;
+    Slot = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v3, 12LL);
+    if ( Slot < *(_DWORD *)(v8 + 4) )
+      *(_BYTE *)(Slot + v8 + 8) = v7;
   }
 }

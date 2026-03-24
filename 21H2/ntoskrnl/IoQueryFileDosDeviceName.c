@@ -1,21 +1,20 @@
 /*
- * XREFs of IoQueryFileDosDeviceName @ 0x14070F660
+ * XREFs of IoQueryFileDosDeviceName @ 0x140620460
  * Callers:
- *     CcMmLogLostDelayedWriteError @ 0x14053A580 (CcMmLogLostDelayedWriteError.c)
- *     EtwpGetDriverDataDosPath @ 0x14062CAEC (EtwpGetDriverDataDosPath.c)
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
- *     PiDrvDbQuerySystemPathWin32 @ 0x14095D038 (PiDrvDbQuerySystemPathWin32.c)
+ *     CcMmLogLostDelayedWriteError @ 0x1404EA5C8 (CcMmLogLostDelayedWriteError.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     PiDrvDbQuerySystemPathWin32 @ 0x1408B6D68 (PiDrvDbQuerySystemPathWin32.c)
  * Callees:
- *     IopQueryNameInternal @ 0x14070F744 (IopQueryNameInternal.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     IopQueryNameInternal @ 0x140620504 (IopQueryNameInternal.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoQueryFileDosDeviceName(PFILE_OBJECT FileObject, POBJECT_NAME_INFORMATION *ObjectNameInformation)
 {
-  __int64 v2; // rdi
+  SIZE_T v2; // rdi
   __int64 v5; // rdx
-  struct _OBJECT_NAME_INFORMATION *Pool2; // rbx
+  struct _OBJECT_NAME_INFORMATION *PoolWithTag; // rbx
   __int64 v7; // r8
   NTSTATUS v8; // edi
   int v10; // [rsp+30h] [rbp-18h]
@@ -24,18 +23,18 @@ NTSTATUS __stdcall IoQueryFileDosDeviceName(PFILE_OBJECT FileObject, POBJECT_NAM
   v2 = 208LL;
   for ( i = 208; ; v2 = i )
   {
-    Pool2 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, v2, 1849978697LL);
-    if ( !Pool2 )
+    PoolWithTag = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, v2, 0x6E446F49u);
+    if ( !PoolWithTag )
       break;
     LOBYTE(v10) = 0;
     LOBYTE(v7) = 1;
-    v8 = IopQueryNameInternal(FileObject, v5, v7, Pool2, v2, &i, v10);
+    v8 = IopQueryNameInternal(FileObject, v5, v7, PoolWithTag, v2, &i, v10);
     if ( !v8 )
     {
-      *ObjectNameInformation = Pool2;
+      *ObjectNameInformation = PoolWithTag;
       return v8;
     }
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
     if ( v8 != -2147483643 )
       return v8;
   }

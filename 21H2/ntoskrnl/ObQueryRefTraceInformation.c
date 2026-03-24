@@ -1,35 +1,31 @@
 /*
- * XREFs of ObQueryRefTraceInformation @ 0x1409855BC
+ * XREFs of ObQueryRefTraceInformation @ 0x1408DDFF4
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
  */
 
 __int64 __fastcall ObQueryRefTraceInformation(char *Address, SIZE_T Length, unsigned int *a3)
 {
   unsigned int *v3; // r13
-  unsigned int v4; // esi
-  unsigned int v6; // r12d
-  unsigned int v7; // r14d
+  unsigned int v4; // r12d
+  unsigned int v6; // r14d
+  unsigned int v7; // esi
   struct _KTHREAD *CurrentThread; // rax
   char v9; // cl
   unsigned __int16 v10; // r13
-  char *v11; // r10
+  char *v11; // r12
   __int16 v12; // cx
   unsigned int i; // r9d
   unsigned int j; // r8d
   __int64 v15; // r15
-  struct _KTHREAD *v16; // rax
-  bool v17; // zf
-  unsigned int v19; // [rsp+78h] [rbp+10h]
 
-  v19 = Length;
   v3 = a3;
   v4 = Length;
   v6 = 0;
@@ -52,7 +48,7 @@ __int64 __fastcall ObQueryRefTraceInformation(char *Address, SIZE_T Length, unsi
       if ( v10 )
         v7 += 10 * v10;
     }
-    if ( v7 <= v19 )
+    if ( v7 <= v4 )
     {
       v11 = Address + 40;
       *(_OWORD *)Address = 0LL;
@@ -66,7 +62,7 @@ __int64 __fastcall ObQueryRefTraceInformation(char *Address, SIZE_T Length, unsi
         *((_WORD *)Address + 5) = ObpRuntimeTraceProcessName.MaximumLength;
         *((_QWORD *)Address + 2) = v11;
         memmove(Address + 40, ObpRuntimeTraceProcessName.Buffer, ObpRuntimeTraceProcessName.MaximumLength);
-        v11 = &Address[2 * ((unsigned __int64)ObpRuntimeTraceProcessName.MaximumLength >> 1) + 40];
+        v11 += 2 * ((unsigned __int64)ObpRuntimeTraceProcessName.MaximumLength >> 1);
       }
       if ( (ObpTraceFlags & 0x10) != 0 )
       {
@@ -106,10 +102,7 @@ __int64 __fastcall ObQueryRefTraceInformation(char *Address, SIZE_T Length, unsi
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ObpStackTraceLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(&ObpStackTraceLock);
   KeAbPostRelease((ULONG_PTR)&ObpStackTraceLock);
-  v16 = KeGetCurrentThread();
-  v17 = v16->SpecialApcDisable++ == -1;
-  if ( v17 && ($CEA84C04E3712D858E5667A507841A2A *)v16->ApcState.ApcListHead[0].Flink != &v16->152 )
-    KiCheckForKernelApcDelivery();
+  KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   if ( (int)(v6 + 0x80000000) < 0 || v6 == -1073741820 )
   {
     if ( v3 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Win32ProbeForRead@@YAXPEAX_KK@Z @ 0x1C00DDFE0
+ * XREFs of ?Win32ProbeForRead@@YAXPEAX_KK@Z @ 0x1C00D268C
  * Callers:
- *     ?TryProbeAndReadUserModeGlyphSet@QueryFontTreeRequest@@AEAA_NPEAK0@Z @ 0x1C00DD8E4 (-TryProbeAndReadUserModeGlyphSet@QueryFontTreeRequest@@AEAA_NPEAK0@Z.c)
- *     ?CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z @ 0x1C00DD940 (-CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z.c)
- *     ?CaptureKerningPairs@QueryFontTreeRequest@@AEAAXXZ @ 0x1C013A7AC (-CaptureKerningPairs@QueryFontTreeRequest@@AEAAXXZ.c)
- *     ?CaptureUsermodeParameters@GetTrueTypeFileRequest@@UEAAXPEAX@Z @ 0x1C02DC1B0 (-CaptureUsermodeParameters@GetTrueTypeFileRequest@@UEAAXPEAX@Z.c)
- *     ?CaptureUsermodeParameters@QueryGlyphAttrsRequest@@UEAAXPEAX@Z @ 0x1C02DC230 (-CaptureUsermodeParameters@QueryGlyphAttrsRequest@@UEAAXPEAX@Z.c)
- *     ?FntCacheAllocate@UmfdFontCacheEntry@@SA_NPEAEIIW4FontDriverType@@@Z @ 0x1C02DC6E8 (-FntCacheAllocate@UmfdFontCacheEntry@@SA_NPEAEIIW4FontDriverType@@@Z.c)
+ *     ?CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z @ 0x1C00D1B70 (-CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z.c)
+ *     ?TryProbeAndReadUserModeGlyphSet@QueryFontTreeRequest@@AEAA_NPEAK0@Z @ 0x1C00D2638 (-TryProbeAndReadUserModeGlyphSet@QueryFontTreeRequest@@AEAA_NPEAK0@Z.c)
+ *     ?CaptureKerningPairs@QueryFontTreeRequest@@AEAAXXZ @ 0x1C014CABC (-CaptureKerningPairs@QueryFontTreeRequest@@AEAAXXZ.c)
+ *     ?CaptureUsermodeParameters@GetTrueTypeFileRequest@@UEAAXPEAX@Z @ 0x1C02DF3C0 (-CaptureUsermodeParameters@GetTrueTypeFileRequest@@UEAAXPEAX@Z.c)
+ *     ?CaptureUsermodeParameters@QueryGlyphAttrsRequest@@UEAAXPEAX@Z @ 0x1C02DF440 (-CaptureUsermodeParameters@QueryGlyphAttrsRequest@@UEAAXPEAX@Z.c)
+ *     ?FntCacheAllocate@UmfdFontCacheEntry@@SA_NPEAEIIW4FontDriverType@@@Z @ 0x1C02DF9B8 (-FntCacheAllocate@UmfdFontCacheEntry@@SA_NPEAEIIW4FontDriverType@@@Z.c)
  * Callees:
  *     <none>
  */

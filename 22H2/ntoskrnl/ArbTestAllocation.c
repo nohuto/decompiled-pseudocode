@@ -1,36 +1,36 @@
 /*
- * XREFs of ArbTestAllocation @ 0x140817290
+ * XREFs of ArbTestAllocation @ 0x140760540
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     RtlCopyRangeList @ 0x140817400 (RtlCopyRangeList.c)
- *     ArbpBuildAllocationStack @ 0x140817598 (ArbpBuildAllocationStack.c)
- *     RtlFreeRangeList @ 0x140817B80 (RtlFreeRangeList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ArbpBuildAllocationStack @ 0x1407606A4 (ArbpBuildAllocationStack.c)
+ *     RtlCopyRangeList @ 0x140760820 (RtlCopyRangeList.c)
+ *     RtlFreeRangeList @ 0x140760BB0 (RtlFreeRangeList.c)
  */
 
-__int64 __fastcall ArbTestAllocation(__int64 a1, __int64 ***a2)
+__int64 __fastcall ArbTestAllocation(__int64 a1, __int64 ****a2)
 {
-  __int64 **v2; // r8
+  __int64 ***v2; // r8
   int v5; // eax
   int v6; // ebx
-  __int64 **v7; // r8
+  __int64 ***v7; // r8
   unsigned int v8; // ebp
   __int64 *v9; // r15
   __int64 **v10; // rsi
   unsigned __int64 v11; // rbx
   unsigned __int64 i; // rax
   int v13; // eax
-  __int64 *v14; // rdx
+  __int64 **v14; // rdx
   char v15; // cl
-  __int64 *v16; // r9
+  __int64 ***v16; // r9
   __int64 result; // rax
   __int64 **v18; // rcx
-  __int64 v19; // rax
+  __int64 *v19; // rax
 
   v2 = a2[2];
   if ( v2 )
-    v5 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64 **, _QWORD))(a1 + 280))(
+    v5 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64 ***, _QWORD))(a1 + 280))(
            a1,
            *((unsigned int *)a2 + 2),
            v2,
@@ -43,8 +43,8 @@ __int64 __fastcall ArbTestAllocation(__int64 a1, __int64 ***a2)
   v7 = *a2;
   v8 = 0;
   v9 = 0LL;
-  v10 = (__int64 **)**a2;
-  while ( v7 != v10 )
+  v10 = **a2;
+  while ( v7 != (__int64 ***)v10 )
   {
     ++v8;
     if ( !a2[2] && v9 != v10[4] )
@@ -79,28 +79,29 @@ __int64 __fastcall ArbTestAllocation(__int64 a1, __int64 ***a2)
   {
     v14 = *v7;
     v15 = 1;
-    if ( *v7 == (__int64 *)v7 )
+    if ( *v7 == (__int64 **)v7 )
       break;
     do
     {
-      v16 = (__int64 *)*v14;
-      if ( (__int64 **)*v14 == v7 )
+      v16 = (__int64 ***)*v14;
+      if ( *v14 == (__int64 *)v7 )
         break;
-      if ( v14[6] > v16[6] )
+      if ( (__int64)v14[6] > (__int64)v16[6] )
       {
         v18 = (__int64 **)v14[1];
-        v19 = *v16;
-        *v18 = v16;
-        *(_QWORD *)(v19 + 8) = v14;
+        v19 = (__int64 *)*v16;
+        *v18 = (__int64 *)v16;
+        v19[1] = (__int64)v14;
         *v14 = v19;
-        v14[1] = (__int64)v16;
-        v16[1] = (__int64)v18;
+        v14[1] = (__int64 *)v16;
+        v16[1] = v18;
         v15 = 0;
-        *v16 = (__int64)v14;
+        *v16 = v14;
+        v16 = (__int64 ***)*v14;
       }
-      v14 = (__int64 *)*v14;
+      v14 = (__int64 **)v16;
     }
-    while ( v14 != (__int64 *)v7 );
+    while ( v16 != v7 );
   }
   while ( !v15 );
   v6 = ArbpBuildAllocationStack(a1, *a2, v8);

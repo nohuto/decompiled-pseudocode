@@ -1,11 +1,11 @@
 /*
- * XREFs of UserSetFont @ 0x1C00C5854
+ * XREFs of UserSetFont @ 0x1C00E2ABC
  * Callers:
- *     xxxSetNCFonts @ 0x1C00C3874 (xxxSetNCFonts.c)
- *     SetIconMetrics @ 0x1C00C6CF4 (SetIconMetrics.c)
+ *     SetIconMetrics @ 0x1C00E22C0 (SetIconMetrics.c)
+ *     xxxSetNCFonts @ 0x1C00E2C88 (xxxSetNCFonts.c)
  * Callees:
- *     CreateFontFromUserProfile @ 0x1C00C58D0 (CreateFontFromUserProfile.c)
- *     GreMarkDeletableFont @ 0x1C00C5A20 (GreMarkDeletableFont.c)
+ *     CreateFontFromUserProfile @ 0x1C00E2B38 (CreateFontFromUserProfile.c)
+ *     GreMarkDeletableFont @ 0x1C00E43C4 (GreMarkDeletableFont.c)
  */
 
 __int64 __fastcall UserSetFont(struct _UNICODE_STRING *a1, __int64 a2, __int64 a3, struct HLFONT__ **a4)

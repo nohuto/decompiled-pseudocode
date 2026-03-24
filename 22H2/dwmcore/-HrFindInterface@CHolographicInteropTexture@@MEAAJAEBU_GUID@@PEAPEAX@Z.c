@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HrFindInterface@CHolographicInteropTexture@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802AB230
+ * XREFs of ?HrFindInterface@CHolographicInteropTexture@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180259190
  * Callers:
  *     <none>
  * Callees:
@@ -21,6 +21,6 @@ __int64 __fastcall CHolographicInteropTexture::HrFindInterface(
   if ( v3 )
     return (unsigned int)-2147467262;
   else
-    *a3 = (void *)(((unsigned __int64)this + 80) & -(__int64)(this != 0LL));
+    *a3 = (void *)(((unsigned __int64)this + 72) & -(__int64)(this != 0LL));
   return v4;
 }

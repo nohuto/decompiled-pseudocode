@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPageLockHandle @ 0x1C00C0010
+ * XREFs of VerifierPageLockHandle @ 0x1C00BF060
  * Callers:
  *     <none>
  * Callees:

@@ -1,11 +1,14 @@
 /*
- * XREFs of ?Transform2DRectToPerspective@CMILMatrix@@QEBAXAEBUMilRectF@@QEAUMilPoint2F@@@Z @ 0x1800AE858
+ * XREFs of ?Transform2DRectToPerspective@CMILMatrix@@QEBAXAEBUMilRectF@@QEAUMilPoint2F@@@Z @ 0x1800A8870
  * Callers:
- *     ?FlattenGeometry@CTransformedGeometryHelper@@AEAAJPEBUID2D1Geometry@@@Z @ 0x180013000 (-FlattenGeometry@CTransformedGeometryHelper@@AEAAJPEBUID2D1Geometry@@@Z.c)
- *     ??$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800AE2E0 (--$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800AE500 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800869D0 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ??$Transform3DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@AEAV1@@Z @ 0x1800A7320 (--$Transform3DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBV-$TMil3DRect@MV-$TMilRect_@MUMilRectF@@UMil.c)
+ *     ??$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800A7AB0 (--$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ??$Transform3DBoundsHelper@$00@CMILMatrix@@AEBAXAEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@AEAV1@@Z @ 0x1800A7EC0 (--$Transform3DBoundsHelper@$00@CMILMatrix@@AEBAXAEBV-$TMil3DRect@MV-$TMilRect_@MUMilRectF@@UMil3.c)
+ *     ?FlattenGeometry@CTransformedGeometryHelper@@AEAAJPEBUID2D1Geometry@@@Z @ 0x1802601B8 (-FlattenGeometry@CTransformedGeometryHelper@@AEAAJPEBUID2D1Geometry@@@Z.c)
  * Callees:
- *     <none>
+ *     ??$Is2DAffine@$00@CMILMatrix@@AEBA_N_N@Z @ 0x180082210 (--$Is2DAffine@$00@CMILMatrix@@AEBA_N_N@Z.c)
+ *     ?IsCloseRealOne@@YA_NMM@Z @ 0x180088338 (-IsCloseRealOne@@YA_NMM@Z.c)
  */
 
 void __fastcall CMILMatrix::Transform2DRectToPerspective(
@@ -17,118 +20,116 @@ void __fastcall CMILMatrix::Transform2DRectToPerspective(
   float v5; // xmm2_4
   float v6; // xmm6_4
   float v7; // xmm7_4
-  float v8; // xmm3_4
-  float v9; // xmm5_4
-  float v10; // xmm3_4
-  float v11; // xmm2_4
-  float v12; // xmm4_4
-  float v13; // xmm2_4
-  char v14; // al
-  bool v15; // dl
-  float v16; // xmm1_4
-  float v17; // xmm4_4
-  float v18; // xmm3_4
-  float v19; // xmm0_4
-  float v20; // xmm2_4
-  float v21; // xmm7_4
-  float v22; // xmm6_4
-  float v23; // xmm3_4
-  float v24; // xmm4_4
-  float v25; // xmm1_4
-  float v26; // xmm1_4
-  float v27; // xmm1_4
+  float v8; // xmm6_4
+  float v9; // xmm3_4
+  float v10; // xmm5_4
+  float v11; // xmm3_4
+  float v12; // xmm2_4
+  float v13; // xmm4_4
+  float v14; // xmm2_4
+  __int64 v15; // r10
+  float *v16; // r11
+  float v17; // xmm1_4
+  float v18; // xmm4_4
+  float v19; // xmm3_4
+  float v20; // xmm0_4
+  float v21; // xmm2_4
+  float v22; // xmm7_4
+  float v23; // xmm6_4
+  float v24; // xmm3_4
+  float v25; // xmm4_4
+  float *v26; // r10
+  float v27; // xmm5_4
   float v28; // xmm1_4
+  __int64 v29; // r10
+  float v30; // xmm5_4
+  float v31; // xmm1_4
+  __int64 v32; // r10
+  float v33; // xmm4_4
+  float v34; // xmm5_4
+  float v35; // xmm2_4
+  float v36; // xmm4_4
+  float v37; // xmm1_4
 
   v4 = *(float *)a2 * *(float *)this;
   v5 = *(float *)a2 * *((float *)this + 1);
-  v6 = *((float *)a2 + 1) * *((float *)this + 4);
-  v7 = *((float *)a2 + 1) * *((float *)this + 5);
-  *(float *)a3 = (float)(v6 + v4) + *((float *)this + 12);
+  v6 = *((float *)a2 + 1);
+  v7 = v6 * *((float *)this + 5);
+  v8 = v6 * *((float *)this + 4);
+  *(float *)a3 = (float)(v8 + v4) + *((float *)this + 12);
   *((float *)a3 + 1) = (float)(v7 + v5) + *((float *)this + 13);
-  v8 = *((float *)a2 + 3);
-  v9 = v8 * *((float *)this + 5);
-  v10 = v8 * *((float *)this + 4);
-  *((float *)a3 + 2) = (float)(v10 + v4) + *((float *)this + 12);
-  *((float *)a3 + 3) = (float)(v9 + v5) + *((float *)this + 13);
-  v11 = *((float *)a2 + 2);
-  v12 = v11 * *((float *)this + 1);
-  v13 = v11 * *(float *)this;
-  *((float *)a3 + 4) = (float)(v13 + v10) + *((float *)this + 12);
-  *((float *)a3 + 5) = (float)(v12 + v9) + *((float *)this + 13);
-  *((float *)a3 + 6) = (float)(v13 + v6) + *((float *)this + 12);
-  *((float *)a3 + 7) = (float)(v12 + v7) + *((float *)this + 13);
-  v14 = (char)(4 * *((_BYTE *)this + 65)) >> 6;
-  if ( v14 )
+  v9 = *((float *)a2 + 3);
+  v10 = v9 * *((float *)this + 5);
+  v11 = v9 * *((float *)this + 4);
+  *((float *)a3 + 2) = (float)(v11 + v4) + *((float *)this + 12);
+  *((float *)a3 + 3) = (float)(v10 + v5) + *((float *)this + 13);
+  v12 = *((float *)a2 + 2);
+  v13 = v12 * *((float *)this + 1);
+  v14 = v12 * *(float *)this;
+  *((float *)a3 + 4) = (float)(v14 + v11) + *((float *)this + 12);
+  *((float *)a3 + 5) = (float)(v13 + v10) + *((float *)this + 13);
+  *((float *)a3 + 6) = (float)(v14 + v8) + *((float *)this + 12);
+  *((float *)a3 + 7) = (float)(v13 + v7) + *((float *)this + 13);
+  if ( !CMILMatrix::Is2DAffine<1>((__int64)this, 1) )
   {
-    v15 = v14 == 1;
-  }
-  else
-  {
-    v15 = COERCE_FLOAT(COERCE_UNSIGNED_INT(
-                         (float)((float)((float)(COERCE_FLOAT(*((_DWORD *)this + 7) & _xmm) * 61440.0)
-                                       + (float)(COERCE_FLOAT(*((_DWORD *)this + 3) & _xmm) * 61440.0))
-                               + COERCE_FLOAT(*((_DWORD *)this + 15) & _xmm))
-                       - 1.0) & _xmm) < 0.000081380211;
-    *((_BYTE *)this + 65) ^= (*((_BYTE *)this + 65) ^ (-16 - 32 * v15)) & 0x30;
-  }
-  if ( v15 )
-    return;
-  v16 = *((float *)this + 15);
-  v17 = *((float *)this + 7) * *((float *)a2 + 1);
-  v18 = *((float *)this + 7) * *((float *)a2 + 3);
-  v19 = *((float *)this + 3) * *(float *)a2;
-  v20 = *((float *)this + 3) * *((float *)a2 + 2);
-  v21 = (float)(v17 + v19) + v16;
-  v22 = (float)(v18 + v19) + v16;
-  v23 = (float)(v18 + v20) + v16;
-  v24 = (float)(v17 + v20) + v16;
-  if ( v21 < 0.000081380211 || v22 < 0.000081380211 || v23 < 0.000081380211 || v24 < 0.000081380211 )
-  {
-    if ( v21 >= -0.000081380211 || v22 >= -0.000081380211 || v23 >= -0.000081380211 || v24 >= -0.000081380211 )
+    v17 = v16[15];
+    v18 = v16[7] * *((float *)a2 + 1);
+    v19 = v16[7] * *((float *)a2 + 3);
+    v20 = v16[3] * *(float *)a2;
+    v21 = v16[3] * *((float *)a2 + 2);
+    v22 = (float)(v18 + v20) + v17;
+    v23 = (float)(v19 + v20) + v17;
+    v24 = (float)(v19 + v21) + v17;
+    v25 = (float)(v18 + v21) + v17;
+    if ( v22 < 0.000081380211 || v23 < 0.000081380211 || v24 < 0.000081380211 || v25 < 0.000081380211 )
     {
-      *(_DWORD *)a3 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite;
-      *((_DWORD *)a3 + 1) = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 1);
-      *((_DWORD *)a3 + 2) = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite;
-      *((_DWORD *)a3 + 3) = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 3);
-      *((_DWORD *)a3 + 4) = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 2);
-      *((_DWORD *)a3 + 5) = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 3);
-      *((_DWORD *)a3 + 6) = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 2);
-      v28 = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 1);
+      if ( v22 >= -0.000081380211 || v23 >= -0.000081380211 || v24 >= -0.000081380211 || v25 >= -0.000081380211 )
+      {
+        *(_DWORD *)v15 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite;
+        *(_DWORD *)(v15 + 4) = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 1);
+        *(_DWORD *)(v15 + 8) = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite;
+        *(_DWORD *)(v15 + 12) = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 3);
+        *(_DWORD *)(v15 + 16) = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 2);
+        *(_DWORD *)(v15 + 20) = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 3);
+        *(_DWORD *)(v15 + 24) = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 2);
+        v37 = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 1);
+      }
+      else
+      {
+        *(_QWORD *)v15 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
+        *(_DWORD *)(v15 + 8) = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
+        *(_DWORD *)(v15 + 12) = HIDWORD(TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty);
+        *(_QWORD *)(v15 + 16) = *((_QWORD *)&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty
+                                + 1);
+        *(_DWORD *)(v15 + 24) = DWORD2(TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty);
+        v37 = *((float *)&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty + 1);
+      }
+      goto LABEL_20;
     }
-    else
+    if ( !IsCloseRealOne(v22, 0.000081380211) )
     {
-      *(_QWORD *)a3 = *(_QWORD *)&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
-      *((_DWORD *)a3 + 2) = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
-      *((_DWORD *)a3 + 3) = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty + 3);
-      *((_QWORD *)a3 + 2) = *((_QWORD *)&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty + 1);
-      *((_DWORD *)a3 + 6) = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty + 2);
-      v28 = *((float *)&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty + 1);
+      v28 = v26[1] / v22;
+      *v26 = *v26 / v22;
+      v26[1] = v28;
     }
-    goto LABEL_17;
-  }
-  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(v21 - 1.0) & _xmm) >= 0.000081380211 )
-  {
-    v25 = *((float *)a3 + 1) / v21;
-    *(float *)a3 = *(float *)a3 / v21;
-    *((float *)a3 + 1) = v25;
-  }
-  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(v22 - 1.0) & _xmm) >= 0.000081380211 )
-  {
-    v26 = *((float *)a3 + 3) / v22;
-    *((float *)a3 + 2) = *((float *)a3 + 2) / v22;
-    *((float *)a3 + 3) = v26;
-  }
-  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(v23 - 1.0) & _xmm) >= 0.000081380211 )
-  {
-    v27 = *((float *)a3 + 5) / v23;
-    *((float *)a3 + 4) = *((float *)a3 + 4) / v23;
-    *((float *)a3 + 5) = v27;
-  }
-  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(v24 - 1.0) & _xmm) >= 0.000081380211 )
-  {
-    v28 = *((float *)a3 + 7) / v24;
-    *((float *)a3 + 6) = *((float *)a3 + 6) / v24;
-LABEL_17:
-    *((float *)a3 + 7) = v28;
+    if ( !IsCloseRealOne(v23, v27) )
+    {
+      v31 = *(float *)(v29 + 12) / v23;
+      *(float *)(v29 + 8) = *(float *)(v29 + 8) / v23;
+      *(float *)(v29 + 12) = v31;
+    }
+    if ( !IsCloseRealOne(v24, v30) )
+    {
+      v35 = *(float *)(v32 + 20) / v24;
+      *(float *)(v32 + 16) = *(float *)(v32 + 16) / v24;
+      *(float *)(v32 + 20) = v35;
+    }
+    if ( !IsCloseRealOne(v33, v34) )
+    {
+      v37 = *(float *)(v15 + 28) / v36;
+      *(float *)(v15 + 24) = *(float *)(v15 + 24) / v36;
+LABEL_20:
+      *(float *)(v15 + 28) = v37;
+    }
   }
 }

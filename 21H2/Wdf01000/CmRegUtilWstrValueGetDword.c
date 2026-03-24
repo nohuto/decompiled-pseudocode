@@ -1,10 +1,10 @@
 /*
- * XREFs of CmRegUtilWstrValueGetDword @ 0x1C00BF7B8
+ * XREFs of CmRegUtilWstrValueGetDword @ 0x1C00BE044
  * Callers:
- *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C00BED90 (PiRegStateReadStackCreationSettingsFromKey.c)
+ *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C00BD620 (PiRegStateReadStackCreationSettingsFromKey.c)
  * Callees:
- *     WdmlibRtlInitUnicodeStringEx @ 0x1C008FBA4 (WdmlibRtlInitUnicodeStringEx.c)
- *     CmRegUtilUcValueGetDword @ 0x1C00BF4D4 (CmRegUtilUcValueGetDword.c)
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C008EE80 (WdmlibRtlInitUnicodeStringEx.c)
+ *     CmRegUtilUcValueGetDword @ 0x1C00BDD60 (CmRegUtilUcValueGetDword.c)
  */
 
 NTSTATUS __fastcall CmRegUtilWstrValueGetDword(

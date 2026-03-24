@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSetFaultPacketDirectives @ 0x1405A7A74
+ * XREFs of MiSetFaultPacketDirectives @ 0x140548F38
  * Callers:
- *     MiValidFault @ 0x140291FC0 (MiValidFault.c)
- *     MiCompleteProtoPteFault @ 0x1403203D0 (MiCompleteProtoPteFault.c)
- *     MiValidVirtualizationFault @ 0x14045C52A (MiValidVirtualizationFault.c)
+ *     MiValidFault @ 0x140209750 (MiValidFault.c)
+ *     MiCompleteProtoPteFault @ 0x140213D90 (MiCompleteProtoPteFault.c)
+ *     MiValidVirtualizationFault @ 0x140548F5C (MiValidVirtualizationFault.c)
  * Callees:
  *     <none>
  */

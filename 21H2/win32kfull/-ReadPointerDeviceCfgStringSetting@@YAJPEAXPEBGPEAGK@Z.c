@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReadPointerDeviceCfgStringSetting@@YAJPEAXPEBGPEAGK@Z @ 0x1C0118634
+ * XREFs of ?ReadPointerDeviceCfgStringSetting@@YAJPEAXPEBGPEAGK@Z @ 0x1C00E2040
  * Callers:
- *     ?GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z @ 0x1C00A122C (-GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z.c)
- *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C0210AC8 (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ *     ?GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z @ 0x1C00E1B38 (-GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z.c)
+ *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C02094DC (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
  * Callees:
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C002393C (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0049A6C (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
  */
 
 __int64 __fastcall ReadPointerDeviceCfgStringSetting(HANDLE KeyHandle, PCWSTR SourceString, char *a3, unsigned int a4)
@@ -18,7 +18,7 @@ __int64 __fastcall ReadPointerDeviceCfgStringSetting(HANDLE KeyHandle, PCWSTR So
   v8 = -1073741595;
   DestinationString = 0LL;
   Length = 2 * a4 + 12;
-  v9 = Win32AllocPoolWithQuotaZInit(Length, 2020635477LL);
+  v9 = Win32AllocPoolWithQuota(Length, 2020635477LL);
   if ( v9 )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);
@@ -38,7 +38,7 @@ __int64 __fastcall ReadPointerDeviceCfgStringSetting(HANDLE KeyHandle, PCWSTR So
         v8 = RtlStringCchCopyW(a3, a4, (char *)(v9 + 12));
       }
     }
-    Win32FreePool(v9);
+    Win32FreePool((void *)v9);
   }
   return (unsigned int)v8;
 }

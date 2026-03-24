@@ -1,5 +1,5 @@
 /*
- * XREFs of Control_EP_AreTransfersPending @ 0x1C00403C0
+ * XREFs of Control_EP_AreTransfersPending @ 0x1C003FC70
  * Callers:
  *     <none>
  * Callees:

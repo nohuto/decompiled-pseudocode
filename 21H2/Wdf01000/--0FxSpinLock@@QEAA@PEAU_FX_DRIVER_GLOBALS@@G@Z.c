@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0FxSpinLock@@QEAA@PEAU_FX_DRIVER_GLOBALS@@G@Z @ 0x1C0011178
+ * XREFs of ??0FxSpinLock@@QEAA@PEAU_FX_DRIVER_GLOBALS@@G@Z @ 0x1C0019738
  * Callers:
- *     imp_WdfSpinLockCreate @ 0x1C0011040 (imp_WdfSpinLockCreate.c)
+ *     imp_WdfSpinLockCreate @ 0x1C0019640 (imp_WdfSpinLockCreate.c)
  * Callees:
- *     ?GetHistory@FxSpinLock@@IEAAPEAUFX_SPIN_LOCK_HISTORY@@XZ @ 0x1C00111EC (-GetHistory@FxSpinLock@@IEAAPEAUFX_SPIN_LOCK_HISTORY@@XZ.c)
- *     ??0FxObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0016188 (--0FxObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     memset @ 0x1C0036C00 (memset.c)
+ *     ??0FxObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00051A4 (--0FxObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?GetHistory@FxSpinLock@@IEAAPEAUFX_SPIN_LOCK_HISTORY@@XZ @ 0x1C00197AC (-GetHistory@FxSpinLock@@IEAAPEAUFX_SPIN_LOCK_HISTORY@@XZ.c)
+ *     memset @ 0x1C001D540 (memset.c)
  */
 
 void __fastcall FxSpinLock::FxSpinLock(

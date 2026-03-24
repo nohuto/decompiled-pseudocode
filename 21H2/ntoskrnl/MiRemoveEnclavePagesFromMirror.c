@@ -1,41 +1,41 @@
 /*
- * XREFs of MiRemoveEnclavePagesFromMirror @ 0x140A6A8C0
+ * XREFs of MiRemoveEnclavePagesFromMirror @ 0x1409B0CD8
  * Callers:
- *     MiMirrorBlackPhase @ 0x14038A168 (MiMirrorBlackPhase.c)
+ *     MiMirrorBlackPhase @ 0x1403F4064 (MiMirrorBlackPhase.c)
  * Callees:
- *     MiMirrorOmitPagesFromCopy @ 0x14038F830 (MiMirrorOmitPagesFromCopy.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x140385E5C (MiMirrorOmitPagesFromCopy.c)
  */
 
-PMDL __fastcall MiRemoveEnclavePagesFromMirror(__int64 a1)
+_QWORD *__fastcall MiRemoveEnclavePagesFromMirror(__int64 a1)
 {
-  PMDL result; // rax
-  _QWORD *p_Next; // rbx
+  _QWORD *result; // rax
+  _QWORD *v3; // rbx
   _QWORD *v4; // rcx
-  struct _MDL *Next; // rcx
+  _QWORD *v5; // rcx
 
-  result = MemoryDescriptorList;
-  p_Next = 0LL;
+  result = (_QWORD *)qword_140C4EE80;
+  v3 = 0LL;
   while ( result )
   {
-    p_Next = &result->Next;
-    result = result->Next;
+    v3 = result;
+    result = (_QWORD *)*result;
   }
-  while ( p_Next )
+  while ( v3 )
   {
-    MiMirrorOmitPagesFromCopy(a1, p_Next[3], p_Next[4]);
-    result = (PMDL)p_Next[1];
-    v4 = p_Next;
+    MiMirrorOmitPagesFromCopy(a1, v3[3], v3[4]);
+    result = (_QWORD *)v3[1];
+    v4 = v3;
     if ( result )
     {
-      Next = result->Next;
-      p_Next = (_QWORD *)p_Next[1];
-      if ( result->Next )
+      v5 = (_QWORD *)*result;
+      v3 = (_QWORD *)v3[1];
+      if ( *result )
       {
         do
         {
-          result = Next->Next;
-          p_Next = &Next->Next;
-          Next = result;
+          result = (_QWORD *)*v5;
+          v3 = v5;
+          v5 = result;
         }
         while ( result );
       }
@@ -44,10 +44,10 @@ PMDL __fastcall MiRemoveEnclavePagesFromMirror(__int64 a1)
     {
       while ( 1 )
       {
-        p_Next = (_QWORD *)(p_Next[2] & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !p_Next || (_QWORD *)*p_Next == v4 )
+        v3 = (_QWORD *)(v3[2] & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( !v3 || (_QWORD *)*v3 == v4 )
           break;
-        v4 = p_Next;
+        v4 = v3;
       }
     }
   }

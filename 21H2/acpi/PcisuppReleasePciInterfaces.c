@@ -1,12 +1,12 @@
 /*
- * XREFs of PcisuppReleasePciInterfaces @ 0x1C00B61A0
+ * XREFs of PcisuppReleasePciInterfaces @ 0x1C00B6B38
  * Callers:
- *     ACPIBusIrpRemoveDevice @ 0x1C004C350 (ACPIBusIrpRemoveDevice.c)
+ *     ACPIBusIrpRemoveDevice @ 0x1C004D5D0 (ACPIBusIrpRemoveDevice.c)
  * Callees:
- *     ACPIInternalClearFlags @ 0x1C0001748 (ACPIInternalClearFlags.c)
- *     WPP_RECORDER_SF_qss @ 0x1C00077E8 (WPP_RECORDER_SF_qss.c)
- *     ACPIWakeReleasePmeRouting @ 0x1C00636D0 (ACPIWakeReleasePmeRouting.c)
- *     PcisuppReleasePciRouting @ 0x1C00B629C (PcisuppReleasePciRouting.c)
+ *     ACPIInternalClearFlags @ 0x1C0002320 (ACPIInternalClearFlags.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C001DAB8 (WPP_RECORDER_SF_qss.c)
+ *     ACPIWakeReleasePmeRouting @ 0x1C0062390 (ACPIWakeReleasePmeRouting.c)
+ *     PcisuppReleasePciRouting @ 0x1C00B6C48 (PcisuppReleasePciRouting.c)
  */
 
 void __fastcall PcisuppReleasePciInterfaces(_QWORD *a1)
@@ -17,21 +17,21 @@ void __fastcall PcisuppReleasePciInterfaces(_QWORD *a1)
 
   KeEnterCriticalRegion();
   ExAcquireResourceExclusiveLite(&PciRouteInterfaceLock, 1u);
-  if ( (a1[125] & 2) != 0 )
+  if ( (a1[120] & 2) != 0 )
   {
-    ACPIInternalClearFlags(a1 + 125, 2LL);
+    ACPIInternalClearFlags(a1 + 120, 2LL);
     if ( _InterlockedExchangeAdd(&PciRoutingInterfaceCount, 0xFFFFFFFF) == 1 )
     {
       PcisuppReleasePciRouting();
       ACPIWakeReleasePmeRouting();
       v2 = a1[1];
-      v3 = (const char *)&unk_1C006FB8B;
-      v4 = (const char *)&unk_1C006FB8B;
+      v3 = byte_1C00701BA;
+      v4 = byte_1C00701BA;
       if ( (v2 & 0x200000000000LL) != 0 )
       {
-        v3 = (const char *)a1[76];
+        v3 = (const char *)a1[71];
         if ( (v2 & 0x400000000000LL) != 0 )
-          v4 = (const char *)a1[77];
+          v4 = (const char *)a1[72];
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_qss(

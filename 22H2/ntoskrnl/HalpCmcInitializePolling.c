@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpCmcInitializePolling @ 0x1403B3DB8
+ * XREFs of HalpCmcInitializePolling @ 0x1403C5040
  * Callers:
- *     HalpInitializeCmc @ 0x140A8B58C (HalpInitializeCmc.c)
+ *     HalpInitializeCmc @ 0x1409A0E28 (HalpInitializeCmc.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpCmcInitializeErrorPacketContents @ 0x140380CD8 (HalpCmcInitializeErrorPacketContents.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpCmcInitializeErrorPacketContents @ 0x1403C51A8 (HalpCmcInitializeErrorPacketContents.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpCmcInitializePolling(__int64 a1)
@@ -22,41 +22,42 @@ __int64 __fastcall HalpCmcInitializePolling(__int64 a1)
   if ( !HalpCmcPollingInitialized )
   {
     HalpCmcErrorPacket = (__int64)&HalpCmcReserveErrorPacket;
-    HalpCmcInitializeErrorPacketContents((GUID *)&HalpCmcReserveErrorPacket);
+    HalpCmcInitializeErrorPacketContents();
     v3 = *(_DWORD *)(a1 + 52);
-    qword_140C6A960 = (__int64)HalpCmcDeferredRoutine;
-    qword_140C6A998 = (__int64)HalpCmcWorkerRoutine;
+    qword_140C50890 = (__int64)HalpCmcDeferredRoutine;
+    qword_140C508C8 = (__int64)HalpCmcWorkerRoutine;
     HalpCmcContext = v3;
-    qword_140C6A908 = 8LL;
-    qword_140C6A918 = (__int64)&qword_140C6A910;
-    qword_140C6A910 = (__int64)&qword_140C6A910;
-    dword_140C6A948 = 275;
-    qword_140C6A968 = (__int64)&HalpCmcContext;
-    qword_140C6A980 = 0LL;
-    qword_140C6A958 = 0LL;
-    qword_140C6A9A0 = (__int64)&HalpCmcContext;
-    qword_140C6A988 = 0LL;
-    qword_140C6A920 = 0LL;
-    dword_140C6A944 = 0;
-    word_140C6A940 = 0;
+    qword_140C50838 = 8LL;
+    qword_140C50848 = (__int64)&qword_140C50840;
+    qword_140C50840 = (__int64)&qword_140C50840;
+    dword_140C50878 = 275;
+    qword_140C50898 = (__int64)&HalpCmcContext;
+    qword_140C508B0 = 0LL;
+    qword_140C50888 = 0LL;
+    qword_140C508D0 = (__int64)&HalpCmcContext;
+    qword_140C508B8 = 0LL;
+    qword_140C50850 = 0LL;
+    dword_140C50874 = 0;
+    word_140C50870 = 0;
     HalpCmcPollingInitialized = 1;
   }
-  result = KxReleaseSpinLock((volatile signed __int64 *)&HalpCmcFallbackLock);
+  KxReleaseSpinLock(&HalpCmcFallbackLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v2 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v7 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v2 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+        v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v7 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v2);

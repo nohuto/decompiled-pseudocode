@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpWorkQueueDestroy @ 0x1408D6538
+ * XREFs of ExpWorkQueueDestroy @ 0x1408D6518
  * Callers:
- *     ExpPartitionCreatePoolInternal @ 0x140754C84 (ExpPartitionCreatePoolInternal.c)
- *     ExpPartitionDestroy @ 0x1408D6354 (ExpPartitionDestroy.c)
+ *     ExpPartitionCreatePoolInternal @ 0x140754C64 (ExpPartitionCreatePoolInternal.c)
+ *     ExpPartitionDestroy @ 0x1408D6334 (ExpPartitionDestroy.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     KeRundownPriQueue @ 0x14029C000 (KeRundownPriQueue.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     KeRundownPriQueue @ 0x14029C100 (KeRundownPriQueue.c)
  */
 
 NTSTATUS __fastcall ExpWorkQueueDestroy(unsigned __int64 a1)

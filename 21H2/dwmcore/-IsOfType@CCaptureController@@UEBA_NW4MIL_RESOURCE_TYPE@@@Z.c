@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CCaptureController@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A11D0
+ * XREFs of ?IsOfType@CCaptureController@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F680
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CCaptureController::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 17;
+  return a2 == 16;
 }

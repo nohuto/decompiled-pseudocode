@@ -1,20 +1,31 @@
 /*
- * XREFs of ??1RFONTOBJ@@QEAA@XZ @ 0x1C0088B74
+ * XREFs of ??1RFONTOBJ@@QEAA@XZ @ 0x1C007C830
  * Callers:
- *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00C68C0 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
+ *     ?bDeleteDC@XDCOBJ@@QEAAHH@Z @ 0x1C007C740 (-bDeleteDC@XDCOBJ@@QEAAHH@Z.c)
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C00934E0 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
+ *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00B9C00 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?vReleaseCache@RFONTOBJ@@QEAAXXZ @ 0x1C0152180 (-vReleaseCache@RFONTOBJ@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?vReleaseCache@RFONTOBJ@@QEAAXXZ @ 0x1C013C994 (-vReleaseCache@RFONTOBJ@@QEAAXXZ.c)
  */
 
 void __fastcall RFONTOBJ::~RFONTOBJ(RFONTOBJ *this)
 {
+  int v2; // eax
+
   if ( *(_QWORD *)this )
   {
-    if ( (*(_DWORD *)(*(_QWORD *)this + 712LL) & 0x81) != 0 && qword_1C0294BC8 && (int)qword_1C0294BC8() >= 0 )
+    if ( (*(_DWORD *)(*(_QWORD *)this + 712LL) & 0x81) != 0 )
     {
-      if ( qword_1C0294BD0 )
-        qword_1C0294BD0(this);
+      if ( qword_1C02557C0 )
+        v2 = qword_1C02557C0();
+      else
+        v2 = -1073741637;
+      if ( v2 >= 0 )
+      {
+        if ( qword_1C02557C8 )
+          qword_1C02557C8(this);
+      }
     }
     RFONTOBJ::vReleaseCache(this);
   }

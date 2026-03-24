@@ -1,22 +1,22 @@
 /*
- * XREFs of ?AsyncWindowPos@@YAXPEAUtagSMWP@@@Z @ 0x1C00FDA38
+ * XREFs of ?AsyncWindowPos@@YAXPEAUtagSMWP@@@Z @ 0x1C01116AC
  * Callers:
- *     xxxEndDeferWindowPosEx @ 0x1C004720C (xxxEndDeferWindowPosEx.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C006EDBC (xxxEndDeferWindowPosEx.c)
  * Callees:
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00AC3EC (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FC70 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
  */
 
 void __fastcall AsyncWindowPos(struct tagSMWP *a1)
 {
   _QWORD *v1; // rdi
   int v2; // r14d
-  struct tagQ **v3; // rbp
-  struct tagQ *v4; // r8
+  __int64 v3; // rbp
+  __int64 v4; // r8
   int v5; // ebx
   int v6; // edx
   _QWORD *i; // rcx
   unsigned __int64 v8; // rax
-  unsigned __int64 v9; // rsi
+  void *v9; // rsi
   _QWORD *v10; // rdx
   _OWORD *v11; // r8
   _OWORD *v12; // rcx
@@ -29,9 +29,9 @@ void __fastcall AsyncWindowPos(struct tagSMWP *a1)
     {
       if ( *v1 )
       {
-        v3 = (struct tagQ **)v1[13];
-        v4 = v3[54];
-        if ( v4 != *(struct tagQ **)(gptiCurrent + 432LL) )
+        v3 = v1[13];
+        v4 = *(_QWORD *)(v3 + 432);
+        if ( v4 != *(_QWORD *)(gptiCurrent + 432LL) )
           break;
       }
       v1 += 21;
@@ -42,12 +42,12 @@ void __fastcall AsyncWindowPos(struct tagSMWP *a1)
     v6 = v2 - 1;
     for ( i = v1; v6 >= 0; --v6 )
     {
-      if ( *i && *(struct tagQ **)(i[13] + 432LL) == v4 )
+      if ( *i && *(_QWORD *)(i[13] + 432LL) == v4 )
         ++v5;
       i += 21;
     }
-    v8 = Win32AllocPoolZInit(168LL * v5 + 48, 2004054869LL);
-    v9 = v8;
+    v8 = Win32AllocPool(168LL * v5 + 48, 2004054869LL);
+    v9 = (void *)v8;
     v10 = v1;
     if ( v8 )
     {
@@ -58,7 +58,7 @@ void __fastcall AsyncWindowPos(struct tagSMWP *a1)
       {
         if ( *v10 )
         {
-          if ( *(struct tagQ **)(v10[13] + 432LL) == v3[54] )
+          if ( *(_QWORD *)(v10[13] + 432LL) == *(_QWORD *)(v3 + 432) )
           {
             --v5;
             *v11 = *(_OWORD *)v10;
@@ -79,14 +79,22 @@ void __fastcall AsyncWindowPos(struct tagSMWP *a1)
         }
         v10 += 21;
       }
-      if ( !(unsigned int)PostEventMessageEx((struct tagTHREADINFO *)v3, v3[54], 3u, 0LL, 0, v8, (__int64)v3, 0LL) )
+      if ( !(unsigned int)PostEventMessageEx(
+                            (struct tagTHREADINFO *)v3,
+                            *(struct tagQ **)(v3 + 432),
+                            3u,
+                            0LL,
+                            0,
+                            v8,
+                            v3,
+                            0LL) )
         Win32FreePool(v9);
     }
     else
     {
       while ( v5 )
       {
-        if ( *(struct tagQ **)(v10[13] + 432LL) == v3[54] )
+        if ( *(_QWORD *)(v10[13] + 432LL) == *(_QWORD *)(v3 + 432) )
         {
           *v10 = 0LL;
           --v5;

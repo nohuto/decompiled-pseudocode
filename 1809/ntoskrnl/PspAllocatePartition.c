@@ -1,23 +1,23 @@
 /*
- * XREFs of PspAllocatePartition @ 0x14075CA68
+ * XREFs of PspAllocatePartition @ 0x14075CA48
  * Callers:
- *     NtCreatePartition @ 0x14088D120 (NtCreatePartition.c)
+ *     NtCreatePartition @ 0x14088D100 (NtCreatePartition.c)
  *     PspInitializeSystemPartitionPhase0 @ 0x1409D94B0 (PspInitializeSystemPartitionPhase0.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     PspAddPartitionToGlobalList @ 0x1401908D4 (PspAddPartitionToGlobalList.c)
- *     MmCreatePartition @ 0x140190950 (MmCreatePartition.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     PspAddPartitionToGlobalList @ 0x1401908F4 (PspAddPartitionToGlobalList.c)
+ *     MmCreatePartition @ 0x140190970 (MmCreatePartition.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     ExpPartitionStart @ 0x14075481C (ExpPartitionStart.c)
- *     ExpPartitionInitialize @ 0x140754A84 (ExpPartitionInitialize.c)
- *     PspCreatePartitionSystemProcess @ 0x14088D308 (PspCreatePartitionSystemProcess.c)
+ *     ExpPartitionStart @ 0x1407547FC (ExpPartitionStart.c)
+ *     ExpPartitionInitialize @ 0x140754A64 (ExpPartitionInitialize.c)
+ *     PspCreatePartitionSystemProcess @ 0x14088D2E8 (PspCreatePartitionSystemProcess.c)
  */
 
 __int64 __fastcall PspAllocatePartition(

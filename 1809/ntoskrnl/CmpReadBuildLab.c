@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpReadBuildLab @ 0x1407ECF54
+ * XREFs of CmpReadBuildLab @ 0x1407ECF34
  * Callers:
- *     CmpRecordShutdownStopTime @ 0x1407ED0B8 (CmpRecordShutdownStopTime.c)
+ *     CmpRecordShutdownStopTime @ 0x1407ED098 (CmpRecordShutdownStopTime.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall CmpReadBuildLab(_QWORD *a1, ULONG *a2)

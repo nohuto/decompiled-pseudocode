@@ -1,20 +1,20 @@
 /*
- * XREFs of MiWriteValidPteNewPage @ 0x1400EEB0C
+ * XREFs of MiWriteValidPteNewPage @ 0x1400EEB2C
  * Callers:
  *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
- *     MiStealPage @ 0x1400EBF24 (MiStealPage.c)
- *     MiTradeActivePage @ 0x14012DF04 (MiTradeActivePage.c)
- *     MiCopyKstack @ 0x14015EBE0 (MiCopyKstack.c)
- *     MiMapMdlCommon @ 0x14018EAD4 (MiMapMdlCommon.c)
- *     MiUnmapMdlCommon @ 0x1402A9324 (MiUnmapMdlCommon.c)
- *     MiWriteAwePtes @ 0x1402B2178 (MiWriteAwePtes.c)
+ *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
+ *     MiTradeActivePage @ 0x14012DF24 (MiTradeActivePage.c)
+ *     MiCopyKstack @ 0x14015EC00 (MiCopyKstack.c)
+ *     MiMapMdlCommon @ 0x14018EAF4 (MiMapMdlCommon.c)
+ *     MiUnmapMdlCommon @ 0x1402A9424 (MiUnmapMdlCommon.c)
+ *     MiWriteAwePtes @ 0x1402B2278 (MiWriteAwePtes.c)
  *     MiTradeBootImagePage @ 0x1409B86AC (MiTradeBootImagePage.c)
  *     MxSwapPages @ 0x1409C04C8 (MxSwapPages.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiWriteValidPteNewPage(__int64 *a1, __int64 a2, int a3)

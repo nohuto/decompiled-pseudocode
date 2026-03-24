@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetD2DBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x1802A3770
+ * XREFs of ?GetD2DBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x180263CC0
  * Callers:
- *     ?GetD2DBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x18010BF50 (-GetD2DBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInf.c)
+ *     ?GetD2DBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x1800F8DC0 (-GetD2DBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInf.c)
  * Callees:
- *     ?GetD2DBitmap@CRenderTargetBitmap@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x180018E9C (-GetD2DBitmap@CRenderTargetBitmap@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z.c)
- *     ?GetCachedBitmap@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x180018F24 (-GetCachedBitmap@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?UpdateDecodeBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ @ 0x1802A3EE8 (-UpdateDecodeBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ.c)
+ *     ?GetCachedBitmap@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x18001E6C0 (-GetCachedBitmap@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetD2DBitmap@CRenderTargetBitmap@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x1800D2868 (-GetD2DBitmap@CRenderTargetBitmap@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?UpdateDecodeBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ @ 0x180264344 (-UpdateDecodeBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ.c)
  */
 
 __int64 __fastcall CDxHandleAdvancedDirectFlipBitmapRealization::GetD2DBitmap(
@@ -18,46 +18,39 @@ __int64 __fastcall CDxHandleAdvancedDirectFlipBitmapRealization::GetD2DBitmap(
 {
   char v8; // al
   CDxHandleAdvancedDirectFlipBitmapRealization *v9; // rcx
-  int updated; // eax
+  int CachedBitmap; // eax
   __int64 v11; // rcx
-  unsigned int D2DBitmap; // ebx
-  __int64 v13; // rcx
-  unsigned int v15; // [rsp+20h] [rbp-18h]
+  unsigned int v12; // ebx
+  int updated; // eax
+  __int64 v14; // rcx
+  int D2DBitmap; // eax
+  __int64 v16; // rcx
 
   *a3 = 0LL;
   v8 = (**(this - 14))((char *)this - 112);
-  v9 = (CDxHandleAdvancedDirectFlipBitmapRealization *)(this - 64);
+  v9 = (CDxHandleAdvancedDirectFlipBitmapRealization *)(this - 60);
   if ( v8 )
   {
     updated = CDxHandleAdvancedDirectFlipBitmapRealization::UpdateDecodeBitmap(v9);
-    D2DBitmap = updated;
+    v12 = updated;
     if ( updated < 0 )
     {
-      v15 = 117;
-      goto LABEL_11;
-    }
-    v13 = (__int64)*(this - 28);
-    if ( *(_BYTE *)(v13 + 152) )
-    {
-      D2DBitmap = CRenderTargetBitmap::GetD2DBitmap((CRenderTargetBitmap *)(v13 + 240), a2, a3, a4);
-      if ( (D2DBitmap & 0x80000000) == 0 )
-        return D2DBitmap;
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, updated, 0x97u, 0LL);
     }
     else
     {
-      *a3 = 0LL;
-      D2DBitmap = -2003292412;
+      D2DBitmap = CRenderTargetBitmap::GetD2DBitmap((CRenderTargetBitmap *)(*(this - 28) + 30), a2, a3, a4);
+      v12 = D2DBitmap;
+      if ( D2DBitmap < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, D2DBitmap, 0x9Bu, 0LL);
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, D2DBitmap, 0x79u);
-    return D2DBitmap;
   }
-  updated = CD2DBitmapCache::GetCachedBitmap(v9, a2, a3, a4);
-  D2DBitmap = updated;
-  if ( updated < 0 )
+  else
   {
-    v15 = 113;
-LABEL_11:
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, updated, v15);
+    CachedBitmap = CD2DBitmapCache::GetCachedBitmap(v9, a2, a3, a4);
+    v12 = CachedBitmap;
+    if ( CachedBitmap < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, CachedBitmap, 0x93u, 0LL);
   }
-  return D2DBitmap;
+  return v12;
 }

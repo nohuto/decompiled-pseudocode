@@ -1,10 +1,10 @@
 /*
- * XREFs of NtSetEventBoostPriority @ 0x1408CFB00
+ * XREFs of NtSetEventBoostPriority @ 0x1408CFAE0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeSetEventBoostPriority @ 0x140293080 (KeSetEventBoostPriority.c)
+ *     KeSetEventBoostPriority @ 0x140293180 (KeSetEventBoostPriority.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */
 

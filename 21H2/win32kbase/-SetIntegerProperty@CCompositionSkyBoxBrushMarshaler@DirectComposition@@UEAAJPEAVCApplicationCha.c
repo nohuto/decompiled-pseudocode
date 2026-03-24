@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CCompositionSkyBoxBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0235250
+ * XREFs of ?SetIntegerProperty@CCompositionSkyBoxBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F49A0
  * Callers:
  *     <none>
  * Callees:
@@ -20,10 +20,10 @@ __int64 __fastcall DirectComposition::CCompositionSkyBoxBrushMarshaler::SetInteg
   {
     if ( a3 == 1 )
     {
-      if ( *((_BYTE *)this + 116) != (a4 != 0) )
+      if ( *((_BYTE *)this + 108) != (a4 != 0) )
       {
         *((_DWORD *)this + 4) |= 0x40u;
-        *((_BYTE *)this + 116) = a4 != 0;
+        *((_BYTE *)this + 108) = a4 != 0;
         *a5 = 1;
       }
     }
@@ -32,10 +32,10 @@ __int64 __fastcall DirectComposition::CCompositionSkyBoxBrushMarshaler::SetInteg
       return (unsigned int)-1073741811;
     }
   }
-  else if ( *((_DWORD *)this + 24) != a4 )
+  else if ( *((_DWORD *)this + 22) != a4 )
   {
     *((_DWORD *)this + 4) |= 0x20u;
-    *((_DWORD *)this + 24) = a4;
+    *((_DWORD *)this + 22) = a4;
     *a5 = 1;
   }
   return v5;

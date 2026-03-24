@@ -1,20 +1,18 @@
 /*
- * XREFs of IommupHvRegisterDeviceId @ 0x140525490
+ * XREFs of IommupHvRegisterDeviceId @ 0x1404DA228
  * Callers:
- *     HalpIommuCreateDevice @ 0x14082AB98 (HalpIommuCreateDevice.c)
+ *     HalpIommuCreateDevice @ 0x140864A14 (HalpIommuCreateDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall IommupHvRegisterDeviceId(__int64 a1, unsigned __int64 *a2)
+__int64 __fastcall IommupHvRegisterDeviceId(__int64 a1, _QWORD *a2)
 {
-  unsigned __int64 v3; // rbx
+  __int64 v3; // rbx
   __int64 result; // rax
 
   v3 = _InterlockedIncrement(&HalpHvLogicalId);
-  if ( v3 > 0x1FFFFFFFFFFFFFFFLL )
-    return 3221225626LL;
-  result = ((__int64 (__fastcall *)(__int64, unsigned __int64))qword_140C626F8)(a1, v3);
+  result = ((__int64 (__fastcall *)(__int64, __int64))qword_140C4A360)(a1, v3);
   if ( (int)result >= 0 )
     *a2 = v3;
   return result;

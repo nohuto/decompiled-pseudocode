@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@CWICBitmapRealization@@WHI@EAAKXZ @ 0x18010BBB0
+ * XREFs of ?AddRef@CWICBitmapRealization@@WHI@EAAKXZ @ 0x1800F8D10
  * Callers:
  *     <none>
  * Callees:

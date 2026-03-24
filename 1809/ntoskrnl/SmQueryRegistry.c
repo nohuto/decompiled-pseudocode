@@ -3,7 +3,7 @@
  * Callers:
  *     SmInitSystem @ 0x1409D6CD8 (SmInitSystem.c)
  * Callees:
- *     RtlQueryRegistryValuesEx @ 0x1406C7660 (RtlQueryRegistryValuesEx.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406C7640 (RtlQueryRegistryValuesEx.c)
  */
 
 __int64 __fastcall SmQueryRegistry(__int64 a1)

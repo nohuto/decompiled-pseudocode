@@ -1,12 +1,12 @@
 /*
- * XREFs of PspTimerDelayWorkerRoutine @ 0x1402EA890
+ * XREFs of PspTimerDelayWorkerRoutine @ 0x1402EA990
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PspApplyTimerDelayProcess @ 0x1402EA054 (PspApplyTimerDelayProcess.c)
+ *     PspApplyTimerDelayProcess @ 0x1402EA154 (PspApplyTimerDelayProcess.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

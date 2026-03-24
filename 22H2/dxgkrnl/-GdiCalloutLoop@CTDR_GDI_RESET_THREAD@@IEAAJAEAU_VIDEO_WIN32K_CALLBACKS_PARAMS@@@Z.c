@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GdiCalloutLoop@CTDR_GDI_RESET_THREAD@@IEAAJAEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@@Z @ 0x1C030DC10
+ * XREFs of ?GdiCalloutLoop@CTDR_GDI_RESET_THREAD@@IEAAJAEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@@Z @ 0x1C0264BEC
  * Callers:
- *     ?Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ @ 0x1C030FA80 (-Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ.c)
+ *     ?SwitchGdi@CTDR_GDI_RESET_THREAD@@IEAAJ_N@Z @ 0x1C0264EA0 (-SwitchGdi@CTDR_GDI_RESET_THREAD@@IEAAJ_N@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C017CDCC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C0145F7C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
  */
 
 __int64 __fastcall CTDR_GDI_RESET_THREAD::GdiCalloutLoop(
@@ -14,28 +14,29 @@ __int64 __fastcall CTDR_GDI_RESET_THREAD::GdiCalloutLoop(
 {
   unsigned int v3; // ebx
   bool v4; // zf
+  LONG Status; // eax
   enum _NT_PRODUCT_TYPE ProductType[4]; // [rsp+30h] [rbp-19h] BYREF
-  _DWORD v9[2]; // [rsp+40h] [rbp-9h] BYREF
-  __int128 v10; // [rsp+48h] [rbp-1h]
-  __int64 v11; // [rsp+58h] [rbp+Fh]
-  __int64 v12; // [rsp+60h] [rbp+17h]
-  __int64 v13; // [rsp+68h] [rbp+1Fh]
-  int v14; // [rsp+70h] [rbp+27h]
-  BOOL v15; // [rsp+74h] [rbp+2Bh]
-  LONG Status; // [rsp+78h] [rbp+2Fh]
-  int v17; // [rsp+7Ch] [rbp+33h]
+  _DWORD v10[2]; // [rsp+40h] [rbp-9h] BYREF
+  __int128 v11; // [rsp+48h] [rbp-1h]
+  __int64 v12; // [rsp+58h] [rbp+Fh]
+  __int64 v13; // [rsp+60h] [rbp+17h]
+  __int64 v14; // [rsp+68h] [rbp+1Fh]
+  int v15; // [rsp+70h] [rbp+27h]
+  BOOL v16; // [rsp+74h] [rbp+2Bh]
+  LONG v17; // [rsp+78h] [rbp+2Fh]
+  int v18; // [rsp+7Ch] [rbp+33h]
 
   v3 = 0;
-  v9[0] = 6;
-  v13 = 0LL;
+  v10[0] = 6;
+  v14 = 0LL;
   v4 = a2->Param == 0;
-  v11 = 0LL;
-  v9[1] = 64;
-  v15 = !v4;
   v12 = 0LL;
-  v10 = 0LL;
-  v14 = 49;
-  v17 = 0;
+  v10[1] = 64;
+  v16 = !v4;
+  v13 = 0LL;
+  v11 = 0LL;
+  v15 = 49;
+  v18 = 0;
   do
   {
     LOBYTE(a3) = 1;
@@ -45,13 +46,16 @@ __int64 __fastcall CTDR_GDI_RESET_THREAD::GdiCalloutLoop(
       a3,
       &CTDR_GDI_RESET_THREAD::IsTdrAdapterUsedInSessionCallback,
       *((_QWORD *)this + 3),
-      *(_QWORD *)(*((_QWORD *)this + 3) + 2896LL));
-    if ( a2->Status == -1073741816 )
-      ZwYieldExecution();
+      *(_QWORD *)(*((_QWORD *)this + 3) + 2888LL));
+    Status = a2->Status;
+    if ( Status != -1073741816 )
+      break;
+    ZwYieldExecution();
+    Status = a2->Status;
   }
-  while ( a2->Status == -1073741816 );
-  Status = a2->Status;
-  DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v9, 0x100000000LL);
+  while ( Status == -1073741816 );
+  v17 = Status;
+  DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v10, 0x100000000LL);
   ProductType[0] = 0;
   RtlGetNtProductType(ProductType);
   if ( ProductType[0] != NtProductServer )

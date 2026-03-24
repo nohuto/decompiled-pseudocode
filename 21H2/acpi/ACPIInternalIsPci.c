@@ -1,20 +1,20 @@
 /*
- * XREFs of ACPIInternalIsPci @ 0x1C00A0FB0
+ * XREFs of ACPIInternalIsPci @ 0x1C00A306C
  * Callers:
- *     ACPIDetectFilterDevices @ 0x1C0006A34 (ACPIDetectFilterDevices.c)
+ *     ACPIDetectFilterDevices @ 0x1C0019004 (ACPIDetectFilterDevices.c)
  * Callees:
- *     ACPIInternalSetFlags @ 0x1C0001778 (ACPIInternalSetFlags.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     IsPciDevice @ 0x1C001CDCC (IsPciDevice.c)
- *     IsNsobjPciBus @ 0x1C0094D74 (IsNsobjPciBus.c)
+ *     ACPIInternalSetFlags @ 0x1C0002350 (ACPIInternalSetFlags.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     IsPciDevice @ 0x1C0017E30 (IsPciDevice.c)
+ *     IsNsobjPciBus @ 0x1C009DA40 (IsNsobjPciBus.c)
  */
 
 __int64 __fastcall ACPIInternalIsPci(ULONG_PTR BugCheckParameter3)
 {
   __int64 DeviceExtension; // rsi
   void *v3; // rbx
-  __int64 v4; // rax
-  int v5; // r9d
+  __int64 v5; // rax
+  int v6; // r9d
   __int128 Event; // [rsp+30h] [rbp-28h] BYREF
   __int128 Event_16; // [rsp+40h] [rbp-18h]
   char v9; // [rsp+68h] [rbp+10h] BYREF
@@ -26,25 +26,25 @@ __int64 __fastcall ACPIInternalIsPci(ULONG_PTR BugCheckParameter3)
   v3 = (void *)(DeviceExtension + 8);
   if ( (*(_QWORD *)(DeviceExtension + 8) & 0x102000000LL) != 0 )
     return 0LL;
-  v4 = ACPIInternalGetDeviceExtension(BugCheckParameter3);
-  if ( IsNsobjPciBus(*(volatile signed __int32 **)(v4 + 760)) == 1 )
+  v5 = ACPIInternalGetDeviceExtension(BugCheckParameter3);
+  if ( IsNsobjPciBus(*(volatile signed __int32 **)(v5 + 720)) == 1 )
   {
     ACPIInternalSetFlags(v3, 0x2000000uLL);
     return 0LL;
   }
   DWORD2(Event_16) = -1073741275;
   KeInitializeEvent((PRKEVENT)&Event, SynchronizationEvent, 0);
-  v5 = IsPciDevice(
-         *(volatile signed __int32 **)(DeviceExtension + 760),
+  v6 = IsPciDevice(
+         *(volatile signed __int32 **)(DeviceExtension + 720),
          (__int64)AmlisuppCompletePassive,
          (__int64)&Event,
          &v9);
-  if ( v5 == 259 )
+  if ( v6 == 259 )
   {
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-    v5 = DWORD2(Event_16);
+    v6 = DWORD2(Event_16);
   }
-  if ( v5 >= 0 && v9 == 1 )
+  if ( v6 >= 0 && v9 == 1 )
     ACPIInternalSetFlags(v3, 0x100000000uLL);
-  return (unsigned int)v5;
+  return (unsigned int)v6;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?getDLT@DLT_CLIENTLIB@@SA?AW4DomainLockType@@XZ @ 0x1C009B0D0
+ * XREFs of ?getDLT@DLT_CLIENTLIB@@SA?AW4DomainLockType@@XZ @ 0x1C00A6C20
  * Callers:
  *     <none>
  * Callees:

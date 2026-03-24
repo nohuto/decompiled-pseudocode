@@ -1,103 +1,83 @@
 /*
- * XREFs of MiPerformMemoryChange @ 0x1405835E0
+ * XREFs of MiPerformMemoryChange @ 0x14052EA38
  * Callers:
- *     MiAddPhysicalMemory @ 0x140968388 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x140969850 (MiRemovePhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     MiInitializeNonPagedPoolThresholds @ 0x1403C315C (MiInitializeNonPagedPoolThresholds.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInitializeNonPagedPoolThresholds @ 0x1403B6100 (MiInitializeNonPagedPoolThresholds.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiPerformMemoryChange(__int64 a1, __int64 a2, void **a3, __int64 *a4, int a5, __int64 ***a6)
+__int64 __fastcall MiPerformMemoryChange(__int64 a1, __int64 a2, void **a3, __int64 *a4, char a5)
 {
-  KIRQL v10; // al
-  void *v11; // r9
-  unsigned __int64 v12; // rsi
-  ULONG_PTR v13; // rax
-  bool v14; // zf
-  void *v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // rdx
-  __int64 v18; // rcx
+  KIRQL v9; // al
+  void *v10; // r9
+  unsigned __int64 v11; // rsi
+  bool v12; // zf
+  void *v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rcx
+  __int64 v16; // rdx
+  ULONG_PTR v17; // rax
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  __int64 **i; // rdx
-  __int64 v23; // r8
 
-  v10 = ExAcquireSpinLockExclusive(&dword_140C55048);
-  v11 = *a3;
-  v12 = v10;
-  v13 = a2 - 1 + a1;
-  v14 = (*((_QWORD *)MmPhysicalMemoryBlock - 1))-- == 1LL;
+  v9 = ExAcquireSpinLockExclusive(&dword_140C50E48);
+  v10 = *a3;
+  v11 = v9;
+  v12 = (*((_QWORD *)MmPhysicalMemoryBlock - 1))-- == 1LL;
+  v13 = 0LL;
+  v14 = qword_140C50DA0;
+  if ( v12 )
+    v13 = MmPhysicalMemoryBlock;
+  MmPhysicalMemoryBlock = v10;
+  *a3 = v13;
+  v12 = (*(_QWORD *)(v14 - 8))-- == 1LL;
   v15 = 0LL;
-  v16 = qword_140C54FA0;
-  if ( v14 )
-    v15 = MmPhysicalMemoryBlock;
-  *a3 = v15;
-  v17 = *a4;
-  MmPhysicalMemoryBlock = v11;
-  v14 = (*(_QWORD *)(v16 - 8))-- == 1LL;
-  v18 = 0LL;
-  if ( v14 )
-    v18 = qword_140C54FA0;
-  *a4 = v18;
-  qword_140C54FA0 = v17;
-  if ( (a5 & 1) != 0 )
+  v16 = *a4;
+  if ( v12 )
+    v15 = qword_140C50DA0;
+  v17 = a1 + a2 - 1;
+  *a4 = v15;
+  qword_140C50DA0 = v16;
+  if ( (a5 & 1) == 0 )
   {
-    if ( v13 > qword_140C590C8 )
-      qword_140C590C8 = a2 - 1 + a1;
-    if ( (a5 & 0x100008) == 0 )
-    {
-      qword_140C590D0 += a2;
-LABEL_14:
-      byte_140C54F8C = 1;
-    }
+    if ( v17 == BugCheckParameter3 )
+      BugCheckParameter3 = a1 - 1;
+    qword_140C52890 -= a2;
+    goto LABEL_13;
   }
-  else
+  if ( v17 > BugCheckParameter3 )
+    BugCheckParameter3 = a1 + a2 - 1;
+  if ( (a5 & 4) == 0 )
   {
-    if ( v13 == qword_140C590C8 )
-      qword_140C590C8 = a1 - 1;
-    if ( (a5 & 0x100000) == 0 )
-    {
-      qword_140C590D0 -= a2;
-      goto LABEL_14;
-    }
+    qword_140C52890 += a2;
+LABEL_13:
+    byte_140C50D8C = 1;
   }
   MiInitializeNonPagedPoolThresholds();
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C55048);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C50E48);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
       result = KeGetCurrentIrql();
-      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v12 <= 0xFu && (unsigned __int8)result >= 2u )
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v11 <= 0xFu && (unsigned __int8)result >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v14 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
-        if ( v14 )
+        if ( v12 )
           result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
   }
-  __writecr8(v12);
-  if ( (a5 & 0x100000) != 0 )
-  {
-    for ( i = *a6; i != (__int64 **)a6; i = (__int64 **)*i )
-    {
-      v23 = *((unsigned int *)i + 9) + 4LL * *((unsigned int *)i + 8);
-      result = (__int64)i[3];
-      if ( (a5 & 1) != 0 )
-        qword_140C52150[v23] += result;
-      else
-        qword_140C52150[v23] -= result;
-    }
-  }
+  __writecr8(v11);
   return result;
 }

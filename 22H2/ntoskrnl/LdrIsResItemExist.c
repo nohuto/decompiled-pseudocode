@@ -1,24 +1,24 @@
 /*
- * XREFs of LdrIsResItemExist @ 0x1402F74C8
+ * XREFs of LdrIsResItemExist @ 0x140301940
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1402F7FA8 (LdrpResSearchResourceMappedFile.c)
- *     LdrpSearchResourceSection_U @ 0x140756220 (LdrpSearchResourceSection_U.c)
+ *     LdrpResSearchResourceMappedFile @ 0x140300848 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpSearchResourceSection_U @ 0x140672884 (LdrpSearchResourceSection_U.c)
  * Callees:
- *     LdrRscIsTypeExist @ 0x1402F72AC (LdrRscIsTypeExist.c)
- *     LdrpGetRcConfig @ 0x1402F7548 (LdrpGetRcConfig.c)
+ *     LdrRscIsTypeExist @ 0x1403019C0 (LdrRscIsTypeExist.c)
+ *     LdrpGetRcConfig @ 0x140301BD4 (LdrpGetRcConfig.c)
  */
 
-__int64 __fastcall LdrIsResItemExist(__int64 a1, unsigned __int64 *a2, __int64 a3)
+__int64 __fastcall LdrIsResItemExist(__int64 a1, _QWORD *a2, __int64 a3)
 {
-  unsigned int *RcConfig; // rax
+  __int64 RcConfig; // rax
   __int64 v5; // r8
-  unsigned int *v6; // rbx
+  __int64 v6; // rbx
   unsigned int v7; // ecx
   unsigned int v9; // [rsp+48h] [rbp+20h] BYREF
 
   v9 = 0;
   LOBYTE(a3) = 1;
-  RcConfig = (unsigned int *)LdrpGetRcConfig(a1, a2, a3);
+  RcConfig = LdrpGetRcConfig(a1, a2, a3);
   v6 = RcConfig;
   if ( RcConfig )
   {
@@ -29,9 +29,9 @@ __int64 __fastcall LdrIsResItemExist(__int64 a1, unsigned __int64 *a2, __int64 a
     else
     {
       v7 = v9;
-      if ( (v6[5] & 0x100) != 0 )
+      if ( (*(_DWORD *)(v6 + 20) & 0x100) != 0 )
         v7 = v9 | 0x100000;
-      if ( (v6[4] & 0x10) != 0 )
+      if ( (*(_DWORD *)(v6 + 16) & 0x10) != 0 )
         v7 |= 0x200000u;
     }
   }

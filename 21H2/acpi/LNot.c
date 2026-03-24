@@ -1,30 +1,25 @@
 /*
- * XREFs of LNot @ 0x1C00191C0
+ * XREFs of LNot @ 0x1C0021440
  * Callers:
  *     <none>
  * Callees:
- *     ValidateArgTypes @ 0x1C00162B0 (ValidateArgTypes.c)
- *     IsCompatableDSDTRevision @ 0x1C0019BAC (IsCompatableDSDTRevision.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
  */
 
 __int64 __fastcall LNot(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rdx
-  unsigned int v4; // edi
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // rcx
+  unsigned int v3; // edi
 
-  v4 = ValidateArgTypes(a1, *(_QWORD *)(a2 + 80), 0, "I");
-  if ( !v4 )
+  v3 = ValidateArgTypes(a1, *(_QWORD *)(a2 + 80), 0, "I");
+  if ( !v3 )
   {
     *(_WORD *)(*(_QWORD *)(a2 + 88) + 2LL) = 1;
-    v7 = *(_QWORD *)(a2 + 80);
-    if ( *(_QWORD *)(v7 + 16) )
+    if ( *(_QWORD *)(*(_QWORD *)(a2 + 80) + 16LL) )
       *(_QWORD *)(*(_QWORD *)(a2 + 88) + 16LL) = 0LL;
     else
-      *(_QWORD *)(*(_QWORD *)(a2 + 88) + 16LL) = (-(__int64)((unsigned __int8)IsCompatableDSDTRevision(v7, v3, v5, v6) != 0) & 0xFFFFFFFF00000000uLL)
+      *(_QWORD *)(*(_QWORD *)(a2 + 88) + 16LL) = (-(__int64)IsCompatableDSDTRevision() & 0xFFFFFFFF00000000uLL)
                                                + 0xFFFFFFFF;
   }
-  return v4;
+  return v3;
 }

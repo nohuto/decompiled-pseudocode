@@ -1,12 +1,12 @@
 /*
- * XREFs of CMFAllocFn @ 0x140A01970
+ * XREFs of CMFAllocFn @ 0x1409582A0
  * Callers:
- *     XpressDecodeCreate @ 0x140679DD8 (XpressDecodeCreate.c)
+ *     XpressDecodeCreate @ 0x1405CA3D0 (XpressDecodeCreate.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CMFAllocFn(__int64 a1, int a2)
+PVOID __fastcall CMFAllocFn(__int64 a1, int a2)
 {
-  return ExAllocatePool2(256LL, a2, 1668114000LL);
+  return ExAllocatePoolWithTag(PagedPool, a2, 0x636D6650u);
 }

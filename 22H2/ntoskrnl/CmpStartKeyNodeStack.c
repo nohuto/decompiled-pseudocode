@@ -1,47 +1,51 @@
 /*
- * XREFs of CmpStartKeyNodeStack @ 0x140A20348
+ * XREFs of CmpStartKeyNodeStack @ 0x14072B0A8
  * Callers:
- *     CmSaveKey @ 0x140A0BA40 (CmSaveKey.c)
- *     CmpStartKeyNodeStackFromKcbStack @ 0x140A203FC (CmpStartKeyNodeStackFromKcbStack.c)
- *     CmpSubtreeEnumeratorStart @ 0x140A207E0 (CmpSubtreeEnumeratorStart.c)
- *     CmpKeyEnumStackStart @ 0x140A242EC (CmpKeyEnumStackStart.c)
+ *     CmSaveKey @ 0x140729A8C (CmSaveKey.c)
+ *     CmpSubtreeEnumeratorStart @ 0x14072AF4C (CmpSubtreeEnumeratorStart.c)
+ *     CmpKeyEnumStackStart @ 0x14072B04C (CmpKeyEnumStackStart.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x1408766FC (CmpStartKeyNodeStackFromKcbStack.c)
  * Callees:
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     HvpGetCellContextReinitialize @ 0x1406E034C (HvpGetCellContextReinitialize.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
  */
 
-__int64 __fastcall CmpStartKeyNodeStack(__int64 a1, __int16 a2)
+__int64 __fastcall CmpStartKeyNodeStack(__int64 a1, __int16 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
 {
-  unsigned int v3; // ebx
-  __int64 v5; // rbp
-  __int64 Pool; // rax
-  __int64 v7; // rdi
-  __int64 v8; // rcx
+  unsigned int v4; // ebx
+  __int16 v8; // di
+  PVOID TransientPoolWithTag; // rax
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
 
-  v3 = 0;
-  if ( a2 < 2 )
-    goto LABEL_6;
-  LOWORD(v5) = a2 - 1;
-  Pool = CmpAllocatePool(256LL, 32LL * a2 - 32, 959860035LL);
-  *(_QWORD *)(a1 + 72) = Pool;
-  if ( Pool )
+  v4 = 0;
+  if ( a2 >= 2 )
   {
-    v7 = 0LL;
-    v5 = (unsigned __int16)v5;
-    do
+    v8 = a2 - 1;
+    TransientPoolWithTag = CmpAllocateTransientPoolWithTag(PagedPool, 32LL * (__int16)(a2 - 1), 0x39364D43u, a4);
+    *(_QWORD *)(a1 + 72) = TransientPoolWithTag;
+    if ( !TransientPoolWithTag )
+      return (unsigned int)-1073741670;
+    if ( v8 > 0 )
     {
-      v8 = *(_QWORD *)(a1 + 72);
-      *(_OWORD *)(v7 + v8) = 0LL;
-      *(_OWORD *)(v7 + v8 + 16) = 0LL;
-      *(_DWORD *)(v7 + v8 + 8) = -1;
-      HvpGetCellContextReinitialize((_QWORD *)(v7 + v8 + 24));
-      v7 += 32LL;
-      --v5;
+      v10 = 0LL;
+      v11 = (unsigned __int16)v8;
+      do
+      {
+        v12 = *(_QWORD *)(a1 + 72);
+        *(_QWORD *)(v10 + v12) = 0LL;
+        *(_QWORD *)(v10 + v12 + 12) = 0LL;
+        *(_DWORD *)(v10 + v12 + 20) = 0;
+        *(_DWORD *)(v10 + v12 + 8) = -1;
+        *(_QWORD *)(v10 + v12 + 24) = 0LL;
+        *(_DWORD *)(v10 + v12 + 24) = -1;
+        *(_WORD *)(v10 + v12 + 28) = 0;
+        v10 += 32LL;
+        --v11;
+      }
+      while ( v11 );
     }
-    while ( v5 );
-LABEL_6:
-    *(_WORD *)a1 = a2;
-    return v3;
   }
-  return (unsigned int)-1073741670;
+  *(_WORD *)a1 = a2;
+  return v4;
 }

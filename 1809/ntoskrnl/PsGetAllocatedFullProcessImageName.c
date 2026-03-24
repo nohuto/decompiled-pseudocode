@@ -1,13 +1,13 @@
 /*
- * XREFs of PsGetAllocatedFullProcessImageName @ 0x140667218
+ * XREFs of PsGetAllocatedFullProcessImageName @ 0x1406671F8
  * Callers:
- *     PfCalculateProcessHash @ 0x140666FC0 (PfCalculateProcessHash.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671E4 (PsGetAllocatedFullProcessImageNameEx.c)
- *     PiUEventHandleVetoEvent @ 0x1406FF7F0 (PiUEventHandleVetoEvent.c)
- *     PnpLogVetoInformation @ 0x1408330F0 (PnpLogVetoInformation.c)
+ *     PfCalculateProcessHash @ 0x140666FA0 (PfCalculateProcessHash.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671C4 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     PiUEventHandleVetoEvent @ 0x1406FF7D0 (PiUEventHandleVetoEvent.c)
+ *     PnpLogVetoInformation @ 0x1408330D0 (PnpLogVetoInformation.c)
  *     ViCreateProcessCallbackInternal @ 0x140938564 (ViCreateProcessCallbackInternal.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

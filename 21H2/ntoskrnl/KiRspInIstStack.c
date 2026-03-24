@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRspInIstStack @ 0x14024EF40
+ * XREFs of KiRspInIstStack @ 0x140518BF8
  * Callers:
- *     KeInvalidAccessAllowed @ 0x140230BA0 (KeInvalidAccessAllowed.c)
- *     KiMcheckFastForward @ 0x14024EDB0 (KiMcheckFastForward.c)
- *     MiSystemFault @ 0x140279590 (MiSystemFault.c)
- *     KeQueryCurrentStackInformationEx @ 0x1402AB9C0 (KeQueryCurrentStackInformationEx.c)
- *     MiDispatchFault @ 0x14031E200 (MiDispatchFault.c)
- *     MiComputeMaximumFaultCluster @ 0x14031E900 (MiComputeMaximumFaultCluster.c)
+ *     MiDispatchFault @ 0x14020EF00 (MiDispatchFault.c)
+ *     MiComputeMaximumFaultCluster @ 0x14020F650 (MiComputeMaximumFaultCluster.c)
+ *     KeInvalidAccessAllowed @ 0x1402A2C40 (KeInvalidAccessAllowed.c)
+ *     MiSystemFault @ 0x140311400 (MiSystemFault.c)
+ *     KeQueryCurrentStackInformationEx @ 0x1403504A0 (KeQueryCurrentStackInformationEx.c)
+ *     KiMcheckFastForward @ 0x1405266C0 (KiMcheckFastForward.c)
  * Callees:
  *     <none>
  */

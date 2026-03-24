@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ProcessUpdate@CCompositionSurfaceBitmap@@UEAAJPEBVCResourceTable@@PEBUtagMILCMD_COMPOSITIONSURFACEBITMAP@@@Z @ 0x1800BB000
+ * XREFs of ?ProcessUpdate@CCompositionSurfaceBitmap@@UEAAJPEBVCResourceTable@@PEBUtagMILCMD_COMPOSITIONSURFACEBITMAP@@@Z @ 0x180036E80
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x180073594 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
- *     ?GetOrCreateCompositionSurfaceInfo@CCompositionSurfaceManager@@QEAAJPEAXPEAPEAVCCompositionSurfaceInfo@@@Z @ 0x1800BAB10 (-GetOrCreateCompositionSurfaceInfo@CCompositionSurfaceManager@@QEAAJPEAXPEAPEAVCCompositionSurfa.c)
- *     ?SetSurfaceInfo@CCompositionSurfaceBitmap@@AEAAXPEAVCCompositionSurfaceInfo@@@Z @ 0x1800BB100 (-SetSurfaceInfo@CCompositionSurfaceBitmap@@AEAAXPEAVCCompositionSurfaceInfo@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002D180 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?SetSurfaceInfo@CCompositionSurfaceBitmap@@AEAAXPEAVCCompositionSurfaceInfo@@@Z @ 0x180036F7C (-SetSurfaceInfo@CCompositionSurfaceBitmap@@AEAAXPEAVCCompositionSurfaceInfo@@@Z.c)
+ *     ?GetOrCreateCompositionSurfaceInfo@CCompositionSurfaceManager@@QEAAJPEAXPEAPEAVCCompositionSurfaceInfo@@@Z @ 0x18003790C (-GetOrCreateCompositionSurfaceInfo@CCompositionSurfaceManager@@QEAAJPEAXPEAPEAVCCompositionSurfa.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x18007A274 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CCompositionSurfaceBitmap::ProcessUpdate(
@@ -18,7 +18,7 @@ __int64 __fastcall CCompositionSurfaceBitmap::ProcessUpdate(
         const struct tagMILCMD_COMPOSITIONSURFACEBITMAP *a3)
 {
   void *v3; // rbp
-  int v4; // edi
+  unsigned int v4; // edi
   struct CCompositionSurfaceInfo *v5; // rbx
   __int64 v8; // rcx
   int v9; // eax
@@ -33,7 +33,7 @@ __int64 __fastcall CCompositionSurfaceBitmap::ProcessUpdate(
   v5 = 0LL;
   v13 = 0;
   v14 = 0LL;
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
     McGenEventWrite_EventWriteTransfer(
       &Microsoft_Windows_Dwm_Core_Provider_Context,
       &PROCESS_COMPOSITION_SURFACE_UPDATE_EVENT_Start,
@@ -44,7 +44,7 @@ __int64 __fastcall CCompositionSurfaceBitmap::ProcessUpdate(
     goto LABEL_8;
   v8 = 0LL;
   if ( g_pComposition )
-    v8 = *((_QWORD *)g_pComposition + 28);
+    v8 = *((_QWORD *)g_pComposition + 12);
   v9 = CCompositionSurfaceManager::GetOrCreateCompositionSurfaceInfo((CCompositionSurfaceManager *)(v8 + 16), v3, &v14);
   v13 = v9;
   v4 = v9;
@@ -57,16 +57,16 @@ LABEL_8:
     CCompositionSurfaceBitmap::SetSurfaceInfo(this, v5);
     goto LABEL_9;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x3Du, 0LL);
+  MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x3Eu, 0LL);
 LABEL_9:
-  TranslateDXGIorD3DErrorInContext(v4, 10, &v13);
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+  TranslateDXGIorD3DErrorInContext(v4, 10LL, &v13);
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
     McGenEventWrite_EventWriteTransfer(
       &Microsoft_Windows_Dwm_Core_Provider_Context,
       &PROCESS_COMPOSITION_SURFACE_UPDATE_EVENT_Stop,
       v11,
       1LL,
       v15);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v14);
+  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)&v14);
   return v13;
 }

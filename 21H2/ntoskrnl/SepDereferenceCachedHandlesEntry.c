@@ -1,17 +1,17 @@
 /*
- * XREFs of SepDereferenceCachedHandlesEntry @ 0x140696EC8
+ * XREFs of SepDereferenceCachedHandlesEntry @ 0x1406E8000
  * Callers:
- *     SepSetTokenBnoIsolation @ 0x140205CA8 (SepSetTokenBnoIsolation.c)
- *     SepTokenDeleteMethod @ 0x1406FE720 (SepTokenDeleteMethod.c)
- *     NtSetInformationToken @ 0x140754810 (NtSetInformationToken.c)
+ *     SepSetTokenBnoIsolation @ 0x140251968 (SepSetTokenBnoIsolation.c)
+ *     NtSetInformationToken @ 0x1406749A0 (NtSetInformationToken.c)
+ *     SepTokenDeleteMethod @ 0x1406E7CF0 (SepTokenDeleteMethod.c)
  * Callees:
- *     RtlRemoveEntryHashTable @ 0x1402069A0 (RtlRemoveEntryHashTable.c)
- *     SepCloseCachedTokenHandles @ 0x14021FA9C (SepCloseCachedTokenHandles.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlRemoveEntryHashTable @ 0x140251CC0 (RtlRemoveEntryHashTable.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     SepCloseCachedTokenHandles @ 0x1403605C4 (SepCloseCachedTokenHandles.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepDereferenceCachedHandlesEntry(__int64 a1, __int64 a2)
@@ -40,7 +40,7 @@ __int64 __fastcall SepDereferenceCachedHandlesEntry(__int64 a1, __int64 a2)
     if ( (v10 & 2) != 0 && (v10 & 4) == 0 )
       ExfTryToWakePushLock(v3);
     KeAbPostRelease(v3);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( v9 )
     {
       SepCloseCachedTokenHandles(*(_DWORD *)(a2 + 56), *(HANDLE **)(a2 + 64));
@@ -61,7 +61,7 @@ __int64 __fastcall SepDereferenceCachedHandlesEntry(__int64 a1, __int64 a2)
     if ( (v7 & 2) != 0 && (v7 & 4) == 0 )
       ExfTryToWakePushLock(v3);
     KeAbPostRelease(v3);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return 0LL;
   }
 }

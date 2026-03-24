@@ -1,14 +1,14 @@
 /*
- * XREFs of UpcaseUnicodeToSingleByteNHelper @ 0x14022D3F0
+ * XREFs of UpcaseUnicodeToSingleByteNHelper @ 0x140206A00
  * Callers:
- *     RtlUpcaseUnicodeToMultiByteN @ 0x1406D9E30 (RtlUpcaseUnicodeToMultiByteN.c)
- *     RtlUpcaseUnicodeToOemN @ 0x140755F60 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x1405EDF40 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x140679000 (RtlUpcaseUnicodeToOemN.c)
  * Callees:
- *     PsGetEffectiveServerSilo @ 0x14020C010 (PsGetEffectiveServerSilo.c)
+ *     NLS_UPCASE @ 0x140206AB0 (NLS_UPCASE.c)
  */
 
 __int64 __fastcall UpcaseUnicodeToSingleByteNHelper(
-        _BYTE *a1,
+        __int64 a1,
         unsigned int a2,
         unsigned int *a3,
         unsigned __int16 *a4,
@@ -16,69 +16,34 @@ __int64 __fastcall UpcaseUnicodeToSingleByteNHelper(
         __int64 a6,
         __int64 a7)
 {
-  struct _KTHREAD *CurrentThread; // rax
-  __int64 Blink; // rcx
-  __int64 EffectiveServerSilo; // rax
-  _QWORD *v14; // rcx
-  __int64 v15; // r15
-  unsigned int v16; // eax
-  __int64 v17; // r10
-  unsigned __int64 v18; // r8
-  __int64 result; // rax
+  unsigned int v7; // r11d
+  unsigned int v8; // r10d
+  unsigned int v9; // eax
+  __int64 v12; // rbx
+  unsigned __int16 v13; // ax
 
-  if ( !KeGetPcr()->Prcb.NestingLevel
-    && ((CurrentThread = KeGetCurrentThread(),
-         Blink = (__int64)CurrentThread[1].WaitBlock[3].WaitListEntry.Blink,
-         Blink != -3)
-      ? (EffectiveServerSilo = PsGetEffectiveServerSilo(Blink))
-      : (EffectiveServerSilo = *(_QWORD *)&CurrentThread->Process[2].Header.Lock),
-        EffectiveServerSilo) )
-  {
-    v14 = *(_QWORD **)(EffectiveServerSilo + 1488);
-  }
-  else
-  {
-    v14 = &PspHostSiloGlobals;
-  }
-  v15 = v14[154];
-  v16 = a5;
+  v7 = a5;
+  v8 = a2;
+  v9 = a5;
   if ( a5 >= a2 )
-    v16 = a2;
+    v9 = a2;
   if ( a3 )
-    *a3 = v16;
-  if ( v16 )
+    *a3 = v9;
+  if ( v9 )
   {
-    v17 = v16;
+    v12 = v9;
     do
     {
-      v18 = *(unsigned __int16 *)(a7 + 2LL * *(unsigned __int8 *)(*a4 + a6));
-      if ( (unsigned int)v18 >= 0x61 )
-      {
-        if ( (unsigned int)v18 > 0x7A )
-        {
-          if ( v15 && (unsigned __int16)v18 >= 0xC0u )
-            LOWORD(v18) = *(_WORD *)(v15
-                                   + 2
-                                   * ((v18 & 0xF)
-                                    + *(unsigned __int16 *)(v15
-                                                          + 2LL
-                                                          * (((unsigned __int8)v18 >> 4)
-                                                           + (unsigned int)*(unsigned __int16 *)(v15 + 2 * (v18 >> 8))))))
-                        + v18;
-        }
-        else
-        {
-          LOWORD(v18) = v18 - 32;
-        }
-      }
+      v13 = NLS_UPCASE(*(unsigned __int16 *)(a7 + 2LL * *(unsigned __int8 *)(*a4 + a6)));
+      ++a1;
       ++a4;
-      *a1++ = *(_BYTE *)((unsigned __int16)v18 + a6);
-      --v17;
+      *(_BYTE *)(a1 - 1) = *(_BYTE *)(v13 + a6);
+      --v12;
     }
-    while ( v17 );
+    while ( v12 );
   }
-  result = 2147483653LL;
-  if ( a5 <= a2 )
+  if ( v7 > v8 )
+    return 2147483653LL;
+  else
     return 0LL;
-  return result;
 }

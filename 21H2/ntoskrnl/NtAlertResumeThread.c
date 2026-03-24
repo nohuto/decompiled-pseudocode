@@ -1,19 +1,22 @@
 /*
- * XREFs of NtAlertResumeThread @ 0x1409B2C30
+ * XREFs of NtAlertResumeThread @ 0x14090C580
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeAlertResumeThread @ 0x14056B0EC (KeAlertResumeThread.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeAlertResumeThread @ 0x140512F60 (KeAlertResumeThread.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtAlertResumeThread(ULONG_PTR BugCheckParameter1, _DWORD *a2)
+NTSTATUS __fastcall NtAlertResumeThread(HANDLE Handle, _DWORD *a2)
 {
-  char PreviousMode; // bl
+  KPROCESSOR_MODE PreviousMode; // bl
   __int64 v5; // rcx
-  __int64 result; // rax
-  int v7; // esi
+  NTSTATUS result; // eax
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  _DWORD *v9; // r9
+  int v10; // esi
   PVOID Object; // [rsp+70h] [rbp+18h] BYREF
 
   Object = 0LL;
@@ -25,29 +28,28 @@ __int64 __fastcall NtAlertResumeThread(ULONG_PTR BugCheckParameter1, _DWORD *a2)
       v5 = (__int64)a2;
     *(_DWORD *)v5 = *(_DWORD *)v5;
   }
-  result = ObpReferenceObjectByHandleWithTag(
-             BugCheckParameter1,
-             2,
-             (__int64)PsThreadType,
+  result = ObReferenceObjectByHandleWithTag(
+             Handle,
+             2u,
+             (POBJECT_TYPE)PsThreadType,
              PreviousMode,
              0x75537350u,
              &Object,
-             0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     if ( PreviousMode && (*((_DWORD *)Object + 29) & 0x400) != 0 )
     {
       ObfDereferenceObjectWithTag(Object, 0x75537350u);
-      return 3221225506LL;
+      return -1073741790;
     }
     else
     {
-      v7 = KeAlertResumeThread((__int64)Object);
+      v10 = KeAlertResumeThread((__int64)Object, v7, v8, v9);
       ObfDereferenceObjectWithTag(Object, 0x75537350u);
       if ( a2 )
-        *a2 = v7;
-      return 0LL;
+        *a2 = v10;
+      return 0;
     }
   }
   return result;

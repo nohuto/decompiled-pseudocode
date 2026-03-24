@@ -1,11 +1,11 @@
 /*
- * XREFs of UT_GetParentDCClipBox @ 0x1C005F9E0
+ * XREFs of UT_GetParentDCClipBox @ 0x1C007DC08
  * Callers:
- *     xxxBeginPaint @ 0x1C005E22C (xxxBeginPaint.c)
- *     xxxFillWindow @ 0x1C00C1AAC (xxxFillWindow.c)
+ *     xxxFillWindow @ 0x1C00454D4 (xxxFillWindow.c)
+ *     xxxBeginPaint @ 0x1C007D8F4 (xxxBeginPaint.c)
  * Callees:
- *     IntersectRect @ 0x1C004CD28 (IntersectRect.c)
- *     GetRect @ 0x1C00688B4 (GetRect.c)
+ *     GetRect @ 0x1C0063F28 (GetRect.c)
+ *     IntersectRect @ 0x1C0075160 (IntersectRect.c)
  */
 
 __int64 __fastcall UT_GetParentDCClipBox(__int64 a1, __int64 a2, int *a3)
@@ -17,6 +17,6 @@ __int64 __fastcall UT_GetParentDCClipBox(__int64 a1, __int64 a2, int *a3)
     return 0LL;
   if ( !a1 || *(char *)(*(_QWORD *)(*(_QWORD *)(a1 + 136) + 8LL) + 8LL) >= 0 )
     return 1LL;
-  GetRect(a1, v6, 17LL);
+  GetRect(a1, (__int64)v6, 17);
   return IntersectRect(a3, a3, v6);
 }

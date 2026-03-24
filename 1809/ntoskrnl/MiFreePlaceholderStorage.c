@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreePlaceholderStorage @ 0x1406D0BF0
+ * XREFs of MiFreePlaceholderStorage @ 0x1406D0BD0
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
  *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
  *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
- *     MiAllocateChildVads @ 0x14085DA18 (MiAllocateChildVads.c)
- *     MiDeletePartialCloneVads @ 0x14085E4E8 (MiDeletePartialCloneVads.c)
+ *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
+ *     MiDeletePartialCloneVads @ 0x14085E4C8 (MiDeletePartialCloneVads.c)
  * Callees:
  *     MiGetVadWakeList @ 0x140068270 (MiGetVadWakeList.c)
  *     PsReturnProcessNonPagedPoolQuota @ 0x140068570 (PsReturnProcessNonPagedPoolQuota.c)

@@ -1,84 +1,81 @@
 /*
- * XREFs of EtwTiLogInsertQueueUserApc @ 0x14024BD24
+ * XREFs of EtwTiLogInsertQueueUserApc @ 0x1402C57E0
  * Callers:
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
- *     KeInsertQueueApc @ 0x1402ED9E0 (KeInsertQueueApc.c)
+ *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
+ *     KeInsertQueueApc @ 0x14025F8C0 (KeInsertQueueApc.c)
  * Callees:
- *     EtwpTiVadQueryEventWrite @ 0x14024BFF8 (EtwpTiVadQueryEventWrite.c)
- *     EtwProviderEnabled @ 0x1402EDE50 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x1402EDEB4 (EtwpTiFillProcessIdentity.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x14025F604 (EtwpTiFillProcessIdentity.c)
+ *     EtwProviderEnabled @ 0x14025F840 (EtwProviderEnabled.c)
+ *     EtwpTiVadQueryEventWrite @ 0x1402C5AA8 (EtwpTiVadQueryEventWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
 {
-  _KPROCESS *v6; // r14
+  __int64 v6; // r14
   _KPROCESS *Process; // rbx
   _KPROCESS *v8; // r12
   int v9; // eax
   bool v10; // zf
   const EVENT_DESCRIPTOR *v11; // rsi
-  __int64 v12; // r9
-  __int64 Pool2; // rax
-  _QWORD *v14; // rdi
-  unsigned int v15; // eax
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v13; // rdi
+  unsigned int v14; // eax
   struct _KTHREAD *CurrentThread; // rdx
-  __int64 v17; // rcx
-  _QWORD *v18; // r8
-  unsigned int v19; // ebx
-  __int64 v20; // rcx
-  _QWORD *v21; // rcx
-  int v22; // eax
-  __int64 v23; // r10
-  __int64 v24; // rdx
-  __int64 v25; // rax
-  unsigned int v26; // ebx
+  __int64 v16; // rcx
+  _QWORD *v17; // r8
+  unsigned int v18; // ebx
+  __int64 v19; // rcx
+  _QWORD *v20; // rcx
+  int v21; // eax
+  __int64 v22; // rax
+  unsigned int v23; // ebx
+  __int64 v24; // rcx
+  __int16 v25; // ax
+  __int64 v26; // rax
   __int64 v27; // rax
-  __int64 v28; // rax
+  unsigned int v28; // ebx
   __int64 v29; // rax
-  unsigned int v30; // ebx
-  __int64 v31; // rax
-  __int64 v32; // rax
-  int v33; // ebx
-  BOOLEAN v34; // al
-  __int64 v35; // rcx
-  __int16 v36; // ax
-  __int64 v37; // [rsp+40h] [rbp-40h] BYREF
-  unsigned __int64 v38; // [rsp+48h] [rbp-38h] BYREF
-  __int64 v39; // [rsp+50h] [rbp-30h]
-  _BYTE v40[8]; // [rsp+58h] [rbp-28h] BYREF
-  _BYTE v41[8]; // [rsp+60h] [rbp-20h] BYREF
-  _BYTE v42[8]; // [rsp+68h] [rbp-18h] BYREF
-  __int64 v43; // [rsp+D8h] [rbp+58h] BYREF
+  __int64 v30; // rax
+  unsigned int v31; // ebx
+  BOOLEAN v32; // al
+  __int64 v33; // rcx
+  __int64 v34; // [rsp+40h] [rbp-40h] BYREF
+  unsigned __int64 v35; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v36; // [rsp+50h] [rbp-30h]
+  unsigned __int64 v37; // [rsp+58h] [rbp-28h] BYREF
+  unsigned __int64 v38; // [rsp+60h] [rbp-20h] BYREF
+  unsigned __int64 v39; // [rsp+68h] [rbp-18h] BYREF
+  __int64 v40; // [rsp+D8h] [rbp+58h] BYREF
   va_list va; // [rsp+D8h] [rbp+58h]
-  __int64 v45; // [rsp+E0h] [rbp+60h] BYREF
+  __int64 v42; // [rsp+E0h] [rbp+60h] BYREF
   va_list va1; // [rsp+E0h] [rbp+60h]
-  __int64 v47; // [rsp+E8h] [rbp+68h] BYREF
+  __int64 v44; // [rsp+E8h] [rbp+68h] BYREF
   va_list va2; // [rsp+E8h] [rbp+68h]
-  __int64 v49; // [rsp+F0h] [rbp+70h]
+  __int64 v46; // [rsp+F0h] [rbp+70h]
   va_list va3; // [rsp+F8h] [rbp+78h] BYREF
 
   va_start(va3, a3);
   va_start(va2, a3);
   va_start(va1, a3);
   va_start(va, a3);
-  v43 = va_arg(va1, _QWORD);
+  v40 = va_arg(va1, _QWORD);
   va_copy(va2, va1);
-  v45 = va_arg(va2, _QWORD);
+  v42 = va_arg(va2, _QWORD);
   va_copy(va3, va2);
-  v47 = va_arg(va3, _QWORD);
-  v49 = va_arg(va3, _QWORD);
-  v39 = 0LL;
+  v44 = va_arg(va3, _QWORD);
+  v46 = va_arg(va3, _QWORD);
+  v36 = 0LL;
   if ( EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x3000uLL) )
   {
-    v6 = *(_KPROCESS **)(a2 + 544);
+    v6 = *(_QWORD *)(a2 + 544);
     Process = KeGetCurrentThread()->ApcState.Process;
     v8 = KeGetCurrentThread()->Process;
     v9 = 0;
-    v10 = (_BYTE)v49 ? v8 == v6 : Process == v6;
+    v10 = (_BYTE)v46 ? v8 == (_KPROCESS *)v6 : Process == (_KPROCESS *)v6;
     LOBYTE(v9) = !v10;
     if ( v9 )
     {
@@ -87,63 +84,58 @@ void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
         v11 = &THREATINT_QUEUEUSERAPC_REMOTE;
       if ( EtwEventEnabled(EtwThreatIntProvRegHandle, v11) )
       {
-        Pool2 = ExAllocatePool2(64LL, 672LL, 1853049172LL, v12);
-        v14 = (_QWORD *)Pool2;
-        if ( Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x2A0uLL, 0x6E734954u);
+        v13 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          v15 = EtwpTiFillProcessIdentity(Pool2, Process, v40);
+          v14 = EtwpTiFillProcessIdentity(PoolWithTag, (__int64)Process, &v37);
           CurrentThread = KeGetCurrentThread();
-          v18 = (_QWORD *)(v17 + 16LL * v15);
-          *v18 = (char *)CurrentThread + 1232;
-          v18[1] = 4LL;
-          v18[2] = CurrentThread + 1;
-          v18[3] = 8LL;
-          v19 = EtwpTiFillProcessIdentity(&v14[2 * v15 + 4], v6, v41) + v15 + 2;
-          v20 = 2LL * v19;
-          v19 += 2;
-          v21 = &v14[v20];
-          *v21 = a2 + 1232;
-          v21[1] = 4LL;
-          v21[2] = a2 + 1152;
-          v21[3] = 8LL;
-          v22 = EtwpTiFillProcessIdentity(&v14[2 * v19], v8, v42);
-          v24 = (unsigned int)(v23 + 1);
-          LOBYTE(v37) = (v23 + 1) & (*(_DWORD *)(a2 + 116) >> 4);
-          v25 = v22 + v19;
-          v26 = v24 + v25;
-          v25 *= 2LL;
-          v14[v25] = &v37;
-          v14[v25 + 1] = v24;
-          v27 = *(_QWORD *)(a2 + 544);
-          if ( *(_QWORD *)(v27 + 1408) == v23
-            || (v36 = *(_WORD *)(v27 + 2412), v36 != 332) && v36 != 452
-            || (v38 = -(a3 >> 2), v38 > 0xFFFFFFFF) )
-          {
-            v38 = a3;
-          }
-          v28 = 2LL * v26;
-          v14[v28] = &v38;
-          v14[v28 + 1] = 8LL;
-          v29 = (unsigned int)v24 + v26;
-          v30 = v24 + v29;
-          v29 *= 2LL;
-          v14[v29] = va;
-          v14[v29 + 1] = 8LL;
-          v31 = 2LL * v30;
-          v14[v31] = va1;
-          v14[v31 + 1] = 8LL;
-          v32 = (unsigned int)v24 + v30;
-          v33 = v24 + v32;
-          v32 *= 2LL;
-          v14[v32] = va2;
-          v14[v32 + 1] = 8LL;
-          v34 = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x8000000uLL);
-          v35 = v39;
-          if ( v34 )
-            v35 = v43;
-          v39 = v35;
-          EtwpTiVadQueryEventWrite((_DWORD)v14, 42, v33, (_DWORD)v6, (__int64)&v38, 2, (__int64)v11, v34, v37);
-          ExFreePoolWithTag(v14, 0);
+          v17 = (_QWORD *)(v16 + 16LL * v14);
+          *v17 = (char *)CurrentThread + 1152;
+          v17[1] = 4LL;
+          v17[2] = CurrentThread + 1;
+          v17[3] = 8LL;
+          v18 = EtwpTiFillProcessIdentity(&v13[2 * v14 + 4], v6, &v38) + v14 + 2;
+          v19 = 2LL * v18;
+          v18 += 2;
+          v20 = &v13[v19];
+          *v20 = a2 + 1152;
+          v20[1] = 4LL;
+          v20[2] = a2 + 1072;
+          v20[3] = 8LL;
+          v21 = EtwpTiFillProcessIdentity(&v13[2 * v18], (__int64)v8, &v39);
+          LOBYTE(v34) = (*(_DWORD *)(a2 + 116) & 0x10) != 0;
+          v22 = v21 + v18;
+          v23 = v22 + 1;
+          v22 *= 2LL;
+          v13[v22] = &v34;
+          v13[v22 + 1] = 1LL;
+          v24 = *(_QWORD *)(*(_QWORD *)(a2 + 544) + 1408LL);
+          if ( !v24 || (v25 = *(_WORD *)(v24 + 8), v25 != 332) && v25 != 452 || (v35 = -(a3 >> 2), v35 > 0xFFFFFFFF) )
+            v35 = a3;
+          v26 = 2LL * v23;
+          v13[v26] = &v35;
+          v13[v26 + 1] = 8LL;
+          v27 = v23 + 1;
+          v28 = v23 + 2;
+          v27 *= 2LL;
+          v13[v27] = va;
+          v13[v27 + 1] = 8LL;
+          v29 = 2LL * v28;
+          v13[v29] = va1;
+          v13[v29 + 1] = 8LL;
+          v30 = v28 + 1;
+          v31 = v28 + 2;
+          v30 *= 2LL;
+          v13[v30] = va2;
+          v13[v30 + 1] = 8LL;
+          v32 = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x8000000uLL);
+          v33 = v36;
+          if ( v32 )
+            v33 = v40;
+          v36 = v33;
+          EtwpTiVadQueryEventWrite((_DWORD)v13, 42, v31, v6, (__int64)&v35, 2, (__int64)v11, v32, v34);
+          ExFreePoolWithTag(v13, 0);
         }
       }
     }

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInitializeInterruptRemappingBspLate @ 0x1409098C0
+ * XREFs of HalpInitializeInterruptRemappingBspLate @ 0x140865730
  * Callers:
- *     HalpInitializeInterruptsBspLate @ 0x1403B91D4 (HalpInitializeInterruptsBspLate.c)
+ *     HalpInitializeInterruptsBspLate @ 0x1403CDB2C (HalpInitializeInterruptsBspLate.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
- *     HalpIrtExtendRemappingRange @ 0x140909EB0 (HalpIrtExtendRemappingRange.c)
- *     HalpIrtInitializeDeviceApertures @ 0x14090A064 (HalpIrtInitializeDeviceApertures.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     HalpIrtExtendRemappingRange @ 0x140865D28 (HalpIrtExtendRemappingRange.c)
+ *     HalpIrtInitializeDeviceApertures @ 0x140865EDC (HalpIrtInitializeDeviceApertures.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 HalpInitializeInterruptRemappingBspLate()
@@ -44,10 +44,14 @@ __int64 HalpInitializeInterruptRemappingBspLate()
   HalpIrtAperturesPerRange = HalpIrtTotalEntries / v0 / v4;
   HalpIrtTotalApertures = HalpIrtTotalEntries / v4;
   v5 = HalpIrtExtendRemappingRange(0LL, HalpIrtTotalEntries % v4);
-  if ( v5 < 0
-    || (RtlSetBits(&HalpIrtRanges, 0, 8u), (HalpIrtAllocationFlags & 4) != 0)
-    && (v5 = HalpIrtInitializeDeviceApertures(), v5 < 0) )
+  if ( v5 < 0 )
+    goto LABEL_9;
+  RtlSetBits(&HalpIrtRanges, 0, 8u);
+  if ( (HalpIrtAllocationFlags & 4) != 0 )
+    v5 = HalpIrtInitializeDeviceApertures();
+  if ( v5 < 0 )
   {
+LABEL_9:
     if ( HalpIrtRanges.Buffer )
     {
       ExFreePoolWithTag(HalpIrtRanges.Buffer, 0);

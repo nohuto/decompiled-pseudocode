@@ -1,40 +1,53 @@
 /*
- * XREFs of PpmCheckRun @ 0x14032C010
+ * XREFs of PpmCheckRun @ 0x14022A3C0
  * Callers:
- *     PpmCheckStart @ 0x14032BEE4 (PpmCheckStart.c)
+ *     PpmCheckStart @ 0x140229DC0 (PpmCheckStart.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 BOOLEAN PpmCheckRun()
 {
-  __int64 (*v0)(void); // rax
+  int v0; // ecx
+  __int64 (*v1)(void); // r8
   BOOLEAN result; // al
-  REGHANDLE v2; // rbx
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-28h] BYREF
+  REGHANDLE v3; // rbx
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-28h] BYREF
 
-  while ( *(_QWORD *)(PpmCheckPipeline + 8LL * (unsigned int)PpmCheckPipelineIndex) )
+  v0 = PpmCheckPipelineIndex;
+  v1 = *(__int64 (**)(void))(PpmCheckPipeline + 8LL * (unsigned int)PpmCheckPipelineIndex);
+  if ( v1 )
   {
-    v0 = *(__int64 (**)(void))(PpmCheckPipeline + 8LL * (unsigned int)PpmCheckPipelineIndex++);
-    result = v0();
-    if ( !result )
-      return result;
-  }
-  result = PpmReleaseLock(&PpmPerfPolicyLock);
-  if ( PpmEtwRegistered )
-  {
-    v2 = PpmEtwHandle;
-    result = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PERF_CHECK_STOP);
-    if ( result )
+    while ( 1 )
     {
-      UserData.Reserved = 0;
-      UserData.Ptr = (ULONGLONG)&PpmCheckTime;
-      UserData.Size = 8;
-      return EtwWrite(v2, &PPM_ETW_PERF_CHECK_STOP, 0LL, 1u, &UserData);
+      PpmCheckPipelineIndex = v0 + 1;
+      result = v1();
+      if ( !result )
+        break;
+      v0 = PpmCheckPipelineIndex;
+      v1 = *(__int64 (**)(void))(PpmCheckPipeline + 8LL * (unsigned int)PpmCheckPipelineIndex);
+      if ( !v1 )
+        goto LABEL_4;
+    }
+  }
+  else
+  {
+LABEL_4:
+    result = PpmReleaseLock(&PpmPerfPolicyLock);
+    if ( PpmEtwRegistered )
+    {
+      v3 = PpmEtwHandle;
+      result = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PERF_CHECK_STOP);
+      if ( result )
+      {
+        *(_QWORD *)&UserData.Size = 8LL;
+        UserData.Ptr = (ULONGLONG)&PpmCheckTime;
+        return EtwWriteEx(v3, &PPM_ETW_PERF_CHECK_STOP, 0LL, 0, 0LL, 0LL, 1u, &UserData);
+      }
     }
   }
   return result;

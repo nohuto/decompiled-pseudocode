@@ -1,237 +1,242 @@
 /*
- * XREFs of ?GetBrushParameters@CNineGridBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x18002E450
+ * XREFs of ?GetBrushParameters@CNineGridBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x180006F00
  * Callers:
  *     <none>
  * Callees:
- *     ??$?4U?$default_delete@VCDrawListBrush@@@std@@$0A@@?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x18002EDDC (--$-4U-$default_delete@VCDrawListBrush@@@std@@$0A@@-$unique_ptr@VCDrawListBrush@@U-$default_dele.c)
- *     ??_GCNineGridDrawListBrush@@UEAAPEAXI@Z @ 0x18002EFD0 (--_GCNineGridDrawListBrush@@UEAAPEAXI@Z.c)
- *     ?Create@CNineGridDrawListBrush@@SAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_NPEAPEAV1@@Z @ 0x18002F030 (-Create@CNineGridDrawListBrush@@SAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delete@VCDrawL.c)
- *     ?AttachInput@CBrushDrawListGenerator@@QEAAXI$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@@Z @ 0x1800300E8 (-AttachInput@CBrushDrawListGenerator@@QEAAXI$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delet.c)
- *     ??R?$default_delete@VCDrawListBrush@@@std@@QEBAXPEAVCDrawListBrush@@@Z @ 0x180030960 (--R-$default_delete@VCDrawListBrush@@@std@@QEBAXPEAVCDrawListBrush@@@Z.c)
- *     ?Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z @ 0x18007E958 (-Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z.c)
- *     ??_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z @ 0x18007F180 (--_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z.c)
- *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180080594 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
- *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x18008065C (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
- *     ??1CBrushDrawListGenerator@@QEAA@XZ @ 0x1800946F8 (--1CBrushDrawListGenerator@@QEAA@XZ.c)
- *     ?Reset@CBrushDrawListGenerator@@QEAAXXZ @ 0x180094774 (-Reset@CBrushDrawListGenerator@@QEAAXXZ.c)
- *     ??0CBrushDrawListGenerator@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x1800947E4 (--0CBrushDrawListGenerator@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0q_EventWriteTransfer @ 0x18012DEC4 (McTemplateU0q_EventWriteTransfer.c)
- *     ?IsIdentity@CComponentTransform2D@@QEBA_NXZ @ 0x180222528 (-IsIdentity@CComponentTransform2D@@QEBA_NXZ.c)
+ *     ?IsIdentity@CComponentTransform2D@@QEBA_NXZ @ 0x180004D20 (-IsIdentity@CComponentTransform2D@@QEBA_NXZ.c)
+ *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x180007298 (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
+ *     ?Create@CNineGridDrawListBrush@@SAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_NPEAPEAV1@@Z @ 0x1800072F8 (-Create@CNineGridDrawListBrush@@SAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delete@VCDrawL.c)
+ *     ??_GCNineGridDrawListBrush@@UEAAPEAXI@Z @ 0x1800073B0 (--_GCNineGridDrawListBrush@@UEAAPEAXI@Z.c)
+ *     ??R?$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z @ 0x180007454 (--R-$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z.c)
+ *     ??_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z @ 0x180051B20 (--_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z.c)
+ *     ?Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z @ 0x180051B68 (-Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z.c)
+ *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180058584 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??4?$unique_ptr@VCDrawListPrimitive@@U?$default_delete@VCDrawListPrimitive@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x180067518 (--4-$unique_ptr@VCDrawListPrimitive@@U-$default_delete@VCDrawListPrimitive@@@std@@@std@@QEAAAEAV.c)
+ *     ?AttachInput@CBrushDrawListGenerator@@QEAAXI$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@@Z @ 0x180094ABC (-AttachInput@CBrushDrawListGenerator@@QEAAXI$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delet.c)
+ *     ??1CBrushDrawListGenerator@@QEAA@XZ @ 0x180094C7C (--1CBrushDrawListGenerator@@QEAA@XZ.c)
+ *     ??0CBrushDrawListGenerator@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x180094CBC (--0CBrushDrawListGenerator@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
+ *     ?Reset@CBrushDrawListGenerator@@QEAAXXZ @ 0x180094D28 (-Reset@CBrushDrawListGenerator@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _Init_thread_footer @ 0x1800E7650 (_Init_thread_footer.c)
+ *     _Init_thread_header @ 0x1800E76B8 (_Init_thread_header.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152674 (McTemplateU0q_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CNineGridBrush::GetBrushParameters(CNineGridBrush *this, struct CBrushDrawListGenerator *a2)
 {
-  const struct D2D_SIZE_F *v2; // r15
-  float v3; // xmm0_4
-  struct CDrawingContext *v6; // rdx
-  struct CGeometryOnlyDrawListBrush *v7; // rbx
-  char v8; // r12
-  CComponentTransform2D *v9; // rcx
+  int v4; // esi
+  unsigned int *v5; // r15
+  unsigned int v6; // xmm0_4
+  struct CDrawingContext *v7; // rdx
+  CNineGridDrawListBrush *v8; // rbx
+  unsigned int v9; // xmm1_4
   int v10; // eax
   unsigned int v11; // ecx
-  int v12; // edi
+  __int64 v12; // rcx
   int v13; // r9d
   int v14; // xmm1_4
   unsigned int v15; // xmm0_4
-  int v16; // r15d
-  CNineGridDrawListBrush *v17; // rcx
-  struct CGeometryOnlyDrawListBrush *v18; // rdx
-  const struct D2D1::Matrix3x2F *v19; // rcx
-  __int64 v20; // rcx
-  CGeometryOnlyDrawListBrush *v22; // rcx
-  FLOAT v23; // xmm1_4
-  int v24; // xmm0_4
-  CGeometryOnlyDrawListBrush *v25; // rax
-  unsigned int v26; // ecx
-  FLOAT width; // xmm1_4
+  CNineGridDrawListBrush *v16; // rcx
+  struct CGeometryOnlyDrawListBrush *v17; // rdx
+  const struct D2D1::Matrix3x2F *v18; // rcx
+  __int64 v19; // xmm1_8
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  CComponentTransform2D *v23; // rcx
+  __int64 v24; // rcx
+  __int128 v25; // xmm0
+  CGeometryOnlyDrawListBrush *v26; // rcx
+  unsigned int v27; // xmm1_4
   unsigned int v28; // xmm0_4
-  __int128 v29; // xmm1
-  __int64 v30; // xmm1_8
-  __int64 v31; // rdx
-  CGeometryOnlyDrawListBrush *v32[2]; // [rsp+30h] [rbp-99h] BYREF
-  struct CGeometryOnlyDrawListBrush *v33[2]; // [rsp+40h] [rbp-89h] BYREF
-  char v34; // [rsp+50h] [rbp-79h]
-  __int128 v35; // [rsp+58h] [rbp-71h] BYREF
-  __int128 v36; // [rsp+68h] [rbp-61h] BYREF
-  __int64 v37; // [rsp+78h] [rbp-51h]
-  __int128 v38; // [rsp+80h] [rbp-49h] BYREF
-  _BYTE v39[16]; // [rsp+90h] [rbp-39h] BYREF
-  int v40; // [rsp+A0h] [rbp-29h]
-  __int128 v41; // [rsp+A4h] [rbp-25h]
-  CGeometryOnlyDrawListBrush *v42; // [rsp+B8h] [rbp-11h]
+  CNineGridDrawListBrush *v29; // rax
+  __int128 v30; // xmm1
+  unsigned int v31; // xmm1_4
+  unsigned int v32; // xmm0_4
+  __int128 v33; // xmm1
+  CNineGridDrawListBrush *v34[2]; // [rsp+30h] [rbp-99h] BYREF
+  struct CGeometryOnlyDrawListBrush *v35[2]; // [rsp+40h] [rbp-89h] BYREF
+  char v36; // [rsp+50h] [rbp-79h]
+  __int128 v37; // [rsp+58h] [rbp-71h] BYREF
+  __int128 v38; // [rsp+68h] [rbp-61h] BYREF
+  __int64 v39; // [rsp+78h] [rbp-51h]
+  __int128 v40; // [rsp+80h] [rbp-49h] BYREF
+  _BYTE v41[16]; // [rsp+90h] [rbp-39h] BYREF
+  int v42; // [rsp+A0h] [rbp-29h]
+  __int128 v43; // [rsp+A4h] [rbp-25h]
+  CNineGridDrawListBrush *v44; // [rsp+B8h] [rbp-11h]
+  char v45; // [rsp+DCh] [rbp+13h]
 
-  v2 = (const struct D2D_SIZE_F *)((char *)a2 + 8);
-  v3 = *((float *)this + 25) * *((float *)this + 24);
-  v6 = *(struct CDrawingContext **)a2;
-  v7 = 0LL;
-  v33[0] = 0LL;
-  *(float *)&v35 = v3;
-  v8 = 0;
-  *((float *)&v35 + 1) = *((float *)this + 27) * *((float *)this + 26);
-  *((float *)&v35 + 2) = *((float *)this + 29) * *((float *)this + 28);
-  *((float *)&v35 + 3) = *((float *)this + 31) * *((float *)this + 30);
-  CBrushDrawListGenerator::CBrushDrawListGenerator((CBrushDrawListGenerator *)v39, v6, v2);
-  if ( !*((_BYTE *)this + 153) )
+  v4 = -2147022876;
+  if ( dword_18034B248 > *(_DWORD *)(*((_QWORD *)NtCurrentTeb()->ThreadLocalStoragePointer + (unsigned int)tls_index)
+                                   + 4LL) )
   {
-    if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 11) + 56LL))(
-           *((_QWORD *)this + 11),
-           181LL) )
+    Init_thread_header(&dword_18034B248);
+    if ( dword_18034B248 == -1 )
     {
-      v9 = *(CComponentTransform2D **)(*((_QWORD *)this + 11) + 120LL);
-      if ( v9 )
+      dword_180345AE4 = -2147022876;
+      Init_thread_footer(&dword_18034B248);
+    }
+  }
+  v5 = (unsigned int *)((char *)a2 + 8);
+  *(float *)&v6 = *((float *)this + 23) * *((float *)this + 22);
+  v7 = *(struct CDrawingContext **)a2;
+  v8 = 0LL;
+  *(float *)&v9 = *((float *)this + 25) * *((float *)this + 24);
+  v35[0] = 0LL;
+  *(_QWORD *)&v37 = __PAIR64__(v9, v6);
+  *((_QWORD *)&v37 + 1) = __PAIR64__(
+                            *((float *)this + 29) * *((float *)this + 28),
+                            *((float *)this + 27) * *((float *)this + 26));
+  CBrushDrawListGenerator::CBrushDrawListGenerator(
+    (CBrushDrawListGenerator *)v41,
+    v7,
+    (const struct D2D_SIZE_F *)a2 + 1);
+  if ( !*((_BYTE *)this + 145) )
+  {
+    if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 10) + 56LL))(
+           *((_QWORD *)this + 10),
+           180LL) )
+    {
+      v23 = *(CComponentTransform2D **)(*((_QWORD *)this + 10) + 104LL);
+      if ( v23 )
       {
-        if ( !CComponentTransform2D::IsIdentity(v9) )
+        if ( !CComponentTransform2D::IsIdentity(v23) )
         {
-          v12 = -2147022876;
-          if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x200000) != 0 )
-            McTemplateU0q_EventWriteTransfer(
-              &Microsoft_Windows_Dwm_Core_Provider_Context,
-              &EVTDESC_NINEGRIDBRUSH_DRAW_ERROR_INVALID_INPUT,
-              2147944420LL);
-          MilInstrumentationCheckHR_MaybeFailFast(v26, &dword_180357800, 2u, -2147022876, 0x268u, 0LL);
-          goto LABEL_43;
+          if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x80000) != 0 )
+            McTemplateU0q_EventWriteTransfer(v24, &EVTDESC_NINEGRIDBRUSH_DRAW_ERROR_INVALID_INPUT, 2147944420LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v24, &dword_180345AE0, 2u, -2147022876, 0x284u, 0LL);
+          goto LABEL_45;
         }
       }
     }
   }
-  v10 = (*(__int64 (__fastcall **)(_QWORD, _BYTE *))(**((_QWORD **)this + 11) + 312LL))(*((_QWORD *)this + 11), v39);
-  v12 = v10;
+  v10 = (*(__int64 (__fastcall **)(_QWORD, _BYTE *))(**((_QWORD **)this + 10) + 328LL))(*((_QWORD *)this + 10), v41);
+  v4 = v10;
   if ( v10 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v11, &dword_180357800, 2u, v10, 0x26Du, 0LL);
-LABEL_43:
+    MilInstrumentationCheckHR_MaybeFailFast(v11, &dword_180345AE0, 2u, v10, 0x289u, 0LL);
+LABEL_45:
     CBrushDrawListGenerator::Reset(a2);
-    goto LABEL_19;
+    goto LABEL_17;
   }
-  v32[0] = v42;
-  v42 = 0LL;
-  std::unique_ptr<CDrawListBrush>::operator=<std::default_delete<CDrawListBrush>,0>(v33, v32);
-  if ( v32[0] )
-    ((void (*)(void))std::default_delete<CDrawListBrush>::operator())();
-  v7 = v33[0];
-  if ( v33[0] )
+  v34[0] = v44;
+  v44 = 0LL;
+  std::unique_ptr<CDrawListPrimitive>::operator=(v35, v34);
+  if ( v34[0] )
+    std::default_delete<CShape>::operator()(v12, v34[0]);
+  v8 = v35[0];
+  if ( v35[0] )
   {
-    if ( *((_BYTE *)v33[0] + 52) )
+    if ( *((_BYTE *)v35[0] + 52) )
     {
-      v8 = 1;
-      v14 = *((_DWORD *)this + 26);
-      LODWORD(v32[0]) = *((_DWORD *)this + 24);
-      v15 = *((_DWORD *)this + 28);
-      HIDWORD(v32[0]) = v14;
-      v32[1] = (CGeometryOnlyDrawListBrush *)__PAIR64__(*((_DWORD *)this + 30), v15);
-      v38 = *(_OWORD *)v32;
+      v14 = *((_DWORD *)this + 24);
+      LODWORD(v34[0]) = *((_DWORD *)this + 22);
+      v15 = *((_DWORD *)this + 26);
+      HIDWORD(v34[0]) = v14;
+      v34[1] = (CNineGridDrawListBrush *)__PAIR64__(*((_DWORD *)this + 28), v15);
+      v40 = *(_OWORD *)v34;
     }
-    else if ( *((_BYTE *)this + 152) )
+    else
     {
-      width = v2->width;
-      v8 = 1;
-      v32[0] = 0LL;
-      v38 = v35;
-      v28 = *((_DWORD *)a2 + 3);
-      *((_BYTE *)v33[0] + 52) = 1;
-      v32[1] = (CGeometryOnlyDrawListBrush *)__PAIR64__(v28, LODWORD(width));
-      v29 = *(_OWORD *)v32;
-      *((_DWORD *)v7 + 12) = 50529027;
-      *((_OWORD *)v7 + 2) = v29;
+      if ( !*((_BYTE *)this + 144) )
+        goto LABEL_14;
+      v31 = *v5;
+      v34[0] = 0LL;
+      v40 = v37;
+      v32 = *((_DWORD *)a2 + 3);
+      *((_BYTE *)v35[0] + 52) = 1;
+      v34[1] = (CNineGridDrawListBrush *)__PAIR64__(v32, v31);
+      v33 = *(_OWORD *)v34;
+      *((_DWORD *)v8 + 12) = 50529027;
+      *((_OWORD *)v8 + 2) = v33;
     }
-    v16 = v40;
-    if ( !v8 )
-      goto LABEL_16;
   }
   else
   {
-    *(_OWORD *)((char *)a2 + 20) = v41;
-    if ( !*((_BYTE *)this + 152) )
+    v25 = v43;
+    *((_BYTE *)a2 + 76) = v45;
+    *(_OWORD *)((char *)a2 + 20) = v25;
+    if ( !*((_BYTE *)this + 144) )
+      goto LABEL_14;
+    v34[0] = 0LL;
+    v35[0] = (struct CGeometryOnlyDrawListBrush *)v34;
+    v40 = v37;
+    v35[1] = 0LL;
+    v36 = 1;
+    v4 = CGeometryOnlyDrawListBrush::Create(&v35[1]);
+    if ( v36 )
     {
-      v16 = v40;
-      goto LABEL_16;
+      v26 = *(CGeometryOnlyDrawListBrush **)v35[0];
+      *(_QWORD *)v35[0] = v35[1];
+      if ( v26 )
+        CGeometryOnlyDrawListBrush::`vector deleting destructor'(v26, 1u);
     }
-    v32[0] = 0LL;
-    v33[0] = (struct CGeometryOnlyDrawListBrush *)v32;
-    v38 = v35;
-    v33[1] = 0LL;
-    v34 = 1;
-    v12 = CGeometryOnlyDrawListBrush::Create(&v33[1]);
-    if ( v34 )
+    if ( v4 < 0 )
     {
-      v22 = *(CGeometryOnlyDrawListBrush **)v33[0];
-      *(_QWORD *)v33[0] = v33[1];
-      if ( v22 )
-        CGeometryOnlyDrawListBrush::`vector deleting destructor'(v22, 1u);
+      MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v26, &dword_180345AE0, 2u, v4, 0x29Cu, 0LL);
+      if ( v34[0] )
+        CGeometryOnlyDrawListBrush::`vector deleting destructor'(v34[0], 1u);
+      goto LABEL_45;
     }
-    if ( v12 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v22, &dword_180357800, 2u, v12, 0x27Eu, 0LL);
-      if ( v32[0] )
-        CGeometryOnlyDrawListBrush::`vector deleting destructor'(v32[0], 1u);
-      goto LABEL_43;
-    }
-    v23 = v2->width;
-    v24 = *((_DWORD *)a2 + 3);
-    v25 = v32[0];
-    v33[0] = 0LL;
-    *(FLOAT *)&v33[1] = v23;
-    *((_BYTE *)v32[0] + 52) = 1;
-    *((_DWORD *)v25 + 12) = 50529027;
-    HIDWORD(v33[1]) = v24;
-    *((_OWORD *)v25 + 2) = *(_OWORD *)v33;
-    v16 = v40;
-    v33[0] = v32[0];
+    v27 = *v5;
+    v28 = *((_DWORD *)a2 + 3);
+    v29 = v34[0];
+    v35[0] = 0LL;
+    v35[1] = (struct CGeometryOnlyDrawListBrush *)__PAIR64__(v28, v27);
+    v30 = *(_OWORD *)v35;
+    *((_BYTE *)v34[0] + 52) = 1;
+    *((_DWORD *)v29 + 12) = 50529027;
+    *((_OWORD *)v29 + 2) = v30;
+    v35[0] = v34[0];
   }
-  LOBYTE(v13) = *((_BYTE *)this + 152);
-  *(_QWORD *)&v36 = v32;
-  v32[0] = 0LL;
-  *((_QWORD *)&v36 + 1) = 0LL;
-  LOBYTE(v37) = 1;
-  v12 = CNineGridDrawListBrush::Create(
-          (unsigned int)v33,
-          (unsigned int)&v38,
-          (unsigned int)&v35,
-          v13,
-          (__int64)&v36 + 8);
-  if ( (_BYTE)v37 )
+  LOBYTE(v13) = *((_BYTE *)this + 144);
+  *(_QWORD *)&v38 = v34;
+  v34[0] = 0LL;
+  *((_QWORD *)&v38 + 1) = 0LL;
+  LOBYTE(v39) = 1;
+  v4 = CNineGridDrawListBrush::Create((unsigned int)v35, (unsigned int)&v40, (unsigned int)&v37, v13, (__int64)&v38 + 8);
+  if ( (_BYTE)v39 )
   {
-    v17 = *(CNineGridDrawListBrush **)v36;
-    *(_QWORD *)v36 = *((_QWORD *)&v36 + 1);
-    if ( v17 )
-      CNineGridDrawListBrush::`scalar deleting destructor'(v17, 1u);
+    v16 = *(CNineGridDrawListBrush **)v38;
+    *(_QWORD *)v38 = *((_QWORD *)&v38 + 1);
+    if ( v16 )
+      CNineGridDrawListBrush::`scalar deleting destructor'(v16, 1u);
   }
-  if ( v12 < 0 )
+  if ( v4 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v17, &dword_180357800, 2u, v12, 0x2AEu, 0LL);
-    if ( v32[0] )
-      CNineGridDrawListBrush::`scalar deleting destructor'(v32[0], 1u);
-    v7 = v33[0];
-    goto LABEL_43;
+    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v16, &dword_180345AE0, 2u, v4, 0x2CAu, 0LL);
+    if ( v34[0] )
+      CNineGridDrawListBrush::`scalar deleting destructor'(v34[0], 1u);
+    v8 = v35[0];
+    goto LABEL_45;
   }
-  v18 = v33[0];
-  v7 = v32[0];
-  v32[0] = 0LL;
-  v33[0] = v7;
-  if ( v18 )
+  v17 = v35[0];
+  v8 = v34[0];
+  v34[0] = 0LL;
+  v35[0] = v8;
+  if ( v17 )
   {
-    ((void (*)(void))std::default_delete<CDrawListBrush>::operator())();
-    if ( v32[0] )
-      CNineGridDrawListBrush::`scalar deleting destructor'(v32[0], 1u);
+    std::default_delete<CShape>::operator()(v16, v17);
+    if ( v34[0] )
+      CNineGridDrawListBrush::`scalar deleting destructor'(v34[0], 1u);
   }
-LABEL_16:
-  if ( !D2D1::Matrix3x2F::IsIdentity((CNineGridBrush *)((char *)this + 128)) )
+LABEL_14:
+  if ( !D2D1::Matrix3x2F::IsIdentity((CNineGridBrush *)((char *)this + 120)) )
   {
-    D2D1::Matrix3x2F::SetProduct((D2D1::Matrix3x2F *)&v36, (struct CGeometryOnlyDrawListBrush *)((char *)v7 + 8), v19);
-    v30 = v37;
-    *(_OWORD *)v31 = v36;
-    *(_QWORD *)(v31 + 16) = v30;
+    D2D1::Matrix3x2F::SetProduct((D2D1::Matrix3x2F *)&v38, (CNineGridDrawListBrush *)((char *)v8 + 8), v18);
+    v19 = v39;
+    *(_OWORD *)v20 = v38;
+    *(_QWORD *)(v20 + 16) = v19;
   }
-  CBrushDrawListGenerator::AttachInput(a2, 0LL, v33);
-  v7 = v33[0];
-  v12 = 0;
-  *((_DWORD *)a2 + 4) = v16;
-LABEL_19:
-  CBrushDrawListGenerator::~CBrushDrawListGenerator((CBrushDrawListGenerator *)v39);
-  if ( v7 )
-    std::default_delete<CDrawListBrush>::operator()(v20, v7);
-  return (unsigned int)v12;
+  CBrushDrawListGenerator::AttachInput(a2, 0LL, v35);
+  v4 = 0;
+  v8 = v35[0];
+  *((_DWORD *)a2 + 4) = v42;
+LABEL_17:
+  CBrushDrawListGenerator::~CBrushDrawListGenerator((CBrushDrawListGenerator *)v41);
+  if ( v8 )
+    std::default_delete<CShape>::operator()(v21, v8);
+  return (unsigned int)v4;
 }

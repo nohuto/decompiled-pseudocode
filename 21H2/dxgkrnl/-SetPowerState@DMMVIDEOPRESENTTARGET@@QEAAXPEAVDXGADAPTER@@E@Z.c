@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SetPowerState@DMMVIDEOPRESENTTARGET@@QEAAXPEAVDXGADAPTER@@E@Z @ 0x1C0014AB4
+ * XREFs of ?SetPowerState@DMMVIDEOPRESENTTARGET@@QEAAXPEAVDXGADAPTER@@E@Z @ 0x1C001AC24
  * Callers:
- *     ?SetPowerState@DMMVIDEOPRESENTTARGET@@QEAAXPEAVDXGADAPTER@@E@Z @ 0x1C0014AB4 (-SetPowerState@DMMVIDEOPRESENTTARGET@@QEAAXPEAVDXGADAPTER@@E@Z.c)
- *     ?RequestPowerStateForTargets@VIDPN_MGR@@AEAAXPEBVDMMVIDPN@@@Z @ 0x1C01C8F5C (-RequestPowerStateForTargets@VIDPN_MGR@@AEAAXPEBVDMMVIDPN@@@Z.c)
- *     ?SetTargetActivated@DMMVIDEOPRESENTTARGET@@QEAAXEE@Z @ 0x1C01C8FF4 (-SetTargetActivated@DMMVIDEOPRESENTTARGET@@QEAAXEE@Z.c)
+ *     ?SetPowerState@DMMVIDEOPRESENTTARGET@@QEAAXPEAVDXGADAPTER@@E@Z @ 0x1C001AC24 (-SetPowerState@DMMVIDEOPRESENTTARGET@@QEAAXPEAVDXGADAPTER@@E@Z.c)
+ *     ?RequestPowerStateForTargets@VIDPN_MGR@@AEAAXPEBVDMMVIDPN@@@Z @ 0x1C016CF20 (-RequestPowerStateForTargets@VIDPN_MGR@@AEAAXPEBVDMMVIDPN@@@Z.c)
+ *     ?SetTargetActivated@DMMVIDEOPRESENTTARGET@@QEAAXEE@Z @ 0x1C016CFB4 (-SetTargetActivated@DMMVIDEOPRESENTTARGET@@QEAAXEE@Z.c)
  * Callees:
- *     ?SetPowerState@DMMVIDEOPRESENTTARGET@@QEAAXPEAVDXGADAPTER@@E@Z @ 0x1C0014AB4 (-SetPowerState@DMMVIDEOPRESENTTARGET@@QEAAXPEAVDXGADAPTER@@E@Z.c)
- *     ?SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z @ 0x1C0014C64 (-SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z.c)
- *     ?SetPowerComponentIdleCBInternal@DXGADAPTER@@QEAAXIK@Z @ 0x1C0024620 (-SetPowerComponentIdleCBInternal@DXGADAPTER@@QEAAXIK@Z.c)
+ *     ?SetPowerState@DMMVIDEOPRESENTTARGET@@QEAAXPEAVDXGADAPTER@@E@Z @ 0x1C001AC24 (-SetPowerState@DMMVIDEOPRESENTTARGET@@QEAAXPEAVDXGADAPTER@@E@Z.c)
+ *     ?SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z @ 0x1C00391E8 (-SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z.c)
+ *     ?SetPowerComponentIdleCBInternal@DXGADAPTER@@QEAAXIK@Z @ 0x1C0039864 (-SetPowerComponentIdleCBInternal@DXGADAPTER@@QEAAXIK@Z.c)
  */
 
 void __fastcall DMMVIDEOPRESENTTARGET::SetPowerState(
@@ -19,10 +19,10 @@ void __fastcall DMMVIDEOPRESENTTARGET::SetPowerState(
   _QWORD **v5; // rcx
   _QWORD *v7; // rax
   unsigned int v8; // edx
-  char v9; // al
-  DMMVIDEOPRESENTTARGET *v10; // rcx
-  char *v11; // rsi
+  DMMVIDEOPRESENTTARGET *v9; // rcx
+  char *v10; // rsi
   char *i; // rbx
+  char v12; // al
 
   v4 = a3;
   v5 = (_QWORD **)((char *)this + 440);
@@ -42,22 +42,22 @@ void __fastcall DMMVIDEOPRESENTTARGET::SetPowerState(
   v8 = *((_DWORD *)this + 100);
   if ( v8 != -1 )
   {
-    v9 = *((_BYTE *)this + 404);
+    v12 = *((_BYTE *)this + 404);
     if ( v4 )
     {
-      if ( !v9 )
+      if ( !v12 )
         DXGADAPTER::SetPowerComponentActiveCBInternal(a2, v8, 1u, 0);
     }
-    else if ( v9 )
+    else if ( v12 )
     {
       DXGADAPTER::SetPowerComponentIdleCBInternal(a2, v8, 0);
     }
   }
-  v10 = (DMMVIDEOPRESENTTARGET *)*((_QWORD *)this + 59);
+  v9 = (DMMVIDEOPRESENTTARGET *)*((_QWORD *)this + 59);
   *((_BYTE *)this + 404) = v4;
-  if ( v10 )
-    DMMVIDEOPRESENTTARGET::SetPowerState(v10, a2, v4);
-  v11 = (char *)this + 480;
-  for ( i = (char *)*((_QWORD *)this + 60); i != v11; i = *(char **)i )
+  if ( v9 )
+    DMMVIDEOPRESENTTARGET::SetPowerState(v9, a2, v4);
+  v10 = (char *)this + 480;
+  for ( i = (char *)*((_QWORD *)this + 60); i != v10; i = *(char **)i )
     DMMVIDEOPRESENTTARGET::SetPowerState((DMMVIDEOPRESENTTARGET *)(i - 496), a2, v4);
 }

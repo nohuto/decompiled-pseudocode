@@ -1,8 +1,8 @@
 /*
- * XREFs of DereferenceW32ProcessEx @ 0x1C0095FC0
+ * XREFs of DereferenceW32ProcessEx @ 0x1C00E3FFC
  * Callers:
- *     DereferenceW32Process @ 0x1C0095BB0 (DereferenceW32Process.c)
- *     W32pProcessCallout @ 0x1C0095BD0 (W32pProcessCallout.c)
+ *     W32pProcessCallout @ 0x1C00E3A50 (W32pProcessCallout.c)
+ *     DereferenceW32Process @ 0x1C00E5380 (DereferenceW32Process.c)
  * Callees:
  *     <none>
  */

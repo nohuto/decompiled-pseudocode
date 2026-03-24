@@ -1,29 +1,29 @@
 /*
- * XREFs of ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1407BC6A0
+ * XREFs of ObpAllocateAndQuerySecurityDescriptorInfo @ 0x14067BF9C
  * Callers:
- *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
- *     NtSetSecurityObject @ 0x1407BC2C0 (NtSetSecurityObject.c)
+ *     ObpCreateHandle @ 0x140643C70 (ObpCreateHandle.c)
+ *     NtSetSecurityObject @ 0x14067B860 (NtSetSecurityObject.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     SeQuerySecurityDescriptorInfo @ 0x1406D5DF0 (SeQuerySecurityDescriptorInfo.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1406DE310 (SeQuerySecurityDescriptorInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObpAllocateAndQuerySecurityDescriptorInfo(__int64 a1, ULONG a2, void *a3, _QWORD *a4)
 {
   __int64 v6; // r13
-  __int64 v7; // rax
+  PVOID v7; // rax
   void *v8; // rbx
-  __int64 v9; // r9
-  __int64 (__fastcall *v10)(__int64, __int64, ULONG *, __int64, ULONG *, PSECURITY_DESCRIPTOR, _DWORD, __int64, int); // rax
+  PVOID v9; // r9
+  __int64 (__fastcall *v10)(__int64, __int64, ULONG *, PVOID, ULONG *, PSECURITY_DESCRIPTOR, _DWORD, __int64, int); // rax
   int v11; // esi
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   NTSTATUS v14; // eax
-  __int64 v15; // rax
+  PVOID v15; // rax
   int v16; // [rsp+30h] [rbp-30h]
   int v17; // [rsp+40h] [rbp-20h]
-  __int64 (__fastcall *v18)(__int64, __int64, ULONG *, __int64, ULONG *, PSECURITY_DESCRIPTOR, _DWORD, __int64, int); // [rsp+50h] [rbp-10h]
+  __int64 (__fastcall *v18)(__int64, __int64, ULONG *, PVOID, ULONG *, PSECURITY_DESCRIPTOR, _DWORD, __int64, int); // [rsp+50h] [rbp-10h]
   ULONG Length; // [rsp+A0h] [rbp+40h] BYREF
   ULONG SecurityInformation; // [rsp+A8h] [rbp+48h] BYREF
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+B0h] [rbp+50h] BYREF
@@ -35,11 +35,11 @@ __int64 __fastcall ObpAllocateAndQuerySecurityDescriptorInfo(__int64 a1, ULONG a
   if ( a3 )
   {
     SeQuerySecurityDescriptorInfo(&SecurityInformation, 0LL, &Length, &ObjectsSecurityDescriptor);
-    Pool2 = (void *)ExAllocatePool2(256LL, Length, 1901290063LL);
-    v8 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, Length, 0x7153624Fu);
+    v8 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v14 = SeQuerySecurityDescriptorInfo(&SecurityInformation, Pool2, &Length, &ObjectsSecurityDescriptor);
+      v14 = SeQuerySecurityDescriptorInfo(&SecurityInformation, PoolWithTag, &Length, &ObjectsSecurityDescriptor);
 LABEL_11:
       v11 = v14;
       goto LABEL_4;
@@ -47,21 +47,21 @@ LABEL_11:
     return 3221225626LL;
   }
   Length = ObpDefaultSecurityDescriptorLength;
-  v7 = ExAllocatePool2(256LL, (unsigned int)ObpDefaultSecurityDescriptorLength, 1901290063LL);
-  v8 = (void *)v7;
+  v7 = ExAllocatePoolWithTag(PagedPool, (unsigned int)ObpDefaultSecurityDescriptorLength, 0x7153624Fu);
+  v8 = v7;
   if ( !v7 )
     return 3221225626LL;
   v9 = v7;
   v16 = *(_DWORD *)(v6 + 100);
-  v10 = *(__int64 (__fastcall **)(__int64, __int64, ULONG *, __int64, ULONG *, PSECURITY_DESCRIPTOR, _DWORD, __int64, int))(v6 + 152);
+  v10 = *(__int64 (__fastcall **)(__int64, __int64, ULONG *, PVOID, ULONG *, PSECURITY_DESCRIPTOR, _DWORD, __int64, int))(v6 + 152);
   ObjectsSecurityDescriptor = (PSECURITY_DESCRIPTOR)(a1 - 8);
   v18 = v10;
   v11 = v10(a1, 1LL, &SecurityInformation, v9, &Length, (PSECURITY_DESCRIPTOR)(a1 - 8), v16, v6 + 76, 0);
   if ( v11 == -1073741789 )
   {
     ExFreePoolWithTag(v8, 0x7153624Fu);
-    v15 = ExAllocatePool2(256LL, Length, 1901290063LL);
-    v8 = (void *)v15;
+    v15 = ExAllocatePoolWithTag(PagedPool, Length, 0x7153624Fu);
+    v8 = v15;
     if ( v15 )
     {
       LOBYTE(v17) = 0;

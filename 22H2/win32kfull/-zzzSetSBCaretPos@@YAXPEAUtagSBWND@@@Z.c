@@ -1,31 +1,28 @@
 /*
- * XREFs of ?zzzSetSBCaretPos@@YAXPEAUtagSBWND@@@Z @ 0x1C0229D70
+ * XREFs of ?zzzSetSBCaretPos@@YAXPEAUtagSBWND@@@Z @ 0x1C0244EB0
  * Callers:
- *     xxxSBWndProc @ 0x1C022AA50 (xxxSBWndProc.c)
+ *     xxxSBWndProc @ 0x1C0245BA0 (xxxSBWndProc.c)
  * Callees:
- *     zzzSetCaretPos @ 0x1C0005FC8 (zzzSetCaretPos.c)
+ *     zzzSetCaretPos @ 0x1C002B450 (zzzSetCaretPos.c)
  */
 
 void __fastcall zzzSetSBCaretPos(struct tagSBWND *a1)
 {
-  int v1; // r8d
-  int *v2; // rax
-  int *v3; // rcx
-  int v4; // edx
-  int v5; // edx
+  int v1; // eax
+  int v2; // edx
+  int v3; // ecx
 
-  if ( *(_QWORD *)a1 == *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 120LL) )
+  if ( *(_QWORD *)a1 == *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 112LL) )
   {
     v1 = *((_DWORD *)a1 + 2);
-    v2 = (int *)((char *)a1 + 40);
-    v3 = (int *)((char *)a1 + 68);
     if ( v1 )
-      v4 = *v3;
+      v2 = *((_DWORD *)a1 + 17);
     else
-      v4 = *v2;
-    v5 = v4 + 2;
-    if ( !v1 )
-      v2 = v3;
-    zzzSetCaretPos(*v2 + 2, v5);
+      v2 = *((_DWORD *)a1 + 10);
+    if ( v1 )
+      v3 = *((_DWORD *)a1 + 10);
+    else
+      v3 = *((_DWORD *)a1 + 17);
+    zzzSetCaretPos(v3 + 2, v2 + 2);
   }
 }

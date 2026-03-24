@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsBufferingOutput@CInteractionContextWrapper@@UEBA_NXZ @ 0x1800FBF20
+ * XREFs of ?IsBufferingOutput@CInteractionContextWrapper@@UEBA_NXZ @ 0x1800E33B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CInteractionContextWrapper::IsBufferingOutput(CInteractionContextWrapper *this)
 {
-  return *((_BYTE *)this + 528);
+  return *((_BYTE *)this + 536);
 }

@@ -2,7 +2,7 @@
  * XREFs of PspReferenceTokenForNewProcess @ 0x14060DA9C
  * Callers:
  *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
- *     PspCreateProcess @ 0x14075DE30 (PspCreateProcess.c)
+ *     PspCreateProcess @ 0x14075DE10 (PspCreateProcess.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)

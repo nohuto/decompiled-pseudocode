@@ -1,30 +1,32 @@
 /*
- * XREFs of _UnlockWindowStation @ 0x1C011B270
+ * XREFs of _UnlockWindowStation @ 0x1C0131050
  * Callers:
- *     NtUserUnlockWindowStation @ 0x1C011B1F0 (NtUserUnlockWindowStation.c)
+ *     NtUserUnlockWindowStation @ 0x1C0130FD0 (NtUserUnlockWindowStation.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall UnlockWindowStation(__int64 a1)
 {
-  unsigned int v2; // ecx
-  __int64 result; // rax
+  __int64 v2; // r8
+  int v3; // ecx
+  int v4; // edx
+  unsigned int v5; // eax
 
   if ( PsGetCurrentProcessId() == (HANDLE)gpidLogon )
   {
-    if ( (*(_DWORD *)(a1 + 64) & 8) != 0 )
-      v2 = gdwLocks & 0xFFFFFFFE;
-    else
-      v2 = gdwLocks & 0xFFFFFFFC;
-    *(_DWORD *)(a1 + 64) &= (*(_DWORD *)(a1 + 64) & 8) != 0 ? -2 : -4;
-    result = 1LL;
-    gdwLocks = v2;
+    v3 = *(_DWORD *)(a1 + 64);
+    v4 = -2;
+    v5 = gdwLocks;
+    if ( (v3 & 8) == 0 )
+      v4 = -4;
+    *(_DWORD *)(a1 + 64) = v4 & v3;
+    gdwLocks = v4 & v5;
+    return 1LL;
   }
   else
   {
-    UserSetLastError(5LL, gpidLogon);
+    UserSetLastError(5LL, gpidLogon, v2);
     return 0LL;
   }
-  return result;
 }

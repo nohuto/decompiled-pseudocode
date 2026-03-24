@@ -1,15 +1,15 @@
 /*
- * XREFs of PiOpenDriverRedirectedStateKey @ 0x14087C6F0
+ * XREFs of PiOpenDriverRedirectedStateKey @ 0x14077BAA4
  * Callers:
- *     PipHardwareConfigActivateService @ 0x14087C60C (PipHardwareConfigActivateService.c)
+ *     PipHardwareConfigActivateService @ 0x14077B9C0 (PipHardwareConfigActivateService.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringPrintfEx @ 0x1403CDA68 (RtlUnicodeStringPrintfEx.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     IopAllocateUnicodeString @ 0x1407941E8 (IopAllocateUnicodeString.c)
- *     PiGetStateRootPath @ 0x140871940 (PiGetStateRootPath.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14036E520 (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     IopAllocateUnicodeString @ 0x140745B4C (IopAllocateUnicodeString.c)
+ *     PiGetStateRootPath @ 0x1407811FC (PiGetStateRootPath.c)
  */
 
 __int64 __fastcall PiOpenDriverRedirectedStateKey(unsigned __int16 *a1, __int64 a2, _QWORD *a3)
@@ -17,22 +17,21 @@ __int64 __fastcall PiOpenDriverRedirectedStateKey(unsigned __int16 *a1, __int64 
   int StateRootPath; // ebx
   unsigned int v7; // ecx
   unsigned int v8; // edx
-  NTSTATUS v9; // eax
-  HANDLE v10; // rax
+  HANDLE v9; // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-50h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   HANDLE Handle; // [rsp+A0h] [rbp+20h] BYREF
 
   Handle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   UnicodeString = 0LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   RtlInitUnicodeString(&UnicodeString, 0LL);
   if ( a1 && *((_QWORD *)a1 + 1) && *a1 >= 2u && a3 )
   {
-    StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, 0, &DestinationString);
+    StateRootPath = PiGetStateRootPath(L"DriverStatePath");
     if ( StateRootPath >= 0 )
     {
       v7 = *a1 + 2;
@@ -54,17 +53,14 @@ __int64 __fastcall PiOpenDriverRedirectedStateKey(unsigned __int16 *a1, __int64 
             ObjectAttributes.Length = 48;
             ObjectAttributes.Attributes = 576;
             *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-            v9 = ZwOpenKey(&Handle, 0x30006u, &ObjectAttributes);
-            StateRootPath = v9;
-            if ( v9 == -1073741772 )
-            {
+            StateRootPath = ZwOpenKey(&Handle, 0x30006u, &ObjectAttributes);
+            if ( StateRootPath == -1073741772 )
               StateRootPath = -1073741275;
-            }
-            else if ( v9 >= 0 )
+            if ( StateRootPath >= 0 )
             {
-              v10 = Handle;
+              v9 = Handle;
               Handle = 0LL;
-              *a3 = v10;
+              *a3 = v9;
             }
           }
         }
@@ -79,8 +75,8 @@ __int64 __fastcall PiOpenDriverRedirectedStateKey(unsigned __int16 *a1, __int64 
   {
     StateRootPath = -1073741811;
   }
-  RtlFreeUnicodeString(&DestinationString);
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&DestinationString);
+  RtlFreeAnsiString(&UnicodeString);
   if ( Handle )
     ZwClose(Handle);
   return (unsigned int)StateRootPath;

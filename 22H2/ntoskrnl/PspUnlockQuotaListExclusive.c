@@ -1,21 +1,85 @@
 /*
- * XREFs of PspUnlockQuotaListExclusive @ 0x1403B537C
+ * XREFs of PspUnlockQuotaListExclusive @ 0x1403CF5DC
  * Callers:
- *     PspLookupProcessQuotaBlock @ 0x1407F8D08 (PspLookupProcessQuotaBlock.c)
- *     PspRemoveQuotaBlock @ 0x1409AE13C (PspRemoveQuotaBlock.c)
+ *     PspLookupProcessQuotaBlock @ 0x140690A4C (PspLookupProcessQuotaBlock.c)
+ *     PspRemoveQuotaBlock @ 0x1409073F8 (PspRemoveQuotaBlock.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x1402CB3F0 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x1402E5430 (KiAbEntryRemoveFromTree.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-_QWORD *__fastcall PspUnlockQuotaListExclusive(__int64 a1, volatile signed __int64 *a2)
+_QWORD *__fastcall PspUnlockQuotaListExclusive(__int64 a1, unsigned __int64 a2)
 {
-  char v4; // al
+  struct _KTHREAD *CurrentThread; // rbx
+  unsigned int SessionId; // edx
+  unsigned __int8 v6; // r14
+  unsigned int v7; // r8d
+  bool v8; // zf
+  __int64 v9; // rcx
+  unsigned __int64 v10; // rdi
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  int v14; // [rsp+70h] [rbp+18h] BYREF
 
-  v4 = _InterlockedExchangeAdd64(a2, 0xFFFFFFFFFFFFFFFFuLL);
-  if ( (v4 & 2) != 0 && (v4 & 4) == 0 )
-    ExfTryToWakePushLock(a2);
-  KeAbPostRelease((ULONG_PTR)a2);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)a2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)a2);
+  v14 = 0;
+  CurrentThread = KeGetCurrentThread();
+  if ( (unsigned int)MiGetSystemRegionType(a2) == 1 )
+    SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+  else
+    SessionId = -1;
+  --CurrentThread->SpecialApcDisable;
+  v6 = ++CurrentThread->AbAllocationRegionCount;
+  v7 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  while ( 1 )
+  {
+    v8 = !_BitScanReverse((unsigned int *)&v9, v7);
+    if ( v8 )
+      break;
+    v10 = (unsigned __int64)&CurrentThread->LockEntries[v9];
+    v7 &= ~(1 << v9);
+    if ( (*(_BYTE *)(v10 + 26) & 1) != 0
+      && (*(_DWORD *)(v10 + 32) & 1) == 0
+      && (*(_QWORD *)(v10 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (a2 & 0x7FFFFFFFFFFFFFFCLL)
+      && *(_DWORD *)(v10 + 40) == SessionId )
+    {
+      *(_BYTE *)(v10 + 26) &= ~1u;
+      if ( *(_QWORD *)(v10 + 32) )
+      {
+        if ( v10 )
+        {
+          *(_BYTE *)(v10 + 32) |= 2u;
+          if ( *(__int64 *)(v10 + 32) < 0 )
+            KiAbEntryRemoveFromTree(v10);
+          v14 = *(_DWORD *)(v10 + 88) & 0x1FFFF;
+          *(_DWORD *)(v10 + 88) &= 0xFFFE0000;
+          *(_BYTE *)(v10 + 25) &= ~1u;
+          *(_QWORD *)(v10 + 32) = 0LL;
+          v11 = (__int64)(v10 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+          if ( v6 == 1 )
+            CurrentThread->AbEntrySummary |= 1 << v11;
+          else
+            _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v11);
+          goto LABEL_17;
+        }
+        break;
+      }
+    }
+  }
+  if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
+    KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, a2, SessionId, 0LL);
+LABEL_17:
+  --CurrentThread->AbAllocationRegionCount;
+  KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread, a2, &v14);
+  v8 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v8 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    KiCheckForKernelApcDelivery(v12);
   return KeLeaveCriticalRegionThread(a1);
 }

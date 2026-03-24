@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vSpCorrectHdevReferences@@YAXPEAU_SPRITESTATE@@PEAUHDEV__@@@Z @ 0x1C00B7808
+ * XREFs of ?vSpCorrectHdevReferences@@YAXPEAU_SPRITESTATE@@PEAUHDEV__@@@Z @ 0x1C00EE5B8
  * Callers:
- *     vSpDynamicModeChange @ 0x1C00B7500 (vSpDynamicModeChange.c)
+ *     vSpDynamicModeChange @ 0x1C00EE000 (vSpDynamicModeChange.c)
  * Callees:
  *     <none>
  */

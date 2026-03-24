@@ -1,34 +1,33 @@
 /*
- * XREFs of PopThermalZoneAdd @ 0x1408247B0
+ * XREFs of PopThermalZoneAdd @ 0x14079AA40
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     KeInitializeTimer2 @ 0x14031E320 (KeInitializeTimer2.c)
- *     KeInitializeIRTimer @ 0x14036EFA8 (KeInitializeIRTimer.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x140387BCC (PopThermalUpdateTelemetryClientCount.c)
- *     PopResetCurrentPolicies @ 0x140825058 (PopResetCurrentPolicies.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     KeInitializeTimer2 @ 0x14035A7C0 (KeInitializeTimer2.c)
+ *     KeInitializeIRTimer @ 0x140380D20 (KeInitializeIRTimer.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x1403AF158 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopResetCurrentPolicies @ 0x14079CB48 (PopResetCurrentPolicies.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 void __fastcall PopThermalZoneAdd(__int64 a1)
 {
-  unsigned __int64 v2; // rcx
+  __int64 v2; // rcx
   __int64 v3; // rax
   int v4; // ecx
   __int64 v5; // rax
   __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 v8; // r8
-  int v9; // [rsp+40h] [rbp+8h] BYREF
+  int v8; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = a1 + 296;
   if ( PopThermalPollingMode )
   {
-    v9 = 262152;
-    KeInitializeIRTimer(v2, (__int64)PopThermalZoneTimerCallback, a1, (unsigned __int8 *)&v9, 2);
+    v8 = 262152;
+    KeInitializeIRTimer(v2, (__int64)PopThermalZoneTimerCallback, a1, (unsigned __int8 *)&v8, 2);
   }
   else
   {
@@ -66,7 +65,7 @@ void __fastcall PopThermalZoneAdd(__int64 a1)
       BYTE13(PopCapabilities) = 1;
       PopResetCurrentPolicies();
     }
-    PopReleasePolicyLock(v7, v6, v8);
+    PopReleasePolicyLock(v7, v6);
   }
   PopThermalUpdateTelemetryClientCount(1);
   ExQueueWorkItem((PWORK_QUEUE_ITEM)(a1 + 264), DelayedWorkQueue);

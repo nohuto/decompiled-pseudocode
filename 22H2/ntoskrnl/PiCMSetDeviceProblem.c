@@ -1,20 +1,20 @@
 /*
- * XREFs of PiCMSetDeviceProblem @ 0x14096A9C8
+ * XREFs of PiCMSetDeviceProblem @ 0x14072F0C4
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0810 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406AD630 (PiCMHandleIoctl.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmValidateDeviceName @ 0x1406CE870 (_CmValidateDeviceName.c)
- *     PiCMReturnBasicResultData @ 0x14079A618 (PiCMReturnBasicResultData.c)
- *     PiAuDoesClientHaveAccess @ 0x14079AD98 (PiAuDoesClientHaveAccess.c)
- *     PiAuDoesClientHavePrivilege @ 0x14095B968 (PiAuDoesClientHavePrivilege.c)
- *     PiCMCaptureProblemInputData @ 0x14096804C (PiCMCaptureProblemInputData.c)
- *     PiCMSetProblem @ 0x14096AAD4 (PiCMSetProblem.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PiCMReturnBasicResultData @ 0x140684A20 (PiCMReturnBasicResultData.c)
+ *     PiAuDoesClientHaveAccess @ 0x140684D94 (PiAuDoesClientHaveAccess.c)
+ *     _CmValidateDeviceName @ 0x1406BB050 (_CmValidateDeviceName.c)
+ *     PiAuDoesClientHavePrivilege @ 0x14072F800 (PiAuDoesClientHavePrivilege.c)
+ *     PiCMSetProblem @ 0x14072FAFC (PiCMSetProblem.c)
+ *     PiCMCaptureProblemInputData @ 0x14072FBE4 (PiCMCaptureProblemInputData.c)
  */
 
 __int64 __fastcall PiCMSetDeviceProblem(
-        _OWORD *a1,
+        __int64 a1,
         unsigned int a2,
         _QWORD *a3,
         unsigned int a4,
@@ -25,20 +25,20 @@ __int64 __fastcall PiCMSetDeviceProblem(
   __int64 result; // rax
   __int64 v12; // rcx
   int v13; // eax
-  _OWORD v14[26]; // [rsp+30h] [rbp-1E8h] BYREF
+  _DWORD v14[104]; // [rsp+30h] [rbp-1E8h] BYREF
 
   memset(v14, 0, sizeof(v14));
   *a6 = 0;
   result = PiCMCaptureProblemInputData(a1, a2, v10, v14);
   if ( (int)result >= 0 )
   {
-    if ( PiAuDoesClientHaveAccess(4u) && PiAuDoesClientHavePrivilege(0xAu) )
+    if ( PiAuDoesClientHaveAccess(4u) && (unsigned __int8)PiAuDoesClientHavePrivilege(10LL) )
     {
-      if ( WORD4(v14[0]) && a3 && a4 >= 8 && (unsigned int)(DWORD1(v14[0]) - 1) <= 1 )
+      if ( LOWORD(v14[2]) && a3 && a4 >= 8 && (unsigned int)(v14[1] - 1) <= 1 )
       {
-        v13 = CmValidateDeviceName(v12, (const wchar_t *)v14 + 4);
+        v13 = CmValidateDeviceName(v12, (const wchar_t *)&v14[2]);
         if ( v13 >= 0 )
-          v13 = PiCMSetProblem((PCWSTR)v14 + 4);
+          v13 = PiCMSetProblem((PCWSTR)&v14[2]);
       }
       else
       {
@@ -49,7 +49,7 @@ __int64 __fastcall PiCMSetDeviceProblem(
     {
       v13 = -1073741790;
     }
-    return PiCMReturnBasicResultData(v13, SHIDWORD(v14[25]), a3, a4, a6);
+    return PiCMReturnBasicResultData(v13, v14[103], a3, a4, a6);
   }
   return result;
 }

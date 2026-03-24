@@ -3,13 +3,13 @@
  * Callers:
  *     KsepEngineInitialize @ 0x1409AF0F4 (KsepEngineInitialize.c)
  * Callees:
- *     KsepLogInfo @ 0x1400F4D18 (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x14029FB44 (KsepDebugPrint.c)
- *     KsepLogError @ 0x14029FDE4 (KsepLogError.c)
- *     RtlAssert @ 0x1402EF760 (RtlAssert.c)
- *     KsepRegistryOpenKey @ 0x14067DE78 (KsepRegistryOpenKey.c)
- *     KsepRegistryCloseKey @ 0x1407281A4 (KsepRegistryCloseKey.c)
- *     KsepRegistryQueryDWORD @ 0x1407281C4 (KsepRegistryQueryDWORD.c)
+ *     KsepLogInfo @ 0x1400F4D38 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x14029FEE4 (KsepLogError.c)
+ *     RtlAssert @ 0x1402EF860 (RtlAssert.c)
+ *     KsepRegistryOpenKey @ 0x14067DE58 (KsepRegistryOpenKey.c)
+ *     KsepRegistryCloseKey @ 0x140728184 (KsepRegistryCloseKey.c)
+ *     KsepRegistryQueryDWORD @ 0x1407281A4 (KsepRegistryQueryDWORD.c)
  */
 
 __int64 __fastcall KsepEngineReadFlags(int *a1)

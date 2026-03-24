@@ -1,41 +1,40 @@
 /*
- * XREFs of IoSetLinkShareAccess @ 0x1407922A0
+ * XREFs of IoSetLinkShareAccess @ 0x14062DE20
  * Callers:
- *     IoSetShareAccess @ 0x140791C20 (IoSetShareAccess.c)
- *     RawCreate @ 0x140791F24 (RawCreate.c)
- *     IoSetShareAccessEx @ 0x140884BB0 (IoSetShareAccessEx.c)
+ *     IoSetShareAccess @ 0x14062D420 (IoSetShareAccess.c)
+ *     RawCreate @ 0x14062DAB4 (RawCreate.c)
+ *     IoSetShareAccessEx @ 0x14077C1F0 (IoSetShareAccessEx.c)
  * Callees:
  *     <none>
  */
 
-_DWORD *__fastcall IoSetLinkShareAccess(int a1, char a2, __int64 a3, __int64 a4, _DWORD *a5, int a6)
+__int64 __fastcall IoSetLinkShareAccess(int a1, char a2, __int64 a3, __int64 a4, _DWORD *a5, int a6)
 {
   int v6; // r10d
-  int v7; // ebx
-  int v8; // r11d
-  _DWORD *v9; // rax
-  bool v10; // cl
-  int v11; // eax
-  _DWORD *result; // rax
+  int v8; // ebx
+  int v9; // ecx
+  _DWORD *v10; // rax
+  bool v11; // dl
+  __int64 result; // rax
 
   v6 = a1 & 0x21;
-  v7 = a1 & 6;
+  v8 = a1 & 6;
   *(_BYTE *)(a3 + 74) = v6 != 0;
-  v8 = a1 & 0x10000;
-  *(_BYTE *)(a3 + 75) = v7 != 0;
-  *(_BYTE *)(a3 + 76) = (a1 & 0x10000) != 0;
-  v9 = *(_DWORD **)(a3 + 208);
-  v10 = v9 && (*v9 & 1) != 0;
-  if ( v6 || v7 || v8 )
+  v9 = a1 & 0x10000;
+  *(_BYTE *)(a3 + 75) = v8 != 0;
+  *(_BYTE *)(a3 + 76) = v9 != 0;
+  v10 = *(_DWORD **)(a3 + 208);
+  v11 = v10 && (*v10 & 1) != 0;
+  if ( v6 || v8 || v9 )
   {
-    *(_BYTE *)(a3 + 79) = (a2 & 4) != 0;
-    *(_BYTE *)(a3 + 77) = a2 & 1;
     *(_BYTE *)(a3 + 78) = (a2 & 2) != 0;
+    *(_BYTE *)(a3 + 77) = a2 & 1;
+    *(_BYTE *)(a3 + 79) = (a2 & 4) != 0;
     if ( a6 < 0 && (a2 & 1) == 0 )
       *(_BYTE *)(a3 + 77) = 1;
-    if ( v10 )
+    if ( v11 )
     {
-      v11 = 0;
+      result = 0LL;
       *(_QWORD *)a4 = 0LL;
       *(_QWORD *)(a4 + 8) = 0LL;
       *(_QWORD *)(a4 + 16) = 0LL;
@@ -48,16 +47,16 @@ _DWORD *__fastcall IoSetLinkShareAccess(int a1, char a2, __int64 a3, __int64 a4,
       *(_DWORD *)(a4 + 12) = *(unsigned __int8 *)(a3 + 76);
       *(_DWORD *)(a4 + 16) = *(unsigned __int8 *)(a3 + 77);
       *(_DWORD *)(a4 + 20) = *(unsigned __int8 *)(a3 + 78);
-      v11 = *(unsigned __int8 *)(a3 + 79);
+      result = *(unsigned __int8 *)(a3 + 79);
     }
-    *(_DWORD *)(a4 + 24) = v11;
-    result = a5;
-    if ( a5 && !v10 )
+    *(_DWORD *)(a4 + 24) = result;
+    if ( a5 && !v11 )
     {
       ++*a5;
       if ( (a6 & 0x80u) == 0 )
         a5[1] += *(unsigned __int8 *)(a3 + 76);
-      a5[2] += *(unsigned __int8 *)(a3 + 79);
+      result = *(unsigned __int8 *)(a3 + 79);
+      a5[2] += result;
     }
   }
   else

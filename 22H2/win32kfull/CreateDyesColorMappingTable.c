@@ -1,14 +1,14 @@
 /*
- * XREFs of CreateDyesColorMappingTable @ 0x1C0254FA8
+ * XREFs of CreateDyesColorMappingTable @ 0x1C001B810
  * Callers:
- *     AAHalftoneBitmap @ 0x1C0250914 (AAHalftoneBitmap.c)
+ *     AAHalftoneBitmap @ 0x1C001ACC8 (AAHalftoneBitmap.c)
  * Callees:
- *     ComputeChecksum @ 0x1C0056F0C (ComputeChecksum.c)
- *     CachedHalftonePattern @ 0x1C0251880 (CachedHalftonePattern.c)
- *     AddBGRMapCache @ 0x1C02532F8 (AddBGRMapCache.c)
- *     ComputeBGRMappingTable @ 0x1C0253890 (ComputeBGRMappingTable.c)
- *     ComputeRGBLUTAA @ 0x1C0254734 (ComputeRGBLUTAA.c)
- *     FindBGRMapCache @ 0x1C02550F8 (FindBGRMapCache.c)
+ *     CachedHalftonePattern @ 0x1C001B8A8 (CachedHalftonePattern.c)
+ *     ComputeRGBLUTAA @ 0x1C001BA98 (ComputeRGBLUTAA.c)
+ *     ComputeChecksum @ 0x1C001BFF0 (ComputeChecksum.c)
+ *     AddBGRMapCache @ 0x1C0261118 (AddBGRMapCache.c)
+ *     ComputeBGRMappingTable @ 0x1C0261348 (ComputeBGRMappingTable.c)
+ *     FindBGRMapCache @ 0x1C0261E34 (FindBGRMapCache.c)
  */
 
 __int64 __fastcall CreateDyesColorMappingTable(__int64 *a1)
@@ -16,40 +16,41 @@ __int64 __fastcall CreateDyesColorMappingTable(__int64 *a1)
   __int64 v1; // rbp
   __int64 v2; // rdi
   __int64 v3; // rsi
-  unsigned int v4; // eax
-  unsigned int v5; // r10d
-  unsigned int v6; // eax
-  int v7; // r10d
-  unsigned int v8; // r14d
+  unsigned int v5; // eax
+  unsigned int v6; // r10d
+  unsigned int v7; // eax
+  int v8; // r10d
+  __int64 v9; // r14
   void *BGRMapCache; // rbx
-  _BYTE *v10; // rax
+  PVOID v11; // rax
 
   v1 = *a1;
   v2 = a1[1];
   v3 = a1[6];
   *(_BYTE *)(v2 + 29) = 4;
-  ComputeRGBLUTAA(v1, (__int128 *)v2, (_DWORD *)(v1 + 856));
-  if ( (*(_DWORD *)(v2 + 56) & 0x40000000) == 0 )
+  ComputeRGBLUTAA(v1, v2, v1 + 856);
+  if ( (*(_DWORD *)(v2 + 56) & 0x40000000) != 0 )
+    return CachedHalftonePattern(v1, v2, (int)v3 + 408, *(_DWORD *)(v3 + 328), *(_DWORD *)(v3 + 332), *(_DWORD *)v3 & 2);
+  v5 = ComputeChecksum(v2 + 124, 305419896LL, 80LL);
+  v7 = ComputeChecksum(v2 + 204, v5, v6);
+  v9 = (unsigned int)ComputeChecksum(v2, v7, (unsigned int)(v8 - 56));
+  BGRMapCache = (void *)FindBGRMapCache(0LL, v9);
+  if ( BGRMapCache )
+    goto LABEL_10;
+  v11 = EngAllocMem(0, 0x18006u, 0x31365448u);
+  BGRMapCache = v11;
+  if ( !v11 )
+    return 4294967294LL;
+  if ( (unsigned int)ComputeBGRMappingTable(v1, v2, 0LL, v11) == 0x8000 )
   {
-    v4 = ComputeChecksum((char *)(v2 + 124), 0x12345678u, 0x50u);
-    v6 = ComputeChecksum((char *)(v2 + 204), v4, v5);
-    v8 = ComputeChecksum((char *)v2, v6, v7 - 56);
-    BGRMapCache = (void *)FindBGRMapCache(0LL, v8);
-    if ( !BGRMapCache )
+    if ( !(unsigned int)AddBGRMapCache(BGRMapCache, (unsigned int)v9) )
     {
-      v10 = EngAllocMem(0, 0x18006u, 0x31365448u);
-      BGRMapCache = v10;
-      if ( !v10 )
-        return 4294967294LL;
-      if ( (unsigned int)ComputeBGRMappingTable(v1, v2, 0LL, v10) != 0x8000 )
-        return 4294957291LL;
-      if ( !(unsigned int)AddBGRMapCache((__int64)BGRMapCache, v8) )
-      {
-        EngFreeMem(BGRMapCache);
-        return 4294967294LL;
-      }
+      EngFreeMem(BGRMapCache);
+      return 4294967294LL;
     }
+LABEL_10:
     *(_QWORD *)(v3 + 392) = BGRMapCache;
+    return CachedHalftonePattern(v1, v2, (int)v3 + 408, *(_DWORD *)(v3 + 328), *(_DWORD *)(v3 + 332), *(_DWORD *)v3 & 2);
   }
-  return CachedHalftonePattern(v1, v2, v3 + 408, *(_DWORD *)(v3 + 328), *(_DWORD *)(v3 + 332), *(_DWORD *)v3 & 2);
+  return 4294957291LL;
 }

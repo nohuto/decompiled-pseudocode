@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionSetAccessibilityTimer @ 0x1C02120C0
+ * XREFs of EditionSetAccessibilityTimer @ 0x1C02133E0
  * Callers:
  *     <none>
  * Callees:
- *     SetRITTimer @ 0x1C0078D60 (SetRITTimer.c)
+ *     SetRITTimer @ 0x1C0115170 (SetRITTimer.c)
  */
 
 __int64 __fastcall EditionSetAccessibilityTimer(__int64 a1, unsigned int a2, __int64 a3, int a4)

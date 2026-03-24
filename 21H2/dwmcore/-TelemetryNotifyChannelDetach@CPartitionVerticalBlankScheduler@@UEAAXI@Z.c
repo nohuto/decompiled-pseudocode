@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TelemetryNotifyChannelDetach@CPartitionVerticalBlankScheduler@@UEAAXI@Z @ 0x1800F3160
+ * XREFs of ?TelemetryNotifyChannelDetach@CPartitionVerticalBlankScheduler@@UEAAXI@Z @ 0x1800DAF20
  * Callers:
  *     <none>
  * Callees:
- *     ?DeleteScenario@CAnimationTracking@@AEAAXI@Z @ 0x180074C18 (-DeleteScenario@CAnimationTracking@@AEAAXI@Z.c)
+ *     ?DeleteScenario@CAnimationTracking@@AEAAXI@Z @ 0x1800B0C84 (-DeleteScenario@CAnimationTracking@@AEAAXI@Z.c)
  */
 
 void __fastcall CPartitionVerticalBlankScheduler::TelemetryNotifyChannelDetach(
@@ -13,9 +13,9 @@ void __fastcall CPartitionVerticalBlankScheduler::TelemetryNotifyChannelDetach(
   CAnimationTracking *v2; // rdi
   __int64 v3; // rbx
 
-  v2 = (CPartitionVerticalBlankScheduler *)((char *)this + 4864);
+  v2 = (CPartitionVerticalBlankScheduler *)((char *)this + 5376);
   v3 = 0LL;
-  if ( *((_DWORD *)this + 1222) )
+  if ( *((_DWORD *)this + 1350) )
   {
     do
     {

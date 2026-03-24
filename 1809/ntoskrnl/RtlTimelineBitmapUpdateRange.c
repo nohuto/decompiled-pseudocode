@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlTimelineBitmapUpdateRange @ 0x14011ED78
+ * XREFs of RtlTimelineBitmapUpdateRange @ 0x14011ED98
  * Callers:
  *     PoEnergyContextUpdateComponentPower @ 0x140603FCC (PoEnergyContextUpdateComponentPower.c)
  *     PoEnergyContextCleanup @ 0x1406078D0 (PoEnergyContextCleanup.c)

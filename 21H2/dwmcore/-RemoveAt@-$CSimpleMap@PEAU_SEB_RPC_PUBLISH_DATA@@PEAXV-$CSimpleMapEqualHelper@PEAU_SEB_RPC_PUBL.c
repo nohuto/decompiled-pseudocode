@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RemoveAt@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEAAHH@Z @ 0x18001F8E4
+ * XREFs of ?RemoveAt@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEAAHH@Z @ 0x180024C08
  * Callers:
- *     PubSebUnregisterRpc @ 0x18001F4E4 (PubSebUnregisterRpc.c)
+ *     PubSebUnregisterRpc @ 0x180024614 (PubSebUnregisterRpc.c)
  * Callees:
- *     ?AtlThrowImpl@ATL@@YAXJ@Z @ 0x18026C10C (-AtlThrowImpl@ATL@@YAXJ@Z.c)
+ *     ?AtlThrowImpl@ATL@@YAXJ@Z @ 0x180216C60 (-AtlThrowImpl@ATL@@YAXJ@Z.c)
  */
 
 __int64 __fastcall ATL::CSimpleMap<_SEB_RPC_PUBLISH_DATA *,void *,ATL::CSimpleMapEqualHelper<_SEB_RPC_PUBLISH_DATA *,void *>>::RemoveAt(
@@ -14,23 +14,23 @@ __int64 __fastcall ATL::CSimpleMap<_SEB_RPC_PUBLISH_DATA *,void *,ATL::CSimpleMa
   int v3; // r10d
   errno_t v4; // eax
   errno_t v5; // eax
-  __int64 v6; // rax
-  __int64 v7; // rax
+  void *v6; // rax
+  void *v7; // rax
   __int64 result; // rax
 
   v2 = a2;
   if ( a2 < 0 )
     return 0LL;
-  v3 = qword_1803D39A8;
-  if ( a2 >= (int)qword_1803D39A8 )
+  v3 = qword_18034B510;
+  if ( a2 >= (int)qword_18034B510 )
     return 0LL;
-  if ( a2 != (_DWORD)qword_1803D39A8 - 1 )
+  if ( a2 != (_DWORD)qword_18034B510 - 1 )
   {
     v4 = memmove_s(
-           (void *const)(xmmword_1803D3998 + 8LL * a2),
-           8LL * ((int)qword_1803D39A8 - a2),
-           (const void *const)(xmmword_1803D3998 + 8LL * a2 + 8),
-           8LL * ((int)qword_1803D39A8 - a2 - 1));
+           (char *)Block + 8 * a2,
+           8LL * ((int)qword_18034B510 - a2),
+           (char *)Block + 8 * a2 + 8,
+           8LL * ((int)qword_18034B510 - a2 - 1));
     if ( v4 )
     {
       if ( v4 == 12 )
@@ -41,14 +41,14 @@ __int64 __fastcall ATL::CSimpleMap<_SEB_RPC_PUBLISH_DATA *,void *,ATL::CSimpleMa
         goto LABEL_24;
     }
     v5 = memmove_s(
-           (void *const)(*(&xmmword_1803D3998 + 1) + 8 * v2),
-           8LL * ((int)qword_1803D39A8 - (int)v2),
-           (const void *const)(*(&xmmword_1803D3998 + 1) + 8 * v2 + 8),
-           8LL * ((int)qword_1803D39A8 - (int)v2 - 1));
+           (char *)*(&Block + 1) + 8 * v2,
+           8LL * ((int)qword_18034B510 - (int)v2),
+           (char *)*(&Block + 1) + 8 * v2 + 8,
+           8LL * ((int)qword_18034B510 - (int)v2 - 1));
     if ( !v5 )
     {
 LABEL_6:
-      v3 = qword_1803D39A8;
+      v3 = qword_18034B510;
       goto LABEL_7;
     }
     if ( v5 != 12 )
@@ -67,13 +67,13 @@ LABEL_26:
     ATL::AtlThrowImpl(-2147024882);
   }
 LABEL_7:
-  v6 = _o__recalloc(xmmword_1803D3998, v3 - 1, 8LL);
-  if ( v6 || (_DWORD)qword_1803D39A8 == 1 )
-    xmmword_1803D3998 = v6;
-  v7 = _o__recalloc(*(&xmmword_1803D3998 + 1), (int)qword_1803D39A8 - 1, 8LL);
-  if ( v7 || (_DWORD)qword_1803D39A8 == 1 )
-    *(&xmmword_1803D3998 + 1) = v7;
+  v6 = (void *)_o__recalloc(Block, v3 - 1, 8LL);
+  if ( v6 || (_DWORD)qword_18034B510 == 1 )
+    Block = v6;
+  v7 = (void *)_o__recalloc(*(&Block + 1), (int)qword_18034B510 - 1, 8LL);
+  if ( v7 || (_DWORD)qword_18034B510 == 1 )
+    *(&Block + 1) = v7;
   result = 1LL;
-  LODWORD(qword_1803D39A8) = qword_1803D39A8 - 1;
+  LODWORD(qword_18034B510) = qword_18034B510 - 1;
   return result;
 }

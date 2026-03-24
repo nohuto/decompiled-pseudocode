@@ -1,7 +1,7 @@
 /*
- * XREFs of ?MakeITableMono@@YAHPEAE@Z @ 0x1C0299E7C
+ * XREFs of ?MakeITableMono@@YAHPEAE@Z @ 0x1C029B5AC
  * Callers:
- *     ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C00DABB8 (-MakeITable@@YAHPEAEPEAURGBX@@H@Z.c)
+ *     ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C00D4474 (-MakeITable@@YAHPEAEPEAURGBX@@H@Z.c)
  * Callees:
  *     <none>
  */

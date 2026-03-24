@@ -1,16 +1,16 @@
 /*
- * XREFs of BiConvertNtFilePathToBootEnvironment @ 0x140A5CDF4
+ * XREFs of BiConvertNtFilePathToBootEnvironment @ 0x14096FB30
  * Callers:
- *     BiConvertNtDeviceToBootEnvironment @ 0x140808B88 (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x140784EF8 (BiConvertNtDeviceToBootEnvironment.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     BiConvertNtDeviceToBootEnvironment @ 0x140808B88 (BiConvertNtDeviceToBootEnvironment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x140784EF8 (BiConvertNtDeviceToBootEnvironment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiConvertNtFilePathToBootEnvironment(
-        __int64 a1,
+        const WCHAR *a1,
         unsigned int a2,
         _WORD *a3,
         unsigned int a4,
@@ -20,7 +20,7 @@ __int64 __fastcall BiConvertNtFilePathToBootEnvironment(
   __int64 v7; // rax
   unsigned int v8; // esi
   unsigned int v9; // ebp
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v11; // rbx
   void *Src; // [rsp+20h] [rbp-18h] BYREF
 
@@ -34,14 +34,14 @@ __int64 __fastcall BiConvertNtFilePathToBootEnvironment(
     while ( a3[v7] );
     v8 = 2 * v7 + 2;
     v9 = v8 + *((_DWORD *)Src + 2) + 12;
-    Pool2 = (_DWORD *)ExAllocatePool2(258LL, v9, 1262764866LL);
-    v11 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x4B444342u);
+    v11 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = 1;
-      Pool2[2] = 5;
-      Pool2[1] = v9;
-      memmove(Pool2 + 3, Src, *((unsigned int *)Src + 2));
+      *PoolWithTag = 1;
+      PoolWithTag[2] = 5;
+      PoolWithTag[1] = v9;
+      memmove(PoolWithTag + 3, Src, *((unsigned int *)Src + 2));
       memmove((char *)v11 + *((unsigned int *)Src + 2) + 12, a3, v8);
       *a5 = v11;
       v6 = 0;

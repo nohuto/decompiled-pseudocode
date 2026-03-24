@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpVsContextAllocate @ 0x14037193C
+ * XREFs of RtlpHpVsContextAllocate @ 0x1402A6404
  * Callers:
- *     RtlpHpAllocateHeapInternal @ 0x1403714E0 (RtlpHpAllocateHeapInternal.c)
- *     RtlpAllocateHeapInternal @ 0x1403718A8 (RtlpAllocateHeapInternal.c)
+ *     RtlpHpAllocateHeapInternal @ 0x1402A5FA0 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpAllocateHeapInternal @ 0x1402A6388 (RtlpAllocateHeapInternal.c)
  * Callees:
- *     RtlpHpVsContextAllocateInternal @ 0x14034BBF0 (RtlpHpVsContextAllocateInternal.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x14034F7F0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x14033BA80 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x14033EDC0 (RtlpHpVsContextAllocateInternal.c)
  */
 
-char *__fastcall RtlpHpVsContextAllocate(__int64 a1, unsigned int a2, int a3, unsigned int a4)
+__int64 __fastcall RtlpHpVsContextAllocate(__int64 a1, int a2, int a3, int a4)
 {
   char v4; // bl
-  char *v6; // rsi
+  __int64 Internal; // rsi
   int v8; // [rsp+30h] [rbp-28h] BYREF
   __int128 v9; // [rsp+38h] [rbp-20h] BYREF
   __int64 v10; // [rsp+48h] [rbp-10h]
@@ -20,8 +20,8 @@ char *__fastcall RtlpHpVsContextAllocate(__int64 a1, unsigned int a2, int a3, un
   v4 = a4;
   v9 = 0LL;
   v10 = 0LL;
-  v6 = RtlpHpVsContextAllocateInternal(a1, a2, a3, a4, (__int64)&v9, &v8);
+  Internal = RtlpHpVsContextAllocateInternal(a1, a2, a3, a4, (__int64)&v9, (__int64)&v8);
   if ( v8 && (v4 & 1) == 0 )
-    RtlpHpReleaseQueuedLockExclusive(*(_DWORD *)(a1 + 8), (__int64)&v9);
-  return v6;
+    RtlpHpReleaseQueuedLockExclusive(*(unsigned int *)(a1 + 8), &v9);
+  return Internal;
 }

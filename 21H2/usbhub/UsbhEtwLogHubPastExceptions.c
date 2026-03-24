@@ -1,67 +1,68 @@
 /*
- * XREFs of UsbhEtwLogHubPastExceptions @ 0x1C005B284
+ * XREFs of UsbhEtwLogHubPastExceptions @ 0x1C005C934
  * Callers:
- *     UsbhEtwRundown @ 0x1C005B5E4 (UsbhEtwRundown.c)
+ *     UsbhEtwRundown @ 0x1C005CC90 (UsbhEtwRundown.c)
  * Callees:
- *     UsbhEtwWrite @ 0x1C000CB00 (UsbhEtwWrite.c)
- *     UsbhEtwGetHubInfo @ 0x1C001E0D8 (UsbhEtwGetHubInfo.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     UsbhGetExceptionDispatch @ 0x1C004A814 (UsbhGetExceptionDispatch.c)
+ *     UsbhEtwWrite @ 0x1C00125E0 (UsbhEtwWrite.c)
+ *     UsbhEtwGetHubInfo @ 0x1C001BAFC (UsbhEtwGetHubInfo.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     UsbhGetExceptionDispatch @ 0x1C004BBF4 (UsbhGetExceptionDispatch.c)
  */
 
 void __fastcall UsbhEtwLogHubPastExceptions(__int64 a1)
 {
-  __int64 v2; // rbx
+  __int64 v2; // rcx
+  __int64 v3; // rbx
   _QWORD *i; // rdi
-  __int64 v4; // rcx
+  __int64 v5; // rcx
   char *ExceptionDispatch; // rax
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  int v8; // [rsp+A0h] [rbp-80h] BYREF
-  __int64 v9; // [rsp+A8h] [rbp-78h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  int v9; // [rsp+A0h] [rbp-80h] BYREF
+  __int64 v10; // [rsp+A8h] [rbp-78h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+B0h] [rbp-70h] BYREF
-  int v11; // [rsp+C8h] [rbp-58h] BYREF
-  __int16 v12; // [rsp+CCh] [rbp-54h]
-  __int16 v13; // [rsp+CEh] [rbp-52h]
-  __int16 v14; // [rsp+D0h] [rbp-50h]
-  __int16 v15; // [rsp+D2h] [rbp-4Eh]
-  _OWORD v16[2]; // [rsp+D8h] [rbp-48h] BYREF
-  int v17; // [rsp+F8h] [rbp-28h]
+  int v12; // [rsp+C8h] [rbp-58h] BYREF
+  __int16 v13; // [rsp+CCh] [rbp-54h]
+  __int16 v14; // [rsp+CEh] [rbp-52h]
+  __int16 v15; // [rsp+D0h] [rbp-50h]
+  __int16 v16; // [rsp+D2h] [rbp-4Eh]
+  _OWORD v17[2]; // [rsp+D8h] [rbp-48h] BYREF
+  int v18; // [rsp+F8h] [rbp-28h]
 
-  v8 = 0;
-  v9 = 0LL;
-  v17 = 0;
-  v11 = *(_DWORD *)(a1 + 5192);
-  v12 = *(_WORD *)(a1 + 5196);
-  v13 = *(_DWORD *)(a1 + 5200);
-  v14 = *(_WORD *)(a1 + 5228);
-  v15 = *(_WORD *)(a1 + 5230);
+  v9 = 0;
+  v10 = 0LL;
+  v18 = 0;
+  v12 = *(_DWORD *)(a1 + 5192);
+  v13 = *(_WORD *)(a1 + 5196);
+  v14 = *(_DWORD *)(a1 + 5200);
+  v15 = *(_WORD *)(a1 + 5228);
+  v16 = *(_WORD *)(a1 + 5230);
   memset(&LockHandle, 0, sizeof(LockHandle));
-  memset(v16, 0, sizeof(v16));
-  UsbhEtwGetHubInfo(a1, (__int64)v16);
-  v2 = MEMORY[0xFFFFF78000000014];
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 4872), &LockHandle);
+  memset(v17, 0, sizeof(v17));
+  UsbhEtwGetHubInfo(a1, (__int64)v17);
+  v3 = MEMORY[0xFFFFF78000000014];
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v2 + 4872), &LockHandle);
   for ( i = *(_QWORD **)(a1 + 4856); i != (_QWORD *)(a1 + 4856); i = (_QWORD *)*i )
   {
-    v4 = *(_QWORD *)(a1 + 1200);
-    v9 = v2 - i[2];
-    ExceptionDispatch = UsbhGetExceptionDispatch(v4, *((_DWORD *)i - 8));
-    v6 = -1LL;
-    v8 = *((unsigned __int16 *)i - 14);
-    v7 = *((_QWORD *)ExceptionDispatch + 1);
+    v5 = *(_QWORD *)(a1 + 1200);
+    v10 = v3 - i[2];
+    ExceptionDispatch = UsbhGetExceptionDispatch(v5, *((_DWORD *)i - 8));
+    v7 = -1LL;
+    v9 = *((unsigned __int16 *)i - 14);
+    v8 = *((_QWORD *)ExceptionDispatch + 1);
     do
-      ++v6;
-    while ( *(_BYTE *)(v7 + v6) );
+      ++v7;
+    while ( *(_BYTE *)(v8 + v7) );
     UsbhEtwWrite(
       &USBHUB_ETW_EVENT_HUB_PAST_EXCEPTION,
       0LL,
-      &v9,
+      &v10,
       8LL,
-      &v11,
+      &v12,
       12LL,
-      v16,
+      v17,
       36LL,
-      &v8,
+      &v9,
       4LL,
       i - 4,
       4LL,
@@ -69,8 +70,8 @@ void __fastcall UsbhEtwLogHubPastExceptions(__int64 a1)
       4LL,
       i - 3,
       4LL,
-      v7,
-      v6 + 1,
+      v8,
+      v7 + 1,
       0LL);
   }
   KeReleaseInStackQueuedSpinLock(&LockHandle);

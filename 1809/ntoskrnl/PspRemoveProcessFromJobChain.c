@@ -5,11 +5,11 @@
  *     PspRundownSingleProcess @ 0x140603A48 (PspRundownSingleProcess.c)
  *     PspAssignProcessToJob @ 0x140605664 (PspAssignProcessToJob.c)
  *     PspProcessDelete @ 0x140607590 (PspProcessDelete.c)
- *     PspTerminateProcessesJobCallback @ 0x14068D410 (PspTerminateProcessesJobCallback.c)
+ *     PspTerminateProcessesJobCallback @ 0x14068D3F0 (PspTerminateProcessesJobCallback.c)
  * Callees:
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     PspSendJobNotification @ 0x140137D9C (PspSendJobNotification.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PspSendJobNotification @ 0x140137DBC (PspSendJobNotification.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PspUnlockJob @ 0x1405FE0C0 (PspUnlockJob.c)
  *     PsQueryStatisticsProcess @ 0x1405FE700 (PsQueryStatisticsProcess.c)
  *     PspUnlockJobConditionally @ 0x1405FE8B8 (PspUnlockJobConditionally.c)
@@ -19,9 +19,9 @@
  *     PspFoldProcessAccountingIntoJob @ 0x1406037D8 (PspFoldProcessAccountingIntoJob.c)
  *     PspUnlinkJobProcess @ 0x140603A04 (PspUnlinkJobProcess.c)
  *     PspRequestProcessExecutionState @ 0x140604508 (PspRequestProcessExecutionState.c)
- *     PsTerminateProcess @ 0x1406C98F4 (PsTerminateProcess.c)
- *     PspSubtractAccountingValues @ 0x1406D6AB4 (PspSubtractAccountingValues.c)
- *     EtwTraceJobRemoveProcess @ 0x1408B762C (EtwTraceJobRemoveProcess.c)
+ *     PsTerminateProcess @ 0x1406C98D4 (PsTerminateProcess.c)
+ *     PspSubtractAccountingValues @ 0x1406D6A94 (PspSubtractAccountingValues.c)
+ *     EtwTraceJobRemoveProcess @ 0x1408B760C (EtwTraceJobRemoveProcess.c)
  */
 
 void __fastcall PspRemoveProcessFromJobChain(PEPROCESS Process, _QWORD *a2, unsigned int a3, unsigned int a4)

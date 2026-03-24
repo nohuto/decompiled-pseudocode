@@ -1,12 +1,12 @@
 /*
- * XREFs of ?PostSubgraph@CShapeBoundingContext@@QEAAJPEA_N@Z @ 0x1800D95E4
+ * XREFs of ?PostSubgraph@CShapeBoundingContext@@QEAAJPEA_N@Z @ 0x1802613B4
  * Callers:
- *     ??$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingContext@@@Z @ 0x1800D9410 (--$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingCo.c)
+ *     ??$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingContext@@@Z @ 0x180260A1C (--$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingCo.c)
  * Callees:
- *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x180040530 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
- *     ?ConvertInnerToOuterBounds@CVectorShape@@QEAAXAEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800D9750 (-ConvertInnerToOuterBounds@CVectorShape@@QEAAXAEBUD2D_MATRIX_3X2_F@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x18006C310 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?ConvertInnerToOuterBounds@CVectorShape@@QEAAXAEBUD2D_MATRIX_3X2_F@@@Z @ 0x1801BE0D4 (-ConvertInnerToOuterBounds@CVectorShape@@QEAAXAEBUD2D_MATRIX_3X2_F@@@Z.c)
  */
 
 __int64 __fastcall CShapeBoundingContext::PostSubgraph(CShapeBoundingContext *this, bool *a2)
@@ -23,35 +23,38 @@ __int64 __fastcall CShapeBoundingContext::PostSubgraph(CShapeBoundingContext *th
 
   *a2 = 1;
   v3 = *((_QWORD *)this + 1);
-  v4 = *(_BYTE *)(v3 + 97) == 0;
-  v11 = *(_OWORD *)(v3 + 80);
+  v4 = *(_BYTE *)(v3 + 89) == 0;
+  v11 = *(_OWORD *)(v3 + 72);
   if ( !v4 )
   {
     v5 = *((_QWORD *)this + 2);
-    v6 = *(__int64 **)(v3 + 72);
-    if ( *((_BYTE *)this + 72) && v6 )
+    if ( *((_BYTE *)this + 72) )
     {
-      if ( v5 )
-        v7 = _mm_unpacklo_ps((__m128)0LL, (__m128)0LL).m128_u64[0];
-      else
-        v7 = *((_QWORD *)this + 8);
-      v8 = *v6;
-      *(_QWORD *)&v11 = v7;
-      (*(void (__fastcall **)(__int64 *, __int128 *, struct D2D_MATRIX_3X2_F *))(v8 + 208))(v6, &v11, &v12);
-      CVectorShape::ConvertInnerToOuterBounds((CVectorShape *)v3, &v12);
-      v11 = *(_OWORD *)(v3 + 80);
+      v6 = *(__int64 **)(v3 + 64);
+      if ( v6 )
+      {
+        if ( v5 )
+          v7 = _mm_unpacklo_ps((__m128)0LL, (__m128)0LL).m128_u64[0];
+        else
+          v7 = *((_QWORD *)this + 8);
+        v8 = *v6;
+        *(_QWORD *)&v11 = v7;
+        (*(void (__fastcall **)(__int64 *, __int128 *, struct D2D_MATRIX_3X2_F *))(v8 + 224))(v6, &v11, &v12);
+        CVectorShape::ConvertInnerToOuterBounds((CVectorShape *)v3, &v12);
+        v11 = *(_OWORD *)(v3 + 72);
+      }
     }
     if ( v5 )
     {
-      v4 = *(_BYTE *)(v5 + 97) == 0;
-      *(_OWORD *)&v12.m11 = *(_OWORD *)(v5 + 80);
+      v4 = *(_BYTE *)(v5 + 89) == 0;
+      *(_OWORD *)&v12.m11 = *(_OWORD *)(v5 + 72);
       if ( v4 )
         *(_OWORD *)&v12.m11 = v11;
       else
         TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(&v12.m11, (float *)&v11);
       v9 = *(_OWORD *)&v12.m11;
-      *(_WORD *)(v5 + 96) = 256;
-      *(_OWORD *)(v5 + 80) = v9;
+      *(_WORD *)(v5 + 88) = 256;
+      *(_OWORD *)(v5 + 72) = v9;
     }
   }
   *((_BYTE *)this + 72) = 1;

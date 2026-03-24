@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpGetSystemFlushInformation @ 0x1406B7EE8
+ * XREFs of ExpGetSystemFlushInformation @ 0x1406B7EC8
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x1406B8020 (ExpGetSystemFirmwareTableInformation.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x1406B8000 (ExpGetSystemFirmwareTableInformation.c)
  */
 
 __int64 __fastcall ExpGetSystemFlushInformation(__int64 a1)

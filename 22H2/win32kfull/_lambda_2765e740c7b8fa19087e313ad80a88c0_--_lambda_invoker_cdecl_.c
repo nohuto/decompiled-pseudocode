@@ -1,9 +1,9 @@
 /*
- * XREFs of _lambda_2765e740c7b8fa19087e313ad80a88c0_::_lambda_invoker_cdecl_ @ 0x1C0241A50
+ * XREFs of _lambda_2765e740c7b8fa19087e313ad80a88c0_::_lambda_invoker_cdecl_ @ 0x1C0252D50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall lambda_2765e740c7b8fa19087e313ad80a88c0_::_lambda_invoker_cdecl_(__int64 a1)

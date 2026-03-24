@@ -1,5 +1,5 @@
 /*
- * XREFs of PsSetLegoNotifyRoutine @ 0x1409B1060
+ * XREFs of PsSetLegoNotifyRoutine @ 0x14090A9E0
  * Callers:
  *     <none>
  * Callees:

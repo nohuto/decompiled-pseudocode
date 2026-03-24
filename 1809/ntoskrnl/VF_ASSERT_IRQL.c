@@ -14,7 +14,7 @@
  *     VfGetScatterGatherList @ 0x14092B360 (VfGetScatterGatherList.c)
  *     VfPutScatterGatherList @ 0x14092C170 (VfPutScatterGatherList.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     ViHalPreprocessOptions @ 0x14092DD28 (ViHalPreprocessOptions.c)
  */
 
@@ -29,7 +29,7 @@ void __fastcall VF_ASSERT_IRQL(unsigned __int8 a1)
   {
     v2 = a1;
     v3 = CurrentIrql;
-    ViHalPreprocessOptions(byte_140405480, "Bad IRQL -- needed %x, got %x.", 268435475, 1);
-    VfReportIssueWithOptions(0xE6u, 0x13uLL, 1uLL, v2, v3, byte_140405480);
+    ViHalPreprocessOptions(byte_14040547C, "Bad IRQL -- needed %x, got %x.", 268435475, 1);
+    VfReportIssueWithOptions(0xE6u, 0x13uLL, 1uLL, v2, v3, byte_14040547C);
   }
 }

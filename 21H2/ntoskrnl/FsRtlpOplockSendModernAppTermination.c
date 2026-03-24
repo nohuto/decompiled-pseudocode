@@ -1,73 +1,76 @@
 /*
- * XREFs of FsRtlpOplockSendModernAppTermination @ 0x14024C370
+ * XREFs of FsRtlpOplockSendModernAppTermination @ 0x1402C7DD4
  * Callers:
- *     FsRtlpOplockBreakToII @ 0x14024A5B4 (FsRtlpOplockBreakToII.c)
- *     FsRtlpOplockBreakToNone @ 0x140256F58 (FsRtlpOplockBreakToNone.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402A4E10 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1404173E4 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpOplockBreakNotify @ 0x14092EA08 (FsRtlpOplockBreakNotify.c)
+ *     FsRtlpOplockBreakToII @ 0x1402C4AAC (FsRtlpOplockBreakToII.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x140354E00 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockBreakToNone @ 0x14036D3C8 (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0B48 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpOplockBreakNotify @ 0x14088BF98 (FsRtlpOplockBreakNotify.c)
  * Callees:
- *     FsRtlSendModernAppTermination @ 0x14024C440 (FsRtlSendModernAppTermination.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     FsRtlSendModernAppTermination @ 0x1403C04B0 (FsRtlSendModernAppTermination.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall FsRtlpOplockSendModernAppTermination(__int64 a1, __int64 a2)
 {
-  char v2; // bp
-  unsigned int v4; // edi
-  int *PoolWithTag; // rbx
-  _QWORD *v6; // rsi
-  unsigned int v7; // edx
+  char v2; // r14
+  unsigned int v4; // esi
+  int *PoolWithTag; // rax
+  int *v6; // rbx
+  _QWORD *v7; // rbp
+  unsigned int v8; // edx
   _QWORD *i; // r8
-  __int64 v9; // rcx
-  __int64 v10; // rax
-  int v11; // [rsp+38h] [rbp+10h] BYREF
-  int v12; // [rsp+3Ch] [rbp+14h]
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  int v12; // [rsp+38h] [rbp+10h] BYREF
+  int v13; // [rsp+3Ch] [rbp+14h]
 
   v2 = 0;
-  if ( a2 || (v10 = *(_QWORD *)(a1 + 16)) == 0 )
+  if ( a2 || (v11 = *(_QWORD *)(a1 + 16)) == 0 )
   {
     v4 = 4096;
-    PoolWithTag = (int *)ExAllocatePoolWithTag((POOL_TYPE)1025, 0x1000uLL, 0x74725346u);
+    PoolWithTag = (int *)ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x74725346u);
+    v6 = PoolWithTag;
     if ( PoolWithTag )
     {
-      v6 = (_QWORD *)(a1 + 72);
+      memset(PoolWithTag, 0, 0x1000uLL);
+      v7 = (_QWORD *)(a1 + 72);
       v2 = 1;
-      v7 = 1;
-      for ( i = (_QWORD *)*v6; ; i = (_QWORD *)*i )
+      v8 = 1;
+      for ( i = (_QWORD *)*v7; ; i = (_QWORD *)*i )
       {
-        if ( i == v6 )
+        if ( i == v7 )
         {
-          *PoolWithTag = v7 - 1;
-          goto LABEL_6;
+          *v6 = v8 - 1;
+          goto LABEL_8;
         }
-        if ( v7 >= 0x400 )
+        if ( v8 >= 0x400 )
           break;
-        v9 = v7++;
-        PoolWithTag[v9] = *(_DWORD *)(i[4] + 1088LL);
+        v10 = v8++;
+        v6[v10] = *(_DWORD *)(i[4] + 1088LL);
       }
-      memset(PoolWithTag + 1, 0, 0xFFCuLL);
-      *PoolWithTag = -1;
+      memset(v6 + 1, 0, 0xFFCuLL);
+      *v6 = -1;
     }
     else
     {
-      v11 = -1;
-      PoolWithTag = &v11;
-      v12 = 0;
+      v12 = -1;
+      v6 = &v12;
+      v13 = 0;
     }
     v4 = 4;
   }
   else
   {
-    v11 = 1;
-    PoolWithTag = &v11;
+    v12 = 1;
+    v6 = &v12;
     v4 = 8;
-    v12 = *(_DWORD *)(v10 + 1088);
+    v13 = *(_DWORD *)(v11 + 1088);
   }
-LABEL_6:
-  FsRtlSendModernAppTermination(PoolWithTag, v4, 1LL);
+LABEL_8:
+  FsRtlSendModernAppTermination(v6, v4, 1LL);
   if ( v2 )
-    ExFreePoolWithTag(PoolWithTag, 0);
+    ExFreePoolWithTag(v6, 0);
 }

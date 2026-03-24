@@ -1,151 +1,149 @@
 /*
- * XREFs of ExpRaiseHardError @ 0x1406CDFAC
+ * XREFs of ExpRaiseHardError @ 0x140956428
  * Callers:
- *     NtRaiseHardError @ 0x1406CDD90 (NtRaiseHardError.c)
- *     ExRaiseHardError @ 0x140A02230 (ExRaiseHardError.c)
+ *     ExRaiseHardError @ 0x140956110 (ExRaiseHardError.c)
+ *     NtRaiseHardError @ 0x1409567C0 (NtRaiseHardError.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExpSystemErrorHandler @ 0x14042B7A0 (ExpSystemErrorHandler.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     LpcSendWaitReceivePort @ 0x1406CE2B0 (LpcSendWaitReceivePort.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     PsCaptureExceptionPort @ 0x14079FFE8 (PsCaptureExceptionPort.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExpSystemErrorHandler @ 0x140409710 (ExpSystemErrorHandler.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     PsCaptureExceptionPort @ 0x14064CAA8 (PsCaptureExceptionPort.c)
+ *     LpcSendWaitReceivePort @ 0x1406AFDD0 (LpcSendWaitReceivePort.c)
  */
 
 __int64 __fastcall ExpRaiseHardError(
-        unsigned int a1,
-        unsigned int a2,
-        int a3,
-        void *a4,
+        __int64 a1,
+        __int64 a2,
+        unsigned int a3,
+        const void *a4,
         __int64 a5,
         int a6,
         unsigned int *a7)
 {
-  int v9; // r8d
-  _KPROCESS **CurrentServerSiloGlobals; // r15
+  unsigned int v7; // r13d
+  unsigned int v8; // r14d
+  void *CurrentServerSiloGlobals; // r15
   KPROCESSOR_MODE PreviousMode; // di
-  unsigned int v12; // ebx
-  unsigned int v13; // edx
-  char v14; // dl
+  unsigned int v11; // ebx
+  char v13; // dl
+  __int64 v14; // rdx
+  __int64 v15; // rcx
   _KPROCESS *Process; // r10
-  int v16; // r11d
-  _KPROCESS *v17; // rdi
-  char v18; // si
-  int v19; // r15d
+  int v17; // r11d
+  struct _DMA_ADAPTER *v18; // rdi
+  char v19; // si
   struct _KTHREAD *CurrentThread; // rcx
   _BYTE *Teb; // rax
-  bool v23; // zf
-  int v24; // eax
+  bool v22; // zf
+  int v23; // eax
+  unsigned int v24; // r15d
   int v25; // r14d
   __int64 v26; // [rsp+20h] [rbp-358h]
-  __int64 v29; // [rsp+60h] [rbp-318h] BYREF
-  void *Src; // [rsp+68h] [rbp-310h]
-  unsigned int *v31; // [rsp+70h] [rbp-308h]
-  _DWORD v32[12]; // [rsp+80h] [rbp-2F8h] BYREF
+  int v28; // [rsp+5Ch] [rbp-31Ch]
+  unsigned __int64 v30; // [rsp+78h] [rbp-300h] BYREF
+  __int128 v31[2]; // [rsp+80h] [rbp-2F8h] BYREF
+  unsigned int v32; // [rsp+A8h] [rbp-2D0h]
   __int64 v33; // [rsp+B0h] [rbp-2C8h]
   int v34; // [rsp+B8h] [rbp-2C0h]
   unsigned int v35; // [rsp+BCh] [rbp-2BCh]
-  unsigned int v36; // [rsp+C0h] [rbp-2B8h]
-  int v37; // [rsp+C4h] [rbp-2B4h]
+  int v36; // [rsp+C0h] [rbp-2B8h]
+  unsigned int v37; // [rsp+C4h] [rbp-2B4h]
   char v38[616]; // [rsp+C8h] [rbp-2B0h] BYREF
 
-  Src = a4;
-  v29 = (__int64)a4;
-  v31 = a7;
-  CurrentServerSiloGlobals = (_KPROCESS **)PsGetCurrentServerSiloGlobals();
+  v7 = a2;
+  v8 = a1;
+  v28 = a2;
+  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals(a1, a2);
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v12 = 0;
+  v11 = 0;
   *a7 = 0;
-  if ( v13 > 0x4D )
+  if ( v7 > 0x4D )
     return 3221225485LL;
-  v14 = 0;
+  v13 = 0;
   if ( a6 == 6 )
   {
     if ( !SeSinglePrivilegeCheck(SeShutdownPrivilege, PreviousMode) )
       return 3221225569LL;
-    if ( !PsIsCurrentThreadInServerSilo() )
+    if ( !PsIsCurrentThreadInServerSilo(v15, v14) )
       ExReadyForErrors = 0;
     *((_DWORD *)CurrentServerSiloGlobals + 224) = 2;
-    v14 = 1;
-    v9 = a3;
+    v13 = 1;
   }
   Process = KeGetCurrentThread()->ApcState.Process;
-  v16 = *(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x10;
-  if ( !v16 && (a1 & 0xC0000000) == 0xC0000000 && (!*((_DWORD *)CurrentServerSiloGlobals + 224) || v14) )
+  v17 = *(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x10;
+  if ( !v17 && (v8 & 0xC0000000) == 0xC0000000 && (!*((_DWORD *)CurrentServerSiloGlobals + 224) || v13) )
   {
     LOBYTE(v26) = PreviousMode != 0;
-    ExpSystemErrorHandler(a1, a2, v9, a5, v26);
+    ExpSystemErrorHandler(v8, v7, a3, a5, v26);
     return 0LL;
   }
-  if ( Process == CurrentServerSiloGlobals[110] )
+  if ( Process == *((_KPROCESS **)CurrentServerSiloGlobals + 110) )
   {
-    if ( (a1 & 0xC0000000) == 0xC0000000 )
+    if ( (v8 & 0xC0000000) == 0xC0000000 )
     {
       LOBYTE(v26) = PreviousMode != 0;
-      ExpSystemErrorHandler(a1, a2, v9, a5, v26);
+      ExpSystemErrorHandler(v8, v7, a3, a5, v26);
     }
-    goto LABEL_15;
+LABEL_37:
+    *a7 = 0;
+    return 0LL;
   }
-  v17 = 0LL;
-  v18 = 0;
-  if ( !v16 && ((Process[1].ActiveProcessors.StaticBitmap[9] & 1) != 0 || (a1 & 0x10000000) != 0) )
+  v18 = 0LL;
+  v19 = 0;
+  if ( !v17 && ((Process[1].ActiveProcessors.Bitmap[9] & 1) != 0 || (v8 & 0x10000000) != 0) )
   {
-    v17 = (_KPROCESS *)PsCaptureExceptionPort(Process);
-    if ( v17 )
-      v18 = 1;
+    v18 = (struct _DMA_ADAPTER *)PsCaptureExceptionPort((__int64)Process);
+    if ( v18 )
+      v19 = 1;
     else
-      v17 = CurrentServerSiloGlobals[111];
+      v18 = (struct _DMA_ADAPTER *)*((_QWORD *)CurrentServerSiloGlobals + 111);
   }
-  if ( v17
-    && ((CurrentThread = KeGetCurrentThread(), (CurrentThread->MiscFlags & 0x400) == 0)
-     && CurrentThread->ApcStateIndex != 1
-      ? (Teb = CurrentThread->Teb)
-      : (Teb = 0LL),
+  if ( v18
+    && ((CurrentThread = KeGetCurrentThread(), (CurrentThread->MiscFlags & 0x400) != 0)
+     || CurrentThread->ApcStateIndex == 1
+      ? (Teb = 0LL)
+      : (Teb = CurrentThread->Teb),
         Teb) )
   {
-    v23 = (Teb[5808] & 0x10) == 0;
-    v24 = 0;
-    if ( !v23 )
-      v24 = -1073741823;
-    v19 = a3;
-    if ( v24 < 0 )
+    v22 = (Teb[5808] & 0x10) == 0;
+    v23 = 0;
+    if ( !v22 )
+      v23 = -1073741823;
+    v24 = a3;
+    if ( v23 < 0 )
     {
-      if ( v18 == 1 )
-        ObfDereferenceObject(v17);
-      v17 = 0LL;
+      if ( v19 == 1 )
+        HalPutDmaAdapter(v18);
+      v18 = 0LL;
     }
   }
   else
   {
-    v19 = a3;
+    v24 = a3;
   }
-  if ( !v17 )
-  {
-LABEL_15:
-    *a7 = 0;
-    return 0LL;
-  }
-  v32[0] = 7340104;
-  v32[1] = 9;
-  v32[10] = a1 & 0xEFFFFFFF;
+  if ( !v18 )
+    goto LABEL_37;
+  *(_QWORD *)&v31[0] = 0x900700048LL;
+  v32 = v8 & 0xEFFFFFFF;
   v34 = a6;
-  v37 = v19;
-  v36 = a2;
-  if ( Src )
-    memmove(v38, Src, 8LL * a2);
+  v37 = v24;
+  v36 = v28;
+  if ( a4 )
+    memmove(v38, a4, 8LL * v7);
   v33 = MEMORY[0xFFFFF78000000014];
-  v29 = 688LL;
-  v25 = LpcSendWaitReceivePort((_DWORD)v17, 0x20000, (unsigned int)v32, (unsigned int)v32, (__int64)&v29, 0LL);
-  if ( v18 == 1 )
-    ObfDereferenceObject(v17);
+  v30 = 688LL;
+  v25 = LpcSendWaitReceivePort((__int64)v18, 0x20000, v31, (unsigned __int64)v31, &v30, 0LL);
+  if ( v19 == 1 )
+    HalPutDmaAdapter(v18);
   if ( v25 >= 0 )
   {
     if ( v35 <= 0xA )
-      v12 = v35;
-    *a7 = v12;
+      v11 = v35;
+    *a7 = v11;
   }
   return (unsigned int)v25;
 }

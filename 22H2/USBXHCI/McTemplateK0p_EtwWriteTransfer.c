@@ -1,12 +1,12 @@
 /*
- * XREFs of McTemplateK0p_EtwWriteTransfer @ 0x1C0036ADC
+ * XREFs of McTemplateK0p_EtwWriteTransfer @ 0x1C0034FB0
  * Callers:
- *     Controller_D0EntryRestoreState @ 0x1C0032654 (Controller_D0EntryRestoreState.c)
- *     Controller_D0ExitSaveState @ 0x1C003298C (Controller_D0ExitSaveState.c)
- *     Controller_InternalReset @ 0x1C0033C04 (Controller_InternalReset.c)
+ *     Controller_D0EntryRestoreState @ 0x1C0030AF4 (Controller_D0EntryRestoreState.c)
+ *     Controller_D0ExitSaveState @ 0x1C0030E1C (Controller_D0ExitSaveState.c)
+ *     Controller_InternalReset @ 0x1C00322D8 (Controller_InternalReset.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022398 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0p_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

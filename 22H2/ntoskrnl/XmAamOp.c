@@ -1,21 +1,19 @@
 /*
- * XREFs of XmAamOp @ 0x140533550
+ * XREFs of XmAamOp @ 0x1404E5B30
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall XmAamOp(__int64 a1)
 {
-  unsigned int v1; // r8d
-  unsigned int v2; // r9d
+  char v1; // dl
   __int64 result; // rax
 
-  v1 = *(unsigned __int8 *)(a1 + 24);
-  v2 = *(unsigned __int8 *)(a1 + 108);
+  v1 = *(_BYTE *)(a1 + 24) % *(_BYTE *)(a1 + 108);
   *(_BYTE *)(a1 + 25) = *(_BYTE *)(a1 + 24) / *(_BYTE *)(a1 + 108);
-  *(_BYTE *)(a1 + 24) = v1 % v2;
+  *(_BYTE *)(a1 + 24) = v1;
   result = *(_DWORD *)(a1 + 16) & 0xFFFFFF3F;
   *(_DWORD *)(a1 + 16) = HIBYTE(*(unsigned __int16 *)(a1 + 24)) & 0xFFFF80 | (result | (*(_WORD *)(a1 + 24) == 0
                                                                                       ? 0x40

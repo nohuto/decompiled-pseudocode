@@ -1,8 +1,8 @@
 /*
- * XREFs of KiCommitNodeAssignment @ 0x14017E818
+ * XREFs of KiCommitNodeAssignment @ 0x14017E838
  * Callers:
- *     KiConfigureInitialNodes @ 0x14017E188 (KiConfigureInitialNodes.c)
- *     KxInitializeProcessorState @ 0x140729E24 (KxInitializeProcessorState.c)
+ *     KiConfigureInitialNodes @ 0x14017E1A8 (KiConfigureInitialNodes.c)
+ *     KxInitializeProcessorState @ 0x140729E04 (KxInitializeProcessorState.c)
  *     KePerformGroupConfiguration @ 0x1409B5C1C (KePerformGroupConfiguration.c)
  * Callees:
  *     <none>

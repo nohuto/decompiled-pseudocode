@@ -4,7 +4,7 @@
  *     NtAlpcCreateSectionView @ 0x140616470 (NtAlpcCreateSectionView.c)
  *     AlpcpCaptureViewAttributeInternal @ 0x140617818 (AlpcpCaptureViewAttributeInternal.c)
  *     AlpcpExposeViewAttributeInSenderContext @ 0x140617B88 (AlpcpExposeViewAttributeInSenderContext.c)
- *     NtAlpcDeleteSectionView @ 0x1406AE3D0 (NtAlpcDeleteSectionView.c)
+ *     NtAlpcDeleteSectionView @ 0x1406AE3B0 (NtAlpcDeleteSectionView.c)
  * Callees:
  *     AlpcpDeleteBlob @ 0x140618BF4 (AlpcpDeleteBlob.c)
  *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)

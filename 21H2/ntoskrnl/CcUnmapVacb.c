@@ -1,16 +1,16 @@
 /*
- * XREFs of CcUnmapVacb @ 0x1406FAEA0
+ * XREFs of CcUnmapVacb @ 0x1406EA378
  * Callers:
- *     CcUnmapVacbArray @ 0x1402853B0 (CcUnmapVacbArray.c)
- *     CcGetVacbMiss @ 0x1402858A0 (CcGetVacbMiss.c)
- *     CcUnmapInactiveViewsInternal @ 0x14053B55C (CcUnmapInactiveViewsInternal.c)
+ *     CcGetVacbMiss @ 0x1403109C0 (CcGetVacbMiss.c)
+ *     CcUnmapVacbArray @ 0x140312E70 (CcUnmapVacbArray.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1404EB544 (CcUnmapInactiveViewsInternal.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140230680 (ObFastDereferenceObjectDeferDelete.c)
- *     CcUpdateSharedCacheMapFlag @ 0x14023C5D4 (CcUpdateSharedCacheMapFlag.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x14027A1B4 (CcReferenceSharedCacheMapFileObject.c)
- *     MmUnmapViewInSystemCache @ 0x140335870 (MmUnmapViewInSystemCache.c)
- *     PfCheckDeprioritizeFile @ 0x1407DBC0C (PfCheckDeprioritizeFile.c)
- *     PfCheckDeprioritizeImage @ 0x1407DBF54 (PfCheckDeprioritizeImage.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x1402EE374 (CcUpdateSharedCacheMapFlag.c)
+ *     CcDereferenceSharedCacheMapFileObject @ 0x1402F5784 (CcDereferenceSharedCacheMapFileObject.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1402F57D0 (CcReferenceSharedCacheMapFileObject.c)
+ *     MmUnmapViewInSystemCache @ 0x140313AE0 (MmUnmapViewInSystemCache.c)
+ *     PfCheckDeprioritizeImage @ 0x1406CC31C (PfCheckDeprioritizeImage.c)
+ *     PfCheckDeprioritizeFile @ 0x1406CD858 (PfCheckDeprioritizeFile.c)
  */
 
 void __fastcall CcUnmapVacb(__int64 a1, __int64 a2, char a3)
@@ -22,7 +22,7 @@ void __fastcall CcUnmapVacb(__int64 a1, __int64 a2, char a3)
   _KPROCESS *Process; // rcx
   unsigned int v11; // eax
   bool v12; // zf
-  unsigned __int64 v13; // rax
+  ULONG_PTR v13; // rax
   __int64 v14; // rbx
   unsigned __int64 v15; // r8
 
@@ -38,21 +38,21 @@ LABEL_19:
   {
     Process = KeGetCurrentThread()->ApcState.Process;
     v11 = *(_DWORD *)(a2 + 512);
-    if ( HIDWORD(Process[1].ActiveProcessors.StaticBitmap[8]) == v11 )
+    if ( HIDWORD(Process[1].ActiveProcessors.Bitmap[8]) == v11 )
       v12 = (Process[1].DirectoryTableBase & 0x400000000000LL) == 0;
     else
-      v12 = (unsigned int)PfCheckDeprioritizeImage(v11) == 0;
+      v12 = !PfCheckDeprioritizeImage(v11);
     if ( v12 )
       goto LABEL_13;
     v13 = CcReferenceSharedCacheMapFileObject(a2);
     v14 = *(_QWORD *)(v13 + 24);
-    ObFastDereferenceObjectDeferDelete((signed __int64 *)(a2 + 96), v13, 0x63536343u);
+    CcDereferenceSharedCacheMapFileObject(a2, v13);
     v15 = (*(__int64 *)(a2 + 8) >> 12) + ((*(_QWORD *)(a2 + 8) & 0xFFFLL) != 0);
     if ( v15 >= ((*(__int64 *)(a1 + 16) >> 12) & 0xFFFFFFFFFFFFFFC0uLL) + 64 )
       v15 = ((*(__int64 *)(a1 + 16) >> 12) & 0xFFFFFFFFFFFFFFC0uLL) + 64;
     if ( v15 <= 1 )
-      v15 = 1LL;
-    if ( !(unsigned int)PfCheckDeprioritizeFile(*(unsigned int *)(a2 + 512), v14, v15) )
+      LODWORD(v15) = 1;
+    if ( !(unsigned int)PfCheckDeprioritizeFile(*(_DWORD *)(a2 + 512), v14, v15) )
     {
 LABEL_13:
       CcUpdateSharedCacheMapFlag(a2, 0x200000, 0);
@@ -66,6 +66,6 @@ LABEL_4:
   if ( !v9 )
     v8 = v3;
   MmUnmapViewInSystemCache(*(_QWORD *)a1, *(_QWORD *)(a2 + 168), v8);
-  if ( (v9 & 2) == 0 )
+  if ( !v9 )
     *(_QWORD *)a1 = 0LL;
 }

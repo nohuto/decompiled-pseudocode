@@ -1,23 +1,24 @@
 /*
- * XREFs of PopPepGetMinimumDevicePowerState @ 0x14059F120
+ * XREFs of PopPepGetMinimumDevicePowerState @ 0x1405747D0
  * Callers:
- *     PopPepUpdateDripsDeviceVetoMask @ 0x14059FEF4 (PopPepUpdateDripsDeviceVetoMask.c)
- *     PoFxSetTargetDripsDevicePowerState @ 0x140984960 (PoFxSetTargetDripsDevicePowerState.c)
+ *     PopFxSetDeviceAccountingCsPlatformState @ 0x14056C7C4 (PopFxSetDeviceAccountingCsPlatformState.c)
+ *     PopPepUpdateDripsDeviceVetoMask @ 0x140576040 (PopPepUpdateDripsDeviceVetoMask.c)
+ *     PoFxSetTargetDripsDevicePowerState @ 0x1408E45A0 (PoFxSetTargetDripsDevicePowerState.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall PopPepGetMinimumDevicePowerState(__int64 a1, char a2, char a3, _DWORD *a4, _DWORD *a5)
 {
   char v6; // si
-  int v7; // r14d
-  KIRQL CurrentIrql; // bl
+  int v7; // ebp
+  KIRQL CurrentIrql; // di
   unsigned int v11; // ecx
   _DWORD *v12; // rdx
   unsigned int v13; // eax
-  _DWORD *v14; // rdx
+  _DWORD *v14; // rcx
   unsigned __int8 v15; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -63,16 +64,19 @@ char __fastcall PopPepGetMinimumDevicePowerState(__int64 a1, char a2, char a3, _
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
     if ( KiIrqlFlags )
     {
-      v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v19 = (v18 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v18;
-        if ( v19 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        v15 = KeGetCurrentIrql();
+        if ( v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v19 = (v18 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v18;
+          if ( v19 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(CurrentIrql);

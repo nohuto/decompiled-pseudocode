@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetPastDueIRTimerInfo @ 0x14029B784
+ * XREFs of KiGetPastDueIRTimerInfo @ 0x14029B884
  * Callers:
  *     KeResumeClockTimerFromIdle @ 0x140060910 (KeResumeClockTimerFromIdle.c)
- *     KeQueryWakeSource @ 0x14028EE1C (KeQueryWakeSource.c)
+ *     KeQueryWakeSource @ 0x14028EF1C (KeQueryWakeSource.c)
  * Callees:
  *     <none>
  */

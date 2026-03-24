@@ -1,14 +1,14 @@
 /*
- * XREFs of PopLazySensorActiveInput @ 0x140878F40
+ * XREFs of PopLazySensorActiveInput @ 0x140878F20
  * Callers:
- *     PopSessionWinlogonNotification @ 0x14087901C (PopSessionWinlogonNotification.c)
+ *     PopSessionWinlogonNotification @ 0x140878FFC (PopSessionWinlogonNotification.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
- *     MmDetachSession @ 0x14011A5A0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A630 (MmAttachSession.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PopConsoleSessionActiveInput @ 0x1406DC440 (PopConsoleSessionActiveInput.c)
+ *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PopConsoleSessionActiveInput @ 0x1406DC420 (PopConsoleSessionActiveInput.c)
  */
 
 __int64 __fastcall PopLazySensorActiveInput(unsigned int a1)

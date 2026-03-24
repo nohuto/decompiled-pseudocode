@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpEnableNextLogicalProcessor @ 0x140540E58
+ * XREFs of HvlpEnableNextLogicalProcessor @ 0x1404F2A84
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x140376790 (HvlStartBootLogicalProcessors.c)
+ *     HvlStartBootLogicalProcessors @ 0x1403B62E8 (HvlStartBootLogicalProcessors.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140335810 (MmMapIoSpaceEx.c)
- *     HvlpGetVpIndexFromApicId @ 0x14054106C (HvlpGetVpIndexFromApicId.c)
- *     HvlpMapStatisticsPage @ 0x1405412E4 (HvlpMapStatisticsPage.c)
- *     HvlpStartLogicalProcessor @ 0x1405422D0 (HvlpStartLogicalProcessor.c)
+ *     MmMapIoSpaceEx @ 0x1402E7FA0 (MmMapIoSpaceEx.c)
+ *     HvlpGetVpIndexFromApicId @ 0x1404F2C8C (HvlpGetVpIndexFromApicId.c)
+ *     HvlpMapStatisticsPage @ 0x1404F2EEC (HvlpMapStatisticsPage.c)
+ *     HvlpStartLogicalProcessor @ 0x1404F3DEC (HvlpStartLogicalProcessor.c)
  */
 
 __int64 __fastcall HvlpEnableNextLogicalProcessor(__int64 a1, unsigned __int16 a2)
@@ -59,7 +59,7 @@ __int64 __fastcall HvlpEnableNextLogicalProcessor(__int64 a1, unsigned __int16 a
   v8 = KeNodeBlock[v4];
   v5[2] = v3;
   *((_WORD *)v5 + 6) = v4;
-  v9 = *(_WORD *)(v8 + 2);
+  v9 = *(_WORD *)(v8 + 148);
   v5[6] = -1;
   *((_WORD *)v5 + 7) = v9;
   result = 0LL;

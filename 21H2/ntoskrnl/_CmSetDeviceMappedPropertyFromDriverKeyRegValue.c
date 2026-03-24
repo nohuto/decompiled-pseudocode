@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x1407446E0
+ * XREFs of _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x14073A788
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x1407894A8 (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x14073A544 (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     RtlTimeToTimeFields @ 0x1402D1A30 (RtlTimeToTimeFields.c)
- *     RtlUnalignedStringCchLengthW @ 0x1402DF9D0 (RtlUnalignedStringCchLengthW.c)
- *     RtlStringCchPrintfW @ 0x1402E0198 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _RegRtlSetValue @ 0x1406D5A30 (_RegRtlSetValue.c)
- *     _CmOpenDeviceRegKey @ 0x14077F2EC (_CmOpenDeviceRegKey.c)
+ *     RtlUnalignedStringCchLengthW @ 0x1402659E4 (RtlUnalignedStringCchLengthW.c)
+ *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
+ *     RtlTimeToTimeFields @ 0x14036E9A0 (RtlTimeToTimeFields.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     _RegRtlSetValue @ 0x140768AF4 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetDeviceMappedPropertyFromDriverKeyRegValue(
-        int a1,
-        int a2,
+        __int64 a1,
+        __int64 a2,
         __int64 a3,
         unsigned int a4,
         PLARGE_INTEGER Time,
@@ -40,7 +40,7 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromDriverKeyRegValue(
   Handle = 0LL;
   pcchLength = 0LL;
   v8 = *(_DWORD *)(a3 + 16);
-  v9 = &off_140A3B370;
+  v9 = &off_1409868A0;
   TimeFields = 0LL;
   for ( i = 0; i < 0xD; ++i )
   {
@@ -77,7 +77,7 @@ LABEL_10:
   v17 = CmOpenDeviceRegKey(a1, a2, 18, 0, 2, 1, (__int64)&Handle, 0LL);
   if ( v17 >= 0 )
   {
-    v18 = RegRtlSetValue(Handle, (const WCHAR *)v14[2], *((_DWORD *)v14 + 6), Time, a6);
+    v18 = RegRtlSetValue(Handle, a6);
     if ( v18 == -1073741444 )
     {
       v17 = -1073741772;
@@ -99,7 +99,7 @@ LABEL_10:
         if ( RtlStringCchPrintfW(pszDest, 0xBuLL, L"%d-%d-%d", (unsigned int)TimeFields.Month, v21, v22) >= 0
           && RtlUnalignedStringCchLengthW(pszDest, 0xBuLL, &pcchLength) >= 0 )
         {
-          RegRtlSetValue(Handle, L"DriverDate", 1u, pszDest, 2 * (pcchLength + 1));
+          RegRtlSetValue(Handle, 2 * (pcchLength + 1));
         }
       }
     }

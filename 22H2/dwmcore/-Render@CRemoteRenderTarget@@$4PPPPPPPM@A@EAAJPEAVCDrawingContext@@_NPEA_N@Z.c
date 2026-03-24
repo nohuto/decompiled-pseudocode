@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Render@CRemoteRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x18011D1C0
+ * XREFs of ?Render@CRemoteRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800F5040
  * Callers:
  *     <none>
  * Callees:

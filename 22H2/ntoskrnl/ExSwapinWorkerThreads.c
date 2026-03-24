@@ -1,70 +1,60 @@
 /*
- * XREFs of ExSwapinWorkerThreads @ 0x140A00678
+ * XREFs of ExSwapinWorkerThreads @ 0x1407743E4
  * Callers:
- *     PopUnlockAfterSleepWorker @ 0x140AA6A10 (PopUnlockAfterSleepWorker.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
- *     ExShutdownSystem @ 0x140AAAC18 (ExShutdownSystem.c)
+ *     PopUnlockAfterSleepWorker @ 0x140990530 (PopUnlockAfterSleepWorker.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
+ *     ExShutdownSystem @ 0x1409B2C98 (ExShutdownSystem.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeSetKernelStackSwapEnable @ 0x1402A8B90 (KeSetKernelStackSwapEnable.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     KeInitializeApc @ 0x1402BE6A0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     PsGetNextPartitionUnsafe @ 0x140310D10 (PsGetNextPartitionUnsafe.c)
- *     KeRemoveQueueApc @ 0x140361D10 (KeRemoveQueueApc.c)
- *     memset @ 0x140435400 (memset.c)
- *     PoPushPowerStateTransitionRecordWithCallback @ 0x14058F194 (PoPushPowerStateTransitionRecordWithCallback.c)
- *     PsGetNextProcessThread @ 0x140742FC0 (PsGetNextProcessThread.c)
- *     PsReferencePartitionSystemProcess @ 0x1409B6580 (PsReferencePartitionSystemProcess.c)
- *     PoDelistPowerStateTransitionBlocker @ 0x140AA622C (PoDelistPowerStateTransitionBlocker.c)
+ *     KeSetKernelStackSwapEnable @ 0x14022BB00 (KeSetKernelStackSwapEnable.c)
+ *     KeInsertQueueApc @ 0x14025F120 (KeInsertQueueApc.c)
+ *     PsGetNextPartitionUnsafe @ 0x140279388 (PsGetNextPartitionUnsafe.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     KeInitializeApc @ 0x140341E70 (KeInitializeApc.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PsGetNextProcessThread @ 0x140657980 (PsGetNextProcessThread.c)
+ *     PsReferencePartitionSystemProcess @ 0x140774548 (PsReferencePartitionSystemProcess.c)
  */
 
 void __fastcall ExSwapinWorkerThreads(BOOLEAN a1)
 {
-  struct _KTHREAD *CurrentThread; // r15
+  struct _KTHREAD *CurrentThread; // r14
   _QWORD *i; // rcx
-  struct _KTHREAD *j; // rdx
-  int v4; // ebx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  struct _KTHREAD *NextProcessThread; // rax
-  struct _KTHREAD *v10; // rdi
   _UNKNOWN **NextPartitionUnsafe; // rax
-  _QWORD *v12; // rsi
-  signed __int32 v13[8]; // [rsp+0h] [rbp-89h] BYREF
-  struct _KEVENT Event; // [rsp+40h] [rbp-49h] BYREF
-  _BYTE v15[128]; // [rsp+60h] [rbp-29h] BYREF
-  BOOLEAN Enable; // [rsp+F0h] [rbp+67h] BYREF
-  PVOID Object; // [rsp+F8h] [rbp+6Fh] BYREF
-  LARGE_INTEGER Timeout; // [rsp+100h] [rbp+77h] BYREF
+  _QWORD *v4; // rdi
+  struct _KTHREAD *j; // rdx
+  struct _KTHREAD *NextProcessThread; // rax
+  struct _KTHREAD *v7; // rbx
+  signed __int32 v8[8]; // [rsp+0h] [rbp-79h] BYREF
+  struct _KEVENT Event; // [rsp+40h] [rbp-39h] BYREF
+  _BYTE v10[112]; // [rsp+60h] [rbp-19h] BYREF
+  BOOLEAN Enable; // [rsp+E0h] [rbp+67h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+E8h] [rbp+6Fh] BYREF
 
   Enable = a1;
-  memset(v15, 0, 0x58uLL);
-  Object = 0LL;
-  Timeout.QuadPart = -100000000LL;
+  memset(v10, 0, 0x58uLL);
+  DmaAdapter = 0LL;
   memset(&Event, 0, sizeof(Event));
   CurrentThread = KeGetCurrentThread();
   KeInitializeEvent(&Event, SynchronizationEvent, 0);
   ExAcquireFastMutex(&ExpWorkerSwapinMutex);
   ExpWorkersCanSwap = Enable;
-  _InterlockedOr(v13, 0);
-  for ( i = 0LL; ; i = v12 )
+  _InterlockedOr(v8, 0);
+  for ( i = 0LL; ; i = v4 )
   {
     NextPartitionUnsafe = PsGetNextPartitionUnsafe(i);
-    v12 = NextPartitionUnsafe;
+    v4 = NextPartitionUnsafe;
     if ( !NextPartitionUnsafe )
       break;
-    if ( (int)PsReferencePartitionSystemProcess((__int64)NextPartitionUnsafe, &Object) >= 0 )
+    if ( (int)PsReferencePartitionSystemProcess(NextPartitionUnsafe, &DmaAdapter) >= 0 )
     {
-      for ( j = 0LL; ; j = v10 )
+      for ( j = 0LL; ; j = v7 )
       {
-        NextProcessThread = (struct _KTHREAD *)PsGetNextProcessThread((__int64)Object, j);
-        v10 = NextProcessThread;
+        NextProcessThread = (struct _KTHREAD *)PsGetNextProcessThread((__int64)DmaAdapter, j);
+        v7 = NextProcessThread;
         if ( !NextProcessThread )
           break;
         if ( (*((_DWORD *)&NextProcessThread[1].SwapListEntry + 3) & 1) != 0 )
@@ -76,7 +66,7 @@ void __fastcall ExSwapinWorkerThreads(BOOLEAN a1)
           else
           {
             KeInitializeApc(
-              (__int64)v15,
+              (__int64)v10,
               (__int64)NextProcessThread,
               0,
               (__int64)ExpSetSwappingKernelApc,
@@ -84,21 +74,13 @@ void __fastcall ExSwapinWorkerThreads(BOOLEAN a1)
               0LL,
               0,
               (__int64)&Enable);
-            if ( (unsigned __int8)KeInsertQueueApc((__int64)v15, (__int64)&Event, 0LL, 3u) )
-            {
-              if ( KeWaitForSingleObject(&Event, Executive, 0, 0, &Timeout) == 258 && !KeRemoveQueueApc((__int64)v15) )
-              {
-                v4 = PoPushPowerStateTransitionRecordWithCallback(Object, v10, 0LL, 0LL);
-                KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-                if ( v4 >= 0 )
-                  PoDelistPowerStateTransitionBlocker(v6, v5, v7, v8);
-              }
-            }
+            if ( KeInsertQueueApc((__int64)v10, (__int64)&Event, 0LL, 3) )
+              KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
           }
         }
       }
-      ObfDereferenceObject(Object);
+      HalPutDmaAdapter(DmaAdapter);
     }
   }
-  ExReleaseFastMutex(&ExpWorkerSwapinMutex);
+  KeReleaseGuardedMutex(&ExpWorkerSwapinMutex);
 }

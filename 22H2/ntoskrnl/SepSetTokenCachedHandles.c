@@ -1,124 +1,123 @@
 /*
- * XREFs of SepSetTokenCachedHandles @ 0x1407F4B10
+ * XREFs of SepSetTokenCachedHandles @ 0x14070EDA4
  * Callers:
- *     SepSetTokenBnoIsolation @ 0x140224BC8 (SepSetTokenBnoIsolation.c)
- *     NtCreateLowBoxToken @ 0x1407F2AC0 (NtCreateLowBoxToken.c)
+ *     SepSetTokenBnoIsolation @ 0x1402511C8 (SepSetTokenBnoIsolation.c)
+ *     NtCreateLowBoxToken @ 0x1406EF370 (NtCreateLowBoxToken.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     RtlCreateHashTable @ 0x14036F030 (RtlCreateHashTable.c)
- *     SepCloseCachedTokenHandles @ 0x14036F9E8 (SepCloseCachedTokenHandles.c)
- *     SepReferenceCachedTokenHandles @ 0x140370B18 (SepReferenceCachedTokenHandles.c)
- *     SepGetCachedHandlesEntry @ 0x1407F4CCC (SepGetCachedHandlesEntry.c)
- *     SepValidateReferencedCachedHandles @ 0x1407F51D0 (SepValidateReferencedCachedHandles.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     SepReferenceCachedTokenHandles @ 0x14035F8E4 (SepReferenceCachedTokenHandles.c)
+ *     SepCloseCachedTokenHandles @ 0x14035F974 (SepCloseCachedTokenHandles.c)
+ *     RtlCreateHashTable @ 0x140376230 (RtlCreateHashTable.c)
+ *     SepGetCachedHandlesEntry @ 0x14070EF64 (SepGetCachedHandlesEntry.c)
+ *     SepValidateReferencedCachedHandles @ 0x14070F440 (SepValidateReferencedCachedHandles.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepSetTokenCachedHandles(_QWORD *a1, _DWORD *a2, unsigned int a3, HANDLE *a4)
 {
-  HANDLE *v4; // rdi
+  HANDLE *v4; // rsi
   char v6; // r12
-  __int64 Pool2; // rax
+  HANDLE *PoolWithTag; // rax
   int CachedHandlesEntry; // ebp
   struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR v13; // rsi
+  ULONG_PTR v13; // rdi
   bool v14; // dl
   __int64 v15; // rcx
-  char v16; // al
-  char v17; // bl
-  bool v19; // zf
-  __int64 v20; // [rsp+28h] [rbp-40h] BYREF
-  HANDLE *v21; // [rsp+30h] [rbp-38h]
-  char v22; // [rsp+80h] [rbp+18h] BYREF
+  char v16; // cl
+  HANDLE *v17; // rax
+  char v18; // bl
+  bool v20; // zf
+  _QWORD v21[7]; // [rsp+20h] [rbp-38h] BYREF
+  char v22; // [rsp+70h] [rbp+18h] BYREF
 
   v4 = 0LL;
-  v20 = 0LL;
+  v21[0] = 0LL;
   v6 = 0;
   v22 = 0;
-  if ( a3 )
+  if ( !a3 )
+    goto LABEL_5;
+  PoolWithTag = (HANDLE *)ExAllocatePoolWithTag(PagedPool, 8LL * a3, 0x63486553u);
+  v4 = PoolWithTag;
+  if ( !PoolWithTag )
+    return (unsigned int)-1073741801;
+  CachedHandlesEntry = SepReferenceCachedTokenHandles(a3, a4, (__int64)PoolWithTag);
+  if ( CachedHandlesEntry >= 0 )
   {
-    Pool2 = ExAllocatePool2(256LL, 8LL * a3, 1665688915LL);
-    v4 = (HANDLE *)Pool2;
-    if ( !Pool2 )
-      return (unsigned int)-1073741801;
-    CachedHandlesEntry = SepReferenceCachedTokenHandles(a3, a4, Pool2);
-    if ( CachedHandlesEntry < 0 )
-      goto LABEL_31;
     v6 = 1;
     CachedHandlesEntry = SepValidateReferencedCachedHandles(a1, a2, a3, v4);
-    if ( CachedHandlesEntry < 0 )
+    if ( CachedHandlesEntry >= 0 )
     {
-LABEL_30:
-      SepCloseCachedTokenHandles(a3, v4);
-      goto LABEL_31;
+LABEL_5:
+      CurrentThread = KeGetCurrentThread();
+      v13 = a1[27] + 88LL;
+      --CurrentThread->KernelApcDisable;
+      ExAcquirePushLockExclusiveEx(v13, 0LL);
+      if ( !*(_QWORD *)(v13 + 8) && !RtlCreateHashTable((PRTL_DYNAMIC_HASH_TABLE *)(v13 + 8), 0, 0) )
+      {
+        CachedHandlesEntry = -1073741670;
+        goto LABEL_27;
+      }
+      CachedHandlesEntry = SepGetCachedHandlesEntry(v13, a2, &v22, v21);
+      if ( CachedHandlesEntry )
+      {
+LABEL_27:
+        v20 = (_InterlockedExchangeAdd64((volatile signed __int64 *)v13, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2;
+        goto LABEL_31;
+      }
+      v14 = 0;
+      if ( *a2 )
+      {
+        if ( *a2 != 1 )
+        {
+LABEL_13:
+          v16 = 0;
+          if ( !v14 )
+            v16 = v6;
+          v17 = 0LL;
+          v6 = v16;
+          if ( !v14 )
+            v17 = v4;
+          v4 = v17;
+          v18 = _InterlockedExchangeAdd64((volatile signed __int64 *)v13, 0xFFFFFFFFFFFFFFFFuLL);
+          if ( (v18 & 2) == 0 )
+            goto LABEL_18;
+          v20 = (v18 & 4) == 0;
+LABEL_31:
+          if ( v20 )
+            ExfTryToWakePushLock((volatile signed __int64 *)v13);
+LABEL_18:
+          KeAbPostRelease(v13);
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          goto LABEL_19;
+        }
+        v14 = v22 == 0;
+        v15 = v21[0];
+        a1[144] = v21[0];
+      }
+      else
+      {
+        v15 = v21[0];
+        if ( a3 )
+          v14 = *(_DWORD *)(v21[0] + 56LL) == 0;
+        a1[136] = v21[0];
+      }
+      if ( v14 )
+      {
+        *(_DWORD *)(v15 + 56) = a3;
+        *(_QWORD *)(v15 + 64) = v4;
+      }
+      goto LABEL_13;
     }
   }
-  CurrentThread = KeGetCurrentThread();
-  v13 = a1[27] + 88LL;
-  v21 = v4;
-  --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx(v13, 0LL);
-  if ( !*(_QWORD *)(v13 + 8) && !RtlCreateHashTable((PRTL_DYNAMIC_HASH_TABLE *)(v13 + 8), 0, 0) )
-  {
-    CachedHandlesEntry = -1073741670;
-    goto LABEL_24;
-  }
-  CachedHandlesEntry = SepGetCachedHandlesEntry(v13, a2, &v22, &v20);
-  if ( CachedHandlesEntry )
-  {
-LABEL_24:
-    v19 = (_InterlockedExchangeAdd64((volatile signed __int64 *)v13, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2;
-LABEL_25:
-    if ( v19 )
-      ExfTryToWakePushLock((volatile signed __int64 *)v13);
-    goto LABEL_18;
-  }
-  v14 = 0;
-  if ( *a2 )
-  {
-    if ( *a2 != 1 )
-      goto LABEL_13;
-    v14 = v22 == 0;
-    v15 = v20;
-    a1[144] = v20;
-  }
-  else
-  {
-    v15 = v20;
-    if ( a3 )
-      v14 = *(_DWORD *)(v20 + 56) == 0;
-    a1[136] = v20;
-  }
-  if ( v14 )
-  {
-    *(_DWORD *)(v15 + 56) = a3;
-    *(_QWORD *)(v15 + 64) = v4;
-  }
-LABEL_13:
-  v16 = v6;
-  v6 = 0;
-  if ( !v14 )
-    v6 = v16;
-  v4 = 0LL;
-  if ( !v14 )
-    v4 = v21;
-  v17 = _InterlockedExchangeAdd64((volatile signed __int64 *)v13, 0xFFFFFFFFFFFFFFFFuLL);
-  if ( (v17 & 2) != 0 )
-  {
-    v19 = (v17 & 4) == 0;
-    goto LABEL_25;
-  }
-LABEL_18:
-  KeAbPostRelease(v13);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+LABEL_19:
   if ( v4 )
   {
     if ( v6 )
-      goto LABEL_30;
-LABEL_31:
+      SepCloseCachedTokenHandles(a3, v4);
     ExFreePoolWithTag(v4, 0);
   }
   return (unsigned int)CachedHandlesEntry;

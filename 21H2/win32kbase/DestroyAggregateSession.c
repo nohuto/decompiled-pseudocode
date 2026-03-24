@@ -1,11 +1,11 @@
 /*
- * XREFs of DestroyAggregateSession @ 0x1C02C8730
+ * XREFs of DestroyAggregateSession @ 0x1C027F9D0
  * Callers:
- *     TlgRegisterAggregateProviderEx @ 0x1C02C80F8 (TlgRegisterAggregateProviderEx.c)
- *     CreateTlgAggregateSession @ 0x1C02C8298 (CreateTlgAggregateSession.c)
- *     TlgUnregisterAggregateProvider @ 0x1C02C8634 (TlgUnregisterAggregateProvider.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1C027F5D8 (TlgRegisterAggregateProviderEx.c)
+ *     CreateTlgAggregateSession @ 0x1C027F76C (CreateTlgAggregateSession.c)
+ *     TlgUnregisterAggregateProvider @ 0x1C027F8D8 (TlgUnregisterAggregateProvider.c)
  * Callees:
- *     CancelTimerCallbacksAndDeleteTimer @ 0x1C02C8770 (CancelTimerCallbacksAndDeleteTimer.c)
+ *     CancelTimerCallbacksAndDeleteTimer @ 0x1C027FA10 (CancelTimerCallbacksAndDeleteTimer.c)
  */
 
 void __fastcall DestroyAggregateSession(_QWORD *P)

@@ -1,20 +1,20 @@
 /*
- * XREFs of ??1CD2DInk@@MEAA@XZ @ 0x18029CB78
+ * XREFs of ??1CD2DInk@@MEAA@XZ @ 0x18024CA78
  * Callers:
- *     ??_ECD2DInk@@MEAAPEAXI@Z @ 0x18029CC30 (--_ECD2DInk@@MEAAPEAXI@Z.c)
+ *     ??_ECD2DInk@@MEAAPEAXI@Z @ 0x18024CB10 (--_ECD2DInk@@MEAAPEAXI@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CD2DInk::~CD2DInk(CD2DInk *this)
 {
-  __int64 v2; // rcx
+  __int64 v2; // rdx
   __int64 v3; // rcx
   __int64 v4; // rcx
   __int64 v5; // rcx
 
   *(_QWORD *)this = &CD2DInk::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16) = &CD2DInk::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16) = &CYCbCrSurface::`vftable'{for `IUnknown'};
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 8LL) + 16) = &CD2DInk::`vftable'{for `IDeviceResource'};
   v2 = *(int *)(*((_QWORD *)this + 2) + 4LL);
   *(_DWORD *)((char *)this + v2 + 12) = v2 - 88;

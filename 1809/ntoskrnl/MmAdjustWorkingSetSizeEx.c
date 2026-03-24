@@ -1,11 +1,11 @@
 /*
- * XREFs of MmAdjustWorkingSetSizeEx @ 0x14013C044
+ * XREFs of MmAdjustWorkingSetSizeEx @ 0x14013C064
  * Callers:
- *     MmAdjustWorkingSetSize @ 0x14018ED10 (MmAdjustWorkingSetSize.c)
- *     SmKmVirtualLockContextIncreaseWsMin @ 0x1403079F8 (SmKmVirtualLockContextIncreaseWsMin.c)
- *     SmKmVirtualLockCtxMemoryUnlocked @ 0x140307DDC (SmKmVirtualLockCtxMemoryUnlocked.c)
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
- *     PspSetQuotaLimits @ 0x1406D1118 (PspSetQuotaLimits.c)
+ *     MmAdjustWorkingSetSize @ 0x14018ED30 (MmAdjustWorkingSetSize.c)
+ *     SmKmVirtualLockContextIncreaseWsMin @ 0x140307AF8 (SmKmVirtualLockContextIncreaseWsMin.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x140307EDC (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
+ *     PspSetQuotaLimits @ 0x1406D10F8 (PspSetQuotaLimits.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
@@ -14,14 +14,14 @@
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  *     PsReturnProcessQuota @ 0x140091888 (PsReturnProcessQuota.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiGetCurrentMultiplexedVm @ 0x1400EF4C4 (MiGetCurrentMultiplexedVm.c)
- *     MiCheckWsLimits @ 0x14013C2D8 (MiCheckWsLimits.c)
- *     PsChargeProcessQuota @ 0x14013DA58 (PsChargeProcessQuota.c)
- *     MiEmptyWorkingSetInitiate @ 0x140142200 (MiEmptyWorkingSetInitiate.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiGetCurrentMultiplexedVm @ 0x1400EF4E4 (MiGetCurrentMultiplexedVm.c)
+ *     MiCheckWsLimits @ 0x14013C2F8 (MiCheckWsLimits.c)
+ *     PsChargeProcessQuota @ 0x14013DA78 (PsChargeProcessQuota.c)
+ *     MiEmptyWorkingSetInitiate @ 0x140142220 (MiEmptyWorkingSetInitiate.c)
  */
 
 __int64 __fastcall MmAdjustWorkingSetSizeEx(

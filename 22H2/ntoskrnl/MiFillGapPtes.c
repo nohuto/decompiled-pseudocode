@@ -1,64 +1,95 @@
 /*
- * XREFs of MiFillGapPtes @ 0x140B626A0
+ * XREFs of MiFillGapPtes @ 0x1403BC7EC
  * Callers:
- *     <none>
+ *     MiFillGapAddresses @ 0x1403BC74C (MiFillGapAddresses.c)
+ *     MiFillGapPtes @ 0x1403BC7EC (MiFillGapPtes.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     MiFillGapPtes @ 0x1403BC7EC (MiFillGapPtes.c)
  */
 
-_BOOL8 __fastcall MiFillGapPtes(__int64 a1, unsigned __int64 *a2, int a3)
+char __fastcall MiFillGapPtes(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, int a5)
 {
-  __int64 v4; // rbp
-  char v6; // al
-  unsigned __int64 v7; // rcx
-  unsigned __int64 ValidPte; // rax
-  unsigned __int64 v9; // rbx
-  int v10; // ebp
-  __int64 v11; // r8
-  bool v13; // zf
+  unsigned __int64 v5; // rdi
+  unsigned __int64 v6; // r14
+  int v8; // r15d
+  struct _KTHREAD *CurrentThread; // rax
+  int v10; // esi
+  __int64 v11; // r9
+  unsigned __int64 v12; // rcx
+  unsigned __int64 ValidPte; // rbx
+  __int64 v14; // r8
+  bool v15; // zf
 
-  v4 = a3;
-  v6 = MI_READ_PTE_LOCK_FREE((unsigned __int64)a2);
-  if ( (v6 & 1) == 0 )
+  v5 = a1;
+  v6 = a2;
+  v8 = a3;
+  if ( a1 < *(_QWORD *)(a3 + 16LL * a5) )
+    v5 = *(_QWORD *)(a3 + 16LL * a5);
+  CurrentThread = *(struct _KTHREAD **)(a3 + 16LL * a5 + 8);
+  if ( a2 > (unsigned __int64)CurrentThread )
+    v6 = *(_QWORD *)(a3 + 16LL * a5 + 8);
+  if ( v5 <= v6 )
   {
-    v7 = (unsigned __int64)a2;
-    if ( (_DWORD)v4 )
-      v7 = 0LL;
-    ValidPte = MiMakeValidPte(
-                 v7,
-                 *(_QWORD *)(*(_QWORD *)(a1 + 168) + 8 * v4),
-                 (_DWORD)v4 != 0 ? -1476395004 : 536870913);
-    v9 = ValidPte;
-    if ( (MiFlags & 0x2000000) == 0 && ((unsigned __int8)(1 << v4) & (unsigned __int8)byte_140C65B8F) != 0 )
-      v9 = ValidPte & 0xFFFFFFFFFFFFFFDFuLL;
     v10 = 0;
-    if ( !MiPteInShadowRange((unsigned __int64)a2) )
-      goto LABEL_8;
-    if ( MiPteHasShadow() )
+    do
     {
-      v10 = 1;
-      if ( !HIBYTE(word_140C66DFC) )
+      LOBYTE(CurrentThread) = MI_READ_PTE_LOCK_FREE(v5);
+      if ( ((unsigned __int8)CurrentThread & 1) != 0 )
       {
-        v13 = (v9 & 1) == 0;
-        goto LABEL_19;
+        if ( a5 && (char)CurrentThread >= 0 )
+          LOBYTE(CurrentThread) = MiFillGapPtes(
+                                    (__int64)(v5 << 25) >> 16,
+                                    (unsigned int)((__int64)(v5 << 25) >> 16) + 4088,
+                                    v8,
+                                    a4,
+                                    a5 - 1);
+        goto LABEL_14;
       }
+      v12 = v5;
+      if ( a5 )
+        v12 = 0LL;
+      ValidPte = MiMakeValidPte(v12, *(_QWORD *)(a4 + 8LL * a5), a5 != 0 ? -1476395004 : 536870913, v11);
+      LODWORD(CurrentThread) = MiPteInShadowRange(v5);
+      if ( (_DWORD)CurrentThread )
+      {
+        LODWORD(CurrentThread) = MiPteHasShadow();
+        if ( (_DWORD)CurrentThread )
+        {
+          v10 = 1;
+          if ( !HIBYTE(word_140C4E008) )
+          {
+            v15 = (ValidPte & 1) == 0;
+            goto LABEL_24;
+          }
+        }
+        else
+        {
+          CurrentThread = KeGetCurrentThread();
+          if ( (HIDWORD(CurrentThread->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
+          {
+            v15 = (ValidPte & 1) == 0;
+LABEL_24:
+            if ( !v15 )
+            {
+              LOBYTE(CurrentThread) = 0;
+              ValidPte |= 0x8000000000000000uLL;
+            }
+          }
+        }
+      }
+      *(_QWORD *)v5 = ValidPte;
+      if ( v10 )
+        LOBYTE(CurrentThread) = MiWritePteShadow(v5, ValidPte, v14);
+      v10 = 0;
+LABEL_14:
+      v5 += 8LL;
     }
-    else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
-    {
-      v13 = (v9 & 1) == 0;
-LABEL_19:
-      if ( !v13 )
-        v9 |= 0x8000000000000000uLL;
-    }
-LABEL_8:
-    *a2 = v9;
-    if ( v10 )
-      MiWritePteShadow((__int64)a2, v9, v11);
-    return 0LL;
+    while ( v5 <= v6 );
   }
-  return (_DWORD)v4 && v6 < 0;
+  return (char)CurrentThread;
 }

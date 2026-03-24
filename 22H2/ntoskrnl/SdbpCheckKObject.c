@@ -1,86 +1,77 @@
 /*
- * XREFs of SdbpCheckKObject @ 0x140757368
+ * XREFs of SdbpCheckKObject @ 0x14075454C
  * Callers:
- *     SdbGetDatabaseMatchEx @ 0x1407571D0 (SdbGetDatabaseMatchEx.c)
+ *     SdbGetDatabaseMatchEx @ 0x1407591F8 (SdbGetDatabaseMatchEx.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     SdbpCheckForMatch @ 0x140756F0C (SdbpCheckForMatch.c)
- *     AslFileMappingDelete @ 0x1407574C8 (AslFileMappingDelete.c)
- *     SdbpReleaseSearchDBContext @ 0x140757528 (SdbpReleaseSearchDBContext.c)
- *     AslFileMappingCreate @ 0x14075844C (AslFileMappingCreate.c)
- *     SdbpCreateSearchDBContext @ 0x140758754 (SdbpCreateSearchDBContext.c)
- *     SdbpMatchOem @ 0x1408634B0 (SdbpMatchOem.c)
- *     SdbpMatchCpu @ 0x140863504 (SdbpMatchCpu.c)
- *     SdbpMatchBios @ 0x140863558 (SdbpMatchBios.c)
- *     SdbpMatchAcpi @ 0x1408635AC (SdbpMatchAcpi.c)
- *     SdbpIsEntryIdAvailableInOtherDb @ 0x140A5227C (SdbpIsEntryIdAvailableInOtherDb.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SdbpCheckForMatch @ 0x140753F94 (SdbpCheckForMatch.c)
+ *     SdbpReleaseSearchDBContext @ 0x1407543EC (SdbpReleaseSearchDBContext.c)
+ *     AslFileMappingDelete @ 0x140755B58 (AslFileMappingDelete.c)
+ *     AslFileMappingCreate @ 0x1407581E8 (AslFileMappingCreate.c)
+ *     SdbpCreateSearchDBContext @ 0x14075A630 (SdbpCreateSearchDBContext.c)
+ *     SdbpMatchAcpi @ 0x1407D3038 (SdbpMatchAcpi.c)
+ *     SdbpMatchOem @ 0x1407D308C (SdbpMatchOem.c)
+ *     SdbpMatchBios @ 0x1407D30E0 (SdbpMatchBios.c)
+ *     SdbpMatchCpu @ 0x1407D3134 (SdbpMatchCpu.c)
  */
 
 __int64 __fastcall SdbpCheckKObject(
         __int64 a1,
-        __int64 a2,
-        unsigned int a3,
+        unsigned int a2,
+        __int64 a3,
         __int64 a4,
         __int64 a5,
         __int64 a6,
-        __int64 a7,
-        _QWORD *a8)
+        _QWORD *a7)
 {
   unsigned int SearchDBContext; // ebx
-  PVOID v13; // rsi
-  int v14; // eax
-  _QWORD *v16; // rdi
-  __int64 v17; // rdx
-  PVOID P; // [rsp+30h] [rbp-79h] BYREF
-  _DWORD v19[40]; // [rsp+40h] [rbp-69h] BYREF
-  int v20; // [rsp+F0h] [rbp+47h] BYREF
-  int v21; // [rsp+108h] [rbp+5Fh] BYREF
+  void *v11; // rsi
+  __int64 v12; // r15
+  _QWORD *v14; // rdi
+  int v15; // eax
+  _QWORD v16[20]; // [rsp+30h] [rbp-61h] BYREF
+  int v17; // [rsp+E0h] [rbp+4Fh] BYREF
+  void *v18; // [rsp+F0h] [rbp+5Fh] BYREF
+  int v19; // [rsp+F8h] [rbp+67h] BYREF
+  int v20; // [rsp+FCh] [rbp+6Bh]
 
-  memset(v19, 0, 0x68uLL);
-  v20 = 0;
+  v20 = HIDWORD(a4);
+  memset(v16, 0, 0x68uLL);
+  v19 = 0;
   SearchDBContext = 0;
-  v21 = 0;
-  v13 = 0LL;
-  P = 0LL;
-  if ( !a4 || (v14 = AslFileMappingCreate((unsigned int)&P, a4, a5, a6, a7), v13 = P, v14 >= 0) )
+  v17 = 0;
+  v11 = 0LL;
+  v12 = *(_QWORD *)(a1 + 8);
+  v18 = 0LL;
+  if ( !a3 || (v15 = AslFileMappingCreate((unsigned int)&v18, a3, -1, a5, a6), v11 = v18, v15 >= 0) )
   {
-    v19[0] = 26;
-    SearchDBContext = SdbpCreateSearchDBContext(v19, v13);
+    memset((char *)v16 + 4, 0, 0x64uLL);
+    LODWORD(v16[0]) = 26;
+    SearchDBContext = SdbpCreateSearchDBContext(v16, v11);
     if ( SearchDBContext )
     {
-      SearchDBContext = SdbpCheckForMatch(a1, a2, a3, (__int64)v19, &v21, (__int64)&v20);
+      SearchDBContext = SdbpCheckForMatch(a1, v12, a2, (__int64)v16, &v17, (__int64)&v19);
       if ( SearchDBContext )
       {
-        v16 = a8;
-        if ( a8 )
+        v14 = a7;
+        if ( a7 )
         {
-          SearchDBContext = SdbpMatchAcpi(a2, a3, *a8);
+          SearchDBContext = SdbpMatchAcpi(v12, a2, *a7);
           if ( SearchDBContext )
           {
-            SearchDBContext = SdbpMatchOem(a2, a3, v16[1]);
+            SearchDBContext = SdbpMatchOem(v12, a2, v14[1]);
             if ( SearchDBContext )
             {
-              SearchDBContext = SdbpMatchBios(a2, a3, v16[2]);
+              SearchDBContext = SdbpMatchBios(v12, a2, v14[2]);
               if ( SearchDBContext )
-              {
-                SearchDBContext = SdbpMatchCpu(a2, a3, v16[3]);
-                if ( SearchDBContext )
-                {
-                  v17 = *(_QWORD *)(a1 + 16);
-                  if ( v17 )
-                  {
-                    if ( v17 != a2 && (unsigned int)SdbpIsEntryIdAvailableInOtherDb(a2, v17, a3) )
-                      SearchDBContext = 0;
-                  }
-                }
-              }
+                SearchDBContext = SdbpMatchCpu(v12, a2, v14[3]);
             }
           }
         }
       }
     }
   }
-  SdbpReleaseSearchDBContext(v19);
-  AslFileMappingDelete(v13);
+  SdbpReleaseSearchDBContext(v16);
+  AslFileMappingDelete(v11);
   return SearchDBContext;
 }

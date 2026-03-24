@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDrvDbSetupNodeHive @ 0x14083F118
+ * XREFs of PiDrvDbSetupNodeHive @ 0x14083F0F8
  * Callers:
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140680D80 (PiDrvDbLoadNodeWorkerCallback.c)
- *     PiDrvDbSetupNodes @ 0x14073A7E4 (PiDrvDbSetupNodes.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140680D60 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PiDrvDbSetupNodes @ 0x14073A7C4 (PiDrvDbSetupNodes.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PiDrvDbUnloadHive @ 0x140683780 (PiDrvDbUnloadHive.c)
- *     PiDrvDbLoadHive @ 0x1406837C8 (PiDrvDbLoadHive.c)
- *     ExpAllocateStringRoutine @ 0x1406B2120 (ExpAllocateStringRoutine.c)
- *     PiDrvDbOverlayNodeHive @ 0x14083DDAC (PiDrvDbOverlayNodeHive.c)
- *     PiDrvDbResolveNodeFilePaths @ 0x14083ECF8 (PiDrvDbResolveNodeFilePaths.c)
+ *     PiDrvDbUnloadHive @ 0x140683760 (PiDrvDbUnloadHive.c)
+ *     PiDrvDbLoadHive @ 0x1406837A8 (PiDrvDbLoadHive.c)
+ *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
+ *     PiDrvDbOverlayNodeHive @ 0x14083DD8C (PiDrvDbOverlayNodeHive.c)
+ *     PiDrvDbResolveNodeFilePaths @ 0x14083ECD8 (PiDrvDbResolveNodeFilePaths.c)
  */
 
 __int64 __fastcall PiDrvDbSetupNodeHive(__int64 a1, const WCHAR *a2)

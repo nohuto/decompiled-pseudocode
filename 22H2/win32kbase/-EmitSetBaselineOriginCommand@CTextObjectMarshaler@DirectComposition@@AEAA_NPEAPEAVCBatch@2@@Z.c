@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetBaselineOriginCommand@CTextObjectMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02169AC
+ * XREFs of ?EmitSetBaselineOriginCommand@CTextObjectMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D67A8
  * Callers:
- *     ?EmitUpdateCommands@CTextObjectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021C7C0 (-EmitUpdateCommands@CTextObjectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CTextObjectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB8B4 (-EmitUpdateCommands@CTextObjectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CTextObjectMarshaler::EmitSetBaselineOriginCommand(
@@ -21,8 +21,8 @@ char __fastcall DirectComposition::CTextObjectMarshaler::EmitSetBaselineOriginCo
     v3 = (char *)v5;
     *(_DWORD *)v5 = 20;
     *(_OWORD *)(v3 + 4) = 0LL;
-    *((_DWORD *)v3 + 1) = 686;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v3 + 1) = 658;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
     *(_QWORD *)(v3 + 12) = *((_QWORD *)this + 8);
     *((_DWORD *)this + 4) &= ~0x40u;
     return 1;

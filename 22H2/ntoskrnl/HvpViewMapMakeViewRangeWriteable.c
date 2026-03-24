@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpViewMapMakeViewRangeWriteable @ 0x14067F49C
+ * XREFs of HvpViewMapMakeViewRangeWriteable @ 0x1405CCD5C
  * Callers:
- *     HvpViewMapMigrateCOWData @ 0x140885494 (HvpViewMapMigrateCOWData.c)
+ *     HvpViewMapMigrateCOWData @ 0x140732D9C (HvpViewMapMigrateCOWData.c)
  * Callees:
- *     CmSiProtectViewOfSection @ 0x140296B88 (CmSiProtectViewOfSection.c)
+ *     CmSiProtectViewOfSection @ 0x140361F3C (CmSiProtectViewOfSection.c)
  */
 
 __int64 __fastcall HvpViewMapMakeViewRangeWriteable(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

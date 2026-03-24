@@ -1,20 +1,20 @@
 /*
- * XREFs of MiGetWorkingSetInfo @ 0x140362BC0
+ * XREFs of MiGetWorkingSetInfo @ 0x140546B78
  * Callers:
- *     MmQueryVirtualMemory @ 0x1406F8400 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x14061ED50 (MmQueryVirtualMemory.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     MiGetWorkingSetInfoEx @ 0x140362D5C (MiGetWorkingSetInfoEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiGetWorkingSetInfoEx @ 0x140546D20 (MiGetWorkingSetInfoEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiGetWorkingSetInfo(__int64 a1, int a2, __int64 a3, unsigned __int64 a4, _QWORD *P)
 {
   struct _MDL *Pool; // rax
-  struct _MDL *v10; // rbx
+  struct _MDL *v11; // rbx
   _QWORD *MappedSystemVa; // rsi
   int WorkingSetInfo; // edi
 
@@ -25,7 +25,7 @@ __int64 __fastcall MiGetWorkingSetInfo(__int64 a1, int a2, __int64 a3, unsigned 
                           64,
                           8 * ((a4 >> 12) + 7 - ((unsigned __int128)-(__int128)(a4 & 0xFFF) >> 64)),
                           0x20206D4Du);
-  v10 = Pool;
+  v11 = Pool;
   if ( !Pool )
     return 3221225626LL;
   Pool->Next = 0LL;
@@ -34,11 +34,11 @@ __int64 __fastcall MiGetWorkingSetInfo(__int64 a1, int a2, __int64 a3, unsigned 
   Pool->StartVa = (PVOID)(a3 & 0xFFFFFFFFFFFFF000uLL);
   Pool->ByteOffset = a3 & 0xFFF;
   Pool->ByteCount = a4;
-  MiProbeAndLockPages((__int64)Pool, KeGetCurrentThread()->PreviousMode != 0, 1);
-  if ( (v10->MdlFlags & 5) != 0 )
-    MappedSystemVa = v10->MappedSystemVa;
+  MiProbeAndLockPages((__int64)Pool, KeGetCurrentThread()->PreviousMode != 0, 1u);
+  if ( (v11->MdlFlags & 5) != 0 )
+    MappedSystemVa = v11->MappedSystemVa;
   else
-    MappedSystemVa = MmMapLockedPagesSpecifyCache(v10, 0, MmCached, 0LL, 0, 0x40000010u);
+    MappedSystemVa = MmMapLockedPagesSpecifyCache(v11, 0, MmCached, 0LL, 0, 0x40000010u);
   if ( MappedSystemVa )
   {
     WorkingSetInfo = MiGetWorkingSetInfoEx(a1 + 1664, a2 | 0x80000000, MappedSystemVa, a4);
@@ -49,7 +49,7 @@ __int64 __fastcall MiGetWorkingSetInfo(__int64 a1, int a2, __int64 a3, unsigned 
   {
     WorkingSetInfo = -1073741670;
   }
-  MmUnlockPages(v10);
-  ExFreePoolWithTag(v10, 0);
+  MmUnlockPages(v11);
+  ExFreePoolWithTag(v11, 0);
   return (unsigned int)WorkingSetInfo;
 }

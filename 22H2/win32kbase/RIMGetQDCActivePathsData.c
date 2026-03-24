@@ -1,241 +1,159 @@
 /*
- * XREFs of RIMGetQDCActivePathsData @ 0x1C0019514
+ * XREFs of RIMGetQDCActivePathsData @ 0x1C006EBA0
  * Callers:
- *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C001917C (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
- *     RIMOnDisplayStateChange @ 0x1C007298C (RIMOnDisplayStateChange.c)
- *     RIMEnableMonitorMappingForDevice @ 0x1C0177190 (RIMEnableMonitorMappingForDevice.c)
- *     RIMVirtCreatePointerDeviceInfo @ 0x1C018CC18 (RIMVirtCreatePointerDeviceInfo.c)
- *     rimInUserCritCreatePointerDeviceInfo @ 0x1C018E740 (rimInUserCritCreatePointerDeviceInfo.c)
- *     RIMFindMonitorForDigitizer @ 0x1C018F670 (RIMFindMonitorForDigitizer.c)
- *     RIMIDECreatePointerDeviceInfo @ 0x1C0194488 (RIMIDECreatePointerDeviceInfo.c)
+ *     RIMOnDisplayStateChange @ 0x1C0056ECC (RIMOnDisplayStateChange.c)
+ *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C006E540 (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
+ *     RIMEnableMonitorMappingForDevice @ 0x1C0155790 (RIMEnableMonitorMappingForDevice.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015BF5C (RIMCreatePointerDeviceInfo.c)
+ *     RIMVirtCreatePointerDeviceInfo @ 0x1C0160080 (RIMVirtCreatePointerDeviceInfo.c)
+ *     RIMFindMonitorForDigitizer @ 0x1C0164500 (RIMFindMonitorForDigitizer.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167888 (RIMIDECreatePointerDeviceInfo.c)
  * Callees:
- *     RIMFreeQDCActivePathsData @ 0x1C0019774 (RIMFreeQDCActivePathsData.c)
- *     DrvGetDisplayConfigBufferSizes @ 0x1C001F020 (DrvGetDisplayConfigBufferSizes.c)
- *     DrvQueryDisplayConfig @ 0x1C001F100 (DrvQueryDisplayConfig.c)
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     DrvGetDisplayConfigBufferSizes @ 0x1C00203A0 (DrvGetDisplayConfigBufferSizes.c)
+ *     DrvQueryDisplayConfig @ 0x1C0020490 (DrvQueryDisplayConfig.c)
+ *     Win32AllocPoolZInit @ 0x1C00298B0 (Win32AllocPoolZInit.c)
+ *     RIMFreeQDCActivePathsData @ 0x1C006E774 (RIMFreeQDCActivePathsData.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 unsigned int *__fastcall RIMGetQDCActivePathsData(unsigned int *a1)
 {
-  unsigned int *v1; // rsi
-  __int64 v3; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v4; // rdi
-  unsigned __int64 v5; // rbx
-  int v6; // eax
-  __int64 Pool2; // rbx
-  _QWORD *v8; // rax
-  __int64 v9; // r10
-  char v10; // r14
-  unsigned int v11; // edx
-  __int64 v12; // rcx
-  int v13; // eax
-  int v14; // eax
-  unsigned __int64 v15[2]; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned int v16; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v17; // [rsp+48h] [rbp-B8h] BYREF
-  PVOID BackTrace[20]; // [rsp+50h] [rbp-B0h] BYREF
-  __int128 v19; // [rsp+F0h] [rbp-10h] BYREF
-  struct _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+100h] [rbp+0h] BYREF
-  __int64 v21; // [rsp+138h] [rbp+38h]
-  int v22; // [rsp+140h] [rbp+40h]
-  const wchar_t *v23; // [rsp+148h] [rbp+48h]
-  char *v24; // [rsp+150h] [rbp+50h]
-  int v25; // [rsp+158h] [rbp+58h]
-  unsigned __int64 *v26; // [rsp+160h] [rbp+60h]
-  int v27; // [rsp+168h] [rbp+68h]
-  __int64 v28; // [rsp+170h] [rbp+70h]
-  int v29; // [rsp+178h] [rbp+78h]
-  const wchar_t *v30; // [rsp+180h] [rbp+80h]
-  char *v31; // [rsp+188h] [rbp+88h]
-  int v32; // [rsp+190h] [rbp+90h]
-  unsigned __int64 *v33; // [rsp+198h] [rbp+98h]
-  int v34; // [rsp+1A0h] [rbp+A0h]
-  __int64 v35; // [rsp+1A8h] [rbp+A8h]
-  int v36; // [rsp+1B0h] [rbp+B0h]
-  const wchar_t *v37; // [rsp+1B8h] [rbp+B8h]
-  char *v38; // [rsp+1C0h] [rbp+C0h]
-  int v39; // [rsp+1C8h] [rbp+C8h]
-  unsigned __int64 *v40; // [rsp+1D0h] [rbp+D0h]
-  int v41; // [rsp+1D8h] [rbp+D8h]
-  __int64 v42; // [rsp+1E0h] [rbp+E0h]
-  int v43; // [rsp+1E8h] [rbp+E8h]
-  __int128 v44; // [rsp+1F0h] [rbp+F0h]
-  __int128 v45; // [rsp+200h] [rbp+100h]
-  __int64 v46; // [rsp+210h] [rbp+110h]
+  __int64 v1; // rbx
+  int DisplayConfigBufferSizes; // esi
+  __int64 v4; // rax
+  void *v5; // rax
+  bool v6; // sf
+  unsigned int v8; // edx
+  __int64 v9; // rcx
+  int v10; // eax
+  int v11; // eax
+  int v12; // [rsp+30h] [rbp-D0h] BYREF
+  __int128 v13; // [rsp+38h] [rbp-C8h] BYREF
+  struct _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v15; // [rsp+88h] [rbp-78h]
+  int v16; // [rsp+90h] [rbp-70h]
+  const wchar_t *v17; // [rsp+98h] [rbp-68h]
+  char *v18; // [rsp+A0h] [rbp-60h]
+  int v19; // [rsp+A8h] [rbp-58h]
+  int *v20; // [rsp+B0h] [rbp-50h]
+  int v21; // [rsp+B8h] [rbp-48h]
+  __int64 v22; // [rsp+C0h] [rbp-40h]
+  int v23; // [rsp+C8h] [rbp-38h]
+  const wchar_t *v24; // [rsp+D0h] [rbp-30h]
+  char *v25; // [rsp+D8h] [rbp-28h]
+  int v26; // [rsp+E0h] [rbp-20h]
+  int *v27; // [rsp+E8h] [rbp-18h]
+  int v28; // [rsp+F0h] [rbp-10h]
+  __int64 v29; // [rsp+F8h] [rbp-8h]
+  int v30; // [rsp+100h] [rbp+0h]
+  const wchar_t *v31; // [rsp+108h] [rbp+8h]
+  char *v32; // [rsp+110h] [rbp+10h]
+  int v33; // [rsp+118h] [rbp+18h]
+  int *v34; // [rsp+120h] [rbp+20h]
+  int v35; // [rsp+128h] [rbp+28h]
+  __int64 v36; // [rsp+130h] [rbp+30h]
+  int v37; // [rsp+138h] [rbp+38h]
+  __int128 v38; // [rsp+140h] [rbp+40h]
+  __int128 v39; // [rsp+150h] [rbp+50h]
+  __int64 v40; // [rsp+160h] [rbp+60h]
 
+  v1 = 0LL;
   *(_OWORD *)a1 = 0LL;
-  v1 = a1;
-  if ( gProtocolType || (int)DrvGetDisplayConfigBufferSizes(18LL, a1) < 0 )
-    goto LABEL_2;
-  v3 = *v1;
-  if ( !(_DWORD)v3 )
-    return v1;
-  v4 = gpLeakTrackingAllocator;
-  v5 = 216 * v3;
-  v16 = 1836086098;
-  v6 = *(_DWORD *)gpLeakTrackingAllocator;
-  *(_QWORD *)&v19 = v5;
-  v17 = 260LL;
-  if ( !v6 )
+  if ( gProtocolType )
+    DisplayConfigBufferSizes = -1073741823;
+  else
+    DisplayConfigBufferSizes = DrvGetDisplayConfigBufferSizes(0x12u, (__int64)a1);
+  if ( DisplayConfigBufferSizes >= 0 )
   {
-    Pool2 = ExAllocatePool2(260LL, v5, 1836086098LL);
-    if ( Pool2 )
-      _InterlockedIncrement64((volatile signed __int64 *)v4 + 14);
-    goto LABEL_9;
-  }
-  if ( v6 != 1 )
-  {
-    if ( v6 == 2 )
+    v4 = *a1;
+    if ( !(_DWORD)v4 )
+      goto LABEL_9;
+    v5 = Win32AllocPoolZInit(200 * v4, 1836086098LL);
+    *((_QWORD *)a1 + 1) = v5;
+    if ( !v5 )
     {
-      v15[0] = 0LL;
-      if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 0x6D707352u, v15) )
+      DisplayConfigBufferSizes = -1073741801;
+      goto LABEL_9;
+    }
+    DisplayConfigBufferSizes = DrvQueryDisplayConfig(0x80000012, a1, (__int64)v5, 0LL);
+    if ( DisplayConfigBufferSizes >= 0 )
+    {
+      if ( *a1 )
       {
-        v15[0] = (unsigned __int64)&v17;
-        v15[1] = (unsigned __int64)&v16;
-        Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                  v4,
-                  v15,
-                  &v19);
-        goto LABEL_9;
-      }
-      v10 = 0;
-      if ( v5 < 0x1000 || (v5 & 0xFFF) != 0 )
-      {
-        v5 += 16LL;
-        v10 = 1;
-        *(_QWORD *)&v19 = v5;
-      }
-      Pool2 = ExAllocatePool2(v9, v5, 1836086098LL);
-      if ( Pool2 )
-      {
-        _InterlockedIncrement64((volatile signed __int64 *)v4 + 16);
-        NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-        if ( v10 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
+        v12 = 0;
+        QueryTable.DefaultLength = 4;
+        QueryTable.Flags = 288;
+        QueryTable.DefaultType = 67108868;
+        v16 = 288;
+        QueryTable.Name = L"ScreenPosition.Left";
+        v19 = 67108868;
+        QueryTable.EntryContext = &v13;
+        QueryTable.DefaultData = &v12;
+        v17 = L"ScreenPosition.Top";
+        v18 = (char *)&v13 + 4;
+        v20 = &v12;
+        v24 = L"ScreenPosition.Right";
+        v25 = (char *)&v13 + 8;
+        v27 = &v12;
+        v31 = L"ScreenPosition.Bottom";
+        v32 = (char *)&v13 + 12;
+        v34 = &v12;
+        v21 = 4;
+        v23 = 288;
+        v26 = 67108868;
+        v28 = 4;
+        v30 = 288;
+        v33 = 67108868;
+        v35 = 4;
+        v13 = 0LL;
+        QueryTable.QueryRoutine = 0LL;
+        v15 = 0LL;
+        v22 = 0LL;
+        v29 = 0LL;
+        v36 = 0LL;
+        v37 = 0;
+        v38 = 0LL;
+        v39 = 0LL;
+        v40 = 0LL;
+        if ( RtlQueryRegistryValues(3u, L"GRE_Initialize\\OverrideScreenLayout", &QueryTable, 0LL, 0LL) >= 0
+          && (int)v13 < SDWORD2(v13)
+          && SDWORD1(v13) < SHIDWORD(v13) )
         {
-          if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                  v4,
-                                  Pool2,
-                                  v15[0],
-                                  BackTrace) )
+          v8 = 0;
+          if ( *a1 )
           {
-            Pool2 += 16LL;
-            goto LABEL_9;
+            v9 = *((_QWORD *)a1 + 1) + 140LL;
+            do
+            {
+              if ( *(_DWORD *)(v9 - 60) == 0x80000000 && *(_DWORD *)(v9 - 84) && *(_DWORD *)(v9 - 80) )
+              {
+                *(_QWORD *)v9 = 0LL;
+                v10 = DWORD2(v13) - v13;
+                *(_DWORD *)(v9 - 52) = DWORD2(v13) - v13;
+                *(_DWORD *)(v9 - 84) = v10;
+                *(_DWORD *)(v9 + 8) = v10;
+                v11 = HIDWORD(v13) - DWORD1(v13);
+                *(_DWORD *)(v9 - 48) = HIDWORD(v13) - DWORD1(v13);
+                *(_DWORD *)(v9 - 80) = v11;
+                *(_DWORD *)(v9 + 12) = v11;
+              }
+              ++v8;
+              v9 += 200LL;
+            }
+            while ( v8 < *a1 );
           }
         }
-        else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                     v4,
-                                     Pool2,
-                                     v15[0],
-                                     BackTrace) )
-        {
-          goto LABEL_9;
-        }
-        _InterlockedIncrement64((volatile signed __int64 *)v4 + 17);
-        _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
       }
-    }
-LABEL_33:
-    Pool2 = 0LL;
-    goto LABEL_9;
-  }
-  if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x6D707352u)
-    || v5 + 16 < v5 )
-  {
-    goto LABEL_33;
-  }
-  v8 = (_QWORD *)ExAllocatePool2(v17 & 0xFFFFFFFFFFFFFFFDuLL, v5 + 16, v16);
-  Pool2 = (__int64)v8;
-  if ( !v8
-    || (_InterlockedIncrement64((volatile signed __int64 *)v4 + 14),
-        *v8 = 1836086098LL,
-        Pool2 = (__int64)(v8 + 2),
-        v8 == (_QWORD *)-16LL) )
-  {
-    NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-      *((NSInstrumentation::CPointerHashTable **)v4 + 1),
-      (const void *)0x6D707352);
-  }
 LABEL_9:
-  *((_QWORD *)v1 + 1) = Pool2;
-  if ( !Pool2 || (int)DrvQueryDisplayConfig(2147483666LL, v1, Pool2, 0LL) < 0 )
-  {
-LABEL_2:
-    RIMFreeQDCActivePathsData(v1);
-    return 0LL;
-  }
-  if ( *v1 )
-  {
-    LODWORD(v15[0]) = 0;
-    QueryTable.DefaultLength = 4;
-    QueryTable.Flags = 288;
-    QueryTable.DefaultType = 67108868;
-    v22 = 288;
-    QueryTable.Name = L"ScreenPosition.Left";
-    v25 = 67108868;
-    QueryTable.EntryContext = &v19;
-    QueryTable.DefaultData = v15;
-    v23 = L"ScreenPosition.Top";
-    v24 = (char *)&v19 + 4;
-    v26 = v15;
-    v30 = L"ScreenPosition.Right";
-    v31 = (char *)&v19 + 8;
-    v33 = v15;
-    v37 = L"ScreenPosition.Bottom";
-    v38 = (char *)&v19 + 12;
-    v40 = v15;
-    v27 = 4;
-    v29 = 288;
-    v32 = 67108868;
-    v34 = 4;
-    v36 = 288;
-    v39 = 67108868;
-    v41 = 4;
-    v19 = 0LL;
-    QueryTable.QueryRoutine = 0LL;
-    v21 = 0LL;
-    v28 = 0LL;
-    v35 = 0LL;
-    v42 = 0LL;
-    v43 = 0;
-    v44 = 0LL;
-    v45 = 0LL;
-    v46 = 0LL;
-    if ( RtlQueryRegistryValues(3u, L"GRE_Initialize\\OverrideScreenLayout", &QueryTable, 0LL, 0LL) >= 0
-      && (int)v19 < SDWORD2(v19)
-      && SDWORD1(v19) < SHIDWORD(v19) )
-    {
-      v11 = 0;
-      if ( *v1 )
-      {
-        v12 = *((_QWORD *)v1 + 1) + 140LL;
-        do
-        {
-          if ( *(_DWORD *)(v12 - 60) == 0x80000000 && *(_DWORD *)(v12 - 84) && *(_DWORD *)(v12 - 80) )
-          {
-            *(_QWORD *)v12 = 0LL;
-            v13 = DWORD2(v19) - v19;
-            *(_DWORD *)(v12 - 52) = DWORD2(v19) - v19;
-            *(_DWORD *)(v12 - 84) = v13;
-            *(_DWORD *)(v12 + 8) = v13;
-            v14 = HIDWORD(v19) - DWORD1(v19);
-            *(_DWORD *)(v12 - 48) = HIDWORD(v19) - DWORD1(v19);
-            *(_DWORD *)(v12 - 80) = v14;
-            *(_DWORD *)(v12 + 12) = v14;
-          }
-          ++v11;
-          v12 += 216LL;
-        }
-        while ( v11 < *v1 );
-      }
+      v6 = DisplayConfigBufferSizes < 0;
+      if ( DisplayConfigBufferSizes >= 0 )
+        goto LABEL_10;
     }
   }
-  return v1;
+  RIMFreeQDCActivePathsData((__int64)a1);
+  v6 = DisplayConfigBufferSizes < 0;
+LABEL_10:
+  if ( !v6 )
+    return a1;
+  return (unsigned int *)v1;
 }

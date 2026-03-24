@@ -1,11 +1,11 @@
 /*
- * XREFs of KiPrepareFlushCurrentAffinity @ 0x140293D38
+ * XREFs of KiPrepareFlushCurrentAffinity @ 0x140293E38
  * Callers:
- *     KeFlushSingleCurrentTb @ 0x140156EB8 (KeFlushSingleCurrentTb.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x140173C7C (KeFlushMultipleRangeCurrentTb.c)
- *     KeFlushCurrentTbOnly @ 0x140173DE0 (KeFlushCurrentTbOnly.c)
+ *     KeFlushSingleCurrentTb @ 0x140156ED8 (KeFlushSingleCurrentTb.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x140173C9C (KeFlushMultipleRangeCurrentTb.c)
+ *     KeFlushCurrentTbOnly @ 0x140173E00 (KeFlushCurrentTbOnly.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 unsigned __int64 __fastcall KiPrepareFlushCurrentAffinity(_DWORD *a1)

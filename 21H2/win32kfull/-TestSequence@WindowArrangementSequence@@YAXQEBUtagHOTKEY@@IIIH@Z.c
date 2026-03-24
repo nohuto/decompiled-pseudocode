@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TestSequence@WindowArrangementSequence@@YAXQEBUtagHOTKEY@@IIIH@Z @ 0x1C00F67B8
+ * XREFs of ?TestSequence@WindowArrangementSequence@@YAXQEBUtagHOTKEY@@IIIH@Z @ 0x1C01057DC
  * Callers:
- *     xxxDoHotKeyStuff @ 0x1C00F6330 (xxxDoHotKeyStuff.c)
+ *     xxxDoHotKeyStuff @ 0x1C01052A0 (xxxDoHotKeyStuff.c)
  * Callees:
- *     ?ArrangementHotKey@NotifyShell@@YAXW4ARRANGEMENT_HOTKEY_DISAMBIGUATION@@_J@Z @ 0x1C023625C (-ArrangementHotKey@NotifyShell@@YAXW4ARRANGEMENT_HOTKEY_DISAMBIGUATION@@_J@Z.c)
+ *     _anonymous_namespace_::NotifyShellSimplePayload @ 0x1C0124960 (_anonymous_namespace_--NotifyShellSimplePayload.c)
  */
 
 void __fastcall WindowArrangementSequence::TestSequence(
@@ -15,13 +15,13 @@ void __fastcall WindowArrangementSequence::TestSequence(
 {
   int v5; // eax
   bool v6; // zf
-  __int64 v7; // rcx
+  __int64 v7; // r8
 
   if ( this )
   {
-    if ( (((unsigned __int16)a2 << 16) | a4) == qword_1C0335C80 )
+    if ( (((unsigned __int16)a2 << 16) | a4) == qword_1C033AAC8 )
       return;
-    v5 = *(_QWORD *)this == gptiRit && (unsigned int)(*((_DWORD *)this + 8) - 16) <= 8;
+    v5 = *(_QWORD *)this == gptiRit && (unsigned int)(*((_DWORD *)this + 8) - 16) <= 0xD;
     if ( WindowArrangementSequence::fWindowArrangementSequenceInProgress == v5 )
       return;
     WindowArrangementSequence::fWindowArrangementSequenceInProgress = v5;
@@ -50,7 +50,7 @@ LABEL_20:
   {
     v7 = 2LL;
 LABEL_21:
-    NotifyShell::ArrangementHotKey(v7, 8LL);
+    anonymous_namespace_::NotifyShellSimplePayload(0LL, 3LL, v7);
     WindowArrangementSequence::fWindowArrangementSequenceInProgress = 0;
   }
 }

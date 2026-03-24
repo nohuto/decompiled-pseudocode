@@ -1,27 +1,25 @@
 /*
- * XREFs of ?DepartBufferedOutputPointer@CInteractionProcessor@@QEAA_NIW4InputType@@@Z @ 0x18018D208
+ * XREFs of ?DepartBufferedOutputPointer@CInteractionProcessor@@QEAA_NIW4InputType@@@Z @ 0x18022DAB8
  * Callers:
- *     ?DepartBufferedOutputPointer@CInteractionRoot@@UEAA_NI@Z @ 0x180182870 (-DepartBufferedOutputPointer@CInteractionRoot@@UEAA_NI@Z.c)
- *     ?DepartBufferedOutputPointer@CInteraction@@UEAA_NI@Z @ 0x1801F20F0 (-DepartBufferedOutputPointer@CInteraction@@UEAA_NI@Z.c)
+ *     ?DepartBufferedOutputPointer@CInteraction@@UEAA_NI@Z @ 0x1801C61F0 (-DepartBufferedOutputPointer@CInteraction@@UEAA_NI@Z.c)
+ *     ?DepartBufferedOutputPointer@CInteractionRoot@@UEAA_NI@Z @ 0x180234320 (-DepartBufferedOutputPointer@CInteractionRoot@@UEAA_NI@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D5C3C (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetInteractionContext@CInteractionProcessor@@QEBAJW4InputType@@PEAPEAUIInteractionContextWrapper@@@Z @ 0x18018D528 (-GetInteractionContext@CInteractionProcessor@@QEBAJW4InputType@@PEAPEAUIInteractionContextWrappe.c)
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C8F44 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetInteractionContext@CInteractionProcessor@@QEBAJW4InputType@@PEAPEAUIInteractionContextWrapper@@@Z @ 0x18022DBE4 (-GetInteractionContext@CInteractionProcessor@@QEBAJW4InputType@@PEAPEAUIInteractionContextWrappe.c)
  */
 
 char __fastcall CInteractionProcessor::DepartBufferedOutputPointer(__int64 a1, unsigned int a2)
 {
-  unsigned int v2; // ebx
-  char v4; // si
-  __int64 v7; // [rsp+48h] [rbp+20h] BYREF
+  char v3; // si
+  __int64 v6; // [rsp+48h] [rbp+20h] BYREF
 
-  v2 = *(_DWORD *)(a1 + 788);
-  v4 = 0;
-  v7 = 0LL;
-  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v7);
-  CInteractionProcessor::GetInteractionContext(a1, v2, &v7);
-  if ( v7 )
-    v4 = (*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v7 + 128LL))(v7, a2);
-  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v7);
-  return v4;
+  v3 = 0;
+  v6 = 0LL;
+  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v6);
+  CInteractionProcessor::GetInteractionContext(a1);
+  if ( v6 )
+    v3 = (*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v6 + 128LL))(v6, a2);
+  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v6);
+  return v3;
 }

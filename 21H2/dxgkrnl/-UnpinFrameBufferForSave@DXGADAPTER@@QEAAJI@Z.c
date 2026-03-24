@@ -1,60 +1,44 @@
 /*
- * XREFs of ?UnpinFrameBufferForSave@DXGADAPTER@@QEAAJI@Z @ 0x1C02BE84C
+ * XREFs of ?UnpinFrameBufferForSave@DXGADAPTER@@QEAAJI@Z @ 0x1C020FD64
  * Callers:
- *     DxgkUnpinFrameBufferForSaveCB @ 0x1C0054CD0 (DxgkUnpinFrameBufferForSaveCB.c)
+ *     DxgkUnpinFrameBufferForSaveCB @ 0x1C00434F0 (DxgkUnpinFrameBufferForSaveCB.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?SysMmUnreferencePhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@@Z @ 0x1C001B450 (-SysMmUnreferencePhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@@Z.c)
- *     ?SysMmClosePhysicalObject@@YAXPEAUSYSMM_ADAPTER_OBJECT@@@Z @ 0x1C002FED0 (-SysMmClosePhysicalObject@@YAXPEAUSYSMM_ADAPTER_OBJECT@@@Z.c)
- *     ?SysMmFreeAdl@@YAXPEAUSYSMM_ADAPTER_OBJECT@@PEAU_DXGK_ADL@@@Z @ 0x1C006F5C0 (-SysMmFreeAdl@@YAXPEAUSYSMM_ADAPTER_OBJECT@@PEAU_DXGK_ADL@@@Z.c)
+ *     DpiRemoveMemoryTracker @ 0x1C0057A84 (DpiRemoveMemoryTracker.c)
  */
 
-__int64 __fastcall DXGADAPTER::UnpinFrameBufferForSave(DXGADAPTER *this, unsigned int a2, int a3)
+__int64 __fastcall DXGADAPTER::UnpinFrameBufferForSave(DXGADAPTER *this, __int64 a2)
 {
-  __int64 v3; // rbx
-  __int64 v5; // rsi
-  struct _MDL *v6; // rbp
-  struct _DXGK_ADL *v7; // rdx
-  char *v8; // rbx
+  __int64 v3; // rdi
+  __int64 v4; // rax
+  __int64 v6; // rdi
+  struct _MDL *v7; // rsi
+  __int64 v8; // rax
+  char *v9; // rbx
 
-  v3 = a2;
-  if ( a2 < *((_DWORD *)this + 72) )
+  v3 = (unsigned int)a2;
+  if ( (unsigned int)a2 < *((_DWORD *)this + 70) )
   {
-    v5 = *((_QWORD *)this + 335) + 344LL * a2;
-    v6 = *(struct _MDL **)(v5 + 72);
-    if ( !v6 )
+    v6 = *((_QWORD *)this + 323) + 360LL * (unsigned int)a2;
+    v7 = *(struct _MDL **)(v6 + 72);
+    if ( !v7 )
     {
-      WdLogSingleEntry1(1LL, 11224LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pMdl != nullptr", 11224LL, 0LL, 0LL, 0LL, 0LL);
+      v8 = WdLogNewEntry5_WdAssertion(this, a2);
+      *(_QWORD *)(v8 + 24) = 10553LL;
+      WdLogEvent5_WdAssertion(v8);
     }
-    v7 = *(struct _DXGK_ADL **)(v5 + 80);
-    if ( v7 )
-      SysMmFreeAdl(*(struct SYSMM_ADAPTER_OBJECT **)(v5 + 96), v7);
-    SysMmClosePhysicalObject(*(struct SYSMM_ADAPTER_OBJECT **)(v5 + 96), (__int64)v7, a3);
-    SysMmUnreferencePhysicalObject(*(struct SYSMM_PHYSICAL_OBJECT **)(v5 + 88));
-    v8 = (char *)v6->StartVa + v6->ByteOffset;
-    MmUnlockPages(v6);
-    IoFreeMdl(v6);
-    MmUnmapViewInSystemSpace(v8);
-    *(_QWORD *)(v5 + 88) = 0LL;
-    *(_QWORD *)(v5 + 96) = 0LL;
-    *(_QWORD *)(v5 + 72) = 0LL;
-    *(_QWORD *)(v5 + 80) = 0LL;
+    DpiRemoveMemoryTracker(*((_QWORD *)this + 27), (_QWORD *)(v6 + 80));
+    v9 = (char *)v7->StartVa + v7->ByteOffset;
+    MmUnlockPages(v7);
+    IoFreeMdl(v7);
+    MmUnmapViewInSystemSpace(v9);
+    *(_QWORD *)(v6 + 72) = 0LL;
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, a2);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"UnpinFrameBufferForSave Invalid physical adapter index. Index=%u",
-      v3,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v4 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v4 + 24) = v3;
+    WdLogEvent5_WdError(v4);
     return 3221225485LL;
   }
 }

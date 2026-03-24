@@ -1,17 +1,31 @@
 /*
- * XREFs of ?Set2DScaleAndOffset@CMILMatrix@@QEAAXMMMM@Z @ 0x1800D9B40
+ * XREFs of ?Set2DScaleAndOffset@CMILMatrix@@QEAAXMMMM@Z @ 0x1802118B8
  * Callers:
- *     ?CalcImageTransform@CCompositionSurfaceBitmap@@AEAA_NAEBUD2D_SIZE_F@@PEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180006798 (-CalcImageTransform@CCompositionSurfaceBitmap@@AEAA_NAEBUD2D_SIZE_F@@PEAVCMILMatrix@@PEAV-$TMilR.c)
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18009FA80 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?SetScale@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800D9AAC (-SetScale@CMILMatrix@@QEAAXMMMMMM@Z.c)
+ *     ?CalcImageTransform@CCompositionSurfaceBitmap@@AEAA_NAEBUD2D_SIZE_F@@PEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180013BB8 (-CalcImageTransform@CCompositionSurfaceBitmap@@AEAA_NAEBUD2D_SIZE_F@@PEAVCMILMatrix@@PEAV-$TMilR.c)
  * Callees:
- *     ?Set2DAffineMatrix@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800D9B88 (-Set2DAffineMatrix@CMILMatrix@@QEAAXMMMMMM@Z.c)
+ *     <none>
  */
 
 void __fastcall CMILMatrix::Set2DScaleAndOffset(CMILMatrix *this, float a2, float a3, float a4, float a5)
 {
-  CMILMatrix::Set2DAffineMatrix(this, a2, 0.0, 0.0, a3, a4, a5);
-  *((_BYTE *)this + 64) &= 0x3Fu;
-  *((_BYTE *)this + 64) |= 0x40u;
-  *((_BYTE *)this + 65) |= 3u;
+  char v5; // al
+
+  *(float *)this = a2;
+  *((float *)this + 13) = a5;
+  *((float *)this + 12) = a4;
+  *(_QWORD *)((char *)this + 60) = 1065353216LL;
+  *((float *)this + 5) = a3;
+  *(_QWORD *)((char *)this + 4) = 0LL;
+  *(_QWORD *)((char *)this + 12) = 0LL;
+  *((_QWORD *)this + 3) = 0LL;
+  *((_QWORD *)this + 4) = 0LL;
+  *((_QWORD *)this + 5) = 1065353216LL;
+  *((_DWORD *)this + 14) = 0;
+  *((_WORD *)this + 32) = 32064;
+  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(a2 - 1.0) & _xmm) >= 0.000081380211
+    || (v5 = 84, COERCE_FLOAT(COERCE_UNSIGNED_INT(a3 - 1.0) & _xmm) >= 0.000081380211) )
+  {
+    v5 = 124;
+  }
+  *((_BYTE *)this + 64) = v5;
 }

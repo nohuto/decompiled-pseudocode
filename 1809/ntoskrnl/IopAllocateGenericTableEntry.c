@@ -1,5 +1,5 @@
 /*
- * XREFs of IopAllocateGenericTableEntry @ 0x1408193B0
+ * XREFs of IopAllocateGenericTableEntry @ 0x140819390
  * Callers:
  *     <none>
  * Callees:

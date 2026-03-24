@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UnInitialize@RimBackedDeviceBase@Rim@@UEAAXXZ @ 0x1C0227F10
+ * XREFs of ?UnInitialize@RimBackedDeviceBase@Rim@@UEAAXXZ @ 0x1C02434A0
  * Callers:
- *     ??_ERimBackedDeviceBase@Rim@@UEAAPEAXI@Z @ 0x1C0227AF0 (--_ERimBackedDeviceBase@Rim@@UEAAPEAXI@Z.c)
- *     ??1InkDevice@@UEAA@XZ @ 0x1C0243114 (--1InkDevice@@UEAA@XZ.c)
- *     ?UnInitialize@InkDevice@@UEAAXXZ @ 0x1C0244810 (-UnInitialize@InkDevice@@UEAAXXZ.c)
+ *     ??_ERimBackedDeviceBase@Rim@@UEAAPEAXI@Z @ 0x1C0243050 (--_ERimBackedDeviceBase@Rim@@UEAAPEAXI@Z.c)
+ *     ??1InkDevice@@UEAA@XZ @ 0x1C0254608 (--1InkDevice@@UEAA@XZ.c)
+ *     ?UnInitialize@InkDevice@@UEAAXXZ @ 0x1C0255E00 (-UnInitialize@InkDevice@@UEAAXXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall Rim::RimBackedDeviceBase::UnInitialize(Rim::RimBackedDeviceBase *this)

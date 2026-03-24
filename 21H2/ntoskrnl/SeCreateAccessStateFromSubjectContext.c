@@ -1,14 +1,14 @@
 /*
- * XREFs of SeCreateAccessStateFromSubjectContext @ 0x1409C6B8C
+ * XREFs of SeCreateAccessStateFromSubjectContext @ 0x14091D1CC
  * Callers:
- *     CmKeyBodyRemapToVirtualForEnum @ 0x1407CA1C0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmKeyBodyRemapToVirtual @ 0x140915DB8 (CmKeyBodyRemapToVirtual.c)
- *     CmKeyBodyReplicateToVirtual @ 0x14091607C (CmKeyBodyReplicateToVirtual.c)
- *     CmpDoBuildVirtualStack @ 0x140916918 (CmpDoBuildVirtualStack.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1406556B0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406A0A00 (CmKeyBodyReplicateToVirtual.c)
+ *     CmKeyBodyRemapToVirtual @ 0x14086F820 (CmKeyBodyRemapToVirtual.c)
+ *     CmpDoBuildVirtualStack @ 0x14086FF9C (CmpDoBuildVirtualStack.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x140347A20 (SepCreateAccessStateFromSubjectContext.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x14027C800 (SepCreateAccessStateFromSubjectContext.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
  */
 
 __int64 __fastcall SeCreateAccessStateFromSubjectContext(
@@ -29,8 +29,8 @@ __int64 __fastcall SeCreateAccessStateFromSubjectContext(
   if ( AccessStateFromSubjectContext < 0 )
   {
     if ( *(_QWORD *)a1 )
-      ObfDereferenceObject(*(PVOID *)a1);
-    ObfDereferenceObject(*(PVOID *)(a1 + 16));
+      HalPutDmaAdapter(*(PADAPTER_OBJECT *)a1);
+    HalPutDmaAdapter(*(PADAPTER_OBJECT *)(a1 + 16));
   }
   return (unsigned int)AccessStateFromSubjectContext;
 }

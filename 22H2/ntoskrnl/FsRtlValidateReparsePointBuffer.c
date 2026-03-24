@@ -1,32 +1,30 @@
 /*
- * XREFs of FsRtlValidateReparsePointBuffer @ 0x140322190
+ * XREFs of FsRtlValidateReparsePointBuffer @ 0x140309A70
  * Callers:
- *     IopValidateJunctionTarget @ 0x140946694 (IopValidateJunctionTarget.c)
+ *     IopValidateJunctionTarget @ 0x140892F34 (IopValidateJunctionTarget.c)
  * Callees:
- *     RtlUShortAdd @ 0x1403223E4 (RtlUShortAdd.c)
+ *     RtlUShortAdd @ 0x140309CBC (RtlUShortAdd.c)
  */
 
 NTSTATUS __stdcall FsRtlValidateReparsePointBuffer(ULONG BufferLength, PREPARSE_DATA_BUFFER ReparseBuffer)
 {
   signed int ReparseTag; // edx
-  unsigned int ReparseDataLength; // r11d
+  unsigned int ReparseDataLength; // r10d
   unsigned int v5; // edi
-  unsigned int v6; // r8d
-  unsigned int v7; // eax
+  unsigned int v6; // eax
   NTSTATUS result; // eax
-  USHORT v9; // cx
-  int v10; // r9d
-  unsigned int v11; // ebx
-  __int16 v12; // r9
-  __int64 v13; // r10
-  int v14; // r11d
-  USHORT SubstituteNameOffset; // si
-  __int64 v16; // r10
-  USHORT v17; // bx
-  char v18; // cl
-  __int16 v19; // r11
+  USHORT v8; // cx
+  __int64 v9; // r9
+  int v10; // r10d
+  int v11; // r11d
+  bool v12; // zf
+  USHORT SubstituteNameOffset; // bx
+  __int64 v14; // r9
+  char v15; // r9
+  __int16 v16; // r10
+  __int16 v17; // r11
   USHORT pusResult; // [rsp+40h] [rbp+20h] BYREF
-  USHORT v21; // [rsp+50h] [rbp+30h] BYREF
+  USHORT v19; // [rsp+50h] [rbp+30h] BYREF
 
   if ( BufferLength - 8 > 0x3FF8 )
     return -1073741192;
@@ -42,38 +40,25 @@ NTSTATUS __stdcall FsRtlValidateReparsePointBuffer(ULONG BufferLength, PREPARSE_
   ReparseDataLength = ReparseBuffer->ReparseDataLength;
   v5 = ReparseDataLength + 8;
   v6 = ReparseDataLength + 24;
-  if ( ReparseDataLength + 8 != BufferLength )
-  {
-    if ( v6 == BufferLength )
-    {
-      v7 = ReparseTag & 0x80000000;
-      goto LABEL_12;
-    }
+  if ( ReparseDataLength + 8 != BufferLength && v6 != BufferLength )
     return -1073741192;
-  }
-  v7 = ReparseTag & 0x80000000;
-  if ( ReparseTag >= 0 )
-    return -1073741192;
-  if ( v6 == BufferLength )
+  if ( v5 == BufferLength && ReparseTag >= 0
+    || v6 == BufferLength
+    && (ReparseTag >= 0
+     && !*(_DWORD *)&ReparseBuffer->SymbolicLinkReparseBuffer.SubstituteNameOffset
+     && !ReparseBuffer->SymbolicLinkReparseBuffer.PrintNameOffset
+     && !ReparseBuffer->SymbolicLinkReparseBuffer.PrintNameLength
+     && !*((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 8)
+     && !*((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 9)
+     && !*((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 10)
+     && !*((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 11)
+     && !*((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 12)
+     && !*((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 13)
+     && !*((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 14)
+     && !*((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 15)
+     || ReparseTag == -1610612733
+     || ReparseTag == -1610612724) )
   {
-LABEL_12:
-    if ( (v7
-       || *(_DWORD *)&ReparseBuffer->SymbolicLinkReparseBuffer.SubstituteNameOffset
-       || ReparseBuffer->SymbolicLinkReparseBuffer.PrintNameOffset
-       || ReparseBuffer->SymbolicLinkReparseBuffer.PrintNameLength
-       || *((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 8)
-       || *((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 9)
-       || *((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 10)
-       || *((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 11)
-       || *((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 12)
-       || *((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 13)
-       || *((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 14)
-       || *((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 15))
-      && ReparseTag != -1610612733
-      && ReparseTag != -1610612724 )
-    {
-      return 0;
-    }
     return -1073741192;
   }
   if ( ReparseTag == -1610612733 )
@@ -87,14 +72,17 @@ LABEL_12:
                &pusResult);
     if ( !result )
     {
-      v11 = pusResult + 12;
-      if ( v11 < v10 + 12 )
+      if ( (unsigned int)pusResult + 12 < 0xC )
         return -1073741675;
-      pusResult = v10;
-      result = RtlUShortAdd(v9, v10 + 2, &pusResult);
+      pusResult = 0;
+      result = RtlUShortAdd(v8, 2u, &pusResult);
       if ( !result )
       {
-        if ( *(_WORD *)(v13 + 8) != v12 || *(_WORD *)(v13 + 12) != pusResult || v14 != v11 )
+        if ( *(_WORD *)(v9 + 8) || *(_WORD *)(v9 + 12) != pusResult )
+          return -1073741192;
+        v12 = v10 == v11;
+LABEL_34:
+        if ( !v12 )
           return -1073741192;
         return 0;
       }
@@ -104,29 +92,29 @@ LABEL_12:
   {
     if ( ReparseTag != -1610612724 )
       return 0;
-    v21 = 0;
+    v19 = 0;
     pusResult = 0;
     if ( (unsigned __int16)ReparseDataLength < 0xCu )
       return -1073741192;
     SubstituteNameOffset = ReparseBuffer->SymbolicLinkReparseBuffer.SubstituteNameOffset;
-    result = RtlUShortAdd(SubstituteNameOffset, ReparseBuffer->SymbolicLinkReparseBuffer.SubstituteNameLength, &v21);
+    result = RtlUShortAdd(SubstituteNameOffset, ReparseBuffer->SymbolicLinkReparseBuffer.SubstituteNameLength, &v19);
     if ( !result )
     {
-      v17 = *(_WORD *)(v16 + 14);
-      result = RtlUShortAdd(*(_WORD *)(v16 + 12), v17, &pusResult);
+      result = RtlUShortAdd(*(_WORD *)(v14 + 12), *(_WORD *)(v14 + 14), &pusResult);
       if ( !result )
       {
-        if ( v5 >= (unsigned int)v21 + 20
-          && v5 >= (unsigned int)pusResult + 20
-          && v19
-          && v17
-          && (v19 & 1) == 0
-          && (v17 & 1) == 0
-          && (SubstituteNameOffset & 1) == 0 )
+        if ( v5 < (unsigned int)v19 + 20
+          || v5 < (unsigned int)pusResult + 20
+          || !v16
+          || !v17
+          || (v16 & 1) != 0
+          || (v17 & 1) != 0
+          || (SubstituteNameOffset & 1) != 0 )
         {
-          return (v18 & 1) != 0 ? 0xC0000278 : 0;
+          return -1073741192;
         }
-        return -1073741192;
+        v12 = (v15 & 1) == 0;
+        goto LABEL_34;
       }
     }
   }

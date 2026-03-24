@@ -1,96 +1,66 @@
 /*
- * XREFs of ?dumpRimDevLeaksAndCleanup@@YAHPEAU_LIST_ENTRY@@PEAD@Z @ 0x1C00C1EDC
+ * XREFs of ?dumpRimDevLeaksAndCleanup@@YAHPEAU_LIST_ENTRY@@PEAD@Z @ 0x1C0075DA8
  * Callers:
- *     RIMUnInitialize @ 0x1C00C1D30 (RIMUnInitialize.c)
+ *     RIMUnInitialize @ 0x1C0074670 (RIMUnInitialize.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00591BC (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     RIMFreeSpecificDevWorker @ 0x1C0071424 (RIMFreeSpecificDevWorker.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C00E09A2 (WPP_RECORDER_AND_TRACE_SF_s.c)
- *     ?DbgPrintGDI@@YAXPEADZZ @ 0x1C0150040 (-DbgPrintGDI@@YAXPEADZZ.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00487D0 (WPP_RECORDER_SF_q.c)
+ *     RIMFreeSpecificDevWorker @ 0x1C00BBC8C (RIMFreeSpecificDevWorker.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?DbgPrintGDI@@YAXPEADZZ @ 0x1C013AA80 (-DbgPrintGDI@@YAXPEADZZ.c)
+ *     WPP_RECORDER_SF_s @ 0x1C01525FC (WPP_RECORDER_SF_s.c)
  */
 
 __int64 __fastcall dumpRimDevLeaksAndCleanup(struct _LIST_ENTRY *a1, char *a2)
 {
-  struct _LIST_ENTRY *Flink; // rsi
-  char v5; // dl
+  __int64 *v2; // rbx
+  int v4; // edx
+  __int64 *v5; // rdi
   int v6; // edx
-  int v7; // r8d
-  struct _LIST_ENTRY *v8; // rbx
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  struct _LIST_ENTRY *Blink; // rdi
-  __int64 v12; // rbx
+  void *v7; // rsi
 
-  Flink = a1->Flink;
-  if ( a1->Flink == a1 )
+  v2 = (__int64 *)gObRimDevList;
+  if ( (__int64 *)gObRimDevList == &gObRimDevList )
     return 0LL;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (v5 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    v5 = 0;
-  }
-  if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_s(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v5,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      (_DWORD)gRimLog);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_s(
+      (_DWORD)gRimLog,
+      (_DWORD)a2,
+      1,
+      12,
+      (__int64)&WPP_d20cf136c9a4320ea9528c837bf5ce2a_Traceguids,
+      (__int64)"RIMDevObj leaks");
   DbgPrintGDI("%s\n", "RIMDevObj leaks");
   do
   {
-    v8 = Flink - 1;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (LOBYTE(v6) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+    v5 = v2 - 2;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v6) = 0;
-    }
-    if ( (_BYTE)v6 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_q(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v6,
-        v7,
+      LOBYTE(v4) = 4;
+      WPP_RECORDER_SF_q(
         (_DWORD)gRimLog,
-        4,
+        v4,
         1,
         13,
-        (__int64)&WPP_ac32a586e8cb36254fb1fb045aefff6a_Traceguids,
-        (_BYTE)Flink - 16);
+        (__int64)&WPP_d20cf136c9a4320ea9528c837bf5ce2a_Traceguids,
+        (_BYTE)v2 - 16);
     }
-    DbgPrintGDI("Leaked %p: ", &Flink[-1]);
-    Flink = Flink->Flink;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (LOBYTE(v9) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+    DbgPrintGDI("Leaked %p: ", v2 - 2);
+    v2 = (__int64 *)*v2;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v9) = 0;
+      LOBYTE(v6) = 4;
+      WPP_RECORDER_SF_((_DWORD)gRimLog, v6, 1, 14, (__int64)&WPP_d20cf136c9a4320ea9528c837bf5ce2a_Traceguids);
     }
-    LOBYTE(v10) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( (_BYTE)v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v9,
-        v10,
-        (_DWORD)gRimLog,
-        4,
-        1,
-        14,
-        (__int64)&WPP_ac32a586e8cb36254fb1fb045aefff6a_Traceguids);
-    DbgPrintGDI("Cleaning up\n", v9, v10);
-    if ( BYTE1(v8->Blink) )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 273LL);
-    Blink = v8[25].Blink;
-    v12 = (unsigned __int64)&v8[4].Blink & -(__int64)(v8 != 0LL);
-    if ( !Blink )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 281LL);
-    RIMFreeSpecificDevWorker((__int64)Blink, v12);
-    ObfDereferenceObject(Blink);
+    DbgPrintGDI("Cleaning up\n");
+    if ( *((_BYTE *)v5 + 9) )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 204LL);
+    v7 = (void *)v5[53];
+    if ( !v7 )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 212LL);
+    RIMFreeSpecificDevWorker(v7, v5 + 11);
+    ObfDereferenceObject(v7);
   }
-  while ( Flink != a1 );
+  while ( v2 != &gObRimDevList );
   return 1LL;
 }

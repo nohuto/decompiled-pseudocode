@@ -1,31 +1,32 @@
 /*
- * XREFs of USBDInternal_BuildServicePath @ 0x1C0042148
+ * XREFs of USBDInternal_BuildServicePath @ 0x1C003FC58
  * Callers:
- *     USBD_CreateHandle @ 0x1C004236C (USBD_CreateHandle.c)
+ *     USBD_CreateHandle @ 0x1C003FE80 (USBD_CreateHandle.c)
  * Callees:
- *     memmove @ 0x1C0044BC0 (memmove.c)
- *     memset @ 0x1C0044EC0 (memset.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall USBDInternal_BuildServicePath(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rbx
-  char *v4; // rsi
+  char *v4; // rdi
   signed int v5; // ebx
   const void *v6; // r14
   unsigned int v7; // ebx
   unsigned int v8; // ebp
   char *PoolWithTag; // rax
-  unsigned __int64 v10; // rdi
+  unsigned __int64 v10; // rsi
   unsigned __int64 v11; // rcx
   _WORD *v12; // rax
-  unsigned __int64 v13; // rax
-  char *v14; // rdx
+  unsigned __int64 v13; // rdx
+  char *v14; // r8
   unsigned __int64 v15; // rcx
-  __int64 v16; // r8
-  signed __int64 v17; // r9
+  __int64 v16; // r9
+  signed __int64 v17; // rdx
   __int16 v18; // ax
   char *v19; // rax
+  __int64 v20; // rcx
   __int64 result; // rax
 
   v2 = *(_QWORD *)(a1 + 8);
@@ -42,64 +43,65 @@ __int64 __fastcall USBDInternal_BuildServicePath(__int64 a1, _QWORD *a2)
       memset(PoolWithTag, 0, v7 + 24);
       memmove(v4, v6, v7);
       v10 = (unsigned __int64)(v7 + 24) >> 1;
-      if ( v10 )
+      v5 = v10 == 0 ? 0xC000000D : 0;
+      if ( !v10 )
+        goto LABEL_15;
+      v11 = v10;
+      v12 = v4;
+      do
       {
-        v11 = (unsigned __int64)(v7 + 24) >> 1;
-        v12 = v4;
+        if ( !*v12 )
+          break;
+        ++v12;
+        --v11;
+      }
+      while ( v11 );
+      v5 = v11 == 0 ? 0xC000000D : 0;
+      if ( v11 )
+        v13 = v10 - v11;
+      else
+LABEL_15:
+        v13 = 0LL;
+      if ( v5 < 0 )
+        goto LABEL_25;
+      v14 = &v4[2 * v13];
+      v15 = v10 - v13;
+      if ( v10 != v13 )
+      {
+        v16 = 2147483646LL;
+        v17 = (char *)L"\\Parameters" - v14;
         do
         {
-          if ( !*v12 )
+          if ( !v16 )
             break;
-          ++v12;
-          --v11;
+          v18 = *(_WORD *)&v14[v17];
+          if ( !v18 )
+            break;
+          *(_WORD *)v14 = v18;
+          --v16;
+          v14 += 2;
+          --v15;
         }
-        while ( v11 );
-        v5 = v11 == 0 ? 0xC000000D : 0;
-        if ( v11 )
-          v13 = v10 - v11;
-        else
-          v13 = 0LL;
-        if ( v11 )
-        {
-          v14 = &v4[2 * v13];
-          v15 = v10 - v13;
-          if ( v10 != v13 )
-          {
-            v16 = 2147483646LL;
-            v17 = (char *)L"\\Parameters" - v14;
-            do
-            {
-              if ( !v16 )
-                break;
-              v18 = *(_WORD *)&v14[v17];
-              if ( !v18 )
-                break;
-              *(_WORD *)v14 = v18;
-              --v16;
-              v14 += 2;
-              --v15;
-            }
-            while ( v15 );
-          }
-          v19 = v14 - 2;
-          if ( v15 )
-            v19 = v14;
-          v5 = v15 == 0 ? 0x80000005 : 0;
-          *(_WORD *)v19 = 0;
-        }
+        while ( v15 );
       }
-      else
-      {
-        v5 = -1073741811;
-      }
-      if ( v5 >= 0 )
+      v19 = v14 - 2;
+      if ( v15 )
+        v19 = v14;
+      v20 = -(__int64)v15;
+      v5 = v20 == 0 ? 0x80000005 : 0;
+      *(_WORD *)v19 = 0;
+      if ( v20 )
       {
         v5 = 0;
       }
       else
       {
+LABEL_25:
         if ( g_EnableDbgPrints )
           DbgPrintEx(0x4Du, 0, "RtlStringCchCatW failed with status 0x%x", v5);
+      }
+      if ( v5 < 0 )
+      {
         ExFreePoolWithTag(v4, 0x68334855u);
         v4 = 0LL;
       }

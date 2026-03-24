@@ -1,47 +1,48 @@
 /*
- * XREFs of ?IsCHSBaseFont@@YAHPEBGI@Z @ 0x1C0082708
+ * XREFs of ?IsCHSBaseFont@@YAHPEBGI@Z @ 0x1C00A3E38
  * Callers:
- *     ?bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C0081B40 (-bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_E.c)
+ *     ?bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C00A37E0 (-bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_E.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall IsCHSBaseFont(const unsigned __int16 *a1, int a2)
+_BOOL8 __fastcall IsCHSBaseFont(const unsigned __int16 *a1, int a2)
 {
-  int v4; // eax
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rax
-  const UNICODE_STRING *v9; // rbx
-  int v10; // edi
+  __int64 v2; // rax
+  __int64 v3; // r8
+  unsigned __int16 *v4; // rax
+  const UNICODE_STRING *v6; // rdi
+  int v7; // ebx
   struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
-  v4 = *(_DWORD *)(*(_QWORD *)(SGDGetSessionState(a1) + 32) + 19896LL);
-  if ( !v4 )
+  if ( !gcwcFontsDirectory )
     return 0LL;
-  v5 = (unsigned int)(v4 - 1);
-  v6 = (unsigned int)v5;
-  if ( a2 - (int)v5 < 8 )
+  v2 = gcwcFontsDirectory - 1;
+  v3 = (unsigned int)v2;
+  if ( a2 - (int)v2 < 8 )
     return 0LL;
-  v7 = *(_QWORD *)&a1[v5];
-  if ( v7 == 0x4800590053004DLL )
+  v4 = *(unsigned __int16 **)&a1[v2];
+  if ( v4 == gMSYHFontFileNamePrefix )
   {
-    v9 = &String2;
+    v6 = &gMSYHFontFileNameSuffixes;
   }
   else
   {
-    if ( v7 != 0x53004D00490053LL )
+    if ( v4 != gSimsunFontFileNamePrefix )
       return 0LL;
-    v9 = (const UNICODE_STRING *)&unk_1C0308468;
+    v6 = (const UNICODE_STRING *)&unk_1C02E00B0;
   }
   DestinationString = 0LL;
-  RtlInitUnicodeString(&DestinationString, &a1[v6 + 4]);
-  v10 = 0;
-  while ( !RtlEqualUnicodeString(&DestinationString, v9, 0) )
+  RtlInitUnicodeString(&DestinationString, &a1[v3 + 4]);
+  v7 = 0;
+  while ( !RtlEqualUnicodeString(&DestinationString, v6, 0) )
   {
-    ++v9;
-    if ( (unsigned int)++v10 >= 3 )
-      return 0LL;
+    ++v6;
+    if ( (unsigned int)++v7 >= 3 )
+    {
+      v7 = -1;
+      break;
+    }
   }
-  return 1LL;
+  return v7 >= 0;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_EFxUsbPipeRequestContext@@UEAAPEAXI@Z @ 0x1C0079590
+ * XREFs of ??_EFxUsbPipeRequestContext@@UEAAPEAXI@Z @ 0x1C006CA00
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxUsbPipeRequestContext@@UEAA@XZ @ 0x1C0079454 (--1FxUsbPipeRequestContext@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxUsbPipeRequestContext@@UEAA@XZ @ 0x1C006C8C8 (--1FxUsbPipeRequestContext@@UEAA@XZ.c)
  */
 
 FxUsbPipeRequestContext *__fastcall FxUsbPipeRequestContext::`vector deleting destructor'(

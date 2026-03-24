@@ -3,11 +3,11 @@
  * Callers:
  *     SepInitializationPhase0 @ 0x1409AD8C0 (SepInitializationPhase0.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     SepCreateLogonSessionTrack @ 0x1406AE1FC (SepCreateLogonSessionTrack.c)
- *     SepBuildDefaultCap @ 0x14075C9CC (SepBuildDefaultCap.c)
+ *     SepCreateLogonSessionTrack @ 0x1406AE1DC (SepCreateLogonSessionTrack.c)
+ *     SepBuildDefaultCap @ 0x14075C9AC (SepBuildDefaultCap.c)
  */
 
 char SepRmDbInitialization()
@@ -44,7 +44,7 @@ char SepRmDbInitialization()
     return 0;
   SepRmAuditingEnabled = 0;
   memset(SeAuditingState, 0, 0x78uLL);
-  byte_14040D8A4 = 1;
+  byte_14040D844 = 1;
   SepRmCapTableLock = 0LL;
   SepRmEnforceCap = 0;
   if ( (int)SepBuildDefaultCap() < 0 )

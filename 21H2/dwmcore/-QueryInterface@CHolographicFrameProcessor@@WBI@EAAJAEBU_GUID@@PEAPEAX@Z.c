@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@CHolographicFrameProcessor@@WBI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18010ADF0
+ * XREFs of ?QueryInterface@CHolographicFrameProcessor@@WBI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F85C0
  * Callers:
  *     <none>
  * Callees:

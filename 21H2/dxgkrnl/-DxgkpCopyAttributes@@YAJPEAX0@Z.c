@@ -1,45 +1,46 @@
 /*
- * XREFs of ?DxgkpCopyAttributes@@YAJPEAX0@Z @ 0x1C030269C
+ * XREFs of ?DxgkpCopyAttributes@@YAJPEAX0@Z @ 0x1C0262160
  * Callers:
- *     ?DxgkpCopyFile@@YAJPEBG0@Z @ 0x1C03027D4 (-DxgkpCopyFile@@YAJPEBG0@Z.c)
+ *     ?DxgkpCopyFile@@YAJPEBG0@Z @ 0x1C0262250 (-DxgkpCopyFile@@YAJPEBG0@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DxgkpCopyAttributes(void *a1, void *a2)
 {
   NTSTATUS v3; // eax
-  __int64 v4; // rdi
-  __int64 v5; // rsi
-  const wchar_t *v6; // r9
-  NTSTATUS v7; // eax
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-48h] BYREF
-  _OWORD FileInformation[2]; // [rsp+60h] [rbp-38h] BYREF
-  __int64 v11; // [rsp+80h] [rbp-18h]
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rbx
+  __int64 v7; // rax
+  NTSTATUS v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-48h] BYREF
+  _OWORD FileInformation[2]; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v14; // [rsp+60h] [rbp-18h]
 
   memset(FileInformation, 0, sizeof(FileInformation));
+  v14 = 0LL;
   IoStatusBlock = 0LL;
-  v11 = 0LL;
   v3 = ZwQueryInformationFile(a1, &IoStatusBlock, FileInformation, 0x28u, FileBasicInformation);
-  v4 = v3;
+  v6 = v3;
   if ( v3 < 0 )
   {
-    v5 = 392LL;
-    WdLogSingleEntry2(2LL, v3, 392LL);
-    v6 = L"Failed ZwQueryInformationFile for source in DxgkpCopyAttributes: 0x%I64x";
+    v7 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v7 + 32) = 386LL;
 LABEL_5:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v6, v4, v5, 0LL, 0LL, 0LL);
-    return (unsigned int)v4;
+    *(_QWORD *)(v7 + 24) = v6;
+    WdLogEvent5_WdError(v7);
+    return (unsigned int)v6;
   }
-  v7 = ZwSetInformationFile(a2, &IoStatusBlock, FileInformation, 0x28u, FileBasicInformation);
-  v4 = v7;
-  if ( v7 < 0 )
+  v8 = ZwSetInformationFile(a2, &IoStatusBlock, FileInformation, 0x28u, FileBasicInformation);
+  v6 = v8;
+  if ( v8 < 0 )
   {
-    v5 = 405LL;
-    WdLogSingleEntry2(2LL, v7, 405LL);
-    v6 = L"Failed ZwQueryInformationFile for dest in DxgkpCopyAttributes: 0x%I64x";
+    v7 = WdLogNewEntry5_WdError(v10, v9);
+    *(_QWORD *)(v7 + 32) = 399LL;
     goto LABEL_5;
   }
-  return (unsigned int)v4;
+  return (unsigned int)v6;
 }

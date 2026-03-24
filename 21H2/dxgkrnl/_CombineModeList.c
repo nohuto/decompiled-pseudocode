@@ -1,251 +1,250 @@
 /*
- * XREFs of _CombineModeList @ 0x1C02F8944
+ * XREFs of _CombineModeList @ 0x1C025E090
  * Callers:
- *     ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAPEBU_D3DKMT_DISPLAYMODE@@PEAE@Z @ 0x1C01D2768 (-DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODEL.c)
- *     ?GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z @ 0x1C01D31C8 (-GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z.c)
+ *     ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAE@Z @ 0x1C015D25C (-DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODEL.c)
+ *     ?GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z @ 0x1C015DA44 (-GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     _UpgradeDispModeFlags @ 0x1C01DE1C4 (_UpgradeDispModeFlags.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     _UpgradeDispModeFlags @ 0x1C025E4C0 (_UpgradeDispModeFlags.c)
  */
 
-__int64 __fastcall CombineModeList(unsigned int *a1, const void **a2, unsigned int a3, unsigned int *a4, char a5)
+__int64 __fastcall CombineModeList(unsigned __int64 a1, __int64 a2, unsigned int a3, __int64 a4, char a5)
 {
-  unsigned int v5; // r14d
+  __int64 v5; // rax
   unsigned int v6; // r12d
-  unsigned int *v7; // rax
+  void **v7; // r13
   unsigned int v8; // r8d
-  __int64 v11; // r9
-  unsigned int v12; // ebx
+  unsigned int *v9; // r14
+  unsigned int v10; // r9d
+  unsigned int v11; // ebx
+  unsigned int v12; // r15d
   unsigned int v13; // ebp
-  unsigned int *v14; // rdx
-  __int64 v15; // r8
-  unsigned int v16; // eax
-  unsigned int v17; // ecx
-  unsigned int v18; // r8d
-  unsigned int v19; // esi
-  unsigned int v20; // r12d
-  __int64 v21; // rdi
-  unsigned int v22; // edx
-  unsigned int v23; // ecx
-  char *v24; // rcx
-  __int64 v25; // rdx
-  _DWORD *v26; // rdi
-  char v27; // dl
+  __int64 v14; // r8
+  unsigned int v15; // eax
+  unsigned int v16; // r8d
+  unsigned int v17; // esi
+  unsigned int v18; // r12d
+  unsigned int *v19; // rdi
+  __int64 v20; // rax
+  _DWORD *v21; // rdi
   unsigned int i; // ebp
-  __int64 v29; // rsi
-  int v30; // ecx
-  unsigned __int64 v31; // rax
-  void *v32; // rsi
-  unsigned int v34; // r9d
-  _DWORD *v35; // r8
-  __int64 v36; // r10
-  char *v37; // rcx
-  __int64 v38; // rdx
-  int v39; // [rsp+50h] [rbp-58h]
-  unsigned int v40; // [rsp+54h] [rbp-54h]
-  unsigned int v41; // [rsp+58h] [rbp-50h]
-  __int64 v42; // [rsp+60h] [rbp-48h]
+  unsigned int *v23; // r15
+  _DWORD *v24; // rsi
+  _QWORD *v25; // rax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  _QWORD *v28; // rax
+  SIZE_T v29; // rax
+  __int64 v30; // rdx
+  PVOID v31; // rdi
+  __int64 v32; // r8
+  __int64 v33; // r9
+  __int64 v34; // rax
+  unsigned int v36; // r9d
+  _DWORD *v37; // r8
+  __int64 v38; // r10
+  __int64 v39; // rax
+  int v40; // [rsp+20h] [rbp-58h]
+  unsigned int v41; // [rsp+24h] [rbp-54h]
+  unsigned int v42; // [rsp+28h] [rbp-50h]
+  __int64 v43; // [rsp+30h] [rbp-48h]
 
-  v40 = -1;
-  v5 = 0;
+  v41 = -1;
+  v5 = a4;
   v6 = a3;
-  v7 = a4;
+  v7 = (void **)a2;
   v8 = -1;
-  v39 = -1;
+  v9 = (unsigned int *)a1;
+  v40 = -1;
   if ( v6 )
   {
-    v11 = *a1;
-    v12 = *a1;
-    v41 = *a1;
+    v10 = *(_DWORD *)a1;
+    v11 = *(_DWORD *)a1;
+    v42 = *(_DWORD *)a1;
     if ( a5 )
     {
+      v12 = 0;
       v13 = 0;
-      v14 = v7;
-      v15 = v6;
+      a2 = v5;
+      v14 = v6;
       do
       {
-        v16 = v5;
-        v17 = v13;
-        v5 = *v14;
-        v13 = v14[1];
-        v14 += 11;
-        if ( v5 <= v16 )
-          v5 = v16;
-        if ( v13 <= v17 )
-          v13 = v17;
-        --v15;
+        v15 = v12;
+        a1 = v13;
+        v12 = *(_DWORD *)a2;
+        v13 = *(_DWORD *)(a2 + 4);
+        a2 += 44LL;
+        if ( v12 <= v15 )
+          v12 = v15;
+        if ( v13 <= (unsigned int)a1 )
+          v13 = a1;
+        --v14;
       }
-      while ( v15 );
-      v18 = -1;
-      v19 = 0;
-      v12 = 0;
-      if ( (_DWORD)v11 )
+      while ( v14 );
+      v16 = -1;
+      v17 = 0;
+      v11 = 0;
+      if ( v10 )
       {
-        v20 = -1;
+        v18 = -1;
         do
         {
-          v21 = (__int64)*a2 + 44 * v19;
-          if ( v20 == -1 || (v22 = *(_DWORD *)v21, *(_DWORD *)v21 > v20) )
+          v19 = (unsigned int *)((char *)*v7 + 44 * v17);
+          if ( v18 == -1 || (a2 = *v19, (unsigned int)a2 > v18) )
           {
-            v20 = *(_DWORD *)v21;
-            v22 = *(_DWORD *)v21;
+            v18 = *v19;
+            a2 = *v19;
           }
-          if ( v18 == -1 || (v23 = *(_DWORD *)(v21 + 4), v23 > v18) )
+          if ( v16 == -1 || (a1 = v19[1], (unsigned int)a1 > v16) )
           {
-            v23 = *(_DWORD *)(v21 + 4);
-            v39 = v23;
+            a1 = v19[1];
+            v40 = v19[1];
           }
-          if ( (*(_DWORD *)(v21 + 40) & 0x40) != 0 || v22 <= v5 && v23 <= v13 )
+          if ( (v19[10] & 0x40) != 0 || (unsigned int)a2 <= v12 && (unsigned int)a1 <= v13 )
           {
-            if ( v19 != v12 )
+            if ( v17 != v11 )
             {
-              if ( v19 <= v12 )
+              if ( v17 <= v11 )
               {
-                WdLogSingleEntry1(1LL, 2805LL);
-                DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i > j", 2805LL, 0LL, 0LL, 0LL, 0LL);
+                v20 = WdLogNewEntry5_WdAssertion(a1, a2);
+                *(_QWORD *)(v20 + 24) = 2702LL;
+                WdLogEvent5_WdAssertion(v20);
               }
-              v24 = (char *)*a2;
-              v25 = 44LL * v12;
-              *(_OWORD *)&v24[v25] = *(_OWORD *)v21;
-              *(_OWORD *)&v24[v25 + 16] = *(_OWORD *)(v21 + 16);
-              *(_QWORD *)&v24[v25 + 32] = *(_QWORD *)(v21 + 32);
-              *(_DWORD *)&v24[v25 + 40] = *(_DWORD *)(v21 + 40);
+              a1 = (unsigned __int64)*v7;
+              a2 = 44LL * v11;
+              *(_OWORD *)(a2 + a1) = *(_OWORD *)v19;
+              *(_OWORD *)(a2 + a1 + 16) = *((_OWORD *)v19 + 1);
+              *(_QWORD *)(a2 + a1 + 32) = *((_QWORD *)v19 + 4);
+              *(_DWORD *)(a2 + a1 + 40) = v19[10];
             }
-            ++v12;
+            ++v11;
           }
-          v18 = v39;
-          ++v19;
+          v16 = v40;
+          ++v17;
         }
-        while ( v19 < *a1 );
-        v40 = v20;
+        while ( v17 < *v9 );
+        v41 = v18;
         v6 = a3;
       }
-      v8 = v39;
-      v7 = a4;
-      *a1 = v12;
+      v8 = v40;
+      v5 = a4;
+      *v9 = v11;
     }
     if ( v6 )
     {
-      v26 = v7 + 8;
-      v42 = v6;
+      v21 = (_DWORD *)(v5 + 32);
+      v43 = v6;
       do
       {
-        v27 = 0;
-        if ( (v26[2] & 0x40) != 0 || *(v26 - 8) <= v40 && *(v26 - 7) <= v8 )
+        LOBYTE(a2) = 0;
+        if ( (v21[2] & 0x40) != 0 || *(v21 - 8) <= v41 && *(v21 - 7) <= v8 )
         {
-          for ( i = 0; i < *a1; ++i )
+          for ( i = 0; i < *v9; ++i )
           {
-            v29 = (__int64)*a2 + 44 * i;
-            if ( *(v26 - 8) == *(_DWORD *)v29 && *(v26 - 7) == *(_DWORD *)(v29 + 4) )
+            v23 = v21 - 8;
+            v24 = (char *)*v7 + 44 * i;
+            if ( *(v21 - 8) == *v24
+              && v23[1] == v24[1]
+              && *(v21 - 6) == v24[2]
+              && *(v21 - 5) == v24[3]
+              && *(v21 - 1) == v24[7]
+              && *v21 == v24[8]
+              && *(v21 - 2) == v24[6]
+              && ((*((_BYTE *)v21 + 8) ^ *((_BYTE *)v24 + 40)) & 0x10) == 0 )
             {
-              v11 = (int)*(v26 - 6);
-              if ( *((_QWORD *)v26 - 3) == *(_QWORD *)(v29 + 8)
-                && *(v26 - 1) == *(_DWORD *)(v29 + 28)
-                && *v26 == *(_DWORD *)(v29 + 32)
-                && *(v26 - 2) == *(_DWORD *)(v29 + 24)
-                && ((*((_BYTE *)v26 + 8) ^ *(_BYTE *)(v29 + 40)) & 0x10) == 0 )
+              if ( *(v21 - 4) != v24[4] || *(v21 - 3) != v24[5] )
               {
-                if ( *(v26 - 4) != *(_DWORD *)(v29 + 16) || *(v26 - 3) != *(_DWORD *)(v29 + 20) )
-                {
-                  WdLogSingleEntry4(
-                    7LL,
-                    (unsigned int)*(v26 - 8),
-                    (unsigned int)*(v26 - 7),
-                    v11,
-                    (unsigned int)*(v26 - 5));
-                  WdLogSingleEntry4(
-                    7LL,
-                    (unsigned int)*(v26 - 4),
-                    (unsigned int)*(v26 - 3),
-                    *(unsigned int *)(v29 + 16),
-                    *(unsigned int *)(v29 + 20));
-                }
-                UpgradeDispModeFlags(v29, (__int64)(v26 - 8));
-                v27 = 1;
+                v25 = (_QWORD *)WdLogNewEntry5_WdDmmEvent((unsigned int)(v21[2] ^ v24[10]), a2);
+                v25[3] = *v23;
+                v25[4] = v23[1];
+                v25[5] = (int)*(v21 - 6);
+                v25[6] = (unsigned int)*(v21 - 5);
+                WdLogEvent5_WdDmmEvent(v25);
+                v28 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v27, v26);
+                v28[3] = (unsigned int)*(v21 - 4);
+                v28[4] = (unsigned int)*(v21 - 3);
+                v28[5] = (unsigned int)v24[4];
+                v28[6] = (unsigned int)v24[5];
+                WdLogEvent5_WdDmmEvent(v28);
               }
+              UpgradeDispModeFlags(v24, v21 - 8);
+              LOBYTE(a2) = 1;
             }
           }
         }
         else
         {
-          v27 = 1;
+          LOBYTE(a2) = 1;
         }
-        v8 = v39;
-        v30 = v26[2] & 0x1FF;
-        if ( !v27 )
+        v8 = v40;
+        a1 = (unsigned __int8)v21[2];
+        if ( !(_BYTE)a2 )
         {
-          ++v12;
-          v30 |= 0x200u;
+          ++v11;
+          a1 = (unsigned int)a1 | 0x100;
         }
-        v26[2] = v30;
-        v26 += 11;
-        --v42;
+        v21[2] = a1;
+        v21 += 11;
+        --v43;
       }
-      while ( v42 );
+      while ( v43 );
       v6 = a3;
     }
-    if ( v12 > v41 )
+    if ( v11 > v42 )
     {
-      v31 = 44LL * v12;
-      if ( !is_mul_ok(v12, 0x2CuLL) )
-        v31 = -1LL;
-      v32 = (void *)operator new[](v31, 0x4B677844u, 256LL, v11);
-      if ( !v32 )
+      v29 = 44LL * v11;
+      if ( !is_mul_ok(v11, 0x2CuLL) )
+        v29 = -1LL;
+      v31 = operator new[](v29, 0x4B677844u, PagedPool);
+      if ( !v31 )
       {
-        WdLogSingleEntry1(6LL, v12);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262145,
-          -1,
-          (__int64)L"Failed to allocate memory for the combined mode list for %I64d of D3DKMT_DISPLAYMODE.",
-          v12,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v34 = WdLogNewEntry5_WdLowResource(a1, v30, v32, v33);
+        *(_QWORD *)(v34 + 24) = v11;
+        WdLogEvent5_WdLowResource(v34);
         return 3221225495LL;
       }
-      if ( *a2 )
+      a2 = (__int64)*v7;
+      if ( *v7 )
       {
-        memmove(v32, *a2, 44LL * *a1);
-        operator delete[]((void *)*a2);
+        memmove(v31, (const void *)a2, 44LL * *v9);
+        operator delete[](*v7);
       }
-      *a2 = v32;
+      *v7 = v31;
     }
-    v34 = *a1;
-    if ( *a1 < v12 )
+    v36 = *v9;
+    if ( *v9 < v11 )
     {
       if ( v6 )
       {
-        v35 = a4 + 10;
-        v36 = v6;
+        v37 = (_DWORD *)(a4 + 40);
+        v38 = v6;
         do
         {
-          if ( *v35 >= 0x200u )
+          if ( *v37 >= 0x100u )
           {
-            *v35 &= 0x1FFu;
-            v37 = (char *)*a2;
-            v38 = 44LL * v34++;
-            *(_OWORD *)&v37[v38] = *(_OWORD *)(v35 - 10);
-            *(_OWORD *)&v37[v38 + 16] = *(_OWORD *)(v35 - 6);
-            *(_QWORD *)&v37[v38 + 32] = *((_QWORD *)v35 - 1);
-            *(_DWORD *)&v37[v38 + 40] = *v35;
+            *v37 = (unsigned __int8)*v37;
+            a1 = (unsigned __int64)*v7;
+            a2 = 44LL * v36++;
+            *(_OWORD *)(a2 + a1) = *(_OWORD *)(v37 - 10);
+            *(_OWORD *)(a2 + a1 + 16) = *(_OWORD *)(v37 - 6);
+            *(_QWORD *)(a2 + a1 + 32) = *((_QWORD *)v37 - 1);
+            *(_DWORD *)(a2 + a1 + 40) = *v37;
           }
-          v35 += 11;
-          --v36;
+          v37 += 11;
+          --v38;
         }
-        while ( v36 );
+        while ( v38 );
       }
-      if ( v12 != v34 )
+      if ( v11 != v36 )
       {
-        WdLogSingleEntry1(1LL, 2944LL);
-        DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"TotalModes == j", 2944LL, 0LL, 0LL, 0LL, 0LL);
+        v39 = WdLogNewEntry5_WdAssertion(a1, a2);
+        *(_QWORD *)(v39 + 24) = 2841LL;
+        WdLogEvent5_WdAssertion(v39);
       }
     }
-    *a1 = v12;
+    *v9 = v11;
   }
   return 0LL;
 }

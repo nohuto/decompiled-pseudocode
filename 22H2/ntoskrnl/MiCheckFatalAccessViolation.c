@@ -1,15 +1,14 @@
 /*
- * XREFs of MiCheckFatalAccessViolation @ 0x14036810C
+ * XREFs of MiCheckFatalAccessViolation @ 0x140318CBC
  * Callers:
- *     MiZeroFault @ 0x140232300 (MiZeroFault.c)
- *     MiUserFault @ 0x140235870 (MiUserFault.c)
- *     MiInPagePageTable @ 0x1402E4D70 (MiInPagePageTable.c)
+ *     MiUserFault @ 0x14020D730 (MiUserFault.c)
+ *     MiZeroFault @ 0x1402CF5F0 (MiZeroFault.c)
  * Callees:
- *     MiIsStoreProcess @ 0x140216DB4 (MiIsStoreProcess.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     MiIsStoreProcess @ 0x1403334C0 (MiIsStoreProcess.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiCheckFatalAccessViolation(ULONG_PTR BugCheckParameter2, __int64 a2, char a3, __int64 a4)
+__int64 __fastcall MiCheckFatalAccessViolation(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax
   ULONG_PTR v5; // r10
@@ -19,7 +18,7 @@ __int64 __fastcall MiCheckFatalAccessViolation(ULONG_PTR BugCheckParameter2, __i
   {
     if ( (*(_DWORD *)(a4 + 2172) & 0x1000) != 0 )
       KeBugCheckEx(0x1Au, 0x4477uLL, BugCheckParameter2, 0LL, 0LL);
-    result = MiIsStoreProcess(a4);
+    result = MiIsStoreProcess(a4, 0LL, a3, a4);
     if ( (_DWORD)result )
       KeBugCheckEx(0x1Au, 0x4478uLL, v5, 0LL, 0LL);
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of McTemplateK0uqqq_EtwWriteTransfer @ 0x1C0022596
+ * XREFs of McTemplateK0uqqq_EtwWriteTransfer @ 0x1C0040708
  * Callers:
- *     Isoch_TransferData_Initialize @ 0x1C0004970 (Isoch_TransferData_Initialize.c)
- *     Control_TransferData_Initialize @ 0x1C00070DC (Control_TransferData_Initialize.c)
- *     Bulk_TransferData_Initialize @ 0x1C0012934 (Bulk_TransferData_Initialize.c)
+ *     Isoch_TransferData_Initialize @ 0x1C00035F0 (Isoch_TransferData_Initialize.c)
+ *     Control_TransferData_Initialize @ 0x1C00050E4 (Control_TransferData_Initialize.c)
+ *     Bulk_TransferData_Initialize @ 0x1C000D390 (Bulk_TransferData_Initialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022398 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall McTemplateK0uqqq_EtwWriteTransfer(

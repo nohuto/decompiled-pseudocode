@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetColorSpace@CDeviceTextureTarget@@$4PPPPPPPM@BEI@EAAXW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x180120640
+ * XREFs of ?SetColorSpace@CDeviceTextureTarget@@$4PPPPPPPM@BEI@EAAXW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1800F7BB0
  * Callers:
  *     <none>
  * Callees:

@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchGetInProcessPriorityContext @ 0x1C00A74B0
+ * XREFs of VidSchGetInProcessPriorityContext @ 0x1C008B930
  * Callers:
  *     <none>
  * Callees:

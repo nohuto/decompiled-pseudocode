@@ -1,26 +1,26 @@
 /*
- * XREFs of ExpCheckForWorker @ 0x14063F394
+ * XREFs of ExpCheckForWorker @ 0x1405B6FC4
  * Callers:
- *     ExpFreePoolChecks @ 0x140216974 (ExpFreePoolChecks.c)
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
+ *     ExpFreePoolChecks @ 0x140297F0C (ExpFreePoolChecks.c)
+ *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
  * Callees:
- *     PsGetNextPartition @ 0x140236710 (PsGetNextPartition.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     PsGetNextPartition @ 0x1402ABF88 (PsGetNextPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall ExpCheckForWorker(ULONG_PTR BugCheckParameter3, __int64 a2)
 {
-  ULONG_PTR BugCheckParameter4; // r13
+  ULONG_PTR BugCheckParameter4; // r12
   void *i; // rcx
   _QWORD *result; // rax
   volatile signed __int32 *SchedulerAssist; // r9
   _QWORD *v7; // rbx
   __int64 v8; // r8
   unsigned __int16 j; // bp
-  unsigned __int16 *v10; // r12
-  __int64 v11; // r14
+  __int64 v10; // r14
+  __int64 v11; // r13
   __int64 v12; // rdx
   volatile signed __int32 *v13; // rdi
   unsigned __int8 CurrentIrql; // si
@@ -44,14 +44,14 @@ _QWORD *__fastcall ExpCheckForWorker(ULONG_PTR BugCheckParameter3, __int64 a2)
     {
       for ( j = 0; j < (unsigned __int16)KeNumberNodes; ++j )
       {
-        v10 = (unsigned __int16 *)KeNodeBlock[j];
-        v11 = 0LL;
-        if ( v10 == (unsigned __int16 *)((char *)&KiNodeInit + 280 * j) )
-          v10 = 0LL;
+        v10 = 0LL;
+        v11 = KeNodeBlock[j];
+        if ( (_UNKNOWN *)v11 == (_UNKNOWN *)((char *)&KiNodeInit + 384 * j) )
+          v11 = 0LL;
         do
         {
-          v12 = *v10;
-          v13 = *(volatile signed __int32 **)(*(_QWORD *)(*(_QWORD *)(v7[2] + 8LL) + 8 * v12) + v11);
+          v12 = *(unsigned __int16 *)(v11 + 146);
+          v13 = *(volatile signed __int32 **)(*(_QWORD *)(*(_QWORD *)(v7[2] + 8LL) + 8 * v12) + v10);
           if ( ((unsigned __int8)v13 & 1) == 0 && v13 )
           {
             CurrentIrql = KeGetCurrentIrql();
@@ -99,9 +99,9 @@ _QWORD *__fastcall ExpCheckForWorker(ULONG_PTR BugCheckParameter3, __int64 a2)
             }
             __writecr8(CurrentIrql);
           }
-          v11 += 8LL;
+          v10 += 8LL;
         }
-        while ( v11 < 64 );
+        while ( v10 < 64 );
       }
     }
   }

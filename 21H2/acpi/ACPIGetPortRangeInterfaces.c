@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIGetPortRangeInterfaces @ 0x1C0027158
+ * XREFs of ACPIGetPortRangeInterfaces @ 0x1C0026ABC
  * Callers:
- *     ACPIDispatchAddDevice @ 0x1C0026D30 (ACPIDispatchAddDevice.c)
+ *     ACPIDispatchAddDevice @ 0x1C0025260 (ACPIDispatchAddDevice.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of rimHidP_GetUsages @ 0x1C018E8EC
+ * XREFs of rimHidP_GetUsages @ 0x1C0163744
  * Callers:
- *     rimExtractButtonPageButtonUsages @ 0x1C01AF578 (rimExtractButtonPageButtonUsages.c)
- *     rimExtractDigitizerPageButtonUsages @ 0x1C01AF708 (rimExtractDigitizerPageButtonUsages.c)
- *     rimExtractPointerDeviceUsages @ 0x1C01B00C4 (rimExtractPointerDeviceUsages.c)
+ *     rimExtractButtonPageButtonUsages @ 0x1C0179F34 (rimExtractButtonPageButtonUsages.c)
+ *     rimExtractDigitizerPageButtonUsages @ 0x1C017A0F8 (rimExtractDigitizerPageButtonUsages.c)
+ *     rimExtractPointerDeviceUsages @ 0x1C017AA10 (rimExtractPointerDeviceUsages.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 int __fastcall rimHidP_GetUsages(

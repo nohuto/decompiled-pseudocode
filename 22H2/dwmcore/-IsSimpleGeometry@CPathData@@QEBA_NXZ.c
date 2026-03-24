@@ -1,39 +1,39 @@
 /*
- * XREFs of ?IsSimpleGeometry@CPathData@@QEBA_NXZ @ 0x1800167AC
+ * XREFs of ?IsSimpleGeometry@CPathData@@QEBA_NXZ @ 0x180220CD4
  * Callers:
- *     ?Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z @ 0x18001548C (-Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z.c)
- *     ?GetSimplifiedPathDataInternal@CPathSegmentsShape@@MEBAJPEAPEAVCPathData@@@Z @ 0x180015BA0 (-GetSimplifiedPathDataInternal@CPathSegmentsShape@@MEBAJPEAPEAVCPathData@@@Z.c)
- *     ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x180016324 (-GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z.c)
+ *     ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x18025E38C (-GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z.c)
+ *     ?Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z @ 0x18025EEE0 (-Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z.c)
+ *     ?GetSimplifiedPathDataInternal@CPathSegmentsShape@@MEBAJPEAPEAVCPathData@@@Z @ 0x18025F590 (-GetSimplifiedPathDataInternal@CPathSegmentsShape@@MEBAJPEAPEAVCPathData@@@Z.c)
  * Callees:
- *     ??Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ @ 0x1800D4924 (--Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ.c)
+ *     ??Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ @ 0x180220604 (--Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ.c)
  */
 
 bool __fastcall CPathData::IsSimpleGeometry(CPathData *this)
 {
   char v1; // al
-  _BYTE *v4; // rax
-  _BYTE *v5; // rbx
-  _BYTE *i; // [rsp+30h] [rbp+8h] BYREF
+  char *v3; // rax
+  char *v4; // rbx
+  char *v6; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *((_BYTE *)this + 72);
+  v1 = *((_BYTE *)this + 80);
   if ( !v1 )
   {
-    v4 = (_BYTE *)*((_QWORD *)this + 2);
-    v5 = (_BYTE *)*((_QWORD *)this + 3);
-    for ( i = v4; ; v4 = i )
+    v3 = (char *)*((_QWORD *)this + 3);
+    v4 = (char *)*((_QWORD *)this + 4);
+    v6 = v3;
+    while ( v3 != v4 )
     {
-      if ( v4 == v5 )
+      if ( (unsigned __int8)(*v3 - 3) <= 1u )
       {
-        v1 = 1;
+        v1 = -1;
         goto LABEL_8;
       }
-      if ( (unsigned __int8)(*v4 - 3) <= 1u )
-        break;
-      Path::SegmentCollection::const_iterator::operator++(&i);
+      Path::SegmentCollection::const_iterator::operator++(&v6);
+      v3 = v6;
     }
-    v1 = -1;
+    v1 = 1;
 LABEL_8:
-    *((_BYTE *)this + 72) = v1;
+    *((_BYTE *)this + 80) = v1;
   }
   return v1 == 1;
 }

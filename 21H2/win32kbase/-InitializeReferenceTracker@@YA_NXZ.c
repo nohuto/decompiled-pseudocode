@@ -1,27 +1,27 @@
 /*
- * XREFs of ?InitializeReferenceTracker@@YA_NXZ @ 0x1C0055840
+ * XREFs of ?InitializeReferenceTracker@@YA_NXZ @ 0x1C006B76C
  * Callers:
- *     HmgCreate @ 0x1C0055348 (HmgCreate.c)
+ *     HmgCreate @ 0x1C006B24C (HmgCreate.c)
  * Callees:
- *     ?Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@Z @ 0x1C017A798 (-Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@.c)
+ *     ?Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@Z @ 0x1C014DC44 (-Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@.c)
  */
 
 char InitializeReferenceTracker(void)
 {
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   NSInstrumentation::CReferenceTracker::CReferenceCountedType **v1; // rdi
   unsigned int v2; // ebx
   unsigned int v3; // eax
   struct NSInstrumentation::CReferenceTracker::CReferenceCountedType *v5; // rax
 
-  Pool2 = (_QWORD *)ExAllocatePool2(262LL, 16LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPoolSession, 0x10uLL, 0x39497355u);
+  if ( PoolWithTag )
   {
-    Pool2[1] = Pool2;
-    v1 = &qword_1C028F9B8;
-    *Pool2 = Pool2;
+    PoolWithTag[1] = PoolWithTag;
+    v1 = &qword_1C024C3F8;
+    *PoolWithTag = PoolWithTag;
     v2 = 0;
-    gpReferenceTracker = Pool2;
+    gpReferenceTracker = PoolWithTag;
     do
     {
       v3 = gReferenceTrackedTypes;

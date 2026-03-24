@@ -1,9 +1,9 @@
 /*
- * XREFs of CcGetDirtyPages @ 0x14024AC10
+ * XREFs of CcGetDirtyPages @ 0x1402F8DC0
  * Callers:
  *     <none>
  * Callees:
- *     CcForEachPartition @ 0x140363C8C (CcForEachPartition.c)
+ *     CcForEachPartition @ 0x1402F8C10 (CcForEachPartition.c)
  */
 
 LARGE_INTEGER __stdcall CcGetDirtyPages(
@@ -16,11 +16,10 @@ LARGE_INTEGER __stdcall CcGetDirtyPages(
   LARGE_INTEGER v6; // [rsp+40h] [rbp-18h]
 
   v6.QuadPart = 0LL;
-  v5[3] = Context2;
   v5[2] = Context1;
-  LOBYTE(Context1) = 1;
   v5[0] = LogHandle;
   v5[1] = DirtyPageRoutine;
-  CcForEachPartition(CcGetDirtyPagesHelper, v5, Context1);
+  v5[3] = Context2;
+  CcForEachPartition((__int64 (__fastcall *)(__int64, __int64))CcGetDirtyPagesHelper, (__int64)v5, 1);
   return v6;
 }

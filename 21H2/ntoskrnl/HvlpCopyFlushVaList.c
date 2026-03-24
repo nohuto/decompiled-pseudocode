@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpCopyFlushVaList @ 0x14039DE18
+ * XREFs of HvlpCopyFlushVaList @ 0x14039055C
  * Callers:
- *     HvlpSlowFlushListTb @ 0x14039D79C (HvlpSlowFlushListTb.c)
- *     HvlpFastFlushListTb @ 0x14039DC8C (HvlpFastFlushListTb.c)
- *     HvlpFastFlushListTbEx @ 0x14054CBD0 (HvlpFastFlushListTbEx.c)
- *     HvlpSlowFlushListTbEx @ 0x14054CFC4 (HvlpSlowFlushListTbEx.c)
+ *     HvlpFastFlushListTb @ 0x140390044 (HvlpFastFlushListTb.c)
+ *     HvlpFastFlushListTbEx @ 0x1404FAE50 (HvlpFastFlushListTbEx.c)
+ *     HvlpSlowFlushListTb @ 0x1404FB21C (HvlpSlowFlushListTb.c)
+ *     HvlpSlowFlushListTbEx @ 0x1404FB39C (HvlpSlowFlushListTbEx.c)
  * Callees:
  *     <none>
  */

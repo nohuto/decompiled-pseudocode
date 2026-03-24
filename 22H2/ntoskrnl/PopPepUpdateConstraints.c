@@ -1,84 +1,79 @@
 /*
- * XREFs of PopPepUpdateConstraints @ 0x14028D114
+ * XREFs of PopPepUpdateConstraints @ 0x14039FE6C
  * Callers:
- *     PopPepDeviceWaitWake @ 0x14028CE64 (PopPepDeviceWaitWake.c)
- *     PopPepDeviceDState @ 0x14028DA3C (PopPepDeviceDState.c)
- *     PopPluginDevicePower @ 0x140313090 (PopPluginDevicePower.c)
+ *     PopPluginDevicePower @ 0x140261158 (PopPluginDevicePower.c)
+ *     PopPepDeviceDState @ 0x14039FB20 (PopPepDeviceDState.c)
+ *     PopPepDeviceWaitWake @ 0x1405744B0 (PopPepDeviceWaitWake.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     PopPepUpdateIdleState @ 0x1403107D8 (PopPepUpdateIdleState.c)
- *     PopPepCancelActivityRange @ 0x1403136B8 (PopPepCancelActivityRange.c)
- *     PopPepCountReadyActivities @ 0x140313874 (PopPepCountReadyActivities.c)
- *     PopPepRequestWork @ 0x1403138C0 (PopPepRequestWork.c)
- *     PopPepReleaseActivityLink @ 0x140313904 (PopPepReleaseActivityLink.c)
- *     PopPepLockActivityLink @ 0x140313988 (PopPepLockActivityLink.c)
- *     PopPepPromoteActivities @ 0x140313A80 (PopPepPromoteActivities.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     PopPepCountReadyActivities @ 0x14026143C (PopPepCountReadyActivities.c)
+ *     PopPepReleaseActivityLink @ 0x140261488 (PopPepReleaseActivityLink.c)
+ *     PopPepRequestWork @ 0x1402614FC (PopPepRequestWork.c)
+ *     PopPepPromoteActivities @ 0x140261688 (PopPepPromoteActivities.c)
+ *     PopPepUpdateIdleState @ 0x140261D98 (PopPepUpdateIdleState.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     PopPepCancelActivityRange @ 0x140381B90 (PopPepCancelActivityRange.c)
  */
 
-NTSTATUS __fastcall PopPepUpdateConstraints(__int64 a1, int a2, char a3)
+int __fastcall PopPepUpdateConstraints(__int64 a1, int a2, char a3)
 {
-  __int64 v3; // r12
-  char v6; // r13
-  unsigned int v7; // esi
-  __int64 v8; // r8
+  __int64 v4; // r12
+  KIRQL v6; // al
+  unsigned __int8 v7; // r13
+  unsigned int v8; // esi
   __int64 v9; // rdi
   unsigned int ready; // eax
-  __int64 v11; // r9
-  __int64 v12; // r8
-  NTSTATUS result; // eax
+  int result; // eax
   unsigned int j; // edi
-  __int64 v15; // rcx
-  __int64 v16; // rax
-  unsigned int i; // [rsp+70h] [rbp+8h]
-  char v18; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  unsigned int i; // [rsp+70h] [rbp+18h]
 
-  v3 = a2;
-  v18 = 0;
-  v6 = PopPepLockActivityLink(a1, 0LL, 4LL, 1LL, &v18);
-  v7 = 0;
-  for ( i = PopPepCountReadyActivities(a1, 0LL, 3LL); v7 < *(_DWORD *)(a1 + 180); ++v7 )
+  v4 = a2;
+  v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 64));
+  *(_BYTE *)(a1 + 125) = 1;
+  v7 = v6;
+  v8 = 0;
+  for ( i = PopPepCountReadyActivities((unsigned int *)a1, 0LL, 3); v8 < *(_DWORD *)(a1 + 180); ++v8 )
   {
-    v9 = 208LL * v7 + a1 + 192;
+    v9 = 200LL * v8 + a1 + 184;
     if ( (*(_BYTE *)(v9 + 16) & 1) != 0 )
     {
       if ( a3 )
       {
-        *(_DWORD *)(v9 + 4 * v3 + 152) = *(_DWORD *)(v9 + 188) - 1;
+        *(_DWORD *)(v9 + 4 * v4 + 152) = *(_DWORD *)(v9 + 188) - 1;
       }
       else
       {
-        PopPepCancelActivityRange(v9 + 56, 1, 1, 1, v9 + 104);
-        *(_DWORD *)(v9 + 4 * v3 + 152) = 0;
+        PopPepCancelActivityRange(v9 + 56, 1, 1, 1, (volatile signed __int32 *)(v9 + 104));
+        *(_DWORD *)(v9 + 4 * v4 + 152) = 0;
         KeResetEvent((PRKEVENT)(v9 + 32));
       }
-      LOBYTE(v8) = a3;
-      PopPepUpdateIdleState(a1, v9, v8);
+      PopPepUpdateIdleState(a1, v9, a3);
+      v14 = *(_QWORD *)(v9 + 64);
       if ( !a3 )
       {
-        v16 = *(_QWORD *)(v9 + 64);
-        if ( *(_DWORD *)v16 )
-          *(_BYTE *)(v16 + 16) = 1;
+        if ( *(_DWORD *)v14 )
+          *(_BYTE *)(v14 + 16) = 1;
         else
           KeSetEvent((PRKEVENT)(v9 + 32), 0, 0);
       }
     }
   }
-  PopPepPromoteActivities(a1, 0LL, 3LL);
-  ready = PopPepCountReadyActivities(a1, 0LL, 3LL);
-  PopPepRequestWork(a1, i, ready);
-  LOBYTE(v11) = v18;
-  LOBYTE(v12) = v6;
-  result = PopPepReleaseActivityLink(a1, 0LL, v12, v11);
+  PopPepPromoteActivities(a1, 0LL, 3);
+  ready = PopPepCountReadyActivities((unsigned int *)a1, 0LL, 3);
+  PopPepRequestWork(i, ready);
+  result = PopPepReleaseActivityLink(a1, 0LL, 1, v7);
   if ( !a3 )
   {
     for ( j = 0; j < *(_DWORD *)(a1 + 180); ++j )
     {
       result = j;
-      v15 = 208LL * j;
-      if ( (*(_BYTE *)(v15 + a1 + 208) & 1) != 0 )
-        result = KeWaitForSingleObject((PVOID)(a1 + v15 + 224), Executive, 0, 0, 0LL);
+      v13 = a1 + 200LL * j;
+      if ( (*(_BYTE *)(v13 + 200) & 1) != 0 )
+        result = KeWaitForSingleObject((PVOID)(v13 + 216), Executive, 0, 0, 0LL);
     }
   }
   return result;

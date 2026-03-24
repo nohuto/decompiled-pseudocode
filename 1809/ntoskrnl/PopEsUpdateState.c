@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEsUpdateState @ 0x14071C9D4
+ * XREFs of PopEsUpdateState @ 0x14071C9B4
  * Callers:
- *     PopEsWorker @ 0x14071C8A0 (PopEsWorker.c)
+ *     PopEsWorker @ 0x14071C880 (PopEsWorker.c)
  * Callees:
- *     PopDiagTraceEsState @ 0x1402E03C8 (PopDiagTraceEsState.c)
+ *     PopDiagTraceEsState @ 0x1402E04C8 (PopDiagTraceEsState.c)
  *     PopCurrentPowerState @ 0x14058DED4 (PopCurrentPowerState.c)
- *     PopEsSnapTelemetry @ 0x1406E19D0 (PopEsSnapTelemetry.c)
- *     PopEsPublishState @ 0x140762CA4 (PopEsPublishState.c)
+ *     PopEsSnapTelemetry @ 0x1406E19B0 (PopEsSnapTelemetry.c)
+ *     PopEsPublishState @ 0x140762C84 (PopEsPublishState.c)
  */
 
 char __fastcall PopEsUpdateState(char a1)
@@ -29,14 +29,14 @@ LABEL_19:
   }
   if ( PopEsMode == 2 )
   {
-    if ( dword_140418150 )
+    if ( dword_140418110 )
     {
       if ( BYTE1(v6[0]) )
       {
         if ( DWORD2(v6[0]) )
         {
           v2 = (unsigned int)(DWORD2(v6[0]) + 100 * HIDWORD(v6[0]) - 1) / DWORD2(v6[0]);
-          if ( v2 <= dword_140418150 )
+          if ( v2 <= dword_140418110 )
           {
             v4 = 2;
             goto LABEL_19;
@@ -45,7 +45,7 @@ LABEL_19:
       }
     }
   }
-  if ( byte_140418154 && dword_140418150 && PopEsBgActivityLimited )
+  if ( byte_140418114 && dword_140418110 && PopEsBgActivityLimited )
   {
     v4 = 8;
     goto LABEL_19;

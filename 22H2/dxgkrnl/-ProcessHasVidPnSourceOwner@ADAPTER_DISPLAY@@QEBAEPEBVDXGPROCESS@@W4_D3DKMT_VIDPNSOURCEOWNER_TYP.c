@@ -1,40 +1,43 @@
 /*
- * XREFs of ?ProcessHasVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGPROCESS@@W4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@W4DXGDEVICECLIENT_TYPE@@@Z @ 0x1C02BE8E8
+ * XREFs of ?ProcessHasVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGPROCESS@@W4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@W4DXGDEVICECLIENT_TYPE@@@Z @ 0x1C0214600
  * Callers:
- *     ?AllowLegacyPresent@DXGDEVICE@@QEBAEI@Z @ 0x1C033B2DC (-AllowLegacyPresent@DXGDEVICE@@QEBAEI@Z.c)
+ *     ?AllowLegacyPresent@DXGDEVICE@@QEBAEI@Z @ 0x1C027EDA8 (-AllowLegacyPresent@DXGDEVICE@@QEBAEI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
 char __fastcall ADAPTER_DISPLAY::ProcessHasVidPnSourceOwner(__int64 a1, __int64 a2)
 {
-  unsigned int v4; // edx
-  unsigned int v5; // ecx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  __int64 v8; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  unsigned int v7; // edx
+  unsigned int v8; // ecx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // rax
 
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(a1 + 16)) )
   {
-    WdLogSingleEntry1(1LL, 8161LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 8161LL, 0LL, 0LL, 0LL, 0LL);
+    v6 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v6 + 24) = 7877LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  v4 = *(_DWORD *)(a1 + 96);
-  v5 = 0;
-  if ( !v4 )
+  v7 = *(_DWORD *)(a1 + 80);
+  v8 = 0;
+  if ( !v7 )
     return 0;
-  v6 = *(_QWORD *)(a1 + 128);
+  v9 = *(_QWORD *)(a1 + 112);
   while ( 1 )
   {
-    v7 = 4000LL * v5;
-    v8 = *(_QWORD *)(v7 + v6 + 728);
-    if ( v8 )
+    v10 = 3968LL * v8;
+    v11 = *(_QWORD *)(v10 + v9 + 688);
+    if ( v11 )
     {
-      if ( a2 == *(_QWORD *)(v8 + 40) && !*(_DWORD *)(v8 + 464) && *(_DWORD *)(v7 + v6 + 736) == 3 )
+      if ( a2 == *(_QWORD *)(v11 + 40) && !*(_DWORD *)(v11 + 432) && *(_DWORD *)(v10 + v9 + 696) == 3 )
         break;
     }
-    if ( ++v5 >= v4 )
+    if ( ++v8 >= v7 )
       return 0;
   }
   return 1;

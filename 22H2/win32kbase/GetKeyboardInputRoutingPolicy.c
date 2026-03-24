@@ -1,9 +1,9 @@
 /*
- * XREFs of GetKeyboardInputRoutingPolicy @ 0x1C006A7B0
+ * XREFs of GetKeyboardInputRoutingPolicy @ 0x1C004CFB0
  * Callers:
  *     <none>
  * Callees:
- *     _anonymous_namespace_::GetKeyboardProcessor @ 0x1C006B304 (_anonymous_namespace_--GetKeyboardProcessor.c)
+ *     _anonymous_namespace_::GetKeyboardProcessor @ 0x1C004DC74 (_anonymous_namespace_--GetKeyboardProcessor.c)
  */
 
 __int64 GetKeyboardInputRoutingPolicy()

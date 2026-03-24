@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpiCmResourceToBiosAddressDouble @ 0x1C0093008
+ * XREFs of PnpiCmResourceToBiosAddressDouble @ 0x1C00B4B34
  * Callers:
- *     PnpCmResourcesToBiosResources @ 0x1C0092830 (PnpCmResourcesToBiosResources.c)
+ *     PnpCmResourcesToBiosResources @ 0x1C0090950 (PnpCmResourcesToBiosResources.c)
  * Callees:
  *     <none>
  */
@@ -11,15 +11,16 @@ __int64 __fastcall PnpiCmResourceToBiosAddressDouble(__int64 a1, __int64 a2)
   int v3; // ecx
   int v4; // ecx
   char v6; // al
-  unsigned int v7; // r9d
+  unsigned int v7; // r10d
   int v8; // ecx
   unsigned __int8 *i; // rdx
-  int v10; // r10d
+  int v10; // r9d
   int v11; // ecx
   int v12; // eax
-  char v13; // al
-  __int16 v14; // cx
-  int v15; // ecx
+  __int16 v13; // cx
+  __int16 v14; // ax
+  char v15; // al
+  int v16; // ecx
 
   v3 = *(unsigned __int8 *)(a1 + 3);
   if ( v3 )
@@ -70,32 +71,33 @@ LABEL_25:
         *(_DWORD *)(a1 + 22) = v12;
         goto LABEL_26;
       }
+LABEL_24:
+      v16 = *((_DWORD *)i + 1);
+      *(_DWORD *)(a1 + 10) = v16;
+      *(_DWORD *)(a1 + 14) = *((_DWORD *)i + 3) - 1 + v16;
+      v12 = *((_DWORD *)i + 3);
+      goto LABEL_25;
+    }
+    *(_BYTE *)(a1 + 5) = 0;
+    v13 = *((_WORD *)i + 1) & 3;
+    *(_BYTE *)(a1 + 5) = v13 == 0;
+    v14 = *((_WORD *)i + 1);
+    if ( (v14 & 0x20) != 0 )
+    {
+      v15 = 3 - (v13 != 0);
+    }
+    else if ( (v14 & 8) != 0 )
+    {
+      v15 = 5 - (v13 != 0);
     }
     else
     {
-      *(_BYTE *)(a1 + 5) = 0;
-      v13 = (i[2] & 3) == 0;
-      *(_BYTE *)(a1 + 5) = v13;
-      v14 = *((_WORD *)i + 1);
-      if ( (v14 & 0x20) != 0 )
-      {
-        v13 |= 2u;
-      }
-      else if ( (v14 & 8) != 0 )
-      {
-        v13 |= 4u;
-      }
-      else if ( (v14 & 4) != 0 )
-      {
-        v13 |= 6u;
-      }
-      *(_BYTE *)(a1 + 5) = v13;
+      if ( (v14 & 4) == 0 )
+        goto LABEL_24;
+      v15 = 7 - (v13 != 0);
     }
-    v15 = *((_DWORD *)i + 1);
-    *(_DWORD *)(a1 + 10) = v15;
-    *(_DWORD *)(a1 + 14) = *((_DWORD *)i + 3) - 1 + v15;
-    v12 = *((_DWORD *)i + 3);
-    goto LABEL_25;
+    *(_BYTE *)(a1 + 5) = v15;
+    goto LABEL_24;
   }
   return 0LL;
 }

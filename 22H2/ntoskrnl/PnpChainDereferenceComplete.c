@@ -1,16 +1,15 @@
 /*
- * XREFs of PnpChainDereferenceComplete @ 0x140881878
+ * XREFs of PnpChainDereferenceComplete @ 0x14074C614
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x140305300 (IopCompleteUnloadOrDelete.c)
- *     PnpIsChainDereferenced @ 0x1403D3C80 (PnpIsChainDereferenced.c)
+ *     IopCompleteUnloadOrDelete @ 0x140360440 (IopCompleteUnloadOrDelete.c)
+ *     PnpIsChainDereferenced @ 0x140370E28 (PnpIsChainDereferenced.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     IopSetRelationsTag @ 0x140881B08 (IopSetRelationsTag.c)
- *     PnpDelayedRemoveWorker @ 0x140881B60 (PnpDelayedRemoveWorker.c)
- *     PnpDelayedRemoveWorkerContextCreate @ 0x140959044 (PnpDelayedRemoveWorkerContextCreate.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     IopSetRelationsTag @ 0x140749870 (IopSetRelationsTag.c)
+ *     PnpDelayedRemoveWorker @ 0x14074CB70 (PnpDelayedRemoveWorker.c)
  */
 
 void __fastcall PnpChainDereferenceComplete(__int64 a1, int a2)
@@ -23,7 +22,6 @@ void __fastcall PnpChainDereferenceComplete(__int64 a1, int a2)
   int v9; // r8d
   __int64 v10; // rcx
   bool v11; // zf
-  void *v12; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -31,15 +29,15 @@ void __fastcall PnpChainDereferenceComplete(__int64 a1, int a2)
   for ( i = (PVOID *)IopPendingSurpriseRemovals; ; i = (PVOID *)*i )
   {
     if ( i == &IopPendingSurpriseRemovals )
-      goto LABEL_16;
-    if ( !*((_BYTE *)i + 104) && (int)IopSetRelationsTag(i[8], a1) >= 0 )
+      goto LABEL_14;
+    if ( !*((_BYTE *)i + 104) && (int)IopSetRelationsTag((__int64 *)i[8], a1) >= 0 )
     {
       v6 = *(int **)i[8];
       v7 = i[7];
       v8 = v6[2];
       v9 = *v6;
       v10 = v7 ? *(_QWORD *)(v7[39] + 40LL) : 0LL;
-      if ( *(_DWORD *)(v10 + 300) != 784 && v8 == v9 )
+      if ( v8 == v9 && *(_DWORD *)(v10 + 300) != 782 )
         break;
     }
   }
@@ -47,24 +45,23 @@ void __fastcall PnpChainDereferenceComplete(__int64 a1, int a2)
   *((_BYTE *)i + 104) = 1;
   if ( !v11 )
   {
-LABEL_16:
+LABEL_14:
     ExReleaseResourceLite(&IopSurpriseRemoveListLock);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return;
   }
   PnpDelayedRemovePending = 1;
   ExReleaseResourceLite(&IopSurpriseRemoveListLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( a2 && KeGetCurrentThread()->ApcState.Process == PsInitialSystemProcess )
   {
     PnpDelayedRemoveWorker(0LL);
   }
   else
   {
-    v12 = (void *)PnpDelayedRemoveWorkerContextCreate(i);
+    PnpDelayedRemoveWorkItem.Parameter = 0LL;
     PnpDelayedRemoveWorkItem.List.Flink = 0LL;
     PnpDelayedRemoveWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PnpDelayedRemoveWorker;
-    PnpDelayedRemoveWorkItem.Parameter = v12;
     ExQueueWorkItem(&PnpDelayedRemoveWorkItem, DelayedWorkQueue);
   }
 }

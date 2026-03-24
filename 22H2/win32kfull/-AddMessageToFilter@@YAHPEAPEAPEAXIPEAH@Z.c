@@ -1,59 +1,76 @@
 /*
- * XREFs of ?AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C004FAD4
+ * XREFs of ?AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C003FB84
  * Callers:
- *     _ChangeWindowMessageFilter @ 0x1C004F62C (_ChangeWindowMessageFilter.c)
- *     _ChangeWindowMessageFilterEx @ 0x1C004F868 (_ChangeWindowMessageFilterEx.c)
+ *     _ChangeWindowMessageFilterEx @ 0x1C003F388 (_ChangeWindowMessageFilterEx.c)
+ *     _ChangeWindowMessageFilter @ 0x1C003F520 (_ChangeWindowMessageFilter.c)
  * Callees:
- *     ?MsgLookupTableAlloc@@YAPEAXI@Z @ 0x1C004FC00 (-MsgLookupTableAlloc@@YAPEAXI@Z.c)
+ *     ?MsgLookupTableAlloc@@YAPEAXI@Z @ 0x1C003FCAC (-MsgLookupTableAlloc@@YAPEAXI@Z.c)
  */
 
 __int64 __fastcall AddMessageToFilter(void ***a1, unsigned int a2, int *a3)
 {
-  void **v3; // rdi
-  unsigned int v4; // ebx
-  unsigned __int64 v5; // r15
+  void **v3; // rbx
+  unsigned int v4; // edi
+  unsigned __int64 v5; // rsi
   _BYTE *v7; // rbp
-  _QWORD *v8; // rsi
-  __int64 v9; // r9
-  int v10; // r8d
-  int v11; // r13d
-  __int64 v12; // rax
+  unsigned __int64 v8; // r13
+  unsigned __int64 v9; // r14
+  _QWORD *v10; // rsi
+  __int64 v11; // r15
+  __int64 v12; // r13
+  int v13; // r8d
+  int v14; // eax
+  char v16; // [rsp+68h] [rbp+10h]
 
+  v16 = a2;
   v3 = *a1;
   v4 = 0;
   v5 = a2;
   v7 = 0LL;
-  if ( *a1 || (v3 = (void **)MsgLookupTableAlloc(0)) != 0LL )
+  if ( !*a1 )
   {
-    v8 = v3[v5 >> 13];
-    if ( v8 || (v8 = MsgLookupTableAlloc(1u)) != 0LL )
-    {
-      v7 = (_BYTE *)v8[(v5 >> 9) & 0xF];
-      if ( v7 || (v7 = MsgLookupTableAlloc(2u)) != 0LL )
-      {
-        v9 = (v5 >> 3) & 0x3F;
-        v10 = (unsigned __int8)v7[v9];
-        v11 = v10 & (1 << (v5 & 7));
-        if ( !v11 )
-          v7[v9] = v10 | (1 << (v5 & 7));
-        if ( a3 )
-          *a3 = v11;
-        v12 = (v5 >> 9) & 0xF;
-        if ( v7 != (_BYTE *)v8[v12] )
-          v8[v12] = v7;
-        if ( v8 != v3[v5 >> 13] )
-          v3[v5 >> 13] = v8;
-        if ( v3 != *a1 )
-          *a1 = v3;
-        goto LABEL_17;
-      }
-    }
-    if ( v8 && v8 != v3[v5 >> 13] )
-      Win32FreePool(v8);
+    v3 = (void **)MsgLookupTableAlloc(0);
+    if ( !v3 )
+      goto LABEL_14;
   }
-  if ( v3 && v3 != *a1 )
-    Win32FreePool(v3);
-LABEL_17:
+  v8 = v5;
+  v9 = v5 >> 13;
+  v10 = v3[v5 >> 13];
+  if ( !v10 )
+  {
+    v10 = MsgLookupTableAlloc(1u);
+    if ( !v10 )
+      goto LABEL_23;
+  }
+  v11 = (v8 >> 9) & 0xF;
+  v7 = (_BYTE *)v10[v11];
+  if ( !v7 )
+  {
+    v7 = MsgLookupTableAlloc(2u);
+    if ( !v7 )
+    {
+      if ( v10 != v3[v9] )
+        Win32FreePool(v10);
+LABEL_23:
+      if ( v3 && v3 != *a1 )
+        Win32FreePool(v3);
+      goto LABEL_14;
+    }
+  }
+  v12 = (v8 >> 3) & 0x3F;
+  v13 = (unsigned __int8)v7[v12];
+  v14 = v13 & (1 << (v16 & 7));
+  if ( !v14 )
+    v7[v12] = v13 | (1 << (v16 & 7));
+  if ( a3 )
+    *a3 = v14;
+  if ( v7 != (_BYTE *)v10[v11] )
+    v10[v11] = v7;
+  if ( v10 != v3[v9] )
+    v3[v9] = v10;
+  if ( v3 != *a1 )
+    *a1 = v3;
+LABEL_14:
   LOBYTE(v4) = v7 != 0LL;
   return v4;
 }

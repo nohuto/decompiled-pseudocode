@@ -1,11 +1,11 @@
 /*
- * XREFs of xxxValidateRect @ 0x1C0115F9C
+ * XREFs of xxxValidateRect @ 0x1C0124518
  * Callers:
- *     xxxMoveWindow @ 0x1C00FA07C (xxxMoveWindow.c)
- *     NtUserValidateRect @ 0x1C0115EA0 (NtUserValidateRect.c)
- *     xxxMenuWindowProc @ 0x1C0234200 (xxxMenuWindowProc.c)
+ *     xxxMoveWindow @ 0x1C010D7AC (xxxMoveWindow.c)
+ *     NtUserValidateRect @ 0x1C01243E0 (NtUserValidateRect.c)
+ *     xxxMenuWindowProc @ 0x1C023BBA0 (xxxMenuWindowProc.c)
  * Callees:
- *     xxxRedrawWindow @ 0x1C004A1EC (xxxRedrawWindow.c)
+ *     xxxRedrawWindow @ 0x1C0072354 (xxxRedrawWindow.c)
  */
 
 __int64 __fastcall xxxValidateRect(struct tagWND *a1, int *a2)

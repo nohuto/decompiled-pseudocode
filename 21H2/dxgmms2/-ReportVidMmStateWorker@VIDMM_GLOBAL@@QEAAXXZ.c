@@ -1,19 +1,19 @@
 /*
- * XREFs of ?ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00D9688
+ * XREFs of ?ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B3368
  * Callers:
- *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C00880D0 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
+ *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C0065C20 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
  * Callees:
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000209C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000242C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00024A4 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0014F50 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?ReportProcessAdapterBudget@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_PROCESS_ADAPTER_INFO@@@Z @ 0x1C009D530 (-ReportProcessAdapterBudget@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_PROCESS_ADAPTER_INFO@@@Z.c)
- *     ?ReportSegment@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00B0D90 (-ReportSegment@VIDMM_SEGMENT@@QEAAXXZ.c)
- *     ?ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00D94EC (-ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ.c)
- *     ?ReportProcessStates@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00D95A0 (-ReportProcessStates@VIDMM_GLOBAL@@QEAAXXZ.c)
- *     ?ReportState@VIDMM_DMA_POOL@@QEAAXXZ @ 0x1C00E0758 (-ReportState@VIDMM_DMA_POOL@@QEAAXXZ.c)
- *     ?ReportHeapStates@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ @ 0x1C00E70C4 (-ReportHeapStates@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ.c)
- *     ?ReportSegmentState@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00EC58C (-ReportSegmentState@VIDMM_SEGMENT@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001098 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001B74 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001BD0 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001C48 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?ReportProcessAdapterBudget@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_PROCESS_ADAPTER_INFO@@@Z @ 0x1C0084630 (-ReportProcessAdapterBudget@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_PROCESS_ADAPTER_INFO@@@Z.c)
+ *     ?ReportSegment@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C0092F90 (-ReportSegment@VIDMM_SEGMENT@@QEAAXXZ.c)
+ *     ?ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B31CC (-ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?ReportProcessStates@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B3280 (-ReportProcessStates@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?ReportState@VIDMM_DMA_POOL@@QEAAXXZ @ 0x1C00BACE8 (-ReportState@VIDMM_DMA_POOL@@QEAAXXZ.c)
+ *     ?ReportHeapStates@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ @ 0x1C00C1A94 (-ReportHeapStates@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ.c)
+ *     ?ReportSegmentState@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00C8A34 (-ReportSegmentState@VIDMM_SEGMENT@@QEAAXXZ.c)
  */
 
 void __fastcall VIDMM_GLOBAL::ReportVidMmStateWorker(VIDMM_GLOBAL *this, __int64 a2, __int64 a3)
@@ -36,7 +36,7 @@ void __fastcall VIDMM_GLOBAL::ReportVidMmStateWorker(VIDMM_GLOBAL *this, __int64
     v3 = *((_DWORD *)this + 926);
   }
   v7 = 0;
-  if ( *((_DWORD *)this + 1754) )
+  if ( *((_DWORD *)this + 1750) )
   {
     do
     {
@@ -44,7 +44,7 @@ void __fastcall VIDMM_GLOBAL::ReportVidMmStateWorker(VIDMM_GLOBAL *this, __int64
         VIDMM_DMA_POOL::ReportState(*((VIDMM_DMA_POOL **)this + v7 + 79));
       ++v7;
     }
-    while ( v7 < *((_DWORD *)this + 1754) );
+    while ( v7 < *((_DWORD *)this + 1750) );
     v3 = *((_DWORD *)this + 926);
   }
   if ( v3 )
@@ -53,7 +53,7 @@ void __fastcall VIDMM_GLOBAL::ReportVidMmStateWorker(VIDMM_GLOBAL *this, __int64
       VIDMM_SEGMENT::ReportSegmentState(*(VIDMM_SEGMENT **)(*((_QWORD *)this + 464) + 8LL * v4++));
     while ( v4 < *((_DWORD *)this + 926) );
   }
-  if ( (*(_DWORD *)(*((_QWORD *)this + 3) + 436LL) & 1) != 0 )
+  if ( (*(_DWORD *)(*((_QWORD *)this + 3) + 348LL) & 1) != 0 )
   {
     DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK(
       (DXGAUTOPUSHLOCK *)v10,
@@ -64,7 +64,7 @@ void __fastcall VIDMM_GLOBAL::ReportVidMmStateWorker(VIDMM_GLOBAL *this, __int64
     v12 = 2;
     while ( Flink != &VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListHead )
     {
-      VIDMM_RECYCLE_HEAP_MGR::ReportHeapStates((VIDMM_RECYCLE_HEAP_MGR *)&Flink[-100]);
+      VIDMM_RECYCLE_HEAP_MGR::ReportHeapStates((VIDMM_RECYCLE_HEAP_MGR *)&Flink[-100].Blink);
       Flink = Flink->Flink;
     }
     DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v10);

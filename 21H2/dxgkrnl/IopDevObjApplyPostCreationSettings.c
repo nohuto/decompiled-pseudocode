@@ -1,9 +1,9 @@
 /*
- * XREFs of IopDevObjApplyPostCreationSettings @ 0x1C0384DA0
+ * XREFs of IopDevObjApplyPostCreationSettings @ 0x1C02C40A0
  * Callers:
- *     IoDevObjCreateDeviceSecure @ 0x1C0384C10 (IoDevObjCreateDeviceSecure.c)
+ *     IoDevObjCreateDeviceSecure @ 0x1C02C3F10 (IoDevObjCreateDeviceSecure.c)
  * Callees:
- *     SeUtilSecurityInfoFromSecurityDescriptor @ 0x1C0385EE8 (SeUtilSecurityInfoFromSecurityDescriptor.c)
+ *     SeUtilSecurityInfoFromSecurityDescriptor @ 0x1C02C51FC (SeUtilSecurityInfoFromSecurityDescriptor.c)
  */
 
 NTSTATUS __fastcall IopDevObjApplyPostCreationSettings(PVOID Object, __int64 a2)

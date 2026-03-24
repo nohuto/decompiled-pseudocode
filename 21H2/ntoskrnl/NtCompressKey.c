@@ -1,111 +1,107 @@
 /*
- * XREFs of NtCompressKey @ 0x14090E5E0
+ * XREFs of NtCompressKey @ 0x1408682E0
  * Callers:
  *     <none>
  * Callees:
- *     CmpIsWriteQueueActive @ 0x14020AA74 (CmpIsWriteQueueActive.c)
- *     CmCleanupThreadInfo @ 0x14022EA30 (CmCleanupThreadInfo.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     CmpInitializeThreadInfo @ 0x140347770 (CmpInitializeThreadInfo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     CmCheckNoTxContext @ 0x14067DE4C (CmCheckNoTxContext.c)
- *     CmpLockRegistryExclusive @ 0x14071B6EC (CmpLockRegistryExclusive.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     CmCompressKey @ 0x1409120AC (CmCompressKey.c)
- *     CmpWaitOnHiveWriteQueue @ 0x140919170 (CmpWaitOnHiveWriteQueue.c)
- *     HvLockHiveFlusherExclusive @ 0x140AB41FC (HvLockHiveFlusherExclusive.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
- *     CmpReleaseShutdownRundown @ 0x140AB42A0 (CmpReleaseShutdownRundown.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140AB43C0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpAttachToRegistryProcess @ 0x140AB4550 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140AB4580 (CmpDetachFromRegistryProcess.c)
- *     CmObReferenceObjectByHandle @ 0x140AB4630 (CmObReferenceObjectByHandle.c)
- *     CmpAcquireShutdownRundown @ 0x140AB46D0 (CmpAcquireShutdownRundown.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     PoIsInitializedStopWatch @ 0x140263FA8 (PoIsInitializedStopWatch.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     CmObReferenceObjectByHandle @ 0x14066461C (CmObReferenceObjectByHandle.c)
+ *     CmCheckNoTxContext @ 0x14066F600 (CmCheckNoTxContext.c)
+ *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
+ *     CmCompressKey @ 0x14086C200 (CmCompressKey.c)
+ *     CmpWaitOnHiveWriteQueue @ 0x14087263C (CmpWaitOnHiveWriteQueue.c)
  */
 
-__int64 __fastcall NtCompressKey(int a1)
+__int64 __fastcall NtCompressKey(void *a1)
 {
   int v2; // ebx
   KPROCESSOR_MODE PreviousMode; // bl
-  int v4; // r8d
-  int v5; // r9d
-  unsigned int v6; // ebp
-  int v7; // eax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  _QWORD *v11; // rdi
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  _QWORD *v16; // rbx
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  PVOID Object; // [rsp+30h] [rbp-58h] BYREF
-  __int128 v22; // [rsp+38h] [rbp-50h] BYREF
-  _OWORD v23[3]; // [rsp+48h] [rbp-40h] BYREF
+  __int64 v4; // r8
+  unsigned int v5; // ebp
+  struct _KTHREAD *CurrentThread; // rax
+  PADAPTER_OBJECT v7; // rdi
+  _DMA_OPERATIONS *DmaOperations; // rdx
+  int (__fastcall *AllocateAdapterChannel)(_DMA_ADAPTER *, _DEVICE_OBJECT *, unsigned int, _IO_ALLOCATION_ACTION (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *, void *), void *); // rbx
+  _QWORD *v10; // rsi
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  _DWORD *v13; // r9
+  PADAPTER_OBJECT DmaAdapter; // [rsp+30h] [rbp-48h] BYREF
+  _OWORD v16[3]; // [rsp+38h] [rbp-40h] BYREF
 
-  Object = 0LL;
-  v22 = 0LL;
-  memset(v23, 0, sizeof(v23));
-  CmpInitializeThreadInfo((__int64)&v22);
+  DmaAdapter = 0LL;
+  memset(v16, 0, sizeof(v16));
   v2 = CmCheckNoTxContext();
   if ( v2 >= 0 )
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( SeSinglePrivilegeCheck(SeBackupPrivilege, PreviousMode) )
     {
-      LOBYTE(v5) = PreviousMode;
-      v6 = a1 & 3;
-      v7 = CmObReferenceObjectByHandle(a1, 131078, v4, v5, (__int64)&Object, 0LL);
-      v11 = Object;
-      v2 = v7;
-      if ( v7 >= 0 )
+      v5 = (unsigned __int8)a1 & 3;
+      v2 = CmObReferenceObjectByHandle(a1, 0x20006u, v4, PreviousMode, &DmaAdapter, 0LL);
+      if ( v2 >= 0 )
       {
-        if ( (unsigned __int8)CmpAcquireShutdownRundown(v9, v8, v10) )
+        CurrentThread = KeGetCurrentThread();
+        --CurrentThread->KernelApcDisable;
+        if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
         {
+          v7 = DmaAdapter;
           while ( 1 )
           {
             CmpLockRegistryExclusive();
-            v2 = CmpPerformKeyBodyDeletionCheck(v11, 0LL);
+            v2 = CmpPerformKeyBodyDeletionCheck((__int64)v7, 0LL);
             if ( v2 < 0 )
               break;
-            v14 = v11[1];
-            v16 = *(_QWORD **)(v14 + 32);
-            v12 = *(unsigned int *)(v16[8] + 36LL);
-            if ( *(_DWORD *)(v14 + 40) != (_DWORD)v12 )
+            DmaOperations = v7->DmaOperations;
+            AllocateAdapterChannel = DmaOperations->AllocateAdapterChannel;
+            if ( LODWORD(DmaOperations->FlushAdapterBuffers) != *(_DWORD *)(*((_QWORD *)AllocateAdapterChannel + 8)
+                                                                          + 36LL) )
             {
               v2 = -1073741811;
               break;
             }
-            if ( !CmpIsWriteQueueActive(v16 + 526) && !CmpIsWriteQueueActive(v16 + 524) )
+            v10 = (_QWORD *)((char *)AllocateAdapterChannel + 4248);
+            if ( !PoIsInitializedStopWatch((_QWORD *)AllocateAdapterChannel + 531) )
             {
-              CmpAttachToRegistryProcess(v23);
-              v2 = CmCompressKey(*(_QWORD *)(v11[1] + 32LL), v6);
-              CmpDetachFromRegistryProcess(v23);
-              break;
+              v10 = (_QWORD *)((char *)AllocateAdapterChannel + 4232);
+              if ( !PoIsInitializedStopWatch((_QWORD *)AllocateAdapterChannel + 529) )
+              {
+                CmpAttachToRegistryProcess((__int64)v16, v11, v12, v13);
+                v2 = CmCompressKey(v7->DmaOperations->AllocateAdapterChannel, v5);
+                KiUnstackDetachProcess((__int64)v16, 0);
+                break;
+              }
             }
-            HvLockHiveFlusherExclusive(v16);
-            CmpWaitOnHiveWriteQueue(v16);
+            ExAcquirePushLockExclusiveEx((ULONG_PTR)AllocateAdapterChannel + 72, 0LL);
+            CmpWaitOnHiveWriteQueue(AllocateAdapterChannel, v10);
           }
-          CmpUnlockRegistry(v13, v12, v14, v15);
-          CmpReleaseShutdownRundown(v18, v17, v19);
+          CmpUnlockRegistry();
+          ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         }
         else
         {
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
           v2 = -1073741431;
         }
       }
-      if ( v11 )
-        ObfDereferenceObject(v11);
+      if ( DmaAdapter )
+        HalPutDmaAdapter(DmaAdapter);
     }
     else
     {
-      v2 = -1073741727;
+      return (unsigned int)-1073741727;
     }
   }
-  CmCleanupThreadInfo((__int64 *)&v22);
   return (unsigned int)v2;
 }

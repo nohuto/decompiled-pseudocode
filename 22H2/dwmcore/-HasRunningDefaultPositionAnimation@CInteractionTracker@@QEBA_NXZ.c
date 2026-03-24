@@ -1,8 +1,8 @@
 /*
- * XREFs of ?HasRunningDefaultPositionAnimation@CInteractionTracker@@QEBA_NXZ @ 0x180233020
+ * XREFs of ?HasRunningDefaultPositionAnimation@CInteractionTracker@@QEBA_NXZ @ 0x1801C9C28
  * Callers:
- *     ?CheckForIdle@CInteractionTracker@@AEAAXXZ @ 0x180231D44 (-CheckForIdle@CInteractionTracker@@AEAAXXZ.c)
- *     ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x1802337D8 (-ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ.c)
+ *     ?CheckForIdle@CInteractionTracker@@AEAAXXZ @ 0x1801C88EC (-CheckForIdle@CInteractionTracker@@AEAAXXZ.c)
+ *     ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x1801CA380 (-ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -12,9 +12,9 @@ bool __fastcall CInteractionTracker::HasRunningDefaultPositionAnimation(CInterac
   __int64 v1; // rdx
   bool result; // al
 
-  v1 = *((_QWORD *)this + 58);
+  v1 = *((_QWORD *)this + 57);
   result = 0;
   if ( v1 )
-    return *(char *)(v1 + 580) < 0;
+    return *(char *)(v1 + 548) < 0;
   return result;
 }

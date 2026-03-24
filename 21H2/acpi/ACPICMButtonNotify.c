@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPICMButtonNotify @ 0x1C004D608
+ * XREFs of ACPICMButtonNotify @ 0x1C004E918
  * Callers:
- *     ACPICMButtonNotifyByDeviceExtension @ 0x1C004D6F0 (ACPICMButtonNotifyByDeviceExtension.c)
- *     ACPICMButtonNotifyByDeviceObject @ 0x1C004D710 (ACPICMButtonNotifyByDeviceObject.c)
+ *     ACPICMButtonNotifyByDeviceExtension @ 0x1C004EA20 (ACPICMButtonNotifyByDeviceExtension.c)
+ *     ACPICMButtonNotifyByDeviceObject @ 0x1C004EA40 (ACPICMButtonNotifyByDeviceObject.c)
  * Callees:
- *     ACPISetDeviceWorker @ 0x1C00215BC (ACPISetDeviceWorker.c)
- *     ACPIButtonEvent @ 0x1C002C7AC (ACPIButtonEvent.c)
- *     ACPICMExperienceButtonHandleEvent @ 0x1C004D9FC (ACPICMExperienceButtonHandleEvent.c)
- *     WPP_RECORDER_SF_dqss @ 0x1C004DEE0 (WPP_RECORDER_SF_dqss.c)
+ *     ACPISetDeviceWorker @ 0x1C0013470 (ACPISetDeviceWorker.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
+ *     ACPIButtonEvent @ 0x1C003000C (ACPIButtonEvent.c)
+ *     ACPICMExperienceButtonHandleEvent @ 0x1C004ED7C (ACPICMExperienceButtonHandleEvent.c)
  */
 
 void __fastcall ACPICMButtonNotify(ULONG_PTR a1, __int64 a2, unsigned int a3)
@@ -16,10 +16,9 @@ void __fastcall ACPICMButtonNotify(ULONG_PTR a1, __int64 a2, unsigned int a3)
   int v5; // edx
   __int64 v6; // r9
   unsigned int v7; // r8d
-  void *v8; // rcx
-  void *v9; // rdx
+  const char *v8; // rcx
+  const char *v9; // rdx
   unsigned int v10; // edx
-  __int64 v11; // [rsp+40h] [rbp-18h]
 
   v4 = a3;
   v5 = *(_DWORD *)(a2 + 200);
@@ -39,29 +38,25 @@ void __fastcall ACPICMButtonNotify(ULONG_PTR a1, __int64 a2, unsigned int a3)
   }
   if ( v7 != 126 )
   {
-    v8 = &unk_1C006FB8B;
-    v9 = &unk_1C006FB8B;
+    v8 = (const char *)&unk_1C00701BA;
+    v9 = (const char *)&unk_1C00701BA;
     if ( (v6 & 0x200000000000LL) != 0 )
     {
-      v8 = *(void **)(a2 + 608);
+      v8 = *(const char **)(a2 + 568);
       if ( (v6 & 0x400000000000LL) != 0 )
-        v9 = *(void **)(a2 + 616);
+        v9 = *(const char **)(a2 + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      v11 = (__int64)v9;
-      LOBYTE(v9) = 2;
-      WPP_RECORDER_SF_dqss(
-        WPP_GLOBAL_Control->DeviceExtension,
-        (_DWORD)v9,
-        5,
-        10,
-        (__int64)&WPP_72d86d3b604930d5754709d36f3716bf_Traceguids,
+      WPP_RECORDER_SF_Dqss(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        5u,
+        0xAu,
+        (__int64)&WPP_2bc47f5d635e376f4e7295df6662785e_Traceguids,
         v4,
         a2,
-        (__int64)v8,
-        v11);
-    }
+        v8,
+        v9);
     return;
   }
   if ( (v5 & 4) != 0 )

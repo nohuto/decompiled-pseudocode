@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpValidateObjectNameDispatch @ 0x1406F28C0
+ * XREFs of _PnpValidateObjectNameDispatch @ 0x1406F28A0
  * Callers:
- *     _PnpValidateObjectName @ 0x1406F27FC (_PnpValidateObjectName.c)
+ *     _PnpValidateObjectName @ 0x1406F27DC (_PnpValidateObjectName.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     _PnpCtxGetObjectDispatchCallback @ 0x14059A400 (_PnpCtxGetObjectDispatchCallback.c)
  */
 

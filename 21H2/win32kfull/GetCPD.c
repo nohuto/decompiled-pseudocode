@@ -1,112 +1,158 @@
 /*
- * XREFs of GetCPD @ 0x1C00E3DB8
+ * XREFs of GetCPD @ 0x1C0078B60
  * Callers:
- *     xxxSetWindowData @ 0x1C004F920 (xxxSetWindowData.c)
- *     _GetClassInfoEx @ 0x1C007F338 (_GetClassInfoEx.c)
- *     NtUserGetCPD @ 0x1C00E3D30 (NtUserGetCPD.c)
- *     xxxSetClassData @ 0x1C0115230 (xxxSetClassData.c)
+ *     NtUserGetCPD @ 0x1C00792B0 (NtUserGetCPD.c)
+ *     xxxSetWindowData @ 0x1C008A238 (xxxSetWindowData.c)
+ *     _GetClassInfoEx @ 0x1C00BC568 (_GetClassInfoEx.c)
+ *     xxxSetClassData @ 0x1C00FC29C (xxxSetClassData.c)
  * Callees:
- *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ @ 0x1C00E3FF8 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ.c)
+ *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ @ 0x1C0078DC8 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ.c)
  */
 
 __int64 __fastcall GetCPD(__int64 a1, __int16 a2, __int64 a3)
 {
-  __int64 v6; // rsi
+  struct _KTHREAD *CurrentThread; // r15
+  __int64 v7; // r14
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
   __int64 *ThreadWin32Thread; // rax
-  __int64 v8; // r8
-  __int64 *i; // rax
-  __int64 v10; // rcx
-  __int64 v11; // rbx
-  __int64 v12; // rbx
-  __int64 v13; // rdi
+  __int64 v12; // r8
+  __int64 v13; // rbx
   __int64 *v14; // rax
-  _QWORD *v15; // rcx
-  __int64 v17; // rax
-  __int64 *v18; // rbx
-  __int64 v19; // rcx
-  __int64 *v20; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v21; // [rsp+28h] [rbp-28h] BYREF
-  _QWORD v22[2]; // [rsp+30h] [rbp-20h] BYREF
-  _QWORD v23[2]; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v15; // rcx
+  __int64 *i; // rax
+  __int64 v17; // rdi
+  __int64 v18; // rdi
+  struct _KTHREAD *v19; // r14
+  __int64 v20; // rsi
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 *v24; // rax
+  _QWORD *v25; // rcx
+  __int64 v27; // rax
+  __int64 *v28; // rbx
+  __int64 v29; // rcx
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v32; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v34; // rax
+  int v35; // ebx
+  __int64 v36; // rcx
+  __int64 v37; // rax
+  __int64 *v38; // [rsp+20h] [rbp-30h] BYREF
+  __int64 v39; // [rsp+28h] [rbp-28h] BYREF
+  _QWORD v40[2]; // [rsp+30h] [rbp-20h] BYREF
+  _QWORD v41[2]; // [rsp+40h] [rbp-10h] BYREF
 
-  v6 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v6 = *ThreadWin32Thread;
-  v20 = (__int64 *)gSmartObjNullRef;
-  v21 = *(_QWORD *)(v6 + 1472);
-  *(_QWORD *)(v6 + 1472) = &v21;
+  CurrentThread = KeGetCurrentThread();
+  v7 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+    || (CurrentProcess = PsGetCurrentProcess(v9, v8, v10),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v32),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v7 = *ThreadWin32Thread;
+  }
+  v38 = (__int64 *)gSmartObjNullRef;
+  v39 = *(_QWORD *)(v7 + 1472);
+  *(_QWORD *)(v7 + 1472) = &v39;
   if ( (a2 & 0x60) != 0 )
   {
-    a1 = *(_QWORD *)(a1 + 136);
-  }
-  else if ( (a2 & 0x80u) != 0 )
-  {
-    a1 = *(_QWORD *)(a1 + 136);
-    if ( a1 != *v20 )
+    v13 = *(_QWORD *)(a1 + 136);
+    if ( v13 == *v38 )
+      goto LABEL_12;
+    if ( v38 != (__int64 *)gSmartObjNullRef && !--*((_DWORD *)v38 + 2) )
     {
-      SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(&v20);
-LABEL_7:
-      if ( a1 )
-      {
-        v20 = *(__int64 **)(a1 + 128);
-        ++*((_DWORD *)v20 + 2);
-      }
-      else
-      {
-        v20 = (__int64 *)gSmartObjNullRef;
-      }
+      if ( *((_BYTE *)v38 + 12) )
+        Win32FreeToPagedLookasideList(gpStackRefLookAside, v38);
+    }
+    goto LABEL_8;
+  }
+  if ( (a2 & 0x80u) == 0 )
+  {
+    if ( a1 == *v38 )
+      goto LABEL_12;
+    if ( v38 != (__int64 *)gSmartObjNullRef && !--*((_DWORD *)v38 + 2) )
+    {
+      if ( *((_BYTE *)v38 + 12) )
+        Win32FreeToPagedLookasideList(gpStackRefLookAside, v38);
+    }
+    if ( !a1 )
       goto LABEL_9;
-    }
-    goto LABEL_9;
+    v14 = *(__int64 **)(a1 + 128);
+    goto LABEL_11;
   }
-  if ( a1 != *v20 )
+  v13 = *(_QWORD *)(a1 + 136);
+  if ( v13 != *v38 )
   {
-    if ( v20 != (__int64 *)gSmartObjNullRef && !--*((_DWORD *)v20 + 2) )
+    SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(&v38);
+LABEL_8:
+    if ( !v13 )
     {
-      if ( *((_BYTE *)v20 + 12) )
-        Win32FreeToPagedLookasideList(gpStackRefLookAside, v20);
-    }
-    goto LABEL_7;
-  }
 LABEL_9:
-  for ( i = *(__int64 **)(*v20 + 48); i; i = (__int64 *)i[7] )
-  {
-    v10 = i[5];
-    if ( *(_QWORD *)(v10 + 16) == a3 && *(_WORD *)(v10 + 24) == a2 )
-    {
-      v11 = *i;
-LABEL_14:
-      v12 = (unsigned int)v11 | 0xFFFF0000LL;
-      goto LABEL_15;
+      v38 = (__int64 *)gSmartObjNullRef;
+      goto LABEL_12;
     }
+    v14 = *(__int64 **)(v13 + 128);
+LABEL_11:
+    v38 = v14;
+    ++*((_DWORD *)v14 + 2);
   }
-  LOBYTE(v8) = 7;
-  v17 = HMAllocObject(gptiCurrent, *(_QWORD *)(gptiCurrent + 456LL), v8);
-  v18 = (__int64 *)v17;
-  if ( v17 )
+LABEL_12:
+  v15 = *v38;
+  for ( i = *(__int64 **)(*v38 + 48); i; i = (__int64 *)i[7] )
   {
-    v19 = *v20;
-    v22[0] = v17 + 56;
-    v22[1] = *(_QWORD *)(v19 + 48);
-    HMAssignmentLock(v22, 0LL);
-    v23[1] = v18;
-    v23[0] = *v20 + 48;
-    HMAssignmentLock(v23, 0LL);
-    *(_QWORD *)(v18[5] + 16) = a3;
-    *(_WORD *)(v18[5] + 24) = a2;
-    v11 = *v18;
-    goto LABEL_14;
+    v15 = i[5];
+    if ( *(_QWORD *)(v15 + 16) == a3 && *(_WORD *)(v15 + 24) == a2 )
+      break;
   }
-  v12 = 0LL;
-LABEL_15:
-  v13 = 0LL;
-  v14 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( v14 )
-    v13 = *v14;
-  SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(&v20);
-  v15 = *(_QWORD **)(v13 + 1472);
-  if ( v15 )
-    *(_QWORD *)(v13 + 1472) = *v15;
-  return v12;
+  if ( i )
+  {
+    v17 = *i;
+LABEL_18:
+    v18 = (unsigned int)v17 | 0xFFFF0000LL;
+    goto LABEL_19;
+  }
+  LOBYTE(v12) = 7;
+  v27 = HMAllocObject(gptiCurrent, *(_QWORD *)(gptiCurrent + 456LL), v12);
+  v28 = (__int64 *)v27;
+  if ( v27 )
+  {
+    v29 = *v38;
+    v40[0] = v27 + 56;
+    v40[1] = *(_QWORD *)(v29 + 48);
+    HMAssignmentLock(v40);
+    v41[1] = v28;
+    v41[0] = *v38 + 48;
+    HMAssignmentLock(v41);
+    *(_QWORD *)(v28[5] + 16) = a3;
+    *(_WORD *)(v28[5] + 24) = a2;
+    v17 = *v28;
+    goto LABEL_18;
+  }
+  v18 = 0LL;
+LABEL_19:
+  v19 = KeGetCurrentThread();
+  v20 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(v15)
+    || (v34 = PsGetCurrentProcess(v22, v21, v23),
+        v35 = PsGetProcessSessionIdEx(v34),
+        v37 = PsGetCurrentThreadProcess(v36),
+        v35 == (unsigned int)PsGetProcessSessionIdEx(v37)) )
+  {
+    v24 = (__int64 *)PsGetThreadWin32Thread(v19);
+    if ( v24 )
+      v20 = *v24;
+  }
+  SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(&v38);
+  v25 = *(_QWORD **)(v20 + 1472);
+  if ( v25 )
+    *(_QWORD *)(v20 + 1472) = *v25;
+  return v18;
 }

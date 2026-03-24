@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpBusTypeGuidGetIndex @ 0x140747C74
+ * XREFs of PnpBusTypeGuidGetIndex @ 0x14076CB5C
  * Callers:
- *     PnpQueryBusInformation @ 0x1407499A8 (PnpQueryBusInformation.c)
+ *     PnpQueryBusInformation @ 0x14076CA84 (PnpQueryBusInformation.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     RtlCompareMemory @ 0x14042A1E0 (RtlCompareMemory.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpBusTypeGuidGetIndex(__int128 *Source1)
@@ -17,9 +17,9 @@ __int64 __fastcall PnpBusTypeGuidGetIndex(__int128 *Source1)
   char *v3; // rdx
   __int128 v5; // xmm0
   __int64 v6; // r8
-  void *Pool2; // rax
-  void *v8; // rdi
-  PVOID v9; // rsi
+  PVOID PoolWithTag; // rax
+  void *v8; // rsi
+  PVOID v9; // rdi
 
   ExAcquireFastMutex(&PnpBusTypeGuidLock);
   v2 = 0;
@@ -40,19 +40,21 @@ __int64 __fastcall PnpBusTypeGuidGetIndex(__int128 *Source1)
 LABEL_7:
     if ( v2 == PnpBusTypeGuidCountMax )
     {
-      Pool2 = (void *)ExAllocatePool2(256LL, 16LL * (v2 + 1), 1970499664LL);
-      v8 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 16LL * (v2 + 1), 0x75737050u);
+      v8 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        LOWORD(v2) = -1;
-        goto LABEL_6;
+        v9 = PnpBusTypeGuidArray;
+        memmove(PoolWithTag, PnpBusTypeGuidArray, 16LL * (unsigned int)PnpBusTypeGuidCount);
+        ++PnpBusTypeGuidCountMax;
+        if ( v9 )
+          ExFreePoolWithTag(v9, 0);
+        PnpBusTypeGuidArray = v8;
       }
-      v9 = PnpBusTypeGuidArray;
-      memmove(Pool2, PnpBusTypeGuidArray, 16LL * (unsigned int)PnpBusTypeGuidCount);
-      ++PnpBusTypeGuidCountMax;
-      if ( v9 )
-        ExFreePoolWithTag(v9, 0);
-      PnpBusTypeGuidArray = v8;
+      else
+      {
+        v2 = -1;
+      }
     }
     if ( v2 != -1 )
     {
@@ -61,7 +63,6 @@ LABEL_7:
       *(_OWORD *)((char *)PnpBusTypeGuidArray + 8 * v6) = v5;
     }
   }
-LABEL_6:
   KeReleaseGuardedMutex(&PnpBusTypeGuidLock);
   return (unsigned __int16)v2;
 }

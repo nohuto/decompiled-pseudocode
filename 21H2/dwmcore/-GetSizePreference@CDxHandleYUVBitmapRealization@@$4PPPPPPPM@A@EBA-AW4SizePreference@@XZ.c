@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSizePreference@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AW4SizePreference@@XZ @ 0x18010C690
+ * XREFs of ?GetSizePreference@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AW4SizePreference@@XZ @ 0x1800F9200
  * Callers:
  *     <none>
  * Callees:

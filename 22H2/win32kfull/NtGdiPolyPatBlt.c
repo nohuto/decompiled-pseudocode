@@ -1,16 +1,16 @@
 /*
- * XREFs of NtGdiPolyPatBlt @ 0x1C002C310
+ * XREFs of NtGdiPolyPatBlt @ 0x1C00B2E00
  * Callers:
  *     <none>
  * Callees:
- *     ??_5ERECTL@@QEAAXAEBU_RECTL@@@Z @ 0x1C001E740 (--_5ERECTL@@QEAAXAEBU_RECTL@@@Z.c)
- *     ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C002C4E0 (-GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z.c)
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00DC2A8 (-vOrder@ERECTL@@QEAAXXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DWMSCREENREADMODIFYWRITEASSIST@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C013F338 (--0DWMSCREENREADMODIFYWRITEASSIST@@QEAA@AEAVXDCOBJ@@@Z.c)
- *     ?bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z @ 0x1C029A604 (-bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2890 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C00B30B0 (-GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00B7698 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     ??_5ERECTL@@QEAAXAEBU_RECTL@@@Z @ 0x1C00B7720 (--_5ERECTL@@QEAAXAEBU_RECTL@@@Z.c)
+ *     ?bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z @ 0x1C0147A10 (-bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z.c)
+ *     ??0DWMSCREENREADMODIFYWRITEASSIST@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C016B498 (--0DWMSCREENREADMODIFYWRITEASSIST@@QEAA@AEAVXDCOBJ@@@Z.c)
  */
 
 __int64 __fastcall NtGdiPolyPatBlt(HDC a1, unsigned int a2, struct _POLYPATBLT *a3, unsigned int a4, unsigned int a5)
@@ -21,16 +21,16 @@ __int64 __fastcall NtGdiPolyPatBlt(HDC a1, unsigned int a2, struct _POLYPATBLT *
   ULONG64 v10; // rcx
   __int64 v11; // rdx
   __int64 i; // r10
-  LONG v15; // r8d
-  LONG v16; // r9d
-  int v17; // ecx
-  int v18; // r10d
-  __int64 v19; // rax
-  struct _RECTL v20; // [rsp+60h] [rbp-C8h] BYREF
-  struct _RECTL v21; // [rsp+70h] [rbp-B8h] BYREF
-  _QWORD v22[6]; // [rsp+80h] [rbp-A8h] BYREF
-  _BYTE v23[24]; // [rsp+B0h] [rbp-78h] BYREF
-  __int64 *v24; // [rsp+C8h] [rbp-60h]
+  LONG v13; // r8d
+  LONG v14; // r9d
+  int v15; // ecx
+  int v16; // r10d
+  __int64 v17; // rax
+  struct _RECTL v19; // [rsp+60h] [rbp-C8h] BYREF
+  struct _RECTL v20; // [rsp+70h] [rbp-B8h] BYREF
+  _QWORD v21[6]; // [rsp+80h] [rbp-A8h] BYREF
+  _BYTE v22[24]; // [rsp+B0h] [rbp-78h] BYREF
+  __int64 *v23; // [rsp+C8h] [rbp-60h]
 
   v5 = a4;
   v8 = 1;
@@ -39,8 +39,8 @@ __int64 __fastcall NtGdiPolyPatBlt(HDC a1, unsigned int a2, struct _POLYPATBLT *
   {
     if ( a3 )
     {
-      DCOBJ::DCOBJ((DCOBJ *)v22, a1);
-      if ( v22[0] )
+      DCOBJ::DCOBJ((DCOBJ *)v21, a1);
+      if ( v21[0] )
       {
         if ( (unsigned int)v5 > 0xAAAAAAA )
         {
@@ -59,40 +59,43 @@ __int64 __fastcall NtGdiPolyPatBlt(HDC a1, unsigned int a2, struct _POLYPATBLT *
           if ( ((gajRop3[(unsigned __int8)a2] | gajRop3[BYTE1(a2)]) & 0xB2) != 0 )
           {
             DWMSCREENREADMODIFYWRITEASSIST::DWMSCREENREADMODIFYWRITEASSIST(
-              (DWMSCREENREADMODIFYWRITEASSIST *)v23,
-              (struct XDCOBJ *)v22);
-            v11 = *v24;
-            if ( *v24 && *(_DWORD *)(v11 + 492) && (*(_DWORD *)(v11 + 36) & 0x4000) != 0 )
+              (DWMSCREENREADMODIFYWRITEASSIST *)v22,
+              (struct XDCOBJ *)v21);
+            v11 = *v23;
+            if ( *v23 )
             {
-              for ( i = 0LL; (unsigned int)i < (unsigned int)v5; i = (unsigned int)(v18 + 1) )
+              if ( *(_DWORD *)(v11 + 492) && (*(_DWORD *)(v11 + 36) & 0x4000) != 0 )
               {
-                v15 = *((_DWORD *)a3 + 6 * i + 1);
-                v16 = v15 + *((_DWORD *)a3 + 6 * i + 3);
-                v17 = *((_DWORD *)a3 + 6 * i + 2);
-                v20.left = *((_DWORD *)a3 + 6 * i);
-                v20.top = v15;
-                v20.right = v20.left + v17;
-                v20.bottom = v16;
-                ERECTL::vOrder((ERECTL *)&v20);
-                if ( v18 )
-                  ERECTL::operator|=(&v21, &v20);
-                else
-                  v21 = v20;
+                for ( i = 0LL; (unsigned int)i < (unsigned int)v5; i = (unsigned int)(v16 + 1) )
+                {
+                  v13 = *((_DWORD *)a3 + 6 * i + 1);
+                  v14 = v13 + *((_DWORD *)a3 + 6 * i + 3);
+                  v15 = *((_DWORD *)a3 + 6 * i + 2);
+                  v19.left = *((_DWORD *)a3 + 6 * i);
+                  v19.top = v13;
+                  v19.right = v19.left + v15;
+                  v19.bottom = v14;
+                  ERECTL::vOrder((ERECTL *)&v19);
+                  if ( v16 )
+                    ERECTL::operator|=(&v20, &v19);
+                  else
+                    v20 = v19;
+                }
+                if ( !ERECTL::bEmpty((ERECTL *)&v20) )
+                  v9 = DWMSCREENREADMODIFYWRITEASSIST::bReadBackRect((DWMSCREENREADMODIFYWRITEASSIST *)v22, &v20);
               }
-              if ( !(unsigned int)ERECTL::bEmpty((ERECTL *)&v21) )
-                v9 = DWMSCREENREADMODIFYWRITEASSIST::bReadBackRect((DWMSCREENREADMODIFYWRITEASSIST *)v23, &v21);
             }
           }
           v8 = GrePolyPatBltInternal(
-                 (struct XDCOBJ *)v22,
+                 (struct XDCOBJ *)v21,
                  a2,
                  a3,
                  v5,
                  a5,
-                 *(_DWORD *)(*(_QWORD *)(v22[0] + 976LL) + 184LL),
-                 *(_DWORD *)(*(_QWORD *)(v22[0] + 976LL) + 176LL),
-                 *(_DWORD *)(*(_QWORD *)(v22[0] + 976LL) + 188LL),
-                 *(_DWORD *)(*(_QWORD *)(v22[0] + 976LL) + 180LL));
+                 *(_DWORD *)(*(_QWORD *)(v21[0] + 976LL) + 184LL),
+                 *(_DWORD *)(*(_QWORD *)(v21[0] + 976LL) + 176LL),
+                 *(_DWORD *)(*(_QWORD *)(v21[0] + 976LL) + 188LL),
+                 *(_DWORD *)(*(_QWORD *)(v21[0] + 976LL) + 180LL));
         }
       }
       else
@@ -100,7 +103,7 @@ __int64 __fastcall NtGdiPolyPatBlt(HDC a1, unsigned int a2, struct _POLYPATBLT *
         v8 = 0;
         EngSetLastError(6u);
       }
-      DCOBJ::~DCOBJ((DCOBJ *)v22);
+      DCOBJ::~DCOBJ((DCOBJ *)v21);
     }
     else
     {
@@ -109,8 +112,8 @@ __int64 __fastcall NtGdiPolyPatBlt(HDC a1, unsigned int a2, struct _POLYPATBLT *
   }
   if ( v9 )
   {
-    v19 = UserReferenceDwmApiPort(a1);
-    DwmSyncFlushAndWaitForBatch(v19);
+    v17 = UserReferenceDwmApiPort(a1);
+    DwmSyncFlushAndWaitForBatch(v17);
   }
   return v8;
 }

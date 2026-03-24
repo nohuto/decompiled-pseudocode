@@ -1,132 +1,134 @@
 /*
- * XREFs of HalpDmaFreeChildAdapter @ 0x140513870
+ * XREFs of HalpDmaFreeChildAdapter @ 0x14036D1C0
  * Callers:
  *     <none>
  * Callees:
- *     MmFreeContiguousMemory @ 0x140213DA0 (MmFreeContiguousMemory.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     MiFreePagesFromMdl @ 0x140221A30 (MiFreePagesFromMdl.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmUnmapLockedPages @ 0x1402BB4E0 (MmUnmapLockedPages.c)
- *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpDmaReturnPageToSource @ 0x140513BCC (HalpDmaReturnPageToSource.c)
- *     HalpLeaveDmaDomain @ 0x14051541C (HalpLeaveDmaDomain.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     MmFreeContiguousMemory @ 0x140295F20 (MmFreeContiguousMemory.c)
+ *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
+ *     MiFreePagesFromMdl @ 0x1402FF4EC (MiFreePagesFromMdl.c)
+ *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpLeaveDmaDomain @ 0x1404C4EAC (HalpLeaveDmaDomain.c)
+ *     HalpDmaReturnPageToSource @ 0x1404C7FC4 (HalpDmaReturnPageToSource.c)
+ *     HalpIommuDeleteDevice @ 0x140864C50 (HalpIommuDeleteDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall HalpDmaFreeChildAdapter(__int64 a1)
+void __fastcall HalpDmaFreeChildAdapter(__int64 a1, __int64 a2, __int64 a3)
 {
-  struct _MDL *v2; // rcx
-  __int64 *v3; // rbx
-  KIRQL v4; // al
-  __int64 **v5; // rdx
-  unsigned __int64 v6; // rsi
-  __int64 *v7; // rax
+  struct _MDL *v4; // rcx
+  __int64 *v5; // rbx
+  KIRQL v6; // al
+  __int64 **v7; // rdx
+  unsigned __int64 v8; // rsi
+  __int64 *v9; // rax
+  __int64 v10; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v11; // eax
-  bool v12; // zf
-  __int64 v13; // rcx
-  __int64 v14; // rsi
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  void *v17; // rbx
-  void *v18; // rcx
+  int v14; // eax
+  bool v15; // zf
+  __int64 *v16; // rsi
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  void *v20; // rbx
+  void *v21; // rcx
   unsigned int i; // ebx
-  __int64 v20; // rbx
-  __int64 v21; // rdx
-  unsigned int v22; // eax
-  __int64 v23; // rdx
-  __int64 v24; // rsi
-  __int64 v25; // rbx
-  void *v26; // rbx
-  void *v27; // rcx
-  __int64 v28; // rdx
+  __int64 *v23; // rbx
+  __int64 v24; // rdx
+  unsigned int v25; // eax
+  __int64 v26; // rdx
+  __int64 v27; // rsi
+  __int64 v28; // rbx
+  void *v29; // rbx
+  void *v30; // rcx
+  __int64 v31; // rdx
 
-  v2 = *(struct _MDL **)(a1 + 296);
-  if ( v2 )
+  v4 = *(struct _MDL **)(a1 + 296);
+  if ( v4 )
   {
-    IoFreeMdl(v2);
+    IoFreeMdl(v4);
     *(_QWORD *)(a1 + 296) = 0LL;
   }
-  v3 = (__int64 *)(a1 + 456);
+  v5 = (__int64 *)(a1 + 456);
   if ( *(_QWORD *)(a1 + 456) )
   {
-    v4 = KeAcquireSpinLockRaiseToDpc(&HalpDmaAdapterListLock);
-    v5 = *(__int64 ***)(a1 + 464);
-    v6 = v4;
-    v7 = (__int64 *)*v3;
-    if ( *(__int64 **)(*v3 + 8) != v3 || *v5 != v3 )
+    v6 = KeAcquireSpinLockRaiseToDpc(&HalpDmaAdapterListLock);
+    v7 = *(__int64 ***)(a1 + 464);
+    v8 = v6;
+    v9 = (__int64 *)*v5;
+    if ( *(__int64 **)(*v5 + 8) != v5 || *v7 != v5 )
       __fastfail(3u);
-    *v5 = v7;
-    v7[1] = (__int64)v5;
+    *v7 = v9;
+    v9[1] = (__int64)v7;
     KxReleaseSpinLock(&HalpDmaAdapterListLock);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-          v12 = (v11 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v11;
-          if ( v12 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+          v15 = (v14 & SchedulerAssist[5]) == 0;
+          a3 = (unsigned int)v14 & SchedulerAssist[5];
+          SchedulerAssist[5] = a3;
+          if ( v15 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }
-    __writecr8(v6);
+    __writecr8(v8);
   }
   if ( *(_QWORD *)(a1 + 504) )
   {
     *(_BYTE *)(a1 + 516) = 0;
     HalpLeaveDmaDomain(a1);
   }
-  v13 = *(_QWORD *)(a1 + 536);
-  if ( v13 )
+  v10 = *(_QWORD *)(a1 + 536);
+  if ( v10 )
   {
-    ((void (*)(void))qword_140C4BE18)();
+    HalpIommuDeleteDevice();
     *(_QWORD *)(a1 + 536) = 0LL;
   }
   if ( *(_BYTE *)(a1 + 432) && !*(_BYTE *)(a1 + 337) )
   {
     if ( !*(_BYTE *)(a1 + 434) )
     {
-      v14 = *(_QWORD *)(a1 + 40);
-      v15 = *(_QWORD *)(v14 + 16);
-      if ( (*(_BYTE *)(v15 + 48) & 1) != 0 )
+      v16 = *(__int64 **)(a1 + 40);
+      v17 = v16[2];
+      if ( (*(_BYTE *)(v17 + 48) & 1) != 0 )
       {
         do
         {
-          for ( i = 0; i < *(_DWORD *)(v14 + 8); ++i )
+          for ( i = 0; i < *((_DWORD *)v16 + 2); ++i )
             HalpDmaReturnPageToSource(a1);
-          v20 = *(_QWORD *)v14;
-          HalpMmAllocCtxFree(v13, v14);
-          v14 = v20;
+          v23 = (__int64 *)*v16;
+          HalpMmAllocCtxFree(v10, v16);
+          v16 = v23;
         }
-        while ( v20 );
+        while ( v23 );
       }
       else
       {
-        HalpMmAllocCtxFree(v13, v15);
-        HalpMmAllocCtxFree(v16, v14);
+        HalpMmAllocCtxFree(v10, v17);
+        HalpMmAllocCtxFree(v18, v16);
+        v20 = *(void **)(a1 + 320);
         if ( *(_BYTE *)(a1 + 336) )
         {
-          v17 = *(void **)(a1 + 320);
-          if ( v17 )
+          if ( v20 )
           {
-            v18 = *(void **)(a1 + 328);
-            if ( v18 )
-              MmUnmapLockedPages(v18, *(PMDL *)(a1 + 320));
-            MiFreePagesFromMdl((ULONG_PTR)v17, 0);
-            ExFreePoolWithTag(v17, 0);
+            v21 = *(void **)(a1 + 328);
+            if ( v21 )
+              MmUnmapLockedPages(v21, *(PMDL *)(a1 + 320));
+            MiFreePagesFromMdl((ULONG_PTR)v20, 0, v19);
+            ExFreePoolWithTag(v20, 0);
           }
         }
         else
@@ -134,39 +136,39 @@ void __fastcall HalpDmaFreeChildAdapter(__int64 a1)
           MmFreeContiguousMemory(*(PVOID *)(a1 + 320));
         }
       }
-      v21 = *(_QWORD *)(a1 + 16);
-      goto LABEL_42;
+      v24 = *(_QWORD *)(a1 + 16);
+      goto LABEL_43;
     }
-    v22 = *(_DWORD *)(a1 + 32);
-    v23 = *(_QWORD *)(a1 + 24);
-    if ( v22 )
+    v25 = *(_DWORD *)(a1 + 32);
+    v26 = *(_QWORD *)(a1 + 24);
+    if ( v25 )
     {
-      v24 = v22;
+      v27 = v25;
       do
       {
-        v25 = *(_QWORD *)(v23 + 8);
+        v28 = *(_QWORD *)(v26 + 8);
         HalpDmaReturnPageToSource(a1);
-        v23 = v25;
-        --v24;
+        v26 = v28;
+        --v27;
       }
-      while ( v24 );
+      while ( v27 );
     }
-    v26 = *(void **)(a1 + 320);
-    if ( v26 )
+    v29 = *(void **)(a1 + 320);
+    if ( v29 )
     {
-      v27 = *(void **)(a1 + 328);
-      if ( v27 )
-        MmUnmapLockedPages(v27, *(PMDL *)(a1 + 320));
-      MiFreePagesFromMdl((ULONG_PTR)v26, 0);
-      ExFreePoolWithTag(v26, 0);
+      v30 = *(void **)(a1 + 328);
+      if ( v30 )
+        MmUnmapLockedPages(v30, *(PMDL *)(a1 + 320));
+      MiFreePagesFromMdl((ULONG_PTR)v29, 0, a3);
+      ExFreePoolWithTag(v29, 0);
     }
-    v28 = *(_QWORD *)(a1 + 48);
-    if ( v28 )
+    v31 = *(_QWORD *)(a1 + 48);
+    if ( v31 )
     {
-      HalpMmAllocCtxFree(v13, *(_QWORD *)(v28 + 16));
-      v21 = *(_QWORD *)(a1 + 48);
-LABEL_42:
-      HalpMmAllocCtxFree(v13, v21);
+      HalpMmAllocCtxFree(v10, *(_QWORD *)(v31 + 16));
+      v24 = *(_QWORD *)(a1 + 48);
+LABEL_43:
+      HalpMmAllocCtxFree(v10, v24);
     }
   }
 }

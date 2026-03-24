@@ -1,35 +1,37 @@
 /*
- * XREFs of EtwRegisterCounters @ 0x140859BEC
+ * XREFs of EtwRegisterCounters @ 0x1407CC538
  * Callers:
- *     ExpPcwHostCallback @ 0x140859CC0 (ExpPcwHostCallback.c)
+ *     ExpPcwHostCallback @ 0x1407CC330 (ExpPcwHostCallback.c)
  * Callees:
- *     ExpRegisterCounterSet @ 0x140859ED0 (ExpRegisterCounterSet.c)
+ *     PcwRegister @ 0x1407817E0 (PcwRegister.c)
  */
 
-__int64 EtwRegisterCounters()
+NTSTATUS EtwRegisterCounters()
 {
-  struct _PCW_REGISTRATION_INFORMATION Info; // [rsp+20h] [rbp-40h] BYREF
+  __int64 v1; // [rsp+20h] [rbp-40h] BYREF
+  const wchar_t *v2; // [rsp+28h] [rbp-38h]
+  struct _PCW_REGISTRATION_INFORMATION Info; // [rsp+30h] [rbp-30h] BYREF
 
   *(&Info.Version + 1) = 0;
   *(&Info.CounterCount + 1) = 0;
-  *((_DWORD *)&Info.Flags + 1) = 0;
-  Info.Name = (const _UNICODE_STRING *)L"24";
+  v2 = L"Event Tracing for Windows";
+  v1 = 3407922LL;
+  Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpRegisterEventTracingCounterSet'::`2'::Descriptors;
+  Info.Version = 256;
+  Info.Name = (const _UNICODE_STRING *)&v1;
   Info.CounterCount = 6;
-  Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpInitRegistrationInformationEventTracingCounterSet'::`2'::Descriptors;
   Info.Callback = (int (__fastcall *)(_PCW_CALLBACK_TYPE, _PCW_CALLBACK_INFORMATION *, void *))EtwpEventTracingCounterSetCallback;
   Info.CallbackContext = (void *)1;
-  Info.Version = 512;
-  Info.Flags = PcwRegistrationSiloNeutral;
-  ExpRegisterCounterSet(&PcwpEventTracingCounterSet, &Info);
+  PcwRegister(&PcwpEventTracingCounterSet, &Info);
   *(&Info.Version + 1) = 0;
   *(&Info.CounterCount + 1) = 0;
-  *((_DWORD *)&Info.Flags + 1) = 0;
-  Info.Name = (const _UNICODE_STRING *)L"BD";
-  Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpInitRegistrationInformationEventTracingSessionCounterSet'::`2'::Descriptors;
+  v2 = L"Event Tracing for Windows Session";
+  v1 = 4456514LL;
+  Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpRegisterEventTracingSessionCounterSet'::`2'::Descriptors;
+  Info.Name = (const _UNICODE_STRING *)&v1;
+  Info.Version = 256;
   Info.CounterCount = 5;
   Info.Callback = (int (__fastcall *)(_PCW_CALLBACK_TYPE, _PCW_CALLBACK_INFORMATION *, void *))EtwpEventTracingCounterSetCallback;
   Info.CallbackContext = (void *)2;
-  Info.Version = 512;
-  Info.Flags = PcwRegistrationSiloNeutral;
-  return ExpRegisterCounterSet(&PcwpEventTracingSessionCounterSet, &Info);
+  return PcwRegister(&PcwpEventTracingSessionCounterSet, &Info);
 }

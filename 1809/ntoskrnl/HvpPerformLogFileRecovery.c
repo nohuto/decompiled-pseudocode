@@ -1,5 +1,5 @@
 /*
- * XREFs of HvpPerformLogFileRecovery @ 0x1407F7B80
+ * XREFs of HvpPerformLogFileRecovery @ 0x1407F7B60
  * Callers:
  *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
  * Callees:
@@ -8,9 +8,9 @@
  *     RtlMergeBitMaps @ 0x14000FA94 (RtlMergeBitMaps.c)
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     HvpGrowDirtyVectors @ 0x1401368C0 (HvpGrowDirtyVectors.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SetFailureLocation @ 0x14026BA58 (SetFailureLocation.c)
+ *     HvpGrowDirtyVectors @ 0x1401368E0 (HvpGrowDirtyVectors.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
  *     HvpExpandMap @ 0x1405A38E4 (HvpExpandMap.c)
  *     HvpAdjustHiveFreeDisplay @ 0x1405A4FA8 (HvpAdjustHiveFreeDisplay.c)
  *     HvpLogTypeToLogArrayIndex @ 0x1405A62AC (HvpLogTypeToLogArrayIndex.c)
@@ -18,13 +18,13 @@
  *     HvFreeHivePartial @ 0x1405A8240 (HvFreeHivePartial.c)
  *     HvpMapHiveImageFromViewMap @ 0x1405F9C30 (HvpMapHiveImageFromViewMap.c)
  *     HvpSetRangeProtection @ 0x1405FBD30 (HvpSetRangeProtection.c)
- *     HvValidateOrInvalidatePrimaryFileHeader @ 0x1406B8268 (HvValidateOrInvalidatePrimaryFileHeader.c)
- *     HvWriteHivePrimaryFile @ 0x1406B8358 (HvWriteHivePrimaryFile.c)
- *     CmpDoFileSetSizeEx @ 0x1406B8960 (CmpDoFileSetSizeEx.c)
- *     HvpViewMapExtendStorage @ 0x1406CC5C0 (HvpViewMapExtendStorage.c)
- *     HvResetLogFileStatusAll @ 0x1406CFA2C (HvResetLogFileStatusAll.c)
- *     HvpAddDummyBinToHive @ 0x1407F7720 (HvpAddDummyBinToHive.c)
- *     HvApplyLogFile @ 0x1408066A0 (HvApplyLogFile.c)
+ *     HvValidateOrInvalidatePrimaryFileHeader @ 0x1406B8248 (HvValidateOrInvalidatePrimaryFileHeader.c)
+ *     HvWriteHivePrimaryFile @ 0x1406B8338 (HvWriteHivePrimaryFile.c)
+ *     CmpDoFileSetSizeEx @ 0x1406B8940 (CmpDoFileSetSizeEx.c)
+ *     HvpViewMapExtendStorage @ 0x1406CC5A0 (HvpViewMapExtendStorage.c)
+ *     HvResetLogFileStatusAll @ 0x1406CFA0C (HvResetLogFileStatusAll.c)
+ *     HvpAddDummyBinToHive @ 0x1407F7700 (HvpAddDummyBinToHive.c)
+ *     HvApplyLogFile @ 0x140806680 (HvApplyLogFile.c)
  */
 
 __int64 __fastcall HvpPerformLogFileRecovery(ULONG_PTR BugCheckParameter2, unsigned int a2, __int64 a3, __int64 a4)

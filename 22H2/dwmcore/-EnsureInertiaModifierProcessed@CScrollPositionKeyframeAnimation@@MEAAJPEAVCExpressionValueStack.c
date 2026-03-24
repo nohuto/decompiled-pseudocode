@@ -1,15 +1,15 @@
 /*
- * XREFs of ?EnsureInertiaModifierProcessed@CScrollPositionKeyframeAnimation@@MEAAJPEAVCExpressionValueStack@@_K@Z @ 0x180265ED0
+ * XREFs of ?EnsureInertiaModifierProcessed@CScrollPositionKeyframeAnimation@@MEAAJPEAVCExpressionValueStack@@_K@Z @ 0x180204810
  * Callers:
  *     <none>
  * Callees:
- *     ?CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z @ 0x180057F78 (-CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1801986D8 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ?GetNaturalEndpoint@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x180266224 (-GetNaturalEndpoint@CScrollPositionKeyframeAnimation@@QEBA-AUD2DVector3@@XZ.c)
- *     ?TryProcessInertiaModifier@CScrollKeyframeAnimation@@IEAAJPEAVCExpressionValueStack@@_KW4ModifierType@1@W4ScrollAxis@@PEAVCExpressionValue@@@Z @ 0x18026F540 (-TryProcessInertiaModifier@CScrollKeyframeAnimation@@IEAAJPEAVCExpressionValueStack@@_KW4Modifie.c)
+ *     ?CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z @ 0x1800AC338 (-CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x18014CF54 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?GetNaturalEndpoint@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x180204BA8 (-GetNaturalEndpoint@CScrollPositionKeyframeAnimation@@QEBA-AUD2DVector3@@XZ.c)
+ *     ?TryProcessInertiaModifier@CScrollKeyframeAnimation@@IEAAJPEAVCExpressionValueStack@@_KW4ModifierType@1@W4ScrollAxis@@PEAVCExpressionValue@@@Z @ 0x18020ED9C (-TryProcessInertiaModifier@CScrollKeyframeAnimation@@IEAAJPEAVCExpressionValueStack@@_KW4Modifie.c)
  */
 
 __int64 __fastcall CScrollPositionKeyframeAnimation::EnsureInertiaModifierProcessed(
@@ -18,133 +18,143 @@ __int64 __fastcall CScrollPositionKeyframeAnimation::EnsureInertiaModifierProces
         __int64 a3)
 {
   char v4; // al
-  struct CExpressionValueStack *v5; // rdi
-  char v7; // r14
-  int v8; // r12d
-  int v9; // r15d
+  struct CExpressionValueStack *v5; // rsi
+  __int64 v7; // rdi
+  char v8; // r12
+  __int64 v9; // r14
   float v10; // xmm0_4
-  char v11; // si
+  char v11; // r15
   int v12; // eax
-  unsigned int v13; // edi
-  __int64 v14; // rdx
+  unsigned int v13; // esi
+  int v14; // eax
   int v16; // xmm0_4
   int v17; // xmm0_4
   const char *v18; // r9
   __int64 v19; // rdx
   __int64 v20; // rax
   _DWORD *v21; // rcx
-  __int64 v22; // [rsp+38h] [rbp-D0h] BYREF
-  int v23; // [rsp+40h] [rbp-C8h]
-  _DWORD v24[16]; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v25; // [rsp+88h] [rbp-80h] BYREF
-  int v26; // [rsp+90h] [rbp-78h]
-  char v27; // [rsp+94h] [rbp-74h]
-  _DWORD v28[16]; // [rsp+98h] [rbp-70h] BYREF
-  __int64 v29; // [rsp+D8h] [rbp-30h] BYREF
-  int v30; // [rsp+E0h] [rbp-28h]
-  char v31; // [rsp+E4h] [rbp-24h]
-  __int64 v32; // [rsp+E8h] [rbp-20h] BYREF
-  int v33; // [rsp+F0h] [rbp-18h]
-  __int64 v34; // [rsp+128h] [rbp+20h] BYREF
-  int v35; // [rsp+130h] [rbp+28h]
-  char v36; // [rsp+134h] [rbp+2Ch]
-  wil::details::in1diag3 *retaddr; // [rsp+170h] [rbp+68h]
+  __int64 v22; // [rsp+38h] [rbp-89h] BYREF
+  int v23; // [rsp+40h] [rbp-81h]
+  __int64 v24; // [rsp+48h] [rbp-79h] BYREF
+  int v25; // [rsp+50h] [rbp-71h]
+  __int64 v26; // [rsp+88h] [rbp-39h]
+  int v27; // [rsp+90h] [rbp-31h]
+  char v28; // [rsp+94h] [rbp-2Dh]
+  _DWORD v29[16]; // [rsp+98h] [rbp-29h] BYREF
+  __int64 v30; // [rsp+D8h] [rbp+17h]
+  int v31; // [rsp+E0h] [rbp+1Fh]
+  char v32; // [rsp+E4h] [rbp+23h]
+  wil::details::in1diag3 *retaddr; // [rsp+120h] [rbp+5Fh]
 
-  v4 = *((_BYTE *)this + 752);
+  v4 = *((_BYTE *)this + 720);
   v5 = a2;
-  if ( (v4 & 4) == 0 )
+  if ( (v4 & 4) != 0 )
+    return 0LL;
+  *((_BYTE *)this + 720) = v4 | 4;
+  memset_0(v29, 0, sizeof(v29));
+  v7 = 0LL;
+  v8 = 0;
+  v30 = 0LL;
+  v31 = 18;
+  v32 = 0;
+  memset_0(&v24, 0, 0x40uLL);
+  v9 = 0LL;
+  LODWORD(v10) = *((_DWORD *)this + 182) & _xmm;
+  v27 = 18;
+  v11 = 0;
+  v26 = 0LL;
+  v28 = 0;
+  if ( v10 < 0.0000011920929 )
   {
-    *((_BYTE *)this + 752) = v4 | 4;
-    memset_0(v28, 0, sizeof(v28));
-    v29 = 0LL;
-    v7 = 0;
-    v30 = 18;
-    v31 = 0;
-    v8 = 18;
-    memset_0(v24, 0, sizeof(v24));
-    v9 = 18;
-    LODWORD(v10) = *((_DWORD *)this + 190) & _xmm;
-    v25 = 0LL;
-    v26 = 18;
-    v11 = 0;
-    v27 = 0;
-    if ( v10 >= 0.0000011920929 )
+LABEL_6:
+    if ( COERCE_FLOAT(*((_DWORD *)this + 183) & _xmm) >= 0.0000011920929 )
     {
-      v12 = CScrollKeyframeAnimation::TryProcessInertiaModifier(this, v5, a3, 0LL, 0, v28);
-      v13 = v12;
-      if ( v12 < 0 )
+      v14 = CScrollKeyframeAnimation::TryProcessInertiaModifier(this, v5, a3, 0LL, 1, &v24);
+      v13 = v14;
+      if ( v14 < 0 )
       {
-        v14 = 93LL;
-LABEL_9:
         wil::details::in1diag3::Return_Hr(
           retaddr,
-          (void *)v14,
-          (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollpositionkeyframeanimation.cpp",
-          (const char *)(unsigned int)v12);
-        Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v25);
-        Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v29);
-        return v13;
+          (void *)0x67,
+          (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollpositionkeyframeanimation.cpp",
+          (const char *)(unsigned int)v14);
+        if ( v26 )
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v26 + 16LL))(v26);
+        goto LABEL_10;
       }
-      v7 = v31;
-      v8 = v30;
-      v5 = a2;
-    }
-    if ( COERCE_FLOAT(*((_DWORD *)this + 191) & _xmm) >= 0.0000011920929 )
-    {
-      v12 = CScrollKeyframeAnimation::TryProcessInertiaModifier(this, v5, a3, 0LL, 1, v24);
-      v13 = v12;
-      if ( v12 < 0 )
-      {
-        v14 = 103LL;
-        goto LABEL_9;
-      }
-      v11 = v27;
+      v11 = v28;
       v9 = v26;
     }
-    if ( v7 || v11 )
+    if ( v8 || v11 )
     {
       CScrollPositionKeyframeAnimation::GetNaturalEndpoint(this, &v22);
-      if ( v7 && v8 == 18 )
+      if ( v8 && v31 == 18 )
       {
-        v16 = v28[0];
-        *((_BYTE *)this + 752) |= 8u;
+        v16 = v29[0];
+        *((_BYTE *)this + 720) |= 8u;
         LODWORD(v22) = v16;
       }
-      if ( v11 && v9 == 18 )
+      if ( v11 && v27 == 18 )
       {
-        v17 = v24[0];
-        *((_BYTE *)this + 752) |= 8u;
+        v17 = v24;
+        *((_BYTE *)this + 720) |= 8u;
         HIDWORD(v22) = v17;
       }
-      if ( (*((_BYTE *)this + 752) & 8) != 0 )
+      if ( (*((_BYTE *)this + 720) & 8) != 0 )
       {
-        memset_0(&v32, 0, 0x40uLL);
-        v19 = *((_QWORD *)this + 49);
-        v34 = 0LL;
-        v33 = v23;
+        memset_0(&v24, 0, 0x40uLL);
+        v19 = *((_QWORD *)this + 45);
+        v26 = 0LL;
+        v25 = v23;
         v20 = (unsigned int)(*(_DWORD *)(v19 + 112) - 1);
-        v35 = 52;
-        v32 = v22;
-        v36 = 1;
+        v27 = 52;
+        v24 = v22;
+        v28 = 1;
         v21 = *(_DWORD **)(*(_QWORD *)(v19 + 104) + 24 * v20 + 8);
         if ( v21[5] != 1 )
+        {
           wil::details::in1diag3::_FailFast_Unexpected(
             retaddr,
-            111LL,
+            (void *)0x6F,
             (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\keyframevalue.cpp",
             v18);
+          __debugbreak();
+        }
         if ( v21[4] != 52 )
+        {
           wil::details::in1diag3::_FailFast_Unexpected(
             retaddr,
-            114LL,
+            (void *)0x72,
             (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\keyframevalue.cpp",
             v18);
-        CExpressionValue::CopyFrom((CExpressionValue *)(v21 + 6), (const struct CExpressionValue *)&v32);
-        Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v34);
+          __debugbreak();
+        }
+        CExpressionValue::CopyFrom((CExpressionValue *)(v21 + 6), (const struct CExpressionValue *)&v24);
       }
     }
-    Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v25);
-    Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v29);
+    if ( v9 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
+    if ( v7 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+    return 0LL;
   }
-  return 0LL;
+  v12 = CScrollKeyframeAnimation::TryProcessInertiaModifier(this, v5, a3, 0LL, 0, v29);
+  v13 = v12;
+  if ( v12 >= 0 )
+  {
+    v8 = v32;
+    v7 = v30;
+    v5 = a2;
+    goto LABEL_6;
+  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x5D,
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollpositionkeyframeanimation.cpp",
+    (const char *)(unsigned int)v12);
+  v7 = v30;
+LABEL_10:
+  if ( v7 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+  return v13;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of VidMmGetDmaAllocationList @ 0x1C0018F80
+ * XREFs of VidMmGetDmaAllocationList @ 0x1C00161D0
  * Callers:
  *     <none>
  * Callees:

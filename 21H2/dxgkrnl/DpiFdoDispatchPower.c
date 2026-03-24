@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiFdoDispatchPower @ 0x1C01F02B0
+ * XREFs of DpiFdoDispatchPower @ 0x1C0176930
  * Callers:
  *     <none>
  * Callees:
- *     DpiFdoHandleSystemPower @ 0x1C01F02DC (DpiFdoHandleSystemPower.c)
- *     DpiFdoHandleDevicePower @ 0x1C01F0950 (DpiFdoHandleDevicePower.c)
+ *     DpiFdoHandleSystemPower @ 0x1C017695C (DpiFdoHandleSystemPower.c)
+ *     DpiFdoHandleDevicePower @ 0x1C01771F0 (DpiFdoHandleDevicePower.c)
  */
 
 __int64 __fastcall DpiFdoDispatchPower(struct _DEVICE_OBJECT *a1, IRP *a2)

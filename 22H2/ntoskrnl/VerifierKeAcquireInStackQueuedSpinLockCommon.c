@@ -1,43 +1,30 @@
 /*
- * XREFs of VerifierKeAcquireInStackQueuedSpinLockCommon @ 0x140AD61E0
+ * XREFs of VerifierKeAcquireInStackQueuedSpinLockCommon @ 0x1409DA690
  * Callers:
- *     VerifierKeAcquireInStackQueuedSpinLock @ 0x140AC1260 (VerifierKeAcquireInStackQueuedSpinLock.c)
+ *     VerifierKeAcquireInStackQueuedSpinLock @ 0x1409DA510 (VerifierKeAcquireInStackQueuedSpinLock.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockNoReboot @ 0x1409DA810 (VerifierKeAcquireInStackQueuedSpinLockNoReboot.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViTargetIncrementCounter @ 0x140ACCBDC (ViTargetIncrementCounter.c)
- *     ViKeIrqlLogAndTrimMemory @ 0x140AD6DA8 (ViKeIrqlLogAndTrimMemory.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C659C (VfUtilCheckKernelAddress.c)
+ *     ViTargetIncrementCounter @ 0x1409D751C (ViTargetIncrementCounter.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DC28C (ViKeRaiseIrqlSanityChecks.c)
  */
 
-unsigned int __fastcall VerifierKeAcquireInStackQueuedSpinLockCommon(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall VerifierKeAcquireInStackQueuedSpinLockCommon(ULONG_PTR a1, __int64 a2, ULONG_PTR a3)
 {
-  __int64 v3; // rbx
-  __int64 v5; // r9
-  __int64 v6; // rsi
-  unsigned int result; // eax
+  __int64 v5; // rcx
+  __int64 v6; // rbx
+  __int64 result; // rax
 
-  v3 = 0LL;
-  v5 = a2;
-  v6 = a1;
-  if ( (VfRuleClasses & 2) != 0 )
-  {
-    ++dword_140C13968;
-    if ( (MmVerifierData & 0x1000) != 0 )
-      ViTargetIncrementCounter(a2, 164LL);
-    LOBYTE(a1) = 2;
-    v3 = ViKeIrqlLogAndTrimMemory(a1);
-  }
-  result = ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64))pXdvKeAcquireInStackQueuedSpinLock)(
-             v6,
-             a3,
-             a3,
-             v5);
-  if ( (VfRuleClasses & 2) != 0 )
-  {
-    if ( v3 )
-    {
-      result = KeGetPcr()->Prcb.Number;
-      *(_WORD *)(v3 + 10) = result;
-    }
-  }
+  ++dword_140C2A8E8;
+  if ( (MmVerifierData & 0x1000) != 0 )
+    ViTargetIncrementCounter(a2, 156LL);
+  VfUtilCheckKernelAddress(a1, 8uLL);
+  VfUtilCheckKernelAddress(a3, 0x18uLL);
+  LOBYTE(v5) = 2;
+  v6 = ViKeRaiseIrqlSanityChecks(v5, 0LL);
+  result = ((__int64 (__fastcall *)(ULONG_PTR, ULONG_PTR))pXdvKeAcquireInStackQueuedSpinLock)(a1, a3);
+  if ( v6 )
+    *(_WORD *)(v6 + 10) = KeGetPcr()->Prcb.Number;
   return result;
 }

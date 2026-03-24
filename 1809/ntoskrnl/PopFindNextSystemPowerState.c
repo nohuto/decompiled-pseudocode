@@ -1,5 +1,5 @@
 /*
- * XREFs of PopFindNextSystemPowerState @ 0x140865F4C
+ * XREFs of PopFindNextSystemPowerState @ 0x140865F2C
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:

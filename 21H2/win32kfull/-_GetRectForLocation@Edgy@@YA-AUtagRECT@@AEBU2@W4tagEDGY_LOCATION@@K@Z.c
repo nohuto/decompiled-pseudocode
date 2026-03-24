@@ -1,7 +1,7 @@
 /*
- * XREFs of ?_GetRectForLocation@Edgy@@YA?AUtagRECT@@AEBU2@W4tagEDGY_LOCATION@@K@Z @ 0x1C02086B8
+ * XREFs of ?_GetRectForLocation@Edgy@@YA?AUtagRECT@@AEBU2@W4tagEDGY_LOCATION@@K@Z @ 0x1C020822C
  * Callers:
- *     ?_HitTestEdgyRegion@Edgy@@YA?AUtagHIT_TEST_RESULT@1@AEBUtagEDGY_DATA@@PEAXUtagPOINT@@W4tagPOINTER_DEVICE_TYPE@@H@Z @ 0x1C02087C8 (-_HitTestEdgyRegion@Edgy@@YA-AUtagHIT_TEST_RESULT@1@AEBUtagEDGY_DATA@@PEAXUtagPOINT@@W4tagPOINTE.c)
+ *     ?_HitTestEdgyRegion@Edgy@@YA?AUtagHIT_TEST_RESULT@1@AEBUtagEDGY_DATA@@PEAXUtagPOINT@@W4tagPOINTER_DEVICE_TYPE@@H@Z @ 0x1C020833C (-_HitTestEdgyRegion@Edgy@@YA-AUtagHIT_TEST_RESULT@1@AEBUtagEDGY_DATA@@PEAXUtagPOINT@@W4tagPOINTE.c)
  * Callees:
  *     <none>
  */

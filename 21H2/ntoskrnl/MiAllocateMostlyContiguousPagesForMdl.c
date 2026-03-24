@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAllocateMostlyContiguousPagesForMdl @ 0x14025AEEC
+ * XREFs of MiAllocateMostlyContiguousPagesForMdl @ 0x1402E3040
  * Callers:
- *     MiFindPagesForMdl @ 0x1402652C4 (MiFindPagesForMdl.c)
+ *     MiFindPagesForMdl @ 0x1402E40DC (MiFindPagesForMdl.c)
  * Callees:
- *     MiFindContiguousPagesEx @ 0x140277D10 (MiFindContiguousPagesEx.c)
+ *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
  */
 
 unsigned __int64 __fastcall MiAllocateMostlyContiguousPagesForMdl(__int64 a1, int a2, int a3)
@@ -18,41 +18,37 @@ unsigned __int64 __fastcall MiAllocateMostlyContiguousPagesForMdl(__int64 a1, in
   unsigned __int64 v12; // rdx
   __int64 v13; // rcx
   ULONG_PTR v14; // rax
-  __int64 v15; // [rsp+A0h] [rbp+8h] BYREF
+  __int64 v15; // [rsp+90h] [rbp+8h] BYREF
 
   v3 = *(_QWORD *)(a1 + 64);
   v15 = -1LL;
   v5 = *(_QWORD *)(a1 + 16);
   v6 = a3 | 0x60002000;
   v7 = *(_QWORD *)(a1 + 24);
-  v9 = qword_140C590C8;
-  for ( result = MiFindContiguousPagesEx(
+  v9 = BugCheckParameter3;
+  for ( result = MiFindContiguousPages(
                    *(_QWORD *)a1,
                    v5,
                    v7,
-                   0,
                    0,
                    *(_QWORD *)(a1 + 40) - ((unsigned __int64)*(unsigned int *)(v3 + 40) >> 12),
                    *(_DWORD *)(a1 + 60),
                    a2,
                    0x80000000,
                    a3 | 0x60002000u,
-                   0,
                    v3,
                    (__int64)&v15);
         ;
-        result = MiFindContiguousPagesEx(
+        result = MiFindContiguousPages(
                    *(_QWORD *)a1,
                    v5,
                    v7,
-                   0,
                    0,
                    v11 - v12,
                    *(_DWORD *)(a1 + 60),
                    a2,
                    0x80000000,
                    v6,
-                   0,
                    v3,
                    (__int64)&v15) )
   {

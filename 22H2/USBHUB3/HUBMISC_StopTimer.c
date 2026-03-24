@@ -1,8 +1,8 @@
 /*
- * XREFs of HUBMISC_StopTimer @ 0x1C002E834
+ * XREFs of HUBMISC_StopTimer @ 0x1C002B774
  * Callers:
- *     HUBDSM_StoppingTimerOnHubSuspendInSettingAddress @ 0x1C00207A0 (HUBDSM_StoppingTimerOnHubSuspendInSettingAddress.c)
- *     HUBDSM_StoppingTimerAndRequestingCycleOnStopSuspend @ 0x1C0023320 (HUBDSM_StoppingTimerAndRequestingCycleOnStopSuspend.c)
+ *     HUBDSM_StoppingTimerOnHubSuspendInSettingAddress @ 0x1C001DD80 (HUBDSM_StoppingTimerOnHubSuspendInSettingAddress.c)
+ *     HUBDSM_StoppingTimerAndRequestingCycleOnStopSuspend @ 0x1C0020D20 (HUBDSM_StoppingTimerAndRequestingCycleOnStopSuspend.c)
  * Callees:
  *     <none>
  */

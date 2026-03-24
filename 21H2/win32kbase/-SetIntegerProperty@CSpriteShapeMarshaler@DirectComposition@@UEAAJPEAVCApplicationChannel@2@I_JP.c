@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CSpriteShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C021E680
+ * XREFs of ?SetIntegerProperty@CSpriteShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E7F20
  * Callers:
  *     <none>
  * Callees:
@@ -26,10 +26,10 @@ __int64 __fastcall DirectComposition::CSpriteShapeMarshaler::SetIntegerProperty(
   if ( !v6 )
   {
     v10 = a4 != 0;
-    if ( *((_DWORD *)this + 35) == v10 )
+    if ( *((_DWORD *)this + 33) == v10 )
       return v5;
     *((_DWORD *)this + 4) |= 0x4000u;
-    *((_DWORD *)this + 35) = v10;
+    *((_DWORD *)this + 33) = v10;
 LABEL_18:
     *a5 = 1;
     return v5;
@@ -37,9 +37,9 @@ LABEL_18:
   v7 = v6 - 1;
   if ( !v7 )
   {
-    if ( *((_DWORD *)this + 31) == a4 )
+    if ( *((_DWORD *)this + 29) == a4 )
       return v5;
-    *((_DWORD *)this + 31) = a4;
+    *((_DWORD *)this + 29) = a4;
 LABEL_9:
     *((_DWORD *)this + 4) |= 0x200u;
     goto LABEL_18;
@@ -47,24 +47,24 @@ LABEL_9:
   v8 = v7 - 1;
   if ( !v8 )
   {
-    if ( *((_DWORD *)this + 32) == a4 )
+    if ( *((_DWORD *)this + 30) == a4 )
       return v5;
-    *((_DWORD *)this + 32) = a4;
+    *((_DWORD *)this + 30) = a4;
     goto LABEL_9;
   }
   v9 = v8 - 1;
   if ( !v9 )
   {
-    if ( *((_DWORD *)this + 33) == a4 )
+    if ( *((_DWORD *)this + 31) == a4 )
       return v5;
-    *((_DWORD *)this + 33) = a4;
+    *((_DWORD *)this + 31) = a4;
     goto LABEL_9;
   }
   if ( v9 == 1 )
   {
-    if ( *((_DWORD *)this + 34) == a4 )
+    if ( *((_DWORD *)this + 32) == a4 )
       return v5;
-    *((_DWORD *)this + 34) = a4;
+    *((_DWORD *)this + 32) = a4;
     goto LABEL_9;
   }
   return (unsigned int)-1073741811;

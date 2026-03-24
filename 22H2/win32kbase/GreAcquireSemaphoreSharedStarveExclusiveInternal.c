@@ -1,5 +1,5 @@
 /*
- * XREFs of GreAcquireSemaphoreSharedStarveExclusiveInternal @ 0x1C00CC860
+ * XREFs of GreAcquireSemaphoreSharedStarveExclusiveInternal @ 0x1C00C52E0
  * Callers:
  *     <none>
  * Callees:

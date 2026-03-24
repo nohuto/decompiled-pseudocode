@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAdjustedPreviousDelta@CPositionMotion@@MEBAMXZ @ 0x180107D30
+ * XREFs of ?GetAdjustedPreviousDelta@CPositionMotion@@MEBAMXZ @ 0x1800E2F20
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 float __fastcall CPositionMotion::GetAdjustedPreviousDelta(CPositionMotion *this)
 {
-  return *((float *)this + 35);
+  return *((float *)this + 45);
 }

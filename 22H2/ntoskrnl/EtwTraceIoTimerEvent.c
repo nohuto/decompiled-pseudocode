@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwTraceIoTimerEvent @ 0x1405FCF20
+ * XREFs of EtwTraceIoTimerEvent @ 0x1405A7884
  * Callers:
- *     IopDisableTimer @ 0x1405550D4 (IopDisableTimer.c)
- *     IopEnableTimer @ 0x140555478 (IopEnableTimer.c)
+ *     IopDisableTimer @ 0x1403CE41C (IopDisableTimer.c)
+ *     IopEnableTimer @ 0x1405005D0 (IopEnableTimer.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall EtwTraceIoTimerEvent(__int16 a1, __int64 a2, __int64 a3)
+void __fastcall EtwTraceIoTimerEvent(unsigned __int16 a1, __int64 a2, __int64 a3)
 {
-  _QWORD v4[2]; // [rsp+30h] [rbp-38h] BYREF
-  _QWORD *v5; // [rsp+40h] [rbp-28h] BYREF
-  int v6; // [rsp+48h] [rbp-20h]
-  int v7; // [rsp+4Ch] [rbp-1Ch]
+  _QWORD v3[2]; // [rsp+30h] [rbp-38h] BYREF
+  _QWORD *v4; // [rsp+40h] [rbp-28h] BYREF
+  int v5; // [rsp+48h] [rbp-20h]
+  int v6; // [rsp+4Ch] [rbp-1Ch]
 
-  v4[1] = a3;
-  v5 = v4;
-  v7 = 0;
-  v4[0] = a2;
-  v6 = 16;
-  return EtwTraceKernelEvent((int)&v5, 1, 0x40800000u, a1, 5249026);
+  v3[1] = a3;
+  v4 = v3;
+  v6 = 0;
+  v3[0] = a2;
+  v5 = 16;
+  EtwTraceKernelEvent((__int64)&v4, 1u, 0x40800000u, a1, 0x501802u);
 }

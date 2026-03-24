@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpGetGenericStorePropertyLocales @ 0x14083BD54
+ * XREFs of _PnpGetGenericStorePropertyLocales @ 0x140979294
  * Callers:
- *     PiDqPnPGetObjectPropertyLocales @ 0x14083B9A4 (PiDqPnPGetObjectPropertyLocales.c)
- *     _PnpGetObjectPropertyLocalesWorker @ 0x14083BB88 (_PnpGetObjectPropertyLocalesWorker.c)
+ *     PiDqPnPGetObjectPropertyLocales @ 0x1408A4AB4 (PiDqPnPGetObjectPropertyLocales.c)
+ *     _PnpGetObjectPropertyLocalesWorker @ 0x140976DCC (_PnpGetObjectPropertyLocalesWorker.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14022B258 (RtlStringCchCopyExW.c)
- *     RtlStringCchPrintfExW @ 0x14022B740 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _PnpOpenPropertiesKey @ 0x1406CDCF0 (_PnpOpenPropertiesKey.c)
- *     _PnpCtxRegEnumValue @ 0x140877E74 (_PnpCtxRegEnumValue.c)
+ *     RtlStringCchCopyExW @ 0x14032E518 (RtlStringCchCopyExW.c)
+ *     RtlStringCchPrintfExW @ 0x14032EBA4 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _PnpOpenPropertiesKey @ 0x1406BE2A4 (_PnpOpenPropertiesKey.c)
+ *     _PnpCtxRegEnumValue @ 0x1406F9CD4 (_PnpCtxRegEnumValue.c)
  */
 
 __int64 __fastcall PnpGetGenericStorePropertyLocales(
@@ -25,10 +25,10 @@ __int64 __fastcall PnpGetGenericStorePropertyLocales(
   int v8; // eax
   __int64 v9; // rcx
   unsigned int v10; // esi
-  unsigned int v11; // r14d
+  ULONG v11; // r14d
   int v12; // eax
-  unsigned int v13; // eax
-  __int64 v15; // rdi
+  __int64 v13; // rdi
+  unsigned int v14; // eax
   NTSTRSAFE_PCWSTR pszFormat; // [rsp+28h] [rbp-E8h]
   __int64 v17; // [rsp+90h] [rbp-80h] BYREF
   HANDLE Handle; // [rsp+98h] [rbp-78h] BYREF
@@ -52,7 +52,7 @@ __int64 __fastcall PnpGetGenericStorePropertyLocales(
          L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}\\%04lX");
   if ( v7 >= 0 )
   {
-    v8 = PnpOpenPropertiesKey(v19, v17, pszDest, 1, 0, (__int64)pszFormat, &Handle);
+    v8 = PnpOpenPropertiesKey(v19, v17, pszDest, 1u, 0, (__int64)pszFormat, &Handle);
     v7 = v8;
     if ( v8 == -1073741772 )
     {
@@ -74,20 +74,20 @@ __int64 __fastcall PnpGetGenericStorePropertyLocales(
           break;
         if ( pszSrc[0] )
         {
-          v15 = (unsigned int)(v17 + 1);
-          if ( (unsigned int)v15 < v10 )
+          v13 = (unsigned int)(v17 + 1);
+          if ( (unsigned int)v13 < v10 )
           {
             RtlStringCchCopyExW(v6, v10, pszSrc, 0LL, 0LL, 0x900u);
-            v10 -= v15;
-            v6 += v15;
+            v10 -= v13;
+            v6 += v13;
           }
-          *a6 += v15;
+          *a6 += v13;
         }
       }
       ZwClose(Handle);
-      v13 = *a6 + 1;
-      *a6 = v13;
-      if ( v6 && cchDest >= v13 )
+      v14 = *a6 + 1;
+      *a6 = v14;
+      if ( v6 && cchDest >= v14 )
         *v6 = 0;
       else
         return (unsigned int)-1073741789;

@@ -1,33 +1,49 @@
 /*
- * XREFs of ?_UpdateMonitorConfigurationToMonitorStore@DXGMONITOR@@AEAAJK@Z @ 0x1C03B9B54
+ * XREFs of ?_UpdateMonitorConfigurationToMonitorStore@DXGMONITOR@@AEAAJK@Z @ 0x1C02F68AC
  * Callers:
- *     ?_RetrieveMonitorConfigurationFromRegistry@DXGMONITOR@@AEAAJPEAXE@Z @ 0x1C020CB18 (-_RetrieveMonitorConfigurationFromRegistry@DXGMONITOR@@AEAAJPEAXE@Z.c)
- *     ?_EnableBoostRefreshRateEnabled@DXGMONITOR@@QEAAJ_N@Z @ 0x1C03B5528 (-_EnableBoostRefreshRateEnabled@DXGMONITOR@@QEAAJ_N@Z.c)
+ *     ?_RetrieveMonitorConfigurationFromRegistry@DXGMONITOR@@AEAAJPEAXE@Z @ 0x1C018C1D4 (-_RetrieveMonitorConfigurationFromRegistry@DXGMONITOR@@AEAAJPEAXE@Z.c)
  * Callees:
- *     ??1?$unique_storage@U?$resource_policy@PEAXP6AJPEAX@Z$1?ZwClose@@YAJ0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x1C001C71C (--1-$unique_storage@U-$resource_policy@PEAXP6AJPEAX@Z$1-ZwClose@@YAJ0@ZU-$integral_constant@_K$0.c)
- *     ?OpenMonitorDataStore@DXGMONITOR@@UEBAJ_NPEAPEAX@Z @ 0x1C01DC750 (-OpenMonitorDataStore@DXGMONITOR@@UEBAJ_NPEAPEAX@Z.c)
+ *     ?_OpenMonitorDataStore@DXGMONITOR@@AEAAJEPEAPEAX@Z @ 0x1C01904E0 (-_OpenMonitorDataStore@DXGMONITOR@@AEAAJEPEAPEAX@Z.c)
  */
 
-__int64 __fastcall DXGMONITOR::_UpdateMonitorConfigurationToMonitorStore(PCWSTR *this, unsigned int a2)
+__int64 __fastcall DXGMONITOR::_UpdateMonitorConfigurationToMonitorStore(DXGMONITOR *this, unsigned int a2)
 {
   __int64 v2; // rsi
-  int v4; // ebx
-  NTSTATUS v5; // eax
-  int ValueData; // [rsp+40h] [rbp+8h] BYREF
-  PCWSTR Path; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rbx
+  __int64 v7; // rax
+  const WCHAR *v8; // r8
+  NTSTATUS v9; // eax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  _QWORD *v12; // rax
+  int ValueData; // [rsp+50h] [rbp+18h] BYREF
+  PCWSTR Path; // [rsp+58h] [rbp+20h] BYREF
 
   Path = 0LL;
   v2 = a2;
-  v4 = DXGMONITOR::OpenMonitorDataStore((DXGMONITOR *)(this + 1), 0, (void **)&Path);
-  if ( v4 >= 0 )
+  LODWORD(v6) = DXGMONITOR::_OpenMonitorDataStore(this, 0LL, (void **)&Path);
+  if ( (int)v6 >= 0 )
   {
-    WdLogSingleEntry2(7LL, (unsigned int)v2, *((unsigned int *)this + 45));
-    ValueData = *(_DWORD *)((char *)this + SHIDWORD(this[4 * (unsigned int)v2 + 101]));
-    v5 = RtlWriteRegistryValue(0x40000000u, Path, this[4 * v2 + 100], 4u, &ValueData, 4u);
-    v4 = v5;
-    if ( v5 < 0 )
-      WdLogSingleEntry3(2LL, (unsigned int)v2, *((unsigned int *)this + 45), v5);
+    v7 = WdLogNewEntry5_WdDmmEvent(v5, v4);
+    *(_QWORD *)(v7 + 24) = v2;
+    *(_QWORD *)(v7 + 32) = *((unsigned int *)this + 11);
+    WdLogEvent5_WdDmmEvent(v7);
+    v8 = (const WCHAR *)*(&DXGMONITOR::_MonitorConfigInfoTable + 3 * v2);
+    ValueData = *(_DWORD *)((char *)this + *((int *)&DXGMONITOR::_MonitorConfigInfoTable + 6 * v2 + 3));
+    v9 = RtlWriteRegistryValue(0x40000000u, Path, v8, 4u, &ValueData, 4u);
+    v6 = v9;
+    if ( v9 < 0 )
+    {
+      v12 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+      v12[3] = v2;
+      v12[4] = *((unsigned int *)this + 11);
+      v12[5] = v6;
+      WdLogEvent5_WdError(v12);
+    }
   }
-  wil::details::unique_storage<wil::details::resource_policy<void *,long (*)(void *),&long ZwClose(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,long (*)(void *),&long ZwClose(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>((void **)&Path);
-  return (unsigned int)v4;
+  if ( Path )
+    ZwClose((HANDLE)Path);
+  return (unsigned int)v6;
 }

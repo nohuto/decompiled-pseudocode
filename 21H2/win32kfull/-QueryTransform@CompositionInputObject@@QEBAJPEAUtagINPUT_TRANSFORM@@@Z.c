@@ -1,7 +1,7 @@
 /*
- * XREFs of ?QueryTransform@CompositionInputObject@@QEBAJPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C00041A8
+ * XREFs of ?QueryTransform@CompositionInputObject@@QEBAJPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C0006B70
  * Callers:
- *     ?GetTransform@InputTransform@@YAHPEBUtagWND@@PEAUtagINPUT_TRANSFORM@@@Z @ 0x1C00AD920 (-GetTransform@InputTransform@@YAHPEBUtagWND@@PEAUtagINPUT_TRANSFORM@@@Z.c)
+ *     ?GetTransform@InputTransform@@YAHPEBUtagWND@@PEAUtagINPUT_TRANSFORM@@@Z @ 0x1C0110434 (-GetTransform@InputTransform@@YAHPEBUtagWND@@PEAUtagINPUT_TRANSFORM@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -20,11 +20,11 @@ __int64 __fastcall CompositionInputObject::QueryTransform(CompositionInputObject
   if ( v3 >= 0 )
   {
     v4 = v9;
-    v5 = *(_OWORD *)((char *)v9 + 104);
-    *(_OWORD *)a2 = *(_OWORD *)((char *)v9 + 88);
-    v6 = *(_OWORD *)((char *)v4 + 120);
+    v5 = *((_OWORD *)v9 + 7);
+    *(_OWORD *)a2 = *((_OWORD *)v9 + 6);
+    v6 = *((_OWORD *)v4 + 8);
     *((_OWORD *)a2 + 1) = v5;
-    v7 = *(_OWORD *)((char *)v4 + 136);
+    v7 = *((_OWORD *)v4 + 9);
     *((_OWORD *)a2 + 2) = v6;
     *((_OWORD *)a2 + 3) = v7;
     CInputSink::UnlockAndRelease(v4);

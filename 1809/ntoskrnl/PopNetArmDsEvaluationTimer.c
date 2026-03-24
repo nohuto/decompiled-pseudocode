@@ -1,9 +1,9 @@
 /*
- * XREFs of PopNetArmDsEvaluationTimer @ 0x140876B24
+ * XREFs of PopNetArmDsEvaluationTimer @ 0x140876B04
  * Callers:
- *     PdcPoNetworkResiliency @ 0x14086EC50 (PdcPoNetworkResiliency.c)
+ *     PdcPoNetworkResiliency @ 0x14086EC30 (PdcPoNetworkResiliency.c)
  * Callees:
- *     KeSetTimer2 @ 0x1400FC150 (KeSetTimer2.c)
+ *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
  */
 
 _BOOL8 PopNetArmDsEvaluationTimer()

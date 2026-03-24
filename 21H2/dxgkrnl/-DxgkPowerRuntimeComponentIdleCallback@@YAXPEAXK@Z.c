@@ -1,22 +1,21 @@
 /*
- * XREFs of ?DxgkPowerRuntimeComponentIdleCallback@@YAXPEAXK@Z @ 0x1C0009F00
+ * XREFs of ?DxgkPowerRuntimeComponentIdleCallback@@YAXPEAXK@Z @ 0x1C003E9F0
  * Callers:
  *     <none>
  * Callees:
- *     ?PowerRuntimeComponentActiveCallback@DXGADAPTER@@QEAAXKE@Z @ 0x1C0009F60 (-PowerRuntimeComponentActiveCallback@DXGADAPTER@@QEAAXKE@Z.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C0044D64 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     ?PowerRuntimeComponentActiveCallback@DXGADAPTER@@QEAAXKE@Z @ 0x1C00381B4 (-PowerRuntimeComponentActiveCallback@DXGADAPTER@@QEAAXKE@Z.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C003A358 (McTemplateK0pqq_EtwWriteTransfer.c)
  */
 
-void __fastcall DxgkPowerRuntimeComponentIdleCallback(DXGADAPTER *this, unsigned int a2, int a3)
+void __fastcall DxgkPowerRuntimeComponentIdleCallback(DXGADAPTER *this, unsigned int a2, __int64 a3, __int64 a4)
 {
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
-    McTemplateK0pqq_EtwWriteTransfer(
-      (_DWORD)this,
-      (unsigned int)&Dxgk_PowerRuntimeComponentActiveCallback,
-      a3,
-      (_DWORD)this,
-      a2,
-      0);
-  DXGADAPTER::PowerRuntimeComponentActiveCallback(this, a2, 0);
-  PoFxCompleteIdleCondition(*((_QWORD *)this + 363), a2);
+  int v7; // [rsp+28h] [rbp-10h]
+
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
+  {
+    v7 = 0;
+    McTemplateK0pqq_EtwWriteTransfer((__int64)this, &Dxgk_PowerRuntimeComponentActiveCallback, a3, this, a2, v7);
+  }
+  DXGADAPTER::PowerRuntimeComponentActiveCallback(this, a2, 0, a4);
+  PoFxCompleteIdleCondition(*((_QWORD *)this + 351), a2);
 }

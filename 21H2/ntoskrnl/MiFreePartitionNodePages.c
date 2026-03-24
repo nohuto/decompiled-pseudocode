@@ -1,32 +1,27 @@
 /*
- * XREFs of MiFreePartitionNodePages @ 0x1405BE588
+ * XREFs of MiFreePartitionNodePages @ 0x1405622E4
  * Callers:
- *     MiFreePartitionTree @ 0x1405BE614 (MiFreePartitionTree.c)
- *     MiInsertPartitionPages @ 0x1405BE81C (MiInsertPartitionPages.c)
+ *     MiFreePartitionTree @ 0x14056233C (MiFreePartitionTree.c)
+ *     MiInsertPartitionPages @ 0x140562540 (MiInsertPartitionPages.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     MiActOnPartitionNodePages @ 0x1405BCBC4 (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x1405608A0 (MiActOnPartitionNodePages.c)
  */
 
-__int64 __fastcall MiFreePartitionNodePages(__int16 *a1, __int64 a2, unsigned int a3)
+__int64 __fastcall MiFreePartitionNodePages(unsigned __int64 a1, __int64 a2, char a3)
 {
-  unsigned __int64 v6; // rdx
-  __int16 *v8[9]; // [rsp+20h] [rbp-48h] BYREF
+  unsigned int v4; // edx
+  __int128 v6; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v7; // [rsp+30h] [rbp-38h]
+  __int128 v8; // [rsp+40h] [rbp-28h]
+  __int64 v9; // [rsp+50h] [rbp-18h]
 
-  memset(v8, 0, 0x40uLL);
-  v6 = 4LL;
-  v8[0] = a1;
-  if ( (a3 & 4) != 0 )
-  {
-    v6 = (a3 & 0x20 | 0x10) >> 4;
-  }
-  else if ( (a3 & 1) != 0 )
-  {
-    v6 = 2LL;
-    HIDWORD(v8[2]) = 2;
-    if ( (a3 & 0x30) != 0x30 )
-      v6 = 0LL;
-  }
-  MiActOnPartitionNodePages(a2, v6, a3, v8);
-  return LODWORD(v8[3]);
+  v9 = 0LL;
+  v6 = a1;
+  v4 = 1;
+  v7 = 0LL;
+  v8 = 0LL;
+  if ( (a3 & 4) == 0 )
+    v4 = 2 * ((a3 & 1) == 0);
+  MiActOnPartitionNodePages(a2, v4, (__int16 **)&v6);
+  return DWORD1(v7);
 }

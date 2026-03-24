@@ -1,13 +1,14 @@
 /*
- * XREFs of ?PanEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C029BC60
+ * XREFs of ?PanEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C0294B40
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?bCreateSemaphores@@YAHPEAU_PANDEV@@@Z @ 0x1C029D200 (-bCreateSemaphores@@YAHPEAU_PANDEV@@@Z.c)
- *     ?vDeleteSemaphores@@YAXPEAU_PANDEV@@@Z @ 0x1C029D60C (-vDeleteSemaphores@@YAXPEAU_PANDEV@@@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?bCreateSemaphores@@YAHPEAU_PANDEV@@@Z @ 0x1C0296160 (-bCreateSemaphores@@YAHPEAU_PANDEV@@@Z.c)
+ *     ?vDeleteSemaphores@@YAXPEAU_PANDEV@@@Z @ 0x1C0296578 (-vDeleteSemaphores@@YAXPEAU_PANDEV@@@Z.c)
  */
 
 struct DHPDEV__ *__fastcall PanEnablePDEV(
@@ -23,8 +24,8 @@ struct DHPDEV__ *__fastcall PanEnablePDEV(
         unsigned __int16 *a10,
         void *a11)
 {
-  __int64 v14; // rax
-  _DWORD *v15; // rbx
+  char *v14; // rax
+  DWORD *v15; // rbx
   __int64 (__fastcall **v16)(_OWORD *, unsigned __int16 *, _QWORD, HSURF *, unsigned int, unsigned int *, unsigned int, struct tagDEVINFO *, HDEV, unsigned __int16 *, void *); // r15
   __int64 v17; // rdx
   _OWORD *v18; // rax
@@ -50,22 +51,17 @@ struct DHPDEV__ *__fastcall PanEnablePDEV(
   __int64 v38; // rax
   __int64 v39; // rax
   int v40; // eax
-  _OWORD v43[10]; // [rsp+80h] [rbp-138h] BYREF
-  __int128 v44; // [rsp+120h] [rbp-98h]
-  __int128 v45; // [rsp+130h] [rbp-88h]
-  __int128 v46; // [rsp+140h] [rbp-78h]
-  __int64 v47; // [rsp+150h] [rbp-68h]
-  int v48; // [rsp+158h] [rbp-60h]
+  _OWORD v43[14]; // [rsp+80h] [rbp-138h] BYREF
 
-  memset_0(v43, 0, 0xDCuLL);
-  v14 = Win32AllocPoolZInit(1640LL, 1851879495LL);
-  v15 = (_DWORD *)v14;
+  memset(v43, 0, 0xDCuLL);
+  v14 = (char *)PALLOCMEM2(0x668uLL, 1851879495LL, 1);
+  v15 = (DWORD *)v14;
   if ( !v14 )
     return 0LL;
   v16 = (__int64 (__fastcall **)(_OWORD *, unsigned __int16 *, _QWORD, HSURF *, unsigned int, unsigned int *, unsigned int, struct tagDEVINFO *, HDEV, unsigned __int16 *, void *))(v14 + 792);
   v17 = 6LL;
-  v18 = (_OWORD *)(v14 + 792);
-  v19 = (_OWORD *)(*((_QWORD *)a9 + 220) + 64LL);
+  v18 = v14 + 792;
+  v19 = (_OWORD *)(*((_QWORD *)a9 + 224) + 64LL);
   do
   {
     *v18 = *v19;
@@ -129,14 +125,14 @@ LABEL_15:
   v34 = *((_OWORD *)v30 + 2);
   v43[9] = v33;
   v35 = *((_OWORD *)v30 + 3);
-  v44 = v34;
+  v43[10] = v34;
   v36 = *((_OWORD *)v30 + 4);
-  v45 = v35;
-  v46 = v36;
-  v47 = v31;
-  v48 = *((_DWORD *)v30 + 22);
-  HIDWORD(v44) = *v15;
-  LODWORD(v45) = v15[1];
+  v43[11] = v35;
+  v43[12] = v36;
+  *(_QWORD *)&v43[13] = v31;
+  DWORD2(v43[13]) = *((_DWORD *)v30 + 22);
+  HIDWORD(v43[10]) = *v15;
+  LODWORD(v43[11]) = v15[1];
   v37 = (*v16)(v43, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11);
   if ( !v37 )
   {
@@ -147,17 +143,17 @@ LABEL_15:
   *((_QWORD *)v15 + 4) = v37;
   *((_QWORD *)v15 + 6) = a9;
   v15[11] = *(_DWORD *)a8;
-  v38 = *((_QWORD *)a9 + 329);
+  v38 = *((_QWORD *)a9 + 332);
   if ( v38 )
   {
     *((_QWORD *)v15 + 203) = v38;
-    *((_QWORD *)a9 + 329) = PanCloseProcess;
+    *((_QWORD *)a9 + 332) = PanCloseProcess;
   }
-  v39 = *((_QWORD *)a9 + 328);
+  v39 = *((_QWORD *)a9 + 331);
   if ( v39 )
   {
     *((_QWORD *)v15 + 204) = v39;
-    *((_QWORD *)a9 + 328) = PanAddD3DDirtyRgn;
+    *((_QWORD *)a9 + 331) = PanAddD3DDirtyRgn;
   }
   a6[4] = v15[2];
   a6[5] = v15[3];

@@ -1,9 +1,9 @@
 /*
- * XREFs of EngCreateFastMutex @ 0x1C01771E0
+ * XREFs of EngCreateFastMutex @ 0x1C014AD90
  * Callers:
  *     <none>
  * Callees:
- *     GreCreateFastMutex @ 0x1C0056738 (GreCreateFastMutex.c)
+ *     GreCreateFastMutex @ 0x1C006BDDC (GreCreateFastMutex.c)
  */
 
 HFASTMUTEX EngCreateFastMutex(void)

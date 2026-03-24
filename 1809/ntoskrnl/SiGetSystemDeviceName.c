@@ -1,17 +1,17 @@
 /*
- * XREFs of SiGetSystemDeviceName @ 0x1406BEFE4
+ * XREFs of SiGetSystemDeviceName @ 0x1406BEFC4
  * Callers:
- *     SyspartDirectGetSystemPartition @ 0x1406BEFC0 (SyspartDirectGetSystemPartition.c)
- *     SyspartDirectGetSystemDisk @ 0x1407057D0 (SyspartDirectGetSystemDisk.c)
- *     SyspartGetFirmwarePartition @ 0x140714E20 (SyspartGetFirmwarePartition.c)
- *     SyspartDirectGetFirmwareSystemPartition @ 0x14071ED40 (SyspartDirectGetFirmwareSystemPartition.c)
- *     IopFindSystemDevice @ 0x140822870 (IopFindSystemDevice.c)
- *     SyspartGetSystemPartition @ 0x1408F4ED8 (SyspartGetSystemPartition.c)
+ *     SyspartDirectGetSystemPartition @ 0x1406BEFA0 (SyspartDirectGetSystemPartition.c)
+ *     SyspartDirectGetSystemDisk @ 0x1407057B0 (SyspartDirectGetSystemDisk.c)
+ *     SyspartGetFirmwarePartition @ 0x140714E00 (SyspartGetFirmwarePartition.c)
+ *     SyspartDirectGetFirmwareSystemPartition @ 0x14071ED20 (SyspartDirectGetFirmwareSystemPartition.c)
+ *     IopFindSystemDevice @ 0x140822850 (IopFindSystemDevice.c)
+ *     SyspartGetSystemPartition @ 0x1408F4EB8 (SyspartGetSystemPartition.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8830 (ZwQuerySystemInformation.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

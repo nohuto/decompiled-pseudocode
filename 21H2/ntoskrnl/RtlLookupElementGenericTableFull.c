@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlLookupElementGenericTableFull @ 0x1405EB310
+ * XREFs of RtlLookupElementGenericTableFull @ 0x14058BC90
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x14021ECC0 (RtlSplay.c)
- *     FindNodeOrParent @ 0x14021EEF0 (FindNodeOrParent.c)
+ *     FindNodeOrParent_0 @ 0x1402B8F54 (FindNodeOrParent_0.c)
+ *     RtlSplay @ 0x140359770 (RtlSplay.c)
  */
 
 PVOID __stdcall RtlLookupElementGenericTableFull(
@@ -13,11 +13,11 @@ PVOID __stdcall RtlLookupElementGenericTableFull(
         PVOID *NodeOrParent,
         TABLE_SEARCH_RESULT *SearchResult)
 {
-  TABLE_SEARCH_RESULT v7; // eax
+  TABLE_SEARCH_RESULT NodeOrParent_0; // eax
 
-  v7 = (unsigned int)FindNodeOrParent((__int64 *)Table, (__int64)Buffer, NodeOrParent);
-  *SearchResult = v7;
-  if ( v7 != TableFoundNode )
+  NodeOrParent_0 = (unsigned int)FindNodeOrParent_0((__int64 *)Table, (__int64)Buffer, NodeOrParent);
+  *SearchResult = NodeOrParent_0;
+  if ( NodeOrParent_0 != TableFoundNode )
     return 0LL;
   Table->TableRoot = RtlSplay((PRTL_SPLAY_LINKS)*NodeOrParent);
   return (char *)*NodeOrParent + 40;

@@ -1,22 +1,14 @@
 /*
- * XREFs of ObpDirectoryTeardownCallback @ 0x140A74000
+ * XREFs of ObpDirectoryTeardownCallback @ 0x1409809B0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObDereferenceDeviceMap @ 0x1407B040C (ObDereferenceDeviceMap.c)
- *     ObMakeTemporaryObject @ 0x1407E1210 (ObMakeTemporaryObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObMakeTemporaryObject @ 0x1406F62F0 (ObMakeTemporaryObject.c)
  */
 
-char __fastcall ObpDirectoryTeardownCallback(__int64 a1)
+LONG_PTR __fastcall ObpDirectoryTeardownCallback(PVOID *a1)
 {
-  char result; // al
-  volatile signed __int64 *v3; // rcx
-
-  ObMakeTemporaryObject(*(PVOID *)a1);
-  result = ObfDereferenceObjectWithTag(*(PVOID *)a1, 0x7254624Fu);
-  v3 = *(volatile signed __int64 **)(a1 + 8);
-  if ( v3 )
-    return ObDereferenceDeviceMap(v3, 1u);
-  return result;
+  ObMakeTemporaryObject(*a1);
+  return ObfDereferenceObjectWithTag(*a1, 0x7254624Fu);
 }

@@ -1,22 +1,21 @@
 /*
- * XREFs of ?Add@?$Set@VDMMVIDEOPRESENTTARGET@@@@QEAAEQEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C002897C
+ * XREFs of ?Add@?$Set@VDMMVIDEOPRESENTTARGET@@@@QEAAEQEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C002313C
  * Callers:
- *     ?AddTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C0213B60 (-AddTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJPEAVDMMVIDEOPRESENTTARGET@@@Z.c)
+ *     ?AddTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C0197CB8 (-AddTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJPEAVDMMVIDEOPRESENTTARGET@@@Z.c)
  * Callees:
- *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDEOPRESENTTARGET@@U?$DoubleLinkedListElementDeleter@VDMMVIDEOPRESENTTARGET@@@@@@QEAAEQEBVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C0010EB8 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDEOPRESENTTARGET@@U-$DoubleLinkedListElementDelete.c)
- *     ?FindByValue@?$Set@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@QEBV2@@Z @ 0x1C00289E0 (-FindByValue@-$Set@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@QEBV2@@Z.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDEOPRESENTTARGET@@U?$DoubleLinkedListElementDeleter@VDMMVIDEOPRESENTTARGET@@@@@@QEAAEQEBVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C0005EC0 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDEOPRESENTTARGET@@U-$DoubleLinkedListElementDelete.c)
+ *     ?FindByValue@?$Set@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@QEBV2@@Z @ 0x1C00231A0 (-FindByValue@-$Set@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@QEBV2@@Z.c)
  */
 
 char __fastcall Set<DMMVIDEOPRESENTTARGET>::Add(__int64 a1, __int64 a2)
 {
   __int64 v3; // r11
-  __int64 v4; // r11
-  _QWORD *v5; // rdx
-  _QWORD *v6; // rcx
-  int v8; // edx
-  int v9; // ecx
-  int v10; // r8d
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r11
+  _QWORD *v7; // rdx
+  _QWORD *v8; // rax
+  __int64 v10; // rax
 
   if ( Set<DMMVIDEOPRESENTTARGET>::FindByValue() )
     return 0;
@@ -24,33 +23,21 @@ char __fastcall Set<DMMVIDEOPRESENTTARGET>::Add(__int64 a1, __int64 a2)
          v3 + 8,
          a2) )
   {
-    WdLogSingleEntry1(1LL, 108LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v9,
-        v8,
-        v10,
-        0,
-        2,
-        -1,
-        (__int64)L"bInsertTailStatus == TRUE",
-        108LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+    v10 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v10 + 24) = 108LL;
+    WdLogEvent5_WdAssertion(v10);
   }
   else
   {
-    v5 = *(_QWORD **)(v4 + 32);
-    v6 = (_QWORD *)(a2 + 8);
-    if ( *v5 != v4 + 24 )
+    v7 = *(_QWORD **)(v6 + 32);
+    v8 = (_QWORD *)(a2 + 8);
+    if ( *v7 != v6 + 24 )
       __fastfail(3u);
-    *v6 = v4 + 24;
-    *(_QWORD *)(a2 + 16) = v5;
-    *v5 = v6;
-    *(_QWORD *)(v4 + 32) = v6;
-    ++*(_QWORD *)(v4 + 40);
+    *v8 = v6 + 24;
+    *(_QWORD *)(a2 + 16) = v7;
+    *v7 = v8;
+    *(_QWORD *)(v6 + 32) = v8;
+    ++*(_QWORD *)(v6 + 40);
   }
   return 1;
 }

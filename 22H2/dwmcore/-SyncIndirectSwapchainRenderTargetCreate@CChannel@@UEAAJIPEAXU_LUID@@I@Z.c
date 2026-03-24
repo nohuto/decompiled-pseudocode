@@ -1,13 +1,12 @@
 /*
- * XREFs of ?SyncIndirectSwapchainRenderTargetCreate@CChannel@@UEAAJIPEAXU_LUID@@I@Z @ 0x1801D0970
+ * XREFs of ?SyncIndirectSwapchainRenderTargetCreate@CChannel@@UEAAJIPEAXU_LUID@@I@Z @ 0x180150D10
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180044038 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z @ 0x1801D08BC (-SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E530 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z @ 0x180150C54 (-SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z.c)
  */
 
 __int64 __fastcall CChannel::SyncIndirectSwapchainRenderTargetCreate(
@@ -17,53 +16,42 @@ __int64 __fastcall CChannel::SyncIndirectSwapchainRenderTargetCreate(
         struct _LUID a4,
         unsigned int a5)
 {
-  int v9; // eax
-  unsigned int v10; // ebx
-  unsigned __int64 v11; // r9
-  __int64 v12; // rdx
-  _BYTE v14[16]; // [rsp+20h] [rbp-50h] BYREF
-  _BYTE v15[8]; // [rsp+30h] [rbp-40h] BYREF
-  char *v16; // [rsp+38h] [rbp-38h]
-  _DWORD v17[2]; // [rsp+50h] [rbp-20h] BYREF
-  void *v18; // [rsp+58h] [rbp-18h]
-  struct _LUID v19; // [rsp+60h] [rbp-10h]
-  unsigned int v20; // [rsp+68h] [rbp-8h]
-  int v21; // [rsp+6Ch] [rbp-4h]
-  wil::details::in1diag3 *retaddr; // [rsp+88h] [rbp+18h]
+  unsigned int v9; // edi
+  int v10; // eax
+  __int64 v11; // rcx
+  unsigned int v12; // ebx
+  _BYTE v14[8]; // [rsp+30h] [rbp-40h] BYREF
+  int v15; // [rsp+38h] [rbp-38h]
+  _DWORD v16[2]; // [rsp+50h] [rbp-20h] BYREF
+  void *v17; // [rsp+58h] [rbp-18h]
+  struct _LUID v18; // [rsp+60h] [rbp-10h]
+  unsigned int v19; // [rsp+68h] [rbp-8h]
+  int v20; // [rsp+6Ch] [rbp-4h]
+  struct _RTL_CRITICAL_SECTION *v21; // [rsp+90h] [rbp+20h] BYREF
 
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v14, this);
-  CChannel::CheckHandle((__int64)this, a2, 86);
-  CChannel::CheckHandle((__int64)this, a5, 196);
-  v17[0] = 180;
-  v21 = 0;
-  v17[1] = a2;
-  v18 = a3;
-  v19 = a4;
-  v20 = a5;
-  v9 = CChannel::SendSyncCommand(this, v17, 0x20u, (struct MIL_MESSAGE *)v15);
-  v10 = v9;
-  if ( v9 >= 0 )
+  v21 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
+  CChannel::CheckHandle((__int64)this, a2, 84);
+  v9 = a5;
+  CChannel::CheckHandle((__int64)this, a5, 195);
+  v16[0] = 189;
+  v20 = 0;
+  v16[1] = a2;
+  v17 = a3;
+  v18 = a4;
+  v19 = v9;
+  v10 = CChannel::SendSyncCommand(this, v16, 0x20u, (struct MIL_MESSAGE *)v14);
+  v12 = v10;
+  if ( v10 < 0 )
   {
-    v10 = (unsigned int)v16;
-    if ( (int)v16 >= 0 )
-    {
-      v10 = 0;
-      goto LABEL_7;
-    }
-    v11 = (unsigned int)v16;
-    v12 = 2113LL;
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x829u, 0LL);
   }
   else
   {
-    v11 = (unsigned int)v9;
-    v12 = 2111LL;
+    v12 = v15;
+    if ( v15 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v15, 0x82Bu, 0LL);
   }
-  wil::details::in1diag3::Return_Hr(
-    retaddr,
-    (void *)v12,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-    (const char *)v11);
-LABEL_7:
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v14);
-  return v10;
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v21);
+  return v12;
 }

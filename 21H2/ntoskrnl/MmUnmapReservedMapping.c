@@ -1,30 +1,30 @@
 /*
- * XREFs of MmUnmapReservedMapping @ 0x1405858A0
+ * XREFs of MmUnmapReservedMapping @ 0x140531C90
  * Callers:
- *     SmFpFree @ 0x14037AE58 (SmFpFree.c)
- *     sub_1403F94E0 @ 0x1403F94E0 (sub_1403F94E0.c)
- *     HalpDmaReleaseBufferMappings @ 0x140457742 (HalpDmaReleaseBufferMappings.c)
- *     HalpDmaFlushBufferWithEmergencyResources @ 0x140513544 (HalpDmaFlushBufferWithEmergencyResources.c)
- *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x140513C1C (HalpDmaSyncMapBuffersWithEmergencyResources.c)
- *     PnprCopyReservedMapping @ 0x140562A80 (PnprCopyReservedMapping.c)
- *     PnprSwap @ 0x1405633A8 (PnprSwap.c)
- *     PspIumFreePhysicalPages @ 0x1405E281C (PspIumFreePhysicalPages.c)
- *     EtwpSavePersistedLogger @ 0x1409ED100 (EtwpSavePersistedLogger.c)
- *     PnprMapPhysicalPages @ 0x140A6804C (PnprMapPhysicalPages.c)
+ *     SmFpFree @ 0x1402DA854 (SmFpFree.c)
+ *     sub_1403EA300 @ 0x1403EA300 (sub_1403EA300.c)
+ *     HalpDmaFlushBufferWithEmergencyResources @ 0x1404C7790 (HalpDmaFlushBufferWithEmergencyResources.c)
+ *     HalpDmaReleaseBufferMappings @ 0x1404C7E8C (HalpDmaReleaseBufferMappings.c)
+ *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x1404C856C (HalpDmaSyncMapBuffersWithEmergencyResources.c)
+ *     PnprCopyReservedMapping @ 0x14050F140 (PnprCopyReservedMapping.c)
+ *     PnprSwap @ 0x14050FA68 (PnprSwap.c)
+ *     PspIumFreePhysicalPages @ 0x140583DCC (PspIumFreePhysicalPages.c)
+ *     EtwpSavePersistedLogger @ 0x140948C8C (EtwpSavePersistedLogger.c)
+ *     PnprMapPhysicalPages @ 0x1409ADBDC (PnprMapPhysicalPages.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     MiRetardMdl @ 0x140584530 (MiRetardMdl.c)
- *     MiUnmapMdlCommon @ 0x1405853E4 (MiUnmapMdlCommon.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiRetardMdl @ 0x140530CF0 (MiRetardMdl.c)
+ *     MiUnmapMdlCommon @ 0x140531724 (MiUnmapMdlCommon.c)
  */
 
 void __stdcall MmUnmapReservedMapping(PVOID BaseAddress, ULONG PoolTag, PMDL MemoryDescriptorList)
 {
-  ULONG_PTR v3; // r14
-  ULONG_PTR v5; // rsi
+  ULONG_PTR v3; // rsi
+  ULONG_PTR v4; // r14
   ULONG_PTR BugCheckParameter4; // rbp
   KIRQL v7; // al
   __int64 v8; // rbx
@@ -41,23 +41,23 @@ void __stdcall MmUnmapReservedMapping(PVOID BaseAddress, ULONG PoolTag, PMDL Mem
   unsigned __int64 v19; // r15
   unsigned __int64 i; // rbx
 
-  v3 = PoolTag;
-  v5 = (ULONG_PTR)BaseAddress;
-  if ( _bittest16(&MemoryDescriptorList->MdlFlags, 9u) )
-    v5 = (ULONG_PTR)BaseAddress - (unsigned int)MiRetardMdl((__int64)MemoryDescriptorList);
+  v3 = (ULONG_PTR)BaseAddress;
+  v4 = PoolTag;
+  if ( (MemoryDescriptorList->MdlFlags & 0x200) != 0 )
+    v3 = (ULONG_PTR)BaseAddress - (unsigned int)MiRetardMdl((__int64)MemoryDescriptorList);
   BugCheckParameter4 = (((LODWORD(MemoryDescriptorList->StartVa) + MemoryDescriptorList->ByteOffset) & 0xFFF)
                       + (unsigned __int64)MemoryDescriptorList->ByteCount
                       + 4095) >> 12;
-  v7 = ExAcquireSpinLockShared(&dword_140C53050);
-  v8 = qword_140C53058;
-  v9 = v5 & 0xFFFFFFFFFFFFF000uLL;
+  v7 = ExAcquireSpinLockShared(&dword_140C4EBC0);
+  v8 = qword_140C4EBC8;
+  v9 = v3 & 0xFFFFFFFFFFFFF000uLL;
   v10 = v7;
   while ( 1 )
   {
     while ( 1 )
     {
       if ( !v8 )
-        KeBugCheckEx(0xDAu, 0x106uLL, v5, v3, 2uLL);
+        KeBugCheckEx(0xDAu, 0x106uLL, v3, v4, 2uLL);
       v11 = *(_QWORD *)(v8 + 24);
       if ( v9 >= v11 )
         break;
@@ -67,7 +67,7 @@ void __stdcall MmUnmapReservedMapping(PVOID BaseAddress, ULONG PoolTag, PMDL Mem
       break;
     v8 = *(_QWORD *)(v8 + 8);
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C53050);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4EBC0);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
@@ -86,24 +86,24 @@ void __stdcall MmUnmapReservedMapping(PVOID BaseAddress, ULONG PoolTag, PMDL Mem
     }
   }
   __writecr8(v10);
-  if ( *(_DWORD *)(v8 + 40) != (_DWORD)v3 )
-    KeBugCheckEx(0xDAu, 0x102uLL, v5, v3, BugCheckParameter4);
+  if ( *(_DWORD *)(v8 + 40) != (_DWORD)v4 )
+    KeBugCheckEx(0xDAu, 0x102uLL, v3, v4, BugCheckParameter4);
   v17 = *(_QWORD *)(v8 + 32);
   if ( (*(_DWORD *)(v8 + 44) & 1) != 0 )
-    v17 -= (v5 - *(_QWORD *)(v8 + 24)) >> 12;
+    v17 -= (v3 - *(_QWORD *)(v8 + 24)) >> 12;
   else
-    v5 = *(_QWORD *)(v8 + 24);
+    v3 = *(_QWORD *)(v8 + 24);
   if ( BugCheckParameter4 > v17 )
-    KeBugCheckEx(0xDAu, 0x10AuLL, v5, *(_QWORD *)(v8 + 32), BugCheckParameter4);
-  MiUnmapMdlCommon(v5, 0LL, v3, (__int64)MemoryDescriptorList, BugCheckParameter4);
+    KeBugCheckEx(0xDAu, 0x10AuLL, v3, *(_QWORD *)(v8 + 32), BugCheckParameter4);
+  MiUnmapMdlCommon(v3, 0LL, v4, (__int64)MemoryDescriptorList, BugCheckParameter4);
   if ( (*(_DWORD *)(v8 + 44) & 1) == 0 )
   {
-    v18 = ((v5 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v18 = ((v3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     v19 = v18 + 8LL * *(_QWORD *)(v8 + 32);
     for ( i = v18 + 8 * BugCheckParameter4; i < v19; i += 8LL )
     {
       if ( MI_READ_PTE_LOCK_FREE(i) )
-        KeBugCheckEx(0xDAu, 0x10CuLL, v5, v3, BugCheckParameter4);
+        KeBugCheckEx(0xDAu, 0x10CuLL, v3, v4, BugCheckParameter4);
     }
   }
   MemoryDescriptorList->MdlFlags &= 0xFFDEu;

@@ -1,16 +1,16 @@
 /*
- * XREFs of SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x14035B7A4
+ * XREFs of SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x140597720
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022C948 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SeSetSecurityAttributesTokenEx @ 0x1403A1680 (SeSetSecurityAttributesTokenEx.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14024E0D0 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x1405974C0 (SeSetSecurityAttributesTokenEx.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x14035B858 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x140597658 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
  */
 
-__int64 __fastcall SepGetProcUniqueLuidAndIndexFromTokenEx(char a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall SepGetProcUniqueLuidAndIndexFromTokenEx(char a1, __int64 a2, _DWORD *a3, _QWORD *a4)
 {
   char v4; // si
   unsigned int ProcUniqueLuidAndIndexFromAttributeInfo; // edi
@@ -23,8 +23,8 @@ __int64 __fastcall SepGetProcUniqueLuidAndIndexFromTokenEx(char a1, __int64 a2, 
     if ( !a1 && KeGetCurrentIrql() < 2u )
     {
       CurrentThread = KeGetCurrentThread();
-      v4 = 1;
       --CurrentThread->KernelApcDisable;
+      v4 = 1;
       ExAcquireResourceSharedLite(*(PERESOURCE *)(a2 + 48), 1u);
     }
     ProcUniqueLuidAndIndexFromAttributeInfo = SepGetProcUniqueLuidAndIndexFromAttributeInfo(

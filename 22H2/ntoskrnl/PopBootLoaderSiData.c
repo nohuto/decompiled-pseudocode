@@ -1,21 +1,20 @@
 /*
- * XREFs of PopBootLoaderSiData @ 0x140AA1B78
+ * XREFs of PopBootLoaderSiData @ 0x140998F24
  * Callers:
- *     PoBroadcastSystemState @ 0x140AA6B28 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140992AC4 (PoBroadcastSystemState.c)
  * Callees:
- *     BapdRegisterSiData @ 0x140A88B80 (BapdRegisterSiData.c)
- *     BapdRemoveWbclData @ 0x140AAAB84 (BapdRemoveWbclData.c)
+ *     BapdRegisterSiData @ 0x14099ACF8 (BapdRegisterSiData.c)
  */
 
-void __fastcall PopBootLoaderSiData(__int64 a1)
+__int64 __fastcall PopBootLoaderSiData(__int64 a1)
 {
   _DWORD *v1; // rsi
   unsigned int v2; // ebx
   unsigned int *v3; // rdi
-  unsigned int v4; // edx
+  __int64 v4; // rdx
+  __int64 result; // rax
 
   v1 = *(_DWORD **)(a1 + 32);
-  BapdRemoveWbclData();
   if ( *v1 == 1281517896 )
   {
     v2 = 1;
@@ -23,11 +22,12 @@ void __fastcall PopBootLoaderSiData(__int64 a1)
     do
     {
       v4 = v3[1];
-      if ( v4 )
-        BapdRegisterSiData((_DWORD *)((char *)v1 + *v3), v4, v2);
+      if ( (_DWORD)v4 )
+        result = BapdRegisterSiData((char *)v1 + *v3, v4, v2);
       ++v2;
       v3 += 2;
     }
     while ( v2 <= 2 );
   }
+  return result;
 }

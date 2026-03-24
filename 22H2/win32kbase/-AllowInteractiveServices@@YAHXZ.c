@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AllowInteractiveServices@@YAHXZ @ 0x1C00CD7C8
+ * XREFs of ?AllowInteractiveServices@@YAHXZ @ 0x1C013777C
  * Callers:
- *     IsIMMEnabledSystem @ 0x1C007C5D0 (IsIMMEnabledSystem.c)
+ *     IsIMMEnabledSystem @ 0x1C006BC90 (IsIMMEnabledSystem.c)
  * Callees:
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 AllowInteractiveServices(void)
@@ -14,8 +14,8 @@ __int64 AllowInteractiveServices(void)
   int v4; // [rsp+B0h] [rbp+67h] BYREF
 
   v0 = 1;
-  v1 = dword_1C0291C94 <= 0;
-  if ( !dword_1C0291C94 )
+  v1 = dword_1C02584BC <= 0;
+  if ( !dword_1C02584BC )
   {
     v4 = 0;
     memset(QueryTable, 0, sizeof(QueryTable));
@@ -28,10 +28,10 @@ __int64 AllowInteractiveServices(void)
     RtlQueryRegistryValues(2u, L"Windows", QueryTable, 0LL, 0LL);
     if ( !v4 )
     {
-      dword_1C0291C94 = 1;
+      dword_1C02584BC = 1;
       return v0;
     }
-    dword_1C0291C94 = -1;
+    dword_1C02584BC = -1;
     v1 = 1;
   }
   if ( v1 )

@@ -1,197 +1,367 @@
 /*
- * XREFs of PfQuerySuperfetchInformation @ 0x14075DE28
+ * XREFs of PfQuerySuperfetchInformation @ 0x1406CD5D0
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     PfpMemoryRangesQuery @ 0x14039494C (PfpMemoryRangesQuery.c)
- *     PfpMemoryListQuery @ 0x1403D4944 (PfpMemoryListQuery.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PfpQueryGpuUtilization @ 0x14068261C (PfpQueryGpuUtilization.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     PfpPrivSourceEnum @ 0x140741CC0 (PfpPrivSourceEnum.c)
- *     PfpPfnPrioRequest @ 0x14075E258 (PfpPfnPrioRequest.c)
- *     PfGetCompletedTrace @ 0x14075EF48 (PfGetCompletedTrace.c)
- *     MmLogQueryCombineStats @ 0x1407EAB4C (MmLogQueryCombineStats.c)
- *     PfpQueryFileExtentsRequest @ 0x14097E5A0 (PfpQueryFileExtentsRequest.c)
- *     PfpQueryScenarioInformation @ 0x14097EC4C (PfpQueryScenarioInformation.c)
- *     PfpVirtualQuery @ 0x14097F120 (PfpVirtualQuery.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     ObFastReferenceObjectLocked @ 0x1402062F8 (ObFastReferenceObjectLocked.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     SepPrivilegeCheck @ 0x140345460 (SepPrivilegeCheck.c)
+ *     ObFastDereferenceObject @ 0x140345620 (ObFastDereferenceObject.c)
+ *     ObFastReferenceObject @ 0x1403456F0 (ObFastReferenceObject.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
+ *     PfpMemoryListQuery @ 0x140379BF0 (PfpMemoryListQuery.c)
+ *     PfpMemoryRangesQuery @ 0x14037E7CC (PfpMemoryRangesQuery.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x140627C28 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     PfpPrivSourceEnum @ 0x14062B8D4 (PfpPrivSourceEnum.c)
+ *     PfGetCompletedTrace @ 0x14062FD1C (PfGetCompletedTrace.c)
+ *     PfpPfnPrioRequest @ 0x1406402D0 (PfpPfnPrioRequest.c)
+ *     SepFilterPrivilegeAudits @ 0x1406808F8 (SepFilterPrivilegeAudits.c)
+ *     PfpQueryGpuUtilization @ 0x14069EE9C (PfpQueryGpuUtilization.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     PfpVirtualQuery @ 0x140733988 (PfpVirtualQuery.c)
+ *     PfpQueryScenarioInformation @ 0x140778994 (PfpQueryScenarioInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     MmLogQueryCombineStats @ 0x1408D9C50 (MmLogQueryCombineStats.c)
+ *     PfpQueryFileExtentsRequest @ 0x1408DFD5C (PfpQueryFileExtentsRequest.c)
  */
 
-__int64 __fastcall PfQuerySuperfetchInformation(__int64 a1, __int128 *a2, __int64 a3, KPROCESSOR_MODE a4, _DWORD *a5)
+__int64 __fastcall PfQuerySuperfetchInformation(__int64 a1, __int128 *a2, int a3, unsigned __int8 a4, unsigned int *a5)
 {
-  unsigned int v6; // ebx
-  int v7; // eax
-  __int64 v10; // rcx
-  _QWORD *v11; // rcx
-  __int64 v12; // rcx
-  struct _KTHREAD *CurrentThread; // rax
-  __int64 v14; // rcx
-  _QWORD *v15; // rcx
-  __int128 v16; // [rsp+28h] [rbp-A0h] BYREF
-  volatile void *Address[2]; // [rsp+38h] [rbp-90h]
-  __int128 v18; // [rsp+48h] [rbp-80h]
-  __int128 v19; // [rsp+58h] [rbp-70h]
-  __int64 v20; // [rsp+68h] [rbp-60h]
-  int v21; // [rsp+70h] [rbp-58h]
-  __int128 v22; // [rsp+80h] [rbp-48h] BYREF
-  __int128 v23; // [rsp+90h] [rbp-38h]
+  unsigned int *v6; // rdi
+  unsigned int v7; // ebx
+  int v8; // eax
+  int v9; // ecx
+  LUID v10; // rbx
+  _KPROCESS *Process; // r15
+  struct _KTHREAD *CurrentThread; // rdi
+  struct _KTHREAD *v13; // r12
+  struct _DMA_ADAPTER *v14; // rsi
+  unsigned __int64 *v15; // r14
+  struct _DMA_ADAPTER *v16; // rdi
+  __int64 v17; // rcx
+  char v18; // bl
+  struct _DMA_ADAPTER *v19; // rax
+  void *v20; // r14
+  __int64 v23; // rcx
+  PSE_EXPORTS v24; // r15
+  struct _KTHREAD *v25; // rcx
+  __int64 v26; // rcx
+  _QWORD *v27; // rcx
+  __int64 v28; // rcx
+  struct _KTHREAD *v29; // rsi
+  signed __int64 *p_Lock; // r15
+  _QWORD *v31; // rdi
+  __int128 v32; // [rsp+48h] [rbp-F0h] BYREF
+  volatile void *Address[2]; // [rsp+58h] [rbp-E0h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+68h] [rbp-D0h] BYREF
+  __int64 v35; // [rsp+70h] [rbp-C8h]
+  struct _DMA_ADAPTER *v36; // [rsp+78h] [rbp-C0h]
+  struct _LIST_ENTRY *Flink; // [rsp+80h] [rbp-B8h]
+  __int128 v38; // [rsp+90h] [rbp-A8h]
+  __int64 v39; // [rsp+A0h] [rbp-98h]
+  volatile void *v40; // [rsp+A8h] [rbp-90h]
+  __int128 v41; // [rsp+B0h] [rbp-88h]
+  __int64 v42; // [rsp+C0h] [rbp-78h]
+  int v43; // [rsp+C8h] [rbp-70h]
+  int v44[2]; // [rsp+D0h] [rbp-68h] BYREF
+  LUID v45; // [rsp+D8h] [rbp-60h] BYREF
+  int v46; // [rsp+E0h] [rbp-58h]
+  __int128 v47; // [rsp+E8h] [rbp-50h] BYREF
+  __int128 v48; // [rsp+F8h] [rbp-40h]
 
-  DWORD1(v18) = 0;
-  v22 = 0LL;
-  v23 = 0LL;
-  if ( (_DWORD)a3 != 32 )
+  v6 = a5;
+  v39 = (__int64)a5;
+  v47 = 0LL;
+  v48 = 0LL;
+  v40 = 0LL;
+  if ( a3 != 32 )
     return (unsigned int)-1073741820;
-  v6 = 0;
-  v16 = *a2;
+  v7 = 0;
+  v32 = *a2;
   *(_OWORD *)Address = a2[1];
-  if ( (_QWORD)v16 != 0x6B7568430000002DLL )
+  if ( (_QWORD)v32 != 0x6B7568430000002DLL )
     return (unsigned int)-1073741811;
-  if ( DWORD2(v16) > 0x1C || (v7 = 268501248, !_bittest(&v7, DWORD2(v16))) )
+  v8 = DWORD2(v32);
+  if ( DWORD2(v32) <= 0x1C )
   {
-    if ( !SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, a4) )
-      return (unsigned int)-1073741790;
+    v9 = 268501248;
+    if ( _bittest(&v9, DWORD2(v32)) )
+      goto LABEL_29;
   }
-  if ( SDWORD2(v16) > 16 )
+  v10 = SeProfileSingleProcessPrivilege;
+  v35 = 0LL;
+  Process = KeGetCurrentThread()->ApcState.Process;
+  CurrentThread = KeGetCurrentThread();
+  Flink = Process[1].Header.WaitListHead.Flink;
+  if ( CurrentThread )
   {
-    switch ( DWORD2(v16) )
+    if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
     {
-      case 0x11:
-        return (unsigned int)PfpMemoryRangesQuery((__int64)&v16, a4, a5);
-      case 0x14:
-        if ( LODWORD(Address[1]) != 16 )
-          return (unsigned int)-1073741306;
-        v6 = 0;
-        *(_QWORD *)&v18 = 0LL;
-        if ( a4 )
-        {
-          v10 = (__int64)Address[0];
-          if ( ((__int64)Address[0] & 7) != 0 )
-            ExRaiseDatatypeMisalignment();
-          if ( Address[0] >= (volatile void *)0x7FFFFFFF0000LL )
-            v10 = 0x7FFFFFFF0000LL;
-          *(_BYTE *)v10 = *(_BYTE *)v10;
-          *(_BYTE *)(v10 + 15) = *(_BYTE *)(v10 + 15);
-          v6 = 0;
-        }
-        v18 = *(_OWORD *)Address[0];
-        if ( (_DWORD)v18 == 1 )
-        {
-          *((_QWORD *)&v18 + 1) = qword_140C65200;
-          *(_OWORD *)Address[0] = v18;
-          *a5 = 16;
-        }
-        else
-        {
-          return (unsigned int)-1073741735;
-        }
-        break;
-      case 0x17:
-        LOBYTE(a2) = a4;
-        return (unsigned int)PfpVirtualQuery(&v16, a2, a5);
-      case 0x18:
-        if ( LODWORD(Address[1]) != 16 )
-          return (unsigned int)-1073741306;
-        MmLogQueryCombineStats(0LL, 0LL, &v22);
-        if ( a4 )
-          ProbeForWrite(Address[0], 0x10uLL, 4u);
-        if ( *(_DWORD *)Address[0] == 1 )
-        {
-          v11 = Address[0];
-          *((_DWORD *)Address[0] + 1) = DWORD1(v22);
-          v11[1] = *((_QWORD *)&v23 + 1);
-        }
-        else
-        {
-          return (unsigned int)-1073741811;
-        }
-        break;
-      case 0x1B:
-        LOBYTE(a2) = a4;
-        return (unsigned int)PfpQueryFileExtentsRequest(&v16, a2, a5);
-      case 0x1C:
-        return (unsigned int)PfpQueryGpuUtilization((__int64)&v16, a4, a5);
-      default:
-        return (unsigned int)-1073741821;
+      v13 = KeGetCurrentThread();
+      --v13->KernelApcDisable;
+      ExAcquirePushLockSharedEx((ULONG_PTR)&CurrentThread[1].WaitBlockList, 0LL);
+      if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
+      {
+        v14 = (struct _DMA_ADAPTER *)(*(_QWORD *)((char *)&CurrentThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
+        ObfReferenceObject(v14);
+        LODWORD(v35) = *((_DWORD *)&CurrentThread[1].0 + 1) & 3;
+      }
+      else
+      {
+        v14 = 0LL;
+      }
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CurrentThread[1].WaitBlockList, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared((signed __int64 *)&CurrentThread[1].WaitBlockList);
+      KeAbPostRelease((ULONG_PTR)&CurrentThread[1].WaitBlockList);
+      KeLeaveCriticalRegionThread((__int64)v13);
     }
+    else
+    {
+      v14 = 0LL;
+    }
+    DmaAdapter = v14;
   }
   else
   {
-    if ( DWORD2(v16) == 16 )
-      return (unsigned int)PfpMemoryListQuery((__int64)&v16, a4, a5);
-    if ( DWORD2(v16) == 1 )
-    {
-      LOBYTE(a3) = a4;
-      return (unsigned int)PfGetCompletedTrace(Address[0], LODWORD(Address[1]), a3, a5);
-    }
-    if ( DWORD2(v16) != 2 )
-    {
-      switch ( DWORD2(v16) )
-      {
-        case 6:
-          LOBYTE(a2) = a4;
-          return (unsigned int)PfpPfnPrioRequest(&v16, a2, a5);
-        case 8:
-          return (unsigned int)PfpPrivSourceEnum((__int64)&v16, a4, a5);
-        case 9:
-          v6 = 0;
-          if ( LODWORD(Address[1]) == 4 )
-          {
-            if ( a4 )
-            {
-              v12 = (__int64)Address[0];
-              if ( ((__int64)Address[0] & 3) != 0 )
-                ExRaiseDatatypeMisalignment();
-              if ( Address[0] >= (volatile void *)0x7FFFFFFF0000LL )
-                v12 = 0x7FFFFFFF0000LL;
-              *(_BYTE *)v12 = *(_BYTE *)v12;
-              *(_BYTE *)(v12 + 3) = *(_BYTE *)(v12 + 3);
-              v6 = 0;
-            }
-            *(_DWORD *)Address[0] = dword_140D0C250;
-            *a5 = 4;
-            return v6;
-          }
-          return (unsigned int)-1073741306;
-        case 0xC:
-          LOBYTE(a2) = a4;
-          return (unsigned int)PfpQueryScenarioInformation(&v16, a2, a5);
-      }
-      return (unsigned int)-1073741821;
-    }
-    if ( LODWORD(Address[1]) != 28 )
-      return (unsigned int)-1073741306;
-    CurrentThread = KeGetCurrentThread();
-    --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockSharedEx((ULONG_PTR)qword_140C65088, 0LL);
-    v19 = xmmword_140C64ED4;
-    v20 = qword_140C64EE4;
-    v21 = dword_140C64EEC;
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)qword_140C65088, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)qword_140C65088);
-    KeAbPostRelease((ULONG_PTR)qword_140C65088);
-    KeLeaveCriticalRegion();
-    if ( a4 )
-    {
-      v14 = (__int64)Address[0];
-      if ( ((__int64)Address[0] & 3) != 0 )
-        ExRaiseDatatypeMisalignment();
-      if ( Address[0] >= (volatile void *)0x7FFFFFFF0000LL )
-        v14 = 0x7FFFFFFF0000LL;
-      *(_BYTE *)v14 = *(_BYTE *)v14;
-      *(_BYTE *)(v14 + 27) = *(_BYTE *)(v14 + 27);
-    }
-    v15 = Address[0];
-    *(_OWORD *)Address[0] = v19;
-    v15[2] = v20;
-    *((_DWORD *)v15 + 6) = v21;
-    *a5 = 28;
-    return 0;
+    v14 = 0LL;
+    DmaAdapter = 0LL;
   }
-  return v6;
+  v15 = &Process[1].Affinity.Bitmap[5];
+  v16 = (struct _DMA_ADAPTER *)ObFastReferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5]);
+  if ( !v16 )
+  {
+    v29 = KeGetCurrentThread();
+    --v29->KernelApcDisable;
+    p_Lock = (signed __int64 *)&Process[1].Header.Lock;
+    ExAcquirePushLockSharedEx((ULONG_PTR)p_Lock, 0LL);
+    v16 = (struct _DMA_ADAPTER *)ObFastReferenceObjectLocked(v15);
+    if ( _InterlockedCompareExchange64(p_Lock, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared(p_Lock);
+    KeAbPostRelease((ULONG_PTR)p_Lock);
+    KeLeaveCriticalRegionThread((__int64)v29);
+    v14 = DmaAdapter;
+  }
+  v36 = v16;
+  if ( SeTokenLeakTracking )
+  {
+    if ( v16 )
+    {
+      _InterlockedIncrement((volatile signed __int32 *)&v16[71].DmaOperations->AllocateCommonBufferVector + 1);
+      if ( v16 == (struct _DMA_ADAPTER *)SepTokenLeakToken )
+        __debugbreak();
+      v14 = DmaAdapter;
+      v16 = v36;
+    }
+    if ( v14 )
+    {
+      _InterlockedIncrement((volatile signed __int32 *)&v14[71].DmaOperations->AllocateCommonBufferVector + 1);
+      v14 = DmaAdapter;
+      if ( DmaAdapter == (PADAPTER_OBJECT)SepTokenLeakToken )
+        __debugbreak();
+      v16 = v36;
+    }
+  }
+  v44[0] = 1;
+  v44[1] = 1;
+  v45 = v10;
+  v46 = 0;
+  if ( a4 )
+  {
+    if ( !v14 )
+    {
+      v17 = (__int64)v16;
+      goto LABEL_19;
+    }
+    if ( (int)v35 >= 2 )
+    {
+      v17 = (__int64)v14;
+LABEL_19:
+      v18 = SepPrivilegeCheck(v17, (__int64)&v45, 1u, 1, a4);
+      goto LABEL_20;
+    }
+    v18 = 0;
+  }
+  else
+  {
+    v18 = 1;
+  }
+LABEL_20:
+  if ( a4 )
+  {
+    v19 = v14 ? v14 : v16;
+    v20 = *(void **)v19[9].DmaOperations;
+    if ( !RtlEqualSid(SeLocalSystemSid, v20) )
+    {
+      if ( (v24 = SeExports, !RtlEqualSid(SeExports->SeNetworkServiceSid, v20))
+        && !RtlEqualSid(v24->SeLocalServiceSid, v20)
+        || SepFilterPrivilegeAudits(1, (unsigned int *)v44) )
+      {
+        SepAdtPrivilegedServiceAuditAlarm((int)&DmaAdapter, &SeSubsystemName, 0LL, (__int64)v14, (__int64)v16, v44, v18);
+        v16 = v36;
+        v14 = DmaAdapter;
+      }
+    }
+  }
+  if ( SeTokenLeakTracking )
+  {
+    if ( v16 )
+    {
+      _InterlockedDecrement((volatile signed __int32 *)&v16[71].DmaOperations->AllocateCommonBufferVector + 1);
+      if ( v36 == (struct _DMA_ADAPTER *)SepTokenLeakToken )
+        __debugbreak();
+      v14 = DmaAdapter;
+    }
+    if ( v14 )
+    {
+      _InterlockedDecrement((volatile signed __int32 *)&v14[71].DmaOperations->AllocateCommonBufferVector + 1);
+      if ( DmaAdapter == (PADAPTER_OBJECT)SepTokenLeakToken )
+        __debugbreak();
+    }
+  }
+  ObFastDereferenceObject((signed __int64 *)&KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[5], v36);
+  v36 = 0LL;
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
+  DmaAdapter = 0LL;
+  if ( !v18 )
+    return (unsigned int)-1073741790;
+  v8 = DWORD2(v32);
+  v7 = 0;
+  v6 = (unsigned int *)v39;
+LABEL_29:
+  if ( v8 == 6 )
+  {
+    return (unsigned int)PfpPfnPrioRequest((__int64)&v32, a4, v6);
+  }
+  else
+  {
+    switch ( v8 )
+    {
+      case 1:
+        return (unsigned int)PfGetCompletedTrace((_QWORD *)Address[0], (unsigned int)Address[1], a4, v6);
+      case 2:
+        if ( LODWORD(Address[1]) != 28 )
+          goto LABEL_107;
+        v25 = KeGetCurrentThread();
+        --v25->KernelApcDisable;
+        ExAcquirePushLockSharedEx((ULONG_PTR)qword_140C502B8, 0LL);
+        v41 = xmmword_140C50104;
+        v42 = qword_140C50114;
+        v43 = dword_140C5011C;
+        if ( _InterlockedCompareExchange64((volatile signed __int64 *)qword_140C502B8, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared((signed __int64 *)qword_140C502B8);
+        KeAbPostRelease((ULONG_PTR)qword_140C502B8);
+        KeLeaveCriticalRegion();
+        if ( a4 )
+        {
+          v26 = (__int64)Address[0];
+          if ( ((__int64)Address[0] & 3) != 0 )
+            ExRaiseDatatypeMisalignment();
+          if ( Address[0] >= (volatile void *)0x7FFFFFFF0000LL )
+            v26 = 0x7FFFFFFF0000LL;
+          *(_BYTE *)v26 = *(_BYTE *)v26;
+          *(_BYTE *)(v26 + 27) = *(_BYTE *)(v26 + 27);
+        }
+        v27 = Address[0];
+        *(_OWORD *)Address[0] = v41;
+        v27[2] = v42;
+        *((_DWORD *)v27 + 6) = v43;
+        *v6 = 28;
+        v7 = 0;
+        break;
+      case 8:
+        return (unsigned int)PfpPrivSourceEnum((__int64)&v32, a4, v6);
+      case 9:
+        if ( LODWORD(Address[1]) != 4 )
+          goto LABEL_107;
+        if ( a4 )
+        {
+          v28 = (__int64)Address[0];
+          if ( ((__int64)Address[0] & 3) != 0 )
+            ExRaiseDatatypeMisalignment();
+          if ( Address[0] >= (volatile void *)0x7FFFFFFF0000LL )
+            v28 = 0x7FFFFFFF0000LL;
+          *(_BYTE *)v28 = *(_BYTE *)v28;
+          *(_BYTE *)(v28 + 3) = *(_BYTE *)(v28 + 3);
+          v7 = 0;
+        }
+        *(_DWORD *)Address[0] = dword_140CEC350;
+        *v6 = 4;
+        break;
+      case 12:
+        return (unsigned int)PfpQueryScenarioInformation(&v32, a4, v6);
+      case 16:
+        return (unsigned int)PfpMemoryListQuery((__int64)&v32, a4, v6);
+      case 17:
+        return (unsigned int)PfpMemoryRangesQuery((__int64)&v32, a4, v6);
+      case 20:
+        if ( LODWORD(Address[1]) != 16 )
+          goto LABEL_107;
+        *(_QWORD *)&v38 = 0LL;
+        if ( a4 )
+        {
+          v23 = (__int64)Address[0];
+          if ( ((__int64)Address[0] & 7) != 0 )
+            ExRaiseDatatypeMisalignment();
+          if ( Address[0] >= (volatile void *)0x7FFFFFFF0000LL )
+            v23 = 0x7FFFFFFF0000LL;
+          *(_BYTE *)v23 = *(_BYTE *)v23;
+          *(_BYTE *)(v23 + 15) = *(_BYTE *)(v23 + 15);
+          v7 = 0;
+        }
+        v38 = *(_OWORD *)Address[0];
+        if ( (_DWORD)v38 == 1 )
+        {
+          *((_QWORD *)&v38 + 1) = qword_140C50430;
+          *(_OWORD *)Address[0] = v38;
+          *v6 = 16;
+        }
+        else
+        {
+          v7 = -1073741735;
+        }
+        break;
+      case 23:
+        return (unsigned int)PfpVirtualQuery(&v32, a4, v6);
+      case 24:
+        if ( LODWORD(Address[1]) == 16 )
+        {
+          MmLogQueryCombineStats(0LL, 0LL, &v47);
+          v31 = Address[0];
+          if ( a4 )
+            ProbeForWrite(Address[0], 0x10uLL, 4u);
+          v40 = Address[0];
+          if ( *(_DWORD *)Address[0] == 1 )
+          {
+            *((_DWORD *)Address[0] + 1) = DWORD1(v47);
+            v31[1] = *((_QWORD *)&v48 + 1);
+          }
+          else
+          {
+            v7 = -1073741811;
+          }
+        }
+        else
+        {
+LABEL_107:
+          v7 = -1073741306;
+        }
+        break;
+      case 27:
+        return (unsigned int)PfpQueryFileExtentsRequest(&v32, a4, v6);
+      case 28:
+        return (unsigned int)PfpQueryGpuUtilization((__int64)&v32, a4, v6);
+      default:
+        v7 = -1073741821;
+        break;
+    }
+  }
+  return v7;
 }

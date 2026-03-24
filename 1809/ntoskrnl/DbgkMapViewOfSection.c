@@ -1,17 +1,17 @@
 /*
- * XREFs of DbgkMapViewOfSection @ 0x14067749C
+ * XREFs of DbgkMapViewOfSection @ 0x14067747C
  * Callers:
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
- *     MiMapViewOfSectionExCommon @ 0x140676C30 (MiMapViewOfSectionExCommon.c)
- *     NtMapViewOfSection @ 0x140676FD0 (NtMapViewOfSection.c)
- *     NtLoadEnclaveData @ 0x14085AFD0 (NtLoadEnclaveData.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
+ *     MiMapViewOfSectionExCommon @ 0x140676C10 (MiMapViewOfSectionExCommon.c)
+ *     NtMapViewOfSection @ 0x140676FB0 (NtMapViewOfSection.c)
+ *     NtLoadEnclaveData @ 0x14085AFB0 (NtLoadEnclaveData.c)
  * Callees:
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     DbgkpSendApiMessage @ 0x140810BD4 (DbgkpSendApiMessage.c)
- *     DbgkpSectionToFileHandle @ 0x1408115C8 (DbgkpSectionToFileHandle.c)
- *     DbgkpSuppressDbgMsg @ 0x14081166C (DbgkpSuppressDbgMsg.c)
+ *     DbgkpSendApiMessage @ 0x140810BB4 (DbgkpSendApiMessage.c)
+ *     DbgkpSectionToFileHandle @ 0x1408115A8 (DbgkpSectionToFileHandle.c)
+ *     DbgkpSuppressDbgMsg @ 0x14081164C (DbgkpSuppressDbgMsg.c)
  */
 
 int __fastcall DbgkMapViewOfSection(_KPROCESS *Object, __int64 a2, void *a3)

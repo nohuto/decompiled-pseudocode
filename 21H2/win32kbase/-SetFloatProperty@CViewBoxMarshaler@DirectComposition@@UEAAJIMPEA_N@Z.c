@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFloatProperty@CViewBoxMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C021DD20
+ * XREFs of ?SetFloatProperty@CViewBoxMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01E75F0
  * Callers:
  *     <none>
  * Callees:
@@ -23,12 +23,12 @@ __int64 __fastcall DirectComposition::CViewBoxMarshaler::SetFloatProperty(
     if ( v5 != 1 )
       return 3221225485LL;
     *((_DWORD *)this + 4) |= 0x100u;
-    *((float *)this + 21) = a3;
+    *((float *)this + 19) = a3;
   }
   else
   {
     *((_DWORD *)this + 4) |= 0x80u;
-    *((float *)this + 20) = a3;
+    *((float *)this + 18) = a3;
   }
   *a4 = 1;
   return result;

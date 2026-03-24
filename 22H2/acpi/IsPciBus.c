@@ -1,19 +1,19 @@
 /*
- * XREFs of IsPciBus @ 0x1C008A754
+ * XREFs of IsPciBus @ 0x1C0099E04
  * Callers:
- *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
- *     ACPIBusIrpRemoveDevice @ 0x1C0016C30 (ACPIBusIrpRemoveDevice.c)
- *     ACPIBusIrpSurpriseRemoval @ 0x1C0017400 (ACPIBusIrpSurpriseRemoval.c)
- *     ACPIFilterRemoveNonPresentDevices @ 0x1C0029008 (ACPIFilterRemoveNonPresentDevices.c)
+ *     ACPIBusIrpQueryInterface @ 0x1C0010C50 (ACPIBusIrpQueryInterface.c)
+ *     ACPIFilterRemoveNonPresentDevices @ 0x1C001A974 (ACPIFilterRemoveNonPresentDevices.c)
+ *     ACPIBusIrpRemoveDevice @ 0x1C004D5D0 (ACPIBusIrpRemoveDevice.c)
+ *     ACPIBusIrpSurpriseRemoval @ 0x1C004DC10 (ACPIBusIrpSurpriseRemoval.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     IsNsobjPciBus @ 0x1C008A688 (IsNsobjPciBus.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     IsNsobjPciBus @ 0x1C009DA40 (IsNsobjPciBus.c)
  */
 
-char __fastcall IsPciBus(ULONG_PTR a1)
+__int64 __fastcall IsPciBus(ULONG_PTR a1)
 {
   __int64 DeviceExtension; // rax
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
-  return IsNsobjPciBus(*(volatile signed __int32 **)(DeviceExtension + 760));
+  return IsNsobjPciBus(*(_QWORD *)(DeviceExtension + 720));
 }

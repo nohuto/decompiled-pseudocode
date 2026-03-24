@@ -1,11 +1,12 @@
 /*
- * XREFs of ?ConsumerPostMessage@FlipManagerObject@@QEAAJPEAVCFlipConsumerMessage@@@Z @ 0x1C007FE94
+ * XREFs of ?ConsumerPostMessage@FlipManagerObject@@QEAAJPEAVCFlipConsumerMessage@@@Z @ 0x1C00686A8
  * Callers:
- *     NtFlipObjectConsumerPostMessage @ 0x1C0080B90 (NtFlipObjectConsumerPostMessage.c)
+ *     NtFlipObjectConsumerPostMessage @ 0x1C0069320 (NtFlipObjectConsumerPostMessage.c)
+ *     ?FlipManagerDwmPostConsumerMessage@@YAJPEAUFlipManagerObject@@IPEAUFlipPropertyItem@@@Z @ 0x1C006A6B0 (-FlipManagerDwmPostConsumerMessage@@YAJPEAUFlipManagerObject@@IPEAUFlipPropertyItem@@@Z.c)
  * Callees:
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0013814 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C0013858 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000FAAC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C00118B4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall FlipManagerObject::ConsumerPostMessage(FlipManagerObject *this, struct CFlipConsumerMessage *a2)
@@ -15,8 +16,8 @@ __int64 __fastcall FlipManagerObject::ConsumerPostMessage(FlipManagerObject *thi
   v4 = CPushLock::AcquireLockExclusive((FlipManagerObject *)((char *)this + 40));
   if ( v4 >= 0 )
   {
-    (*(void (__fastcall **)(_QWORD, struct CFlipConsumerMessage *))(**((_QWORD **)this + 32) + 8LL))(
-      *((_QWORD *)this + 32),
+    (*(void (__fastcall **)(_QWORD, struct CFlipConsumerMessage *))(**((_QWORD **)this + 25) + 8LL))(
+      *((_QWORD *)this + 25),
       a2);
     CPushLock::ReleaseLock((FlipManagerObject *)((char *)this + 40));
   }

@@ -1,25 +1,24 @@
 /*
- * XREFs of VidSchiDecrementDeviceReference @ 0x1C0002C60
+ * XREFs of VidSchiDecrementDeviceReference @ 0x1C0011568
  * Callers:
- *     VidSchiDecrementContextReference @ 0x1C0001F40 (VidSchiDecrementContextReference.c)
- *     VidSchiSuspendResumeDevicesForPowerTransition @ 0x1C0002864 (VidSchiSuspendResumeDevicesForPowerTransition.c)
- *     ?VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z @ 0x1C000294C (-VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z.c)
- *     VidSchiSwitchContextWithCheck @ 0x1C000B640 (VidSchiSwitchContextWithCheck.c)
- *     ?VidSchiDecrementHwContextReference@@YAXPEAUVIDSCH_HW_CONTEXT@@H@Z @ 0x1C00424A4 (-VidSchiDecrementHwContextReference@@YAXPEAUVIDSCH_HW_CONTEXT@@H@Z.c)
- *     VidSchTerminateDevice @ 0x1C00896D0 (VidSchTerminateDevice.c)
+ *     VidSchiSwitchContextWithCheck @ 0x1C000C3B0 (VidSchiSwitchContextWithCheck.c)
+ *     VidSchiDecrementContextReference @ 0x1C0011630 (VidSchiDecrementContextReference.c)
+ *     VidSchiSuspendResumeDevicesForPowerTransition @ 0x1C0012928 (VidSchiSuspendResumeDevicesForPowerTransition.c)
+ *     ?VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z @ 0x1C0016DFC (-VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z.c)
+ *     ?VidSchiDecrementHwContextReference@@YAXPEAUVIDSCH_HW_CONTEXT@@H@Z @ 0x1C0037430 (-VidSchiDecrementHwContextReference@@YAXPEAUVIDSCH_HW_CONTEXT@@H@Z.c)
+ *     VidSchTerminateDevice @ 0x1C007FF30 (VidSchTerminateDevice.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall VidSchiDecrementDeviceReference(char *P, int a2)
 {
-  char **v4; // rdx
-  PVOID *v5; // rcx
+  char **v4; // rcx
+  PVOID *v5; // rdx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   if ( !a2 )
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*((_QWORD *)P + 4) + 1728LL), &LockHandle);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*((_QWORD *)P + 4) + 1712LL), &LockHandle);
   if ( _InterlockedExchangeAdd64((volatile signed __int64 *)P + 3, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
   {
     v4 = (char **)*((_QWORD *)P + 13);

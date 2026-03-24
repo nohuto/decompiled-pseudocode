@@ -1,148 +1,155 @@
 /*
- * XREFs of ?UpdateOverlay@DXGOVERLAY@@QEAAJPEAU_D3DKMT_UPDATEOVERLAY@@@Z @ 0x1C0329C80
+ * XREFs of ?UpdateOverlay@DXGOVERLAY@@QEAAJPEAU_D3DKMT_UPDATEOVERLAY@@@Z @ 0x1C027A8DC
  * Callers:
- *     DxgkUpdateOverlay @ 0x1C032BB70 (DxgkUpdateOverlay.c)
+ *     DxgkUpdateOverlay @ 0x1C027C370 (DxgkUpdateOverlay.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?GetAllocationSafe@DXGPROCESS@@QEAA?AVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C000B970 (-GetAllocationSafe@DXGPROCESS@@QEAA-AVDXGALLOCATIONREFERENCE@@I@Z.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ @ 0x1C0021A48 (-IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C017EAE0 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
- *     ?DdiUpdateOverlay@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_UPDATEOVERLAY@@@Z @ 0x1C02CDBAC (-DdiUpdateOverlay@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_UPDATEOVERLAY@@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ @ 0x1C000B71C (-IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ.c)
+ *     ?GetAllocationSafe@DXGPROCESS@@QEAA?AVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C0014AB0 (-GetAllocationSafe@DXGPROCESS@@QEAA-AVDXGALLOCATIONREFERENCE@@I@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C00FDE00 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ?DdiUpdateOverlay@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_UPDATEOVERLAY@@@Z @ 0x1C022011C (-DdiUpdateOverlay@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_UPDATEOVERLAY@@@Z.c)
  */
 
 __int64 __fastcall DXGOVERLAY::UpdateOverlay(struct _EX_RUNDOWN_REF *this, struct _D3DKMT_UPDATEOVERLAY *a2)
 {
-  __int64 (__fastcall **v4)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *); // rcx
-  struct _EX_RUNDOWN_REF *Count; // rdx
-  ULONG_PTR v7; // r10
-  __int64 v8; // rdi
-  ULONG_PTR v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
+  __int64 v3; // rbx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 (__fastcall **v8)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *); // rcx
+  __int64 v9; // rax
+  ULONG_PTR Count; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  __int64 v15; // rcx
+  __int64 v16; // rdx
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // r8
   UINT PrivateDriverDataSize; // eax
-  void *v13; // rcx
-  __int64 hAllocation; // r8
-  size_t v15; // r8
+  __int64 v21; // rdx
+  PVOID v22; // rcx
+  __int64 v23; // r8
+  _QWORD *v24; // rax
+  __int64 hAllocation; // rcx
+  size_t v26; // r8
   void *pPrivateDriverData; // rdx
-  ULONG64 v17; // r9
-  struct _EX_RUNDOWN_REF *v18[2]; // [rsp+50h] [rbp-78h] BYREF
-  _DXGKARG_UPDATEOVERLAY v19; // [rsp+60h] [rbp-68h] BYREF
+  ULONG64 v28; // r9
+  int updated; // edi
+  __int64 v30; // rdx
+  struct _EX_RUNDOWN_REF *v31[2]; // [rsp+30h] [rbp-78h] BYREF
+  _DXGKARG_UPDATEOVERLAY v32; // [rsp+40h] [rbp-68h] BYREF
 
-  v18[1] = this;
+  v3 = (__int64)this;
+  v31[1] = this;
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*(_QWORD *)(this[2].Count + 16) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 274LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetAdapter()->IsCoreResourceSharedOwner()",
-      274LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v6 + 24) = 274LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  if ( !DXGADAPTER::IsFullWDDMAdapter(*(DXGADAPTER **)(*(_QWORD *)(this[2].Count + 16) + 16LL))
-    || v4[87] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
-    || v4[95] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
-    || v4[94] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
-    || v4[93] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange )
+  if ( !DXGADAPTER::IsFullWDDMAdapter(*(DXGADAPTER **)(*(_QWORD *)(*(_QWORD *)(v3 + 16) + 16LL) + 16LL))
+    || v8[76] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
+    || v8[84] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
+    || v8[83] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
+    || v8[82] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange )
   {
-    WdLogSingleEntry1(1LL, 275LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"GetAdapter()->IsOverlayEnabled()", 275LL, 0LL, 0LL, 0LL, 0LL);
+    v9 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v9 + 24) = 275LL;
+    WdLogEvent5_WdAssertion(v9);
   }
-  if ( LODWORD(this[4].Count) == -1 )
+  if ( *(_DWORD *)(v3 + 32) == -1 )
     return 0LL;
-  memset(&v19, 0, sizeof(v19));
+  memset(&v32, 0, sizeof(v32));
   DXGPROCESS::GetAllocationSafe(
-    *(_QWORD *)(this[2].Count + 40),
-    (DXGALLOCATIONREFERENCE *)v18,
+    *(_QWORD *)(*(_QWORD *)(v3 + 16) + 40LL),
+    (DXGALLOCATIONREFERENCE *)v31,
     a2->OverlayInfo.hAllocation);
-  if ( !v18[0] )
+  if ( !v31[0] )
+    goto LABEL_28;
+  v13 = *(_QWORD *)(v31[0][1].Count + 16);
+  v14 = *(_QWORD *)(v3 + 16);
+  v15 = *(_QWORD *)(v14 + 16);
+  v16 = *(_QWORD *)(v15 + 16);
+  if ( *(_QWORD *)(v13 + 16) != v16 )
   {
-    Count = (struct _EX_RUNDOWN_REF *)this[2].Count;
-    goto LABEL_30;
-  }
-  v7 = this[2].Count;
-  if ( *(_QWORD *)(*(_QWORD *)(v18[0][1].Count + 16) + 16LL) == *(_QWORD *)(*(_QWORD *)(v7 + 16) + 16LL) )
-  {
-    v9 = v18[0][6].Count;
-    if ( (*(_DWORD *)(v9 + 4) & 8) != 0 && (v18[0][9].Count & 0x800) != 0 )
-    {
-      v19.OverlayInfo.hAllocation = *(HANDLE *)(v9 + 16);
-      v10 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v7 + 16) + 16LL) + 2800LL);
-      (*(void (__fastcall **)(_QWORD, _QWORD, UINT *, LARGE_INTEGER *, _QWORD))(*(_QWORD *)(*(_QWORD *)(v10 + 648) + 8LL)
-                                                                              + 224LL))(
-        *(_QWORD *)(v10 + 656),
-        *(_QWORD *)(v18[0][6].Count + 8),
-        &v19.OverlayInfo.SegmentId,
-        &v19.OverlayInfo.PhysicalAddress,
-        0LL);
-      v19.OverlayInfo.DstRect = (RECT)a2->OverlayInfo.DstRect;
-      v19.OverlayInfo.SrcRect = (RECT)a2->OverlayInfo.SrcRect;
-      PrivateDriverDataSize = a2->OverlayInfo.PrivateDriverDataSize;
-      if ( PrivateDriverDataSize && a2->OverlayInfo.pPrivateDriverData )
-      {
-        v19.OverlayInfo.PrivateDriverDataSize = a2->OverlayInfo.PrivateDriverDataSize;
-        v13 = (void *)operator new[](PrivateDriverDataSize, 0x4B677844u, 256LL, v11);
-        v19.OverlayInfo.pPrivateDriverData = v13;
-        if ( !v13 )
-        {
-          hAllocation = v19.OverlayInfo.PrivateDriverDataSize;
-          v8 = -1073741801LL;
-          Count = this;
-LABEL_31:
-          WdLogSingleEntry3(3LL, Count, hAllocation, v8);
-          goto LABEL_32;
-        }
-        v15 = v19.OverlayInfo.PrivateDriverDataSize;
-        pPrivateDriverData = a2->OverlayInfo.pPrivateDriverData;
-        v17 = (ULONG64)pPrivateDriverData + v19.OverlayInfo.PrivateDriverDataSize;
-        if ( v17 < (unsigned __int64)pPrivateDriverData || v17 > MmUserProbeAddress )
-          *(_BYTE *)MmUserProbeAddress = 0;
-        memmove(v13, pPrivateDriverData, v15);
-      }
-      else
-      {
-        a2->OverlayInfo.PrivateDriverDataSize = 0;
-        a2->OverlayInfo.pPrivateDriverData = 0LL;
-      }
-      LODWORD(v8) = ADAPTER_RENDER::DdiUpdateOverlay(
-                      *(ADAPTER_RENDER **)(*(_QWORD *)(*(_QWORD *)(this[2].Count + 16) + 16LL) + 2800LL),
-                      this[5].Ptr,
-                      &v19);
-      if ( (int)v8 >= 0 )
-        this[6].Count = (ULONG_PTR)v18[0];
-      operator delete[](v19.OverlayInfo.pPrivateDriverData);
-      goto LABEL_32;
-    }
-    Count = (struct _EX_RUNDOWN_REF *)this[2].Count;
+    v17 = WdLogNewEntry5_WdError(v15, v16);
+    *(_QWORD *)(v17 + 24) = *(_QWORD *)(v3 + 16);
+    *(struct _EX_RUNDOWN_REF **)(v17 + 32) = v31[0];
+    LODWORD(v3) = -1073741811;
+    *(_QWORD *)(v17 + 40) = -1073741811LL;
+    WdLogEvent5_WdError(v17);
 LABEL_30:
-    hAllocation = a2->OverlayInfo.hAllocation;
-    v8 = -1073741811LL;
-    goto LABEL_31;
+    DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(v31, v18);
+    return (unsigned int)v3;
   }
-  LODWORD(v8) = -1073741811;
-  WdLogSingleEntry3(2LL, this[2].Count, v18[0], -1073741811LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Device 0x%p does not match allocation 0x%p owner, returning 0x%I64x",
-    this[2].Count,
-    (__int64)v18[0],
-    -1073741811LL,
-    0LL,
+  Count = v31[0][6].Count;
+  v12 = *(unsigned int *)(Count + 4);
+  if ( (v12 & 8) == 0 || (v31[0][9].Count & 0x800) == 0 )
+  {
+LABEL_28:
+    v24 = (_QWORD *)WdLogNewEntry5_WdWarning(v12, Count, v13);
+    v24[3] = *(_QWORD *)(v3 + 16);
+    hAllocation = a2->OverlayInfo.hAllocation;
+    v3 = -1073741811LL;
+    goto LABEL_29;
+  }
+  v32.OverlayInfo.hAllocation = *(HANDLE *)(Count + 16);
+  v19 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v14 + 16) + 16LL) + 2704LL);
+  (*(void (__fastcall **)(_QWORD, _QWORD, UINT *, LARGE_INTEGER *, _QWORD))(*(_QWORD *)(*(_QWORD *)(v19 + 640) + 8LL)
+                                                                          + 224LL))(
+    *(_QWORD *)(v19 + 648),
+    *(_QWORD *)(v31[0][6].Count + 8),
+    &v32.OverlayInfo.SegmentId,
+    &v32.OverlayInfo.PhysicalAddress,
     0LL);
-LABEL_32:
-  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(v18);
-  return (unsigned int)v8;
+  v32.OverlayInfo.DstRect = (RECT)a2->OverlayInfo.DstRect;
+  v32.OverlayInfo.SrcRect = (RECT)a2->OverlayInfo.SrcRect;
+  PrivateDriverDataSize = a2->OverlayInfo.PrivateDriverDataSize;
+  if ( PrivateDriverDataSize && a2->OverlayInfo.pPrivateDriverData )
+  {
+    v32.OverlayInfo.PrivateDriverDataSize = a2->OverlayInfo.PrivateDriverDataSize;
+    v22 = operator new[](PrivateDriverDataSize, 0x4B677844u, PagedPool);
+    v32.OverlayInfo.pPrivateDriverData = v22;
+    if ( !v22 )
+    {
+      v24 = (_QWORD *)WdLogNewEntry5_WdWarning(0LL, v21, v23);
+      v24[3] = v3;
+      hAllocation = v32.OverlayInfo.PrivateDriverDataSize;
+      v3 = -1073741801LL;
+LABEL_29:
+      v24[4] = hAllocation;
+      v24[5] = v3;
+      WdLogEvent5_WdWarning(v24);
+      goto LABEL_30;
+    }
+    v26 = v32.OverlayInfo.PrivateDriverDataSize;
+    pPrivateDriverData = a2->OverlayInfo.pPrivateDriverData;
+    v28 = (ULONG64)pPrivateDriverData + v32.OverlayInfo.PrivateDriverDataSize;
+    if ( v28 < (unsigned __int64)pPrivateDriverData || v28 > MmUserProbeAddress )
+      *(_BYTE *)MmUserProbeAddress = 0;
+    memmove(v22, pPrivateDriverData, v26);
+  }
+  else
+  {
+    a2->OverlayInfo.PrivateDriverDataSize = 0;
+    a2->OverlayInfo.pPrivateDriverData = 0LL;
+  }
+  updated = ADAPTER_RENDER::DdiUpdateOverlay(
+              *(ADAPTER_RENDER **)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v3 + 16) + 16LL) + 16LL) + 2704LL),
+              *(void **)(v3 + 40),
+              &v32);
+  if ( updated >= 0 )
+    *(struct _EX_RUNDOWN_REF **)(v3 + 48) = v31[0];
+  operator delete[](v32.OverlayInfo.pPrivateDriverData);
+  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(v31, v30);
+  return (unsigned int)updated;
 }

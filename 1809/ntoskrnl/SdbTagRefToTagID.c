@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbTagRefToTagID @ 0x14072276C
+ * XREFs of SdbTagRefToTagID @ 0x14072274C
  * Callers:
- *     KsepDbGetDriverShims @ 0x14067D8C4 (KsepDbGetDriverShims.c)
- *     PiIsDriverBlocked @ 0x14067EB10 (PiIsDriverBlocked.c)
- *     KsepDbCacheReadDevice @ 0x140720CFC (KsepDbCacheReadDevice.c)
- *     SdbReadEntryInformation @ 0x140722BC0 (SdbReadEntryInformation.c)
- *     KsepDbGetShimInfo @ 0x140847828 (KsepDbGetShimInfo.c)
+ *     KsepDbGetDriverShims @ 0x14067D8A4 (KsepDbGetDriverShims.c)
+ *     PiIsDriverBlocked @ 0x14067EAF0 (PiIsDriverBlocked.c)
+ *     KsepDbCacheReadDevice @ 0x140720CDC (KsepDbCacheReadDevice.c)
+ *     SdbReadEntryInformation @ 0x140722BA0 (SdbReadEntryInformation.c)
+ *     KsepDbGetShimInfo @ 0x140847808 (KsepDbGetShimInfo.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     SdbpOpenLocalDatabaseEx @ 0x1408E8238 (SdbpOpenLocalDatabaseEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x1408E8218 (SdbpOpenLocalDatabaseEx.c)
  */
 
 __int64 __fastcall SdbTagRefToTagID(__int64 a1, unsigned int a2, _QWORD *a3, int *a4)

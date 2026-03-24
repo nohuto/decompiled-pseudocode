@@ -1,7 +1,8 @@
 /*
- * XREFs of RtlpCopyLegacyContextX86 @ 0x140242C44
+ * XREFs of RtlpCopyLegacyContextX86 @ 0x1402BDAF8
  * Callers:
- *     RtlpCopyLegacyContext @ 0x140294EBC (RtlpCopyLegacyContext.c)
+ *     RtlpCopyLegacyContext @ 0x140275538 (RtlpCopyLegacyContext.c)
+ *     RtlpCopyExtendedContext @ 0x1402768B0 (RtlpCopyExtendedContext.c)
  * Callees:
  *     <none>
  */

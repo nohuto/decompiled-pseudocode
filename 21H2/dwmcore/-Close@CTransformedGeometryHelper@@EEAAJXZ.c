@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Close@CTransformedGeometryHelper@@EEAAJXZ @ 0x1801919F0
+ * XREFs of ?Close@CTransformedGeometryHelper@@EEAAJXZ @ 0x180260180
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CTransformedGeometryHelper::Close(CTransformedGeometryHelper *this)
 {
-  return (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 4) + 72LL))(*((_QWORD *)this + 4));
+  return (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 3) + 72LL))(*((_QWORD *)this + 3));
 }

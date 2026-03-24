@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetOutputType@CNaturalAnimation@@MEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x18023DDA0
+ * XREFs of ?SetOutputType@CNaturalAnimation@@MEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1801D8BE0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CNaturalAnimation::SetOutputType(__int64 a1, unsigned __int64 a2)
@@ -13,7 +13,7 @@ __int64 __fastcall CNaturalAnimation::SetOutputType(__int64 a1, unsigned __int64
 
   if ( (unsigned int)a2 <= 0x34 && (v2 = 0x10000800040000LL, _bittest64(&v2, a2)) )
   {
-    *(_DWORD *)(a1 + 152) = a2;
+    *(_DWORD *)(a1 + 144) = a2;
     return 0;
   }
   else

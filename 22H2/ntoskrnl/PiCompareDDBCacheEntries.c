@@ -1,9 +1,9 @@
 /*
- * XREFs of PiCompareDDBCacheEntries @ 0x1407D52C0
+ * XREFs of PiCompareDDBCacheEntries @ 0x140769ED0
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompareUnicodeString @ 0x1406DA1F0 (RtlCompareUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
  */
 
 __int64 __fastcall PiCompareDDBCacheEntries(
@@ -13,7 +13,6 @@ __int64 __fastcall PiCompareDDBCacheEntries(
 {
   LONG v6; // eax
   unsigned int v8; // eax
-  unsigned int v9; // ecx
 
   v6 = RtlCompareUnicodeString(FirstStruct + 1, SecondStruct + 1, 1u);
   if ( v6 < 0 )
@@ -23,8 +22,10 @@ __int64 __fastcall PiCompareDDBCacheEntries(
   if ( Table->TableContext )
     return 2LL;
   v8 = *(_DWORD *)&FirstStruct[2].Length;
-  v9 = *(_DWORD *)&SecondStruct[2].Length;
-  if ( v8 < v9 )
+  if ( v8 < *(_DWORD *)&SecondStruct[2].Length )
     return 0LL;
-  return 2 - (unsigned int)(v9 < v8);
+  if ( v8 <= *(_DWORD *)&SecondStruct[2].Length )
+    return 2LL;
+  else
+    return 1LL;
 }

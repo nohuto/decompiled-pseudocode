@@ -1,38 +1,37 @@
 /*
- * XREFs of AlpcpReadMessageData @ 0x14071BF58
+ * XREFs of AlpcpReadMessageData @ 0x1405E7800
  * Callers:
- *     AlpcpProcessConnectionRequest @ 0x140715C44 (AlpcpProcessConnectionRequest.c)
- *     AlpcpReceiveLegacyMessage @ 0x14071BC00 (AlpcpReceiveLegacyMessage.c)
- *     AlpcpCompleteDispatchMessage @ 0x14073A390 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpReceiveMessage @ 0x14073B350 (AlpcpReceiveMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x14073DAE0 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpReceiveLegacyConnectionReply @ 0x1407C497C (AlpcpReceiveLegacyConnectionReply.c)
+ *     AlpcpReceiveLegacyConnectionReply @ 0x1405DDB60 (AlpcpReceiveLegacyConnectionReply.c)
+ *     AlpcpProcessConnectionRequest @ 0x1405DECC8 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveMessage @ 0x1405E7C70 (AlpcpReceiveMessage.c)
+ *     AlpcpReceiveLegacyMessage @ 0x1405EA7A0 (AlpcpReceiveLegacyMessage.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     AlpcpAvailableBufferSize @ 0x1405CF054 (AlpcpAvailableBufferSize.c)
  */
 
 void *__fastcall AlpcpReadMessageData(__int64 a1, char *a2)
 {
-  __int64 v2; // rbx
-  size_t v5; // rbx
-  size_t v6; // rsi
+  size_t v4; // rax
+  __int64 v5; // rcx
+  size_t v6; // rbx
   const void *v7; // rdx
-  char *v8; // rcx
+  size_t v8; // r14
+  char *v9; // rcx
 
-  v2 = *(_QWORD *)(a1 + 96);
-  if ( v2 )
-    v5 = *(_QWORD *)(v2 + 32) - 40LL;
-  else
-    v5 = 512LL;
-  v6 = *(unsigned __int16 *)(a1 + 240);
-  v7 = (const void *)(a1 + 280);
-  v8 = a2;
-  if ( v6 > v5 )
+  v4 = AlpcpAvailableBufferSize(a1);
+  v6 = *(unsigned __int16 *)(v5 + 240);
+  v7 = (const void *)(v5 + 280);
+  v8 = v4;
+  v9 = a2;
+  if ( v6 > v4 )
   {
-    memmove(a2, v7, v5);
+    memmove(a2, v7, v4);
     v7 = *(const void **)(a1 + 224);
-    v8 = &a2[v5];
-    v6 -= v5;
+    v9 = &a2[v8];
+    v6 -= v8;
   }
-  return memmove(v8, v7, v6);
+  return memmove(v9, v7, v6);
 }

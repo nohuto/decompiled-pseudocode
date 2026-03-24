@@ -1,30 +1,28 @@
 /*
- * XREFs of CmpDoFindSubKeyByNumber @ 0x1407C82B0
+ * XREFs of CmpDoFindSubKeyByNumber @ 0x1405F2D00
  * Callers:
- *     CmpKeyEnumStackEntryAdvance @ 0x14065BB1C (CmpKeyEnumStackEntryAdvance.c)
- *     CmpKeyEnumStackEntryBegin @ 0x14065BDD8 (CmpKeyEnumStackEntryBegin.c)
- *     CmpKeyEnumStackEntryNotifyPromotion @ 0x14065CBDC (CmpKeyEnumStackEntryNotifyPromotion.c)
- *     CmpFindSubKeyByNumber @ 0x1406BF278 (CmpFindSubKeyByNumber.c)
- *     CmpFindSubKeyByNumberEx @ 0x1407C3070 (CmpFindSubKeyByNumberEx.c)
- *     CmpCheckRegistry2 @ 0x1407C5CB0 (CmpCheckRegistry2.c)
+ *     CmpCheckRegistry2 @ 0x1405F0040 (CmpCheckRegistry2.c)
+ *     CmpFindSubKeyByNumber @ 0x1405F34E0 (CmpFindSubKeyByNumber.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1405F35A0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpKeyEnumStackEntryBegin @ 0x140729E3C (CmpKeyEnumStackEntryBegin.c)
+ *     CmpKeyEnumStackEntryAdvance @ 0x14087A918 (CmpKeyEnumStackEntryAdvance.c)
+ *     CmpKeyEnumStackEntryNotifyPromotion @ 0x14087AA20 (CmpKeyEnumStackEntryNotifyPromotion.c)
  * Callees:
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall CmpDoFindSubKeyByNumber(ULONG_PTR BugCheckParameter3, __int16 *a2, unsigned int a3)
+__int64 __fastcall CmpDoFindSubKeyByNumber(__int64 a1, __int16 *a2, unsigned int a3)
 {
   __int16 v4; // ax
-  __int64 v8; // rbx
-  __int64 CellFlat; // rax
-  _WORD *v10; // rcx
-  unsigned int v11; // eax
-  unsigned int v12; // ebx
-  __int64 v13; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v8; // rdi
+  _WORD *v9; // rax
+  unsigned int v10; // ecx
+  unsigned int v11; // ebx
+  int v12; // [rsp+38h] [rbp+10h] BYREF
+  int v13; // [rsp+3Ch] [rbp+14h]
 
-  v13 = 0xFFFFFFFFLL;
+  v12 = -1;
+  v13 = 0;
   v4 = *a2;
   if ( *a2 != 26994 )
   {
@@ -38,21 +36,17 @@ LABEL_2:
     return *(unsigned int *)&a2[2 * a3 + 2];
   while ( 1 )
   {
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      CellFlat = HvpGetCellFlat(BugCheckParameter3, *(unsigned int *)&a2[2 * v8 + 2], &v13);
-    else
-      CellFlat = HvpGetCellPaged(BugCheckParameter3);
-    v10 = (_WORD *)CellFlat;
-    if ( !CellFlat )
+    v9 = (_WORD *)(*(__int64 (__fastcall **)(__int64, _QWORD, int *))(a1 + 8))(
+                    a1,
+                    *(unsigned int *)&a2[2 * v8 + 2],
+                    &v12);
+    if ( !v9 )
       return 0xFFFFFFFFLL;
-    v11 = *(unsigned __int16 *)(CellFlat + 2);
-    if ( a3 < v11 )
+    v10 = (unsigned __int16)v9[1];
+    if ( a3 < v10 )
       break;
-    a3 -= v11;
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter3, &v13);
-    else
-      HvpReleaseCellPaged(BugCheckParameter3, &v13);
+    a3 -= v10;
+    (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v12);
     v8 = (unsigned int)(v8 + 1);
     if ( (unsigned int)v8 >= (unsigned __int16)a2[1] )
     {
@@ -60,13 +54,10 @@ LABEL_2:
       goto LABEL_2;
     }
   }
-  if ( ((*v10 - 26220) & 0xFDFF) != 0 )
-    v12 = *(_DWORD *)&v10[2 * a3 + 2];
+  if ( ((*v9 - 26220) & 0xFDFF) != 0 )
+    v11 = *(_DWORD *)&v9[2 * a3 + 2];
   else
-    v12 = *(_DWORD *)&v10[4 * a3 + 2];
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(BugCheckParameter3, &v13);
-  else
-    HvpReleaseCellPaged(BugCheckParameter3, &v13);
-  return v12;
+    v11 = *(_DWORD *)&v9[4 * a3 + 2];
+  (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v12);
+  return v11;
 }

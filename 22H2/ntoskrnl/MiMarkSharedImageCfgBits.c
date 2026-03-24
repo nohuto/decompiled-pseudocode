@@ -1,144 +1,141 @@
 /*
- * XREFs of MiMarkSharedImageCfgBits @ 0x140747214
+ * XREFs of MiMarkSharedImageCfgBits @ 0x140636D24
  * Callers:
- *     MiCommitVadCfgBits @ 0x1406AE938 (MiCommitVadCfgBits.c)
+ *     MiMarkProcessCfgBits @ 0x14061C328 (MiMarkProcessCfgBits.c)
  * Callees:
- *     MiGetControlAreaLoadConfig @ 0x140214E24 (MiGetControlAreaLoadConfig.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiVadDeleted @ 0x1402752F0 (MiVadDeleted.c)
- *     MiSetProtectionOnSection @ 0x140277B60 (MiSetProtectionOnSection.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     MiIsCfgBitMapPageShared @ 0x1402E53F0 (MiIsCfgBitMapPageShared.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MiCopyToCfgBitMap @ 0x1406B1380 (MiCopyToCfgBitMap.c)
+ *     MiVadDeleted @ 0x14025AB90 (MiVadDeleted.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiIsCfgBitMapPageShared @ 0x14028DCEC (MiIsCfgBitMapPageShared.c)
+ *     MiSetProtectionOnSection @ 0x1402B3300 (MiSetProtectionOnSection.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     MiGetControlAreaLoadConfig @ 0x1402FA0C4 (MiGetControlAreaLoadConfig.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiCopyToCfgBitMap @ 0x140636FA0 (MiCopyToCfgBitMap.c)
  */
 
 __int64 __fastcall MiMarkSharedImageCfgBits(_QWORD *a1, __int64 a2, __int64 a3)
 {
-  _QWORD *v3; // rbp
+  _QWORD *v3; // rsi
   __int64 *v4; // rcx
+  _KPROCESS *Process; // rbp
   __int64 ControlAreaLoadConfig; // rax
-  __int64 v6; // r8
-  ULONG_PTR v7; // r12
-  unsigned __int64 v8; // rsi
-  unsigned __int64 v9; // r15
-  unsigned __int64 *v10; // rdi
-  unsigned __int64 v11; // r15
-  unsigned __int64 v12; // rsi
-  unsigned __int64 v13; // r15
-  unsigned __int64 v14; // rsi
-  __int64 v15; // rax
-  __int64 v16; // rbx
-  unsigned __int64 v17; // r13
-  unsigned __int64 v18; // r14
-  unsigned __int64 v19; // rbx
+  __int64 v7; // r8
+  ULONG_PTR v8; // r12
+  unsigned __int64 v9; // rbx
+  unsigned __int64 v10; // r14
+  volatile signed __int64 *v11; // rdi
+  unsigned __int64 v12; // r14
+  unsigned __int64 v13; // rbx
+  unsigned __int64 v14; // r14
+  unsigned __int64 v15; // rbx
+  __int64 v16; // r8
+  _DWORD *v17; // r9
+  unsigned __int64 v18; // r13
+  unsigned __int64 v19; // r15
+  unsigned __int64 v20; // rbx
   int IsCfgBitMapPageShared; // eax
-  unsigned __int64 v21; // rsi
-  int v22; // ebp
-  __int64 v24; // r8
-  unsigned int v25; // eax
-  int v26; // [rsp+50h] [rbp-78h] BYREF
-  int v27; // [rsp+54h] [rbp-74h] BYREF
-  _QWORD *v28; // [rsp+58h] [rbp-70h]
-  unsigned __int64 v29; // [rsp+60h] [rbp-68h]
-  _KPROCESS *Process; // [rsp+68h] [rbp-60h]
-  __int128 v31; // [rsp+70h] [rbp-58h] BYREF
-  int v32; // [rsp+80h] [rbp-48h]
+  unsigned __int64 v22; // rsi
+  int v23; // ebp
+  __int64 v25; // r8
+  unsigned int v26; // eax
+  int v27; // [rsp+50h] [rbp-78h] BYREF
+  int v28; // [rsp+54h] [rbp-74h] BYREF
+  _KPROCESS *v29; // [rsp+58h] [rbp-70h]
+  __int64 v30; // [rsp+60h] [rbp-68h]
+  _QWORD *v31; // [rsp+68h] [rbp-60h]
+  __int128 v32; // [rsp+70h] [rbp-58h] BYREF
+  int v33; // [rsp+80h] [rbp-48h]
 
-  v26 = 0;
-  v3 = a1;
   v27 = 0;
-  v28 = a1;
+  v3 = a1;
+  v28 = 0;
+  v31 = a1;
   v4 = *(__int64 **)(a3 + 72);
   Process = KeGetCurrentThread()->ApcState.Process;
+  v29 = Process;
   ControlAreaLoadConfig = MiGetControlAreaLoadConfig(*v4);
-  v7 = v3[2];
-  v8 = (unsigned __int64)*(unsigned __int8 *)(v6 + 33) << 32;
-  v9 = (unsigned __int64)*(unsigned __int8 *)(v6 + 32) << 32;
-  v29 = *(_QWORD *)(ControlAreaLoadConfig + 8);
-  v10 = (unsigned __int64 *)(v7 + 40);
-  v11 = (*(unsigned int *)(v6 + 24) | v9) << 12;
-  v12 = 2 * (((((*(unsigned int *)(v6 + 28) | v8) << 12) | 0xFFF) - v11 + 1) >> 4);
-  v13 = *v3 + ((2 * (v11 >> 4)) >> 3);
-  v14 = v12 >> 3;
-  v15 = KeAbPreAcquire(v7 + 40, 0LL);
-  v16 = v15;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)(v7 + 40), 0LL) )
-    ExfAcquirePushLockExclusiveEx(v10, v15, (__int64)v10);
-  if ( v16 )
-    *(_BYTE *)(v16 + 18) = 1;
-  if ( (unsigned int)MiVadDeleted(v7) )
+  v8 = v3[2];
+  v9 = (unsigned __int64)*(unsigned __int8 *)(v7 + 33) << 32;
+  v10 = (unsigned __int64)*(unsigned __int8 *)(v7 + 32) << 32;
+  v30 = *(_QWORD *)(ControlAreaLoadConfig + 16);
+  v11 = (volatile signed __int64 *)(v8 + 40);
+  v12 = (*(unsigned int *)(v7 + 24) | v10) << 12;
+  v13 = 2 * (((((*(unsigned int *)(v7 + 28) | v9) + 1) << 12) - v12) >> 4);
+  v14 = *v3 + ((2 * (v12 >> 4)) >> 3);
+  v15 = v13 >> 3;
+  ExAcquirePushLockExclusiveEx(v8 + 40, 0LL);
+  if ( (unsigned int)MiVadDeleted(v8) )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)v10);
-    KeAbPostRelease((ULONG_PTR)v10);
+    if ( (_InterlockedExchangeAdd64(v11, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)(v8 + 40));
+    KeAbPostRelease(v8 + 40);
     return 3221225738LL;
   }
-  v17 = v14 + v13;
-  v32 = 0;
-  v18 = (v14 + v13 - 1) | 0xFFF;
-  v19 = v13 & 0xFFFFFFFFFFFFF000uLL;
-  v31 = 0LL;
-  while ( v19 <= v18 )
+  v18 = v15 + v14;
+  v33 = 0;
+  v19 = (v15 + v14 - 1) | 0xFFF;
+  v20 = v14 & 0xFFFFFFFFFFFFF000uLL;
+  v32 = 0LL;
+  while ( v20 <= v19 )
   {
-    IsCfgBitMapPageShared = MiIsCfgBitMapPageShared(v19, v7);
+    IsCfgBitMapPageShared = MiIsCfgBitMapPageShared(v20, v8, v16, v17);
     if ( IsCfgBitMapPageShared == 2 )
     {
-      v21 = v19 | 0xFFF;
-      goto LABEL_10;
+      v22 = v20 | 0xFFF;
+      goto LABEL_6;
     }
     if ( IsCfgBitMapPageShared != 1 )
     {
       if ( IsCfgBitMapPageShared == 3 )
       {
-        v21 = v18;
-        if ( (v19 | 0x1FFFFF) <= v18 )
-          v21 = v19 | 0x1FFFFF;
-LABEL_10:
-        v22 = MiSetProtectionOnSection((__int64)Process, v7, v19, v21, 2u, 0, &v27, (__int64)&v26);
-        if ( v22 < 0 )
-          goto LABEL_15;
-        v19 = v21 - 4095;
+        v22 = v19;
+        if ( (v20 | 0x1FFFFF) <= v19 )
+          v22 = v20 | 0x1FFFFF;
+LABEL_6:
+        v23 = MiSetProtectionOnSection((__int64)Process, v8, v20, v22, 2u, 0, &v28, (__int64)&v27);
+        if ( v23 < 0 )
+          goto LABEL_11;
+        v20 = v22 - 4095;
+        v3 = v31;
       }
       else
       {
-        if ( v19 < v13 )
-          v24 = (unsigned int)(v13 - v19);
+        if ( v20 < v14 )
+          v25 = (unsigned int)(v14 - v20);
         else
-          v24 = 0LL;
-        if ( v19 + 4096 <= v17 )
+          v25 = 0LL;
+        if ( v20 + 4096 <= v18 )
         {
-          v25 = 4096 - v24;
+          v26 = 4096 - v25;
         }
         else
         {
-          v25 = v17 - v19 - v24;
-          if ( (_DWORD)v17 - (_DWORD)v19 == (_DWORD)v24 )
+          v26 = v18 - v20 - v25;
+          if ( (_DWORD)v18 - (_DWORD)v20 == (_DWORD)v25 )
             break;
         }
-        v22 = MiCopyToCfgBitMap(
-                (__int64)v3,
-                v29,
-                v24,
-                0,
-                v19 + (unsigned int)v24,
-                v7,
-                (unsigned int)(v24 + v19 - v13) >> 1 << 7,
-                &v31,
-                v25);
-        if ( v22 < 0 )
-          goto LABEL_15;
+        v23 = MiCopyToCfgBitMap(
+                v3,
+                v30,
+                v25,
+                0LL,
+                v20 + (unsigned int)v25,
+                v8,
+                (unsigned int)(v25 + v20 - v14) >> 1 << 7,
+                &v32,
+                v26);
+        if ( v23 < 0 )
+          goto LABEL_11;
       }
-      v3 = v28;
+      Process = v29;
     }
-    v19 += 4096LL;
+    v20 += 4096LL;
   }
-  v22 = 0;
-LABEL_15:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)(v7 + 40));
-  KeAbPostRelease(v7 + 40);
-  return (unsigned int)v22;
+  v23 = 0;
+LABEL_11:
+  if ( (_InterlockedExchangeAdd64(v11, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)(v8 + 40));
+  KeAbPostRelease(v8 + 40);
+  return (unsigned int)v23;
 }

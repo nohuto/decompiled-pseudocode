@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInternEntryFind @ 0x140674264
+ * XREFs of RtlpInternEntryFind @ 0x140698610
  * Callers:
- *     RtlInternTableIntern @ 0x140673F14 (RtlInternTableIntern.c)
+ *     RtlInternTableIntern @ 0x1406982C0 (RtlInternTableIntern.c)
  * Callees:
- *     RtlpInternEntryMatch @ 0x14067474C (RtlpInternEntryMatch.c)
+ *     RtlpInternEntryMatch @ 0x1406989E8 (RtlpInternEntryMatch.c)
  */
 
 __int64 __fastcall RtlpInternEntryFind(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -24,11 +24,12 @@ __int64 __fastcall RtlpInternEntryFind(__int64 a1, __int64 a2, __int64 a3, __int
   v10 = 0LL;
   v11 = a3 & v9;
   v16 = a3 & v9;
-LABEL_2:
-  if ( v10 )
-    goto LABEL_5;
-  if ( v4 >> 5 )
+  while ( 1 )
   {
+    if ( v10 )
+      goto LABEL_5;
+    if ( !(v4 >> 5) )
+      return v6;
     v10 = *(_QWORD *)(a1 + 8)
         + 8LL
         * ((37
@@ -46,27 +47,26 @@ LABEL_5:
       if ( (v10 & 1) != 0 )
         break;
       if ( v11 == (v9 & *(_QWORD *)(v10 + 8)) )
+        goto LABEL_7;
+    }
+    v10 = 0LL;
+LABEL_7:
+    if ( !v10 )
+      return v6;
+    if ( (unsigned __int8)RtlpInternEntryMatch(v10, a2, a4) )
+    {
+      _m_prefetchw((const void *)(v10 + 16));
+      v12 = *(_QWORD *)(v10 + 16);
+      for ( i = v12 + 1; i > 1; i = v12 + 1 )
       {
-        if ( !v10 )
-          return v6;
-        if ( (unsigned __int8)RtlpInternEntryMatch(v10, a2, a4) )
-        {
-          _m_prefetchw((const void *)(v10 + 16));
-          v12 = *(_QWORD *)(v10 + 16);
-          for ( i = v12 + 1; i > 1; i = v12 + 1 )
-          {
-            v14 = v12;
-            v12 = _InterlockedCompareExchange64((volatile signed __int64 *)(v10 + 16), i, v12);
-            if ( v14 == v12 )
-              return v10;
-          }
-          if ( i != 1 )
-            __fastfail(0xEu);
-          return v6;
-        }
-        goto LABEL_2;
+        v14 = v12;
+        v12 = _InterlockedCompareExchange64((volatile signed __int64 *)(v10 + 16), i, v12);
+        if ( v14 == v12 )
+          return v10;
       }
+      if ( i != 1 )
+        __fastfail(0xEu);
+      return v6;
     }
   }
-  return v6;
 }

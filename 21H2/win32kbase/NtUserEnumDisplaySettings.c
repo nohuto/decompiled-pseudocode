@@ -1,50 +1,64 @@
 /*
- * XREFs of NtUserEnumDisplaySettings @ 0x1C006F4E0
+ * XREFs of NtUserEnumDisplaySettings @ 0x1C001F900
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C00384DC (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
- *     ?NtUserEnumDisplaySettingsShared@@YAJPEAU_UNICODE_STRING@@KPEAU_devicemodeW@@K@Z @ 0x1C006F5C4 (-NtUserEnumDisplaySettingsShared@@YAJPEAU_UNICODE_STRING@@KPEAU_devicemodeW@@K@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$03@@2AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C0071E9C (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapperByVal@$07@@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
- *     ?NtUserEnumDisplaySettingsExclusive@@YAJPEAU_UNICODE_STRING@@KPEAU_devicemodeW@@K@Z @ 0x1C015322C (-NtUserEnumDisplaySettingsExclusive@@YAJPEAU_UNICODE_STRING@@KPEAU_devicemodeW@@K@Z.c)
+ *     DrvEnumDisplaySettings @ 0x1C001F9E0 (DrvEnumDisplaySettings.c)
+ *     EtwTraceReleaseUserCrit @ 0x1C0035CC4 (EtwTraceReleaseUserCrit.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     UserSessionSwitchEnterCrit @ 0x1C0087230 (UserSessionSwitchEnterCrit.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C008F428 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall NtUserEnumDisplaySettings(
-        struct _UNICODE_STRING *a1,
-        unsigned int a2,
-        struct _devicemodeW *a3,
-        unsigned int a4)
+__int64 __fastcall NtUserEnumDisplaySettings(__int64 a1, unsigned int a2, __int64 a3, int a4)
 {
-  int v8; // ecx
-  int v9; // r8d
-  int v11; // [rsp+40h] [rbp-18h] BYREF
-  __int64 v12; // [rsp+48h] [rbp-10h] BYREF
-  unsigned int v13; // [rsp+68h] [rbp+10h] BYREF
+  unsigned int v8; // edi
+  __int64 CurrentThreadWin32Thread; // rax
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int64 v13; // rbx
+  int v14; // eax
+  struct _EVENT_DATA_DESCRIPTOR v15; // [rsp+38h] [rbp-50h] BYREF
 
-  if ( (unsigned int)dword_1C028D6F0 > 5 && tlgKeywordOn((__int64)&dword_1C028D6F0, 0x400000000000LL) )
-  {
-    v11 = 0;
-    v12 = 1LL;
-    v13 = a4;
-    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
-      v8,
-      (unsigned int)&unk_1C025B473,
-      v9,
-      (unsigned int)&v11,
-      (__int64)&v13,
-      (__int64)&v12);
-  }
-  wil_details_FeatureReporting_ReportUsageToService(
-    (__int64)&Feature_EnumDisplaySettings_UseSharedLockWhenPossible__private_reporting,
-    31058687LL,
-    0LL,
-    0LL,
-    (const struct FEATURE_LOGGED_TRAITS *)&Feature_KeyboardInputVirtualization_logged_traits,
-    1,
-    3);
-  if ( a2 < 0xFFFFFFFD )
-    return NtUserEnumDisplaySettingsExclusive(a1, a2, a3, a4);
+  UserSessionSwitchEnterCrit();
+  if ( gbVideoInitialized )
+    v8 = DrvEnumDisplaySettings(a1, *(_QWORD *)(*(_QWORD *)(gpDispInfo + 96) + 232LL), a2, a3, a4);
   else
-    return NtUserEnumDisplaySettingsShared(a1, a2, a3, a4);
+    v8 = -1073741823;
+  if ( qword_1C0257C48 )
+    qword_1C0257C48();
+  if ( (_DWORD)gdwInAtomicOperation )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1359LL);
+    if ( (_DWORD)gdwInAtomicOperation )
+    {
+      if ( (gdwExtraInstrumentations & 1) != 0 )
+        KeBugCheckEx(0x160u, (unsigned int)gdwInAtomicOperation, 0LL, 0LL, 0LL);
+    }
+  }
+  gptiCurrent = 0LL;
+  gbValidateHandleForIL = 0;
+  if ( InputTraceLogging::Perf::s_userCritLoggingEnabled )
+  {
+    CurrentThreadWin32Thread = PsGetCurrentThreadWin32Thread();
+    v13 = CurrentThreadWin32Thread;
+    if ( CurrentThreadWin32Thread )
+    {
+      v14 = *(_DWORD *)(CurrentThreadWin32Thread + 24);
+      if ( (*(_DWORD *)(v13 + 44) || *(_DWORD *)(v13 + 48) || v14 > 0)
+        && (unsigned int)dword_1C024BA90 > 6
+        && (unsigned __int8)tlgKeywordOn(&dword_1C024BA90, 0x2000LL, v11, v12) )
+      {
+        tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C024BA90, (int)&dword_1C0218F81, v13 + 28, 0, 2u, &v15);
+      }
+      *(_DWORD *)(v13 + 44) = 0;
+      *(_OWORD *)(v13 + 28) = 0LL;
+    }
+  }
+  EtwTraceReleaseUserCrit();
+  ExReleaseResourceAndLeaveCriticalRegion(gpresUser);
+  return v8;
 }

@@ -4,7 +4,7 @@
  *     NtCompareTokens @ 0x1405B9A30 (NtCompareTokens.c)
  *     SepCompareClaimAttributes @ 0x1405BC2A4 (SepCompareClaimAttributes.c)
  * Callees:
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
  */
 
 char __fastcall SepCompareSidAndAttributeArrays(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)

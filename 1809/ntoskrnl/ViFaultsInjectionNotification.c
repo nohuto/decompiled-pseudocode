@@ -3,7 +3,7 @@
  * Callers:
  *     VfFaultsInjectResourceFailure @ 0x140938308 (VfFaultsInjectResourceFailure.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1400CCC90 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
  *     ViTargetIncrementCounter @ 0x14093507C (ViTargetIncrementCounter.c)
  */
 

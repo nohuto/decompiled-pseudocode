@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwRollbackEnlistment @ 0x14041D800
+ * XREFs of ZwRollbackEnlistment @ 0x1403FCA20
  * Callers:
- *     DifZwRollbackEnlistmentWrapper @ 0x1405F6680 (DifZwRollbackEnlistmentWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

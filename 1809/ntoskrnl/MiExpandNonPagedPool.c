@@ -1,21 +1,21 @@
 /*
- * XREFs of MiExpandNonPagedPool @ 0x1401626C8
+ * XREFs of MiExpandNonPagedPool @ 0x1401626E8
  * Callers:
- *     MiFindContiguousMemoryInPool @ 0x1401625B4 (MiFindContiguousMemoryInPool.c)
- *     MiFindNonPagedPoolVa @ 0x14016349C (MiFindNonPagedPoolVa.c)
+ *     MiFindContiguousMemoryInPool @ 0x1401625D4 (MiFindContiguousMemoryInPool.c)
+ *     MiFindNonPagedPoolVa @ 0x1401634BC (MiFindNonPagedPoolVa.c)
  * Callees:
  *     MiReturnPoolCharges @ 0x140023984 (MiReturnPoolCharges.c)
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     MmAllocatePoolMemory @ 0x140099140 (MmAllocatePoolMemory.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiObtainPoolCharges @ 0x1401097C4 (MiObtainPoolCharges.c)
- *     MiIncreaseNonPagedPoolUsage @ 0x140163E28 (MiIncreaseNonPagedPoolUsage.c)
- *     MiReadyNonPagedPoolExpansionForUse @ 0x1401640B8 (MiReadyNonPagedPoolExpansionForUse.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1402A9218 (MiLogPerfMemoryRangeEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiObtainPoolCharges @ 0x1401097E4 (MiObtainPoolCharges.c)
+ *     MiIncreaseNonPagedPoolUsage @ 0x140163E48 (MiIncreaseNonPagedPoolUsage.c)
+ *     MiReadyNonPagedPoolExpansionForUse @ 0x1401640D8 (MiReadyNonPagedPoolExpansionForUse.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1402A9318 (MiLogPerfMemoryRangeEvent.c)
  */
 
 __int64 __fastcall MiExpandNonPagedPool(int a1, unsigned __int64 a2, unsigned int a3, int a4, _DWORD *a5)

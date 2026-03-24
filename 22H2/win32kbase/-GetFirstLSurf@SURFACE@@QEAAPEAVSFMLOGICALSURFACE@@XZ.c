@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetFirstLSurf@SURFACE@@QEAAPEAVSFMLOGICALSURFACE@@XZ @ 0x1C00A68A0
+ * XREFs of ?GetFirstLSurf@SURFACE@@QEAAPEAVSFMLOGICALSURFACE@@XZ @ 0x1C009C0E0
  * Callers:
- *     ?vCleanupRedirectionSurface@@YAXPEAVSURFACE@@_N@Z @ 0x1C0159DF4 (-vCleanupRedirectionSurface@@YAXPEAVSURFACE@@_N@Z.c)
- *     bMigrateSurfaceForConversion @ 0x1C015A1C0 (bMigrateSurfaceForConversion.c)
+ *     bMigrateSurfaceForConversion @ 0x1C00BA100 (bMigrateSurfaceForConversion.c)
+ *     ?vCleanupRedirectionSurface@@YAXPEAVSURFACE@@_N@Z @ 0x1C013FAA4 (-vCleanupRedirectionSurface@@YAXPEAVSURFACE@@_N@Z.c)
  * Callees:
  *     <none>
  */

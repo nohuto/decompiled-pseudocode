@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringValidateDestAndLengthA @ 0x1C003BEA8
+ * XREFs of RtlStringValidateDestAndLengthA @ 0x1C005E410
  * Callers:
- *     RtlStringCchCatA @ 0x1C003BDB4 (RtlStringCchCatA.c)
- *     RtlStringCchCatNA @ 0x1C003BE04 (RtlStringCchCatNA.c)
+ *     RtlStringCchCatA @ 0x1C005E2F4 (RtlStringCchCatA.c)
+ *     RtlStringCchCatNA @ 0x1C005E358 (RtlStringCchCatNA.c)
  * Callees:
  *     <none>
  */
@@ -13,34 +13,30 @@ NTSTATUS __stdcall RtlStringValidateDestAndLengthA(
         size_t *pcchDestLength,
         const size_t cchMax)
 {
-  size_t v4; // r9
-  NTSTATUS result; // eax
+  NTSTATUS v4; // r9d
+  size_t i; // rcx
 
+  v4 = 0;
   if ( cchDest - 1 > 0x7FFFFFFE )
-  {
-    result = -1073741811;
-LABEL_9:
-    *pcchDestLength = 0LL;
-    return result;
-  }
-  v4 = cchDest;
-  do
+    v4 = -1073741811;
+  if ( v4 < 0 )
+    goto LABEL_10;
+  for ( i = cchDest; i; --i )
   {
     if ( !*pszDest )
       break;
     ++pszDest;
-    --v4;
   }
-  while ( v4 );
-  result = v4 == 0 ? 0xC000000D : 0;
+  v4 = i == 0 ? 0xC000000D : 0;
   if ( pcchDestLength )
   {
-    if ( v4 )
+    if ( i )
     {
-      *pcchDestLength = cchDest - v4;
-      return result;
+      *pcchDestLength = cchDest - i;
+      return v4;
     }
-    goto LABEL_9;
+LABEL_10:
+    *pcchDestLength = 0LL;
   }
-  return result;
+  return v4;
 }

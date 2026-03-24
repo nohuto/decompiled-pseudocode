@@ -1,9 +1,9 @@
 /*
- * XREFs of PopEtEnergyValuesDeltaCalculate @ 0x1407B2758
+ * XREFs of PopEtEnergyValuesDeltaCalculate @ 0x1406199B8
  * Callers:
- *     PopEtEnergyTrackerUpdateAggregate @ 0x1407B2590 (PopEtEnergyTrackerUpdateAggregate.c)
+ *     PopEtEnergyTrackerUpdateAggregate @ 0x1406197F4 (PopEtEnergyTrackerUpdateAggregate.c)
  * Callees:
- *     RtlStateDurationDelta @ 0x14033AA3C (RtlStateDurationDelta.c)
+ *     RtlStateDurationDelta @ 0x140253EB0 (RtlStateDurationDelta.c)
  */
 
 __int64 __fastcall PopEtEnergyValuesDeltaCalculate(__int64 a1, _QWORD *a2, __int64 a3, int *a4)
@@ -37,10 +37,10 @@ __int64 __fastcall PopEtEnergyValuesDeltaCalculate(__int64 a1, _QWORD *a2, __int
   *(_QWORD *)(a3 + 72) = a2[9] - *(_QWORD *)(a1 + 72);
   v8 = 3LL;
   *(_QWORD *)(a3 + 80) = a2[10] - *(_QWORD *)(a1 + 80);
-  *(_QWORD *)(a3 + 88) = a2[11] - *(_QWORD *)(a1 + 88);
-  v11 = a2[12];
+  v11 = a2[11];
   v12 = (int *)(a1 + 104);
-  *(_QWORD *)(a3 + 96) = v11 - *(_QWORD *)(a1 + 96);
+  *(_QWORD *)(a3 + 88) = v11 - *(_QWORD *)(a1 + 88);
+  *(_QWORD *)(a3 + 96) = v5[12] - *(_QWORD *)(a1 + 96);
   v13 = a3 - a1;
   do
   {

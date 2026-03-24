@@ -1,18 +1,13 @@
 /*
- * XREFs of RtlxUnicodeStringToOemSize @ 0x140759A50
+ * XREFs of RtlxUnicodeStringToOemSize @ 0x140694C80
  * Callers:
- *     DbgUnicodeStringToAnsiString @ 0x1402D9DB4 (DbgUnicodeStringToAnsiString.c)
- *     RtlUpcaseUnicodeStringToOemString @ 0x1406E7B60 (RtlUpcaseUnicodeStringToOemString.c)
- *     RtlUnicodeStringToOemString @ 0x1406EAEF0 (RtlUnicodeStringToOemString.c)
- *     RtlUnicodeStringToCountedOemString @ 0x1407591C0 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1407596C0 (RtlUpcaseUnicodeStringToCountedOemString.c)
- *     ObCreateObjectTypeEx @ 0x140824B30 (ObCreateObjectTypeEx.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x1409B58B0 (RtlUpcaseUnicodeStringToAnsiString.c)
- *     NtQuerySystemEnvironmentValue @ 0x140A00DB0 (NtQuerySystemEnvironmentValue.c)
- *     NtSetSystemEnvironmentValue @ 0x140A01700 (NtSetSystemEnvironmentValue.c)
- *     ExpSystemErrorHandler2 @ 0x140A6CC50 (ExpSystemErrorHandler2.c)
+ *     RtlUnicodeStringToOemString @ 0x140694670 (RtlUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x140694730 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x140694820 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x140694A90 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     ExpSystemErrorHandler2 @ 0x1409B3000 (ExpSystemErrorHandler2.c)
  * Callees:
- *     RtlUnicodeToMultiByteSize @ 0x140759DB0 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeToMultiByteSize @ 0x1405EDC80 (RtlUnicodeToMultiByteSize.c)
  */
 
 ULONG __stdcall RtlxUnicodeStringToOemSize(PCUNICODE_STRING UnicodeString)

@@ -1,20 +1,20 @@
 /*
- * XREFs of PiProcessDriverInstance @ 0x14067ABD0
+ * XREFs of PiProcessDriverInstance @ 0x140740070
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfExW @ 0x1402DFBC4 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     PiFindDevInstMatch @ 0x14067A98C (PiFindDevInstMatch.c)
- *     PipOpenServiceEnumKeys @ 0x14067B470 (PipOpenServiceEnumKeys.c)
- *     PiRearrangeDeviceInstances @ 0x1406E74D0 (PiRearrangeDeviceInstances.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     PiFindDevInstMatch @ 0x14073FE24 (PiFindDevInstMatch.c)
+ *     PipOpenServiceEnumKeys @ 0x140742BEC (PipOpenServiceEnumKeys.c)
+ *     PiRearrangeDeviceInstances @ 0x140781044 (PiRearrangeDeviceInstances.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiProcessDriverInstance(const UNICODE_STRING *a1, __int64 a2, char *a3)
@@ -27,7 +27,7 @@ __int64 __fastcall PiProcessDriverInstance(const UNICODE_STRING *a1, __int64 a2,
   wchar_t *v10; // rbx
   unsigned __int64 Length; // r14
   unsigned __int64 v12; // rsi
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   signed __int64 v14; // rax
   unsigned int Data; // [rsp+40h] [rbp-39h] BYREF
   UNICODE_STRING ValueName; // [rsp+48h] [rbp-31h] BYREF
@@ -60,7 +60,7 @@ LABEL_17:
       {
 LABEL_14:
         if ( Buffer )
-          RtlFreeUnicodeString(&UnicodeString);
+          RtlFreeAnsiString(&UnicodeString);
         goto LABEL_16;
       }
       ZwDeleteValueKey(v6, &UnicodeString);
@@ -81,11 +81,14 @@ LABEL_16:
       v12 = Length >> 1;
       if ( v9[(Length >> 1) - 1] )
       {
-        Pool2 = (wchar_t *)ExAllocatePool2(256LL, Length + 2, 538996816LL);
-        v10 = Pool2;
-        if ( Pool2 )
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(
+                                   (POOL_TYPE)(LODWORD(UnicodeString.Buffer) + 1),
+                                   Length + 2,
+                                   0x20207050u);
+        v10 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          memmove(Pool2, v9, (unsigned int)Length);
+          memmove(PoolWithTag, v9, (unsigned int)Length);
           LODWORD(Length) = Length + 2;
           v10[v12] = 0;
           v9 = v10;

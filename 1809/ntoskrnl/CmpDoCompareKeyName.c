@@ -4,13 +4,13 @@
  *     CmpWalkOneLevel @ 0x1405D4560 (CmpWalkOneLevel.c)
  *     CmpCompareInIndex @ 0x1405D51D0 (CmpCompareInIndex.c)
  *     CmpFindSubKeyInLeafWithStatus @ 0x1405D5370 (CmpFindSubKeyInLeafWithStatus.c)
- *     CmpSelectLeaf @ 0x140700080 (CmpSelectLeaf.c)
- *     CmpFindSubKeyByHashWithStatus @ 0x14073D230 (CmpFindSubKeyByHashWithStatus.c)
+ *     CmpSelectLeaf @ 0x140700060 (CmpSelectLeaf.c)
+ *     CmpFindSubKeyByHashWithStatus @ 0x14073D210 (CmpFindSubKeyByHashWithStatus.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     RtlCompareUnicodeString @ 0x1405BFF20 (RtlCompareUnicodeString.c)
  *     CmpCompareCompressedName @ 0x1405D5D90 (CmpCompareCompressedName.c)
- *     CmpCompareTwoCompressedNames @ 0x1407F97CC (CmpCompareTwoCompressedNames.c)
+ *     CmpCompareTwoCompressedNames @ 0x1407F97AC (CmpCompareTwoCompressedNames.c)
  */
 
 __int64 __fastcall CmpDoCompareKeyName(__int64 a1, const UNICODE_STRING *a2, unsigned __int16 *a3, unsigned int a4)

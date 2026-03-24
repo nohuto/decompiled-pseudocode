@@ -1,46 +1,49 @@
 /*
- * XREFs of HvlpGetVpIndexFromApicId @ 0x14054106C
+ * XREFs of HvlpGetVpIndexFromApicId @ 0x1404F2C8C
  * Callers:
- *     HvlpEnableNextLogicalProcessor @ 0x140540E58 (HvlpEnableNextLogicalProcessor.c)
- *     HvlHalGetVpIndexFromApicId @ 0x1405446C0 (HvlHalGetVpIndexFromApicId.c)
+ *     HvlpEnableNextLogicalProcessor @ 0x1404F2A84 (HvlpEnableNextLogicalProcessor.c)
+ *     HvlHalGetVpIndexFromApicId @ 0x1404F50C0 (HvlHalGetVpIndexFromApicId.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
  */
 
-__int64 __fastcall HvlpGetVpIndexFromApicId(ULONG a1, ULONG *a2)
+__int64 __fastcall HvlpGetVpIndexFromApicId(int a1, _DWORD *a2)
 {
-  PHYSICAL_ADDRESS *v4; // rbx
-  ULONG LowPart; // esi
-  PHYSICAL_ADDRESS *v6; // r14
-  __int16 v7; // ax
-  unsigned int v8; // ebx
-  __int128 v10; // [rsp+20h] [rbp-40h] BYREF
-  __int64 v11; // [rsp+30h] [rbp-30h]
-  __int64 v12; // [rsp+38h] [rbp-28h]
-  __int128 v13; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v14; // [rsp+50h] [rbp-10h]
-  __int64 v15; // [rsp+58h] [rbp-8h]
+  _QWORD *v4; // rbx
+  int *v5; // rax
+  __int64 v6; // r8
+  int v7; // esi
+  __int64 v8; // rdx
+  int *v9; // r14
+  __int64 v10; // r9
+  __int16 v11; // ax
+  unsigned int v12; // ebx
+  __int128 v14; // [rsp+20h] [rbp-40h] BYREF
+  __int128 v15; // [rsp+30h] [rbp-30h]
+  __int128 v16; // [rsp+40h] [rbp-20h] BYREF
+  __int128 v17; // [rsp+50h] [rbp-10h]
 
+  v16 = 0LL;
+  v17 = 0LL;
   v14 = 0LL;
-  LODWORD(v15) = 0;
-  v11 = 0LL;
-  LODWORD(v12) = 0;
-  v13 = 0LL;
-  v10 = 0LL;
-  v4 = HvlpAcquireHypercallPage((__int64)&v13, 1, 0LL, 16LL);
-  LowPart = 0;
-  v6 = HvlpAcquireHypercallPage((__int64)&v10, 2, 0LL, 4LL);
-  v4->QuadPart = -1LL;
-  v4[1].QuadPart = 0LL;
-  v4[2].LowPart = a1;
-  v7 = HvcallInitiateHypercall(154);
-  if ( !v7 )
-    LowPart = v6->LowPart;
-  *a2 = LowPart;
-  v8 = v7 != 0 ? 0xC0000001 : 0;
-  HvlpReleaseHypercallPage(&v10);
-  HvlpReleaseHypercallPage(&v13);
-  return v8;
+  v15 = 0LL;
+  v4 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v16, 1, 0LL, 16LL);
+  v5 = (int *)HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v14, 2, 0LL, 4LL);
+  v6 = *((_QWORD *)&v15 + 1);
+  v7 = 0;
+  v8 = *((_QWORD *)&v17 + 1);
+  v9 = v5;
+  *v4 = -1LL;
+  v4[1] = 0LL;
+  *((_DWORD *)v4 + 4) = a1;
+  v11 = HvcallInitiateHypercall(154, v8, v6, v10);
+  if ( !v11 )
+    v7 = *v9;
+  *a2 = v7;
+  v12 = v11 != 0 ? 0xC0000001 : 0;
+  HvlpReleaseHypercallPage(&v14);
+  HvlpReleaseHypercallPage(&v16);
+  return v12;
 }

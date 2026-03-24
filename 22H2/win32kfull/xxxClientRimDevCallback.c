@@ -1,61 +1,70 @@
 /*
- * XREFs of xxxClientRimDevCallback @ 0x1C02135F0
+ * XREFs of xxxClientRimDevCallback @ 0x1C012D504
  * Callers:
- *     RIMDevChangeDoUsermodeCallback @ 0x1C01A67EC (RIMDevChangeDoUsermodeCallback.c)
+ *     RIMDevChangeDoUsermodeCallback @ 0x1C012D328 (RIMDevChangeDoUsermodeCallback.c)
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBE98 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBF84 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00522B4 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005236C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052430 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052468 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
  */
 
 __int64 __fastcall xxxClientRimDevCallback(
         int a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
+        int a2,
+        int a3,
+        int a4,
         __int64 a5,
-        __int16 a6,
+        __int64 a6,
         __int16 a7,
-        __int64 a8,
-        __int64 a9)
+        __int16 a8,
+        __int64 a9,
+        __int64 a10)
 {
-  int v9; // ebx
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 *v12; // rcx
+  int v10; // ebx
+  __int64 *v11; // rcx
   __int64 result; // rax
-  _QWORD v14[2]; // [rsp+38h] [rbp-40h] BYREF
-  int v15; // [rsp+48h] [rbp-30h]
-  int v16; // [rsp+4Ch] [rbp-2Ch]
-  int v17; // [rsp+50h] [rbp-28h]
-  __int16 v18; // [rsp+54h] [rbp-24h]
-  __int16 v19; // [rsp+56h] [rbp-22h]
-  __int64 v20; // [rsp+58h] [rbp-20h]
-  __int64 v21; // [rsp+60h] [rbp-18h]
-  int v22; // [rsp+80h] [rbp+8h] BYREF
-  unsigned __int64 v23; // [rsp+98h] [rbp+20h] BYREF
+  unsigned __int64 v13; // [rsp+30h] [rbp-58h] BYREF
+  _QWORD v14[2]; // [rsp+40h] [rbp-48h] BYREF
+  int v15; // [rsp+50h] [rbp-38h]
+  int v16; // [rsp+54h] [rbp-34h]
+  int v17; // [rsp+58h] [rbp-30h]
+  int v18; // [rsp+5Ch] [rbp-2Ch]
+  __int16 v19; // [rsp+60h] [rbp-28h]
+  __int16 v20; // [rsp+62h] [rbp-26h]
+  int v21; // [rsp+64h] [rbp-24h]
+  __int64 v22; // [rsp+68h] [rbp-20h]
+  __int64 v23; // [rsp+70h] [rbp-18h]
+  int v24; // [rsp+90h] [rbp+8h] BYREF
 
-  v23 = 0LL;
-  v22 = 0;
-  v14[0] = a4;
-  v14[1] = a5;
-  v15 = a1;
-  v16 = a2;
-  v17 = a3;
-  v18 = a6;
+  v13 = 0LL;
+  v24 = 0;
+  v21 = 0;
+  v14[0] = a5;
+  v14[1] = a6;
+  v15 = a3;
+  v16 = a1;
+  v17 = a2;
+  v18 = a4;
   v19 = a7;
   v20 = a8;
-  v21 = a9;
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&a6, a2, a3, a4);
+  v22 = a9;
+  v23 = a10;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&a8);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&a7);
   EtwTraceBeginCallback(118LL);
-  v9 = KeUserModeCallback(118LL, v14, 48LL, &v23, &v22);
+  v10 = KeUserModeCallback(118LL, v14, 56LL, &v13, &v24);
   EtwTraceEndCallback(118LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&a6, v10, v11);
-  if ( v9 < 0 || v22 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&a7);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&a8);
+  if ( v10 < 0 || v24 != 24 )
     return 0LL;
-  v12 = (__int64 *)v23;
-  if ( v23 + 8 < v23 || v23 + 8 > MmUserProbeAddress )
-    v12 = (__int64 *)MmUserProbeAddress;
-  result = *v12;
-  a5 = *v12;
+  v11 = (__int64 *)v13;
+  if ( v13 + 8 < v13 || v13 + 8 > MmUserProbeAddress )
+    v11 = (__int64 *)MmUserProbeAddress;
+  result = *v11;
+  a5 = *v11;
   return result;
 }

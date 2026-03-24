@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpGetTimeStampAndQpcDelta @ 0x140633018
+ * XREFs of EtwpGetTimeStampAndQpcDelta @ 0x1405AB7A4
  * Callers:
- *     EtwpReserveTraceBuffer @ 0x1402ABBF0 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x1403506F0 (EtwpReserveTraceBuffer.c)
  * Callees:
- *     RtlGetMultiTimePrecise @ 0x1402622C0 (RtlGetMultiTimePrecise.c)
+ *     RtlGetMultiTimePrecise @ 0x1402ECFA0 (RtlGetMultiTimePrecise.c)
  */
 
 __int64 __fastcall EtwpGetTimeStampAndQpcDelta(__int64 a1, _QWORD *a2, _QWORD *a3)
@@ -17,7 +17,7 @@ __int64 __fastcall EtwpGetTimeStampAndQpcDelta(__int64 a1, _QWORD *a2, _QWORD *a
   int v12; // [rsp+50h] [rbp+8h] BYREF
 
   v12 = 0;
-  v4 = *(_DWORD *)(a1 + 200) == 2;
+  v4 = *(_DWORD *)(a1 + 216) == 2;
   v10 = 0LL;
   v6 = 7;
   v11 = 0LL;
@@ -30,10 +30,10 @@ __int64 __fastcall EtwpGetTimeStampAndQpcDelta(__int64 a1, _QWORD *a2, _QWORD *a
   {
     result = 3221225473LL;
 LABEL_10:
-    _InterlockedAnd((volatile signed __int32 *)(a1 + 816), 0xF7FFFFFF);
+    _InterlockedAnd((volatile signed __int32 *)(a1 + 832), 0xF7FFFFFF);
     return result;
   }
-  v4 = *(_DWORD *)(a1 + 200) == 2;
+  v4 = *(_DWORD *)(a1 + 216) == 2;
   *a3 = *((_QWORD *)&v10 + 1) - v10;
   v9 = v11;
   if ( !v4 )

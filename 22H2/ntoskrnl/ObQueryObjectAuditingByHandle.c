@@ -1,33 +1,33 @@
 /*
- * XREFs of ObQueryObjectAuditingByHandle @ 0x140740010
+ * XREFs of ObQueryObjectAuditingByHandle @ 0x140664CA0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ObpIsKernelHandle @ 0x1402BEB24 (ObpIsKernelHandle.c)
- *     ExfUnblockPushLock @ 0x140411A50 (ExfUnblockPushLock.c)
- *     ExMapHandleToPointer @ 0x140740120 (ExMapHandleToPointer.c)
- *     ObReferenceProcessHandleTable @ 0x140742B50 (ObReferenceProcessHandleTable.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ObpIsKernelHandle @ 0x1402C8F50 (ObpIsKernelHandle.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExfUnblockPushLock @ 0x1403F8BE0 (ExfUnblockPushLock.c)
+ *     ObReferenceProcessHandleTable @ 0x1405F57B4 (ObReferenceProcessHandleTable.c)
+ *     ExMapHandleToPointer @ 0x14061BF20 (ExMapHandleToPointer.c)
  */
 
 NTSTATUS __stdcall ObQueryObjectAuditingByHandle(HANDLE Handle, PBOOLEAN GenerateOnClose)
 {
   struct _KTHREAD *CurrentThread; // rbp
-  unsigned __int64 v4; // rbx
+  __int64 v4; // rbx
   char v5; // r14
   struct _EX_RUNDOWN_REF *Process; // rsi
-  __int64 Count; // rdi
-  volatile signed __int64 *v8; // rax
+  unsigned __int64 Count; // rdi
+  signed __int64 *v8; // rax
   __int64 v9; // rbx
   NTSTATUS v10; // ebx
   signed __int32 v12[14]; // [rsp+0h] [rbp-38h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v4 = (unsigned __int64)Handle;
+  v4 = (__int64)Handle;
   v5 = 0;
   Process = (struct _EX_RUNDOWN_REF *)CurrentThread->ApcState.Process;
-  if ( ObpIsKernelHandle((__int64)Handle, CurrentThread->PreviousMode) )
+  if ( ObpIsKernelHandle((unsigned __int64)Handle, CurrentThread->PreviousMode) )
   {
     Count = ObpKernelHandleTable;
     v4 ^= 0xFFFFFFFF80000000uLL;
@@ -44,10 +44,10 @@ NTSTATUS __stdcall ObQueryObjectAuditingByHandle(HANDLE Handle, PBOOLEAN Generat
     Count = Process[174].Count;
   }
   --CurrentThread->KernelApcDisable;
-  v8 = (volatile signed __int64 *)ExMapHandleToPointer(Count, v4);
+  v8 = ExMapHandleToPointer(Count, v4);
   if ( v8 )
   {
-    v9 = *(__int64 *)v8 >> 17;
+    v9 = *v8 >> 17;
     _InterlockedExchangeAdd64(v8, 1uLL);
     _InterlockedOr(v12, 0);
     if ( *(_QWORD *)(Count + 48) )
@@ -61,6 +61,6 @@ NTSTATUS __stdcall ObQueryObjectAuditingByHandle(HANDLE Handle, PBOOLEAN Generat
   }
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( v5 )
-    ExReleaseRundownProtection_0(Process + 139);
+    ExReleaseRundownProtection(Process + 139);
   return v10;
 }

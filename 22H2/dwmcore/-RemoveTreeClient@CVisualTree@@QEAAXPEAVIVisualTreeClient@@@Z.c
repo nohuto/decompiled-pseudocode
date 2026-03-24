@@ -1,27 +1,32 @@
 /*
- * XREFs of ?RemoveTreeClient@CVisualTree@@QEAAXPEAVIVisualTreeClient@@@Z @ 0x1800C7790
+ * XREFs of ?RemoveTreeClient@CVisualTree@@QEAAXPEAVIVisualTreeClient@@@Z @ 0x180026538
  * Callers:
- *     ?ReleaseVisualTree@CRenderTarget@@IEAAXXZ @ 0x1800C7E0C (-ReleaseVisualTree@CRenderTarget@@IEAAXXZ.c)
- *     ?ReleaseVisualTree@CHolographicInteropTexture@@AEAAXXZ @ 0x1802AB86C (-ReleaseVisualTree@CHolographicInteropTexture@@AEAAXXZ.c)
+ *     ?ReleaseVisualTree@CRenderTarget@@IEAAXXZ @ 0x18002675C (-ReleaseVisualTree@CRenderTarget@@IEAAXXZ.c)
+ *     ?ReleaseVisualTree@CHolographicInteropTexture@@AEAAXXZ @ 0x18025980C (-ReleaseVisualTree@CHolographicInteropTexture@@AEAAXXZ.c)
  * Callees:
- *     ?clear_region@?$vector_facade@UD2D_POINT_2F@@V?$buffer_impl@UD2D_POINT_2F@@$0CI@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180030774 (-clear_region@-$vector_facade@UD2D_POINT_2F@@V-$buffer_impl@UD2D_POINT_2F@@$0CI@$00Vliberal_expa.c)
+ *     ?clear_region@?$vector_facade@PEAVIVisualTreeClient@@V?$buffer_impl@PEAVIVisualTreeClient@@$03$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180026594 (-clear_region@-$vector_facade@PEAVIVisualTreeClient@@V-$buffer_impl@PEAVIVisualTreeClient@@$03$0.c)
  */
 
 void __fastcall CVisualTree::RemoveTreeClient(CVisualTree *this, struct IVisualTreeClient *a2)
 {
-  __int64 *v4; // rcx
-  struct IVisualTreeClient **i; // rdx
+  struct IVisualTreeClient **v2; // r8
+  struct IVisualTreeClient ***v4; // rcx
+  struct IVisualTreeClient **i; // rax
 
-  v4 = (__int64 *)((char *)this + 4536);
-  for ( i = (struct IVisualTreeClient **)*v4; i != *((struct IVisualTreeClient ***)this + 568); ++i )
+  v2 = (struct IVisualTreeClient **)*((_QWORD *)this + 717);
+  v4 = (struct IVisualTreeClient ***)((char *)this + 5728);
+  for ( i = *v4; i != v2; ++i )
   {
     if ( *i == a2 )
     {
-      detail::vector_facade<D2D_POINT_2F,detail::buffer_impl<D2D_POINT_2F,40,1,detail::liberal_expansion_policy>>::clear_region(
-        v4,
-        ((__int64)i - *v4) >> 3,
-        1LL);
-      *((_BYTE *)this + 4712) = 1;
+      if ( i != v2 )
+      {
+        detail::vector_facade<IVisualTreeClient *,detail::buffer_impl<IVisualTreeClient *,4,1,detail::liberal_expansion_policy>>::clear_region(
+          v4,
+          i - *v4,
+          1LL);
+        *((_BYTE *)this + 5893) = 1;
+      }
       return;
     }
   }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPepClearDripsDeviceVetoMask @ 0x14059EB54
+ * XREFs of PopPepClearDripsDeviceVetoMask @ 0x140574004
  * Callers:
- *     PopFxClearDeviceConstraints @ 0x140589310 (PopFxClearDeviceConstraints.c)
+ *     PopFxClearDeviceConstraints @ 0x140569D04 (PopFxClearDeviceConstraints.c)
  * Callees:
- *     PopPepUpdateIdleStateRefCount @ 0x14035D95C (PopPepUpdateIdleStateRefCount.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403A0164 (PopPepUpdateIdleStateRefCount.c)
  */
 
-__int64 __fastcall PopPepClearDripsDeviceVetoMask(__int64 a1)
+__int64 __fastcall PopPepClearDripsDeviceVetoMask(int *a1)
 {
-  unsigned int v2; // edi
+  unsigned int v2; // ebx
   _DWORD *v3; // rax
   __int64 v4; // rcx
   unsigned int i; // esi
@@ -17,10 +17,10 @@ __int64 __fastcall PopPepClearDripsDeviceVetoMask(__int64 a1)
   __int64 v8; // rax
 
   v2 = -1073741823;
-  if ( *(_DWORD *)(a1 + 172) == 2 )
+  if ( a1[43] == 2 )
   {
-    PopPepUpdateIdleStateRefCount(*(_DWORD *)(a1 + 144), 0, 0, (volatile signed __int32 *)(a1 + 184));
-    v3 = (_DWORD *)(a1 + 156);
+    PopPepUpdateIdleStateRefCount(a1[36], 0, 0);
+    v3 = a1 + 39;
     v4 = 3LL;
     v2 = 0;
     do
@@ -30,15 +30,11 @@ __int64 __fastcall PopPepClearDripsDeviceVetoMask(__int64 a1)
       --v4;
     }
     while ( v4 );
-    for ( i = 0; i < *(_DWORD *)(a1 + 180); ++i )
+    for ( i = 0; i < a1[45]; ++i )
     {
-      v6 = 208LL * i;
-      PopPepUpdateIdleStateRefCount(
-        *(_DWORD *)(*(_QWORD *)(a1 + v6 + 392) + 16LL),
-        0,
-        0,
-        (volatile signed __int32 *)(v6 + a1 + 384));
-      for ( j = 0; j < *(_DWORD *)(a1 + v6 + 380); *(_DWORD *)(*(_QWORD *)(a1 + v6 + 392) + 24 * v8 + 16) = 0 )
+      v6 = 50LL * i;
+      PopPepUpdateIdleStateRefCount(*(_DWORD *)(*(_QWORD *)&a1[v6 + 94] + 16LL), 0, 0);
+      for ( j = 0; j < a1[v6 + 93]; *(_DWORD *)(*(_QWORD *)&a1[v6 + 94] + 24 * v8 + 16) = 0 )
         v8 = j++;
     }
   }

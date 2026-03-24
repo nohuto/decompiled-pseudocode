@@ -1,14 +1,14 @@
 /*
- * XREFs of MdlInvariantPreProcessing1 @ 0x1405FF390
+ * XREFs of MdlInvariantPreProcessing1 @ 0x1405A1798
  * Callers:
- *     IovpCallDriver1 @ 0x140A8B840 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x1409CFC4C (IovpCallDriver1.c)
  * Callees:
- *     MmMdlPageContentsState @ 0x1402344C0 (MmMdlPageContentsState.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     RtlpComputeCrcInternal @ 0x140384A00 (RtlpComputeCrcInternal.c)
- *     MdlInvariantFindMdlInfo @ 0x1405FF02C (MdlInvariantFindMdlInfo.c)
- *     MdlInvariantInsertMdlInfo @ 0x1405FF070 (MdlInvariantInsertMdlInfo.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmMdlPageContentsState @ 0x1402AE5D0 (MmMdlPageContentsState.c)
+ *     RtlpComputeCrcInternal @ 0x1402AE640 (RtlpComputeCrcInternal.c)
+ *     MdlInvariantFindMdlInfo @ 0x1405A1414 (MdlInvariantFindMdlInfo.c)
+ *     MdlInvariantInsertMdlInfo @ 0x1405A1458 (MdlInvariantInsertMdlInfo.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall MdlInvariantPreProcessing1(__int64 a1, __int64 a2, __int64 a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwOpenTransactionManager @ 0x1401BA6D0
+ * XREFs of ZwOpenTransactionManager @ 0x1401BA6F0
  * Callers:
  *     <none>
  * Callees:

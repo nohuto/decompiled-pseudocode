@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetPointerCursorId@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GPEAK@Z @ 0x1C01C7574
+ * XREFs of ?GetPointerCursorId@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GPEAK@Z @ 0x1C0192054
  * Callers:
- *     NtUserGetPointerCursorId @ 0x1C0144C20 (NtUserGetPointerCursorId.c)
+ *     NtUserGetPointerCursorId @ 0x1C012F080 (NtUserGetPointerCursorId.c)
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?GetThreadPointerData@CTouchProcessor@@QEAA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C00E4550 (-GetThreadPointerData@CTouchProcessor@@QEAA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND.c)
- *     ?GetPointerCursorIdFromMsgData@CTouchProcessor@@QEAAH_KPEAK@Z @ 0x1C01C7620 (-GetPointerCursorIdFromMsgData@CTouchProcessor@@QEAAH_KPEAK@Z.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     ?GetPointerCursorIdFromMsgData@CTouchProcessor@@QEAAH_KPEAK@Z @ 0x1C01920E0 (-GetPointerCursorIdFromMsgData@CTouchProcessor@@QEAAH_KPEAK@Z.c)
+ *     ?GetThreadPointerData@CTouchProcessor@@QEAA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C0195D00 (-GetThreadPointerData@CTouchProcessor@@QEAA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND.c)
+ *     ApiSetDoesPointerHaveSingleCursor @ 0x1C01CA604 (ApiSetDoesPointerHaveSingleCursor.c)
  */
 
 __int64 __fastcall CTouchProcessor::GetPointerCursorId(
@@ -15,25 +15,28 @@ __int64 __fastcall CTouchProcessor::GetPointerCursorId(
         unsigned __int16 a3,
         unsigned int *a4)
 {
+  CTouchProcessor *v4; // rdi
+  __int64 v6; // rdx
   unsigned __int64 ThreadPointerData; // rsi
 
+  v4 = gpTouchProcessor;
   ThreadPointerData = CTouchProcessor::GetThreadPointerData(
-                        this,
-                        (struct tagTHREADINFO *)((char *)a2 + 1128),
+                        gpTouchProcessor,
+                        (struct tagTHREADINFO *)((char *)a2 + 1088),
                         a3,
                         0LL,
                         0LL,
                         0LL);
   if ( ThreadPointerData )
   {
-    if ( qword_1C0296A70 && (int)qword_1C0296A70() >= 0 && qword_1C0296A78 && (unsigned int)qword_1C0296A78() )
+    if ( (unsigned int)ApiSetDoesPointerHaveSingleCursor() )
     {
       *a4 = 0;
       return 1LL;
     }
-    if ( (unsigned int)CTouchProcessor::GetPointerCursorIdFromMsgData(this, ThreadPointerData, a4) )
+    if ( (unsigned int)CTouchProcessor::GetPointerCursorIdFromMsgData(v4, ThreadPointerData, a4) )
       return 1LL;
   }
-  UserSetLastError(87);
+  UserSetLastError(87LL, v6);
   return 0LL;
 }

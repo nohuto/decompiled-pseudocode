@@ -1,49 +1,41 @@
 /*
- * XREFs of ?OnProcessDestruction@CChannel@DirectComposition@@SAXPEAVCProcessData@2@@Z @ 0x1C0095298
+ * XREFs of ?OnProcessDestruction@CChannel@DirectComposition@@SAXPEAVCProcessData@2@@Z @ 0x1C005B550
  * Callers:
- *     ??1CProcessData@DirectComposition@@AEAA@XZ @ 0x1C00951A0 (--1CProcessData@DirectComposition@@AEAA@XZ.c)
+ *     ??_GCProcessData@DirectComposition@@AEAAPEAXI@Z @ 0x1C005B4E4 (--_GCProcessData@DirectComposition@@AEAAPEAXI@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall DirectComposition::CChannel::OnProcessDestruction(char **a1)
+void __fastcall DirectComposition::CChannel::OnProcessDestruction(struct DirectComposition::CProcessData *a1)
 {
-  char *v2; // rsi
+  struct _RTL_GENERIC_TABLE *v2; // rsi
   _QWORD *v3; // rax
   struct _ERESOURCE *v4; // rcx
-  char *v5; // rdx
-  __int64 v6; // rdi
+  __int64 v5; // rdi
   PVOID RestartKey; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( *a1 )
+  if ( *(_QWORD *)a1 )
   {
     while ( 1 )
     {
-      v2 = *a1;
+      v2 = *(struct _RTL_GENERIC_TABLE **)a1;
       RestartKey = 0LL;
-      v3 = RtlEnumerateGenericTableWithoutSplaying((PRTL_GENERIC_TABLE)v2, &RestartKey);
+      v3 = RtlEnumerateGenericTableWithoutSplaying(v2, &RestartKey);
       if ( !v3 )
         break;
-      v6 = v3[1];
-      RtlDeleteElementGenericTable((PRTL_GENERIC_TABLE)v2, v3);
-      if ( !v6 )
+      v5 = v3[1];
+      RtlDeleteElementGenericTable(v2, v3);
+      if ( !v5 )
         break;
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 24LL))(v6);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 24LL))(v5);
     }
-    if ( *a1 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        *a1);
+    Win32FreePool(*(_QWORD *)a1);
   }
-  v4 = (struct _ERESOURCE *)a1[1];
+  v4 = (struct _ERESOURCE *)*((_QWORD *)a1 + 1);
   if ( v4 )
   {
     ExDeleteResourceLite(v4);
-    v5 = a1[1];
-    if ( v5 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        v5);
+    Win32FreePool(*((_QWORD *)a1 + 1));
   }
 }

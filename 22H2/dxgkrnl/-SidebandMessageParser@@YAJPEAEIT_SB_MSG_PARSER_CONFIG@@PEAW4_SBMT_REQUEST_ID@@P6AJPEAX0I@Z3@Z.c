@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SidebandMessageParser@@YAJPEAEIT_SB_MSG_PARSER_CONFIG@@PEAW4_SBMT_REQUEST_ID@@P6AJPEAX0I@Z3@Z @ 0x1C0089540
+ * XREFs of ?SidebandMessageParser@@YAJPEAEIT_SB_MSG_PARSER_CONFIG@@PEAW4_SBMT_REQUEST_ID@@P6AJPEAX0I@Z3@Z @ 0x1C006F508
  * Callers:
- *     NtDxgkDisplayPortOperation @ 0x1C004B890 (NtDxgkDisplayPortOperation.c)
+ *     NtDxgkDisplayPortOperation @ 0x1C004FF00 (NtDxgkDisplayPortOperation.c)
  * Callees:
  *     <none>
  */
@@ -11,16 +11,16 @@ __int64 __fastcall SidebandMessageParser(unsigned __int8 *a1, unsigned int a2, _
   unsigned int v5; // r10d
   char v7; // r8
   unsigned __int8 *v8; // r11
-  unsigned __int8 *v9; // rdi
+  unsigned __int8 *v9; // r9
   int v10; // ecx
   unsigned int v11; // r10d
   unsigned int v12; // eax
   unsigned int v13; // r10d
   unsigned __int8 *v14; // r11
-  _WORD *v15; // r9
-  unsigned int v16; // r10d
-  __int16 v17; // cx
-  unsigned __int8 *v18; // r11
+  __int16 v15; // cx
+  __int16 *v16; // rdi
+  unsigned __int8 *v17; // r11
+  unsigned int v18; // r10d
   int v19; // eax
 
   v5 = a2;
@@ -48,32 +48,37 @@ __int64 __fastcall SidebandMessageParser(unsigned __int8 *a1, unsigned int a2, _
     v14 = &v8[v12];
     if ( v13 < 2 )
       break;
-    v15 = v14 + 1;
-    v16 = v13 - 2;
-    v17 = *(_WORD *)(v14 + 1);
-    v18 = v14 + 3;
-    if ( (v17 & 0x3Fu) > v16 )
+    v15 = *(_WORD *)(v14 + 1);
+    v16 = (__int16 *)(v14 + 1);
+    v17 = v14 + 3;
+    v18 = v13 - 2;
+    if ( (v15 & 0x3Fu) > v18 )
       break;
-    if ( v17 < 0 )
+    if ( v15 < 0 )
     {
       if ( v9 != a1 )
         return 3221225485LL;
-      v19 = *v18;
+      v19 = *v17;
       if ( (v19 & 0x80u) != 0 )
         return 3221225485LL;
       if ( *a4 == 127 )
       {
         *a4 = v19;
+        v15 = *v16;
       }
       else if ( v19 != *a4 )
       {
         return 3221225485LL;
       }
     }
-    v8 = &v18[*v15 & 0x3F];
-    v5 = v16 - (*v15 & 0x3F);
-    if ( (*v15 & 0x4000) != 0 )
-      return v5 != 0 ? 0xC000000D : 0;
+    v8 = &v17[v15 & 0x3F];
+    v5 = v18 - (v15 & 0x3F);
+    if ( (v15 & 0x4000) != 0 )
+    {
+      if ( v5 )
+        return 3221225485LL;
+      return 0LL;
+    }
   }
   return 3221225485LL;
 }

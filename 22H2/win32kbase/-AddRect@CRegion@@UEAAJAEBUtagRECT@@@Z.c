@@ -1,25 +1,28 @@
 /*
- * XREFs of ?AddRect@CRegion@@UEAAJAEBUtagRECT@@@Z @ 0x1C007E390
+ * XREFs of ?AddRect@CRegion@@UEAAJAEBUtagRECT@@@Z @ 0x1C0026A10
  * Callers:
  *     <none>
  * Callees:
- *     ?vSet@RGNCOREOBJ@@QEAAXQEBU_RECTL@@@Z @ 0x1C003F180 (-vSet@RGNCOREOBJ@@QEAAXQEBU_RECTL@@@Z.c)
- *     ?vDeleteRGNCOREOBJ@RGNCOREOBJ@@QEAAXXZ @ 0x1C007D23C (-vDeleteRGNCOREOBJ@RGNCOREOBJ@@QEAAXXZ.c)
- *     RGNCOREOBJ::bMerge__lambda_4f08034d680f118a0a3da8ec85dc396d___ @ 0x1C007D49C (RGNCOREOBJ--bMerge__lambda_4f08034d680f118a0a3da8ec85dc396d___.c)
- *     ?InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z @ 0x1C007E494 (-InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z.c)
- *     ??0RGNCOREMEMOBJ@@QEAA@K@Z @ 0x1C007E588 (--0RGNCOREMEMOBJ@@QEAA@K@Z.c)
+ *     ?InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z @ 0x1C00288F0 (-InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C002C4A8 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C002CBC0 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C002CCE4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vSwap@RGNOBJ@@QEAAXPEAV1@@Z @ 0x1C002D230 (-vSwap@RGNOBJ@@QEAAXPEAV1@@Z.c)
+ *     ?bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z @ 0x1C0035490 (-bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z.c)
+ *     ?vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z @ 0x1C0035D50 (-vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z.c)
  */
 
 __int64 __fastcall CRegion::AddRect(CRegion *this, const struct tagRECT *a2)
 {
   int v4; // ecx
-  unsigned int v5; // edi
+  unsigned int v5; // ebx
   int v7; // ecx
-  __m128i *v8; // rbx
-  struct _RECTL v9; // [rsp+30h] [rbp-10h] BYREF
-  __m128i *v10; // [rsp+78h] [rbp+38h] BYREF
-  struct _RECTL *v11; // [rsp+80h] [rbp+40h] BYREF
-  __m128i *v12; // [rsp+88h] [rbp+48h] BYREF
+  __int64 v8; // [rsp+20h] [rbp-30h] BYREF
+  int v9; // [rsp+28h] [rbp-28h]
+  __int64 v10; // [rsp+30h] [rbp-20h] BYREF
+  int v11; // [rsp+38h] [rbp-18h]
+  _RECTL v12; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v13; // [rsp+68h] [rbp+18h] BYREF
 
   if ( a2->left > a2->right || a2->top > a2->bottom )
     return (unsigned int)-1073741811;
@@ -32,23 +35,23 @@ __int64 __fastcall CRegion::AddRect(CRegion *this, const struct tagRECT *a2)
     return v5;
   if ( v7 != 1 )
     return (unsigned int)-1073741811;
-  v8 = (__m128i *)*((_QWORD *)this + 2);
-  v12 = v8;
-  RGNCOREMEMOBJ::RGNCOREMEMOBJ((RGNCOREMEMOBJ *)&v11, 0x70u);
-  RGNCOREMEMOBJ::RGNCOREMEMOBJ((RGNCOREMEMOBJ *)&v10, 0x70u);
-  if ( v11 && v10 )
+  v13 = *((_QWORD *)this + 2);
+  v10 = 0LL;
+  v11 = 0;
+  RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v10, 0x70u);
+  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v10);
+  v8 = 0LL;
+  v9 = 0;
+  RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v8, 0x70u);
+  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v8);
+  if ( v10 && v8 )
   {
-    v9 = (struct _RECTL)*a2;
-    RGNCOREOBJ::vSet(&v11, &v9);
-    if ( RGNCOREOBJ::bMerge__lambda_4f08034d680f118a0a3da8ec85dc396d___(
-           &v10,
-           (__int64)&v12,
-           (__int64)&v11,
-           0xEu,
-           (struct RGNCOREOBJ *)&v10) )
+    v12 = (_RECTL)*a2;
+    RGNOBJ::vSet((RGNOBJ *)&v10, &v12);
+    if ( (unsigned int)RGNOBJ::bMerge((RGNOBJ *)&v8, (struct RGNOBJ *)&v13, (struct RGNOBJ *)&v10, 0xEu) )
     {
-      *((_QWORD *)this + 2) = v10;
-      v10 = v8;
+      RGNOBJ::vSwap((RGNOBJ *)&v8, (struct RGNOBJ *)&v13);
+      *((_QWORD *)this + 2) = v13;
     }
     else
     {
@@ -59,7 +62,7 @@ __int64 __fastcall CRegion::AddRect(CRegion *this, const struct tagRECT *a2)
   {
     v5 = -1073741801;
   }
-  RGNCOREOBJ::vDeleteRGNCOREOBJ((PVOID *)&v10);
-  RGNCOREOBJ::vDeleteRGNCOREOBJ((PVOID *)&v11);
+  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v8);
+  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v10);
   return v5;
 }

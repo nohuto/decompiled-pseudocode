@@ -1,11 +1,12 @@
 /*
- * XREFs of VslpLockMdlForTransfer @ 0x1403A108C
+ * XREFs of VslpLockMdlForTransfer @ 0x14039424C
  * Callers:
- *     VslpLockPagesForTransfer @ 0x1403A0F08 (VslpLockPagesForTransfer.c)
- *     VslLoadEnclaveData @ 0x14093267C (VslLoadEnclaveData.c)
+ *     VslpLockPagesForTransfer @ 0x1403940C8 (VslpLockPagesForTransfer.c)
+ *     VslLoadEnclaveData @ 0x14088FDBC (VslLoadEnclaveData.c)
+ *     VslLoadEnclaveModule @ 0x14088FEB8 (VslLoadEnclaveModule.c)
  * Callees:
- *     MmBuildMdlForNonPagedPool @ 0x14027C410 (MmBuildMdlForNonPagedPool.c)
- *     MiProbeAndLockPages @ 0x14029C5B0 (MiProbeAndLockPages.c)
+ *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1402D6A20 (MmBuildMdlForNonPagedPool.c)
  */
 
 __int64 __fastcall VslpLockMdlForTransfer(__int64 a1, __int64 a2, char a3)
@@ -26,6 +27,6 @@ __int64 __fastcall VslpLockMdlForTransfer(__int64 a1, __int64 a2, char a3)
   if ( (a3 & 4) != 0 )
     MmBuildMdlForNonPagedPool(v4);
   else
-    MiProbeAndLockPages(v4, 0, 0);
+    MiProbeAndLockPages((__int64)v4, 0, 0);
   return 0LL;
 }

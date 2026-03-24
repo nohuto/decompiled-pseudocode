@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeLockedPagesTracking @ 0x140A2B3B4
+ * XREFs of MiInitializeLockedPagesTracking @ 0x1408C4508
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess2 @ 0x140860EDC (MmInitializeHandBuiltProcess2.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406FBB04 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x1407D0DE4 (MmInitializeHandBuiltProcess2.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
  */
 
 _QWORD *__fastcall MiInitializeLockedPagesTracking(__int64 a1)

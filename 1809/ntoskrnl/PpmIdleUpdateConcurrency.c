@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmIdleUpdateConcurrency @ 0x1402D52B8
+ * XREFs of PpmIdleUpdateConcurrency @ 0x1402D53B8
  * Callers:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
- *     PpmIdleInstallConcurrency @ 0x1402D4BA0 (PpmIdleInstallConcurrency.c)
- *     PpmIdleRemoveConcurrency @ 0x1402D4EE0 (PpmIdleRemoveConcurrency.c)
+ *     PpmIdleInstallConcurrency @ 0x1402D4CA0 (PpmIdleInstallConcurrency.c)
+ *     PpmIdleRemoveConcurrency @ 0x1402D4FE0 (PpmIdleRemoveConcurrency.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)

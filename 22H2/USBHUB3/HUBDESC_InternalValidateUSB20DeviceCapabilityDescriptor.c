@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBDESC_InternalValidateUSB20DeviceCapabilityDescriptor @ 0x1C003B100
+ * XREFs of HUBDESC_InternalValidateUSB20DeviceCapabilityDescriptor @ 0x1C0038034
  * Callers:
- *     HUBDESC_InternalValidateDeviceCapabilityDescriptor @ 0x1C003B4CC (HUBDESC_InternalValidateDeviceCapabilityDescriptor.c)
+ *     HUBDESC_InternalValidateDeviceCapabilityDescriptor @ 0x1C0038400 (HUBDESC_InternalValidateDeviceCapabilityDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_dD @ 0x1C0002668 (WPP_RECORDER_SF_dD.c)
- *     WPP_RECORDER_SF_DDD @ 0x1C001484C (WPP_RECORDER_SF_DDD.c)
- *     WPP_RECORDER_SF_DDDD @ 0x1C0029678 (WPP_RECORDER_SF_DDDD.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C0026A64 (WPP_RECORDER_SF_DDD.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C00322CC (WPP_RECORDER_SF_DDDD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall HUBDESC_InternalValidateUSB20DeviceCapabilityDescriptor(
@@ -19,9 +19,9 @@ char __fastcall HUBDESC_InternalValidateUSB20DeviceCapabilityDescriptor(
         int *a5,
         __int64 a6)
 {
-  int *v6; // rsi
+  int *v6; // rdi
   void *v10; // r8
-  __int64 v11; // r13
+  __int64 v11; // r12
   int v12; // r14d
   unsigned int v13; // r15d
   __int64 v14; // r8
@@ -30,15 +30,17 @@ char __fastcall HUBDESC_InternalValidateUSB20DeviceCapabilityDescriptor(
   int v17; // eax
   int *v18; // r14
   int v19; // ecx
-  int v20; // ecx
-  unsigned int v21; // eax
-  unsigned int v22; // eax
-  __int64 v24; // [rsp+28h] [rbp-50h]
-  __int64 v25; // [rsp+30h] [rbp-48h]
-  __int64 v26; // [rsp+38h] [rbp-40h]
-  int v27; // [rsp+80h] [rbp+8h] BYREF
+  unsigned int v20; // eax
+  int v21; // ecx
+  unsigned __int16 v22; // cx
+  unsigned int v23; // eax
+  unsigned int v24; // ecx
+  __int64 v26; // [rsp+28h] [rbp-50h]
+  __int64 v27; // [rsp+30h] [rbp-48h]
+  __int64 v28; // [rsp+38h] [rbp-40h]
+  int v29; // [rsp+80h] [rbp+8h] BYREF
 
-  v27 = 0;
+  v29 = 0;
   v6 = a4;
   if ( a4 )
   {
@@ -47,9 +49,9 @@ char __fastcall HUBDESC_InternalValidateUSB20DeviceCapabilityDescriptor(
   }
   else
   {
-    v6 = &v27;
+    v6 = &v29;
   }
-  v10 = &WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids;
+  v10 = &WPP_aa79356b1e693837079f99291824f69e_Traceguids;
   v11 = a6;
   v12 = (_DWORD)a1 - *(_DWORD *)(a2 + 56);
   v13 = *(_DWORD *)(a2 + 72) - v12;
@@ -62,18 +64,18 @@ LABEL_10:
         *v6 = 2;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LODWORD(v26) = 7;
-        LODWORD(v25) = *a1;
-        LODWORD(v24) = v12;
+        LODWORD(v28) = 7;
+        LODWORD(v27) = *a1;
+        LODWORD(v26) = v12;
         WPP_RECORDER_SF_DDD(
           v11,
           2u,
-          (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids,
-          0xD1u,
-          (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids,
-          v24,
-          v25,
-          v26);
+          (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
+          0xCFu,
+          (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
+          v26,
+          v27,
+          v28);
       }
       (*(void (__fastcall **)(_QWORD, __int64, void *))(a2 + 24))(*(_QWORD *)(a2 + 40), 145LL, v10);
     }
@@ -85,8 +87,8 @@ LABEL_10:
           *v6 = 2;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          LODWORD(v24) = *(_DWORD *)(a1 + 3);
-          WPP_RECORDER_SF_d(v11, 2u, 5u, 0xD3u, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids, v24);
+          LODWORD(v26) = *(_DWORD *)(a1 + 3);
+          WPP_RECORDER_SF_d(v11, 2u, 5u, 0xD1u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v26);
         }
         (*(void (__fastcall **)(_QWORD, __int64, void *))(a2 + 24))(*(_QWORD *)(a2 + 40), 147LL, v10);
       }
@@ -97,32 +99,35 @@ LABEL_10:
         *a5 |= 1u;
         v19 = *v18 ^ ((unsigned __int8)*v18 ^ (unsigned __int8)(*(_DWORD *)(a1 + 3) >> 1)) & 2;
         *v18 = v19;
-        if ( (a1[3] & 8) != 0 )
+        v20 = *(_DWORD *)(a1 + 3);
+        if ( (v20 & 8) != 0 )
         {
-          v20 = v19 | 4;
-          *v18 = v20;
-          *v18 = v20 ^ ((unsigned __int8)v20 ^ (unsigned __int8)(*(_DWORD *)(a1 + 3) >> 4)) & 0xF0;
+          v21 = v19 | 4;
+          *v18 = v21;
+          *v18 = v21 ^ ((unsigned __int8)v21 ^ (unsigned __int8)(*(_DWORD *)(a1 + 3) >> 4)) & 0xF0;
+          v20 = *(_DWORD *)(a1 + 3);
         }
-        v21 = *(_DWORD *)(a1 + 3);
-        if ( (v21 & 0x10) != 0 )
+        if ( (v20 & 0x10) != 0 )
         {
-          if ( (v21 & 8) != 0 )
+          if ( (v20 & 8) != 0 )
           {
-            v22 = (v21 >> 8) & 0xF;
-            if ( (unsigned __int16)*(_DWORD *)(a1 + 3) >> 12 <= v22 )
+            v22 = v20;
+            v23 = (v20 >> 8) & 0xF;
+            v24 = v22 >> 12;
+            if ( v24 <= v23 )
             {
               if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
               {
-                LODWORD(v25) = v22;
-                LODWORD(v24) = (unsigned __int16)*(_DWORD *)(a1 + 3) >> 12;
+                LODWORD(v27) = v23;
+                LODWORD(v26) = v24;
                 WPP_RECORDER_SF_dD(
                   v11,
                   2u,
                   5u,
-                  0xD4u,
-                  (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids,
-                  v24,
-                  v25);
+                  0xD2u,
+                  (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
+                  v26,
+                  v27);
               }
               (*(void (__fastcall **)(_QWORD, __int64, void *))(a2 + 24))(*(_QWORD *)(a2 + 40), 151LL, v10);
             }
@@ -145,8 +150,8 @@ LABEL_51:
         *v6 = 2;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LODWORD(v24) = *(_DWORD *)(a1 + 3);
-        WPP_RECORDER_SF_d(v11, 2u, 5u, 0xD5u, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids, v24);
+        LODWORD(v26) = *(_DWORD *)(a1 + 3);
+        WPP_RECORDER_SF_d(v11, 2u, 5u, 0xD3u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v26);
       }
       v15 = 150LL;
     }
@@ -156,8 +161,8 @@ LABEL_51:
         *v6 = 2;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LODWORD(v24) = v12;
-        WPP_RECORDER_SF_d(v11, 2u, 5u, 0xD2u, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids, v24);
+        LODWORD(v26) = v12;
+        WPP_RECORDER_SF_d(v11, 2u, 5u, 0xD0u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v26);
       }
       v15 = 148LL;
     }
@@ -167,7 +172,7 @@ LABEL_51:
   (*(void (__fastcall **)(_QWORD, __int64, void *))(a2 + 24))(
     *(_QWORD *)(a2 + 40),
     146LL,
-    &WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids);
+    &WPP_aa79356b1e693837079f99291824f69e_Traceguids);
   if ( v13 >= 7 )
   {
     *v6 = 2;
@@ -177,25 +182,25 @@ LABEL_51:
         v11,
         2u,
         5u,
-        0xCFu,
-        (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids,
+        0xCDu,
+        (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
         v12,
         *a1,
         7,
         7);
-    v10 = &WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids;
+    v10 = &WPP_aa79356b1e693837079f99291824f69e_Traceguids;
     goto LABEL_10;
   }
   v16 = 1;
   *v6 = 1;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    WPP_RECORDER_SF_DDD(v11, 2u, v14, 0xD0u, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids, v12, *a1, 7);
+    WPP_RECORDER_SF_DDD(v11, 2u, v14, 0xCEu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v12, *a1, 7);
     goto LABEL_51;
   }
 LABEL_52:
   v16 = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_(v11, 2u, 5u, 0xD6u, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids);
+    WPP_RECORDER_SF_(v11, 2u, 5u, 0xD4u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
   return v16;
 }

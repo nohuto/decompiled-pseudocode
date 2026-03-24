@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetOffset@CCompositionSpotLight@@UEBAAEBUfloat3@Numerics@Foundation@Windows@@XZ @ 0x1800FB4A0
+ * XREFs of ?GetOffset@CCompositionSpotLight@@UEBAAEBUfloat3@Numerics@Foundation@Windows@@XZ @ 0x1800E2A50
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 const struct Windows::Foundation::Numerics::float3 *__fastcall CCompositionSpotLight::GetOffset(
         CCompositionSpotLight *this)
 {
-  return (CCompositionSpotLight *)((char *)this + 356);
+  return (CCompositionSpotLight *)((char *)this + 348);
 }

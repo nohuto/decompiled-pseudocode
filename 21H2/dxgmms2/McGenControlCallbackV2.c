@@ -1,10 +1,10 @@
 /*
- * XREFs of McGenControlCallbackV2 @ 0x1C001CB10
+ * XREFs of McGenControlCallbackV2 @ 0x1C0015AE0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1C001DC40 (memset.c)
- *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C00B867C (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C008ABE4 (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -17,11 +17,11 @@ void __stdcall McGenControlCallbackV2(
         PEVENT_FILTER_DESCRIPTOR FilterData,
         PVOID CallbackContext)
 {
-  unsigned int v7; // r9d
-  unsigned __int8 v8; // cl
-  __int64 v9; // r8
-  bool v10; // r11
-  __int64 v11; // rax
+  unsigned __int8 v7; // cl
+  __int64 v8; // rdx
+  bool v9; // r11
+  int v10; // edx
+  unsigned int Data1; // eax
   int v12; // eax
 
   if ( CallbackContext )
@@ -30,37 +30,38 @@ void __stdcall McGenControlCallbackV2(
     {
       if ( ControlCode == 1 )
       {
-        *((_QWORD *)CallbackContext + 2) = MatchAnyKeyword;
-        v7 = 0;
-        *((_QWORD *)CallbackContext + 3) = MatchAllKeyword;
         *((_BYTE *)CallbackContext + 40) = Level;
-        for ( *((_DWORD *)CallbackContext + 9) = 1; v7 < *((unsigned __int16 *)CallbackContext + 21); ++v7 )
+        *(_QWORD *)&Level = 0LL;
+        *((_QWORD *)CallbackContext + 3) = MatchAllKeyword;
+        *((_QWORD *)CallbackContext + 2) = MatchAnyKeyword;
+        *((_DWORD *)CallbackContext + 9) = 1;
+        if ( *((_WORD *)CallbackContext + 21) )
         {
-          v8 = *((_BYTE *)CallbackContext + 40);
-          v10 = 0;
-          if ( *(_BYTE *)(v7 + *((_QWORD *)CallbackContext + 8)) <= v8 || !v8 )
+          do
           {
-            v9 = *(_QWORD *)(*((_QWORD *)CallbackContext + 7) + 8LL * v7);
-            if ( !v9
-              || (v9 & *((_QWORD *)CallbackContext + 2)) != 0
-              && (v9 & *((_QWORD *)CallbackContext + 3)) == *((_QWORD *)CallbackContext + 3) )
+            v7 = *((_BYTE *)CallbackContext + 40);
+            v9 = 0;
+            if ( *(_BYTE *)(Level + *((_QWORD *)CallbackContext + 8)) <= v7 || !v7 )
             {
-              v10 = 1;
+              v8 = *(_QWORD *)(*((_QWORD *)CallbackContext + 7) + 8LL * Level);
+              if ( !v8
+                || (v8 & *((_QWORD *)CallbackContext + 2)) != 0
+                && (v8 & *((_QWORD *)CallbackContext + 3)) == *((_QWORD *)CallbackContext + 3) )
+              {
+                v9 = 1;
+              }
             }
+            v10 = 1 << (Level & 0x1F);
+            SourceId = (LPCGUID)(*((_QWORD *)CallbackContext + 6) + 4 * ((unsigned __int64)Level >> 5));
+            Data1 = SourceId->Data1;
+            if ( v9 )
+              ControlCode = Data1 | v10;
+            else
+              ControlCode = Data1 & ~v10;
+            SourceId->Data1 = ControlCode;
+            *(_QWORD *)&Level = (unsigned int)(Level + 1);
           }
-          v11 = *((_QWORD *)CallbackContext + 6);
-          LODWORD(SourceId) = v7 & 0x1F;
-          *(_QWORD *)&ControlCode = (unsigned __int64)v7 >> 5;
-          *(_QWORD *)&Level = (unsigned int)(1 << (char)SourceId);
-          if ( v10 )
-          {
-            *(_DWORD *)(v11 + 4LL * *(_QWORD *)&ControlCode) |= Level;
-          }
-          else
-          {
-            *(_QWORD *)&Level = (unsigned int)~Level;
-            *(_DWORD *)(v11 + 4LL * *(_QWORD *)&ControlCode) &= Level;
-          }
+          while ( Level < (unsigned int)*((unsigned __int16 *)CallbackContext + 21) );
         }
       }
     }

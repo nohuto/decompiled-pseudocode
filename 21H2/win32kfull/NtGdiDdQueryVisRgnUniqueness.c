@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiDdQueryVisRgnUniqueness @ 0x1C0275970
+ * XREFs of NtGdiDdQueryVisRgnUniqueness @ 0x1C02781F0
  * Callers:
  *     <none>
  * Callees:

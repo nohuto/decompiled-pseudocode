@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhPostInterrupt @ 0x1C00104E0
+ * XREFs of UsbhPostInterrupt @ 0x1C00033C0
  * Callers:
- *     UsbhHubProcessIsr @ 0x1C00083B0 (UsbhHubProcessIsr.c)
- *     UsbhBusResume_Action @ 0x1C0013AB0 (UsbhBusResume_Action.c)
- *     UsbhBusPause_Action @ 0x1C0014220 (UsbhBusPause_Action.c)
- *     UsbhHubResetIrqPipeWorker @ 0x1C00380C0 (UsbhHubResetIrqPipeWorker.c)
+ *     UsbhBusResume_Action @ 0x1C0005CF0 (UsbhBusResume_Action.c)
+ *     UsbhBusPause_Action @ 0x1C0006460 (UsbhBusPause_Action.c)
+ *     UsbhHubProcessIsr @ 0x1C000F090 (UsbhHubProcessIsr.c)
+ *     UsbhHubResetIrqPipeWorker @ 0x1C0039390 (UsbhHubResetIrqPipeWorker.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     memset @ 0x1C001F800 (memset.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
  */
 
 NTSTATUS __fastcall UsbhPostInterrupt(PDEVICE_OBJECT DeviceObject)
@@ -31,7 +31,7 @@ NTSTATUS __fastcall UsbhPostInterrupt(PDEVICE_OBJECT DeviceObject)
   if ( (UsbhLogMask & 4) != 0 )
   {
     if ( !DeviceObject )
-      goto LABEL_24;
+      goto LABEL_23;
     DeviceExtension = DeviceObject->DeviceExtension;
     if ( DeviceExtension )
     {
@@ -44,10 +44,8 @@ NTSTATUS __fastcall UsbhPostInterrupt(PDEVICE_OBJECT DeviceObject)
       *(_QWORD *)(v3 + 24) = 0LL;
     }
   }
-  else if ( !DeviceObject )
-  {
-    goto LABEL_24;
-  }
+  if ( !DeviceObject )
+    goto LABEL_23;
   v4 = (unsigned __int16 *)DeviceObject->DeviceExtension;
   if ( !v4 )
     UsbhTrapFatal_Dbg(DeviceObject, 0LL);
@@ -56,7 +54,7 @@ NTSTATUS __fastcall UsbhPostInterrupt(PDEVICE_OBJECT DeviceObject)
   v5 = *((_QWORD *)v4 + 334);
   v6 = (IRP *)*((_QWORD *)v4 + 333);
   if ( !v5 || !v6 )
-LABEL_24:
+LABEL_23:
     UsbhTrapFatal_Dbg(DeviceObject, DeviceObject);
   *(_QWORD *)(v5 + 8) = 0LL;
   *(_DWORD *)v5 = 589952;
@@ -73,7 +71,7 @@ LABEL_24:
   CurrentStackLocation[-1].Parameters.Read.ByteOffset.LowPart = 2228227;
   if ( _InterlockedIncrement((volatile signed __int32 *)v4 + 678) )
   {
-    if ( IoSetCompletionRoutineEx(DeviceObject, v6, (PIO_COMPLETION_ROUTINE)UsbhHubIsr, DeviceObject, 1u, 1u, 1u) < 0 )
+    if ( IoSetCompletionRoutineEx(DeviceObject, v6, UsbhHubIsr, DeviceObject, 1u, 1u, 1u) < 0 )
     {
       v12 = v6->Tail.Overlay.CurrentStackLocation;
       v12[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))UsbhHubIsr;
@@ -100,7 +98,7 @@ LABEL_24:
   }
   else
   {
-    Log((__int64)DeviceObject, 4, 1769042750, 0LL, 0LL);
+    Log((_DWORD)DeviceObject, 4, 1769042750, 0, 0LL);
     _InterlockedDecrement((volatile signed __int32 *)v4 + 678);
     return KeSetEvent((PRKEVENT)v4 + 112, 0, 0);
   }

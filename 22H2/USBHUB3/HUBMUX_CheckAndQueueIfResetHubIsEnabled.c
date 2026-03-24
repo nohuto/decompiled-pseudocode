@@ -1,17 +1,17 @@
 /*
- * XREFs of HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C0010ED0
+ * XREFs of HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FAA4
  * Callers:
- *     HUBPSM20_IssuingHubResetFromDisconnected @ 0x1C0011FE0 (HUBPSM20_IssuingHubResetFromDisconnected.c)
- *     HUBPSM20_IssuingHubResetWithTimer @ 0x1C0012010 (HUBPSM20_IssuingHubResetWithTimer.c)
- *     HUBPSM20_StoppingTimerAndQueueingHubResetInDisconnected @ 0x1C0012650 (HUBPSM20_StoppingTimerAndQueueingHubResetInDisconnected.c)
- *     HUBPSM20_IssuingHubResetOnControlTransferFailureInSuspended @ 0x1C00128B0 (HUBPSM20_IssuingHubResetOnControlTransferFailureInSuspended.c)
- *     HUBPSM20_IssuingHubResetOnControlTransferFailureOnStart @ 0x1C0012930 (HUBPSM20_IssuingHubResetOnControlTransferFailureOnStart.c)
- *     HUBPSM20_ResettingHubOnFailureWhileWaitingForReconnect @ 0x1C0012A80 (HUBPSM20_ResettingHubOnFailureWhileWaitingForReconnect.c)
- *     HUBPSM30_IssuingHubResetOnTimedOut @ 0x1C0013230 (HUBPSM30_IssuingHubResetOnTimedOut.c)
- *     HUBPSM30_ResettingHubAndFlushingUserInitiatedResetOnOverCurrent @ 0x1C0013520 (HUBPSM30_ResettingHubAndFlushingUserInitiatedResetOnOverCurrent.c)
- *     HUBFDO_IoctlResetHub @ 0x1C007AE54 (HUBFDO_IoctlResetHub.c)
+ *     HUBPSM20_IssuingHubResetFromDisconnected @ 0x1C0010BC0 (HUBPSM20_IssuingHubResetFromDisconnected.c)
+ *     HUBPSM20_IssuingHubResetWithTimer @ 0x1C0010BF0 (HUBPSM20_IssuingHubResetWithTimer.c)
+ *     HUBPSM20_StoppingTimerAndQueueingHubResetInDisconnected @ 0x1C0011230 (HUBPSM20_StoppingTimerAndQueueingHubResetInDisconnected.c)
+ *     HUBPSM20_IssuingHubResetOnControlTransferFailureInSuspended @ 0x1C0011490 (HUBPSM20_IssuingHubResetOnControlTransferFailureInSuspended.c)
+ *     HUBPSM20_IssuingHubResetOnControlTransferFailureOnStart @ 0x1C0011510 (HUBPSM20_IssuingHubResetOnControlTransferFailureOnStart.c)
+ *     HUBPSM20_ResettingHubOnFailureWhileWaitingForReconnect @ 0x1C00115F0 (HUBPSM20_ResettingHubOnFailureWhileWaitingForReconnect.c)
+ *     HUBPSM30_IssuingHubResetOnTimedOut @ 0x1C0011D10 (HUBPSM30_IssuingHubResetOnTimedOut.c)
+ *     HUBPSM30_ResettingHubAndFlushingUserInitiatedResetOnOverCurrent @ 0x1C0012000 (HUBPSM30_ResettingHubAndFlushingUserInitiatedResetOnOverCurrent.c)
+ *     HUBFDO_IoctlResetHub @ 0x1C00771FC (HUBFDO_IoctlResetHub.c)
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
  */
 
 char __fastcall HUBMUX_CheckAndQueueIfResetHubIsEnabled(__int64 a1)

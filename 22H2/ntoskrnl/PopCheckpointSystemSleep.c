@@ -1,31 +1,31 @@
 /*
- * XREFs of PopCheckpointSystemSleep @ 0x140AAA5A8
+ * XREFs of PopCheckpointSystemSleep @ 0x140993C64
  * Callers:
- *     PopPrepareSleep @ 0x14058F50C (PopPrepareSleep.c)
- *     PopAllocateHiberContext @ 0x140987DE8 (PopAllocateHiberContext.c)
- *     PopDispatchSuperfetchNotification @ 0x140989840 (PopDispatchSuperfetchNotification.c)
- *     PopIssueActionRequest @ 0x140989D54 (PopIssueActionRequest.c)
- *     PopResumeApps @ 0x14098A4E4 (PopResumeApps.c)
- *     PopResumeServices @ 0x14098A55C (PopResumeServices.c)
- *     PopSuspendApps @ 0x14098AAC4 (PopSuspendApps.c)
- *     PopSuspendServices @ 0x14098AB18 (PopSuspendServices.c)
- *     PopNotifyCallbacksPreSleep @ 0x14098BB2C (PopNotifyCallbacksPreSleep.c)
- *     PopDecompressHiberBlocks @ 0x140AA23F4 (PopDecompressHiberBlocks.c)
- *     PopHiberCheckResume @ 0x140AA2F60 (PopHiberCheckResume.c)
- *     PopHiberChecksumHiberFileData @ 0x140AA320C (PopHiberChecksumHiberFileData.c)
- *     PopRequestRead @ 0x140AA3C40 (PopRequestRead.c)
- *     PopRequestWrite @ 0x140AA4070 (PopRequestWrite.c)
- *     PopRestoreHiberContext @ 0x140AA45CC (PopRestoreHiberContext.c)
- *     PopSaveHiberContext @ 0x140AA4A40 (PopSaveHiberContext.c)
- *     PopWriteHiberPages @ 0x140AA5AA4 (PopWriteHiberPages.c)
- *     PoBroadcastSystemState @ 0x140AA6B28 (PoBroadcastSystemState.c)
- *     PopInvokeSystemStateHandler @ 0x140AA865C (PopInvokeSystemStateHandler.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopPrepareSleep @ 0x140382E4C (PopPrepareSleep.c)
+ *     PopIssueActionRequest @ 0x140776468 (PopIssueActionRequest.c)
+ *     PopSuspendApps @ 0x140776E70 (PopSuspendApps.c)
+ *     PopSuspendServices @ 0x140776EC4 (PopSuspendServices.c)
+ *     PopResumeApps @ 0x140776F24 (PopResumeApps.c)
+ *     PopResumeServices @ 0x140776F9C (PopResumeServices.c)
+ *     PopDispatchSuperfetchNotification @ 0x140777044 (PopDispatchSuperfetchNotification.c)
+ *     PopNotifyCallbacksPreSleep @ 0x14077709C (PopNotifyCallbacksPreSleep.c)
+ *     PopAllocateHiberContext @ 0x140777B44 (PopAllocateHiberContext.c)
+ *     PopWriteHiberPages @ 0x1409916A0 (PopWriteHiberPages.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
+ *     PoBroadcastSystemState @ 0x140992AC4 (PoBroadcastSystemState.c)
+ *     PopInvokeSystemStateHandler @ 0x14099324C (PopInvokeSystemStateHandler.c)
+ *     PopRestoreHiberContext @ 0x140993CC8 (PopRestoreHiberContext.c)
+ *     PopSaveHiberContext @ 0x140993F80 (PopSaveHiberContext.c)
+ *     PopRequestWrite @ 0x140994594 (PopRequestWrite.c)
+ *     PopHiberChecksumHiberFileData @ 0x1409949E0 (PopHiberChecksumHiberFileData.c)
+ *     PopDecompressHiberBlocks @ 0x140995054 (PopDecompressHiberBlocks.c)
+ *     PopHiberCheckResume @ 0x140998890 (PopHiberCheckResume.c)
+ *     PopRequestRead @ 0x1409B1994 (PopRequestRead.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PopRecordSleepCheckpoint @ 0x1409814C0 (PopRecordSleepCheckpoint.c)
- *     PopCheckpointSystemSleepUnsafe @ 0x140AAA6B4 (PopCheckpointSystemSleepUnsafe.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PopRecordSleepCheckpoint @ 0x1407773E8 (PopRecordSleepCheckpoint.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x1409B2824 (PopCheckpointSystemSleepUnsafe.c)
  */
 
 unsigned __int64 __fastcall PopCheckpointSystemSleep(int a1)
@@ -48,7 +48,7 @@ unsigned __int64 __fastcall PopCheckpointSystemSleep(int a1)
     {
       if ( KeGetCurrentPrcb()->Number )
         KeBugCheckEx(0xA0u, 0x10FuLL, v1, 1uLL, 0LL);
-      if ( (unsigned __int8)off_140C01D50[0]() )
+      if ( (unsigned __int8)off_140C00940[0]() )
         KeBugCheckEx(0xA0u, 0x10FuLL, v1, 2uLL, 0LL);
     }
     else if ( !_InterlockedExchangeAdd(&PopPagingEnabled, 0) )
@@ -59,6 +59,6 @@ unsigned __int64 __fastcall PopCheckpointSystemSleep(int a1)
   }
   v3 = __rdtsc();
   result = (((unsigned __int64)HIDWORD(v3) << 32) | (unsigned int)v3) - v2;
-  qword_140C3D390 += result;
+  qword_140C23F90 += result;
   return result;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of KeFlushProcessWriteBuffers @ 0x1400ECFD8
+ * XREFs of KeFlushProcessWriteBuffers @ 0x1400ECFF8
  * Callers:
  *     PoFxSendSystemLatencyUpdate @ 0x140005DA8 (PoFxSendSystemLatencyUpdate.c)
- *     KeQueryTotalCycleTimeThread @ 0x1400D1D60 (KeQueryTotalCycleTimeThread.c)
- *     KeSetPriorityAndQuantumProcess @ 0x1400D6964 (KeSetPriorityAndQuantumProcess.c)
- *     NtFlushProcessWriteBuffers @ 0x1400ECFC0 (NtFlushProcessWriteBuffers.c)
- *     PpmClearExitLatencySamplingPercentage @ 0x1402D3BBC (PpmClearExitLatencySamplingPercentage.c)
- *     PpmSetExitLatencySamplingPercentage @ 0x1402D58C0 (PpmSetExitLatencySamplingPercentage.c)
+ *     KeQueryTotalCycleTimeThread @ 0x1400D1D80 (KeQueryTotalCycleTimeThread.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1400D6984 (KeSetPriorityAndQuantumProcess.c)
+ *     NtFlushProcessWriteBuffers @ 0x1400ECFE0 (NtFlushProcessWriteBuffers.c)
+ *     PpmClearExitLatencySamplingPercentage @ 0x1402D3CBC (PpmClearExitLatencySamplingPercentage.c)
+ *     PpmSetExitLatencySamplingPercentage @ 0x1402D59C0 (PpmSetExitLatencySamplingPercentage.c)
  *     PsQueryTotalCycleTimeProcess @ 0x140585280 (PsQueryTotalCycleTimeProcess.c)
  *     ExpGetProcessInformation @ 0x1405E6B60 (ExpGetProcessInformation.c)
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     PspTerminateAllThreads @ 0x140676204 (PspTerminateAllThreads.c)
+ *     PspTerminateAllThreads @ 0x1406761E4 (PspTerminateAllThreads.c)
  * Callees:
- *     KiIpiSendPacket @ 0x1400ED0E4 (KiIpiSendPacket.c)
- *     KeCountSetBitsAffinityEx @ 0x1400ED920 (KeCountSetBitsAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1400EDA50 (KeRemoveProcessorAffinityEx.c)
- *     KeCopyAffinityEx @ 0x1400EDA90 (KeCopyAffinityEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIpiSendPacket @ 0x1400ED104 (KiIpiSendPacket.c)
+ *     KeCountSetBitsAffinityEx @ 0x1400ED940 (KeCountSetBitsAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1400EDA70 (KeRemoveProcessorAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeFlushProcessWriteBuffers(char a1)

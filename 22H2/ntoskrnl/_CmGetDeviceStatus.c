@@ -1,48 +1,44 @@
 /*
- * XREFs of _CmGetDeviceStatus @ 0x14079AA78
+ * XREFs of _CmGetDeviceStatus @ 0x140684C00
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA46C (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmIsDeviceSafeRemovalRequired @ 0x140798EF8 (_CmIsDeviceSafeRemovalRequired.c)
- *     PiCMGetDeviceStatus @ 0x140799E78 (PiCMGetDeviceStatus.c)
- *     PiCMValidateDeviceInstance @ 0x14079A3C8 (PiCMValidateDeviceInstance.c)
- *     PpDevCfgProcessDevices @ 0x140813294 (PpDevCfgProcessDevices.c)
- *     PiCMDeleteDevice @ 0x140968EF8 (PiCMDeleteDevice.c)
- *     PiCMDeviceAction @ 0x14096973C (PiCMDeviceAction.c)
- *     PiCMGenerateDeviceInstance @ 0x140969C6C (PiCMGenerateDeviceInstance.c)
- *     PiCMQueryRemove @ 0x14096A324 (PiCMQueryRemove.c)
- *     PiCMSetProblem @ 0x14096AAD4 (PiCMSetProblem.c)
+ *     PiCMGetDeviceStatus @ 0x140684648 (PiCMGetDeviceStatus.c)
+ *     PiCMValidateDeviceInstance @ 0x140684800 (PiCMValidateDeviceInstance.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406B558C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     PiCMDeleteDevice @ 0x14072C52C (PiCMDeleteDevice.c)
+ *     PiCMQueryRemove @ 0x14072F1D0 (PiCMQueryRemove.c)
+ *     PiCMDeviceAction @ 0x14072F428 (PiCMDeviceAction.c)
+ *     PiCMSetProblem @ 0x14072FAFC (PiCMSetProblem.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x140769F38 (_CmIsDeviceSafeRemovalRequired.c)
+ *     PpDevCfgProcessDevices @ 0x1407A36EC (PpDevCfgProcessDevices.c)
+ *     PiCMGenerateDeviceInstance @ 0x1408B05E0 (PiCMGenerateDeviceInstance.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     _NtPlugPlayGetDeviceStatus @ 0x14079ACE8 (_NtPlugPlayGetDeviceStatus.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     _NtPlugPlayGetDeviceStatus @ 0x140684D10 (_NtPlugPlayGetDeviceStatus.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
  */
 
-__int64 __fastcall CmGetDeviceStatus(
-        __int64 a1,
-        const WCHAR *a2,
-        __int64 a3,
-        _DWORD *a4,
-        _DWORD *a5,
-        _DWORD *a6,
-        unsigned int a7)
+__int64 __fastcall CmGetDeviceStatus(int a1, const WCHAR *a2, int a3, int *a4, _DWORD *a5, _DWORD *a6, unsigned int a7)
 {
   _DWORD *v7; // r14
   char v8; // bl
   _DWORD *v9; // r15
+  int v12; // r13d
   NTSTATUS inited; // esi
-  int v15; // [rsp+40h] [rbp-20h] BYREF
+  int v14; // edx
+  int v16; // [rsp+40h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-18h] BYREF
-  int v18; // [rsp+B8h] [rbp+58h] BYREF
+  int v19; // [rsp+B8h] [rbp+58h] BYREF
 
   v7 = a5;
   v8 = 0;
   v9 = a6;
   *a4 = 0;
-  v18 = 0;
+  v19 = 0;
   *v7 = 0;
   *v9 = 0;
+  v12 = (int)a2;
   DestinationString = 0LL;
-  v15 = 0;
+  v16 = 0;
   inited = RtlInitUnicodeStringEx(&DestinationString, a2);
   if ( inited >= 0 )
   {
@@ -50,17 +46,21 @@ __int64 __fastcall CmGetDeviceStatus(
     if ( inited >= 0 )
     {
       a7 = 4;
-      if ( !(unsigned int)CmGetDeviceRegProp(a1, (__int64)a2, a3, 11, (__int64)&v18, (__int64)&v15, (__int64)&a7, 0)
+      if ( !(unsigned int)CmGetDeviceRegProp(a1, v12, a3, 11, (__int64)&v19, (__int64)&v16, (__int64)&a7, 0)
         && a7 >= 4
-        && v18 == 4 )
+        && v19 == 4 )
       {
-        v8 = v15;
+        v8 = v16;
       }
+      v14 = *a4;
       if ( (v8 & 4) != 0 )
-        *a4 |= 0x10u;
-      if ( (*a4 & 0x400) == 0 && (v8 & 0x40) != 0 )
       {
-        *a4 |= 0x400u;
+        v14 |= 0x10u;
+        *a4 = v14;
+      }
+      if ( (v14 & 0x400) == 0 && (v8 & 0x40) != 0 )
+      {
+        *a4 = v14 | 0x400;
         *v7 = 28;
       }
     }

@@ -1,14 +1,14 @@
 /*
- * XREFs of NtGdiDrawStream @ 0x1C00E7520
+ * XREFs of NtGdiDrawStream @ 0x1C0083980
  * Callers:
  *     <none>
  * Callees:
- *     GreDrawStream @ 0x1C003C990 (GreDrawStream.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     GreDrawStream @ 0x1C0083A60 (GreDrawStream.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
-__int64 __fastcall NtGdiDrawStream(HDC a1, unsigned int a2, char *a3)
+__int64 __fastcall NtGdiDrawStream(__int64 a1, unsigned int a2, char *a3)
 {
   size_t v4; // rsi
   unsigned int v6; // edi
@@ -33,7 +33,7 @@ __int64 __fastcall NtGdiDrawStream(HDC a1, unsigned int a2, char *a3)
   if ( &a3[v4] < a3 || (unsigned __int64)&a3[v4] > MmUserProbeAddress )
     *(_BYTE *)MmUserProbeAddress = 0;
   memmove(v7, a3, v4);
-  v6 = GreDrawStream(a1, v4, (int *)v7);
+  v6 = GreDrawStream(a1, (unsigned int)v4, v7);
 LABEL_7:
   if ( v7 && v7 != v9 )
     FreeTmpBuffer(v7);

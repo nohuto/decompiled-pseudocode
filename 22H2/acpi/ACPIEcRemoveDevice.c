@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIEcRemoveDevice @ 0x1C00253E0
+ * XREFs of ACPIEcRemoveDevice @ 0x1C0053960
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     ACPIBusIrpRemoveDevice @ 0x1C0016C30 (ACPIBusIrpRemoveDevice.c)
- *     ACPIEcStopRemoveDeviceCommon @ 0x1C00258B0 (ACPIEcStopRemoveDeviceCommon.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIBusIrpRemoveDevice @ 0x1C004D5D0 (ACPIBusIrpRemoveDevice.c)
+ *     ACPIEcStopRemoveDeviceCommon @ 0x1C0053E40 (ACPIEcStopRemoveDeviceCommon.c)
  */
 
 __int64 __fastcall ACPIEcRemoveDevice(ULONG_PTR a1, IRP *a2)

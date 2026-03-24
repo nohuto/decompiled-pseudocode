@@ -1,72 +1,45 @@
 /*
- * XREFs of PowerIsDisplayIdleExpired @ 0x1C009CC00
+ * XREFs of PowerIsDisplayIdleExpired @ 0x1C00865F0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsTimeFromLastInputEvent@CInputGlobals@@QEBA_NK@Z @ 0x1C00A2330 (-IsTimeFromLastInputEvent@CInputGlobals@@QEBA_NK@Z.c)
- *     PowerIsDisplayBurstActive @ 0x1C0133B40 (PowerIsDisplayBurstActive.c)
- *     PowerIsDisplayRequired @ 0x1C0133C00 (PowerIsDisplayRequired.c)
+ *     ?GetGlobalTickCount@CInputGlobals@@QEBA_KW4INPUT_GLOBALS_TICK_COUNT@@@Z @ 0x1C0086660 (-GetGlobalTickCount@CInputGlobals@@QEBA_KW4INPUT_GLOBALS_TICK_COUNT@@@Z.c)
+ *     ?IsTimeFromLastInputEvent@CInputGlobals@@QEBA_NK@Z @ 0x1C00868B0 (-IsTimeFromLastInputEvent@CInputGlobals@@QEBA_NK@Z.c)
+ *     PowerIsDisplayBurstActive @ 0x1C011A480 (PowerIsDisplayBurstActive.c)
+ *     PowerIsDisplayRequired @ 0x1C011A520 (PowerIsDisplayRequired.c)
  */
 
 _BOOL8 __fastcall PowerIsDisplayIdleExpired(int a1, int *a2)
 {
-  __int64 v3; // rbx
-  unsigned __int64 v5; // rdi
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
   _BOOL8 result; // rax
-  int v19; // edx
-  int v20; // ecx
-  __int64 v21; // rax
-  int v22; // [rsp+38h] [rbp+10h] BYREF
+  int v5; // ecx
+  int v6; // [rsp+38h] [rbp+10h] BYREF
 
-  v22 = 0;
-  v3 = *((_QWORD *)&WPP_MAIN_CB.Reserved + 1);
-  KeEnterCriticalRegion();
-  ExAcquirePushLockSharedEx(v3, 0LL);
-  v5 = *(_QWORD *)(v3 + 24);
-  ExReleasePushLockSharedEx(v3, 0LL);
-  KeLeaveCriticalRegion();
-  if ( v5 >= *(_QWORD *)(SGDGetUserSessionState(v7, v6, v8, v9) + 3040) )
+  v6 = 0;
+  if ( CInputGlobals::GetGlobalTickCount(gpInputGlobals, 0LL) < (unsigned __int64)qword_1C02511E8 )
   {
-    result = 0;
-    if ( *(_DWORD *)(SGDGetUserSessionState(v11, v10, v12, v13) + 2864) > a1 )
+    if ( (unsigned int)PowerIsDisplayBurstActive(&v6) )
     {
-      v21 = SGDGetUserSessionState(v15, v14, v16, v17);
-      if ( CInputGlobals::IsTimeFromLastInputEvent(
-             *((CInputGlobals **)&WPP_MAIN_CB.Reserved + 1),
-             *(_DWORD *)(v21 + 2864) - a1)
-        && !(unsigned int)PowerIsDisplayRequired()
-        && !(unsigned int)PowerIsDisplayBurstActive(0LL) )
-      {
-        result = 1;
-      }
-    }
-    v19 = 12;
-    goto LABEL_5;
-  }
-  if ( (unsigned int)PowerIsDisplayBurstActive(&v22) )
-  {
-    v19 = v22;
-    result = 0LL;
+      result = 0LL;
 LABEL_5:
-    v20 = result ? v19 : 0;
-    goto LABEL_6;
+      v5 = 0;
+      goto LABEL_6;
+    }
+    v5 = v6;
+    result = 1LL;
   }
-  v20 = v22;
-  result = 1LL;
+  else
+  {
+    result = giPowerOffTimeOutMs > a1
+          && CInputGlobals::IsTimeFromLastInputEvent(gpInputGlobals, giPowerOffTimeOutMs - a1)
+          && !(unsigned int)PowerIsDisplayRequired()
+          && !(unsigned int)PowerIsDisplayBurstActive(0LL);
+    v5 = 12;
+    if ( !result )
+      goto LABEL_5;
+  }
 LABEL_6:
   if ( a2 )
-    *a2 = v20;
+    *a2 = v5;
   return result;
 }

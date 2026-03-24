@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0CONNECTED_SET_DESCRIPTOR@CCD_STORE@@AEAA@PEAXPEBU_STRING@@@Z @ 0x1C01B7240
+ * XREFs of ??0CONNECTED_SET_DESCRIPTOR@CCD_STORE@@AEAA@PEAXPEBU_STRING@@@Z @ 0x1C014793C
  * Callers:
- *     ??$_ForSetSubkey@VCONNECTED_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGAEBU_STRING@@P6AJPEAVCONNECTED_SET_DESCRIPTOR@0@PEAX@Z3_N@Z @ 0x1C01B6FEC (--$_ForSetSubkey@VCONNECTED_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGAEBU_STRING@@P6AJPEAVCO.c)
+ *     ??$_ForSetSubkey@VCONNECTED_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGAEBU_STRING@@P6AJPEAVCONNECTED_SET_DESCRIPTOR@0@PEAX@Z3_N@Z @ 0x1C01476E8 (--$_ForSetSubkey@VCONNECTED_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGAEBU_STRING@@P6AJPEAVCO.c)
  * Callees:
- *     ??4CCD_SET_STRING_ID@@QEAAAEAV0@AEBV0@@Z @ 0x1C01ADB54 (--4CCD_SET_STRING_ID@@QEAAAEAV0@AEBV0@@Z.c)
- *     ??0CCD_SET_STRING_ID@@QEAA@AEBU_STRING@@@Z @ 0x1C01AEE04 (--0CCD_SET_STRING_ID@@QEAA@AEBU_STRING@@@Z.c)
- *     ?_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1C01B71EC (-_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ.c)
+ *     ??0CCD_SET_STRING_ID@@QEAA@AEBU_STRING@@@Z @ 0x1C01306A8 (--0CCD_SET_STRING_ID@@QEAA@AEBU_STRING@@@Z.c)
+ *     ??4CCD_SET_STRING_ID@@QEAAAEAV0@AEBV0@@Z @ 0x1C0132C74 (--4CCD_SET_STRING_ID@@QEAAAEAV0@AEBV0@@Z.c)
+ *     ?_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1C01478E8 (-_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ.c)
  */
 
 CCD_STORE::CONNECTED_SET_DESCRIPTOR *__fastcall CCD_STORE::CONNECTED_SET_DESCRIPTOR::CONNECTED_SET_DESCRIPTOR(
@@ -14,7 +14,11 @@ CCD_STORE::CONNECTED_SET_DESCRIPTOR *__fastcall CCD_STORE::CONNECTED_SET_DESCRIP
         const struct _STRING *a3)
 {
   __int64 v6; // rbp
-  _BYTE v8[64]; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v10; // rax
+  _QWORD *v11; // rax
+  _BYTE v12[64]; // [rsp+20h] [rbp-48h] BYREF
 
   *(_DWORD *)this = 0;
   *(_OWORD *)((char *)this + 8) = 0LL;
@@ -28,15 +32,23 @@ CCD_STORE::CONNECTED_SET_DESCRIPTOR *__fastcall CCD_STORE::CONNECTED_SET_DESCRIP
   *((_QWORD *)this + 11) = 0LL;
   *((_QWORD *)this + 12) = a2;
   if ( !a2 )
-    WdLogSingleEntry0(1LL);
+  {
+    v10 = WdLogNewEntry5_WdAssertion(this, 0LL);
+    WdLogEvent5_WdAssertion(v10);
+  }
   if ( a3 )
   {
-    CCD_SET_STRING_ID::CCD_SET_STRING_ID((CCD_SET_STRING_ID *)v8, a3);
-    v6 = *(int *)CCD_SET_STRING_ID::operator=(this, (__int64)v8);
-    CCD_SET_STRING_ID::_Cleanup((CCD_SET_STRING_ID *)v8);
+    CCD_SET_STRING_ID::CCD_SET_STRING_ID((CCD_SET_STRING_ID *)v12, a3);
+    v6 = *(int *)CCD_SET_STRING_ID::operator=(this, (__int64)v12);
+    CCD_SET_STRING_ID::_Cleanup((CCD_SET_STRING_ID *)v12);
     if ( (int)v6 < 0 )
     {
-      WdLogSingleEntry4(1LL, v6, this, a2, a3);
+      v11 = (_QWORD *)WdLogNewEntry5_WdAssertion(v8, v7);
+      v11[3] = v6;
+      v11[4] = this;
+      v11[5] = a2;
+      v11[6] = a3;
+      WdLogEvent5_WdAssertion(v11);
       CCD_SET_STRING_ID::_Cleanup(this);
     }
   }

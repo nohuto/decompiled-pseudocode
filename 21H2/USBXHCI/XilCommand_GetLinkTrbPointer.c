@@ -1,7 +1,7 @@
 /*
- * XREFs of XilCommand_GetLinkTrbPointer @ 0x1C0015E08
+ * XREFs of XilCommand_GetLinkTrbPointer @ 0x1C0015AB8
  * Callers:
- *     Command_PrepareHardware @ 0x1C006EBBC (Command_PrepareHardware.c)
+ *     Command_PrepareHardware @ 0x1C006DB18 (Command_PrepareHardware.c)
  * Callees:
  *     <none>
  */

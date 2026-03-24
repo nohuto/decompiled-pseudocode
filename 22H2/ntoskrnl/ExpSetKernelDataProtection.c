@@ -1,36 +1,36 @@
 /*
- * XREFs of ExpSetKernelDataProtection @ 0x1407AEDE0
+ * XREFs of ExpSetKernelDataProtection @ 0x140665A90
  * Callers:
- *     ExpGetLicenseTamperState @ 0x1406090CC (ExpGetLicenseTamperState.c)
- *     ExpSetLicenseTamperState @ 0x140609454 (ExpSetLicenseTamperState.c)
- *     ExInitLicenseData @ 0x1408114F8 (ExInitLicenseData.c)
- *     ExSetLicenseTamperState @ 0x1409F97E0 (ExSetLicenseTamperState.c)
- *     sub_1409F9AF0 @ 0x1409F9AF0 (sub_1409F9AF0.c)
- *     SLUpdateLicenseDataInternal @ 0x1409FA744 (SLUpdateLicenseDataInternal.c)
+ *     ExpGetLicenseTamperState @ 0x1405B2C08 (ExpGetLicenseTamperState.c)
+ *     ExpSetLicenseTamperState @ 0x1405B2FA4 (ExpSetLicenseTamperState.c)
+ *     ExInitLicenseData @ 0x1407AB138 (ExInitLicenseData.c)
+ *     ExSetLicenseTamperState @ 0x14094D320 (ExSetLicenseTamperState.c)
+ *     sub_14094D660 @ 0x14094D660 (sub_14094D660.c)
+ *     SLUpdateLicenseDataInternal @ 0x14094E2E0 (SLUpdateLicenseDataInternal.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     sub_1407AF088 @ 0x1407AF088 (sub_1407AF088.c)
- *     sub_1408513B0 @ 0x1408513B0 (sub_1408513B0.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     sub_140665D38 @ 0x140665D38 (sub_140665D38.c)
+ *     sub_1407C6C54 @ 0x1407C6C54 (sub_1407C6C54.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpSetKernelDataProtection(__int64 a1, __int64 a2, char a3, char a4)
 {
   void *v7; // rcx
-  __int64 *v8; // rsi
-  __int64 *v9; // rax
-  __int64 Pool2; // rbx
-  __int64 *v11; // rax
-  __int64 *v12; // r12
+  void *v8; // rsi
+  PVOID *v9; // rax
+  _DWORD *PoolWithTag; // rbx
+  _QWORD *v11; // rax
+  _QWORD *v12; // r12
   char v13; // al
   unsigned int v14; // ebx
   int v16; // [rsp+20h] [rbp-48h]
   PVOID P; // [rsp+28h] [rbp-40h]
-  __int64 *v18; // [rsp+30h] [rbp-38h]
-  __int64 v19; // [rsp+78h] [rbp+10h] BYREF
+  PVOID v18; // [rsp+30h] [rbp-38h]
+  _DWORD *v19; // [rsp+78h] [rbp+10h] BYREF
 
   v7 = 0LL;
   P = 0LL;
@@ -47,44 +47,44 @@ __int64 __fastcall ExpSetKernelDataProtection(__int64 a1, __int64 a2, char a3, c
     goto LABEL_26;
   }
   ExAcquirePushLockExclusiveEx(a1 + 47024, 0LL);
-  v9 = *(__int64 **)(a1 + 47016);
+  v9 = *(PVOID **)(a1 + 47016);
   if ( v9 )
   {
     v19 = *v9;
-    v16 = sub_1407AF088(&v19);
+    v16 = sub_140665D38(&v19);
     if ( v16 >= 0 )
     {
-      Pool2 = v19;
+      PoolWithTag = v19;
 LABEL_7:
       if ( (a3 & 1) != 0 )
-        *(_QWORD *)Pool2 = *(_QWORD *)a2;
+        *(_QWORD *)PoolWithTag = *(_QWORD *)a2;
       if ( (a3 & 2) != 0 )
-        *(_DWORD *)(Pool2 + 8) = *(_DWORD *)(a2 + 8);
+        PoolWithTag[2] = *(_DWORD *)(a2 + 8);
       if ( (a3 & 4) != 0 )
-        *(_QWORD *)(Pool2 + 16) = *(_QWORD *)(a2 + 16);
+        *((_QWORD *)PoolWithTag + 2) = *(_QWORD *)(a2 + 16);
       if ( (a3 & 8) != 0 )
-        *(_QWORD *)(Pool2 + 24) = *(_QWORD *)(a2 + 24);
+        *((_QWORD *)PoolWithTag + 3) = *(_QWORD *)(a2 + 24);
       if ( (a3 & 0x10) != 0 )
-        *(_QWORD *)(Pool2 + 32) = *(_QWORD *)(a2 + 32);
+        *((_QWORD *)PoolWithTag + 4) = *(_QWORD *)(a2 + 32);
       if ( (a3 & 0x20) != 0 )
-        *(_BYTE *)(Pool2 + 40) = *(_BYTE *)(a2 + 40);
+        *((_BYTE *)PoolWithTag + 40) = *(_BYTE *)(a2 + 40);
     }
   }
   else
   {
-    Pool2 = ExAllocatePool2(256LL, 48LL, 542329939LL);
-    P = (PVOID)Pool2;
-    if ( Pool2 && (v11 = (__int64 *)ExAllocatePool2(256LL, 8LL, 542329939LL), v12 = v11, (v18 = v11) != 0LL) )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x20534C53u);
+    P = PoolWithTag;
+    if ( PoolWithTag && (v11 = ExAllocatePoolWithTag(PagedPool, 8uLL, 0x20534C53u), v12 = v11, (v18 = v11) != 0LL) )
     {
-      *v11 = Pool2;
-      v19 = Pool2;
-      *(_QWORD *)Pool2 = 0LL;
-      *(_QWORD *)(Pool2 + 16) = 0LL;
-      *(_DWORD *)(Pool2 + 8) = 4;
-      *(_QWORD *)(Pool2 + 24) = 0LL;
-      *(_QWORD *)(Pool2 + 32) = 0LL;
-      *(_BYTE *)(Pool2 + 40) = 1;
-      v16 = sub_1408513B0(v11);
+      *v11 = PoolWithTag;
+      v19 = PoolWithTag;
+      *(_QWORD *)PoolWithTag = 0LL;
+      *((_QWORD *)PoolWithTag + 2) = 0LL;
+      PoolWithTag[2] = 4;
+      *((_QWORD *)PoolWithTag + 3) = 0LL;
+      *((_QWORD *)PoolWithTag + 4) = 0LL;
+      *((_BYTE *)PoolWithTag + 40) = 1;
+      v16 = sub_1407C6C54(v11);
       if ( v16 >= 0 )
       {
         *(_QWORD *)(a1 + 47016) = v12;

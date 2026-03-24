@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxRequestWorker @ 0x140100420
+ * XREFs of PopFxRequestWorker @ 0x140100440
  * Callers:
- *     PopPepRequestWork @ 0x1400FF7A4 (PopPepRequestWork.c)
+ *     PopPepRequestWork @ 0x1400FF7C4 (PopPepRequestWork.c)
  * Callees:
- *     PopFxQueueWorkOrder @ 0x140100490 (PopFxQueueWorkOrder.c)
+ *     PopFxQueueWorkOrder @ 0x1401004B0 (PopFxQueueWorkOrder.c)
  */
 
 __int64 __fastcall PopFxRequestWorker(__int64 a1)

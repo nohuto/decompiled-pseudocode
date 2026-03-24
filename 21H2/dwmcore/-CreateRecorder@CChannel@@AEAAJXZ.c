@@ -1,17 +1,16 @@
 /*
- * XREFs of ?CreateRecorder@CChannel@@AEAAJXZ @ 0x1800BD7E4
+ * XREFs of ?CreateRecorder@CChannel@@AEAAJXZ @ 0x1800D96E0
  * Callers:
- *     ?BeginCommand@CChannel@@AEAAJPEAXII@Z @ 0x180070DE4 (-BeginCommand@CChannel@@AEAAJPEAXII@Z.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?BeginCommand@CChannel@@AEAAJPEAXII@Z @ 0x18005D71C (-BeginCommand@CChannel@@AEAAJPEAXII@Z.c)
  * Callees:
- *     ?Create@CCommandBatch@@SAJIPEAPEAV1@@Z @ 0x180070928 (-Create@CCommandBatch@@SAJIPEAPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Create@CCommandBatch@@SAJIPEAPEAV1@@Z @ 0x180059580 (-Create@CCommandBatch@@SAJIPEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CChannel::CreateRecorder(CChannel *this)
 {
   struct CCommandBatch **v1; // rdi
-  unsigned int v2; // ebx
+  int v2; // ebx
   PSLIST_ENTRY v3; // rax
   unsigned int v4; // ecx
   PSLIST_ENTRY v5; // rcx
@@ -19,13 +18,12 @@ __int64 __fastcall CChannel::CreateRecorder(CChannel *this)
   struct _SLIST_ENTRY **v7; // r9
   PSLIST_ENTRY v8; // r8
   struct _SLIST_ENTRY **v9; // r10
-  int v11; // eax
-  __int64 v12; // rcx
-  __int64 v13; // rcx
+  int v10; // eax
+  __int64 v11; // rcx
 
   v1 = (struct CCommandBatch **)((char *)this + 160);
   v2 = 0;
-  v3 = InterlockedPopEntrySList((PSLIST_HEADER)(*((_QWORD *)this + 6) + 160LL));
+  v3 = InterlockedPopEntrySList((PSLIST_HEADER)(*((_QWORD *)this + 6) + 192LL));
   if ( v3 )
   {
     v5 = v3 - 4;
@@ -62,13 +60,12 @@ __int64 __fastcall CChannel::CreateRecorder(CChannel *this)
   }
   else
   {
-    v11 = CCommandBatch::Create(v4, v1);
-    v2 = v11;
-    if ( v11 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0x5Bu);
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v2, 0x11Bu);
-    }
+    v10 = CCommandBatch::Create(v4, v1);
+    v2 = v10;
+    if ( v10 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x20Bu, 0LL);
+    if ( v2 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v2, 0x11Du, 0LL);
   }
-  return v2;
+  return (unsigned int)v2;
 }

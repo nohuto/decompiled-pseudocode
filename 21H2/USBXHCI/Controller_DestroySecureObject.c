@@ -1,10 +1,10 @@
 /*
- * XREFs of Controller_DestroySecureObject @ 0x1C0075D48
+ * XREFs of Controller_DestroySecureObject @ 0x1C00747F4
  * Callers:
- *     Controller_WdfEvtCleanupCallback @ 0x1C0034C30 (Controller_WdfEvtCleanupCallback.c)
+ *     Controller_WdfEvtCleanupCallback @ 0x1C00349C0 (Controller_WdfEvtCleanupCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0050250 (SecureChannel_SendRequestSynchronously.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall Controller_DestroySecureObject(__int64 a1)

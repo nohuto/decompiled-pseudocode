@@ -1,5 +1,5 @@
 /*
- * XREFs of NtLoadKey @ 0x14070F770
+ * XREFs of NtLoadKey @ 0x14070F750
  * Callers:
  *     <none>
  * Callees:

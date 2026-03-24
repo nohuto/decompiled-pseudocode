@@ -1,5 +1,5 @@
 /*
- * XREFs of MiCombineActiveCrcSortByVa @ 0x140230760
+ * XREFs of MiCombineActiveCrcSortByVa @ 0x14036BC70
  * Callers:
  *     <none>
  * Callees:
@@ -8,13 +8,13 @@
 
 __int64 __fastcall MiCombineActiveCrcSortByVa(const void *a1, const void *a2)
 {
-  unsigned __int64 v2; // r8
-  unsigned __int64 v3; // rax
+  unsigned __int64 v2; // rcx
+  unsigned __int64 v3; // rdx
 
   v2 = *(_QWORD *)(*(_QWORD *)a1 + 8LL);
   v3 = *(_QWORD *)(*(_QWORD *)a2 + 8LL);
-  if ( v2 < v3 )
-    return 0xFFFFFFFFLL;
-  else
+  if ( v2 >= v3 )
     return v2 > v3;
+  else
+    return 0xFFFFFFFFLL;
 }

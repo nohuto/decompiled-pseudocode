@@ -1,29 +1,29 @@
 /*
- * XREFs of NtDuplicateObject @ 0x1406FB7E0
+ * XREFs of NtDuplicateObject @ 0x1407025F0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     ObDuplicateObject @ 0x1406FB9A0 (ObDuplicateObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtDuplicateObject(ULONG_PTR a1, int a2, ULONG_PTR a3, _QWORD *a4, int a5, int a6, int a7)
+NTSTATUS __fastcall NtDuplicateObject(void *a1, void *a2, void *a3, _QWORD *a4, ACCESS_MASK a5, int a6, char a7)
 {
-  PVOID v10; // rdi
-  char PreviousMode; // bl
-  __int64 result; // rax
-  int v13; // r14d
-  int v14; // edx
+  struct _KPROCESS *v10; // rdi
+  char PreviousMode; // si
+  NTSTATUS result; // eax
+  NTSTATUS v13; // r14d
+  void *v14; // rdx
   PVOID v15; // r15
-  unsigned int v16; // ebx
+  int v16; // esi
   __int64 v17; // rdx
   PVOID v18; // [rsp+48h] [rbp-40h] BYREF
   PVOID Object; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v20; // [rsp+58h] [rbp-30h] BYREF
+  __int64 v20[3]; // [rsp+58h] [rbp-30h] BYREF
 
   v10 = 0LL;
-  v20 = 0LL;
+  v20[0] = 0LL;
   Object = 0LL;
   v18 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -35,20 +35,26 @@ __int64 __fastcall NtDuplicateObject(ULONG_PTR a1, int a2, ULONG_PTR a3, _QWORD 
     *(_QWORD *)v17 = *(_QWORD *)v17;
     *a4 = 0LL;
   }
-  result = ObpReferenceObjectByHandleWithTag(
+  result = ObReferenceObjectByHandleWithTag(
              a1,
-             64,
-             (__int64)PsProcessType,
+             0x40u,
+             (POBJECT_TYPE)PsProcessType,
              PreviousMode,
              0x7544624Fu,
              &Object,
-             0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     if ( a3 )
     {
-      v13 = ObpReferenceObjectByHandleWithTag(a3, 64, (__int64)PsProcessType, PreviousMode, 0x7544624Fu, &v18, 0LL, 0LL);
+      v13 = ObReferenceObjectByHandleWithTag(
+              a3,
+              0x40u,
+              (POBJECT_TYPE)PsProcessType,
+              PreviousMode,
+              0x7544624Fu,
+              &v18,
+              0LL);
       if ( v13 < 0 )
       {
         v18 = 0LL;
@@ -59,18 +65,18 @@ __int64 __fastcall NtDuplicateObject(ULONG_PTR a1, int a2, ULONG_PTR a3, _QWORD 
     {
       v13 = 0;
     }
-    v10 = v18;
+    v10 = (struct _KPROCESS *)v18;
 LABEL_7:
     v14 = a2;
     v15 = Object;
-    v16 = ObDuplicateObject((_DWORD)Object, v14, (_DWORD)v10, (unsigned int)&v20, a5, a6, a7, PreviousMode);
+    v16 = ObDuplicateObject((struct _KPROCESS *)Object, v14, v10, v20, a5, a6, a7, PreviousMode);
     if ( a4 )
-      *a4 = v20;
+      *a4 = v20[0];
     ObfDereferenceObjectWithTag(v15, 0x7544624Fu);
     if ( v10 )
       ObfDereferenceObjectWithTag(v10, 0x7544624Fu);
     if ( v13 < 0 )
-      return (unsigned int)v13;
+      return v13;
     return v16;
   }
   return result;

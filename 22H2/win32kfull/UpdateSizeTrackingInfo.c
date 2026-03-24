@@ -1,51 +1,46 @@
 /*
- * XREFs of UpdateSizeTrackingInfo @ 0x1C01F2298
+ * XREFs of UpdateSizeTrackingInfo @ 0x1C0210B38
  * Callers:
- *     NtUserUpdateWindowTrackingInfo @ 0x1C01DFC00 (NtUserUpdateWindowTrackingInfo.c)
+ *     NtUserUpdateWindowTrackingInfo @ 0x1C0203D60 (NtUserUpdateWindowTrackingInfo.c)
  * Callees:
- *     GetMonitorWorkRectForWindow @ 0x1C00C39DC (GetMonitorWorkRectForWindow.c)
+ *     GetMonitorWorkRectForWindow @ 0x1C002C4C0 (GetMonitorWorkRectForWindow.c)
+ *     ?GetWindowExtendedMargin@@YA_NPEBUtagWND@@PEAUFRAME_MARGIN@@@Z @ 0x1C003E2DC (-GetWindowExtendedMargin@@YA_NPEBUtagWND@@PEAUFRAME_MARGIN@@@Z.c)
+ *     ?IsLeftOrRightArranged@@YA_NPEBUtagWND@@@Z @ 0x1C020B1E8 (-IsLeftOrRightArranged@@YA_NPEBUtagWND@@@Z.c)
  */
 
-__int64 __fastcall UpdateSizeTrackingInfo(const struct tagWND *a1, int *a2, int *a3)
+__int64 __fastcall UpdateSizeTrackingInfo(struct tagWND *a1, _DWORD *a2, _DWORD *a3)
 {
-  __int64 v5; // rbx
-  __int64 v6; // rdx
+  __int64 v6; // rdi
+  __int64 v7; // rdx
   __m128i *MonitorWorkRectForWindow; // rax
-  unsigned __int64 v8; // xmm0_8
-  int v9; // eax
-  int v10; // ecx
+  int v9; // ebx
+  BOOL v10; // edx
   int v11; // ecx
-  int v12; // ecx
+  int v12; // ebx
   __int64 result; // rax
-  __int128 v14; // [rsp+20h] [rbp-18h] BYREF
+  __int128 v14; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v15; // [rsp+50h] [rbp+8h] BYREF
 
-  v5 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 672LL);
-  v6 = *(_QWORD *)(v5 + 232);
-  if ( *(_QWORD *)(v5 + 216) != v6 )
+  v6 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 672LL);
+  v7 = *(_QWORD *)(v6 + 232);
+  if ( *(_QWORD *)(v6 + 216) != v7 )
     return 0LL;
-  MonitorWorkRectForWindow = (__m128i *)GetMonitorWorkRectForWindow(&v14, v6, a1);
-  v8 = _mm_srli_si128(*MonitorWorkRectForWindow, 8).m128i_u64[0];
-  if ( *a2 > (int)(v8 - MonitorWorkRectForWindow->m128i_i64[0])
-    || a2[1] > (int)(HIDWORD(v8) - HIDWORD(MonitorWorkRectForWindow->m128i_i64[0])) )
-  {
+  MonitorWorkRectForWindow = (__m128i *)GetMonitorWorkRectForWindow(&v14, v7, a1);
+  v15 = 0LL;
+  v9 = _mm_cvtsi128_si32(_mm_srli_si128(*MonitorWorkRectForWindow, 8)) - _mm_cvtsi128_si32(*MonitorWorkRectForWindow);
+  if ( IsLeftOrRightArranged(a1) && GetWindowExtendedMargin(a1, (struct FRAME_MARGIN *)&v15) )
+    v9 += SWORD1(v15) + (__int16)v15;
+  v10 = 0;
+  v11 = v9 - *a3;
+  if ( v11 <= 0 )
     return 0LL;
-  }
-  v9 = *(_DWORD *)(v5 + 112);
-  v10 = *(_DWORD *)(v5 + 116);
-  if ( v9 >= *a2 )
-    v9 = *a2;
-  *(_DWORD *)(v5 + 112) = v9;
-  if ( v10 >= a2[1] )
-    v10 = a2[1];
-  *(_DWORD *)(v5 + 116) = v10;
-  v11 = *(_DWORD *)(v5 + 104);
-  if ( v11 <= *a3 )
-    v11 = *a3;
-  *(_DWORD *)(v5 + 104) = v11;
-  v12 = *(_DWORD *)(v5 + 108);
-  if ( v12 <= a3[1] )
-    v12 = a3[1];
+  v12 = v9 - *a2;
   result = 1LL;
-  *(_DWORD *)(v5 + 108) = v12;
+  if ( v12 > 0 )
+    v10 = v12 > *(_DWORD *)(v6 + 108);
+  if ( v11 < *(_DWORD *)(v6 + 112) )
+    *(_DWORD *)(v6 + 112) = v11;
+  if ( v10 )
+    *(_DWORD *)(v6 + 104) = v12;
   return result;
 }

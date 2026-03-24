@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0CFlipExBuffer@@IEAA@XZ @ 0x1C000F380
+ * XREFs of ??0CFlipExBuffer@@IEAA@XZ @ 0x1C0012568
  * Callers:
- *     ?Create@CFlipExBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_BUFFER_INFO_@@_NPEAPEAV1@@Z @ 0x1C000F2C4 (-Create@CFlipExBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_BUFFER_INFO_@@_NPEAPEAV1@.c)
- *     ?Create@CCompositionSwapchainBuffer@@SAJ_N0PEAUFlipManagerObject@@_KPEAPEAV1@@Z @ 0x1C008A200 (-Create@CCompositionSwapchainBuffer@@SAJ_N0PEAUFlipManagerObject@@_KPEAPEAV1@@Z.c)
+ *     ?Create@CFlipExBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_BUFFER_INFO@@_NPEAPEAV1@@Z @ 0x1C0011E80 (-Create@CFlipExBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_BUFFER_INFO@@_NPEAPEAV1@@.c)
+ *     ?Create@CCompositionSwapchainBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_COMPOSITION_SWAPCHAIN_BUFFER_INFO@@_NPEAPEAV1@@Z @ 0x1C006725C (-Create@CCompositionSwapchainBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_COMPOSITION_SWAPCHAIN.c)
  * Callees:
- *     ??0CCompositionBuffer@@IEAA@XZ @ 0x1C000F470 (--0CCompositionBuffer@@IEAA@XZ.c)
- *     memset @ 0x1C0028640 (memset.c)
+ *     ??0CCompositionBuffer@@IEAA@XZ @ 0x1C0012654 (--0CCompositionBuffer@@IEAA@XZ.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 CFlipExBuffer *__fastcall CFlipExBuffer::CFlipExBuffer(CFlipExBuffer *this)
@@ -13,33 +13,32 @@ CFlipExBuffer *__fastcall CFlipExBuffer::CFlipExBuffer(CFlipExBuffer *this)
   CFlipExBuffer *result; // rax
 
   CCompositionBuffer::CCompositionBuffer(this);
-  *((_DWORD *)this + 95) = -1;
+  *((_DWORD *)this + 87) = -1;
   *(_QWORD *)this = &CFlipExBuffer::`vftable';
+  *((_QWORD *)this + 36) = 0LL;
+  *((_QWORD *)this + 37) = 0LL;
+  *((_DWORD *)this + 76) = 0;
+  *((_QWORD *)this + 39) = 0LL;
   *((_QWORD *)this + 40) = 0LL;
-  *((_QWORD *)this + 41) = 0LL;
-  *((_DWORD *)this + 84) = 0;
-  *((_QWORD *)this + 43) = 0LL;
-  *((_QWORD *)this + 44) = 0LL;
-  *((_QWORD *)this + 46) = 0LL;
-  *((_DWORD *)this + 94) = 0;
-  *((_DWORD *)this + 96) = 0;
-  *((_QWORD *)this + 67) = 0LL;
-  *((_QWORD *)this + 68) = 0LL;
+  *((_QWORD *)this + 42) = 0LL;
+  *((_DWORD *)this + 86) = 0;
+  *((_DWORD *)this + 88) = 0;
+  *((_QWORD *)this + 60) = 0LL;
+  *((_QWORD *)this + 61) = 0LL;
+  *((_QWORD *)this + 70) = 0LL;
+  *((_DWORD *)this + 142) = 0;
+  *((_WORD *)this + 286) = 0;
+  *((_DWORD *)this + 144) = 0;
+  *((_BYTE *)this + 580) = 0;
+  *((_QWORD *)this + 73) = 0LL;
+  *((_QWORD *)this + 74) = 0LL;
+  *((_QWORD *)this + 75) = 0LL;
+  *((_DWORD *)this + 152) = 0;
   *((_QWORD *)this + 77) = 0LL;
-  *((_DWORD *)this + 156) = 0;
-  *((_WORD *)this + 314) = 0;
+  *((_BYTE *)this + 624) = 0;
   *((_QWORD *)this + 79) = 0LL;
   *((_QWORD *)this + 80) = 0LL;
-  *((_DWORD *)this + 162) = 0;
-  *((_BYTE *)this + 652) = 0;
-  *((_DWORD *)this + 164) = 0;
-  *((_QWORD *)this + 83) = 0LL;
-  *((_DWORD *)this + 168) = 0;
-  *((_QWORD *)this + 85) = 0LL;
-  *((_BYTE *)this + 688) = 0;
-  *((_QWORD *)this + 87) = 0LL;
-  *((_QWORD *)this + 88) = 0LL;
-  memset((char *)this + 552, 0, 0x40uLL);
+  memset((char *)this + 496, 0, 0x40uLL);
   result = this;
   *((_DWORD *)this + 16) = 0;
   return result;

@@ -1,5 +1,5 @@
 /*
- * XREFs of PspSetThreadPpmPolicy @ 0x1407636D0
+ * XREFs of PspSetThreadPpmPolicy @ 0x1407636B0
  * Callers:
  *     NtSetInformationThread @ 0x1405E9EA0 (NtSetInformationThread.c)
  * Callees:

@@ -1,7 +1,7 @@
 /*
- * XREFs of KeInitializeThreadedDpc @ 0x1403C1DA0
+ * XREFs of KeInitializeThreadedDpc @ 0x1403B5050
  * Callers:
- *     KiInitializeProcessor @ 0x140A5943C (KiInitializeProcessor.c)
+ *     KiInitializeProcessor @ 0x14099F1D4 (KiInitializeProcessor.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of SepCaptureOctetStringArray @ 0x1409CA714
+ * XREFs of SepCaptureOctetStringArray @ 0x140920DEC
  * Callers:
- *     SepCaptureTokenSecurityAttributesInformation @ 0x140754108 (SepCaptureTokenSecurityAttributesInformation.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x140675E78 (SepCaptureTokenSecurityAttributesInformation.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepCaptureOctetStringArray(char *Src, unsigned int a2, __int64 a3, _QWORD *a4)
 {
-  size_t v6; // rbx
-  unsigned int v7; // r14d
-  unsigned int *Pool2; // rdi
+  size_t v6; // r14
+  unsigned int v7; // ebx
+  unsigned int *PoolWithTag; // rdi
   unsigned int i; // ecx
   unsigned int v11; // ebx
   _QWORD *v12; // rax
@@ -27,8 +27,8 @@ __int64 __fastcall SepCaptureOctetStringArray(char *Src, unsigned int a2, __int6
   if ( v6 > 0xFFFFFFFF )
     return 3221225621LL;
   v7 = 16 * a2;
-  Pool2 = (unsigned int *)ExAllocatePool2(256LL, (unsigned int)v6, 1950442835LL);
-  if ( !Pool2 )
+  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v6, 0x74416553u);
+  if ( !PoolWithTag )
     return 3221225626LL;
   if ( (_DWORD)v6 )
   {
@@ -37,44 +37,44 @@ __int64 __fastcall SepCaptureOctetStringArray(char *Src, unsigned int a2, __int6
     if ( (unsigned __int64)&Src[(unsigned int)v6] > 0x7FFFFFFF0000LL || &Src[(unsigned int)v6] < Src )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  memmove(Pool2, Src, (unsigned int)v6);
+  memmove(PoolWithTag, Src, (unsigned int)v6);
   for ( i = 0; i < a2; ++i )
   {
-    if ( v7 + Pool2[4 * i + 2] < v7 )
+    if ( v7 + PoolWithTag[4 * i + 2] < v7 )
     {
       v11 = -1073741675;
 LABEL_17:
-      ExFreePoolWithTag(Pool2, 0);
+      ExFreePoolWithTag(PoolWithTag, 0);
       return v11;
     }
-    v7 += Pool2[4 * i + 2];
+    v7 += PoolWithTag[4 * i + 2];
   }
-  v12 = (_QWORD *)ExAllocatePool2(256LL, v7, 1950442835LL);
+  v12 = ExAllocatePoolWithTag(PagedPool, v7, 0x74416553u);
   v13 = v12;
   if ( !v12 )
   {
     v11 = -1073741670;
     goto LABEL_17;
   }
-  memmove(v12, Pool2, v6);
+  memmove(v12, PoolWithTag, v6);
   v14 = (char *)&v13[v6 / 8];
   for ( j = 0; j < a2; ++j )
   {
-    v16 = Pool2[4 * j + 2];
+    v16 = PoolWithTag[4 * j + 2];
     if ( (_DWORD)v16 )
     {
-      v17 = *(_QWORD *)&Pool2[4 * j];
+      v17 = *(_QWORD *)&PoolWithTag[4 * j];
       if ( v17 + v16 > 0x7FFFFFFF0000LL || v17 + v16 < v17 )
       {
         MEMORY[0x7FFFFFFF0000] = 0;
-        LODWORD(v16) = Pool2[4 * j + 2];
+        LODWORD(v16) = PoolWithTag[4 * j + 2];
       }
     }
-    memmove(v14, *(const void **)&Pool2[4 * j], (unsigned int)v16);
+    memmove(v14, *(const void **)&PoolWithTag[4 * j], (unsigned int)v16);
     v13[2 * j] = v14;
-    v14 += Pool2[4 * j + 2];
+    v14 += PoolWithTag[4 * j + 2];
   }
-  ExFreePoolWithTag(Pool2, 0);
+  ExFreePoolWithTag(PoolWithTag, 0);
   *a4 = v13;
   return 0LL;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of GreMultiUserSetDisplayDriverName @ 0x1C01533F4
+ * XREFs of GreMultiUserSetDisplayDriverName @ 0x1C01633B0
  * Callers:
- *     xxxRemoteReconnect @ 0x1C01528E0 (xxxRemoteReconnect.c)
+ *     xxxRemoteReconnect @ 0x1C0162570 (xxxRemoteReconnect.c)
  * Callees:
- *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C0153490 (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C016344C (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
  */
 
 __int64 __fastcall GreMultiUserSetDisplayDriverName(__int64 a1, int a2, const unsigned __int16 *a3)
 {
   unsigned int v4; // ebx
-  __int64 v5; // rcx
+  void *v5; // rcx
   unsigned int v8; // ebp
   unsigned __int16 *v9; // rax
 
   v4 = 0;
-  v5 = *(_QWORD *)(a1 + 40);
+  v5 = *(void **)(a1 + 40);
   if ( v5 )
     Win32FreePool(v5);
   v8 = a2 + 1;

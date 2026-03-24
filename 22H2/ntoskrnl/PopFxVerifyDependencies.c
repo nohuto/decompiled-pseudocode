@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxVerifyDependencies @ 0x140986240
+ * XREFs of PopFxVerifyDependencies @ 0x1408E5AA4
  * Callers:
- *     PopFxRegisterDeviceWorker @ 0x1408381FC (PopFxRegisterDeviceWorker.c)
+ *     PopFxRegisterDeviceWorker @ 0x1407B531C (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxVerifyDependencies(_DWORD *a1, __int64 a2, unsigned int a3)
 {
   unsigned int v6; // ebx
-  _DWORD *Pool2; // r11
+  _DWORD *PoolWithTag; // r11
   unsigned int v8; // edx
   unsigned int v9; // ebp
   _DWORD *v10; // r12
@@ -28,8 +28,8 @@ __int64 __fastcall PopFxVerifyDependencies(_DWORD *a1, __int64 a2, unsigned int 
   __int64 v23; // rax
 
   v6 = 0;
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, 4LL * a3, 1297630800LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 4LL * a3, 0x4D584650u);
+  if ( PoolWithTag )
   {
     v8 = 0;
     v9 = 0;
@@ -40,7 +40,7 @@ __int64 __fastcall PopFxVerifyDependencies(_DWORD *a1, __int64 a2, unsigned int 
       {
         if ( !*v10 )
         {
-          Pool2[v8++] = v9;
+          PoolWithTag[v8++] = v9;
           if ( v8 )
             break;
         }
@@ -52,7 +52,7 @@ LABEL_26:
       }
       while ( 1 )
       {
-        v11 = (unsigned int)Pool2[v8 - 1];
+        v11 = (unsigned int)PoolWithTag[v8 - 1];
         if ( (unsigned int)v11 >= a3 )
           break;
         v12 = a1[3 * v11];
@@ -104,7 +104,7 @@ LABEL_26:
                 if ( v8 >= a3 )
                   goto LABEL_16;
                 v23 = v8++;
-                Pool2[v23] = v21;
+                PoolWithTag[v23] = v21;
               }
               ++v19;
               v13 += 2;
@@ -119,7 +119,7 @@ LABEL_16:
       v6 = -1073741811;
     }
 LABEL_17:
-    ExFreePoolWithTag(Pool2, 0x4D584650u);
+    ExFreePoolWithTag(PoolWithTag, 0x4D584650u);
   }
   else
   {

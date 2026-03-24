@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDTX_GetDeviceDescriptorComplete @ 0x1C002D7B0
+ * XREFs of HUBDTX_GetDeviceDescriptorComplete @ 0x1C002A700
  * Callers:
  *     <none>
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBFDO_CompleteGetDescriptorRequest @ 0x1C000E938 (HUBFDO_CompleteGetDescriptorRequest.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBFDO_CompleteGetDescriptorRequest @ 0x1C000D7A4 (HUBFDO_CompleteGetDescriptorRequest.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDTX_GetDeviceDescriptorComplete(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
@@ -21,7 +21,7 @@ __int64 __fastcall HUBDTX_GetDeviceDescriptorComplete(__int64 a1, __int64 a2, __
   v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          v7,
-         off_1C0069290);
+         off_1C0066260);
   HUBSM_AddEvent((__int64)(a4 + 63), ((v5 >> 31) & 0xFFFFFFF8) + 4012);
   v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 2032))(WdfDriverGlobals, a1);
   HUBFDO_CompleteGetDescriptorRequest(*a4, *(unsigned __int16 *)(a4[1] + 200), a1, v9, *(_DWORD *)(v8 + 60));
@@ -30,6 +30,6 @@ __int64 __fastcall HUBDTX_GetDeviceDescriptorComplete(__int64 a1, __int64 a2, __
            WdfDriverGlobals,
            v10,
            "User Mode FDO Request",
-           6132LL,
+           6101LL,
            "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\devicexfer.c");
 }

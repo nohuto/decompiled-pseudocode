@@ -1,18 +1,18 @@
 /*
- * XREFs of IopLiveDumpReleaseResources @ 0x14093CFC8
+ * XREFs of IopLiveDumpReleaseResources @ 0x1408986EC
  * Callers:
- *     IoCaptureLiveDump @ 0x14093A0B8 (IoCaptureLiveDump.c)
- *     IoDiscardDeferredLiveDumpData @ 0x14093A908 (IoDiscardDeferredLiveDumpData.c)
- *     IoWriteDeferredLiveDumpData @ 0x14093A954 (IoWriteDeferredLiveDumpData.c)
- *     IopLiveDumpAllocAndInitResources @ 0x14093AAEC (IopLiveDumpAllocAndInitResources.c)
+ *     DbgkpWerCleanupContext @ 0x1408890A0 (DbgkpWerCleanupContext.c)
+ *     IoCaptureLiveDump @ 0x140896298 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x140896A20 (IoWriteDeferredLiveDumpData.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140896BBC (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x14093C2FC (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpFreeMappingResources @ 0x14093C640 (IopLiveDumpFreeMappingResources.c)
- *     MmFreeIndependentPages @ 0x14096ED20 (MmFreeIndependentPages.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     MmFreeIndependentPages @ 0x1407645D0 (MmFreeIndependentPages.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x140898020 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpFreeMappingResources @ 0x1408980FC (IopLiveDumpFreeMappingResources.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopLiveDumpReleaseResources(__int64 a1)
@@ -21,18 +21,19 @@ void __fastcall IopLiveDumpReleaseResources(__int64 a1)
   void *v3; // rcx
   void *v4; // rcx
   void *v5; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // rcx
-  __int64 v8; // rcx
+  unsigned __int64 v6; // rcx
+  unsigned __int64 v7; // rcx
+  unsigned __int64 v8; // rcx
   void *v9; // rcx
   void *v10; // rcx
   void *v11; // rcx
-  void *v12; // rcx
+  struct _DMA_ADAPTER *v12; // rcx
   void *v13; // rcx
-  PVOID *v14; // rcx
-  unsigned int i; // edi
-  void *v16; // rcx
+  void *v14; // rcx
+  unsigned int v15; // esi
+  __int64 v16; // rbx
   void *v17; // rcx
+  void *v18; // rcx
 
   if ( a1 )
   {
@@ -67,77 +68,79 @@ void __fastcall IopLiveDumpReleaseResources(__int64 a1)
       MmFreeIndependentPages(v6, *(unsigned int *)(a1 + 152));
       *(_QWORD *)(a1 + 144) = 0LL;
     }
-    v7 = *(_QWORD *)(a1 + 1040);
+    v7 = *(_QWORD *)(a1 + 944);
     if ( v7 )
     {
-      MmFreeIndependentPages(v7, *(unsigned int *)(a1 + 1048));
-      *(_QWORD *)(a1 + 1040) = 0LL;
+      MmFreeIndependentPages(v7, *(unsigned int *)(a1 + 952));
+      *(_QWORD *)(a1 + 944) = 0LL;
     }
-    v8 = *(_QWORD *)(a1 + 992);
+    v8 = *(_QWORD *)(a1 + 896);
     if ( v8 )
     {
-      MmFreeIndependentPages(v8, *(unsigned int *)(a1 + 1000));
-      *(_QWORD *)(a1 + 992) = 0LL;
+      MmFreeIndependentPages(v8, *(unsigned int *)(a1 + 904));
+      *(_QWORD *)(a1 + 896) = 0LL;
     }
-    IopLiveDumpFreeDumpBuffers(a1);
-    v9 = *(void **)(a1 + 896);
+    IopLiveDumpFreeDumpBuffers(a1 + 680);
+    v9 = *(void **)(a1 + 800);
     if ( v9 )
     {
       ZwClose(v9);
-      *(_QWORD *)(a1 + 896) = 0LL;
+      *(_QWORD *)(a1 + 800) = 0LL;
     }
-    v10 = *(void **)(a1 + 904);
+    v10 = *(void **)(a1 + 808);
     if ( v10 )
     {
       ZwClose(v10);
-      *(_QWORD *)(a1 + 904) = 0LL;
+      *(_QWORD *)(a1 + 808) = 0LL;
     }
-    v11 = *(void **)(a1 + 912);
+    v11 = *(void **)(a1 + 816);
     if ( v11 )
     {
       ZwClose(v11);
-      *(_QWORD *)(a1 + 912) = 0LL;
+      *(_QWORD *)(a1 + 816) = 0LL;
     }
-    v12 = *(void **)(a1 + 1096);
+    v12 = *(struct _DMA_ADAPTER **)(a1 + 1000);
     if ( v12 )
     {
-      ObfDereferenceObject(v12);
-      *(_QWORD *)(a1 + 1096) = 0LL;
+      HalPutDmaAdapter(v12);
+      *(_QWORD *)(a1 + 1000) = 0LL;
     }
-    v13 = *(void **)(a1 + 1088);
+    v13 = *(void **)(a1 + 992);
     if ( v13 != (void *)-1LL )
     {
       ObCloseHandle(v13, 0);
-      *(_QWORD *)(a1 + 1088) = 0LL;
+      *(_QWORD *)(a1 + 992) = 0LL;
     }
-    v14 = *(PVOID **)(a1 + 1112);
+    v14 = *(void **)(a1 + 1016);
     if ( v14 )
     {
-      for ( i = 0; i < *(_DWORD *)(a1 + 1104); ++i )
+      v15 = 0;
+      if ( *(_DWORD *)(a1 + 1008) )
       {
-        v14 = *(PVOID **)(a1 + 1112);
-        if ( v14[i] )
+        do
         {
-          ExFreePoolWithTag(v14[i], 0x706D644Cu);
-          *(_QWORD *)(*(_QWORD *)(a1 + 1112) + 8LL * i) = 0LL;
-          v14 = *(PVOID **)(a1 + 1112);
+          v16 = v15;
+          ExFreePoolWithTag(*(PVOID *)(*(_QWORD *)(a1 + 1016) + 8LL * v15++), 0x706D644Cu);
+          *(_QWORD *)(*(_QWORD *)(a1 + 1016) + 8 * v16) = 0LL;
         }
+        while ( v15 < *(_DWORD *)(a1 + 1008) );
+        v14 = *(void **)(a1 + 1016);
       }
       ExFreePoolWithTag(v14, 0x706D644Cu);
-      *(_QWORD *)(a1 + 1112) = 0LL;
-      *(_DWORD *)(a1 + 1104) = 0;
+      *(_QWORD *)(a1 + 1016) = 0LL;
+      *(_DWORD *)(a1 + 1008) = 0;
     }
-    v16 = *(void **)(a1 + 1120);
-    if ( v16 )
-    {
-      ExFreePoolWithTag(v16, 0x706D644Cu);
-      *(_QWORD *)(a1 + 1120) = 0LL;
-    }
-    v17 = *(void **)(a1 + 1128);
+    v17 = *(void **)(a1 + 1024);
     if ( v17 )
     {
       ExFreePoolWithTag(v17, 0x706D644Cu);
-      *(_QWORD *)(a1 + 1128) = 0LL;
+      *(_QWORD *)(a1 + 1024) = 0LL;
+    }
+    v18 = *(void **)(a1 + 1032);
+    if ( v18 )
+    {
+      ExFreePoolWithTag(v18, 0x706D644Cu);
+      *(_QWORD *)(a1 + 1032) = 0LL;
     }
   }
 }

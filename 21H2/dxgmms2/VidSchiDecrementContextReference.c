@@ -1,19 +1,18 @@
 /*
- * XREFs of VidSchiDecrementContextReference @ 0x1C0013610
+ * XREFs of VidSchiDecrementContextReference @ 0x1C0011740
  * Callers:
- *     VidSchiProcessDpcCompletedPacket @ 0x1C0007C30 (VidSchiProcessDpcCompletedPacket.c)
- *     VidSchiProcessDpcPreemptedPacket @ 0x1C000F070 (VidSchiProcessDpcPreemptedPacket.c)
- *     VidSchiProcessDpcSystemRequest @ 0x1C000FA04 (VidSchiProcessDpcSystemRequest.c)
- *     ?VidSchiSwitchNodeFromDevice@@YAXPEAX@Z @ 0x1C0014BD0 (-VidSchiSwitchNodeFromDevice@@YAXPEAX@Z.c)
- *     VidSchiSetTransferContextRunningTime @ 0x1C00166B0 (VidSchiSetTransferContextRunningTime.c)
- *     VidSchiReportHwHang @ 0x1C0044C40 (VidSchiReportHwHang.c)
- *     VidSchTerminateContext @ 0x1C0098F20 (VidSchTerminateContext.c)
- *     VidSchiRun_PriorityTable @ 0x1C00AE010 (VidSchiRun_PriorityTable.c)
- *     VidSchTerminateAdapter @ 0x1C00F55F0 (VidSchTerminateAdapter.c)
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C00095B0 (VidSchiProcessDpcCompletedPacket.c)
+ *     VidSchiProcessDpcSystemRequest @ 0x1C0013370 (VidSchiProcessDpcSystemRequest.c)
+ *     VidSchiSetTransferContextRunningTime @ 0x1C0013B00 (VidSchiSetTransferContextRunningTime.c)
+ *     ?VidSchiSwitchNodeFromDevice@@YAXPEAX@Z @ 0x1C0033500 (-VidSchiSwitchNodeFromDevice@@YAXPEAX@Z.c)
+ *     VidSchiReportHwHang @ 0x1C003D0B4 (VidSchiReportHwHang.c)
+ *     VidSchTerminateContext @ 0x1C0081C30 (VidSchTerminateContext.c)
+ *     VidSchiRun_PriorityTable @ 0x1C0090830 (VidSchiRun_PriorityTable.c)
+ *     VidSchTerminateAdapter @ 0x1C00D2C00 (VidSchTerminateAdapter.c)
  * Callees:
- *     VidSchiInterlockedRemoveHeadListIfExist @ 0x1C0005BF0 (VidSchiInterlockedRemoveHeadListIfExist.c)
- *     VidSchiDecrementDeviceReference @ 0x1C0013948 (VidSchiDecrementDeviceReference.c)
- *     ?VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0017B68 (-VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z.c)
+ *     VidSchiInterlockedRemoveHeadListIfExist @ 0x1C0007B40 (VidSchiInterlockedRemoveHeadListIfExist.c)
+ *     VidSchiDecrementDeviceReference @ 0x1C0011678 (VidSchiDecrementDeviceReference.c)
+ *     ?VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C001561C (-VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z.c)
  */
 
 void __fastcall VidSchiDecrementContextReference(struct _VIDSCH_CONTEXT *a1, int a2)
@@ -30,9 +29,8 @@ void __fastcall VidSchiDecrementContextReference(struct _VIDSCH_CONTEXT *a1, int
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v4 = *(_QWORD *)(*((_QWORD *)a1 + 12) + 24LL);
-  memset(&LockHandle, 0, sizeof(LockHandle));
   if ( !a2 )
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v4 + 1728), &LockHandle);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v4 + 1712), &LockHandle);
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1 + 18, 0xFFFFFFFF) == 1 )
   {
     v5 = *((_QWORD *)a1 + 12);
@@ -53,7 +51,7 @@ void __fastcall VidSchiDecrementContextReference(struct _VIDSCH_CONTEXT *a1, int
     *(_QWORD *)(v8 + 8) = v9;
     while ( 1 )
     {
-      v10 = VidSchiInterlockedRemoveHeadListIfExist((KSPIN_LOCK *)(v4 + 1736), (_QWORD **)a1 + 89, (_DWORD *)a1 + 182);
+      v10 = VidSchiInterlockedRemoveHeadListIfExist((KSPIN_LOCK *)(v4 + 1720), (_QWORD **)a1 + 89, (_DWORD *)a1 + 182);
       if ( !v10 )
         break;
       ExFreePoolWithTag(v10 - 1, 0);
@@ -62,7 +60,7 @@ void __fastcall VidSchiDecrementContextReference(struct _VIDSCH_CONTEXT *a1, int
     {
       while ( 1 )
       {
-        v12 = VidSchiInterlockedRemoveHeadListIfExist((KSPIN_LOCK *)(v4 + 1736), (_QWORD **)a1 + 92, (_DWORD *)a1 + 188);
+        v12 = VidSchiInterlockedRemoveHeadListIfExist((KSPIN_LOCK *)(v4 + 1720), (_QWORD **)a1 + 92, (_DWORD *)a1 + 188);
         if ( !v12 )
           break;
         ExFreePoolWithTag(v12 - 1, 0);
@@ -70,10 +68,10 @@ void __fastcall VidSchiDecrementContextReference(struct _VIDSCH_CONTEXT *a1, int
     }
     if ( bTracingEnabled )
       VidSchiFlushGpuWorkEntries(a1);
-    v11 = (void *)*((_QWORD *)a1 + 124);
+    v11 = (void *)*((_QWORD *)a1 + 123);
     if ( v11 )
       ExFreePoolWithTag(v11, 0);
-    VidSchiDecrementDeviceReference(*((PVOID *)a1 + 13));
+    VidSchiDecrementDeviceReference(*((char **)a1 + 13), 1);
     ExFreePoolWithTag(a1, 0);
   }
   if ( !a2 )

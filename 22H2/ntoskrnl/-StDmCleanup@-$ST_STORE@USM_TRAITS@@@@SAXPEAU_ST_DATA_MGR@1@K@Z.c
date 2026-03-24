@@ -1,59 +1,61 @@
 /*
- * XREFs of ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14034512C
+ * XREFs of ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14034E18C
  * Callers:
- *     ?StCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14034507C (-StCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     ?StEmptyStore@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@K@Z @ 0x1405C86D4 (-StEmptyStore@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@K@Z.c)
+ *     ?StCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14034E0DC (-StCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?StEmptyStore@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@K@Z @ 0x14059C6CC (-StEmptyStore@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@K@Z.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140293450 (RtlNumberOfSetBits.c)
- *     SmHpChunkHeapInitialize @ 0x140344400 (SmHpChunkHeapInitialize.c)
- *     ?NpCleanup@NP_CONTEXT@@SAXPEAU1@K@Z @ 0x14034537C (-NpCleanup@NP_CONTEXT@@SAXPEAU1@K@Z.c)
- *     ?BTreeSearchResultCleanup@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUSEARCH_RESULT@1@K@Z @ 0x1403453C4 (-BTreeSearchResultCleanup@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAA.c)
- *     ?BTreeSearchResultCleanup@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUSEARCH_RESULT@1@K@Z @ 0x140345400 (-BTreeSearchResultCleanup@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEX.c)
- *     SmHpChunkHeapProtect @ 0x14034543C (SmHpChunkHeapProtect.c)
- *     SmHpChunkHeapCleanup @ 0x140345488 (SmHpChunkHeapCleanup.c)
- *     ?BTreeSearchResultDeref@?$B_TREE@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HASH_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x140345624 (-BTreeSearchResultDeref@-$B_TREE@KU_ST_HASH_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U.c)
- *     ?StDmInvalidateCurrentRegions@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@@Z @ 0x140345744 (-StDmInvalidateCurrentRegions@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@@Z.c)
- *     ?BTreeNodeFree@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUNODE@?$B_TREE_HEADER@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@@Z @ 0x1405BC478 (-BTreeNodeFree@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGI.c)
- *     ?StDmLazyRegionsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z @ 0x1405C6370 (-StDmLazyRegionsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z.c)
- *     ?StDmpUpdateRegionState@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KJK@Z @ 0x1405C85FC (-StDmpUpdateRegionState@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KJK@Z.c)
- *     SmHpChunkFree @ 0x1405CA658 (SmHpChunkFree.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlNumberOfSetBits @ 0x140253090 (RtlNumberOfSetBits.c)
+ *     SmHpChunkFree @ 0x14026301C (SmHpChunkFree.c)
+ *     ?StDmpUpdateRegionState@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KJK@Z @ 0x140268CBC (-StDmpUpdateRegionState@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KJK@Z.c)
+ *     ?BTreeSearchResultDeref@?$B_TREE@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HASH_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x14026926C (-BTreeSearchResultDeref@-$B_TREE@KU_ST_HASH_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U.c)
+ *     ?BTreeSearchResultCleanup@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUSEARCH_RESULT@1@K@Z @ 0x14026CD1C (-BTreeSearchResultCleanup@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEX.c)
+ *     ?NpCleanup@NP_CONTEXT@@SAXPEAU1@K@Z @ 0x14034E3DC (-NpCleanup@NP_CONTEXT@@SAXPEAU1@K@Z.c)
+ *     ?BTreeSearchResultCleanup@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUSEARCH_RESULT@1@K@Z @ 0x14034E428 (-BTreeSearchResultCleanup@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAA.c)
+ *     SmHpChunkHeapCleanup @ 0x14034E464 (SmHpChunkHeapCleanup.c)
+ *     SmHpChunkHeapProtect @ 0x14034E4B8 (SmHpChunkHeapProtect.c)
+ *     ?StDmInvalidateCurrentRegions@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@@Z @ 0x14034EC14 (-StDmInvalidateCurrentRegions@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@@Z.c)
+ *     SmHpChunkHeapInitialize @ 0x1403521C0 (SmHpChunkHeapInitialize.c)
+ *     ?BTreeNodeFree@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUNODE@?$B_TREE_HEADER@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@@Z @ 0x140598484 (-BTreeNodeFree@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGI.c)
+ *     ?StDmLazyRegionsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z @ 0x14059BB50 (-StDmLazyRegionsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ST_STORE<SM_TRAITS>::StDmCleanup(__int64 a1, unsigned int a2)
 {
-  __int64 v2; // rbx
-  PVOID *v5; // r15
-  _QWORD *v6; // rbx
-  __int64 v7; // rbx
-  __int16 v8; // r8
-  __int64 v9; // r14
-  unsigned int *v10; // rbx
-  __int64 v11; // rbp
-  void *v12; // rcx
+  _DWORD *v2; // rbx
+  unsigned __int64 v5; // rdx
+  PVOID *v6; // r15
+  _QWORD *v7; // rbx
+  __int64 v8; // rbx
+  __int16 v9; // r8
+  __int64 v10; // r14
+  unsigned int *v11; // rbx
+  __int64 v12; // rbp
   void *v13; // rcx
   void *v14; // rcx
   void *v15; // rcx
   void *v16; // rcx
   void *v17; // rcx
-  __int64 v18; // rax
-  __int64 v19; // [rsp+50h] [rbp+8h] BYREF
+  void *v18; // rcx
+  __int64 v19; // rax
+  __int64 v20; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = a1 + 192;
-  SmHpChunkHeapProtect(a1 + 192, 1LL);
-  if ( *(_QWORD *)(a1 + 760) )
+  v2 = (_DWORD *)(a1 + 192);
+  SmHpChunkHeapProtect(a1 + 192, 1LL, 0LL);
+  v5 = *(_QWORD *)(a1 + 760);
+  if ( v5 )
   {
-    SmHpChunkFree(v2);
+    SmHpChunkFree(v2, v5);
     if ( a2 )
     {
       *(_QWORD *)(a1 + 760) = 0LL;
       *(_DWORD *)(a1 + 768) = 0;
     }
   }
-  v19 = *(_QWORD *)(a1 + 464);
+  v20 = *(_QWORD *)(a1 + 464);
   SmHpChunkHeapCleanup(v2);
   if ( a2 )
-    SmHpChunkHeapInitialize(v2, (__int64)&v19);
+    SmHpChunkHeapInitialize(v2, &v20);
   B_TREE<_SM_PAGE_KEY,ST_STORE<SM_TRAITS>::_ST_PAGE_ENTRY,4096,NP_CONTEXT,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeSearchResultCleanup(
     a1,
     a1 + 24,
@@ -61,19 +63,19 @@ void __fastcall ST_STORE<SM_TRAITS>::StDmCleanup(__int64 a1, unsigned int a2)
   if ( *(_QWORD *)a1 )
     B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeNodeFree(a1);
   B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeSearchResultCleanup(
-    a1 + 64,
+    (char **)(a1 + 64),
     a1 + 88,
     a2);
   if ( *(_QWORD *)(a1 + 64) )
     B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeNodeFree(a1 + 64);
-  v5 = (PVOID *)(a1 + 152);
-  v6 = (_QWORD *)(a1 + 128);
+  v6 = (PVOID *)(a1 + 152);
+  v7 = (_QWORD *)(a1 + 128);
   B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_HASH_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_HASH_ENTRY_COMPARATOR>::BTreeSearchResultDeref(
-    a1 + 128,
+    (char **)(a1 + 128),
     a1 + 152);
-  if ( *(_DWORD *)(a1 + 176) != -1 && *v5 && !a2 )
-    ExFreePoolWithTag(*v5, 0);
-  if ( *v6 )
+  if ( *(_DWORD *)(a1 + 176) != -1 && *v6 && !a2 )
+    ExFreePoolWithTag(*v6, 0);
+  if ( *v7 )
     B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeNodeFree(a1 + 128);
   if ( a2 )
   {
@@ -81,7 +83,7 @@ void __fastcall ST_STORE<SM_TRAITS>::StDmCleanup(__int64 a1, unsigned int a2)
     *(_QWORD *)(a1 + 16) = 0LL;
     *(_OWORD *)(a1 + 64) = 0LL;
     *(_QWORD *)(a1 + 80) = 0LL;
-    *(_OWORD *)v6 = 0LL;
+    *(_OWORD *)v7 = 0LL;
     *(_QWORD *)(a1 + 144) = 0LL;
   }
   NP_CONTEXT::NpCleanup((struct NP_CONTEXT *)(a1 + 1376), a2);
@@ -96,15 +98,15 @@ void __fastcall ST_STORE<SM_TRAITS>::StDmCleanup(__int64 a1, unsigned int a2)
   if ( *(_QWORD *)(a1 + 1032) )
   {
     ST_STORE<SM_TRAITS>::StDmInvalidateCurrentRegions(a1);
-    LODWORD(v7) = -1;
+    LODWORD(v8) = -1;
     while ( 1 )
     {
-      v7 = (unsigned int)(v7 + 1);
-      if ( (_DWORD)v7 == *(_DWORD *)(a1 + 788) )
+      v8 = (unsigned int)(v8 + 1);
+      if ( (_DWORD)v8 == *(_DWORD *)(a1 + 788) )
         break;
-      v8 = *(_WORD *)(*(_QWORD *)(a1 + 1032) + 2 * v7);
-      if ( (v8 & 0x1FFF) != 0 )
-        ST_STORE<SM_TRAITS>::StDmpUpdateRegionState(a1, (unsigned int)v7, -(v8 & 0x1FFF), 0LL);
+      v9 = *(_WORD *)(*(_QWORD *)(a1 + 1032) + 2 * v8);
+      if ( (v9 & 0x1FFF) != 0 )
+        ST_STORE<SM_TRAITS>::StDmpUpdateRegionState(a1, (unsigned int)v8, -(v9 & 0x1FFF), 0);
     }
     if ( (*(_DWORD *)(a1 + 776) & 0x40000) != 0
       && !a2
@@ -112,54 +114,55 @@ void __fastcall ST_STORE<SM_TRAITS>::StDmCleanup(__int64 a1, unsigned int a2)
     {
       ST_STORE<SM_TRAITS>::StDmLazyRegionsWorker(a1, 1LL, a1 + 864);
     }
-    v9 = *(_QWORD *)(a1 + 1032);
-    v10 = (unsigned int *)(a1 + 1104);
-    v11 = 6LL;
+    v10 = *(_QWORD *)(a1 + 1032);
+    v11 = (unsigned int *)(a1 + 1104);
+    v12 = 6LL;
     while ( a2 )
     {
-      v18 = *v10;
-      if ( (_DWORD)v18 == -1 )
-        goto LABEL_52;
-      if ( *(_WORD *)(v9 + 2 * v18) < 0x4000u )
+      v19 = *v11;
+      if ( (_DWORD)v19 == -1 )
+        goto LABEL_29;
+      if ( *(_WORD *)(v10 + 2 * v19) < 0x4000u )
         break;
-LABEL_30:
-      v10 += 6;
-      if ( !--v11 )
-        goto LABEL_31;
-    }
-    if ( *v10 != -1 )
-    {
-      ExFreePoolWithTag(*((PVOID *)v10 + 1), 0);
-      ExFreePoolWithTag(*((PVOID *)v10 + 2), 0);
-    }
-    if ( !a2 )
-      goto LABEL_30;
-LABEL_52:
-    *(_OWORD *)v10 = 0LL;
-    *((_QWORD *)v10 + 2) = 0LL;
-    *v10 = -1;
-    goto LABEL_30;
-  }
 LABEL_31:
+      v11 += 6;
+      if ( !--v12 )
+        goto LABEL_32;
+    }
+    if ( *v11 != -1 )
+    {
+      ExFreePoolWithTag(*((PVOID *)v11 + 1), 0);
+      ExFreePoolWithTag(*((PVOID *)v11 + 2), 0);
+    }
+LABEL_29:
+    if ( a2 )
+    {
+      *(_OWORD *)v11 = 0LL;
+      *((_QWORD *)v11 + 2) = 0LL;
+      *v11 = -1;
+    }
+    goto LABEL_31;
+  }
+LABEL_32:
   if ( !a2 )
   {
-    v12 = *(void **)(a1 + 1056);
-    if ( v12 )
-      ExFreePoolWithTag(v12, 0);
-    v13 = *(void **)(a1 + 848);
+    v13 = *(void **)(a1 + 1056);
     if ( v13 )
       ExFreePoolWithTag(v13, 0);
-    v14 = *(void **)(a1 + 1080);
+    v14 = *(void **)(a1 + 848);
     if ( v14 )
       ExFreePoolWithTag(v14, 0);
-    v15 = *(void **)(a1 + 1792);
+    v15 = *(void **)(a1 + 1080);
     if ( v15 )
       ExFreePoolWithTag(v15, 0);
-    v16 = *(void **)(a1 + 1800);
+    v16 = *(void **)(a1 + 1792);
     if ( v16 )
       ExFreePoolWithTag(v16, 0);
-    v17 = *(void **)(a1 + 1808);
+    v17 = *(void **)(a1 + 1800);
     if ( v17 )
       ExFreePoolWithTag(v17, 0);
+    v18 = *(void **)(a1 + 1808);
+    if ( v18 )
+      ExFreePoolWithTag(v18, 0);
   }
 }

@@ -1,35 +1,36 @@
 /*
- * XREFs of IopConnectInterrupt @ 0x140817258
+ * XREFs of IopConnectInterrupt @ 0x1407621CC
  * Callers:
- *     IopConnectLineBasedInterrupt @ 0x140816798 (IopConnectLineBasedInterrupt.c)
- *     IopConnectMessageBasedInterrupt @ 0x140816C88 (IopConnectMessageBasedInterrupt.c)
- *     IoConnectInterruptEx @ 0x140816FD0 (IoConnectInterruptEx.c)
- *     IopConnectInterruptFullySpecified @ 0x1408590B0 (IopConnectInterruptFullySpecified.c)
+ *     IoConnectInterruptEx @ 0x140761BD0 (IoConnectInterruptEx.c)
+ *     IopConnectMessageBasedInterrupt @ 0x140761E54 (IopConnectMessageBasedInterrupt.c)
+ *     IopConnectLineBasedInterrupt @ 0x1407C98D4 (IopConnectLineBasedInterrupt.c)
+ *     IopConnectInterruptFullySpecified @ 0x1407CBD80 (IopConnectInterruptFullySpecified.c)
  * Callees:
- *     KeVerifyGroupAffinity @ 0x1402585E8 (KeVerifyGroupAffinity.c)
- *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
- *     KeInitializeDpc @ 0x1402940D0 (KeInitializeDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     KeFreeInterrupt @ 0x1403AEB30 (KeFreeInterrupt.c)
- *     KeInitializeInterruptEx @ 0x1403AF0E8 (KeInitializeInterruptEx.c)
- *     KeAllocateInterrupt @ 0x1403AF228 (KeAllocateInterrupt.c)
- *     KeConnectInterrupt @ 0x1403AF5E4 (KeConnectInterrupt.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IopDestroyActiveConnectBlock @ 0x1408176BC (IopDestroyActiveConnectBlock.c)
- *     IopInitializeActiveConnectBlock @ 0x1408177B8 (IopInitializeActiveConnectBlock.c)
- *     IopAcquireReleaseConnectLockInternal @ 0x14081788C (IopAcquireReleaseConnectLockInternal.c)
- *     PnpTraceInterruptConnection @ 0x1408178F8 (PnpTraceInterruptConnection.c)
- *     IopAllocatePassiveInterruptBlock @ 0x1409466AC (IopAllocatePassiveInterruptBlock.c)
- *     IopDestroyPassiveInterruptBlock @ 0x1409467F8 (IopDestroyPassiveInterruptBlock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
+ *     KeFreeInterrupt @ 0x140376D0C (KeFreeInterrupt.c)
+ *     KeInitializeInterruptEx @ 0x1403775DC (KeInitializeInterruptEx.c)
+ *     KeAllocateInterrupt @ 0x14037771C (KeAllocateInterrupt.c)
+ *     KeConnectInterrupt @ 0x1403777CC (KeConnectInterrupt.c)
+ *     KeVerifyGroupAffinity @ 0x1403781B4 (KeVerifyGroupAffinity.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopDestroyActiveConnectBlock @ 0x140762650 (IopDestroyActiveConnectBlock.c)
+ *     PnpTraceInterruptConnection @ 0x140762750 (PnpTraceInterruptConnection.c)
+ *     IopReleaseActiveConnectLock @ 0x1407627BC (IopReleaseActiveConnectLock.c)
+ *     IopAcquireActiveConnectLock @ 0x1407627E0 (IopAcquireActiveConnectLock.c)
+ *     IopInitializeActiveConnectBlock @ 0x140762804 (IopInitializeActiveConnectBlock.c)
+ *     IopAllocatePassiveInterruptBlock @ 0x1408A1540 (IopAllocatePassiveInterruptBlock.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x1408A16A0 (IopDestroyPassiveInterruptBlock.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopConnectInterrupt(
-        __int64 *a1,
+        _QWORD *a1,
         ULONG_PTR a2,
         __int64 (__fastcall *a3)(__int64 a1, __int64 a2),
         __int64 a4,
@@ -41,206 +42,248 @@ __int64 __fastcall IopConnectInterrupt(
         __int64 a10,
         __int64 a11)
 {
-  __m128i v14; // xmm0
-  int v15; // esi
-  unsigned __int64 v16; // r15
-  char v17; // al
-  unsigned __int64 v19; // rsi
-  __int64 Pool2; // rax
-  __int64 v21; // r14
-  _DWORD *v22; // rdx
-  int v23; // eax
-  __int64 v24; // rcx
-  __m128i v25; // xmm0
-  unsigned __int16 v26; // ax
-  char v27; // cl
-  unsigned __int8 v28; // bl
+  __m128i v13; // xmm0
+  int v14; // esi
+  unsigned __int64 v15; // r12
+  char v16; // al
+  unsigned __int64 v18; // rsi
+  char *PoolWithTag; // rax
+  char *v20; // r14
+  int v21; // eax
+  __int64 v22; // rcx
+  char v23; // dl
+  __m128i v24; // xmm0
+  __int64 v25; // rax
+  unsigned __int8 v26; // cl
   PSLIST_ENTRY Interrupt; // rax
-  int v30; // ebx
-  __int64 v31; // rcx
-  __int64 v32; // rbx
+  _DWORD *v28; // rbx
+  int v29; // ebx
+  __int64 v30; // rcx
+  char *v31; // rbx
+  unsigned __int64 v32; // r15
   _OWORD *v33; // rax
-  _OWORD *v34; // rdx
+  _OWORD *v34; // rcx
   __int64 v35; // rbx
-  __int64 v36; // rcx
-  __int128 v37; // xmm1
-  PSLIST_ENTRY *v39; // rdi
-  __int64 v40; // rcx
-  _WORD *v41; // rcx
-  __int64 v42; // rcx
-  unsigned __int16 *v43; // rsi
-  __int64 v44; // rdx
-  _WORD *v45; // rcx
-  __int64 v46; // rcx
-  _WORD *v47; // rcx
-  __int64 v48; // rcx
-  __int64 v49; // [rsp+70h] [rbp-98h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+88h] [rbp-80h] BYREF
-  int v51; // [rsp+8Ch] [rbp-7Ch]
-  unsigned int v52; // [rsp+90h] [rbp-78h]
-  ULONG ProcessorIndexFromNumber; // [rsp+94h] [rbp-74h]
-  __m128i v54; // [rsp+98h] [rbp-70h] BYREF
-  __int64 v55; // [rsp+A8h] [rbp-60h]
-  _DWORD *v56; // [rsp+B0h] [rbp-58h]
-  __int64 v57; // [rsp+B8h] [rbp-50h]
-  _QWORD v58[16]; // [rsp+C8h] [rbp-40h] BYREF
-  bool v62; // [rsp+190h] [rbp+88h]
-  char v63; // [rsp+190h] [rbp+88h]
-  char v64; // [rsp+1A0h] [rbp+98h]
-  char v65; // [rsp+1A8h] [rbp+A0h]
+  __int128 v36; // xmm1
+  PSLIST_ENTRY *v38; // rdi
+  __int64 v39; // rcx
+  _WORD *v40; // rcx
+  __int64 v41; // rcx
+  unsigned __int16 *v42; // rsi
+  __int64 v43; // rdx
+  _WORD *v44; // rcx
+  __int64 v45; // rcx
+  _WORD *v46; // rcx
+  __int64 v47; // rcx
+  int v48; // [rsp+70h] [rbp-98h]
+  char v49; // [rsp+88h] [rbp-80h]
+  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+8Ch] [rbp-7Ch] BYREF
+  int v51; // [rsp+90h] [rbp-78h]
+  unsigned int v52; // [rsp+94h] [rbp-74h]
+  ULONG ProcessorIndexFromNumber; // [rsp+98h] [rbp-70h]
+  __m128i v54; // [rsp+A0h] [rbp-68h] BYREF
+  __int64 v55; // [rsp+B0h] [rbp-58h]
+  __int64 v56; // [rsp+B8h] [rbp-50h]
+  _BYTE v57[128]; // [rsp+C8h] [rbp-40h] BYREF
+  bool v61; // [rsp+190h] [rbp+88h]
+  char v62; // [rsp+190h] [rbp+88h]
+  char v63; // [rsp+1A0h] [rbp+98h]
+  unsigned __int8 v64; // [rsp+1A8h] [rbp+A0h]
 
-  memset(v58, 0, 0x50uLL);
+  memset(v57, 0, 0x50uLL);
   *a1 = 0LL;
   ProcNumber = 0;
-  v64 = 0;
-  v55 = 0LL;
-  IopInitializeActiveConnectBlock(a11, v58);
-  v14 = *(__m128i *)(a11 + 32);
-  v15 = *(_DWORD *)(a11 + 24);
+  v63 = 0;
+  IopInitializeActiveConnectBlock(a11, v57);
+  v13 = *(__m128i *)(a11 + 32);
+  v14 = *(_DWORD *)(a11 + 24);
   v52 = *(_DWORD *)(a11 + 12);
-  v54 = v14;
-  v51 = v15;
-  v16 = v14.m128i_i64[0] & qword_140D06E48[(unsigned __int16)_mm_extract_epi16(v14, 4)];
-  v17 = *(_BYTE *)(a11 + 16);
-  v54.m128i_i64[0] = v16;
-  v65 = v17;
+  v54 = v13;
+  v51 = v14;
+  v15 = v13.m128i_i64[0] & qword_140CFC848[(unsigned __int16)_mm_extract_epi16(v13, 4)];
+  v16 = *(_BYTE *)(a11 + 16);
+  v54.m128i_i64[0] = v15;
+  v49 = v16;
   if ( !*(_DWORD *)(a11 + 8)
-    && !((unsigned __int8 (__fastcall *)(_QWORD, _QWORD))off_140C01DD0[0])(0LL, *(unsigned int *)(a11 + 64))
+    && !((unsigned __int8 (__fastcall *)(_QWORD, _QWORD))off_140C00780[0])(0LL, *(unsigned int *)(a11 + 64))
     && (unsigned int)(*(_DWORD *)(a11 + 20) - 3) <= 1 )
   {
-    v64 = 1;
+    v63 = 1;
     v51 = 0;
   }
-  v62 = a8 == 0;
-  if ( !KeVerifyGroupAffinity((__int64)&v54, 0)
-    || (v19 = (0x101010101010101LL
-             * ((((v16 - ((v16 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-               + (((v16 - ((v16 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
-               + ((((v16 - ((v16 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-                 + (((v16 - ((v16 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56,
-        !(_BYTE)v19) )
+  v61 = a8 == 0;
+  if ( KeVerifyGroupAffinity((__int64)&v54, 0)
+    && (v18 = (0x101010101010101LL
+             * ((((v15 - ((v15 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+               + (((v15 - ((v15 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
+               + ((((v15 - ((v15 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                 + (((v15 - ((v15 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56,
+        (_BYTE)v18) )
   {
-    v30 = -1073741811;
-    goto LABEL_32;
-  }
-  Pool2 = ExAllocatePool2(64LL, (unsigned int)(8 * (char)v19 + 496), 1852403529LL);
-  v21 = Pool2;
-  if ( !Pool2 )
-  {
-    v30 = -1073741670;
-    goto LABEL_32;
-  }
-  KeInitializeDpc((PRKDPC)(Pool2 + 432), 0LL, 0LL);
-  v23 = v51;
-  v24 = v21;
-  *(_OWORD *)(v21 + 16) = *(_OWORD *)a11;
-  *(_OWORD *)(v21 + 32) = *(_OWORD *)(a11 + 16);
-  *(_OWORD *)(v21 + 48) = *(_OWORD *)(a11 + 32);
-  *(_OWORD *)(v21 + 64) = *(_OWORD *)(a11 + 48);
-  *(_OWORD *)(v21 + 80) = *(_OWORD *)(a11 + 64);
-  v25 = v54;
-  *(_OWORD *)(v21 + 96) = *(_OWORD *)(a11 + 80);
-  *(_DWORD *)(v21 + 40) = v23;
-  *(__m128i *)(v21 + 48) = v25;
-  if ( a7 )
-    v24 = a7;
-  *(_BYTE *)(v21 + 400) = v62;
-  v57 = v24;
-  if ( !a8 )
-    v55 = v21 + 408;
-  v26 = v54.m128i_u16[4];
-  v27 = 0;
-  v28 = 0;
-  *(_QWORD *)(v21 + 8) = v16;
-  ProcNumber.Group = v26;
-  ProcNumber.Reserved = 0;
-  v63 = 0;
-  if ( (char)v19 <= 0 )
-  {
-LABEL_17:
-    if ( a8 || (v30 = IopAllocatePassiveInterruptBlock(v21 + 16, &v54), v30 >= 0) )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(8 * (char)v18 + 496), 0x6E696F49u);
+    v20 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      if ( v58[3] )
+      memset(PoolWithTag, 0, (unsigned int)(8 * (char)v18 + 496));
+      KeInitializeDpc((PRKDPC)(v20 + 432), 0LL, 0LL);
+      v21 = v51;
+      *((_OWORD *)v20 + 1) = *(_OWORD *)a11;
+      v22 = (__int64)v20;
+      v23 = 0;
+      *((_OWORD *)v20 + 2) = *(_OWORD *)(a11 + 16);
+      ProcNumber.Reserved = 0;
+      *((_OWORD *)v20 + 3) = *(_OWORD *)(a11 + 32);
+      *((_OWORD *)v20 + 4) = *(_OWORD *)(a11 + 48);
+      *((_OWORD *)v20 + 5) = *(_OWORD *)(a11 + 64);
+      v24 = v54;
+      *((_OWORD *)v20 + 6) = *(_OWORD *)(a11 + 80);
+      *((_DWORD *)v20 + 10) = v21;
+      *((__m128i *)v20 + 3) = v24;
+      if ( a7 )
+        v22 = a7;
+      *((_QWORD *)v20 + 1) = v15;
+      v20[400] = v61;
+      v25 = (__int64)(v20 + 408);
+      if ( a8 )
+        v25 = 0LL;
+      v56 = v22;
+      v55 = v25;
+      v26 = 0;
+      v62 = 0;
+      v64 = 0;
+      ProcNumber.Group = _mm_extract_epi16(v24, 4);
+      if ( (char)v18 > 0 )
       {
-        LOBYTE(v22) = 1;
-        IopAcquireReleaseConnectLockInternal(v58, v22, 0LL);
+        do
+        {
+          if ( _bittest64((const __int64 *)&v15, v26) )
+          {
+            ProcNumber.Number = v26;
+            ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(&ProcNumber);
+            Interrupt = KeAllocateInterrupt((union _SLIST_HEADER *)KiProcessorBlock[ProcessorIndexFromNumber]);
+            v28 = Interrupt;
+            if ( !Interrupt )
+            {
+              v29 = -1073741670;
+              goto LABEL_33;
+            }
+            memset(Interrupt, 0, 0x120uLL);
+            KeInitializeInterruptEx(
+              v28,
+              a3,
+              a4,
+              a5,
+              a6,
+              v56,
+              v55,
+              v52,
+              v49,
+              a8,
+              v51,
+              a9,
+              ProcessorIndexFromNumber,
+              v48,
+              v63,
+              (__int64)(v20 + 16));
+            v26 = v64;
+            *(_QWORD *)&v20[8 * v62 + 496] = v28;
+            v23 = ++v62;
+          }
+          v64 = ++v26;
+        }
+        while ( v23 < (char)v18 );
       }
-      v30 = KeConnectInterrupt((__int64 *)(v21 + 496), v19, v21 + 16);
-      if ( v58[3] )
-        IopAcquireReleaseConnectLockInternal(v58, 0LL, 0LL);
-      if ( v30 >= 0 )
+      if ( !a8 )
+      {
+        v29 = IopAllocatePassiveInterruptBlock(v20 + 16, &v54);
+        if ( v29 < 0 )
+          goto LABEL_33;
+      }
+      IopAcquireActiveConnectLock(v57);
+      v29 = KeConnectInterrupt((__int64 *)v20 + 62, v18, (__int64)(v20 + 16));
+      IopReleaseActiveConnectLock(v57);
+      if ( v29 < 0 )
+      {
+        if ( !a8 )
+          IopDestroyPassiveInterruptBlock(v52);
+      }
+      else
       {
         if ( a2 )
         {
-          v31 = *(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL);
-          if ( !v31 || (*(_DWORD *)(v31 + 396) & 0x20000) != 0 )
+          v30 = *(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL);
+          if ( !v30 || (*(_DWORD *)(v30 + 396) & 0x20000) != 0 )
           {
             IoAddTriageDumpDataBlock(a2, (PVOID)*(unsigned __int16 *)(a2 + 2));
-            v40 = *(_QWORD *)(a2 + 8);
-            if ( v40 )
+            v39 = *(_QWORD *)(a2 + 8);
+            if ( v39 )
             {
-              IoAddTriageDumpDataBlock(v40, (PVOID)(unsigned int)*(__int16 *)(v40 + 2));
-              v41 = (_WORD *)(*(_QWORD *)(a2 + 8) + 56LL);
-              if ( *v41 )
+              IoAddTriageDumpDataBlock(v39, (PVOID)(unsigned int)*(__int16 *)(v39 + 2));
+              v40 = (_WORD *)(*(_QWORD *)(a2 + 8) + 56LL);
+              if ( *v40 )
               {
-                IoAddTriageDumpDataBlock((ULONG)v41, (PVOID)2);
+                IoAddTriageDumpDataBlock((ULONG)v40, (PVOID)2);
                 IoAddTriageDumpDataBlock(
                   *(_QWORD *)(*(_QWORD *)(a2 + 8) + 64LL),
                   (PVOID)*(unsigned __int16 *)(*(_QWORD *)(a2 + 8) + 56LL));
               }
             }
-            v42 = *(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL);
-            if ( v42 )
+            v41 = *(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL);
+            if ( v41 )
             {
-              v43 = (unsigned __int16 *)(v42 + 40);
-              IoAddTriageDumpDataBlock(v42, (PVOID)0x310);
-              if ( *v43 )
+              v42 = (unsigned __int16 *)(v41 + 40);
+              IoAddTriageDumpDataBlock(v41, (PVOID)0x310);
+              if ( *v42 )
               {
-                IoAddTriageDumpDataBlock((ULONG)v43, (PVOID)2);
-                IoAddTriageDumpDataBlock(*((_QWORD *)v43 + 1), (PVOID)*v43);
+                IoAddTriageDumpDataBlock((ULONG)v42, (PVOID)2);
+                IoAddTriageDumpDataBlock(*((_QWORD *)v42 + 1), (PVOID)*v42);
               }
-              v44 = *(_QWORD *)(a2 + 312);
-              v45 = (_WORD *)(*(_QWORD *)(v44 + 40) + 56LL);
-              if ( *v45 )
+              v43 = *(_QWORD *)(a2 + 312);
+              v44 = (_WORD *)(*(_QWORD *)(v43 + 40) + 56LL);
+              if ( *v44 )
               {
-                IoAddTriageDumpDataBlock((ULONG)v45, (PVOID)2);
+                IoAddTriageDumpDataBlock((ULONG)v44, (PVOID)2);
                 IoAddTriageDumpDataBlock(
                   *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL) + 64LL),
                   (PVOID)*(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL) + 56LL));
-                v44 = *(_QWORD *)(a2 + 312);
+                v43 = *(_QWORD *)(a2 + 312);
               }
-              v46 = *(_QWORD *)(*(_QWORD *)(v44 + 40) + 16LL);
-              if ( v46 )
+              v45 = *(_QWORD *)(*(_QWORD *)(v43 + 40) + 16LL);
+              if ( v45 )
               {
-                v47 = (_WORD *)(v46 + 56);
-                if ( *v47 )
+                v46 = (_WORD *)(v45 + 56);
+                if ( *v46 )
                 {
-                  IoAddTriageDumpDataBlock((ULONG)v47, (PVOID)2);
-                  v48 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL) + 16LL);
-                  IoAddTriageDumpDataBlock(*(_QWORD *)(v48 + 64), (PVOID)*(unsigned __int16 *)(v48 + 56));
+                  IoAddTriageDumpDataBlock((ULONG)v46, (PVOID)2);
+                  v47 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL) + 16LL);
+                  IoAddTriageDumpDataBlock(*(_QWORD *)(v47 + 64), (PVOID)*(unsigned __int16 *)(v47 + 56));
                 }
               }
             }
             KeBugCheckEx(0xCAu, 2uLL, a2, 0LL, 0LL);
           }
-          if ( (char)v19 > 0 )
+          if ( (char)v18 > 0 )
           {
-            v32 = v21 + 496;
+            v31 = v20 + 496;
+            v32 = (0x101010101010101LL
+                 * ((((v15 - ((v15 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                   + (((v15 - ((v15 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
+                   + ((((v15 - ((v15 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                     + (((v15 - ((v15 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
             do
             {
               ObfReferenceObjectWithTag((PVOID)a2, 0x54706E50u);
-              *(_QWORD *)(*(_QWORD *)v32 + 280LL) = a2;
+              *(_QWORD *)(*(_QWORD *)v31 + 280LL) = a2;
               _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(a2 + 312) + 96LL));
-              v32 += 8LL;
-              --v19;
+              v31 += 8;
+              --v32;
             }
-            while ( v19 );
+            while ( v32 );
           }
         }
-        v33 = *(_OWORD **)(v21 + 496);
-        v34 = (_OWORD *)(v21 + 112);
+        v33 = (_OWORD *)*((_QWORD *)v20 + 62);
+        v34 = v20 + 112;
         v35 = 2LL;
-        v36 = 128LL;
         do
         {
           *v34 = *v33;
@@ -251,77 +294,46 @@ LABEL_17:
           v34[5] = v33[5];
           v34[6] = v33[6];
           v34 += 8;
-          v37 = v33[7];
+          v36 = v33[7];
           v33 += 8;
-          *(v34 - 1) = v37;
+          *(v34 - 1) = v36;
           --v35;
         }
         while ( v35 );
-        LOBYTE(v36) = 1;
-        v30 = 0;
+        v29 = 0;
         *v34 = *v33;
         v34[1] = v33[1];
-        *a1 = v21;
-        PnpTraceInterruptConnection(v36);
-        goto LABEL_32;
+        LOBYTE(v34) = 1;
+        *a1 = v20;
+        PnpTraceInterruptConnection(v34);
       }
-      if ( !a8 )
-        IopDestroyPassiveInterruptBlock(v52);
+      if ( v29 < 0 )
+      {
+LABEL_33:
+        if ( (char)v18 > 0 )
+        {
+          v38 = (PSLIST_ENTRY *)(v20 + 496);
+          do
+          {
+            if ( *v38 )
+              KeFreeInterrupt(*v38);
+            ++v38;
+            --v18;
+          }
+          while ( v18 );
+        }
+        ExFreePoolWithTag(v20, 0x6E696F49u);
+      }
     }
-    if ( (char)v19 > 0 )
-      goto LABEL_41;
-    goto LABEL_45;
+    else
+    {
+      v29 = -1073741670;
+    }
   }
-  while ( !_bittest64((const __int64 *)&v16, v28) )
+  else
   {
-LABEL_16:
-    ++v28;
-    if ( v27 >= (char)v19 )
-      goto LABEL_17;
+    v29 = -1073741811;
   }
-  ProcNumber.Number = v28;
-  ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(&ProcNumber);
-  Interrupt = KeAllocateInterrupt((union _SLIST_HEADER *)KiProcessorBlock[ProcessorIndexFromNumber]);
-  v56 = Interrupt;
-  if ( Interrupt )
-  {
-    memset(Interrupt, 0, 0x120uLL);
-    KeInitializeInterruptEx(
-      v56,
-      a3,
-      a4,
-      a5,
-      a6,
-      v57,
-      v55,
-      v52,
-      v65,
-      a8,
-      v51,
-      a9,
-      ProcessorIndexFromNumber,
-      v49,
-      v64,
-      v21 + 16);
-    v22 = v56;
-    *(_QWORD *)(v21 + 8LL * v63 + 496) = v56;
-    v27 = ++v63;
-    goto LABEL_16;
-  }
-  v30 = -1073741670;
-LABEL_41:
-  v39 = (PSLIST_ENTRY *)(v21 + 496);
-  do
-  {
-    if ( *v39 )
-      KeFreeInterrupt(*v39);
-    ++v39;
-    --v19;
-  }
-  while ( v19 );
-LABEL_45:
-  ExFreePoolWithTag((PVOID)v21, 0x6E696F49u);
-LABEL_32:
-  IopDestroyActiveConnectBlock(v58);
-  return (unsigned int)v30;
+  IopDestroyActiveConnectBlock(v57);
+  return (unsigned int)v29;
 }

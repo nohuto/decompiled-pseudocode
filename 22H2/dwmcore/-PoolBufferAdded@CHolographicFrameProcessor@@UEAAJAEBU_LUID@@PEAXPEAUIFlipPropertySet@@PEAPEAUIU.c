@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PoolBufferAdded@CHolographicFrameProcessor@@UEAAJAEBU_LUID@@PEAXPEAUIFlipPropertySet@@PEAPEAUIUnknown@@@Z @ 0x1802AF0B0
+ * XREFs of ?PoolBufferAdded@CHolographicFrameProcessor@@UEAAJAEBU_LUID@@PEAXPEAUIFlipPropertySet@@PEAPEAUIUnknown@@@Z @ 0x18025CC90
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CHolographicFrameProcessor::PoolBufferAdded(

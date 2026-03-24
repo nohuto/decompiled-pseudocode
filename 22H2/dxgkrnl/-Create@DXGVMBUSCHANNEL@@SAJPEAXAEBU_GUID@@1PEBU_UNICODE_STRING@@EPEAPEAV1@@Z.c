@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Create@DXGVMBUSCHANNEL@@SAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@EPEAPEAV1@@Z @ 0x1C0365FE4
+ * XREFs of ?Create@DXGVMBUSCHANNEL@@SAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@EPEAPEAV1@@Z @ 0x1C02B325C
  * Callers:
- *     ?CreateVmBusChannel@@YAJPEAXPEAPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C03613C0 (-CreateVmBusChannel@@YAJPEAXPEAPEAVDXGVMBUSCHANNEL@@@Z.c)
+ *     ?CreateVmBusChannel@@YAJPEAXPEAPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C02B5170 (-CreateVmBusChannel@@YAJPEAXPEAPEAVDXGVMBUSCHANNEL@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Release@DXGVMBUSCHANNEL@@QEAAJXZ @ 0x1C03622B0 (-Release@DXGVMBUSCHANNEL@@QEAAJXZ.c)
- *     ??0DXGVMBUSCHANNEL@@IEAA@XZ @ 0x1C036582C (--0DXGVMBUSCHANNEL@@IEAA@XZ.c)
- *     ?Initialize@DXGVMBUSCHANNEL@@IEAAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@E@Z @ 0x1C0366290 (-Initialize@DXGVMBUSCHANNEL@@IEAAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@E@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??0DXGVMBUSCHANNEL@@IEAA@XZ @ 0x1C02B2B34 (--0DXGVMBUSCHANNEL@@IEAA@XZ.c)
+ *     ?Initialize@DXGVMBUSCHANNEL@@IEAAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@E@Z @ 0x1C02B34FC (-Initialize@DXGVMBUSCHANNEL@@IEAAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@E@Z.c)
+ *     ?Release@DXGVMBUSCHANNEL@@QEAAJXZ @ 0x1C02B41A8 (-Release@DXGVMBUSCHANNEL@@QEAAJXZ.c)
  */
 
 __int64 __fastcall DXGVMBUSCHANNEL::Create(
@@ -14,28 +14,28 @@ __int64 __fastcall DXGVMBUSCHANNEL::Create(
         const struct _GUID *a2,
         const struct _GUID *a3,
         const struct _UNICODE_STRING *a4,
-        unsigned __int8 a5,
+        char a5,
         struct DXGVMBUSCHANNEL **a6)
 {
   int v8; // edi
   DXGVMBUSCHANNEL *v9; // rax
-  DXGVMBUSCHANNEL *v10; // rbx
-  const struct _GUID *v11; // r8
-  const struct _GUID *v12; // r9
+  const struct _GUID *v10; // r8
+  const struct _GUID *v11; // r9
+  DXGVMBUSCHANNEL *v12; // rbx
 
   v8 = -1073741801;
-  v9 = (DXGVMBUSCHANNEL *)operator new[](0xA8uLL, 0x4B677844u, 256LL);
+  v9 = (DXGVMBUSCHANNEL *)operator new[](0x98uLL, 0x4B677844u, PagedPool);
   if ( v9 )
+    v12 = DXGVMBUSCHANNEL::DXGVMBUSCHANNEL(v9);
+  else
+    v12 = 0LL;
+  if ( v12 )
   {
-    v10 = DXGVMBUSCHANNEL::DXGVMBUSCHANNEL(v9);
-    if ( v10 )
-    {
-      v8 = DXGVMBUSCHANNEL::Initialize(v10, a1, v11, v12, a4, a5);
-      if ( v8 < 0 )
-        DXGVMBUSCHANNEL::Release(v10);
-      else
-        *a6 = v10;
-    }
+    v8 = DXGVMBUSCHANNEL::Initialize(v12, a1, v10, v11, a4, a5);
+    if ( v8 < 0 )
+      DXGVMBUSCHANNEL::Release(v12);
+    else
+      *a6 = v12;
   }
   return (unsigned int)v8;
 }

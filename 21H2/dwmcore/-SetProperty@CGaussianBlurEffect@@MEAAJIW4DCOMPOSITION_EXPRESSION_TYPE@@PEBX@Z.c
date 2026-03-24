@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetProperty@CGaussianBlurEffect@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180246200
+ * XREFs of ?SetProperty@CGaussianBlurEffect@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801F6370
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGaussianBlurEffect::SetProperty(__int64 a1, int a2, int a3, float *a4)
@@ -13,10 +13,10 @@ __int64 __fastcall CGaussianBlurEffect::SetProperty(__int64 a1, int a2, int a3, 
   float v5; // xmm1_4
   unsigned int v6; // ebx
 
-  if ( a3 != 18 || a2 || (v4 = (float *)(a1 + 160), v5 = fmaxf(0.0, *a4), a1 == -160) )
+  if ( a3 != 18 || a2 || (v4 = (float *)(a1 + 152), v5 = fmaxf(0.0, *a4), a1 == -152) )
   {
     v6 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0LL, -2147024809, 0x4Eu);
+    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024809, 0x4Eu, 0LL);
   }
   else
   {

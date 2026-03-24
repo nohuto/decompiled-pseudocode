@@ -1,103 +1,101 @@
 /*
- * XREFs of RIMRetrieveRealAngularPhysicalValues @ 0x1C01B6EBC
+ * XREFs of RIMRetrieveRealAngularPhysicalValues @ 0x1C0181724
  * Callers:
- *     RIMRetrieveNormalizationRange @ 0x1C01B6D80 (RIMRetrieveNormalizationRange.c)
+ *     RIMRetrieveNormalizationRange @ 0x1C01815CC (RIMRetrieveNormalizationRange.c)
  * Callees:
- *     RIMComputePower @ 0x1C01B6C4C (RIMComputePower.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMComputePower @ 0x1C0181498 (RIMComputePower.c)
  */
 
-__int64 __fastcall RIMRetrieveRealAngularPhysicalValues(__int64 a1, int *a2, __int64 a3)
+__int64 __fastcall RIMRetrieveRealAngularPhysicalValues(__int64 a1, int *a2)
 {
-  unsigned int v3; // ebx
-  char v4; // r13
-  int *v5; // r9
-  unsigned int v7; // r15d
-  __int16 v8; // r14
-  int v9; // ebp
-  int v10; // esi
-  __int64 v12; // r12
-  _BYTE *v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  unsigned int *v17; // r9
-  unsigned int v18; // r15d
-  int v19; // ecx
-  int v20; // ecx
-  __int64 v21; // rax
-  unsigned int v22; // eax
-  unsigned int v23; // [rsp+60h] [rbp+8h]
+  unsigned int v2; // ebx
+  char v3; // r13
+  int *v4; // r9
+  unsigned int v6; // r15d
+  __int16 v7; // r14
+  int v8; // ebp
+  int v9; // edi
+  __int64 v11; // r12
+  _BYTE *v12; // rax
+  unsigned int *v13; // r9
+  unsigned int v14; // r15d
+  int v15; // ecx
+  int v16; // ecx
+  __int64 v17; // rax
+  unsigned int v18; // eax
+  unsigned int v20; // [rsp+70h] [rbp+18h]
 
-  v3 = 0;
-  v4 = *(_BYTE *)(a1 + 32) & 0xF;
-  v23 = 62831;
-  v5 = a2;
+  v2 = 0;
+  v3 = *(_BYTE *)(a1 + 32) & 0xF;
+  v20 = 62831;
+  v4 = a2;
+  v6 = 0;
   v7 = 0;
-  v8 = 0;
-  v9 = -4;
+  v8 = -4;
   if ( !a2 )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, 0LL, a3);
-    v5 = 0LL;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 157);
+    v4 = 0LL;
   }
-  v10 = *v5;
-  if ( !*v5 )
+  v9 = *v4;
+  if ( !*v4 )
     return 1LL;
-  v12 = *(_DWORD *)(a1 + 36) & 0xF;
+  v11 = *(_DWORD *)(a1 + 36) & 0xF;
   if ( (*(_DWORD *)(a1 + 36) & 0xF) != 0 )
   {
-    v13 = word_1C026A590;
-    while ( *v13 != v4 )
+    v12 = word_1C0227118;
+    do
     {
-      ++v7;
-      v13 += 4;
-      if ( v7 >= 0xB )
-        goto LABEL_11;
+      if ( *v12 == v3 )
+        break;
+      ++v6;
+      v12 += 4;
     }
-    v8 = word_1C026A590[2 * v7 + 1];
-LABEL_11:
-    v18 = RIMComputePower(v8);
-    if ( !v18 )
+    while ( v6 < 0xB );
+    if ( v6 < 0xB )
+      v7 = word_1C0227118[2 * v6 + 1];
+    v14 = RIMComputePower(v7);
+    if ( !v14 )
     {
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v15, v14, v16);
-      v17 = (unsigned int *)a2;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 181);
+      v13 = (unsigned int *)a2;
     }
-    if ( v10 < 0 )
-      v10 = -v10;
-    if ( (unsigned int)v12 < 5 )
+    if ( v9 < 0 )
+      v9 = -v9;
+    if ( (unsigned int)v11 < 5 )
     {
-      v19 = dword_1C026A5C0[v12];
-      if ( v19 == 4 )
+      v15 = dword_1C02270F0[v11];
+      if ( v15 == 4 )
       {
-        if ( v8 > -4 || !(v10 / v18) )
-          return v3;
-        if ( v8 < -4 )
+        if ( v7 > -4 || !(v9 / v14) )
+          return v2;
+        if ( v7 < -4 )
         {
-          v20 = 62831;
+          v16 = 62831;
           do
           {
-            if ( v9 <= -8 )
+            if ( v8 <= -8 )
               break;
-            v21 = v3;
-            --v9;
-            ++v3;
-            v20 = dword_1C026A580[v21] + 10 * v20;
+            v17 = v2;
+            --v8;
+            ++v2;
+            v16 = dword_1C0227108[v17] + 10 * v16;
           }
-          while ( v9 > v8 );
-          v23 = v20;
+          while ( v8 > v7 );
+          v20 = v16;
         }
-        v22 = 360 * v10 / v23;
+        v18 = 360 * v9 / v20;
       }
       else
       {
-        if ( v19 != 3 || v8 > -2 )
-          return v3;
-        v22 = v10 / v18;
+        if ( v15 != 3 || v7 > -2 )
+          return v2;
+        v18 = v9 / v14;
       }
-      v3 = 1;
-      *v17 = v22;
+      v2 = 1;
+      *v13 = v18;
     }
   }
-  return v3;
+  return v2;
 }

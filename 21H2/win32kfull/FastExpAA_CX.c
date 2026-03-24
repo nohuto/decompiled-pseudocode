@@ -1,5 +1,5 @@
 /*
- * XREFs of FastExpAA_CX @ 0x1C02666E0
+ * XREFs of FastExpAA_CX @ 0x1C0269150
  * Callers:
  *     <none>
  * Callees:
@@ -165,7 +165,7 @@ LABEL_16:
       a3[1] = (HIBYTE(v44) + HIBYTE(v45) + 2 * (v35 + (unsigned int)HIBYTE(v44) + 2)) >> 3;
       *a3 = ((unsigned __int8)v44 + (unsigned __int8)v45 + 2 * (v34 + (unsigned int)(unsigned __int8)v44 + 2)) >> 3;
       v36 = &a3[v9];
-      v36[2] = (unsigned int)(4 * (_DWORD)a4 + v18 + 8 + v14 + 2 * (4 * (_DWORD)a4 + v18)) >> 4;
+      v36[2] = (unsigned int)(v18 + 4 * (_DWORD)a4 + 8 + v14 + 2 * (v18 + 4 * (_DWORD)a4)) >> 4;
       v36[1] = (HIBYTE(v44) + 4 * HIBYTE(v45) + 8 + HIBYTE(v46) + 2 * (HIBYTE(v44) + 4 * (unsigned int)HIBYTE(v45))) >> 4;
       *v36 = ((unsigned __int8)v44
             + 4 * (unsigned __int8)v45
@@ -173,7 +173,7 @@ LABEL_16:
             + (unsigned __int8)v46
             + 2 * ((unsigned __int8)v44 + 4 * (unsigned int)(unsigned __int8)v45)) >> 4;
       v54 = &v36[a5];
-      v54[2] = (unsigned int)(4 * (_DWORD)a4 + v14 + 8 + v18 + 2 * (4 * (_DWORD)a4 + v14)) >> 4;
+      v54[2] = (unsigned int)(v14 + 4 * (_DWORD)a4 + 8 + v18 + 2 * (v14 + 4 * (_DWORD)a4)) >> 4;
       v54[1] = (HIBYTE(v46) + 4 * HIBYTE(v45) + 8 + HIBYTE(v44) + 2 * (HIBYTE(v46) + 4 * (unsigned int)HIBYTE(v45))) >> 4;
       *v54 = ((unsigned __int8)v46
             + 4 * (unsigned __int8)v45

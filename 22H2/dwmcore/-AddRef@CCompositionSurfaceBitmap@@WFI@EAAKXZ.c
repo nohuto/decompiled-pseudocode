@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@CCompositionSurfaceBitmap@@WFI@EAAKXZ @ 0x18011BF40
+ * XREFs of ?AddRef@CCompositionSurfaceBitmap@@WFI@EAAKXZ @ 0x1800F4320
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CCompositionSurfaceBitmap::AddRef(__int64 a1)
 {
-  return CDxHandleBitmapRealization::AddRef((CDxHandleBitmapRealization *)(a1 - 88));
+  return CMILCOMBase::InternalAddRef((CMILCOMBase *)(a1 - 88));
 }

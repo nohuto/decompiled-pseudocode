@@ -1,9 +1,9 @@
 /*
- * XREFs of HalRegisterDynamicProcessor @ 0x140506A00
+ * XREFs of HalRegisterDynamicProcessor @ 0x1404BDC50
  * Callers:
- *     KiStartDynamicProcessor @ 0x1409738B8 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x1408BA6C8 (KiStartDynamicProcessor.c)
  * Callees:
- *     HalpInterruptRegisterDynamicProcessor @ 0x140504DEC (HalpInterruptRegisterDynamicProcessor.c)
+ *     HalpInterruptRegisterDynamicProcessor @ 0x1404BC308 (HalpInterruptRegisterDynamicProcessor.c)
  */
 
 __int64 HalRegisterDynamicProcessor()

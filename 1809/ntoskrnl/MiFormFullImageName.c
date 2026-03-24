@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFormFullImageName @ 0x14071D188
+ * XREFs of MiFormFullImageName @ 0x14071D168
  * Callers:
- *     MiResolveImageReferences @ 0x140678FD0 (MiResolveImageReferences.c)
+ *     MiResolveImageReferences @ 0x140678FB0 (MiResolveImageReferences.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlAppendStringToString @ 0x1406CB400 (RtlAppendStringToString.c)
+ *     RtlAppendStringToString @ 0x1406CB3E0 (RtlAppendStringToString.c)
  */
 
 __int64 __fastcall MiFormFullImageName(unsigned __int16 *a1, const STRING *a2, STRING *a3)

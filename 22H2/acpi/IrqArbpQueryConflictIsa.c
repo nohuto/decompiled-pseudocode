@@ -1,14 +1,14 @@
 /*
- * XREFs of IrqArbpQueryConflictIsa @ 0x1C009E550
+ * XREFs of IrqArbpQueryConflictIsa @ 0x1C00B752C
  * Callers:
- *     IrqArbQueryConflict @ 0x1C009D830 (IrqArbQueryConflict.c)
+ *     IrqArbQueryConflict @ 0x1C00B70E0 (IrqArbQueryConflict.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     LinkNodeClearPossibleData @ 0x1C0099310 (LinkNodeClearPossibleData.c)
- *     ProcessorpClearData @ 0x1C009B0A8 (ProcessorpClearData.c)
- *     IrqArbpPrepareForTestOrConflict @ 0x1C009E4E0 (IrqArbpPrepareForTestOrConflict.c)
- *     IcClearPossibleData @ 0x1C009EFE0 (IcClearPossibleData.c)
- *     ArbQueryConflict @ 0x1C00A2350 (ArbQueryConflict.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C0092350 (IrqArbpPrepareForTestOrConflict.c)
+ *     LinkNodeClearPossibleData @ 0x1C009429C (LinkNodeClearPossibleData.c)
+ *     ProcessorpClearData @ 0x1C0094850 (ProcessorpClearData.c)
+ *     IcClearPossibleData @ 0x1C0094980 (IcClearPossibleData.c)
+ *     ArbQueryConflict @ 0x1C00B8080 (ArbQueryConflict.c)
  */
 
 __int64 __fastcall IrqArbpQueryConflictIsa(__int64 a1, _QWORD *a2)

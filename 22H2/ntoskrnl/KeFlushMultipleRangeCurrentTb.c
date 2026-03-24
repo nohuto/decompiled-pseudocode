@@ -1,19 +1,20 @@
 /*
- * XREFs of KeFlushMultipleRangeCurrentTb @ 0x14038A24C
+ * XREFs of KeFlushMultipleRangeCurrentTb @ 0x1403C8E4C
  * Callers:
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     MiAgeWorkingSetTail @ 0x140334210 (MiAgeWorkingSetTail.c)
+ *     MiAgeWorkingSetTail @ 0x14022DDD0 (MiAgeWorkingSetTail.c)
+ *     MiDeleteVaTail @ 0x1402BB1C0 (MiDeleteVaTail.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
  * Callees:
- *     KiIsSecureProcessFlush @ 0x1402EB260 (KiIsSecureProcessFlush.c)
- *     KiFlushRangeTb @ 0x14038A858 (KiFlushRangeTb.c)
- *     HvlFlushRangeListTb @ 0x1403CB74C (HvlFlushRangeListTb.c)
- *     KiPrepareFlushParameters @ 0x1403CE3EC (KiPrepareFlushParameters.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     VmFlushTb @ 0x140465E8C (VmFlushTb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KiPrepareFlushCurrentAffinity @ 0x1405721B4 (KiPrepareFlushCurrentAffinity.c)
- *     ExFlushTb @ 0x14060D088 (ExFlushTb.c)
+ *     KiIsSecureProcessFlush @ 0x1402BBB70 (KiIsSecureProcessFlush.c)
+ *     HvlFlushRangeListTb @ 0x14038F85C (HvlFlushRangeListTb.c)
+ *     KiPrepareFlushParameters @ 0x14039062C (KiPrepareFlushParameters.c)
+ *     KiFlushRangeTb @ 0x1403C8F30 (KiFlushRangeTb.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KiPrepareFlushCurrentAffinity @ 0x140519A04 (KiPrepareFlushCurrentAffinity.c)
+ *     VmFlushTb @ 0x1405A268C (VmFlushTb.c)
+ *     ExFlushTb @ 0x1405B7158 (ExFlushTb.c)
  */
 
 char __fastcall KeFlushMultipleRangeCurrentTb(unsigned int a1, unsigned __int64 *a2, unsigned int a3)
@@ -21,50 +22,48 @@ char __fastcall KeFlushMultipleRangeCurrentTb(unsigned int a1, unsigned __int64 
   __int64 v5; // rdi
   unsigned __int64 v6; // rcx
   char result; // al
-  __int64 v8; // r8
-  char v9; // si
-  char v10; // bl
-  unsigned __int64 *v11; // rbx
-  __int64 v12; // rsi
-  int v13; // r8d
-  int v14; // r9d
+  char v8; // si
+  char v9; // bl
+  unsigned __int64 *v10; // rbx
+  __int64 v11; // rsi
+  int v12; // r8d
+  int v13; // r9d
   unsigned __int8 CurrentIrql; // bl
-  _DWORD *SchedulerAssist; // r9
-  __int64 v17; // rdx
-  unsigned __int8 v18; // al
+  _DWORD *SchedulerAssist; // r10
+  unsigned __int8 v16; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v20; // r8
-  int v21; // eax
-  bool v22; // zf
-  char v23[8]; // [rsp+40h] [rbp-158h] BYREF
-  __int64 v24; // [rsp+48h] [rbp-150h] BYREF
-  _BYTE v25[272]; // [rsp+50h] [rbp-148h] BYREF
+  _DWORD *v18; // r8
+  int v19; // eax
+  bool v20; // zf
+  char v21[8]; // [rsp+40h] [rbp-F8h] BYREF
+  unsigned __int64 v22; // [rsp+48h] [rbp-F0h] BYREF
+  _BYTE v23[176]; // [rsp+50h] [rbp-E8h] BYREF
 
-  v24 = 0LL;
+  v22 = 0LL;
   v5 = a1;
-  memset(v25, 0, 0x108uLL);
+  memset(v23, 0, 0xA8uLL);
   v6 = *a2;
-  v23[0] = 0;
+  v21[0] = 0;
   result = KiIsSecureProcessFlush(v6, a3);
-  v9 = result;
-  v10 = (HvlEnlightenments & 0x800000) != 0 && (HvlEnlightenments & 2) != 0;
-  if ( !result && !v10
-    || (KiPrepareFlushParameters(a3, &v24, v23),
-        KiPrepareFlushCurrentAffinity(v25),
-        LOBYTE(v13) = v23[0],
-        LOBYTE(v14) = v9,
-        (result = HvlFlushRangeListTb(v24, (unsigned int)v25, v13, v14, v10, v5, (__int64)a2)) == 0) )
+  v8 = result;
+  v9 = (HvlEnlightenments & 0x800000) != 0 && (HvlEnlightenments & 2) != 0;
+  if ( !result && !v9
+    || (KiPrepareFlushParameters(a3, &v22, v21),
+        KiPrepareFlushCurrentAffinity(v23),
+        LOBYTE(v12) = v21[0],
+        LOBYTE(v13) = v8,
+        (result = HvlFlushRangeListTb(v22, (__int64)v23, v12, v13, v9, v5, (__int64)a2)) == 0) )
   {
     if ( (_DWORD)v5 )
     {
-      v11 = a2;
-      v12 = v5;
+      v10 = a2;
+      v11 = v5;
       do
       {
-        result = KiFlushRangeTb(*v11++, a3, v8);
-        --v12;
+        result = KiFlushRangeTb(*v10++, a3);
+        --v11;
       }
-      while ( v12 );
+      while ( v11 );
     }
   }
   if ( VmTbFlushEnabled )
@@ -76,25 +75,24 @@ char __fastcall KeFlushMultipleRangeCurrentTb(unsigned int a1, unsigned __int64 
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == 15 )
-        LODWORD(v17) = 0x8000;
-      else
-        v17 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-      SchedulerAssist[5] |= v17;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
     }
     ExFlushTb((unsigned int)v5, a2, a3);
     if ( KiIrqlFlags )
     {
-      v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v20 = CurrentPrcb->SchedulerAssist;
-        v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v22 = (v21 & v20[5]) == 0;
-        v20[5] &= v21;
-        if ( v22 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v16 = KeGetCurrentIrql();
+        if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v18 = CurrentPrcb->SchedulerAssist;
+          v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v20 = (v19 & v18[5]) == 0;
+          v18[5] &= v19;
+          if ( v20 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     result = CurrentIrql;

@@ -1,14 +1,14 @@
 /*
- * XREFs of rimPopulateContactFrameData @ 0x1C01B1588
+ * XREFs of rimPopulateContactFrameData @ 0x1C017BE68
  * Callers:
- *     rimProcessPointerDeviceContact @ 0x1C01B2140 (rimProcessPointerDeviceContact.c)
+ *     rimProcessPointerDeviceContact @ 0x1C017C828 (rimProcessPointerDeviceContact.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ?PopulateContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4tagHPD_TYPE@@GAEBUtagPOINT@@PEBUtagPOINTEREVENTINT@@W4ContactPopulationSource@12@@Z @ 0x1C01ACA2C (-PopulateContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4tagHPD_TYPE@@GAEBUtagPOINT@@PEBUtagPOIN.c)
- *     rimExtractTransducerUsages @ 0x1C01AD584 (rimExtractTransducerUsages.c)
- *     rimExtractPointerDeviceUsages @ 0x1C01B00C4 (rimExtractPointerDeviceUsages.c)
- *     rimTransformGeometry @ 0x1C01B2990 (rimTransformGeometry.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ?PopulateContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4tagHPD_TYPE@@GAEBUtagPOINT@@PEBUtagPOINTEREVENTINT@@W4ContactPopulationSource@12@@Z @ 0x1C01772B4 (-PopulateContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4tagHPD_TYPE@@GAEBUtagPOINT@@PEBUtagPOIN.c)
+ *     rimExtractTransducerUsages @ 0x1C0177F3C (rimExtractTransducerUsages.c)
+ *     rimExtractPointerDeviceUsages @ 0x1C017AA10 (rimExtractPointerDeviceUsages.c)
+ *     rimTransformGeometry @ 0x1C017CF74 (rimTransformGeometry.c)
  */
 
 __int64 __fastcall rimPopulateContactFrameData(
@@ -26,133 +26,108 @@ __int64 __fastcall rimPopulateContactFrameData(
         int *a12,
         _QWORD *a13)
 {
-  __int64 v13; // rsi
-  __int64 v15; // r15
+  __int64 v13; // r15
+  __int64 v15; // rsi
   _DWORD *v16; // r13
-  __int64 v17; // r12
-  struct _HIDP_PREPARSED_DATA *v18; // rax
-  __int64 v19; // r14
-  __int64 v20; // rdi
-  int v21; // ebx
-  _DWORD *v22; // rax
-  __int64 v23; // rax
-  __int64 v24; // r8
-  unsigned int v25; // edi
-  unsigned int v26; // r9d
-  struct _HIDP_PREPARSED_DATA *v27; // rdx
+  struct _HIDP_PREPARSED_DATA *v17; // rax
+  __int64 v18; // rdi
+  int v19; // ebx
+  _DWORD *v20; // r12
+  _DWORD *v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // r8
+  unsigned int v24; // edi
+  unsigned int v25; // r9d
+  struct _HIDP_PREPARSED_DATA *v26; // rdx
+  int v27; // edx
   int PointerDeviceUsages; // ebx
-  int v29; // r8d
-  PDEVICE_OBJECT *v30; // rdx
-  bool v31; // zf
-  int v32; // r8d
-  PDEVICE_OBJECT *v33; // rdx
-  __int64 v35; // [rsp+B0h] [rbp+8h] BYREF
-  struct _HIDP_PREPARSED_DATA *v36; // [rsp+B8h] [rbp+10h]
-  char *v37; // [rsp+C0h] [rbp+18h]
-  unsigned int v38; // [rsp+C8h] [rbp+20h]
+  int v29; // r9d
+  bool v30; // zf
+  __int64 v32; // [rsp+B0h] [rbp+8h] BYREF
+  struct _HIDP_PREPARSED_DATA *v33; // [rsp+B8h] [rbp+10h]
+  char *v34; // [rsp+C0h] [rbp+18h]
+  unsigned int v35; // [rsp+C8h] [rbp+20h]
 
-  v38 = a4;
-  v37 = a3;
-  v35 = a1;
-  v13 = a7;
-  v15 = *(_QWORD *)(a2 + 472);
+  v35 = a4;
+  v34 = a3;
+  v32 = a1;
+  v13 = *(_QWORD *)(a2 + 480);
+  v15 = a7;
   v16 = a8;
-  v17 = a7 + 2344;
-  v18 = *(struct _HIDP_PREPARSED_DATA **)(*(_QWORD *)(a2 + 456) + 16LL);
-  v19 = a7 + 2400;
-  v20 = *(_QWORD *)(v15 + 864);
-  v21 = *(_DWORD *)(v15 + 836);
+  v17 = *(struct _HIDP_PREPARSED_DATA **)(*(_QWORD *)(a2 + 464) + 16LL);
+  v18 = *(_QWORD *)(v13 + 816);
+  v19 = *(_DWORD *)(v13 + 788);
+  v20 = (_DWORD *)(a7 + 2344);
   *(_DWORD *)(a7 + 2340) |= 2u;
-  v36 = v18;
-  v22 = a9;
+  v33 = v17;
+  v21 = a9;
   *v16 = 0;
-  *v22 = 0;
+  *v21 = 0;
   *a10 = 0;
   *a11 = 0;
-  *a13 = *(_QWORD *)(v13 + 36);
-  *a12 = (*(_DWORD *)(v13 + 8) >> 3) & 1;
-  memset((void *)(v13 + 2348), 0, 0xECuLL);
-  *(_DWORD *)v17 = *(_DWORD *)v13;
-  *(_DWORD *)(v17 + 48) = a6;
-  *(_WORD *)v19 = *(_WORD *)(v13 + 4);
-  *(_WORD *)(v19 + 2) = a5;
-  *(_DWORD *)(v19 + 72) = v21;
-  *(_QWORD *)(v19 + 88) = v20;
+  *a13 = *(_QWORD *)(v15 + 36);
+  *a12 = (*(_DWORD *)(v15 + 8) >> 3) & 1;
+  memset(v20, 0, 0xF0uLL);
+  *v20 = *(_DWORD *)v15;
+  v20[12] = a6;
+  *((_WORD *)v20 + 28) = *(_WORD *)(v15 + 4);
+  *((_WORD *)v20 + 29) = a5;
+  v20[32] = v19;
+  *((_QWORD *)v20 + 18) = v18;
   if ( (*(_DWORD *)(a2 + 184) & 0x2000) != 0 )
-    v23 = *(_QWORD *)(a2 + 24);
+    v22 = *(_QWORD *)(a2 + 24);
   else
-    v23 = *(_QWORD *)(a2 + 16);
+    v22 = *(_QWORD *)(a2 + 16);
+  v23 = v32;
   v24 = v35;
-  v25 = v38;
-  v26 = v38;
-  v27 = v36;
-  *(_QWORD *)(v19 + 24) = v23;
+  v25 = v35;
+  v26 = v33;
+  *((_QWORD *)v20 + 10) = v22;
   PointerDeviceUsages = rimExtractPointerDeviceUsages(
-                          v15,
-                          v27,
-                          v37,
+                          v13,
                           v26,
-                          *(_QWORD *)(v24 + 864) == 0LL,
-                          *(unsigned __int8 *)(v24 + 1073),
-                          v17,
+                          v34,
+                          v25,
+                          *(_QWORD *)(v23 + 640) == 0LL,
+                          *(unsigned __int8 *)(v23 + 849),
+                          (__int64)v20,
                           v16,
                           a9,
                           a10,
                           a11);
   if ( PointerDeviceUsages >= 0 )
   {
-    v31 = *v16 == 0;
-    v35 = *(_QWORD *)(v17 + 4);
-    if ( v31 )
+    v30 = *v16 == 0;
+    v32 = *(_QWORD *)(v20 + 1);
+    if ( v30 )
     {
-      *(_DWORD *)(v13 + 2340) ^= (*(_DWORD *)(v13 + 2340) ^ ~(*(_DWORD *)(v19 + 20) >> 22)) & 4;
-      rimTransformGeometry((struct tagHID_POINTER_DEVICE_INFO *)v15, (__int64)a12);
+      *(_DWORD *)(v15 + 2340) ^= (*(_DWORD *)(v15 + 2340) ^ ~(v20[19] >> 22)) & 4;
+      rimTransformGeometry((struct tagHID_POINTER_DEVICE_INFO *)v13, (__int64)a12);
     }
-    if ( (unsigned int)(*(_DWORD *)(v15 + 24) - 5) > 1
-      || (PointerDeviceUsages = rimExtractTransducerUsages(a2, a5, v37, v25, v13), PointerDeviceUsages >= 0) )
+    if ( (unsigned int)(*(_DWORD *)(v13 + 24) - 5) > 1
+      || (PointerDeviceUsages = rimExtractTransducerUsages(a2, a5, v34, v24, v15), PointerDeviceUsages >= 0) )
     {
-      InputTraceLogging::RIM::PopulateContact(a2, *(_DWORD *)(v15 + 24), *(_WORD *)v19, (__int64)&v35, v19, 0);
+      InputTraceLogging::RIM::PopulateContact(
+        a2,
+        *(_DWORD *)(v13 + 24),
+        *((_WORD *)v20 + 28),
+        (__int64)&v32,
+        (__int64)(v20 + 14),
+        0);
+      return (unsigned int)PointerDeviceUsages;
     }
-    else
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v33 = &WPP_GLOBAL_Control;
-      LOBYTE(v33) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                 && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( (_BYTE)v33 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v32) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          (_DWORD)v33,
-          v32,
-          (_DWORD)gRimLog,
-          4,
-          1,
-          59,
-          (__int64)&WPP_1efb6e2ef4cb3417e9748b712cab1da4_Traceguids);
-      }
+      v29 = 59;
+      goto LABEL_7;
     }
   }
-  else
+  else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v30 = &WPP_GLOBAL_Control;
-    LOBYTE(v30) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-               && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-               && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v30 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v29) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        (_DWORD)v30,
-        v29,
-        (_DWORD)gRimLog,
-        4,
-        1,
-        58,
-        (__int64)&WPP_1efb6e2ef4cb3417e9748b712cab1da4_Traceguids);
-    }
+    v29 = 58;
+LABEL_7:
+    LOBYTE(v27) = 4;
+    WPP_RECORDER_SF_((_DWORD)gRimLog, v27, 1, v29, (__int64)&WPP_fa968752f5ee31807da3aa7ca7449649_Traceguids);
   }
   return (unsigned int)PointerDeviceUsages;
 }

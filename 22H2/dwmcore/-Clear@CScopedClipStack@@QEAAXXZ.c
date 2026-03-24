@@ -1,101 +1,70 @@
 /*
- * XREFs of ?Clear@CScopedClipStack@@QEAAXXZ @ 0x18003C8A0
+ * XREFs of ?Clear@CScopedClipStack@@QEAAXXZ @ 0x18008E388
  * Callers:
- *     ??1CScopedClipStack@@QEAA@XZ @ 0x18003C814 (--1CScopedClipStack@@QEAA@XZ.c)
+ *     ??1CDrawingContext@@EEAA@XZ @ 0x18003E1F4 (--1CDrawingContext@@EEAA@XZ.c)
+ *     ?PopAllStacks@CDrawingContext@@AEAAXXZ @ 0x18008E0D4 (-PopAllStacks@CDrawingContext@@AEAAXXZ.c)
  * Callees:
- *     ?clear@?$vector_facade@UClippingScopeState@CScopedClipStack@@V?$buffer_impl@UClippingScopeState@CScopedClipStack@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x18003C98C (-clear@-$vector_facade@UClippingScopeState@CScopedClipStack@@V-$buffer_impl@UClippingScopeState@.c)
- *     ?clear@?$vector_facade@UCpuClipStackState@CScopedClipStack@@V?$buffer_impl@UCpuClipStackState@CScopedClipStack@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x18003C9B8 (-clear@-$vector_facade@UCpuClipStackState@CScopedClipStack@@V-$buffer_impl@UCpuClipStackState@CS.c)
- *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x180048AEC (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x1800421E0 (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800BFE98 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?FreeCpuClipStackState@CScopedClipStack@@AEAAXPEAUCpuClipStackState@1@@Z @ 0x18018E960 (-FreeCpuClipStackState@CScopedClipStack@@AEAAXPEAUCpuClipStackState@1@@Z.c)
  */
 
 void __fastcall CScopedClipStack::Clear(CScopedClipStack *this)
 {
-  int v2; // edi
-  int v3; // eax
-  __int64 v4; // rsi
+  __int64 v2; // rcx
+  __int64 v3; // rdi
+  int v4; // eax
   int v5; // eax
-  int v6; // eax
+  unsigned int v6; // edi
   unsigned int v7; // eax
-  __int64 v8; // rbp
-  unsigned int v9; // eax
-  int v10; // eax
-  unsigned int v11; // ecx
-  int v12; // eax
-  unsigned int v13; // ecx
-  void *v14; // [rsp+40h] [rbp+8h] BYREF
+  int v8; // eax
+  __int64 v9; // rcx
+  void *v10; // [rsp+40h] [rbp+8h] BYREF
 
-  detail::vector_facade<CScopedClipStack::ClippingScopeState,detail::buffer_impl<CScopedClipStack::ClippingScopeState,10,1,detail::liberal_expansion_policy>>::clear(this);
-  detail::vector_facade<CScopedClipStack::CpuClipStackState,detail::buffer_impl<CScopedClipStack::CpuClipStackState,10,1,detail::liberal_expansion_policy>>::clear((char *)this + 1864);
-  v2 = 0;
-  *((_DWORD *)this + 580) = 0;
-  v3 = *((_DWORD *)this + 582);
-  v4 = 8LL;
-  if ( v3 == 8 )
+  *((_DWORD *)this + 6) = 0;
+  DynArrayImpl<0>::ShrinkToSize(this, 84LL);
+  *((_DWORD *)this + 566) = 0;
+  v3 = 8LL;
+  v4 = *((_DWORD *)this + 568);
+  if ( v4 == 8 )
   {
-    v7 = *((_DWORD *)this + 586);
-    v8 = 8LL;
+    v7 = *((_DWORD *)this + 572);
+    v2 = 0xFFFFFFFFLL;
     if ( v7 > 8 )
-      v8 = v7;
-    if ( (unsigned __int64)(3 * v8) > 0xFFFFFFFF )
+      v3 = v7;
+    if ( (unsigned __int64)(3 * v3) > 0xFFFFFFFF )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(0xFFFFFFFF, 0LL, 0, -2147024362, 0x106u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(0xFFFFFFFFLL, 0LL, 0, -2147024362, 0xEEu, 0LL);
     }
-    else if ( (unsigned int)(3 * v8) <= *((_DWORD *)this + 581) )
+    else if ( (unsigned int)(3 * v3) <= *((_DWORD *)this + 567) )
     {
-      v14 = 0LL;
-      v10 = HrMalloc(0x10uLL, (unsigned int)v8, &v14);
-      if ( v10 >= 0 )
+      v10 = 0LL;
+      v8 = HrMalloc(0x10uLL, (unsigned int)v3, &v10);
+      if ( v8 >= 0 )
       {
-        operator delete(*((void **)this + 292));
-        *((_QWORD *)this + 292) = v14;
-        *((_DWORD *)this + 581) = v8;
+        operator delete(*((void **)this + 285));
+        *((_QWORD *)this + 285) = v10;
+        *((_DWORD *)this + 567) = v3;
       }
       else
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x116u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xFEu, 0LL);
       }
     }
-    *((_DWORD *)this + 586) = 0;
+    *((_DWORD *)this + 572) = 0;
     v5 = 0;
   }
   else
   {
-    v5 = v3 + 1;
+    v5 = v4 + 1;
   }
-  *((_DWORD *)this + 582) = v5;
-  *((_DWORD *)this + 572) = 0;
-  v6 = *((_DWORD *)this + 574);
-  if ( v6 == 8 )
-  {
-    v9 = *((_DWORD *)this + 578);
-    if ( v9 > 8 )
-      v4 = v9;
-    if ( (unsigned __int64)(3 * v4) > 0xFFFFFFFF )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(0xFFFFFFFF, 0LL, 0, -2147024362, 0x106u, 0LL);
-    }
-    else if ( (unsigned int)(3 * v4) <= *((_DWORD *)this + 573) )
-    {
-      v14 = 0LL;
-      v12 = HrMalloc(0x10uLL, (unsigned int)v4, &v14);
-      if ( v12 >= 0 )
-      {
-        operator delete(*((void **)this + 288));
-        *((_QWORD *)this + 288) = v14;
-        *((_DWORD *)this + 573) = v4;
-      }
-      else
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x116u, 0LL);
-      }
-    }
-    *((_DWORD *)this + 578) = 0;
-  }
-  else
-  {
-    v2 = v6 + 1;
-  }
-  *((_DWORD *)this + 574) = v2;
+  v6 = 0;
+  for ( *((_DWORD *)this + 568) = v5; v6 < *((_DWORD *)this + 224); ++v6 )
+    CScopedClipStack::FreeCpuClipStackState(
+      (CScopedClipStack *)v2,
+      (struct CScopedClipStack::CpuClipStackState *)(*((_QWORD *)this + 109) + 136LL * v6));
+  *((_DWORD *)this + 224) = 0;
+  DynArrayImpl<0>::ShrinkToSize((char *)this + 872, 136LL);
 }

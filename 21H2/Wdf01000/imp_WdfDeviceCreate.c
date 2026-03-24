@@ -1,15 +1,15 @@
 /*
- * XREFs of imp_WdfDeviceCreate @ 0x1C0023A20
+ * XREFs of imp_WdfDeviceCreate @ 0x1C00478E0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C00062C0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAV1@@Z @ 0x1C0023B1C (-_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000A0E0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ?_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAV1@@Z @ 0x1C0052C94 (-_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 __int64 __fastcall imp_WdfDeviceCreate(
@@ -18,24 +18,24 @@ __int64 __fastcall imp_WdfDeviceCreate(
         _WDF_OBJECT_ATTRIBUTES *DeviceAttributes,
         WDFDEVICE__ **Device)
 {
-  _FX_DRIVER_GLOBALS *v4; // rcx
+  _FX_DRIVER_GLOBALS *DriverName; // rcx
   _FX_DRIVER_GLOBALS *v8; // rbx
   __int64 result; // rax
   WDFDEVICE_INIT *v10; // rdx
-  int v11; // edx
-  unsigned int v12; // edi
-  unsigned __int16 v13; // r9
+  unsigned int v11; // edi
+  unsigned __int16 v12; // r9
+  int v13; // edx
   void *retaddr; // [rsp+48h] [rbp+0h]
   FxDevice *pDevice; // [rsp+50h] [rbp+8h] BYREF
 
-  v4 = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
   pDevice = 0LL;
   if ( !DeviceInit )
-    FxVerifierNullBugCheck(v4, retaddr);
+    FxVerifierNullBugCheck(DriverName, retaddr);
   if ( !*DeviceInit )
-    FxVerifierNullBugCheck(v4, retaddr);
+    FxVerifierNullBugCheck(DriverName, retaddr);
   if ( !Device )
-    FxVerifierNullBugCheck(v4, retaddr);
+    FxVerifierNullBugCheck(DriverName, retaddr);
   v8 = (*DeviceInit)->DriverGlobals;
   *Device = 0LL;
   result = FxVerifierCheckIrqlLevel(v8, 0);
@@ -54,30 +54,30 @@ __int64 __fastcall imp_WdfDeviceCreate(
         && !v10->DeviceName
         && (v10->Characteristics & 0x80u) == 0 )
       {
-        v12 = -1073741703;
-        v13 = 26;
-LABEL_26:
-        WPP_IFR_SF_d(v8, 2u, 0x12u, v13, WPP_FxDeviceApi_cpp_Traceguids, v12);
-        return v12;
+        v11 = -1073741703;
+        v12 = 26;
+LABEL_20:
+        WPP_IFR_SF_d(v8, 2u, 0x12u, v12, WPP_FxDeviceApi_cpp_Traceguids, v11);
+        return v11;
       }
       if ( v10->RequiresSelfIoTarget && v10->InitType )
       {
-        v13 = 27;
-LABEL_25:
-        v12 = -1073741808;
-        goto LABEL_26;
+        v12 = 27;
+LABEL_19:
+        v11 = -1073741808;
+        goto LABEL_20;
       }
       if ( v10->Pdo.NoPowerDependencyOnParent
         && v10->Pdo.EventCallbacks.Size
         && (v10->Pdo.EventCallbacks.EvtDeviceEnableWakeAtBus || v10->Pdo.EventCallbacks.EvtDeviceDisableWakeAtBus) )
       {
-        v13 = 28;
-        goto LABEL_25;
+        v12 = 28;
+        goto LABEL_19;
       }
-      v11 = FxDevice::_Create(v8, DeviceInit, DeviceAttributes, &pDevice);
-      if ( v11 >= 0 )
+      v13 = FxDevice::_Create(v8, DeviceInit, DeviceAttributes, &pDevice);
+      if ( v13 >= 0 )
         *Device = (WDFDEVICE__ *)FxObject::GetObjectHandleUnchecked(pDevice);
-      return (unsigned int)v11;
+      return (unsigned int)v13;
     }
   }
   return result;

@@ -1,9 +1,9 @@
 /*
- * XREFs of __local_stdio_scanf_options @ 0x18010EED4
+ * XREFs of __local_stdio_scanf_options @ 0x1800E6AF4
  * Callers:
- *     initialize_legacy_wide_specifiers @ 0x18010EEA0 (initialize_legacy_wide_specifiers.c)
- *     initialize_msvcrt_compatibility @ 0x18010EEF0 (initialize_msvcrt_compatibility.c)
- *     __scrt_initialize_default_local_stdio_options @ 0x18010FF88 (__scrt_initialize_default_local_stdio_options.c)
+ *     initialize_legacy_wide_specifiers @ 0x1800E6AD0 (initialize_legacy_wide_specifiers.c)
+ *     initialize_msvcrt_compatibility @ 0x1800E6B10 (initialize_msvcrt_compatibility.c)
+ *     __scrt_initialize_default_local_stdio_options @ 0x1800E7C88 (__scrt_initialize_default_local_stdio_options.c)
  * Callees:
  *     <none>
  */

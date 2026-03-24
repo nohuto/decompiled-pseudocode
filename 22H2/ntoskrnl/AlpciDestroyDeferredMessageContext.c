@@ -1,31 +1,40 @@
 /*
- * XREFs of AlpciDestroyDeferredMessageContext @ 0x140726790
+ * XREFs of AlpciDestroyDeferredMessageContext @ 0x1405E4110
  * Callers:
- *     ExpWorkerFactoryFinishDeferredWork @ 0x1402A9020 (ExpWorkerFactoryFinishDeferredWork.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x140203110 (NtWaitForWorkViaWorkerFactory.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
  */
 
-_QWORD *__fastcall AlpciDestroyDeferredMessageContext(__int64 a1)
+char __fastcall AlpciDestroyDeferredMessageContext(struct _DMA_ADAPTER **a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  void *v3; // rcx
-  void *v4; // rcx
+  struct _DMA_ADAPTER *v3; // rcx
+  struct _DMA_ADAPTER *v4; // rcx
+  struct _KTHREAD *v5; // rax
+  $C459BD0D405E8E46662177FB3D0A143F *v7; // rcx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v3 = *(void **)a1;
+  v3 = *a1;
   if ( v3 )
   {
-    ObfDereferenceObject(v3);
-    *(_QWORD *)a1 = 0LL;
+    HalPutDmaAdapter(v3);
+    *a1 = 0LL;
   }
-  v4 = *(void **)(a1 + 8);
+  v4 = a1[1];
   if ( v4 )
   {
-    ObfDereferenceObject(v4);
-    *(_QWORD *)(a1 + 8) = 0LL;
+    HalPutDmaAdapter(v4);
+    a1[1] = 0LL;
   }
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  v5 = KeGetCurrentThread();
+  if ( v5->KernelApcDisable++ == -1 )
+  {
+    v7 = &v5->152;
+    if ( ($C459BD0D405E8E46662177FB3D0A143F *)v7->ApcState.ApcListHead[0].Flink != v7 && !v5->SpecialApcDisable )
+      LOBYTE(v5) = KiCheckForKernelApcDelivery((__int64)v7);
+  }
+  return (char)v5;
 }

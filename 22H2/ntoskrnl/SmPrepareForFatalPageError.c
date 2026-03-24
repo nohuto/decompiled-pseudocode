@@ -1,17 +1,17 @@
 /*
- * XREFs of SmPrepareForFatalPageError @ 0x1405CD894
+ * XREFs of SmPrepareForFatalPageError @ 0x14059FCE8
  * Callers:
- *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x1405C6014 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
+ *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x14059B814 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     KeRegisterBugCheckReasonCallback @ 0x140354470 (KeRegisterBugCheckReasonCallback.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14039DF60 (KeRegisterBugCheckReasonCallback.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SmPrepareForFatalPageError(
@@ -24,14 +24,14 @@ __int64 __fastcall SmPrepareForFatalPageError(
         int a7,
         PVOID BaseAddress)
 {
-  __int64 v9; // rsi
+  struct _MDL *v9; // rsi
   char *v10; // r14
   int v11; // r12d
   __int64 v12; // rbx
-  struct _KBUGCHECK_REASON_CALLBACK_RECORD *Pool2; // r15
+  struct _KBUGCHECK_REASON_CALLBACK_RECORD *PoolWithTag; // r15
   unsigned int v14; // ebx
   unsigned __int64 v15; // rbx
-  __int64 v16; // rax
+  struct _MDL *v16; // rax
   unsigned __int64 v17; // r13
   __int64 v18; // rcx
   PHYSICAL_ADDRESS v19; // rax
@@ -41,30 +41,33 @@ __int64 __fastcall SmPrepareForFatalPageError(
   v10 = 0LL;
   v11 = 0;
   v12 = a2;
-  Pool2 = (struct _KBUGCHECK_REASON_CALLBACK_RECORD *)ExAllocatePool2(64LL, a2 + 104LL, 1348627827LL);
-  if ( !Pool2 )
+  PoolWithTag = (struct _KBUGCHECK_REASON_CALLBACK_RECORD *)ExAllocatePoolWithTag(
+                                                              NonPagedPoolNx,
+                                                              a2 + 104LL,
+                                                              0x50626D73u);
+  if ( !PoolWithTag )
     goto LABEL_2;
   v21 = a1;
   v15 = ((unsigned __int64)(a1 & 0xFFF) + v12 + 4095) >> 12;
-  v16 = ExAllocatePool2(64LL, 8 * v15 + 48, 1346530675LL);
+  v16 = (struct _MDL *)ExAllocatePoolWithTag(NonPagedPoolNx, 8 * v15 + 48, 0x50426D73u);
   v9 = v16;
   if ( !v16 )
     goto LABEL_2;
-  *(_QWORD *)v16 = 0LL;
-  *(_WORD *)(v16 + 8) = 8 * (v15 + 6);
-  *(_WORD *)(v16 + 10) = 0;
-  *(_QWORD *)(v16 + 32) = a1 & 0xFFFFFFFFFFFFF000uLL;
-  *(_DWORD *)(v16 + 44) = a1 & 0xFFF;
-  *(_DWORD *)(v16 + 40) = a2;
-  MiProbeAndLockPages(v16, 0, 0);
+  v16->Next = 0LL;
+  v16->Size = 8 * (v15 + 6);
+  v16->MdlFlags = 0;
+  v16->StartVa = (PVOID)(a1 & 0xFFFFFFFFFFFFF000uLL);
+  v16->ByteOffset = a1 & 0xFFF;
+  v16->ByteCount = a2;
+  MiProbeAndLockPages((__int64)v16, 0, 0);
   v11 = 1;
-  v10 = (*(_BYTE *)(v9 + 10) & 5) != 0
-      ? *(char **)(v9 + 24)
-      : (char *)MmMapLockedPagesSpecifyCache((PMDL)v9, 0, MmCached, 0LL, 0, 0x40000020u);
+  v10 = (char *)((v9->MdlFlags & 5) != 0
+               ? v9->MappedSystemVa
+               : MmMapLockedPagesSpecifyCache(v9, 0, MmCached, 0LL, 0, 0x40000020u));
   if ( !v10 )
     goto LABEL_2;
-  v17 = ((unsigned __int64)&Pool2[1].Entry.Flink + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-  Pool2->State = 0;
+  v17 = ((unsigned __int64)&PoolWithTag[1].Entry.Flink + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+  PoolWithTag->State = 0;
   *(_QWORD *)(v17 + 32) = 0LL;
   *(_QWORD *)(v17 + 40) = 0LL;
   *(_QWORD *)(v17 + 48) = 0LL;
@@ -85,12 +88,12 @@ __int64 __fastcall SmPrepareForFatalPageError(
   *(_QWORD *)(v17 + 48) = MmGetPhysicalAddress(BaseAddress).QuadPart / 4096;
   memmove((void *)(v17 + 56), v10, a2);
   if ( KeRegisterBugCheckReasonCallback(
-         Pool2,
+         PoolWithTag,
          (PKBUGCHECK_REASON_CALLBACK_ROUTINE)SmFatalPageErrorDumpCallback,
          KbCallbackSecondaryDumpData,
          (PUCHAR)"nt!store memory compression") )
   {
-    Pool2 = 0LL;
+    PoolWithTag = 0LL;
     v14 = 0;
   }
   else
@@ -99,12 +102,12 @@ LABEL_2:
     v14 = -1073741670;
   }
   if ( v10 )
-    MmUnmapLockedPages(v10, (PMDL)v9);
+    MmUnmapLockedPages(v10, v9);
   if ( v11 )
-    MmUnlockPages((PMDL)v9);
+    MmUnlockPages(v9);
   if ( v9 )
-    ExFreePoolWithTag((PVOID)v9, 0);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(v9, 0);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   return v14;
 }

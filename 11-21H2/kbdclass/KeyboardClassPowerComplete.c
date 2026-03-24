@@ -1,1 +1,129 @@
-/*\n * XREFs of KeyboardClassPowerComplete @ 0x1C0001180\n * Callers:\n *     <none>\n * Callees:\n *     WPP_RECORDER_SF_qq @ 0x1C0001480 (WPP_RECORDER_SF_qq.c)\n */\n\n__int64 __fastcall KeyboardClassPowerComplete(__int64 a1, IRP *a2)\n{\n  struct _IO_STACK_LOCATION *CurrentStackLocation; // r15\n  __int64 v4; // rsi\n  char v6; // bl\n  UCHAR MinorFunction; // al\n  ULONG Options; // edx\n  POWER_STATE v9; // edi\n  struct _DEVICE_OBJECT *v10; // rcx\n  NTSTATUS v11; // eax\n  PIRP Irp; // rax\n  IRP *v14; // rdi\n  struct _FILE_OBJECT *FileObject; // r8\n  __int64 v16; // rdx\n  struct _IO_STACK_LOCATION *v17; // rax\n  struct _IO_STACK_LOCATION *v18; // rax\n  IRP *v19; // r15\n  int Context; // [rsp+20h] [rbp-48h]\n\n  CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;\n  v4 = *(_QWORD *)(a1 + 64);\n  v6 = 1;\n  MinorFunction = CurrentStackLocation->MinorFunction;\n  Options = CurrentStackLocation->Parameters.Create.Options;\n  v9.SystemState = (SYSTEM_POWER_STATE)CurrentStackLocation->Parameters.Power.State;\n  if ( MinorFunction )\n  {\n    if ( MinorFunction == 2 )\n    {\n      if ( Options )\n      {\n        if ( Options == 1 )\n        {\n          PoSetPowerState(*(PDEVICE_OBJECT *)v4, DevicePowerState, v9);\n          *(POWER_STATE *)(v4 + 188) = v9;\n          Irp = IoAllocateIrp(*(_BYTE *)(a1 + 76), 0);\n          v14 = Irp;\n          if ( Irp )\n          {\n            if ( IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), Irp, File, 1u, 0x20u) < 0 )\n            {\n              IoFreeIrp(v14);\n            }\n            else\n            {\n              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n                WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 4, 4, 100, Context, a1, (char)v14);\n              if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )\n              {\n                v16 = *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 156LL;\n                FileObject = (struct _FILE_OBJECT *)*((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine\n                                                    + 3 * *(unsigned int *)(v4 + 196));\n              }\n              else\n              {\n                FileObject = CurrentStackLocation->FileObject;\n                v16 = v4 + 156;\n              }\n              v17 = v14->Tail.Overlay.CurrentStackLocation;\n              v17[-1].MajorFunction = 15;\n              v17[-1].Parameters.Read.ByteOffset.LowPart = 720904;\n              v17[-1].Parameters.Create.Options = 4;\n              v17[-1].Parameters.Read.Length = 0;\n              v17[-1].FileObject = FileObject;\n              v18 = v14->Tail.Overlay.CurrentStackLocation;\n              v18[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)&KeyboardClassSetLedsComplete;\n              v18[-1].Context = (PVOID)v4;\n              v18[-1].Control = -32;\n              v14->AssociatedIrp.MasterIrp = (struct _IRP *)v16;\n              v19 = (IRP *)_InterlockedExchange64((volatile __int64 *)(v4 + 368), 0LL);\n              if ( v19 )\n              {\n                if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n                  WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 4, 4, 89, Context, *(_QWORD *)v4, (char)v19);\n                IoCancelIrp(v19);\n                if ( _InterlockedExchange((volatile __int32 *)(v4 + 376), 2) == 3 )\n                {\n                  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n                    WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 4, 4, 90, Context, *(_QWORD *)v4, (char)v19);\n                  IoFreeIrp(v19);\n                }\n              }\n              _InterlockedExchange64((volatile __int64 *)(v4 + 368), (__int64)v14);\n              _InterlockedExchange((volatile __int32 *)(v4 + 376), 1);\n              IofCallDriver(*(PDEVICE_OBJECT *)(v4 + 16), v14);\n            }\n          }\n        }\n      }\n      else\n      {\n        PoSetPowerState(*(PDEVICE_OBJECT *)v4, SystemPowerState, v9);\n        v10 = *(struct _DEVICE_OBJECT **)v4;\n        *(POWER_STATE *)(v4 + 192) = v9;\n        v11 = PoRequestPowerIrp(\n                v10,\n                2u,\n                (POWER_STATE)1,\n                (PREQUEST_POWER_COMPLETE)KeyboardClassPoRequestComplete,\n                0LL,\n                0LL);\n        if ( v11 < 0 )\n          a2->IoStatus.Status = v11;\n      }\n      PoStartNextPowerIrp(a2);\nLABEL_7:\n      IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), a2, 0x20u);\n      return 0LL;\n    }\nLABEL_18:\n    PoStartNextPowerIrp(a2);\n    if ( !v6 )\n      return 0LL;\n    goto LABEL_7;\n  }\n  v6 = 0;\n  if ( a2 != *(IRP **)(v4 + 296) || _InterlockedExchange((volatile __int32 *)(v4 + 320), 3) != 1 )\n    goto LABEL_18;\n  PoStartNextPowerIrp(a2);\n  return 3221225494LL;\n}\n
+/*
+ * XREFs of KeyboardClassPowerComplete @ 0x1C0001180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qq @ 0x1C0001480 (WPP_RECORDER_SF_qq.c)
+ */
+
+__int64 __fastcall KeyboardClassPowerComplete(__int64 a1, IRP *a2)
+{
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // r15
+  __int64 v4; // rsi
+  char v6; // bl
+  UCHAR MinorFunction; // al
+  ULONG Options; // edx
+  POWER_STATE v9; // edi
+  struct _DEVICE_OBJECT *v10; // rcx
+  NTSTATUS v11; // eax
+  PIRP Irp; // rax
+  IRP *v14; // rdi
+  struct _FILE_OBJECT *FileObject; // r8
+  __int64 v16; // rdx
+  struct _IO_STACK_LOCATION *v17; // rax
+  struct _IO_STACK_LOCATION *v18; // rax
+  IRP *v19; // r15
+  int Context; // [rsp+20h] [rbp-48h]
+
+  CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
+  v4 = *(_QWORD *)(a1 + 64);
+  v6 = 1;
+  MinorFunction = CurrentStackLocation->MinorFunction;
+  Options = CurrentStackLocation->Parameters.Create.Options;
+  v9.SystemState = (SYSTEM_POWER_STATE)CurrentStackLocation->Parameters.Power.State;
+  if ( MinorFunction )
+  {
+    if ( MinorFunction == 2 )
+    {
+      if ( Options )
+      {
+        if ( Options == 1 )
+        {
+          PoSetPowerState(*(PDEVICE_OBJECT *)v4, DevicePowerState, v9);
+          *(POWER_STATE *)(v4 + 188) = v9;
+          Irp = IoAllocateIrp(*(_BYTE *)(a1 + 76), 0);
+          v14 = Irp;
+          if ( Irp )
+          {
+            if ( IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), Irp, File, 1u, 0x20u) < 0 )
+            {
+              IoFreeIrp(v14);
+            }
+            else
+            {
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 4, 4, 100, Context, a1, (char)v14);
+              if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
+              {
+                v16 = *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 156LL;
+                FileObject = (struct _FILE_OBJECT *)*((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine
+                                                    + 3 * *(unsigned int *)(v4 + 196));
+              }
+              else
+              {
+                FileObject = CurrentStackLocation->FileObject;
+                v16 = v4 + 156;
+              }
+              v17 = v14->Tail.Overlay.CurrentStackLocation;
+              v17[-1].MajorFunction = 15;
+              v17[-1].Parameters.Read.ByteOffset.LowPart = 720904;
+              v17[-1].Parameters.Create.Options = 4;
+              v17[-1].Parameters.Read.Length = 0;
+              v17[-1].FileObject = FileObject;
+              v18 = v14->Tail.Overlay.CurrentStackLocation;
+              v18[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)&KeyboardClassSetLedsComplete;
+              v18[-1].Context = (PVOID)v4;
+              v18[-1].Control = -32;
+              v14->AssociatedIrp.MasterIrp = (struct _IRP *)v16;
+              v19 = (IRP *)_InterlockedExchange64((volatile __int64 *)(v4 + 368), 0LL);
+              if ( v19 )
+              {
+                if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                  WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 4, 4, 89, Context, *(_QWORD *)v4, (char)v19);
+                IoCancelIrp(v19);
+                if ( _InterlockedExchange((volatile __int32 *)(v4 + 376), 2) == 3 )
+                {
+                  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                    WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 4, 4, 90, Context, *(_QWORD *)v4, (char)v19);
+                  IoFreeIrp(v19);
+                }
+              }
+              _InterlockedExchange64((volatile __int64 *)(v4 + 368), (__int64)v14);
+              _InterlockedExchange((volatile __int32 *)(v4 + 376), 1);
+              IofCallDriver(*(PDEVICE_OBJECT *)(v4 + 16), v14);
+            }
+          }
+        }
+      }
+      else
+      {
+        PoSetPowerState(*(PDEVICE_OBJECT *)v4, SystemPowerState, v9);
+        v10 = *(struct _DEVICE_OBJECT **)v4;
+        *(POWER_STATE *)(v4 + 192) = v9;
+        v11 = PoRequestPowerIrp(
+                v10,
+                2u,
+                (POWER_STATE)1,
+                (PREQUEST_POWER_COMPLETE)KeyboardClassPoRequestComplete,
+                0LL,
+                0LL);
+        if ( v11 < 0 )
+          a2->IoStatus.Status = v11;
+      }
+      PoStartNextPowerIrp(a2);
+LABEL_7:
+      IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), a2, 0x20u);
+      return 0LL;
+    }
+LABEL_18:
+    PoStartNextPowerIrp(a2);
+    if ( !v6 )
+      return 0LL;
+    goto LABEL_7;
+  }
+  v6 = 0;
+  if ( a2 != *(IRP **)(v4 + 296) || _InterlockedExchange((volatile __int32 *)(v4 + 320), 3) != 1 )
+    goto LABEL_18;
+  PoStartNextPowerIrp(a2);
+  return 3221225494LL;
+}

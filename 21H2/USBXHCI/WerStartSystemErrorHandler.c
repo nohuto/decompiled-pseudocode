@@ -1,9 +1,9 @@
 /*
- * XREFs of WerStartSystemErrorHandler @ 0x1C00523E0
+ * XREFs of WerStartSystemErrorHandler @ 0x1C00517E0
  * Callers:
- *     WerKernelSubmitReport @ 0x1C0051E18 (WerKernelSubmitReport.c)
+ *     WerKernelSubmitReport @ 0x1C005121C (WerKernelSubmitReport.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
  */
 
 __int64 WerStartSystemErrorHandler()

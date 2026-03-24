@@ -1,11 +1,11 @@
 /*
- * XREFs of ?TryTargetNextBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x1801EE130
+ * XREFs of ?TryTargetNextBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x1801880A8
  * Callers:
- *     ?Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801EDC04 (-Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EDB10 (-Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x1801ECA1C (-CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ.c)
- *     ?GetNextBufferIndexAvailable@CCaptureRenderTarget@@IEAAHXZ @ 0x1801ED480 (-GetNextBufferIndexAvailable@CCaptureRenderTarget@@IEAAHXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetNextBufferIndexAvailable@CCaptureRenderTarget@@IEAAHXZ @ 0x1800EDA70 (-GetNextBufferIndexAvailable@CCaptureRenderTarget@@IEAAHXZ.c)
+ *     ?CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x1801874B4 (-CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ.c)
  */
 
 __int64 __fastcall CCaptureRenderTarget::TryTargetNextBuffer(CCaptureRenderTarget *this)
@@ -19,11 +19,11 @@ __int64 __fastcall CCaptureRenderTarget::TryTargetNextBuffer(CCaptureRenderTarge
   NextBufferIndexAvailable = CCaptureRenderTarget::GetNextBufferIndexAvailable(this);
   if ( NextBufferIndexAvailable >= 0 )
   {
-    *((_DWORD *)this + 484) = NextBufferIndexAvailable;
+    *((_DWORD *)this + 486) = NextBufferIndexAvailable;
     RenderTargetForFrameBuffer = CCaptureRenderTarget::CreateRenderTargetForFrameBuffer(this);
     v2 = RenderTargetForFrameBuffer;
     if ( RenderTargetForFrameBuffer < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, RenderTargetForFrameBuffer, 0x307u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, RenderTargetForFrameBuffer, 0x299u, 0LL);
   }
   return v2;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of CreateMegaRectVertex @ 0x180041FC0
+ * XREFs of CreateMegaRectVertex @ 0x18006AB60
  * Callers:
- *     ?UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z @ 0x180041A38 (-UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z.c)
+ *     ?UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z @ 0x18006A5AC (-UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z.c)
  * Callees:
  *     <none>
  */
@@ -34,8 +34,8 @@ __int64 __fastcall CreateMegaRectVertex(__int64 a1, __int64 *a2, unsigned int a3
   v7 = *((int *)a2 + 2);
   *(_QWORD *)a4 = a1;
   v8 = v5 + v7;
-  v9 = v5 + 3 * (int)v7;
-  v10 = (float *)(v5 + 2 * (int)v7);
+  v9 = v5 + 2 * (int)v7;
+  v10 = (float *)(v5 + 3 * (int)v7);
   *(_DWORD *)(a4 + 8) = 1065353216;
   *(_DWORD *)(a4 + 12) = *(_DWORD *)(v5 + 12);
   result = a5;

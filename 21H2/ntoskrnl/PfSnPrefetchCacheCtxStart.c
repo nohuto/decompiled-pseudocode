@@ -1,69 +1,70 @@
 /*
- * XREFs of PfSnPrefetchCacheCtxStart @ 0x140857C48
+ * XREFs of PfSnPrefetchCacheCtxStart @ 0x1407C8620
  * Callers:
- *     PfSnPrefetchCacheEntryGet @ 0x1407DD6F0 (PfSnPrefetchCacheEntryGet.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x1406C9FB4 (PfSnPrefetchCacheEntryGet.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnPrefetchCacheCtxStart(__int64 a1)
 {
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   unsigned int v3; // r9d
-  unsigned int v4; // edx
+  char *v4; // r8
   unsigned int v5; // r10d
   __int64 v6; // r11
-  _QWORD *v7; // rdi
-  _QWORD *v8; // rax
-  __int64 v10; // r14
-  _QWORD *v11; // rsi
-  __int64 v12; // rdi
-  __int64 v13; // [rsp+48h] [rbp+10h]
+  int v7; // eax
+  _QWORD *v8; // rdi
+  _QWORD *v9; // rax
+  __int64 v11; // r14
+  _QWORD *v12; // rsi
+  __int64 v13; // rdi
+  __int64 v14; // [rsp+48h] [rbp+10h]
 
-  Pool2 = (char *)ExAllocatePool2(64LL, 4096LL, 1716544323LL);
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x1000uLL, 0x66506343u);
   v3 = 0;
-  if ( Pool2 )
+  v4 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    if ( (Pool2 + 256 >= Pool2 ? 0x20 : 0) != 0 )
-      memset64(Pool2, a1 | 1, Pool2 + 256 >= Pool2 ? 0x20 : 0);
-    v4 = *(_DWORD *)(a1 + 4);
+    if ( (PoolWithTag + 256 >= PoolWithTag ? 0x20 : 0) != 0 )
+      memset64(PoolWithTag, a1 | 1, PoolWithTag + 256 >= PoolWithTag ? 0x20 : 0);
     v5 = 0;
     v6 = -1LL << (*(_BYTE *)(a1 + 4) & 0x1F);
-    if ( (v4 & 0xFFFFFFE0) != 0 )
+    if ( (*(_DWORD *)(a1 + 4) & 0xFFFFFFE0) != 0 )
     {
       do
       {
-        v10 = *(_QWORD *)(a1 + 8);
+        v11 = *(_QWORD *)(a1 + 8);
         while ( 1 )
         {
-          v11 = *(_QWORD **)(v10 + 8LL * v5);
-          if ( ((unsigned __int8)v11 & 1) != 0 )
+          v12 = *(_QWORD **)(v11 + 8LL * v5);
+          if ( ((unsigned __int8)v12 & 1) != 0 )
             break;
-          *(_QWORD *)(v10 + 8LL * v5) = *v11;
-          v13 = v6 & v11[1];
-          v12 = (HIBYTE(v13)
-               + 13 * (_BYTE)v13
-               + 3 * (3 * BYTE1(v13) - BYTE4(v13))
-               + 5 * (BYTE6(v13) - 3 * BYTE3(v13) + 3)
-               - 7 * BYTE5(v13)
-               - 11 * BYTE2(v13)) & 0x1F;
-          *v11 = *(_QWORD *)&Pool2[8 * v12];
-          *(_QWORD *)&Pool2[8 * v12] = v11;
+          *(_QWORD *)(v11 + 8LL * v5) = *v12;
+          v14 = v6 & v12[1];
+          v13 = (HIBYTE(v14)
+               + 13 * (_BYTE)v14
+               + 3 * (3 * BYTE1(v14) - BYTE4(v14))
+               + 5 * (BYTE6(v14) - 3 * BYTE3(v14) + 3)
+               - 7 * BYTE5(v14)
+               - 11 * BYTE2(v14)) & 0x1F;
+          *v12 = *(_QWORD *)&PoolWithTag[8 * v13];
+          *(_QWORD *)&PoolWithTag[8 * v13] = v12;
         }
-        v4 = *(_DWORD *)(a1 + 4);
         ++v5;
       }
-      while ( v5 < v4 >> 5 );
+      while ( v5 < *(_DWORD *)(a1 + 4) >> 5 );
     }
-    *(_QWORD *)(a1 + 8) = Pool2;
-    v7 = (_QWORD *)((unsigned __int64)(Pool2 + 263) & 0xFFFFFFFFFFFFFFF8uLL);
-    *(_DWORD *)(a1 + 4) = v4 & 0x1F | 0x400;
-    v8 = &v7[15 * ((unsigned int)((_DWORD)Pool2 - (_DWORD)v7 + 4096) / 0x78uLL)];
-    while ( v7 < v8 )
+    v7 = *(_DWORD *)(a1 + 4) & 0x1F;
+    *(_QWORD *)(a1 + 8) = v4;
+    v8 = (_QWORD *)((unsigned __int64)(v4 + 263) & 0xFFFFFFFFFFFFFFF8uLL);
+    *(_DWORD *)(a1 + 4) = v7 | 0x400;
+    v9 = &v8[15 * ((unsigned int)((_DWORD)v4 - (_DWORD)v8 + 4096) / 0x78uLL)];
+    while ( v8 < v9 )
     {
-      *v7 = *(_QWORD *)(a1 + 32);
-      *(_QWORD *)(a1 + 32) = v7;
-      v7 += 15;
+      *v8 = *(_QWORD *)(a1 + 32);
+      *(_QWORD *)(a1 + 32) = v8;
+      v8 += 15;
     }
   }
   else

@@ -1,25 +1,26 @@
 /*
- * XREFs of HaliAcpiSleep @ 0x140528000
+ * XREFs of HaliAcpiSleep @ 0x140385840
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiPmRegisterWrite @ 0x140362640 (HalpAcpiPmRegisterWrite.c)
- *     HalpAcpiPmRegisterRead @ 0x1403A1570 (HalpAcpiPmRegisterRead.c)
- *     HalpSaveProcessorState @ 0x14041A3B0 (HalpSaveProcessorState.c)
- *     HalpFlushAndWait @ 0x14041A400 (HalpFlushAndWait.c)
- *     HalpSetupRealModeResume @ 0x14041A430 (HalpSetupRealModeResume.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalSetEnvironmentVariableEx @ 0x140504B70 (HalSetEnvironmentVariableEx.c)
- *     HalReturnToFirmware @ 0x140506A70 (HalReturnToFirmware.c)
- *     HalpHvEnterSleepState @ 0x14050BB1C (HalpHvEnterSleepState.c)
- *     HalpCheckWakeupTimeAndAdjust @ 0x14051C444 (HalpCheckWakeupTimeAndAdjust.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpAcpiPostSleep @ 0x140A966C0 (HalpAcpiPostSleep.c)
- *     HalpAcpiPreSleep @ 0x140A96960 (HalpAcpiPreSleep.c)
- *     HalpCheckLowMemoryPreSleep @ 0x140A96E08 (HalpCheckLowMemoryPreSleep.c)
- *     HalpPostSleepMP @ 0x140A97068 (HalpPostSleepMP.c)
- *     HalpReenableAcpi @ 0x140A9721C (HalpReenableAcpi.c)
- *     KeWriteProtectPAT @ 0x140A9FCF0 (KeWriteProtectPAT.c)
+ *     HalpAcpiPmRegisterWrite @ 0x14037C1D0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterRead @ 0x140398F40 (HalpAcpiPmRegisterRead.c)
+ *     HalpHvIsReferenceTscConfigured @ 0x1403A703C (HalpHvIsReferenceTscConfigured.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpSaveProcessorState @ 0x1403F9720 (HalpSaveProcessorState.c)
+ *     HalpFlushAndWait @ 0x1403F9770 (HalpFlushAndWait.c)
+ *     HalpSetupRealModeResume @ 0x1403F97A0 (HalpSetupRealModeResume.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalSetEnvironmentVariableEx @ 0x1404BBCE0 (HalSetEnvironmentVariableEx.c)
+ *     HalReturnToFirmware @ 0x1404BE0F0 (HalReturnToFirmware.c)
+ *     HalpHvEnterSleepState @ 0x1404C292C (HalpHvEnterSleepState.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x1404D27C8 (HalpCheckWakeupTimeAndAdjust.c)
+ *     HalpPostSleepMP @ 0x140995854 (HalpPostSleepMP.c)
+ *     HalpAcpiPostSleep @ 0x140995B1C (HalpAcpiPostSleep.c)
+ *     HalpAcpiPreSleep @ 0x140995EEC (HalpAcpiPreSleep.c)
+ *     HalpReenableAcpi @ 0x1409990E0 (HalpReenableAcpi.c)
+ *     HalpCheckLowMemoryPreSleep @ 0x1409A81DC (HalpCheckLowMemoryPreSleep.c)
+ *     KeWriteProtectPAT @ 0x1409AFCA0 (KeWriteProtectPAT.c)
  */
 
 __int64 __fastcall HaliAcpiSleep(
@@ -29,153 +30,163 @@ __int64 __fastcall HaliAcpiSleep(
         unsigned int a4,
         volatile signed __int32 *a5)
 {
-  __int64 v7; // r13
-  unsigned int v9; // r12d
-  struct _KPRCB *CurrentPrcb; // r14
-  unsigned int v11; // ebx
-  volatile signed __int32 *v12; // rdi
-  unsigned int v13; // ebx
-  void (*v14)(void); // rax
+  unsigned int v5; // r12d
+  __int64 v6; // r15
+  unsigned int v9; // r14d
+  char v10; // r13
+  volatile signed __int32 *v11; // rdi
+  unsigned int v12; // ebx
+  int v13; // r8d
+  __int64 v14; // r9
+  struct _KPRCB *v15; // rbx
   __int64 Number; // rax
-  unsigned int v16; // r14d
-  unsigned int v17; // ebx
-  unsigned int v18; // eax
-  char v19; // di
+  unsigned int v17; // edi
+  unsigned int v18; // ebx
+  unsigned int v19; // eax
   unsigned int v20; // ebx
   __int64 v21; // rcx
   int v22; // ecx
-  int v23; // edi
-  unsigned int v24; // edi
-  __int64 v25; // rcx
-  char v26; // al
-  __int64 v27; // rcx
-  unsigned __int8 v28; // bl
-  unsigned __int8 v29; // al
-  struct _KPRCB *v30; // r9
+  __int64 v23; // rcx
+  unsigned int v24; // ebx
+  int v25; // esi
+  unsigned __int8 v26; // bl
+  unsigned __int8 v27; // al
+  struct _KPRCB *v28; // r9
   _DWORD *SchedulerAssist; // r8
-  int v32; // eax
-  bool v33; // zf
-  _WORD v35[2]; // [rsp+34h] [rbp-64h] BYREF
-  _WORD v36[2]; // [rsp+38h] [rbp-60h] BYREF
-  _WORD v37[2]; // [rsp+3Ch] [rbp-5Ch] BYREF
-  __int16 v38; // [rsp+40h] [rbp-58h] BYREF
-  __int64 CurrentIrql; // [rsp+48h] [rbp-50h]
-  struct _KPRCB *v40; // [rsp+50h] [rbp-48h]
-  int v41; // [rsp+90h] [rbp-8h]
-  char v42; // [rsp+A0h] [rbp+8h] BYREF
-  unsigned int v43; // [rsp+B8h] [rbp+20h]
+  int v30; // eax
+  bool v31; // zf
+  __int64 v33; // rcx
+  __int64 v34; // rcx
+  unsigned int v35; // ebx
+  unsigned int v36; // ebx
+  _WORD v37[2]; // [rsp+30h] [rbp-58h] BYREF
+  _WORD v38[2]; // [rsp+34h] [rbp-54h] BYREF
+  _WORD v39[2]; // [rsp+38h] [rbp-50h] BYREF
+  _WORD v40[2]; // [rsp+3Ch] [rbp-4Ch] BYREF
+  struct _KPRCB *CurrentPrcb; // [rsp+40h] [rbp-48h]
+  __int64 CurrentIrql; // [rsp+48h] [rbp-40h]
+  int v43; // [rsp+80h] [rbp-8h]
+  char v44; // [rsp+90h] [rbp+8h] BYREF
+  unsigned int v45; // [rsp+A8h] [rbp+20h]
 
-  v43 = a4;
-  v7 = a3;
-  v42 = 0;
-  v35[0] = 0;
+  v45 = a4;
+  v5 = a4;
+  v6 = a3;
+  v44 = 0;
+  v38[0] = 0;
+  v39[0] = 0;
   v37[0] = 0;
-  v36[0] = 0;
-  v38 = 0;
+  v40[0] = 0;
   CurrentIrql = KeGetCurrentIrql();
   v9 = 0;
   _disable();
+  v10 = 0;
+  v11 = a5;
+  v12 = 0;
+  v43 &= 0x200u;
   CurrentPrcb = KeGetCurrentPrcb();
-  v11 = 0;
-  v12 = a5;
-  v41 &= 0x200u;
-  v40 = CurrentPrcb;
   _InterlockedDecrement(a5);
-  while ( *v12 )
+  while ( *v11 )
   {
-    if ( (++v11 & dword_140C6257C) != 0 || !qword_140C62580 )
+    if ( (++v12 & dword_140C4A1FC) != 0 || !qword_140C4A200 )
       _mm_pause();
     else
-      qword_140C62580(v11);
+      qword_140C4A200(v12);
   }
-  v13 = 0;
-  v14 = (void (*)(void))HalpProfileInterface[6];
-  if ( v14 )
-    v14();
   LODWORD(a3) = KeGetPcr()->Prcb.Number;
   *(_QWORD *)(HalpTimerSavedProcessorCounter + 8 * a3) = __rdtsc();
-  if ( qword_140C62588 )
+  if ( (unsigned __int8)HalpHvIsReferenceTscConfigured() )
   {
-    if ( !(_DWORD)a3 )
+    if ( !v13 )
     {
       HalpTimerIsReferenceTimeSaved = 1;
-      HalpTimerSavedReferenceTime = qword_140C62588(&HalpTimerSavedSequenceNumber);
+      HalpTimerSavedReferenceTime = ((__int64 (__fastcall *)(int *))qword_140C4A208)(&HalpTimerSavedSequenceNumber);
+      v14 = 0LL;
     }
   }
   else
   {
-    HalpTimerIsReferenceTimeSaved = 0;
-    HalpTimerSavedSequenceNumber = 0;
+    HalpTimerIsReferenceTimeSaved = v14;
+    HalpTimerSavedSequenceNumber = v14;
   }
-  HalpTscOnWake = 0LL;
+  HalpTscOnWake = v14;
   if ( !KeGetPcr()->Prcb.Number )
     HalpTscRestoreValue = *(_QWORD *)HalpTimerSavedProcessorCounter;
+  v15 = CurrentPrcb;
   Number = CurrentPrcb->Number;
   if ( !(_DWORD)Number )
   {
-    HalpResumeFromHibernate = 0;
-    HalpBarrier = 0;
+    HalpResumeFromHibernate = v14;
+    HalpBarrier = v14;
     HalpAcpiPreSleep(a1);
-    if ( byte_140C60590 )
-      HalpAcpiPmRegisterRead(1, 0, (__int64)v37, 2u, 0LL);
-    if ( byte_140C60620 )
-      HalpAcpiPmRegisterRead(4, 0, (__int64)&v38, 2u, 0LL);
-    v16 = a1 >> 12;
-    if ( ((a1 >> 12) & 2) != 0 && (unsigned __int8)HalpSetupRealModeResume(HalpLowStub, (int)HalpLowStubPhysicalAddress) )
-      goto LABEL_74;
+    if ( byte_140C490F0 )
+      HalpAcpiPmRegisterRead(1, 0, (unsigned int)v39, 2, 0LL);
+    if ( byte_140C49180 )
+      HalpAcpiPmRegisterRead(4, 0, (unsigned int)v40, 2, 0LL);
+    v17 = a1 >> 12;
+    if ( ((a1 >> 12) & 2) != 0
+      && (unsigned __int8)HalpSetupRealModeResume(HalpLowStub, (unsigned int)HalpLowStubPhysicalAddress) )
+    {
+      goto LABEL_71;
+    }
     HalpInterruptProcessorRestarting = 1;
     _InterlockedIncrement(&HalpSaveStateSync);
-    while ( HalpSaveStateSync != a4 )
+    v18 = 0;
+    while ( HalpSaveStateSync != v5 )
     {
-      if ( (++v13 & dword_140C6257C) != 0 || !qword_140C62580 )
+      if ( (++v18 & dword_140C4A1FC) != 0 || !qword_140C4A200 )
         _mm_pause();
       else
-        qword_140C62580(v13);
+        qword_140C4A200(v18);
     }
-    v17 = 0;
     if ( a2 )
     {
-      v18 = a2(v7);
-      v9 = v18;
-      if ( (HalpPlatformFlags & 1) == 0 && v18 == -1073741632 )
+      v19 = a2(v6);
+      v9 = v19;
+      if ( (HalpPlatformFlags & 1) != 0 || v19 != -1073741632 )
       {
-        v19 = 1;
-        goto LABEL_37;
+        if ( v19 )
+        {
+          if ( v19 == 1073742484 )
+            HalpResumeFromHibernate = 1;
+          else
+            HalpReenableAcpi();
+          goto LABEL_71;
+        }
       }
-      if ( v18 )
+      else
       {
-        if ( v18 == 1073742484 )
-          HalpResumeFromHibernate = 1;
-        else
-          HalpReenableAcpi();
-        goto LABEL_74;
+        v10 = 1;
       }
     }
-    v19 = 0;
-LABEL_37:
     _InterlockedAdd(&HalpFlushBarrier, 1u);
-    while ( HalpFlushBarrier != a4 )
+    v20 = 0;
+    while ( HalpFlushBarrier != v5 )
     {
-      if ( (++v17 & dword_140C6257C) != 0 || !qword_140C62580 )
+      if ( (++v20 & dword_140C4A1FC) != 0 || !qword_140C4A200 )
         _mm_pause();
       else
-        qword_140C62580(v17);
+        qword_140C4A200(v20);
     }
-    v20 = 0;
     _InterlockedOr(&HalpFlushBarrier, 0);
     HalpCheckWakeupTimeAndAdjust();
     HalpCheckLowMemoryPreSleep(a1);
-    v36[0] = 0x8000;
+    v37[0] = 0x8000;
     if ( PmRegisters[0] )
-      HalpAcpiPmRegisterWrite(0, 0, (__int64)v36, 2u, 0LL);
-    if ( byte_140C605F0 )
-      HalpAcpiPmRegisterWrite(3, 0, (__int64)v36, 2u, 0LL);
-    v42 = -112;
-    if ( (v16 & 0x40) != 0 )
-      HalSetEnvironmentVariableEx(L"SystemSleepCheckpoint", (int)SYSTEM_SLEEP_ETW_CHECKPOINT_GUID, (__int64)&v42, 1, 1);
+      HalpAcpiPmRegisterWrite(0, 0, (__int64)v37, 2u, 0LL);
+    if ( byte_140C49150 )
+      HalpAcpiPmRegisterWrite(3, 0, (__int64)v37, 2u, 0LL);
+    v44 = -112;
+    if ( (v17 & 0x40) != 0 )
+      HalSetEnvironmentVariableEx(
+        (unsigned int)L"SystemSleepCheckpoint",
+        (unsigned int)SYSTEM_SLEEP_ETW_CHECKPOINT_GUID,
+        (unsigned int)&v44,
+        1,
+        1);
     if ( (a1 & 0x1000) != 0 )
     {
-      if ( v40->CpuVendor == 1 )
+      if ( CurrentPrcb->CpuVendor == 1 )
       {
         LOBYTE(v21) = 1;
         KeWriteProtectPAT(v21);
@@ -185,133 +196,143 @@ LABEL_37:
     if ( HalpHvSleepEnlightenedCpuManager )
     {
       v22 = (a1 >> 8) & 0xF;
-      if ( v22 == 1 || ((v22 - 2) & 0xFFFFFFFC) == 0 && v22 != 4 )
+      if ( (unsigned int)(v22 - 1) <= 2 || v22 == 5 )
       {
         v9 = HalpHvEnterSleepState();
-LABEL_78:
-        v42 = -97;
-        if ( (v16 & 0x40) != 0 )
+LABEL_75:
+        v44 = -97;
+        if ( (v17 & 0x40) != 0 )
           HalSetEnvironmentVariableEx(
-            L"SystemSleepCheckpoint",
-            (int)SYSTEM_SLEEP_ETW_CHECKPOINT_GUID,
-            (__int64)&v42,
+            (unsigned int)L"SystemSleepCheckpoint",
+            (unsigned int)SYSTEM_SLEEP_ETW_CHECKPOINT_GUID,
+            (unsigned int)&v44,
             1,
             1);
         HalpSaveStateSync = 0;
         HalpFlushBarrier = 0;
         HalpAcpiPostSleep(a1);
-        v24 = v43;
-        CurrentPrcb = v40;
-        goto LABEL_102;
+        goto LABEL_78;
       }
     }
     if ( (HalpPlatformFlags & 1) == 0 )
     {
-      if ( v19 )
-        HalReturnToFirmware(2);
-      HalReturnToFirmware(1);
+      v23 = 2LL;
+      if ( !v10 )
+        v23 = 1LL;
+      HalReturnToFirmware(v23);
     }
-    if ( byte_140C60590 )
+    if ( byte_140C490F0 )
     {
-      HalpAcpiPmRegisterRead(1, 0, (__int64)v35, 2u, 0LL);
-      v35[0] = v35[0] & 0x203 | ((a1 & 7 | 8) << 10);
-      HalpAcpiPmRegisterWrite(1, 0, (__int64)v35, 2u, 0LL);
+      HalpAcpiPmRegisterRead(1, 0, (unsigned int)v38, 2, 0LL);
+      v38[0] = v38[0] & 0x203 | ((a1 & 7 | 8) << 10);
+      HalpAcpiPmRegisterWrite(1, 0, (__int64)v38, 2u, 0LL);
     }
-    if ( byte_140C60620 )
+    if ( byte_140C49180 )
     {
-      HalpAcpiPmRegisterRead(4, 0, (__int64)v35, 2u, 0LL);
-      v35[0] = v35[0] & 0x203 | (((a1 >> 4) & 7 | 8) << 10);
-      HalpAcpiPmRegisterWrite(4, 0, (__int64)v35, 2u, 0LL);
+      HalpAcpiPmRegisterRead(4, 0, (unsigned int)v38, 2, 0LL);
+      v38[0] = v38[0] & 0x203 | (((a1 >> 4) & 7 | 8) << 10);
+      HalpAcpiPmRegisterWrite(4, 0, (__int64)v38, 2u, 0LL);
     }
+    v24 = 0;
     if ( PmRegisters[0] )
     {
-      v23 = byte_140C605F0 != 0 ? 3 : 0;
-      while ( 1 )
+      v25 = byte_140C49150 != 0 ? 3 : 0;
+      HalpAcpiPmRegisterRead(0, 0, (unsigned int)v37, 2, 0LL);
+      if ( v37[0] >= 0 )
       {
-        HalpAcpiPmRegisterRead(0, 0, (__int64)v36, 2u, 0LL);
-        if ( (v36[0] & 0x8000) != 0 )
-          break;
-        HalpAcpiPmRegisterRead(v23, 0, (__int64)v36, 2u, 0LL);
-        if ( (v36[0] & 0x8000) != 0 )
-          break;
-        if ( (++v20 & dword_140C6257C) != 0 || !qword_140C62580 )
-          _mm_pause();
-        else
-          qword_140C62580(v20);
+        do
+        {
+          HalpAcpiPmRegisterRead(v25, 0, (unsigned int)v37, 2, 0LL);
+          if ( (v37[0] & 0x8000) != 0 )
+            break;
+          if ( (++v24 & dword_140C4A1FC) != 0 || !qword_140C4A200 )
+            _mm_pause();
+          else
+            qword_140C4A200(v24);
+          HalpAcpiPmRegisterRead(0, 0, (unsigned int)v37, 2, 0LL);
+        }
+        while ( (v37[0] & 0x8000) == 0 );
+        v5 = v45;
       }
     }
-LABEL_74:
-    if ( byte_140C60590 )
-      HalpAcpiPmRegisterWrite(1, 0, (__int64)v37, 2u, 0LL);
-    if ( byte_140C60620 )
-      HalpAcpiPmRegisterWrite(4, 0, (__int64)&v38, 2u, 0LL);
-    goto LABEL_78;
+LABEL_71:
+    if ( byte_140C490F0 )
+      HalpAcpiPmRegisterWrite(1, 0, (__int64)v39, 2u, 0LL);
+    if ( byte_140C49180 )
+      HalpAcpiPmRegisterWrite(4, 0, (__int64)v40, 2u, 0LL);
+    goto LABEL_75;
   }
-  if ( (a1 & 0x8000) != 0 )
-    v25 = 0LL;
+  v17 = a1 >> 12;
+  if ( ((a1 >> 12) & 8) != 0 )
+    v33 = v14;
   else
-    v25 = HalpHiberProcState + 1472 * Number;
-  v26 = HalpSaveProcessorState(v25);
-  v24 = v43;
-  if ( v26 )
-  {
-LABEL_101:
-    while ( HalpFlushBarrier )
-    {
-      if ( (++v13 & dword_140C6257C) != 0 || !qword_140C62580 )
-        _mm_pause();
-      else
-        qword_140C62580(v13);
-    }
-    goto LABEL_102;
-  }
+    v33 = HalpHiberProcState + 1472 * Number;
+  if ( (unsigned __int8)HalpSaveProcessorState(v33) )
+    goto LABEL_109;
   _InterlockedIncrement(&HalpSaveStateSync);
   if ( a2 )
   {
-    while ( HalpSaveStateSync != v24 )
+    v35 = 0;
+    while ( HalpSaveStateSync != v5 )
     {
-      if ( (++v13 & dword_140C6257C) != 0 || !qword_140C62580 )
+      if ( (++v35 & dword_140C4A1FC) != 0 || !qword_140C4A200 )
         _mm_pause();
       else
-        qword_140C62580(v13);
+        qword_140C4A200(v35);
     }
-    v9 = a2(v7);
-    if ( v9 == 1073742484 )
+    v9 = a2(v6);
+    if ( v9 != 1073742484 )
     {
-      v13 = 0;
-      goto LABEL_101;
+      v15 = CurrentPrcb;
+      goto LABEL_106;
     }
+LABEL_109:
+    v36 = 0;
+    while ( HalpFlushBarrier )
+    {
+      if ( (++v36 & dword_140C4A1FC) != 0 || !qword_140C4A200 )
+        _mm_pause();
+      else
+        qword_140C4A200(v36);
+    }
+LABEL_78:
+    v15 = CurrentPrcb;
+    goto LABEL_79;
   }
-  if ( CurrentPrcb->CpuVendor == 1 )
+LABEL_106:
+  if ( v15->CpuVendor == 1 )
   {
-    LOBYTE(v27) = 1;
-    KeWriteProtectPAT(v27);
+    LOBYTE(v34) = 1;
+    KeWriteProtectPAT(v34);
   }
   HalpFlushAndWait(&HalpFlushBarrier);
-LABEL_102:
-  if ( ((a1 >> 12) & 0x10) == 0 && (a1 & 0x1000) != 0 && CurrentPrcb->CpuVendor == 1 )
+LABEL_79:
+  if ( (v17 & 1) != 0 && (v17 & 0x10) == 0 && v15->CpuVendor == 1 )
   {
     KeWriteProtectPAT(0LL);
     __wbinvd();
   }
-  HalpPostSleepMP(v24);
-  v28 = CurrentIrql;
+  HalpPostSleepMP(v5);
+  v26 = CurrentIrql;
   if ( KiIrqlFlags )
   {
-    v29 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v29 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v30 = KeGetCurrentPrcb();
-      SchedulerAssist = v30->SchedulerAssist;
-      v32 = ~(unsigned __int16)(-1LL << ((unsigned __int8)CurrentIrql + 1));
-      v33 = (v32 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v32;
-      if ( v33 )
-        KiRemoveSystemWorkPriorityKick(v30);
+      v27 = KeGetCurrentIrql();
+      if ( v27 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v27 >= 2u )
+      {
+        v28 = KeGetCurrentPrcb();
+        SchedulerAssist = v28->SchedulerAssist;
+        v30 = ~(unsigned __int16)(-1LL << ((unsigned __int8)CurrentIrql + 1));
+        v31 = (v30 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v30;
+        if ( v31 )
+          KiRemoveSystemWorkPriorityKick(v28);
+      }
     }
   }
-  __writecr8(v28);
-  if ( v41 )
+  __writecr8(v26);
+  if ( v43 )
     _enable();
   return v9;
 }

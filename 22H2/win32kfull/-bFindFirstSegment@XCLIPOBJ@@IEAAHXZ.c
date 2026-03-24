@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C02F3AF0
+ * XREFs of ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C014B544
  * Callers:
- *     ?bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z @ 0x1C02F3744 (-bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z.c)
- *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C02F3FA8 (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z @ 0x1C014AC60 (-bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z.c)
+ *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C014ADAC (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
  * Callees:
- *     ?vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z @ 0x1C015E830 (-vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z.c)
- *     ?bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z @ 0x1C02F3EB8 (-bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z.c)
- *     ?vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z @ 0x1C02F43D8 (-vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z.c)
+ *     ?vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z @ 0x1C014AB64 (-vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z.c)
+ *     ?vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z @ 0x1C014B2DC (-vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z.c)
+ *     ?bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z @ 0x1C014BE54 (-bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z.c)
  */
 
 __int64 __fastcall XCLIPOBJ::bFindFirstSegment(XCLIPOBJ *this)
@@ -29,14 +29,14 @@ __int64 __fastcall XCLIPOBJ::bFindFirstSegment(XCLIPOBJ *this)
   int *v17; // r9
   struct _POINTL *v18; // r8
   int v19; // ecx
-  struct _POINTL *v20; // rsi
-  int v21; // r10d
-  LONG v22; // edx
-  int i; // r11d
+  int v20; // r10d
+  LONG v21; // edx
+  int v22; // r11d
+  int v23; // eax
   int v24; // ecx
   LONG v25; // edx
-  int v26; // ecx
-  int v27; // edx
+  int v27; // ecx
+  int v28; // edx
   int v29; // [rsp+40h] [rbp+8h] BYREF
   int v30; // [rsp+44h] [rbp+Ch] BYREF
 
@@ -102,56 +102,57 @@ __int64 __fastcall XCLIPOBJ::bFindFirstSegment(XCLIPOBJ *this)
   v18 = (struct _POINTL *)*((_QWORD *)this + 18);
   v19 = *v17;
   *((_DWORD *)this + 24) = 0;
-  v20 = v18 + 16;
-  v21 = v19 - 1;
+  v20 = v19 - 1;
   *((_DWORD *)this + 26) = v19 - 1;
-  v22 = v18[16].x;
-  if ( v22 >= v17[v19 + 2] )
+  v21 = v18[16].x;
+  if ( v21 >= v17[v19 + 2] )
   {
-    *((_DWORD *)this + 24) = v21;
-    if ( (v18[3].x & 0x400000) == 0 )
-      goto LABEL_30;
-    return 0LL;
-  }
-  if ( v22 < v17[3] )
-  {
+    *((_DWORD *)this + 24) = v20;
     if ( (v18[3].x & 0x400000) != 0 )
-    {
-      v19 = -1;
-      goto LABEL_30;
-    }
-    return 0LL;
-  }
-  for ( i = 0; ; i = v24 )
-  {
-    while ( 1 )
-    {
-      v24 = (v21 + i) / 2;
-      *((_DWORD *)this + 24) = v24;
-      v25 = v20->x;
-      if ( v20->x >= v17[v24 + 3] )
-        break;
-      v21 = v24 - 1;
-      if ( v25 >= v17[v24 + 2] )
-        goto LABEL_29;
-    }
-    if ( v25 < v17[++v24 + 3] )
-      break;
-  }
-  *((_DWORD *)this + 24) = v24;
-LABEL_29:
-  v19 = v24 - (((unsigned int)v18[3].x >> 22) & 1);
-LABEL_30:
-  *((_DWORD *)this + 24) = v19;
-  if ( (((unsigned __int8)v19 ^ (unsigned __int8)((unsigned int)v18[3].x >> 22)) & 1) == 0 )
-  {
-    v26 = *((_DWORD *)this + 25) + v19;
-    *((_DWORD *)this + 24) = v26;
-    v27 = v17[v26 + 3];
-    LOBYTE(v5) = v27 > v18[18].x;
-    if ( (((unsigned int)v18[3].x >> 22) & 1) == v5 )
       return 0LL;
-    XCLIPOBJ::bIntersectWall(this, v27, 0LL, v18 + 16, &v18[3].y);
   }
-  return 1LL;
+  else if ( v21 < v17[3] )
+  {
+    if ( (v18[3].x & 0x400000) == 0 )
+      return 0LL;
+    v19 = -1;
+  }
+  else
+  {
+    v22 = 0;
+    do
+    {
+      while ( 1 )
+      {
+        v23 = (v20 + v22) / 2;
+        v24 = v23;
+        *((_DWORD *)this + 24) = v23;
+        v25 = v18[16].x;
+        if ( v25 >= v17[v23 + 3] )
+          break;
+        if ( v25 >= v17[v23 + 2] )
+          goto LABEL_17;
+        v20 = v23 - 1;
+      }
+      v22 = v23 + 1;
+    }
+    while ( v25 >= v17[v23 + 4] );
+    v24 = v23 + 1;
+    *((_DWORD *)this + 24) = v23 + 1;
+LABEL_17:
+    v19 = v24 - (((unsigned int)v18[3].x >> 22) & 1);
+  }
+  *((_DWORD *)this + 24) = v19;
+  if ( (((unsigned __int8)v19 ^ (unsigned __int8)((unsigned int)v18[3].x >> 22)) & 1) != 0 )
+    return 1LL;
+  v27 = *((_DWORD *)this + 25) + v19;
+  *((_DWORD *)this + 24) = v27;
+  v28 = v17[v27 + 3];
+  LOBYTE(v5) = v28 > v18[18].x;
+  if ( (((unsigned int)v18[3].x >> 22) & 1) != v5 )
+  {
+    XCLIPOBJ::bIntersectWall(this, v28, 0LL, v18 + 16, &v18[3].y);
+    return 1LL;
+  }
+  return 0LL;
 }

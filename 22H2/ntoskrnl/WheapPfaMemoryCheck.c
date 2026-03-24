@@ -1,117 +1,112 @@
 /*
- * XREFs of WheapPfaMemoryCheck @ 0x140A08D68
+ * XREFs of WheapPfaMemoryCheck @ 0x14095E464
  * Callers:
- *     WheapPredictiveFailureAnalysis @ 0x140A090AC (WheapPredictiveFailureAnalysis.c)
+ *     WheapPredictiveFailureAnalysis @ 0x14095E790 (WheapPredictiveFailureAnalysis.c)
  * Callees:
- *     MmGetPageBadStatus @ 0x14062B500 (MmGetPageBadStatus.c)
- *     WheaAttemptPhysicalPageOffline @ 0x140A07E30 (WheaAttemptPhysicalPageOffline.c)
- *     WheapExecuteRowFailureCheck @ 0x140A08A70 (WheapExecuteRowFailureCheck.c)
- *     WheapPfaLogPageMonitorRemoval @ 0x140A08CD0 (WheapPfaLogPageMonitorRemoval.c)
- *     WheapPfaRetireExpiredMemoryEntries @ 0x140A08FFC (WheapPfaRetireExpiredMemoryEntries.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MmGetPageBadStatus @ 0x14052F750 (MmGetPageBadStatus.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x14095D3A0 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapPfaLogPageMonitorRemoval @ 0x14095E3CC (WheapPfaLogPageMonitorRemoval.c)
+ *     WheapPfaRetireExpiredMemoryEntries @ 0x14095E6E0 (WheapPfaRetireExpiredMemoryEntries.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void __fastcall WheapPfaMemoryCheck(unsigned __int64 a1, __int64 a2)
+void __fastcall WheapPfaMemoryCheck(unsigned __int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  unsigned __int64 v2; // rdi
-  unsigned __int64 v3; // rdi
-  __int64 v4; // rsi
-  __int64 v5; // rdx
-  char *Pool2; // rbx
-  unsigned int v7; // ecx
-  PVOID *v8; // rax
-  PVOID *v9; // rcx
-  __int64 v10; // rcx
-  _QWORD *v11; // rax
-  bool v12; // cf
-  _QWORD *v13; // rax
-  unsigned __int64 v14; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int64 v4; // rdi
+  __int64 v5; // rdi
+  __int64 v6; // rsi
+  char *PoolWithTag; // rbx
+  unsigned int v8; // ecx
+  PVOID *v9; // rax
+  PVOID *v10; // rcx
+  __int64 v11; // rax
+  _QWORD *v12; // rcx
+  bool v13; // cf
+  _QWORD *v14; // rax
+  unsigned __int64 v15; // [rsp+40h] [rbp+8h] BYREF
 
-  v14 = a1;
+  v15 = a1;
   if ( !WheapPolicyMemPfaDisable && (*(_BYTE *)a2 & 2) != 0 )
   {
-    v2 = *(_QWORD *)(a2 + 16);
-    v14 = v2;
-    if ( !(unsigned int)MmGetPageBadStatus(&v14) )
+    v4 = *(_QWORD *)(a2 + 16);
+    v15 = v4;
+    if ( !(unsigned int)MmGetPageBadStatus(&v15, a2, a3, a4) )
     {
-      v3 = v2 >> 12;
-      v4 = MEMORY[0xFFFFF78000000008];
+      v5 = v4 >> 12;
+      v6 = MEMORY[0xFFFFF78000000008];
       WheapPfaRetireExpiredMemoryEntries(MEMORY[0xFFFFF78000000008]);
-      if ( !WheapExecuteRowFailureCheck(v3, v5, 0, 0) )
+      PoolWithTag = (char *)WheapPfaList;
+      v8 = 0;
+      if ( WheapPfaList == &WheapPfaList )
       {
-        Pool2 = (char *)WheapPfaList;
-        v7 = 0;
-        if ( WheapPfaList == &WheapPfaList )
+LABEL_7:
+        if ( v8 >= WheapPolicyMemPfaPageCount )
         {
-LABEL_8:
-          if ( v7 >= WheapPolicyMemPfaPageCount )
-          {
-            Pool2 = (char *)qword_140D17740;
-            v10 = *(_QWORD *)qword_140D17740;
-            if ( *(_QWORD *)(*(_QWORD *)qword_140D17740 + 8LL) != qword_140D17740 )
-              goto LABEL_22;
-            v11 = *(_QWORD **)(qword_140D17740 + 8);
-            if ( *v11 != qword_140D17740 )
-              goto LABEL_22;
-            *v11 = v10;
-            *(_QWORD *)(v10 + 8) = v11;
-            WheapPfaLogPageMonitorRemoval((__int64)Pool2, 3, v4);
-          }
-          else
-          {
-            Pool2 = (char *)ExAllocatePool2(258LL, 48LL, 1634035799LL);
-            if ( !Pool2 )
-              return;
-          }
-          *(_QWORD *)Pool2 = 0LL;
-          *((_QWORD *)Pool2 + 1) = 0LL;
-          *(_DWORD *)(Pool2 + 18) = 0;
-          *((_WORD *)Pool2 + 11) = 0;
-          *((_WORD *)Pool2 + 8) = 0;
-          *((_QWORD *)Pool2 + 3) = v4;
-          *((_QWORD *)Pool2 + 5) = v3;
+          PoolWithTag = (char *)qword_140CF4B88;
+          v11 = *(_QWORD *)qword_140CF4B88;
+          if ( *(_QWORD *)(*(_QWORD *)qword_140CF4B88 + 8LL) != qword_140CF4B88 )
+            goto LABEL_21;
+          v12 = *(_QWORD **)(qword_140CF4B88 + 8);
+          if ( *v12 != qword_140CF4B88 )
+            goto LABEL_21;
+          *v12 = v11;
+          *(_QWORD *)(v11 + 8) = v12;
+          WheapPfaLogPageMonitorRemoval((__int64)PoolWithTag, 3, v6);
         }
         else
         {
-          while ( 1 )
-          {
-            v8 = *(PVOID **)Pool2;
-            if ( *((_QWORD *)Pool2 + 5) == v3 )
-              break;
-            ++v7;
-            Pool2 = *(char **)Pool2;
-            if ( v8 == &WheapPfaList )
-              goto LABEL_8;
-          }
-          if ( v8[1] != Pool2 )
-            goto LABEL_22;
-          v9 = (PVOID *)*((_QWORD *)Pool2 + 1);
-          if ( *v9 != Pool2 )
-            goto LABEL_22;
-          *v9 = v8;
-          v8[1] = v9;
-        }
-        v12 = (unsigned __int16)++*((_WORD *)Pool2 + 8) < (unsigned int)WheapPolicyMemPfaThreshold;
-        *((_QWORD *)Pool2 + 4) = v4;
-        if ( v12 )
-        {
-          v13 = WheapPfaList;
-          if ( *((PVOID **)WheapPfaList + 1) == &WheapPfaList )
-          {
-            *(_QWORD *)Pool2 = WheapPfaList;
-            *((_QWORD *)Pool2 + 1) = &WheapPfaList;
-            v13[1] = Pool2;
-            WheapPfaList = Pool2;
+          PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x61656857u);
+          if ( !PoolWithTag )
             return;
-          }
-LABEL_22:
-          __fastfail(3u);
         }
-        WheapPfaLogPageMonitorRemoval((__int64)Pool2, 1, v4);
-        WheaAttemptPhysicalPageOffline(v3, 0, 0, 0);
-        ExFreePoolWithTag(Pool2, 0x61656857u);
+        *(_QWORD *)PoolWithTag = 0LL;
+        *((_QWORD *)PoolWithTag + 1) = 0LL;
+        *(_DWORD *)(PoolWithTag + 18) = 0;
+        *((_WORD *)PoolWithTag + 11) = 0;
+        *((_WORD *)PoolWithTag + 8) = 0;
+        *((_QWORD *)PoolWithTag + 3) = v6;
+        *((_QWORD *)PoolWithTag + 5) = v5;
       }
+      else
+      {
+        while ( 1 )
+        {
+          v9 = *(PVOID **)PoolWithTag;
+          if ( *((_QWORD *)PoolWithTag + 5) == v5 )
+            break;
+          ++v8;
+          PoolWithTag = *(char **)PoolWithTag;
+          if ( v9 == &WheapPfaList )
+            goto LABEL_7;
+        }
+        if ( v9[1] != PoolWithTag )
+          goto LABEL_21;
+        v10 = (PVOID *)*((_QWORD *)PoolWithTag + 1);
+        if ( *v10 != PoolWithTag )
+          goto LABEL_21;
+        *v10 = v9;
+        v9[1] = v10;
+      }
+      v13 = (unsigned __int16)++*((_WORD *)PoolWithTag + 8) < (unsigned int)WheapPolicyMemPfaThreshold;
+      *((_QWORD *)PoolWithTag + 4) = v6;
+      if ( v13 )
+      {
+        v14 = WheapPfaList;
+        if ( *((PVOID **)WheapPfaList + 1) == &WheapPfaList )
+        {
+          *(_QWORD *)PoolWithTag = WheapPfaList;
+          *((_QWORD *)PoolWithTag + 1) = &WheapPfaList;
+          v14[1] = PoolWithTag;
+          WheapPfaList = PoolWithTag;
+          return;
+        }
+LABEL_21:
+        __fastfail(3u);
+      }
+      WheapPfaLogPageMonitorRemoval((__int64)PoolWithTag, 1, v6);
+      WheaAttemptPhysicalPageOffline(v5, 0, 0);
+      ExFreePoolWithTag(PoolWithTag, 0x61656857u);
     }
   }
 }

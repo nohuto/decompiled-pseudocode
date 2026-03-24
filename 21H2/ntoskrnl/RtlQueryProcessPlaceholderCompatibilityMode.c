@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlQueryProcessPlaceholderCompatibilityMode @ 0x1409BCBD0
+ * XREFs of RtlQueryProcessPlaceholderCompatibilityMode @ 0x140917570
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ char RtlQueryProcessPlaceholderCompatibilityMode()
 {
   unsigned __int64 v0; // rax
 
-  v0 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[24];
+  v0 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[4];
   if ( v0 )
     return *(_BYTE *)(v0 + 1968);
   else

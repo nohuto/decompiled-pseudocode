@@ -1,15 +1,15 @@
 /*
- * XREFs of ?CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@KH@Z @ 0x1C01BD108
+ * XREFs of ?CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@KH@Z @ 0x1C018A058
  * Callers:
- *     ?CoalesceQFrames@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAUCPointerQFrame@@PEAU2@@Z @ 0x1C01BD564 (-CoalesceQFrames@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAUCPointerQFrame@@PEAU2@@Z.c)
- *     ?TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z @ 0x1C01D7F3C (-TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z.c)
+ *     ?CoalesceQFrames@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAUCPointerQFrame@@PEAU2@@Z @ 0x1C018A4B4 (-CoalesceQFrames@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAUCPointerQFrame@@PEAU2@@Z.c)
+ *     ?TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z @ 0x1C019F35C (-TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C00E4A4E (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
- *     EtwTracePointerCoalesce @ 0x1C013AC70 (EtwTracePointerCoalesce.c)
- *     ?FindValidNodeInFrame@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@PEBUCPointerInputFrame@@GPEAK@Z @ 0x1C01C2CB8 (-FindValidNodeInFrame@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@PEBUCPointerInputFrame@@GPEAK@Z.c)
- *     ?IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C01CCB18 (-IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
- *     ?UpdateMsgData@CTouchProcessor@@AEAAX_KKK0@Z @ 0x1C01D9E10 (-UpdateMsgData@CTouchProcessor@@AEAAX_KKK0@Z.c)
+ *     ?IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00CD0C0 (-IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     EtwTracePointerCoalesce @ 0x1C0123800 (EtwTracePointerCoalesce.c)
+ *     ?FindValidNodeInFrame@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@PEBUCPointerInputFrame@@GPEAK@Z @ 0x1C018E8C8 (-FindValidNodeInFrame@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@PEBUCPointerInputFrame@@GPEAK@Z.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01970E4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?UpdateMsgData@CTouchProcessor@@AEAAX_KKK0@Z @ 0x1C01A0A54 (-UpdateMsgData@CTouchProcessor@@AEAAX_KKK0@Z.c)
  */
 
 unsigned __int64 __fastcall CTouchProcessor::CoalesceNodeWithPrevious(
@@ -21,90 +21,104 @@ unsigned __int64 __fastcall CTouchProcessor::CoalesceNodeWithPrevious(
         int a6)
 {
   __int64 v10; // rcx
-  int v11; // esi
-  __int64 v12; // rax
-  int v13; // r8d
+  int v11; // ecx
+  int v12; // esi
+  __int64 v13; // rax
+  int v14; // r8d
   struct CPointerInfoNode *ValidNodeInFrame; // rdi
-  int v15; // ecx
-  int v16; // edx
-  unsigned int v18; // [rsp+78h] [rbp+48h] BYREF
+  int v16; // ecx
+  int v17; // eax
+  int v18; // ecx
+  int v19; // edx
+  unsigned int v21; // [rsp+78h] [rbp+48h] BYREF
 
-  v18 = 0;
-  if ( this[5] != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9850);
-  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced(this, a2) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9852);
+  v21 = 0;
+  if ( this[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9247);
+  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced((__int64)this, (__int64)a2) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9249);
   if ( !(unsigned int)CPointerInfoNode::IsValid(a4) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9853);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9250);
   if ( (*(_DWORD *)a4 & 1) == 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9854);
-  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced(v10, a3) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9855);
-  if ( (*(_DWORD *)a4 & 0x800000) != 0 || (*(_DWORD *)a4 & 0x8000000) != 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9856);
-  if ( *(int *)a4 < 0 || (*((_DWORD *)a4 + 1) & 8) != 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9857);
-  if ( (*(_DWORD *)a4 & 0x100000) != 0 && (*(_DWORD *)a4 & 0x400000) == 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9858);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9251);
+  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced(v10, (__int64)a3) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9252);
+  v11 = *(_DWORD *)a4;
+  if ( (*(_DWORD *)a4 & 0x800000) != 0 || (v11 & 0x8000000) != 0 )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9253);
+    v11 = *(_DWORD *)a4;
+  }
+  if ( v11 < 0 || (*((_DWORD *)a4 + 1) & 8) != 0 )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9254);
+    v11 = *(_DWORD *)a4;
+  }
+  if ( (v11 & 0x100000) != 0 && (v11 & 0x400000) == 0 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9255);
   if ( *((_DWORD *)a4 + 59) != 1 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9859);
-  v11 = a6;
-  v12 = *((_QWORD *)a4 + 2);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9256);
+  v12 = a6;
+  v13 = *((_QWORD *)a4 + 2);
   if ( a6 )
   {
-    if ( v12 )
+    if ( v13 )
       goto LABEL_28;
-    v13 = 9862;
+    v14 = 9259;
   }
   else
   {
-    if ( !v12 )
+    if ( !v13 )
       goto LABEL_28;
-    v13 = 9866;
+    v14 = 9263;
   }
   a6 = 0x20000;
-  MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, v13);
+  MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, v14);
 LABEL_28:
-  ValidNodeInFrame = CTouchProcessor::FindValidNodeInFrame((CTouchProcessor *)this, a3, *((_WORD *)a4 + 86), &v18);
+  ValidNodeInFrame = CTouchProcessor::FindValidNodeInFrame((CTouchProcessor *)this, a3, *((_WORD *)a4 + 86), &v21);
   if ( !ValidNodeInFrame )
   {
     a6 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9877);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9274);
   }
   if ( !(unsigned int)CPointerInfoNode::IsValid(ValidNodeInFrame) )
   {
     a6 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9878);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9275);
   }
+  v16 = *(_DWORD *)ValidNodeInFrame;
   if ( (*(_DWORD *)ValidNodeInFrame & 1) == 0 )
   {
     a6 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9879);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9276);
+    v16 = *(_DWORD *)ValidNodeInFrame;
   }
-  if ( (*(_DWORD *)ValidNodeInFrame & 0x800000) != 0 || (*(_DWORD *)ValidNodeInFrame & 0x8000000) != 0 )
+  if ( (v16 & 0x800000) != 0 || (v16 & 0x8000000) != 0 )
   {
     a6 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9880);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9277);
+    v16 = *(_DWORD *)ValidNodeInFrame;
   }
-  if ( *(int *)ValidNodeInFrame < 0 || (*((_DWORD *)ValidNodeInFrame + 1) & 8) != 0 )
+  if ( v16 < 0 || (*((_DWORD *)ValidNodeInFrame + 1) & 8) != 0 )
   {
     a6 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9882);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9279);
+    v16 = *(_DWORD *)ValidNodeInFrame;
   }
-  if ( (*(_DWORD *)ValidNodeInFrame & 0x100000) != 0 && (*(_DWORD *)ValidNodeInFrame & 0x400000) == 0 )
+  if ( (v16 & 0x100000) != 0 && (v16 & 0x400000) == 0 )
   {
     a6 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9883);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9280);
   }
   if ( !*((_QWORD *)ValidNodeInFrame + 2) )
   {
     a6 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9884);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9281);
   }
   if ( *((_DWORD *)ValidNodeInFrame + 59) > 0x64u )
   {
     a6 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9886);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9283);
   }
   CTouchProcessor::UpdateMsgData(
     (CTouchProcessor *)this,
@@ -114,42 +128,45 @@ LABEL_28:
     *((_QWORD *)a4 + 2));
   *((_QWORD *)a4 + 2) = *((_QWORD *)ValidNodeInFrame + 2);
   *((_DWORD *)a4 + 59) = *((_DWORD *)ValidNodeInFrame + 59) + 1;
-  *((_DWORD *)a4 + 86) = v18;
-  if ( !v11 )
+  *((_DWORD *)a4 + 86) = v21;
+  if ( !v12 )
   {
+    v17 = *(_DWORD *)ValidNodeInFrame;
     if ( (*(_DWORD *)ValidNodeInFrame & 0x80000) == 0 )
     {
       a6 = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9931);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9328);
+      v17 = *(_DWORD *)ValidNodeInFrame;
     }
-    if ( (*(_DWORD *)ValidNodeInFrame & 0x800000) != 0 )
+    if ( (v17 & 0x800000) != 0 )
     {
       a6 = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9932);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9329);
+      v17 = *(_DWORD *)ValidNodeInFrame;
     }
-    if ( (*(_DWORD *)ValidNodeInFrame & 0x8000000) != 0 )
+    if ( (v17 & 0x8000000) != 0 )
     {
       a6 = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9933);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9330);
     }
     if ( *(int *)a4 < 0 )
     {
       a6 = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9934);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9331);
     }
     if ( (*((_DWORD *)a4 + 1) & 8) != 0 )
     {
       a6 = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9935);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9332);
     }
     *(_DWORD *)a4 |= 0x80000u;
-    v15 = *(_DWORD *)a4 ^ (*(_DWORD *)ValidNodeInFrame ^ *(_DWORD *)a4) & 0x100000;
-    *(_DWORD *)a4 = v15;
-    v16 = v15 ^ (*(_DWORD *)ValidNodeInFrame ^ v15) & 0x200000;
-    *(_DWORD *)a4 = v16;
-    *(_DWORD *)a4 = v16 ^ (*(_DWORD *)ValidNodeInFrame ^ v16) & 0x400000;
+    v18 = *(_DWORD *)a4 ^ (*(_DWORD *)a4 ^ *(_DWORD *)ValidNodeInFrame) & 0x100000;
+    *(_DWORD *)a4 = v18;
+    v19 = v18 ^ (v18 ^ *(_DWORD *)ValidNodeInFrame) & 0x200000;
+    *(_DWORD *)a4 = v19;
+    *(_DWORD *)a4 = v19 ^ (v19 ^ *(_DWORD *)ValidNodeInFrame) & 0x400000;
   }
   *(_DWORD *)ValidNodeInFrame |= 2u;
-  EtwTracePointerCoalesce(*((unsigned __int16 *)a4 + 80), *((_WORD *)a4 + 86), v11);
+  EtwTracePointerCoalesce(*((unsigned __int16 *)a4 + 80), *((_WORD *)a4 + 86), v12);
   return *((_QWORD *)a4 + 2);
 }

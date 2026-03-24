@@ -1,5 +1,5 @@
 /*
- * XREFs of MiMakeProtoLeafValid @ 0x14012734C
+ * XREFs of MiMakeProtoLeafValid @ 0x14012736C
  * Callers:
  *     MiProtectPrivateMemory @ 0x140070DC0 (MiProtectPrivateMemory.c)
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
@@ -11,9 +11,9 @@
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiMakeProtoLeafValid(unsigned __int64 a1, __int64 a2, unsigned __int8 a3)

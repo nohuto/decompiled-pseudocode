@@ -1,25 +1,30 @@
 /*
- * XREFs of IopLiveDumpTraceAllocationFromVMMemoryPartitionFailure @ 0x14055A170
+ * XREFs of IopLiveDumpTraceAllocationFromVMMemoryPartitionFailure @ 0x140508A08
  * Callers:
- *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x14094D8D4 (IopLiveDumpAllocateFromVMMemoryPartition.c)
+ *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x140897960 (IopLiveDumpAllocateFromVMMemoryPartition.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x140559E30 (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x14050895C (IopLiveDumpIsTracingEnabled.c)
  */
 
 char IopLiveDumpTraceAllocationFromVMMemoryPartitionFailure()
 {
   char result; // al
-  int v1; // [rsp+40h] [rbp-28h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-20h] BYREF
+  __int64 v1; // rcx
+  int v2; // [rsp+40h] [rbp-38h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-30h] BYREF
+  int *v4; // [rsp+58h] [rbp-20h]
+  __int64 v5; // [rsp+60h] [rbp-18h]
 
-  v1 = -1073741801;
+  v2 = -1073741801;
   result = IopLiveDumpIsTracingEnabled();
   if ( result )
   {
     *(_QWORD *)&UserData.Size = 4LL;
-    UserData.Ptr = (ULONGLONG)&v1;
+    UserData.Ptr = v1 + 1040;
+    v5 = 4LL;
+    v4 = &v2;
     return EtwWriteEx(
              IopLiveDumpEtwRegHandle,
              &LIVEDUMP_EVENT_SIZING_WORKFLOW_BUFFER_ALLOCATION_FROM_VM_MEMORY_PARTITION_FAILURE,
@@ -27,7 +32,7 @@ char IopLiveDumpTraceAllocationFromVMMemoryPartitionFailure()
              0,
              0LL,
              0LL,
-             1u,
+             2u,
              &UserData);
   }
   return result;

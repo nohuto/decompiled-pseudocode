@@ -1,29 +1,29 @@
 /*
- * XREFs of ?DpiDdiQueryPhysicalFunctionLuid@@YAJPEAXPEAU_LUID@@@Z @ 0x1C0065820
+ * XREFs of ?DpiDdiQueryPhysicalFunctionLuid@@YAJPEAXPEAU_LUID@@@Z @ 0x1C0058C20
  * Callers:
  *     <none>
  * Callees:
- *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z @ 0x1C005E398 (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z.c)
- *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C005E510 (--1CInterfaceCallContext@@QEAA@XZ.c)
- *     ?DpiGetVirtualGpuType@@YA?AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C0065D34 (-DpiGetVirtualGpuType@@YA-AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z.c)
- *     DxgkDdiQueryPhysicalFunctionLuid @ 0x1C036A980 (DxgkDdiQueryPhysicalFunctionLuid.c)
+ *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@E@Z @ 0x1C005104C (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@E@Z.c)
+ *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C0051174 (--1CInterfaceCallContext@@QEAA@XZ.c)
+ *     ?DpiGetVirtualGpuType@@YA?AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C00590E0 (-DpiGetVirtualGpuType@@YA-AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z.c)
+ *     DxgkDdiQueryPhysicalFunctionLuid @ 0x1C0231FA8 (DxgkDdiQueryPhysicalFunctionLuid.c)
  */
 
 __int64 __fastcall DpiDdiQueryPhysicalFunctionLuid(void *a1, struct _LUID *a2)
 {
   unsigned int v2; // ebx
-  _BYTE v4[8]; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v5; // [rsp+38h] [rbp-20h]
-  int v6; // [rsp+40h] [rbp-18h]
-  void *v7; // [rsp+70h] [rbp+18h] BYREF
+  _BYTE v4[8]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v5; // [rsp+28h] [rbp-20h]
+  int v6; // [rsp+30h] [rbp-18h]
+  void *v7; // [rsp+60h] [rbp+18h] BYREF
 
   v7 = 0LL;
   DpiGetVirtualGpuType(a1, &v7);
-  CInterfaceCallContext::CInterfaceCallContext((CInterfaceCallContext *)v4, v7, 0LL, 1, 0);
+  CInterfaceCallContext::CInterfaceCallContext((CInterfaceCallContext *)v4, v7, 0LL, 1);
   v2 = v6;
   if ( v6 >= 0 )
   {
-    DxgkDdiQueryPhysicalFunctionLuid(*(void **)(v5 + 3912));
+    DxgkDdiQueryPhysicalFunctionLuid(*(void **)(v5 + 3896));
     v2 = 0;
     v6 = 0;
   }

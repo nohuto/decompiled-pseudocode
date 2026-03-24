@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpHandleMaskUnmaskSecondaryInterrupt @ 0x140519FC4
+ * XREFs of HalpHandleMaskUnmaskSecondaryInterrupt @ 0x1404D0D5C
  * Callers:
- *     HalpUnmaskInterrupt @ 0x14037CFB0 (HalpUnmaskInterrupt.c)
- *     HalpMaskInterrupt @ 0x1403B1FF0 (HalpMaskInterrupt.c)
+ *     HalpUnmaskInterrupt @ 0x14038C4D0 (HalpUnmaskInterrupt.c)
+ *     HalpMaskInterrupt @ 0x1403A6890 (HalpMaskInterrupt.c)
  * Callees:
- *     HalpIsInterruptTypeSecondary @ 0x140368080 (HalpIsInterruptTypeSecondary.c)
- *     HalpFindSecondaryIcEntry @ 0x14037CCD0 (HalpFindSecondaryIcEntry.c)
- *     HalpReleaseSecondaryIcEntryShared @ 0x14037D520 (HalpReleaseSecondaryIcEntryShared.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpIsInterruptTypeSecondary @ 0x1403C4EF0 (HalpIsInterruptTypeSecondary.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpFindSecondaryIcEntry @ 0x1404D0B98 (HalpFindSecondaryIcEntry.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x1404D1404 (HalpReleaseSecondaryIcEntryShared.c)
  */
 
 __int64 __fastcall HalpHandleMaskUnmaskSecondaryInterrupt(unsigned int a1, unsigned int a2, char a3)

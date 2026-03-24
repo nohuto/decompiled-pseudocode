@@ -1,52 +1,71 @@
 /*
- * XREFs of ?InitializeSubmitData@CVidSchSubmitData@@QEAAXXZ @ 0x1C000148C
+ * XREFs of ?InitializeSubmitData@CVidSchSubmitData@@QEAAXXZ @ 0x1C0017974
  * Callers:
- *     ?PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAPEAV1@@Z @ 0x1C0168B54 (-PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAV.c)
- *     ?SubmitCommand@DXGHWQUEUE@@QEAAJPEBU_D3DKMT_SUBMITCOMMANDTOHWQUEUE@@_N@Z @ 0x1C02309FC (-SubmitCommand@DXGHWQUEUE@@QEAAJPEBU_D3DKMT_SUBMITCOMMANDTOHWQUEUE@@_N@Z.c)
- *     DxgkSubmitPresentToHwQueue @ 0x1C031E8D0 (DxgkSubmitPresentToHwQueue.c)
- *     ?Blt@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAUtagRECT@@IPEBU2@PEAVCOREDEVICEACCESS@@PEAPEAVDXGHWQUEUE@@@Z @ 0x1C033B380 (-Blt@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAUtagRECT@@IPEBU2@PEAVCOREDEVICEACCESS@@PEAPEAVDXGHWQUEUE@@@.c)
- *     ?BltFromVm@DXGCONTEXT@@QEAAJIIIPEAPEAV1@UtagRECT@@1IPEBU2@PEAVCOREDEVICEACCESS@@@Z @ 0x1C033BDE8 (-BltFromVm@DXGCONTEXT@@QEAAJIIIPEAPEAV1@UtagRECT@@1IPEBU2@PEAVCOREDEVICEACCESS@@@Z.c)
- *     ?HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@IPEAIPEAPEAV1@@Z @ 0x1C033E51C (-HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@.c)
- *     DxgkPresentRedirected @ 0x1C0341B90 (DxgkPresentRedirected.c)
- *     ?RenderKmLda@DXGCONTEXT@@SAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAVDXGALLOCATION@@PEAPEAVDXGHWQUEUE@@@Z @ 0x1C034CB38 (-RenderKmLda@DXGCONTEXT@@SAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAVDXGALLOCAT.c)
- *     ?SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYTOKENQUEUE@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@2PEAVCRefCountedBuffer@@II3K@Z @ 0x1C03765C8 (-SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYT.c)
+ *     ?PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAPEAV1@@Z @ 0x1C015B3DC (-PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAV.c)
+ *     ?SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYTOKENQUEUE@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@2PEAVCRefCountedBuffer@@II3K@Z @ 0x1C023B6F4 (-SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYT.c)
+ *     ?SubmitCommand@DXGHWQUEUE@@QEAAJPEBU_D3DKMT_SUBMITCOMMANDTOHWQUEUE@@_N@Z @ 0x1C026F178 (-SubmitCommand@DXGHWQUEUE@@QEAAJPEBU_D3DKMT_SUBMITCOMMANDTOHWQUEUE@@_N@Z.c)
+ *     DxgkSubmitPresentToHwQueue @ 0x1C0272670 (DxgkSubmitPresentToHwQueue.c)
+ *     ?Blt@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAUtagRECT@@IPEBU2@PEAVCOREDEVICEACCESS@@PEAPEAVDXGHWQUEUE@@@Z @ 0x1C027EE24 (-Blt@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAUtagRECT@@IPEBU2@PEAVCOREDEVICEACCESS@@PEAPEAVDXGHWQUEUE@@@.c)
+ *     ?BltFromVm@DXGCONTEXT@@QEAAJIIIPEAPEAV1@UtagRECT@@1IPEBU2@PEAVCOREDEVICEACCESS@@@Z @ 0x1C027F70C (-BltFromVm@DXGCONTEXT@@QEAAJIIIPEAPEAV1@UtagRECT@@1IPEBU2@PEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@IPEAIPEAPEAV1@@Z @ 0x1C02805F0 (-HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@.c)
+ *     DxgkPresentRedirected @ 0x1C0283740 (DxgkPresentRedirected.c)
+ *     ?RenderKmLda@DXGCONTEXT@@SAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAVDXGALLOCATION@@PEAPEAVDXGHWQUEUE@@@Z @ 0x1C028F10C (-RenderKmLda@DXGCONTEXT@@SAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAVDXGALLOCAT.c)
+ *     ?PresentMultiPlaneOverlay3@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAVCOREDEVICEACCESS@@PEAPEAV1@@Z @ 0x1C02A4B6C (-PresentMultiPlaneOverlay3@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAVCOREDEV.c)
  * Callees:
- *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000AF80 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
- *     ?GetVidSchSibmitDataSize@ADAPTER_RENDER@@QEAAIXZ @ 0x1C0016C40 (-GetVidSchSibmitDataSize@ADAPTER_RENDER@@QEAAIXZ.c)
- *     memset @ 0x1C0028640 (memset.c)
+ *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000903C (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
+ *     ?GetVidSchSibmitDataSize@ADAPTER_RENDER@@QEAAIXZ @ 0x1C0017A40 (-GetVidSchSibmitDataSize@ADAPTER_RENDER@@QEAAIXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 void __fastcall CVidSchSubmitData::InitializeSubmitData(CVidSchSubmitData *this)
 {
-  PVOID v2; // rax
+  __int64 v2; // rbx
+  int v3; // edi
+  PSLIST_ENTRY v4; // r9
   unsigned int VidSchSibmitDataSize; // eax
-  void *v4; // r9
+  void *v6; // r9
+  DXGADAPTER *v7; // rcx
   unsigned __int8 IsDxgmms2; // al
-  int v6; // edx
-  __int64 v7; // r8
-  int v8; // r9d
-  int v9; // ecx
-  int v10; // edx
-  unsigned int v11; // eax
+  __int64 v9; // rdx
+  int v10; // r8d
+  int v11; // ecx
+  int v12; // edi
+  unsigned int v13; // eax
 
-  v2 = ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)(*((_QWORD *)this + 1) + 1424LL));
-  *(_QWORD *)this = v2;
-  if ( v2 )
+  v2 = *((_QWORD *)this + 1) + 1248LL;
+  v3 = 1;
+  ++*(_DWORD *)(v2 + 20);
+  v4 = ExpInterlockedPopEntrySList((PSLIST_HEADER)v2);
+  if ( !v4 )
+  {
+    ++*(_DWORD *)(v2 + 24);
+    v4 = (PSLIST_ENTRY)(*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(v2 + 48))(
+                         *(unsigned int *)(v2 + 36),
+                         *(unsigned int *)(v2 + 44),
+                         *(unsigned int *)(v2 + 40),
+                         v2);
+  }
+  *(_QWORD *)this = v4;
+  if ( v4 )
   {
     VidSchSibmitDataSize = ADAPTER_RENDER::GetVidSchSibmitDataSize(*((ADAPTER_RENDER **)this + 1));
-    memset(v4, 0, VidSchSibmitDataSize);
-    IsDxgmms2 = DXGADAPTER::IsDxgmms2(*(DXGADAPTER **)(*((_QWORD *)this + 1) + 16LL));
-    *(_BYTE *)(v7 + 356) = IsDxgmms2;
+    memset(v6, 0, VidSchSibmitDataSize);
+    v7 = *(DXGADAPTER **)(*((_QWORD *)this + 1) + 16LL);
+    if ( *((int *)v7 + 582) >= 0x2000 )
+      v3 = *((_DWORD *)v7 + 70);
+    IsDxgmms2 = DXGADAPTER::IsDxgmms2(v7);
+    *(_BYTE *)(v9 + 348) = IsDxgmms2;
     if ( IsDxgmms2 )
     {
-      v9 = 8 * v6;
-      *(_DWORD *)(v7 + 608) = v6;
-      v10 = v6 << 6;
-      *(_DWORD *)(v7 + 604) = v8;
-      *(_DWORD *)(v7 + 612) = v8 * (v10 + ((v9 + 231) & 0xFFFFFFF8)) + 16;
-      v11 = v8 * (v10 + ((v9 + 231) & 0xFFFFFFF8)) + 616;
-      *(_DWORD *)(v7 + 552) = v11;
-      *(_DWORD *)(v7 + 556) = v9 + v11;
+      *(_DWORD *)(v9 + 584) = v3;
+      v11 = 8 * v3;
+      v12 = v3 << 6;
+      *(_DWORD *)(v9 + 580) = v10;
+      *(_DWORD *)(v9 + 588) = v10 * (v12 + ((v11 + 199) & 0xFFFFFFF8)) + 16;
+      v13 = v10 * (v12 + ((v11 + 199) & 0xFFFFFFF8)) + 592;
+      *(_DWORD *)(v9 + 536) = v13;
+      *(_DWORD *)(v9 + 540) = v11 + v13;
     }
   }
 }

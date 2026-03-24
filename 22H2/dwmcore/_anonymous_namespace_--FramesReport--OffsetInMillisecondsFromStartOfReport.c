@@ -1,8 +1,8 @@
 /*
- * XREFs of _anonymous_namespace_::FramesReport::OffsetInMillisecondsFromStartOfReport @ 0x1800376EC
+ * XREFs of _anonymous_namespace_::FramesReport::OffsetInMillisecondsFromStartOfReport @ 0x180028A44
  * Callers:
- *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180036054 (_anonymous_namespace_--SealCurrentFrameSequence.c)
- *     ?FrameRenderingStarted@CTelemetryFrames@@SAX_K@Z @ 0x18004FACC (-FrameRenderingStarted@CTelemetryFrames@@SAX_K@Z.c)
+ *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180028600 (_anonymous_namespace_--SealCurrentFrameSequence.c)
+ *     ?FrameRenderingStarted@CTelemetryFrames@@SAX_K@Z @ 0x180071B24 (-FrameRenderingStarted@CTelemetryFrames@@SAX_K@Z.c)
  * Callees:
  *     <none>
  */

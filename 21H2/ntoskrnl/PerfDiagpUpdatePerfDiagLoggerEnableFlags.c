@@ -1,14 +1,14 @@
 /*
- * XREFs of PerfDiagpUpdatePerfDiagLoggerEnableFlags @ 0x1408603A8
+ * XREFs of PerfDiagpUpdatePerfDiagLoggerEnableFlags @ 0x14079C468
  * Callers:
- *     PerfDiagpProxyWorker @ 0x140818A90 (PerfDiagpProxyWorker.c)
+ *     PerfDiagpProxyWorker @ 0x14079C220 (PerfDiagpProxyWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
- *     NtTraceControl @ 0x1407954F0 (NtTraceControl.c)
- *     PerfDiagpInitializeLoggerInfo @ 0x140818D14 (PerfDiagpInitializeLoggerInfo.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
+ *     PerfDiagpInitializeLoggerInfo @ 0x14079C57C (PerfDiagpInitializeLoggerInfo.c)
  */
 
 __int64 __fastcall PerfDiagpUpdatePerfDiagLoggerEnableFlags(__int64 a1, __int64 a2)
@@ -27,7 +27,7 @@ __int64 __fastcall PerfDiagpUpdatePerfDiagLoggerEnableFlags(__int64 a1, __int64 
   v6[3] = Src;
   LODWORD(v6[4]) = 3;
   LODWORD(Src[0]) = 48;
-  result = RtlpQueryRegistryValues(2, L"Diagnostics\\Performance\\BootCKCLSettings", (__int64)v6, 0LL);
+  result = RtlpQueryRegistryValues(2LL, L"Diagnostics\\Performance\\BootCKCLSettings", (__int64)v6, 0LL);
   if ( (int)result >= 0 )
   {
     if ( DWORD1(Src[0]) == 3 )
@@ -39,15 +39,9 @@ __int64 __fastcall PerfDiagpUpdatePerfDiagLoggerEnableFlags(__int64 a1, __int64 
       }
       else
       {
-        memmove(&unk_140C167C8, (char *)Src + 8, LODWORD(Src[0]));
-        PerfDiagpInitializeLoggerInfo(1, v4 >> 2);
-        return NtTraceControl(
-                 4u,
-                 (unsigned int *)dword_140C16710,
-                 dword_140C16710[0],
-                 dword_140C16710,
-                 dword_140C16710[0],
-                 v5);
+        memmove(&unk_140C1A308, (char *)Src + 8, LODWORD(Src[0]));
+        PerfDiagpInitializeLoggerInfo(1LL, v4 >> 2);
+        return NtTraceControl(4LL, dword_140C1A250, dword_140C1A250[0], dword_140C1A250, dword_140C1A250[0], v5);
       }
     }
     else

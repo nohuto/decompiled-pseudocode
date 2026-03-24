@@ -1,10 +1,10 @@
 /*
- * XREFs of Usbh_UsbdQueryContollerType @ 0x1C002DA8C
+ * XREFs of Usbh_UsbdQueryContollerType @ 0x1C002EE68
  * Callers:
- *     UsbhInitialize @ 0x1C002C450 (UsbhInitialize.c)
+ *     UsbhInitialize @ 0x1C002D870 (UsbhInitialize.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 _DWORD *__fastcall Usbh_UsbdQueryContollerType(__int64 a1)

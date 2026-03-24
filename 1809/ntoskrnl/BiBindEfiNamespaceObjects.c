@@ -1,13 +1,13 @@
 /*
- * XREFs of BiBindEfiNamespaceObjects @ 0x1408F23EC
+ * XREFs of BiBindEfiNamespaceObjects @ 0x1408F23CC
  * Callers:
- *     BiOpenSystemStore @ 0x140712C24 (BiOpenSystemStore.c)
+ *     BiOpenSystemStore @ 0x140712C04 (BiOpenSystemStore.c)
  * Callees:
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
- *     BiBindEfiBootManager @ 0x1408F1F8C (BiBindEfiBootManager.c)
- *     BiBindEfiEntries @ 0x1408F21B4 (BiBindEfiEntries.c)
- *     BiBuildIdentifierList @ 0x1408F2488 (BiBuildIdentifierList.c)
- *     BiFreeIdentifierList @ 0x1408F3A98 (BiFreeIdentifierList.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
+ *     BiBindEfiBootManager @ 0x1408F1F6C (BiBindEfiBootManager.c)
+ *     BiBindEfiEntries @ 0x1408F2194 (BiBindEfiEntries.c)
+ *     BiBuildIdentifierList @ 0x1408F2468 (BiBuildIdentifierList.c)
+ *     BiFreeIdentifierList @ 0x1408F3A78 (BiFreeIdentifierList.c)
  */
 
 __int64 __fastcall BiBindEfiNamespaceObjects(__int64 a1)

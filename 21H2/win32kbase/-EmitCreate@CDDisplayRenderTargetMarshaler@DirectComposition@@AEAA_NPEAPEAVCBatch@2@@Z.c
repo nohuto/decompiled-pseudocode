@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EmitCreate@CDDisplayRenderTargetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022E510
+ * XREFs of ?EmitCreate@CDDisplayRenderTargetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EEC18
  * Callers:
- *     ?EmitUpdateCommands@CDDisplayRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022E5F0 (-EmitUpdateCommands@CDDisplayRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CDDisplayRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EED00 (-EmitUpdateCommands@CDDisplayRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     OpenDwmHandle @ 0x1C009090C (OpenDwmHandle.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     OpenDwmHandle @ 0x1C0049280 (OpenDwmHandle.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall DirectComposition::CDDisplayRenderTargetMarshaler::EmitCreate(
@@ -22,26 +22,26 @@ char __fastcall DirectComposition::CDDisplayRenderTargetMarshaler::EmitCreate(
   if ( (*((_DWORD *)this + 4) & 0x20) == 0 )
     return 1;
   v10 = (void *)-1LL;
-  if ( *((_QWORD *)this + 11) )
+  if ( *((_QWORD *)this + 10) )
   {
-    v4 = (struct _OBJECT_TYPE *)((__int64 (*)(void))qword_1C0296850)();
-    OpenDwmHandle(*((PVOID *)this + 11), v4, 0x1F0000u, v5, v8, &v10);
+    v4 = (struct _OBJECT_TYPE *)((__int64 (*)(void))qword_1C0251A68)();
+    OpenDwmHandle(*((PVOID *)this + 10), v4, 0x1F0000u, v5, v8, &v10);
   }
   v9 = 0LL;
-  if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x3CuLL, &v9) )
+  if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x34uLL, &v9) )
   {
     v6 = (char *)v9;
-    *(_DWORD *)v9 = 60;
-    *((_DWORD *)v6 + 1) = 125;
-    *((_DWORD *)v6 + 2) = *((_DWORD *)this + 8);
-    *((_DWORD *)v6 + 5) = *((_DWORD *)this + 18);
-    *(_QWORD *)(v6 + 12) = *((_QWORD *)this + 8);
-    *((_DWORD *)v6 + 6) = *((_DWORD *)this + 19);
+    *(_DWORD *)v9 = 52;
+    *((_DWORD *)v6 + 1) = 130;
+    *((_DWORD *)v6 + 2) = *((_DWORD *)this + 6);
+    *((_DWORD *)v6 + 5) = *((_DWORD *)this + 16);
+    *(_QWORD *)(v6 + 12) = *((_QWORD *)this + 7);
+    *((_DWORD *)v6 + 6) = *((_DWORD *)this + 17);
     *(_QWORD *)(v6 + 28) = v10;
-    *((_DWORD *)v6 + 9) = *((_DWORD *)this + 24);
-    *((_DWORD *)v6 + 10) = *((_DWORD *)this + 25);
-    *(_QWORD *)(v6 + 44) = *(_QWORD *)((char *)this + 140);
-    *((_DWORD *)v6 + 13) = *((_DWORD *)this + 39);
+    *((_DWORD *)v6 + 9) = *((_DWORD *)this + 22);
+    *((_DWORD *)v6 + 10) = *((_DWORD *)this + 23);
+    *((_DWORD *)v6 + 11) = *((_DWORD *)this + 34);
+    v6[48] = *((_BYTE *)this + 140);
     *((_DWORD *)this + 4) &= ~0x20u;
     return 1;
   }

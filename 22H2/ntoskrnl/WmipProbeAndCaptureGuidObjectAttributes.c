@@ -1,25 +1,22 @@
 /*
- * XREFs of WmipProbeAndCaptureGuidObjectAttributes @ 0x1407D6AEC
+ * XREFs of WmipProbeAndCaptureGuidObjectAttributes @ 0x14068B5E4
  * Callers:
- *     WmipProbeWmiOpenGuidBlock @ 0x1407D6A48 (WmipProbeWmiOpenGuidBlock.c)
+ *     WmipProbeWmiOpenGuidBlock @ 0x14068B52C (WmipProbeWmiOpenGuidBlock.c)
  * Callees:
- *     IoIs32bitProcess @ 0x14022BA40 (IoIs32bitProcess.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     IoIs32bitProcess @ 0x14032D650 (IoIs32bitProcess.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall WmipProbeAndCaptureGuidObjectAttributes(
-        __int64 a1,
-        unsigned __int16 *a2,
-        _WORD *a3,
-        unsigned int *a4)
+__int64 __fastcall WmipProbeAndCaptureGuidObjectAttributes(__int64 a1, __int64 a2, _WORD *a3, unsigned int *a4)
 {
   unsigned int v8; // ebx
   __int64 v9; // rax
   unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // rax
-  unsigned __int64 v12; // rcx
-  __int128 v14; // [rsp+30h] [rbp-18h]
+  unsigned __int16 v11; // ax
+  char *v12; // rdx
+  unsigned __int64 v13; // rcx
+  __int128 v15; // [rsp+30h] [rbp-18h]
 
   v8 = 0;
   if ( IoIs32bitProcess(0LL) )
@@ -33,16 +30,16 @@ __int64 __fastcall WmipProbeAndCaptureGuidObjectAttributes(
     *(_DWORD *)(a1 + 24) = a4[3];
     *(_QWORD *)(a1 + 32) = a4[4];
     *(_QWORD *)(a1 + 40) = a4[5];
-    v12 = a4[2];
+    v13 = a4[2];
     if ( !a4[2] )
       return (unsigned int)-1073741811;
-    if ( (v12 & 3) != 0 )
+    if ( (v13 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( v12 + 8 < v12 )
+    if ( v13 + 8 < v13 )
       MEMORY[0x7FFFFFFF0000] = 0;
-    *a2 = *(_WORD *)v12;
-    a2[1] = *(_WORD *)(v12 + 2);
-    *((_QWORD *)a2 + 1) = *(unsigned int *)(v12 + 4);
+    *(_WORD *)a2 = *(_WORD *)v13;
+    *(_WORD *)(a2 + 2) = *(_WORD *)(v13 + 2);
+    *(_QWORD *)(a2 + 8) = *(unsigned int *)(v13 + 4);
   }
   else
   {
@@ -55,30 +52,38 @@ __int64 __fastcall WmipProbeAndCaptureGuidObjectAttributes(
     v10 = *(_QWORD *)(a1 + 16);
     if ( !v10 )
       return (unsigned int)-1073741811;
-    DWORD1(v14) = 0;
+    DWORD1(v15) = 0;
     if ( v10 >= 0x7FFFFFFF0000LL )
       v10 = 0x7FFFFFFF0000LL;
-    LODWORD(v14) = *(_DWORD *)v10;
-    *((_QWORD *)&v14 + 1) = *(_QWORD *)(v10 + 8);
-    *(_OWORD *)a2 = v14;
+    LODWORD(v15) = *(_DWORD *)v10;
+    *((_QWORD *)&v15 + 1) = *(_QWORD *)(v10 + 8);
+    *(_OWORD *)a2 = v15;
   }
   if ( *(_QWORD *)(a1 + 32) || *(_QWORD *)(a1 + 40) )
   {
     return (unsigned int)-1073741811;
   }
-  else if ( *a2 == 90 )
-  {
-    v11 = *((_QWORD *)a2 + 1);
-    if ( v11 + 90 > 0x7FFFFFFF0000LL || v11 + 90 < v11 )
-      MEMORY[0x7FFFFFFF0000] = 0;
-    memmove(a3, *((const void **)a2 + 1), *a2);
-    a3[45] = 0;
-    *((_QWORD *)a2 + 1) = a3;
-    *(_QWORD *)(a1 + 16) = a2;
-  }
   else
   {
-    return (unsigned int)-1073741811;
+    v11 = 90;
+    if ( *(_WORD *)a2 == 90 )
+    {
+      v12 = *(char **)(a2 + 8);
+      if ( (unsigned __int64)(v12 + 90) > 0x7FFFFFFF0000LL || v12 + 90 < v12 )
+      {
+        MEMORY[0x7FFFFFFF0000] = 0;
+        v11 = *(_WORD *)a2;
+        v12 = *(char **)(a2 + 8);
+      }
+      memmove(a3, v12, v11);
+      a3[45] = 0;
+      *(_QWORD *)(a2 + 8) = a3;
+      *(_QWORD *)(a1 + 16) = a2;
+    }
+    else
+    {
+      return (unsigned int)-1073741811;
+    }
   }
   return v8;
 }

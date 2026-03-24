@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFinalizeDriverCfgState @ 0x14076146C
+ * XREFs of MiFinalizeDriverCfgState @ 0x14075C8B8
  * Callers:
- *     MmLoadSystemImageEx @ 0x14075FC44 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
  * Callees:
- *     MiProcessKernelCfgImage @ 0x1402D99BC (MiProcessKernelCfgImage.c)
- *     MiCompleteSecureDriverLoad @ 0x14080C354 (MiCompleteSecureDriverLoad.c)
+ *     MiProcessKernelCfgImage @ 0x140371DC4 (MiProcessKernelCfgImage.c)
+ *     VslCompleteSecureDriverLoad @ 0x14077D404 (VslCompleteSecureDriverLoad.c)
  */
 
 __int64 __fastcall MiFinalizeDriverCfgState(__int64 a1, char a2, __int64 a3)
@@ -14,9 +14,9 @@ __int64 __fastcall MiFinalizeDriverCfgState(__int64 a1, char a2, __int64 a3)
   result = MiProcessKernelCfgImage(a1, a2, a3);
   if ( (int)result >= 0 )
   {
-    if ( (MiFlags & 0x4000) == 0 || (MiFlags & 0x40000) != 0 || (*(_DWORD *)(a1 + 104) & 0x2000) != 0 )
+    if ( (MiFlags & 0x8000) == 0 || (MiFlags & 0x80000) != 0 || (*(_DWORD *)(a1 + 104) & 0x2000) != 0 )
       return 0LL;
-    result = MiCompleteSecureDriverLoad(a1);
+    result = VslCompleteSecureDriverLoad(0LL, *(_QWORD *)(a1 + 48), *(unsigned int *)(a1 + 64));
     if ( (int)result >= 0 )
     {
       *(_DWORD *)(a1 + 104) |= 0x2000u;

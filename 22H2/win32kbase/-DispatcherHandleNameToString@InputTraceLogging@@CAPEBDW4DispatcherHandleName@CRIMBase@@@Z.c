@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DispatcherHandleNameToString@InputTraceLogging@@CAPEBDW4DispatcherHandleName@CRIMBase@@@Z @ 0x1C01DCC84
+ * XREFs of ?DispatcherHandleNameToString@InputTraceLogging@@CAPEBDW4DispatcherHandleName@CRIMBase@@@Z @ 0x1C01A38DC
  * Callers:
- *     ?OnDispatcherObjectSignaled@CBaseInput@@AEAAJPEAX@Z @ 0x1C0053374 (-OnDispatcherObjectSignaled@CBaseInput@@AEAAJPEAX@Z.c)
+ *     ?OnDispatcherObjectSignaled@CBaseInput@@AEAAJPEAX@Z @ 0x1C0045998 (-OnDispatcherObjectSignaled@CBaseInput@@AEAAJPEAX@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,44 +13,41 @@ const char *__fastcall InputTraceLogging::DispatcherHandleNameToString(unsigned 
   unsigned int v3; // ecx
   unsigned int v4; // ecx
   unsigned int v5; // ecx
-  unsigned int v6; // ecx
+  unsigned int v7; // ecx
   unsigned int v8; // ecx
   unsigned int v9; // ecx
   unsigned int v10; // ecx
   unsigned int v11; // ecx
-  unsigned int v12; // ecx
-  unsigned int v13; // ecx
-  unsigned int v14; // ecx
 
-  if ( a1 <= 8 )
+  if ( a1 <= 7 )
   {
-    if ( a1 == 8 )
-      return "RemoteOpenEvent";
+    if ( a1 == 7 )
+      return "FlushDelayZonePalmRejectInputTimer";
     if ( !a1 )
       return "RimPnpEvent";
     v1 = a1 - 1;
     if ( !v1 )
-      return "RimAsyncPnpWorkNotificationSemaphore";
+      return "RimReadCompletionEvent";
     v2 = v1 - 1;
     if ( !v2 )
-      return "RimReadCompletionEvent";
+      return "RimTimer";
     v3 = v2 - 1;
     if ( !v3 )
-      return "RimTimer";
+      return "RimAutoRepeatTimer";
     v4 = v3 - 1;
     if ( !v4 )
       return "PTPTimer";
     v5 = v4 - 1;
     if ( !v5 )
       return "PTPInertiaTimer";
-    v6 = v5 - 1;
-    if ( !v6 )
+    if ( v5 == 1 )
       return "DelayZonePalmRejectionTimer";
-    if ( v6 == 1 )
-      return "FlushDelayZonePalmRejectInputTimer";
     return "UNKNOWN";
   }
-  v8 = a1 - 9;
+  v7 = a1 - 9;
+  if ( !v7 )
+    return "RemoteOpenEvent";
+  v8 = v7 - 1;
   if ( !v8 )
     return "RemoteCloseEvent";
   v9 = v8 - 1;
@@ -62,16 +59,7 @@ const char *__fastcall InputTraceLogging::DispatcherHandleNameToString(unsigned 
   v11 = v10 - 1;
   if ( !v11 )
     return "PTPMarshalEvent";
-  v12 = v11 - 1;
-  if ( !v12 )
-    return "MouseCursorUpdateEvent";
-  v13 = v12 - 1;
-  if ( !v13 )
-    return "TouchSynthesizeEvent";
-  v14 = v13 - 1;
-  if ( !v14 )
-    return "PTPInertiaHandleEvent";
-  if ( v14 != 1 )
+  if ( v11 != 1 )
     return "UNKNOWN";
-  return "RawMouseThrottlingTimer";
+  return "MouseCursorUpdateEvent";
 }

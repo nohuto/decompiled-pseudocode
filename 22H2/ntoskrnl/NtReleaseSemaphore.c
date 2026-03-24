@@ -1,46 +1,44 @@
 /*
- * XREFs of NtReleaseSemaphore @ 0x140790EA0
+ * XREFs of NtReleaseSemaphore @ 0x1406618B0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeReleaseSemaphoreEx @ 0x1402B7170 (KeReleaseSemaphoreEx.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeReleaseSemaphore @ 0x1402F19A0 (KeReleaseSemaphore.c)
+ *     KiFatalFilter @ 0x140514A70 (KiFatalFilter.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtReleaseSemaphore(HANDLE Handle, int a2, _DWORD *a3)
+__int64 __fastcall NtReleaseSemaphore(void *a1, int a2, LONG *a3)
 {
   KPROCESSOR_MODE PreviousMode; // r14
-  __int64 v7; // rcx
-  int v9; // esi
-  int v10; // r8d
-  PVOID v11; // rbx
-  PVOID Object; // [rsp+68h] [rbp+20h] BYREF
+  NTSTATUS v6; // edi
+  LONG v7; // r8d
+  struct _DMA_ADAPTER *v8; // rsi
+  LONG v9; // r15d
+  __int64 v11; // rdx
+  PVOID Object; // [rsp+38h] [rbp-20h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( a3 && PreviousMode )
   {
-    v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a3;
-    *(_DWORD *)v7 = *(_DWORD *)v7;
+    v11 = (__int64)a3;
+    if ( (unsigned __int64)a3 >= 0x7FFFFFFF0000LL )
+      v11 = 0x7FFFFFFF0000LL;
+    *(_DWORD *)v11 = *(_DWORD *)v11;
   }
   if ( a2 <= 0 )
     return 3221225485LL;
   Object = 0LL;
-  v9 = ObReferenceObjectByHandle(Handle, 2u, (POBJECT_TYPE)ExSemaphoreObjectType, PreviousMode, &Object, 0LL);
-  if ( v9 >= 0 )
+  v6 = ObReferenceObjectByHandle(a1, 2u, (POBJECT_TYPE)ExSemaphoreObjectType, PreviousMode, &Object, 0LL);
+  if ( v6 >= 0 )
   {
-    v10 = a2;
-    v11 = Object;
-    v9 = KeReleaseSemaphoreEx((__int64)Object, 1u, v10);
-    LODWORD(Object) = v9;
-    ObfDereferenceObject(v11);
-    if ( v9 >= 0 )
-    {
-      if ( a3 )
-        *a3 = 0;
-    }
+    v7 = a2;
+    v8 = (struct _DMA_ADAPTER *)Object;
+    v9 = KeReleaseSemaphore((PRKSEMAPHORE)Object, 1, v7, 0);
+    HalPutDmaAdapter(v8);
+    if ( a3 )
+      *a3 = v9;
   }
-  return (unsigned int)v9;
+  return (unsigned int)v6;
 }

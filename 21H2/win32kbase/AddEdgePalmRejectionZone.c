@@ -1,10 +1,10 @@
 /*
- * XREFs of AddEdgePalmRejectionZone @ 0x1C01E70E0
+ * XREFs of AddEdgePalmRejectionZone @ 0x1C01ADD50
  * Callers:
  *     <none>
  * Callees:
- *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C0083180 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
- *     ?AddEdgeZoneToList@DelayZonePalmRejection@@QEAAKPEAXKUtagRECT@@@Z @ 0x1C01E56F0 (-AddEdgeZoneToList@DelayZonePalmRejection@@QEAAKPEAXKUtagRECT@@@Z.c)
+ *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C006C098 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
+ *     ?AddEdgeZoneToList@DelayZonePalmRejection@@QEAAKPEAXKUtagRECT@@@Z @ 0x1C01AC960 (-AddEdgeZoneToList@DelayZonePalmRejection@@QEAAKPEAXKUtagRECT@@@Z.c)
  */
 
 DelayZonePalmRejection *__fastcall AddEdgePalmRejectionZone(void *a1, int a2, struct tagRECT *a3)

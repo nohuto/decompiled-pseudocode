@@ -1,9 +1,9 @@
 /*
- * XREFs of Etw_ControllerCreate @ 0x1C00158D4
+ * XREFs of Etw_ControllerCreate @ 0x1C0017C90
  * Callers:
- *     Controller_WdfEvtDeviceAdd @ 0x1C006D740 (Controller_WdfEvtDeviceAdd.c)
+ *     Controller_WdfEvtDeviceAdd @ 0x1C0070440 (Controller_WdfEvtDeviceAdd.c)
  * Callees:
- *     McTemplateK0pqqqqqqqsssxqqqtn_EtwWriteTransfer @ 0x1C004913C (McTemplateK0pqqqqqqqsssxqqqtn_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqqqqqsssxqqqtn_EtwWriteTransfer @ 0x1C0048F04 (McTemplateK0pqqqqqqqsssxqqqtn_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Etw_ControllerCreate(__int64 a1, __int64 a2)

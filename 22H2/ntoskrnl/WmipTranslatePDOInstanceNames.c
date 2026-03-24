@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipTranslatePDOInstanceNames @ 0x14086EC78
+ * XREFs of WmipTranslatePDOInstanceNames @ 0x1407689F0
  * Callers:
- *     WmipForwardWmiIrp @ 0x1406C7530 (WmipForwardWmiIrp.c)
+ *     WmipForwardWmiIrp @ 0x1406B24CC (WmipForwardWmiIrp.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     IoGetDeviceInstanceName @ 0x140321B38 (IoGetDeviceInstanceName.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     IoGetDeviceInstanceName @ 0x14036F3E0 (IoGetDeviceInstanceName.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall WmipTranslatePDOInstanceNames(__int64 a1, char a2, int a3, __int64 a4)
@@ -16,194 +16,191 @@ __int64 __fastcall WmipTranslatePDOInstanceNames(__int64 a1, char a2, int a3, __
   unsigned int *v4; // r8
   unsigned int v5; // r12d
   unsigned int v6; // r10d
-  int v7; // r14d
-  unsigned int v8; // r14d
-  void *v9; // r13
-  void *v10; // rbp
+  int v7; // r15d
+  unsigned int v8; // r15d
+  struct _DMA_ADAPTER *v9; // r13
+  struct _DMA_ADAPTER *v10; // rbp
   _WORD *v11; // rdi
   unsigned int *v12; // rsi
-  unsigned int v13; // r9d
-  unsigned int v14; // r15d
-  void *v15; // r11
-  __int64 v16; // rbx
-  __int64 v17; // rax
+  unsigned int v13; // r14d
+  unsigned int v14; // eax
+  struct _DMA_ADAPTER *v15; // r11
+  unsigned int v16; // r9d
+  __int64 v17; // rbx
   __int64 v18; // rax
-  unsigned int v19; // edx
-  unsigned int v20; // eax
+  __int64 v19; // rax
+  unsigned int v20; // edx
   __int64 v21; // rdx
   __int64 v22; // r13
-  _DWORD *v23; // r15
+  _DWORD *v23; // r14
   unsigned int v24; // ecx
   unsigned int v25; // ebx
   wchar_t *v26; // rdx
   char *v27; // rbx
   wchar_t *v28; // rdx
   __int64 result; // rax
-  unsigned int *v30; // rcx
+  __int64 v30; // rax
+  unsigned int *v31; // rcx
+  struct _DMA_ADAPTER *v32; // rax
   unsigned int Length; // ecx
-  unsigned int v32; // r15d
+  unsigned int v34; // r14d
   wchar_t *Buffer; // rdx
-  __int64 v34; // rbx
-  __int64 v35; // rax
-  char v36; // [rsp+20h] [rbp-78h]
-  char v37; // [rsp+21h] [rbp-77h]
-  unsigned int v38; // [rsp+24h] [rbp-74h]
-  int v39; // [rsp+28h] [rbp-70h]
-  unsigned int v40; // [rsp+2Ch] [rbp-6Ch]
-  unsigned int *v41; // [rsp+30h] [rbp-68h]
-  void *v42; // [rsp+38h] [rbp-60h]
-  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v36; // rbx
+  char v37; // [rsp+20h] [rbp-88h]
+  char v38; // [rsp+21h] [rbp-87h]
+  int v39; // [rsp+24h] [rbp-84h]
+  unsigned int v40; // [rsp+28h] [rbp-80h]
+  unsigned int v41; // [rsp+2Ch] [rbp-7Ch]
+  unsigned int *v42; // [rsp+30h] [rbp-78h]
+  UNICODE_STRING UnicodeString; // [rsp+38h] [rbp-70h] BYREF
+  struct _DMA_ADAPTER *v44; // [rsp+50h] [rbp-58h]
 
   v4 = *(unsigned int **)(a1 + 24);
   v5 = 0;
   v6 = 0;
   v7 = *(_DWORD *)(a1 + 56) + 1;
-  v36 = 0;
-  v41 = v4;
+  v37 = 0;
+  v42 = v4;
   UnicodeString = 0LL;
   v39 = 0;
   v8 = v7 & 0xFFFFFFFE;
-  v37 = 1;
+  v38 = 1;
   v9 = 0LL;
   v10 = 0LL;
   v11 = 0LL;
   v12 = v4;
   v13 = 0;
-  v38 = 0;
+  v40 = 0;
   do
   {
     v14 = 0;
-    v40 = 0;
+    v41 = 0;
     if ( v12[4] )
     {
       v15 = 0LL;
-      v42 = 0LL;
+      v44 = 0LL;
       while ( 1 )
       {
-        v16 = 8LL * v14;
-        v17 = *(_QWORD *)&v12[v16 + 6] - WmipDataProviderPnpidGuid;
-        if ( !v17 )
-          v17 = *(_QWORD *)&v12[v16 + 8] - *((_QWORD *)&WmipDataProviderPnpidGuid + 1);
-        if ( !v17 )
-          goto LABEL_43;
-        v18 = *(_QWORD *)&v12[v16 + 6] - WmipDataProviderPnPIdInstanceNamesGuid;
+        v16 = v13;
+        v17 = 8LL * v14;
+        v18 = *(_QWORD *)&v12[v17 + 6] - WmipDataProviderPnpidGuid;
         if ( !v18 )
-          v18 = *(_QWORD *)&v12[v16 + 8] - *((_QWORD *)&WmipDataProviderPnPIdInstanceNamesGuid + 1);
+          v18 = *(_QWORD *)&v12[v17 + 8] - *((_QWORD *)&WmipDataProviderPnpidGuid + 1);
         if ( !v18 )
+          goto LABEL_46;
+        v19 = *(_QWORD *)&v12[v17 + 6] - WmipDataProviderPnPIdInstanceNamesGuid;
+        if ( !v19 )
+          v19 = *(_QWORD *)&v12[v17 + 8] - *((_QWORD *)&WmipDataProviderPnPIdInstanceNamesGuid + 1);
+        if ( !v19 )
         {
-LABEL_43:
-          v37 = 0;
+LABEL_46:
+          v38 = 0;
           if ( v10 )
           {
-            ObfDereferenceObject(v10);
-            v4 = v41;
+            HalPutDmaAdapter(v10);
+            v4 = v42;
             v10 = 0LL;
-            v13 = v38;
             v6 = v39;
-            v15 = v42;
+            v16 = v13;
+            v15 = v44;
           }
         }
-        v19 = v12[v16 + 10];
-        if ( (v19 & 0x20) == 0 )
-          goto LABEL_18;
+        v20 = v12[v17 + 10];
+        if ( (v20 & 0x20) == 0 )
+          goto LABEL_11;
         if ( !v11 )
         {
-          v30 = v4;
-          if ( v4[1] )
+          v30 = v4[1];
+          v31 = v4;
+          while ( (_DWORD)v30 )
           {
-            v35 = v4[1];
-            do
-            {
-              v30 = (unsigned int *)((char *)v30 + v35);
-              v35 = v30[1];
-            }
-            while ( (_DWORD)v35 );
+            v31 = (unsigned int *)((char *)v31 + v30);
+            v30 = v31[1];
           }
-          v11 = (_WORD *)((char *)v30 + ((*v30 + 1) & 0xFFFFFFFE));
+          v11 = (_WORD *)((char *)v31 + ((*v31 + 1) & 0xFFFFFFFE));
           v5 = a3 + (_DWORD)v4 - (_DWORD)v11;
         }
-        v20 = v12[v16 + 11];
-        v9 = *(void **)&v12[v16 + 12];
-        if ( v13 >= v20 )
-          v20 = v13;
-        v38 = v20;
-        v13 = v20;
+        v13 = v12[v17 + 11];
+        v9 = *(struct _DMA_ADAPTER **)&v12[v17 + 12];
+        if ( v16 >= v13 )
+          v13 = v16;
+        v40 = v13;
         if ( v9 == v15 )
         {
-          v12[v16 + 12] = v6;
-          v12[v16 + 10] = v19 | 8;
-          goto LABEL_16;
+          v12[v17 + 12] = v6;
+          v12[v17 + 10] = v20 | 8;
+          goto LABEL_30;
         }
         if ( (int)IoGetDeviceInstanceName((ULONG_PTR)v9, &UnicodeString) >= 0 )
           break;
-LABEL_42:
-        v13 = v38;
-LABEL_16:
+LABEL_30:
         if ( a2 == 11 )
         {
-          ObfDereferenceObject(v9);
-          v13 = v38;
+          HalPutDmaAdapter(v9);
+          v40 = v13;
         }
-LABEL_18:
-        v4 = v41;
-        ++v14;
+LABEL_11:
+        v4 = v42;
+        v14 = v41 + 1;
         v6 = v39;
-        v15 = v42;
-        v40 = v14;
+        v15 = v44;
+        v41 = v14;
         if ( v14 >= v12[4] )
-          goto LABEL_19;
+          goto LABEL_12;
       }
-      if ( v37 )
+      if ( v38 )
       {
         if ( !v10 )
         {
-          v10 = v9;
           ObfReferenceObject(v9);
-          goto LABEL_38;
-        }
-        if ( v10 == v9 )
-        {
-LABEL_38:
+LABEL_39:
+          v32 = v9;
+          if ( v10 )
+            v32 = v10;
+          v10 = v32;
+LABEL_42:
           Length = UnicodeString.Length;
-          v32 = UnicodeString.Length + 4;
-          v8 += v32;
-          if ( v36 || v32 > v5 )
+          v34 = UnicodeString.Length + 4;
+          v8 += v34;
+          if ( v37 || v34 > v5 )
           {
-            v36 = 1;
+            v37 = 1;
           }
           else
           {
-            v12[v16 + 10] |= 8u;
+            v12[v17 + 10] |= 8u;
             Buffer = UnicodeString.Buffer;
-            v12[v16 + 12] = (_DWORD)v11 - (_DWORD)v12;
+            v12[v17 + 12] = (_DWORD)v11 - (_DWORD)v12;
             v39 = (_DWORD)v11 - (_DWORD)v12;
-            v34 = Length;
-            v42 = v9;
+            v36 = Length;
+            v44 = v9;
             *v11 = Length + 2;
             memmove(v11 + 1, Buffer, Length);
-            *(_WORD *)((char *)v11 + v34 + 2) = 95;
-            v11 = (_WORD *)((char *)v11 + v34 + 4);
-            v5 -= v32;
+            *(_WORD *)((char *)v11 + v36 + 2) = 95;
+            v11 = (_WORD *)((char *)v11 + v36 + 4);
+            v5 -= v34;
           }
-          RtlFreeUnicodeString(&UnicodeString);
-          v14 = v40;
-          goto LABEL_42;
+          RtlFreeAnsiString(&UnicodeString);
+          v13 = v40;
+          goto LABEL_30;
         }
+        if ( v10 == v9 )
+          goto LABEL_39;
       }
-      v37 = 0;
+      v38 = 0;
       if ( v10 )
       {
-        ObfDereferenceObject(v10);
+        HalPutDmaAdapter(v10);
         v10 = 0LL;
       }
-      goto LABEL_38;
+      goto LABEL_42;
     }
-LABEL_19:
+LABEL_12:
     v21 = v12[1];
     v12 = (unsigned int *)((char *)v12 + v21);
   }
   while ( (_DWORD)v21 );
-  if ( v37 && v10 )
+  if ( v38 && v10 )
   {
     if ( (int)IoGetDeviceInstanceName((ULONG_PTR)v9, &UnicodeString) >= 0 )
     {
@@ -212,15 +209,15 @@ LABEL_19:
       v24 = (((_DWORD)v11 + 7) & 0xFFFFFFF8) - (_DWORD)v11;
       v25 = 2 * UnicodeString.Length + 96;
       v8 += v24 + v25;
-      if ( v36 || v25 > v5 - v24 )
+      if ( v37 || v25 > v5 - v24 )
       {
-        v36 = 1;
+        v37 = 1;
       }
       else if ( !*(_QWORD *)(a4 + 24) )
       {
         ObfReferenceObject(v10);
         *(_QWORD *)(a4 + 24) = v10;
-        *(_DWORD *)(a4 + 52) = v38;
+        *(_DWORD *)(a4 + 52) = v40;
         v12[1] = (_DWORD)v23 - (_DWORD)v12;
         memset(v23, 0, 0x58uLL);
         v26 = UnicodeString.Buffer;
@@ -228,7 +225,7 @@ LABEL_19:
         *v23 = v25;
         v23[10] = 40;
         v27 = (char *)v23 + 90;
-        v23[11] = v38;
+        v23[11] = v40;
         v23[12] = 88;
         *(_OWORD *)(v23 + 6) = WmipDataProviderPnpidGuid;
         *((_WORD *)v23 + 44) = v22 + 2;
@@ -242,13 +239,13 @@ LABEL_19:
         *(_WORD *)&v27[v22 + 2] = v22;
         memmove((char *)v23 + v22 + 94, v28, (unsigned int)v22);
       }
-      RtlFreeUnicodeString(&UnicodeString);
+      RtlFreeAnsiString(&UnicodeString);
     }
-    ObfDereferenceObject(v10);
+    HalPutDmaAdapter(v10);
   }
-  *v41 = v8;
+  *v42 = v8;
   result = 4LL;
-  if ( !v36 )
+  if ( !v37 )
     result = v8;
   *(_QWORD *)(a1 + 56) = result;
   return result;

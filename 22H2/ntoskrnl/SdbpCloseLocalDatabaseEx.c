@@ -1,34 +1,34 @@
 /*
- * XREFs of SdbpCloseLocalDatabaseEx @ 0x140A524A4
+ * XREFs of SdbpCloseLocalDatabaseEx @ 0x1409667C8
  * Callers:
- *     SdbpCleanupLocalDatabaseSupport @ 0x1406956BC (SdbpCleanupLocalDatabaseSupport.c)
- *     SdbpOpenLocalDatabaseEx @ 0x140A5253C (SdbpOpenLocalDatabaseEx.c)
+ *     SdbpCleanupLocalDatabaseSupport @ 0x14075577C (SdbpCleanupLocalDatabaseSupport.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x140966854 (SdbpOpenLocalDatabaseEx.c)
  * Callees:
- *     SdbCloseDatabaseRead @ 0x140695724 (SdbCloseDatabaseRead.c)
+ *     SdbCloseDatabaseRead @ 0x1407559FC (SdbCloseDatabaseRead.c)
  */
 
 __int64 __fastcall SdbpCloseLocalDatabaseEx(__int64 a1, __int64 a2, unsigned int a3)
 {
-  int v5; // ebp
-  __int64 v6; // rsi
+  int v5; // esi
+  __int64 v6; // rbx
   _QWORD *v7; // rcx
 
-  if ( a3 != 1 && a3 - 3 > 0xC )
+  if ( a3 >= 0x10 )
     return 0LL;
   v5 = 1 << a3;
-  if ( ((1 << a3) & *(_DWORD *)(a1 + 36)) == 0 )
+  if ( ((1 << a3) & *(_DWORD *)(a1 + 28)) == 0 )
     return 0LL;
-  v6 = 32LL * a3;
-  if ( (*(_DWORD *)(v6 + a1 + 64) & 2) != 0 )
+  v6 = a1 + 32 * (a3 + 1LL);
+  if ( (*(_DWORD *)(v6 + 24) & 2) != 0 )
   {
-    v7 = *(_QWORD **)(v6 + a1 + 56);
+    v7 = *(_QWORD **)(v6 + 16);
     if ( v7 )
       SdbCloseDatabaseRead(v7);
   }
-  *(_OWORD *)(v6 + a1 + 40) = 0LL;
-  *(_OWORD *)(v6 + a1 + 56) = 0LL;
-  *(_DWORD *)(a1 + 36) &= ~v5;
+  *(_OWORD *)v6 = 0LL;
+  *(_OWORD *)(v6 + 16) = 0LL;
+  *(_DWORD *)(a1 + 28) &= ~v5;
   if ( a3 == 1 )
-    *(_QWORD *)(a1 + 24) = 0LL;
+    *(_QWORD *)(a1 + 16) = 0LL;
   return 1LL;
 }

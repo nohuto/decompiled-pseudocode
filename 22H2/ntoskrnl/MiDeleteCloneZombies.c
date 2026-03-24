@@ -1,29 +1,26 @@
 /*
- * XREFs of MiDeleteCloneZombies @ 0x140367034
+ * XREFs of MiDeleteCloneZombies @ 0x14032267C
  * Callers:
- *     MiCloneVads @ 0x1406632E8 (MiCloneVads.c)
- *     MiInsertClone @ 0x14066517C (MiInsertClone.c)
- *     MmCleanProcessAddressSpace @ 0x14071FAC8 (MmCleanProcessAddressSpace.c)
- *     MiDeleteInsertedCloneVads @ 0x140A48D28 (MiDeleteInsertedCloneVads.c)
+ *     MiInsertClone @ 0x14055B1B4 (MiInsertClone.c)
+ *     MmCleanProcessAddressSpace @ 0x14063896C (MmCleanProcessAddressSpace.c)
+ *     MiDeleteInsertedCloneVads @ 0x1408D9404 (MiDeleteInsertedCloneVads.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
- *     MiDeleteDeferredCloneDescriptors @ 0x140663F7C (MiDeleteDeferredCloneDescriptors.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiDeleteDeferredCloneDescriptors @ 0x14055A000 (MiDeleteDeferredCloneDescriptors.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteCloneZombies(__int64 a1, int a2)
 {
   __int64 v3; // rbp
   KIRQL v4; // si
-  volatile LONG *SharedVm; // rbx
+  LONG *SharedVm; // rbx
   _QWORD *v6; // rdi
-  __int64 v7; // r8
-  __int64 v8; // r9
-  _QWORD *v9; // rbx
+  _QWORD *v7; // rbx
 
-  if ( *(_WORD *)(*(_QWORD *)(a1 + 1680) + 352LL) )
+  if ( *(_WORD *)(*(_QWORD *)(a1 + 1680) + 368LL) )
   {
     v3 = a1 + 1664;
     if ( a2 )
@@ -32,22 +29,22 @@ void __fastcall MiDeleteCloneZombies(__int64 a1, int a2)
     }
     else
     {
-      SharedVm = (volatile LONG *)MiGetSharedVm(a1 + 1664);
+      SharedVm = MiGetSharedVm(a1 + 1664);
       v4 = ExAcquireSpinLockExclusive(SharedVm);
-      *((_DWORD *)SharedVm + 1) = 0;
+      SharedVm[1] = 0;
     }
     v6 = (_QWORD *)MiDeleteDeferredCloneDescriptors(a1);
     if ( v4 != 17 )
-      MiUnlockWorkingSetExclusive(v3, v4, v7, v8);
+      MiUnlockWorkingSetExclusive(v3, v4);
     if ( v6 )
     {
       do
       {
-        v9 = (_QWORD *)*v6;
+        v7 = (_QWORD *)*v6;
         ExFreePoolWithTag(v6, 0);
-        v6 = v9;
+        v6 = v7;
       }
-      while ( v9 );
+      while ( v7 );
     }
   }
 }

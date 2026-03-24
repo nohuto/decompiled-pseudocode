@@ -1,12 +1,13 @@
 /*
- * XREFs of RIMRegQueryDWord @ 0x1C00D5034
+ * XREFs of RIMRegQueryDWord @ 0x1C006C598
  * Callers:
- *     ShouldEnableInputVirtualization @ 0x1C0053D88 (ShouldEnableInputVirtualization.c)
- *     ?ReadSettingsFromRegKey@DelayZonePalmRejection@@AEAAXXZ @ 0x1C0086B34 (-ReadSettingsFromRegKey@DelayZonePalmRejection@@AEAAXXZ.c)
- *     rimObsReadMaxQueueSize @ 0x1C01B553C (rimObsReadMaxQueueSize.c)
+ *     RIMReadPowerRegistrySettings @ 0x1C006C3D4 (RIMReadPowerRegistrySettings.c)
+ *     ?ReadSettingsFromRegKey@DelayZonePalmRejection@@AEAAXXZ @ 0x1C006C478 (-ReadSettingsFromRegKey@DelayZonePalmRejection@@AEAAXXZ.c)
+ *     ShouldEnableInputVirtualization @ 0x1C008A018 (ShouldEnableInputVirtualization.c)
+ *     rimObsReadMaxQueueSize @ 0x1C017EEE0 (rimObsReadMaxQueueSize.c)
  * Callees:
- *     RIMRegOpenKey @ 0x1C00D50AC (RIMRegOpenKey.c)
- *     RIMRegQueryDWordFromKey @ 0x1C00D510C (RIMRegQueryDWordFromKey.c)
+ *     RIMRegOpenKey @ 0x1C006C610 (RIMRegOpenKey.c)
+ *     RIMRegQueryDWordFromKey @ 0x1C006C6EC (RIMRegQueryDWordFromKey.c)
  */
 
 __int64 __fastcall RIMRegQueryDWord(__int64 a1, __int64 a2, int a3, _DWORD *a4)

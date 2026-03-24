@@ -3,11 +3,11 @@
  * Callers:
  *     KitInitialize @ 0x1409DD5B4 (KitInitialize.c)
  * Callees:
- *     strstr @ 0x140194EA0 (strstr.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetSystemInformation @ 0x1401BB5D0 (ZwSetSystemInformation.c)
- *     KitpReadUlongFromKey @ 0x140760D44 (KitpReadUlongFromKey.c)
- *     KitpOpenRegKey @ 0x140760DB0 (KitpOpenRegKey.c)
+ *     strstr @ 0x140194EC0 (strstr.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetSystemInformation @ 0x1401BB5F0 (ZwSetSystemInformation.c)
+ *     KitpReadUlongFromKey @ 0x140760D24 (KitpReadUlongFromKey.c)
+ *     KitpOpenRegKey @ 0x140760D90 (KitpOpenRegKey.c)
  */
 
 NTSTATUS __fastcall KitpInitAitSampleRate(__int64 a1, __int64 a2)

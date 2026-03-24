@@ -1,56 +1,56 @@
 /*
- * XREFs of ExpWnfDeliverThreadNotifications @ 0x140792EFC
+ * XREFs of ExpWnfDeliverThreadNotifications @ 0x14060E014
  * Callers:
- *     NtGetCompleteWnfStateSubscription @ 0x140792DB0 (NtGetCompleteWnfStateSubscription.c)
+ *     NtGetCompleteWnfStateSubscription @ 0x14060DEC0 (NtGetCompleteWnfStateSubscription.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x14029F350 (ExfAcquirePushLockSharedEx.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1407938B0 (ExpWnfNotifyNameSubscribers.c)
- *     ExpWnfReadStateData @ 0x1407944BC (ExpWnfReadStateData.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ExpWnfReadStateData @ 0x14060FB44 (ExpWnfReadStateData.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x14061088C (ExpWnfNotifyNameSubscribers.c)
  */
 
 __int64 __fastcall ExpWnfDeliverThreadNotifications(__int64 a1, __int64 a2, int a3)
 {
-  _QWORD *v3; // r14
+  unsigned __int64 *v3; // r14
   unsigned int v4; // r13d
   signed __int64 *v5; // r12
   __int64 v6; // rsi
   volatile signed __int64 *v7; // r15
   __int64 v8; // rax
   __int64 v9; // rsi
-  _QWORD *v10; // rax
-  _QWORD *v11; // r14
+  unsigned __int64 *v10; // rax
+  unsigned __int64 *v11; // r14
   __int64 v12; // rsi
   int *v13; // rdx
   unsigned int v14; // r13d
   __int64 v15; // rcx
   _OWORD *v16; // rax
-  _QWORD *v18; // rax
-  _QWORD *v19; // r8
-  __int64 v20; // rcx
+  unsigned __int64 *v18; // rax
+  unsigned __int64 *v19; // r8
+  unsigned __int64 v20; // rcx
   int v21; // eax
   ULONG_PTR v22; // r14
   signed __int64 *v23; // r14
   int v24; // [rsp+34h] [rbp-94h]
   int v25; // [rsp+38h] [rbp-90h] BYREF
   unsigned int v26; // [rsp+3Ch] [rbp-8Ch]
-  _QWORD *v27; // [rsp+40h] [rbp-88h]
+  unsigned __int64 *v27; // [rsp+40h] [rbp-88h]
   __int64 v28; // [rsp+48h] [rbp-80h]
   int *v29; // [rsp+50h] [rbp-78h]
   _DWORD *v30; // [rsp+58h] [rbp-70h]
   ULONG_PTR BugCheckParameter2; // [rsp+68h] [rbp-60h]
   ULONG_PTR v32; // [rsp+70h] [rbp-58h]
-  _QWORD *v33; // [rsp+78h] [rbp-50h]
+  unsigned __int64 *v33; // [rsp+78h] [rbp-50h]
   int v36; // [rsp+E0h] [rbp+18h]
   int v37; // [rsp+E8h] [rbp+20h] BYREF
 
-  v3 = (_QWORD *)a1;
+  v3 = (unsigned __int64 *)a1;
   v25 = 0;
   v4 = -2147483622;
   v36 = -2147483622;
@@ -58,24 +58,24 @@ __int64 __fastcall ExpWnfDeliverThreadNotifications(__int64 a1, __int64 a2, int 
   v37 = 0;
   v26 = a3 - 48;
 LABEL_2:
-  v5 = v3 + 10;
+  v5 = (signed __int64 *)(v3 + 10);
   v32 = (ULONG_PTR)(v3 + 10);
-  v6 = KeAbPreAcquire((__int64)(v3 + 10), 0LL);
-  if ( _InterlockedCompareExchange64(v3 + 10, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v3 + 10, 0, v6, (__int64)(v3 + 10));
+  v6 = KeAbPreAcquire((ULONG_PTR)(v3 + 10), 0LL, 0);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)v3 + 10, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx(v3 + 10, v6, (ULONG_PTR)(v3 + 10));
   if ( v6 )
-    *(_BYTE *)(v6 + 18) = 1;
-  v7 = v3 + 13;
+    *(_BYTE *)(v6 + 26) |= 1u;
+  v7 = (volatile signed __int64 *)(v3 + 13);
   BugCheckParameter2 = (ULONG_PTR)(v3 + 13);
-  v8 = KeAbPreAcquire((__int64)(v3 + 13), 0LL);
+  v8 = KeAbPreAcquire((ULONG_PTR)(v3 + 13), 0LL, 0);
   v9 = v8;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v3 + 26, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v3 + 13, v8, (__int64)(v3 + 13));
+    ExfAcquirePushLockExclusiveEx(v3 + 13, v8, (ULONG_PTR)(v3 + 13));
   if ( v9 )
-    *(_BYTE *)(v9 + 18) = 1;
+    *(_BYTE *)(v9 + 26) |= 1u;
   v10 = v3 + 14;
   v27 = v3 + 14;
-  v11 = (_QWORD *)v3[14];
+  v11 = (unsigned __int64 *)v3[14];
   while ( 1 )
   {
     v33 = v11;
@@ -88,7 +88,7 @@ LABEL_2:
     v28 = v12;
     if ( v12 )
     {
-      v12 &= -(__int64)(ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v12 + 8)) != 0);
+      v12 &= -(__int64)(ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v12 + 8)) != 0);
       v28 = v12;
     }
     v13 = (int *)v11 + 5;
@@ -121,7 +121,7 @@ LABEL_2:
 LABEL_24:
     if ( v12 )
     {
-      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v12 + 8));
+      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v12 + 8));
       v12 = 0LL;
     }
     if ( v24 < 0 )
@@ -146,11 +146,11 @@ LABEL_24:
     }
     v13 = v29;
 LABEL_40:
-    v18 = (_QWORD *)v11[1];
+    v18 = (unsigned __int64 *)v11[1];
     v11 = v18;
     v19 = v33;
     v20 = *v33;
-    if ( *(_QWORD **)(*v33 + 8LL) != v33 || (_QWORD *)*v18 != v33 )
+    if ( *(unsigned __int64 **)(*v33 + 8) != v33 || (unsigned __int64 *)*v18 != v33 )
       __fastfail(3u);
     *v18 = v20;
     *(_QWORD *)(v20 + 8) = v18;
@@ -171,16 +171,16 @@ LABEL_40:
           ExfReleasePushLockShared(v23);
         KeAbPostRelease((ULONG_PTR)v23);
         ExpWnfNotifyNameSubscribers(v12, 8LL, 1LL, 1LL);
-        ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v12 + 8));
+        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v12 + 8));
         v4 = v36;
-        v3 = (_QWORD *)a1;
+        v3 = (unsigned __int64 *)a1;
         goto LABEL_2;
       }
-      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v12 + 8));
+      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v12 + 8));
     }
     v4 = v36;
 LABEL_36:
-    v11 = (_QWORD *)*v11;
+    v11 = (unsigned __int64 *)*v11;
     v10 = v27;
   }
   if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

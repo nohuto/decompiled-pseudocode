@@ -1,10 +1,10 @@
 /*
- * XREFs of _DeviceInfoTranslateStatusDefault @ 0x1C00705AC
+ * XREFs of _DeviceInfoTranslateStatusDefault @ 0x1C001DCF8
  * Callers:
- *     NtUserDisplayConfigGetDeviceInfo @ 0x1C0157A60 (NtUserDisplayConfigGetDeviceInfo.c)
- *     NtUserDisplayConfigSetDeviceInfo @ 0x1C01580E0 (NtUserDisplayConfigSetDeviceInfo.c)
+ *     NtUserDisplayConfigGetDeviceInfo @ 0x1C001D580 (NtUserDisplayConfigGetDeviceInfo.c)
+ *     NtUserDisplayConfigSetDeviceInfo @ 0x1C012D9E0 (NtUserDisplayConfigSetDeviceInfo.c)
  * Callees:
- *     _QdcSdcTranslateStatusDefault @ 0x1C00705D8 (_QdcSdcTranslateStatusDefault.c)
+ *     _QdcSdcTranslateStatusDefault @ 0x1C001DD24 (_QdcSdcTranslateStatusDefault.c)
  */
 
 __int64 __fastcall DeviceInfoTranslateStatusDefault(int a1, unsigned int a2)

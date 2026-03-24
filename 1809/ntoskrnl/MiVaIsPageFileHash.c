@@ -2,8 +2,8 @@
  * XREFs of MiVaIsPageFileHash @ 0x14009DA88
  * Callers:
  *     MiActivePageClaimCandidate @ 0x14009CA50 (MiActivePageClaimCandidate.c)
- *     MiLockStealSystemVm @ 0x1400E9958 (MiLockStealSystemVm.c)
- *     MiStealPage @ 0x1400EBF24 (MiStealPage.c)
+ *     MiLockStealSystemVm @ 0x1400E9978 (MiLockStealSystemVm.c)
+ *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
  * Callees:
  *     <none>
  */

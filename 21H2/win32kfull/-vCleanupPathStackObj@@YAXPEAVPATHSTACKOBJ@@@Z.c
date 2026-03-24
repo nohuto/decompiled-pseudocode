@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vCleanupPathStackObj@@YAXPEAVPATHSTACKOBJ@@@Z @ 0x1C0283590
+ * XREFs of ?vCleanupPathStackObj@@YAXPEAVPATHSTACKOBJ@@@Z @ 0x1C02869A0
  * Callers:
  *     <none>
  * Callees:

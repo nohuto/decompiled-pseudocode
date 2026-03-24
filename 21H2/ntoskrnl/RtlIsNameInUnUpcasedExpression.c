@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsNameInUnUpcasedExpression @ 0x140219E10
+ * XREFs of RtlIsNameInUnUpcasedExpression @ 0x14024F870
  * Callers:
  *     <none>
  * Callees:
- *     RtlpIsNameInExpressionPrivate @ 0x140219EC0 (RtlpIsNameInExpressionPrivate.c)
- *     RtlpUpcaseUnicodeStringPrivate @ 0x14021A3A0 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x1402069B0 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlpIsNameInExpressionPrivate @ 0x14024F920 (RtlpIsNameInExpressionPrivate.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall RtlIsNameInUnUpcasedExpression(
@@ -29,10 +29,10 @@ __int64 __fastcall RtlIsNameInUnUpcasedExpression(
   v11.Buffer = 0LL;
   if ( a3 && !a4 )
   {
-    v6 = RtlpUpcaseUnicodeStringPrivate(&UnicodeString, p_UnicodeString);
+    v6 = RtlpUpcaseUnicodeStringPrivate((__int64)&UnicodeString, &p_UnicodeString->Length);
     if ( v6 < 0 )
       RtlRaiseStatus((unsigned int)v6);
-    v7 = RtlpUpcaseUnicodeStringPrivate(&v11, a1);
+    v7 = RtlpUpcaseUnicodeStringPrivate((__int64)&v11, &a1->Length);
     if ( v7 < 0 )
       RtlRaiseStatus((unsigned int)v7);
     p_UnicodeString = &UnicodeString;
@@ -42,8 +42,8 @@ __int64 __fastcall RtlIsNameInUnUpcasedExpression(
   LOBYTE(a4) = 1;
   IsNameInExpressionPrivate = RtlpIsNameInExpressionPrivate((_DWORD)a1, (_DWORD)p_UnicodeString, a3, a4, v4);
   if ( UnicodeString.Buffer )
-    RtlFreeUnicodeString(&UnicodeString);
+    RtlFreeAnsiString(&UnicodeString);
   if ( v11.Buffer )
-    RtlFreeUnicodeString(&v11);
+    RtlFreeAnsiString(&v11);
   return IsNameInExpressionPrivate;
 }

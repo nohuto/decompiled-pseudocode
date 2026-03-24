@@ -1,17 +1,17 @@
 /*
- * XREFs of ?RemoveCompositionFrame@CCompositionFrameCollection@@UEAAJ_K@Z @ 0x1C000DD20
+ * XREFs of ?RemoveCompositionFrame@CCompositionFrameCollection@@UEAAJ_K@Z @ 0x1C00158B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionFrameCollection::RemoveCompositionFrame(CCompositionFrameCollection *this, __int64 a2)
 {
   unsigned int v4; // ebp
   _QWORD *v5; // rbx
-  __int64 v6; // rdx
-  _QWORD *v7; // rax
+  __int64 v6; // rax
+  _QWORD *v7; // rdx
   char *v8; // rcx
 
   v4 = -1073741275;

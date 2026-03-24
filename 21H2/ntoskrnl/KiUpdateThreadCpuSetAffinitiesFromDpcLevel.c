@@ -1,15 +1,15 @@
 /*
- * XREFs of KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x1403D30D0
+ * XREFs of KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x1403C61EC
  * Callers:
- *     KeUpdateThreadCpuSets @ 0x1403D2F9C (KeUpdateThreadCpuSets.c)
- *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x1403D3080 (KiUpdateThreadCpuSetAffinitiesProcess.c)
+ *     KeUpdateThreadCpuSets @ 0x1403C60DC (KeUpdateThreadCpuSets.c)
+ *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x1403C619C (KiUpdateThreadCpuSetAffinitiesProcess.c)
  * Callees:
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     KiSendSoftwareInterrupt @ 0x14022BA48 (KiSendSoftwareInterrupt.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiUpdateThreadCpuSets @ 0x1403D3170 (KiUpdateThreadCpuSets.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceIdealProcessor @ 0x14062DAE4 (EtwTraceIdealProcessor.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiSendSoftwareInterrupt @ 0x140293DEC (KiSendSoftwareInterrupt.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiUpdateThreadCpuSets @ 0x1403C628C (KiUpdateThreadCpuSets.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceIdealProcessor @ 0x1405A7844 (EtwTraceIdealProcessor.c)
  */
 
 int __fastcall KiUpdateThreadCpuSetAffinitiesFromDpcLevel(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -63,7 +63,7 @@ int __fastcall KiUpdateThreadCpuSetAffinitiesFromDpcLevel(__int64 a1, __int64 a2
   v10 = *(_DWORD *)(a1 + 588);
   v11 = updated;
   result = KiReleaseThreadLockSafe(a1);
-  if ( (xmmword_140D06910 & 0x8000000) != 0 )
+  if ( (xmmword_140CFC490 & 0x8000000) != 0 )
     result = EtwTraceIdealProcessor(a1, 1350LL, v8, v10);
   if ( v11 )
   {

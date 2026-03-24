@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetManipulationThreadMessageCallSendHost@CManipulationManager@@QEAAJPEAPEAUIMessageCallSendHost@@@Z @ 0x1801F21B0
+ * XREFs of ?GetManipulationThreadMessageCallSendHost@CManipulationManager@@QEAAJPEAPEAUIMessageCallSendHost@@@Z @ 0x1801C62C0
  * Callers:
- *     ?Push2DVisualTransformToRenderThread@CInteraction@@UEAAJXZ @ 0x1801F2960 (-Push2DVisualTransformToRenderThread@CInteraction@@UEAAJXZ.c)
- *     ?_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z @ 0x1801F5400 (-_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z.c)
- *     ?SendUpdateToRenderThread@CManipulationTelemetryData@InteractionLatencyTelemetry@@UEAAJXZ @ 0x180275400 (-SendUpdateToRenderThread@CManipulationTelemetryData@InteractionLatencyTelemetry@@UEAAJXZ.c)
+ *     ?Push2DVisualTransformToRenderThread@CInteraction@@UEAAJXZ @ 0x1801C6A80 (-Push2DVisualTransformToRenderThread@CInteraction@@UEAAJXZ.c)
+ *     ?_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z @ 0x1801D5908 (-_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z.c)
+ *     ?SendUpdateToRenderThread@CManipulationTelemetryData@@UEAAJXZ @ 0x180232460 (-SendUpdateToRenderThread@CManipulationTelemetryData@@UEAAJXZ.c)
  * Callees:
- *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D5E60 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800A9824 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
  */
 
 __int64 __fastcall CManipulationManager::GetManipulationThreadMessageCallSendHost(

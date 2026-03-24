@@ -1,20 +1,21 @@
 /*
- * XREFs of HalStartDynamicProcessor @ 0x140504D00
+ * XREFs of HalStartDynamicProcessor @ 0x1404BC230
  * Callers:
- *     KiStartDynamicProcessor @ 0x1409738B8 (KiStartDynamicProcessor.c)
- *     HalpInterruptReinitialize @ 0x140A9550C (HalpInterruptReinitialize.c)
+ *     KiStartDynamicProcessor @ 0x1408BA6C8 (KiStartDynamicProcessor.c)
+ *     HalpInterruptReinitialize @ 0x140995D68 (HalpInterruptReinitialize.c)
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403776B0 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpCheckNumaConfiguration @ 0x14051AC18 (HalpCheckNumaConfiguration.c)
- *     HalpUpdateNumaConfiguration @ 0x14051B2D4 (HalpUpdateNumaConfiguration.c)
- *     HalpMcUpdateLock @ 0x14051BD2C (HalpMcUpdateLock.c)
- *     HalpMcUpdateUnlock @ 0x14051BD84 (HalpMcUpdateUnlock.c)
- *     MmLockPagableSectionByHandle @ 0x1406F5800 (MmLockPagableSectionByHandle.c)
- *     HalpInterruptStartProcessor @ 0x140A895A0 (HalpInterruptStartProcessor.c)
+ *     HalpMcUpdateLock @ 0x1403877E4 (HalpMcUpdateLock.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A1C74 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpCheckNumaConfiguration @ 0x1404D1AE0 (HalpCheckNumaConfiguration.c)
+ *     HalpUpdateNumaConfiguration @ 0x1404D1E74 (HalpUpdateNumaConfiguration.c)
+ *     MmLockPagableSectionByHandle @ 0x14063C7E0 (MmLockPagableSectionByHandle.c)
+ *     HalpInterruptStartProcessor @ 0x140999F64 (HalpInterruptStartProcessor.c)
  */
 
 __int64 __fastcall HalStartDynamicProcessor(__int64 a1, unsigned int a2, unsigned int a3, unsigned __int16 a4)
 {
+  __int64 v8; // rdx
+  __int64 v9; // rcx
   unsigned int started; // ebx
 
   if ( HalpInterruptProcessorCap && HalpInterruptProcessorsStarted >= (unsigned int)HalpInterruptProcessorCap )
@@ -27,14 +28,12 @@ __int64 __fastcall HalStartDynamicProcessor(__int64 a1, unsigned int a2, unsigne
   if ( !HalpHiberInProgress )
   {
     MmLockPagableSectionByHandle(HalpSleepPageLock);
-    HalpMcUpdateLock();
+    HalpMcUpdateLock(v9, v8);
     if ( !(unsigned __int8)HalpCheckNumaConfiguration(a3, a4) )
       return 2LL;
   }
   started = HalpInterruptStartProcessor(a2, a3, 1LL, a1);
   if ( started != 4 && !HalpHiberInProgress )
     HalpUpdateNumaConfiguration(a3, a4);
-  if ( !HalpHiberInProgress )
-    HalpMcUpdateUnlock();
   return started;
 }

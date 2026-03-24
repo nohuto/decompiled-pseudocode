@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlCheckLockForWriteAccess @ 0x140331F90
+ * XREFs of FsRtlCheckLockForWriteAccess @ 0x140315E90
  * Callers:
  *     <none>
  * Callees:
- *     IoGetRequestorProcess @ 0x140332030 (IoGetRequestorProcess.c)
- *     FsRtlFastCheckLockForWrite @ 0x140332080 (FsRtlFastCheckLockForWrite.c)
+ *     IoGetRequestorProcess @ 0x1402D99A0 (IoGetRequestorProcess.c)
+ *     FsRtlFastCheckLockForWrite @ 0x140315F30 (FsRtlFastCheckLockForWrite.c)
  */
 
 BOOLEAN __stdcall FsRtlCheckLockForWriteAccess(PFILE_LOCK FileLock, PIRP Irp)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ComputeEffectiveAlpha@CProjectedShadowCaster@@AEBAMPEBVCVisualTree@@PEA_N@Z @ 0x18000950C
+ * XREFs of ?ComputeEffectiveAlpha@CProjectedShadowCaster@@AEBAMPEBVCVisualTree@@PEA_N@Z @ 0x180011B44
  * Callers:
- *     ?UpdateVisualProperty@CProjectedShadowCaster@@QEAAXPEBVCVisualTree@@@Z @ 0x180009044 (-UpdateVisualProperty@CProjectedShadowCaster@@QEAAXPEBVCVisualTree@@@Z.c)
+ *     ?UpdateVisualProperty@CProjectedShadowCaster@@QEAAXPEBVCVisualTree@@_N@Z @ 0x18001065C (-UpdateVisualProperty@CProjectedShadowCaster@@QEAAXPEBVCVisualTree@@_N@Z.c)
  * Callees:
- *     ?GetVisualAlpha@CVisual@@QEBAMPEBVCVisualTree@@@Z @ 0x1800096DC (-GetVisualAlpha@CVisual@@QEBAMPEBVCVisualTree@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetVisualAlpha@CVisual@@QEBAMPEBVCVisualTree@@@Z @ 0x180011C04 (-GetVisualAlpha@CVisual@@QEBAMPEBVCVisualTree@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 float __fastcall CProjectedShadowCaster::ComputeEffectiveAlpha(
@@ -20,19 +20,19 @@ float __fastcall CProjectedShadowCaster::ComputeEffectiveAlpha(
   bool v10; // r10
   float result; // xmm0_4
 
-  v3 = (CVisual *)*((_QWORD *)this + 8);
+  v3 = (CVisual *)*((_QWORD *)this + 7);
   v4 = 0;
   v5 = *(float *)&FLOAT_1_0;
   for ( *a3 = 0; ; *a3 = v10 )
   {
     v5 = v5 * CVisual::GetVisualAlpha(v3, a2);
-    if ( v3 == *((CVisual **)a2 + 8) )
+    if ( v3 == *((CVisual **)a2 + 7) )
       break;
-    if ( v8 || (v9 = (*(__int64 (__fastcall **)(CVisual *, __int64))(*(_QWORD *)v3 + 56LL))(v3, 93LL), v10 = 0, v9) )
+    if ( v8 || (v9 = (*(__int64 (__fastcall **)(CVisual *, __int64))(*(_QWORD *)v3 + 56LL))(v3, 91LL), v10 = 0, v9) )
       v10 = 1;
-    v3 = (CVisual *)*((_QWORD *)v3 + 11);
+    v3 = (CVisual *)*((_QWORD *)v3 + 10);
   }
-  if ( v8 || (*(unsigned __int8 (__fastcall **)(CVisual *, __int64))(*(_QWORD *)v3 + 56LL))(v3, 93LL) )
+  if ( v8 || (*(unsigned __int8 (__fastcall **)(CVisual *, __int64))(*(_QWORD *)v3 + 56LL))(v3, 91LL) )
     v4 = 1;
   result = v5;
   *a3 = v4;

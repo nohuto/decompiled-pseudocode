@@ -1,10 +1,10 @@
 /*
- * XREFs of KeRevertToUserAffinityThread @ 0x14056F010
+ * XREFs of KeRevertToUserAffinityThread @ 0x140513180
  * Callers:
  *     <none>
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305CD0 (KeRevertToUserGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void KeRevertToUserAffinityThread(void)

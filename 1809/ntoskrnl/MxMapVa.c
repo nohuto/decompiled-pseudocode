@@ -6,10 +6,10 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiFillPhysicalPages @ 0x14012AF60 (MiFillPhysicalPages.c)
- *     KeZeroPages @ 0x1401C0910 (KeZeroPages.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiFillPhysicalPages @ 0x14012AF80 (MiFillPhysicalPages.c)
+ *     KeZeroPages @ 0x1401C0930 (KeZeroPages.c)
  *     MxGetNextPage @ 0x1409BBB2C (MxGetNextPage.c)
  */
 

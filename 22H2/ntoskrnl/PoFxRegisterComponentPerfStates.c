@@ -1,10 +1,10 @@
 /*
- * XREFs of PoFxRegisterComponentPerfStates @ 0x1409848C0
+ * XREFs of PoFxRegisterComponentPerfStates @ 0x1408E43C0
  * Callers:
  *     <none>
  * Callees:
- *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
- *     PopFxRegisterComponentPerfStates @ 0x1409859F8 (PopFxRegisterComponentPerfStates.c)
+ *     PopFxBugCheck @ 0x14056932C (PopFxBugCheck.c)
+ *     PopFxRegisterComponentPerfStates @ 0x1408E53D4 (PopFxRegisterComponentPerfStates.c)
  */
 
 __int64 __fastcall PoFxRegisterComponentPerfStates(

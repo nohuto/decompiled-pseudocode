@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RemoveAll@?$CArray@PEAVCBufferedOutputPointer@@V?$CArrayEqualHelper@PEAVCBufferedOutputPointer@@@@@@QEAAXXZ @ 0x1800F9810
+ * XREFs of ?RemoveAll@?$CArray@PEAVCBufferedOutputPointer@@V?$CArrayEqualHelper@PEAVCBufferedOutputPointer@@@@@@QEAAXXZ @ 0x1800D7D64
  * Callers:
- *     ??1CInteractionContextWrapper@@EEAA@XZ @ 0x18003A05C (--1CInteractionContextWrapper@@EEAA@XZ.c)
- *     ?ResetBufferedOutput@CInteractionContextWrapper@@UEAAXXZ @ 0x180285280 (-ResetBufferedOutput@CInteractionContextWrapper@@UEAAXXZ.c)
+ *     ??1CInteractionContextWrapper@@UEAA@XZ @ 0x1800B5D64 (--1CInteractionContextWrapper@@UEAA@XZ.c)
+ *     ?ResetBufferedOutput@CInteractionContextWrapper@@UEAAXXZ @ 0x180231060 (-ResetBufferedOutput@CInteractionContextWrapper@@UEAAXXZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CArray<CBufferedOutputPointer *,CArrayEqualHelper<CBufferedOutputPointer *>>::RemoveAll(__int64 a1)

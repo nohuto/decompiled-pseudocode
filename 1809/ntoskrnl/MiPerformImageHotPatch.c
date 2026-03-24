@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPerformImageHotPatch @ 0x140856CA0
+ * XREFs of MiPerformImageHotPatch @ 0x140856C80
  * Callers:
- *     MiHotPatchImage @ 0x140855350 (MiHotPatchImage.c)
+ *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
@@ -9,25 +9,25 @@
  *     MiLockVad @ 0x1400769A4 (MiLockVad.c)
  *     MiUnlockVad @ 0x1400784B0 (MiUnlockVad.c)
  *     MiObtainReferencedSecureVad @ 0x1400861D0 (MiObtainReferencedSecureVad.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     MiBeginHoldingDirtyFaults @ 0x1402B90C0 (MiBeginHoldingDirtyFaults.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     MiBeginHoldingDirtyFaults @ 0x1402B91C0 (MiBeginHoldingDirtyFaults.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlApplyHotPatch @ 0x14057E148 (RtlApplyHotPatch.c)
  *     MiSetProcessPebHotPatchState @ 0x14058235C (MiSetProcessPebHotPatchState.c)
  *     MmUnsecureVirtualMemory @ 0x1405F3430 (MmUnsecureVirtualMemory.c)
  *     MiUnmapViewOfSection @ 0x1406171B0 (MiUnmapViewOfSection.c)
- *     MiUnmapImageInSystemSpace @ 0x1406508AC (MiUnmapImageInSystemSpace.c)
- *     MiMapViewOfSectionExCommon @ 0x140676C30 (MiMapViewOfSectionExCommon.c)
- *     MiApplyImageHotPatch @ 0x1408546A8 (MiApplyImageHotPatch.c)
- *     MiInitializeImageHotPatchContext @ 0x1408557FC (MiInitializeImageHotPatchContext.c)
- *     MiOpenHotPatchFile @ 0x14085690C (MiOpenHotPatchFile.c)
- *     MiPrepareToHotPatchImage @ 0x140857368 (MiPrepareToHotPatchImage.c)
- *     MiReleaseHotPatchResources @ 0x140857F2C (MiReleaseHotPatchResources.c)
- *     RtlFindHotPatchBase @ 0x140899CB0 (RtlFindHotPatchBase.c)
- *     RtlFindHotPatchInformation @ 0x140899CDC (RtlFindHotPatchInformation.c)
- *     RtlValidateHotPatchBase @ 0x140899F64 (RtlValidateHotPatchBase.c)
+ *     MiUnmapImageInSystemSpace @ 0x14065088C (MiUnmapImageInSystemSpace.c)
+ *     MiMapViewOfSectionExCommon @ 0x140676C10 (MiMapViewOfSectionExCommon.c)
+ *     MiApplyImageHotPatch @ 0x140854688 (MiApplyImageHotPatch.c)
+ *     MiInitializeImageHotPatchContext @ 0x1408557DC (MiInitializeImageHotPatchContext.c)
+ *     MiOpenHotPatchFile @ 0x1408568EC (MiOpenHotPatchFile.c)
+ *     MiPrepareToHotPatchImage @ 0x140857348 (MiPrepareToHotPatchImage.c)
+ *     MiReleaseHotPatchResources @ 0x140857F0C (MiReleaseHotPatchResources.c)
+ *     RtlFindHotPatchBase @ 0x140899C90 (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x140899CBC (RtlFindHotPatchInformation.c)
+ *     RtlValidateHotPatchBase @ 0x140899F44 (RtlValidateHotPatchBase.c)
  */
 
 __int64 MiPerformImageHotPatch(__int64 a1, __int64 a2, ...)

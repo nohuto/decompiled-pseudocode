@@ -1,21 +1,21 @@
 /*
- * XREFs of ?PostCreateDeviceInitialize@FxPkgFdo@@QEAAJXZ @ 0x1C0026B98
+ * XREFs of ?PostCreateDeviceInitialize@FxPkgFdo@@QEAAJXZ @ 0x1C0084638
  * Callers:
- *     ?FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C002693C (-FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ *     ?FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0050780 (-FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
  * Callees:
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
- *     ?AllocateTarget@FxDeviceBase@@QEAAJPEAPEAVFxIoTarget@@E@Z @ 0x1C0026C24 (-AllocateTarget@FxDeviceBase@@QEAAJPEAPEAVFxIoTarget@@E@Z.c)
- *     ?PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ @ 0x1C00290A4 (-PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ.c)
- *     ?QueryForDsfInterface@FxPkgFdo@@AEAAJXZ @ 0x1C008E8C4 (-QueryForDsfInterface@FxPkgFdo@@AEAAJXZ.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     ?AllocateTarget@FxDeviceBase@@QEAAJPEAPEAVFxIoTarget@@E@Z @ 0x1C004D63C (-AllocateTarget@FxDeviceBase@@QEAAJPEAPEAVFxIoTarget@@E@Z.c)
+ *     ?PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ @ 0x1C0081B54 (-PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ.c)
+ *     ?QueryForDsfInterface@FxPkgFdo@@AEAAJXZ @ 0x1C008C288 (-QueryForDsfInterface@FxPkgFdo@@AEAAJXZ.c)
  */
 
-int __fastcall FxPkgFdo::PostCreateDeviceInitialize(FxPkgFdo *this)
+int __fastcall FxPkgFdo::PostCreateDeviceInitialize(FxPkgFdo *this, __int64 a2, void *a3)
 {
   int result; // eax
   int Target; // edi
   FxDeviceBase *m_DeviceBase; // rcx
 
-  result = FxPkgPnp::PostCreateDeviceInitialize(this);
+  result = FxPkgPnp::PostCreateDeviceInitialize(this, a2, a3);
   if ( result >= 0 )
   {
     if ( !this->m_Globals->FxDsfOn || (result = FxPkgFdo::QueryForDsfInterface(this), result >= 0) )

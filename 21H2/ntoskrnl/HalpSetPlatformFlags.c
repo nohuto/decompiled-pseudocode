@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpSetPlatformFlags @ 0x140AFAB24
+ * XREFs of HalpSetPlatformFlags @ 0x140A65198
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140AF968C (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     strstr @ 0x1403E0C40 (strstr.c)
+ *     strstr @ 0x1403D1880 (strstr.c)
  */
 
 void __fastcall HalpSetPlatformFlags(__int64 a1, __int64 a2)
@@ -24,7 +24,7 @@ void __fastcall HalpSetPlatformFlags(__int64 a1, __int64 a2)
     }
     if ( (v4 & 0x20) != 0 )
       HalpPlatformFlags &= ~4u;
-    off_140C01EB0[0] = (__int64 (__fastcall *)())HalpAcpiAoacCapable;
+    off_140C00860[0] = (__int64 (__fastcall *)())HalpAcpiAoacCapable;
     if ( (*(_DWORD *)(a1 + 112) & 0x200000) != 0 )
       HalpPlatformFlags |= 8u;
   }

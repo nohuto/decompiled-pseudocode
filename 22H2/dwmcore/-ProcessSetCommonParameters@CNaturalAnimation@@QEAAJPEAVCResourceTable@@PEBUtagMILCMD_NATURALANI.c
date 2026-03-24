@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetCommonParameters@CNaturalAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NATURALANIMATION_SETCOMMONPARAMETERS@@@Z @ 0x18023D8F8
+ * XREFs of ?ProcessSetCommonParameters@CNaturalAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NATURALANIMATION_SETCOMMONPARAMETERS@@@Z @ 0x1801D8800
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     <none>
+ *     ?SetStartTimeIfNecessary@CNaturalAnimation@@AEAAX_K@Z @ 0x1801D8EF8 (-SetStartTimeIfNecessary@CNaturalAnimation@@AEAAX_K@Z.c)
  */
 
 __int64 __fastcall CNaturalAnimation::ProcessSetCommonParameters(
@@ -15,11 +15,10 @@ __int64 __fastcall CNaturalAnimation::ProcessSetCommonParameters(
   int v4; // eax
   __m128 v5; // xmm2
   __m128 v6; // rt1
-  char v7; // dl
-  float v9; // [rsp+10h] [rbp+10h]
+  float v8; // [rsp+38h] [rbp+10h]
 
-  *((_DWORD *)this + 102) = *((_DWORD *)a3 + 4);
-  *((_DWORD *)this + 103) = *((_DWORD *)a3 + 3);
+  *((_DWORD *)this + 96) = *((_DWORD *)a3 + 4);
+  *((_DWORD *)this + 97) = *((_DWORD *)a3 + 3);
   v3 = *((float *)a3 + 2) * 1000.0;
   if ( COERCE_UNSIGNED_INT(fabs(v3)) > 0x497FFFF0 )
   {
@@ -30,18 +29,11 @@ __int64 __fastcall CNaturalAnimation::ProcessSetCommonParameters(
   }
   else
   {
-    v9 = v3 + 6291456.25;
-    v4 = (int)(LODWORD(v9) << 10) >> 11;
+    v8 = v3 + 6291456.25;
+    v4 = (int)(LODWORD(v8) << 10) >> 11;
   }
-  *((_DWORD *)this + 104) = v4;
+  *((_DWORD *)this + 98) = v4;
   if ( !*((_BYTE *)a3 + 32) )
-  {
-    v7 = *((_BYTE *)this + 588);
-    if ( (v7 & 2) == 0 )
-    {
-      *((_QWORD *)this + 50) = *((_QWORD *)a3 + 3) - Time::s_luBegin.QuadPart;
-      *((_BYTE *)this + 588) = v7 | 2;
-    }
-  }
+    CNaturalAnimation::SetStartTimeIfNecessary(this, *((_QWORD *)a3 + 3));
   return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Invoke@FxIoQueueIoResume@@QEAAXPEAUWDFQUEUE__@@PEAUWDFREQUEST__@@@Z @ 0x1C0081DC0
+ * XREFs of ?Invoke@FxIoQueueIoResume@@QEAAXPEAUWDFQUEUE__@@PEAUWDFREQUEST__@@@Z @ 0x1C0076748
  * Callers:
- *     ?ProcessPowerEvents@FxIoQueue@@AEAAEPEAE@Z @ 0x1C0011924 (-ProcessPowerEvents@FxIoQueue@@AEAAEPEAE@Z.c)
+ *     ?ProcessPowerEvents@FxIoQueue@@AEAAEPEAE@Z @ 0x1C00143AC (-ProcessPowerEvents@FxIoQueue@@AEAAEPEAE@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxIoQueueIoResume::Invoke(FxIoQueueIoResume *this, WDFQUEUE__ *Queue, WDFREQUEST__ *Request)

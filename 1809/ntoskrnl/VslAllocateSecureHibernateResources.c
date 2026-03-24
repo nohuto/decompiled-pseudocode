@@ -1,11 +1,11 @@
 /*
- * XREFs of VslAllocateSecureHibernateResources @ 0x140817C98
+ * XREFs of VslAllocateSecureHibernateResources @ 0x140817C78
  * Callers:
- *     PopAllocateHiberContext @ 0x1406DF554 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     PoSetHiberRange @ 0x1401447B0 (PoSetHiberRange.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall VslAllocateSecureHibernateResources(PVOID MemoryMap)

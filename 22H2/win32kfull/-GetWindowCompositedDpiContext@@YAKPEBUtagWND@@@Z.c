@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetWindowCompositedDpiContext@@YAKPEBUtagWND@@@Z @ 0x1C00EDC80
+ * XREFs of ?GetWindowCompositedDpiContext@@YAKPEBUtagWND@@@Z @ 0x1C007C944
  * Callers:
- *     GetMonitorWorkRectForWindow @ 0x1C00C39DC (GetMonitorWorkRectForWindow.c)
- *     GetMonitorRectForWindow @ 0x1C00CF9A8 (GetMonitorRectForWindow.c)
- *     ?GetMonitorMaxArea@@YA?AUtagRECT@@PEBUtagWND@@PEAUtagMONITOR@@@Z @ 0x1C00CFAA0 (-GetMonitorMaxArea@@YA-AUtagRECT@@PEBUtagWND@@PEAUtagMONITOR@@@Z.c)
- *     xxxInitSendValidateMinMaxInfoEx @ 0x1C00ED180 (xxxInitSendValidateMinMaxInfoEx.c)
- *     GetScreenRectForWindow @ 0x1C0157A74 (GetScreenRectForWindow.c)
- *     GetMonitorMenuRectForWindow @ 0x1C024BCB8 (GetMonitorMenuRectForWindow.c)
+ *     GetMonitorWorkRectForWindow @ 0x1C002C4C0 (GetMonitorWorkRectForWindow.c)
+ *     GetMaxTrackSizeForWindow @ 0x1C004241C (GetMaxTrackSizeForWindow.c)
+ *     GetMonitorRectForWindow @ 0x1C00427D4 (GetMonitorRectForWindow.c)
+ *     xxxCheckFullScreen @ 0x1C007C55C (xxxCheckFullScreen.c)
+ *     GetMonitorMenuRectForWindow @ 0x1C025D430 (GetMonitorMenuRectForWindow.c)
+ *     GetScreenRectForWindow @ 0x1C025D46C (GetScreenRectForWindow.c)
  * Callees:
  *     <none>
  */

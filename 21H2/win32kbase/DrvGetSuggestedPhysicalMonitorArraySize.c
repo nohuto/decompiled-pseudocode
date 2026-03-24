@@ -1,11 +1,11 @@
 /*
- * XREFs of DrvGetSuggestedPhysicalMonitorArraySize @ 0x1C0069F80
+ * XREFs of DrvGetSuggestedPhysicalMonitorArraySize @ 0x1C00B0150
  * Callers:
- *     NtGdiGetSuggestedOPMProtectedOutputArraySize @ 0x1C00D04B0 (NtGdiGetSuggestedOPMProtectedOutputArraySize.c)
+ *     NtGdiGetSuggestedOPMProtectedOutputArraySize @ 0x1C00C0B50 (NtGdiGetSuggestedOPMProtectedOutputArraySize.c)
  * Callees:
- *     ?DrvGetNumberOfPhysicalMonitors@@YAJPEAUtagGRAPHICS_DEVICE@@PEAK@Z @ 0x1C006A010 (-DrvGetNumberOfPhysicalMonitors@@YAJPEAUtagGRAPHICS_DEVICE@@PEAK@Z.c)
- *     ?DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C006A058 (-DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVI.c)
- *     UpdateMonitorDevices @ 0x1C006C2B0 (UpdateMonitorDevices.c)
+ *     UpdateMonitorDevices @ 0x1C001CE40 (UpdateMonitorDevices.c)
+ *     ?DrvGetNumberOfPhysicalMonitors@@YAJPEAUtagGRAPHICS_DEVICE@@PEAK@Z @ 0x1C00B01DC (-DrvGetNumberOfPhysicalMonitors@@YAJPEAUtagGRAPHICS_DEVICE@@PEAK@Z.c)
+ *     ?DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00B0224 (-DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVI.c)
  */
 
 __int64 __fastcall DrvGetSuggestedPhysicalMonitorArraySize(
@@ -17,7 +17,7 @@ __int64 __fastcall DrvGetSuggestedPhysicalMonitorArraySize(
   struct tagGRAPHICS_DEVICE *v7; // [rsp+20h] [rbp-18h] BYREF
   unsigned int v8; // [rsp+58h] [rbp+20h] BYREF
 
-  UpdateMonitorDevices(0LL);
+  UpdateMonitorDevices();
   v7 = 0LL;
   result = DrvGetDeviceFromNameAndValidateDevice(a1, a2, &v7);
   if ( (int)result >= 0 )

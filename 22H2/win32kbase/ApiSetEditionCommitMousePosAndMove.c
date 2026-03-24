@@ -1,10 +1,11 @@
 /*
- * XREFs of ApiSetEditionCommitMousePosAndMove @ 0x1C0205CA0
+ * XREFs of ApiSetEditionCommitMousePosAndMove @ 0x1C009D884
  * Callers:
- *     ?CommitMousePosAndMoveCursor@CMouseProcessor@@AEAAXPEAVMouseInputDataEx@1@UtagPOINT@@AEAU_MousePacketPerf@@@Z @ 0x1C00E5EBA (-CommitMousePosAndMoveCursor@CMouseProcessor@@AEAAXPEAVMouseInputDataEx@1@UtagPOINT@@AEAU_MouseP.c)
+ *     ?CommitMousePosAndMoveCursor@CMouseProcessor@@AEAAXPEAVMouseInputDataEx@1@UtagPOINT@@AEAU_MousePacketPerf@@@Z @ 0x1C009D694 (-CommitMousePosAndMoveCursor@CMouseProcessor@@AEAAXPEAVMouseInputDataEx@1@UtagPOINT@@AEAU_MouseP.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     EditionCommitMousePosAndMove @ 0x1C02329AC (EditionCommitMousePosAndMove.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     EditionCommitMousePosAndMove @ 0x1C009D9A0 (EditionCommitMousePosAndMove.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ApiSetEditionCommitMousePosAndMove(
@@ -20,10 +21,37 @@ __int64 __fastcall ApiSetEditionCommitMousePosAndMove(
         int a10,
         __int64 a11)
 {
-  unsigned int v11; // ebx
+  int v13; // ebp
+  unsigned int v15; // ebx
+  int v16; // eax
 
-  v11 = 0;
-  if ( qword_1C0296BC0 && (int)qword_1C0296BC0() >= 0 )
-    return (unsigned int)EditionCommitMousePosAndMove(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11);
-  return v11;
+  v13 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      314,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  v15 = 0;
+  if ( qword_1C02578F8 )
+    v16 = qword_1C02578F8();
+  else
+    v16 = -1073741637;
+  if ( v16 >= 0 )
+    v15 = EditionCommitMousePosAndMove(a1, v13, a3, a4, a5, a6, a7, a8, a9, a10, a11);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      315,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  return v15;
 }

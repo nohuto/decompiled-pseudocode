@@ -1,12 +1,12 @@
 /*
- * XREFs of DxgkEngIsDwmProcess @ 0x1C010ACA0
+ * XREFs of DxgkEngIsDwmProcess @ 0x1C011F610
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 DxgkEngIsDwmProcess()
+__int64 __fastcall DxgkEngIsDwmProcess(__int64 a1, __int64 a2, __int64 a3)
 {
-  return UserUnsafeIsCurrentProcessDwm();
+  return UserUnsafeIsCurrentProcessDwm(a1, a2, a3);
 }

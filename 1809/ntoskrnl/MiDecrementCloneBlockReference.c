@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDecrementCloneBlockReference @ 0x1402C9530
+ * XREFs of MiDecrementCloneBlockReference @ 0x1402C9630
  * Callers:
  *     MiDeletePteList @ 0x140035B80 (MiDeletePteList.c)
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
  *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
  *     MiDeleteVa @ 0x140069700 (MiDeleteVa.c)
- *     MiCopyOnWrite @ 0x1400B45C0 (MiCopyOnWrite.c)
+ *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
  * Callees:
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiDeleteMergedPte @ 0x14011FC00 (MiDeleteMergedPte.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiDeleteCloneDescriptor @ 0x1402C969C (MiDeleteCloneDescriptor.c)
- *     MiReturnCrossPartitionCloneCharges @ 0x1402CAAB8 (MiReturnCrossPartitionCloneCharges.c)
+ *     MiDeleteMergedPte @ 0x14011FC20 (MiDeleteMergedPte.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiDeleteCloneDescriptor @ 0x1402C979C (MiDeleteCloneDescriptor.c)
+ *     MiReturnCrossPartitionCloneCharges @ 0x1402CABB8 (MiReturnCrossPartitionCloneCharges.c)
  */
 
 __int64 __fastcall MiDecrementCloneBlockReference(

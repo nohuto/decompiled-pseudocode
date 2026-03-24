@@ -3,7 +3,7 @@
  * Callers:
  *     FsRtlInitSystem @ 0x1409D7714 (FsRtlInitSystem.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
  *     NtCreateEvent @ 0x14062CF50 (NtCreateEvent.c)

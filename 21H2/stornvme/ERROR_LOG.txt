@@ -1,0 +1,3 @@
+[EXCEPTION] NVMeHwResetBus @ 0x1C000AF10: Hex-Rays returned no pseudocode for 0x1C000AF10
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C000AF10'), <traceback object at 0x00000211AFA236C0>)
+

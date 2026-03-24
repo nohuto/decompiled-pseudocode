@@ -1,10 +1,10 @@
 /*
- * XREFs of QueryFontReg @ 0x1C00E2630
+ * XREFs of QueryFontReg @ 0x1C00E5988
  * Callers:
- *     InitFNTCache @ 0x1C00E2390 (InitFNTCache.c)
+ *     InitFNTCache @ 0x1C00E56F0 (InitFNTCache.c)
  * Callees:
- *     ?GetGreRegKey@@YAJPEAPEAXKPEBG@Z @ 0x1C00E2700 (-GetGreRegKey@@YAJPEAPEAXKPEBG@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?GetGreRegKey@@YAJPEAPEAXKPEBG@Z @ 0x1C00E5A58 (-GetGreRegKey@@YAJPEAPEAXKPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 _BOOL8 __fastcall QueryFontReg(PCWSTR SourceString, _QWORD *a2, _DWORD *a3)

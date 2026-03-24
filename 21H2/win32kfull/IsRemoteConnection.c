@@ -1,5 +1,5 @@
 /*
- * XREFs of IsRemoteConnection @ 0x1C0073960
+ * XREFs of IsRemoteConnection @ 0x1C0081420
  * Callers:
  *     <none>
  * Callees:

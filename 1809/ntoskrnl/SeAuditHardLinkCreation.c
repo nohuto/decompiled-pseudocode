@@ -1,9 +1,9 @@
 /*
- * XREFs of SeAuditHardLinkCreation @ 0x14089CF50
+ * XREFs of SeAuditHardLinkCreation @ 0x14089CF30
  * Callers:
  *     <none>
  * Callees:
- *     SeAuditHardLinkCreationWithTransaction @ 0x14089CF70 (SeAuditHardLinkCreationWithTransaction.c)
+ *     SeAuditHardLinkCreationWithTransaction @ 0x14089CF50 (SeAuditHardLinkCreationWithTransaction.c)
  */
 
 void __stdcall SeAuditHardLinkCreation(PUNICODE_STRING FileName, PUNICODE_STRING LinkName, BOOLEAN bSuccess)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Reset@CConditionalExpression@@QEAAXXZ @ 0x1802117DC
+ * XREFs of ?Reset@CConditionalExpression@@QEAAXXZ @ 0x1801BE390
  * Callers:
- *     ??0CConditionalExpression@@QEAA@PEAVCComposition@@@Z @ 0x1802106CC (--0CConditionalExpression@@QEAA@PEAVCComposition@@@Z.c)
- *     ?ProcessConditionalExpression@CConditionalExpression@@SAJPEAV1@PEAVCExpressionValueStack@@_KW4OutputCoordinate@@PEA_NPEAM@Z @ 0x180211668 (-ProcessConditionalExpression@CConditionalExpression@@SAJPEAV1@PEAVCExpressionValueStack@@_KW4Ou.c)
- *     ?SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@@_KPEAPEAUIScalarForce@@@Z @ 0x18021C784 (-SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@.c)
+ *     ??0CConditionalExpression@@QEAA@PEAVCComposition@@@Z @ 0x1801BD364 (--0CConditionalExpression@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?ProcessConditionalExpression@CConditionalExpression@@SAJPEAV1@PEAVCExpressionValueStack@@_KW4OutputCoordinate@@PEA_NPEAM@Z @ 0x1801BE214 (-ProcessConditionalExpression@CConditionalExpression@@SAJPEAV1@PEAVCExpressionValueStack@@_KW4Ou.c)
+ *     ?SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@@_KPEAPEAUIScalarForce@@@Z @ 0x1801CB230 (-SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CConditionalExpression::Reset(CConditionalExpression *this)
@@ -13,11 +13,11 @@ void __fastcall CConditionalExpression::Reset(CConditionalExpression *this)
   _QWORD *v1; // rdi
   _QWORD *i; // rbx
 
-  *((_DWORD *)this + 95) = *((_DWORD *)this + 85);
-  v1 = (_QWORD *)*((_QWORD *)this + 44);
-  for ( i = (_QWORD *)*((_QWORD *)this + 43); i != v1; i += 2 )
+  *((_DWORD *)this + 89) = *((_DWORD *)this + 79);
+  v1 = (_QWORD *)*((_QWORD *)this + 41);
+  for ( i = (_QWORD *)*((_QWORD *)this + 40); i != v1; i += 2 )
   {
-    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)*i + 208LL))(*i);
-    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)i[1] + 208LL))(i[1]);
+    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)*i + 224LL))(*i);
+    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)i[1] + 224LL))(i[1]);
   }
 }

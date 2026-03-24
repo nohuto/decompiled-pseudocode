@@ -1,14 +1,13 @@
 /*
- * XREFs of RtlRandomEx @ 0x14036C940
+ * XREFs of RtlRandomEx @ 0x1402E5D70
  * Callers:
- *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x1407F1308 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
- *     PspSelectNodeForProcess @ 0x1407F1710 (PspSelectNodeForProcess.c)
- *     MmCreateProcessAddressSpace @ 0x1407F17B4 (MmCreateProcessAddressSpace.c)
- *     MiInitializePartition @ 0x14081D450 (MiInitializePartition.c)
- *     EtwpGetPrivateSessionTraceHandle @ 0x1409EBB58 (EtwpGetPrivateSessionTraceHandle.c)
- *     VfRandomGetNumber @ 0x140A819C8 (VfRandomGetNumber.c)
+ *     MmCreateProcessAddressSpace @ 0x1406D04E4 (MmCreateProcessAddressSpace.c)
+ *     MiInitializePartition @ 0x14079C65C (MiInitializePartition.c)
+ *     PopPublishAndPurgePowerRequestStats @ 0x1408F641C (PopPublishAndPurgePowerRequestStats.c)
+ *     EtwpGetPrivateSessionTraceHandle @ 0x14093F1B0 (EtwpGetPrivateSessionTraceHandle.c)
+ *     VfRandomGetNumber @ 0x1409C6290 (VfRandomGetNumber.c)
  * Callees:
- *     ExGenRandom @ 0x140363220 (ExGenRandom.c)
+ *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
  */
 
 ULONG __stdcall RtlRandomEx(PULONG Seed)

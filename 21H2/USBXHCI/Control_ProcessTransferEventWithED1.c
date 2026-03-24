@@ -1,53 +1,58 @@
 /*
- * XREFs of Control_ProcessTransferEventWithED1 @ 0x1C0006B04
+ * XREFs of Control_ProcessTransferEventWithED1 @ 0x1C0004BB0
  * Callers:
- *     Endpoint_TransferEventHandler @ 0x1C0003980 (Endpoint_TransferEventHandler.c)
- *     Control_EP_TransferEventHandler @ 0x1C0006AE0 (Control_EP_TransferEventHandler.c)
- *     TR_TransferEventHandler @ 0x1C003FED4 (TR_TransferEventHandler.c)
+ *     Control_EP_TransferEventHandler @ 0x1C0004B80 (Control_EP_TransferEventHandler.c)
+ *     Endpoint_TransferEventHandler @ 0x1C0006860 (Endpoint_TransferEventHandler.c)
+ *     TR_TransferEventHandler @ 0x1C003F6C0 (TR_TransferEventHandler.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     Control_Transfer_CompleteCancelable @ 0x1C0006218 (Control_Transfer_CompleteCancelable.c)
- *     Endpoint_HaltedCompletionCode @ 0x1C0006D5C (Endpoint_HaltedCompletionCode.c)
- *     WPP_RECORDER_SF_DDqq @ 0x1C00084E0 (WPP_RECORDER_SF_DDqq.c)
- *     WPP_RECORDER_SF_DDqLDDi @ 0x1C0008F0C (WPP_RECORDER_SF_DDqLDDi.c)
- *     WPP_RECORDER_SF_DDDD @ 0x1C000B300 (WPP_RECORDER_SF_DDDD.c)
- *     memmove @ 0x1C0019A00 (memmove.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031C54 (Controller_HwVerifierBreakIfEnabled.c)
- *     Controller_ReportFatalError @ 0x1C0032C20 (Controller_ReportFatalError.c)
- *     WPP_RECORDER_SF_DDiqq @ 0x1C004182C (WPP_RECORDER_SF_DDiqq.c)
+ *     Control_Transfer_CompleteCancelable @ 0x1C00041A4 (Control_Transfer_CompleteCancelable.c)
+ *     WPP_RECORDER_SF_DDqLDDi @ 0x1C0004E60 (WPP_RECORDER_SF_DDqLDDi.c)
+ *     WPP_RECORDER_SF_DDqq @ 0x1C0004F80 (WPP_RECORDER_SF_DDqq.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C000E080 (WPP_RECORDER_SF_dddd.c)
+ *     memmove @ 0x1C001B000 (memmove.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     WPP_RECORDER_SF_DDiqq @ 0x1C00408DC (WPP_RECORDER_SF_DDiqq.c)
  */
 
-char __fastcall Control_ProcessTransferEventWithED1(__int64 *a1, __int64 a2)
+__int64 __fastcall Control_ProcessTransferEventWithED1(__int64 *a1, __int64 a2)
 {
   __int64 v2; // r8
-  __int64 v3; // r13
+  __int64 v3; // rbp
   unsigned __int64 v4; // rsi
-  bool v5; // r12
-  __int64 v6; // rdi
-  char v8; // r15
-  __int64 v9; // rcx
-  void *v10; // r8
-  int v11; // edx
-  char v12; // cl
-  unsigned int v13; // ebx
-  int v14; // edx
-  int v15; // edx
-  KSPIN_LOCK *v16; // rcx
-  bool v17; // zf
-  int v18; // eax
-  __int64 v20; // rax
-  int v21; // edx
-  int v22; // edx
-  _QWORD *v23; // r10
-  const char *v24; // rax
-  KSPIN_LOCK *v25; // rcx
-  int v26; // edx
-  int v27; // ecx
-  int v28; // eax
-  int v29; // eax
-  __int64 v30; // rdx
-  __int64 v31; // rcx
+  bool v5; // r13
+  __int64 v6; // rbx
+  unsigned __int8 v8; // r12
+  __int64 v9; // r10
+  unsigned int v10; // edx
+  unsigned int v11; // eax
+  unsigned int v12; // edx
+  int v13; // eax
+  char v14; // cl
+  unsigned int v15; // edi
+  int v16; // edx
+  __m128i **v17; // rax
+  unsigned __int64 v18; // rcx
+  __int64 v19; // rdx
+  bool v20; // al
+  KSPIN_LOCK *v21; // rcx
+  bool v22; // zf
+  int v23; // eax
+  __int64 v25; // rax
+  unsigned int v26; // eax
+  unsigned int v27; // edx
+  int v28; // edx
+  volatile signed __int32 *v29; // r10
+  const char *v30; // rax
+  void *v31; // rcx
+  int v32; // ecx
+  int v33; // eax
+  int v34; // eax
+  __int64 v35; // rcx
+  __int64 v36; // rax
+  char v37; // [rsp+28h] [rbp-60h]
 
   v2 = *a1;
   v3 = *a1 & 4;
@@ -60,7 +65,7 @@ char __fastcall Control_ProcessTransferEventWithED1(__int64 *a1, __int64 a2)
     if ( v4 != *(_QWORD *)(a2 + 344) )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_DDiqq(*(_QWORD *)(*(_QWORD *)(a2 + 56) + 80LL), *((_WORD *)a1 + 7) & 0x1F, v2, 19);
+        WPP_RECORDER_SF_DDiqq(*(_QWORD *)(*(_QWORD *)(a2 + 56) + 80LL), HIBYTE(*((_DWORD *)a1 + 3)), v2, 19);
       Controller_ReportFatalError(*(_QWORD *)(v6 + 40), 2, 4126, 0, *(_QWORD *)(v6 + 48), *(_QWORD *)(v6 + 56), v6);
       return 0;
     }
@@ -72,57 +77,61 @@ char __fastcall Control_ProcessTransferEventWithED1(__int64 *a1, __int64 a2)
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         goto LABEL_5;
-      WPP_RECORDER_SF_DDiqq(*(_QWORD *)(*(_QWORD *)(v6 + 56) + 80LL), *((_WORD *)a1 + 7) & 0x1F, v2, 20);
+      WPP_RECORDER_SF_DDiqq(*(_QWORD *)(*(_QWORD *)(v6 + 56) + 80LL), HIBYTE(*((_DWORD *)a1 + 3)), v2, 20);
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     WPP_RECORDER_SF_DDqLDDi(
       *(_QWORD *)(*(_QWORD *)(v6 + 56) + 80LL),
-      *((unsigned __int8 *)a1 + 15),
-      *((unsigned __int8 *)a1 + 11),
+      HIWORD(*((_DWORD *)a1 + 3)) & 0x1F,
+      a1[1] & 0xFFFFFF,
       21);
 LABEL_5:
   v9 = *(_QWORD *)(v6 + 56);
-  v10 = &WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids;
-  v11 = *((_WORD *)a1 + 7) & 0x1F;
-  if ( v11 != *(_DWORD *)(v9 + 144) && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  v10 = *((_DWORD *)a1 + 3);
+  v11 = HIWORD(v10);
+  v12 = HIBYTE(v10);
+  v13 = v11 & 0x1F;
+  v14 = v12;
+  if ( v13 != *(_DWORD *)(v9 + 144) && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v11) = 2;
-    WPP_RECORDER_SF_DD(
+    v37 = v12;
+    LOBYTE(v12) = 2;
+    WPP_RECORDER_SF_dd(
       *(_QWORD *)(v9 + 80),
-      v11,
+      v12,
       14,
       22,
       (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
-      *((_BYTE *)a1 + 15),
-      *((_BYTE *)a1 + 14) & 0x1F);
-    v10 = &WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids;
+      v37,
+      v13);
+    v14 = *((_BYTE *)a1 + 15);
   }
-  v12 = *((_BYTE *)a1 + 15);
-  if ( v12 != *(_BYTE *)(*(_QWORD *)(v6 + 48) + 135LL)
+  if ( v14 != *(_BYTE *)(*(_QWORD *)(v6 + 48) + 135LL)
     && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v21 = *((_WORD *)a1 + 7) & 0x1F;
-    LOBYTE(v21) = 2;
-    WPP_RECORDER_SF_DD(
+    v26 = *((_DWORD *)a1 + 3);
+    v27 = HIBYTE(v26);
+    LOBYTE(v27) = 2;
+    WPP_RECORDER_SF_dd(
       *(_QWORD *)(*(_QWORD *)(v6 + 56) + 80LL),
-      v21,
+      v27,
       14,
       23,
       (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
-      v12,
-      *((_BYTE *)a1 + 14) & 0x1F);
+      SHIBYTE(v26),
+      BYTE2(v26) & 0x1F);
   }
-  v13 = a1[1] & 0xFFFFFF;
-  if ( v13 > *(_DWORD *)(v4 + 104) )
+  v15 = a1[1] & 0xFFFFFF;
+  if ( v15 > *(_DWORD *)(v4 + 104) )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v22 = *(unsigned __int8 *)(*(_QWORD *)(v6 + 48) + 135LL);
-      LOBYTE(v22) = 3;
-      WPP_RECORDER_SF_DDDD(
+      v28 = *(unsigned __int8 *)(*(_QWORD *)(v6 + 48) + 135LL);
+      LOBYTE(v28) = 3;
+      WPP_RECORDER_SF_dddd(
         *(_QWORD *)(*(_QWORD *)(v6 + 56) + 80LL),
-        v22,
+        v28,
         14,
         24,
         (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
@@ -131,16 +140,16 @@ LABEL_5:
         *((_BYTE *)a1 + 8),
         *(_DWORD *)(v4 + 104));
     }
-    v13 = 0;
+    v15 = 0;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v14 = *(unsigned __int8 *)(*(_QWORD *)(v6 + 48) + 135LL);
-    LOBYTE(v14) = 4;
+    v16 = *(unsigned __int8 *)(*(_QWORD *)(v6 + 48) + 135LL);
+    LOBYTE(v16) = 4;
     WPP_RECORDER_SF_DDqq(
       *(_QWORD *)(*(_QWORD *)(v6 + 56) + 80LL),
-      v14,
-      (_DWORD)v10,
+      v16,
+      (unsigned int)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
       25,
       (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
       *(_BYTE *)(*(_QWORD *)(v6 + 48) + 135LL),
@@ -150,33 +159,44 @@ LABEL_5:
   }
   if ( !v3 )
   {
-    v20 = *(_QWORD *)(v4 + 48);
-    *(_DWORD *)(v4 + 108) = v13;
-    if ( (*(_DWORD *)(v20 + 32) & 1) != 0 && *(_DWORD *)(v4 + 64) == 2 )
-      memmove(*(void **)(v4 + 80), *(const void **)(*(_QWORD *)(v4 + 88) + 16LL), v13);
+    v25 = *(_QWORD *)(v4 + 48);
+    *(_DWORD *)(v4 + 108) = v15;
+    if ( (*(_DWORD *)(v25 + 32) & 1) != 0 && *(_DWORD *)(v4 + 64) == 2 )
+      memmove(*(void **)(v4 + 80), *(const void **)(*(_QWORD *)(v4 + 88) + 16LL), v15);
   }
-  if ( (unsigned __int8)Endpoint_HaltedCompletionCode(*(_QWORD *)(v6 + 56), *((unsigned __int8 *)a1 + 11)) )
+  v17 = *(__m128i ***)(v6 + 56);
+  v18 = *((unsigned __int8 *)a1 + 11);
+  if ( ((*v17)[21].m128i_i64[0] & 0x4000000000000000LL) != 0 && (_BYTE)v18 == 0xC7
+    || (_mm_srli_si128((*v17)[21], 8).m128i_u8[0] & 0x20) != 0 && (_BYTE)v18 == 0xC6
+    || (unsigned __int8)v18 <= 0x24u && (v19 = 0x150000045CLL, _bittest64(&v19, v18)) )
   {
-    *(_DWORD *)(v4 + 124) = v15;
-    v23 = *(_QWORD **)(v6 + 56);
-    _m_prefetchw(v23 + 4);
-    if ( (_InterlockedOr((volatile signed __int32 *)v23 + 8, 0x20u) & 0x20) == 0 )
+    *(_DWORD *)(v4 + 124) = v18;
+    v29 = *(volatile signed __int32 **)(v6 + 56);
+    _m_prefetchw((const void *)(v29 + 8));
+    if ( (_InterlockedOr(v29 + 8, 0x20u) & 0x20) == 0 )
     {
-      v25 = v23 + 36;
-      v26 = 154;
-      goto LABEL_56;
+      v31 = (void *)(v29 + 72);
+      goto LABEL_61;
     }
-    v24 = "Received duplicate Transfer Event TRB with Halted Completion Code";
-LABEL_39:
-    Controller_HwVerifierBreakIfEnabled(*v23, v23[1], v23[3], 0x2000000, (__int64)v24, 0LL, 0LL);
+    v30 = "Received duplicate Transfer Event TRB with Halted Completion Code";
+LABEL_44:
+    Controller_HwVerifierBreakIfEnabled(
+      *(_QWORD *)v29,
+      *((_QWORD *)v29 + 1),
+      *((_QWORD *)v29 + 3),
+      0x2000000,
+      (__int64)v30,
+      0LL,
+      0LL);
     return v8;
   }
-  v16 = (KSPIN_LOCK *)(v6 + 96);
-  if ( (unsigned __int8)(v15 - 26) <= 2u )
+  v20 = (unsigned __int8)(v18 - 26) <= 2u;
+  v21 = (KSPIN_LOCK *)(v6 + 96);
+  if ( v20 )
   {
-    *(_BYTE *)(v6 + 104) = KeAcquireSpinLockRaiseToDpc(v16);
-    v27 = *(_DWORD *)(v4 + 132) + 1;
-    *(_DWORD *)(v4 + 132) = v27;
+    *(_BYTE *)(v6 + 104) = KeAcquireSpinLockRaiseToDpc(v21);
+    v32 = *(_DWORD *)(v4 + 132) + 1;
+    *(_DWORD *)(v4 + 132) = v32;
     if ( v3 )
     {
       if ( *(_DWORD *)(v4 + 108) == *(_DWORD *)(v4 + 104) )
@@ -187,58 +207,56 @@ LABEL_39:
       {
         *(_DWORD *)(v4 + 124) = 28;
       }
-      v28 = *(_DWORD *)(v4 + 128) - v27;
+      v33 = *(_DWORD *)(v4 + 128) - v32;
     }
     else
     {
-      v28 = 0;
+      v33 = 0;
     }
-    *(_DWORD *)(v6 + 356) = v28;
+    *(_DWORD *)(v6 + 356) = v33;
     KeReleaseSpinLock((PKSPIN_LOCK)(v6 + 96), *(_BYTE *)(v6 + 104));
-    v23 = *(_QWORD **)(v6 + 56);
-    _m_prefetchw(v23 + 4);
-    if ( (_InterlockedOr((volatile signed __int32 *)v23 + 8, 0x10u) & 0x10) == 0 )
+    v29 = *(volatile signed __int32 **)(v6 + 56);
+    _m_prefetchw((const void *)(v29 + 8));
+    if ( (_InterlockedOr(v29 + 8, 0x10u) & 0x10) == 0 )
     {
-      _m_prefetchw(v23 + 4);
-      if ( (_InterlockedXor((volatile signed __int32 *)v23 + 8, 8u) & 8) == 0 )
+      _m_prefetchw((const void *)(v29 + 8));
+      if ( (_InterlockedXor(v29 + 8, 8u) & 8) == 0 )
         return v8;
-      v25 = v23 + 36;
-      v26 = 118;
-LABEL_56:
-      ESM_AddEvent(v25, v26);
+      v31 = (void *)(v29 + 72);
+LABEL_61:
+      ESM_AddEvent(v31);
       return v8;
     }
-    v24 = "Received duplicate Stopped Transfer Events";
-    goto LABEL_39;
+    v30 = "Received duplicate Stopped Transfer Events";
+    goto LABEL_44;
   }
-  *(_BYTE *)(v6 + 104) = KeAcquireSpinLockRaiseToDpc(v16);
+  *(_BYTE *)(v6 + 104) = KeAcquireSpinLockRaiseToDpc(v21);
   ++*(_DWORD *)(v4 + 132);
   if ( v3 )
   {
-    v17 = *(_DWORD *)(v4 + 112) == 3;
+    v22 = *(_DWORD *)(v4 + 112) == 3;
     *(_DWORD *)(v4 + 124) = *((unsigned __int8 *)a1 + 11);
-    if ( !v17 && *(_DWORD *)(v4 + 116) != 3 )
+    if ( !v22 && *(_DWORD *)(v4 + 116) != 3 )
       Control_Transfer_CompleteCancelable((_QWORD *)v6);
   }
-  v18 = *(_DWORD *)(v6 + 356);
-  if ( v18 )
+  v23 = *(_DWORD *)(v6 + 356);
+  if ( v23 )
   {
-    v29 = v18 - 1;
-    *(_DWORD *)(v6 + 356) = v29;
-    if ( !v29 )
+    v34 = v23 - 1;
+    *(_DWORD *)(v6 + 356) = v34;
+    if ( !v34 )
       v5 = (*(_BYTE *)(v6 + 352) & 4) != 0;
   }
   KeReleaseSpinLock((PKSPIN_LOCK)(v6 + 96), *(_BYTE *)(v6 + 104));
   if ( v5 )
   {
-    v30 = *(_QWORD *)(v6 + 56);
-    if ( !*(_BYTE *)(v30 + 37)
-      || (v31 = *(_QWORD *)(v30 + 136),
-          _InterlockedIncrement((volatile signed __int32 *)(v31 + 20)) == *(_DWORD *)(v31 + 8)) )
+    v35 = *(_QWORD *)(v6 + 56);
+    if ( !*(_BYTE *)(v35 + 37)
+      || (v36 = *(_QWORD *)(v35 + 136),
+          _InterlockedIncrement((volatile signed __int32 *)(v36 + 20)) == *(_DWORD *)(v36 + 8)) )
     {
-      v25 = (KSPIN_LOCK *)(v30 + 288);
-      v26 = 150;
-      goto LABEL_56;
+      v31 = (void *)(v35 + 288);
+      goto LABEL_61;
     }
   }
   return v8;

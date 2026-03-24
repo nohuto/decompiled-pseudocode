@@ -1,12 +1,12 @@
 /*
- * XREFs of Controller_DriverInstalledDueToCompatibleIdMatch @ 0x1C007429C
+ * XREFs of Controller_DriverInstalledDueToCompatibleIdMatch @ 0x1C006C760
  * Callers:
- *     Controller_SetDeviceDescription @ 0x1C0073F2C (Controller_SetDeviceDescription.c)
+ *     Controller_SetDeviceDescription @ 0x1C006C400 (Controller_SetDeviceDescription.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 char __fastcall Controller_DriverInstalledDueToCompatibleIdMatch(_QWORD *a1)
@@ -46,8 +46,8 @@ char __fastcall Controller_DriverInstalledDueToCompatibleIdMatch(_QWORD *a1)
         a1[9],
         v5,
         4,
-        145,
-        (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids,
+        144,
+        (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
         DevicePropertyData);
     }
   }

@@ -8,15 +8,15 @@
  *     MiResolveTransitionFault @ 0x14003AC00 (MiResolveTransitionFault.c)
  *     MiHandleTransitionFault @ 0x14003B680 (MiHandleTransitionFault.c)
  *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
- *     MiPrivateFixup @ 0x140125E20 (MiPrivateFixup.c)
- *     MiResolvePageFileFault @ 0x140154B24 (MiResolvePageFileFault.c)
- *     MiFaultGetFileExtents @ 0x1402BBD04 (MiFaultGetFileExtents.c)
- *     MmPrefetchPagesEx @ 0x140662458 (MmPrefetchPagesEx.c)
- *     MiPfAllocateMdls @ 0x1406982C0 (MiPfAllocateMdls.c)
- *     MiGetReadyInPageBlock @ 0x14084F30C (MiGetReadyInPageBlock.c)
+ *     MiPrivateFixup @ 0x140125E40 (MiPrivateFixup.c)
+ *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
+ *     MiFaultGetFileExtents @ 0x1402BBE04 (MiFaultGetFileExtents.c)
+ *     MmPrefetchPagesEx @ 0x140662438 (MmPrefetchPagesEx.c)
+ *     MiPfAllocateMdls @ 0x1406982A0 (MiPfAllocateMdls.c)
+ *     MiGetReadyInPageBlock @ 0x14084F2EC (MiGetReadyInPageBlock.c)
  * Callees:
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpWnfFreeScopeInstance @ 0x1406E1C68
+ * XREFs of ExpWnfFreeScopeInstance @ 0x1406BF6E0
  * Callers:
- *     ExpWnfDeleteScopeById @ 0x1407914BC (ExpWnfDeleteScopeById.c)
- *     ExpWnfResolveScopeInstance @ 0x140798334 (ExpWnfResolveScopeInstance.c)
- *     ExpWnfDeleteScopeInstances @ 0x140A083CC (ExpWnfDeleteScopeInstances.c)
+ *     ExpWnfResolveScopeInstance @ 0x14060F4B4 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfDeleteScopeById @ 0x1406135B8 (ExpWnfDeleteScopeById.c)
+ *     ExpWnfDeleteScopeInstances @ 0x14095CBFC (ExpWnfDeleteScopeInstances.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402F0990 (ExWaitForRundownProtectionRelease.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ExpWnfDeleteNameInstanceCallback @ 0x1406E6DC0 (ExpWnfDeleteNameInstanceCallback.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ExpWnfDeleteNameInstanceCallback @ 0x1406C1FC8 (ExpWnfDeleteNameInstanceCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpWnfFreeScopeInstance(struct _EX_RUNDOWN_REF *P, char a2)

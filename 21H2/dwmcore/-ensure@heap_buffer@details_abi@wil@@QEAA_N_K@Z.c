@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x180029588
+ * XREFs of ?ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800AF6A0
  * Callers:
- *     ?RecordUsage@RawUsageIndex@details_abi@wil@@QEAA_NPEAX_K01I@Z @ 0x180028E68 (-RecordUsage@RawUsageIndex@details_abi@wil@@QEAA_NPEAX_K01I@Z.c)
- *     ?push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z @ 0x1800294C4 (-push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z.c)
+ *     ?RecordUsage@RawUsageIndex@details_abi@wil@@QEAA_NPEAX_K01I@Z @ 0x1800AEE1C (-RecordUsage@RawUsageIndex@details_abi@wil@@QEAA_NPEAX_K01I@Z.c)
+ *     ?push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z @ 0x1800AF1E4 (-push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall wil::details_abi::heap_buffer::ensure(wil::details_abi::heap_buffer *this, unsigned __int64 a2)
+char __fastcall wil::details_abi::heap_buffer::ensure(wil::details_abi::heap_buffer *this, unsigned __int64 a2)
 {
   unsigned __int64 v2; // r8
 
@@ -16,5 +16,5 @@ bool __fastcall wil::details_abi::heap_buffer::ensure(wil::details_abi::heap_buf
     return 1;
   if ( a2 < 2 * v2 )
     a2 = 2 * v2;
-  return wil::details_abi::heap_buffer::reserve(this, a2, v2);
+  return wil::details_abi::heap_buffer::reserve(this, a2);
 }

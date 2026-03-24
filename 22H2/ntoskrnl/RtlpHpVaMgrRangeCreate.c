@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVaMgrRangeCreate @ 0x1403101B4
+ * XREFs of RtlpHpVaMgrRangeCreate @ 0x1402FCF78
  * Callers:
- *     RtlpHpVaMgrAlloc @ 0x14030FCEC (RtlpHpVaMgrAlloc.c)
- *     RtlpHpVaMgrRegionAllocate @ 0x1403649D8 (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpVaMgrRegionAllocate @ 0x1402FBD10 (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpVaMgrAlloc @ 0x1402FC8A0 (RtlpHpVaMgrAlloc.c)
  * Callees:
- *     RtlSparseArrayElementAllocate @ 0x1403102A4 (RtlSparseArrayElementAllocate.c)
- *     RtlCSparseBitmapBitsClear @ 0x140315228 (RtlCSparseBitmapBitsClear.c)
+ *     RtlCSparseBitmapBitsClear @ 0x1402FC030 (RtlCSparseBitmapBitsClear.c)
+ *     RtlSparseArrayElementAllocate @ 0x1402FD064 (RtlSparseArrayElementAllocate.c)
  */
 
 _BYTE *__fastcall RtlpHpVaMgrRangeCreate(__int64 a1, __int64 a2, __int64 a3)
@@ -28,42 +28,43 @@ _BYTE *__fastcall RtlpHpVaMgrRangeCreate(__int64 a1, __int64 a2, __int64 a3)
   v9 = v8;
   if ( v8 )
   {
-    if ( (*v8 & 4) == 0 )
+    if ( (*v8 & 4) != 0 )
+      return v9;
+    *(_BYTE *)a3 |= 2u;
+    v3 = 1LL;
+    v11 = a2 + 0x100000;
+    *(_BYTE *)(a3 + 1) = *(_BYTE *)(a1 + 44);
+    *(_OWORD *)(a3 + 8) = 0LL;
+    *(_QWORD *)(a3 + 24) = 2309737967LL;
+    if ( v7 <= 1 )
+      return v9;
+    do
     {
-      v11 = a2 + 0x100000;
-      *(_BYTE *)a3 |= 2u;
-      v3 = 1LL;
-      *(_BYTE *)(a3 + 1) = *(_BYTE *)(a1 + 44);
-      *(_OWORD *)(a3 + 8) = 0LL;
-      *(_QWORD *)(a3 + 24) = 2309737967LL;
-      while ( v3 < v7 )
-      {
-        if ( !RtlSparseArrayElementAllocate(
-                *(_QWORD *)(a1 + 24) + 16LL,
-                (unsigned __int64)(v11 - *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL)) >> 20) )
-          goto LABEL_11;
-        ++v3;
-        v11 += 0x100000LL;
-      }
+      if ( !RtlSparseArrayElementAllocate(
+              *(_QWORD *)(a1 + 24) + 16LL,
+              (unsigned __int64)(v11 - *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL)) >> 20) )
+        break;
+      ++v3;
+      v11 += 0x100000LL;
     }
+    while ( v3 < v7 );
   }
   else
   {
     v9 = 0LL;
-LABEL_11:
-    if ( v3 < v7 )
+  }
+  if ( v3 < v7 )
+  {
+    for ( ; v3; --v3 )
     {
-      for ( ; v3; --v3 )
-      {
-        v12 = *(_QWORD *)(a1 + 24);
-        RtlCSparseBitmapBitsClear(
-          v12 + 32,
-          8 * ((unsigned __int64)&v9[-*(_QWORD *)(v12 + 40)] >> *(_DWORD *)(v12 + 24) << *(_DWORD *)(v12 + 24)),
-          8 * (1LL << *(_DWORD *)(v12 + 24)));
-        v9 += 32;
-      }
-      return 0LL;
+      v12 = *(_QWORD *)(a1 + 24);
+      RtlCSparseBitmapBitsClear(
+        v12 + 32,
+        8 * ((unsigned __int64)&v9[-*(_QWORD *)(v12 + 40)] >> *(_DWORD *)(v12 + 24) << *(_DWORD *)(v12 + 24)),
+        8 * (1LL << *(_DWORD *)(v12 + 24)));
+      v9 += 32;
     }
+    return 0LL;
   }
   return v9;
 }

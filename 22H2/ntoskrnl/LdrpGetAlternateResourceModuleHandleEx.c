@@ -1,31 +1,30 @@
 /*
- * XREFs of LdrpGetAlternateResourceModuleHandleEx @ 0x1402F6DF0
+ * XREFs of LdrpGetAlternateResourceModuleHandleEx @ 0x1403014B4
  * Callers:
- *     LdrpAccessResourceData @ 0x140755B5C (LdrpAccessResourceData.c)
+ *     LdrpAccessResourceData @ 0x14067255C (LdrpAccessResourceData.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutant @ 0x1402AFC60 (KeReleaseMutant.c)
- *     LdrpGetMappingFromCacheEntry @ 0x1402F6CC0 (LdrpGetMappingFromCacheEntry.c)
- *     RtlRunOnceExecuteOnce @ 0x1407582A0 (RtlRunOnceExecuteOnce.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     KeReleaseMutant @ 0x1402C2B40 (KeReleaseMutant.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     LdrpGetMappingFromCacheEntry @ 0x140301648 (LdrpGetMappingFromCacheEntry.c)
+ *     LdrpInitMuiCrits @ 0x140302204 (LdrpInitMuiCrits.c)
  */
 
-__int64 __fastcall LdrpGetAlternateResourceModuleHandleEx(__int64 a1, __int64 a2, unsigned __int64 a3, _QWORD *a4)
+__int64 __fastcall LdrpGetAlternateResourceModuleHandleEx(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   int v7; // ebx
   int i; // ecx
   __int64 v9; // rdx
-  signed int j; // edi
-  __int64 v11; // rax
-  __int16 v12; // cx
-  __int64 v14; // [rsp+38h] [rbp-30h] BYREF
-  __int64 v15; // [rsp+40h] [rbp-28h] BYREF
-  struct _KMUTANT *v16; // [rsp+48h] [rbp-20h] BYREF
+  int j; // edi
+  bool v11; // sf
+  __int64 v12; // rax
+  __int16 v13; // cx
+  __int64 v15; // [rsp+38h] [rbp-20h] BYREF
+  _QWORD v16[3]; // [rsp+40h] [rbp-18h] BYREF
 
+  v16[0] = 0LL;
   v15 = 0LL;
-  v14 = 0LL;
-  v16 = &MuiMutex;
-  RtlRunOnceExecuteOnce(&LdrpInitOnceMuiLock, NtdllRunOnceInitMuiCrits, &v16, 0LL);
+  LdrpInitMuiCrits();
   KeWaitForSingleObject(&MuiMutex, Executive, 0, 0, 0LL);
   *a4 = 0LL;
   v7 = AlternateResourceModuleCount;
@@ -34,46 +33,50 @@ __int64 __fastcall LdrpGetAlternateResourceModuleHandleEx(__int64 a1, __int64 a2
     v9 = (__int64)i << 6;
     if ( *(_QWORD *)((char *)AlternateResourceModules + v9 + 8) == a1 )
     {
-      if ( v15 )
+      if ( v16[0] )
       {
-        for ( j = v7; j >= 0; --j )
+        for ( j = v7; ; --j )
         {
+          v11 = j < 0;
+          if ( j < 0 )
+            break;
           if ( *((_QWORD *)AlternateResourceModules + 8 * (__int64)j + 1) == a1
-            && LdrpGetMappingFromCacheEntry(j, a3, &v15, &v14) )
+            && (unsigned __int8)LdrpGetMappingFromCacheEntry((unsigned int)j, a3, v16, &v15) )
           {
             v7 = j;
-            goto LABEL_12;
+            v11 = j < 0;
+            break;
           }
         }
-        v7 = AlternateResourceModuleCount;
+        if ( v11 )
+          v7 = AlternateResourceModuleCount;
         break;
       }
-      v15 = *(_QWORD *)((char *)AlternateResourceModules + v9 + 32);
-      v14 = *(_QWORD *)((char *)AlternateResourceModules + v9 + 48);
+      v16[0] = *(_QWORD *)((char *)AlternateResourceModules + v9 + 32);
+      v15 = *(_QWORD *)((char *)AlternateResourceModules + v9 + 48);
       v7 = i;
     }
   }
-LABEL_12:
   if ( v7 == AlternateResourceModuleCount )
   {
-    v15 = 0LL;
+    v16[0] = 0LL;
   }
   else
   {
-    if ( !v14 )
+    if ( !v15 )
     {
-      v11 = RtlImageNtHeader(v15 & 0xFFFFFFFFFFFFFFFCuLL);
-      if ( v11 )
+      v12 = RtlImageNtHeader(v16[0] & 0xFFFFFFFFFFFFFFFCuLL);
+      if ( v12 )
       {
-        v12 = *(_WORD *)(v11 + 24);
-        if ( v12 == 267 || v12 == 523 )
-          v14 = *(unsigned int *)(v11 + 80);
+        v13 = *(_WORD *)(v12 + 24);
+        if ( v13 == 267 || v13 == 523 )
+          v15 = *(unsigned int *)(v12 + 80);
         else
-          v14 = 0LL;
+          v15 = 0LL;
       }
     }
-    *a4 = v14;
+    *a4 = v15;
   }
-  KeReleaseMutant(&MuiMutex, 1, 0, 0);
-  return v15;
+  KeReleaseMutant((PRKMUTANT)&MuiMutex, 1, 0, 0);
+  return v16[0];
 }

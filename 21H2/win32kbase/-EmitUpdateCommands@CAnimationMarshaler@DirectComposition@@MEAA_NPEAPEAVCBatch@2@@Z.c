@@ -1,16 +1,16 @@
 /*
- * XREFs of ?EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AEC20
+ * XREFs of ?EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0094C00
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     ?EmitAddTimeEvents@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AED20 (-EmitAddTimeEvents@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitClearTimeEvents@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AED74 (-EmitClearTimeEvents@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitSetInstance@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AED9C (-EmitSetInstance@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitSetSeek@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AEE0C (-EmitSetSeek@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitSetPaused@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AEE94 (-EmitSetPaused@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitSetPrimitives@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AEF08 (-EmitSetPrimitives@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitBeginTime@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AEFA4 (-EmitBeginTime@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EmitAddTimeEvents@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0094D00 (-EmitAddTimeEvents@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitClearTimeEvents@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0094D54 (-EmitClearTimeEvents@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetInstance@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0094D7C (-EmitSetInstance@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetSeek@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0094DEC (-EmitSetSeek@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetPaused@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0094E74 (-EmitSetPaused@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetPrimitives@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0094EE8 (-EmitSetPrimitives@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitBeginTime@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0094F84 (-EmitBeginTime@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CAnimationMarshaler::EmitUpdateCommands(
@@ -37,13 +37,13 @@ char __fastcall DirectComposition::CAnimationMarshaler::EmitUpdateCommands(
     *(_QWORD *)(v7 + 4) = 0LL;
     *((_DWORD *)v7 + 3) = 0;
     *((_DWORD *)v7 + 1) = 4;
-    *((_DWORD *)v7 + 2) = *((_DWORD *)this + 8);
-    *((_DWORD *)v7 + 3) = *((_DWORD *)this + 56);
+    *((_DWORD *)v7 + 2) = *((_DWORD *)this + 6);
+    *((_DWORD *)v7 + 3) = *((_DWORD *)this + 54);
     *((_DWORD *)this + 4) &= ~0x20000u;
   }
   if ( !DirectComposition::CAnimationMarshaler::EmitBeginTime(v2, (struct DirectComposition::CBatch **)a2) )
     return 0;
-  if ( *((_QWORD *)this + 18) )
+  if ( *((_QWORD *)this + 17) )
   {
     if ( (*((_DWORD *)this + 4) & 0x200) == 0 )
     {
@@ -55,15 +55,15 @@ char __fastcall DirectComposition::CAnimationMarshaler::EmitUpdateCommands(
         *(_OWORD *)(v8 + 4) = 0LL;
         *(_QWORD *)(v8 + 20) = 0LL;
         *((_DWORD *)v8 + 1) = 11;
-        *((_DWORD *)v8 + 2) = *((_DWORD *)this + 8);
-        *(_OWORD *)(v8 + 12) = *(_OWORD *)*((_QWORD *)this + 18);
+        *((_DWORD *)v8 + 2) = *((_DWORD *)this + 6);
+        *(_OWORD *)(v8 + 12) = *(_OWORD *)*((_QWORD *)this + 17);
         *((_DWORD *)this + 4) |= 0x200u;
       }
     }
-    if ( *((_QWORD *)this + 18) && (*((_DWORD *)this + 4) & 0x200) == 0 )
+    if ( *((_QWORD *)this + 17) && (*((_DWORD *)this + 4) & 0x200) == 0 )
       return 0;
   }
-  if ( *((_QWORD *)this + 17) && (*((_DWORD *)this + 4) & 0x400) == 0 )
+  if ( *((_QWORD *)this + 16) && (*((_DWORD *)this + 4) & 0x400) == 0 )
   {
     v12 = 0LL;
     if ( !DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x10uLL, &v12) )
@@ -73,14 +73,14 @@ char __fastcall DirectComposition::CAnimationMarshaler::EmitUpdateCommands(
     *(_QWORD *)(v9 + 4) = 0LL;
     *((_DWORD *)v9 + 3) = 0;
     *((_DWORD *)v9 + 1) = 7;
-    *((_DWORD *)v9 + 2) = *((_DWORD *)this + 8);
-    *((_DWORD *)v9 + 3) = *(_DWORD *)(*((_QWORD *)this + 17) + 32LL);
+    *((_DWORD *)v9 + 2) = *((_DWORD *)this + 6);
+    *((_DWORD *)v9 + 3) = *(_DWORD *)(*((_QWORD *)this + 16) + 24LL);
     *((_DWORD *)this + 4) |= 0x400u;
   }
   if ( !DirectComposition::CAnimationMarshaler::EmitSetPrimitives(v2, (struct DirectComposition::CBatch **)a2) )
     return 0;
   v5 = 1;
-  if ( !*((_DWORD *)this + 39) || (*((_DWORD *)this + 4) & 0x800) != 0 )
+  if ( !*((_DWORD *)this + 37) || (*((_DWORD *)this + 4) & 0x800) != 0 )
     goto LABEL_7;
   v12 = 0LL;
   if ( !DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x3CuLL, &v12) )
@@ -92,17 +92,17 @@ char __fastcall DirectComposition::CAnimationMarshaler::EmitUpdateCommands(
   *(_OWORD *)(v10 + 36) = 0LL;
   *(_QWORD *)(v10 + 52) = 0LL;
   *((_DWORD *)v10 + 1) = 5;
-  *((_DWORD *)v10 + 2) = *((_DWORD *)this + 8);
-  *((_DWORD *)v10 + 3) = *((_DWORD *)this + 39);
-  *(_QWORD *)(v10 + 20) = *((_QWORD *)this + 20);
-  v11 = *((_QWORD *)this + 21);
+  *((_DWORD *)v10 + 2) = *((_DWORD *)this + 6);
+  *((_DWORD *)v10 + 3) = *((_DWORD *)this + 37);
+  *(_QWORD *)(v10 + 20) = *((_QWORD *)this + 19);
+  v11 = *((_QWORD *)this + 20);
   if ( v11 )
-    LODWORD(v11) = *(_DWORD *)(v11 + 48);
+    LODWORD(v11) = *(_DWORD *)(v11 + 40);
   *((_DWORD *)v10 + 7) = v11;
-  *((_DWORD *)v10 + 8) = *((_DWORD *)this + 44);
-  v10[36] = *((_BYTE *)this + 200) & 1;
-  *(_QWORD *)(v10 + 44) = *((_QWORD *)this + 23);
-  *(_QWORD *)(v10 + 52) = *((_QWORD *)this + 24);
+  *((_DWORD *)v10 + 8) = *((_DWORD *)this + 42);
+  v10[36] = *((_BYTE *)this + 192) & 1;
+  *(_QWORD *)(v10 + 44) = *((_QWORD *)this + 22);
+  *(_QWORD *)(v10 + 52) = *((_QWORD *)this + 23);
   *((_DWORD *)this + 4) |= 0x800u;
 LABEL_7:
   if ( !DirectComposition::CAnimationMarshaler::EmitSetPaused(v2, (struct DirectComposition::CBatch **)a2)

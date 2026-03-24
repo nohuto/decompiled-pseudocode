@@ -1,148 +1,145 @@
 /*
- * XREFs of _RegisterRawInputDevices @ 0x1C009F368
+ * XREFs of _RegisterRawInputDevices @ 0x1C0107FD0
  * Callers:
- *     NtUserRegisterRawInputDevices @ 0x1C009EA80 (NtUserRegisterRawInputDevices.c)
- *     RegisterModernAppThreadForRawKeyboard @ 0x1C01AA00C (RegisterModernAppThreadForRawKeyboard.c)
- *     UnregisterModernAppThreadForRawKeyboard @ 0x1C01AA0B8 (UnregisterModernAppThreadForRawKeyboard.c)
+ *     NtUserRegisterRawInputDevices @ 0x1C01079D0 (NtUserRegisterRawInputDevices.c)
+ *     RegisterModernAppThreadForRawKeyboard @ 0x1C01D51B0 (RegisterModernAppThreadForRawKeyboard.c)
+ *     UnregisterModernAppThreadForRawKeyboard @ 0x1C01D525C (UnregisterModernAppThreadForRawKeyboard.c)
+ *     ?RegisterTabletButtonHandler@@YAXXZ @ 0x1C01D8908 (-RegisterTabletButtonHandler@@YAXXZ.c)
  * Callees:
- *     AllocateProcessHidTable @ 0x1C009E9C8 (AllocateProcessHidTable.c)
- *     ?AdjustLegacyDeviceFlags@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C009EE00 (-AdjustLegacyDeviceFlags@@YAXPEAUtagPROCESSINFO@@@Z.c)
- *     FreeHidProcessRequest @ 0x1C009F158 (FreeHidProcessRequest.c)
- *     ?HidRequestValidityCheck@@YAHQEAUtagRAWINPUTDEVICE@@PEBUtagPROCESS_HID_TABLE@@W4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C009F4F8 (-HidRequestValidityCheck@@YAHQEAUtagRAWINPUTDEVICE@@PEBUtagPROCESS_HID_TABLE@@W4_REGISTER_RAW_IN.c)
- *     ?SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z @ 0x1C009F698 (-SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z.c)
- *     ?SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KW4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C009F724 (-SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@.c)
- *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C009F8C4 (-IsLegacyDevice@@YAHGG@Z.c)
- *     ?CleanupFreedTLCInfo@@YAXXZ @ 0x1C009FDF8 (-CleanupFreedTLCInfo@@YAXXZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     AllocateProcessHidTable @ 0x1C010786C (AllocateProcessHidTable.c)
+ *     FreeHidProcessRequest @ 0x1C010790C (FreeHidProcessRequest.c)
+ *     ?CleanupFreedTLCInfo@@YAXXZ @ 0x1C0107C04 (-CleanupFreedTLCInfo@@YAXXZ.c)
+ *     ?AdjustLegacyDeviceFlags@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C0107C90 (-AdjustLegacyDeviceFlags@@YAXPEAUtagPROCESSINFO@@@Z.c)
+ *     ?HidRequestValidityCheck@@YAHQEAUtagRAWINPUTDEVICE@@PEBUtagPROCESS_HID_TABLE@@W4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C0108170 (-HidRequestValidityCheck@@YAHQEAUtagRAWINPUTDEVICE@@PEBUtagPROCESS_HID_TABLE@@W4_REGISTER_RAW_IN.c)
+ *     ?SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z @ 0x1C010833C (-SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z.c)
+ *     ?SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KW4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C01083D8 (-SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@.c)
+ *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C0108864 (-IsLegacyDevice@@YAHGG@Z.c)
  */
 
 __int64 __fastcall RegisterRawInputDevices(__int64 a1, unsigned int a2, unsigned int a3)
 {
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v7; // r9
-  __int64 v8; // rbx
-  __int64 v9; // rax
-  unsigned int v10; // edi
-  __int128 *v11; // rsi
-  __int64 v12; // rdx
-  __int64 ProcessHidTable; // rax
-  unsigned int v14; // esi
-  _DWORD *v15; // rdi
-  unsigned __int16 v16; // r8
-  unsigned __int16 v17; // dx
-  struct tagPROCESS_HID_REQUEST *v18; // rax
-  unsigned int v19; // edi
-  __int64 v20; // rbx
-  __int64 v21; // r10
+  __int64 CurrentProcessWin32Process; // rbx
+  __int64 v7; // rax
+  unsigned int v8; // edi
+  __int128 *v9; // rsi
+  __int64 v10; // rdx
+  unsigned int v11; // esi
+  _DWORD *v12; // rdi
+  unsigned __int16 v13; // r8
+  unsigned __int16 v14; // dx
+  struct tagPROCESS_HID_REQUEST *v15; // rax
+  unsigned int v16; // edi
+  __int64 v17; // rbx
+  __int64 v18; // r10
   __int64 i; // r9
-  __int64 v23; // rcx
-  __int64 v24; // rax
-  __int64 *v26; // r9
-  __int16 v27; // r11
+  __int64 ProcessHidTable; // rax
+  __int64 v22; // rdx
+  __int64 v23; // r8
+  __int64 *v24; // r9
+  __int16 v25; // r11
   __int64 *j; // rax
-  __int128 v29; // [rsp+30h] [rbp-38h] BYREF
-  unsigned int v30; // [rsp+78h] [rbp+10h] BYREF
+  __int128 v27; // [rsp+30h] [rbp-38h] BYREF
+  unsigned int v28; // [rsp+78h] [rbp+10h] BYREF
 
   CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
-  v8 = CurrentProcessWin32Process;
-  if ( CurrentProcessWin32Process )
+  v7 = *(_QWORD *)(CurrentProcessWin32Process + 832);
+  if ( v7 )
   {
-    v7 = -*(_QWORD *)CurrentProcessWin32Process;
-    v8 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
+    *(_QWORD *)(v7 + 88) = 0LL;
+    *(_DWORD *)(v7 + 96) = 0;
+    v7 = *(_QWORD *)(CurrentProcessWin32Process + 832);
   }
-  v9 = *(_QWORD *)(v8 + 848);
-  if ( v9 )
-  {
-    *(_QWORD *)(v9 + 88) = 0LL;
-    *(_DWORD *)(v9 + 96) = 0;
-  }
-  v10 = 0;
+  v8 = 0;
   if ( a2 )
   {
-    v11 = (__int128 *)a1;
-    do
+    v9 = (__int128 *)a1;
+    while ( 1 )
     {
-      v12 = *(_QWORD *)(v8 + 848);
-      v29 = *v11;
-      if ( !(unsigned int)HidRequestValidityCheck(&v29, v12, a3, v7) )
-        goto LABEL_22;
-      ++v10;
-      ++v11;
+      v10 = *(_QWORD *)(CurrentProcessWin32Process + 832);
+      v27 = *v9;
+      if ( !(unsigned int)HidRequestValidityCheck(&v27, v10, a3) )
+        goto LABEL_24;
+      ++v8;
+      ++v9;
+      if ( v8 >= a2 )
+      {
+        v7 = *(_QWORD *)(CurrentProcessWin32Process + 832);
+        break;
+      }
     }
-    while ( v10 < a2 );
   }
-  if ( !*(_QWORD *)(v8 + 848) )
+  if ( !v7 )
   {
     ProcessHidTable = AllocateProcessHidTable();
-    *(_QWORD *)(v8 + 848) = ProcessHidTable;
+    *(_QWORD *)(CurrentProcessWin32Process + 832) = ProcessHidTable;
     if ( !ProcessHidTable )
     {
-      UserSetLastError(8LL);
-LABEL_22:
-      v19 = 0;
-      goto LABEL_17;
+      UserSetLastError(8LL, v22, v23);
+LABEL_24:
+      v16 = 0;
+      goto LABEL_15;
     }
   }
-  v14 = 0;
+  v11 = 0;
   if ( a2 )
   {
-    v15 = (_DWORD *)(a1 + 4);
+    v12 = (_DWORD *)(a1 + 4);
     do
     {
-      v16 = *((_WORD *)v15 - 1);
-      v17 = *((_WORD *)v15 - 2);
-      v30 = 0;
-      v18 = SearchProcessHidRequest((struct tagPROCESSINFO *)v8, v17, v16, &v30);
-      if ( (*v15 & 1) != 0 )
+      v13 = *((_WORD *)v12 - 1);
+      v14 = *((_WORD *)v12 - 2);
+      v28 = 0;
+      v15 = SearchProcessHidRequest((struct tagPROCESSINFO *)CurrentProcessWin32Process, v14, v13, &v28);
+      if ( (*v12 & 1) != 0 )
       {
-        if ( v18 )
-          FreeHidProcessRequest(v18, v30, *(struct tagPROCESS_HID_TABLE **)(v8 + 848));
+        if ( v15 )
+          FreeHidProcessRequest(v15, v28, *(struct tagPROCESS_HID_TABLE **)(CurrentProcessWin32Process + 832));
       }
-      else if ( !(unsigned int)SetProcDeviceRequest(v8, a1 + 16LL * v14, v18, v30, a3) )
+      else if ( !(unsigned int)SetProcDeviceRequest(CurrentProcessWin32Process, a1 + 16LL * v11, v15, v28, a3) )
       {
-        goto LABEL_22;
+        goto LABEL_24;
       }
-      ++v14;
-      v15 += 4;
+      ++v11;
+      v12 += 4;
     }
-    while ( v14 < a2 );
+    while ( v11 < a2 );
   }
-  v19 = 1;
-LABEL_17:
-  if ( *(_QWORD *)(v8 + 848) )
+  v16 = 1;
+LABEL_15:
+  if ( *(_QWORD *)(CurrentProcessWin32Process + 832) )
   {
-    AdjustLegacyDeviceFlags((struct tagPROCESSINFO *)v8);
-    v20 = *(_QWORD *)(v8 + 848);
-    v21 = v20 + 48;
-    for ( i = *(_QWORD *)(v20 + 48); i != v21; i = *v26 )
+    AdjustLegacyDeviceFlags((struct tagPROCESSINFO *)CurrentProcessWin32Process);
+    v17 = *(_QWORD *)(CurrentProcessWin32Process + 832);
+    v18 = v17 + 48;
+    for ( i = *(_QWORD *)(v17 + 48); i != v18; i = *v24 )
     {
       if ( !(unsigned int)IsLegacyDevice(*(_WORD *)(i + 16), *(_WORD *)(i + 18)) )
       {
-        for ( j = *(__int64 **)(v20 + 32); j != (__int64 *)(v20 + 32); j = (__int64 *)*j )
+        for ( j = *(__int64 **)(v17 + 32); j != (__int64 *)(v17 + 32); j = (__int64 *)*j )
         {
-          if ( *((_WORD *)j + 8) == v27 )
-            goto LABEL_32;
+          if ( *((_WORD *)j + 8) == v25 )
+            goto LABEL_31;
         }
         j = 0LL;
-LABEL_32:
+LABEL_31:
         if ( j )
         {
-          if ( __CFSHR__(*((_DWORD *)v26 + 5), 4) )
+          if ( __CFSHR__(*((_DWORD *)v24 + 5), 4) )
           {
-            --*(_DWORD *)(v26[3] + 40);
-            *((_DWORD *)v26 + 5) &= ~8u;
+            --*(_DWORD *)(v24[3] + 40);
+            *((_DWORD *)v24 + 5) &= ~8u;
           }
         }
-        else if ( !__CFSHR__(*((_DWORD *)v26 + 5), 4) )
+        else if ( !__CFSHR__(*((_DWORD *)v24 + 5), 4) )
         {
-          ++*(_DWORD *)(v26[3] + 40);
-          *((_DWORD *)v26 + 5) |= 8u;
+          ++*(_DWORD *)(v24[3] + 40);
+          *((_DWORD *)v24 + 5) |= 8u;
         }
       }
     }
     CleanupFreedTLCInfo();
-    v24 = SGDGetUserSessionState(v23);
-    CHidInput::HandleDirectStartStopDeviceReadRequest(*(CHidInput **)(v24 + 16840));
+    CHidInput::HandleDirectStartStopDeviceReadRequest(gpHidInput);
   }
-  return v19;
+  return v16;
 }

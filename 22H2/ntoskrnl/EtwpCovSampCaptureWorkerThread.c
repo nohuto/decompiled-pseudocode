@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpCovSampCaptureWorkerThread @ 0x1408A8D20
+ * XREFs of EtwpCovSampCaptureWorkerThread @ 0x140942B10
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     KeWaitForMultipleObjects @ 0x140310FC0 (KeWaitForMultipleObjects.c)
- *     EtwpCovSampCaptureBufferRelease @ 0x14041191C (EtwpCovSampCaptureBufferRelease.c)
- *     RtlpInterlockedFlushSList @ 0x140428870 (RtlpInterlockedFlushSList.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x140469B2A (EtwpCovSampCaptureReleaseToLookaside.c)
- *     EtwpCovSampLookasideGrow @ 0x140603978 (EtwpCovSampLookasideGrow.c)
- *     EtwpCovSampCaptureBufferProcess @ 0x1408A8AB4 (EtwpCovSampCaptureBufferProcess.c)
- *     EtwpCovSampSampleBufferProcess @ 0x1409F2BF4 (EtwpCovSampSampleBufferProcess.c)
+ *     KeWaitForMultipleObjects @ 0x14024B500 (KeWaitForMultipleObjects.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     RtlpInterlockedFlushSList @ 0x140407030 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x1405AE6E8 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x1405AF0A0 (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     EtwpCovSampLookasideGrow @ 0x1405AF2FC (EtwpCovSampLookasideGrow.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x1409421E0 (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x140945B94 (EtwpCovSampSampleBufferProcess.c)
  */
 
 void __fastcall __noreturn EtwpCovSampCaptureWorkerThread(__int64 a1)
@@ -27,8 +27,8 @@ void __fastcall __noreturn EtwpCovSampCaptureWorkerThread(__int64 a1)
   PVOID Object[2]; // [rsp+40h] [rbp-78h] BYREF
   struct _KWAIT_BLOCK WaitBlockArray; // [rsp+50h] [rbp-68h] BYREF
 
-  Object[0] = (PVOID)(a1 + 1104);
-  Object[1] = (PVOID)(a1 + 1040);
+  Object[0] = (PVOID)(a1 + 736);
+  Object[1] = (PVOID)(a1 + 672);
   while ( 1 )
   {
     while ( 1 )
@@ -44,7 +44,7 @@ void __fastcall __noreturn EtwpCovSampCaptureWorkerThread(__int64 a1)
         KeResetEvent((PRKEVENT)Object[v2]);
         if ( v3 )
           break;
-        v4 = RtlpInterlockedFlushSList((PSLIST_HEADER)(a1 + 1088));
+        v4 = RtlpInterlockedFlushSList((PSLIST_HEADER)(a1 + 720));
         while ( v4 )
         {
           v5 = (__int64)v4;
@@ -54,7 +54,7 @@ void __fastcall __noreturn EtwpCovSampCaptureWorkerThread(__int64 a1)
           {
             case 1342288122LL:
               EtwpCovSampSampleBufferProcess(a1, v5);
-              EtwpCovSampCaptureReleaseToLookaside(a1, a1 + 880, (struct _SLIST_ENTRY *)v5);
+              EtwpCovSampCaptureReleaseToLookaside(a1, a1 + 512, (struct _SLIST_ENTRY *)v5);
               break;
             case 3401298175LL:
               EtwpCovSampCaptureBufferProcess(a1, v5);
@@ -69,17 +69,14 @@ void __fastcall __noreturn EtwpCovSampCaptureWorkerThread(__int64 a1)
       if ( v3 == 1 )
       {
         v7 = MEMORY[0xFFFFF78000000320];
-        if ( (unsigned int)(MEMORY[0xFFFFF78000000320] - *(_DWORD *)(a1 + 1064)) >= 0x40 )
-        {
-          *(_DWORD *)(a1 + 1064) = MEMORY[0xFFFFF78000000320];
-          v8 = *(_QWORD **)(a1 + 944);
-          *(_DWORD *)(a1 + 1068) = v7;
-          if ( v8 != (_QWORD *)(a1 + 944) )
-            break;
-        }
+        if ( (unsigned int)(MEMORY[0xFFFFF78000000320] - *(_DWORD *)(a1 + 696)) >= 0x40 )
+          break;
       }
     }
-    do
+    *(_DWORD *)(a1 + 696) = MEMORY[0xFFFFF78000000320];
+    v8 = *(_QWORD **)(a1 + 576);
+    *(_DWORD *)(a1 + 700) = v7;
+    while ( v8 != (_QWORD *)(a1 + 576) )
     {
       v9 = (__int64)(v8 - 2);
       if ( *((_DWORD *)v8 + 8) )
@@ -89,6 +86,5 @@ void __fastcall __noreturn EtwpCovSampCaptureWorkerThread(__int64 a1)
       }
       v8 = (_QWORD *)*v8;
     }
-    while ( v8 != (_QWORD *)(a1 + 944) );
   }
 }

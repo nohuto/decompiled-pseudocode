@@ -1,10 +1,10 @@
 /*
- * XREFs of NtAlertResumeThread @ 0x14088CA70
+ * XREFs of NtAlertResumeThread @ 0x14088CA50
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeAlertResumeThread @ 0x14028DBF0 (KeAlertResumeThread.c)
+ *     KeAlertResumeThread @ 0x14028DCF0 (KeAlertResumeThread.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  */
 

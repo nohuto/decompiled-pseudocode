@@ -1,7 +1,8 @@
 /*
- * XREFs of ?VerifyCommitLimit@VIDMM_SEGMENT@@IEAAJPEAUVIDMM_PARTITION_ADAPTER_INFO@@_K@Z @ 0x1C01003D0
+ * XREFs of ?VerifyCommitLimit@VIDMM_SEGMENT@@IEAAJPEAUVIDMM_PARTITION_ADAPTER_INFO@@_K@Z @ 0x1C00650F0
  * Callers:
- *     ?TrimAllocation@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@U_VIDMM_TRIM_PROCESS_FLAGS@@_K2@Z @ 0x1C00FFB58 (-TrimAllocation@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@U_VIDMM_TRIM_PROCESS_FLAGS@@_K2@Z.c)
+ *     ?ReserveResource@VIDMM_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@EEEW4_VIDMM_PLACEMENT_RESTRICTION@@_K@Z @ 0x1C0064B30 (-ReserveResource@VIDMM_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@EEEW4_VIDMM_PLACEMENT_RESTRICTION@.c)
+ *     ?TrimAllocation@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@U_VIDMM_TRIM_PROCESS_FLAGS@@_K2@Z @ 0x1C00C8248 (-TrimAllocation@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@U_VIDMM_TRIM_PROCESS_FLAGS@@_K2@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,8 +15,8 @@ __int64 __fastcall VIDMM_SEGMENT::VerifyCommitLimit(
   unsigned __int64 v3; // rax
   unsigned __int64 v7; // rcx
   unsigned __int64 v8; // rcx
-  _QWORD *v9; // rax
-  __int64 v10; // rcx
+  _QWORD *v10; // rax
+  __int64 v11; // rcx
 
   v3 = *((_QWORD *)this + 27);
   v7 = v3 + a3;
@@ -23,11 +24,11 @@ __int64 __fastcall VIDMM_SEGMENT::VerifyCommitLimit(
   {
     if ( g_IsInternalReleaseOrDbg )
     {
-      v9 = (_QWORD *)WdLogNewEntry5_WdTrace(v7);
-      v9[3] = this;
-      v9[4] = a3;
-      v9[5] = *((_QWORD *)this + 27);
-      v10 = *((_QWORD *)this + 26);
+      v10 = (_QWORD *)WdLogNewEntry5_WdTrace(v7);
+      v10[3] = this;
+      v10[4] = a3;
+      v10[5] = *((_QWORD *)this + 27);
+      v11 = *((_QWORD *)this + 26);
       goto LABEL_11;
     }
   }
@@ -40,13 +41,13 @@ __int64 __fastcall VIDMM_SEGMENT::VerifyCommitLimit(
       return 0LL;
     if ( g_IsInternalReleaseOrDbg )
     {
-      v9 = (_QWORD *)WdLogNewEntry5_WdTrace(v8);
-      v9[3] = this;
-      v9[4] = a3;
-      v9[5] = *(_QWORD *)(*(_QWORD *)a2 + 56LL);
-      v10 = *((_QWORD *)a2 + 2);
+      v10 = (_QWORD *)WdLogNewEntry5_WdTrace(v8);
+      v10[3] = this;
+      v10[4] = a3;
+      v10[5] = *(_QWORD *)(*(_QWORD *)a2 + 56LL);
+      v11 = *((_QWORD *)a2 + 2);
 LABEL_11:
-      v9[6] = v10;
+      v10[6] = v11;
     }
   }
   return 3221225773LL;

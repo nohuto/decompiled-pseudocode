@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDbGetSdbString @ 0x1408477F4
+ * XREFs of KsepDbGetSdbString @ 0x1408477D4
  * Callers:
- *     KsepDbGetDriverShims @ 0x14067D8C4 (KsepDbGetDriverShims.c)
- *     KsepDbGetShimInfo @ 0x140847828 (KsepDbGetShimInfo.c)
+ *     KsepDbGetDriverShims @ 0x14067D8A4 (KsepDbGetDriverShims.c)
+ *     KsepDbGetShimInfo @ 0x140847808 (KsepDbGetShimInfo.c)
  * Callees:
- *     KsepStringDuplicate @ 0x14070CDB8 (KsepStringDuplicate.c)
- *     SdbGetStringTagPtr @ 0x140721730 (SdbGetStringTagPtr.c)
+ *     KsepStringDuplicate @ 0x14070CD98 (KsepStringDuplicate.c)
+ *     SdbGetStringTagPtr @ 0x140721710 (SdbGetStringTagPtr.c)
  */
 
 __int64 __fastcall KsepDbGetSdbString(__int64 a1, __int64 a2, __int64 a3)

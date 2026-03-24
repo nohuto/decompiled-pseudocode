@@ -1,13 +1,13 @@
 /*
- * XREFs of SepUpdateSiloInClientSecurity @ 0x1408A18F4
+ * XREFs of SepUpdateSiloInClientSecurity @ 0x1408A18D4
  * Callers:
  *     SeCreateClientSecurityEx @ 0x140631CE0 (SeCreateClientSecurityEx.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PsIsHostSilo @ 0x1400B8A60 (PsIsHostSilo.c)
- *     SeQueryServerSiloToken @ 0x1406C5520 (SeQueryServerSiloToken.c)
- *     SepCopyClientTokenAndSetSilo @ 0x14089BCF0 (SepCopyClientTokenAndSetSilo.c)
- *     SeGetTokenControlInformation @ 0x1408A1D1C (SeGetTokenControlInformation.c)
+ *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
+ *     SeQueryServerSiloToken @ 0x1406C5500 (SeQueryServerSiloToken.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x14089BCD0 (SepCopyClientTokenAndSetSilo.c)
+ *     SeGetTokenControlInformation @ 0x1408A1CFC (SeGetTokenControlInformation.c)
  */
 
 __int64 __fastcall SepUpdateSiloInClientSecurity(__int64 a1, __int64 a2)

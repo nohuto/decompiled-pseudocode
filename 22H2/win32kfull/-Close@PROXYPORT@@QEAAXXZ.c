@@ -1,26 +1,30 @@
 /*
- * XREFs of ?Close@PROXYPORT@@QEAAXXZ @ 0x1C02BF7AC
+ * XREFs of ?Close@PROXYPORT@@QEAAXXZ @ 0x1C0110B44
  * Callers:
- *     UMPDCachedResourceCleanupWrap @ 0x1C00A4000 (UMPDCachedResourceCleanupWrap.c)
- *     ?vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z @ 0x1C029A258 (-vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z.c)
+ *     ?vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z @ 0x1C0110AF8 (-vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z.c)
  * Callees:
- *     <none>
+ *     Win32UnmapViewInSessionSpace @ 0x1C01E93A0 (Win32UnmapViewInSessionSpace.c)
  */
 
-void __fastcall PROXYPORT::Close(void **this)
+void __fastcall PROXYPORT::Close(PROXYPORT *this)
 {
-  void *v2; // rcx
-  void *v3; // rcx
-  void *v4; // rcx
+  __int64 v2; // rcx
 
-  v2 = (void *)*((_QWORD *)*this + 3);
-  if ( v2 )
-    MmUnmapViewInSessionSpace(v2);
-  v3 = (void *)*((_QWORD *)*this + 1);
-  if ( v3 )
-    ZwClose(v3);
-  v4 = *(void **)*this;
-  if ( v4 )
-    ObfDereferenceObject(v4);
-  Win32FreePool(*this);
+  v2 = *(_QWORD *)this;
+  if ( *(_QWORD *)(v2 + 16) )
+  {
+    Win32UnmapViewInSessionSpace(*(_QWORD *)(v2 + 16));
+    v2 = *(_QWORD *)this;
+  }
+  if ( *(_QWORD *)(v2 + 8) )
+  {
+    ZwClose(*(HANDLE *)(v2 + 8));
+    v2 = *(_QWORD *)this;
+  }
+  if ( *(_QWORD *)v2 )
+  {
+    ObfDereferenceObject(*(PVOID *)v2);
+    v2 = *(_QWORD *)this;
+  }
+  Win32FreePool((void *)v2);
 }

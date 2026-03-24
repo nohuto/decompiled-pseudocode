@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     MmMapIoSpaceEx @ 0x1400E5D40 (MmMapIoSpaceEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     MmMapIoSpaceEx @ 0x1400E5D60 (MmMapIoSpaceEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     MmCheckMapIoSpace @ 0x140924E88 (MmCheckMapIoSpace.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  *     ViTargetAddToCounter @ 0x140934E3C (ViTargetAddToCounter.c)

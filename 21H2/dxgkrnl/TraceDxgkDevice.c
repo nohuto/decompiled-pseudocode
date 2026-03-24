@@ -1,23 +1,12 @@
 /*
- * XREFs of TraceDxgkDevice @ 0x1C002C3C0
+ * XREFs of TraceDxgkDevice @ 0x1C0027700
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0ppqpttqpqp_EtwWriteTransfer @ 0x1C004C4F8 (McTemplateK0ppqpttqpqp_EtwWriteTransfer.c)
+ *     McTemplateK0ppqpttq_EtwWriteTransfer @ 0x1C0043720 (McTemplateK0ppqpttq_EtwWriteTransfer.c)
  */
 
-__int64 __fastcall TraceDxgkDevice(
-        int a1,
-        char a2,
-        int a3,
-        char a4,
-        __int64 a5,
-        char a6,
-        unsigned __int8 a7,
-        char a8,
-        __int64 a9,
-        char a10,
-        __int64 a11)
+__int64 __fastcall TraceDxgkDevice(int a1, char a2, int a3, char a4, __int64 a5, char a6, unsigned __int8 a7, char a8)
 {
   __int64 result; // rax
 
@@ -25,8 +14,8 @@ __int64 __fastcall TraceDxgkDevice(
   {
     if ( a1 == 1 )
     {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
-        return McTemplateK0ppqpttqpqp_EtwWriteTransfer(
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+        return McTemplateK0ppqpttq_EtwWriteTransfer(
                  a7,
                  (unsigned int)&EventDestroyDevice,
                  a3,
@@ -36,45 +25,16 @@ __int64 __fastcall TraceDxgkDevice(
                  a5,
                  a6,
                  a7,
-                 a8,
-                 a9,
-                 a10,
-                 a11);
+                 a8);
     }
-    else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
+    else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
     {
-      return McTemplateK0ppqpttqpqp_EtwWriteTransfer(
-               a7,
-               (unsigned int)&EventReportDevice,
-               a3,
-               a3,
-               a2,
-               a4,
-               a5,
-               a6,
-               a7,
-               a8,
-               a9,
-               a10,
-               a11);
+      return McTemplateK0ppqpttq_EtwWriteTransfer(a7, (unsigned int)&EventReportDevice, a3, a3, a2, a4, a5, a6, a7, a8);
     }
   }
-  else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
+  else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
   {
-    return McTemplateK0ppqpttqpqp_EtwWriteTransfer(
-             a7,
-             (unsigned int)&EventCreateDevice,
-             a3,
-             a3,
-             a2,
-             a4,
-             a5,
-             a6,
-             a7,
-             a8,
-             a9,
-             a10,
-             a11);
+    return McTemplateK0ppqpttq_EtwWriteTransfer(a7, (unsigned int)&EventCreateDevice, a3, a3, a2, a4, a5, a6, a7, a8);
   }
   return result;
 }

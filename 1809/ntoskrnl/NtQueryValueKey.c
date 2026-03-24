@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryValueKey @ 0x140640360
+ * XREFs of NtQueryValueKey @ 0x140640340
  * Callers:
- *     IopLoadDriver @ 0x14067FA54 (IopLoadDriver.c)
- *     ExpWatchProductTypeWork @ 0x1406BF930 (ExpWatchProductTypeWork.c)
+ *     IopLoadDriver @ 0x14067FA34 (IopLoadDriver.c)
+ *     ExpWatchProductTypeWork @ 0x1406BF910 (ExpWatchProductTypeWork.c)
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  *     ExpWatchProductTypeInitialization @ 0x1409D5738 (ExpWatchProductTypeInitialization.c)
  *     IopProtectSystemPartition @ 0x1409DE514 (IopProtectSystemPartition.c)
- *     InitSafeBoot @ 0x1409F3340 (InitSafeBoot.c)
+ *     InitSafeBoot @ 0x1409F3348 (InitSafeBoot.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     _TlgWriteAgg @ 0x140012A30 (_TlgWriteAgg.c)
@@ -15,24 +15,24 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E900 (EtwGetKernelTraceTimestamp.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1401B2F98 (CmpIsRegistryLockAcquired.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpIsBufferGloballyVisible @ 0x1405DF288 (CmpIsBufferGloballyVisible.c)
  *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x14063EDD0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmQueryValueKey @ 0x1406451B0 (CmQueryValueKey.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x14063EDB0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmQueryValueKey @ 0x140645190 (CmQueryValueKey.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtQueryValueKey(
@@ -376,7 +376,7 @@ NTSTATUS __stdcall NtQueryValueKey(
         v89 = 1LL;
         v90 = &v59;
         v91 = 8LL;
-        TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036C070, v28, v29, 5u, &v85);
+        TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036C180, v28, v29, 5u, &v85);
       }
       if ( Length > 0x40uLL )
       {

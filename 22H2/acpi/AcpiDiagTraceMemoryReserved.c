@@ -1,12 +1,12 @@
 /*
- * XREFs of AcpiDiagTraceMemoryReserved @ 0x1C007A730
+ * XREFs of AcpiDiagTraceMemoryReserved @ 0x1C00AB2D8
  * Callers:
- *     PnpiBiosAddressDoubleToIoDescriptor @ 0x1C00904B0 (PnpiBiosAddressDoubleToIoDescriptor.c)
- *     PnpiBiosAddressExtendedToIoDescriptor @ 0x1C0090840 (PnpiBiosAddressExtendedToIoDescriptor.c)
- *     PnpiBiosAddressQuadToIoDescriptor @ 0x1C0090EBC (PnpiBiosAddressQuadToIoDescriptor.c)
- *     PnpiBiosAddressToIoDescriptor @ 0x1C00912DC (PnpiBiosAddressToIoDescriptor.c)
+ *     PnpiBiosAddressDoubleToIoDescriptor @ 0x1C009D6AC (PnpiBiosAddressDoubleToIoDescriptor.c)
+ *     PnpiBiosAddressToIoDescriptor @ 0x1C00A26F8 (PnpiBiosAddressToIoDescriptor.c)
+ *     PnpiBiosAddressExtendedToIoDescriptor @ 0x1C00B35FC (PnpiBiosAddressExtendedToIoDescriptor.c)
+ *     PnpiBiosAddressQuadToIoDescriptor @ 0x1C00B3A44 (PnpiBiosAddressQuadToIoDescriptor.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 char AcpiDiagTraceMemoryReserved(char a1, char a2, char a3, ...)

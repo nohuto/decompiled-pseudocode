@@ -1,8 +1,8 @@
 /*
- * XREFs of SetSharedPropForFilteredProcesses @ 0x1C0235C20
+ * XREFs of SetSharedPropForFilteredProcesses @ 0x1C00031DC
  * Callers:
- *     NtUserSetProp @ 0x1C00791E0 (NtUserSetProp.c)
- *     InternalSetProp @ 0x1C0083110 (InternalSetProp.c)
+ *     NtUserSetProp @ 0x1C00350F0 (NtUserSetProp.c)
+ *     InternalSetProp @ 0x1C00384A8 (InternalSetProp.c)
  * Callees:
  *     <none>
  */

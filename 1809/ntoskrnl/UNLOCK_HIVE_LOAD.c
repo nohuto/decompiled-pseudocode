@@ -8,14 +8,14 @@
  *     CmpDoFlushNextHive @ 0x1405B1330 (CmpDoFlushNextHive.c)
  *     CmReleaseLoadKeyContext @ 0x1405B7C30 (CmReleaseLoadKeyContext.c)
  *     CmLoadAppKey @ 0x1405CF54C (CmLoadAppKey.c)
- *     CmpPerformUnloadKey @ 0x1406923B0 (CmpPerformUnloadKey.c)
- *     CmKtmNotification @ 0x1406942D0 (CmKtmNotification.c)
- *     CmShutdownSystem @ 0x1407EC8D4 (CmShutdownSystem.c)
- *     CmpResolveHiveLoadConflict @ 0x1407F0348 (CmpResolveHiveLoadConflict.c)
- *     CmpLazyCommitWorker @ 0x1407F6260 (CmpLazyCommitWorker.c)
+ *     CmpPerformUnloadKey @ 0x140692390 (CmpPerformUnloadKey.c)
+ *     CmKtmNotification @ 0x1406942B0 (CmKtmNotification.c)
+ *     CmShutdownSystem @ 0x1407EC8B4 (CmShutdownSystem.c)
+ *     CmpResolveHiveLoadConflict @ 0x1407F0328 (CmpResolveHiveLoadConflict.c)
+ *     CmpLazyCommitWorker @ 0x1407F6240 (CmpLazyCommitWorker.c)
  * Callees:
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 _QWORD *UNLOCK_HIVE_LOAD()

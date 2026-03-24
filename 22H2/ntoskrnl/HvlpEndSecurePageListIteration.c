@@ -1,37 +1,36 @@
 /*
- * XREFs of HvlpEndSecurePageListIteration @ 0x14054A1F8
+ * XREFs of HvlpEndSecurePageListIteration @ 0x1404FB23C
  * Callers:
- *     HvlDiscardSecurePagesFromHibernation @ 0x1405467A8 (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlIterateSecurePagesForHibernation @ 0x1405468D4 (HvlIterateSecurePagesForHibernation.c)
- *     HvlAddSecurePagesCallbackRoutine @ 0x140547538 (HvlAddSecurePagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromSecureKernel @ 0x140547F60 (HvlpGetEncryptedDataFromSecureKernel.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x1404F7934 (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlIterateSecurePagesForHibernation @ 0x1404F7A60 (HvlIterateSecurePagesForHibernation.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x1404F8550 (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromSecureKernel @ 0x1404F8F04 (HvlpGetEncryptedDataFromSecureKernel.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     HvlpEndPageListIteration @ 0x14054A1CC (HvlpEndPageListIteration.c)
- *     VslEndSecurePageIteration @ 0x14054AE00 (VslEndSecurePageIteration.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     VslEndSecurePageIteration @ 0x1404FBE50 (VslEndSecurePageIteration.c)
  */
 
-__int16 *__fastcall HvlpEndSecurePageListIteration(__int64 a1, void *a2, _DWORD *a3)
+char __fastcall HvlpEndSecurePageListIteration(__int64 a1, void *a2, _DWORD *a3)
 {
   int v5; // ebx
-  const void **v6; // rsi
-  __int16 *result; // rax
+  int *v6; // rax
+  __int64 *v7; // rsi
   unsigned int v8; // eax
-  size_t Size; // [rsp+30h] [rbp+8h] BYREF
+  size_t Size; // [rsp+40h] [rbp+8h] BYREF
 
   LODWORD(Size) = 0;
   v5 = a1;
   if ( (_DWORD)a1 )
   {
-    v6 = (const void **)&unk_140C5F388;
-    result = (__int16 *)&unk_140C5F382;
+    LOBYTE(v6) = BYTE2(HvlpIteratorCrashdump);
+    v7 = &qword_140C474E8;
   }
   else
   {
-    v6 = (const void **)&unk_140C5F368;
-    result = (__int16 *)&unk_140C5F362;
+    LOBYTE(v6) = BYTE2(HvlpIteratorHibernate);
+    v7 = &qword_140C474C8;
   }
-  if ( *(_BYTE *)result )
+  if ( (_BYTE)v6 )
   {
     LOBYTE(a1) = (_DWORD)a1 == 0;
     VslEndSecurePageIteration(a1, &Size);
@@ -42,10 +41,14 @@ __int16 *__fastcall HvlpEndSecurePageListIteration(__int64 a1, void *a2, _DWORD 
       {
         *a3 = Size;
         if ( v8 )
-          memmove(a2, *v6, v8);
+          memmove(a2, (const void *)*v7, v8);
       }
     }
-    return HvlpEndPageListIteration(v5);
+    v6 = &HvlpIteratorCrashdump;
+    if ( !v5 )
+      v6 = &HvlpIteratorHibernate;
+    *((_QWORD *)v6 + 1) = 0LL;
+    *v6 = 0;
   }
-  return result;
+  return (char)v6;
 }

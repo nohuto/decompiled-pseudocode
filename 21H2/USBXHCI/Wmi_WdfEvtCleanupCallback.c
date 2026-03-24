@@ -1,9 +1,9 @@
 /*
- * XREFs of Wmi_WdfEvtCleanupCallback @ 0x1C0049C70
+ * XREFs of Wmi_WdfEvtCleanupCallback @ 0x1C00491B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall Wmi_WdfEvtCleanupCallback(__int64 a1)
@@ -14,7 +14,7 @@ void __fastcall Wmi_WdfEvtCleanupCallback(__int64 a1)
   v1 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00612E8);
+         off_1C00602E8);
   v2 = *(void **)(v1 + 16);
   if ( v2 )
   {

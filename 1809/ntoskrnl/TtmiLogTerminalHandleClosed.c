@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogTerminalHandleClosed @ 0x140885D68
+ * XREFs of TtmiLogTerminalHandleClosed @ 0x140885D48
  * Callers:
- *     TtmpCloseTerminalHandle @ 0x14087F080 (TtmpCloseTerminalHandle.c)
+ *     TtmpCloseTerminalHandle @ 0x14087F060 (TtmpCloseTerminalHandle.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogTerminalHandleClosed(int a1)
@@ -43,7 +43,7 @@ void __fastcall TtmiLogTerminalHandleClosed(int a1)
       v13 = 4LL;
       v15 = 8LL;
       v17 = 8LL;
-      TlgWrite(&stru_14096D820, &unk_14037233D, 0LL, 0LL, 6u, &pData);
+      TlgWrite(&stru_14096D820, &unk_1403722E9, 0LL, 0LL, 6u, &pData);
     }
   }
 }

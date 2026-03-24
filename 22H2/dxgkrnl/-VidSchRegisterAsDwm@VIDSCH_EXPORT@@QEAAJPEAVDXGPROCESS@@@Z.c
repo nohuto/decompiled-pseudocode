@@ -1,16 +1,16 @@
 /*
- * XREFs of ?VidSchRegisterAsDwm@VIDSCH_EXPORT@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C0015014
+ * XREFs of ?VidSchRegisterAsDwm@VIDSCH_EXPORT@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C001A8F0
  * Callers:
- *     ?DeferredInitialize@DXGPROCESS@@QEAAJI@Z @ 0x1C01AA934 (-DeferredInitialize@DXGPROCESS@@QEAAJI@Z.c)
- *     DxgkRegisterDwmProcess @ 0x1C01DF3E0 (DxgkRegisterDwmProcess.c)
+ *     ?DeferredInitialize@DXGPROCESS@@QEAAJI@Z @ 0x1C015C2C8 (-DeferredInitialize@DXGPROCESS@@QEAAJI@Z.c)
+ *     DxgkRegisterDwmProcess @ 0x1C016B4B0 (DxgkRegisterDwmProcess.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall VIDSCH_EXPORT::VidSchRegisterAsDwm(VIDSCH_EXPORT *this, struct DXGPROCESS *a2)
 {
   __int64 v3; // rcx
-  __int64 v4; // r9
+  __int64 v4; // rdx
 
   v3 = 0LL;
   if ( !a2 )

@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIDispatchIrpSuccess @ 0x1C00017B0
+ * XREFs of ACPIDispatchIrpSuccess @ 0x1C0002380
  * Callers:
  *     <none>
  * Callees:

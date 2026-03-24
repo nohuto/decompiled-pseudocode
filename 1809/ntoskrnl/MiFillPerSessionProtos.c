@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFillPerSessionProtos @ 0x14085C41C
+ * XREFs of MiFillPerSessionProtos @ 0x14085C3FC
  * Callers:
- *     MiAllocatePerSessionProtos @ 0x1406C9210 (MiAllocatePerSessionProtos.c)
+ *     MiAllocatePerSessionProtos @ 0x1406C91F0 (MiAllocatePerSessionProtos.c)
  * Callees:
  *     MiMarkPfnVerified @ 0x14000F960 (MiMarkPfnVerified.c)
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
@@ -9,19 +9,19 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiGetControlAreaPartition @ 0x1400938A8 (MiGetControlAreaPartition.c)
- *     MiCopyPage @ 0x1400B1C30 (MiCopyPage.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiGetPteFromCopyList @ 0x14012D7E8 (MiGetPteFromCopyList.c)
- *     MiCreatePteCopyList @ 0x14012EBC0 (MiCreatePteCopyList.c)
- *     MiReleasePteCopyList @ 0x140131840 (MiReleasePteCopyList.c)
- *     MiReturnPfnReferenceCount @ 0x14013B790 (MiReturnPfnReferenceCount.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     KeCopyPrivilegedPage @ 0x14028DA8C (KeCopyPrivilegedPage.c)
- *     MiInitializeProtoPfn @ 0x1402C4A5C (MiInitializeProtoPfn.c)
- *     MiWaitForFreePage @ 0x1402CB3A4 (MiWaitForFreePage.c)
+ *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiGetPteFromCopyList @ 0x14012D808 (MiGetPteFromCopyList.c)
+ *     MiCreatePteCopyList @ 0x14012EBE0 (MiCreatePteCopyList.c)
+ *     MiReleasePteCopyList @ 0x140131860 (MiReleasePteCopyList.c)
+ *     MiReturnPfnReferenceCount @ 0x14013B7B0 (MiReturnPfnReferenceCount.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeCopyPrivilegedPage @ 0x14028DB8C (KeCopyPrivilegedPage.c)
+ *     MiInitializeProtoPfn @ 0x1402C4B5C (MiInitializeProtoPfn.c)
+ *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
  *     MiRelocateImagePfn @ 0x1405DF930 (MiRelocateImagePfn.c)
- *     MiAllocateDriverPage @ 0x140653A34 (MiAllocateDriverPage.c)
+ *     MiAllocateDriverPage @ 0x140653A14 (MiAllocateDriverPage.c)
  */
 
 __int64 __fastcall MiFillPerSessionProtos(

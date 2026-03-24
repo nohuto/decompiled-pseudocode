@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CopyPixelsHelper@CFormatConverter@@AEAAJHHIIIIPEAEII0@Z @ 0x1802AF51C
+ * XREFs of ?CopyPixelsHelper@CFormatConverter@@AEAAJHHIIIIPEAEII0@Z @ 0x1802194D0
  * Callers:
- *     ?CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x1802AF0D0 (-CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z.c)
+ *     ?CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x1802190D0 (-CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z @ 0x180070044 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z.c)
- *     ?Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z @ 0x1802AFE70 (-Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z.c)
+ *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z @ 0x18003C160 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z @ 0x180219DBC (-Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z.c)
  */
 
 __int64 __fastcall CFormatConverter::CopyPixelsHelper(
@@ -27,7 +27,7 @@ __int64 __fastcall CFormatConverter::CopyPixelsHelper(
   wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
 
   v13 = 0;
-  v14 = HrCheckBufferSize((enum DXGI_FORMAT)*((_DWORD *)this + 18), a6, a4, a5, a7);
+  v14 = HrCheckBufferSize((enum DXGI_FORMAT)*((_DWORD *)this + 20), a6, a4, a5, a7);
   if ( v14 < 0 )
   {
     v15 = 139LL;
@@ -35,11 +35,11 @@ LABEL_3:
     wil::details::in1diag3::Return_Hr(
       retaddr,
       (void *)v15,
-      (int)"onecoreuap\\windows\\dwm\\common\\formatconverter\\formatconverter.cpp",
+      (__int64)"onecoreuap\\windows\\dwm\\common\\formatconverter\\formatconverter.cpp",
       (const char *)(unsigned int)v14);
     return (unsigned int)v14;
   }
-  v14 = HrCheckBufferSize((enum DXGI_FORMAT)*((_DWORD *)this + 21), a9, a4, a5, a10);
+  v14 = HrCheckBufferSize((enum DXGI_FORMAT)*((_DWORD *)this + 23), a9, a4, a5, a10);
   if ( v14 < 0 )
   {
     v15 = 145LL;
@@ -49,7 +49,7 @@ LABEL_3:
   {
     do
     {
-      CScanPipeline::Run((CFormatConverter *)((char *)this + 112), a11, a8, a4, a2, v13 + a3);
+      CScanPipeline::Run((CFormatConverter *)((char *)this + 120), a11, a8, a4, a2, v13 + a3);
       a11 += a9;
       a8 += a6;
       ++v13;

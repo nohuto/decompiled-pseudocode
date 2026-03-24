@@ -1,24 +1,26 @@
 /*
- * XREFs of wcstok_s @ 0x1403DF9D4
+ * XREFs of wcstok_s @ 0x1403D7E18
  * Callers:
- *     GetOperatorIndexByName @ 0x1409D3C68 (GetOperatorIndexByName.c)
+ *     GetOperatorIndexByName @ 0x140927B38 (GetOperatorIndexByName.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
  */
 
 wchar_t *__cdecl wcstok_s(wchar_t *Str, const wchar_t *Delim, wchar_t **Context)
 {
-  wchar_t i; // ax
-  const wchar_t *v5; // r10
-  wchar_t v6; // r8
+  wchar_t v4; // ax
+  wchar_t v5; // r11
+  const wchar_t *v6; // rbx
+  wchar_t v7; // dx
+  wchar_t v8; // r10
   wchar_t *result; // rax
-  const wchar_t *v8; // rbx
-  wchar_t v9; // r8
-  wchar_t v10; // r10
-  wchar_t *v11; // r10
+  const wchar_t *v10; // rbx
+  wchar_t v11; // dx
+  wchar_t v12; // r10
+  wchar_t *v13; // r10
 
   if ( !Context || !Delim )
-    goto LABEL_25;
+    goto LABEL_26;
   if ( !Str )
   {
     if ( *Context )
@@ -26,56 +28,68 @@ wchar_t *__cdecl wcstok_s(wchar_t *Str, const wchar_t *Delim, wchar_t **Context)
       Str = *Context;
       goto LABEL_6;
     }
-LABEL_25:
+LABEL_26:
     xHalTimerWatchdogStop();
     return 0LL;
   }
 LABEL_6:
-  for ( i = *Str; *Str; i = *Str )
+  v4 = *Str;
+  if ( *Str )
   {
-    v5 = Delim;
-    if ( !*Delim )
-      break;
-    v6 = *Delim;
-    while ( v6 != i )
+    v5 = *Delim;
+    do
     {
-      v6 = *++v5;
-      if ( !*v5 )
-        goto LABEL_13;
+      v6 = Delim;
+      v7 = v5;
+      if ( v5 )
+      {
+        v8 = v5;
+        do
+        {
+          v7 = v8;
+          if ( v8 == v4 )
+            break;
+          v7 = *++v6;
+          v8 = *v6;
+        }
+        while ( *v6 );
+      }
+      if ( !v7 )
+        break;
+      v4 = *++Str;
     }
-    ++Str;
+    while ( *Str );
   }
-LABEL_13:
   result = Str;
   if ( *Str )
   {
     while ( 1 )
     {
-      v8 = Delim;
-      v9 = *Delim;
+      v10 = Delim;
+      v11 = *Delim;
       if ( *Delim )
       {
-        v10 = *Delim;
+        v12 = *Delim;
         do
         {
-          v9 = v10;
-          if ( v10 == *Str )
+          v11 = v12;
+          if ( v12 == *Str )
             break;
-          v9 = *++v8;
-          v10 = *v8;
+          v11 = *++v10;
+          v12 = *v10;
         }
-        while ( *v8 );
+        while ( *v10 );
       }
-      v11 = Str + 1;
-      if ( v9 )
+      v13 = Str + 1;
+      if ( v11 )
         break;
       ++Str;
-      if ( !*v11 )
-        goto LABEL_22;
+      if ( !*v13 )
+        goto LABEL_23;
     }
     *Str++ = 0;
   }
-LABEL_22:
+LABEL_23:
   *Context = Str;
   if ( result == Str )
     return 0LL;

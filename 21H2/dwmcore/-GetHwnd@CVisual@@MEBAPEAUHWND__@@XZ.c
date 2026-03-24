@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetHwnd@CVisual@@MEBAPEAUHWND__@@XZ @ 0x1800EA6A0
+ * XREFs of ?GetHwnd@CVisual@@MEBAPEAUHWND__@@XZ @ 0x1800CF1F0
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ HWND __fastcall CVisual::GetHwnd(CVisual *this)
   HWND result; // rax
 
   result = 0LL;
-  if ( *((char *)this + 100) < 0 )
+  if ( (*((_BYTE *)this + 93) & 1) != 0 )
     return (HWND)CVisual::GetTopLevelWindow(this);
   return result;
 }

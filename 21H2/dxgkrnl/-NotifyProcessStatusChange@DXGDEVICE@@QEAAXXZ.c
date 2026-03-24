@@ -1,28 +1,26 @@
 /*
- * XREFs of ?NotifyProcessStatusChange@DXGDEVICE@@QEAAXXZ @ 0x1C01DD328
+ * XREFs of ?NotifyProcessStatusChange@DXGDEVICE@@QEAAXXZ @ 0x1C011F448
  * Callers:
- *     ?ProcessStatusChange@DXGPROCESS@@IEAAXXZ @ 0x1C0183478 (-ProcessStatusChange@DXGPROCESS@@IEAAXXZ.c)
- *     ?SetProcessSchedulingPriorityBand@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULING_PRIORITYBAND@@@Z @ 0x1C0337318 (-SetProcessSchedulingPriorityBand@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULING_PRIORITYBAND@@@Z.c)
+ *     ?ProcessStatusChange@DXGPROCESS@@IEAAXXZ @ 0x1C011C298 (-ProcessStatusChange@DXGPROCESS@@IEAAXXZ.c)
+ *     ?SetProcessSchedulingPriorityBand@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULING_PRIORITYBAND@@@Z @ 0x1C0285F9C (-SetProcessSchedulingPriorityBand@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULING_PRIORITYBAND@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DXGDEVICE::NotifyProcessStatusChange(DXGDEVICE *this)
 {
   __int64 v1; // r8
-  __int64 v3; // r8
-  __int64 v4; // rax
+  __int64 v3; // rax
 
   v1 = *((_QWORD *)this + 2);
   if ( !*(_BYTE *)(*(_QWORD *)(v1 + 16) + 209LL) )
   {
-    v3 = *(_QWORD *)(v1 + 624);
-    v4 = *(_QWORD *)(v3 + 8);
-    LOBYTE(v3) = 1;
-    (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(v4 + 160))(
+    v3 = *(_QWORD *)(v1 + 616);
+    LOBYTE(v1) = 1;
+    (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(*(_QWORD *)(v3 + 8) + 160LL))(
       *((_QWORD *)this + 96),
-      *(unsigned int *)(*((_QWORD *)this + 5) + 432LL),
-      v3);
-    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 648LL) + 8LL) + 1048LL))(*(_QWORD *)(*((_QWORD *)this + 2) + 656LL));
+      *(unsigned int *)(*((_QWORD *)this + 5) + 352LL),
+      v1);
+    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL) + 8LL) + 1040LL))(*(_QWORD *)(*((_QWORD *)this + 2) + 648LL));
   }
 }

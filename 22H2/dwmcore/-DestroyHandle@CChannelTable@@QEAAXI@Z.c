@@ -1,12 +1,13 @@
 /*
- * XREFs of ?DestroyHandle@CChannelTable@@QEAAXI@Z @ 0x1801CE3BC
+ * XREFs of ?DestroyHandle@CChannelTable@@QEAAXI@Z @ 0x18014F06C
  * Callers:
- *     ?DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x1801B5858 (-DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z.c)
+ *     ?CreateKernelChannel@CInternalMilCmdConnection@@AEAAJPEAPEAVCChannel@@@Z @ 0x180027680 (-CreateKernelChannel@CInternalMilCmdConnection@@AEAAJPEAPEAVCChannel@@@Z.c)
+ *     ?DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x18014ECDC (-DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z.c)
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034CA4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x1800CDB34 (-GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
+ *     ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x1800281E0 (-GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
  */
 
 void __fastcall CChannelTable::DestroyHandle(struct _RTL_CRITICAL_SECTION *this, unsigned int a2)
@@ -22,7 +23,7 @@ void __fastcall CChannelTable::DestroyHandle(struct _RTL_CRITICAL_SECTION *this,
   MasterTableEntry = CChannelTable::GetMasterTableEntry((CChannelTable *)this, a2, &v6);
   if ( MasterTableEntry < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, MasterTableEntry, 0x5Cu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, MasterTableEntry, 0x50u, 0LL);
   }
   else
   {

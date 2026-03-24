@@ -1,41 +1,51 @@
 /*
- * XREFs of ?xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z @ 0x1C00AECA8
+ * XREFs of ?xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z @ 0x1C003727C
  * Callers:
- *     xxxEnableWindow @ 0x1C00AEC3C (xxxEnableWindow.c)
- *     NtUserDisableImmersiveOwner @ 0x1C01F2550 (NtUserDisableImmersiveOwner.c)
+ *     xxxEnableWindow @ 0x1C0037210 (xxxEnableWindow.c)
+ *     xxxDisableImmersiveOwner @ 0x1C0209148 (xxxDisableImmersiveOwner.c)
  * Callees:
- *     xxxSendMessage @ 0x1C0050D34 (xxxSendMessage.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     xxxWindowEvent @ 0x1C0073AB0 (xxxWindowEvent.c)
- *     ?xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00A79AC (-xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0034410 (-xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?UpdateProcessPriorityWhenEnableStateIsChanging@PriorityBoostCUI@@YAXPEAUtagWND@@H@Z @ 0x1C003761C (-UpdateProcessPriorityWhenEnableStateIsChanging@PriorityBoostCUI@@YAXPEAUtagWND@@H@Z.c)
+ *     xxxSendMessage @ 0x1C005D634 (xxxSendMessage.c)
+ *     xxxWindowEvent @ 0x1C00814D0 (xxxWindowEvent.c)
  */
 
-__int64 __fastcall xxxEnableWindowWorker(struct tagWND *a1, int a2)
+__int64 __fastcall xxxEnableWindowWorker(struct tagWND *a1, unsigned int a2, int a3)
 {
-  unsigned int v2; // ebx
-  char v5; // si
-  __int64 v7; // rdx
-  __int64 v8; // r8
+  unsigned int v3; // ebx
+  __int64 v4; // rsi
+  char v6; // r14
+  int v7; // ebp
 
-  v2 = 0;
-  v5 = *(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 8;
-  if ( a2 )
+  v3 = 0;
+  v4 = (int)a2;
+  v6 = *(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 8;
+  if ( (v6 == 0) == a2 )
   {
-    SetOrClrWF(0, a1, 0xF08u, 0);
-    *((_DWORD *)a1 + 80) &= ~0x100u;
+    v7 = 0;
   }
   else
   {
-    xxxSendMessage((ULONG_PTR)a1);
-    if ( a1 == *(struct tagWND **)(*(_QWORD *)(gptiCurrent + 432LL) + 112LL) )
-      xxxSetFocus(0LL, v7, v8);
-    SetOrClrWF(1, a1, 0xF08u, 0);
+    v7 = 1;
+    PriorityBoostCUI::UpdateProcessPriorityWhenEnableStateIsChanging(a1, (struct tagWND *)a2, a3);
   }
-  if ( (v5 == 0) != a2 )
+  if ( (_DWORD)v4 )
   {
-    xxxWindowEvent(0x800Au, a1, 0, 0, 0);
-    xxxSendMessage((ULONG_PTR)a1);
+    *(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) &= ~8u;
+    *(_BYTE *)(*((_QWORD *)a1 + 5) + 234LL) &= ~1u;
   }
-  LOBYTE(v2) = v5 != 0;
-  return v2;
+  else
+  {
+    xxxSendMessage(a1, 31LL, 0LL, 0LL);
+    if ( a1 == *(struct tagWND **)(*(_QWORD *)(gptiCurrent + 432LL) + 112LL) )
+      xxxSetFocus(0LL);
+    *(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) |= 8u;
+  }
+  if ( v7 )
+  {
+    xxxWindowEvent(0x800Au, 0);
+    xxxSendMessage(a1, 10LL, v4, 0LL);
+  }
+  LOBYTE(v3) = v6 != 0;
+  return v3;
 }

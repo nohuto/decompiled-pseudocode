@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgkpWerProcessPolicyResult @ 0x14093BDE0
+ * XREFs of DbgkpWerProcessPolicyResult @ 0x14088971C
  * Callers:
- *     DbgkWerCaptureLiveKernelDump2 @ 0x140883A30 (DbgkWerCaptureLiveKernelDump2.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140888B80 (DbgkWerCaptureLiveKernelDump.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     DbgkpWerCaptureLiveFullDump @ 0x14093B708 (DbgkpWerCaptureLiveFullDump.c)
- *     DbgkpWerCaptureLiveTriageDump @ 0x14093B91C (DbgkpWerCaptureLiveTriageDump.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x140888DD0 (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x140888F78 (DbgkpWerCaptureLiveTriageDump.c)
  */
 
 __int64 __fastcall DbgkpWerProcessPolicyResult(__int64 a1, int a2, __int64 a3, _BYTE *a4)
@@ -13,8 +13,8 @@ __int64 __fastcall DbgkpWerProcessPolicyResult(__int64 a1, int a2, __int64 a3, _
   *a4 = 1;
   if ( !a2 )
     return 0LL;
-  *(_QWORD *)(a1 + 96) = a3;
-  *(_DWORD *)(a1 + 88) = a2;
+  *(_QWORD *)(a1 + 104) = a3;
+  *(_DWORD *)(a1 + 100) = a2;
   if ( a2 == 1 )
     return DbgkpWerCaptureLiveTriageDump(a1);
   if ( a2 == 2 )

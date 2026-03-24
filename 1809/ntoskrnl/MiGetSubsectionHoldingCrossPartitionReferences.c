@@ -5,7 +5,7 @@
  *     MiDecrementSubsectionViewCount @ 0x1400794C0 (MiDecrementSubsectionViewCount.c)
  *     MiGetSubsectionCrossPartitionReferences @ 0x14009388C (MiGetSubsectionCrossPartitionReferences.c)
  *     MiUpdateControlAreaCommitCount @ 0x140095F94 (MiUpdateControlAreaCommitCount.c)
- *     MiUpdateLastSubsectionSize @ 0x140134478 (MiUpdateLastSubsectionSize.c)
+ *     MiUpdateLastSubsectionSize @ 0x140134498 (MiUpdateLastSubsectionSize.c)
  * Callees:
  *     <none>
  */

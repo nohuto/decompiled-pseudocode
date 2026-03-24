@@ -1,11 +1,12 @@
 /*
- * XREFs of ACPIWakeEmulationDisable @ 0x1C0045274
+ * XREFs of ACPIWakeEmulationDisable @ 0x1C0061DEC
  * Callers:
- *     ACPIDeviceCancelWaitWakeIrp @ 0x1C001C170 (ACPIDeviceCancelWaitWakeIrp.c)
- *     OSNotifyDeviceWakeByInterrupt @ 0x1C00334AC (OSNotifyDeviceWakeByInterrupt.c)
- *     ACPIDereferenceWaitWakePowerRequest @ 0x1C00447E0 (ACPIDereferenceWaitWakePowerRequest.c)
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001C9E4 (ACPIDeviceInitializePowerRequest.c)
+ *     ACPIDereferenceWaitWakePowerRequest @ 0x1C0025774 (ACPIDereferenceWaitWakePowerRequest.c)
+ *     ACPIDeviceCancelWaitWakeIrp @ 0x1C00502C0 (ACPIDeviceCancelWaitWakeIrp.c)
+ *     OSNotifyDeviceWakeByInterrupt @ 0x1C0059198 (OSNotifyDeviceWakeByInterrupt.c)
  * Callees:
- *     ACPIDisconnectWakeInterrupt @ 0x1C0044918 (ACPIDisconnectWakeInterrupt.c)
+ *     ACPIDisconnectWakeInterrupt @ 0x1C00616D4 (ACPIDisconnectWakeInterrupt.c)
  */
 
 void __fastcall ACPIWakeEmulationDisable(__int64 a1)
@@ -15,11 +16,11 @@ void __fastcall ACPIWakeEmulationDisable(__int64 a1)
   __int64 v3; // rdi
 
   v1 = *(_DWORD *)(a1 + 116);
+  v2 = (_QWORD *)(a1 + 152);
+  if ( v1 > 1 )
+    v2 = (_QWORD *)*v2;
   if ( v1 )
   {
-    v2 = (_QWORD *)(a1 + 152);
-    if ( v1 > 1 )
-      v2 = (_QWORD *)*v2;
     v3 = *(unsigned int *)(a1 + 116);
     do
     {

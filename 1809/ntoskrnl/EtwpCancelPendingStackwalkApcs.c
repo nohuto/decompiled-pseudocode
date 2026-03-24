@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCancelPendingStackwalkApcs @ 0x140132970
+ * XREFs of EtwpCancelPendingStackwalkApcs @ 0x140132990
  * Callers:
- *     EtwpFreeLoggerContext @ 0x1406C08C0 (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x1406C08A0 (EtwpFreeLoggerContext.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400F97F0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeRemoveQueueApc @ 0x14012F338 (KeRemoveQueueApc.c)
- *     KeRemoveQueueDpcEx @ 0x1401329E0 (KeRemoveQueueDpcEx.c)
- *     EtwpFinalizePendingApc @ 0x14030F0CC (EtwpFinalizePendingApc.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400F9810 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeRemoveQueueApc @ 0x14012F358 (KeRemoveQueueApc.c)
+ *     KeRemoveQueueDpcEx @ 0x140132A00 (KeRemoveQueueDpcEx.c)
+ *     EtwpFinalizePendingApc @ 0x14030F1CC (EtwpFinalizePendingApc.c)
  */
 
 void __fastcall EtwpCancelPendingStackwalkApcs(unsigned int *a1, __int64 a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?RectResourceUpdate@CChannel@@UEAAJIAEBUMilRectF@@@Z @ 0x180019D10
+ * XREFs of ?RectResourceUpdate@CChannel@@UEAAJIAEBUMilRectF@@@Z @ 0x18001DE00
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CChannel::RectResourceUpdate(CChannel *this, unsigned int a2, const struct MilRectF *a3)
@@ -18,8 +18,8 @@ __int64 __fastcall CChannel::RectResourceUpdate(CChannel *this, unsigned int a2,
 
   v11 = (char *)this + 168;
   EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
-  CChannel::CheckHandle(this, a2, 139LL);
-  v9 = 334;
+  CChannel::CheckHandle(this, a2, 140LL);
+  v9 = 341;
   v10[0] = 0LL;
   v6 = *(_OWORD *)a3;
   LODWORD(v10[0]) = a2;

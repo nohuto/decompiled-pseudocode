@@ -1,26 +1,30 @@
 /*
- * XREFs of MiIssueFlowThroughFault @ 0x1402EEEF0
+ * XREFs of MiIssueFlowThroughFault @ 0x1402E203C
  * Callers:
- *     MiHandleCollidedFault @ 0x1402EED90 (MiHandleCollidedFault.c)
+ *     MiHandleCollidedFault @ 0x1402E1E9C (MiHandleCollidedFault.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x1402A8A90 (PsGetIoPriorityThread.c)
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
- *     MiResolvePageFileFault @ 0x14066B52C (MiResolvePageFileFault.c)
+ *     PsGetIoPriorityThread @ 0x140242180 (PsGetIoPriorityThread.c)
+ *     MiResolveMappedFileFault @ 0x140299B10 (MiResolveMappedFileFault.c)
+ *     MiResolvePageFileFault @ 0x1402E0F08 (MiResolvePageFileFault.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F3F48 (MI_PFN_IS_PROTO.c)
  */
 
 __int64 __fastcall MiIssueFlowThroughFault(
         __int64 a1,
-        __int64 *a2,
+        unsigned __int64 a2,
         __int64 a3,
         __int64 a4,
         __int64 a5,
         __int64 a6,
         _DWORD *a7)
 {
-  char v7; // r11
+  char v7; // bl
   struct _KTHREAD *CurrentThread; // r10
-  int v10; // eax
-  const signed __int32 *v13; // rdx
+  int v10; // r11d
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // r10
+  char v16; // r11
 
   v7 = 0;
   CurrentThread = KeGetCurrentThread();
@@ -28,33 +32,26 @@ __int64 __fastcall MiIssueFlowThroughFault(
   *a7 = 2;
   if ( (v10 & 0x80u) != 0 && (int)PsGetIoPriorityThread((__int64)CurrentThread) >= 2
     || CurrentThread == *(struct _KTHREAD **)(a4 + 152)
-    || (v13 = (const signed __int32 *)&CurrentThread->116, (CurrentThread->MiscFlags & 0x8000) != 0)
-    || LODWORD(CurrentThread->Process[2].Affinity.StaticBitmap[3])
-    && (*(_QWORD *)(a4 + 256) || (*(_DWORD *)(a4 + 192) & 8) != 0) )
+    || (CurrentThread->MiscFlags & 0x8000) != 0
+    || LODWORD(CurrentThread->Process[2].Affinity.Bitmap[3]) && (*(_QWORD *)(a4 + 256) || (v10 & 8) != 0) )
   {
     v7 = 1;
-    v13 = (const signed __int32 *)&CurrentThread->116;
   }
-  if ( *(__int64 *)(a5 + 40) < 0 && (*(_DWORD *)(a5 + 16) & 0x400LL) != 0 )
+  if ( (unsigned int)MI_PFN_IS_PROTO(a5) && (*(_DWORD *)(v13 + 16) & 0x400LL) != 0 )
   {
-    if ( !CurrentThread->WaitBlock[3].SpareLong && !_bittest(v13, 0xAu) && !*(_BYTE *)(a1 + 68) && !v7
-      || (*(_DWORD *)(a4 + 192) & 0x20) != 0 )
+    if ( (*(_DWORD *)(v15 + 484) || (*(_DWORD *)(v15 + 116) & 0x400) != 0 || *(_BYTE *)(a1 + 68) || v7 == 1)
+      && (v16 & 0x20) == 0 )
     {
-      return 0LL;
+      _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      *a7 = 1;
+      return MiResolveMappedFileFault(a1, a2, v14, a6);
     }
-    _InterlockedAnd64((volatile signed __int64 *)(a5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    *a7 = 1;
-    return MiResolveMappedFileFault(a1, a2, a3, a6);
   }
-  else
+  else if ( (*(_BYTE *)(v15 + 1310) || (v16 & 8) != 0 || v7 == 1) && (v16 & 0x20) == 0 )
   {
-    if ( !BYTE6(CurrentThread[1].Queue) && (*(_DWORD *)(a4 + 192) & 8) == 0 && !v7
-      || (*(_DWORD *)(a4 + 192) & 0x20) != 0 )
-    {
-      return 0LL;
-    }
-    _InterlockedAnd64((volatile signed __int64 *)(a5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     *a7 = 1;
-    return MiResolvePageFileFault(a1, a2, a3, a6);
+    return MiResolvePageFileFault((unsigned __int64 *)a1, a2, v14, a6);
   }
+  return 0LL;
 }

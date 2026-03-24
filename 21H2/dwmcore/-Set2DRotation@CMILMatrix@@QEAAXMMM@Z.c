@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Set2DRotation@CMILMatrix@@QEAAXMMM@Z @ 0x180260CF0
+ * XREFs of ?Set2DRotation@CMILMatrix@@QEAAXMMM@Z @ 0x18021185C
  * Callers:
- *     _anonymous_namespace_::DecomposeMatrix @ 0x18018CBA8 (_anonymous_namespace_--DecomposeMatrix.c)
- *     ?GetRealization@CRotateTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x18023B6B0 (-GetRealization@CRotateTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z.c)
+ *     ?GetRealization@CRotateTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x1801F5130 (-GetRealization@CRotateTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z.c)
+ *     _anonymous_namespace_::DecomposeMatrix @ 0x18022D46C (_anonymous_namespace_--DecomposeMatrix.c)
  * Callees:
- *     ?make_float4x4_rotation_z@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@MAEBUfloat3@123@@Z @ 0x1802618C4 (-make_float4x4_rotation_z@Numerics@Foundation@Windows@@YA-AUfloat4x4@123@MAEBUfloat3@123@@Z.c)
+ *     ?make_float4x4_rotation_z@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@MAEBUfloat3@123@@Z @ 0x1802120E0 (-make_float4x4_rotation_z@Numerics@Foundation@Windows@@YA-AUfloat4x4@123@MAEBUfloat3@123@@Z.c)
  */
 
 void __fastcall CMILMatrix::Set2DRotation(CMILMatrix *this, float a2, float a3, float a4)
@@ -23,8 +23,6 @@ void __fastcall CMILMatrix::Set2DRotation(CMILMatrix *this, float a2, float a3, 
   *((_OWORD *)this + 1) = float4x4_rotation_z[1];
   *((_OWORD *)this + 2) = float4x4_rotation_z[2];
   v7 = float4x4_rotation_z[3];
-  *((_BYTE *)this + 65) &= 0xD4u;
-  *((_BYTE *)this + 65) |= 0x14u;
+  *((_WORD *)this + 32) = 0x4000;
   *((_OWORD *)this + 3) = v7;
-  *((_BYTE *)this + 64) = 4;
 }

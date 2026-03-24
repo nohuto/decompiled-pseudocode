@@ -1,5 +1,5 @@
 /*
- * XREFs of ?OnPeerConnected@BamoConnection@dataprovider_AutoBamos@@MEAAJPEAVBamoPeer@2@PEA_NPEAPEAVBamoPrincipal@Bamo@Microsoft@@@Z @ 0x1800FA920
+ * XREFs of ?OnPeerConnected@BamoConnection@dataprovider_AutoBamos@@MEAAJPEAVBamoPeer@2@PEA_NPEAPEAVBamoPrincipal@Bamo@Microsoft@@@Z @ 0x1800E1DE0
  * Callers:
  *     <none>
  * Callees:

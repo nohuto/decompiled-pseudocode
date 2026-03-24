@@ -1,11 +1,12 @@
 /*
- * XREFs of ?UpdateTransform@CInteractionContextTransformHelper@@QEAAJAEBVMatrix3x2F@D2D1@@PEA_N@Z @ 0x1802BB50C
+ * XREFs of ?UpdateTransform@CInteractionContextTransformHelper@@QEAAJAEBVMatrix3x2F@D2D1@@PEA_N@Z @ 0x18026BA04
  * Callers:
- *     ?ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z @ 0x180284E40 (-ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z.c)
+ *     ?ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z @ 0x180230C10 (-ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z.c)
  * Callees:
- *     GetIndividualScales @ 0x1802BA864 (GetIndividualScales.c)
- *     GetInverse @ 0x1802BA938 (GetInverse.c)
- *     IsEqualMatrix @ 0x1802BAAD4 (IsEqualMatrix.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     GetIndividualScales @ 0x18026AD00 (GetIndividualScales.c)
+ *     GetInverse @ 0x18026ADE4 (GetInverse.c)
+ *     IsEqualMatrix @ 0x18026AF80 (IsEqualMatrix.c)
  */
 
 __int64 __fastcall CInteractionContextTransformHelper::UpdateTransform(
@@ -41,29 +42,27 @@ __int64 __fastcall CInteractionContextTransformHelper::UpdateTransform(
   __int128 v31; // [rsp+30h] [rbp-D8h]
   __int64 v32; // [rsp+40h] [rbp-C8h]
   __int128 v33; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v34; // [rsp+58h] [rbp-B0h]
-  __int128 v35; // [rsp+68h] [rbp-A0h] BYREF
-  unsigned __int64 v36; // [rsp+78h] [rbp-90h]
-  __int128 v37; // [rsp+88h] [rbp-80h] BYREF
-  unsigned __int64 v38; // [rsp+98h] [rbp-70h]
-  __int128 v39; // [rsp+A0h] [rbp-68h] BYREF
-  __int64 v40; // [rsp+B0h] [rbp-58h]
-  __int128 v41; // [rsp+B8h] [rbp-50h] BYREF
-  __int64 v42; // [rsp+C8h] [rbp-40h]
+  unsigned __int64 v34; // [rsp+58h] [rbp-B0h]
+  _QWORD v35[3]; // [rsp+60h] [rbp-A8h] BYREF
+  _QWORD v36[4]; // [rsp+78h] [rbp-90h] BYREF
+  __int128 v37; // [rsp+98h] [rbp-70h] BYREF
+  __int64 v38; // [rsp+A8h] [rbp-60h]
+  __int128 v39; // [rsp+B8h] [rbp-50h] BYREF
+  float v40[4]; // [rsp+C8h] [rbp-40h]
 
   if ( !IsEqualMatrix((float *)a2, (float *)this) )
   {
     v6 = *((_QWORD *)a2 + 2);
-    v35 = *(_OWORD *)a2;
-    v36 = v6;
-    Inverse = GetInverse((float *)&v35, (float *)&v39);
+    v33 = *(_OWORD *)a2;
+    v34 = v6;
+    Inverse = GetInverse((float *)&v33, (__int64)&v36[1]);
     if ( Inverse >= 0 )
     {
       v7 = *((_QWORD *)a2 + 2);
-      v35 = *(_OWORD *)a2;
+      v33 = *(_OWORD *)a2;
       v30 = 0x3F8000003F800000LL;
-      v36 = v7;
-      Inverse = GetIndividualScales((float *)&v35, (float *)&v30 + 1, (float *)&v30);
+      v34 = v7;
+      Inverse = GetIndividualScales((__int64)&v33, (float *)&v30 + 1, (float *)&v30);
       if ( Inverse >= 0 )
       {
         v8 = *(_OWORD *)a2;
@@ -78,52 +77,52 @@ __int64 __fastcall CInteractionContextTransformHelper::UpdateTransform(
         v15.m128_f32[0] = *(float *)&v9 * (float)(1.0 / *((float *)&v30 + 1));
         *((float *)&v31 + 1) = v11;
         *((float *)&v32 + 1) = v12.m128_f32[0];
-        *((float *)&v33 + 1) = *((float *)&v8 + 1) * (float)(1.0 / *(float *)&v30);
-        *((float *)&v33 + 3) = *((float *)&v8 + 3) * (float)(1.0 / *(float *)&v30);
-        *((float *)&v34 + 1) = v12.m128_f32[0];
+        *((float *)&v39 + 1) = *((float *)&v8 + 1) * (float)(1.0 / *(float *)&v30);
+        *((float *)&v39 + 3) = *((float *)&v8 + 3) * (float)(1.0 / *(float *)&v30);
+        v40[1] = v12.m128_f32[0];
         *(float *)&v31 = v13;
         *((_QWORD *)&v31 + 1) = __PAIR64__(LODWORD(v11), LODWORD(v14));
         *(float *)&v32 = v15.m128_f32[0];
-        *(float *)&v33 = v13;
-        *((float *)&v33 + 2) = *((float *)&v8 + 2) * (float)(1.0 / *((float *)&v30 + 1));
-        *(float *)&v34 = v15.m128_f32[0];
-        Inverse = GetInverse((float *)&v33, (float *)&v41);
+        *(float *)&v39 = v13;
+        *((float *)&v39 + 2) = *((float *)&v8 + 2) * (float)(1.0 / *((float *)&v30 + 1));
+        v40[0] = v15.m128_f32[0];
+        Inverse = GetInverse((float *)&v39, (__int64)&v37);
         if ( Inverse >= 0 )
         {
-          DWORD2(v33) = 0;
-          *((float *)&v33 + 3) = v16;
-          *(_QWORD *)&v35 = __PAIR64__(LODWORD(v11), LODWORD(v13));
-          *((_QWORD *)&v35 + 1) = __PAIR64__(LODWORD(v11), LODWORD(v14));
-          *(_QWORD *)&v33 = LODWORD(v10);
+          DWORD2(v39) = 0;
+          *((float *)&v39 + 3) = v16;
+          *(_QWORD *)&v33 = __PAIR64__(LODWORD(v11), LODWORD(v13));
+          *((_QWORD *)&v33 + 1) = __PAIR64__(LODWORD(v11), LODWORD(v14));
+          *(_QWORD *)&v39 = LODWORD(v10);
           v17 = 0.0 - (float)(v10 * 0.0);
-          v18 = v35;
-          *(float *)&v34 = v17;
-          v36 = _mm_unpacklo_ps((__m128)0LL, (__m128)0LL).m128_u64[0];
-          *((float *)&v34 + 1) = 0.0 - (float)(v16 * 0.0);
-          v38 = _mm_unpacklo_ps(v15, v12).m128_u64[0];
-          Inverse = GetInverse((float *)&v35, (float *)&v37);
+          v18 = v33;
+          v40[0] = v17;
+          v34 = _mm_unpacklo_ps((__m128)0LL, (__m128)0LL).m128_u64[0];
+          v40[1] = 0.0 - (float)(v16 * 0.0);
+          v36[0] = _mm_unpacklo_ps(v15, v12).m128_u64[0];
+          Inverse = GetInverse((float *)&v33, (__int64)&v35[1]);
           if ( Inverse >= 0 )
           {
             *(_OWORD *)this = *(_OWORD *)a2;
-            v20 = v39;
+            v20 = *(_OWORD *)&v36[1];
             *((_QWORD *)this + 2) = *((_QWORD *)a2 + 2);
-            v21 = v40;
+            v21 = v36[3];
             *(_OWORD *)((char *)this + 24) = v20;
             v22 = v31;
             *((_QWORD *)this + 5) = v21;
             v23 = v32;
             *((_OWORD *)this + 3) = v22;
-            v24 = v41;
+            v24 = v37;
             *((_QWORD *)this + 8) = v23;
-            v25 = v42;
+            v25 = v38;
             *(_OWORD *)((char *)this + 72) = v24;
-            v26 = v33;
+            v26 = v39;
             *((_QWORD *)this + 11) = v25;
-            v27 = v34;
+            v27 = *(_QWORD *)v40;
             *((_OWORD *)this + 6) = v26;
-            *(_QWORD *)&v26 = v38;
+            *(_QWORD *)&v26 = v36[0];
             *((_QWORD *)this + 14) = v27;
-            v28 = v37;
+            v28 = *(_OWORD *)&v35[1];
             *(_OWORD *)((char *)this + 120) = v18;
             *((_OWORD *)this + 9) = v28;
             *((_QWORD *)this + 20) = v26;

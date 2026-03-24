@@ -1,13 +1,13 @@
 /*
- * XREFs of Controller_WdfEvtDeviceSelfManagedIoCleanup @ 0x1C0079700
+ * XREFs of Controller_WdfEvtDeviceSelfManagedIoCleanup @ 0x1C0075F40
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_q @ 0x1C001431C (WPP_RECORDER_SF_q.c)
- *     XilCommonBuffer_ReleaseBuffer @ 0x1C001E9F8 (XilCommonBuffer_ReleaseBuffer.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Controller_ReleaseWdfPowerReferenceForDebugger @ 0x1C0034440 (Controller_ReleaseWdfPowerReferenceForDebugger.c)
- *     Controller_UpdateSqmDatapoints @ 0x1C00792B0 (Controller_UpdateSqmDatapoints.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     XilCommonBuffer_ReleaseBuffer @ 0x1C001A008 (XilCommonBuffer_ReleaseBuffer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_ReleaseWdfPowerReferenceForDebugger @ 0x1C0032970 (Controller_ReleaseWdfPowerReferenceForDebugger.c)
+ *     Controller_UpdateSqmDatapoints @ 0x1C0075B1C (Controller_UpdateSqmDatapoints.c)
  */
 
 __int64 __fastcall Controller_WdfEvtDeviceSelfManagedIoCleanup(__int64 a1)
@@ -22,18 +22,18 @@ __int64 __fastcall Controller_WdfEvtDeviceSelfManagedIoCleanup(__int64 a1)
   v3 = *(__int64 **)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                        WdfDriverGlobals,
                        a1,
-                       off_1C00633D8)
+                       off_1C00603D8)
                    + 8);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
     LOBYTE(v2) = 5;
-    WPP_RECORDER_SF_q(v3[9], v2, 4, 61, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, v1);
+    WPP_RECORDER_SF_i(v3[9], v2, 4, 60, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v1);
   }
-  v4 = (void *)v3[74];
+  v4 = (void *)v3[68];
   if ( v4 )
   {
     PoUnregisterPowerSettingCallback(v4);
-    v3[74] = 0LL;
+    v3[68] = 0LL;
   }
   Controller_ReleaseWdfPowerReferenceForDebugger((__int64)v3);
   v5 = v3[57];

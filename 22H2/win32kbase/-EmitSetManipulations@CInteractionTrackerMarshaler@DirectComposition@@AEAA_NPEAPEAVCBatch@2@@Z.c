@@ -1,98 +1,93 @@
 /*
- * XREFs of ?EmitSetManipulations@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022890C
+ * XREFs of ?EmitSetManipulations@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EFA3C
  * Callers:
- *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0229180 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F0300 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C00264AC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005C9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetManipulations(
         DirectComposition::CInteractionTrackerMarshaler *this,
         struct DirectComposition::CBatch ***a2)
 {
-  char v2; // bp
-  unsigned int v3; // eax
-  char v4; // r14
+  char v3; // si
+  unsigned int v4; // ecx
+  char v6; // bp
   char *v7; // rcx
-  _DWORD *v8; // rbx
-  _DWORD *v9; // rsi
-  bool i; // cf
-  void *v11; // rdx
-  unsigned __int64 v12; // r12
-  char *v13; // rcx
-  unsigned int v14; // edx
-  _DWORD *v15; // r8
-  __int64 v16; // r9
-  int v17; // eax
-  void *v19; // [rsp+50h] [rbp+8h] BYREF
+  void *v8; // rdx
+  unsigned __int64 v9; // r15
+  char *v10; // rcx
+  unsigned int v11; // edx
+  _DWORD *v12; // r8
+  __int64 v13; // r9
+  int v14; // eax
+  void *v16; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = 1;
-  v3 = *((_DWORD *)this + 90);
-  v4 = 1;
-  if ( (*((_DWORD *)this + 4) & 0x800) != 0 || v3 )
+  v3 = 1;
+  v4 = *((_DWORD *)this + 90);
+  v6 = 1;
+  if ( (*((_DWORD *)this + 4) & 0x800) != 0 || v4 )
   {
-    v9 = (_DWORD *)((char *)this + 364);
-    for ( i = *((_DWORD *)this + 91) < v3; ; i = *v9 < *((_DWORD *)this + 90) )
+    if ( *((_DWORD *)this + 91) < v4 )
     {
-      v8 = v9;
-      if ( !i )
-        break;
-      v11 = (void *)(4096LL - *((_QWORD *)(*a2)[17] + 5));
-      v19 = v11;
-      if ( (unsigned __int64)v11 < 0x18 )
+      do
       {
-        v8 = v9;
-        if ( !DirectComposition::CBatch::AllocateNewFragment(a2, (unsigned __int64 *)&v19) )
-          break;
-        v11 = v19;
+        v8 = (void *)(4096LL - *((_QWORD *)(*a2)[17] + 5));
+        v16 = v8;
+        if ( (unsigned __int64)v8 < 0x18 )
+        {
+          if ( !DirectComposition::CBatch::AllocateNewFragment(a2, (unsigned __int64 *)&v16) )
+            break;
+          v8 = v16;
+        }
+        v9 = (unsigned int)(*((_DWORD *)this + 90) - *((_DWORD *)this + 91));
+        if ( v9 >= ((unsigned __int64)v8 - 16) >> 3 )
+          LODWORD(v9) = ((unsigned __int64)v8 - 16) >> 3;
+        v16 = 0LL;
+        DirectComposition::CBatch::EnsureBatchBuffer(a2, (unsigned int)(8 * v9 + 16), &v16);
+        v10 = (char *)v16;
+        v11 = 0;
+        *(_DWORD *)v16 = 8 * v9 + 16;
+        v12 = v10 + 16;
+        *(_QWORD *)(v10 + 4) = 0LL;
+        *((_DWORD *)v10 + 3) = 0;
+        *((_DWORD *)v10 + 1) = 218;
+        *((_DWORD *)v10 + 2) = *((_DWORD *)this + 6);
+        for ( *((_DWORD *)v10 + 3) = v9; v11 < (unsigned int)v9; v12 += 2 )
+        {
+          *v12 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 44) + 16LL * (v11 + *((_DWORD *)this + 91))) + 24LL);
+          v13 = *(_QWORD *)(*((_QWORD *)this + 44) + 16LL * (v11 + *((_DWORD *)this + 91)) + 8);
+          if ( v13 )
+            v14 = *(_DWORD *)(v13 + 24);
+          else
+            v14 = 0;
+          v12[1] = v14;
+          ++v11;
+        }
+        *((_DWORD *)this + 91) += v9;
       }
-      v12 = (unsigned int)(*((_DWORD *)this + 90) - *v9);
-      if ( v12 >= ((unsigned __int64)v11 - 16) >> 3 )
-        LODWORD(v12) = ((unsigned __int64)v11 - 16) >> 3;
-      v19 = 0LL;
-      DirectComposition::CBatch::EnsureBatchBuffer(a2, (unsigned int)(8 * v12 + 16), &v19);
-      v13 = (char *)v19;
-      v14 = 0;
-      *(_DWORD *)v19 = 8 * v12 + 16;
-      v15 = v13 + 16;
-      *(_QWORD *)(v13 + 4) = 0LL;
-      *((_DWORD *)v13 + 3) = 0;
-      *((_DWORD *)v13 + 1) = 209;
-      *((_DWORD *)v13 + 2) = *((_DWORD *)this + 8);
-      for ( *((_DWORD *)v13 + 3) = v12; v14 < (unsigned int)v12; v15 += 2 )
-      {
-        *v15 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 44) + 16LL * (v14 + *v9)) + 32LL);
-        v16 = *(_QWORD *)(*((_QWORD *)this + 44) + 16LL * (v14 + *v9) + 8);
-        if ( v16 )
-          v17 = *(_DWORD *)(v16 + 32);
-        else
-          v17 = 0;
-        v15[1] = v17;
-        ++v14;
-      }
-      *v9 += v12;
+      while ( *((_DWORD *)this + 91) < *((_DWORD *)this + 90) );
     }
   }
   else
   {
-    v19 = 0LL;
-    if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x10uLL, &v19) )
+    v16 = 0LL;
+    if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x10uLL, &v16) )
     {
-      v7 = (char *)v19;
-      *(_DWORD *)v19 = 16;
+      v7 = (char *)v16;
+      *(_DWORD *)v16 = 16;
       *(_QWORD *)(v7 + 4) = 0LL;
       *((_DWORD *)v7 + 3) = 0;
-      *((_DWORD *)v7 + 1) = 209;
-      *((_QWORD *)v7 + 1) = *((unsigned int *)this + 8);
+      *((_DWORD *)v7 + 1) = 218;
+      *((_QWORD *)v7 + 1) = *((unsigned int *)this + 6);
     }
     else
     {
-      v4 = 0;
+      v6 = 0;
     }
-    v8 = (_DWORD *)((char *)this + 364);
   }
-  if ( *v8 != *((_DWORD *)this + 90) || !v4 )
+  if ( *((_DWORD *)this + 91) != *((_DWORD *)this + 90) || !v6 )
     return 0;
-  return v2;
+  return v3;
 }

@@ -1,29 +1,40 @@
 /*
- * XREFs of NVMeGetAutoPowerStateTransitionCompletion @ 0x1C000E730
+ * XREFs of NVMeGetAutoPowerStateTransitionCompletion @ 0x1C0018F50
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
  */
 
-__int64 __fastcall NVMeGetAutoPowerStateTransitionCompletion(__int64 a1, __int64 a2)
+char __fastcall NVMeGetAutoPowerStateTransitionCompletion(__int64 a1, __int64 a2)
 {
-  __int64 result; // rax
+  __int64 SrbExtension; // rax
   __int64 v3; // rdx
   _DWORD *v4; // r8
-  __int64 v5; // r9
-  char v6; // dl
+  __int64 v5; // r10
+  __int64 v6; // rbx
 
-  result = GetSrbExtension(a2);
+  SrbExtension = GetSrbExtension(a2);
+  v6 = SrbExtension;
   if ( v4 )
   {
-    v6 = *(_BYTE *)(v3 + 3);
-    if ( v6 != 14 )
+    LOBYTE(SrbExtension) = *(_BYTE *)(v3 + 3);
+    if ( (_BYTE)SrbExtension != 14 )
     {
-      if ( v6 == 1 )
-        *(_DWORD *)(v5 + 1680) ^= (*(_DWORD *)(v5 + 1680) ^ (*v4 << 6)) & 0x40;
-      *(_BYTE *)(result + 4253) |= 8u;
+      if ( (_BYTE)SrbExtension == 1 )
+        *(_DWORD *)(v5 + 1664) ^= (*(_DWORD *)(v5 + 1664) ^ (*v4 << 6)) & 0x40;
+      if ( *(_QWORD *)(v6 + 4200) )
+      {
+        LOBYTE(SrbExtension) = NVMeFreeDmaBuffer(
+                                 v5,
+                                 *(unsigned int *)(v6 + 4240),
+                                 (__int64 *)(v6 + 4200),
+                                 *(_QWORD *)(v6 + 4208));
+        *(_DWORD *)(v6 + 4240) = 0;
+      }
+      *(_BYTE *)(v6 + 4253) |= 8u;
     }
   }
-  return result;
+  return SrbExtension;
 }

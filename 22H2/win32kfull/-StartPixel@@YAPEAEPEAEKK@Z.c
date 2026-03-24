@@ -1,9 +1,9 @@
 /*
- * XREFs of ?StartPixel@@YAPEAEPEAEKK@Z @ 0x1C029601C
+ * XREFs of ?StartPixel@@YAPEAEPEAEKK@Z @ 0x1C029155C
  * Callers:
- *     ?ReadScanLine@@YAKPEAEKKKK@Z @ 0x1C0295E5C (-ReadScanLine@@YAKPEAEKKKK@Z.c)
- *     ?SkipScanLine@@YAKPEAEKKKK@Z @ 0x1C0295F3C (-SkipScanLine@@YAKPEAEKKKK@Z.c)
- *     ?vTransparentCopy@@YAXPEAUBLTINFO@@@Z @ 0x1C0296080 (-vTransparentCopy@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?ReadScanLine@@YAKPEAEKKKK@Z @ 0x1C029139C (-ReadScanLine@@YAKPEAEKKKK@Z.c)
+ *     ?SkipScanLine@@YAKPEAEKKKK@Z @ 0x1C029147C (-SkipScanLine@@YAKPEAEKKKK@Z.c)
+ *     ?vTransparentCopy@@YAXPEAUBLTINFO@@@Z @ 0x1C02915C0 (-vTransparentCopy@@YAXPEAUBLTINFO@@@Z.c)
  * Callees:
  *     <none>
  */

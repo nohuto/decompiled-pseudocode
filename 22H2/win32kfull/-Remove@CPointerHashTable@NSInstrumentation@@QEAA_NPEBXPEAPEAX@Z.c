@@ -1,11 +1,15 @@
 /*
- * XREFs of ?Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C00A32C0
+ * XREFs of ?Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C009F5D8
  * Callers:
- *     ?_RemoveAllocationFromLookup@UmfdAllocation@@CAXPEAX00@Z @ 0x1C00A3270 (-_RemoveAllocationFromLookup@UmfdAllocation@@CAXPEAX00@Z.c)
- *     ?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z @ 0x1C00B8848 (-ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z.c)
- *     ?UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z @ 0x1C03064A4 (-UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z.c)
+ *     ?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z @ 0x1C009F51C (-ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z.c)
+ *     Win32FreeToPagedLookasideListImpl @ 0x1C00D3DA0 (Win32FreeToPagedLookasideListImpl.c)
+ *     Win32FreePoolImpl @ 0x1C00D4C80 (Win32FreePoolImpl.c)
+ *     ?_RemoveAllocationFromLookup@UmfdAllocation@@CAXPEAX00@Z @ 0x1C01250B0 (-_RemoveAllocationFromLookup@UmfdAllocation@@CAXPEAX00@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C012D09C (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z @ 0x1C02DD3BC (-FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z.c)
+ *     ?UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z @ 0x1C02DE53C (-UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z.c)
  * Callees:
- *     ?ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ @ 0x1C00A15D4 (-ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ.c)
+ *     ?ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ @ 0x1C010902C (-ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ.c)
  */
 
 char __fastcall NSInstrumentation::CPointerHashTable::Remove(
@@ -13,69 +17,67 @@ char __fastcall NSInstrumentation::CPointerHashTable::Remove(
         unsigned __int64 a2,
         void **a3)
 {
-  char v6; // di
-  int i; // eax
-  unsigned __int64 v8; // rdx
-  unsigned int v9; // r9d
-  unsigned __int64 v10; // rdx
+  char v6; // si
+  int v7; // eax
+  char v8; // di
+  unsigned __int64 v9; // rdx
+  unsigned int v10; // r9d
   unsigned int v11; // r10d
-  unsigned int v12; // eax
-  __int64 v13; // r8
-  __int64 v14; // rcx
-  void *v15; // rax
-  __int64 v17; // r8
+  unsigned __int64 v12; // rdx
+  unsigned int v13; // ecx
+  __int64 v14; // r11
+  __int64 v15; // r8
 
-  if ( a2 == -1LL )
-    return 0;
   v6 = 1;
   _InterlockedAdd((volatile signed __int32 *)this + 6, 1u);
-  for ( i = *((_DWORD *)this + 7); i; i = *((_DWORD *)this + 7) )
+  v7 = *((_DWORD *)this + 7);
+  v8 = 0;
+  while ( v7 )
   {
     NSInstrumentation::CPrioritizedWriterLock::ReleaseShared(this);
     KeEnterCriticalRegion();
     ExAcquirePushLockSharedEx(this, 0LL);
-    ExReleasePushLockSharedEx(this, 0LL, v17);
+    ExReleasePushLockSharedEx(this, 0LL);
     KeLeaveCriticalRegion();
     _InterlockedAdd((volatile signed __int32 *)this + 6, 1u);
+    v7 = *((_DWORD *)this + 7);
   }
   if ( *((_DWORD *)this + 12)
-    && ((v8 = 0x9E3779B97F34A803uLL * (a2 >> 4), (*((_BYTE *)this + 52) & 1) == 0) || *(_QWORD *)a2 == v8) )
+    && ((v9 = 0x9E3779B97F34A803uLL * (a2 >> 4), (*((_BYTE *)this + 52) & 1) == 0) || *(_QWORD *)a2 == v9) )
   {
-    v9 = *((_DWORD *)this + 10);
-    v10 = v8 >> (64 - (unsigned __int8)*((_DWORD *)this + 11));
+    v10 = *((_DWORD *)this + 10);
     v11 = 0;
+    v12 = v9 >> (64 - *((_BYTE *)this + 44));
     while ( 1 )
     {
-      v12 = v10;
-      if ( (unsigned int)v10 < v9 )
+      v13 = v12;
+      if ( (unsigned int)v12 < v10 )
         break;
-LABEL_13:
-      v9 = v10;
+LABEL_10:
       ++v11;
-      LODWORD(v10) = 0;
+      v10 = v12;
+      LODWORD(v12) = 0;
       if ( v11 >= 2 )
         goto LABEL_14;
     }
-    v13 = *((_QWORD *)this + 4);
-    while ( 1 )
+    v14 = *((_QWORD *)this + 4);
+    while ( *(_QWORD *)(v14 + 16LL * v13) != a2 )
     {
-      v14 = 2LL * v12;
-      if ( *(_QWORD *)(v13 + 16LL * v12) == a2 )
-        break;
-      if ( ++v12 >= v9 )
-        goto LABEL_13;
+      if ( ++v13 >= v10 )
+        goto LABEL_10;
     }
-    v15 = *(void **)(v13 + 16LL * v12 + 8);
-    *(_QWORD *)(v13 + 8 * v14 + 8) = 0LL;
-    *a3 = v15;
-    *(_QWORD *)(*((_QWORD *)this + 4) + 8 * v14) = 0LL;
+    v15 = 2LL * v13;
+    *a3 = *(void **)(v14 + 16LL * v13 + 8);
+    *(_QWORD *)(*((_QWORD *)this + 4) + 8 * v15) = 0LL;
+    *(_QWORD *)(*((_QWORD *)this + 4) + 8 * v15 + 8) = 0LL;
     _InterlockedDecrement((volatile signed __int32 *)this + 12);
   }
   else
   {
-LABEL_14:
     v6 = 0;
   }
+  v8 = v6;
+LABEL_14:
   NSInstrumentation::CPrioritizedWriterLock::ReleaseShared(this);
-  return v6;
+  return v8;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of StringCbLengthW @ 0x140354748
+ * XREFs of StringCbLengthW @ 0x1402DF754
  * Callers:
- *     SPCallServerHandleIsAppLicensed @ 0x1406CD46C (SPCallServerHandleIsAppLicensed.c)
- *     sub_1407D2C60 @ 0x1407D2C60 (sub_1407D2C60.c)
- *     SPCallServerHandleGetAppPolicyValue @ 0x1407D45CC (SPCallServerHandleGetAppPolicyValue.c)
- *     PfVerifyScenarioBuffer @ 0x1407D8870 (PfVerifyScenarioBuffer.c)
- *     sub_140A0C7AC @ 0x140A0C7AC (sub_140A0C7AC.c)
- *     sub_140A0CB34 @ 0x140A0CB34 (sub_140A0CB34.c)
- *     sub_140A0D838 @ 0x140A0D838 (sub_140A0D838.c)
- *     sub_140A0DD98 @ 0x140A0DD98 (sub_140A0DD98.c)
- *     sub_140A0E590 @ 0x140A0E590 (sub_140A0E590.c)
+ *     sub_1405FD540 @ 0x1405FD540 (sub_1405FD540.c)
+ *     SPCallServerHandleIsAppLicensed @ 0x1406B4BA0 (SPCallServerHandleIsAppLicensed.c)
+ *     SPCallServerHandleGetAppPolicyValue @ 0x1406B6F48 (SPCallServerHandleGetAppPolicyValue.c)
+ *     PfVerifyScenarioBuffer @ 0x1406CEF40 (PfVerifyScenarioBuffer.c)
+ *     sub_140960F54 @ 0x140960F54 (sub_140960F54.c)
+ *     sub_140961350 @ 0x140961350 (sub_140961350.c)
+ *     sub_1409622DC @ 0x1409622DC (sub_1409622DC.c)
+ *     sub_1409628F0 @ 0x1409628F0 (sub_1409628F0.c)
+ *     sub_140963358 @ 0x140963358 (sub_140963358.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@
 HRESULT __stdcall StringCbLengthW(STRSAFE_PCNZWCH psz, size_t cbMax, size_t *pcbLength)
 {
   size_t v3; // rdx
-  __int64 v5; // rax
+  size_t v5; // rax
   size_t i; // r8
   HRESULT v7; // ecx
 
@@ -32,7 +32,10 @@ HRESULT __stdcall StringCbLengthW(STRSAFE_PCNZWCH psz, size_t cbMax, size_t *pcb
       ++psz;
     }
     v7 = i == 0 ? 0x80070057 : 0;
-    v5 = (v3 - i) & -(__int64)(i != 0);
+    if ( i )
+      v5 = v3 - i;
+    else
+      v5 = 0LL;
   }
   else
   {

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z @ 0x1C00F4854
+ * XREFs of ?GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z @ 0x1C00F51F0
  * Callers:
- *     xxxBeginPaint @ 0x1C005E22C (xxxBeginPaint.c)
- *     xxxSimpleDoSyncPaint @ 0x1C00720D0 (xxxSimpleDoSyncPaint.c)
+ *     xxxSimpleDoSyncPaint @ 0x1C006D840 (xxxSimpleDoSyncPaint.c)
+ *     xxxBeginPaint @ 0x1C007D8F4 (xxxBeginPaint.c)
  * Callees:
- *     DecPaintCount @ 0x1C005DF94 (DecPaintCount.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     CalcWindowRgn @ 0x1C00F4988 (CalcWindowRgn.c)
+ *     CalcWindowRgn @ 0x1C004DF38 (CalcWindowRgn.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     DecPaintCount @ 0x1C00F5984 (DecPaintCount.c)
  */
 
 unsigned __int64 __fastcall GetNCUpdateRgn(struct tagWND *a1, int a2)
@@ -28,7 +28,7 @@ unsigned __int64 __fastcall GetNCUpdateRgn(struct tagWND *a1, int a2)
 LABEL_5:
   if ( a2 )
   {
-    CalcWindowRgn(a1, ghrgnInv2, 1LL);
+    CalcWindowRgn((__int64)a1, ghrgnInv2, 1);
     v6 = GreCombineRgn(
            *(_QWORD *)(*((_QWORD *)a1 + 5) + 136LL),
            *(_QWORD *)(*((_QWORD *)a1 + 5) + 136LL),
@@ -40,9 +40,9 @@ LABEL_5:
       {
         GreDeleteObject(*(_QWORD *)(*((_QWORD *)a1 + 5) + 136LL));
         *(_QWORD *)(*((_QWORD *)a1 + 5) + 136LL) = 0LL;
-        SetOrClrWF(0, a1, 0x120u, 1);
+        SetOrClrWF(0, (__int64)a1, 0x120u, 1);
         if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 17LL) & 0x10) == 0 )
-          DecPaintCount((__int64)a1);
+          DecPaintCount(a1);
       }
     }
     else

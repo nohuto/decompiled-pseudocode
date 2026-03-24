@@ -1,12 +1,12 @@
 /*
- * XREFs of GetDispInfo @ 0x1C009B200
+ * XREFs of GetDispInfo @ 0x1C00823B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-PVOID GetDispInfo()
+__int64 GetDispInfo()
 {
   return gpDispInfo;
 }

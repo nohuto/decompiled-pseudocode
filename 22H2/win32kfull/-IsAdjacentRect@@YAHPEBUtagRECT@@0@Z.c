@@ -1,8 +1,8 @@
 /*
- * XREFs of ?IsAdjacentRect@@YAHPEBUtagRECT@@0@Z @ 0x1C01B9254
+ * XREFs of ?IsAdjacentRect@@YAHPEBUtagRECT@@0@Z @ 0x1C0104B10
  * Callers:
- *     ?IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z @ 0x1C00C1074 (-IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z.c)
- *     GetInheritedMonitor @ 0x1C010E880 (GetInheritedMonitor.c)
+ *     GetInheritedMonitor @ 0x1C006C0E4 (GetInheritedMonitor.c)
+ *     ?IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z @ 0x1C0104920 (-IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,10 +11,10 @@ __int64 __fastcall IsAdjacentRect(const struct tagRECT *a1, const struct tagRECT
 {
   unsigned int v2; // r8d
   LONG right; // ebx
-  char v4; // r11
+  char v4; // r10
   LONG top; // edi
   LONG bottom; // esi
-  char v7; // r10
+  char v7; // r11
   char v8; // r9
 
   v2 = 0;

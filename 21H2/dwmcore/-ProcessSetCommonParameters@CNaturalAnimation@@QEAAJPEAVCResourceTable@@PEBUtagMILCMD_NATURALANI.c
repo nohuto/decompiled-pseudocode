@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetCommonParameters@CNaturalAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NATURALANIMATION_SETCOMMONPARAMETERS@@@Z @ 0x1802272E8
+ * XREFs of ?ProcessSetCommonParameters@CNaturalAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NATURALANIMATION_SETCOMMONPARAMETERS@@@Z @ 0x1801D8BD0
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?SetStartTimeIfNecessary@CNaturalAnimation@@AEAAX_K@Z @ 0x180227AD0 (-SetStartTimeIfNecessary@CNaturalAnimation@@AEAAX_K@Z.c)
+ *     ?SetStartTimeIfNecessary@CNaturalAnimation@@AEAAX_K@Z @ 0x1801D92C8 (-SetStartTimeIfNecessary@CNaturalAnimation@@AEAAX_K@Z.c)
  */
 
 __int64 __fastcall CNaturalAnimation::ProcessSetCommonParameters(
@@ -17,8 +17,8 @@ __int64 __fastcall CNaturalAnimation::ProcessSetCommonParameters(
   __m128 v6; // rt1
   float v8; // [rsp+38h] [rbp+10h]
 
-  *((_DWORD *)this + 102) = *((_DWORD *)a3 + 4);
-  *((_DWORD *)this + 103) = *((_DWORD *)a3 + 3);
+  *((_DWORD *)this + 96) = *((_DWORD *)a3 + 4);
+  *((_DWORD *)this + 97) = *((_DWORD *)a3 + 3);
   v3 = *((float *)a3 + 2) * 1000.0;
   if ( COERCE_UNSIGNED_INT(fabs(v3)) > 0x497FFFF0 )
   {
@@ -32,7 +32,7 @@ __int64 __fastcall CNaturalAnimation::ProcessSetCommonParameters(
     v8 = v3 + 6291456.25;
     v4 = (int)(LODWORD(v8) << 10) >> 11;
   }
-  *((_DWORD *)this + 104) = v4;
+  *((_DWORD *)this + 98) = v4;
   if ( !*((_BYTE *)a3 + 32) )
     CNaturalAnimation::SetStartTimeIfNecessary(this, *((_QWORD *)a3 + 3));
   return 0LL;

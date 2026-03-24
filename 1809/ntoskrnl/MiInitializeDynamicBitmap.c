@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInitializeDynamicBitmap @ 0x140715740
+ * XREFs of MiInitializeDynamicBitmap @ 0x140715720
  * Callers:
- *     MiBuildDynamicRegion @ 0x14017E8C0 (MiBuildDynamicRegion.c)
- *     MiSessionCreate @ 0x140715028 (MiSessionCreate.c)
- *     MiInitializeSessionPool @ 0x1407156A4 (MiInitializeSessionPool.c)
- *     MiCreatePfnBitMaps @ 0x14072A8E0 (MiCreatePfnBitMaps.c)
+ *     MiBuildDynamicRegion @ 0x14017E8E0 (MiBuildDynamicRegion.c)
+ *     MiSessionCreate @ 0x140715008 (MiSessionCreate.c)
+ *     MiInitializeSessionPool @ 0x140715684 (MiInitializeSessionPool.c)
+ *     MiCreatePfnBitMaps @ 0x14072A8C0 (MiCreatePfnBitMaps.c)
  *     MiInitializeSystemPtes @ 0x1409B68BC (MiInitializeSystemPtes.c)
  *     MiBuildPagedPool @ 0x1409B6A44 (MiBuildPagedPool.c)
  *     MiInitializePteInfo @ 0x1409B74C8 (MiInitializePteInfo.c)
  *     MiInitializeMirroring @ 0x1409BCF88 (MiInitializeMirroring.c)
  *     MiInitializeNonPagedPool @ 0x1409BD0D4 (MiInitializeNonPagedPool.c)
- *     MiCreateRetpolineBitmap @ 0x1409F7050 (MiCreateRetpolineBitmap.c)
+ *     MiCreateRetpolineBitmap @ 0x1409F7060 (MiCreateRetpolineBitmap.c)
  * Callees:
  *     MiMakeZeroedPageTables @ 0x140026644 (MiMakeZeroedPageTables.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
@@ -22,14 +22,14 @@
  *     MiSetPfnLink @ 0x140065CA4 (MiSetPfnLink.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiPartitionIdToPointer @ 0x140134CC8 (MiPartitionIdToPointer.c)
- *     MiTransformValidPteInPlace @ 0x14016A6EC (MiTransformValidPteInPlace.c)
- *     MiReturnPfnList @ 0x140185C1C (MiReturnPfnList.c)
- *     MiReturnSplitPageCharges @ 0x1401927B4 (MiReturnSplitPageCharges.c)
- *     MiLockPageTable @ 0x140192828 (MiLockPageTable.c)
- *     MiUnlockPageTable @ 0x140192D08 (MiUnlockPageTable.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiPartitionIdToPointer @ 0x140134CE8 (MiPartitionIdToPointer.c)
+ *     MiTransformValidPteInPlace @ 0x14016A70C (MiTransformValidPteInPlace.c)
+ *     MiReturnPfnList @ 0x140185C3C (MiReturnPfnList.c)
+ *     MiReturnSplitPageCharges @ 0x1401927D4 (MiReturnSplitPageCharges.c)
+ *     MiLockPageTable @ 0x140192848 (MiLockPageTable.c)
+ *     MiUnlockPageTable @ 0x140192D28 (MiUnlockPageTable.c)
  */
 
 __int64 __fastcall MiInitializeDynamicBitmap(_QWORD *a1, unsigned __int64 a2, __int64 a3, char a4)

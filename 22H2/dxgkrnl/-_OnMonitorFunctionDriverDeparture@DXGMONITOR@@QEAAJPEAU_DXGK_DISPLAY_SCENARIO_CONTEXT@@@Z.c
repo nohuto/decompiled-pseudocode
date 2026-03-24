@@ -1,23 +1,36 @@
 /*
- * XREFs of ?_OnMonitorFunctionDriverDeparture@DXGMONITOR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03C9654
+ * XREFs of ?_OnMonitorFunctionDriverDeparture@DXGMONITOR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F93C8
  * Callers:
- *     ?_PnPTargetDeviceChangeNotification@DXGMONITOR@@CAJPEAX0@Z @ 0x1C03C96E0 (-_PnPTargetDeviceChangeNotification@DXGMONITOR@@CAJPEAX0@Z.c)
+ *     ?_PnPTargetDeviceChangeNotification@DXGMONITOR@@CAJPEAX0@Z @ 0x1C02F9460 (-_PnPTargetDeviceChangeNotification@DXGMONITOR@@CAJPEAX0@Z.c)
  * Callees:
- *     ?UnregisterPnPTargetDeviceNotification@MonitorPnpState@DxgMonitor@@QEAAJXZ @ 0x1C03CB9C0 (-UnregisterPnPTargetDeviceNotification@MonitorPnpState@DxgMonitor@@QEAAJXZ.c)
+ *     <none>
  */
 
 __int64 __fastcall DXGMONITOR::_OnMonitorFunctionDriverDeparture(
-        DxgMonitor::MonitorPnpState **this,
-        struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a2,
-        __int64 a3,
-        __int64 a4)
+        DXGMONITOR *this,
+        struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a2)
 {
-  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2, a3, a4) + 24) = this;
-  if ( ((_BYTE)this[22] & 1) == 0 )
-    WdLogSingleEntry0(1LL);
-  if ( !*((_QWORD *)this[25] + 1) )
-    WdLogSingleEntry0(1LL);
-  if ( *((_DWORD *)this + 78) != 1 )
-    WdLogSingleEntry0(1LL);
-  return DxgMonitor::MonitorPnpState::UnregisterPnPTargetDeviceNotification(this[25]);
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  __int64 v6; // rax
+  __int64 v7; // rax
+
+  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2) + 24) = this;
+  if ( (*((_BYTE *)this + 40) & 1) == 0 )
+  {
+    v5 = WdLogNewEntry5_WdAssertion(v4, v3);
+    WdLogEvent5_WdAssertion(v5);
+  }
+  if ( !*((_QWORD *)this + 7) )
+  {
+    v6 = WdLogNewEntry5_WdAssertion(v4, v3);
+    WdLogEvent5_WdAssertion(v6);
+  }
+  if ( *((_DWORD *)this + 108) != 1 )
+  {
+    v7 = WdLogNewEntry5_WdAssertion(v4, v3);
+    WdLogEvent5_WdAssertion(v7);
+  }
+  return 0LL;
 }

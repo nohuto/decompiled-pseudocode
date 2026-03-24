@@ -1,11 +1,10 @@
 /*
- * XREFs of CmpEffectiveTokenForSubject @ 0x14066A520
+ * XREFs of CmpEffectiveTokenForSubject @ 0x140674970
  * Callers:
- *     CmpGetVirtualizationID @ 0x140669CBC (CmpGetVirtualizationID.c)
- *     CmpIsVirtEnabledForSubject @ 0x1406B6830 (CmpIsVirtEnabledForSubject.c)
- *     CmpBuildAdminInformation @ 0x1406B6958 (CmpBuildAdminInformation.c)
- *     CmpExamineSaclForAuditEvent @ 0x140918574 (CmpExamineSaclForAuditEvent.c)
- *     CmpReportAuditVirtualizationEvent @ 0x1409188E8 (CmpReportAuditVirtualizationEvent.c)
+ *     CmpBuildAdminInformation @ 0x1405D9BE0 (CmpBuildAdminInformation.c)
+ *     CmpGetVirtualizationID @ 0x140672C94 (CmpGetVirtualizationID.c)
+ *     CmpExamineSaclForAuditEvent @ 0x140871C80 (CmpExamineSaclForAuditEvent.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140871D98 (CmpReportAuditVirtualizationEvent.c)
  * Callees:
  *     <none>
  */

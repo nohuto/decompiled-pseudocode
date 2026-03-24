@@ -1,121 +1,187 @@
 /*
- * XREFs of ?GetConnectedTrackersForAxis@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@PEAV?$set@PEAVCInteractionTracker@@U?$less@PEAVCInteractionTracker@@@std@@V?$allocator@PEAVCInteractionTracker@@@3@@std@@PEAPEAV2@@Z @ 0x180220B54
+ * XREFs of ?GetConnectedTrackersForAxis@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@PEAV?$set@PEAVCInteractionTracker@@U?$less@PEAVCInteractionTracker@@@std@@V?$allocator@PEAVCInteractionTracker@@@3@@std@@PEAPEAV2@@Z @ 0x1801CF888
  * Callers:
- *     ?AddOrUpdatePendingInertiaStateChangeForBoundTrackers@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@W4ScrollAxis@@@Z @ 0x18021F7DC (-AddOrUpdatePendingInertiaStateChangeForBoundTrackers@CInteractionTrackerBindingManager@@QEAAXPE.c)
- *     ?AddOrUpdateTrackerBindings@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x18021F8EC (-AddOrUpdateTrackerBindings@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4.c)
- *     ?BoundTrackersHaveActiveCustomAnimations@CInteractionTrackerBindingManager@@QEAA_NPEAVCInteractionTracker@@@Z @ 0x18021FF64 (-BoundTrackersHaveActiveCustomAnimations@CInteractionTrackerBindingManager@@QEAA_NPEAVCInteracti.c)
- *     ?BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteractionTracker@@PEAV2@W4InteractionTrackerBindingModeFlags@@@Z @ 0x180220030 (-BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteracti.c)
- *     ?BringBoundTrackersStateInSync@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x1802202CC (-BringBoundTrackersStateInSync@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@.c)
- *     ?GetConnectedTrackersAndUpdatedAxes@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@PEAV?$unordered_map@PEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@U?$hash@PEAVCInteractionTracker@@@std@@U?$equal_to@PEAVCInteractionTracker@@@4@V?$allocator@U?$pair@QEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@@std@@@4@@std@@@Z @ 0x180220834 (-GetConnectedTrackersAndUpdatedAxes@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTrac.c)
- *     ?RegisterIndirectTargetsForBoundTrackers@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractionTracker@@PEAVCBaseExpression@@W4Enum@InteractionTrackerProperty@@@Z @ 0x180220EF4 (-RegisterIndirectTargetsForBoundTrackers@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractio.c)
- *     ?TransitionDisconnectedTrackersToIdle@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0@Z @ 0x1802213C8 (-TransitionDisconnectedTrackersToIdle@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTr.c)
- *     ?UpdateBoundTrackerPosition@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@AEBUD2DVector3@@_N@Z @ 0x180221734 (-UpdateBoundTrackerPosition@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@AEB.c)
- *     ?UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z @ 0x18022192C (-UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z.c)
- *     ?UpdateBoundTrackerState@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@W4ScrollState@@@Z @ 0x180221A4C (-UpdateBoundTrackerState@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@W4Scro.c)
+ *     ?AddOrUpdatePendingInertiaStateChangeForBoundTrackers@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@W4ScrollAxis@@@Z @ 0x1801CE40C (-AddOrUpdatePendingInertiaStateChangeForBoundTrackers@CInteractionTrackerBindingManager@@QEAAXPE.c)
+ *     ?AddOrUpdateTrackerBindings@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x1801CE51C (-AddOrUpdateTrackerBindings@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4.c)
+ *     ?BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteractionTracker@@PEAV2@W4InteractionTrackerBindingModeFlags@@@Z @ 0x1801CECD8 (-BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteracti.c)
+ *     ?BringBoundTrackersStateInSync@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x1801CEF64 (-BringBoundTrackersStateInSync@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@.c)
+ *     ?GetConnectedTrackersAndUpdatedAxes@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@PEAV?$unordered_map@PEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@U?$hash@PEAVCInteractionTracker@@@std@@U?$equal_to@PEAVCInteractionTracker@@@4@V?$allocator@U?$pair@QEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@@std@@@4@@std@@@Z @ 0x1801CF4D0 (-GetConnectedTrackersAndUpdatedAxes@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTrac.c)
+ *     ?RegisterIndirectTargetsForBoundTrackers@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractionTracker@@PEAVCBaseExpression@@W4Enum@InteractionTrackerProperty@@@Z @ 0x1801CFCDC (-RegisterIndirectTargetsForBoundTrackers@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractio.c)
+ *     ?TransitionDisconnectedTrackersToIdle@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0@Z @ 0x1801D0318 (-TransitionDisconnectedTrackersToIdle@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTr.c)
+ *     ?UpdateBoundTrackerPosition@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@AEBUD2DVector3@@_N@Z @ 0x1801D0688 (-UpdateBoundTrackerPosition@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@AEB.c)
+ *     ?UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z @ 0x1801D087C (-UpdateBoundTrackerScale@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@M_N@Z.c)
+ *     ?UpdateBoundTrackerState@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@W4ScrollState@@@Z @ 0x1801D099C (-UpdateBoundTrackerState@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@W4Scro.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Emplace_back_internal@AEBQEAVCInteractionTracker@@@?$deque@PEAVCInteractionTracker@@V?$allocator@PEAVCInteractionTracker@@@std@@@std@@AEAAXAEBQEAVCInteractionTracker@@@Z @ 0x18021EB6C (--$_Emplace_back_internal@AEBQEAVCInteractionTracker@@@-$deque@PEAVCInteractionTracker@@V-$alloc.c)
- *     ??$find@X@?$_Hash@V?$_Umap_traits@PEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@V?$_Uhash_compare@PEAVCInteractionTracker@@U?$hash@PEAVCInteractionTracker@@@std@@U?$equal_to@PEAVCInteractionTracker@@@3@@std@@V?$allocator@U?$pair@QEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@@std@@@4@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@@std@@@std@@@std@@@1@AEBQEAVCInteractionTracker@@@Z @ 0x18021F31C (--$find@X@-$_Hash@V-$_Umap_traits@PEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@.c)
- *     ??$insert@$0A@$0A@@?$_Tree@V?$_Tset_traits@PEAVCInteractionTracker@@U?$less@PEAVCInteractionTracker@@@std@@V?$allocator@PEAVCInteractionTracker@@@3@$0A@@std@@@std@@QEAA?AU?$pair@V?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@PEAVCInteractionTracker@@@std@@@std@@@std@@_N@1@AEBQEAVCInteractionTracker@@@Z @ 0x18021F378 (--$insert@$0A@$0A@@-$_Tree@V-$_Tset_traits@PEAVCInteractionTracker@@U-$less@PEAVCInteractionTrac.c)
- *     ??1?$deque@PEAVCInteractionTracker@@V?$allocator@PEAVCInteractionTracker@@@std@@@std@@QEAA@XZ @ 0x18021F63C (--1-$deque@PEAVCInteractionTracker@@V-$allocator@PEAVCInteractionTracker@@@std@@@std@@QEAA@XZ.c)
- *     ??E?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@PEAVCInteractionTracker@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ @ 0x18021F738 (--E-$_Tree_unchecked_const_iterator@V-$_Tree_val@U-$_Tree_simple_types@PEAVCInteractionTracker@@.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800C3A14 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?_End@?$_Hash@V?$_Umap_traits@PEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@V?$_Uhash_compare@PEAVCInteractionTracker@@U?$hash@PEAVCInteractionTracker@@@std@@U?$equal_to@PEAVCInteractionTracker@@@3@@std@@V?$allocator@U?$pair@QEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@@std@@@4@$0A@@std@@@std@@IEAA?AV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@@std@@@std@@@std@@@2@_K@Z @ 0x1801812AC (-_End@-$_Hash@V-$_Umap_traits@PEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@V-$.c)
+ *     ??$_Insert_nohint@AEBQEAVCInteractionTracker@@U_Not_a_node_tag@std@@@?$_Tree@V?$_Tset_traits@PEAVCInteractionTracker@@U?$less@PEAVCInteractionTracker@@@std@@V?$allocator@PEAVCInteractionTracker@@@3@$0A@@std@@@std@@IEAA?AU?$pair@V?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@PEAVCInteractionTracker@@@std@@@std@@@std@@_N@1@_NAEBQEAVCInteractionTracker@@U_Not_a_node_tag@1@@Z @ 0x1801CDAB8 (--$_Insert_nohint@AEBQEAVCInteractionTracker@@U_Not_a_node_tag@std@@@-$_Tree@V-$_Tset_traits@PEA.c)
+ *     ??E?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@PEAVCInteractionTracker@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ @ 0x1801CE36C (--E-$_Tree_unchecked_const_iterator@V-$_Tree_val@U-$_Tree_simple_types@PEAVCInteractionTracker@@.c)
+ *     ?_Push_back_internal@?$deque@PEAVCInteractionTracker@@V?$allocator@PEAVCInteractionTracker@@@std@@@std@@AEAAXAEBQEAVCInteractionTracker@@@Z @ 0x1801D0F80 (-_Push_back_internal@-$deque@PEAVCInteractionTracker@@V-$allocator@PEAVCInteractionTracker@@@std.c)
  */
 
 void __fastcall CInteractionTrackerBindingManager::GetConnectedTrackersForAxis(
         __int64 a1,
         __int64 a2,
         unsigned int a3,
-        __int64 *a4,
+        __int64 **a4,
         __int64 a5)
 {
-  _QWORD *v5; // rdi
-  _QWORD *v8; // r12
-  int v9; // eax
-  _QWORD *v10; // rax
-  __int64 **v11; // r15
-  __int64 **i; // rbx
+  _QWORD *v5; // rsi
+  __int64 v9; // r14
+  __int64 v10; // rbx
+  _QWORD *v11; // rax
+  __int64 v12; // r8
   __int64 v13; // r10
-  __int64 *v14; // rax
-  _QWORD v15[2]; // [rsp+20h] [rbp-50h] BYREF
-  _BYTE v16[16]; // [rsp+30h] [rbp-40h] BYREF
-  _QWORD *v17; // [rsp+40h] [rbp-30h] BYREF
-  __int128 v18; // [rsp+48h] [rbp-28h]
-  unsigned __int64 v19; // [rsp+58h] [rbp-18h]
-  __int64 v20; // [rsp+60h] [rbp-10h]
-  __int64 *v21; // [rsp+A0h] [rbp+30h] BYREF
-  __int64 v22; // [rsp+A8h] [rbp+38h] BYREF
+  __int64 v14; // r11
+  int v15; // eax
+  __int64 *v16; // rax
+  __int64 v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // rax
+  __int64 v20; // rcx
+  __int64 v21; // rbx
+  __int64 v22; // r11
+  _QWORD *v23; // rax
+  __int64 v24; // r8
+  __int64 v25; // r10
+  __int64 ***v26; // r15
+  __int64 **i; // rbx
+  __int64 *v28; // r10
+  __int64 *v29; // rax
+  __int128 v30; // rcx
+  __int64 *v31; // rcx
+  _QWORD v32[2]; // [rsp+30h] [rbp-50h] BYREF
+  _BYTE v33[16]; // [rsp+40h] [rbp-40h] BYREF
+  __int64 *v34; // [rsp+50h] [rbp-30h] BYREF
+  __int128 v35; // [rsp+58h] [rbp-28h]
+  unsigned __int64 v36; // [rsp+68h] [rbp-18h]
+  __int64 v37; // [rsp+70h] [rbp-10h]
+  __int64 *v38; // [rsp+C0h] [rbp+40h] BYREF
+  __int64 v39; // [rsp+C8h] [rbp+48h] BYREF
 
-  v22 = a2;
+  v39 = a2;
   v5 = (_QWORD *)a5;
   if ( a5 )
     *(_QWORD *)a5 = 0LL;
-  v8 = (_QWORD *)(a1 + 72);
-  if ( *std::_Hash<std::_Umap_traits<CInteractionTracker *,enum InteractionTrackerBindingModeFlags,std::_Uhash_compare<CInteractionTracker *,std::hash<CInteractionTracker *>,std::equal_to<CInteractionTracker *>>,std::allocator<std::pair<CInteractionTracker * const,enum InteractionTrackerBindingModeFlags>>,0>>::find<void>(
-          (_QWORD *)(a1 + 72),
-          &a5,
-          (const unsigned __int8 *)&v22) == *(_QWORD *)(a1 + 80) )
+  v9 = a1 + 64;
+  v10 = *(_QWORD *)(a1 + 112) & std::_Fnv1a_append_bytes(a1, (const unsigned __int8 *const)&v39, 8uLL);
+  while ( 1 )
   {
-    std::_Tree<std::_Tset_traits<CInteractionTracker *,std::less<CInteractionTracker *>,std::allocator<CInteractionTracker *>,0>>::insert<0,0>(
+    v11 = std::_Hash<std::_Umap_traits<CInteractionTracker *,enum InteractionTrackerBindingModeFlags,std::_Uhash_compare<CInteractionTracker *,std::hash<CInteractionTracker *>,std::equal_to<CInteractionTracker *>>,std::allocator<std::pair<CInteractionTracker * const,enum InteractionTrackerBindingModeFlags>>,0>>::_End(
+            v9,
+            &a5,
+            v10);
+    if ( v13 == *v11 )
+      break;
+    if ( *(_QWORD *)(v13 + 16) == v14 )
+      goto LABEL_8;
+  }
+  v13 = *(_QWORD *)(v9 + 8);
+LABEL_8:
+  if ( v13 == *(_QWORD *)(a1 + 72) )
+  {
+    std::_Tree<std::_Tset_traits<CInteractionTracker *,std::less<CInteractionTracker *>,std::allocator<CInteractionTracker *>,0>>::_Insert_nohint<CInteractionTracker * const &,std::_Not_a_node_tag>(
       a4,
-      (__int64)v15);
+      (__int64)v32,
+      v12,
+      &v39);
     if ( v5 )
-      *v5 = v22;
+      *v5 = v39;
   }
   else if ( a3 <= 7 )
   {
-    v9 = 150;
-    if ( _bittest(&v9, a3) )
+    v15 = 150;
+    if ( _bittest(&v15, a3) )
     {
-      v19 = 0LL;
-      v20 = 0LL;
-      v18 = 0LL;
-      v10 = (_QWORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(0x10uLL);
-      v10[1] = 0LL;
-      v17 = v10;
-      *v10 = &v17;
-      std::deque<CInteractionTracker *>::_Emplace_back_internal<CInteractionTracker * const &>(&v17, &v22);
-      while ( v20 )
+      v36 = 0LL;
+      v37 = 0LL;
+      v35 = 0LL;
+      v16 = (__int64 *)std::_Allocate<16,std::_Default_allocate_traits,0>(0x10uLL);
+      v16[1] = 0LL;
+      v34 = v16;
+      *v16 = (__int64)&v34;
+      std::deque<CInteractionTracker *>::_Push_back_internal(&v34, &v39);
+      while ( v37 )
       {
-        a5 = *(_QWORD *)(*(_QWORD *)(v18 + 8 * ((*((_QWORD *)&v18 + 1) - 1LL) & (v19 >> 1))) + 8 * (v19 & 1));
-        if ( --v20 )
-          ++v19;
+        v17 = 0LL;
+        if ( v34 )
+          v17 = *v34;
+        v18 = (*(_QWORD *)(v17 + 16) - 1LL) & (v36 >> 1);
+        v19 = *(_QWORD *)(v17 + 8);
+        v20 = v36 & 1;
+        v21 = *(_QWORD *)(*(_QWORD *)(v19 + 8 * v18) + 8 * v20);
+        a5 = v21;
+        if ( --v37 )
+          ++v36;
         else
-          v19 = 0LL;
-        std::_Hash<std::_Umap_traits<CInteractionTracker *,enum InteractionTrackerBindingModeFlags,std::_Uhash_compare<CInteractionTracker *,std::hash<CInteractionTracker *>,std::equal_to<CInteractionTracker *>>,std::allocator<std::pair<CInteractionTracker * const,enum InteractionTrackerBindingModeFlags>>,0>>::find<void>(
-          v8,
-          v15,
-          (const unsigned __int8 *)&a5);
-        v11 = *(__int64 ***)(v15[0] + 32LL);
-        for ( i = (__int64 **)*v11; i != v11; i = (__int64 **)*i )
+          v36 = 0LL;
+        v22 = *(_QWORD *)(v9 + 48) & std::_Fnv1a_append_bytes(v20, (const unsigned __int8 *const)&a5, 8uLL);
+        while ( 1 )
         {
-          v13 = *a4;
-          v14 = *(__int64 **)*a4;
-          v21 = v14;
-          while ( v14 != (__int64 *)v13 )
+          v23 = std::_Hash<std::_Umap_traits<CInteractionTracker *,enum InteractionTrackerBindingModeFlags,std::_Uhash_compare<CInteractionTracker *,std::hash<CInteractionTracker *>,std::equal_to<CInteractionTracker *>>,std::allocator<std::pair<CInteractionTracker * const,enum InteractionTrackerBindingModeFlags>>,0>>::_End(
+                  v9,
+                  v32,
+                  v22);
+          if ( v25 == *v23 )
+            break;
+          if ( *(_QWORD *)(v25 + 16) == v21 )
+            goto LABEL_25;
+        }
+        v25 = *(_QWORD *)(v9 + 8);
+LABEL_25:
+        v26 = *(__int64 ****)(v25 + 32);
+        for ( i = *v26; i != (__int64 **)v26; i = (__int64 **)*i )
+        {
+          v28 = *a4;
+          v29 = (__int64 *)**a4;
+          v38 = v29;
+          while ( v29 != v28 )
           {
-            if ( (__int64 *)v14[4] == i[2] )
+            if ( (__int64 *)v29[4] == i[2] )
             {
-              if ( v14 != (__int64 *)v13 )
-                goto LABEL_23;
+              if ( v29 != v28 )
+                goto LABEL_35;
               break;
             }
-            std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tree_simple_types<CInteractionTracker *>>,std::_Iterator_base0>::operator++(&v21);
-            v14 = v21;
+            std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tree_simple_types<CInteractionTracker *>>,std::_Iterator_base0>::operator++(&v38);
+            v29 = v38;
           }
           if ( (a3 & (_DWORD)i[3]) == a3 || a3 == 7 )
-            std::deque<CInteractionTracker *>::_Emplace_back_internal<CInteractionTracker * const &>(
-              &v17,
-              (__int64 *)i + 2);
-LABEL_23:
+            std::deque<CInteractionTracker *>::_Push_back_internal(&v34, i + 2);
+LABEL_35:
           ;
         }
-        std::_Tree<std::_Tset_traits<CInteractionTracker *,std::less<CInteractionTracker *>,std::allocator<CInteractionTracker *>,0>>::insert<0,0>(
+        std::_Tree<std::_Tset_traits<CInteractionTracker *,std::less<CInteractionTracker *>,std::allocator<CInteractionTracker *>,0>>::_Insert_nohint<CInteractionTracker * const &,std::_Not_a_node_tag>(
           a4,
-          (__int64)v16);
-        if ( v5 && (*(_BYTE *)(a5 + 541) & 1) != 0 )
+          (__int64)v33,
+          v24,
+          &a5);
+        if ( v5 && (*(_BYTE *)(a5 + 533) & 1) != 0 )
           *v5 = a5;
       }
-      std::deque<CInteractionTracker *>::~deque<CInteractionTracker *>((__int64)&v17);
+      v30 = v35;
+      if ( *((_QWORD *)&v35 + 1) )
+      {
+        do
+        {
+          --*((_QWORD *)&v30 + 1);
+          if ( *(_QWORD *)(v30 + 8LL * *((_QWORD *)&v30 + 1)) )
+          {
+            std::_Deallocate<16,0>(*(void **)(v30 + 8LL * *((_QWORD *)&v30 + 1)), 0x10uLL);
+            *(_QWORD *)&v30 = v35;
+          }
+        }
+        while ( *((_QWORD *)&v30 + 1) );
+        *((_QWORD *)&v30 + 1) = *((_QWORD *)&v35 + 1);
+      }
+      if ( (_QWORD)v30 )
+        std::_Deallocate<16,0>((void *)v30, 8LL * *((_QWORD *)&v30 + 1));
+      v31 = v34;
+      v34 = 0LL;
+      v35 = 0uLL;
+      std::_Deallocate<16,0>(v31, 0x10uLL);
     }
   }
 }

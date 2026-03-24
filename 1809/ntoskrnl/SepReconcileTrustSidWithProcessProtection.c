@@ -1,11 +1,11 @@
 /*
- * XREFs of SepReconcileTrustSidWithProcessProtection @ 0x1400ABA50
+ * XREFs of SepReconcileTrustSidWithProcessProtection @ 0x1400ABA70
  * Callers:
  *     SeCreateClientSecurityEx @ 0x140631CE0 (SeCreateClientSecurityEx.c)
- *     SeCreateClientSecurity @ 0x1406491F0 (SeCreateClientSecurity.c)
+ *     SeCreateClientSecurity @ 0x1406491D0 (SeCreateClientSecurity.c)
  * Callees:
- *     SepSidFromProcessProtection @ 0x1400ABACC (SepSidFromProcessProtection.c)
- *     RtlIsValidProcessTrustLabelSid @ 0x1400ABB40 (RtlIsValidProcessTrustLabelSid.c)
+ *     SepSidFromProcessProtection @ 0x1400ABAEC (SepSidFromProcessProtection.c)
+ *     RtlIsValidProcessTrustLabelSid @ 0x1400ABB60 (RtlIsValidProcessTrustLabelSid.c)
  */
 
 __int64 __fastcall SepReconcileTrustSidWithProcessProtection(__int64 a1, __int64 a2, _BYTE *a3, _QWORD *a4)

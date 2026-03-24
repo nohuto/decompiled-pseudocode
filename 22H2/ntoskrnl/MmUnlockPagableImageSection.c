@@ -1,21 +1,20 @@
 /*
- * XREFs of MmUnlockPagableImageSection @ 0x14025A320
+ * XREFs of MmUnlockPagableImageSection @ 0x14029B0A0
  * Callers:
- *     PnprUnlockPagesForReplace @ 0x140967084 (PnprUnlockPagesForReplace.c)
- *     KiStartDynamicProcessor @ 0x1409738B8 (KiStartDynamicProcessor.c)
- *     PopDirectedDripsNotifyAppsAndServices @ 0x140983AA4 (PopDirectedDripsNotifyAppsAndServices.c)
- *     MiApplyImageHotPatch @ 0x140A353F8 (MiApplyImageHotPatch.c)
- *     HalpPowerInitSystem @ 0x140A90A30 (HalpPowerInitSystem.c)
- *     IoUnregisterShutdownNotification @ 0x140A99E80 (IoUnregisterShutdownNotification.c)
- *     PopUnlockAfterSleepWorker @ 0x140AA6A10 (PopUnlockAfterSleepWorker.c)
- *     ExQuerySystemLockInformation @ 0x140AAAE28 (ExQuerySystemLockInformation.c)
- *     MiShutdownSystem @ 0x140AABC30 (MiShutdownSystem.c)
- *     MmDuplicateMemory @ 0x140AAC90C (MmDuplicateMemory.c)
- *     VfClearDifWithoutReboot @ 0x140AC3BAC (VfClearDifWithoutReboot.c)
- *     VfInitDifWithoutReboot @ 0x140AC3C04 (VfInitDifWithoutReboot.c)
- *     BgkpUnlockBgfxCodeSection @ 0x140AF02E0 (BgkpUnlockBgfxCodeSection.c)
+ *     PnprUnlockPagesForReplace @ 0x1408AE904 (PnprUnlockPagesForReplace.c)
+ *     KiStartDynamicProcessor @ 0x1408BA6C8 (KiStartDynamicProcessor.c)
+ *     MiApplyImageHotPatch @ 0x1408C95AC (MiApplyImageHotPatch.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x1408E3658 (PopDirectedDripsNotifyAppsAndServices.c)
+ *     PopUnlockAfterSleepWorker @ 0x140990530 (PopUnlockAfterSleepWorker.c)
+ *     MmDuplicateMemory @ 0x1409907AC (MmDuplicateMemory.c)
+ *     HalpPowerInitSystem @ 0x1409A09F0 (HalpPowerInitSystem.c)
+ *     IoUnregisterShutdownNotification @ 0x1409AB150 (IoUnregisterShutdownNotification.c)
+ *     MiShutdownSystem @ 0x1409AFEF8 (MiShutdownSystem.c)
+ *     ExQuerySystemLockInformation @ 0x1409B2DA4 (ExQuerySystemLockInformation.c)
+ *     BgkpUnlockBgfxCodeSection @ 0x1409F13F0 (BgkpUnlockBgfxCodeSection.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MiLockPagableImageSection @ 0x14025A6C0 (MiLockPagableImageSection.c)
+ *     MiLockPagableImageSection @ 0x14029CB80 (MiLockPagableImageSection.c)
  */
 
 void __stdcall MmUnlockPagableImageSection(PVOID ImageSectionHandle)

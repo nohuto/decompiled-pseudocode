@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCheckStall @ 0x14029749C
+ * XREFs of KiCheckStall @ 0x14029759C
  * Callers:
- *     KeStallWhileFrozen @ 0x140297280 (KeStallWhileFrozen.c)
- *     KeSwitchFrozenProcessor @ 0x1402972A0 (KeSwitchFrozenProcessor.c)
- *     KiFreezeTargetExecution @ 0x1402975DC (KiFreezeTargetExecution.c)
+ *     KeStallWhileFrozen @ 0x140297380 (KeStallWhileFrozen.c)
+ *     KeSwitchFrozenProcessor @ 0x1402973A0 (KeSwitchFrozenProcessor.c)
+ *     KiFreezeTargetExecution @ 0x1402976DC (KiFreezeTargetExecution.c)
  * Callees:
  *     <none>
  */

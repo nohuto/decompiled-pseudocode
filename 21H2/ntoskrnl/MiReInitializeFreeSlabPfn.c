@@ -1,23 +1,26 @@
 /*
- * XREFs of MiReInitializeFreeSlabPfn @ 0x14023C030
+ * XREFs of MiReInitializeFreeSlabPfn @ 0x1403759EC
  * Callers:
- *     MiFreePageToSlabAllocator @ 0x14023BE50 (MiFreePageToSlabAllocator.c)
- *     MiAllocateSlabEntry @ 0x1405B0B24 (MiAllocateSlabEntry.c)
- *     MiGetSlabStandbyPage @ 0x1405B130C (MiGetSlabStandbyPage.c)
+ *     MiFreePageToSlabAllocator @ 0x140375730 (MiFreePageToSlabAllocator.c)
+ *     MiAllocateSlabEntry @ 0x140392868 (MiAllocateSlabEntry.c)
+ *     MiGetSlabStandbyPage @ 0x1405530CC (MiGetSlabStandbyPage.c)
  * Callees:
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402E89B0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiSetPfnBlink @ 0x140313CA0 (MiSetPfnBlink.c)
+ *     MiSetPfnBlink @ 0x140318130 (MiSetPfnBlink.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140329F30 (MiSetOriginalPtePfnFromFreeList.c)
  */
 
-__int64 __fastcall MiReInitializeFreeSlabPfn(__int64 a1, __int64 a2)
+unsigned __int64 __fastcall MiReInitializeFreeSlabPfn(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rdx
-  __int64 v4; // r8
+  __int64 v3; // rax
 
-  *(_QWORD *)(a1 + 8) = (*(_DWORD *)(a2 + 48) != 2) - 2LL;
+  if ( *(_DWORD *)(a2 + 48) || *(_DWORD *)(a2 + 52) != 2 )
+    v3 = -1LL;
+  else
+    v3 = -2LL;
+  *(_QWORD *)(a1 + 8) = v3;
   *(_QWORD *)a1 = 0LL;
-  MiSetPfnBlink(a1, 0LL, 1LL);
+  MiSetPfnBlink(a1, 0LL, 1);
   *(_BYTE *)(a1 + 34) = *(_BYTE *)(a1 + 34) & 0xF8 | 5;
   *(_QWORD *)(a1 + 16) = ZeroPte;
-  return MiSetOriginalPtePfnFromFreeList(a1 + 16, v3, v4);
+  return MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(a1 + 16));
 }

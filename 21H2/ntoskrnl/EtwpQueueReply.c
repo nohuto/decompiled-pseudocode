@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpQueueReply @ 0x1406F20E8
+ * XREFs of EtwpQueueReply @ 0x1406BB3D0
  * Callers:
- *     EtwpSendReplyDataBlock @ 0x1406F2000 (EtwpSendReplyDataBlock.c)
- *     EtwpDeleteRegistrationObject @ 0x140796530 (EtwpDeleteRegistrationObject.c)
+ *     EtwpDeleteRegistrationObject @ 0x1405FC900 (EtwpDeleteRegistrationObject.c)
+ *     EtwpSendReplyDataBlock @ 0x1406BB2E8 (EtwpSendReplyDataBlock.c)
  * Callees:
- *     KeInsertQueue @ 0x1402624D0 (KeInsertQueue.c)
- *     EtwpAllocDataBlock @ 0x1406F21DC (EtwpAllocDataBlock.c)
- *     EtwpUnreferenceDataBlock @ 0x14078F0FC (EtwpUnreferenceDataBlock.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeInsertQueue @ 0x1402CCD30 (KeInsertQueue.c)
+ *     EtwpAllocDataBlock @ 0x1406E1760 (EtwpAllocDataBlock.c)
+ *     EtwpUnreferenceDataBlock @ 0x1406E4984 (EtwpUnreferenceDataBlock.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpQueueReply(PRKQUEUE Queue, unsigned int *a2)
 {
   int v3; // edi
-  struct _LIST_ENTRY *Pool2; // rax
+  struct _LIST_ENTRY *PoolWithTag; // rax
 
   v3 = EtwpAllocDataBlock(a2[1], a2);
   if ( v3 < 0 )
@@ -22,11 +22,15 @@ __int64 __fastcall EtwpQueueReply(PRKQUEUE Queue, unsigned int *a2)
   }
   else
   {
-    Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(64LL, 56LL, 1920431173LL);
-    if ( Pool2 )
+    PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x72777445u);
+    if ( PoolWithTag )
     {
-      Pool2[1].Flink = 0LL;
-      KeInsertQueue(Queue, Pool2);
+      *PoolWithTag = 0LL;
+      PoolWithTag[1] = 0LL;
+      PoolWithTag[2] = 0LL;
+      PoolWithTag[3].Flink = 0LL;
+      PoolWithTag[1].Flink = 0LL;
+      KeInsertQueue(Queue, PoolWithTag);
     }
     else
     {

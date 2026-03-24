@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFindNonPagedPoolVa @ 0x14016349C
+ * XREFs of MiFindNonPagedPoolVa @ 0x1401634BC
  * Callers:
- *     MiAllocatePoolPages @ 0x140162AF0 (MiAllocatePoolPages.c)
+ *     MiAllocatePoolPages @ 0x140162B10 (MiAllocatePoolPages.c)
  * Callees:
- *     MiExpandNonPagedPool @ 0x1401626C8 (MiExpandNonPagedPool.c)
- *     MiScanNonPagedPoolVa @ 0x1401635C0 (MiScanNonPagedPoolVa.c)
+ *     MiExpandNonPagedPool @ 0x1401626E8 (MiExpandNonPagedPool.c)
+ *     MiScanNonPagedPoolVa @ 0x1401635E0 (MiScanNonPagedPoolVa.c)
  */
 
 unsigned __int64 __fastcall MiFindNonPagedPoolVa(int a1, unsigned __int64 a2, unsigned int a3, _DWORD *a4)

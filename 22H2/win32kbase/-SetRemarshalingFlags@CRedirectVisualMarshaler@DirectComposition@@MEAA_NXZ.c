@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CRedirectVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022C500
+ * XREFs of ?SetRemarshalingFlags@CRedirectVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01F35B0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRemarshalingFlags@CVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0214440 (-SetRemarshalingFlags@CVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E54C0 (-SetRemarshalingFlags@CVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CRedirectVisualMarshaler::SetRemarshalingFlags(
@@ -14,9 +14,9 @@ char __fastcall DirectComposition::CRedirectVisualMarshaler::SetRemarshalingFlag
 
   v1 = 0;
   v2 = 0;
-  if ( *((_QWORD *)this + 47) )
+  if ( *((_QWORD *)this + 46) )
   {
-    *((_DWORD *)this + 96) |= 1u;
+    *((_DWORD *)this + 94) |= 1u;
     v2 = 1;
   }
   if ( DirectComposition::CVisualMarshaler::SetRemarshalingFlags(this) || v2 )

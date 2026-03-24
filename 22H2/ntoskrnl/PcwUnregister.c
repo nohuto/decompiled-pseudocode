@@ -1,11 +1,11 @@
 /*
- * XREFs of PcwUnregister @ 0x140A01930
+ * XREFs of PcwUnregister @ 0x140956DE0
  * Callers:
- *     ExpPcwHostCallback @ 0x140859CC0 (ExpPcwHostCallback.c)
+ *     ExpPcwHostCallback @ 0x1407CC330 (ExpPcwHostCallback.c)
  * Callees:
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x1402FA470 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExReleaseExtensionTable @ 0x1402F75FC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x1402F7618 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __stdcall PcwUnregister(PPCW_REGISTRATION Registration)

@@ -1,15 +1,15 @@
 /*
- * XREFs of TR_AddTRBRangeToSecureTransferRing @ 0x1C00070A0
+ * XREFs of TR_AddTRBRangeToSecureTransferRing @ 0x1C0005050
  * Callers:
  *     Isoch_Stage_MapIntoRing @ 0x1C0001050 (Isoch_Stage_MapIntoRing.c)
- *     Control_Transfer_MapIntoRing @ 0x1C00062D0 (Control_Transfer_MapIntoRing.c)
- *     Bulk_Stage_MapIntoRing @ 0x1C0012A58 (Bulk_Stage_MapIntoRing.c)
+ *     Control_Transfer_MapIntoRing @ 0x1C0004610 (Control_Transfer_MapIntoRing.c)
+ *     Bulk_Stage_MapIntoRing @ 0x1C000D560 (Bulk_Stage_MapIntoRing.c)
  * Callees:
- *     WPP_RECORDER_SF_DDd @ 0x1C001BD00 (WPP_RECORDER_SF_DDd.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     WPP_RECORDER_SF_qiD @ 0x1C0042084 (WPP_RECORDER_SF_qiD.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     WPP_RECORDER_SF_qiD @ 0x1C003FB74 (WPP_RECORDER_SF_qiD.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 void __fastcall TR_AddTRBRangeToSecureTransferRing(
@@ -51,7 +51,7 @@ void __fastcall TR_AddTRBRangeToSecureTransferRing(
       v13 = a3;
     *(_QWORD *)(v12 + 24) = *(_QWORD *)(a1 + 288);
     *(_DWORD *)(v12 + 32) = 44;
-    if ( (WPP_MAIN_CB.AlignmentRequirement & 0x200) != 0 )
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) & 2) != 0 )
     {
       (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)(a1 + 32) + 24LL))(a1, v12);
       v11 = 0;
@@ -101,12 +101,12 @@ LABEL_26:
         v22 = *(_QWORD *)(a1 + 48);
         v23 = *(_BYTE *)(v22 + 135);
         LOBYTE(v22) = 2;
-        WPP_RECORDER_SF_DDd(
+        WPP_RECORDER_SF_ddL(
           *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
           v22,
           14,
           27,
-          (__int64)&WPP_9ff532af533633cb75752ac9b9d63831_Traceguids,
+          (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
           v23,
           *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
           v25[0]);
@@ -140,7 +140,7 @@ LABEL_26:
                 a4,
                 v24,
                 (__int64)"onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\tr.c",
-                228,
+                229,
                 (__int64)"BUGBUG: Link TRB in last segment does not point back to itself");
             goto LABEL_38;
           }
@@ -159,7 +159,7 @@ LABEL_26:
           a4,
           v24,
           (__int64)"onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\tr.c",
-          247,
+          248,
           (__int64)"BUGBUG: Current TRB Index does not match expected value");
 LABEL_38:
       if ( !KdRefreshDebuggerNotPresent() )

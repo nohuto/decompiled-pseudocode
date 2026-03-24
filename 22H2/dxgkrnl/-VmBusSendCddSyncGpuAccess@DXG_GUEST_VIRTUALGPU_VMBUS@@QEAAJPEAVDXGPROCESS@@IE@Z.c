@@ -1,48 +1,31 @@
 /*
- * XREFs of ?VmBusSendCddSyncGpuAccess@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@IE@Z @ 0x1C0385634
+ * XREFs of ?VmBusSendCddSyncGpuAccess@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@IE@Z @ 0x1C0246FB8
  * Callers:
- *     ?DxgkpCddSyncGPUAccess@@YAJPEAVDXGPROCESS@@IH@Z @ 0x1C01A1B48 (-DxgkpCddSyncGPUAccess@@YAJPEAVDXGPROCESS@@IH@Z.c)
+ *     ?DxgkpCddSyncGPUAccess@@YAJPEAVDXGPROCESS@@IH@Z @ 0x1C0158D80 (-DxgkpCddSyncGPUAccess@@YAJPEAVDXGPROCESS@@IH@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C038FFC4 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPE.c)
+ *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C024DD40 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_M.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendCddSyncGpuAccess(
         DXG_GUEST_VIRTUALGPU_VMBUS *this,
         struct DXGPROCESS *a2,
         int a3,
-        char a4)
+        struct _MDL *a4)
 {
-  struct DXGKVMB_COMMAND_BASE *v8; // rcx
-  unsigned int v9; // ebx
-  int v10; // eax
-  struct _MDL *v12; // [rsp+20h] [rbp-148h]
-  struct DXGKVMB_COMMAND_BASE *v13[2]; // [rsp+30h] [rbp-138h] BYREF
-  unsigned int v14; // [rsp+40h] [rbp-128h]
+  int v4; // eax
+  __int64 v6; // [rsp+20h] [rbp-28h] BYREF
+  int v7; // [rsp+28h] [rbp-20h]
+  int v8; // [rsp+2Ch] [rbp-1Ch]
+  int v9; // [rsp+30h] [rbp-18h]
+  int v10; // [rsp+38h] [rbp-10h]
+  char v11; // [rsp+3Ch] [rbp-Ch]
 
-  v14 = 0;
-  *(_OWORD *)v13 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)v13, this, 0x20u, 0LL, 0LL, 0LL);
-  v8 = v13[0];
-  if ( v13[0] )
-  {
-    v10 = *((_DWORD *)a2 + 126);
-    *(_QWORD *)v13[0] = 0LL;
-    *((_DWORD *)v8 + 5) = 0;
-    *((_BYTE *)v8 + 12) = 0;
-    *((_DWORD *)v8 + 3) &= 0x1FFu;
-    *((_DWORD *)v8 + 2) = v10;
-    *((_DWORD *)v8 + 4) = 47;
-    *((_DWORD *)v8 + 6) = a3;
-    *((_BYTE *)v8 + 28) = a4;
-    v9 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(this, (unsigned __int8 *)v13[1], v13[0], v14, v12);
-  }
-  else
-  {
-    v9 = -1073741801;
-  }
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)v13);
-  return v9;
+  v6 = 0LL;
+  v4 = *((_DWORD *)a2 + 106);
+  v8 = 0;
+  v7 = v4;
+  v9 = 47;
+  v10 = a3;
+  v11 = (char)a4;
+  return DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(this, (struct DXGKVMB_COMMAND_BASE *)&v6, 0x20u, a4);
 }

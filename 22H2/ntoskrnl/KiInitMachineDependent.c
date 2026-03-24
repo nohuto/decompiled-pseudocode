@@ -1,14 +1,13 @@
 /*
- * XREFs of KiInitMachineDependent @ 0x14039A528
+ * XREFs of KiInitMachineDependent @ 0x1403B522C
  * Callers:
- *     KeInitSystem @ 0x140B53548 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305CD0 (KeRevertToUserGroupAffinityThread.c)
- *     KiSetSystemAffinityThreadToProcessor @ 0x14039A7D0 (KiSetSystemAffinityThreadToProcessor.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiInitializeMTRR @ 0x140B631C0 (KiInitializeMTRR.c)
- *     KiInitializeCacheErrataSupport @ 0x140B9723C (KiInitializeCacheErrataSupport.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x1403B5394 (KiSetSystemAffinityThreadToProcessor.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiInitializeMTRR @ 0x140A4CEC4 (KiInitializeMTRR.c)
+ *     KiInitializeCacheErrataSupport @ 0x140A920CC (KiInitializeCacheErrataSupport.c)
  */
 
 char KiInitMachineDependent()
@@ -82,29 +81,15 @@ LABEL_12:
       KiIa32MiscEnable = __readmsr(0x1A0u);
     if ( v0 )
       KeRevertToUserGroupAffinityThread(&PreviousAffinity);
-    KiUserCodePatchMutex.Count = 1;
     KiUserCodePatchMutex.Owner = 0LL;
     KiUserCodePatchMutex.Contention = 0;
-    LOWORD(KiUserCodePatchMutex.Event.Header.Lock) = 1;
-    KiUserCodePatchMutex.Event.Header.Size = 6;
+    result = 1;
     KiUserCodePatchMutex.Event.Header.SignalState = 0;
     KiUserCodePatchMutex.Event.Header.WaitListHead.Blink = &KiUserCodePatchMutex.Event.Header.WaitListHead;
     KiUserCodePatchMutex.Event.Header.WaitListHead.Flink = &KiUserCodePatchMutex.Event.Header.WaitListHead;
-    memset(&KiAltContextWorkQueue, 0, 0x80uLL);
-    KiAltContextWorkQueue.Blink = &KiAltContextWorkQueue;
-    *(&stru_140C40D98 + 3) = (ULONG_PTR)KiAltReturnDpcRoutine;
-    result = 1;
-    KiAltContextWorkQueue.Flink = &KiAltContextWorkQueue;
-    stru_140C40DD8.WorkerRoutine = (void (__fastcall *)(void *))KiAltReturnWorkerRoutine;
-    qword_140C40DF8 = (__int64)KiAltContextProcessMcheckAltReturn;
-    Lock = 0LL;
-    LODWORD(stru_140C40D98) = 275;
-    *(&stru_140C40D98 + 4) = (ULONG_PTR)&KiAltContextWorkQueue;
-    *(&stru_140C40D98 + 7) = 0LL;
-    *(&stru_140C40D98 + 2) = 0LL;
-    stru_140C40DD8.Parameter = &KiAltContextWorkQueue;
-    stru_140C40DD8.List.Flink = 0LL;
-    KiAltReturnInitialized = 1;
+    KiUserCodePatchMutex.Count = 1;
+    LOWORD(KiUserCodePatchMutex.Event.Header.Lock) = 1;
+    KiUserCodePatchMutex.Event.Header.Size = 6;
   }
   return result;
 }

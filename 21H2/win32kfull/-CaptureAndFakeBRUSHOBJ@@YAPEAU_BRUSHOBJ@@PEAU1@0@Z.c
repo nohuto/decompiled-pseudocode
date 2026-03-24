@@ -1,14 +1,14 @@
 /*
- * XREFs of ?CaptureAndFakeBRUSHOBJ@@YAPEAU_BRUSHOBJ@@PEAU1@0@Z @ 0x1C0126D9C
+ * XREFs of ?CaptureAndFakeBRUSHOBJ@@YAPEAU_BRUSHOBJ@@PEAU1@0@Z @ 0x1C013DDC8
  * Callers:
- *     NtGdiEngStretchBltROP @ 0x1C0127170 (NtGdiEngStretchBltROP.c)
- *     NtGdiEngBitBlt @ 0x1C01281A0 (NtGdiEngBitBlt.c)
- *     NtGdiEngTextOut @ 0x1C0128770 (NtGdiEngTextOut.c)
- *     NtGdiEngFillPath @ 0x1C02B16C0 (NtGdiEngFillPath.c)
- *     NtGdiEngLineTo @ 0x1C02B1CF0 (NtGdiEngLineTo.c)
- *     NtGdiEngPaint @ 0x1C02B1F10 (NtGdiEngPaint.c)
- *     NtGdiEngStrokeAndFillPath @ 0x1C02B2510 (NtGdiEngStrokeAndFillPath.c)
- *     NtGdiEngStrokePath @ 0x1C02B2830 (NtGdiEngStrokePath.c)
+ *     NtGdiEngStretchBltROP @ 0x1C013B380 (NtGdiEngStretchBltROP.c)
+ *     NtGdiEngBitBlt @ 0x1C013BA90 (NtGdiEngBitBlt.c)
+ *     NtGdiEngTextOut @ 0x1C013C110 (NtGdiEngTextOut.c)
+ *     NtGdiEngFillPath @ 0x1C02B2E40 (NtGdiEngFillPath.c)
+ *     NtGdiEngLineTo @ 0x1C02B3520 (NtGdiEngLineTo.c)
+ *     NtGdiEngPaint @ 0x1C02B3800 (NtGdiEngPaint.c)
+ *     NtGdiEngStrokeAndFillPath @ 0x1C02B3E30 (NtGdiEngStrokeAndFillPath.c)
+ *     NtGdiEngStrokePath @ 0x1C02B4290 (NtGdiEngStrokePath.c)
  * Callees:
  *     <none>
  */

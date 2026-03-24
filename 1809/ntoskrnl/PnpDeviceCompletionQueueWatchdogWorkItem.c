@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDeviceCompletionQueueWatchdogWorkItem @ 0x140289970
+ * XREFs of PnpDeviceCompletionQueueWatchdogWorkItem @ 0x140289A70
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     PnpProcessWatchdogWorkItem @ 0x140289A8C (PnpProcessWatchdogWorkItem.c)
+ *     PnpProcessWatchdogWorkItem @ 0x140289B8C (PnpProcessWatchdogWorkItem.c)
  */
 
 void __fastcall PnpDeviceCompletionQueueWatchdogWorkItem(__int64 a1)

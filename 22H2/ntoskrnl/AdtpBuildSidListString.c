@@ -1,35 +1,35 @@
 /*
- * XREFs of AdtpBuildSidListString @ 0x140A5B1E0
+ * XREFs of AdtpBuildSidListString @ 0x14096DBA4
  * Callers:
- *     AdtpPackageParameters @ 0x140399314 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403C0314 (AdtpPackageParameters.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlLengthSidAsUnicodeString @ 0x1407FB288 (RtlLengthSidAsUnicodeString.c)
- *     RtlConvertSidToUnicodeString @ 0x1407FB3F0 (RtlConvertSidToUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlConvertSidToUnicodeString @ 0x1406ED390 (RtlConvertSidToUnicodeString.c)
+ *     RtlLengthSidAsUnicodeString @ 0x1406EFBC8 (RtlLengthSidAsUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, wchar_t **a3, __int64 a4, _DWORD *a5, char *a6)
+__int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5, char *a6)
 {
+  wchar_t *PoolWithTag; // rsi
+  char v7; // r14
+  unsigned int v10; // r15d
+  unsigned int v11; // r13d
+  unsigned int v12; // ebx
+  unsigned __int8 **v13; // rsi
+  unsigned __int8 *v14; // rcx
+  unsigned int v15; // ecx
   NTSTATUS appended; // ebx
-  char v9; // r15
-  unsigned int v10; // r14d
-  unsigned int v11; // esi
-  unsigned __int8 **v12; // r13
-  unsigned __int8 *v13; // rcx
-  unsigned int v14; // ecx
-  __int64 v15; // rax
-  int v16; // ecx
-  wchar_t *Pool2; // r14
-  unsigned __int16 Length; // ax
-  unsigned int v19; // r13d
-  __int64 v20; // rsi
-  PSID *v21; // rsi
-  unsigned int v23; // [rsp+20h] [rbp-E0h] BYREF
-  unsigned int v24; // [rsp+24h] [rbp-DCh]
+  __int64 v17; // rax
+  int v18; // ecx
+  __int64 v19; // r15
+  unsigned int v20; // r13d
+  PSID *v21; // r15
+  unsigned int v22; // eax
+  unsigned int v24; // [rsp+20h] [rbp-E0h] BYREF
   UNICODE_STRING Destination; // [rsp+28h] [rbp-D8h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+38h] [rbp-C8h] BYREF
   _DWORD *v27; // [rsp+48h] [rbp-B8h]
@@ -37,106 +37,107 @@ __int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, wchar_t 
   char *v29; // [rsp+58h] [rbp-A8h]
   char v30; // [rsp+60h] [rbp-A0h] BYREF
 
-  v29 = a6;
+  PoolWithTag = 0LL;
+  v7 = 0;
   v28 = a4;
   v27 = a5;
-  appended = 0;
-  v9 = 0;
+  v29 = a6;
   UnicodeString = 0LL;
   Destination = 0LL;
-  if ( a1 && (v10 = *a1) != 0 )
+  if ( !a1 || (v10 = *a1) == 0 )
   {
-    v11 = 1;
-    v12 = (unsigned __int8 **)(*((_QWORD *)a1 + 1) + 8LL);
-    v24 = 0;
-    do
-    {
-      v13 = *v12;
-      v23 = 0;
-      RtlLengthSidAsUnicodeString(v13, &v23);
-      v14 = v11 + (v23 >> 1) + 7;
-      if ( v14 < v11 )
-      {
-        appended = -1073741675;
-        goto LABEL_26;
-      }
-      v11 += (v23 >> 1) + 7;
-      v12 += 2;
-      ++v24;
-      appended = 0;
-    }
-    while ( v24 < v10 );
-    if ( v14 > 0x7FFF )
-    {
-      appended = -1073741811;
-      goto LABEL_26;
-    }
-    v15 = (unsigned int)*v27;
-    v16 = v15 + v14;
-    if ( (unsigned int)v15 + v11 >= 0x400 )
-    {
-      Pool2 = (wchar_t *)ExAllocatePool2(256LL, 2LL * v11, 1799447891LL);
-      if ( !Pool2 )
-      {
-        appended = -1073741801;
-        goto LABEL_26;
-      }
-      v9 = 1;
-    }
-    else
-    {
-      Pool2 = (wchar_t *)(v28 + 2 * v15);
-      *v27 = v16;
-    }
-    Destination.Buffer = Pool2;
-    Length = 0;
-    v19 = 0;
-    Destination.MaximumLength = 2 * v11;
-    v20 = *((_QWORD *)a1 + 1);
-    Destination.Length = 0;
-    *(_DWORD *)&UnicodeString.Length = 0x2000000;
-    UnicodeString.Buffer = (wchar_t *)&v30;
-    if ( *a1 )
-    {
-      v21 = (PSID *)(v20 + 8);
-      while ( 1 )
-      {
-        appended = RtlConvertSidToUnicodeString(&UnicodeString, *v21, 0);
-        if ( appended < 0 )
-          goto LABEL_22;
-        RtlAppendUnicodeToString(&Destination, L"\r\n\t\t%{");
-        RtlAppendUnicodeStringToString(&Destination, &UnicodeString);
-        ++v19;
-        v21 += 2;
-        appended = RtlAppendUnicodeToString(&Destination, L"}");
-        if ( v19 >= *a1 )
-        {
-          Length = Destination.Length;
-          break;
-        }
-      }
-    }
     if ( a3 )
     {
-      *a3 = Pool2;
-      a3[1] = (wchar_t *)((unsigned int)Length + 2);
+      *(_DWORD *)(a3 + 12) = 0;
+      *(_QWORD *)a3 = "-";
+      *(_DWORD *)(a3 + 8) = 4;
     }
-    if ( appended < 0 )
-    {
-LABEL_22:
-      if ( v9 )
-      {
-        ExFreePoolWithTag(Pool2, 0);
-        v9 = 0;
-      }
-    }
+    appended = 0;
+LABEL_23:
+    if ( appended >= 0 )
+      goto LABEL_26;
+    goto LABEL_24;
   }
-  else if ( a3 )
+  v11 = 0;
+  v12 = 1;
+  v13 = (unsigned __int8 **)(*((_QWORD *)a1 + 1) + 8LL);
+  do
   {
-    a3[1] = (wchar_t *)4;
-    *a3 = (wchar_t *)"-";
+    v14 = *v13;
+    v24 = 0;
+    RtlLengthSidAsUnicodeString(v14, &v24);
+    v15 = v12 + (v24 >> 1) + 7;
+    if ( v15 < v12 )
+    {
+      appended = -1073741675;
+      goto LABEL_26;
+    }
+    ++v11;
+    v13 += 2;
+    v12 += (v24 >> 1) + 7;
+  }
+  while ( v11 < v10 );
+  if ( v15 > 0x7FFF )
+  {
+    appended = -1073741811;
+    goto LABEL_26;
+  }
+  v17 = (unsigned int)*v27;
+  v18 = v17 + v15;
+  if ( (unsigned int)v17 + v12 >= 0x400 )
+  {
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2LL * v12, 0x6B416553u);
+    if ( !PoolWithTag )
+    {
+      appended = -1073741801;
+      goto LABEL_26;
+    }
+    v7 = 1;
+  }
+  else
+  {
+    PoolWithTag = (wchar_t *)(v28 + 2 * v17);
+    *v27 = v18;
+  }
+  v19 = *((_QWORD *)a1 + 1);
+  Destination.MaximumLength = 2 * v12;
+  appended = 0;
+  UnicodeString.MaximumLength = 512;
+  v20 = 0;
+  Destination.Buffer = PoolWithTag;
+  UnicodeString.Buffer = (wchar_t *)&v30;
+  if ( !*a1 )
+  {
+LABEL_18:
+    if ( a3 )
+    {
+      v22 = Destination.Length + 2;
+      *(_QWORD *)a3 = PoolWithTag;
+      *(_QWORD *)(a3 + 8) = v22;
+    }
+    goto LABEL_23;
+  }
+  v21 = (PSID *)(v19 + 8);
+  while ( 1 )
+  {
+    appended = RtlConvertSidToUnicodeString(&UnicodeString, *v21, 0);
+    if ( appended < 0 )
+      break;
+    RtlAppendUnicodeToString(&Destination, L"\r\n\t\t%{");
+    RtlAppendUnicodeStringToString(&Destination, &UnicodeString);
+    ++v20;
+    v21 += 2;
+    appended = RtlAppendUnicodeToString(&Destination, L"}");
+    if ( v20 >= *a1 )
+      goto LABEL_18;
+  }
+LABEL_24:
+  if ( v7 )
+  {
+    ExFreePoolWithTag(PoolWithTag, 0);
+    v7 = 0;
   }
 LABEL_26:
-  *v29 = v9;
+  *v29 = v7;
   return (unsigned int)appended;
 }

@@ -1,23 +1,25 @@
 /*
- * XREFs of NtDCompositionSetChildRootVisual @ 0x1C0212060
+ * XREFs of NtDCompositionSetChildRootVisual @ 0x1C01D2A00
  * Callers:
  *     <none>
  * Callees:
- *     GreLockDwmState @ 0x1C0030A10 (GreLockDwmState.c)
- *     GreUnlockDwmState @ 0x1C0030A50 (GreUnlockDwmState.c)
- *     ?OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z @ 0x1C00908E0 (-OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z.c)
- *     UserReferenceDwmApiPort @ 0x1C0090B20 (UserReferenceDwmApiPort.c)
- *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0093F84 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     GreLockDwmState @ 0x1C0047770 (GreLockDwmState.c)
+ *     GreUnlockDwmState @ 0x1C00477B0 (GreUnlockDwmState.c)
+ *     UserReferenceDwmApiPort @ 0x1C0049490 (UserReferenceDwmApiPort.c)
+ *     ?OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z @ 0x1C0049B40 (-OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z.c)
+ *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0082B34 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtDCompositionSetChildRootVisual(__int64 a1, void *a2, __int64 a3)
 {
   CompositionObject *v3; // rbx
   int v4; // edi
-  PVOID v6; // rsi
-  int v7; // eax
-  PVOID v8; // rcx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  PVOID v8; // rsi
+  int v9; // eax
+  PVOID v10; // rcx
   PVOID Object; // [rsp+38h] [rbp+10h] BYREF
 
   v3 = 0LL;
@@ -42,19 +44,19 @@ __int64 __fastcall NtDCompositionSetChildRootVisual(__int64 a1, void *a2, __int6
   {
 LABEL_6:
     GreLockDwmState();
-    v6 = 0LL;
+    v8 = 0LL;
     Object = 0LL;
     if ( v3 )
     {
-      v7 = CompositionObject::OpenDwmHandle(v3, &Object);
-      v6 = Object;
-      v4 = v7;
+      v9 = CompositionObject::OpenDwmHandle(v3, &Object, v6, v7);
+      v8 = Object;
+      v4 = v9;
     }
     if ( v4 >= 0 )
     {
-      v8 = UserReferenceDwmApiPort();
-      if ( qword_1C029B850 )
-        v4 = qword_1C029B850(v8, a1, v6);
+      v10 = UserReferenceDwmApiPort();
+      if ( qword_1C0256AF0 )
+        v4 = qword_1C0256AF0(v10, a1, v8);
       else
         v4 = -1073741637;
     }

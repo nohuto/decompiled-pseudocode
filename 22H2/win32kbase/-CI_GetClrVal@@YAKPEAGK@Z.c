@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CI_GetClrVal@@YAKPEAGK@Z @ 0x1C0061DC4
+ * XREFs of ?CI_GetClrVal@@YAKPEAGK@Z @ 0x1C0010344
  * Callers:
- *     xxxODI_ColorInit @ 0x1C0061B50 (xxxODI_ColorInit.c)
+ *     xxxODI_ColorInit @ 0x1C00100D0 (xxxODI_ColorInit.c)
  * Callees:
  *     <none>
  */
@@ -12,42 +12,61 @@ __int64 __fastcall CI_GetClrVal(unsigned __int16 *a1, unsigned int a2)
   unsigned int *v4; // r9
   int v5; // r10d
   unsigned __int16 v6; // r8
-  char v7; // dl
-  unsigned int v9; // [rsp+8h] [rbp+8h] BYREF
+  unsigned __int16 v7; // dx
+  char v8; // dl
+  unsigned __int16 v9; // r8
+  unsigned int v11; // [rsp+8h] [rbp+8h] BYREF
 
   v2 = *a1;
-  v9 = 0;
+  v11 = 0;
   if ( v2 )
   {
-    v4 = &v9;
+    v4 = &v11;
     v5 = 0;
-    while ( v2 )
+    while ( 1 )
     {
       v6 = v2;
-      while ( v6 < 0x30u || v6 > 0x39u )
+      if ( v2 )
       {
-        v2 = *++a1;
-        v6 = *a1;
-        if ( !*a1 )
-          return a2;
+        v7 = v2;
+        do
+        {
+          if ( v7 >= 0x30u )
+          {
+            v6 = v7;
+            if ( v7 <= 0x39u )
+              break;
+          }
+          v2 = *++a1;
+          v7 = *a1;
+          v6 = *a1;
+        }
+        while ( *a1 );
       }
-      v7 = 0;
-      do
+      if ( !v6 )
+        break;
+      v8 = 0;
+      if ( v6 >= 0x30u )
       {
-        if ( v6 > 0x39u )
-          break;
-        v7 = *(_BYTE *)a1++ + 10 * v7 - 48;
         v2 = *a1;
-        v6 = *a1;
+        v9 = *a1;
+        do
+        {
+          if ( v9 > 0x39u )
+            break;
+          v8 = *(_BYTE *)a1++ + 10 * v8 - 48;
+          v2 = *a1;
+          v9 = *a1;
+        }
+        while ( *a1 >= 0x30u );
       }
-      while ( *a1 >= 0x30u );
-      *(_BYTE *)v4 = v7;
+      *(_BYTE *)v4 = v8;
       ++v5;
       v4 = (unsigned int *)((char *)v4 + 1);
       if ( v5 >= 3 )
       {
         *(_BYTE *)v4 = 0;
-        return v9;
+        return v11;
       }
     }
   }

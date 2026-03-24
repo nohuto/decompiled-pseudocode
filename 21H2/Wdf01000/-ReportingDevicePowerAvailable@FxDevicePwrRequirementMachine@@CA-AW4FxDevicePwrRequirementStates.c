@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ReportingDevicePowerAvailable@FxDevicePwrRequirementMachine@@CA?AW4FxDevicePwrRequirementStates@@PEAV1@@Z @ 0x1C000F350
+ * XREFs of ?ReportingDevicePowerAvailable@FxDevicePwrRequirementMachine@@CA?AW4FxDevicePwrRequirementStates@@PEAV1@@Z @ 0x1C001A430
  * Callers:
  *     <none>
  * Callees:

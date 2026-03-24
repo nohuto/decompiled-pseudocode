@@ -1,5 +1,5 @@
 /*
- * XREFs of PspGetPicoProcessContext @ 0x1406D40F0
+ * XREFs of PspGetPicoProcessContext @ 0x1406D40D0
  * Callers:
  *     <none>
  * Callees:

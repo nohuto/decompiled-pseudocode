@@ -1,8 +1,10 @@
 /*
- * XREFs of CiSystemUpdateMediaBufferingState @ 0x1C0002E10
+ * XREFs of CiSystemUpdateMediaBufferingState @ 0x1C0002A30
  * Callers:
- *     CiSchedulerProcessDeadlines @ 0x1C0001250 (CiSchedulerProcessDeadlines.c)
- *     CiSchedulerRefreshTaskIndexQosProperties @ 0x1C00030B0 (CiSchedulerRefreshTaskIndexQosProperties.c)
+ *     CiSchedulerTaskIndexYield @ 0x1C0001170 (CiSchedulerTaskIndexYield.c)
+ *     CiSchedulerProcessDeadlines @ 0x1C0001F40 (CiSchedulerProcessDeadlines.c)
+ *     CiSchedulerRemoveTaskIndex @ 0x1C0002A80 (CiSchedulerRemoveTaskIndex.c)
+ *     CiSchedulerCancelTaskIndexYield @ 0x1C0002B50 (CiSchedulerCancelTaskIndexYield.c)
  * Callees:
  *     <none>
  */

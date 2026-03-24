@@ -1,9 +1,9 @@
 /*
- * XREFs of ?BreakLinksForCycles@CCyclicResourceListEntry@@UEAAXXZ @ 0x1801C6200
+ * XREFs of ?BreakLinksForCycles@CCyclicResourceListEntry@@UEAAXXZ @ 0x180188D40
  * Callers:
- *     ?BreakLinksForCycles@CTransformGroup@@MEAAXXZ @ 0x180242A50 (-BreakLinksForCycles@CTransformGroup@@MEAAXXZ.c)
+ *     ?BreakLinksForCycles@CTransformGroup@@MEAAXXZ @ 0x1801B6220 (-BreakLinksForCycles@CTransformGroup@@MEAAXXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CCyclicResourceListEntry::BreakLinksForCycles(CCyclicResourceListEntry *this)

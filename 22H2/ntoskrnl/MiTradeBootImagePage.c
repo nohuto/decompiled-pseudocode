@@ -1,93 +1,121 @@
 /*
- * XREFs of MiTradeBootImagePage @ 0x140B4A55C
+ * XREFs of MiTradeBootImagePage @ 0x140A4FE60
  * Callers:
- *     MiHandleBootImage @ 0x140B4A1A8 (MiHandleBootImage.c)
+ *     MiHandleBootImage @ 0x140A4FB14 (MiHandleBootImage.c)
  * Callees:
- *     MiCopyPfnEntryEx @ 0x140219D80 (MiCopyPfnEntryEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F450 (MiInsertTbFlushEntry.c)
- *     MiDecrementShareCount @ 0x140280690 (MiDecrementShareCount.c)
- *     MiCopyPage @ 0x140283CF0 (MiCopyPage.c)
- *     MiWriteValidPteNewPage @ 0x1402EB04C (MiWriteValidPteNewPage.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiClearPfnImageVerified @ 0x140335218 (MiClearPfnImageVerified.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348380 (MiLockNestedPageAtDpcInline.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KeCopyPrivilegedPage @ 0x14056ECC8 (KeCopyPrivilegedPage.c)
+ *     MiDecrementShareCount @ 0x14023FB30 (MiDecrementShareCount.c)
+ *     MiCopyPage @ 0x14023FB90 (MiCopyPage.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiClearPfnImageVerified @ 0x1402FBA64 (MiClearPfnImageVerified.c)
+ *     MiWriteValidPteNewPage @ 0x14030E048 (MiWriteValidPteNewPage.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140333FA0 (MiLockNestedPageAtDpcInline.c)
+ *     MiCopyPfnEntryEx @ 0x140336A40 (MiCopyPfnEntryEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KeCopyPrivilegedPage @ 0x140512D10 (KeCopyPrivilegedPage.c)
  */
 
 __int64 __fastcall MiTradeBootImagePage(unsigned __int64 a1, ULONG_PTR a2)
 {
-  __int64 v4; // rsi
-  unsigned __int64 v5; // r13
-  __int64 v6; // r14
-  unsigned __int64 v7; // r12
-  unsigned int v8; // r8d
-  unsigned __int64 v9; // rdx
+  unsigned __int64 v4; // rbx
+  __int64 v5; // rdx
+  struct _LIST_ENTRY *Flink; // r8
+  _DWORD *v7; // r9
+  __int64 v8; // rbx
+  __int64 v9; // rdi
+  unsigned __int64 v10; // r15
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  _KPROCESS *v14; // rdx
+  __int64 v15; // r8
+  _DWORD *v16; // r9
   __int64 result; // rax
+  __int64 v18; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v13; // zf
-  __int64 v14; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v15; // [rsp+38h] [rbp-C8h]
-  __int64 *v16; // [rsp+40h] [rbp-C0h]
-  __int128 v17; // [rsp+50h] [rbp-B0h] BYREF
-  _QWORD v18[24]; // [rsp+60h] [rbp-A0h] BYREF
+  bool v21; // zf
+  __int64 v22; // [rsp+30h] [rbp-D0h] BYREF
+  __int128 v23; // [rsp+38h] [rbp-C8h] BYREF
+  _QWORD v24[24]; // [rsp+50h] [rbp-B0h] BYREF
 
-  v16 = (__int64 *)a1;
-  memset(v18, 0, 0xB8uLL);
-  v18[3] = 0LL;
-  LODWORD(v18[1]) = 20;
-  v14 = MI_READ_PTE_LOCK_FREE(a1);
-  v4 = v14;
-  v15 = (__int64)(a1 << 25) >> 16;
-  v5 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v14) >> 12) & 0xFFFFFFFFFFLL;
-  v6 = 48 * v5 - 0x220000000000LL;
-  v7 = (unsigned __int8)MiLockPageInline(v6);
-  MiLockNestedPageAtDpcInline(48 * a2 - 0x220000000000LL);
-  MiCopyPfnEntryEx(48 * a2 - 0x220000000000LL, (__int128 *)v6);
-  v8 = ((unsigned int)MiFlags >> 14) & 1;
-  if ( !v8 || ((*(_QWORD *)(v6 + 40) >> 60) & 7) == 3 )
+  memset(v24, 0, 0xB8uLL);
+  v24[3] = 0LL;
+  LODWORD(v24[1]) = 20;
+  v23 = 0LL;
+  v22 = MI_READ_PTE_LOCK_FREE(a1);
+  v4 = v22;
+  if ( MiPteInShadowRange((unsigned __int64)&v22)
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && (v4 & 1) != 0 )
   {
-    MiCopyPage(a2, v5, 2 * v8 + 4);
+    v5 = v4;
+    if ( (v4 & 0x20) == 0 || (v4 & 0x42) == 0 )
+    {
+      Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( Flink )
+      {
+        v18 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v22 >> 3) & 0x1FF));
+        if ( (v18 & 0x20) != 0 )
+          v4 |= 0x20uLL;
+        if ( (v18 & 0x42) != 0 )
+          v4 |= 0x42uLL;
+      }
+      else
+      {
+        v4 = v22;
+      }
+    }
+  }
+  v8 = (v4 >> 12) & 0xFFFFFFFFFLL;
+  v9 = 48 * v8 - 0x58000000000LL;
+  v10 = (unsigned __int8)MiLockPageInline(v9, v5, (__int64)Flink, v7);
+  MiLockNestedPageAtDpcInline(48 * a2 - 0x58000000000LL, v11, v12, v13);
+  MiCopyPfnEntryEx(48 * a2 - 0x58000000000LL, v9);
+  if ( (((unsigned int)MiFlags >> 15) & 1) == 0 || ((*(_QWORD *)(v9 + 40) >> 60) & 7) == 3 )
+  {
+    MiCopyPage(a2, v8, 0LL, 2 * (((unsigned int)MiFlags >> 15) & 1) + 4);
   }
   else
   {
-    v17 = (unsigned __int64)v15;
-    KeCopyPrivilegedPage(a2, &v17, v5, &v17, 0LL, 1);
+    *(_QWORD *)&v23 = (__int64)(a1 << 25) >> 16;
+    KeCopyPrivilegedPage(a2, &v23, v8, &v23, 0LL, 1);
   }
-  v14 = v4 ^ (v4 ^ (a2 << 12)) & 0xFFFFFFFFFF000LL;
-  MiWriteValidPteNewPage(v16, v14, 0);
-  _InterlockedAnd64((volatile signed __int64 *)(48 * a2 - 0x220000000000LL + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  v9 = v15;
-  *(_QWORD *)(v6 + 24) |= 0x4000000000000000uLL;
-  MiInsertTbFlushEntry((__int64)v18, v9, 1LL, 0);
-  MiFlushTbList((int *)v18);
-  if ( (MiFlags & 0x4000) == 0 && ((*(_QWORD *)(v6 + 40) >> 60) & 7) == 3 )
-    MiClearPfnImageVerified(48 * v5 - 0x220000000000LL, 12);
-  *(_BYTE *)(v6 + 35) &= ~8u;
-  result = MiDecrementShareCount(48 * v5 - 0x220000000000LL);
-  _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  v22 ^= (v22 ^ (a2 << 12)) & 0xFFFFFFFFF000LL;
+  MiWriteValidPteNewPage((__int64 *)a1, v22, 0);
+  _InterlockedAnd64((volatile signed __int64 *)(48 * a2 - 0x58000000000LL + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  *(_QWORD *)(v9 + 24) |= 0x4000000000000000uLL;
+  MiInsertTbFlushEntry((__int64)v24, (__int64)(a1 << 25) >> 16, 1LL, 0);
+  MiFlushTbList((__int64)v24, v14);
+  if ( (MiFlags & 0x8000) == 0 && ((*(_QWORD *)(v9 + 40) >> 60) & 7) == 3 )
+    MiClearPfnImageVerified(v9, 12LL, v15, v16);
+  *(_BYTE *)(v9 + 35) &= ~8u;
+  MiDecrementShareCount(v9);
+  _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v7 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v13 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v13 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v10 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+        v21 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v21 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
-  __writecr8(v7);
+  __writecr8(v10);
   return result;
 }

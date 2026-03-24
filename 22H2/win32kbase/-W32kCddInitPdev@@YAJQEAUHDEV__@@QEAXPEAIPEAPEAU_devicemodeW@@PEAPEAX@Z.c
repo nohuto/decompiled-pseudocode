@@ -1,26 +1,27 @@
 /*
- * XREFs of ?W32kCddInitPdev@@YAJQEAUHDEV__@@QEAXPEAIPEAPEAU_devicemodeW@@PEAPEAX@Z @ 0x1C00AD440
+ * XREFs of ?W32kCddInitPdev@@YAJQEAUHDEV__@@QEAXPEAIPEAPEAU_devicemodeW@@PEAPEAX@Z @ 0x1C00AB340
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGraphicsDeviceFromDevObjHandle@@YAPEAUtagGRAPHICS_DEVICE@@QEAX@Z @ 0x1C00AD4B0 (-GetGraphicsDeviceFromDevObjHandle@@YAPEAUtagGRAPHICS_DEVICE@@QEAX@Z.c)
+ *     ?GetGraphicsDeviceFromDevObjHandle@@YAPEAUtagGRAPHICS_DEVICE@@QEAX@Z @ 0x1C00AB52C (-GetGraphicsDeviceFromDevObjHandle@@YAPEAUtagGRAPHICS_DEVICE@@QEAX@Z.c)
  */
 
 __int64 __fastcall W32kCddInitPdev(HDEV a1, void *const a2, unsigned int *a3, struct _devicemodeW **a4, void **a5)
 {
-  unsigned int v5; // ebx
   struct tagGRAPHICS_DEVICE *GraphicsDeviceFromDevObjHandle; // rax
+  _DWORD *v6; // r8
+  _QWORD *v7; // r9
+  unsigned int v8; // r10d
 
-  v5 = 0;
   if ( a1 && (GraphicsDeviceFromDevObjHandle = GetGraphicsDeviceFromDevObjHandle(a2)) != 0LL )
   {
-    *a3 = *((_DWORD *)GraphicsDeviceFromDevObjHandle + 47);
-    *a4 = (struct _devicemodeW *)*((_QWORD *)GraphicsDeviceFromDevObjHandle + 22);
+    *v6 = *((_DWORD *)GraphicsDeviceFromDevObjHandle + 47);
+    *v7 = *((_QWORD *)GraphicsDeviceFromDevObjHandle + 22);
     *a5 = &gDxgkWin32kEngInterface;
   }
   else
   {
     return (unsigned int)-1073741811;
   }
-  return v5;
+  return v8;
 }

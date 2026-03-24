@@ -1,132 +1,142 @@
 /*
- * XREFs of VidSchiDiscardQueuePacket @ 0x1C00F2F7C
+ * XREFs of VidSchiDiscardQueuePacket @ 0x1C00CFABC
  * Callers:
- *     VidSchiSubmitPagingCommand @ 0x1C00959B0 (VidSchiSubmitPagingCommand.c)
- *     VidSchiSubmitRenderVirtualCommand @ 0x1C0096600 (VidSchiSubmitRenderVirtualCommand.c)
- *     VidSchiSubmitRenderCommand @ 0x1C00F38D0 (VidSchiSubmitRenderCommand.c)
- *     VidSchFlushPendingCommand @ 0x1C00F44F0 (VidSchFlushPendingCommand.c)
+ *     VidSchiSubmitRenderVirtualCommand @ 0x1C007F970 (VidSchiSubmitRenderVirtualCommand.c)
+ *     VidSchiSubmitPagingCommand @ 0x1C0086C40 (VidSchiSubmitPagingCommand.c)
+ *     VidSchiSubmitRenderCommand @ 0x1C00D062C (VidSchiSubmitRenderCommand.c)
+ *     VidSchFlushPendingCommand @ 0x1C00D17D0 (VidSchFlushPendingCommand.c)
  * Callees:
- *     VidSchiSignalRegisteredEvent @ 0x1C0010BF0 (VidSchiSignalRegisteredEvent.c)
- *     ?ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C0018420 (-ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z.c)
- *     VidSchiProcessCompletedQueuePacket @ 0x1C0018878 (VidSchiProcessCompletedQueuePacket.c)
- *     memset @ 0x1C001DC40 (memset.c)
- *     ?DdiCancelCommand@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_CANCELCOMMAND@@@Z @ 0x1C002CA48 (-DdiCancelCommand@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_CANCELCOMMAND@@@Z.c)
- *     ?UnreferenceDmaBuffer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C002E080 (-UnreferenceDmaBuffer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z.c)
- *     ?VidSchiFreeHistoryBufferStorage@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0034CD4 (-VidSchiFreeHistoryBufferStorage@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     ?BeginCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@PEAPEAX@Z @ 0x1C00A4420 (-BeginCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@PEAPEAX@Z.c)
+ *     VidSchiSignalRegisteredEvent @ 0x1C0013758 (VidSchiSignalRegisteredEvent.c)
+ *     ?ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C0015580 (-ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z.c)
+ *     VidSchiProcessCompletedQueuePacket @ 0x1C0016D1C (VidSchiProcessCompletedQueuePacket.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     ?DdiCancelCommand@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_CANCELCOMMAND@@@Z @ 0x1C0022530 (-DdiCancelCommand@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_CANCELCOMMAND@@@Z.c)
+ *     ?UnreferenceDmaBuffer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C0023E98 (-UnreferenceDmaBuffer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z.c)
+ *     ?VidSchiFreeHistoryBufferStorage@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C002B044 (-VidSchiFreeHistoryBufferStorage@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?BeginCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@PEAPEAX@Z @ 0x1C00756EC (-BeginCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@PEAPEAX@Z.c)
  */
 
 struct _VIDSCH_QUEUE_PACKET *__fastcall VidSchiDiscardQueuePacket(
         struct _VIDSCH_QUEUE_PACKET *a1,
         __int64 a2,
-        __int64 a3,
-        __int64 a4)
+        __int64 a3)
 {
-  __int64 v4; // r14
-  __int64 v6; // rdi
-  __int64 v7; // r15
-  __int64 v8; // rsi
-  bool v9; // zf
-  UINT v10; // ecx
-  UINT v11; // eax
-  __int64 v12; // rcx
-  UINT v13; // eax
-  void *v14; // rax
-  UINT *v15; // rcx
-  UINT v16; // eax
-  UINT v17; // ecx
-  const D3DDDI_PATCHLOCATIONLIST *v18; // rax
-  int v19; // eax
-  _DXGKARG_CANCELCOMMAND v21; // [rsp+38h] [rbp-29h] BYREF
+  __int64 v3; // r14
+  __int64 v5; // rdi
+  __int64 v6; // r13
+  __int64 v7; // rsi
+  bool v8; // zf
+  UINT v9; // ecx
+  UINT v10; // eax
+  __int64 v11; // rcx
+  UINT v12; // eax
+  void *v13; // rax
+  UINT *v14; // rcx
+  UINT v15; // eax
+  UINT v16; // ecx
+  const D3DDDI_PATCHLOCATIONLIST *v17; // rax
+  int v18; // eax
+  __int64 v19; // rcx
+  __int64 v20; // r15
+  _QWORD *v21; // rax
+  _DXGKARG_CANCELCOMMAND v23; // [rsp+28h] [rbp-29h] BYREF
 
-  v4 = *((_QWORD *)a1 + 11);
-  v6 = *((_QWORD *)a1 + 35);
-  v7 = *(_QWORD *)(v4 + 96);
-  v8 = *(_QWORD *)(*(_QWORD *)(v4 + 104) + 32LL);
-  if ( *(_BYTE *)(v8 + 46) )
+  v3 = *((_QWORD *)a1 + 11);
+  v5 = *((_QWORD *)a1 + 35);
+  v6 = *(_QWORD *)(v3 + 96);
+  v7 = *(_QWORD *)(*(_QWORD *)(v3 + 104) + 32LL);
+  if ( *(_BYTE *)(v7 + 46) )
   {
-    memset(&v21, 0, sizeof(v21));
-    v9 = (*((_DWORD *)a1 + 18) & 0x8000000) == 0;
-    v21.hContext = *(HANDLE *)(v4 + 64);
-    if ( v9 )
+    memset(&v23, 0, sizeof(v23));
+    v8 = (*((_DWORD *)a1 + 18) & 0x8000000) == 0;
+    v23.hContext = *(HANDLE *)(v3 + 64);
+    if ( v8 )
     {
-      if ( !v6 )
+      if ( !v5 )
         goto LABEL_16;
-      v15 = *(UINT **)(v6 + 136);
-      v21.DmaBufferSize = *(_DWORD *)(v6 + 40);
-      v21.pDmaBufferPrivateData = *(void **)(v6 + 128);
-      v21.DmaBufferPrivateDataSize = v15[22];
-      VIDMM_DMA_POOL::BeginCPUAccess((VIDMM_DMA_POOL *)v15, (struct _VIDMM_DMA_BUFFER *)v6, &v21.pDmaBuffer);
-      v16 = *((_DWORD *)a1 + 81);
-      v17 = *((_DWORD *)a1 + 86);
-      v21.DmaBufferSubmissionStartOffset = 0;
-      v21.DmaBufferSubmissionEndOffset = v16;
-      v21.pAllocationList = *(const DXGK_ALLOCATIONLIST **)(v6 + 112);
-      v21.AllocationListSize = *((_DWORD *)a1 + 83);
-      v18 = *(const D3DDDI_PATCHLOCATIONLIST **)(v6 + 120);
-      v21.DmaBufferPrivateDataSubmissionStartOffset = v17;
-      v21.PatchLocationListSubmissionStart = 0;
-      v21.pPatchLocationList = v18;
-      v21.PatchLocationListSize = *(_DWORD *)(v6 + 52);
-      v21.PatchLocationListSubmissionLength = v21.PatchLocationListSize;
-      v21.DmaBufferPrivateDataSubmissionEndOffset = v21.DmaBufferPrivateDataSize + v17;
+      v14 = *(UINT **)(v5 + 136);
+      v23.DmaBufferSize = *(_DWORD *)(v5 + 40);
+      v23.pDmaBufferPrivateData = *(void **)(v5 + 128);
+      v23.DmaBufferPrivateDataSize = v14[22];
+      VIDMM_DMA_POOL::BeginCPUAccess((VIDMM_DMA_POOL *)v14, (struct _VIDMM_DMA_BUFFER *)v5, &v23.pDmaBuffer);
+      v15 = *((_DWORD *)a1 + 81);
+      v16 = *((_DWORD *)a1 + 86);
+      v23.DmaBufferSubmissionStartOffset = 0;
+      v23.DmaBufferSubmissionEndOffset = v15;
+      v23.pAllocationList = *(const DXGK_ALLOCATIONLIST **)(v5 + 112);
+      v23.AllocationListSize = *((_DWORD *)a1 + 83);
+      v17 = *(const D3DDDI_PATCHLOCATIONLIST **)(v5 + 120);
+      v23.DmaBufferPrivateDataSubmissionStartOffset = v16;
+      v23.PatchLocationListSubmissionStart = 0;
+      v23.pPatchLocationList = v17;
+      v23.PatchLocationListSize = *(_DWORD *)(v5 + 52);
+      v23.PatchLocationListSubmissionLength = v23.PatchLocationListSize;
+      v23.DmaBufferPrivateDataSubmissionEndOffset = v23.DmaBufferPrivateDataSize + v16;
     }
     else
     {
-      v10 = *((_DWORD *)a1 + 81);
-      v21.DmaBufferVirtualAddress = *((_QWORD *)a1 + 39);
-      v11 = *((_DWORD *)a1 + 88);
-      v21.DmaBufferSize = v10;
-      v21.DmaBufferSubmissionEndOffset = v10;
-      v12 = *((_QWORD *)a1 + 36);
-      v21.DmaBufferUmdPrivateDataSize = v11;
-      v13 = *((_DWORD *)a1 + 87);
-      v21.DmaBufferPrivateDataSubmissionEndOffset = v13;
-      if ( v12 )
+      v9 = *((_DWORD *)a1 + 81);
+      v23.DmaBufferVirtualAddress = *((_QWORD *)a1 + 39);
+      v10 = *((_DWORD *)a1 + 88);
+      v23.DmaBufferSize = v9;
+      v23.DmaBufferSubmissionEndOffset = v9;
+      v11 = *((_QWORD *)a1 + 36);
+      v23.DmaBufferUmdPrivateDataSize = v10;
+      v12 = *((_DWORD *)a1 + 87);
+      v23.DmaBufferPrivateDataSubmissionEndOffset = v12;
+      if ( v11 )
       {
-        v21.DmaBufferPrivateDataSize = *(_DWORD *)(v12 + 8);
-        v14 = (void *)(v12 + 16);
+        v23.DmaBufferPrivateDataSize = *(_DWORD *)(v11 + 8);
+        v13 = (void *)(v11 + 16);
       }
-      else if ( v6 )
+      else if ( v5 )
       {
-        v21.DmaBufferPrivateDataSize = v13;
-        v14 = *(void **)(v6 + 128);
+        v23.DmaBufferPrivateDataSize = v12;
+        v13 = *(void **)(v5 + 128);
       }
       else
       {
-        v21.DmaBufferPrivateDataSize = 0;
-        v14 = 0LL;
+        v23.DmaBufferPrivateDataSize = 0;
+        v13 = 0LL;
       }
-      v21.pDmaBufferPrivateData = v14;
+      v23.pDmaBufferPrivateData = v13;
     }
-    v19 = ADAPTER_RENDER::DdiCancelCommand(*(ADAPTER_RENDER **)(v8 + 8), &v21);
-    if ( v19 )
+    v18 = ADAPTER_RENDER::DdiCancelCommand(*(ADAPTER_RENDER **)(v7 + 8), &v23);
+    v20 = v18;
+    if ( v18 )
     {
-      WdLogSingleEntry5(0LL, 281LL, 9LL, v19, &v21, a1);
+      v21 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v19, a2);
+      v21[6] = &v23;
+      v21[3] = 281LL;
+      v21[4] = 9LL;
+      v21[5] = v20;
+      v21[7] = a1;
+      WdLogEvent5_WdCriticalError(v21);
       __debugbreak();
     }
   }
-  if ( v6 && !*((_DWORD *)a1 + 12) )
+  if ( v5 && !*((_DWORD *)a1 + 12) )
     VIDMM_GLOBAL::UnreferenceDmaBuffer(
-      *(VIDMM_GLOBAL **)(*(_QWORD *)(v8 + 8) + 656LL),
-      (struct _VIDMM_DMA_BUFFER *)v6,
-      0LL,
-      a4);
+      *(VIDMM_GLOBAL **)(*(_QWORD *)(v7 + 8) + 648LL),
+      (struct _VIDMM_DMA_BUFFER *)v5,
+      0);
 LABEL_16:
   if ( (*((_DWORD *)a1 + 18) & 0x100) != 0 )
   {
-    LOBYTE(a3) = *((_DWORD *)a1 + 12) == 8;
-    VIDMM_DMA_POOL::ReleaseBuffer(*(VIDMM_DMA_POOL **)(v6 + 136), (struct _VIDMM_DMA_BUFFER *)v6, a3, a4);
-    VidSchiSignalRegisteredEvent(v8, (struct _KEVENT **)(v4 + 376));
-    VidSchiSignalRegisteredEvent(v8, (struct _KEVENT **)(v7 + 408));
-    VidSchiSignalRegisteredEvent(v8, (struct _KEVENT **)(v8 + 1640));
-    *(_QWORD *)(v4 + 352) = MEMORY[0xFFFFF78000000320];
-    KeSetEvent((PRKEVENT)(v4 + 320), 0, 0);
-    *(_QWORD *)(v7 + 272) = MEMORY[0xFFFFF78000000320];
-    KeSetEvent((PRKEVENT)(v7 + 240), 0, 0);
-    *(_QWORD *)(v8 + 1448) = MEMORY[0xFFFFF78000000320];
-    KeSetEvent((PRKEVENT)(v8 + 1416), 0, 0);
-    VidSchiSignalRegisteredEvent(v8, (struct _KEVENT **)(v8 + 1688));
+    VIDMM_DMA_POOL::ReleaseBuffer(
+      *(VIDMM_DMA_POOL **)(v5 + 136),
+      (struct _VIDMM_DMA_BUFFER *)v5,
+      *((_DWORD *)a1 + 12) == 8);
+    VidSchiSignalRegisteredEvent(v7, (struct _KEVENT **)(v3 + 376));
+    VidSchiSignalRegisteredEvent(v7, (struct _KEVENT **)(v6 + 408));
+    VidSchiSignalRegisteredEvent(v7, (struct _KEVENT **)(v7 + 1624));
+    *(_QWORD *)(v3 + 352) = MEMORY[0xFFFFF78000000320];
+    KeSetEvent((PRKEVENT)(v3 + 320), 0, 0);
+    *(_QWORD *)(v6 + 272) = MEMORY[0xFFFFF78000000320];
+    KeSetEvent((PRKEVENT)(v6 + 240), 0, 0);
+    *(_QWORD *)(v7 + 1432) = MEMORY[0xFFFFF78000000320];
+    KeSetEvent((PRKEVENT)(v7 + 1400), 0, 0);
+    VidSchiSignalRegisteredEvent(v7, (struct _KEVENT **)(v7 + 1672));
   }
   *((_DWORD *)a1 + 20) |= 0x20u;
   if ( *((_QWORD *)a1 + 33) )

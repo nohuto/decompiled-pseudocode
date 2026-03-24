@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessRegisterWithChannel@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATIONLOGGINGMANAGER_REGISTERWITHCHANNEL@@@Z @ 0x1800F2AF8
+ * XREFs of ?ProcessRegisterWithChannel@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATIONLOGGINGMANAGER_REGISTERWITHCHANNEL@@@Z @ 0x1800DAD90
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CAnimationLoggingManager::ProcessRegisterWithChannel(
@@ -11,7 +11,7 @@ __int64 __fastcall CAnimationLoggingManager::ProcessRegisterWithChannel(
         struct CResourceTable *a2,
         const struct tagMILCMD_ANIMATIONLOGGINGMANAGER_REGISTERWITHCHANNEL *a3)
 {
-  *(_QWORD *)(*((_QWORD *)this + 6) + 64LL) = this;
+  *(_QWORD *)(*((_QWORD *)this + 6) + 56LL) = this;
   (*(void (__fastcall **)(CAnimationLoggingManager *, struct CResourceTable *, const struct tagMILCMD_ANIMATIONLOGGINGMANAGER_REGISTERWITHCHANNEL *))(*(_QWORD *)this + 8LL))(
     this,
     a2,

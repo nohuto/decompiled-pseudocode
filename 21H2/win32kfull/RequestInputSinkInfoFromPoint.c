@@ -1,10 +1,11 @@
 /*
- * XREFs of RequestInputSinkInfoFromPoint @ 0x1C0002740
+ * XREFs of RequestInputSinkInfoFromPoint @ 0x1C0004CF4
  * Callers:
- *     NtUserCompositionInputSinkViewInstanceIdFromPoint @ 0x1C0002640 (NtUserCompositionInputSinkViewInstanceIdFromPoint.c)
- *     NtUserCompositionInputSinkLuidFromPoint @ 0x1C01F1E50 (NtUserCompositionInputSinkLuidFromPoint.c)
+ *     NtUserCompositionInputSinkViewInstanceIdFromPoint @ 0x1C0004BF0 (NtUserCompositionInputSinkViewInstanceIdFromPoint.c)
+ *     NtUserCompositionInputSinkLuidFromPoint @ 0x1C01F7330 (NtUserCompositionInputSinkLuidFromPoint.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     WakeDIT @ 0x1C010BDD4 (WakeDIT.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -22,7 +23,7 @@ __int64 __fastcall RequestInputSinkInfoFromPoint(__int128 *a1)
   _OWORD v12[7]; // [rsp+30h] [rbp-78h] BYREF
 
   v2 = 0;
-  while ( gbMIT )
+  while ( gbDIT )
   {
     if ( gbCompositionInputSinkQueryBlockedOnDIT != 1 )
     {
@@ -38,17 +39,17 @@ __int64 __fastcall RequestInputSinkInfoFromPoint(__int128 *a1)
       gInputSinkInfoRetrieval[6] = a1[6];
       if ( v3 )
       {
-        WakeMIT(2LL);
+        WakeDIT(2LL);
       }
       else
       {
-        gfAppWaitingForLLHookSignal = 1;
-        KeSetEvent(gpkeComputeInputSinkInfo, 1, 0);
+        LODWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) = 1;
+        KeSetEvent((PRKEVENT)WPP_MAIN_CB.DeviceQueue.Lock, 1, 0);
       }
       UserSessionSwitchLeaveCrit();
       KeWaitForSingleObject(gpkeDITCompositionInputSinkQueryResponseEvent, UserRequest, 1, 1u, 0LL);
-      EnterCrit(1LL, 0LL);
-      gfAppWaitingForLLHookSignal = 0;
+      EnterCrit(0LL, 1LL);
+      LODWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) = 0;
       v2 = gInputSinkInfoRetrieval[1];
       if ( v2 )
       {
@@ -88,7 +89,7 @@ __int64 __fastcall RequestInputSinkInfoFromPoint(__int128 *a1)
     ++gcDITLuidHitTestWaiters;
     LeaveCrit();
     KeWaitForSingleObject(gpsemDITLuidHitTestWaiters, UserRequest, 0, 0, 0LL);
-    EnterCrit(1LL, 0LL);
+    EnterCrit(0LL, 1LL);
   }
   return v2;
 }

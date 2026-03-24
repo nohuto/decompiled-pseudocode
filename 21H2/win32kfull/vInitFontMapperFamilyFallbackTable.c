@@ -1,9 +1,9 @@
 /*
- * XREFs of vInitFontMapperFamilyFallbackTable @ 0x1C0391F80
+ * XREFs of vInitFontMapperFamilyFallbackTable @ 0x1C0394F00
  * Callers:
  *     <none>
  * Callees:
- *     PREALLOCMEM2 @ 0x1C011D46C (PREALLOCMEM2.c)
+ *     PREALLOCMEM2 @ 0x1C0132890 (PREALLOCMEM2.c)
  */
 
 int vInitFontMapperFamilyFallbackTable()

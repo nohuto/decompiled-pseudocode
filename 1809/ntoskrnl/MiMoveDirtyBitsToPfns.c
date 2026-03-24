@@ -1,9 +1,9 @@
 /*
  * XREFs of MiMoveDirtyBitsToPfns @ 0x140074A40
  * Callers:
- *     MiBeginHoldingDirtyFaults @ 0x1402B90C0 (MiBeginHoldingDirtyFaults.c)
+ *     MiBeginHoldingDirtyFaults @ 0x1402B91C0 (MiBeginHoldingDirtyFaults.c)
  *     NtResetWriteWatch @ 0x1405EE780 (NtResetWriteWatch.c)
- *     MiProcessVaRangesInfoClass @ 0x1406BCC58 (MiProcessVaRangesInfoClass.c)
+ *     MiProcessVaRangesInfoClass @ 0x1406BCC38 (MiProcessVaRangesInfoClass.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
@@ -18,23 +18,23 @@
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7780 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiCompressTbFlushList @ 0x140113A80 (MiCompressTbFlushList.c)
- *     MiCapturePageFileInfoInline @ 0x140119DB0 (MiCapturePageFileInfoInline.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiUnlockVadCore @ 0x140125748 (MiUnlockVadCore.c)
- *     MiPreUnlockWorkingSetShared @ 0x140130C28 (MiPreUnlockWorkingSetShared.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x140173C7C (KeFlushMultipleRangeCurrentTb.c)
- *     KeFlushCurrentTbOnly @ 0x140173DE0 (KeFlushCurrentTbOnly.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     qsort @ 0x1401962C0 (qsort.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C064 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C1A4 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiCompressTbFlushList @ 0x140113AA0 (MiCompressTbFlushList.c)
+ *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiUnlockVadCore @ 0x140125768 (MiUnlockVadCore.c)
+ *     MiPreUnlockWorkingSetShared @ 0x140130C48 (MiPreUnlockWorkingSetShared.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x140173C9C (KeFlushMultipleRangeCurrentTb.c)
+ *     KeFlushCurrentTbOnly @ 0x140173E00 (KeFlushCurrentTbOnly.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     qsort @ 0x1401962E0 (qsort.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C2A4 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiMoveDirtyBitsToPfns(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -356,7 +356,7 @@ __int64 __fastcall MiMoveDirtyBitsToPfns(unsigned __int64 a1, unsigned __int64 a
         {
           if ( (_DWORD)v33 )
           {
-            *v34++ &= byte_140362048[v33];
+            *v34++ &= byte_140362158[v33];
             v30 -= (unsigned int)(8 - v33);
           }
           if ( v30 > 8 )
@@ -367,11 +367,11 @@ __int64 __fastcall MiMoveDirtyBitsToPfns(unsigned __int64 a1, unsigned __int64 a
           }
           if ( !v30 )
             goto LABEL_37;
-          v35 = byte_140360C28[v30];
+          v35 = byte_140360D38[v30];
         }
         else
         {
-          v35 = ~(byte_140362048[v30] << v33);
+          v35 = ~(byte_140362158[v30] << v33);
         }
         *v34 &= v35;
 LABEL_37:

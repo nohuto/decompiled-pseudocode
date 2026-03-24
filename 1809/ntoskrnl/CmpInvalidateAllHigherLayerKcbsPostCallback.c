@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x1407F9FE0
+ * XREFs of CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x1407F9FC0
  * Callers:
  *     <none>
  * Callees:
  *     CmpDiscardKcb @ 0x1405AA6A8 (CmpDiscardKcb.c)
  *     CmpMarkKeyUnbacked @ 0x1405AA8A0 (CmpMarkKeyUnbacked.c)
  *     CmpFlushNotifiesOnKeyBodyList @ 0x1405AD310 (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpInvalidateSubtree @ 0x14071EE7C (CmpInvalidateSubtree.c)
+ *     CmpInvalidateSubtree @ 0x14071EE5C (CmpInvalidateSubtree.c)
  */
 
 __int64 __fastcall CmpInvalidateAllHigherLayerKcbsPostCallback(ULONG_PTR a1, unsigned int *a2)

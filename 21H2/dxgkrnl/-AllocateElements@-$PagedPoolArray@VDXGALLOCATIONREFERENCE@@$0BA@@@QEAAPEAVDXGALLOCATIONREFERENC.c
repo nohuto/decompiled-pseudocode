@@ -1,72 +1,51 @@
 /*
- * XREFs of ?AllocateElements@?$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$0BA@@@QEAAPEAVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C032C1C8
+ * XREFs of ?AllocateElements@?$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$0BA@@@QEAAPEAVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C027C8C8
  * Callers:
- *     ?DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z @ 0x1C018F6E0 (-DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z.c)
+ *     ?DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z @ 0x1C00F0B10 (-DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z.c)
  * Callees:
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0002C48 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0019FF4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
  */
 
-__int64 __fastcall PagedPoolArray<DXGALLOCATIONREFERENCE,16>::AllocateElements(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4)
+char *__fastcall PagedPoolArray<DXGALLOCATIONREFERENCE,16>::AllocateElements(__int64 a1, unsigned int a2)
 {
-  unsigned int v4; // esi
-  __int64 result; // rax
-  __int64 v7; // rax
-  bool v8; // cf
-  unsigned __int64 v9; // rax
-  __int64 v10; // rax
-  __int64 v11; // rbx
-  __int64 v12; // rcx
+  char *result; // rax
+  __int64 v5; // rax
+  bool v6; // cf
+  SIZE_T v7; // rax
+  char *v8; // rax
+  char *v9; // rdi
 
-  v4 = a2;
-  if ( (unsigned int)a2 <= 0x10 )
+  if ( a2 <= 0x10 )
   {
-    result = a1 + 8;
-    *(_QWORD *)a1 = a1 + 8;
-    if ( (_DWORD)a2 )
-    {
-      v12 = 0LL;
-      a2 = (unsigned int)a2;
-      do
-      {
-        *(_QWORD *)(v12 + *(_QWORD *)a1) = 0LL;
-        v12 += 8LL;
-        --a2;
-      }
-      while ( a2 );
-      result = *(_QWORD *)a1;
-    }
+    v9 = (char *)(a1 + 8);
   }
   else
   {
-    if ( 0xFFFFFFFFFFFFFFFFuLL / (unsigned int)a2 < 8 )
+    if ( 0xFFFFFFFFFFFFFFFFuLL / a2 < 8 )
       return 0LL;
-    v7 = 8LL * (unsigned int)a2;
-    if ( !is_mul_ok((unsigned int)a2, 8uLL) )
+    v5 = 8LL * a2;
+    if ( !is_mul_ok(a2, 8uLL) )
+      v5 = -1LL;
+    v6 = __CFADD__(v5, 8LL);
+    v7 = v5 + 8;
+    if ( v6 )
       v7 = -1LL;
-    v8 = __CFADD__(v7, 8LL);
-    v9 = v7 + 8;
+    v8 = (char *)operator new[](v7, 0x4B677844u, PagedPool);
+    v9 = 0LL;
     if ( v8 )
-      v9 = -1LL;
-    v10 = operator new[](v9, 0x4B677844u, 256LL, a4);
-    v11 = 0LL;
-    if ( v10 )
     {
-      v11 = v10 + 8;
-      *(_QWORD *)v10 = v4;
+      v9 = v8 + 8;
+      *(_QWORD *)v8 = a2;
       `vector constructor iterator'(
-        (char *)(v10 + 8),
+        v8 + 8,
         8LL,
-        v4,
+        a2,
         (void (__fastcall *)(char *))DXGALLOCATIONREFERENCE::DXGALLOCATIONREFERENCE);
     }
-    *(_QWORD *)a1 = v11;
-    result = v11;
   }
-  *(_DWORD *)(a1 + 136) = v4;
+  *(_QWORD *)a1 = v9;
+  result = v9;
+  *(_DWORD *)(a1 + 136) = a2;
   return result;
 }

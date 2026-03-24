@@ -6,8 +6,8 @@
  *     MiResolveDemandZeroFault @ 0x140046D50 (MiResolveDemandZeroFault.c)
  *     MiInPagePageTable @ 0x1400987E0 (MiInPagePageTable.c)
  *     MiCheckProtoAccess @ 0x140098C10 (MiCheckProtoAccess.c)
- *     MiSystemFault @ 0x1400E88E0 (MiSystemFault.c)
- *     MiTranslatePageForCopy @ 0x1400E9C10 (MiTranslatePageForCopy.c)
+ *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
+ *     MiTranslatePageForCopy @ 0x1400E9C30 (MiTranslatePageForCopy.c)
  * Callees:
  *     MiCheckUserVirtualAddress @ 0x140098EA0 (MiCheckUserVirtualAddress.c)
  */

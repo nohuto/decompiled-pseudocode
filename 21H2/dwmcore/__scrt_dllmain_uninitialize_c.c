@@ -1,11 +1,11 @@
 /*
- * XREFs of __scrt_dllmain_uninitialize_c @ 0x180100964
+ * XREFs of __scrt_dllmain_uninitialize_c @ 0x1800E712C
  * Callers:
- *     dllmain_crt_process_detach @ 0x180100D90 (dllmain_crt_process_detach.c)
+ *     dllmain_crt_process_detach @ 0x1800E7574 (dllmain_crt_process_detach.c)
  * Callees:
- *     __scrt_is_ucrt_dll_in_use @ 0x180101460 (__scrt_is_ucrt_dll_in_use.c)
- *     _o__cexit_0 @ 0x1801017EA (_o__cexit_0.c)
- *     __scrt_stub_for_is_c_termination_complete @ 0x18010338C (__scrt_stub_for_is_c_termination_complete.c)
+ *     __scrt_is_ucrt_dll_in_use @ 0x1800E7E44 (__scrt_is_ucrt_dll_in_use.c)
+ *     _o__cexit_0 @ 0x1800E80EA (_o__cexit_0.c)
+ *     __scrt_stub_for_is_c_termination_complete @ 0x1800E9458 (__scrt_stub_for_is_c_termination_complete.c)
  */
 
 int _scrt_dllmain_uninitialize_c()

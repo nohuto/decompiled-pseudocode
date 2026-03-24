@@ -1,64 +1,69 @@
 /*
- * XREFs of MmDbgMarkPfnModifiedWorker @ 0x1403A9644
+ * XREFs of MmDbgMarkPfnModifiedWorker @ 0x1403C8FCC
  * Callers:
- *     ExpDebuggerWorker @ 0x140AB2C90 (ExpDebuggerWorker.c)
+ *     ExpDebuggerWorker @ 0x1409B5030 (ExpDebuggerWorker.c)
  * Callees:
- *     MiCaptureDirtyBitToPfn @ 0x140282FE0 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x1402951BC (MiReleasePageFileInfo.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140290190 (MiCaptureDirtyBitToPfn.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402A9250 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiReleasePageFileInfo @ 0x140330CC0 (MiReleasePageFileInfo.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void MmDbgMarkPfnModifiedWorker()
+void __fastcall MmDbgMarkPfnModifiedWorker(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  __int64 v0; // rdi
-  __int64 *v1; // r14
-  __int64 v2; // rsi
-  __int64 v3; // rsi
-  unsigned __int64 v4; // rbp
-  unsigned __int64 v5; // rbx
-  __int64 v6; // r15
+  __int64 v4; // rdi
+  signed __int64 *v5; // r14
+  signed __int64 v6; // rsi
+  __int64 v7; // rsi
+  unsigned __int64 v8; // rbp
+  unsigned __int64 v9; // rbx
+  __int64 v10; // r15
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v10; // eax
-  bool v11; // zf
+  int v13; // eax
+  bool v14; // zf
 
-  v0 = 0LL;
-  v1 = qword_140C68158;
+  v4 = 0LL;
+  v5 = qword_140C4E898;
   do
   {
-    v2 = *v1;
-    if ( (*v1 & 1) != 0 )
+    v6 = *v5;
+    if ( (*v5 & 1) != 0 )
     {
-      _InterlockedAnd64(&qword_140C68158[v0], 0LL);
-      v3 = v2 - 1;
-      v4 = (unsigned __int8)MiLockPageInline(v3);
-      v5 = MiCaptureDirtyBitToPfn(v3);
-      MiRemoveLockedPageChargeAndDecRef(v3);
-      v6 = *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(v3 + 40) >> 43) & 0x3FFLL));
-      _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      _InterlockedAnd64(&qword_140C4E898[v4], 0LL);
+      v7 = v6 - 1;
+      v8 = (unsigned __int8)MiLockPageInline(v7, a2, a3, SchedulerAssist);
+      v9 = MiCaptureDirtyBitToPfn(v7);
+      MiRemoveLockedPageChargeAndDecRef(v7);
+      a2 = (*(_QWORD *)(v7 + 40) >> 39) & 0x3FFLL;
+      v10 = *(_QWORD *)(qword_140C4E648 + 8 * a2);
+      _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-          v11 = (v10 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v10;
-          if ( v11 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            a2 = -1LL << ((unsigned __int8)v8 + 1);
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v13 = ~(unsigned __int16)a2;
+            v14 = (v13 & SchedulerAssist[5]) == 0;
+            a3 = (unsigned int)v13 & SchedulerAssist[5];
+            SchedulerAssist[5] = a3;
+            if ( v14 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
-      __writecr8(v4);
-      if ( v5 )
-        MiReleasePageFileInfo(v6, v5, 0);
+      __writecr8(v8);
+      if ( v9 )
+        MiReleasePageFileInfo(v10, v9, 0);
     }
-    v0 = (unsigned int)(v0 + 1);
-    ++v1;
+    v4 = (unsigned int)(v4 + 1);
+    ++v5;
   }
-  while ( (unsigned int)v0 < 0x20 );
+  while ( (unsigned int)v4 < 0x20 );
 }

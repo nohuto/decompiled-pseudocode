@@ -1,5 +1,5 @@
 /*
- * XREFs of MmChangeImageProtection @ 0x140651780
+ * XREFs of MmChangeImageProtection @ 0x140651760
  * Callers:
  *     <none>
  * Callees:
@@ -11,14 +11,14 @@
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
  *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     MiSetImageProtection @ 0x1400DA504 (MiSetImageProtection.c)
- *     MiLookupDataTableEntry @ 0x1400DA570 (MiLookupDataTableEntry.c)
- *     MiSessionReferenceImage @ 0x1401782BC (MiSessionReferenceImage.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     MmReleaseLoadLock @ 0x140651A40 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A80 (MmAcquireLoadLock.c)
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     MiSetImageProtection @ 0x1400DA524 (MiSetImageProtection.c)
+ *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
+ *     MiSessionReferenceImage @ 0x1401782DC (MiSessionReferenceImage.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
  */
 
 __int64 __fastcall MmChangeImageProtection(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
@@ -135,9 +135,9 @@ LABEL_19:
           {
             v24 = 0LL;
           }
-          if ( qword_14040DE10 )
+          if ( qword_14040DDF0 )
           {
-            v25 = qword_14040DE10(v24, a1, a2, a3, a2 - *(_QWORD *)(v12 + 48));
+            v25 = qword_14040DDF0(v24, a1, a2, a3, a2 - *(_QWORD *)(v12 + 48));
             v17 = v25;
             if ( v25 >= 0 )
             {

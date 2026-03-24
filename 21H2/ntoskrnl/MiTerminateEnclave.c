@@ -1,13 +1,13 @@
 /*
- * XREFs of MiTerminateEnclave @ 0x14097AB60
+ * XREFs of MiTerminateEnclave @ 0x1408D3B58
  * Callers:
- *     NtTerminateEnclave @ 0x14097BB30 (NtTerminateEnclave.c)
+ *     NtTerminateEnclave @ 0x1408D4AD0 (NtTerminateEnclave.c)
  * Callees:
- *     MiUnlockVad @ 0x140281C44 (MiUnlockVad.c)
- *     MiLockVad @ 0x14030B7F0 (MiLockVad.c)
- *     PsDereferenceVsmEnclave @ 0x140882604 (PsDereferenceVsmEnclave.c)
- *     PsTerminateVsmEnclave @ 0x1409B45F0 (PsTerminateVsmEnclave.c)
- *     MiTerminateHardwareEnclave @ 0x140A6A9A0 (MiTerminateHardwareEnclave.c)
+ *     MiUnlockVad @ 0x140314658 (MiUnlockVad.c)
+ *     MiLockVad @ 0x140316758 (MiLockVad.c)
+ *     PsDereferenceVsmEnclave @ 0x14090DEA0 (PsDereferenceVsmEnclave.c)
+ *     PsTerminateVsmEnclave @ 0x14090E224 (PsTerminateVsmEnclave.c)
+ *     MiTerminateHardwareEnclave @ 0x1409B0DC4 (MiTerminateHardwareEnclave.c)
  */
 
 __int64 __fastcall MiTerminateEnclave(__int64 a1, __int64 a2, unsigned int a3)

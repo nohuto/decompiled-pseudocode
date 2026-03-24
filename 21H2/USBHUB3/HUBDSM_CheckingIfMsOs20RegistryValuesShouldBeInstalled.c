@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfMsOs20RegistryValuesShouldBeInstalled @ 0x1C0022370
+ * XREFs of HUBDSM_CheckingIfMsOs20RegistryValuesShouldBeInstalled @ 0x1C0021F20
  * Callers:
  *     <none>
  * Callees:

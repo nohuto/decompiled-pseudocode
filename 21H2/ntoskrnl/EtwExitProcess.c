@@ -1,29 +1,29 @@
 /*
- * XREFs of EtwExitProcess @ 0x1407E0C78
+ * XREFs of EtwExitProcess @ 0x140613F08
  * Callers:
- *     PspProcessDelete @ 0x1407E0F30 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x1406136C0 (PspProcessDelete.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     EtwpCovSampProcessCleanup @ 0x1409F1CB0 (EtwpCovSampProcessCleanup.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     EtwpCovSampProcessCleanup @ 0x140945700 (EtwpCovSampProcessCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwExitProcess(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rbx
-  void *v4; // rcx
+  PADAPTER_OBJECT *v2; // rbx
+  struct _DMA_ADAPTER *v4; // rcx
   void *v5; // rbx
 
-  v2 = *(_QWORD *)(a1 + 1424);
+  v2 = *(PADAPTER_OBJECT **)(a1 + 1424);
   if ( v2 )
   {
     *(_QWORD *)(a1 + 1424) = 0LL;
-    if ( *(_QWORD *)v2 )
-      ObfDereferenceObject(*(PVOID *)v2);
-    v4 = *(void **)(v2 + 8);
+    if ( *v2 )
+      HalPutDmaAdapter(*v2);
+    v4 = v2[1];
     if ( v4 )
-      ObfDereferenceObject(v4);
-    ExFreePoolWithTag((PVOID)v2, 0);
+      HalPutDmaAdapter(v4);
+    ExFreePoolWithTag(v2, 0);
   }
   v5 = *(void **)(a1 + 2544);
   if ( v5 )

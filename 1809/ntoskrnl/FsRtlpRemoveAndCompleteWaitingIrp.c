@@ -1,23 +1,23 @@
 /*
- * XREFs of FsRtlpRemoveAndCompleteWaitingIrp @ 0x14026FFD0
+ * XREFs of FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402700D0
  * Callers:
  *     FsRtlpOplockCleanup @ 0x14001794C (FsRtlpOplockCleanup.c)
  *     FsRtlpRequestShareableOplock @ 0x140017E60 (FsRtlpRequestShareableOplock.c)
  *     FsRtlpOplockBreakByCacheFlags @ 0x140018CB0 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockBreakToII @ 0x140130710 (FsRtlpOplockBreakToII.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x140133270 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpOplockBreakToNone @ 0x14013AAEC (FsRtlpOplockBreakToNone.c)
- *     FsRtlpCancelExclusiveIrp @ 0x14013F6FC (FsRtlpCancelExclusiveIrp.c)
- *     FsRtlpRequestExclusiveOplock @ 0x14015E0EC (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x140168D80 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpAcknowledgeOplockBreak @ 0x14026F858 (FsRtlpAcknowledgeOplockBreak.c)
- *     FsRtlpCancelWaitingIrp @ 0x14026FB68 (FsRtlpCancelWaitingIrp.c)
- *     FsRtlpWaitOnIrp @ 0x140270070 (FsRtlpWaitOnIrp.c)
- *     FsRtlpOpBatchBreakClosePending @ 0x14081531C (FsRtlpOpBatchBreakClosePending.c)
+ *     FsRtlpOplockBreakToII @ 0x140130730 (FsRtlpOplockBreakToII.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x140133290 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpOplockBreakToNone @ 0x14013AB0C (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x14013F71C (FsRtlpCancelExclusiveIrp.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x14015E10C (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x140168DA0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x14026F958 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlpCancelWaitingIrp @ 0x14026FC68 (FsRtlpCancelWaitingIrp.c)
+ *     FsRtlpWaitOnIrp @ 0x140270170 (FsRtlpWaitOnIrp.c)
+ *     FsRtlpOpBatchBreakClosePending @ 0x1408152FC (FsRtlpOpBatchBreakClosePending.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

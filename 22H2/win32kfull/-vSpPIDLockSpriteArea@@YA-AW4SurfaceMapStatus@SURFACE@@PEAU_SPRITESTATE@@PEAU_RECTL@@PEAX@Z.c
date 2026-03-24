@@ -1,12 +1,12 @@
 /*
- * XREFs of ?vSpPIDLockSpriteArea@@YA?AW4SurfaceMapStatus@SURFACE@@PEAU_SPRITESTATE@@PEAU_RECTL@@PEAX@Z @ 0x1C02814A0
+ * XREFs of ?vSpPIDLockSpriteArea@@YA?AW4SurfaceMapStatus@SURFACE@@PEAU_SPRITESTATE@@PEAU_RECTL@@PEAX@Z @ 0x1C01652F0
  * Callers:
- *     ?vLock@PIDLOCKSPRITEAREA@@QEAAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z @ 0x1C027FE60 (-vLock@PIDLOCKSPRITEAREA@@QEAAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z.c)
+ *     ?vLock@PIDLOCKSPRITEAREA@@QEAAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z @ 0x1C016528C (-vLock@PIDLOCKSPRITEAREA@@QEAAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z.c)
  * Callees:
- *     ?vLockShared@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B37C (-vLockShared@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B818 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?pSpFindInZForPidLock@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z @ 0x1C027F4D8 (-pSpFindInZForPidLock@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z.c)
- *     ?pSpReverseFindInZForPidLock@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z @ 0x1C027F6C8 (-pSpReverseFindInZForPidLock@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?vLockShared@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00EFE4C (-vLockShared@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?pSpFindInZForPidLock@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z @ 0x1C0165388 (-pSpFindInZForPidLock@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z.c)
+ *     ?pSpReverseFindInZForPidLock@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z @ 0x1C0165468 (-pSpReverseFindInZForPidLock@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z.c)
  */
 
 __int64 __fastcall vSpPIDLockSpriteArea(__int64 a1, struct _RECTL *a2, void *a3)
@@ -16,7 +16,7 @@ __int64 __fastcall vSpPIDLockSpriteArea(__int64 a1, struct _RECTL *a2, void *a3)
   struct SPRITE *i; // rcx
   struct SPRITE *v9; // rax
   struct SPRITE *v10; // rbx
-  struct SPRITE *v11; // rax
+  struct SPRITE *v12; // rax
 
   v3 = (SPRITERANGELOCK *)(a1 + 120);
   v5 = 0;
@@ -32,11 +32,11 @@ __int64 __fastcall vSpPIDLockSpriteArea(__int64 a1, struct _RECTL *a2, void *a3)
     {
       while ( 1 )
       {
-        v11 = pSpReverseFindInZForPidLock(*((struct SPRITE **)v10 + 4), a2);
-        v10 = v11;
-        if ( !v11 )
+        v12 = pSpReverseFindInZForPidLock(*((struct SPRITE **)v10 + 4), a2);
+        v10 = v12;
+        if ( !v12 )
           break;
-        SURFACE::bUnMap((SURFACE *)(*((_QWORD *)v11 + 16) - 24LL), a3, 0LL);
+        SURFACE::bUnMap((SURFACE *)(*((_QWORD *)v12 + 16) - 24LL), a3, 0LL);
       }
       SPRITERANGELOCK::vUnlock(v3);
       return v5;

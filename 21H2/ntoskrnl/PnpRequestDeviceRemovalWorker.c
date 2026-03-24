@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpRequestDeviceRemovalWorker @ 0x140765370
+ * XREFs of PnpRequestDeviceRemovalWorker @ 0x1407365C8
  * Callers:
- *     PnpRequestDeviceRemovalWorker @ 0x140765370 (PnpRequestDeviceRemovalWorker.c)
- *     PnpRequestDeviceRemoval @ 0x140765430 (PnpRequestDeviceRemoval.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x1407365C8 (PnpRequestDeviceRemovalWorker.c)
+ *     PnpRequestDeviceRemoval @ 0x140736688 (PnpRequestDeviceRemoval.c)
  * Callees:
- *     PipRestoreDevNodeState @ 0x14025B96C (PipRestoreDevNodeState.c)
- *     PipSetDevNodeState @ 0x1402DE844 (PipSetDevNodeState.c)
- *     PipIsDevNodeDNStarted @ 0x1402DEAB0 (PipIsDevNodeDNStarted.c)
- *     PnpRequestDeviceRemovalWorker @ 0x140765370 (PnpRequestDeviceRemovalWorker.c)
- *     PiGetDependentList @ 0x14076BBF4 (PiGetDependentList.c)
- *     PiEnumerateDependentListEntry @ 0x1409426FC (PiEnumerateDependentListEntry.c)
+ *     PipIsDevNodeDNStarted @ 0x1402651F8 (PipIsDevNodeDNStarted.c)
+ *     PipRestoreDevNodeState @ 0x14036D7A0 (PipRestoreDevNodeState.c)
+ *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x1407365C8 (PnpRequestDeviceRemovalWorker.c)
+ *     PiGetDependentList @ 0x14074B374 (PiGetDependentList.c)
+ *     PiEnumerateDependentListEntry @ 0x14089D8F8 (PiEnumerateDependentListEntry.c)
  */
 
 char __fastcall PnpRequestDeviceRemovalWorker(int a1, __int64 a2, char a3, int a4, char a5)
@@ -30,14 +30,14 @@ char __fastcall PnpRequestDeviceRemovalWorker(int a1, __int64 a2, char a3, int a
     goto LABEL_5;
   }
   v9 = 1;
-  if ( *(_DWORD *)(a2 + 300) == 784 )
+  if ( *(_DWORD *)(a2 + 300) == 782 )
     goto LABEL_11;
-  if ( *(_DWORD *)(a2 + 300) == 785 )
+  if ( *(_DWORD *)(a2 + 300) == 783 )
   {
     if ( a3 )
     {
       PipRestoreDevNodeState(a2);
-      PipSetDevNodeState(a2, 784);
+      PipSetDevNodeState(a2, 782);
     }
 LABEL_11:
     v9 = 0;
@@ -46,7 +46,7 @@ LABEL_11:
 LABEL_5:
   if ( (_BYTE)DependentList )
   {
-    PipSetDevNodeState(a2, 785 - (a3 != 0));
+    PipSetDevNodeState(a2, 783 - (a3 != 0));
     for ( i = *(_QWORD **)(a2 + 8); i; i = (_QWORD *)*i )
     {
       LOBYTE(v11) = 1;

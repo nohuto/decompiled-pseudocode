@@ -1,17 +1,17 @@
 /*
- * XREFs of Usbh_PCE_BusDisconnect_Action @ 0x1C0034AE8
+ * XREFs of Usbh_PCE_BusDisconnect_Action @ 0x1C0035DA4
  * Callers:
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
  * Callees:
- *     UsbhUnlatchPdo @ 0x1C0002650 (UsbhUnlatchPdo.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhLatchPdo @ 0x1C000F240 (UsbhLatchPdo.c)
- *     UsbhLockPcqWithTag @ 0x1C001D1A0 (UsbhLockPcqWithTag.c)
- *     UsbhUnlockPcqWithTag @ 0x1C0034A70 (UsbhUnlockPcqWithTag.c)
- *     UsbhiSignalResumeEvent @ 0x1C0035BCC (UsbhiSignalResumeEvent.c)
- *     Usbh_Disconnect_PdoEvent @ 0x1C003A55C (Usbh_Disconnect_PdoEvent.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhLatchPdo @ 0x1C0016B5C (UsbhLatchPdo.c)
+ *     UsbhUnlatchPdo @ 0x1C00171A0 (UsbhUnlatchPdo.c)
+ *     UsbhLockPcqWithTag @ 0x1C001AE80 (UsbhLockPcqWithTag.c)
+ *     UsbhUnlockPcqWithTag @ 0x1C0035D2C (UsbhUnlockPcqWithTag.c)
+ *     UsbhiSignalResumeEvent @ 0x1C0036E88 (UsbhiSignalResumeEvent.c)
+ *     Usbh_Disconnect_PdoEvent @ 0x1C003B86C (Usbh_Disconnect_PdoEvent.c)
  */
 
 void __fastcall Usbh_PCE_BusDisconnect_Action(__int64 a1, __int64 a2, __int64 a3)

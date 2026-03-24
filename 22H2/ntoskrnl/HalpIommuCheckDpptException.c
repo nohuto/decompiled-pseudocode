@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuCheckDpptException @ 0x14038F974
+ * XREFs of HalpIommuCheckDpptException @ 0x1404C9030
  * Callers:
- *     HalpIommuUnblockDevice @ 0x140518860 (HalpIommuUnblockDevice.c)
- *     HalpIommuCreateDevice @ 0x14082AB98 (HalpIommuCreateDevice.c)
+ *     HalpIommuUnblockDevice @ 0x1404C9DC0 (HalpIommuUnblockDevice.c)
+ *     HalpIommuCreateDevice @ 0x140864A14 (HalpIommuCreateDevice.c)
  * Callees:
  *     <none>
  */
 
 bool __fastcall HalpIommuCheckDpptException(_DWORD *a1)
 {
-  return *a1 == 5 || HalpIommuSecurityPolicy != 1;
+  return *a1 == 6 || HalpIommuSecurityPolicy != 1;
 }

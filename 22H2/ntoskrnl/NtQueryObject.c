@@ -1,21 +1,21 @@
 /*
- * XREFs of NtQueryObject @ 0x14075B8A0
+ * XREFs of NtQueryObject @ 0x14070FAF0
  * Callers:
- *     IopQueryRegistryKeySystemPath @ 0x14068ECA0 (IopQueryRegistryKeySystemPath.c)
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
+ *     IopQueryRegistryKeySystemPath @ 0x14073D480 (IopQueryRegistryKeySystemPath.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x1402F8670 (OBJECT_HEADER_TO_QUOTA_INFO.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     ObQueryNameStringMode @ 0x14075BD04 (ObQueryNameStringMode.c)
- *     ObQueryTypeInfo @ 0x14075C6E0 (ObQueryTypeInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x1403479EC (OBJECT_HEADER_TO_QUOTA_INFO.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     ObQueryNameStringMode @ 0x14070FFB0 (ObQueryNameStringMode.c)
+ *     ObQueryTypeInfo @ 0x140710850 (ObQueryTypeInfo.c)
  */
 
 NTSTATUS __stdcall NtQueryObject(
@@ -25,287 +25,319 @@ NTSTATUS __stdcall NtQueryObject(
         ULONG ObjectInformationLength,
         PULONG ReturnLength)
 {
-  _OWORD *v6; // r14
-  KPROCESSOR_MODE PreviousMode; // al
+  unsigned int v8; // r14d
+  KPROCESSOR_MODE PreviousMode; // r12
   ULONG v10; // r8d
-  __int64 v11; // rcx
+  PULONG v11; // r15
+  __int64 v12; // rcx
   NTSTATUS result; // eax
-  NTSTATUS v13; // edi
-  __int64 *v14; // r15
+  NTSTATUS v14; // esi
+  struct _DMA_ADAPTER *v15; // rdi
   ACCESS_MASK GrantedAccess; // r9d
-  char *v16; // r12
-  __int64 v17; // r10
-  __int32 v18; // esi
+  char *v17; // r8
+  __int64 v18; // r10
   NTSTATUS NameStringMode; // eax
-  __int32 v20; // esi
-  __int32 v21; // esi
+  __int32 v20; // ebx
+  __int32 v21; // ebx
+  char v22; // al
   ULONG HandleAttributes; // eax
-  char v23; // cl
-  _QWORD *v24; // rax
-  struct _OBJECT_TYPE *v25; // r10
-  __int64 v26; // rax
+  char v24; // cl
+  __int64 *v25; // rax
+  __int64 v26; // r8
+  struct _OBJECT_TYPE *v27; // r10
+  __int64 v28; // rax
   struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int64 *v28; // rdi
-  char *v29; // rsi
-  int v30; // esi
-  char *v31; // r13
-  NTSTATUS v32; // esi
-  unsigned int v33; // ecx
-  int v34; // edx
-  unsigned int v35; // r12d
+  signed __int64 *v30; // rsi
+  ULONG_PTR v31; // rbx
+  __int32 v32; // esi
+  __int64 v33; // rax
+  struct _DMA_ADAPTER *v34; // rcx
+  unsigned int i; // ecx
   __int64 v36; // rcx
-  int v37; // esi
-  void *v38; // r14
-  struct _KTHREAD *v39; // rax
-  signed __int64 *v40; // rdi
-  __int64 v41; // rcx
-  char v42; // [rsp+50h] [rbp-E8h]
-  NTSTATUS v43; // [rsp+54h] [rbp-E4h]
-  ULONG v44; // [rsp+58h] [rbp-E0h] BYREF
-  unsigned int i; // [rsp+60h] [rbp-D8h]
-  __int64 *v46; // [rsp+68h] [rbp-D0h]
-  ACCESS_MASK v47; // [rsp+70h] [rbp-C8h]
-  int v48; // [rsp+74h] [rbp-C4h] BYREF
-  int v49; // [rsp+78h] [rbp-C0h]
-  struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+80h] [rbp-B8h] BYREF
-  __int64 v51; // [rsp+88h] [rbp-B0h]
-  __int128 v52; // [rsp+98h] [rbp-A0h]
-  __int128 v53; // [rsp+A8h] [rbp-90h]
-  __int128 v54; // [rsp+B8h] [rbp-80h]
-  __int64 v55; // [rsp+C8h] [rbp-70h]
-  PVOID Object[8]; // [rsp+D0h] [rbp-68h] BYREF
+  NTSTATUS TypeInfo; // eax
+  int v38; // esi
+  PADAPTER_OBJECT v39; // rcx
+  struct _KTHREAD *v40; // rax
+  char *v41; // rcx
+  struct _DMA_ADAPTER *v42; // rdx
+  struct _DMA_ADAPTER *v43; // rcx
+  ULONG_PTR v44; // rcx
+  NTSTATUS v45; // [rsp+50h] [rbp-F8h]
+  _DWORD v46[3]; // [rsp+54h] [rbp-F4h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+60h] [rbp-E8h]
+  unsigned int v48; // [rsp+68h] [rbp-E0h]
+  struct _DMA_ADAPTER *v49; // [rsp+70h] [rbp-D8h]
+  ACCESS_MASK v50; // [rsp+78h] [rbp-D0h]
+  int v51; // [rsp+7Ch] [rbp-CCh] BYREF
+  __int32 v52; // [rsp+80h] [rbp-C8h]
+  PADAPTER_OBJECT v53; // [rsp+88h] [rbp-C0h]
+  struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+90h] [rbp-B8h] BYREF
+  PADAPTER_OBJECT v55; // [rsp+98h] [rbp-B0h]
+  __int64 v56; // [rsp+A0h] [rbp-A8h]
+  __int128 v57; // [rsp+A8h] [rbp-A0h]
+  __m256i v58; // [rsp+B8h] [rbp-90h] BYREF
+  __int64 v59; // [rsp+D8h] [rbp-70h]
+  PVOID Object; // [rsp+E0h] [rbp-68h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+E8h] [rbp-60h]
+  PVOID v62; // [rsp+110h] [rbp-38h]
+  char *v63; // [rsp+118h] [rbp-30h]
 
-  v6 = ObjectInformation;
+  v8 = 0;
   HandleInformation = 0LL;
-  v52 = 0LL;
-  v53 = 0LL;
-  v54 = 0LL;
-  v55 = 0LL;
-  v49 = 0;
-  v48 = 0;
-  v44 = 0;
+  v57 = 0LL;
+  memset(&v58, 0, sizeof(v58));
+  v59 = 0LL;
+  v52 = 0;
+  v51 = 0;
+  v46[0] = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v42 = PreviousMode;
   if ( PreviousMode )
   {
     v10 = 4;
     if ( ObjectInformationClass == ObjectHandleFlagInformation )
       v10 = 1;
-    ProbeForWrite(v6, ObjectInformationLength, v10);
+    ProbeForWrite(ObjectInformation, ObjectInformationLength, v10);
+    v11 = ReturnLength;
     if ( ReturnLength )
     {
-      v11 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
-        v11 = (__int64)ReturnLength;
-      *(_DWORD *)v11 = *(_DWORD *)v11;
+      v12 = (__int64)ReturnLength;
+      if ( (unsigned __int64)ReturnLength >= 0x7FFFFFFF0000LL )
+        v12 = 0x7FFFFFFF0000LL;
+      *(_DWORD *)v12 = *(_DWORD *)v12;
     }
-    PreviousMode = v42;
+  }
+  else
+  {
+    v11 = ReturnLength;
   }
   if ( ObjectInformationClass == ObjectTypesInformation )
   {
     GrantedAccess = 0;
-    v47 = 0;
-    v14 = 0LL;
-    v46 = 0LL;
-    v16 = 0LL;
+    v50 = 0;
+    v15 = 0LL;
+    v49 = 0LL;
     v17 = 0LL;
-    v51 = 0LL;
-    v13 = 0;
-    v43 = 0;
+    v18 = 0LL;
+    v56 = 0LL;
+    v14 = 0;
+    v45 = 0;
   }
   else
   {
-    Object[0] = 0LL;
-    result = ObReferenceObjectByHandle(Handle, 0, 0LL, PreviousMode, Object, &HandleInformation);
-    v13 = result;
-    v14 = (__int64 *)Object[0];
-    v46 = (__int64 *)Object[0];
-    v43 = result;
+    Object = 0LL;
+    result = ObReferenceObjectByHandle(Handle, 0, 0LL, PreviousMode, &Object, &HandleInformation);
+    v14 = result;
+    v15 = (struct _DMA_ADAPTER *)Object;
+    v49 = (struct _DMA_ADAPTER *)Object;
+    v45 = result;
     if ( result < 0 )
       return result;
     GrantedAccess = HandleInformation.GrantedAccess;
-    v47 = HandleInformation.GrantedAccess;
-    v16 = (char *)Object[0] - 48;
-    v17 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *((unsigned __int8 *)Object[0] - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(LOWORD(Object[0]) - 48) >> 8)];
-    v51 = v17;
+    v50 = HandleInformation.GrantedAccess;
+    v17 = (char *)Object - 48;
+    v18 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
+    v56 = v18;
   }
-  if ( ObjectInformationClass == ObjectBasicInformation )
+  BugCheckParameter2 = (ULONG_PTR)v17;
+  if ( ObjectInformationClass == ObjectNameInformation )
   {
-    if ( ObjectInformationLength == 56 )
+    NameStringMode = ObQueryNameStringMode(
+                       (_DWORD)v15,
+                       (_DWORD)ObjectInformation,
+                       ObjectInformationLength,
+                       (unsigned int)v46,
+                       PreviousMode);
+  }
+  else
+  {
+    if ( ObjectInformationClass == ObjectBasicInformation )
     {
+      if ( ObjectInformationLength != 56 )
+      {
+        HalPutDmaAdapter(v15);
+        return -1073741820;
+      }
+      memset(&v58.m256i_u64[1], 0, 24);
       HandleAttributes = HandleInformation.HandleAttributes;
-      LODWORD(v52) = HandleInformation.HandleAttributes;
-      v23 = v16[27];
-      if ( (v23 & 0x10) != 0 )
+      LODWORD(v57) = HandleInformation.HandleAttributes;
+      v24 = v17[27];
+      if ( (v24 & 0x10) != 0 )
       {
         HandleAttributes = HandleInformation.HandleAttributes | 0x10;
-        LODWORD(v52) = HandleInformation.HandleAttributes | 0x10;
+        LODWORD(v57) = HandleInformation.HandleAttributes | 0x10;
       }
-      if ( (v23 & 8) != 0 )
-        LODWORD(v52) = HandleAttributes | 0x20;
-      DWORD1(v52) = GrantedAccess;
-      DWORD2(v52) = *((_DWORD *)v16 + 2);
-      HIDWORD(v52) = *(_DWORD *)v16;
-      v24 = (_QWORD *)OBJECT_HEADER_TO_QUOTA_INFO((__int64)v16);
-      if ( v24 )
-        *(_QWORD *)&v53 = *v24;
+      if ( (v24 & 8) != 0 )
+        LODWORD(v57) = HandleAttributes | 0x20;
+      DWORD1(v57) = GrantedAccess;
+      DWORD2(v57) = *((_DWORD *)v17 + 2);
+      HIDWORD(v57) = *(_DWORD *)v17;
+      v25 = (__int64 *)OBJECT_HEADER_TO_QUOTA_INFO((__int64)v17);
+      if ( v25 )
+        v58.m256i_i64[0] = *v25;
       else
-        *(_QWORD *)&v53 = 0LL;
-      if ( v25 == ObpSymbolicLinkObjectType )
-        v26 = *v14;
+        v58.m256i_i64[0] = 0LL;
+      if ( v27 == ObpSymbolicLinkObjectType )
+        v28 = *(_QWORD *)&v15->Version;
       else
-        v26 = 0LL;
-      v55 = v26;
+        v28 = 0LL;
+      v59 = v28;
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v28 = (volatile signed __int64 *)(v16 + 16);
-      ExAcquirePushLockSharedEx((ULONG_PTR)(v16 + 16), 0LL);
-      if ( (v16[26] & 2) != 0 )
-        v29 = &v16[-ObpInfoMaskToOffset[v16[26] & 3]];
-      else
-        v29 = 0LL;
-      if ( v29 && (v31 = *(char **)v29) != 0LL )
+      v30 = (signed __int64 *)(v26 + 16);
+      ExAcquirePushLockSharedEx(v26 + 16, 0LL);
+      v31 = BugCheckParameter2;
+      if ( (*(_BYTE *)(BugCheckParameter2 + 26) & 2) != 0
+        && (v33 = ObpInfoMaskToOffset[*(_BYTE *)(BugCheckParameter2 + 26) & 3], BugCheckParameter2 -= v33, v31 != v33)
+        && (v34 = *(struct _DMA_ADAPTER **)(v31 - v33), (v55 = v34) != 0LL) )
       {
-        ObfReferenceObject(*(PVOID *)v29);
-        if ( _InterlockedCompareExchange64(v28, 0LL, 17LL) != 17 )
-          ExfReleasePushLockShared((signed __int64 *)v16 + 2);
-        KeAbPostRelease((ULONG_PTR)(v16 + 16));
-        KeLeaveCriticalRegion();
-        v37 = *((unsigned __int16 *)v29 + 4) + 2;
+        ObfReferenceObject(v34);
+        if ( _InterlockedCompareExchange64(v30, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared(v30);
+        KeAbPostRelease((ULONG_PTR)v30);
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        v38 = *(unsigned __int16 *)(BugCheckParameter2 + 8) + 2;
         while ( 1 )
         {
-          v38 = v31;
-          v39 = KeGetCurrentThread();
-          --v39->KernelApcDisable;
-          v40 = (signed __int64 *)(v31 - 32);
-          ExAcquirePushLockSharedEx((ULONG_PTR)(v31 - 32), 0LL);
-          v41 = (*(v31 - 22) & 2) != 0 ? (__int64)&v31[-ObpInfoMaskToOffset[*(v31 - 22) & 3] - 48] : 0LL;
-          if ( !v41 || !*(_QWORD *)v41 )
+          DmaAdapter = v55;
+          if ( !v55 )
             break;
-          v37 += *(unsigned __int16 *)(v41 + 8) + 2;
-          v31 = *(char **)v41;
-          ObfReferenceObject(*(PVOID *)v41);
-          if ( _InterlockedCompareExchange64(v40, 0LL, 17LL) != 17 )
-            ExfReleasePushLockShared(v40);
-          KeAbPostRelease((ULONG_PTR)v40);
-          KeLeaveCriticalRegion();
-          ObfDereferenceObject(v38);
+          v39 = v55 - 3;
+          v53 = v55 - 3;
+          v40 = KeGetCurrentThread();
+          --v40->KernelApcDisable;
+          BugCheckParameter2 = (ULONG_PTR)&v39[1];
+          ExAcquirePushLockSharedEx((ULONG_PTR)&v39[1], 0LL);
+          if ( (BYTE2(v53[1].DmaOperations) & 2) == 0
+            || (v41 = (char *)v53 - ObpInfoMaskToOffset[BYTE2(v53[1].DmaOperations) & 3]) == 0LL
+            || (v42 = *(struct _DMA_ADAPTER **)v41) == 0LL )
+          {
+            if ( _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 0LL, 17LL) != 17 )
+              ExfReleasePushLockShared((signed __int64 *)BugCheckParameter2);
+            KeAbPostRelease(BugCheckParameter2);
+            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+            if ( v55 )
+              HalPutDmaAdapter(v55);
+            break;
+          }
+          v38 += *((unsigned __int16 *)v41 + 4) + 2;
+          v43 = *(struct _DMA_ADAPTER **)v41;
+          v55 = v42;
+          ObfReferenceObject(v43);
+          v44 = BugCheckParameter2;
+          if ( _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 0LL, 17LL) != 17 )
+          {
+            ExfReleasePushLockShared((signed __int64 *)BugCheckParameter2);
+            v44 = BugCheckParameter2;
+          }
+          KeAbPostRelease(v44);
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          HalPutDmaAdapter(DmaAdapter);
         }
-        v6 = ObjectInformation;
-        v14 = v46;
-        if ( _InterlockedCompareExchange64(v40, 0LL, 17LL) != 17 )
-          ExfReleasePushLockShared((signed __int64 *)v31 - 4);
-        KeAbPostRelease((ULONG_PTR)(v31 - 32));
-        KeLeaveCriticalRegion();
-        if ( v31 )
-          ObfDereferenceObject(v31);
-        v30 = v37 + 18;
+        v32 = v38 + 18;
       }
       else
       {
-        if ( _InterlockedCompareExchange64(v28, 0LL, 17LL) != 17 )
-          ExfReleasePushLockShared((signed __int64 *)v16 + 2);
-        KeAbPostRelease((ULONG_PTR)(v16 + 16));
-        KeLeaveCriticalRegion();
-        v30 = 0;
+        if ( _InterlockedCompareExchange64(v30, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared(v30);
+        KeAbPostRelease((ULONG_PTR)v30);
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        v32 = 0;
       }
-      DWORD1(v54) = v30;
-      DWORD2(v54) = *(unsigned __int16 *)(v51 + 16) + 106;
-      if ( (v47 & 0x20000) != 0 && *((_QWORD *)v16 + 5) )
+      v58.m256i_i32[5] = v32;
+      v58.m256i_i32[6] = *(unsigned __int16 *)(v56 + 16) + 106;
+      if ( (v50 & 0x20000) != 0 && *(_QWORD *)(v31 + 40) )
       {
-        v48 = 15;
-        (*(void (__fastcall **)(__int64 *, __int64, int *))(v51 + 152))(v14, 1LL, &v48);
+        v51 = 15;
+        v15 = v49;
+        (*(void (__fastcall **)(struct _DMA_ADAPTER *, __int64, int *))(v56 + 152))(v49, 1LL, &v51);
       }
-      HIDWORD(v54) = v49;
-      *v6 = v52;
-      v6[1] = v53;
-      v6[2] = v54;
-      *((_QWORD *)v6 + 6) = v55;
-      v44 = 56;
-      v13 = v43;
-      goto LABEL_16;
-    }
-    v32 = -1073741820;
-    goto LABEL_71;
-  }
-  v18 = ObjectInformationClass - 1;
-  if ( v18 )
-  {
-    v20 = v18 - 1;
-    if ( !v20 )
-    {
-      NameStringMode = ObQueryTypeInfo(v17, v6, ObjectInformationLength, &v44);
-      goto LABEL_15;
-    }
-    v21 = v20 - 1;
-    if ( !v21 )
-    {
-      v44 = 8;
-      Object[5] = v6;
-      if ( ObjectInformationLength >= 4 )
+      else
       {
-        *(_DWORD *)v6 = 0;
-        v33 = 0;
-        i = 0;
-        v34 = 0;
-        while ( v33 < 0x100 )
+        v15 = v49;
+      }
+      v58.m256i_i32[7] = v52;
+      *(_OWORD *)ObjectInformation = v57;
+      *(__m256i *)((char *)ObjectInformation + 16) = v58;
+      *((_QWORD *)ObjectInformation + 6) = v59;
+      v46[0] = 56;
+      v14 = v45;
+      goto LABEL_14;
+    }
+    v20 = ObjectInformationClass - 2;
+    if ( v20 )
+    {
+      v21 = v20 - 1;
+      if ( v21 )
+      {
+        if ( v21 != 1 )
         {
-          v51 = ObpObjectTypes[v33];
-          if ( !v51 )
-            break;
-          *(_DWORD *)v6 = ++v34;
-          i = ++v33;
+          HalPutDmaAdapter(v15);
+          return -1073741821;
         }
-        v35 = 0;
-        for ( i = 0; v35 < 0x100; i = v35 )
+        v46[0] = 2;
+        if ( ObjectInformationLength < 2 )
         {
-          Object[6] = (char *)v6 + v44;
-          v36 = ObpObjectTypes[v35];
-          v51 = v36;
-          if ( !v36 )
-            break;
-          v13 = ObQueryTypeInfo(v36, (char *)v6 + v44, ObjectInformationLength, &v44);
-          if ( (int)(v13 + 0x80000000) >= 0 && v13 != -1073741820 )
-            break;
-          ++v35;
+          v14 = -1073741820;
+        }
+        else
+        {
+          *(_BYTE *)ObjectInformation = 0;
+          v22 = HandleInformation.HandleAttributes;
+          if ( (HandleInformation.HandleAttributes & 2) != 0 )
+            *(_BYTE *)ObjectInformation = 1;
+          *((_BYTE *)ObjectInformation + 1) = 0;
+          if ( (v22 & 1) != 0 )
+            *((_BYTE *)ObjectInformation + 1) = 1;
         }
       }
       else
       {
-        v13 = -1073741820;
+        v46[0] = 8;
+        v62 = ObjectInformation;
+        if ( ObjectInformationLength >= 4 )
+        {
+          *(_DWORD *)ObjectInformation = 0;
+          for ( i = 0; ; ++i )
+          {
+            v48 = i;
+            if ( i >= 0x100 )
+              break;
+            v56 = ObpObjectTypes[i];
+            if ( !v56 )
+              break;
+            ++*(_DWORD *)ObjectInformation;
+          }
+          while ( 1 )
+          {
+            v48 = v8;
+            if ( v8 >= 0x100 )
+              break;
+            v63 = (char *)ObjectInformation + v46[0];
+            v36 = ObpObjectTypes[v8];
+            v56 = v36;
+            if ( !v36 )
+              break;
+            TypeInfo = ObQueryTypeInfo(v36, (char *)ObjectInformation + v46[0], ObjectInformationLength, v46);
+            v14 = TypeInfo;
+            if ( ((TypeInfo + 0x80000000) & 0x80000000) == 0 && TypeInfo != -1073741820 )
+              break;
+            ++v8;
+          }
+        }
+        else
+        {
+          v14 = -1073741820;
+        }
       }
-      goto LABEL_16;
+      goto LABEL_14;
     }
-    if ( v21 == 1 )
-    {
-      v44 = 2;
-      if ( ObjectInformationLength < 2 )
-      {
-        v13 = -1073741820;
-      }
-      else
-      {
-        *(_BYTE *)v6 = 0;
-        if ( (HandleInformation.HandleAttributes & 2) != 0 )
-          *(_BYTE *)v6 = 1;
-        *((_BYTE *)v6 + 1) = 0;
-        if ( (HandleInformation.HandleAttributes & 1) != 0 )
-          *((_BYTE *)v6 + 1) = 1;
-      }
-      goto LABEL_16;
-    }
-    v32 = -1073741821;
-LABEL_71:
-    ObfDereferenceObject(v14);
-    return v32;
+    NameStringMode = ObQueryTypeInfo(v18, ObjectInformation, ObjectInformationLength, v46);
   }
-  NameStringMode = ObQueryNameStringMode((_DWORD)v14, (_DWORD)v6, ObjectInformationLength, (unsigned int)&v44, v42);
-LABEL_15:
-  v13 = NameStringMode;
-LABEL_16:
-  if ( ReturnLength )
-    *ReturnLength = v44;
-  if ( v14 )
-    ObfDereferenceObject(v14);
-  return v13;
+  v14 = NameStringMode;
+LABEL_14:
+  if ( v11 )
+    *v11 = v46[0];
+  if ( v15 )
+    HalPutDmaAdapter(v15);
+  return v14;
 }

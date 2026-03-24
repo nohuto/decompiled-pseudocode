@@ -1,21 +1,21 @@
 /*
- * XREFs of MmProcessWorkingSetControl @ 0x14085EDA0
+ * XREFs of MmProcessWorkingSetControl @ 0x14085ED80
  * Callers:
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
- *     VmpPauseResumeNotify @ 0x1408B0798 (VmpPauseResumeNotify.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
+ *     VmpPauseResumeNotify @ 0x1408B0778 (VmpPauseResumeNotify.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiEmptyWorkingSet @ 0x1402A7A04 (MiEmptyWorkingSet.c)
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1402A7A20 (MiEmptyWorkingSetPrivatePagesByVa.c)
- *     MiLogWsEmptyControl @ 0x1402CB8A0 (MiLogWsEmptyControl.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiEmptyWorkingSet @ 0x1402A7B04 (MiEmptyWorkingSet.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1402A7B20 (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiLogWsEmptyControl @ 0x1402CB9A0 (MiLogWsEmptyControl.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     PsSwapProcessWorkingSet @ 0x1408887DC (PsSwapProcessWorkingSet.c)
- *     SmStoreCompressionStart @ 0x1408AB720 (SmStoreCompressionStart.c)
- *     SmStoreCompressionStop @ 0x1408AB79C (SmStoreCompressionStop.c)
+ *     PsSwapProcessWorkingSet @ 0x1408887BC (PsSwapProcessWorkingSet.c)
+ *     SmStoreCompressionStart @ 0x1408AB700 (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStop @ 0x1408AB77C (SmStoreCompressionStop.c)
  */
 
 __int64 __fastcall MmProcessWorkingSetControl(

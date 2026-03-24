@@ -1,7 +1,7 @@
 /*
- * XREFs of ?EnsureProperties@CNaturalAnimationMarshaler@DirectComposition@@AEAAJW4Enum@NaturalMotionAnimationType@@@Z @ 0x1C023424C
+ * XREFs of ?EnsureProperties@CNaturalAnimationMarshaler@DirectComposition@@AEAAJW4Enum@NaturalMotionAnimationType@@@Z @ 0x1C01F3C08
  * Callers:
- *     ?SetFloatProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0234450 (-SetFloatProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ *     ?SetFloatProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01F3D10 (-SetFloatProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall DirectComposition::CNaturalAnimationMarshaler::EnsureProperti
   float v4; // xmm0_4
   float v5; // xmm1_4
 
-  v2 = *((_DWORD *)a1 + 43);
+  v2 = *((_DWORD *)a1 + 41);
   v3 = 0;
   if ( !v2 )
   {
@@ -29,9 +29,9 @@ __int64 __fastcall DirectComposition::CNaturalAnimationMarshaler::EnsureProperti
       v4 = FLOAT_0_050000001;
       v5 = FLOAT_0_69999999;
     }
-    a1[44] = v5;
-    a1[45] = v4;
-    *((_DWORD *)a1 + 43) = a2;
+    a1[42] = v5;
+    a1[43] = v4;
+    *((_DWORD *)a1 + 41) = a2;
     return v3;
   }
   if ( v2 != a2 )

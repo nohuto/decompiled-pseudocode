@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmInterlockedUpdateTimeNoFence @ 0x1400FEE60
+ * XREFs of PpmInterlockedUpdateTimeNoFence @ 0x1400FEE80
  * Callers:
- *     PopFxIdleWorkerTail @ 0x1400FE9E8 (PopFxIdleWorkerTail.c)
- *     PopFxIdleComponent @ 0x1400FECEC (PopFxIdleComponent.c)
- *     PoLatencySensitivityHint @ 0x14013F310 (PoLatencySensitivityHint.c)
+ *     PopFxIdleWorkerTail @ 0x1400FEA08 (PopFxIdleWorkerTail.c)
+ *     PopFxIdleComponent @ 0x1400FED0C (PopFxIdleComponent.c)
+ *     PoLatencySensitivityHint @ 0x14013F330 (PoLatencySensitivityHint.c)
  * Callees:
  *     <none>
  */

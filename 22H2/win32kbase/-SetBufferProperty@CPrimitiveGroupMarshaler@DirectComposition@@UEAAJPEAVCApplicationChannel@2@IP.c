@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CPrimitiveGroupMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00A7CB0
+ * XREFs of ?SetBufferProperty@CPrimitiveGroupMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0094A90
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall DirectComposition::CPrimitiveGroupMarshaler::SetBufferProperty(

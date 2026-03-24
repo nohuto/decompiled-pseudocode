@@ -1,20 +1,20 @@
 /*
- * XREFs of ?DmaCompleted@FxDmaTransactionBase@@QEAAE_KPEAJW4FxDmaCompletionType@@@Z @ 0x1C00591A4
+ * XREFs of ?DmaCompleted@FxDmaTransactionBase@@QEAAE_KPEAJW4FxDmaCompletionType@@@Z @ 0x1C0036534
  * Callers:
- *     imp_WdfDmaTransactionDmaCompletedFinal @ 0x1C0037C00 (imp_WdfDmaTransactionDmaCompletedFinal.c)
- *     imp_WdfDmaTransactionDmaCompleted @ 0x1C0054270 (imp_WdfDmaTransactionDmaCompleted.c)
- *     imp_WdfDmaTransactionDmaCompletedWithLength @ 0x1C00542D0 (imp_WdfDmaTransactionDmaCompletedWithLength.c)
+ *     imp_WdfDmaTransactionDmaCompleted @ 0x1C00301C0 (imp_WdfDmaTransactionDmaCompleted.c)
+ *     imp_WdfDmaTransactionDmaCompletedFinal @ 0x1C0030220 (imp_WdfDmaTransactionDmaCompletedFinal.c)
+ *     imp_WdfDmaTransactionDmaCompletedWithLength @ 0x1C0030290 (imp_WdfDmaTransactionDmaCompletedWithLength.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_qqqd @ 0x1C00532C0 (WPP_IFR_SF_qqqd.c)
- *     WPP_IFR_SF_ql @ 0x1C0053CE8 (WPP_IFR_SF_ql.c)
- *     WPP_IFR_SF_qPPd @ 0x1C005A0C4 (WPP_IFR_SF_qPPd.c)
- *     WPP_IFR_SF_qc @ 0x1C005A1DC (WPP_IFR_SF_qc.c)
- *     ?ReleaseIrpReference@FxRequest@@QEAAXXZ @ 0x1C0068854 (-ReleaseIrpReference@FxRequest@@QEAAXXZ.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qqqd @ 0x1C002EB50 (WPP_IFR_SF_qqqd.c)
+ *     WPP_IFR_SF_ql @ 0x1C002FAEC (WPP_IFR_SF_ql.c)
+ *     WPP_IFR_SF_qPPd @ 0x1C0037538 (WPP_IFR_SF_qPPd.c)
+ *     WPP_IFR_SF_qc @ 0x1C0037650 (WPP_IFR_SF_qc.c)
+ *     ?ReleaseIrpReference@FxRequest@@QEAAXXZ @ 0x1C004F104 (-ReleaseIrpReference@FxRequest@@QEAAXXZ.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
  */
 
 char __fastcall FxDmaTransactionBase::DmaCompleted(
@@ -29,7 +29,7 @@ char __fastcall FxDmaTransactionBase::DmaCompleted(
   unsigned __int64 _a3; // rcx
   char v12; // bp
   signed int v13; // esi
-  unsigned __int8 v14; // dl
+  unsigned __int64 m_Remaining; // rdx
   unsigned int v15; // r8d
   unsigned __int16 v16; // r9
   const void *ObjectHandleUnchecked; // rax
@@ -67,7 +67,7 @@ char __fastcall FxDmaTransactionBase::DmaCompleted(
       _a3,
       -1073741811);
     FxVerifierDbgBreakPoint(m_Globals);
-    goto LABEL_20;
+    goto LABEL_21;
   }
   if ( (unsigned int)(CompletionType - 2) <= 1 )
   {
@@ -84,28 +84,43 @@ char __fastcall FxDmaTransactionBase::DmaCompleted(
           WPP_FxDmaTransactionBase_cpp_Traceguids);
   if ( v13 >= 0 )
   {
-    if ( this->m_RequireSingleTransfer && this->m_Remaining )
+    if ( this->m_RequireSingleTransfer )
     {
-      v13 = -1071644141;
-      ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this);
-      WPP_IFR_SF_qPPd(m_Globals, v18, v19, 0x19u, traceGuid, ObjectHandleUnchecked, v18, this->m_TransactionLength, _a4);
-      goto LABEL_20;
+      m_Remaining = this->m_Remaining;
+      if ( m_Remaining )
+      {
+        v13 = -1071644141;
+        ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this);
+        WPP_IFR_SF_qPPd(
+          m_Globals,
+          v18,
+          v19,
+          0x19u,
+          traceGuid,
+          ObjectHandleUnchecked,
+          v18,
+          this->m_TransactionLength,
+          _a4);
+        goto LABEL_21;
+      }
     }
     if ( !this->m_Remaining || CompletionType == FxDmaCompletionTypeAbort )
     {
       v13 = 0;
-      goto LABEL_20;
     }
-    v13 = this->StageTransfer(this);
-    if ( v13 >= 0 )
-      v13 = -1073741802;
+    else
+    {
+      v13 = this->StageTransfer(this);
+      if ( v13 >= 0 )
+        v13 = -1073741802;
+    }
   }
   if ( v13 == -1073741802 )
   {
     v12 = 0;
     goto LABEL_28;
   }
-LABEL_20:
+LABEL_21:
   this->m_State = ((v13 >> 31) & 1) + 5;
   if ( m_Globals->FxVerifierOn && m_Globals->FxVerboseOn )
   {
@@ -129,6 +144,6 @@ LABEL_20:
 LABEL_28:
   *ReturnStatus = v13;
   if ( m_Globals->FxVerifierOn && m_Globals->FxVerboseOn )
-    WPP_IFR_SF_qc(m_Globals, v14, v15, v16, traceGuid, v10, v12);
+    WPP_IFR_SF_qc(m_Globals, m_Remaining, v15, v16, traceGuid, v10, v12);
   return v12;
 }

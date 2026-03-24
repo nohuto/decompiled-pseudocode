@@ -1,5 +1,5 @@
 /*
- * XREFs of MmProtectMdlSystemAddress @ 0x1402A9B70
+ * XREFs of MmProtectMdlSystemAddress @ 0x1402A9C70
  * Callers:
  *     <none>
  * Callees:
@@ -12,16 +12,16 @@
  *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
  *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiIoSpaceIsConstant @ 0x1400E6390 (MiIoSpaceIsConstant.c)
- *     MiMappingHasIoReferences @ 0x1400E63DC (MiMappingHasIoReferences.c)
- *     MiLookupIoPageNode @ 0x1401100C0 (MiLookupIoPageNode.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiMappingHasIoTracker @ 0x1401232F4 (MiMappingHasIoTracker.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiIoSpaceIsConstant @ 0x1400E63B0 (MiIoSpaceIsConstant.c)
+ *     MiMappingHasIoReferences @ 0x1400E63FC (MiMappingHasIoReferences.c)
+ *     MiLookupIoPageNode @ 0x1401100E0 (MiLookupIoPageNode.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiMappingHasIoTracker @ 0x140123314 (MiMappingHasIoTracker.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 NTSTATUS __stdcall MmProtectMdlSystemAddress(PMDL MemoryDescriptorList, ULONG NewProtect)

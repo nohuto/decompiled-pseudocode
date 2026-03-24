@@ -1,9 +1,10 @@
 /*
- * XREFs of ?FreeWithStore@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAU_LOOKASIDE_LIST_EX@@PEAXPEAPEAXPEAI@Z @ 0x1C00011E4
+ * XREFs of ?FreeWithStore@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAU_LOOKASIDE_LIST_EX@@PEAXPEAPEAXPEAI@Z @ 0x1C00027A4
  * Callers:
- *     ?DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C007C6C0 (-DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
+ *     ?DestroyMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C007B8B4 (-DestroyMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z.c)
+ *     ?DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C008A7C0 (-DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall VIDMM_RECYCLE_HEAP_MGR::FreeWithStore(
@@ -13,10 +14,15 @@ void __fastcall VIDMM_RECYCLE_HEAP_MGR::FreeWithStore(
         void **a4,
         unsigned int *a5)
 {
-  __int64 v7; // rax
+  __int64 v8; // rax
 
-  v7 = *a5;
-  if ( (unsigned int)v7 >= 4 )
+  v8 = *a5;
+  if ( (unsigned int)v8 < 4 )
+  {
+    a4[v8] = a3;
+    ++*a5;
+  }
+  else
   {
     ++a2->L.TotalFrees;
     if ( ExQueryDepthSList(&a2->L.ListHead) < a2->L.Depth )
@@ -29,9 +35,5 @@ void __fastcall VIDMM_RECYCLE_HEAP_MGR::FreeWithStore(
       ((void (__fastcall *)(struct _SLIST_ENTRY *, struct _LOOKASIDE_LIST_EX *))a2->L.FreeEx)(a3, a2);
     }
   }
-  else
-  {
-    a4[v7] = a3;
-    ++*a5;
-  }
+  --*((_DWORD *)this + 420);
 }

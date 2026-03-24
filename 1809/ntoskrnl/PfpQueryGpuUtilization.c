@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpQueryGpuUtilization @ 0x1406C4344
+ * XREFs of PfpQueryGpuUtilization @ 0x1406C4324
  * Callers:
  *     PfQuerySuperfetchInformation @ 0x140629AD0 (PfQuerySuperfetchInformation.c)
  * Callees:
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PsInvokeWin32Callout @ 0x1405F4E90 (PsInvokeWin32Callout.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
  */

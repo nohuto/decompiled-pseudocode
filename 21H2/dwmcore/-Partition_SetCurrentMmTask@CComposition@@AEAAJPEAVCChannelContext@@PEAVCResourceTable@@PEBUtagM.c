@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Partition_SetCurrentMmTask@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_SETCURRENTMMTASK@@@Z @ 0x18003D3E4
+ * XREFs of ?Partition_SetCurrentMmTask@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_SETCURRENTMMTASK@@@Z @ 0x1800306C0
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?UpdateMmcssPartners@CComposition@@QEAAJXZ @ 0x18003D4B4 (-UpdateMmcssPartners@CComposition@@QEAAJXZ.c)
- *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x18003D624 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?UpdateMmcssPartners@CComposition@@QEAAJXZ @ 0x180030790 (-UpdateMmcssPartners@CComposition@@QEAAJXZ.c)
+ *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x180030A60 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CComposition::Partition_SetCurrentMmTask(
@@ -43,10 +43,10 @@ __int64 __fastcall CComposition::Partition_SetCurrentMmTask(
   v16[6] = v10;
   v16[7] = *(_OWORD *)((char *)a4 + 120);
   v16[8] = v11;
-  v12 = CMmcssTask::Set((CComposition *)((char *)this + 336), (const struct DWM_MMTASK *)v16, 1);
+  v12 = CMmcssTask::Set((CComposition *)((char *)this + 184), (const struct DWM_MMTASK *)v16, 1);
   v14 = v12;
   if ( v12 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x4AEu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x428u, 0LL);
   else
     CComposition::UpdateMmcssPartners(this);
   return v14;

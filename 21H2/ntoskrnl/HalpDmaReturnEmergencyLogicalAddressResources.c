@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaReturnEmergencyLogicalAddressResources @ 0x140504DAC
+ * XREFs of HalpDmaReturnEmergencyLogicalAddressResources @ 0x1404B8368
  * Callers:
- *     HalpDmaFreeLa @ 0x140504358 (HalpDmaFreeLa.c)
- *     HalPutScatterGatherListDmarThin @ 0x140516470 (HalPutScatterGatherListDmarThin.c)
+ *     HalpDmaFreeLa @ 0x1404B78F8 (HalpDmaFreeLa.c)
+ *     HalPutScatterGatherListThin @ 0x1404CB290 (HalPutScatterGatherListThin.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpConstructScatterGatherListDmarThin @ 0x140516878 (HalpConstructScatterGatherListDmarThin.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140517830 (HalpAllocateDmaResourcesInternal.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x1404CA5DC (HalpAllocateDmaResourcesInternal.c)
+ *     HalpConstructScatterGatherListThin @ 0x1404CB818 (HalpConstructScatterGatherListThin.c)
  */
 
 __int64 __fastcall HalpDmaReturnEmergencyLogicalAddressResources(PDMA_ADAPTER DmaAdapter)
@@ -26,6 +26,8 @@ __int64 __fastcall HalpDmaReturnEmergencyLogicalAddressResources(PDMA_ADAPTER Dm
   _DWORD *SchedulerAssist; // r9
   bool v13; // zf
   int AllocateCommonBuffer; // ecx
+  _DMA_OPERATIONS *v15; // rcx
+  _DMA_OPERATIONS *v16; // rax
 
   p_Version = (KSPIN_LOCK *)&DmaAdapter[35].Version;
   v3 = 0LL;
@@ -78,11 +80,14 @@ __int64 __fastcall HalpDmaReturnEmergencyLogicalAddressResources(PDMA_ADAPTER Dm
     }
     else if ( LODWORD(DmaAdapter[38].DmaOperations) == 3 )
     {
-      DmaAdapter[14].DmaOperations->FreeCommonBuffer = (void (__fastcall *)(_DMA_ADAPTER *, unsigned int, _LARGE_INTEGER, void *, unsigned __int8))DmaAdapter[34].DmaOperations;
+      v15 = DmaAdapter[14].DmaOperations;
+      v16 = DmaAdapter[34].DmaOperations;
+      v15->FreeCommonBuffer = (void (__fastcall *)(_DMA_ADAPTER *, unsigned int, _LARGE_INTEGER, void *, unsigned __int8))v16;
+      v15->FlushAdapterBuffers = (unsigned __int8 (__fastcall *)(_DMA_ADAPTER *, _MDL *, void *, void *, unsigned int, unsigned __int8))v16;
       ++LODWORD(DmaAdapter[38].DmaOperations);
       return HalpAllocateDmaResourcesInternal(DmaAdapter);
     }
-    return HalpConstructScatterGatherListDmarThin(v3);
+    return HalpConstructScatterGatherListThin(v3);
   }
   return result;
 }

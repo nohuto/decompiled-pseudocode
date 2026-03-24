@@ -1,41 +1,36 @@
 /*
- * XREFs of ?KnownInputTypeFromLinpSource@@YA?AW4InputType@@W4_LINP_SOURCE@@@Z @ 0x1C00B439C
+ * XREFs of ?KnownInputTypeFromLinpSource@@YA?AW4InputType@@W4_LINP_SOURCE@@@Z @ 0x1C0049B78
  * Callers:
- *     ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C00BFBB0 (-UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z.c)
+ *     ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C00496F0 (-UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall KnownInputTypeFromLinpSource(int a1)
 {
-  int v1; // ecx
+  int v1; // edx
+  int v2; // edx
   __int64 result; // rax
-  int v3; // ecx
-  int v4; // ecx
-  int v5; // ecx
+  int v4; // edx
+  int v5; // edx
 
-  v1 = a1 - 1;
-  if ( !v1 )
+  v1 = 11;
+  if ( a1 != 17 )
+    v1 = a1;
+  v2 = v1 - 1;
+  if ( !v2 )
     return 4LL;
   result = 2LL;
-  v3 = v1 - 2;
-  if ( v3 )
+  v4 = v2 - 2;
+  if ( v4 )
   {
-    v4 = v3 - 8;
-    if ( v4 )
+    v5 = v4 - 8;
+    if ( v5 )
     {
-      v5 = v4 - 2;
-      if ( v5 )
-      {
-        if ( v5 == 4 )
-          return 32LL;
-        else
-          return 0LL;
-      }
-      else
-      {
+      if ( v5 == 2 )
         return 16LL;
-      }
+      else
+        return 0LL;
     }
     else
     {

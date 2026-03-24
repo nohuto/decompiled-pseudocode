@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPepUpdateIdleState @ 0x1400FFF44
+ * XREFs of PopPepUpdateIdleState @ 0x1400FFF64
  * Callers:
- *     PopPepTriggerComponentActivatingActivity @ 0x1400FFE20 (PopPepTriggerComponentActivatingActivity.c)
- *     PopPepCompleteComponentActiveActivity @ 0x1400FFE90 (PopPepCompleteComponentActiveActivity.c)
- *     PopPepUpdateConstraints @ 0x140172194 (PopPepUpdateConstraints.c)
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x140172340 (PopPepCompleteComponentIdleStateChangeActivity.c)
- *     PopPepComponentSetLatency @ 0x1402DC8C4 (PopPepComponentSetLatency.c)
- *     PopPepComponentSetResidency @ 0x1402DC9A8 (PopPepComponentSetResidency.c)
- *     PopPepComponentSetWakeHint @ 0x1402DCA9C (PopPepComponentSetWakeHint.c)
- *     PopPepIdleTimeoutRoutine @ 0x1402DCF90 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepTriggerComponentActivatingActivity @ 0x1400FFE40 (PopPepTriggerComponentActivatingActivity.c)
+ *     PopPepCompleteComponentActiveActivity @ 0x1400FFEB0 (PopPepCompleteComponentActiveActivity.c)
+ *     PopPepUpdateConstraints @ 0x1401721B4 (PopPepUpdateConstraints.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x140172360 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepComponentSetLatency @ 0x1402DC9C4 (PopPepComponentSetLatency.c)
+ *     PopPepComponentSetResidency @ 0x1402DCAA8 (PopPepComponentSetResidency.c)
+ *     PopPepComponentSetWakeHint @ 0x1402DCB9C (PopPepComponentSetWakeHint.c)
+ *     PopPepIdleTimeoutRoutine @ 0x1402DD090 (PopPepIdleTimeoutRoutine.c)
  * Callees:
- *     PopPepTriggerActivity @ 0x1400FFCF8 (PopPepTriggerActivity.c)
- *     PopPepGetComponentPreferedIdleState @ 0x1400FFFA4 (PopPepGetComponentPreferedIdleState.c)
+ *     PopPepTriggerActivity @ 0x1400FFD18 (PopPepTriggerActivity.c)
+ *     PopPepGetComponentPreferedIdleState @ 0x1400FFFC4 (PopPepGetComponentPreferedIdleState.c)
  */
 
 __int64 __fastcall PopPepUpdateIdleState(__int64 a1, __int64 a2, char a3)

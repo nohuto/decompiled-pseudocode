@@ -1,11 +1,11 @@
 /*
- * XREFs of IovpExamineDevObjForwarding @ 0x140A8C69C
+ * XREFs of IovpExamineDevObjForwarding @ 0x1409D0AD0
  * Callers:
- *     IovpCallDriver1 @ 0x140A8B840 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x1409CFC4C (IovpCallDriver1.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     IovUtilGetUpperDeviceObjectWithTag @ 0x140A920D0 (IovUtilGetUpperDeviceObjectWithTag.c)
- *     IovUtilRelateDeviceObjects @ 0x140A9235C (IovUtilRelateDeviceObjects.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     IovUtilGetUpperDeviceObjectWithTag @ 0x1409D69F8 (IovUtilGetUpperDeviceObjectWithTag.c)
+ *     IovUtilRelateDeviceObjects @ 0x1409D6C84 (IovUtilRelateDeviceObjects.c)
  */
 
 __int64 __fastcall IovpExamineDevObjForwarding(__int64 a1, __int64 a2)

@@ -1,47 +1,48 @@
 /*
- * XREFs of CmpWaitForHiveMount @ 0x14084E90C
+ * XREFs of CmpWaitForHiveMount @ 0x1407C4644
  * Callers:
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7F40 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x140649B30 (CmpPerformCompleteKcbCacheLookup.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     CmpHashUnicodeComponent @ 0x140708D90 (CmpHashUnicodeComponent.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     CmpHashUnicodeComponent @ 0x1406E3014 (CmpHashUnicodeComponent.c)
  */
 
 char __fastcall CmpWaitForHiveMount(__m128i *a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   __m128i v4; // xmm0
-  char v5; // bl
+  char v5; // di
   __int16 v7; // cx
   _WORD *v8; // r8
   unsigned __int16 v9; // dx
-  unsigned int v10; // edi
+  unsigned int v10; // esi
   int v11; // eax
-  unsigned __int16 v12; // dx
-  __int64 v13; // rsi
-  __int64 v15; // rcx
-  bool v16; // zf
-  __m128i v17; // [rsp+20h] [rbp-18h] BYREF
+  unsigned __int16 v12; // cx
+  __int64 v13; // rbp
+  __int64 v15; // rbx
+  __int64 v16; // rcx
+  bool v17; // zf
+  __m128i v18; // [rsp+20h] [rbp-28h] BYREF
 
   v4 = *a1;
   v5 = 0;
   v7 = _mm_cvtsi128_si32(*a1);
-  v17 = v4;
-  v17.m128i_i16[0] = v7;
+  v18 = v4;
+  v18.m128i_i16[0] = v7;
   if ( !v7 )
     goto LABEL_18;
-  v8 = (_WORD *)v17.m128i_i64[1];
+  v8 = (_WORD *)v18.m128i_i64[1];
   do
   {
     if ( *v8 != 92 )
       break;
     ++v8;
-    v16 = v7 == 2;
+    v17 = v7 == 2;
     v7 -= 2;
-    v17.m128i_i16[0] = v7;
+    v18.m128i_i16[0] = v7;
   }
-  while ( !v16 );
-  v17.m128i_i64[1] = (__int64)v8;
+  while ( !v17 );
+  v18.m128i_i64[1] = (__int64)v8;
   if ( v7 )
   {
     v9 = 0;
@@ -54,37 +55,38 @@ char __fastcall CmpWaitForHiveMount(__m128i *a1, __int64 a2, __int64 a3, _DWORD 
       v7 -= 2;
     }
     while ( v7 );
-    v17.m128i_i16[0] = 2 * v9;
-    v11 = CmpHashUnicodeComponent(&v17);
+    v18.m128i_i16[0] = 2 * v9;
+    v11 = CmpHashUnicodeComponent(&v18);
     v12 = 0;
     while ( 1 )
     {
       v13 = 3LL * v12;
-      if ( dword_140C02C5C[6 * v12] == v11 )
+      if ( dword_140C0154C[6 * v12] == v11 )
         break;
       if ( ++v12 >= 8u )
       {
-        _interlockedbittestandset(dword_140C02C60, 2u);
+        _interlockedbittestandset(dword_140C01550, 2u);
         return 0;
       }
     }
-    _interlockedbittestandset(&dword_140C02C60[6 * v12], 3u);
-    _InterlockedAdd(&dword_140C02C64[6 * v12], 1u);
-    KeSetEvent((struct _KEVENT *)((char *)&stru_140C026D0 + 184 * (unsigned int)dword_140C02C58[6 * v12]), 0, 0);
-    v15 = (unsigned int)dword_140C02C58[2 * v13];
-    if ( !*((_DWORD *)&unk_140C02704 + 46 * v15) )
+    _interlockedbittestandset(&dword_140C01550[6 * v12], 3u);
+    _InterlockedAdd(&dword_140C01554[6 * v12], 1u);
+    v15 = 3LL * v12;
+    KeSetEvent((struct _KEVENT *)((char *)&stru_140C00F40 + 200 * (unsigned int)dword_140C01548[6 * v12]), 0, 0);
+    v16 = (unsigned int)dword_140C01548[2 * v15];
+    if ( !*((_DWORD *)&unk_140C00F74 + 50 * v16) )
     {
       v5 = 1;
-      *a4 = v15;
+      *a4 = v16;
       v10 = 5;
     }
-    _interlockedbittestandset(&dword_140C02C60[2 * v13], v10);
+    _interlockedbittestandset(&dword_140C01550[2 * v13], v10);
     return v5;
   }
   else
   {
 LABEL_18:
-    _interlockedbittestandset(dword_140C02C60, 0);
+    _interlockedbittestandset(dword_140C01550, 0);
     return 0;
   }
 }

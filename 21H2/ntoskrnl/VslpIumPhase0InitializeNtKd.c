@@ -1,7 +1,7 @@
 /*
- * XREFs of VslpIumPhase0InitializeNtKd @ 0x140B4EEC8
+ * XREFs of VslpIumPhase0InitializeNtKd @ 0x140A8F850
  * Callers:
- *     VslpIumPhase0Initialize @ 0x140B4EC40 (VslpIumPhase0Initialize.c)
+ *     VslpIumPhase0Initialize @ 0x140A8F5C8 (VslpIumPhase0Initialize.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ char __fastcall VslpIumPhase0InitializeNtKd(__int64 a1, __int64 a2)
   {
     *(_BYTE *)(a2 + 24) = 1;
     v2 = *(_QWORD *)(a1 + 240);
-    v3 = *(_QWORD *)(v2 + 2800);
+    v3 = *(_QWORD *)(v2 + 2768);
     if ( v3 )
     {
       LODWORD(v2) = *(_DWORD *)(v3 + 220);

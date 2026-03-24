@@ -1,44 +1,54 @@
 /*
- * XREFs of ?Initialize@DXGMMS_EXPORT@@QEAAJI@Z @ 0x1C0218360
+ * XREFs of ?Initialize@DXGMMS_EXPORT@@QEAAJI@Z @ 0x1C019B6E8
  * Callers:
- *     ?DeferredInitialize@DXGGLOBAL@@QEAAJI@Z @ 0x1C02181B8 (-DeferredInitialize@DXGGLOBAL@@QEAAJI@Z.c)
+ *     ?DeferredInitialize@DXGGLOBAL@@QEAAJI@Z @ 0x1C019B53C (-DeferredInitialize@DXGGLOBAL@@QEAAJI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?FindExportAddress@DXGMMS_EXPORT@@QEAAPEAXPEADI@Z @ 0x1C02184B8 (-FindExportAddress@DXGMMS_EXPORT@@QEAAPEAXPEADI@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?FindExportAddress@DXGMMS_EXPORT@@QEAAPEAXPEADI@Z @ 0x1C019B848 (-FindExportAddress@DXGMMS_EXPORT@@QEAAPEAXPEADI@Z.c)
  */
 
-__int64 __fastcall DXGMMS_EXPORT::Initialize(DXGMMS_EXPORT *this, int a2)
+__int64 __fastcall DXGMMS_EXPORT::Initialize(DXGMMS_EXPORT *this, __int64 a2)
 {
   char *v2; // rbx
+  int v3; // r14d
   const WCHAR *v5; // rdx
-  unsigned int i; // esi
-  NTSTATUS v7; // ecx
-  void *ExportAddress; // r14
-  void *v9; // rax
-  __int64 v10; // r9
-  void *v11; // rbx
-  __int64 v12; // rax
-  __int64 v13; // r9
-  int v14; // esi
-  __int64 v15; // rax
-  __int64 v17; // rbx
-  const wchar_t *v18; // r9
-  int v19; // edx
+  unsigned int i; // ebp
+  NTSTATUS v7; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  NTSTATUS v10; // esi
+  void *ExportAddress; // rbp
+  void *v12; // rax
+  void *v13; // rbx
+  _QWORD *v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  int v19; // esi
+  _QWORD *v20; // rax
+  bool v21; // zf
+  _QWORD *v23; // rax
+  __int64 v24; // rax
+  unsigned int v25; // ebx
+  __int64 v26; // rax
 
   v2 = (char *)this + 8;
   *(_OWORD *)((char *)this + 8) = 0LL;
+  v3 = a2;
   *(_OWORD *)((char *)this + 24) = 0LL;
   *(_OWORD *)((char *)this + 40) = 0LL;
   *((_QWORD *)this + 7) = 0LL;
-  if ( a2 )
+  if ( (_DWORD)a2 )
   {
-    if ( a2 != 1 )
+    if ( (_DWORD)a2 != 1 )
     {
-      v17 = -1073741811LL;
-      WdLogSingleEntry1(2LL, -1073741811LL);
-      v18 = L"Unsupported DXGMMS version requested, returning 0x%I64x";
-      goto LABEL_28;
+LABEL_24:
+      v26 = WdLogNewEntry5_WdError(this, a2);
+      v25 = -1073741811;
+      *(_QWORD *)(v26 + 24) = -1073741811LL;
+      WdLogEvent5_WdError(v26);
+      return v25;
     }
     v5 = L"\\SystemRoot\\System32\\drivers\\dxgmms2.sys";
   }
@@ -50,11 +60,18 @@ __int64 __fastcall DXGMMS_EXPORT::Initialize(DXGMMS_EXPORT *this, int a2)
   for ( i = 0; ; ++i )
   {
     v7 = ZwSetSystemInformation(SystemLoadGdiDriverInSystemSpaceInformation, v2, 0x38uLL);
+    v10 = v7;
     if ( v7 >= 0 || v7 == -1073741554 )
       break;
     if ( i >= 0xA )
     {
-      WdLogSingleEntry5(0LL, 275LL, 27LL, v7, i, 0LL);
+      v23 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v9, v8);
+      v23[7] = 0LL;
+      v23[5] = v10;
+      v23[6] = i;
+      v23[3] = 275LL;
+      v23[4] = 27LL;
+      WdLogEvent5_WdCriticalError(v23);
     }
     else
     {
@@ -71,56 +88,34 @@ __int64 __fastcall DXGMMS_EXPORT::Initialize(DXGMMS_EXPORT *this, int a2)
   }
   *(_BYTE *)this = 1;
   ExportAddress = DXGMMS_EXPORT::FindExportAddress(this, "VidMmInterface", 0xFu);
-  v9 = DXGMMS_EXPORT::FindExportAddress(this, "VidSchInterface", 0x10u);
-  v11 = v9;
-  if ( !ExportAddress || !v9 )
+  v12 = DXGMMS_EXPORT::FindExportAddress(this, "VidSchInterface", 0x10u);
+  v13 = v12;
+  if ( !ExportAddress || !v12 )
+    goto LABEL_24;
+  v14 = operator new[](0x10uLL, 0x4B677844u, (POOL_TYPE)512);
+  v19 = v3 + 1;
+  if ( v14 )
   {
-    v17 = -1073741811LL;
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    v18 = L"Required export can't be found in dxgmms.sys, returning 0x%I64x";
-LABEL_28:
-    v19 = 0x40000;
-    goto LABEL_29;
+    *(_DWORD *)v14 = v19;
+    v14[1] = ExportAddress;
   }
-  v12 = operator new[](0x10uLL, 0x4B677844u, 64LL, v10);
-  v14 = a2 + 1;
-  if ( v12 )
+  *((_QWORD *)this + 9) = v14;
+  if ( v14 )
   {
-    *(_DWORD *)v12 = v14;
-    *(_QWORD *)(v12 + 8) = ExportAddress;
-  }
-  else
-  {
-    v12 = 0LL;
-  }
-  *((_QWORD *)this + 9) = v12;
-  if ( v12 )
-  {
-    v15 = operator new[](0x10uLL, 0x4B677844u, 64LL, v13);
-    if ( v15 )
+    v20 = operator new[](0x10uLL, 0x4B677844u, (POOL_TYPE)512);
+    if ( v20 )
     {
-      *(_DWORD *)v15 = v14;
-      *(_QWORD *)(v15 + 8) = v11;
+      *(_DWORD *)v20 = v19;
+      v20[1] = v13;
     }
-    else
-    {
-      v15 = 0LL;
-    }
-    *((_QWORD *)this + 8) = v15;
-    if ( *((_QWORD *)this + 9) )
+    v21 = *((_QWORD *)this + 9) == 0LL;
+    *((_QWORD *)this + 8) = v20;
+    if ( !v21 )
       return 0LL;
-    v17 = -1073741801LL;
-    WdLogSingleEntry1(6LL, -1073741801LL);
-    v18 = L"Failed to allocate VIDSCH_EXPORT returning 0x%I64x";
   }
-  else
-  {
-    v17 = -1073741801LL;
-    WdLogSingleEntry1(6LL, -1073741801LL);
-    v18 = L"Failed to allocate VIDMM_EXPORT returning 0x%I64x";
-  }
-  v19 = 262145;
-LABEL_29:
-  DxgkLogInternalTriageEvent(0LL, v19, -1, (__int64)v18, v17, 0LL, 0LL, 0LL, 0LL);
-  return (unsigned int)v17;
+  v24 = WdLogNewEntry5_WdLowResource(v16, v15, v17, v18);
+  v25 = -1073741801;
+  *(_QWORD *)(v24 + 24) = -1073741801LL;
+  WdLogEvent5_WdLowResource(v24);
+  return v25;
 }

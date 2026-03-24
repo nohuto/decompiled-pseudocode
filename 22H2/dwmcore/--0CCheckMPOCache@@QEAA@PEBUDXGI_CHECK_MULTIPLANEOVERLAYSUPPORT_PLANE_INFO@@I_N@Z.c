@@ -1,73 +1,73 @@
 /*
- * XREFs of ??0CCheckMPOCache@@QEAA@PEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z @ 0x18011AD68
+ * XREFs of ??0CCheckMPOCache@@QEAA@PEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z @ 0x1800F1630
  * Callers:
- *     ?CheckMultiplaneOverlaySupport@CLegacySwapChain@@UEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x180135410 (-CheckMultiplaneOverlaySupport@CLegacySwapChain@@UEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_P.c)
- *     ?CheckMultiplaneOverlaySupportInternal@CDDisplaySwapChain@@IEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IW4ScanoutScaleMode@1@PEA_N@Z @ 0x180288E00 (-CheckMultiplaneOverlaySupportInternal@CDDisplaySwapChain@@IEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLA.c)
- *     ?InternalCheckDirectFlipSupport@CLegacySwapChain@@MEBA_N_N0PEAUIUnknown@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@2W4DXGI_COLOR_SPACE_TYPE@@I@Z @ 0x18029B220 (-InternalCheckDirectFlipSupport@CLegacySwapChain@@MEBA_N_N0PEAUIUnknown@@AEBV-$TMilRect@IUMilRec.c)
+ *     ?AddCheckMPOCache@CD3DDevice@@QEAAXPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z @ 0x1800F1758 (-AddCheckMPOCache@CD3DDevice@@QEAAXPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z.c)
  * Callees:
- *     ?GetCurrentFrameId@@YA_KXZ @ 0x1800895E0 (-GetCurrentFrameId@@YA_KXZ.c)
- *     ??0PlaneInfo@CCheckMPOCache@@QEAA@AEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@Z @ 0x18011AE7C (--0PlaneInfo@CCheckMPOCache@@QEAA@AEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@Z.c)
- *     ?reserve_region@?$vector_facade@VPlaneInfo@CCheckMPOCache@@V?$buffer_impl@VPlaneInfo@CCheckMPOCache@@$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAVPlaneInfo@CCheckMPOCache@@_K0@Z @ 0x18011B42C (-reserve_region@-$vector_facade@VPlaneInfo@CCheckMPOCache@@V-$buffer_impl@VPlaneInfo@CCheckMPOCa.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x18008F604 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     ??$emplace@UDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@?$vector_facade@UDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@V?$buffer_impl@UDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@UDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@1@V?$basic_iterator@$$CBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@1@UDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@Z @ 0x1800F1410 (--$emplace@UDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@-$vector_facade@UDXGI_CHECK_MULTIPL.c)
  */
 
 CCheckMPOCache *__fastcall CCheckMPOCache::CCheckMPOCache(
         CCheckMPOCache *this,
         const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *a2)
 {
-  _QWORD *v2; // rdi
+  unsigned __int64 CurrentFrameId; // rax
   unsigned int v5; // r8d
-  char v6; // r9
-  __int64 v7; // rsi
-  __int128 v8; // xmm1
-  __int64 v9; // rdx
-  __int128 v10; // xmm0
-  __int128 v11; // xmm1
-  __int128 v12; // xmm0
-  __int128 v13; // xmm1
-  __int128 v14; // xmm0
-  __int128 v15; // xmm1
-  __int128 v16; // xmm0
-  CCheckMPOCache::PlaneInfo *v17; // rax
-  _OWORD v19[9]; // [rsp+20h] [rbp-98h] BYREF
+  unsigned __int64 *v6; // r10
+  char v7; // r9
+  __int64 v8; // rdi
+  __int128 v9; // xmm0
+  __int128 v10; // xmm1
+  __int128 v11; // xmm0
+  __int128 v12; // xmm1
+  __int128 v13; // xmm0
+  __int128 v14; // xmm1
+  __int128 v15; // xmm0
+  __int128 v16; // xmm1
+  __int128 v17; // xmm0
+  __int64 v19; // [rsp+20h] [rbp-A8h] BYREF
+  _OWORD v20[9]; // [rsp+30h] [rbp-98h] BYREF
+  __int64 v21; // [rsp+D0h] [rbp+8h] BYREF
 
-  v2 = (_QWORD *)((char *)this + 8);
-  *(_QWORD *)this = &CCheckMPOCache::`vftable';
-  *((_QWORD *)this + 1) = (char *)this + 32;
-  *((_QWORD *)this + 2) = (char *)this + 32;
-  *((_QWORD *)this + 3) = (char *)this + 992;
-  *((_QWORD *)this + 124) = GetCurrentFrameId();
-  *((_BYTE *)this + 1000) = v6;
+  *(_QWORD *)this = (char *)this + 24;
+  *((_QWORD *)this + 1) = (char *)this + 24;
+  *((_QWORD *)this + 2) = (char *)this + 888;
+  CurrentFrameId = GetCurrentFrameId();
+  *v6 = CurrentFrameId;
+  *((_BYTE *)this + 896) = v7;
   if ( v5 )
   {
-    v7 = v5;
+    v8 = v5;
     do
     {
-      v8 = *((_OWORD *)a2 + 1);
-      v9 = v2[1] - *v2;
-      v19[0] = *(_OWORD *)a2;
-      v10 = *((_OWORD *)a2 + 2);
-      v19[1] = v8;
-      v11 = *((_OWORD *)a2 + 3);
-      v19[2] = v10;
-      v12 = *((_OWORD *)a2 + 4);
-      v19[3] = v11;
-      v13 = *((_OWORD *)a2 + 5);
-      v19[4] = v12;
-      v14 = *((_OWORD *)a2 + 6);
-      v19[5] = v13;
-      v15 = *((_OWORD *)a2 + 7);
-      v19[6] = v14;
-      v16 = *((_OWORD *)a2 + 8);
-      v19[7] = v15;
-      v19[8] = v16;
-      v17 = (CCheckMPOCache::PlaneInfo *)detail::vector_facade<CCheckMPOCache::PlaneInfo,detail::buffer_impl<CCheckMPOCache::PlaneInfo,6,1,detail::liberal_expansion_policy>>::reserve_region(
-                                           v2,
-                                           0xCCCCCCCCCCCCCCCDuLL * (v9 >> 5));
-      CCheckMPOCache::PlaneInfo::PlaneInfo(v17, (const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *)v19);
+      v9 = *(_OWORD *)a2;
+      v10 = *((_OWORD *)a2 + 1);
+      v21 = *((_QWORD *)this + 1);
+      v20[0] = v9;
+      v11 = *((_OWORD *)a2 + 2);
+      v20[1] = v10;
+      v12 = *((_OWORD *)a2 + 3);
+      v20[2] = v11;
+      v13 = *((_OWORD *)a2 + 4);
+      v20[3] = v12;
+      v14 = *((_OWORD *)a2 + 5);
+      v20[4] = v13;
+      v15 = *((_OWORD *)a2 + 6);
+      v20[5] = v14;
+      v16 = *((_OWORD *)a2 + 7);
+      v20[6] = v15;
+      v17 = *((_OWORD *)a2 + 8);
+      v20[7] = v16;
+      v20[8] = v17;
+      detail::vector_facade<DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO,detail::buffer_impl<DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO,6,1,detail::liberal_expansion_policy>>::emplace<DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO>(
+        this,
+        &v19,
+        &v21,
+        v20);
       a2 = (const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *)((char *)a2 + 144);
-      --v7;
+      --v8;
     }
-    while ( v7 );
+    while ( v8 );
   }
   return this;
 }

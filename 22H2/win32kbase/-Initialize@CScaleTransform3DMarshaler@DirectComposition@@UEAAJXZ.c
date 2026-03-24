@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CScaleTransform3DMarshaler@DirectComposition@@UEAAJXZ @ 0x1C021CC50
+ * XREFs of ?Initialize@CScaleTransform3DMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01DBF80
  * Callers:
  *     <none>
  * Callees:

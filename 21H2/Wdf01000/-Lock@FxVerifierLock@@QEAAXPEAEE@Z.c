@@ -1,30 +1,36 @@
 /*
- * XREFs of ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C006D914
+ * XREFs of ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C005A978
  * Callers:
- *     imp_WdfCollectionGetItem @ 0x1C0001550 (imp_WdfCollectionGetItem.c)
- *     imp_WdfCollectionGetCount @ 0x1C00020B0 (imp_WdfCollectionGetCount.c)
- *     ?OnCreate@FxPkgGeneral@@AEAAJPEAVFxIrp@@@Z @ 0x1C0003FB0 (-OnCreate@FxPkgGeneral@@AEAAJPEAVFxIrp@@@Z.c)
- *     ?_GetFileObjectFromWdm@FxFileObject@@SAJPEAVFxDevice@@W4_WDF_FILEOBJECT_CLASS@@PEAU_FILE_OBJECT@@PEAPEAV1@@Z @ 0x1C0004BB0 (-_GetFileObjectFromWdm@FxFileObject@@SAJPEAVFxDevice@@W4_WDF_FILEOBJECT_CLASS@@PEAU_FILE_OBJECT@.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?PeekRequest@FxIoQueue@@QEAAJPEAVFxRequest@@PEAU_FILE_OBJECT@@PEAU_WDF_REQUEST_PARAMETERS@@PEAPEAV2@@Z @ 0x1C00056A4 (-PeekRequest@FxIoQueue@@QEAAJPEAVFxRequest@@PEAU_FILE_OBJECT@@PEAU_WDF_REQUEST_PARAMETERS@@PEAPE.c)
- *     ?FlushAllQueuesByFileObject@FxPkgIo@@QEAAJPEAU_FILE_OBJECT@@@Z @ 0x1C00074E0 (-FlushAllQueuesByFileObject@FxPkgIo@@QEAAJPEAU_FILE_OBJECT@@@Z.c)
- *     ?QueueRequest@FxIoQueue@@QEAAJPEAVFxRequest@@@Z @ 0x1C0008700 (-QueueRequest@FxIoQueue@@QEAAJPEAVFxRequest@@@Z.c)
- *     ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0008890 (-CompleteInternal@FxRequest@@AEAAJJ@Z.c)
- *     ?EnqueueRequest@FxPkgIo@@QEAAJPEAVFxDevice@@PEAVFxRequest@@@Z @ 0x1C0009010 (-EnqueueRequest@FxPkgIo@@QEAAJPEAVFxDevice@@PEAVFxRequest@@@Z.c)
- *     ?DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z @ 0x1C0009550 (-DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z.c)
- *     ?QueueRequestFromForward@FxIoQueue@@QEAAJPEAVFxRequest@@@Z @ 0x1C000A0B0 (-QueueRequestFromForward@FxIoQueue@@QEAAJPEAVFxRequest@@@Z.c)
- *     ?ForwardRequestWorker@FxIoQueue@@QEAAJPEAVFxRequest@@PEAV1@@Z @ 0x1C000A250 (-ForwardRequestWorker@FxIoQueue@@QEAAJPEAVFxRequest@@PEAV1@@Z.c)
- *     ?GetRequest@FxIoQueue@@QEAAJPEAU_FILE_OBJECT@@PEAVFxRequest@@PEAPEAV3@@Z @ 0x1C000A580 (-GetRequest@FxIoQueue@@QEAAJPEAU_FILE_OBJECT@@PEAVFxRequest@@PEAPEAV3@@Z.c)
- *     imp_WdfRequestSend @ 0x1C000AF90 (imp_WdfRequestSend.c)
- *     ?Start@FxTimer@@QEAAET_LARGE_INTEGER@@@Z @ 0x1C000B8C0 (-Start@FxTimer@@QEAAET_LARGE_INTEGER@@@Z.c)
- *     ?Lock@FxCallbackSpinLock@@UEAAXPEAE@Z @ 0x1C0012E10 (-Lock@FxCallbackSpinLock@@UEAAXPEAE@Z.c)
- *     ?Lock@FxCallbackMutexLock@@UEAAXPEAE@Z @ 0x1C0014610 (-Lock@FxCallbackMutexLock@@UEAAXPEAE@Z.c)
+ *     imp_WdfRequestSend @ 0x1C0001AD0 (imp_WdfRequestSend.c)
+ *     ?SubmitSync@FxIoTarget@@QEAAJPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAK@Z @ 0x1C0001D10 (-SubmitSync@FxIoTarget@@QEAAJPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAK@Z.c)
+ *     imp_WdfCollectionGetItem @ 0x1C0003490 (imp_WdfCollectionGetItem.c)
+ *     imp_WdfCollectionGetCount @ 0x1C0003980 (imp_WdfCollectionGetCount.c)
+ *     ?WorkItemHandler@FxSystemWorkItem@@AEAAXXZ @ 0x1C0003A64 (-WorkItemHandler@FxSystemWorkItem@@AEAAXXZ.c)
+ *     ?EnqueueWorker@FxSystemWorkItem@@AEAAEP6AXPEAX@Z0E@Z @ 0x1C0004224 (-EnqueueWorker@FxSystemWorkItem@@AEAAEP6AXPEAX@Z0E@Z.c)
+ *     ?QueueRequestFromForward@FxIoQueue@@QEAAJPEAVFxRequest@@@Z @ 0x1C0005488 (-QueueRequestFromForward@FxIoQueue@@QEAAJPEAVFxRequest@@@Z.c)
+ *     ?QueueRequest@FxIoQueue@@QEAAJPEAVFxRequest@@@Z @ 0x1C0005CA0 (-QueueRequest@FxIoQueue@@QEAAJPEAVFxRequest@@@Z.c)
+ *     ?OnCreate@FxPkgGeneral@@AEAAJPEAVFxIrp@@@Z @ 0x1C0005FD0 (-OnCreate@FxPkgGeneral@@AEAAJPEAVFxIrp@@@Z.c)
+ *     ?Dispatch@FxPkgGeneral@@UEAAJPEAU_IRP@@@Z @ 0x1C0006C90 (-Dispatch@FxPkgGeneral@@UEAAJPEAU_IRP@@@Z.c)
+ *     ?EnqueueRequest@FxPkgIo@@QEAAJPEAVFxDevice@@PEAVFxRequest@@@Z @ 0x1C0007B30 (-EnqueueRequest@FxPkgIo@@QEAAJPEAVFxDevice@@PEAVFxRequest@@@Z.c)
+ *     ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0007EE0 (-CompleteInternal@FxRequest@@AEAAJJ@Z.c)
+ *     ?DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z @ 0x1C0008440 (-DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z.c)
+ *     ?OnClose@FxPkgGeneral@@AEAAJPEAVFxIrp@@@Z @ 0x1C00094F0 (-OnClose@FxPkgGeneral@@AEAAJPEAVFxIrp@@@Z.c)
+ *     ?_GetFileObjectFromWdm@FxFileObject@@SAJPEAVFxDevice@@W4_WDF_FILEOBJECT_CLASS@@PEAU_FILE_OBJECT@@PEAPEAV1@@Z @ 0x1C0009830 (-_GetFileObjectFromWdm@FxFileObject@@SAJPEAVFxDevice@@W4_WDF_FILEOBJECT_CLASS@@PEAU_FILE_OBJECT@.c)
+ *     ?GetRequest@FxIoQueue@@QEAAJPEAU_FILE_OBJECT@@PEAVFxRequest@@PEAPEAV3@@Z @ 0x1C000A1C0 (-GetRequest@FxIoQueue@@QEAAJPEAU_FILE_OBJECT@@PEAVFxRequest@@PEAPEAV3@@Z.c)
+ *     ?ForwardRequestWorker@FxIoQueue@@QEAAJPEAVFxRequest@@PEAV1@@Z @ 0x1C000B944 (-ForwardRequestWorker@FxIoQueue@@QEAAJPEAVFxRequest@@PEAV1@@Z.c)
+ *     ?WorkItemThunk@FxWorkItem@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C000C5C0 (-WorkItemThunk@FxWorkItem@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Start@FxTimer@@QEAAET_LARGE_INTEGER@@@Z @ 0x1C000D7F0 (-Start@FxTimer@@QEAAET_LARGE_INTEGER@@@Z.c)
+ *     imp_WdfRequestUnmarkCancelable @ 0x1C0013490 (imp_WdfRequestUnmarkCancelable.c)
+ *     ?RequestCancelable@FxIoQueue@@QEAAJPEAVFxRequest@@EP6AXPEAUWDFREQUEST__@@@ZE@Z @ 0x1C0016A74 (-RequestCancelable@FxIoQueue@@QEAAJPEAVFxRequest@@EP6AXPEAUWDFREQUEST__@@@ZE@Z.c)
+ *     ?Lock@FxCallbackMutexLock@@UEAAXPEAE@Z @ 0x1C001A000 (-Lock@FxCallbackMutexLock@@UEAAXPEAE@Z.c)
+ *     ?Lock@FxCallbackSpinLock@@UEAAXPEAE@Z @ 0x1C004DAF0 (-Lock@FxCallbackSpinLock@@UEAAXPEAE@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
- *     ?DumpDetails@FxVerifierLock@@SAXPEAV1@PEAU_KTHREAD@@0@Z @ 0x1C006D668 (-DumpDetails@FxVerifierLock@@SAXPEAV1@PEAU_KTHREAD@@0@Z.c)
- *     ?GetThreadTableEntry@FxVerifierLock@@SAPEAUFxVerifierThreadTableEntry@@PEAU_KTHREAD@@PEAV1@E@Z @ 0x1C006D7C0 (-GetThreadTableEntry@FxVerifierLock@@SAPEAUFxVerifierThreadTableEntry@@PEAU_KTHREAD@@PEAV1@E@Z.c)
- *     WPP_IFR_SF_qqqq @ 0x1C006E194 (WPP_IFR_SF_qqqq.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?DumpDetails@FxVerifierLock@@SAXPEAV1@PEAU_KTHREAD@@0@Z @ 0x1C005A6CC (-DumpDetails@FxVerifierLock@@SAXPEAV1@PEAU_KTHREAD@@0@Z.c)
+ *     ?GetThreadTableEntry@FxVerifierLock@@SAPEAUFxVerifierThreadTableEntry@@PEAU_KTHREAD@@PEAV1@E@Z @ 0x1C005A824 (-GetThreadTableEntry@FxVerifierLock@@SAPEAUFxVerifierThreadTableEntry@@PEAU_KTHREAD@@PEAV1@E@Z.c)
+ *     WPP_IFR_SF_qqqq @ 0x1C005B24C (WPP_IFR_SF_qqqq.c)
  */
 
 void __fastcall FxVerifierLock::Lock(FxVerifierLock *this, unsigned __int8 *PreviousIrql, unsigned __int8 a3)
@@ -38,11 +44,10 @@ void __fastcall FxVerifierLock::Lock(FxVerifierLock *this, unsigned __int8 *Prev
   KIRQL v11; // al
   unsigned __int64 *p_m_Lock; // rdi
   unsigned __int64 *v13; // rcx
-  _LIST_ENTRY **ThreadTableEntry; // rax
-  unsigned __int8 m_UseMutex; // dl
-  _LIST_ENTRY **v16; // rbp
-  unsigned __int64 *v17; // rcx
-  FxVerifierLock *v18; // rsi
+  _LIST_ENTRY **ThreadTableEntry; // rbp
+  unsigned __int8 m_UseMutex; // al
+  unsigned __int64 *v16; // rcx
+  FxVerifierLock *v17; // rsi
   _LARGE_INTEGER sleepTime; // [rsp+70h] [rbp+8h] BYREF
 
   _a1 = KeGetCurrentThread();
@@ -79,39 +84,35 @@ void __fastcall FxVerifierLock::Lock(FxVerifierLock *this, unsigned __int8 *Prev
   else
     KeAcquireSpinLockAtDpcLevel(v13);
   this->m_OwningThread = _a1;
-  ThreadTableEntry = FxVerifierLock::GetThreadTableEntry(_a1, this, 0);
+  ThreadTableEntry = FxVerifierLock::GetThreadTableEntry((unsigned __int64)_a1, this, 0);
   m_UseMutex = this->m_UseMutex;
-  v16 = ThreadTableEntry;
   if ( ThreadTableEntry )
   {
     if ( m_UseMutex )
-      v18 = (FxVerifierLock *)ThreadTableEntry[1];
+      v17 = (FxVerifierLock *)ThreadTableEntry[1];
     else
-      v18 = (FxVerifierLock *)ThreadTableEntry[2];
-    if ( v18 )
+      v17 = (FxVerifierLock *)ThreadTableEntry[2];
+    if ( v17 )
     {
-      if ( this->m_Order < v18->m_Order )
-      {
-        FxVerifierLock::DumpDetails(this, _a1, v18);
-        m_UseMutex = this->m_UseMutex;
-      }
+      if ( this->m_Order < v17->m_Order )
+        FxVerifierLock::DumpDetails(this, _a1, v17);
     }
-    this->m_OwnedLink = v18;
-    v17 = p_m_Lock;
-    if ( m_UseMutex )
+    this->m_OwnedLink = v17;
+    v16 = p_m_Lock;
+    if ( this->m_UseMutex )
     {
-      v16[1] = (_LIST_ENTRY *)this;
+      ThreadTableEntry[1] = (_LIST_ENTRY *)this;
 LABEL_22:
-      KeReleaseSpinLock(v17, v4);
+      KeReleaseSpinLock(v16, v4);
       return;
     }
-    v16[2] = (_LIST_ENTRY *)this;
+    ThreadTableEntry[2] = (_LIST_ENTRY *)this;
   }
   else
   {
-    v17 = &m_Globals->ThreadTableLock.m_Lock;
+    v16 = &m_Globals->ThreadTableLock.m_Lock;
     if ( m_UseMutex )
       goto LABEL_22;
   }
-  KeReleaseSpinLockFromDpcLevel(v17);
+  KeReleaseSpinLockFromDpcLevel(v16);
 }

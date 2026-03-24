@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FillClipParams@@YAXPEAU_DXGKARG_SETPOINTERSHAPE@@PEAVDISPLAY_SOURCE@@PEAU_DXGKARG_SETPOINTERPOSITION@@PEAUCURSOR_CLIP_PARAMS@@@Z @ 0x1C0338EF8
+ * XREFs of ?FillClipParams@@YAXPEAU_DXGKARG_SETPOINTERSHAPE@@PEAVDISPLAY_SOURCE@@PEAU_DXGKARG_SETPOINTERPOSITION@@PEAUCURSOR_CLIP_PARAMS@@@Z @ 0x1C01218F8
  * Callers:
- *     ?SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@PEAVSESSION_VIEW@@QEAXII_N55@Z @ 0x1C01F2970 (-SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_D.c)
- *     ?SetPointerPositionForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEAVSESSION_VIEW@@PEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C0339CD4 (-SetPointerPositionForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEAVSESSION_VIEW@@PEBU_DXGKARG_SETPO.c)
+ *     ?SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@PEAVSESSION_VIEW@@QEAXII_N5@Z @ 0x1C01204C0 (-SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_D.c)
+ *     ?DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C014ECAC (-DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 void __fastcall FillClipParams(
@@ -13,174 +13,163 @@ void __fastcall FillClipParams(
         struct _DXGKARG_SETPOINTERPOSITION *a3,
         struct CURSOR_CLIP_PARAMS *a4)
 {
-  signed int v7; // edi
+  struct _DXGKARG_SETPOINTERPOSITION *v5; // r9
+  struct _DXGKARG_SETPOINTERSHAPE *v7; // rsi
   int v8; // r14d
-  signed int v9; // esi
-  int v10; // r12d
-  UINT *p_Height; // r13
-  UINT Width; // r10d
-  int v13; // edx
-  UINT v14; // eax
-  INT v15; // eax
-  int v16; // ecx
-  INT X; // r9d
+  int v9; // edi
+  int v10; // r13d
+  int v11; // r12d
+  __int64 Width; // rdx
+  __int64 X; // rcx
+  UINT Height; // eax
+  unsigned int v15; // r8d
+  __int64 v16; // rdx
+  __int64 v17; // rax
   INT v18; // eax
-  int v19; // edx
+  __int64 v19; // rax
+  unsigned int v20; // r8d
   INT Y; // r9d
-  int v21; // esi
-  char v22; // cl
+  __int64 v22; // rax
   char v23; // al
-  __int128 v24; // [rsp+50h] [rbp-48h]
-  struct _DXGKARG_SETPOINTERPOSITION *v25; // [rsp+B0h] [rbp+18h]
+  char v24; // al
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int128 v28; // [rsp+20h] [rbp-20h]
 
-  v25 = a3;
-  if ( *((_BYTE *)a2 + 704) )
+  v5 = a3;
+  v7 = a1;
+  if ( *((_BYTE *)a2 + 668) )
   {
-    v7 = *((_DWORD *)a2 + 177);
-    v8 = 0;
-    v9 = *((_DWORD *)a2 + 178);
+    v9 = *((_DWORD *)a2 + 168);
+    v11 = 0;
+    v8 = *((_DWORD *)a2 + 169);
     v10 = 0;
-    DWORD1(v24) = 0;
-    HIDWORD(v24) = v9;
+    *(_QWORD *)&v28 = 0LL;
+    HIDWORD(v28) = v8;
   }
   else
   {
-    v24 = *((_OWORD *)a2 + 43);
-    v9 = HIDWORD(v24);
-    v7 = *((_QWORD *)a2 + 87);
-    v10 = HIDWORD(*((_QWORD *)a2 + 86));
-    v8 = v24;
-  }
-  p_Height = &a1->Height;
-  if ( v7 - v8 < (signed int)a1->Width || HIDWORD(v24) - DWORD1(v24) < (int)*p_Height )
-  {
-    WdLogSingleEntry1(1LL, 221LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"((ClipBoxRect.right - ClipBoxRect.left) >= (LONG)(pSavedCursor->Width)) && ((ClipBoxRect.bottom - ClipBox"
-                "Rect.top) >= (LONG)(pSavedCursor->Height))",
-      221LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    a3 = v25;
+    v28 = *(_OWORD *)((char *)a2 + 652);
+    v8 = HIDWORD(v28);
+    v9 = *(_QWORD *)((char *)a2 + 660);
+    v10 = HIDWORD(*(_QWORD *)((char *)a2 + 652));
+    v11 = v28;
   }
   Width = a1->Width;
+  if ( v9 - v11 < (int)Width
+    || (a1 = (struct _DXGKARG_SETPOINTERSHAPE *)DWORD1(v28), HIDWORD(v28) - DWORD1(v28) < (signed int)v7->Height) )
+  {
+    v17 = WdLogNewEntry5_WdAssertion(a1, Width);
+    *(_QWORD *)(v17 + 24) = 221LL;
+    WdLogEvent5_WdAssertion(v17);
+    Width = v7->Width;
+    v5 = a3;
+  }
   *(_OWORD *)a4 = 0LL;
-  v13 = 4;
+  X = 4LL;
   *((_QWORD *)a4 + 2) = 0LL;
   *((_DWORD *)a4 + 5) = 0;
-  v14 = *p_Height;
+  Height = v7->Height;
   *(_DWORD *)a4 = Width;
-  *((_DWORD *)a4 + 1) = v14;
-  if ( v8 && (v15 = a3->X, v15 < v8) )
+  *((_DWORD *)a4 + 1) = Height;
+  if ( v11 && (v18 = v5->X, v18 < v11) )
   {
     *((_DWORD *)a4 + 5) = 4;
-    v16 = 4;
-    *(_DWORD *)a4 = Width + v15 - v8;
+    v15 = 4;
+    *(_DWORD *)a4 = Width + v18 - v11;
   }
   else
   {
-    v16 = 0;
-    v13 = 0;
-    if ( *((_DWORD *)a2 + 252) != v7 )
+    v15 = 0;
+    if ( *((_DWORD *)a2 + 253) != v9 )
     {
-      X = a3->X;
-      if ( (int)(X + Width) > v7 )
+      X = (unsigned int)v5->X;
+      if ( (int)X + (int)Width > v9 )
       {
-        if ( v7 - X < 0 )
+        if ( v9 - (int)X < 0 )
         {
-          WdLogSingleEntry1(1LL, 241LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"(ClipBoxRect.right - pPointerPos->X) >= 0",
-            241LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          a3 = v25;
+          v19 = WdLogNewEntry5_WdAssertion(X, Width);
+          *(_QWORD *)(v19 + 24) = 241LL;
+          WdLogEvent5_WdAssertion(v19);
+          v5 = a3;
+          X = (unsigned int)a3->X;
         }
-        v16 = 8;
-        *(_DWORD *)a4 = v7 - a3->X;
-        v13 = 8;
         *((_DWORD *)a4 + 5) = 8;
+        *(_DWORD *)a4 = v9 - X;
+        v15 = 8;
       }
     }
   }
-  if ( v10 && (v18 = a3->Y, v18 < v10) )
+  if ( v10 && (X = (unsigned int)v5->Y, (int)X < v10) )
   {
-    v19 = v13 | 1;
-    *((_DWORD *)a4 + 1) = *p_Height + v18 - v10;
-    *((_DWORD *)a4 + 5) = v19;
+    X = (unsigned int)(v7->Height + X - v10);
+    v20 = v15 | 1;
+    *((_DWORD *)a4 + 1) = X;
+    *((_DWORD *)a4 + 5) = v20;
+    v16 = v20;
   }
   else
   {
-    v19 = v16;
-    if ( v9 != *((_DWORD *)a2 + 253) )
+    v16 = v15;
+    if ( v8 != *((_DWORD *)a2 + 254) )
     {
-      Y = a3->Y;
-      if ( (int)(Y + *p_Height) > v9 )
+      Y = v5->Y;
+      X = Y + v7->Height;
+      if ( (int)X > v8 )
       {
-        if ( v9 - Y < 0 )
+        if ( v8 - Y < 0 )
         {
-          WdLogSingleEntry1(1LL, 258LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"(ClipBoxRect.bottom - pPointerPos->Y) >= 0",
-            258LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          a3 = v25;
+          v22 = WdLogNewEntry5_WdAssertion(X, v15);
+          *(_QWORD *)(v22 + 24) = 258LL;
+          WdLogEvent5_WdAssertion(v22);
+          LODWORD(v16) = *((_DWORD *)a4 + 5);
+          Y = a3->Y;
         }
-        v21 = v9 - a3->Y;
-        *((_DWORD *)a4 + 5) |= 2u;
-        v19 = *((_DWORD *)a4 + 5);
-        *((_DWORD *)a4 + 1) = v21;
+        v16 = (unsigned int)v16 | 2;
+        *((_DWORD *)a4 + 1) = v8 - Y;
+        *((_DWORD *)a4 + 5) = v16;
       }
     }
   }
-  if ( v19 )
+  if ( (_DWORD)v16 )
   {
-    *((_DWORD *)a4 + 2) = a1->Pitch;
-    if ( (a1->Flags.Value & 1) != 0 )
+    *((_DWORD *)a4 + 2) = v7->Pitch;
+    if ( (v7->Flags.Value & 1) != 0 )
     {
-      if ( (v19 & 4) != 0 )
+      v23 = *(_BYTE *)a4;
+      if ( (v16 & 4) != 0 )
       {
-        v22 = 0;
-        v23 = (*(_BYTE *)a4 - LOBYTE(a1->Width)) & 7;
+        LOBYTE(X) = 0;
+        v24 = (v23 - LOBYTE(v7->Width)) & 7;
       }
       else
       {
-        v23 = 0;
-        v22 = *(_BYTE *)a4 & 7;
+        LOBYTE(X) = v23 & 7;
+        v24 = 0;
       }
-      *((_BYTE *)a4 + 16) = v23;
-      *((_BYTE *)a4 + 17) = v22;
+      *((_BYTE *)a4 + 16) = v24;
+      *((_BYTE *)a4 + 17) = X;
+      if ( *((_BYTE *)a4 + 16) >= 8u )
+      {
+        v25 = WdLogNewEntry5_WdAssertion(X, v16);
+        *(_QWORD *)(v25 + 24) = 289LL;
+        WdLogEvent5_WdAssertion(v25);
+        LOBYTE(X) = *((_BYTE *)a4 + 17);
+      }
+      if ( (unsigned __int8)X >= 8u )
+      {
+        v26 = WdLogNewEntry5_WdAssertion(X, v16);
+        *(_QWORD *)(v26 + 24) = 290LL;
+        WdLogEvent5_WdAssertion(v26);
+      }
       if ( *((_BYTE *)a4 + 16) )
       {
         if ( *((_BYTE *)a4 + 17) )
         {
-          WdLogSingleEntry1(1LL, 293LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"pClipParams->ExtraPixelsLeftMono == 0 || pClipParams->ExtraPixelsRightMono == 0",
-            293LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
+          v27 = WdLogNewEntry5_WdAssertion(X, v16);
+          *(_QWORD *)(v27 + 24) = 293LL;
+          WdLogEvent5_WdAssertion(v27);
         }
       }
       *((_DWORD *)a4 + 3) = 1;

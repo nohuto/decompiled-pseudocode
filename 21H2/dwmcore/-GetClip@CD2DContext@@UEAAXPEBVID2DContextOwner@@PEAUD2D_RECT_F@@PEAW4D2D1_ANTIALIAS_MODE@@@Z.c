@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetClip@CD2DContext@@UEAAXPEBVID2DContextOwner@@PEAUD2D_RECT_F@@PEAW4D2D1_ANTIALIAS_MODE@@@Z @ 0x180278CF0
+ * XREFs of ?GetClip@CD2DContext@@UEAAXPEBVID2DContextOwner@@PEAUD2D_RECT_F@@PEAW4D2D1_ANTIALIAS_MODE@@@Z @ 0x18023CA70
  * Callers:
  *     <none>
  * Callees:
@@ -15,10 +15,10 @@ void __fastcall CD2DContext::GetClip(
   int v4; // edx
   __int64 v5; // rax
 
-  v4 = *((_DWORD *)this + 88);
+  v4 = *((_DWORD *)this + 100);
   v5 = 0LL;
   if ( v4 )
-    v5 = *(_QWORD *)(*((_QWORD *)this + 41) + 8LL * (unsigned int)(v4 - 1));
-  *a3 = *(struct D2D_RECT_F *)(v5 + 52);
-  *a4 = *(enum D2D1_ANTIALIAS_MODE *)(v5 + 68);
+    v5 = *(_QWORD *)(*((_QWORD *)this + 47) + 8LL * (unsigned int)(v4 - 1));
+  *a3 = *(struct D2D_RECT_F *)(v5 + 60);
+  *a4 = *(enum D2D1_ANTIALIAS_MODE *)(v5 + 76);
 }

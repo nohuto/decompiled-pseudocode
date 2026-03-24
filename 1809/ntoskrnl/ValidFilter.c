@@ -1,12 +1,12 @@
 /*
- * XREFs of ValidFilter @ 0x1406A310C
+ * XREFs of ValidFilter @ 0x1406A30EC
  * Callers:
  *     PiDqQueryValidateQueryData @ 0x14059093C (PiDqQueryValidateQueryData.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     FilterEval @ 0x140595454 (FilterEval.c)
- *     _PnpValidatePropertyData @ 0x1406A31E4 (_PnpValidatePropertyData.c)
+ *     _PnpValidatePropertyData @ 0x1406A31C4 (_PnpValidatePropertyData.c)
  */
 
 __int64 __fastcall ValidFilter(unsigned int a1, _DWORD *a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of CheckCursorClipAccess @ 0x1C00A8870
+ * XREFs of CheckCursorClipAccess @ 0x1C003DCE0
  * Callers:
  *     <none>
  * Callees:
- *     ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0023CB0 (-_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ.c)
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C007B728 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     CheckWinstaAttributeAccess @ 0x1C009EAE0 (CheckWinstaAttributeAccess.c)
- *     ?InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C00A8DE0 (-InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z.c)
- *     CheckGrantedAccess @ 0x1C00F5C8C (CheckGrantedAccess.c)
- *     ?IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z @ 0x1C00F5CE8 (-IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     CheckWinstaAttributeAccess @ 0x1C00333F0 (CheckWinstaAttributeAccess.c)
+ *     ?InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C003DC5C (-InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z.c)
+ *     ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004B714 (-_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00675D0 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     CheckGrantedAccess @ 0x1C0103D34 (CheckGrantedAccess.c)
+ *     ?IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z @ 0x1C01100C8 (-IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CheckCursorClipAccess(int a1, int a2)
@@ -34,7 +34,7 @@ __int64 __fastcall CheckCursorClipAccess(int a1, int a2)
         return 0LL;
       if ( !*(_DWORD *)(*((_QWORD *)v5 + 53) + 884LL) )
         return 0LL;
-      if ( !(unsigned int)InForegroundQueue(v5, 0) )
+      if ( !InForegroundQueue((__int64 **)v5, 0) )
         return 0LL;
       v8 = *(_QWORD *)(*((_QWORD *)v5 + 53) + 832LL);
       if ( !v8 )
@@ -64,7 +64,7 @@ __int64 __fastcall CheckCursorClipAccess(int a1, int a2)
       return 0LL;
     }
     CCursorClip::GetClip(gpCursorClip, &v10);
-    if ( *((_QWORD *)v5 + 54) != gpqForeground && !a2 && IsRectEmptyInl(&v10) )
+    if ( *((_QWORD *)v5 + 54) != gpqForeground && !a2 && (unsigned int)IsRectEmptyInl(&v10) )
       return 0LL;
   }
   return 1LL;

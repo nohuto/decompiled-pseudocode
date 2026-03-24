@@ -1,12 +1,12 @@
 /*
- * XREFs of KiNpxSegmentOverrunAbort @ 0x1401CA3C0
+ * XREFs of KiNpxSegmentOverrunAbort @ 0x1401CA4C0
  * Callers:
  *     KiNpxSegmentOverrunAbortShadow @ 0x14032E580 (KiNpxSegmentOverrunAbortShadow.c)
  * Callees:
- *     KiSaveDebugRegisterState @ 0x1401BC0F0 (KiSaveDebugRegisterState.c)
- *     KiNpxSegmentOverrunAbort @ 0x1401CA3C0 (KiNpxSegmentOverrunAbort.c)
- *     KiBugCheckDispatch @ 0x1401CFD00 (KiBugCheckDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x1401D1080 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSaveDebugRegisterState @ 0x1401BC110 (KiSaveDebugRegisterState.c)
+ *     KiNpxSegmentOverrunAbort @ 0x1401CA4C0 (KiNpxSegmentOverrunAbort.c)
+ *     KiBugCheckDispatch @ 0x1401CFE00 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x1401D1180 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __noreturn KiNpxSegmentOverrunAbort()
@@ -46,7 +46,7 @@ void __noreturn KiNpxSegmentOverrunAbort()
       BpbState = KeGetPcr()->Prcb.BpbState;
     }
     if ( (BpbState & 2) != 0 )
-      JUMPOUT(0x1401CA5F5LL);
+      JUMPOUT(0x1401CA6F5LL);
     if ( (BpbState & 0x200) != 0 )
       KiFlushBhbDuringTrapEntryOrExit(v1);
     _mm_lfence();

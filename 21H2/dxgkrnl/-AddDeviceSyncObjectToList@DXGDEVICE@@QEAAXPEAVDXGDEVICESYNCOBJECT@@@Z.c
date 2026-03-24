@@ -1,42 +1,40 @@
 /*
- * XREFs of ?AddDeviceSyncObjectToList@DXGDEVICE@@QEAAXPEAVDXGDEVICESYNCOBJECT@@@Z @ 0x1C01860EC
+ * XREFs of ?AddDeviceSyncObjectToList@DXGDEVICE@@QEAAXPEAVDXGDEVICESYNCOBJECT@@@Z @ 0x1C015C378
  * Callers:
- *     ?Open@DXGSYNCOBJECT@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAIPEAPEAXPEA_KIPEAPEAVDXGADAPTERSYNCOBJECT@@_NU_D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS@@@Z @ 0x1C01988F8 (-Open@DXGSYNCOBJECT@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAIPEA.c)
+ *     ??0DXGDEVICESYNCOBJECT@@QEAA@PEAVDXGDEVICE@@_N1@Z @ 0x1C015C304 (--0DXGDEVICESYNCOBJECT@@QEAA@PEAVDXGDEVICE@@_N1@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
 void __fastcall DXGDEVICE::AddDeviceSyncObjectToList(DXGDEVICE *this, struct DXGDEVICESYNCOBJECT *a2)
 {
-  _QWORD *v4; // rax
+  __int64 v4; // rdx
   __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  _QWORD *v8; // rax
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rax
 
-  if ( !*((_BYTE *)this + 72) && !ExIsResourceAcquiredExclusiveLite(*((PERESOURCE *)this + 17)) )
+  if ( !*((_DWORD *)this + 18) && !ExIsResourceAcquiredExclusiveLite(*((PERESOURCE *)this + 17)) )
   {
-    WdLogSingleEntry1(1LL, 8141LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsDeviceLockExclusiveOwner()", 8141LL, 0LL, 0LL, 0LL, 0LL);
+    v10 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v10 + 24) = 8146LL;
+    WdLogEvent5_WdAssertion(v10);
   }
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*((_QWORD *)this + 2) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 8142LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceSharedOwner()",
-      8142LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v11 + 24) = 8147LL;
+    WdLogEvent5_WdAssertion(v11);
   }
-  v4 = (_QWORD *)((char *)this + 512);
-  v5 = *((_QWORD *)this + 64);
-  if ( *(DXGDEVICE **)(v5 + 8) != (DXGDEVICE *)((char *)this + 512) )
+  v8 = (_QWORD *)((char *)this + 512);
+  v9 = *((_QWORD *)this + 64);
+  if ( *(DXGDEVICE **)(v9 + 8) != (DXGDEVICE *)((char *)this + 512) )
     __fastfail(3u);
-  *(_QWORD *)a2 = v5;
-  *((_QWORD *)a2 + 1) = v4;
-  *(_QWORD *)(v5 + 8) = a2;
-  *v4 = a2;
+  *(_QWORD *)a2 = v9;
+  *((_QWORD *)a2 + 1) = v8;
+  *(_QWORD *)(v9 + 8) = a2;
+  *v8 = a2;
 }

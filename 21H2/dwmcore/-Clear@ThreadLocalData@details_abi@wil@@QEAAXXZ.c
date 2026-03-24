@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Clear@ThreadLocalData@details_abi@wil@@QEAAXXZ @ 0x180177A14
+ * XREFs of ?Clear@ThreadLocalData@details_abi@wil@@QEAAXXZ @ 0x18014D220
  * Callers:
- *     ??1?$ThreadLocalStorage@UThreadLocalData@details_abi@wil@@@details_abi@wil@@QEAA@XZ @ 0x180177694 (--1-$ThreadLocalStorage@UThreadLocalData@details_abi@wil@@@details_abi@wil@@QEAA@XZ.c)
+ *     ??1?$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAA@XZ @ 0x18014CEE4 (--1-$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */

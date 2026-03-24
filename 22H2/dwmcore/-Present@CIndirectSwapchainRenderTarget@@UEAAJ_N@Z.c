@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Present@CIndirectSwapchainRenderTarget@@UEAAJ_N@Z @ 0x1801EF318
+ * XREFs of ?Present@CIndirectSwapchainRenderTarget@@UEAAJ_N@Z @ 0x180189A38
  * Callers:
- *     ?Present@CIndirectSwapchainRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x18011CAE0 (-Present@CIndirectSwapchainRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
+ *     ?Present@CIndirectSwapchainRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x1800F4A90 (-Present@CIndirectSwapchainRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801EF82C (-ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
- *     ?TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801EFA94 (-TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x180189EE4 (-ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
+ *     ?TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x18018A038 (-TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CIndirectSwapchainRenderTarget::Present(CIndirectSwapchainRenderTarget *this)
@@ -17,8 +17,8 @@ __int64 __fastcall CIndirectSwapchainRenderTarget::Present(CIndirectSwapchainRen
   int Buffer; // eax
   __int64 v7; // rcx
 
-  v1 = (CIndirectSwapchainRenderTarget *)((char *)this - 2016);
-  v3 = CIndirectSwapchainRenderTarget::ReleaseCurrentBuffer((CIndirectSwapchainRenderTarget *)((char *)this - 2016));
+  v1 = (CIndirectSwapchainRenderTarget *)((char *)this - 2032);
+  v3 = CIndirectSwapchainRenderTarget::ReleaseCurrentBuffer((CIndirectSwapchainRenderTarget *)((char *)this - 2032));
   v5 = v3;
   if ( v3 < 0 )
   {

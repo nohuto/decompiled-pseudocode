@@ -1,15 +1,15 @@
 /*
- * XREFs of ??$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonListBuilder@@W4WalkDirection@@@Z @ 0x1801F641C
+ * XREFs of ??$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonListBuilder@@W4WalkDirection@@@Z @ 0x18019AD80
  * Callers:
- *     ??$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonListBuilder@@W4WalkDirection@@@Z @ 0x1801F641C (--$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonLi.c)
- *     ?BuildPolygonList@CBspPolygonListBuilder@@QEAAJPEAVCBspNode@@@Z @ 0x1801F656C (-BuildPolygonList@CBspPolygonListBuilder@@QEAAJPEAVCBspNode@@@Z.c)
+ *     ??$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonListBuilder@@W4WalkDirection@@@Z @ 0x18019AD80 (--$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonLi.c)
+ *     ?BuildPolygonList@CBspPolygonListBuilder@@QEAAJPEAVCBspNode@@@Z @ 0x18019AED0 (-BuildPolygonList@CBspPolygonListBuilder@@QEAAJPEAVCBspNode@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonListBuilder@@W4WalkDirection@@@Z @ 0x1801F641C (--$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonLi.c)
- *     ?GotoParent@?$CGraphWalker@VCBspNode@@@@QEAAXPEAPEAVCBspNode@@@Z @ 0x1801F6600 (-GotoParent@-$CGraphWalker@VCBspNode@@@@QEAAXPEAPEAVCBspNode@@@Z.c)
- *     ?GotoPostChild@?$CGraphWalker@VCBspNode@@@@QEAAJPEAPEAVCBspNode@@@Z @ 0x1801F666C (-GotoPostChild@-$CGraphWalker@VCBspNode@@@@QEAAJPEAPEAVCBspNode@@@Z.c)
- *     ?GotoPreChild@?$CGraphWalker@VCBspNode@@@@QEAAJPEAPEAVCBspNode@@@Z @ 0x1801F6718 (-GotoPreChild@-$CGraphWalker@VCBspNode@@@@QEAAJPEAPEAVCBspNode@@@Z.c)
- *     ?BuildPolygonList@CBspNode@@QEAAJPEAVCVisual@@@Z @ 0x180259874 (-BuildPolygonList@CBspNode@@QEAAJPEAVCVisual@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonListBuilder@@W4WalkDirection@@@Z @ 0x18019AD80 (--$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonLi.c)
+ *     ?GotoParent@?$CGraphWalker@VCVectorShape@@@@QEAAXPEAPEAVCVectorShape@@@Z @ 0x18019AF64 (-GotoParent@-$CGraphWalker@VCVectorShape@@@@QEAAXPEAPEAVCVectorShape@@@Z.c)
+ *     ?GotoPostChild@?$CGraphWalker@VCBspNode@@@@QEAAJPEAPEAVCBspNode@@@Z @ 0x18019AFD0 (-GotoPostChild@-$CGraphWalker@VCBspNode@@@@QEAAJPEAPEAVCBspNode@@@Z.c)
+ *     ?GotoPreChild@?$CGraphWalker@VCBspNode@@@@QEAAJPEAPEAVCBspNode@@@Z @ 0x18019B07C (-GotoPreChild@-$CGraphWalker@VCBspNode@@@@QEAAJPEAPEAVCBspNode@@@Z.c)
+ *     ?BuildPolygonList@CBspNode@@QEAAJPEAVCVisual@@@Z @ 0x1801FA4FC (-BuildPolygonList@CBspNode@@QEAAJPEAVCVisual@@@Z.c)
  */
 
 __int64 __fastcall CBspTreeIterator::WalkSubtree<CBspPolygonListBuilder>(
@@ -42,7 +42,7 @@ __int64 __fastcall CBspTreeIterator::WalkSubtree<CBspPolygonListBuilder>(
   v10 = v8;
   if ( v8 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x47u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x4Au, 0LL);
     return v10;
   }
   if ( v21 )
@@ -51,17 +51,17 @@ __int64 __fastcall CBspTreeIterator::WalkSubtree<CBspPolygonListBuilder>(
     v10 = v11;
     if ( v11 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x4Bu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x4Eu, 0LL);
       return v10;
     }
-    CGraphWalker<CBspNode>::GotoParent(a1, &v21);
+    CGraphWalker<CVectorShape>::GotoParent(a1, &v21);
     *(_DWORD *)(a1 + 28) = v7;
   }
   v13 = CBspNode::BuildPolygonList(*(CBspNode **)(a4 + 8), *(struct CVisual **)(a4 + 64));
   v10 = v13;
   if ( v13 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x5Au, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x5Du, 0LL);
   }
   else
   {
@@ -69,16 +69,16 @@ __int64 __fastcall CBspTreeIterator::WalkSubtree<CBspPolygonListBuilder>(
     v10 = v15;
     if ( v15 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x5Cu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x5Fu, 0LL);
     }
     else if ( v20 )
     {
       v17 = CBspTreeIterator::WalkSubtree<CBspPolygonListBuilder>(a1, v20, a2, a4, 0);
       v10 = v17;
       if ( v17 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x60u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x63u, 0LL);
       else
-        CGraphWalker<CBspNode>::GotoParent(a1, &v21);
+        CGraphWalker<CVectorShape>::GotoParent(a1, &v21);
     }
   }
   return v10;

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140703FA0
+ * XREFs of HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140703F80
  * Callers:
- *     HvpMappedViewConvertLockedPagesToCOWByPolicy @ 0x14070888C (HvpMappedViewConvertLockedPagesToCOWByPolicy.c)
+ *     HvpMappedViewConvertLockedPagesToCOWByPolicy @ 0x14070886C (HvpMappedViewConvertLockedPagesToCOWByPolicy.c)
  * Callees:
  *     CmSiProtectViewOfSection @ 0x14000F024 (CmSiProtectViewOfSection.c)
- *     CmSiUnlockViewOfSection @ 0x14016AC10 (CmSiUnlockViewOfSection.c)
+ *     CmSiUnlockViewOfSection @ 0x14016AC30 (CmSiUnlockViewOfSection.c)
  *     HvpViewMapTouchPages @ 0x1405A5B8C (HvpViewMapTouchPages.c)
  */
 

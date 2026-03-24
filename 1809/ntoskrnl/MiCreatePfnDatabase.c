@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  * Callees:
- *     MiInitializePartition @ 0x14072AB48 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14072AB28 (MiInitializePartition.c)
  *     MiInitializeNumaGraph @ 0x1409BA764 (MiInitializeNumaGraph.c)
  *     MiInitializePartitions @ 0x1409BA82C (MiInitializePartitions.c)
  *     MiCreateSparsePfnDatabase @ 0x1409BB4A4 (MiCreateSparsePfnDatabase.c)

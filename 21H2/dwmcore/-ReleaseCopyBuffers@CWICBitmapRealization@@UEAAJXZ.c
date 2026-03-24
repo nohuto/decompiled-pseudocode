@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ReleaseCopyBuffers@CWICBitmapRealization@@UEAAJXZ @ 0x1802A2C20
+ * XREFs of ?ReleaseCopyBuffers@CWICBitmapRealization@@UEAAJXZ @ 0x180263660
  * Callers:
  *     <none>
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CWICBitmapRealization::ReleaseCopyBuffers(CWICBitmapRealization *this)
@@ -31,7 +31,7 @@ __int64 __fastcall CWICBitmapRealization::ReleaseCopyBuffers(CWICBitmapRealizati
       v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v9 + 24LL))(v9);
       v4 = v5;
       if ( v5 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v5, 0x7Fu);
+        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x7Fu, 0LL);
       if ( v9 )
         (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
     }
@@ -40,14 +40,14 @@ __int64 __fastcall CWICBitmapRealization::ReleaseCopyBuffers(CWICBitmapRealizati
       wil::details::in1diag3::Return_Hr(
         retaddr,
         (void *)0x7D,
-        (int)"onecoreuap\\Windows\\DWM\\dwmcore\\bitmaps/WICBitmapRealization.h",
+        (__int64)"onecoreuap\\windows\\DWM\\dwmcore\\bitmaps/WICBitmapRealization.h",
         (const char *)(unsigned int)v3);
     }
   }
   else
   {
     v4 = -2003292412;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2003292412, 0x85u);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003292412, 0x85u, 0LL);
   }
   return v4;
 }

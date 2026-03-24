@@ -1,7 +1,7 @@
 /*
- * XREFs of QueryTrackMouseEvent @ 0x1C00A91D8
+ * XREFs of QueryTrackMouseEvent @ 0x1C002C6C8
  * Callers:
- *     NtUserTrackMouseEvent @ 0x1C00A90E0 (NtUserTrackMouseEvent.c)
+ *     NtUserTrackMouseEvent @ 0x1C002C5D0 (NtUserTrackMouseEvent.c)
  * Callees:
  *     <none>
  */
@@ -9,24 +9,32 @@
 __int64 __fastcall QueryTrackMouseEvent(__int64 a1)
 {
   __int64 v1; // rdx
+  int v2; // r9d
 
   v1 = *(_QWORD *)(gptiCurrent + 456LL);
   *(_OWORD *)a1 = 0LL;
   *(_QWORD *)(a1 + 16) = 0LL;
   *(_DWORD *)a1 = 24;
-  if ( (*(_DWORD *)(v1 + 48) & 0xC0) != 0
-    && *(_QWORD *)(gptiCurrent + 432LL) == *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v1 + 192) + 16LL) + 432LL) )
+  v2 = *(_DWORD *)(v1 + 48);
+  if ( (v2 & 0xC0) != 0
+    && *(_QWORD *)(gptiCurrent + 432LL) == *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v1 + 184) + 16LL) + 432LL) )
   {
-    if ( *(_DWORD *)(v1 + 200) != 1 )
+    if ( *(_DWORD *)(v1 + 192) != 1 )
+    {
       *(_DWORD *)(a1 + 4) |= 0x10u;
-    if ( (*(_DWORD *)(v1 + 48) & 0x80u) != 0 )
+      v2 = *(_DWORD *)(v1 + 48);
+    }
+    if ( (v2 & 0x80u) != 0 )
+    {
       *(_DWORD *)(a1 + 4) |= 2u;
-    if ( (*(_DWORD *)(v1 + 48) & 0x40) != 0 )
+      v2 = *(_DWORD *)(v1 + 48);
+    }
+    if ( (v2 & 0x40) != 0 )
     {
       *(_DWORD *)(a1 + 4) |= 1u;
-      *(_DWORD *)(a1 + 16) = *(_DWORD *)(v1 + 220);
+      *(_DWORD *)(a1 + 16) = *(_DWORD *)(v1 + 212);
     }
-    *(_QWORD *)(a1 + 8) = **(_QWORD **)(v1 + 192);
+    *(_QWORD *)(a1 + 8) = **(_QWORD **)(v1 + 184);
   }
   return 1LL;
 }

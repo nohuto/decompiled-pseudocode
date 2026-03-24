@@ -1,41 +1,41 @@
 /*
- * XREFs of MiRemoveEnclavePagesFromDump @ 0x1405A9DA4
+ * XREFs of MiRemoveEnclavePagesFromDump @ 0x14054B25C
  * Callers:
- *     MmGetDumpRange @ 0x140593388 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x140538770 (MmGetDumpRange.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-PMDL __fastcall MiRemoveEnclavePagesFromDump(__int64 a1)
+_QWORD *__fastcall MiRemoveEnclavePagesFromDump(__int64 a1)
 {
-  PMDL result; // rax
-  _QWORD *p_Next; // rbx
+  _QWORD *result; // rax
+  _QWORD *v3; // rbx
   _QWORD *v4; // rcx
-  struct _MDL *Next; // rcx
+  _QWORD *v5; // rcx
 
-  result = MemoryDescriptorList;
-  p_Next = 0LL;
+  result = (_QWORD *)qword_140C4EE80;
+  v3 = 0LL;
   while ( result )
   {
-    p_Next = &result->Next;
-    result = result->Next;
+    v3 = result;
+    result = (_QWORD *)*result;
   }
-  while ( p_Next )
+  while ( v3 )
   {
-    (*(void (__fastcall **)(__int64, _QWORD, _QWORD, __int64))(a1 + 8))(a1, p_Next[3], p_Next[4], 2LL);
-    result = (PMDL)p_Next[1];
-    v4 = p_Next;
+    (*(void (__fastcall **)(__int64, _QWORD, _QWORD, __int64))(a1 + 8))(a1, v3[3], v3[4], 2LL);
+    result = (_QWORD *)v3[1];
+    v4 = v3;
     if ( result )
     {
-      Next = result->Next;
-      p_Next = (_QWORD *)p_Next[1];
-      if ( result->Next )
+      v5 = (_QWORD *)*result;
+      v3 = (_QWORD *)v3[1];
+      if ( *result )
       {
         do
         {
-          result = Next->Next;
-          p_Next = &Next->Next;
-          Next = result;
+          result = (_QWORD *)*v5;
+          v3 = v5;
+          v5 = result;
         }
         while ( result );
       }
@@ -44,10 +44,10 @@ PMDL __fastcall MiRemoveEnclavePagesFromDump(__int64 a1)
     {
       while ( 1 )
       {
-        p_Next = (_QWORD *)(p_Next[2] & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !p_Next || (_QWORD *)*p_Next == v4 )
+        v3 = (_QWORD *)(v3[2] & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( !v3 || (_QWORD *)*v3 == v4 )
           break;
-        v4 = p_Next;
+        v4 = v3;
       }
     }
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhPortDisable @ 0x1C004CD10
+ * XREFs of UsbhPortDisable @ 0x1C004E120
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
 __int64 __fastcall UsbhPortDisable(__int64 a1, __int64 a2)

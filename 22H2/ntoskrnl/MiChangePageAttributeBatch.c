@@ -1,150 +1,144 @@
 /*
- * XREFs of MiChangePageAttributeBatch @ 0x14021C9D4
+ * XREFs of MiChangePageAttributeBatch @ 0x140283C20
  * Callers:
- *     MiGetPageChain @ 0x14026C5E0 (MiGetPageChain.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1402F9810 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiFreeSlabEntry @ 0x1403B8070 (MiFreeSlabEntry.c)
- *     MiConvertContiguousPages @ 0x1403BD470 (MiConvertContiguousPages.c)
- *     MiSwitchToTransition @ 0x1406331FC (MiSwitchToTransition.c)
- *     MiChangeAwePageAttributes @ 0x1406494B0 (MiChangeAwePageAttributes.c)
- *     MiPerformFinalZeroing @ 0x14064DCDC (MiPerformFinalZeroing.c)
- *     MiFindLargePageMemory @ 0x140A497D8 (MiFindLargePageMemory.c)
+ *     MiGetPageChain @ 0x140212CD0 (MiGetPageChain.c)
+ *     MiConvertContiguousPages @ 0x140355124 (MiConvertContiguousPages.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x140355284 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiSwitchToTransition @ 0x140539E54 (MiSwitchToTransition.c)
+ *     MiChangeAwePageAttributes @ 0x14054B780 (MiChangeAwePageAttributes.c)
+ *     MiPerformFinalZeroing @ 0x14054F288 (MiPerformFinalZeroing.c)
  * Callees:
- *     MiAbortCombineScan @ 0x14021AACC (MiAbortCombineScan.c)
- *     MiFlushCacheForAttributeChange @ 0x14021ABA4 (MiFlushCacheForAttributeChange.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KeShouldYieldProcessor @ 0x140333AD0 (KeShouldYieldProcessor.c)
- *     KeInvalidateAllCaches @ 0x14036D4F0 (KeInvalidateAllCaches.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036EF4C (MiFlushEntireTbDueToAttributeChange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiAbortCombineScan @ 0x140283DF0 (MiAbortCombineScan.c)
+ *     MiFlushCacheForAttributeChange @ 0x140283EC8 (MiFlushCacheForAttributeChange.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x140284A0C (MiFlushEntireTbDueToAttributeChange.c)
+ *     KeInvalidateAllCaches @ 0x1403A4700 (KeInvalidateAllCaches.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall MiChangePageAttributeBatch(__int64 a1, int a2, __int64 a3)
+void __fastcall MiChangePageAttributeBatch(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  int v4; // r13d
-  __int64 v5; // rsi
-  unsigned __int8 v6; // r15
-  __int64 v7; // r12
-  unsigned __int64 v8; // rbp
-  int v9; // r14d
-  __int64 v10; // rdi
-  __int64 v11; // rdi
-  int v12; // r8d
-  char v13; // r11
-  char v14; // dl
-  __int64 v15; // r13
-  unsigned int v16; // ecx
-  char v17; // al
-  unsigned int v18; // ecx
-  __int64 *v19; // rax
-  unsigned __int8 CurrentIrql; // cl
+  __int64 v4; // rbx
+  unsigned int v5; // r15d
+  __int64 v6; // rsi
+  unsigned __int8 v7; // r13
+  unsigned int v8; // r14d
+  __int64 v9; // rdi
+  int v10; // ebp
+  int v11; // r12d
+  unsigned int v12; // ecx
+  char v13; // al
+  unsigned int v14; // r11d
+  int v15; // r12d
+  __int64 *v16; // rax
+  __int64 v17; // rdi
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v23; // edx
-  bool v24; // zf
-  char v25; // [rsp+70h] [rbp+8h]
-  int v27; // [rsp+88h] [rbp+20h]
+  bool v20; // zf
+  unsigned int v21; // [rsp+88h] [rbp+20h]
 
   if ( a1 )
   {
-    v4 = a2;
-    v5 = a1;
-    v6 = 17;
-    v7 = 0LL;
+    v4 = a3;
+    v5 = a2;
+    v6 = a1;
+    v7 = 17;
     do
     {
-      v8 = 0LL;
-      v27 = 0;
-      v9 = 1;
-      v10 = v5;
+      v8 = 0;
+      v9 = v6;
+      v21 = 0;
+      v10 = 1;
       do
       {
+        v11 = v10;
+        if ( v8 >= 0x1000 )
+          break;
         if ( v8 )
         {
-          if ( _interlockedbittestandset64((volatile signed __int32 *)(v10 + 24), 0x3FuLL) )
+          if ( _interlockedbittestandset64((volatile signed __int32 *)(v9 + 24), 0x3FuLL) )
             break;
         }
         else
         {
-          v6 = MiLockPageInline(v10);
+          v7 = MiLockPageInline(v9, a2, a3, SchedulerAssist);
         }
-        if ( (*(_BYTE *)(v10 + 34) & 0xC0) != 0xC0 )
-          v9 = 0;
-        MiAbortCombineScan(v10);
+        v10 = 0;
+        if ( (*(_BYTE *)(v9 + 34) & 0xC0) == 0xC0 )
+          v10 = v11;
+        MiAbortCombineScan(v9);
+        v9 = *(_QWORD *)(v9 + 16);
         ++v8;
-        if ( v6 < 2u && (v8 & 0x3F) == 0 && KeShouldYieldProcessor() )
-          break;
-        v10 = *(_QWORD *)(v10 + 16);
       }
-      while ( v10 );
-      if ( v9 || (MiFlushEntireTbDueToAttributeChange(), v8 < (unsigned int)dword_140C65C0C) || v4 == 1 )
+      while ( v9 );
+      if ( v10 || (MiFlushEntireTbDueToAttributeChange(a1, a2, a3, SchedulerAssist), v8 < dword_140C4DF0C) || v5 == 1 )
       {
-        v11 = v5;
-        v12 = 0;
+        LODWORD(a3) = 0;
       }
       else
       {
-        ++dword_140C65C04;
+        ++dword_140C4DF04;
         KeInvalidateAllCaches();
-        v12 = 1;
-        v11 = v5;
-        v27 = 1;
+        LODWORD(a3) = 1;
+        v21 = 1;
       }
-      v13 = v6 + 1;
-      v14 = (_BYTE)v4 << 6;
-      v25 = (_BYTE)v4 << 6;
+      v15 = 0;
+      v17 = v6;
+      v14 = v7 + 1;
+      LOBYTE(a2) = (_BYTE)v5 << 6;
       do
       {
-        v15 = v11;
-        v16 = *(unsigned __int8 *)(v11 + 34);
-        v17 = v14 | v16 & 0x3F;
-        v18 = v16 >> 6;
-        *(_BYTE *)(v11 + 34) = v17;
-        if ( !v12 && !v9 && v18 == 1 && a2 != 1 )
+        v12 = *(unsigned __int8 *)(v17 + 34);
+        v13 = a2 | v12 & 0x3F;
+        a1 = v12 >> 6;
+        *(_BYTE *)(v17 + 34) = v13;
+        if ( !(_DWORD)a3 && !v10 && v5 != 1 && (_DWORD)a1 != v5 && (_DWORD)a1 == 1 )
         {
-          ++dword_140C65C08;
-          MiFlushCacheForAttributeChange(0xAAAAAAAAAAAAAAABuLL * ((v11 + 0x220000000000LL) >> 4), 1LL, a2, 0LL);
-          v13 = v6 + 1;
+          ++dword_140C4DF08;
+          MiFlushCacheForAttributeChange((v17 + 0x58000000000LL) / 48, 1LL, v5);
+          v14 = v7 + 1;
         }
-        *(_QWORD *)(v11 + 24) &= 0xC7FFFFFFFFFFFFFFuLL;
-        ++v7;
-        _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( v7 == v8 )
+        *(_QWORD *)(v17 + 24) &= 0xF0FFFFFFFFFFFFFFuLL;
+        ++v15;
+        _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+        if ( v15 == v8 )
         {
           if ( KiIrqlFlags )
           {
-            CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+            if ( (KiIrqlFlags & 1) != 0 )
             {
-              CurrentPrcb = KeGetCurrentPrcb();
-              SchedulerAssist = CurrentPrcb->SchedulerAssist;
-              v23 = ~(unsigned __int16)(-1LL << v13);
-              v24 = (v23 & SchedulerAssist[5]) == 0;
-              SchedulerAssist[5] &= v23;
-              if ( v24 )
-                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              CurrentIrql = KeGetCurrentIrql();
+              if ( CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
+              {
+                CurrentPrcb = KeGetCurrentPrcb();
+                a1 = v14;
+                SchedulerAssist = CurrentPrcb->SchedulerAssist;
+                a2 = ~(unsigned __int16)(-1LL << v14);
+                v20 = ((unsigned int)a2 & SchedulerAssist[5]) == 0;
+                SchedulerAssist[5] &= a2;
+                if ( v20 )
+                  KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              }
             }
           }
-          __writecr8(v6);
-          v19 = (__int64 *)(v11 + 16);
-          v11 = 0LL;
-          v5 = *v19;
+          __writecr8(v7);
+          v16 = (__int64 *)(v17 + 16);
+          v17 = 0LL;
+          v6 = *v16;
         }
         else
         {
-          v11 = *(_QWORD *)(v11 + 16);
-          v19 = (__int64 *)(v15 + 16);
+          v16 = (__int64 *)(v17 + 16);
+          v17 = *(_QWORD *)(v17 + 16);
         }
-        if ( a3 != -1 )
-          *v19 = a3;
-        v14 = v25;
-        v13 = v6 + 1;
-        v12 = v27;
+        if ( v4 != -1 )
+          *v16 = v4;
+        LOBYTE(a2) = (_BYTE)v5 << 6;
+        v14 = v7 + 1;
+        a3 = v21;
       }
-      while ( v11 );
-      v4 = a2;
-      v7 = 0LL;
+      while ( v17 );
     }
-    while ( v5 );
+    while ( v6 );
   }
 }

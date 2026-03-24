@@ -1,56 +1,52 @@
 /*
- * XREFs of MiFinishHoldingDirtyFaults @ 0x1405A3738
+ * XREFs of MiFinishHoldingDirtyFaults @ 0x14053EB04
  * Callers:
- *     MiReleaseHotPatchResources @ 0x1409778EC (MiReleaseHotPatchResources.c)
+ *     MiReleaseHotPatchResources @ 0x1408CE44C (MiReleaseHotPatchResources.c)
  * Callees:
- *     MiGetSharedVm @ 0x140282AD0 (MiGetSharedVm.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     MiUnlockWorkingSetExclusive @ 0x14030FA80 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
  */
 
-void __fastcall MiFinishHoldingDirtyFaults(_QWORD *a1)
+char __fastcall MiFinishHoldingDirtyFaults(_QWORD *a1)
 {
-  struct _KTHREAD *CurrentThread; // rdi
-  _KPROCESS *Process; // rbp
-  volatile LONG *SharedVm; // rbx
+  struct _KTHREAD *CurrentThread; // rbp
+  _KPROCESS *Process; // rsi
+  LONG *SharedVm; // rbx
   KIRQL v5; // al
   __int64 v6; // rcx
   _QWORD *v7; // rdx
   _QWORD *v8; // rbx
   _QWORD *v9; // rcx
   __int64 v10; // rax
-  bool v11; // zf
 
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
-  SharedVm = (volatile LONG *)MiGetSharedVm((__int64)&Process[1].ActiveProcessors.StaticBitmap[26]);
+  SharedVm = MiGetSharedVm((__int64)&Process[1].ActiveProcessorsPadding[6]);
   v5 = ExAcquireSpinLockExclusive(SharedVm);
-  *((_DWORD *)SharedVm + 1) = 0;
+  SharedVm[1] = 0;
   v6 = *a1;
   if ( *(_QWORD **)(*a1 + 8LL) != a1 || (v7 = (_QWORD *)a1[1], (_QWORD *)*v7 != a1) )
-LABEL_12:
+LABEL_9:
     __fastfail(3u);
   *v7 = v6;
   *(_QWORD *)(v6 + 8) = v7;
-  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessors.StaticBitmap[26], v5);
+  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessorsPadding[6], v5);
   v8 = a1 + 4;
   while ( 1 )
   {
     v9 = (_QWORD *)*v8;
     if ( (_QWORD *)*v8 == v8 )
-      break;
+      return KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     if ( (_QWORD *)v9[1] != v8 )
-      goto LABEL_12;
+      goto LABEL_9;
     v10 = *v9;
     if ( *(_QWORD **)(*v9 + 8LL) != v9 )
-      goto LABEL_12;
+      goto LABEL_9;
     *v8 = v10;
     *(_QWORD *)(v10 + 8) = v8;
     KeSetEvent((PRKEVENT)(v9 + 2), 0, 0);
   }
-  v11 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v11 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
 }

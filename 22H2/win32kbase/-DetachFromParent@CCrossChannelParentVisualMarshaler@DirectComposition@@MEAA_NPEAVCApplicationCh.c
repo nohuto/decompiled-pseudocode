@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DetachFromParent@CCrossChannelParentVisualMarshaler@DirectComposition@@MEAA_NPEAVCApplicationChannel@2@@Z @ 0x1C000EAB0
+ * XREFs of ?DetachFromParent@CCrossChannelParentVisualMarshaler@DirectComposition@@MEAA_NPEAVCApplicationChannel@2@@Z @ 0x1C01D4A50
  * Callers:
  *     <none>
  * Callees:
@@ -15,12 +15,12 @@ bool __fastcall DirectComposition::CCrossChannelParentVisualMarshaler::DetachFro
   unsigned int v5; // ecx
   bool result; // al
 
-  v3 = (_QWORD *)*((_QWORD *)this + 47);
+  v3 = (_QWORD *)*((_QWORD *)this + 46);
   if ( v3 )
   {
-    *v3 = *((_QWORD *)a2 + 50);
-    *((_QWORD *)a2 + 50) = v3;
-    *((_QWORD *)this + 47) = 0LL;
+    *v3 = *((_QWORD *)a2 + 49);
+    *((_QWORD *)a2 + 49) = v3;
+    *((_QWORD *)this + 46) = 0LL;
   }
   v4 = *((_DWORD *)this + 4);
   *((_QWORD *)this + 24) = 0LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReturnSystemImageCommitment @ 0x1408618D0
+ * XREFs of MiReturnSystemImageCommitment @ 0x140772F00
  * Callers:
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
  * Callees:
- *     MiReturnResident @ 0x140292CF0 (MiReturnResident.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x1402E9FEC (MiReturnResident.c)
  */
 
 void __fastcall MiReturnSystemImageCommitment(_QWORD *a1, __int64 a2)
@@ -25,8 +25,8 @@ void __fastcall MiReturnSystemImageCommitment(_QWORD *a1, __int64 a2)
     v3 = *(unsigned int *)(*(_QWORD *)MiSectionControlArea(a1[14]) + 8LL);
     v4 = v3;
   }
-  _InterlockedExchangeAdd(&dword_140C69AD0, -(int)v3);
-  MiReturnCommit((__int64)MiSystemPartition, v3 - *(_QWORD *)(v2 + 8));
+  _InterlockedExchangeAdd(&dword_140C4EFD0, -(int)v3);
+  MiReturnCommit((__int64)&MiSystemPartition, v3 - *(_QWORD *)(v2 + 8));
   if ( v4 )
-    MiReturnResident((__int64)MiSystemPartition, v4);
+    MiReturnResident((__int64)&MiSystemPartition, v4);
 }

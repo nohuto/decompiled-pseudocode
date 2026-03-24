@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_SF_dI @ 0x1C0004B00
+ * XREFs of WPP_SF_dI @ 0x1C0004850
  * Callers:
- *     CiThreadCreate @ 0x1C000AED0 (CiThreadCreate.c)
+ *     CiThreadCreate @ 0x1C000AB70 (CiThreadCreate.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00033D0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00031A0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_SF_dI(__int64 a1, __int64 a2, __int64 a3, int a4, ...)

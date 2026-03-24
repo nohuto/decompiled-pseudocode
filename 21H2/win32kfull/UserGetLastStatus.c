@@ -1,20 +1,20 @@
 /*
- * XREFs of UserGetLastStatus @ 0x1C0113BA8
+ * XREFs of UserGetLastStatus @ 0x1C012D0F4
  * Callers:
- *     xxxLoadHmodIndex @ 0x1C0054214 (xxxLoadHmodIndex.c)
+ *     xxxLoadHmodIndex @ 0x1C002067C (xxxLoadHmodIndex.c)
  * Callees:
  *     <none>
  */
 
-__int64 UserGetLastStatus()
+__int64 __fastcall UserGetLastStatus(__int64 a1)
 {
-  __int64 v0; // rcx
+  __int64 v1; // rcx
   __int64 CurrentProcessWow64Process; // rax
   struct _NT_TIB *Self; // rcx
 
-  if ( (unsigned __int8)KeIsAttachedProcess() )
+  if ( (unsigned __int8)KeIsAttachedProcess(a1) )
     return 0LL;
-  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v0);
+  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v1);
   Self = KeGetPcr()->NtTib.Self;
   if ( CurrentProcessWow64Process )
     return HIDWORD(Self[200].Self);

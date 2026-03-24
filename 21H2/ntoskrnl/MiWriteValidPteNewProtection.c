@@ -1,39 +1,38 @@
 /*
- * XREFs of MiWriteValidPteNewProtection @ 0x14033DBC0
+ * XREFs of MiWriteValidPteNewProtection @ 0x14030FA00
  * Callers:
- *     MiUnlockNestedPageTableWritePte @ 0x1402292C0 (MiUnlockNestedPageTableWritePte.c)
- *     MiMarkPteDirty @ 0x14023A12C (MiMarkPteDirty.c)
- *     MiDirtySystemCachePte @ 0x140241138 (MiDirtySystemCachePte.c)
- *     MiPerformSafePdeWrite @ 0x14025D6C0 (MiPerformSafePdeWrite.c)
- *     MiTrimSharedPageFromViews @ 0x14027B820 (MiTrimSharedPageFromViews.c)
- *     MiMakePteClean @ 0x14028ECFC (MiMakePteClean.c)
- *     MiValidFault @ 0x140291FC0 (MiValidFault.c)
- *     MiRevokeExecutePte @ 0x1402E96B0 (MiRevokeExecutePte.c)
- *     MiStealPage @ 0x1402E97D4 (MiStealPage.c)
- *     MiTradeActivePage @ 0x1402EA95C (MiTradeActivePage.c)
- *     MiDemoteCombinedPte @ 0x1403336E0 (MiDemoteCombinedPte.c)
- *     MiMakeCombineCandidateClean @ 0x14033A5B0 (MiMakeCombineCandidateClean.c)
- *     MmSetAddressRangeModifiedEx @ 0x14033D860 (MmSetAddressRangeModifiedEx.c)
- *     MiActOnPte @ 0x14033E970 (MiActOnPte.c)
- *     MiSetSystemCodeProtection @ 0x14033EF50 (MiSetSystemCodeProtection.c)
- *     MmProtectPool @ 0x140367190 (MmProtectPool.c)
- *     MiFlushDirtyBitsToPfn @ 0x14036B408 (MiFlushDirtyBitsToPfn.c)
- *     MiReplacePageTablePage @ 0x14036CF60 (MiReplacePageTablePage.c)
- *     MmSetPageProtection @ 0x1403C2120 (MmSetPageProtection.c)
- *     MmProtectMdlSystemAddress @ 0x140585D50 (MmProtectMdlSystemAddress.c)
- *     MiDbgCopyMemoryTarget @ 0x1405A47A0 (MiDbgCopyMemoryTarget.c)
- *     MiLargePageFault @ 0x1405A7708 (MiLargePageFault.c)
- *     MiDecommitHardwareEnclavePages @ 0x1405A89EC (MiDecommitHardwareEnclavePages.c)
- *     MiWriteEnclavePte @ 0x1405AA07C (MiWriteEnclavePte.c)
- *     MiProtectAweRegion @ 0x1405ABD20 (MiProtectAweRegion.c)
- *     MiBuildForkPte @ 0x1405B88D8 (MiBuildForkPte.c)
- *     MxCreatePfnsForPtes @ 0x140AF3B50 (MxCreatePfnsForPtes.c)
- *     MiMarkBootKernelStack @ 0x140B05B1C (MiMarkBootKernelStack.c)
- *     MiProtectSharedUserPage @ 0x140B31048 (MiProtectSharedUserPage.c)
+ *     MiValidFault @ 0x140209750 (MiValidFault.c)
+ *     MiActOnPte @ 0x14023C5F0 (MiActOnPte.c)
+ *     MiStealPage @ 0x14026BCA4 (MiStealPage.c)
+ *     MiFlushDirtyBitsToPfn @ 0x1402A0D3C (MiFlushDirtyBitsToPfn.c)
+ *     MiDirtySystemCachePte @ 0x1402BC818 (MiDirtySystemCachePte.c)
+ *     MiSetSystemCodeProtection @ 0x1402E6818 (MiSetSystemCodeProtection.c)
+ *     MiTrimSharedPageFromViews @ 0x1402EFC44 (MiTrimSharedPageFromViews.c)
+ *     MiMarkPteDirty @ 0x1402FA54C (MiMarkPteDirty.c)
+ *     MiUnlockNestedPageTableWritePte @ 0x14030C84C (MiUnlockNestedPageTableWritePte.c)
+ *     MiMakePteClean @ 0x14030F56C (MiMakePteClean.c)
+ *     MmSetAddressRangeModifiedEx @ 0x14030F640 (MmSetAddressRangeModifiedEx.c)
+ *     MmProtectPool @ 0x140362D68 (MmProtectPool.c)
+ *     MiReplacePageTablePage @ 0x140363DF0 (MiReplacePageTablePage.c)
+ *     MiMakeCombineCandidateClean @ 0x140369D8C (MiMakeCombineCandidateClean.c)
+ *     MiDemoteCombinedPte @ 0x14036B260 (MiDemoteCombinedPte.c)
+ *     MiRevokeExecutePte @ 0x1403749F0 (MiRevokeExecutePte.c)
+ *     MmSetPageProtection @ 0x140379C80 (MmSetPageProtection.c)
+ *     MiPerformSafePdeWrite @ 0x14038179C (MiPerformSafePdeWrite.c)
+ *     MmProtectMdlSystemAddress @ 0x1405321B0 (MmProtectMdlSystemAddress.c)
+ *     MiDbgCopyMemoryTarget @ 0x140545B40 (MiDbgCopyMemoryTarget.c)
+ *     MiLargePageFault @ 0x140548AB4 (MiLargePageFault.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140549A28 (MiDecommitHardwareEnclavePages.c)
+ *     MiWriteEnclavePte @ 0x14054B59C (MiWriteEnclavePte.c)
+ *     MiProtectAweRegion @ 0x14054D364 (MiProtectAweRegion.c)
+ *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
+ *     MiMarkBootKernelStack @ 0x140A4DC44 (MiMarkBootKernelStack.c)
+ *     MxCreatePfns @ 0x140A56C60 (MxCreatePfns.c)
+ *     MiProtectSharedUserPage @ 0x140A73CE0 (MiProtectSharedUserPage.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402294F0 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140229550 (MiPteHasShadow.c)
- *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
  */
 
 char __fastcall MiWriteValidPteNewProtection(unsigned __int64 a1, __int64 a2)
@@ -44,6 +43,7 @@ char __fastcall MiWriteValidPteNewProtection(unsigned __int64 a1, __int64 a2)
   struct _LIST_ENTRY *Flink; // r8
   __int64 v7; // rax
   __int64 v8; // r8
+  __int64 v9; // r8
 
   v2 = *(_QWORD *)a1;
   if ( a1 >= 0xFFFFF6FB7DBED000uLL
@@ -66,7 +66,7 @@ char __fastcall MiWriteValidPteNewProtection(unsigned __int64 a1, __int64 a2)
     }
   }
   v4 = a2 ^ (a2 ^ v2) & 0x7F00000000000000LL;
-  LODWORD(CurrentThread) = MiPteInShadowRange(a1);
+  LODWORD(CurrentThread) = MiPteInShadowRange(a1, a2);
   if ( !(_DWORD)CurrentThread )
     goto LABEL_3;
   if ( !(unsigned int)MiPteHasShadow() )
@@ -81,9 +81,9 @@ LABEL_3:
     *(_QWORD *)a1 = v4;
     return (char)CurrentThread;
   }
-  if ( !HIBYTE(word_140C51864) && (v4 & 1) != 0 )
+  if ( !HIBYTE(word_140C4E008) && (v4 & 1) != 0 )
     v4 |= 0x8000000000000000uLL;
   *(_QWORD *)a1 = v4;
-  LOBYTE(CurrentThread) = MiWritePteShadow(a1, v4);
+  LOBYTE(CurrentThread) = MiWritePteShadow(a1, v4, v9);
   return (char)CurrentThread;
 }

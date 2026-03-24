@@ -1,17 +1,17 @@
 /*
- * XREFs of PsReturnSharedPoolQuota @ 0x140724DC8
+ * XREFs of PsReturnSharedPoolQuota @ 0x1406603C4
  * Callers:
- *     PspJobDelete @ 0x140207100 (PspJobDelete.c)
- *     PspFreeRateControl @ 0x140678B4C (PspFreeRateControl.c)
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
- *     AlpcMessageDestroyProcedure @ 0x1406A61B0 (AlpcMessageDestroyProcedure.c)
- *     RtlpFreeAtom @ 0x1406AB544 (RtlpFreeAtom.c)
- *     ObAdjustSecurityQuota @ 0x140725858 (ObAdjustSecurityQuota.c)
- *     ObpChargeQuotaForObject @ 0x140726394 (ObpChargeQuotaForObject.c)
- *     ObpIncrementHandleCountEx @ 0x140733B40 (ObpIncrementHandleCountEx.c)
+ *     PspJobDelete @ 0x140287530 (PspJobDelete.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     ObAdjustSecurityQuota @ 0x14065FB48 (ObAdjustSecurityQuota.c)
+ *     ObpChargeQuotaForObject @ 0x140660238 (ObpChargeQuotaForObject.c)
+ *     PspFreeRateControl @ 0x14067F51C (PspFreeRateControl.c)
+ *     AlpcMessageDestroyProcedure @ 0x14068A760 (AlpcMessageDestroyProcedure.c)
+ *     RtlpFreeAtom @ 0x1406A156C (RtlpFreeAtom.c)
+ *     ObpIncrementHandleCountEx @ 0x1406F5F60 (ObpIncrementHandleCountEx.c)
  * Callees:
- *     PspReturnQuota @ 0x1403493B0 (PspReturnQuota.c)
- *     PspDereferenceQuotaBlock @ 0x140724E14 (PspDereferenceQuotaBlock.c)
+ *     PspReturnQuota @ 0x140341980 (PspReturnQuota.c)
+ *     PspDereferenceQuotaBlock @ 0x140660410 (PspDereferenceQuotaBlock.c)
  */
 
 __int64 __fastcall PsReturnSharedPoolQuota(char *P, ULONG_PTR a2, ULONG_PTR a3)

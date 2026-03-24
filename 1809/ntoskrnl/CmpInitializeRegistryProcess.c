@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpInitializeRegistryProcess @ 0x1407572EC
+ * XREFs of CmpInitializeRegistryProcess @ 0x1407572CC
  * Callers:
  *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     ExInitializeLookasideListEx @ 0x1400F2F10 (ExInitializeLookasideListEx.c)
- *     CmSiProcessTupleInitialize @ 0x14013BB98 (CmSiProcessTupleInitialize.c)
- *     MmAdjustWorkingSetSize @ 0x14018ED10 (MmAdjustWorkingSetSize.c)
- *     CmSiProcessTupleStartFromHandle @ 0x14018ED34 (CmSiProcessTupleStartFromHandle.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetInformationProcess @ 0x1401B84F0 (ZwSetInformationProcess.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     ExInitializeLookasideListEx @ 0x1400F2F30 (ExInitializeLookasideListEx.c)
+ *     CmSiProcessTupleInitialize @ 0x14013BBB8 (CmSiProcessTupleInitialize.c)
+ *     MmAdjustWorkingSetSize @ 0x14018ED30 (MmAdjustWorkingSetSize.c)
+ *     CmSiProcessTupleStartFromHandle @ 0x14018ED54 (CmSiProcessTupleStartFromHandle.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetInformationProcess @ 0x1401B8510 (ZwSetInformationProcess.c)
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
- *     PsCreateSystemThreadEx @ 0x14066AAE0 (PsCreateSystemThreadEx.c)
- *     PsCreateMinimalProcess @ 0x14075754C (PsCreateMinimalProcess.c)
- *     CmpCreateRegistryProcessToken @ 0x140757934 (CmpCreateRegistryProcessToken.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
+ *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
+ *     PsCreateMinimalProcess @ 0x14075752C (PsCreateMinimalProcess.c)
+ *     CmpCreateRegistryProcessToken @ 0x140757914 (CmpCreateRegistryProcessToken.c)
  */
 
 __int64 CmpInitializeRegistryProcess()

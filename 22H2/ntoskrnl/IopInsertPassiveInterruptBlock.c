@@ -1,62 +1,62 @@
 /*
- * XREFs of IopInsertPassiveInterruptBlock @ 0x1403A2678
+ * XREFs of IopInsertPassiveInterruptBlock @ 0x14050D3D4
  * Callers:
- *     IopAllocatePassiveInterruptBlock @ 0x140849B60 (IopAllocatePassiveInterruptBlock.c)
+ *     IopAllocatePassiveInterruptBlock @ 0x1408A1590 (IopAllocatePassiveInterruptBlock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     IopFindPassiveInterruptBlockLocked @ 0x1403A2E48 (IopFindPassiveInterruptBlockLocked.c)
- *     IopAcquireGlobalPassiveInterruptListLock @ 0x1403A2E7C (IopAcquireGlobalPassiveInterruptListLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopAcquireGlobalPassiveInterruptListLock @ 0x14050D07C (IopAcquireGlobalPassiveInterruptListLock.c)
+ *     IopFindPassiveInterruptBlockLocked @ 0x14050D39C (IopFindPassiveInterruptBlockLocked.c)
  */
 
 __int64 __fastcall IopInsertPassiveInterruptBlock(__int64 a1, _BYTE *a2)
 {
   __int64 PassiveInterruptBlockLocked; // rsi
   __int64 *v5; // rcx
-  unsigned __int8 v6; // bl
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
+  unsigned __int8 v7; // bl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v11; // eax
-  bool v12; // zf
+  int v10; // eax
+  bool v11; // zf
   unsigned __int8 v13; // [rsp+30h] [rbp+8h] BYREF
 
   v13 = 0;
   *a2 = 1;
   IopAcquireGlobalPassiveInterruptListLock(&v13);
-  PassiveInterruptBlockLocked = IopFindPassiveInterruptBlockLocked(*(unsigned int *)(a1 + 20));
+  PassiveInterruptBlockLocked = IopFindPassiveInterruptBlockLocked(*(_DWORD *)(a1 + 20));
   if ( !PassiveInterruptBlockLocked )
   {
     _InterlockedIncrement((volatile signed __int32 *)(a1 + 192));
-    v5 = (__int64 *)qword_140C5D3F8;
-    if ( *(__int64 **)qword_140C5D3F8 != &PassiveInterruptList )
+    v5 = (__int64 *)qword_140C45568;
+    if ( *(__int64 **)qword_140C45568 != &PassiveInterruptList )
       __fastfail(3u);
     *(_QWORD *)a1 = &PassiveInterruptList;
     *(_QWORD *)(a1 + 8) = v5;
     *v5 = a1;
-    qword_140C5D3F8 = a1;
+    qword_140C45568 = a1;
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&PassiveInterruptListLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  KxReleaseSpinLock(&PassiveInterruptListLock);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
   {
-    v6 = v13;
+    v7 = v13;
     if ( v13 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v6 = v13;
-      v11 = ~(unsigned __int16)(-1LL << (v13 + 1));
-      v12 = (v11 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v11;
-      if ( v12 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v7 = v13;
+      v10 = ~(unsigned __int16)(-1LL << (v13 + 1));
+      v11 = (v10 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v10;
+      if ( v11 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   else
   {
-    v6 = v13;
+    v7 = v13;
   }
-  __writecr8(v6);
+  __writecr8(v7);
   if ( PassiveInterruptBlockLocked )
     *a2 = 0;
   return 0LL;

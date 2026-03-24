@@ -1,65 +1,33 @@
 /*
- * XREFs of GetPixelSizeInBytes @ 0x1C02D7E44
+ * XREFs of GetPixelSizeInBytes @ 0x1C0228A4C
  * Callers:
- *     ?CreateStandardAllocation@DXGDEVICE@@QEAAJPEAU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C01A0874 (-CreateStandardAllocation@DXGDEVICE@@QEAAJPEAU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACC.c)
+ *     ?CreateStandardAllocation@DXGDEVICE@@QEAAJPEAU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C011B800 (-CreateStandardAllocation@DXGDEVICE@@QEAAJPEAU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACC.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-__int64 __fastcall GetPixelSizeInBytes(int a1)
+__int64 __fastcall GetPixelSizeInBytes(__int64 a1, __int64 a2)
 {
-  int v1; // ecx
-  int v2; // ecx
-  int v3; // ecx
-  int v4; // ecx
-  int v5; // ecx
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
+  __int64 v2; // rax
 
-  v1 = a1 - 21;
-  if ( v1 )
+  if ( (int)a1 < 21 )
+    goto LABEL_9;
+  if ( (int)a1 > 22 )
   {
-    v2 = v1 - 1;
-    if ( v2 )
+    if ( (int)a1 <= 30 )
     {
-      v3 = v2 - 9;
-      if ( v3 )
-      {
-        v4 = v3 - 1;
-        if ( v4 )
-        {
-          v5 = v4 - 1;
-          if ( v5 )
-          {
-            v6 = v5 - 2;
-            if ( v6 )
-            {
-              v7 = v6 - 1;
-              if ( !v7 )
-                return 8LL;
-              v8 = v7 - 77;
-              if ( !v8 )
-                return 8LL;
-              if ( v8 != 6 )
-              {
-                WdLogSingleEntry1(1LL, 7285LL);
-                DxgkLogInternalTriageEvent(
-                  0LL,
-                  262146,
-                  -1,
-                  (__int64)L"Invalid D3D Pixel format!",
-                  7285LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL);
-                return 0LL;
-              }
-            }
-          }
-        }
-      }
+LABEL_9:
+      v2 = WdLogNewEntry5_WdAssertion(a1, a2);
+      *(_QWORD *)(v2 + 24) = 7077LL;
+      WdLogEvent5_WdAssertion(v2);
+      return 0LL;
+    }
+    if ( (int)a1 > 33 && (_DWORD)a1 != 35 )
+    {
+      if ( (_DWORD)a1 == 36 || (_DWORD)a1 == 113 )
+        return 8LL;
+      if ( (_DWORD)a1 != 119 )
+        goto LABEL_9;
     }
   }
   return 4LL;

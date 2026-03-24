@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpCheckDynamicTimeZoneInformation @ 0x1408410A8
+ * XREFs of RtlpCheckDynamicTimeZoneInformation @ 0x1407AA8CC
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140840928 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9984 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     RtlpFindRegTziForCurrentYear @ 0x140399AAC (RtlpFindRegTziForCurrentYear.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1408411EC (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     RtlpRegTziFormatToTzi @ 0x1408419AC (RtlpRegTziFormatToTzi.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x1403B7864 (RtlpFindRegTziForCurrentYear.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407AAA10 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     RtlpRegTziFormatToTzi @ 0x1407AAB9C (RtlpRegTziFormatToTzi.c)
  */
 
 char __fastcall RtlpCheckDynamicTimeZoneInformation(char *Buf2, __int16 a2)
 {
   char v4; // di
-  __int128 v5; // xmm1
-  __int64 v6; // rax
-  __int128 v7; // xmm0
-  __int128 v8; // xmm1
-  __int128 v9; // xmm0
-  __int128 v10; // xmm1
-  __int128 v11; // xmm0
-  __int128 v12; // xmm1
-  __int128 v13; // xmm0
+  __int128 v6; // xmm1
+  __int64 v7; // rax
+  __int128 v8; // xmm0
+  __int128 v9; // xmm1
+  __int128 v10; // xmm0
+  __int128 v11; // xmm1
+  __int128 v12; // xmm0
+  __int128 v13; // xmm1
+  __int128 v14; // xmm0
   __int128 v15; // xmm1
   __int128 v16; // xmm0
   __int128 v17; // xmm1
@@ -57,26 +57,26 @@ char __fastcall RtlpCheckDynamicTimeZoneInformation(char *Buf2, __int16 a2)
   {
     if ( (int)RtlpFindRegTziForCurrentYear((__int64)v25, 0LL, a2) >= 0 )
     {
-      v5 = *((_OWORD *)Buf2 + 1);
+      v6 = *((_OWORD *)Buf2 + 1);
       Buf1 = *(_OWORD *)Buf2;
-      v6 = *((_QWORD *)Buf2 + 20);
-      v7 = *((_OWORD *)Buf2 + 2);
-      v29 = v5;
-      v8 = *((_OWORD *)Buf2 + 3);
-      v30 = v7;
-      v9 = *((_OWORD *)Buf2 + 4);
-      v31 = v8;
-      v10 = *((_OWORD *)Buf2 + 5);
-      v32 = v9;
-      v11 = *((_OWORD *)Buf2 + 6);
-      v33 = v10;
-      v12 = *((_OWORD *)Buf2 + 8);
-      v34 = v11;
+      v7 = *((_QWORD *)Buf2 + 20);
+      v8 = *((_OWORD *)Buf2 + 2);
+      v29 = v6;
+      v9 = *((_OWORD *)Buf2 + 3);
+      v30 = v8;
+      v10 = *((_OWORD *)Buf2 + 4);
+      v31 = v9;
+      v11 = *((_OWORD *)Buf2 + 5);
+      v32 = v10;
+      v12 = *((_OWORD *)Buf2 + 6);
+      v33 = v11;
+      v13 = *((_OWORD *)Buf2 + 8);
+      v34 = v12;
       v35 = *((_OWORD *)Buf2 + 7);
-      v13 = *((_OWORD *)Buf2 + 9);
-      v36 = v12;
-      v37 = v13;
-      v38 = v6;
+      v14 = *((_OWORD *)Buf2 + 9);
+      v36 = v13;
+      v37 = v14;
+      v38 = v7;
       v39 = *((_DWORD *)Buf2 + 42);
       RtlpRegTziFormatToTzi(&Buf1, v25);
       if ( memcmp(&Buf1, Buf2, 0xACuLL) )

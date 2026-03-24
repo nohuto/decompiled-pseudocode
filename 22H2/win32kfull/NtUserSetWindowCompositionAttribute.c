@@ -1,359 +1,309 @@
 /*
- * XREFs of NtUserSetWindowCompositionAttribute @ 0x1C00EC2A0
+ * XREFs of NtUserSetWindowCompositionAttribute @ 0x1C0037A00
  * Callers:
  *     <none>
  * Callees:
- *     ?SetWindowCompositionHasIconicBitmap@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C000F9EC (-SetWindowCompositionHasIconicBitmap@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@.c)
- *     ?SetWindowCompositionSystemBackdropType@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C00100B4 (-SetWindowCompositionSystemBackdropType@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION.c)
- *     ?SetWindowCompositionFreezeSWR@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C001067C (-SetWindowCompositionFreezeSWR@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z.c)
- *     ?SetWindowCompositionForceIconicSWR@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C0012CB0 (-SetWindowCompositionForceIconicSWR@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z.c)
- *     ?SetWindowMaximizeAnimation@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C0015894 (-SetWindowMaximizeAnimation@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z.c)
- *     IAMThreadAccessGranted @ 0x1C002731C (IAMThreadAccessGranted.c)
- *     ?IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C0028858 (-IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
- *     ?SetWindowCompositionDarkModeColors@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C00AD444 (-SetWindowCompositionDarkModeColors@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z.c)
- *     IsTopLevelOrLayeredChildWindow @ 0x1C00B4624 (IsTopLevelOrLayeredChildWindow.c)
- *     ?SetWindowCompositionForceActiveWindowAppearance@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C00B4710 (-SetWindowCompositionForceActiveWindowAppearance@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBD.c)
- *     ?SetWindowMinimizeAnimation@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C00B95DC (-SetWindowMinimizeAnimation@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z.c)
- *     ?SetWindowCompositionNCRenderingExiled@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C00C3FA0 (-SetWindowCompositionNCRenderingExiled@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@.c)
- *     ?SetWindowCompositionAccentPolicy@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C00C4BC0 (-SetWindowCompositionAccentPolicy@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z.c)
- *     ?SetWindowCompositionExcludeFromLivePreview@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C00C4C84 (-SetWindowCompositionExcludeFromLivePreview@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_U.c)
- *     ?_DwmAsyncSetCompositionAttribute@@YAJPEBUtagWND@@W4WINDOWCOMPOSITIONATTRIB@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C00CCCF4 (-_DwmAsyncSetCompositionAttribute@@YAJPEBUtagWND@@W4WINDOWCOMPOSITIONATTRIB@@PEBUtagWINDOWCOMPOS.c)
- *     ValidateHwndIAMComponetUIAware @ 0x1C00EC71C (ValidateHwndIAMComponetUIAware.c)
- *     _GetDesktopWindow @ 0x1C00ECDE0 (_GetDesktopWindow.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z @ 0x1C00F1010 (-zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z.c)
- *     ?GetWindowCloakState@@YAKPEBUtagWND@@@Z @ 0x1C01210F8 (-GetWindowCloakState@@YAKPEBUtagWND@@@Z.c)
- *     _IsTopLevelWindow @ 0x1C0122310 (_IsTopLevelWindow.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?SetWindowCompositionNCRenderPolicy@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C0155F12 (-SetWindowCompositionNCRenderPolicy@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_sdq @ 0x1C01E3594 (WPP_RECORDER_AND_TRACE_SF_sdq.c)
- *     ?SetWindowCompositionAllowNCPaint@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C01F6EF8 (-SetWindowCompositionAllowNCPaint@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z.c)
- *     ?SetWindowCompositionDisallowPeek@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C01F6FB8 (-SetWindowCompositionDisallowPeek@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z.c)
- *     ?SetWindowCompositionExcludedFromDDA@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C01F7078 (-SetWindowCompositionExcludedFromDDA@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@.c)
- *     ?SetWindowCompositionHolographic@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C01F713C (-SetWindowCompositionHolographic@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z.c)
- *     ?SetWindowCompositionNonClientRTLLayout@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C01F71FC (-SetWindowCompositionNonClientRTLLayout@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION.c)
- *     ?SetWindowCompositionPassiveUpdateMode@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C01F72C0 (-SetWindowCompositionPassiveUpdateMode@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@.c)
- *     ?SetWindowCompositionTransitions@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C01F7384 (-SetWindowCompositionTransitions@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z.c)
- *     ?SetWindowCompositionVisualOwner@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C01F7504 (-SetWindowCompositionVisualOwner@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z.c)
- *     ?SetWindowDisableMoveSizeFeedback@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z @ 0x1C01F75B4 (-SetWindowDisableMoveSizeFeedback@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@@Z.c)
- *     ?_DwmAsyncClearTaggedWindowRect@@YAJPEBUtagWND@@@Z @ 0x1C01F7678 (-_DwmAsyncClearTaggedWindowRect@@YAJPEBUtagWND@@@Z.c)
- *     ?_DwmAsyncSetTaggedWindowRect@@YAJPEBUtagWND@@PEBUtagRECT@@@Z @ 0x1C01F76C8 (-_DwmAsyncSetTaggedWindowRect@@YAJPEBUtagWND@@PEBUtagRECT@@@Z.c)
- *     ?GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0220260 (-GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
+ *     zzzSetWindowCompositionCloak @ 0x1C0036CF0 (zzzSetWindowCompositionCloak.c)
+ *     DwmAsyncSetCompositionAttribute @ 0x1C0037910 (DwmAsyncSetCompositionAttribute.c)
+ *     ValidateHwndIAMComponetUIAware @ 0x1C0037E84 (ValidateHwndIAMComponetUIAware.c)
+ *     IAMThreadAccessGranted @ 0x1C0037F54 (IAMThreadAccessGranted.c)
+ *     SetWindowCompositionNCRenderingExiled @ 0x1C0037FAC (SetWindowCompositionNCRenderingExiled.c)
+ *     SetWindowExtendedBoundsMargin @ 0x1C003807C (SetWindowExtendedBoundsMargin.c)
+ *     GetWindowCloakState @ 0x1C004DB6C (GetWindowCloakState.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C006B6A0 (-IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
+ *     IsTopLevelOrLayeredChildWindow @ 0x1C006F8B4 (IsTopLevelOrLayeredChildWindow.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
+ *     SetWindowCompositionAccentPolicy @ 0x1C01202A8 (SetWindowCompositionAccentPolicy.c)
+ *     ?GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0122588 (-GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
+ *     SetWindowCompositionHasIconicBitmap @ 0x1C0124ECC (SetWindowCompositionHasIconicBitmap.c)
+ *     SetWindowCompositionFreezeSWR @ 0x1C0124FA0 (SetWindowCompositionFreezeSWR.c)
+ *     SetWindowCompositionExcludeFromLivePreview @ 0x1C0128B90 (SetWindowCompositionExcludeFromLivePreview.c)
+ *     SetWindowCompositionDarkModeColors @ 0x1C0128D84 (SetWindowCompositionDarkModeColors.c)
+ *     SetWindowCompositionForceActiveWindowAppearance @ 0x1C012A3FC (SetWindowCompositionForceActiveWindowAppearance.c)
+ *     SetWindowCompositionForceIconicSWR @ 0x1C012FFB8 (SetWindowCompositionForceIconicSWR.c)
+ *     SetWindowCompositionPassiveUpdateMode @ 0x1C0163848 (SetWindowCompositionPassiveUpdateMode.c)
+ *     SetWindowCompositionExcludedFromDDA @ 0x1C0163910 (SetWindowCompositionExcludedFromDDA.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     SetWindowCompositionAllowNCPaint @ 0x1C0213C04 (SetWindowCompositionAllowNCPaint.c)
+ *     SetWindowCompositionDisallowPeek @ 0x1C0213CD8 (SetWindowCompositionDisallowPeek.c)
+ *     SetWindowCompositionHolographic @ 0x1C0213DAC (SetWindowCompositionHolographic.c)
+ *     SetWindowCompositionNCRenderPolicy @ 0x1C0213E80 (SetWindowCompositionNCRenderPolicy.c)
+ *     SetWindowCompositionNonClientRTLLayout @ 0x1C0213F34 (SetWindowCompositionNonClientRTLLayout.c)
+ *     SetWindowCompositionTransitions @ 0x1C0214008 (SetWindowCompositionTransitions.c)
+ *     SetWindowCompositionVisualOwner @ 0x1C02141B0 (SetWindowCompositionVisualOwner.c)
  */
 
-__int64 __fastcall NtUserSetWindowCompositionAttribute(__int64 a1, __m128i *a2, __int64 a3)
+__int64 __fastcall NtUserSetWindowCompositionAttribute(__int64 a1, __m128i *a2)
 {
-  NTSTATUS v4; // ebx
-  ULONG64 v5; // rcx
+  NTSTATUS v3; // edi
+  ULONG64 v4; // rcx
   __int64 CurrentProcessWow64Process; // rax
-  volatile void *v7; // xmm0_8
-  int v8; // r14d
-  size_t v9; // r8
-  __int64 v10; // rsi
-  char v11; // r12
-  __int64 v12; // rax
-  __int64 v13; // rdx
-  PDEVICE_OBJECT v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  struct tagWND *v17; // rdi
-  __int64 DesktopWindow; // rax
-  bool v19; // sf
-  ULONG v20; // eax
+  volatile void *v6; // xmm0_8
+  size_t v7; // r8
+  __int64 v8; // r14
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  __int64 v11; // rsi
+  int v12; // ebx
+  int v13; // ebx
+  int v14; // ebx
+  int v15; // ebx
+  int v16; // ebx
+  int v17; // ebx
+  int v18; // ebx
+  int v19; // ebx
+  int v20; // ebx
   NTSTATUS active; // eax
-  unsigned int v23; // r15d
-  int v24; // eax
-  const struct tagWND *v25; // rcx
+  bool v22; // sf
+  ULONG v24; // eax
+  int v25; // ebx
+  int v26; // ebx
+  int v27; // ebx
+  unsigned int v28; // r15d
+  __int64 v29; // rcx
+  int v30; // ebx
+  int v31; // ebx
+  int v32; // ebx
+  int v33; // ebx
+  int v34; // ebx
+  __int64 v35; // rdx
+  void *v36; // rax
   struct tagWND *Host; // rax
-  int v27; // eax
-  struct tagRECT v28; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v29; // [rsp+70h] [rbp-98h]
-  int v30; // [rsp+78h] [rbp-90h]
-  __m128i v31; // [rsp+90h] [rbp-78h]
-  SIZE_T v32; // [rsp+A0h] [rbp-68h]
-  __m128i v33; // [rsp+A8h] [rbp-60h]
-  __m128i v34; // [rsp+B8h] [rbp-50h]
-  SIZE_T Length; // [rsp+C8h] [rbp-40h]
+  int v38; // eax
+  __int128 v39; // [rsp+28h] [rbp-A0h] BYREF
+  __int64 v40; // [rsp+38h] [rbp-90h]
+  __m128i v41; // [rsp+50h] [rbp-78h]
+  SIZE_T v42; // [rsp+60h] [rbp-68h]
+  __m128i v43; // [rsp+68h] [rbp-60h]
+  __m128i v44; // [rsp+80h] [rbp-48h]
+  SIZE_T Length; // [rsp+90h] [rbp-38h]
 
-  v4 = -1073741811;
-  v30 = -1073741811;
-  v31 = 0LL;
-  v32 = 0LL;
-  v28 = 0LL;
-  v29 = 0LL;
-  v5 = (ULONG64)&a2[1].m128i_u64[1];
-  if ( &a2[1].m128i_u64[1] < (unsigned __int64 *)a2 || v5 > MmUserProbeAddress )
+  v3 = -1073741811;
+  v41 = 0LL;
+  v42 = 0LL;
+  v39 = 0LL;
+  v40 = 0LL;
+  v4 = (ULONG64)&a2[1].m128i_u64[1];
+  if ( &a2[1].m128i_u64[1] < (unsigned __int64 *)a2 || v4 > MmUserProbeAddress )
     a2 = (__m128i *)MmUserProbeAddress;
-  v33 = *a2;
-  v34 = v33;
+  v43 = *a2;
+  v44 = v43;
   Length = a2[1].m128i_u64[0];
-  v31 = v33;
-  v32 = Length;
-  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v5, a2, a3);
-  v7 = (volatile void *)_mm_srli_si128(v33, 8).m128i_u64[0];
-  ProbeForRead(v7, (unsigned int)Length, CurrentProcessWow64Process != 0 ? 1 : 4);
-  v8 = v33.m128i_i32[0];
-  if ( (unsigned int)(v33.m128i_i32[0] - 1) <= 0x1F )
+  v41 = v43;
+  v42 = Length;
+  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v4);
+  v6 = (volatile void *)_mm_srli_si128(v43, 8).m128i_u64[0];
+  ProbeForRead(v6, (unsigned int)Length, CurrentProcessWow64Process != 0 ? 1 : 4);
+  if ( (unsigned int)(v43.m128i_i32[0] - 1) <= 0x19 )
   {
-    v9 = qword_1C03173C8[2 * v34.m128i_i32[0]];
-    if ( (unsigned int)Length >= v9 )
+    v7 = qword_1C02EA978[2 * v43.m128i_i32[0]];
+    if ( (unsigned int)Length >= v7 )
     {
-      memmove(&v28, (const void *)v7, v9);
-      v10 = 0LL;
-      v4 = 0;
-      v30 = 0;
+      memmove(&v39, (const void *)v6, v7);
+      v8 = 0LL;
+      v3 = 0;
       goto LABEL_9;
     }
-    v4 = -1073741789;
-    v30 = -1073741789;
+    v3 = -1073741789;
   }
-  v10 = 0LL;
+  v8 = 0LL;
 LABEL_9:
-  if ( v4 < 0 )
+  if ( v3 < 0 )
   {
-LABEL_19:
-    v20 = RtlNtStatusToDosError(v4);
-    UserSetLastError(v20);
-    v19 = v4 < 0;
-    goto LABEL_20;
+LABEL_30:
+    v24 = RtlNtStatusToDosError(v3);
+    UserSetLastError(v24);
+    v22 = v3 < 0;
+    goto LABEL_27;
   }
-  v11 = 1;
-  EnterCrit(1LL, 0LL);
-  v12 = ValidateHwndIAMComponetUIAware(a1);
-  v17 = (struct tagWND *)v12;
-  if ( !v12 )
-    goto LABEL_17;
-  if ( v8 != 17
-    || !(unsigned int)IsTopLevelOrLayeredChildWindow(v12)
-    || (v14 = (PDEVICE_OBJECT)*((_QWORD *)v17 + 5), HIDWORD(v14->Dpc.DeferredContext) == 15) )
+  EnterCrit(0LL, 1LL);
+  v9 = ValidateHwndIAMComponetUIAware(a1);
+  v11 = v9;
+  if ( !v9 )
+    goto LABEL_29;
+  v12 = v41.m128i_i32[0];
+  if ( v41.m128i_i32[0] != 17
+    || !(unsigned int)IsTopLevelOrLayeredChildWindow(v9)
+    || *(_DWORD *)(*(_QWORD *)(v11 + 40) + 236LL) == 15 )
   {
-    v13 = 0LL;
-    v15 = *((_QWORD *)v17 + 13);
-    if ( v15 )
+    if ( (unsigned int)IsTopLevelWindow(v11) || v12 == 20 && (unsigned int)IsTopLevelOrLayeredChildWindow(v11) )
     {
-      DesktopWindow = GetDesktopWindow(v17, 0LL);
-      if ( v15 == DesktopWindow )
-        v13 = 1LL;
+      if ( v12 > 13 )
+      {
+        v25 = v12 - 15;
+        if ( !v25 )
+        {
+          active = SetWindowCompositionForceActiveWindowAppearance(v11, &v39);
+          goto LABEL_25;
+        }
+        v26 = v25 - 1;
+        if ( !v26 )
+        {
+          active = SetWindowCompositionDisallowPeek(v11, &v39);
+          goto LABEL_25;
+        }
+        v27 = v26 - 3;
+        if ( !v27 )
+        {
+          active = SetWindowCompositionAccentPolicy(v11, &v39);
+          goto LABEL_25;
+        }
+        v30 = v27 - 1;
+        if ( v30 )
+        {
+          v31 = v30 - 2;
+          if ( !v31 )
+          {
+            active = SetWindowCompositionVisualOwner(v11, &v39);
+            goto LABEL_25;
+          }
+          v32 = v31 - 1;
+          if ( !v32 )
+          {
+            if ( (unsigned int)IAMThreadAccessGranted(gptiCurrent) )
+            {
+              active = SetWindowCompositionHolographic(v11, &v39);
+              goto LABEL_25;
+            }
+            v3 = -1073741790;
+            goto LABEL_26;
+          }
+          v33 = v32 - 1;
+          if ( !v33 )
+          {
+            active = SetWindowCompositionExcludedFromDDA(v11, &v39);
+            goto LABEL_25;
+          }
+          v34 = v33 - 1;
+          if ( !v34 )
+          {
+            active = SetWindowCompositionPassiveUpdateMode(v11, &v39);
+            goto LABEL_25;
+          }
+          if ( v34 == 1 )
+          {
+            active = SetWindowCompositionDarkModeColors(v11, &v39);
+            goto LABEL_25;
+          }
+LABEL_72:
+          v3 = -1073741811;
+          goto LABEL_26;
+        }
+        SetWindowCompositionFreezeSWR(v11, &v39);
+      }
+      else
+      {
+        if ( v12 == 13 )
+        {
+          active = SetWindowCompositionExcludeFromLivePreview(v11, &v39);
+          goto LABEL_25;
+        }
+        v13 = v12 - 2;
+        if ( !v13 )
+        {
+          active = SetWindowCompositionNCRenderPolicy(v11, &v39);
+          goto LABEL_25;
+        }
+        v14 = v13 - 1;
+        if ( !v14 )
+        {
+          active = SetWindowCompositionTransitions(v11, &v39);
+          goto LABEL_25;
+        }
+        v15 = v14 - 1;
+        if ( !v15 )
+        {
+          active = SetWindowCompositionAllowNCPaint(v11, &v39);
+          goto LABEL_25;
+        }
+        v16 = v15 - 2;
+        if ( !v16 )
+        {
+          active = SetWindowCompositionNonClientRTLLayout(v11, &v39);
+          goto LABEL_25;
+        }
+        v17 = v16 - 1;
+        if ( !v17 )
+        {
+          active = SetWindowCompositionForceIconicSWR(v11, &v39);
+          goto LABEL_25;
+        }
+        v18 = v17 - 1;
+        if ( !v18 )
+        {
+          active = SetWindowExtendedBoundsMargin((struct tagWND *)v11);
+          goto LABEL_25;
+        }
+        v19 = v18 - 1;
+        if ( v19 )
+        {
+          v20 = v19 - 1;
+          if ( !v20 )
+          {
+            if ( !(unsigned int)IsWindowDesktopComposed(v11) )
+              goto LABEL_26;
+            v36 = (void *)ReferenceDwmApiPort(v10, v35);
+            active = DwmAsyncSetCompositionAttribute(v36, a1, 10, &v39);
+            goto LABEL_25;
+          }
+          if ( v20 == 1 )
+          {
+            active = SetWindowCompositionNCRenderingExiled(v11, &v39);
+            goto LABEL_25;
+          }
+          goto LABEL_72;
+        }
+      }
+      active = SetWindowCompositionHasIconicBitmap(v11, &v39);
+      goto LABEL_25;
     }
-    if ( (_DWORD)v13 || v8 == 20 && (unsigned int)IsTopLevelOrLayeredChildWindow((__int64)v17) )
-    {
-      if ( v8 <= 16 )
-      {
-        if ( v8 == 16 )
-        {
-          active = SetWindowCompositionDisallowPeek(v17, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-          goto LABEL_28;
-        }
-        if ( v8 <= 8 )
-        {
-          if ( v8 != 8 && v8 != 1 )
-          {
-            switch ( v8 )
-            {
-              case 2:
-                active = SetWindowCompositionNCRenderPolicy(
-                           v17,
-                           (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-                goto LABEL_28;
-              case 3:
-                active = SetWindowCompositionTransitions(v17, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-                goto LABEL_28;
-              case 4:
-                active = SetWindowCompositionAllowNCPaint(
-                           v17,
-                           (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-                goto LABEL_28;
-            }
-            if ( v8 != 5 )
-            {
-              if ( v8 == 6 )
-              {
-                active = SetWindowCompositionNonClientRTLLayout(
-                           v17,
-                           (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-                goto LABEL_28;
-              }
-              if ( v8 == 7 )
-              {
-                active = SetWindowCompositionForceIconicSWR(
-                           v17,
-                           (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-                goto LABEL_28;
-              }
-            }
-          }
-          goto LABEL_100;
-        }
-        if ( v8 != 9 )
-        {
-          if ( v8 == 10 )
-          {
-            active = _DwmAsyncSetCompositionAttribute((__int64)v17);
-            goto LABEL_28;
-          }
-          if ( v8 == 11 )
-          {
-            active = SetWindowCompositionNCRenderingExiled(
-                       v17,
-                       (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-            goto LABEL_28;
-          }
-          if ( v8 != 12 )
-          {
-            if ( v8 == 13 )
-            {
-              active = SetWindowCompositionExcludeFromLivePreview(
-                         v17,
-                         (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-              goto LABEL_28;
-            }
-            if ( v8 == 15 )
-            {
-              active = SetWindowCompositionForceActiveWindowAppearance(
-                         v17,
-                         (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-              goto LABEL_28;
-            }
-          }
-          goto LABEL_100;
-        }
-LABEL_54:
-        active = SetWindowCompositionHasIconicBitmap(v17, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-        goto LABEL_28;
-      }
-      if ( v8 > 26 )
-      {
-        switch ( v8 )
-        {
-          case 27:
-            active = SetWindowMinimizeAnimation(v17, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-            goto LABEL_28;
-          case 28:
-            active = SetWindowMaximizeAnimation(v17, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-            goto LABEL_28;
-          case 29:
-            active = SetWindowDisableMoveSizeFeedback(v17, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-            goto LABEL_28;
-          case 30:
-            active = SetWindowCompositionSystemBackdropType(
-                       v17,
-                       (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-            goto LABEL_28;
-          case 31:
-            active = _DwmAsyncSetTaggedWindowRect(v17, &v28);
-            goto LABEL_28;
-          case 32:
-            active = _DwmAsyncClearTaggedWindowRect(v17);
-            goto LABEL_28;
-        }
-        goto LABEL_100;
-      }
-      if ( v8 == 26 )
-      {
-        active = SetWindowCompositionDarkModeColors(v17, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-        goto LABEL_28;
-      }
-      if ( v8 != 18 )
-      {
-        switch ( v8 )
-        {
-          case 19:
-            active = SetWindowCompositionAccentPolicy(v17, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-            goto LABEL_28;
-          case 20:
-            SetWindowCompositionFreezeSWR(v17, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-            goto LABEL_54;
-          case 22:
-            active = SetWindowCompositionVisualOwner(v17, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-            goto LABEL_28;
-          case 23:
-            LOBYTE(v27) = IAMThreadAccessGranted(gptiCurrent);
-            if ( v27 )
-            {
-              active = SetWindowCompositionHolographic(v17, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-              goto LABEL_28;
-            }
-            v4 = -1073741790;
-            goto LABEL_18;
-          case 24:
-            active = SetWindowCompositionExcludedFromDDA(v17, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-            goto LABEL_28;
-          case 25:
-            active = SetWindowCompositionPassiveUpdateMode(
-                       v17,
-                       (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28);
-            goto LABEL_28;
-        }
-      }
-LABEL_100:
-      v14 = WPP_GLOBAL_Control;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 3u )
-      {
-        v11 = 0;
-      }
-      v13 = (__int64)&WPP_RECORDER_INITIALIZED;
-      LOBYTE(v15) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( v11 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v13) = v11;
-        WPP_RECORDER_AND_TRACE_SF_sdq(WPP_GLOBAL_Control->AttachedDevice, v13, v15, v16);
-      }
-      goto LABEL_79;
-    }
-LABEL_17:
-    v4 = -1073741816;
-    goto LABEL_18;
+LABEL_29:
+    v3 = -1073741816;
+    goto LABEL_26;
   }
-  v23 = 0;
-  LOBYTE(v24) = IAMThreadAccessGranted(gptiCurrent);
-  if ( v24 )
+  v28 = 0;
+  if ( (unsigned int)IAMThreadAccessGranted(gptiCurrent) )
   {
-    v23 = 2;
+    v28 = 2;
   }
   else
   {
-    v14 = *(PDEVICE_OBJECT *)(gptiCurrent + 424LL);
-    if ( *(PDEVICE_OBJECT *)(*((_QWORD *)v17 + 2) + 424LL) == v14
-      && (((__int64)v14[2].Queue.Wcb.BufferChainingDpc & 0x30) != 0x10 || !(unsigned int)IsTopLevelWindow(v17))
-      || (unsigned int)CoreWindowProp::IsComponent(v17)
-      && (Host = CoreWindowProp::GetHost(v17)) != 0LL
-      && (v14 = (PDEVICE_OBJECT)*((_QWORD *)Host + 2),
-          v14[1].Queue.ListEntry.Blink == *(struct _LIST_ENTRY **)(gptiCurrent + 424LL)) )
+    v10 = *(_QWORD *)(gptiCurrent + 424LL);
+    if ( *(_QWORD *)(*(_QWORD *)(v11 + 16) + 424LL) == v10
+      && ((*(_DWORD *)(v10 + 820) & 0x30) != 0x10 || (v38 = IsTopLevelWindow(v11)) == 0)
+      || (unsigned int)CoreWindowProp::IsComponent((const struct tagWND *)v11)
+      && (Host = CoreWindowProp::GetHost((const struct tagWND *)v11)) != 0LL
+      && (v10 = *((_QWORD *)Host + 2), *(_QWORD *)(v10 + 424) == *(_QWORD *)(gptiCurrent + 424LL)) )
     {
-      v23 = 1;
+      v28 = 1;
     }
     else
     {
-      v4 = -1073741790;
+      v3 = -1073741790;
     }
   }
-  if ( v4 >= 0 )
+  if ( v3 >= 0 )
   {
-    if ( !v28.left )
+    if ( !(_DWORD)v39 )
     {
-      v25 = (const struct tagWND *)*((_QWORD *)v17 + 15);
-      if ( v25 )
+      v29 = *(_QWORD *)(v11 + 120);
+      if ( v29 )
       {
-        if ( (GetWindowCloakState(v25) & v23) != 0 )
-        {
-LABEL_79:
-          v4 = -1073741811;
-          goto LABEL_18;
-        }
+        if ( ((unsigned int)GetWindowCloakState(v29) & v28) != 0 )
+          goto LABEL_72;
       }
     }
-    active = zzzSetWindowCompositionCloak(v17, (const struct tagWINDOWCOMPOSITIONATTRIBDATA_UNION *)&v28, v23);
-LABEL_28:
-    v4 = active;
+    active = zzzSetWindowCompositionCloak(v11, &v39, v28);
+LABEL_25:
+    v3 = active;
   }
-LABEL_18:
-  UserSessionSwitchLeaveCrit(v14, v13, v15, v16);
-  v19 = v4 < 0;
-  if ( v4 < 0 )
-    goto LABEL_19;
-LABEL_20:
-  LOBYTE(v10) = !v19;
-  return v10;
+LABEL_26:
+  UserSessionSwitchLeaveCrit(v10);
+  v22 = v3 < 0;
+  if ( v3 < 0 )
+    goto LABEL_30;
+LABEL_27:
+  LOBYTE(v8) = !v22;
+  return v8;
 }

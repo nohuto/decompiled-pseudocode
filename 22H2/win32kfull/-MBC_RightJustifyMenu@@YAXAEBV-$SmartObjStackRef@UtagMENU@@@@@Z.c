@@ -1,44 +1,44 @@
 /*
- * XREFs of ?MBC_RightJustifyMenu@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C0237964
+ * XREFs of ?MBC_RightJustifyMenu@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C01023FC
  * Callers:
- *     xxxMenuBarCompute @ 0x1C0239240 (xxxMenuBarCompute.c)
+ *     xxxMenuBarCompute @ 0x1C0102284 (xxxMenuBarCompute.c)
  * Callees:
- *     MNIsOwnerDrawItem @ 0x1C0234ACC (MNIsOwnerDrawItem.c)
- *     IsMDIItem @ 0x1C023851C (IsMDIItem.c)
+ *     MNIsOwnerDrawItem @ 0x1C0048BB8 (MNIsOwnerDrawItem.c)
+ *     IsMDIItem @ 0x1C024E550 (IsMDIItem.c)
  */
 
 __int64 __fastcall MBC_RightJustifyMenu(__int64 **a1)
 {
-  unsigned int v1; // r9d
+  int v1; // r9d
   __int64 **v2; // r8
   __int64 result; // rax
   int v4; // r11d
   _DWORD **v5; // r10
-  __int64 v6; // rbx
-  int v7; // eax
-  __int64 v8; // rcx
-  int v9; // edi
-  int v10; // r11d
-  _DWORD **i; // r10
-  int v12; // eax
-  __int64 v13; // rcx
-  __int64 v14; // r14
-  __int64 v15; // rsi
-  int v16; // ebp
-  unsigned int v17; // r10d
-  unsigned int v18; // r12d
-  unsigned int v19; // r15d
-  int v20; // ecx
-  __int64 v21; // rdi
-  __int64 v22; // rbx
-  __int64 v23; // rdx
-  __int64 v24; // rax
-  __int64 v25; // r11
-  __int64 v26; // rdx
-  _DWORD *v27; // rax
-  int v28; // ecx
   __int64 j; // rdx
-  __int64 v30; // rcx
+  __int64 *v7; // rax
+  __int64 v8; // rbx
+  int v9; // eax
+  __int64 v10; // rcx
+  int v11; // edi
+  int v12; // r11d
+  _DWORD **i; // r10
+  int v14; // eax
+  __int64 v15; // rcx
+  __int64 v16; // r14
+  __int64 v17; // rsi
+  int v18; // ebp
+  unsigned int v19; // r10d
+  unsigned int v20; // r12d
+  unsigned int v21; // r15d
+  int v22; // ecx
+  __int64 v23; // rdi
+  __int64 v24; // rbx
+  __int64 v25; // rdx
+  __int64 v26; // rax
+  __int64 v27; // r11
+  __int64 v28; // rdx
+  _DWORD *v29; // rax
+  int v30; // ecx
   unsigned int v31; // r10d
   int v32; // ecx
   __int64 v33; // r9
@@ -54,111 +54,111 @@ __int64 __fastcall MBC_RightJustifyMenu(__int64 **a1)
   v5 = *(_DWORD ***)(**a1 + 88);
   if ( (*(_DWORD *)(*(_QWORD *)(**a1 + 40) + 40LL) & 0x20) != 0 && *(_QWORD *)(**a1 + 80) )
   {
-    v6 = *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(**a1 + 80) + 40LL) + 21LL) & 2;
+    v8 = *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(**a1 + 80) + 40LL) + 21LL) & 2;
     if ( *(int *)(*(_QWORD *)(**a1 + 40) + 44LL) > 0 )
     {
-      while ( !v6 )
+      while ( !v8 )
       {
-        v8 = (__int64)v2[2];
-        if ( !v8 )
-          v8 = **v2;
+        v10 = (__int64)v2[2];
+        if ( !v10 )
+          v10 = **v2;
         if ( (**v5 & 4) == 0 )
         {
-          v7 = MNIsOwnerDrawItem(v8, v5);
-          goto LABEL_14;
+          v9 = MNIsOwnerDrawItem(v10, v5, (__int64)v2);
+          goto LABEL_19;
         }
         if ( *((_QWORD *)*v5 + 12) > 0xCuLL )
-          goto LABEL_16;
-LABEL_15:
+          goto LABEL_21;
+LABEL_20:
         v5 = (_DWORD **)(*(_QWORD *)(**v2 + 88) + 96LL * ++v4);
         if ( v4 >= *(_DWORD *)(*(_QWORD *)(**v2 + 40) + 44LL) )
-          goto LABEL_16;
+          goto LABEL_21;
       }
       if ( v4 )
-        goto LABEL_16;
-      v7 = IsMDIItem(v5);
-LABEL_14:
-      if ( !v7 )
-        goto LABEL_16;
-      goto LABEL_15;
+        goto LABEL_21;
+      v9 = IsMDIItem(v5);
+LABEL_19:
+      if ( !v9 )
+        goto LABEL_21;
+      goto LABEL_20;
     }
-LABEL_16:
-    v9 = v4 - 1;
+LABEL_21:
+    v11 = v4 - 1;
     if ( v4 != *(_DWORD *)(*(_QWORD *)(**v2 + 40) + 44LL) )
-      v9 = v4;
-    v10 = *(_DWORD *)(*(_QWORD *)(**v2 + 40) + 44LL) - 1;
-    for ( i = (_DWORD **)(*(_QWORD *)(**v2 + 88) + 96LL * v10); ; i = (_DWORD **)(*(_QWORD *)(**v2 + 88) + 96LL * v10) )
+      v11 = v4;
+    v12 = *(_DWORD *)(*(_QWORD *)(**v2 + 40) + 44LL) - 1;
+    for ( i = (_DWORD **)(*(_QWORD *)(**v2 + 88) + 96LL * v12); ; i = (_DWORD **)(*(_QWORD *)(**v2 + 88) + 96LL * v12) )
     {
-      if ( v10 <= v9 )
+      if ( v12 <= v11 )
       {
-LABEL_28:
-        v14 = v9;
-        v15 = 96LL * v9;
-        v16 = *(_DWORD *)(**(_QWORD **)(**v2 + 88) + 68LL);
-        v17 = *(_DWORD *)(**v2 + 64);
-        v18 = v17;
-        v19 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(**v2 + 88) + v15) + 64LL);
+LABEL_33:
+        v16 = v11;
+        v17 = 96LL * v11;
+        v18 = *(_DWORD *)(**(_QWORD **)(**v2 + 88) + 68LL);
+        v19 = *(_DWORD *)(**v2 + 64);
+        v20 = v19;
+        v21 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(**v2 + 88) + v17) + 64LL);
         result = *(_QWORD *)(**v2 + 40);
-        v20 = *(_DWORD *)(result + 44) - 1;
-        if ( v20 > (__int64)v10 )
+        v22 = *(_DWORD *)(result + 44) - 1;
+        if ( v22 > (__int64)v12 )
         {
-          v21 = 96LL * v20;
-          v22 = v20 - (__int64)v10;
+          v23 = 96LL * v22;
+          v24 = v22 - (__int64)v12;
           do
           {
-            v23 = *(_QWORD *)(**v2 + 88);
-            v24 = *(_QWORD *)(v21 + v23);
-            v17 -= *(_DWORD *)(v24 + 72);
-            *(_DWORD *)(v24 + 64) = v17;
-            result = *(_QWORD *)(v21 + v23);
-            v21 -= 96LL;
-            *(_DWORD *)(result + 68) = v16;
-            --v22;
+            v25 = *(_QWORD *)(**v2 + 88);
+            v26 = *(_QWORD *)(v23 + v25);
+            v19 -= *(_DWORD *)(v26 + 72);
+            *(_DWORD *)(v26 + 64) = v19;
+            result = *(_QWORD *)(v23 + v25);
+            v23 -= 96LL;
+            *(_DWORD *)(result + 68) = v18;
+            --v24;
           }
-          while ( v22 );
+          while ( v24 );
         }
-        if ( v14 <= v10 )
+        if ( v16 <= v12 )
         {
-          v25 = v10 - v14 + 1;
+          v27 = v12 - v16 + 1;
           do
           {
-            v26 = *(_QWORD *)(**v2 + 88);
-            v27 = *(_DWORD **)(v15 + v26);
-            v28 = v27[18];
-            v17 -= v28;
-            if ( v17 <= v19 )
+            v28 = *(_QWORD *)(**v2 + 88);
+            v29 = *(_DWORD **)(v17 + v28);
+            v30 = v29[18];
+            v19 -= v30;
+            if ( v19 <= v21 )
             {
-              v19 = v1;
-              v17 = v18 - v28;
-              v16 += v27[19];
+              v21 = v1;
+              v19 = v20 - v30;
+              v18 += v29[19];
             }
-            v27[16] = v17;
-            result = *(_QWORD *)(v15 + v26);
-            v15 += 96LL;
-            *(_DWORD *)(result + 68) = v16;
-            --v25;
+            v29[16] = v19;
+            result = *(_QWORD *)(v17 + v28);
+            v17 += 96LL;
+            *(_DWORD *)(result + 68) = v18;
+            --v27;
           }
-          while ( v25 );
+          while ( v27 );
         }
         return result;
       }
-      if ( v6 )
+      if ( v8 )
       {
-        v12 = IsMDIItem(i);
+        v14 = IsMDIItem(i);
       }
       else
       {
-        v13 = (__int64)v2[2];
-        if ( !v13 )
-          v13 = **v2;
+        v15 = (__int64)v2[2];
+        if ( !v15 )
+          v15 = **v2;
         if ( (**i & 4) != 0 )
-          goto LABEL_26;
-        v12 = MNIsOwnerDrawItem(v13, i);
+          goto LABEL_31;
+        v14 = MNIsOwnerDrawItem(v15, i, (__int64)v2);
       }
-      if ( !v12 )
-        goto LABEL_28;
-LABEL_26:
-      --v10;
+      if ( !v14 )
+        goto LABEL_33;
+LABEL_31:
+      --v12;
     }
   }
   result = *(_QWORD *)(**a1 + 40);
@@ -166,17 +166,18 @@ LABEL_26:
     return result;
   for ( j = 0LL; ; j += 96LL )
   {
-    v30 = **v2;
-    if ( (**(_DWORD **)(j + *(_QWORD *)(v30 + 88)) & 0x4000) != 0 )
+    v7 = *a1;
+    if ( (**(_DWORD **)(j + *(_QWORD *)(**a1 + 88)) & 0x4000) != 0 )
       break;
-    result = *(_QWORD *)(v30 + 40);
-    if ( (signed int)++v1 >= *(_DWORD *)(result + 44) )
+    ++v1;
+    result = *(_QWORD *)(*v7 + 40);
+    if ( v1 >= *(_DWORD *)(result + 44) )
       return result;
   }
-  v31 = *(_DWORD *)(**v2 + 64) + *(_DWORD *)(**(_QWORD **)(v30 + 88) + 64LL);
-  v32 = *(_DWORD *)(*(_QWORD *)(**v2 + 40) + 44LL) - 1;
-  result = (int)v1;
-  if ( v32 >= (__int64)(int)v1 )
+  v31 = *(_DWORD *)(*v7 + 64) + *(_DWORD *)(**(_QWORD **)(**a1 + 88) + 64LL);
+  v32 = *(_DWORD *)(*(_QWORD *)(**a1 + 40) + 44LL) - 1;
+  result = v1;
+  if ( v32 >= (__int64)v1 )
   {
     v33 = 96LL * v32;
     v34 = v32 - result + 1;

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetSurfacePlaneResource@CDDisplaySwapChain@@UEBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x18027B800
+ * XREFs of ?GetSurfacePlaneResource@CDDisplaySwapChain@@UEBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x18023A280
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDDisplaySwapChain::GetSurfacePlaneResource(
@@ -36,18 +36,18 @@ __int64 __fastcall CDDisplaySwapChain::GetSurfacePlaneResource(
     v7 = v10;
     if ( v10 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x324u);
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x23Fu, 0LL);
     }
     else
     {
-      v12 = (*(__int64 (__fastcall **)(__int64, _QWORD, struct IUnknown **, unsigned int *))(*(_QWORD *)v15 + 184LL))(
+      v12 = (*(__int64 (__fastcall **)(__int64, _QWORD, struct IUnknown **, unsigned int *))(*(_QWORD *)v15 + 136LL))(
               v15,
-              *((_QWORD *)this + 26),
+              *((_QWORD *)this + 12),
               a3,
               a4);
       v7 = v12;
       if ( v12 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0x328u);
+        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x243u, 0LL);
     }
     wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v15);
   }

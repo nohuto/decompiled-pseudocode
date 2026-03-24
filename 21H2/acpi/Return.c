@@ -1,14 +1,14 @@
 /*
- * XREFs of Return @ 0x1C00174B0
+ * XREFs of Return @ 0x1C000A590
  * Callers:
  *     <none>
  * Callees:
- *     NewObjData @ 0x1C0015D5C (NewObjData.c)
- *     DupObjData @ 0x1C00169A0 (DupObjData.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     DupObjData @ 0x1C000A400 (DupObjData.c)
+ *     NewObjData @ 0x1C000A9E8 (NewObjData.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall Return(__int64 a1, __int64 a2)
@@ -17,7 +17,7 @@ __int64 __fastcall Return(__int64 a1, __int64 a2)
   unsigned int v3; // edi
   __int64 v4; // rbx
   struct _SLIST_ENTRY *v5; // rbp
-  _SLIST_ENTRY *v7; // rax
+  void *v7; // rax
   _DWORD *v8; // r14
   int v9; // esi
   _DWORD *v10; // r15
@@ -36,7 +36,7 @@ __int64 __fastcall Return(__int64 a1, __int64 a2)
     *(_QWORD *)(v4 + 32) = *(_QWORD *)(v2 + 32);
     if ( *(_QWORD *)(v2 + 32) )
     {
-      v7 = NewObjData(v5, v2);
+      v7 = (void *)NewObjData(v5, v2);
       *(_QWORD *)(v4 + 32) = v7;
       if ( !v7 )
       {

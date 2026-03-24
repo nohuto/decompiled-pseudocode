@@ -1,16 +1,16 @@
 /*
- * XREFs of MmStoreAllocateVirtualMemory @ 0x1406E0BB0
+ * XREFs of MmStoreAllocateVirtualMemory @ 0x1406E0B90
  * Callers:
- *     SmKmStoreHelperCommandProcess @ 0x14014B784 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmStoreHelperCommandProcess @ 0x14014B7A4 (SmKmStoreHelperCommandProcess.c)
  * Callees:
  *     MiFreeVadRange @ 0x140025674 (MiFreeVadRange.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
  *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
  *     MiObtainReferencedSecureVad @ 0x1400861D0 (MiObtainReferencedSecureVad.c)
- *     MiLockPageTableRange @ 0x140155ECC (MiLockPageTableRange.c)
- *     MiMakeSecureExclusive @ 0x14015601C (MiMakeSecureExclusive.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiLockPageTableRange @ 0x140155EEC (MiLockPageTableRange.c)
+ *     MiMakeSecureExclusive @ 0x14015603C (MiMakeSecureExclusive.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
  *     MmUnsecureVirtualMemory @ 0x1405F3430 (MmUnsecureVirtualMemory.c)
  */

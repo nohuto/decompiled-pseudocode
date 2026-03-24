@@ -1,9 +1,9 @@
 /*
- * XREFs of GrePushThreadGuardedObject @ 0x1C016BF10
+ * XREFs of GrePushThreadGuardedObject @ 0x1C013EF00
  * Callers:
  *     <none>
  * Callees:
- *     PushThreadGuardedObject @ 0x1C00232C0 (PushThreadGuardedObject.c)
+ *     PushThreadGuardedObject @ 0x1C002CCA0 (PushThreadGuardedObject.c)
  */
 
 __int64 __fastcall GrePushThreadGuardedObject(_QWORD *a1, __int64 a2, __int64 a3)

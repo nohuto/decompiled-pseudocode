@@ -1,16 +1,16 @@
 /*
- * XREFs of ?Swizzle@CExpressionValueStack@@QEAAJPEAUExpressionNode@@@Z @ 0x1800C12E8
+ * XREFs of ?Swizzle@CExpressionValueStack@@QEAAJPEAUExpressionNode@@@Z @ 0x1800A92B4
  * Callers:
- *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800BDA50 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18005A610 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x180016278 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     ?GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800559D0 (-GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CopyIntoFloatArray@CExpressionValue@@QEBAJIPEAM@Z @ 0x1800C15E8 (-CopyIntoFloatArray@CExpressionValue@@QEBAJIPEAM@Z.c)
- *     ??0CExpressionValue@@QEAA@XZ @ 0x1800C1EC4 (--0CExpressionValue@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     ??1CExpressionValue@@QEAA@XZ @ 0x18021737C (--1CExpressionValue@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A10F4 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ?CopyIntoFloatArray@CExpressionValue@@QEBAJIPEAM@Z @ 0x1800A95BC (-CopyIntoFloatArray@CExpressionValue@@QEBAJIPEAM@Z.c)
+ *     ?GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800A9608 (-GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC6A4 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBAA4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
  */
 
 __int64 __fastcall CExpressionValueStack::Swizzle(__int64 this, struct ExpressionNode *a2)
@@ -36,24 +36,20 @@ __int64 __fastcall CExpressionValueStack::Swizzle(__int64 this, struct Expressio
   __int128 v21; // xmm1
   __int128 v22; // xmm0
   __int128 v23; // xmm1
-  __int128 v24; // xmm0
-  int v25; // xmm4_4
-  int v26; // xmm5_4
-  __int128 v27; // xmm0
-  int v28; // xmm0_4
-  int v29; // xmm1_4
-  int v30; // xmm2_4
-  unsigned int v32; // [rsp+28h] [rbp-89h]
-  __int128 v33; // [rsp+48h] [rbp-69h] BYREF
-  __int128 v34; // [rsp+58h] [rbp-59h]
-  __int128 v35; // [rsp+68h] [rbp-49h]
-  __int128 v36; // [rsp+78h] [rbp-39h]
-  float v37[20]; // [rsp+88h] [rbp-29h] BYREF
+  unsigned __int64 v24; // xmm1_8
+  __int128 v25; // xmm0
+  int v26; // eax
+  unsigned int v28; // [rsp+28h] [rbp-99h]
+  __int128 v29; // [rsp+58h] [rbp-69h] BYREF
+  __int128 v30; // [rsp+68h] [rbp-59h]
+  __int128 v31; // [rsp+78h] [rbp-49h]
+  __int128 v32; // [rsp+88h] [rbp-39h]
+  float v33[20]; // [rsp+98h] [rbp-29h] BYREF
 
   v2 = *(_DWORD *)(this + 16);
   if ( !v2 )
   {
-    v32 = 7822;
+    v28 = 7822;
     goto LABEL_39;
   }
   if ( *(_DWORD *)a2 == 101 )
@@ -72,17 +68,17 @@ LABEL_7:
     }
     else
     {
-      v6 = CExpressionValue::CExpressionValue((CExpressionValue *)v37);
+      v6 = CExpressionValue::CExpressionValue((CExpressionValue *)v33);
       v7 = (CExpressionValue *)&CExpressionValueStack::s_emptyValue;
-      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v6);
-      CExpressionValue::~CExpressionValue((CExpressionValue *)v37);
+      CExpressionValue::operator=(&CExpressionValueStack::s_emptyValue, v6);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v33);
     }
-    memset_0(v37, 0, 0x40uLL);
-    memset_0(&v33, 0, 0x40uLL);
-    ExpressionTypeChannelCount = GetExpressionTypeChannelCount(*((_DWORD *)v7 + 18));
+    memset_0(v33, 0, 0x40uLL);
+    memset_0(&v29, 0, 0x40uLL);
+    ExpressionTypeChannelCount = GetExpressionTypeChannelCount(*((unsigned int *)v7 + 18));
     v9 = *((unsigned __int8 *)a2 + v4 + 4);
     v10 = ExpressionTypeChannelCount;
-    v12 = CExpressionValue::CopyIntoFloatArray(v7, v11, v37);
+    v12 = CExpressionValue::CopyIntoFloatArray(v7, v11, v33);
     v13 = v12;
     if ( v12 < 0 )
     {
@@ -95,7 +91,7 @@ LABEL_7:
         0LL);
       return v13;
     }
-    for ( i = 0; i < v9; *((_DWORD *)&v33 + this) = v12 )
+    for ( i = 0; i < v9; *((_DWORD *)&v29 + this) = v12 )
     {
       if ( *(_DWORD *)((char *)a2 + v4) == 1 )
       {
@@ -107,7 +103,7 @@ LABEL_7:
       {
         if ( *(_DWORD *)((char *)a2 + v4) != 2 )
         {
-          v32 = 7894;
+          v28 = 7894;
           goto LABEL_39;
         }
         this = 4 * (*((unsigned __int8 *)a2 + v4 + 4) - i) - 4;
@@ -115,15 +111,15 @@ LABEL_7:
       }
       if ( (unsigned int)v15 >= v10 )
       {
-        v32 = 7905;
+        v28 = 7905;
         goto LABEL_39;
       }
       if ( i >= 0x10 )
       {
-        v32 = 7916;
+        v28 = 7916;
         goto LABEL_39;
       }
-      v12 = LODWORD(v37[v15]);
+      v12 = LODWORD(v33[v15]);
       this = i++;
     }
     v16 = v9 - 1;
@@ -143,61 +139,55 @@ LABEL_7:
             {
               if ( v20 != 10 )
               {
-                v32 = 7962;
+                v28 = 7962;
                 goto LABEL_39;
               }
-              v21 = v34;
-              *(_OWORD *)v7 = v33;
+              v21 = v30;
+              *(_OWORD *)v7 = v29;
               *((_DWORD *)v7 + 18) = 265;
-              v22 = v35;
+              v22 = v31;
               *((_OWORD *)v7 + 1) = v21;
-              v23 = v36;
+              v23 = v32;
               *((_OWORD *)v7 + 2) = v22;
               *((_OWORD *)v7 + 3) = v23;
             }
             else
             {
-              v24 = v33;
-              v25 = v34;
-              v26 = DWORD1(v34);
+              v24 = _mm_unpacklo_ps((__m128)(unsigned int)v30, (__m128)DWORD1(v30)).m128_u64[0];
+              *(_OWORD *)v7 = v29;
               *((_DWORD *)v7 + 18) = 104;
-              *(_OWORD *)v7 = v24;
-              *((_DWORD *)v7 + 4) = v25;
-              *((_DWORD *)v7 + 5) = v26;
+              *((_QWORD *)v7 + 2) = v24;
             }
           }
           else
           {
-            v27 = v33;
+            v25 = v29;
             *((_DWORD *)v7 + 18) = 69;
-            *(_OWORD *)v7 = v27;
+            *(_OWORD *)v7 = v25;
           }
         }
         else
         {
-          v28 = v33;
-          v29 = DWORD1(v33);
-          v30 = DWORD2(v33);
+          v26 = DWORD2(v29);
+          *(_QWORD *)v7 = _mm_unpacklo_ps((__m128)(unsigned int)v29, (__m128)DWORD1(v29)).m128_u64[0];
+          *((_DWORD *)v7 + 2) = v26;
           *((_DWORD *)v7 + 18) = 52;
-          *(_DWORD *)v7 = v28;
-          *((_DWORD *)v7 + 1) = v29;
-          *((_DWORD *)v7 + 2) = v30;
         }
         goto LABEL_36;
       }
-      *((_DWORD *)v7 + 1) = DWORD1(v33);
+      *((_DWORD *)v7 + 1) = DWORD1(v29);
       *((_DWORD *)v7 + 18) = 35;
     }
     else
     {
       *((_DWORD *)v7 + 18) = 18;
     }
-    *(_DWORD *)v7 = v33;
+    *(_DWORD *)v7 = v29;
 LABEL_36:
     *((_BYTE *)v7 + 76) = 1;
     return v13;
   }
-  v32 = 7847;
+  v28 = 7847;
 LABEL_39:
   v13 = -2147467259;
   MilInstrumentationCheckHR_MaybeFailFast(
@@ -205,7 +195,7 @@ LABEL_39:
     &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
     1u,
     -2147467259,
-    v32,
+    v28,
     0LL);
   return v13;
 }

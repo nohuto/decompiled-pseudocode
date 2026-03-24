@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCleanupIrp @ 0x14039D770
+ * XREFs of IoCleanupIrp @ 0x140392310
  * Callers:
  *     <none>
  * Callees:
- *     IopFreeIrpExtension @ 0x14020B888 (IopFreeIrpExtension.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     IopFreeIrpExtension @ 0x1402ED7A0 (IopFreeIrpExtension.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 (__fastcall *__fastcall IoCleanupIrp(ULONG_PTR BugCheckParameter1))()
@@ -14,7 +14,7 @@ __int64 (__fastcall *__fastcall IoCleanupIrp(ULONG_PTR BugCheckParameter1))()
 
   result = 0LL;
   if ( *(_WORD *)BugCheckParameter1 != 6 )
-    KeBugCheckEx(0x44u, BugCheckParameter1, 0x29CEuLL, 0LL, 0LL);
+    KeBugCheckEx(0x44u, BugCheckParameter1, 0x2636uLL, 0LL, 0LL);
   v2 = (*(_BYTE *)(BugCheckParameter1 + 71) & 0x40) == 0;
   *(_WORD *)BugCheckParameter1 = 0;
   if ( !v2 )

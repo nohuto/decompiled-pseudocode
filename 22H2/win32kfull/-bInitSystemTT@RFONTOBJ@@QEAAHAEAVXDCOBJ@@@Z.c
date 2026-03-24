@@ -1,38 +1,34 @@
 /*
- * XREFs of ?bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C02B46D0
+ * XREFs of ?bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C02A7164
  * Callers:
- *     ?GetLinkedFontUFIs@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C02B4278 (-GetLinkedFontUFIs@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAU_UNIVERSAL_FONT_ID@@H@Z.c)
- *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C02B5CA8 (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
+ *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C00E7118 (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
+ *     ?GetLinkedFontUFIs@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C014F928 (-GetLinkedFontUFIs@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAU_UNIVERSAL_FONT_ID@@H@Z.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z @ 0x1C015C6AE (-vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z.c)
- *     ?ComputeEUDCLogfont@RFONTOBJ@@QEAAXPEAU_EUDCLOGFONT@@AEAVXDCOBJ@@@Z @ 0x1C02B395C (-ComputeEUDCLogfont@RFONTOBJ@@QEAAXPEAU_EUDCLOGFONT@@AEAVXDCOBJ@@@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z @ 0x1C00E8260 (-vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z.c)
+ *     ?ComputeEUDCLogfont@RFONTOBJ@@QEAAXPEAU_EUDCLOGFONT@@AEAVXDCOBJ@@@Z @ 0x1C00E8C04 (-ComputeEUDCLogfont@RFONTOBJ@@QEAAXPEAU_EUDCLOGFONT@@AEAVXDCOBJ@@@Z.c)
  */
 
 __int64 __fastcall RFONTOBJ::bInitSystemTT(RFONTOBJ *this, struct XDCOBJ *a2)
 {
-  unsigned int v3; // edi
+  unsigned int v3; // esi
   int v5; // ebx
-  __int64 v6; // rcx
-  __int64 v7; // rcx
-  struct PFE *v8; // r8
-  __int64 v10; // [rsp+30h] [rbp-48h] BYREF
-  _OWORD v11[2]; // [rsp+38h] [rbp-40h] BYREF
+  struct PFE *v6; // r8
+  _OWORD v8[2]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v9; // [rsp+60h] [rbp+8h] BYREF
 
   v3 = 0;
   v5 = *(_DWORD *)(*(_QWORD *)this + 844LL);
-  v10 = 0LL;
-  memset(v11, 0, sizeof(v11));
-  RFONTOBJ::ComputeEUDCLogfont(this, (struct _EUDCLOGFONT *)v11, a2);
-  v7 = *(_QWORD *)(SGDGetSessionState(v6) + 32);
-  v8 = *(struct PFE **)((v5 != 0 ? 8 : 0) + v7 + 19336);
-  if ( !v8 )
-    v8 = *(struct PFE **)(v7 + 19336);
-  RFONTOBJ::vInit((RFONTOBJ *)&v10, a2, v8, (struct _EUDCLOGFONT *)v11);
-  if ( v10 )
-    *(_QWORD *)(*(_QWORD *)this + 720LL) = v10;
+  v9 = 0LL;
+  memset(v8, 0, sizeof(v8));
+  RFONTOBJ::ComputeEUDCLogfont(this, (struct _EUDCLOGFONT *)v8, a2);
+  v6 = *(struct PFE **)((char *)&gappfeSystemDBCS + (v5 != 0 ? 8 : 0));
+  if ( !v6 )
+    v6 = gappfeSystemDBCS;
+  RFONTOBJ::vInit((RFONTOBJ *)&v9, a2, v6, (struct _EUDCLOGFONT *)v8);
+  if ( v9 )
+    *(_QWORD *)(*(_QWORD *)this + 720LL) = v9;
   LOBYTE(v3) = *(_QWORD *)(*(_QWORD *)this + 720LL) != 0LL;
-  RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v10);
+  RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v9);
   return v3;
 }

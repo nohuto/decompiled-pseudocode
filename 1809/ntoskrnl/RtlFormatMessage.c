@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFormatMessage @ 0x140891360
+ * XREFs of RtlFormatMessage @ 0x140891340
  * Callers:
  *     <none>
  * Callees:
- *     RtlFormatMessageEx @ 0x1408913B4 (RtlFormatMessageEx.c)
+ *     RtlFormatMessageEx @ 0x140891394 (RtlFormatMessageEx.c)
  */
 
 NTSTATUS __stdcall RtlFormatMessage(

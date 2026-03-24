@@ -1,74 +1,71 @@
 /*
- * XREFs of CkptUpdate @ 0x1C00C7B24
+ * XREFs of CkptUpdate @ 0x1C00412C8
  * Callers:
- *     _GetWindowPlacement @ 0x1C0006908 (_GetWindowPlacement.c)
- *     CkptRestore @ 0x1C00C7A4C (CkptRestore.c)
+ *     _GetWindowPlacement @ 0x1C0040E78 (_GetWindowPlacement.c)
+ *     CkptRestore @ 0x1C00411F0 (CkptRestore.c)
  * Callees:
- *     ?GetMonitorMaxArea@@YA?AUtagRECT@@PEBUtagWND@@PEAUtagMONITOR@@@Z @ 0x1C00CFAA0 (-GetMonitorMaxArea@@YA-AUtagRECT@@PEBUtagWND@@PEAUtagMONITOR@@@Z.c)
- *     _MonitorFromRect @ 0x1C00D0160 (_MonitorFromRect.c)
- *     ?IsSemiMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C00D0C08 (-IsSemiMaximized@@YA_NPEBUtagWND@@@Z.c)
- *     _GetDesktopWindow @ 0x1C00ECDE0 (_GetDesktopWindow.c)
+ *     GetMonitorMaxArea @ 0x1C00413D4 (GetMonitorMaxArea.c)
+ *     _MonitorFromRect @ 0x1C0042270 (_MonitorFromRect.c)
+ *     _GetDesktopWindow @ 0x1C0070420 (_GetDesktopWindow.c)
  */
 
-char __fastcall CkptUpdate(struct tagWND *a1, _DWORD *a2, _DWORD *a3)
+char __fastcall CkptUpdate(__int64 a1, struct tagRECT *a2, struct tagRECT *a3)
 {
-  char v6; // cl
-  int v7; // eax
-  _OWORD *v8; // r8
-  __int128 *v9; // rdx
-  __int128 v10; // xmm0
-  __int64 v11; // rdx
-  int v12; // edx
-  __int64 v13; // r8
-  struct tagMONITOR *v14; // rax
-  struct tagRECT *MonitorMaxArea; // rax
-  struct tagRECT v16; // xmm0
-  struct tagRECT v18; // [rsp+20h] [rbp-18h] BYREF
+  __int64 MonitorMaxArea; // rax
+  char v7; // cl
+  char v8; // cl
+  struct tagRECT v9; // xmm0
+  int v10; // edx
+  __int64 v11; // r8
+  __int64 v12; // rax
+  __int128 v13; // xmm0
+  _BYTE v15[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  v6 = *(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL);
-  if ( (v6 & 0x20) != 0 )
+  MonitorMaxArea = *(_QWORD *)(a1 + 40);
+  v7 = *(_BYTE *)(MonitorMaxArea + 31);
+  if ( (v7 & 0x20) != 0 )
   {
-    a3[12] |= 0x20u;
-    a3[8] = *a2;
-    v7 = a2[1];
-    a3[9] = v7;
+    a3[3].left |= 0x20u;
+    a3[2].left = a2->left;
+    LODWORD(MonitorMaxArea) = a2->top;
+    a3[2].top = MonitorMaxArea;
   }
-  else if ( (v6 & 1) != 0 )
+  else if ( (v7 & 1) != 0 )
   {
-    v11 = a3[12] | 0x40u;
-    a3[12] = v11;
-    if ( *((_QWORD *)a1 + 13) == GetDesktopWindow(a1, v11) )
+    a3[3].left |= 0x40u;
+    if ( *(_QWORD *)(a1 + 104) == GetDesktopWindow(a1) )
     {
-      if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 19LL) & 0x40) != 0 )
+      if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 19LL) & 0x40) != 0 )
       {
-        v7 = -1;
-        *(_DWORD *)(v13 + 48) = v12 & 0xFFFFFFBF;
-        *(_DWORD *)(v13 + 40) = -1;
+        LODWORD(MonitorMaxArea) = -1;
+        *(_DWORD *)(v11 + 48) = v10 & 0xFFFFFFBF;
+        *(_DWORD *)(v11 + 40) = -1;
       }
       else
       {
-        v14 = (struct tagMONITOR *)MonitorFromRect(a2, 1LL);
-        MonitorMaxArea = GetMonitorMaxArea(&v18, a1, v14);
-        v16 = *MonitorMaxArea;
-        a3[10] = *a2 - *(_OWORD *)MonitorMaxArea;
-        v7 = a2[1] - v16.top;
+        v12 = MonitorFromRect(a2);
+        MonitorMaxArea = GetMonitorMaxArea(v15, a1, v12);
+        v13 = *(_OWORD *)MonitorMaxArea;
+        a3[2].right = a2->left - *(_OWORD *)MonitorMaxArea;
+        LODWORD(MonitorMaxArea) = a2->top - DWORD1(v13);
       }
     }
     else
     {
-      *(_DWORD *)(v13 + 40) = *a2;
-      v7 = a2[1];
+      *(_DWORD *)(v11 + 40) = a2->left;
+      LODWORD(MonitorMaxArea) = a2->top;
     }
-    a3[11] = v7;
+    a3[2].bottom = MonitorMaxArea;
   }
   else
   {
-    LOBYTE(v7) = IsSemiMaximized(a1);
-    v10 = *v9;
-    if ( (_BYTE)v7 )
-      v8[1] = v10;
+    v8 = *(_BYTE *)(MonitorMaxArea + 233);
+    v9 = *a2;
+    LOBYTE(MonitorMaxArea) = v8 & 3;
+    if ( (v8 & 3) == 3 || (v8 & 1) != 0 || (v8 & 2) != 0 )
+      a3[1] = v9;
     else
-      *v8 = v10;
+      *a3 = v9;
   }
-  return v7;
+  return MonitorMaxArea;
 }

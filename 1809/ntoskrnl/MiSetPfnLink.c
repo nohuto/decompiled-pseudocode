@@ -3,11 +3,11 @@
  * Callers:
  *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
  *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
- *     MiAllocateTopLevelPage @ 0x1406D1BEC (MiAllocateTopLevelPage.c)
- *     MiInitializeDynamicBitmap @ 0x140715740 (MiInitializeDynamicBitmap.c)
- *     MiMapNewSession @ 0x140715F58 (MiMapNewSession.c)
- *     MiAssembleLargePagePfnList @ 0x14085CC1C (MiAssembleLargePagePfnList.c)
- *     MiDeletePfnBitMaps @ 0x14085F530 (MiDeletePfnBitMaps.c)
+ *     MiAllocateTopLevelPage @ 0x1406D1BCC (MiAllocateTopLevelPage.c)
+ *     MiInitializeDynamicBitmap @ 0x140715720 (MiInitializeDynamicBitmap.c)
+ *     MiMapNewSession @ 0x140715F38 (MiMapNewSession.c)
+ *     MiAssembleLargePagePfnList @ 0x14085CBFC (MiAssembleLargePagePfnList.c)
+ *     MiDeletePfnBitMaps @ 0x14085F510 (MiDeletePfnBitMaps.c)
  * Callees:
  *     <none>
  */

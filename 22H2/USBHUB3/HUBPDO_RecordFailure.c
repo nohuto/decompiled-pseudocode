@@ -1,20 +1,20 @@
 /*
- * XREFs of HUBPDO_RecordFailure @ 0x1C001611C
+ * XREFs of HUBPDO_RecordFailure @ 0x1C0014C50
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018420 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0016F00 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_dD @ 0x1C0002668 (WPP_RECORDER_SF_dD.c)
- *     memmove @ 0x1C0044BC0 (memmove.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
  */
 
 __int64 __fastcall HUBPDO_RecordFailure(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx
-  unsigned int *v4; // r14
+  unsigned int *v4; // r15
   unsigned __int16 v5; // r9
-  size_t v6; // r15
-  void *Pool2; // rax
+  SIZE_T v6; // r14
+  PVOID PoolWithTag; // rax
 
   v2 = 0;
   v4 = *(unsigned int **)(*(_QWORD *)(a2 + 184) + 8LL);
@@ -29,7 +29,7 @@ LABEL_4:
       3u,
       5u,
       v5,
-      (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids);
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
     return (unsigned int)-1073741811;
   }
   if ( !v4 )
@@ -39,50 +39,50 @@ LABEL_4:
     v5 = 15;
     goto LABEL_4;
   }
-  v6 = 4096LL;
-  if ( *v4 > 0x1000 )
+  v6 = *v4;
+  if ( (unsigned int)v6 > 0x1000 )
+  {
+    v6 = 4096LL;
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_16;
+    WPP_RECORDER_SF_(
+      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL) + 1432LL),
+      3u,
+      5u,
+      0x10u,
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
+  }
+  if ( (unsigned int)v6 < 0x14 )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_dD(
+        *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL) + 1432LL),
+        2u,
+        5u,
+        0x11u,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
+        v6,
+        20);
+    return (unsigned int)-1073741789;
+  }
+LABEL_16:
+  PoolWithTag = ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, v6, 0x64334855u);
+  *(_QWORD *)(a1 + 56) = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    memmove(PoolWithTag, v4, v6);
+    *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL) + 1424LL) = *(_DWORD *)(*(_QWORD *)(a1 + 56) + 12LL);
+  }
+  else
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_(
         *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL) + 1432LL),
-        3u,
+        2u,
         5u,
-        0x10u,
-        (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids);
-    goto LABEL_12;
+        0x12u,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
+    return (unsigned int)-1073741670;
   }
-  v6 = *v4;
-  if ( *v4 >= 0x14 )
-  {
-LABEL_12:
-    Pool2 = (void *)ExAllocatePool2(64LL, v6, 1681082453LL);
-    *(_QWORD *)(a1 + 56) = Pool2;
-    if ( Pool2 )
-    {
-      memmove(Pool2, v4, v6);
-      *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL) + 1424LL) = *(_DWORD *)(*(_QWORD *)(a1 + 56) + 12LL);
-    }
-    else
-    {
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_(
-          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL) + 1432LL),
-          2u,
-          5u,
-          0x12u,
-          (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids);
-      return (unsigned int)-1073741670;
-    }
-    return v2;
-  }
-  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_dD(
-      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL) + 1432LL),
-      2u,
-      5u,
-      0x11u,
-      (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
-      *v4,
-      20);
-  return (unsigned int)-1073741789;
+  return v2;
 }

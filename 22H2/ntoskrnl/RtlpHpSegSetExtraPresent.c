@@ -1,37 +1,41 @@
 /*
- * XREFs of RtlpHpSegSetExtraPresent @ 0x1405B6BD0
+ * XREFs of RtlpHpSegSetExtraPresent @ 0x140594F88
  * Callers:
- *     RtlpHpExtrasSetPresent @ 0x1405B6624 (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpExtrasSetPresent @ 0x14059491C (RtlpHpExtrasSetPresent.c)
  * Callees:
- *     RtlpHpSegDescriptorValidate @ 0x140316680 (RtlpHpSegDescriptorValidate.c)
- *     RtlpHpVsChunkSetExtraPresent @ 0x1405B7430 (RtlpHpVsChunkSetExtraPresent.c)
+ *     RtlpHpSegDescriptorValidate @ 0x1402C2960 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpVsChunkSetExtraPresent @ 0x140595610 (RtlpHpVsChunkSetExtraPresent.c)
  */
 
-unsigned __int8 __fastcall RtlpHpSegSetExtraPresent(__int64 a1, unsigned __int64 a2)
+unsigned __int64 __fastcall RtlpHpSegSetExtraPresent(__int64 a1, unsigned __int64 a2)
 {
-  unsigned __int64 v4; // r11
-  unsigned __int8 result; // al
-  __int64 v6; // r11
-  unsigned __int64 v7; // rcx
+  unsigned __int64 result; // rax
+  __int64 v3; // r10
+  __int64 v4; // r11
+  unsigned __int8 v5; // dl
+  unsigned __int64 v6; // r8
+  unsigned __int64 v7; // r9
+  unsigned __int64 v8; // rcx
 
-  v4 = RtlpHpSegDescriptorValidate(a1, a2);
-  result = *(_BYTE *)(v4 + 24) & 0xC;
-  if ( result < 8u )
+  result = RtlpHpSegDescriptorValidate(a1, a2);
+  v5 = *(_BYTE *)(result + 24) & 0xC;
+  if ( v5 < 8u )
   {
-    *(_WORD *)(v4 + 8) |= 1u;
+    *(_WORD *)(result + 8) |= 1u;
   }
   else
   {
-    v6 = (v4 & *(_QWORD *)a1) + ((__int64)(v4 - (v4 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8));
-    if ( result == 8 )
+    v6 = result & *(_QWORD *)v4;
+    v7 = ((__int64)(result - v6) >> 5 << *(_BYTE *)(v4 + 8)) + v6;
+    if ( v5 == 8 )
     {
-      v7 = (unsigned __int16)qword_140C6B388 ^ *(unsigned __int16 *)(v6 + 40) ^ (unsigned __int64)(unsigned __int16)((unsigned int)v6 >> 12);
-      result = 0;
-      *(_WORD *)(v7 + a2 - 2) |= 0x4000u;
+      v8 = WORD4(RtlpHpHeapGlobals) ^ *(unsigned __int16 *)(v7 + 40) ^ (unsigned __int64)(unsigned __int16)((unsigned int)v7 >> 12);
+      result = 0x4000LL;
+      *(_WORD *)(v8 + v3 - 2) |= 0x4000u;
     }
     else
     {
-      return RtlpHpVsChunkSetExtraPresent(*(_QWORD *)(a1 + 32), a2);
+      return RtlpHpVsChunkSetExtraPresent(*(_QWORD *)(v4 + 32), v3, v6, v7);
     }
   }
   return result;

@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIUnregisterForDeviceNotifications @ 0x1C005D720
+ * XREFs of ACPIUnregisterForDeviceNotifications @ 0x1C005C6C0
  * Callers:
- *     ACPIFanStopDevice @ 0x1C00550FC (ACPIFanStopDevice.c)
- *     ACPIUnregisterForDeviceNotifications2 @ 0x1C005D780 (ACPIUnregisterForDeviceNotifications2.c)
- *     ACPIThermalStopZoneWorker @ 0x1C006109C (ACPIThermalStopZoneWorker.c)
+ *     ACPIFanStopDevice @ 0x1C005570C (ACPIFanStopDevice.c)
+ *     ACPIUnregisterForDeviceNotifications2 @ 0x1C005C720 (ACPIUnregisterForDeviceNotifications2.c)
+ *     ACPIThermalStopZoneWorker @ 0x1C00602DC (ACPIThermalStopZoneWorker.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
  */
 
 void __fastcall ACPIUnregisterForDeviceNotifications(ULONG_PTR a1)
@@ -15,8 +15,8 @@ void __fastcall ACPIUnregisterForDeviceNotifications(ULONG_PTR a1)
   KIRQL v3; // al
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
-  v2 = DeviceExtension + 376;
-  if ( DeviceExtension != -376 )
+  v2 = DeviceExtension + 336;
+  if ( DeviceExtension != -336 )
   {
     v3 = KeAcquireSpinLockRaiseToDpc(&NotifyHandlerLock);
     *(_QWORD *)(v2 + 16) = 0LL;

@@ -1,17 +1,16 @@
 /*
- * XREFs of MiFinishPlaceholderVadReplacement @ 0x140A47D68
+ * XREFs of MiFinishPlaceholderVadReplacement @ 0x1408D83D8
  * Callers:
- *     MiReserveUserMemory @ 0x14071F450 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1407202F0 (MiMapViewOfDataSection.c)
+ *     MiReserveUserMemory @ 0x140637BF0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x140639820 (MiMapViewOfDataSection.c)
  * Callees:
- *     MiVadDeleted @ 0x1402752F0 (MiVadDeleted.c)
- *     MiUnlockAndDereferenceVadShared @ 0x140275350 (MiUnlockAndDereferenceVadShared.c)
- *     MiLockVadShared @ 0x140275410 (MiLockVadShared.c)
- *     MiGetProcessPartition @ 0x140275574 (MiGetProcessPartition.c)
- *     MiSetVadDeleted @ 0x140289764 (MiSetVadDeleted.c)
- *     MiDecrementVadsBeingDeleted @ 0x140618208 (MiDecrementVadsBeingDeleted.c)
- *     MiDeleteVad @ 0x1406FA4D0 (MiDeleteVad.c)
- *     PerfInfoLogVirtualAlloc @ 0x1409E7068 (PerfInfoLogVirtualAlloc.c)
+ *     MiGetProcessPartition @ 0x14021AD00 (MiGetProcessPartition.c)
+ *     MiDeleteVad @ 0x14021BFB0 (MiDeleteVad.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14025AAB0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiVadDeleted @ 0x14025AB90 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x14025ABA4 (MiLockVadShared.c)
+ *     MiDecrementVadsBeingDeleted @ 0x14052B5B4 (MiDecrementVadsBeingDeleted.c)
+ *     PerfInfoLogVirtualAlloc @ 0x140937BD8 (PerfInfoLogVirtualAlloc.c)
  */
 
 LONG __fastcall MiFinishPlaceholderVadReplacement(char *P, __int64 a2, int a3)
@@ -29,10 +28,8 @@ LONG __fastcall MiFinishPlaceholderVadReplacement(char *P, __int64 a2, int a3)
     {
       ProcessPartition = (__int16 *)MiGetProcessPartition(Process);
       PerfInfoLogVirtualAlloc(
-        (*((unsigned int *)P + 6) | ((unsigned __int64)(unsigned __int8)P[32] << 32)) << 12,
-        ((*((unsigned int *)P + 7) | ((unsigned __int64)(unsigned __int8)P[33] << 32))
-       - (*((unsigned int *)P + 6) | ((unsigned __int64)(unsigned __int8)P[32] << 32))
-       + 1) << 12,
+        *((_DWORD *)P + 6) << 12,
+        (*((_DWORD *)P + 7) - *((_DWORD *)P + 6) + 1) << 12,
         Process,
         0x2000,
         *ProcessPartition,
@@ -42,8 +39,7 @@ LONG __fastcall MiFinishPlaceholderVadReplacement(char *P, __int64 a2, int a3)
   }
   else
   {
-    MiSetVadDeleted((__int64)P);
-    MiDeleteVad((unsigned int *)P, 0LL, 0);
+    MiDeleteVad(P, 0LL, 0);
   }
   return MiDecrementVadsBeingDeleted(a2);
 }

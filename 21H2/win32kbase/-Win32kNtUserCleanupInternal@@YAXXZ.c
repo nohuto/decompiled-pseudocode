@@ -1,196 +1,196 @@
 /*
- * XREFs of ?Win32kNtUserCleanupInternal@@YAXXZ @ 0x1C00B8EAC
+ * XREFs of ?Win32kNtUserCleanupInternal@@YAXXZ @ 0x1C007B65C
  * Callers:
- *     ?Win32kNtUserCleanup@@YAHXZ @ 0x1C00B8C3C (-Win32kNtUserCleanup@@YAHXZ.c)
+ *     ?Win32kNtUserCleanup@@YAHXZ @ 0x1C0072CCC (-Win32kNtUserCleanup@@YAHXZ.c)
  * Callees:
- *     IsFreeMessageListSupported @ 0x1C0019A1C (IsFreeMessageListSupported.c)
- *     HMAssignmentUnlockWorker @ 0x1C0038F7C (HMAssignmentUnlockWorker.c)
- *     ?FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C0089198 (-FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z @ 0x1C008AF34 (-FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z.c)
- *     _lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator() @ 0x1C00B9600 (_lambda_2ad0db6ebdddb84bde70c96348b25c2b_--operator().c)
- *     IsFreeSMSSupported @ 0x1C00B96B4 (IsFreeSMSSupported.c)
- *     ?OnDriverUnload@CTopologyManager@@SAXXZ @ 0x1C00B96E0 (-OnDriverUnload@CTopologyManager@@SAXXZ.c)
- *     ?CSTPop@@YAHPEAIPEAPEAX@Z @ 0x1C00B9BC8 (-CSTPop@@YAHPEAIPEAPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     Win32FreeToPagedLookasideList @ 0x1C002BAA0 (Win32FreeToPagedLookasideList.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C00300B0 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     HMAssignmentUnlock @ 0x1C0030630 (HMAssignmentUnlock.c)
+ *     Win32FreePagedLookasideList @ 0x1C007C440 (Win32FreePagedLookasideList.c)
+ *     _lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator() @ 0x1C007C488 (_lambda_2ad0db6ebdddb84bde70c96348b25c2b_--operator().c)
+ *     IsFreeSMSSupported @ 0x1C007C508 (IsFreeSMSSupported.c)
+ *     ?CSTPop@@YAHPEAIPEAPEAX@Z @ 0x1C007C890 (-CSTPop@@YAHPEAIPEAPEAX@Z.c)
+ *     IsFreeMessageListSupported @ 0x1C0095194 (IsFreeMessageListSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     FreeTimer @ 0x1C01FC360 (FreeTimer.c)
  */
 
 void Win32kNtUserCleanupInternal(void)
 {
-  char **v0; // rcx
-  char **v1; // rcx
-  char **v2; // rcx
-  char *v3; // rbx
-  NSInstrumentation::CLeakTrackingAllocator *v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  void *v7; // rdx
-  __int64 v8; // rbx
-  _QWORD *v9; // rbx
-  char *v10; // rdx
-  char *v11; // rdi
-  char *v12; // rdx
-  char *v13; // rdx
-  __int64 v14; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v15; // rcx
-  char *v16; // rdx
-  char **v17; // [rsp+30h] [rbp-18h] BYREF
-  NSInstrumentation::CLeakTrackingAllocator *v18; // [rsp+70h] [rbp+28h] BYREF
-  void *v19; // [rsp+78h] [rbp+30h] BYREF
-  char **v20; // [rsp+80h] [rbp+38h] BYREF
-  char **v21; // [rsp+88h] [rbp+40h] BYREF
+  int v0; // esi
+  int v1; // eax
+  int v2; // eax
+  __int64 *v3; // rcx
+  __int64 v4; // rcx
+  int v5; // eax
+  __int64 *v6; // rcx
+  __int64 v7; // rcx
+  int v8; // eax
+  __int64 *v9; // rcx
+  __int64 v10; // rcx
+  int v11; // eax
+  int v12; // eax
+  int v13; // eax
+  _QWORD *v14; // rbx
+  void *v15; // rcx
+  int v16; // eax
+  __int64 *v17; // rcx
+  __int64 v18; // rcx
+  __int64 v19; // rbx
+  int v20; // eax
+  _QWORD *v21; // rbx
+  __int64 v22; // rcx
+  __int64 v23; // rdi
+  __int64 v24; // rcx
+  __int64 v25; // rcx
+  __int64 v26; // rax
+  __int64 *v27; // [rsp+50h] [rbp+20h] BYREF
+  void *v28; // [rsp+58h] [rbp+28h] BYREF
 
   ZwPowerInformation(PowerInformationLevelMaximum|ProcessorInformation, 0LL, 0, 0LL, 0);
-  if ( qword_1C029B8B0 && (int)qword_1C029B8B0() >= 0 && qword_1C029B8B8 )
-    qword_1C029B8B8();
+  v0 = -1073741637;
+  if ( qword_1C0256B40 )
+    v1 = qword_1C0256B40();
+  else
+    v1 = -1073741637;
+  if ( v1 >= 0 && qword_1C0256B48 )
+    qword_1C0256B48();
   if ( gpvwplHungRedraw )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpvwplHungRedraw);
+    Win32FreePool((__int64)gpvwplHungRedraw);
     gpvwplHungRedraw = 0LL;
   }
-  if ( qword_1C029B8C0 && (int)qword_1C029B8C0() >= 0 )
+  if ( qword_1C0256B50 )
+    v2 = qword_1C0256B50();
+  else
+    v2 = -1073741637;
+  if ( v2 >= 0 )
   {
-    v0 = 0LL;
-    v20 = 0LL;
-    if ( qword_1C029B8C8 )
+    v3 = 0LL;
+    v27 = 0LL;
+    if ( qword_1C0256B58 )
     {
-      qword_1C029B8C8(&v20);
-      v0 = v20;
+      qword_1C0256B58(&v27);
+      v3 = v27;
     }
-    if ( *v0 )
+    v4 = *v3;
+    if ( v4 )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        *v0);
-      *v20 = 0LL;
+      Win32FreePool(v4);
+      *v27 = 0LL;
     }
   }
-  if ( qword_1C029B8D0 && (int)qword_1C029B8D0() >= 0 )
+  if ( qword_1C0256B60 )
+    v5 = qword_1C0256B60();
+  else
+    v5 = -1073741637;
+  if ( v5 >= 0 )
   {
-    v1 = 0LL;
-    v21 = 0LL;
-    if ( qword_1C029B8D8 )
+    v6 = 0LL;
+    v27 = 0LL;
+    if ( qword_1C0256B68 )
     {
-      qword_1C029B8D8(&v21);
-      v1 = v21;
+      qword_1C0256B68(&v27);
+      v6 = v27;
     }
-    if ( *v1 )
+    v7 = *v6;
+    if ( v7 )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        *v1);
-      *v21 = 0LL;
+      Win32FreePool(v7);
+      *v27 = 0LL;
     }
   }
-  if ( qword_1C029B8E0 && (int)qword_1C029B8E0() >= 0 )
+  if ( qword_1C0256B70 )
+    v8 = qword_1C0256B70();
+  else
+    v8 = -1073741637;
+  if ( v8 >= 0 )
   {
-    v2 = 0LL;
-    v17 = 0LL;
-    if ( qword_1C029B8E8 )
+    v9 = 0LL;
+    v27 = 0LL;
+    if ( qword_1C0256B78 )
     {
-      qword_1C029B8E8(&v17);
-      v2 = v17;
+      qword_1C0256B78(&v27);
+      v9 = v27;
     }
-    if ( *v2 )
+    v10 = *v9;
+    if ( v10 )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        *v2);
-      *v17 = 0LL;
+      Win32FreePool(v10);
+      *v27 = 0LL;
     }
   }
   while ( (__int64 *)gtmrListHead != &gtmrListHead )
   {
-    v8 = gtmrListHead - 72;
-    if ( qword_1C029B8F0 && (int)qword_1C029B8F0() >= 0 && qword_1C029B8F8 )
-      qword_1C029B8F8(v8);
+    v19 = gtmrListHead - 72;
+    if ( qword_1C0256B80 )
+      v20 = qword_1C0256B80();
+    else
+      v20 = -1073741637;
+    if ( v20 >= 0 )
+      FreeTimer(v19);
   }
   if ( gptmrWD )
   {
     KeCancelTimer(gptmrWD);
-    if ( gptmrWD )
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        (char *)gptmrWD);
+    Win32FreePool((__int64)gptmrWD);
     gptmrWD = 0LL;
   }
   if ( gptmrMaster )
   {
     KeCancelTimer(gptmrMaster);
-    if ( gptmrMaster )
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        (char *)gptmrMaster);
+    Win32FreePool((__int64)gptmrMaster);
     gptmrMaster = 0LL;
   }
   if ( gpClipFormatExceptionList )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpClipFormatExceptionList);
-  if ( qword_1C029B910 )
+    Win32FreePool(gpClipFormatExceptionList);
+  if ( qword_1C0256BA0 )
+    v11 = qword_1C0256BA0();
+  else
+    v11 = -1073741637;
+  if ( v11 >= 0 )
   {
-    if ( (int)qword_1C029B910() >= 0 )
+    if ( qword_1C0256BA8 )
     {
-      if ( qword_1C029B918 )
-      {
-        qword_1C029B918(&gWndsMonitorSnapshotHead);
-        if ( qword_1C029B918 )
-          qword_1C029B918(&gRemoteWndsMonitorSnapshotHead);
-      }
+      qword_1C0256BA8(&gWndsMonitorSnapshotHead);
+      if ( qword_1C0256BA8 )
+        qword_1C0256BA8(&gRemoteWndsMonitorSnapshotHead);
     }
   }
-  if ( qword_1C029C748 && (int)qword_1C029C748() >= 0 && qword_1C029C750 )
-    qword_1C029C750();
+  if ( qword_1C02579E8 )
+    v12 = qword_1C02579E8();
+  else
+    v12 = -1073741637;
+  if ( v12 >= 0 && qword_1C02579F0 )
+    qword_1C02579F0();
   if ( gpEventPnPWainting )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpEventPnPWainting);
+    Win32FreePool(gpEventPnPWainting);
     gpEventPnPWainting = 0LL;
   }
-  LODWORD(v18) = 0;
-  v19 = 0LL;
+  LODWORD(v27) = 0;
+  v28 = 0LL;
   if ( gpresUser )
   {
-    while ( 1 )
+    while ( (unsigned int)CSTPop((unsigned int *)&v27, &v28) )
     {
-      if ( !(unsigned int)CSTPop((unsigned int *)&v18, &v19) )
-        goto LABEL_49;
-      if ( (_DWORD)v18 == 2 || (_DWORD)v18 == 4 )
-        break;
-      if ( (_DWORD)v18 == 8 )
+      if ( (_DWORD)v27 == 2 || (_DWORD)v27 == 4 )
       {
-        v9 = v19;
-        if ( *(_QWORD *)v19 )
+        v21 = v28;
+        v22 = *((_QWORD *)v28 + 1);
+        if ( v22 )
         {
-          NSInstrumentation::CLeakTrackingAllocator::Free(
-            (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-            *(char **)v19);
-          *v9 = 0LL;
-        }
-LABEL_147:
-        v10 = (char *)v9[1];
-        if ( v10 )
-        {
-          NSInstrumentation::CLeakTrackingAllocator::Free(
-            (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-            v10);
-          v9[1] = 0LL;
+          Win32FreePool(v22);
+          v21[1] = 0LL;
         }
       }
     }
-    v9 = v19;
-    goto LABEL_147;
   }
-LABEL_49:
   gfRecordPnpNotification = 0;
   if ( gpPnpNotificationRecord )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpPnpNotificationRecord);
+    Win32FreePool((__int64)gpPnpNotificationRecord);
     gpPnpNotificationRecord = 0LL;
   }
   if ( gpresDitTouchInjection )
@@ -210,9 +210,7 @@ LABEL_49:
   }
   if ( gpHidInterfaceGuid )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpHidInterfaceGuid);
+    Win32FreePool(gpHidInterfaceGuid);
     gpHidInterfaceGuid = 0LL;
   }
   if ( gThinwireFileObject )
@@ -221,74 +219,71 @@ LABEL_49:
     ObfDereferenceObject(gVideoFileObject);
   if ( gpRemoteBeepDevice )
     ObfDereferenceObject(gpRemoteBeepDevice);
+  if ( gpresPTPEventQueue )
+  {
+    ExDeleteResourceLite(gpresPTPEventQueue);
+    ExFreePoolWithTag(gpresPTPEventQueue, 0);
+    gpresPTPEventQueue = 0LL;
+  }
   if ( gpEventDiconnectDesktop )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpEventDiconnectDesktop);
+    Win32FreePool(gpEventDiconnectDesktop);
     gpEventDiconnectDesktop = 0LL;
   }
   if ( gpevtDesktopDestroyed )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpevtDesktopDestroyed);
+    Win32FreePool(gpevtDesktopDestroyed);
     gpevtDesktopDestroyed = 0LL;
   }
   if ( gpevtVideoInitialized )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpevtVideoInitialized);
+    Win32FreePool((__int64)gpevtVideoInitialized);
     gpevtVideoInitialized = 0LL;
   }
   if ( gpevtQueueReadyForCallout )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpevtQueueReadyForCallout);
+    Win32FreePool((__int64)gpevtQueueReadyForCallout);
     gpevtQueueReadyForCallout = 0LL;
   }
   if ( gpevtVideoportCallout )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpevtVideoportCallout);
+    Win32FreePool((__int64)gpevtVideoportCallout);
     gpevtVideoportCallout = 0LL;
   }
   if ( gpevtRitReadyForCallOut )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpevtRitReadyForCallOut);
+    Win32FreePool(gpevtRitReadyForCallOut);
     gpevtRitReadyForCallOut = 0LL;
   }
   if ( gpevtMonitorPowerWaiter )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpevtMonitorPowerWaiter);
+    Win32FreePool((__int64)gpevtMonitorPowerWaiter);
     gpevtMonitorPowerWaiter = 0LL;
   }
   if ( gpsemSwitchInProgressWaiters )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpsemSwitchInProgressWaiters);
+    Win32FreePool((__int64)gpsemSwitchInProgressWaiters);
     gpsemSwitchInProgressWaiters = 0LL;
+  }
+  if ( gpsemDITHitTestWaiters )
+  {
+    Win32FreePool((__int64)gpsemDITHitTestWaiters);
+    gpsemDITHitTestWaiters = 0LL;
   }
   if ( gpsemDITLuidHitTestWaiters )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpsemDITLuidHitTestWaiters);
+    Win32FreePool(gpsemDITLuidHitTestWaiters);
     gpsemDITLuidHitTestWaiters = 0LL;
   }
-  if ( qword_1C029B940 && (int)qword_1C029B940() >= 0 && qword_1C029B948 )
-    qword_1C029B948();
+  if ( qword_1C0256BD0 )
+    v13 = qword_1C0256BD0();
+  else
+    v13 = -1073741637;
+  if ( v13 >= 0 && qword_1C0256BD8 )
+    qword_1C0256BD8();
   if ( gpevtPTPOperation )
   {
-    ObfDereferenceObject(gpevtPTPOperation);
+    Win32FreePool(gpevtPTPOperation);
     gpevtPTPOperation = 0LL;
   }
   if ( UserAtomTableHandle )
@@ -303,39 +298,33 @@ LABEL_49:
   }
   if ( gpevtSynthesizedContainerMouseInput )
   {
-    ObfDereferenceObject(gpevtSynthesizedContainerMouseInput);
+    Win32FreePool((__int64)gpevtSynthesizedContainerMouseInput);
     gpevtSynthesizedContainerMouseInput = 0LL;
   }
-  CTopologyManager::OnDriverUnload();
-  v3 = (char *)gpJobsList;
+  GetDomainLockRef(17);
+  v14 = (_QWORD *)gpJobsList;
   if ( gpJobsList )
   {
     do
     {
-      v11 = v3;
-      v3 = *(char **)v3;
-      v12 = (char *)*((_QWORD *)v11 + 7);
-      if ( v12 )
+      v23 = (__int64)v14;
+      v14 = (_QWORD *)*v14;
+      v24 = *(_QWORD *)(v23 + 56);
+      if ( v24 )
       {
-        NSInstrumentation::CLeakTrackingAllocator::Free(
-          (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-          v12);
-        *((_QWORD *)v11 + 7) = 0LL;
+        Win32FreePool(v24);
+        *(_QWORD *)(v23 + 56) = 0LL;
       }
-      v13 = (char *)*((_QWORD *)v11 + 5);
-      if ( v13 )
+      v25 = *(_QWORD *)(v23 + 40);
+      if ( v25 )
       {
-        NSInstrumentation::CLeakTrackingAllocator::Free(
-          (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-          v13);
-        *((_QWORD *)v11 + 5) = 0LL;
+        Win32FreePool(v25);
+        *(_QWORD *)(v23 + 40) = 0LL;
       }
-      RtlDestroyAtomTable(*((PRTL_ATOM_TABLE *)v11 + 2));
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        v11);
+      RtlDestroyAtomTable(*(PRTL_ATOM_TABLE *)(v23 + 16));
+      Win32FreePool(v23);
     }
-    while ( v3 );
+    while ( v14 );
     gpJobsList = 0LL;
   }
   if ( (int)IsFreeSMSSupported() >= 0 )
@@ -344,82 +333,78 @@ LABEL_49:
     {
       while ( 1 )
       {
-        v4 = (NSInstrumentation::CLeakTrackingAllocator *)gsmsList;
+        v15 = gsmsList;
         if ( gsmsList == &gsmsList )
           break;
         if ( *((void ***)gsmsList + 1) != &gsmsList
-          || (v14 = *(_QWORD *)gsmsList, *(void **)(*(_QWORD *)gsmsList + 8LL) != gsmsList) )
+          || (v26 = *(_QWORD *)gsmsList, *(void **)(*(_QWORD *)gsmsList + 8LL) != gsmsList) )
         {
           __fastfail(3u);
         }
         gsmsList = *(void **)gsmsList;
-        *(_QWORD *)(v14 + 8) = &gsmsList;
-        if ( qword_1C029B958 )
-          qword_1C029B958(v4, 0LL);
+        *(_QWORD *)(v26 + 8) = &gsmsList;
+        if ( qword_1C0256BE8 )
+          qword_1C0256BE8(v15, 0LL);
       }
     }
-    qword_1C0298A90 = (__int64)&gsmsList;
+    qword_1C0253BD0 = (__int64)&gsmsList;
     gsmsList = &gsmsList;
   }
-  if ( qword_1C029B960 && (int)qword_1C029B960() >= 0 )
+  if ( qword_1C0256BF0 )
+    v16 = qword_1C0256BF0();
+  else
+    v16 = -1073741637;
+  if ( v16 >= 0 )
   {
-    v4 = 0LL;
-    v18 = 0LL;
-    if ( qword_1C029B968 )
+    v17 = 0LL;
+    v27 = 0LL;
+    if ( qword_1C0256BF8 )
     {
-      qword_1C029B968(&v18);
-      v4 = v18;
+      qword_1C0256BF8(&v27);
+      v17 = v27;
     }
-    if ( *(_QWORD *)v4 )
+    if ( *v17 )
     {
-      NSInstrumentation::CLeakTrackingAllocator::FreePagedLookasideList(v4, *(char **)v4);
-      *(_QWORD *)v18 = 0LL;
+      Win32FreePagedLookasideList();
+      *v27 = 0LL;
     }
   }
-  if ( qword_1C0294DF8 )
+  if ( qword_1C0250878 )
   {
-    if ( (int)IsFreeMessageListSupported() >= 0 && qword_1C029BE88 )
-      qword_1C029BE88((char *)qword_1C0294DF8 + 24);
-    NSInstrumentation::CLeakTrackingAllocator::FreeToPagedLookasideList(
-      v15,
-      (char *)QLookaside,
-      (struct _SLIST_ENTRY *)qword_1C0294DF8);
-    qword_1C0294DF8 = 0LL;
+    if ( (int)IsFreeMessageListSupported() >= 0 && qword_1C0257148 )
+      qword_1C0257148(qword_1C0250878 + 24);
+    Win32FreeToPagedLookasideList((__int64)QLookaside, qword_1C0250878);
+    qword_1C0250878 = 0LL;
   }
   if ( QLookaside )
   {
-    NSInstrumentation::CLeakTrackingAllocator::FreePagedLookasideList(v4, (char *)QLookaside);
+    Win32FreePagedLookasideList();
     QLookaside = 0LL;
   }
-  v7 = QEntryLookaside;
   if ( QEntryLookaside )
   {
-    NSInstrumentation::CLeakTrackingAllocator::FreePagedLookasideList(v4, (char *)QEntryLookaside);
+    Win32FreePagedLookasideList();
     QEntryLookaside = 0LL;
   }
   if ( gspklGlobalActive )
-    HMAssignmentUnlockWorker(&gspklGlobalActive, (__int64)v7, v5, v6);
+    HMAssignmentUnlock(&gspklGlobalActive);
   if ( gspklWinstaLessSessionLayouts )
     lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator()();
   if ( gspklBaseLayout )
     lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator()();
-  while ( gpwtiFirst )
+  while ( 1 )
   {
-    v16 = (char *)gpwtiFirst;
-    gpwtiFirst = *(void **)gpwtiFirst;
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      v16);
+    v18 = gpwtiFirst;
+    if ( !gpwtiFirst )
+      break;
+    gpwtiFirst = *(_QWORD *)gpwtiFirst;
+    Win32FreePool(v18);
   }
-  if ( qword_1C0298AD8 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)qword_1C0298AD8);
+  if ( qword_1C0253C10 )
+    Win32FreePool(qword_1C0253C10);
   if ( gpsdInitWinSta )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpsdInitWinSta);
+    Win32FreePool(gpsdInitWinSta);
     gpsdInitWinSta = 0LL;
   }
   if ( gpHandleFlagsMutex )
@@ -429,9 +414,7 @@ LABEL_49:
   }
   if ( gpPowerRequestMutex )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)gpPowerRequestMutex);
+    Win32FreePool((__int64)gpPowerRequestMutex);
     gpPowerRequestMutex = 0LL;
   }
   if ( gpresRender )
@@ -445,8 +428,10 @@ LABEL_49:
     ObfDereferenceObject(gpRemoteSessionOcclusionEvent);
     gpRemoteSessionOcclusionEvent = 0LL;
   }
-  if ( qword_1C029BAA0 && (int)qword_1C029BAA0() >= 0 && qword_1C029BAA8 )
-    qword_1C029BAA8();
+  if ( qword_1C0256D50 )
+    v0 = qword_1C0256D50();
+  if ( v0 >= 0 && qword_1C0256D58 )
+    qword_1C0256D58();
   if ( DispBroker::DispBrokerClient::s_pSessionBroker )
     ExFreePoolWithTag(DispBroker::DispBrokerClient::s_pSessionBroker, 0x44535042u);
   DispBroker::DispBrokerClient::s_pSessionBroker = 0LL;

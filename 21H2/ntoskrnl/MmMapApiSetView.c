@@ -1,61 +1,53 @@
 /*
- * XREFs of MmMapApiSetView @ 0x140672AD0
+ * XREFs of MmMapApiSetView @ 0x140611CA0
  * Callers:
- *     PspSetupUserProcessAddressSpace @ 0x14067259C (PspSetupUserProcessAddressSpace.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     PspSetupUserProcessAddressSpace @ 0x14061177C (PspSetupUserProcessAddressSpace.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140204738 (PsGetServerSiloGlobals.c)
- *     PsIsHostSilo @ 0x1402A6DF0 (PsIsHostSilo.c)
- *     PsGetProcessServerSilo @ 0x140347680 (PsGetProcessServerSilo.c)
- *     MmMapViewOfSection @ 0x140785150 (MmMapViewOfSection.c)
+ *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
+ *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
+ *     PsIsHostSilo @ 0x140354A80 (PsIsHostSilo.c)
+ *     MmMapViewOfSection @ 0x140612470 (MmMapViewOfSection.c)
  */
 
 __int64 __fastcall MmMapApiSetView(__int64 a1)
 {
   __int64 ProcessServerSilo; // rdi
   __int64 v3; // rcx
-  char v4; // di
   __int64 result; // rax
-  unsigned int v6; // edx
-  __int64 v7; // rcx
-  __int64 *v8; // rax
-  __int16 v9; // ax
-  __int64 v10; // [rsp+68h] [rbp+10h] BYREF
-  __int64 v11; // [rsp+70h] [rbp+18h] BYREF
-  __int64 v12; // [rsp+78h] [rbp+20h] BYREF
+  unsigned int v5; // edx
+  __int64 v6; // rcx
+  __int64 *v7; // rax
+  __int16 v8; // r8
+  __int64 v9; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v10; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v11; // [rsp+78h] [rbp+20h] BYREF
 
-  v10 = 0LL;
-  v12 = 0LL;
+  v9 = 0LL;
   v11 = 0LL;
+  v10 = 0LL;
   ProcessServerSilo = PsGetProcessServerSilo(a1);
   if ( PsIsHostSilo(ProcessServerSilo) )
-    v3 = qword_140C4F3B0;
+    v3 = qword_140C4CBF8;
   else
     v3 = *((_QWORD *)PsGetServerSiloGlobals(ProcessServerSilo) + 129);
-  v4 = 1;
-  result = MmMapViewOfSection(v3, a1, &v10, 0LL, 0LL, &v12, &v11, 1, 0x400000, 2);
-  v6 = result;
+  result = MmMapViewOfSection(v3, a1, &v9, 0LL, 0LL, &v11, &v10, 1, 0x400000, 2);
+  v5 = result;
   if ( (int)result >= 0 )
   {
-    *(_QWORD *)(*(_QWORD *)(a1 + 1360) + 104LL) = v10;
-    v7 = 0LL;
-    v8 = *(__int64 **)(a1 + 1408);
-    if ( v8 )
-      v7 = *v8;
+    *(_QWORD *)(*(_QWORD *)(a1 + 1360) + 104LL) = v9;
+    v6 = 0LL;
+    v7 = *(__int64 **)(a1 + 1408);
     if ( v7 )
+      v6 = *v7;
+    if ( v6 )
     {
-      if ( !v8 )
-        goto LABEL_13;
-      v9 = *(_WORD *)(a1 + 2412);
-      if ( v9 != 332 && v9 != 452 )
-        v4 = 0;
-      if ( v4 )
-        *(_DWORD *)(v7 + 56) = v10;
+      if ( v7 && ((v8 = *((_WORD *)v7 + 4), v8 == 332) || v8 == 452) )
+        *(_DWORD *)(v6 + 56) = v9;
       else
-LABEL_13:
-        *(_QWORD *)(v7 + 104) = v10;
+        *(_QWORD *)(v6 + 104) = v9;
     }
-    return v6;
+    return v5;
   }
   return result;
 }

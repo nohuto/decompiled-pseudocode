@@ -1,12 +1,12 @@
 /*
- * XREFs of GetgForceFontAssocCodePage @ 0x1C00BE830
+ * XREFs of GetgForceFontAssocCodePage @ 0x1C0137520
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GetgForceFontAssocCodePage(__int64 a1)
+unsigned int *GetgForceFontAssocCodePage()
 {
-  return *(_QWORD *)(SGDGetSessionState(a1) + 32) + 18740LL;
+  return &gForceFontAssocCodePage;
 }

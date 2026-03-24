@@ -1,30 +1,29 @@
 /*
- * XREFs of ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAPEBU_D3DKMT_DISPLAYMODE@@PEAE@Z @ 0x1C01AB50C
+ * XREFs of ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAE@Z @ 0x1C014E2EC
  * Callers:
- *     DxgkGetDisplayModeList @ 0x1C01A7B20 (DxgkGetDisplayModeList.c)
- *     ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAPEBU_D3DKMT_DISPLAYMODE@@PEAE@Z @ 0x1C01AB50C (-DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODEL.c)
- *     ?DxgkCddGetDisplayModeList@@YAJQEAXPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z @ 0x1C02DE490 (-DxgkCddGetDisplayModeList@@YAJQEAXPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z.c)
- *     ?DxgkpAdapterCheckStereoMode@@YAJU_LUID@@IPEAE1@Z @ 0x1C02FA4C4 (-DxgkpAdapterCheckStereoMode@@YAJU_LUID@@IPEAE1@Z.c)
+ *     ?DxgkpAdapterCheckStereoMode@@YAJU_LUID@@IPEAE1@Z @ 0x1C00DE194 (-DxgkpAdapterCheckStereoMode@@YAJU_LUID@@IPEAE1@Z.c)
+ *     ?DxgkCddGetDisplayModeList@@YAJQEAXPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z @ 0x1C014E110 (-DxgkCddGetDisplayModeList@@YAJQEAXPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z.c)
+ *     ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAE@Z @ 0x1C014E2EC (-DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODEL.c)
+ *     DxgkGetDisplayModeList @ 0x1C016FC30 (DxgkGetDisplayModeList.c)
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C00053F8 (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?Release@COREADAPTERACCESS@@QEAAXXZ @ 0x1C000A924 (-Release@COREADAPTERACCESS@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?GetPrimaryDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@XZ @ 0x1C0180FCC (-GetPrimaryDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@XZ.c)
- *     ?GetNextDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@PEBV2@@Z @ 0x1C01863CC (-GetNextDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@PEBV2@@Z.c)
- *     ?GetSessionViewOwner@ADAPTER_DISPLAY@@QEBAPEAVSESSION_VIEW@@I@Z @ 0x1C019D414 (-GetSessionViewOwner@ADAPTER_DISPLAY@@QEBAPEAVSESSION_VIEW@@I@Z.c)
- *     ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAPEBU_D3DKMT_DISPLAYMODE@@PEAE@Z @ 0x1C01AB50C (-DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODEL.c)
- *     ?GetCachedModeList@ADAPTER_DISPLAY@@QEAAJPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z @ 0x1C01AB8D8 (-GetCachedModeList@ADAPTER_DISPLAY@@QEAAJPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z.c)
- *     MonitorGetMonitorOrientationsFromTarget @ 0x1C01AB980 (MonitorGetMonitorOrientationsFromTarget.c)
- *     DxgkQueryMonitorTypeLockHeld @ 0x1C01F69F0 (DxgkQueryMonitorTypeLockHeld.c)
- *     ?CreateModeList@ADAPTER_DISPLAY@@QEAAJEPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z @ 0x1C021D070 (-CreateModeList@ADAPTER_DISPLAY@@QEAAJEPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z.c)
- *     ?SetCachedModeList@ADAPTER_DISPLAY@@QEAAJPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z @ 0x1C0227D54 (-SetCachedModeList@ADAPTER_DISPLAY@@QEAAJPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z.c)
- *     _CombineModeList @ 0x1C030106C (_CombineModeList.c)
- *     ?IsCrossAdapterView@SESSION_VIEW@@QEBAEXZ @ 0x1C0355520 (-IsCrossAdapterView@SESSION_VIEW@@QEBAEXZ.c)
+ *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C00027F8 (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?Release@COREADAPTERACCESS@@QEAAXXZ @ 0x1C000DA1C (-Release@COREADAPTERACCESS@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?CreateModeList@ADAPTER_DISPLAY@@QEAAJEPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z @ 0x1C00E108C (-CreateModeList@ADAPTER_DISPLAY@@QEAAJEPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z.c)
+ *     MonitorGetMonitorOrientationsFromTarget @ 0x1C01217A4 (MonitorGetMonitorOrientationsFromTarget.c)
+ *     ?GetNextDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@PEBV2@@Z @ 0x1C01303F0 (-GetNextDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@PEBV2@@Z.c)
+ *     ?GetPrimaryDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@XZ @ 0x1C0130410 (-GetPrimaryDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@XZ.c)
+ *     ?GetSessionViewOwner@ADAPTER_DISPLAY@@QEBAPEAVSESSION_VIEW@@I@Z @ 0x1C013E304 (-GetSessionViewOwner@ADAPTER_DISPLAY@@QEBAPEAVSESSION_VIEW@@I@Z.c)
+ *     ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAE@Z @ 0x1C014E2EC (-DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODEL.c)
+ *     ?GetCachedModeList@ADAPTER_DISPLAY@@QEAAJPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z @ 0x1C014E54C (-GetCachedModeList@ADAPTER_DISPLAY@@QEAAJPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z.c)
+ *     ?SetCachedModeList@ADAPTER_DISPLAY@@QEAAJPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z @ 0x1C0151440 (-SetCachedModeList@ADAPTER_DISPLAY@@QEAAJPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z.c)
+ *     DxgkQueryMonitorTypeLockHeld @ 0x1C0151550 (DxgkQueryMonitorTypeLockHeld.c)
+ *     _CombineModeList @ 0x1C025E810 (_CombineModeList.c)
+ *     ?IsCrossAdapterView@SESSION_VIEW@@QEBAEXZ @ 0x1C029F458 (-IsCrossAdapterView@SESSION_VIEW@@QEBAEXZ.c)
  */
 
 __int64 __fastcall DxgkpGetDisplayModeList(
@@ -32,397 +31,347 @@ __int64 __fastcall DxgkpGetDisplayModeList(
         struct COREADAPTERACCESS *a2,
         unsigned __int8 a3,
         struct _D3DKMT_GETDISPLAYMODELIST *a4,
-        const struct _D3DKMT_DISPLAYMODE **a5,
-        unsigned __int8 *a6)
+        unsigned __int8 *a5)
 {
-  const struct _D3DKMT_DISPLAYMODE **v6; // r15
-  unsigned __int8 *v8; // rax
-  unsigned __int8 v9; // di
-  struct DXGADAPTER *v10; // rsi
+  __int64 v5; // rbx
+  unsigned __int8 *v6; // r14
+  unsigned __int8 v8; // si
+  struct COREADAPTERACCESS *v9; // r15
   int v11; // r12d
-  bool v12; // r13
+  __int64 v12; // rdx
+  __int64 v13; // rax
   int CachedModeList; // eax
-  COREADAPTERACCESS *v14; // rbx
-  __int64 v15; // rcx
-  __int64 v16; // rdx
-  int v17; // eax
-  const struct _D3DKMT_DISPLAYMODE *v19; // rsi
-  UINT Width; // r11d
-  int v21; // r8d
-  unsigned int Height; // r10d
-  UINT ModeCount; // r9d
-  unsigned int v24; // edx
-  COREADAPTERACCESS *pModeList; // rcx
-  unsigned int *v26; // rdi
-  __int64 v27; // r13
-  __int64 v28; // rdx
-  __int64 v29; // rax
-  int v30; // edx
-  struct SESSION_VIEW *SessionViewOwner; // rax
-  SESSION_VIEW *v32; // r15
-  int v33; // eax
-  int v34; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // rax
+  int v20; // edx
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  int **SessionViewOwner; // rax
+  SESSION_VIEW *v24; // r15
+  int v25; // eax
+  __int64 v26; // rcx
+  int v27; // eax
   int ModeList; // eax
-  void *v36; // r15
-  unsigned __int8 *v37; // rbx
-  int v38; // eax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  void *v31; // r15
+  bool v32; // zf
+  int v33; // eax
+  __int64 v34; // rbx
+  __int64 v35; // rax
   const struct DISPLAY_SOURCE *PrimaryDisplaySource; // rax
   struct DISPLAY_SOURCE *NextDisplaySource; // rsi
-  __int64 v41; // rcx
-  struct DXGADAPTER *v42; // rdi
-  unsigned int v43; // r11d
-  int v44; // eax
+  __int64 v38; // rcx
+  struct DXGADAPTER *v39; // r14
+  unsigned int v40; // r11d
+  int v41; // eax
+  __int64 v42; // rcx
+  char v43; // al
+  __int64 v44; // rdx
+  __int64 v45; // rcx
+  __int64 v46; // rax
   int DisplayModeList; // eax
-  D3DKMT_DISPLAYMODE **p_pModeList; // rsi
-  UINT *p_ModeCount; // rdi
-  int v48; // eax
-  D3DKMT_DISPLAYMODE *v49; // rcx
-  __int64 v50; // rax
-  int v51; // r10d
-  unsigned int v52; // r9d
-  D3DKMT_DISPLAYMODE *v53; // r8
-  int v54; // edx
-  __int64 v55; // rcx
+  __int64 v48; // rdx
+  __int64 v49; // rcx
+  __int64 v50; // rdx
+  __int64 v51; // rax
+  _QWORD *v52; // rax
+  __int64 v53; // rdx
+  _QWORD *v54; // rax
+  __int64 v55; // rax
+  D3DKMT_DISPLAYMODE **p_pModeList; // r14
+  UINT *p_ModeCount; // rsi
+  int v58; // eax
+  __int64 v59; // rcx
+  _QWORD *v60; // rax
+  D3DKMT_DISPLAYMODE *v61; // rcx
+  UINT v62; // edx
+  __int64 v63; // rax
   UINT i; // edx
-  __int64 v57; // rax
-  unsigned __int8 v58; // [rsp+50h] [rbp-B0h]
-  char v59; // [rsp+51h] [rbp-AFh] BYREF
-  char v60; // [rsp+52h] [rbp-AEh] BYREF
-  unsigned __int8 v61; // [rsp+53h] [rbp-ADh] BYREF
-  int v62; // [rsp+54h] [rbp-ACh] BYREF
-  int v63; // [rsp+58h] [rbp-A8h] BYREF
-  void *v64; // [rsp+60h] [rbp-A0h] BYREF
-  struct DXGADAPTER *v65; // [rsp+68h] [rbp-98h]
-  COREADAPTERACCESS *v66; // [rsp+70h] [rbp-90h]
-  unsigned __int8 *v67; // [rsp+78h] [rbp-88h]
-  const struct _D3DKMT_DISPLAYMODE **v68; // [rsp+80h] [rbp-80h]
-  _D3DKMT_GETDISPLAYMODELIST v69; // [rsp+88h] [rbp-78h] BYREF
-  _BYTE v70[144]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v65; // rax
+  _QWORD *v66; // rax
+  __int64 v67; // rax
+  _QWORD *v68; // rax
+  __int64 v69; // rax
+  __int64 v70; // rdx
+  unsigned __int8 v71; // [rsp+50h] [rbp-B0h]
+  char v72; // [rsp+51h] [rbp-AFh] BYREF
+  char v73; // [rsp+52h] [rbp-AEh] BYREF
+  unsigned __int8 v74[5]; // [rsp+53h] [rbp-ADh] BYREF
+  void *v75; // [rsp+58h] [rbp-A8h] BYREF
+  int v76; // [rsp+60h] [rbp-A0h] BYREF
+  BOOL v77; // [rsp+64h] [rbp-9Ch]
+  unsigned __int8 *v78; // [rsp+68h] [rbp-98h]
+  int v79; // [rsp+70h] [rbp-90h] BYREF
+  struct COREADAPTERACCESS *v80; // [rsp+78h] [rbp-88h]
+  struct _D3DKMT_GETDISPLAYMODELIST v81; // [rsp+80h] [rbp-80h] BYREF
+  _BYTE v82[144]; // [rsp+A0h] [rbp-60h] BYREF
 
   v6 = a5;
-  v8 = a6;
-  v9 = a3;
-  v68 = a5;
-  v10 = a1;
-  v67 = a6;
-  v58 = a3;
-  v66 = a2;
-  v65 = a1;
+  v78 = a5;
+  v8 = a3;
+  v71 = a3;
+  v9 = a2;
+  v80 = a2;
   while ( 1 )
   {
-    v62 = 0;
+    v76 = 0;
     v11 = 0;
-    v64 = 0LL;
-    v12 = 0;
-    v63 = 0;
-    *v8 = 0;
-    if ( v6 )
-      *v6 = 0LL;
+    LOBYTE(v5) = 0;
+    v75 = 0LL;
+    *v6 = 0;
+    v12 = 3968LL * a4->VidPnSourceId;
+    v13 = *((_QWORD *)a1 + 337);
+    v77 = v5;
+    v79 = 0;
     if ( (int)MonitorGetMonitorOrientationsFromTarget(
-                v10,
-                *(unsigned int *)(4000LL * a4->VidPnSourceId + *(_QWORD *)(*((_QWORD *)v10 + 365) + 128LL) + 1088),
-                &v62) >= 0 )
-      v12 = v62 != 0;
-    CachedModeList = ADAPTER_DISPLAY::GetCachedModeList(*((ADAPTER_DISPLAY **)v10 + 365), a4);
-    LODWORD(v14) = CachedModeList;
-    if ( (int)(CachedModeList + 0x80000000) >= 0 && CachedModeList != -1073741275 )
+                (__int64)a1,
+                *(unsigned int *)(v12 + *(_QWORD *)(v13 + 112) + 1068),
+                &v76) >= 0 )
+      v77 = v76 != 0;
+    CachedModeList = ADAPTER_DISPLAY::GetCachedModeList(*((ADAPTER_DISPLAY **)a1 + 337), a4);
+    v5 = CachedModeList;
+    v16 = CachedModeList + 0x80000000;
+    if ( (int)v16 >= 0 && CachedModeList != -1073741275 )
     {
-      WdLogSingleEntry3(7LL, a4->VidPnSourceId, v10, CachedModeList);
-      return (unsigned int)v14;
+      v68 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v16);
+      v68[3] = a4->VidPnSourceId;
+      v68[4] = a1;
+      v68[5] = v5;
+      WdLogEvent5_WdDmmEvent(v68);
+      return (unsigned int)v5;
     }
     if ( CachedModeList == -1073741275 )
+      break;
+LABEL_6:
+    if ( (_DWORD)v5 != -1071775483 || v8 )
+      return (unsigned int)v5;
+    if ( *v6 )
     {
-      v28 = 4000LL * a4->VidPnSourceId;
-      v29 = *((_QWORD *)v10 + 365);
-      v60 = 0;
-      v30 = *(_DWORD *)(v28 + *(_QWORD *)(v29 + 128) + 1088);
-      if ( v30 != -1
-        && (int)DxgkQueryMonitorTypeLockHeld((_DWORD)v10, v30, 0, 0, 0LL, (__int64)&v60, 0LL, 0LL, 0LL, 0LL) < 0 )
+      v67 = WdLogNewEntry5_WdAssertion(v16, v15);
+      *(_QWORD *)(v67 + 24) = 5530LL;
+      WdLogEvent5_WdAssertion(v67);
+    }
+    v8 = 1;
+    v71 = 1;
+  }
+  v18 = 3968LL * a4->VidPnSourceId;
+  v19 = *((_QWORD *)a1 + 337);
+  v73 = 0;
+  v20 = *(_DWORD *)(v18 + *(_QWORD *)(v19 + 112) + 1068);
+  if ( v20 != -1 && (int)DxgkQueryMonitorTypeLockHeld((_DWORD)a1, v20, 0, 0, 0LL, (__int64)&v73, 0LL, 0LL, 0LL) < 0 )
+  {
+    v35 = WdLogNewEntry5_WdAssertion(v22, v21);
+    *(_QWORD *)(v35 + 24) = 5274LL;
+    WdLogEvent5_WdAssertion(v35);
+  }
+  if ( DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)v9 + 11)) )
+    COREADAPTERACCESS::Release(v9);
+  SessionViewOwner = ADAPTER_DISPLAY::GetSessionViewOwner(*((ADAPTER_DISPLAY **)a1 + 337), a4->VidPnSourceId);
+  v24 = (SESSION_VIEW *)SessionViewOwner;
+  if ( !SessionViewOwner
+    || *((_DWORD *)SessionViewOwner + 10) <= 1u
+    || !SESSION_VIEW::IsCrossAdapterView((SESSION_VIEW *)SessionViewOwner) && !v8
+    || (PrimaryDisplaySource = SESSION_VIEW::GetPrimaryDisplaySource(v24),
+        PrimaryDisplaySource != (const struct DISPLAY_SOURCE *)(*(_QWORD *)(*((_QWORD *)a1 + 337) + 112LL)
+                                                              + 3968LL * a4->VidPnSourceId)) )
+  {
+LABEL_17:
+    v25 = COREADAPTERACCESS::AcquireExclusive((__int64)v80, 1LL);
+    v5 = v25;
+    if ( v25 < 0 )
+    {
+      v54 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v26);
+      v54[3] = v5;
+    }
+    else
+    {
+      v27 = ADAPTER_DISPLAY::GetCachedModeList(*((ADAPTER_DISPLAY **)a1 + 337), a4);
+      v5 = v27;
+      if ( v27 >= 0 )
       {
-        WdLogSingleEntry1(1LL, 5448LL);
-        DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"NT_SUCCESS(Status)", 5448LL, 0LL, 0LL, 0LL, 0LL);
+LABEL_49:
+        v31 = v75;
+        goto LABEL_27;
       }
-      v14 = v66;
-      if ( DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)v66 + 11)) )
-        COREADAPTERACCESS::Release(v14);
-      SessionViewOwner = ADAPTER_DISPLAY::GetSessionViewOwner(*((ADAPTER_DISPLAY **)v10 + 365), a4->VidPnSourceId);
-      v32 = SessionViewOwner;
-      if ( SessionViewOwner
-        && *((_DWORD *)SessionViewOwner + 10) > 1u
-        && (SESSION_VIEW::IsCrossAdapterView(SessionViewOwner) || v9) )
+      if ( v27 == -1073741275 )
       {
-        PrimaryDisplaySource = SESSION_VIEW::GetPrimaryDisplaySource(v32);
-        if ( PrimaryDisplaySource == (const struct DISPLAY_SOURCE *)(*(_QWORD *)(*((_QWORD *)v10 + 365) + 128LL)
-                                                                   + 4000LL * a4->VidPnSourceId) )
+        ModeList = ADAPTER_DISPLAY::CreateModeList(*((ADAPTER_DISPLAY **)a1 + 337), v8, a4);
+        v5 = ModeList;
+        if ( ModeList >= 0 )
         {
-          NextDisplaySource = SESSION_VIEW::GetNextDisplaySource(v32, PrimaryDisplaySource);
-          if ( NextDisplaySource )
+          if ( !v11 )
           {
-            do
+            v31 = v75;
+LABEL_23:
+            v32 = !v77;
+            *v6 = 1;
+            if ( !v32 )
             {
-              v41 = *((_QWORD *)NextDisplaySource + 1);
-              v59 = 0;
-              v42 = *(struct DXGADAPTER **)(v41 + 16);
-              v61 = 0;
-              memset(&v69, 0, sizeof(v69));
-              COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v70, v42, 0LL);
-              v44 = COREADAPTERACCESS::AcquireExclusive((__int64)v70, v43);
-              LODWORD(v14) = v44;
-              if ( v44 < 0 )
-              {
-                WdLogSingleEntry2(7LL, v42, v44);
-                COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v70);
-                return (unsigned int)v14;
-              }
-              if ( (int)MonitorGetMonitorOrientationsFromTarget(v42, *((unsigned int *)NextDisplaySource + 272), &v62) >= 0
-                && v62 )
-              {
-                v12 = 1;
-              }
-              if ( (int)DxgkQueryMonitorTypeLockHeld(
-                          (_DWORD)v42,
-                          *((_DWORD *)NextDisplaySource + 272),
-                          0,
-                          0,
-                          0LL,
-                          (__int64)&v59,
-                          0LL,
-                          0LL,
-                          0LL,
-                          0LL) < 0 )
-              {
-                WdLogSingleEntry1(1LL, 5530LL);
-                DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"NT_SUCCESS(Status)", 5530LL, 0LL, 0LL, 0LL, 0LL);
-              }
-              if ( v60 == v59 )
-              {
-                v69.VidPnSourceId = *((_DWORD *)NextDisplaySource + 4);
-                DisplayModeList = DxgkpGetDisplayModeList(v42, (struct COREADAPTERACCESS *)v70, v58, &v69, 0LL, &v61);
-                v14 = (COREADAPTERACCESS *)DisplayModeList;
-                if ( DisplayModeList < 0 )
-                {
-                  if ( DisplayModeList == -1071775483 )
-                  {
-                    WdLogSingleEntry1(1LL, 5549LL);
-                    DxgkLogInternalTriageEvent(
-                      0LL,
-                      262146,
-                      -1,
-                      (__int64)L"Status != STATUS_GRAPHICS_TRY_AGAIN_NOW",
-                      5549LL,
-                      0LL,
-                      0LL,
-                      0LL,
-                      0LL);
-                  }
-LABEL_71:
-                  WdLogSingleEntry3(7LL, v42, v69.VidPnSourceId, v14);
-                  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v70);
-                  goto LABEL_72;
-                }
-                v14 = (COREADAPTERACCESS *)(int)CombineModeList(
-                                                  (unsigned int)&v63,
-                                                  (unsigned int)&v64,
-                                                  v69.ModeCount,
-                                                  v69.pModeList,
-                                                  1);
-                if ( v61 )
-                  operator delete(v69.pModeList);
-                if ( (int)v14 < 0 )
-                  goto LABEL_71;
-              }
-              NextDisplaySource = SESSION_VIEW::GetNextDisplaySource(v32, NextDisplaySource);
-              COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v70);
+              for ( i = 0; i < a4->ModeCount; *((_DWORD *)&a4->pModeList[v65].Flags + 1) &= ~0x80u )
+                v65 = i++;
             }
-            while ( NextDisplaySource );
-            v11 = v63;
-            v9 = v58;
-            v14 = v66;
+            v33 = ADAPTER_DISPLAY::SetCachedModeList(*((ADAPTER_DISPLAY **)a1 + 337), a4);
+            v34 = v33;
+            if ( v33 < 0 )
+            {
+              v66 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v16);
+              v66[3] = a4->VidPnSourceId;
+              v66[4] = a4;
+              v66[5] = v34;
+              WdLogEvent5_WdDmmEvent(v66);
+            }
+            else
+            {
+              *v6 = 0;
+            }
+            LODWORD(v5) = 0;
+            goto LABEL_27;
           }
-          v10 = v65;
+          p_pModeList = &a4->pModeList;
+          v31 = v75;
+          p_ModeCount = &a4->ModeCount;
+          v58 = CombineModeList((int)a4 + 16, (int)a4 + 8, v11, (_DWORD)v75, 1);
+          v5 = v58;
+          if ( v58 >= 0 )
+          {
+            v62 = 0;
+            if ( *p_ModeCount )
+            {
+              do
+              {
+                v63 = v62++;
+                *((_DWORD *)&(*p_pModeList)[v63].Flags + 1) &= ~0x80u;
+              }
+              while ( v62 < *p_ModeCount );
+              v31 = v75;
+            }
+            v6 = v78;
+            goto LABEL_23;
+          }
+          v60 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v59);
+          v60[3] = a1;
+          v60[4] = a4->VidPnSourceId;
+          v60[5] = v5;
+          WdLogEvent5_WdDmmEvent(v60);
+          v61 = *p_pModeList;
+          *p_ModeCount = 0;
+          operator delete[](v61);
+          *p_pModeList = 0LL;
+          v6 = v78;
+LABEL_27:
+          if ( v31 )
+            operator delete[](v31);
+          v9 = v80;
+          v8 = v71;
+          goto LABEL_6;
         }
-      }
-      v33 = COREADAPTERACCESS::AcquireExclusive((__int64)v14, 1LL);
-      LODWORD(v14) = v33;
-      if ( v33 < 0 )
-      {
-        WdLogSingleEntry1(7LL, v33);
+        if ( v8 && ModeList == -1071775483 )
+        {
+          v55 = WdLogNewEntry5_WdAssertion(v30, v29);
+          *(_QWORD *)(v55 + 24) = 5448LL;
+          WdLogEvent5_WdAssertion(v55);
+        }
+        v54 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v30);
+        v54[3] = a4->VidPnSourceId;
+        v54[4] = v5;
       }
       else
       {
-        v34 = ADAPTER_DISPLAY::GetCachedModeList(*((ADAPTER_DISPLAY **)v10 + 365), a4);
-        LODWORD(v14) = v34;
-        if ( v34 < 0 )
-        {
-          if ( v34 == -1073741275 )
-          {
-            ModeList = ADAPTER_DISPLAY::CreateModeList(*((ADAPTER_DISPLAY **)v10 + 365), v9, a4);
-            v14 = (COREADAPTERACCESS *)ModeList;
-            if ( ModeList >= 0 )
-            {
-              if ( !v11 )
-              {
-                v36 = v64;
-LABEL_47:
-                v37 = v67;
-                *v67 = 1;
-                if ( v12 )
-                {
-                  for ( i = 0; i < a4->ModeCount; *((_DWORD *)&a4->pModeList[v57].Flags + 1) &= ~0x80u )
-                    v57 = i++;
-                }
-                v38 = ADAPTER_DISPLAY::SetCachedModeList(*((ADAPTER_DISPLAY **)v10 + 365), a4);
-                if ( v38 < 0 )
-                  WdLogSingleEntry3(7LL, a4->VidPnSourceId, a4, v38);
-                else
-                  *v37 = 0;
-                LODWORD(v14) = 0;
-                goto LABEL_51;
-              }
-              p_pModeList = &a4->pModeList;
-              v36 = v64;
-              p_ModeCount = &a4->ModeCount;
-              v48 = CombineModeList((int)a4 + 16, (int)a4 + 8, v11, (_DWORD)v64, 1);
-              LODWORD(v14) = v48;
-              if ( v48 >= 0 )
-              {
-                v63 = 0;
-                if ( *p_ModeCount )
-                {
-                  v50 = 0LL;
-                  v51 = 0;
-                  v52 = 0;
-                  do
-                  {
-                    v53 = *p_pModeList;
-                    v54 = *((_DWORD *)&(*p_pModeList)[v50].Flags + 1);
-                    v55 = v52;
-                    v50 = (unsigned int)(v51 + 1);
-                    v52 = v50;
-                    v63 = ++v51;
-                    *((_DWORD *)&v53[v55].Flags + 1) = v54 & 0xFFFFFF7F;
-                  }
-                  while ( (unsigned int)v50 < *p_ModeCount );
-                }
-                v10 = v65;
-                goto LABEL_47;
-              }
-              WdLogSingleEntry3(7LL, v65, a4->VidPnSourceId, v48);
-              v49 = *p_pModeList;
-              *p_ModeCount = 0;
-              operator delete(v49);
-              *p_pModeList = 0LL;
-LABEL_51:
-              if ( v36 )
-                operator delete(v36);
-              v6 = v68;
-              v9 = v58;
-              v10 = v65;
-              goto LABEL_8;
-            }
-            if ( v9 && ModeList == -1071775483 )
-            {
-              WdLogSingleEntry1(1LL, 5624LL);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                262146,
-                -1,
-                (__int64)L"!ForceCrossAdapterClone || (Status != STATUS_GRAPHICS_TRY_AGAIN_NOW)",
-                5624LL,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
-            }
-            WdLogSingleEntry2(7LL, a4->VidPnSourceId, v14);
-          }
-          else
-          {
-            WdLogSingleEntry3(7LL, a4->VidPnSourceId, v10, v34);
-          }
-        }
+        v54 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v16);
+        v54[3] = a4->VidPnSourceId;
+        v54[4] = a1;
+        v54[5] = v5;
       }
-LABEL_72:
-      v36 = v64;
-      goto LABEL_51;
     }
-LABEL_8:
-    if ( (_DWORD)v14 != -1071775483 )
+    WdLogEvent5_WdDmmEvent(v54);
+    goto LABEL_49;
+  }
+  NextDisplaySource = SESSION_VIEW::GetNextDisplaySource(v24, PrimaryDisplaySource);
+  if ( !NextDisplaySource )
+  {
+LABEL_53:
+    v8 = v71;
+    goto LABEL_17;
+  }
+  while ( 1 )
+  {
+    v38 = *((_QWORD *)NextDisplaySource + 1);
+    v72 = 0;
+    v39 = *(struct DXGADAPTER **)(v38 + 16);
+    v74[0] = 0;
+    memset(&v81, 0, sizeof(v81));
+    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v82, v39, 0LL);
+    v41 = COREADAPTERACCESS::AcquireExclusive((__int64)v82, v40);
+    v5 = v41;
+    if ( v41 < 0 )
       break;
-    if ( v9 )
-      return (unsigned int)v14;
-    v8 = v67;
-    if ( *v67 )
+    if ( (int)MonitorGetMonitorOrientationsFromTarget((__int64)v39, *((unsigned int *)NextDisplaySource + 267), &v76) >= 0 )
     {
-      WdLogSingleEntry1(1LL, 5706LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"!*FreeModeList", 5706LL, 0LL, 0LL, 0LL, 0LL);
-      v8 = v67;
+      v43 = v77;
+      if ( v76 )
+        v43 = 1;
+      LOBYTE(v77) = v43;
     }
-    v9 = 1;
-    v58 = 1;
-  }
-  if ( (int)v14 < 0 )
-    return (unsigned int)v14;
-  if ( !v6 )
-    return (unsigned int)v14;
-  v15 = 4000LL * a4->VidPnSourceId;
-  v16 = *(_QWORD *)(*((_QWORD *)v10 + 365) + 128LL);
-  v17 = *(_DWORD *)(v15 + v16 + 1120);
-  if ( v17 == 1 )
-    return (unsigned int)v14;
-  v19 = (const struct _D3DKMT_DISPLAYMODE *)(v16 + v15 + 644);
-  *v6 = v19;
-  if ( v17 != -1 )
-    return (unsigned int)v14;
-  Width = v19->Width;
-  v21 = 1;
-  if ( !v19->Width )
-    goto LABEL_33;
-  Height = v19->Height;
-  if ( !Height )
-    goto LABEL_33;
-  ModeCount = a4->ModeCount;
-  v24 = 0;
-  v21 = 0;
-  if ( !ModeCount )
-    goto LABEL_33;
-  pModeList = (COREADAPTERACCESS *)a4->pModeList;
-  v66 = pModeList;
-  while ( 2 )
-  {
-    v26 = (unsigned int *)((char *)pModeList + 44 * v24);
-    v27 = *v26;
-    if ( (_DWORD)v27 != Width
-      || *(_QWORD *)(v26 + 1) != __PAIR64__(v19->Format, Height)
-      || v26[3] != v19->IntegerRefreshRate
-      || v26[7] != v19->DisplayOrientation
-      || v26[8] != v19->DisplayFixedOutput
-      || v26[6] != v19->ScanLineOrdering )
+    if ( (int)DxgkQueryMonitorTypeLockHeld(
+                (_DWORD)v39,
+                *((_DWORD *)NextDisplaySource + 267),
+                0,
+                0,
+                0LL,
+                (__int64)&v72,
+                0LL,
+                0LL,
+                0LL) < 0 )
     {
-LABEL_21:
-      if ( ++v24 >= ModeCount )
+      v46 = WdLogNewEntry5_WdAssertion(v45, v44);
+      *(_QWORD *)(v46 + 24) = 5355LL;
+      WdLogEvent5_WdAssertion(v46);
+    }
+    if ( v73 == v72 )
+    {
+      v81.VidPnSourceId = *((_DWORD *)NextDisplaySource + 4);
+      DisplayModeList = DxgkpGetDisplayModeList(v39, (struct COREADAPTERACCESS *)v82, v71, &v81, v74);
+      v5 = DisplayModeList;
+      if ( DisplayModeList < 0 )
       {
-        v21 = 0;
-        goto LABEL_33;
+        if ( DisplayModeList == -1071775483 )
+        {
+          v51 = WdLogNewEntry5_WdAssertion(v49, v48);
+          *(_QWORD *)(v51 + 24) = 5373LL;
+          WdLogEvent5_WdAssertion(v51);
+        }
+LABEL_48:
+        v52 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v49);
+        v52[3] = v39;
+        v52[4] = v81.VidPnSourceId;
+        v52[5] = v5;
+        WdLogEvent5_WdDmmEvent(v52);
+        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v82, v53);
+        v6 = v78;
+        goto LABEL_49;
       }
-      continue;
+      v5 = (int)CombineModeList((unsigned int)&v79, (unsigned int)&v75, v81.ModeCount, v81.pModeList, 1);
+      if ( v74[0] )
+        operator delete[](v81.pModeList);
+      if ( (int)v5 < 0 )
+        goto LABEL_48;
     }
-    break;
+    NextDisplaySource = SESSION_VIEW::GetNextDisplaySource(v24, NextDisplaySource);
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v82, v50);
+    if ( !NextDisplaySource )
+    {
+      v11 = v79;
+      v6 = v78;
+      goto LABEL_53;
+    }
   }
-  if ( ((*((_BYTE *)&v19->Flags + 4) ^ *((_BYTE *)v26 + 40)) & 0x10) != 0
-    || ((*(_BYTE *)&v19->Flags ^ *((_BYTE *)v26 + 36)) & 2) != 0 )
-  {
-    pModeList = v66;
-    goto LABEL_21;
-  }
-  if ( v26[4] != v19->RefreshRate.Numerator || v26[5] != v19->RefreshRate.Denominator )
-  {
-    WdLogSingleEntry4(7LL, v27, v26[1], (int)v26[2], v26[3]);
-    WdLogSingleEntry4(7LL, v26[4], v26[5], v19->RefreshRate.Numerator, v19->RefreshRate.Denominator);
-  }
-  v21 = 1;
-  *v68 = 0LL;
-LABEL_33:
-  *(_DWORD *)(4000LL * a4->VidPnSourceId + *(_QWORD *)(*((_QWORD *)v65 + 365) + 128LL) + 1120) = v21;
-  return (unsigned int)v14;
+  v69 = WdLogNewEntry5_WdDmmEvent(v42);
+  *(_QWORD *)(v69 + 24) = v39;
+  *(_QWORD *)(v69 + 32) = v5;
+  WdLogEvent5_WdDmmEvent(v69);
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v82, v70);
+  return (unsigned int)v5;
 }

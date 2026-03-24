@@ -1,19 +1,19 @@
 /*
- * XREFs of ?SetEmpty@CRegion@@UEAAXXZ @ 0x1C007D200
+ * XREFs of ?SetEmpty@CRegion@@UEAAXXZ @ 0x1C0092670
  * Callers:
- *     ?Release@CRegion@@UEBAJXZ @ 0x1C009B810 (-Release@CRegion@@UEBAJXZ.c)
+ *     ?Release@CRegion@@UEBAJXZ @ 0x1C0085A90 (-Release@CRegion@@UEBAJXZ.c)
  * Callees:
- *     ?vDeleteRGNCOREOBJ@RGNCOREOBJ@@QEAAXXZ @ 0x1C007D23C (-vDeleteRGNCOREOBJ@RGNCOREOBJ@@QEAAXXZ.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C002CE60 (-vDeleteREGION@REGION@@QEAAXXZ.c)
  */
 
 void __fastcall CRegion::SetEmpty(CRegion *this)
 {
-  __int64 v2; // [rsp+30h] [rbp+8h] BYREF
+  REGION *v2; // rcx
 
-  v2 = *((_QWORD *)this + 2);
+  v2 = (REGION *)*((_QWORD *)this + 2);
   if ( v2 )
   {
-    RGNCOREOBJ::vDeleteRGNCOREOBJ((RGNCOREOBJ *)&v2);
+    REGION::vDeleteREGION(v2);
     *((_QWORD *)this + 2) = 0LL;
   }
   *((_DWORD *)this + 3) = 0;

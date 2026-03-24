@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z @ 0x1C01C00EC
+ * XREFs of ?HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z @ 0x1C01EA720
  * Callers:
- *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00500BC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ *     xxxDoHotKeyStuff @ 0x1C0104F50 (xxxDoHotKeyStuff.c)
  * Callees:
- *     IsIAMThread @ 0x1C003B1AC (IsIAMThread.c)
- *     ?RequestModernAppClose@@YAHXZ @ 0x1C01C0160 (-RequestModernAppClose@@YAHXZ.c)
+ *     IsIAMThread @ 0x1C003CE58 (IsIAMThread.c)
+ *     ?RequestModernAppClose@@YAHXZ @ 0x1C01EA798 (-RequestModernAppClose@@YAHXZ.c)
  */
 
 __int64 __fastcall HandleIAMHotKey(const struct tagHOTKEY *const a1)
@@ -25,7 +25,7 @@ __int64 __fastcall HandleIAMHotKey(const struct tagHOTKEY *const a1)
   {
     return 0LL;
   }
-  if ( *(_DWORD *)(v3 + 40) == -17 )
+  if ( *(_DWORD *)(v3 + 32) == 61536 )
     return (unsigned int)RequestModernAppClose();
   return v4;
 }

@@ -3,10 +3,10 @@
  * Callers:
  *     CmpAddValueKeyNew @ 0x1405ACC78 (CmpAddValueKeyNew.c)
  *     CmpSetValueKeyExisting @ 0x1405AE27C (CmpSetValueKeyExisting.c)
- *     CmpCopyValue @ 0x1407FD3A4 (CmpCopyValue.c)
+ *     CmpCopyValue @ 0x1407FD384 (CmpCopyValue.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
  *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
  */

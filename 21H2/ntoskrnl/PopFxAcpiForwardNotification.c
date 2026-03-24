@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxAcpiForwardNotification @ 0x1405DDCE4
+ * XREFs of PopFxAcpiForwardNotification @ 0x14057DD6C
  * Callers:
- *     PopFxAcpiDispatchNotification @ 0x1405DDBE0 (PopFxAcpiDispatchNotification.c)
+ *     PopFxAcpiDispatchNotification @ 0x14057DC68 (PopFxAcpiDispatchNotification.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     IoAcquireRemoveLockEx @ 0x1403553A0 (IoAcquireRemoveLockEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     IoAcquireRemoveLockEx @ 0x1402607C0 (IoAcquireRemoveLockEx.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopFxAcpiForwardNotification(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, _BYTE *a5)

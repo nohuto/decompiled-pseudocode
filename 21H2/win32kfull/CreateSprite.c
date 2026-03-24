@@ -1,13 +1,13 @@
 /*
- * XREFs of CreateSprite @ 0x1C008328C
+ * XREFs of CreateSprite @ 0x1C00386B4
  * Callers:
- *     xxxSetLayeredWindow @ 0x1C0082DD4 (xxxSetLayeredWindow.c)
+ *     xxxSetLayeredWindow @ 0x1C0035DC0 (xxxSetLayeredWindow.c)
  * Callees:
- *     ?InitializeMiniWinInfo@@YAXQEBUtagWND@@PEAUtagMINIWINDOWINFO@@@Z @ 0x1C0020F78 (-InitializeMiniWinInfo@@YAXQEBUtagWND@@PEAUtagMINIWINDOWINFO@@@Z.c)
- *     IsWindowContentProtected @ 0x1C0077D48 (IsWindowContentProtected.c)
- *     GreCreateSprite @ 0x1C00833D0 (GreCreateSprite.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     GreCreateSprite @ 0x1C00387EC (GreCreateSprite.c)
+ *     IsWindowContentProtected @ 0x1C00388B4 (IsWindowContentProtected.c)
+ *     ?InitializeMiniWinInfo@@YAXQEAUtagWND@@PEAUtagMINIWINDOWINFO@@@Z @ 0x1C00BEC40 (-InitializeMiniWinInfo@@YAXQEAUtagWND@@PEAUtagMINIWINDOWINFO@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall CreateSprite(HDEV a1, __int64 a2, struct tagRECT *a3, __int64 *a4)
@@ -25,7 +25,7 @@ __int64 __fastcall CreateSprite(HDEV a1, __int64 a2, struct tagRECT *a3, __int64
   _BYTE v18[144]; // [rsp+60h] [rbp-E8h] BYREF
 
   memset(v18, 0, 0x88uLL);
-  InitializeMiniWinInfo((const struct tagWND *const)a2, (struct tagMINIWINDOWINFO *)v18);
+  InitializeMiniWinInfo((struct tagWND *const)a2, (struct tagMINIWINDOWINFO *)v18);
   v8 = *(_QWORD *)(a2 + 40);
   v9 = *(_BYTE *)(v8 + 31) & 0x10;
   v10 = *(_WORD *)(v8 + 42) & 0x2FFF;

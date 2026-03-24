@@ -3,8 +3,8 @@
  * Callers:
  *     PspCaptureUserProcessParameters @ 0x140606D50 (PspCaptureUserProcessParameters.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall PspCopyUnicodeString(const void **a1, __int64 a2, void **a3)

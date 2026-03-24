@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpUnregisterPartitionPages @ 0x1406338CC
+ * XREFs of EtwpUnregisterPartitionPages @ 0x1405B0B30
  * Callers:
- *     EtwpFreePartitionMemory @ 0x140633468 (EtwpFreePartitionMemory.c)
+ *     EtwpFreePartitionMemory @ 0x1405B06C8 (EtwpFreePartitionMemory.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpUnregisterPartitionPages(_QWORD *a1, __int64 a2)
@@ -30,15 +30,15 @@ __int64 __fastcall EtwpUnregisterPartitionPages(_QWORD *a1, __int64 a2)
 
   v3 = 0LL;
   v4 = 0LL;
-  v6 = ExAcquireSpinLockExclusive(&dword_140C15CF0);
-  v7 = (unsigned int)dword_140C15CE4 >> 5;
-  v8 = -1LL << (dword_140C15CE4 & 0x1F);
+  v6 = ExAcquireSpinLockExclusive(&dword_140C19890);
+  v7 = (unsigned int)dword_140C19884 >> 5;
+  v8 = -1LL << (dword_140C19884 & 0x1F);
   v9 = a2 & v8;
-  if ( (unsigned int)dword_140C15CE4 >> 5 )
+  if ( (unsigned int)dword_140C19884 >> 5 )
   {
     v10 = v7 - 1;
     v19 = a2 & v8;
-    v11 = qword_140C15CE8
+    v11 = qword_140C19888
         + 8LL
         * ((v7 - 1) & (HIBYTE(v19)
                      + 37
@@ -55,45 +55,43 @@ __int64 __fastcall EtwpUnregisterPartitionPages(_QWORD *a1, __int64 a2)
       if ( (v11 & 1) != 0 )
         break;
       if ( v9 == (v8 & *(_QWORD *)(v11 + 8)) )
+        goto LABEL_7;
+    }
+    v11 = 0LL;
+LABEL_7:
+    if ( v11 )
+    {
+      v3 = *(_QWORD *)(v11 + 16);
+      v4 = (void *)v11;
+      if ( a1 )
+        *a1 = *(_QWORD *)(v11 + 24);
+      v20 = v8 & *(_QWORD *)(v11 + 8);
+      for ( i = (_QWORD *)(qword_140C19888
+                         + 8LL
+                         * (v10 & (HIBYTE(v20)
+                                 + 37
+                                 * (BYTE6(v20)
+                                  + 37
+                                  * (BYTE5(v20)
+                                   + 37
+                                   * (BYTE4(v20)
+                                    + 37
+                                    * (BYTE3(v20)
+                                     + 37 * (BYTE2(v20) + 37 * (BYTE1(v20) + 37 * ((unsigned __int8)v20 + 11623883))))))))));
+            (*i & 1) == 0;
+            i = (_QWORD *)*i )
       {
-        if ( v11 )
+        if ( *i == v11 )
         {
-          v3 = *(_QWORD *)(v11 + 16);
-          v4 = (void *)v11;
-          if ( a1 )
-            *a1 = *(_QWORD *)(v11 + 24);
-          v20 = v8 & *(_QWORD *)(v11 + 8);
-          for ( i = (_QWORD *)(qword_140C15CE8
-                             + 8LL
-                             * (v10 & (HIBYTE(v20)
-                                     + 37
-                                     * (BYTE6(v20)
-                                      + 37
-                                      * (BYTE5(v20)
-                                       + 37
-                                       * (BYTE4(v20)
-                                        + 37
-                                        * (BYTE3(v20)
-                                         + 37
-                                         * (BYTE2(v20) + 37 * (BYTE1(v20) + 37 * ((unsigned __int8)v20 + 11623883))))))))));
-                (*i & 1) == 0;
-                i = (_QWORD *)*i )
-          {
-            if ( *i == v11 )
-            {
-              *i = *(_QWORD *)v11;
-              --EtwpMdlTable;
-              *(_QWORD *)v11 |= 0x8000000000000002uLL;
-              goto LABEL_13;
-            }
-          }
+          *i = *(_QWORD *)v11;
+          --EtwpMdlTable;
+          *(_QWORD *)v11 |= 0x8000000000000002uLL;
+          break;
         }
-        break;
       }
     }
   }
-LABEL_13:
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C15CF0);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C19890);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

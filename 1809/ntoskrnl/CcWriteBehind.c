@@ -1,5 +1,5 @@
 /*
- * XREFs of CcWriteBehind @ 0x1400D617C
+ * XREFs of CcWriteBehind @ 0x1400D619C
  * Callers:
  *     CcWaitForUninitializeCacheMap @ 0x14001B334 (CcWaitForUninitializeCacheMap.c)
  *     CcWorkerThread @ 0x14007F2E0 (CcWorkerThread.c)
@@ -7,9 +7,9 @@
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     CcWriteBehindInternal @ 0x14007D2F0 (CcWriteBehindInternal.c)
  *     CcFreeWorkQueueEntry @ 0x14007EDF0 (CcFreeWorkQueueEntry.c)
- *     CcGetPartition @ 0x1400AD010 (CcGetPartition.c)
- *     ExQueueWorkItemToPartition @ 0x1400D2ECC (ExQueueWorkItemToPartition.c)
- *     CcAllocateWorkQueueEntry @ 0x1400D630C (CcAllocateWorkQueueEntry.c)
+ *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     ExQueueWorkItemToPartition @ 0x1400D2EEC (ExQueueWorkItemToPartition.c)
+ *     CcAllocateWorkQueueEntry @ 0x1400D632C (CcAllocateWorkQueueEntry.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

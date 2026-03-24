@@ -1,80 +1,86 @@
 /*
- * XREFs of ReferenceWindowStation @ 0x1C00CD2D0
+ * XREFs of ReferenceWindowStation @ 0x1C0030550
  * Callers:
- *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00CD268 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
- *     xxxSnapWindow @ 0x1C023F848 (xxxSnapWindow.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00304E8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     xxxSnapWindow @ 0x1C0160BBC (xxxSnapWindow.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 NTSTATUS __fastcall ReferenceWindowStation(struct _KTHREAD *a1, void *a2, ACCESS_MASK a3, _QWORD *a4, int a5)
 {
+  PVOID v9; // rsi
   PEPROCESS ThreadProcess; // rax
-  __int64 v10; // rdi
-  __int64 ProcessWin32Process; // rsi
+  __int64 ProcessWin32Process; // rbx
+  __int64 v12; // rbp
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
   __int64 *ThreadWin32Thread; // rax
-  __int64 v13; // rax
-  PVOID v14; // rbx
-  __int64 v15; // rdx
+  __int64 v17; // rax
   NTSTATUS result; // eax
-  __int64 v17; // rbx
-  PVOID Object; // [rsp+30h] [rbp-28h] BYREF
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // edi
+  __int64 CurrentThreadProcess; // rax
+  __int64 v22; // rax
+  PVOID Object; // [rsp+30h] [rbp-38h] BYREF
 
+  v9 = 0LL;
   ThreadProcess = PsGetThreadProcess(a1);
-  v10 = 0LL;
   ProcessWin32Process = PsGetProcessWin32Process(ThreadProcess);
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(a1);
-  if ( ThreadWin32Thread )
-    v10 = *ThreadWin32Thread;
+  v12 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess()
+    || (CurrentProcess = PsGetCurrentProcess(v14, v13, v15),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(a1);
+    if ( ThreadWin32Thread )
+      v12 = *ThreadWin32Thread;
+  }
   if ( ProcessWin32Process )
   {
-    if ( a5 )
+    if ( !a5
+      || !v12
+      || (v17 = *(_QWORD *)(v12 + 456)) == 0
+      || *(_QWORD *)(ProcessWin32Process + 664) == *(_QWORD *)(v17 + 40) )
     {
-      if ( v10 )
+      v9 = *(PVOID *)(ProcessWin32Process + 664);
+      if ( v9 )
       {
-        v13 = *(_QWORD *)(v10 + 456);
-        if ( v13 )
+        if ( RtlAreAllAccessesGranted(*(_DWORD *)(ProcessWin32Process + 680), a3) )
         {
-          if ( *(_QWORD *)(ProcessWin32Process + 664) != *(_QWORD *)(v13 + 40) )
-            goto LABEL_13;
+LABEL_11:
+          *a4 = v9;
+          return 0;
         }
+        UserSetLastError(5LL);
+        return -1073741790;
       }
     }
-    v14 = *(PVOID *)(ProcessWin32Process + 664);
-    if ( v14 )
+    if ( v12 )
     {
-      if ( RtlAreAllAccessesGranted(*(_DWORD *)(ProcessWin32Process + 680), a3) )
+      v22 = *(_QWORD *)(v12 + 456);
+      if ( v22 )
       {
-LABEL_10:
-        *a4 = v14;
-        return 0;
-      }
-      UserSetLastError(5LL, v15);
-      return -1073741790;
-    }
-    if ( v10 )
-    {
-LABEL_13:
-      v17 = *(_QWORD *)(v10 + 456);
-      if ( v17 )
-      {
-        v14 = *(PVOID *)(v17 + 40);
-        if ( !(unsigned int)AccessCheckObject(v14, a3, 0LL, WinStaMapping) )
+        v9 = *(PVOID *)(v22 + 40);
+        if ( !(unsigned int)AccessCheckObject(v9, a3, 0LL, WinStaMapping) )
           return -1073741790;
-        if ( v14 )
-          goto LABEL_10;
       }
     }
+    if ( v9 )
+      goto LABEL_11;
   }
   if ( !a2 )
     return -1073741275;
   Object = 0LL;
   result = ObReferenceObjectByHandle(a2, a3, ExWindowStationObjectType, 0, &Object, 0LL);
-  v14 = Object;
+  v9 = Object;
   if ( result >= 0 )
   {
     ObfDereferenceObject(Object);
-    goto LABEL_10;
+    goto LABEL_11;
   }
   return result;
 }

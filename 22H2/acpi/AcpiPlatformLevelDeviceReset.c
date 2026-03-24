@@ -1,57 +1,59 @@
 /*
- * XREFs of AcpiPlatformLevelDeviceReset @ 0x1C0023D34
+ * XREFs of AcpiPlatformLevelDeviceReset @ 0x1C0052B78
  * Callers:
- *     AcpiDeviceBusSpecificReset @ 0x1C0082D00 (AcpiDeviceBusSpecificReset.c)
- *     AcpiDeviceReset @ 0x1C0082DB0 (AcpiDeviceReset.c)
+ *     AcpiDeviceReset @ 0x1C00AE4C0 (AcpiDeviceReset.c)
  * Callees:
- *     AcpiResetDeviceAlreadyProcessed @ 0x1C0023E44 (AcpiResetDeviceAlreadyProcessed.c)
+ *     AcpiResetDeviceAlreadyProcessed @ 0x1C0052C88 (AcpiResetDeviceAlreadyProcessed.c)
  */
 
-__int64 __fastcall AcpiPlatformLevelDeviceReset(__int64 a1, _QWORD *a2)
+__int64 __fastcall AcpiPlatformLevelDeviceReset(__int64 a1)
 {
-  _QWORD *v2; // rsi
-  int v6; // edi
-  KIRQL v7; // bp
-  __int64 v8; // r8
-  __int64 v9; // r11
-  _QWORD *v10; // r10
-  _QWORD *v11; // r9
-  __int64 v12; // rdx
-  __int64 v13; // rax
-  __int64 v14; // [rsp+20h] [rbp-8h]
+  __int64 v1; // rsi
+  int v4; // edi
+  KIRQL v5; // bp
+  __int64 v6; // r8
+  __int64 v7; // r11
+  _QWORD *v8; // r10
+  _QWORD *v9; // r9
+  __int64 v10; // rdx
+  __int64 v11; // rax
+  unsigned int v12; // eax
+  __int64 v13; // [rsp+20h] [rbp-8h]
 
-  v2 = *(_QWORD **)(a1 + 8);
-  if ( !v2[96] )
+  v1 = *(_QWORD *)(a1 + 8);
+  if ( !*(_QWORD *)(v1 + 728) )
     return 3221225486LL;
   if ( !*(_QWORD *)(a1 + 72) )
     return 3221225659LL;
-  v6 = 0;
-  v7 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
-  if ( v2[119] )
+  v4 = 0;
+  v5 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
+  if ( *(_QWORD *)(v1 + 912) )
   {
-    v6 = -2147483631;
+    v4 = -2147483631;
   }
   else
   {
-    v9 = *(_QWORD *)(a1 + 72);
-    v10 = (_QWORD *)(v9 + 48);
-    v11 = *(_QWORD **)(v9 + 48);
-    while ( v11 != v10 )
+    v7 = *(_QWORD *)(a1 + 72);
+    v8 = (_QWORD *)(v7 + 48);
+    v9 = *(_QWORD **)(v7 + 48);
+    while ( v9 != v8 )
     {
-      if ( !(unsigned __int8)AcpiResetDeviceAlreadyProcessed(v9, v11 - 5, v8, *v11, v14) )
+      if ( !(unsigned __int8)AcpiResetDeviceAlreadyProcessed(v7, v9 - 5, v6, *v9, v13) )
       {
-        v13 = *(_QWORD *)(v12 + 32);
-        *(_QWORD *)(v13 + 1008) |= 0x8000000uLL;
-        *(_QWORD *)(v13 + 952) = a1;
+        v11 = *(_QWORD *)(v10 + 32);
+        *(_QWORD *)(v11 + 960) |= 0x8000000uLL;
+        *(_QWORD *)(v11 + 912) = a1;
         _InterlockedIncrement((volatile signed __int32 *)a1);
       }
     }
   }
-  KeReleaseSpinLock(&AcpiPowerLock, v7);
-  if ( v6 >= 0 )
+  KeReleaseSpinLock(&AcpiPowerLock, v5);
+  if ( v4 >= 0 )
   {
-    _InterlockedOr((volatile signed __int32 *)(a1 + 88), 1u);
-    return (unsigned int)IoRequestDeviceRemovalForReset(v2[98], (4 * (unsigned __int8)*a2) & 4);
+    v12 = (*(_DWORD *)(v1 + 960) & 0x40000000) == 0LL;
+    if ( AcpiIgnorePnpVetoesInPLDR )
+      v12 |= 2u;
+    return (unsigned int)IoRequestDeviceRemovalForReset(*(_QWORD *)(v1 + 744), v12);
   }
-  return (unsigned int)v6;
+  return (unsigned int)v4;
 }

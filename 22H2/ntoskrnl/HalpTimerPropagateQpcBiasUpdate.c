@@ -1,44 +1,42 @@
 /*
- * XREFs of HalpTimerPropagateQpcBiasUpdate @ 0x14037AD70
+ * XREFs of HalpTimerPropagateQpcBiasUpdate @ 0x1403A566C
  * Callers:
- *     HalpTimerSelectRoles @ 0x14037A8FC (HalpTimerSelectRoles.c)
- *     HalpTimerCalibratePerformanceCounter @ 0x14037AC68 (HalpTimerCalibratePerformanceCounter.c)
- *     HalpTimerInitSystem @ 0x14037B080 (HalpTimerInitSystem.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x1403A5564 (HalpTimerCalibratePerformanceCounter.c)
+ *     HalpTimerInitSystem @ 0x1403AF740 (HalpTimerInitSystem.c)
+ *     HalpTimerSelectRoles @ 0x1403B0F2C (HalpTimerSelectRoles.c)
  * Callees:
- *     RtlSetSystemGlobalData @ 0x14035B9D0 (RtlSetSystemGlobalData.c)
- *     HalpTimerScaleCounter @ 0x1403C3EC4 (HalpTimerScaleCounter.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpTimerScaleCounter @ 0x140395BF0 (HalpTimerScaleCounter.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall HalpTimerPropagateQpcBiasUpdate(__int64 a1)
 {
   __int64 v2; // rcx
-  __int64 v3; // rax
-  __int64 v4; // r11
-  int v5; // eax
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  int v3; // eax
+  __int64 v4; // rbx
+  unsigned __int64 v5; // rax
 
   if ( a1 == HalpPerformanceCounter )
   {
-    if ( !qword_140C626F0 )
+    if ( !qword_140C4A358 )
     {
       v2 = *(_QWORD *)(a1 + 208);
-      if ( qword_140C626E8 )
-        qword_140C626E8(v2);
+      if ( qword_140C4A350 )
+        qword_140C4A350(v2);
     }
-    if ( *(_DWORD *)(a1 + 228) == 5 && *(_QWORD *)(a1 + 192) )
+    v3 = *(_DWORD *)(a1 + 228);
+    if ( v3 == 5 )
     {
-      v3 = HalpTimerScaleCounter(abs64(*(_QWORD *)(a1 + 208)), *(_QWORD *)(a1 + 192), 10000000LL);
+      if ( !*(_QWORD *)(a1 + 192) )
+        return;
+      v4 = *(_QWORD *)(a1 + 208);
+      v5 = HalpTimerScaleCounter(abs64(v4), *(_QWORD *)(a1 + 192), 10000000LL);
       if ( v4 < 0 )
-        v3 = -v3;
-      v6 = v3;
-      RtlSetSystemGlobalData(19, &v6, 8);
+        v5 = -(__int64)v5;
+      MEMORY[0xFFFFF780000003B8] = v5;
+      v3 = *(_DWORD *)(a1 + 228);
     }
-    v5 = *(_DWORD *)(a1 + 228);
-    if ( v5 == 10 || v5 == 7 )
-    {
-      v6 = *(_QWORD *)(a1 + 208);
-      RtlSetSystemGlobalData(19, &v6, 8);
-    }
+    if ( v3 == 11 || v3 == 8 )
+      MEMORY[0xFFFFF780000003B8] = *(_QWORD *)(a1 + 208);
   }
 }

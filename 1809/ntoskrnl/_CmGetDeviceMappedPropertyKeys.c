@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetDeviceMappedPropertyKeys @ 0x1408FDAE0
+ * XREFs of _CmGetDeviceMappedPropertyKeys @ 0x1408FDAC0
  * Callers:
  *     _PnpDispatchDevice @ 0x14059AFF0 (_PnpDispatchDevice.c)
- *     _CmDeleteDeviceWorker @ 0x1408F75DC (_CmDeleteDeviceWorker.c)
+ *     _CmDeleteDeviceWorker @ 0x1408F75BC (_CmDeleteDeviceWorker.c)
  * Callees:
  *     _CmGetDeviceMappedPropertyFromRegProp @ 0x14059BFC8 (_CmGetDeviceMappedPropertyFromRegProp.c)
  *     _CmGetDeviceMappedPropertyFromComposite @ 0x14059C504 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x1406DC21C (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x1406DC1FC (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
  */
 
 __int64 __fastcall CmGetDeviceMappedPropertyKeys(
@@ -117,7 +117,7 @@ LABEL_20:
   if ( (int)result >= 0 )
   {
     v19 = 0;
-    v20 = (__int64 *)&off_140909320;
+    v20 = (__int64 *)&off_140909300;
     while ( 1 )
     {
       v21 = *v20;
@@ -178,7 +178,7 @@ LABEL_39:
     if ( (int)result >= 0 )
     {
       v28 = 0;
-      v29 = (__int64 *)&off_14090B220;
+      v29 = (__int64 *)&off_14090B200;
       while ( 1 )
       {
         v30 = *v29;

@@ -1,32 +1,23 @@
 /*
- * XREFs of CcAdjustWriteBehindThreadPool @ 0x14029D344
+ * XREFs of CcAdjustWriteBehindThreadPool @ 0x140381928
  * Callers:
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x14029E260 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140336330 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
  * Callees:
- *     CcReEngageWorkerThreads @ 0x14025A794 (CcReEngageWorkerThreads.c)
- *     CcGetCurrentNumaNode @ 0x14029E3A0 (CcGetCurrentNumaNode.c)
+ *     CcReEngageWorkerThreads @ 0x140380480 (CcReEngageWorkerThreads.c)
  */
 
-void __fastcall CcAdjustWriteBehindThreadPool(__int64 a1)
+void __fastcall CcAdjustWriteBehindThreadPool(__int64 a1, char a2)
 {
-  __int64 CurrentNumaNode; // rax
-  __int64 v2; // rcx
-  char v3; // r9
-
-  if ( (unsigned int)CcNumberNumaNodes <= 1 && CcEnablePerVolumeLazyWriter != 1 )
+  if ( a2 )
   {
-    CurrentNumaNode = CcGetCurrentNumaNode(a1, 0LL);
-    if ( v3 )
-    {
-      *(_DWORD *)(v2 + 1224) = 1;
-      if ( *(_BYTE *)(CurrentNumaNode + 224) )
-        *(_BYTE *)(CurrentNumaNode + 224) = 0;
-    }
-    else
-    {
-      *(_DWORD *)(v2 + 1224) = -1;
-      if ( *(_QWORD *)(CurrentNumaNode + 104) != CurrentNumaNode + 104 && !*(_BYTE *)(CurrentNumaNode + 196) )
-        CcReEngageWorkerThreads(v2, CurrentNumaNode, *(_DWORD *)(v2 + 776), 0);
-    }
+    *(_DWORD *)(a1 + 960) = 1;
+    if ( *(_BYTE *)(a1 + 776) )
+      *(_BYTE *)(a1 + 776) = 0;
+  }
+  else
+  {
+    *(_DWORD *)(a1 + 960) = -1;
+    if ( *(_QWORD *)(a1 + 256) != a1 + 256 && !*(_BYTE *)(a1 + 352) )
+      CcReEngageWorkerThreads(a1, *(_DWORD *)(a1 + 200), 0);
   }
 }

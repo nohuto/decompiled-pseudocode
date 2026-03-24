@@ -1,10 +1,10 @@
 /*
- * XREFs of SeSddlSecurityDescriptorFromSDDL @ 0x1C00BE1B4
+ * XREFs of SeSddlSecurityDescriptorFromSDDL @ 0x1C00BCA34
  * Callers:
- *     IoDevObjCreateDeviceSecure @ 0x1C00BDF30 (IoDevObjCreateDeviceSecure.c)
+ *     IoDevObjCreateDeviceSecure @ 0x1C00BC7B0 (IoDevObjCreateDeviceSecure.c)
  * Callees:
- *     memmove @ 0x1C0036E00 (memmove.c)
- *     SepSddlSecurityDescriptorFromSDDLString @ 0x1C00BEA60 (SepSddlSecurityDescriptorFromSDDLString.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
+ *     SepSddlSecurityDescriptorFromSDDLString @ 0x1C00BD2F0 (SepSddlSecurityDescriptorFromSDDLString.c)
  */
 
 int __fastcall SeSddlSecurityDescriptorFromSDDL(

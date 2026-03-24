@@ -1,14 +1,14 @@
 /*
- * XREFs of PfVolumeSupportedForPrefetch @ 0x140206C48
+ * XREFs of PfVolumeSupportedForPrefetch @ 0x14035E4FC
  * Callers:
- *     PfpVolumeOpenAndVerify @ 0x1406853AC (PfpVolumeOpenAndVerify.c)
+ *     PfpVolumeOpenAndVerify @ 0x14070B318 (PfpVolumeOpenAndVerify.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall PfVolumeSupportedForPrefetch(_DWORD *a1)
 {
-  unsigned int v1; // eax
+  int v1; // eax
 
   if ( (unsigned int)(*a1 - 7) > 1 )
     return 1LL;
@@ -17,5 +17,5 @@ __int64 __fastcall PfVolumeSupportedForPrefetch(_DWORD *a1)
     return 2LL;
   if ( (v1 & 1) != 0 )
     return 3LL;
-  return ~(unsigned __int8)(v1 >> 3) & 4;
+  return ((unsigned __int8)~*((_BYTE *)a1 + 4) >> 3) & 4;
 }

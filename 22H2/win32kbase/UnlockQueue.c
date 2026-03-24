@@ -1,13 +1,16 @@
 /*
- * XREFs of UnlockQueue @ 0x1C012D540
+ * XREFs of UnlockQueue @ 0x1C00C77C0
  * Callers:
  *     <none>
  * Callees:
- *     FreeQueue @ 0x1C0038668 (FreeQueue.c)
+ *     Win32FreeToPagedLookasideList @ 0x1C002CF10 (Win32FreeToPagedLookasideList.c)
  */
 
-void __fastcall UnlockQueue(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 (*__fastcall UnlockQueue(__int64 a1))(void)
 {
-  if ( a1[100]-- == 1 && (a1[99] & 0x4000000) != 0 )
-    FreeQueue(a1, a2, a3, a4);
+  __int64 (*result)(void); // rax
+
+  if ( (*(_DWORD *)(a1 + 396))-- == 1 && (*(_DWORD *)(a1 + 388) & 0x4000000) != 0 )
+    return Win32FreeToPagedLookasideList((__int64)QLookaside, a1);
+  return result;
 }

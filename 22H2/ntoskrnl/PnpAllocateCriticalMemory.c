@@ -1,37 +1,33 @@
 /*
- * XREFs of PnpAllocateCriticalMemory @ 0x140868B24
+ * XREFs of PnpAllocateCriticalMemory @ 0x14074A7F4
  * Callers:
- *     PnpSetTargetDeviceRemove @ 0x140868120 (PnpSetTargetDeviceRemove.c)
- *     PnpResizeTargetDeviceBlock @ 0x140868264 (PnpResizeTargetDeviceBlock.c)
- *     PiEventBuildPdoList @ 0x1408684B8 (PiEventBuildPdoList.c)
- *     PnpCompileDeviceInstancePaths @ 0x140868710 (PnpCompileDeviceInstancePaths.c)
- *     IopAllocateRelationList @ 0x1408689DC (IopAllocateRelationList.c)
- *     PiAllocateDeviceObjectList @ 0x140868A38 (PiAllocateDeviceObjectList.c)
- *     PiEventAllocateVetoBuffer @ 0x140868AA4 (PiEventAllocateVetoBuffer.c)
- *     PnpQueuePendingSurpriseRemoval @ 0x140883540 (PnpQueuePendingSurpriseRemoval.c)
- *     PiProcessQueryAndCancelRemoval @ 0x1409718E4 (PiProcessQueryAndCancelRemoval.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x14073283C (PiProcessQueryAndCancelRemoval.c)
+ *     PnpSetTargetDeviceRemove @ 0x14074A49C (PnpSetTargetDeviceRemove.c)
+ *     IopAllocateRelationList @ 0x14074A604 (IopAllocateRelationList.c)
+ *     PiAllocateDeviceObjectList @ 0x14074A660 (PiAllocateDeviceObjectList.c)
+ *     PiEventAllocateVetoBuffer @ 0x14074A778 (PiEventAllocateVetoBuffer.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x14074A960 (PnpQueuePendingSurpriseRemoval.c)
+ *     PiEventBuildPdoList @ 0x14074AC68 (PiEventBuildPdoList.c)
+ *     PnpCompileDeviceInstancePaths @ 0x14074B1E4 (PnpCompileDeviceInstancePaths.c)
+ *     PnpResizeTargetDeviceBlock @ 0x14074BE58 (PnpResizeTargetDeviceBlock.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PnpAllocateCriticalMemory(int a1, __int64 a2, __int64 a3, unsigned int a4)
+PVOID __fastcall PnpAllocateCriticalMemory(int a1, POOL_TYPE a2, SIZE_T a3, ULONG a4)
 {
-  __int64 result; // rax
+  ULONG i; // r8d
+  PVOID result; // rax
   LARGE_INTEGER Interval; // [rsp+20h] [rbp-18h] BYREF
 
-  result = ExAllocatePool2(a2, a3, a4);
-  if ( !result && a1 )
+  for ( i = a4; ; i = a4 )
   {
-    do
-    {
-      if ( a1 == 4 )
-        break;
-      Interval.QuadPart = -10000LL;
-      KeDelayExecutionThread(0, 0, &Interval);
-      result = ExAllocatePool2(a2, a3, a4);
-    }
-    while ( !result );
+    result = ExAllocatePoolWithTag(a2, a3, i);
+    if ( result || (a1 & 0xFFFFFFFB) == 0 )
+      break;
+    Interval.QuadPart = -10000LL;
+    KeDelayExecutionThread(0, 0, &Interval);
   }
   return result;
 }

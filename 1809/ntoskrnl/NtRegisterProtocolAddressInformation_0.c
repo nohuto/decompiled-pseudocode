@@ -1,5 +1,5 @@
 /*
- * XREFs of NtRegisterProtocolAddressInformation_0 @ 0x140194B10
+ * XREFs of NtRegisterProtocolAddressInformation_0 @ 0x140194B30
  * Callers:
  *     <none>
  * Callees:

@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_WICCreateImagingFactory_Proxy @ 0x18010281F
+ * XREFs of __imp_load_WICCreateImagingFactory_Proxy @ 0x1800E8B91
  * Callers:
  *     <none>
  * Callees:

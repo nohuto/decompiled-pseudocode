@@ -1,5 +1,5 @@
 /*
- * XREFs of InitSMSLookaside @ 0x1C03B5240
+ * XREFs of InitSMSLookaside @ 0x1C0394000
  * Callers:
  *     <none>
  * Callees:

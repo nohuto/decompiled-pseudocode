@@ -1,13 +1,13 @@
 /*
- * XREFs of PsFreeSiloContextSlot @ 0x1409AC640
+ * XREFs of PsFreeSiloContextSlot @ 0x140905A80
  * Callers:
- *     VrpRegistryUnload @ 0x140A720C0 (VrpRegistryUnload.c)
+ *     VrpRegistryUnload @ 0x140882860 (VrpRegistryUnload.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PspGetNextSilo @ 0x1406A31F4 (PspGetNextSilo.c)
- *     PspStorageGetObject @ 0x1407D9870 (PspStorageGetObject.c)
- *     PspStorageFreeSlot @ 0x1409B7EF4 (PspStorageFreeSlot.c)
+ *     PspStorageGetObject @ 0x1402005D0 (PspStorageGetObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     PspGetNextSilo @ 0x140617F50 (PspGetNextSilo.c)
+ *     PspStorageFreeSlot @ 0x14090EF94 (PspStorageFreeSlot.c)
  */
 
 __int64 __fastcall PsFreeSiloContextSlot(unsigned int a1)
@@ -16,20 +16,20 @@ __int64 __fastcall PsFreeSiloContextSlot(unsigned int a1)
   __int64 v3; // rcx
   ULONG_PTR *NextSilo; // rax
   ULONG_PTR *v5; // rbx
-  PVOID Object; // [rsp+48h] [rbp+10h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp+10h] BYREF
 
-  Object = 0LL;
+  DmaAdapter = 0LL;
   for ( i = 0LL; ; i = v5 )
   {
     NextSilo = (ULONG_PTR *)PspGetNextSilo(i, 0);
     v5 = NextSilo;
     if ( !NextSilo )
       break;
-    v3 = NextSilo[190];
-    if ( v3 && (int)PspStorageGetObject(v3, a1, (unsigned __int64 *)&Object) >= 0 )
+    v3 = NextSilo[163];
+    if ( v3 && (int)PspStorageGetObject(v3, a1, (unsigned __int64 *)&DmaAdapter) >= 0 )
     {
-      ObfDereferenceObject(Object);
-      KeBugCheckEx(0x199u, v5[190], 0LL, 0LL, 0LL);
+      HalPutDmaAdapter(DmaAdapter);
+      KeBugCheckEx(0x199u, v5[163], 0LL, 0LL, 0LL);
     }
   }
   return PspStorageFreeSlot(a1);

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HwndLookupFreeTableData@@YAXPEAU_RTL_GENERIC_TABLE@@PEAX@Z @ 0x1C0116E80
+ * XREFs of ?HwndLookupFreeTableData@@YAXPEAU_RTL_GENERIC_TABLE@@PEAX@Z @ 0x1C012BB70
  * Callers:
  *     <none>
  * Callees:

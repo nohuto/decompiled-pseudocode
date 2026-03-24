@@ -1,139 +1,116 @@
 /*
- * XREFs of _anonymous_namespace_::CreateD3D12ResourcesInternal @ 0x18028CE60
+ * XREFs of _anonymous_namespace_::CreateD3D12ResourcesInternal @ 0x18023E080
  * Callers:
- *     std::_Func_impl_no_alloc__lambda_88358cf897930614284adb3422b4c545__long_CD3DDevice::D3D12Resources___::_Do_call @ 0x18028EEB0 (std--_Func_impl_no_alloc__lambda_88358cf897930614284adb3422b4c545__long_CD3DDevice-_ea_18028EEB0.c)
+ *     std::_Func_impl_no_alloc__lambda_88358cf897930614284adb3422b4c545__long_CD3DDevice::D3D12Resources___::_Do_call @ 0x180240AE0 (std--_Func_impl_no_alloc__lambda_88358cf897930614284adb3422b4c545__long_CD3DDevice-_ea_180240AE0.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180100300 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0q_EventWriteTransfer @ 0x18012DEC4 (McTemplateU0q_EventWriteTransfer.c)
- *     ?IsVailContainer@@YA_NXZ @ 0x18027C21C (-IsVailContainer@@YA_NXZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5D20 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ??4?$com_ptr_t@VCColorGradientStop@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorGradientStop@@@Z @ 0x1800EFDF4 (--4-$com_ptr_t@VCColorGradientStop@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorGradi.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152674 (McTemplateU0q_EventWriteTransfer.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_VailSuperWetInk@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1801957E0 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_VailSuperWetInk@@@details@wil@@QEAAX_NW4R.c)
  */
 
 __int64 __fastcall anonymous_namespace_::CreateD3D12ResourcesInternal(IUnknown **a1, __int64 *a2, __int64 *a3)
 {
-  unsigned int v3; // esi
-  HRESULT v7; // ebx
-  __int64 v8; // rdx
-  bool v9; // al
-  void *v10; // rbx
-  __int64 (__fastcall *v11)(void *, __int128 *, GUID *, __int64 *); // rdi
-  __int64 v12; // rdi
-  __int64 (__fastcall *v13)(__int64, void *, __int64, __int64 *); // rbx
-  __int64 v14; // rcx
-  void *v15; // rax
-  __int64 v16; // rcx
-  __int64 v17; // rax
-  __int64 v18; // rcx
-  __int64 v19; // rax
+  unsigned int v4; // esi
+  __int64 v7; // rcx
+  HRESULT v8; // ebx
+  __int64 v9; // r8
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  void *v12; // rbx
+  __int64 (__fastcall *v13)(void *, _DWORD *, GUID *, __int64 *); // rdi
+  void *v14; // rcx
+  __int64 v15; // rbx
   void *ppDevice; // [rsp+30h] [rbp-40h] BYREF
-  __int64 v22; // [rsp+38h] [rbp-38h] BYREF
-  __int64 v23; // [rsp+40h] [rbp-30h] BYREF
-  _DWORD v24[2]; // [rsp+48h] [rbp-28h] BYREF
-  int v25; // [rsp+50h] [rbp-20h]
-  __int128 v26; // [rsp+58h] [rbp-18h] BYREF
+  __int64 v18; // [rsp+38h] [rbp-38h] BYREF
+  int v19; // [rsp+40h] [rbp-30h] BYREF
+  __int64 v20; // [rsp+44h] [rbp-2Ch]
+  _DWORD v21[2]; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v22; // [rsp+58h] [rbp-18h]
   wil::details::in1diag3 *retaddr; // [rsp+A8h] [rbp+38h]
 
-  v3 = 0;
+  v4 = 0;
   ppDevice = 0LL;
-  v22 = 0LL;
-  v23 = 0LL;
+  v18 = 0LL;
   wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&ppDevice);
-  v7 = D3D12CreateDevice(*a1, D3D_FEATURE_LEVEL_12_0, &GUID_189819f1_1db6_4b57_be54_1821339b85f7, &ppDevice);
-  if ( v7 == -2005270524 )
+  v8 = D3D12CreateDevice(*a1, D3D_FEATURE_LEVEL_12_0, &GUID_189819f1_1db6_4b57_be54_1821339b85f7, &ppDevice);
+  if ( v8 == -2005270524 )
   {
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x100000) != 0 )
-      McTemplateU0q_EventWriteTransfer(
-        (__int64)&Microsoft_Windows_Dwm_Core_Provider_Context,
-        (__int64)&EVTDESC_COMPUTESCRIBBLE_INCOMPATIBLE,
-        6LL);
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x40000) != 0 )
+      McTemplateU0q_EventWriteTransfer(v7, &EVTDESC_COMPUTESCRIBBLE_INCOMPATIBLE, 6LL);
     wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(a3);
     wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(a3 + 1);
-    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(a3 + 2);
-    goto LABEL_23;
+    goto LABEL_22;
   }
-  if ( v7 < 0 )
+  if ( v8 < 0 )
   {
-    v8 = 3263LL;
+    v10 = 4169LL;
 LABEL_7:
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)v8,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
-      (const char *)(unsigned int)v7);
-    v3 = v7;
-    goto LABEL_23;
+      (void *)v10,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
+      (const char *)(unsigned int)v8);
+    v4 = v8;
+    goto LABEL_22;
   }
-  v26 = 0LL;
-  LODWORD(v26) = 2;
-  v9 = IsVailContainer();
-  v25 = 0;
-  v24[0] = v26;
-  DWORD1(v26) = v9 ? 100 : 10000;
-  v24[1] = DWORD1(v26);
-  v7 = (*(__int64 (__fastcall **)(void *, __int64, _DWORD *, __int64))(*(_QWORD *)ppDevice + 104LL))(
+  v22 = 0LL;
+  v21[0] = 2;
+  wil::details::FeatureImpl<__WilFeatureTraits_Feature_VailSuperWetInk>::ReportUsage(
+    `wil::Feature<__WilFeatureTraits_Feature_VailSuperWetInk>::GetImpl'::`2'::impl,
+    0,
+    v9);
+  v19 = v21[0];
+  v21[1] = 10000;
+  v20 = 10000LL;
+  v8 = (*(__int64 (__fastcall **)(void *, __int64, int *, __int64))(*(_QWORD *)ppDevice + 104LL))(
          ppDevice,
          20LL,
-         v24,
+         &v19,
          12LL);
-  if ( v7 < 0 )
+  if ( v8 < 0 )
   {
-    v8 = 3299LL;
+    v10 = 4205LL;
     goto LABEL_7;
   }
-  if ( v25 )
+  if ( HIDWORD(v20) )
   {
-    v10 = ppDevice;
-    v11 = *(__int64 (__fastcall **)(void *, __int128 *, GUID *, __int64 *))(*(_QWORD *)ppDevice + 64LL);
-    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(&v22);
-    v7 = v11(v10, &v26, &GUID_0ec870a6_5d7e_4c22_8cfc_5baae07616ed, &v22);
-    if ( v7 < 0 )
+    v12 = ppDevice;
+    v13 = *(__int64 (__fastcall **)(void *, _DWORD *, GUID *, __int64 *))(*(_QWORD *)ppDevice + 64LL);
+    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(&v18);
+    v8 = v13(v12, v21, &GUID_0ec870a6_5d7e_4c22_8cfc_5baae07616ed, &v18);
+    if ( v8 < 0 )
     {
-      v8 = 3304LL;
+      v10 = 4210LL;
       goto LABEL_7;
     }
-    v12 = *a2;
-    v13 = *(__int64 (__fastcall **)(__int64, void *, __int64, __int64 *))(*(_QWORD *)*a2 + 32LL);
-    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(&v23);
-    v7 = v13(v12, ppDevice, v22, &v23);
-    if ( v7 < 0 )
+    v8 = (*(__int64 (__fastcall **)(__int64, void *, __int64))(*(_QWORD *)*a2 + 32LL))(*a2, ppDevice, v18);
+    if ( v8 < 0 )
     {
-      v8 = 3309LL;
+      v10 = 4214LL;
       goto LABEL_7;
     }
   }
-  else if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x100000) != 0 )
+  else if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x40000) != 0 )
   {
-    McTemplateU0q_EventWriteTransfer(
-      (__int64)&Microsoft_Windows_Dwm_Core_Provider_Context,
-      (__int64)&EVTDESC_COMPUTESCRIBBLE_INCOMPATIBLE,
-      2LL);
+    McTemplateU0q_EventWriteTransfer(v11, &EVTDESC_COMPUTESCRIBBLE_INCOMPATIBLE, 2LL);
   }
-  v14 = *a3;
-  v15 = ppDevice;
-  ppDevice = 0LL;
-  *a3 = (__int64)v15;
+  v14 = ppDevice;
+  v15 = *a3;
+  *a3 = (__int64)ppDevice;
   if ( v14 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v14 + 16LL))(v14);
-  v16 = a3[1];
-  v17 = v22;
-  v22 = 0LL;
-  a3[1] = v17;
-  if ( v16 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v16 + 16LL))(v16);
-  v18 = a3[2];
-  v19 = v23;
-  v23 = 0LL;
-  a3[2] = v19;
-  if ( v18 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v18 + 16LL))(v18);
-LABEL_23:
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v23);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v22);
+    (*(void (__fastcall **)(void *))(*(_QWORD *)v14 + 8LL))(v14);
+  if ( v15 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v15 + 16LL))(v15);
+  wil::com_ptr_t<CColorGradientStop,wil::err_returncode_policy>::operator=(a3 + 1, v18);
+LABEL_22:
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v18);
   wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&ppDevice);
   wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)a1);
   wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(a2);
-  return v3;
+  return v4;
 }

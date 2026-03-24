@@ -1,12 +1,12 @@
 /*
- * XREFs of PspRemoveRateControl @ 0x1409B290C
+ * XREFs of PspRemoveRateControl @ 0x1409092CC
  * Callers:
- *     PspJobDelete @ 0x140207000 (PspJobDelete.c)
- *     PspSetJobRateControl @ 0x1409B2E8C (PspSetJobRateControl.c)
+ *     PspJobDelete @ 0x1402DD320 (PspJobDelete.c)
+ *     PspSetJobRateControl @ 0x140909700 (PspSetJobRateControl.c)
  * Callees:
- *     PspFreeRateControl @ 0x140684EAC (PspFreeRateControl.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspModifyAncestorBits @ 0x1409B265C (PspModifyAncestorBits.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140618450 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspFreeRateControl @ 0x14065CB8C (PspFreeRateControl.c)
+ *     PspModifyAncestorBits @ 0x14090901C (PspModifyAncestorBits.c)
  */
 
 void __fastcall PspRemoveRateControl(__int64 a1)
@@ -20,7 +20,7 @@ void __fastcall PspRemoveRateControl(__int64 a1)
 
   v6 = 0;
   v7 = 0;
-  _InterlockedAnd((volatile signed __int32 *)(a1 + 1536), 0xFBFFFFFF);
+  _InterlockedAnd((volatile signed __int32 *)(a1 + 1320), 0xFBFFFFFF);
   v2[0] = 0LL;
   v2[1] = 0LL;
   v4 = 0;
@@ -34,6 +34,6 @@ void __fastcall PspRemoveRateControl(__int64 a1)
     (__int64)v2,
     5);
   PspModifyAncestorBits(a1, 0x2000000u, 0);
-  PspFreeRateControl(*(PVOID **)(a1 + 1528), 0);
-  *(_QWORD *)(a1 + 1528) = 0LL;
+  PspFreeRateControl(*(PVOID **)(a1 + 1312), 0);
+  *(_QWORD *)(a1 + 1312) = 0LL;
 }

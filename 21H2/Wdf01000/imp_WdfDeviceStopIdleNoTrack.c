@@ -1,12 +1,12 @@
 /*
- * XREFs of imp_WdfDeviceStopIdleNoTrack @ 0x1C0010EE0
+ * XREFs of imp_WdfDeviceStopIdleNoTrack @ 0x1C0048B00
  * Callers:
  *     <none>
  * Callees:
- *     StopIdleWorker @ 0x1C0010F38 (StopIdleWorker.c)
+ *     StopIdleWorker @ 0x1C0016C88 (StopIdleWorker.c)
  */
 
-int __fastcall imp_WdfDeviceStopIdleNoTrack(
+__int64 __fastcall imp_WdfDeviceStopIdleNoTrack(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDEVICE__ *Device,
         unsigned __int8 WaitForD0)

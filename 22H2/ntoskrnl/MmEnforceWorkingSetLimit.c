@@ -1,110 +1,108 @@
 /*
- * XREFs of MmEnforceWorkingSetLimit @ 0x14020C05C
+ * XREFs of MmEnforceWorkingSetLimit @ 0x140251A38
  * Callers:
- *     PspApplyWorkingSetLimitsToProcess @ 0x1406A0894 (PspApplyWorkingSetLimitsToProcess.c)
- *     PspSetQuotaLimits @ 0x1407E3E94 (PspSetQuotaLimits.c)
- *     PspAddProcessToWorkingSetChangeList @ 0x1409B1E98 (PspAddProcessToWorkingSetChangeList.c)
- *     PspApplyWorkingSetLimits @ 0x1409B1F60 (PspApplyWorkingSetLimits.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x140605A6C (PspApplyWorkingSetLimitsToProcess.c)
+ *     PspSetQuotaLimits @ 0x140688A74 (PspSetQuotaLimits.c)
+ *     PspAddProcessToWorkingSetChangeList @ 0x140908A10 (PspAddProcessToWorkingSetChangeList.c)
+ *     PspApplyWorkingSetLimits @ 0x140908AD4 (PspApplyWorkingSetLimits.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CAB0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall MmEnforceWorkingSetLimit(_KPROCESS *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MmEnforceWorkingSetLimit(_KPROCESS *a1, char a2)
 {
-  unsigned __int64 *v4; // rbp
-  char v5; // si
-  int v6; // r14d
-  char v7; // di
-  __int64 SharedVm; // rbx
-  KIRQL v9; // al
-  KIRQL v10; // r15
-  int v11; // ecx
-  BOOL v12; // edx
-  unsigned int v13; // ebx
-  __int64 v14; // rdx
-  __int16 v16; // [rsp+20h] [rbp-88h]
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+28h] [rbp-80h] BYREF
-  _OWORD v18[3]; // [rsp+40h] [rbp-68h] BYREF
+  __int64 v2; // rsi
+  int v3; // r12d
+  unsigned int v4; // r15d
+  char v5; // di
+  char v6; // r14
+  LONG *SharedVm; // rbx
+  KIRQL v8; // al
+  unsigned __int8 v9; // r13
+  __int64 v10; // r8
+  char v11; // r8
+  BOOL v12; // r9d
+  char v13; // cl
+  char v14; // r10
+  int v16; // [rsp+20h] [rbp-60h]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+28h] [rbp-58h] BYREF
+  _OWORD v18[3]; // [rsp+40h] [rbp-40h] BYREF
 
-  v4 = &a1[1].ActiveProcessors.StaticBitmap[26];
-  v5 = 0;
   *(_QWORD *)&LockHandle.OldIrql = 0LL;
-  v6 = 0;
-  if ( (a2 & 4) != 0 )
-    v5 = 0x80;
-  v7 = a2 & 0xF7;
+  v2 = (__int64)&a1[1].ActiveProcessorsPadding[6];
+  v3 = 0;
+  v4 = 0;
+  v5 = a2 & 0xF7;
   v18[0] = 0LL;
   if ( (a2 & 4) == 0 )
-    v7 = a2;
+    v5 = a2;
   memset(&v18[1], 0, 32);
-  LockHandle.LockQueue = 0LL;
-  if ( (v7 & 1) != 0 )
+  v6 = (a2 & 4) != 0 ? 0x80 : 0;
+  if ( (v5 & 1) != 0 )
   {
-    v7 &= ~2u;
-    v5 = (a2 & 4) != 0 ? -64 : 64;
+    v5 &= ~2u;
+    v6 |= 0x40u;
   }
   if ( KeGetCurrentThread()->ApcState.Process != a1 )
   {
-    v6 = 1;
+    v3 = 1;
     KiStackAttachProcess((ULONG_PTR)a1);
   }
-  SharedVm = MiGetSharedVm(v4, a2, a3, a4);
-  v9 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)SharedVm);
-  *(_DWORD *)(SharedVm + 4) = 0;
-  v10 = v9;
-  KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140C698C0, &LockHandle);
-  v11 = *((_DWORD *)v4 + 46);
-  v16 = v11;
-  if ( (v7 & 8) != 0 )
+  SharedVm = MiGetSharedVm(v2);
+  v8 = ExAcquireSpinLockExclusive(SharedVm);
+  SharedVm[1] = 0;
+  LockHandle.LockQueue.Next = 0LL;
+  LockHandle.LockQueue.Lock = &SpinLock;
+  v9 = v8;
+  KxAcquireQueuedSpinLock(&LockHandle, &SpinLock, v10);
+  v16 = *(_DWORD *)(v2 + 184);
+  v11 = v16;
+  if ( (v5 & 8) != 0 )
   {
-    LOBYTE(v11) = v11 & 0x7F;
-    LOBYTE(v16) = v11;
+    v11 = v16 & 0x7F;
+    LOBYTE(v16) = v16 & 0x7F;
   }
-  v12 = (v7 & 8) != 0;
-  if ( (v7 & 2) != 0 )
+  v12 = (v5 & 8) != 0;
+  if ( (v5 & 2) != 0 )
   {
-    LOBYTE(v11) = v11 & 0xBF;
+    v11 &= ~0x40u;
     v12 = 1;
     LOBYTE(v16) = v11;
   }
-  if ( (v11 & 0x80) != 0 )
-    v5 |= 0x80u;
-  if ( (v11 & 0x40) != 0 )
-    v5 |= 0x40u;
-  if ( v5 < 0 && (v5 & 0x40) != 0 && v4[14] + 6 >= v4[15] )
+  v13 = v6 | 0x80;
+  if ( v11 >= 0 )
+    v13 = v6;
+  v14 = v13 | 0x40;
+  if ( (v11 & 0x40) == 0 )
+    v14 = v13;
+  if ( v14 < 0 && (v14 & 0x40) != 0 && (unsigned __int64)(*(_QWORD *)(v2 + 112) + 6LL) >= *(_QWORD *)(v2 + 152) )
   {
-    v13 = -1073741748;
-    goto LABEL_21;
+    v5 = -6;
+    v4 = -1073741748;
   }
-  v13 = 0;
-  if ( (v7 & 4) != 0 )
+  if ( (v5 & 4) != 0 )
   {
-    LOBYTE(v11) = v11 | 0x80;
+    v11 |= 0x80u;
     v12 = 1;
     LOBYTE(v16) = v11;
   }
-  if ( (v7 & 1) == 0 )
+  if ( (v5 & 1) != 0 )
   {
-LABEL_21:
-    if ( !v12 )
-      goto LABEL_23;
-    goto LABEL_22;
+    v12 = 1;
+    LOBYTE(v16) = v11 | 0x40;
   }
-  LOBYTE(v16) = v11 | 0x40;
-LABEL_22:
-  *((_WORD *)v4 + 92) = v16;
-LABEL_23:
-  KxReleaseQueuedSpinLock(&LockHandle);
-  LOBYTE(v14) = v10;
-  MiUnlockWorkingSetExclusive(v4, v14);
-  if ( v6 )
-    KiUnstackDetachProcess(v18, 0LL);
-  return v13;
+  if ( v12 )
+    *(_WORD *)(v2 + 184) = v16;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  MiUnlockWorkingSetExclusive(v2, v9);
+  if ( v3 )
+    KiUnstackDetachProcess((__int64)v18, 0);
+  return v4;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of TtmiScheduleSessionWorker @ 0x1409A4D70
+ * XREFs of TtmiScheduleSessionWorker @ 0x1408FF140
  * Callers:
- *     TtmNotifyDeviceArrival @ 0x1409A1660 (TtmNotifyDeviceArrival.c)
- *     TtmNotifyDeviceDeparture @ 0x1409A1960 (TtmNotifyDeviceDeparture.c)
- *     TtmiAssignDevice @ 0x1409A1BAC (TtmiAssignDevice.c)
- *     TtmiSetInputWakeCapability @ 0x1409A200C (TtmiSetInputWakeCapability.c)
- *     TtmiSetPendingOnOffRequest @ 0x1409A3648 (TtmiSetPendingOnOffRequest.c)
- *     TtmiSetTerminalPendingEvaluation @ 0x1409A36FC (TtmiSetTerminalPendingEvaluation.c)
- *     TtmiTerminalSetDisplayTimeouts @ 0x1409A37AC (TtmiTerminalSetDisplayTimeouts.c)
- *     TtmpEnterProximity @ 0x1409A39F8 (TtmpEnterProximity.c)
- *     TtmpExitProximity @ 0x1409A3A54 (TtmpExitProximity.c)
- *     TtmpSetTerminalPendingCleanup @ 0x1409A3BE0 (TtmpSetTerminalPendingCleanup.c)
- *     TtmNotifyLowPowerStateExited @ 0x1409A4510 (TtmNotifyLowPowerStateExited.c)
- *     TtmNotifySessionPowerStateChange @ 0x1409A49BC (TtmNotifySessionPowerStateChange.c)
- *     TtmiSetDisplayPowerRequest @ 0x1409A4E68 (TtmiSetDisplayPowerRequest.c)
- *     TtmpSetDisplayRequestEnded @ 0x1409A5E3C (TtmpSetDisplayRequestEnded.c)
- *     TtmpDispatchEvacuateDevices @ 0x1409A6940 (TtmpDispatchEvacuateDevices.c)
+ *     TtmNotifyDeviceArrival @ 0x1408FBC00 (TtmNotifyDeviceArrival.c)
+ *     TtmNotifyDeviceDeparture @ 0x1408FBF00 (TtmNotifyDeviceDeparture.c)
+ *     TtmiAssignDevice @ 0x1408FC14C (TtmiAssignDevice.c)
+ *     TtmiSetInputWakeCapability @ 0x1408FC5AC (TtmiSetInputWakeCapability.c)
+ *     TtmiSetPendingOnOffRequest @ 0x1408FDB28 (TtmiSetPendingOnOffRequest.c)
+ *     TtmiTerminalSetDisplayTimeouts @ 0x1408FDC6C (TtmiTerminalSetDisplayTimeouts.c)
+ *     TtmpEnterProximity @ 0x1408FDEB8 (TtmpEnterProximity.c)
+ *     TtmpExitProximity @ 0x1408FDF14 (TtmpExitProximity.c)
+ *     TtmpScheduledEvaluationWorker @ 0x1408FE040 (TtmpScheduledEvaluationWorker.c)
+ *     TtmpSetTerminalPendingCleanup @ 0x1408FE0C0 (TtmpSetTerminalPendingCleanup.c)
+ *     TtmNotifyLowPowerStateExited @ 0x1408FE978 (TtmNotifyLowPowerStateExited.c)
+ *     TtmNotifySessionPowerStateChange @ 0x1408FEDF0 (TtmNotifySessionPowerStateChange.c)
+ *     TtmiSetDisplayPowerRequest @ 0x1408FF238 (TtmiSetDisplayPowerRequest.c)
+ *     TtmpSetDisplayRequestEnded @ 0x140900260 (TtmpSetDisplayRequestEnded.c)
+ *     TtmpDispatchEvacuateDevices @ 0x140900D64 (TtmpDispatchEvacuateDevices.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
  */
 
 void __fastcall TtmiScheduleSessionWorker(__int64 a1, int a2)

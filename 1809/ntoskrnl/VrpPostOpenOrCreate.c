@@ -1,24 +1,24 @@
 /*
- * XREFs of VrpPostOpenOrCreate @ 0x14080AE64
+ * XREFs of VrpPostOpenOrCreate @ 0x14080AE44
  * Callers:
- *     VrpRegistryCallback @ 0x140808010 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140807FF0 (VrpRegistryCallback.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     EtwActivityIdControl @ 0x1400A3B50 (EtwActivityIdControl.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmSetCallbackObjectContext @ 0x1407EADF0 (CmSetCallbackObjectContext.c)
- *     CmAllocateExtraParameter @ 0x1407EC528 (CmAllocateExtraParameter.c)
- *     CmRetrieveExtraParameter @ 0x1407EC588 (CmRetrieveExtraParameter.c)
- *     CmpFindExtraParameterInBlock @ 0x1407EC5C4 (CmpFindExtraParameterInBlock.c)
- *     CmpFreeExtraParameter @ 0x1407EC5FC (CmpFreeExtraParameter.c)
- *     VrpAllocateKeyContext @ 0x140808388 (VrpAllocateKeyContext.c)
- *     VrpFreeCallbackContext @ 0x140808468 (VrpFreeCallbackContext.c)
- *     VrpFreeKeyContext @ 0x1408084B0 (VrpFreeKeyContext.c)
- *     VrpBuildKeyPath @ 0x14080DFFC (VrpBuildKeyPath.c)
- *     VrpCountPathComponents @ 0x14080E1DC (VrpCountPathComponents.c)
+ *     CmSetCallbackObjectContext @ 0x1407EADD0 (CmSetCallbackObjectContext.c)
+ *     CmAllocateExtraParameter @ 0x1407EC508 (CmAllocateExtraParameter.c)
+ *     CmRetrieveExtraParameter @ 0x1407EC568 (CmRetrieveExtraParameter.c)
+ *     CmpFindExtraParameterInBlock @ 0x1407EC5A4 (CmpFindExtraParameterInBlock.c)
+ *     CmpFreeExtraParameter @ 0x1407EC5DC (CmpFreeExtraParameter.c)
+ *     VrpAllocateKeyContext @ 0x140808368 (VrpAllocateKeyContext.c)
+ *     VrpFreeCallbackContext @ 0x140808448 (VrpFreeCallbackContext.c)
+ *     VrpFreeKeyContext @ 0x140808490 (VrpFreeKeyContext.c)
+ *     VrpBuildKeyPath @ 0x14080DFDC (VrpBuildKeyPath.c)
+ *     VrpCountPathComponents @ 0x14080E1BC (VrpCountPathComponents.c)
  */
 
 __int64 __fastcall VrpPostOpenOrCreate(__int64 *a1, void *a2)
@@ -147,7 +147,7 @@ LABEL_21:
       v40 = 2;
       v43 = v24;
       v46 = 4;
-      TlgWrite(&stru_1403FFAD8, &unk_14036CCC3, &ActivityId, 0LL, 5u, &pData);
+      TlgWrite(&stru_1403FFAD8, &unk_14036CDD3, &ActivityId, 0LL, 5u, &pData);
     }
     if ( v6 )
       VrpFreeKeyContext(v6);
@@ -195,7 +195,7 @@ LABEL_29:
         v40 = 2;
         v43 = v33;
         v46 = 4;
-        TlgWrite(&stru_1403FFAD8, &unk_14036C9A5, &ActivityId, 0LL, 5u, &pData);
+        TlgWrite(&stru_1403FFAD8, &unk_14036CAB5, &ActivityId, 0LL, 5u, &pData);
       }
     }
     else

@@ -1,224 +1,222 @@
 /*
- * XREFs of PopCalculateCsSummary @ 0x1405913C4
+ * XREFs of PopCalculateCsSummary @ 0x14056FDE0
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C78A0 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570498 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmConvertTime @ 0x1402553F0 (PpmConvertTime.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     PopCalculateIdleInformation @ 0x1403C76E0 (PopCalculateIdleInformation.c)
- *     PopGetModernStandbyTransitionReason @ 0x1403C7E5C (PopGetModernStandbyTransitionReason.c)
- *     PpmGetPlatformSelectionVetoCounts @ 0x1403C7EC4 (PpmGetPlatformSelectionVetoCounts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopCalculateTotalHwDripsResidency @ 0x140591920 (PopCalculateTotalHwDripsResidency.c)
- *     PopBatteryCapacityToRate @ 0x140598C6C (PopBatteryCapacityToRate.c)
- *     PopBatteryGetEnergyDrainFromDischage @ 0x140598C90 (PopBatteryGetEnergyDrainFromDischage.c)
- *     PopCurrentPowerState @ 0x1407A7258 (PopCurrentPowerState.c)
- *     PopQueryInputSuppressionCount @ 0x1407EB4FC (PopQueryInputSuppressionCount.c)
- *     PopMeasureEnergyChange @ 0x140802EEC (PopMeasureEnergyChange.c)
- *     PopQueryPowerButtonSuppressionCount @ 0x140878E2C (PopQueryPowerButtonSuppressionCount.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A120 (RtlGetInterruptTimePrecise.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmConvertTime @ 0x14034523C (PpmConvertTime.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmGetPlatformSelectionVetoCounts @ 0x140565CB0 (PpmGetPlatformSelectionVetoCounts.c)
+ *     PopCalculateIdleInformation @ 0x140570350 (PopCalculateIdleInformation.c)
+ *     PopCalculateTotalHwDripsResidency @ 0x140570464 (PopCalculateTotalHwDripsResidency.c)
+ *     PopBatteryCapacityToRate @ 0x140573CF8 (PopBatteryCapacityToRate.c)
+ *     PopBatteryGetEnergyDrainFromDischage @ 0x140573D1C (PopBatteryGetEnergyDrainFromDischage.c)
+ *     PopGetModernStandbyTransitionReason @ 0x140576440 (PopGetModernStandbyTransitionReason.c)
+ *     PopCurrentPowerState @ 0x1406F1B8C (PopCurrentPowerState.c)
+ *     PopMeasureEnergyChange @ 0x1408EDD0C (PopMeasureEnergyChange.c)
+ *     PopQueryInputSuppressionCount @ 0x1408EEDEC (PopQueryInputSuppressionCount.c)
  */
 
 __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
 {
   __int64 InterruptTimePrecise; // rsi
   unsigned __int64 v5; // r14
+  unsigned __int64 v6; // r15
   unsigned int EnergyDrainFromDischage; // eax
-  __int64 v7; // rax
-  int v8; // r13d
+  __int64 v8; // rax
   int v9; // ecx
   __int64 v10; // rax
-  unsigned __int64 v11; // r15
+  unsigned __int64 v11; // r13
   unsigned __int64 v12; // rdi
-  unsigned __int64 v13; // rax
-  unsigned __int64 v14; // rcx
-  __int64 v15; // r11
-  __int64 v16; // rsi
-  unsigned __int64 v17; // rsi
-  unsigned int v18; // r11d
-  int v19; // edx
+  unsigned __int64 v13; // rcx
+  __int64 v14; // rsi
+  unsigned __int64 v15; // rsi
+  unsigned __int64 v16; // rdx
+  char v17; // r11
+  int v18; // edx
+  int v19; // ecx
   __int128 v20; // xmm0
   char v21; // al
-  char v22; // cl
-  char v23; // al
-  int v24; // r10d
-  __int64 v25; // r11
-  __int64 v26; // r9
-  char v27; // al
-  char v28; // cl
-  int v29; // r8d
-  KIRQL v30; // al
-  unsigned __int64 v31; // rbx
+  char v22; // al
+  __int64 v23; // r10
+  __int64 v24; // r8
+  KIRQL v25; // al
+  unsigned __int64 v26; // rbx
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v35; // zf
-  int v36; // [rsp+20h] [rbp-99h]
-  int v37; // [rsp+24h] [rbp-95h]
-  char v38; // [rsp+28h] [rbp-91h]
-  __int64 v39; // [rsp+30h] [rbp-89h] BYREF
-  __int64 v40; // [rsp+38h] [rbp-81h] BYREF
-  unsigned __int64 v41; // [rsp+40h] [rbp-79h]
-  LARGE_INTEGER v42; // [rsp+48h] [rbp-71h] BYREF
-  __int64 v43; // [rsp+50h] [rbp-69h]
-  __int64 v44; // [rsp+58h] [rbp-61h]
-  unsigned __int64 v45; // [rsp+60h] [rbp-59h]
-  unsigned __int64 v46; // [rsp+68h] [rbp-51h]
-  unsigned __int64 v47; // [rsp+70h] [rbp-49h]
-  __int64 v48; // [rsp+78h] [rbp-41h]
-  __int128 v49; // [rsp+80h] [rbp-39h] BYREF
-  __int128 v50; // [rsp+90h] [rbp-29h] BYREF
-  __int128 v51; // [rsp+A0h] [rbp-19h]
-  _OWORD v52[6]; // [rsp+B0h] [rbp-9h] BYREF
-  int v53; // [rsp+120h] [rbp+67h] BYREF
-  int v54; // [rsp+128h] [rbp+6Fh] BYREF
-  int v55; // [rsp+130h] [rbp+77h]
-  int v56; // [rsp+138h] [rbp+7Fh]
+  bool v30; // zf
+  int v31; // [rsp+20h] [rbp-A9h]
+  int v32; // [rsp+24h] [rbp-A5h]
+  int ModernStandbyTransitionReason; // [rsp+28h] [rbp-A1h]
+  __int64 v34; // [rsp+30h] [rbp-99h] BYREF
+  __int64 v35; // [rsp+38h] [rbp-91h] BYREF
+  __int64 v36; // [rsp+40h] [rbp-89h]
+  unsigned __int64 v37; // [rsp+48h] [rbp-81h] BYREF
+  unsigned __int64 v38; // [rsp+50h] [rbp-79h]
+  LARGE_INTEGER v39; // [rsp+58h] [rbp-71h] BYREF
+  __int64 v40; // [rsp+60h] [rbp-69h]
+  ULONGLONG v41; // [rsp+68h] [rbp-61h]
+  ULONGLONG v42; // [rsp+70h] [rbp-59h]
+  unsigned __int64 v43; // [rsp+78h] [rbp-51h]
+  __int64 v44; // [rsp+80h] [rbp-49h]
+  __int128 v45; // [rsp+88h] [rbp-41h] BYREF
+  __int128 v46; // [rsp+98h] [rbp-31h]
+  __int128 v47; // [rsp+A8h] [rbp-21h] BYREF
+  _OWORD v48[6]; // [rsp+B8h] [rbp-11h] BYREF
+  int v49; // [rsp+130h] [rbp+67h]
+  int v50; // [rsp+138h] [rbp+6Fh] BYREF
+  int v51; // [rsp+140h] [rbp+77h]
+  int v52; // [rsp+148h] [rbp+7Fh]
 
-  *(_QWORD *)&v49 = 0LL;
-  DWORD2(v49) = 0;
-  v42.QuadPart = 0LL;
-  memset(v52, 0, 32);
-  LOBYTE(v41) = 0;
-  v50 = 0LL;
-  v51 = 0LL;
-  PopCalculateIdleInformation((__int64)&v50);
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v42);
-  v5 = (InterruptTimePrecise - qword_140CF7CC8) / 0xAuLL;
-  PopCurrentPowerState(v52);
+  v37 = 0LL;
+  memset(v48, 0, 32);
+  v39.QuadPart = 0LL;
+  LOBYTE(v38) = 0;
+  v47 = 0LL;
+  v45 = 0LL;
+  v46 = 0LL;
+  PopCalculateIdleInformation(&v45);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v39);
+  v5 = (InterruptTimePrecise - qword_140C4FF08) / 0xAuLL;
+  PopGetModernStandbyTransitionReason(0LL, &v37);
+  if ( v37 <= qword_140C4FF08 )
+    v6 = 0LL;
+  else
+    v6 = (InterruptTimePrecise - v37) / 0xA;
+  PopCurrentPowerState(v48);
   if ( v5 )
   {
-    EnergyDrainFromDischage = PopBatteryGetEnergyDrainFromDischage((unsigned int)PopCsConsumption, HIDWORD(v52[0]));
-    v55 = PopBatteryCapacityToRate(EnergyDrainFromDischage, v5);
+    EnergyDrainFromDischage = PopBatteryGetEnergyDrainFromDischage((unsigned int)PopCsConsumption, HIDWORD(v48[0]));
+    v49 = PopBatteryCapacityToRate(EnergyDrainFromDischage, v5);
   }
   else
   {
-    v55 = 0;
+    v49 = 0;
   }
-  v7 = PopMeasureEnergyChange(&v49, &CsSessionEnergyCounter);
-  v8 = HIDWORD(xmmword_140C3D134);
-  if ( HIDWORD(xmmword_140C3D134) )
-    LODWORD(v7) = (unsigned int)(100 * xmmword_140C3D144) / HIDWORD(xmmword_140C3D134);
+  v8 = PopMeasureEnergyChange(&v47, &CsSessionEnergyCounter);
+  v52 = HIDWORD(xmmword_140C23C74);
+  if ( HIDWORD(xmmword_140C23C74) )
+    LODWORD(v8) = (unsigned int)(100 * xmmword_140C23C84) / HIDWORD(xmmword_140C23C74);
   else
-    LOBYTE(v7) = 0;
+    LOBYTE(v8) = 0;
   v9 = 0;
-  if ( (xmmword_140C3D134 & 0x40000000) == 0 )
-    v9 = xmmword_140C3D144;
-  v56 = v7;
-  v43 = *((_QWORD *)&v50 + 1) - qword_140CF7CD0;
-  v36 = v9;
-  v37 = DWORD2(v51) - dword_140CF7CE0;
-  v10 = PopCalculateTotalHwDripsResidency(qword_140CF7D58, v51, v5);
-  v11 = v5 + qword_140CF7CD8 - v50;
-  v48 = v10;
-  v12 = _InterlockedExchangeAdd64(&qword_140CF7E00, 0LL);
+  if ( (xmmword_140C23C74 & 0x40000000) == 0 )
+    v9 = xmmword_140C23C84;
+  v51 = v8;
+  v40 = *((_QWORD *)&v45 + 1) - qword_140C4FF10;
+  v31 = v9;
+  v32 = DWORD2(v46) - dword_140C4FF20;
+  v10 = PopCalculateTotalHwDripsResidency(qword_140C4FF98, v46, v5);
+  v11 = v5 + qword_140C4FF18 - v45;
+  v44 = v10;
+  v12 = _InterlockedExchangeAdd64(&qword_140C50040, 0LL);
   if ( v12 )
-    v12 = (v12 - qword_140CF7CC8) / 0xA;
-  v13 = PpmConvertTime(qword_140CF7D00, PopQpcFrequency, 0xF4240uLL);
-  v14 = qword_140CF7D20;
-  v44 = v15 - v13;
-  v47 = v5 - qword_140CF7D10;
-  if ( qword_140CF7D18 )
+    v12 = (v12 - qword_140C4FF08) / 0xA;
+  v36 = qword_140C4FF50;
+  v36 -= PpmConvertTime(qword_140C4FF40, PopQpcFrequency, 0xF4240uLL);
+  v13 = qword_140C4FF60;
+  v43 = v5 - qword_140C4FF50;
+  if ( qword_140C4FF58 )
   {
-    if ( qword_140CF7CC8 <= (unsigned __int64)qword_140CF7D18 )
-      v16 = InterruptTimePrecise - qword_140CF7D18;
+    if ( qword_140C4FF08 <= (unsigned __int64)qword_140C4FF58 )
+      v14 = InterruptTimePrecise - qword_140C4FF58;
     else
-      v16 = InterruptTimePrecise - qword_140CF7CC8;
-    v14 = v16 + qword_140CF7D20;
+      v14 = InterruptTimePrecise - qword_140C4FF08;
+    v13 = v14 + qword_140C4FF60;
   }
-  v17 = v14 / 0xA;
-  v45 = PpmConvertTime(qword_140CF7D30, PopQpcFrequency, 0xF4240uLL);
-  v46 = PpmConvertTime(qword_140CF7D40, PopQpcFrequency, v18);
-  PopGetModernStandbyTransitionReason(0);
-  v39 = 0LL;
-  v40 = 0LL;
-  v38 = byte_140CF7D88;
-  PpmGetPlatformSelectionVetoCounts(dword_140CF7E40, &v39, &v40);
-  v39 -= qword_140CF7D60;
-  v40 -= qword_140CF7D68;
-  if ( qword_140CF7CE8 )
-    v41 = 100 * qword_140CF7CF0 / (unsigned __int64)qword_140CF7CE8;
-  v54 = 0;
-  PopQueryInputSuppressionCount(&v54);
-  v53 = 0;
-  v54 -= dword_140CF7DC0;
-  PopQueryPowerButtonSuppressionCount(&v53);
-  v19 = v53 - dword_140CF7DC4;
-  v20 = v49;
-  *(_DWORD *)a1 = v55;
-  *(_DWORD *)(a1 + 28) = v36;
-  *(_QWORD *)(a1 + 40) = v43;
-  *(_DWORD *)(a1 + 56) = v37;
-  *(_QWORD *)(a1 + 72) = v44;
-  *(_QWORD *)(a1 + 96) = v45;
-  *(_QWORD *)(a1 + 104) = v46;
-  *(_QWORD *)(a1 + 80) = v47;
-  *(_QWORD *)(a1 + 128) = v48;
-  *(_BYTE *)(a1 + 160) = v41;
-  v21 = 2 * v56;
-  *(_DWORD *)(a1 + 24) = v8;
-  v22 = v21 ^ v38 & 1;
-  *(_QWORD *)(a1 + 32) = v5;
-  v23 = *(_BYTE *)(a1 + 125);
-  *(_BYTE *)(a1 + 124) = v22;
+  v15 = v13 / 0xA;
+  v41 = PpmConvertTime(qword_140C4FF70, PopQpcFrequency, 0xF4240uLL);
+  v42 = PpmConvertTime(qword_140C4FF80, PopQpcFrequency, 0xF4240uLL);
+  v34 = 0LL;
+  v35 = 0LL;
+  ModernStandbyTransitionReason = PopGetModernStandbyTransitionReason(0LL, 0LL);
+  PpmGetPlatformSelectionVetoCounts(dword_140C50080, &v34, &v35);
+  v34 -= qword_140C4FFA0;
+  v35 -= qword_140C4FFA8;
+  if ( qword_140C4FF28 )
+  {
+    v16 = 100 * qword_140C4FF30 % (unsigned __int64)qword_140C4FF28;
+    v38 = 100 * qword_140C4FF30 / (unsigned __int64)qword_140C4FF28;
+  }
+  v50 = 0;
+  PopQueryInputSuppressionCount(&v50, v16);
+  v18 = v50 - dword_140C4FFF8;
+  v19 = v52;
+  v20 = v47;
+  *(_DWORD *)a1 = v49;
+  *(_QWORD *)(a1 + 40) = v40;
+  *(_DWORD *)(a1 + 56) = v32;
+  *(_QWORD *)(a1 + 72) = v36;
+  *(_QWORD *)(a1 + 96) = v41;
+  *(_QWORD *)(a1 + 104) = v42;
+  *(_QWORD *)(a1 + 80) = v43;
+  *(_DWORD *)(a1 + 116) = ModernStandbyTransitionReason;
+  *(_QWORD *)(a1 + 128) = v44;
+  *(_BYTE *)(a1 + 160) = v38;
+  v21 = 2 * v51;
+  *(_DWORD *)(a1 + 24) = v19;
+  *(_BYTE *)(a1 + 124) = v17 & 1 ^ v21;
+  v22 = *(_BYTE *)(a1 + 125);
+  *(_DWORD *)(a1 + 28) = v31;
   *(_OWORD *)(a1 + 8) = v20;
+  *(_QWORD *)(a1 + 32) = v5;
   *(_QWORD *)(a1 + 48) = v11;
   *(_QWORD *)(a1 + 64) = v12;
-  *(_QWORD *)(a1 + 88) = v17;
-  *(_DWORD *)(a1 + 116) = v24;
+  *(_QWORD *)(a1 + 88) = v15;
   *(_DWORD *)(a1 + 120) = a2;
-  *(_QWORD *)(a1 + 136) = v25;
-  *(_QWORD *)(a1 + 144) = v26;
-  v53 = v19;
-  v27 = *(_BYTE *)(a1 + 125) ^ (byte_140CF7D89 ^ v23) & 1;
-  *(_BYTE *)(a1 + 125) = v27;
-  v28 = v27 ^ (byte_140CF7D89 ^ v27) & 2;
-  *(_BYTE *)(a1 + 125) = v28;
-  *(_BYTE *)(a1 + 125) = v28 ^ (byte_140CF7D89 ^ v28) & 4;
-  *(_DWORD *)(a1 + 164) = dword_140CF7D70;
-  *(_DWORD *)(a1 + 168) = dword_140CF7D74;
-  *(_BYTE *)(a1 + 172) = byte_140CF7D78;
-  *(_DWORD *)(a1 + 176) = dword_140CF7D7C;
-  *(_DWORD *)(a1 + 180) = dword_140CF7D80;
-  *(_DWORD *)(a1 + 184) = dword_140CF7D84;
-  *(_DWORD *)(a1 + 188) = dword_140CF7D8C;
-  *(_DWORD *)(a1 + 192) = dword_140CF7D90;
-  *(_BYTE *)(a1 + 196) = byte_140CF7D94;
-  *(_DWORD *)(a1 + 200) = HIDWORD(v52[0]);
-  *(_DWORD *)(a1 + 204) = DWORD2(v52[0]);
-  *(_BYTE *)(a1 + 212) = byte_140CF7D9C;
-  *(_BYTE *)(a1 + 213) = byte_140CF7D9D;
-  *(_DWORD *)(a1 + 216) = dword_140CF7DA0;
-  *(_DWORD *)(a1 + 220) = dword_140CF7DA4;
-  *(_DWORD *)(a1 + 228) = v29;
-  *(_DWORD *)(a1 + 328) = v19;
-  *(_QWORD *)(a1 + 232) = qword_140CF7D48;
-  *(_QWORD *)(a1 + 240) = qword_140CF7D50;
-  *(_DWORD *)(a1 + 224) = dword_140CF7DC8;
-  v30 = KeAcquireSpinLockRaiseToDpc(&qword_140C3C9F8);
-  *(_QWORD *)(a1 + 256) = qword_140C3C9E8;
-  *(_QWORD *)(a1 + 248) = qword_140C3C9F0;
-  *(_QWORD *)(a1 + 264) = PopDisplayOnPerformance;
-  v31 = v30;
-  result = KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3C9F8);
+  *(_QWORD *)(a1 + 136) = v23;
+  *(_QWORD *)(a1 + 144) = v24;
+  *(_QWORD *)(a1 + 152) = v6;
+  v50 = v18;
+  *(_BYTE *)(a1 + 125) ^= (byte_140C4FFC1 ^ v22) & 1;
+  LOBYTE(v19) = *(_BYTE *)(a1 + 125) ^ (byte_140C4FFC1 ^ *(_BYTE *)(a1 + 125)) & 2;
+  *(_BYTE *)(a1 + 125) = v19;
+  *(_BYTE *)(a1 + 125) = v19 ^ (byte_140C4FFC1 ^ v19) & 4;
+  *(_DWORD *)(a1 + 164) = dword_140C4FFB0;
+  *(_DWORD *)(a1 + 168) = dword_140C4FFB4;
+  *(_BYTE *)(a1 + 172) = byte_140C4FFB8;
+  *(_DWORD *)(a1 + 176) = dword_140C4FFBC;
+  *(_DWORD *)(a1 + 180) = dword_140C4FFC4;
+  *(_DWORD *)(a1 + 184) = dword_140C4FFC8;
+  *(_BYTE *)(a1 + 188) = byte_140C4FFCC;
+  *(_DWORD *)(a1 + 192) = HIDWORD(v48[0]);
+  *(_DWORD *)(a1 + 196) = DWORD2(v48[0]);
+  *(_BYTE *)(a1 + 204) = byte_140C4FFD4;
+  *(_BYTE *)(a1 + 205) = byte_140C4FFD5;
+  *(_DWORD *)(a1 + 208) = dword_140C4FFD8;
+  *(_DWORD *)(a1 + 212) = dword_140C4FFDC;
+  *(_DWORD *)(a1 + 216) = v18;
+  *(_QWORD *)(a1 + 224) = qword_140C4FF88;
+  *(_QWORD *)(a1 + 232) = qword_140C4FF90;
+  *(_DWORD *)(a1 + 264) = dword_140C4FFFC;
+  *(_DWORD *)(a1 + 268) = dword_140C50000;
+  v25 = KeAcquireSpinLockRaiseToDpc(&qword_140C235D8);
+  *(_QWORD *)(a1 + 248) = qword_140C235C8;
+  *(_QWORD *)(a1 + 240) = qword_140C235D0;
+  *(_QWORD *)(a1 + 256) = PopDisplayOnPerformance;
+  v26 = v25;
+  KxReleaseSpinLock(&qword_140C235D8);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v31 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v31 + 1));
-      v35 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v35 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v26 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v26 + 1));
+        v30 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v30 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
-  __writecr8(v31);
+  __writecr8(v26);
   return result;
 }

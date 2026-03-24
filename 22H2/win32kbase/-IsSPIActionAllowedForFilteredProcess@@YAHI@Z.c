@@ -1,285 +1,212 @@
 /*
- * XREFs of ?IsSPIActionAllowedForFilteredProcess@@YAHI@Z @ 0x1C014E134
+ * XREFs of ?IsSPIActionAllowedForFilteredProcess@@YAHI@Z @ 0x1C01382E8
  * Callers:
- *     xxxSystemParametersInfo @ 0x1C0094FF0 (xxxSystemParametersInfo.c)
+ *     xxxSystemParametersInfo @ 0x1C000CD30 (xxxSystemParametersInfo.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall IsSPIActionAllowedForFilteredProcess(unsigned int a1)
+__int64 __fastcall IsSPIActionAllowedForFilteredProcess(unsigned int a1)
 {
   unsigned int v1; // ecx
-  unsigned int v2; // ecx
+  bool v2; // zf
   unsigned int v3; // ecx
-  unsigned int v4; // ecx
-  bool v5; // zf
+  bool v4; // zf
   unsigned int v6; // ecx
-  bool v7; // zf
-  unsigned int v8; // ecx
+  unsigned int v7; // ecx
+  bool v8; // zf
+  unsigned int v9; // ecx
   unsigned int v10; // ecx
   unsigned int v11; // ecx
-  unsigned int v12; // ecx
-  unsigned int v13; // ecx
-  unsigned int v14; // ecx
-  unsigned int v15; // ecx
-  bool v16; // zf
-  unsigned int v17; // ecx
-  bool v18; // zf
-  unsigned int v19; // ecx
-  bool v20; // zf
-  unsigned int v21; // ecx
-  bool v22; // zf
-  unsigned int v23; // ecx
-  bool v24; // zf
-  unsigned int v25; // ecx
-  unsigned int v26; // ecx
-  unsigned int v27; // ecx
-  unsigned int v28; // ecx
-  unsigned int v29; // ecx
-  unsigned int v30; // ecx
-  unsigned int v31; // ecx
-  unsigned int v32; // ecx
-  unsigned int v33; // ecx
-  unsigned int v34; // ecx
-  unsigned int v35; // ecx
-  unsigned int v36; // ecx
-  unsigned int v37; // ecx
-  unsigned int v38; // ecx
-  unsigned int v39; // ecx
 
-  if ( a1 > 0x90 )
+  if ( a1 <= 0x92 )
   {
-    if ( a1 <= 0x1000 )
+    if ( a1 != 146 )
     {
-      if ( a1 == 4096 )
-        return 1LL;
-      if ( a1 > 0xA2 )
+      switch ( a1 )
       {
-        v26 = a1 - 165;
-        if ( !v26 )
+        case 1u:
+        case 3u:
+        case 5u:
+        case 0xAu:
+        case 0xEu:
+        case 0x10u:
+        case 0x12u:
+        case 0x16u:
+        case 0x19u:
+        case 0x1Bu:
+        case 0x1Fu:
+        case 0x23u:
+        case 0x26u:
+        case 0x29u:
+        case 0x2Bu:
+        case 0x2Du:
+        case 0x30u:
+        case 0x32u:
+        case 0x34u:
+        case 0x36u:
+        case 0x38u:
+        case 0x3Au:
+        case 0x3Cu:
+        case 0x3Eu:
+        case 0x40u:
+        case 0x42u:
+        case 0x44u:
+        case 0x46u:
+        case 0x48u:
+        case 0x4Au:
+        case 0x4Fu:
+        case 0x50u:
+        case 0x53u:
+        case 0x54u:
+        case 0x59u:
+        case 0x5Cu:
+        case 0x5Eu:
+        case 0x5Fu:
+        case 0x62u:
+        case 0x64u:
+        case 0x66u:
+        case 0x68u:
+        case 0x6Au:
+        case 0x6Cu:
+        case 0x6Eu:
+        case 0x70u:
+        case 0x72u:
+        case 0x73u:
+        case 0x74u:
+        case 0x76u:
+        case 0x78u:
+        case 0x7Au:
+        case 0x7Cu:
+        case 0x7Eu:
+        case 0x80u:
+        case 0x82u:
+        case 0x84u:
+        case 0x86u:
+        case 0x88u:
+        case 0x8Au:
+        case 0x8Cu:
+        case 0x8Eu:
+        case 0x90u:
           return 1LL;
-        v27 = v26 - 2;
-        if ( !v27 )
-          return 1LL;
-        v21 = v27 - 1;
-        v20 = v21 == 0;
-LABEL_64:
-        if ( v20 )
-          return 1LL;
-        v23 = v21 - 2;
-        v22 = v23 == 0;
-        goto LABEL_66;
+        default:
+          return 0LL;
       }
-      if ( a1 == 162 )
-        return 1LL;
-      v25 = a1 - 146;
-      v24 = v25 == 0;
-      goto LABEL_74;
     }
-    if ( a1 > 0x103E )
+    return 1LL;
+  }
+  if ( a1 > 0x1000 )
+  {
+    if ( a1 <= 0x103E )
     {
-      if ( a1 <= 0x200C )
+      if ( a1 != 4158 )
       {
-        if ( a1 == 8204 )
-          return 1LL;
-        if ( a1 <= 0x1050 )
+        switch ( a1 )
         {
-          if ( a1 == 4176 )
+          case 0x1002u:
+          case 0x1004u:
+          case 0x1006u:
+          case 0x1008u:
+          case 0x100Au:
+          case 0x100Cu:
+          case 0x100Eu:
+          case 0x1012u:
+          case 0x1014u:
+          case 0x1016u:
+          case 0x1018u:
+          case 0x101Au:
+          case 0x101Cu:
+          case 0x101Eu:
+          case 0x1020u:
+          case 0x1022u:
+          case 0x1024u:
+          case 0x1026u:
             return 1LL;
-          v35 = a1 - 4160;
-          if ( !v35 )
-            return 1LL;
-          v36 = v35 - 2;
-          if ( !v36 )
-            return 1LL;
-          v23 = v36 - 6;
-          v22 = v23 == 0;
-LABEL_66:
-          if ( v22 )
-            return 1LL;
-          v6 = v23 - 2;
-          v5 = v6 == 0;
-          goto LABEL_14;
+          default:
+            return 0LL;
         }
-        v19 = a1 - 0x2000;
-        v18 = v19 == 0;
-        goto LABEL_62;
       }
-      if ( a1 <= 0x201A )
-      {
-        if ( a1 == 8218 )
-          return 1LL;
-        v19 = a1 - 8206;
-        v18 = v19 == 0;
-        goto LABEL_62;
-      }
-      v37 = a1 - 8220;
-      if ( !v37 )
-        return 1LL;
-      v38 = v37 - 2;
-      if ( !v38 )
-        return 1LL;
-      v39 = v38 - 2;
-      if ( !v39 )
-        return 1LL;
-      v8 = v39 - 16;
-      v7 = v8 == 0;
-    }
-    else
-    {
-      if ( a1 == 4158 )
-        return 1LL;
-      if ( a1 > 0x1016 )
-      {
-        v25 = a1 - 4120;
-        v24 = v25 == 0;
-LABEL_74:
-        if ( v24 )
-          return 1LL;
-        v17 = v25 - 2;
-        v16 = v17 == 0;
-LABEL_60:
-        if ( v16 )
-          return 1LL;
-        v19 = v17 - 2;
-        v18 = v19 == 0;
-        goto LABEL_62;
-      }
-      if ( a1 == 4118 )
-        return 1LL;
-      v28 = a1 - 4098;
-      if ( !v28 )
-        return 1LL;
-      v29 = v28 - 2;
-      if ( !v29 )
-        return 1LL;
-      v30 = v29 - 2;
-      if ( !v30 )
-        return 1LL;
-      v31 = v30 - 2;
-      if ( !v31 )
-        return 1LL;
-      v32 = v31 - 2;
-      if ( !v32 )
-        return 1LL;
-      v33 = v32 - 2;
-      if ( !v33 )
-        return 1LL;
-      v34 = v33 - 2;
-      if ( !v34 )
-        return 1LL;
-      v8 = v34 - 4;
-      v7 = v8 == 0;
-    }
-LABEL_107:
-    if ( v7 )
       return 1LL;
-    return v8 == 2;
+    }
+    if ( a1 > 0x200A )
+    {
+      switch ( a1 )
+      {
+        case 0x200Cu:
+        case 0x200Eu:
+        case 0x2010u:
+        case 0x2012u:
+        case 0x2014u:
+        case 0x2016u:
+        case 0x2018u:
+        case 0x201Au:
+        case 0x201Cu:
+        case 0x201Eu:
+        case 0x2020u:
+          return 1LL;
+        default:
+          return 0LL;
+      }
+    }
+    if ( a1 == 8202 )
+      return 1LL;
+    if ( a1 <= 0x1050 )
+    {
+      if ( a1 == 4176 )
+        return 1LL;
+      v6 = a1 - 4160;
+      if ( !v6 )
+        return 1LL;
+      v7 = v6 - 2;
+      if ( !v7 )
+        return 1LL;
+      v9 = v7 - 6;
+      v8 = v9 == 0;
+LABEL_32:
+      if ( v8 )
+        return 1LL;
+      v10 = v9 - 2;
+      if ( !v10 )
+        return 1LL;
+      v11 = v10 - 2;
+      if ( !v11 )
+        return 1LL;
+      v4 = v11 == 2;
+      goto LABEL_17;
+    }
+    v3 = a1 - 0x2000;
+    v2 = v3 == 0;
+LABEL_30:
+    if ( v2 )
+      return 1LL;
+    v9 = v3 - 2;
+    v8 = v9 == 0;
+    goto LABEL_32;
   }
-  if ( a1 == 144 )
+  if ( a1 == 4096 )
     return 1LL;
-  if ( a1 > 0x50 )
+  if ( a1 <= 0xA0 )
   {
-    if ( a1 <= 0x73 )
-    {
-      if ( a1 == 115 )
-        return 1LL;
-      if ( a1 > 0x64 )
-      {
-        if ( a1 == 102 || a1 == 104 || a1 == 106 || a1 == 108 || a1 == 110 || a1 == 112 )
-          return 1LL;
-        return a1 == 114;
-      }
-      else
-      {
-        if ( a1 == 100 )
-          return 1LL;
-        v10 = a1 - 83;
-        if ( !v10 )
-          return 1LL;
-        v11 = v10 - 1;
-        if ( !v11 )
-          return 1LL;
-        v12 = v11 - 5;
-        if ( !v12 )
-          return 1LL;
-        v13 = v12 - 3;
-        if ( !v13 )
-          return 1LL;
-        v14 = v13 - 2;
-        if ( !v14 )
-          return 1LL;
-        v15 = v14 - 1;
-        if ( !v15 )
-          return 1LL;
-        return v15 == 3;
-      }
-    }
-    if ( a1 <= 0x82 )
-    {
-      if ( a1 == 130 )
-        return 1LL;
-      v17 = a1 - 116;
-      v16 = v17 == 0;
-      goto LABEL_60;
-    }
-    v19 = a1 - 132;
-    v18 = v19 == 0;
-LABEL_62:
-    if ( v18 )
+    if ( a1 == 160 )
       return 1LL;
-    v21 = v19 - 2;
-    v20 = v21 == 0;
-    goto LABEL_64;
-  }
-  if ( a1 == 80 )
-    return 1LL;
-  if ( a1 > 0x2D )
-  {
-    if ( a1 > 0x3E )
-    {
-      if ( a1 == 64 || a1 == 66 || a1 == 68 || a1 == 70 || a1 == 72 || a1 == 74 )
-        return 1LL;
-      return a1 == 79;
-    }
-    else
-    {
-      if ( a1 == 62 || a1 == 48 || a1 == 50 || a1 == 52 || a1 == 54 || a1 == 56 || a1 == 58 )
-        return 1LL;
-      return a1 == 60;
-    }
-  }
-  else
-  {
-    if ( a1 == 45 )
+    v1 = a1 - 148;
+    if ( !v1 )
       return 1LL;
-    if ( a1 <= 0x16 )
+    v3 = v1 - 2;
+    v2 = v3 == 0;
+    goto LABEL_30;
+  }
+  if ( a1 != 162 && a1 != 165 )
+  {
+    if ( a1 <= 0xA6 )
+      return 0LL;
+    if ( a1 > 0xA8 && a1 != 170 && a1 != 172 )
     {
-      if ( a1 == 22 )
-        return 1LL;
-      v1 = a1 - 1;
-      if ( !v1 )
-        return 1LL;
-      v2 = v1 - 2;
-      if ( !v2 )
-        return 1LL;
-      v3 = v2 - 2;
-      if ( !v3 )
-        return 1LL;
-      v4 = v3 - 5;
+      v4 = a1 == 174;
+LABEL_17:
       if ( !v4 )
-        return 1LL;
-      v6 = v4 - 4;
-      v5 = v6 == 0;
-LABEL_14:
-      if ( v5 )
-        return 1LL;
-      v8 = v6 - 2;
-      v7 = v8 == 0;
-      goto LABEL_107;
+        return 0LL;
     }
-    if ( a1 == 25 || a1 == 27 || a1 == 31 || a1 == 35 || a1 == 38 || a1 == 41 )
-      return 1LL;
-    return a1 == 43;
   }
+  return 1LL;
 }

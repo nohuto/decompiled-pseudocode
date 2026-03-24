@@ -1,7 +1,7 @@
 /*
- * XREFs of _o__register_onexit_function_0 @ 0x18010185C
+ * XREFs of _o__register_onexit_function_0 @ 0x1800E815C
  * Callers:
- *     _onexit @ 0x180100B98 (_onexit.c)
+ *     _onexit @ 0x1800E7384 (_onexit.c)
  * Callees:
  *     <none>
  */

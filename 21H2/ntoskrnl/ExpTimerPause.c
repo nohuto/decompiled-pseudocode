@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpTimerPause @ 0x14025298C
+ * XREFs of ExpTimerPause @ 0x1402C7A34
  * Callers:
- *     PsInsertVirtualizedTimer @ 0x140239F94 (PsInsertVirtualizedTimer.c)
- *     PspSetProcessFreezeStateCallback @ 0x1402536E0 (PspSetProcessFreezeStateCallback.c)
- *     ExWakeTimersPause @ 0x1403983A0 (ExWakeTimersPause.c)
+ *     PsInsertVirtualizedTimer @ 0x1402C1F18 (PsInsertVirtualizedTimer.c)
+ *     PspSetProcessFreezeStateCallback @ 0x1402C5460 (PspSetProcessFreezeStateCallback.c)
+ *     ExWakeTimersPause @ 0x14038D260 (ExWakeTimersPause.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeCancelTimerInternal @ 0x140252A60 (KeCancelTimerInternal.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeCancelTimerInternal @ 0x1402C7AF0 (KeCancelTimerInternal.c)
  */
 
 void __fastcall ExpTimerPause(__int64 a1, __int64 a2, unsigned __int64 a3, char a4)
@@ -39,7 +39,7 @@ void __fastcall ExpTimerPause(__int64 a1, __int64 a2, unsigned __int64 a3, char 
             break;
           }
           v11 = a2 + v12 - a3;
-          goto LABEL_18;
+          goto LABEL_20;
         case 2:
           if ( v12 <= a3 )
             v10 = 0LL;
@@ -49,7 +49,7 @@ void __fastcall ExpTimerPause(__int64 a1, __int64 a2, unsigned __int64 a3, char 
           break;
         case 3:
           v11 = v12;
-LABEL_18:
+LABEL_20:
           *(_QWORD *)(a1 + 312) = v11;
           break;
       }

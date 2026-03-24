@@ -1,13 +1,13 @@
 /*
- * XREFs of ?OnSceneReady@CCompositionMipmapSurface@@EEAAJPEAUISpectreRenderer@@@Z @ 0x18020D220
+ * XREFs of ?OnSceneReady@CCompositionMipmapSurface@@EEAAJPEAUISpectreRenderer@@@Z @ 0x1801BA6D0
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800198A8 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?EnsureMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ @ 0x18020CF3C (-EnsureMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?EnsureMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ @ 0x1801BA3FC (-EnsureMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CCompositionMipmapSurface::OnSceneReady(
@@ -28,11 +28,11 @@ __int64 __fastcall CCompositionMipmapSurface::OnSceneReady(
     *((_QWORD *)this + 4) = v11;
     Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)this + 10);
   }
-  v4 = CCompositionMipmapSurface::EnsureMipmapSurface((struct _LUID *)this - 11);
+  v4 = CCompositionMipmapSurface::EnsureMipmapSurface((struct _LUID *)this - 10);
   v6 = v4;
   if ( v4 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, v4, 0x80u);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x80u, 0LL);
   }
   else
   {
@@ -40,12 +40,12 @@ __int64 __fastcall CCompositionMipmapSurface::OnSceneReady(
     Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 8);
     v8 = v7(
            a2,
-           *(_QWORD *)(*((_QWORD *)this + 10) + 112LL),
-           *(_QWORD *)(*((_QWORD *)this + 10) + 184LL),
+           *(_QWORD *)(*((_QWORD *)this + 10) + 128LL),
+           *(_QWORD *)(*((_QWORD *)this + 10) + 200LL),
            (char *)this + 64);
     v6 = v8;
     if ( v8 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x83u);
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x83u, 0LL);
   }
   return v6;
 }

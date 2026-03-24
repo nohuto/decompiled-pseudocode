@@ -1,15 +1,15 @@
 /*
- * XREFs of SmKmVirtualLockCtxLockMemory @ 0x1405CC134
+ * XREFs of SmKmVirtualLockCtxLockMemory @ 0x14059E7A0
  * Callers:
- *     SmKmStoreHelperCommandProcess @ 0x1405CB898 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140312750 (SmKmStoreHelperCommandProcess.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ZwLockVirtualMemory @ 0x14041C940 (ZwLockVirtualMemory.c)
- *     SmKmVirtualLockContextIncreaseWsMin @ 0x1405CBFF8 (SmKmVirtualLockContextIncreaseWsMin.c)
- *     SmKmVirtualLockCtxMemoryUnlocked @ 0x1405CC254 (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ZwLockVirtualMemory @ 0x1403FBBE0 (ZwLockVirtualMemory.c)
+ *     SmKmVirtualLockContextIncreaseWsMin @ 0x14059E4BC (SmKmVirtualLockContextIncreaseWsMin.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x14059E8C0 (SmKmVirtualLockCtxMemoryUnlocked.c)
  */
 
 __int64 __fastcall SmKmVirtualLockCtxLockMemory(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpPostInterceptHandleDuplicate @ 0x1408A5D3C
+ * XREFs of ObpPostInterceptHandleDuplicate @ 0x1408DDE8C
  * Callers:
- *     ObDuplicateObject @ 0x1406FB9A0 (ObDuplicateObject.c)
- *     ObCompleteObjectDuplication @ 0x1407BFAC4 (ObCompleteObjectDuplication.c)
+ *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
+ *     ObCompleteObjectDuplication @ 0x140664680 (ObCompleteObjectDuplication.c)
  * Callees:
- *     ObpCallPostOperationCallbacks @ 0x1408A5C02 (ObpCallPostOperationCallbacks.c)
+ *     ObpCallPostOperationCallbacks @ 0x1408DDD50 (ObpCallPostOperationCallbacks.c)
  */
 
 __int64 __fastcall ObpPostInterceptHandleDuplicate(__int64 a1, char a2, int a3, int a4, _QWORD *a5)

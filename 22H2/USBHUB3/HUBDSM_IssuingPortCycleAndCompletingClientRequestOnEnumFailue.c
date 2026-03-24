@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_IssuingPortCycleAndCompletingClientRequestOnEnumFailue @ 0x1C001F870
+ * XREFs of HUBDSM_IssuingPortCycleAndCompletingClientRequestOnEnumFailue @ 0x1C001CE60
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_CompleteClientSerialRequestWithStatusFailed @ 0x1C00157B0 (HUBPDO_CompleteClientSerialRequestWithStatusFailed.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     HUBPDO_CompleteClientSerialRequestWithStatusFailed @ 0x1C00142F0 (HUBPDO_CompleteClientSerialRequestWithStatusFailed.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_IssuingPortCycleAndCompletingClientRequestOnEnumFailue(__int64 a1)

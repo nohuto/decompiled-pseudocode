@@ -1,18 +1,18 @@
 /*
- * XREFs of PiUpdateDriverDBCache @ 0x14075E74C
+ * XREFs of PiUpdateDriverDBCache @ 0x14077E48C
  * Callers:
- *     PiIsDriverBlocked @ 0x14075E568 (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x14077E304 (PiIsDriverBlocked.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     RtlNumberGenericTableElementsAvl @ 0x1402D8A70 (RtlNumberGenericTableElementsAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1402DECF0 (RtlDeleteElementGenericTableAvl.c)
- *     RtlInsertElementGenericTableAvl @ 0x1402DEF50 (RtlInsertElementGenericTableAvl.c)
- *     RtlLookupElementGenericTableAvl @ 0x1402DF3F0 (RtlLookupElementGenericTableAvl.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     wcsrchr @ 0x1403E34B0 (wcsrchr.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlLookupElementGenericTableAvl @ 0x140264810 (RtlLookupElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1402648C0 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x140264B20 (RtlInsertElementGenericTableAvl.c)
+ *     RtlNumberGenericTableElementsAvl @ 0x1402AE5C0 (RtlNumberGenericTableElementsAvl.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1403D4100 (wcsrchr.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, __int64 a2, __int64 a3, int a4, __int128 *a5)
@@ -69,24 +69,25 @@ _QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, __int64 a2, __int64 a3, int
       goto LABEL_26;
     *v21 = v20;
     *(_QWORD *)(v20 + 8) = v21;
-    goto LABEL_24;
   }
-  if ( RtlNumberGenericTableElementsAvl(&PiDDBCacheTable) >= 0x100 )
+  else
   {
+    if ( RtlNumberGenericTableElementsAvl(&PiDDBCacheTable) < 0x100 )
+      goto LABEL_8;
     v13 = PiDDBCacheList;
     v19 = *(_QWORD *)PiDDBCacheList;
     if ( *((PVOID **)PiDDBCacheList + 1) != &PiDDBCacheList || *(PVOID *)(v19 + 8) != PiDDBCacheList )
       goto LABEL_26;
     PiDDBCacheList = *(PVOID *)PiDDBCacheList;
     *(_QWORD *)(v19 + 8) = &PiDDBCacheList;
-    if ( v13 )
-    {
-LABEL_24:
-      v22 = (void *)v13[3];
-      RtlDeleteElementGenericTableAvl(&PiDDBCacheTable, v13);
-      ExFreePoolWithTag(v22, 0);
-    }
   }
+  if ( v13 )
+  {
+    v22 = (void *)v13[3];
+    RtlDeleteElementGenericTableAvl(&PiDDBCacheTable, v13);
+    ExFreePoolWithTag(v22, 0);
+  }
+LABEL_8:
   v14 = *a5;
   v15 = *(const wchar_t **)(a1 + 8);
   *(_DWORD *)&v25[4] = a4;
@@ -102,7 +103,7 @@ LABEL_24:
   while ( v17[v11] );
   WORD1(v24) = 2 * v11;
   LOWORD(v24) = 2 * v11;
-  result = (_QWORD *)ExAllocatePool2(256LL, (unsigned __int16)(2 * v11), 538996816LL);
+  result = ExAllocatePoolWithTag(PagedPool, (unsigned __int16)(2 * v11), 0x20207050u);
   *((_QWORD *)&v24 + 1) = result;
   if ( result )
   {
@@ -110,13 +111,13 @@ LABEL_24:
     result = RtlInsertElementGenericTableAvl(&PiDDBCacheTable, &Buffer, 0x38u, 0LL);
     if ( result )
     {
-      v18 = (_QWORD *)qword_140D3CF50;
-      if ( *(PVOID **)qword_140D3CF50 == &PiDDBCacheList )
+      v18 = (_QWORD *)qword_140D2EBE8;
+      if ( *(PVOID **)qword_140D2EBE8 == &PiDDBCacheList )
       {
         *result = &PiDDBCacheList;
         result[1] = v18;
         *v18 = result;
-        qword_140D3CF50 = (__int64)result;
+        qword_140D2EBE8 = (__int64)result;
         return result;
       }
 LABEL_26:

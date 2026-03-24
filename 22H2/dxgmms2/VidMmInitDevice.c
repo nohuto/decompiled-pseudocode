@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmInitDevice @ 0x1C0002500
+ * XREFs of VidMmInitDevice @ 0x1C0012030
  * Callers:
  *     <none>
  * Callees:
- *     ?Init@VIDMM_DEVICE@@QEAAJ_NPEAVVIDMM_PROCESS@@@Z @ 0x1C008C6C8 (-Init@VIDMM_DEVICE@@QEAAJ_NPEAVVIDMM_PROCESS@@@Z.c)
+ *     ?Init@VIDMM_DEVICE@@QEAAJ_NPEAVVIDMM_PROCESS@@@Z @ 0x1C0081728 (-Init@VIDMM_DEVICE@@QEAAJ_NPEAVVIDMM_PROCESS@@@Z.c)
  */
 
 __int64 __fastcall VidMmInitDevice(VIDMM_DEVICE *a1)

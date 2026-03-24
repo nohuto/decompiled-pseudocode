@@ -1,59 +1,58 @@
 /*
- * XREFs of xxxGetListBoxInfo @ 0x1C0230BF0
+ * XREFs of xxxGetListBoxInfo @ 0x1C0248FB0
  * Callers:
- *     NtUserGetListBoxInfo @ 0x1C01D2300 (NtUserGetListBoxInfo.c)
+ *     NtUserGetListBoxInfo @ 0x1C01FA1F0 (NtUserGetListBoxInfo.c)
  * Callees:
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
- *     unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX @ 0x1C01BB370 (unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
+ *     unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX @ 0x1C01D4338 (unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX.c)
  */
 
-__int64 __fastcall xxxGetListBoxInfo(unsigned __int64 *BugCheckParameter2)
+__int64 __fastcall xxxGetListBoxInfo(_QWORD *a1)
 {
-  __int64 v2; // rbx
+  unsigned int v2; // ebx
   __int64 v3; // rcx
-  unsigned __int64 *v4; // r15
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  PRKPROCESS *v10; // rdi
-  PRKPROCESS *v11; // r14
-  unsigned __int64 v12; // rsi
+  unsigned __int64 *v4; // r14
+  PRKPROCESS *v6; // rdi
+  __int64 v7; // rcx
+  int v8; // esi
+  unsigned __int64 v9; // rdi
+  __int64 v10; // rax
 
-  v2 = 0LL;
-  v4 = (unsigned __int64 *)unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX(BugCheckParameter2);
+  v2 = 0;
+  v4 = (unsigned __int64 *)unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX(a1);
   if ( v4 )
   {
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v3);
-    v10 = (PRKPROCESS *)CurrentProcessWin32Process;
-    if ( CurrentProcessWin32Process )
+    v6 = *(PRKPROCESS **)(a1[2] + 424LL);
+    if ( v6 == (PRKPROCESS *)PsGetCurrentProcessWin32Process(v3) )
     {
-      v8 = -*(_QWORD *)CurrentProcessWin32Process;
-      v7 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-      v10 = (PRKPROCESS *)(v7 & CurrentProcessWin32Process);
+      v8 = 0;
     }
-    v11 = *(PRKPROCESS **)(BugCheckParameter2[2] + 424);
-    if ( v11 != v10 )
-      KeAttachProcess(*v11);
-    v12 = *v4;
+    else
+    {
+      v8 = 1;
+      KeAttachProcess(*v6);
+    }
+    v9 = *v4;
     if ( *v4 )
     {
-      if ( !PsGetCurrentProcessWow64Process(v8, v7, v9) )
-        v2 = 3LL;
-      if ( (v2 & v12) != 0 )
-        ExRaiseDatatypeMisalignment();
-      if ( (*(_DWORD *)(v12 + 92) & 0x40000) != 0 )
-        LODWORD(v2) = *(_DWORD *)(v12 + 76);
+      if ( PsGetCurrentProcessWow64Process(v7) )
+        v10 = 0LL;
       else
-        LODWORD(v2) = *(_DWORD *)(v12 + 32);
+        v10 = 3LL;
+      if ( (v10 & v9) != 0 )
+        ExRaiseDatatypeMisalignment();
+      if ( (*(_DWORD *)(v9 + 92) & 0x40000) != 0 )
+        v2 = *(_DWORD *)(v9 + 76);
+      else
+        v2 = *(_DWORD *)(v9 + 32);
     }
-    if ( v11 != v10 )
+    if ( v8 )
       KeDetachProcess();
-    return (unsigned int)v2;
+    return v2;
   }
   else
   {
     _InterlockedIncrement(&glSendMessage);
-    return xxxSendTransformableMessageTimeout(BugCheckParameter2, 0x1B2u, 0LL, 0LL, 0, 0, 0LL, 1, 1);
+    return xxxSendTransformableMessageTimeout((unsigned __int64)a1, 0x1B2u, 0LL, 0LL, 0, 0, 0LL, 1, 1);
   }
 }

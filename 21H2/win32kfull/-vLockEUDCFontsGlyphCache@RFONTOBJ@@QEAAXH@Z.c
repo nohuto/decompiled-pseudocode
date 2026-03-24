@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vLockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXH@Z @ 0x1C0150C24
+ * XREFs of ?vLockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXH@Z @ 0x1C00E7CE4
  * Callers:
- *     GreGetGlyphOutlineInternal @ 0x1C00196F4 (GreGetGlyphOutlineInternal.c)
- *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C012451C (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
+ *     GreGetGlyphOutlineInternal @ 0x1C009C1E4 (GreGetGlyphOutlineInternal.c)
+ *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C00E7468 (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?vLockSystemTTGlyphCache@RFONTOBJ@@AEAAXXZ @ 0x1C0150CC8 (-vLockSystemTTGlyphCache@RFONTOBJ@@AEAAXXZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?vLockSystemTTGlyphCache@RFONTOBJ@@AEAAXXZ @ 0x1C00E7DD0 (-vLockSystemTTGlyphCache@RFONTOBJ@@AEAAXXZ.c)
  */
 
 void __fastcall RFONTOBJ::vLockEUDCFontsGlyphCache(RFONTOBJ *this, int a2)
@@ -16,8 +16,8 @@ void __fastcall RFONTOBJ::vLockEUDCFontsGlyphCache(RFONTOBJ *this, int a2)
   __int64 v7; // r15
   unsigned int v8; // ecx
   unsigned int v9; // edx
-  __int64 v10; // rcx
-  __int64 v11; // rsi
+  __int64 v10; // rsi
+  __int64 v11; // rcx
   __int64 v12; // rcx
   __int64 v13; // rcx
   __int64 v14; // rcx
@@ -43,14 +43,28 @@ void __fastcall RFONTOBJ::vLockEUDCFontsGlyphCache(RFONTOBJ *this, int a2)
       v9 = *(_DWORD *)(*(_QWORD *)this + 840LL);
       if ( v8 < v9 )
         break;
-      v10 = v8 - v9;
-      if ( (unsigned int)v10 < 2 )
+      v12 = v8 - v9;
+      if ( (unsigned int)v12 < 2 )
       {
         _mm_lfence();
-        v11 = v18[v10];
-        goto LABEL_7;
+        v10 = v18[v12];
+LABEL_6:
+        if ( v10 )
+        {
+          if ( a2 )
+          {
+            v11 = *(_QWORD *)(*(_QWORD *)this + 720LL);
+            if ( v11 )
+            {
+              if ( *(_QWORD *)(v11 + 120) < *(_QWORD *)(v10 + 120) )
+                RFONTOBJ::vLockSystemTTGlyphCache(this);
+            }
+          }
+          GreAcquireSemaphore(*(_QWORD *)(v10 + 504));
+          v19 = 0LL;
+          RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v19);
+        }
       }
-LABEL_8:
       ++v6;
       if ( !--v7 )
       {
@@ -60,24 +74,8 @@ LABEL_8:
       }
     }
     _mm_lfence();
-    v11 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 744LL) + 8LL * *(unsigned __int8 *)(v6 + *(_QWORD *)this + 856));
-LABEL_7:
-    if ( v11 )
-    {
-      if ( a2 )
-      {
-        v12 = *(_QWORD *)(*(_QWORD *)this + 720LL);
-        if ( v12 )
-        {
-          if ( *(_QWORD *)(v12 + 120) < *(_QWORD *)(v11 + 120) )
-            RFONTOBJ::vLockSystemTTGlyphCache(this);
-        }
-      }
-      GreAcquireSemaphore(*(_QWORD *)(v11 + 504));
-      v19 = 0LL;
-      RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v19);
-    }
-    goto LABEL_8;
+    v10 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 744LL) + 8LL * *(unsigned __int8 *)(v6 + *(_QWORD *)this + 856));
+    goto LABEL_6;
   }
   if ( a2 )
   {

@@ -1,118 +1,119 @@
 /*
- * XREFs of CmpFindSubkeyInHashByChildCell @ 0x14071B730
+ * XREFs of CmpFindSubkeyInHashByChildCell @ 0x140766570
  * Callers:
- *     CmpFindSubKeyByNumberEx @ 0x1407C3070 (CmpFindSubKeyByNumberEx.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1405F35A0 (CmpFindSubKeyByNumberEx.c)
  * Callees:
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpHashUnicodeComponent @ 0x140718B68 (CmpHashUnicodeComponent.c)
- *     CmpIsKcbLockAllowed @ 0x14071B1C8 (CmpIsKcbLockAllowed.c)
- *     CmpReferenceKeyControlBlock @ 0x14071B250 (CmpReferenceKeyControlBlock.c)
- *     CmpUnlockHashEntry @ 0x14071B8C0 (CmpUnlockHashEntry.c)
- *     CmpLockHashEntryShared @ 0x14071B930 (CmpLockHashEntryShared.c)
- *     CmpHashCompressedComponent @ 0x14071BC04 (CmpHashCompressedComponent.c)
- *     CmpUnlockTwoKcbs @ 0x1407C2FB4 (CmpUnlockTwoKcbs.c)
- *     CmpLockTwoKcbsShared @ 0x1407C300C (CmpLockTwoKcbsShared.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     CmpLockKcbShared @ 0x140AB42D0 (CmpLockKcbShared.c)
- *     CmpUnlockKcb @ 0x140AB4300 (CmpUnlockKcb.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpUnlockHashEntry @ 0x1405EC638 (CmpUnlockHashEntry.c)
+ *     CmpLockTwoKcbsShared @ 0x1405F38C0 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x1405F3950 (CmpUnlockTwoKcbs.c)
+ *     CmpHashUnicodeComponent @ 0x14066A224 (CmpHashUnicodeComponent.c)
+ *     CmpLockHashEntryShared @ 0x1406BACFC (CmpLockHashEntryShared.c)
+ *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
+ *     CmpReferenceKeyControlBlock @ 0x140719888 (CmpReferenceKeyControlBlock.c)
+ *     CmpHashCompressedComponent @ 0x140766704 (CmpHashCompressedComponent.c)
+ *     CmpIsKcbLockAllowed @ 0x140766754 (CmpIsKcbLockAllowed.c)
  */
 
-__int64 __fastcall CmpFindSubkeyInHashByChildCell(__int64 a1, __int64 a2, ULONG_PTR a3, unsigned int a4, ULONG_PTR *a5)
+__int64 __fastcall CmpFindSubkeyInHashByChildCell(
+        ULONG_PTR a1,
+        ULONG_PTR a2,
+        __int64 a3,
+        unsigned int a4,
+        ULONG_PTR *a5)
 {
-  ULONG_PTR *v5; // r13
-  __int64 v6; // r14
-  int v8; // ebx
-  bool v10; // zf
-  __int64 CellPaged; // rax
+  int v5; // ebx
+  ULONG_PTR *v7; // r13
+  ULONG_PTR v9; // rdi
+  __int64 v10; // rax
+  __int64 v12; // rax
   __int64 v13; // rdx
-  int v14; // eax
-  unsigned int v15; // ebx
-  ULONG_PTR v16; // rcx
-  __int64 v17; // rdi
-  ULONG_PTR v19; // rdi
-  __int64 v20; // rcx
-  __int64 v21; // rcx
-  __m128i v22; // [rsp+20h] [rbp-10h] BYREF
-  __int64 v23; // [rsp+70h] [rbp+40h] BYREF
-  __int64 v24; // [rsp+80h] [rbp+50h]
+  int v14; // ebx
+  int v15; // eax
+  unsigned int v16; // r15d
+  __int64 v17; // rbx
+  ULONG_PTR v18; // rbx
+  ULONG_PTR v19; // rcx
+  ULONG_PTR v21; // rcx
+  PVOID *v22; // [rsp+20h] [rbp-20h]
+  __m128i v23; // [rsp+28h] [rbp-18h] BYREF
+  int v24; // [rsp+80h] [rbp+40h] BYREF
+  int v25; // [rsp+84h] [rbp+44h]
+  __int64 v26; // [rsp+90h] [rbp+50h]
 
-  v5 = a5;
-  v22.m128i_i32[1] = 0;
-  v6 = a1;
-  LODWORD(v23) = -1;
-  v8 = *(_DWORD *)(a1 + 16);
+  v5 = *(_DWORD *)(a1 + 16);
+  v23.m128i_i32[1] = 0;
+  v7 = a5;
+  v24 = -1;
+  v9 = a1;
+  v25 = 0;
+  v10 = *(_QWORD *)(a3 + 1640);
   *a5 = 0LL;
-  v10 = (*(_BYTE *)(a3 + 140) & 1) == 0;
-  HIDWORD(v23) = 0;
-  v24 = *(_QWORD *)(a3 + 1648);
-  if ( v10 )
-    CellPaged = HvpGetCellPaged(a3);
-  else
-    CellPaged = HvpGetCellFlat(a3, a4, &v23);
-  if ( !CellPaged )
+  v26 = v10;
+  v12 = (*(__int64 (__fastcall **)(__int64, _QWORD, int *))(a3 + 8))(a3, a4, &v24);
+  if ( !v12 )
     return 3221225626LL;
-  v13 = *(unsigned __int16 *)(CellPaged + 72);
-  if ( (*(_BYTE *)(CellPaged + 2) & 0x20) != 0 )
+  v13 = *(unsigned __int16 *)(v12 + 72);
+  v14 = 37 * v5;
+  if ( (*(_BYTE *)(v12 + 2) & 0x20) != 0 )
   {
-    v14 = CmpHashCompressedComponent(CellPaged + 76, v13);
+    v15 = CmpHashCompressedComponent(v12 + 76, v13);
   }
   else
   {
-    v22.m128i_i64[1] = CellPaged + 76;
-    v22.m128i_i16[0] = v13;
-    v22.m128i_i16[1] = v13;
-    v14 = CmpHashUnicodeComponent(&v22);
+    v23.m128i_i64[1] = v12 + 76;
+    v23.m128i_i16[0] = v13;
+    v23.m128i_i16[1] = v13;
+    v15 = CmpHashUnicodeComponent(&v23);
   }
-  v15 = 37 * v8 + v14;
-  if ( (*(_BYTE *)(a3 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(a3, &v23);
-  else
-    HvpReleaseCellPaged(a3, &v23);
-  CmpUnlockTwoKcbs(v6, a2);
-  v16 = *(_QWORD *)(v6 + 32);
-  v22.m128i_i64[0] = v6 + 32;
-  CmpLockHashEntryShared(v16, v15);
-  CmpLockTwoKcbsShared(v6, a2);
-  v17 = *(_QWORD *)(v24
+  v16 = v14 + v15;
+  (*(void (__fastcall **)(__int64, int *))(a3 + 16))(a3, &v24);
+  CmpUnlockTwoKcbs(v9, a2);
+  v22 = (PVOID *)(v9 + 32);
+  CmpLockHashEntryShared(*(_QWORD *)(v9 + 32), v16);
+  CmpLockTwoKcbsShared(v9, a2);
+  v17 = *(_QWORD *)(v26
                   + 24
-                  * ((unsigned int)(*(_DWORD *)(a3 + 1656) - 1) & ((101027 * (v15 ^ (v15 >> 9))) ^ ((unsigned __int64)(101027 * (v15 ^ (v15 >> 9))) >> 9)))
+                  * ((unsigned int)(*(_DWORD *)(a3 + 1648) - 1) & ((101027 * (v16 ^ (v16 >> 9))) ^ ((unsigned __int64)(101027 * (v16 ^ (v16 >> 9))) >> 9)))
                   + 16);
   if ( v17 )
   {
     LOBYTE(a5) = 0;
-    while ( v15 != *(_DWORD *)v17 || a4 != *(_DWORD *)(v17 + 24) || a3 != *(_QWORD *)(v17 + 16) )
+    while ( v16 != *(_DWORD *)v17 || a4 != *(_DWORD *)(v17 + 24) || a3 != *(_QWORD *)(v17 + 16) )
     {
       v17 = *(_QWORD *)(v17 + 8);
       if ( !v17 )
-        goto LABEL_12;
+        goto LABEL_13;
     }
-    v19 = v17 - 16;
-    if ( CmpIsKcbLockAllowed(v6, v19, &a5) )
+    v18 = v17 - 16;
+    if ( (unsigned __int8)CmpIsKcbLockAllowed(v9, v18, &a5) )
     {
-      if ( !a2 || CmpIsKcbLockAllowed(a2, v19, &a5) )
+      if ( !a2 || (unsigned __int8)CmpIsKcbLockAllowed(a2, v18, &a5) )
       {
-        v6 = v19;
+        v9 = v18;
       }
       else
       {
         CmpUnlockKcb(v21);
-        CmpLockKcbShared(v19);
-        v6 = a2;
+        ExAcquirePushLockSharedEx(v18 + 48, 0LL);
+        _InterlockedIncrement((volatile signed __int32 *)(v18 + 56));
+        v9 = a2;
       }
     }
     else
     {
-      CmpUnlockKcb(v20);
-      CmpLockKcbShared(v19);
+      CmpUnlockKcb(v19);
+      ExAcquirePushLockSharedEx(v18 + 48, 0LL);
+      _InterlockedIncrement((volatile signed __int32 *)(v18 + 56));
     }
-    CmpLockKcbShared(v6);
-    CmpReferenceKeyControlBlock(v19);
-    *v5 = v19;
-    CmpUnlockKcb(v19);
+    ExAcquirePushLockSharedEx(v9 + 48, 0LL);
+    _InterlockedIncrement((volatile signed __int32 *)(v9 + 56));
+    CmpReferenceKeyControlBlock(v18);
+    *v7 = v18;
+    CmpUnlockKcb(v18);
   }
-LABEL_12:
-  CmpUnlockHashEntry(*(PVOID *)v22.m128i_i64[0]);
+LABEL_13:
+  CmpUnlockHashEntry(*v22, v16);
   return 0LL;
 }

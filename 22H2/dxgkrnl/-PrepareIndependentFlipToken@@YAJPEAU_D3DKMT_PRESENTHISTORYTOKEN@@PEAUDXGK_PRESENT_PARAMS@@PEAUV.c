@@ -1,1204 +1,1094 @@
 /*
- * XREFs of ?PrepareIndependentFlipToken@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVDXGCONTEXT@@PEAU_PRESENT_REDIRECTED_PARAMS@@PEAVCRefCountedBuffer@@@Z @ 0x1C01BC948
+ * XREFs of ?PrepareIndependentFlipToken@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVDXGCONTEXT@@PEAU_PRESENT_REDIRECTED_PARAMS@@PEAVCRefCountedBuffer@@@Z @ 0x1C0110B50
  * Callers:
- *     ?SubmitPresentHistoryToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@HPEAT_LARGE_INTEGER@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVDXGCONTEXT@@PEAU_PRESENT_REDIRECTED_PARAMS@@PEAD@Z @ 0x1C01BC080 (-SubmitPresentHistoryToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAVCOREDEVICEACCESS@@PEAVDXGADA.c)
- *     ?SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYTOKENQUEUE@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@2PEAVCRefCountedBuffer@@II3K@Z @ 0x1C03765C8 (-SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYT.c)
+ *     ?SubmitPresentHistoryToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@HPEAT_LARGE_INTEGER@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVDXGCONTEXT@@PEAU_PRESENT_REDIRECTED_PARAMS@@PEAD@Z @ 0x1C010EC30 (-SubmitPresentHistoryToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAVCOREDEVICEACCESS@@PEAVDXGADA.c)
+ *     ?SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYTOKENQUEUE@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@2PEAVCRefCountedBuffer@@II3K@Z @ 0x1C023B6F4 (-SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYT.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C000AEB4 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
- *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000AF80 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C0013858 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?GetAllocationSafe@DXGPROCESS@@QEAA?AVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C001B784 (-GetAllocationSafe@DXGPROCESS@@QEAA-AVDXGALLOCATIONREFERENCE@@I@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C0023F34 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
- *     ??0DXGDISPLAYSTATEMUTEX@@QEAA@PEAVADAPTER_DISPLAY@@@Z @ 0x1C0024B40 (--0DXGDISPLAYSTATEMUTEX@@QEAA@PEAVADAPTER_DISPLAY@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?SupportCheckMultiPlaneOverlaySupport3@DXGADAPTER@@QEBAEXZ @ 0x1C0049AFC (-SupportCheckMultiPlaneOverlaySupport3@DXGADAPTER@@QEBAEXZ.c)
- *     ?IsHdrEnabled@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C0053ED8 (-IsHdrEnabled@ADAPTER_DISPLAY@@QEBAEI@Z.c)
- *     ?GetPostCompositionStretching@ADAPTER_DISPLAY@@QEAAEI@Z @ 0x1C0055C54 (-GetPostCompositionStretching@ADAPTER_DISPLAY@@QEAAEI@Z.c)
- *     ?DdiPresent@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_PRESENT@@@Z @ 0x1C0169F30 (-DdiPresent@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_PRESENT@@@Z.c)
- *     ?MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z @ 0x1C01A1DDC (-MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C01CB650 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
- *     ??1?$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$03@@QEAA@XZ @ 0x1C0231C36 (--1-$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$03@@QEAA@XZ.c)
- *     ?AllocateElements@?$PagedPoolZeroedArray@U_DXGK_PRESENTALLOCATIONINFO@@$03@@QEAAPEAU_DXGK_PRESENTALLOCATIONINFO@@I@Z @ 0x1C0231C8A (-AllocateElements@-$PagedPoolZeroedArray@U_DXGK_PRESENTALLOCATIONINFO@@$03@@QEAAPEAU_DXGK_PRESEN.c)
- *     ?PopulateHDRMetadataFromDisplay@@YAJIPEAVADAPTER_DISPLAY@@PEAU_D3DDDI_HDR_METADATA_HDR10@@PEAW4_D3DDDI_HDR_METADATA_TYPE@@@Z @ 0x1C0232260 (-PopulateHDRMetadataFromDisplay@@YAJIPEAVADAPTER_DISPLAY@@PEAU_D3DDDI_HDR_METADATA_HDR10@@PEAW4_.c)
- *     ?ReadPresentDirtyRectsData@@YAJPEBVDXGADAPTER@@IPEBVCIFlipPresentHistoryTokenData@@PEAPEAVCRefCountedBuffer@@@Z @ 0x1C0232462 (-ReadPresentDirtyRectsData@@YAJPEBVDXGADAPTER@@IPEBVCIFlipPresentHistoryTokenData@@PEAPEAVCRefCo.c)
- *     ?GetEnabledPlaneCountUnsafe@DISPLAY_SOURCE@@QEAAIXZ @ 0x1C02BD9BC (-GetEnabledPlaneCountUnsafe@DISPLAY_SOURCE@@QEAAIXZ.c)
- *     ?UpdateIndependentFlipState@ADAPTER_DISPLAY@@QEAAXIIE@Z @ 0x1C02C0414 (-UpdateIndependentFlipState@ADAPTER_DISPLAY@@QEAAXIIE@Z.c)
- *     ?IsYUVAllocation@@YAHPEAXPEAVADAPTER_RENDER@@@Z @ 0x1C02EB994 (-IsYUVAllocation@@YAHPEAXPEAVADAPTER_RENDER@@@Z.c)
- *     ??0CIFlipPresentHistoryToken@@QEAA@PEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C0320BD0 (--0CIFlipPresentHistoryToken@@QEAA@PEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
- *     ??1CIFlipPresentHistoryToken@@QEAA@XZ @ 0x1C0320C34 (--1CIFlipPresentHistoryToken@@QEAA@XZ.c)
- *     ?AllocateElements@?$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$03@@QEAAPEAVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C0323738 (-AllocateElements@-$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$03@@QEAAPEAVDXGALLOCATIONREFERENCE@.c)
- *     ?CheckAndUpdateMultiPlaneOverlayFromInternalState@@YA_NIIPEAVCIFlipPresentHistoryTokenData@@_NPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAUtagRECT@@@Z @ 0x1C0323F80 (-CheckAndUpdateMultiPlaneOverlayFromInternalState@@YA_NIIPEAVCIFlipPresentHistoryTokenData@@_NPE.c)
- *     ?UpdatePostComposition@@YAXIEIIPEAVADAPTER_DISPLAY@@@Z @ 0x1C0324F40 (-UpdatePostComposition@@YAXIEIIPEAVADAPTER_DISPLAY@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C00038D4 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000903C (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
+ *     ?GetAllocationSafe@DXGPROCESS@@QEAA?AVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C0015390 (-GetAllocationSafe@DXGPROCESS@@QEAA-AVDXGALLOCATIONREFERENCE@@I@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ??0DXGDISPLAYSTATEMUTEX@@QEAA@PEAVADAPTER_DISPLAY@@@Z @ 0x1C00258FC (--0DXGDISPLAYSTATEMUTEX@@QEAA@PEAVADAPTER_DISPLAY@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?GetPostCompositionStretching@ADAPTER_DISPLAY@@QEAAEI@Z @ 0x1C004812C (-GetPostCompositionStretching@ADAPTER_DISPLAY@@QEAAEI@Z.c)
+ *     ?IsHdrEnabled@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C0048228 (-IsHdrEnabled@ADAPTER_DISPLAY@@QEBAEI@Z.c)
+ *     ?PopulateHDRMetadataFromDisplay@@YAJIPEAVADAPTER_DISPLAY@@PEAU_D3DDDI_HDR_METADATA_HDR10@@PEAW4_D3DDDI_HDR_METADATA_TYPE@@@Z @ 0x1C00DC850 (-PopulateHDRMetadataFromDisplay@@YAJIPEAVADAPTER_DISPLAY@@PEAU_D3DDDI_HDR_METADATA_HDR10@@PEAW4_.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C01059F0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C0107C00 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ?MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z @ 0x1C01550DC (-MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z.c)
+ *     ?UpdatePostComposition@@YAXIEIIPEAVADAPTER_DISPLAY@@@Z @ 0x1C01593F0 (-UpdatePostComposition@@YAXIEIIPEAVADAPTER_DISPLAY@@@Z.c)
+ *     ?DdiPresent@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_PRESENT@@@Z @ 0x1C0170F5C (-DdiPresent@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_PRESENT@@@Z.c)
+ *     ??0?$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$03@@QEAA@I@Z @ 0x1C0171488 (--0-$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$03@@QEAA@I@Z.c)
+ *     ??1?$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$03@@QEAA@XZ @ 0x1C0171A28 (--1-$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$03@@QEAA@XZ.c)
+ *     ?UpdateIndependentFlipState@ADAPTER_DISPLAY@@QEAAXIIE@Z @ 0x1C01725E8 (-UpdateIndependentFlipState@ADAPTER_DISPLAY@@QEAAXIIE@Z.c)
+ *     ?AllocateElements@?$PagedPoolZeroedArray@U_DXGK_PRESENTALLOCATIONINFO@@$03@@QEAAPEAU_DXGK_PRESENTALLOCATIONINFO@@I@Z @ 0x1C0172718 (-AllocateElements@-$PagedPoolZeroedArray@U_DXGK_PRESENTALLOCATIONINFO@@$03@@QEAAPEAU_DXGK_PRESEN.c)
+ *     ?GetEnabledPlaneCountUnsafe@DISPLAY_SOURCE@@QEAAIXZ @ 0x1C02139C8 (-GetEnabledPlaneCountUnsafe@DISPLAY_SOURCE@@QEAAIXZ.c)
+ *     ?IsYUVAllocation@@YAHPEAXPEAVADAPTER_RENDER@@@Z @ 0x1C0255C7C (-IsYUVAllocation@@YAHPEAXPEAVADAPTER_RENDER@@@Z.c)
+ *     ?ReadPresentDirtyRectsData@@YAJPEBVDXGADAPTER@@IPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAPEAVCRefCountedBuffer@@@Z @ 0x1C02820E0 (-ReadPresentDirtyRectsData@@YAJPEBVDXGADAPTER@@IPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAPEAVCRefCoun.c)
+ *     ?CheckAndUpdateMultiPlaneOverlayFromInternalState@@YA_NIIPEAU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@_NPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAUtagRECT@@@Z @ 0x1C02A3C48 (-CheckAndUpdateMultiPlaneOverlayFromInternalState@@YA_NIIPEAU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOK.c)
  */
 
 __int64 __fastcall PrepareIndependentFlipToken(
-        struct _D3DKMT_PRESENTHISTORYTOKEN *a1,
-        struct DXGK_PRESENT_PARAMS *a2,
-        struct VIDSCH_SUBMIT_DATA_BASE *a3,
-        struct DXGCONTEXT *a4,
-        UINT64 **a5,
+        struct _EX_RUNDOWN_REF *a1,
+        struct _EX_RUNDOWN_REF *a2,
+        struct _EX_RUNDOWN_REF *a3,
+        struct _EX_RUNDOWN_REF *a4,
+        struct _PRESENT_REDIRECTED_PARAMS *a5,
         struct CRefCountedBuffer *a6)
 {
-  struct VIDSCH_SUBMIT_DATA_BASE *v7; // r15
-  struct DXGK_PRESENT_PARAMS *v8; // rax
-  struct _D3DKMT_PRESENTHISTORYTOKEN *v9; // rdx
-  D3DKMT_PRESENT_MODEL Model; // ecx
-  UINT64 FenceValue; // rsi
-  unsigned int v12; // r14d
-  __int64 v13; // rdi
+  struct _EX_RUNDOWN_REF *v7; // rbx
+  struct _EX_RUNDOWN_REF *v8; // rdi
+  struct CRefCountedBuffer *Count; // rcx
+  __int64 v10; // r13
+  __int64 v11; // r14
+  __int64 CurrentProcess; // rax
+  __int64 ProcessDxgProcess; // rax
+  __int64 v14; // rdx
   __int64 v15; // rcx
-  UINT64 *v16; // rdi
-  struct DXGPROCESS *Current; // r9
-  UINT64 v18; // r13
-  UINT64 v19; // rsi
-  unsigned __int64 v20; // rdi
-  unsigned int v21; // eax
-  struct _EX_RUNDOWN_REF *v22; // rax
-  ULONG_PTR Count; // rdx
-  __int64 v24; // rdx
-  __int64 v25; // rbx
-  UINT64 CompositionBindingId; // rdi
-  __int64 v27; // rax
-  struct _LUID *v28; // rax
-  unsigned int v29; // ecx
-  struct DXGCONTEXT *v30; // rbx
-  __int64 v31; // rdx
-  int v32; // ecx
+  __int64 v16; // rsi
+  struct DXGTHREAD *Current; // rax
+  __int64 v18; // rcx
+  ADAPTER_DISPLAY *v19; // r14
+  struct _EX_RUNDOWN_REF *v20; // rax
+  unsigned int Ptr_high; // esi
+  __int64 v22; // rdx
+  struct _EX_RUNDOWN_REF *v23; // rax
+  ULONG_PTR v24; // rdx
+  ULONG_PTR v25; // rdx
+  __int64 v26; // r8
+  unsigned int v27; // eax
+  unsigned int v28; // edx
+  struct _EX_RUNDOWN_REF *v29; // rcx
+  int v30; // edx
+  int v31; // edx
+  int v32; // edx
   int v33; // ecx
   int v34; // ecx
-  DXGADAPTER *v35; // rdi
+  DXGADAPTER *v35; // rcx
   int v36; // eax
   int v37; // eax
-  int v38; // eax
-  __int64 v39; // rdx
-  __int64 v40; // rdi
-  unsigned int v41; // ebx
-  __int64 v42; // rax
-  __int64 v44; // rbx
-  __int64 v45; // rdi
-  __int64 v46; // rax
-  __int64 v47; // rbx
-  __int64 v48; // rdi
-  __int64 v49; // rax
-  __int64 v50; // rdx
-  _DWORD *v51; // rdi
-  __int64 v52; // rbx
-  __int64 v53; // rdi
-  __int64 v54; // rax
-  __int64 v55; // rbx
-  unsigned int v56; // eax
+  _DWORD *v38; // r8
+  int v39; // eax
+  __int64 v40; // rdx
+  _QWORD *v41; // rax
+  struct _EX_RUNDOWN_REF *v43; // rcx
+  __int64 v44; // rdx
+  __int64 v45; // rcx
+  struct DXGTHREAD *v46; // rax
+  __int64 v47; // rdx
+  __int64 v48; // rcx
+  struct DXGTHREAD *v49; // rbx
+  _QWORD *v50; // rax
+  int v51; // esi
+  int v52; // edx
+  __int64 v53; // rax
+  _QWORD *v54; // rax
+  unsigned __int8 PostCompositionStretching; // r13
+  bool v56; // r9
   __int64 v57; // rdx
-  unsigned __int8 PostCompositionStretching; // al
-  bool v59; // r9
-  __int128 *v60; // rax
-  char *v61; // rdi
-  __int64 v62; // rax
-  __int128 v63; // xmm1
-  __int64 v64; // r8
-  __int64 v65; // rbx
-  __int64 v66; // rdi
+  struct _EX_RUNDOWN_REF *v58; // rcx
+  ULONG_PTR v59; // rax
+  __int128 v60; // xmm1
+  __int64 v61; // r8
+  ADAPTER_RENDER *v62; // r13
+  __int64 v63; // rdx
+  __int64 v64; // rdx
+  __int64 v65; // rcx
+  __int64 v66; // r8
   __int64 v67; // rax
-  __int64 v68; // rdx
-  unsigned int v69; // eax
-  unsigned int v70; // eax
-  __int64 v71; // rax
-  __int64 v72; // rax
-  _DWORD *v73; // rdx
-  UINT v74; // edi
-  _QWORD *Pool2; // rsi
-  int *v76; // r10
-  UINT v77; // r9d
-  char *v78; // r8
-  __int64 v79; // rax
-  _DWORD *v80; // rcx
-  _DWORD *v81; // rdx
-  char *v82; // r11
-  DXGADAPTER *v83; // rax
-  char *v84; // rcx
-  char *v85; // r8
-  unsigned int v86; // r9d
-  struct _EX_RUNDOWN_REF *v87; // r10
-  __int64 v88; // rdx
-  _DWORD *v89; // r8
-  struct _EX_RUNDOWN_REF **AllocationSafe; // rax
-  __int64 v91; // rbx
-  int v92; // eax
-  const struct DXGADAPTER *v93; // rcx
-  __int64 v94; // rax
-  struct _EX_RUNDOWN_REF **v95; // r9
-  _DWORD *v96; // r11
-  char *v97; // rdx
-  __int64 v98; // rax
-  char *v99; // rdx
-  unsigned __int64 v100; // r8
-  ULONG_PTR v101; // rcx
-  bool v102; // al
-  __int64 v103; // r8
-  UINT64 v104; // rsi
-  __int64 v105; // rdi
-  unsigned int v106; // ebx
-  __int64 v107; // rax
-  _DWORD *v108; // rax
-  _DWORD *v109; // rbx
-  int v110; // ecx
-  char v111; // r11
-  enum _D3DDDI_HDR_METADATA_TYPE v112; // edx
-  __int64 v113; // rsi
-  __int64 v114; // r15
-  _QWORD *v115; // r8
-  __int16 v116; // r9
-  struct _EX_RUNDOWN_REF *v117; // rdx
-  __int64 v118; // rax
-  void *v119; // rdx
-  int v120; // edi
-  int v121; // eax
-  __int64 v122; // rbx
-  __int64 v123; // rbx
-  __int64 v124; // rdi
-  char *v125; // rsi
-  UINT64 v126; // rsi
-  __int64 v127; // rdi
-  unsigned int v128; // ebx
+  DXGADAPTER *v68; // r13
+  __int64 v69; // rdx
+  int v70; // eax
+  __int64 Count_low; // rcx
+  __int64 v72; // rcx
+  __int64 v73; // rax
+  int v74; // ecx
+  int v75; // r8d
+  int v76; // edx
+  __int64 v77; // rax
+  int v78; // edx
+  char v79; // cl
+  __int64 v80; // rax
+  unsigned __int64 v81; // rdx
+  POOL_TYPE v82; // r9d
+  unsigned int v83; // r15d
+  struct _EX_RUNDOWN_REF *PoolWithTag; // r13
+  struct _EX_RUNDOWN_REF *v85; // r9
+  unsigned int i; // r14d
+  const struct DXGADAPTER *v87; // rcx
+  struct _EX_RUNDOWN_REF *v88; // r15
+  struct _EX_RUNDOWN_REF *v89; // rdx
+  DXGADAPTER *v90; // rax
+  struct _EX_RUNDOWN_REF *v91; // rcx
+  __int64 v92; // rdx
+  __int64 v93; // rcx
+  ULONG_PTR v94; // rax
+  unsigned int *v95; // rdx
+  __int64 v96; // rsi
+  struct _EX_RUNDOWN_REF **v97; // r13
+  DXGALLOCATIONREFERENCE *AllocationSafe; // rax
+  __int64 v99; // rdx
+  __int64 v100; // rdx
+  __int64 v101; // rcx
+  _QWORD *v102; // rax
+  DXGADAPTER *v103; // r14
+  struct _EX_RUNDOWN_REF *v104; // r9
+  __int64 v105; // rdx
+  __int64 v106; // rcx
+  _QWORD *v107; // rax
+  struct _EX_RUNDOWN_REF *v108; // rdx
+  struct _EX_RUNDOWN_REF *v109; // rdx
+  __int64 v110; // r8
+  struct _EX_RUNDOWN_REF *v111; // r13
+  __int64 v112; // rdx
+  __int64 v113; // rcx
+  __int64 v114; // rax
+  ULONG_PTR v115; // rax
+  ULONG_PTR v116; // rcx
+  ULONG_PTR v117; // r8
+  _QWORD *v118; // rax
+  char *pAllocationList; // rdx
+  int v120; // eax
+  UINT v121; // r15d
+  __int64 v122; // r14
+  __int64 v123; // rsi
+  unsigned __int8 v124; // r13
+  struct _EX_RUNDOWN_REF *v125; // rdi
+  struct _EX_RUNDOWN_REF *v126; // rbx
+  __int16 v127; // ax
+  struct _EX_RUNDOWN_REF *v128; // rdx
   __int64 v129; // rax
-  __int64 v130; // rdx
-  int v131; // [rsp+30h] [rbp-458h]
-  int v132; // [rsp+30h] [rbp-458h]
-  unsigned __int8 v133; // [rsp+80h] [rbp-408h]
-  char v134; // [rsp+80h] [rbp-408h]
-  _QWORD v135[2]; // [rsp+88h] [rbp-400h] BYREF
-  unsigned int v136; // [rsp+98h] [rbp-3F0h] BYREF
-  __int64 v137; // [rsp+A0h] [rbp-3E8h]
-  unsigned int v138; // [rsp+A8h] [rbp-3E0h]
-  DXGADAPTER *v139; // [rsp+B0h] [rbp-3D8h]
-  unsigned int v140; // [rsp+B8h] [rbp-3D0h]
-  unsigned int v141; // [rsp+BCh] [rbp-3CCh] BYREF
-  enum _D3DDDI_HDR_METADATA_TYPE v142; // [rsp+C0h] [rbp-3C8h] BYREF
-  struct _EX_RUNDOWN_REF *v143; // [rsp+C8h] [rbp-3C0h] BYREF
-  __int64 v144; // [rsp+D0h] [rbp-3B8h]
-  struct _EX_RUNDOWN_REF **v145; // [rsp+D8h] [rbp-3B0h]
-  int v146; // [rsp+E0h] [rbp-3A8h] BYREF
-  int v147; // [rsp+E4h] [rbp-3A4h]
-  int v148; // [rsp+E8h] [rbp-3A0h] BYREF
-  unsigned __int64 v149; // [rsp+F0h] [rbp-398h]
-  int v150; // [rsp+F8h] [rbp-390h]
-  char *v151; // [rsp+100h] [rbp-388h]
-  int *v152; // [rsp+108h] [rbp-380h]
-  UINT64 *v153; // [rsp+110h] [rbp-378h] BYREF
-  unsigned __int64 v154; // [rsp+118h] [rbp-370h]
-  UINT64 *p_CompositionBindingId; // [rsp+120h] [rbp-368h]
-  _DWORD *v156; // [rsp+128h] [rbp-360h]
-  _BYTE *v157; // [rsp+130h] [rbp-358h]
-  struct _D3DKMT_PRESENTHISTORYTOKEN *v158; // [rsp+138h] [rbp-350h]
-  int v159; // [rsp+140h] [rbp-348h] BYREF
-  int v160; // [rsp+144h] [rbp-344h] BYREF
-  int v161; // [rsp+148h] [rbp-340h] BYREF
-  __int64 v162; // [rsp+150h] [rbp-338h] BYREF
-  struct DXGCONTEXT *v163; // [rsp+158h] [rbp-330h]
-  struct _EX_RUNDOWN_REF *v164; // [rsp+160h] [rbp-328h]
-  int v165; // [rsp+168h] [rbp-320h] BYREF
-  int v166; // [rsp+16Ch] [rbp-31Ch] BYREF
-  struct CRefCountedBuffer *v167; // [rsp+170h] [rbp-318h]
-  __int64 v168; // [rsp+178h] [rbp-310h]
-  _DWORD *v169; // [rsp+180h] [rbp-308h] BYREF
-  __int128 *v170; // [rsp+188h] [rbp-300h] BYREF
-  struct DXGPROCESS *v171; // [rsp+190h] [rbp-2F8h] BYREF
-  int v172; // [rsp+198h] [rbp-2F0h] BYREF
-  struct VIDSCH_SUBMIT_DATA_BASE *v173; // [rsp+1A0h] [rbp-2E8h]
-  D3DDDI_FLIPINTERVAL_TYPE *v174; // [rsp+1A8h] [rbp-2E0h]
-  struct CRefCountedBuffer *v175; // [rsp+1B0h] [rbp-2D8h] BYREF
-  _QWORD v176[3]; // [rsp+1B8h] [rbp-2D0h] BYREF
-  _BYTE v177[16]; // [rsp+1D0h] [rbp-2B8h] BYREF
-  PVOID P; // [rsp+1E0h] [rbp-2A8h]
-  _BYTE v179[32]; // [rsp+1E8h] [rbp-2A0h] BYREF
-  UINT v180; // [rsp+208h] [rbp-280h]
-  __int64 v181; // [rsp+210h] [rbp-278h] BYREF
-  int v182; // [rsp+218h] [rbp-270h]
-  char v183[8]; // [rsp+220h] [rbp-268h] BYREF
-  UINT64 v184; // [rsp+228h] [rbp-260h]
-  _QWORD *v185; // [rsp+230h] [rbp-258h]
-  struct DXGCONTEXT *v186; // [rsp+238h] [rbp-250h]
-  struct VIDSCH_SUBMIT_DATA_BASE *v187; // [rsp+240h] [rbp-248h]
-  struct _D3DKMT_PRESENTHISTORYTOKEN *v188; // [rsp+248h] [rbp-240h]
-  struct DXGK_PRESENT_PARAMS *v189; // [rsp+250h] [rbp-238h]
-  struct DXGK_PRESENT_PARAMS *v190; // [rsp+258h] [rbp-230h]
-  struct tagRECT v191; // [rsp+260h] [rbp-228h] BYREF
-  struct _D3DDDI_HDR_METADATA_HDR10 v192; // [rsp+270h] [rbp-218h] BYREF
-  __int64 v193; // [rsp+290h] [rbp-1F8h]
-  struct _EX_RUNDOWN_REF *v194; // [rsp+298h] [rbp-1F0h]
-  __int64 v195; // [rsp+2A0h] [rbp-1E8h]
-  __int64 v196; // [rsp+2A8h] [rbp-1E0h]
-  _DXGKARG_PRESENT v197; // [rsp+2B0h] [rbp-1D8h] BYREF
-  __int128 v198; // [rsp+360h] [rbp-128h] BYREF
-  struct tagRECT v199; // [rsp+370h] [rbp-118h] BYREF
-  _QWORD v200[5]; // [rsp+380h] [rbp-108h] BYREF
-  int v201; // [rsp+3A8h] [rbp-E0h]
-  PVOID v202; // [rsp+3B0h] [rbp-D8h] BYREF
-  _BYTE v203[128]; // [rsp+3B8h] [rbp-D0h] BYREF
-  int v204; // [rsp+438h] [rbp-50h]
+  PVOID Ptr; // rdx
+  struct CRefCountedBuffer *v131; // rax
+  int v132; // eax
+  __int64 v133; // rdx
+  __int64 v134; // rcx
+  __int64 v135; // r14
+  __int64 v136; // rax
+  __int64 v137; // rsi
+  ULONG_PTR v138; // r14
+  char *v139; // r13
+  ADAPTER_RENDER *v140; // rbx
+  ADAPTER_RENDER *v141; // rdi
+  _QWORD *v142; // rax
+  __int64 v143; // rdx
+  int v144; // [rsp+30h] [rbp-418h]
+  int v145; // [rsp+30h] [rbp-418h]
+  bool v146; // [rsp+80h] [rbp-3C8h]
+  unsigned int v147; // [rsp+84h] [rbp-3C4h] BYREF
+  UINT v148; // [rsp+88h] [rbp-3C0h]
+  ADAPTER_RENDER *v149; // [rsp+90h] [rbp-3B8h]
+  DXGADAPTER *v150; // [rsp+98h] [rbp-3B0h]
+  struct _EX_RUNDOWN_REF *v151; // [rsp+A0h] [rbp-3A8h] BYREF
+  int v152; // [rsp+A8h] [rbp-3A0h] BYREF
+  unsigned int v153; // [rsp+ACh] [rbp-39Ch] BYREF
+  int v154; // [rsp+B0h] [rbp-398h]
+  int v155; // [rsp+B4h] [rbp-394h] BYREF
+  unsigned int v156; // [rsp+B8h] [rbp-390h]
+  struct _EX_RUNDOWN_REF *v157; // [rsp+C0h] [rbp-388h]
+  struct _EX_RUNDOWN_REF *v158; // [rsp+C8h] [rbp-380h]
+  struct _EX_RUNDOWN_REF *v159; // [rsp+D0h] [rbp-378h]
+  struct _EX_RUNDOWN_REF *v160; // [rsp+D8h] [rbp-370h]
+  int v161; // [rsp+E0h] [rbp-368h] BYREF
+  int v162; // [rsp+E4h] [rbp-364h] BYREF
+  enum _D3DDDI_HDR_METADATA_TYPE v163; // [rsp+E8h] [rbp-360h] BYREF
+  unsigned int v164; // [rsp+ECh] [rbp-35Ch]
+  int v165; // [rsp+F0h] [rbp-358h] BYREF
+  struct _EX_RUNDOWN_REF *v166; // [rsp+F8h] [rbp-350h]
+  struct CRefCountedBuffer *v167; // [rsp+100h] [rbp-348h]
+  struct _EX_RUNDOWN_REF *v168; // [rsp+108h] [rbp-340h]
+  int v169; // [rsp+110h] [rbp-338h] BYREF
+  int v170; // [rsp+114h] [rbp-334h] BYREF
+  int v171; // [rsp+118h] [rbp-330h] BYREF
+  int v172; // [rsp+11Ch] [rbp-32Ch] BYREF
+  _DWORD v173[2]; // [rsp+120h] [rbp-328h] BYREF
+  int v174; // [rsp+128h] [rbp-320h]
+  struct _EX_RUNDOWN_REF *v175; // [rsp+130h] [rbp-318h]
+  struct CRefCountedBuffer *v176; // [rsp+138h] [rbp-310h]
+  ULONG_PTR v177; // [rsp+140h] [rbp-308h]
+  ADAPTER_RENDER *v178; // [rsp+148h] [rbp-300h]
+  __int64 v179; // [rsp+150h] [rbp-2F8h]
+  __int64 v180; // [rsp+158h] [rbp-2F0h]
+  ULONG_PTR v181; // [rsp+160h] [rbp-2E8h]
+  struct CRefCountedBuffer *v182; // [rsp+168h] [rbp-2E0h] BYREF
+  _BYTE v183[16]; // [rsp+170h] [rbp-2D8h] BYREF
+  PVOID P; // [rsp+180h] [rbp-2C8h]
+  _BYTE v185[32]; // [rsp+188h] [rbp-2C0h] BYREF
+  unsigned int v186; // [rsp+1A8h] [rbp-2A0h]
+  __int64 v187; // [rsp+1B0h] [rbp-298h] BYREF
+  __int64 v188; // [rsp+1B8h] [rbp-290h] BYREF
+  __int64 v189; // [rsp+1C0h] [rbp-288h] BYREF
+  struct _EX_RUNDOWN_REF *v190[7]; // [rsp+1C8h] [rbp-280h] BYREF
+  struct tagRECT v191; // [rsp+200h] [rbp-248h] BYREF
+  int v192; // [rsp+210h] [rbp-238h]
+  struct _D3DDDI_HDR_METADATA_HDR10 v193; // [rsp+218h] [rbp-230h] BYREF
+  _QWORD v194[2]; // [rsp+238h] [rbp-210h] BYREF
+  __int64 v195; // [rsp+248h] [rbp-200h]
+  __int64 v196; // [rsp+250h] [rbp-1F8h]
+  __int64 v197; // [rsp+258h] [rbp-1F0h]
+  __int64 v198; // [rsp+260h] [rbp-1E8h]
+  _DXGKARG_PRESENT v199; // [rsp+270h] [rbp-1D8h] BYREF
+  __int128 v200; // [rsp+320h] [rbp-128h] BYREF
+  struct tagRECT v201; // [rsp+330h] [rbp-118h] BYREF
+  _QWORD v202[6]; // [rsp+340h] [rbp-108h] BYREF
+  PVOID v203; // [rsp+370h] [rbp-D8h] BYREF
+  _BYTE v204[128]; // [rsp+378h] [rbp-D0h] BYREF
+  int v205; // [rsp+3F8h] [rbp-50h]
 
-  v163 = a4;
+  v159 = a4;
   v7 = a3;
-  v173 = a3;
-  v8 = a2;
-  v149 = (unsigned __int64)a2;
-  v9 = a1;
-  v158 = a1;
-  v188 = a1;
-  v189 = v8;
-  v190 = v8;
-  v187 = a3;
-  v186 = a4;
-  v167 = a6;
-  Model = a1->Model;
-  if ( Model == D3DKMT_PM_REDIRECTED_FLIP )
-  {
-    v12 = 0;
-  }
-  else
-  {
-    if ( Model != D3DKMT_PM_FLIPMANAGER )
-      return 0LL;
-    FenceValue = v9->Token.Flip.FenceValue;
-    v12 = 0;
-    if ( !FenceValue )
-      return 0LL;
-    if ( (v9->Token.Gdi.ScrollRect.left & 4) == 0 )
-      return 0LL;
-    if ( (int)CPushLock::AcquireLockShared((CPushLock *)(FenceValue + 72)) < 0 )
-      return 0LL;
-    v13 = *(_QWORD *)(FenceValue + 96);
-    CPushLock::ReleaseLock((CPushLock *)(FenceValue + 72));
-    if ( !v13 )
-      return 0LL;
-    if ( !*(_DWORD *)(v13 + 28) && !*(_DWORD *)(v13 + 32) || !*(_QWORD *)(v13 + 40) )
-      return 0LL;
-    v8 = (struct DXGK_PRESENT_PARAMS *)v149;
-    v9 = v158;
-  }
-  if ( a4 && !v8 )
+  v168 = a3;
+  v158 = a2;
+  v8 = a1;
+  v166 = a1;
+  v190[4] = a1;
+  v190[5] = a2;
+  v190[3] = a3;
+  v190[6] = a4;
+  Count = a6;
+  v176 = a6;
+  if ( LODWORD(v8->Count) != 2 || a4 && !a2 )
     return 0LL;
-  CIFlipPresentHistoryToken::CIFlipPresentHistoryToken((CIFlipPresentHistoryToken *)v135, v9);
-  p_CompositionBindingId = 0LL;
+  v10 = 0LL;
   if ( a4 )
   {
-    v15 = *((_QWORD *)a4 + 2);
-    v153 = (UINT64 *)v15;
-    v16 = *(UINT64 **)(*(_QWORD *)(v15 + 16) + 16LL);
+    Count = (struct CRefCountedBuffer *)a4[2].Count;
+    v167 = Count;
+    v11 = *(_QWORD *)(*((_QWORD *)Count + 2) + 16LL);
   }
   else
   {
-    p_CompositionBindingId = *a5;
-    v16 = a5[2];
-    v153 = a5[3];
+    v10 = *(_QWORD *)a5;
+    v11 = *((_QWORD *)a5 + 2);
+    v167 = (struct CRefCountedBuffer *)*((_QWORD *)a5 + 3);
   }
-  v176[1] = v16;
-  v139 = (DXGADAPTER *)v16;
-  if ( !a4 && !*((_BYTE *)v16 + 2874) )
+  v180 = v11;
+  v150 = (DXGADAPTER *)v11;
+  if ( !a4 && !*(_BYTE *)(v11 + 2650) )
+    return 0LL;
+  a3[3].Count = 0LL;
+  CurrentProcess = PsGetCurrentProcess(Count, a2, a3, a4);
+  ProcessDxgProcess = PsGetProcessDxgProcess(CurrentProcess);
+  v16 = ProcessDxgProcess;
+  if ( ProcessDxgProcess && (*(_BYTE *)(ProcessDxgProcess + 347) & 0x10) == 0
+    || (Current = DXGTHREAD::GetCurrent(v15, v14)) == 0LL
+    || (v18 = *((_QWORD *)Current + 1), (v179 = v18) == 0) )
   {
-LABEL_53:
-    CIFlipPresentHistoryToken::~CIFlipPresentHistoryToken((CIFlipPresentHistoryToken *)v135);
+    v18 = v16;
+    v179 = v16;
+  }
+  v149 = *(ADAPTER_RENDER **)(v11 + 2704);
+  v190[1] = (struct _EX_RUNDOWN_REF *)v149;
+  v178 = v149;
+  v19 = *(ADAPTER_DISPLAY **)(v11 + 2696);
+  v20 = v158;
+  if ( !a4 )
+    v20 = 0LL;
+  v175 = v20;
+  if ( a4 )
+    Ptr_high = HIDWORD(v20[2].Ptr);
+  else
+    Ptr_high = *(_DWORD *)(v10 + 1100);
+  DXGPROCESS::GetAllocationSafe(v18, (DXGALLOCATIONREFERENCE *)&v151, Ptr_high);
+  v23 = v151;
+  if ( !v151
+    || (v22 = *(_QWORD *)(*((_QWORD *)v167 + 2) + 16LL), *(_QWORD *)(*(_QWORD *)(v151[1].Count + 16) + 16LL) != v22) )
+  {
+LABEL_47:
+    DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v151, v22);
     return 0LL;
   }
-  *((_QWORD *)v7 + 3) = 0LL;
-  Current = DXGPROCESS::GetCurrent(v15);
-  v171 = Current;
-  v18 = v16[366];
-  v184 = v18;
-  v19 = 0LL;
-  if ( v16[365] )
-    v19 = v16[365];
-  v20 = v149;
-  v162 = v149 & -(__int64)(a4 != 0LL);
+  v24 = v151[5].Count;
+  if ( v176 && v24 && (*(_DWORD *)(v24 + 4) & 1) != 0 )
+    v7[3].Count = *(ULONG_PTR *)(*(_QWORD *)(v24 + 56) + 176LL);
   if ( a4 )
-    v21 = *(_DWORD *)((v149 & -(__int64)(a4 != 0LL)) + 0x14);
+    v25 = v158[187].Count;
   else
-    v21 = *((_DWORD *)p_CompositionBindingId + 275);
-  v140 = v21;
-  DXGPROCESS::GetAllocationSafe((__int64)Current, (DXGALLOCATIONREFERENCE *)&v143, v21);
-  v22 = v143;
-  if ( !v143 || *(_QWORD *)(*(_QWORD *)(v143[1].Count + 16) + 16LL) != *(_QWORD *)(v153[2] + 16) )
-    goto LABEL_52;
-  Count = v143[5].Count;
-  if ( v167 && Count && (*(_DWORD *)(Count + 4) & 1) != 0 )
-    *((_QWORD *)v7 + 3) = *(_QWORD *)(*(_QWORD *)(Count + 56) + 176LL);
-  if ( a4 )
-    v24 = *(_QWORD *)(v20 + 1496);
-  else
-    v24 = 0LL;
-  v176[2] = v24;
-  v168 = v24;
-  v141 = (*(_DWORD *)(v22[6].Count + 4) >> 6) & 0xF;
-  v159 = 0;
-  v148 = 0;
-  v160 = 0;
+    v25 = 0LL;
+  v181 = v25;
+  v177 = v25;
+  v153 = (*(_DWORD *)(v23[6].Count + 4) >> 6) & 0xF;
+  v165 = 0;
+  v155 = 0;
   v161 = 0;
-  v136 = 0;
-  v176[0] = *(_QWORD *)(*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 24LL))(v135);
-  v146 = 0;
-  v198 = 0LL;
-  v199 = 0LL;
-  v151 = (char *)v7 + (*((_BYTE *)v7 + 356) != 0 ? 760LL : 528LL);
-  v25 = *(_QWORD *)(v18 + 736);
-  p_CompositionBindingId = &v158->CompositionBindingId;
-  CompositionBindingId = v158->CompositionBindingId;
-  v27 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 16LL))(v135);
-  (*(void (__fastcall **)(_QWORD, unsigned int *, __int64, UINT64, char *, int *, int *, unsigned int *, _QWORD *, int *, int *, int *, __int128 *, struct tagRECT *))(*(_QWORD *)(v25 + 8) + 408LL))(
-    *(_QWORD *)(v18 + 744),
-    &v141,
-    v27,
-    CompositionBindingId,
-    v151,
-    &v159,
-    &v148,
-    &v136,
-    v176,
-    &v160,
+  v162 = 0;
+  v147 = 0;
+  v152 = 0;
+  v200 = 0LL;
+  v201 = 0LL;
+  v26 = 92LL;
+  if ( !BYTE4(v7[43].Ptr) )
+    v26 = 64LL;
+  v160 = &v7[v26];
+  (*(void (__fastcall **)(_QWORD, unsigned int *, struct _EX_RUNDOWN_REF *, ULONG_PTR, struct _EX_RUNDOWN_REF *, int *, int *, unsigned int *, struct _EX_RUNDOWN_REF *, int *, int *, int *, __int128 *, struct tagRECT *))(*(_QWORD *)(*((_QWORD *)v149 + 77) + 8LL) + 408LL))(
+    *((_QWORD *)v149 + 78),
+    &v153,
+    v8 + 9,
+    v8[1].Count,
+    &v7[v26],
+    &v165,
+    &v155,
+    &v147,
+    v8 + 10,
     &v161,
-    &v146,
-    &v198,
-    &v199);
-  (*(void (__fastcall **)(_QWORD *, _QWORD))(v135[0] + 32LL))(v135, v176[0]);
-  (*(void (__fastcall **)(_QWORD *, _QWORD))(v135[0] + 48LL))(v135, v141);
-  *((_DWORD *)v7 + 29) = v141;
-  v28 = (struct _LUID *)(*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 16LL))(v135);
-  RtlCopyLuid((PLUID)((char *)v7 + 156), v28);
-  *((_QWORD *)v7 + 21) = *p_CompositionBindingId;
-  v29 = *(_DWORD *)v7 & 0xFFFEFFFF;
-  *(_DWORD *)v7 = v29;
-  v30 = v163;
-  if ( v163 )
+    &v162,
+    &v152,
+    &v200,
+    &v201);
+  v27 = v153;
+  LODWORD(v8[5].Count) = v153;
+  HIDWORD(v7[14].Ptr) = v27;
+  RtlCopyLuid((PLUID)&v7[19], (PLUID)&v8[9]);
+  v7[20].Count = v8[1].Count;
+  v28 = v7->Count & 0xFFFEFFFF;
+  LODWORD(v7->Count) = v28;
+  if ( a4 )
   {
-    v31 = v162;
-    v32 = (*(_DWORD *)(v162 + 88) ^ v29) & 4 ^ v29;
-    *(_DWORD *)v7 = v32;
-    v33 = (v32 ^ (4 * *(_DWORD *)(v31 + 88))) & 0x80000 ^ v32;
-    *(_DWORD *)v7 = v33;
-    v34 = (v33 ^ (4 * *(_DWORD *)(v31 + 88))) & 0x100000 ^ v33;
-    *(_DWORD *)v7 = v34;
-    *(_DWORD *)v7 = v34 ^ (v34 ^ (4 * *(_DWORD *)(v31 + 88))) & 0x200000;
+    v29 = v175;
+    v30 = ((unsigned __int8)v28 ^ (unsigned __int8)LODWORD(v175[11].Count)) & 4 ^ v28;
+    LODWORD(v7->Count) = v30;
+    v31 = (v30 ^ (4 * LODWORD(v29[11].Count))) & 0x80000 ^ v30;
+    LODWORD(v7->Count) = v31;
+    v32 = (v31 ^ (4 * LODWORD(v29[11].Count))) & 0x100000 ^ v31;
+    LODWORD(v7->Count) = v32;
+    v28 = v32 ^ (v32 ^ (4 * LODWORD(v29[11].Count))) & 0x200000;
+    LODWORD(v7->Count) = v28;
   }
-  *(_DWORD *)v7 ^= (*(_DWORD *)v7 ^ (8 * (*(unsigned __int8 (__fastcall **)(_QWORD *))(v135[0] + 200LL))(v135))) & 8;
-  *(_DWORD *)v7 ^= (*(_DWORD *)v7 ^ (16 * (*(unsigned __int8 (__fastcall **)(_QWORD *))(v135[0] + 208LL))(v135))) & 0x10;
-  *(_DWORD *)v7 ^= (*(_DWORD *)v7 ^ ((*(unsigned __int8 (__fastcall **)(_QWORD *))(v135[0] + 216LL))(v135) << 28)) & 0x10000000;
-  *((_DWORD *)v7 + 1) ^= (*((_DWORD *)v7 + 1) ^ ((*(unsigned __int8 (__fastcall **)(_QWORD *))(v135[0] + 224LL))(v135) << 6)) & 0x40;
-  *((_DWORD *)v7 + 1) ^= (*((_DWORD *)v7 + 1) ^ ((*(unsigned __int8 (__fastcall **)(_QWORD *))(v135[0] + 320LL))(v135) << 8)) & 0x100;
-  v35 = v139;
-  (*(void (__fastcall **)(_QWORD *, DXGADAPTER *))(v135[0] + 56LL))(v135, v139);
-  *((_DWORD *)v7 + 28) = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 64LL))(v135);
-  *((_DWORD *)v7 + 48) = *(_DWORD *)(*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 72LL))(v135);
-  *(_DWORD *)v7 ^= (*(_DWORD *)v7 ^ ((*(unsigned __int8 (__fastcall **)(_QWORD *))(v135[0] + 192LL))(v135) << 25)) & 0x2000000;
-  *((_DWORD *)v7 + 36) = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 80LL))(v135);
-  *((_DWORD *)v7 + 37) = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 88LL))(v135);
-  if ( v30 )
-    v36 = *((_DWORD *)v30 + 99);
+  v33 = v28 ^ ((unsigned __int8)v28 ^ (unsigned __int8)(HIDWORD(v8[7].Ptr) >> 23)) & 8;
+  LODWORD(v7->Count) = v33;
+  v34 = ((unsigned __int8)v33 ^ (unsigned __int8)(HIDWORD(v8[7].Ptr) >> 1)) & 0x10 ^ v33;
+  LODWORD(v7->Count) = v34;
+  LODWORD(v7->Count) = v34 ^ (v34 ^ (32 * HIDWORD(v8[7].Ptr))) & 0x10000000;
+  HIDWORD(v7->Ptr) ^= (HIDWORD(v7->Ptr) ^ (HIDWORD(v8[7].Ptr) >> 22)) & 0x40;
+  v35 = v150;
+  v8[4].Count = (ULONG_PTR)v150;
+  LODWORD(v7[14].Count) = HIDWORD(v8[15].Ptr);
+  LODWORD(v7[23].Count) = HIDWORD(v8[5].Ptr);
+  LODWORD(v7->Count) ^= (LODWORD(v7->Count) ^ (HIDWORD(v8[7].Ptr) << 6)) & 0x2000000;
+  LODWORD(v7[18].Count) = HIDWORD(v8[100].Ptr);
+  HIDWORD(v7[18].Ptr) = v8[101].Count;
+  if ( a4 )
+    v36 = HIDWORD(a4[51].Ptr);
   else
     v36 = 1;
-  *((_DWORD *)v7 + 34) = v36;
-  if ( *((_BYTE *)v7 + 356) )
-    *((_DWORD *)v7 + 160) = -1;
+  LODWORD(v7[17].Count) = v36;
+  if ( BYTE4(v7[43].Ptr) )
+    LODWORD(v7[77].Count) = -1;
   if ( bTracingEnabled )
-    *((_QWORD *)v7 + 23) = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(v18 + 760) + 8LL) + 336LL))(
-                             *(_QWORD *)(v18 + 768),
-                             v140);
-  v37 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 96LL))(v135);
-  v174 = (D3DDDI_FLIPINTERVAL_TYPE *)((char *)v7 + 124);
-  *((_DWORD *)v7 + 31) = v37;
-  v152 = (int *)((char *)v7 + 124);
-  v172 = 1;
-  if ( !v37
-    && (!(*(unsigned __int8 (__fastcall **)(_QWORD *))(v135[0] + 216LL))(v135) || (*((_DWORD *)v35 + 569) & 0x40) == 0) )
   {
-    v152 = &v172;
+    v7[22].Count = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*((_QWORD *)v149 + 80) + 8LL) + 344LL))(
+                     *((_QWORD *)v149 + 81),
+                     Ptr_high);
+    v35 = v150;
   }
-  v38 = (*(__int64 (__fastcall **)(UINT64, _QWORD, int *))(*(_QWORD *)(*(_QWORD *)(v18 + 736) + 8LL) + 512LL))(
-          v153[100],
-          v141,
-          v152);
-  v40 = v38;
-  *((_DWORD *)v7 + 30) = v38;
-  if ( v38 != 5 && *v174 )
+  v37 = v8[7].Count;
+  HIDWORD(v7[15].Ptr) = v37;
+  v38 = (_DWORD *)&v7[15].Ptr + 1;
+  v173[0] = 1;
+  if ( !v37 && ((HIDWORD(v8[7].Ptr) & 0x800000) == 0 || (*((_DWORD *)v35 + 513) & 0x40) == 0) )
+    v38 = v173;
+  v39 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _DWORD *))(*(_QWORD *)(*((_QWORD *)v149 + 77) + 8LL) + 512LL))(
+          *((_QWORD *)v167 + 96),
+          v153,
+          v38);
+  LODWORD(v7[15].Count) = v39;
+  if ( v39 != 5 && HIDWORD(v7[15].Ptr) )
   {
-    v41 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 64LL))(v135);
-    v42 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 104LL))(v135);
-    WdLogSingleEntry4(8LL, v158, v42, v41, v40);
-    goto LABEL_52;
+    v41 = (_QWORD *)WdLogNewEntry5_WdPresentTokenEvent();
+    v41[3] = v8;
+    v41[4] = v8[2].Count;
+    v41[5] = HIDWORD(v8[15].Ptr);
+    v41[6] = SLODWORD(v7[15].Count);
+LABEL_46:
+    WdLogEvent5_WdPresentTokenEvent(v41);
+    goto LABEL_47;
   }
-  if ( !v159 )
+  if ( !v165 )
   {
-    if ( v160 )
+    if ( v161 )
     {
-      v165 = 0;
-      v181 = 0LL;
-      v44 = *(_QWORD *)(v18 + 736);
-      v45 = *((_QWORD *)v7 + 21);
-      v46 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 16LL))(v135);
-      LOBYTE(v131) = 0;
-      (*(void (__fastcall **)(_QWORD, _QWORD, __int64, __int64, unsigned int *, _DWORD, int, int *, __int64 *))(*(_QWORD *)(v44 + 8) + 400LL))(
-        *(_QWORD *)(v18 + 744),
-        (unsigned int)(1 << *((_DWORD *)v7 + 29)),
-        v46,
-        v45,
-        &v136,
+      v169 = 0;
+      v194[0] = 0LL;
+      LOBYTE(v144) = 0;
+      (*(void (__fastcall **)(_QWORD, _QWORD, struct _EX_RUNDOWN_REF *, ULONG_PTR, unsigned int *, _DWORD, int, int *, _QWORD *))(*(_QWORD *)(*((_QWORD *)v149 + 77) + 8LL) + 400LL))(
+        *((_QWORD *)v149 + 78),
+        (unsigned int)(1 << HIDWORD(v7[14].Ptr)),
+        v8 + 9,
+        v7[20].Count,
+        &v147,
         0,
-        v131,
-        &v165,
-        &v181);
-      ADAPTER_DISPLAY::UpdateIndependentFlipState((ADAPTER_DISPLAY *)v19, *((_DWORD *)v7 + 29), v136, 0);
+        v144,
+        &v169,
+        v194);
+      ADAPTER_DISPLAY::UpdateIndependentFlipState(v19, HIDWORD(v7[14].Ptr), v147, 0);
     }
-    else if ( !v161 )
+    else if ( !v162 )
     {
-      goto LABEL_52;
-    }
-    LOBYTE(v39) = 1;
-    (*(void (__fastcall **)(_QWORD *, __int64))(v135[0] + 232LL))(v135, v39);
-LABEL_52:
-    DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((DXGALLOCATIONREFERENCE *)&v143);
-    goto LABEL_53;
-  }
-  *((_QWORD *)v7 + 22) = *(_QWORD *)(*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 24LL))(v135);
-  LODWORD(v137) = 0;
-  v147 = 0;
-  if ( !(*(unsigned __int8 (__fastcall **)(_QWORD *))(v135[0] + 240LL))(v135) )
-  {
-    v166 = 0;
-    v169 = 0LL;
-    v47 = *(_QWORD *)(v18 + 736);
-    v48 = *((_QWORD *)v7 + 21);
-    v49 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 16LL))(v135);
-    LOBYTE(v131) = 0;
-    (*(void (__fastcall **)(_QWORD, _QWORD, __int64, __int64, unsigned int *, _DWORD, int, int *, _DWORD **))(*(_QWORD *)(v47 + 8) + 400LL))(
-      *(_QWORD *)(v18 + 744),
-      (unsigned int)(1 << *((_DWORD *)v7 + 29)),
-      v49,
-      v48,
-      &v136,
-      0,
-      v131,
-      &v166,
-      &v169);
-    LOBYTE(v50) = 1;
-    (*(void (__fastcall **)(_QWORD *, __int64))(v135[0] + 232LL))(v135, v50);
-    ADAPTER_DISPLAY::UpdateIndependentFlipState((ADAPTER_DISPLAY *)v19, *((_DWORD *)v7 + 29), v136, 0);
-    WdLogSingleEntry1(8LL, 2143LL);
-    goto LABEL_52;
-  }
-  if ( v148 || DXGADAPTER::SupportCheckMultiPlaneOverlaySupport3(*(DXGADAPTER **)(v18 + 16)) )
-  {
-    if ( (*(unsigned __int8 (__fastcall **)(_QWORD *))(v135[0] + 248LL))(v135) )
-    {
-      DXGDISPLAYSTATEMUTEX::DXGDISPLAYSTATEMUTEX((DXGDISPLAYSTATEMUTEX *)v177, (struct ADAPTER_DISPLAY *)v19);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v177);
-      PostCompositionStretching = ADAPTER_DISPLAY::GetPostCompositionStretching(
-                                    (DXGADAPTER **)v19,
-                                    *((_DWORD *)v7 + 29));
-      v133 = PostCompositionStretching;
-      if ( PostCompositionStretching )
+LABEL_54:
+      v43 = v151;
+      if ( v151 )
+        ExReleaseRundownProtection(v151 + 11);
+      if ( *((_DWORD *)DXGGLOBAL::GetGlobal((__int64)v43, v40) + 311) )
       {
-        if ( IsYUVAllocation(*(void **)(v143[6].Count + 16), (struct ADAPTER_RENDER *)v18)
-          || DISPLAY_SOURCE::GetEnabledPlaneCountUnsafe((DISPLAY_SOURCE *)(*(_QWORD *)(v19 + 128)
-                                                                         + 4000LL * *((unsigned int *)v7 + 29))) > 1 )
+        v46 = DXGTHREAD::GetCurrent(v45, v44);
+        v49 = v46;
+        if ( v46 )
         {
-          PostCompositionStretching = 0;
-          v133 = 0;
+          if ( *((_DWORD *)v46 + 8) )
+          {
+            v50 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v48, v47);
+            v50[3] = 275LL;
+            v50[4] = 38LL;
+            v50[5] = *((int *)v49 + 8);
+            v50[6] = 0LL;
+            v50[7] = 0LL;
+            WdLogEvent5_WdCriticalError(v50);
+          }
         }
-        else
-        {
-          PostCompositionStretching = v133;
-        }
+      }
+      return 0LL;
+    }
+    HIDWORD(v8[7].Ptr) |= 0x1000000u;
+    goto LABEL_54;
+  }
+  v7[21].Count = v8[10].Count;
+  v51 = 0;
+  v154 = 0;
+  v52 = HIDWORD(v8[7].Ptr);
+  if ( (v52 & 0x200000) == 0 )
+  {
+    v170 = 0;
+    v187 = 0LL;
+    LOBYTE(v144) = 0;
+    (*(void (__fastcall **)(_QWORD, _QWORD, struct _EX_RUNDOWN_REF *, ULONG_PTR, unsigned int *, _DWORD, int, int *, __int64 *))(*(_QWORD *)(*((_QWORD *)v149 + 77) + 8LL) + 400LL))(
+      *((_QWORD *)v149 + 78),
+      (unsigned int)(1 << HIDWORD(v7[14].Ptr)),
+      v8 + 9,
+      v7[20].Count,
+      &v147,
+      0,
+      v144,
+      &v170,
+      &v187);
+    HIDWORD(v8[7].Ptr) |= 0x1000000u;
+    ADAPTER_DISPLAY::UpdateIndependentFlipState(v19, HIDWORD(v7[14].Ptr), v147, 0);
+    v41 = (_QWORD *)WdLogNewEntry5_WdPresentTokenEvent();
+    v41[3] = 1944LL;
+    goto LABEL_46;
+  }
+  if ( v155 || (v53 = *((_QWORD *)v149 + 2), *(_QWORD *)(v53 + 928)) && *(_BYTE *)(v53 + 2642) )
+  {
+    if ( (v52 & 0x400000) != 0 )
+    {
+      DXGDISPLAYSTATEMUTEX::DXGDISPLAYSTATEMUTEX((DXGDISPLAYSTATEMUTEX *)v183, v19);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v183);
+      PostCompositionStretching = ADAPTER_DISPLAY::GetPostCompositionStretching((DXGADAPTER **)v19, HIDWORD(v7[14].Ptr));
+      if ( PostCompositionStretching
+        && (IsYUVAllocation(*(void **)(v151[6].Count + 16), v149)
+         || DISPLAY_SOURCE::GetEnabledPlaneCountUnsafe((DISPLAY_SOURCE *)(*((_QWORD *)v19 + 14)
+                                                                        + 3968LL * HIDWORD(v7[14].Ptr))) > 1) )
+      {
+        PostCompositionStretching = 0;
       }
       v191 = 0LL;
-      if ( v136 || (v59 = 1, !PostCompositionStretching) )
-        v59 = 0;
+      v56 = !v147 && PostCompositionStretching;
       if ( !CheckAndUpdateMultiPlaneOverlayFromInternalState(
-              *((_DWORD *)v7 + 29),
-              v136,
-              (struct CIFlipPresentHistoryTokenData *)v135,
-              v59,
-              (struct ADAPTER_RENDER *)v18,
-              (struct ADAPTER_DISPLAY *)v19,
+              HIDWORD(v7[14].Ptr),
+              v147,
+              (struct _D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN *)&v8[2],
+              v56,
+              v149,
+              v19,
               &v191) )
       {
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v177);
-        LODWORD(v153) = 0;
-        v171 = 0LL;
-        v65 = *(_QWORD *)(v18 + 736);
-        v66 = *((_QWORD *)v7 + 21);
-        v67 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 16LL))(v135);
-        LOBYTE(v132) = 0;
-        (*(void (__fastcall **)(_QWORD, _QWORD, __int64, __int64, unsigned int *, _DWORD, int, UINT64 **, struct DXGPROCESS **))(*(_QWORD *)(v65 + 8) + 400LL))(
-          *(_QWORD *)(v18 + 744),
-          (unsigned int)(1 << *((_DWORD *)v7 + 29)),
-          v67,
-          v66,
-          &v136,
+        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v183, v57);
+        v172 = 0;
+        v189 = 0LL;
+        LOBYTE(v145) = 0;
+        (*(void (__fastcall **)(_QWORD, _QWORD, struct _EX_RUNDOWN_REF *, ULONG_PTR, unsigned int *, _DWORD, int, int *, __int64 *))(*(_QWORD *)(*((_QWORD *)v149 + 77) + 8LL) + 400LL))(
+          *((_QWORD *)v149 + 78),
+          (unsigned int)(1 << HIDWORD(v7[14].Ptr)),
+          v8 + 9,
+          v7[20].Count,
+          &v147,
           0,
-          v132,
-          &v153,
-          &v171);
-        WdLogSingleEntry1(3LL, v136);
-        LOBYTE(v68) = 1;
-        (*(void (__fastcall **)(_QWORD *, __int64))(v135[0] + 232LL))(v135, v68);
-        ADAPTER_DISPLAY::UpdateIndependentFlipState((ADAPTER_DISPLAY *)v19, *((_DWORD *)v7 + 29), v136, 0);
-        DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v177);
-        goto LABEL_52;
+          v145,
+          &v172,
+          &v189);
+        v67 = WdLogNewEntry5_WdWarning(v65, v64, v66);
+        *(_QWORD *)(v67 + 24) = v147;
+        WdLogEvent5_WdWarning(v67);
+        HIDWORD(v8[7].Ptr) |= 0x1000000u;
+        ADAPTER_DISPLAY::UpdateIndependentFlipState(v19, HIDWORD(v7[14].Ptr), v147, 0);
+        DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v183);
+        goto LABEL_47;
       }
-      v60 = (__int128 *)(*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 8LL))(v135);
-      v170 = v60;
-      v61 = v151;
-      *(_WORD *)v151 = *(_WORD *)v60;
-      *((_WORD *)v61 + 2) = *((_WORD *)v60 + 2);
-      *((_WORD *)v61 + 1) = *((_WORD *)v60 + 4);
-      *((_WORD *)v61 + 3) = *((_WORD *)v60 + 6);
-      *((_DWORD *)v61 + 6) = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 112LL))(v135);
-      if ( v133 )
+      v58 = v160;
+      LOWORD(v160->Count) = WORD2(v8[92].Ptr);
+      WORD2(v58->Ptr) = v8[93].Count;
+      WORD1(v58->Ptr) = WORD2(v8[93].Ptr);
+      HIWORD(v58->Ptr) = v8[94].Count;
+      LODWORD(v58[3].Count) = v8[102].Count;
+      if ( PostCompositionStretching )
       {
-        v62 = *(_QWORD *)v61;
-        *((_QWORD *)v61 + 1) = *(_QWORD *)v61;
-        *((_QWORD *)v61 + 2) = v62;
-        v63 = *v170;
-        v198 = v63;
-        v199 = v191;
-        if ( (_DWORD)v63 != v191.left
-          || __PAIR64__(DWORD2(v198), DWORD1(v63)) != *(_QWORD *)&v191.top
-          || (v64 = 0LL, HIDWORD(v198) != v191.bottom) )
+        v59 = v58->Count;
+        v58[1].Count = v58->Count;
+        v58[2].Count = v59;
+        v60 = *(_OWORD *)((char *)&v8[92].Ptr + 4);
+        v200 = v60;
+        v201 = v191;
+        if ( (_DWORD)v60 != v191.left
+          || __PAIR64__(DWORD2(v200), DWORD1(v60)) != *(_QWORD *)&v191.top
+          || (v61 = 0LL, HIDWORD(v200) != v191.bottom) )
         {
-          v64 = 1LL;
+          v61 = 1LL;
         }
-        v146 = v64;
-        if ( !(_DWORD)v64 )
+        v152 = v61;
+        if ( !(_DWORD)v61 )
         {
-          v198 = 0LL;
-          v199 = 0LL;
+          v200 = 0LL;
+          v201 = 0LL;
         }
-        (*(void (__fastcall **)(_QWORD, _QWORD, __int64, __int128 *, struct tagRECT *))(*(_QWORD *)(*(_QWORD *)(v18 + 736)
+        v62 = v149;
+        (*(void (__fastcall **)(_QWORD, _QWORD, __int64, __int128 *, struct tagRECT *))(*(_QWORD *)(*((_QWORD *)v149 + 77)
                                                                                                   + 8LL)
                                                                                       + 984LL))(
-          *(_QWORD *)(v18 + 744),
-          *((unsigned int *)v7 + 29),
-          v64,
-          &v198,
-          &v199);
-        UpdatePostComposition(
-          *((_DWORD *)v7 + 29),
-          v146 != 0,
-          DWORD2(v198) - v198,
-          HIDWORD(v198) - DWORD1(v198),
-          (struct ADAPTER_DISPLAY *)v19);
+          *((_QWORD *)v149 + 78),
+          HIDWORD(v7[14].Ptr),
+          v61,
+          &v200,
+          &v201);
+        UpdatePostComposition(HIDWORD(v7[14].Ptr), v152 != 0, DWORD2(v200) - v200, HIDWORD(v200) - DWORD1(v200), v19);
       }
-      (*(void (__fastcall **)(_QWORD, _QWORD, char *, _QWORD))(*(_QWORD *)(*(_QWORD *)(v18 + 736) + 8LL) + 416LL))(
-        *(_QWORD *)(v18 + 744),
-        *((unsigned int *)v7 + 29),
-        v61,
-        v136);
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v177);
-      DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v177);
+      else
+      {
+        v62 = v149;
+      }
+      (*(void (__fastcall **)(_QWORD, _QWORD, struct _EX_RUNDOWN_REF *, _QWORD))(*(_QWORD *)(*((_QWORD *)v62 + 77) + 8LL)
+                                                                               + 416LL))(
+        *((_QWORD *)v62 + 78),
+        HIDWORD(v7[14].Ptr),
+        v160,
+        v147);
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v183, v63);
+      DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v183);
     }
     else
     {
-      ADAPTER_DISPLAY::UpdateIndependentFlipState((ADAPTER_DISPLAY *)v19, *((_DWORD *)v7 + 29), v136, 1u);
+      ADAPTER_DISPLAY::UpdateIndependentFlipState(v19, HIDWORD(v7[14].Ptr), v147, 1u);
     }
-    *(_DWORD *)v7 = (v146 << 31) | (*(_DWORD *)v7 ^ (*(_DWORD *)v7 ^ (v148 << 26)) & 0x4000000) & 0x7FFFFFFF;
-    *(_OWORD *)((char *)v7 + 436) = v198;
-    *(struct tagRECT *)((char *)v7 + 452) = v199;
+    LODWORD(v7->Count) = (v152 << 31) | (LODWORD(v7->Count) ^ (LODWORD(v7->Count) ^ (v155 << 26)) & 0x4000000) & 0x7FFFFFFF;
+    *(_OWORD *)((char *)&v7[53].Ptr + 4) = v200;
+    *(struct tagRECT *)((char *)&v7[55].Ptr + 4) = v201;
   }
   else
   {
-    v51 = (_DWORD *)(*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 8LL))(v135);
-    v169 = v51;
-    if ( v51[2] - *v51 != (*(unsigned int (__fastcall **)(_QWORD *))(v135[0] + 120LL))(v135)
-      || v51[3] - v51[1] != (*(unsigned int (__fastcall **)(_QWORD *))(v135[0] + 128LL))(v135)
-      || (*(unsigned __int8 (__fastcall **)(_QWORD *))(v135[0] + 248LL))(v135) )
+    if ( HIDWORD(v8[93].Ptr) - HIDWORD(v8[92].Ptr) != HIDWORD(v8[94].Ptr)
+      || LODWORD(v8[94].Count) - LODWORD(v8[93].Count) != LODWORD(v8[95].Count)
+      || (v52 & 0x400000) != 0 )
     {
-      LODWORD(v162) = 0;
-      v170 = 0LL;
-      v52 = *(_QWORD *)(v18 + 736);
-      v53 = *((_QWORD *)v7 + 21);
-      v54 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 16LL))(v135);
-      LOBYTE(v131) = 0;
-      (*(void (__fastcall **)(_QWORD, _QWORD, __int64, __int64, unsigned int *, _DWORD, int, __int64 *, __int128 **))(*(_QWORD *)(v52 + 8) + 400LL))(
-        *(_QWORD *)(v18 + 744),
-        (unsigned int)(1 << *((_DWORD *)v7 + 29)),
-        v54,
-        v53,
-        &v136,
+      v171 = 0;
+      v188 = 0LL;
+      LOBYTE(v144) = 0;
+      (*(void (__fastcall **)(_QWORD, _QWORD, struct _EX_RUNDOWN_REF *, ULONG_PTR, unsigned int *, _DWORD, int, int *, __int64 *))(*(_QWORD *)(*((_QWORD *)v149 + 77) + 8LL) + 400LL))(
+        *((_QWORD *)v149 + 78),
+        (unsigned int)(1 << HIDWORD(v7[14].Ptr)),
+        v8 + 9,
+        v7[20].Count,
+        &v147,
         0,
-        v131,
-        &v162,
-        &v170);
-      v55 = (*(unsigned int (__fastcall **)(_QWORD *))(v135[0] + 128LL))(v135);
-      v56 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 120LL))(v135);
-      WdLogSingleEntry4(8LL, v169[2] - *v169, v169[3] - v169[1], v56, v55);
-      LOBYTE(v57) = 1;
-      (*(void (__fastcall **)(_QWORD *, __int64))(v135[0] + 232LL))(v135, v57);
-      ADAPTER_DISPLAY::UpdateIndependentFlipState((ADAPTER_DISPLAY *)v19, *((_DWORD *)v7 + 29), 0, 0);
-LABEL_131:
-      DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((DXGALLOCATIONREFERENCE *)&v143);
-      CIFlipPresentHistoryToken::~CIFlipPresentHistoryToken((CIFlipPresentHistoryToken *)v135);
-      return v12;
+        v144,
+        &v171,
+        &v188);
+      v54 = (_QWORD *)WdLogNewEntry5_WdPresentTokenEvent();
+      v54[3] = HIDWORD(v8[93].Ptr) - HIDWORD(v8[92].Ptr);
+      v54[4] = LODWORD(v8[94].Count) - LODWORD(v8[93].Count);
+      v54[5] = HIDWORD(v8[94].Ptr);
+      v54[6] = LODWORD(v8[95].Count);
+      WdLogEvent5_WdPresentTokenEvent(v54);
+      HIDWORD(v8[7].Ptr) |= 0x1000000u;
+      ADAPTER_DISPLAY::UpdateIndependentFlipState(v19, HIDWORD(v7[14].Ptr), 0, 0);
+      goto LABEL_47;
     }
-    ADAPTER_DISPLAY::UpdateIndependentFlipState((ADAPTER_DISPLAY *)v19, *((_DWORD *)v7 + 29), 0, 1u);
+    ADAPTER_DISPLAY::UpdateIndependentFlipState(v19, HIDWORD(v7[14].Ptr), 0, 1u);
   }
-  if ( v19 && (*(_DWORD *)(v19 + 24) & 0x10) != 0 )
+  v68 = v150;
+  if ( (*((_DWORD *)v150 + 644) & 0x10) != 0 )
   {
-    if ( !ADAPTER_DISPLAY::IsHdrEnabled((ADAPTER_DISPLAY *)v19, v141) )
+    if ( !v19 || !ADAPTER_DISPLAY::IsHdrEnabled(v19, v153) )
     {
-      *((_DWORD *)v7 + 90) = 0;
-      goto LABEL_112;
+      LODWORD(v7[44].Count) = 0;
+LABEL_115:
+      LODWORD(v7->Count) |= 0x40000000u;
+      goto LABEL_116;
     }
-    *(_DWORD *)v7 ^= (*(_DWORD *)v7 ^ ((*(unsigned __int8 (__fastcall **)(_QWORD *))(v135[0] + 256LL))(v135) << 30)) & 0x40000000;
-    v69 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 136LL))(v135);
-    *((_DWORD *)v7 + 90) = v69;
-    if ( (*(_DWORD *)v7 & 0x40000000) != 0 )
+    v70 = LODWORD(v7->Count) ^ (LODWORD(v7->Count) ^ (HIDWORD(v8[7].Ptr) << 24)) & 0x40000000;
+    LODWORD(v7->Count) = v70;
+    Count_low = LODWORD(v8[20].Count);
+    LODWORD(v7[44].Count) = Count_low;
+    if ( (v70 & 0x40000000) != 0 )
     {
-      if ( v69 )
+      if ( !(_DWORD)Count_low )
       {
-        v70 = v69 - 1;
-        if ( v70 )
+LABEL_111:
+        v163 = D3DDDI_HDR_METADATA_TYPE_NONE;
+        memset(&v193, 0, sizeof(v193));
+        if ( (unsigned int)PopulateHDRMetadataFromDisplay(HIDWORD(v7[14].Ptr), v19, &v193, &v163) )
+          goto LABEL_116;
+        *(struct _D3DDDI_HDR_METADATA_HDR10 *)((char *)&v7[44].Ptr + 4) = v193;
+        LODWORD(v7[44].Count) = v163;
+        goto LABEL_115;
+      }
+      v72 = (unsigned int)(Count_low - 1);
+      if ( (_DWORD)v72 )
+      {
+        if ( (_DWORD)v72 == 1 )
         {
-          if ( v70 == 1 )
-          {
-            v71 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 152LL))(v135);
-            *(_OWORD *)((char *)v7 + 364) = *(_OWORD *)v71;
-            *(_OWORD *)((char *)v7 + 380) = *(_OWORD *)(v71 + 16);
-            *(_OWORD *)((char *)v7 + 396) = *(_OWORD *)(v71 + 32);
-            *(_OWORD *)((char *)v7 + 412) = *(_OWORD *)(v71 + 48);
-            *(_QWORD *)((char *)v7 + 428) = *(_QWORD *)(v71 + 64);
-          }
-          else
-          {
-            WdLogSingleEntry1(1LL, 2348LL);
-            DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"FALSE", 2348LL, 0LL, 0LL, 0LL, 0LL);
-            *(_DWORD *)v7 &= ~0x40000000u;
-          }
+          *(_OWORD *)((char *)&v7[44].Ptr + 4) = *(_OWORD *)((char *)&v8[20].Ptr + 4);
+          *(_OWORD *)((char *)&v7[46].Ptr + 4) = *(_OWORD *)((char *)&v8[22].Ptr + 4);
+          *(_OWORD *)((char *)&v7[48].Ptr + 4) = *(_OWORD *)((char *)&v8[24].Ptr + 4);
+          *(_OWORD *)((char *)&v7[50].Ptr + 4) = *(_OWORD *)((char *)&v8[26].Ptr + 4);
+          *(struct _EX_RUNDOWN_REF *)((char *)v7 + 420) = *(struct _EX_RUNDOWN_REF *)((char *)v8 + 228);
+          v74 = 2;
         }
         else
         {
-          v72 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 144LL))(v135);
-          *(_OWORD *)((char *)v7 + 364) = *(_OWORD *)v72;
-          *(_QWORD *)((char *)v7 + 380) = *(_QWORD *)(v72 + 16);
-          *((_DWORD *)v7 + 97) = *(_DWORD *)(v72 + 24);
+          v73 = WdLogNewEntry5_WdAssertion(v72, v69);
+          *(_QWORD *)(v73 + 24) = 2150LL;
+          WdLogEvent5_WdAssertion(v73);
+          LODWORD(v7->Count) &= ~0x40000000u;
+          v74 = v7[44].Count;
         }
+      }
+      else
+      {
+        *(_OWORD *)((char *)&v7[44].Ptr + 4) = *(_OWORD *)((char *)&v8[20].Ptr + 4);
+        *(struct _EX_RUNDOWN_REF *)((char *)v7 + 372) = *(struct _EX_RUNDOWN_REF *)((char *)v8 + 180);
+        HIDWORD(v7[47].Ptr) = HIDWORD(v8[23].Ptr);
+        v74 = 1;
       }
     }
     else
     {
-      if ( v69 > 2 )
+      v75 = v70;
+      v76 = Count_low;
+      if ( (_DWORD)Count_low != 1 && (_DWORD)Count_low != 2 && (_DWORD)Count_low )
       {
-        WdLogSingleEntry1(1LL, 2356LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"D3DDDI_HDR_METADATA_TYPE_HDR10 == pVidSchSubmitData->HDRMetaDataType || D3DDDI_HDR_METADATA_TYPE_HDR1"
-                    "0PLUS == pVidSchSubmitData->HDRMetaDataType || D3DDDI_HDR_METADATA_TYPE_NONE == pVidSchSubmitData->HDRMetaDataType",
-          2356LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v77 = WdLogNewEntry5_WdAssertion(Count_low, (unsigned int)Count_low);
+        *(_QWORD *)(v77 + 24) = 2158LL;
+        WdLogEvent5_WdAssertion(v77);
+        v75 = v7->Count;
+        v76 = v7[44].Count;
       }
-      *(_DWORD *)v7 |= 0x40000000u;
-      if ( *((_DWORD *)v7 + 90) == 1 )
+      LODWORD(v7->Count) = v75 | 0x40000000;
+      v74 = v76;
+      v78 = v76 - 1;
+      if ( !v78 )
       {
-        *((_DWORD *)v7 + 90) = 134217729;
+        LODWORD(v7[44].Count) = 134217729;
+        goto LABEL_116;
       }
-      else if ( *((_DWORD *)v7 + 90) == 2 )
+      if ( v78 == 1 )
       {
-        *((_DWORD *)v7 + 90) = -2147483646;
-      }
-    }
-    if ( !*((_DWORD *)v7 + 90) )
-    {
-      v142 = D3DDDI_HDR_METADATA_TYPE_NONE;
-      memset(&v192, 0, sizeof(v192));
-      if ( !(unsigned int)PopulateHDRMetadataFromDisplay(
-                            *((_DWORD *)v7 + 29),
-                            (struct ADAPTER_DISPLAY *)v19,
-                            &v192,
-                            &v142) )
-      {
-        *((struct _D3DDDI_HDR_METADATA_HDR10 *)v7 + 13) = v192;
-        *((_DWORD *)v7 + 90) = v142;
-LABEL_112:
-        *(_DWORD *)v7 |= 0x40000000u;
+        v74 = -2147483646;
+        LODWORD(v7[44].Count) = -2147483646;
       }
     }
+    if ( v74 )
+      goto LABEL_116;
+    goto LABEL_111;
   }
-  (*(void (__fastcall **)(_QWORD *, _QWORD))(v135[0] + 160LL))(v135, v136);
-  v73 = (_DWORD *)((char *)v7 + 600);
-  if ( !*((_BYTE *)v7 + 356) )
-    v73 = (_DWORD *)((char *)v7 + 496);
-  *v73 ^= (*v73 ^ (1 << v136)) & 0x3FF;
-  v74 = 1;
-  v150 = 1;
-  if ( DXGADAPTER::IsDxgmms2(v139) && v30 )
+LABEL_116:
+  v79 = v147;
+  HIDWORD(v8[101].Ptr) = v147;
+  v80 = 72LL;
+  if ( !BYTE4(v7[43].Ptr) )
+    v80 = 60LL;
+  LODWORD(v7[v80].Count) ^= (LODWORD(v7[v80].Count) ^ (1 << v79)) & 0x3FF;
+  v148 = 1;
+  if ( DXGADAPTER::IsDxgmms2(v68) && a4 )
   {
-    v74 = *(_DWORD *)(v162 + 92) + 1;
-    v150 = v74;
+    v83 = HIDWORD(v175[11].Ptr) + 1;
+    v148 = v83;
   }
-  v140 = 0;
-  Pool2 = 0LL;
+  else
+  {
+    v83 = v82;
+  }
+  v156 = 0;
+  PoolWithTag = 0LL;
   v157 = 0LL;
   P = 0LL;
-  v180 = 0;
-  if ( v74 > 4 )
+  v186 = 0;
+  if ( v83 <= 4 )
   {
-    if ( 0xFFFFFFFFFFFFFFFFuLL / v74 < 8 )
-      goto LABEL_125;
-    Pool2 = (_QWORD *)ExAllocatePool2(256LL, 8LL * v74, 1265072196LL);
-    P = Pool2;
-    goto LABEL_123;
-  }
-  Pool2 = v179;
-  v157 = v179;
-  P = v179;
-  if ( v74 )
-  {
-    memset(v179, 0, 8LL * v74);
-    Pool2 = P;
-LABEL_123:
-    v157 = Pool2;
-  }
-  v180 = v74;
-LABEL_125:
-  v185 = Pool2;
-  if ( !Pool2 )
-  {
-LABEL_130:
-    P = 0LL;
-    v180 = 0;
-    v12 = -1073741801;
-    goto LABEL_131;
-  }
-  v200[0] = 0LL;
-  v201 = 0;
-  PagedPoolArray<DXGALLOCATIONREFERENCE,4>::AllocateElements(v200, v74);
-  v76 = (int *)v200[0];
-  v152 = (int *)v200[0];
-  if ( !v200[0] )
-  {
-    PagedPoolArray<DXGALLOCATIONREFERENCE,4>::~PagedPoolArray<DXGALLOCATIONREFERENCE,4>(v200);
-    if ( P != v179 )
+    PoolWithTag = (struct _EX_RUNDOWN_REF *)v185;
+LABEL_126:
+    P = PoolWithTag;
+    v157 = PoolWithTag;
+    v186 = v83;
+    if ( PoolWithTag )
     {
-      if ( P )
-        ExFreePoolWithTag(P, 0);
+      memset(PoolWithTag, 0, 8LL * v83);
+      PoolWithTag = (struct _EX_RUNDOWN_REF *)P;
+      v157 = (struct _EX_RUNDOWN_REF *)P;
     }
-    goto LABEL_130;
+    goto LABEL_128;
   }
-  v77 = 0;
-  v138 = 0;
-  v78 = (char *)v7 + 600;
-  while ( 1 )
+  v81 = 0xFFFFFFFFFFFFFFFFuLL % v83;
+  if ( 0xFFFFFFFFFFFFFFFFuLL / v83 >= 8 )
   {
-    v151 = v78;
-    if ( v77 >= v74 )
+    PoolWithTag = (struct _EX_RUNDOWN_REF *)ExAllocatePoolWithTag(v82, 8LL * v83, 0x4B677844u);
+    goto LABEL_126;
+  }
+LABEL_128:
+  v190[2] = PoolWithTag;
+  if ( !PoolWithTag )
+  {
+LABEL_133:
+    P = 0LL;
+    v186 = 0;
+    DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v151, v81);
+    return 3221225495LL;
+  }
+  PagedPoolArray<DXGALLOCATIONREFERENCE,4>::PagedPoolArray<DXGALLOCATIONREFERENCE,4>(v202, v83);
+  v85 = (struct _EX_RUNDOWN_REF *)v202[0];
+  v160 = (struct _EX_RUNDOWN_REF *)v202[0];
+  if ( !v202[0] )
+  {
+    PagedPoolArray<DXGALLOCATIONREFERENCE,4>::~PagedPoolArray<DXGALLOCATIONREFERENCE,4>(v202);
+    if ( P != v185 && P )
+      ExFreePoolWithTag(P, 0);
+    goto LABEL_133;
+  }
+  for ( i = 0; ; ++i )
+  {
+    v87 = (const struct DXGADAPTER *)v156;
+    v164 = v156;
+    v173[1] = v156;
+    if ( i >= v83 )
       break;
-    if ( v77 )
+    if ( i )
     {
-      v144 = v77;
-      v88 = 2LL * v77;
-      LODWORD(v154) = *(_DWORD *)(*(_QWORD *)(v88 * 4 + *(_QWORD *)(v149 + 1496)) + 400LL);
-      v89 = (_DWORD *)(*(_QWORD *)(v162 + 1456) + 4LL * (v77 - 1));
-      if ( v89 + 1 < v89 || (unsigned __int64)(v89 + 1) > MmUserProbeAddress )
+      v174 = *(_DWORD *)(*(_QWORD *)(v158[187].Count + 8LL * i) + 416LL);
+      v95 = (unsigned int *)(v175[182].Count + 4LL * (i - 1));
+      if ( v95 + 1 < v95 || (unsigned __int64)(v95 + 1) > MmUserProbeAddress )
         *(_BYTE *)MmUserProbeAddress = 0;
-      LODWORD(v137) = *v89;
-      v182 = v137;
-      v145 = (struct _EX_RUNDOWN_REF **)&v76[v88];
-      AllocationSafe = (struct _EX_RUNDOWN_REF **)DXGPROCESS::GetAllocationSafe(
-                                                    (__int64)v171,
-                                                    (DXGALLOCATIONREFERENCE *)v183,
-                                                    v137);
-      DXGALLOCATIONREFERENCE::MoveAssign(v145, AllocationSafe);
-      DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((DXGALLOCATIONREFERENCE *)v183);
-      v87 = *v145;
-      v164 = v87;
-      if ( !v87 )
+      v96 = *v95;
+      v192 = v96;
+      v97 = (struct _EX_RUNDOWN_REF **)&v85[i];
+      AllocationSafe = DXGPROCESS::GetAllocationSafe(v179, (DXGALLOCATIONREFERENCE *)v190, v96);
+      DXGALLOCATIONREFERENCE::MoveAssign(v97, AllocationSafe);
+      DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(v190, v99);
+      v88 = *v97;
+      if ( !*v97 )
       {
-        v91 = (unsigned int)v137;
-        WdLogSingleEntry3(2LL, (unsigned int)v137, -1073741811LL, 2470LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Invalid allocation handle in present: 0x%I64x. Returning 0x%I64x",
-          v91,
-          -1073741811LL,
-          2470LL,
-          0LL,
-          0LL);
-        v92 = -1073741811;
-        LODWORD(v137) = -1073741811;
-        v147 = -1073741811;
-        v30 = v163;
-        v93 = v139;
-        goto LABEL_188;
+        v102 = (_QWORD *)WdLogNewEntry5_WdError(v101, v100);
+        v102[3] = v96;
+        v102[4] = -1073741811LL;
+        v102[5] = 2271LL;
+        WdLogEvent5_WdError(v102);
+        v51 = -1073741811;
+        v154 = -1073741811;
+        PoolWithTag = v157;
+        v83 = v148;
+        v103 = v150;
+        goto LABEL_184;
       }
-      v193 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v149 + 1496) + 8 * v144) + 16LL);
-      v194 = v87;
-      v195 = *(_QWORD *)(v87[1].Count + 16);
-      v196 = *(_QWORD *)(v193 + 16);
-      if ( *(_QWORD *)(v195 + 16) != *(_QWORD *)(v196 + 16) )
+      v104 = v158;
+      v198 = *(_QWORD *)(*(_QWORD *)(v158[187].Count + 8LL * i) + 16LL);
+      v195 = *(_QWORD *)(v88[1].Count + 16);
+      v105 = *(_QWORD *)(v195 + 16);
+      v197 = v105;
+      v196 = *(_QWORD *)(v198 + 16);
+      v106 = *(_QWORD *)(v196 + 16);
+      v194[1] = v106;
+      if ( v105 != v106 )
       {
         _mm_lfence();
-        WdLogSingleEntry3(2LL, *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v149 + 1496) + 8 * v144) + 16LL), v87, -1073741811LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Device 0x%p does not match allocation 0x%p owner, returning 0x%I64x",
-          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v149 + 1496) + 8 * v144) + 16LL),
-          (__int64)*v145,
-          -1073741811LL,
-          0LL,
-          0LL);
-        v92 = -1073741811;
-        LODWORD(v137) = -1073741811;
-        v147 = -1073741811;
-        v93 = v139;
-        goto LABEL_188;
+        v107 = (_QWORD *)WdLogNewEntry5_WdError(v106, v105);
+        v107[3] = *(_QWORD *)(*(_QWORD *)(v158[187].Count + 8LL * i) + 16LL);
+        v107[4] = *v97;
+        v107[5] = -1073741811LL;
+        WdLogEvent5_WdError(v107);
+        v51 = -1073741811;
+        v154 = -1073741811;
+        PoolWithTag = v157;
+        v83 = v148;
+        v103 = v150;
+        goto LABEL_184;
       }
-      v94 = *(_QWORD *)(v87[6].Count + 16);
-      v137 = v94;
-      v85 = v151;
-      v95 = (struct _EX_RUNDOWN_REF **)(v151 + 8);
-      v96 = v151 + 4;
-      v145 = (struct _EX_RUNDOWN_REF **)(v151 + 8);
-      v156 = v151 + 4;
-      if ( *((_BYTE *)v7 + 356) )
-      {
-        v97 = &v151[64 * (unsigned __int64)(v138 * *v96) + 24 + *v96 * ((8 * *(_DWORD *)v95 + 231) & 0xFFFFFFF8)];
-        v94 = v137;
-      }
+      if ( BYTE4(v7[43].Ptr) )
+        v108 = (struct _EX_RUNDOWN_REF *)((char *)&v7[8 * (unsigned __int64)(i * HIDWORD(v7[72].Ptr)) + 75]
+                                        + HIDWORD(v7[72].Ptr) * ((8 * LODWORD(v7[73].Count) + 199) & 0xFFFFFFF8));
       else
+        v108 = v7 + 62;
+      v108->Count = *(ULONG_PTR *)(v88[6].Count + 16);
+      if ( !*((_BYTE *)v150 + 2650) )
       {
-        v97 = (char *)v7 + 512;
-      }
-      *(_QWORD *)v97 = v94;
-      if ( !*((_BYTE *)v139 + 2874) )
-      {
-        v98 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v149 + 1496) + 8 * v144) + 184LL);
-        v137 = v98;
-        if ( *((_BYTE *)v7 + 356) )
-        {
-          v99 = &v85[64 * (unsigned __int64)(v138 * *v96) + 16 + *v96 * ((8 * *(_DWORD *)v95 + 231) & 0xFFFFFFF8)];
-          v98 = v137;
-        }
+        if ( BYTE4(v7[43].Ptr) )
+          v109 = (struct _EX_RUNDOWN_REF *)((char *)&v7[8 * (unsigned __int64)(i * HIDWORD(v7[72].Ptr)) + 74]
+                                          + HIDWORD(v7[72].Ptr) * ((8 * LODWORD(v7[73].Count) + 199) & 0xFFFFFFF8));
         else
-        {
-          v99 = (char *)v7 + 568;
-        }
-        *(_QWORD *)v99 = v98;
+          v109 = v7 + 69;
+        v109->Count = *(ULONG_PTR *)(*(_QWORD *)(v104[187].Count + 8LL * i) + 184LL);
       }
-      *((_DWORD *)v7 + 34) |= 1 << v154;
-      v154 = *(_QWORD *)(8 * v144 + *(_QWORD *)(v149 + 1496));
-      if ( (*(_DWORD *)(v154 + 404) & 0x10) == 0 )
+      LODWORD(v7[17].Count) |= 1 << v174;
+      v110 = *(_QWORD *)(8LL * i + v104[187].Count);
+      if ( (*(_DWORD *)(v110 + 420) & 0x10) == 0 )
       {
-        *(_QWORD *)((char *)v7 + 8 * v144 + *((unsigned int *)v7 + 138)) = *(_QWORD *)(v154 + 256);
-        v145 = v95;
-        v156 = v96;
+        v93 = 8LL * i + LODWORD(v7[67].Count);
+        v94 = *(_QWORD *)(v110 + 272);
+        goto LABEL_166;
       }
-      v86 = v138;
     }
     else
     {
-      v164 = v143;
-      v79 = *(_QWORD *)(v143[6].Count + 16);
-      v144 = v79;
-      v80 = v78 + 8;
-      v81 = v78 + 4;
-      v145 = (struct _EX_RUNDOWN_REF **)(v78 + 8);
-      v156 = v78 + 4;
-      if ( *((_BYTE *)v7 + 356) )
-      {
-        v82 = &v78[*v81 * ((8 * *v80 + 231) & 0xFFFFFFF8) + 24];
-        v79 = v144;
-      }
+      v88 = v151;
+      if ( BYTE4(v7[43].Ptr) )
+        v89 = (struct _EX_RUNDOWN_REF *)((char *)v7
+                                       + HIDWORD(v7[72].Ptr) * ((8 * LODWORD(v7[73].Count) + 199) & 0xFFFFFFF8)
+                                       + 600);
       else
+        v89 = v7 + 62;
+      v89->Count = *(ULONG_PTR *)(v151[6].Count + 16);
+      v90 = v150;
+      if ( !*((_BYTE *)v150 + 2650) )
       {
-        v82 = (char *)v7 + 512;
-      }
-      *(_QWORD *)v82 = v79;
-      v83 = v139;
-      if ( !*((_BYTE *)v139 + 2874) )
-      {
-        if ( *((_BYTE *)v7 + 356) )
+        if ( BYTE4(v7[43].Ptr) )
         {
-          v84 = &v78[*v81 * ((8 * *v80 + 231) & 0xFFFFFFF8) + 16];
-          v83 = v139;
+          v91 = (struct _EX_RUNDOWN_REF *)((char *)v7
+                                         + HIDWORD(v7[72].Ptr) * ((8 * LODWORD(v7[73].Count) + 199) & 0xFFFFFFF8)
+                                         + 592);
+          v90 = v150;
         }
         else
         {
-          v84 = (char *)v7 + 568;
+          v91 = v7 + 69;
         }
-        *(_QWORD *)v84 = *((_QWORD *)v30 + 23);
+        v91->Count = v159[23].Count;
       }
-      if ( DXGADAPTER::IsDxgmms2(v83) && v30 && (*((_DWORD *)v30 + 101) & 0x10) == 0 )
-        *(_QWORD *)((char *)v7 + *((unsigned int *)v7 + 138)) = *((_QWORD *)v30 + 32);
-      v144 = v86;
+      if ( DXGADAPTER::IsDxgmms2(v90) && v92 && (*(_DWORD *)(v92 + 420) & 0x10) == 0 )
+      {
+        v93 = LODWORD(v7[67].Count);
+        v94 = *(_QWORD *)(v92 + 272);
+LABEL_166:
+        *(ULONG_PTR *)((char *)&v7->Count + v93) = v94;
+      }
     }
-    if ( *((_BYTE *)v7 + 356) )
-      v100 = (unsigned __int64)&v85[64 * (unsigned __int64)(v86 * *v156)
-                                  + 48
-                                  + *v156 * ((8 * *(_DWORD *)v145 + 231) & 0xFFFFFFF8)];
+    if ( BYTE4(v7[43].Ptr) )
+      v111 = (struct _EX_RUNDOWN_REF *)((char *)&v7[8 * (unsigned __int64)(i * HIDWORD(v7[72].Ptr)) + 78]
+                                      + HIDWORD(v7[72].Ptr) * ((8 * LODWORD(v7[73].Count) + 199) & 0xFFFFFFF8));
     else
-      v100 = (unsigned __int64)v7 + 504;
-    v154 = v100;
-    LODWORD(v137) = (*(__int64 (__fastcall **)(UINT64, ULONG_PTR, unsigned __int64, _QWORD))(*(_QWORD *)(*(_QWORD *)(v18 + 760) + 8LL)
-                                                                                           + 416LL))(
-                      v153[99],
-                      v87[3].Count,
-                      v100,
-                      *(_QWORD *)(v18 + 768));
-    v147 = v137;
-    if ( (int)v137 < 0 )
+      v111 = v7 + 61;
+    v51 = (*(__int64 (__fastcall **)(_QWORD, ULONG_PTR, struct _EX_RUNDOWN_REF *, _QWORD))(*(_QWORD *)(*((_QWORD *)v149 + 80) + 8LL)
+                                                                                         + 424LL))(
+            *((_QWORD *)v167 + 95),
+            v88[3].Count,
+            v111,
+            *((_QWORD *)v149 + 81));
+    v154 = v51;
+    if ( v51 < 0 )
     {
-      WdLogSingleEntry2(2LL, v164, -1073741811LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to reference allocation for submission (0x%I64x). Returning 0x%I64x",
-        (__int64)v164,
-        -1073741811LL,
-        0LL,
-        0LL,
-        0LL);
+      v114 = WdLogNewEntry5_WdError(v113, v112);
+      *(_QWORD *)(v114 + 24) = v88;
+      *(_QWORD *)(v114 + 32) = -1073741811LL;
+      WdLogEvent5_WdError(v114);
+      PoolWithTag = v157;
+      v83 = v148;
       break;
     }
-    Pool2[v144] = *(_QWORD *)v154;
-    ++v140;
-    v101 = v164[5].Count;
-    if ( v101 )
-      v102 = (*(_DWORD *)(v101 + 4) & 8) != 0;
+    v115 = v111->Count;
+    PoolWithTag = v157;
+    v157[i].Count = v115;
+    ++v156;
+    v116 = v88[5].Count;
+    if ( v116 && (*(_DWORD *)(v116 + 4) & 8) != 0 )
+      v117 = *(_QWORD *)(*(_QWORD *)(v116 + 56) + 184LL);
     else
-      v102 = 0;
-    if ( v102 )
-      v103 = *(_QWORD *)(*(_QWORD *)(v101 + 56) + 184LL);
+      v117 = 0LL;
+    if ( BYTE4(v7[43].Ptr) )
+      *(ULONG_PTR *)((char *)&v7[8 * (unsigned __int64)(i * HIDWORD(v7[72].Ptr)) + 79].Count
+                   + HIDWORD(v7[72].Ptr) * ((8 * LODWORD(v7[73].Count) + 199) & 0xFFFFFFF8)) = v117;
     else
-      v103 = 0LL;
-    if ( *((_BYTE *)v7 + 356) )
-      *(_QWORD *)&v151[64 * (unsigned __int64)(v138 * *v156) + 56 + *v156 * ((8 * *(_DWORD *)v145 + 231) & 0xFFFFFFF8)] = v103;
-    else
-      *((_QWORD *)v7 + 72) = v103;
-    *(_DWORD *)v7 |= 0x1000000u;
-    v104 = *p_CompositionBindingId;
-    v105 = *(_QWORD *)(*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 16LL))(v135);
-    v106 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 64LL))(v135);
-    v107 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 104LL))(v135);
-    WdLogSingleEntry5(8LL, v158, v107, v106, v105, v104);
-    if ( (*(unsigned __int8 (__fastcall **)(_QWORD *))(v135[0] + 336LL))(v135) )
+      v7[70].Count = v117;
+    LODWORD(v7->Count) |= 0x1000000u;
+    v118 = (_QWORD *)WdLogNewEntry5_WdPresentTokenEvent();
+    v118[3] = v8;
+    v118[4] = v8[2].Count;
+    v118[5] = HIDWORD(v8[15].Ptr);
+    v118[6] = v8[9].Count;
+    v118[7] = v8[1].Count;
+    WdLogEvent5_WdPresentTokenEvent(v118);
+    if ( !v159 && (v8[4].Count & 2) != 0 )
     {
-      *((_DWORD *)v7 + 1) |= 2u;
-      *((_QWORD *)v7 + 60) = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 344LL))(v135);
-      v108 = (_DWORD *)(*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 352LL))(v135);
-      v109 = v108;
-      *((_QWORD *)v7 + 61) = v108;
-      if ( v108 )
-      {
-        if ( !v108[1] )
-        {
-          if ( *v108 != 56 )
-          {
-            WdLogSingleEntry1(1LL, 2564LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              262146,
-              -1,
-              (__int64)L"pAuxiliaryPresentInfo->size == sizeof(D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO)",
-              2564LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-          }
-          v109[6] = *((_DWORD *)v7 + 29);
-          *((_QWORD *)v109 + 2) = *(_QWORD *)((char *)v139 + 404);
-        }
-      }
+      HIDWORD(v7->Ptr) |= 2u;
+      v7[59].Count = v8[3].Count;
     }
-    v77 = ++v138;
-    v74 = v150;
-    Pool2 = v157;
-    v30 = v163;
-    v78 = v151;
-    v76 = v152;
+    v83 = v148;
+    v85 = v160;
   }
-  v93 = v139;
-  v92 = v137;
-LABEL_188:
-  *((_DWORD *)v7 + 35) = v74;
-  if ( v92 < 0 || (*((_DWORD *)v93 + 569) & 0x20) == 0 )
+  v103 = v150;
+LABEL_184:
+  HIDWORD(v7[17].Ptr) = v83;
+  if ( v51 < 0 || (*((_DWORD *)v103 + 513) & 0x20) == 0 )
+    goto LABEL_216;
+  memset(&v199, 0, sizeof(v199));
+  v199.Flags.Value = 0x2000;
+  if ( v176 )
   {
-    v120 = v137;
-    goto LABEL_218;
+    v199.PrivateDriverDataSize = *((_DWORD *)v176 + 2);
+    v199.pPrivateDriverData = (char *)v176 + 16;
   }
-  memset(&v197, 0, sizeof(v197));
-  v197.Flags.Value = 0x2000;
-  if ( v167 )
+  v203 = 0LL;
+  v205 = 0;
+  PagedPoolZeroedArray<_DXGK_PRESENTALLOCATIONINFO,4>::AllocateElements(&v203, v83);
+  pAllocationList = (char *)v203;
+  v199.pAllocationList = (DXGK_ALLOCATIONLIST *)v203;
+  if ( v203 )
   {
-    v197.PrivateDriverDataSize = *((_DWORD *)v167 + 2);
-    v197.pPrivateDriverData = (char *)v167 + 16;
-  }
-  v202 = 0LL;
-  v204 = 0;
-  PagedPoolZeroedArray<_DXGK_PRESENTALLOCATIONINFO,4>::AllocateElements(&v202, v74);
-  v197.pAllocationList = (DXGK_ALLOCATIONLIST *)v202;
-  if ( v202 )
-  {
-    v110 = *((_DWORD *)v139 + 571);
-    if ( (v110 & 0x80u) == 0 || (v111 = 1, (v110 & 0x40) != 0) )
-      v111 = 0;
-    v134 = v111;
-    v112 = D3DDDI_HDR_METADATA_TYPE_NONE;
-    v142 = D3DDDI_HDR_METADATA_TYPE_NONE;
-    if ( v74 )
+    v120 = *((_DWORD *)v103 + 515);
+    v146 = (v120 & 0x80u) != 0 && (v120 & 0x40) == 0;
+    v121 = 0;
+    if ( v148 )
     {
-      v113 = 0LL;
-      v114 = 0LL;
-      do
+      v122 = 0LL;
+      v123 = 0LL;
+      v124 = v146;
+      v125 = v159;
+      v126 = v158;
+      while ( 1 )
       {
-        if ( v30 )
-        {
-          v115 = (_QWORD *)(v149 + 1496);
-          v116 = *(_WORD *)(*(_QWORD *)(v114 * 4 + *(_QWORD *)(v149 + 1496)) + 400LL);
-        }
+        if ( v125 )
+          v127 = *(_WORD *)(*(_QWORD *)(v126[187].Count + v123 * 8) + 416LL);
         else
-        {
-          v116 = 0;
-          v115 = (_QWORD *)((char *)v190 + 1496);
-        }
-        *(_WORD *)((char *)&v197.pAllocationList[1].hDeviceSpecificAllocation + v113 + 2) = v116;
-        if ( v112 )
-          v117 = *(struct _EX_RUNDOWN_REF **)&v152[v114];
+          v127 = 0;
+        *(_WORD *)&pAllocationList[v122 + 26] = v127;
+        if ( v121 )
+          v128 = (struct _EX_RUNDOWN_REF *)v160[v123].Count;
         else
-          v117 = v143;
-        if ( v30 )
+          v128 = v151;
+        if ( v125 )
+          v124 = *(_BYTE *)(*(_QWORD *)(v126[187].Count + v123 * 8) + 455LL);
+        *(struct _EX_RUNDOWN_REF *)((char *)&v199.pAllocationList->hDeviceSpecificAllocation + v122) = v128[4];
+        v129 = (*(__int64 (__fastcall **)(_QWORD, ULONG_PTR, _QWORD, _QWORD))(*(_QWORD *)(*((_QWORD *)v149 + 80) + 8LL)
+                                                                            + 256LL))(
+                 *((_QWORD *)v149 + 81),
+                 v128[3].Count,
+                 v124,
+                 *(unsigned __int16 *)((char *)&v199.pAllocationList[1].hDeviceSpecificAllocation + v122 + 2));
+        *(_QWORD *)((char *)&v199.pAllocationList->8 + v122) = v129;
+        ++v121;
+        ++v123;
+        v122 += 32LL;
+        if ( v121 >= v148 )
+          break;
+        pAllocationList = (char *)v199.pAllocationList;
+      }
+      v7 = v168;
+      v8 = v166;
+      PoolWithTag = v157;
+      v103 = v150;
+    }
+    v199.FlipInterval = HIDWORD(v7[15].Ptr);
+    v199.Flags.Value ^= (*(_WORD *)&v199.Flags.0 ^ (unsigned __int16)(LODWORD(v7->Count) >> 11)) & 0x1700;
+    v199.NumSrcAllocations = v148;
+    if ( *((_BYTE *)v103 + 2650) )
+      Ptr = 0LL;
+    else
+      Ptr = v159[23].Ptr;
+    v51 = ADAPTER_RENDER::DdiPresent(v149, Ptr, &v199);
+    v87 = (const struct DXGADAPTER *)v203;
+    if ( v51 < 0 )
+    {
+      if ( v203 != v204 && v203 )
+        ExFreePoolWithTag(v203, 0);
+      goto LABEL_223;
+    }
+    if ( v203 != v204 && v203 )
+      ExFreePoolWithTag(v203, 0);
+LABEL_216:
+    if ( v155 && (v7->Count & 0x1000000) != 0 )
+    {
+      v131 = 0LL;
+      v182 = 0LL;
+      if ( *((int *)v103 + 649) >= 2500 )
+      {
+        v132 = ReadPresentDirtyRectsData(v87, v147, (const struct _D3DKMT_PRESENTHISTORYTOKEN *)v8, &v182);
+        v135 = v132;
+        if ( v132 < 0 )
         {
-          v111 = *(_BYTE *)(*(_QWORD *)(v114 * 4 + *v115) + 439LL);
-          v134 = v111;
+          v136 = WdLogNewEntry5_WdError(v134, v133);
+          *(_QWORD *)(v136 + 24) = v135;
+          WdLogEvent5_WdError(v136);
+          goto LABEL_223;
         }
-        *(struct _EX_RUNDOWN_REF *)((char *)&v197.pAllocationList->hDeviceSpecificAllocation + v113) = v117[4];
-        LOBYTE(v115) = v111;
-        v118 = (*(__int64 (__fastcall **)(_QWORD, ULONG_PTR, _QWORD *, _QWORD))(*(_QWORD *)(*(_QWORD *)(v18 + 760) + 8LL)
-                                                                              + 240LL))(
-                 *(_QWORD *)(v18 + 768),
-                 v117[3].Count,
-                 v115,
-                 *(unsigned __int16 *)((char *)&v197.pAllocationList[1].hDeviceSpecificAllocation + v113 + 2));
-        *(_QWORD *)((char *)&v197.pAllocationList->8 + v113) = v118;
-        v112 = v142 + 1;
-        v142 = v112;
-        v114 += 2LL;
-        v113 += 32LL;
-        v111 = v134;
+        v131 = v182;
       }
-      while ( v112 < v74 );
-      v7 = v173;
-      Pool2 = v157;
+      v7[4].Count = (ULONG_PTR)v131;
     }
-    v197.FlipInterval = *v174;
-    v197.Flags.Value ^= (*(_WORD *)&v197.Flags.0 ^ (unsigned __int16)(*(_DWORD *)v7 >> 11)) & 0x1700;
-    v197.NumSrcAllocations = v74;
-    v119 = 0LL;
-    if ( !*((_BYTE *)v139 + 2874) )
-      v119 = (void *)*((_QWORD *)v30 + 23);
-    v120 = ADAPTER_RENDER::DdiPresent((ADAPTER_RENDER *)v18, v119, &v197);
-    v93 = (const struct DXGADAPTER *)v202;
-    if ( v120 < 0 )
-    {
-      if ( v202 != v203 && v202 )
-        ExFreePoolWithTag(v202, 0);
-      goto LABEL_225;
-    }
-    if ( v202 != v203 && v202 )
-      ExFreePoolWithTag(v202, 0);
-LABEL_218:
-    if ( v148 && (*(_DWORD *)v7 & 0x1000000) != 0 )
-    {
-      v175 = 0LL;
-      if ( *((int *)v139 + 705) < 2500
-        || (v121 = ReadPresentDirtyRectsData(v93, v136, (const struct CIFlipPresentHistoryTokenData *)v135, &v175),
-            v121 >= 0) )
-      {
-        *((_QWORD *)v7 + 4) = v175;
-      }
-      else
-      {
-        v122 = v121;
-        WdLogSingleEntry1(2LL, v121);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Failed to read dirty rects data. Returning 0x%I64x",
-          v122,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-      }
-    }
-    goto LABEL_225;
   }
-  v120 = v137;
-LABEL_225:
-  if ( v120 < 0 )
+LABEL_223:
+  if ( v51 < 0 )
   {
-    if ( v140 )
+    if ( v156 )
     {
-      v123 = v140;
-      if ( v163 )
+      v137 = v164;
+      if ( v159 )
       {
-        v124 = v168;
-        v125 = (char *)Pool2 - v168;
+        v138 = v177;
+        v139 = (char *)PoolWithTag - v177;
+        v140 = v178;
         do
         {
-          (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(v18 + 760) + 8LL) + 424LL))(
-            *(_QWORD *)(v18 + 768),
-            (unsigned int)(1 << *(_DWORD *)(*(_QWORD *)v124 + 400LL)),
-            *(_QWORD *)&v125[v124],
+          (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))(*(_QWORD *)(*((_QWORD *)v140 + 80) + 8LL) + 432LL))(
+            *((_QWORD *)v140 + 81),
+            (unsigned int)(1 << *(_DWORD *)(*(_QWORD *)v138 + 416LL)),
+            *(_QWORD *)&v139[v138],
             0LL);
-          v124 += 8LL;
-          --v123;
+          v138 += 8LL;
+          --v137;
         }
-        while ( v123 );
+        while ( v137 );
       }
       else
       {
+        v141 = v178;
         do
         {
-          (*(void (__fastcall **)(_QWORD, __int64, _QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(v18 + 760) + 8LL) + 424LL))(
-            *(_QWORD *)(v18 + 768),
+          (*(void (__fastcall **)(_QWORD, __int64, ULONG_PTR, _QWORD))(*(_QWORD *)(*((_QWORD *)v141 + 80) + 8LL) + 432LL))(
+            *((_QWORD *)v141 + 81),
             1LL,
-            *Pool2++,
+            PoolWithTag->Count,
             0LL);
-          --v123;
+          ++PoolWithTag;
+          --v137;
         }
-        while ( v123 );
+        while ( v137 );
       }
+      v8 = v166;
+      v7 = v168;
     }
-    v126 = *p_CompositionBindingId;
-    v127 = *(_QWORD *)(*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 16LL))(v135);
-    v128 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 64LL))(v135);
-    v129 = (*(__int64 (__fastcall **)(_QWORD *))(v135[0] + 104LL))(v135);
-    WdLogSingleEntry5(8LL, v158, v129, v128, v127, v126);
-    LOBYTE(v130) = 1;
-    (*(void (__fastcall **)(_QWORD *, __int64))(v135[0] + 232LL))(v135, v130);
-    *(_DWORD *)v7 &= ~0x1000000u;
-    v120 = 0;
+    v142 = (_QWORD *)WdLogNewEntry5_WdPresentTokenEvent();
+    v142[3] = v8;
+    v142[4] = v8[2].Count;
+    v142[5] = HIDWORD(v8[15].Ptr);
+    v142[6] = v8[9].Count;
+    v142[7] = v8[1].Count;
+    WdLogEvent5_WdPresentTokenEvent(v142);
+    HIDWORD(v8[7].Ptr) |= 0x1000000u;
+    LODWORD(v7->Count) &= ~0x1000000u;
+    v51 = 0;
   }
-  PagedPoolArray<DXGALLOCATIONREFERENCE,4>::~PagedPoolArray<DXGALLOCATIONREFERENCE,4>(v200);
-  if ( P != v179 && P )
+  PagedPoolArray<DXGALLOCATIONREFERENCE,4>::~PagedPoolArray<DXGALLOCATIONREFERENCE,4>(v202);
+  if ( P != v185 && P )
     ExFreePoolWithTag(P, 0);
   P = 0LL;
-  v180 = 0;
-  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((DXGALLOCATIONREFERENCE *)&v143);
-  CIFlipPresentHistoryToken::~CIFlipPresentHistoryToken((CIFlipPresentHistoryToken *)v135);
-  return (unsigned int)v120;
+  v186 = 0;
+  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v151, v143);
+  return (unsigned int)v51;
 }

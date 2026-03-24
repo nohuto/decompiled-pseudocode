@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpGetEffectiveKeyNodeSemantics @ 0x140A1FDA0
+ * XREFs of CmpGetEffectiveKeyNodeSemantics @ 0x14072ADD0
  * Callers:
- *     CmpGetValueCountForKeyNodeStack @ 0x140616604 (CmpGetValueCountForKeyNodeStack.c)
- *     CmpValueEnumStackStartFromKeyNodeStack @ 0x140616830 (CmpValueEnumStackStartFromKeyNodeStack.c)
- *     CmpQueryKeyDataFromKeyNodeStack @ 0x14061733C (CmpQueryKeyDataFromKeyNodeStack.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmpGetSecurityCellForKeyNodeStack @ 0x140A1BA14 (CmpGetSecurityCellForKeyNodeStack.c)
- *     CmpCopyMergeOfLayeredKeyNode @ 0x140A21188 (CmpCopyMergeOfLayeredKeyNode.c)
- *     CmpKeyEnumStackAdvance @ 0x140A23748 (CmpKeyEnumStackAdvance.c)
- *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x140A23964 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
- *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x140A25438 (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
+ *     CmpValueEnumStackStartFromKeyNodeStack @ 0x14036B6A8 (CmpValueEnumStackStartFromKeyNodeStack.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x1404ECDC8 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpQueryKeyDataFromKeyNodeStack @ 0x1404ED99C (CmpQueryKeyDataFromKeyNodeStack.c)
+ *     CmpCopyMergeOfLayeredKeyNode @ 0x14072A360 (CmpCopyMergeOfLayeredKeyNode.c)
+ *     CmpKeyEnumStackAdvance @ 0x14072A9E8 (CmpKeyEnumStackAdvance.c)
+ *     CmpGetSecurityCellForKeyNodeStack @ 0x14072ABBC (CmpGetSecurityCellForKeyNodeStack.c)
+ *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x14072AC48 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
+ *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
+ *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x14087B94C (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of MmSelectVsmEnclaveByAddress @ 0x14085A84C
+ * XREFs of MmSelectVsmEnclaveByAddress @ 0x14085A82C
  * Callers:
- *     PsCallEnclave @ 0x14088D5A0 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x14088D580 (PsCallEnclave.c)
  * Callees:
  *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
  *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)

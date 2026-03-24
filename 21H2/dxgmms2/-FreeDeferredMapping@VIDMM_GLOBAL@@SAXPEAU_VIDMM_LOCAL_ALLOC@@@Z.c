@@ -1,57 +1,56 @@
 /*
- * XREFs of ?FreeDeferredMapping@VIDMM_GLOBAL@@SAXPEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C00D71F0
+ * XREFs of ?FreeDeferredMapping@VIDMM_GLOBAL@@SAXPEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C00AFF08
  * Callers:
- *     VidMmFreeDeferredMapping @ 0x1C001E3F0 (VidMmFreeDeferredMapping.c)
+ *     VidMmFreeDeferredMapping @ 0x1C0022DA0 (VidMmFreeDeferredMapping.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0001904 (--3@YAXPEAX@Z.c)
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C001CDD4 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ??_G_VIDMM_GLOBAL_ALLOC@@QEAAPEAXI@Z @ 0x1C002D7E0 (--_G_VIDMM_GLOBAL_ALLOC@@QEAAPEAXI@Z.c)
- *     ?VidMmDereferenceObjectAsync@@YAXPEAX@Z @ 0x1C007C570 (-VidMmDereferenceObjectAsync@@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001618 (--3@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     ??_G_VIDMM_GLOBAL_ALLOC@@QEAAPEAXI@Z @ 0x1C0023430 (--_G_VIDMM_GLOBAL_ALLOC@@QEAAPEAXI@Z.c)
+ *     ?VidMmDereferenceObjectAsync@@YAXPEAX@Z @ 0x1C0076770 (-VidMmDereferenceObjectAsync@@YAXPEAX@Z.c)
  */
 
-void __fastcall VIDMM_GLOBAL::FreeDeferredMapping(struct _VIDMM_LOCAL_ALLOC *a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall VIDMM_GLOBAL::FreeDeferredMapping(struct _VIDMM_LOCAL_ALLOC *a1, __int64 a2)
 {
-  __int64 v5; // rcx
-  bool v6; // di
-  int v7; // ebx
-  __int64 v8; // rdi
-  __int64 v9; // rbx
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
+  __int64 v3; // rax
+  __int64 v4; // rcx
+  bool v5; // si
+  int v6; // ebx
 
-  if ( *((_DWORD *)a1 + 9) || (v5 = *(_QWORD *)a1, *(_DWORD *)(v5 + 288)) )
+  if ( *((_DWORD *)a1 + 9) || *(_DWORD *)(*(_QWORD *)a1 + 304LL) )
   {
-    WdLogSingleEntry5(0LL, 270LL, 7LL, a1, 0LL, 0LL);
-    v5 = *(_QWORD *)a1;
+    v3 = WdLogNewEntry5_WdCriticalError(a1, a2);
+    *(_QWORD *)(v3 + 24) = 270LL;
+    *(_QWORD *)(v3 + 32) = 7LL;
+    *(_QWORD *)(v3 + 40) = a1;
+    *(_OWORD *)(v3 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v3);
   }
-  v6 = (*(_DWORD *)(v5 + 72) & 0x40000) != 0;
-  v7 = **(_DWORD **)(v5 + 528);
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v5 + 396), 0xFFFFFFFF) == 1 )
+  v4 = *(_QWORD *)a1;
+  v5 = (*(_DWORD *)(*(_QWORD *)a1 + 80LL) & 0x40000) != 0;
+  v6 = **(_DWORD **)(*(_QWORD *)a1 + 512LL);
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(*(_QWORD *)a1 + 388LL), 0xFFFFFFFF) == 1 )
   {
-    if ( (v7 & 0x4000000) != 0 )
+    if ( (v6 & 0x4000000) != 0 )
     {
       if ( g_IsInternalReleaseOrDbg )
-        WdLogNewEntry5_WdTrace(v5, a2, a3, a4);
-      MmUnmapViewInSystemSpace(*(PVOID *)(*(_QWORD *)a1 + 384LL));
-      VidMmDereferenceObjectAsync(*(PVOID *)(*(_QWORD *)a1 + 376LL));
-      *(_DWORD *)(*(_QWORD *)a1 + 72LL) &= ~0x1000000u;
+        WdLogNewEntry5_WdTrace(v4);
+      MmUnmapViewInSystemSpace(*(PVOID *)(*(_QWORD *)a1 + 376LL));
+      VidMmDereferenceObjectAsync(*(PVOID *)(*(_QWORD *)a1 + 368LL));
+      *(_DWORD *)(*(_QWORD *)a1 + 80LL) &= ~0x800000u;
     }
-    operator delete(*(void **)(*(_QWORD *)a1 + 528LL));
-    *(_DWORD *)(*(_QWORD *)a1 + 68LL) |= 0x400000u;
+    operator delete(*(void **)(*(_QWORD *)a1 + 512LL));
+    *(_DWORD *)(*(_QWORD *)a1 + 76LL) |= 0x200000u;
     if ( *(_QWORD *)a1 )
       _VIDMM_GLOBAL_ALLOC::`scalar deleting destructor'(*(_VIDMM_GLOBAL_ALLOC **)a1);
   }
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1 + 18, 0xFFFFFFFF) <= 1 )
   {
     *(_QWORD *)a1 = 0LL;
-    if ( v6 )
+    if ( v5 )
     {
-      v8 = *((_QWORD *)a1 + 2);
-      v9 = **((_QWORD **)a1 + 1);
-      VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-      (*((void (__fastcall **)(__int64, __int64))VirtualMemoryInterface + 4))(v9, v8);
+      MmUnmapViewOfSection(**((_QWORD **)a1 + 1));
     }
-    else if ( (v7 & 8) == 0 && (v7 & 0x10) == 0 && (v7 & 0x20) == 0 )
+    else if ( (v6 & 0x38) == 0 )
     {
       if ( *((_QWORD *)a1 + 3) )
       {

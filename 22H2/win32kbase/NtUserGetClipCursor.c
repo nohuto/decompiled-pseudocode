@@ -1,53 +1,49 @@
 /*
- * XREFs of NtUserGetClipCursor @ 0x1C0144510
+ * XREFs of NtUserGetClipCursor @ 0x1C012EBB0
  * Callers:
  *     <none>
  * Callees:
- *     GuessMonitorOverrideForCoordinateConversions @ 0x1C000B2B0 (GuessMonitorOverrideForCoordinateConversions.c)
- *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C004CDAC (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C004D320 (W32GetCurrentThreadDpiAwarenessContext.c)
- *     ApiSetCheckCursorClipAccess @ 0x1C005E358 (ApiSetCheckCursorClipAccess.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     PhysicalToLogicalDPIRect @ 0x1C009AB80 (PhysicalToLogicalDPIRect.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?GetClip@CCursorClip@@QEBA?AUtagRECT@@XZ @ 0x1C01DC070 (-GetClip@CCursorClip@@QEBA-AUtagRECT@@XZ.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C002BEF4 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     EnterSharedCrit @ 0x1C00372A0 (EnterSharedCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     PhysicalToLogicalDPIRect @ 0x1C0071310 (PhysicalToLogicalDPIRect.c)
+ *     GuessMonitorOverrideForCoordinateConversions @ 0x1C0087E20 (GuessMonitorOverrideForCoordinateConversions.c)
+ *     ApiSetCheckCursorClipAccess @ 0x1C009D5D8 (ApiSetCheckCursorClipAccess.c)
+ *     ?GetClip@CCursorClip@@QEBA?AUtagRECT@@XZ @ 0x1C00C0820 (-GetClip@CCursorClip@@QEBA-AUtagRECT@@XZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
-__int64 __fastcall NtUserGetClipCursor(__m128i *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall NtUserGetClipCursor(_OWORD *a1)
 {
-  int v5; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  _BYTE *v10; // rdx
+  __int64 v2; // rdx
+  int v3; // ebx
+  _OWORD *v4; // rax
   unsigned int CurrentThreadDpiAwarenessContext; // ebx
-  __int64 v13; // [rsp+30h] [rbp-48h]
-  __int64 v14; // [rsp+40h] [rbp-38h] BYREF
-  struct tagRECT v15; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v7; // [rsp+30h] [rbp-48h]
+  __int64 v8; // [rsp+40h] [rbp-38h] BYREF
+  struct tagRECT v9; // [rsp+50h] [rbp-28h] BYREF
 
-  PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal((__int64)a1, a2, a3, a4);
-  v5 = 0;
+  EnterSharedCrit(0, 1);
+  v3 = 0;
   if ( (unsigned int)ApiSetCheckCursorClipAccess(1u, 0) )
   {
-    v10 = a1;
+    v4 = a1;
     if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-      v10 = (_BYTE *)MmUserProbeAddress;
-    *v10 = *v10;
-    v10[15] = v10[15];
-    CCursorClip::GetClip((CCursorClip *)WPP_MAIN_CB.Reserved, &v15);
-    LODWORD(v13) = (v15.left + v15.right) / 2;
-    HIDWORD(v13) = (v15.top + v15.bottom) / 2;
+      v4 = (_OWORD *)MmUserProbeAddress;
+    *v4 = *v4;
+    CCursorClip::GetClip((struct tagRECT *)gpCursorClip, &v9);
+    LODWORD(v7) = (v9.left + v9.right) / 2;
+    HIDWORD(v7) = (v9.top + v9.bottom) / 2;
     CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext();
-    v14 = GuessMonitorOverrideForCoordinateConversions(v13, CurrentThreadDpiAwarenessContext, 1);
-    PhysicalToLogicalDPIRect(a1, (__m128i *)&v15, CurrentThreadDpiAwarenessContext, &v14);
-    v5 = 1;
+    v8 = GuessMonitorOverrideForCoordinateConversions(v7, CurrentThreadDpiAwarenessContext, 1);
+    PhysicalToLogicalDPIRect(a1, &v9, CurrentThreadDpiAwarenessContext, &v8);
+    v3 = 1;
   }
   else
   {
-    UserSetLastError(5);
+    UserSetLastError(5LL, v2);
   }
-  UserSessionSwitchLeaveCrit(v7, v6, v8, v9);
-  return v5;
+  UserSessionSwitchLeaveCrit();
+  return v3;
 }

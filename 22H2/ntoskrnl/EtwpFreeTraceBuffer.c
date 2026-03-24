@@ -1,51 +1,51 @@
 /*
- * XREFs of EtwpFreeTraceBuffer @ 0x14031EE68
+ * XREFs of EtwpFreeTraceBuffer @ 0x140321364
  * Callers:
- *     EtwpAdjustSiloTraceBuffers @ 0x140228540 (EtwpAdjustSiloTraceBuffers.c)
- *     EtwpFreeTraceBufferPool @ 0x14078E4AC (EtwpFreeTraceBufferPool.c)
- *     EtwpCancelMemoryPreservation @ 0x1409ED380 (EtwpCancelMemoryPreservation.c)
- *     EtwpPreserveLogger @ 0x1409ED6CC (EtwpPreserveLogger.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x14032ED38 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpFreeTraceBufferPool @ 0x14069862C (EtwpFreeTraceBufferPool.c)
+ *     EtwpCancelMemoryPreservation @ 0x140948560 (EtwpCancelMemoryPreservation.c)
+ *     EtwpPreserveLogger @ 0x1409488AC (EtwpPreserveLogger.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     EtwpFreePartitionMemory @ 0x140601414 (EtwpFreePartitionMemory.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiFreePagesFromMdl @ 0x14027FB6C (MiFreePagesFromMdl.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     EtwpFreePartitionMemory @ 0x1405B0608 (EtwpFreePartitionMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall EtwpFreeTraceBuffer(__int64 a1, char *a2)
+void __fastcall EtwpFreeTraceBuffer(__int64 a1, char *a2, __int64 a3)
 {
-  char *v2; // rbx
-  ULONG_PTR v3; // rdi
-  unsigned __int64 *v4; // rsi
-  unsigned int v5; // eax
-  __int64 v6; // rbp
+  char *v3; // rbx
+  ULONG_PTR v4; // rdi
+  unsigned __int64 *v5; // rsi
+  unsigned int v6; // eax
+  __int64 v7; // rbp
   PHYSICAL_ADDRESS PhysicalAddress; // rax
 
-  v2 = a2;
-  if ( *(_QWORD *)(a1 + 1320) )
+  v3 = a2;
+  if ( *(_QWORD *)(a1 + 1304) )
   {
     EtwpFreePartitionMemory();
   }
-  else if ( (*(_DWORD *)(a1 + 816) & 0x20000000) != 0 )
+  else if ( (*(_DWORD *)(a1 + 832) & 0x20000000) != 0 )
   {
-    v3 = *(_QWORD *)(a1 + 1328);
-    *(_WORD *)(v3 + 10) |= 3u;
-    v4 = (unsigned __int64 *)(v3 + 48);
-    *(_QWORD *)(v3 + 24) = a2;
-    v5 = *(_DWORD *)(a1 + 4) >> 12;
-    if ( v5 )
+    v4 = *(_QWORD *)(a1 + 1312);
+    *(_WORD *)(v4 + 10) |= 3u;
+    v5 = (unsigned __int64 *)(v4 + 48);
+    *(_QWORD *)(v4 + 24) = a2;
+    v6 = *(_DWORD *)(a1 + 4) >> 12;
+    if ( v6 )
     {
-      v6 = v5;
+      v7 = v6;
       do
       {
-        PhysicalAddress = MmGetPhysicalAddress(v2);
-        v2 += 4096;
-        *v4++ = (unsigned __int64)PhysicalAddress.QuadPart >> 12;
-        --v6;
+        PhysicalAddress = MmGetPhysicalAddress(v3);
+        v3 += 4096;
+        *v5++ = (unsigned __int64)PhysicalAddress.QuadPart >> 12;
+        --v7;
       }
-      while ( v6 );
+      while ( v7 );
     }
-    MiFreePagesFromMdl(v3, 0);
+    MiFreePagesFromMdl(v4, 0, a3);
   }
   else
   {

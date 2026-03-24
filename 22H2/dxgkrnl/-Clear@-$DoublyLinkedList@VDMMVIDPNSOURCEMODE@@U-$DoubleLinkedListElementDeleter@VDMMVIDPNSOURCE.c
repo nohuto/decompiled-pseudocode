@@ -1,58 +1,47 @@
 /*
- * XREFs of ?Clear@?$DoublyLinkedList@VDMMVIDPNSOURCEMODE@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMODE@@@@@@QEAAXXZ @ 0x1C0068E60
+ * XREFs of ?Clear@?$DoublyLinkedList@VDMMVIDPNSOURCEMODE@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMODE@@@@@@QEAAXXZ @ 0x1C0015820
  * Callers:
- *     ??1?$Set@VDMMVIDPNSOURCEMODE@@@@UEAA@XZ @ 0x1C0067D64 (--1-$Set@VDMMVIDPNSOURCEMODE@@@@UEAA@XZ.c)
- *     ??_E?$DoublyLinkedList@VDMMVIDPNSOURCEMODE@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMODE@@@@@@UEAAPEAXI@Z @ 0x1C0068700 (--_E-$DoublyLinkedList@VDMMVIDPNSOURCEMODE@@U-$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMOD.c)
- *     ?Clear@?$Set@VDMMVIDPNTARGETMODE@@@@UEAAXXZ @ 0x1C00690F0 (-Clear@-$Set@VDMMVIDPNTARGETMODE@@@@UEAAXXZ.c)
+ *     ??1DMMVIDPNSOURCEMODESET@@UEAA@XZ @ 0x1C0006DC0 (--1DMMVIDPNSOURCEMODESET@@UEAA@XZ.c)
+ *     ??1?$Set@VDMMVIDPNSOURCEMODE@@@@UEAA@XZ @ 0x1C005D240 (--1-$Set@VDMMVIDPNSOURCEMODE@@@@UEAA@XZ.c)
+ *     ??_E?$DoublyLinkedList@VDMMVIDPNSOURCEMODE@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMODE@@@@@@UEAAPEAXI@Z @ 0x1C005D2C0 (--_E-$DoublyLinkedList@VDMMVIDPNSOURCEMODE@@U-$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMOD.c)
+ *     ?Clear@?$Set@VDMMVIDPNSOURCEMODE@@@@UEAAXXZ @ 0x1C005D3B0 (-Clear@-$Set@VDMMVIDPNSOURCEMODE@@@@UEAAXXZ.c)
  * Callees:
- *     ?Release@NonReferenceCounted@@QEAA_KXZ @ 0x1C00120B8 (-Release@NonReferenceCounted@@QEAA_KXZ.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall DoublyLinkedList<DMMVIDPNSOURCEMODE,DoubleLinkedListElementDeleter<DMMVIDPNSOURCEMODE>>::Clear(
-        __int64 a1)
+_QWORD *__fastcall DoublyLinkedList<DMMVIDPNSOURCEMODE,DoubleLinkedListElementDeleter<DMMVIDPNSOURCEMODE>>::Clear(
+        void (__fastcall ***a1)(_QWORD, __int64),
+        __int64 a2)
 {
-  _QWORD **v2; // rbx
-  _QWORD *v3; // rcx
-  _QWORD *v4; // rax
-  int v5; // edx
-  int v6; // ecx
-  int v7; // r8d
+  void (__fastcall ***v2)(_QWORD, __int64); // rdi
+  _QWORD **v3; // rbx
+  _QWORD *result; // rax
+  _QWORD *v5; // rcx
+  __int64 v6; // rax
 
-  v2 = (_QWORD **)(a1 + 16);
+  v2 = a1;
+  v3 = a1 + 2;
   while ( 1 )
   {
-    v3 = *v2;
-    if ( *v2 == v2 )
+    result = *v3;
+    if ( *v3 == v3 )
       break;
-    if ( (_QWORD **)v3[1] != v2 || (v4 = (_QWORD *)*v3, *(_QWORD **)(*v3 + 8LL) != v3) )
+    if ( (_QWORD **)result[1] != v3 || (v5 = (_QWORD *)*result, *(_QWORD **)(*result + 8LL) != result) )
       __fastfail(3u);
-    *v2 = v4;
-    v4[1] = v2;
-    --*(_QWORD *)(a1 + 32);
-    *v3 = 0LL;
-    v3[1] = 0LL;
-    NonReferenceCounted::Release((NonReferenceCounted *)(v3 + 7));
+    *v3 = v5;
+    v5[1] = v3;
+    a1 = (void (__fastcall ***)(_QWORD, __int64))(result + 7);
+    v2[4] = (void (__fastcall **)(_QWORD, __int64))((char *)v2[4] - 1);
+    *result = 0LL;
+    result[1] = 0LL;
+    if ( result != (_QWORD *)-56LL )
+      (**a1)(a1, 1LL);
   }
-  if ( *(_QWORD *)(a1 + 32) )
+  if ( v2[4] )
   {
-    WdLogSingleEntry1(1LL, 394LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v6,
-          v5,
-          v7,
-          0LL,
-          2,
-          -1,
-          L"this->GetNumElements() == 0",
-          394LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v6 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v6 + 24) = 394LL;
+    return (_QWORD *)WdLogEvent5_WdAssertion(v6);
   }
+  return result;
 }

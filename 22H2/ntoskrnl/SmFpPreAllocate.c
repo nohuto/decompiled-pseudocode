@@ -1,148 +1,140 @@
 /*
- * XREFs of SmFpPreAllocate @ 0x1403A6478
+ * XREFs of SmFpPreAllocate @ 0x1403C8964
  * Callers:
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140342E58 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
- *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403A63E4 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
- *     SmFirstTimeInit @ 0x1407B82C4 (SmFirstTimeInit.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x140352B08 (-SmFirstTimeInit@@YAJKK@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140353D08 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403C88D0 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     SmAcquireReleaseCharges @ 0x14034350C (SmAcquireReleaseCharges.c)
- *     SmFpCleanup @ 0x140343E28 (SmFpCleanup.c)
- *     SmKmAllocateMdlForLock @ 0x1403A6694 (SmKmAllocateMdlForLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MmAllocateMappingAddress @ 0x14086C930 (MmAllocateMappingAddress.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     SmAcquireReleaseCharges @ 0x14026C810 (SmAcquireReleaseCharges.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     SmKmAllocateMdlForLock @ 0x140313600 (SmKmAllocateMdlForLock.c)
+ *     SmFpCleanup @ 0x14034F6F8 (SmFpCleanup.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MmAllocateMappingAddress @ 0x140691430 (MmAllocateMappingAddress.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SmFpPreAllocate(PEX_SPIN_LOCK SpinLock, unsigned int *a2, unsigned int a3)
 {
-  __int64 v3; // rbx
-  __int64 v5; // rdi
-  unsigned int *v7; // r12
-  unsigned int v8; // ecx
-  unsigned int v9; // r15d
-  __int64 v10; // rbx
-  _OWORD *Pool2; // rax
-  _QWORD *v12; // rdi
-  unsigned int v13; // edx
-  unsigned int v14; // eax
-  PVOID MappingAddress; // rax
-  unsigned int v16; // eax
-  KIRQL v17; // al
-  __int128 v18; // xmm1
-  int v19; // edx
+  __int64 v4; // rbx
+  unsigned int *v6; // r12
+  unsigned int v7; // ecx
+  unsigned int v8; // r15d
+  __int64 v9; // rbx
+  _OWORD *PoolWithTag; // rax
+  _QWORD *v11; // rdi
+  unsigned __int64 v12; // rcx
+  unsigned int v13; // eax
+  void *MappingAddress; // rax
+  unsigned int v15; // eax
+  KIRQL v16; // al
+  __int128 v17; // xmm1
+  int v18; // edx
+  unsigned __int64 v19; // rbx
   __int128 v20; // xmm0
-  unsigned __int64 v21; // rbx
-  __int128 v22; // xmm0
-  unsigned int v23; // ebx
+  unsigned int v21; // ebx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v28; // eax
-  bool v29; // zf
-  _QWORD v30[16]; // [rsp+20h] [rbp-59h] BYREF
+  int v26; // eax
+  bool v27; // zf
+  _OWORD v28[7]; // [rsp+20h] [rbp-49h] BYREF
 
-  v3 = *((_QWORD *)SpinLock + 4);
-  v5 = a3;
-  memset(v30, 0, 0x78uLL);
-  HIDWORD(v30[1]) = 0;
-  v30[3] = &v30[2];
-  v7 = &a2[v5];
-  LOWORD(v30[1]) = 1;
-  v30[2] = &v30[2];
-  BYTE2(v30[1]) = 6;
-  v30[4] = v3;
-  while ( a2 < v7 )
+  v4 = a3;
+  memset(v28, 0, sizeof(v28));
+  HIDWORD(v28[0]) = 0;
+  *((_QWORD *)&v28[1] + 1) = &v28[1];
+  v6 = &a2[v4];
+  WORD4(v28[0]) = 1;
+  *(_QWORD *)&v28[1] = &v28[1];
+  BYTE10(v28[0]) = 6;
+  while ( a2 < v6 )
   {
-    v8 = *a2;
-    v9 = 0;
-    v10 = *a2 & 0xF;
-    *((_WORD *)&v30[12] + v10) = *a2 >> 4;
-    if ( (v8 & 0xFF00000) != 0 )
+    v7 = *a2;
+    v8 = 0;
+    v9 = *a2 & 0xF;
+    *((_WORD *)&v28[5] + v9 + 4) = *a2 >> 4;
+    if ( (v7 & 0xFF00000) != 0 )
     {
       while ( 1 )
       {
-        Pool2 = (_OWORD *)ExAllocatePool2(64LL, 16LL, 1883663731LL);
-        v12 = Pool2;
-        if ( !Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x70466D73u);
+        v11 = PoolWithTag;
+        if ( !PoolWithTag )
         {
 LABEL_19:
-          v23 = -1073741670;
-          SmFpCleanup((__int64)v30);
-          if ( v12 )
-            ExFreePoolWithTag(v12, 0);
-          return v23;
+          SmFpCleanup((__int64)v28);
+          v21 = -1073741670;
+          if ( v11 )
+            ExFreePoolWithTag(v11, 0);
+          return v21;
         }
-        *Pool2 = 0LL;
-        v13 = *a2;
-        if ( (*a2 & 0xF) == 2 )
+        *PoolWithTag = 0LL;
+        v12 = *a2;
+        v13 = *a2 & 0xF;
+        if ( v13 == 2 )
           break;
-        v14 = *a2 & 0xF;
-        if ( v14 != 3 )
+        if ( v13 != 3 )
         {
-          if ( v14 >= 5 )
-            MappingAddress = MmAllocateMappingAddress((unsigned __int16)(v13 >> 4) << 12, 0x6D526D73u);
+          if ( v13 >= 5 )
+            MappingAddress = MmAllocateMappingAddress((unsigned __int16)((unsigned int)v12 >> 4) << 12, 0x6D526D73u);
           else
-            MappingAddress = (PVOID)ExAllocatePool2(64LL, (unsigned __int16)((unsigned __int64)v13 >> 4), 1883663731LL);
+            MappingAddress = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned __int16)(v12 >> 4), 0x70466D73u);
 LABEL_9:
           if ( !MappingAddress )
             goto LABEL_19;
           goto LABEL_10;
         }
-        if ( !(unsigned int)SmAcquireReleaseCharges(
-                              *((_QWORD *)SpinLock + 4),
-                              (unsigned __int64)(unsigned __int16)((unsigned __int64)v13 >> 4) << 12,
-                              1,
-                              0) )
+        if ( !(unsigned int)SmAcquireReleaseCharges((unsigned __int64)(unsigned __int16)(v12 >> 4) << 12, 1, 0) )
           goto LABEL_19;
-        MappingAddress = (PVOID)(8LL * (v9 + 1));
+        MappingAddress = (void *)(8LL * (v8 + 1));
 LABEL_10:
-        v12[1] = MappingAddress;
-        ++v9;
-        *v12 = v30[v10 + 5];
-        v16 = (unsigned __int8)(*a2 >> 20);
-        v30[v10 + 5] = v12;
-        if ( v9 >= v16 )
+        v11[1] = MappingAddress;
+        ++v8;
+        *v11 = *((_QWORD *)&v28[2] + v9);
+        v15 = (unsigned __int8)(*a2 >> 20);
+        *((_QWORD *)&v28[2] + v9) = v11;
+        if ( v8 >= v15 )
           goto LABEL_11;
       }
-      MappingAddress = (PVOID)SmKmAllocateMdlForLock(
-                                *((_QWORD *)SpinLock + 4),
-                                (unsigned __int64)(unsigned __int16)((unsigned __int64)*a2 >> 4) << 12);
+      MappingAddress = SmKmAllocateMdlForLock((unsigned __int64)(unsigned __int16)(v12 >> 4) << 12);
       goto LABEL_9;
     }
 LABEL_11:
     ++a2;
   }
-  v17 = ExAcquireSpinLockExclusive(SpinLock);
-  v18 = *(_OWORD *)&v30[7];
-  v19 = v30[13];
-  *((_QWORD *)SpinLock + 12) = v30[12];
-  v20 = *(_OWORD *)&v30[5];
-  v21 = v17;
-  *((_DWORD *)SpinLock + 26) = v19;
-  *(_OWORD *)(SpinLock + 10) = v20;
-  v22 = *(_OWORD *)&v30[9];
-  *(_OWORD *)(SpinLock + 14) = v18;
-  *(_OWORD *)(SpinLock + 18) = v22;
+  v16 = ExAcquireSpinLockExclusive(SpinLock);
+  v17 = v28[3];
+  v18 = v28[6];
+  *((_QWORD *)SpinLock + 11) = *((_QWORD *)&v28[5] + 1);
+  *((_OWORD *)SpinLock + 2) = v28[2];
+  v19 = v16;
+  v20 = v28[4];
+  *((_OWORD *)SpinLock + 3) = v17;
+  *((_DWORD *)SpinLock + 24) = v18;
+  *((_OWORD *)SpinLock + 4) = v20;
   ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v21 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v28 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v21 + 1));
-      v29 = (v28 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v28;
-      if ( v29 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v19 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v19 + 1));
+        v27 = (v26 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v26;
+        if ( v27 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
-  __writecr8(v21);
+  __writecr8(v19);
   return 0;
 }

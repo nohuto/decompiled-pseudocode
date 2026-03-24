@@ -1,23 +1,32 @@
 /*
- * XREFs of PiSwDeviceFree @ 0x140967290
+ * XREFs of PiSwDeviceFree @ 0x1407342E0
  * Callers:
- *     PiSwDeviceDereference @ 0x14081CB44 (PiSwDeviceDereference.c)
+ *     PiSwDeviceDereference @ 0x140773A00 (PiSwDeviceDereference.c)
  * Callees:
- *     PnpFreeDevPropertyArray @ 0x140789BA8 (PnpFreeDevPropertyArray.c)
- *     PiSwFreeInterfaceList @ 0x14081C66C (PiSwFreeInterfaceList.c)
- *     PiSwFreePdoAssociationsList @ 0x1409674B0 (PiSwFreePdoAssociationsList.c)
- *     PiSwInstanceInfoFree @ 0x14096754C (PiSwInstanceInfoFree.c)
- *     PiSwPnPInfoFree @ 0x1409676F4 (PiSwPnPInfoFree.c)
- *     PiSwQueuedCreateInfoFree @ 0x140967BC0 (PiSwQueuedCreateInfoFree.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpFreeDevPropertyArray @ 0x1406AC460 (PnpFreeDevPropertyArray.c)
+ *     PiSwPdoAssociationFree @ 0x14073312C (PiSwPdoAssociationFree.c)
+ *     PiSwPnPInfoFree @ 0x1407343A0 (PiSwPnPInfoFree.c)
+ *     PiSwInstanceInfoFree @ 0x140734414 (PiSwInstanceInfoFree.c)
+ *     PiSwFreeInterfaceList @ 0x14074DF0C (PiSwFreeInterfaceList.c)
+ *     PiSwQueuedCreateInfoFree @ 0x1408AEC98 (PiSwQueuedCreateInfoFree.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiSwDeviceFree(__int64 a1)
+void __fastcall PiSwDeviceFree(__int64 a1)
 {
   void *v2; // rcx
   void *v3; // rcx
   void *v4; // rcx
   char *v5; // rdx
+  PADAPTER_OBJECT **v6; // rdi
+  PADAPTER_OBJECT *v7; // rbx
+  PADAPTER_OBJECT v8; // rax
+  struct _KTHREAD *CurrentThread; // rax
+  PADAPTER_OBJECT v10; // rdx
+  PADAPTER_OBJECT **v11; // rax
 
   PiSwInstanceInfoFree(a1 + 8);
   PiSwPnPInfoFree(a1 + 24);
@@ -46,6 +55,33 @@ __int64 __fastcall PiSwDeviceFree(__int64 a1)
     *(_QWORD *)(a1 + 168) = 0LL;
     *(_DWORD *)(a1 + 176) = 0;
   }
-  PiSwFreeInterfaceList((_QWORD **)(a1 + 184));
-  return PiSwFreePdoAssociationsList(a1 + 128);
+  PiSwFreeInterfaceList(a1 + 184);
+  v6 = (PADAPTER_OBJECT **)(a1 + 128);
+  while ( 1 )
+  {
+    v7 = *v6;
+    if ( *v6 == (PADAPTER_OBJECT *)v6 )
+      break;
+    if ( v7[1] != (PADAPTER_OBJECT)v6 )
+      goto LABEL_16;
+    v8 = *v7;
+    if ( (PADAPTER_OBJECT *)(*v7)->DmaOperations != v7
+      || (*v6 = (PADAPTER_OBJECT *)v8,
+          v8->DmaOperations = (_DMA_OPERATIONS *)v6,
+          CurrentThread = KeGetCurrentThread(),
+          --CurrentThread->KernelApcDisable,
+          ExAcquireResourceExclusiveLite(&PiSwLockObj, 1u),
+          v10 = v7[2],
+          (PADAPTER_OBJECT *)v10->DmaOperations != v7 + 2)
+      || (v11 = (PADAPTER_OBJECT **)v7[3], *v11 != v7 + 2) )
+    {
+LABEL_16:
+      __fastfail(3u);
+    }
+    *v11 = (PADAPTER_OBJECT *)v10;
+    v10->DmaOperations = (_DMA_OPERATIONS *)v11;
+    ExReleaseResourceLite(&PiSwLockObj);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    PiSwPdoAssociationFree(v7);
+  }
 }

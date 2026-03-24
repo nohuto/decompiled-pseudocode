@@ -1,18 +1,19 @@
 /*
- * XREFs of PopSetWatchdog @ 0x140256998
+ * XREFs of PopSetWatchdog @ 0x140280568
  * Callers:
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     PopUpdateWatchdogNoWorkersEvent @ 0x140256C68 (PopUpdateWatchdogNoWorkersEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PopCacheDisplayOnPhaseDuration @ 0x1405D8F48 (PopCacheDisplayOnPhaseDuration.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     PopUpdateWatchdogNoWorkersEvent @ 0x140280840 (PopUpdateWatchdogNoWorkersEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopCacheDisplayOnPhaseDuration @ 0x140578C9C (PopCacheDisplayOnPhaseDuration.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
@@ -25,22 +26,21 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
   char *result; // rax
   __int64 v11; // rdx
   __int64 v12; // rax
-  _QWORD *v13; // rax
-  __int64 v14; // rax
-  _QWORD *v15; // rcx
-  PVOID *v16; // rax
+  __int64 v13; // rax
+  _QWORD *v14; // rcx
+  PVOID *v15; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v20; // eax
-  bool v21; // zf
-  unsigned __int8 v22; // al
-  struct _KPRCB *v23; // r10
-  _DWORD *v24; // r9
-  int v25; // eax
-  char v26; // [rsp+60h] [rbp+8h]
+  int v19; // eax
+  bool v20; // zf
+  unsigned __int8 v21; // al
+  struct _KPRCB *v22; // r10
+  _DWORD *v23; // r9
+  int v24; // eax
+  char v25; // [rsp+60h] [rbp+8h]
 
-  v26 = 0;
+  v25 = 0;
   v5 = P;
   v6 = 0LL;
   v7 = 0;
@@ -50,17 +50,16 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
   }
   else
   {
-    result = (char *)ExAllocatePool2(64LL, 312LL, 1146572624LL);
+    result = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x138uLL, 0x44574F50u);
     v5 = result;
     if ( !result )
       return result;
-    *((_DWORD *)result + 4) = 1146572624;
-    *((_WORD *)result + 12) = 0;
-    result[26] = 6;
-    *((_DWORD *)result + 7) = 1;
-    v13 = result + 32;
-    v13[1] = v13;
-    *v13 = v13;
+    memset(result, 0, 0x138uLL);
+    *((_DWORD *)v5 + 4) = 1146572624;
+    *((_QWORD *)v5 + 5) = v5 + 32;
+    *((_QWORD *)v5 + 4) = v5 + 32;
+    *(_WORD *)(v5 + 25) = 1536;
+    *((_DWORD *)v5 + 7) = 1;
     *((_QWORD *)v5 + 8) = v5 + 56;
     *((_QWORD *)v5 + 7) = v5 + 56;
     *((_QWORD *)v5 + 6) = 0LL;
@@ -77,12 +76,12 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
     *((_QWORD *)v5 + 25) = v5;
     *((_QWORD *)v5 + 22) = 0LL;
     v8 = KeAcquireSpinLockRaiseToDpc(&PopWatchdogLock);
-    v14 = PopWatchdogList;
+    v13 = PopWatchdogList;
     if ( *(__int64 **)(PopWatchdogList + 8) != &PopWatchdogList )
       goto LABEL_23;
     *(_QWORD *)v5 = PopWatchdogList;
     *((_QWORD *)v5 + 1) = &PopWatchdogList;
-    *(_QWORD *)(v14 + 8) = v5;
+    *(_QWORD *)(v13 + 8) = v5;
     PopWatchdogList = (__int64)v5;
   }
   if ( *((_DWORD *)v5 + 4) != 1146572624 )
@@ -101,7 +100,7 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
     *((_QWORD *)v5 + 26) = v11 + v12;
     *((_QWORD *)v5 + 38) = KeGetCurrentThread();
     v5[216] = 1;
-    if ( !(unsigned __int8)KiSetTimerEx((int)v5 + 48, -(int)v11, 0, 0, (__int64)(v5 + 112)) )
+    if ( !(unsigned __int8)KiSetTimerEx((__int64)(v5 + 48), -v11, 0, 0, (__int64)(v5 + 112)) )
     {
       v5[20] = 1;
       PopUpdateWatchdogNoWorkersEvent(v5);
@@ -111,7 +110,7 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
   if ( *((_DWORD *)v5 + 58) == 412 && *((_QWORD *)v5 + 30) > 0x20uLL )
   {
     v7 = *((_DWORD *)v5 + 60);
-    v26 = 1;
+    v25 = 1;
     v6 = (MEMORY[0xFFFFF78000000008] - *((_QWORD *)v5 + 37)) / 0xAuLL;
   }
   v5[216] = 0;
@@ -132,10 +131,10 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v20 = ~(unsigned __int16)(-1LL << (v8 + 1));
-          v21 = (v20 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v20;
-          if ( v21 )
+          v19 = ~(unsigned __int16)(-1LL << (v8 + 1));
+          v20 = (v19 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v19;
+          if ( v20 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
@@ -146,13 +145,13 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
   }
   if ( !a3 )
     goto LABEL_10;
-  v15 = *(_QWORD **)v5;
-  v16 = (PVOID *)*((_QWORD *)v5 + 1);
-  if ( *(char **)(*(_QWORD *)v5 + 8LL) != v5 || *v16 != v5 )
+  v14 = *(_QWORD **)v5;
+  v15 = (PVOID *)*((_QWORD *)v5 + 1);
+  if ( *(char **)(*(_QWORD *)v5 + 8LL) != v5 || *v15 != v5 )
 LABEL_23:
     __fastfail(3u);
-  *v16 = v15;
-  v15[1] = v16;
+  *v15 = v14;
+  v14[1] = v15;
   *((_DWORD *)v5 + 4) = 1330532174;
   ExFreePoolWithTag(v5, 0x44574F50u);
   v5 = 0LL;
@@ -162,21 +161,21 @@ LABEL_10:
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v22 = KeGetCurrentIrql();
-      if ( v22 <= 0xFu && v8 <= 0xFu && v22 >= 2u )
+      v21 = KeGetCurrentIrql();
+      if ( v21 <= 0xFu && v8 <= 0xFu && v21 >= 2u )
       {
-        v23 = KeGetCurrentPrcb();
-        v24 = v23->SchedulerAssist;
-        v25 = ~(unsigned __int16)(-1LL << (v8 + 1));
-        v21 = (v25 & v24[5]) == 0;
-        v24[5] &= v25;
-        if ( v21 )
-          KiRemoveSystemWorkPriorityKick(v23);
+        v22 = KeGetCurrentPrcb();
+        v23 = v22->SchedulerAssist;
+        v24 = ~(unsigned __int16)(-1LL << (v8 + 1));
+        v20 = (v24 & v23[5]) == 0;
+        v23[5] &= v24;
+        if ( v20 )
+          KiRemoveSystemWorkPriorityKick(v22);
       }
     }
   }
   __writecr8(v8);
-  if ( v26 )
+  if ( v25 )
     PopCacheDisplayOnPhaseDuration(v7, v6);
   return v5;
 }

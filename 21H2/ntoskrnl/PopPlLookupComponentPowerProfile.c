@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPlLookupComponentPowerProfile @ 0x1405DE430
+ * XREFs of PopPlLookupComponentPowerProfile @ 0x14057E4D4
  * Callers:
- *     PopPlRegisterComponent @ 0x1403B9DF8 (PopPlRegisterComponent.c)
+ *     PopPlRegisterComponent @ 0x1403BED48 (PopPlRegisterComponent.c)
  * Callees:
  *     <none>
  */

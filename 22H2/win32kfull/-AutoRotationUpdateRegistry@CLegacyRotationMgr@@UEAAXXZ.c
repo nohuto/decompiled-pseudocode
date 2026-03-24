@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AutoRotationUpdateRegistry@CLegacyRotationMgr@@UEAAXXZ @ 0x1C003DF10
+ * XREFs of ?AutoRotationUpdateRegistry@CLegacyRotationMgr@@UEAAXXZ @ 0x1C0126650
  * Callers:
- *     ?xxxAutoRotateScreen@CLegacyRotationMgr@@UEAAJK@Z @ 0x1C01A74B0 (-xxxAutoRotateScreen@CLegacyRotationMgr@@UEAAJK@Z.c)
+ *     ?xxxAutoRotateScreen@CLegacyRotationMgr@@UEAAJK@Z @ 0x1C01D11F0 (-xxxAutoRotateScreen@CLegacyRotationMgr@@UEAAJK@Z.c)
  * Callees:
- *     ?UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z @ 0x1C003E330 (-UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z.c)
+ *     ?UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z @ 0x1C0126988 (-UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z.c)
  */
 
 void __fastcall CLegacyRotationMgr::AutoRotationUpdateRegistry(CLegacyRotationMgr *this)
@@ -18,7 +18,7 @@ void __fastcall CLegacyRotationMgr::AutoRotationUpdateRegistry(CLegacyRotationMg
     L"\\Registry\\Machine\\Software\\Microsoft\\Windows\\CurrentVersion\\AutoRotation\\NonPreserve");
   CLegacyRotationMgr::UpdateAutoRotationRegistrySetting(
     v1,
-    dword_1C035A5D4,
+    dword_1C0335604,
     L"LastOrientation",
     0,
     L"\\Registry\\Machine\\Software\\Microsoft\\Windows\\CurrentVersion\\AutoRotation");

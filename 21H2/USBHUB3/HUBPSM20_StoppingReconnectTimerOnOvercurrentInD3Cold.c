@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM20_StoppingReconnectTimerOnOvercurrentInD3Cold @ 0x1C0011620
+ * XREFs of HUBPSM20_StoppingReconnectTimerOnOvercurrentInD3Cold @ 0x1C0011210
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_StopPortTimer @ 0x1C002F9C8 (HUBMISC_StopPortTimer.c)
+ *     HUBMISC_StopPortTimer @ 0x1C002F328 (HUBMISC_StopPortTimer.c)
  */
 
 __int64 __fastcall HUBPSM20_StoppingReconnectTimerOnOvercurrentInD3Cold(__int64 a1)

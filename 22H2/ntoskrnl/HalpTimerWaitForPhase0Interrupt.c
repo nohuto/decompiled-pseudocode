@@ -1,26 +1,28 @@
 /*
- * XREFs of HalpTimerWaitForPhase0Interrupt @ 0x1403B1460
+ * XREFs of HalpTimerWaitForPhase0Interrupt @ 0x1403AF6F0
  * Callers:
- *     HalpTimerInitializeClock @ 0x1403B1320 (HalpTimerInitializeClock.c)
+ *     HalpTimerInitializeClock @ 0x1403AF5E4 (HalpTimerInitializeClock.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x1402C3000 (KeStallExecutionProcessor.c)
+ *     KeStallExecutionProcessor @ 0x14022A1F0 (KeStallExecutionProcessor.c)
+ *     HalpProcessorFence @ 0x1403F9340 (HalpProcessorFence.c)
  */
 
-bool __fastcall HalpTimerWaitForPhase0Interrupt(__int64 a1)
+char __fastcall HalpTimerWaitForPhase0Interrupt(__int64 a1)
 {
-  unsigned __int64 v2; // rax
-  unsigned int v3; // ebx
+  unsigned int i; // ebx
+  int v3; // eax
 
   *(_DWORD *)(a1 + 64) = 0;
-  v2 = __readcr2();
-  __writecr2(v2);
-  v3 = 0;
-  while ( !*(_DWORD *)(a1 + 64) )
+  HalpProcessorFence();
+  for ( i = 0; i < 0xBB8; i += 10 )
   {
+    if ( *(_DWORD *)(a1 + 64) )
+      goto LABEL_5;
     KeStallExecutionProcessor(0x2710u);
-    v3 += 10;
-    if ( v3 >= 0xBB8 )
-      return *(_DWORD *)(a1 + 64) != 0;
   }
-  return 1;
+  v3 = *(_DWORD *)(a1 + 64);
+  if ( v3 )
+LABEL_5:
+    LOBYTE(v3) = 1;
+  return v3;
 }

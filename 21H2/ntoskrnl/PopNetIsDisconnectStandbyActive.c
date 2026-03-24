@@ -1,9 +1,9 @@
 /*
- * XREFs of PopNetIsDisconnectStandbyActive @ 0x14080A3F8
+ * XREFs of PopNetIsDisconnectStandbyActive @ 0x1408F1E7C
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14039A210 (PopCaptureSleepStudyStatistics.c)
- *     PopS0LowPowerIdleInfo @ 0x14098CA3C (PopS0LowPowerIdleInfo.c)
- *     PopPdcCsCheckSystemVolumeDevice @ 0x140B3116C (PopPdcCsCheckSystemVolumeDevice.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
+ *     PopS0LowPowerIdleInfo @ 0x1408E406C (PopS0LowPowerIdleInfo.c)
+ *     PopPdcCsCheckSystemVolumeDevice @ 0x140A73F08 (PopPdcCsCheckSystemVolumeDevice.c)
  * Callees:
  *     <none>
  */

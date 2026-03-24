@@ -1,32 +1,32 @@
 /*
- * XREFs of PiDmAddCacheReferenceForObject @ 0x1407885C4
+ * XREFs of PiDmAddCacheReferenceForObject @ 0x140744E48
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140789030 (PiPnpRtlCmActionCallback.c)
- *     IopProcessSetInterfaceState @ 0x140793BE4 (IopProcessSetInterfaceState.c)
- *     PiDmListInitEnumCallback @ 0x140830DD0 (PiDmListInitEnumCallback.c)
- *     IopRegisterDeviceInterface @ 0x140866CCC (IopRegisterDeviceInterface.c)
- *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x140882C80 (PiPnpRtlGatherInstallerClassChangeInfo.c)
- *     PiPnpRtlEnsureObjectCached @ 0x14095A234 (PiPnpRtlEnsureObjectCached.c)
+ *     PiPnpRtlCmActionCallback @ 0x1406AE700 (PiPnpRtlCmActionCallback.c)
+ *     IopRegisterDeviceInterface @ 0x140744910 (IopRegisterDeviceInterface.c)
+ *     IopProcessSetInterfaceState @ 0x14074557C (IopProcessSetInterfaceState.c)
+ *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x14076F93C (PiPnpRtlGatherInstallerClassChangeInfo.c)
+ *     PiDmListInitEnumCallback @ 0x140790380 (PiDmListInitEnumCallback.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x1408A31CC (PiPnpRtlEnsureObjectCached.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     RtlLookupElementGenericTableFullAvl @ 0x14031E6C0 (RtlLookupElementGenericTableFullAvl.c)
- *     RtlInsertElementGenericTableFullAvl @ 0x14031EB10 (RtlInsertElementGenericTableFullAvl.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     PiDmObjectRelease @ 0x1406D6C18 (PiDmObjectRelease.c)
- *     PiDmGetObjectManagerForObjectType @ 0x1406D82BC (PiDmGetObjectManagerForObjectType.c)
- *     PiDmInitializeComparisonObject @ 0x1406D8320 (PiDmInitializeComparisonObject.c)
- *     PiDmObjectCreate @ 0x14086BC2C (PiDmObjectCreate.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     RtlLookupElementGenericTableFullAvl @ 0x14032D870 (RtlLookupElementGenericTableFullAvl.c)
+ *     RtlInsertElementGenericTableFullAvl @ 0x14032DCF0 (RtlInsertElementGenericTableFullAvl.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PiDmInitializeComparisonObject @ 0x1406AF984 (PiDmInitializeComparisonObject.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x1406AFB70 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmObjectRelease @ 0x1406AFBD0 (PiDmObjectRelease.c)
+ *     PiDmObjectCreate @ 0x1407461B0 (PiDmObjectCreate.c)
  */
 
-__int64 __fastcall PiDmAddCacheReferenceForObject(unsigned int a1, _WORD *a2, volatile signed __int32 **a3)
+__int64 __fastcall PiDmAddCacheReferenceForObject(unsigned int a1, wchar_t *a2, volatile signed __int32 **a3)
 {
   struct _ERESOURCE *ObjectManagerForObjectType; // rax
   struct _KTHREAD *CurrentThread; // rcx
   struct _ERESOURCE *v8; // r14
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   PVOID *v10; // rax
   volatile signed __int32 *v11; // rcx
   PVOID inserted; // rax
@@ -48,24 +48,24 @@ __int64 __fastcall PiDmAddCacheReferenceForObject(unsigned int a1, _WORD *a2, vo
   ExAcquireResourceExclusiveLite(ObjectManagerForObjectType, 1u);
   v9 = PiDmInitializeComparisonObject(a2, a1, (__int64)v18);
   if ( v9 < 0 )
-    goto LABEL_12;
+    goto LABEL_14;
   v10 = (PVOID *)RtlLookupElementGenericTableFullAvl((PRTL_AVL_TABLE)&v8[1], &Buffer, &NodeOrParent, &SearchResult);
   if ( v10 )
-  {
     v11 = (volatile signed __int32 *)*v10;
-    P = (PVOID)v11;
-    if ( v11 )
-    {
-      ++*((_DWORD *)v11 + 3);
-      goto LABEL_5;
-    }
+  else
+    v11 = 0LL;
+  P = (PVOID)v11;
+  if ( v11 )
+  {
+    ++*((_DWORD *)v11 + 3);
+    goto LABEL_6;
   }
   v9 = PiDmObjectCreate(a1, a2, &P);
   if ( v9 < 0 )
   {
-LABEL_12:
+LABEL_14:
     v11 = (volatile signed __int32 *)P;
-    goto LABEL_5;
+    goto LABEL_6;
   }
   inserted = RtlInsertElementGenericTableFullAvl((PRTL_AVL_TABLE)&v8[1], &P, 8u, 0LL, NodeOrParent, SearchResult);
   v11 = (volatile signed __int32 *)P;
@@ -75,12 +75,12 @@ LABEL_12:
   }
   else
   {
-    PiDmObjectRelease((char *)P);
+    PiDmObjectRelease((unsigned int *)P);
     v11 = 0LL;
     v9 = -1073741670;
     P = 0LL;
   }
-LABEL_5:
+LABEL_6:
   if ( a3 )
   {
     *a3 = v11;
@@ -88,6 +88,6 @@ LABEL_5:
       _InterlockedIncrement(v11 + 2);
   }
   ExReleaseResourceLite(v8);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)v9;
 }

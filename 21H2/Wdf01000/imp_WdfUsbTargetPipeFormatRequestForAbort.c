@@ -1,12 +1,12 @@
 /*
- * XREFs of imp_WdfUsbTargetPipeFormatRequestForAbort @ 0x1C0076190
+ * XREFs of imp_WdfUsbTargetPipeFormatRequestForAbort @ 0x1C0068B20
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
- *     ?FormatAbortRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z @ 0x1C00797EC (-FormatAbortRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
+ *     ?FormatAbortRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z @ 0x1C006CCFC (-FormatAbortRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z.c)
  */
 
 __int64 __fastcall imp_WdfUsbTargetPipeFormatRequestForAbort(
@@ -22,7 +22,11 @@ __int64 __fastcall imp_WdfUsbTargetPipeFormatRequestForAbort(
 
   pRequest = 0LL;
   pUsbPipe = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Pipe, 0x1203u, (void **)&pUsbPipe);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Pipe,
+    0x1203u,
+    (void **)&pUsbPipe);
   m_Globals = pUsbPipe->m_Globals;
   if ( m_Globals->FxVerboseOn )
     WPP_IFR_SF_qq(m_Globals, 5u, 0xEu, 0x1Cu, WPP_FxUsbPipeAPI_cpp_Traceguids, Pipe, Request);
@@ -30,6 +34,6 @@ __int64 __fastcall imp_WdfUsbTargetPipeFormatRequestForAbort(
   _a3 = FxUsbPipe::FormatAbortRequest(pUsbPipe, pRequest);
   v7 = _a3;
   if ( m_Globals->FxVerboseOn )
-    WPP_IFR_SF_qqd(m_Globals, 5u, 0xEu, 0x1Du, WPP_FxUsbPipeAPI_cpp_Traceguids, Pipe, Request, _a3);
+    WPP_IFR_SF_qid(m_Globals, 5u, 0xEu, 0x1Du, WPP_FxUsbPipeAPI_cpp_Traceguids, Pipe, (__int64)Request, _a3);
   return v7;
 }

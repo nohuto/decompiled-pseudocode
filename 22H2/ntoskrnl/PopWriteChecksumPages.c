@@ -1,9 +1,9 @@
 /*
- * XREFs of PopWriteChecksumPages @ 0x140AA5610
+ * XREFs of PopWriteChecksumPages @ 0x1409B1DC8
  * Callers:
- *     PopSaveHiberContext @ 0x140AA4A40 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140993F80 (PopSaveHiberContext.c)
  * Callees:
- *     PopWriteHiberPages @ 0x140AA5AA4 (PopWriteHiberPages.c)
+ *     PopWriteHiberPages @ 0x1409916A0 (PopWriteHiberPages.c)
  */
 
 ULONG_PTR __fastcall PopWriteChecksumPages(_QWORD *a1)
@@ -21,15 +21,15 @@ ULONG_PTR __fastcall PopWriteChecksumPages(_QWORD *a1)
   {
     v3 = (unsigned __int64)(a1[47] + 4095LL) >> 12;
     result = (v3 + v2) << 12;
-    if ( result <= qword_140C3D010 )
+    if ( result <= qword_140C23E50 )
     {
       v5 = __rdtsc();
       *(_QWORD *)(a1[25] + 128LL) = v1;
       *(_QWORD *)(a1[25] + 120LL) = v3;
-      PopWriteHiberPages(a1, a1[54], v2, v3);
+      PopWriteHiberPages((__int64)a1, a1[54], v2, v3);
       v6 = __rdtsc();
       result = (((unsigned __int64)HIDWORD(v6) << 32) | (unsigned int)v6) - v5;
-      qword_140C3D3D0 += result;
+      qword_140C23FD0 += result;
     }
   }
   return result;

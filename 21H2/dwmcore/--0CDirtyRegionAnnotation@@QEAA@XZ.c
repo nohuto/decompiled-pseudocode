@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CDirtyRegionAnnotation@@QEAA@XZ @ 0x1800FA830
+ * XREFs of ??0CDirtyRegionAnnotation@@QEAA@XZ @ 0x1800E2410
  * Callers:
- *     ??0CDirtyRegionAnnotationAllocationSet@@QEAA@XZ @ 0x18006426C (--0CDirtyRegionAnnotationAllocationSet@@QEAA@XZ.c)
+ *     <none>
  * Callees:
  *     <none>
  */

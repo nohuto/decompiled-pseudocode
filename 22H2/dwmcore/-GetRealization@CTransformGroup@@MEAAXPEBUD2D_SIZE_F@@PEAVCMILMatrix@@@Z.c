@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRealization@CTransformGroup@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x18001B2A0
+ * XREFs of ?GetRealization@CTransformGroup@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x18000E630
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ void __fastcall CTransformGroup::GetRealization(
 {
   __int64 v3; // rax
 
-  v3 = *((_QWORD *)this + 26);
+  v3 = *((_QWORD *)this + 25);
   if ( v3 )
   {
     *(_OWORD *)a3 = *(_OWORD *)v3;

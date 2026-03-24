@@ -1,15 +1,15 @@
 /*
- * XREFs of AslpFileQueryVersionString @ 0x1406D4614
+ * XREFs of AslpFileQueryVersionString @ 0x1407B329C
  * Callers:
- *     AslpFileMakeStringVersionAttributes @ 0x14075978C (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x1407B2DFC (AslpFileMakeStringVersionAttributes.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     RtlStringCchCatW @ 0x14022BCB4 (RtlStringCchCatW.c)
- *     RtlStringCchCopyW @ 0x14022C6D0 (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslpFileVerQueryBlock @ 0x1406D48F0 (AslpFileVerQueryBlock.c)
- *     AslpFileVerStringBlockGetValue @ 0x1407BE9C4 (AslpFileVerStringBlockGetValue.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     RtlStringCchCopyW @ 0x140371E80 (RtlStringCchCopyW.c)
+ *     RtlStringCchCatW @ 0x140372140 (RtlStringCchCatW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslpFileVerStringBlockGetValue @ 0x1407B31F4 (AslpFileVerStringBlockGetValue.c)
+ *     AslpFileVerQueryBlock @ 0x1407B33D0 (AslpFileVerQueryBlock.c)
  */
 
 __int64 __fastcall AslpFileQueryVersionString(
@@ -26,9 +26,9 @@ __int64 __fastcall AslpFileQueryVersionString(
   unsigned __int64 v14; // rdi
   int v15; // eax
   __int64 v16; // [rsp+20h] [rbp-E0h]
-  __int64 v17; // [rsp+30h] [rbp-D0h] BYREF
+  unsigned __int64 v17; // [rsp+30h] [rbp-D0h] BYREF
   __int64 v18; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v19; // [rsp+40h] [rbp-C0h] BYREF
+  size_t v19; // [rsp+40h] [rbp-C0h] BYREF
   __int64 v20; // [rsp+48h] [rbp-B8h] BYREF
   NTSTRSAFE_PCWSTR v21; // [rsp+50h] [rbp-B0h]
   wchar_t pszDest[128]; // [rsp+60h] [rbp-A0h] BYREF
@@ -44,7 +44,7 @@ __int64 __fastcall AslpFileQueryVersionString(
   v17 = 0LL;
   while ( 1 )
   {
-    v11 = RtlStringCchCopyW(pszDest, 0x80uLL, off_140008048[v10]);
+    v11 = RtlStringCchCopyW(pszDest, 0x80uLL, off_140008EE8[v10]);
     if ( v11 < 0 )
       break;
     v11 = RtlStringCchCatW(pszDest, 0x80uLL, pszSrc);
@@ -54,7 +54,7 @@ __int64 __fastcall AslpFileQueryVersionString(
     v11 = v12;
     if ( v12 >= 0 )
     {
-      if ( (int)AslpFileVerStringBlockGetValue(&v20, &v19, v18, v17) >= 0 )
+      if ( AslpFileVerStringBlockGetValue(&v20, &v19, v18, v17) >= 0 )
       {
 LABEL_9:
         *a2 = v19;
@@ -77,7 +77,7 @@ LABEL_11:
         v11 = v15;
         if ( v15 >= 0 )
         {
-          if ( (int)AslpFileVerStringBlockGetValue(&v20, &v19, v18, v17) < 0 )
+          if ( AslpFileVerStringBlockGetValue(&v20, &v19, v18, v17) < 0 )
             return 3221226021LL;
           goto LABEL_9;
         }

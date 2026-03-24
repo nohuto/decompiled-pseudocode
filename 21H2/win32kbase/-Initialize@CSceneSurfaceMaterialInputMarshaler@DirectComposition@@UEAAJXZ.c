@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0238010
+ * XREFs of ?Initialize@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01F7C50
  * Callers:
  *     <none>
  * Callees:
@@ -9,8 +9,8 @@
 __int64 __fastcall DirectComposition::CSceneSurfaceMaterialInputMarshaler::Initialize(
         DirectComposition::CSceneSurfaceMaterialInputMarshaler *this)
 {
-  *((_DWORD *)this + 22) = 0;
-  *((_DWORD *)this + 23) = 2;
-  *((_DWORD *)this + 24) = 2;
+  *((_DWORD *)this + 20) = 0;
+  *((_DWORD *)this + 21) = 2;
+  *((_DWORD *)this + 22) = 2;
   return 0LL;
 }

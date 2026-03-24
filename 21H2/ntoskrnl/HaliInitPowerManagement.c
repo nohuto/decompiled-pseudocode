@@ -1,14 +1,14 @@
 /*
- * XREFs of HaliInitPowerManagement @ 0x14081E1F0
+ * XREFs of HaliInitPowerManagement @ 0x1407AE1A0
  * Callers:
  *     <none>
  * Callees:
- *     ExRegisterCallback @ 0x14025A0B0 (ExRegisterCallback.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     HalpAcpiGetFacsMapping @ 0x1403B8198 (HalpAcpiGetFacsMapping.c)
- *     ExCreateCallback @ 0x1406E0E40 (ExCreateCallback.c)
- *     HalpPutAcpiHacksInRegistry @ 0x14081E700 (HalpPutAcpiHacksInRegistry.c)
- *     HalpPiix4Detect @ 0x140A53294 (HalpPiix4Detect.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x14037F1A0 (ExRegisterCallback.c)
+ *     HalpAcpiGetFacsMapping @ 0x1403BA7C8 (HalpAcpiGetFacsMapping.c)
+ *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
+ *     HalpPutAcpiHacksInRegistry @ 0x1407AE2A0 (HalpPutAcpiHacksInRegistry.c)
+ *     HalpPiix4Detect @ 0x14099A3E0 (HalpPiix4Detect.c)
  */
 
 NTSTATUS __fastcall HaliInitPowerManagement(__int64 a1, _QWORD *a2)
@@ -21,8 +21,8 @@ NTSTATUS __fastcall HaliInitPowerManagement(__int64 a1, _QWORD *a2)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
   PCALLBACK_OBJECT CallbackObject; // [rsp+70h] [rbp+10h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Callback\\PowerState");
   LOBYTE(v4) = 1;
@@ -32,10 +32,11 @@ NTSTATUS __fastcall HaliInitPowerManagement(__int64 a1, _QWORD *a2)
   CallbackObject = 0LL;
   *a2 = &HalAcpiDispatchTable;
   PmAcpiDispatchTable = a1;
-  off_140C01C10 = HaliSetWakeAlarm;
+  off_140C005C0 = HaliSetWakeAlarm;
+  ObjectAttributes.Length = 48;
+  qword_140C009F0 = (__int64)HaliInitializePlatformDebugTriggers;
   ObjectAttributes.Attributes = 80;
-  qword_140C02040 = (__int64)HaliInitializePlatformDebugTriggers;
-  qword_140C02048 = (__int64)HaliRunPlatformDebugTriggers;
+  qword_140C009F8 = (__int64)HaliRunPlatformDebugTriggers;
   ObjectAttributes.ObjectName = &DestinationString;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   result = ExCreateCallback(&CallbackObject, &ObjectAttributes, 0, 1u);

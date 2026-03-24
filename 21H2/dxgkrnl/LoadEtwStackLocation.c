@@ -1,13 +1,13 @@
 /*
- * XREFs of LoadEtwStackLocation @ 0x1C001C3A4
+ * XREFs of LoadEtwStackLocation @ 0x1C0009880
  * Callers:
- *     DpiDispatchPnp @ 0x1C01DB310 (DpiDispatchPnp.c)
- *     DpiDispatchIoctl @ 0x1C01DB4B0 (DpiDispatchIoctl.c)
- *     DpiDispatchInternalIoctl @ 0x1C01DB630 (DpiDispatchInternalIoctl.c)
- *     DpiDispatchPower @ 0x1C01F1B60 (DpiDispatchPower.c)
- *     DpiDispatchSystemControl @ 0x1C0388210 (DpiDispatchSystemControl.c)
+ *     DpiDispatchInternalIoctl @ 0x1C01298A0 (DpiDispatchInternalIoctl.c)
+ *     DpiDispatchPnp @ 0x1C0160FE0 (DpiDispatchPnp.c)
+ *     DpiDispatchIoctl @ 0x1C0164B00 (DpiDispatchIoctl.c)
+ *     DpiDispatchPower @ 0x1C0177DE0 (DpiDispatchPower.c)
+ *     DpiDispatchSystemControl @ 0x1C02C79D0 (DpiDispatchSystemControl.c)
  * Callees:
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 _BYTE *__fastcall LoadEtwStackLocation(_BYTE *a1, __int64 a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopEvaluateGlobalUserStatus @ 0x1406DCAB8
+ * XREFs of PopEvaluateGlobalUserStatus @ 0x1406DCA98
  * Callers:
- *     PopSetSessionUserStatus @ 0x1406DC9D8 (PopSetSessionUserStatus.c)
- *     PopUserPresentOverride @ 0x140879230 (PopUserPresentOverride.c)
+ *     PopSetSessionUserStatus @ 0x1406DC9B8 (PopSetSessionUserStatus.c)
+ *     PopUserPresentOverride @ 0x140879210 (PopUserPresentOverride.c)
  * Callees:
  *     PopUmpoSendPowerMessage @ 0x1400035C0 (PopUmpoSendPowerMessage.c)
  *     RtlNumberOfSetBits @ 0x14000F440 (RtlNumberOfSetBits.c)
- *     PopPrintEx @ 0x14014240C (PopPrintEx.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
- *     PopPrintUserActivityPresence @ 0x1406DCBE8 (PopPrintUserActivityPresence.c)
- *     PopDiagTraceSessionStateCounted @ 0x1406DCD4C (PopDiagTraceSessionStateCounted.c)
+ *     PopPrintUserActivityPresence @ 0x1406DCBC8 (PopPrintUserActivityPresence.c)
+ *     PopDiagTraceSessionStateCounted @ 0x1406DCD2C (PopDiagTraceSessionStateCounted.c)
  */
 
 void PopEvaluateGlobalUserStatus()

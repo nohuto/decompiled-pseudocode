@@ -1,21 +1,21 @@
 /*
- * XREFs of PnpQueueQueryAndRemoveEvent @ 0x14083C964
+ * XREFs of PnpQueueQueryAndRemoveEvent @ 0x14083C944
  * Callers:
- *     PnpRequestDeviceEjectExWorker @ 0x140826730 (PnpRequestDeviceEjectExWorker.c)
- *     PiCMQueryRemove @ 0x140838654 (PiCMQueryRemove.c)
- *     PiControlQueryAndRemoveDevice @ 0x14083BC20 (PiControlQueryAndRemoveDevice.c)
+ *     PnpRequestDeviceEjectExWorker @ 0x140826710 (PnpRequestDeviceEjectExWorker.c)
+ *     PiCMQueryRemove @ 0x140838634 (PiCMQueryRemove.c)
+ *     PiControlQueryAndRemoveDevice @ 0x14083BC00 (PiControlQueryAndRemoveDevice.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     PnpDiagnosticTraceObject @ 0x1400F5268 (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceDeviceOperation @ 0x1401600BC (PnpDiagnosticTraceDeviceOperation.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     PnpDiagnosticTraceObject @ 0x1400F5288 (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x1401600DC (PnpDiagnosticTraceDeviceOperation.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14059AC4C (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PnpSetTargetDeviceRemove @ 0x1406EECB0 (PnpSetTargetDeviceRemove.c)
- *     PnpRemoveEventFromQueue @ 0x140833258 (PnpRemoveEventFromQueue.c)
+ *     PnpSetTargetDeviceRemove @ 0x1406EEC90 (PnpSetTargetDeviceRemove.c)
+ *     PnpRemoveEventFromQueue @ 0x140833238 (PnpRemoveEventFromQueue.c)
  */
 
 __int64 __fastcall PnpQueueQueryAndRemoveEvent(

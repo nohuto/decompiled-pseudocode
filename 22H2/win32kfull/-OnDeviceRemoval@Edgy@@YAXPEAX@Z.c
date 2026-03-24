@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OnDeviceRemoval@Edgy@@YAXPEAX@Z @ 0x1C01E7858
+ * XREFs of ?OnDeviceRemoval@Edgy@@YAXPEAX@Z @ 0x1C0207228
  * Callers:
- *     PostDeviceNotification @ 0x1C009FAD0 (PostDeviceNotification.c)
+ *     PostDeviceNotification @ 0x1C0108720 (PostDeviceNotification.c)
  * Callees:
- *     ?_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z @ 0x1C01E88F8 (-_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z.c)
+ *     ?_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z @ 0x1C0208398 (-_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z.c)
  */
 
 void __fastcall Edgy::OnDeviceRemoval(Edgy *this, void *a2, struct tagEDGY_LISTENER *a3)
@@ -18,7 +18,7 @@ void __fastcall Edgy::OnDeviceRemoval(Edgy *this, void *a2, struct tagEDGY_LISTE
   {
     for ( j = *(_QWORD *)(i + 16); j; j = *(_QWORD *)(j + 32) )
     {
-      v6 = *(Edgy **)(j + 248);
+      v6 = *(Edgy **)(j + 240);
       if ( v6 )
       {
         v7 = *(_DWORD *)v6;

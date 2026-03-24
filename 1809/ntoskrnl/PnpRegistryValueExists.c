@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpRegistryValueExists @ 0x14015CFAC
+ * XREFs of PnpRegistryValueExists @ 0x14015CFCC
  * Callers:
- *     PiDevCfgCopyDeviceKey @ 0x1406F2CF4 (PiDevCfgCopyDeviceKey.c)
- *     PiDevCfgQueryDriverNode @ 0x1406F5BD0 (PiDevCfgQueryDriverNode.c)
- *     PiDevCfgMigrateRootDevice @ 0x14082D8AC (PiDevCfgMigrateRootDevice.c)
+ *     PiDevCfgCopyDeviceKey @ 0x1406F2CD4 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgQueryDriverNode @ 0x1406F5BB0 (PiDevCfgQueryDriverNode.c)
+ *     PiDevCfgMigrateRootDevice @ 0x14082D88C (PiDevCfgMigrateRootDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
  */
 
 bool __fastcall PnpRegistryValueExists(void *a1, UNICODE_STRING *a2)

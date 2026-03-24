@@ -1,9 +1,8 @@
 /*
- * XREFs of ??$DIFF@H@@YAHHH@Z @ 0x1C0002C80
+ * XREFs of ??$DIFF@H@@YAHHH@Z @ 0x1C000C44C
  * Callers:
- *     BmlCompareRegionsWithPivot @ 0x1C01775B0 (BmlCompareRegionsWithPivot.c)
- *     BmlGetNextBestSourceMode @ 0x1C017A320 (BmlGetNextBestSourceMode.c)
- *     BmlCompareSourceModesWithMonitors @ 0x1C017AAF8 (BmlCompareSourceModesWithMonitors.c)
+ *     BmlCompareSourceModesWithMonitors @ 0x1C0146F88 (BmlCompareSourceModesWithMonitors.c)
+ *     BmlCompareRegionsWithPivot @ 0x1C01477DC (BmlCompareRegionsWithPivot.c)
  * Callees:
  *     <none>
  */

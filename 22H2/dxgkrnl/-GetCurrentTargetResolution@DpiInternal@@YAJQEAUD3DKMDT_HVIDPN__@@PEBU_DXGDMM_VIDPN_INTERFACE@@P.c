@@ -1,12 +1,11 @@
 /*
- * XREFs of ?GetCurrentTargetResolution@DpiInternal@@YAJQEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@PEAU_D3DKMDT_2DREGION@@PEAE@Z @ 0x1C01DBD84
+ * XREFs of ?GetCurrentTargetResolution@DpiInternal@@YAJQEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@PEAU_D3DKMDT_2DREGION@@PEAE@Z @ 0x1C014D020
  * Callers:
- *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C01DAF30 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATIO.c)
- *     ?UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C03216D0 (-UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C014BAF4 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION.c)
+ *     ?UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C02B0498 (-UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Own@?$AutoRelease@PEAUD3DKMDT_HVIDPNTARGETMODESET__@@P6AJPEAUD3DKMDT_HVIDPN__@@PEAU1@@ZPEAU2@@DXGDMM@@QEAAXPEAUD3DKMDT_HVIDPNTARGETMODESET__@@Q6AJPEAUD3DKMDT_HVIDPN__@@0@Z1@Z @ 0x1C0013E94 (-Own@-$AutoRelease@PEAUD3DKMDT_HVIDPNTARGETMODESET__@@P6AJPEAUD3DKMDT_HVIDPN__@@PEAU1@@ZPEAU2@@D.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?Own@?$AutoRelease@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@P6AJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU1@@ZPEAU2@@DXGDMM@@QEAAXPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@Q6AJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@0@Z1@Z @ 0x1C0002B08 (-Own@-$AutoRelease@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@P6AJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU1@@ZPE.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DpiInternal::GetCurrentTargetResolution(
@@ -19,66 +18,66 @@ __int64 __fastcall DpiInternal::GetCurrentTargetResolution(
   __int64 (__fastcall *v5)(DpiInternal *, __int64, __int64 *, __int64 *); // rax
   __int64 v8; // rdx
   int v10; // eax
-  unsigned int v11; // ebx
-  int v12; // eax
-  __int64 v13; // rdx
-  __int64 v15; // rdi
-  const wchar_t *v16; // r9
-  __int64 v17; // [rsp+50h] [rbp-11h] BYREF
-  __int64 v18; // [rsp+58h] [rbp-9h] BYREF
-  __int64 v19; // [rsp+60h] [rbp-1h] BYREF
-  _BYTE v20[8]; // [rsp+68h] [rbp+7h] BYREF
-  __int64 v21; // [rsp+70h] [rbp+Fh]
-  void (__fastcall *v22)(__int64, __int64); // [rsp+78h] [rbp+17h]
-  __int64 v23; // [rsp+80h] [rbp+1Fh]
-  int v24; // [rsp+88h] [rbp+27h]
-  int v25; // [rsp+C8h] [rbp+67h] BYREF
-  __int64 v26; // [rsp+D0h] [rbp+6Fh] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rbx
+  int v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rdx
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // [rsp+30h] [rbp-30h] BYREF
+  _BYTE v22[8]; // [rsp+38h] [rbp-28h] BYREF
+  __int64 v23; // [rsp+40h] [rbp-20h]
+  void (__fastcall *v24)(__int64, __int64); // [rsp+48h] [rbp-18h]
+  __int64 v25; // [rsp+50h] [rbp-10h]
+  int v26; // [rsp+58h] [rbp-8h]
+  __int64 v27; // [rsp+88h] [rbp+28h] BYREF
+  __int64 v28; // [rsp+90h] [rbp+30h] BYREF
 
   v5 = (__int64 (__fastcall *)(DpiInternal *, __int64, __int64 *, __int64 *))*((_QWORD *)a2 + 3);
-  v21 = 0LL;
-  v22 = 0LL;
   v23 = 0LL;
-  v24 = 0;
+  v24 = 0LL;
+  v25 = 0LL;
+  v26 = 0;
   v8 = *((unsigned int *)a3 + 1);
-  v20[0] = 0;
-  v17 = 0LL;
-  v26 = 0LL;
-  v10 = v5(this, v8, &v26, &v17);
-  v11 = v10;
+  v28 = 0LL;
+  v27 = 0LL;
+  v22[0] = 0;
+  v10 = v5(this, v8, &v27, &v28);
+  v13 = v10;
   if ( v10 < 0 )
   {
-    v15 = v10;
-    WdLogSingleEntry1(2LL, v10);
-    v16 = L"Failed call to DXGDMM_VIDPN_INTERFACE::pfnAcquireTargetModeSet. (status = 0x%I64x)";
+    v19 = WdLogNewEntry5_WdError(v12, v11);
+    *(_QWORD *)(v19 + 24) = v13;
+    WdLogEvent5_WdError(v19);
   }
   else
   {
-    DXGDMM::AutoRelease<D3DKMDT_HVIDPNTARGETMODESET__ *,long (*)(D3DKMDT_HVIDPN__ *,D3DKMDT_HVIDPNTARGETMODESET__ *),D3DKMDT_HVIDPN__ *>::Own(
-      (__int64)v20,
-      v26,
+    DXGDMM::AutoRelease<_D3DKMDT_VIDPN_PRESENT_PATH const *,long (*)(D3DKMDT_HVIDPNTOPOLOGY__ *,_D3DKMDT_VIDPN_PRESENT_PATH const *),D3DKMDT_HVIDPNTOPOLOGY__ *>::Own(
+      (__int64)v22,
+      v27,
       *((_QWORD *)a2 + 4),
       (__int64)this);
-    v18 = 0LL;
-    v19 = 0LL;
-    v25 = 0;
-    v12 = (*(__int64 (__fastcall **)(__int64, __int64 *, __int64 *, int *))(v17 + 24))(v26, &v18, &v19, &v25);
-    v11 = v12;
-    if ( v12 >= 0 && v12 != 1075708679 )
+    v21 = 0LL;
+    v14 = (*(__int64 (__fastcall **)(__int64, __int64 *))(v28 + 24))(v27, &v21);
+    v13 = v14;
+    if ( v14 < 0 )
     {
-      v13 = v18;
-      *(_QWORD *)&a4->VidPnSourceId = *(_QWORD *)(v18 + 20);
-      LOBYTE(a5->cx) = (unsigned int)(((int)(*(_DWORD *)(v13 + 56) << 29) >> 29) - 2) <= 1;
-      (*(void (__fastcall **)(__int64))(v17 + 32))(v26);
-      goto LABEL_5;
+      v20 = WdLogNewEntry5_WdError(v16, v15);
+      *(_QWORD *)(v20 + 24) = v13;
+      WdLogEvent5_WdError(v20);
     }
-    v15 = v12;
-    WdLogSingleEntry1(2LL, v12);
-    v16 = L"Failed call to DXGDMM_VIDPN_INTERFACE::pfnAcquirePinnedModeInfo. (status = 0x%I64x)";
+    else
+    {
+      v17 = v21;
+      *(_QWORD *)&a4->VidPnSourceId = *(_QWORD *)(v21 + 20);
+      LOBYTE(a5->cx) = (unsigned int)(((int)(*(_DWORD *)(v17 + 56) << 29) >> 29) - 2) <= 1;
+      (*(void (__fastcall **)(__int64))(v28 + 32))(v27);
+    }
+    if ( v22[0] )
+      v24(v25, v23);
   }
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v16, v15, 0LL, 0LL, 0LL, 0LL);
-LABEL_5:
-  if ( v20[0] )
-    v22(v23, v21);
-  return v11;
+  return (unsigned int)v13;
 }

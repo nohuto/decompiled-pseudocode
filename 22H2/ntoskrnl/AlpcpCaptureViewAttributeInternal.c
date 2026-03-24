@@ -1,29 +1,28 @@
 /*
- * XREFs of AlpcpCaptureViewAttributeInternal @ 0x14071A76C
+ * XREFs of AlpcpCaptureViewAttributeInternal @ 0x1406DAC6C
  * Callers:
- *     AlpcpCaptureViewAttribute @ 0x14071A718 (AlpcpCaptureViewAttribute.c)
- *     AlpcpCaptureViewAttribute32 @ 0x140979540 (AlpcpCaptureViewAttribute32.c)
+ *     AlpcpCaptureViewAttribute32 @ 0x14069B33C (AlpcpCaptureViewAttribute32.c)
+ *     AlpcpCaptureViewAttribute @ 0x1406DAC1C (AlpcpCaptureViewAttribute.c)
  * Callees:
- *     AlpcpPrepareViewForDelivery @ 0x14071A2D8 (AlpcpPrepareViewForDelivery.c)
- *     AlpcpLocateSectionView @ 0x14071A3C0 (AlpcpLocateSectionView.c)
- *     AlpcpDeleteView @ 0x14071C158 (AlpcpDeleteView.c)
- *     AlpcReferenceBlobByHandle @ 0x14071DC68 (AlpcReferenceBlobByHandle.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14073A344 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x14073C150 (AlpcpUnlockBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcReferenceBlobByHandle @ 0x1406D9700 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpPrepareViewForDelivery @ 0x1406DADA8 (AlpcpPrepareViewForDelivery.c)
+ *     AlpcpLocateSectionView @ 0x1406DAE8C (AlpcpLocateSectionView.c)
+ *     AlpcpDeleteView @ 0x1406DB348 (AlpcpDeleteView.c)
  */
 
 __int64 __fastcall AlpcpCaptureViewAttributeInternal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   ULONG_PTR v8; // rbx
   __int64 v9; // rdx
-  __int64 v10; // rdi
+  __int64 v10; // rsi
   __int64 v11; // rcx
-  __int64 v12; // rax
+  ULONG_PTR v12; // rax
   ULONG_PTR v13; // rbx
-  int v14; // ebp
-  char v15; // al
-  ULONG_PTR v16; // rdi
+  int v14; // esi
+  ULONG_PTR v15; // rdi
   ULONG_PTR BugCheckParameter2; // [rsp+48h] [rbp+10h] BYREF
 
   if ( (*(_DWORD *)a2 & 0xFFF8FFFF) != 0 )
@@ -36,11 +35,11 @@ __int64 __fastcall AlpcpCaptureViewAttributeInternal(__int64 a1, __int64 a2, __i
     AlpcpLockForCachedReferenceBlob(*(_QWORD *)(v8 + 16));
     --*(_DWORD *)(v8 + 76);
     AlpcpUnlockBlob(*(_QWORD *)(v8 + 16));
-    if ( (*(_DWORD *)a2 & 0x10000) != 0 || (*(_DWORD *)(a3 + 40) & 0xC000) == 0x8000 )
+    if ( (*(_DWORD *)a2 & 0x10000) != 0 )
       AlpcpDeleteView(v8);
-    AlpcpDereferenceBlobEx(v8);
+    AlpcpDereferenceBlobEx(v8, 1);
   }
-  *(_DWORD *)(a3 + 40) &= 0xFFFF3FFF;
+  *(_DWORD *)(a3 + 40) &= ~0x4000u;
   v9 = *(_QWORD *)(a2 + 8);
   if ( !v9 )
     return 0LL;
@@ -50,21 +49,20 @@ __int64 __fastcall AlpcpCaptureViewAttributeInternal(__int64 a1, __int64 a2, __i
   v11 = *(_QWORD *)(a1 + 16);
   if ( !v11 )
     return 3221225480LL;
-  v12 = AlpcReferenceBlobByHandle(v11 + 40, v9, AlpcSectionType);
+  v12 = AlpcReferenceBlobByHandle((_QWORD *)(v11 + 40), v9, AlpcSectionType);
   v13 = v12;
   if ( !v12 )
     return 3221225480LL;
   v14 = AlpcpLocateSectionView(v12, a1, v10, &BugCheckParameter2);
   if ( v14 >= 0 )
   {
-    v15 = (*(_DWORD *)a2 & 0x40000) != 0 && (*(_DWORD *)(v13 + 48) & 2) != 0;
-    v16 = BugCheckParameter2;
-    v14 = AlpcpPrepareViewForDelivery(BugCheckParameter2, v15, (*(_DWORD *)a2 & 0x20000) != 0);
+    v15 = BugCheckParameter2;
+    v14 = AlpcpPrepareViewForDelivery(BugCheckParameter2);
     if ( v14 < 0 )
-      AlpcpDereferenceBlobEx(v16);
+      AlpcpDereferenceBlobEx(v15, 1);
     else
-      *(_QWORD *)(a4 + 40) = v16;
+      *(_QWORD *)(a4 + 40) = v15;
   }
-  AlpcpDereferenceBlobEx(v13);
+  AlpcpDereferenceBlobEx(v13, 1);
   return (unsigned int)v14;
 }

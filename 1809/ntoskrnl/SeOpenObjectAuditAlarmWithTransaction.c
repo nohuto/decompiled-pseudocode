@@ -4,26 +4,26 @@
  *     SeOpenObjectAuditAlarm @ 0x1405961B0 (SeOpenObjectAuditAlarm.c)
  *     CmpCheckOpenAccessOnKeyBody @ 0x140596210 (CmpCheckOpenAccessOnKeyBody.c)
  *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
- *     CmpCheckKeyBodyAccess @ 0x1407F48E0 (CmpCheckKeyBodyAccess.c)
+ *     CmpCheckKeyBodyAccess @ 0x1407F48C0 (CmpCheckKeyBodyAccess.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SeMaximumAuditMask @ 0x1402FE770 (SeMaximumAuditMask.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SeMaximumAuditMask @ 0x1402FE870 (SeMaximumAuditMask.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SepAdtAuditPrivilegeUseWithContext @ 0x1405BB990 (SepAdtAuditPrivilegeUseWithContext.c)
  *     SepAdtAuditThisEventWithContext @ 0x1405BBA50 (SepAdtAuditThisEventWithContext.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     SepQueryNameString @ 0x14065DBB4 (SepQueryNameString.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x14089E6FC (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x14089F488 (SepAdtStagingEvent.c)
- *     SepQueryTypeString @ 0x14089F998 (SepQueryTypeString.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x14089FBF4 (SepAdtClassifyObjectIntoSubCategory.c)
- *     SeExamineSacl @ 0x1408A06B0 (SeExamineSacl.c)
- *     SeExamineGlobalSacl @ 0x1408A390C (SeExamineGlobalSacl.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x1408A3A20 (SeMaximumAuditMaskFromGlobalSacl.c)
- *     SepAuditFailed @ 0x1408A47A0 (SepAuditFailed.c)
+ *     SepQueryNameString @ 0x14065DB94 (SepQueryNameString.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14089E6DC (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x14089F468 (SepAdtStagingEvent.c)
+ *     SepQueryTypeString @ 0x14089F978 (SepQueryTypeString.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x14089FBD4 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     SeExamineSacl @ 0x1408A0690 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x1408A38EC (SeExamineGlobalSacl.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x1408A3A00 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
  */
 
 void __stdcall SeOpenObjectAuditAlarmWithTransaction(
@@ -129,12 +129,12 @@ void __stdcall SeOpenObjectAuditAlarmWithTransaction(
   v20 = (AccessGranted != 0 ? 3 : 0) | 0x30;
   if ( AccessGranted )
     v20 = AccessGranted != 0 ? 3 : 0;
-  if ( !dword_14040D828 )
+  if ( !dword_14040D888 )
   {
     v22 = GenerateAudit;
     goto LABEL_11;
   }
-  if ( (v20 & dword_14040D828) != 0 )
+  if ( (v20 & dword_14040D888) != 0 )
   {
 LABEL_58:
     v10 = SepAdtClassifyObjectIntoSubCategory(Object, v12, v18, v19);
@@ -234,7 +234,7 @@ LABEL_89:
     goto LABEL_11;
   }
   v21 = 0;
-  if ( !dword_14040D8E8 )
+  if ( !dword_14040D8C8 )
   {
     v22 = GenerateAudit;
     v10 = 119;

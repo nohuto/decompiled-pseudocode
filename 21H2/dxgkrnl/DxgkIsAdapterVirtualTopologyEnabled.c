@@ -1,97 +1,93 @@
 /*
- * XREFs of DxgkIsAdapterVirtualTopologyEnabled @ 0x1C015C678
+ * XREFs of DxgkIsAdapterVirtualTopologyEnabled @ 0x1C011C1AC
  * Callers:
- *     DxgkConvertLegacyQDCAdapterAndIdToActual @ 0x1C01658E0 (DxgkConvertLegacyQDCAdapterAndIdToActual.c)
+ *     DxgkConvertLegacyQDCAdapterAndIdToActual @ 0x1C012D920 (DxgkConvertLegacyQDCAdapterAndIdToActual.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C000BD00 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C01A442C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004130 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C0007300 (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C011F70C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
  */
 
 __int64 __fastcall DxgkIsAdapterVirtualTopologyEnabled(struct _LUID a1, _DWORD *a2)
 {
   DXGGLOBAL *Global; // rax
   DXGADAPTER *v5; // rax
-  struct DXGADAPTER *v6; // rsi
-  int v7; // eax
-  unsigned int v8; // edi
-  __int64 v9; // rax
-  __int64 LowPart; // rsi
-  __int64 v12; // rbx
-  __int64 v13; // rbp
-  const wchar_t *v14; // r9
-  LONG HighPart; // [rsp+54h] [rbp-C4h]
-  unsigned __int64 v16; // [rsp+58h] [rbp-C0h] BYREF
-  _BYTE v17[144]; // [rsp+60h] [rbp-B8h] BYREF
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  struct DXGADAPTER *v8; // rsi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  struct DXGADAPTER *const v11; // rdx
+  int v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rdi
+  __int64 v16; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  _QWORD *v20; // rax
+  __int64 v21; // rax
+  LONG HighPart; // [rsp+24h] [rbp-C4h]
+  unsigned __int64 v23; // [rsp+28h] [rbp-C0h] BYREF
+  _BYTE v24[8]; // [rsp+30h] [rbp-B8h] BYREF
+  _BYTE v25[64]; // [rsp+38h] [rbp-B0h] BYREF
+  _BYTE v26[72]; // [rsp+78h] [rbp-70h] BYREF
 
   HighPart = a1.HighPart;
-  Global = DXGGLOBAL_GetGlobal();
-  v5 = DXGGLOBAL::ReferenceAdapterByLuid(Global, a1, &v16);
-  v6 = v5;
+  Global = DXGGLOBAL::GetGlobal(*(_QWORD *)&a1, (__int64)a2);
+  v5 = DXGGLOBAL::ReferenceAdapterByLuid(Global, a1, &v23);
+  v8 = v5;
   if ( v5 )
   {
     if ( DXGADAPTER::IsCoreResourceSharedOwner(v5) )
     {
-      WdLogSingleEntry1(1LL, 9573LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"!pAdapterIn->IsCoreResourceSharedOwner()",
-        9573LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v19 = WdLogNewEntry5_WdAssertion(v10, v9);
+      *(_QWORD *)(v19 + 24) = 9451LL;
+      WdLogEvent5_WdAssertion(v19);
     }
-    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v17, v6, 0LL);
-    DXGADAPTER::ReleaseReference(v6);
-    v7 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v17, 0LL);
-    v8 = v7;
-    if ( v7 < 0 )
+    v24[1] = 0;
+    COREACCESS::COREACCESS((COREACCESS *)v25, v8);
+    COREACCESS::COREACCESS((COREACCESS *)v26, v11);
+    DXGADAPTER::ReleaseReference(v8);
+    v12 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v24, 0LL);
+    v15 = v12;
+    if ( v12 < 0 )
     {
-      LowPart = a1.LowPart;
-      v12 = HighPart;
-      v13 = v7;
-      WdLogSingleEntry3(2LL, HighPart, (unsigned int)LowPart, v7);
-      v14 = L"Failed to acquire shared access on adapter luid (0x%I64x::0x%I64x) with status (0x%I64x)";
+      v20 = (_QWORD *)WdLogNewEntry5_WdError(v14, v13);
+      v20[3] = HighPart;
+      v20[4] = a1.LowPart;
+      v20[5] = v15;
+      WdLogEvent5_WdError(v20);
     }
     else
     {
-      v9 = *((_QWORD *)v6 + 349);
-      if ( v9 )
+      v16 = *((_QWORD *)v8 + 337);
+      if ( v16 )
       {
-        *a2 = *(unsigned __int8 *)(v9 + 290);
-LABEL_7:
-        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v17);
-        return v8;
+        *a2 = *(unsigned __int8 *)(v16 + 250);
       }
-      v12 = 9595LL;
-      WdLogSingleEntry1(2LL, 9595LL);
-      LowPart = 0LL;
-      v14 = L"The selected adapter is render-only";
-      v13 = 0LL;
-      v8 = -1073741811;
+      else
+      {
+        v21 = WdLogNewEntry5_WdError(v14, v13);
+        *(_QWORD *)(v21 + 24) = 9473LL;
+        WdLogEvent5_WdError(v21);
+        LODWORD(v15) = -1073741811;
+      }
     }
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v14, v12, LowPart, v13, 0LL, 0LL);
-    goto LABEL_7;
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v24, v13);
+    return (unsigned int)v15;
   }
-  WdLogSingleEntry2(2LL, HighPart, a1.LowPart);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Failed to reference adapter by LUID (0x%I64x%08I64x) in DxgkIsAdapterVirtualTopologyEnabled function.",
-    HighPart,
-    a1.LowPart,
-    0LL,
-    0LL,
-    0LL);
-  return 3221225485LL;
+  else
+  {
+    v18 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v18 + 24) = HighPart;
+    *(_QWORD *)(v18 + 32) = a1.LowPart;
+    WdLogEvent5_WdError(v18);
+    return 3221225485LL;
+  }
 }

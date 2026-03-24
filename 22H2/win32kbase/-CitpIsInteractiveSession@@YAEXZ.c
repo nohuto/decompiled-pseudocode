@@ -1,24 +1,22 @@
 /*
- * XREFs of ?CitpIsInteractiveSession@@YAEXZ @ 0x1C00B6534
+ * XREFs of ?CitpIsInteractiveSession@@YAEXZ @ 0x1C008D944
  * Callers:
- *     ?CitpStart@@YAJXZ @ 0x1C00B6228 (-CitpStart@@YAJXZ.c)
- *     ?CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z @ 0x1C00B6308 (-CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z.c)
+ *     ?CitpStart@@YAJXZ @ 0x1C008C9CC (-CitpStart@@YAJXZ.c)
+ *     ?CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z @ 0x1C008D630 (-CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall CitpIsInteractiveSession(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+unsigned __int8 CitpIsInteractiveSession(void)
 {
-  int v4; // ebx
-  char v5; // cl
+  char v0; // cl
   char IsMultiSessionSku; // al
 
-  v4 = *(_DWORD *)SGDGetUserSessionState(a1, a2, a3, a4);
-  if ( v4 != (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( gSessionId != (unsigned int)RtlGetCurrentServiceSessionId() )
     return 1;
   IsMultiSessionSku = RtlIsMultiSessionSku();
-  v5 = 0;
+  v0 = 0;
   if ( !IsMultiSessionSku )
     return 1;
-  return v5;
+  return v0;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of GreRemoveFontResourceW @ 0x1C0289180
+ * XREFs of GreRemoveFontResourceW @ 0x1C028B530
  * Callers:
- *     NtGdiRemoveFontResourceW @ 0x1C02AE430 (NtGdiRemoveFontResourceW.c)
+ *     NtGdiRemoveFontResourceW @ 0x1C02AFD40 (NtGdiRemoveFontResourceW.c)
  * Callees:
- *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C0011CB0 (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
- *     ?pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z @ 0x1C0013CF0 (-pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z.c)
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C00A21FC (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ *     ?pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z @ 0x1C00BBC28 (-pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z.c)
  */
 
 __int64 __fastcall GreRemoveFontResourceW(
@@ -17,7 +17,7 @@ __int64 __fastcall GreRemoveFontResourceW(
         unsigned int a7)
 {
   unsigned int v7; // ebx
-  BOOL v12; // esi
+  unsigned int v12; // esi
   struct _FONTHASH **v14; // rcx
   struct PFF *v15; // rax
   struct PFF **v16; // [rsp+40h] [rbp-28h] BYREF

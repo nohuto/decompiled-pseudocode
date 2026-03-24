@@ -1,12 +1,12 @@
 /*
- * XREFs of PoFxEnableDStateReporting @ 0x14098CC20
+ * XREFs of PoFxEnableDStateReporting @ 0x1408E4270
  * Callers:
  *     <none>
  * Callees:
- *     PoFxStartDevicePowerManagement @ 0x1403B9A30 (PoFxStartDevicePowerManagement.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PopFxRegisterDevice @ 0x1408236BC (PopFxRegisterDevice.c)
+ *     PoFxStartDevicePowerManagement @ 0x1403BE830 (PoFxStartDevicePowerManagement.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopFxRegisterDevice @ 0x1407B578C (PopFxRegisterDevice.c)
  */
 
 __int64 __fastcall PoFxEnableDStateReporting(PDEVICE_OBJECT DeviceObject, ULONG_PTR *a2)

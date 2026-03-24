@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessSetRequestedPosition@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETREQUESTEDPOSITION@@@Z @ 0x18021C280
+ * XREFs of ?ProcessSetRequestedPosition@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETREQUESTEDPOSITION@@@Z @ 0x1801CADD4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?NotifyRequestIgnored@CInteractionTracker@@AEAAXH@Z @ 0x18021B7C4 (-NotifyRequestIgnored@CInteractionTracker@@AEAAXH@Z.c)
- *     ?SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampingOption@@W43InteractionTrackerPositionUpdateOption@@@Z @ 0x18021D6D8 (-SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampi.c)
+ *     ?NotifyRequestIgnored@CInteractionTracker@@AEAAXH@Z @ 0x1801CA310 (-NotifyRequestIgnored@CInteractionTracker@@AEAAXH@Z.c)
+ *     ?SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampingOption@@W43InteractionTrackerPositionUpdateOption@@@Z @ 0x1801CC708 (-SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampi.c)
  */
 
 __int64 __fastcall CInteractionTracker::ProcessSetRequestedPosition(
@@ -32,11 +32,11 @@ __int64 __fastcall CInteractionTracker::ProcessSetRequestedPosition(
                           v8,
                           v6) )
   {
-    v9 = *((_DWORD *)this + 47);
+    v9 = *((_DWORD *)this + 45);
     if ( v9 <= *((_DWORD *)a3 + 7) )
       v9 = *((_DWORD *)a3 + 7);
-    *((_BYTE *)this + 540) |= 4u;
-    *((_DWORD *)this + 47) = v9;
+    *((_BYTE *)this + 532) |= 4u;
+    *((_DWORD *)this + 45) = v9;
   }
   else
   {

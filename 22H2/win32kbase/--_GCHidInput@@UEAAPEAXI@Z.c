@@ -1,12 +1,12 @@
 /*
- * XREFs of ??_GCHidInput@@UEAAPEAXI@Z @ 0x1C0080970
+ * XREFs of ??_GCHidInput@@UEAAPEAXI@Z @ 0x1C008BCB0
  * Callers:
- *     CHidInput_Destroy @ 0x1C0080910 (CHidInput_Destroy.c)
- *     CKeyboardSensor_Destroy @ 0x1C00809C0 (CKeyboardSensor_Destroy.c)
- *     CMouseSensor_Destroy @ 0x1C0080A20 (CMouseSensor_Destroy.c)
+ *     CHidInput_Destroy @ 0x1C008BC20 (CHidInput_Destroy.c)
+ *     CKeyboardSensor_Destroy @ 0x1C008BC50 (CKeyboardSensor_Destroy.c)
+ *     CMouseSensor_Destroy @ 0x1C008BC80 (CMouseSensor_Destroy.c)
  * Callees:
- *     ??1CRIMBase@@UEAA@XZ @ 0x1C00833C8 (--1CRIMBase@@UEAA@XZ.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ??1CRIMBase@@UEAA@XZ @ 0x1C008BD94 (--1CRIMBase@@UEAA@XZ.c)
  */
 
 CHidInput *__fastcall CHidInput::`scalar deleting destructor'(CHidInput *this, char a2)
@@ -14,6 +14,6 @@ CHidInput *__fastcall CHidInput::`scalar deleting destructor'(CHidInput *this, c
   *(_QWORD *)this = &CBaseInput::`vftable';
   CRIMBase::~CRIMBase(this);
   if ( (a2 & 1) != 0 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, this);
+    Win32FreePool((__int64)this);
   return this;
 }

@@ -1,50 +1,40 @@
 /*
- * XREFs of IoQueuesCreation @ 0x1C0017D90
+ * XREFs of IoQueuesCreation @ 0x1C000BFD8
  * Callers:
- *     NVMeControllerInitPart2 @ 0x1C0006F74 (NVMeControllerInitPart2.c)
+ *     NVMeControllerInitPart2 @ 0x1C000DDD0 (NVMeControllerInitPart2.c)
  * Callees:
- *     NVMeIoSubmissionQueueCreate @ 0x1C00069E8 (NVMeIoSubmissionQueueCreate.c)
- *     NVMeIoCompletionQueueCreate @ 0x1C0006C38 (NVMeIoCompletionQueueCreate.c)
- *     CalculateTimeDurationIn100ns @ 0x1C00179B4 (CalculateTimeDurationIn100ns.c)
- *     IoQueuesFreeResources @ 0x1C00181C4 (IoQueuesFreeResources.c)
+ *     CalculateTimeDurationIn100ns @ 0x1C00010AC (CalculateTimeDurationIn100ns.c)
+ *     IoQueuesFreeResources @ 0x1C000C684 (IoQueuesFreeResources.c)
+ *     NVMeIoCompletionQueueCreate @ 0x1C0019790 (NVMeIoCompletionQueueCreate.c)
+ *     NVMeIoSubmissionQueueCreate @ 0x1C0019EC0 (NVMeIoSubmissionQueueCreate.c)
  */
 
-__int64 __fastcall IoQueuesCreation(__int64 a1, char a2)
+char __fastcall IoQueuesCreation(__int64 a1)
 {
-  __int64 v4; // rbp
-  __int64 v5; // rdx
-  __int64 v6; // rdx
-  unsigned int v7; // edi
-  int v8; // ecx
-  __int64 v10; // [rsp+C0h] [rbp+18h] BYREF
-  unsigned __int64 v11; // [rsp+C8h] [rbp+20h] BYREF
+  __int64 v2; // rsi
+  int v3; // eax
+  __int64 v5; // [rsp+B0h] [rbp+18h] BYREF
+  unsigned __int64 v6; // [rsp+B8h] [rbp+20h] BYREF
 
-  v10 = 0LL;
-  v11 = 0LL;
-  StorPortExtendedFunction(47LL, a1, &v11, &v10);
-  v4 = v10;
-  LOBYTE(v5) = a2;
-  v7 = NVMeIoCompletionQueueCreate(a1, v5, 0);
-  if ( v7 )
+  v5 = 0LL;
+  v6 = 0LL;
+  StorPortExtendedFunction(47LL, a1, &v6, &v5);
+  v2 = v5;
+  if ( !(unsigned __int8)NVMeIoCompletionQueueCreate(a1) )
   {
-    v8 = 23;
+    v3 = 23;
 LABEL_5:
-    *(_DWORD *)(a1 + 36) = v8;
+    *(_DWORD *)(a1 + 28) = v3;
     IoQueuesFreeResources(a1);
-    return v7;
+    return 0;
   }
-  LOBYTE(v6) = a2;
-  v7 = NVMeIoSubmissionQueueCreate(a1, v6, 0);
-  if ( v7 )
+  if ( !(unsigned __int8)NVMeIoSubmissionQueueCreate(a1) )
   {
-    v8 = 22;
+    v3 = 22;
     goto LABEL_5;
   }
-  StorPortExtendedFunction(47LL, a1, &v11, &v10);
-  if ( *(_BYTE *)(a1 + 24) )
-  {
-    CalculateTimeDurationIn100ns(v10 - v4, v11);
-    StorPortExtendedFunction(86LL, a1, 0LL, 0LL);
-  }
-  return 0LL;
+  StorPortExtendedFunction(47LL, a1, &v6, &v5);
+  CalculateTimeDurationIn100ns(v5 - v2, v6);
+  StorPortExtendedFunction(86LL, a1, 0LL, 0LL);
+  return 1;
 }

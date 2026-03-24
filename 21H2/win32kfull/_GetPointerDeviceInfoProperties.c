@@ -1,11 +1,11 @@
 /*
- * XREFs of _GetPointerDeviceInfoProperties @ 0x1C01E9950
+ * XREFs of _GetPointerDeviceInfoProperties @ 0x1C01EF490
  * Callers:
- *     NtUserGetPointerDevices @ 0x1C00FDEB0 (NtUserGetPointerDevices.c)
- *     NtUserGetPointerDevice @ 0x1C01F58D0 (NtUserGetPointerDevice.c)
+ *     NtUserGetPointerDevices @ 0x1C01135D0 (NtUserGetPointerDevices.c)
+ *     NtUserGetPointerDevice @ 0x1C01FAEA0 (NtUserGetPointerDevice.c)
  * Callees:
- *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C016C26C (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
- *     PHIDTtoPT @ 0x1C01E8F0C (PHIDTtoPT.c)
+ *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C01ED250 (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
+ *     PHIDTtoPT @ 0x1C01EE90C (PHIDTtoPT.c)
  */
 
 __int64 __fastcall GetPointerDeviceInfoProperties(__int64 a1, __int64 a2)
@@ -14,18 +14,18 @@ __int64 __fastcall GetPointerDeviceInfoProperties(__int64 a1, __int64 a2)
   __int16 v5; // cx
   __int64 result; // rax
 
-  if ( *(_QWORD *)(a2 + 376) )
-    RtlStringCbCopyUnicodeString((char *)(a1 + 38), 0x410uLL, (const struct _UNICODE_STRING *)(a2 + 368));
+  if ( *(_QWORD *)(a2 + 328) )
+    RtlStringCbCopyUnicodeString((char *)(a1 + 38), 0x410uLL, (const struct _UNICODE_STRING *)(a2 + 320));
   else
     *(_WORD *)(a1 + 38) = 0;
-  *(_QWORD *)(a1 + 8) = *(_QWORD *)(a2 + 784);
+  *(_QWORD *)(a1 + 8) = *(_QWORD *)(a2 + 736);
   *(_DWORD *)(a1 + 16) = PHIDTtoPT(a2);
-  *(_QWORD *)(a1 + 24) = *(_QWORD *)(v4 + 1344);
-  v5 = *(_WORD *)(a2 + 768) - 1;
+  *(_QWORD *)(a1 + 24) = *(_QWORD *)(v4 + 1352);
+  v5 = *(_WORD *)(a2 + 720) - 1;
   if ( *(_DWORD *)(a2 + 24) != 7 )
-    v5 = *(_WORD *)(a2 + 768);
+    v5 = *(_WORD *)(a2 + 720);
   *(_WORD *)(a1 + 36) = v5;
-  *(_DWORD *)(a1 + 32) = *(_DWORD *)(*(_QWORD *)(a2 + 1024) + 4LL);
+  *(_DWORD *)(a1 + 32) = *(_DWORD *)(*(_QWORD *)(a2 + 968) + 4LL);
   result = *(unsigned int *)(a2 + 224);
   *(_DWORD *)a1 = result;
   return result;

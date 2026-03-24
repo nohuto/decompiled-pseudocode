@@ -1,20 +1,19 @@
 /*
- * XREFs of KiTpIsSupportedKernelTracepointLocation @ 0x1409766E0
+ * XREFs of KiTpIsSupportedKernelTracepointLocation @ 0x1408BCB5C
  * Callers:
- *     KeSetTracepoint @ 0x140975DE0 (KeSetTracepoint.c)
+ *     KeSetTracepoint @ 0x1408BC3C0 (KeSetTracepoint.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1402F7190 (RtlSectionTableFromVirtualAddress.c)
- *     KiTpIsExcludedKernelTracepointLocation @ 0x1409765F0 (KiTpIsExcludedKernelTracepointLocation.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x140301830 (RtlSectionTableFromVirtualAddress.c)
+ *     KiTpIsExcludedKernelTracepointLocation @ 0x1408BCAAC (KiTpIsExcludedKernelTracepointLocation.c)
  */
 
-_BOOL8 __fastcall KiTpIsSupportedKernelTracepointLocation(__int64 a1, __int64 a2)
+_BOOL8 __fastcall KiTpIsSupportedKernelTracepointLocation(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v4; // rax
   unsigned __int64 v5; // rax
   int v6; // ecx
   char v7; // dl
-  bool v8; // zf
 
   v4 = RtlImageNtHeader(a1);
   if ( !v4 )
@@ -22,7 +21,7 @@ _BOOL8 __fastcall KiTpIsSupportedKernelTracepointLocation(__int64 a1, __int64 a2
   v5 = RtlSectionTableFromVirtualAddress(v4, a1, (int)a2 - (int)a1);
   if ( !v5 )
     return 0LL;
-  if ( (*(_DWORD *)(v5 + 36) & 0x22000000) != 0x20000000 )
+  if ( (*(_DWORD *)(v5 + 36) & 0x2000020) != 0x20 )
     return 0LL;
   v6 = *(_DWORD *)v5;
   if ( *(_DWORD *)v5 == 1414090313 || v6 == 1396790859 )
@@ -32,15 +31,12 @@ _BOOL8 __fastcall KiTpIsSupportedKernelTracepointLocation(__int64 a1, __int64 a2
     v7 = *(_BYTE *)(v5 + 4);
     if ( v7 == 119 )
     {
-      v8 = *(_BYTE *)(v5 + 5) == 120;
-      goto LABEL_13;
-    }
-    if ( v7 == 86 && *(_BYTE *)(v5 + 5) == 82 )
-    {
-      v8 = *(_BYTE *)(v5 + 6) == 70;
-LABEL_13:
-      if ( v8 )
+      if ( *(_BYTE *)(v5 + 5) == 120 )
         return 0LL;
+    }
+    else if ( v7 == 86 && *(_BYTE *)(v5 + 5) == 82 && *(_BYTE *)(v5 + 6) == 70 )
+    {
+      return 0LL;
     }
   }
   return a1 != PsHalImageBase

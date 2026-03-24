@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CompareTableData@?$CGenericTableMap@IVCAnimationSourceMapEntry@@@@CA?AW4_RTL_GENERIC_COMPARE_RESULTS@@PEAU_RTL_GENERIC_TABLE@@PEAX1@Z @ 0x1800E1210
+ * XREFs of ?CompareTableData@?$CGenericTableMap@IVCAnimationSourceMapEntry@@@@CA?AW4_RTL_GENERIC_COMPARE_RESULTS@@PEAU_RTL_GENERIC_TABLE@@PEAX1@Z @ 0x1800C64F0
  * Callers:
  *     <none>
  * Callees:

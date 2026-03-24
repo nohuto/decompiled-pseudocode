@@ -1,17 +1,17 @@
 /*
- * XREFs of SepExamineSaclEx @ 0x1409CB770
+ * XREFs of SepExamineSaclEx @ 0x140921D50
  * Callers:
- *     SepExamineGlobalSaclEx @ 0x1405F4EC8 (SepExamineGlobalSaclEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
+ *     SepExamineGlobalSaclEx @ 0x140596F28 (SepExamineGlobalSaclEx.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140218B60 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     AuthzBasepEvaluateAceCondition @ 0x140219130 (AuthzBasepEvaluateAceCondition.c)
- *     SepSidInToken @ 0x14021F640 (SepSidInToken.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x14028AB90 (AuthzBasepFreeSecurityAttributesList.c)
- *     memcmp @ 0x1403E1D90 (memcmp.c)
- *     AuthzBasepObjectInTypeList @ 0x14064A78C (AuthzBasepObjectInTypeList.c)
- *     SepSetAuditInfoForObjectType @ 0x1409CBE9C (SepSetAuditInfoForObjectType.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
+ *     SepSidInToken @ 0x14027EA84 (SepSidInToken.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402B2C28 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402F5290 (AuthzBasepFreeSecurityAttributesList.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     AuthzBasepObjectInTypeList @ 0x1405C16B0 (AuthzBasepObjectInTypeList.c)
+ *     SepSetAuditInfoForObjectType @ 0x1409224D4 (SepSetAuditInfoForObjectType.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepExamineSaclEx(
@@ -24,64 +24,61 @@ void __fastcall SepExamineSaclEx(
         char a7,
         int *a8,
         _DWORD *a9,
-        __int64 a10,
+        void *a10,
         char a11,
         _BYTE *a12,
         _BYTE *a13)
 {
-  _DWORD *v13; // r12
+  _DWORD *v13; // r13
   __int64 v14; // r10
   _BYTE *v16; // r9
   __int64 v17; // r11
   _BYTE *v19; // r8
-  int *v20; // r15
-  char v21; // r13
+  int *v20; // r12
+  char v21; // bp
   _WORD *v22; // rcx
   int v23; // eax
   unsigned int v24; // edx
-  char *v25; // r14
-  char v26; // bp
+  char *v25; // r15
+  char v26; // r14
   char v27; // al
   int v28; // ecx
   int v29; // edi
   bool v30; // zf
   bool v31; // zf
-  unsigned int j; // ebx
-  int v33; // r15d
-  __int64 v34; // rbx
-  __int64 v35; // rdi
-  char *v36; // rbx
-  _DWORD *v37; // rdi
-  int v38; // ecx
-  unsigned int v39; // ebx
-  char v40; // al
-  int *v41; // rdi
-  int v42; // eax
-  _WORD *v43; // rbx
-  unsigned int v44; // edi
-  unsigned int v45; // ecx
-  _QWORD *v46; // rax
-  void *v47; // r9
-  __int64 v48; // rdx
-  __int64 v49; // r8
-  __int64 v50; // r10
-  __int64 v51; // r9
-  int v52; // ecx
   unsigned int i; // ebx
-  int v54; // ecx
+  int v33; // r12d
+  unsigned int v34; // eax
+  char *v35; // rbx
+  _DWORD *v36; // rdi
+  int v37; // ecx
+  unsigned int v38; // ebx
+  int v39; // ecx
+  _BYTE *v40; // rbp
+  int v41; // edi
+  _WORD *v42; // rbx
+  unsigned int v43; // ebp
+  unsigned int v44; // ecx
+  _QWORD *v45; // rax
+  __int64 v46; // r10
+  __int64 v47; // r8
+  __int64 v48; // rdx
+  __int64 v49; // r9
+  unsigned int v50; // ebx
   unsigned int Size; // [rsp+60h] [rbp-78h]
   char Size_4; // [rsp+64h] [rbp-74h]
-  int v57; // [rsp+68h] [rbp-70h] BYREF
-  int v58; // [rsp+6Ch] [rbp-6Ch] BYREF
-  unsigned int v59; // [rsp+70h] [rbp-68h]
-  _DWORD *v60; // [rsp+78h] [rbp-60h] BYREF
-  char *v61; // [rsp+80h] [rbp-58h]
-  unsigned int v62; // [rsp+E0h] [rbp+8h]
+  int v53; // [rsp+68h] [rbp-70h] BYREF
+  int v54; // [rsp+6Ch] [rbp-6Ch] BYREF
+  int v55; // [rsp+70h] [rbp-68h]
+  unsigned int v56; // [rsp+74h] [rbp-64h]
+  _DWORD *v57; // [rsp+78h] [rbp-60h] BYREF
+  char *v58; // [rsp+80h] [rbp-58h]
+  unsigned int v59; // [rsp+E0h] [rbp+8h]
 
-  v58 = -1;
+  v54 = -1;
   v13 = 0LL;
   v14 = a3;
-  v60 = 0LL;
+  v57 = 0LL;
   v16 = a13;
   v17 = a2;
   Size = 0;
@@ -90,8 +87,8 @@ void __fastcall SepExamineSaclEx(
   *a13 = 0;
   if ( a1 )
   {
-    v59 = *(unsigned __int16 *)(a1 + 4);
-    if ( v59 )
+    v56 = *(unsigned __int16 *)(a1 + 4);
+    if ( v56 )
     {
       v20 = a8;
       v21 = 0;
@@ -116,13 +113,13 @@ void __fastcall SepExamineSaclEx(
       }
       v24 = 0;
       v25 = (char *)(a1 + 8);
-      v62 = 0;
-      v61 = (char *)(a1 + 8);
+      v59 = 0;
+      v58 = (char *)(a1 + 8);
       while ( 1 )
       {
         if ( (*v19 || *v16) && a6 <= 1 )
         {
-LABEL_80:
+LABEL_91:
           if ( v13 )
           {
             AuthzBasepFreeSecurityAttributesList(v13);
@@ -131,246 +128,258 @@ LABEL_80:
           return;
         }
         v26 = v25[1];
-        if ( (v26 & 8) != 0 )
-          goto LABEL_79;
-        v57 = -1;
-        v27 = *v25;
-        if ( *v25 == 2 )
-          break;
-        if ( v27 == 7 )
+        if ( (v26 & 8) == 0 )
         {
-          v33 = *((_DWORD *)v25 + 1);
-          LOBYTE(v16) = 1;
-          v34 = *((_DWORD *)v25 + 2) & 1;
-          v35 = -(__int64)((_DWORD)v34 != 0);
-          v36 = &v25[16 * v34 + ((8LL * (*((_DWORD *)v25 + 2) & 2)) | 0xC)];
-          v37 = (_DWORD *)((unsigned __int64)(v25 + 12) & v35);
-          if ( v37 )
+          v27 = *v25;
+          v55 = -1;
+          v53 = -1;
+          switch ( v27 )
           {
-            if ( (unsigned __int8)SepSidInToken(v14, a10, (__int64)v36, (__int64)v16, 0, a11)
-              || Size && *(_WORD *)SeWorldSid == *(_WORD *)v36 && !memcmp(SeWorldSid, v36, Size) )
-            {
-              v40 = AuthzBasepObjectInTypeList(v37, a5, a6, &v57);
-              v41 = a8;
-              if ( !v40 )
-                goto LABEL_73;
-              v42 = v57;
-              goto LABEL_74;
-            }
-            goto LABEL_76;
-          }
-          if ( !(unsigned __int8)SepSidInToken(v14, a10, (__int64)v36, (__int64)v16, 0, a11)
-            && (!Size || *(_WORD *)SeWorldSid != *(_WORD *)v36 || memcmp(SeWorldSid, v36, Size)) )
-          {
-            goto LABEL_76;
-          }
-          v39 = 0;
-          if ( !a6 )
-            goto LABEL_76;
-          do
-          {
-            LOBYTE(v38) = v26;
-            SepSetAuditInfoForObjectType(
-              v38,
-              v33,
-              a4,
-              a5,
-              a6,
-              a7,
-              v39++,
-              (__int64)a8,
-              (__int64)a9,
-              (__int64)a12,
-              (__int64)a13);
-          }
-          while ( v39 < a6 );
-LABEL_29:
-          v25 = v61;
-          v13 = v60;
-          v21 = Size_4;
-          goto LABEL_76;
-        }
-        if ( v27 == 13 )
-        {
-          v33 = *((_DWORD *)v25 + 1);
-          v43 = v25 + 8;
-          v44 = 4 * (unsigned __int8)v25[9] + 8;
-          if ( v17 && !v13 )
-          {
-            AuthzBasepInitializeResourceClaimsFromSacl(v17, (__int64 *)&v60);
-            v19 = a12;
-            v24 = v62;
-            v13 = v60;
-          }
-          v45 = *((unsigned __int16 *)v25 + 1) - v44;
-          if ( (int)(v45 - 8) <= 0 )
-            goto LABEL_78;
-          v46 = *(_QWORD **)(a3 + 1096);
-          if ( v46 )
-          {
-            v47 = (void *)v46[72];
-            v48 = v46[74];
-            v49 = v46[73];
-            v50 = v46[75];
-          }
-          else
-          {
-            v47 = 0LL;
-            v48 = 0LL;
-            v49 = 0LL;
-            v50 = 0LL;
-          }
-          AuthzBasepEvaluateAceCondition(
-            (_DWORD *)a3,
-            *(void **)(a3 + 776),
-            v13,
-            v47,
-            v48,
-            v49,
-            v50,
-            (_WORD *)((char *)v43 + v44),
-            v45 - 8,
-            1,
-            0,
-            &v58);
-          if ( v58 != 1 )
-            goto LABEL_76;
-          LOBYTE(v51) = 1;
-          if ( !(unsigned __int8)SepSidInToken(a3, a10, (__int64)(v25 + 8), v51, 0, a11)
-            && (!Size || *(_WORD *)SeWorldSid != *v43 || memcmp(SeWorldSid, v25 + 8, Size)) )
-          {
-            goto LABEL_76;
-          }
-          v41 = a8;
-          if ( a6 )
-          {
-            for ( i = 0; i < a6; ++i )
-            {
-              LOBYTE(v52) = v26;
-              SepSetAuditInfoForObjectType(
-                v52,
-                v33,
-                a4,
-                a5,
-                a6,
-                a7,
-                i,
-                (__int64)a8,
-                (__int64)a9,
-                (__int64)a12,
-                (__int64)a13);
-            }
-            v25 = v61;
-            v13 = v60;
-            v21 = Size_4;
-LABEL_73:
-            v42 = -1;
-LABEL_74:
-            if ( v42 != -1 )
-            {
-              v54 = (int)a9;
-              LOBYTE(v54) = v26;
-              SepSetAuditInfoForObjectType(
-                v54,
-                v33,
-                a4,
-                a5,
-                a6,
-                a7,
-                v42,
-                (__int64)v41,
-                (__int64)a9,
-                (__int64)a12,
-                (__int64)a13);
-            }
+            case 2:
+              if ( !SepSidInToken(v14, a10, v25 + 8, 1, 0, a11, 0)
+                && (!Size || *(_WORD *)SeWorldSid != *((_WORD *)v25 + 4) || memcmp(SeWorldSid, v25 + 8, Size)) )
+              {
+                goto LABEL_87;
+              }
+              v29 = *((_DWORD *)v25 + 1);
+              if ( !a6 )
+              {
+                if ( *v20 >= 0 )
+                {
+                  if ( (v26 & 0x40) != 0 )
+                  {
+                    if ( (*a9 & v29) == 0 )
+                    {
+                      v30 = v21 == 64;
+                      goto LABEL_75;
+                    }
+                    goto LABEL_76;
+                  }
+                  goto LABEL_87;
+                }
+                if ( v26 >= 0 )
+                  goto LABEL_87;
+                if ( (v29 & a4) == 0 )
+                {
+                  v31 = v21 == (char)0x80;
+LABEL_80:
+                  if ( !v31 )
+                    goto LABEL_87;
+                }
+                goto LABEL_81;
+              }
+              for ( i = 0; i < a6; ++i )
+              {
+                LOBYTE(v28) = v26;
+                SepSetAuditInfoForObjectType(
+                  v28,
+                  v29,
+                  a4,
+                  a5,
+                  a6,
+                  a7,
+                  i,
+                  (__int64)a8,
+                  (__int64)a9,
+                  (__int64)a12,
+                  (__int64)a13);
+              }
+              v25 = v58;
+              v19 = a12;
+              v13 = v57;
+              v16 = a13;
+LABEL_31:
+              v24 = v59;
+              break;
+            case 7:
+              v33 = *((_DWORD *)v25 + 1);
+              v34 = *((_DWORD *)v25 + 2) & 1;
+              v35 = &v25[16 * v34 + ((8LL * (*((_DWORD *)v25 + 2) & 2)) | 0xC)];
+              v36 = (_DWORD *)((unsigned __int64)(v25 + 12) & -(__int64)(v34 != 0));
+              if ( v36 )
+              {
+                if ( SepSidInToken(v14, a10, v35, 1, 0, a11, 0)
+                  || Size && *(_WORD *)SeWorldSid == *(_WORD *)v35 && !memcmp(SeWorldSid, v35, Size) )
+                {
+                  v40 = a12;
+                  if ( AuthzBasepObjectInTypeList(v36, a5, a6, &v53) )
+                    v41 = v53;
+                  else
+                    v41 = -1;
+LABEL_85:
+                  if ( v41 != -1 )
+                  {
+                    LOBYTE(v39) = v26;
+                    SepSetAuditInfoForObjectType(
+                      v39,
+                      v33,
+                      a4,
+                      a5,
+                      a6,
+                      a7,
+                      v41,
+                      (__int64)a8,
+                      (__int64)a9,
+                      (__int64)v40,
+                      (__int64)a13);
+                  }
+                }
+              }
+              else if ( SepSidInToken(v14, a10, v35, 1, 0, a11, 0)
+                     || Size && *(_WORD *)SeWorldSid == *(_WORD *)v35 && !memcmp(SeWorldSid, v35, Size) )
+              {
+                v38 = 0;
+                if ( a6 )
+                {
+                  do
+                  {
+                    LOBYTE(v37) = v26;
+                    SepSetAuditInfoForObjectType(
+                      v37,
+                      v33,
+                      a4,
+                      a5,
+                      a6,
+                      a7,
+                      v38++,
+                      (__int64)a8,
+                      (__int64)a9,
+                      (__int64)a12,
+                      (__int64)a13);
+                  }
+                  while ( v38 < a6 );
+                  v25 = v58;
+                  v19 = a12;
+                  v13 = v57;
+                  goto LABEL_88;
+                }
+              }
+              goto LABEL_87;
+            case 13:
+              v33 = *((_DWORD *)v25 + 1);
+              v42 = v25 + 8;
+              v43 = 4 * (unsigned __int8)v25[9] + 8;
+              if ( v17 && !v13 )
+              {
+                AuthzBasepInitializeResourceClaimsFromSacl(v17, (__int64 *)&v57);
+                v19 = a12;
+                v24 = v59;
+                v13 = v57;
+              }
+              v44 = *((unsigned __int16 *)v25 + 1) - v43;
+              if ( (int)(v44 - 8) <= 0 )
+                goto LABEL_89;
+              v45 = *(_QWORD **)(a3 + 1096);
+              if ( v45 )
+                v46 = v45[75];
+              else
+                v46 = 0LL;
+              if ( v45 )
+                v47 = v45[73];
+              else
+                v47 = 0LL;
+              if ( v45 )
+                v48 = v45[74];
+              else
+                v48 = 0LL;
+              if ( v45 )
+                v49 = v45[72];
+              else
+                v49 = 0LL;
+              AuthzBasepEvaluateAceCondition(
+                a3,
+                *(_QWORD *)(a3 + 776),
+                (__int64)v13,
+                v49,
+                v48,
+                v47,
+                v46,
+                (_WORD *)((char *)v42 + v43),
+                v44 - 8,
+                1u,
+                0,
+                &v54);
+              if ( v54 != 1
+                || !SepSidInToken(a3, a10, v25 + 8, 1, 0, a11, 0)
+                && (!Size || *(_WORD *)SeWorldSid != *v42 || memcmp(SeWorldSid, v25 + 8, Size)) )
+              {
+                goto LABEL_87;
+              }
+              if ( a6 )
+              {
+                v50 = 0;
+                v40 = a12;
+                do
+                {
+                  LOBYTE(v39) = v26;
+                  SepSetAuditInfoForObjectType(
+                    v39,
+                    v33,
+                    a4,
+                    a5,
+                    a6,
+                    a7,
+                    v50++,
+                    (__int64)a8,
+                    (__int64)a9,
+                    (__int64)a12,
+                    (__int64)a13);
+                }
+                while ( v50 < a6 );
+                v41 = v55;
+                v25 = v58;
+                v13 = v57;
+                goto LABEL_85;
+              }
+              if ( *a8 >= 0 )
+              {
+                if ( (v26 & 0x40) != 0 )
+                {
+                  if ( (*a9 & v33) != 0 )
+                    goto LABEL_76;
+                  v30 = Size_4 == 64;
+LABEL_75:
+                  if ( v30 )
+                  {
 LABEL_76:
-            v19 = a12;
-LABEL_77:
-            v24 = v62;
-LABEL_78:
-            v16 = a13;
-            goto LABEL_79;
+                    v19 = a12;
+                    *a12 = 1;
+LABEL_88:
+                    v24 = v59;
+LABEL_89:
+                    v16 = a13;
+                    break;
+                  }
+                }
+LABEL_87:
+                v19 = a12;
+                goto LABEL_88;
+              }
+              if ( v26 >= 0 )
+                goto LABEL_87;
+              if ( (v33 & a4) == 0 )
+              {
+                v31 = Size_4 == (char)0x80;
+                goto LABEL_80;
+              }
+LABEL_81:
+              v16 = a13;
+              v19 = a12;
+              *a13 = 1;
+              goto LABEL_31;
           }
-          if ( *a8 >= 0 )
-          {
-            if ( (v26 & 0x40) == 0 )
-              goto LABEL_76;
-            if ( (*a9 & v33) == 0 )
-            {
-              v30 = v21 == 64;
-              goto LABEL_63;
-            }
-LABEL_64:
-            v19 = a12;
-            *a12 = 1;
-            goto LABEL_77;
-          }
-          if ( v26 >= 0 )
-            goto LABEL_76;
-          v31 = (v33 & a4) == 0;
-LABEL_67:
-          if ( v31 && v21 != (char)0x80 )
-            goto LABEL_76;
-          v16 = a13;
-          v19 = a12;
-          v24 = v62;
-          *a13 = 1;
         }
-LABEL_79:
         ++v24;
-        v20 = a8;
+        v21 = Size_4;
         v25 += *((unsigned __int16 *)v25 + 1);
+        v20 = a8;
         v14 = a3;
         v17 = a2;
-        v62 = v24;
-        v61 = v25;
-        if ( v24 >= v59 )
-          goto LABEL_80;
+        v59 = v24;
+        v58 = v25;
+        if ( v24 >= v56 )
+          goto LABEL_91;
       }
-      LOBYTE(v16) = 1;
-      if ( !(unsigned __int8)SepSidInToken(v14, a10, (__int64)(v25 + 8), (__int64)v16, 0, a11)
-        && (!Size || *(_WORD *)SeWorldSid != *((_WORD *)v25 + 4) || memcmp(SeWorldSid, v25 + 8, Size)) )
-      {
-        goto LABEL_76;
-      }
-      v29 = *((_DWORD *)v25 + 1);
-      if ( a6 )
-      {
-        for ( j = 0; j < a6; ++j )
-        {
-          LOBYTE(v28) = v26;
-          SepSetAuditInfoForObjectType(
-            v28,
-            v29,
-            a4,
-            a5,
-            a6,
-            a7,
-            j,
-            (__int64)v20,
-            (__int64)a9,
-            (__int64)a12,
-            (__int64)a13);
-        }
-        goto LABEL_29;
-      }
-      if ( *v20 >= 0 )
-      {
-        if ( (v26 & 0x40) == 0 )
-          goto LABEL_76;
-        if ( (*a9 & v29) == 0 )
-        {
-          v30 = v21 == 64;
-LABEL_63:
-          if ( !v30 )
-            goto LABEL_76;
-        }
-        goto LABEL_64;
-      }
-      if ( v26 >= 0 )
-        goto LABEL_76;
-      v31 = (v29 & a4) == 0;
-      goto LABEL_67;
     }
   }
 }

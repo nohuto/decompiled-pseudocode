@@ -1,5 +1,5 @@
 /*
- * XREFs of KiConnectSwInterrupt @ 0x1409F6600
+ * XREFs of KiConnectSwInterrupt @ 0x1409F6610
  * Callers:
  *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
  * Callees:

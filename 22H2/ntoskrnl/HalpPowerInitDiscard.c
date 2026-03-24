@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpPowerInitDiscard @ 0x140B65990
+ * XREFs of HalpPowerInitDiscard @ 0x140A6949C
  * Callers:
- *     HalpPowerInitSystem @ 0x140A90A30 (HalpPowerInitSystem.c)
+ *     HalpPowerInitSystem @ 0x1409A09F0 (HalpPowerInitSystem.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA20 (RtlClearBits.c)
- *     RtlSetAllBits @ 0x1402E1AE0 (RtlSetAllBits.c)
- *     HalpPowerInitNvsRegionData @ 0x140B65C44 (HalpPowerInitNvsRegionData.c)
+ *     RtlClearBits @ 0x140206DC0 (RtlClearBits.c)
+ *     RtlSetAllBits @ 0x1403536C0 (RtlSetAllBits.c)
+ *     HalpPowerInitNvsRegionData @ 0x140A69594 (HalpPowerInitNvsRegionData.c)
  */
 
 __int64 __fastcall HalpPowerInitDiscard(__int64 a1)
@@ -18,30 +18,30 @@ __int64 __fastcall HalpPowerInitDiscard(__int64 a1)
   ULONG v7; // r8d
 
   HalpLowMemoryMap.SizeOfBitMap = 256;
-  off_140C019B8[0] = (__int64 (__fastcall *)())HaliLocateHiberRanges;
+  off_140C005A8[0] = (__int64 (__fastcall *)())HaliLocateHiberRanges;
   HalpLowMemoryMapStack.SizeOfBitMap = 256;
-  off_140C019E8 = HaliHaltSystem;
-  off_140C01C48[0] = (__int64 (__fastcall *)())HalpPowerEarlyRestore;
-  off_140C01CB8[0] = (__int64 (__fastcall *)())HalpPowerSetRebootHandler;
+  off_140C005D8 = HaliHaltSystem;
+  off_140C00838[0] = (__int64 (__fastcall *)())HalpPowerEarlyRestore;
+  off_140C008A8[0] = (__int64 (__fastcall *)())HalpPowerSetRebootHandler;
   HalpLowMemoryMap.Buffer = (unsigned int *)&HalpLowMemoryMapBuffer;
   HalpLowMemoryMapStack.Buffer = (unsigned int *)&HalpLowMemoryMapStackBuffer;
   RtlSetAllBits(&HalpLowMemoryMap);
   v2 = (__int64 **)(a1 + 32);
   for ( i = *v2; i != (__int64 *)v2; i = (__int64 *)*i )
   {
-    v4 = *((int *)i + 6);
+    v4 = *((int *)i + 4);
     if ( (unsigned int)v4 <= 0x23 )
     {
       v5 = 0xBC0400048LL;
       if ( _bittest64(&v5, v4) )
         continue;
     }
-    if ( (unsigned __int64)i[4] < 0x100 )
+    if ( (unsigned __int64)i[3] < 0x100 )
     {
-      v6 = *((_DWORD *)i + 8);
+      v6 = *((_DWORD *)i + 6);
       v7 = 256 - v6;
-      if ( 256 - v6 > (unsigned __int64)i[5] )
-        v7 = *((_DWORD *)i + 10);
+      if ( 256 - v6 > (unsigned __int64)i[4] )
+        v7 = *((_DWORD *)i + 8);
       RtlClearBits(&HalpLowMemoryMap, v6, v7);
     }
   }

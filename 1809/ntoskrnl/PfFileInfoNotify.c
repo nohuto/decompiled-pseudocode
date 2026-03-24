@@ -1,5 +1,5 @@
 /*
- * XREFs of PfFileInfoNotify @ 0x1400D3DC0
+ * XREFs of PfFileInfoNotify @ 0x1400D3DE0
  * Callers:
  *     <none>
  * Callees:
@@ -15,24 +15,24 @@
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  *     ExRundownCompleted @ 0x14008F8D0 (ExRundownCompleted.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     PfSnReferenceProcessTrace @ 0x1400D4A90 (PfSnReferenceProcessTrace.c)
- *     PfSnLogPageFaultCommon @ 0x1400D4BE4 (PfSnLogPageFaultCommon.c)
- *     PfSnCheckLoggingForThread @ 0x1400D5320 (PfSnCheckLoggingForThread.c)
- *     PfFbLogEntryComplete @ 0x1400D5380 (PfFbLogEntryComplete.c)
- *     PfLogEvent @ 0x1400D53D8 (PfLogEvent.c)
- *     PfFbLogEntryReserve @ 0x1400D54C4 (PfFbLogEntryReserve.c)
- *     PfLogDeleteHelper @ 0x1400D6860 (PfLogDeleteHelper.c)
- *     _wcsupr @ 0x140195C30 (_wcsupr.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     PfSnReferenceProcessTrace @ 0x1400D4AB0 (PfSnReferenceProcessTrace.c)
+ *     PfSnLogPageFaultCommon @ 0x1400D4C04 (PfSnLogPageFaultCommon.c)
+ *     PfSnCheckLoggingForThread @ 0x1400D5340 (PfSnCheckLoggingForThread.c)
+ *     PfFbLogEntryComplete @ 0x1400D53A0 (PfFbLogEntryComplete.c)
+ *     PfLogEvent @ 0x1400D53F8 (PfLogEvent.c)
+ *     PfFbLogEntryReserve @ 0x1400D54E4 (PfFbLogEntryReserve.c)
+ *     PfLogDeleteHelper @ 0x1400D6880 (PfLogDeleteHelper.c)
+ *     _wcsupr @ 0x140195C50 (_wcsupr.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     PfpRpFileKeyUpdate @ 0x1405D56D0 (PfpRpFileKeyUpdate.c)
  *     PfSnNameRemoveAll @ 0x1405F9650 (PfSnNameRemoveAll.c)
- *     PfSnLogStreamCreate @ 0x14064AEE4 (PfSnLogStreamCreate.c)
- *     PfSnLogVolumeCreate @ 0x1406BD730 (PfSnLogVolumeCreate.c)
+ *     PfSnLogStreamCreate @ 0x14064AEC4 (PfSnLogStreamCreate.c)
+ *     PfSnLogVolumeCreate @ 0x1406BD710 (PfSnLogVolumeCreate.c)
  */
 
 __int64 __fastcall PfFileInfoNotify(_DWORD *a1)

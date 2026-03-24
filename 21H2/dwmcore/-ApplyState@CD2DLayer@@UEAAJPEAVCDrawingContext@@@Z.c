@@ -1,11 +1,13 @@
 /*
- * XREFs of ?ApplyState@CD2DLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x1800DC340
+ * XREFs of ?ApplyState@CD2DLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x18002C600
  * Callers:
- *     ?ApplyDeferredD2DClipLayers@CScopedClipStack@@QEAAJPEAVCDrawingContext@@@Z @ 0x1800977D4 (-ApplyDeferredD2DClipLayers@CScopedClipStack@@QEAAJPEAVCDrawingContext@@@Z.c)
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18009FA80 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?FlushDeferredD2DLayers@CDrawingContext@@AEAAJXZ @ 0x180069F74 (-FlushDeferredD2DLayers@CDrawingContext@@AEAAJXZ.c)
+ *     ?PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z @ 0x180076494 (-PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z.c)
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18007B940 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?ApplyRenderStateInternal@CDrawingContext@@AEAAJ_N@Z @ 0x18007FF00 (-ApplyRenderStateInternal@CDrawingContext@@AEAAJ_N@Z.c)
  * Callees:
- *     ?PushLayer@CD2DContext@@UEAAXPEBVID2DContextOwner@@AEBUD2D_RECT_F@@PEAUID2D1Geometry@@PEAUD2D_MATRIX_3X2_F@@MW4D2D1_ANTIALIAS_MODE@@W4D2D1_LAYER_OPTIONS1@@W4D2D1_PRIMITIVE_BLEND@@@Z @ 0x1800DC3F0 (-PushLayer@CD2DContext@@UEAAXPEBVID2DContextOwner@@AEBUD2D_RECT_F@@PEAUID2D1Geometry@@PEAUD2D_MA.c)
- *     McTemplateU0qqqq_EventWriteTransfer @ 0x1801121E8 (McTemplateU0qqqq_EventWriteTransfer.c)
+ *     ?PushLayer@CD2DContext@@UEAAXPEBVID2DContextOwner@@AEBUD2D_RECT_F@@PEAUID2D1Geometry@@PEAUD2D_MATRIX_3X2_F@@MW4D2D1_ANTIALIAS_MODE@@W4D2D1_LAYER_OPTIONS1@@W4D2D1_PRIMITIVE_BLEND@@@Z @ 0x18002C720 (-PushLayer@CD2DContext@@UEAAXPEBVID2DContextOwner@@AEBUD2D_RECT_F@@PEAUID2D1Geometry@@PEAUD2D_MA.c)
+ *     McTemplateU0qqqq_EventWriteTransfer @ 0x18015411C (McTemplateU0qqqq_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CD2DLayer::ApplyState(CD2DLayer *this, struct CDrawingContext *a2)
@@ -13,7 +15,7 @@ __int64 __fastcall CD2DLayer::ApplyState(CD2DLayer *this, struct CDrawingContext
   const struct D2D_RECT_F *v2; // rdi
 
   v2 = (const struct D2D_RECT_F *)((char *)this + 8);
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
     McTemplateU0qqqq_EventWriteTransfer(
       (_DWORD)this,
       (unsigned int)&EVTDESC_ETWGUID_LAYEREVENT_BeginLayer_Start,
@@ -31,7 +33,7 @@ __int64 __fastcall CD2DLayer::ApplyState(CD2DLayer *this, struct CDrawingContext
     *((enum D2D1_ANTIALIAS_MODE *)this + 16),
     *((enum D2D1_LAYER_OPTIONS1 *)this + 17),
     *((enum D2D1_PRIMITIVE_BLEND *)this + 18));
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
     McTemplateU0qqqq_EventWriteTransfer(
       (int)*((float *)this + 4),
       (unsigned int)&EVTDESC_ETWGUID_LAYEREVENT_BeginLayer_Stop,

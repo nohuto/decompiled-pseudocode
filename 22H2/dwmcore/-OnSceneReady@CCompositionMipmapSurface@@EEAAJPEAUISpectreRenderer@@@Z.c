@@ -1,13 +1,13 @@
 /*
- * XREFs of ?OnSceneReady@CCompositionMipmapSurface@@EEAAJPEAUISpectreRenderer@@@Z @ 0x180224240
+ * XREFs of ?OnSceneReady@CCompositionMipmapSurface@@EEAAJPEAUISpectreRenderer@@@Z @ 0x1801BA300
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x18001ED10 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?EnsureMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ @ 0x180223F5C (-EnsureMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D42F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?EnsureMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ @ 0x1801BA02C (-EnsureMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CCompositionMipmapSurface::OnSceneReady(
@@ -16,7 +16,7 @@ __int64 __fastcall CCompositionMipmapSurface::OnSceneReady(
 {
   int v4; // eax
   __int64 v5; // rcx
-  unsigned int v6; // edi
+  unsigned int v6; // ebx
   __int64 (__fastcall *v7)(struct ISpectreRenderer *, _QWORD, _QWORD, char *); // rdi
   int v8; // eax
   __int64 v9; // rcx
@@ -28,7 +28,7 @@ __int64 __fastcall CCompositionMipmapSurface::OnSceneReady(
     *((_QWORD *)this + 4) = v11;
     Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)this + 10);
   }
-  v4 = CCompositionMipmapSurface::EnsureMipmapSurface((struct _LUID *)this - 11);
+  v4 = CCompositionMipmapSurface::EnsureMipmapSurface((struct _LUID *)this - 10);
   v6 = v4;
   if ( v4 < 0 )
   {
@@ -40,8 +40,8 @@ __int64 __fastcall CCompositionMipmapSurface::OnSceneReady(
     Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 8);
     v8 = v7(
            a2,
-           *(_QWORD *)(*((_QWORD *)this + 10) + 112LL),
-           *(_QWORD *)(*((_QWORD *)this + 10) + 184LL),
+           *(_QWORD *)(*((_QWORD *)this + 10) + 128LL),
+           *(_QWORD *)(*((_QWORD *)this + 10) + 200LL),
            (char *)this + 64);
     v6 = v8;
     if ( v8 < 0 )

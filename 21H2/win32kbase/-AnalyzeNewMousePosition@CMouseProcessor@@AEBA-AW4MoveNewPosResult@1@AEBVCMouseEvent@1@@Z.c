@@ -1,7 +1,7 @@
 /*
- * XREFs of ?AnalyzeNewMousePosition@CMouseProcessor@@AEBA?AW4MoveNewPosResult@1@AEBVCMouseEvent@1@@Z @ 0x1C00B22A4
+ * XREFs of ?AnalyzeNewMousePosition@CMouseProcessor@@AEBA?AW4MoveNewPosResult@1@AEBVCMouseEvent@1@@Z @ 0x1C009F1C0
  * Callers:
- *     ?ProcessMouseMove@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@@Z @ 0x1C00364E4 (-ProcessMouseMove@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@@Z.c)
+ *     ?ProcessMouseMove@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@@Z @ 0x1C003EBC4 (-ProcessMouseMove@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,9 +15,9 @@ __int64 __fastcall CMouseProcessor::AnalyzeNewMousePosition(_DWORD *a1, __int64 
   if ( (v2[28] & 0x1000) != 0 )
     return 2LL;
   v4 = 0;
-  if ( a1[860] == v2[13] && a1[861] == v2[14] )
+  if ( a1[858] == v2[13] && a1[859] == v2[14] )
   {
-    if ( a1[862] != v2[15] || a1[863] != v2[16] )
+    if ( a1[860] != v2[15] || a1[861] != v2[16] )
       return 1;
   }
   else

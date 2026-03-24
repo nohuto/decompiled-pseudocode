@@ -1,26 +1,26 @@
 /*
- * XREFs of SeAdtRegistryValueChangedAuditAlarm @ 0x14089C614
+ * XREFs of SeAdtRegistryValueChangedAuditAlarm @ 0x14089C5F4
  * Callers:
  *     CmDeleteValueKey @ 0x1405B6634 (CmDeleteValueKey.c)
  *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x140006800 (PsGetCurrentThreadProcess.c)
  *     ObpIsKernelHandle @ 0x140088ED8 (ObpIsKernelHandle.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     SepAdtLogAuditRecord @ 0x140186DA0 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     SepAdtLogAuditRecord @ 0x140186DC0 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SeAuditingWithTokenForSubcategory @ 0x14060A3C0 (SeAuditingWithTokenForSubcategory.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     SepQueryNameString @ 0x14065DBB4 (SepQueryNameString.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671E4 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SeExamineSacl @ 0x1408A06B0 (SeExamineSacl.c)
- *     SeExamineGlobalSacl @ 0x1408A390C (SeExamineGlobalSacl.c)
- *     SepAuditFailed @ 0x1408A47A0 (SepAuditFailed.c)
- *     AdtpBuildRegistryValueString @ 0x1408EF1B4 (AdtpBuildRegistryValueString.c)
- *     AdtpBuildReplacementString @ 0x1408F0550 (AdtpBuildReplacementString.c)
+ *     SepQueryNameString @ 0x14065DB94 (SepQueryNameString.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671C4 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SeExamineSacl @ 0x1408A0690 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x1408A38EC (SeExamineGlobalSacl.c)
+ *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
+ *     AdtpBuildRegistryValueString @ 0x1408EF194 (AdtpBuildRegistryValueString.c)
+ *     AdtpBuildReplacementString @ 0x1408F0530 (AdtpBuildReplacementString.c)
  */
 
 void __fastcall SeAdtRegistryValueChangedAuditAlarm(

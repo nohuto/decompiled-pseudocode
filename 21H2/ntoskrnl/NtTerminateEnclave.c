@@ -1,16 +1,16 @@
 /*
- * XREFs of NtTerminateEnclave @ 0x14097BB30
+ * XREFs of NtTerminateEnclave @ 0x1408D4AD0
  * Callers:
  *     <none>
  * Callees:
- *     MiObtainReferencedVadEx @ 0x14030E7C0 (MiObtainReferencedVadEx.c)
- *     MiUnlockAndDereferenceVad @ 0x14032E700 (MiUnlockAndDereferenceVad.c)
- *     MiTerminateEnclave @ 0x14097AB60 (MiTerminateEnclave.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
+ *     MiTerminateEnclave @ 0x1408D3B58 (MiTerminateEnclave.c)
  */
 
 __int64 __fastcall NtTerminateEnclave(unsigned __int64 a1, unsigned int a2)
 {
-  __int64 v5; // rax
+  volatile signed __int32 *v5; // rax
   char *v6; // rdi
   unsigned int v7; // ebx
   unsigned int v8; // [rsp+38h] [rbp+10h] BYREF
@@ -22,10 +22,10 @@ __int64 __fastcall NtTerminateEnclave(unsigned __int64 a1, unsigned int a2)
   v6 = (char *)v5;
   if ( !v5 )
     return v8;
-  if ( (*(_DWORD *)(v5 + 48) & 0x6200000) == 0x4200000
-    && (*(unsigned int *)(v5 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v5 + 32) << 32)) << 12 == a1 )
+  if ( (v5[12] & 0x3100000) == 0x2100000
+    && (*((unsigned int *)v5 + 6) | ((unsigned __int64)*((unsigned __int8 *)v5 + 32) << 32)) << 12 == a1 )
   {
-    v7 = MiTerminateEnclave((__int64)KeGetCurrentThread()->ApcState.Process, v5, a2);
+    v7 = MiTerminateEnclave((__int64)KeGetCurrentThread()->ApcState.Process, (__int64)v5, a2);
   }
   else
   {

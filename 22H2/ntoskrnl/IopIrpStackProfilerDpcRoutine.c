@@ -1,18 +1,22 @@
 /*
- * XREFs of IopIrpStackProfilerDpcRoutine @ 0x140351C80
+ * XREFs of IopIrpStackProfilerDpcRoutine @ 0x1402F2CB0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     IopProcessIrpStackProfiler @ 0x140351E78 (IopProcessIrpStackProfiler.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _local_unwind @ 0x1403D8EB0 (_local_unwind.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiCustomAccessRoutine2 @ 0x14042AC50 (KiCustomAccessRoutine2.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     IopProcessIrpStackProfiler @ 0x1402F2EFC (IopProcessIrpStackProfiler.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _local_unwind @ 0x1403D1490 (_local_unwind.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine2 @ 0x140409450 (KiCustomAccessRoutine2.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall IopIrpStackProfilerDpcRoutine(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
+void __fastcall IopIrpStackProfilerDpcRoutine(
+        struct _KDPC *Dpc,
+        __int64 DeferredContext,
+        unsigned __int64 SystemArgument1,
+        unsigned __int64 SystemArgument2)
 {
   unsigned __int64 v8; // rdi
   unsigned int i; // ebx
@@ -20,89 +24,78 @@ __int64 __fastcall IopIrpStackProfilerDpcRoutine(__int64 a1, __int64 a2, __int64
   __int64 v11; // rdx
   _DWORD *v12; // r8
   int v13; // edx
-  __int64 result; // rax
-  __int64 v15; // rcx
-  unsigned int v16; // ebx
-  __int64 v17; // rax
-  _DWORD v18[82]; // [rsp+0h] [rbp-218h] BYREF
-  _DWORD *v19; // [rsp+148h] [rbp-D0h]
-  _QWORD v20[20]; // [rsp+150h] [rbp-C8h] BYREF
+  __int64 j; // rcx
+  unsigned int k; // ebx
+  __int64 v16; // rax
+  _DWORD v17[84]; // [rsp+0h] [rbp-228h] BYREF
+  _DWORD *v18; // [rsp+150h] [rbp-D8h]
+  _QWORD v19[20]; // [rsp+160h] [rbp-C8h] BYREF
 
-  v19 = v18;
-  memset(&v18[36], 0, 0x5BuLL);
-  if ( a2 >> 47 != -1 && a2 >> 47 != 0 )
+  v18 = v17;
+  memset(&v17[40], 0, 0x5BuLL);
+  if ( DeferredContext >> 47 != -1 && DeferredContext >> 47 != 0 )
   {
-    v18[12] = 0;
-    *(_BYTE *)a1 = 0;
-    *(_QWORD *)(a1 + 32) = a4 >> 8;
-    *(_QWORD *)((char *)&v18[56] + 3) = a3;
-    *(_QWORD *)((char *)&v18[40] + 3) = __ROL8__(a2, a3);
-    *(_QWORD *)((char *)&v18[50] + 3) = __ROR8__(a1, a3);
-    *(_QWORD *)(a1 + 40) ^= a4;
-    *(_QWORD *)(a1 + 48) ^= a3;
-    KiCustomAccessRoutine2(a2);
+    v17[12] = 0;
+    Dpc->Type = 0;
+    Dpc->DeferredContext = (PVOID)(SystemArgument2 >> 8);
+    *(_QWORD *)((char *)&v17[60] + 3) = SystemArgument1;
+    *(_QWORD *)((char *)&v17[44] + 3) = __ROL8__(DeferredContext, SystemArgument1);
+    *(_QWORD *)((char *)&v17[54] + 3) = __ROR8__(Dpc, SystemArgument1);
+    Dpc->SystemArgument1 = (PVOID)((unsigned __int64)Dpc->SystemArgument1 ^ SystemArgument2);
+    Dpc->SystemArgument2 = (PVOID)((unsigned __int64)Dpc->SystemArgument2 ^ SystemArgument1);
+    KiCustomAccessRoutine2(DeferredContext);
   }
-  memset(v20, 0, sizeof(v20));
+  memset(v19, 0, sizeof(v19));
   v8 = 0LL;
   for ( i = 0; i < (unsigned int)KeNumberProcessors_0; ++i )
   {
     Prcb = KeGetPrcb(i);
     if ( Prcb )
     {
-      v8 += (unsigned int)(*(_DWORD *)(Prcb + 35856) - *(_DWORD *)(Prcb + 35940));
+      v8 += (unsigned int)(*(_DWORD *)(Prcb + 34832) - *(_DWORD *)(Prcb + 34916));
       v11 = 0LL;
-      v12 = (_DWORD *)(Prcb + 35776);
+      v12 = (_DWORD *)(Prcb + 34752);
       do
       {
-        v20[v11++] += (unsigned int)(*v12 - v12[21]);
+        v19[v11++] += (unsigned int)(*v12 - v12[21]);
         ++v12;
       }
       while ( v11 < 20 );
     }
   }
   v13 = 20;
-  result = (unsigned int)IopIrpStackProfilerSampleSize;
   if ( v8 > (unsigned int)IopIrpStackProfilerSampleSize )
   {
     v13 = 0;
-    v15 = 0LL;
-    result = (unsigned int)IopIrpStackProfilerMinSizeThreshold;
-    do
+    for ( j = 0LL; j < 20; ++j )
     {
-      if ( v20[v15] > (unsigned __int64)(unsigned int)IopIrpStackProfilerMinSizeThreshold )
+      if ( v19[j] > (unsigned __int64)(unsigned int)IopIrpStackProfilerMinSizeThreshold )
         break;
       ++v13;
-      ++v15;
     }
-    while ( v15 < 20 );
   }
   if ( v13 != 20 )
   {
-    IopProcessIrpStackProfiler(v20);
+    IopProcessIrpStackProfiler(v19);
     IopIrpStackProfilerMinSizeThreshold *= 2;
     if ( (unsigned int)IopIrpStackProfilerMinSizeThreshold > 0x1900 )
       IopIrpStackProfilerMinSizeThreshold = 6400;
     IopIrpStackProfilerSampleSize *= 2;
     if ( (unsigned int)IopIrpStackProfilerSampleSize > 0x7D00 )
       IopIrpStackProfilerSampleSize = 32000;
-    v16 = 0;
-    for ( result = (unsigned int)KeNumberProcessors_0;
-          v16 < (unsigned int)KeNumberProcessors_0;
-          result = (unsigned int)KeNumberProcessors_0 )
+    for ( k = 0; k < (unsigned int)KeNumberProcessors_0; ++k )
     {
-      v17 = KeGetPrcb(v16);
-      if ( v17 )
+      v16 = KeGetPrcb(k);
+      if ( v16 )
       {
-        *(_OWORD *)(v17 + 35860) = *(_OWORD *)(v17 + 35776);
-        *(_OWORD *)(v17 + 35876) = *(_OWORD *)(v17 + 35792);
-        *(_OWORD *)(v17 + 35892) = *(_OWORD *)(v17 + 35808);
-        *(_OWORD *)(v17 + 35908) = *(_OWORD *)(v17 + 35824);
-        *(_OWORD *)(v17 + 35924) = *(_OWORD *)(v17 + 35840);
-        *(_DWORD *)(v17 + 35940) = *(_DWORD *)(v17 + 35856);
+        *(_OWORD *)(v16 + 34836) = *(_OWORD *)(v16 + 34752);
+        *(_OWORD *)(v16 + 34852) = *(_OWORD *)(v16 + 34768);
+        *(_OWORD *)(v16 + 34868) = *(_OWORD *)(v16 + 34784);
+        *(_OWORD *)(v16 + 34884) = *(_OWORD *)(v16 + 34800);
+        *(_OWORD *)(v16 + 34900) = *(_OWORD *)(v16 + 34816);
+        *(_DWORD *)(v16 + 34916) = *(_DWORD *)(v16 + 34832);
       }
-      ++v16;
     }
   }
   _InterlockedOr(&IopIrpStackProfilerFlags, 4u);
-  return result;
 }

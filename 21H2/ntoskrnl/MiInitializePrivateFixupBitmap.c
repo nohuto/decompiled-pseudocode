@@ -1,53 +1,68 @@
 /*
- * XREFs of MiInitializePrivateFixupBitmap @ 0x1406F3738
+ * XREFs of MiInitializePrivateFixupBitmap @ 0x1405FC490
  * Callers:
- *     MiAddPrivateFixupEntryForSystemImage @ 0x1403B529C (MiAddPrivateFixupEntryForSystemImage.c)
- *     MiInitializeFixupVad @ 0x1406D0AD8 (MiInitializeFixupVad.c)
+ *     MiAddPrivateFixupEntryForSystemImage @ 0x1403A58D8 (MiAddPrivateFixupEntryForSystemImage.c)
+ *     MiAllocateFixupVad @ 0x1406AA5F4 (MiAllocateFixupVad.c)
  * Callees:
- *     RtlClearAllBits @ 0x14020AE80 (RtlClearAllBits.c)
- *     MiPageHasRelocations @ 0x1406F3800 (MiPageHasRelocations.c)
+ *     RtlClearAllBits @ 0x140362270 (RtlClearAllBits.c)
+ *     MiDoesPageRequireRetpolineFixups @ 0x1405FC594 (MiDoesPageRequireRetpolineFixups.c)
  */
 
-__int64 __fastcall MiInitializePrivateFixupBitmap(RTL_BITMAP *a1, _QWORD *a2, unsigned int a3)
+__int64 __fastcall MiInitializePrivateFixupBitmap(RTL_BITMAP *a1, _QWORD *a2)
 {
-  _QWORD *v3; // rdi
-  __int64 v4; // r12
-  unsigned int v7; // r9d
-  unsigned int v8; // ebp
-  __int64 v9; // rsi
-  __int64 v10; // rbx
-  unsigned __int64 i; // rbx
+  _QWORD *v2; // rbp
+  __int64 v3; // rdi
+  unsigned int v5; // r8d
+  unsigned int v6; // r9d
+  __int64 v7; // rsi
+  __int64 v8; // r11
+  unsigned __int64 i; // r11
+  __int64 *v10; // r10
+  __int64 v11; // rbx
+  unsigned int v12; // edx
+  int v13; // edx
 
-  v3 = a2 + 16;
-  v4 = a2[12];
-  v7 = *(_DWORD *)(*a2 + 8LL);
+  v2 = a2 + 16;
+  v3 = a2[12];
+  v5 = *(_DWORD *)(*a2 + 8LL);
   a1->Buffer = &a1[1].SizeOfBitMap;
-  a1->SizeOfBitMap = v7;
+  a1->SizeOfBitMap = v5;
   RtlClearAllBits(a1);
-  v8 = 0;
-  v9 = 0LL;
+  v6 = 0;
+  v7 = 0LL;
   do
   {
-    v10 = *((unsigned int *)v3 + 11);
-    if ( v3[1] < (unsigned __int64)(v3[1] + 8 * v10) )
+    v8 = 8LL * *((unsigned int *)v2 + 11);
+    if ( v2[1] < (unsigned __int64)(v8 + v2[1]) )
     {
-      for ( i = ((unsigned __int64)(8 * v10 - 1) >> 3) + 1; i; --i )
+      for ( i = ((unsigned __int64)(v8 - 1) >> 3) + 1; i; --i )
       {
-        if ( (unsigned int)MiPageHasRelocations(v4, v8, a3) )
+        v10 = *(__int64 **)(v3 + 32);
+        v11 = *v10;
+        if ( v6 >= (unsigned __int64)v10[7] )
         {
-          _bittestandset((signed __int32 *)a1->Buffer, v8);
+LABEL_14:
+          if ( (v2[4] & 0xA) != 0xA )
+            goto LABEL_10;
         }
-        else if ( (v3[4] & 0xA) != 0xA )
+        else
         {
-          goto LABEL_7;
+          v12 = v6;
+          while ( !*(_QWORD *)(v11 + 8LL * v12) && !(unsigned int)MiDoesPageRequireRetpolineFixups(v10 + 9) )
+          {
+            v12 = v13 + 1;
+            if ( v12 != v6 )
+              goto LABEL_14;
+          }
+          _bittestandset((signed __int32 *)a1->Buffer, v6);
         }
-        ++v9;
-LABEL_7:
-        ++v8;
+        ++v7;
+LABEL_10:
+        ++v6;
       }
     }
-    v3 = (_QWORD *)v3[2];
+    v2 = (_QWORD *)v2[2];
   }
-  while ( v3 );
-  return v9;
+  while ( v2 );
+  return v7;
 }

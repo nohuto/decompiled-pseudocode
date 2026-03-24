@@ -1,15 +1,14 @@
 /*
- * XREFs of StopIdleWorker @ 0x1C0010F38
+ * XREFs of StopIdleWorker @ 0x1C0016C88
  * Callers:
- *     imp_WdfDeviceStopIdleNoTrack @ 0x1C0010EE0 (imp_WdfDeviceStopIdleNoTrack.c)
- *     imp_WdfDeviceStopIdleActual @ 0x1C0010F10 (imp_WdfDeviceStopIdleActual.c)
+ *     imp_WdfDeviceStopIdleActual @ 0x1C0016C60 (imp_WdfDeviceStopIdleActual.c)
+ *     imp_WdfDeviceStopIdleNoTrack @ 0x1C0048B00 (imp_WdfDeviceStopIdleNoTrack.c)
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?PowerReferenceWorker@FxPowerIdleMachine@@IEAAJEW4FxPowerReferenceFlags@@PEAXJPEBD@Z @ 0x1C0009310 (-PowerReferenceWorker@FxPowerIdleMachine@@IEAAJEW4FxPowerReferenceFlags@@PEAXJPEBD@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_qdd @ 0x1C005CC6C (WPP_IFR_SF_qdd.c)
+ *     ?PowerReferenceWorker@FxPowerIdleMachine@@IEAAJEW4FxPowerReferenceFlags@@PEAXJPEBD@Z @ 0x1C000598C (-PowerReferenceWorker@FxPowerIdleMachine@@IEAAJEW4FxPowerReferenceFlags@@PEAXJPEBD@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     WPP_IFR_SF_qdd @ 0x1C003C938 (WPP_IFR_SF_qdd.c)
  */
 
 __int64 __fastcall StopIdleWorker(
@@ -28,12 +27,16 @@ __int64 __fastcall StopIdleWorker(
   int v13; // ebx
   FxPkgPnp *m_PkgPnp; // rcx
   __int64 result; // rax
-  _SLEEP_STUDY_INTERFACE *m_SleepStudy; // rax
+  _SLEEP_STUDY_INTERFACE *m_SleepStudy; // rcx
   FxDevice *pDevice; // [rsp+50h] [rbp+8h] BYREF
 
   pDevice = 0LL;
   _a2 = WaitForD0;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Device, 0x1002u, (void **)&pDevice);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Device,
+    0x1002u,
+    (void **)&pDevice);
   v9 = pDevice;
   m_Globals = pDevice->m_Globals;
   if ( (_BYTE)_a2 )
@@ -60,10 +63,7 @@ __int64 __fastcall StopIdleWorker(
         if ( m_SleepStudy )
         {
           if ( m_SleepStudy->ComponentPowerRef )
-          {
-            if ( unk_1C00AB330 )
-              unk_1C00AB330();
-          }
+            SleepstudyHelper_ComponentActive();
         }
       }
     }

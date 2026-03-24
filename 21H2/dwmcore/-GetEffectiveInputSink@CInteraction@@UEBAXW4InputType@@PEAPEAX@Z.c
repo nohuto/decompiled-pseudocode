@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetEffectiveInputSink@CInteraction@@UEBAXW4InputType@@PEAPEAX@Z @ 0x180113760
+ * XREFs of ?GetEffectiveInputSink@CInteraction@@UEBAXW4InputType@@PEAPEAX@Z @ 0x1801C6210
  * Callers:
  *     <none>
  * Callees:
@@ -14,12 +14,12 @@ __int64 __fastcall CInteraction::GetEffectiveInputSink(_QWORD *a1, int a2, _QWOR
     goto LABEL_8;
   if ( a2 <= 3 )
   {
-    result = a1[3];
+    result = a1[10];
     goto LABEL_9;
   }
   if ( a2 == 4 )
   {
-    result = a1[4];
+    result = a1[11];
     goto LABEL_9;
   }
   if ( (unsigned int)(a2 - 5) > 1 )
@@ -28,7 +28,7 @@ LABEL_8:
     result = 0LL;
     goto LABEL_9;
   }
-  result = a1[1];
+  result = a1[8];
 LABEL_9:
   *a3 = result;
   return result;

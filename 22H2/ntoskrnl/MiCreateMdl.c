@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCreateMdl @ 0x1406A8F3C
+ * XREFs of MiCreateMdl @ 0x140701344
  * Callers:
- *     MiCreateImageFileMap @ 0x1406A8928 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x140700CC4 (MiCreateImageFileMap.c)
  * Callees:
- *     MmBuildMdlForNonPagedPool @ 0x14020D970 (MmBuildMdlForNonPagedPool.c)
- *     MiGetPageForHeader @ 0x14021A4F4 (MiGetPageForHeader.c)
- *     IoAllocateMdl @ 0x14022E2C0 (IoAllocateMdl.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiDeleteImageCreationMdls @ 0x1406A7448 (MiDeleteImageCreationMdls.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140264870 (MmBuildMdlForNonPagedPool.c)
+ *     MiGetPageForHeader @ 0x14033763C (MiGetPageForHeader.c)
+ *     IoAllocateMdl @ 0x14035A110 (IoAllocateMdl.c)
+ *     MiDeleteImageCreationMdls @ 0x1407027A4 (MiDeleteImageCreationMdls.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-struct _MDL *__fastcall MiCreateMdl(__int64 a1, unsigned int a2, SIZE_T a3, int a4)
+struct _MDL *__fastcall MiCreateMdl(ULONG_PTR *a1, int a2, SIZE_T a3, int a4)
 {
   ULONG v4; // edi
   SIZE_T v5; // rbp
@@ -20,7 +20,7 @@ struct _MDL *__fastcall MiCreateMdl(__int64 a1, unsigned int a2, SIZE_T a3, int 
   struct _MDL *v9; // rdi
   SIZE_T v10; // rsi
   _QWORD *p_Next; // r14
-  unsigned __int64 PageForHeader; // rax
+  __int64 PageForHeader; // rax
   PVOID MappedSystemVa; // rax
   PVOID Pool; // rax
   void *v16; // rbx
@@ -41,7 +41,7 @@ struct _MDL *__fastcall MiCreateMdl(__int64 a1, unsigned int a2, SIZE_T a3, int 
         while ( 1 )
         {
           PageForHeader = MiGetPageForHeader(a1, a2);
-          if ( PageForHeader == -1LL )
+          if ( PageForHeader == -1 )
             break;
           if ( !v10 )
             v9->MdlFlags |= 0x4002u;
@@ -52,7 +52,7 @@ struct _MDL *__fastcall MiCreateMdl(__int64 a1, unsigned int a2, SIZE_T a3, int 
             goto LABEL_8;
         }
         v9->ByteCount = (_DWORD)v10 << 12;
-        goto LABEL_17;
+        goto LABEL_16;
       }
 LABEL_8:
       if ( (v9->MdlFlags & 5) != 0 )
@@ -61,8 +61,8 @@ LABEL_8:
         MappedSystemVa = MmMapLockedPagesSpecifyCache(v9, 0, MmCached, 0LL, 0, 0x40000020u);
       if ( !MappedSystemVa )
       {
-LABEL_17:
-        MiDeleteImageCreationMdls(v9, 1);
+LABEL_16:
+        MiDeleteImageCreationMdls(v9);
         return 0LL;
       }
       return v9;

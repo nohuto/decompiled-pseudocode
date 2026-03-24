@@ -1,37 +1,40 @@
 /*
- * XREFs of VidSchSetPriorityHwContext @ 0x1C00F6040
+ * XREFs of VidSchSetPriorityHwContext @ 0x1C00D35E0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     VidSchiUpdateDdiHwContextPriority @ 0x1C00F63D0 (VidSchiUpdateDdiHwContextPriority.c)
+ *     VidSchiUpdateDdiHwContextPriority @ 0x1C00D3B78 (VidSchiUpdateDdiHwContextPriority.c)
  */
 
-__int64 __fastcall VidSchSetPriorityHwContext(__int64 a1, int a2, __int64 a3, int a4)
+__int64 __fastcall VidSchSetPriorityHwContext(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  __int64 v5; // rcx
-  __int64 v7; // rdx
+  __int64 v4; // rax
+  unsigned int v5; // ebx
+  __int64 v6; // rbx
+  __int64 v8; // rax
 
   if ( a1 )
   {
-    v7 = *(_QWORD *)(a1 + 8);
-    if ( *(_BYTE *)(v7 + 204) || _InterlockedCompareExchange((volatile signed __int32 *)(v7 + 200), 0, 0) )
-    {
-      WdLogSingleEntry2(3LL, v7, -1071775232LL);
-      return 3223192064LL;
-    }
-    else
+    v6 = *(_QWORD *)(a1 + 8);
+    if ( !*(_BYTE *)(v6 + 204) && !_InterlockedCompareExchange((volatile signed __int32 *)(v6 + 200), 0, 0) )
     {
       *(_DWORD *)(a1 + 68) = a2;
       *(_DWORD *)(a1 + 76) = a4;
       VidSchiUpdateDdiHwContextPriority(a1);
       return 0LL;
     }
+    v8 = WdLogNewEntry5_WdWarning(a1, a2);
+    *(_QWORD *)(v8 + 24) = v6;
+    v5 = -1071775232;
+    *(_QWORD *)(v8 + 32) = -1071775232LL;
+    WdLogEvent5_WdWarning(v8);
   }
   else
   {
-    WdLogSingleEntry1(1LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(v5, 0x40000LL);
-    return 3221225485LL;
+    v4 = WdLogNewEntry5_WdAssertion(0LL, a2, 0LL);
+    v5 = -1073741811;
+    *(_QWORD *)(v4 + 24) = -1073741811LL;
+    WdLogEvent5_WdAssertion(v4);
   }
+  return v5;
 }

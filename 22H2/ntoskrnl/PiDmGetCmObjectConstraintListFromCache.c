@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDmGetCmObjectConstraintListFromCache @ 0x1407FC524
+ * XREFs of PiDmGetCmObjectConstraintListFromCache @ 0x1406B2DC8
  * Callers:
- *     PiPnpRtlGetFilteredDeviceList @ 0x1407FC18C (PiPnpRtlGetFilteredDeviceList.c)
- *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x1407FC40C (PiPnpRtlGetFilteredDeviceInterfaceList.c)
+ *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x1406B37BC (PiPnpRtlGetFilteredDeviceInterfaceList.c)
+ *     PiPnpRtlGetFilteredDeviceList @ 0x1406B3AD4 (PiPnpRtlGetFilteredDeviceList.c)
  * Callees:
- *     PiDmGetObjectConstraintList @ 0x1407FC5B8 (PiDmGetObjectConstraintList.c)
+ *     PiDmGetObjectConstraintList @ 0x1406B2CCC (PiDmGetObjectConstraintList.c)
  */
 
 __int64 __fastcall PiDmGetCmObjectConstraintListFromCache(
         int a1,
-        int a2,
+        __int64 a2,
         __int64 a3,
         __int64 a4,
-        __int64 a5,
-        int a6,
-        __int64 a7)
+        _WORD *a5,
+        unsigned int a6,
+        unsigned int *a7)
 {
   int v7; // r10d
   _QWORD v9[2]; // [rsp+40h] [rbp-28h] BYREF
@@ -25,7 +25,7 @@ __int64 __fastcall PiDmGetCmObjectConstraintListFromCache(
   v7 = 0;
   v9[0] = a3;
   v11 = 0;
-  switch ( LODWORD(qword_140008220[5 * a1]) )
+  switch ( LODWORD(qword_1400074C0[5 * a1]) )
   {
     case 1:
       v7 = 1;
@@ -47,5 +47,5 @@ __int64 __fastcall PiDmGetCmObjectConstraintListFromCache(
       break;
   }
   v10 = v7;
-  return PiDmGetObjectConstraintList(a1, a2, 5 * a1, (unsigned int)v9, a5, a6, a7);
+  return PiDmGetObjectConstraintList(a1, a2, 5LL * a1, (__int64)v9, a5, a6, a7);
 }

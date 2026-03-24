@@ -1,15 +1,15 @@
 /*
- * XREFs of ?StDmStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@PEAU_RTL_BITMAP@@PEAKK@Z @ 0x140262938
+ * XREFs of ?StDmStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@PEAU_RTL_BITMAP@@PEAKK@Z @ 0x1402E1DF4
  * Callers:
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140262650 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1402E1B0C (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
  * Callees:
- *     SmHpChunkHeapCleanup @ 0x140238028 (SmHpChunkHeapCleanup.c)
- *     SmHpChunkHeapInitialize @ 0x1402611C4 (SmHpChunkHeapInitialize.c)
- *     ?NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z @ 0x140262BBC (-NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z.c)
- *     RtlSetAllBits @ 0x140262CA0 (RtlSetAllBits.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14041BE20 (ZwQuerySystemInformation.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ?NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z @ 0x1402E2078 (-NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z.c)
+ *     RtlSetAllBits @ 0x1402E2160 (RtlSetAllBits.c)
+ *     SmHpChunkHeapCleanup @ 0x14035B2A4 (SmHpChunkHeapCleanup.c)
+ *     SmHpChunkHeapInitialize @ 0x14035DF3C (SmHpChunkHeapInitialize.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a3, __int64 a4, __int64 a5, int a6)
@@ -95,7 +95,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a
     v20[0] = 16;
     v20[1] = 4;
     SmHpChunkHeapCleanup(a2 + 192);
-    SmHpChunkHeapInitialize(a2 + 192, (__int64)v20);
+    SmHpChunkHeapInitialize(a2 + 192, v20);
   }
   v18 = *a3;
   v22 = 0;

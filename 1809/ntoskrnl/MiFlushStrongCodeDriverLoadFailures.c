@@ -5,11 +5,11 @@
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x140100898 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmReleaseLoadLock @ 0x140651A40 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A80 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
  */
 
 _QWORD *MiFlushStrongCodeDriverLoadFailures()
@@ -71,7 +71,7 @@ _QWORD *MiFlushStrongCodeDriverLoadFailures()
       v15 = 2;
       v20 = 4;
       v23 = 4;
-      TlgWriteEx(v7, &unk_14036DCF1, v6, (ULONG)v7, v8, v9, 7u, &pData);
+      TlgWriteEx(v7, &unk_14036DE01, v6, (ULONG)v7, v8, v9, 7u, &pData);
     }
     ExFreePoolWithTag(v1, 0);
   }

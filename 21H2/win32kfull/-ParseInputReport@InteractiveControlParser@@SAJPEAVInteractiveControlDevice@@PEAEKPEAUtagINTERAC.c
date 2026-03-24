@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ParseInputReport@InteractiveControlParser@@SAJPEAVInteractiveControlDevice@@PEAEKPEAUtagINTERACTIVECTRL_INFO@@@Z @ 0x1C02592F4
+ * XREFs of ?ParseInputReport@InteractiveControlParser@@SAJPEAVInteractiveControlDevice@@PEAEKPEAUtagINTERACTIVECTRL_INFO@@@Z @ 0x1C025C570
  * Callers:
- *     ?ParseInputReport@InteractiveControlInput@@QEAAJPEAEK@Z @ 0x1C0255790 (-ParseInputReport@InteractiveControlInput@@QEAAJPEAEK@Z.c)
+ *     ?ParseInputReport@InteractiveControlInput@@QEAAJPEAEK@Z @ 0x1C0258A24 (-ParseInputReport@InteractiveControlInput@@QEAAJPEAEK@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ??$Write@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C01D08A8 (--$Write@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@444@Z @ 0x1C02584B4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgP.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@4444@Z @ 0x1C0258584 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_t.c)
- *     ?FindDigitizerForDevice@InteractiveControlParser@@CAJPEAVInteractiveControlDevice@@@Z @ 0x1C0258FD8 (-FindDigitizerForDevice@InteractiveControlParser@@CAJPEAVInteractiveControlDevice@@@Z.c)
- *     ?GetScaledComponentValue@InteractiveControlParser@@SAJPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@J@Z @ 0x1C0259264 (-GetScaledComponentValue@InteractiveControlParser@@SAJPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@J@.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C01D4BD8 (--$Write@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@444@Z @ 0x1C025B72C (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgP.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@4444@Z @ 0x1C025B7FC (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_t.c)
+ *     ?FindDigitizerForDevice@InteractiveControlParser@@CAJPEAVInteractiveControlDevice@@@Z @ 0x1C025C250 (-FindDigitizerForDevice@InteractiveControlParser@@CAJPEAVInteractiveControlDevice@@@Z.c)
+ *     ?GetScaledComponentValue@InteractiveControlParser@@SAJPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@J@Z @ 0x1C025C4E0 (-GetScaledComponentValue@InteractiveControlParser@@SAJPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@J@.c)
  */
 
 __int64 __fastcall InteractiveControlParser::ParseInputReport(
@@ -151,7 +151,7 @@ LABEL_14:
     }
     if ( v6 < 0 )
     {
-      if ( v6 != -2146369535 && (unsigned int)dword_1C03262C0 > 2 )
+      if ( v6 != -2146369535 && (unsigned int)dword_1C032B2F8 > 2 )
       {
         v41 = *((unsigned __int16 *)a1 + 40);
         v42 = v36;
@@ -160,7 +160,7 @@ LABEL_14:
         v44 = v6;
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
           v17,
-          byte_1C02F224F,
+          byte_1C02F4D6E,
           v15,
           v16,
           (void **)&v45,
@@ -218,7 +218,7 @@ LABEL_52:
             *((_DWORD *)a4 + 6) = v28 * *((_DWORD *)v11 + 27);
             *((_DWORD *)v11 + 26) -= v28 * *((_DWORD *)v11 + 27);
           }
-          else if ( (unsigned int)dword_1C03262C0 > 2 )
+          else if ( (unsigned int)dword_1C032B2F8 > 2 )
           {
             v23 = *((_DWORD *)v11 + 27);
             v43 = 0;
@@ -229,7 +229,7 @@ LABEL_52:
             LODWORD(v45) = v6;
             _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
               v17,
-              byte_1C02F21D3,
+              byte_1C02F4DD9,
               v15,
               v16,
               (void **)&v47,
@@ -278,36 +278,36 @@ LABEL_53:
   while ( v9 != v10 );
   if ( v7 )
   {
-    if ( *((_QWORD *)a1 + 30) )
-      goto LABEL_64;
-    v32 = *((_DWORD *)a1 + 62);
-    v33 = 0;
-    if ( v32 == 100 )
+    if ( !*((_QWORD *)a1 + 30) )
     {
-      if ( (unsigned int)dword_1C03262C0 > 3 )
-      {
-        v47 = (__int64)"No mapped digitizer found for positional data. Attempting to rematch...";
-        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>>(
-          (__int64)&dword_1C03262C0,
-          byte_1C02F21A3,
-          0LL,
-          0LL,
-          (void **)&v47);
-      }
-      v33 = (int)InteractiveControlParser::FindDigitizerForDevice(a1) >= 0;
-      *((_DWORD *)a1 + 62) = 0;
-      v32 = 0;
-    }
-    if ( !v33 )
-    {
-      *((_DWORD *)a4 + 5) &= ~2u;
       v32 = *((_DWORD *)a1 + 62);
-      v7 = 0;
+      v33 = 0;
+      if ( v32 == 100 )
+      {
+        if ( (unsigned int)dword_1C032B2F8 > 3 )
+        {
+          v47 = (__int64)"No mapped digitizer found for positional data. Attempting to rematch...";
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>>(
+            (__int64)&dword_1C032B2F8,
+            byte_1C02F4D3E,
+            0LL,
+            0LL,
+            (void **)&v47);
+        }
+        v33 = (int)InteractiveControlParser::FindDigitizerForDevice(a1) >= 0;
+        *((_DWORD *)a1 + 62) = 0;
+        v32 = 0;
+      }
+      if ( !v33 )
+      {
+        *((_DWORD *)a4 + 5) &= ~2u;
+        v32 = *((_DWORD *)a1 + 62);
+        v7 = 0;
+      }
+      *((_DWORD *)a1 + 62) = v32 + 1;
     }
-    *((_DWORD *)a1 + 62) = v32 + 1;
     if ( v7 )
     {
-LABEL_64:
       v34 = *((_QWORD *)a1 + 30);
       if ( v34 )
         RIMTransformCoordinatesFromDigitizer(v34, &v46, (char *)a4 + 12, (char *)a4 + 4);

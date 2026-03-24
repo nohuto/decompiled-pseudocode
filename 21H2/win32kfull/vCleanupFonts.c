@@ -1,9 +1,9 @@
 /*
- * XREFs of vCleanupFonts @ 0x1C00C8860
+ * XREFs of vCleanupFonts @ 0x1C00E4FC0
  * Callers:
  *     <none>
  * Callees:
- *     bDeleteFont @ 0x1C00C88C0 (bDeleteFont.c)
+ *     bDeleteFont @ 0x1C00E5020 (bDeleteFont.c)
  */
 
 __int64 __fastcall vCleanupFonts(unsigned int a1)

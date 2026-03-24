@@ -1,15 +1,14 @@
 /*
- * XREFs of BCryptCloseAlgorithmProvider @ 0x140375144
+ * XREFs of BCryptCloseAlgorithmProvider @ 0x1403B7B84
  * Callers:
- *     SecureDump_Init @ 0x1403B0658 (SecureDump_Init.c)
- *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14055DC54 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
- *     SecureDump_ReInitialize @ 0x14055E558 (SecureDump_ReInitialize.c)
- *     SmCrEncCleanup @ 0x1407B87AC (SmCrEncCleanup.c)
- *     RtlGenerateClass5Guid @ 0x140812D60 (RtlGenerateClass5Guid.c)
+ *     SecureDump_Init @ 0x1403C9880 (SecureDump_Init.c)
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14050A414 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ *     SmCrEncCleanup @ 0x1406FA23C (SmCrEncCleanup.c)
+ *     RtlGenerateClass5Guid @ 0x1407AC2E0 (RtlGenerateClass5Guid.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExGetExtensionTable @ 0x1402F7618 (ExGetExtensionTable.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall BCryptCloseAlgorithmProvider(BCRYPT_ALG_HANDLE hAlgorithm, ULONG dwFlags)
@@ -22,7 +21,7 @@ NTSTATUS __stdcall BCryptCloseAlgorithmProvider(BCRYPT_ALG_HANDLE hAlgorithm, UL
   if ( ExtensionTable )
   {
     v3 = (*(__int64 (__fastcall **)(BCRYPT_ALG_HANDLE, _QWORD))(ExtensionTable + 32))(hAlgorithm, 0LL);
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(SepBCryptExtensionHost + 64));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(SepBCryptExtensionHost + 64));
   }
   return v3;
 }

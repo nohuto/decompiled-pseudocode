@@ -1,37 +1,34 @@
 /*
- * XREFs of ?InkProcessorOnInkDeviceInputReport@@YAXPEAURawInputManagerDeviceObject@@PEAX@Z @ 0x1C01FE25C
+ * XREFs of ?InkProcessorOnInkDeviceInputReport@@YAXPEAURawInputManagerDeviceObject@@PEAX@Z @ 0x1C021FFD0
  * Callers:
- *     EditionRimDeviceReadNotification @ 0x1C01A6720 (EditionRimDeviceReadNotification.c)
+ *     EditionRimDeviceReadNotification @ 0x1C01D0880 (EditionRimDeviceReadNotification.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0040C00 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?GetInkProcessor@@YAJPEAPEAVInkProcessor@@@Z @ 0x1C01FE0B4 (-GetInkProcessor@@YAJPEAPEAVInkProcessor@@@Z.c)
- *     ?ProcessInput@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@PEBX@Z @ 0x1C023E7EC (-ProcessInput@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@PEBX@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D1C24 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ?ProcessInput@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@PEBX@Z @ 0x1C024F564 (-ProcessInput@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@PEBX@Z.c)
  */
 
-void __fastcall InkProcessorOnInkDeviceInputReport(struct RawInputManagerDeviceObject *a1, void *a2)
+void __fastcall InkProcessorOnInkDeviceInputReport(
+        struct RawInputManagerDeviceObject *a1,
+        struct RawInputManagerDeviceObject *a2,
+        const void *a3)
 {
-  int InkProcessor; // eax
-  struct RawInputManagerDeviceObject *v3; // rdx
-  const void *v4; // r8
-  struct InkProcessor *v5; // [rsp+30h] [rbp-48h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+38h] [rbp-40h] BYREF
-  struct InkProcessor **v7; // [rsp+58h] [rbp-20h]
-  int v8; // [rsp+60h] [rbp-18h]
-  int v9; // [rsp+64h] [rbp-14h]
+  int v3; // [rsp+30h] [rbp-48h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+38h] [rbp-40h] BYREF
+  int *v5; // [rsp+58h] [rbp-20h]
+  int v6; // [rsp+60h] [rbp-18h]
+  int v7; // [rsp+64h] [rbp-14h]
 
-  v5 = 0LL;
-  InkProcessor = GetInkProcessor(&v5);
-  if ( InkProcessor >= 0 )
+  if ( InkProcessor::s_pInstance )
   {
-    InkProcessor::ProcessInput(v5, v3, v4);
+    InkProcessor::ProcessInput(InkProcessor::s_pInstance, a2, a3);
   }
-  else if ( (unsigned int)dword_1C03540E0 > 2 )
+  else if ( (unsigned int)dword_1C032A288 > 2 )
   {
-    v9 = 0;
-    LODWORD(v5) = InkProcessor;
-    v8 = 4;
-    v7 = &v5;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C03540E0, (unsigned __int8 *)dword_1C031C186, 0LL, 0LL, 3u, &v6);
+    v3 = -1073741823;
+    v5 = &v3;
+    v7 &= (unsigned int)InkProcessor::s_pInstance;
+    v6 = 4;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C032A288, (unsigned __int8 *)dword_1C02F1ECC, 0LL, 0LL, 3u, &v4);
   }
 }

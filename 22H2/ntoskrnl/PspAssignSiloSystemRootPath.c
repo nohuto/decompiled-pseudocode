@@ -1,25 +1,25 @@
 /*
- * XREFs of PspAssignSiloSystemRootPath @ 0x1409ACA60
+ * XREFs of PspAssignSiloSystemRootPath @ 0x140905E50
  * Callers:
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
  * Callees:
- *     PsDereferenceSiloContext @ 0x140369C20 (PsDereferenceSiloContext.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PsInsertSiloContext @ 0x14077CEF0 (PsInsertSiloContext.c)
- *     PsCreateSiloContext @ 0x14077D1F0 (PsCreateSiloContext.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PsInsertSiloContext @ 0x1405D25C0 (PsInsertSiloContext.c)
+ *     PsCreateSiloContext @ 0x140660F90 (PsCreateSiloContext.c)
  */
 
 __int64 __fastcall PspAssignSiloSystemRootPath(__int64 a1, unsigned __int16 *a2)
 {
-  __int64 v3; // rdx
-  _WORD *v5; // rcx
+  __int64 v3; // r9
+  _WORD *v5; // rdx
   __int64 result; // rax
-  _WORD *v7; // rdi
-  void *v8; // rcx
+  PADAPTER_OBJECT v7; // rdi
+  PADAPTER_OBJECT v8; // rcx
   unsigned int inserted; // ebx
-  __int64 v10; // [rsp+48h] [rbp+10h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp+10h] BYREF
 
-  v10 = 0LL;
+  DmaAdapter = 0LL;
   v3 = *a2;
   if ( (unsigned int)v3 < 8 )
     return 3221225485LL;
@@ -33,17 +33,17 @@ __int64 __fastcall PspAssignSiloSystemRootPath(__int64 a1, unsigned __int16 *a2)
   {
     return 3221225485LL;
   }
-  result = PsCreateSiloContext(a1, (int)v3 + 16, 1, 0LL, &v10);
+  result = PsCreateSiloContext(a1, (int)v3 + 16, 1, 0LL, &DmaAdapter);
   if ( (int)result >= 0 )
   {
-    v7 = (_WORD *)v10;
-    v8 = (void *)(v10 + 16);
-    *(_QWORD *)(v10 + 8) = v10 + 16;
-    *v7 = *a2;
-    v7[1] = *a2;
+    v7 = DmaAdapter;
+    v8 = DmaAdapter + 1;
+    DmaAdapter->DmaOperations = (_DMA_OPERATIONS *)&DmaAdapter[1];
+    v7->Version = *a2;
+    v7->Size = *a2;
     memmove(v8, *((const void **)a2 + 1), *a2);
     inserted = PsInsertSiloContext(a1, PsSystemRootSiloContextSlot, (__int64)v7);
-    PsDereferenceSiloContext(v7);
+    HalPutDmaAdapter(v7);
     return inserted;
   }
   return result;

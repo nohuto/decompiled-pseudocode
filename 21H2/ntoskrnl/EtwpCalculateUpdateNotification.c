@@ -1,15 +1,16 @@
 /*
- * XREFs of EtwpCalculateUpdateNotification @ 0x1407900EC
+ * XREFs of EtwpCalculateUpdateNotification @ 0x1406E4530
  * Callers:
- *     EtwpEnableGuid @ 0x14079028C (EtwpEnableGuid.c)
- *     EtwpNotifyDisallowedGuidChange @ 0x1409E448C (EtwpNotifyDisallowedGuidChange.c)
+ *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
+ *     EtwpDisallowedGuidAddition @ 0x140933C04 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x140933EEC (EtwpDisallowedGuidRemoval.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x14042A1E0 (RtlCompareMemory.c)
- *     memset @ 0x140435E00 (memset.c)
- *     EtwpBuildNotificationPacket @ 0x1406F2158 (EtwpBuildNotificationPacket.c)
- *     EtwpGetSchematizedFilterSize @ 0x140796390 (EtwpGetSchematizedFilterSize.c)
- *     EtwpComputeRegEntryEnableInfo @ 0x14079809C (EtwpComputeRegEntryEnableInfo.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpGetSchematizedFilterSize @ 0x1405EBEB8 (EtwpGetSchematizedFilterSize.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x140643FCC (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpBuildNotificationPacket @ 0x1406E16DC (EtwpBuildNotificationPacket.c)
  */
 
 char __fastcall EtwpCalculateUpdateNotification(
@@ -27,9 +28,10 @@ char __fastcall EtwpCalculateUpdateNotification(
   __int16 v11; // r14
   _OWORD *v13; // rsi
   __int64 v14; // rcx
-  __int64 v15; // rdx
+  unsigned __int8 v15; // dl
   __int128 v16; // xmm0
   int SchematizedFilterSize; // eax
+  _OWORD *v18; // rax
   _BYTE Source2[120]; // [rsp+28h] [rbp-59h] BYREF
 
   if ( a5 )
@@ -56,22 +58,22 @@ char __fastcall EtwpCalculateUpdateNotification(
     if ( (a2 & a3) == 0 && (v9 & a2) == 0 )
       return 0;
     if ( a4 == v9 && a5 != 2 && !v10 && !*(_BYTE *)(a1 + 101) && !*(_BYTE *)(a1 + 103) )
-    {
-LABEL_12:
-      *a8 = 0LL;
-      return 1;
-    }
-    goto LABEL_14;
+      goto LABEL_11;
+    goto LABEL_17;
   }
   if ( v9 || a7 != 1 )
-    goto LABEL_12;
+  {
+LABEL_11:
+    *a8 = 0LL;
+    return 1;
+  }
   if ( a3 )
   {
-LABEL_14:
+LABEL_17:
     memset(Source2, 0, sizeof(Source2));
     v13 = (_OWORD *)*a8;
     v14 = *(_QWORD *)(a1 + 32);
-    LOBYTE(v15) = *(_BYTE *)(a1 + 100);
+    v15 = *(_BYTE *)(a1 + 100);
     *(_OWORD *)Source2 = *(_OWORD *)*a8;
     *(_OWORD *)&Source2[16] = v13[1];
     *(_OWORD *)&Source2[32] = v13[2];
@@ -83,26 +85,22 @@ LABEL_14:
     SchematizedFilterSize = EtwpGetSchematizedFilterSize(v14, v15);
     if ( SchematizedFilterSize )
       *(_DWORD *)&Source2[4] = SchematizedFilterSize + 136;
-    EtwpComputeRegEntryEnableInfo(a1, &Source2[72]);
+    EtwpComputeRegEntryEnableInfo(a1, (__int64)&Source2[72]);
     if ( v11 )
     {
       *(_QWORD *)&Source2[104] = 0LL;
       *(_DWORD *)&Source2[112] = 0;
     }
-    if ( v13 )
+    if ( !v13
+      || (*((_DWORD *)v13 + 1) == *(_DWORD *)&Source2[4] && RtlCompareMemory(v13, Source2, 0x78uLL) == 120
+        ? (v18 = (_OWORD *)*a8)
+        : (*a8 = 0LL, v18 = 0LL),
+          !v18) )
     {
-      if ( *((_DWORD *)v13 + 1) == *(_DWORD *)&Source2[4] && RtlCompareMemory(v13, Source2, 0x78uLL) == 120 )
-      {
-        if ( *a8 )
-          return 1;
-      }
-      else
-      {
-        *a8 = 0LL;
-      }
+      if ( (int)EtwpBuildNotificationPacket(*(_QWORD *)(a1 + 32), Source2, *(_BYTE *)(a1 + 100), a8) < 0 )
+        return 0;
     }
-    if ( (int)EtwpBuildNotificationPacket(*(_QWORD *)(a1 + 32), Source2, *(_BYTE *)(a1 + 100), a8) >= 0 )
-      return 1;
+    return 1;
   }
   return 0;
 }

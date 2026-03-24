@@ -1,17 +1,17 @@
 /*
- * XREFs of PopOrphanCoolingExtension @ 0x14098B868
+ * XREFs of PopOrphanCoolingExtension @ 0x1408E2E98
  * Callers:
- *     PopCoolingExtensionPnpNotification @ 0x14098B4E0 (PopCoolingExtensionPnpNotification.c)
+ *     PopCoolingExtensionPnpNotification @ 0x1408E2B10 (PopCoolingExtensionPnpNotification.c)
  * Callees:
- *     PopGetDope @ 0x14025A904 (PopGetDope.c)
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopTraceThermalRequestPassiveHistogram @ 0x14038AF44 (PopTraceThermalRequestPassiveHistogram.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x1403C0F80 (PopThermalUpdateTelemetryClientCount.c)
- *     PopTraceThermalRequestActiveActivity @ 0x1405D4150 (PopTraceThermalRequestActiveActivity.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x1407FD7A8 (PopThermalUpdatePassiveTimeTracking.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x14081CEB4 (PopThermalUpdateActiveTimeTracking.c)
- *     PopDiagTraceThermalRequest @ 0x140860CFC (PopDiagTraceThermalRequest.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x14038A888 (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopTraceThermalRequestActiveActivity @ 0x14038AA74 (PopTraceThermalRequestActiveActivity.c)
+ *     PopGetDope @ 0x140399D04 (PopGetDope.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x1403A7FC8 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopDiagTraceThermalRequest @ 0x1406C1DA4 (PopDiagTraceThermalRequest.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140778678 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x14078DF1C (PopThermalUpdateActiveTimeTracking.c)
  */
 
 void __fastcall PopOrphanCoolingExtension(_QWORD *a1)

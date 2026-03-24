@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpApicTimerQueryCounter @ 0x1403AD7C0
+ * XREFs of HalpApicTimerQueryCounter @ 0x1403CB3A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpApicTimerQueryCounter()

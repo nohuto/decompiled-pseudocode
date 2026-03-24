@@ -1,5 +1,5 @@
 /*
- * XREFs of ReleaseWakeReference @ 0x1C0152260
+ * XREFs of ReleaseWakeReference @ 0x1C01375B0
  * Callers:
  *     <none>
  * Callees:

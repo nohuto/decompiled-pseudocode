@@ -1,41 +1,52 @@
 /*
- * XREFs of ?MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C01D751C
+ * XREFs of ?MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C0148408
  * Callers:
- *     ?EnsureContentRegionAndDWMClipBoxAreValid@CCD_TOPOLOGY@@QEAAJXZ @ 0x1C01D7494 (-EnsureContentRegionAndDWMClipBoxAreValid@CCD_TOPOLOGY@@QEAAJXZ.c)
+ *     ?EnsureContentRegionAndDWMClipBoxAreValid@CCD_TOPOLOGY@@QEAAJXZ @ 0x1C0148380 (-EnsureContentRegionAndDWMClipBoxAreValid@CCD_TOPOLOGY@@QEAAJXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z @ 0x1C0011EC8 (-D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z.c)
- *     ?CalculateScaling@@YA_NW4DISPLAYCONFIG_SCALING@@PEBU_D3DKMDT_2DREGION@@1PEAU_RECTL@@@Z @ 0x1C0019E5C (-CalculateScaling@@YA_NW4DISPLAYCONFIG_SCALING@@PEBU_D3DKMDT_2DREGION@@1PEAU_RECTL@@@Z.c)
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C01ABE88 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
- *     ?ConvertDmmToDisplayConfigScaling@@YA?AW4DISPLAYCONFIG_SCALING@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C01B153C (-ConvertDmmToDisplayConfigScaling@@YA-AW4DISPLAYCONFIG_SCALING@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SC.c)
- *     DxgkGetAdapterDefaultScaling @ 0x1C01D5E50 (DxgkGetAdapterDefaultScaling.c)
+ *     ?D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z @ 0x1C000A8B4 (-D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z.c)
+ *     ?CalculateScaling@@YA_NW4DISPLAYCONFIG_SCALING@@PEBU_D3DKMDT_2DREGION@@1PEAU_RECTL@@@Z @ 0x1C000C88C (-CalculateScaling@@YA_NW4DISPLAYCONFIG_SCALING@@PEBU_D3DKMDT_2DREGION@@1PEAU_RECTL@@@Z.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013527C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     ?ConvertDmmToDisplayConfigScaling@@YA?AW4DISPLAYCONFIG_SCALING@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C01387DC (-ConvertDmmToDisplayConfigScaling@@YA-AW4DISPLAYCONFIG_SCALING@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SC.c)
+ *     DxgkGetAdapterDefaultScaling @ 0x1C0149040 (DxgkGetAdapterDefaultScaling.c)
  */
 
-__int64 __fastcall CCD_TOPOLOGY::MakeCloneGroupDWMClipBoxValid(CCD_TOPOLOGY *this, unsigned int a2)
+__int64 __fastcall CCD_TOPOLOGY::MakeCloneGroupDWMClipBoxValid(CCD_TOPOLOGY *this, __int64 a2)
 {
   unsigned int v3; // ebp
   int v4; // r15d
   const struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rax
-  struct _LUID *v6; // rbx
-  unsigned int v7; // ecx
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  int v10; // r10d
-  int v11; // r10^4
-  DWORD HighPart; // eax
-  int v13; // eax
-  int v14; // eax
-  int *v15; // rdi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v8; // rbx
+  unsigned int v9; // ecx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  int v14; // r10d
+  int v15; // r10^4
   int v16; // eax
-  _QWORD *v18; // rax
-  struct _LUID v19; // rax
-  int *p_HighPart; // rsi
-  int v21; // eax
-  int v22; // eax
-  char v23; // al
-  DWORD LowPart; // [rsp+90h] [rbp+8h] BYREF
-  DWORD v25; // [rsp+94h] [rbp+Ch]
-  __int64 v26; // [rsp+A0h] [rbp+18h] BYREF
+  int v17; // eax
+  int v18; // eax
+  unsigned int *v19; // rdi
+  int v20; // eax
+  _QWORD *v22; // rax
+  __int64 v23; // rax
+  _DWORD *v24; // rsi
+  unsigned int v25; // eax
+  _QWORD *v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rdx
+  unsigned int v31; // eax
+  char v32; // al
+  __int64 v33; // rax
+  __int64 v34; // rax
+  __int64 v35; // rax
+  unsigned int v36; // [rsp+60h] [rbp+8h] BYREF
+  int v37; // [rsp+64h] [rbp+Ch]
+  __int64 v38; // [rsp+70h] [rbp+18h] BYREF
 
   v3 = 0;
   v4 = *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor(this, a2) + 46);
@@ -44,141 +55,136 @@ __int64 __fastcall CCD_TOPOLOGY::MakeCloneGroupDWMClipBoxValid(CCD_TOPOLOGY *thi
   while ( 1 )
   {
     PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor(this, v3);
-    v6 = (struct _LUID *)PathDescriptor;
+    v8 = PathDescriptor;
     if ( *((_DWORD *)PathDescriptor + 46) != v4 )
       goto LABEL_21;
     if ( !*((_BYTE *)PathDescriptor + 129) )
     {
       if ( (*(_DWORD *)PathDescriptor & 0x100LL) == 0 )
-        WdLogSingleEntry0(1LL);
-      v6[32].HighPart |= 1u;
-      v15 = (int *)&v6[21];
-      v6[22].LowPart = v6[12].LowPart;
-      v6[22].HighPart = v6[12].HighPart;
-      v16 = 0;
-      v6[21].HighPart = 0;
-      v6[21].LowPart = 0;
+      {
+        v34 = WdLogNewEntry5_WdAssertion(v7, v6);
+        WdLogEvent5_WdAssertion(v34);
+      }
+      *((_DWORD *)v8 + 59) |= 1u;
+      v19 = (unsigned int *)((char *)v8 + 168);
+      *((_DWORD *)v8 + 44) = *((_DWORD *)v8 + 24);
+      *((_DWORD *)v8 + 45) = *((_DWORD *)v8 + 25);
+      v20 = 0;
+      *((_DWORD *)v8 + 43) = 0;
+      *((_DWORD *)v8 + 42) = 0;
       goto LABEL_17;
     }
-    v7 = *((_DWORD *)PathDescriptor + 33);
-    v26 = *((_QWORD *)PathDescriptor + 12);
-    if ( (((unsigned int)D3DKMDT_VPPR_GET_CONTENT_ROTATION(v7) - 2) & 0xFFFFFFFD) != 0 )
+    v9 = *((_DWORD *)PathDescriptor + 33);
+    v38 = *((_QWORD *)PathDescriptor + 12);
+    if ( (((unsigned int)D3DKMDT_VPPR_GET_CONTENT_ROTATION(v9) - 2) & 0xFFFFFFFD) != 0 )
     {
-      LowPart = v6[19].LowPart;
-      HighPart = v6[19].HighPart;
+      v36 = *((_DWORD *)v8 + 38);
+      v16 = *((_DWORD *)v8 + 39);
     }
     else
     {
-      LowPart = v6[19].HighPart;
-      HighPart = v6[19].LowPart;
+      v36 = *((_DWORD *)v8 + 39);
+      v16 = *((_DWORD *)v8 + 38);
     }
-    v25 = HighPart;
-    if ( (v6->LowPart & 0x800000) == 0 )
+    v37 = v16;
+    if ( (*(_DWORD *)v8 & 0x800000) == 0 )
       goto LABEL_23;
-    v9 = (unsigned int)v6[21].HighPart;
-    if ( (int)v9 < 0 )
+    v11 = *((unsigned int *)v8 + 43);
+    if ( (int)v11 < 0 )
       break;
-    v13 = v6[21].LowPart;
-    if ( v13 < 0 )
+    v17 = *((_DWORD *)v8 + 42);
+    if ( v17 < 0 )
       break;
-    v8 = v6[22].LowPart;
-    if ( (int)v8 <= v13 )
+    v10 = *((unsigned int *)v8 + 44);
+    if ( (int)v10 <= v17 )
       break;
-    v14 = v6[22].HighPart;
-    if ( v14 <= (int)v9 || (int)v8 > v10 || v14 > v11 )
+    v18 = *((_DWORD *)v8 + 45);
+    if ( v18 <= (int)v11 || (int)v10 > v14 || v18 > v15 )
       break;
 LABEL_21:
     if ( ++v3 >= *(unsigned __int16 *)(*((_QWORD *)this + 8) + 20LL) )
       return 0LL;
   }
-  if ( (v6[1].LowPart & 0x800000) == 0 )
+  if ( (*((_DWORD *)v8 + 2) & 0x800000) == 0 )
   {
 LABEL_23:
-    v18 = (_QWORD *)WdLogNewEntry5_WdTrace(v9, v8);
-    v18[3] = v3;
-    v18[4] = v6[3].LowPart;
-    v18[5] = (unsigned int)v6[3].HighPart;
-    v19 = *v6;
-    if ( (*(_QWORD *)v6 & 0x40000000000LL) == 0 )
+    v22 = (_QWORD *)WdLogNewEntry5_WdTrace(v11, v10, v12, v13);
+    v22[3] = v3;
+    v22[4] = *((unsigned int *)v8 + 6);
+    v22[5] = *((unsigned int *)v8 + 7);
+    v7 = 0x40000000000LL;
+    v23 = *(_QWORD *)v8;
+    if ( (*(_QWORD *)v8 & 0x40000000000LL) == 0 )
     {
-      WdLogSingleEntry0(1LL);
-      v19 = *v6;
+      v27 = WdLogNewEntry5_WdAssertion(0x40000000000LL, v6);
+      WdLogEvent5_WdAssertion(v27);
+      v23 = *(_QWORD *)v8;
     }
-    if ( v6[17].LowPart == 1 )
+    if ( *((_DWORD *)v8 + 34) == 1 )
     {
-      p_HighPart = &v6[17].HighPart;
-      if ( (*(_QWORD *)&v19 & 0x10000) != 0 )
+      v24 = (_DWORD *)((char *)v8 + 140);
+      if ( (v23 & 0x10000) != 0 )
       {
-        if ( *p_HighPart == 5 )
+        if ( *v24 == 5 )
         {
-          DxgkGetAdapterDefaultScaling(v6 + 2, &v6[17].HighPart);
-          v6[32].HighPart |= 0x200u;
+          DxgkGetAdapterDefaultScaling((char *)v8 + 16, (char *)v8 + 140);
+          *((_DWORD *)v8 + 59) |= 0x200u;
         }
       }
       else
       {
-        DxgkGetAdapterDefaultScaling(v6 + 2, &v6[17].HighPart);
-        *(_QWORD *)v6 |= 0x10000uLL;
-        v6[32].HighPart |= 0x80u;
+        DxgkGetAdapterDefaultScaling((char *)v8 + 16, (char *)v8 + 140);
+        *(_QWORD *)v8 |= 0x10000uLL;
+        *((_DWORD *)v8 + 59) |= 0x80u;
       }
-      v15 = (int *)&v6[21];
-      v21 = ConvertDmmToDisplayConfigScaling(*p_HighPart);
-      if ( !CalculateScaling(v21, (unsigned int *)&v26, &LowPart, (unsigned int *)&v6[21]) )
+      v19 = (unsigned int *)((char *)v8 + 168);
+      v25 = ConvertDmmToDisplayConfigScaling((unsigned int)*v24, v6);
+      if ( !CalculateScaling(v25, (unsigned int *)&v38, &v36, (unsigned int *)v8 + 42) )
       {
-        WdLogSingleEntry1(1LL, *p_HighPart);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"Failed to set clipbox with scaling intent 0x%lx, going to force ",
-          *p_HighPart,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        DxgkGetAdapterDefaultScaling(v6 + 2, &v6[17].HighPart);
-        v22 = ConvertDmmToDisplayConfigScaling(*p_HighPart);
-        v23 = CalculateScaling(v22, (unsigned int *)&v26, &LowPart, (unsigned int *)&v6[21]);
-        v6[32].HighPart |= 0x40u;
-        if ( !v23 )
+        v29 = WdLogNewEntry5_WdAssertion(v7, v6);
+        *(_QWORD *)(v29 + 24) = (int)*v24;
+        WdLogEvent5_WdAssertion(v29);
+        DxgkGetAdapterDefaultScaling((char *)v8 + 16, (char *)v8 + 140);
+        v31 = ConvertDmmToDisplayConfigScaling((unsigned int)*v24, v30);
+        v32 = CalculateScaling(v31, (unsigned int *)&v38, &v36, (unsigned int *)v8 + 42);
+        *((_DWORD *)v8 + 59) |= 0x40u;
+        if ( !v32 )
         {
-          WdLogSingleEntry1(1LL, 4041LL);
-          DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"bRet", 4041LL, 0LL, 0LL, 0LL, 0LL);
+          v33 = WdLogNewEntry5_WdAssertion(v7, v6);
+          *(_QWORD *)(v33 + 24) = 3760LL;
+          WdLogEvent5_WdAssertion(v33);
         }
       }
     }
     else
     {
-      if ( (v19.LowPart & 0x100) == 0 )
-        WdLogSingleEntry0(1LL);
-      v6[32].HighPart |= 1u;
-      v15 = (int *)&v6[21];
-      v6[22].LowPart = v6[12].LowPart;
-      v6[22].HighPart = v6[12].HighPart;
-      v6[21].HighPart = 0;
-      v6[21].LowPart = 0;
+      if ( (v23 & 0x100) == 0 )
+      {
+        v28 = WdLogNewEntry5_WdAssertion(v7, v6);
+        WdLogEvent5_WdAssertion(v28);
+      }
+      *((_DWORD *)v8 + 59) |= 1u;
+      v19 = (unsigned int *)((char *)v8 + 168);
+      *((_DWORD *)v8 + 44) = *((_DWORD *)v8 + 24);
+      *((_DWORD *)v8 + 45) = *((_DWORD *)v8 + 25);
+      *((_DWORD *)v8 + 43) = 0;
+      *((_DWORD *)v8 + 42) = 0;
     }
-    v16 = v6[21].HighPart;
+    v20 = *((_DWORD *)v8 + 43);
 LABEL_17:
-    *(_QWORD *)v6 |= 0x800000uLL;
-    if ( v16 < 0 || *v15 < 0 || (signed int)v6[22].LowPart <= *v15 || v6[22].HighPart <= v16 )
+    *(_QWORD *)v8 |= 0x800000uLL;
+    if ( v20 < 0 || (v7 = *v19, (int)v7 < 0) || *((_DWORD *)v8 + 44) <= (int)v7 || *((_DWORD *)v8 + 45) <= v20 )
     {
-      WdLogSingleEntry1(1LL, 4061LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"(pPathDescriptor->DwmClipBox.top >= 0) && (pPathDescriptor->DwmClipBox.left >= 0) && (pPathDescriptor->"
-                  "DwmClipBox.right > pPathDescriptor->DwmClipBox.left) && (pPathDescriptor->DwmClipBox.bottom > pPathDes"
-                  "criptor->DwmClipBox.top)",
-        4061LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v35 = WdLogNewEntry5_WdAssertion(v7, v6);
+      *(_QWORD *)(v35 + 24) = 3780LL;
+      WdLogEvent5_WdAssertion(v35);
     }
     goto LABEL_21;
   }
-  WdLogSingleEntry3(2LL, v3, v6[3].LowPart, (unsigned int)v6[3].HighPart);
+  v26 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+  v26[3] = v3;
+  v26[4] = *((unsigned int *)v8 + 6);
+  v26[5] = *((unsigned int *)v8 + 7);
+  WdLogEvent5_WdError(v26);
   return 3221225485LL;
 }

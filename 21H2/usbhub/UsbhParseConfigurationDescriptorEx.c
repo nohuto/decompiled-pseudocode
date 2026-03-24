@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhParseConfigurationDescriptorEx @ 0x1C003156C
+ * XREFs of UsbhParseConfigurationDescriptorEx @ 0x1C00327F4
  * Callers:
- *     UsbhConfigureUsbHub @ 0x1C00293DC (UsbhConfigureUsbHub.c)
- *     UsbhGetDeviceInformation @ 0x1C0037880 (UsbhGetDeviceInformation.c)
+ *     UsbhConfigureUsbHub @ 0x1C002A738 (UsbhConfigureUsbHub.c)
+ *     UsbhGetDeviceInformation @ 0x1C0038B48 (UsbhGetDeviceInformation.c)
  * Callees:
- *     UsbhParseDescriptors @ 0x1C00316BC (UsbhParseDescriptors.c)
+ *     UsbhParseDescriptors @ 0x1C003294C (UsbhParseDescriptors.c)
  */
 
 _BYTE *__fastcall UsbhParseConfigurationDescriptorEx(
@@ -20,12 +20,15 @@ _BYTE *__fastcall UsbhParseConfigurationDescriptorEx(
   _BYTE *v8; // rdi
   unsigned __int64 v9; // rbx
   _BYTE *v13; // rax
+  unsigned __int64 v14; // rdx
+  char v15; // al
 
   v8 = 0LL;
   v9 = a2 + *(unsigned __int16 *)(a2 + 2);
   do
   {
     v13 = (_BYTE *)UsbhParseDescriptors(a1, a2, *(unsigned __int16 *)(a2 + 2));
+    v14 = (unsigned __int64)v13;
     if ( !v13 )
       break;
     v8 = v13;
@@ -61,7 +64,10 @@ _BYTE *__fastcall UsbhParseConfigurationDescriptorEx(
     {
       v8 = 0LL;
     }
+    v15 = *v13;
+    if ( v8 )
+      break;
   }
-  while ( !v8 && *v13 );
+  while ( (v14 & -(__int64)(v15 != 0)) != 0 );
   return v8;
 }

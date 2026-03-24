@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetAvailablePagesBelowPriority @ 0x140137D64
+ * XREFs of MmGetAvailablePagesBelowPriority @ 0x140137D84
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x140666580 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x140666560 (PfSnAsyncPrefetchWorker.c)
  * Callees:
  *     MiGetAvailablePagesBelowPriority @ 0x140030FC4 (MiGetAvailablePagesBelowPriority.c)
  */

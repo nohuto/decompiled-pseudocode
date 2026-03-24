@@ -1,18 +1,18 @@
 /*
- * XREFs of SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409C99C0
+ * XREFs of SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14091FF5C
  * Callers:
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x1406B5B9C (SeSecurityDescriptorChangedAuditAlarm.c)
- *     SeTokenDefaultDaclChangedAuditAlarm @ 0x140753358 (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x140697800 (SeSecurityDescriptorChangedAuditAlarm.c)
+ *     SeTokenDefaultDaclChangedAuditAlarm @ 0x1406BC308 (SeTokenDefaultDaclChangedAuditAlarm.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14023A1C0 (PsGetCurrentThreadProcess.c)
- *     ObpIsKernelHandle @ 0x1402F3558 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1407B66E0 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepSecurityDescriptorStrictLength @ 0x1409CE6B8 (SepSecurityDescriptorStrictLength.c)
- *     SepAuditFailed @ 0x1409CF1A0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PsGetCurrentThreadProcess @ 0x1402BDFE0 (PsGetCurrentThreadProcess.c)
+ *     ObpIsKernelHandle @ 0x1403488C0 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1406CC938 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepSecurityDescriptorStrictLength @ 0x140924DDC (SepSecurityDescriptorStrictLength.c)
+ *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepAdtSecurityDescriptorChangedAuditAlarm(
@@ -39,26 +39,28 @@ void __fastcall SepAdtSecurityDescriptorChangedAuditAlarm(
   unsigned __int64 v23; // r8
   __int64 v24; // rcx
   unsigned __int64 v25; // rcx
-  int v26; // eax
-  __int64 v27; // rcx
+  int v26; // edx
+  int v27; // esi
   int v28; // eax
+  __int64 v29; // rcx
+  int v30; // eax
   PVOID P; // [rsp+28h] [rbp-E0h] BYREF
-  __int64 v30; // [rsp+30h] [rbp-D8h]
+  __int64 v32; // [rsp+30h] [rbp-D8h]
   struct _LIST_ENTRY *Flink; // [rsp+38h] [rbp-D0h]
   _QWORD Src[132]; // [rsp+48h] [rbp-C0h] BYREF
 
   P = 0LL;
-  v30 = a9;
+  v32 = a9;
   CurrentThreadProcess = PsGetCurrentThreadProcess();
   Flink = CurrentThreadProcess[1].Header.WaitListHead.Flink;
-  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, &P);
+  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, (__int64)&P);
   if ( AllocatedFullProcessImageName >= 0 )
   {
     memset(Src, 0, 0x418uLL);
     if ( (a8 & 8) != 0 )
     {
       Src[0] = 0x132B00000006LL;
-      v15 = 139;
+      v15 = 140;
     }
     else
     {
@@ -73,7 +75,7 @@ void __fastcall SepAdtSecurityDescriptorChangedAuditAlarm(
           HIDWORD(Src[0]) = 4670;
       }
       LODWORD(Src[0]) = 3;
-      v15 = 141;
+      v15 = 142;
     }
     v16 = *a2;
     LOWORD(Src[2]) = v15;
@@ -109,24 +111,25 @@ void __fastcall SepAdtSecurityDescriptorChangedAuditAlarm(
     Src[27] = 0x80000000BLL;
     IsKernelHandle = ObpIsKernelHandle(a5, 0);
     v25 = v24 ^ 0xFFFFFFFF80000000uLL;
-    LODWORD(Src[31]) = 24;
+    v27 = v26 + 24;
+    LODWORD(Src[31]) = v26 + 24;
     if ( !IsKernelHandle )
       v25 = v23;
     Src[28] = v25 & 0xFFFFFFFFFFFFFFFCuLL;
-    v26 = SepSecurityDescriptorStrictLength(a7);
+    v28 = SepSecurityDescriptorStrictLength(a7);
     Src[33] = 4LL;
-    HIDWORD(Src[31]) = v26;
+    HIDWORD(Src[31]) = v28;
     Src[34] = a7;
     Src[32] = a8;
-    LODWORD(Src[35]) = 24;
-    HIDWORD(Src[35]) = SepSecurityDescriptorStrictLength(v30);
-    Src[38] = v27;
+    LODWORD(Src[35]) = v27;
+    HIDWORD(Src[35]) = SepSecurityDescriptorStrictLength(v32);
+    Src[38] = v29;
     Src[40] = Flink;
     Src[46] = P;
     Src[36] = a8;
-    v28 = *(unsigned __int16 *)P + 16;
+    v30 = *(unsigned __int16 *)P + 16;
     Src[37] = 4LL;
-    HIDWORD(Src[43]) = v28;
+    HIDWORD(Src[43]) = v30;
     Src[39] = 0x80000000BLL;
     LODWORD(Src[43]) = 2;
     LODWORD(Src[1]) = 11;

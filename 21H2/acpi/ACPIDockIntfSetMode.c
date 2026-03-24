@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIDockIntfSetMode @ 0x1C00AA250
+ * XREFs of ACPIDockIntfSetMode @ 0x1C00AB450
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
  */
 
 __int64 __fastcall ACPIDockIntfSetMode(ULONG_PTR a1, int a2)

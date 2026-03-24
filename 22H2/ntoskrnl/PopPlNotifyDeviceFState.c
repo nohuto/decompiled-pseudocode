@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPlNotifyDeviceFState @ 0x14035BFE0
+ * XREFs of PopPlNotifyDeviceFState @ 0x1403A4378
  * Callers:
- *     PopPepNotifyIdleState @ 0x14035BE70 (PopPepNotifyIdleState.c)
- *     PopPepStartComponentIdleStateChangeActivity @ 0x14035BF10 (PopPepStartComponentIdleStateChangeActivity.c)
- *     PopPepCompleteComponentIdleState @ 0x14059EC34 (PopPepCompleteComponentIdleState.c)
+ *     PopPepStartComponentIdleStateChangeActivity @ 0x1403A41B0 (PopPepStartComponentIdleStateChangeActivity.c)
+ *     PopPepNotifyIdleState @ 0x1403A42E0 (PopPepNotifyIdleState.c)
+ *     PopPepCompleteComponentIdleState @ 0x1405740D4 (PopPepCompleteComponentIdleState.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367920 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgCreate1Sz_char @ 0x1403C3CBC (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopPlCalculateDevicePowerDraw @ 0x1405A1234 (PopPlCalculateDevicePowerDraw.c)
- *     PopPlPublishSystemPowerChange @ 0x1405A1678 (PopPlPublishSystemPowerChange.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14032C1BC (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x14034B7DC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPlCalculateDevicePowerDraw @ 0x14057E2A4 (PopPlCalculateDevicePowerDraw.c)
+ *     PopPlPublishSystemPowerChange @ 0x14057E6B8 (PopPlPublishSystemPowerChange.c)
  */
 
 __int64 __fastcall PopPlNotifyDeviceFState(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4, char a5)
@@ -23,14 +23,14 @@ __int64 __fastcall PopPlNotifyDeviceFState(__int64 a1, unsigned int a2, unsigned
   __int64 v10; // rsi
   int v11; // ebx
   int v12; // eax
-  unsigned int v13; // r15d
-  const char *v14; // rdx
+  unsigned int v13; // r14d
+  const CHAR *v14; // rdx
   __int64 v15; // rax
   int v16; // ecx
   __int64 v17; // rax
   int v18; // ecx
-  int v19; // r8d
-  int v20; // r9d
+  __int64 v19; // r8
+  ULONG v20; // r9d
   unsigned __int64 v21; // rbx
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -45,22 +45,26 @@ __int64 __fastcall PopPlNotifyDeviceFState(__int64 a1, unsigned int a2, unsigned
   int v32; // [rsp+60h] [rbp-A0h] BYREF
   unsigned int v33; // [rsp+64h] [rbp-9Ch] BYREF
   __int64 v34; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v35[8]; // [rsp+70h] [rbp-90h] BYREF
-  char v36[16]; // [rsp+B0h] [rbp-50h] BYREF
-  int *v37; // [rsp+C0h] [rbp-40h]
-  __int64 v38; // [rsp+C8h] [rbp-38h]
-  int *v39; // [rsp+D0h] [rbp-30h]
-  __int64 v40; // [rsp+D8h] [rbp-28h]
-  int *v41; // [rsp+E0h] [rbp-20h]
-  __int64 v42; // [rsp+E8h] [rbp-18h]
-  int *v43; // [rsp+F0h] [rbp-10h]
-  __int64 v44; // [rsp+F8h] [rbp-8h]
-  __int64 *v45; // [rsp+100h] [rbp+0h]
-  __int64 v46; // [rsp+108h] [rbp+8h]
-  _DWORD *v47; // [rsp+110h] [rbp+10h]
-  __int64 v48; // [rsp+118h] [rbp+18h]
-  __int64 v49; // [rsp+120h] [rbp+20h]
-  _DWORD v50[2]; // [rsp+128h] [rbp+28h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v35; // [rsp+70h] [rbp-90h] BYREF
+  __int16 *v36; // [rsp+90h] [rbp-70h]
+  __int64 v37; // [rsp+98h] [rbp-68h]
+  __int64 v38; // [rsp+A0h] [rbp-60h]
+  __int64 v39; // [rsp+A8h] [rbp-58h]
+  char v40[16]; // [rsp+B0h] [rbp-50h] BYREF
+  int *v41; // [rsp+C0h] [rbp-40h]
+  __int64 v42; // [rsp+C8h] [rbp-38h]
+  int *v43; // [rsp+D0h] [rbp-30h]
+  __int64 v44; // [rsp+D8h] [rbp-28h]
+  int *v45; // [rsp+E0h] [rbp-20h]
+  __int64 v46; // [rsp+E8h] [rbp-18h]
+  int *v47; // [rsp+F0h] [rbp-10h]
+  __int64 v48; // [rsp+F8h] [rbp-8h]
+  __int64 *v49; // [rsp+100h] [rbp+0h]
+  __int64 v50; // [rsp+108h] [rbp+8h]
+  _DWORD *v51; // [rsp+110h] [rbp+10h]
+  __int64 v52; // [rsp+118h] [rbp+18h]
+  __int64 v53; // [rsp+120h] [rbp+20h]
+  _DWORD v54[2]; // [rsp+128h] [rbp+28h] BYREF
 
   v28 = a2;
   v29 = a4;
@@ -84,61 +88,70 @@ __int64 __fastcall PopPlNotifyDeviceFState(__int64 a1, unsigned int a2, unsigned
       v12 = PopPlCalculateDevicePowerDraw(a1, 0LL, &v29, &v28);
       *(_DWORD *)(v9 + 32) = v12;
       v13 = v12 - v11;
-      if ( (unsigned int)dword_140C03950 > 5 )
+      if ( (unsigned int)dword_140C02228 > 5 )
       {
         v27 = 1;
-        v35[4] = (__int64)&v27;
+        v36 = &v27;
         v14 = "Beginning";
-        v35[6] = v34;
-        v35[5] = 2LL;
+        v38 = v34;
+        v37 = 2LL;
         if ( a5 )
           v14 = "Completed";
-        v35[7] = 16LL;
-        tlgCreate1Sz_char(v36, v14);
+        v39 = 16LL;
+        tlgCreate1Sz_char((__int64)v40, v14);
         v30 = a4;
-        v37 = (int *)&v30;
-        v38 = 4LL;
-        v39 = (int *)&v31;
+        v41 = (int *)&v30;
+        v42 = 4LL;
+        v43 = (int *)&v31;
         v32 = *(_DWORD *)(v9 + 32);
-        v41 = &v32;
-        v43 = (int *)&v33;
+        v45 = &v32;
+        v47 = (int *)&v33;
         v15 = *(_QWORD *)(v9 + 16);
         v31 = v13;
-        v40 = 4LL;
-        v42 = 4LL;
-        v33 = v13;
         v44 = 4LL;
+        v46 = 4LL;
+        v33 = v13;
+        v48 = 4LL;
         v16 = *(_DWORD *)(v15 + 28);
-        v45 = &v34;
+        v49 = &v34;
         v17 = *(_QWORD *)(a1 + 224);
         LODWORD(v34) = v13 + v16;
         v18 = *(unsigned __int16 *)(a1 + 216);
-        v49 = v17;
-        v47 = v50;
-        v50[0] = v18;
-        v46 = 4LL;
-        v48 = 2LL;
-        v50[1] = v19;
-        tlgWriteEx_EtwWriteEx((int)&dword_140C03950, (int)&dword_14003240C, v19, v20, v25, v26, 0xCu, (__int64)v35);
+        v53 = v17;
+        v51 = v54;
+        v54[0] = v18;
+        v50 = 4LL;
+        v52 = 2LL;
+        v54[1] = v19;
+        tlgWriteEx_EtwWriteEx(
+          (__int64)&dword_140C02228,
+          (unsigned __int8 *)&byte_14002A388,
+          v19,
+          v20,
+          v25,
+          v26,
+          0xCu,
+          &v35);
       }
       PopPlPublishSystemPowerChange(v10, v13);
       v21 = *(unsigned __int8 *)(v10 + 24);
-      result = KxReleaseSpinLock((volatile signed __int64 *)(v10 + 16));
+      KxReleaseSpinLock((PKSPIN_LOCK)(v10 + 16));
+      result = (unsigned int)KiIrqlFlags;
       if ( KiIrqlFlags )
       {
-        result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
-          && (unsigned __int8)result <= 0xFu
-          && (unsigned __int8)v21 <= 0xFu
-          && (unsigned __int8)result >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v21 + 1));
-          v24 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= result;
-          if ( v24 )
-            result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          result = KeGetCurrentIrql();
+          if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v21 <= 0xFu && (unsigned __int8)result >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v21 + 1));
+            v24 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= result;
+            if ( v24 )
+              result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       __writecr8(v21);

@@ -1,15 +1,15 @@
 /*
- * XREFs of _guard_check_icall @ 0x14042A590
+ * XREFs of _guard_check_icall @ 0x140408560
  * Callers:
- *     bsearch @ 0x1403E1840 (bsearch.c)
- *     bsearch_s @ 0x1403E1950 (bsearch_s.c)
- *     qsort @ 0x1403E1E70 (qsort.c)
- *     qsort_s @ 0x1403E2250 (qsort_s.c)
- *     sub_1403EBEB0 @ 0x1403EBEB0 (sub_1403EBEB0.c)
- *     sub_1403ECE50 @ 0x1403ECE50 (sub_1403ECE50.c)
- *     sub_1403ECF30 @ 0x1403ECF30 (sub_1403ECF30.c)
- *     sub_1403F93A0 @ 0x1403F93A0 (sub_1403F93A0.c)
- *     KeGuardCheckICall @ 0x140AD23C0 (KeGuardCheckICall.c)
+ *     bsearch @ 0x1403D2480 (bsearch.c)
+ *     bsearch_s @ 0x1403D2590 (bsearch_s.c)
+ *     qsort @ 0x1403D2AC0 (qsort.c)
+ *     qsort_s @ 0x1403D2EA0 (qsort_s.c)
+ *     sub_1403DCBC0 @ 0x1403DCBC0 (sub_1403DCBC0.c)
+ *     sub_1403DDB50 @ 0x1403DDB50 (sub_1403DDB50.c)
+ *     sub_1403DDC30 @ 0x1403DDC30 (sub_1403DDC30.c)
+ *     sub_1403EA1C0 @ 0x1403EA1C0 (sub_1403EA1C0.c)
+ *     KeGuardCheckICall @ 0x140A11340 (KeGuardCheckICall.c)
  * Callees:
  *     <none>
  */

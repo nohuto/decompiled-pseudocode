@@ -1,155 +1,142 @@
 /*
- * XREFs of Amd64AddProfileSource @ 0x14052AF40
+ * XREFs of Amd64AddProfileSource @ 0x1404DD4C0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     KiOrAffinityEx @ 0x1402FEC10 (KiOrAffinityEx.c)
- *     KiCopyAffinityEx @ 0x140300030 (KiCopyAffinityEx.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     wcsnlen @ 0x1403E3480 (wcsnlen.c)
- *     wcsncpy_s @ 0x1403E7870 (wcsncpy_s.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HalpInsertProfileSource @ 0x14050B7C0 (HalpInsertProfileSource.c)
- *     Amd64GetEventSelectDef @ 0x14052BB10 (Amd64GetEventSelectDef.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeOrAffinityEx @ 0x14022B850 (KeOrAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     wcsnlen @ 0x1403D40D0 (wcsnlen.c)
+ *     wcsncpy_s @ 0x1403D8420 (wcsncpy_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpInsertProfileSource @ 0x1404BEE10 (HalpInsertProfileSource.c)
  */
 
-__int64 __fastcall Amd64AddProfileSource(__int64 a1, _DWORD *a2)
+__int64 __fastcall Amd64AddProfileSource(unsigned __int8 *a1, _DWORD *a2)
 {
-  int v3; // edx
-  unsigned int v5; // r15d
-  const wchar_t *v7; // rbp
-  unsigned int v8; // ebx
-  __int64 v9; // rcx
-  wchar_t *v10; // rax
-  __int64 v11; // rsi
-  __int64 v12; // rcx
-  void *v13; // rax
-  __int64 v14; // rcx
-  __int64 v15; // rbx
+  const wchar_t *v2; // r15
+  unsigned int v5; // ebp
+  unsigned int v6; // ebx
+  __int64 v7; // rcx
+  wchar_t *v8; // rax
+  __int64 v9; // rdi
+  __int64 v11; // rcx
+  void *v12; // rax
+  __int64 v13; // rcx
+  __int64 v14; // rbx
+  unsigned int v15; // ecx
   int v16; // eax
-  unsigned int v17; // ecx
-  unsigned __int64 v18; // rdi
-  __int64 v19; // rdx
+  unsigned __int64 v17; // rdi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  int v23; // eax
-  bool v24; // zf
-  __int64 *v25; // rsi
-  unsigned __int16 v26; // r9
-  __int64 v27; // rcx
-  unsigned __int8 v28; // al
-  struct _KPRCB *v29; // r11
-  _DWORD *v30; // r9
-  int v31; // edx
-  __int64 v32; // rcx
-  __int64 *v33; // [rsp+50h] [rbp+8h] BYREF
+  int v21; // eax
+  bool v22; // zf
+  _DWORD *v23; // rsi
+  __int64 v24; // rcx
+  unsigned __int8 v25; // al
+  struct _KPRCB *v26; // r11
+  _DWORD *v27; // r9
+  int v28; // edx
+  __int64 v29; // rcx
+  __int64 v30; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = *(unsigned __int8 *)(a1 + 7);
-  v33 = 0LL;
+  v30 = 0LL;
+  v2 = (const wchar_t *)(a1 + 184);
   v5 = -1073741823;
-  if ( v3 == 1 && (Amd64PerfFeatures & 2) == 0 || v3 == 2 && (Amd64PerfFeatures & 4) == 0 || (unsigned __int8)v3 >= 3u )
-    return 3221225659LL;
-  v7 = (const wchar_t *)(a1 + 280);
-  v8 = wcsnlen((const wchar_t *)(a1 + 280), 0xFEuLL) + 1;
-  v10 = (wchar_t *)HalpMmAllocCtxAlloc(v9, 2 * v8);
-  v11 = (__int64)v10;
-  if ( !v10 )
+  v6 = wcsnlen((const wchar_t *)a1 + 92, 0xFEuLL) + 1;
+  v8 = (wchar_t *)HalpMmAllocCtxAlloc(v7, 2 * v6);
+  v9 = (__int64)v8;
+  if ( !v8 )
     return 3221225495LL;
-  wcsncpy_s(v10, v8, v7, v8);
-  v13 = (void *)HalpMmAllocCtxAlloc(v12, 320LL);
-  v15 = (__int64)v13;
-  if ( !v13 )
+  wcsncpy_s(v8, v6, v2, v6);
+  v12 = (void *)HalpMmAllocCtxAlloc(v11, 216LL);
+  v14 = (__int64)v12;
+  if ( !v12 )
   {
-    HalpMmAllocCtxFree(v14, v11);
+    HalpMmAllocCtxFree(v13, v9);
     return 3221225495LL;
   }
-  memset(v13, 0, 0x140uLL);
-  v16 = 0x7FFFFFFF;
-  *(_BYTE *)(v15 + 28) = 1;
-  v17 = *(_DWORD *)(a1 + 8);
-  *(_DWORD *)(v15 + 24) = v17;
-  if ( v17 <= 0x7FFFFFFF )
+  memset(v12, 0, 0xD8uLL);
+  *(_BYTE *)(v14 + 28) = 1;
+  v15 = *((_DWORD *)a1 + 2);
+  *(_DWORD *)(v14 + 24) = v15;
+  if ( v15 > 0x7FFFFFFF )
   {
-    v16 = v17;
-    if ( v17 < 0x1000 )
-      v16 = 4096;
+    *(_DWORD *)(v14 + 24) = 0x7FFFFFFF;
+    v15 = 0x7FFFFFFF;
   }
-  *(_DWORD *)(v15 + 24) = v16;
-  *(_BYTE *)(v15 + 29) = 0;
-  *(_QWORD *)(v15 + 304) = Amd64GetEventSelectDef(a1);
-  *(_DWORD *)(v15 + 316) = 1;
-  *(_DWORD *)(v15 + 312) = *(unsigned __int8 *)(a1 + 7);
-  *(_QWORD *)(v15 + 32) = 2097153LL;
-  memset((void *)(v15 + 40), 0, 0x100uLL);
-  KiCopyAffinityEx(v15 + 32, *(_WORD *)(v15 + 34), (unsigned __int16 *)(a1 + 16));
-  *(_QWORD *)(v15 + 296) = v11;
-  v18 = HalpAcquireHighLevelLock(&HalpProfileSourceDescriptorListLock);
-  if ( HalpInsertProfileSource(v15, v19, 34, &v33) )
+  v16 = *(_DWORD *)(v14 + 24);
+  *(_BYTE *)(v14 + 29) = 0;
+  if ( v15 < 0x1000 )
+    v16 = 4096;
+  *(_DWORD *)(v14 + 24) = v16;
+  *(_DWORD *)(v14 + 208) = *a1 | ((a1[1] | 0x300) << 8);
+  KeCopyAffinityEx(v14 + 32, (unsigned __int16 *)a1 + 8);
+  *(_QWORD *)(v14 + 200) = v9;
+  v17 = HalpAcquireHighLevelLock(&Amd64ProfileSourceDescriptorListLock);
+  if ( HalpInsertProfileSource(v14, (_QWORD **)&Amd64ProfileSourceDescriptorListHead, 192, &v30) )
   {
-    ++HalpProfileSourceDescriptorCount;
+    ++Amd64ProfileSourceDescriptorCount;
     if ( a2 )
-      *a2 = *(_DWORD *)v15;
-    KxReleaseSpinLock(&HalpProfileSourceDescriptorListLock);
+      *a2 = *(_DWORD *)v14;
+    KxReleaseSpinLock(&Amd64ProfileSourceDescriptorListLock);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( CurrentIrql <= 0xFu && (unsigned __int8)v18 <= 0xFu && CurrentIrql >= 2u )
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v17 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v18 + 1));
-          v24 = (v23 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v23;
-          if ( v24 )
+          v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
+          v22 = (v21 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v21;
+          if ( v22 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }
-    __writecr8(v18);
+    __writecr8(v17);
     return 0LL;
   }
   else
   {
-    v25 = v33;
-    if ( v33 && v33[38] == *(_QWORD *)(v15 + 304) )
+    v23 = (_DWORD *)v30;
+    if ( v30 && *(_DWORD *)(v30 + 208) == *(_DWORD *)(v14 + 208) )
     {
-      v26 = 0;
-      if ( v33 != (__int64 *)-32LL )
-        v26 = *((_WORD *)v33 + 17);
-      KiOrAffinityEx((char *)v33 + 32, (_WORD *)(v15 + 32), (_BYTE *)v33 + 32, v26);
+      KeOrAffinityEx((unsigned __int16 *)(v30 + 32), (unsigned __int16 *)(v14 + 32), (_BYTE *)(v30 + 32));
       if ( a2 )
-        *a2 = *(_DWORD *)v25;
+        *a2 = *v23;
       v5 = 0;
     }
-    KxReleaseSpinLock(&HalpProfileSourceDescriptorListLock);
+    KxReleaseSpinLock(&Amd64ProfileSourceDescriptorListLock);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v28 = KeGetCurrentIrql();
-        if ( v28 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v28 >= 2u )
+        v25 = KeGetCurrentIrql();
+        if ( v25 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v25 >= 2u )
         {
-          v29 = KeGetCurrentPrcb();
-          v27 = (unsigned int)(v18 + 1);
-          v30 = v29->SchedulerAssist;
-          v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v18 + 1));
-          v24 = (v31 & v30[5]) == 0;
-          v30[5] &= v31;
-          if ( v24 )
-            KiRemoveSystemWorkPriorityKick((__int64)v29);
+          v26 = KeGetCurrentPrcb();
+          v24 = (unsigned int)(v17 + 1);
+          v27 = v26->SchedulerAssist;
+          v28 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
+          v22 = (v28 & v27[5]) == 0;
+          v27[5] &= v28;
+          if ( v22 )
+            KiRemoveSystemWorkPriorityKick((__int64)v26);
         }
       }
     }
-    __writecr8(v18);
-    HalpMmAllocCtxFree(v27, *(_QWORD *)(v15 + 296));
-    HalpMmAllocCtxFree(v32, v15);
+    __writecr8(v17);
+    HalpMmAllocCtxFree(v24, *(_QWORD *)(v14 + 200));
+    HalpMmAllocCtxFree(v29, v14);
     return v5;
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopTraceEsSetting @ 0x1403B2538
+ * XREFs of PopTraceEsSetting @ 0x1403CD37C
  * Callers:
- *     PopEsUpdateSetting @ 0x140861DA0 (PopEsUpdateSetting.c)
+ *     PopEsUpdateSetting @ 0x1407D1CF8 (PopEsUpdateSetting.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopTraceEsSetting(__int64 a1, int a2, unsigned __int8 a3)
@@ -21,7 +21,7 @@ NTSTATUS __fastcall PopTraceEsSetting(__int64 a1, int a2, unsigned __int8 a3)
   int *v12; // [rsp+80h] [rbp+37h]
   __int64 v13; // [rsp+88h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140C03950 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
     v4 = PopEsMode;
     v5 = a2;
@@ -33,8 +33,8 @@ NTSTATUS __fastcall PopTraceEsSetting(__int64 a1, int a2, unsigned __int8 a3)
     v11 = 4LL;
     v13 = 4LL;
     return tlgWriteTransfer_EtwWriteTransfer(
-             (__int64)&dword_140C03950,
-             (unsigned __int8 *)byte_14002EF33,
+             (__int64)&dword_140C02228,
+             (unsigned __int8 *)byte_140028041,
              0LL,
              0LL,
              5u,

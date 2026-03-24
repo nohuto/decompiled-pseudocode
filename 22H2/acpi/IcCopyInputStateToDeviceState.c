@@ -1,10 +1,10 @@
 /*
- * XREFs of IcCopyInputStateToDeviceState @ 0x1C009F1E0
+ * XREFs of IcCopyInputStateToDeviceState @ 0x1C00937A0
  * Callers:
- *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DBC (AcpiIrqLibSetupSciInterrupt.c)
- *     IrqArbCommitAllocation @ 0x1C009D050 (IrqArbCommitAllocation.c)
+ *     IrqArbCommitAllocation @ 0x1C0093900 (IrqArbCommitAllocation.c)
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0097104 (AcpiIrqLibSetupSciInterrupt.c)
  * Callees:
- *     IrqArbGsivFromIrq @ 0x1C009D6AC (IrqArbGsivFromIrq.c)
+ *     IrqArbGsivFromIrq @ 0x1C00938DC (IrqArbGsivFromIrq.c)
  */
 
 NTSTATUS __fastcall IcCopyInputStateToDeviceState(__int64 a1, int a2)
@@ -16,8 +16,8 @@ NTSTATUS __fastcall IcCopyInputStateToDeviceState(__int64 a1, int a2)
   unsigned int v6; // eax
   __int64 v7; // r8
   __int64 j; // rdx
-  unsigned int v9; // ecx
-  __int64 v10; // rcx
+  __int64 v9; // rcx
+  unsigned int v10; // ecx
   struct _RANGE_LIST_ITERATOR Iterator; // [rsp+20h] [rbp-28h] BYREF
   PRTL_RANGE Range; // [rsp+68h] [rbp+20h] BYREF
 
@@ -44,16 +44,16 @@ NTSTATUS __fastcall IcCopyInputStateToDeviceState(__int64 a1, int a2)
             {
               if ( *(int *)(j + 28) >= 0 )
               {
-                v9 = *(_DWORD *)(j + 16);
-                if ( v9 <= v6 && *(_DWORD *)(j + 20) >= v6 )
+                v10 = *(_DWORD *)(j + 16);
+                if ( v10 <= v6 && *(_DWORD *)(j + 20) >= v6 )
                 {
-                  v10 = 200LL * (v6 - v9);
-                  *(_OWORD *)(v7 + 32) = *(_OWORD *)(v10 + j + 136);
-                  *(_OWORD *)(v7 + 48) = *(_OWORD *)(v10 + j + 152);
-                  *(_OWORD *)(v7 + 64) = *(_OWORD *)(v10 + j + 168);
-                  *(_OWORD *)(v7 + 80) = *(_OWORD *)(v10 + j + 184);
-                  *(_OWORD *)(v7 + 96) = *(_OWORD *)(v10 + j + 200);
-                  *(_QWORD *)(v7 + 112) = *(_QWORD *)(v10 + j + 216);
+                  v9 = 200LL * (v6 - v10);
+                  *(_OWORD *)(v7 + 32) = *(_OWORD *)(v9 + j + 136);
+                  *(_OWORD *)(v7 + 48) = *(_OWORD *)(v9 + j + 152);
+                  *(_OWORD *)(v7 + 64) = *(_OWORD *)(v9 + j + 168);
+                  *(_OWORD *)(v7 + 80) = *(_OWORD *)(v9 + j + 184);
+                  *(_OWORD *)(v7 + 96) = *(_OWORD *)(v9 + j + 200);
+                  *(_QWORD *)(v7 + 112) = *(_QWORD *)(v9 + j + 216);
                 }
               }
             }

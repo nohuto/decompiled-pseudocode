@@ -1,17 +1,17 @@
 /*
- * XREFs of vDisableSynchronize @ 0x1C00C141C
+ * XREFs of vDisableSynchronize @ 0x1C00A8878
  * Callers:
- *     bDynamicModeChange @ 0x1C00C9250 (bDynamicModeChange.c)
+ *     bDynamicModeChange @ 0x1C00BA730 (bDynamicModeChange.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 (*vDisableSynchronize())(void)
+__int64 (__fastcall *__fastcall vDisableSynchronize(__int64 a1))(_QWORD)
 {
-  __int64 (*result)(void); // rax
+  __int64 (__fastcall *result)(_QWORD); // rax
 
-  result = qword_1C029B468;
-  if ( qword_1C029B468 )
-    return (__int64 (*)(void))qword_1C029B468();
+  result = qword_1C02566E8;
+  if ( qword_1C02566E8 )
+    return (__int64 (__fastcall *)(_QWORD))qword_1C02566E8(a1);
   return result;
 }

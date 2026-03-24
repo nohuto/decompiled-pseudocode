@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlFindFirstOverlappingExclusiveNode @ 0x1403281B8
+ * XREFs of FsRtlFindFirstOverlappingExclusiveNode @ 0x14030540C
  * Callers:
- *     FsRtlCheckNoExclusiveConflict @ 0x140200D08 (FsRtlCheckNoExclusiveConflict.c)
- *     FsRtlPrivateInsertExclusiveLock @ 0x140326E24 (FsRtlPrivateInsertExclusiveLock.c)
- *     FsRtlFastUnlockSingleExclusive @ 0x140326F94 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlPrivateCheckForSharedLockAccess @ 0x1403276FC (FsRtlPrivateCheckForSharedLockAccess.c)
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x140328294 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     FsRtlGetNextFileLock @ 0x14053D4D0 (FsRtlGetNextFileLock.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x1402D94CC (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlPrivateCheckForSharedLockAccess @ 0x1402D9E4C (FsRtlPrivateCheckForSharedLockAccess.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1403052A4 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     FsRtlPrivateInsertExclusiveLock @ 0x140305384 (FsRtlPrivateInsertExclusiveLock.c)
+ *     FsRtlCheckNoExclusiveConflict @ 0x14036B5E8 (FsRtlCheckNoExclusiveConflict.c)
+ *     FsRtlGetNextFileLock @ 0x1404EF680 (FsRtlGetNextFileLock.c)
  * Callees:
  *     <none>
  */
@@ -18,30 +18,30 @@ _QWORD *__fastcall FsRtlFindFirstOverlappingExclusiveNode(
         _QWORD *a4,
         _BYTE *a5)
 {
-  _QWORD *v5; // rdi
-  _QWORD *v7; // r10
-  unsigned __int64 v8; // rbx
-  unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // r11
+  _QWORD *v5; // rbx
+  _QWORD *v8; // r8
+  unsigned __int64 v9; // r11
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // r10
 
   v5 = 0LL;
   if ( a4 )
     *a4 = 0LL;
   if ( a5 )
     *a5 = 0;
-  v7 = 0LL;
+  v8 = 0LL;
   while ( a1 )
   {
-    v8 = a1[8];
+    v9 = a1[8];
     v5 = a1;
-    v9 = *a2;
-    if ( v8 >= *a2 && ((v10 = a1[3]) != 0 || a1[4]) )
+    v10 = *a2;
+    if ( v9 >= *a2 && ((v11 = a1[3]) != 0 || a1[4]) )
     {
-      if ( v10 <= *a3 && (*a3 != -1LL || v9) )
+      if ( v11 <= *a3 && (*a3 != -1LL || v10) )
       {
-        if ( v10 <= v9 )
+        if ( v11 <= v10 )
           break;
-        v7 = a1;
+        v8 = a1;
       }
       if ( a4 )
         *a4 = a1;
@@ -52,9 +52,9 @@ LABEL_25:
     }
     else
     {
-      if ( v8 == *a3 && a1[3] == v9 )
+      if ( v9 == *a3 && a1[3] == v10 )
       {
-        v7 = a1;
+        v8 = a1;
         if ( a4 )
           *a4 = a1;
         if ( a5 )
@@ -70,5 +70,5 @@ LABEL_25:
   }
   if ( a1 )
     return v5;
-  return v7;
+  return v8;
 }

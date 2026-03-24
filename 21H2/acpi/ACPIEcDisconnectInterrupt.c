@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIEcDisconnectInterrupt @ 0x1C00AD644
+ * XREFs of ACPIEcDisconnectInterrupt @ 0x1C00AE9BC
  * Callers:
- *     ACPIEcStopRemoveDeviceCommon @ 0x1C00534F0 (ACPIEcStopRemoveDeviceCommon.c)
+ *     ACPIEcStopRemoveDeviceCommon @ 0x1C0053E40 (ACPIEcStopRemoveDeviceCommon.c)
  * Callees:
- *     ACPIEcDisconnectGpeVector @ 0x1C00AD5C8 (ACPIEcDisconnectGpeVector.c)
+ *     ACPIEcDisconnectGpeVector @ 0x1C00AE940 (ACPIEcDisconnectGpeVector.c)
  */
 
 __int64 __fastcall ACPIEcDisconnectInterrupt(__int64 a1)

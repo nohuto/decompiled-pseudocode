@@ -1,59 +1,67 @@
 /*
- * XREFs of ?ProcessPendingMoves@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00FE104
+ * XREFs of ?ProcessPendingMoves@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00C6784
  * Callers:
- *     ?PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NPEAPEAU2@I_K@Z @ 0x1C0093270 (-PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_N.c)
+ *     ?PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NPEAPEAU2@I_K@Z @ 0x1C006E840 (-PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_N.c)
  * Callees:
- *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0004EE4 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?DdiSetVideoProtectedRegion@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETVIDEOPROTECTEDREGION@@@Z @ 0x1C002C85C (-DdiSetVideoProtectedRegion@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETVIDEOPROTECTEDREGION@@@Z.c)
- *     ?GetNumWorkItems@DXG_DEFERRED_WORK_QUEUE@@QEAAJXZ @ 0x1C002F394 (-GetNumWorkItems@DXG_DEFERRED_WORK_QUEUE@@QEAAJXZ.c)
- *     McTemplateK0qqqxxp_EtwWriteTransfer @ 0x1C0032720 (McTemplateK0qqqxxp_EtwWriteTransfer.c)
- *     ?SetVPRPaging@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C0032844 (-SetVPRPaging@VIDMM_GLOBAL@@QEAAX_N@Z.c)
- *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C0089B4C (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
- *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C0095820 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
- *     ?EvictAllReclaimedAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00E255C (-EvictAllReclaimedAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
- *     ?CheckFreeVPRReserve@VIDMM_SEGMENT@@QEAA_NPEAU_DXGKARG_SETVIDEOPROTECTEDREGION@@@Z @ 0x1C00FC60C (-CheckFreeVPRReserve@VIDMM_SEGMENT@@QEAA_NPEAU_DXGKARG_SETVIDEOPROTECTEDREGION@@@Z.c)
- *     ?DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P8VIDMM_SEGMENT@@EAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@ZPEAV3@4PEAPEAU4@3@Z @ 0x1C0101A90 (-DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@.c)
+ *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0001224 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     ?DdiSetVideoProtectedRegion@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETVIDEOPROTECTEDREGION@@@Z @ 0x1C00225D4 (-DdiSetVideoProtectedRegion@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETVIDEOPROTECTEDREGION@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024D70 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?GetNumWorkItems@DXG_DEFERRED_WORK_QUEUE@@QEAAJXZ @ 0x1C0024DE0 (-GetNumWorkItems@DXG_DEFERRED_WORK_QUEUE@@QEAAJXZ.c)
+ *     McTemplateK0qqqxxp_EtwWriteTransfer @ 0x1C0028444 (McTemplateK0qqqxxp_EtwWriteTransfer.c)
+ *     ?SetVPRPaging@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C00285A4 (-SetVPRPaging@VIDMM_GLOBAL@@QEAAX_N@Z.c)
+ *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C0060630 (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
+ *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C006DDC0 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ *     ?EvictAllReclaimedAllocation@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00868E8 (-EvictAllReclaimedAllocation@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?CheckFreeVPRReserve@VIDMM_SEGMENT@@QEAA_NPEAU_DXGKARG_SETVIDEOPROTECTEDREGION@@@Z @ 0x1C00C5054 (-CheckFreeVPRReserve@VIDMM_SEGMENT@@QEAA_NPEAU_DXGKARG_SETVIDEOPROTECTEDREGION@@@Z.c)
+ *     ?DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P8VIDMM_SEGMENT@@EAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@ZPEAV3@4PEAPEAU4@3@Z @ 0x1C00CD260 (-DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_SEGMENT::ProcessPendingMoves(VIDMM_SEGMENT *this)
 {
   __int64 v2; // rsi
   int v3; // eax
-  __int64 v4; // r8
-  __int64 v5; // rdx
-  VIDMM_GLOBAL *v6; // rcx
-  bool v7; // r14
-  unsigned __int64 v8; // rdx
-  unsigned __int64 v9; // r8
-  __int64 v10; // r15
-  int v11; // edi
-  unsigned __int64 v12; // r8
-  __int64 v13; // rcx
-  unsigned __int64 v14; // r8
-  UINT v15; // eax
-  __int64 v16; // rcx
-  SIZE_T v17; // rdx
-  SIZE_T v18; // rax
-  SIZE_T v19; // r8
-  __int64 v20; // rcx
-  __int64 v21; // r8
-  __int64 v22; // rdx
-  __int64 v23; // r8
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdi
+  _QWORD *v7; // rax
+  __int64 v8; // rdx
+  VIDMM_GLOBAL *v9; // rcx
+  __int64 v10; // rax
+  bool v11; // r14
+  unsigned __int64 v12; // rdx
+  unsigned __int64 v13; // r8
+  __int64 v14; // r15
+  int v15; // edi
+  unsigned __int64 v16; // r8
+  __int64 v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  unsigned __int64 v21; // r8
+  unsigned __int64 v22; // rdx
+  UINT v23; // eax
   __int64 v24; // rcx
-  _BYTE v25[8]; // [rsp+58h] [rbp-19h] BYREF
-  __int64 v26; // [rsp+60h] [rbp-11h] BYREF
-  unsigned __int64 v27; // [rsp+68h] [rbp-9h] BYREF
-  struct _DXGKARG_SETVIDEOPROTECTEDREGION v28; // [rsp+70h] [rbp-1h] BYREF
+  SIZE_T v25; // rdx
+  SIZE_T v26; // rax
+  SIZE_T v27; // r8
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // rdx
+  __int64 v32; // r8
+  _QWORD *v33; // rax
+  __int64 v34; // rax
+  _BYTE v35[8]; // [rsp+50h] [rbp-19h] BYREF
+  __int64 v36; // [rsp+58h] [rbp-11h] BYREF
+  unsigned __int64 v37; // [rsp+60h] [rbp-9h] BYREF
+  struct _DXGKARG_SETVIDEOPROTECTEDREGION v38; // [rsp+68h] [rbp-1h] BYREF
 
   if ( !*((_BYTE *)this + 472) )
     return;
   *((_BYTE *)this + 472) = 0;
-  v25[0] = 0;
-  v26 = 0LL;
+  v35[0] = 0;
+  v36 = 0LL;
   if ( *((_QWORD *)this + 54) )
     v2 = *((_QWORD *)this + 52);
   else
@@ -66,112 +74,127 @@ void __fastcall VIDMM_SEGMENT::ProcessPendingMoves(VIDMM_SEGMENT *this)
          (__int64)VIDMM_SEGMENT::MoveOneResource,
          (__int64)this,
          0LL,
-         (__int64)&v26,
-         (__int64)v25);
+         (__int64)&v36,
+         (__int64)v35);
+  v6 = v3;
   if ( v3 < 0 )
   {
-    v4 = v3;
+    v7 = (_QWORD *)WdLogNewEntry5_WdWarning(v5, v4);
+    v7[3] = v36;
+    v7[4] = v6;
 LABEL_28:
-    WdLogSingleEntry3(3LL, v26, v4, v25[0]);
+    v7[5] = v35[0];
+    WdLogEvent5_WdWarning(v7);
     return;
   }
   if ( !*((_QWORD *)this + 54) )
     return;
-  v5 = *((unsigned int *)this + 95);
-  v6 = (VIDMM_GLOBAL *)*((_QWORD *)this + 1);
-  v7 = (*(_DWORD *)(*(_QWORD *)(*((_QWORD *)v6 + 3) + 2808LL) + 344 * v5 + 16) & 8) != 0;
-  if ( (*(_DWORD *)(*(_QWORD *)(*((_QWORD *)v6 + 3) + 2808LL) + 344 * v5 + 16) & 8) != 0 )
+  v8 = *((unsigned int *)this + 95);
+  v9 = (VIDMM_GLOBAL *)*((_QWORD *)this + 1);
+  v10 = *(_QWORD *)(*((_QWORD *)v9 + 3) + 2584LL);
+  v11 = (*(_DWORD *)(v10 + 360 * v8 + 16) & 8) != 0;
+  if ( (*(_DWORD *)(v10 + 360 * v8 + 16) & 8) != 0 )
   {
-    VIDMM_GLOBAL::FlushPagingBufferInternal(v6, v5, 0, 0LL, 0LL, 0, 0);
+    VIDMM_GLOBAL::FlushPagingBufferInternal(v9, v8, 0, 0LL, 0LL, 0, 0);
     VIDMM_GLOBAL::WaitForAllPagingEnginesIdle(*((VIDMM_GLOBAL **)this + 1), *((_DWORD *)this + 95));
-    LOBYTE(v8) = 1;
-    VIDMM_GLOBAL::SetVPRPaging(*((VIDMM_GLOBAL **)this + 1), v8, v9);
+    LOBYTE(v12) = 1;
+    VIDMM_GLOBAL::SetVPRPaging(*((VIDMM_GLOBAL **)this + 1), v12, v13);
   }
-  v10 = *((_QWORD *)this + 53);
-  v11 = VIDMM_LINEAR_POOL::DirectedIterateAllocatedBlocksInRange(
+  v14 = *((_QWORD *)this + 53);
+  v15 = VIDMM_LINEAR_POOL::DirectedIterateAllocatedBlocksInRange(
           *((_QWORD *)this + 19),
           v2,
-          v10,
+          v14,
           1,
           (__int64)VIDMM_SEGMENT::MoveOneResource,
           (__int64)this,
           0LL,
-          (__int64)&v26,
-          (__int64)v25);
-  if ( v7 )
+          (__int64)&v36,
+          (__int64)v35);
+  if ( v11 )
   {
-    VIDMM_GLOBAL::FlushPagingBufferInternal(*((VIDMM_GLOBAL **)this + 1), *((_DWORD *)this + 95), 0, 0LL, 0LL, 0, 1u);
+    VIDMM_GLOBAL::FlushPagingBufferInternal(*((VIDMM_GLOBAL **)this + 1), *((_DWORD *)this + 95), 0, 0LL, 0LL, 0, 1);
     VIDMM_GLOBAL::WaitForAllPagingEnginesIdle(*((VIDMM_GLOBAL **)this + 1), *((_DWORD *)this + 95));
-    VIDMM_GLOBAL::SetVPRPaging(*((VIDMM_GLOBAL **)this + 1), 0LL, v12);
+    VIDMM_GLOBAL::SetVPRPaging(*((VIDMM_GLOBAL **)this + 1), 0LL, v16);
   }
-  v13 = *((_QWORD *)this + 19);
-  v27 = 0LL;
+  v17 = *((_QWORD *)this + 19);
+  v37 = 0LL;
   if ( (unsigned int)VIDMM_LINEAR_POOL::DirectedIterateAllocatedBlocksInRange(
-                       v13,
+                       v17,
                        v2,
-                       v10,
+                       v14,
                        0,
                        (__int64)VIDMM_SEGMENT::CheckLowestAddress,
                        (__int64)this,
-                       (__int64)&v27,
-                       (__int64)&v26,
-                       (__int64)v25) != -1073741823 )
+                       (__int64)&v37,
+                       (__int64)&v36,
+                       (__int64)v35) != -1073741823 )
   {
-    WdLogSingleEntry1(1LL, 6225LL);
-    DxgkLogInternalTriageEvent(v24, 0x40000LL);
-LABEL_26:
-    if ( v11 >= 0 )
-      return;
-    goto LABEL_27;
-  }
-  v14 = *((_QWORD *)this + 52);
-  v27 &= ~*((_QWORD *)this + 50);
-  if ( v27 <= v14 )
+    v34 = WdLogNewEntry5_WdAssertion(v19, v18, v20);
+    *(_QWORD *)(v34 + 24) = 6301LL;
+    WdLogEvent5_WdAssertion(v34);
     goto LABEL_26;
-  v28.PhysicalAdapterIndex = *((_DWORD *)this + 95);
-  *(_QWORD *)&v28.VprIndex = 0LL;
-  v15 = VIDMM_SEGMENT::DriverId(this);
-  v16 = *((_QWORD *)this + 1);
-  v28.SegmentIndex = v15;
-  v28.CurrentSize = *((_QWORD *)this + 54);
-  v18 = *((_QWORD *)this + 53) - v17;
-  v28.CurrentStartOffset = v19;
-  v28.NewSize = v18;
-  *((_QWORD *)this + 54) = v18;
-  v28.NewStartOffset = v17;
-  *((_QWORD *)this + 52) = v17;
-  if ( (unsigned int)DXG_DEFERRED_WORK_QUEUE::GetNumWorkItems((DXG_DEFERRED_WORK_QUEUE *)(v16 + 41136)) )
-  {
-    if ( bTracingEnabled && (byte_1C0076981 & 1) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v20, (__int64)&EventPerformanceWarning, v21, 24);
-    KeWaitForSingleObject((PVOID)(*((_QWORD *)this + 1) + 41184LL), Executive, 0, 0, 0LL);
   }
-  VIDMM_GLOBAL::EvictAllReclaimedAllocation(*((VIDMM_GLOBAL **)this + 1), 0LL);
+  v21 = *((_QWORD *)this + 52);
+  v22 = v37 & ~*((_QWORD *)this + 50);
+  v37 = v22;
+  if ( v22 <= v21 )
+  {
+LABEL_26:
+    if ( v15 >= 0 )
+      return;
+    v7 = (_QWORD *)WdLogNewEntry5_WdWarning(v19, v22);
+    v7[3] = v36;
+    v7[4] = v15;
+    goto LABEL_28;
+  }
+  v38.PhysicalAdapterIndex = *((_DWORD *)this + 95);
+  *(_QWORD *)&v38.VprIndex = 0LL;
+  v23 = VIDMM_SEGMENT::DriverId(this);
+  v24 = *((_QWORD *)this + 1);
+  v38.SegmentIndex = v23;
+  v38.CurrentSize = *((_QWORD *)this + 54);
+  v26 = *((_QWORD *)this + 53) - v25;
+  v38.CurrentStartOffset = v27;
+  v38.NewSize = v26;
+  *((_QWORD *)this + 54) = v26;
+  v38.NewStartOffset = v25;
+  *((_QWORD *)this + 52) = v25;
+  if ( (unsigned int)DXG_DEFERRED_WORK_QUEUE::GetNumWorkItems((DXG_DEFERRED_WORK_QUEUE *)(v24 + 41104)) )
+  {
+    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v29, &EventPerformanceWarning, v30, 24);
+    KeWaitForSingleObject((PVOID)(*((_QWORD *)this + 1) + 41152LL), Executive, 0, 0, 0LL);
+  }
+  VIDMM_GLOBAL::EvictAllReclaimedAllocation(*((VIDMM_GLOBAL **)this + 1), v28, v30);
   VIDMM_GLOBAL::WaitForAllPagingEnginesIdle(*((VIDMM_GLOBAL **)this + 1), *((_DWORD *)this + 95));
-  VIDMM_SEGMENT::CheckFreeVPRReserve(this, &v28);
-  if ( bTracingEnabled && (byte_1C0076981 & 1) != 0 )
+  VIDMM_SEGMENT::CheckFreeVPRReserve(this, &v38);
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     McTemplateK0qqqxxp_EtwWriteTransfer(
       *(_QWORD *)(*((_QWORD *)this + 1) + 24LL),
-      v22,
-      v23,
-      v28.PhysicalAdapterIndex,
-      v28.SegmentIndex,
-      v28.VprIndex,
-      v28.NewStartOffset,
-      v28.NewSize,
+      v31,
+      v32,
+      v38.PhysicalAdapterIndex,
+      v38.SegmentIndex,
+      v38.VprIndex,
+      v38.NewStartOffset,
+      v38.NewSize,
       *(_QWORD *)(*((_QWORD *)this + 1) + 24LL));
-  v11 = ADAPTER_RENDER::DdiSetVideoProtectedRegion(
-          *(ADAPTER_RENDER **)(*(_QWORD *)(*((_QWORD *)this + 1) + 24LL) + 2928LL),
-          (struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 *)&v28);
-  if ( v11 < 0 )
+  v15 = ADAPTER_RENDER::DdiSetVideoProtectedRegion(
+          *(ADAPTER_RENDER **)(*(_QWORD *)(*((_QWORD *)this + 1) + 24LL) + 2704LL),
+          &v38);
+  if ( v15 < 0 )
   {
     if ( g_IsInternalRelease )
     {
-      g_DxgMmsBugcheckExportIndex = 1;
-      WdLogSingleEntry5(0LL, 270LL, 9LL, 0LL, 0LL, 0LL);
+      v33 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v19, v22);
+      v33[3] = 270LL;
+      v33[4] = 9LL;
+      v33[5] = 0LL;
+      v33[6] = 0LL;
+      v33[7] = 0LL;
+      WdLogEvent5_WdCriticalError(v33);
     }
-LABEL_27:
-    v4 = v11;
-    goto LABEL_28;
+    goto LABEL_26;
   }
 }

@@ -1,40 +1,37 @@
 /*
- * XREFs of IopResetEvent @ 0x1402AABB0
+ * XREFs of IopResetEvent @ 0x140351DE0
  * Callers:
- *     NtSetInformationFile @ 0x1402F72B0 (NtSetInformationFile.c)
- *     IopAllocateAndPopulateWriteIrp @ 0x1404183E0 (IopAllocateAndPopulateWriteIrp.c)
- *     NtQueryEaFile @ 0x1406B6D70 (NtQueryEaFile.c)
- *     NtFlushBuffersFileEx @ 0x1406BF5F0 (NtFlushBuffersFileEx.c)
- *     NtNotifyChangeDirectoryFileEx @ 0x1406C66B0 (NtNotifyChangeDirectoryFileEx.c)
- *     NtReadFileScatter @ 0x1406C6AF0 (NtReadFileScatter.c)
- *     NtWriteFileGather @ 0x1406E3F70 (NtWriteFileGather.c)
- *     NtUnlockFile @ 0x14071CD90 (NtUnlockFile.c)
- *     NtLockFile @ 0x14071D220 (NtLockFile.c)
- *     NtWriteFile @ 0x14071D850 (NtWriteFile.c)
- *     IopXxxControlFile @ 0x1407308F0 (IopXxxControlFile.c)
- *     IopReadFile @ 0x14073A450 (IopReadFile.c)
- *     BuildQueryDirectoryIrp @ 0x1407563A0 (BuildQueryDirectoryIrp.c)
- *     NtQueryVolumeInformationFile @ 0x1407AF670 (NtQueryVolumeInformationFile.c)
- *     NtQueryInformationFile @ 0x1407AFEF0 (NtQueryInformationFile.c)
- *     NtSetVolumeInformationFile @ 0x1407FB3A0 (NtSetVolumeInformationFile.c)
- *     IopSetEaOrQuotaInformationFile @ 0x140935320 (IopSetEaOrQuotaInformationFile.c)
- *     NtSetEaFile @ 0x140939360 (NtSetEaFile.c)
- *     NtQueryQuotaInformationFile @ 0x140939960 (NtQueryQuotaInformationFile.c)
+ *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
+ *     IopAllocateAndPopulateWriteIrp @ 0x1403F1D24 (IopAllocateAndPopulateWriteIrp.c)
+ *     IopReadFile @ 0x1405CE318 (IopReadFile.c)
+ *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
+ *     NtQueryVolumeInformationFile @ 0x1406508C0 (NtQueryVolumeInformationFile.c)
+ *     NtUnlockFile @ 0x14068F570 (NtUnlockFile.c)
+ *     NtFlushBuffersFileEx @ 0x140698D00 (NtFlushBuffersFileEx.c)
+ *     NtReadFileScatter @ 0x140699E80 (NtReadFileScatter.c)
+ *     NtWriteFileGather @ 0x14069A620 (NtWriteFileGather.c)
+ *     NtQueryEaFile @ 0x14069B320 (NtQueryEaFile.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x1406AE6E0 (NtNotifyChangeDirectoryFileEx.c)
+ *     IopCloseFile @ 0x1406FCA20 (IopCloseFile.c)
+ *     IopXxxControlFile @ 0x1406FE010 (IopXxxControlFile.c)
+ *     NtLockFile @ 0x140708790 (NtLockFile.c)
+ *     NtSetEaFile @ 0x140730CB0 (NtSetEaFile.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x1408923AC (IopSetEaOrQuotaInformationFile.c)
+ *     NtQueryQuotaInformationFile @ 0x140895B40 (NtQueryQuotaInformationFile.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall IopResetEvent(__int64 a1)
+void __fastcall IopResetEvent(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
   unsigned __int8 CurrentIrql; // di
-  _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v4; // al
+  unsigned __int8 v6; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v6; // r8
-  int v7; // eax
-  bool v8; // zf
-  int v9; // [rsp+30h] [rbp+8h] BYREF
+  _DWORD *v8; // r8
+  int v9; // eax
+  bool v10; // zf
+  int v11; // [rsp+30h] [rbp+8h] BYREF
 
   if ( (*(_DWORD *)(a1 + 80) & 0x4000000) == 0 )
   {
@@ -43,13 +40,15 @@ void __fastcall IopResetEvent(__int64 a1)
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+      a2 = (-1LL << (CurrentIrql + 1)) & 4;
+      a3 = (unsigned int)a2 | SchedulerAssist[5];
+      SchedulerAssist[5] = a3;
     }
-    v9 = 0;
+    v11 = 0;
     while ( _interlockedbittestandset((volatile signed __int32 *)(a1 + 152), 7u) )
     {
       do
-        KeYieldProcessorEx(&v9);
+        KeYieldProcessorEx(&v11, a2, a3, (__int64)SchedulerAssist);
       while ( (*(_DWORD *)(a1 + 152) & 0x80u) != 0 );
     }
     *(_DWORD *)(a1 + 156) = 0;
@@ -58,15 +57,15 @@ void __fastcall IopResetEvent(__int64 a1)
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v4 = KeGetCurrentIrql();
-        if ( v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
+        v6 = KeGetCurrentIrql();
+        if ( v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v6 = CurrentPrcb->SchedulerAssist;
-          v7 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v8 = (v7 & v6[5]) == 0;
-          v6[5] &= v7;
-          if ( v8 )
+          v8 = CurrentPrcb->SchedulerAssist;
+          v9 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v10 = (v9 & v8[5]) == 0;
+          v8[5] &= v9;
+          if ( v10 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }

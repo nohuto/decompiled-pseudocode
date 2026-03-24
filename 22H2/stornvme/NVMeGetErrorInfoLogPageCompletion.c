@@ -1,11 +1,11 @@
 /*
- * XREFs of NVMeGetErrorInfoLogPageCompletion @ 0x1C0015940
+ * XREFs of NVMeGetErrorInfoLogPageCompletion @ 0x1C0014AE0
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     memmove @ 0x1C0004880 (memmove.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
+ *     memmove @ 0x1C0007D80 (memmove.c)
  */
 
 __int64 __fastcall NVMeGetErrorInfoLogPageCompletion(__int64 a1, __int64 a2)

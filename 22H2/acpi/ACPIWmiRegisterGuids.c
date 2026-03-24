@@ -1,15 +1,16 @@
 /*
- * XREFs of ACPIWmiRegisterGuids @ 0x1C0047134
+ * XREFs of ACPIWmiRegisterGuids @ 0x1C0030B2C
  * Callers:
- *     ACPIDispatchWmiLog @ 0x1C0047000 (ACPIDispatchWmiLog.c)
+ *     ACPIDispatchWmiLog @ 0x1C0030A90 (ACPIDispatchWmiLog.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall ACPIWmiRegisterGuids(_DWORD *a1, unsigned int a2, _DWORD *a3)
 {
-  char *v6; // rcx
-  __int128 v7; // [rsp+20h] [rbp-18h]
+  char *v5; // rcx
+  __int128 v7; // [rsp+20h] [rbp-20h]
 
   *a3 = 0;
   *(_QWORD *)&v7 = 0x477D2D48DAB01D4DLL;
@@ -33,20 +34,20 @@ __int64 __fastcall ACPIWmiRegisterGuids(_DWORD *a1, unsigned int a2, _DWORD *a3)
     *(_OWORD *)((char *)a1 + 122) = *(_OWORD *)L"ControlSet\\Services\\ACPI";
     *(_OWORD *)((char *)a1 + 138) = *(_OWORD *)L"et\\Services\\ACPI";
     *(_OWORD *)((char *)a1 + 154) = *(_OWORD *)L"ces\\ACPI";
-    v6 = (char *)a1 + (unsigned int)a1[3];
-    *(_WORD *)v6 = 30;
-    *(_OWORD *)(v6 + 2) = *(_OWORD *)L"ACPIMOFResource";
-    *(_QWORD *)(v6 + 18) = *(_QWORD *)L"esource";
-    *(_DWORD *)(v6 + 26) = *(_DWORD *)L"rce";
-    *((_WORD *)v6 + 15) = aAcpimofresourc[14];
+    v5 = (char *)a1 + (unsigned int)a1[3];
+    *(_WORD *)v5 = 30;
+    *(_OWORD *)(v5 + 2) = *(_OWORD *)L"ACPIMOFResource";
+    *(_QWORD *)(v5 + 18) = *(_QWORD *)L"esource";
+    *(_DWORD *)(v5 + 26) = *(_DWORD *)L"rce";
+    *((_WORD *)v5 + 15) = aAcpimofresourc[14];
     *a3 = 202;
+    return 0LL;
   }
-  else
+  if ( a2 >= 4 )
   {
-    if ( a2 < 4 )
-      return 3221225507LL;
     *a1 = 202;
     *a3 = 4;
+    return 0LL;
   }
-  return 0LL;
+  return 3221225507LL;
 }

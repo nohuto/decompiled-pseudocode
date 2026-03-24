@@ -1,38 +1,51 @@
 /*
- * XREFs of ?_IsMonitorInMonitorList@MONITOR_MGR@@QEAAEPEAVDXGMONITOR@@@Z @ 0x1C03B44C4
+ * XREFs of ?_IsMonitorInMonitorList@MONITOR_MGR@@QEAAEPEAVDXGMONITOR@@@Z @ 0x1C02F29F0
  * Callers:
- *     ?_DestroyPhysicalMonitor@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0225FB8 (-_DestroyPhysicalMonitor@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@.c)
- *     ?_DestroySimulatedMonitor@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@@Z @ 0x1C03B3B18 (-_DestroySimulatedMonitor@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@@Z.c)
+ *     ?_DestroyPhysicalMonitor@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F2074 (-_DestroyPhysicalMonitor@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@.c)
+ *     ?_DestroySimulatedMonitor@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@@Z @ 0x1C02F2154 (-_DestroySimulatedMonitor@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@@Z.c)
  * Callees:
- *     ??0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z @ 0x1C0012EA0 (--0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z.c)
- *     ??1MUTEX_LOCK@@QEAA@XZ @ 0x1C0012ED0 (--1MUTEX_LOCK@@QEAA@XZ.c)
+ *     <none>
  */
 
 char __fastcall MONITOR_MGR::_IsMonitorInMonitorList(MONITOR_MGR *this, struct DXGMONITOR *a2)
 {
-  struct DXGMONITOR **v4; // rcx
-  char v5; // bl
-  struct DXGMONITOR *v6; // rax
-  struct _KTHREAD **v8; // [rsp+30h] [rbp+8h] BYREF
+  struct _FAST_MUTEX *v2; // rbx
+  __int64 v5; // rax
+  char *v6; // rdx
+  char **v7; // rcx
+  char *v8; // rax
+  char v9; // di
+  __int64 v10; // rax
 
-  MUTEX_LOCK::MUTEX_LOCK((MUTEX_LOCK *)&v8, (MONITOR_MGR *)((char *)this + 80));
-  v4 = (struct DXGMONITOR **)((char *)this + 40);
-  v5 = 0;
-  if ( a2 )
+  v2 = (struct _FAST_MUTEX *)((char *)this + 168);
+  if ( this == (MONITOR_MGR *)-168LL )
   {
-    v6 = *v4;
-    if ( *v4 != (struct DXGMONITOR *)v4 )
-    {
-      while ( v6 != (struct DXGMONITOR *)((char *)a2 + 152) )
-      {
-        if ( v4 == (struct DXGMONITOR **)v6 )
-          goto LABEL_8;
-        v6 = *(struct DXGMONITOR **)v6;
-      }
-      v5 = 1;
-    }
+    v5 = WdLogNewEntry5_WdAssertion(-168LL, a2);
+    WdLogEvent5_WdAssertion(v5);
   }
-LABEL_8:
-  MUTEX_LOCK::~MUTEX_LOCK(&v8);
-  return v5;
+  KeAcquireGuardedMutex(v2);
+  v7 = (char **)((char *)this + 128);
+  if ( !a2 || (v8 = *v7, *v7 == (char *)v7) )
+  {
+LABEL_10:
+    v9 = 0;
+  }
+  else
+  {
+    v6 = (char *)a2 + 16;
+    while ( v8 != v6 )
+    {
+      if ( v7 == (char **)v8 )
+        goto LABEL_10;
+      v8 = *(char **)v8;
+    }
+    v9 = 1;
+  }
+  if ( !v2 )
+  {
+    v10 = WdLogNewEntry5_WdAssertion(v7, v6);
+    WdLogEvent5_WdAssertion(v10);
+  }
+  KeReleaseGuardedMutex(v2);
+  return v9;
 }

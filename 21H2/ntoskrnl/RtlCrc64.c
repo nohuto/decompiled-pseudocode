@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCrc64 @ 0x1403849E0
+ * XREFs of RtlCrc64 @ 0x1402AE620
  * Callers:
  *     <none>
  * Callees:
- *     RtlpComputeCrcInternal @ 0x140384A00 (RtlpComputeCrcInternal.c)
+ *     RtlpComputeCrcInternal @ 0x1402AE640 (RtlpComputeCrcInternal.c)
  */
 
 __int64 __fastcall RtlCrc64(__int64 a1, __int64 a2, __int64 a3)

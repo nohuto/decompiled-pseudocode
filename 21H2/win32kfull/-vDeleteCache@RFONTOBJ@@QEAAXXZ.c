@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vDeleteCache@RFONTOBJ@@QEAAXXZ @ 0x1C000B10C
+ * XREFs of ?vDeleteCache@RFONTOBJ@@QEAAXXZ @ 0x1C009F24C
  * Callers:
- *     ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z @ 0x1C000AD70 (-vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z.c)
+ *     ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z @ 0x1C009EF04 (-vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,8 +11,8 @@ void __fastcall RFONTOBJ::vDeleteCache(RFONTOBJ *this)
   __int64 v1; // rsi
   _QWORD *v3; // rbx
   _QWORD *v4; // rcx
-  __int64 v5; // rcx
-  _QWORD *v6; // rcx
+  void *v5; // rcx
+  void *v6; // rcx
   _QWORD *v7; // rbx
 
   v1 = *(_QWORD *)this;
@@ -27,7 +27,7 @@ void __fastcall RFONTOBJ::vDeleteCache(RFONTOBJ *this)
         break;
       Win32FreePool(v6);
     }
-    Win32FreePool(*(_QWORD *)(*(_QWORD *)this + 480LL));
+    Win32FreePool(*(void **)(*(_QWORD *)this + 480LL));
   }
   *(_QWORD *)(v1 + 536) = 0LL;
   *(_QWORD *)(*(_QWORD *)this + 480LL) = 0LL;
@@ -43,7 +43,7 @@ void __fastcall RFONTOBJ::vDeleteCache(RFONTOBJ *this)
     while ( v7 );
     *(_QWORD *)(v1 + 568) = 0LL;
   }
-  v5 = *(_QWORD *)(*(_QWORD *)this + 616LL);
+  v5 = *(void **)(*(_QWORD *)this + 616LL);
   if ( v5 )
   {
     Win32FreePool(v5);

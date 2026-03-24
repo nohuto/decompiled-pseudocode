@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1DCMEMOBJ@@QEAA@XZ @ 0x1C002E1F0
+ * XREFs of ??1DCMEMOBJ@@QEAA@XZ @ 0x1C003B430
  * Callers:
- *     GreCreateDisplayDC @ 0x1C002F6A0 (GreCreateDisplayDC.c)
+ *     GreCreateDisplayDC @ 0x1C003B650 (GreCreateDisplayDC.c)
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C002E3D4 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@XZ @ 0x1C002EB4C (--0DCOBJ@@QEAA@XZ.c)
- *     ?bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z @ 0x1C002EB80 (-bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C003B478 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@XZ @ 0x1C003B4A4 (--0DCOBJ@@QEAA@XZ.c)
+ *     ?bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z @ 0x1C003B51C (-bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z.c)
  */
 
 void __fastcall DCMEMOBJ::~DCMEMOBJ(DCMEMOBJ *this)

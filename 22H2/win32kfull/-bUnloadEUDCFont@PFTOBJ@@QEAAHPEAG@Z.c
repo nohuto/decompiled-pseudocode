@@ -1,39 +1,32 @@
 /*
- * XREFs of ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C0115160
+ * XREFs of ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C00A1E64
  * Callers:
- *     bAddAllFlEntry @ 0x1C00897FC (bAddAllFlEntry.c)
- *     ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C008A44C (-vInitializeFontAssocStatus@@YAXXZ.c)
- *     ?CleanUpEUDC@@YAXXZ @ 0x1C008A954 (-CleanUpEUDC@@YAXXZ.c)
- *     bAddFlEntry @ 0x1C0111EC0 (bAddFlEntry.c)
- *     bUnloadEudcFont @ 0x1C0114E84 (bUnloadEudcFont.c)
- *     ?bSetupDefaultFlEntry@@YAHXZ @ 0x1C029E3CC (-bSetupDefaultFlEntry@@YAHXZ.c)
+ *     bAddFlEntry @ 0x1C00A0BA8 (bAddFlEntry.c)
+ *     bUnloadEudcFont @ 0x1C00A1D5C (bUnloadEudcFont.c)
+ *     ?CleanUpEUDC@@YAXXZ @ 0x1C00E6560 (-CleanUpEUDC@@YAXXZ.c)
+ *     ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C00E67D4 (-vInitializeFontAssocStatus@@YAXXZ.c)
+ *     bAddAllFlEntry @ 0x1C00E6908 (bAddAllFlEntry.c)
+ *     ?bSetupDefaultFlEntry@@YAHXZ @ 0x1C029738C (-bSetupDefaultFlEntry@@YAHXZ.c)
  * Callees:
- *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C01149B0 (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
- *     ?iHash@@YAIPEBGI@Z @ 0x1C0115910 (-iHash@@YAIPEBGI@Z.c)
- *     cCapString @ 0x1C0116A58 (cCapString.c)
- *     memcmp @ 0x1C01384A0 (memcmp.c)
- *     ?SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z @ 0x1C013E750 (-SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z.c)
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C00A20A8 (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ *     ?pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z @ 0x1C00BB8C8 (-pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z.c)
+ *     cCapString @ 0x1C00BBAF4 (cCapString.c)
  */
 
-_BOOL8 __fastcall PFTOBJ::bUnloadEUDCFont(PFTOBJ *this, unsigned __int16 *a2)
+__int64 __fastcall PFTOBJ::bUnloadEUDCFont(PFTOBJ *this, unsigned __int16 *a2)
 {
-  BOOL v2; // esi
-  __int64 v4; // rdi
-  unsigned int v5; // edi
+  unsigned int v2; // edi
+  __int64 v4; // rbx
+  unsigned int v5; // ebx
   __int64 v6; // rax
-  const unsigned __int16 *v7; // rbp
-  __int64 v8; // rcx
-  Gre::Base *v9; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v10; // r14
-  __int64 v11; // r15
-  struct PFF *i; // rcx
-  struct PFF *v13; // rax
-  struct PFF *v14; // rbx
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  _QWORD v18[5]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v7; // r9
+  const unsigned __int16 *v8; // rsi
+  struct PFF *v9; // rax
+  struct PFF **v11; // [rsp+60h] [rbp+8h] BYREF
+  struct _FONTHASH **v12; // [rsp+70h] [rbp+18h] BYREF
 
   v2 = 0;
+  v11 = 0LL;
   v4 = -1LL;
   do
     ++v4;
@@ -42,39 +35,23 @@ _BOOL8 __fastcall PFTOBJ::bUnloadEUDCFont(PFTOBJ *this, unsigned __int16 *a2)
   if ( v5 > 0x1388000 )
     return 0LL;
   v6 = AllocFreeTmpBuffer(2 * v5);
-  v7 = (const unsigned __int16 *)v6;
+  v8 = (const unsigned __int16 *)v6;
   if ( !v6 )
     return 0LL;
-  cCapString(v6, a2, v5);
-  v9 = *(Gre::Base **)(SGDGetSessionState(v8) + 32);
-  v18[0] = *((_QWORD *)v9 + 2534);
-  v10 = Gre::Base::Globals(v9);
-  GreAcquireSemaphore(*((_QWORD *)v10 + 6));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemPublicPFT", *((_QWORD *)v10 + 6), 14LL);
-  v11 = v18[0] + 8LL * iHash(v7, *(_DWORD *)(v18[0] + 24LL));
-  for ( i = *(struct PFF **)(v11 + 40); ; i = (struct PFF *)*((_QWORD *)v14 + 1) )
+  cCapString(v6, a2, v5, v7);
+  v12 = gpPFTPublic;
+  GreAcquireSemaphore(ghsemPublicPFT);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemPublicPFT", ghsemPublicPFT, 15LL);
+  v9 = PUBLIC_PFTOBJ::pPFFGet((PUBLIC_PFTOBJ *)&v12, v8, v5, 1u, 0LL, 0, &v11, 1);
+  if ( v9 )
   {
-    v13 = SkipInvalidPff(i);
-    v14 = v13;
-    if ( !v13
-      || (*((_DWORD *)v13 + 13) & 8) != 0
-      && v5 == *((_DWORD *)v13 + 8)
-      && *((_DWORD *)v13 + 9) == 1
-      && !memcmp(*((const void **)v13 + 3), v7, 2LL * v5)
-      && !*((_DWORD *)v14 + 12) )
-    {
-      break;
-    }
-  }
-  if ( v14 )
-  {
-    v2 = PFTOBJ::bUnloadWorkhorse((PFTOBJ *)v18, v14, (struct PFF **)(v11 + 40), 0);
+    v2 = PFTOBJ::bUnloadWorkhorse((PFTOBJ *)&v12, v9, v11, 0);
   }
   else
   {
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemPublicPFT");
-    GreReleaseSemaphoreInternal(*((_QWORD *)v10 + 6));
+    EtwTraceGreLockReleaseSemaphore(L"ghsemPublicPFT", ghsemPublicPFT);
+    GreReleaseSemaphoreInternal(ghsemPublicPFT);
   }
-  FreeTmpBuffer(v7, v15, v16);
+  FreeTmpBuffer(v8);
   return v2;
 }

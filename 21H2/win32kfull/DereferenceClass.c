@@ -1,37 +1,77 @@
 /*
- * XREFs of DereferenceClass @ 0x1C005FE40
+ * XREFs of DereferenceClass @ 0x1C0079C50
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     _lambda_fcfb12fcc043a8c73fe9205729fe4b4e_::operator() @ 0x1C015C28C (_lambda_fcfb12fcc043a8c73fe9205729fe4b4e_--operator().c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     _lambda_cd33d3260540cb20afcdcf97ba84ccae_::operator() @ 0x1C01698B8 (_lambda_cd33d3260540cb20afcdcf97ba84ccae_--operator().c)
  * Callees:
- *     DestroyClass @ 0x1C0060880 (DestroyClass.c)
- *     ??1?$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ @ 0x1C0060A44 (--1-$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ.c)
- *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00EB718 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
+ *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ @ 0x1C0078DC8 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ.c)
+ *     DestroyClass @ 0x1C0079040 (DestroyClass.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
  */
 
 __int64 __fastcall DereferenceClass(struct tagPROCESSINFO *a1, __int64 a2)
 {
-  __int64 v4; // rax
-  _QWORD **v6; // rdx
-  _QWORD *i; // r8
-  _QWORD v8[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v2; // rdi
+  struct _KTHREAD *CurrentThread; // r15
+  __int64 v6; // rsi
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 *ThreadWin32Thread; // rax
+  __int64 v11; // rax
+  __int64 v12; // rbx
+  __int64 result; // rax
+  _QWORD *v14; // rcx
+  struct _CALLPROCDATA ***v15; // rdx
+  struct _CALLPROCDATA **i; // r8
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v19; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v21; // [rsp+20h] [rbp-10h] BYREF
+  __int64 v22; // [rsp+28h] [rbp-8h] BYREF
 
-  SmartObjStackRefBase<tagCLS>::Init(v8, *(_QWORD *)(a2 + 136));
-  *(_QWORD *)(*(_QWORD *)(a2 + 40) + 128LL) = 0LL;
-  v4 = v8[0];
-  *(_QWORD *)(a2 + 136) = 0LL;
-  --*(_DWORD *)(*(_QWORD *)v4 + 72LL);
-  if ( *(_QWORD *)v8[0] != *(_QWORD *)(*(_QWORD *)v8[0] + 56LL) )
+  v2 = *(_QWORD *)(a2 + 136);
+  CurrentThread = KeGetCurrentThread();
+  v6 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+    || (CurrentProcess = PsGetCurrentProcess(v8, v7, v9),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v19),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
   {
-    --*(_DWORD *)(*(_QWORD *)(*(_QWORD *)v8[0] + 56LL) + 72LL);
-    if ( !*(_DWORD *)(*(_QWORD *)v8[0] + 72LL) )
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v6 = *ThreadWin32Thread;
+  }
+  v21 = gSmartObjNullRef;
+  if ( v2 )
+  {
+    v21 = *(_QWORD *)(v2 + 128);
+    ++*(_DWORD *)(*(_QWORD *)(v2 + 128) + 8LL);
+  }
+  v22 = *(_QWORD *)(v6 + 1472);
+  *(_QWORD *)(v6 + 1472) = &v22;
+  *(_QWORD *)(*(_QWORD *)(a2 + 40) + 128LL) = 0LL;
+  v11 = v21;
+  *(_QWORD *)(a2 + 136) = 0LL;
+  --*(_DWORD *)(*(_QWORD *)v11 + 72LL);
+  if ( *(_QWORD *)v21 != *(_QWORD *)(*(_QWORD *)v21 + 56LL) )
+  {
+    --*(_DWORD *)(*(_QWORD *)(*(_QWORD *)v21 + 56LL) + 72LL);
+    if ( !*(_DWORD *)(*(_QWORD *)v21 + 72LL) )
     {
-      v6 = (_QWORD **)(*(_QWORD *)(*(_QWORD *)v8[0] + 56LL) + 64LL);
-      for ( i = *v6; i != *(_QWORD **)v8[0]; i = (_QWORD *)*i )
-        ;
-      DestroyClass(a1);
+      v15 = (struct _CALLPROCDATA ***)(*(_QWORD *)(*(_QWORD *)v21 + 56LL) + 64LL);
+      for ( i = *v15; i != *(struct _CALLPROCDATA ***)v21; i = (struct _CALLPROCDATA **)*i )
+        v15 = (struct _CALLPROCDATA ***)i;
+      DestroyClass(a1, v15);
     }
   }
-  return SmartObjStackRefBase<tagCLS>::~SmartObjStackRefBase<tagCLS>(v8);
+  v12 = W32GetThreadWin32Thread(KeGetCurrentThread());
+  result = SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(&v21);
+  v14 = *(_QWORD **)(v12 + 1472);
+  if ( v14 )
+    *(_QWORD *)(v12 + 1472) = *v14;
+  return result;
 }

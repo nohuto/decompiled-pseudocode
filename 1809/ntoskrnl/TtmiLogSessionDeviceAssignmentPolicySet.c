@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmiLogSessionDeviceAssignmentPolicySet @ 0x140884C24
+ * XREFs of TtmiLogSessionDeviceAssignmentPolicySet @ 0x140884C04
  * Callers:
- *     TtmInitCurrentSession @ 0x14087F8A8 (TtmInitCurrentSession.c)
- *     TtmpDispatchSetDefaultDeviceAssignment @ 0x140881FA8 (TtmpDispatchSetDefaultDeviceAssignment.c)
+ *     TtmInitCurrentSession @ 0x14087F888 (TtmInitCurrentSession.c)
+ *     TtmpDispatchSetDefaultDeviceAssignment @ 0x140881F88 (TtmpDispatchSetDefaultDeviceAssignment.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogSessionDeviceAssignmentPolicySet(char a1)
@@ -36,7 +36,7 @@ void __fastcall TtmiLogSessionDeviceAssignmentPolicySet(char a1)
       v3 = a1;
       v7 = 4;
       v10 = 1;
-      TlgWrite(&stru_14096D820, &unk_140371EF0, 0LL, 0LL, 4u, &pData);
+      TlgWrite(&stru_14096D820, &unk_14037205A, 0LL, 0LL, 4u, &pData);
     }
   }
 }

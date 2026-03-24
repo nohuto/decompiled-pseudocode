@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPrivatePageCount @ 0x14013E6F0
+ * XREFs of MiGetPrivatePageCount @ 0x14013E710
  * Callers:
- *     MiAllocateCrcList @ 0x1406D4688 (MiAllocateCrcList.c)
+ *     MiAllocateCrcList @ 0x1406D4668 (MiAllocateCrcList.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiGetPrivatePageCount(__int64 a1)

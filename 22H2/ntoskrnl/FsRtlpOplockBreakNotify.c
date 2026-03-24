@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlpOplockBreakNotify @ 0x14093E538
+ * XREFs of FsRtlpOplockBreakNotify @ 0x14088BFE8
  * Callers:
- *     FsRtlpOplockFsctrlInternal @ 0x140766820 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405EA170 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     FsRtlpWaitOnIrp @ 0x1402010B8 (FsRtlpWaitOnIrp.c)
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlpModifyThreadPriorities @ 0x140358684 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpOplockSendModernAppTermination @ 0x14035BC08 (FsRtlpOplockSendModernAppTermination.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     FsRtlpOplockSendModernAppTermination @ 0x140321274 (FsRtlpOplockSendModernAppTermination.c)
+ *     FsRtlpModifyThreadPriorities @ 0x1403798E4 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpWaitOnIrp @ 0x1404F0970 (FsRtlpWaitOnIrp.c)
  */
 
 __int64 __fastcall FsRtlpOplockBreakNotify(__int64 a1, __int64 a2, IRP *a3)

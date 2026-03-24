@@ -1,20 +1,20 @@
 /*
- * XREFs of NtUserCreateLocalMemHandle @ 0x1C014D9F0
+ * XREFs of NtUserCreateLocalMemHandle @ 0x1C0127DB0
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandle @ 0x1C0024F44 (HMValidateHandle.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     HMValidateHandle @ 0x1C00670E0 (HMValidateHandle.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
-__int64 __fastcall NtUserCreateLocalMemHandle(__int64 a1, volatile void *a2, unsigned int a3, _DWORD *a4)
+__int64 __fastcall NtUserCreateLocalMemHandle(unsigned __int64 a1, volatile void *a2, unsigned int a3, _DWORD *a4)
 {
   ULONG64 v8; // rcx
   __int64 v9; // r14
   unsigned int v10; // ebx
   unsigned int v11; // eax
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v9 = HMValidateHandle(a1, 6u);
   v10 = 0;
   if ( v9 )

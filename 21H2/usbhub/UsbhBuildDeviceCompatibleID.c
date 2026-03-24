@@ -1,35 +1,36 @@
 /*
- * XREFs of UsbhBuildDeviceCompatibleID @ 0x1C004F058
+ * XREFs of UsbhBuildDeviceCompatibleID @ 0x1C00505A0
  * Callers:
- *     UsbhBuildCompatibleID @ 0x1C004EA50 (UsbhBuildCompatibleID.c)
+ *     UsbhBuildCompatibleID @ 0x1C004FEC0 (UsbhBuildCompatibleID.c)
  * Callees:
- *     <none>
+ *     memset @ 0x1C001E180 (memset.c)
  */
 
 __int64 __fastcall UsbhBuildDeviceCompatibleID(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 Pool2; // rax
-  __int64 v5; // r9
+  _OWORD *PoolWithTag; // rax
+  _OWORD *v5; // rbx
   __int64 result; // rax
 
-  Pool2 = ExAllocatePool2(64LL, 190LL, 1112885333LL);
-  v5 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 0xBEuLL, 0x42554855u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *(_OWORD *)Pool2 = *(_OWORD *)L"USB\\DevClass_00&SubClass_00&Prot_00";
-  *(_OWORD *)(Pool2 + 16) = *(_OWORD *)L"lass_00&SubClass_00&Prot_00";
-  *(_OWORD *)(Pool2 + 32) = *(_OWORD *)L"SubClass_00&Prot_00";
-  *(_OWORD *)(Pool2 + 48) = *(_OWORD *)L"_00&Prot_00";
-  *(_OWORD *)(Pool2 + 64) = *(_OWORD *)L"_00";
-  *(_OWORD *)(Pool2 + 80) = *(_OWORD *)&aUsbDevclass00S[40];
-  *(_OWORD *)(Pool2 + 96) = *(_OWORD *)&aUsbDevclass00S[48];
-  *(_OWORD *)(Pool2 + 112) = *(_OWORD *)&aUsbDevclass00S[56];
-  *(_OWORD *)(Pool2 + 128) = *(_OWORD *)&aUsbDevclass00S[64];
-  *(_OWORD *)(Pool2 + 144) = *(_OWORD *)&aUsbDevclass00S[72];
-  *(_OWORD *)(Pool2 + 160) = *(_OWORD *)&aUsbDevclass00S[80];
-  *(_QWORD *)(Pool2 + 176) = *(_QWORD *)&aUsbDevclass00S[88];
-  *(_DWORD *)(Pool2 + 184) = *(_DWORD *)&aUsbDevclass00S[92];
-  *(_WORD *)(Pool2 + 188) = aUsbDevclass00S[94];
+  memset(PoolWithTag, 0, 0xBEuLL);
+  *v5 = *(_OWORD *)L"USB\\DevClass_00&SubClass_00&Prot_00";
+  v5[1] = *(_OWORD *)L"lass_00&SubClass_00&Prot_00";
+  v5[2] = *(_OWORD *)L"SubClass_00&Prot_00";
+  v5[3] = *(_OWORD *)L"_00&Prot_00";
+  v5[4] = *(_OWORD *)L"_00";
+  v5[5] = *(_OWORD *)&aUsbDevclass00S[40];
+  v5[6] = *(_OWORD *)&aUsbDevclass00S[48];
+  v5[7] = *(_OWORD *)&aUsbDevclass00S[56];
+  v5[8] = *(_OWORD *)&aUsbDevclass00S[64];
+  v5[9] = *(_OWORD *)&aUsbDevclass00S[72];
+  v5[10] = *(_OWORD *)&aUsbDevclass00S[80];
+  *((_QWORD *)v5 + 22) = *(_QWORD *)&aUsbDevclass00S[88];
+  *((_DWORD *)v5 + 46) = *(_DWORD *)&aUsbDevclass00S[92];
+  *((_WORD *)v5 + 94) = aUsbDevclass00S[94];
   result = 0LL;
   *(_QWORD *)(a3 + 8) = v5;
   *(_DWORD *)(a3 + 4) = 190;

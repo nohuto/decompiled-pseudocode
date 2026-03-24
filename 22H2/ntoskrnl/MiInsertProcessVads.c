@@ -1,49 +1,43 @@
 /*
- * XREFs of MiInsertProcessVads @ 0x1406B3068
+ * XREFs of MiInsertProcessVads @ 0x1406FBD48
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess2 @ 0x140860EDC (MmInitializeHandBuiltProcess2.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406FBB04 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x1407D0DE4 (MmInitializeHandBuiltProcess2.c)
  * Callees:
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140214DB4 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiInsertVad @ 0x140287B70 (MiInsertVad.c)
- *     LOCK_ADDRESS_SPACE @ 0x14029C82C (LOCK_ADDRESS_SPACE.c)
- *     MiInsertVadCharges @ 0x1406FA960 (MiInsertVadCharges.c)
+ *     MiGetWsAndInsertVad @ 0x140296700 (MiGetWsAndInsertVad.c)
+ *     MiInsertVadCharges @ 0x14063A390 (MiInsertVadCharges.c)
  */
 
-__int64 __fastcall MiInsertProcessVads(__int64 a1, _QWORD **a2)
+__int64 __fastcall MiInsertProcessVads(struct _KPROCESS *a1, _QWORD **a2)
 {
-  struct _KTHREAD *CurrentThread; // rsi
-  int inserted; // edi
-  __int64 Process; // rbp
-  _QWORD *v7; // rbx
-  _QWORD *v8; // r12
+  _QWORD *v2; // rbx
+  unsigned int v3; // edi
+  _QWORD *v6; // rbp
+  __int64 result; // rax
 
-  CurrentThread = KeGetCurrentThread();
-  inserted = 0;
-  Process = (__int64)CurrentThread->ApcState.Process;
-  LOCK_ADDRESS_SPACE((__int64)CurrentThread, Process);
-  v7 = *a2;
+  v2 = *a2;
+  v3 = 0;
   if ( *a2 )
   {
     while ( 1 )
     {
-      v8 = (_QWORD *)*v7;
-      inserted = MiInsertVadCharges(v7, a1);
-      if ( inserted < 0 )
+      v6 = (_QWORD *)*v2;
+      result = MiInsertVadCharges((__int64)v2, a1);
+      v3 = result;
+      if ( (int)result < 0 )
         break;
-      MiInsertVad((__int64)v7, a1, 0);
-      v7 = v8;
-      if ( !v8 )
+      MiGetWsAndInsertVad((__int64)v2);
+      v2 = v6;
+      if ( !v6 )
         goto LABEL_4;
     }
-    UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, Process);
-    *a2 = v7;
+    *a2 = v2;
   }
   else
   {
 LABEL_4:
-    UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, Process);
     *a2 = 0LL;
+    return v3;
   }
-  return (unsigned int)inserted;
+  return result;
 }

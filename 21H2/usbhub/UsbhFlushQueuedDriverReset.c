@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhFlushQueuedDriverReset @ 0x1C003718C
+ * XREFs of UsbhFlushQueuedDriverReset @ 0x1C0038440
  * Callers:
- *     Usbh_BusPause_PdoEvent @ 0x1C0039DEC (Usbh_BusPause_PdoEvent.c)
+ *     Usbh_BusPause_PdoEvent @ 0x1C003B0FC (Usbh_BusPause_PdoEvent.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhFreePortChangeQueueObject @ 0x1C000D6AC (UsbhFreePortChangeQueueObject.c)
+ *     UsbhFreePortChangeQueueObject @ 0x1C0002648 (UsbhFreePortChangeQueueObject.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 void __fastcall UsbhFlushQueuedDriverReset(__int64 a1, __int64 a2)

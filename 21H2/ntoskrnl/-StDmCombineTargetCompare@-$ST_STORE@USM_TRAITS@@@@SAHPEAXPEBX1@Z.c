@@ -1,5 +1,5 @@
 /*
- * XREFs of ?StDmCombineTargetCompare@?$ST_STORE@USM_TRAITS@@@@SAHPEAXPEBX1@Z @ 0x140394B70
+ * XREFs of ?StDmCombineTargetCompare@?$ST_STORE@USM_TRAITS@@@@SAHPEAXPEBX1@Z @ 0x140388740
  * Callers:
  *     <none>
  * Callees:

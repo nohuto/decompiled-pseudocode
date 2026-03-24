@@ -1,62 +1,62 @@
 /*
- * XREFs of ProcessMultipleCommands @ 0x1C0024B10
+ * XREFs of ProcessMultipleCommands @ 0x1C001C4C4
  * Callers:
- *     NVMeIoSubmissionQueueCreate @ 0x1C00069E8 (NVMeIoSubmissionQueueCreate.c)
- *     NVMeIoCompletionQueueCreate @ 0x1C0006C38 (NVMeIoCompletionQueueCreate.c)
+ *     NVMeIoCompletionQueueCreate @ 0x1C0019790 (NVMeIoCompletionQueueCreate.c)
+ *     NVMeIoSubmissionQueueCreate @ 0x1C0019EC0 (NVMeIoSubmissionQueueCreate.c)
  * Callees:
- *     ProcessCommand @ 0x1C00039C8 (ProcessCommand.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     NVMeRequestComplete @ 0x1C0019DF8 (NVMeRequestComplete.c)
- *     ProcessMultipleCommandsInSpecificQueue @ 0x1C0024BD0 (ProcessMultipleCommandsInSpecificQueue.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeRequestComplete @ 0x1C0010AB0 (NVMeRequestComplete.c)
+ *     ProcessMultipleCommandsInSpecificQueue @ 0x1C001C584 (ProcessMultipleCommandsInSpecificQueue.c)
  */
 
 char __fastcall ProcessMultipleCommands(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi
-  __int64 SrbExtension; // rax
-  __int64 v5; // rdx
+  __int64 v4; // rdx
+  char result; // al
   int v6; // eax
   __int64 v7; // rbx
 
   v3 = a2;
-  SrbExtension = GetSrbExtension(a2);
-  if ( *(_WORD *)(SrbExtension + 4244) )
+  if ( *(_WORD *)(GetSrbExtension(a2) + 4244) )
   {
-    *(_BYTE *)(v5 + 3) = 4;
-    return SrbExtension;
+    result = 4;
+    *(_BYTE *)(v4 + 3) = 4;
+    return result;
   }
-  v6 = *(_DWORD *)(a1 + 32);
+  v6 = *(_DWORD *)(a1 + 24);
   if ( (v6 & 0x10) != 0 )
   {
-    LOBYTE(SrbExtension) = 14;
+    result = 14;
     goto LABEL_7;
   }
   if ( (v6 & 0x100) != 0 )
   {
-    LOBYTE(SrbExtension) = 2;
+    result = 4;
 LABEL_7:
-    *(_BYTE *)(v5 + 3) = SrbExtension;
+    *(_BYTE *)(v4 + 3) = result;
     if ( v3 )
     {
       do
       {
         v7 = *(_QWORD *)(v3 + 40);
-        LOBYTE(SrbExtension) = NVMeRequestComplete(a1, v3, 0);
+        result = NVMeRequestComplete(a1, v3, 0);
         v3 = v7;
       }
       while ( v7 );
     }
-    return SrbExtension;
+    return result;
   }
-  LOBYTE(SrbExtension) = ProcessMultipleCommandsInSpecificQueue(a1, v5, a1 + 312, *(unsigned __int16 *)(a1 + 300));
-  if ( !(_BYTE)SrbExtension )
+  result = ProcessMultipleCommandsInSpecificQueue(a1, v4, a1 + 296, *(unsigned __int16 *)(a1 + 284));
+  if ( !result )
   {
     while ( v3 )
     {
       if ( *(_BYTE *)(v3 + 3) == 5 )
-        LOBYTE(SrbExtension) = ProcessCommand(a1, v3);
+        result = ProcessCommand(a1, v3);
       v3 = *(_QWORD *)(v3 + 40);
     }
   }
-  return SrbExtension;
+  return result;
 }

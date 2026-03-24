@@ -1,162 +1,123 @@
 /*
- * XREFs of ?_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C0212490
+ * XREFs of ?_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C0194588
  * Callers:
- *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C0211BD0 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
+ *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C0193CC0 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ?InitializeInterface@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPNTARGETMODESET_INTERFACE@@@Z @ 0x1C021267C (-InitializeInterface@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPNTARGETMODE.c)
- *     ?InitializeInterface@DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPNSOURCEMODESET_INTERFACE@@@Z @ 0x1C0212720 (-InitializeInterface@DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPNSOURCEMODE.c)
- *     ?InitializeInterface@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@@Z @ 0x1C021278C (-InitializeInterface@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPNTOPOLOGY_INTERF.c)
- *     ?InitializeInterface@DXGDMM_VIDPN_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPN_INTERFACE@@@Z @ 0x1C0212868 (-InitializeInterface@DXGDMM_VIDPN_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPN_INTERFACE@@@Z.c)
- *     ?InitializeInterface@DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE@@@Z @ 0x1C02128D4 (-InitializeInterface@DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDEOPRESENT.c)
- *     ?InitializeInterface@DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE@@@Z @ 0x1C0212920 (-InitializeInterface@DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDEOPRESENT.c)
- *     ?InitializeInterface@DXGDMM_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_INTERFACE@@@Z @ 0x1C021296C (-InitializeInterface@DXGDMM_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_INTERFACE@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?InitializeInterface@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPNTARGETMODESET_INTERFACE@@@Z @ 0x1C0194774 (-InitializeInterface@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPNTARGETMODE.c)
+ *     ?InitializeInterface@DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPNSOURCEMODESET_INTERFACE@@@Z @ 0x1C019480C (-InitializeInterface@DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPNSOURCEMODE.c)
+ *     ?InitializeInterface@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@@Z @ 0x1C0194878 (-InitializeInterface@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPNTOPOLOGY_INTERF.c)
+ *     ?InitializeInterface@DXGDMM_VIDPN_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPN_INTERFACE@@@Z @ 0x1C0194954 (-InitializeInterface@DXGDMM_VIDPN_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPN_INTERFACE@@@Z.c)
+ *     ?InitializeInterface@DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE@@@Z @ 0x1C01949C0 (-InitializeInterface@DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDEOPRESENT.c)
+ *     ?InitializeInterface@DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE@@@Z @ 0x1C0194A0C (-InitializeInterface@DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDEOPRESENT.c)
+ *     ?InitializeInterface@DXGDMM_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_INTERFACE@@@Z @ 0x1C0194A58 (-InitializeInterface@DXGDMM_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_INTERFACE@@@Z.c)
  */
 
-__int64 __fastcall VIDPN_MGR::_InitializeDmmClientInterfaces(VIDPN_MGR *this, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall VIDPN_MGR::_InitializeDmmClientInterfaces(VIDPN_MGR *this)
 {
-  __int64 v5; // rax
-  struct _DXGDMM_INTERFACE *v6; // rdx
-  void *v7; // rcx
-  DXGDMM_INTERFACE_V1_IMPL *v8; // rdi
-  __int64 v9; // r9
-  __int64 v10; // rax
-  struct _DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE *v11; // rdx
-  void *v12; // rcx
-  DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL *v13; // rdi
-  __int64 v14; // r9
-  __int64 v15; // rax
-  struct _DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE *v16; // rdx
-  void *v17; // rcx
-  DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL *v18; // rdi
-  __int64 v19; // r9
-  __int64 v20; // rax
-  struct _DXGDMM_VIDPN_INTERFACE *v21; // rdx
-  void *v22; // rcx
-  DXGDMM_VIDPN_INTERFACE_V1_IMPL *v23; // rdi
-  __int64 v24; // r9
+  DXGDMM_INTERFACE_V1_IMPL *v2; // rax
+  struct _DXGDMM_INTERFACE *v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // r9
+  DXGDMM_INTERFACE_V1_IMPL *v6; // rcx
+  DXGDMM_INTERFACE_V1_IMPL *v7; // rdi
+  DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL *v8; // rax
+  DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL *v9; // rdi
+  DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL *v10; // rax
+  DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL *v11; // rdi
+  DXGDMM_VIDPN_INTERFACE_V1_IMPL *v12; // rax
+  DXGDMM_VIDPN_INTERFACE_V1_IMPL *v13; // rdi
+  DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *v14; // rax
+  DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *v15; // rdi
+  DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *v16; // rax
+  DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *v17; // rdi
+  DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *v18; // rax
+  DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *v19; // rdi
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rdi
+  __int64 v24; // rax
   __int64 v25; // rax
-  struct _DXGDMM_VIDPNTOPOLOGY_INTERFACE *v26; // rdx
-  void *v27; // rcx
-  DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *v28; // rdi
-  __int64 v29; // r9
-  __int64 v30; // rax
-  struct _DXGDMM_VIDPNSOURCEMODESET_INTERFACE *v31; // rdx
-  void *v32; // rcx
-  DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *v33; // rdi
-  __int64 v34; // r9
-  __int64 v35; // rax
-  struct _DXGDMM_VIDPNTARGETMODESET_INTERFACE *v36; // rdx
-  void *v37; // rcx
-  DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *v38; // rdi
-  __int64 v40; // rdx
 
-  v5 = operator new[](0x58uLL, 0x4E506456u, 256LL, a4);
-  v7 = (void *)*((_QWORD *)this + 57);
-  v8 = (DXGDMM_INTERFACE_V1_IMPL *)v5;
-  if ( (void *)v5 != v7 )
-    operator delete(v7);
-  *((_QWORD *)this + 57) = v8;
-  if ( v8 )
+  v2 = (DXGDMM_INTERFACE_V1_IMPL *)operator new[](0x58uLL, 0x4E506456u, PagedPool);
+  v6 = (DXGDMM_INTERFACE_V1_IMPL *)*((_QWORD *)this + 50);
+  v7 = v2;
+  if ( v2 != v6 )
+    operator delete(v6);
+  *((_QWORD *)this + 50) = v7;
+  if ( !v7 )
+    goto LABEL_23;
+  DXGDMM_INTERFACE_V1_IMPL::InitializeInterface(v7, v3);
+  v8 = (DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL *)operator new[](0x20uLL, 0x4E506456u, PagedPool);
+  v6 = (DXGDMM_INTERFACE_V1_IMPL *)*((_QWORD *)this + 51);
+  v9 = v8;
+  if ( v8 != v6 )
+    operator delete(v6);
+  *((_QWORD *)this + 51) = v9;
+  if ( !v9 )
+    goto LABEL_23;
+  DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL::InitializeInterface(v9, v3);
+  v10 = (DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL *)operator new[](0x20uLL, 0x4E506456u, PagedPool);
+  v6 = (DXGDMM_INTERFACE_V1_IMPL *)*((_QWORD *)this + 52);
+  v11 = v10;
+  if ( v10 != v6 )
+    operator delete(v6);
+  *((_QWORD *)this + 52) = v11;
+  if ( !v11 )
+    goto LABEL_23;
+  DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL::InitializeInterface(v11, v3);
+  v12 = (DXGDMM_VIDPN_INTERFACE_V1_IMPL *)operator new[](0x38uLL, 0x4E506456u, PagedPool);
+  v6 = (DXGDMM_INTERFACE_V1_IMPL *)*((_QWORD *)this + 53);
+  v13 = v12;
+  if ( v12 != v6 )
+    operator delete(v6);
+  *((_QWORD *)this + 53) = v13;
+  if ( !v13 )
+    goto LABEL_23;
+  DXGDMM_VIDPN_INTERFACE_V1_IMPL::InitializeInterface(v13, v3);
+  v14 = (DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *)operator new[](0x88uLL, 0x4E506456u, PagedPool);
+  v6 = (DXGDMM_INTERFACE_V1_IMPL *)*((_QWORD *)this + 54);
+  v15 = v14;
+  if ( v14 != v6 )
+    operator delete(v6);
+  *((_QWORD *)this + 54) = v15;
+  if ( !v15 )
+    goto LABEL_23;
+  DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL::InitializeInterface(v15, v3);
+  v16 = (DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *)operator new[](0x38uLL, 0x4E506456u, PagedPool);
+  v6 = (DXGDMM_INTERFACE_V1_IMPL *)*((_QWORD *)this + 55);
+  v17 = v16;
+  if ( v16 != v6 )
+    operator delete(v6);
+  *((_QWORD *)this + 55) = v17;
+  if ( !v17 )
+    goto LABEL_23;
+  DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL::InitializeInterface(v17, v3);
+  v18 = (DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *)operator new[](0x58uLL, 0x4E506456u, PagedPool);
+  v6 = (DXGDMM_INTERFACE_V1_IMPL *)*((_QWORD *)this + 56);
+  v19 = v18;
+  if ( v18 != v6 )
+    operator delete(v6);
+  *((_QWORD *)this + 56) = v19;
+  if ( v19 )
   {
-    DXGDMM_INTERFACE_V1_IMPL::InitializeInterface(v8, v6);
-    v10 = operator new[](0x20uLL, 0x4E506456u, 256LL, v9);
-    v12 = (void *)*((_QWORD *)this + 58);
-    v13 = (DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL *)v10;
-    if ( (void *)v10 != v12 )
-      operator delete(v12);
-    *((_QWORD *)this + 58) = v13;
-    if ( !v13 )
-    {
-      v40 = *((_QWORD *)this + 1);
-      if ( v40 )
-        goto LABEL_25;
-      goto LABEL_24;
-    }
-    DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL::InitializeInterface(v13, v11);
-    v15 = operator new[](0x20uLL, 0x4E506456u, 256LL, v14);
-    v17 = (void *)*((_QWORD *)this + 59);
-    v18 = (DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL *)v15;
-    if ( (void *)v15 != v17 )
-      operator delete(v17);
-    *((_QWORD *)this + 59) = v18;
-    if ( !v18 )
-    {
-      v40 = *((_QWORD *)this + 1);
-      if ( v40 )
-        goto LABEL_25;
-      goto LABEL_24;
-    }
-    DXGDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL::InitializeInterface(v18, v16);
-    v20 = operator new[](0x38uLL, 0x4E506456u, 256LL, v19);
-    v22 = (void *)*((_QWORD *)this + 60);
-    v23 = (DXGDMM_VIDPN_INTERFACE_V1_IMPL *)v20;
-    if ( (void *)v20 != v22 )
-      operator delete(v22);
-    *((_QWORD *)this + 60) = v23;
-    if ( !v23 )
-    {
-      v40 = *((_QWORD *)this + 1);
-      if ( v40 )
-        goto LABEL_25;
-      goto LABEL_24;
-    }
-    DXGDMM_VIDPN_INTERFACE_V1_IMPL::InitializeInterface(v23, v21);
-    v25 = operator new[](0x88uLL, 0x4E506456u, 256LL, v24);
-    v27 = (void *)*((_QWORD *)this + 61);
-    v28 = (DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *)v25;
-    if ( (void *)v25 != v27 )
-      operator delete(v27);
-    *((_QWORD *)this + 61) = v28;
-    if ( !v28 )
-    {
-      v40 = *((_QWORD *)this + 1);
-      if ( v40 )
-        goto LABEL_25;
-      goto LABEL_24;
-    }
-    DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL::InitializeInterface(v28, v26);
-    v30 = operator new[](0x38uLL, 0x4E506456u, 256LL, v29);
-    v32 = (void *)*((_QWORD *)this + 62);
-    v33 = (DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *)v30;
-    if ( (void *)v30 != v32 )
-      operator delete(v32);
-    *((_QWORD *)this + 62) = v33;
-    if ( !v33 )
-    {
-      v40 = *((_QWORD *)this + 1);
-      if ( v40 )
-        goto LABEL_25;
-      goto LABEL_24;
-    }
-    DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL::InitializeInterface(v33, v31);
-    v35 = operator new[](0x60uLL, 0x4E506456u, 256LL, v34);
-    v37 = (void *)*((_QWORD *)this + 63);
-    v38 = (DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *)v35;
-    if ( (void *)v35 != v37 )
-      operator delete(v37);
-    *((_QWORD *)this + 63) = v38;
-    if ( v38 )
-    {
-      DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::InitializeInterface(v38, v36);
-      return 0LL;
-    }
-    v40 = *((_QWORD *)this + 1);
-    if ( !v40 )
-    {
-LABEL_24:
-      WdLogSingleEntry0(1LL);
-      v40 = *((_QWORD *)this + 1);
-    }
+    DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::InitializeInterface(v19, v3);
+    return 0LL;
   }
   else
   {
-    v40 = *((_QWORD *)this + 1);
-    if ( !v40 )
-      goto LABEL_24;
+LABEL_23:
+    v23 = WdLogNewEntry5_WdLowResource(v6, v3, v4, v5);
+    v24 = *((_QWORD *)this + 1);
+    if ( !v24 )
+    {
+      v25 = WdLogNewEntry5_WdAssertion(v22, v21);
+      WdLogEvent5_WdAssertion(v25);
+      v24 = *((_QWORD *)this + 1);
+    }
+    *(_QWORD *)(v23 + 24) = *(_QWORD *)(v24 + 16);
+    WdLogEvent5_WdLowResource(v23);
+    return 3221225495LL;
   }
-LABEL_25:
-  WdLogSingleEntry1(6LL, *(_QWORD *)(v40 + 16));
-  return 3221225495LL;
 }

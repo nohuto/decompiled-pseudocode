@@ -1,19 +1,28 @@
 /*
- * XREFs of ?DestroyHandleSecondPass@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C0148170
+ * XREFs of ?DestroyHandleSecondPass@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C011B810
  * Callers:
  *     <none>
  * Callees:
- *     HMDestroyUnlockedObject @ 0x1C00D0380 (HMDestroyUnlockedObject.c)
+ *     HMPkheFromPhe @ 0x1C0030070 (HMPkheFromPhe.c)
+ *     HMDestroyUnlockedObject @ 0x1C00C0AB0 (HMDestroyUnlockedObject.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall DestroyHandleSecondPass(struct _HANDLEENTRY *a1)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
+  char *v2; // rdi
+  __int64 v3; // rcx
 
-  v1 = 3LL * (unsigned int)((a1 - qword_1C0294B68) >> 5);
-  v2 = *((_QWORD *)gpKernelHandleTable + 3 * (unsigned int)((a1 - qword_1C0294B68) >> 5));
-  if ( *(_DWORD *)(v2 + 8) )
-    *(_DWORD *)(v2 + 8) = 0;
-  HMDestroyUnlockedObject(a1, v1, v2);
+  v2 = HMPkheFromPhe((__int64)a1);
+  v3 = *(_QWORD *)v2;
+  if ( *(_DWORD *)(*(_QWORD *)v2 + 8LL) )
+  {
+    if ( *((_BYTE *)a1 + 24) != 3 )
+    {
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTellMeIf", 0x20000, 1053);
+      v3 = *(_QWORD *)v2;
+    }
+    *(_DWORD *)(v3 + 8) = 0;
+  }
+  HMDestroyUnlockedObject(a1);
 }

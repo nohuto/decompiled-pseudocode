@@ -1,268 +1,313 @@
 /*
- * XREFs of DestroyProcessInfo @ 0x1C00C5EA0
+ * XREFs of DestroyProcessInfo @ 0x1C0046DC0
  * Callers:
- *     xxxUserProcessCallout @ 0x1C0050580 (xxxUserProcessCallout.c)
+ *     xxxUserProcessCallout @ 0x1C003D2A0 (xxxUserProcessCallout.c)
  * Callees:
- *     CitProcessCallout @ 0x1C00362EC (CitProcessCallout.c)
- *     Win32FreePool @ 0x1C0038570 (Win32FreePool.c)
- *     UnlockObjectAssignment @ 0x1C0038710 (UnlockObjectAssignment.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C004C624 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     ?OnProcessTermination@InputObjectMap@@SAXXZ @ 0x1C0065FE8 (-OnProcessTermination@InputObjectMap@@SAXXZ.c)
- *     SynchronizeContext @ 0x1C0068170 (SynchronizeContext.c)
- *     RIMOnProcessDestroy @ 0x1C0073FD0 (RIMOnProcessDestroy.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0079E14 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
- *     PostWinlogonMessage @ 0x1C0086360 (PostWinlogonMessage.c)
- *     CloseProtectedHandle @ 0x1C0096518 (CloseProtectedHandle.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00981A4 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00981E4 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009CB48 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     DelayedDestroyCacheDC @ 0x1C00A065C (DelayedDestroyCacheDC.c)
- *     IszzzCalcStartCursorHideSupported @ 0x1C00AB9E4 (IszzzCalcStartCursorHideSupported.c)
- *     IsShellProcess @ 0x1C00AD8FC (IsShellProcess.c)
- *     ??0CWinEventNoopDeferral@@QEAA@XZ @ 0x1C00ADC54 (--0CWinEventNoopDeferral@@QEAA@XZ.c)
- *     CleanupLogonProcess @ 0x1C00B1D00 (CleanupLogonProcess.c)
- *     zzzCalcStartCursorHide @ 0x1C00B58E0 (zzzCalcStartCursorHide.c)
- *     PostPlaySoundMessage @ 0x1C00B6720 (PostPlaySoundMessage.c)
- *     IsCleanupIAMAccessSupported @ 0x1C00C52D8 (IsCleanupIAMAccessSupported.c)
- *     CleanupIAMAccess @ 0x1C00C5468 (CleanupIAMAccess.c)
- *     GreCleanDCAndSetOwnerEx @ 0x1C00D32B0 (GreCleanDCAndSetOwnerEx.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0_EtwWriteTransfer @ 0x1C00DF278 (McTemplateK0_EtwWriteTransfer.c)
- *     EtwTraceScreenSaverProcessEvent @ 0x1C013B05C (EtwTraceScreenSaverProcessEvent.c)
- *     RIMRemoveMouseOrKeyboardInjectionDevice @ 0x1C017ABDC (RIMRemoveMouseOrKeyboardInjectionDevice.c)
+ *     DelayedDestroyCacheDC @ 0x1C00087FC (DelayedDestroyCacheDC.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C0031520 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0043DC4 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0043E10 (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UnlockObjectAssignment @ 0x1C0047380 (UnlockObjectAssignment.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00473AC (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00473E0 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     CitProcessCallout @ 0x1C0047420 (CitProcessCallout.c)
+ *     RIMOnProcessDestroy @ 0x1C0047D10 (RIMOnProcessDestroy.c)
+ *     ?OnProcessTermination@InputObjectMap@@SAXXZ @ 0x1C004813C (-OnProcessTermination@InputObjectMap@@SAXXZ.c)
+ *     IsShellProcess @ 0x1C004823C (IsShellProcess.c)
+ *     CloseProtectedHandle @ 0x1C0048268 (CloseProtectedHandle.c)
+ *     ClearAppStarting @ 0x1C0048460 (ClearAppStarting.c)
+ *     GiveForegroundActivateRight @ 0x1C00486F0 (GiveForegroundActivateRight.c)
+ *     IszzzCalcStartCursorHideSupported @ 0x1C00487A4 (IszzzCalcStartCursorHideSupported.c)
+ *     PostWinlogonMessage @ 0x1C00763B0 (PostWinlogonMessage.c)
+ *     PostPlaySoundMessage @ 0x1C00A9898 (PostPlaySoundMessage.c)
+ *     CleanupLogonProcess @ 0x1C00B70A0 (CleanupLogonProcess.c)
+ *     IsCleanupIAMAccessSupported @ 0x1C00B83A4 (IsCleanupIAMAccessSupported.c)
+ *     GreCleanDCAndSetOwnerEx @ 0x1C00CC150 (GreCleanDCAndSetOwnerEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     EtwTraceScreenSaverProcessEvent @ 0x1C0123C5C (EtwTraceScreenSaverProcessEvent.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124850 (McTemplateK0_EtwWriteTransfer.c)
+ *     RIMRemoveMouseOrKeyboardInjectionDevice @ 0x1C01581AC (RIMRemoveMouseOrKeyboardInjectionDevice.c)
  */
 
-__int64 __fastcall DestroyProcessInfo(__int64 a1)
+__int64 __fastcall DestroyProcessInfo(_QWORD *a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  struct _KEVENT *v5; // rcx
-  int v6; // eax
+  struct _KEVENT *v2; // rcx
+  int v3; // eax
   __int64 i; // rcx
+  __int64 v5; // rcx
+  int v6; // ebp
+  int v7; // eax
+  __int64 v8; // rax
+  int v9; // eax
+  __int64 k; // rax
   __int64 j; // rax
-  __int64 v10; // rcx
-  __int64 v11; // rax
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  NTSTATUS ProcessExitStatus; // eax
-  NTSTATUS v15; // eax
-  __int64 k; // r14
-  __int64 m; // rbx
-  __int64 v18; // rax
-  __int64 v19; // rax
+  HANDLE ProcessId; // rax
+  __int64 *v13; // rcx
+  __int64 n; // rax
+  __int64 m; // rcx
+  __int64 v16; // rdx
+  int v17; // eax
+  unsigned int v18; // r14d
+  int v19; // eax
   __int64 *v20; // rcx
-  int v21; // eax
-  unsigned int v22; // r14d
-  __int64 v23; // rdx
-  __int64 v24; // r8
-  __int64 v25; // r9
-  void *v26; // rcx
-  char *v27; // rcx
-  char *v28; // rbx
-  __int64 v29; // rcx
-  __int64 v30; // rdx
-  __int64 v31; // r8
-  __int64 v32; // r9
-  __int64 v33; // rcx
-  __int64 *v34; // [rsp+70h] [rbp+30h] BYREF
-  __int64 v35; // [rsp+78h] [rbp+38h] BYREF
-  __int64 v36; // [rsp+80h] [rbp+40h] BYREF
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  void *v24; // rcx
+  __int64 v25; // rbx
+  __int64 v26; // rdx
+  __int64 v27; // r8
+  _QWORD *v28; // rcx
+  int v29; // eax
+  __int64 v30; // rcx
+  _QWORD *v32; // rbx
+  int v33; // eax
+  int v34; // eax
+  int v35; // eax
+  NTSTATUS ProcessExitStatus; // eax
+  NTSTATUS v37; // eax
+  int v38; // eax
+  __int64 *v39; // rcx
+  __int64 *v40; // rdx
+  __int64 *v41; // [rsp+60h] [rbp+8h] BYREF
 
-  CitProcessCallout(a1, 0);
-  v5 = *(struct _KEVENT **)(a1 + 16);
-  if ( v5 == (struct _KEVENT *)-1LL )
-    goto LABEL_4;
-  if ( v5 )
+  CitProcessCallout(a1, 0LL);
+  v2 = (struct _KEVENT *)a1[2];
+  if ( v2 != (struct _KEVENT *)-1LL )
   {
-    KeSetEvent(v5, 1, 0);
-    ObfDereferenceObject(*(PVOID *)(a1 + 16));
-LABEL_4:
-    *(_QWORD *)(a1 + 16) = 0LL;
+    if ( !v2 )
+      goto LABEL_3;
+    KeSetEvent(v2, 1, 0);
+    ObfDereferenceObject((PVOID)a1[2]);
   }
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v34, v2, v3, v4);
-  CWinEventNoopDeferral::CWinEventNoopDeferral((CWinEventNoopDeferral *)&v35);
-  v6 = *(_DWORD *)(a1 + 12);
-  if ( (v6 & 4) != 0 )
+  a1[2] = 0LL;
+LABEL_3:
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v41);
+  ++gdwDeferWinEvent;
+  v3 = *((_DWORD *)a1 + 3);
+  if ( (v3 & 4) != 0 )
   {
-    *(_DWORD *)(a1 + 12) = v6 & 0xFFFFFFFB;
+    *((_DWORD *)a1 + 3) = v3 & 0xFFFFFFFB;
     if ( (int)IszzzCalcStartCursorHideSupported() >= 0 )
-      zzzCalcStartCursorHide(0LL, 0LL);
+    {
+      if ( qword_1C0255FA0 )
+        qword_1C0255FA0(0LL, 0LL);
+    }
   }
   --gdwDeferWinEvent;
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v34);
-  PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v34, (struct _EX_PUSH_LOCK *)&gRotationProcessLock);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v41);
+  PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v41, (struct _EX_PUSH_LOCK *)&gRotationProcessLock);
   for ( i = grpWinStaList; i; i = *(_QWORD *)(i + 8) )
   {
     for ( j = *(_QWORD *)(i + 16); j; j = *(_QWORD *)(j + 32) )
     {
-      if ( *(_QWORD *)(j + 256) == a1 )
+      if ( *(_QWORD **)(j + 256) == a1 )
         *(_QWORD *)(j + 256) = 0LL;
     }
   }
-  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v34);
-  if ( (*(_DWORD *)(a1 + 12) & 0x8000) != 0 )
-  {
-    PsUpdateComponentPower(*(_QWORD *)a1, 6LL);
-    v10 = *(_QWORD *)(a1 + 272);
-    if ( v10 )
-    {
-      PsReleaseProcessWakeCounter(v10, 1LL);
-      *(_QWORD *)(a1 + 272) = 0LL;
-    }
-    if ( *(_QWORD *)(a1 + 848) && qword_1C0295800 && (int)qword_1C0295800() >= 0 && qword_1C0295808 )
-      qword_1C0295808(a1);
-    if ( *(_QWORD *)(a1 + 904) && qword_1C0295810 && (int)qword_1C0295810() >= 0 && qword_1C0295818 )
-      qword_1C0295818(a1);
-    if ( *(_QWORD *)(a1 + 912) != -1LL )
-      RIMRemoveMouseOrKeyboardInjectionDevice();
-    if ( *(_QWORD *)(a1 + 920) != -1LL )
-      RIMRemoveMouseOrKeyboardInjectionDevice();
-    if ( (*(_DWORD *)(a1 + 12) & 0x40001) == 0x40000 )
-    {
-      v11 = *(_QWORD *)(a1 + 656);
-      if ( (!v11 || (*(_DWORD *)(v11 + 64) & 2) == 0) && qword_1C0295820 && (int)qword_1C0295820() >= 0 )
-        PostPlaySoundMessage();
-    }
-    if ( (unsigned int)IsShellProcess(a1) && *(_QWORD *)(a1 + 336) == grpdeskIODefault )
-    {
-      if ( (int)IsCleanupIAMAccessSupported() >= 0 )
-        CleanupIAMAccess();
-      if ( (*(_DWORD *)(*(_QWORD *)(a1 + 656) + 64LL) & 2) == 0 )
-      {
-        ProcessExitStatus = PsGetProcessExitStatus(*(PEPROCESS *)a1);
-        if ( ProcessExitStatus != 1 && ProcessExitStatus != 255 )
-        {
-          v15 = PsGetProcessExitStatus(*(PEPROCESS *)a1);
-          PostWinlogonMessage(0x401u, (struct _EX_RUNDOWN_REF *)v15);
-        }
-      }
-    }
-    for ( k = grpWinStaList; k; k = *(_QWORD *)(k + 8) )
-    {
-      for ( m = *(_QWORD *)(k + 16); m; m = *(_QWORD *)(m + 32) )
-      {
-        v18 = *(_QWORD *)(m + 8);
-        if ( *(_QWORD *)(v18 + 176) == a1 )
-        {
-          *(_QWORD *)(v18 + 176) = 0LL;
-          if ( (struct tagDESKTOP *)m == grpdeskRitInput )
-            SynchronizeContext();
-        }
-      }
-    }
-    if ( (*(_DWORD *)(a1 + 12) & 0x40) != 0 && qword_1C0296550 )
-      qword_1C0296550(a1);
-    v19 = gppiList;
-    v20 = &gppiList;
-    while ( v19 )
-    {
-      if ( v19 == a1 )
-      {
-        *v20 = *(_QWORD *)(a1 + 368);
-        break;
-      }
-      v20 = (__int64 *)(v19 + 368);
-      v19 = *(_QWORD *)(v19 + 368);
-    }
-    v21 = *(_DWORD *)(a1 + 12);
-    v22 = v21 & 0x4000;
-    if ( (v21 & 0x4000) != 0 && (v21 & 0x200) != 0 )
-      DelayedDestroyCacheDC(1);
-    if ( qword_1C0295830 && (int)qword_1C0295830(v20) >= 0 )
-    {
-      v20 = 0LL;
-      v34 = 0LL;
-      if ( qword_1C0295838 )
-      {
-        qword_1C0295838(&v34);
-        v20 = v34;
-      }
-      while ( v20 )
-      {
-        if ( *((_DWORD *)v20 + 5) == *(_DWORD *)(a1 + 56) )
-          *((_DWORD *)v20 + 5) = 0;
-        v20 = (__int64 *)*v20;
-      }
-    }
-    if ( gppiScreenSaver == a1 )
-    {
-      gppiScreenSaver = 0LL;
-      EtwTraceScreenSaverProcessEvent(2LL);
-    }
-    InputObjectMap::OnProcessTermination((__int64)v20, v12, v13);
-    if ( gppiUserApiHook == a1 && qword_1C0295840 && (int)qword_1C0295840() >= 0 && qword_1C0295848 )
-      qword_1C0295848();
-    if ( gppiDManipHook == a1 && qword_1C0295850 && (int)qword_1C0295850() >= 0 && qword_1C0295858 )
-      qword_1C0295858();
-    UnlockObjectAssignment((void **)(a1 + 656));
-    UnlockObjectAssignment((void **)(a1 + 336));
-    v26 = *(void **)(a1 + 384);
-    if ( v26 )
-    {
-      CloseProtectedHandle(v26);
-      *(_QWORD *)(a1 + 384) = 0LL;
-    }
-    *(_DWORD *)(a1 + 12) |= 0x1000u;
-    v27 = *(char **)(a1 + 696);
-    if ( v27 )
-    {
-      do
-      {
-        v28 = *(char **)v27;
-        Win32FreePool(v27);
-        v27 = v28;
-      }
-      while ( v28 );
-    }
-    *(_QWORD *)(a1 + 696) = 0LL;
-    if ( qword_1C0295860 && (int)qword_1C0295860(v27) >= 0 && qword_1C0295868 )
-      qword_1C0295868(a1);
-    if ( a1 == gppiInputProvider )
-      gppiInputProvider = 0LL;
-    if ( a1 == gppiLockSFW )
-      gppiLockSFW = 0LL;
-    if ( *(_DWORD *)(a1 + 56) == gpidLogonUI )
-    {
-      gpidLogonUI = 0LL;
-      LODWORD(WPP_MAIN_CB.Dpc.DeferredRoutine) = 0;
-      if ( (*(_DWORD *)(a1 + 816) & 0x80000) != 0 && qword_1C0295890 && (int)qword_1C0295890(v27) >= 0 )
-      {
-        if ( qword_1C0295898 )
-          qword_1C0295898(2LL);
-        *(_DWORD *)(a1 + 816) &= ~0x80000u;
-      }
-    }
-    if ( *(_DWORD *)(a1 + 56) == gpidLogon )
-      CleanupLogonProcess(0, v23, v24, v25);
-    v29 = *(unsigned int *)(a1 + 1108);
-    if ( *(_QWORD *)(a1 + 1104) && (unsigned int)dword_1C02882F8 > 5 )
-    {
-      LODWORD(v34) = *(_DWORD *)(a1 + 56);
-      v35 = *(unsigned int *)(a1 + 1104);
-      v36 = v29;
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
-        (int)&dword_1C02882F8,
-        (int)&unk_1C02568D5,
-        v24,
-        v25,
-        (__int64)&v36,
-        (__int64)&v35,
-        (__int64)&v34);
-    }
-    GreCleanDCAndSetOwnerEx(qword_1C0291F08);
-    if ( qword_1C02961E0 )
-      qword_1C02961E0(a1);
-    RIMOnProcessDestroy(*(_QWORD *)a1, v30, v31, v32);
-    LOBYTE(v33) = BYTE1(Microsoft_Windows_Win32kEnableBits);
-    if ( (Microsoft_Windows_Win32kEnableBits & 0x8000) != 0 )
-      McTemplateK0_EtwWriteTransfer(v33, &CompleteGuiProcessExecution, &W32kControlGuid);
-    return v22;
-  }
-  else
-  {
-    if ( qword_1C0296550 )
-      qword_1C0296550(a1);
+  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v41);
+  if ( (*((_DWORD *)a1 + 3) & 0x8000) == 0 )
     return 0LL;
+  PsUpdateComponentPower(*a1, 6LL);
+  v5 = a1[34];
+  if ( v5 )
+  {
+    PsReleaseProcessWakeCounter(v5, 1LL);
+    a1[34] = 0LL;
   }
+  GetDomainLockRef(15);
+  v6 = -1073741637;
+  if ( a1[104] )
+  {
+    v33 = qword_1C02563D0 ? qword_1C02563D0() : -1073741637;
+    if ( v33 >= 0 && qword_1C02563D8 )
+      qword_1C02563D8(a1);
+  }
+  if ( a1[112] )
+  {
+    v35 = qword_1C02563E0 ? qword_1C02563E0() : -1073741637;
+    if ( v35 >= 0 && qword_1C02563E8 )
+      qword_1C02563E8(a1);
+  }
+  if ( a1[113] != -1LL )
+    RIMRemoveMouseOrKeyboardInjectionDevice();
+  if ( a1[114] != -1LL )
+    RIMRemoveMouseOrKeyboardInjectionDevice();
+  if ( qword_1C02563F0 )
+    v7 = qword_1C02563F0();
+  else
+    v7 = -1073741637;
+  if ( v7 >= 0 && qword_1C02563F8 )
+    qword_1C02563F8(a1);
+  if ( (*((_DWORD *)a1 + 3) & 0x40001) == 0x40000 )
+  {
+    v8 = a1[83];
+    if ( !v8 || (*(_DWORD *)(v8 + 64) & 2) == 0 )
+    {
+      v9 = qword_1C0256400 ? qword_1C0256400() : -1073741637;
+      if ( v9 >= 0 )
+        PostPlaySoundMessage(8LL);
+    }
+  }
+  if ( (unsigned int)IsShellProcess(a1) && a1[42] == grpdeskIODefault )
+  {
+    if ( (int)IsCleanupIAMAccessSupported() >= 0 && qword_1C0256178 )
+      qword_1C0256178(a1[42]);
+    if ( (*(_DWORD *)(a1[83] + 64LL) & 2) == 0 )
+    {
+      ProcessExitStatus = PsGetProcessExitStatus((PEPROCESS)*a1);
+      if ( ProcessExitStatus != 1 && ProcessExitStatus != 255 )
+      {
+        v37 = PsGetProcessExitStatus((PEPROCESS)*a1);
+        PostWinlogonMessage(1025LL, v37);
+      }
+    }
+  }
+  for ( k = grpWinStaList; k; k = *(_QWORD *)(k + 8) )
+  {
+    for ( m = *(_QWORD *)(k + 16); m; m = *(_QWORD *)(m + 32) )
+    {
+      v16 = *(_QWORD *)(m + 8);
+      if ( *(_QWORD **)(v16 + 176) == a1 )
+        *(_QWORD *)(v16 + 176) = 0LL;
+    }
+  }
+  if ( (*((_DWORD *)a1 + 3) & 0x40) != 0 )
+  {
+    ProcessId = PsGetProcessId((PEPROCESS)*a1);
+    GiveForegroundActivateRight(ProcessId);
+    ClearAppStarting(a1);
+  }
+  v13 = &gppiList;
+  for ( n = gppiList; n; n = *(_QWORD *)(n + 376) )
+  {
+    if ( (_QWORD *)n == a1 )
+    {
+      *v13 = a1[47];
+      break;
+    }
+    v13 = (__int64 *)(n + 376);
+  }
+  v17 = *((_DWORD *)a1 + 3);
+  v18 = v17 & 0x4000;
+  if ( (v17 & 0x4000) != 0 && (v17 & 0x200) != 0 )
+    DelayedDestroyCacheDC(1);
+  if ( qword_1C0256410 )
+    v19 = qword_1C0256410(v13);
+  else
+    v19 = -1073741637;
+  if ( v19 >= 0 )
+  {
+    v20 = 0LL;
+    v41 = 0LL;
+    if ( qword_1C0256418 )
+    {
+      qword_1C0256418(&v41);
+      v20 = v41;
+    }
+    while ( v20 )
+    {
+      if ( *((_DWORD *)v20 + 5) == *((_DWORD *)a1 + 14) )
+        *((_DWORD *)v20 + 5) = 0;
+      v20 = (__int64 *)*v20;
+    }
+  }
+  if ( (_QWORD *)gppiScreenSaver == a1 )
+  {
+    gppiScreenSaver = 0LL;
+    EtwTraceScreenSaverProcessEvent(2LL);
+  }
+  InputObjectMap::OnProcessTermination();
+  if ( (_QWORD *)gppiUserApiHook == a1 )
+  {
+    v34 = qword_1C0256420 ? qword_1C0256420(v22, v21, v23) : -1073741637;
+    if ( v34 >= 0 && qword_1C0256428 )
+      qword_1C0256428(v22, v21, v23);
+  }
+  if ( (_QWORD *)gppiDManipHook == a1 )
+  {
+    v38 = qword_1C0256430 ? qword_1C0256430(v22, v21, v23) : -1073741637;
+    if ( v38 >= 0 && qword_1C0256438 )
+      qword_1C0256438(v22, v21, v23);
+  }
+  UnlockObjectAssignment(a1 + 83);
+  UnlockObjectAssignment(a1 + 42);
+  v24 = (void *)a1[49];
+  if ( v24 )
+  {
+    CloseProtectedHandle(v24);
+    a1[49] = 0LL;
+  }
+  *((_DWORD *)a1 + 3) |= 0x1000u;
+  v25 = a1[45];
+  if ( v25 )
+  {
+    ObfDereferenceObject(*(PVOID *)(v25 + 32));
+    v39 = (__int64 *)gpwpiFirstWow;
+    v40 = &gpwpiFirstWow;
+    if ( gpwpiFirstWow )
+    {
+      while ( v39 != (__int64 *)v25 )
+      {
+        v40 = v39;
+        v39 = (__int64 *)*v39;
+        if ( !v39 )
+          goto LABEL_143;
+      }
+      *v40 = *(_QWORD *)v25;
+    }
+LABEL_143:
+    Win32FreePool(v25);
+    a1[45] = 0LL;
+  }
+  GetDomainLockRef(2);
+  v28 = (_QWORD *)a1[88];
+  if ( v28 )
+  {
+    do
+    {
+      v32 = (_QWORD *)*v28;
+      Win32FreePool((__int64)v28);
+      v28 = v32;
+    }
+    while ( v32 );
+  }
+  a1[88] = 0LL;
+  if ( qword_1C0256440 )
+    v29 = qword_1C0256440(v28, v26, v27);
+  else
+    v29 = -1073741637;
+  if ( v29 >= 0 && qword_1C0256448 )
+    qword_1C0256448(a1);
+  if ( a1 == (_QWORD *)gppiInputProvider )
+    gppiInputProvider = 0LL;
+  if ( a1 == (_QWORD *)gppiLockSFW )
+    gppiLockSFW = 0LL;
+  if ( *((_DWORD *)a1 + 14) == gpidLogonUI )
+  {
+    gpidLogonUI = 0LL;
+    gbLockScreenActive = 0;
+    if ( (*((_DWORD *)a1 + 205) & 0x80000) != 0 )
+    {
+      if ( qword_1C0256470 )
+        v6 = qword_1C0256470(v28, v26, v27);
+      if ( v6 >= 0 )
+      {
+        if ( qword_1C0256478 )
+          qword_1C0256478(2LL);
+        *((_DWORD *)a1 + 205) &= ~0x80000u;
+      }
+    }
+  }
+  if ( *((_DWORD *)a1 + 14) == gpidLogon )
+    CleanupLogonProcess(v28, v26, v27);
+  GreCleanDCAndSetOwnerEx(qword_1C0252CF8);
+  if ( qword_1C0256F00 )
+    qword_1C0256F00(a1);
+  RIMOnProcessDestroy(*a1);
+  LOBYTE(v30) = BYTE1(Microsoft_Windows_Win32kEnableBits);
+  if ( (Microsoft_Windows_Win32kEnableBits & 0x8000) != 0 )
+    McTemplateK0_EtwWriteTransfer(v30, &CompleteGuiProcessExecution, &W32kControlGuid);
+  return v18;
 }

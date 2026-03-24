@@ -1,129 +1,119 @@
 /*
- * XREFs of DxgkOutputDuplGetPointerShapeData @ 0x1C03304A0
+ * XREFs of DxgkOutputDuplGetPointerShapeData @ 0x1C029DDE0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ?RunThunk@?$OutputDuplThunks@PEAU_D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA@@@@SAJIIPEAU_D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA@@P6AJPEAVOUTPUTDUPL_MGR@@0@Z@Z @ 0x1C032F9F8 (-RunThunk@-$OutputDuplThunks@PEAU_D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA@@@@SAJIIPEAU_D3DKMT_O.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?RunThunk@?$OutputDuplThunks@PEAU_D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA@@@@SAJIIPEAU_D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA@@P6AJPEAVOUTPUTDUPL_MGR@@0@Z@Z @ 0x1C029D388 (-RunThunk@-$OutputDuplThunks@PEAU_D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA@@@@SAJIIPEAU_D3DKMT_O.c)
  */
 
 __int64 __fastcall DxgkOutputDuplGetPointerShapeData(__int64 a1, __int64 a2, __int64 a3)
 {
-  ULONG64 v3; // r14
+  ULONG64 v3; // r15
   ULONG64 v4; // rax
-  void *v5; // rax
-  void *v6; // rdi
+  PVOID v5; // rax
+  __int64 v6; // rdx
   __int64 v7; // rcx
   __int64 v8; // r8
-  void *v10; // r15
-  int v11; // esi
-  __int64 v12; // rax
-  size_t v13; // r8
-  ULONG64 v14; // rax
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  int v17; // [rsp+50h] [rbp-68h] BYREF
-  __int64 v18; // [rsp+58h] [rbp-60h]
-  char v19; // [rsp+60h] [rbp-58h]
-  void *v20; // [rsp+68h] [rbp-50h]
-  size_t Size[2]; // [rsp+70h] [rbp-48h] BYREF
-  void *v22[2]; // [rsp+80h] [rbp-38h]
-  __int128 v23; // [rsp+90h] [rbp-28h]
-  __int64 v24; // [rsp+A0h] [rbp-18h]
+  __int64 v9; // r9
+  void *v10; // rdi
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  char *v16; // r14
+  int v17; // esi
+  __int64 v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  int v22; // [rsp+20h] [rbp-68h] BYREF
+  __int64 v23; // [rsp+28h] [rbp-60h]
+  char v24; // [rsp+30h] [rbp-58h]
+  PVOID v25; // [rsp+38h] [rbp-50h]
+  size_t Size[2]; // [rsp+40h] [rbp-48h] BYREF
+  void *v27[2]; // [rsp+50h] [rbp-38h]
+  __int128 v28; // [rsp+60h] [rbp-28h]
+  __int64 v29; // [rsp+70h] [rbp-18h]
 
   v3 = a1;
-  v17 = -1;
-  v18 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v22 = -1;
+  v23 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v19 = 1;
-    v17 = 2065;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v24 = 1;
+    v22 = 2065;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2065);
   }
   else
   {
-    v19 = 0;
+    v24 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v17, 2065);
-  *(_OWORD *)Size = 0LL;
-  *(_OWORD *)v22 = 0LL;
-  v23 = 0LL;
-  v24 = 0LL;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v22, 2065LL);
   v4 = v3;
   if ( v3 >= MmUserProbeAddress )
     v4 = MmUserProbeAddress;
   *(_OWORD *)Size = *(_OWORD *)v4;
-  *(_OWORD *)v22 = *(_OWORD *)(v4 + 16);
-  v23 = *(_OWORD *)(v4 + 32);
-  v24 = *(_QWORD *)(v4 + 48);
-  v5 = (void *)operator new[](LODWORD(Size[1]), 0x674D444Fu, 256LL);
-  v6 = v5;
-  v20 = v5;
+  *(_OWORD *)v27 = *(_OWORD *)(v4 + 16);
+  v28 = *(_OWORD *)(v4 + 32);
+  v29 = *(_QWORD *)(v4 + 48);
+  v5 = operator new[](LODWORD(Size[1]), 0x674D444Fu, PagedPool);
+  v10 = v5;
+  v25 = v5;
   if ( v5 )
   {
-    v10 = v22[0];
-    v22[0] = v5;
-    v11 = OutputDuplThunks<_D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA *>::RunThunk(
+    v16 = (char *)v27[0];
+    v27[0] = v5;
+    v17 = OutputDuplThunks<_D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA *>::RunThunk(
             LODWORD(Size[0]),
             HIDWORD(Size[0]),
             (__int64)Size,
             (__int64 (__fastcall *)(struct OUTPUTDUPL_MGR *, __int64))lambda_323a6f2bac221de0325809d248e0690f_::_lambda_invoker_cdecl_);
-    v22[0] = v10;
-    if ( (int)(v11 + 0x80000000) < 0 || v11 == -1073741789 )
+    v27[0] = v16;
+    if ( (int)(v17 + 0x80000000) < 0 || v17 == -1073741789 )
     {
       if ( v3 >= MmUserProbeAddress )
         v3 = MmUserProbeAddress;
       *(_OWORD *)v3 = *(_OWORD *)Size;
-      *(_OWORD *)(v3 + 16) = *(_OWORD *)v22;
-      *(_OWORD *)(v3 + 32) = v23;
-      *(_QWORD *)(v3 + 48) = v24;
+      *(_OWORD *)(v3 + 16) = *(_OWORD *)v27;
+      *(_OWORD *)(v3 + 32) = v28;
+      *(_QWORD *)(v3 + 48) = v29;
     }
-    if ( v11 >= 0 )
+    if ( v17 >= 0 )
     {
-      v12 = LODWORD(v22[1]);
-      if ( LODWORD(v22[1]) )
+      v18 = LODWORD(v27[1]);
+      if ( LODWORD(v27[1]) )
       {
-        if ( LODWORD(Size[1]) < LODWORD(v22[1]) )
-          v12 = LODWORD(Size[1]);
-        v13 = (unsigned int)v12;
-        v14 = (ULONG64)v10 + v12;
-        if ( v14 > MmUserProbeAddress || v14 <= (unsigned __int64)v10 )
+        if ( LODWORD(Size[1]) < LODWORD(v27[1]) )
+          v18 = LODWORD(Size[1]);
+        if ( (unsigned __int64)&v16[v18] > MmUserProbeAddress || &v16[v18] <= v16 )
           *(_BYTE *)MmUserProbeAddress = 0;
-        memmove(v10, v6, v13);
+        memmove(v16, v10, (unsigned int)v18);
       }
     }
-    operator delete(v6);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v17);
-    if ( v19 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v15, &EventProfilerExit, v16, v17);
-    return (unsigned int)v11;
+    operator delete[](v10);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v22, v19);
+    if ( v24 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v20, &EventProfilerExit, v21, v22);
+    return (unsigned int)v17;
   }
   else
   {
-    WdLogSingleEntry1(6LL, LODWORD(Size[1]));
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Couldn't allocate buffer of size 0x%I64x for pointer shape kernel mode buffer",
-      LODWORD(Size[1]),
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v17);
-    if ( v19 )
+    v11 = WdLogNewEntry5_WdLowResource(v7, v6, v8, v9);
+    *(_QWORD *)(v11 + 24) = LODWORD(Size[1]);
+    WdLogEvent5_WdLowResource(v11);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v22, v12);
+    if ( v24 )
     {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-        McTemplateK0q_EtwWriteTransfer(v7, &EventProfilerExit, v8, v17);
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v13, &EventProfilerExit, v14, v22);
     }
     return 3221225495LL;
   }

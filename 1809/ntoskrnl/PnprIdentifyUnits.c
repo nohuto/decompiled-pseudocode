@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprIdentifyUnits @ 0x140834DE0
+ * XREFs of PnprIdentifyUnits @ 0x140834DC0
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1408337A0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x140833780 (PnpReplacePartitionUnit.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PnpQueryInterface @ 0x1406F9198 (PnpQueryInterface.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PnpQueryInterface @ 0x1406F9178 (PnpQueryInterface.c)
  */
 
 __int64 __fastcall PnprIdentifyUnits(PDEVICE_OBJECT DeviceObject, PDEVICE_OBJECT a2, _QWORD *a3, __int64 a4)

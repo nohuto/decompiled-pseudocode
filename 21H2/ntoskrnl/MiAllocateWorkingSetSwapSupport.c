@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAllocateWorkingSetSwapSupport @ 0x1402609F4
+ * XREFs of MiAllocateWorkingSetSwapSupport @ 0x14035CF78
  * Callers:
- *     MiGetKernelStackSwapSupport @ 0x14025FF40 (MiGetKernelStackSwapSupport.c)
- *     MmOutSwapWorkingSet @ 0x140260144 (MmOutSwapWorkingSet.c)
- *     MiReAllocateWorkingSetSwapSupport @ 0x14026099C (MiReAllocateWorkingSetSwapSupport.c)
- *     MmOutSwapVirtualAddresses @ 0x140375974 (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapVirtualAddresses @ 0x14035BCDC (MmOutSwapVirtualAddresses.c)
+ *     MiGetKernelStackSwapSupport @ 0x14035C3EC (MiGetKernelStackSwapSupport.c)
+ *     MmOutSwapWorkingSet @ 0x14035C7D0 (MmOutSwapWorkingSet.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x14035CF20 (MiReAllocateWorkingSetSwapSupport.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
  */
 
-unsigned __int64 *__fastcall MiAllocateWorkingSetSwapSupport(unsigned __int64 a1)
+_QWORD *__fastcall MiAllocateWorkingSetSwapSupport(__int64 a1)
 {
-  unsigned __int64 *result; // rax
+  _QWORD *result; // rax
 
-  result = (unsigned __int64 *)MiAllocatePool(64LL, 16 * a1 + 40, 1398238541LL);
+  result = MiAllocatePool(64, 16 * a1 + 40, 0x53576D4Du);
   if ( result )
   {
     result[1] = a1;

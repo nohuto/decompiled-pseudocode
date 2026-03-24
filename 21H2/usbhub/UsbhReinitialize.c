@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhReinitialize @ 0x1C002CD6C
+ * XREFs of UsbhReinitialize @ 0x1C002E168
  * Callers:
- *     UsbhHubStart @ 0x1C0042CB0 (UsbhHubStart.c)
+ *     UsbhHubStart @ 0x1C0043F60 (UsbhHubStart.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhConfigureUsbHub @ 0x1C00293DC (UsbhConfigureUsbHub.c)
- *     UsbhInitializeTtHub @ 0x1C002C898 (UsbhInitializeTtHub.c)
- *     UsbhLogStartFailure @ 0x1C002CA90 (UsbhLogStartFailure.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhConfigureUsbHub @ 0x1C002A738 (UsbhConfigureUsbHub.c)
+ *     UsbhInitializeTtHub @ 0x1C002DCB8 (UsbhInitializeTtHub.c)
+ *     UsbhLogStartFailure @ 0x1C002DEBC (UsbhLogStartFailure.c)
  */
 
 __int64 __fastcall UsbhReinitialize(__int64 a1, __int64 a2)

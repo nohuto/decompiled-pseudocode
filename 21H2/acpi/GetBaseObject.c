@@ -1,11 +1,11 @@
 /*
- * XREFs of GetBaseObject @ 0x1C0019CB4
+ * XREFs of GetBaseObject @ 0x1C001477C
  * Callers:
- *     DerefOf @ 0x1C000A880 (DerefOf.c)
- *     AMLIAsyncEvalObject @ 0x1C0019E08 (AMLIAsyncEvalObject.c)
- *     AMLIFindNameSpaceObject @ 0x1C001F5E4 (AMLIFindNameSpaceObject.c)
- *     AMLIEvalPackageElement @ 0x1C0024258 (AMLIEvalPackageElement.c)
- *     DebugRunMethod @ 0x1C00676F0 (DebugRunMethod.c)
+ *     DerefOf @ 0x1C000B440 (DerefOf.c)
+ *     AMLIEvalPackageElement @ 0x1C0012380 (AMLIEvalPackageElement.c)
+ *     AMLIFindNameSpaceObject @ 0x1C0013F48 (AMLIFindNameSpaceObject.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     DebugRunMethod @ 0x1C0066440 (DebugRunMethod.c)
  * Callees:
  *     <none>
  */

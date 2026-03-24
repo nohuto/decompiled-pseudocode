@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeletePartition @ 0x14058DDC0
+ * XREFs of MiDeletePartition @ 0x1405356DC
  * Callers:
- *     MmCreatePartition @ 0x1403D981C (MmCreatePartition.c)
- *     PspTeardownPartition @ 0x1409B3490 (PspTeardownPartition.c)
+ *     MmCreatePartition @ 0x1403CA974 (MmCreatePartition.c)
+ *     PspTeardownPartition @ 0x14090D090 (PspTeardownPartition.c)
  * Callees:
- *     MiDeletePartitionResources @ 0x1405BDFF8 (MiDeletePartitionResources.c)
- *     MiDrainCrossPartitionUsage @ 0x1405BE340 (MiDrainCrossPartitionUsage.c)
- *     MiFreePartitionId @ 0x14096C2FC (MiFreePartitionId.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiDeletePartitionResources @ 0x140561918 (MiDeletePartitionResources.c)
+ *     MiDrainCrossPartitionUsage @ 0x14056209C (MiDrainCrossPartitionUsage.c)
+ *     MiFreePartitionId @ 0x1408C7BBC (MiFreePartitionId.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeletePartition(unsigned __int16 *P)

@@ -4,14 +4,14 @@
  *     SepSetTokenClaims @ 0x1405BD5DC (SepSetTokenClaims.c)
  * Callees:
  *     AuthzBasepFreeSecurityAttributesList @ 0x140021130 (AuthzBasepFreeSecurityAttributesList.c)
- *     RtlSidHashInitialize @ 0x1400CC420 (RtlSidHashInitialize.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8A74 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x140181860 (AuthzBasepAllocateSecurityAttributesList.c)
+ *     RtlSidHashInitialize @ 0x1400CC440 (RtlSidHashInitialize.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8A94 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x140181880 (AuthzBasepAllocateSecurityAttributesList.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SepLengthSidAndAttributesArray @ 0x1405BD014 (SepLengthSidAndAttributesArray.c)
  *     SeCaptureSidAndAttributesArray @ 0x1405BD0D0 (SeCaptureSidAndAttributesArray.c)
- *     AuthzBasepAllocateClaimCollectionNoLists @ 0x1408EE384 (AuthzBasepAllocateClaimCollectionNoLists.c)
+ *     AuthzBasepAllocateClaimCollectionNoLists @ 0x1408EE364 (AuthzBasepAllocateClaimCollectionNoLists.c)
  */
 
 __int64 __fastcall SepCreateClaimAttributes(_QWORD *a1, __int64 a2, __int64 a3, unsigned int a4, void *Src)

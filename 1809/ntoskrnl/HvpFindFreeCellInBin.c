@@ -3,7 +3,7 @@
  * Callers:
  *     HvpFindFreeCell @ 0x1405F9A70 (HvpFindFreeCell.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
  */
 

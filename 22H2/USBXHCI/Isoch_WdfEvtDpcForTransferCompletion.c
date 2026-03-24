@@ -1,10 +1,10 @@
 /*
- * XREFs of Isoch_WdfEvtDpcForTransferCompletion @ 0x1C00459C0
+ * XREFs of Isoch_WdfEvtDpcForTransferCompletion @ 0x1C0042D20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Isoch_ProcessTransferCompletion @ 0x1C0044A2C (Isoch_ProcessTransferCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Isoch_ProcessTransferCompletion @ 0x1C0041DC0 (Isoch_ProcessTransferCompletion.c)
  */
 
 void __fastcall Isoch_WdfEvtDpcForTransferCompletion(__int64 a1)

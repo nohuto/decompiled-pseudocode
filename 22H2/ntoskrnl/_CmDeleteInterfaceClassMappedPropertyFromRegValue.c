@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x140A679E8
+ * XREFs of _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x140979980
  * Callers:
- *     _CmSetInterfaceClassMappedProperty @ 0x140A6A0A8 (_CmSetInterfaceClassMappedProperty.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x14097BE30 (_CmSetInterfaceClassMappedProperty.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     _PnpOpenPropertiesKey @ 0x1406CDCF0 (_PnpOpenPropertiesKey.c)
- *     _CmOpenInterfaceClassRegKey @ 0x140787DB0 (_CmOpenInterfaceClassRegKey.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x1406B3774 (_CmOpenInterfaceClassRegKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406BE2A4 (_PnpOpenPropertiesKey.c)
  */
 
-__int64 __fastcall CmDeleteInterfaceClassMappedPropertyFromRegValue(__int64 a1, int a2, __int64 a3, __int64 a4)
+__int64 __fastcall CmDeleteInterfaceClassMappedPropertyFromRegValue(__int64 a1, int a2, HANDLE a3, __int64 a4)
 {
   unsigned int v4; // r11d
   int v5; // ebx
@@ -33,7 +33,7 @@ __int64 __fastcall CmDeleteInterfaceClassMappedPropertyFromRegValue(__int64 a1, 
   if ( v4 < 2 )
     return (unsigned int)-1073741264;
   v9 = 0LL;
-  v10 = &off_140A77B28;
+  v10 = &off_1409836F8;
   do
   {
     v11 = *v10;
@@ -70,9 +70,9 @@ LABEL_26:
             ZwClose(Handle);
           return (unsigned int)v5;
         }
-        LODWORD(a3) = (_DWORD)Handle;
+        a3 = Handle;
       }
-      v5 = PnpOpenPropertiesKey(a1, a3, 0LL, 2, 0, v17, &KeyHandle);
+      v5 = PnpOpenPropertiesKey(a1, (__int64)a3, 0LL, 2u, 0, v17, &KeyHandle);
       if ( v5 == -1073741772 )
       {
         v5 = -1073741275;

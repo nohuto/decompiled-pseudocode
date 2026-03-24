@@ -1,25 +1,27 @@
 /*
- * XREFs of RtlStringCbCopyA @ 0x140347B88
+ * XREFs of RtlStringCbCopyA @ 0x1402640B0
  * Callers:
- *     PfpPrivSourceEnum @ 0x140741CC0 (PfpPrivSourceEnum.c)
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
- *     ObpRegisterObject @ 0x14097D464 (ObpRegisterObject.c)
- *     EtwpLogRefSetAutoMark @ 0x1409EF124 (EtwpLogRefSetAutoMark.c)
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
- *     IopStoreArcInformation @ 0x140B733D8 (IopStoreArcInformation.c)
+ *     PfpPrivSourceEnum @ 0x14062B8D4 (PfpPrivSourceEnum.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
+ *     ObpRegisterObject @ 0x1408DEE1C (ObpRegisterObject.c)
+ *     EtwpLogRefSetAutoMark @ 0x14093DEA4 (EtwpLogRefSetAutoMark.c)
+ *     Phase1InitializationDiscard @ 0x140A3AAD4 (Phase1InitializationDiscard.c)
+ *     IopStoreArcInformation @ 0x140A5D274 (IopStoreArcInformation.c)
  * Callees:
- *     RtlStringCopyWorkerA @ 0x140347BB4 (RtlStringCopyWorkerA.c)
+ *     RtlStringCopyWorkerA @ 0x1402640F4 (RtlStringCopyWorkerA.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyA(NTSTRSAFE_PSTR pszDest, size_t cbDest, NTSTRSAFE_PCSTR pszSrc)
 {
-  NTSTATUS result; // eax
-  size_t v4; // [rsp+20h] [rbp-18h]
+  NTSTATUS v3; // r9d
+  size_t v5; // [rsp+20h] [rbp-18h]
 
-  if ( cbDest - 1 <= 0x7FFFFFFE )
-    return RtlStringCopyWorkerA(pszDest, cbDest, 0LL, pszSrc, v4);
-  result = -1073741811;
+  v3 = 0;
+  if ( cbDest - 1 > 0x7FFFFFFE )
+    v3 = -1073741811;
+  if ( v3 >= 0 )
+    return RtlStringCopyWorkerA(pszDest, cbDest, 0LL, pszSrc, v5);
   if ( cbDest )
     *pszDest = 0;
-  return result;
+  return v3;
 }

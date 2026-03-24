@@ -1,43 +1,44 @@
 /*
- * XREFs of MonitorIsAdvancedColorEnabled @ 0x1C01E6268
+ * XREFs of MonitorIsAdvancedColorEnabled @ 0x1C0142BD8
  * Callers:
- *     ?BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSMODALITY@@GGW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C0178EE0 (-BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSM.c)
- *     ?DmmNeedDisplayModeResetDueToHdrPowerPolicy@@YA_NPEAVDXGADAPTER@@_N@Z @ 0x1C03AE4D8 (-DmmNeedDisplayModeResetDueToHdrPowerPolicy@@YA_NPEAVDXGADAPTER@@_N@Z.c)
+ *     ?BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDMMVIDPN@@@Z @ 0x1C014273C (-BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDM.c)
+ *     ?DmmNeedDisplayModeResetDueToHdrPowerPolicy@@YA_NPEAVDXGADAPTER@@_N@Z @ 0x1C02DEB20 (-DmmNeedDisplayModeResetDueToHdrPowerPolicy@@YA_NPEAVDXGADAPTER@@_N@Z.c)
  * Callees:
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0007198 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
- *     ?IsAdvancedColorEnabled@MonitorColorState@DxgMonitor@@QEBA_NXZ @ 0x1C01E62E0 (-IsAdvancedColorEnabled@MonitorColorState@DxgMonitor@@QEBA_NXZ.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009DB4 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
  */
 
-__int64 __fastcall MonitorIsAdvancedColorEnabled(__int64 a1, _BYTE *a2)
+__int64 __fastcall MonitorIsAdvancedColorEnabled(struct HDXGMONITOR__ *a1, bool *a2)
 {
-  __int64 v3; // rbx
-  unsigned int v4; // edi
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  __int64 result; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  struct DXGMONITOR *v6; // rdi
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  struct DXGMONITOR *v11; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( a1 )
-  {
-    MONITOR_MGR::AcquireMonitorShared(&v6, a1);
-    v3 = v6;
-    if ( v6 )
-    {
-      *a2 = DxgMonitor::MonitorColorState::IsAdvancedColorEnabled(*(DxgMonitor::MonitorColorState **)(v6 + 224));
-      v4 = 0;
-    }
-    else
-    {
-      v4 = -1073741275;
-      WdLogSingleEntry1(2LL, -1073741275LL);
-    }
-    if ( v3 )
-    {
-      ExReleaseResourceLite((PERESOURCE)(v3 + 24));
-      KeLeaveCriticalRegion();
-    }
-    return v4;
-  }
-  else
-  {
-    WdLogSingleEntry1(2LL, -1073741811LL);
+  if ( !a1 )
     return 3221225485LL;
+  v11 = 0LL;
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, &v11);
+  if ( (int)result >= 0 )
+  {
+    v6 = v11;
+    if ( !v11 )
+    {
+      v7 = WdLogNewEntry5_WdAssertion(v5, v4);
+      WdLogEvent5_WdAssertion(v7);
+      v10 = WdLogNewEntry5_WdAssertion(v9, v8);
+      WdLogEvent5_WdAssertion(v10);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite((PERESOURCE)((char *)v6 + 296), 1u);
+    *a2 = (*((_DWORD *)v6 + 10) & 0x800) != 0;
+    ExReleaseResourceLite((PERESOURCE)((char *)v6 + 296));
+    KeLeaveCriticalRegion();
+    return 0LL;
   }
+  return result;
 }

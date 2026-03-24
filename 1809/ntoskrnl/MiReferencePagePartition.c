@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReferencePagePartition @ 0x1402B4554
+ * XREFs of MiReferencePagePartition @ 0x1402B4654
  * Callers:
- *     MiUnlinkBadPages @ 0x1402A6F88 (MiUnlinkBadPages.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x1402A7310 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiUnlinkBadPages @ 0x1402A7088 (MiUnlinkBadPages.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1402A7410 (MmMarkPhysicalMemoryAsBad.c)
  * Callees:
  *     PsReferencePartitionSafe @ 0x140090CE8 (PsReferencePartitionSafe.c)
  */

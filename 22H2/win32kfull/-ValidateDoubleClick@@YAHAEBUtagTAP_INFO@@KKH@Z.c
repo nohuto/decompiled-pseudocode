@@ -1,38 +1,32 @@
 /*
- * XREFs of ?ValidateDoubleClick@@YAHAEBUtagTAP_INFO@@KKH@Z @ 0x1C01F85E8
+ * XREFs of ?ValidateDoubleClick@@YAHAEBUtagTAP_INFO@@KKH@Z @ 0x1C0218C04
  * Callers:
- *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C01F8228 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0218808 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall ValidateDoubleClick(const struct tagTAP_INFO *a1, unsigned int a2, int a3, int a4)
+_BOOL8 __fastcall ValidateDoubleClick(const struct tagTAP_INFO *a1, int a2, int a3, int a4)
 {
-  int v4; // r11d
-  __int64 v5; // rdi
-  __int64 v7; // rax
-  __int16 v8; // r9
-  __int64 v9; // r8
-  __int64 v10; // rax
+  __int16 v4; // bx
+  int v5; // r11d
+  __int64 v6; // rax
   _BOOL8 result; // rax
 
-  v4 = 0;
-  v5 = a2;
+  v4 = *((_WORD *)a1 + 4);
+  v5 = 0;
   result = 0;
-  if ( *((_WORD *)a1 + 4) )
+  if ( v4 )
   {
     if ( *(_QWORD *)a1 == gptiCurrent && *((_DWORD *)a1 + 5) == a3 )
     {
-      LOBYTE(v4) = a4 != 0;
-      if ( (*((_DWORD *)a1 + 6) != 0) == v4 )
+      LOBYTE(v5) = a4 != 0;
+      if ( (*((_DWORD *)a1 + 6) != 0) == v5 )
       {
-        v7 = SGDGetUserSessionState(a1);
-        v8 = *((_WORD *)a1 + 4);
-        v9 = v7;
-        if ( v8 == *(_WORD *)(v7 + 24 * v5 + 16064) )
+        if ( v4 == word_1C0339AD0[12 * a2 + 4] )
           return 1;
-        v10 = (unsigned int)(v5 + 1);
-        if ( (unsigned int)v10 < 5 && v8 == *(_WORD *)(v9 + 24 * v10 + 16064) )
+        v6 = (unsigned int)(a2 + 1);
+        if ( (unsigned int)v6 < 5 && v4 == word_1C0339AD0[12 * v6 + 4] )
           return 1;
       }
     }

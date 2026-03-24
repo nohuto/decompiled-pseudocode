@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM20_ReturningPortResumedFromD3Cold @ 0x1C0011CA0
+ * XREFs of HUBPSM20_ReturningPortResumedFromD3Cold @ 0x1C00117A0
  * Callers:
  *     <none>
  * Callees:

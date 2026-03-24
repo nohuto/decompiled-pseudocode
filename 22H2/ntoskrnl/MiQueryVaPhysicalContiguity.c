@@ -1,99 +1,115 @@
 /*
- * XREFs of MiQueryVaPhysicalContiguity @ 0x140648FBC
+ * XREFs of MiQueryVaPhysicalContiguity @ 0x140547194
  * Callers:
- *     MiProcessVaContiguityInformation @ 0x14065DA24 (MiProcessVaContiguityInformation.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x140A3F9C0 (MiQueryMemoryPhysicalContiguity.c)
+ *     MiProcessVaContiguityInformation @ 0x140552200 (MiProcessVaContiguityInformation.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x1408D12F0 (MiQueryMemoryPhysicalContiguity.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     MiGetNextPageTable @ 0x1402E56B0 (MiGetNextPageTable.c)
- *     MiWorkingSetIsContended @ 0x1402E69F0 (MiWorkingSetIsContended.c)
- *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x140333AD0 (KeShouldYieldProcessor.c)
- *     MiLockTransitionLeafPageEx @ 0x1403477B8 (MiLockTransitionLeafPageEx.c)
- *     MiCheckContiguityTradeEligible @ 0x140648E9C (MiCheckContiguityTradeEligible.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     MiWorkingSetIsContended @ 0x14028BE50 (MiWorkingSetIsContended.c)
+ *     MiGetNextPageTable @ 0x14028DEA0 (MiGetNextPageTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiUnlockPageTableInternal @ 0x1402DB460 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402F1320 (KeShouldYieldProcessor.c)
+ *     MiLockTransitionLeafPage @ 0x140363DD4 (MiLockTransitionLeafPage.c)
+ *     MiCheckContiguityTradeEligible @ 0x140546B04 (MiCheckContiguityTradeEligible.c)
  */
 
-__int64 __fastcall MiQueryVaPhysicalContiguity(__int64 a1, unsigned __int64 a2, int a3, char a4)
+__int64 __fastcall MiQueryVaPhysicalContiguity(__int64 a1, unsigned __int64 a2, int a3, _DWORD *a4)
 {
-  __int64 v4; // rdi
-  unsigned __int64 v5; // r15
-  unsigned __int64 v6; // r13
+  __int64 v4; // rbx
+  unsigned __int64 v5; // r12
+  unsigned __int64 v6; // r15
   unsigned __int64 v7; // rsi
   int v8; // ebp
-  int v9; // r12d
-  unsigned int v10; // ebx
+  int v9; // r13d
+  unsigned int v10; // edi
   int v11; // r14d
-  unsigned __int8 v12; // al
+  unsigned __int8 v12; // cl
   __int64 v13; // rax
-  __int64 v14; // r13
+  __int64 v14; // r15
   unsigned __int64 NextPageTable; // rax
-  __int64 v16; // rbp
+  unsigned int v16; // ebp
   unsigned __int64 v17; // r8
   __int64 v18; // rdx
-  unsigned __int64 v19; // rdi
-  unsigned __int64 v20; // rcx
-  __int64 v21; // rdx
-  __int16 v22; // ax
-  __int64 v23; // rax
-  unsigned __int64 v24; // rax
-  __int64 v25; // rbp
-  bool v26; // zf
-  __int64 v27; // rax
-  unsigned int v29; // [rsp+30h] [rbp-78h] BYREF
-  int v30; // [rsp+34h] [rbp-74h]
-  int v31; // [rsp+38h] [rbp-70h]
-  __int64 v32; // [rsp+40h] [rbp-68h]
-  unsigned __int64 v33; // [rsp+48h] [rbp-60h]
-  __int64 v34; // [rsp+50h] [rbp-58h]
-  __int64 v35; // [rsp+58h] [rbp-50h]
-  int v37; // [rsp+B8h] [rbp+10h]
-  unsigned __int8 v38; // [rsp+C0h] [rbp+18h]
+  unsigned __int64 v19; // rbx
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v21; // rbx
+  unsigned __int64 v22; // r14
+  __int64 v23; // rcx
+  __int16 v24; // ax
+  __int64 v25; // rax
+  __int64 v26; // r15
+  int v27; // r15d
+  __int64 v28; // rax
+  unsigned __int64 v29; // rbx
+  struct _LIST_ENTRY *v30; // rdx
+  __int64 v31; // rbp
+  bool v32; // zf
+  __int64 v33; // rax
+  __int64 v34; // rdx
+  __int64 v35; // r8
+  _DWORD *v36; // r9
+  int v38; // [rsp+30h] [rbp-88h]
+  int v39; // [rsp+34h] [rbp-84h]
+  __int64 v40; // [rsp+38h] [rbp-80h] BYREF
+  __int64 v41; // [rsp+40h] [rbp-78h]
+  unsigned __int64 v42; // [rsp+48h] [rbp-70h]
+  __int64 v43; // [rsp+58h] [rbp-60h]
+  __int64 v44; // [rsp+60h] [rbp-58h]
+  unsigned int v46; // [rsp+C8h] [rbp+10h] BYREF
+  unsigned __int8 v47; // [rsp+D0h] [rbp+18h]
+  int v48; // [rsp+D8h] [rbp+20h]
 
-  v29 = 0;
+  v48 = (int)a4;
+  v46 = 0;
   v4 = a1;
-  v35 = MiLargePageSizes[a3];
+  v44 = MiLargePageSizes[a3];
   v5 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v34 = -1LL;
-  v6 = ((((v35 << 12) + a2 - 1) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v43 = -1LL;
+  v6 = ((((v44 << 12) + a2 - 1) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v7 = 0LL;
-  v33 = v6;
-  v32 = 0LL;
+  v42 = v6;
+  v41 = 0LL;
   v8 = 0;
-  v37 = 0;
+  v38 = 0;
   v9 = 0;
   v10 = 1;
   v11 = 0;
-  v31 = a4 & 1;
-  v12 = MiLockWorkingSetShared(a1);
-  v38 = v12;
+  v39 = (unsigned __int8)a4 & 1;
+  v47 = MiLockWorkingSetShared(a1, a2, 0xFFFFF68000000000uLL, a4);
+  v12 = v47;
   if ( v5 > v6 )
-    goto LABEL_47;
+    goto LABEL_69;
   v13 = v6;
   while ( 1 )
   {
     v14 = 1LL;
     if ( v7 )
     {
-      if ( (v5 & 0xFFF) != 0 )
-        goto LABEL_19;
-      MiUnlockPageTableInternal(v4, v7);
-      v13 = v33;
-      v7 = 0LL;
+      if ( (v5 & 0xFFF) == 0 )
+      {
+        MiUnlockPageTableInternal(v4, v7);
+        v12 = v47;
+        v7 = 0LL;
+      }
+      if ( v7 )
+        goto LABEL_32;
+      v13 = v42;
     }
-    NextPageTable = MiGetNextPageTable(v5, v13, 0LL, v38, 1, &v29);
+    NextPageTable = MiGetNextPageTable(v5, v13, 0LL, v12, 1u, &v46);
     if ( !NextPageTable )
       break;
-    v16 = v29;
+    v16 = v46;
     v7 = ((NextPageTable >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    if ( v29 )
+    if ( v46 )
     {
-      v32 = ((NextPageTable >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-      v17 = v32;
-      if ( v29 > 1 )
+      v41 = ((NextPageTable >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+      v17 = v41;
+      if ( v46 > 1 )
       {
-        v18 = v29 - 1;
+        v18 = v46 - 1;
         do
         {
           v7 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
@@ -101,73 +117,109 @@ __int64 __fastcall MiQueryVaPhysicalContiguity(__int64 a1, unsigned __int64 a2, 
           --v18;
         }
         while ( v18 );
-        v32 = v17;
+        v41 = v17;
       }
       v7 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     }
     else
     {
-      v17 = v32;
+      v17 = v41;
     }
     if ( NextPageTable != v5 )
       break;
-    if ( v29 )
+    if ( v46 )
     {
-      v19 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE(v17) >> 12) & 0xFFFFFFFFFFLL;
-      v20 = (unsigned __int64)((__int64)(v5 << 25) >> 16) >> 12;
-      v21 = v16;
-      do
+      v40 = MI_READ_PTE_LOCK_FREE(v17);
+      v19 = v40;
+      if ( MiPteInShadowRange((unsigned __int64)&v40) && (MiFlags & 0xC00000) != 0 )
       {
-        v22 = v20;
-        v20 >>= 9;
-        v23 = v14 * (v22 & 0x1FF);
-        v14 <<= 9;
-        v19 += v23;
-        --v21;
+        if ( KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+          && (v19 & 1) != 0
+          && ((v19 & 0x20) == 0 || (v19 & 0x42) == 0) )
+        {
+          Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+          if ( Flink )
+          {
+            if ( ((__int64)*(&Flink->Flink + (((unsigned __int64)&v40 >> 3) & 0x1FF)) & 0x20) != 0 )
+              v19 |= 0x20uLL;
+          }
+        }
+        v16 = v46;
       }
-      while ( v21 );
+      v21 = (v19 >> 12) & 0xFFFFFFFFFLL;
+      v22 = (unsigned __int64)((__int64)(v5 << 25) >> 16) >> 12;
+      if ( v16 )
+      {
+        v23 = v16;
+        do
+        {
+          v24 = v22;
+          v22 >>= 9;
+          v25 = v14 * (v24 & 0x1FF);
+          v14 <<= 9;
+          v21 += v25;
+          --v23;
+        }
+        while ( v23 );
+      }
       v11 = 1;
-      v14 -= v19 & (v14 - 1);
-      goto LABEL_29;
+      v26 = v14 - (v21 & (v14 - 1));
+      goto LABEL_51;
     }
-LABEL_19:
-    v30 = 0;
-    v24 = MI_READ_PTE_LOCK_FREE(v5);
-    if ( (v24 & 1) != 0 )
+LABEL_32:
+    v27 = 0;
+    v28 = MI_READ_PTE_LOCK_FREE(v5);
+    v40 = v28;
+    v29 = v28;
+    if ( (v28 & 1) != 0 )
     {
-      v19 = (v24 >> 12) & 0xFFFFFFFFFFLL;
-      v25 = 48 * v19 - 0x220000000000LL;
+      if ( MiPteInShadowRange((unsigned __int64)&v40)
+        && (MiFlags & 0xC00000) != 0
+        && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+        && ((v29 & 0x20) == 0 || (v29 & 0x42) == 0) )
+      {
+        v30 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        if ( v30 )
+        {
+          if ( ((__int64)*(&v30->Flink + (((unsigned __int64)&v40 >> 3) & 0x1FF)) & 0x20) != 0 )
+            v29 |= 0x20uLL;
+        }
+      }
+      v21 = (v29 >> 12) & 0xFFFFFFFFFLL;
+      v31 = 48 * v21 - 0x58000000000LL;
     }
     else
     {
-      if ( (v24 & 0xC00) != 0x800 || (a4 & 2) != 0 || (v25 = MiLockTransitionLeafPageEx(v5, 0LL, 0)) == 0 )
+      if ( (v28 & 0x400) != 0 || (v28 & 0x800) == 0 || (v48 & 2) != 0 || (v31 = MiLockTransitionLeafPage(v5, 0LL)) == 0 )
       {
         v9 = 1;
-LABEL_43:
+LABEL_65:
         v4 = a1;
-        goto LABEL_44;
+        goto LABEL_66;
       }
-      v30 = 1;
-      v19 = 0xAAAAAAAAAAAAAAABuLL * ((v25 + 0x220000000000LL) >> 4);
+      v27 = 1;
+      v21 = (v31 + 0x58000000000LL) / 48;
     }
-    if ( !(unsigned int)MiCheckContiguityTradeEligible(v25) )
+    if ( !(unsigned int)MiCheckContiguityTradeEligible(v31) )
       v11 = 1;
-    if ( v30 )
-      _InterlockedAnd64((volatile signed __int64 *)(v25 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-LABEL_29:
-    if ( v34 == -1 )
-      v26 = ((v35 - 1) & v19) == 0;
+    v32 = v27 == 0;
+    v26 = 1LL;
+    if ( !v32 )
+      _InterlockedAnd64((volatile signed __int64 *)(v31 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+LABEL_51:
+    if ( v43 == -1 )
+      v32 = ((v44 - 1) & v21) == 0;
     else
-      v26 = v34 == v19;
-    if ( !v26 )
+      v32 = v43 == v21;
+    if ( !v32 )
     {
-      v37 = 1;
-      if ( !v31 )
-        goto LABEL_43;
+      v38 = 1;
+      if ( !v39 )
+        goto LABEL_65;
     }
-    v27 = v19 + v14;
+    v33 = v21 + v26;
     v4 = a1;
-    v34 = v27;
+    v43 = v33;
     if ( (v5 & 0x78) == 0 && MiWorkingSetIsContended(a1) || KeShouldYieldProcessor() )
     {
       if ( v7 )
@@ -175,21 +227,22 @@ LABEL_29:
         MiUnlockPageTableInternal(a1, v7);
         v7 = 0LL;
       }
-      MiUnlockWorkingSetShared(a1, v38);
-      MiLockWorkingSetShared(a1);
+      MiUnlockWorkingSetShared(a1, v47);
+      MiLockWorkingSetShared(a1, v34, v35, v36);
     }
-    v13 = v33;
-    v5 += 8 * v14;
-    if ( v5 > v33 )
-      goto LABEL_44;
+    v13 = v42;
+    v5 += 8 * v26;
+    v12 = v47;
+    if ( v5 > v42 )
+      goto LABEL_66;
   }
   v9 = 1;
-LABEL_44:
+LABEL_66:
   if ( v7 )
     MiUnlockPageTableInternal(v4, v7);
-  v12 = v38;
-  v8 = v37;
-LABEL_47:
+  v12 = v47;
+  v8 = v38;
+LABEL_69:
   MiUnlockWorkingSetShared(v4, v12);
   if ( v9 )
   {

@@ -1,21 +1,21 @@
 /*
- * XREFs of IopSymlinkUpdateECP @ 0x1406B9A14
+ * XREFs of IopSymlinkUpdateECP @ 0x14069E24C
  * Callers:
- *     IopSymlinkRememberJunction @ 0x1406B9BC0 (IopSymlinkRememberJunction.c)
- *     IopGraftName @ 0x1406B9FD4 (IopGraftName.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     IopSymlinkApplyToOpenedName @ 0x140937CC0 (IopSymlinkApplyToOpenedName.c)
+ *     IopSymlinkRememberJunction @ 0x14069E3D4 (IopSymlinkRememberJunction.c)
+ *     IopGraftName @ 0x14069E8A4 (IopGraftName.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IopSymlinkApplyToOpenedName @ 0x1408954C0 (IopSymlinkApplyToOpenedName.c)
  * Callees:
- *     IopSymlinkGetECP @ 0x14024013C (IopSymlinkGetECP.c)
- *     IopSymlinkRemoveECP @ 0x1402A4DEC (IopSymlinkRemoveECP.c)
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14066EF20 (FsRtlFreeExtraCreateParameter.c)
- *     IoGetIrpExtraCreateParameter @ 0x14069B6E0 (IoGetIrpExtraCreateParameter.c)
- *     IopSymlinkFreeRelatedMountPointChain @ 0x1406B9B78 (IopSymlinkFreeRelatedMountPointChain.c)
- *     IopSymlinkInitializeSymlinkInfo @ 0x1406B9DC4 (IopSymlinkInitializeSymlinkInfo.c)
- *     IopSymlinkAllocateAndAddECP @ 0x1406B9EA8 (IopSymlinkAllocateAndAddECP.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     IopSymlinkGetECP @ 0x1402BB490 (IopSymlinkGetECP.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     IopSymlinkRemoveECP @ 0x140354DDC (IopSymlinkRemoveECP.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14060C9E0 (FsRtlFreeExtraCreateParameter.c)
+ *     IoGetIrpExtraCreateParameter @ 0x140683F20 (IoGetIrpExtraCreateParameter.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x14069E698 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x14069E77C (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x14069EF38 (IopSymlinkFreeRelatedMountPointChain.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopSymlinkUpdateECP(
@@ -29,11 +29,11 @@ __int64 __fastcall IopSymlinkUpdateECP(
   UNICODE_STRING *v6; // rbx
   __int64 Length; // rcx
   __int16 v11; // r12
-  __int16 v12; // ax
-  UNICODE_STRING *v14; // rdi
+  UNICODE_STRING *v12; // rdi
   UNICODE_STRING *i; // rax
-  __int64 Pool2; // rax
-  UNICODE_STRING *v17; // rsi
+  UNICODE_STRING *PoolWithTag; // rax
+  UNICODE_STRING *v15; // rsi
+  __int16 v16; // ax
   int v18; // ebx
   UNICODE_STRING *v19; // [rsp+50h] [rbp-10h] BYREF
   PVOID v20; // [rsp+58h] [rbp-8h] BYREF
@@ -48,9 +48,13 @@ __int64 __fastcall IopSymlinkUpdateECP(
   IopSymlinkGetECP(ExtraCreateParameter, (PVOID *)&v19);
   Length = a4->Length;
   v11 = a6;
-  if ( v6[1].MaximumLength < (unsigned __int16)Length )
+  if ( v6[1].MaximumLength >= (unsigned __int16)Length )
   {
-    v14 = v19;
+    RtlCopyUnicodeString(v6 + 1, a4);
+  }
+  else
+  {
+    v12 = v19;
     v20 = 0LL;
     if ( v19 == v6 )
     {
@@ -62,20 +66,20 @@ __int64 __fastcall IopSymlinkUpdateECP(
         return (unsigned int)v18;
       }
       v6 = (UNICODE_STRING *)EcpContexta;
-      v17 = (UNICODE_STRING *)v20;
+      v15 = (UNICODE_STRING *)v20;
     }
     else
     {
       for ( i = (UNICODE_STRING *)v19->Buffer; i != v6; i = (UNICODE_STRING *)i->Buffer )
-        v14 = i;
-      Pool2 = ExAllocatePool2(256LL, Length + 32, 1767075657LL);
-      v17 = (UNICODE_STRING *)Pool2;
-      if ( !Pool2 )
+        v12 = i;
+      PoolWithTag = (UNICODE_STRING *)ExAllocatePoolWithTag(PagedPool, Length + 32, 0x69536F49u);
+      v15 = PoolWithTag;
+      if ( !PoolWithTag )
         return 3221225626LL;
-      v14->Buffer = (wchar_t *)Pool2;
+      v12->Buffer = &PoolWithTag->Length;
     }
     IopSymlinkInitializeSymlinkInfo(
-      v17,
+      v15,
       (unsigned int)a4->Length + 32,
       a4->Buffer,
       a4->Length,
@@ -85,7 +89,7 @@ __int64 __fastcall IopSymlinkUpdateECP(
       0,
       v11,
       v6->Buffer);
-    if ( v6 == v14 )
+    if ( v6 == v12 )
     {
       v6->Buffer = 0LL;
       FsRtlFreeExtraCreateParameter(v6);
@@ -94,15 +98,11 @@ __int64 __fastcall IopSymlinkUpdateECP(
     {
       ExFreePoolWithTag(v6, 0x69536F49u);
     }
-    v6 = v17;
+    v6 = v15;
   }
-  else
-  {
-    RtlCopyUnicodeString(v6 + 1, a4);
-  }
-  v12 = a5;
+  v16 = a5;
   v6->MaximumLength = v11;
-  *(&v6->MaximumLength + 1) = v12;
+  *(&v6->MaximumLength + 1) = v16;
   v6->Length = a3;
   if ( (v6->MaximumLength & 1) == 0 )
     IopSymlinkFreeRelatedMountPointChain(v6);

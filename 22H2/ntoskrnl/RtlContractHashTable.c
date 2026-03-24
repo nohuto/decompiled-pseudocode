@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlContractHashTable @ 0x140339850
+ * XREFs of RtlContractHashTable @ 0x1402F9C80
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetChainHead @ 0x14036F9B0 (RtlpGetChainHead.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlpGetChainHead @ 0x140250F7C (RtlpGetChainHead.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
@@ -17,13 +17,13 @@ BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
   _QWORD *v8; // r10
   _QWORD *i; // rdx
   _QWORD *v10; // rcx
-  __int64 v11; // rax
+  unsigned int v11; // edx
+  int v12; // ecx
+  __int64 v13; // rax
   _QWORD *j; // r8
-  _QWORD *v13; // rax
-  unsigned int v14; // edx
-  unsigned int v15; // ecx
-  __int64 v16; // rsi
-  void **Directory; // rdi
+  _QWORD *v15; // rax
+  void **Directory; // rsi
+  PVOID *v17; // rdi
 
   TableSize = HashTable->TableSize;
   if ( TableSize == 128 || HashTable->NumEnumerators )
@@ -39,8 +39,8 @@ BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
     DivisorMask = HashTable->DivisorMask;
   }
   HashTable->Pivot = DivisorMask;
-  RtlpGetChainHead(HashTable, TableSize - 1);
-  ChainHead = (_QWORD *)RtlpGetChainHead(HashTable, HashTable->Pivot);
+  RtlpGetChainHead((__int64)HashTable, TableSize - 1);
+  ChainHead = (_QWORD *)RtlpGetChainHead((__int64)HashTable, HashTable->Pivot);
   --HashTable->TableSize;
   v8 = ChainHead;
   if ( (_QWORD *)*v7 != v7 && (_QWORD *)*ChainHead != ChainHead )
@@ -51,34 +51,34 @@ BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
     if ( (_QWORD *)*v7 == v7 )
       break;
     if ( (_QWORD *)v10[1] != v7 )
-      goto LABEL_19;
-    v11 = *v10;
+      goto FatalListEntryError_21;
+    v13 = *v10;
     if ( *(_QWORD **)(*v10 + 8LL) != v10 )
-      goto LABEL_19;
-    *v7 = v11;
-    *(_QWORD *)(v11 + 8) = v7;
+      goto FatalListEntryError_21;
+    *v7 = v13;
+    *(_QWORD *)(v13 + 8) = v7;
     for ( j = (_QWORD *)*i; j != v8; j = (_QWORD *)*j )
     {
       if ( j[2] >= v10[2] )
         break;
       i = j;
     }
-    v13 = (_QWORD *)*i;
+    v15 = (_QWORD *)*i;
     if ( *(_QWORD **)(*i + 8LL) != i )
-LABEL_19:
+FatalListEntryError_21:
       __fastfail(3u);
-    *v10 = v13;
+    *v10 = v15;
     v10[1] = i;
-    v13[1] = v10;
+    v15[1] = v10;
   }
-  v14 = HashTable->TableSize + 128;
-  _BitScanReverse(&v15, v14);
-  v16 = v15 - 7;
-  if ( 1 << v15 == v14 )
+  v11 = HashTable->TableSize + 128;
+  _BitScanReverse((unsigned int *)&v12, v11);
+  if ( 1 << v12 == v11 )
   {
     Directory = (void **)HashTable->Directory;
-    ExFreePoolWithTag(Directory[v16], 0);
-    Directory[v16] = 0LL;
+    v17 = &Directory[v12 - 7];
+    ExFreePoolWithTag(*v17, 0);
+    *v17 = 0LL;
     if ( HashTable->TableSize == 128 )
     {
       HashTable->Directory = *Directory;

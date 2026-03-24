@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HandleLossOfPrimary@@YAHAEAUtagPOINTER_INFO@@@Z @ 0x1C0213850
+ * XREFs of ?HandleLossOfPrimary@@YAHAEAUtagPOINTER_INFO@@@Z @ 0x1C0218A58
  * Callers:
- *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C021424C (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C0219628 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
  * Callees:
- *     ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C0213E18 (-ResetMousePromotionInfo@@YAXGG@Z.c)
+ *     ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C0219100 (-ResetMousePromotionInfo@@YAXGG@Z.c)
  */
 
 __int64 __fastcall HandleLossOfPrimary(struct tagPOINTER_INFO *a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEsInStandbyLowPowerEpochCallback @ 0x140998430
+ * XREFs of PopEsInStandbyLowPowerEpochCallback @ 0x1408F27C0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopEsInStandbyEvaluate @ 0x140998460 (PopEsInStandbyEvaluate.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopEsInStandbyEvaluate @ 0x1408F27F0 (PopEsInStandbyEvaluate.c)
  */
 
 __int64 __fastcall PopEsInStandbyLowPowerEpochCallback(
@@ -16,6 +16,6 @@ __int64 __fastcall PopEsInStandbyLowPowerEpochCallback(
 {
   PopAcquireRwLockExclusive((ULONG_PTR)&PopEsLock);
   PopEsInStandbyEvaluate();
-  PopReleaseRwLock(&PopEsLock);
+  PopReleaseRwLock((ULONG_PTR)&PopEsLock);
   return 0LL;
 }

@@ -1,108 +1,94 @@
 /*
- * XREFs of Phase1InitializationIoReady @ 0x140B020A4
+ * XREFs of Phase1InitializationIoReady @ 0x140A4C104
  * Callers:
- *     Phase1Initialization @ 0x14084C160 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x1407B3AA0 (Phase1Initialization.c)
  * Callees:
- *     ExNotifyCallback @ 0x140232770 (ExNotifyCallback.c)
- *     InbvSetProgressBarSubset @ 0x1403CFCF0 (InbvSetProgressBarSubset.c)
- *     ExLogTimeZoneInformation @ 0x1403DB94C (ExLogTimeZoneInformation.c)
- *     RtlpInitializeNonVolatileFlush @ 0x1403DE6E0 (RtlpInitializeNonVolatileFlush.c)
- *     Feature_Servicing_CcTelemetryCrashOnHPEFix__private_IsEnabled @ 0x140416F1C (Feature_Servicing_CcTelemetryCrashOnHPEFix__private_IsEnabled.c)
- *     FsRtlInitSystem2 @ 0x1404173C8 (FsRtlInitSystem2.c)
- *     KeBugCheck @ 0x14041F3B0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     VfClearVerifierSettings @ 0x1405FDAE4 (VfClearVerifierSettings.c)
- *     CarInitLogging @ 0x140602EB8 (CarInitLogging.c)
- *     CarReportUnusualShutdown @ 0x140604224 (CarReportUnusualShutdown.c)
- *     ExInitLicenseData @ 0x14082D3F8 (ExInitLicenseData.c)
- *     ExInitializeNls @ 0x14085A828 (ExInitializeNls.c)
- *     ExQueryBootEntropyInformation @ 0x14086423C (ExQueryBootEntropyInformation.c)
- *     VfNotifyVerifierOfEvent @ 0x140A81780 (VfNotifyVerifierOfEvent.c)
- *     CcInitializeCacheManager @ 0x140AFC9DC (CcInitializeCacheManager.c)
- *     ObInitSystem @ 0x140AFE184 (ObInitSystem.c)
- *     PsInitSystem @ 0x140B02300 (PsInitSystem.c)
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
- *     KeInitSystem @ 0x140B03800 (KeInitSystem.c)
- *     SaveNodeDistanceInformation @ 0x140B063D4 (SaveNodeDistanceInformation.c)
- *     MmInitSystem @ 0x140B07AB0 (MmInitSystem.c)
- *     EmInitSystem @ 0x140B0B630 (EmInitSystem.c)
- *     BootApplicationPersistentDataProcess @ 0x140B1C0FC (BootApplicationPersistentDataProcess.c)
- *     VmInitSystem @ 0x140B1E5EC (VmInitSystem.c)
- *     SeRmInitPhase1 @ 0x140B21F30 (SeRmInitPhase1.c)
- *     CmInitSystem2 @ 0x140B2359C (CmInitSystem2.c)
- *     SmInitSystem @ 0x140B255E4 (SmInitSystem.c)
- *     StartFirstUserProcess @ 0x140B263A0 (StartFirstUserProcess.c)
- *     KeInitializeClock @ 0x140B27884 (KeInitializeClock.c)
- *     MmInitSystemDll @ 0x140B30EE0 (MmInitSystemDll.c)
- *     InitSafeBoot @ 0x140B4B918 (InitSafeBoot.c)
- *     ExInitTraceLogging @ 0x140B5446C (ExInitTraceLogging.c)
+ *     ExNotifyCallback @ 0x1402B0640 (ExNotifyCallback.c)
+ *     RtlpInitializeNonVolatileFlush @ 0x1403B46A0 (RtlpInitializeNonVolatileFlush.c)
+ *     InbvSetProgressBarSubset @ 0x1403B4724 (InbvSetProgressBarSubset.c)
+ *     ExLogTimeZoneInformation @ 0x1403B4A9C (ExLogTimeZoneInformation.c)
+ *     FsRtlInitSystem2 @ 0x1403F08EC (FsRtlInitSystem2.c)
+ *     KeBugCheck @ 0x1403FDED0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     VfClearVerifierSettings @ 0x1405A02E0 (VfClearVerifierSettings.c)
+ *     ExQueryBootEntropyInformation @ 0x14079EB94 (ExQueryBootEntropyInformation.c)
+ *     ExInitLicenseData @ 0x1407AAD08 (ExInitLicenseData.c)
+ *     VfNotifyVerifierOfEvent @ 0x1409C6050 (VfNotifyVerifierOfEvent.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     BootApplicationPersistentDataProcess @ 0x140A4117C (BootApplicationPersistentDataProcess.c)
+ *     EmInitSystem @ 0x140A4528C (EmInitSystem.c)
+ *     VmInitSystem @ 0x140A47B1C (VmInitSystem.c)
+ *     CmInitSystem2 @ 0x140A4B3D4 (CmInitSystem2.c)
+ *     SmInitSystem @ 0x140A4B43C (SmInitSystem.c)
+ *     SaveNodeDistanceInformation @ 0x140A4B6F0 (SaveNodeDistanceInformation.c)
+ *     KeInitializeClock @ 0x140A4B7CC (KeInitializeClock.c)
+ *     MmInitSystemDll @ 0x140A4B9EC (MmInitSystemDll.c)
+ *     SeRmInitPhase1 @ 0x140A4BA3C (SeRmInitPhase1.c)
+ *     StartFirstUserProcess @ 0x140A4BB74 (StartFirstUserProcess.c)
+ *     PsInitSystem @ 0x140A4C2F8 (PsInitSystem.c)
+ *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
+ *     MmInitSystem @ 0x140A53D6C (MmInitSystem.c)
+ *     InitSafeBoot @ 0x140A8C3D0 (InitSafeBoot.c)
+ *     ExInitTraceLogging @ 0x140A94604 (ExInitTraceLogging.c)
  */
 
 __int64 __fastcall Phase1InitializationIoReady(__int64 a1, char a2)
 {
-  NTSTATUS v4; // eax
-  __int64 v5; // rcx
-  int v6; // eax
+  __int64 v4; // rcx
+  int v5; // eax
   int inited; // eax
-  __int64 v8; // rcx
-  __int64 v9; // r8
+  __int64 v7; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
   __int64 result; // rax
 
   RtlpInitializeNonVolatileFlush();
-  v4 = ExInitializeNls();
-  if ( v4 < 0 )
-    KeBugCheckEx(0x32u, v4, 7uLL, 0LL, 0LL);
-  LOBYTE(v5) = CmStateSeparationEnabled != 0;
-  v6 = ExpInitializeStateSeparationPhase1(v5);
-  if ( (int)(v6 + 0x80000000) >= 0 && v6 != -1073741637 )
+  LOBYTE(v4) = CmStateSeparationEnabled != 0;
+  v5 = ExpInitializeStateSeparationPhase1(v4);
+  if ( (int)(v5 + 0x80000000) >= 0 && v5 != -1073741637 )
     KeBugCheckEx(0x32u, 0LL, 0LL, 0LL, 0LL);
   CmInitSystem2();
-  inited = EmInitSystem(1LL, a1);
+  inited = EmInitSystem(1, a1);
   if ( inited < 0 )
     KeBugCheckEx(0x32u, inited, 8uLL, 1uLL, 0LL);
   TmInitSystemPhase2();
   InbvSetProgressBarSubset();
   if ( (_DWORD)InitSafeBootMode )
   {
-    LOBYTE(v8) = a2;
-    InitSafeBoot(v8);
+    LOBYTE(v7) = a2;
+    InitSafeBoot(v7);
   }
-  SmInitSystem(2LL);
-  VmInitSystem(2LL);
+  SmInitSystem(2);
+  VmInitSystem(2, v8);
   MmInitSystem(2LL, a1);
-  if ( (unsigned int)Feature_Servicing_CcTelemetryCrashOnHPEFix__private_IsEnabled() )
-    CcInitializeCacheManager(2);
-  ObInitSystem(2);
   SaveNodeDistanceInformation();
-  if ( !(unsigned __int8)PoInitSystem(3LL, a1, v9) )
+  if ( !PoInitSystem(3, a1) )
     KeBugCheck(0xA0u);
-  KeInitializeClock(2uLL);
+  KeInitializeClock(2uLL, a1);
   KeInitSystem(3LL);
   ExInitTraceLogging();
-  ExLogTimeZoneInformation();
-  ExInitLicenseData();
+  ExLogTimeZoneInformation(v10, v9);
+  ExInitLicenseData(v12, v11);
   if ( !(unsigned __int8)PsInitSystem(2LL, a1) )
-    goto LABEL_28;
+    goto LABEL_21;
   MmInitSystemDll();
-  if ( !(unsigned __int8)SeRmInitPhase1() )
+  if ( !SeRmInitPhase1() )
     KeBugCheck(0x6Cu);
   BootApplicationPersistentDataProcess(2LL);
   if ( !(unsigned __int8)PsInitSystem(3LL, a1) )
-LABEL_28:
+LABEL_21:
     KeBugCheck(0x6Bu);
   FsRtlInitSystem2();
   StartFirstUserProcess();
   LODWORD(InitializationPhase) = InitializationPhase + 1;
   ExNotifyCallback(ExCbPhase1InitComplete, 0LL, 0LL);
   if ( ViVerifierEnabled )
-  {
-    CarInitLogging();
     VfNotifyVerifierOfEvent(5);
-  }
   if ( VfClearanceFlag )
     VfClearVerifierSettings();
-  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 2) == 0 && !(_DWORD)InitSafeBootMode )
-    CarReportUnusualShutdown();
   ExQueryBootEntropyInformation(0LL);
   result = KeInitSystem(4LL);
   if ( !(_BYTE)result )

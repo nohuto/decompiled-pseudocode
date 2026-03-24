@@ -1,23 +1,26 @@
 /*
- * XREFs of PopDiagSleepStudyInitialize @ 0x140845558
+ * XREFs of PopDiagSleepStudyInitialize @ 0x140796B90
  * Callers:
- *     PopDiagInitialize @ 0x140B1BC34 (PopDiagInitialize.c)
+ *     PopDiagInitialize @ 0x140A40D18 (PopDiagInitialize.c)
  * Callees:
- *     EtwRegister @ 0x1406D2350 (EtwRegister.c)
+ *     EtwRegister @ 0x140762CB0 (EtwRegister.c)
+ *     PopSleepstudyInitialize @ 0x140A40C80 (PopSleepstudyInitialize.c)
  */
 
-NTSTATUS PopDiagSleepStudyInitialize()
+__int64 PopDiagSleepStudyInitialize()
 {
-  NTSTATUS result; // eax
+  NTSTATUS v0; // ebx
 
   if ( PopDiagSleepStudyHandleRegistered )
-    return -1073740008;
-  result = EtwRegister(
-             &SLEEPSTUDY_ETW_PROVIDER,
-             (PETWENABLECALLBACK)PopDiagTraceControlCallback,
-             &PopDiagSleepStudyHandle,
-             &PopDiagSleepStudyHandle);
-  if ( result >= 0 )
-    PopDiagSleepStudyHandleRegistered = 1;
-  return result;
+  {
+    v0 = -1073740008;
+  }
+  else
+  {
+    v0 = EtwRegister(&SLEEPSTUDY_ETW_PROVIDER, 0LL, 0LL, &PopDiagSleepStudyHandle);
+    if ( v0 >= 0 )
+      PopDiagSleepStudyHandleRegistered = 1;
+  }
+  PopSleepstudyInitialize();
+  return (unsigned int)v0;
 }

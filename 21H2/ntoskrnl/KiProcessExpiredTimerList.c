@@ -1,239 +1,183 @@
 /*
- * XREFs of KiProcessExpiredTimerList @ 0x1402A7C20
+ * XREFs of KiProcessExpiredTimerList @ 0x140247AA0
  * Callers:
- *     KiRetireDpcList @ 0x1402A8980 (KiRetireDpcList.c)
- *     KiExpireTimerTable @ 0x1403954A0 (KiExpireTimerTable.c)
+ *     KiRetireDpcList @ 0x1402466B0 (KiRetireDpcList.c)
+ *     KiExpireTimerTable @ 0x1403894B0 (KiExpireTimerTable.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14022DB00 (RtlGetSystemTimePrecise.c)
- *     KiTimerWaitTest @ 0x1402A7FE0 (KiTimerWaitTest.c)
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     KiProcessThreadWaitList @ 0x140340390 (KiProcessThreadWaitList.c)
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KiTimerWaitTest @ 0x140247DF0 (KiTimerWaitTest.c)
+ *     KiReadyThread @ 0x140248640 (KiReadyThread.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiProcessThreadWaitList @ 0x14024B2D0 (KiProcessThreadWaitList.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
+ *     EtwTraceTimedEvent @ 0x1402AEDFC (EtwTraceTimedEvent.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwTraceReadyThread @ 0x1405A7F70 (EtwTraceReadyThread.c)
  */
 
 __int64 __fastcall KiProcessExpiredTimerList(__int64 a1, int *a2, __int64 a3, unsigned int a4)
 {
   __int64 v4; // rax
-  int v5; // r15d
-  unsigned int v6; // r12d
-  bool v9; // si
+  int v5; // edi
+  int *v6; // r12
+  unsigned int v8; // ebp
+  bool v9; // r15
   __int64 result; // rax
   __int64 v11; // rbx
-  _DWORD *v12; // r8
-  __int64 v13; // rsi
-  __int64 v14; // rax
-  int v15; // ebx
-  unsigned int v16; // edx
-  bool v17; // zf
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  int v20; // ebx
-  ULONG_PTR v21; // rcx
-  __int64 v22; // rbx
-  __int64 v23; // rcx
-  void (__fastcall *v24)(__int64, _QWORD, _QWORD, _QWORD); // rax
-  ULONG_PTR v25; // r14
-  unsigned int v26; // ebx
-  unsigned int v27; // ecx
-  __int64 v28; // r8
-  __int64 v29; // rcx
-  __int64 v30; // rax
-  int v31; // r8d
-  unsigned __int64 v32; // rdx
-  bool v33; // [rsp+30h] [rbp-99h]
-  ULONG_PTR BugCheckParameter2; // [rsp+40h] [rbp-89h] BYREF
-  int v35; // [rsp+48h] [rbp-81h] BYREF
-  unsigned int BugCheckParameter3; // [rsp+4Ch] [rbp-7Dh]
-  unsigned int BugCheckParameter3_4; // [rsp+50h] [rbp-79h]
-  unsigned int v38; // [rsp+54h] [rbp-75h]
-  __int64 v39; // [rsp+58h] [rbp-71h] BYREF
-  __int64 v40; // [rsp+60h] [rbp-69h]
-  __int64 v41; // [rsp+68h] [rbp-61h] BYREF
-  __int128 v42; // [rsp+70h] [rbp-59h]
-  __int128 v43; // [rsp+80h] [rbp-49h]
-  _QWORD v44[2]; // [rsp+90h] [rbp-39h] BYREF
-  __int128 v45; // [rsp+A0h] [rbp-29h] BYREF
-  __int128 v46; // [rsp+B0h] [rbp-19h]
-  _QWORD v47[4]; // [rsp+C0h] [rbp-9h] BYREF
+  __int64 v12; // r14
+  int v13; // ebx
+  ULONG_PTR v14; // rcx
+  __int64 v15; // rbx
+  void *v16; // rcx
+  void (__fastcall *v17)(__int64, _QWORD, _QWORD, _QWORD); // rax
+  ULONG_PTR v18; // rcx
+  __int64 **v19; // r14
+  __int64 v20; // rax
+  __int64 *v21; // r15
+  __int64 *v22; // rbx
+  __int64 *v23; // rdi
+  volatile signed __int32 *v24; // rbp
+  __int64 *v25; // rax
+  __int64 **v26; // rcx
+  unsigned __int64 v27; // rdx
+  size_t v28; // r8
+  ULONG_PTR BugCheckParameter2; // [rsp+30h] [rbp-B8h] BYREF
+  int v30; // [rsp+38h] [rbp-B0h] BYREF
+  unsigned int BugCheckParameter3; // [rsp+3Ch] [rbp-ACh]
+  unsigned int BugCheckParameter3_4; // [rsp+40h] [rbp-A8h]
+  __int64 v33; // [rsp+48h] [rbp-A0h]
+  __int64 v34; // [rsp+50h] [rbp-98h]
+  _QWORD v35[2]; // [rsp+58h] [rbp-90h] BYREF
+  __int128 v36; // [rsp+68h] [rbp-80h] BYREF
+  __int128 v37; // [rsp+78h] [rbp-70h]
+  _OWORD v38[2]; // [rsp+88h] [rbp-60h] BYREF
 
   v4 = *(_QWORD *)(a1 + 8);
+  BugCheckParameter3_4 = a4;
   v5 = BYTE4(PerfGlobalGroupMask) & 0x80;
+  v33 = v4;
+  v6 = a2;
   BugCheckParameter2 = 0LL;
-  v6 = 0;
-  v38 = a4;
-  v45 = 0LL;
-  v41 = a3;
-  v46 = 0LL;
-  v40 = v4;
-  v42 = 0LL;
-  v43 = 0LL;
+  v36 = 0LL;
+  v34 = a3;
+  v8 = 0;
+  v37 = 0LL;
+  memset(v38, 0, sizeof(v38));
   BugCheckParameter3 = *(_DWORD *)(v4 + 484);
   v9 = (DWORD2(PerfGlobalGroupMask) & 0x20000) != 0;
-  v33 = v9;
   while ( 1 )
   {
-    result = v6++;
-    BugCheckParameter3_4 = v6;
+    result = v8++;
     v11 = _InterlockedExchange64((volatile __int64 *)(a3 + 8 * result), 0LL);
     if ( v11 )
     {
-      v35 = 0;
+      v30 = 0;
       while ( _interlockedbittestandset((volatile signed __int32 *)v11, 7u) )
       {
         do
-          KeYieldProcessorEx(&v35);
+          KeYieldProcessorEx(&v30);
         while ( (*(_DWORD *)v11 & 0x80u) != 0 );
       }
-      v12 = a2 + 2;
       if ( v9 )
       {
-        *(_QWORD *)&v45 = *(_QWORD *)(v11 + 24);
-        v32 = KiWaitAlways ^ _byteswap_uint64(v11 ^ __ROL8__(KiWaitNever ^ *(_QWORD *)(v11 + 48), KiWaitNever));
-        *(_QWORD *)&v46 = v32 ? *(_QWORD *)(v32 + 24) : 0LL;
-        v13 = KiTimerWaitTest(a1, v11, v12);
-        *((_QWORD *)&v45 + 1) = v11;
-        BYTE8(v46) = *(_BYTE *)(v11 + 1) >> 2;
-        v44[1] = 32LL;
-        v44[0] = &v45;
-        result = EtwTraceKernelEvent((unsigned int)v44, 1, 1073872896, 3921, 1538);
+        *(_QWORD *)&v36 = *(_QWORD *)(v11 + 24);
+        v27 = KiWaitAlways ^ _byteswap_uint64(v11 ^ __ROL8__(KiWaitNever ^ *(_QWORD *)(v11 + 48), KiWaitNever));
+        if ( v27 )
+          *(_QWORD *)&v37 = *(_QWORD *)(v27 + 24);
+        else
+          *(_QWORD *)&v37 = 0LL;
       }
-      else
+      result = KiTimerWaitTest(a1, v11, v6 + 2);
+      v12 = result;
+      if ( v9 )
       {
-        result = KiTimerWaitTest(a1, v11, v12);
-        v13 = result;
+        *((_QWORD *)&v36 + 1) = v11;
+        BYTE8(v37) = *(_BYTE *)(v11 + 1) >> 2;
+        v35[0] = &v36;
+        v35[1] = 32LL;
+        result = EtwTraceKernelEvent((unsigned int)v35, 1, 1073872896, 3921, 1538);
       }
-      if ( v13 )
+      if ( v12 )
       {
         if ( *(_QWORD *)(a1 + 11528) )
           KiProcessThreadWaitList(a1, 1LL, 0LL, 2LL);
-        if ( !v5 )
-          goto LABEL_26;
-        v14 = 0LL;
-        v15 = 0;
-        if ( qword_140D328E0 )
+        if ( v5 )
+          EtwGetKernelTraceTimestamp(v38, 536871040LL);
+        v13 = *v6;
+        BugCheckParameter2 = *(_QWORD *)(v12 + 24);
+        v14 = BugCheckParameter2;
+        *v6 = v13 + 1;
+        v15 = 2 * ((v13 & 0xF) + 1LL);
+        *(_QWORD *)&v6[2 * v15] = v14;
+        v6[2 * v15 + 2] = MEMORY[0xFFFFF78000000320];
+        v16 = *(void **)(a1 + 33960);
+        *(_DWORD *)(a1 + 32412) = 0;
+        if ( v16 && *(void **)(a1 + 33968) != v16 && *(_DWORD *)(a1 + 31724) < *(_DWORD *)(a1 + 31732) )
         {
-          v16 = *(_DWORD *)(qword_140D328E0 + 4248);
-          v17 = !_BitScanForward((unsigned int *)&v18, v16);
-          if ( !v17 )
-          {
-            do
-            {
-              v16 &= v16 - 1;
-              v19 = 32LL * (unsigned int)v18 + qword_140D328E0 + 4284;
-              if ( v19 && (*(_DWORD *)(v19 + 4) & 0x80u) != 0 )
-                v15 |= 1 << *(_BYTE *)(qword_140D328E0 + 2 * v18 + 4233);
-              v17 = !_BitScanForward((unsigned int *)&v18, v16);
-            }
-            while ( !v17 );
-            v14 = 0LL;
-          }
-          if ( (v15 & 2) == 0 )
-          {
-            *(_QWORD *)&v42 = 0LL;
-LABEL_19:
-            if ( (v15 & 4) != 0 )
-            {
-              *((_QWORD *)&v42 + 1) = RtlGetSystemTimePrecise();
-              v14 = 0LL;
-            }
-            else
-            {
-              *((_QWORD *)&v42 + 1) = 0LL;
-            }
-            if ( (v15 & 8) != 0 )
-            {
-              *(_QWORD *)&v43 = __rdtsc();
-              v14 = 0LL;
-            }
-            else
-            {
-              *(_QWORD *)&v43 = 0LL;
-            }
-            if ( (v15 & 0x10) != 0 )
-            {
-              v39 = 0LL;
-              ((void (__fastcall *)(__int64 *))off_140C02030[0])(&v39);
-              v14 = v39;
-            }
-            *((_QWORD *)&v43 + 1) = v14;
-LABEL_26:
-            v20 = *a2;
-            BugCheckParameter2 = *(_QWORD *)(v13 + 24);
-            v21 = BugCheckParameter2;
-            *a2 = v20 + 1;
-            v22 = 2 * ((v20 & 0xF) + 1LL);
-            *(_QWORD *)&a2[2 * v22] = v21;
-            a2[2 * v22 + 2] = MEMORY[0xFFFFF78000000320];
-            v23 = *(_QWORD *)(a1 + 34984);
-            *(_DWORD *)(a1 + 33116) = 0;
-            if ( v23 && *(_QWORD *)(a1 + 34992) != v23 && *(_DWORD *)(a1 + 32428) < *(_DWORD *)(a1 + 32436) )
-              *(_QWORD *)(a1 + 34992) = v23;
-            v24 = (void (__fastcall *)(__int64, _QWORD, _QWORD, _QWORD))BugCheckParameter2;
-            *(_BYTE *)(a1 + 13242) = 1;
-            v24(v13, *(_QWORD *)(v13 + 32), (unsigned int)a2[2], (unsigned int)a2[3]);
-            v25 = BugCheckParameter3;
-            *(_BYTE *)(a1 + 13242) = 0;
-            a2[2 * v22 + 3] = MEMORY[0xFFFFF78000000320];
-            result = *(unsigned int *)(v40 + 484);
-            if ( (_DWORD)v25 != (_DWORD)result )
-              KeBugCheckEx(0xC7u, 5uLL, BugCheckParameter2, v25, *(unsigned int *)(v40 + 484));
-            if ( v5 )
-            {
-              v47[3] = 8LL;
-              v47[2] = &BugCheckParameter2;
-              result = EtwpHostSiloState;
-              v26 = *(_DWORD *)(EtwpHostSiloState + 4248);
-              v17 = !_BitScanForward(&v27, v26);
-              if ( !v17 )
-              {
-                do
-                {
-                  v26 &= v26 - 1;
-                  v28 = v27;
-                  result = 32LL * v27;
-                  v29 = result + EtwpHostSiloState + 4284;
-                  if ( v29 )
-                  {
-                    result = *(unsigned int *)(v29 + 4);
-                    if ( (result & 0x80u) != 0LL )
-                    {
-                      v30 = *(unsigned __int8 *)(EtwpHostSiloState + 2 * v28 + 4233);
-                      v31 = *(unsigned __int8 *)(EtwpHostSiloState + 2 * v28 + 4232);
-                      v47[1] = 8LL;
-                      v47[0] = &v41 + v30;
-                      result = EtwpLogKernelEvent((unsigned int)v47, EtwpHostSiloState, v31, 2, 3909, 4196866);
-                    }
-                  }
-                  v17 = !_BitScanForward(&v27, v26);
-                }
-                while ( !v17 );
-                v6 = BugCheckParameter3_4;
-              }
-            }
-            goto LABEL_36;
-          }
+          v28 = 8LL * (unsigned int)KiDpcWatchdogProfileArrayLength;
+          *(_QWORD *)(a1 + 33968) = v16;
+          memset(v16, 0, v28);
         }
-        else
-        {
-          LOBYTE(v15) = 30;
-        }
-        *(LARGE_INTEGER *)&v42 = KeQueryPerformanceCounter(0LL);
-        v14 = 0LL;
-        goto LABEL_19;
+        v17 = (void (__fastcall *)(__int64, _QWORD, _QWORD, _QWORD))BugCheckParameter2;
+        *(_BYTE *)(a1 + 12586) = 1;
+        v17(v12, *(_QWORD *)(v12 + 32), (unsigned int)v6[2], (unsigned int)v6[3]);
+        v18 = BugCheckParameter3;
+        *(_BYTE *)(a1 + 12586) = 0;
+        v6[2 * v15 + 3] = MEMORY[0xFFFFF78000000320];
+        result = *(unsigned int *)(v33 + 484);
+        if ( (_DWORD)v18 != (_DWORD)result )
+          KeBugCheckEx(0xC7u, 5uLL, BugCheckParameter2, v18, *(unsigned int *)(v33 + 484));
+        if ( v5 )
+          result = EtwTraceTimedEvent(3909, 536871040, (unsigned int)&BugCheckParameter2, 8, 4196866, (__int64)v38);
       }
     }
-LABEL_36:
-    if ( v6 >= v38 )
+    if ( v8 >= BugCheckParameter3_4 )
       break;
-    v9 = v33;
-    a3 = v41;
+    a3 = v34;
   }
-  if ( *(_QWORD *)(a1 + 11528) )
-    return KiProcessThreadWaitList(a1, 1LL, 0LL, 2LL);
+  v19 = *(__int64 ***)(a1 + 11528);
+  if ( v19 )
+  {
+    *(_QWORD *)(a1 + 11528) = 0LL;
+    do
+    {
+      v20 = *((unsigned __int8 *)v19 + 371);
+      v21 = (__int64 *)(v19 - 27);
+      v22 = *(v19 - 1);
+      v19 = (__int64 **)*v19;
+      v23 = &v22[6 * v20];
+      do
+      {
+        if ( *((_BYTE *)v22 + 17) < 5u )
+        {
+          v24 = (volatile signed __int32 *)v22[4];
+          KiAcquireKobjectLockSafe(v24);
+          if ( *((_BYTE *)v22 + 17) == 4 )
+          {
+            v25 = (__int64 *)*v22;
+            if ( *(__int64 **)(*v22 + 8) != v22 || (v26 = (__int64 **)v22[1], *v26 != v22) )
+              __fastfail(3u);
+            *v26 = v25;
+            v25[1] = (__int64)v26;
+          }
+          _InterlockedAnd(v24, 0xFFFFFF7F);
+        }
+        v22 += 6;
+      }
+      while ( v22 != v23 );
+      *((_WORD *)v21 + 283) = 1;
+      if ( (WORD2(PerfGlobalGroupMask) & 0x200) != 0 )
+      {
+        LOBYTE(a2) = 1;
+        EtwTraceReadyThread(v21, a2, 0LL, 2LL);
+      }
+      result = KiReadyThread(a1, v21);
+    }
+    while ( v19 );
+  }
   return result;
 }

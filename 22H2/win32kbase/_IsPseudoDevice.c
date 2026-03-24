@@ -1,14 +1,14 @@
 /*
- * XREFs of _IsPseudoDevice @ 0x1C01E9510
+ * XREFs of _IsPseudoDevice @ 0x1C01AF630
  * Callers:
- *     TouchTargetingEnabledForInput @ 0x1C01E91A0 (TouchTargetingEnabledForInput.c)
+ *     TouchTargetingEnabledForInput @ 0x1C01AF3E0 (TouchTargetingEnabledForInput.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00590FC (HMValidateHandleNoSecure.c)
+ *     HMValidateHandleNoSecure @ 0x1C0046930 (HMValidateHandleNoSecure.c)
  */
 
 __int64 __fastcall IsPseudoDevice(__int64 a1)
 {
-  __int64 v1; // rcx
+  unsigned __int64 v1; // rcx
   unsigned int v2; // ebx
   __int64 v3; // rax
 

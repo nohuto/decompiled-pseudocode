@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_BugcheckingSystemOnExcessiveResetsForHubInBootPath @ 0x1C0007FE0
+ * XREFs of HUBHSM_BugcheckingSystemOnExcessiveResetsForHubInBootPath @ 0x1C0007CD0
  * Callers:
  *     <none>
  * Callees:
- *     HUBFDO_BugcheckSystemOnBootHubFailure @ 0x1C000E004 (HUBFDO_BugcheckSystemOnBootHubFailure.c)
+ *     HUBFDO_BugcheckSystemOnBootHubFailure @ 0x1C000DC3C (HUBFDO_BugcheckSystemOnBootHubFailure.c)
  */
 
 void __fastcall __noreturn HUBHSM_BugcheckingSystemOnExcessiveResetsForHubInBootPath(__int64 a1)

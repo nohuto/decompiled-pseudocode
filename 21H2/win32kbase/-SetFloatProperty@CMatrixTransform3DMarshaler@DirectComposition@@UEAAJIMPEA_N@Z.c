@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFloatProperty@CMatrixTransform3DMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C021A100
+ * XREFs of ?SetFloatProperty@CMatrixTransform3DMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01E3D00
  * Callers:
  *     <none>
  * Callees:
@@ -18,13 +18,13 @@ __int64 __fastcall DirectComposition::CMatrixTransform3DMarshaler::SetFloatPrope
   v4 = 0;
   if ( a2 < 0x10 )
   {
-    if ( *((float *)this + a2 + 20) == a3 )
+    if ( *((float *)this + a2 + 18) == a3 )
     {
       v5 = 0;
     }
     else
     {
-      *((float *)this + a2 + 20) = a3;
+      *((float *)this + a2 + 18) = a3;
       v5 = 1;
     }
     *a4 = v5;

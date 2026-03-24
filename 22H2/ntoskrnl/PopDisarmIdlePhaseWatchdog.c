@@ -1,18 +1,17 @@
 /*
- * XREFs of PopDisarmIdlePhaseWatchdog @ 0x1407AA5CC
+ * XREFs of PopDisarmIdlePhaseWatchdog @ 0x1408EFD7C
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x140599840 (PdcPoCurrentPdcPhase.c)
- *     PopProcessSessionDisplayStateChange @ 0x1407A9788 (PopProcessSessionDisplayStateChange.c)
+ *     PdcPoCurrentPdcPhase @ 0x140576300 (PdcPoCurrentPdcPhase.c)
+ *     PopProcessSessionDisplayStateChange @ 0x1408F0278 (PopProcessSessionDisplayStateChange.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     ZwPowerInformation @ 0x14041B280 (ZwPowerInformation.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ZwPowerInformation @ 0x1403FA600 (ZwPowerInformation.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopResetIdlePhaseWatchdogDiagnosticContext @ 0x1408F02C8 (PopResetIdlePhaseWatchdogDiagnosticContext.c)
  */
 
-void PopDisarmIdlePhaseWatchdog()
+__int64 PopDisarmIdlePhaseWatchdog()
 {
+  __int64 result; // rax
   _QWORD InputBuffer[13]; // [rsp+30h] [rbp-68h] BYREF
 
   if ( PopPdcIdlePhaseWatchdogContext )
@@ -21,13 +20,7 @@ void PopDisarmIdlePhaseWatchdog()
     LODWORD(InputBuffer[0]) = 21;
     InputBuffer[1] = PopPdcIdlePhaseWatchdogContext;
     ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x60u, 0LL, 0);
-    PopAcquireRwLockExclusive((ULONG_PTR)&xmmword_140C39F68);
-    dword_140C39F80 = 0;
-    if ( qword_140C39F78 )
-    {
-      ExFreePoolWithTag(qword_140C39F78, 0x67696450u);
-      qword_140C39F78 = 0LL;
-    }
-    PopReleaseRwLock((__int64 *)&xmmword_140C39F68);
+    return PopResetIdlePhaseWatchdogDiagnosticContext();
   }
+  return result;
 }

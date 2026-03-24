@@ -1,14 +1,15 @@
 /*
- * XREFs of ACPIGetConvertToCompatibleIDWide @ 0x1C001DFB4
+ * XREFs of ACPIGetConvertToCompatibleIDWide @ 0x1C0027D58
  * Callers:
- *     ACPIGetWorkerForString @ 0x1C0019740 (ACPIGetWorkerForString.c)
- *     ACPIGetConvertToCompatibleID @ 0x1C001DF4C (ACPIGetConvertToCompatibleID.c)
+ *     ACPIGetWorkerForString @ 0x1C000C4F0 (ACPIGetWorkerForString.c)
+ *     ACPIGetConvertToCompatibleID @ 0x1C0027CF0 (ACPIGetConvertToCompatibleID.c)
  * Callees:
- *     ACPIGetConvertToPnpIDWide @ 0x1C001C5D8 (ACPIGetConvertToPnpIDWide.c)
- *     ACPIAnsiStringToWideHelper @ 0x1C001D258 (ACPIAnsiStringToWideHelper.c)
- *     RtlStringCchPrintfA @ 0x1C001D284 (RtlStringCchPrintfA.c)
- *     ACPIGetConvertToStringWideWithPrepend @ 0x1C001DD7C (ACPIGetConvertToStringWideWithPrepend.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     RtlStringCchPrintfA @ 0x1C000C948 (RtlStringCchPrintfA.c)
+ *     ACPIAnsiStringToWideHelper @ 0x1C000C9C4 (ACPIAnsiStringToWideHelper.c)
+ *     ACPIGetConvertToPnpIDWide @ 0x1C00281E0 (ACPIGetConvertToPnpIDWide.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIGetConvertToStringWideWithPrepend @ 0x1C0055D3C (ACPIGetConvertToStringWideWithPrepend.c)
  */
 
 __int64 __fastcall ACPIGetConvertToCompatibleIDWide(
@@ -16,43 +17,48 @@ __int64 __fastcall ACPIGetConvertToCompatibleIDWide(
         int a2,
         __int64 a3,
         int a4,
-        _QWORD *a5,
+        char **a5,
         unsigned int *a6)
 {
-  unsigned int v9; // r12d
+  int v9; // ebx
   __int64 v10; // rax
   unsigned __int16 v11; // ax
   __int64 v12; // rdi
-  char **Pool2; // r14
-  int *v14; // rax
-  unsigned int *v15; // r15
-  int v16; // eax
-  unsigned int v17; // ebx
-  unsigned int v18; // r12d
-  __int64 v19; // rax
+  PVOID *PoolWithTag; // rax
+  PVOID *v14; // r14
+  int *v15; // rax
+  int *v16; // r15
+  int v17; // eax
+  unsigned int v18; // ebp
+  char *v19; // rax
   char *v20; // r13
   unsigned int *v21; // rsi
-  const void **v22; // rbp
-  unsigned __int64 v23; // rax
-  bool v24; // zf
-  PVOID *v25; // rsi
-  const char *v27; // rdi
-  __int64 v28; // rbx
-  unsigned int v29; // ebx
-  char *v30; // rax
-  char *v31; // rsi
-  unsigned int v32; // ebp
-  __int64 v33; // r8
-  int v34; // eax
-  int v35; // eax
-  unsigned int *v36; // [rsp+30h] [rbp-38h]
-  __int64 v37; // [rsp+30h] [rbp-38h]
-  unsigned int *v38; // [rsp+30h] [rbp-38h]
-  __int64 v39; // [rsp+38h] [rbp-30h]
-  int *v40; // [rsp+38h] [rbp-30h]
+  const void **v22; // r12
+  char *v23; // r15
+  unsigned __int64 v24; // rax
+  bool v25; // zf
+  PVOID *v26; // rsi
+  const char *v28; // rdi
+  __int64 v29; // rbx
+  unsigned int v30; // ebx
+  unsigned int v31; // ebp
+  char *v32; // rax
+  char *v33; // rsi
+  __int64 v34; // r12
+  unsigned int *v35; // r13
+  int v36; // eax
+  int v37; // eax
+  unsigned int *v38; // [rsp+30h] [rbp-58h]
+  size_t Size; // [rsp+38h] [rbp-50h]
+  int *Sizea; // [rsp+38h] [rbp-50h]
+  int *v41; // [rsp+40h] [rbp-48h]
+  int v42; // [rsp+90h] [rbp+8h]
+  unsigned int v43; // [rsp+98h] [rbp+10h]
 
-  v36 = 0LL;
-  v9 = 0;
+  v42 = a1;
+  v38 = 0LL;
+  v43 = 0;
+  v9 = a2;
   if ( (a4 & 0x4000000) != 0 || (v10 = *(_QWORD *)(a1 + 8), (v10 & 0x1000000000LL) == 0) )
   {
     if ( a2 < 0 )
@@ -67,21 +73,25 @@ __int64 __fastcall ACPIGetConvertToCompatibleIDWide(
       }
       if ( v11 == 4 )
       {
-        v36 = *(unsigned int **)(a3 + 32);
-        v12 = *v36;
+        v38 = *(unsigned int **)(a3 + 32);
+        v12 = *v38;
         if ( *(unsigned int *)(a3 + 24) >= (unsigned __int64)(40 * v12 + 8) )
         {
 LABEL_7:
-          Pool2 = (char **)ExAllocatePool2(64LL, 8 * v12, 1299211073LL);
-          if ( Pool2 )
+          PoolWithTag = (PVOID *)ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * (unsigned int)v12, 0x4D706341u);
+          v14 = PoolWithTag;
+          if ( PoolWithTag )
           {
-            v14 = (int *)ExAllocatePool2(64LL, 4 * v12, 1299211073LL);
-            v15 = (unsigned int *)v14;
-            if ( v14 )
+            memset(PoolWithTag, 0, 8LL * (unsigned int)v12);
+            v15 = (int *)ExAllocatePoolWithTag(NonPagedPoolNx, 4LL * (unsigned int)v12, 0x4D706341u);
+            v41 = v15;
+            v16 = v15;
+            if ( v15 )
             {
+              memset(v15, 0, 4LL * (unsigned int)v12);
               if ( *(_WORD *)(a3 + 2) == 1 )
               {
-                v16 = ACPIGetConvertToPnpIDWide(a1, a2, a3, a4, Pool2, v14);
+                v17 = ACPIGetConvertToPnpIDWide(v42, a2, a3, a4, (__int64)v14, (__int64)v16);
               }
               else
               {
@@ -89,124 +99,132 @@ LABEL_7:
                 {
                   if ( *(_WORD *)(a3 + 2) == 4 )
                   {
-                    v32 = 0;
+                    v34 = 0LL;
                     if ( (_DWORD)v12 )
                     {
-                      v33 = (__int64)(v36 + 2);
-                      v40 = v14;
-                      v38 = v36 + 2;
+                      v35 = v38 + 2;
+                      Sizea = v16;
                       while ( 1 )
                       {
-                        if ( *(_WORD *)(v33 + 2) == 1 )
+                        if ( *((_WORD *)v35 + 1) == 1 )
                         {
-                          v34 = ACPIGetConvertToPnpIDWide(a1, a2, v33, a4, &Pool2[v32], (int *)&v15[v32]);
+                          v36 = ACPIGetConvertToPnpIDWide(
+                                  v42,
+                                  a2,
+                                  (_DWORD)v35,
+                                  a4,
+                                  (__int64)&v14[v34],
+                                  (__int64)&v16[v34]);
                         }
                         else
                         {
-                          if ( *(_WORD *)(v33 + 2) != 2 )
-                            KeBugCheckEx(0xA3u, 1uLL, 0x60396uLL, 0LL, 0LL);
-                          v34 = ACPIGetConvertToStringWideWithPrepend(
-                                  (__int64)&v15[v32],
+                          if ( *((_WORD *)v35 + 1) != 2 )
+                            KeBugCheckEx(0xA3u, 1uLL, 0x6039DuLL, 0LL, 0LL);
+                          v36 = ACPIGetConvertToStringWideWithPrepend(
+                                  (int)v16 + 4 * (int)v34,
                                   a2,
-                                  v33,
+                                  (_DWORD)v35,
                                   a4,
-                                  &Pool2[v32],
-                                  &v15[v32]);
+                                  (__int64)&v14[v34],
+                                  (__int64)&v16[v34]);
                         }
-                        v17 = v34;
-                        if ( v34 < 0 )
+                        v9 = v36;
+                        if ( v36 < 0 )
                           break;
-                        v35 = *v40;
-                        if ( *v40 == 1 )
+                        v37 = *Sizea;
+                        if ( *Sizea == 1 )
                         {
-                          v35 = 0;
-                          *v40 = 0;
+                          v37 = 0;
+                          *Sizea = 0;
                         }
-                        v33 = (__int64)(v38 + 10);
-                        ++v40;
-                        v9 += v35;
-                        v38 += 10;
-                        if ( ++v32 >= (unsigned int)v12 )
-                          goto LABEL_13;
+                        v43 += v37;
+                        v34 = (unsigned int)(v34 + 1);
+                        ++Sizea;
+                        v35 += 10;
+                        if ( (unsigned int)v34 >= (unsigned int)v12 )
+                          goto LABEL_56;
                       }
-                      v12 = v32;
-                      goto LABEL_22;
                     }
-                  }
-                  goto LABEL_58;
-                }
-                v16 = ACPIGetConvertToStringWideWithPrepend(
-                        (unsigned int)*(unsigned __int16 *)(a3 + 2) - 2,
-                        a2,
-                        a3,
-                        a4,
-                        Pool2,
-                        v14);
-              }
-              v17 = v16;
-              v9 = *v15;
-              if ( v16 < 0 )
-              {
-LABEL_22:
-                if ( (_DWORD)v12 )
-                {
-                  v25 = (PVOID *)Pool2;
-                  do
-                  {
-                    if ( *v25 )
-                      ExFreePoolWithTag(*v25, 0);
-                    ++v25;
-                    --v12;
-                  }
-                  while ( v12 );
-                }
-                ExFreePoolWithTag(v15, 0);
-                ExFreePoolWithTag(Pool2, 0);
-                return v17;
-              }
-LABEL_13:
-              if ( v9 > 2 )
-              {
-                v18 = v9 + 2;
-                v19 = ExAllocatePool2(
-                        (-(__int64)((a4 & 0x8000000) != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256,
-                        v18,
-                        1399874369LL);
-                v37 = v19;
-                if ( v19 )
-                {
-                  v20 = (char *)v19;
-                  if ( (_DWORD)v12 )
-                  {
-                    v21 = v15;
-                    v39 = (unsigned int)v12;
-                    v22 = (const void **)Pool2;
-                    do
+                    else
                     {
-                      if ( *v22 )
-                        memmove(v20, *v22, *v21);
-                      ++v22;
-                      v23 = (unsigned __int64)*v21++ >> 1;
-                      v24 = v39-- == 1;
-                      v20 += 2 * v23;
+LABEL_56:
+                      if ( v9 >= 0 )
+                        goto LABEL_13;
                     }
-                    while ( !v24 );
+                    v12 = (unsigned int)v34;
                   }
-                  *a5 = v37;
-                  if ( a6 )
-                    *a6 = v18;
+LABEL_12:
+                  if ( v9 < 0 )
+                  {
+LABEL_23:
+                    if ( (_DWORD)v12 )
+                    {
+                      v26 = v14;
+                      do
+                      {
+                        if ( *v26 )
+                          ExFreePoolWithTag(*v26, 0);
+                        ++v26;
+                        --v12;
+                      }
+                      while ( v12 );
+                    }
+                    ExFreePoolWithTag(v16, 0);
+                    ExFreePoolWithTag(v14, 0);
+                    return (unsigned int)v9;
+                  }
+LABEL_13:
+                  if ( v43 <= 2 )
+                  {
+                    v9 = -1072431089;
+                  }
+                  else
+                  {
+                    v18 = v43 + 2;
+                    v19 = (char *)ExAllocatePoolWithTag(
+                                    (POOL_TYPE)((a4 & 0x8000000) != 0 ? NonPagedPoolNx : PagedPool),
+                                    v43 + 2,
+                                    0x53706341u);
+                    v20 = v19;
+                    if ( v19 )
+                    {
+                      memset(v19, 0, v18);
+                      if ( (_DWORD)v12 )
+                      {
+                        v21 = (unsigned int *)v16;
+                        Size = (unsigned int)v12;
+                        v22 = (const void **)v14;
+                        v23 = v20;
+                        do
+                        {
+                          if ( *v22 )
+                            memmove(v23, *v22, *v21);
+                          ++v22;
+                          v24 = (unsigned __int64)*v21++ >> 1;
+                          v25 = Size-- == 1;
+                          v23 += 2 * v24;
+                        }
+                        while ( !v25 );
+                        v16 = v41;
+                      }
+                      *a5 = v20;
+                      if ( a6 )
+                        *a6 = v18;
+                    }
+                    else
+                    {
+                      v9 = -1073741670;
+                    }
+                  }
+                  goto LABEL_23;
                 }
-                else
-                {
-                  v17 = -1073741670;
-                }
-                goto LABEL_22;
+                v17 = ACPIGetConvertToStringWideWithPrepend(0, a2, a3, a4, (__int64)v14, (__int64)v16);
               }
-LABEL_58:
-              v17 = -1072431089;
-              goto LABEL_22;
+              v9 = v17;
+              v43 = *v16;
+              goto LABEL_12;
             }
-            ExFreePoolWithTag(Pool2, 0);
+            ExFreePoolWithTag(v14, 0);
           }
           return 3221225626LL;
         }
@@ -215,25 +233,27 @@ LABEL_58:
     return 3222536207LL;
   }
   if ( v10 >= 0 )
-    v27 = (const char *)&AcpiProcessorCompatId;
+    v28 = (const char *)&AcpiProcessorCompatId;
   else
-    v27 = *(const char **)(a1 + 184);
-  v28 = -1LL;
+    v28 = *(const char **)(a1 + 184);
+  v29 = -1LL;
   do
-    ++v28;
-  while ( v27[v28] );
-  v29 = v28 + 2;
-  v30 = (char *)ExAllocatePool2(
-                  (-(__int64)((a4 & 0x8000000) != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256,
-                  2 * v29,
-                  1399874369LL);
-  v31 = v30;
-  if ( !v30 )
+    ++v29;
+  while ( v28[v29] );
+  v30 = v29 + 2;
+  v31 = 2 * v30;
+  v32 = (char *)ExAllocatePoolWithTag(
+                  (POOL_TYPE)((a4 & 0x8000000) != 0 ? NonPagedPoolNx : PagedPool),
+                  2 * v30,
+                  0x53706341u);
+  v33 = v32;
+  if ( !v32 )
     return 3221225626LL;
-  RtlStringCchPrintfA(v30, v29, "%s", v27);
-  ACPIAnsiStringToWideHelper(v31, 2 * v29);
-  *a5 = v31;
+  memset(v32, 0, v31);
+  RtlStringCchPrintfA(v33, v30, "%s", v28);
+  ACPIAnsiStringToWideHelper(v33, v31);
+  *a5 = v33;
   if ( a6 )
-    *a6 = 2 * v29;
+    *a6 = 2 * v30;
   return 0LL;
 }

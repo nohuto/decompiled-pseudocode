@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddToResourceCount@@YAXAEAUProcessAttributionResourceCounters@@W4MIL_RESOURCE_TYPE@@H@Z @ 0x1800DEF34
+ * XREFs of ?AddToResourceCount@@YAXAEAUProcessAttributionResourceCounters@@W4MIL_RESOURCE_TYPE@@H@Z @ 0x1800C6E2C
  * Callers:
- *     ?DeleteHandle@CResourceTable@@QEAAJI@Z @ 0x180099CBC (-DeleteHandle@CResourceTable@@QEAAJI@Z.c)
- *     ?Channel_DeleteResource@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_DELETERESOURCE@@@Z @ 0x18009C3C8 (-Channel_DeleteResource@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCM.c)
- *     ?Channel_CreateResource@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_CREATERESOURCE@@@Z @ 0x18009C4EC (-Channel_CreateResource@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCM.c)
- *     ?CountResource@CResourceTable@@AEAAXW4MIL_RESOURCE_TYPE@@@Z @ 0x1800AAEB8 (-CountResource@CResourceTable@@AEAAXW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?CountResource@CResourceTable@@AEAAXW4MIL_RESOURCE_TYPE@@@Z @ 0x18005EC90 (-CountResource@CResourceTable@@AEAAXW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?DeleteHandle@CResourceTable@@QEAAJI@Z @ 0x18005EEFC (-DeleteHandle@CResourceTable@@QEAAJI@Z.c)
+ *     ?Channel_DeleteResource@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_DELETERESOURCE@@@Z @ 0x1800A2154 (-Channel_DeleteResource@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCM.c)
+ *     ?CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_CHANNEL_CREATERESOURCE@@PEAPEAVCResource@@@Z @ 0x1800A22C4 (-CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_C.c)
  * Callees:
  *     <none>
  */
@@ -22,9 +22,9 @@ void __fastcall AddToResourceCount(_DWORD *a1, unsigned int a2, int a3)
   unsigned int v11; // edx
   unsigned int v12; // edx
 
-  if ( a2 > 0x2E )
+  if ( a2 > 0x2C )
   {
-    v3 = a2 - 92;
+    v3 = a2 - 90;
     if ( !v3 )
     {
       a1[18] += a3;
@@ -37,13 +37,13 @@ LABEL_9:
       a1[17] += a3;
       return;
     }
-    v5 = v4 - 84;
+    v5 = v4 - 86;
     if ( v5 )
     {
       v6 = v5 - 1;
       if ( v6 )
       {
-        v7 = v6 - 18;
+        v7 = v6 - 17;
         if ( v7 )
         {
           if ( v7 != 8 )
@@ -52,15 +52,15 @@ LABEL_9:
       }
       goto LABEL_9;
     }
-    goto LABEL_19;
+    goto LABEL_20;
   }
-  if ( a2 == 46 )
+  if ( a2 == 44 )
   {
-LABEL_19:
+LABEL_20:
     a1[15] += a3;
     return;
   }
-  v8 = a2 - 32;
+  v8 = a2 - 30;
   if ( v8 && (v9 = v8 - 2) != 0 && (v10 = v9 - 2) != 0 && (v11 = v10 - 2) != 0 && (v12 = v11 - 3) != 0 )
   {
     if ( v12 != 1 )

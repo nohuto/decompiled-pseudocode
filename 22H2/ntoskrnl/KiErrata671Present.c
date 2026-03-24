@@ -1,7 +1,7 @@
 /*
- * XREFs of KiErrata671Present @ 0x140B145F0
+ * XREFs of KiErrata671Present @ 0x140A11180
  * Callers:
- *     sub_140B35784 @ 0x140B35784 (sub_140B35784.c)
+ *     sub_140A380D4 @ 0x140A380D4 (sub_140A380D4.c)
  * Callees:
  *     <none>
  */

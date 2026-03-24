@@ -1,18 +1,20 @@
 /*
- * XREFs of ?bIgnoreMirrorUpdate@@YAHPEAVSPRITE@@@Z @ 0x1C027D5B4
+ * XREFs of ?bIgnoreMirrorUpdate@@YAHPEAVSPRITE@@@Z @ 0x1C0164544
  * Callers:
- *     ?vSpRedrawSprite@@YAXPEAVSPRITE@@@Z @ 0x1C001EC30 (-vSpRedrawSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ?vSpRedrawSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00F0208 (-vSpRedrawSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ?vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0163E9C (-vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall bIgnoreMirrorUpdate(struct SPRITE *a1)
 {
-  __int64 v1; // rax
+  unsigned int v1; // r8d
+  __int64 v2; // rax
 
-  v1 = **((_QWORD **)a1 + 2);
-  if ( v1 && (*(_DWORD *)(v1 + 1792) & 0x8000000) != 0 && (*(_DWORD *)(v1 + 2096) & 0x800) != 0 )
-    return (*(_DWORD *)a1 >> 8) & 1;
-  else
-    return 0LL;
+  v1 = 0;
+  v2 = **((_QWORD **)a1 + 2);
+  if ( v2 && (*(_DWORD *)(v2 + 1824) & 0x8000000) != 0 && (*(_DWORD *)(v2 + 2128) & 0x800) != 0 )
+    return (*(_DWORD *)a1 & 0x100) != 0;
+  return v1;
 }

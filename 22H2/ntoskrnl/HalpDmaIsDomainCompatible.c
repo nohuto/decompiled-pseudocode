@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpDmaIsDomainCompatible @ 0x140512D9C
+ * XREFs of HalpDmaIsDomainCompatible @ 0x1404C4BDC
  * Callers:
- *     HalJoinDmaDomain @ 0x14038EA90 (HalJoinDmaDomain.c)
+ *     HalJoinDmaDomain @ 0x1403C6AE0 (HalJoinDmaDomain.c)
  * Callees:
  *     <none>
  */
@@ -13,11 +13,11 @@ bool __fastcall HalpDmaIsDomainCompatible(__int64 a1, __int64 a2)
   unsigned __int64 v4; // rcx
 
   v2 = 0;
-  v3 = (-(__int64)(*(_BYTE *)(a1 + 153) != 0) & 0xFFFF0000LL) + 0x10000;
-  if ( !*(_QWORD *)(a2 + 56)
-    && *(_BYTE *)(a2 + 32) == *(_BYTE *)(a1 + 445)
-    && *(_QWORD *)(a2 + 16) <= *(_QWORD *)(a1 + 144)
-    && *(_DWORD *)(a2 + 48) == *(_DWORD *)(a1 + 520) )
+  v3 = (-(__int64)(*(_BYTE *)(a1 + 145) != 0) & 0xFFFF0000LL) + 0x10000;
+  if ( !*(_QWORD *)(a2 + 72)
+    && *(_BYTE *)(a2 + 32) == *(_BYTE *)(a1 + 437)
+    && *(_QWORD *)(a2 + 16) <= *(_QWORD *)(a1 + 136)
+    && *(_DWORD *)(a2 + 64) == *(_DWORD *)(a1 + 512) )
   {
     v4 = *(_QWORD *)(a2 + 24);
     if ( v4 )

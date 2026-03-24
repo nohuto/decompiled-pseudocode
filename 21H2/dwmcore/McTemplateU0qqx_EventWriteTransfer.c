@@ -1,12 +1,12 @@
 /*
- * XREFs of McTemplateU0qqx_EventWriteTransfer @ 0x180193918
+ * XREFs of McTemplateU0qqx_EventWriteTransfer @ 0x180156308
  * Callers:
- *     ?ProcessRoundTripRequest@CComposition@@AEAA_NXZ @ 0x1800813E4 (-ProcessRoundTripRequest@CComposition@@AEAA_NXZ.c)
- *     ?Reset@CComposition@@UEAAXXZ @ 0x1800E7B10 (-Reset@CComposition@@UEAAXXZ.c)
- *     ?Channel_RoundTripRequest@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_ROUNDTRIPREQUEST@@@Z @ 0x1800F0AA4 (-Channel_RoundTripRequest@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMIL.c)
+ *     ?ProcessRoundTripRequest@CComposition@@AEAA_NXZ @ 0x180079FD0 (-ProcessRoundTripRequest@CComposition@@AEAA_NXZ.c)
+ *     ?Channel_RoundTripRequest@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_ROUNDTRIPREQUEST@@@Z @ 0x1800DBDF4 (-Channel_RoundTripRequest@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMIL.c)
+ *     ?Reset@CComposition@@UEAAXXZ @ 0x1800DEF50 (-Reset@CComposition@@UEAAXXZ.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateU0qqx_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)

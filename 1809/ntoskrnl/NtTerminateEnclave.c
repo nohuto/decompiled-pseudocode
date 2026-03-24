@@ -1,11 +1,11 @@
 /*
- * XREFs of NtTerminateEnclave @ 0x14085B620
+ * XREFs of NtTerminateEnclave @ 0x14085B600
  * Callers:
  *     <none>
  * Callees:
  *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
  *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiTerminateEnclave @ 0x14085A740 (MiTerminateEnclave.c)
+ *     MiTerminateEnclave @ 0x14085A720 (MiTerminateEnclave.c)
  */
 
 __int64 __fastcall NtTerminateEnclave(unsigned __int64 a1, unsigned int a2)

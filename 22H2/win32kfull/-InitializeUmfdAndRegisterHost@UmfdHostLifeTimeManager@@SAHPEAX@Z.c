@@ -1,64 +1,56 @@
 /*
- * XREFs of ?InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z @ 0x1C00A5810
+ * XREFs of ?InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z @ 0x1C00F40E4
  * Callers:
- *     UmfdDispatchWinLogonEscape @ 0x1C00A5088 (UmfdDispatchWinLogonEscape.c)
+ *     UmfdDispatchWinLogonEscape @ 0x1C00F3E5C (UmfdDispatchWinLogonEscape.c)
  * Callees:
- *     ??0AutoExclusiveUmfdLookupLock@@QEAA@XZ @ 0x1C007EE40 (--0AutoExclusiveUmfdLookupLock@@QEAA@XZ.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ??0UmfdHostExclusiveReadyLock@UmfdHostLifeTimeManager@@QEAA@XZ @ 0x1C00A5A38 (--0UmfdHostExclusiveReadyLock@UmfdHostLifeTimeManager@@QEAA@XZ.c)
- *     ?Create@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C00A5B34 (-Create@-$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@SAPEAV12@XZ.c)
- *     ?UnreferenceUmfdHostWithNoLock@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00A5CD0 (-UnreferenceUmfdHostWithNoLock@UmfdHostLifeTimeManager@@CAXXZ.c)
- *     ?ReleaseUmfdFileviewWithNoLock@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00A5D18 (-ReleaseUmfdFileviewWithNoLock@UmfdHostLifeTimeManager@@CAXXZ.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?Create@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C00F41E4 (-Create@-$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@SAPEAV12@XZ.c)
+ *     ?ReleaseUmfdFileviewWithNoLock@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00F4268 (-ReleaseUmfdFileviewWithNoLock@UmfdHostLifeTimeManager@@CAXXZ.c)
+ *     ?UnreferenceUmfdHostWithNoLock@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00F449C (-UnreferenceUmfdHostWithNoLock@UmfdHostLifeTimeManager@@CAXXZ.c)
  */
 
 __int64 __fastcall UmfdHostLifeTimeManager::InitializeUmfdAndRegisterHost(HANDLE Handle)
 {
-  unsigned int v2; // edi
-  __int64 v3; // rcx
-  __int64 v4; // rbx
-  __int64 v5; // rcx
-  __int64 v6; // rax
-  PVOID *v7; // rsi
-  NTSTATUS v8; // eax
-  PVOID Object; // [rsp+50h] [rbp+8h] BYREF
-  char v11; // [rsp+58h] [rbp+10h] BYREF
-  char v12; // [rsp+60h] [rbp+18h] BYREF
+  unsigned int v2; // ebx
+  NTSTATUS v3; // eax
+  PVOID Object; // [rsp+40h] [rbp+8h] BYREF
+  char v6; // [rsp+48h] [rbp+10h] BYREF
+  char v7; // [rsp+50h] [rbp+18h] BYREF
 
   v2 = 0;
-  AutoExclusiveUmfdLookupLock::AutoExclusiveUmfdLookupLock((AutoExclusiveUmfdLookupLock *)&v12);
-  v4 = *(_QWORD *)(SGDGetSessionState(v3) + 32);
-  UmfdHostLifeTimeManager::UmfdHostExclusiveReadyLock::UmfdHostExclusiveReadyLock((UmfdHostLifeTimeManager::UmfdHostExclusiveReadyLock *)&v11);
+  PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v7, (struct _EX_PUSH_LOCK *)&UmfdLookupPushLock);
+  PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v6, (struct _EX_PUSH_LOCK *)&UmfdHostLifeTimeManager::s_ReadyLock);
   UmfdHostLifeTimeManager::UnreferenceUmfdHostWithNoLock();
   UmfdHostLifeTimeManager::ReleaseUmfdFileviewWithNoLock();
   if ( Handle )
   {
-    v6 = NSInstrumentation::CSortedVector<unsigned int,_FONTFILEVIEW *>::Create();
-    *(_QWORD *)(v4 + 23472) = v6;
-    v7 = (PVOID *)(v4 + 23496);
-    if ( v6
+    UmfdFileviewLookup = (PVOID)NSInstrumentation::CSortedVector<unsigned int,_FONTFILEVIEW *>::Create();
+    if ( UmfdFileviewLookup
       && (Object = 0LL,
-          v8 = ObReferenceObjectByHandle(Handle, 0x1000u, (POBJECT_TYPE)PsProcessType, 0, &Object, 0LL),
-          *v7 = Object,
-          v8 >= 0) )
+          v3 = ObReferenceObjectByHandle(Handle, 0x1000u, (POBJECT_TYPE)PsProcessType, 0, &Object, 0LL),
+          UmfdHostLifeTimeManager::s_UmfdHostProcess = Object,
+          v3 >= 0) )
     {
-      ++*(_QWORD *)(v4 + 23488);
+      ++UmfdHostLifeTimeManager::s_UmfdHostGenerationId;
       v2 = 1;
-      *(_WORD *)(v4 + 23536) = 257;
+      UmfdHostLifeTimeManager::s_Launched = 1;
+      UmfdHostLifeTimeManager::s_Ready = 1;
     }
     else
     {
       UmfdHostLifeTimeManager::ReleaseUmfdFileviewWithNoLock();
-      *v7 = 0LL;
+      UmfdHostLifeTimeManager::s_UmfdHostProcess = 0LL;
     }
   }
-  else if ( !*(_BYTE *)(*(_QWORD *)(SGDGetSessionState(v5) + 32) + 23560LL) )
+  else if ( !UmfdHostLifeTimeManager::s_SessionRasterizerInitialized )
   {
-    KeSetEvent(*(PRKEVENT *)(v4 + 23552), 0, 0);
+    KeSetEvent(UmfdHostLifeTimeManager::s_SessionRasterizerInitializedEvent, 0, 0);
     if ( gpidLogon )
       PostWinlogonMessage(3LL, 4LL);
   }
-  KeSetEvent(*(PRKEVENT *)(v4 + 23528), 0, 0);
-  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v11);
-  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v12);
+  KeSetEvent(UmfdHostLifeTimeManager::s_WinlogonCallbackEvent, 0, 0);
+  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v6);
+  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v7);
   return v2;
 }

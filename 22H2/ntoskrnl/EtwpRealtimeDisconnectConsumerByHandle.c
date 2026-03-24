@@ -1,30 +1,30 @@
 /*
- * XREFs of EtwpRealtimeDisconnectConsumerByHandle @ 0x140682094
+ * XREFs of EtwpRealtimeDisconnectConsumerByHandle @ 0x14069B834
  * Callers:
- *     NtTraceControl @ 0x140725C40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     EtwpRealtimeDisconnectConsumer @ 0x140682118 (EtwpRealtimeDisconnectConsumer.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     EtwpRealtimeDisconnectConsumer @ 0x14069BCE8 (EtwpRealtimeDisconnectConsumer.c)
  */
 
 __int64 __fastcall EtwpRealtimeDisconnectConsumerByHandle(void *a1)
 {
   NTSTATUS v1; // ebx
-  PVOID Object; // [rsp+48h] [rbp+10h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp+10h] BYREF
 
-  Object = 0LL;
+  DmaAdapter = 0LL;
   v1 = ObReferenceObjectByHandle(
          a1,
          0x400u,
          EtwpRealTimeConnectionObjectType,
          KeGetCurrentThread()->PreviousMode,
-         &Object,
+         (PVOID *)&DmaAdapter,
          0LL);
   if ( v1 >= 0 )
   {
-    EtwpRealtimeDisconnectConsumer(Object);
-    ObfDereferenceObject(Object);
+    EtwpRealtimeDisconnectConsumer(DmaAdapter);
+    HalPutDmaAdapter(DmaAdapter);
   }
   return (unsigned int)v1;
 }

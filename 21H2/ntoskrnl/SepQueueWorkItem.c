@@ -1,18 +1,18 @@
 /*
- * XREFs of SepQueueWorkItem @ 0x140223644
+ * XREFs of SepQueueWorkItem @ 0x1402BDE30
  * Callers:
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
- *     SepInformLsaOfDeletedLogon @ 0x14069BFDC (SepInformLsaOfDeletedLogon.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
+ *     SepInformLsaOfDeletedLogon @ 0x1406A57FC (SepInformLsaOfDeletedLogon.c)
  * Callees:
- *     PsGetServerSiloState @ 0x1402237B8 (PsGetServerSiloState.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PsGetServerSiloState @ 0x1402BDFAC (PsGetServerSiloState.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall SepQueueWorkItem(__int64 a1, __int64 a2, _BYTE *a3)
@@ -62,52 +62,48 @@ char __fastcall SepQueueWorkItem(__int64 a1, __int64 a2, _BYTE *a3)
     }
     v12 = *(__int64 (__fastcall **)(__int64))(a1 + 208);
     if ( v12 )
-    {
       v6 = v12(a2);
-      if ( !v6 )
-      {
+    else
+      v6 = 1;
+    if ( !v6 )
+    {
 LABEL_15:
-        if ( CurrentIrql == 2 )
+      if ( CurrentIrql == 2 )
+      {
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+        OldIrql = LockHandle.OldIrql;
+        if ( KiIrqlFlags )
         {
-          KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-          OldIrql = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            if ( (KiIrqlFlags & 1) != 0 )
+            v17 = KeGetCurrentIrql();
+            if ( v17 <= 0xFu && LockHandle.OldIrql <= 0xFu && v17 >= 2u )
             {
-              v17 = KeGetCurrentIrql();
-              if ( v17 <= 0xFu && LockHandle.OldIrql <= 0xFu && v17 >= 2u )
-              {
-                CurrentPrcb = KeGetCurrentPrcb();
-                SchedulerAssist = CurrentPrcb->SchedulerAssist;
-                v20 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-                v21 = (v20 & SchedulerAssist[5]) == 0;
-                SchedulerAssist[5] &= v20;
-                if ( v21 )
-                  KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-              }
+              CurrentPrcb = KeGetCurrentPrcb();
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v20 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+              v21 = (v20 & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= v20;
+              if ( v21 )
+                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
-          __writecr8(OldIrql);
         }
-        else
-        {
-          ExReleaseResourceLite((PERESOURCE)(a1 + 32));
-          KeLeaveCriticalRegion();
-        }
-        if ( v7 )
-        {
-          *(_QWORD *)(a1 + 144) = 0LL;
-          *(_QWORD *)(a1 + 160) = SepRmCallLsa;
-          *(_QWORD *)(a1 + 168) = a1;
-          ExQueueWorkItem((PWORK_QUEUE_ITEM)(a1 + 144), DelayedWorkQueue);
-        }
-        return v6;
+        __writecr8(OldIrql);
       }
-    }
-    else
-    {
-      v6 = 1;
+      else
+      {
+        ExReleaseResourceLite((PERESOURCE)(a1 + 32));
+        KeLeaveCriticalRegion();
+      }
+      if ( v7 )
+      {
+        *(_QWORD *)(a1 + 144) = 0LL;
+        *(_QWORD *)(a1 + 160) = SepRmCallLsa;
+        *(_QWORD *)(a1 + 168) = a1;
+        ExQueueWorkItem((PWORK_QUEUE_ITEM)(a1 + 144), DelayedWorkQueue);
+      }
+      return v6;
     }
     *(_DWORD *)(a2 + 52) = _InterlockedIncrement((volatile signed __int32 *)(a1 + 180));
     if ( CurrentIrql == 2 )

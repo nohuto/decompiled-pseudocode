@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryInformationAtom @ 0x1406ADF70
+ * XREFs of NtQueryInformationAtom @ 0x1406ADF50
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  *     ExCallCallBack @ 0x1405F4BA4 (ExCallCallBack.c)
  *     RtlQueryAtomInAtomTable @ 0x1405F5840 (RtlQueryAtomInAtomTable.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     RtlQueryAtomsInAtomTable @ 0x140893748 (RtlQueryAtomsInAtomTable.c)
+ *     RtlQueryAtomsInAtomTable @ 0x140893728 (RtlQueryAtomsInAtomTable.c)
  */
 
 NTSTATUS __stdcall NtQueryInformationAtom(

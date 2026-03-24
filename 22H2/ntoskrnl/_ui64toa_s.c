@@ -1,9 +1,9 @@
 /*
- * XREFs of _ui64toa_s @ 0x1403DDE50
+ * XREFs of _ui64toa_s @ 0x1403D62E0
  * Callers:
  *     <none>
  * Callees:
- *     x64toa_s @ 0x1403DDE8C (x64toa_s.c)
+ *     x64toa_s @ 0x1403D631C (x64toa_s.c)
  */
 
 errno_t __cdecl ui64toa_s(unsigned __int64 Val, char *DstBuf, size_t Size, int Radix)

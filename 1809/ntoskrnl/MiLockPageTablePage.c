@@ -3,14 +3,14 @@
  * Callers:
  *     NtLockVirtualMemory @ 0x14001A570 (NtLockVirtualMemory.c)
  *     MiProbeLockFrame @ 0x140041950 (MiProbeLockFrame.c)
- *     MiLockPageTableRange @ 0x140155ECC (MiLockPageTableRange.c)
- *     MiBuildForkPte @ 0x1402C7AF0 (MiBuildForkPte.c)
+ *     MiLockPageTableRange @ 0x140155EEC (MiLockPageTableRange.c)
+ *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiChargePartitionResidentAvailable @ 0x140022F3C (MiChargePartitionResidentAvailable.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiCapturePageFileInfoInline @ 0x140119DB0 (MiCapturePageFileInfoInline.c)
+ *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
  */
 
 __int64 __fastcall MiLockPageTablePage(__int64 a1, int a2)

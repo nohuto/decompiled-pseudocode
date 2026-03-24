@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwFindSwDevice @ 0x1406ED36C
+ * XREFs of PiSwFindSwDevice @ 0x1406ED34C
  * Callers:
- *     PiSwIrpCleanup @ 0x1406D8A68 (PiSwIrpCleanup.c)
- *     PiSwProcessParentRemoveIrp @ 0x1406ED258 (PiSwProcessParentRemoveIrp.c)
+ *     PiSwIrpCleanup @ 0x1406D8A48 (PiSwIrpCleanup.c)
+ *     PiSwProcessParentRemoveIrp @ 0x1406ED238 (PiSwProcessParentRemoveIrp.c)
  * Callees:
  *     RtlLookupElementGenericTableAvl @ 0x140006BF0 (RtlLookupElementGenericTableAvl.c)
  *     RtlStringCbCopyW @ 0x1400073A0 (RtlStringCbCopyW.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
- *     wcschr @ 0x1401976B0 (wcschr.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
+ *     wcschr @ 0x1401976D0 (wcschr.c)
  */
 
 __int64 __fastcall PiSwFindSwDevice(NTSTRSAFE_PCWSTR pszSrc)

@@ -1,26 +1,26 @@
 /*
- * XREFs of VfAllocateAdapterChannel @ 0x140A84180
+ * XREFs of VfAllocateAdapterChannel @ 0x1409CA5C0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ExInterlockedInsertTailList @ 0x140223920 (ExInterlockedInsertTailList.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ViIsActiveChannelWcb @ 0x1405FE78C (ViIsActiveChannelWcb.c)
- *     ADD_MAP_REGISTERS @ 0x140A83778 (ADD_MAP_REGISTERS.c)
- *     DECREMENT_ADAPTER_CHANNELS @ 0x140A83888 (DECREMENT_ADAPTER_CHANNELS.c)
- *     INCREMENT_ADAPTER_CHANNELS @ 0x140A83AE4 (INCREMENT_ADAPTER_CHANNELS.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140A83B84 (SUBTRACT_MAP_REGISTERS.c)
- *     VF_ASSERT_IRQL @ 0x140A83CA4 (VF_ASSERT_IRQL.c)
- *     ViAllocateMapRegisterFile @ 0x140A872C8 (ViAllocateMapRegisterFile.c)
- *     ViFreeMapRegisterFile @ 0x140A880B0 (ViFreeMapRegisterFile.c)
- *     ViGetAdapterInformationInternal @ 0x140A88430 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaOperation @ 0x140A88738 (ViGetRealDmaOperation.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     ExInterlockedInsertTailList @ 0x1402A0380 (ExInterlockedInsertTailList.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ViIsActiveChannelWcb @ 0x1405A11DC (ViIsActiveChannelWcb.c)
+ *     ADD_MAP_REGISTERS @ 0x1409C9BC0 (ADD_MAP_REGISTERS.c)
+ *     DECREMENT_ADAPTER_CHANNELS @ 0x1409C9CD0 (DECREMENT_ADAPTER_CHANNELS.c)
+ *     INCREMENT_ADAPTER_CHANNELS @ 0x1409C9F2C (INCREMENT_ADAPTER_CHANNELS.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x1409C9FCC (SUBTRACT_MAP_REGISTERS.c)
+ *     VF_ASSERT_IRQL @ 0x1409CA0EC (VF_ASSERT_IRQL.c)
+ *     ViAllocateMapRegisterFile @ 0x1409CD5C4 (ViAllocateMapRegisterFile.c)
+ *     ViFreeMapRegisterFile @ 0x1409CE3C4 (ViFreeMapRegisterFile.c)
+ *     ViGetAdapterInformationInternal @ 0x1409CE748 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x1409CEA50 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfAllocateAdapterChannel(__int64 a1, __int64 a2, unsigned int a3, void *a4, __int64 a5)

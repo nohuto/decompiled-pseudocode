@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpAddProcessorConfigurationEntry @ 0x140731E00
+ * XREFs of CmpAddProcessorConfigurationEntry @ 0x140731DE0
  * Callers:
- *     CmInitializeProcessor @ 0x1407F6D00 (CmInitializeProcessor.c)
+ *     CmInitializeProcessor @ 0x1407F6CE0 (CmInitializeProcessor.c)
  *     CmpInitializeMachineDependentConfiguration @ 0x1409C1D98 (CmpInitializeMachineDependentConfiguration.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     sprintf_s @ 0x14019B620 (sprintf_s.c)
- *     strcpy_s @ 0x14019B7A0 (strcpy_s.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     KeBugCheck @ 0x1401BBB80 (KeBugCheck.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     sprintf_s @ 0x14019B640 (sprintf_s.c)
+ *     strcpy_s @ 0x14019B7C0 (strcpy_s.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     KeBugCheck @ 0x1401BBBA0 (KeBugCheck.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     CmpInitializeRegistryNode @ 0x140732218 (CmpInitializeRegistryNode.c)
+ *     CmpInitializeRegistryNode @ 0x1407321F8 (CmpInitializeRegistryNode.c)
  */
 
 __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)

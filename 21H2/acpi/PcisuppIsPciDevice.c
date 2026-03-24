@@ -1,16 +1,16 @@
 /*
- * XREFs of PcisuppIsPciDevice @ 0x1C009A5B0
+ * XREFs of PcisuppIsPciDevice @ 0x1C0093BD0
  * Callers:
- *     IrqArbAddAllocation @ 0x1C0099940 (IrqArbAddAllocation.c)
- *     IrqArbCommitAllocation @ 0x1C009A2E0 (IrqArbCommitAllocation.c)
- *     IrqArbGetNextAllocationRange @ 0x1C009A780 (IrqArbGetNextAllocationRange.c)
- *     IrqArbFindSuitableRange @ 0x1C009D510 (IrqArbFindSuitableRange.c)
- *     IrqArbQueryConflict @ 0x1C00B6940 (IrqArbQueryConflict.c)
+ *     IrqArbFindSuitableRange @ 0x1C00918B0 (IrqArbFindSuitableRange.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     IrqArbCommitAllocation @ 0x1C0093900 (IrqArbCommitAllocation.c)
+ *     IrqArbGetNextAllocationRange @ 0x1C0093DA0 (IrqArbGetNextAllocationRange.c)
+ *     IrqArbQueryConflict @ 0x1C00B70E0 (IrqArbQueryConflict.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     PcisuppGetProgConfigHeader @ 0x1C00A0B70 (PcisuppGetProgConfigHeader.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     PcisuppGetProgConfigHeader @ 0x1C0091F04 (PcisuppGetProgConfigHeader.c)
  */
 
 __int64 __fastcall PcisuppIsPciDevice(__int64 a1, bool *a2)
@@ -55,8 +55,8 @@ __int64 __fastcall PcisuppIsPciDevice(__int64 a1, bool *a2)
   ExReleaseResourceLite(&PciRouteInterfaceLock);
   KeLeaveCriticalRegion();
   *a2 = v4 >= 0
-     && (v8[0] != 1
-      || v7 != 1
-      || (ProgConfigHeader = PcisuppGetProgConfigHeader(a1, v11), ProgConfigHeader < 0 || (v11[9] & 5) != 0));
+     && (v7 != 1
+      || v8[0] != 1
+      || (ProgConfigHeader = PcisuppGetProgConfigHeader(a1, (__int64)v11), ProgConfigHeader < 0 || (v11[9] & 5) != 0));
   return 0LL;
 }

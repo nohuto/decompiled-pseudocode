@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCloneCaptureVadCommit @ 0x1405A42BC
+ * XREFs of MiCloneCaptureVadCommit @ 0x14054504C
  * Callers:
- *     MiAllocateChildVads @ 0x1409800F4 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x1408D8A90 (MiAllocateChildVads.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     MiGetSharedVm @ 0x140282AD0 (MiGetSharedVm.c)
- *     MiGetNextPageTable @ 0x14028F080 (MiGetNextPageTable.c)
- *     MiUnlockWorkingSetExclusive @ 0x14030FA80 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     MiCloneDiscardVadCommit @ 0x140977E30 (MiCloneDiscardVadCommit.c)
+ *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiGetNextPageTable @ 0x14030D820 (MiGetNextPageTable.c)
+ *     MiCloneDiscardVadCommit @ 0x1408D0DE4 (MiCloneDiscardVadCommit.c)
  */
 
 __int64 __fastcall MiCloneCaptureVadCommit(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall MiCloneCaptureVadCommit(__int64 a1)
   int v6; // ebp
   unsigned __int64 *v7; // r12
   unsigned __int64 v8; // rsi
-  volatile LONG *SharedVm; // rbx
+  LONG *SharedVm; // rbx
   KIRQL v10; // al
   KIRQL v11; // r14
   unsigned __int64 v12; // rbx
@@ -30,7 +30,7 @@ __int64 __fastcall MiCloneCaptureVadCommit(__int64 a1)
   __int64 v17; // r9
   unsigned __int64 v18; // rdx
   _QWORD *v19; // rax
-  volatile LONG *v20; // rbx
+  LONG *v20; // rbx
   unsigned __int8 v21; // [rsp+78h] [rbp+10h]
   int v22; // [rsp+80h] [rbp+18h] BYREF
   unsigned __int64 v23; // [rsp+88h] [rbp+20h]
@@ -44,20 +44,20 @@ __int64 __fastcall MiCloneCaptureVadCommit(__int64 a1)
   v5 = Pool + 1;
   Pool[1] = 0LL;
   v6 = 0;
-  v7 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[26];
+  v7 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[6];
   v8 = 8 * ((*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) & 0xFFFFFFFFFLL)
      - 0x98000000000LL;
   v23 = 8 * ((*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32)) & 0xFFFFFFFFFLL)
       - 0x98000000000LL;
-  SharedVm = (volatile LONG *)MiGetSharedVm((__int64)v7);
+  SharedVm = MiGetSharedVm((__int64)v7);
   v10 = ExAcquireSpinLockExclusive(SharedVm);
-  *((_DWORD *)SharedVm + 1) = 0;
+  SharedVm[1] = 0;
   v11 = v10;
   v12 = v23;
   v21 = v10;
   while ( v8 <= v12 )
   {
-    NextPageTable = MiGetNextPageTable(v8, v12, 0LL, v11, 4, &v22);
+    NextPageTable = MiGetNextPageTable(v8, v12, 0LL, v11, 4u, &v22);
     if ( !NextPageTable )
       break;
     v14 = NextPageTable & 0xFFFFFFFFFFFFF000uLL;
@@ -85,9 +85,9 @@ __int64 __fastcall MiCloneCaptureVadCommit(__int64 a1)
         *v19 = v3;
         v19[1] = 0LL;
         v3 = v19;
-        v20 = (volatile LONG *)MiGetSharedVm((__int64)v7);
+        v20 = MiGetSharedVm((__int64)v7);
         ExAcquireSpinLockExclusive(v20);
-        *((_DWORD *)v20 + 1) = 0;
+        v20[1] = 0;
         v15 = *v5;
         v12 = v23;
       }

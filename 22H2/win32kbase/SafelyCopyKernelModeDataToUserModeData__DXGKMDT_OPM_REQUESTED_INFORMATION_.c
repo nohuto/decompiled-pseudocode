@@ -1,10 +1,10 @@
 /*
- * XREFs of SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_REQUESTED_INFORMATION_ @ 0x1C015AEB4
+ * XREFs of SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_REQUESTED_INFORMATION_ @ 0x1C00BF85C
  * Callers:
- *     NtGdiGetCOPPCompatibleOPMInformation @ 0x1C015C610 (NtGdiGetCOPPCompatibleOPMInformation.c)
- *     NtGdiGetOPMInformation @ 0x1C015CAD0 (NtGdiGetOPMInformation.c)
+ *     NtGdiGetOPMInformation @ 0x1C00BF700 (NtGdiGetOPMInformation.c)
+ *     NtGdiGetCOPPCompatibleOPMInformation @ 0x1C0140600 (NtGdiGetCOPPCompatibleOPMInformation.c)
  * Callees:
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_REQUESTED_INFORMATION_(void *a1, void *Src)

@@ -1,12 +1,12 @@
 /*
- * XREFs of WdmlibIoCreateDeviceSecure @ 0x1C0211CD4
+ * XREFs of WdmlibIoCreateDeviceSecure @ 0x1C0187B4C
  * Callers:
- *     DpiPdoAddPdo @ 0x1C0210B20 (DpiPdoAddPdo.c)
- *     DpiGdoCreateGdiObjects @ 0x1C02118A0 (DpiGdoCreateGdiObjects.c)
- *     DriverEntry @ 0x1C03DEE7C (DriverEntry.c)
+ *     DpiPdoAddPdo @ 0x1C0178A0C (DpiPdoAddPdo.c)
+ *     DpiGdoCreateGdiObjects @ 0x1C0186564 (DpiGdoCreateGdiObjects.c)
+ *     DriverEntry @ 0x1C03072C8 (DriverEntry.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     WdmlibInit @ 0x1C020F4D8 (WdmlibInit.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     WdmlibInit @ 0x1C0185B08 (WdmlibInit.c)
  */
 
 NTSTATUS __stdcall WdmlibIoCreateDeviceSecure(

@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwAlpcDisconnectPort @ 0x14041B720
+ * XREFs of ZwAlpcDisconnectPort @ 0x1403FAAA0
  * Callers:
- *     CmFcpManagerPublishFeatureUsageDataBuffers @ 0x1406800EC (CmFcpManagerPublishFeatureUsageDataBuffers.c)
- *     DbgkRegisterErrorPort @ 0x1409399C4 (DbgkRegisterErrorPort.c)
+ *     DbgkRegisterErrorPort @ 0x140886A94 (DbgkRegisterErrorPort.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlIsGenericTableEmpty @ 0x1403C6580
+ * XREFs of RtlIsGenericTableEmpty @ 0x1403947C0
  * Callers:
  *     <none>
  * Callees:

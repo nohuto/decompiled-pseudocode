@@ -1,23 +1,23 @@
 /*
- * XREFs of PopIgnoreBatteryStatusChange @ 0x140598D3C
+ * XREFs of PopIgnoreBatteryStatusChange @ 0x14038D670
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeCancelTimer @ 0x140252980 (KeCancelTimer.c)
+ *     KeCancelTimer @ 0x14025FAA0 (KeCancelTimer.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
  */
 
 char PopIgnoreBatteryStatusChange()
 {
   __int32 v0; // eax
 
-  v0 = _InterlockedExchange(&dword_140C3D160, 0);
+  v0 = _InterlockedExchange(&dword_140C23CA0, 0);
   if ( v0 )
   {
-    LOBYTE(v0) = KeCancelTimer(&stru_140C3D168);
+    LOBYTE(v0) = KeCancelTimer(&stru_140C23CA8);
     if ( !(_BYTE)v0 )
-      LOBYTE(v0) = KeWaitForSingleObject(&stru_140C3D1E8, Executive, 0, 0, 0LL);
+      LOBYTE(v0) = KeWaitForSingleObject(&stru_140C23D28, Executive, 0, 0, 0LL);
   }
-  byte_140C3D220 = 1;
+  byte_140C23D40 = 1;
   return v0;
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of PiCMGenerateDeviceInstance @ 0x140837E24
+ * XREFs of PiCMGenerateDeviceInstance @ 0x140837E04
  * Callers:
- *     PiCMCreateDevice @ 0x1408367D4 (PiCMCreateDevice.c)
+ *     PiCMCreateDevice @ 0x1408367B4 (PiCMCreateDevice.c)
  * Callees:
  *     RtlStringCchLengthW @ 0x14000733C (RtlStringCchLengthW.c)
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     RtlStringCchPrintfExW @ 0x140015EF4 (RtlStringCchPrintfExW.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlStringCchCopyExW @ 0x14013DD30 (RtlStringCchCopyExW.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     RtlStringCchCatExW @ 0x14028AE30 (RtlStringCchCatExW.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     RtlStringCchCatExW @ 0x14028AF30 (RtlStringCchCatExW.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _CmGetDeviceStatus @ 0x14059E508 (_CmGetDeviceStatus.c)
  *     _CmValidateDeviceName @ 0x1405C76D0 (_CmValidateDeviceName.c)
- *     RtlUpcaseUnicodeString @ 0x14064B0C0 (RtlUpcaseUnicodeString.c)
- *     _RegRtlSetValue @ 0x1406FCBC8 (_RegRtlSetValue.c)
- *     _CmCreateDevice @ 0x1406FD3AC (_CmCreateDevice.c)
- *     _CmDeleteDevice @ 0x1408F66C8 (_CmDeleteDevice.c)
+ *     RtlUpcaseUnicodeString @ 0x14064B0A0 (RtlUpcaseUnicodeString.c)
+ *     _RegRtlSetValue @ 0x1406FCBA8 (_RegRtlSetValue.c)
+ *     _CmCreateDevice @ 0x1406FD38C (_CmCreateDevice.c)
+ *     _CmDeleteDevice @ 0x1408F66A8 (_CmDeleteDevice.c)
  */
 
 __int64 __fastcall PiCMGenerateDeviceInstance(NTSTRSAFE_PCWSTR pszSrc, char a2, wchar_t *a3, int a4)

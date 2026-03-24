@@ -1,50 +1,47 @@
 /*
- * XREFs of ?DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x180193A64
+ * XREFs of ?DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x18014F08C
  * Callers:
- *     ?Destroy@CChannel@@UEAAJXZ @ 0x1801AA740 (-Destroy@CChannel@@UEAAJXZ.c)
+ *     ?Destroy@CChannel@@UEAAJXZ @ 0x18014FD60 (-Destroy@CChannel@@UEAAJXZ.c)
  * Callees:
- *     ??$ReleaseInterface@VCChannel@@@@YAXAEAPEAVCChannel@@@Z @ 0x18002CEEC (--$ReleaseInterface@VCChannel@@@@YAXAEAPEAVCChannel@@@Z.c)
- *     ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x18002D830 (-GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?DestroyHandle@CChannelTable@@QEAAXI@Z @ 0x1801A9A4C (-DestroyHandle@CChannelTable@@QEAAXI@Z.c)
+ *     ??$ReleaseInterface@VCChannel@@@@YAXAEAPEAVCChannel@@@Z @ 0x180027930 (--$ReleaseInterface@VCChannel@@@@YAXAEAPEAVCChannel@@@Z.c)
+ *     ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x180028320 (-GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?DestroyKernelChannel@CInternalMilCmdConnection@@AEAAJI@Z @ 0x18014F170 (-DestroyKernelChannel@CInternalMilCmdConnection@@AEAAJI@Z.c)
+ *     ?DestroyHandle@CChannelTable@@QEAAXI@Z @ 0x18014F41C (-DestroyHandle@CChannelTable@@QEAAXI@Z.c)
  */
 
-__int64 __fastcall CInternalMilCmdConnection::DestroyChannel(RTL_SRWLOCK *this, unsigned int a2)
+__int64 __fastcall CInternalMilCmdConnection::DestroyChannel(CInternalMilCmdConnection *this, unsigned int a2)
 {
-  RTL_SRWLOCK *v2; // rdi
+  struct _RTL_CRITICAL_SECTION *v2; // rdi
   CChannelTable *v3; // rbp
   int MasterTableEntry; // eax
   __int64 v6; // rcx
   unsigned int v7; // ebx
-  int v8; // eax
-  __int64 v9; // rcx
-  struct CLIENT_CHANNEL_HANDLE_ENTRY *v11; // [rsp+40h] [rbp+8h] BYREF
+  CInternalMilCmdConnection *v8; // rcx
+  int v9; // eax
+  __int64 v10; // rcx
+  struct CLIENT_CHANNEL_HANDLE_ENTRY *v12; // [rsp+40h] [rbp+8h] BYREF
 
-  v11 = 0LL;
-  v2 = this + 17;
-  v3 = (CChannelTable *)&this[7];
-  AcquireSRWLockExclusive(this + 17);
-  LODWORD(v2[1].Ptr) = GetCurrentThreadId();
-  MasterTableEntry = CChannelTable::GetMasterTableEntry(v3, a2, &v11);
+  v12 = 0LL;
+  v2 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 144);
+  v3 = (CInternalMilCmdConnection *)((char *)this + 64);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 144));
+  MasterTableEntry = CChannelTable::GetMasterTableEntry(v3, a2, &v12);
   v7 = MasterTableEntry;
   if ( MasterTableEntry < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, MasterTableEntry, 0x6Eu);
-    LODWORD(v2[1].Ptr) = 0;
-    ReleaseSRWLockExclusive(v2);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, MasterTableEntry, 0x95u, 0LL);
+    LeaveCriticalSection(v2);
   }
   else
   {
-    ReleaseInterface<CChannel>((CChannel **)v11 + 1);
+    ReleaseInterface<CChannel>((CChannel **)v12 + 1);
     CChannelTable::DestroyHandle(v3, a2);
-    LODWORD(v2[1].Ptr) = 0;
-    ReleaseSRWLockExclusive(v2);
-    v8 = NtDCompositionDestroyChannel(a2);
-    if ( v8 < 0 )
-    {
-      v7 = v8 | 0x10000000;
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8 | 0x10000000, 0x7Cu);
-    }
+    LeaveCriticalSection(v2);
+    v9 = CInternalMilCmdConnection::DestroyKernelChannel(v8, a2);
+    v7 = v9;
+    if ( v9 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xA7u, 0LL);
   }
   return v7;
 }

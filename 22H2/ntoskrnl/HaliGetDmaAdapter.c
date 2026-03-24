@@ -1,16 +1,16 @@
 /*
- * XREFs of HaliGetDmaAdapter @ 0x1405050D0
+ * XREFs of HaliGetDmaAdapter @ 0x1403790A0
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaFindDeviceObjectByToken @ 0x14038ED84 (HalpDmaFindDeviceObjectByToken.c)
- *     HalpGetAdapter @ 0x140829354 (HalpGetAdapter.c)
+ *     HalpDmaFindDeviceObjectByToken @ 0x140379240 (HalpDmaFindDeviceObjectByToken.c)
+ *     HalpGetAdapter @ 0x140763D6C (HalpGetAdapter.c)
  */
 
 __int64 __fastcall HaliGetDmaAdapter(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 DeviceObjectByToken; // rax
 
-  DeviceObjectByToken = HalpDmaFindDeviceObjectByToken((__int64)KeGetCurrentThread(), 0, 0);
+  DeviceObjectByToken = HalpDmaFindDeviceObjectByToken(KeGetCurrentThread(), 0LL, 0LL);
   return HalpGetAdapter(a2, DeviceObjectByToken, a3);
 }

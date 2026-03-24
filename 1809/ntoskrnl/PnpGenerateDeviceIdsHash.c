@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpGenerateDeviceIdsHash @ 0x1406FDBC8
+ * XREFs of PnpGenerateDeviceIdsHash @ 0x1406FDBA8
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F34 (PiProcessNewDeviceNode.c)
- *     PipProcessStartPhase3 @ 0x1406EAB38 (PipProcessStartPhase3.c)
- *     PiCreateDriverSwDeviceCallback @ 0x140840BC0 (PiCreateDriverSwDeviceCallback.c)
+ *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x1406EAB18 (PipProcessStartPhase3.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140840BA0 (PiCreateDriverSwDeviceCallback.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     RtlHashUnicodeString @ 0x140598BE0 (RtlHashUnicodeString.c)

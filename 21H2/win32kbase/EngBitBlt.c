@@ -1,9 +1,9 @@
 /*
- * XREFs of EngBitBlt @ 0x1C023D940
+ * XREFs of EngBitBlt @ 0x1C01FBBB0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 BOOL __stdcall EngBitBlt(
@@ -19,8 +19,8 @@ BOOL __stdcall EngBitBlt(
         POINTL *pptlBrush,
         ROP4 rop4)
 {
-  if ( qword_1C029B118 )
-    return ((__int64 (__fastcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))qword_1C029B118)(
+  if ( qword_1C0256398 )
+    return ((__int64 (__fastcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))qword_1C0256398)(
              psoTrg,
              psoSrc,
              psoMask,

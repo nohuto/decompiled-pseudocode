@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnPowerBoostWorker @ 0x140886500
+ * XREFs of PfSnPowerBoostWorker @ 0x14078EBA0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     PfSnPowerBoostUpdate @ 0x1407E7358 (PfSnPowerBoostUpdate.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     PfSnPowerBoostUpdate @ 0x1406A1FC4 (PfSnPowerBoostUpdate.c)
  */
 
 void __fastcall PfSnPowerBoostWorker(PEX_RUNDOWN_REF RunRef)
 {
   PfSnPowerBoostUpdate(0);
-  ExReleaseRundownProtection_0(RunRef);
+  ExReleaseRundownProtection(RunRef);
 }

@@ -1,64 +1,39 @@
 /*
- * XREFs of ExConvertExclusiveToSharedLite @ 0x1403471D0
+ * XREFs of ExConvertExclusiveToSharedLite @ 0x140309910
  * Callers:
- *     FsRtlAcquireFileForModWriteEx @ 0x140349A9C (FsRtlAcquireFileForModWriteEx.c)
- *     DifExConvertExclusiveToSharedLiteWrapper @ 0x1405D80B0 (DifExConvertExclusiveToSharedLiteWrapper.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14069F068 (PspAllocateAndQueryNotificationChannel.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     NtMapCMFModule @ 0x140A032C0 (NtMapCMFModule.c)
- *     CmpReplicateKeyToVirtual @ 0x140A1A058 (CmpReplicateKeyToVirtual.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x14025522C (FsRtlAcquireFileForModWriteEx.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x14065CC90 (PspAllocateAndQueryNotificationChannel.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     CmpConvertRegistryShared @ 0x14086EAF8 (CmpConvertRegistryShared.c)
+ *     NtMapCMFModule @ 0x140959B70 (NtMapCMFModule.c)
  * Callees:
- *     ExpConvertExclusiveToSharedLite @ 0x1403472EC (ExpConvertExclusiveToSharedLite.c)
- *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x1403C9FA0 (ExpFastResourceLegacyConvertExclusiveToShared.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     ExpConvertExclusiveToSharedLite @ 0x14030999C (ExpConvertExclusiveToSharedLite.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x14038DBD8 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 void __stdcall ExConvertExclusiveToSharedLite(PERESOURCE Resource)
 {
   USHORT Flag; // r8
-  unsigned __int8 v2; // al
-  struct _KTHREAD *v3; // r9
+  __int16 v2; // r8
   unsigned __int8 CurrentIrql; // al
-  struct _KTHREAD *CurrentThread; // r8
+  struct _KTHREAD *CurrentThread; // r10
 
   Flag = Resource->Flag;
-  if ( !FeatureFastResource2 )
-  {
-    if ( (Flag & 0x41) != 1 )
-    {
-      if ( (Flag & 1) == 0 )
-        goto LABEL_16;
-      CurrentIrql = KeGetCurrentIrql();
-      CurrentThread = KeGetCurrentThread();
-      if ( CurrentIrql > 1u )
-        KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 1uLL, 0LL);
-      if ( CurrentIrql || (CurrentThread->MiscFlags & 0x400) != 0 || CurrentThread->WaitBlock[3].SpareLong )
-      {
-        LOBYTE(Flag) = Resource->Flag;
-        goto LABEL_16;
-      }
-LABEL_22:
-      KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
-    }
-LABEL_20:
-    KeBugCheckEx(0x1C6u, 0xFuLL, (ULONG_PTR)Resource, 0LL, 0LL);
-  }
   if ( (Flag & 0x41) == 1 )
-    goto LABEL_20;
-  if ( (Flag & 1) == 0 )
-    goto LABEL_18;
-  v2 = KeGetCurrentIrql();
-  v3 = KeGetCurrentThread();
-  if ( v2 > 1u )
-    KeBugCheckEx(0x1C6u, 0LL, v2, 1uLL, 0LL);
-  if ( !v2 && (v3->MiscFlags & 0x400) == 0 && !v3->WaitBlock[3].SpareLong )
-    goto LABEL_22;
-LABEL_16:
-  if ( (Flag & 1) != 0 )
+    KeBugCheckEx(0x1C6u, 0xFuLL, (ULONG_PTR)Resource, 0LL, 0LL);
+  v2 = Flag & 1;
+  if ( v2 )
   {
-    ExpFastResourceLegacyConvertExclusiveToShared((ULONG_PTR)Resource);
-    return;
+    CurrentIrql = KeGetCurrentIrql();
+    CurrentThread = KeGetCurrentThread();
+    if ( CurrentIrql > 1u )
+      KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 1uLL, 0LL);
+    if ( !CurrentIrql && (CurrentThread->MiscFlags & 0x400) == 0 && !CurrentThread->WaitBlock[3].SpareLong )
+      KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
   }
-LABEL_18:
-  ExpConvertExclusiveToSharedLite(Resource, 1LL);
+  if ( v2 )
+    ExpFastResourceLegacyConvertExclusiveToShared((ULONG_PTR)Resource);
+  else
+    ExpConvertExclusiveToSharedLite(Resource, 0LL);
 }

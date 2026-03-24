@@ -1,14 +1,14 @@
 /*
- * XREFs of ?Start@FxUsbDevice@@MEAAJXZ @ 0x1C007DEA0
+ * XREFs of ?Start@FxUsbDevice@@MEAAJXZ @ 0x1C0071760
  * Callers:
  *     <none>
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?Start@FxIoTarget@@UEAAJXZ @ 0x1C00744C0 (-Start@FxIoTarget@@UEAAJXZ.c)
- *     ?SubmitPendedRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C0074698 (-SubmitPendedRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?Start@FxIoTarget@@UEAAJXZ @ 0x1C0065BC0 (-Start@FxIoTarget@@UEAAJXZ.c)
+ *     ?SubmitPendedRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C0065D98 (-SubmitPendedRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
  */
 
 __int64 __fastcall FxUsbDevice::Start(FxUsbDevice *this, __int64 a2, __int64 a3)
@@ -59,7 +59,7 @@ __int64 __fastcall FxUsbDevice::Start(FxUsbDevice *this, __int64 a2, __int64 a3)
       FxObject::AddRef(
         (FxObject *)Flink[2].Blink,
         this,
-        575,
+        576,
         "minkernel\\wdf\\framework\\shared\\targets\\usb\\fxusbdevice.cpp");
       Flink = Flink->Flink;
     }
@@ -77,7 +77,7 @@ LABEL_9:
       p_Blink = (FxRequestBase *)&Flink[-8].Blink;
       Blink = (FxIoTarget *)Flink[2].Blink;
       FxIoTarget::SubmitPendedRequest(Blink, p_Blink);
-      Blink->Release(Blink, this, 595, "minkernel\\wdf\\framework\\shared\\targets\\usb\\fxusbdevice.cpp");
+      Blink->Release(Blink, this, 596, "minkernel\\wdf\\framework\\shared\\targets\\usb\\fxusbdevice.cpp");
     }
   }
   return (unsigned int)v4;

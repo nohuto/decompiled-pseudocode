@@ -1,64 +1,64 @@
 /*
- * XREFs of ACPIBuildMissingChildren @ 0x1C000D8BC
+ * XREFs of ACPIBuildMissingChildren @ 0x1C00174CC
  * Callers:
- *     ACPIDetectFilterDevices @ 0x1C001AA30 (ACPIDetectFilterDevices.c)
- *     ACPIDetectPdoDevices @ 0x1C001AE54 (ACPIDetectPdoDevices.c)
+ *     ACPIDetectFilterDevices @ 0x1C0019004 (ACPIDetectFilterDevices.c)
+ *     ACPIDetectPdoDevices @ 0x1C0019338 (ACPIDetectPdoDevices.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00149A0 (WPP_RECORDER_SF_DD.c)
- *     OSNotifyCreateDevice @ 0x1C0032758 (OSNotifyCreateDevice.c)
- *     OSNotifyCreateOperationRegion @ 0x1C003287C (OSNotifyCreateOperationRegion.c)
- *     OSNotifyCreateProcessor @ 0x1C0032ADC (OSNotifyCreateProcessor.c)
- *     OSNotifyCreateThermalZone @ 0x1C0032BE0 (OSNotifyCreateThermalZone.c)
- *     AMLIGetFirstChild @ 0x1C004830C (AMLIGetFirstChild.c)
- *     AMLIIterateSiblingsNext @ 0x1C00488F8 (AMLIIterateSiblingsNext.c)
+ *     OSNotifyCreateProcessor @ 0x1C001622C (OSNotifyCreateProcessor.c)
+ *     AMLIGetFirstChild @ 0x1C001665C (AMLIGetFirstChild.c)
+ *     AMLIIterateSiblingsNext @ 0x1C0017560 (AMLIIterateSiblingsNext.c)
+ *     OSNotifyCreateOperationRegion @ 0x1C00182E8 (OSNotifyCreateOperationRegion.c)
+ *     OSNotifyCreateDevice @ 0x1C001B3BC (OSNotifyCreateDevice.c)
+ *     OSNotifyCreateThermalZone @ 0x1C002F970 (OSNotifyCreateThermalZone.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C004CA24 (WPP_RECORDER_SF_DD.c)
  */
 
 __int64 __fastcall ACPIBuildMissingChildren(__int64 a1)
 {
-  __int64 *i; // rax
-  __int64 v2; // rax
+  volatile signed __int32 *i; // rax
+  ULONG_PTR v2; // rbx
+  __int64 v3; // rax
   int Device; // eax
-  int v4; // edx
-  ULONG_PTR v5; // rbx
+  int v5; // edx
 
-  if ( !_bittest64((const signed __int64 *)(a1 + 8), 0x33u) )
+  if ( (*(_QWORD *)(a1 + 8) & 0x8000000000000LL) == 0 )
   {
-    for ( i = (__int64 *)AMLIGetFirstChild(*(_QWORD *)(a1 + 760)); ; i = (__int64 *)AMLIIterateSiblingsNext(v5) )
+    for ( i = AMLIGetFirstChild(*(_QWORD **)(a1 + 720)); ; i = (volatile signed __int32 *)AMLIIterateSiblingsNext(v2) )
     {
-      v5 = (ULONG_PTR)i;
+      v2 = (ULONG_PTR)i;
       if ( !i )
         return 0LL;
-      v2 = *i;
-      if ( !*(_QWORD *)(*(_QWORD *)v5 + 104LL) )
+      v3 = *(_QWORD *)i;
+      if ( !*(_QWORD *)(v3 + 104) )
       {
-        switch ( *(_WORD *)(v2 + 66) )
+        switch ( *(_WORD *)(v3 + 66) )
         {
           case 6:
-            Device = OSNotifyCreateDevice(v5);
+            Device = OSNotifyCreateDevice(v2);
             break;
           case 0xA:
-            Device = OSNotifyCreateOperationRegion(v5);
+            Device = OSNotifyCreateOperationRegion(v2);
             break;
           case 0xC:
-            Device = OSNotifyCreateProcessor(v5, 0x20000000000LL);
+            Device = OSNotifyCreateProcessor(v2, 0x20000000000uLL);
             break;
           case 0xD:
-            Device = OSNotifyCreateThermalZone(v5, 0x20000000000LL);
+            Device = OSNotifyCreateThermalZone(v2, 0x20000000000LL);
             break;
           default:
             continue;
         }
         if ( Device < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          LOBYTE(v4) = 2;
+          LOBYTE(v5) = 2;
           WPP_RECORDER_SF_DD(
             WPP_GLOBAL_Control->DeviceExtension,
-            v4,
+            v5,
             22,
             24,
-            (__int64)&WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
+            (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
             Device,
-            v5);
+            v2);
         }
       }
     }

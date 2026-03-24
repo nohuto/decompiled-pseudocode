@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIRegisterForDeviceNotifications2 @ 0x1C005D6D0
+ * XREFs of ACPIRegisterForDeviceNotifications2 @ 0x1C005C670
  * Callers:
  *     <none>
  * Callees:
- *     ACPIRegisterForDeviceNotificationsByDeviceExtension @ 0x1C005D6E8 (ACPIRegisterForDeviceNotificationsByDeviceExtension.c)
+ *     ACPIRegisterForDeviceNotificationsByDeviceExtension @ 0x1C005C688 (ACPIRegisterForDeviceNotificationsByDeviceExtension.c)
  */
 
 __int64 __fastcall ACPIRegisterForDeviceNotifications2(__int64 a1, __int64 a2, __int64 a3)

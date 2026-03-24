@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_ComputingU1U2TimeoutsAndExitLatency @ 0x1C0022BD0
+ * XREFs of HUBDSM_ComputingU1U2TimeoutsAndExitLatency @ 0x1C0022780
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_ComputeU1Timeout @ 0x1C002DCD0 (HUBMISC_ComputeU1Timeout.c)
- *     HUBMISC_ComputeU2Timeout @ 0x1C002DF18 (HUBMISC_ComputeU2Timeout.c)
+ *     HUBMISC_ComputeU1Timeout @ 0x1C002D644 (HUBMISC_ComputeU1Timeout.c)
+ *     HUBMISC_ComputeU2Timeout @ 0x1C002D890 (HUBMISC_ComputeU2Timeout.c)
  */
 
 __int64 __fastcall HUBDSM_ComputingU1U2TimeoutsAndExitLatency(__int64 a1)

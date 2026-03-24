@@ -1,26 +1,27 @@
 /*
- * XREFs of MiCheckCommitReleaseFromVad @ 0x140617CA0
+ * XREFs of MiCheckCommitReleaseFromVad @ 0x14052B04C
  * Callers:
- *     MiReleaseOutSwappedProcessCommit @ 0x1406192E8 (MiReleaseOutSwappedProcessCommit.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x14052C648 (MiReleaseOutSwappedProcessCommit.c)
  * Callees:
- *     MI_PROTO_FORMAT_COMBINED @ 0x14020AE58 (MI_PROTO_FORMAT_COMBINED.c)
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiIsPrototypePteVadLookup @ 0x14027CDE0 (MiIsPrototypePteVadLookup.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     MiLocateCloneAddress @ 0x140294478 (MiLocateCloneAddress.c)
- *     MiGetNextPageTable @ 0x1402E56B0 (MiGetNextPageTable.c)
- *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
- *     MiLockTransitionLeafPageEx @ 0x1403477B8 (MiLockTransitionLeafPageEx.c)
- *     MiComputeCommitChargeForZeroPteRange @ 0x1406180B8 (MiComputeCommitChargeForZeroPteRange.c)
- *     MiComputeImageVadCommitCharge @ 0x14061816C (MiComputeImageVadCommitCharge.c)
- *     MiRotatedToFrameBuffer @ 0x140632EC4 (MiRotatedToFrameBuffer.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     MiLocateCloneAddress @ 0x14023E878 (MiLocateCloneAddress.c)
+ *     MiGetNextPageTable @ 0x14028DEA0 (MiGetNextPageTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockPageTableInternal @ 0x1402DB460 (MiUnlockPageTableInternal.c)
+ *     MiIsPteInStore @ 0x1402E1DE0 (MiIsPteInStore.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x1402E31E8 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiIsPrototypePteVadLookup @ 0x1402E3470 (MiIsPrototypePteVadLookup.c)
+ *     MiRotatedToFrameBuffer @ 0x140307C88 (MiRotatedToFrameBuffer.c)
+ *     MiLockTransitionLeafPage @ 0x140363DD4 (MiLockTransitionLeafPage.c)
+ *     MiComputeCommitChargeForZeroPteRange @ 0x14052B464 (MiComputeCommitChargeForZeroPteRange.c)
+ *     MiComputeImageVadCommitCharge @ 0x14052B518 (MiComputeImageVadCommitCharge.c)
  */
 
 __int64 __fastcall MiCheckCommitReleaseFromVad(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, _QWORD *a6)
 {
   unsigned __int64 v6; // r10
-  __int64 v8; // rbp
+  __int64 v7; // rbp
   __int64 v10; // rdi
   unsigned __int64 v11; // rbx
   unsigned __int64 v12; // r15
@@ -33,33 +34,32 @@ __int64 __fastcall MiCheckCommitReleaseFromVad(__int64 a1, __int64 a2, __int64 a
   unsigned __int64 v19; // rax
   __int64 v20; // rax
   unsigned __int64 v21; // rdx
-  bool v22; // zf
-  __int64 v23; // rdx
-  unsigned __int64 v24; // r9
+  unsigned __int64 v22; // r8
+  __int64 v23; // rax
+  __int64 v24; // r8
   __int64 v25; // rax
-  __int64 v26; // r9
-  __int64 v27; // rax
-  unsigned __int64 v28; // rdx
-  int v30; // [rsp+30h] [rbp-68h] BYREF
-  unsigned __int64 v31; // [rsp+38h] [rbp-60h] BYREF
-  __int64 v32; // [rsp+40h] [rbp-58h] BYREF
-  __int64 v33; // [rsp+48h] [rbp-50h]
-  unsigned __int64 v34; // [rsp+50h] [rbp-48h]
+  bool v26; // zf
+  unsigned __int64 v27; // rdx
+  int v29; // [rsp+30h] [rbp-68h] BYREF
+  unsigned __int64 v30; // [rsp+38h] [rbp-60h] BYREF
+  __int64 v31; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v32; // [rsp+48h] [rbp-50h]
+  unsigned __int64 v33; // [rsp+50h] [rbp-48h]
   char i; // [rsp+B8h] [rbp+20h]
 
   v6 = (unsigned __int64)*(unsigned __int8 *)(a4 + 32) << 32;
-  v30 = 0;
-  v32 = 0LL;
-  v8 = a3;
+  v7 = a3;
+  v29 = 0;
+  v31 = 0LL;
   v10 = 0LL;
   v11 = 8 * ((*(unsigned int *)(a4 + 24) | v6) & 0xFFFFFFFFFLL) - 0x98000000000LL;
   v12 = 8 * ((*(unsigned int *)(a4 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a4 + 33) << 32)) & 0xFFFFFFFFFLL)
       - 0x98000000000LL;
-  v34 = v12;
-  v13 = MiLockWorkingSetShared(a3);
+  v33 = v12;
+  v13 = MiLockWorkingSetShared(a3, 0xFFFFF68000000000uLL, 0xFFFFFFFFFLL, (_DWORD *)a4);
   for ( i = v13; v11 <= v12; v13 = i )
   {
-    NextPageTable = MiGetNextPageTable(v11, v12, 0LL, v13, 0, &v30);
+    NextPageTable = MiGetNextPageTable(v11, v12, 0LL, v13, 0, &v29);
     v15 = NextPageTable;
     if ( NextPageTable != v11 )
     {
@@ -71,7 +71,7 @@ __int64 __fastcall MiCheckCommitReleaseFromVad(__int64 a1, __int64 a2, __int64 a
     v11 = v15;
     v17 = ((v15 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     v18 = v12;
-    v33 = v17;
+    v32 = v17;
     if ( (v15 & 0xFFFFFFFFFFFFF000uLL) + 4088 <= v12 )
       v18 = (v15 & 0xFFFFFFFFFFFFF000uLL) + 4088;
     if ( v15 <= v18 )
@@ -79,46 +79,53 @@ __int64 __fastcall MiCheckCommitReleaseFromVad(__int64 a1, __int64 a2, __int64 a
       while ( 1 )
       {
         v19 = MI_READ_PTE_LOCK_FREE(v11);
-        v31 = v19;
+        v30 = v19;
         if ( !v19 )
+          break;
+        if ( (v19 & 1) != 0 )
         {
-          v20 = MiComputeCommitChargeForZeroPteRange(a4, v11, 1LL);
-LABEL_34:
-          v10 += v20;
+          if ( (v19 & 0x200) == 0 || (*(_DWORD *)(a4 + 48) & 0x70) == 0x40 && MiRotatedToFrameBuffer(v11) )
+            goto LABEL_48;
+          v21 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v30) >> 12) & 0xFFFFFFFFFLL)
+              - 0x58000000000LL;
+          if ( (*(_QWORD *)(v21 + 40) & 0x1000000000LL) == 0 && *(__int64 *)(v21 + 8) > 0 )
+            goto LABEL_48;
+          if ( *(_QWORD *)(a2 + 1264) && MiLocateCloneAddress(a2, *(_QWORD *)(v21 + 8) | 0x8000000000000000uLL) )
+            goto LABEL_48;
+LABEL_47:
+          ++v10;
           goto LABEL_48;
         }
-        if ( (v19 & 1) != 0 )
-          break;
         if ( (v19 & 0x400) != 0 )
         {
           if ( MiIsPrototypePteVadLookup(v19) )
           {
-            v25 = v10 + 1;
-            if ( ((v24 >> 5) & 5) != 5 )
-              v25 = v10;
-            v10 = v25;
+            v23 = v10 + 1;
+            if ( ((v22 >> 5) & 5) != 5 )
+              v23 = v10;
+            v10 = v23;
             goto LABEL_48;
           }
-          if ( MI_PROTO_FORMAT_COMBINED(v24, v23) )
+          if ( MI_PROTO_FORMAT_COMBINED(v22) )
             goto LABEL_48;
           if ( *(_QWORD *)(a2 + 1264) )
           {
-            if ( qword_140C65C40 && (v26 & 0x10) == 0 )
-              v26 &= ~qword_140C65C40;
-            if ( MiLocateCloneAddress(a2, v26 >> 16) )
+            if ( qword_140C4DF40 && (v24 & 0x10) == 0 )
+              v24 &= ~qword_140C4DF40;
+            if ( MiLocateCloneAddress(a2, v24 >> 16) )
               goto LABEL_48;
           }
-          v20 = MiComputeImageVadCommitCharge(a4, (unsigned __int64)((__int64)(v11 << 25) >> 16) >> 12, 1LL, &v32);
-          goto LABEL_34;
+          v20 = MiComputeImageVadCommitCharge(a4, (unsigned __int64)((__int64)(v11 << 25) >> 16) >> 12, 1LL, &v31);
+          goto LABEL_33;
         }
         if ( (v19 & 0x800) != 0 )
         {
-          v27 = MiLockTransitionLeafPageEx(v11, 0LL, 0);
-          if ( v27 )
+          v25 = MiLockTransitionLeafPage(v11, 0LL);
+          if ( v25 )
           {
-            if ( (*(_BYTE *)(v27 + 34) & 0x10) == 0 && (*(_DWORD *)(v27 + 16) & 4) == 0 && !*(_WORD *)(v27 + 32) )
+            if ( (*(_BYTE *)(v25 + 34) & 0x10) == 0 && (*(_DWORD *)(v25 + 16) & 4) == 0 && !*(_WORD *)(v25 + 32) )
               ++*a6;
-            _InterlockedAnd64((volatile signed __int64 *)(v27 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+            _InterlockedAnd64((volatile signed __int64 *)(v25 + 24), 0x7FFFFFFFFFFFFFFFuLL);
           }
           else
           {
@@ -130,43 +137,33 @@ LABEL_34:
         {
           if ( !a5 )
             goto LABEL_48;
-          v22 = (unsigned __int16)v19 >> 12 == *(_DWORD *)(a1 + 1188);
-          goto LABEL_20;
+          v26 = (unsigned int)MiIsPteInStore(a1, v19) == 0;
         }
-        if ( ((v19 >> 5) & 0x1F) != 0x10 )
+        else
+        {
+          v26 = ((v19 >> 5) & 0x1F) == 16;
+        }
+        if ( !v26 )
           goto LABEL_47;
 LABEL_48:
         v11 += 8LL;
         if ( v11 > v18 )
         {
-          v17 = v33;
-          v12 = v34;
+          v17 = v32;
+          v12 = v33;
           goto LABEL_50;
         }
       }
-      if ( (v19 & 0x200) == 0 || (*(_DWORD *)(a4 + 48) & 0x70) == 0x40 && (unsigned int)MiRotatedToFrameBuffer(v11) )
-        goto LABEL_48;
-      v21 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v31) >> 12) & 0xFFFFFFFFFFLL)
-          - 0x220000000000LL;
-      if ( !_bittest64((const signed __int64 *)(v21 + 40), 0x28u) && *(__int64 *)(v21 + 8) > 0 )
-        goto LABEL_48;
-      if ( !*(_QWORD *)(a2 + 1264) )
-      {
-LABEL_47:
-        ++v10;
-        goto LABEL_48;
-      }
-      v22 = MiLocateCloneAddress(a2, *(_QWORD *)(v21 + 8) | 0x8000000000000000uLL) == 0LL;
-LABEL_20:
-      if ( v22 )
-        goto LABEL_47;
+      v20 = MiComputeCommitChargeForZeroPteRange(a4, v11, 1LL);
+LABEL_33:
+      v10 += v20;
       goto LABEL_48;
     }
 LABEL_50:
-    v28 = v17;
-    v8 = a3;
-    MiUnlockPageTableInternal(a3, v28);
+    v27 = v17;
+    v7 = a3;
+    MiUnlockPageTableInternal(a3, v27);
   }
-  MiUnlockWorkingSetShared(v8, v13);
+  MiUnlockWorkingSetShared(v7, v13);
   return v10;
 }

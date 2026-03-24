@@ -1,35 +1,44 @@
 /*
- * XREFs of MiReservePoolMemory @ 0x14035A790
+ * XREFs of MiReservePoolMemory @ 0x14030A5C4
  * Callers:
- *     MmAllocatePoolMemory @ 0x1402866A8 (MmAllocatePoolMemory.c)
- *     MmAllocateSecurePoolMemory @ 0x14064195C (MmAllocateSecurePoolMemory.c)
+ *     MmAllocatePoolMemory @ 0x14028B758 (MmAllocatePoolMemory.c)
+ *     MmAllocateSecurePoolMemory @ 0x140544D00 (MmAllocateSecurePoolMemory.c)
  * Callees:
- *     MiObtainSystemVa @ 0x140210FBC (MiObtainSystemVa.c)
- *     MiObtainDynamicVa @ 0x140211064 (MiObtainDynamicVa.c)
- *     MiMarkSystemVaAllocated @ 0x140637320 (MiMarkSystemVaAllocated.c)
+ *     MiObtainSystemVa @ 0x14030AF30 (MiObtainSystemVa.c)
+ *     MiObtainDynamicVa @ 0x14030AF58 (MiObtainDynamicVa.c)
+ *     MiObtainSessionVa @ 0x14030B904 (MiObtainSessionVa.c)
+ *     MiMarkSystemVaAllocated @ 0x14053DBB0 (MiMarkSystemVaAllocated.c)
  */
 
-unsigned __int64 __fastcall MiReservePoolMemory(unsigned __int64 a1, __int64 a2, unsigned __int64 a3, unsigned int a4)
+__int64 __fastcall MiReservePoolMemory(unsigned __int64 a1, int a2, unsigned __int64 a3, unsigned int a4)
 {
-  unsigned __int64 v4; // r10
+  unsigned __int64 v4; // rbx
+  __int64 v6; // rdx
 
   v4 = a3 >> 21;
-  if ( a3 >> 21 > 0xFFFFFFFF )
-    return 0LL;
-  switch ( (_DWORD)a2 )
+  if ( a3 >> 21 < 0x100000000LL )
   {
-    case 5:
-      return MiObtainDynamicVa((__int64 *)(qword_140C65BA0 + 376LL * a4), v4, 5);
-    case 6:
-      return MiObtainSystemVa(v4, a2, 5LL);
-    case 0xF:
-      return a1 & -(__int64)((unsigned int)MiMarkSystemVaAllocated(
-                                             15,
-                                             ((unsigned int)(a1 >> 18) & 0x3FFFFFF8) + 0x40000000,
-                                             ((a1 >> 18) & 0x3FFFFFF8) + 0x40000000 + 8 * v4,
-                                             1,
-                                             1) != 0);
-    default:
-      return 0LL;
+    switch ( a2 )
+    {
+      case 5:
+        return MiObtainDynamicVa(&SListHead[11 * a4 + 4], (unsigned int)v4);
+      case 6:
+        return MiObtainSystemVa((unsigned int)v4);
+      case 1:
+        v6 = MiObtainSessionVa((unsigned int)v4);
+        if ( v6 )
+          _InterlockedExchangeAdd(
+            (volatile signed __int32 *)(KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5] + 868),
+            v4);
+        return v6;
+      case 15:
+        return a1 & -(__int64)((unsigned int)MiMarkSystemVaAllocated(
+                                               15,
+                                               ((unsigned int)(a1 >> 18) & 0x3FFFFFF8) + 0x40000000,
+                                               ((a1 >> 18) & 0x3FFFFFF8) + 0x40000000 + 8 * v4,
+                                               1,
+                                               1) != 0);
+    }
   }
+  return 0LL;
 }

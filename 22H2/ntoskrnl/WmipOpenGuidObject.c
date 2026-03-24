@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipOpenGuidObject @ 0x1406C57E0
+ * XREFs of WmipOpenGuidObject @ 0x1406B84C0
  * Callers:
- *     WmipOpenBlock @ 0x1406C55DC (WmipOpenBlock.c)
+ *     WmipOpenBlock @ 0x1406B8098 (WmipOpenBlock.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     WmipCreateGuidObject @ 0x1406C50E0 (WmipCreateGuidObject.c)
- *     WmipUuidFromString @ 0x1406C5898 (WmipUuidFromString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     WmipUuidFromString @ 0x1406B829C (WmipUuidFromString.c)
+ *     WmipCreateGuidObject @ 0x1406B8578 (WmipCreateGuidObject.c)
  */
 
-__int64 __fastcall WmipOpenGuidObject(__int64 a1, __int64 a2, int a3, _QWORD *a4)
+__int64 __fastcall WmipOpenGuidObject(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4)
 {
   __int64 v4; // rax
   _QWORD *v8; // rcx
@@ -26,10 +26,10 @@ __int64 __fastcall WmipOpenGuidObject(__int64 a1, __int64 a2, int a3, _QWORD *a4
     v9 = v8[1] - 0x64006900750047LL;
   if ( v9 )
     return 3221225485LL;
-  result = WmipUuidFromString((char *)v8 + 18, &v12);
+  result = WmipUuidFromString((__int64)v8 + 18, (__int64)&v12);
   if ( (int)result >= 0 )
   {
-    result = WmipCreateGuidObject((__int128 *)a1, a3, &v12, &v11);
+    result = WmipCreateGuidObject(a1, a3, &v12, &v11);
     if ( (int)result >= 0 )
     {
       *a4 = v11;

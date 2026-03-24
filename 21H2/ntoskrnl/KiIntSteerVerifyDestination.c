@@ -1,8 +1,8 @@
 /*
- * XREFs of KiIntSteerVerifyDestination @ 0x14024D7B8
+ * XREFs of KiIntSteerVerifyDestination @ 0x1402C370C
  * Callers:
- *     KiIntSteerSetDestination @ 0x14024D740 (KiIntSteerSetDestination.c)
- *     KiIntSteerComputeCpuSet @ 0x140578398 (KiIntSteerComputeCpuSet.c)
+ *     KiIntSteerSetDestination @ 0x1402C367C (KiIntSteerSetDestination.c)
+ *     KiIntSteerComputeCpuSet @ 0x1405227A0 (KiIntSteerComputeCpuSet.c)
  * Callees:
  *     <none>
  */

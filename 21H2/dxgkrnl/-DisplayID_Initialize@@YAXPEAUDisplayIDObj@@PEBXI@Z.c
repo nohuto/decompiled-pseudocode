@@ -1,87 +1,94 @@
 /*
- * XREFs of ?DisplayID_Initialize@@YAXPEAUDisplayIDObj@@PEBXI@Z @ 0x1C0071EA4
+ * XREFs of ?DisplayID_Initialize@@YAXPEAUDisplayIDObj@@PEBXI@Z @ 0x1C0022A6C
  * Callers:
- *     ?EDID_V1_ExtractDisplayIdBlob@@YAJKPEBEPEAUDisplayIDObj@@@Z @ 0x1C002761C (-EDID_V1_ExtractDisplayIdBlob@@YAJKPEBEPEAUDisplayIDObj@@@Z.c)
- *     ??0DisplayIdMonitorDescriptor@DxgMonitor@@QEAA@$$QEAV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@wistd@@@wistd@@K@Z @ 0x1C03BA9E0 (--0DisplayIdMonitorDescriptor@DxgMonitor@@QEAA@$$QEAV-$unique_ptr@$$BY0A@EU-$default_delete@$$BY.c)
- *     ?GetAnonymizedRawDescriptor@DisplayIdMonitorDescriptor@DxgMonitor@@UEBA?AV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@wistd@@@wistd@@PEAI@Z @ 0x1C03BADE0 (-GetAnonymizedRawDescriptor@DisplayIdMonitorDescriptor@DxgMonitor@@UEBA-AV-$unique_ptr@$$BY0A@EU.c)
+ *     ?_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C018E22C (-_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SC.c)
+ *     ?_RetrieveMonitorDescriptorsFromDriver@DXGMONITOR@@AEAAJXZ @ 0x1C019075C (-_RetrieveMonitorDescriptorsFromDriver@DXGMONITOR@@AEAAJXZ.c)
+ *     ??0DXGMONITOR@@AEAA@PEAVMONITOR_MGR@@@Z @ 0x1C0190D24 (--0DXGMONITOR@@AEAA@PEAVMONITOR_MGR@@@Z.c)
+ *     ?_CleanupMonitorDescriptors@DXGMONITOR@@AEAAJXZ @ 0x1C02F9884 (-_CleanupMonitorDescriptors@DXGMONITOR@@AEAAJXZ.c)
  * Callees:
- *     ?ComputeChecksum@DisplayID_Section_Parser@@QEBAEXZ @ 0x1C007155C (-ComputeChecksum@DisplayID_Section_Parser@@QEBAEXZ.c)
+ *     <none>
  */
 
-void __fastcall DisplayID_Initialize(struct DisplayIDObj *a1, unsigned __int8 *a2, int a3)
+void __fastcall DisplayID_Initialize(struct DisplayIDObj *a1, char *a2, int a3)
 {
-  unsigned __int8 *v3; // r10
+  int v3; // r9d
   char *v4; // r11
-  int v5; // ebp
-  int v6; // edi
-  unsigned __int64 v7; // rdx
-  unsigned __int8 *v8; // rbx
-  unsigned __int64 v9; // rcx
-  int v10; // r12d
-  __int64 v11; // r15
-  char v12; // si
-  __int64 v13; // r9
-  _QWORD v14[5]; // [rsp+20h] [rbp-28h] BYREF
+  char *v6; // r8
+  int v7; // ebp
+  __int64 v8; // rsi
+  char *v9; // rax
+  int v10; // r15d
+  char v11; // dl
+  char *v12; // r14
+  char *v13; // rdi
+  unsigned __int64 v14; // rsi
+  int v15; // ecx
+  int v16; // ecx
 
   if ( a1 )
   {
-    *((_DWORD *)a1 + 3) = 0;
-    v3 = a2;
-    *((_DWORD *)a1 + 5) = 0;
+    v3 = 0;
     *(_QWORD *)a1 = a2;
     *((_DWORD *)a1 + 2) = a3;
+    v4 = a2;
+    *((_DWORD *)a1 + 3) = 0;
     *((_BYTE *)a1 + 16) = 0;
+    *((_DWORD *)a1 + 5) = 0;
     if ( a2 )
     {
       if ( a3 )
       {
-        v4 = (char *)&a2[a3];
-        v5 = 0;
-        if ( a2 + 3 < (unsigned __int8 *)v4 )
+        v6 = &a2[a3];
+        v7 = 0;
+        if ( a2 + 3 >= v6 )
         {
-          v6 = 0;
+LABEL_22:
+          if ( v3 == v7 + 1 && v4 == v6 )
+            *((_BYTE *)a1 + 16) = 1;
+        }
+        else
+        {
           while ( 1 )
           {
-            v7 = v3[1];
-            v8 = v3;
-            v14[0] = v3;
-            v9 = v4 - (char *)v3;
-            v10 = v6;
-            v14[1] = v4 - (char *)v3;
-            v11 = (unsigned __int8)(v7 + 5);
-            if ( &v3[v11] > (unsigned __int8 *)v4 )
+            v8 = (unsigned __int8)v4[1];
+            v9 = v4;
+            v4 += (unsigned __int8)(v8 + 5);
+            v10 = (unsigned __int8)(v8 + 5);
+            if ( v4 > v6 || (unsigned __int8)(((unsigned __int8)*v9 >> 4) - 1) > 1u || (v9[2] & 0xF) == 0 && v9[3] )
               break;
-            if ( (unsigned __int8)((*v3 >> 4) - 1) > 1u )
+            if ( (unsigned __int8)v8 > 0xFBu )
               break;
-            v12 = v3[2] & 0xF;
-            if ( !v12 )
+            v11 = 0;
+            v12 = &v9[v8 + 4];
+            v13 = v9;
+            v14 = v8 + 4;
+            if ( v9 > v12 )
+              v14 = 0LL;
+            if ( v14 )
             {
-              if ( v3[3] )
-                break;
+              do
+                v11 += *v13++;
+              while ( v13 - v9 < v14 );
             }
-            if ( (unsigned __int8)v7 > 0xFBu
-              || v7 > v9 - 5
-              || v9 < 5
-              || DisplayID_Section_Parser::ComputeChecksum((DisplayID_Section_Parser *)v14) != v3[v7 + 4] )
-            {
+            if ( -v11 != *v12 )
               break;
-            }
-            if ( v6 )
+            v15 = *((_DWORD *)a1 + 5);
+            if ( v15 )
             {
-              if ( v12 )
+              if ( (v9[2] & 0xF) != 0 )
                 return;
             }
             else
             {
-              v5 = v8[3];
-              *(_DWORD *)(v13 + 12) = v11;
+              v7 = (unsigned __int8)v9[3];
+              *((_DWORD *)a1 + 3) = v10;
             }
-            *(_DWORD *)(v13 + 20) = ++v6;
-            if ( v3 + 3 >= (unsigned __int8 *)v4 )
+            v16 = v15 + 1;
+            *((_DWORD *)a1 + 5) = v16;
+            if ( v4 + 3 >= v6 )
             {
-              if ( v10 == v5 )
-                *(_BYTE *)(v13 + 16) = 1;
-              return;
+              v3 = v16;
+              goto LABEL_22;
             }
           }
         }

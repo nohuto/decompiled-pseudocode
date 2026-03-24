@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlCSparseBitmapEnterLockingRegion @ 0x140363C3C
+ * XREFs of RtlCSparseBitmapEnterLockingRegion @ 0x1402A4C4C
  * Callers:
- *     RtlpCSparseBitmapPageDecommit @ 0x14023DD4C (RtlpCSparseBitmapPageDecommit.c)
- *     RtlpCSparseBitmapPageCommit @ 0x140363A64 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x1402A3A20 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x1402A4A74 (RtlpCSparseBitmapPageCommit.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of ViFaultsAddAllApps @ 0x140AD7354
+ * XREFs of ViFaultsAddAllApps @ 0x1409DCB8C
  * Callers:
- *     VfFaultsSetParameters @ 0x140AD7148 (VfFaultsSetParameters.c)
- *     ViFaultsInitializeAppsList @ 0x140AD77A8 (ViFaultsInitializeAppsList.c)
+ *     VfFaultsSetParameters @ 0x1409DC9D8 (VfFaultsSetParameters.c)
+ *     ViFaultsInitializeAppsList @ 0x1409DCFE0 (ViFaultsInitializeAppsList.c)
  * Callees:
- *     ViFaultsAddAppNoDuplicates @ 0x140AD74AC (ViFaultsAddAppNoDuplicates.c)
+ *     ViFaultsAddAppNoDuplicates @ 0x1409DCCE4 (ViFaultsAddAppNoDuplicates.c)
  */
 
 __int64 __fastcall ViFaultsAddAllApps(unsigned __int16 *a1, int a2)

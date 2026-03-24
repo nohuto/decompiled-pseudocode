@@ -1,11 +1,11 @@
 /*
- * XREFs of SecureDump_Get_SecureDumpHeader @ 0x14055E080
+ * XREFs of SecureDump_Get_SecureDumpHeader @ 0x14050A7D0
  * Callers:
- *     IopLiveDumpWriteDumpFile @ 0x14094F534 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094FA08 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpWriteDumpFile @ 0x140898BD0 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x140898EF0 (IopLiveDumpWriteDumpFileWithExtraPages.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall SecureDump_Get_SecureDumpHeader(__int64 a1, _DWORD *a2, unsigned int a3)
@@ -15,16 +15,16 @@ __int64 __fastcall SecureDump_Get_SecureDumpHeader(__int64 a1, _DWORD *a2, unsig
   unsigned int v7; // edx
   int v8; // eax
 
-  if ( !byte_140C64DD4 )
+  if ( !byte_140C4C854 )
     return 3221225485LL;
-  if ( a3 < dword_140C64E20 )
+  if ( a3 < dword_140C4C8A0 )
     return 3221225485LL;
   v5 = a3;
   if ( a3 < pcbResult + (unsigned __int64)*(&dwFlags + 1) + 4184 )
     return 3221225485LL;
   memset(a2, 0, a3);
   a2[2] = 1;
-  a2[3] = dword_140C64E20;
+  a2[3] = dword_140C4C8A0;
   *a2 = *(_DWORD *)a1;
   a2[1] = *(_DWORD *)(a1 + 4);
   a2[12] = *(_DWORD *)(a1 + 48);
@@ -39,14 +39,14 @@ __int64 __fastcall SecureDump_Get_SecureDumpHeader(__int64 a1, _DWORD *a2, unsig
   a2[14] = v6;
   a2[5] = 4184;
   a2[4] = pcbResult;
-  memmove(a2 + 1046, qword_140C64DF8, pcbResult);
+  memmove(a2 + 1046, qword_140C4C878, pcbResult);
   v7 = a2[4] + a2[5];
   a2[10] = pbInput;
-  v8 = dword_140C64E18;
+  v8 = dword_140C4C898;
   a2[7] = v7;
   a2[8] = v8;
   a2[6] = *(&dwFlags + 1);
   memmove((char *)a2 + v7, *((const void **)&dwFlags + 1), *(&dwFlags + 1));
-  a2[9] = dword_140C64E1C;
+  a2[9] = dword_140C4C89C;
   return 0LL;
 }

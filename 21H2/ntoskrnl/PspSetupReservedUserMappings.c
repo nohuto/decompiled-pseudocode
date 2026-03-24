@@ -1,11 +1,11 @@
 /*
- * XREFs of PspSetupReservedUserMappings @ 0x1406D94F0
+ * XREFs of PspSetupReservedUserMappings @ 0x1406B599C
  * Callers:
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     ZwAllocateVirtualMemory @ 0x14041BA60 (ZwAllocateVirtualMemory.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     ZwAllocateVirtualMemory @ 0x1403FA6A0 (ZwAllocateVirtualMemory.c)
  */
 
 __int64 __fastcall PspSetupReservedUserMappings(_KPROCESS *a1, __int64 a2, _QWORD *a3, _DWORD *a4)
@@ -60,6 +60,6 @@ LABEL_10:
       while ( v9 < a3[32] );
     }
   }
-  KiUnstackDetachProcess(a2, 0LL);
+  KiUnstackDetachProcess(a2, 0);
   return (unsigned int)VirtualMemory;
 }

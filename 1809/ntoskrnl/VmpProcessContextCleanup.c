@@ -1,8 +1,8 @@
 /*
- * XREFs of VmpProcessContextCleanup @ 0x1408B0B48
+ * XREFs of VmpProcessContextCleanup @ 0x1408B0B28
  * Callers:
  *     PspProcessDelete @ 0x140607590 (PspProcessDelete.c)
- *     VmCreateMemoryRange @ 0x1408B0140 (VmCreateMemoryRange.c)
+ *     VmCreateMemoryRange @ 0x1408B0120 (VmCreateMemoryRange.c)
  * Callees:
  *     <none>
  */

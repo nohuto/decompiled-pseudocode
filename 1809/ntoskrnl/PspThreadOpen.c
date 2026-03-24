@@ -25,7 +25,7 @@ __int64 __fastcall PspThreadOpen(__int64 a1, char a2, __int64 a3, __int64 a4, in
     if ( (unsigned __int8)PsTestProtectedProcessIncompatibility(v11, a3, v9) )
       return 3221225506LL;
   }
-  if ( *(_QWORD *)(a4 + 1944) && !*(_QWORD *)(a3 + 1808) && a2 && (~HIDWORD(xmmword_14040E320) & *a5) != 0 )
+  if ( *(_QWORD *)(a4 + 1944) && !*(_QWORD *)(a3 + 1808) && a2 && (~HIDWORD(xmmword_14040E300) & *a5) != 0 )
     return 3221225506LL;
   v12 = *a5;
   if ( (*a5 & 0x40) != 0 )

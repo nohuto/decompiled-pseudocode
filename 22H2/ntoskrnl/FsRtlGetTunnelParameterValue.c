@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlGetTunnelParameterValue @ 0x140851058
+ * XREFs of FsRtlGetTunnelParameterValue @ 0x1407C6860
  * Callers:
- *     FsRtlInitializeTunnels @ 0x140B698CC (FsRtlInitializeTunnels.c)
+ *     FsRtlInitializeTunnels @ 0x140A6C04C (FsRtlInitializeTunnels.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall FsRtlGetTunnelParameterValue(PUNICODE_STRING ValueName, _DWORD *a2)
@@ -18,7 +18,7 @@ NTSTATUS __fastcall FsRtlGetTunnelParameterValue(PUNICODE_STRING ValueName, _DWO
   unsigned int *v6; // rbx
   _BYTE *i; // r9
   NTSTATUS v8; // edi
-  __int64 Pool2; // rax
+  _BYTE *PoolWithTag; // rax
   ULONG ResultLength; // [rsp+30h] [rbp-89h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-81h] BYREF
   _DWORD v12[2]; // [rsp+40h] [rbp-79h] BYREF
@@ -29,19 +29,20 @@ NTSTATUS __fastcall FsRtlGetTunnelParameterValue(PUNICODE_STRING ValueName, _DWO
   KeyHandle = 0LL;
   ResultLength = 0;
   v12[1] = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   ObjectAttributes.RootDirectory = 0LL;
   v13 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\FileSystem";
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)v12;
   v12[0] = 8126586;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v12;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 64;
   result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( result >= 0 )
   {
     Length = 92;
     v6 = (unsigned int *)KeyValueInformation;
-    for ( i = KeyValueInformation; ; i = (_BYTE *)Pool2 )
+    for ( i = KeyValueInformation; ; i = PoolWithTag )
     {
       v8 = ZwQueryValueKey(KeyHandle, ValueName, KeyValueFullInformation, i, Length, &ResultLength);
       if ( v8 != -2147483643 )
@@ -49,9 +50,9 @@ NTSTATUS __fastcall FsRtlGetTunnelParameterValue(PUNICODE_STRING ValueName, _DWO
       if ( v6 != (unsigned int *)KeyValueInformation )
         ExFreePoolWithTag(v6, 0);
       Length += 256;
-      Pool2 = ExAllocatePool2(256LL, Length, 1265530196LL);
-      v6 = (unsigned int *)Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, Length, 0x4B6E7554u);
+      v6 = (unsigned int *)PoolWithTag;
+      if ( !PoolWithTag )
         return -1073741801;
     }
     ZwClose(KeyHandle);

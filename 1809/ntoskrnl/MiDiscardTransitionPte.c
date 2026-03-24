@@ -1,5 +1,5 @@
 /*
- * XREFs of MiDiscardTransitionPte @ 0x14015827C
+ * XREFs of MiDiscardTransitionPte @ 0x14015829C
  * Callers:
  *     MiCopyDataPageToImagePage @ 0x14002D340 (MiCopyDataPageToImagePage.c)
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
@@ -8,14 +8,14 @@
  *     MiZeroCfgSystemWideBitmapWorker @ 0x140080940 (MiZeroCfgSystemWideBitmapWorker.c)
  *     MiReservePageFileSpaceForPage @ 0x140081800 (MiReservePageFileSpaceForPage.c)
  *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     MmCheckCachedPageStates @ 0x1400B0290 (MmCheckCachedPageStates.c)
- *     MiUnlinkStandbyPfn @ 0x140120484 (MiUnlinkStandbyPfn.c)
- *     MiConvertStandbyToProto @ 0x14013EA30 (MiConvertStandbyToProto.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x140151F00 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiMirrorPerformBrownWrites @ 0x140152374 (MiMirrorPerformBrownWrites.c)
- *     MiMakeOutswappedPageResident @ 0x1402A4268 (MiMakeOutswappedPageResident.c)
- *     MiWalkResetCommitPte @ 0x1402A5360 (MiWalkResetCommitPte.c)
- *     MiMakeImagePageOk @ 0x1402C44FC (MiMakeImagePageOk.c)
+ *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
+ *     MiUnlinkStandbyPfn @ 0x1401204A4 (MiUnlinkStandbyPfn.c)
+ *     MiConvertStandbyToProto @ 0x14013EA50 (MiConvertStandbyToProto.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140151F20 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiMirrorPerformBrownWrites @ 0x140152394 (MiMirrorPerformBrownWrites.c)
+ *     MiMakeOutswappedPageResident @ 0x1402A4368 (MiMakeOutswappedPageResident.c)
+ *     MiWalkResetCommitPte @ 0x1402A5460 (MiWalkResetCommitPte.c)
+ *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
  * Callees:
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)

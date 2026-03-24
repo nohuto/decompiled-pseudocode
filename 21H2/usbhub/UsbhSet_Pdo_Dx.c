@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbhSet_Pdo_Dx @ 0x1C000AFE0
+ * XREFs of UsbhSet_Pdo_Dx @ 0x1C0010D74
  * Callers:
- *     UsbhBusIf_SuspendChildHub @ 0x1C00014F0 (UsbhBusIf_SuspendChildHub.c)
- *     UsbhPdoSetD0_Finish @ 0x1C0001A6C (UsbhPdoSetD0_Finish.c)
- *     UsbhPdoDevicePowerState @ 0x1C0005200 (UsbhPdoDevicePowerState.c)
- *     UsbhPdoSetD0 @ 0x1C00055F0 (UsbhPdoSetD0.c)
- *     UsbhSshPropagateResume @ 0x1C001E15C (UsbhSshPropagateResume.c)
- *     UsbhSyncResumeDeviceInternal @ 0x1C00398B8 (UsbhSyncResumeDeviceInternal.c)
- *     UsbhPdoWaitForD3Reconnect @ 0x1C003C2B4 (UsbhPdoWaitForD3Reconnect.c)
+ *     UsbhPdoDevicePowerState @ 0x1C00109A0 (UsbhPdoDevicePowerState.c)
+ *     UsbhPdoSetD0 @ 0x1C00173C0 (UsbhPdoSetD0.c)
+ *     UsbhPdoSetD0_Finish @ 0x1C001820C (UsbhPdoSetD0_Finish.c)
+ *     UsbhBusIf_SuspendChildHub @ 0x1C0018B00 (UsbhBusIf_SuspendChildHub.c)
+ *     UsbhSshPropagateResume @ 0x1C001BB74 (UsbhSshPropagateResume.c)
+ *     UsbhSyncResumeDeviceInternal @ 0x1C003ABC8 (UsbhSyncResumeDeviceInternal.c)
+ *     UsbhPdoWaitForD3Reconnect @ 0x1C003D494 (UsbhPdoWaitForD3Reconnect.c)
  * Callees:
- *     UsbhSshSetPortsBusyState @ 0x1C0005CA0 (UsbhSshSetPortsBusyState.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhSshSetPortsBusyState @ 0x1C000FE00 (UsbhSshSetPortsBusyState.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 LONG __fastcall UsbhSet_Pdo_Dx(struct _DEVICE_OBJECT *a1, POWER_STATE a2)

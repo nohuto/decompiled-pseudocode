@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpVaMgrRangeSplit @ 0x14023DC8C
+ * XREFs of RtlpHpVaMgrRangeSplit @ 0x1402A5250
  * Callers:
- *     RtlpHpVaMgrAlloc @ 0x14023CDE0 (RtlpHpVaMgrAlloc.c)
- *     RtlpHpVaMgrCtxFree @ 0x14023D6AC (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrCtxFree @ 0x1402A3484 (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrAlloc @ 0x1402A3F84 (RtlpHpVaMgrAlloc.c)
  * Callees:
  *     <none>
  */

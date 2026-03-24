@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpSeedHotTags @ 0x140B0AEE8
+ * XREFs of ExpSeedHotTags @ 0x140A68D80
  * Callers:
- *     ExInitializePoolTracker @ 0x140B0ABEC (ExInitializePoolTracker.c)
+ *     ExInitializePoolTracker @ 0x140A68AF4 (ExInitializePoolTracker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 ExpSeedHotTags()
@@ -31,15 +31,15 @@ __int64 ExpSeedHotTags()
   {
     v4 = *v1;
     v5 = v2 & ((40543 * v4) ^ ((unsigned __int64)(40543 * v4) >> 32));
-    while ( *(_DWORD *)(v0 + 80LL * v5) || v5 == PoolTrackTableSize - 1 )
+    while ( *(_DWORD *)(56LL * v5 + v0) || v5 == PoolTrackTableSize - 1 )
     {
       result = v2 & (v5 + 1);
       v5 = result;
       if ( (_DWORD)result == (v2 & ((40543 * (int)v4) ^ ((unsigned __int64)(40543 * v4) >> 32))) )
         goto LABEL_6;
     }
-    result = 10LL * v5;
-    *(_DWORD *)(v0 + 80LL * v5) = v4;
+    result = 56LL * v5;
+    *(_DWORD *)(result + v0) = v4;
 LABEL_6:
     ++v1;
     --v3;

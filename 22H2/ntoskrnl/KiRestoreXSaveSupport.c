@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRestoreXSaveSupport @ 0x140A9F714
+ * XREFs of KiRestoreXSaveSupport @ 0x14099503C
  * Callers:
- *     KeRestoreProcessorSpecificFeatures @ 0x14056BFE4 (KeRestoreProcessorSpecificFeatures.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140383DBC (KeRestoreProcessorSpecificFeatures.c)
  * Callees:
- *     KiEnableXSave @ 0x140A8CE10 (KiEnableXSave.c)
+ *     KiEnableXSave @ 0x14099B1F4 (KiEnableXSave.c)
  */
 
-void __fastcall KiRestoreXSaveSupport(unsigned __int64 *a1)
+__int64 KiRestoreXSaveSupport()
 {
-  KiEnableXSave(a1);
+  return KiEnableXSave();
 }

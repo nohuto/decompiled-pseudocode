@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiCreateHatchBrushInternal @ 0x1C02D13D0
+ * XREFs of NtGdiCreateHatchBrushInternal @ 0x1C02B7060
  * Callers:
  *     <none>
  * Callees:
- *     ?hCreateHatchBrushInternal@@YAPEAUHBRUSH__@@KKH@Z @ 0x1C02D0EC8 (-hCreateHatchBrushInternal@@YAPEAUHBRUSH__@@KKH@Z.c)
+ *     ?hCreateHatchBrushInternal@@YAPEAUHBRUSH__@@KKH@Z @ 0x1C02B6F9C (-hCreateHatchBrushInternal@@YAPEAUHBRUSH__@@KKH@Z.c)
  */
 
 __int64 __fastcall NtGdiCreateHatchBrushInternal(unsigned int a1, unsigned int a2, int a3)

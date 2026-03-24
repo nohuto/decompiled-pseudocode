@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_EFxInternalIoctlOthersContext@@UEAAPEAXI@Z @ 0x1C0034D30
+ * XREFs of ??_EFxInternalIoctlOthersContext@@UEAAPEAXI@Z @ 0x1C0001A60
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
  */
 
 FxRequestContext *__fastcall FxInternalIoctlOthersContext::`vector deleting destructor'(
@@ -12,6 +12,6 @@ FxRequestContext *__fastcall FxInternalIoctlOthersContext::`vector deleting dest
 {
   this->__vftable = (FxRequestContext_vtbl *)FxRequestContext::`vftable';
   if ( (a2 & 1) != 0 )
-    FxPoolFree((FX_POOL_TRACKER *)this);
+    FxPoolFree(this);
   return this;
 }

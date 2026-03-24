@@ -1,11 +1,11 @@
 /*
- * XREFs of PopRecordDisplayState @ 0x14080D294
+ * XREFs of PopRecordDisplayState @ 0x140781738
  * Callers:
- *     PopUpdateConsoleDisplayState @ 0x14080D028 (PopUpdateConsoleDisplayState.c)
+ *     PopUpdateConsoleDisplayState @ 0x1407814E4 (PopUpdateConsoleDisplayState.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x1403697C8 (PopBsdHandleRequest.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x1403F8020 (PopBsdHandleRequest.c)
  */
 
 void __fastcall PopRecordDisplayState(char a1)

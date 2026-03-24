@@ -1,9 +1,9 @@
 /*
- * XREFs of Usbh_OvercurrentRefHubBusy @ 0x1C004E2D8
+ * XREFs of Usbh_OvercurrentRefHubBusy @ 0x1C004F6E8
  * Callers:
- *     UsbhHandleOvercurrent @ 0x1C004C3B4 (UsbhHandleOvercurrent.c)
+ *     UsbhHandleOvercurrent @ 0x1C004D7C4 (UsbhHandleOvercurrent.c)
  * Callees:
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
  */
 
 LONG __fastcall Usbh_OvercurrentRefHubBusy(__int64 a1, __int64 a2, char a3)

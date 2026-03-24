@@ -1,34 +1,34 @@
 /*
- * XREFs of PnpInsertEventInQueue @ 0x140786840
+ * XREFs of PnpInsertEventInQueue @ 0x140634C88
  * Callers:
- *     PnpSetDeviceInstanceStartedEventFromDeviceInstance @ 0x140321A6C (PnpSetDeviceInstanceStartedEventFromDeviceInstance.c)
- *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x1403B685C (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
- *     PnpSetDeviceInstanceRemovalEvent @ 0x1403D5A18 (PnpSetDeviceInstanceRemovalEvent.c)
- *     PnpInsertNoopEvent @ 0x140685ED4 (PnpInsertNoopEvent.c)
- *     PnpSetDeviceClassChange @ 0x140794534 (PnpSetDeviceClassChange.c)
- *     PnpSetPlugPlayEvent @ 0x140794604 (PnpSetPlugPlayEvent.c)
- *     PnpSetCustomTargetEvent @ 0x14079473C (PnpSetCustomTargetEvent.c)
- *     PnpSetTargetDeviceRemove @ 0x140868120 (PnpSetTargetDeviceRemove.c)
- *     PnpSetBlockedDriverEvent @ 0x1409646E0 (PnpSetBlockedDriverEvent.c)
- *     PnpSetDeviceRemovalSafe @ 0x140964750 (PnpSetDeviceRemovalSafe.c)
- *     PnpSetHwProfileChangeEvent @ 0x14096485C (PnpSetHwProfileChangeEvent.c)
- *     PnpSetInvalidIDEvent @ 0x1409648F8 (PnpSetInvalidIDEvent.c)
- *     PnpSetPowerVetoEvent @ 0x1409649B0 (PnpSetPowerVetoEvent.c)
+ *     PnpSetDeviceInstanceStartedEventFromDeviceInstance @ 0x14036F458 (PnpSetDeviceInstanceStartedEventFromDeviceInstance.c)
+ *     PnpSetDeviceInstanceRemovalEvent @ 0x140370FDC (PnpSetDeviceInstanceRemovalEvent.c)
+ *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x14037DFC8 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
+ *     PnpInsertNoopEvent @ 0x1405CEEA0 (PnpInsertNoopEvent.c)
+ *     PnpSetCustomTargetEvent @ 0x14071A048 (PnpSetCustomTargetEvent.c)
+ *     PnpSetDeviceClassChange @ 0x140745E0C (PnpSetDeviceClassChange.c)
+ *     PnpSetPlugPlayEvent @ 0x140747488 (PnpSetPlugPlayEvent.c)
+ *     PnpSetTargetDeviceRemove @ 0x14074A49C (PnpSetTargetDeviceRemove.c)
+ *     PnpSetBlockedDriverEvent @ 0x1408ABE84 (PnpSetBlockedDriverEvent.c)
+ *     PnpSetDeviceRemovalSafe @ 0x1408ABEF4 (PnpSetDeviceRemovalSafe.c)
+ *     PnpSetHwProfileChangeEvent @ 0x1408AC000 (PnpSetHwProfileChangeEvent.c)
+ *     PnpSetInvalidIDEvent @ 0x1408AC09C (PnpSetInvalidIDEvent.c)
+ *     PnpSetPowerVetoEvent @ 0x1408AC154 (PnpSetPowerVetoEvent.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     PnpIsSafeToExamineUserModeTeb @ 0x14031E030 (PnpIsSafeToExamineUserModeTeb.c)
- *     IoGetActivityIdThread @ 0x14031E470 (IoGetActivityIdThread.c)
- *     McTemplateK0z_EtwWriteTransfer @ 0x140561388 (McTemplateK0z_EtwWriteTransfer.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     IoGetActivityIdThread @ 0x14026EEA0 (IoGetActivityIdThread.c)
+ *     PnpIsSafeToExamineUserModeTeb @ 0x14026EEB8 (PnpIsSafeToExamineUserModeTeb.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x14050D9F4 (McTemplateK0z_EtwWriteTransfer.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpInsertEventInQueue(__int64 a1)
 {
   unsigned int v2; // esi
-  struct _WORK_QUEUE_ITEM *Pool2; // rdi
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rdi
   struct _LIST_ENTRY *ActivityIdThread; // rax
   __int64 v5; // rcx
   __int64 v6; // r8
@@ -42,31 +42,31 @@ __int64 __fastcall PnpInsertEventInQueue(__int64 a1)
 
   v14 = NullGuid;
   v2 = 0;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   ActivityIdThread = IoGetActivityIdThread();
   if ( ActivityIdThread )
   {
     v14 = (GUID)*ActivityIdThread;
   }
   else if ( PnpIsSafeToExamineUserModeTeb()
-         && KeGetPcr()->NtTib.$5C14B8504E5BBEA9C78932444904D36F::$B3978927B1617B2B8454E8E478E76600::Self )
+         && KeGetPcr()->NtTib.$F9435DD2D5013AD282F92902EC38D096::$F6F33802D97B27D62ECE74CBF4C4A83B::Self )
   {
-    v14 = *(GUID *)&KeGetPcr()->NtTib.$5C14B8504E5BBEA9C78932444904D36F::$B3978927B1617B2B8454E8E478E76600::Self[105].SubSystemTib;
+    v14 = *(GUID *)&KeGetPcr()->NtTib.$F9435DD2D5013AD282F92902EC38D096::$F6F33802D97B27D62ECE74CBF4C4A83B::Self[105].SubSystemTib;
   }
   *(GUID *)(a1 + 88) = v14;
-  if ( (byte_140C0E20B & 8) != 0 )
+  if ( (byte_140C1327B & 8) != 0 )
   {
     v10 = *(_QWORD *)(a1 + 112) - *(_QWORD *)&GUID_DEVICE_QUERY_AND_REMOVE.Data1;
     if ( !v10 )
       v10 = *(_QWORD *)(a1 + 120) - *(_QWORD *)GUID_DEVICE_QUERY_AND_REMOVE.Data4;
     if ( !v10 )
-      goto LABEL_21;
+      goto LABEL_20;
     v11 = *(_QWORD *)(a1 + 112) - *(_QWORD *)&GUID_DEVICE_EJECT.Data1;
     if ( !v11 )
       v11 = *(_QWORD *)(a1 + 120) - *(_QWORD *)GUID_DEVICE_EJECT.Data4;
     if ( !v11 )
     {
-LABEL_21:
+LABEL_20:
       v12 = *(_QWORD *)(a1 + 152);
       if ( v12 )
         v13 = *(_QWORD *)(*(_QWORD *)(v12 + 312) + 40LL);
@@ -81,12 +81,12 @@ LABEL_21:
   }
   ExAcquireFastMutex((PFAST_MUTEX)(PnpDeviceEventList + 64));
   ExAcquireFastMutex(&PnpNotificationInProgressLock);
-  if ( !BYTE3(NlsMbOemCodePageTag) )
+  if ( !BYTE2(NlsMbCodePageTag) )
   {
-    Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(64LL, 32LL, 1282436688LL);
-    if ( Pool2 )
+    PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x4C706E50u);
+    if ( PoolWithTag )
     {
-      BYTE3(NlsMbOemCodePageTag) = 1;
+      BYTE2(NlsMbCodePageTag) = 1;
       KeResetEvent(&PnpEventQueueEmpty);
     }
     else
@@ -102,14 +102,14 @@ LABEL_21:
   *(_QWORD *)(a1 + 8) = v8;
   *v8 = a1;
   *(_QWORD *)(v7 + 8) = a1;
-  ExReleaseFastMutex(&PnpNotificationInProgressLock);
-  ExReleaseFastMutex((PFAST_MUTEX)(PnpDeviceEventList + 64));
-  if ( Pool2 )
+  KeReleaseGuardedMutex(&PnpNotificationInProgressLock);
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)(PnpDeviceEventList + 64));
+  if ( PoolWithTag )
   {
-    Pool2->WorkerRoutine = (void (__fastcall *)(void *))PnpDeviceEventWorker;
-    Pool2->Parameter = Pool2;
-    Pool2->List.Flink = 0LL;
-    ExQueueWorkItem(Pool2, DelayedWorkQueue);
+    PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))PnpDeviceEventWorker;
+    PoolWithTag->Parameter = PoolWithTag;
+    PoolWithTag->List.Flink = 0LL;
+    ExQueueWorkItem(PoolWithTag, DelayedWorkQueue);
   }
   return v2;
 }

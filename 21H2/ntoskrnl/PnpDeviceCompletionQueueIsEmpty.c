@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDeviceCompletionQueueIsEmpty @ 0x1402DE9D0
+ * XREFs of PnpDeviceCompletionQueueIsEmpty @ 0x14036F740
  * Callers:
- *     PnpDeviceCompletionProcessCompletedRequests @ 0x140777B74 (PnpDeviceCompletionProcessCompletedRequests.c)
+ *     PnpDeviceCompletionProcessCompletedRequests @ 0x14074181C (PnpDeviceCompletionProcessCompletedRequests.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _BOOL8 PnpDeviceCompletionQueueIsEmpty()
@@ -19,10 +19,10 @@ _BOOL8 PnpDeviceCompletionQueueIsEmpty()
   bool v7; // zf
 
   v0 = 0;
-  v1 = KeAcquireSpinLockRaiseToDpc(&qword_140C46008);
+  v1 = KeAcquireSpinLockRaiseToDpc(&qword_140C44BA8);
   if ( (__int64 *)PnpDeviceCompletionQueue == &PnpDeviceCompletionQueue )
-    v0 = qword_140C45FD8 == (_QWORD)&qword_140C45FD8;
-  KxReleaseSpinLock(&qword_140C46008);
+    v0 = qword_140C44B78 == (_QWORD)&qword_140C44B78;
+  KxReleaseSpinLock(&qword_140C44BA8);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

@@ -1,22 +1,18 @@
 /*
- * XREFs of PopFxResidentTimeoutDpcRoutine @ 0x1402519B0
+ * XREFs of PopFxResidentTimeoutDpcRoutine @ 0x1402C9380
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItemEx @ 0x1402EEBC0 (ExQueueWorkItemEx.c)
- *     PopFxArmResidentTimer @ 0x14035800C (PopFxArmResidentTimer.c)
+ *     PopFxArmResidentTimer @ 0x140262ABC (PopFxArmResidentTimer.c)
+ *     ExQueueWorkItemEx @ 0x14027A208 (ExQueueWorkItemEx.c)
  */
 
 __int64 PopFxResidentTimeoutDpcRoutine()
 {
   __int64 result; // rax
-  __int64 v1; // rcx
 
-  result = ExQueueWorkItemEx(&PopFxResidentWorkItem, 1LL, 0xFFFFFFFFLL);
+  result = ExQueueWorkItemEx(&PopFxResidentWorkItem, 1u, 0xFFFFFFFF);
   if ( !(_BYTE)result )
-  {
-    LOBYTE(v1) = 1;
-    return PopFxArmResidentTimer(v1);
-  }
+    return PopFxArmResidentTimer(1);
   return result;
 }

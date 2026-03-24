@@ -1,7 +1,7 @@
 /*
- * XREFs of IoLockUnlockPnpDeviceTree @ 0x14082463C
+ * XREFs of IoLockUnlockPnpDeviceTree @ 0x14082461C
  * Callers:
- *     PopFxBuildDripsBlockingDeviceList @ 0x1402D74D0 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1402D75D0 (PopFxBuildDripsBlockingDeviceList.c)
  * Callees:
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
  *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VidMmGetMemoryBudgetTarget@@YAXPEAVVIDMM_GLOBAL@@PEAK1@Z @ 0x1C002CB10
+ * XREFs of ?VidMmGetMemoryBudgetTarget@@YAXPEAVVIDMM_GLOBAL@@PEAK1@Z @ 0x1C00227A0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetMemoryBudgetTarget@VIDMM_GLOBAL@@QEAAXPEAK0@Z @ 0x1C00E3948 (-GetMemoryBudgetTarget@VIDMM_GLOBAL@@QEAAXPEAK0@Z.c)
+ *     ?GetMemoryBudgetTarget@VIDMM_GLOBAL@@QEAAXPEAK0@Z @ 0x1C00AEBB0 (-GetMemoryBudgetTarget@VIDMM_GLOBAL@@QEAAXPEAK0@Z.c)
  */
 
 void __fastcall VidMmGetMemoryBudgetTarget(struct VIDMM_GLOBAL *a1, unsigned int *a2, unsigned int *a3)

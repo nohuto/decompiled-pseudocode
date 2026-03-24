@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcMessageDestroyProcedure @ 0x1407B66F0
+ * XREFs of AlpcMessageDestroyProcedure @ 0x14066C2E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PsReturnSharedPoolQuota @ 0x14069ECA8 (PsReturnSharedPoolQuota.c)
- *     AlpcpReleasePagedPoolQuota @ 0x14071DC30 (AlpcpReleasePagedPoolQuota.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
- *     AlpcpEnterFreeEventMessageLog @ 0x14097AA58 (AlpcpEnterFreeEventMessageLog.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x14061FF64 (AlpcpReleasePagedPoolQuota.c)
+ *     PsReturnSharedPoolQuota @ 0x1406D9184 (PsReturnSharedPoolQuota.c)
+ *     AlpcpEnterFreeEventMessageLog @ 0x1408C2BBC (AlpcpEnterFreeEventMessageLog.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AlpcMessageDestroyProcedure(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall AlpcMessageDestroyProcedure(__int64 a1)
   ULONG_PTR v2; // rcx
   struct _KPROCESS *v3; // rcx
   void *v4; // rcx
-  ULONG_PTR v6; // rdx
+  unsigned __int64 v6; // rdx
 
   if ( AlpcpMessageLogEnabled )
     AlpcpEnterFreeEventMessageLog(a1);
@@ -36,7 +36,7 @@ __int64 __fastcall AlpcMessageDestroyProcedure(__int64 a1)
         v6 = *(_QWORD *)(a1 + 232) + 792LL;
       if ( (*(_DWORD *)(a1 + 40) & 0x400) != 0 )
       {
-        PsReturnSharedPoolQuota((char *)v3, v6, 0LL);
+        PsReturnSharedPoolQuota(v3);
       }
       else
       {

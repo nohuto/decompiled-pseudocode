@@ -1,17 +1,22 @@
 /*
- * XREFs of SeCreateAccessStateFromSubjectContext @ 0x1409CA018
+ * XREFs of SeCreateAccessStateFromSubjectContext @ 0x14091D21C
  * Callers:
- *     CmKeyBodyRemapToVirtualForEnum @ 0x1406E23B0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmKeyBodyRemapToVirtual @ 0x140A18024 (CmKeyBodyRemapToVirtual.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140A182E8 (CmKeyBodyReplicateToVirtual.c)
- *     CmpDoBuildVirtualStack @ 0x140A1916C (CmpDoBuildVirtualStack.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406852C0 (CmKeyBodyReplicateToVirtual.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1406CE470 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmKeyBodyRemapToVirtual @ 0x14086F870 (CmKeyBodyRemapToVirtual.c)
+ *     CmpDoBuildVirtualStack @ 0x14086FFEC (CmpDoBuildVirtualStack.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x140232B20 (SepCreateAccessStateFromSubjectContext.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x140345810 (SepCreateAccessStateFromSubjectContext.c)
  */
 
-__int64 __fastcall SeCreateAccessStateFromSubjectContext(__int64 a1, _QWORD *a2, _QWORD *a3, int a4, _DWORD *a5)
+__int64 __fastcall SeCreateAccessStateFromSubjectContext(
+        __int64 a1,
+        _QWORD *a2,
+        _QWORD *a3,
+        ACCESS_MASK a4,
+        GENERIC_MAPPING *a5)
 {
   void *v7; // rcx
   int AccessStateFromSubjectContext; // edi
@@ -24,8 +29,8 @@ __int64 __fastcall SeCreateAccessStateFromSubjectContext(__int64 a1, _QWORD *a2,
   if ( AccessStateFromSubjectContext < 0 )
   {
     if ( *(_QWORD *)a1 )
-      ObfDereferenceObject(*(PVOID *)a1);
-    ObfDereferenceObject(*(PVOID *)(a1 + 16));
+      HalPutDmaAdapter(*(PADAPTER_OBJECT *)a1);
+    HalPutDmaAdapter(*(PADAPTER_OBJECT *)(a1 + 16));
   }
   return (unsigned int)AccessStateFromSubjectContext;
 }

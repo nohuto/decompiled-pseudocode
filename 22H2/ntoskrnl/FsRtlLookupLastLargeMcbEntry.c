@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlLookupLastLargeMcbEntry @ 0x14053CBD0
+ * XREFs of FsRtlLookupLastLargeMcbEntry @ 0x1404EF000
  * Callers:
- *     FsRtlLookupLastMcbEntry @ 0x14053CC50 (FsRtlLookupLastMcbEntry.c)
+ *     FsRtlLookupLastMcbEntry @ 0x1404EF110 (FsRtlLookupLastMcbEntry.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     FsRtlLookupLastBaseMcbEntry @ 0x140341460 (FsRtlLookupLastBaseMcbEntry.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     FsRtlLookupLastBaseMcbEntry @ 0x1402FF730 (FsRtlLookupLastBaseMcbEntry.c)
  */
 
 BOOLEAN __stdcall FsRtlLookupLastLargeMcbEntry(PLARGE_MCB Mcb, PLONGLONG Vbn, PLONGLONG Lbn)
 {
   ExAcquireFastMutex(Mcb->GuardedMutex);
   LOBYTE(Lbn) = FsRtlLookupLastBaseMcbEntry(&Mcb->BaseMcb, Vbn, Lbn);
-  ExReleaseFastMutex(Mcb->GuardedMutex);
+  KeReleaseGuardedMutex(Mcb->GuardedMutex);
   return (unsigned __int8)Lbn;
 }

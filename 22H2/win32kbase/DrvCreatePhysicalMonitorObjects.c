@@ -1,311 +1,245 @@
 /*
- * XREFs of DrvCreatePhysicalMonitorObjects @ 0x1C0165F80
+ * XREFs of DrvCreatePhysicalMonitorObjects @ 0x1C00BFE10
  * Callers:
- *     NtGdiCreateOPMProtectedOutputs @ 0x1C015C560 (NtGdiCreateOPMProtectedOutputs.c)
+ *     NtGdiCreateOPMProtectedOutputs @ 0x1C00BFD80 (NtGdiCreateOPMProtectedOutputs.c)
  * Callees:
- *     ?UpdateMonitorDevicesOnGraphicsDevice@EnsureMonitorDevices@@AEAAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C001E1C0 (-UpdateMonitorDevicesOnGraphicsDevice@EnsureMonitorDevices@@AEAAXPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     ?GetMonitorDevice@EnsureMonitorDevices@@QEBAXKAEAUtagVIDEO_MONITOR_DEVICE@@@Z @ 0x1C00227A0 (-GetMonitorDevice@EnsureMonitorDevices@@QEBAXKAEAUtagVIDEO_MONITOR_DEVICE@@@Z.c)
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     ?DrvGetNumberOfPhysicalMonitors@@YAJAEAVEnsureMonitorDevices@@PEAK@Z @ 0x1C00BB1A8 (-DrvGetNumberOfPhysicalMonitors@@YAJAEAVEnsureMonitorDevices@@PEAK@Z.c)
- *     ?DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00BB234 (-DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVI.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?OPMCreateProtectedOutput@@YAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z @ 0x1C015C03C (-OPMCreateProtectedOutput@@YAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z.c)
- *     ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C015C0B4 (-OPMDestroyProtectedOutput@@YAJPEAX@Z.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     UpdateMonitorDevices @ 0x1C001E2B0 (UpdateMonitorDevices.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
+ *     ?DrvGetNumberOfPhysicalMonitors@@YAJPEAUtagGRAPHICS_DEVICE@@PEAK@Z @ 0x1C00B051C (-DrvGetNumberOfPhysicalMonitors@@YAJPEAUtagGRAPHICS_DEVICE@@PEAK@Z.c)
+ *     ?DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00B0564 (-DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVI.c)
+ *     ?OPMCreateProtectedOutput@@YAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z @ 0x1C00C00B8 (-OPMCreateProtectedOutput@@YAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C0140318 (-OPMDestroyProtectedOutput@@YAJPEAX@Z.c)
  */
 
 __int64 __fastcall DrvCreatePhysicalMonitorObjects(
         struct _UNICODE_STRING *a1,
         enum _MODE a2,
         int a3,
-        unsigned int a4,
+        _DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS a4,
         unsigned int a5,
         unsigned int *a6,
-        volatile void *Address)
+        _QWORD *Address)
 {
-  unsigned int v10; // r12d
-  __int64 Pool2; // r14
-  int DeviceFromNameAndValidateDevice; // eax
-  signed int NumberOfPhysicalMonitors; // ebx
-  unsigned __int64 v15; // rax
-  unsigned int v16; // edx
-  NSInstrumentation::CLeakTrackingAllocator *v17; // rbx
-  struct _LUID v18; // rdi
-  int v19; // eax
-  _QWORD *v20; // rax
-  unsigned int v21; // edx
-  __int64 v22; // r10
-  char v23; // r15
-  __int64 v24; // r15
-  unsigned int j; // edi
-  unsigned __int64 v26; // rax
-  unsigned int v27; // ecx
-  __int64 k; // rdx
-  __int64 i; // rdi
-  int v30; // eax
-  unsigned int v31; // [rsp+30h] [rbp-158h] BYREF
-  unsigned __int64 v32; // [rsp+38h] [rbp-150h] BYREF
-  unsigned int v33; // [rsp+40h] [rbp-148h] BYREF
-  int v34; // [rsp+48h] [rbp-140h]
-  unsigned int v35; // [rsp+4Ch] [rbp-13Ch]
-  struct _LUID v36; // [rsp+50h] [rbp-138h] BYREF
-  struct tagGRAPHICS_DEVICE *v37[2]; // [rsp+60h] [rbp-128h] BYREF
-  int v38; // [rsp+70h] [rbp-118h]
-  __int64 v39; // [rsp+78h] [rbp-110h] BYREF
-  unsigned int v40[4]; // [rsp+80h] [rbp-108h] BYREF
-  int v41; // [rsp+90h] [rbp-F8h]
-  _BYTE v42[8]; // [rsp+98h] [rbp-F0h] BYREF
-  unsigned int v43; // [rsp+A0h] [rbp-E8h]
-  PVOID P; // [rsp+A8h] [rbp-E0h]
-  __int64 v45; // [rsp+B0h] [rbp-D8h]
-  PVOID BackTrace[25]; // [rsp+C0h] [rbp-C8h] BYREF
+  __int64 v7; // rsi
+  __int64 v8; // r13
+  _QWORD *v11; // rax
+  unsigned int v12; // r15d
+  unsigned int v13; // r14d
+  _QWORD *v14; // rsi
+  __int64 i; // rdx
+  size_t v16; // rcx
+  signed int DeviceFromNameAndValidateDevice; // ebx
+  struct tagGRAPHICS_DEVICE *v18; // r12
+  unsigned __int64 v19; // rax
+  __int64 v20; // rdi
+  __int64 v21; // r15
+  __int64 v22; // r12
+  unsigned __int64 v23; // rax
+  _QWORD *v24; // r15
+  unsigned int *v25; // rdi
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  __int64 j; // rdi
+  int v31; // eax
+  __int64 v32; // rax
+  unsigned int v33; // [rsp+30h] [rbp-68h]
+  int v34; // [rsp+34h] [rbp-64h] BYREF
+  unsigned int v35; // [rsp+38h] [rbp-60h]
+  int v36; // [rsp+3Ch] [rbp-5Ch]
+  int v37; // [rsp+40h] [rbp-58h]
+  struct tagGRAPHICS_DEVICE *v38; // [rsp+48h] [rbp-50h] BYREF
+  __int64 v39; // [rsp+50h] [rbp-48h]
+  _QWORD *v40; // [rsp+58h] [rbp-40h]
+  unsigned int v41; // [rsp+A0h] [rbp+8h] BYREF
+  int v42; // [rsp+B0h] [rbp+18h]
+  _DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS v43; // [rsp+B8h] [rbp+20h]
 
-  v45 = a5;
-  WdLogSingleEntry4(4LL, a1, a3, (int)a4, a5);
-  v10 = 0;
+  v43 = a4;
+  v42 = a3;
+  v7 = a4;
+  v8 = a3;
+  v11 = (_QWORD *)WdLogNewEntry5_WdEvent(a1);
+  v11[3] = a1;
+  v11[4] = v8;
+  v11[5] = v7;
+  v12 = a5;
+  v39 = a5;
+  v11[6] = a5;
+  WdLogEvent5_WdEvent(v11);
+  v13 = 0;
   v35 = 0;
-  Pool2 = 0LL;
-  v37[0] = 0LL;
-  DeviceFromNameAndValidateDevice = DrvGetDeviceFromNameAndValidateDevice(a1, a2, v37);
-  NumberOfPhysicalMonitors = DeviceFromNameAndValidateDevice;
+  v14 = 0LL;
+  UpdateMonitorDevices();
+  v38 = 0LL;
+  DeviceFromNameAndValidateDevice = DrvGetDeviceFromNameAndValidateDevice(a1, a2, (wchar_t **)&v38);
   if ( DeviceFromNameAndValidateDevice < 0 )
+    goto LABEL_26;
+  v41 = 0;
+  v18 = v38;
+  DeviceFromNameAndValidateDevice = DrvGetNumberOfPhysicalMonitors(v38, &v41);
+  if ( DeviceFromNameAndValidateDevice < 0 )
+    goto LABEL_26;
+  if ( v12 < v41 )
   {
-    WdLogSingleEntry1(5LL, DeviceFromNameAndValidateDevice);
-    return (unsigned int)NumberOfPhysicalMonitors;
+    DeviceFromNameAndValidateDevice = -1071774234;
   }
-  v43 = 0;
-  P = 0LL;
-  EnsureMonitorDevices::UpdateMonitorDevicesOnGraphicsDevice((EnsureMonitorDevices *)v42, v37[0]);
-  v31 = 0;
-  NumberOfPhysicalMonitors = DrvGetNumberOfPhysicalMonitors((struct EnsureMonitorDevices *)v42, &v31);
-  if ( NumberOfPhysicalMonitors < 0 )
-    goto LABEL_65;
-  if ( a5 < v31 )
+  else
   {
-    NumberOfPhysicalMonitors = -1071774234;
-LABEL_66:
-    if ( Pool2 )
+    v19 = 8LL * v41;
+    v16 = 0xFFFFFFFFLL;
+    if ( v19 <= 0xFFFFFFFF )
+      v16 = (unsigned int)v19;
+    DeviceFromNameAndValidateDevice = v19 > 0xFFFFFFFF ? 0xC0000095 : 0;
+    if ( v19 > 0xFFFFFFFF )
     {
-      if ( v10 )
+LABEL_26:
+      if ( DeviceFromNameAndValidateDevice >= 0 )
       {
-        for ( i = 0LL; (unsigned int)i < v10; i = (unsigned int)(i + 1) )
+        Win32FreePool((__int64)v14);
+        v28 = WdLogNewEntry5_WdTrace(v27, v26);
+        WdLogEvent5_WdTrace(v28);
+        return 0LL;
+      }
+    }
+    else
+    {
+      v14 = PALLOCMEM2(v16, 1986291527LL, 1);
+      v40 = v14;
+      if ( v14 )
+      {
+        i = 0LL;
+        v33 = 0;
+        v20 = 0LL;
+        while ( 1 )
         {
-          OPMDestroyProtectedOutput(*(void **)(Pool2 + 8 * i));
-          if ( a3 )
+          if ( (unsigned int)v20 >= *((_DWORD *)v18 + 54) )
           {
-            if ( a3 == 1 )
+            v23 = 8 * v39;
+            i = 0xFFFFFFFFLL;
+            v16 = 0xFFFFFFFFLL;
+            if ( (unsigned __int64)(8 * v39) <= 0xFFFFFFFF )
+              v16 = (unsigned int)v23;
+            DeviceFromNameAndValidateDevice = v23 > 0xFFFFFFFF ? 0xC0000095 : 0;
+            if ( v23 <= 0xFFFFFFFF )
             {
-              if ( qword_1C0294830 )
-                v30 = qword_1C0294830();
-              else
-                v30 = -1073741637;
-              if ( v30 >= 0 )
+              v24 = Address;
+              ProbeForWrite(Address, (unsigned int)v16, 8u);
+              v25 = a6;
+              ProbeForWrite(a6, 4uLL, 4u);
+              if ( v13 > a5 )
               {
-                if ( qword_1C0294838 )
-                  qword_1C0294838(*(_QWORD *)(Pool2 + 8 * i));
+                DeviceFromNameAndValidateDevice = -1071774234;
+                v37 = -1071774234;
+              }
+              else
+              {
+                for ( i = 0LL; ; i = (unsigned int)(i + 1) )
+                {
+                  v36 = i;
+                  if ( (unsigned int)i >= v13 )
+                    break;
+                  v24[i] = v14[i];
+                }
+                *v25 = v13;
               }
             }
+            goto LABEL_26;
           }
-          else
+          v21 = 5 * v20;
+          v22 = *((_QWORD *)v18 + 28);
+          if ( (*(_DWORD *)(v22 + 20 * v20) & 1) != 0 )
           {
-            OPMDestroyProtectedOutput(*(void **)(Pool2 + 8 * i));
+            if ( v13 == v41 )
+              goto LABEL_41;
+            if ( (_DWORD)v8 )
+            {
+              if ( (_DWORD)v8 != 1 )
+              {
+LABEL_41:
+                DeviceFromNameAndValidateDevice = -1071774233;
+                goto LABEL_42;
+              }
+              if ( qword_1C0255410 )
+              {
+                DeviceFromNameAndValidateDevice = qword_1C0255410();
+                i = v33;
+              }
+              else
+              {
+                DeviceFromNameAndValidateDevice = -1073741637;
+              }
+              if ( DeviceFromNameAndValidateDevice < 0 )
+                goto LABEL_42;
+              DeviceFromNameAndValidateDevice = qword_1C0255418
+                                              ? qword_1C0255418(
+                                                  v22 + 4 * (v21 + 2),
+                                                  *(unsigned int *)(v22 + 20 * v20 + 4),
+                                                  &v14[(unsigned int)i])
+                                              : -1073741637;
+              if ( DeviceFromNameAndValidateDevice < 0 )
+                goto LABEL_42;
+LABEL_15:
+              i = ++v33;
+              v35 = ++v13;
+              goto LABEL_16;
+            }
+            v34 = 0;
+            DeviceFromNameAndValidateDevice = OPMCreateProtectedOutput(
+                                                v43,
+                                                (struct _LUID *)(v22 + 4 * (v21 + 2)),
+                                                *(_DWORD *)(v22 + 20 * v20 + 4),
+                                                (void **)&v14[(unsigned int)i],
+                                                &v34);
+            if ( DeviceFromNameAndValidateDevice < 0 )
+              goto LABEL_26;
+            if ( !v34 )
+              goto LABEL_15;
+            i = v33;
           }
+LABEL_16:
+          v20 = (unsigned int)(v20 + 1);
+          v18 = v38;
         }
       }
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)Pool2);
+      DeviceFromNameAndValidateDevice = -1073741801;
     }
-    WdLogSingleEntry1(5LL, NumberOfPhysicalMonitors);
-    if ( P )
-      ExFreePoolWithTag(P, 0);
-    return (unsigned int)NumberOfPhysicalMonitors;
   }
-  v15 = 8LL * v31;
-  v16 = -1;
-  if ( v15 <= 0xFFFFFFFF )
-    v16 = 8 * v31;
-  NumberOfPhysicalMonitors = v15 > 0xFFFFFFFF ? 0xC0000095 : 0;
-  v34 = NumberOfPhysicalMonitors;
-  if ( v15 <= 0xFFFFFFFF )
+LABEL_42:
+  if ( v14 )
   {
-    if ( v16 )
+    if ( v13 )
     {
-      v33 = 1986291527;
-      v39 = 260LL;
-      v17 = gpLeakTrackingAllocator;
-      v18 = (struct _LUID)v16;
-      v36 = (struct _LUID)v16;
-      v19 = *(_DWORD *)gpLeakTrackingAllocator;
-      if ( !*(_DWORD *)gpLeakTrackingAllocator )
+      for ( j = 0LL; (unsigned int)j < v13; j = (unsigned int)(j + 1) )
       {
-        Pool2 = ExAllocatePool2(260LL, v16, 1986291527LL);
-        if ( Pool2 )
-          _InterlockedIncrement64((volatile signed __int64 *)v17 + 14);
-        goto LABEL_34;
-      }
-      if ( v19 == 1 )
-      {
-        if ( NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x76646747u)
-          && *(_QWORD *)&v18 + 16LL >= *(unsigned __int64 *)&v18 )
+        OPMDestroyProtectedOutput((void *)v14[j]);
+        if ( (_DWORD)v8 )
         {
-          v20 = (_QWORD *)ExAllocatePool2(v39 & 0xFFFFFFFFFFFFFFFDuLL, *(_QWORD *)&v18 + 16LL, v33);
-          Pool2 = (__int64)v20;
-          if ( !v20
-            || (_InterlockedIncrement64((volatile signed __int64 *)v17 + 14),
-                *v20 = 1986291527LL,
-                Pool2 = (__int64)(v20 + 2),
-                v20 == (_QWORD *)-16LL) )
+          if ( (_DWORD)v8 == 1 )
           {
-            NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-              *((NSInstrumentation::CPointerHashTable **)v17 + 1),
-              (const void *)0x76646747);
-          }
-        }
-        goto LABEL_34;
-      }
-      if ( v19 == 2 )
-      {
-        v32 = 0LL;
-        if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 0x76646747u, &v32) )
-        {
-          v37[0] = (struct tagGRAPHICS_DEVICE *)&v39;
-          v37[1] = (struct tagGRAPHICS_DEVICE *)&v33;
-          Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                    (__int64)v17,
-                    (__int64)v37,
-                    &v36);
-          goto LABEL_34;
-        }
-        v23 = 0;
-        if ( *(unsigned __int64 *)&v18 < 0x1000 || (v18.LowPart & 0xFFF) != 0 )
-        {
-          v23 = 1;
-          *(_QWORD *)&v18 += 16LL;
-          v36 = v18;
-        }
-        Pool2 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))ExAllocatePool2)(v22, v18, v21);
-        if ( Pool2 )
-        {
-          _InterlockedIncrement64((volatile signed __int64 *)v17 + 16);
-          NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-          if ( v23 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-          {
-            if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                    v17,
-                                    Pool2,
-                                    v32,
-                                    BackTrace) )
+            if ( qword_1C0255420 )
+              v31 = qword_1C0255420();
+            else
+              v31 = -1073741637;
+            if ( v31 >= 0 )
             {
-              Pool2 += 16LL;
-              goto LABEL_34;
+              if ( qword_1C0255428 )
+                qword_1C0255428(v14[j]);
             }
           }
-          else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                       v17,
-                                       Pool2,
-                                       v32,
-                                       BackTrace) )
-          {
-            goto LABEL_34;
-          }
-          _InterlockedIncrement64((volatile signed __int64 *)v17 + 17);
-          _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
         }
-      }
-      Pool2 = 0LL;
-    }
-LABEL_34:
-    v37[0] = (struct tagGRAPHICS_DEVICE *)Pool2;
-    if ( !Pool2 )
-    {
-      NumberOfPhysicalMonitors = -1073741801;
-      goto LABEL_66;
-    }
-    v24 = 0LL;
-    for ( j = 0; ; ++j )
-    {
-      if ( j >= v43 )
-      {
-        v26 = 8 * v45;
-        v27 = -1;
-        if ( (unsigned __int64)(8 * v45) <= 0xFFFFFFFF )
-          v27 = 8 * v45;
-        NumberOfPhysicalMonitors = v26 > 0xFFFFFFFF ? 0xC0000095 : 0;
-        if ( v26 <= 0xFFFFFFFF )
+        else
         {
-          ProbeForWrite(Address, v27, 8u);
-          ProbeForWrite(a6, 4uLL, 4u);
-          if ( v10 > a5 )
-          {
-            NumberOfPhysicalMonitors = -1071774234;
-            v34 = -1071774234;
-          }
-          else
-          {
-            for ( k = 0LL; ; k = (unsigned int)(k + 1) )
-            {
-              v38 = k;
-              if ( (unsigned int)k >= v10 )
-                break;
-              *((_QWORD *)Address + k) = *(_QWORD *)(Pool2 + 8 * k);
-            }
-            *a6 = v10;
-          }
+          OPMDestroyProtectedOutput((void *)v14[j]);
         }
-        break;
-      }
-      *(_OWORD *)v40 = 0LL;
-      v41 = 0;
-      EnsureMonitorDevices::GetMonitorDevice((EnsureMonitorDevices *)v42, j, (struct tagVIDEO_MONITOR_DEVICE *)v40);
-      v36 = *(struct _LUID *)&v40[2];
-      if ( (v40[0] & 1) != 0 )
-      {
-        if ( v10 == v31 )
-          goto LABEL_55;
-        if ( a3 )
-        {
-          if ( a3 != 1 )
-          {
-LABEL_55:
-            NumberOfPhysicalMonitors = -1071774233;
-            goto LABEL_66;
-          }
-          if ( qword_1C0294820 )
-            NumberOfPhysicalMonitors = qword_1C0294820();
-          else
-            NumberOfPhysicalMonitors = -1073741637;
-          if ( NumberOfPhysicalMonitors < 0 )
-            goto LABEL_66;
-          NumberOfPhysicalMonitors = qword_1C0294828 ? qword_1C0294828(&v36, v40[1], Pool2 + 8 * v24) : -1073741637;
-          if ( NumberOfPhysicalMonitors < 0 )
-            goto LABEL_66;
-LABEL_53:
-          v24 = (unsigned int)(v24 + 1);
-          v35 = ++v10;
-          continue;
-        }
-        LODWORD(v32) = 0;
-        NumberOfPhysicalMonitors = OPMCreateProtectedOutput(a4, &v36, v40[1], (void **)(Pool2 + 8 * v24), (int *)&v32);
-        if ( NumberOfPhysicalMonitors < 0 )
-          break;
-        if ( !(_DWORD)v32 )
-          goto LABEL_53;
       }
     }
+    Win32FreePool((__int64)v14);
   }
-LABEL_65:
-  if ( NumberOfPhysicalMonitors < 0 )
-    goto LABEL_66;
-  if ( Pool2 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)Pool2);
-  WdLogSingleEntry0(5LL);
-  if ( P )
-    ExFreePoolWithTag(P, 0);
-  return 0LL;
+  v32 = WdLogNewEntry5_WdTrace(v16, i);
+  *(_QWORD *)(v32 + 24) = DeviceFromNameAndValidateDevice;
+  WdLogEvent5_WdTrace(v32);
+  return (unsigned int)DeviceFromNameAndValidateDevice;
 }

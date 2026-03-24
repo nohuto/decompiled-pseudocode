@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpVsChunkSplit @ 0x1400BC830
+ * XREFs of RtlpHpVsChunkSplit @ 0x1400BC850
  * Callers:
- *     RtlpHpVsContextAllocateInternal @ 0x1401B669C (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x1401B66BC (RtlpHpVsContextAllocateInternal.c)
  * Callees:
- *     RtlpHpVsFreeChunkRemove @ 0x1400BD300 (RtlpHpVsFreeChunkRemove.c)
- *     RtlpHpVsFreeChunkInsert @ 0x1400BD460 (RtlpHpVsFreeChunkInsert.c)
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
- *     RtlpHpVsSubsegmentCommitPages @ 0x14010EB90 (RtlpHpVsSubsegmentCommitPages.c)
- *     RtlpHpVsSubsegmentCleanup @ 0x140154928 (RtlpHpVsSubsegmentCleanup.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlpHpAcquireQueuedLockExclusive @ 0x1401B62E4 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x1401B634C (RtlpHpReleaseQueuedLockExclusive.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x1400BD320 (RtlpHpVsFreeChunkRemove.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x1400BD480 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x14010EBB0 (RtlpHpVsSubsegmentCommitPages.c)
+ *     RtlpHpVsSubsegmentCleanup @ 0x140154948 (RtlpHpVsSubsegmentCleanup.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x1401B6304 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1401B636C (RtlpHpReleaseQueuedLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char a5, __int64 a6)

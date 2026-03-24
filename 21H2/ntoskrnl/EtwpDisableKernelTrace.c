@@ -1,17 +1,20 @@
 /*
- * XREFs of EtwpDisableKernelTrace @ 0x1406D56D0
+ * XREFs of EtwpDisableKernelTrace @ 0x14079846C
  * Callers:
- *     EtwpUpdateGlobalGroupMasks @ 0x1406D520C (EtwpUpdateGlobalGroupMasks.c)
- *     EtwpEnableKernelTrace @ 0x1406D5424 (EtwpEnableKernelTrace.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x140797FD0 (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpEnableKernelTrace @ 0x1407981D8 (EtwpEnableKernelTrace.c)
  * Callees:
- *     KeCancelTimer2 @ 0x1402D3FB0 (KeCancelTimer2.c)
- *     IoPerfReset @ 0x1405595B8 (IoPerfReset.c)
- *     KeStopProfile @ 0x1405716A4 (KeStopProfile.c)
- *     DbgSetDebugPrintCallback @ 0x1405E41E0 (DbgSetDebugPrintCallback.c)
- *     EtwpUpdateFileInfoDriverState @ 0x1406D5860 (EtwpUpdateFileInfoDriverState.c)
- *     AlpcUnregisterLogRoutine @ 0x140967848 (AlpcUnregisterLogRoutine.c)
- *     ObDisableEtwReferenceTrace @ 0x1409854AC (ObDisableEtwReferenceTrace.c)
- *     WmiSetNetworkNotify @ 0x1409DE1A0 (WmiSetNetworkNotify.c)
+ *     KeCancelTimer2 @ 0x14027FB40 (KeCancelTimer2.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     IoPerfReset @ 0x140507EDC (IoPerfReset.c)
+ *     KeStopProfile @ 0x14051BCE0 (KeStopProfile.c)
+ *     DbgSetDebugPrintCallback @ 0x1405855E0 (DbgSetDebugPrintCallback.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x1407985F8 (EtwpUpdateFileInfoDriverState.c)
+ *     AlpcUnregisterLogRoutine @ 0x1408C3A8C (AlpcUnregisterLogRoutine.c)
+ *     WmiSetNetworkNotify @ 0x140933548 (WmiSetNetworkNotify.c)
  */
 
 __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
@@ -21,14 +24,15 @@ __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
   int v10; // eax
   int v11; // eax
   int v12; // eax
-  unsigned int i; // edi
+  unsigned int i; // ebx
+  struct _KTHREAD *CurrentThread; // rax
 
   if ( a2 )
   {
     v8 = *a2;
     if ( (*a2 & 0x20000) != 0 )
     {
-      CmpTraceRoutine = 0LL;
+      *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) = 0LL;
       CmpTraceTxrRoutine = 0LL;
     }
     if ( (v8 & 0x100000) != 0 )
@@ -38,35 +42,35 @@ __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
     }
     if ( (v8 & 0x2000000) != 0 )
     {
-      qword_140C00318 = 0LL;
+      qword_140C00EF8 = 0LL;
       v8 = *a2;
     }
     if ( (v8 & 0x4000000) != 0 )
     {
-      qword_140C00310 = 0LL;
+      qword_140C00EF0 = 0LL;
       v8 = *a2;
     }
     if ( (v8 & 0x200) != 0 )
     {
-      qword_140C00308 = 0LL;
+      qword_140C00EE8 = 0LL;
       v8 = *a2;
     }
     if ( (v8 & 0x100) != 0 )
     {
       EtwpDiskIoNotifyRoutines = 0LL;
-      qword_140C002F8 = 0LL;
+      qword_140C00ED8 = 0LL;
       v8 = *a2;
     }
     if ( (v8 & 0x400) != 0 )
-      qword_140C4EF38 = 0LL;
+      qword_140C54760 = 0LL;
     v9 = a2[4];
     if ( (v9 & 1) != 0 )
     {
-      qword_140C4EF40 = 0LL;
+      qword_140C54768 = 0LL;
       v9 = a2[4];
     }
     if ( (v9 & 2) != 0 )
-      qword_140C4EF48 = 0LL;
+      qword_140C54770 = 0LL;
     v10 = *a2;
     if ( (*a2 & 0x200000) != 0 )
     {
@@ -80,33 +84,33 @@ __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
     v11 = a2[4];
     if ( (v11 & 0x400000) != 0 )
     {
-      qword_140C002D8 = 0LL;
+      qword_140C00EB8 = 0LL;
       v11 = a2[4];
     }
     if ( (v11 & 0x80000) != 0 )
     {
-      qword_140C002E0 = 0LL;
+      qword_140C00EC0 = 0LL;
       v11 = a2[4];
     }
     if ( (v11 & 0x100000) != 0 )
     {
-      qword_140C002E8 = 0LL;
+      qword_140C00EC8 = 0LL;
       v11 = a2[4];
     }
     if ( (v11 & 0x200000) != 0 )
     {
-      qword_140C002F0 = 0LL;
+      qword_140C00ED0 = 0LL;
       v11 = a2[4];
     }
     if ( (v11 & 0x1000000) != 0 )
     {
-      qword_140C0C5C0 = 0LL;
+      qword_140C12050 = 0LL;
       v11 = a2[4];
     }
     if ( (v11 & 0x2000000) != 0 )
-      qword_140C0C5C8 = 0LL;
+      qword_140C12058 = 0LL;
     if ( (a2[2] & 0x8000000) != 0 )
-      qword_140C0C5D0 = 0LL;
+      qword_140C12060 = 0LL;
     if ( (*a2 & 0x40000) != 0 )
       DbgSetDebugPrintCallback((PDEBUG_PRINT_CALLBACK)EtwpTraceDebugPrint, 0);
     v12 = a2[1];
@@ -118,10 +122,19 @@ __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
     if ( (v12 & 0x400) != 0 )
     {
       for ( i = 0; i < EtwpPmcProfile; ++i )
-        KeStopProfile((ULONG_PTR)qword_140C16468 + 352 * i);
+        KeStopProfile((ULONG_PTR)qword_140C19E88 + 248 * i);
     }
     if ( (a2[4] & 0x80u) != 0 )
-      ObDisableEtwReferenceTrace();
+    {
+      CurrentThread = KeGetCurrentThread();
+      --CurrentThread->SpecialApcDisable;
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&ObpStackTraceLock, 0LL);
+      ObpTraceFlags &= ~4u;
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ObpStackTraceLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(&ObpStackTraceLock);
+      KeAbPostRelease((ULONG_PTR)&ObpStackTraceLock);
+      KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+    }
     if ( (a2[1] & 0x880000) != 0 && (!a1 || (*(_DWORD *)(a1 + 4) & 0x880000) == 0) )
       KeCancelTimer2((__int64)&EtwpMemInfoTimer);
   }

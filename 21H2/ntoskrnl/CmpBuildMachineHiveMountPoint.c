@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpBuildMachineHiveMountPoint @ 0x140833B08
+ * XREFs of CmpBuildMachineHiveMountPoint @ 0x14078F83C
  * Callers:
- *     CmpInitializeSystemHivesLoad @ 0x1408337BC (CmpInitializeSystemHivesLoad.c)
- *     CmpFindMachineHiveByMountPoint @ 0x140833A64 (CmpFindMachineHiveByMountPoint.c)
+ *     CmpFindMachineHiveByMountPoint @ 0x14078F4F0 (CmpFindMachineHiveByMountPoint.c)
+ *     CmpInitializeSystemHivesLoad @ 0x14078F594 (CmpInitializeSystemHivesLoad.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
  */
 
 NTSTATUS __fastcall CmpBuildMachineHiveMountPoint(unsigned int a1, UNICODE_STRING *a2)
@@ -15,7 +15,7 @@ NTSTATUS __fastcall CmpBuildMachineHiveMountPoint(unsigned int a1, UNICODE_STRIN
 
   v3 = a1;
   RtlAppendUnicodeToString(a2, L"\\REGISTRY\\");
-  v4 = 23 * v3;
+  v4 = 25 * v3;
   RtlAppendUnicodeToString(a2, CmpMachineHiveList[v4 + 1]);
   v5 = CmpMachineHiveList[v4 + 2];
   if ( !v5 )

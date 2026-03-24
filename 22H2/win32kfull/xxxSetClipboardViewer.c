@@ -1,50 +1,54 @@
 /*
- * XREFs of xxxSetClipboardViewer @ 0x1C01FDFC4
+ * XREFs of xxxSetClipboardViewer @ 0x1C012C670
  * Callers:
- *     NtUserSetClipboardViewer @ 0x1C01DB2B0 (NtUserSetClipboardViewer.c)
+ *     NtUserSetClipboardViewer @ 0x1C012C5A0 (NtUserSetClipboardViewer.c)
  * Callees:
- *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C0018758 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FCDAC (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C002D410 (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C0030448 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
  */
 
-__int64 __fastcall xxxSetClipboardViewer(__int64 a1)
+__int64 __fastcall xxxSetClipboardViewer(__int64 a1, __int64 a2, __int64 a3)
 {
-  struct tagWINDOWSTATION *v2; // rax
-  struct tagWINDOWSTATION *v3; // rdi
-  _QWORD *v5; // rsi
-  _QWORD v6[2]; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v7; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+40h] [rbp-18h]
+  struct tagWINDOWSTATION *v4; // rax
+  struct tagWINDOWSTATION *v5; // rdi
+  _QWORD *v6; // rsi
+  _QWORD v8[2]; // [rsp+20h] [rbp-38h] BYREF
+  __int128 v9; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v10; // [rsp+40h] [rbp-18h]
 
-  v8 = 0LL;
-  v7 = 0LL;
+  v10 = 0LL;
+  v9 = 0LL;
   if ( a1 && *(char *)(*(_QWORD *)(a1 + 40) + 19LL) < 0 )
-    goto LABEL_6;
-  v2 = CheckClipboardAccess();
-  v3 = v2;
-  if ( !v2 )
+    goto LABEL_11;
+  v4 = CheckClipboardAccess();
+  v5 = v4;
+  if ( !v4 )
     return 0LL;
-  if ( a1 && *(struct tagWINDOWSTATION **)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL) + 656LL) != v2 )
+  if ( a1 )
   {
-LABEL_6:
-    UserSetLastError(87);
-    return 0LL;
+    a2 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL);
+    if ( *(struct tagWINDOWSTATION **)(a2 + 664) != v4 )
+    {
+LABEL_11:
+      UserSetLastError(87LL, a2, a3);
+      return 0LL;
+    }
   }
-  PushW32ThreadLock((__int64)v2, &v7, UserDereferenceObject);
-  ObfReferenceObject(v3);
-  v5 = (_QWORD *)*((_QWORD *)v3 + 13);
-  if ( v5 )
-    v5 = (_QWORD *)*v5;
-  v6[0] = (char *)v3 + 104;
-  v6[1] = a1;
-  HMAssignmentLock(v6, 0LL);
-  xxxDrawClipboard(v3);
-  PopAndFreeW32ThreadLock((__int64)&v7);
-  if ( !v5 )
+  PushW32ThreadLock((__int64)v4, &v9, UserDereferenceObject);
+  ObfReferenceObject(v5);
+  v6 = (_QWORD *)*((_QWORD *)v5 + 13);
+  if ( v6 )
+    v6 = (_QWORD *)*v6;
+  v8[0] = (char *)v5 + 104;
+  v8[1] = a1;
+  HMAssignmentLock(v8);
+  xxxDrawClipboard(v5);
+  PopAndFreeW32ThreadLock((__int64)&v9);
+  if ( !v6 )
     return 0LL;
-  return HMValidateHandleNoSecure((int)v5, 1);
+  return HMValidateHandleNoSecure((unsigned __int64)v6, 1);
 }

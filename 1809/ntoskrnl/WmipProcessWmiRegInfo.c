@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipProcessWmiRegInfo @ 0x140707C6C
+ * XREFs of WmipProcessWmiRegInfo @ 0x140707C4C
  * Callers:
- *     WmipRegisterOrUpdateDS @ 0x1406C9988 (WmipRegisterOrUpdateDS.c)
+ *     WmipRegisterOrUpdateDS @ 0x1406C9968 (WmipRegisterOrUpdateDS.c)
  * Callees:
- *     WmipAddDataSource @ 0x1407075F0 (WmipAddDataSource.c)
- *     WmipValidateWmiRegInfoString @ 0x140707D68 (WmipValidateWmiRegInfoString.c)
- *     WmipUpdateDataSource @ 0x1408B4868 (WmipUpdateDataSource.c)
+ *     WmipAddDataSource @ 0x1407075D0 (WmipAddDataSource.c)
+ *     WmipValidateWmiRegInfoString @ 0x140707D48 (WmipValidateWmiRegInfoString.c)
+ *     WmipUpdateDataSource @ 0x1408B4848 (WmipUpdateDataSource.c)
  */
 
 __int64 __fastcall WmipProcessWmiRegInfo(__int64 a1, unsigned int *a2, unsigned int a3, char a4)

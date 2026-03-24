@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQueryUnbiasedInterruptTimePrecise @ 0x14020C320
+ * XREFs of KeQueryUnbiasedInterruptTimePrecise @ 0x1402E09E0
  * Callers:
- *     IoDiskIoAttributionQuery @ 0x14020C244 (IoDiskIoAttributionQuery.c)
+ *     IoDiskIoAttributionQuery @ 0x1402E027C (IoDiskIoAttributionQuery.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
  */
 
 ULONG64 __stdcall KeQueryUnbiasedInterruptTimePrecise(PULONG64 QpcTimeStamp)
@@ -14,7 +14,7 @@ ULONG64 __stdcall KeQueryUnbiasedInterruptTimePrecise(PULONG64 QpcTimeStamp)
   __int64 v5; // rbp
   LARGE_INTEGER PerformanceCounter; // rdx
   LONGLONG v7; // rdx
-  __int64 v9; // [rsp+50h] [rbp+8h]
+  __int64 v9; // [rsp+60h] [rbp+8h]
 
   do
   {

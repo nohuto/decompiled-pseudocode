@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlpReadOnlyOplockIrpCancelRoutine @ 0x14053ECF0
+ * XREFs of FsRtlpReadOnlyOplockIrpCancelRoutine @ 0x1404F07B0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpCancelReadOnlyOplockIrp @ 0x14053E250 (FsRtlpCancelReadOnlyOplockIrp.c)
+ *     FsRtlpCancelReadOnlyOplockIrp @ 0x1404F0378 (FsRtlpCancelReadOnlyOplockIrp.c)
  */
 
 void __fastcall FsRtlpReadOnlyOplockIrpCancelRoutine(__int64 a1, __int64 a2)

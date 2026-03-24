@@ -1,11 +1,11 @@
 /*
- * XREFs of Endpoint_UcxEvtEndpointPurge @ 0x1C0004BE0
+ * XREFs of Endpoint_UcxEvtEndpointPurge @ 0x1C0010480
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ddq @ 0x1C00059E8 (WPP_RECORDER_SF_ddq.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_ddqd @ 0x1C003BB20 (WPP_RECORDER_SF_ddqd.c)
+ *     WPP_RECORDER_SF_ddq @ 0x1C0009428 (WPP_RECORDER_SF_ddq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ddqd @ 0x1C003B4AC (WPP_RECORDER_SF_ddqd.c)
  */
 
 _UNKNOWN **__fastcall Endpoint_UcxEvtEndpointPurge(__int64 a1, __int64 a2)
@@ -22,7 +22,7 @@ _UNKNOWN **__fastcall Endpoint_UcxEvtEndpointPurge(__int64 a1, __int64 a2)
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a2,
-         off_1C00611A8);
+         off_1C00601A8);
   v6 = (_QWORD *)v3;
   if ( *(_BYTE *)(v3 + 37) && (v8 = *(_QWORD *)(v3 + 136)) != 0 )
   {
@@ -57,7 +57,7 @@ _UNKNOWN **__fastcall Endpoint_UcxEvtEndpointPurge(__int64 a1, __int64 a2)
         v4,
         13,
         36,
-        (__int64)&WPP_60b6c7b69d133891580a7186b105caca_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(v3 + 16) + 135LL),
         *(_DWORD *)(v3 + 144),
         a2);

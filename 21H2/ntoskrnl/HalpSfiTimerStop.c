@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpSfiTimerStop @ 0x140522CE0
+ * XREFs of HalpSfiTimerStop @ 0x1404D59C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpSfiTimerInitialize @ 0x140522BA0 (HalpSfiTimerInitialize.c)
+ *     HalpSfiTimerInitialize @ 0x1404D5870 (HalpSfiTimerInitialize.c)
  */
 
 __int64 __fastcall HalpSfiTimerStop(LARGE_INTEGER *a1)

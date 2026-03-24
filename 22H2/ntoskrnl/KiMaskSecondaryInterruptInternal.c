@@ -1,101 +1,103 @@
 /*
- * XREFs of KiMaskSecondaryInterruptInternal @ 0x140571CA8
+ * XREFs of KiMaskSecondaryInterruptInternal @ 0x140519448
  * Callers:
- *     KeMaskInterrupt @ 0x14031F3D4 (KeMaskInterrupt.c)
+ *     KeMaskInterrupt @ 0x1403769B0 (KeMaskInterrupt.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x1403A2AE8 (KiAcquireSecondaryInterruptConnectLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x140518E6C (KiAcquireSecondaryInterruptConnectLock.c)
  */
 
 __int64 __fastcall KiMaskSecondaryInterruptInternal(int a1, unsigned int a2)
 {
   unsigned int v3; // esi
-  __int64 v4; // rdi
-  volatile signed __int64 *v5; // rbx
+  __int64 v4; // rbx
+  KSPIN_LOCK *v5; // rdi
+  __int64 v6; // rdx
   unsigned __int8 CurrentIrql; // al
-  unsigned __int8 v7; // bl
+  unsigned __int8 v8; // bl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
-  int v10; // eax
-  bool v11; // zf
-  __int64 v13; // rax
-  __int64 *v14; // rcx
-  unsigned __int8 v15; // cl
-  unsigned __int8 v16; // bl
-  struct _KPRCB *v17; // r10
-  _DWORD *v18; // r8
-  int v19; // eax
-  unsigned __int8 v20; // [rsp+30h] [rbp+8h] BYREF
+  int v11; // eax
+  bool v12; // zf
+  __int64 v14; // rax
+  __int64 *v15; // rcx
+  unsigned __int8 v16; // al
+  unsigned __int8 v17; // bl
+  struct _KPRCB *v18; // r10
+  _DWORD *v19; // r8
+  int v20; // eax
+  unsigned __int8 v21; // [rsp+30h] [rbp+8h] BYREF
 
-  v20 = 0;
+  v21 = 0;
   v3 = 0;
-  v4 = 48LL * (unsigned int)(a1 - 256);
-  v5 = (volatile signed __int64 *)(v4 + KiGlobalSecondaryIDT);
-  KiAcquireSecondaryInterruptConnectLock((PKSPIN_LOCK)(v4 + KiGlobalSecondaryIDT), &v20);
-  if ( *(_BYTE *)(v4 + KiGlobalSecondaryIDT + 32) || (v13 = *(_QWORD *)(v4 + KiGlobalSecondaryIDT + 40)) == 0 )
+  v4 = (unsigned int)(a1 - 256);
+  v5 = (KSPIN_LOCK *)(KiGlobalSecondaryIDT + 48 * v4);
+  KiAcquireSecondaryInterruptConnectLock(v5, &v21);
+  v6 = KiGlobalSecondaryIDT + 48 * v4;
+  if ( *(_BYTE *)(v6 + 32) || (v14 = *(_QWORD *)(v6 + 40)) == 0 )
   {
     KxReleaseSpinLock(v5);
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
     {
-      v7 = v20;
-      if ( v20 <= 0xFu && CurrentIrql >= 2u )
+      v8 = v21;
+      if ( v21 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v7 = v20;
-        v10 = ~(unsigned __int16)(-1LL << (v20 + 1));
-        v11 = (v10 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v10;
-        if ( v11 )
+        v8 = v21;
+        v11 = ~(unsigned __int16)(-1LL << (v21 + 1));
+        v12 = (v11 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v11;
+        if ( v12 )
           KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     else
     {
-      v7 = v20;
+      v8 = v21;
     }
-    __writecr8(v7);
+    __writecr8(v8);
     return 0LL;
   }
   else
   {
-    v14 = (__int64 *)(v13 + 8);
-    while ( (v14[12] & 1) != 0 )
+    v15 = (__int64 *)(v14 + 8);
+    while ( (v15[12] & 1) != 0 )
     {
-      v14 = (__int64 *)*v14;
-      if ( v14 == (__int64 *)(v13 + 8) )
+      v15 = (__int64 *)*v15;
+      if ( v15 == (__int64 *)(v14 + 8) )
       {
-        *(_BYTE *)(v4 + KiGlobalSecondaryIDT + 32) = 1;
+        *(_BYTE *)(v6 + 32) = 1;
         goto LABEL_17;
       }
     }
     v3 = 296;
 LABEL_17:
     KxReleaseSpinLock(v5);
-    if ( KiIrqlFlags && (v15 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v15 <= 0xFu )
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (v16 = KeGetCurrentIrql(), v16 <= 0xFu) )
     {
-      v16 = v20;
-      if ( v20 <= 0xFu && v15 >= 2u )
+      v17 = v21;
+      if ( v21 <= 0xFu && v16 >= 2u )
       {
-        v17 = KeGetCurrentPrcb();
-        v18 = v17->SchedulerAssist;
-        v16 = v20;
-        v19 = ~(unsigned __int16)(-1LL << (v20 + 1));
-        v11 = (v19 & v18[5]) == 0;
-        v18[5] &= v19;
-        if ( v11 )
-          KiRemoveSystemWorkPriorityKick((__int64)v17);
+        v18 = KeGetCurrentPrcb();
+        v19 = v18->SchedulerAssist;
+        v17 = v21;
+        v20 = ~(unsigned __int16)(-1LL << (v21 + 1));
+        v12 = (v20 & v19[5]) == 0;
+        v19[5] &= v20;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick((__int64)v18);
       }
     }
     else
     {
-      v16 = v20;
+      v17 = v21;
     }
-    __writecr8(v16);
+    __writecr8(v17);
     if ( !v3 )
-      ((void (__fastcall *)(_QWORD, _QWORD))off_140C01B80[0])(a2, 0LL);
+      ((void (__fastcall *)(_QWORD, _QWORD))off_140C00770[0])(a2, 0LL);
     return v3;
   }
 }

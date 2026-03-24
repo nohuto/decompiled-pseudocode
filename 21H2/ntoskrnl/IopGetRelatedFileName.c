@@ -1,102 +1,114 @@
 /*
- * XREFs of IopGetRelatedFileName @ 0x1409342B0
+ * XREFs of IopGetRelatedFileName @ 0x1405D87C8
  * Callers:
- *     IopSymlinkRememberJunction @ 0x1406B9BC0 (IopSymlinkRememberJunction.c)
+ *     IopSymlinkRememberJunction @ 0x14069E3D4 (IopSymlinkRememberJunction.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     IopGetFileInformation @ 0x14070FC40 (IopGetFileInformation.c)
- *     ObQueryNameStringMode @ 0x1407103B0 (ObQueryNameStringMode.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopGetFileInformation @ 0x140620A14 (IopGetFileInformation.c)
+ *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetRelatedFileName(__int64 a1, __int64 a2, unsigned __int16 a3, _WORD *a4)
 {
-  struct _IRP *v4; // rsi
-  int v5; // r12d
+  _DWORD *v4; // rsi
+  int v5; // r13d
   const void **v6; // rdi
-  unsigned int v10; // ebp
-  __int64 Pool2; // rax
+  unsigned int v7; // ebp
+  unsigned int v8; // r14d
+  const void **PoolWithTag; // rax
   int NameStringMode; // eax
   unsigned int v13; // ebx
-  ULONG v14; // ebp
+  _DWORD *v14; // rax
   int FileInformation; // eax
   unsigned int v16; // ecx
-  void *v17; // rax
+  PVOID v17; // rax
   _DWORD v19[4]; // [rsp+30h] [rbp-38h] BYREF
 
   v4 = 0LL;
   v5 = a3;
   v6 = 0LL;
+  v7 = 256;
   v19[0] = 0;
-  v10 = 256;
+  v8 = 256;
   do
   {
     if ( v6 )
+    {
       ExFreePoolWithTag(v6, 0);
-    if ( v10 >= 0xFFFF )
-      return (unsigned int)-1073741562;
-    Pool2 = ExAllocatePool2(256LL, v10, 1665560393LL);
-    v6 = (const void **)Pool2;
-    if ( !Pool2 )
+      v6 = 0LL;
+    }
+    if ( v8 >= 0xFFFF )
+    {
+      v13 = -1073741562;
+      goto LABEL_21;
+    }
+    PoolWithTag = (const void **)ExAllocatePoolWithTag(PagedPool, v8, 0x63466F49u);
+    v6 = PoolWithTag;
+    if ( !PoolWithTag )
       return (unsigned int)-1073741670;
-    NameStringMode = ObQueryNameStringMode(*(char **)(a1 + 8), Pool2, v10, v19, 0);
+    memset(PoolWithTag, 0, v8);
+    NameStringMode = ObQueryNameStringMode(*(_QWORD *)(a1 + 8), (_DWORD)v6, v8, (unsigned int)v19, 0);
     v13 = NameStringMode;
-    v10 = v19[0] + 8;
+    v8 = v19[0] + 8;
     if ( a4 )
       *a4 = *(_WORD *)v6;
   }
   while ( NameStringMode == -2147483643 );
   if ( NameStringMode >= 0 )
   {
-    v14 = 256;
     do
     {
       if ( v4 )
-        ExFreePoolWithTag(v4, 0);
-      if ( v14 >= 0xFFFF )
       {
-        v13 = -1073741562;
-        goto LABEL_27;
+        ExFreePoolWithTag(v4, 0);
+        v4 = 0LL;
       }
-      v4 = (struct _IRP *)ExAllocatePool2(256LL, v14, 1665560393LL);
-      if ( !v4 )
+      if ( v7 >= 0xFFFF )
+        goto LABEL_26;
+      v14 = ExAllocatePoolWithTag(PagedPool, v7, 0x63466F49u);
+      v4 = v14;
+      if ( !v14 )
       {
         v13 = -1073741670;
-        goto LABEL_27;
+        goto LABEL_21;
       }
-      FileInformation = IopGetFileInformation(*(struct _FILE_OBJECT **)(a1 + 64), v14, 9u, v4, v19);
+      memset(v14, 0, v7);
+      FileInformation = IopGetFileInformation(*(PADAPTER_OBJECT *)(a1 + 64), (__int64)v19);
       v13 = FileInformation;
-      v14 = *(_DWORD *)&v4->Type + 8;
+      v7 = *v4 + 8;
     }
     while ( FileInformation == -2147483643 );
-    if ( FileInformation >= 0 )
+    if ( FileInformation < 0 )
+      goto LABEL_19;
+    v16 = v5 + *v4 + *(unsigned __int16 *)v6;
+    if ( v16 >= 0xFFFF )
     {
-      v16 = v5 + *(_DWORD *)&v4->Type + *(unsigned __int16 *)v6;
-      if ( v16 < 0xFFFF )
-      {
-        *(_WORD *)(a2 + 2) = v16;
-        *(_WORD *)a2 = v16 - v5;
-        v17 = (void *)ExAllocatePool2(256LL, v16, 1665560393LL);
-        *(_QWORD *)(a2 + 8) = v17;
-        if ( v17 )
-        {
-          memmove(v17, v6[1], *(unsigned __int16 *)v6);
-          memmove((void *)(*(_QWORD *)(a2 + 8) + *(unsigned __int16 *)v6), &v4->Size + 1, *(unsigned int *)&v4->Type);
-        }
-        else
-        {
-          v13 = -1073741670;
-        }
-      }
-      else
-      {
-        v13 = -1073741562;
-      }
+LABEL_26:
+      v13 = -1073741562;
+      goto LABEL_19;
     }
-    ExFreePoolWithTag(v4, 0);
+    *(_WORD *)(a2 + 2) = v16;
+    *(_WORD *)a2 = v16 - v5;
+    v17 = ExAllocatePoolWithTag(PagedPool, v16, 0x63466F49u);
+    *(_QWORD *)(a2 + 8) = v17;
+    if ( v17 )
+    {
+      memmove(v17, v6[1], *(unsigned __int16 *)v6);
+      memmove((void *)(*(_QWORD *)(a2 + 8) + *(unsigned __int16 *)v6), v4 + 1, (unsigned int)*v4);
+    }
+    else
+    {
+      v13 = -1073741670;
+    }
+LABEL_19:
+    if ( v4 )
+      ExFreePoolWithTag(v4, 0);
   }
-LABEL_27:
-  ExFreePoolWithTag(v6, 0);
+LABEL_21:
+  if ( v6 )
+    ExFreePoolWithTag(v6, 0);
   return v13;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlLoadStringOrError @ 0x1C0061FA0
+ * XREFs of RtlLoadStringOrError @ 0x1C0010F50
  * Callers:
- *     InitScancodeMap @ 0x1C00613A0 (InitScancodeMap.c)
- *     CheckDesktopPolicy @ 0x1C00616B0 (CheckDesktopPolicy.c)
- *     FastGetProfileIntsW @ 0x1C00618A0 (FastGetProfileIntsW.c)
- *     FastGetProfileValue @ 0x1C0061950 (FastGetProfileValue.c)
- *     FastGetProfileIntFromID @ 0x1C0061E60 (FastGetProfileIntFromID.c)
- *     FastGetProfileStringFromIDW @ 0x1C0061F00 (FastGetProfileStringFromIDW.c)
- *     FastUpdateWinIni @ 0x1C0135520 (FastUpdateWinIni.c)
- *     FastWriteProfileValue @ 0x1C0135590 (FastWriteProfileValue.c)
- *     Win32kBaseDriverEntry @ 0x1C02DEBC0 (Win32kBaseDriverEntry.c)
+ *     InitScancodeMap @ 0x1C000E700 (InitScancodeMap.c)
+ *     FastGetProfileIntsW @ 0x1C000F360 (FastGetProfileIntsW.c)
+ *     FastGetProfileValue @ 0x1C000FE10 (FastGetProfileValue.c)
+ *     CheckDesktopPolicy @ 0x1C000FFF0 (CheckDesktopPolicy.c)
+ *     FastGetProfileIntFromID @ 0x1C0010400 (FastGetProfileIntFromID.c)
+ *     FastGetProfileStringFromIDW @ 0x1C00104A0 (FastGetProfileStringFromIDW.c)
+ *     FastUpdateWinIni @ 0x1C011DF30 (FastUpdateWinIni.c)
+ *     FastWriteProfileValue @ 0x1C011DFA0 (FastWriteProfileValue.c)
+ *     Win32kBaseDriverEntry @ 0x1C029A770 (Win32kBaseDriverEntry.c)
  * Callees:
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall RtlLoadStringOrError(ULONG MessageId, _WORD *a2, int a3, unsigned __int16 a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of HeadlessTerminalAddResources @ 0x14081F804
+ * XREFs of HeadlessTerminalAddResources @ 0x14079568C
  * Callers:
- *     IoReportHalResourceUsage @ 0x140AF7620 (IoReportHalResourceUsage.c)
+ *     IoReportHalResourceUsage @ 0x140A3A810 (IoReportHalResourceUsage.c)
  * Callees:
- *     HalTranslateBusAddress @ 0x1403B5160 (HalTranslateBusAddress.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     HalTranslateBusAddress @ 0x1403A5A60 (HalTranslateBusAddress.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HeadlessTerminalAddResources(void *Src, size_t Size, char a3, _QWORD *a4, _DWORD *a5)

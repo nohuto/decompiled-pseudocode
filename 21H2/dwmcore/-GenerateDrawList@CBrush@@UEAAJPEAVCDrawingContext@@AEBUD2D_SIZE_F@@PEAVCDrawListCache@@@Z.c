@@ -1,118 +1,143 @@
 /*
- * XREFs of ?GenerateDrawList@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180053D70
+ * XREFs of ?GenerateDrawList@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800573C0
  * Callers:
  *     <none>
  * Callees:
- *     ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAVCDrawListCache@@@Z @ 0x18005464C (-RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBr.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Update@CDrawListCache@@QEAAXPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@@Z @ 0x180087148 (-Update@CDrawListCache@@QEAAXPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@@Z.c)
- *     ??0CDrawListEntryBuilder@@QEAA@XZ @ 0x180087918 (--0CDrawListEntryBuilder@@QEAA@XZ.c)
- *     ??1CBrushDrawListGenerator@@QEAA@XZ @ 0x18008EE3C (--1CBrushDrawListGenerator@@QEAA@XZ.c)
- *     ??0CBrushDrawListGenerator@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x18008EE7C (--0CBrushDrawListGenerator@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
- *     ??R?$default_delete@VCDrawListBrush@@@std@@QEBAXPEAVCDrawListBrush@@@Z @ 0x18008EF54 (--R-$default_delete@VCDrawListBrush@@@std@@QEBAXPEAVCDrawListBrush@@@Z.c)
- *     ?GenerateDrawList@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1@PEAVCDrawListEntryBuilder@@@Z @ 0x180094700 (-GenerateDrawList@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1@PEAVCDrawListEn.c)
- *     ??1CDrawListEntryBuilder@@QEAA@XZ @ 0x1800AF764 (--1CDrawListEntryBuilder@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _alloca_probe @ 0x180105110 (_alloca_probe.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??R?$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z @ 0x180007474 (--R-$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z.c)
+ *     ?GenerateDrawList@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1@PEAVCDrawListEntryBuilder@@@Z @ 0x180054CC4 (-GenerateDrawList@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1@PEAVCDrawListEn.c)
+ *     ??1?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@QEAA@XZ @ 0x18005620C (--1-$unique_ptr@VCDrawListBrush@@U-$default_delete@VCDrawListBrush@@@std@@@std@@QEAA@XZ.c)
+ *     ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAVCDrawListCache@@@Z @ 0x180056A18 (-RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBr.c)
+ *     ??1CDrawListEntryBuilder@@QEAA@XZ @ 0x1800575F0 (--1CDrawListEntryBuilder@@QEAA@XZ.c)
+ *     ??0CDrawListEntryBuilder@@QEAA@XZ @ 0x1800578D8 (--0CDrawListEntryBuilder@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Update@CDrawListCache@@QEAAXPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@@Z @ 0x1800936CC (-Update@CDrawListCache@@QEAAXPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@@Z.c)
+ *     ??1CBrushDrawListGenerator@@QEAA@XZ @ 0x1800947FC (--1CBrushDrawListGenerator@@QEAA@XZ.c)
+ *     ??0CBrushDrawListGenerator@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x18009483C (--0CBrushDrawListGenerator@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
+ *     ?Reset@CBrushDrawListGenerator@@QEAAXXZ @ 0x1800948A8 (-Reset@CBrushDrawListGenerator@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _Init_thread_footer @ 0x1800E7910 (_Init_thread_footer.c)
+ *     _Init_thread_header @ 0x1800E7978 (_Init_thread_header.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBrush::GenerateDrawList(
-        CBrush *this,
+        CBrushRenderingGraph **this,
         struct CDrawingContext *a2,
-        const struct D2D_SIZE_F *a3,
+        struct D2D_SIZE_F *a3,
         struct CDrawListCache *a4)
 {
-  __int64 v4; // rax
-  struct CDrawListBrush *v9; // rcx
-  int v10; // ebx
-  struct CDrawListBrush *v11; // rax
-  CBrushRenderingGraph *v12; // rcx
-  __int64 v13; // rax
+  CBrushRenderingGraph *v8; // rax
+  __int64 (__fastcall *v9)(CBrush *, struct CDrawingContext *, struct D2D_SIZE_F *, unsigned int *); // rax
+  __int64 v10; // rcx
+  int v11; // ebx
+  struct CDrawListBrush *v12; // rax
+  CBrushRenderingGraph *v13; // rcx
   int v14; // eax
-  int v16; // eax
-  unsigned int v17; // ecx
+  unsigned int v15; // ecx
   int DrawList; // eax
-  unsigned int v19; // ecx
-  struct CDrawListBrush *v20; // [rsp+30h] [rbp-D0h] BYREF
-  struct CDrawListBrush **v21; // [rsp+38h] [rbp-C8h]
-  unsigned int v22[2]; // [rsp+40h] [rbp-C0h] BYREF
-  char v23; // [rsp+48h] [rbp-B8h]
-  _QWORD v24[2]; // [rsp+50h] [rbp-B0h] BYREF
-  int v25; // [rsp+60h] [rbp-A0h]
-  int v26; // [rsp+ACh] [rbp-54h]
-  char v27; // [rsp+B0h] [rbp-50h]
-  _BYTE v28[80]; // [rsp+C0h] [rbp-40h] BYREF
-  _BYTE v29[4432]; // [rsp+110h] [rbp+10h] BYREF
+  unsigned int v17; // ecx
+  __int64 v18; // rdi
+  char *v19; // rsi
+  __int64 v21; // rax
+  int v22; // eax
+  unsigned int v23; // ecx
+  struct CDrawListBrush *v24; // [rsp+30h] [rbp-D0h] BYREF
+  struct CDrawListBrush **v25; // [rsp+38h] [rbp-C8h]
+  unsigned int v26[2]; // [rsp+40h] [rbp-C0h] BYREF
+  char v27; // [rsp+48h] [rbp-B8h]
+  _QWORD v28[2]; // [rsp+50h] [rbp-B0h] BYREF
+  int v29; // [rsp+60h] [rbp-A0h]
+  __int16 v30; // [rsp+ACh] [rbp-54h]
+  char v31; // [rsp+AEh] [rbp-52h]
+  _BYTE v32[72]; // [rsp+B0h] [rbp-50h] BYREF
+  char v33; // [rsp+F8h] [rbp-8h] BYREF
+  _BYTE v34[2304]; // [rsp+100h] [rbp+0h] BYREF
 
-  v4 = *(_QWORD *)this;
-  v20 = 0LL;
-  *(_QWORD *)v22 = 0LL;
-  v21 = &v20;
-  v23 = 1;
-  v10 = (*(__int64 (__fastcall **)(CBrush *, struct CDrawingContext *, const struct D2D_SIZE_F *, unsigned int *))(v4 + 336))(
-          this,
-          a2,
-          a3,
-          v22);
-  if ( v23 )
+  if ( dword_18034B1D4 > *(_DWORD *)(*((_QWORD *)NtCurrentTeb()->ThreadLocalStoragePointer + (unsigned int)tls_index)
+                                   + 4LL) )
   {
-    v9 = *(struct CDrawListBrush **)v22;
-    v11 = *v21;
-    *v21 = *(struct CDrawListBrush **)v22;
-    if ( v11 )
-      std::default_delete<CDrawListBrush>::operator()(v9, v11);
-  }
-  if ( v10 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v9, &dword_180346338, 3u, v10, 0xAFu, 0LL);
-  }
-  else
-  {
-    v12 = (CBrushRenderingGraph *)*((_QWORD *)this + 9);
-    if ( v12 )
+    Init_thread_header(&dword_18034B1D4);
+    if ( dword_18034B1D4 == -1 )
     {
-      v13 = *((_QWORD *)a2 + 5);
-      if ( *(int *)(v13 + 584) >= 37632 && !*(_BYTE *)(v13 + 1505) )
-      {
-        v14 = CBrushRenderingGraph::RenderSubgraphs(v12, a2, a3, v20, a4);
-        v10 = v14;
-        if ( v14 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v12, &dword_180346338, 3u, v14, 0xC6u, 0LL);
-      }
+      dword_180345AA8 = -2147022876;
+      Init_thread_footer(&dword_18034B1D4);
+    }
+  }
+  v8 = *this;
+  v25 = &v24;
+  v24 = 0LL;
+  *(_QWORD *)v26 = 0LL;
+  v9 = (__int64 (__fastcall *)(CBrush *, struct CDrawingContext *, struct D2D_SIZE_F *, unsigned int *))*((_QWORD *)v8 + 43);
+  v27 = 1;
+  v11 = v9((CBrush *)this, a2, a3, v26);
+  if ( v27 )
+  {
+    v10 = *(_QWORD *)v26;
+    v12 = *v25;
+    *v25 = *(struct CDrawListBrush **)v26;
+    if ( v12 )
+      std::default_delete<CShape>::operator()(v10, (__int64 (__fastcall ***)(_QWORD, __int64))v12);
+  }
+  if ( v11 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v10, &dword_180345AA0, 3u, v11, 0xB2u, 0LL);
+    goto LABEL_11;
+  }
+  v13 = this[8];
+  if ( !v13 )
+  {
+    CBrushDrawListGenerator::CBrushDrawListGenerator((CBrushDrawListGenerator *)v32, a2, a3);
+    v14 = (*((__int64 (__fastcall **)(CBrushRenderingGraph **, _BYTE *))*this + 41))(this, v32);
+    v11 = v14;
+    if ( v14 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v15, &dword_180345AA0, 3u, v14, 0xB7u, 0LL);
     }
     else
     {
-      CBrushDrawListGenerator::CBrushDrawListGenerator((CBrushDrawListGenerator *)v28, a2, a3);
-      v16 = (*(__int64 (__fastcall **)(CBrush *, _BYTE *))(*(_QWORD *)this + 320LL))(this, v28);
-      v10 = v16;
-      if ( v16 < 0 )
+      v28[0] = v24;
+      v28[1] = 0LL;
+      v29 = 0;
+      v30 = 1;
+      v31 = 0;
+      CDrawListEntryBuilder::CDrawListEntryBuilder((CDrawListEntryBuilder *)v34);
+      DrawList = CBrushDrawListGenerator::GenerateDrawList(
+                   (CBrushDrawListGenerator *)v32,
+                   (const struct CBrushDrawListGenerator::GenerateDrawListProperties *)v28,
+                   (struct CDrawListEntryBuilder *)v34);
+      v11 = DrawList;
+      if ( DrawList >= 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v17, &dword_180346338, 3u, v16, 0xB4u, 0LL);
+        CDrawListCache::Update(a4, a2, (struct CDrawListEntryBuilder *)v34);
+        CDrawListEntryBuilder::~CDrawListEntryBuilder((CDrawListEntryBuilder *)v34);
+        CBrushDrawListGenerator::Reset((CBrushDrawListGenerator *)v32);
+        v18 = 4LL;
+        v19 = &v33;
+        do
+        {
+          v19 -= 8;
+          std::unique_ptr<CDrawListBrush>::~unique_ptr<CDrawListBrush>((__int64 (__fastcall ****)(_QWORD, __int64))v19);
+          --v18;
+        }
+        while ( v18 );
+        goto LABEL_11;
       }
-      else
-      {
-        v24[0] = v20;
-        v24[1] = 0LL;
-        v25 = 0;
-        v26 = 257;
-        v27 = 0;
-        CDrawListEntryBuilder::CDrawListEntryBuilder((CDrawListEntryBuilder *)v29);
-        DrawList = CBrushDrawListGenerator::GenerateDrawList(
-                     (CBrushDrawListGenerator *)v28,
-                     (const struct CBrushDrawListGenerator::GenerateDrawListProperties *)v24,
-                     (struct CDrawListEntryBuilder *)v29);
-        v10 = DrawList;
-        if ( DrawList < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v19, &dword_180346338, 3u, DrawList, 0xBBu, 0LL);
-        else
-          CDrawListCache::Update(a4, a2, (struct CDrawListEntryBuilder *)v29);
-        CDrawListEntryBuilder::~CDrawListEntryBuilder((CDrawListEntryBuilder *)v29);
-      }
-      CBrushDrawListGenerator::~CBrushDrawListGenerator((CBrushDrawListGenerator *)v28);
+      MilInstrumentationCheckHR_MaybeFailFast(v17, &dword_180345AA0, 3u, DrawList, 0xBEu, 0LL);
+      CDrawListEntryBuilder::~CDrawListEntryBuilder((CDrawListEntryBuilder *)v34);
     }
+    CBrushDrawListGenerator::~CBrushDrawListGenerator((CBrushDrawListGenerator *)v32);
+    goto LABEL_11;
   }
-  if ( v20 )
-    std::default_delete<CDrawListBrush>::operator()(v12, v20);
-  return (unsigned int)v10;
+  v21 = *((_QWORD *)a2 + 5);
+  if ( *(int *)(v21 + 624) >= 37632 && !*(_BYTE *)(v21 + 1433) )
+  {
+    v22 = CBrushRenderingGraph::RenderSubgraphs(v13, a2, a3, v24, a4);
+    v11 = v22;
+    if ( v22 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v23, &dword_180345AA0, 3u, v22, 0xC9u, 0LL);
+  }
+LABEL_11:
+  if ( v24 )
+    (**(void (__fastcall ***)(struct CDrawListBrush *, __int64))v24)(v24, 1LL);
+  return (unsigned int)v11;
 }

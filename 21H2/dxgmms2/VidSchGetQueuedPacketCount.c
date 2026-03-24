@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchGetQueuedPacketCount @ 0x1C00A7510
+ * XREFs of VidSchGetQueuedPacketCount @ 0x1C008B950
  * Callers:
  *     <none>
  * Callees:

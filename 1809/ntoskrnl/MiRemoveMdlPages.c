@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRemoveMdlPages @ 0x14084DF00
+ * XREFs of MiRemoveMdlPages @ 0x14084DEE0
  * Callers:
  *     MiAllocatePagesForMdl @ 0x140011048 (MiAllocatePagesForMdl.c)
  * Callees:
- *     MiFreeContiguousPages @ 0x1401230D4 (MiFreeContiguousPages.c)
- *     MiSetPfnOwnedAndActive @ 0x1401295AC (MiSetPfnOwnedAndActive.c)
- *     MiSortMdlFrames @ 0x1402AA1E0 (MiSortMdlFrames.c)
+ *     MiFreeContiguousPages @ 0x1401230F4 (MiFreeContiguousPages.c)
+ *     MiSetPfnOwnedAndActive @ 0x1401295CC (MiSetPfnOwnedAndActive.c)
+ *     MiSortMdlFrames @ 0x1402AA2E0 (MiSortMdlFrames.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiRemovePhysicalMemory @ 0x14084D56C (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x14084D54C (MiRemovePhysicalMemory.c)
  */
 
 _DWORD *__fastcall MiRemoveMdlPages(char *P, unsigned int a2)

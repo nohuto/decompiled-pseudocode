@@ -1,7 +1,7 @@
 /*
- * XREFs of DpiGetAdapterDebugData @ 0x1C005F510
+ * XREFs of DpiGetAdapterDebugData @ 0x1C0051404
  * Callers:
- *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C03052F0 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0264990 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,9 +15,9 @@ __int64 __fastcall DpiGetAdapterDebugData(__int64 a1, __int64 a2)
   *(_DWORD *)(a2 + 4) = *(_DWORD *)(v2 + 504);
   *(_DWORD *)(a2 + 8) = *(_DWORD *)(v2 + 3664);
   *(_DWORD *)(a2 + 12) = *(_DWORD *)(v2 + 3640);
-  *(_BYTE *)(a2 + 16) = *(_BYTE *)(v2 + 1156);
+  *(_BYTE *)(a2 + 16) = *(_BYTE *)(v2 + 1155);
   *(_BYTE *)(a2 + 17) = *(_QWORD *)(v2 + 680) != 0LL;
-  *(_BYTE *)(a2 + 18) = *(_BYTE *)(v2 + 1157);
+  *(_BYTE *)(a2 + 18) = *(_BYTE *)(v2 + 1156);
   *(_BYTE *)(a2 + 19) = *(_DWORD *)(v2 + 1360) == 3;
   *(_DWORD *)(a2 + 20) = *(_DWORD *)(v2 + 236);
   *(_DWORD *)(a2 + 24) = *(_DWORD *)(v2 + 284);

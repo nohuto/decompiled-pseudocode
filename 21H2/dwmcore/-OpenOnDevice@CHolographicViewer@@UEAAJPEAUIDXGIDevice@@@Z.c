@@ -1,27 +1,29 @@
 /*
- * XREFs of ?OpenOnDevice@CHolographicViewer@@UEAAJPEAUIDXGIDevice@@@Z @ 0x18029C9B0
+ * XREFs of ?OpenOnDevice@CHolographicViewer@@UEAAJPEAUIDXGIDevice@@@Z @ 0x18025A3A0
  * Callers:
  *     <none>
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CHolographicViewer::OpenOnDevice(CHolographicViewer *this, struct IDXGIDevice *a2)
 {
   char v4; // r15
   HRESULT v5; // eax
-  unsigned int v6; // ebx
+  unsigned int v6; // esi
   __int64 v7; // rdx
   __int64 v8; // r9
   void *v9; // rbx
   __int64 (__fastcall *v10)(void *, struct IDXGIDevice *, _QWORD, _QWORD, int, int, char *); // rbp
   int v11; // eax
-  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
-  void *ppFactory; // [rsp+70h] [rbp+8h] BYREF
+  HANDLE *v13; // [rsp+40h] [rbp-38h]
+  wil::details::in1diag3 *retaddr; // [rsp+78h] [rbp+0h]
+  void *ppFactory; // [rsp+80h] [rbp+8h] BYREF
 
   ppFactory = 0LL;
+  v13 = (HANDLE *)((char *)this - 64);
   v4 = 1;
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&ppFactory);
   v5 = CreateDXGIFactory2(0, &GUID_b14887d9_f537_4af5_b379_7d33031be773, &ppFactory);
@@ -31,7 +33,7 @@ __int64 __fastcall CHolographicViewer::OpenOnDevice(CHolographicViewer *this, st
     wil::details::in1diag3::Return_Hr(
       retaddr,
       (void *)0x88,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\holographic\\holographicviewer.cpp",
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\holographic\\holographicviewer.cpp",
       (const char *)(unsigned int)v5);
     goto LABEL_11;
   }
@@ -45,7 +47,7 @@ LABEL_9:
     wil::details::in1diag3::Return_Hr(
       retaddr,
       (void *)v7,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\holographic\\holographicviewer.cpp",
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\holographic\\holographicviewer.cpp",
       (const char *)v8);
     ReleaseSRWLockExclusive((PSRWLOCK)this + 14);
     goto LABEL_11;
@@ -78,8 +80,8 @@ LABEL_11:
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&ppFactory);
   if ( v4 )
   {
-    CloseHandle(*((HANDLE *)this + 9));
-    *((_QWORD *)this + 9) = 0LL;
+    CloseHandle(v13[17]);
+    v13[17] = 0LL;
   }
   return v6;
 }

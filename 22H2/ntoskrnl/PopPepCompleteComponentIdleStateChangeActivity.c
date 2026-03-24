@@ -1,48 +1,52 @@
 /*
- * XREFs of PopPepCompleteComponentIdleStateChangeActivity @ 0x14035D810
+ * XREFs of PopPepCompleteComponentIdleStateChangeActivity @ 0x1403A0020
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     PopPepTryPowerDownComponent @ 0x140310798 (PopPepTryPowerDownComponent.c)
- *     PopPepUpdateIdleState @ 0x1403107D8 (PopPepUpdateIdleState.c)
- *     PopFxUpdateComponentAccountingEnhanced @ 0x14035D8E0 (PopFxUpdateComponentAccountingEnhanced.c)
- *     PopPepUpdateIdleStateRefCount @ 0x14035D95C (PopPepUpdateIdleStateRefCount.c)
- *     PopFxUpdateComponentPerfStateNominalChange @ 0x14058C180 (PopFxUpdateComponentPerfStateNominalChange.c)
+ *     PopPepTryPowerDownComponent @ 0x140261D58 (PopPepTryPowerDownComponent.c)
+ *     PopPepUpdateIdleState @ 0x140261D98 (PopPepUpdateIdleState.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     PopFxUpdateComponentAccountingEnhanced @ 0x1403A00E4 (PopFxUpdateComponentAccountingEnhanced.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403A0164 (PopPepUpdateIdleStateRefCount.c)
+ *     PopFxUpdateComponentPerfStateNominalChange @ 0x14056D3F0 (PopFxUpdateComponentPerfStateNominalChange.c)
  */
 
 void __fastcall PopPepCompleteComponentIdleStateChangeActivity(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbx
   __int64 v5; // rax
+  __int64 v6; // r9
 
-  if ( a2 )
+  if ( !a2 )
+    return;
+  *(_DWORD *)(*(_QWORD *)(a2 + 64) + 12LL) = 0;
+  *(_BYTE *)(*(_QWORD *)(a2 + 64) + 16LL) = 0;
+  if ( *(_BYTE *)(a2 + 184) && *(_BYTE *)(a1 + 124) )
   {
-    *(_DWORD *)(*(_QWORD *)(a2 + 64) + 12LL) = 0;
-    *(_BYTE *)(*(_QWORD *)(a2 + 64) + 16LL) = 0;
-    if ( *(_BYTE *)(a2 + 184) )
+    v5 = *(_QWORD *)(a2 + 24);
+    if ( (v5 & 4) != 0 )
     {
-      if ( *(_BYTE *)(a1 + 124) )
-      {
-        v5 = *(_QWORD *)(a2 + 24);
-        if ( (v5 & 4) != 0 || *(_DWORD *)(a2 + 180) && !*(_DWORD *)(a2 + 176) && (v5 & 2) != 0 )
-          PopFxUpdateComponentPerfStateNominalChange(
-            *(_QWORD *)(a1 + 32),
-            *(unsigned int *)(a2 + 8),
-            0LL,
-            *(unsigned int *)(a2 + 176));
-      }
+      v6 = *(unsigned int *)(a2 + 176);
+LABEL_13:
+      PopFxUpdateComponentPerfStateNominalChange(*(_QWORD *)(a1 + 32), *(unsigned int *)(a2 + 8), 0LL, v6);
+      goto LABEL_3;
     }
-    if ( !*(_DWORD *)(a2 + 176) )
-      KeSetEvent((PRKEVENT)(a2 + 32), 0, 0);
-    PopPepUpdateIdleState(a1, a2, 0);
-    PopPepTryPowerDownComponent(a1, (_DWORD *)a2);
-    v4 = *(unsigned int *)(a2 + 176);
-    PopPepUpdateIdleStateRefCount(
-      *(unsigned int *)(*(_QWORD *)(a2 + 200) + 24LL * *(unsigned int *)(a2 + 180) + 16),
-      *(unsigned int *)(*(_QWORD *)(a2 + 200) + 24 * v4 + 16),
-      0LL,
-      a2 + 192);
-    PopFxUpdateComponentAccountingEnhanced(*(_QWORD *)(a1 + 32), *(unsigned int *)(a2 + 8), (unsigned int)v4, 1LL);
+    if ( *(_DWORD *)(a2 + 180) )
+    {
+      v6 = *(unsigned int *)(a2 + 176);
+      if ( !(_DWORD)v6 && (v5 & 2) != 0 )
+        goto LABEL_13;
+    }
   }
+LABEL_3:
+  if ( !*(_DWORD *)(a2 + 176) )
+    KeSetEvent((PRKEVENT)(a2 + 32), 0, 0);
+  PopPepUpdateIdleState(a1, a2, 0);
+  PopPepTryPowerDownComponent(a1, (_DWORD *)a2);
+  v4 = *(unsigned int *)(a2 + 176);
+  PopPepUpdateIdleStateRefCount(
+    *(unsigned int *)(*(_QWORD *)(a2 + 192) + 24LL * *(unsigned int *)(a2 + 180) + 16),
+    *(unsigned int *)(*(_QWORD *)(a2 + 192) + 24 * v4 + 16),
+    0LL);
+  PopFxUpdateComponentAccountingEnhanced(*(_QWORD *)(a1 + 32), *(unsigned int *)(a2 + 8), (unsigned int)v4, 1LL);
 }

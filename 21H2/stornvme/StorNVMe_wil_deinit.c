@@ -1,7 +1,7 @@
 /*
- * XREFs of StorNVMe_wil_deinit @ 0x1C000E8E0
+ * XREFs of StorNVMe_wil_deinit @ 0x1C0006730
  * Callers:
- *     DriverEntry @ 0x1C000E12C (DriverEntry.c)
+ *     DriverEntry @ 0x1C000A530 (DriverEntry.c)
  * Callees:
  *     <none>
  */

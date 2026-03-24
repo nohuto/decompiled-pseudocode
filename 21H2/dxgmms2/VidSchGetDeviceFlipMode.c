@@ -1,49 +1,59 @@
 /*
- * XREFs of VidSchGetDeviceFlipMode @ 0x1C00A3D90
+ * XREFs of VidSchGetDeviceFlipMode @ 0x1C0087860
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-__int64 __fastcall VidSchGetDeviceFlipMode(__int64 a1, unsigned int a2, _DWORD *a3)
+__int64 __fastcall VidSchGetDeviceFlipMode(__int64 a1, __int64 a2, int *a3)
 {
   int v3; // eax
   __int64 v4; // rsi
-  int v6; // edi
-  __int64 v8; // rcx
+  __int64 v5; // rbp
+  int v6; // eax
+  int v7; // edi
+  __int64 v9; // rax
 
   v3 = *(_DWORD *)(a1 + 960);
   v4 = *(_QWORD *)(a1 + 32);
+  v5 = (unsigned int)a2;
   if ( v3 == 1 )
   {
     *a3 = 0;
-    return *(unsigned int *)(v4 + 2540);
   }
-  if ( v3 == 2 )
+  else
   {
-    *a3 = 1;
-LABEL_5:
-    if ( *(int *)(v4 + 2544) < 4 && !*(_BYTE *)(v4 + 156) )
-      return *(unsigned int *)(v4 + 2544);
-    if ( a2 >= *(_DWORD *)(v4 + 40) )
+    if ( v3 == 2 )
     {
-      WdLogSingleEntry1(1LL, a2);
-      DxgkLogInternalTriageEvent(v8, 0x40000LL);
+      *a3 = 1;
+      v6 = 1;
     }
     else
     {
-      ExAcquireResourceExclusiveLite((PERESOURCE)(v4 + 1088), 1u);
-      v6 = *(_DWORD *)(v4 + 2208);
-      ExReleaseResourceLite((PERESOURCE)(v4 + 1088));
-      if ( _bittest(&v6, a2) )
-        return *(unsigned int *)(v4 + 2544);
+      v6 = *a3;
     }
-    return *(unsigned int *)(v4 + 2540);
+    if ( v6 )
+    {
+      if ( (unsigned int)(v6 - 1) > 3 )
+        return 0LL;
+      if ( *(int *)(v4 + 2456) < 4 && !*(_BYTE *)(v4 + 148) )
+        return *(unsigned int *)(v4 + 2456);
+      if ( (unsigned int)a2 >= *(_DWORD *)(v4 + 40) )
+      {
+        v9 = WdLogNewEntry5_WdAssertion(1LL, a2, a3);
+        *(_QWORD *)(v9 + 24) = v5;
+        WdLogEvent5_WdAssertion(v9);
+      }
+      else
+      {
+        ExAcquireResourceExclusiveLite((PERESOURCE)(v4 + 1072), 1u);
+        v7 = *(_DWORD *)(v4 + 2128);
+        ExReleaseResourceLite((PERESOURCE)(v4 + 1072));
+        if ( _bittest(&v7, v5) )
+          return *(unsigned int *)(v4 + 2456);
+      }
+    }
   }
-  if ( !*a3 )
-    return *(unsigned int *)(v4 + 2540);
-  if ( (unsigned int)(*a3 - 1) <= 3 )
-    goto LABEL_5;
-  return 0LL;
+  return *(unsigned int *)(v4 + 2452);
 }

@@ -1,32 +1,31 @@
 /*
- * XREFs of ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x1800ADEE8
+ * XREFs of ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x1800B2DFC
  * Callers:
- *     DllMain @ 0x18011142C (DllMain.c)
+ *     DllMain @ 0x1800E91A4 (DllMain.c)
  * Callees:
- *     ?FreeCurrent@CThreadContext@@SAXXZ @ 0x1800ADF80 (-FreeCurrent@CThreadContext@@SAXXZ.c)
- *     ?Startup@@YAJXZ @ 0x1800ADFB4 (-Startup@@YAJXZ.c)
- *     ?RegisterDwmGuidWithEtw@@YAXXZ @ 0x1800AE450 (-RegisterDwmGuidWithEtw@@YAXXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     ?WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z @ 0x18019AAB8 (-WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z.c)
- *     McGenEventUnregister_EventUnregister @ 0x18026FE14 (McGenEventUnregister_EventUnregister.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterDwmGuidWithEtw@@YAXXZ @ 0x1800B2C5C (-RegisterDwmGuidWithEtw@@YAXXZ.c)
+ *     ?FreeCurrent@CThreadContext@@SAXXZ @ 0x1800B2F44 (-FreeCurrent@CThreadContext@@SAXXZ.c)
+ *     ?Startup@@YAJXZ @ 0x1800B2F78 (-Startup@@YAJXZ.c)
+ *     McGenEventUnregister_EventUnregister @ 0x1800E6760 (McGenEventUnregister_EventUnregister.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     ?WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z @ 0x18014E82C (-WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z.c)
  */
 
 __int64 __fastcall DwmCoreDllMain(HINSTANCE a1, int a2)
 {
   unsigned int v2; // ebx
   int v3; // edx
-  unsigned int v5; // ecx
+  __int64 v5; // rcx
   int v6; // eax
-  unsigned int v7; // ecx
+  __int64 v7; // rcx
   int v8; // ebx
-  const struct wil::FailureInfo *v9; // rdx
+  REGHANDLE v9; // rcx
   REGHANDLE v10; // rcx
   REGHANDLE v11; // rcx
   REGHANDLE v12; // rcx
-  REGHANDLE v13; // rcx
-  REGHANDLE v14; // rcx
-  _BYTE v15[168]; // [rsp+30h] [rbp-A8h] BYREF
+  const struct wil::FailureInfo *v13; // rdx
+  _BYTE v14[152]; // [rsp+30h] [rbp-98h] BYREF
 
   v2 = 1;
   if ( a2 )
@@ -40,24 +39,24 @@ __int64 __fastcall DwmCoreDllMain(HINSTANCE a1, int a2)
     else
     {
       if ( wil::details::g_pfnLoggingCallback
-        && (void (__fastcall *)(const struct wil::FailureInfo *))wil::details::g_pfnLoggingCallback != WilResultLoggingCallback_MaybeFailFast )
+        && (char *)wil::details::g_pfnLoggingCallback != (char *)lambda_b5f577a36749d08817efa9d9ab2e0790_::_lambda_invoker_cdecl_ )
       {
-        memset_0(v15, 0, 0x98uLL);
-        wil::details::WilFailFast((wil::details *)v15, v9);
+        memset_0(v14, 0, 0x90uLL);
+        wil::details::WilFailFast((wil::details *)v14, v13);
       }
-      wil::details::g_pfnLoggingCallback = (__int64)WilResultLoggingCallback_MaybeFailFast;
+      wil::details::g_pfnLoggingCallback = (void (*)(const struct wil::FailureInfo *))lambda_b5f577a36749d08817efa9d9ab2e0790_::_lambda_invoker_cdecl_;
       CThreadContext::s_dwTlsIndex = TlsAlloc();
       if ( CThreadContext::s_dwTlsIndex == -1 )
       {
         v8 = -2147024882;
-        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147024882, 0x4Eu, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147024882, 0x49u, 0LL);
       }
       else
       {
         v6 = Startup();
         v8 = v6;
         if ( v6 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x50u, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x4Bu, 0LL);
         else
           RegisterDwmGuidWithEtw();
       }
@@ -66,28 +65,23 @@ __int64 __fastcall DwmCoreDllMain(HINSTANCE a1, int a2)
   }
   else
   {
-    McGenEventUnregister_EventUnregister(&Microsoft_Windows_Dwm_Compositor_Context);
-    McGenEventUnregister_EventUnregister(&Microsoft_Windows_Dwm_Core_Provider_Context);
-    v10 = RegHandle;
+    McGenEventUnregister_EventUnregister(a1);
+    v9 = RegHandle;
     RegHandle = 0LL;
-    dword_1803E3798 = 0;
+    dword_180344E80 = 0;
+    EventUnregister(v9);
+    v10 = qword_180344E68;
+    qword_180344E68 = 0LL;
+    dword_180344E48 = 0;
     EventUnregister(v10);
-    v11 = qword_1803E37F0;
-    qword_1803E37F0 = 0LL;
-    dword_1803E37D0 = 0;
+    v11 = qword_180344F10;
+    qword_180344F10 = 0LL;
+    dword_180344EF0 = 0;
     EventUnregister(v11);
-    v12 = qword_1803E3B60;
-    qword_1803E3B60 = 0LL;
-    dword_1803E3B40 = 0;
+    v12 = qword_180344ED8;
+    qword_180344ED8 = 0LL;
+    dword_180344EB8 = 0;
     EventUnregister(v12);
-    v13 = qword_1803E3748;
-    qword_1803E3748 = 0LL;
-    dword_1803E3728 = 0;
-    EventUnregister(v13);
-    v14 = qword_1803E3780;
-    qword_1803E3780 = 0LL;
-    dword_1803E3760 = 0;
-    EventUnregister(v14);
     if ( CThreadContext::s_dwTlsIndex != -1 )
     {
       CThreadContext::FreeCurrent();

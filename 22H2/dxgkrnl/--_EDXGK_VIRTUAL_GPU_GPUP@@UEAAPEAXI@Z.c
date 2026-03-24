@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_EDXGK_VIRTUAL_GPU_GPUP@@UEAAPEAXI@Z @ 0x1C005B0F0
+ * XREFs of ??_EDXGK_VIRTUAL_GPU_GPUP@@UEAAPEAXI@Z @ 0x1C0040030
  * Callers:
  *     <none>
  * Callees:

@@ -1,74 +1,59 @@
 /*
- * XREFs of MiInsertNumaStandbyPage @ 0x1405B3384
+ * XREFs of MiInsertNumaStandbyPage @ 0x140329890
  * Callers:
- *     MiReplaceNumaStandbyPage @ 0x1402E851C (MiReplaceNumaStandbyPage.c)
- *     MiSwapNumaStandbyPage @ 0x1405B4024 (MiSwapNumaStandbyPage.c)
+ *     MiReplaceNumaStandbyPage @ 0x14026B4EC (MiReplaceNumaStandbyPage.c)
+ *     MiInsertProtectedStandbyPage @ 0x140329470 (MiInsertProtectedStandbyPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1405513D0 (MiSwapNumaStandbyPage.c)
  * Callees:
- *     MiSetPfnNodeBlinkLow @ 0x1402393AC (MiSetPfnNodeBlinkLow.c)
- *     MiSetNextStandbyPageSameNodeNoLockAsserts @ 0x1403385E0 (MiSetNextStandbyPageSameNodeNoLockAsserts.c)
- *     MiPfnToStandbyLookaside @ 0x140339140 (MiPfnToStandbyLookaside.c)
+ *     MiPageToChannel @ 0x1402FF108 (MiPageToChannel.c)
+ *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
  */
 
-signed __int64 __fastcall MiInsertNumaStandbyPage(__int64 a1, _QWORD *a2)
+__int64 __fastcall MiInsertNumaStandbyPage(__int64 a1)
 {
-  unsigned __int64 v4; // rdi
-  unsigned __int64 v5; // rbx
-  unsigned __int64 v6; // r15
-  __int64 v7; // rbp
-  __int64 v8; // r12
-  signed __int64 result; // rax
-  volatile signed __int64 *v10; // rsi
-  __int64 v11; // r11
-  volatile signed __int64 *v12; // rbp
-  unsigned __int64 v13; // r11
-  unsigned __int64 v14; // rbx
-  __int64 v15; // rcx
-  _OWORD v16[2]; // [rsp+20h] [rbp-48h] BYREF
-  volatile signed __int64 *v17; // [rsp+40h] [rbp-28h]
+  ULONG_PTR v2; // rsi
+  __int64 v3; // rbp
+  char v4; // al
+  __int64 v5; // r14
+  __int64 v6; // rbx
+  unsigned int v7; // eax
+  _QWORD *v8; // r9
+  __int64 v9; // rax
+  __int64 v10; // r8
+  __int64 v11; // rdx
+  __int64 result; // rax
 
-  memset(v16, 0, sizeof(v16));
-  v17 = 0LL;
-  v4 = 0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4);
-  MiPfnToStandbyLookaside(v4, 0LL, (__int64 *)v16);
-  _InterlockedIncrement64(v17);
-  if ( a2 )
+  v2 = (a1 + 0x58000000000LL) / 48;
+  v3 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL));
+  v4 = *(_BYTE *)(a1 + 35);
+  if ( (v4 & 8) != 0 )
+    v5 = 5LL;
+  else
+    v5 = v4 & 7;
+  v6 = *(unsigned int *)(MiSearchNumaNodeTable((a1 + 0x58000000000LL) / 48) + 8);
+  if ( qword_140C4DED0 )
+    v7 = MiPageToChannel(v2);
+  else
+    v7 = 0;
+  v8 = (_QWORD *)(*(_QWORD *)(v3 + 16) + 4544 * v6 + 24 * (v5 + 8LL * v7));
+  ++v8[407];
+  v9 = v8[409];
+  if ( v9 == 0xFFFFFFFFFLL )
   {
-    v5 = a2[7];
-    v6 = a2[10];
-    v7 = a2[11];
-    v8 = a2[8];
-    MiSetPfnNodeBlinkLow(a1, v5);
-    *(_DWORD *)(a1 + 36) ^= (*(_DWORD *)(a1 + 36) ^ (v5 >> 19)) & 0x1FFFFF;
-    result = MiSetNextStandbyPageSameNodeNoLockAsserts(a1, v6);
-    v10 = v17;
-    v11 = 0x3FFFFFFFFFLL;
-    if ( v5 == 0x3FFFFFFFFFLL )
-      *((_QWORD *)v17 + 2) = v4;
-    else
-      result = MiSetNextStandbyPageSameNodeNoLockAsserts(v8, v4);
-    if ( v6 == v11 )
-    {
-      *((_QWORD *)v10 + 3) = v4;
-    }
-    else
-    {
-      result = MiSetPfnNodeBlinkLow(v7, v4);
-      *(_DWORD *)(v7 + 36) ^= (*(_DWORD *)(v7 + 36) ^ (v4 >> 19)) & 0x1FFFFF;
-    }
+    v8[408] = v2;
   }
   else
   {
-    v12 = v17;
-    v13 = 0x3FFFFFFFFFLL;
-    v14 = *((_QWORD *)v17 + 3);
-    if ( v14 == 0x3FFFFFFFFFLL )
-      *((_QWORD *)v17 + 2) = v4;
-    else
-      MiSetNextStandbyPageSameNodeNoLockAsserts(48 * v14 - 0x220000000000LL, v4);
-    MiSetNextStandbyPageSameNodeNoLockAsserts(a1, v13);
-    result = MiSetPfnNodeBlinkLow(v15, v14);
-    *(_DWORD *)(a1 + 36) ^= (*(_DWORD *)(a1 + 36) ^ (v14 >> 19)) & 0x1FFFFF;
-    *((_QWORD *)v12 + 3) = v4;
+    v10 = 48 * v9 - 0x58000000000LL;
+    v11 = (*(_QWORD *)v10 ^ (v2 << 28)) & 0xFFFFFFFFFLL;
+    *(_BYTE *)(v10 + 39) = v2;
+    *(_QWORD *)v10 = (v2 << 28) ^ v11;
   }
+  *(_QWORD *)a1 |= 0xFFFFFFF000000000uLL;
+  *(_WORD *)(a1 + 36) = v9;
+  result = (*(_QWORD *)(a1 + 24) ^ (v9 << 20)) & 0xFFFFF000000000LL;
+  *(_BYTE *)(a1 + 39) = -1;
+  *(_QWORD *)(a1 + 24) ^= result;
+  v8[409] = v2;
   return result;
 }

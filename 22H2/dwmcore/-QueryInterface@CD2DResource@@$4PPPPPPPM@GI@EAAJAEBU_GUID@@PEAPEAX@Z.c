@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@CD2DResource@@$4PPPPPPPM@GI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18011CE00
+ * XREFs of ?QueryInterface@CD2DResource@@$4PPPPPPPM@GI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F40C0
  * Callers:
  *     <none>
  * Callees:

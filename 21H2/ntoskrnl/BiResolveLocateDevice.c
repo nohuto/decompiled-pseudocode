@@ -1,25 +1,25 @@
 /*
- * XREFs of BiResolveLocateDevice @ 0x140A1D568
+ * XREFs of BiResolveLocateDevice @ 0x14096F608
  * Callers:
- *     BiConvertRegistryDataToElement @ 0x14080285C (BiConvertRegistryDataToElement.c)
+ *     BiConvertRegistryDataToElement @ 0x140784DB0 (BiConvertRegistryDataToElement.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryAttributesFile @ 0x14041BF00 (ZwQueryAttributesFile.c)
- *     BcdGetElementData @ 0x14081D380 (BcdGetElementData.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryAttributesFile @ 0x1403FAB40 (ZwQueryAttributesFile.c)
+ *     BcdGetElementData @ 0x14096F428 (BcdGetElementData.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiResolveLocateDevice(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // r14
   const WCHAR *v3; // r14
-  GUID *v6; // rsi
+  WCHAR *v6; // rsi
   int v7; // eax
   unsigned int v8; // edx
   unsigned int ElementData; // ebx
-  GUID *PoolWithTag; // rax
+  WCHAR *PoolWithTag; // rax
   const WCHAR *v11; // rdi
   __int64 v12; // rdx
   __int64 v13; // rcx
@@ -32,15 +32,14 @@ __int64 __fastcall BiResolveLocateDevice(__int64 a1, _DWORD *a2)
   __int64 v21; // [rsp+88h] [rbp+1Fh]
 
   v2 = (unsigned int)a2[6];
-  v21 = 0LL;
   LODWORD(NumberOfBytes) = 0;
-  *(_QWORD *)&v19 = 0LL;
   v3 = (const WCHAR *)((char *)a2 + v2);
-  DWORD2(v19) = 0;
+  v21 = 0LL;
   memset(v20, 0, sizeof(v20));
   v6 = 0LL;
   v17 = 0LL;
   v18 = 0LL;
+  v19 = 0LL;
   Destination = 0LL;
   if ( *(_DWORD *)v3 != 2 )
     goto LABEL_16;
@@ -50,18 +49,18 @@ __int64 __fastcall BiResolveLocateDevice(__int64 a1, _DWORD *a2)
     v8 = a2[7];
     if ( (v8 & 0xF000000) == 0x2000000 )
     {
-      ElementData = BcdGetElementData(a1, v8, 0LL, (unsigned int *)&NumberOfBytes);
+      ElementData = BcdGetElementData(a1, v8, 0LL, &NumberOfBytes);
       if ( ElementData != -1073741789 )
         goto LABEL_17;
-      PoolWithTag = (GUID *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x4B444342u);
+      PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x4B444342u);
       v6 = PoolWithTag;
       if ( !PoolWithTag )
       {
         ElementData = -1073741670;
         goto LABEL_17;
       }
-      BcdGetElementData(a1, a2[7], PoolWithTag, (unsigned int *)&NumberOfBytes);
-      v11 = (const WCHAR *)v6;
+      BcdGetElementData(a1, a2[7], (__int64)PoolWithTag, &NumberOfBytes);
+      v11 = v6;
       goto LABEL_10;
     }
 LABEL_16:

@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C005DDE4
+ * XREFs of ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C005D0F0
  * Callers:
- *     ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C005DDE4 (ACPIProcessorContainerComputeIoctlPayloadSize.c)
- *     ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C005E240 (ACPIProcessorContainerGetLpiStatesIoctl.c)
+ *     ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C005D0F0 (ACPIProcessorContainerComputeIoctlPayloadSize.c)
+ *     ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C005D55C (ACPIProcessorContainerGetLpiStatesIoctl.c)
  * Callees:
- *     ACPIIoctlCalculateOutputBufferSizeV1 @ 0x1C001C0A0 (ACPIIoctlCalculateOutputBufferSizeV1.c)
- *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0021FCC (ACPIAmliBuildObjectPathnameUnicode.c)
- *     ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C005DDE4 (ACPIProcessorContainerComputeIoctlPayloadSize.c)
+ *     ACPIIoctlCalculateOutputBufferSizeV1 @ 0x1C000BE70 (ACPIIoctlCalculateOutputBufferSizeV1.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0010920 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C005D0F0 (ACPIProcessorContainerComputeIoctlPayloadSize.c)
  */
 
 __int64 __fastcall ACPIProcessorContainerComputeIoctlPayloadSize(_QWORD *a1, _DWORD *a2)
@@ -17,7 +17,7 @@ __int64 __fastcall ACPIProcessorContainerComputeIoctlPayloadSize(_QWORD *a1, _DW
   _QWORD *v7; // rax
   __int64 v8; // rcx
   __int64 v9; // rcx
-  int v10; // r10d
+  int v10; // r11d
   int v11; // ecx
   PVOID P[2]; // [rsp+30h] [rbp-28h] BYREF
   int v13; // [rsp+60h] [rbp+8h] BYREF
@@ -39,9 +39,9 @@ __int64 __fastcall ACPIProcessorContainerComputeIoctlPayloadSize(_QWORD *a1, _DW
       v7 = (_QWORD *)*v7;
       ++v6;
     }
-    v8 = v2[72];
+    v8 = v2[67];
     *a2 = ((*a2 + 3) & 0xFFFFFFFC) + 4 * v6;
-    result = ACPIAmliBuildObjectPathnameUnicode(v8, (__int64)P, 1);
+    result = ACPIAmliBuildObjectPathnameUnicode(v8, (__int64)P);
     if ( (int)result < 0 )
       break;
     ExFreePoolWithTag(P[1], 0);

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CompleteFrameFromContainer@RIM@InputTraceLogging@@SAXQEAURIMDEV@@PEBURIMCOMPLETEFRAME@@@Z @ 0x1C01A41B4
+ * XREFs of ?CompleteFrameFromContainer@RIM@InputTraceLogging@@SAXQEAURIMDEV@@PEBURIMCOMPLETEFRAME@@@Z @ 0x1C016FBD4
  * Callers:
- *     rimGetCompleteFrameFromIVCompleteFrame @ 0x1C01A73A0 (rimGetCompleteFrameFromIVCompleteFrame.c)
+ *     rimGetCompleteFrameFromIVCompleteFrame @ 0x1C01725DC (rimGetCompleteFrameFromIVCompleteFrame.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C004DAC0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C008F428 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 void __fastcall InputTraceLogging::RIM::CompleteFrameFromContainer(
@@ -16,7 +16,7 @@ void __fastcall InputTraceLogging::RIM::CompleteFrameFromContainer(
   __int64 v3; // r9
   __int64 v4; // r10
   int v5; // r11d
-  __int64 v6; // rax
+  int v6; // edx
   int v7; // ecx
   __int64 v8; // rax
   int v9; // [rsp+30h] [rbp-69h] BYREF
@@ -45,20 +45,17 @@ void __fastcall InputTraceLogging::RIM::CompleteFrameFromContainer(
   int v32; // [rsp+D8h] [rbp+3Fh]
   int v33; // [rsp+DCh] [rbp+43h]
 
-  if ( (unsigned int)dword_1C028EE70 > 4 && tlgKeywordOn((__int64)&dword_1C028EE70, 256LL) )
+  if ( (unsigned int)dword_1C024BA90 > 4 && tlgKeywordOn((__int64)&dword_1C024BA90, 256LL) )
   {
     if ( v2 )
-    {
-      v6 = *(_QWORD *)(v2 + 464);
-      v9 = *(unsigned __int16 *)(v6 + 18);
-      v7 = *(unsigned __int16 *)(v6 + 16);
-    }
+      v6 = *(unsigned __int16 *)(*(_QWORD *)(v2 + 472) + 18LL);
     else
-    {
-      v9 = 0;
+      v6 = 0;
+    if ( v2 )
+      v7 = *(unsigned __int16 *)(*(_QWORD *)(v2 + 472) + 16LL);
+    else
       v7 = 0;
-    }
-    v8 = *(_QWORD *)(v3 + 48);
+    v8 = *(_QWORD *)(v3 + 40);
     v33 = 0;
     v30 = 0;
     v27 = 0;
@@ -71,6 +68,7 @@ void __fastcall InputTraceLogging::RIM::CompleteFrameFromContainer(
     v25 = &v11;
     v22 = &v12;
     v19 = &v13;
+    v9 = v6;
     v16 = &v14;
     v10 = v7;
     v14 = v2;
@@ -82,6 +80,6 @@ void __fastcall InputTraceLogging::RIM::CompleteFrameFromContainer(
     v32 = 4;
     v29 = 4;
     v26 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C028EE70, (unsigned __int8 *)dword_1C025DD34, 0LL, 0LL, 8u, &v15);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C024BA90, (unsigned __int8 *)dword_1C021BFCD, 0LL, 0LL, 8u, &v15);
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of HmgQueryAltLock @ 0x1C00C1310
+ * XREFs of HmgQueryAltLock @ 0x1C000CA10
  * Callers:
- *     vDynamicConvertNewSurfaceDCs @ 0x1C0061570 (vDynamicConvertNewSurfaceDCs.c)
- *     bMigrateSurfaceForConversion @ 0x1C0061D70 (bMigrateSurfaceForConversion.c)
+ *     vDynamicConvertNewSurfaceDCs @ 0x1C000D7B0 (vDynamicConvertNewSurfaceDCs.c)
+ *     bMigrateSurfaceForConversion @ 0x1C00B9E00 (bMigrateSurfaceForConversion.c)
  * Callees:
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C0022C40 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C002FF80 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
  */
 
 __int64 __fastcall HmgQueryAltLock(unsigned int a1)
@@ -19,9 +19,7 @@ __int64 __fastcall HmgQueryAltLock(unsigned int a1)
   __int64 v8; // rax
 
   v1 = gpHandleManager;
-  v2 = GdiHandleManager::DecodeIndex(
-         (GdiHandleEntryDirectory **)gpHandleManager,
-         (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000);
+  v2 = GdiHandleManager::DecodeIndex(gpHandleManager, (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000);
   v3 = *((_QWORD *)v1 + 2);
   v4 = 0LL;
   v5 = v2;

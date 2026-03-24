@@ -1,14 +1,14 @@
 /*
- * XREFs of PerfDiagpIsTracingAllowed @ 0x14083D550
+ * XREFs of PerfDiagpIsTracingAllowed @ 0x1407971E0
  * Callers:
- *     PerfDiagpStartPerfDiagLogger @ 0x14083D30C (PerfDiagpStartPerfDiagLogger.c)
- *     PerfDiagpProxyWorker @ 0x14083D420 (PerfDiagpProxyWorker.c)
+ *     PerfDiagpStartPerfDiagLogger @ 0x1407960A4 (PerfDiagpStartPerfDiagLogger.c)
+ *     PerfDiagpProxyWorker @ 0x1407970B0 (PerfDiagpProxyWorker.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
  */
 
 _BOOL8 PerfDiagpIsTracingAllowed()

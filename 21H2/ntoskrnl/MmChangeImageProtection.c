@@ -1,25 +1,24 @@
 /*
- * XREFs of MmChangeImageProtection @ 0x1406F5800
+ * XREFs of MmChangeImageProtection @ 0x1406D0DD0
  * Callers:
  *     <none>
  * Callees:
- *     MiClearPfnImageVerified @ 0x14023CC50 (MiClearPfnImageVerified.c)
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     MiSetImageProtection @ 0x14027E128 (MiSetImageProtection.c)
- *     MiSectionControlArea @ 0x140287970 (MiSectionControlArea.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     MiSessionReferenceImage @ 0x1402DC164 (MiSessionReferenceImage.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     MiLookupDataTableEntry @ 0x1402FDA80 (MiLookupDataTableEntry.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402FDD20 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetPagePrivilege @ 0x140313B20 (MiGetPagePrivilege.c)
- *     MI_PFN_IS_PROTO @ 0x14033FA90 (MI_PFN_IS_PROTO.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     MiUnloadSystemImage @ 0x1406F4FB8 (MiUnloadSystemImage.c)
- *     MmReleaseLoadLock @ 0x1406F5AF0 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406F5B50 (MmAcquireLoadLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     MiClearPfnImageVerified @ 0x1402A3214 (MiClearPfnImageVerified.c)
+ *     MiSetImageProtection @ 0x1402E67C8 (MiSetImageProtection.c)
+ *     MiLookupDataTableEntry @ 0x1402E776C (MiLookupDataTableEntry.c)
+ *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetPagePrivilege @ 0x1403286F0 (MiGetPagePrivilege.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     MiSessionReferenceImage @ 0x1403A7974 (MiSessionReferenceImage.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     MmReleaseLoadLock @ 0x1406D1110 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406D1170 (MmAcquireLoadLock.c)
+ *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
  */
 
 __int64 __fastcall MmChangeImageProtection(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
@@ -28,22 +27,24 @@ __int64 __fastcall MmChangeImageProtection(__int64 a1, unsigned __int64 a2, __in
   unsigned int v7; // r14d
   unsigned int v8; // r14d
   __int64 Lock; // rbp
-  _QWORD *v10; // rax
-  __int64 v11; // rdi
-  unsigned __int64 v12; // r15
-  unsigned __int64 v13; // rdx
-  unsigned __int64 v14; // rax
-  int v15; // eax
-  int v16; // ebx
-  unsigned int v17; // r12d
-  _QWORD *v18; // r15
-  _QWORD *v19; // r13
-  __int64 v21; // rcx
-  unsigned __int64 v22; // rcx
-  __int64 v23; // r9
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // rax
+  ULONG_PTR v13; // rdi
+  unsigned __int64 v14; // r15
+  unsigned __int64 v15; // rdx
+  unsigned __int64 v16; // rax
+  int v17; // eax
+  int v18; // ebx
+  unsigned int v19; // r12d
+  _QWORD *v20; // r15
+  _QWORD *v21; // r13
+  ULONG_PTR v22; // rcx
+  __int64 v23; // r8
   __int64 v24; // rcx
-  __int64 v25; // rsi
-  __int64 BugCheckParameter2; // [rsp+30h] [rbp-48h]
+  __int64 v25; // rcx
+  unsigned __int64 v26; // rcx
+  __int64 v27; // rsi
 
   v5 = a2;
   if ( (unsigned int)(a4 - 1) > 1 )
@@ -60,133 +61,127 @@ __int64 __fastcall MmChangeImageProtection(__int64 a1, unsigned __int64 a2, __in
   --*(_WORD *)(Lock + 484);
   --*(_WORD *)(Lock + 484);
   ExAcquireResourceExclusiveLite(&PsLoadedModuleResource, 1u);
-  v10 = MiLookupDataTableEntry(*(_QWORD *)(a1 + 32), 0);
-  v11 = (__int64)v10;
-  if ( v10 )
+  v12 = MiLookupDataTableEntry(*(_QWORD *)(a1 + 32), 0LL, v10, v11);
+  v13 = v12;
+  if ( v12 )
   {
-    v12 = v10[6];
-    v13 = a3 + v5;
-    v14 = v12 + *((unsigned int *)v10 + 16);
-    if ( *(_QWORD *)(a1 + 32) + (unsigned __int64)*(unsigned int *)(a1 + 40) > v14
-      || v5 < v12
-      || v13 > v14
-      || v13 - 1 < v5 )
+    v14 = *(_QWORD *)(v12 + 48);
+    v15 = a3 + v5;
+    v16 = v14 + *(unsigned int *)(v12 + 64);
+    if ( *(_QWORD *)(a1 + 32) + (unsigned __int64)*(unsigned int *)(a1 + 40) > v16
+      || v5 < v14
+      || v15 > v16
+      || v15 - 1 < v5 )
     {
-      v16 = -1073741800;
+      v18 = -1073741800;
     }
     else
     {
-      v15 = *(_DWORD *)(v11 + 104);
-      if ( (v15 & 0x80000) != 0 )
+      v17 = *(_DWORD *)(v13 + 104);
+      if ( (v17 & 0x80000) != 0 )
       {
-        v16 = -1073741757;
+        v18 = -1073741757;
       }
       else
       {
-        v16 = 0;
-        *(_DWORD *)(v11 + 104) = v15 | 0x80000;
-        if ( (unsigned int)MiGetSystemRegionType(v12) == 1 )
-          MiSessionReferenceImage(v12);
+        v18 = 0;
+        *(_DWORD *)(v13 + 104) = v17 | 0x80000;
+        if ( (unsigned int)MiGetSystemRegionType(v14) == 1 )
+          MiSessionReferenceImage(v14);
         else
-          ++*(_WORD *)(v11 + 108);
+          ++*(_WORD *)(v13 + 108);
       }
     }
   }
   else
   {
-    v16 = -1073741275;
+    v18 = -1073741275;
   }
   ExReleaseResourceLite(&PsLoadedModuleResource);
   KeLeaveCriticalRegionThread(Lock);
   MmReleaseLoadLock(Lock);
-  if ( v16 >= 0 )
+  if ( v18 >= 0 )
   {
-    if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(*(_QWORD *)(v11 + 48)) )
+    if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(*(_QWORD *)(v13 + 48)) )
     {
-      v16 = -1073741800;
+      v18 = -1073741800;
     }
     else
     {
-      v17 = 0;
-      v18 = (_QWORD *)(a1 + 48);
+      v19 = 0;
+      v20 = (_QWORD *)(a1 + 48);
       if ( v8 )
       {
-        v19 = (_QWORD *)(a1 + 48);
-        while ( 1 )
+        v21 = (_QWORD *)(a1 + 48);
+        while ( !MI_PFN_IS_PROTO(48LL * *v21 - 0x58000000000LL) )
         {
-          BugCheckParameter2 = 48LL * *v19 - 0x220000000000LL;
-          if ( MI_PFN_IS_PROTO(BugCheckParameter2) )
-            break;
-          if ( (MiGetPagePrivilege(BugCheckParameter2, 0, 0LL) & 0x40) != 0 )
+          if ( (MiGetPagePrivilege(v22, 0, 0LL) & 0x40) != 0 )
           {
-            v16 = -1073741755;
-            goto LABEL_23;
+            v18 = -1073741755;
+            goto LABEL_41;
           }
-          ++v17;
           ++v19;
-          if ( v17 >= v8 )
+          ++v21;
+          if ( v19 >= v8 )
           {
             v5 = a2;
-            goto LABEL_21;
+            goto LABEL_26;
           }
         }
-        v16 = -1073741800;
+        v18 = -1073741800;
       }
       else
       {
-LABEL_21:
-        MiSetImageProtection(v11, *(_QWORD *)(a1 + 32), *(_DWORD *)(a1 + 40), 1LL);
+LABEL_26:
+        MiSetImageProtection(v13, *(_QWORD *)(a1 + 32), *(_DWORD *)(a1 + 40));
         if ( a4 == 1 )
         {
-          v21 = *(_QWORD *)(v11 + 112);
-          if ( v21
-            && (v24 = *(_QWORD *)(*(_QWORD *)(MiSectionControlArea(v21) + 96) + 40LL), (v24 & 0xFFFFFFFFFFFFFFF8uLL) > 8) )
+          v24 = *(_QWORD *)(v13 + 112);
+          if ( v24
+            && (v25 = *(_QWORD *)(*(_QWORD *)(MiSectionControlArea(v24) + 96) + 40LL), (v25 & 0xFFFFFFFFFFFFFFF8uLL) > 8) )
           {
-            v22 = v24 & 0xFFFFFFFFFFFFFFF8uLL;
+            v26 = v25 & 0xFFFFFFFFFFFFFFF8uLL;
           }
           else
           {
-            v22 = 0LL;
+            v26 = 0LL;
           }
-          if ( qword_140C1B930 )
+          if ( qword_140C1DB50 )
           {
-            v16 = qword_140C1B930(v22, a1, v5, a3, v5 - *(_QWORD *)(v11 + 48));
-            if ( v16 >= 0 )
+            v18 = qword_140C1DB50(v26, a1, v5, a3, v5 - *(_QWORD *)(v13 + 48));
+            if ( v18 >= 0 )
             {
-              v23 = 3LL;
-              if ( (MiFlags & 0x8000) != 0 && v16 == 300 )
-                v23 = 19LL;
-              MiSetImageProtection(v11, *(_QWORD *)(a1 + 32), *(_DWORD *)(a1 + 40), v23);
-              v16 = 0;
+              MiSetImageProtection(v13, *(_QWORD *)(a1 + 32), *(_DWORD *)(a1 + 40));
+              v18 = 0;
             }
           }
           else
           {
-            v16 = -1073741822;
+            v18 = -1073741822;
           }
         }
-        else if ( (MiFlags & 0x8000) != 0 && v8 )
+        else if ( (MiFlags & 0x10000) != 0 && v8 )
         {
-          v25 = v8;
+          v27 = v8;
           do
           {
-            MiClearPfnImageVerified(48LL * *v18++ - 0x220000000000LL, 24);
-            --v25;
+            MiClearPfnImageVerified(48LL * *v20++ - 0x58000000000LL, 24LL, v23);
+            --v27;
           }
-          while ( v25 );
+          while ( v27 );
         }
       }
     }
-LABEL_23:
+LABEL_41:
     MmAcquireLoadLock();
     --*(_WORD *)(Lock + 484);
     ExAcquireResourceExclusiveLite(&PsLoadedModuleResource, 1u);
-    *(_DWORD *)(v11 + 104) &= ~0x80000u;
+    *(_DWORD *)(v13 + 104) &= ~0x80000u;
     ExReleaseResourceLite(&PsLoadedModuleResource);
     KeLeaveCriticalRegionThread(Lock);
-    MiUnloadSystemImage(v11, -1);
+    MiUnloadSystemImage(v13);
     MmReleaseLoadLock(Lock);
   }
-  KiLeaveCriticalRegionUnsafe(Lock);
-  return (unsigned int)v16;
+  KeLeaveCriticalRegionThread(Lock);
+  return (unsigned int)v18;
 }

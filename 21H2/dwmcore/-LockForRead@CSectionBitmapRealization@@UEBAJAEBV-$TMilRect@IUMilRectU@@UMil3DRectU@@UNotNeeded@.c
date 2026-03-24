@@ -1,10 +1,10 @@
 /*
- * XREFs of ?LockForRead@CSectionBitmapRealization@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x1802A7D10
+ * XREFs of ?LockForRead@CSectionBitmapRealization@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x1802672D0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CSectionBitmapRealization::LockForRead(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall CSectionBitmapRealization::LockForRead(__int64 a1)
     v3 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v1 + 32LL))(v1);
     v2 = v3;
     if ( v3 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, v3, 0x92u);
+      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0xB8u, 0LL);
   }
   return v2;
 }

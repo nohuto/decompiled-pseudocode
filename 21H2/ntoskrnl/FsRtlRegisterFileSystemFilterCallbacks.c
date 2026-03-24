@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlRegisterFileSystemFilterCallbacks @ 0x1403A7640
+ * XREFs of FsRtlRegisterFileSystemFilterCallbacks @ 0x14039AEB0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall FsRtlRegisterFileSystemFilterCallbacks(
@@ -12,18 +12,21 @@ NTSTATUS __stdcall FsRtlRegisterFileSystemFilterCallbacks(
         PFS_FILTER_CALLBACKS Callbacks)
 {
   PDRIVER_EXTENSION DriverExtension; // rsi
-  DRIVER_ADD_DEVICE *Pool2; // rax
+  DRIVER_ADD_DEVICE *PoolWithTag; // rax
   DRIVER_ADD_DEVICE *v5; // rdi
   NTSTATUS result; // eax
 
   if ( !FilterDriverObject || !Callbacks )
     return -1073741811;
   DriverExtension = FilterDriverObject->DriverExtension;
-  Pool2 = (DRIVER_ADD_DEVICE *)ExAllocatePool2(66LL, Callbacks->SizeOfFsFilterCallbacks, 1735217990LL);
-  v5 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (DRIVER_ADD_DEVICE *)ExAllocatePoolWithTag(
+                                       NonPagedPoolNx,
+                                       Callbacks->SizeOfFsFilterCallbacks,
+                                       0x676D5346u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
     return -1073741670;
-  memmove(Pool2, Callbacks, Callbacks->SizeOfFsFilterCallbacks);
+  memmove(PoolWithTag, Callbacks, Callbacks->SizeOfFsFilterCallbacks);
   result = 0;
   DriverExtension[1].AddDevice = v5;
   return result;

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CaptureUsermodeParameters@QueryGlyphAttrsRequest@@UEAAXPEAX@Z @ 0x1C02DC230
+ * XREFs of ?CaptureUsermodeParameters@QueryGlyphAttrsRequest@@UEAAXPEAX@Z @ 0x1C02DF440
  * Callers:
  *     <none>
  * Callees:
- *     ?CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z @ 0x1C001B8D4 (-CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z.c)
- *     ?Win32ProbeForRead@@YAXPEAX_KK@Z @ 0x1C00DDFE0 (-Win32ProbeForRead@@YAXPEAX_KK@Z.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     ?CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z @ 0x1C009B3C8 (-CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z.c)
+ *     ?Win32ProbeForRead@@YAXPEAX_KK@Z @ 0x1C00D268C (-Win32ProbeForRead@@YAXPEAX_KK@Z.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 void __fastcall QueryGlyphAttrsRequest::CaptureUsermodeParameters(QueryGlyphAttrsRequest *this, struct _FONTOBJ **a2)

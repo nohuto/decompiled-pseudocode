@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhQueueHardReset @ 0x1C003CB20
+ * XREFs of UsbhQueueHardReset @ 0x1C003DD00
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhEtwLogHubIrpEvent @ 0x1C000C920 (UsbhEtwLogHubIrpEvent.c)
- *     UsbhDispatch_HardResetEvent @ 0x1C001C920 (UsbhDispatch_HardResetEvent.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C0012400 (UsbhEtwLogHubIrpEvent.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001A550 (UsbhDispatch_HardResetEvent.c)
  */
 
 __int64 __fastcall UsbhQueueHardReset(__int64 a1, __int64 a2)

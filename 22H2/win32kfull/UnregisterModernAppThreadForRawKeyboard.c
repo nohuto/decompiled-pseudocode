@@ -1,36 +1,29 @@
 /*
- * XREFs of UnregisterModernAppThreadForRawKeyboard @ 0x1C01AA0B8
+ * XREFs of UnregisterModernAppThreadForRawKeyboard @ 0x1C01D525C
  * Callers:
- *     _EnableModernAppWindowKeyboardIntercept @ 0x1C01E3698 (_EnableModernAppWindowKeyboardIntercept.c)
+ *     _EnableModernAppWindowKeyboardIntercept @ 0x1C0206A00 (_EnableModernAppWindowKeyboardIntercept.c)
  * Callees:
- *     _RegisterRawInputDevices @ 0x1C009F368 (_RegisterRawInputDevices.c)
- *     HasHidTable @ 0x1C01184A0 (HasHidTable.c)
- *     ?HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z @ 0x1C01A96F0 (-HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z.c)
+ *     HasHidTable @ 0x1C0052590 (HasHidTable.c)
+ *     _RegisterRawInputDevices @ 0x1C0107FD0 (_RegisterRawInputDevices.c)
+ *     ?HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z @ 0x1C01D4870 (-HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z.c)
  */
 
 __int64 __fastcall UnregisterModernAppThreadForRawKeyboard(__int64 a1)
 {
   __int64 v2; // rcx
-  int v3; // eax
-  _DWORD v5[2]; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v6; // [rsp+28h] [rbp-10h]
+  int v3; // edx
 
   if ( (unsigned int)HasHidTable(a1) )
   {
     v2 = *(_QWORD *)(a1 + 424);
-    if ( (*(_DWORD *)(*(_QWORD *)(v2 + 848) + 100LL) & 0x1000) != 0 )
+    if ( (*(_DWORD *)(*(_QWORD *)(v2 + 832) + 100LL) & 0x800) != 0 )
     {
-      v3 = *(_DWORD *)(a1 + 1272);
+      v3 = *(_DWORD *)(a1 + 1232);
       if ( (v3 & 0x200000) != 0 )
       {
-        *(_DWORD *)(a1 + 1272) = v3 & 0xFFDFFFFF;
+        *(_DWORD *)(a1 + 1232) = v3 & 0xFFDFFFFF;
         if ( !(unsigned int)HasRawKeyboardPerThreadRegistration((const struct tagPROCESSINFO *)v2) )
-        {
-          v6 = 0LL;
-          v5[0] = 393217;
-          v5[1] = 1;
-          RegisterRawInputDevices((__int64)v5, 1u, 2u);
-        }
+          RegisterRawInputDevices((__int64)&unk_1C0332F98, 1u, 2u);
       }
     }
   }

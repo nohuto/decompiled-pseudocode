@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GdiCalloutLoop@CTDR_GDI_RESET_THREAD@@IEAAJAEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@@Z @ 0x1C0304E68
+ * XREFs of ?GdiCalloutLoop@CTDR_GDI_RESET_THREAD@@IEAAJAEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@@Z @ 0x1C026446C
  * Callers:
- *     ?Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ @ 0x1C0306C90 (-Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ.c)
+ *     ?SwitchGdi@CTDR_GDI_RESET_THREAD@@IEAAJ_N@Z @ 0x1C0264720 (-SwitchGdi@CTDR_GDI_RESET_THREAD@@IEAAJ_N@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01B32DC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C013AB0C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
  */
 
 __int64 __fastcall CTDR_GDI_RESET_THREAD::GdiCalloutLoop(
@@ -46,7 +46,7 @@ __int64 __fastcall CTDR_GDI_RESET_THREAD::GdiCalloutLoop(
       a3,
       &CTDR_GDI_RESET_THREAD::IsTdrAdapterUsedInSessionCallback,
       *((_QWORD *)this + 3),
-      *(_QWORD *)(*((_QWORD *)this + 3) + 2896LL));
+      *(_QWORD *)(*((_QWORD *)this + 3) + 2888LL));
     Status = a2->Status;
     if ( Status != -1073741816 )
       break;

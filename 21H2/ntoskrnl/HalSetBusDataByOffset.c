@@ -1,12 +1,12 @@
 /*
- * XREFs of HalSetBusDataByOffset @ 0x1403ADD00
+ * XREFs of HalSetBusDataByOffset @ 0x14039E860
  * Callers:
- *     HalSetBusData @ 0x1405054B0 (HalSetBusData.c)
- *     HalpPiix4Detect @ 0x140A53294 (HalpPiix4Detect.c)
- *     KdpSysWriteBusData @ 0x140A73D18 (KdpSysWriteBusData.c)
+ *     HalSetBusData @ 0x1404B8A70 (HalSetBusData.c)
+ *     HalpPiix4Detect @ 0x14099A3E0 (HalpPiix4Detect.c)
+ *     KdpSysWriteBusData @ 0x1409B8F00 (KdpSysWriteBusData.c)
  * Callees:
- *     HalpSetPCIData @ 0x1403ADD44 (HalpSetPCIData.c)
- *     HalpGetSetCmosData @ 0x1405183DC (HalpGetSetCmosData.c)
+ *     HalpSetPCIData @ 0x14039E8A4 (HalpSetPCIData.c)
+ *     HalpGetSetCmosData @ 0x1404CC28C (HalpGetSetCmosData.c)
  */
 
 ULONG __stdcall HalSetBusDataByOffset(
@@ -17,12 +17,9 @@ ULONG __stdcall HalSetBusDataByOffset(
         ULONG Offset,
         ULONG Length)
 {
-  size_t Size; // [rsp+28h] [rbp-10h]
-
   if ( BusDataType == Cmos )
     return HalpGetSetCmosData(0, SlotNumber, (_DWORD)Buffer, Length, 1);
-  if ( BusDataType != PCIConfiguration )
-    return 0;
-  LODWORD(Size) = Length;
-  return HalpSetPCIData(BusNumber >> 8, BusNumber, SlotNumber, (int)Buffer, Offset, Size);
+  if ( BusDataType == PCIConfiguration )
+    return HalpSetPCIData(BusNumber >> 8, BusNumber, SlotNumber, (_DWORD)Buffer, Offset, Length);
+  return 0;
 }

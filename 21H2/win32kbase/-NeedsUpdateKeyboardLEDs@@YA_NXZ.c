@@ -1,7 +1,7 @@
 /*
- * XREFs of ?NeedsUpdateKeyboardLEDs@@YA_NXZ @ 0x1C0040888
+ * XREFs of ?NeedsUpdateKeyboardLEDs@@YA_NXZ @ 0x1C00491A0
  * Callers:
- *     ?WaitAndDispatch@LegacyInputDispatcher@@QEAAJXZ @ 0x1C0040610 (-WaitAndDispatch@LegacyInputDispatcher@@QEAAJXZ.c)
+ *     ?WaitAndDispatch@LegacyInputDispatcher@@QEAAJXZ @ 0x1C0048E60 (-WaitAndDispatch@LegacyInputDispatcher@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */

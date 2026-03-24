@@ -1,17 +1,17 @@
 /*
- * XREFs of PpProfileCommitTransitioningDock @ 0x140832914
+ * XREFs of PpProfileCommitTransitioningDock @ 0x1408328F4
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x14015A93C (PnpRemoveLockedDeviceNode.c)
- *     PipProcessStartPhase2 @ 0x1406FD644 (PipProcessStartPhase2.c)
+ *     PnpRemoveLockedDeviceNode @ 0x14015A95C (PnpRemoveLockedDeviceNode.c)
+ *     PipProcessStartPhase2 @ 0x1406FD624 (PipProcessStartPhase2.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KeReleaseSemaphore @ 0x1400C5EA0 (KeReleaseSemaphore.c)
+ *     KeReleaseSemaphore @ 0x1400C5EC0 (KeReleaseSemaphore.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PnpIrpQueryID @ 0x1406EC470 (PnpIrpQueryID.c)
- *     PnpRequestHwProfileChangeNotification @ 0x140825FC4 (PnpRequestHwProfileChangeNotification.c)
- *     PiProfileUpdateDeviceTree @ 0x140832478 (PiProfileUpdateDeviceTree.c)
- *     PnpProfileUpdateHardwareProfile @ 0x1408325CC (PnpProfileUpdateHardwareProfile.c)
+ *     PnpIrpQueryID @ 0x1406EC450 (PnpIrpQueryID.c)
+ *     PnpRequestHwProfileChangeNotification @ 0x140825FA4 (PnpRequestHwProfileChangeNotification.c)
+ *     PiProfileUpdateDeviceTree @ 0x140832458 (PiProfileUpdateDeviceTree.c)
+ *     PnpProfileUpdateHardwareProfile @ 0x1408325AC (PnpProfileUpdateHardwareProfile.c)
  */
 
 LONG __fastcall PpProfileCommitTransitioningDock(__int64 a1, int a2)

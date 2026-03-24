@@ -1,10 +1,10 @@
 /*
- * XREFs of vInitMapper @ 0x1C0391E00
+ * XREFs of vInitMapper @ 0x1C0393BE0
  * Callers:
  *     <none>
  * Callees:
- *     InitializeDefaultFamilyFonts @ 0x1C039087C (InitializeDefaultFamilyFonts.c)
- *     InitializeFontSignatures @ 0x1C0391E1C (InitializeFontSignatures.c)
+ *     InitializeDefaultFamilyFonts @ 0x1C03938B0 (InitializeDefaultFamilyFonts.c)
+ *     InitializeFontSignatures @ 0x1C0393BFC (InitializeFontSignatures.c)
  */
 
 int vInitMapper()

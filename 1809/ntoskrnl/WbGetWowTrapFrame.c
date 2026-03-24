@@ -1,9 +1,9 @@
 /*
- * XREFs of WbGetWowTrapFrame @ 0x1408E544C
+ * XREFs of WbGetWowTrapFrame @ 0x1408E542C
  * Callers:
  *     WbGetTrapFrame @ 0x14062444C (WbGetTrapFrame.c)
  * Callees:
- *     PspWow64GetContextThread @ 0x1406A82D8 (PspWow64GetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1406A82B8 (PspWow64GetContextThread.c)
  */
 
 __int64 __fastcall WbGetWowTrapFrame(unsigned int *a1, __int64 a2)

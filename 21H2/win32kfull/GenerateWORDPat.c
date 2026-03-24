@@ -1,23 +1,23 @@
 /*
- * XREFs of GenerateWORDPat @ 0x1C025E348
+ * XREFs of GenerateWORDPat @ 0x1C0002414
  * Callers:
- *     ComputeHTCell @ 0x1C0096AD0 (ComputeHTCell.c)
- *     Generate_HTSC_WORD @ 0x1C011DD3C (Generate_HTSC_WORD.c)
+ *     ComputeHTCell @ 0x1C0113064 (ComputeHTCell.c)
+ *     Generate_HTSC_WORD @ 0x1C012A1B8 (Generate_HTSC_WORD.c)
  * Callees:
- *     ExpandHTPatX @ 0x1C0150468 (ExpandHTPatX.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ExpandHTPatX @ 0x1C012A438 (ExpandHTPatX.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall GenerateWORDPat(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        char *a4,
+        _WORD *a4,
         unsigned int a5,
         unsigned int a6,
         unsigned int a7)
 {
-  int v7; // ebx
+  unsigned int v7; // ebx
   unsigned int v8; // r12d
   unsigned int v9; // ebp
   unsigned __int64 v10; // rsi
@@ -30,7 +30,7 @@ __int64 __fastcall GenerateWORDPat(
   unsigned int v17; // r9d
   unsigned __int8 *v18; // rdx
   unsigned int v19; // ecx
-  int v20; // r8d
+  unsigned int v20; // r8d
   unsigned __int8 v21; // al
   char *v22; // rdi
   unsigned int v23; // edx
@@ -92,7 +92,7 @@ __int64 __fastcall GenerateWORDPat(
     }
     while ( v17 );
     v22 = (char *)v13;
-    qsort(v13, (unsigned int)v10, 8uLL, (int (__cdecl *)(const void *, const void *))SCDataCompare);
+    qsort(v13, (unsigned int)v10, 8uLL, SCDataCompare);
     v9 = a7;
     LOWORD(v23) = 0;
     v24 = 0;
@@ -111,7 +111,7 @@ __int64 __fastcall GenerateWORDPat(
         }
         v28 = *((unsigned int *)v22 + 1);
         v22 += 8;
-        *(_WORD *)&a4[2 * v28] = v23;
+        a4[v28] = v23;
       }
       while ( v25 );
       v7 = a5;
@@ -122,7 +122,7 @@ __int64 __fastcall GenerateWORDPat(
       break;
     v14 = v30;
   }
-  ExpandHTPatX(a4, v7, a7, a6);
+  ExpandHTPatX(a4);
   EngFreeMem(v13);
   return 1LL;
 }

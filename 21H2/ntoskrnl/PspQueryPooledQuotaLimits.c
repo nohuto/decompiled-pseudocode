@@ -1,16 +1,21 @@
 /*
- * XREFs of PspQueryPooledQuotaLimits @ 0x1409AE3D8
+ * XREFs of PspQueryPooledQuotaLimits @ 0x1409080A8
  * Callers:
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall PspQueryPooledQuotaLimits(ULONG_PTR BugCheckParameter1, __int64 a2, int a3, _DWORD *a4, char a5)
+NTSTATUS __fastcall PspQueryPooledQuotaLimits(
+        HANDLE Handle,
+        __int64 a2,
+        int a3,
+        _DWORD *a4,
+        KPROCESSOR_MODE AccessMode)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   PVOID *v10; // rdx
   PVOID v11; // r8
   PVOID v12; // rsi
@@ -26,17 +31,16 @@ __int64 __fastcall PspQueryPooledQuotaLimits(ULONG_PTR BugCheckParameter1, __int
   Object[0] = 0LL;
   memset(&Object[2], 0, 0x48uLL);
   if ( a3 != 72 )
-    return 3221225476LL;
-  result = ObpReferenceObjectByHandleWithTag(
-             BugCheckParameter1,
-             4096,
-             (__int64)PsProcessType,
-             a5,
+    return -1073741820;
+  result = ObReferenceObjectByHandleWithTag(
+             Handle,
+             0x1000u,
+             (POBJECT_TYPE)PsProcessType,
+             AccessMode,
              0x79517350u,
              Object,
-             0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v10 = (PVOID *)*((_QWORD *)Object[0] + 173);
     v11 = v10[24];
@@ -77,7 +81,7 @@ __int64 __fastcall PspQueryPooledQuotaLimits(ULONG_PTR BugCheckParameter1, __int
     *(PVOID *)(a2 + 64) = Object[10];
     if ( a4 )
       *a4 = 72;
-    return 0LL;
+    return 0;
   }
   return result;
 }

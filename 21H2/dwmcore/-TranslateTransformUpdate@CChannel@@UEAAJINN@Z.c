@@ -1,24 +1,24 @@
 /*
- * XREFs of ?TranslateTransformUpdate@CChannel@@UEAAJINN@Z @ 0x1801ACC50
+ * XREFs of ?TranslateTransformUpdate@CChannel@@UEAAJINN@Z @ 0x18001F680
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
-__int64 __fastcall CChannel::TranslateTransformUpdate(CDataStreamWriter **this, unsigned int a2, double a3, double a4)
+__int64 __fastcall CChannel::TranslateTransformUpdate(CChannel *this, unsigned int a2, double a3, double a4)
 {
   float v6; // xmm0_4
   float v7; // xmm1_4
   unsigned int v8; // ebx
   _DWORD v10[4]; // [rsp+20h] [rbp-38h] BYREF
-  struct _RTL_CRITICAL_SECTION *v11; // [rsp+60h] [rbp+8h] BYREF
+  char *v11; // [rsp+60h] [rbp+8h] BYREF
 
-  v11 = (struct _RTL_CRITICAL_SECTION *)(this + 21);
-  EnterCriticalSection((LPCRITICAL_SECTION)(this + 21));
-  CChannel::CheckHandle((__int64)this, a2, 189);
+  v11 = (char *)this + 168;
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
+  CChannel::CheckHandle(this, a2, 189LL);
   v10[0] = _mm_load_si128((const __m128i *)&_xmm).m128i_u32[0];
   v10[1] = a2;
   v6 = a3;

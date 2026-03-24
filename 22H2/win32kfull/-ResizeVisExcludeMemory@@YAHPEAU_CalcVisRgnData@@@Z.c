@@ -1,9 +1,10 @@
 /*
- * XREFs of ?ResizeVisExcludeMemory@@YAHPEAU_CalcVisRgnData@@@Z @ 0x1C01A7EE8
+ * XREFs of ?ResizeVisExcludeMemory@@YAHPEAU_CalcVisRgnData@@@Z @ 0x1C01524B0
  * Callers:
- *     ?CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C0033750 (-CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z.c)
+ *     ?CalcVisRgnWorker@@YAHQEAUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C0073B10 (-CalcVisRgnWorker@@YAHQEAUtagWND@@PEAPEAUHRGN__@@K@Z.c)
+ *     ?ExcludeWindowRects@@YAHPEAUtagWND@@00PEAUtagRECT@@PEAU_CalcVisRgnData@@PEAH@Z @ 0x1C00D68A0 (-ExcludeWindowRects@@YAHPEAUtagWND@@00PEAUtagRECT@@PEAU_CalcVisRgnData@@PEAH@Z.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall ResizeVisExcludeMemory(struct _CalcVisRgnData *a1)
@@ -14,7 +15,7 @@ __int64 __fastcall ResizeVisExcludeMemory(struct _CalcVisRgnData *a1)
   void *v5; // rbp
 
   v2 = *((_DWORD *)a1 + 2) + 30;
-  result = Win32AllocPoolZInit(8LL * v2, 1769370453LL);
+  result = Win32AllocPool(8LL * v2, 1769370453LL);
   v4 = result;
   if ( result )
   {

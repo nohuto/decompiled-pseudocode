@@ -1,5 +1,5 @@
 /*
- * XREFs of W32kStub_DrvSampleDisplayState @ 0x1C0384B80
+ * XREFs of W32kStub_DrvSampleDisplayState @ 0x1C02BE7E0
  * Callers:
  *     <none>
  * Callees:

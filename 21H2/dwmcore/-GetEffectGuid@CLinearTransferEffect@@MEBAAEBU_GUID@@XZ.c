@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetEffectGuid@CLinearTransferEffect@@MEBAAEBU_GUID@@XZ @ 0x1800FB5A0
+ * XREFs of ?GetEffectGuid@CLinearTransferEffect@@MEBAAEBU_GUID@@XZ @ 0x1800E2C50
  * Callers:
  *     <none>
  * Callees:

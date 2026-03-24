@@ -1,40 +1,45 @@
 /*
- * XREFs of ?IncreaseWrittenByteCount@CDataStreamWriter@@IEAAJI@Z @ 0x180044720
+ * XREFs of ?IncreaseWrittenByteCount@CDataStreamWriter@@IEAAJI@Z @ 0x18005F4D0
  * Callers:
- *     ?GetItemDataWritePointer@CDataStreamWriter@@QEAAJIPEAPEAX@Z @ 0x18004459C (-GetItemDataWritePointer@CDataStreamWriter@@QEAAJIPEAPEAX@Z.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044610 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     ?AddBlockData@CDataStreamWriter@@QEAAJPEBXI@Z @ 0x1800BBBB0 (-AddBlockData@CDataStreamWriter@@QEAAJPEBXI@Z.c)
+ *     ?AddBlockData@CDataStreamWriter@@QEAAJPEBXI@Z @ 0x180038068 (-AddBlockData@CDataStreamWriter@@QEAAJPEBXI@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CDataStreamWriter::IncreaseWrittenByteCount(CDataStreamWriter *this, int a2)
 {
-  __int64 v2; // r8
-  unsigned int v3; // eax
-  unsigned int v4; // edx
-  unsigned int v5; // ebx
-  unsigned int v7; // [rsp+20h] [rbp-18h]
+  __int64 v2; // r9
+  int v3; // r11d
+  int v4; // eax
+  unsigned int v6; // r10d
+  unsigned int v7; // r8d
+  unsigned int v8; // ebx
+  __int64 v9; // rcx
+  unsigned int v10; // eax
 
   v2 = *((_QWORD *)this + 4);
-  v3 = *(_DWORD *)(v2 + 20);
-  if ( v3 + a2 < v3 )
+  v3 = -1;
+  v4 = -1;
+  v6 = *(_DWORD *)(v2 + 20);
+  v7 = v6 + a2;
+  if ( v6 + a2 >= v6 )
+    v4 = v6 + a2;
+  v8 = v7 < v6 ? 0x80070216 : 0;
+  *(_DWORD *)(v2 + 20) = v4;
+  if ( v7 < v6 )
   {
-    *(_DWORD *)(v2 + 20) = -1;
-    v7 = 583;
-    goto LABEL_7;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v8, 0x232u, 0LL);
   }
-  *(_DWORD *)(v2 + 20) = v3 + a2;
-  v4 = *((_DWORD *)this + 11) + a2;
-  if ( v4 < *((_DWORD *)this + 11) )
+  else
   {
-    *((_DWORD *)this + 11) = -1;
-    v7 = 584;
-LABEL_7:
-    v5 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2147024362, v7, 0LL);
-    return v5;
+    v9 = *((unsigned int *)this + 11);
+    v10 = v9 + a2;
+    if ( (int)v9 + a2 >= (unsigned int)v9 )
+      v3 = v9 + a2;
+    v8 = v10 < (unsigned int)v9 ? 0x80070216 : 0;
+    *((_DWORD *)this + 11) = v3;
+    if ( v10 < (unsigned int)v9 )
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x233u, 0LL);
   }
-  *((_DWORD *)this + 11) = v4;
-  return 0;
+  return v8;
 }

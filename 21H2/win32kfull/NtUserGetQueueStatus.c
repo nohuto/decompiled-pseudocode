@@ -1,97 +1,73 @@
 /*
- * XREFs of NtUserGetQueueStatus @ 0x1C00A4E20
+ * XREFs of NtUserGetQueueStatus @ 0x1C00D5FC0
  * Callers:
  *     <none>
  * Callees:
- *     xxxDrainQueueCompletions @ 0x1C00A5010 (xxxDrainQueueCompletions.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     xxxDrainQueueCompletions @ 0x1C00D6154 (xxxDrainQueueCompletions.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall NtUserGetQueueStatus(__int16 a1)
 {
-  __int64 v2; // rsi
-  __int64 *ThreadWin32Thread; // rax
-  int v4; // r14d
-  __int64 v5; // rbx
+  struct _KTHREAD *CurrentThread; // rsi
+  _QWORD *v3; // rbx
+  __int64 v4; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  _QWORD *ThreadWin32Thread; // rax
+  tagObjLock *v9; // r14
   unsigned int DLT; // eax
-  int v7; // edi
-  char *v8; // rbx
-  tagDomLock *v9; // rcx
-  int v10; // edi
-  tagObjLock **v11; // rbx
-  tagDomLock *v12; // rcx
-  int v13; // edx
-  unsigned int v14; // ebx
-  tagDomLock *DomainLockRef; // [rsp+38h] [rbp-48h]
-  char v17; // [rsp+40h] [rbp-40h] BYREF
-  __int64 v18; // [rsp+48h] [rbp-38h]
-  char v19; // [rsp+50h] [rbp-30h]
-  __int128 v20; // [rsp+58h] [rbp-28h] BYREF
-  char v21; // [rsp+68h] [rbp-18h]
+  tagDomLock *DomainLockRef; // r15
+  unsigned int v12; // eax
+  __int64 v13; // rdx
+  unsigned __int16 v14; // r12
+  __int16 v15; // bp
+  __int64 v16; // rax
+  unsigned int v17; // ebx
+  int v18; // edi
+  unsigned int v19; // eax
+  __int64 v20; // rcx
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // edi
+  __int64 v24; // rcx
+  __int64 CurrentThreadProcess; // rax
 
-  EnterSharedCrit();
-  v2 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v2 = *ThreadWin32Thread;
-  if ( *(_QWORD *)(v2 + 1464) && (a1 & 8) != 0 )
-    xxxDrainQueueCompletions(1LL);
-  v4 = a1 & 0x5DFF;
-  v5 = v2 + 392;
+  EnterSharedCrit(0LL, 1LL);
+  CurrentThread = KeGetCurrentThread();
+  v3 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(v4)
+    || (CurrentProcess = PsGetCurrentProcess(v6, v5, v7),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v24),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (_QWORD *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v3 = (_QWORD *)*ThreadWin32Thread;
+  }
+  v9 = (tagObjLock *)(v3 + 49);
   DLT = DLT_THREADINFO::getDLT();
-  v7 = 0;
-  v20 = 0LL;
   DomainLockRef = (tagDomLock *)GetDomainLockRef(DLT);
-  if ( v2 + 392 == gObjDummyLock )
-    v5 = 0LL;
-  *(_QWORD *)&v20 = v5;
-  v8 = &v17;
-  v17 = 0;
-  v18 = gDomainDummyLock;
-  v19 = 0;
-  v21 = 0;
-  do
-  {
-    v9 = (tagDomLock *)*((_QWORD *)v8 - 1);
-    if ( v9 )
-    {
-      if ( *v8 )
-        tagDomLock::LockExclusive(v9);
-      else
-        tagDomLock::LockShared(v9);
-    }
-    ++v7;
-    v8 += 16;
-  }
-  while ( !v7 );
-  v10 = 0;
-  v11 = (tagObjLock **)&v20;
-  do
-  {
-    if ( *v11 )
-      tagObjLock::LockExclusive(*v11);
-    ++v10;
-    ++v11;
-  }
-  while ( !v10 );
-  v12 = *(tagDomLock **)(v2 + 448);
-  v21 = 1;
-  v13 = *((_DWORD *)v12 + 1);
-  _InterlockedAnd((volatile signed __int32 *)v12 + 1, ~v4);
-  v14 = (unsigned __int16)(v4 & v13) | ((unsigned __int16)(v4 & (*(_WORD *)(*(_QWORD *)(v2 + 448) + 8LL) | *(_WORD *)(*(_QWORD *)(v2 + 448) + 12LL))) << 16);
-  if ( v21 )
-  {
-    if ( (_QWORD)v20 )
-      tagObjLock::UnLockExclusive((tagObjLock *)v20);
-    v12 = DomainLockRef;
-    if ( DomainLockRef )
-    {
-      if ( v17 )
-        tagDomLock::UnLockExclusive(DomainLockRef);
-      else
-        tagDomLock::UnLockShared(DomainLockRef);
-    }
-  }
-  UserSessionSwitchLeaveCrit(v12);
-  return v14;
+  if ( v3 + 49 == (_QWORD *)gObjDummyLock )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 328LL);
+  v12 = DLT_THREADINFO::getDLT();
+  ptiSetDomainLockBit(v12);
+  tagDomLock::LockShared(DomainLockRef);
+  tagObjLock::LockExclusive((tagObjLock *)(v3 + 49));
+  if ( v3[183] && (a1 & 8) != 0 )
+    xxxDrainQueueCompletions(1LL);
+  v13 = v3[56];
+  v14 = a1 & 0x5DFF;
+  v15 = *(_WORD *)(v13 + 4);
+  *(_WORD *)(v13 + 4) = v15 & ~v14;
+  v16 = v3[56];
+  v17 = *(unsigned __int16 *)(v16 + 8);
+  v18 = *(unsigned __int16 *)(v16 + 6);
+  v19 = DLT_THREADINFO::getDLT();
+  ptiUnSetDomainLockBit(v19);
+  tagObjLock::UnLockExclusive(v9);
+  tagDomLock::UnLockShared(DomainLockRef);
+  UserSessionSwitchLeaveCrit(v20);
+  return (unsigned __int16)(v14 & v15) | ((v14 & (v18 | v17)) << 16);
 }

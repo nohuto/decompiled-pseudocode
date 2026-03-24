@@ -1,7 +1,7 @@
 /*
- * XREFs of TmCommitComplete @ 0x1403D7D90
+ * XREFs of TmCommitComplete @ 0x1403D0480
  * Callers:
- *     CmKtmNotification @ 0x140697D50 (CmKtmNotification.c)
+ *     <none>
  * Callees:
  *     <none>
  */

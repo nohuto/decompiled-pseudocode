@@ -4,8 +4,8 @@
  *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
  * Callees:
  *     KeCopyLastBranchInformation @ 0x1400A27C4 (KeCopyLastBranchInformation.c)
- *     RtlXSaveS @ 0x140141D00 (RtlXSaveS.c)
- *     KiCopyXStateArea @ 0x140294200 (KiCopyXStateArea.c)
+ *     RtlXSaveS @ 0x140141D20 (RtlXSaveS.c)
+ *     KiCopyXStateArea @ 0x140294300 (KiCopyXStateArea.c)
  */
 
 int __fastcall PspGetContext(__int64 a1, __int64 a2, __int64 a3)

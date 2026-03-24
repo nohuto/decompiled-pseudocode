@@ -1,99 +1,98 @@
 /*
- * XREFs of EtwpRealtimeDeliverBuffer @ 0x140708E10
+ * XREFs of EtwpRealtimeDeliverBuffer @ 0x1406BEAC8
  * Callers:
- *     EtwpFlushBufferToRealtime @ 0x1406BD8AC (EtwpFlushBufferToRealtime.c)
- *     EtwpRealtimeFlushSavedBuffers @ 0x1407734E8 (EtwpRealtimeFlushSavedBuffers.c)
- *     EtwpRealtimeSendEmptyMarker @ 0x1407F7B40 (EtwpRealtimeSendEmptyMarker.c)
- *     EtwpRealtimeUpdateReferenceTime @ 0x1408863B8 (EtwpRealtimeUpdateReferenceTime.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x140696190 (EtwpRealtimeFlushSavedBuffers.c)
+ *     EtwpFlushBufferToRealtime @ 0x1406BE9F4 (EtwpFlushBufferToRealtime.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x140714534 (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x1407D04F8 (EtwpRealtimeUpdateReferenceTime.c)
  * Callees:
- *     EtwpDisassociateConsumer @ 0x1406828FC (EtwpDisassociateConsumer.c)
- *     EtwpRealtimeInjectEtwBuffer @ 0x140708F70 (EtwpRealtimeInjectEtwBuffer.c)
+ *     EtwpDisassociateConsumer @ 0x1406A4F60 (EtwpDisassociateConsumer.c)
+ *     EtwpRealtimeInjectEtwBuffer @ 0x1406BEC0C (EtwpRealtimeInjectEtwBuffer.c)
  */
 
 __int64 __fastcall EtwpRealtimeDeliverBuffer(__int64 a1, __int64 a2)
 {
-  __int16 *v2; // rdi
-  int v4; // ecx
+  int v2; // eax
   _QWORD *v5; // rbx
-  _QWORD *v6; // r14
-  __int16 v7; // r12
-  _QWORD *v8; // rbp
-  int v9; // eax
-  unsigned __int8 v10; // cl
-  char v11; // r8
-  __int16 v13; // ax
-  __int16 v14; // ax
-  char v15; // [rsp+60h] [rbp+8h]
+  _QWORD *v6; // r12
+  _QWORD *v7; // r14
+  __int16 v8; // r15
+  _QWORD *v9; // rsi
+  int v10; // eax
+  unsigned __int8 v11; // cl
+  char v12; // dl
+  bool v14; // zf
+  __int16 v15; // ax
+  char v16; // [rsp+60h] [rbp+8h]
   char v17; // [rsp+70h] [rbp+18h]
 
-  v2 = (__int16 *)(a2 + 52);
-  v15 = 0;
-  v4 = *(_DWORD *)(a1 + 448);
-  v5 = 0LL;
+  v2 = *(_DWORD *)(a1 + 464);
+  v16 = 0;
   v17 = 0;
-  if ( v4 )
+  v5 = 0LL;
+  if ( v2 )
   {
-    v13 = *v2;
-    if ( v4 == 3 )
+    if ( v2 == 3 )
     {
-      v14 = v13 | 8;
-    }
-    else if ( v4 == 2 )
-    {
-      v14 = v13 | 4;
+      v15 = 8;
     }
     else
     {
-      v14 = v13 | 2;
+      v14 = v2 == 2;
+      v15 = 4;
+      if ( !v14 )
+        v15 = 2;
     }
-    *v2 = v14;
+    *(_WORD *)(a2 + 52) |= v15;
     v17 = 1;
   }
-  v6 = *(_QWORD **)(a1 + 328);
-  if ( v6 == (_QWORD *)(a1 + 328) )
+  v6 = (_QWORD *)(a1 + 344);
+  v7 = *(_QWORD **)(a1 + 344);
+  if ( v7 == (_QWORD *)(a1 + 344) )
     return 3221225473LL;
   do
   {
-    v7 = *v2;
-    v8 = v6;
-    v6 = (_QWORD *)*v6;
-    if ( (*((_BYTE *)v8 + 90) & 2) != 0 )
-      *v2 = v7 | 4;
-    v9 = EtwpRealtimeInjectEtwBuffer(a1, v8, a2);
-    *v2 = v7;
-    if ( v9 < 0 )
+    v8 = *(_WORD *)(a2 + 52);
+    v9 = v7;
+    v7 = (_QWORD *)*v7;
+    if ( (*((_BYTE *)v9 + 90) & 2) != 0 )
+      *(_WORD *)(a2 + 52) = v8 | 4;
+    v10 = EtwpRealtimeInjectEtwBuffer(a1, v9, a2, 2LL);
+    *(_WORD *)(a2 + 52) = v8;
+    if ( v10 < 0 )
     {
-      if ( v9 == -1073741764 )
+      if ( v10 == -1073741764 )
       {
-        v8[4] = v5;
-        v5 = v8;
+        v9[4] = v5;
+        v5 = v9;
       }
       else
       {
 LABEL_17:
-        EtwpDisassociateConsumer(a1, v8);
+        EtwpDisassociateConsumer(a1, v9);
       }
-      v11 = v15;
+      v12 = v16;
       continue;
     }
-    v10 = *((_BYTE *)v8 + 90);
-    if ( (v10 & 2) != 0 )
+    v11 = *((_BYTE *)v9 + 90);
+    if ( (v11 & 2) != 0 )
     {
-      v10 &= ~2u;
-      *((_BYTE *)v8 + 90) = v10;
+      v11 &= ~2u;
+      *((_BYTE *)v9 + 90) = v11;
+      v8 = *(_WORD *)(a2 + 52);
     }
-    v11 = 1;
-    v15 = 1;
-    if ( (v10 & ((*v2 & 1) != 0)) != 0 )
+    v12 = 1;
+    v16 = 1;
+    if ( (v11 & ((v8 & 1) != 0)) != 0 )
       goto LABEL_17;
   }
-  while ( v6 != (_QWORD *)(a1 + 328) );
-  if ( !v11 )
+  while ( v7 != v6 );
+  if ( !v12 )
     return 3221225473LL;
   if ( v17 )
-    *(_DWORD *)(a1 + 448) = 0;
+    *(_DWORD *)(a1 + 464) = 0;
   if ( *(_WORD *)(a2 + 54) != 6 )
-    ++*(_DWORD *)(a1 + 256);
+    ++*(_DWORD *)(a1 + 272);
   while ( v5 )
   {
     *((_BYTE *)v5 + 90) |= 2u;

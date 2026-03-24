@@ -1,274 +1,311 @@
 /*
- * XREFs of xxxSystemParametersInfo @ 0x1C0094FF0
+ * XREFs of xxxSystemParametersInfo @ 0x1C000CD30
  * Callers:
- *     ?UserInitialize@@YAJXZ @ 0x1C00AE3AC (-UserInitialize@@YAJXZ.c)
- *     NtUserSystemParametersInfo @ 0x1C014C300 (NtUserSystemParametersInfo.c)
+ *     ?UserInitialize@@YAJXZ @ 0x1C0068D34 (-UserInitialize@@YAJXZ.c)
+ *     NtUserSystemParametersInfo @ 0x1C0135470 (NtUserSystemParametersInfo.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0079EA8 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ApiSetEditionxxxSystemParametersInfoWorker @ 0x1C00954E4 (ApiSetEditionxxxSystemParametersInfoWorker.c)
- *     ReadPointerDeviceSettings @ 0x1C0095570 (ReadPointerDeviceSettings.c)
- *     ?SpiGetStickyKeys@@YAHKPEAX@Z @ 0x1C0095708 (-SpiGetStickyKeys@@YAHKPEAX@Z.c)
- *     ApiSetEditionCheckDesktopPolicy @ 0x1C0095784 (ApiSetEditionCheckDesktopPolicy.c)
- *     BroadcastSettingsUpdateToAllContainers @ 0x1C0095820 (BroadcastSettingsUpdateToAllContainers.c)
- *     _GetPrecisionTouchPadConfiguration @ 0x1C00958C0 (_GetPrecisionTouchPadConfiguration.c)
- *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00AEFC4 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     ?GetWakeOnDeviceTypes@CInputGlobals@@QEBA?AW4InputType@@XZ @ 0x1C00BF780 (-GetWakeOnDeviceTypes@CInputGlobals@@QEBA-AW4InputType@@XZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     _SetPrecisionTouchPadConfiguration @ 0x1C0134DF4 (_SetPrecisionTouchPadConfiguration.c)
- *     FastWriteProfileValue @ 0x1C0135590 (FastWriteProfileValue.c)
- *     WritePointerDeviceSettings @ 0x1C013F160 (WritePointerDeviceSettings.c)
- *     ?IsSPIActionAllowedForFilteredProcess@@YAHI@Z @ 0x1C014E134 (-IsSPIActionAllowedForFilteredProcess@@YAHI@Z.c)
- *     ?SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z @ 0x1C014E684 (-SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z.c)
- *     ?SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z @ 0x1C014E8D4 (-SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z.c)
- *     ?SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z @ 0x1C014EA20 (-SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z.c)
- *     ?SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z @ 0x1C014EBD4 (-SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z.c)
- *     EtwTraceSPIBlockedByFiltering @ 0x1C016B7E0 (EtwTraceSPIBlockedByFiltering.c)
- *     ?SetWakeableInputTypesToRegistry@CInputGlobals@@QEAA_NKK@Z @ 0x1C01DC9EC (-SetWakeableInputTypesToRegistry@CInputGlobals@@QEAA_NKK@Z.c)
- *     ?PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z @ 0x1C01E003C (-PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z.c)
- *     EditionxxxBroadcastSPIChange @ 0x1C0232F9C (EditionxxxBroadcastSPIChange.c)
+ *     _GetPrecisionTouchPadConfiguration @ 0x1C000C760 (_GetPrecisionTouchPadConfiguration.c)
+ *     ReadPointerDeviceSettings @ 0x1C000D080 (ReadPointerDeviceSettings.c)
+ *     BroadcastSettingsUpdateToAllContainers @ 0x1C000D350 (BroadcastSettingsUpdateToAllContainers.c)
+ *     ApiSetEditionCheckDesktopPolicy @ 0x1C000D370 (ApiSetEditionCheckDesktopPolicy.c)
+ *     CreateProfileUserName @ 0x1C000DC60 (CreateProfileUserName.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0068828 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     _SetPrecisionTouchPadConfiguration @ 0x1C011C2E0 (_SetPrecisionTouchPadConfiguration.c)
+ *     FastWriteProfileValue @ 0x1C011DFA0 (FastWriteProfileValue.c)
+ *     WritePointerDeviceSettings @ 0x1C0127B80 (WritePointerDeviceSettings.c)
+ *     ?IsSPIActionAllowedForFilteredProcess@@YAHI@Z @ 0x1C01382E8 (-IsSPIActionAllowedForFilteredProcess@@YAHI@Z.c)
+ *     ?SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z @ 0x1C0138674 (-SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z.c)
+ *     ?SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z @ 0x1C0138914 (-SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z.c)
+ *     ?SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z @ 0x1C0138A84 (-SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z.c)
+ *     ?SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z @ 0x1C0138C14 (-SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z.c)
+ *     EtwTraceSPIBlockedByFiltering @ 0x1C014C870 (EtwTraceSPIBlockedByFiltering.c)
+ *     ?PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z @ 0x1C01A6A98 (-PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z.c)
+ *     ApiSetEditionxxxBroadcastSPIChange @ 0x1C01CE598 (ApiSetEditionxxxBroadcastSPIChange.c)
  */
 
 __int64 __fastcall xxxSystemParametersInfo(unsigned int a1, unsigned int a2, void *a3, unsigned int a4)
 {
   __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v10; // rcx
-  int v11; // r14d
-  unsigned __int8 v12; // r15
-  __int64 v13; // r9
-  unsigned __int8 v14; // bl
-  int v15; // eax
-  int StickyKeys; // eax
-  char *v17; // rcx
-  int v18; // eax
-  int *v19; // rdx
-  __int64 v20; // rax
-  int v21; // ecx
-  bool v22; // zf
-  unsigned int v23; // eax
-  unsigned int v24; // eax
-  unsigned int v25; // eax
-  char *v26; // rsi
-  int v27; // r15d
-  int v28; // [rsp+30h] [rbp-39h] BYREF
-  void *v29; // [rsp+38h] [rbp-31h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v30; // [rsp+40h] [rbp-29h] BYREF
-  int *v31; // [rsp+60h] [rbp-9h]
-  __int64 v32; // [rsp+68h] [rbp-1h]
+  unsigned __int8 v8; // bl
+  __int64 v9; // r8
+  int v10; // r15d
+  unsigned __int8 v11; // r12
+  __int64 v12; // r9
+  unsigned __int8 v13; // di
+  __int64 v14; // rcx
+  unsigned int v15; // edi
+  int v16; // eax
+  _WORD *v18; // rdx
+  int v19; // ecx
+  int PrecisionTouchPadConfiguration; // eax
+  _DWORD *v21; // rcx
+  __int64 v22; // r13
+  void (__fastcall *v23)(wchar_t *); // rax
+  wchar_t *v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  int v27; // eax
+  __int64 v28; // rax
+  __int64 ProfileUserName; // r13
+  char *v30; // rsi
+  int v31; // [rsp+30h] [rbp-59h] BYREF
+  void *v32; // [rsp+38h] [rbp-51h] BYREF
+  int v33; // [rsp+40h] [rbp-49h]
+  __int128 v34; // [rsp+48h] [rbp-41h] BYREF
+  __int64 v35; // [rsp+58h] [rbp-31h]
+  wchar_t Dest[8]; // [rsp+60h] [rbp-29h] BYREF
+  __int64 v37; // [rsp+70h] [rbp-19h]
+  int *v38; // [rsp+80h] [rbp-9h]
+  __int64 v39; // [rsp+88h] [rbp-1h]
 
-  v29 = a3;
+  v32 = a3;
+  v8 = 0;
   if ( (unsigned __int8)PsIsWin32KFilterEnabled() && !(unsigned int)IsSPIActionAllowedForFilteredProcess(a1) )
   {
     EtwTraceSPIBlockedByFiltering(a1);
-    if ( (unsigned int)dword_1C0288368 > 5 && tlgKeywordOn((__int64)&dword_1C0288368, 0x400000000000LL) )
+    if ( (unsigned int)dword_1C02491E0 > 5
+      && (unsigned __int8)tlgKeywordOn(&dword_1C02491E0, 0x400000000000LL, v25, v26) )
     {
-      v28 = a1;
-      v31 = &v28;
-      v32 = 4LL;
+      v31 = a1;
+      v38 = &v31;
+      v39 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_1C0288368,
-        (unsigned __int8 *)dword_1C0256860,
-        0LL,
-        0LL,
+        (int)&dword_1C02491E0,
+        (int)&dword_1C0218CF7,
+        0,
+        0,
         3u,
-        &v30);
+        (PEVENT_DATA_DESCRIPTOR)Dest);
     }
     return 0LL;
   }
-  v10 = 1LL;
-  v28 = 0;
-  v11 = 0;
+  v9 = 1LL;
+  v31 = 0;
+  v10 = 0;
   if ( (a4 & 1) != 0 )
   {
-    v12 = 1;
-    v13 = 0LL;
+    v11 = 1;
+    v12 = 0LL;
   }
   else
   {
-    v12 = 0;
-    v13 = 1LL;
+    v11 = 0;
+    v12 = 1LL;
   }
-  v14 = v12 ^ 1;
-  if ( a1 > 0xAF )
+  v13 = v11 ^ 1;
+  v33 = a4 & 2;
+  v14 = 146LL;
+  v35 = 0LL;
+  v34 = 0LL;
+  if ( a1 > 0x92 )
   {
-    if ( a1 > 0x2026 )
+    v14 = 147LL;
+    switch ( a1 )
     {
-      if ( a1 == 8231 )
-        goto LABEL_79;
-      v23 = a1 - 8240;
-      v22 = a1 == 8240;
-    }
-    else
-    {
-      switch ( a1 )
-      {
-        case 0x2026u:
-          goto LABEL_78;
-        case 0xB0u:
-          *(_DWORD *)v29 = CInputGlobals::GetWakeOnDeviceTypes(*((_QWORD *)&WPP_MAIN_CB.Reserved + 1), v7, v8, v13);
-          return v14;
-        case 0xB1u:
-          return CInputGlobals::SetWakeableInputTypesToRegistry((CInputGlobals *)1, a2, (unsigned int)v29);
-      }
-      v23 = a1 - 8222;
-      v22 = a1 == 8222;
-    }
-    if ( v22 )
-      goto LABEL_78;
-    v24 = v23 - 1;
-    if ( v24 )
-    {
-      v25 = v24 - 1;
-      if ( v25 )
-      {
-        if ( v25 != 1 )
-          return ApiSetEditionxxxSystemParametersInfoWorker(a1, a2, v29, a4);
-        goto LABEL_79;
-      }
-LABEL_78:
-      v21 = gpviCPUserPreferences[4 * ((a1 - 0x2000) >> 1) + 4];
-      goto LABEL_59;
-    }
-LABEL_79:
-    v26 = (char *)&gpviCPUserPreferences[4 * ((a1 - 0x2000) >> 1) + 4];
-    if ( v12 )
-    {
-      v14 = (unsigned int)FastWriteProfileValue(0LL, *((unsigned int *)v26 + 1), *((_QWORD *)v26 + 1), 4LL, &v29, 4) != 0;
-      v11 = v14;
-    }
-    if ( !v14 )
-      goto LABEL_85;
-    v27 = (int)v29;
-    *(_DWORD *)v26 = (_DWORD)v29;
-    if ( a1 == 8225 )
-      *(_DWORD *)(SGDGetUserSessionState(v10, v7, v8, v13) + 524) = v27;
-    goto LABEL_84;
-  }
-  if ( a1 != 175 )
-  {
-    if ( a1 <= 0x3C )
-    {
-      switch ( a1 )
-      {
-        case '<':
-          if ( a2 && a2 != 12 )
-            return 0LL;
-          v17 = (char *)v29;
-          if ( !v29 )
-            return 0LL;
-          v18 = *(_DWORD *)v29;
-          if ( *(_DWORD *)v29 != 12 )
-            return 0LL;
-          v19 = &dword_1C02905C4;
-          break;
-        case '2':
-          if ( a2 && a2 != 24 )
-            return 0LL;
-          v17 = (char *)v29;
-          if ( !v29 )
-            return 0LL;
-          v18 = *(_DWORD *)v29;
-          if ( *(_DWORD *)v29 != 24 )
-            return 0LL;
-          v19 = &dword_1C02905FC;
-          break;
-        case '3':
-          v15 = SpiSetFilterKeys(a2, v29, v12, v13, &v28);
-          goto LABEL_30;
-        case '4':
-          if ( (a2 & 0xFFFFFFF7) != 0 )
-            return 0LL;
-          v17 = (char *)v29;
-          if ( !v29 )
-            return 0LL;
-          v18 = *(_DWORD *)v29;
-          if ( *(_DWORD *)v29 != 8 )
-            return 0LL;
-          v19 = &dword_1C02905BC;
-          break;
-        case '5':
-          v15 = SpiSetToggleKeys(a2, v29, v12, v13, &v28);
-          goto LABEL_30;
-        case ':':
-          StickyKeys = SpiGetStickyKeys(a2, v29);
-          return StickyKeys != 0;
-        case ';':
-          v15 = SpiSetStickyKeys(a2, v29, v12, v13, &v28);
-LABEL_30:
-          v11 = v28;
-          v14 = v15 != 0;
-LABEL_85:
-          if ( v11 && (a4 & 2) != 0 && (!qword_1C0295D48 || (int)qword_1C0295D48() >= 0) )
-            EditionxxxBroadcastSPIChange(a1, v7, 1LL);
-          return v14;
-        default:
-          return ApiSetEditionxxxSystemParametersInfoWorker(a1, a2, v29, a4);
-      }
-      memmove(v17 + 4, v19, (unsigned int)(v18 - 4));
-      return 1;
-    }
-    if ( a1 == 61 )
-    {
-      v15 = SpiSetAccessTimeOut(a2, v29, v12, v13, &v28);
-      goto LABEL_30;
-    }
-    if ( a1 != 104 )
-    {
-      if ( a1 != 105 )
-      {
-        switch ( a1 )
+      case 0x93u:
+        v13 = (unsigned int)WritePointerDeviceSettings(147LL, v32, v11, v12) != 0;
+        v10 = v13;
+        goto LABEL_64;
+      case 0xAEu:
+        PrecisionTouchPadConfiguration = GetPrecisionTouchPadConfiguration((__int64)v32);
+        return PrecisionTouchPadConfiguration != 0;
+      case 0xAFu:
+        v10 = SetPrecisionTouchPadConfiguration(v32, v7, 1LL, v12);
+        if ( v10 )
         {
-          case 0x92u:
-            StickyKeys = ReadPointerDeviceSettings(146LL, v29, v8, v13);
-            break;
-          case 0x93u:
-            v14 = (unsigned int)WritePointerDeviceSettings(147LL, v29, v12, v13) != 0;
-            v11 = v14;
-            goto LABEL_85;
-          case 0xAEu:
-            StickyKeys = GetPrecisionTouchPadConfiguration(v29, v7, v8, v13);
-            break;
-          default:
-            return ApiSetEditionxxxSystemParametersInfoWorker(a1, a2, v29, a4);
+          v13 = 1;
+          PTPTelemetry::PTPConfigUpdateEx(0LL);
+          goto LABEL_64;
         }
-        return StickyKeys != 0;
-      }
-      if ( (unsigned int)ApiSetEditionCheckDesktopPolicy(1LL, v7, v8, v13) )
-      {
-        v14 = 0;
-        goto LABEL_85;
-      }
-      if ( v12 )
-      {
-        RtlStringCchPrintfW((unsigned __int16 *)&v30, 0x10uLL, L"%d", a2);
-        v20 = -1LL;
-        do
-          ++v20;
-        while ( *((_WORD *)&v30.Ptr + v20) );
-        v14 = (unsigned int)FastWriteProfileValue(0LL, 4LL, 14LL, 1LL, &v30, 2 * (int)v20 + 2) != 0;
-        v11 = v14;
-      }
-      if ( !v14 )
-        goto LABEL_85;
-      *((_DWORD *)gpsi + 1247) = a2;
-LABEL_84:
-      BroadcastSettingsUpdateToAllContainers();
-      goto LABEL_85;
+        return v8;
     }
-    v21 = *((_DWORD *)gpsi + 1247);
-LABEL_59:
-    *(_DWORD *)v29 = v21;
-    return v14;
+    if ( a1 != 8222 )
+    {
+      if ( a1 == 8223 )
+        goto LABEL_91;
+      if ( a1 != 8224 )
+      {
+        if ( a1 == 8225 )
+          goto LABEL_91;
+        if ( a1 != 8230 )
+        {
+          if ( a1 != 8231 )
+            goto LABEL_11;
+LABEL_91:
+          v37 = 0LL;
+          *(_OWORD *)Dest = 0LL;
+          ProfileUserName = CreateProfileUserName(Dest, v7, 1LL, v12);
+          v30 = (char *)&gpviCPUserPreferences[4 * ((a1 - 0x2000) >> 1) + 4];
+          if ( v11 )
+          {
+            v13 = (unsigned int)FastWriteProfileValue(
+                                  ProfileUserName,
+                                  *((unsigned int *)v30 + 1),
+                                  *((_QWORD *)v30 + 1),
+                                  4LL,
+                                  &v32,
+                                  4) != 0;
+            v10 = v13;
+          }
+          if ( v13 )
+          {
+            *(_DWORD *)v30 = (_DWORD)v32;
+            BroadcastSettingsUpdateToAllContainers();
+          }
+          if ( !ProfileUserName )
+            goto LABEL_64;
+          v23 = (void (__fastcall *)(wchar_t *))qword_1C02560E8;
+          if ( !qword_1C02560E8 )
+            goto LABEL_64;
+          v24 = Dest;
+          goto LABEL_63;
+        }
+      }
+    }
+    v19 = gpviCPUserPreferences[4 * ((a1 - 0x2000) >> 1) + 4];
+LABEL_45:
+    *(_DWORD *)v32 = v19;
+    return v13;
   }
-  v11 = SetPrecisionTouchPadConfiguration(v29, v7, v8, v13);
-  if ( v11 )
+  if ( a1 == 146 )
   {
-    v14 = 1;
-    PTPTelemetry::PTPConfigUpdateEx(0LL);
-    goto LABEL_85;
+    PrecisionTouchPadConfiguration = ReadPointerDeviceSettings(146LL, v32, 1LL, v12);
+    return PrecisionTouchPadConfiguration != 0;
   }
-  return 0;
+  if ( a1 > 0x3B )
+  {
+    if ( a1 != 60 )
+    {
+      if ( a1 != 61 )
+      {
+        if ( a1 != 104 )
+        {
+          if ( a1 != 105 )
+            goto LABEL_11;
+          v22 = CreateProfileUserName(&v34, v7, 1LL, v12);
+          if ( (unsigned int)ApiSetEditionCheckDesktopPolicy() )
+          {
+            v11 = 0;
+            v13 = 0;
+          }
+          if ( v11 )
+          {
+            RtlStringCchPrintfW(Dest, 0x10uLL, L"%d", a2);
+            v28 = -1LL;
+            do
+              ++v28;
+            while ( Dest[v28] );
+            v13 = (unsigned int)FastWriteProfileValue(v22, 4LL, 14LL, 1LL, Dest, 2 * (int)v28 + 2) != 0;
+            v10 = v13;
+          }
+          if ( v13 )
+          {
+            *((_DWORD *)gpsi + 1247) = a2;
+            BroadcastSettingsUpdateToAllContainers();
+          }
+          if ( !v22 )
+            goto LABEL_64;
+          v23 = (void (__fastcall *)(wchar_t *))qword_1C02560E8;
+          if ( !qword_1C02560E8 )
+            goto LABEL_64;
+          v24 = (wchar_t *)&v34;
+LABEL_63:
+          v23(v24);
+LABEL_64:
+          if ( v10 && v33 )
+            ApiSetEditionxxxBroadcastSPIChange(a1);
+          return v13;
+        }
+        v19 = *((_DWORD *)gpsi + 1247);
+        goto LABEL_45;
+      }
+      v27 = SpiSetAccessTimeOut(a2, v32, v11, v12, &v31);
+LABEL_80:
+      v10 = v31;
+      v13 = v27 != 0;
+      goto LABEL_64;
+    }
+    if ( a2 && a2 != 12 || !v32 || *(_DWORD *)v32 != 12 )
+      return 0LL;
+    *(_QWORD *)((char *)v32 + 4) = qword_1C024F92C;
+    return 1;
+  }
+  switch ( a1 )
+  {
+    case ';':
+      v27 = SpiSetStickyKeys(a2, v32, v11, v12, &v31);
+      goto LABEL_80;
+    case '2':
+      if ( a2 && a2 != 24 )
+        return 0LL;
+      v21 = v32;
+      if ( !v32 || *(_DWORD *)v32 != 24 )
+        return 0LL;
+      *(_OWORD *)((char *)v32 + 4) = xmmword_1C024F974;
+      v21[5] = Value;
+      return 1;
+    case '3':
+      v27 = SpiSetFilterKeys(a2, v32, v11, v12, &v31);
+      goto LABEL_80;
+    case '4':
+      if ( (a2 & 0xFFFFFFF7) != 0 || !v32 || *(_DWORD *)v32 != 8 )
+        return 0LL;
+      *((_DWORD *)v32 + 1) = dword_1C024F93C;
+      return 1;
+    case '5':
+      v27 = SpiSetToggleKeys(a2, v32, v11, v12, &v31);
+      goto LABEL_80;
+    case ':':
+      v18 = v32;
+      if ( (a2 & 0xFFFFFFF7) == 0 && v32 && *(_DWORD *)v32 == 8 )
+      {
+        *((_DWORD *)v32 + 1) = dword_1C024F944;
+        v18[3] = 0;
+        v8 = 1;
+        *((_DWORD *)v18 + 1) |= (unsigned __int8)gLatchBits << 24;
+        *((_DWORD *)v18 + 1) |= (unsigned __int8)gLockBits << 16;
+      }
+      return v8;
+  }
+LABEL_11:
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v14 = (__int64)WPP_GLOBAL_Control;
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v7) = 5;
+      WPP_RECORDER_SF_(
+        WPP_GLOBAL_Control->DeviceExtension,
+        v7,
+        10,
+        438,
+        (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+    }
+  }
+  v15 = 0;
+  if ( qword_1C02568C8 )
+    v16 = qword_1C02568C8(v14, v7, v9, v12);
+  else
+    v16 = -1073741637;
+  if ( v16 >= 0 && qword_1C02568D0 )
+    v15 = qword_1C02568D0(a1, a2, v32, a4);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v7) = 5;
+      WPP_RECORDER_SF_(
+        WPP_GLOBAL_Control->DeviceExtension,
+        v7,
+        10,
+        439,
+        (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+    }
+  }
+  return v15;
 }

@@ -1,84 +1,87 @@
 /*
- * XREFs of ?ResizeBuffersInPool@VIDMM_DMA_POOL@@QEAAJ_KII@Z @ 0x1C00E0B7C
+ * XREFs of ?ResizeBuffersInPool@VIDMM_DMA_POOL@@QEAAJ_KII@Z @ 0x1C00BB110
  * Callers:
- *     VidMmResizeBuffersInPool @ 0x1C002D4F0 (VidMmResizeBuffersInPool.c)
+ *     VidMmResizeBuffersInPool @ 0x1C0023090 (VidMmResizeBuffersInPool.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     ?AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z @ 0x1C009DD78 (-AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z.c)
- *     ?RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C00A9738 (-RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z.c)
+ *     ?RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C008CA80 (-RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z.c)
+ *     ?AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z @ 0x1C008DF9C (-AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z.c)
  */
 
 __int64 __fastcall VIDMM_DMA_POOL::ResizeBuffersInPool(
         struct _VIDMM_DMA_BUFFER **this,
         SIZE_T a2,
-        unsigned int a3,
+        __int64 a3,
         unsigned int a4)
 {
-  unsigned int v9; // esi
-  __int64 v10; // r8
-  __int64 v11; // r9
-  int v12; // r12d
-  struct _VIDMM_DMA_BUFFER *v13; // rsi
-  struct _VIDMM_DMA_BUFFER *v14; // rcx
-  __int64 v15; // rdi
-  __int64 v16; // rcx
+  unsigned int v5; // ebp
+  __int64 v9; // rdi
+  int v10; // r15d
+  struct _VIDMM_DMA_BUFFER *v11; // rdi
+  struct _VIDMM_DMA_BUFFER *v12; // rcx
+  __int64 v13; // rax
 
-  if ( a2 < (unsigned __int64)this[6] || a3 < *((_DWORD *)this + 17) || a4 < *((_DWORD *)this + 20) )
+  v5 = a3;
+  if ( a2 < (unsigned __int64)this[6] || (unsigned int)a3 < *((_DWORD *)this + 17) || a4 < *((_DWORD *)this + 20) )
   {
-    WdLogSingleEntry1(1LL, 1889LL);
-    DxgkLogInternalTriageEvent(v16, 0x40000LL);
+    v13 = WdLogNewEntry5_WdAssertion(this, a2, a3);
+    *(_QWORD *)(v13 + 24) = 1893LL;
+    WdLogEvent5_WdAssertion(v13);
     return 3221225485LL;
   }
-  else if ( (struct _VIDMM_DMA_BUFFER *)a2 == this[5] && a3 == *((_DWORD *)this + 16) && a4 == *((_DWORD *)this + 19) )
+  else if ( (struct _VIDMM_DMA_BUFFER *)a2 == this[5]
+         && (_DWORD)a3 == *((_DWORD *)this + 16)
+         && a4 == *((_DWORD *)this + 19) )
   {
     return 0LL;
   }
   else
   {
-    v9 = 0;
+    v9 = 0LL;
     while ( 1 )
     {
-      v12 = VIDMM_DMA_POOL::AddDmaBufferToPool((VIDMM_DMA_POOL *)this, a2, a3, a4);
-      if ( v12 < 0 )
+      v10 = VIDMM_DMA_POOL::AddDmaBufferToPool((VIDMM_DMA_POOL *)this, a2, v5, a4);
+      if ( v10 < 0 )
         break;
-      if ( ++v9 >= 2 )
-      {
-        v13 = this[13];
-        this[5] = (struct _VIDMM_DMA_BUFFER *)a2;
-        *((_DWORD *)this + 16) = a3;
-        *((_DWORD *)this + 19) = a4;
-        do
-        {
-          while ( 1 )
-          {
-            v14 = v13;
-            v13 = (struct _VIDMM_DMA_BUFFER *)*((_QWORD *)v13 + 1);
-            if ( *((struct _VIDMM_DMA_BUFFER **)v14 + 5) == this[5]
-              && *((_DWORD *)v14 + 12) == *((_DWORD *)this + 16)
-              && *((_DWORD *)v14 + 13) == *((_DWORD *)this + 19) )
-            {
-              break;
-            }
-            if ( *((_BYTE *)v14 + 24) )
-              *((_BYTE *)v14 + 25) = 1;
-            else
-              VIDMM_DMA_POOL::RemoveDmaBufferFromPool(this, v14, v10, v11);
-          }
-        }
-        while ( *((_BYTE *)v14 + 25) );
-        return (unsigned int)v12;
-      }
+      v9 = (unsigned int)(v9 + 1);
+      if ( (unsigned int)v9 >= 2 )
+        goto LABEL_14;
     }
-    if ( v9 )
+    if ( (_DWORD)v9 )
     {
-      v15 = v9;
       do
       {
-        VIDMM_DMA_POOL::RemoveDmaBufferFromPool(this, this[12], v10, v11);
-        --v15;
+        VIDMM_DMA_POOL::RemoveDmaBufferFromPool(this, this[12]);
+        --v9;
       }
-      while ( v15 );
+      while ( v9 );
     }
-    return (unsigned int)v12;
+LABEL_14:
+    if ( v10 >= 0 )
+    {
+      v11 = this[13];
+      this[5] = (struct _VIDMM_DMA_BUFFER *)a2;
+      *((_DWORD *)this + 16) = v5;
+      *((_DWORD *)this + 19) = a4;
+      do
+      {
+        while ( 1 )
+        {
+          v12 = v11;
+          v11 = (struct _VIDMM_DMA_BUFFER *)*((_QWORD *)v11 + 1);
+          if ( *((struct _VIDMM_DMA_BUFFER **)v12 + 5) == this[5]
+            && *((_DWORD *)v12 + 12) == *((_DWORD *)this + 16)
+            && *((_DWORD *)v12 + 13) == *((_DWORD *)this + 19) )
+          {
+            break;
+          }
+          if ( *((_BYTE *)v12 + 24) )
+            *((_BYTE *)v12 + 25) = 1;
+          else
+            VIDMM_DMA_POOL::RemoveDmaBufferFromPool(this, v12);
+        }
+      }
+      while ( *((_BYTE *)v12 + 25) );
+    }
+    return (unsigned int)v10;
   }
 }

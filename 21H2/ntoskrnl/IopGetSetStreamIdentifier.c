@@ -1,14 +1,14 @@
 /*
- * XREFs of IopGetSetStreamIdentifier @ 0x14055802C
+ * XREFs of IopGetSetStreamIdentifier @ 0x140506824
  * Callers:
- *     IoGetSfioStreamIdentifier @ 0x140459D40 (IoGetSfioStreamIdentifier.c)
- *     IoAllocateSfioStreamIdentifier @ 0x1405573D0 (IoAllocateSfioStreamIdentifier.c)
+ *     IoAllocateSfioStreamIdentifier @ 0x1405058B0 (IoAllocateSfioStreamIdentifier.c)
+ *     IoGetSfioStreamIdentifier @ 0x140505C10 (IoGetSfioStreamIdentifier.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     IopGetSetSpecificExtension @ 0x1402A38B4 (IopGetSetSpecificExtension.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     IopGetSetSpecificExtension @ 0x140356AE8 (IopGetSetSpecificExtension.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetSetStreamIdentifier(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4, char a5)
@@ -24,7 +24,7 @@ __int64 __fastcall IopGetSetStreamIdentifier(__int64 a1, unsigned int a2, __int6
   _DWORD *v16; // r9
   int v17; // eax
   bool v18; // zf
-  _QWORD *Pool2; // r14
+  _QWORD *PoolWithTag; // r14
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
@@ -142,8 +142,8 @@ LABEL_47:
   __writecr8(v12);
   if ( !a5 )
     goto LABEL_46;
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, a2 + 32LL, 1951625033LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, a2 + 32LL, 0x74536F49u);
+  if ( !PoolWithTag )
   {
     result = 3221225626LL;
     goto LABEL_47;
@@ -152,13 +152,13 @@ LABEL_47:
   v29 = (_QWORD *)v10[1];
   if ( (_QWORD *)*v29 != v10 )
     __fastfail(3u);
-  Pool2[1] = v29;
-  *Pool2 = v10;
-  *v29 = Pool2;
-  v10[1] = Pool2;
-  Pool2[3] = a3;
-  Pool2[2] = Pool2 + 4;
-  *a4 = Pool2 + 4;
+  PoolWithTag[1] = v29;
+  *PoolWithTag = v10;
+  *v29 = PoolWithTag;
+  v10[1] = PoolWithTag;
+  PoolWithTag[3] = a3;
+  PoolWithTag[2] = PoolWithTag + 4;
+  *a4 = PoolWithTag + 4;
   KxReleaseSpinLock(v11);
   if ( KiIrqlFlags )
   {

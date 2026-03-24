@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpPerformSiloKeyLockTrackerEnabledCheck @ 0x14080FBA8
+ * XREFs of CmpPerformSiloKeyLockTrackerEnabledCheck @ 0x1407C31BC
  * Callers:
- *     CmLockKeyForWrite @ 0x14080F9EC (CmLockKeyForWrite.c)
+ *     CmLockKeyForWrite @ 0x1407C2FF0 (CmLockKeyForWrite.c)
  * Callees:
  *     <none>
  */

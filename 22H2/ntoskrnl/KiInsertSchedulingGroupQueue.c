@@ -1,10 +1,10 @@
 /*
- * XREFs of KiInsertSchedulingGroupQueue @ 0x140308A1C
+ * XREFs of KiInsertSchedulingGroupQueue @ 0x14035D35C
  * Callers:
- *     KiResortScbQueue @ 0x1403055D0 (KiResortScbQueue.c)
- *     KiInsertNonMaxOverQuotaScb @ 0x1403089BC (KiInsertNonMaxOverQuotaScb.c)
+ *     KiInsertNonMaxOverQuotaScb @ 0x14035D2FC (KiInsertNonMaxOverQuotaScb.c)
+ *     KiResortScbQueue @ 0x14035D48C (KiResortScbQueue.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x14024CCA0 (RtlRbInsertNodeEx.c)
+ *     RtlRbInsertNodeEx @ 0x1402C0B10 (RtlRbInsertNodeEx.c)
  */
 
 char __fastcall KiInsertSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)
@@ -24,7 +24,7 @@ char __fastcall KiInsertSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)
   int v17; // eax
 
   v3 = *(_QWORD *)(a2 + 408);
-  v4 = a1 + 32560;
+  v4 = a1 + 31856;
   *(_BYTE *)(a2 + 112) |= 1u;
   v7 = v3 + 392;
   if ( !v3 )
@@ -40,43 +40,48 @@ char __fastcall KiInsertSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)
     {
       v11 = v10 - *(_DWORD *)(v8 + 28);
       if ( v10 != *(_DWORD *)(v8 + 28) )
-        goto LABEL_19;
+        goto LABEL_11;
       v12 = *(unsigned __int16 *)(a2 + 114);
       if ( (_WORD)v12 )
         break;
-      if ( v10 || *(_QWORD *)a2 > *(_QWORD *)(v8 - 88) )
+      if ( v10 )
       {
-LABEL_10:
-        v13 = *(_QWORD *)(v8 + 8);
+        v11 = 1;
+        goto LABEL_11;
+      }
+      if ( *(_QWORD *)a2 <= *(_QWORD *)(v8 - 88) )
+      {
+LABEL_17:
+        v13 = *(_QWORD *)v8;
         if ( (*(_BYTE *)(v7 + 8) & 1) != 0 )
         {
           if ( !v13 )
-            goto LABEL_14;
+            goto LABEL_21;
           v13 ^= v8;
         }
         if ( !v13 )
         {
-LABEL_14:
-          v9 = 1;
-          goto LABEL_15;
+LABEL_21:
+          v9 = 0;
+          goto LABEL_22;
         }
-        goto LABEL_24;
+        goto LABEL_16;
       }
-LABEL_20:
-      v13 = *(_QWORD *)v8;
+LABEL_12:
+      v13 = *(_QWORD *)(v8 + 8);
       if ( (*(_BYTE *)(v7 + 8) & 1) != 0 )
       {
         if ( !v13 )
-          goto LABEL_29;
+          goto LABEL_31;
         v13 ^= v8;
       }
       if ( !v13 )
       {
-LABEL_29:
-        v9 = 0;
-        goto LABEL_15;
+LABEL_31:
+        v9 = 1;
+        goto LABEL_22;
       }
-LABEL_24:
+LABEL_16:
       v8 = v13;
     }
     v15 = *(unsigned __int16 *)(v8 + 26);
@@ -85,12 +90,12 @@ LABEL_24:
     if ( (_WORD)v15 )
       _BitScanReverse((unsigned int *)&v17, v15);
     v11 = v17 - v16;
-LABEL_19:
-    if ( v11 >= 0 )
-      goto LABEL_10;
-    goto LABEL_20;
+LABEL_11:
+    if ( v11 < 0 )
+      goto LABEL_17;
+    goto LABEL_12;
   }
-LABEL_15:
+LABEL_22:
   result = RtlRbInsertNodeEx((unsigned __int64 *)v7, v8, v9, a2 + 88);
   if ( a3 )
   {

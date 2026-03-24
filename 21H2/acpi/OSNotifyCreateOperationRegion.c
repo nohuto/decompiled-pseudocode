@@ -1,14 +1,14 @@
 /*
- * XREFs of OSNotifyCreateOperationRegion @ 0x1C000A0B4
+ * XREFs of OSNotifyCreateOperationRegion @ 0x1C00182E8
  * Callers:
- *     OSNotifyCreate @ 0x1C0009DF0 (OSNotifyCreate.c)
- *     ACPIBuildMissingChildren @ 0x1C004A3DC (ACPIBuildMissingChildren.c)
+ *     ACPIBuildMissingChildren @ 0x1C00174CC (ACPIBuildMissingChildren.c)
+ *     OSNotifyCreate @ 0x1C001D650 (OSNotifyCreate.c)
  * Callees:
- *     ACPIInitReferenceDeviceExtension @ 0x1C00056D8 (ACPIInitReferenceDeviceExtension.c)
- *     AMLIIterateParentNext @ 0x1C00083A0 (AMLIIterateParentNext.c)
- *     AMLIGetParent @ 0x1C000A040 (AMLIGetParent.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     WPP_RECORDER_SF_qd @ 0x1C0051AC8 (WPP_RECORDER_SF_qd.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
+ *     AMLIGetParent @ 0x1C001B348 (AMLIGetParent.c)
+ *     AMLIIterateParentNext @ 0x1C002F1F4 (AMLIIterateParentNext.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00525D8 (WPP_RECORDER_SF_qd.c)
  */
 
 __int64 __fastcall OSNotifyCreateOperationRegion(__int64 a1)
@@ -22,8 +22,8 @@ __int64 __fastcall OSNotifyCreateOperationRegion(__int64 a1)
   unsigned __int8 v7; // cl
   unsigned int v8; // eax
   int v9; // ecx
-  bool v11; // zf
-  _QWORD *Pool2; // rax
+  bool v10; // zf
+  _QWORD *PoolWithTag; // rax
   int v13; // edx
   struct _WORK_QUEUE_ITEM *v14; // r8
 
@@ -44,19 +44,19 @@ __int64 __fastcall OSNotifyCreateOperationRegion(__int64 a1)
         {
           v7 = *(_BYTE *)(v1 + 12);
           v8 = v7 >= 0x1Fu ? 0x80000000 : 1 << v7;
-          v9 = *(_DWORD *)(v6 + 668);
+          v9 = *(_DWORD *)(v6 + 628);
           if ( (v9 & v8) == 0 )
           {
-            v11 = *(_DWORD *)(v6 + 368) == 3;
-            *(_DWORD *)(v6 + 668) = v8 | v9;
-            if ( v11 && (unsigned __int8)(*(_BYTE *)(v1 + 12) - 8) <= 1u )
+            v10 = *(_DWORD *)(v6 + 328) == 3;
+            *(_DWORD *)(v6 + 628) = v8 | v9;
+            if ( v10 && (unsigned __int8)(*(_BYTE *)(v1 + 12) - 8) <= 1u )
             {
-              Pool2 = (_QWORD *)ExAllocatePool2(64LL, 40LL, 1299211073LL);
-              if ( Pool2 )
+              PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x4D706341u);
+              if ( PoolWithTag )
               {
-                *Pool2 = 0LL;
-                Pool2[2] = OSNotifyCreateOperationRegionWorker;
-                Pool2[3] = Pool2;
+                *PoolWithTag = 0LL;
+                PoolWithTag[2] = OSNotifyCreateOperationRegionWorker;
+                PoolWithTag[3] = PoolWithTag;
                 ACPIInitReferenceDeviceExtension(v6);
                 v14[1].List.Flink = (_LIST_ENTRY *)v6;
                 ExQueueWorkItem(v14, DelayedWorkQueue);

@@ -1,147 +1,153 @@
 /*
- * XREFs of ?ProcessToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAIPEA_N@Z @ 0x18004540C
+ * XREFs of ?ProcessToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAIPEA_N@Z @ 0x18009C96C
  * Callers:
- *     ?ProcessLegacyTokens@CGlobalSurfaceManager@@AEAAJXZ @ 0x180045160 (-ProcessLegacyTokens@CGlobalSurfaceManager@@AEAAJXZ.c)
- *     ?ProcessUnclaimedTokens@CLegacySurfaceManager@@IEAAJPEAI@Z @ 0x1800452C8 (-ProcessUnclaimedTokens@CLegacySurfaceManager@@IEAAJPEAI@Z.c)
+ *     ?ProcessSurfaceUpdates@CGlobalSurfaceManager@@UEAAJXZ @ 0x18009C570 (-ProcessSurfaceUpdates@CGlobalSurfaceManager@@UEAAJXZ.c)
  * Callees:
- *     ?FindBitmapNoRef@CLogicalSurfaceHandleMap@@QEAAJPEAXPEAPEAVCGdiSpriteBitmap@@@Z @ 0x180045568 (-FindBitmapNoRef@CLogicalSurfaceHandleMap@@QEAAJPEAXPEAPEAVCGdiSpriteBitmap@@@Z.c)
- *     ?TryAddRectangles@CRegion@@QEAAJPEBUtagRECT@@I@Z @ 0x180045AEC (-TryAddRectangles@CRegion@@QEAAJPEBUtagRECT@@I@Z.c)
- *     ?AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z @ 0x1800461F0 (-AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ?NotifyDirty@CGdiSpriteBitmap@@QEAAX_K@Z @ 0x18010E6CC (-NotifyDirty@CGdiSpriteBitmap@@QEAAX_K@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?AddIntervalOneDxBltEventId@CLegacySurfaceManager@@QEAAJ_K@Z @ 0x180130204 (-AddIntervalOneDxBltEventId@CLegacySurfaceManager@@QEAAJ_K@Z.c)
- *     McTemplateU0xxqNR2_EventWriteTransfer @ 0x1801DFCB8 (McTemplateU0xxqNR2_EventWriteTransfer.c)
- *     McTemplateU0xxq_EventWriteTransfer @ 0x1801DFD60 (McTemplateU0xxq_EventWriteTransfer.c)
- *     McTemplateU0xxxqNR3_EventWriteTransfer @ 0x1801DFDE8 (McTemplateU0xxxqNR3_EventWriteTransfer.c)
- *     ?AddDxBltRects@CGdiSpriteBitmap@@AEAAXPEBUtagRECT@@I@Z @ 0x18021D850 (-AddDxBltRects@CGdiSpriteBitmap@@AEAAXPEBUtagRECT@@I@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?NotifyDirty@CGdiSpriteBitmap@@QEAAX_K@Z @ 0x1800334A4 (-NotifyDirty@CGdiSpriteBitmap@@QEAAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ProcessPresentHistoryToken@CGdiSpriteBitmap@@QEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x18009C4A8 (-ProcessPresentHistoryToken@CGdiSpriteBitmap@@QEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
+ *     ?FindBitmapNoRef@CLogicalSurfaceHandleMap@@QEAAJPEAXPEAPEAVCGdiSpriteBitmap@@@Z @ 0x1800D2DB0 (-FindBitmapNoRef@CLogicalSurfaceHandleMap@@QEAAJPEAXPEAPEAVCGdiSpriteBitmap@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?AddIntervalOneDxBltEventId@CLegacySurfaceManager@@QEAAJ_K@Z @ 0x180178A24 (-AddIntervalOneDxBltEventId@CLegacySurfaceManager@@QEAAJ_K@Z.c)
+ *     McTemplateU0xxqNR2_EventWriteTransfer @ 0x180178C34 (McTemplateU0xxqNR2_EventWriteTransfer.c)
+ *     McTemplateU0xxq_EventWriteTransfer @ 0x180178CDC (McTemplateU0xxq_EventWriteTransfer.c)
+ *     McTemplateU0xxxqNR3_EventWriteTransfer @ 0x180178D64 (McTemplateU0xxxqNR3_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CLegacySurfaceManager::ProcessToken(
         CLegacySurfaceManager *this,
         const struct _D3DKMT_PRESENTHISTORYTOKEN *a2,
-        unsigned int *a3,
+        struct CGdiSpriteBitmap *a3,
         bool *a4)
 {
   bool v4; // di
-  unsigned int v8; // r13d
-  const struct tagRECT *v9; // r12
-  unsigned int v10; // r8d
-  int v11; // eax
-  _QWORD *v13; // rcx
-  const struct tagRECT *v14; // r9
-  unsigned __int64 *v15; // r15
-  _QWORD *v16; // rax
-  int v17; // eax
-  unsigned int v18; // ecx
-  CGdiSpriteBitmap *v19; // rcx
-  struct CGdiSpriteBitmap *v20[2]; // [rsp+40h] [rbp-A8h] BYREF
-  int *v21; // [rsp+50h] [rbp-98h] BYREF
-  int v22; // [rsp+58h] [rbp-90h] BYREF
-  void *retaddr; // [rsp+E8h] [rbp+0h]
+  int v6; // edx
+  unsigned int v9; // esi
+  int v10; // edx
+  PVOID v11; // rax
+  CGdiSpriteBitmap *v12; // rcx
+  int v13; // eax
+  __int64 v14; // rcx
+  int v16; // edx
+  int v17; // edx
+  int v18; // edx
+  _QWORD *v19; // rcx
+  _QWORD *v20; // rax
+  unsigned __int64 v21; // rdx
+  int v22; // eax
+  __int64 v23; // rcx
+  CGdiSpriteBitmap *v24; // rcx
+  int v25; // eax
+  __int64 v26; // rcx
+  _QWORD Buffer[4]; // [rsp+40h] [rbp-38h] BYREF
+  struct CGdiSpriteBitmap *v28; // [rsp+90h] [rbp+18h] BYREF
 
+  v28 = a3;
   v4 = 0;
+  v6 = *(_DWORD *)a2;
   *a4 = 0;
-  v8 = 0;
-  switch ( *(_DWORD *)a2 )
+  v9 = 0;
+  v10 = v6 - 1;
+  if ( !v10 )
   {
-    case 1:
-      v9 = (const struct tagRECT *)((char *)a2 + 60);
-      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
-        McTemplateU0xxqNR2_EventWriteTransfer(
-          *(_DWORD *)a2 - 1,
-          (_DWORD)a2,
-          *((_QWORD *)a2 + 2),
-          *((_QWORD *)a2 + 3),
-          *((_DWORD *)a2 + 14));
-      CLogicalSurfaceHandleMap::FindBitmapNoRef(this, *((void **)a2 + 2), v20);
-      if ( v20[0] )
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+      McTemplateU0xxqNR2_EventWriteTransfer(
+        (_DWORD)this,
+        0,
+        *((_QWORD *)a2 + 2),
+        *((_QWORD *)a2 + 3),
+        *((_DWORD *)a2 + 14));
+    Buffer[0] = *((_QWORD *)a2 + 2);
+    v11 = RtlLookupElementGenericTable((PRTL_GENERIC_TABLE)((char *)this + 8), Buffer);
+    if ( v11 )
+    {
+      v12 = (CGdiSpriteBitmap *)*((_QWORD *)v11 + 2);
+      if ( v12 )
       {
-        v10 = *((_DWORD *)a2 + 14);
-        v21 = &v22;
-        v22 = 0;
-        v11 = CRegion::TryAddRectangles((CRegion *)&v21, v9, v10);
-        if ( v11 < 0 )
-          ModuleFailFastForHRESULT((unsigned int)v11, retaddr);
-        CGdiSpriteBitmap::AddDirtyRegion(v20[0], (struct CRegion *)&v21, 1);
-        FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v21);
-      }
-LABEL_7:
-      *a4 = 1;
-      return v8;
-    case 2:
-LABEL_19:
-      *a4 = 1;
-      return v8;
-    case 3:
-      v14 = (const struct tagRECT *)((char *)a2 + 44);
-      v20[0] = (const struct _D3DKMT_PRESENTHISTORYTOKEN *)((char *)a2 + 44);
-      v15 = (unsigned __int64 *)((char *)a2 + 32);
-      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
-      {
-        McTemplateU0xxxqNR3_EventWriteTransfer(
-          0,
-          (_DWORD)a2,
-          *((_QWORD *)a2 + 2),
-          *((_QWORD *)a2 + 3),
-          *v15,
-          *((_DWORD *)a2 + 10));
-        v14 = (const struct tagRECT *)v20[0];
-      }
-      v16 = (_QWORD *)*((_QWORD *)this + 11);
-      while ( v16 != (_QWORD *)((char *)this + 80) )
-      {
-        v19 = (CGdiSpriteBitmap *)(v16 - 19);
-        v16 = (_QWORD *)v16[1];
-        if ( *((_QWORD *)v19 + 51) == *((_QWORD *)a2 + 3) )
+        v13 = CGdiSpriteBitmap::ProcessPresentHistoryToken(v12, a2);
+        v9 = v13;
+        if ( v13 < 0 )
         {
-          CGdiSpriteBitmap::AddDxBltRects(v19, v14, *((_DWORD *)a2 + 10));
-          break;
+          MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x8Bu, 0LL);
+          return v9;
         }
       }
-      if ( *v15 )
-      {
-        v17 = CLegacySurfaceManager::AddIntervalOneDxBltEventId(this, *v15);
-        v8 = v17;
-        if ( v17 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0xB2u, 0LL);
-          return v8;
-        }
-      }
-      goto LABEL_7;
+    }
+    goto LABEL_7;
   }
-  if ( *(_DWORD *)a2 != 5 )
+  v16 = v10 - 1;
+  if ( !v16 )
+    goto LABEL_19;
+  v17 = v16 - 1;
+  if ( v17 )
   {
-    if ( *(_DWORD *)a2 == 6 )
+    v18 = v17 - 2;
+    if ( !v18 )
+    {
+      v19 = (_QWORD *)*((_QWORD *)this + 26);
+      if ( v19 && v19[7] == *((_QWORD *)a2 + 2) && *((_BYTE *)this + 220) )
+      {
+        (*(void (__fastcall **)(_QWORD *))(*v19 + 32LL))(v19);
+        *((_BYTE *)this + 220) = 0;
+        v4 = 1;
+      }
+      *a4 = v4;
+      return v9;
+    }
+    if ( v18 == 1 )
     {
       if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
         McTemplateU0xxq_EventWriteTransfer(
-          1,
+          (_DWORD)this,
           (unsigned int)&EVTDESC_SCHEDULE_PRESENTHISTORYTOKEN_GDISYSMEM,
           *((_QWORD *)a2 + 2),
           *((_QWORD *)a2 + 4),
           *((_DWORD *)a2 + 6));
-      CLogicalSurfaceHandleMap::FindBitmapNoRef(this, *((void **)a2 + 2), v20);
-      if ( v20[0] )
-        CGdiSpriteBitmap::NotifyDirty(v20[0], *((_QWORD *)a2 + 4));
+      CLogicalSurfaceHandleMap::FindBitmapNoRef(this, *((void **)a2 + 2), &v28);
+      if ( v28 )
+        CGdiSpriteBitmap::NotifyDirty(v28, *((_QWORD *)a2 + 4));
+LABEL_7:
+      *a4 = 1;
+      return v9;
+    }
+LABEL_19:
+    *a4 = 1;
+    return v9;
+  }
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+    McTemplateU0xxxqNR3_EventWriteTransfer(
+      (_DWORD)this,
+      0,
+      *((_QWORD *)a2 + 2),
+      *((_QWORD *)a2 + 3),
+      *((_QWORD *)a2 + 4),
+      *((_DWORD *)a2 + 10));
+  v20 = (_QWORD *)*((_QWORD *)this + 11);
+  do
+  {
+    if ( v20 == (_QWORD *)((char *)this + 80) )
+    {
+      v21 = *((_QWORD *)a2 + 4);
+      if ( v21 )
+      {
+        v22 = CLegacySurfaceManager::AddIntervalOneDxBltEventId(this, v21);
+        v9 = v22;
+        if ( v22 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0xACu, 0LL);
+          return v9;
+        }
+      }
       goto LABEL_7;
     }
-    goto LABEL_19;
+    v24 = (CGdiSpriteBitmap *)(v20 - 21);
+    v20 = (_QWORD *)v20[1];
   }
-  v13 = (_QWORD *)*((_QWORD *)this + 26);
-  if ( v13 && v13[7] == *((_QWORD *)a2 + 2) && *((_BYTE *)this + 220) )
-  {
-    (*(void (__fastcall **)(_QWORD *, const struct _D3DKMT_PRESENTHISTORYTOKEN *, unsigned int *))(*v13 + 40LL))(
-      v13,
-      a2,
-      a3);
-    *((_BYTE *)this + 220) = 0;
-    v4 = 1;
-  }
-  *a4 = v4;
-  return v8;
+  while ( *((_QWORD *)v24 + 56) != *((_QWORD *)a2 + 3) );
+  v25 = CGdiSpriteBitmap::ProcessPresentHistoryToken(v24, a2);
+  v9 = v25;
+  if ( v25 >= 0 )
+    goto LABEL_7;
+  MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0xA1u, 0LL);
+  return v9;
 }

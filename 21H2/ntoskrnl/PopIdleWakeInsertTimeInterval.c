@@ -1,8 +1,8 @@
 /*
- * XREFs of PopIdleWakeInsertTimeInterval @ 0x1405DBCD4
+ * XREFs of PopIdleWakeInsertTimeInterval @ 0x14057B620
  * Callers:
- *     PopIdleWakeStopActiveIntervalAccounting @ 0x140398BE0 (PopIdleWakeStopActiveIntervalAccounting.c)
- *     PopIdleWakeNotifyIdleResiliencyState @ 0x1405DBE28 (PopIdleWakeNotifyIdleResiliencyState.c)
+ *     PopIdleWakeNotifyIdleResiliencyState @ 0x14057B774 (PopIdleWakeNotifyIdleResiliencyState.c)
+ *     PopIdleWakeStopActiveIntervalAccounting @ 0x14057BE14 (PopIdleWakeStopActiveIntervalAccounting.c)
  * Callees:
  *     <none>
  */

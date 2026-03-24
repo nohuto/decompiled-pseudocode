@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0CInputSpaceRegion@@QEAA@XZ @ 0x1C001941C
+ * XREFs of ??0CInputSpaceRegion@@QEAA@XZ @ 0x1C006EAA8
  * Callers:
- *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C001917C (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
- *     ??0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z @ 0x1C00193AC (--0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z.c)
+ *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C006E540 (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
+ *     ??0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z @ 0x1C006EA38 (--0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 CInputSpaceRegion *__fastcall CInputSpaceRegion::CInputSpaceRegion(CInputSpaceRegion *this)
@@ -48,6 +48,6 @@ CInputSpaceRegion *__fastcall CInputSpaceRegion::CInputSpaceRegion(CInputSpaceRe
   *((_QWORD *)this + 24) = v11;
   memset((char *)this + 200, 0, 0x120uLL);
   *((_BYTE *)this + 488) = 0;
-  memset((char *)this + 496, 0, 0xD8uLL);
+  memset((char *)this + 496, 0, 0xC8uLL);
   return this;
 }

@@ -1,40 +1,39 @@
 /*
- * XREFs of PspClearProcessThreadCidRefs @ 0x14076E7E8
+ * XREFs of PspClearProcessThreadCidRefs @ 0x1406C5940
  * Callers:
- *     PspRundownSingleProcess @ 0x14068AD74 (PspRundownSingleProcess.c)
- *     PspExitThread @ 0x14076DF3C (PspExitThread.c)
+ *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
+ *     PspExitThread @ 0x1406C35F8 (PspExitThread.c)
  * Callees:
- *     ObDereferenceObjectEx @ 0x1402A2438 (ObDereferenceObjectEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     ExfUnblockPushLock @ 0x140411A50 (ExfUnblockPushLock.c)
- *     ExMapHandleToPointer @ 0x140740120 (ExMapHandleToPointer.c)
+ *     ObDereferenceObjectEx @ 0x14024BF80 (ObDereferenceObjectEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExfUnblockPushLock @ 0x1403F8BE0 (ExfUnblockPushLock.c)
+ *     ExMapHandleToPointer @ 0x14061BF20 (ExMapHandleToPointer.c)
  */
 
-void __fastcall PspClearProcessThreadCidRefs(__int64 a1, __int64 a2, ULONG_PTR a3)
+char __fastcall PspClearProcessThreadCidRefs(__int64 a1, __int64 a2, ULONG_PTR a3)
 {
-  volatile signed __int64 *v5; // rax
-  unsigned __int64 v6; // rdx
-  int v7; // edi
-  __int64 v8; // rdx
-  bool v9; // zf
+  signed __int64 *v5; // rax
+  volatile unsigned __int64 v6; // r9
+  __int64 v7; // rdx
+  int v8; // ebx
+  char result; // al
   signed __int32 v10[8]; // [rsp+0h] [rbp-38h] BYREF
   __int128 v11; // [rsp+20h] [rbp-18h]
 
   --*(_WORD *)(a1 + 486);
-  v5 = (volatile signed __int64 *)ExMapHandleToPointer((unsigned int *)PspCidTable, a2);
+  v5 = ExMapHandleToPointer(PspCidTable, a2);
   v11 = 0LL;
-  v6 = (unsigned __int64)*v5 >> 1;
+  v6 = *v5;
   *(_QWORD *)&v11 = *v5 & 0xFFFFFFFFFFFE0001uLL;
   *v5 = v11;
-  v7 = (unsigned __int16)v6;
-  v8 = PspCidTable;
+  v7 = PspCidTable;
+  v8 = (unsigned __int16)(v6 >> 1);
   _InterlockedExchangeAdd64(v5, 1uLL);
   _InterlockedOr(v10, 0);
-  if ( *(_QWORD *)(v8 + 48) )
-    ExfUnblockPushLock((volatile __int64 *)(v8 + 48), 0LL);
-  v9 = (*(_WORD *)(a1 + 486))++ == 0xFFFF;
-  if ( v9 && *(_QWORD *)(a1 + 152) != a1 + 152 )
-    KiCheckForKernelApcDelivery();
-  if ( v7 )
-    ObDereferenceObjectEx(a3);
+  if ( *(_QWORD *)(v7 + 48) )
+    ExfUnblockPushLock((volatile __int64 *)(v7 + 48), 0LL);
+  result = KiLeaveGuardedRegionUnsafe(a1);
+  if ( v8 )
+    return ObDereferenceObjectEx(a3, v8);
+  return result;
 }

@@ -1,12 +1,13 @@
 /*
- * XREFs of _WOWModuleUnload @ 0x1C0221974
+ * XREFs of _WOWModuleUnload @ 0x1C0227E50
  * Callers:
- *     NtUserWOWModuleUnload @ 0x1C0200870 (NtUserWOWModuleUnload.c)
+ *     <none>
  * Callees:
- *     DestroyClass @ 0x1C0060880 (DestroyClass.c)
- *     ??1?$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ @ 0x1C0060A44 (--1-$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ.c)
- *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00EB718 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
- *     ?PseudoDestroyClassWindows@@YAXPEAUtagWND@@AEBV?$SmartObjStackRef@UtagCLS@@@@@Z @ 0x1C02217C8 (-PseudoDestroyClassWindows@@YAXPEAUtagWND@@AEBV-$SmartObjStackRef@UtagCLS@@@@@Z.c)
+ *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ @ 0x1C0078DC8 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ.c)
+ *     DestroyClass @ 0x1C0079040 (DestroyClass.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00FF7D0 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
+ *     ?PseudoDestroyClassWindows@@YAXPEAUtagWND@@AEBV?$SmartObjStackRef@UtagCLS@@@@@Z @ 0x1C0227C90 (-PseudoDestroyClassWindows@@YAXPEAUtagWND@@AEBV-$SmartObjStackRef@UtagCLS@@@@@Z.c)
  */
 
 __int64 __fastcall WOWModuleUnload(__int64 a1)
@@ -14,84 +15,95 @@ __int64 __fastcall WOWModuleUnload(__int64 a1)
   __int16 v1; // r15
   struct tagPROCESSINFO *CurrentProcessWin32Process; // rsi
   __int64 v3; // r14
-  struct _CALLPROCDATA ***v4; // rbx
-  struct _CALLPROCDATA **v5; // rdi
-  int v6; // r9d
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  _QWORD v10[2]; // [rsp+20h] [rbp-20h] BYREF
-  _QWORD v11[2]; // [rsp+30h] [rbp-10h] BYREF
+  __int64 *v4; // rbx
+  __int64 v5; // rdi
+  __int64 ThreadWin32Thread; // rdi
+  _QWORD *v7; // rcx
+  int v8; // r9d
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // rdi
+  _QWORD *v12; // rcx
+  __int64 v14[2]; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v15[2]; // [rsp+30h] [rbp-10h] BYREF
 
   v1 = a1;
   CurrentProcessWin32Process = (struct tagPROCESSINFO *)PsGetCurrentProcessWin32Process(a1);
   v3 = 2LL;
-  v4 = (struct _CALLPROCDATA ***)((char *)CurrentProcessWin32Process + 344);
+  v4 = (__int64 *)((char *)CurrentProcessWin32Process + 344);
   do
   {
     while ( *v4 )
     {
-      SmartObjStackRefBase<tagCLS>::Init(v10, 0LL);
+      SmartObjStackRefBase<tagCLS>::Init(v14, 0LL);
       v5 = *v4;
-      if ( HIWORD(*((_DWORD *)(*v4)[1] + 16)) == v1 )
+      if ( HIWORD(*(_DWORD *)(*(_QWORD *)(*v4 + 8) + 64LL)) != v1 )
       {
-        if ( !*((_DWORD *)v5 + 18) )
+        if ( v5 != *(_QWORD *)v14[0] )
         {
-          DestroyClass(CurrentProcessWin32Process, v4);
-          goto LABEL_27;
-        }
-        SmartObjStackRefBase<tagCLS>::Init(v11, (__int64)*v4);
-        PseudoDestroyClassWindows(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 8LL) + 24LL), v11);
-        SmartObjStackRefBase<tagCLS>::~SmartObjStackRefBase<tagCLS>(v11);
-        *((_WORD *)(*v4)[1] + 3) |= 4u;
-      }
-      else
-      {
-        if ( v5 != *(struct _CALLPROCDATA ***)v10[0] )
-        {
-          if ( v10[0] != gSmartObjNullRef && !--*(_DWORD *)(v10[0] + 8LL) )
+          if ( v14[0] != gSmartObjNullRef && !--*(_DWORD *)(v14[0] + 8) )
           {
-            if ( *(_BYTE *)(v10[0] + 12LL) )
-              Win32FreeToPagedLookasideList(gpStackRefLookAside, v10[0]);
+            if ( *(_BYTE *)(v14[0] + 12) )
+              Win32FreeToPagedLookasideList(gpStackRefLookAside, v14[0]);
           }
           if ( v5 )
           {
-            v10[0] = v5[16];
-            ++*(_DWORD *)(v10[0] + 8LL);
+            v14[0] = *(_QWORD *)(v5 + 128);
+            ++*(_DWORD *)(v14[0] + 8);
           }
           else
           {
-            v10[0] = gSmartObjNullRef;
+            v14[0] = gSmartObjNullRef;
           }
         }
-        if ( (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)v10[0] + 8LL) + 6LL) & 8) != 0
-          && v1 == *(_WORD *)(*(int *)(*(_QWORD *)(*(_QWORD *)v10[0] + 8LL) + 12LL)
-                            + *(_QWORD *)(*(_QWORD *)v10[0] + 8LL)
+        if ( (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)v14[0] + 8LL) + 6LL) & 8) != 0
+          && v1 == *(_WORD *)(*(int *)(*(_QWORD *)(*(_QWORD *)v14[0] + 8LL) + 12LL)
+                            + *(_QWORD *)(*(_QWORD *)v14[0] + 8LL)
                             + 94LL) )
         {
-          v6 = 0;
-          v7 = 868LL;
-          v8 = 0LL;
-          while ( !*((_QWORD *)&WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink + v8)
-               || *(_WORD *)(*v4)[1] != *(_WORD *)(v7 + gpsi)
-               || (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)v10[0] + 8LL) + 6LL) & 1) != 0 )
+          v8 = 0;
+          v9 = 868LL;
+          v10 = 0LL;
+          while ( !*((_QWORD *)&WPP_MAIN_CB.SecurityDescriptor + v10)
+               || **(_WORD **)(*v4 + 8) != *(_WORD *)(v9 + gpsi)
+               || (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)v14[0] + 8LL) + 6LL) & 1) != 0 )
           {
-            ++v6;
             ++v8;
-            v7 += 2LL;
-            if ( v7 >= 918 )
-              goto LABEL_23;
+            ++v10;
+            v9 += 2LL;
+            if ( v9 >= 918 )
+              goto LABEL_25;
           }
-          *((_QWORD *)(*v4)[1] + 4) = *((_QWORD *)&WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink + v8);
-LABEL_23:
-          if ( v6 == 25 && (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)v10[0] + 8LL) + 6LL) & 1) == 0 )
-            *((_QWORD *)(*v4)[1] + 4) = *(_QWORD *)(gpsi + 616LL);
+          *(_QWORD *)(*(_QWORD *)(*v4 + 8) + 32LL) = *((_QWORD *)&WPP_MAIN_CB.SecurityDescriptor + v10);
+LABEL_25:
+          if ( v8 == 25 && (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)v14[0] + 8LL) + 6LL) & 1) == 0 )
+            *(_QWORD *)(*(_QWORD *)(*v4 + 8) + 32LL) = *(_QWORD *)(gpsi + 616LL);
         }
+        goto LABEL_28;
       }
-      v4 = (struct _CALLPROCDATA ***)*v4;
-LABEL_27:
-      SmartObjStackRefBase<tagCLS>::~SmartObjStackRefBase<tagCLS>(v10);
+      if ( *(_DWORD *)(v5 + 72) )
+      {
+        SmartObjStackRefBase<tagCLS>::Init(v15, *v4);
+        PseudoDestroyClassWindows(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 8LL) + 24LL), v15);
+        ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+        SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(v15);
+        v7 = *(_QWORD **)(ThreadWin32Thread + 1472);
+        if ( v7 )
+          *(_QWORD *)(ThreadWin32Thread + 1472) = *v7;
+        *(_WORD *)(*(_QWORD *)(*v4 + 8) + 6LL) |= 4u;
+LABEL_28:
+        v4 = (__int64 *)*v4;
+        goto LABEL_29;
+      }
+      DestroyClass(CurrentProcessWin32Process, (struct _CALLPROCDATA ***)v4);
+LABEL_29:
+      v11 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(v14);
+      v12 = *(_QWORD **)(v11 + 1472);
+      if ( v12 )
+        *(_QWORD *)(v11 + 1472) = *v12;
     }
-    v4 = (struct _CALLPROCDATA ***)((char *)CurrentProcessWin32Process + 352);
+    v4 = (__int64 *)((char *)CurrentProcessWin32Process + 352);
     --v3;
   }
   while ( v3 );

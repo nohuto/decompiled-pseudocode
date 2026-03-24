@@ -1,7 +1,7 @@
 /*
  * XREFs of MiBeginProcessClean @ 0x140011D68
  * Callers:
- *     MiReAcquireOutSwappedProcessCommit @ 0x1402A4AD4 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x1402A4BD4 (MiReAcquireOutSwappedProcessCommit.c)
  *     MmCleanProcessAddressSpace @ 0x1405F1BC8 (MmCleanProcessAddressSpace.c)
  * Callees:
  *     MiOutlawInswaps @ 0x140011E64 (MiOutlawInswaps.c)
@@ -9,8 +9,8 @@
  *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
  *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     MiFreeWorkingSetSwapContext @ 0x1406B8E04 (MiFreeWorkingSetSwapContext.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     MiFreeWorkingSetSwapContext @ 0x1406B8DE4 (MiFreeWorkingSetSwapContext.c)
  */
 
 __int64 __fastcall MiBeginProcessClean(__int64 a1, __int64 a2)

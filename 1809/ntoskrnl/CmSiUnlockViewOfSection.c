@@ -1,12 +1,12 @@
 /*
- * XREFs of CmSiUnlockViewOfSection @ 0x14016AC10
+ * XREFs of CmSiUnlockViewOfSection @ 0x14016AC30
  * Callers:
  *     HvpViewMapMakeViewRangeCOWByCaller @ 0x1405A5A80 (HvpViewMapMakeViewRangeCOWByCaller.c)
- *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140703FA0 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
- *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x140740994 (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
- *     HvpViewMapMakeViewRangeInvalid @ 0x1407F6EA8 (HvpViewMapMakeViewRangeInvalid.c)
+ *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140703F80 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
+ *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x140740974 (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x1407F6E88 (HvpViewMapMakeViewRangeInvalid.c)
  * Callees:
- *     ZwUnlockVirtualMemory @ 0x1401BB9F0 (ZwUnlockVirtualMemory.c)
+ *     ZwUnlockVirtualMemory @ 0x1401BBA10 (ZwUnlockVirtualMemory.c)
  */
 
 NTSTATUS __fastcall CmSiUnlockViewOfSection(ULONG_PTR a1, void **a2, void *a3, ULONG_PTR a4)

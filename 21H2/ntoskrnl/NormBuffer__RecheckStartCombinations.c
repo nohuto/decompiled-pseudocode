@@ -1,107 +1,108 @@
 /*
- * XREFs of NormBuffer__RecheckStartCombinations @ 0x1405ED45C
+ * XREFs of NormBuffer__RecheckStartCombinations @ 0x14058DDF0
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x1409BDBFC (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x140918590 (Normalization__NormalizeCharacter.c)
  * Callees:
- *     NormBuffer__GetCurrentOutputChar @ 0x1405ED1A0 (NormBuffer__GetCurrentOutputChar.c)
- *     Normalization__CanCombinableCharactersCombine @ 0x1409BCDDC (Normalization__CanCombinableCharactersCombine.c)
- *     Normalization__GetCharacterInfo @ 0x1409BD018 (Normalization__GetCharacterInfo.c)
+ *     NormBuffer__GetCurrentOutputChar @ 0x14058DB40 (NormBuffer__GetCurrentOutputChar.c)
+ *     Normalization__CanCombinableCharactersCombine @ 0x140917778 (Normalization__CanCombinableCharactersCombine.c)
+ *     Normalization__GetCharacterInfo @ 0x1409179B4 (Normalization__GetCharacterInfo.c)
  */
 
-unsigned __int64 __fastcall NormBuffer__RecheckStartCombinations(__int64 a1)
+void __fastcall NormBuffer__RecheckStartCombinations(__int64 a1)
 {
   bool v1; // zf
   __int64 v2; // rbx
-  unsigned __int64 result; // rax
-  unsigned __int16 *v4; // rdi
+  unsigned __int16 *v3; // rsi
+  __int64 v4; // rdi
   char v5; // r15
-  unsigned int CurrentOutputChar; // eax
-  __int64 v7; // rsi
-  unsigned int v8; // r14d
-  int v9; // r14d
-  char v10; // al
-  unsigned __int16 *v11; // rdx
-  _WORD *v12; // r8
-  __int64 v13; // rax
-  char v14; // [rsp+50h] [rbp+30h] BYREF
-  char v15; // [rsp+58h] [rbp+38h] BYREF
-  unsigned __int16 *v16; // [rsp+60h] [rbp+40h] BYREF
+  __int64 v6; // r12
+  unsigned int CurrentOutputChar; // r14d
+  unsigned int CanCombinableCharactersCombine; // eax
+  unsigned int v9; // r14d
+  char v10; // r9
+  unsigned __int16 *v11; // r8
+  _WORD *v12; // rdx
+  unsigned __int64 v13; // rax
+  unsigned __int64 v14; // rax
+  __int64 v15; // rax
+  char v16; // [rsp+60h] [rbp+40h] BYREF
+  char v17; // [rsp+68h] [rbp+48h] BYREF
+  unsigned __int16 *v18; // [rsp+70h] [rbp+50h] BYREF
 
   v1 = *(_BYTE *)(a1 + 93) == 64;
   v2 = a1;
-  result = *(_QWORD *)(a1 + 80);
-  v16 = (unsigned __int16 *)result;
+  v3 = *(unsigned __int16 **)(a1 + 80);
+  v18 = v3;
   if ( v1 )
   {
-    v4 = *(unsigned __int16 **)(a1 + 40);
+    v4 = *(_QWORD *)(a1 + 40);
     v5 = 0;
-    if ( (unsigned __int16 *)result != v4 )
+    if ( v3 != (unsigned __int16 *)v4 )
     {
+      v6 = *(_QWORD *)(a1 + 112);
       while ( 1 )
       {
-        v14 = 0;
-        v15 = 0;
-        CurrentOutputChar = NormBuffer__GetCurrentOutputChar(a1, &v16);
-        v7 = *(_QWORD *)(v2 + 112);
-        v8 = CurrentOutputChar;
-        result = Normalization__GetCharacterInfo(v7, CurrentOutputChar, &v14, &v15);
-        if ( v14 == v5 )
-          goto LABEL_16;
-        if ( v15 != -64 )
+        v16 = 0;
+        v17 = 0;
+        CurrentOutputChar = NormBuffer__GetCurrentOutputChar(a1, &v18);
+        Normalization__GetCharacterInfo(v6, CurrentOutputChar, &v16, &v17);
+        if ( v16 == v5 )
+          goto LABEL_17;
+        if ( v17 != -64 )
           break;
-        result = Normalization__CanCombinableCharactersCombine(v7, *(unsigned int *)(v2 + 88), v8);
-        v9 = result;
-        if ( !(_DWORD)result )
+        CanCombinableCharactersCombine = Normalization__CanCombinableCharactersCombine(
+                                           v6,
+                                           *(unsigned int *)(v2 + 88),
+                                           CurrentOutputChar);
+        v9 = CanCombinableCharactersCombine;
+        if ( !CanCombinableCharactersCombine )
           break;
-        Normalization__GetCharacterInfo(v7, (unsigned int)result, &v14, &v15);
-        v10 = v14;
-        v11 = v16;
-        *(_WORD *)(*(_QWORD *)(v2 + 80) - 2LL) = v9;
+        Normalization__GetCharacterInfo(v6, CanCombinableCharactersCombine, &v16, &v17);
+        v10 = v17;
+        v4 = *(_QWORD *)(v2 + 40) - 2LL;
+        v11 = v18;
+        *(_BYTE *)(v2 + 92) = v16;
         v12 = v11;
-        *(_QWORD *)(v2 + 40) -= 2LL;
-        v4 = *(unsigned __int16 **)(v2 + 40);
-        *(_BYTE *)(v2 + 92) = v10;
-        *(_BYTE *)(v2 + 93) = v15;
-        result = *(_QWORD *)(v2 + 64);
+        v13 = *(_QWORD *)(v2 + 64);
+        *(v3 - 1) = v9;
         *(_DWORD *)(v2 + 88) = v9;
-        if ( (unsigned __int16 *)result == v4 )
+        *(_BYTE *)(v2 + 93) = v10;
+        *(_QWORD *)(v2 + 40) = v4;
+        if ( v13 == v4 )
         {
-          if ( (unsigned __int64)v11 >= result )
+          if ( (unsigned __int64)v11 >= v13 )
           {
-            v13 = *(_QWORD *)(v2 + 24);
+            v15 = *(_QWORD *)(v2 + 24);
             *(_DWORD *)(v2 + 56) = 0;
-            result = v13 - 2;
+            v14 = v15 - 2;
             *(_WORD *)(v2 + 72) = 0;
           }
           else
           {
-            result -= 2LL;
+            v14 = v13 - 2;
           }
-          *(_QWORD *)(v2 + 64) = result;
+          *(_QWORD *)(v2 + 64) = v14;
         }
-        if ( v11 != v4 )
+        if ( v11 != (unsigned __int16 *)v4 )
         {
           do
           {
             a1 = (__int64)(v12 + 1);
-            result = (unsigned __int16)v12[1];
-            *v12 = result;
+            *v12 = v12[1];
             v12 = (_WORD *)a1;
-            v4 = *(unsigned __int16 **)(v2 + 40);
           }
-          while ( (unsigned __int16 *)a1 != v4 );
+          while ( a1 != v4 );
         }
-        if ( *(_BYTE *)(v2 + 93) != 64 )
-          return result;
-LABEL_17:
-        if ( v11 == v4 )
-          return result;
+        if ( v10 != 64 )
+          return;
+LABEL_18:
+        if ( v11 == (unsigned __int16 *)v4 )
+          return;
       }
-      v5 = v14;
-LABEL_16:
-      v11 = ++v16;
-      goto LABEL_17;
+      v5 = v16;
+LABEL_17:
+      v11 = ++v18;
+      goto LABEL_18;
     }
   }
-  return result;
 }

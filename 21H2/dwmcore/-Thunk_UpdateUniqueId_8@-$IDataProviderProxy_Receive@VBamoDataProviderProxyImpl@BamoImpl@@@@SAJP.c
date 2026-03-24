@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Thunk_UpdateUniqueId_8@?$IDataProviderProxy_Receive@VBamoDataProviderProxyImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x1800F8E80
+ * XREFs of ?Thunk_UpdateUniqueId_8@?$IDataProviderProxy_Receive@VBamoDataProviderProxyImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x1800E03F0
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
 
 __int64 __fastcall IDataProviderProxy_Receive<BamoImpl::BamoDataProviderProxyImpl>::Thunk_UpdateUniqueId_8(
         BamoImpl::BamoDataProviderProxyImpl *a1,
-        const struct _LUID **a2)
+        struct _LUID **a2)
 {
-  return BamoImpl::BamoDataProviderProxyImpl::UpdateUniqueId(a1, 1, *a2);
+  return BamoImpl::BamoDataProviderProxyImpl::UpdateUniqueId(a1, *a2);
 }

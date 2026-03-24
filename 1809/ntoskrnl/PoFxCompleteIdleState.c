@@ -1,13 +1,13 @@
 /*
- * XREFs of PoFxCompleteIdleState @ 0x1401774E0
+ * XREFs of PoFxCompleteIdleState @ 0x140177500
  * Callers:
  *     <none>
  * Callees:
- *     PopFxProcessWork @ 0x1400FE370 (PopFxProcessWork.c)
- *     PopFxAddLogEntry @ 0x1400FE7E4 (PopFxAddLogEntry.c)
- *     PopPluginComponentIdleState @ 0x1401764D4 (PopPluginComponentIdleState.c)
- *     PopDiagTraceFxComponentIdleState @ 0x1401770D0 (PopDiagTraceFxComponentIdleState.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PopFxProcessWork @ 0x1400FE390 (PopFxProcessWork.c)
+ *     PopFxAddLogEntry @ 0x1400FE804 (PopFxAddLogEntry.c)
+ *     PopPluginComponentIdleState @ 0x1401764F4 (PopPluginComponentIdleState.c)
+ *     PopDiagTraceFxComponentIdleState @ 0x1401770F0 (PopDiagTraceFxComponentIdleState.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 char __fastcall PoFxCompleteIdleState(__int64 a1, unsigned int a2)

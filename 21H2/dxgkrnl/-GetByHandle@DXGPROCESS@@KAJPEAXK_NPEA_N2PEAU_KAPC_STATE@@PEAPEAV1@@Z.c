@@ -1,111 +1,139 @@
 /*
- * XREFs of ?GetByHandle@DXGPROCESS@@KAJPEAXK_NPEA_N2PEAU_KAPC_STATE@@PEAPEAV1@@Z @ 0x1C016437C
+ * XREFs of ?GetByHandle@DXGPROCESS@@KAJPEAXK_NPEA_N2PEAU_KAPC_STATE@@PEAPEAV1@@Z @ 0x1C00E3224
  * Callers:
- *     ?AcquireInternal@DXGPROCESSMUTEXBYHANDLE@@AEAAJ_N@Z @ 0x1C0164280 (-AcquireInternal@DXGPROCESSMUTEXBYHANDLE@@AEAAJ_N@Z.c)
+ *     ?AcquireInternal@DXGPROCESSMUTEXBYHANDLE@@AEAAJ_N@Z @ 0x1C00E3130 (-AcquireInternal@DXGPROCESSMUTEXBYHANDLE@@AEAAJ_N@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall DXGPROCESS::GetByHandle(
         HANDLE Handle,
-        ACCESS_MASK DesiredAccess,
+        __int64 DesiredAccess,
         char a3,
         bool *a4,
-        LUID PrivilegeValue,
-        struct _KAPC_STATE *ApcState,
-        struct DXGPROCESS **Object)
+        bool *a5,
+        PRKAPC_STATE ApcState,
+        LUID PrivilegeValue)
 {
-  struct DXGPROCESS **v11; // r14
-  NTSTATUS v12; // eax
-  struct DXGPROCESS **v13; // rdi
-  __int64 v14; // rbx
-  __int64 ProcessDxgProcess; // rsi
-  int ProcessSessionId; // ebx
+  ACCESS_MASK v9; // ebx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  bool *v14; // r12
+  struct DXGPROCESS **v15; // r15
+  NTSTATUS v16; // eax
   __int64 v17; // rdx
   __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
+  PVOID v19; // rdi
+  __int64 v20; // rbx
+  __int64 ProcessDxgProcess; // rsi
+  int ProcessSessionId; // ebx
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  BOOLEAN v27; // al
+  struct _KAPC_STATE *v28; // rdx
+  __int64 v29; // rax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // r8
+  __int64 v33; // rax
+  __int64 v34; // rax
+  __int64 v35; // rax
+  _QWORD *v36; // rax
+  __int64 v37; // rbx
   __int64 CurrentProcess; // rax
+  __int64 v39; // rax
+  PVOID Object; // [rsp+78h] [rbp+20h] BYREF
 
-  if ( *((struct _KTHREAD **)DXGGLOBAL_GetGlobal() + 49) != KeGetCurrentThread() )
+  v9 = DesiredAccess;
+  if ( *((struct _KTHREAD **)DXGGLOBAL::GetGlobal((__int64)Handle, DesiredAccess) + 42) != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 3038LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"DXGGLOBAL::GetGlobal()->IsProcessCalloutMutexOwner()",
-      3038LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v13 = WdLogNewEntry5_WdAssertion(v12, v11);
+    *(_QWORD *)(v13 + 24) = 2933LL;
+    WdLogEvent5_WdAssertion(v13);
   }
-  v11 = Object;
-  *a4 = 0;
-  *v11 = 0LL;
-  *(_BYTE *)PrivilegeValue.LowPart = 0;
+  v14 = a5;
+  v15 = (struct DXGPROCESS **)PrivilegeValue;
   Object = 0LL;
-  v12 = ObReferenceObjectByHandle(Handle, DesiredAccess, (POBJECT_TYPE)PsProcessType, 1, (PVOID *)&Object, 0LL);
-  v13 = Object;
-  v14 = v12;
-  if ( v12 < 0 )
+  *a4 = 0;
+  *v15 = 0LL;
+  *v14 = 0;
+  v16 = ObReferenceObjectByHandle(Handle, v9, (POBJECT_TYPE)PsProcessType, 1, &Object, 0LL);
+  v19 = Object;
+  v20 = v16;
+  if ( v16 < 0 )
   {
-    if ( (*((_DWORD *)DXGGLOBAL_GetGlobal() + 428) & 1) != 0 )
-      WdLogSingleEntry5(0LL, 275LL, 33LL, v14, 0LL, 0LL);
-    WdLogSingleEntry1(3LL, Handle);
-    return (unsigned int)v14;
+    v31 = *((unsigned int *)DXGGLOBAL::GetGlobal(v18, v17) + 386);
+    if ( (v31 & 1) != 0 )
+    {
+      v33 = WdLogNewEntry5_WdCriticalError(v31, v30);
+      *(_QWORD *)(v33 + 24) = 275LL;
+      *(_QWORD *)(v33 + 32) = 33LL;
+      *(_QWORD *)(v33 + 40) = v20;
+      *(_OWORD *)(v33 + 48) = 0LL;
+      WdLogEvent5_WdCriticalError(v33);
+    }
+    v34 = WdLogNewEntry5_WdWarning(v31, v30, v32);
+    *(_QWORD *)(v34 + 24) = Handle;
+    WdLogEvent5_WdWarning(v34);
+    return (unsigned int)v20;
   }
   if ( !Object )
   {
-    WdLogSingleEntry1(1LL, 3072LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pEProcess", 3072LL, 0LL, 0LL, 0LL, 0LL);
+    v35 = WdLogNewEntry5_WdAssertion(v18, v17);
+    *(_QWORD *)(v35 + 24) = 2967LL;
+    WdLogEvent5_WdAssertion(v35);
   }
-  if ( (unsigned __int8)PsGetProcessExitProcessCalled(v13) )
+  if ( (unsigned __int8)PsGetProcessExitProcessCalled(v19) )
   {
-    LODWORD(v14) = -1073741558;
-    WdLogSingleEntry3(4LL, v13, Handle, -1073741558LL);
-    goto LABEL_13;
+    v36 = (_QWORD *)WdLogNewEntry5_WdEvent();
+    LODWORD(v20) = -1073741558;
+    v36[3] = v19;
+    v36[4] = Handle;
+    v36[5] = -1073741558LL;
+    WdLogEvent5_WdEvent(v36);
+LABEL_16:
+    ObfDereferenceObject(v19);
+    return (unsigned int)v20;
   }
-  ProcessDxgProcess = PsGetProcessDxgProcess(v13);
+  ProcessDxgProcess = PsGetProcessDxgProcess(v19);
   if ( !ProcessDxgProcess )
   {
-    WdLogSingleEntry1(4LL, v13);
-    LODWORD(v14) = -1073741811;
-LABEL_13:
-    ObfDereferenceObject(v13);
-    return (unsigned int)v14;
+    v29 = WdLogNewEntry5_WdEvent();
+    *(_QWORD *)(v29 + 24) = v19;
+    WdLogEvent5_WdEvent(v29);
+    LODWORD(v20) = -1073741811;
   }
-  ProcessSessionId = PsGetProcessSessionId(v13);
+  if ( (int)v20 < 0 )
+    goto LABEL_16;
+  ProcessSessionId = PsGetProcessSessionId(v19);
   if ( ProcessSessionId != (unsigned int)PsGetCurrentProcessSessionId() )
   {
     if ( a3 )
     {
-      CurrentProcess = PsGetCurrentProcess(v18, v17, v19, v20);
-      WdLogSingleEntry2(3LL, CurrentProcess, v13);
+      v37 = WdLogNewEntry5_WdWarning(v24, v23, v25);
+      CurrentProcess = PsGetCurrentProcess();
+      *(_QWORD *)(v37 + 32) = v19;
+      *(_QWORD *)(v37 + 24) = CurrentProcess;
+      WdLogEvent5_WdWarning(v37);
     }
     else
     {
-      *(_BYTE *)PrivilegeValue.LowPart = SeSinglePrivilegeCheck((LUID)14LL, 1) != 0;
-      KeStackAttachProcess((PRKPROCESS)v13, ApcState);
+      PrivilegeValue = (LUID)14LL;
+      v27 = SeSinglePrivilegeCheck((LUID)14LL, 1);
+      v28 = ApcState;
+      *v14 = v27 != 0;
+      KeStackAttachProcess((PRKPROCESS)v19, v28);
       *a4 = 1;
     }
   }
-  if ( *(struct DXGPROCESS ***)(ProcessDxgProcess + 56) != v13 )
+  if ( *(PVOID *)(ProcessDxgProcess + 56) != v19 )
   {
-    WdLogSingleEntry1(1LL, 3132LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pDxgProcess->GetEProcess() == pEProcess",
-      3132LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v39 = WdLogNewEntry5_WdAssertion(v24, v23);
+    *(_QWORD *)(v39 + 24) = 3027LL;
+    WdLogEvent5_WdAssertion(v39);
   }
-  *v11 = (struct DXGPROCESS *)ProcessDxgProcess;
+  *v15 = (struct DXGPROCESS *)ProcessDxgProcess;
   return 0LL;
 }

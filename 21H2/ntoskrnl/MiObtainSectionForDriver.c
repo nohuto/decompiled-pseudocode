@@ -1,17 +1,17 @@
 /*
- * XREFs of MiObtainSectionForDriver @ 0x1407603D4
+ * XREFs of MiObtainSectionForDriver @ 0x14075C358
  * Callers:
- *     MmLoadSystemImageEx @ 0x14075FC44 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C91F8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     MiSectionControlArea @ 0x140287970 (MiSectionControlArea.c)
- *     ObDereferenceObjectDeferDelete @ 0x140348920 (ObDereferenceObjectDeferDelete.c)
- *     MmReleaseLoadLock @ 0x1406F5AF0 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406F5B50 (MmAcquireLoadLock.c)
- *     MiCreateSectionForDriver @ 0x14076185C (MiCreateSectionForDriver.c)
- *     MiFindDataTableEntryBySection @ 0x140761C98 (MiFindDataTableEntryBySection.c)
- *     MiAllocateTempLoaderEntry @ 0x140761D10 (MiAllocateTempLoaderEntry.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
+ *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     MmReleaseLoadLock @ 0x1406D1110 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406D1170 (MmAcquireLoadLock.c)
+ *     MiAllocateTempLoaderEntry @ 0x14075DBF8 (MiAllocateTempLoaderEntry.c)
+ *     MiCreateSectionForDriver @ 0x14075DC48 (MiCreateSectionForDriver.c)
  */
 
 __int64 __fastcall MiObtainSectionForDriver(
@@ -26,19 +26,17 @@ __int64 __fastcall MiObtainSectionForDriver(
   __int64 *v9; // rdi
   PVOID *v12; // rbx
   int v13; // ebx
-  unsigned __int64 v14; // rax
-  __int64 v15; // rdx
-  __int16 v16; // r8
-  int SystemRegionType; // eax
+  __int64 v14; // rax
+  __int16 v15; // r8
   __int64 TempLoaderEntry; // rax
-  __int64 DataTableEntryBySection; // rax
+  int SystemRegionType; // eax
 
   v5 = Object;
   CurrentThread = KeGetCurrentThread();
   Object = 0LL;
   v9 = 0LL;
   *v5 = 0LL;
-  while ( 1 )
+  do
   {
     v12 = (PVOID *)PsLoadedModuleList;
     if ( PsLoadedModuleList != &PsLoadedModuleList )
@@ -49,7 +47,6 @@ __int64 __fastcall MiObtainSectionForDriver(
         if ( v12 == &PsLoadedModuleList )
           goto LABEL_5;
       }
-LABEL_14:
       if ( v9 )
         ObDereferenceObjectDeferDelete(v9);
       SystemRegionType = MiGetSystemRegionType((unsigned __int64)v12[6]);
@@ -57,20 +54,29 @@ LABEL_14:
       {
         if ( SystemRegionType == 1 )
         {
-LABEL_18:
+LABEL_21:
           *v5 = (__int64)v12;
           return 272LL;
         }
       }
       else if ( SystemRegionType != 1 )
       {
-        goto LABEL_18;
+        goto LABEL_21;
       }
       return 3221225496LL;
     }
 LABEL_5:
     if ( v9 )
-      break;
+    {
+      TempLoaderEntry = MiAllocateTempLoaderEntry(v9);
+      if ( TempLoaderEntry )
+      {
+        *v5 = TempLoaderEntry;
+        return 0LL;
+      }
+      v13 = -1073741670;
+      goto LABEL_26;
+    }
     if ( !a3 )
       MmReleaseLoadLock((__int64)CurrentThread);
     v13 = MiCreateSectionForDriver(a2, a3, a4, &Object);
@@ -79,29 +85,11 @@ LABEL_5:
     if ( v13 < 0 )
       return (unsigned int)v13;
     v9 = Object;
-    v14 = MiSectionControlArea((__int64)Object);
-    v15 = *(_QWORD *)(*(_QWORD *)v14 + 56LL);
-    if ( *(__int16 *)(v15 + 46) < v16 && *(_DWORD *)(v15 + 32) == 1 && (a4 & 1) == 0 )
-    {
-      v13 = -1073741800;
-LABEL_31:
-      ObDereferenceObjectDeferDelete(v9);
-      return (unsigned int)v13;
-    }
-    if ( (a4 & 0x40000000) != 0 )
-    {
-      DataTableEntryBySection = MiFindDataTableEntryBySection(v14);
-      v12 = (PVOID *)DataTableEntryBySection;
-      if ( DataTableEntryBySection )
-        goto LABEL_14;
-    }
+    v14 = *(_QWORD *)(*(_QWORD *)MiSectionControlArea((__int64)Object) + 56LL);
   }
-  TempLoaderEntry = MiAllocateTempLoaderEntry(v9);
-  if ( !TempLoaderEntry )
-  {
-    v13 = -1073741670;
-    goto LABEL_31;
-  }
-  *v5 = TempLoaderEntry;
-  return 0LL;
+  while ( *(__int16 *)(v14 + 46) >= v15 || *(_DWORD *)(v14 + 32) != 1 || (a4 & 1) != 0 );
+  v13 = -1073741800;
+LABEL_26:
+  ObDereferenceObjectDeferDelete(v9);
+  return (unsigned int)v13;
 }

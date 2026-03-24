@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_IntersectRect @ 0x1801108BF
+ * XREFs of __imp_load_IntersectRect @ 0x1800E8535
  * Callers:
  *     <none>
  * Callees:

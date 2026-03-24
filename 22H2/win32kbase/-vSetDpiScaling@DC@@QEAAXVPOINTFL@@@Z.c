@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C0152204
+ * XREFs of ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C013CA14
  * Callers:
- *     GreCreateCompatibleDC @ 0x1C003BC40 (GreCreateCompatibleDC.c)
- *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C005FD78 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C0021968 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     GreCreateCompatibleDC @ 0x1C003C7B0 (GreCreateCompatibleDC.c)
  * Callees:
- *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C005FDE0 (-bDpiScaledSurface@DC@@QEBAHXZ.c)
- *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C0152254 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
+ *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C0021A1C (-bDpiScaledSurface@DC@@QEBAHXZ.c)
+ *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C013CA64 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
  */
 
 __int64 __fastcall DC::vSetDpiScaling(__int64 a1, __int64 a2)

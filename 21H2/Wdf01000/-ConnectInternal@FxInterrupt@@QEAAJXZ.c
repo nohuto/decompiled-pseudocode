@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ConnectInternal@FxInterrupt@@QEAAJXZ @ 0x1C0012D10
+ * XREFs of ?ConnectInternal@FxInterrupt@@QEAAJXZ @ 0x1C001751C
  * Callers:
- *     ?Connect@FxInterrupt@@QEAAJK@Z @ 0x1C0012C10 (-Connect@FxInterrupt@@QEAAJK@Z.c)
+ *     ?Connect@FxInterrupt@@QEAAJK@Z @ 0x1C0017424 (-Connect@FxInterrupt@@QEAAJK@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0036C00 (memset.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001D540 (memset.c)
  */
 
 __int64 __fastcall FxInterrupt::ConnectInternal(FxInterrupt *this)

@@ -4,7 +4,7 @@
  *     PoGetRequester @ 0x1400021D0 (PoGetRequester.c)
  *     PopAvlFindOrMakeStatsForPowerRequest @ 0x1405890BC (PopAvlFindOrMakeStatsForPowerRequest.c)
  *     PopAvlGetPowerRequestKey @ 0x1405891B4 (PopAvlGetPowerRequestKey.c)
- *     PopAvlFindOrMakeStatsForAudio @ 0x1406DB758 (PopAvlFindOrMakeStatsForAudio.c)
+ *     PopAvlFindOrMakeStatsForAudio @ 0x1406DB738 (PopAvlFindOrMakeStatsForAudio.c)
  * Callees:
  *     RtlUnicodeStringCopy @ 0x140017780 (RtlUnicodeStringCopy.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)

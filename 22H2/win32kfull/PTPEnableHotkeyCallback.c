@@ -1,16 +1,13 @@
 /*
- * XREFs of PTPEnableHotkeyCallback @ 0x1C0223920
+ * XREFs of PTPEnableHotkeyCallback @ 0x1C0220750
  * Callers:
  *     <none>
  * Callees:
- *     PostShellHookMessagesEx @ 0x1C00D3370 (PostShellHookMessagesEx.c)
+ *     PostShellHookMessagesEx @ 0x1C0043558 (PostShellHookMessagesEx.c)
  */
 
-void __fastcall PTPEnableHotkeyCallback(__int64 a1)
+void PTPEnableHotkeyCallback()
 {
-  _BOOL8 v1; // rbx
-
-  v1 = *(_DWORD *)(SGDGetUserSessionState(a1) + 520) == 0;
-  if ( (unsigned int)EnablePTPDevices(v1) )
-    PostShellHookMessagesEx(0x39u, v1, 0LL);
+  if ( (unsigned int)EnablePTPDevices(gPTPEnabled == 0) )
+    PostShellHookMessagesEx(0x39u, gPTPEnabled == 0, 0LL);
 }

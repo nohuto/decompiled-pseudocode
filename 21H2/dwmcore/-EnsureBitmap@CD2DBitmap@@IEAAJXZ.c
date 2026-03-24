@@ -1,15 +1,15 @@
 /*
- * XREFs of ?EnsureBitmap@CD2DBitmap@@IEAAJXZ @ 0x1800D568C
+ * XREFs of ?EnsureBitmap@CD2DBitmap@@IEAAJXZ @ 0x1800C3F34
  * Callers:
- *     ?GetDXGIResource@CDxHandleBitmapRealization@@UEAAJPEAPEAUIDXGIResource@@PEAI@Z @ 0x18001A7F0 (-GetDXGIResource@CDxHandleBitmapRealization@@UEAAJPEAPEAUIDXGIResource@@PEAI@Z.c)
- *     ?GetBitmap@CD2DBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z @ 0x1800D5620 (-GetBitmap@CD2DBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z.c)
- *     ?EnsureIgnoreAlphaBitmap@CD2DBitmap@@IEAAJXZ @ 0x18028FF38 (-EnsureIgnoreAlphaBitmap@CD2DBitmap@@IEAAJXZ.c)
+ *     ?GetBitmap@CD2DBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z @ 0x1800C3ED0 (-GetBitmap@CD2DBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z.c)
+ *     ?EnsureIgnoreAlphaBitmap@CD2DBitmap@@IEAAJXZ @ 0x1802490B8 (-EnsureIgnoreAlphaBitmap@CD2DBitmap@@IEAAJXZ.c)
+ *     ?GetDXGIResource@CDxHandleBitmapRealization@@UEAAJPEAPEAUIDXGIResource@@PEAI@Z @ 0x180264880 (-GetDXGIResource@CDxHandleBitmapRealization@@UEAAJPEAPEAUIDXGIResource@@PEAI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CreateD2DBitmapFromDxgiSurface@CD2DContext@@QEAAJPEAUIDXGISurface@@AEBUD2D1_BITMAP_PROPERTIES1@@PEAPEAUID2D1Bitmap1@@@Z @ 0x1800D57FC (-CreateD2DBitmapFromDxgiSurface@CD2DContext@@QEAAJPEAUIDXGISurface@@AEBUD2D1_BITMAP_PROPERTIES1@.c)
- *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E98E4 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CreateD2DBitmapFromDxgiSurface@CD2DContext@@QEAAJPEAUIDXGISurface@@AEBUD2D1_BITMAP_PROPERTIES1@@PEAPEAUID2D1Bitmap1@@@Z @ 0x1800C407C (-CreateD2DBitmapFromDxgiSurface@CD2DContext@@QEAAJPEAUIDXGISurface@@AEBUD2D1_BITMAP_PROPERTIES1@.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D09C8 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD2DBitmap::EnsureBitmap(CD2DBitmap *this)
@@ -48,7 +48,7 @@ __int64 __fastcall CD2DBitmap::EnsureBitmap(CD2DBitmap *this)
       v3 = v6;
       if ( v6 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x1A2u);
+        MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x1A2u, 0LL);
       }
       else
       {
@@ -60,7 +60,7 @@ __int64 __fastcall CD2DBitmap::EnsureBitmap(CD2DBitmap *this)
         v3 = v10;
         if ( v10 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x1A5u);
+          MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x1A5u, 0LL);
         }
         else
         {
@@ -75,7 +75,7 @@ __int64 __fastcall CD2DBitmap::EnsureBitmap(CD2DBitmap *this)
           v3 = D2DBitmapFromDxgiSurface;
           if ( D2DBitmapFromDxgiSurface < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, D2DBitmapFromDxgiSurface, 0x1A9u);
+            MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, D2DBitmapFromDxgiSurface, 0x1A9u, 0LL);
           }
           else if ( *((_DWORD *)this + 51) == 3 )
           {
@@ -95,7 +95,7 @@ __int64 __fastcall CD2DBitmap::EnsureBitmap(CD2DBitmap *this)
     else
     {
       v3 = -2003292412;
-      MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0LL, -2003292412, 0x1B4u);
+      MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, -2003292412, 0x1B4u, 0LL);
     }
   }
   return v3;

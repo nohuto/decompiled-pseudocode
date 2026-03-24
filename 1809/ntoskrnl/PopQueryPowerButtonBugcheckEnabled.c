@@ -1,14 +1,14 @@
 /*
- * XREFs of PopQueryPowerButtonBugcheckEnabled @ 0x1408771BC
+ * XREFs of PopQueryPowerButtonBugcheckEnabled @ 0x14087719C
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x1402E46A0 (PopPowerButtonWorkCallback.c)
+ *     PopPowerButtonWorkCallback @ 0x1402E47A0 (PopPowerButtonWorkCallback.c)
  *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F29E4 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A04 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
  */
 
 __int64 PopQueryPowerButtonBugcheckEnabled()

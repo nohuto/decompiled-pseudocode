@@ -1,19 +1,38 @@
 /*
- * XREFs of ApiSetEditionIsGetKeyStateBlocked @ 0x1C004FE20
+ * XREFs of ApiSetEditionIsGetKeyStateBlocked @ 0x1C0007430
  * Callers:
- *     NtUserGetKeyState @ 0x1C004E960 (NtUserGetKeyState.c)
- *     AllocQueue @ 0x1C004FB20 (AllocQueue.c)
- *     NtUserGetKeyboardState @ 0x1C00708C0 (NtUserGetKeyboardState.c)
+ *     NtUserGetKeyboardState @ 0x1C0006BE0 (NtUserGetKeyboardState.c)
+ *     AllocQueue @ 0x1C00071A0 (AllocQueue.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 ApiSetEditionIsGetKeyStateBlocked()
 {
   unsigned int v0; // ebx
+  int v1; // eax
 
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      490,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   v0 = 0;
-  if ( qword_1C02952D0 && (int)qword_1C02952D0() >= 0 && qword_1C02952D8 )
-    return (unsigned int)qword_1C02952D8();
+  if ( qword_1C0255E48 )
+    v1 = qword_1C0255E48();
+  else
+    v1 = -1073741637;
+  if ( v1 >= 0 && qword_1C0255E50 )
+    v0 = qword_1C0255E50();
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      491,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   return v0;
 }

@@ -1,14 +1,20 @@
 /*
- * XREFs of ??1DXGCOPYPROTECTION@@QEAA@XZ @ 0x1C02E5CA0
+ * XREFs of ??1DXGCOPYPROTECTION@@QEAA@XZ @ 0x1C02520D0
  * Callers:
- *     ??_GDXGCOPYPROTECTION@@QEAAPEAXI@Z @ 0x1C0041A0C (--_GDXGCOPYPROTECTION@@QEAAPEAXI@Z.c)
+ *     ??_GDXGCOPYPROTECTION@@QEAAPEAXI@Z @ 0x1C003AC38 (--_GDXGCOPYPROTECTION@@QEAAPEAXI@Z.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall DXGCOPYPROTECTION::~DXGCOPYPROTECTION(DXGCOPYPROTECTION *this)
+void __fastcall DXGCOPYPROTECTION::~DXGCOPYPROTECTION(DXGCOPYPROTECTION *this, __int64 a2)
 {
-  WdLogSingleEntry3(4LL, this, *((unsigned int *)this + 12), *((_QWORD *)this + 5));
+  _QWORD *v3; // rax
+
+  v3 = (_QWORD *)WdLogNewEntry5_WdEvent(this, a2);
+  v3[3] = this;
+  v3[4] = *((unsigned int *)this + 12);
+  v3[5] = *((_QWORD *)this + 5);
+  WdLogEvent5_WdEvent(v3);
   *((_QWORD *)this + 5) = 0LL;
   *((_QWORD *)this + 2) = 0LL;
 }

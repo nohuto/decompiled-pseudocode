@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlUnicodeStringValidateDestWorker @ 0x14015D770
+ * XREFs of RtlUnicodeStringValidateDestWorker @ 0x14015D790
  * Callers:
- *     RtlUnicodeStringPrintf @ 0x14015D6FC (RtlUnicodeStringPrintf.c)
- *     CmpFinishSystemHivesLoad @ 0x1407325A0 (CmpFinishSystemHivesLoad.c)
- *     IopDeviceRemovalForResetComplete @ 0x1408269A0 (IopDeviceRemovalForResetComplete.c)
- *     PopDiagIdleWakeSourceAccountingToDiagnostic @ 0x14086FDDC (PopDiagIdleWakeSourceAccountingToDiagnostic.c)
+ *     RtlUnicodeStringPrintf @ 0x14015D71C (RtlUnicodeStringPrintf.c)
+ *     CmpFinishSystemHivesLoad @ 0x140732580 (CmpFinishSystemHivesLoad.c)
+ *     IopDeviceRemovalForResetComplete @ 0x140826980 (IopDeviceRemovalForResetComplete.c)
+ *     PopDiagIdleWakeSourceAccountingToDiagnostic @ 0x14086FDBC (PopDiagIdleWakeSourceAccountingToDiagnostic.c)
  * Callees:
  *     RtlUnicodeStringValidateWorker @ 0x140017850 (RtlUnicodeStringValidateWorker.c)
  */

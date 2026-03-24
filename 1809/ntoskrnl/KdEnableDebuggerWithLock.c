@@ -1,13 +1,13 @@
 /*
- * XREFs of KdEnableDebuggerWithLock @ 0x14028BF1C
+ * XREFs of KdEnableDebuggerWithLock @ 0x14028C01C
  * Callers:
- *     KdEnableDebugger @ 0x14028BEE0 (KdEnableDebugger.c)
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
+ *     KdEnableDebugger @ 0x14028BFE0 (KdEnableDebugger.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KdPowerTransitionEx @ 0x14028C100 (KdPowerTransitionEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KdPowerTransitionEx @ 0x14028C200 (KdPowerTransitionEx.c)
  *     KdInitSystem @ 0x140915140 (KdInitSystem.c)
  *     KdpRestoreAllBreakpoints @ 0x1409190C4 (KdpRestoreAllBreakpoints.c)
  */

@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpMoveBiosAliasTable @ 0x14091E6AC
+ * XREFs of CmpMoveBiosAliasTable @ 0x140877C18
  * Callers:
- *     CmSetAcpiHwProfile @ 0x140837F88 (CmSetAcpiHwProfile.c)
+ *     CmSetAcpiHwProfile @ 0x1407A5908 (CmSetAcpiHwProfile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x14041BA20 (ZwQueryKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     ZwDeleteKey @ 0x14041D280 (ZwDeleteKey.c)
- *     CmpOpenDevicesControlSet @ 0x140838DE4 (CmpOpenDevicesControlSet.c)
- *     CmDeleteKeyRecursive @ 0x14091D7D0 (CmDeleteKeyRecursive.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1403FA660 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x1403FBE20 (ZwDeleteKey.c)
+ *     CmpOpenDevicesControlSet @ 0x1407A6764 (CmpOpenDevicesControlSet.c)
+ *     CmDeleteKeyRecursive @ 0x140876D90 (CmDeleteKeyRecursive.c)
  */
 
 __int64 __fastcall CmpMoveBiosAliasTable(
@@ -52,8 +52,8 @@ __int64 __fastcall CmpMoveBiosAliasTable(
   v21 = 0LL;
   ResultLength = 0;
   DestinationString = 0LL;
-  memset(&ObjectAttributes, 0, 44);
   Data = a4;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   KeyInformation = 0LL;
   v28 = 0LL;
   v29 = 0LL;

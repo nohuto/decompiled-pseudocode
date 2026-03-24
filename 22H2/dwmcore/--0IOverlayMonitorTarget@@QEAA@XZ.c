@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0IOverlayMonitorTarget@@QEAA@XZ @ 0x1800C866C
+ * XREFs of ??0IOverlayMonitorTarget@@QEAA@XZ @ 0x180026274
  * Callers:
- *     ??0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800C82C8 (--0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1801C078C (--0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x180025DEC (--0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18016A340 (--0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -10,11 +10,11 @@
 IOverlayMonitorTarget *__fastcall IOverlayMonitorTarget::IOverlayMonitorTarget(IOverlayMonitorTarget *this)
 {
   *(_QWORD *)this = &IMonitorTarget::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 4LL) + 8) = &COverlaySwapChainBase::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 4LL) + 8) = &ILegacySwapChain::`vftable'{for `IUnknown'};
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 8LL) + 8) = &CProcessAttributionObserver::`vftable';
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 12LL) + 8) = &IOverlayMonitorTarget::`vftable'{for `IRenderTarget'};
   *(_QWORD *)this = &IOverlayMonitorTarget::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 4LL) + 8) = &COverlaySwapChainBase::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 4LL) + 8) = &ILegacySwapChain::`vftable'{for `IUnknown'};
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 8LL) + 8) = &CProcessAttributionObserver::`vftable';
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 12LL) + 8) = &IOverlayMonitorTarget::`vftable'{for `IRenderTarget'};
   return this;

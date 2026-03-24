@@ -1,67 +1,38 @@
 /*
- * XREFs of WheapAttemptErrorRecovery @ 0x140610CD4
+ * XREFs of WheapAttemptErrorRecovery @ 0x1405BB7B8
  * Callers:
- *     WheaReportHwError @ 0x1406106A0 (WheaReportHwError.c)
+ *     WheaReportHwError @ 0x1405BB070 (WheaReportHwError.c)
  * Callees:
- *     WheaGetErrPacketFromErrRecord @ 0x1405195A0 (WheaGetErrPacketFromErrRecord.c)
- *     WheapGetErrorSource @ 0x140610F08 (WheapGetErrorSource.c)
- *     WheapCallErrorSourceRecover @ 0x140612818 (WheapCallErrorSourceRecover.c)
+ *     WheapAttemptArchitecturalErrorRecovery @ 0x1405BB718 (WheapAttemptArchitecturalErrorRecovery.c)
  */
 
 __int64 __fastcall WheapAttemptErrorRecovery(__int64 a1)
 {
-  int v2; // ebx
-  PWHEA_ERROR_PACKET ErrPacketFromErrRecord; // rax
-  __int64 ErrorSource; // rax
-  __int64 v5; // r11
-  int v6; // eax
-  int v7; // ecx
-  int v8; // eax
-  int v9; // ecx
-  int v11; // [rsp+30h] [rbp+8h] BYREF
+  int v2; // edi
+  int v3; // eax
+  int v4; // ecx
 
-  v11 = *(_DWORD *)(a1 + 12);
-  v2 = -1073741811;
-  ErrPacketFromErrRecord = WheaGetErrPacketFromErrRecord((PWHEA_ERROR_RECORD)a1);
-  if ( ErrPacketFromErrRecord )
+  v2 = WheapAttemptArchitecturalErrorRecovery(a1);
+  if ( v2 >= 0 && !*(_DWORD *)(a1 + 12) )
+    *(_DWORD *)(a1 + 12) = 2;
+  v3 = PshedAttemptErrorRecovery(a1);
+  v4 = *(_DWORD *)(a1 + 12);
+  if ( !v4 )
   {
-    if ( ErrPacketFromErrRecord->ErrorSourceType <= (unsigned int)WheaErrSrcTypeSei )
-    {
-      ErrorSource = WheapGetErrorSource(&WheapErrorSourceTable, ErrPacketFromErrRecord->ErrorSourceId);
-      if ( ErrorSource )
-      {
-        if ( *(_QWORD *)(v5 + 48) )
-        {
-          v6 = WheapCallErrorSourceRecover(ErrorSource, a1, &v11);
-          v7 = v11;
-          *(_DWORD *)(a1 + 12) = v11;
-          v2 = v6;
-          if ( v6 >= 0 && !v7 )
-            *(_DWORD *)(a1 + 12) = 2;
-        }
-      }
-    }
-  }
-  v8 = PshedAttemptErrorRecovery(a1);
-  v9 = *(_DWORD *)(a1 + 12);
-  if ( v9 )
-  {
-    if ( v9 == 2 )
-      goto LABEL_13;
-  }
-  else
-  {
-    if ( v8 >= 0 )
+    if ( v3 >= 0 )
     {
       *(_DWORD *)(a1 + 12) = 2;
-LABEL_13:
+LABEL_9:
       *(_DWORD *)(a1 + 104) |= 1u;
-      goto LABEL_14;
+      goto LABEL_10;
     }
     *(_DWORD *)(a1 + 12) = 1;
+    v4 = 1;
   }
-LABEL_14:
-  if ( v2 < 0 && v8 >= 0 )
-    return (unsigned int)v8;
+  if ( v4 == 2 )
+    goto LABEL_9;
+LABEL_10:
+  if ( v2 < 0 && v3 >= 0 )
+    return (unsigned int)v3;
   return (unsigned int)v2;
 }

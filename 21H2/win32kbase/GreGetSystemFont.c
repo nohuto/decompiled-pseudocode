@@ -1,7 +1,7 @@
 /*
- * XREFs of GreGetSystemFont @ 0x1C006A0F0
+ * XREFs of GreGetSystemFont @ 0x1C006B060
  * Callers:
- *     InitUserScreen @ 0x1C006C88C (InitUserScreen.c)
+ *     InitUserScreen @ 0x1C006A78C (InitUserScreen.c)
  * Callees:
  *     <none>
  */

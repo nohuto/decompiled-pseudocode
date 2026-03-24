@@ -1,12 +1,11 @@
 /*
- * XREFs of MiFindEmptyAddressRangeDownTree @ 0x1406AC778
+ * XREFs of MiFindEmptyAddressRangeDownTree @ 0x14068B3A8
  * Callers:
- *     MiFindEmptyAddressRangeDown @ 0x1406AC670 (MiFindEmptyAddressRangeDown.c)
- *     MiFinishCreateSection @ 0x1406FD9F0 (MiFinishCreateSection.c)
+ *     MiFindEmptyAddressRangeDown @ 0x14068B294 (MiFindEmptyAddressRangeDown.c)
+ *     MiFinishCreateSection @ 0x140705C20 (MiFinishCreateSection.c)
  * Callees:
- *     MiHonorRangeStraddleRequirement @ 0x140238F98 (MiHonorRangeStraddleRequirement.c)
- *     MiUpdateVadStartVpn @ 0x14030B420 (MiUpdateVadStartVpn.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiHonorRangeStraddleRequirement @ 0x1402AC618 (MiHonorRangeStraddleRequirement.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall MiFindEmptyAddressRangeDownTree(
@@ -19,159 +18,169 @@ __int64 __fastcall MiFindEmptyAddressRangeDownTree(
         unsigned __int64 *a7)
 {
   unsigned __int64 v11; // rbx
-  __int64 v12; // r14
-  unsigned __int64 v13; // r12
-  unsigned __int64 v14; // rbp
-  unsigned __int64 v15; // r8
-  unsigned __int64 v16; // rcx
-  unsigned __int64 v17; // rbx
-  unsigned __int64 v18; // r10
-  __int64 v19; // rax
-  unsigned __int64 v20; // r11
-  _DWORD *v21; // rdi
-  _DWORD *v22; // r13
-  unsigned __int64 v23; // r15
-  _DWORD *v24; // rdx
-  unsigned __int64 v25; // rax
-  unsigned __int64 v26; // rcx
-  unsigned __int64 v27; // rax
-  unsigned __int64 v28; // rsi
-  __int64 v29; // rbp
-  unsigned __int64 v30; // rsi
-  unsigned __int64 v31; // rbx
-  __int64 v32; // rax
-  __int64 v33; // rbx
+  __int64 v12; // rbp
+  unsigned __int64 v13; // r15
+  unsigned __int64 v14; // r9
+  __int64 v15; // rdi
+  unsigned __int64 v16; // r8
+  unsigned __int64 v17; // rdx
+  unsigned __int64 v18; // r9
+  unsigned __int64 v19; // r12
+  unsigned __int64 v20; // r10
+  __int64 v21; // rax
+  unsigned __int64 v22; // rbx
+  _DWORD *v23; // rcx
+  _DWORD *v24; // r11
+  unsigned __int64 v25; // r14
+  unsigned __int64 v26; // rax
+  unsigned __int64 v27; // rcx
+  _DWORD *v28; // r13
+  unsigned __int64 v29; // rsi
+  unsigned __int64 v30; // rax
+  unsigned __int64 v31; // rdi
+  __int64 v32; // rsi
+  unsigned __int64 v33; // rdi
+  __int64 v34; // rcx
   __int64 v35; // rax
-  __int64 v36; // rax
-  _DWORD v37[30]; // [rsp+20h] [rbp-78h] BYREF
-  unsigned __int64 v38; // [rsp+A8h] [rbp+10h]
-  unsigned __int64 v39; // [rsp+B8h] [rbp+20h]
-  _DWORD *v40; // [rsp+C0h] [rbp+28h]
-  unsigned __int64 v41; // [rsp+C8h] [rbp+30h]
+  unsigned __int64 v36; // r11
+  unsigned __int64 v37; // rcx
+  __int64 v38; // r11
+  __int64 v40; // rax
+  __int64 v41; // rax
+  _DWORD v42[30]; // [rsp+20h] [rbp-78h] BYREF
+  unsigned __int64 v43; // [rsp+A8h] [rbp+10h]
+  _DWORD *v44; // [rsp+B8h] [rbp+20h]
 
-  memset(v37, 0, 0x40uLL);
+  memset(v42, 0, 0x40uLL);
   v11 = (a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
   v12 = a4 >> 12;
   v13 = v11 >> 12;
   if ( a5 >= a6 || a6 - a5 < v11 )
-    goto LABEL_38;
-  v14 = a6 >> 12;
-  v15 = a3 >> 12;
-  v16 = -(__int64)a3 & (a6 - v11);
-  v39 = a6 >> 12;
-  v38 = a3 >> 12;
-  v17 = v16 >> 12;
-  v18 = 0LL;
-  v41 = v16 >> 12;
+    goto LABEL_37;
+  v14 = a3;
+  v15 = -(__int64)a3;
+  v16 = a6 >> 12;
+  v17 = v15 & (a6 - v11);
+  v18 = v14 >> 12;
+  v19 = v17 >> 12;
+  v20 = 0LL;
+  v43 = v18;
   if ( v12 )
   {
-    v35 = MiHonorRangeStraddleRequirement(v16 >> 12, v13, v12, 1);
-    v15 = a3 >> 12;
-    v17 = ~(v38 - 1) & v35;
-    v41 = v17;
-    v16 = v17 << 12;
+    v40 = MiHonorRangeStraddleRequirement((v15 & (a6 - v11)) >> 12, v11 >> 12, v12, 1);
+    v18 = v43;
+    v16 = a6 >> 12;
+    v19 = ~(v43 - 1) & v40;
+    v17 = v19 << 12;
   }
-  if ( v16 < a5 )
+  if ( v17 < a5 )
   {
-LABEL_38:
-    LODWORD(v18) = -1073741801;
-    return (unsigned int)v18;
+LABEL_37:
+    LODWORD(v20) = -1073741801;
   }
-  v19 = *a1;
-  if ( !*a1 )
+  else
   {
-    *a7 = v16;
-    return (unsigned int)v18;
-  }
-  v20 = v18;
-  do
-  {
-    v21 = (_DWORD *)v19;
-    v19 = *(_QWORD *)(v19 + 8);
-  }
-  while ( v19 );
-  v22 = v21;
-  v23 = a5 >> 12;
-  while ( 1 )
-  {
-    v24 = v22;
-    v40 = v22;
-    if ( v21 )
+    v21 = *a1;
+    if ( *a1 )
     {
-      v21 = (_DWORD *)v18;
-      MiUpdateVadStartVpn((__int64)v37, v14);
-      v40 = v37;
+      v22 = v20;
+      do
+      {
+        v23 = (_DWORD *)v21;
+        v44 = (_DWORD *)v21;
+        v21 = *(_QWORD *)(v21 + 8);
+      }
+      while ( v21 );
+      v24 = v23;
+      v25 = a5 >> 12;
+      while ( 1 )
+      {
+        if ( v23 )
+        {
+          v24 = v42;
+          v22 = (unsigned __int64)v23;
+          LOBYTE(v42[8]) = a6 >> 44;
+          v44 = (_DWORD *)v20;
+          v42[6] = v16;
+        }
+        else
+        {
+          v26 = *(_QWORD *)v22;
+          v27 = v22;
+          if ( *(_QWORD *)v22 )
+          {
+            while ( 1 )
+            {
+              v22 = v26;
+              if ( *(_QWORD *)(v26 + 8) == v20 )
+                break;
+              v26 = *(_QWORD *)(v26 + 8);
+            }
+          }
+          else
+          {
+            while ( 1 )
+            {
+              v22 = *(_QWORD *)(v22 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+              if ( !v22 || *(_QWORD *)(v22 + 8) == v27 )
+                break;
+              v27 = v22;
+            }
+          }
+        }
+        v28 = v42;
+        if ( v22 )
+        {
+          v29 = v18 - 1;
+          v30 = a5 >> 12;
+          if ( (*(unsigned int *)(v22 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v22 + 33) << 32)) + 1 >= v25 )
+          {
+            v30 = (*(unsigned int *)(v22 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v22 + 33) << 32)) + 1;
+            v28 = (_DWORD *)v22;
+          }
+          v31 = v30 + v18 - 1;
+        }
+        else
+        {
+          v42[7] = v20;
+          v29 = v18 - 1;
+          BYTE1(v42[8]) = v20;
+          v31 = v25 + v18 - 1;
+        }
+        v32 = ~v29;
+        v33 = v32 & v31;
+        if ( v12 )
+        {
+          v41 = MiHonorRangeStraddleRequirement(v33, v13, v12, 0);
+          v18 = v43;
+          v33 = v41;
+        }
+        v16 = a6 >> 12;
+        if ( v33 <= v19 )
+        {
+          v34 = *((unsigned __int8 *)v24 + 32);
+          v35 = (unsigned int)v24[6];
+          v36 = a6 >> 12;
+          v37 = v35 | (v34 << 32);
+          if ( v37 <= a6 >> 12 )
+            v36 = v37;
+          if ( v36 > v33 && v13 <= v36 - v33 )
+            break;
+        }
+        if ( v28 == v42 )
+          goto LABEL_37;
+        v23 = v44;
+        v24 = v28;
+      }
+      v38 = v32 & (v36 - v13);
+      if ( v12 )
+        v38 = v32 & MiHonorRangeStraddleRequirement(v38, v13, v12, 1);
+      *a7 = v38 << 12;
     }
     else
     {
-      v25 = *(_QWORD *)v20;
-      v26 = v20;
-      if ( *(_QWORD *)v20 )
-      {
-        while ( 1 )
-        {
-          v20 = v25;
-          if ( *(_QWORD *)(v25 + 8) == v18 )
-            break;
-          v25 = *(_QWORD *)(v25 + 8);
-        }
-      }
-      else
-      {
-        while ( 1 )
-        {
-          v20 = *(_QWORD *)(v20 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( !v20 || *(_QWORD *)(v20 + 8) == v26 )
-            break;
-          v26 = v20;
-        }
-      }
-      if ( !v20 )
-      {
-        v37[7] = v18;
-        v28 = v15 + v23 - 1;
-        BYTE1(v37[8]) = v18;
-        v22 = v37;
-        v40 = v24;
-        goto LABEL_21;
-      }
+      *a7 = v17;
     }
-    v22 = v37;
-    v27 = v23;
-    if ( (*(unsigned int *)(v20 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v20 + 33) << 32)) + 1 >= v23 )
-    {
-      v27 = (*(unsigned int *)(v20 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v20 + 33) << 32)) + 1;
-      v22 = (_DWORD *)v20;
-    }
-    v28 = v27 + v15 - 1;
-LABEL_21:
-    v29 = ~(v15 - 1);
-    v30 = v29 & v28;
-    if ( v12 )
-    {
-      v36 = MiHonorRangeStraddleRequirement(v30, v13, v12, 0);
-      v15 = v38;
-      v30 = v36;
-    }
-    if ( v30 <= v17 )
-      break;
-LABEL_24:
-    if ( v22 == v37 )
-      goto LABEL_38;
-    v14 = v39;
   }
-  v31 = v39;
-  v32 = (unsigned int)v40[6];
-  if ( (v32 | ((unsigned __int64)*((unsigned __int8 *)v40 + 32) << 32)) <= v39 )
-    v31 = v32 | ((unsigned __int64)*((unsigned __int8 *)v40 + 32) << 32);
-  if ( v31 <= v30 || v13 > v31 - v30 )
-  {
-    v17 = v41;
-    goto LABEL_24;
-  }
-  v33 = v29 & (v31 - v13);
-  if ( v12 )
-    v33 = v29 & MiHonorRangeStraddleRequirement(v33, v13, v12, 1);
-  *a7 = v33 << 12;
-  return (unsigned int)v18;
+  return (unsigned int)v20;
 }

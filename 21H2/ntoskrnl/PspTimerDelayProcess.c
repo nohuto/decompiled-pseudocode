@@ -1,11 +1,11 @@
 /*
- * XREFs of PspTimerDelayProcess @ 0x1405E14E0
+ * XREFs of PspTimerDelayProcess @ 0x140582770
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PspApplyTimerDelayProcess @ 0x1405E0C00 (PspApplyTimerDelayProcess.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140732CC0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PspApplyTimerDelayProcess @ 0x140581EE8 (PspApplyTimerDelayProcess.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __fastcall PspTimerDelayProcess(void *a1, _DWORD *a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CopyPalette@CBitmap@@UEAAJPEAUIWICPalette@@@Z @ 0x1800FA860
+ * XREFs of ?CopyPalette@CBitmap@@UEAAJPEAUIWICPalette@@@Z @ 0x1800E24B0
  * Callers:
  *     <none>
  * Callees:

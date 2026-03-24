@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionGetInputDelegate @ 0x1C023DC70
+ * XREFs of EditionGetInputDelegate @ 0x1C01FBE64
  * Callers:
- *     ApiSetEditionGetInputDelegate @ 0x1C0207E2C (ApiSetEditionGetInputDelegate.c)
+ *     ApiSetEditionGetInputDelegate @ 0x1C01CBA2C (ApiSetEditionGetInputDelegate.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall EditionGetInputDelegate(_OWORD *a1))(_QWORD)
@@ -17,8 +17,8 @@ __int64 (__fastcall *__fastcall EditionGetInputDelegate(_OWORD *a1))(_QWORD)
   __int128 v7; // xmm0
   _OWORD v8[7]; // [rsp+20h] [rbp-78h] BYREF
 
-  result = qword_1C029D2D8;
-  if ( qword_1C029D2D8 )
+  result = qword_1C0258680;
+  if ( qword_1C0258680 )
   {
     v2 = a1[1];
     v8[0] = *a1;
@@ -33,7 +33,7 @@ __int64 (__fastcall *__fastcall EditionGetInputDelegate(_OWORD *a1))(_QWORD)
     v7 = a1[6];
     v8[5] = v6;
     v8[6] = v7;
-    return (__int64 (__fastcall *)(_QWORD))qword_1C029D2D8(v8);
+    return (__int64 (__fastcall *)(_QWORD))qword_1C0258680(v8);
   }
   return result;
 }

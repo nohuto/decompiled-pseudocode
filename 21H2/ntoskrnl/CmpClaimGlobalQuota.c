@@ -1,16 +1,14 @@
 /*
- * XREFs of CmpClaimGlobalQuota @ 0x14068B144
+ * XREFs of CmpClaimGlobalQuota @ 0x140720E44
  * Callers:
- *     CmpAllocateForNonPagedHive @ 0x14053F520 (CmpAllocateForNonPagedHive.c)
- *     CmpAllocate @ 0x14068B0E0 (CmpAllocate.c)
- *     HvpMapHiveImageFromViewMap @ 0x14068C154 (HvpMapHiveImageFromViewMap.c)
- *     HvpAddBin @ 0x14068C820 (HvpAddBin.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x1408410FC (HvpBuildMapForMemoryBackedHive.c)
- *     HvpAllocateNonPagedBin @ 0x140924648 (HvpAllocateNonPagedBin.c)
+ *     HvpMapHiveImageFromViewMap @ 0x140709450 (HvpMapHiveImageFromViewMap.c)
+ *     CmpAllocate @ 0x140720DE0 (CmpAllocate.c)
+ *     HvpAddBin @ 0x140722A58 (HvpAddBin.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x1407B1EFC (HvpBuildMapForMemoryBackedHive.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     CmpUpdateGlobalQuotaAllowed @ 0x14068B198 (CmpUpdateGlobalQuotaAllowed.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     CmpUpdateGlobalQuotaAllowed @ 0x140720E98 (CmpUpdateGlobalQuotaAllowed.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CmpClaimGlobalQuota(__int64 a1, __int64 a2)

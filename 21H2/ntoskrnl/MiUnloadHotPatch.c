@@ -1,19 +1,19 @@
 /*
- * XREFs of MiUnloadHotPatch @ 0x140977B70
+ * XREFs of MiUnloadHotPatch @ 0x1408CE7C8
  * Callers:
- *     NtManageHotPatch @ 0x1406C9390 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x1408CED40 (NtManageHotPatch.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     memset @ 0x140435E00 (memset.c)
- *     VslRevertHotPatch @ 0x14054F4CC (VslRevertHotPatch.c)
- *     MmReleaseLoadLock @ 0x1406F5AF0 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406F5B50 (MmAcquireLoadLock.c)
- *     MiApplyHotPatchToDriver @ 0x140971650 (MiApplyHotPatchToDriver.c)
- *     MiCompareHotPatchNodes @ 0x140972C58 (MiCompareHotPatchNodes.c)
- *     MiDeleteHotPatchRecord @ 0x140972E78 (MiDeleteHotPatchRecord.c)
- *     MiHotPatchAllProcesses @ 0x140973630 (MiHotPatchAllProcesses.c)
- *     MiLogHotPatchOperationStatus @ 0x140974FBC (MiLogHotPatchOperationStatus.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     VslRevertHotPatch @ 0x1404FD72C (VslRevertHotPatch.c)
+ *     MmReleaseLoadLock @ 0x1406D1110 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406D1170 (MmAcquireLoadLock.c)
+ *     MiApplyHotPatchToDriver @ 0x1408C9114 (MiApplyHotPatchToDriver.c)
+ *     MiCompareHotPatchNodes @ 0x1408C9830 (MiCompareHotPatchNodes.c)
+ *     MiDeleteHotPatchRecord @ 0x1408C99FC (MiDeleteHotPatchRecord.c)
+ *     MiHotPatchAllProcesses @ 0x1408CA278 (MiHotPatchAllProcesses.c)
+ *     MiLogHotPatchOperationStatus @ 0x1408CBA40 (MiLogHotPatchOperationStatus.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiUnloadHotPatch(unsigned int a1, unsigned int a2)
@@ -23,7 +23,7 @@ __int64 __fastcall MiUnloadHotPatch(unsigned int a1, unsigned int a2)
   int v6; // edi
   unsigned __int64 *v7; // rbx
   int v8; // eax
-  signed int v9; // r15d
+  NTSTATUS v9; // r15d
   int v10; // eax
   _DWORD v12[16]; // [rsp+30h] [rbp-58h] BYREF
 
@@ -31,13 +31,13 @@ __int64 __fastcall MiUnloadHotPatch(unsigned int a1, unsigned int a2)
   v4 = 0LL;
   Lock = MmAcquireLoadLock();
   v6 = 0;
-  MiDeleteHotPatchRecord((unsigned __int64 *)&qword_140C533B0, 0LL, a1, a2);
-  if ( (MiFlags & 0x4000) != 0 )
+  MiDeleteHotPatchRecord((unsigned __int64 *)&MiGlobalHotPatchList, 0LL, a1, a2);
+  if ( (MiFlags & 0x8000) != 0 )
   {
-    v7 = (unsigned __int64 *)qword_140C533B8;
+    v7 = (unsigned __int64 *)MiSecureImageActivePatches;
     v12[6] = a1;
     v12[7] = a2;
-    if ( qword_140C533B8 )
+    if ( MiSecureImageActivePatches )
     {
       do
       {
@@ -64,7 +64,7 @@ __int64 __fastcall MiUnloadHotPatch(unsigned int a1, unsigned int a2)
         }
         else
         {
-          RtlAvlRemoveNode((unsigned __int64 *)&qword_140C533B8, v7);
+          RtlAvlRemoveNode((unsigned __int64 *)&MiSecureImageActivePatches, v7);
           v4 = v7;
         }
       }

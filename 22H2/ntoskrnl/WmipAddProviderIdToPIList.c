@@ -1,75 +1,86 @@
 /*
- * XREFs of WmipAddProviderIdToPIList @ 0x1406C6840
+ * XREFs of WmipAddProviderIdToPIList @ 0x1406B6F68
  * Callers:
- *     WmipPrepareWnodeSI @ 0x1406C6594 (WmipPrepareWnodeSI.c)
- *     WmipPrepareForWnodeAD @ 0x1406C7F60 (WmipPrepareForWnodeAD.c)
+ *     WmipPrepareForWnodeAD @ 0x1406B6E50 (WmipPrepareForWnodeAD.c)
+ *     WmipPrepareWnodeSI @ 0x140756DF4 (WmipPrepareWnodeSI.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     WmipUnreferenceEntry @ 0x1406C7090 (WmipUnreferenceEntry.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     WmipUnreferenceEntry @ 0x1406B23F8 (WmipUnreferenceEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall WmipAddProviderIdToPIList(const void **a1, _DWORD *a2, _DWORD *a3, void *a4, __int64 a5)
+__int64 __fastcall WmipAddProviderIdToPIList(
+        const void **a1,
+        _DWORD *a2,
+        unsigned int *a3,
+        void *a4,
+        volatile signed __int64 *a5)
 {
-  __int64 v5; // r15
+  __int64 v5; // r13
   int v6; // ebx
-  __int64 v7; // rbp
-  void *v8; // rdi
-  __int64 v10; // r14
-  void *Pool2; // rax
-  void *v12; // rsi
-  void *v13; // r12
-  _QWORD *v14; // rbx
-  _DWORD *v16; // [rsp+88h] [rbp+10h]
+  __int64 v7; // r14
+  void *v8; // rsi
+  volatile signed __int64 *v9; // rax
+  unsigned int v11; // ebp
+  __int64 v12; // r15
+  PVOID PoolWithTag; // rdi
+  void *v14; // r12
+  volatile signed __int64 **v15; // rbx
+  _DWORD *v17; // [rsp+78h] [rbp+10h]
 
-  v16 = a2;
+  v17 = a2;
   v5 = (unsigned int)*a2;
   v6 = 0;
-  v7 = (unsigned int)*a3;
+  v7 = *a3;
   v8 = (void *)*a1;
+  v9 = a5;
   if ( (_DWORD)v5 != (_DWORD)v7 )
     goto LABEL_2;
-  v10 = (unsigned int)*a3;
+  v11 = 2 * v7;
+  v12 = *a3;
   if ( (unsigned __int64)(2 * v7) > 0xFFFFFFFF )
   {
-    v13 = (void *)*a1;
+    v11 = -1;
+    v6 = -1073741675;
+    PoolWithTag = 0LL;
   }
   else
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, 8LL * (unsigned int)(2 * v7), 1885957463LL);
-    v12 = Pool2;
-    v13 = v8;
-    if ( Pool2 )
-    {
-      memmove(Pool2, v8, 8 * v7);
-      v8 = v12;
-      *a3 = 2 * v7;
-      goto LABEL_7;
-    }
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8LL * v11, 0x70696D57u);
   }
-  if ( (_DWORD)v7 )
+  v14 = v8;
+  if ( PoolWithTag )
   {
-    v14 = v8;
-    do
-    {
-      WmipUnreferenceEntry(&WmipISChunkInfo, *v14++);
-      --v10;
-    }
-    while ( v10 );
+    memmove(PoolWithTag, v8, 8 * v7);
+    v8 = PoolWithTag;
+    *a3 = v11;
   }
-  WmipUnreferenceEntry(&WmipISChunkInfo, a5);
-  v12 = 0LL;
-  v6 = -1073741670;
-LABEL_7:
-  *a1 = v12;
-  if ( v13 != a4 )
-    ExFreePoolWithTag(v13, 0);
+  else
+  {
+    if ( (_DWORD)v7 )
+    {
+      v15 = (volatile signed __int64 **)v8;
+      do
+      {
+        WmipUnreferenceEntry((__int64)&WmipISChunkInfo, *v15++);
+        --v12;
+      }
+      while ( v12 );
+    }
+    WmipUnreferenceEntry((__int64)&WmipISChunkInfo, a5);
+    PoolWithTag = 0LL;
+    v6 = -1073741670;
+  }
+  *a1 = PoolWithTag;
+  if ( v14 != a4 )
+    ExFreePoolWithTag(v14, 0);
   if ( v6 >= 0 )
   {
-    a2 = v16;
+    v9 = a5;
+    a2 = v17;
 LABEL_2:
-    *((_QWORD *)v8 + v5) = a5;
+    *((_QWORD *)v8 + v5) = v9;
     *a2 = v5 + 1;
   }
   return (unsigned int)v6;

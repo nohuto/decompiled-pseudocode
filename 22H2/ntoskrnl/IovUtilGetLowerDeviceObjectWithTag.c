@@ -1,14 +1,14 @@
 /*
- * XREFs of IovUtilGetLowerDeviceObjectWithTag @ 0x140AD3A64
+ * XREFs of IovUtilGetLowerDeviceObjectWithTag @ 0x1409D69AC
  * Callers:
- *     IovpCallDriver1 @ 0x140ACD170 (IovpCallDriver1.c)
- *     IovpCallDriver2 @ 0x140ACD6CC (IovpCallDriver2.c)
- *     VfIoDeleteDevice @ 0x140AD3214 (VfIoDeleteDevice.c)
- *     VfPnpVerifyIrpStackUpward @ 0x140AE8140 (VfPnpVerifyIrpStackUpward.c)
+ *     IovpCallDriver1 @ 0x1409CFC5C (IovpCallDriver1.c)
+ *     IovpCallDriver2 @ 0x1409D0154 (IovpCallDriver2.c)
+ *     VfIoDeleteDevice @ 0x1409D6154 (VfIoDeleteDevice.c)
+ *     VfPnpVerifyIrpStackUpward @ 0x1409E2D80 (VfPnpVerifyIrpStackUpward.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
  */
 
 void *__fastcall IovUtilGetLowerDeviceObjectWithTag(__int64 a1)

@@ -1,35 +1,30 @@
 /*
- * XREFs of EditionKeepMachineUp @ 0x1C003CB30
+ * XREFs of EditionKeepMachineUp @ 0x1C0111BE0
  * Callers:
  *     <none>
  * Callees:
- *     ?MapInputToMonitorOnReason@@YA?AW4POWER_MONITOR_REQUEST_REASON@@W4_LINP_SOURCE@@@Z @ 0x1C003CBC0 (-MapInputToMonitorOnReason@@YA-AW4POWER_MONITOR_REQUEST_REASON@@W4_LINP_SOURCE@@@Z.c)
- *     ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C003CC18 (-KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C0111CA0 (-KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
+ *     ?MapInputToMonitorOnReason@@YA?AW4POWER_MONITOR_REQUEST_REASON@@W4_LINP_SOURCE@@@Z @ 0x1C0111D88 (-MapInputToMonitorOnReason@@YA-AW4POWER_MONITOR_REQUEST_REASON@@W4_LINP_SOURCE@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall EditionKeepMachineUp(__int64 a1, unsigned int a2, __int64 a3, char a4)
 {
   enum POWER_MONITOR_REQUEST_REASON v5; // eax
-  __int64 v7; // rcx
-  __int128 v8; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v7; // [rsp+20h] [rbp-28h] BYREF
 
   if ( (!gbBlockSendInputResets || (a4 & 8) == 0) && ((*gpsi & 0x4000) == 0 || (a4 & 2) != 0) )
   {
     v5 = (unsigned int)MapInputToMonitorOnReason(a2);
     KeepMachineUp(v5);
   }
-  if ( *(_DWORD *)(SGDGetUserSessionState(a1) + 2944) )
+  if ( gPowerAdaptiveState && ((*gpsi & 0x4000) == 0 || (a4 & 2) != 0) )
   {
-    v7 = gpsi;
-    LOBYTE(v7) = (*gpsi & 0x4000) != 0;
-    if ( ((unsigned __int8)v7 & ((a4 & 2) == 0)) == 0 )
-    {
-      v8 = 0LL;
-      *(_DWORD *)(SGDGetUserSessionState(v7) + 2944) = 0;
-      LODWORD(v8) = 8;
-      QueuePowerRequest(&v8, 0LL);
-    }
+    gPowerAdaptiveState = 0;
+    v7 = 0LL;
+    LODWORD(v7) = 8;
+    QueuePowerRequest(&v7, 0LL);
   }
   return 1LL;
 }

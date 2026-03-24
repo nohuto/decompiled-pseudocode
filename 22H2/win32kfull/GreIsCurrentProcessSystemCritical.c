@@ -1,33 +1,22 @@
 /*
- * XREFs of GreIsCurrentProcessSystemCritical @ 0x1C008DE90
+ * XREFs of GreIsCurrentProcessSystemCritical @ 0x1C00D62B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall GreIsCurrentProcessSystemCritical(__int64 a1)
+_BOOL8 GreIsCurrentProcessSystemCritical()
 {
+  __int64 v0; // rdx
   __int64 v1; // rcx
-  __int64 v2; // rbx
-  __int64 v3; // rcx
-  __int64 v4; // rdi
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  BOOL v8; // esi
+  __int64 v2; // r8
+  BOOL v3; // ebx
 
-  if ( !*(_QWORD *)(SGDGetSessionState(a1) + 40) )
-    return 0LL;
-  v2 = *(_QWORD *)(SGDGetSessionState(v1) + 32) + 23520LL;
   KeEnterCriticalRegion();
-  GreAcquirePushLockShared(v2);
-  v4 = *(_QWORD *)(SGDGetSessionState(v3) + 32);
-  v8 = *(_QWORD *)(v4 + 23496) == PsGetCurrentProcess(v6, v5, v7);
-  if ( v2 )
-  {
-    GreReleasePushLockShared(v2);
-    KeLeaveCriticalRegion();
-  }
-  return v8;
+  GreAcquirePushLockShared(&UmfdHostLifeTimeManager::s_ReadyLock);
+  v3 = UmfdHostLifeTimeManager::s_UmfdHostProcess == (PVOID)PsGetCurrentProcess(v1, v0, v2);
+  GreReleasePushLockShared(&UmfdHostLifeTimeManager::s_ReadyLock);
+  KeLeaveCriticalRegion();
+  return v3;
 }

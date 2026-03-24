@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBPDO_EvtDeviceWdmIrpQueryIdPreprocess @ 0x1C0018258
+ * XREFs of HUBPDO_EvtDeviceWdmIrpQueryIdPreprocess @ 0x1C0016D48
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00177F0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00162D0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBMISC_WaitForSignal @ 0x1C0032CDC (HUBMISC_WaitForSignal.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_WaitForSignal @ 0x1C002FAF4 (HUBMISC_WaitForSignal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_EvtDeviceWdmIrpQueryIdPreprocess(__int64 a1, __int64 a2)
@@ -21,7 +21,7 @@ __int64 __fastcall HUBPDO_EvtDeviceWdmIrpQueryIdPreprocess(__int64 a1, __int64 a
   v3 = *(struct _KEVENT **)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                               WdfDriverGlobals,
                               a1,
-                              off_1C00690F8)
+                              off_1C00660D0)
                           + 24);
   if ( (v3[68].Header.SignalState & 0x4000) == 0 && !*(_DWORD *)(*(_QWORD *)(a2 + 184) + 8LL) && !KeGetCurrentIrql() )
   {
@@ -34,7 +34,7 @@ __int64 __fastcall HUBPDO_EvtDeviceWdmIrpQueryIdPreprocess(__int64 a1, __int64 a
            v4,
            v5,
            0LL,
-           4024,
+           4018,
            "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubpdo.c");
     if ( v6 >= 0 )
     {
@@ -48,7 +48,7 @@ __int64 __fastcall HUBPDO_EvtDeviceWdmIrpQueryIdPreprocess(__int64 a1, __int64 a
         WdfDriverGlobals,
         v7,
         0LL,
-        4046LL,
+        4040LL,
         "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubpdo.c");
     }
     else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -59,7 +59,7 @@ __int64 __fastcall HUBPDO_EvtDeviceWdmIrpQueryIdPreprocess(__int64 a1, __int64 a
         2u,
         5u,
         0x38u,
-        (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         v9);
     }
   }

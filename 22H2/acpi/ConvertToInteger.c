@@ -1,13 +1,13 @@
 /*
- * XREFs of ConvertToInteger @ 0x1C0059A74
+ * XREFs of ConvertToInteger @ 0x1C000C190
  * Callers:
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     Concat @ 0x1C0055F80 (Concat.c)
- *     ToInteger @ 0x1C00593F0 (ToInteger.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     ToInteger @ 0x1C000C110 (ToInteger.c)
+ *     Concat @ 0x1C0068C00 (Concat.c)
  * Callees:
- *     _strtoui64_0 @ 0x1C0001A79 (_strtoui64_0.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     _strtoui64_0 @ 0x1C0031D29 (_strtoui64_0.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ConvertToInteger(__int64 a1, __int64 a2)
@@ -15,13 +15,13 @@ __int64 __fastcall ConvertToInteger(__int64 a1, __int64 a2)
   int v2; // r8d
   unsigned int v3; // ebx
   int v6; // r8d
-  int v7; // r8d
-  int v8; // r8d
-  unsigned int v9; // ecx
-  unsigned int v10; // eax
-  unsigned __int64 v11; // rax
-  __int128 v12; // xmm1
-  __int64 v13; // xmm0_8
+  unsigned __int64 v7; // rax
+  __int128 v8; // xmm1
+  __int64 v9; // xmm0_8
+  int v11; // r8d
+  int v12; // r8d
+  unsigned int v13; // ecx
+  unsigned int v14; // eax
   __int128 v15; // [rsp+20h] [rbp-38h]
   __int128 v16; // [rsp+30h] [rbp-28h] BYREF
   __int64 v17; // [rsp+40h] [rbp-18h]
@@ -33,38 +33,36 @@ __int64 __fastcall ConvertToInteger(__int64 a1, __int64 a2)
   WORD1(v15) = 1;
   v16 = 0LL;
   v6 = v2 - 1;
-  if ( !v6 )
-    goto LABEL_10;
-  v7 = v6 - 1;
-  if ( !v7 )
+  if ( v6 )
   {
-    v11 = strtoui64_0(*(const char **)(a1 + 32), 0LL, 0);
-LABEL_11:
-    *(_QWORD *)&v16 = v11;
-LABEL_12:
-    FreeDataBuffs(a2, 1u);
-    v12 = v16;
-    *(_OWORD *)a2 = v15;
-    v13 = v17;
-    *(_OWORD *)(a2 + 16) = v12;
-    *(_QWORD *)(a2 + 32) = v13;
-    return v3;
+    v11 = v6 - 1;
+    if ( !v11 )
+    {
+      v7 = strtoui64_0(*(const char **)(a1 + 32), 0LL, 0);
+      goto LABEL_3;
+    }
+    v12 = v11 - 1;
+    if ( !v12 )
+    {
+      v13 = *(_DWORD *)(a1 + 24);
+      v14 = 8;
+      if ( v13 <= 8 )
+        v14 = v13;
+      memmove(&v16, *(const void **)(a1 + 32), v14);
+      goto LABEL_4;
+    }
+    if ( v12 != 12 )
+      return (unsigned int)-1072431095;
   }
-  v8 = v7 - 1;
-  if ( !v8 )
-  {
-    v9 = *(_DWORD *)(a1 + 24);
-    v10 = 8;
-    if ( v9 <= 8 )
-      v10 = v9;
-    memmove(&v16, *(const void **)(a1 + 32), v10);
-    goto LABEL_12;
-  }
-  if ( v8 == 12 )
-  {
-LABEL_10:
-    v11 = *(_QWORD *)(a1 + 16);
-    goto LABEL_11;
-  }
-  return (unsigned int)-1072431095;
+  v7 = *(_QWORD *)(a1 + 16);
+LABEL_3:
+  *(_QWORD *)&v16 = v7;
+LABEL_4:
+  FreeDataBuffs(a2, 1u);
+  v8 = v16;
+  *(_OWORD *)a2 = v15;
+  v9 = v17;
+  *(_OWORD *)(a2 + 16) = v8;
+  *(_QWORD *)(a2 + 32) = v9;
+  return v3;
 }

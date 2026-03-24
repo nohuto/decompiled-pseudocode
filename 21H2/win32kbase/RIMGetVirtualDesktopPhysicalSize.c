@@ -1,25 +1,24 @@
 /*
- * XREFs of RIMGetVirtualDesktopPhysicalSize @ 0x1C003C470
+ * XREFs of RIMGetVirtualDesktopPhysicalSize @ 0x1C00ABC30
  * Callers:
- *     ?ForwardInputToISM@CMouseProcessor@@AEAA?AW4ISMForwardingDecision@1@AEAVCInputDest@@AEBVCMouseEvent@1@AEBUInputDeliveryContext@1@AEBUtagPOINT@@II_K@Z @ 0x1C003BCDC (-ForwardInputToISM@CMouseProcessor@@AEAA-AW4ISMForwardingDecision@1@AEAVCInputDest@@AEBVCMouseEv.c)
- *     ?rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C01979CC (-rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInpu.c)
- *     RIMIDECreatePointerDeviceInfo @ 0x1C019B9FC (RIMIDECreatePointerDeviceInfo.c)
+ *     ?ForwardInputToISM@CMouseProcessor@@AEAA?AW4ISMForwardingDecision@1@AEAVCInputDest@@AEBVCMouseEvent@1@AEBUInputDeliveryContext@1@AEBUtagPOINT@@II_K@Z @ 0x1C004BD08 (-ForwardInputToISM@CMouseProcessor@@AEAA-AW4ISMForwardingDecision@1@AEAVCInputDest@@AEBVCMouseEv.c)
+ *     ?rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C0163ED8 (-rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInpu.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167958 (RIMIDECreatePointerDeviceInfo.c)
  * Callees:
- *     ?GetUnionRegion@Mouse@InputConfig@@SA?AUCInputSpaceRegion@@XZ @ 0x1C003C4E0 (-GetUnionRegion@Mouse@InputConfig@@SA-AUCInputSpaceRegion@@XZ.c)
+ *     <none>
  */
 
 __int64 __fastcall RIMGetVirtualDesktopPhysicalSize(__int64 a1)
 {
-  int v2; // r10d
-  int v3; // r9d
-  _DWORD v5[5]; // [rsp+20h] [rbp-2D8h] BYREF
-  unsigned __int16 v6; // [rsp+34h] [rbp-2C4h]
+  int v1; // r10d
+  __int64 v2; // r8
+  unsigned __int64 v3; // xmm0_8
 
-  *(_OWORD *)a1 = 0LL;
-  InputConfig::Mouse::GetUnionRegion(v5);
-  v2 = v6;
-  v3 = v5[3] - v5[1];
-  *(_DWORD *)(a1 + 8) = 2540 * (v5[2] - v5[0]) / v6;
-  *(_DWORD *)(a1 + 12) = 2540 * v3 / v2;
+  *(_QWORD *)a1 = 0LL;
+  v1 = *((unsigned __int16 *)gpsi + 3499);
+  v2 = *(_QWORD *)(*(_QWORD *)gpDispInfo + 24LL);
+  v3 = _mm_srli_si128(*(__m128i *)(*(_QWORD *)gpDispInfo + 24LL), 8).m128i_u64[0];
+  *(_DWORD *)(a1 + 8) = 2540 * ((int)v3 - (int)v2) / v1;
+  *(_DWORD *)(a1 + 12) = 2540 * (HIDWORD(v3) - HIDWORD(v2)) / v1;
   return a1;
 }

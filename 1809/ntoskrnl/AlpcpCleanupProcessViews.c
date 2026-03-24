@@ -7,10 +7,10 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
  *     AlpcpReferenceBlob @ 0x140618428 (AlpcpReferenceBlob.c)
  *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
- *     AlpcpForceUnlinkSecureView @ 0x14084B1A8 (AlpcpForceUnlinkSecureView.c)
+ *     AlpcpForceUnlinkSecureView @ 0x14084B188 (AlpcpForceUnlinkSecureView.c)
  */
 
 void __fastcall AlpcpCleanupProcessViews(__int64 a1)

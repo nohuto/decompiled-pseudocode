@@ -1,15 +1,15 @@
 /*
- * XREFs of ?CreateLayoutGeometryDrawListBrush@CNineGridBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x1800E0D50
+ * XREFs of ?CreateLayoutGeometryDrawListBrush@CNineGridBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x18001C4D0
  * Callers:
  *     <none>
  * Callees:
- *     ??_GCNineGridDrawListBrush@@UEAAPEAXI@Z @ 0x18002EFD0 (--_GCNineGridDrawListBrush@@UEAAPEAXI@Z.c)
- *     ?Create@CNineGridDrawListBrush@@SAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_NPEAPEAV1@@Z @ 0x18002F030 (-Create@CNineGridDrawListBrush@@SAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delete@VCDrawL.c)
- *     ??R?$default_delete@VCDrawListBrush@@@std@@QEBAXPEAVCDrawListBrush@@@Z @ 0x180030960 (--R-$default_delete@VCDrawListBrush@@@std@@QEBAXPEAVCDrawListBrush@@@Z.c)
- *     ?Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z @ 0x18007E958 (-Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z.c)
- *     ??_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z @ 0x18007F180 (--_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CreateLayoutGeometryDrawListBrush@CBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x1800E0F10 (-CreateLayoutGeometryDrawListBrush@CBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDra.c)
+ *     ?Create@CNineGridDrawListBrush@@SAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_NPEAPEAV1@@Z @ 0x1800072F8 (-Create@CNineGridDrawListBrush@@SAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delete@VCDrawL.c)
+ *     ??_GCNineGridDrawListBrush@@UEAAPEAXI@Z @ 0x1800073B0 (--_GCNineGridDrawListBrush@@UEAAPEAXI@Z.c)
+ *     ??R?$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z @ 0x180007454 (--R-$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z.c)
+ *     ?CreateLayoutGeometryDrawListBrush@CBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x180051A60 (-CreateLayoutGeometryDrawListBrush@CBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDra.c)
+ *     ??_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z @ 0x180051B20 (--_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z.c)
+ *     ?Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z @ 0x180051B68 (-Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CNineGridBrush::CreateLayoutGeometryDrawListBrush(
@@ -18,84 +18,84 @@ __int64 __fastcall CNineGridBrush::CreateLayoutGeometryDrawListBrush(
         const struct D2D_SIZE_F *a3,
         struct CDrawListBrush **a4)
 {
-  float v7; // xmm0_4
-  float v8; // xmm1_4
-  float v9; // xmm0_4
-  float v10; // xmm1_4
-  CGeometryOnlyDrawListBrush *v11; // rcx
-  int v12; // ebx
-  FLOAT width; // xmm1_4
-  CGeometryOnlyDrawListBrush *v14; // rax
-  FLOAT height; // xmm0_4
-  char v16; // r9
-  CNineGridDrawListBrush *v17; // rcx
   int LayoutGeometryDrawListBrush; // eax
-  __int64 v20; // rcx
+  unsigned int v8; // ecx
+  int v9; // edi
+  float v11; // xmm0_4
+  float v12; // xmm1_4
+  float v13; // xmm0_4
+  float v14; // xmm1_4
+  CGeometryOnlyDrawListBrush *v15; // rcx
+  FLOAT width; // xmm1_4
+  CGeometryOnlyDrawListBrush *v17; // rax
+  FLOAT height; // xmm0_4
+  char v19; // r9
+  CNineGridDrawListBrush *v20; // rcx
   CNineGridDrawListBrush *v21; // [rsp+30h] [rbp-50h] BYREF
   struct CGeometryOnlyDrawListBrush *v22[2]; // [rsp+38h] [rbp-48h] BYREF
   char v23; // [rsp+48h] [rbp-38h]
   _DWORD v24[4]; // [rsp+50h] [rbp-30h] BYREF
-  struct CDrawingContext *v25; // [rsp+60h] [rbp-20h]
+  CNineGridDrawListBrush **v25; // [rsp+60h] [rbp-20h]
   CNineGridDrawListBrush *v26; // [rsp+68h] [rbp-18h] BYREF
   char v27; // [rsp+70h] [rbp-10h]
   CGeometryOnlyDrawListBrush *v28; // [rsp+B0h] [rbp+30h] BYREF
 
-  if ( *((_BYTE *)this + 80) && *((_BYTE *)this + 152) )
+  if ( *((_BYTE *)this + 72) && *((_BYTE *)this + 144) )
   {
-    v7 = *((float *)this + 25) * *((float *)this + 24);
+    v11 = *((float *)this + 23) * *((float *)this + 22);
     v28 = 0LL;
-    v8 = *((float *)this + 27) * *((float *)this + 26);
+    v12 = *((float *)this + 25) * *((float *)this + 24);
     v22[0] = (struct CGeometryOnlyDrawListBrush *)&v28;
-    *(float *)v24 = v7;
-    v9 = *((float *)this + 29) * *((float *)this + 28);
+    *(float *)v24 = v11;
+    v13 = *((float *)this + 27) * *((float *)this + 26);
     v22[1] = 0LL;
-    *(float *)&v24[1] = v8;
-    v10 = *((float *)this + 31) * *((float *)this + 30);
+    *(float *)&v24[1] = v12;
+    v14 = *((float *)this + 29) * *((float *)this + 28);
     v23 = 1;
-    *(float *)&v24[2] = v9;
-    *(float *)&v24[3] = v10;
-    v12 = CGeometryOnlyDrawListBrush::Create(&v22[1]);
+    *(float *)&v24[2] = v13;
+    *(float *)&v24[3] = v14;
+    v9 = CGeometryOnlyDrawListBrush::Create(&v22[1]);
     if ( v23 )
     {
-      v11 = *(CGeometryOnlyDrawListBrush **)v22[0];
+      v15 = *(CGeometryOnlyDrawListBrush **)v22[0];
       *(_QWORD *)v22[0] = v22[1];
-      if ( v11 )
-        CGeometryOnlyDrawListBrush::`vector deleting destructor'(v11, 1);
+      if ( v15 )
+        CGeometryOnlyDrawListBrush::`vector deleting destructor'(v15, 1u);
     }
-    if ( v12 < 0 )
+    if ( v9 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)v11, 0LL, 0, v12, 0x1F0u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v15, 0LL, 0, v9, 0x1F0u, 0LL);
     }
     else
     {
       width = a3->width;
-      v14 = v28;
+      v17 = v28;
       height = a3->height;
       v22[0] = 0LL;
       *((_BYTE *)v28 + 52) = 1;
-      *((_DWORD *)v14 + 12) = 50529027;
+      *((_DWORD *)v17 + 12) = 50529027;
       v22[1] = (struct CGeometryOnlyDrawListBrush *)__PAIR64__(LODWORD(height), LODWORD(width));
       v26 = 0LL;
       v27 = 1;
-      *((_OWORD *)v14 + 2) = *(_OWORD *)v22;
-      v16 = *((_BYTE *)this + 152);
-      v25 = (struct CDrawingContext *)&v21;
+      *((_OWORD *)v17 + 2) = *(_OWORD *)v22;
+      v19 = *((_BYTE *)this + 144);
+      v25 = &v21;
       v22[0] = v28;
       v21 = 0LL;
       v28 = 0LL;
-      v12 = CNineGridDrawListBrush::Create((struct CNineGridDrawListBrush *)v22, (int)v24, (int)v24, v16, &v26);
+      v9 = CNineGridDrawListBrush::Create((struct CNineGridDrawListBrush *)v22, (int)v24, (int)v24, v19, &v26);
       if ( v22[0] )
-        std::default_delete<CDrawListBrush>::operator()((__int64)v17, (__int64 (__fastcall ***)(_QWORD, __int64))v22[0]);
+        std::default_delete<CShape>::operator()((__int64)v20, (__int64 (__fastcall ***)(_QWORD, __int64))v22[0]);
       if ( v27 )
       {
-        v17 = *(CNineGridDrawListBrush **)v25;
-        *(_QWORD *)v25 = v26;
-        if ( v17 )
-          CNineGridDrawListBrush::`scalar deleting destructor'(v17, 1);
+        v20 = *v25;
+        *v25 = v26;
+        if ( v20 )
+          CNineGridDrawListBrush::`scalar deleting destructor'(v20, 1);
       }
-      if ( v12 < 0 )
+      if ( v9 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast((__int64)v17, 0LL, 0, v12, 0x1F9u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v20, 0LL, 0, v9, 0x1F9u, 0LL);
         if ( v21 )
           CNineGridDrawListBrush::`scalar deleting destructor'(v21, 1);
       }
@@ -106,14 +106,14 @@ __int64 __fastcall CNineGridBrush::CreateLayoutGeometryDrawListBrush(
       }
     }
     if ( v28 )
-      CGeometryOnlyDrawListBrush::`vector deleting destructor'(v28, 1);
+      CGeometryOnlyDrawListBrush::`vector deleting destructor'(v28, 1u);
   }
   else
   {
     LayoutGeometryDrawListBrush = CBrush::CreateLayoutGeometryDrawListBrush(this, a2, a3, a4);
-    v12 = LayoutGeometryDrawListBrush;
+    v9 = LayoutGeometryDrawListBrush;
     if ( LayoutGeometryDrawListBrush < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, LayoutGeometryDrawListBrush, 0x1FFu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, LayoutGeometryDrawListBrush, 0x1FFu, 0LL);
   }
-  return (unsigned int)v12;
+  return (unsigned int)v9;
 }

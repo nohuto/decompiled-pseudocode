@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CArithmeticCompositeEffect@@IEAA@PEAVCComposition@@@Z @ 0x18019C3E8
+ * XREFs of ??0CArithmeticCompositeEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016A184
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800BE0A8 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2008 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
- *     ??0CFilterEffect@@IEAA@PEAVCComposition@@@Z @ 0x18019C948 (--0CFilterEffect@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CFilterEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016A8F0 (--0CFilterEffect@@IEAA@PEAVCComposition@@@Z.c)
  */
 
 CArithmeticCompositeEffect *__fastcall CArithmeticCompositeEffect::CArithmeticCompositeEffect(
@@ -14,9 +14,9 @@ CArithmeticCompositeEffect *__fastcall CArithmeticCompositeEffect::CArithmeticCo
   CArithmeticCompositeEffect *result; // rax
 
   CFilterEffect::CFilterEffect(this, a2);
-  *(_QWORD *)(v2 + 160) = 1065353216LL;
-  *(_QWORD *)(v2 + 168) = 0LL;
-  *(_DWORD *)(v2 + 176) = 0;
+  *(_QWORD *)(v2 + 152) = 1065353216LL;
+  *(_QWORD *)(v2 + 160) = 0LL;
+  *(_DWORD *)(v2 + 168) = 0;
   result = (CArithmeticCompositeEffect *)v2;
   *(_QWORD *)v2 = &CArithmeticCompositeEffect::`vftable';
   return result;

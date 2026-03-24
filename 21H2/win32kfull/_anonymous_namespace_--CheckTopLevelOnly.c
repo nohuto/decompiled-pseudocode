@@ -1,7 +1,7 @@
 /*
- * XREFs of _anonymous_namespace_::CheckTopLevelOnly @ 0x1C00CDFB8
+ * XREFs of _anonymous_namespace_::CheckTopLevelOnly @ 0x1C00281A0
  * Callers:
- *     ?NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z @ 0x1C00CDD98 (-NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z.c)
+ *     ?NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z @ 0x1C0027F68 (-NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z.c)
  * Callees:
  *     <none>
  */

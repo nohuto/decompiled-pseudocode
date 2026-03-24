@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkEngReleaseStableSprite @ 0x1C02753A0
+ * XREFs of DxgkEngReleaseStableSprite @ 0x1C0277C30
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001F4EC (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
  */
 
 __int64 __fastcall DxgkEngReleaseStableSprite(__int64 a1, int a2)
@@ -20,20 +20,20 @@ __int64 __fastcall DxgkEngReleaseStableSprite(__int64 a1, int a2)
     v4 = HDEV;
     if ( HDEV )
     {
-      v5 = *(_DWORD *)(HDEV + 140);
+      v5 = *(_DWORD *)(HDEV + 148);
       if ( v5 )
       {
         do
         {
-          SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)(*(_QWORD *)(*(_QWORD *)(v4 + 144) + 8LL * (v5 - v2 - 1)) + 200LL));
-          v5 = *(_DWORD *)(v4 + 140);
+          SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)(*(_QWORD *)(*(_QWORD *)(v4 + 152) + 8LL * (v5 - v2 - 1)) + 208LL));
+          v5 = *(_DWORD *)(v4 + 148);
           ++v2;
         }
         while ( v2 < v5 );
       }
       else
       {
-        SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)(v4 + 200));
+        SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)(v4 + 208));
       }
     }
   }

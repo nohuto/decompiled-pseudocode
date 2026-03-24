@@ -1,15 +1,15 @@
 /*
- * XREFs of PopOrphanCoolingExtension @ 0x140867870
+ * XREFs of PopOrphanCoolingExtension @ 0x140867850
  * Callers:
- *     PopCoolingExtensionPnpNotification @ 0x140867570 (PopCoolingExtensionPnpNotification.c)
+ *     PopCoolingExtensionPnpNotification @ 0x140867550 (PopCoolingExtensionPnpNotification.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     PopGetDope @ 0x14016BD5C (PopGetDope.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x1401863F0 (PopThermalUpdateTelemetryClientCount.c)
- *     PopTraceThermalRequestPassiveHistogram @ 0x1402E26CC (PopTraceThermalRequestPassiveHistogram.c)
- *     PopDiagTraceThermalRequest @ 0x1406DB178 (PopDiagTraceThermalRequest.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x1406DCE34 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopGetDope @ 0x14016BD7C (PopGetDope.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x140186410 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x1402E27CC (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopDiagTraceThermalRequest @ 0x1406DB158 (PopDiagTraceThermalRequest.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x1406DCE14 (PopThermalUpdatePassiveTimeTracking.c)
  */
 
 void __fastcall PopOrphanCoolingExtension(_QWORD *a1)

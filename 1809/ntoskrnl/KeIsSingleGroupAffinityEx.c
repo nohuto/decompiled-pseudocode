@@ -1,5 +1,5 @@
 /*
- * XREFs of KeIsSingleGroupAffinityEx @ 0x1401315E0
+ * XREFs of KeIsSingleGroupAffinityEx @ 0x140131600
  * Callers:
  *     NtQueryInformationJobObject @ 0x1405FE8F0 (NtQueryInformationJobObject.c)
  * Callees:

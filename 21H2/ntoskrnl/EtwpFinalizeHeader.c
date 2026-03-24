@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpFinalizeHeader @ 0x1406F1AC4
+ * XREFs of EtwpFinalizeHeader @ 0x1406DF770
  * Callers:
- *     EtwpCreateLogFile @ 0x1406F0614 (EtwpCreateLogFile.c)
- *     EtwpLogger @ 0x140799440 (EtwpLogger.c)
- *     EtwpBufferingModeFlush @ 0x1409E971C (EtwpBufferingModeFlush.c)
+ *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
+ *     EtwpCreateLogFile @ 0x1406DFAAC (EtwpCreateLogFile.c)
+ *     EtwpBufferingModeFlush @ 0x14093D188 (EtwpBufferingModeFlush.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x1402E1C80 (EtwpQueryUsedProcessorCount.c)
- *     KeQuerySystemTimePrecise @ 0x1402F08A0 (KeQuerySystemTimePrecise.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwReadFile @ 0x14041B820 (ZwReadFile.c)
- *     ZwWriteFile @ 0x14041B860 (ZwWriteFile.c)
- *     ZwSetInformationFile @ 0x14041BC40 (ZwSetInformationFile.c)
- *     ZwQueryVolumeInformationFile @ 0x14041C080 (ZwQueryVolumeInformationFile.c)
- *     EtwpAddLastDroppedEvent @ 0x140632F6C (EtwpAddLastDroppedEvent.c)
- *     EtwpIsWow64Logger @ 0x1406F175C (EtwpIsWow64Logger.c)
- *     EtwpAddDebugInfoEvents @ 0x1406F1DF8 (EtwpAddDebugInfoEvents.c)
- *     EtwpAddBinaryInfoEvents @ 0x1409E959C (EtwpAddBinaryInfoEvents.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140265E58 (EtwpQueryUsedProcessorCount.c)
+ *     KeQuerySystemTimePrecise @ 0x140278F00 (KeQuerySystemTimePrecise.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1403FA460 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
+ *     ZwSetInformationFile @ 0x1403FA880 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x1403FACC0 (ZwQueryVolumeInformationFile.c)
+ *     EtwpAddLastDroppedEvent @ 0x1405AB6F8 (EtwpAddLastDroppedEvent.c)
+ *     EtwpAddDebugInfoEvents @ 0x1406DF564 (EtwpAddDebugInfoEvents.c)
+ *     EtwpIsWow64Logger @ 0x1406E092C (EtwpIsWow64Logger.c)
+ *     EtwpAddBinaryInfoEvents @ 0x14093D008 (EtwpAddBinaryInfoEvents.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, char a2)
@@ -27,147 +27,146 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, char a2)
   NTSTATUS result; // eax
   ULONG Length; // r15d
   unsigned int v7; // esi
-  __int64 Buffer; // rdi
+  char *Buffer; // rdi
   void *v9; // rcx
   NTSTATUS v10; // r14d
   LARGE_INTEGER v11; // rax
-  unsigned int v12; // r15d
-  unsigned int v13; // ecx
-  unsigned int v14; // eax
-  NTSTATUS v15; // eax
-  int v16; // edx
-  int v17; // edx
-  unsigned __int64 v18; // rcx
-  unsigned __int64 v19; // rdx
-  void *v20; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  int v15; // edx
+  unsigned int v16; // r15d
+  unsigned int v17; // eax
+  NTSTATUS v18; // eax
+  int v19; // ecx
+  unsigned int v20; // ecx
+  unsigned __int64 v21; // rdx
+  void *v22; // rcx
   LARGE_INTEGER ByteOffset; // [rsp+60h] [rbp-21h] BYREF
-  int v23; // [rsp+68h] [rbp-19h]
-  unsigned __int64 FileInformation; // [rsp+70h] [rbp-11h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-9h] BYREF
-  struct _IO_STATUS_BLOCK v26; // [rsp+88h] [rbp+7h] BYREF
+  int v25; // [rsp+68h] [rbp-19h]
+  int v26; // [rsp+6Ch] [rbp-15h]
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+70h] [rbp-11h] BYREF
+  unsigned __int64 FileInformation; // [rsp+80h] [rbp-1h] BYREF
+  struct _IO_STATUS_BLOCK v29; // [rsp+88h] [rbp+7h] BYREF
   __int128 FsInformation; // [rsp+98h] [rbp+17h] BYREF
-  __int64 v28; // [rsp+A8h] [rbp+27h]
+  __int64 v31; // [rsp+A8h] [rbp+27h]
 
-  v28 = 0LL;
-  v2 = (_QWORD *)(a1 + 96);
+  v31 = 0LL;
+  v2 = (_QWORD *)(a1 + 112);
   FsInformation = 0LL;
   IoStatusBlock = 0LL;
   if ( (_QWORD *)*v2 != v2
-    || *(_QWORD *)(a1 + 1040) != a1 + 1040
-    || *(_DWORD *)(a1 + 120)
-    || (v4 = 0, *(_QWORD *)(a1 + 1304)) )
+    || *(_QWORD *)(a1 + 1024) != a1 + 1024
+    || *(_DWORD *)(a1 + 136)
+    || (v4 = 0, *(_QWORD *)(a1 + 1288)) )
   {
     v4 = 1;
   }
   result = ZwQueryVolumeInformationFile(
-             *(HANDLE *)(a1 + 800),
+             *(HANDLE *)(a1 + 816),
              &IoStatusBlock,
              &FsInformation,
              0x18u,
              FileFsSizeInformation);
   if ( result >= 0 )
   {
-    v23 = HIDWORD(v28);
-    Length = ~(HIDWORD(v28) - 1) & (HIDWORD(v28) + 383);
-    LODWORD(FileInformation) = ~(HIDWORD(v28) - 1);
+    v25 = HIDWORD(v31);
+    Length = ~(HIDWORD(v31) - 1) & (HIDWORD(v31) + 383);
+    v26 = ~(HIDWORD(v31) - 1);
     v7 = Length;
     if ( v4 )
       v7 = *(_DWORD *)(a1 + 4);
-    Buffer = ExAllocatePool2(256LL, (v7 + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 1350005829LL);
+    Buffer = (char *)ExAllocatePoolWithTag(PagedPool, (v7 + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x50777445u);
     if ( !Buffer )
       return -1073741801;
-    v9 = *(void **)(a1 + 800);
+    v9 = *(void **)(a1 + 816);
     ByteOffset.QuadPart = 0LL;
-    v10 = ZwReadFile(v9, 0LL, 0LL, 0LL, &IoStatusBlock, (PVOID)Buffer, Length, &ByteOffset, 0LL);
+    v10 = ZwReadFile(v9, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Length, &ByteOffset, 0LL);
     if ( v10 < 0 )
-      goto LABEL_26;
+      goto LABEL_21;
     v11.QuadPart = Length;
     ByteOffset.QuadPart = Length;
     if ( !a2 )
     {
-      *(_DWORD *)(Buffer + 140) = *(_DWORD *)(a1 + 248);
-      *(_DWORD *)(Buffer + 116) = EtwpQueryUsedProcessorCount(a1);
-      *(_DWORD *)(Buffer + 152) += *(_DWORD *)(a1 + 240);
-      KeQuerySystemTimePrecise((_QWORD *)(Buffer + 120));
-      if ( EtwpIsWow64Logger(a1) )
-        *(_DWORD *)(Buffer + 372) += v16;
+      *((_DWORD *)Buffer + 35) = *(_DWORD *)(a1 + 264);
+      *((_DWORD *)Buffer + 29) = EtwpQueryUsedProcessorCount(a1);
+      *((_DWORD *)Buffer + 38) += *(_DWORD *)(a1 + 256);
+      KeQuerySystemTimePrecise((__int64 *)Buffer + 15, v12, v13, v14);
+      if ( (unsigned __int8)EtwpIsWow64Logger(a1, *(unsigned int *)(a1 + 268)) )
+        *((_DWORD *)Buffer + 93) += v15;
       else
-        *(_DWORD *)(Buffer + 380) += v16;
-      *(_DWORD *)(Buffer + 112) = (unsigned __int16)NtBuildNumber;
+        *((_DWORD *)Buffer + 95) += v15;
+      *((_DWORD *)Buffer + 28) = (unsigned __int16)NtBuildNumber;
       v11 = ByteOffset;
     }
-    v12 = *(_DWORD *)(Buffer + 4);
-    if ( v12 > v11.LowPart )
+    v16 = *((_DWORD *)Buffer + 1);
+    if ( v16 > v11.LowPart )
     {
       if ( !v4 )
       {
-LABEL_23:
+LABEL_16:
         ByteOffset.QuadPart = 0LL;
-        v14 = *(_DWORD *)(Buffer + 48);
-        if ( v14 >= v7 )
-          v14 = v7;
-        v15 = ZwWriteFile(
-                *(HANDLE *)(a1 + 800),
+        v17 = *((_DWORD *)Buffer + 12);
+        if ( v17 >= v7 )
+          v17 = v7;
+        v18 = ZwWriteFile(
+                *(HANDLE *)(a1 + 816),
                 0LL,
                 0LL,
                 0LL,
                 &IoStatusBlock,
-                (PVOID)Buffer,
-                FileInformation & (v14 + v23 - 1),
+                Buffer,
+                v26 & (v17 + v25 - 1),
                 &ByteOffset,
                 0LL);
-        v10 = v15;
-        if ( !a2 && v15 >= 0 )
+        v10 = v18;
+        if ( !a2 && v18 >= 0 )
         {
-          v17 = *(_DWORD *)(a1 + 12);
-          if ( (v17 & 0x20) != 0 )
+          v19 = *(_DWORD *)(a1 + 12);
+          if ( (v19 & 0x20) != 0 )
           {
-            v18 = *(unsigned int *)(a1 + 292)
-                * ((-(__int64)((*(_DWORD *)(a1 + 12) & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000);
-            v26 = 0LL;
-            if ( (v17 & 0x4000000) != 0 && (v17 & 1) != 0 )
-              v19 = *(_QWORD *)(a1 + 216);
-            else
-              v19 = *(unsigned int *)(a1 + 4) * (unsigned __int64)*(unsigned int *)(a1 + 248);
-            if ( v19 < v18 )
+            v21 = *(unsigned int *)(a1 + 4) * (unsigned __int64)*(unsigned int *)(a1 + 264);
+            v29 = 0LL;
+            if ( v21 < *(unsigned int *)(a1 + 308)
+                     * ((-(__int64)((v19 & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000) )
             {
-              v20 = *(void **)(a1 + 800);
-              FileInformation = v19;
-              v10 = ZwSetInformationFile(v20, &v26, &FileInformation, 8u, FileEndOfFileInformation);
+              v22 = *(void **)(a1 + 816);
+              FileInformation = v21;
+              v10 = ZwSetInformationFile(v22, &v29, &FileInformation, 8u, FileEndOfFileInformation);
             }
           }
         }
-LABEL_26:
-        ExFreePoolWithTag((PVOID)Buffer, 0);
+LABEL_21:
+        ExFreePoolWithTag(Buffer, 0);
         return v10;
       }
-      v13 = *(_DWORD *)(Buffer + 4);
-      if ( v12 >= v7 )
-        v13 = v7;
+      v20 = *((_DWORD *)Buffer + 1);
+      if ( v16 >= v7 )
+        v20 = v7;
       v10 = ZwReadFile(
-              *(HANDLE *)(a1 + 800),
+              *(HANDLE *)(a1 + 816),
               0LL,
               0LL,
               0LL,
               &IoStatusBlock,
-              (PVOID)(Buffer + v11.QuadPart),
-              FileInformation & (v13 - v11.LowPart + v23 - 1),
+              &Buffer[v11.QuadPart],
+              v26 & (v20 - v11.LowPart + v25 - 1),
               &ByteOffset,
               0LL);
       if ( v10 < 0 )
-        goto LABEL_26;
+        goto LABEL_21;
     }
-    if ( v4 && v12 < v7 && v12 >= 0x178 )
+    if ( v4 && v16 < v7 && v16 >= 0x178 )
     {
-      *(_DWORD *)(Buffer + 48) = v12;
-      if ( *(_QWORD *)(a1 + 1304) )
-        EtwpAddLastDroppedEvent(a1, Buffer, v7);
-      if ( (_QWORD *)*v2 != v2 || *(_DWORD *)(a1 + 120) )
-        EtwpAddDebugInfoEvents(a1, Buffer, v7, Buffer + 88, 3);
-      if ( *(_QWORD *)(a1 + 1040) != a1 + 1040 )
+      *((_DWORD *)Buffer + 12) = v16;
+      if ( *(_QWORD *)(a1 + 1288) )
+        EtwpAddLastDroppedEvent(a1, (__int64)Buffer, v7);
+      if ( (_QWORD *)*v2 != v2 || *(_DWORD *)(a1 + 136) )
+        EtwpAddDebugInfoEvents(a1, (__int64)Buffer, v7, (__int64 *)Buffer + 11, 3);
+      if ( *(_QWORD *)(a1 + 1024) != a1 + 1024 )
         EtwpAddBinaryInfoEvents(a1, Buffer, v7, 2LL);
     }
-    goto LABEL_23;
+    goto LABEL_16;
   }
   return result;
 }

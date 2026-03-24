@@ -1,29 +1,27 @@
 /*
- * XREFs of UserGetLastError @ 0x1C0210CAC
+ * XREFs of UserGetLastError @ 0x1C01D1DBC
  * Callers:
- *     NtUserReportInertia @ 0x1C0002E00 (NtUserReportInertia.c)
- *     NtUserInjectKeyboardInput @ 0x1C0003160 (NtUserInjectKeyboardInput.c)
- *     NtMapVisualRelativePoints @ 0x1C0145B90 (NtMapVisualRelativePoints.c)
- *     NtUserInjectDeviceInput @ 0x1C015C9F0 (NtUserInjectDeviceInput.c)
- *     NtUserInjectGenericHidInput @ 0x1C015D580 (NtUserInjectGenericHidInput.c)
- *     NtUserInjectMouseInput @ 0x1C015DD80 (NtUserInjectMouseInput.c)
- *     NtUserInjectPointerInput @ 0x1C015E990 (NtUserInjectPointerInput.c)
- *     NtUserMapPointsByVisualIdentifier @ 0x1C015F740 (NtUserMapPointsByVisualIdentifier.c)
+ *     NtUserReportInertia @ 0x1C0004160 (NtUserReportInertia.c)
+ *     NtMapVisualRelativePoints @ 0x1C0117220 (NtMapVisualRelativePoints.c)
+ *     NtUserInjectDeviceInput @ 0x1C01306F0 (NtUserInjectDeviceInput.c)
+ *     NtUserInjectGenericHidInput @ 0x1C0130B20 (NtUserInjectGenericHidInput.c)
+ *     NtUserInjectKeyboardInput @ 0x1C01313B0 (NtUserInjectKeyboardInput.c)
+ *     NtUserInjectMouseInput @ 0x1C01317D0 (NtUserInjectMouseInput.c)
+ *     NtUserInjectPointerInput @ 0x1C0131BF0 (NtUserInjectPointerInput.c)
+ *     NtUserMapPointsByVisualIdentifier @ 0x1C0132720 (NtUserMapPointsByVisualIdentifier.c)
  * Callees:
  *     <none>
  */
 
 __int64 UserGetLastError()
 {
-  __int64 v0; // rdx
-  __int64 v1; // rcx
-  __int64 v2; // r8
+  __int64 v0; // rcx
   __int64 CurrentProcessWow64Process; // rax
   struct _NT_TIB *Self; // rcx
 
   if ( (unsigned __int8)KeIsAttachedProcess() )
     return 0LL;
-  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v1, v0, v2);
+  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v0);
   Self = KeGetPcr()->NtTib.Self;
   if ( CurrentProcessWow64Process )
     return HIDWORD(Self[147].StackBase);

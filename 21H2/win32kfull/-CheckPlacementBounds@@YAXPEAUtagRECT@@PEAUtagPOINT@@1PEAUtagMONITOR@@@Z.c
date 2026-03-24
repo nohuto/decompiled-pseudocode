@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CheckPlacementBounds@@YAXPEAUtagRECT@@PEAUtagPOINT@@1PEAUtagMONITOR@@@Z @ 0x1C0104924
+ * XREFs of ?CheckPlacementBounds@@YAXPEAUtagRECT@@PEAUtagPOINT@@1PEAUtagMONITOR@@@Z @ 0x1C011A7B4
  * Callers:
- *     xxxSetWindowPlacement @ 0x1C01045D8 (xxxSetWindowPlacement.c)
+ *     xxxSetWindowPlacement @ 0x1C011A428 (xxxSetWindowPlacement.c)
  * Callees:
- *     GetMonitorWorkRect @ 0x1C007CB4C (GetMonitorWorkRect.c)
+ *     GetMonitorWorkRect @ 0x1C0041430 (GetMonitorWorkRect.c)
  */
 
 void __fastcall CheckPlacementBounds(
@@ -37,9 +37,9 @@ void __fastcall CheckPlacementBounds(
   int v29; // r8d
   LONG v30; // ecx
   __int128 v31; // [rsp+20h] [rbp-48h]
-  __int64 v32; // [rsp+30h] [rbp-38h] BYREF
+  __int128 v32; // [rsp+30h] [rbp-38h] BYREF
 
-  MonitorWorkRect = (__int64 *)GetMonitorWorkRect((__int64)&v32, (__int64)a4);
+  MonitorWorkRect = (__int64 *)GetMonitorWorkRect(&v32, (__int64)a4);
   top = a1->top;
   v9 = -1;
   v10 = *MonitorWorkRect;

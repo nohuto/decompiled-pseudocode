@@ -1,5 +1,5 @@
 /*
- * XREFs of EngQueryDeviceAttribute @ 0x1C028C340
+ * XREFs of EngQueryDeviceAttribute @ 0x1C028A7A0
  * Callers:
  *     <none>
  * Callees:
@@ -20,7 +20,7 @@ BOOL __stdcall EngQueryDeviceAttribute(
   if ( pvOut && devAttr == QDA_ACCELERATION_LEVEL && cjOutSize == 4 )
   {
     v6 = 1;
-    *(_DWORD *)(struct HDEV__ *)pvOut = hdev[647];
+    *(_DWORD *)(struct HDEV__ *)pvOut = hdev[653];
   }
   return v6;
 }

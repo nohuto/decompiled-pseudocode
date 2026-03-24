@@ -1,15 +1,15 @@
 /*
- * XREFs of xxxSetCsrssThreadDesktop @ 0x1C00697C0
+ * XREFs of xxxSetCsrssThreadDesktop @ 0x1C00D90F0
  * Callers:
- *     xxxSetInformationThread @ 0x1C00699B0 (xxxSetInformationThread.c)
- *     xxxQueryInformationThread @ 0x1C00E21E4 (xxxQueryInformationThread.c)
- *     xxxHardErrorControl @ 0x1C0223D54 (xxxHardErrorControl.c)
+ *     xxxQueryInformationThread @ 0x1C00D8048 (xxxQueryInformationThread.c)
+ *     xxxSetInformationThread @ 0x1C00D8CE0 (xxxSetInformationThread.c)
+ *     xxxHardErrorControl @ 0x1C02418AC (xxxHardErrorControl.c)
  * Callees:
- *     xxxInternalGetMessage @ 0x1C006A4F0 (xxxInternalGetMessage.c)
- *     CloseProtectedHandle @ 0x1C006A694 (CloseProtectedHandle.c)
- *     xxxSetThreadDesktop @ 0x1C006A6E4 (xxxSetThreadDesktop.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     xxxDispatchMessage @ 0x1C0117884 (xxxDispatchMessage.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     xxxDispatchMessage @ 0x1C006ADB4 (xxxDispatchMessage.c)
+ *     CloseProtectedHandle @ 0x1C00D9098 (CloseProtectedHandle.c)
+ *     xxxSetThreadDesktop @ 0x1C00D9270 (xxxSetThreadDesktop.c)
+ *     xxxInternalGetMessage @ 0x1C00D9C60 (xxxInternalGetMessage.c)
  */
 
 NTSTATUS __fastcall xxxSetCsrssThreadDesktop(_DWORD *Object, PVOID *a2)
@@ -20,7 +20,9 @@ NTSTATUS __fastcall xxxSetCsrssThreadDesktop(_DWORD *Object, PVOID *a2)
   _DWORD *v7; // rax
   NTSTATUS result; // eax
   ULONG v9; // eax
-  _OWORD v10[3]; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  _OWORD v12[3]; // [rsp+40h] [rbp-38h] BYREF
 
   if ( (Object[12] & 8) != 0 )
     return -1073741823;
@@ -33,7 +35,7 @@ NTSTATUS __fastcall xxxSetCsrssThreadDesktop(_DWORD *Object, PVOID *a2)
     if ( v5 < 0 )
     {
       v9 = RtlNtStatusToDosError(v5);
-      UserSetLastError(v9);
+      UserSetLastError(v9, v10, v11);
       if ( *a2 )
         ObfDereferenceObject(*a2);
     }
@@ -44,16 +46,16 @@ NTSTATUS __fastcall xxxSetCsrssThreadDesktop(_DWORD *Object, PVOID *a2)
       {
         if ( v7 )
         {
-          memset(v10, 0, sizeof(v10));
-          while ( (unsigned int)xxxInternalGetMessage((unsigned int)v10, 0, 0, 0, 3, 0) )
-            xxxDispatchMessage(v10);
+          memset(v12, 0, sizeof(v12));
+          while ( (unsigned int)xxxInternalGetMessage((unsigned int)v12, 0, 0, 0, 3, 0) )
+            xxxDispatchMessage((__int64)v12);
         }
         v6 = xxxSetThreadDesktop(0LL, Object);
         if ( v6 < 0 )
         {
           if ( *a2 )
             ObfDereferenceObject(*a2);
-          CloseProtectedHandle(a2[1]);
+          CloseProtectedHandle(a2[1], 0);
         }
       }
     }

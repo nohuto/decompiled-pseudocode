@@ -1,56 +1,41 @@
 /*
- * XREFs of ?RemovePostCompositionConfig@@YAXPEAU_POST_COMPOSITION_CONFIG_QUEUE@@H@Z @ 0x1C02C1D34
+ * XREFs of ?RemovePostCompositionConfig@@YAXPEAU_POST_COMPOSITION_CONFIG_QUEUE@@H@Z @ 0x1C0213FD4
  * Callers:
- *     ?ClearAllDisplayState@DISPLAY_SOURCE@@QEAAXXZ @ 0x1C01C8D28 (-ClearAllDisplayState@DISPLAY_SOURCE@@QEAAXXZ.c)
+ *     ?ClearAllDisplayState@DISPLAY_SOURCE@@QEAAXXZ @ 0x1C00E06EC (-ClearAllDisplayState@DISPLAY_SOURCE@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?GetPreviousConfigIndex@@YAHH@Z @ 0x1C01C6684 (-GetPreviousConfigIndex@@YAHH@Z.c)
- *     ?GetNextConfigIndex@@YAHH@Z @ 0x1C01DBB4C (-GetNextConfigIndex@@YAHH@Z.c)
+ *     ?GetPreviousConfigIndex@@YAHH@Z @ 0x1C00E0ADC (-GetPreviousConfigIndex@@YAHH@Z.c)
+ *     ?GetNextConfigIndex@@YAHH@Z @ 0x1C016A7C4 (-GetNextConfigIndex@@YAHH@Z.c)
  */
 
-void __fastcall RemovePostCompositionConfig(struct _POST_COMPOSITION_CONFIG_QUEUE *a1, int a2)
+void __fastcall RemovePostCompositionConfig(struct _POST_COMPOSITION_CONFIG_QUEUE *a1, __int64 a2)
 {
   __int64 v3; // rdi
-  __int64 v4; // rcx
-  int v5; // eax
+  __int64 v4; // rax
+  __int64 v5; // rax
+  __int64 v6; // rcx
+  int v7; // eax
 
-  v3 = a2;
+  v3 = (int)a2;
   if ( *(_DWORD *)a1 == -1 )
   {
-    WdLogSingleEntry1(1LL, 9036LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pQueue->HeadIndex != CONFIG_INDEX_INVALID",
-      9036LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v4 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v4 + 24) = 8909LL;
+    WdLogEvent5_WdAssertion(v4);
   }
   if ( *((_DWORD *)a1 + 1) == -1 )
   {
-    WdLogSingleEntry1(1LL, 9037LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pQueue->TailIndex != CONFIG_INDEX_INVALID",
-      9037LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v5 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v5 + 24) = 8910LL;
+    WdLogEvent5_WdAssertion(v5);
   }
-  v4 = 9 * v3;
-  *(_OWORD *)((char *)a1 + 4 * v4 + 8) = 0LL;
-  *(_OWORD *)((char *)a1 + 4 * v4 + 24) = 0LL;
-  *((_DWORD *)a1 + v4 + 10) = 0;
-  v5 = *((_DWORD *)a1 + 1);
+  v6 = 9 * v3;
+  *(_OWORD *)((char *)a1 + 4 * v6 + 8) = 0LL;
+  *(_OWORD *)((char *)a1 + 4 * v6 + 24) = 0LL;
+  *((_DWORD *)a1 + v6 + 10) = 0;
+  v7 = *((_DWORD *)a1 + 1);
   if ( *(_DWORD *)a1 == (_DWORD)v3 )
   {
-    if ( v5 == (_DWORD)v3 )
+    if ( v7 == (_DWORD)v3 )
     {
       *((_DWORD *)a1 + 1) = -1;
       *(_DWORD *)a1 = -1;
@@ -60,7 +45,7 @@ void __fastcall RemovePostCompositionConfig(struct _POST_COMPOSITION_CONFIG_QUEU
       *(_DWORD *)a1 = GetPreviousConfigIndex(v3);
     }
   }
-  else if ( v5 == (_DWORD)v3 )
+  else if ( v7 == (_DWORD)v3 )
   {
     *((_DWORD *)a1 + 1) = GetNextConfigIndex(v3);
   }

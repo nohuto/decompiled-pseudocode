@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlInterlockedClearBitRun @ 0x140212E20
+ * XREFs of RtlInterlockedClearBitRun @ 0x1403BF220
  * Callers:
- *     MiLogPinDriverAddressesWorker @ 0x1406ACCA0 (MiLogPinDriverAddressesWorker.c)
- *     EtwpFreeUserBufferSpace @ 0x1409EFF0C (EtwpFreeUserBufferSpace.c)
+ *     MiLogPinDriverAddressesWorker @ 0x1407B6940 (MiLogPinDriverAddressesWorker.c)
+ *     EtwpFreeUserBufferSpace @ 0x140941C2C (EtwpFreeUserBufferSpace.c)
  * Callees:
  *     <none>
  */

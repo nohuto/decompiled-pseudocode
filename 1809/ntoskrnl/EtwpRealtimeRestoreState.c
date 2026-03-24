@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpRealtimeRestoreState @ 0x140759974
+ * XREFs of EtwpRealtimeRestoreState @ 0x140759954
  * Callers:
  *     EtwpRealtimeCreateLogfile @ 0x1405C0F90 (EtwpRealtimeCreateLogfile.c)
  * Callees:
  *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1401B8230 (ZwReadFile.c)
- *     ZwWriteFile @ 0x1401B8270 (ZwWriteFile.c)
- *     ZwQueryInformationFile @ 0x1401B8390 (ZwQueryInformationFile.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1401B8250 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x1401B8290 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x1401B83B0 (ZwQueryInformationFile.c)
  */
 
 NTSTATUS __fastcall EtwpRealtimeRestoreState(__int64 a1)

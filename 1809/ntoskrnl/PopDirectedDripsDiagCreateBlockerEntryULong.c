@@ -1,7 +1,7 @@
 /*
- * XREFs of PopDirectedDripsDiagCreateBlockerEntryULong @ 0x14087B744
+ * XREFs of PopDirectedDripsDiagCreateBlockerEntryULong @ 0x14087B724
  * Callers:
- *     PopDirectedDripsDiagRundown @ 0x14087B970 (PopDirectedDripsDiagRundown.c)
+ *     PopDirectedDripsDiagRundown @ 0x14087B950 (PopDirectedDripsDiagRundown.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
  */

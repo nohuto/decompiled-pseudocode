@@ -1,18 +1,19 @@
 /*
- * XREFs of DmrConvertDeviceScope @ 0x14038021C
+ * XREFs of DmrConvertDeviceScope @ 0x1404E846C
  * Callers:
- *     HalpIvtCreateReservedDevice @ 0x140380150 (HalpIvtCreateReservedDevice.c)
+ *     HalpIvtCreateReservedDevice @ 0x1404E7C20 (HalpIvtCreateReservedDevice.c)
  * Callees:
- *     ExtEnvAllocateMemory @ 0x1403802B8 (ExtEnvAllocateMemory.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExtEnvAllocateMemory @ 0x1404D5030 (ExtEnvAllocateMemory.c)
  */
 
-_DWORD *__fastcall DmrConvertDeviceScope(__int64 a1, _BYTE *a2)
+_WORD *__fastcall DmrConvertDeviceScope(__int64 a1, _BYTE *a2)
 {
-  _DWORD *v2; // rbx
-  __int16 v4; // bp
+  _WORD *v2; // rbx
+  __int16 v4; // r14
   unsigned __int16 v5; // di
-  _DWORD *v7; // [rsp+38h] [rbp+10h] BYREF
+  void *v7; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = 0LL;
   v4 = a1;
@@ -22,16 +23,17 @@ _DWORD *__fastcall DmrConvertDeviceScope(__int64 a1, _BYTE *a2)
     if ( (v5 & 1) == 0 )
     {
       v7 = 0LL;
-      ExtEnvAllocateMemory(a1, (unsigned int)v5 + 24, &v7);
+      ExtEnvAllocateMemory(a1, v5 + 24, (__int64 *)&v7);
       v2 = v7;
       if ( v7 )
       {
-        *v7 = 1;
-        *((_WORD *)v2 + 4) = v4;
+        memset(v7, 0, (unsigned int)v5 + 24);
+        *(_DWORD *)v2 = 1;
+        v2[4] = v4;
         *((_BYTE *)v2 + 11) = a2[5];
-        *((_WORD *)v2 + 7) = v5 >> 1;
-        *((_QWORD *)v2 + 2) = v2 + 6;
-        memmove(v2 + 6, a2 + 6, v5);
+        v2[7] = v5 >> 1;
+        *((_QWORD *)v2 + 2) = v2 + 12;
+        memmove(v2 + 12, a2 + 6, v5);
       }
     }
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiVadShouldBeForked @ 0x140665754
+ * XREFs of MiVadShouldBeForked @ 0x14055BA04
  * Callers:
- *     MiAllocateChildVads @ 0x140A483EC (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x1408D8AE0 (MiAllocateChildVads.c)
  * Callees:
  *     <none>
  */
@@ -12,16 +12,22 @@ __int64 __fastcall MiVadShouldBeForked(__int64 a1)
   int v2; // eax
 
   v1 = *(_DWORD *)(a1 + 48);
-  if ( (v1 & 0xA00000) != 0xA00000 )
+  if ( (v1 & 0x500000) != 0x500000 )
   {
-    if ( (v1 & 0x200000) != 0 && ((v1 & 0x800000) != 0 || (v1 & 0x180000u) >= 0x100000) )
+    if ( (v1 & 0x100000) != 0 && ((v1 & 0x400000) != 0 || (v1 & 0xC0000u) >= 0x80000) )
       return 1LL;
     v2 = v1 & 0x70;
-    if ( ((v1 & 0x70) == 0 || v2 == 32 || v2 == 80) && (v1 & 0x6200000) != 0x4200000 )
+    if ( (v1 & 0x70) == 0 || v2 == 32 || v2 == 80 )
     {
-      if ( (v1 & 0x200000) == 0 )
-        return (*(_DWORD *)(a1 + 64) >> 26) & 1;
-      return 1LL;
+      if ( (v1 & 0x100000) != 0 )
+      {
+        if ( (v1 & 0x1000000) != 0 || (v1 & 0x2000000) == 0 )
+          return 1LL;
+      }
+      else if ( (*(_DWORD *)(a1 + 64) & 0x4000000) != 0 )
+      {
+        return 1LL;
+      }
     }
   }
   return 0LL;

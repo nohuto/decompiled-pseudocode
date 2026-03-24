@@ -1,20 +1,20 @@
 /*
- * XREFs of TtmpStartCallout @ 0x1409A3D30
+ * XREFs of TtmpStartCallout @ 0x1408FD36C
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x1409A2DC0 (TtmiSessionDeviceListWorker.c)
- *     TtmpCallAssignedToTerminal @ 0x1409A308C (TtmpCallAssignedToTerminal.c)
- *     TtmpCallSetBuiltinPanelState @ 0x1409A3128 (TtmpCallSetBuiltinPanelState.c)
- *     TtmpCallSetDisplayState @ 0x1409A31A8 (TtmpCallSetDisplayState.c)
- *     TtmpCallSetInputMode @ 0x1409A3258 (TtmpCallSetInputMode.c)
- *     TtmpUpdatePrimaryDisplayWnf @ 0x1409A3EAC (TtmpUpdatePrimaryDisplayWnf.c)
+ *     TtmiSessionDeviceListWorker @ 0x1408FC3F4 (TtmiSessionDeviceListWorker.c)
+ *     TtmpCallAssignedToTerminal @ 0x1408FC6C0 (TtmpCallAssignedToTerminal.c)
+ *     TtmpCallSetBuiltinPanelState @ 0x1408FC75C (TtmpCallSetBuiltinPanelState.c)
+ *     TtmpCallSetDisplayState @ 0x1408FC7DC (TtmpCallSetDisplayState.c)
+ *     TtmpCallSetInputMode @ 0x1408FC88C (TtmpCallSetInputMode.c)
+ *     TtmpUpdatePrimaryDisplayWnf @ 0x1408FD4E8 (TtmpUpdatePrimaryDisplayWnf.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     TtmpCalloutArmWatchdog @ 0x1409A32F8 (TtmpCalloutArmWatchdog.c)
- *     TtmpCalloutCreateWatchdog @ 0x1409A339C (TtmpCalloutCreateWatchdog.c)
- *     TtmpGetCalloutTagFromCalloutType @ 0x1409A37A4 (TtmpGetCalloutTagFromCalloutType.c)
- *     TtmpInitializeWatchdogTimeouts @ 0x1409A391C (TtmpInitializeWatchdogTimeouts.c)
- *     TtmiLogCalloutStart @ 0x1409A6C9C (TtmiLogCalloutStart.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     TtmpCalloutArmWatchdog @ 0x1408FC92C (TtmpCalloutArmWatchdog.c)
+ *     TtmpCalloutCreateWatchdog @ 0x1408FC9D0 (TtmpCalloutCreateWatchdog.c)
+ *     TtmpGetCalloutTagFromCalloutType @ 0x1408FCDD4 (TtmpGetCalloutTagFromCalloutType.c)
+ *     TtmpInitializeWatchdogTimeouts @ 0x1408FCF48 (TtmpInitializeWatchdogTimeouts.c)
+ *     TtmiLogCalloutStart @ 0x140901348 (TtmiLogCalloutStart.c)
  */
 
 __int64 __fastcall TtmpStartCallout(__int64 a1, int *a2, __int64 a3, int a4, __int64 a5, unsigned int a6)
@@ -43,12 +43,9 @@ __int64 __fastcall TtmpStartCallout(__int64 a1, int *a2, __int64 a3, int a4, __i
     }
   }
   v12 = v10[4];
-  if ( !v12 )
-    goto LABEL_11;
 LABEL_8:
-  if ( TtmpCalloutCreateWatchdog(a1) >= 0 && *(_QWORD *)(a1 + 24) )
+  if ( v12 && TtmpCalloutCreateWatchdog(a1) >= 0 && *(_QWORD *)(a1 + 24) )
     TtmpCalloutArmWatchdog(a1, *a2, v12, a5);
-LABEL_11:
   ExReleaseResourceLite(&TtmpSessionLock);
   KeLeaveCriticalRegion();
   CalloutTagFromCalloutType = TtmpGetCalloutTagFromCalloutType(a4);

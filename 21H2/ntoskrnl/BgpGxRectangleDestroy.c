@@ -1,31 +1,31 @@
 /*
- * XREFs of BgpGxRectangleDestroy @ 0x140AAD3E0
+ * XREFs of BgpGxRectangleDestroy @ 0x1409F2290
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x1403A7CAC (BgpTxtDisplayCharacter.c)
- *     BgpGxDrawRectangle @ 0x1403A7F70 (BgpGxDrawRectangle.c)
- *     GxpWriteFrameBufferPixels @ 0x1403A8000 (GxpWriteFrameBufferPixels.c)
- *     BgpGxProcessQrCodeBitmap @ 0x1403DD848 (BgpGxProcessQrCodeBitmap.c)
- *     BgpGxConvertRectangle @ 0x1403DD8CC (BgpGxConvertRectangle.c)
- *     ResFwFreeContext @ 0x140AAB07C (ResFwFreeContext.c)
- *     AnFwpDisableProgressTimer @ 0x140AABA70 (AnFwpDisableProgressTimer.c)
- *     BgpGxParseBitmap @ 0x140AABCD8 (BgpGxParseBitmap.c)
- *     BgpGxReadRectangle @ 0x140AABE28 (BgpGxReadRectangle.c)
- *     AnFwDisplayFade @ 0x140AAC1BC (AnFwDisplayFade.c)
- *     BgpTxtCreateRegion @ 0x140AAC868 (BgpTxtCreateRegion.c)
- *     AnFwFadeCompletion @ 0x140AACA74 (AnFwFadeCompletion.c)
- *     AnFwDisplayProgressIndicator @ 0x140AAD1C4 (AnFwDisplayProgressIndicator.c)
- *     TxtpAddCacheEntry @ 0x140AAD338 (TxtpAddCacheEntry.c)
- *     BgpTxtDestroyRegion @ 0x140AAEAF4 (BgpTxtDestroyRegion.c)
- *     BgpGxBlendRectangle @ 0x140AB14B4 (BgpGxBlendRectangle.c)
- *     BgpGxDrawBitmapImage @ 0x140AB17C4 (BgpGxDrawBitmapImage.c)
- *     BgpTxtDisplayString @ 0x140AB1844 (BgpTxtDisplayString.c)
+ *     BgpGxDrawRectangle @ 0x14039BE98 (BgpGxDrawRectangle.c)
+ *     GxpWriteFrameBufferPixels @ 0x14039BF28 (GxpWriteFrameBufferPixels.c)
+ *     BgpTxtDisplayCharacter @ 0x1403B1888 (BgpTxtDisplayCharacter.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x1403CE610 (BgpGxProcessQrCodeBitmap.c)
+ *     BgpGxConvertRectangle @ 0x1403CE694 (BgpGxConvertRectangle.c)
+ *     ResFwFreeContext @ 0x1409F107C (ResFwFreeContext.c)
+ *     BgpGxParseBitmap @ 0x1409F1880 (BgpGxParseBitmap.c)
+ *     BgpGxReadRectangle @ 0x1409F19D0 (BgpGxReadRectangle.c)
+ *     AnFwDisplayFade @ 0x1409F1C00 (AnFwDisplayFade.c)
+ *     AnFwFadeCompletion @ 0x1409F21B4 (AnFwFadeCompletion.c)
+ *     BgpTxtCreateRegion @ 0x1409F30D4 (BgpTxtCreateRegion.c)
+ *     AnFwpDisableProgressTimer @ 0x1409F34EC (AnFwpDisableProgressTimer.c)
+ *     BgpTxtDestroyRegion @ 0x1409F40EC (BgpTxtDestroyRegion.c)
+ *     AnFwDisplayProgressIndicator @ 0x1409F4370 (AnFwDisplayProgressIndicator.c)
+ *     TxtpAddCacheEntry @ 0x1409F45FC (TxtpAddCacheEntry.c)
+ *     BgpGxBlendRectangle @ 0x1409F73F0 (BgpGxBlendRectangle.c)
+ *     BgpGxDrawBitmapImage @ 0x1409F7704 (BgpGxDrawBitmapImage.c)
+ *     BgpTxtDisplayString @ 0x1409F7784 (BgpTxtDisplayString.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403A8CB4 (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x14039BD60 (BgpFwFreeMemory.c)
  */
 
-__int64 __fastcall BgpGxRectangleDestroy(__int64 a1)
+__int64 __fastcall BgpGxRectangleDestroy(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   if ( a1 && (*(_DWORD *)(a1 + 16) & 1) == 0 )
-    BgpFwFreeMemory(a1);
+    BgpFwFreeMemory(a1, a2, a3, a4);
   return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0hzr0qqhzr4_EtwWriteTransfer @ 0x1405600A8
+ * XREFs of McTemplateK0hzr0qqhzr4_EtwWriteTransfer @ 0x14050CBB0
  * Callers:
- *     IopLogDeviceResetComplete @ 0x140957484 (IopLogDeviceResetComplete.c)
+ *     IopDeviceRemovalForResetComplete @ 0x1408A0760 (IopDeviceRemovalForResetComplete.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403C3C60 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036E304 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0hzr0qqhzr4_EtwWriteTransfer(
@@ -14,48 +14,46 @@ NTSTATUS __fastcall McTemplateK0hzr0qqhzr4_EtwWriteTransfer(
         unsigned __int16 a4,
         __int64 a5,
         char a6,
-        int a7,
+        char a7,
         unsigned __int16 a8,
         __int64 a9)
 {
-  int v10; // [rsp+30h] [rbp-61h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v11; // [rsp+40h] [rbp-51h] BYREF
-  __int16 *v12; // [rsp+50h] [rbp-41h]
-  __int64 v13; // [rsp+58h] [rbp-39h]
-  __int64 v14; // [rsp+60h] [rbp-31h]
-  int v15; // [rsp+68h] [rbp-29h]
-  int v16; // [rsp+6Ch] [rbp-25h]
-  char *v17; // [rsp+70h] [rbp-21h]
-  __int64 v18; // [rsp+78h] [rbp-19h]
-  int *v19; // [rsp+80h] [rbp-11h]
-  __int64 v20; // [rsp+88h] [rbp-9h]
-  unsigned __int16 *v21; // [rsp+90h] [rbp-1h]
-  __int64 v22; // [rsp+98h] [rbp+7h]
-  __int64 v23; // [rsp+A0h] [rbp+Fh]
-  int v24; // [rsp+A8h] [rbp+17h]
-  int v25; // [rsp+ACh] [rbp+1Bh]
-  unsigned __int16 v26; // [rsp+E8h] [rbp+57h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v10; // [rsp+30h] [rbp-51h] BYREF
+  __int16 *v11; // [rsp+40h] [rbp-41h]
+  __int64 v12; // [rsp+48h] [rbp-39h]
+  __int64 v13; // [rsp+50h] [rbp-31h]
+  int v14; // [rsp+58h] [rbp-29h]
+  int v15; // [rsp+5Ch] [rbp-25h]
+  char *v16; // [rsp+60h] [rbp-21h]
+  __int64 v17; // [rsp+68h] [rbp-19h]
+  char *v18; // [rsp+70h] [rbp-11h]
+  __int64 v19; // [rsp+78h] [rbp-9h]
+  unsigned __int16 *v20; // [rsp+80h] [rbp-1h]
+  __int64 v21; // [rsp+88h] [rbp+7h]
+  __int64 v22; // [rsp+90h] [rbp+Fh]
+  int v23; // [rsp+98h] [rbp+17h]
+  int v24; // [rsp+9Ch] [rbp+1Bh]
+  unsigned __int16 v25; // [rsp+D8h] [rbp+57h] BYREF
 
-  v26 = a4;
-  v13 = 2LL;
-  v10 = 0;
-  v12 = (__int16 *)&v26;
-  v14 = a5;
-  v16 = 0;
-  v15 = 2 * a4;
-  v17 = &a6;
-  v19 = &v10;
-  v21 = &a8;
-  v23 = a9;
-  v18 = 4LL;
-  v24 = 2 * a8;
-  v20 = 4LL;
-  v22 = 2LL;
-  v25 = 0;
+  v25 = a4;
+  v12 = 2LL;
+  v15 = 0;
+  v11 = (__int16 *)&v25;
+  v13 = a5;
+  v17 = 4LL;
+  v14 = 2 * a4;
+  v16 = &a6;
+  v18 = &a7;
+  v20 = &a8;
+  v22 = a9;
+  v19 = 4LL;
+  v23 = 2 * a8;
+  v21 = 2LL;
+  v24 = 0;
   return McGenEventWrite_EtwWriteTransfer(
            MS_KernelPnP_Provider_Context,
-           (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceReset_DevMgnt_Stop,
+           (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceReset_Stop,
            0LL,
            7u,
-           &v11);
+           &v10);
 }

@@ -1,27 +1,28 @@
 /*
- * XREFs of ViFaultsInjectionNotification @ 0x140AD7958
+ * XREFs of ViFaultsInjectionNotification @ 0x1409DD18C
  * Callers:
- *     VfFaultsInjectResourceFailure @ 0x140AD6FAC (VfFaultsInjectResourceFailure.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC83C (VfFaultsInjectResourceFailure.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140227700 (RtlCaptureStackBackTrace.c)
- *     ViTargetIncrementCounter @ 0x140ACCBDC (ViTargetIncrementCounter.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CDE0 (RtlCaptureStackBackTrace.c)
+ *     ViTargetIncrementCounter @ 0x1409D751C (ViTargetIncrementCounter.c)
  */
 
-void __fastcall ViFaultsInjectionNotification(int a1)
+char __fastcall ViFaultsInjectionNotification(int a1)
 {
-  __int64 v2; // rbx
-  USHORT v3; // ax
+  USHORT v2; // ax
+  __int64 v3; // rbx
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
-  ++dword_140C1398C;
+  LOBYTE(v2) = ++dword_140C2A90C;
   if ( (MmVerifierData & 0x1000) != 0 )
-    ViTargetIncrementCounter(retaddr, 180LL);
+    LOBYTE(v2) = ViTargetIncrementCounter(retaddr, 172LL);
   if ( ViFaultTraces )
   {
-    v2 = ViFaultTraces + 72LL * (_InterlockedIncrement(&ViFaultTracesIndex) & (unsigned int)(ViFaultTracesLength - 1));
-    *(_QWORD *)v2 = KeGetCurrentThread();
-    v3 = RtlCaptureStackBackTrace(a1 + 1, 8u, (PVOID *)(v2 + 8), 0LL);
-    if ( v3 < 8u )
-      *(_QWORD *)(v2 + 8LL * v3 + 8) = 0LL;
+    v3 = ViFaultTraces + 72LL * (_InterlockedIncrement(&ViFaultTracesIndex) & (unsigned int)(ViFaultTracesLength - 1));
+    *(_QWORD *)v3 = KeGetCurrentThread();
+    v2 = RtlCaptureStackBackTrace(a1 + 1, 8u, (PVOID *)(v3 + 8), 0LL);
+    if ( v2 < 8u )
+      *(_QWORD *)(v3 + 8LL * v2 + 8) = 0LL;
   }
+  return v2;
 }

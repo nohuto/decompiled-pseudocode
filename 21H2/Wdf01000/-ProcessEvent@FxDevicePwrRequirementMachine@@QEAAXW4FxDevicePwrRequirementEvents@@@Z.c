@@ -1,22 +1,22 @@
 /*
- * XREFs of ?ProcessEvent@FxDevicePwrRequirementMachine@@QEAAXW4FxDevicePwrRequirementEvents@@@Z @ 0x1C0012F54
+ * XREFs of ?ProcessEvent@FxDevicePwrRequirementMachine@@QEAAXW4FxDevicePwrRequirementEvents@@@Z @ 0x1C000EC10
  * Callers:
- *     ?NotifyDevicePowerDown@FxPoxInterface@@QEAAJXZ @ 0x1C000CE74 (-NotifyDevicePowerDown@FxPoxInterface@@QEAAJXZ.c)
- *     ?PowerNotRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z @ 0x1C000CF38 (-PowerNotRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z.c)
- *     ?DeviceIsPoweredOn@FxPoxInterface@@QEAAXXZ @ 0x1C000DB44 (-DeviceIsPoweredOn@FxPoxInterface@@QEAAXXZ.c)
- *     ?NotifyDeviceDirectedPoweredUp@FxPoxInterface@@QEAAXXZ @ 0x1C000DB78 (-NotifyDeviceDirectedPoweredUp@FxPoxInterface@@QEAAXXZ.c)
- *     ?PowerRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z @ 0x1C000E4EC (-PowerRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z.c)
- *     ?InitializeComponents@FxPoxInterface@@QEAAJXZ @ 0x1C0020104 (-InitializeComponents@FxPoxInterface@@QEAAJXZ.c)
- *     ?DprProcessEventFromPoxCallback@FxPoxInterface@@AEAAXW4FxDevicePwrRequirementEvents@@@Z @ 0x1C0039AD2 (-DprProcessEventFromPoxCallback@FxPoxInterface@@AEAAXW4FxDevicePwrRequirementEvents@@@Z.c)
- *     ?PowerPolStoppedRemoving@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C008B4D0 (-PowerPolStoppedRemoving@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z.c)
- *     ?NotifyDeviceDirectedPoweredDown@FxPoxInterface@@QEAAXXZ @ 0x1C008EE08 (-NotifyDeviceDirectedPoweredDown@FxPoxInterface@@QEAAXXZ.c)
+ *     ?PowerRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z @ 0x1C000E4D4 (-PowerRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z.c)
+ *     ?PowerNotRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z @ 0x1C000E53C (-PowerNotRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z.c)
+ *     ?NotifyDeviceDirectedPoweredUp@FxPoxInterface@@QEAAXXZ @ 0x1C000E5A4 (-NotifyDeviceDirectedPoweredUp@FxPoxInterface@@QEAAXXZ.c)
+ *     ?NotifyDevicePowerDown@FxPoxInterface@@QEAAJXZ @ 0x1C00103FC (-NotifyDevicePowerDown@FxPoxInterface@@QEAAJXZ.c)
+ *     ?DeviceIsPoweredOn@FxPoxInterface@@QEAAXXZ @ 0x1C0010494 (-DeviceIsPoweredOn@FxPoxInterface@@QEAAXXZ.c)
+ *     ?PowerPolStoppedRemoving@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C00874A0 (-PowerPolStoppedRemoving@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z.c)
+ *     ?DprProcessEventFromPoxCallback@FxPoxInterface@@AEAAXW4FxDevicePwrRequirementEvents@@@Z @ 0x1C008C9F8 (-DprProcessEventFromPoxCallback@FxPoxInterface@@AEAAXW4FxDevicePwrRequirementEvents@@@Z.c)
+ *     ?InitializeComponents@FxPoxInterface@@QEAAJXZ @ 0x1C008CA84 (-InitializeComponents@FxPoxInterface@@QEAAJXZ.c)
+ *     ?NotifyDeviceDirectedPoweredDown@FxPoxInterface@@QEAAXXZ @ 0x1C008CC2C (-NotifyDeviceDirectedPoweredDown@FxPoxInterface@@QEAAXXZ.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?ProcessEventInner@FxDevicePwrRequirementMachine@@AEAAXPEAUFxPostProcessInfo@@@Z @ 0x1C0014E88 (-ProcessEventInner@FxDevicePwrRequirementMachine@@AEAAXPEAUFxPostProcessInfo@@@Z.c)
- *     ?QueueToThread@FxThreadedEventQueue@@QEAAXXZ @ 0x1C0015368 (-QueueToThread@FxThreadedEventQueue@@QEAAXXZ.c)
- *     ?Evaluate@FxPostProcessInfo@@QEAAXPEAVFxPkgPnp@@@Z @ 0x1C0016054 (-Evaluate@FxPostProcessInfo@@QEAAXPEAVFxPkgPnp@@@Z.c)
- *     WPP_IFR_SF_qqLL @ 0x1C0016980 (WPP_IFR_SF_qqLL.c)
- *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C0017090 (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?QueueToThread@FxThreadedEventQueue@@QEAAXXZ @ 0x1C000E5D4 (-QueueToThread@FxThreadedEventQueue@@QEAAXXZ.c)
+ *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C000EA4C (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
+ *     ?ProcessEventInner@FxDevicePwrRequirementMachine@@AEAAXPEAUFxPostProcessInfo@@@Z @ 0x1C000F4C0 (-ProcessEventInner@FxDevicePwrRequirementMachine@@AEAAXPEAUFxPostProcessInfo@@@Z.c)
+ *     ?Evaluate@FxPostProcessInfo@@QEAAXPEAVFxPkgPnp@@@Z @ 0x1C0011804 (-Evaluate@FxPostProcessInfo@@QEAAXPEAVFxPkgPnp@@@Z.c)
+ *     WPP_IFR_SF_qqLL @ 0x1C0012660 (WPP_IFR_SF_qqLL.c)
  */
 
 void __fastcall FxDevicePwrRequirementMachine::ProcessEvent(
@@ -62,7 +62,9 @@ LABEL_9:
   this->m_QueueTail = ((int)m_QueueTail + 1) % (unsigned int)this->m_QueueDepth;
   this->m_Queue[m_QueueTail] = Event;
   KeReleaseSpinLock(p_m_Lock, v5);
-  if ( v6 || (v9 = FxWaitLockInternal::AcquireLock(&this->m_StateMachineLock, v8, &timeout), v9 < 0) || v9 == 258 )
+  if ( v6
+    || (v9 = FxWaitLockInternal::AcquireLock(&this->m_StateMachineLock, v8, (_LARGE_INTEGER *)&timeout), v9 < 0)
+    || v9 == 258 )
   {
     FxThreadedEventQueue::QueueToThread(this);
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PoSessionPowerControl @ 0x140879298
+ * XREFs of PoSessionPowerControl @ 0x140879278
  * Callers:
- *     TtmpSessionPowerControl @ 0x140881038 (TtmpSessionPowerControl.c)
+ *     TtmpSessionPowerControl @ 0x140881018 (TtmpSessionPowerControl.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PopInvokeWin32Callout @ 0x1405B0C84 (PopInvokeWin32Callout.c)
- *     PopBlockSessionSwitch @ 0x1406DDB50 (PopBlockSessionSwitch.c)
+ *     PopBlockSessionSwitch @ 0x1406DDB30 (PopBlockSessionSwitch.c)
  */
 
 __int64 __fastcall PoSessionPowerControl(unsigned __int8 a1, int a2, int a3)

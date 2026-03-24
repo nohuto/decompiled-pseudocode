@@ -5,14 +5,14 @@
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
  *     KeFindFirstSetRightGroupAffinity @ 0x1400165E0 (KeFindFirstSetRightGroupAffinity.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7900 (KeQueryActiveProcessorCountEx.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C20 (KeQueryNodeActiveAffinity.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     swscanf_s @ 0x14019BBA0 (swscanf_s.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     swscanf_s @ 0x14019BBC0 (swscanf_s.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExpQueryProcessorInformationCounters @ 0x1405CDF74 (ExpQueryProcessorInformationCounters.c)
- *     PcwAddInstance @ 0x1406914E0 (PcwAddInstance.c)
+ *     PcwAddInstance @ 0x1406914C0 (PcwAddInstance.c)
  */
 
 int __fastcall ExProcessorCounterSetCallback(int a1, __int64 *a2)

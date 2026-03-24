@@ -1,118 +1,83 @@
 /*
- * XREFs of KiSetFeatureBits @ 0x140A8DD24
+ * XREFs of KiSetFeatureBits @ 0x14099C42C
  * Callers:
- *     KiInitializeBootStructures @ 0x140A8BDF0 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x14099BA20 (KiInitializeBootStructures.c)
  * Callees:
- *     HvlSetHardwareMbecAvailable @ 0x14036EB04 (HvlSetHardwareMbecAvailable.c)
- *     KiComputeTopologyConstants @ 0x140381BCC (KiComputeTopologyConstants.c)
- *     HviIsAnyHypervisorPresent @ 0x140382EA0 (HviIsAnyHypervisorPresent.c)
- *     HalIsHyperThreadingEnabled @ 0x140382EF0 (HalIsHyperThreadingEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HvlSetApicVirtualizationAvailable @ 0x14053FE3C (HvlSetApicVirtualizationAvailable.c)
- *     KiGetProcessorSignature @ 0x140A8C258 (KiGetProcessorSignature.c)
- *     KiInitializeHgsPlusWorkloadClasses @ 0x140A8E484 (KiInitializeHgsPlusWorkloadClasses.c)
- *     KiInitializeHresetSupport @ 0x140A8E4FC (KiInitializeHresetSupport.c)
- *     KiDetectKvaLeakage @ 0x140A8E578 (KiDetectKvaLeakage.c)
- *     KiSetProcessorSignature @ 0x140A8EAF4 (KiSetProcessorSignature.c)
- *     KdInitSystem @ 0x140AB2040 (KdInitSystem.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5310 (HviIsAnyHypervisorPresent.c)
+ *     HalIsHyperThreadingEnabled @ 0x1403A91A0 (HalIsHyperThreadingEnabled.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HvlSetApicVirtualizationAvailable @ 0x1404F1B58 (HvlSetApicVirtualizationAvailable.c)
+ *     HvlSetHardwareMbecAvailable @ 0x1404F1B68 (HvlSetHardwareMbecAvailable.c)
+ *     KiGetProcessorSignature @ 0x14099B768 (KiGetProcessorSignature.c)
+ *     KiDetectKvaLeakage @ 0x14099CAB0 (KiDetectKvaLeakage.c)
+ *     KiSetProcessorSignature @ 0x14099DF64 (KiSetProcessorSignature.c)
+ *     KdInitSystem @ 0x1409B5160 (KdInitSystem.c)
  */
 
-__int64 __fastcall KiSetFeatureBits(__int64 a1)
+char __fastcall KiSetFeatureBits(__int64 a1)
 {
   char v2; // bl
-  unsigned int v3; // ecx
+  unsigned __int8 v3; // cl
   char v4; // dl
-  _DWORD *v5; // r9
+  __int64 v5; // r8
   unsigned int ProcessorSignature; // eax
-  char v12; // r8
-  ULONG_PTR v23; // r13
-  unsigned int v24; // edi
-  unsigned int v35; // r15d
-  ULONG_PTR v36; // r12
-  __int64 v37; // rdi
+  ULONG_PTR v22; // r15
+  unsigned int v33; // r12d
+  ULONG_PTR v34; // r13
+  char v35; // r11
+  unsigned int v36; // r9d
+  __int64 v37; // r15
   char v38; // cl
-  char v39; // r11
-  int v40; // edx
-  int v41; // ecx
-  unsigned int v42; // eax
-  char v43; // r15
-  int v44; // r12d
-  int v45; // ebx
+  unsigned int v39; // r12d
+  int v45; // r11d
+  unsigned int v46; // r10d
+  unsigned int v52; // ecx
+  char v53; // r8
+  unsigned int v54; // esi
+  char v55; // al
+  int v56; // ebx
   char IsHyperThreadingEnabled; // al
-  unsigned __int64 v52; // rdx
-  __int64 v53; // rcx
-  __int64 v54; // rdx
-  unsigned __int64 v56; // rax
-  char v57; // r10
-  __int64 v62; // r8
-  __int64 v63; // rdi
-  unsigned __int64 v68; // rdx
-  __int64 v69; // rax
-  __int64 v70; // r9
-  unsigned __int64 v75; // rax
-  unsigned int *v76; // rax
-  __int64 result; // rax
-  unsigned int v78; // ecx
-  unsigned int v79; // ecx
-  unsigned int v80; // ecx
-  unsigned int v81; // ecx
-  bool v82; // zf
-  char v83; // al
-  unsigned __int64 v84; // rcx
-  __int64 v85; // rdx
-  int v86; // eax
-  unsigned int v87; // ecx
-  unsigned int v88; // ecx
-  unsigned int v89; // ecx
-  unsigned int v90; // ecx
-  unsigned int v91; // ecx
-  unsigned int v92; // ecx
-  unsigned int v93; // ecx
-  unsigned int v94; // ecx
-  unsigned int v95; // ecx
-  unsigned int v96; // ecx
-  unsigned int v97; // ecx
-  unsigned int v98; // ecx
-  unsigned int v99; // ecx
-  char v100; // dl
-  char v101; // al
-  unsigned __int8 v102; // cl
-  unsigned __int64 v117; // rax
-  char v122; // r8
-  int v123; // eax
-  char v124; // al
-  bool v125; // [rsp+30h] [rbp-D8h]
-  unsigned int v126; // [rsp+40h] [rbp-C8h]
-  unsigned int v127; // [rsp+44h] [rbp-C4h]
-  __int16 v128; // [rsp+48h] [rbp-C0h]
-  __int128 v129; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v130; // [rsp+60h] [rbp-A8h]
-  int v131; // [rsp+68h] [rbp-A0h]
-  __int64 v132; // [rsp+70h] [rbp-98h]
-  __int128 v133; // [rsp+80h] [rbp-88h] BYREF
-  __int128 v134; // [rsp+90h] [rbp-78h] BYREF
-  __int128 v135; // [rsp+A0h] [rbp-68h]
-  __int128 v136; // [rsp+B0h] [rbp-58h]
-  __int128 v137; // [rsp+C0h] [rbp-48h]
+  unsigned __int64 v63; // rdx
+  __int64 v64; // rcx
+  __int64 v65; // rdx
+  unsigned __int64 v67; // rcx
+  unsigned __int64 v68; // rax
+  char v69; // r10
+  __int64 v74; // r8
+  __int64 v75; // rsi
+  unsigned __int64 v80; // rbx
+  __int64 v81; // rcx
+  __int64 v82; // r9
+  char v87; // al
+  unsigned __int64 v88; // rcx
+  char v89; // bl
+  char v90; // al
+  unsigned __int8 v91; // cl
+  int v92; // eax
+  unsigned __int8 v98; // r8
+  int v99; // ecx
+  unsigned int v109; // ebx
+  unsigned int v115; // ecx
+  unsigned __int64 v130; // rax
+  char v135; // r8
+  unsigned int v137; // [rsp+30h] [rbp-78h]
+  bool v138; // [rsp+38h] [rbp-70h]
+  unsigned int v139; // [rsp+40h] [rbp-68h]
+  int v140; // [rsp+44h] [rbp-64h]
+  int v141; // [rsp+48h] [rbp-60h]
+  __int16 v142; // [rsp+4Ch] [rbp-5Ch]
+  unsigned int v143; // [rsp+50h] [rbp-58h]
 
-  v135 = 0LL;
-  v136 = 0LL;
-  v137 = 0LL;
-  v129 = 0LL;
-  v130 = 0LL;
-  v131 = 0;
   v2 = *(_BYTE *)(a1 + 64);
-  v3 = *(unsigned __int8 *)(a1 + 67);
+  v3 = *(_BYTE *)(a1 + 67);
   v4 = *(_BYTE *)(a1 + 141);
-  v125 = (unsigned __int8)(v4 - 1) <= 1u;
-  v5 = (_DWORD *)(a1 + 36);
-  v132 = a1 + 36;
+  v5 = (unsigned __int8)(v4 - 1) <= 1u;
+  v138 = (unsigned __int8)(v4 - 1) <= 1u;
   if ( *(_DWORD *)(a1 + 36) )
   {
     ProcessorSignature = KiGetProcessorSignature(0LL, 0LL, 0LL, 0LL);
     KiSetProcessorSignature(a1, ProcessorSignature);
-    v5 = (_DWORD *)(a1 + 36);
     goto LABEL_3;
   }
   if ( v4 == 2 )
@@ -121,112 +86,56 @@ __int64 __fastcall KiSetFeatureBits(__int64 a1)
       goto LABEL_3;
     KiLastExceptionFromBaseMSR = 477;
     KiLastExceptionToBaseMSR = 478;
-    if ( v3 <= 0x2D )
+    if ( v3 <= 0x27u )
     {
-      if ( v3 == 45 )
-        goto LABEL_118;
-      if ( v3 > 0x1F )
+      if ( v3 < 0x26u && v3 != 15 && v3 != 23 )
       {
-        v92 = v3 - 37;
-        if ( !v92 )
-          goto LABEL_118;
-        v93 = v92 - 1;
-        if ( v93 )
+        if ( v3 == 26 )
+          goto LABEL_89;
+        if ( v3 != 28 && v3 != 29 )
         {
-          v94 = v93 - 1;
-          if ( v94 )
-          {
-            v95 = v94 - 3;
-            if ( v95 && v95 != 2 )
-            {
-LABEL_96:
-              if ( KiLastBranchFromBaseMSR )
-                KiLastBranchTOSMSR = 457;
-              goto LABEL_3;
-            }
-            goto LABEL_118;
-          }
-        }
-      }
-      else
-      {
-        if ( v3 == 31 )
-          goto LABEL_118;
-        v87 = v3 - 15;
-        if ( v87 )
-        {
-          v88 = v87 - 8;
-          if ( v88 )
-          {
-            v89 = v88 - 3;
-            if ( !v89 )
-              goto LABEL_118;
-            v90 = v89 - 2;
-            if ( v90 )
-            {
-              v91 = v90 - 1;
-              if ( v91 )
-              {
-                if ( v91 != 1 )
-                  goto LABEL_96;
-                goto LABEL_118;
-              }
-            }
-          }
+          if ( v3 > 0x1Du && (v3 <= 0x1Fu || v3 == 37) )
+            goto LABEL_89;
+          goto LABEL_90;
         }
       }
     }
     else
     {
-      if ( v3 > 0x3A )
+      if ( v3 > 0x3Au )
       {
-        v78 = v3 - 60;
-        if ( v78 )
+        if ( v3 == 60 )
         {
-          v79 = v78 - 3;
-          if ( v79 )
-          {
-            v80 = v79 - 6;
-            if ( v80 )
-            {
-              v81 = v80 - 1;
-              if ( v81 )
-              {
-                v82 = v81 == 7;
-                goto LABEL_95;
-              }
-            }
-          }
+LABEL_89:
+          KiLastBranchFromBaseMSR = 1664;
+          KiLastBranchToBaseMSR = 1728;
+          goto LABEL_90;
         }
-LABEL_118:
-        KiLastBranchFromBaseMSR = 1664;
-        KiLastBranchToBaseMSR = 1728;
-        goto LABEL_96;
-      }
-      if ( v3 == 58 )
-        goto LABEL_118;
-      v96 = v3 - 46;
-      if ( !v96 )
-        goto LABEL_118;
-      v97 = v96 - 1;
-      if ( !v97 )
-        goto LABEL_118;
-      v98 = v97 - 6;
-      if ( v98 )
-      {
-        v99 = v98 - 1;
-        if ( v99 )
+        if ( v3 > 0x44u )
         {
-          v82 = v99 == 1;
-LABEL_95:
-          if ( !v82 )
-            goto LABEL_96;
+          if ( v3 <= 0x46u )
+            goto LABEL_89;
+          if ( v3 == 77 )
+            goto LABEL_121;
         }
+LABEL_90:
+        if ( KiLastBranchFromBaseMSR )
+          KiLastBranchTOSMSR = 457;
+        goto LABEL_3;
       }
+      if ( v3 == 58 || v3 == 42 )
+        goto LABEL_89;
+      if ( v3 <= 0x2Bu )
+        goto LABEL_90;
+      if ( v3 <= 0x2Fu )
+        goto LABEL_89;
+      if ( v3 <= 0x34u || v3 > 0x37u )
+        goto LABEL_90;
     }
+LABEL_121:
     KiLastBranchFromBaseMSR = 64;
     KiLastBranchToBaseMSR = 96;
-    goto LABEL_96;
+    goto LABEL_90;
   }
   if ( v4 == 1 )
   {
@@ -238,70 +147,68 @@ LABEL_95:
 LABEL_3:
   _RAX = 0LL;
   __asm { cpuid }
-  v127 = _RAX;
-  *(_QWORD *)&v135 = __PAIR64__(_RBX, _RAX);
-  *((_QWORD *)&v135 + 1) = __PAIR64__(_RDX, _RCX);
-  v12 = *(_BYTE *)(a1 + 141);
-  if ( v12 == 2 )
+  v141 = _RDX;
+  v137 = _RAX;
+  LOBYTE(v5) = *(_BYTE *)(a1 + 141);
+  if ( (_BYTE)v5 == 2 )
   {
     __writemsr(0x8Bu, 0LL);
     _RAX = 1LL;
     __asm { cpuid }
-    *(_QWORD *)&v135 = __PAIR64__(_RBX, _RAX);
-    *((_QWORD *)&v135 + 1) = __PAIR64__(_RDX, _RCX);
+    v141 = _RDX;
 LABEL_5:
-    *(_QWORD *)(a1 + 35240) = __readmsr(0x8Bu);
+    *(_QWORD *)(a1 + 34216) = __readmsr(0x8Bu);
     goto LABEL_6;
   }
-  if ( v12 == 1 )
+  if ( (_BYTE)v5 == 1 )
+  {
+    LOBYTE(v5) = 1;
     goto LABEL_5;
+  }
 LABEL_6:
   _RAX = 1LL;
   __asm { cpuid }
-  v23 = (unsigned int)_RDX;
-  v128 = _RCX;
-  v24 = _RBX;
-  *(_QWORD *)&v137 = __PAIR64__(_RBX, _RAX);
-  *((_QWORD *)&v137 + 1) = __PAIR64__(_RDX, _RCX);
+  v22 = (unsigned int)_RDX;
+  v140 = _RDX;
+  v142 = _RCX;
+  v143 = _RBX;
   _RAX = 0x80000000LL;
   __asm { cpuid }
-  v126 = _RAX;
+  v139 = _RAX;
   _RAX = 2147483649LL;
   __asm { cpuid }
-  v35 = _RDX;
-  v36 = (unsigned int)_RCX;
-  *(_QWORD *)&v136 = __PAIR64__(_RBX, _RAX);
-  *((_QWORD *)&v136 + 1) = __PAIR64__(_RDX, _RCX);
-  if ( !*v5 )
+  v33 = _RDX;
+  v34 = (unsigned int)_RCX;
+  if ( !*(_DWORD *)(a1 + 36) )
   {
-    if ( v12 == 1 )
+    if ( (_BYTE)v5 == 1 )
     {
-      v100 = *(_BYTE *)(a1 + 64);
-      v101 = *(_BYTE *)(a1 + 67);
-      v102 = *(_BYTE *)(a1 + 66);
-      if ( v100 == 15 && (v101 == 107 || v101 == 104) && v102 == 1 )
+      v89 = *(_BYTE *)(a1 + 64);
+      v90 = *(_BYTE *)(a1 + 67);
+      v91 = *(_BYTE *)(a1 + 66);
+      if ( v89 == 15 && (v90 == 107 || v90 == 104) && v91 == 1 )
       {
         KiCacheErrataMonitor |= 1uLL;
       }
-      else if ( v100 == 16 && (!v101 && v102 <= 2u || v101 == 2 && (v102 <= 2u || v102 == 10) || v101 == 4 && !v102) )
+      else if ( v89 == 16 && (!v90 && v91 <= 2u || v90 == 2 && (v91 <= 2u || v91 == 10) || v90 == 4 && !v91) )
       {
         KiCacheErrataMonitor |= 2uLL;
       }
     }
-    if ( !*v5 )
+    if ( !*(_DWORD *)(a1 + 36) )
     {
-      v83 = *(_BYTE *)(a1 + 141);
-      if ( v83 == 1 )
+      v87 = *(_BYTE *)(a1 + 141);
+      if ( v87 == 1 )
       {
         if ( *(_BYTE *)(a1 + 64) == 23 )
           KiAccessBitErrata = 1;
       }
-      else if ( v83 == 2 && *(_BYTE *)(a1 + 64) == 6 )
+      else if ( v87 == 2 && *(_BYTE *)(a1 + 64) == 6 )
       {
-        if ( (v84 = *(unsigned __int8 *)(a1 + 67), (unsigned __int8)v84 <= 0x36u)
-          && (v85 = 0x6000C010000000LL, _bittest64(&v85, v84))
-          || (LOBYTE(v84) = v84 - 55, (unsigned __int8)v84 <= 0x16u)
-          && (v86 = 4718593, _bittest(&v86, v84))
+        if ( (v88 = *(unsigned __int8 *)(a1 + 67), (unsigned __int8)v88 <= 0x36u)
+          && (_RDX = 0x6000C010000000LL, _bittest64(&_RDX, v88))
+          || (LOBYTE(v88) = v88 - 55, (unsigned __int8)v88 <= 0x16u)
+          && (v92 = 4718593, _bittest(&v92, v88))
           && *(_BYTE *)(a1 + 66) <= 7u )
         {
           KiAccessBitErrata = 2;
@@ -309,128 +216,194 @@ LABEL_6:
       }
     }
   }
-  KiDetectKvaLeakage(a1);
+  KiDetectKvaLeakage(a1, _RDX, v5, 1LL);
   _m_prefetchw((const void *)a1);
+  v35 = 1;
   if ( *(_BYTE *)(a1 + 141) == 1 )
-  {
-    v35 |= 0x100000u;
-    HIDWORD(v136) = v35;
-  }
-  *(_DWORD *)(a1 + 212) = HIBYTE(v24);
-  *(_DWORD *)(a1 + 232) = (v24 >> 5) & 0x7F8;
-  if ( (v23 & 0x789F3FD) != 0x789F3FD
-    || (v35 & 0x800) == 0
-    || (v35 & 0x100000) == 0
-    || (v128 & 0x2000) == 0
-    || (v36 & 1) == 0
+    v33 |= 0x100000u;
+  *(_DWORD *)(a1 + 212) = HIBYTE(v143);
+  *(_DWORD *)(a1 + 232) = (v143 >> 5) & 0x7F8;
+  v36 = 0;
+  if ( (v22 & 0x789F3FD) != 0x789F3FD
+    || (v33 & 0x800) == 0
+    || (v33 & 0x100000) == 0
+    || (v142 & 0x2000) == 0
+    || (v34 & 1) == 0
     || (_DWORD)KiOpPrefetchPatchSkip )
   {
     if ( !*(_DWORD *)(a1 + 36) )
       KdInitSystem(0LL, KeLoaderBlock_0);
-    KeBugCheckEx(0x5Du, v23, v35, v36, (unsigned int)KiOpPrefetchPatchSkip);
+    KeBugCheckEx(0x5Du, v22, v33, v34, (unsigned int)KiOpPrefetchPatchSkip);
   }
-  v37 = *(_QWORD *)(a1 + 35232) | 0x20113DFELL;
-  if ( (*(_QWORD *)(a1 + 35232) & 0x400000000LL) != 0 )
+  v37 = *(_QWORD *)(a1 + 34208) | 0x20113DFELL;
+  if ( (*(_QWORD *)(a1 + 34208) & 0x400000000LL) != 0 )
     __writemsr(0xC0000103, *(unsigned __int8 *)(a1 + 209) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 208) << 8));
   __writemsr(0x174u, 0LL);
   __writemsr(0x176u, 0LL);
   __writemsr(0x175u, 0LL);
-  if ( (v35 & 0x2000000) != 0 )
+  if ( (v33 & 0x2000000) != 0 )
     __writemsr(0xC0000080, __readmsr(0xC0000080) | 0x4000);
-  *(_DWORD *)(a1 + 160) = 1;
-  *(_DWORD *)(a1 + 164) = 1;
-  *(_DWORD *)(a1 + 38344) = 1;
-  *(_DWORD *)(a1 + 38348) = 1;
-  v133 = v137;
-  v134 = v136;
-  KiComputeTopologyConstants(
-    *(unsigned __int8 *)(a1 + 141),
-    v127,
-    v126,
-    (__int64)&v134,
-    (unsigned int *)&v133,
-    (int *)&v129);
-  v38 = v129;
-  if ( (v129 & 0x10) != 0 )
-    *(_DWORD *)(a1 + 212) = v131;
-  v39 = 1;
-  if ( (v38 & 1) != 0 )
-    *(_DWORD *)(a1 + 164) = DWORD2(v129);
-  if ( (v38 & 8) != 0 )
-    *(_DWORD *)(a1 + 38348) = HIDWORD(v130);
-  if ( (v38 & 2) != 0 )
-    *(_DWORD *)(a1 + 160) = HIDWORD(v129);
-  if ( (v38 & 4) != 0 )
-    *(_DWORD *)(a1 + 38344) = v130;
-  *(_BYTE *)(a1 + 143) = *(_BYTE *)(a1 + 164);
-  *(_BYTE *)(a1 + 142) = *(_BYTE *)(a1 + 160);
-  v40 = (2 * (BYTE4(v129) & 1) + 1) | 4;
-  if ( (BYTE4(v129) & 8) == 0 )
-    v40 = 2 * (BYTE4(v129) & 1) + 1;
-  v41 = v40 | 8;
-  if ( (BYTE4(v129) & 4) == 0 )
-    v41 = v40;
-  v42 = v41 | 0x10;
-  if ( (BYTE4(v129) & 2) == 0 )
-    v42 = v41;
-  _InterlockedOr(&KiExplicitTopologyLevels, v42);
-  v43 = *(_BYTE *)(a1 + 141);
-  if ( v43 == 1 )
+  *(_DWORD *)(a1 + 152) = 1;
+  *(_DWORD *)(a1 + 156) = 1;
+  v38 = *(_BYTE *)(a1 + 141);
+  if ( (unsigned __int8)(v38 - 2) > 1u )
+  {
+    v54 = v139;
+    if ( v38 == 1 && v139 >= 0x80000008 )
+    {
+      _RAX = 2147483656LL;
+      __asm { cpuid }
+      v98 = _RCX;
+      v99 = (unsigned __int16)_RCX >> 12;
+      if ( !v99 )
+        _BitScanReverse((unsigned int *)&v99, 2 * v98 + 1);
+      *(_DWORD *)(a1 + 152) = 1 << v99;
+      if ( v139 >= 0x8000001E && (v34 & 0x400000) != 0 )
+      {
+        _RAX = 2147483678LL;
+        __asm { cpuid }
+        LODWORD(_RCX) = BYTE1(_RBX) + 1;
+        *(_DWORD *)(a1 + 156) = _RCX;
+        *(_DWORD *)(a1 + 152) /= (unsigned int)_RCX;
+        *(_DWORD *)(a1 + 212) = _RAX;
+      }
+    }
+    v39 = v137;
+  }
+  else
+  {
+    v39 = v137;
+    if ( v137 >= 0x1F )
+    {
+      _RAX = 31LL;
+      __asm { cpuid }
+      if ( (_DWORD)_RBX )
+        v36 = 31;
+    }
+    else
+    {
+      LODWORD(_RDX) = v141;
+    }
+    if ( v36 )
+      goto LABEL_27;
+    if ( v137 >= 0xB )
+    {
+      _RAX = 11LL;
+      __asm { cpuid }
+      if ( (_DWORD)_RBX )
+        v36 = 11;
+    }
+    if ( v36 )
+    {
+LABEL_27:
+      *(_DWORD *)(a1 + 212) = _RDX;
+      v45 = 0;
+      v46 = 1;
+      do
+      {
+        _RAX = v36;
+        __asm { cpuid }
+        ++v45;
+        v52 = (unsigned int)_RCX >> 8;
+        if ( v52 )
+        {
+          v53 = _RAX & 0x1F;
+          if ( v52 == 1 )
+            *(_DWORD *)(a1 + 156) = 1 << v53;
+          else
+            v46 = 1 << v53;
+        }
+      }
+      while ( (_WORD)_RBX );
+      *(_DWORD *)(a1 + 152) = v46 / *(_DWORD *)(a1 + 156);
+      v39 = v137;
+      v35 = 1;
+    }
+    else
+    {
+      v109 = 1;
+      if ( v137 >= 4 )
+      {
+        _RAX = 4LL;
+        __asm { cpuid }
+        _BitScanReverse((unsigned int *)&_RCX, 2 * ((unsigned int)_RAX >> 26) + 1);
+        v109 = 1 << _RCX;
+        *(_DWORD *)(a1 + 152) = 1 << _RCX;
+      }
+      if ( (v140 & 0x10000000) != 0 )
+      {
+        _BitScanReverse(&v115, 2 * BYTE2(v143) - 1);
+        *(_DWORD *)(a1 + 156) = (1 << v115) / v109;
+      }
+    }
+    v54 = v139;
+  }
+  v55 = *(_BYTE *)(a1 + 141);
+  if ( v55 == 1 )
   {
     v37 |= 0x200000uLL;
   }
-  else if ( v43 == 2 )
+  else if ( v55 == 2 )
   {
     v37 |= 0x1000000uLL;
   }
-  v44 = *(_DWORD *)(a1 + 36);
-  v45 = *(_DWORD *)(a1 + 164);
-  if ( v44 )
+  *(_BYTE *)(a1 + 142) = *(_BYTE *)(a1 + 152);
+  *(_BYTE *)(a1 + 143) = *(_BYTE *)(a1 + 156);
+  v56 = *(_DWORD *)(a1 + 156);
+  if ( *(_DWORD *)(a1 + 36) )
   {
     IsHyperThreadingEnabled = HalIsHyperThreadingEnabled();
-    v39 = 1;
+    v35 = 1;
     if ( !IsHyperThreadingEnabled )
-      v45 *= *(_DWORD *)(a1 + 160);
+      v56 *= *(_DWORD *)(a1 + 152);
   }
-  *(_DWORD *)(a1 + 220) = -v45;
-  if ( (unsigned __int8)(v43 - 1) > 2u || v126 < 0x80000008 )
+  *(_DWORD *)(a1 + 220) = -v56;
+  if ( (unsigned __int8)(*(_BYTE *)(a1 + 141) - 1) > 2u || v54 < 0x80000008 )
   {
-    if ( v43 == 1 )
+    if ( *(_BYTE *)(a1 + 141) == 1 )
       KiMtrrMaxRangeShift = 40;
   }
   else
   {
     _RAX = 2147483656LL;
     __asm { cpuid }
-    LODWORD(v135) = _RAX;
     KiMtrrMaxRangeShift = _RAX;
   }
   KiMtrrMaskBase = ((1LL << KiMtrrMaxRangeShift) - 1) & 0xFFFFFFFFFFFFF000uLL;
   KiMtrrMaskMask = ((1LL << KiMtrrMaxRangeShift) - 1) & 0xFFFFFFFFFFFFF000uLL;
-  v52 = __readcr4();
+  v63 = __readcr4();
   if ( (v37 & 1) != 0 )
-    v52 |= 0x100000uLL;
-  v53 = v52 | 0x10000;
+    v63 |= 0x100000uLL;
+  v64 = v63 | 0x10000;
   if ( (v37 & 0x10000000) == 0 )
-    v53 = v52;
+    v64 = v63;
   if ( KeSmapEnabled )
-    v53 |= 0x200000uLL;
-  v54 = v53 | 0x800;
+    v64 |= 0x200000uLL;
+  v65 = v64 | 0x800;
+  LOBYTE(_RAX) = KeFeatureBits2 & 4;
   if ( (KeFeatureBits2 & 4) == 0 )
-    v54 = v53;
-  _RCX = v54;
-  if ( v44 && (v37 & 0x40000000000LL) != 0 && KiFlushPcid )
-    _RCX = v54 | 0x20000;
-  __writecr4(_RCX);
+    v65 = v64;
+  v67 = v65;
+  if ( *(_DWORD *)(a1 + 36) )
+  {
+    LOBYTE(_RAX) = 0;
+    if ( (v37 & 0x40000000000LL) != 0 )
+    {
+      if ( KiFlushPcid )
+        v67 = v65 | 0x20000;
+    }
+  }
+  __writecr4(v67);
   if ( KeSmapEnabled )
     __asm { stac }
-  if ( (_RCX & 0x20000) != 0 )
+  if ( (v67 & 0x20000) != 0 )
   {
-    v56 = __readcr3();
-    __writecr3(v56 | 2);
+    v68 = __readcr3();
+    _RAX = v68 | 2;
+    __writecr3(_RAX);
   }
-  v57 = *(_BYTE *)(a1 + 141);
-  if ( v57 == 2 && v127 >= 7 )
+  v69 = *(_BYTE *)(a1 + 141);
+  if ( v69 == 2 && v39 >= 7 )
   {
     _RAX = 7LL;
     __asm { cpuid }
@@ -439,16 +412,19 @@ LABEL_6:
       _RAX = 16LL;
       __asm { cpuid }
       if ( (_RBX & 2) != 0 )
+      {
+        LOBYTE(_RAX) = 0;
         v37 |= 0x100000000000uLL;
+      }
     }
   }
-  v62 = v37 | 0x20000;
-  if ( !v125 )
-    v62 = v37;
-  v63 = v62;
-  if ( v57 != 2 )
+  v74 = v37 | 0x20000;
+  if ( !v138 )
+    v74 = v37;
+  v75 = v74;
+  if ( v69 != 2 )
   {
-    if ( v57 == 1 )
+    if ( v69 == 1 )
     {
       _RAX = 0x80000000LL;
       __asm { cpuid }
@@ -456,101 +432,98 @@ LABEL_6:
       {
         _RAX = 2147483658LL;
         __asm { cpuid }
-        v63 = v62 | 0x4000000;
+        v75 = v74 | 0x4000000;
         if ( (_RDX & 1) == 0 )
-          v63 = v62;
+          v75 = v74;
         if ( (_RDX & 0x20000) != 0 )
           HvlSetHardwareMbecAvailable();
         if ( (_RDX & 0x2000) != 0 )
           HvlSetApicVirtualizationAvailable();
       }
-      _RCX = 3221291284LL;
-      v117 = __readmsr(0xC0010114);
-      if ( (v117 & 0x10) == 0 )
+      _RAX = __readmsr(0xC0010114);
+      if ( (_RAX & 0x10) == 0 )
       {
-        v63 |= 0x8000000uLL;
-        KiVirtFlags |= v39;
+        v75 |= 0x8000000uLL;
+        KiVirtFlags |= v35;
       }
     }
-    goto LABEL_170;
+    goto LABEL_179;
   }
   _RAX = 1LL;
   __asm { cpuid }
   if ( (_RCX & 0x20) == 0 )
   {
-LABEL_170:
-    v70 = 0x10000000000LL;
-    goto LABEL_80;
+LABEL_179:
+    v82 = 0x10000000000LL;
+    goto LABEL_79;
   }
   if ( (__readmsr(0x482u) & 0x8000000000000000uLL) == 0LL )
   {
-    v70 = 0x10000000000LL;
+    v82 = 0x10000000000LL;
   }
   else
   {
-    v68 = __readmsr(0x48Bu);
-    v69 = v62 | 0x4000000;
-    if ( (v68 & 0x200000000LL) == 0 )
-      v69 = v62;
-    v62 = v69;
-    if ( (v69 & 1) != 0 && (v68 & 0x40000000000000LL) != 0 )
+    v80 = __readmsr(0x48Bu);
+    v81 = v74 | 0x4000000;
+    if ( (v80 & 0x200000000LL) == 0 )
+      v81 = v74;
+    v74 = v81;
+    if ( (v81 & 1) != 0 && (v80 & 0x40000000000000LL) != 0 )
       HvlSetHardwareMbecAvailable();
-    v70 = 0x10000000000LL;
-    if ( (v68 & 0x10000000000LL) != 0 )
+    v82 = 0x10000000000LL;
+    if ( (v80 & 0x10000000000LL) != 0 )
       HvlSetApicVirtualizationAvailable();
   }
-  _RCX = __readmsr(0x3Au);
-  v63 = v62 | 0x8000000;
-  if ( (_RCX & 5) != 5 )
-    v63 = v62;
-  if ( (_RCX & 4) != 0 )
-    KiVirtFlags |= v39;
-  if ( ((unsigned __int8)_RCX & (unsigned __int8)v39) != 0 )
+  _RAX = __readmsr(0x3Au);
+  v75 = v74 | 0x8000000;
+  if ( (_RAX & 5) != 5 )
+    v75 = v74;
+  if ( (_RAX & 4) != 0 )
+    KiVirtFlags |= v35;
+  if ( ((unsigned __int8)_RAX & (unsigned __int8)v35) != 0 )
     KiVirtFlags |= 2u;
-LABEL_80:
+LABEL_79:
   if ( *(_BYTE *)(a1 + 141) == 2 )
   {
     _RAX = 7LL;
     __asm { cpuid }
     if ( (_RBX & 4) != 0 )
     {
-      v75 = __readmsr(0x3Au);
-      _RCX = 262145LL;
-      if ( (v75 & 0x40001) == 0x40001 )
+      v130 = __readmsr(0x3Au);
+      _RAX = v130 & 0x40001;
+      if ( _RAX == 262145 )
       {
         _RAX = 18LL;
         __asm { cpuid }
-        v122 = _RAX;
-        if ( ((unsigned __int8)_RAX & (unsigned __int8)v39) != 0 )
+        v135 = _RAX;
+        if ( ((unsigned __int8)_RAX & (unsigned __int8)v35) != 0 )
         {
-          v63 |= v70;
-          _RCX = MmWriteableSharedUserData;
-          v123 = *(_DWORD *)(MmWriteableSharedUserData + 876) | 2;
-          *(_DWORD *)(MmWriteableSharedUserData + 876) = v123;
-          if ( (v122 & 2) != 0 )
+          v75 |= v82;
+          LODWORD(_RAX) = MEMORY[0xFFFFF7800000036C] | 2;
+          MEMORY[0xFFFFF7800000036C] |= 2u;
+          if ( (v135 & 2) != 0 )
           {
-            v63 |= 0x80000000000uLL;
-            *(_DWORD *)(_RCX + 876) = v123 | 4;
+            v75 |= 0x80000000000uLL;
+            LODWORD(_RAX) = _RAX | 4;
+            MEMORY[0xFFFFF7800000036C] = _RAX;
           }
         }
       }
     }
   }
-  if ( *(_BYTE *)(a1 + 141) != v39
-    || (v124 = *(_BYTE *)(a1 + 64), v124 <= 15)
-    || v124 == 17
-    || HviIsAnyHypervisorPresent() )
+  if ( *(_BYTE *)(a1 + 141) == v35 )
   {
-    v76 = (unsigned int *)(a1 + 36);
+    LOBYTE(_RAX) = *(_BYTE *)(a1 + 64);
+    if ( (char)_RAX > 15 && (_BYTE)_RAX != 17 )
+    {
+      LOBYTE(_RAX) = HviIsAnyHypervisorPresent();
+      if ( !(_BYTE)_RAX )
+      {
+        _RAX = __readmsr(0xC0011029) | 2;
+        __writemsr(0xC0011029, _RAX);
+      }
+    }
   }
-  else
-  {
-    _RCX = 3221295145LL;
-    __writemsr(0xC0011029, __readmsr(0xC0011029) | 2);
-    v76 = (unsigned int *)(a1 + 36);
-  }
-  KiInitializeHgsPlusWorkloadClasses(_RCX, *v76);
-  result = KiInitializeHresetSupport(*(unsigned int *)(a1 + 36));
-  *(_QWORD *)(a1 + 35232) = v63;
-  return result;
+  *(_QWORD *)(a1 + 34208) = v75;
+  return _RAX;
 }

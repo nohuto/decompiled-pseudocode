@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetPointOnEdge@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x1802595CC
+ * XREFs of ?GetPointOnEdge@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x18020905C
  * Callers:
- *     ?GetRandomPoint@CPathEdgeSpawner@EmitterShapes@@UEBA?AUfloat2@Numerics@Foundation@Windows@@AEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@M@Z @ 0x18022F920 (-GetRandomPoint@CPathEdgeSpawner@EmitterShapes@@UEBA-AUfloat2@Numerics@Foundation@Windows@@AEAV-.c)
+ *     ?GetRandomPoint@CPathEdgeSpawner@EmitterShapes@@UEBA?AUfloat2@Numerics@Foundation@Windows@@AEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@M@Z @ 0x1801E0A20 (-GetRandomPoint@CPathEdgeSpawner@EmitterShapes@@UEBA-AUfloat2@Numerics@Foundation@Windows@@AEAV-.c)
  * Callees:
- *     ?GetPointOnEdge@Figure@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x180259628 (-GetPointOnEdge@Figure@CPathEmitterEdge@EmitterShapes@@QEBA-AUfloat2@Numerics@Foundation@Windows.c)
+ *     ?GetPointOnEdge@Figure@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x1802090B8 (-GetPointOnEdge@Figure@CPathEmitterEdge@EmitterShapes@@QEBA-AUfloat2@Numerics@Foundation@Windows.c)
  */
 
 _DWORD *__fastcall EmitterShapes::CPathEmitterEdge::GetPointOnEdge(__int64 a1, _DWORD *a2, float a3)
@@ -13,12 +13,12 @@ _DWORD *__fastcall EmitterShapes::CPathEmitterEdge::GetPointOnEdge(__int64 a1, _
   __int128 v6; // xmm1
   __int128 v7; // xmm0
 
-  v3 = a3 * *(float *)(a1 + 16);
-  v5 = *(_QWORD *)(a1 + 24);
+  v3 = a3 * *(float *)(a1 + 24);
+  v5 = *(_QWORD *)(a1 + 32);
   v6 = 0LL;
   while ( 1 )
   {
-    if ( v5 == *(_QWORD *)(a1 + 32) )
+    if ( v5 == *(_QWORD *)(a1 + 40) )
     {
       *a2 = 0;
       a2[1] = 0;

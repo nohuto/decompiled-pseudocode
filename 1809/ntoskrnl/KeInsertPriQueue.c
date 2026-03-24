@@ -1,11 +1,11 @@
 /*
- * XREFs of KeInsertPriQueue @ 0x1400D18A0
+ * XREFs of KeInsertPriQueue @ 0x1400D18C0
  * Callers:
- *     ExpTryQueueWorkItem @ 0x1400D170C (ExpTryQueueWorkItem.c)
+ *     ExpTryQueueWorkItem @ 0x1400D172C (ExpTryQueueWorkItem.c)
  * Callees:
- *     KiExitDispatcher @ 0x1400C2F50 (KiExitDispatcher.c)
- *     KiWakePriQueueWaiter @ 0x1400D15F8 (KiWakePriQueueWaiter.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBDF0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
+ *     KiWakePriQueueWaiter @ 0x1400D1618 (KiWakePriQueueWaiter.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
  */
 
 __int64 __fastcall KeInsertPriQueue(__int64 a1, __int64 a2, int a3, __int64 a4, char a5)

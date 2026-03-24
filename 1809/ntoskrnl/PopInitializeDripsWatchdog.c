@@ -3,13 +3,13 @@
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     PopCapturePlatformRole @ 0x1406CBB54 (PopCapturePlatformRole.c)
- *     PopIsDirectedDripsEnabled @ 0x1406ED194 (PopIsDirectedDripsEnabled.c)
- *     PopInitializeTimer @ 0x140759468 (PopInitializeTimer.c)
- *     PopDripsWatchdogInitializeActions @ 0x1409F7E08 (PopDripsWatchdogInitializeActions.c)
- *     PopDripsWatchdogInitializeCallbackTimer @ 0x1409F7E68 (PopDripsWatchdogInitializeCallbackTimer.c)
- *     PopDripsWatchdogInitializeDiagnosticTimer @ 0x1409F7F68 (PopDripsWatchdogInitializeDiagnosticTimer.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     PopCapturePlatformRole @ 0x1406CBB34 (PopCapturePlatformRole.c)
+ *     PopIsDirectedDripsEnabled @ 0x1406ED174 (PopIsDirectedDripsEnabled.c)
+ *     PopInitializeTimer @ 0x140759448 (PopInitializeTimer.c)
+ *     PopDripsWatchdogInitializeActions @ 0x1409F7E18 (PopDripsWatchdogInitializeActions.c)
+ *     PopDripsWatchdogInitializeCallbackTimer @ 0x1409F7E78 (PopDripsWatchdogInitializeCallbackTimer.c)
+ *     PopDripsWatchdogInitializeDiagnosticTimer @ 0x1409F7F78 (PopDripsWatchdogInitializeDiagnosticTimer.c)
  */
 
 void PopInitializeDripsWatchdog()
@@ -29,9 +29,9 @@ void PopInitializeDripsWatchdog()
       && (int)PopDripsWatchdogInitializeCallbackTimer() >= 0
       && (int)PopDripsWatchdogInitializeDiagnosticTimer() >= 0 )
     {
-      dword_140416C28 |= 2u;
+      dword_140416CA8 |= 2u;
 LABEL_4:
-      dword_140416C28 |= 1u;
+      dword_140416CA8 |= 1u;
     }
   }
   else if ( PopPlatformAoAc )

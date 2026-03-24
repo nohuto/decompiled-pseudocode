@@ -1,18 +1,18 @@
 /*
- * XREFs of PspSiloInitializeSystemRootSymlink @ 0x1409AC86C
+ * XREFs of PspSiloInitializeSystemRootSymlink @ 0x140906AC0
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1409AC180 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x140906470 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140204738 (PsGetServerSiloGlobals.c)
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     PsDetachSiloFromCurrentThread @ 0x1402D7F90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x1402D7FB0 (PsAttachSiloToCurrentThread.c)
- *     RtlUShortAdd @ 0x1402DE190 (RtlUShortAdd.c)
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateSymbolicLinkObject @ 0x14041D000 (ZwCreateSymbolicLinkObject.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
+ *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     RtlUShortAdd @ 0x1402B256C (RtlUShortAdd.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateSymbolicLinkObject @ 0x1403FBBC0 (ZwCreateSymbolicLinkObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall PspSiloInitializeSystemRootSymlink(struct _LIST_ENTRY *a1)
@@ -40,7 +40,7 @@ NTSTATUS __fastcall PspSiloInitializeSystemRootSymlink(struct _LIST_ENTRY *a1)
   v15 = 0;
   Handle = 0LL;
   ServerSiloGlobals = (const UNICODE_STRING *)PsGetServerSiloGlobals((__int64)a1);
-  result = RtlUShortAdd(0x14u, ServerSiloGlobals[79].Length, &pusResult);
+  result = RtlUShortAdd(0x14u, ServerSiloGlobals[67].Length, &pusResult);
   if ( result >= 0 )
   {
     v4 = pusResult;
@@ -52,7 +52,7 @@ NTSTATUS __fastcall PspSiloInitializeSystemRootSymlink(struct _LIST_ENTRY *a1)
       DestinationString.MaximumLength = v4;
       DestinationString.Buffer = PoolWithTag;
       RtlCopyUnicodeString(&DestinationString, &PspSystemRootTargetPrefix);
-      RtlAppendUnicodeStringToString(&DestinationString, ServerSiloGlobals + 79);
+      RtlAppendUnicodeStringToString(&DestinationString, ServerSiloGlobals + 67);
       v10 = 48;
       v13 = &PspSystemRootSymlinkName;
       v12 = 0LL;

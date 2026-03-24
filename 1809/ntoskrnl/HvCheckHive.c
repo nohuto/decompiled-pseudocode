@@ -3,12 +3,12 @@
  * Callers:
  *     CmCheckRegistry @ 0x1405A848C (CmCheckRegistry.c)
  * Callees:
- *     SetFailureLocation @ 0x14026BA58 (SetFailureLocation.c)
+ *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
  *     HvCheckBin @ 0x1405F2100 (HvCheckBin.c)
  *     HvMoveLayoutStats @ 0x1405F2340 (HvMoveLayoutStats.c)
  *     HvpMapEntryGetFreeBin @ 0x1405F9C1C (HvpMapEntryGetFreeBin.c)
  *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
- *     HvAddToLayoutStats @ 0x1406B9938 (HvAddToLayoutStats.c)
+ *     HvAddToLayoutStats @ 0x1406B9918 (HvAddToLayoutStats.c)
  */
 
 __int64 __fastcall HvCheckHive(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)

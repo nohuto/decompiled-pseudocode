@@ -1,10 +1,10 @@
 /*
- * XREFs of _lambda_2c23dc335d575e6068a59f43383614b1_::operator() @ 0x1801AF470
+ * XREFs of _lambda_2c23dc335d575e6068a59f43383614b1_::operator() @ 0x180174840
  * Callers:
- *     ?DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMILMatrix@@@Z @ 0x1801B0F54 (-DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMIL.c)
- *     ?Render@CSpectreCallbackRenderer@@UEAAJXZ @ 0x1801E6920 (-Render@CSpectreCallbackRenderer@@UEAAJXZ.c)
+ *     ?DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMILMatrix@@@Z @ 0x180176198 (-DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMIL.c)
+ *     ?Render@CSpectreCallbackRenderer@@UEAAJXZ @ 0x18019F0D0 (-Render@CSpectreCallbackRenderer@@UEAAJXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall lambda_2c23dc335d575e6068a59f43383614b1_::operator()(_QWORD *a1)
@@ -26,5 +26,5 @@ __int64 __fastcall lambda_2c23dc335d575e6068a59f43383614b1_::operator()(_QWORD *
       i = *v1;
     }
   }
-  return (*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)*a1 + 48LL))(*a1);
+  return (*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)*a1 + 40LL))(*a1);
 }

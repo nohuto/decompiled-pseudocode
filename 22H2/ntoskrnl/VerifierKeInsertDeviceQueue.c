@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeInsertDeviceQueue @ 0x140AD0780
+ * XREFs of VerifierKeInsertDeviceQueue @ 0x1409D33A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierKeInsertDeviceQueue()

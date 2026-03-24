@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ProcessSetClearColor@CRenderTarget@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERTARGET_SETCLEARCOLOR@@@Z @ 0x1801A1B30
+ * XREFs of ?ProcessSetClearColor@CRenderTarget@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERTARGET_SETCLEARCOLOR@@@Z @ 0x18016FF50
  * Callers:
  *     <none>
  * Callees:
@@ -13,15 +13,15 @@ __int64 __fastcall CRenderTarget::ProcessSetClearColor(
 {
   bool v3; // zf
 
-  if ( *((float *)this + 31) != *((float *)a3 + 2)
-    || *((float *)this + 32) != *((float *)a3 + 3)
-    || *((float *)this + 33) != *((float *)a3 + 4)
-    || *((float *)this + 34) != *((float *)a3 + 5) )
+  if ( *((float *)this + 28) != *((float *)a3 + 2)
+    || *((float *)this + 29) != *((float *)a3 + 3)
+    || *((float *)this + 30) != *((float *)a3 + 4)
+    || *((float *)this + 31) != *((float *)a3 + 5) )
   {
-    v3 = *((_BYTE *)this + 140) == 0;
-    *(_OWORD *)((char *)this + 124) = *(_OWORD *)((char *)a3 + 8);
+    v3 = *((_BYTE *)this + 128) == 0;
+    *((_OWORD *)this + 7) = *(_OWORD *)((char *)a3 + 8);
     if ( !v3 )
-      *((_BYTE *)this + 141) = 1;
+      *((_BYTE *)this + 129) = 1;
   }
   return 0LL;
 }

@@ -2,7 +2,7 @@
  * XREFs of PoStartStopWatch @ 0x140001F80
  * Callers:
  *     PopStatsMarkPowerRequestActive @ 0x140588904 (PopStatsMarkPowerRequestActive.c)
- *     PopStatsNotifyAudioState @ 0x1406DB6EC (PopStatsNotifyAudioState.c)
+ *     PopStatsNotifyAudioState @ 0x1406DB6CC (PopStatsNotifyAudioState.c)
  * Callees:
  *     PopInternalUpdateActiveStopWatchesCollectionState @ 0x140001E98 (PopInternalUpdateActiveStopWatchesCollectionState.c)
  *     PopInternalUpdateStopWatchState @ 0x140001EF8 (PopInternalUpdateStopWatchState.c)

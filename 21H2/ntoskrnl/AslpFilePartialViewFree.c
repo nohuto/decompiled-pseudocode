@@ -1,10 +1,10 @@
 /*
- * XREFs of AslpFilePartialViewFree @ 0x140A1A5D0
+ * XREFs of AslpFilePartialViewFree @ 0x14096C6DC
  * Callers:
- *     AslpFileLargeMapDelete @ 0x140A1A570 (AslpFileLargeMapDelete.c)
+ *     AslpFileLargeMapDelete @ 0x14096C67C (AslpFileLargeMapDelete.c)
  * Callees:
- *     ZwUnmapViewOfSection @ 0x14041BCA0 (ZwUnmapViewOfSection.c)
- *     MmUnsecureVirtualMemory @ 0x1406F8010 (MmUnsecureVirtualMemory.c)
+ *     ZwUnmapViewOfSection @ 0x1403FA8E0 (ZwUnmapViewOfSection.c)
+ *     MmUnsecureVirtualMemory @ 0x14061F760 (MmUnsecureVirtualMemory.c)
  */
 
 void __fastcall AslpFilePartialViewFree(__int64 a1)

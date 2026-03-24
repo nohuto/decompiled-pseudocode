@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMOpenDeviceKey @ 0x1407BEE44
+ * XREFs of PiCMOpenDeviceKey @ 0x1406A8AF8
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0810 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406AD630 (PiCMHandleIoctl.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     PiCMReleaseObjectInputData @ 0x14079A5E8 (PiCMReleaseObjectInputData.c)
- *     PiAuDoesClientHaveAccess @ 0x14079AD98 (PiAuDoesClientHaveAccess.c)
- *     PiCMConvertDeviceKeyType @ 0x1407BEFD0 (PiCMConvertDeviceKeyType.c)
- *     PiCMReturnHandleResultData @ 0x1407BF054 (PiCMReturnHandleResultData.c)
- *     PiCMCaptureRegistryInputData @ 0x1407BF0EC (PiCMCaptureRegistryInputData.c)
- *     PiCMDuplicateRegistryHandle @ 0x1407BF28C (PiCMDuplicateRegistryHandle.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     PiAuDoesClientHaveAccess @ 0x140684D94 (PiAuDoesClientHaveAccess.c)
+ *     PiCMConvertDeviceKeyType @ 0x1406A8A64 (PiCMConvertDeviceKeyType.c)
+ *     PiCMDuplicateRegistryHandle @ 0x1406A8C84 (PiCMDuplicateRegistryHandle.c)
+ *     PiCMReturnHandleResultData @ 0x1406AC628 (PiCMReturnHandleResultData.c)
+ *     PiCMCaptureRegistryInputData @ 0x1406ACA2C (PiCMCaptureRegistryInputData.c)
+ *     PiCMReleaseRegistryInputData @ 0x1406ACC40 (PiCMReleaseRegistryInputData.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
  */
 
 __int64 __fastcall PiCMOpenDeviceKey(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5, _DWORD *a6)
@@ -19,7 +19,7 @@ __int64 __fastcall PiCMOpenDeviceKey(__int64 a1, __int64 a2, __int64 a3, unsigne
   _DWORD *v7; // r13
   KPROCESSOR_MODE PreviousMode; // r14
   int v10; // edi
-  __int64 v11; // rdi
+  int v11; // edi
   int v12; // ebx
   unsigned int v13; // esi
   __int64 v14; // rdx
@@ -45,26 +45,18 @@ __int64 __fastcall PiCMOpenDeviceKey(__int64 a1, __int64 a2, __int64 a3, unsigne
   v11 = v20;
   if ( (_QWORD)v20 && DWORD2(v19) == 1 && a3 && a4 >= 0x10 )
   {
-    v12 = PiCMConvertDeviceKeyType(DWORD1(v19), &a6);
+    v12 = PiCMConvertDeviceKeyType(SWORD2(v19), (int *)&a6);
     if ( v12 >= 0 )
     {
       v13 = HIDWORD(v20);
-      v12 = CmOpenDeviceRegKey(
-              *(__int64 *)&PiPnpRtlCtx,
-              v11,
-              (int)a6,
-              SDWORD1(v21),
-              SHIDWORD(v20),
-              0,
-              (__int64)&Handle,
-              0LL);
+      v12 = CmOpenDeviceRegKey(PiPnpRtlCtx, v11, (_DWORD)a6, DWORD1(v21), HIDWORD(v20), 0, (__int64)&Handle, 0LL);
       if ( v12 != -1073741772 )
         goto LABEL_8;
       if ( (_DWORD)v21 == 1 )
       {
         if ( PiAuDoesClientHaveAccess(2u) )
         {
-          v12 = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, v11, (int)a6, SDWORD1(v21), v13, 1, (__int64)&Handle, 0LL);
+          v12 = CmOpenDeviceRegKey(PiPnpRtlCtx, v11, (_DWORD)a6, DWORD1(v21), v13, 1, (__int64)&Handle, 0LL);
 LABEL_8:
           if ( v12 >= 0 )
           {
@@ -91,6 +83,6 @@ LABEL_10:
       ObCloseHandle(v18, PreviousMode);
   }
 LABEL_14:
-  PiCMReleaseObjectInputData((__int64)&v19);
+  PiCMReleaseRegistryInputData(&v19);
   return (unsigned int)v10;
 }

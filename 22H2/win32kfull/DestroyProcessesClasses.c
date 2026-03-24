@@ -1,9 +1,9 @@
 /*
- * XREFs of DestroyProcessesClasses @ 0x1C00EBC40
+ * XREFs of DestroyProcessesClasses @ 0x1C0115D00
  * Callers:
  *     <none>
  * Callees:
- *     DestroyClass @ 0x1C00EAB74 (DestroyClass.c)
+ *     DestroyClass @ 0x1C0078FA0 (DestroyClass.c)
  */
 
 __int64 __fastcall DestroyProcessesClasses(struct tagPROCESSINFO *a1)

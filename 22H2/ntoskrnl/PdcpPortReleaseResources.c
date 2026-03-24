@@ -1,11 +1,11 @@
 /*
- * XREFs of PdcpPortReleaseResources @ 0x1409C8A74
+ * XREFs of PdcpPortReleaseResources @ 0x14091B978
  * Callers:
- *     PdcPortOpenCommon @ 0x140857028 (PdcPortOpenCommon.c)
+ *     PdcPortOpenCommon @ 0x1407CF858 (PdcPortOpenCommon.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PdcpPortReleaseResources(_QWORD *P)

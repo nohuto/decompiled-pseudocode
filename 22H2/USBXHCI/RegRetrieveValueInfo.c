@@ -1,44 +1,46 @@
 /*
- * XREFs of RegRetrieveValueInfo @ 0x1C007B874
+ * XREFs of RegRetrieveValueInfo @ 0x1C007809C
  * Callers:
- *     TelemetryData_pInitWerContext @ 0x1C007B340 (TelemetryData_pInitWerContext.c)
+ *     TelemetryData_pInitWerContext @ 0x1C0077B68 (TelemetryData_pInitWerContext.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall RegRetrieveValueInfo(HANDLE KeyHandle, PUNICODE_STRING ValueName, _QWORD *a3)
 {
-  void *Pool2; // rbx
-  ULONG Length; // esi
+  PVOID PoolWithTag; // rbx
+  ULONG Length; // ebp
   NTSTATUS v8; // eax
   int v9; // edi
   ULONG ResultLength; // [rsp+60h] [rbp+18h] BYREF
 
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   *a3 = 0LL;
   Length = 1024;
-  while ( 1 )
+  do
   {
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0x74614454u);
-    Pool2 = (void *)ExAllocatePool2(256LL, Length, 1952531540LL);
-    if ( !Pool2 )
-      break;
-    ResultLength = 0;
-    v8 = ZwQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, Pool2, Length, &ResultLength);
-    Length = ResultLength;
-    v9 = v8;
-    if ( v8 != -2147483643 && v8 != -1073741789 )
-      goto LABEL_9;
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0x74614454u);
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, Length, 0x74614454u);
+    if ( PoolWithTag )
+    {
+      ResultLength = 0;
+      v8 = ZwQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, PoolWithTag, Length, &ResultLength);
+      Length = ResultLength;
+      v9 = v8;
+    }
+    else
+    {
+      v9 = -1073741670;
+    }
   }
-  v9 = -1073741670;
-LABEL_9:
+  while ( v9 == -2147483643 || v9 == -1073741789 );
   if ( v9 < 0 )
   {
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0x74614454u);
-    Pool2 = 0LL;
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0x74614454u);
+    PoolWithTag = 0LL;
   }
-  *a3 = Pool2;
+  *a3 = PoolWithTag;
   return (unsigned int)v9;
 }

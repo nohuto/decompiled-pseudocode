@@ -1,152 +1,190 @@
 /*
- * XREFs of ?DmmConvertDWMCloneToUnpinnedHardwareCloneOnSource@@YAJPEAXPEAI_KPEAUD3DKMDT_HVIDPN__@@1@Z @ 0x1C03AC7B8
+ * XREFs of ?DmmConvertDWMCloneToUnpinnedHardwareCloneOnSource@@YAJPEAXPEAI_KPEAUD3DKMDT_HVIDPN__@@1@Z @ 0x1C02DC790
  * Callers:
- *     ?GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z @ 0x1C021D210 (-GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z.c)
+ *     ?GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z @ 0x1C00E12BC (-GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z.c)
  * Callees:
- *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C0006D74 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00072BC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@@SAPEAVDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@Z @ 0x1C000A584 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@@SAPEAVDMMVIDPN@@PEAUD3DKMDT.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?GetNumPathsFromSource@DMMVIDPNTOPOLOGY@@QEBAJIPEA_K@Z @ 0x1C017249C (-GetNumPathsFromSource@DMMVIDPNTOPOLOGY@@QEBAJIPEA_K@Z.c)
- *     ?AddPathToVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GEW4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@@Z @ 0x1C0199F4C (-AddPathToVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_IM.c)
- *     ?EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z @ 0x1C019A618 (-EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z.c)
- *     ?RemovePathFromVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIE@Z @ 0x1C03AF934 (-RemovePathFromVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIE@Z.c)
- *     ?UnpinPathModalityFromSource@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@I@Z @ 0x1C03B041C (-UnpinPathModalityFromSource@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@I@Z.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C00074F0 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C0009550 (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@@SAPEAVDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@Z @ 0x1C0009790 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@@SAPEAVDMMVIDPN@@PEAUD3DKMDT.c)
+ *     ?GetNumPathsFromSource@DMMVIDPNTOPOLOGY@@QEBAJIPEA_K@Z @ 0x1C00EBAA8 (-GetNumPathsFromSource@DMMVIDPNTOPOLOGY@@QEBAJIPEA_K@Z.c)
+ *     ?AddPathToVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GEW4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@@Z @ 0x1C012EC80 (-AddPathToVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_IM.c)
+ *     ?EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z @ 0x1C012F520 (-EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z.c)
+ *     ?RemovePathFromVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIE@Z @ 0x1C02E0A84 (-RemovePathFromVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIE@Z.c)
+ *     ?UnpinPathModalityFromSource@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@I@Z @ 0x1C02E1724 (-UnpinPathModalityFromSource@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@I@Z.c)
  */
 
 __int64 __fastcall DmmConvertDWMCloneToUnpinnedHardwareCloneOnSource(
         DXGADAPTER *a1,
         unsigned int *a2,
         unsigned __int64 a3,
-        struct D3DKMDT_HVIDPN__ *a4,
+        __int64 a4,
         unsigned int *a5)
 {
-  char *v6; // rbx
-  unsigned __int64 v8; // r13
-  VIDPN_MGR *v9; // r12
-  __int64 v10; // rax
-  __int64 v11; // rsi
-  __int64 v12; // rbx
-  __int64 v13; // rbp
-  DMMVIDPNTOPOLOGY *v14; // r15
-  unsigned __int64 v15; // rbx
-  unsigned int v16; // eax
+  unsigned int *v7; // r13
+  __int64 v9; // r14
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  VIDPN_MGR *v13; // r15
+  __int64 v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rdi
+  _QWORD *v18; // rax
+  __int64 v19; // rsi
+  DMMVIDPNTOPOLOGY *v20; // r12
+  __int64 v21; // rbx
+  unsigned int v22; // eax
   int NumPathsFromSource; // eax
-  unsigned __int64 v18; // r8
-  int v19; // eax
-  unsigned __int64 v20; // r14
-  int v21; // eax
-  unsigned __int64 v22; // rdx
-  struct DMMVIDPNPRESENTPATH *Path; // rax
-  int v24; // eax
-  unsigned __int64 v26; // rdx
-  enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE v27; // [rsp+40h] [rbp-58h]
-  unsigned __int64 v28; // [rsp+48h] [rbp-50h] BYREF
-  __int64 v29[9]; // [rsp+50h] [rbp-48h] BYREF
-  struct DMMVIDPNPRESENTPATH *v30; // [rsp+A0h] [rbp+8h] BYREF
-  unsigned int *v31; // [rsp+A8h] [rbp+10h]
-  unsigned __int64 v32; // [rsp+B0h] [rbp+18h]
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  int v26; // ebp
+  __int64 v27; // rax
+  int v28; // eax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // rbp
+  __int64 v32; // rax
+  int v33; // eax
+  __int64 v34; // rcx
+  __int64 v35; // rdx
+  __int64 v36; // rcx
+  struct DMMVIDPNPRESENTPATH *Path; // r13
+  __int64 v38; // rax
+  enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE v39; // eax
+  unsigned __int16 v40; // r13
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  __int64 v43; // rax
+  int v44; // eax
+  __int64 v45; // rcx
+  unsigned __int64 v47; // [rsp+40h] [rbp-48h] BYREF
+  __int64 v48[8]; // [rsp+48h] [rbp-40h] BYREF
+  enum _D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE v49; // [rsp+90h] [rbp+8h] BYREF
+  unsigned int *v50; // [rsp+98h] [rbp+10h]
+  unsigned __int64 v51; // [rsp+A0h] [rbp+18h]
 
-  v32 = a3;
-  v31 = a2;
-  v6 = (char *)a1 + 2920;
-  LODWORD(v8) = -1;
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(a1) || !*(_QWORD *)v6 )
-    WdLogSingleEntry0(1LL);
-  v9 = *(VIDPN_MGR **)(*(_QWORD *)v6 + 104LL);
-  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>((__int64)v29, (__int64)v9);
-  v10 = ExposedViaHandle<DMMVIDPN,D3DKMDT_HVIDPN__ *>::GetFromHandle((__int64)a4);
-  v11 = v10;
-  if ( v10 && *(VIDPN_MGR **)(v10 + 48) == v9 )
+  v51 = a3;
+  v50 = a2;
+  v7 = a2;
+  LODWORD(v9) = -1;
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(a1) || !*((_QWORD *)a1 + 337) )
   {
-    v13 = 0LL;
-    v14 = (DMMVIDPNTOPOLOGY *)(v10 + 96);
-    if ( a3 )
-    {
-      while ( 1 )
-      {
-        v28 = 0LL;
-        LODWORD(v30) = 0;
-        v15 = v31[v13];
-        v16 = v31[v13];
-        if ( v13 )
-          v16 = v8;
-        v8 = v16;
-        NumPathsFromSource = DMMVIDPNTOPOLOGY::GetNumPathsFromSource(v14, v31[v13], &v28);
-        if ( NumPathsFromSource < 0 )
-        {
-          if ( NumPathsFromSource == -1071774919 )
-          {
-            v22 = v15;
-            v12 = -1073741811LL;
-            goto LABEL_22;
-          }
-          WdLogSingleEntry0(1LL);
-        }
-        v18 = v28;
-        if ( v28 > 1 )
-          break;
-        v19 = DMMVIDPNTOPOLOGY::EnumPathTargetsFromSource(v14, (char *)(unsigned int)v15, 0LL, (unsigned int *)&v30);
-        v20 = (unsigned int)v30;
-        if ( v19 < 0 || (_DWORD)v30 == -1 )
-          WdLogSingleEntry0(1LL);
-        if ( a5 )
-          a5[v13] = v20;
-        if ( v13 )
-        {
-          Path = DMMVIDPNTOPOLOGY::FindPath(v14, v15, v20);
-          v30 = Path;
-          if ( !Path )
-          {
-            WdLogSingleEntry0(1LL);
-            Path = v30;
-          }
-          v27 = *((_DWORD *)Path + 26);
-          LOWORD(v30) = *((_WORD *)Path + 54);
-          if ( (int)VIDPN_MGR::RemovePathFromVidPnTopology(v9, v14, v15, v20, 0) < 0 )
-            WdLogSingleEntry0(1LL);
-          v24 = VIDPN_MGR::AddPathToVidPnTopology(v9, v14, v8, v20, v27, (unsigned __int16)v30, 1u, D3DKMDT_MCC_ENFORCE);
-          v12 = v24;
-          if ( v24 < 0 )
-          {
-            v18 = v8;
-            v26 = v20;
-            goto LABEL_34;
-          }
-        }
-        else
-        {
-          v21 = VIDPN_MGR::UnpinPathModalityFromSource(v9, v14, v8);
-          v12 = v21;
-          if ( v21 < 0 )
-          {
-            v22 = v8;
-LABEL_22:
-            WdLogSingleEntry3(2LL, v22, v11, v12);
-            goto LABEL_30;
-          }
-        }
-        if ( ++v13 >= v32 )
-          goto LABEL_29;
-      }
-      v26 = v15;
-      v12 = -1073741811LL;
-LABEL_34:
-      WdLogSingleEntry4(2LL, v26, v18, v11, v12);
-    }
-    else
-    {
-LABEL_29:
-      LODWORD(v12) = 0;
-    }
+    v12 = WdLogNewEntry5_WdAssertion(v11, v10);
+    WdLogEvent5_WdAssertion(v12);
   }
-  else
+  v13 = *(VIDPN_MGR **)(*((_QWORD *)a1 + 337) + 88LL);
+  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(v48, (__int64)v13);
+  v14 = ExposedViaHandle<DMMVIDPN,D3DKMDT_HVIDPN__ *>::GetFromHandle(a4);
+  v17 = v14;
+  if ( !v14 || *(VIDPN_MGR **)(v14 + 48) != v13 )
   {
-    LODWORD(v12) = -1073741811;
-    WdLogSingleEntry2(2LL, a4, -1073741811LL);
+    v18 = (_QWORD *)WdLogNewEntry5_WdError(v16, v15);
+    v18[3] = a4;
+    LODWORD(a4) = -1073741811;
+    v18[4] = -1073741811LL;
+LABEL_37:
+    WdLogEvent5_WdError(v18);
+    goto LABEL_31;
+  }
+  v19 = 0LL;
+  v20 = (DMMVIDPNTOPOLOGY *)(v14 + 96);
+  if ( a3 )
+  {
+    while ( 1 )
+    {
+      v21 = v7[v19];
+      v47 = 0LL;
+      v22 = v21;
+      v49 = D3DKMDT_VPPI_UNINITIALIZED;
+      if ( v19 )
+        v22 = v9;
+      v9 = v22;
+      NumPathsFromSource = DMMVIDPNTOPOLOGY::GetNumPathsFromSource(v20, (unsigned int)v21, &v47);
+      v26 = NumPathsFromSource;
+      if ( NumPathsFromSource < 0 )
+      {
+        if ( NumPathsFromSource == -1071774919 )
+          break;
+        v27 = WdLogNewEntry5_WdAssertion(v25, v24);
+        WdLogEvent5_WdAssertion(v27);
+      }
+      if ( v26 == -1071774919 )
+        break;
+      if ( v47 > 1 )
+      {
+        v18 = (_QWORD *)WdLogNewEntry5_WdError(v25, v24);
+        v18[3] = v21;
+        a4 = -1073741811LL;
+        v18[4] = v47;
+        goto LABEL_33;
+      }
+      v28 = DMMVIDPNTOPOLOGY::EnumPathTargetsFromSource((char **)v20, (unsigned int)v21, 0LL, (unsigned int *)&v49);
+      v31 = (unsigned int)v49;
+      if ( v28 < 0 || v49 == -1 )
+      {
+        v32 = WdLogNewEntry5_WdAssertion(v30, v29);
+        WdLogEvent5_WdAssertion(v32);
+      }
+      if ( a5 )
+        a5[v19] = v31;
+      if ( v19 )
+      {
+        Path = DMMVIDPNTOPOLOGY::FindPath(v20, v21, v31);
+        if ( !Path )
+        {
+          v38 = WdLogNewEntry5_WdAssertion(v36, v35);
+          WdLogEvent5_WdAssertion(v38);
+        }
+        v39 = *((_DWORD *)Path + 26);
+        v40 = *((_WORD *)Path + 54);
+        v49 = v39;
+        if ( (int)VIDPN_MGR::RemovePathFromVidPnTopology(v13, v20, v21, v31, 0) < 0 )
+        {
+          v43 = WdLogNewEntry5_WdAssertion(v42, v41);
+          WdLogEvent5_WdAssertion(v43);
+        }
+        v44 = VIDPN_MGR::AddPathToVidPnTopology(v13, v20, v9, v31, v49, v40, 1u, D3DKMDT_MCC_ENFORCE);
+        a4 = v44;
+        if ( v44 < 0 )
+        {
+          v18 = (_QWORD *)WdLogNewEntry5_WdError(v45, v15);
+          v18[3] = v31;
+          v18[4] = v9;
+LABEL_33:
+          v18[5] = v17;
+          v18[6] = a4;
+          goto LABEL_37;
+        }
+        v7 = v50;
+      }
+      else
+      {
+        v33 = VIDPN_MGR::UnpinPathModalityFromSource(v13, v20, v9);
+        a4 = v33;
+        if ( v33 < 0 )
+        {
+          v18 = (_QWORD *)WdLogNewEntry5_WdError(v34, v15);
+          v18[3] = v9;
+          goto LABEL_36;
+        }
+      }
+      if ( ++v19 >= v51 )
+        goto LABEL_30;
+    }
+    v18 = (_QWORD *)WdLogNewEntry5_WdError(v25, v24);
+    v18[3] = v21;
+    a4 = -1073741811LL;
+LABEL_36:
+    v18[4] = v17;
+    v18[5] = a4;
+    goto LABEL_37;
   }
 LABEL_30:
-  DXGFASTMUTEX::Release((struct _KTHREAD **)(v29[0] + 40));
-  return (unsigned int)v12;
+  LODWORD(a4) = 0;
+LABEL_31:
+  DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v48[0] + 40), v15);
+  return (unsigned int)a4;
 }

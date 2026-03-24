@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECRenderTargetBitmap@@OFA@EAAPEAXI@Z @ 0x180122720
+ * XREFs of ??_ECRenderTargetBitmap@@OFA@EAAPEAXI@Z @ 0x1800F56C0
  * Callers:
  *     <none>
  * Callees:

@@ -1,14 +1,14 @@
 /*
- * XREFs of PipRemoveDevicesInRelationList @ 0x14080ED34
+ * XREFs of PipRemoveDevicesInRelationList @ 0x140735D08
  * Callers:
- *     PnpDelayedRemoveWorker @ 0x14080EBD0 (PnpDelayedRemoveWorker.c)
+ *     PnpDelayedRemoveWorker @ 0x140735EC0 (PnpDelayedRemoveWorker.c)
  * Callees:
- *     PnpUnlinkDeviceRemovalRelations @ 0x140766258 (PnpUnlinkDeviceRemovalRelations.c)
- *     PnpDeleteLockedDeviceNodes @ 0x14076651C (PnpDeleteLockedDeviceNodes.c)
- *     IopFreeRelationList @ 0x140767600 (IopFreeRelationList.c)
- *     IopSortRelationListForRemove @ 0x140768080 (IopSortRelationListForRemove.c)
- *     IopRemoveRelationFromList @ 0x140958430 (IopRemoveRelationFromList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     IopSortRelationListForRemove @ 0x14073720C (IopSortRelationListForRemove.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x140737C58 (PnpUnlinkDeviceRemovalRelations.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x140738200 (PnpDeleteLockedDeviceNodes.c)
+ *     IopFreeRelationList @ 0x140739350 (IopFreeRelationList.c)
+ *     IopRemoveRelationFromList @ 0x1408B2894 (IopRemoveRelationFromList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipRemoveDevicesInRelationList(PVOID P)
@@ -20,7 +20,11 @@ __int64 __fastcall PipRemoveDevicesInRelationList(PVOID P)
   __int64 v6; // rcx
 
   v1 = *((_QWORD *)P + 7);
-  if ( v1 && (v3 = *(_QWORD *)(*(_QWORD *)(v1 + 312) + 40LL)) != 0 )
+  if ( v1 )
+    v3 = *(_QWORD *)(*(_QWORD *)(v1 + 312) + 40LL);
+  else
+    v3 = 0LL;
+  if ( v3 )
   {
     v4 = 0;
     if ( (*(_DWORD *)(v3 + 396) & 0x10) == 0 )
@@ -29,7 +33,7 @@ __int64 __fastcall PipRemoveDevicesInRelationList(PVOID P)
     PnpDeleteLockedDeviceNodes(*((_QWORD *)P + 7), *((_QWORD *)P + 8), 2, 0, *((_DWORD *)P + 21), 0, 0LL, 0LL);
     if ( v4 )
     {
-      if ( *(_DWORD *)(v3 + 300) == 784 )
+      if ( *(_DWORD *)(v3 + 300) == 782 )
         IopRemoveRelationFromList(*((_QWORD *)P + 8), *((_QWORD *)P + 7));
       PnpUnlinkDeviceRemovalRelations(v6, *((_QWORD *)P + 8));
     }
@@ -38,7 +42,7 @@ __int64 __fastcall PipRemoveDevicesInRelationList(PVOID P)
   {
     v5 = -1073741823;
   }
-  IopFreeRelationList(*((_QWORD **)P + 8));
+  IopFreeRelationList(*((PVOID *)P + 8));
   ExFreePoolWithTag(P, 0);
   return v5;
 }

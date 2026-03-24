@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFloatProperty@CPrimitiveColorMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0229690
+ * XREFs of ?SetFloatProperty@CPrimitiveColorMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01E9950
  * Callers:
  *     <none>
  * Callees:
@@ -22,9 +22,9 @@ __int64 __fastcall DirectComposition::CPrimitiveColorMarshaler::SetFloatProperty
   v5 = a2 - 1;
   if ( !v5 )
   {
-    if ( *((float *)this + 16) != a3 )
+    if ( *((float *)this + 14) != a3 )
     {
-      *((float *)this + 16) = a3;
+      *((float *)this + 14) = a3;
       goto LABEL_15;
     }
     goto LABEL_13;
@@ -32,9 +32,9 @@ __int64 __fastcall DirectComposition::CPrimitiveColorMarshaler::SetFloatProperty
   v6 = v5 - 1;
   if ( !v6 )
   {
-    if ( *((float *)this + 17) != a3 )
+    if ( *((float *)this + 15) != a3 )
     {
-      *((float *)this + 17) = a3;
+      *((float *)this + 15) = a3;
       goto LABEL_15;
     }
     goto LABEL_13;
@@ -42,9 +42,9 @@ __int64 __fastcall DirectComposition::CPrimitiveColorMarshaler::SetFloatProperty
   v7 = v6 - 1;
   if ( !v7 )
   {
-    if ( *((float *)this + 18) != a3 )
+    if ( *((float *)this + 16) != a3 )
     {
-      *((float *)this + 18) = a3;
+      *((float *)this + 16) = a3;
       goto LABEL_15;
     }
 LABEL_13:
@@ -55,9 +55,9 @@ LABEL_16:
   }
   if ( v7 == 1 )
   {
-    if ( *((float *)this + 19) != a3 )
+    if ( *((float *)this + 17) != a3 )
     {
-      *((float *)this + 19) = a3;
+      *((float *)this + 17) = a3;
 LABEL_15:
       v8 = 1;
       goto LABEL_16;

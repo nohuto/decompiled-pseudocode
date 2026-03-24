@@ -1,38 +1,67 @@
 /*
- * XREFs of ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C0085BD4
+ * XREFs of ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C00A0B08
  * Callers:
- *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00858A4 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
- *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00860F8 (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
- *     bAddFlEntry @ 0x1C0111EC0 (bAddFlEntry.c)
- *     ?GetNlsTablePath@@YAHIPEAG@Z @ 0x1C02793A4 (-GetNlsTablePath@@YAHIPEAG@Z.c)
+ *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00A096C (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
+ *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00E4680 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
  * Callees:
- *     StringCopyWorkerW @ 0x1C0085C48 (StringCopyWorkerW.c)
+ *     <none>
  */
 
-HRESULT __fastcall StringCchCatW(unsigned __int16 *a1, __int64 a2, size_t *a3)
+__int64 __fastcall StringCchCatW(unsigned __int16 *a1, __int64 a2, char *a3)
 {
-  unsigned __int16 *v3; // rax
   __int64 v4; // r9
-  HRESULT result; // eax
-  size_t v6; // [rsp+20h] [rbp-18h]
+  unsigned __int16 *v5; // rax
+  __int64 result; // rax
+  __int64 v7; // r8
+  unsigned __int16 *v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  char *v11; // r10
+  unsigned __int16 v12; // r8
+  unsigned __int16 *v13; // rax
 
-  v3 = a1;
   v4 = 260LL;
+  v5 = a1;
   do
   {
-    if ( !*v3 )
+    if ( !*v5 )
       break;
-    ++v3;
+    ++v5;
     --v4;
   }
   while ( v4 );
   result = v4 == 0 ? 0x80070057 : 0;
   if ( v4 )
-    return StringCopyWorkerW(
-             (unsigned __int16 *)((char *)a1 + ((2 * (260 - v4)) & -(__int64)(v4 != 0))),
-             ((v4 - 260) & ((unsigned __int128)-(__int128)(unsigned __int64)v4 >> 64)) + 260,
-             a3,
-             (STRSAFE_PCNZWCH)a3,
-             v6);
+    v7 = 260 - v4;
+  else
+    v7 = 0LL;
+  if ( v4 )
+  {
+    v8 = &a1[v7];
+    v9 = 260 - v7;
+    if ( 260 != v7 )
+    {
+      v10 = 2147483646LL;
+      v11 = (char *)(a3 - (char *)v8);
+      do
+      {
+        if ( !v10 )
+          break;
+        v12 = *(unsigned __int16 *)((char *)v8 + (_QWORD)v11);
+        if ( !v12 )
+          break;
+        *v8 = v12;
+        --v10;
+        ++v8;
+        --v9;
+      }
+      while ( v9 );
+    }
+    v13 = v8 - 1;
+    if ( v9 )
+      v13 = v8;
+    *v13 = 0;
+    return v9 == 0 ? 0x8007007A : 0;
+  }
   return result;
 }

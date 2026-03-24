@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Draw@CDropShadow@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18011DE60
+ * XREFs of ?Draw@CDropShadow@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F5DB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-int __fastcall CDropShadow::Draw(
+__int64 __fastcall CDropShadow::Draw(
         __int64 a1,
         struct CDrawingContext *a2,
         const struct D2D_SIZE_F *a3,

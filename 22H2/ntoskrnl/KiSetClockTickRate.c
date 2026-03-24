@@ -1,94 +1,65 @@
 /*
- * XREFs of KiSetClockTickRate @ 0x1402C2860
+ * XREFs of KiSetClockTickRate @ 0x1402F0A50
  * Callers:
- *     KiSetNextClockTickDueTime @ 0x1402C84E0 (KiSetNextClockTickDueTime.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x1405700EC (KiSetClockIntervalToMinimumRequested.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x1402F0984 (KiSetClockIntervalToMinimumRequested.c)
  * Callees:
- *     KiSetPendingTick @ 0x1402C2830 (KiSetPendingTick.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     KiEventClockStateChange @ 0x140347170 (KiEventClockStateChange.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     KiEventClockStateChange @ 0x1402F1018 (KiEventClockStateChange.c)
+ *     KiSetPendingTick @ 0x1402F109C (KiSetPendingTick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiSetClockTickRate(unsigned int a1, char a2)
 {
-  struct _KPRCB *CurrentPrcb; // rbx
-  unsigned __int32 v4; // r15d
-  _KCLOCK_TIMER_STATE *p_ClockTimerState; // rsi
-  int v7; // r14d
-  __int64 InterruptTimePrecise; // r14
-  ULONG v9; // edx
-  LARGE_INTEGER *v10; // rbx
-  LARGE_INTEGER *v12; // rbx
-  int v13; // eax
-  _BYTE v14[56]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v15; // [rsp+70h] [rbp+18h] BYREF
-  __int64 v16; // [rsp+78h] [rbp+20h] BYREF
+  unsigned __int32 v2; // edi
+  __int64 v5; // rcx
+  int v6; // eax
+  LARGE_INTEGER v7; // rdx
+  LARGE_INTEGER *v8; // rbx
+  int v9; // eax
+  __int64 result; // rax
+  __int64 v11; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v12; // [rsp+48h] [rbp+20h] BYREF
 
-  v15 = 0LL;
-  CurrentPrcb = KeGetCurrentPrcb();
-  v4 = KiClockState;
-  p_ClockTimerState = &CurrentPrcb->ClockTimerState;
-  v16 = a1;
+  v2 = KiClockState;
+  v11 = 0LL;
+  v12 = a1;
+  KiLastRequestedTimeIncrement = a1;
   if ( a2 )
   {
-    v7 = 1;
-    ((void (__fastcall *)(__int64, _QWORD, __int64 *))off_140C01CA0[0])(1LL, a1, &v15);
+    ((void (__fastcall *)(__int64, _QWORD, __int64 *))off_140C00890[0])(1LL, a1, &v11);
+    v6 = 1;
   }
   else
   {
-    ((void (__fastcall *)(_QWORD, _QWORD, __int64 *))off_140C01CA0[0])(0LL, a1, &v15);
-    v7 = 0;
+    ((void (__fastcall *)(_QWORD, _QWORD, __int64 *))off_140C00890[0])(0LL, a1, &v11);
+    v6 = 0;
   }
-  CurrentPrcb->ClockTimerState.OneShotState = v7;
-  KiSetPendingTick(1);
-  if ( CurrentPrcb->ClockOwner )
-  {
-    KeTimeIncrement = v15;
-    KiLastRequestedTimeIncrement = a1;
-    if ( KiClockTimerPerCpuTickScheduling )
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(v14);
-    else
-      InterruptTimePrecise = MEMORY[0xFFFFF78000000008];
-    KiClockTimerNextTickTime = InterruptTimePrecise + (unsigned int)KeTimeIncrement;
-    KiClockOwnerOneShotRequestState = a2 != 0;
-    if ( v4 == 2 )
-      v4 = _InterlockedExchange(&KiClockState, 0);
-    KiEventClockStateChange(0LL, v4, &v15, &v16);
-  }
-  else
-  {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(v14);
-  }
-  CurrentPrcb->ClockTimerState.TimeIncrement = v15;
-  CurrentPrcb->ClockTimerState.LastRequestedTimeIncrement = a1;
-  if ( KeTimeIncrement < (unsigned int)dword_140C41BD4 )
-    dword_140C41BD4 = KeTimeIncrement;
-  if ( KeTimeIncrement > (unsigned int)dword_140C41BD0 )
-    dword_140C41BD0 = KeTimeIncrement;
-  if ( a1 < dword_140C41BDC )
-    dword_140C41BDC = a1;
-  if ( a1 > dword_140C41BD8 )
-    dword_140C41BD8 = a1;
-  if ( CurrentPrcb->ClockOwner )
-  {
-    v12 = (LARGE_INTEGER *)((char *)&KiClockIncrementTrace + 32 * (unsigned int)KiClockIncrementTraceCount);
-    KiClockIncrementTraceCount = ((_BYTE)KiClockIncrementTraceCount + 1) & 0xF;
-    v13 = KiLastRequestedTimeIncrement;
-    v12->LowPart = KeTimeIncrement;
-    v12->HighPart = v13;
-    v12[1].QuadPart = InterruptTimePrecise;
-    v12[2] = KeQueryPerformanceCounter(0LL);
-    LOBYTE(v12[3].LowPart) = a2;
-  }
-  v9 = v15;
-  v10 = (LARGE_INTEGER *)((char *)p_ClockTimerState + 32 * p_ClockTimerState->ClockIncrementTraceIndex);
-  p_ClockTimerState->ClockIncrementTraceIndex = ((unsigned __int8)p_ClockTimerState->ClockIncrementTraceIndex + 1) & 0xF;
-  v10[99].LowPart = v9;
-  v10[99].HighPart = a1;
-  v10[100].QuadPart = InterruptTimePrecise;
-  v10[101] = KeQueryPerformanceCounter(0LL);
-  LOBYTE(v10[102].LowPart) = a2;
-  return (unsigned int)v15;
+  LOBYTE(v5) = 1;
+  KiClockOwnerOneShotRequestState = v6;
+  KiSetPendingTick(v5);
+  if ( v2 == 2 )
+    v2 = _InterlockedExchange(&KiClockState, 0);
+  KiEventClockStateChange(0LL, v2, &v11, &v12);
+  KeTimeIncrement = v11;
+  v7.QuadPart = MEMORY[0xFFFFF78000000008];
+  KiClockTimerNextTickTime = MEMORY[0xFFFFF78000000008] + (unsigned int)v11;
+  if ( (unsigned int)v11 < dword_140C31694 )
+    dword_140C31694 = v11;
+  if ( (unsigned int)v11 > dword_140C31690 )
+    dword_140C31690 = v11;
+  if ( a1 < dword_140C3169C )
+    dword_140C3169C = a1;
+  if ( a1 > dword_140C31698 )
+    dword_140C31698 = a1;
+  v8 = (LARGE_INTEGER *)((char *)&KiClockIncrementTrace + 32 * (unsigned int)KiClockIncrementTraceCount);
+  KiClockIncrementTraceCount = ((_BYTE)KiClockIncrementTraceCount + 1) & 0xF;
+  v9 = KiLastRequestedTimeIncrement;
+  v8->LowPart = v11;
+  v8->HighPart = v9;
+  v8[1] = v7;
+  v8[2] = KeQueryPerformanceCounter(0LL);
+  result = (unsigned int)KeTimeIncrement;
+  LOBYTE(v8[3].LowPart) = a2;
+  return result;
 }

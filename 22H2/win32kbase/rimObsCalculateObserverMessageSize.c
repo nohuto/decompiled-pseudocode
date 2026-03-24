@@ -1,10 +1,10 @@
 /*
- * XREFs of rimObsCalculateObserverMessageSize @ 0x1C01AD584
+ * XREFs of rimObsCalculateObserverMessageSize @ 0x1C017DCD0
  * Callers:
- *     rimObsCopyMessage @ 0x1C01AD980 (rimObsCopyMessage.c)
- *     rimObsPopInputMessage @ 0x1C01AE890 (rimObsPopInputMessage.c)
+ *     rimObsCopyMessage @ 0x1C017DF88 (rimObsCopyMessage.c)
+ *     rimObsPopInputMessage @ 0x1C017E928 (rimObsPopInputMessage.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall rimObsCalculateObserverMessageSize(_DWORD *a1)
@@ -15,7 +15,7 @@ __int64 __fastcall rimObsCalculateObserverMessageSize(_DWORD *a1)
   if ( *a1 )
   {
     if ( *a1 != 1 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 142);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 141);
   }
   else
   {

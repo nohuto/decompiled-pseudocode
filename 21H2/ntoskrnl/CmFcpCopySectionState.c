@@ -1,10 +1,10 @@
 /*
- * XREFs of CmFcpCopySectionState @ 0x1406BC8C0
+ * XREFs of CmFcpCopySectionState @ 0x14069FD58
  * Callers:
- *     CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x1406BC6A8 (CmFcManagerQueryFeatureConfigurationSectionInformation.c)
- *     CmFcManagerStartRuntimePhase @ 0x140B156F8 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x14069FB60 (CmFcManagerQueryFeatureConfigurationSectionInformation.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
  */
 
 LONG_PTR __fastcall CmFcpCopySectionState(__int64 a1, __int64 a2)

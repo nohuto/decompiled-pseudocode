@@ -1,17 +1,17 @@
 /*
- * XREFs of ?VidSchiWorkerThreadTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C0018CD0
+ * XREFs of ?VidSchiWorkerThreadTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C0014E50
  * Callers:
  *     <none>
  * Callees:
- *     VidSchiCheckYieldExitCondition @ 0x1C0018E0C (VidSchiCheckYieldExitCondition.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C002E3CC (McTemplateK0p_EtwWriteTransfer.c)
+ *     VidSchiCheckYieldExitCondition @ 0x1C0014F78 (VidSchiCheckYieldExitCondition.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0023F2C (McTemplateK0p_EtwWriteTransfer.c)
  */
 
-void __fastcall VidSchiWorkerThreadTimerCallback(struct _EX_TIMER *a1, char *a2)
+void __fastcall VidSchiWorkerThreadTimerCallback(struct _EX_TIMER *a1, void *a2)
 {
-  LARGE_INTEGER v3; // r14
-  char v4; // bp
-  __int64 v5; // rsi
+  LARGE_INTEGER v3; // rbp
+  char v4; // si
+  __int64 v5; // rdi
   __int64 *v6; // rcx
   __int64 v7; // rcx
   __int64 v8; // rcx
@@ -22,25 +22,24 @@ void __fastcall VidSchiWorkerThreadTimerCallback(struct _EX_TIMER *a1, char *a2)
 
   v12.QuadPart = 0LL;
   v3 = KeQueryPerformanceCounter(&v12);
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)a2 + 216, &LockHandle);
-  if ( v3.QuadPart >= *((_QWORD *)a2 + 24) )
+  KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)a2 + 214, &LockHandle);
+  if ( v3.QuadPart >= *((_QWORD *)a2 + 23) )
   {
-    ExCancelTimer(*((_QWORD *)a2 + 23), 0LL);
-    if ( (byte_1C0076981 & 1) != 0 )
+    ExCancelTimer(*((_QWORD *)a2 + 22), 0LL);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       McTemplateK0p_EtwWriteTransfer(v8, &EventYieldCancelExpirationTimer, v9, *((_QWORD *)a2 + 2));
-    *((_QWORD *)a2 + 24) = 0LL;
+    *((_QWORD *)a2 + 23) = 0LL;
   }
   else
   {
     v4 = 0;
     v5 = 0LL;
-    if ( *((_DWORD *)a2 + 20) )
+    if ( *((_DWORD *)a2 + 18) )
     {
       do
       {
-        v6 = (__int64 *)*((_QWORD *)a2 + 79);
-        if ( (unsigned int)v5 < *((_DWORD *)a2 + 176) )
+        v6 = (__int64 *)*((_QWORD *)a2 + 78);
+        if ( (unsigned int)v5 < *((_DWORD *)a2 + 174) )
           v6 += v5;
         v7 = *v6;
         v11 = 0;
@@ -52,11 +51,11 @@ void __fastcall VidSchiWorkerThreadTimerCallback(struct _EX_TIMER *a1, char *a2)
           v4 = 1;
         v5 = (unsigned int)(v5 + 1);
       }
-      while ( (unsigned int)v5 < *((_DWORD *)a2 + 20) );
+      while ( (unsigned int)v5 < *((_DWORD *)a2 + 18) );
       if ( v4 )
       {
-        *((_QWORD *)a2 + 153) = MEMORY[0xFFFFF78000000320];
-        KeSetEvent((PRKEVENT)(a2 + 1192), 0, 0);
+        *((_QWORD *)a2 + 151) = MEMORY[0xFFFFF78000000320];
+        KeSetEvent((PRKEVENT)a2 + 49, 0, 0);
       }
     }
   }

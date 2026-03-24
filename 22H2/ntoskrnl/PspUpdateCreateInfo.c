@@ -1,18 +1,18 @@
 /*
- * XREFs of PspUpdateCreateInfo @ 0x1406B9974
+ * XREFs of PspUpdateCreateInfo @ 0x14060CF84
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x14060A630 (NtCreateUserProcess.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     PspPropagateHandle @ 0x1406B9B44 (PspPropagateHandle.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
+ *     PspPropagateHandle @ 0x14060D18C (PspPropagateHandle.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
  */
 
 __int64 __fastcall PspUpdateCreateInfo(int a1, __int64 a2, __int64 a3)
 {
   int v5; // edi
   __int64 v6; // rbx
-  unsigned __int8 PreviousMode; // r14
+  unsigned __int8 v7; // r14
   __int64 v8; // r15
   __int64 v9; // rcx
   int v10; // ecx
@@ -29,21 +29,23 @@ __int64 __fastcall PspUpdateCreateInfo(int a1, __int64 a2, __int64 a3)
   v5 = 0;
   v6 = *(_QWORD *)(a2 + 40);
   v20[0] = 0LL;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  v7 = KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
   v8 = 2LL;
   if ( (*(_BYTE *)(a2 + 8) & 2) == 0 )
     goto LABEL_14;
   v9 = (unsigned int)(a1 - 2);
   if ( !(_DWORD)v9 )
   {
-    LODWORD(v9) = PreviousMode;
+    LODWORD(v9) = v7;
     v5 = PspPropagateHandle(v9, a2 + 168, v20);
     if ( v5 >= 0 )
     {
       *(_QWORD *)(v6 + 16) = *(_QWORD *)&v20[0];
       goto LABEL_14;
     }
-    goto LABEL_23;
+LABEL_22:
+    *(_QWORD *)&v20[0] = 0LL;
+    goto LABEL_14;
   }
   v10 = v9 - 1;
   if ( !v10 )
@@ -54,22 +56,20 @@ __int64 __fastcall PspUpdateCreateInfo(int a1, __int64 a2, __int64 a3)
   v11 = (unsigned int)(v10 - 2);
   if ( !(_DWORD)v11 )
   {
-    LODWORD(v11) = PreviousMode;
+    LODWORD(v11) = v7;
     v5 = PspPropagateHandle(v11, a2 + 192, v20);
     if ( v5 >= 0 )
     {
       *(_QWORD *)(v6 + 16) = *(_QWORD *)&v20[0];
       goto LABEL_14;
     }
-LABEL_23:
-    *(_QWORD *)&v20[0] = 0LL;
-    goto LABEL_14;
+    goto LABEL_22;
   }
   if ( (_DWORD)v11 == 1 )
   {
     if ( (*(_DWORD *)(a2 + 4) & 0x20) != 0 )
     {
-      LOBYTE(v11) = PreviousMode;
+      LOBYTE(v11) = v7;
       v5 = PspPropagateHandle(v11, a2 + 168, v20);
       if ( v5 < 0 )
       {
@@ -77,13 +77,13 @@ LABEL_23:
       }
       else
       {
-        LOBYTE(v12) = PreviousMode;
+        LOBYTE(v12) = v7;
         v5 = PspPropagateHandle(v12, a2 + 184, (char *)v20 + 8);
         if ( v5 < 0 )
           *((_QWORD *)&v20[0] + 1) = 0LL;
       }
       if ( v5 < 0 )
-        goto LABEL_16;
+        goto LABEL_23;
     }
     *(_DWORD *)(v6 + 16) = 0;
     v13 = (*(_BYTE *)(a3 + 2170) & 7) != 0;
@@ -114,12 +114,12 @@ LABEL_14:
     *(_DWORD *)(v6 + 8) = a1;
     return 0LL;
   }
-LABEL_16:
+LABEL_23:
   v19 = (HANDLE *)v20;
   do
   {
     if ( *v19 )
-      ObCloseHandle(*v19, PreviousMode);
+      ObCloseHandle(*v19, v7);
     ++v19;
     --v8;
   }

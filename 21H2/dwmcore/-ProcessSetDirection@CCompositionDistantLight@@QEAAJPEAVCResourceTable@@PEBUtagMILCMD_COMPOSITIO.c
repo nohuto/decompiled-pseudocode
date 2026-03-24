@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetDirection@CCompositionDistantLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONDISTANTLIGHT_SETDIRECTION@@@Z @ 0x1800F5AEC
+ * XREFs of ?ProcessSetDirection@CCompositionDistantLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONDISTANTLIGHT_SETDIRECTION@@@Z @ 0x1800DE7CC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionDistantLight::ProcessSetDirection(
@@ -18,8 +18,8 @@ __int64 __fastcall CCompositionDistantLight::ProcessSetDirection(
   v5[0] = *((_DWORD *)a3 + 2);
   v5[2] = *((_DWORD *)a3 + 4);
   v5[1] = v3;
-  return ((__int64 (__fastcall *)(char *, void *, _DWORD *))xmmword_1803D1CA0)(
-           (char *)this + SDWORD2(xmmword_1803D1CA0),
+  return ((__int64 (__fastcall *)(char *, void *, _DWORD *))xmmword_180345DB0)(
+           (char *)this + SDWORD2(xmmword_180345DB0),
            &CCompositionDistantLight::sc_Direction,
            v5);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SaveScreen@@YA_KPEAUtagWND@@K_KHHHH@Z @ 0x1C023D314
+ * XREFs of ?SaveScreen@@YA_KPEAUtagWND@@K_KHHHH@Z @ 0x1C023E88C
  * Callers:
- *     ?xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z @ 0x1C023D3F4 (-xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z.c)
+ *     ?xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z @ 0x1C023E96C (-xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z.c)
  * Callees:
- *     IntersectRect @ 0x1C004CD28 (IntersectRect.c)
- *     GetScreenRect @ 0x1C0110C1C (GetScreenRect.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     GreSaveScreenBits @ 0x1C029D748 (GreSaveScreenBits.c)
+ *     IntersectRect @ 0x1C0075160 (IntersectRect.c)
+ *     GetScreenRect @ 0x1C0122CA4 (GetScreenRect.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     GreSaveScreenBits @ 0x1C029EE44 (GreSaveScreenBits.c)
  */
 
 __int64 __fastcall SaveScreen(struct tagWND *a1, unsigned int a2, __int64 a3, int a4, int a5, int a6, int a7)
@@ -37,7 +37,7 @@ __int64 __fastcall SaveScreen(struct tagWND *a1, unsigned int a2, __int64 a3, in
     v12 = *(_DWORD *)(v9 + 92);
   v15[3] = a7 + a5;
   v15[1] = a5 + v12;
-  v14 = *GetScreenRect(&v14, v9);
+  v14 = *GetScreenRect(&v14);
   if ( (unsigned int)IntersectRect(v15, v15, v14.m128i_i32) )
     return GreSaveScreenBits(*(_QWORD *)(gpDispInfo + 40LL), a2, a3, v15);
   else

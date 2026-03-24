@@ -1,10 +1,10 @@
 /*
- * XREFs of GreGetUFIPathname @ 0x1C027A6E4
+ * XREFs of GreGetUFIPathname @ 0x1C027CB78
  * Callers:
- *     NtGdiGetUFIPathname @ 0x1C02ADB30 (NtGdiGetUFIPathname.c)
+ *     NtGdiGetUFIPathname @ 0x1C02AF3F0 (NtGdiGetUFIPathname.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ?ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C0279FF0 (-ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ?ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C027C480 (-ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
  */
 
 __int64 __fastcall GreGetUFIPathname(
@@ -74,7 +74,7 @@ LABEL_17:
       *a10 = 0;
       *a11 = 0;
       v19 = *(_QWORD *)v14;
-      if ( *(_QWORD *)(*(_QWORD *)v14 + 88LL) == qword_1C033BDF8 && !*(_DWORD *)(*(_QWORD *)(v19 + 80) + 8LL) )
+      if ( *(struct PDEV **)(*(_QWORD *)v14 + 88LL) == qword_1C0341AF0 && !*(_DWORD *)(*(_QWORD *)(v19 + 80) + 8LL) )
       {
         v20 = *(_DWORD *)(v19 + 208);
         if ( v20 >= 4 && (v20 & 1) == 0 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FindPointerInFrame@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@IPEAK@Z @ 0x1C01C58F8
+ * XREFs of ?FindPointerInFrame@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@IPEAK@Z @ 0x1C018E7D0
  * Callers:
- *     ?GetPointerHistoryFrameData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KIIPEAE1@Z @ 0x1C01CAE88 (-GetPointerHistoryFrameData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KIIPEAE1@Z.c)
+ *     ?GetPointerHistoryFrameData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KIIPEAE1@Z @ 0x1C01938DC (-GetPointerHistoryFrameData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KIIPEAE1@Z.c)
  * Callees:
- *     ?CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ @ 0x1C00E7CE8 (-CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ @ 0x1C0188920 (-CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ.c)
  */
 
 __int64 __fastcall CTouchProcessor::FindPointerInFrame(
@@ -13,70 +13,65 @@ __int64 __fastcall CTouchProcessor::FindPointerInFrame(
         int a3,
         unsigned int *a4)
 {
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // rcx
-  __int64 v11; // rdx
-  unsigned int v12; // ebx
+  unsigned int v7; // ecx
+  unsigned int v8; // edx
+  unsigned int v9; // ebx
+  _DWORD *v10; // rax
+  bool v11; // zf
+  unsigned int v12; // edx
   _DWORD *v13; // rax
-  bool v14; // zf
-  __int64 v15; // rcx
-  _DWORD *v16; // rax
 
   if ( !CTouchProcessor::CTouchProcessorLockShared(this) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v8, v7, v9);
-  v10 = *((unsigned int *)a2 + 12);
-  v11 = (unsigned int)v10;
-  v12 = *a4;
-  if ( *a4 >= (unsigned int)v10 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13457);
+  v7 = *((_DWORD *)a2 + 12);
+  v8 = v7;
+  v9 = *a4;
+  if ( *a4 >= v7 )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, (unsigned int)v10, v9);
-    v10 = *((unsigned int *)a2 + 12);
-    v11 = v10;
-    v12 = *a4;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13458);
+    v7 = *((_DWORD *)a2 + 12);
+    v8 = v7;
+    v9 = *a4;
   }
-  if ( v12 < (unsigned int)v11 )
+  if ( v9 < v8 )
   {
-    v13 = (_DWORD *)(*((_QWORD *)a2 + 30) + 480LL * v12 + 172);
+    v10 = (_DWORD *)(*((_QWORD *)a2 + 17) + 480LL * v9 + 172);
+    do
+    {
+      if ( *v10 == a3 )
+        break;
+      ++v9;
+      v10 += 120;
+    }
+    while ( v9 < v8 );
+  }
+  v11 = v9 == v7;
+  if ( v9 > v7 )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13478);
+    v11 = v9 == *((_DWORD *)a2 + 12);
+  }
+  if ( v11 )
+  {
+    v12 = *a4;
+    v9 = 0;
+    if ( !*a4 )
+      goto LABEL_17;
+    v13 = (_DWORD *)(*((_QWORD *)a2 + 17) + 172LL);
     do
     {
       if ( *v13 == a3 )
         break;
-      ++v12;
+      ++v9;
       v13 += 120;
     }
-    while ( v12 < (unsigned int)v11 );
+    while ( v9 < v12 );
+    if ( v9 >= v12 )
+LABEL_17:
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13498);
   }
-  v14 = v12 == (_DWORD)v10;
-  if ( v12 > (unsigned int)v10 )
-  {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, v11, v9);
-    v14 = v12 == *((_DWORD *)a2 + 12);
-  }
-  if ( v14 )
-  {
-    v15 = *a4;
-    v12 = 0;
-    if ( (_DWORD)v15 )
-    {
-      v16 = (_DWORD *)(*((_QWORD *)a2 + 30) + 172LL);
-      while ( *v16 != a3 )
-      {
-        ++v12;
-        v16 += 120;
-        if ( v12 >= (unsigned int)v15 )
-          goto LABEL_16;
-      }
-    }
-    else
-    {
-LABEL_16:
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v15, v11, v9);
-    }
-  }
-  if ( v12 >= *((_DWORD *)a2 + 12) || *(unsigned __int16 *)(480LL * v12 + *((_QWORD *)a2 + 30) + 172) != a3 )
+  if ( v9 >= *((_DWORD *)a2 + 12) || *(unsigned __int16 *)(480LL * v9 + *((_QWORD *)a2 + 17) + 172) != a3 )
     return 0LL;
-  *a4 = v12;
+  *a4 = v9;
   return 1LL;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of _tlgDefineProvider_annotation__Tlgg_hDxgKrnlTelemetryProviderProv @ 0x1C002EF54
+ * XREFs of _tlgDefineProvider_annotation__Tlgg_hDxgKrnlTelemetryProviderProv @ 0x1C0024E74
  * Callers:
  *     <none>
  * Callees:

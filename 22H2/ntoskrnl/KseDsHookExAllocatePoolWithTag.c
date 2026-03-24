@@ -1,10 +1,10 @@
 /*
- * XREFs of KseDsHookExAllocatePoolWithTag @ 0x1405813C0
+ * XREFs of KseDsHookExAllocatePoolWithTag @ 0x140527730
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KsepDsEventPoolAllocate @ 0x140582070 (KsepDsEventPoolAllocate.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KsepDsEventPoolAllocate @ 0x1405283E0 (KsepDsEventPoolAllocate.c)
  */
 
 __int64 __fastcall KseDsHookExAllocatePoolWithTag(int a1, int a2, char a3)
@@ -12,7 +12,7 @@ __int64 __fastcall KseDsHookExAllocatePoolWithTag(int a1, int a2, char a3)
   __int64 v6; // rbx
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h]
 
-  v6 = ((__int64 (*)(void))qword_140C06F78)();
+  v6 = ((__int64 (*)(void))qword_140C04D98)();
   KsepDsEventPoolAllocate(v6, (_DWORD)retaddr, a1, a2, a3);
   return v6;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ClearStateReportingFlags@DXGDEVICE@@QEAAXXZ @ 0x1C022FE56
+ * XREFs of ?ClearStateReportingFlags@DXGDEVICE@@QEAAXXZ @ 0x1C0254840
  * Callers:
- *     ?ReportState@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02C1B1C (-ReportState@ADAPTER_RENDER@@QEAAXXZ.c)
+ *     ?ReportState@ADAPTER_RENDER@@QEAAXXZ @ 0x1C0217214 (-ReportState@ADAPTER_RENDER@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

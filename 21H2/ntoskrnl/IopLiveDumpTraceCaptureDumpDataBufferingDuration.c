@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpTraceCaptureDumpDataBufferingDuration @ 0x14055ABF4
+ * XREFs of IopLiveDumpTraceCaptureDumpDataBufferingDuration @ 0x140508E20
  * Callers:
- *     IopLiveDumpStartDumpDataBuffering @ 0x140A67994 (IopLiveDumpStartDumpDataBuffering.c)
+ *     IopLiveDumpStartDumpDataBuffering @ 0x1409AD558 (IopLiveDumpStartDumpDataBuffering.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x14055A67C (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140508A20 (IopLiveDumpIsTracingEnabled.c)
  */
 
 char __fastcall IopLiveDumpTraceCaptureDumpDataBufferingDuration(const GUID *a1)
@@ -15,16 +15,13 @@ char __fastcall IopLiveDumpTraceCaptureDumpDataBufferingDuration(const GUID *a1)
   int v2; // eax
   __int64 v3; // rcx
   __int64 *v4; // rdi
-  __int64 v6; // [rsp+40h] [rbp-19h] BYREF
-  __int64 v7; // [rsp+48h] [rbp-11h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-9h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v9; // [rsp+60h] [rbp+7h] BYREF
-  __int64 *v10; // [rsp+80h] [rbp+27h]
-  int v11; // [rsp+88h] [rbp+2Fh]
-  int v12; // [rsp+8Ch] [rbp+33h]
-  __int64 *v13; // [rsp+90h] [rbp+37h]
-  int v14; // [rsp+98h] [rbp+3Fh]
-  int v15; // [rsp+9Ch] [rbp+43h]
+  __int64 v5; // rax
+  __int64 v7; // [rsp+40h] [rbp-58h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-50h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v9; // [rsp+58h] [rbp-40h] BYREF
+  __int64 *v10; // [rsp+78h] [rbp-20h]
+  int v11; // [rsp+80h] [rbp-18h]
+  int v12; // [rsp+84h] [rbp-14h]
 
   LOBYTE(v2) = IopLiveDumpIsTracingEnabled();
   if ( (_BYTE)v2 )
@@ -47,25 +44,22 @@ char __fastcall IopLiveDumpTraceCaptureDumpDataBufferingDuration(const GUID *a1)
                        0LL,
                        1u,
                        &UserData);
-        if ( (unsigned int)dword_140C064E0 > 5 )
+        if ( (unsigned int)dword_140C044D8 > 5 )
         {
-          LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140C064E0, 0x400000000000LL);
+          LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140C044D8, 0x200000000000LL);
           if ( (_BYTE)v2 )
           {
+            v5 = *v4;
             v12 = 0;
-            v15 = 0;
-            v10 = &v6;
-            v7 = *v4;
-            v6 = 0x1000000LL;
-            v13 = &v7;
+            v7 = v5;
             v11 = 8;
-            v14 = 8;
+            v10 = &v7;
             LOBYTE(v2) = tlgWriteTransfer_EtwWriteTransfer(
-                           (__int64)&dword_140C064E0,
-                           (unsigned __int8 *)byte_14002B141,
-                           a1 + 60,
-                           a1 + 59,
-                           4u,
+                           (__int64)&dword_140C044D8,
+                           (unsigned __int8 *)&word_140024C4E,
+                           a1 + 54,
+                           a1 + 53,
+                           3u,
                            &v9);
           }
         }

@@ -1,97 +1,106 @@
 /*
- * XREFs of NtGdiEndPage @ 0x1C0278330
+ * XREFs of NtGdiEndPage @ 0x1C027CB40
  * Callers:
  *     <none>
  * Callees:
- *     ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C001D278 (-bValidSurf@XDCOBJ@@QEAAHXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ?RestoreAttributesHelper@XDCOBJ@@AEAAXXZ @ 0x1C011C0E4 (-RestoreAttributesHelper@XDCOBJ@@AEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?UmpdSecurityGateNoUmpdObj@@YA_NXZ @ 0x1C0276638 (-UmpdSecurityGateNoUmpdObj@@YA_NXZ.c)
- *     ?vDone@RESTORESAVEDCATTRS@@QEAAXXZ @ 0x1C0277954 (-vDone@RESTORESAVEDCATTRS@@QEAAXXZ.c)
- *     ?vSaveAttributesAlways@XDCOBJ@@AEAAXXZ @ 0x1C02779B4 (-vSaveAttributesAlways@XDCOBJ@@AEAAXXZ.c)
- *     GreDeleteWnd @ 0x1C0288120 (GreDeleteWnd.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C00B55C4 (-bValidSurf@XDCOBJ@@QEAAHXZ.c)
+ *     ?RestoreAttributesHelper@XDCOBJ@@AEAAXXZ @ 0x1C013A550 (-RestoreAttributesHelper@XDCOBJ@@AEAAXXZ.c)
+ *     ?vDone@RESTORESAVEDCATTRS@@QEAAXXZ @ 0x1C013A590 (-vDone@RESTORESAVEDCATTRS@@QEAAXXZ.c)
+ *     ?vSaveAttributesAlways@XDCOBJ@@AEAAXXZ @ 0x1C013A5B8 (-vSaveAttributesAlways@XDCOBJ@@AEAAXXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     GreDeleteWnd @ 0x1C02872C0 (GreDeleteWnd.c)
+ *     ?bIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C0288330 (-bIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z.c)
  */
 
 __int64 __fastcall NtGdiEndPage(HDC a1)
 {
   int v1; // ebx
   unsigned int v2; // r14d
-  int v3; // ebx
-  __int64 v4; // rax
-  __int64 v5; // rsi
-  __int64 v6; // rdi
-  Gre::Base *v7; // rcx
-  XDCOBJ *v8; // rbx
-  int v9; // eax
-  EWNDOBJ *v10; // rcx
-  _QWORD v12[2]; // [rsp+20h] [rbp-30h] BYREF
-  _BYTE v13[32]; // [rsp+30h] [rbp-20h] BYREF
-  XDCOBJ *v14; // [rsp+78h] [rbp+28h] BYREF
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  int v5; // ebx
+  __int64 v6; // rsi
+  __int64 v7; // rdi
+  int v8; // ecx
+  XDCOBJ *v9; // rbx
+  int v10; // eax
+  struct _EPROCESS *CurrentProcess; // rax
+  EWNDOBJ *v12; // rcx
+  _QWORD v14[2]; // [rsp+20h] [rbp-30h] BYREF
+  _BYTE v15[32]; // [rsp+30h] [rbp-20h] BYREF
+  XDCOBJ *v16; // [rsp+78h] [rbp+28h] BYREF
 
   v1 = (int)a1;
   v2 = 0;
-  DCOBJ::DCOBJ((DCOBJ *)v12, a1);
-  if ( !(unsigned int)XDCOBJ::bValidSurf((XDCOBJ *)v12) || (v3 = v1 & 0x7F0000, v3 == 0x10000) || v3 == 6684672 )
+  DCOBJ::DCOBJ((DCOBJ *)v14, a1);
+  if ( (unsigned int)XDCOBJ::bValidSurf((XDCOBJ *)v14) )
   {
-LABEL_20:
-    v4 = v12[0];
-    goto LABEL_21;
-  }
-  v4 = v12[0];
-  v5 = *(_QWORD *)(v12[0] + 496LL);
-  if ( v5 )
-  {
-    v6 = *(_QWORD *)(v12[0] + 48LL);
-    v7 = (Gre::Base *)*(unsigned int *)(v6 + 40);
-    if ( ((unsigned __int8)v7 & 1) == 0 )
+    v5 = v1 & 0x7F0000;
+    if ( v5 != 0x10000 && v5 != 6684672 )
     {
-      if ( *(_QWORD *)(v6 + 2536) )
+      v6 = *(_QWORD *)(v14[0] + 496LL);
+      if ( v6 )
       {
-        v8 = 0LL;
-        v14 = 0LL;
-        if ( ((unsigned __int16)v7 & 0x8000) != 0 )
+        v7 = *(_QWORD *)(v14[0] + 48LL);
+        v8 = *(_DWORD *)(v7 + 40);
+        if ( (v8 & 1) == 0 )
         {
-          v9 = *(_DWORD *)(v12[0] + 44LL);
-          v8 = (XDCOBJ *)v12;
-          v14 = (XDCOBJ *)v12;
-          if ( (v9 & 2) != 0 )
+          if ( *(_QWORD *)(v7 + 2560) )
           {
-            XDCOBJ::RestoreAttributesHelper((XDCOBJ *)v12);
-            *(_DWORD *)(v12[0] + 44LL) &= ~2u;
-          }
-        }
-        if ( !UmpdSecurityGateNoUmpdObj(v7) || *(_QWORD *)(v6 + 2920) )
-        {
-          v2 = (*(__int64 (__fastcall **)(__int64))(v6 + 2920))(v5 + 24);
-          if ( v2 )
-          {
-            RESTORESAVEDCATTRS::vDone(&v14);
-            if ( (*(_DWORD *)(v6 + 40) & 0x8000) != 0 )
+            v9 = 0LL;
+            v16 = 0LL;
+            if ( (v8 & 0x8000) != 0 )
             {
-              *(_DWORD *)(v12[0] + 36LL) &= ~0x100u;
-              v10 = *(EWNDOBJ **)(v5 + 136);
-              if ( v10 )
+              v10 = *(_DWORD *)(v14[0] + 44LL);
+              v9 = (XDCOBJ *)v14;
+              v16 = (XDCOBJ *)v14;
+              if ( (v10 & 2) != 0 )
               {
-                GreDeleteWnd(v10);
-                *(_QWORD *)(v5 + 136) = 0LL;
+                XDCOBJ::RestoreAttributesHelper((XDCOBJ *)v14);
+                *(_DWORD *)(v14[0] + 44LL) &= ~2u;
               }
-              *(_WORD *)(v12[0] + 2088LL) = -1;
             }
-            v8 = v14;
+            if ( gUMPDSecurityLevel == 2
+              || gUMPDSecurityLevel
+              && (CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(gUMPDSecurityLevel, v3, v4),
+                  (unsigned int)bIsProcessLocalSystem(CurrentProcess))
+              || *(_QWORD *)(v7 + 2944) )
+            {
+              v2 = (*(__int64 (__fastcall **)(__int64))(v7 + 2944))(v6 + 24);
+              if ( v2 )
+              {
+                RESTORESAVEDCATTRS::vDone(&v16);
+                if ( (*(_DWORD *)(v7 + 40) & 0x8000) != 0 )
+                {
+                  *(_DWORD *)(v14[0] + 36LL) &= ~0x100u;
+                  v12 = *(EWNDOBJ **)(v6 + 136);
+                  if ( v12 )
+                  {
+                    GreDeleteWnd(v12);
+                    *(_QWORD *)(v6 + 136) = 0LL;
+                  }
+                  *(_WORD *)(v14[0] + 2096LL) = -1;
+                }
+                v9 = v16;
+              }
+            }
+            else if ( gfUMPDDebug )
+            {
+              DbgPrint(
+                "clientcore\\windows\\core\\ntgdi\\gre\\windows\\print.cxx:%d:NtGdiEndPage:!(PPFNVALID(po, SendPage))\n",
+                2380);
+            }
+            if ( v9 )
+              XDCOBJ::vSaveAttributesAlways(v9);
           }
         }
-        if ( v8 )
-          XDCOBJ::vSaveAttributesAlways(v8);
-        goto LABEL_20;
       }
     }
   }
-LABEL_21:
-  if ( v4 )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v12);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v13);
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v14);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v15);
   return v2;
 }

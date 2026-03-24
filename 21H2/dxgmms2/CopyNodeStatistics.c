@@ -1,8 +1,8 @@
 /*
- * XREFs of CopyNodeStatistics @ 0x1C00F3F60
+ * XREFs of CopyNodeStatistics @ 0x1C00D0E54
  * Callers:
- *     VidSchQueryNodeStatistics @ 0x1C00F4840 (VidSchQueryNodeStatistics.c)
- *     VidSchQueryProcessNodeStatistics @ 0x1C00F49B0 (VidSchQueryProcessNodeStatistics.c)
+ *     VidSchQueryNodeStatistics @ 0x1C00D1C40 (VidSchQueryNodeStatistics.c)
+ *     VidSchQueryProcessNodeStatistics @ 0x1C00D1D20 (VidSchQueryProcessNodeStatistics.c)
  * Callees:
  *     <none>
  */

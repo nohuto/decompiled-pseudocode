@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIFilterIrpDeviceEnumeratedCompletion @ 0x1C00914F0
+ * XREFs of ACPIFilterIrpDeviceEnumeratedCompletion @ 0x1C008F320
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalSetFlags @ 0x1C0001778 (ACPIInternalSetFlags.c)
- *     ACPIDebugGetIrpText @ 0x1C0001908 (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIInternalSetFlags @ 0x1C0002350 (ACPIInternalSetFlags.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
  */
 
 __int64 __fastcall ACPIFilterIrpDeviceEnumeratedCompletion(ULONG_PTR a1, __int64 a2)
@@ -37,29 +37,28 @@ __int64 __fastcall ACPIFilterIrpDeviceEnumeratedCompletion(ULONG_PTR a1, __int64
   RequiredSize = 0;
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   v9 = DeviceExtension;
-  if ( DeviceExtension
-    && (DevicePropertyData = IoGetDevicePropertyData(
-                               *(PDEVICE_OBJECT *)(DeviceExtension + 784),
-                               &DEVPKEY_PciDevice_OnPostPath,
-                               0,
-                               0,
-                               1u,
-                               &Data,
-                               &RequiredSize,
-                               Type),
-        v5 = DevicePropertyData,
-        DevicePropertyData >= 0)
-    && RequiredSize == 1
-    && Data )
+  if ( DeviceExtension )
   {
-    ACPIInternalSetFlags((void *)(v9 + 1000), 0x8000000000000uLL);
+    DevicePropertyData = IoGetDevicePropertyData(
+                           *(PDEVICE_OBJECT *)(DeviceExtension + 744),
+                           &DEVPKEY_PciDevice_OnPostPath,
+                           0,
+                           0,
+                           1u,
+                           &Data,
+                           &RequiredSize,
+                           Type);
+    v5 = DevicePropertyData;
+    if ( DevicePropertyData >= 0 && RequiredSize == 1 && Data )
+      ACPIInternalSetFlags((void *)(v9 + 960), 0x8000000000000uLL);
   }
-  else if ( !v9 )
+  if ( v9 )
   {
-    goto LABEL_5;
+    v8 = 0x200000000000LL;
+    v3 = v9;
+    if ( (*(_QWORD *)(v9 + 8) & 0x200000000000LL) != 0 )
+      v8 = 0x400000000000LL;
   }
-  v3 = v9;
-LABEL_5:
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     IrpText = ACPIDebugGetIrpText(v8, v6);
@@ -68,13 +67,13 @@ LABEL_5:
       4u,
       5u,
       0x15u,
-      (__int64)&WPP_e895f2808a1832dc95c5c4714d739d11_Traceguids,
+      (__int64)&WPP_22c0b63b2f1d30c22e2e761bc8912dea_Traceguids,
       v4,
       IrpText,
       v5,
       v3,
-      v13,
-      v12);
+      v12,
+      v13);
   }
   return 0LL;
 }

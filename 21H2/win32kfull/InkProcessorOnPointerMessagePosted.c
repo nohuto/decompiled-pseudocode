@@ -1,11 +1,11 @@
 /*
- * XREFs of InkProcessorOnPointerMessagePosted @ 0x1C021AD00
+ * XREFs of InkProcessorOnPointerMessagePosted @ 0x1C0220830
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F027C (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z @ 0x1C024CDC0 (-OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D21E4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ?OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z @ 0x1C024F888 (-OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z.c)
  */
 
 void __fastcall InkProcessorOnPointerMessagePosted(unsigned int a1, unsigned __int64 a2)
@@ -20,12 +20,12 @@ void __fastcall InkProcessorOnPointerMessagePosted(unsigned int a1, unsigned __i
   {
     InkProcessor::OnPointerMessagePosted(InkProcessor::s_pInstance, a1, a2);
   }
-  else if ( (unsigned int)dword_1C0326250 > 2 )
+  else if ( (unsigned int)dword_1C032B288 > 2 )
   {
     v2 = -1073741823;
     v4 = &v2;
     v6 &= (unsigned int)InkProcessor::s_pInstance;
     v5 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C0326250, (unsigned __int8 *)dword_1C02EFE22, 0LL, 0LL, 3u, &v3);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C032B288, (unsigned __int8 *)dword_1C02F2FAC, 0LL, 0LL, 3u, &v3);
   }
 }

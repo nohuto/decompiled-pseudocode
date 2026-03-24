@@ -1,12 +1,12 @@
 /*
- * XREFs of PcisuppGetRoutingInfo @ 0x1C009AE80
+ * XREFs of PcisuppGetRoutingInfo @ 0x1C0094D70
  * Callers:
- *     LinkNodeCrackPrt @ 0x1C00192F8 (LinkNodeCrackPrt.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     OSGetRegistryValue @ 0x1C009B014 (OSGetRegistryValue.c)
- *     IrqPolicyGetSubKey @ 0x1C009B108 (IrqPolicyGetSubKey.c)
- *     LinkNodeFindByName @ 0x1C00B5E40 (LinkNodeFindByName.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     OSGetRegistryValue @ 0x1C0094F04 (OSGetRegistryValue.c)
+ *     IrqPolicyGetSubKey @ 0x1C0094FF8 (IrqPolicyGetSubKey.c)
+ *     LinkNodeFindByName @ 0x1C00B67D8 (LinkNodeFindByName.c)
  */
 
 __int64 __fastcall PcisuppGetRoutingInfo(__int64 a1, _OWORD *a2)

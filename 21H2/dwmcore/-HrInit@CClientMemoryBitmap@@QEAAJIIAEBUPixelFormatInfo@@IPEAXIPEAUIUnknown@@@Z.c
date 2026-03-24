@@ -1,12 +1,12 @@
 /*
- * XREFs of ?HrInit@CClientMemoryBitmap@@QEAAJIIAEBUPixelFormatInfo@@IPEAXIPEAUIUnknown@@@Z @ 0x18005FE64
+ * XREFs of ?HrInit@CClientMemoryBitmap@@QEAAJIIAEBUPixelFormatInfo@@IPEAXIPEAUIUnknown@@@Z @ 0x18003230C
  * Callers:
- *     ?HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@@@Z @ 0x18005FD84 (-HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@.c)
+ *     ?HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@@@Z @ 0x180032238 (-HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@.c)
  * Callees:
- *     ?IsValidPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@@Z @ 0x18005FF98 (-IsValidPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@@Z.c)
- *     ??$SetInterface@UIUnknown@@U1@@@YAXAEAPEAUIUnknown@@PEAU0@@Z @ 0x18006F41C (--$SetInterface@UIUnknown@@U1@@@YAXAEAPEAUIUnknown@@PEAU0@@Z.c)
- *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z @ 0x180070044 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?IsValidPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@@Z @ 0x180032458 (-IsValidPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@@Z.c)
+ *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z @ 0x18003C160 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CClientMemoryBitmap::HrInit(
@@ -29,12 +29,12 @@ __int64 __fastcall CClientMemoryBitmap::HrInit(
   if ( !IsValidPixelFormatInfo(a4) || !a2 || !v13 || !a6 || !a7 )
   {
     v18 = 31;
-    goto LABEL_13;
+    goto LABEL_15;
   }
   if ( v13 >= 0x7FFFFFFF / a7 )
   {
     v18 = 36;
-LABEL_13:
+LABEL_15:
     v16 = -2147024809;
     MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147024809, v18, 0LL);
     return v16;
@@ -47,13 +47,15 @@ LABEL_13:
   }
   else
   {
-    SetInterface<IUnknown,IUnknown>((char *)this + 176, a8);
-    *((_DWORD *)this + 26) = a2;
-    *((_DWORD *)this + 27) = a3;
-    *((_QWORD *)this + 15) = *(_QWORD *)a4;
-    *((_DWORD *)this + 32) = *((_DWORD *)a4 + 2);
-    *((_QWORD *)this + 20) = a6;
-    *((_DWORD *)this + 42) = a7;
+    *((_QWORD *)this + 35) = a8;
+    if ( a8 )
+      ((void (__fastcall *)(struct IUnknown *))a8->lpVtbl->AddRef)(a8);
+    *((_DWORD *)this + 46) = a2;
+    *((_DWORD *)this + 47) = a3;
+    *((_QWORD *)this + 25) = *(_QWORD *)a4;
+    *((_DWORD *)this + 52) = *((_DWORD *)a4 + 2);
+    *((_QWORD *)this + 33) = a6;
+    *((_DWORD *)this + 68) = a7;
   }
   return v16;
 }

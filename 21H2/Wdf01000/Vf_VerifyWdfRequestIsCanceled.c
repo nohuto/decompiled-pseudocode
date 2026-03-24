@@ -1,12 +1,12 @@
 /*
- * XREFs of Vf_VerifyWdfRequestIsCanceled @ 0x1C00C7280
+ * XREFs of Vf_VerifyWdfRequestIsCanceled @ 0x1C00C6180
  * Callers:
- *     imp_WdfRequestIsCanceled @ 0x1C00106F0 (imp_WdfRequestIsCanceled.c)
+ *     imp_WdfRequestIsCanceled @ 0x1C00019E0 (imp_WdfRequestIsCanceled.c)
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?Vf_VerifyRequestIsDriverOwned@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C7908 (-Vf_VerifyRequestIsDriverOwned@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?Vf_VerifyRequestIsNotCancelable@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C7A94 (-Vf_VerifyRequestIsNotCancelable@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Vf_VerifyRequestIsDriverOwned@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C6814 (-Vf_VerifyRequestIsDriverOwned@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?Vf_VerifyRequestIsNotCancelable@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C69A4 (-Vf_VerifyRequestIsNotCancelable@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 __int64 __fastcall Vf_VerifyWdfRequestIsCanceled(
@@ -20,20 +20,17 @@ __int64 __fastcall Vf_VerifyWdfRequestIsCanceled(
 
   irql = 0;
   FxNonPagedObject::Lock(pRequest, &irql, a3);
-  if ( !FxDriverGlobals->FxVerifierOn )
-    goto LABEL_5;
-  IsDriverOwned = FxRequest::Vf_VerifyRequestIsDriverOwned(pRequest, FxDriverGlobals);
+  if ( FxDriverGlobals->FxVerifierOn )
+    IsDriverOwned = FxRequest::Vf_VerifyRequestIsDriverOwned(pRequest, FxDriverGlobals);
+  else
+    IsDriverOwned = 0;
   if ( IsDriverOwned >= 0 )
   {
     if ( FxDriverGlobals->FxVerifierOn )
-    {
       IsDriverOwned = FxRequest::Vf_VerifyRequestIsNotCancelable(pRequest, FxDriverGlobals);
-      goto LABEL_6;
-    }
-LABEL_5:
-    IsDriverOwned = 0;
+    else
+      IsDriverOwned = 0;
   }
-LABEL_6:
   FxNonPagedObject::Unlock(pRequest, irql, v5);
   return (unsigned int)IsDriverOwned;
 }

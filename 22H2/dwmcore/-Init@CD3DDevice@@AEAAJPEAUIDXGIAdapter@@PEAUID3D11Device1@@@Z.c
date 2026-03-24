@@ -1,203 +1,245 @@
 /*
- * XREFs of ?Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z @ 0x1800CFCEC
+ * XREFs of ?Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z @ 0x18002AC38
  * Callers:
- *     ?Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z @ 0x1800CEFB4 (-Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z.c)
+ *     ?Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z @ 0x18002AB64 (-Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?GenerateShaders@CD3DDevice@@AEAAJXZ @ 0x180026108 (-GenerateShaders@CD3DDevice@@AEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?QueryWarpExtension@CD3DDevice@@AEAAJXZ @ 0x1800CFFA0 (-QueryWarpExtension@CD3DDevice@@AEAAJXZ.c)
- *     ?InitSystemDevice@CD3DDevice@@AEAAJXZ @ 0x1800D0044 (-InitSystemDevice@CD3DDevice@@AEAAJXZ.c)
- *     ?CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ @ 0x1800D0228 (-CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ.c)
- *     ?GatherSupportedTextureFormats@CD3DDevice@@AEAAJXZ @ 0x1800D1080 (-GatherSupportedTextureFormats@CD3DDevice@@AEAAJXZ.c)
- *     ?InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDevice3@@@Z @ 0x1800D1270 (-InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDevice3@@@Z.c)
- *     ?IsShaderLinkingBlacklistedGpu@CCommonRegistryData@@SA_NII@Z @ 0x1800D1718 (-IsShaderLinkingBlacklistedGpu@CCommonRegistryData@@SA_NII@Z.c)
- *     ?CalcMaxTextureSize@CD3DDevice@@AEAAXXZ @ 0x1800D1794 (-CalcMaxTextureSize@CD3DDevice@@AEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0pqnz_EventWriteTransfer @ 0x18028F0C4 (McTemplateU0pqnz_EventWriteTransfer.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ @ 0x18002AF30 (-CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ.c)
+ *     ?InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDeviceDWM@@@Z @ 0x18002C2E4 (-InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDeviceDWM@@@Z.c)
+ *     ?CreateSharedHandleFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAUID3D11Fence@@PEAPEAXW4D3D11_FENCE_FLAG@@@Z @ 0x18002D088 (-CreateSharedHandleFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAUID3D11Fence@@PEAPEAXW4D3D11.c)
+ *     ?IsShaderLinkingBlacklistedGpu@CCommonRegistryData@@SA_NII@Z @ 0x18002D1A0 (-IsShaderLinkingBlacklistedGpu@CCommonRegistryData@@SA_NII@Z.c)
+ *     ?GatherSupportedTextureFormats@CD3DDevice@@AEAAJXZ @ 0x18002D238 (-GatherSupportedTextureFormats@CD3DDevice@@AEAAJXZ.c)
+ *     ?CalcMaxTextureSize@CD3DDevice@@AEAAXXZ @ 0x18002D408 (-CalcMaxTextureSize@CD3DDevice@@AEAAXXZ.c)
+ *     ?QueryWarpExtension@CD3DDevice@@AEAAJXZ @ 0x18002D4A8 (-QueryWarpExtension@CD3DDevice@@AEAAJXZ.c)
+ *     ?GenerateShaders@CD3DDevice@@AEAAJXZ @ 0x180045A2C (-GenerateShaders@CD3DDevice@@AEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0pqnz_EventWriteTransfer @ 0x180240FA4 (McTemplateU0pqnz_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CD3DDevice::Init(CD3DDevice *this, struct IDXGIAdapter *a2, struct ID3D11Device1 *a3)
 {
   struct IDXGIAdapterVtbl *lpVtbl; // rax
-  int v6; // eax
-  __int64 v7; // rcx
-  unsigned int v8; // ebx
-  int v9; // eax
-  int v10; // edx
-  __int64 v11; // rcx
-  int v12; // eax
-  __int64 v13; // rcx
-  _QWORD *v14; // rsi
-  __int64 v15; // rcx
-  int v16; // eax
+  HRESULT (__stdcall *QueryInterface)(IDXGIAdapter *, const IID *const, void **); // rax
+  int v7; // eax
+  unsigned int v8; // ecx
+  unsigned int v9; // ebx
+  int v10; // eax
+  int v11; // edx
+  unsigned int v12; // ecx
+  int v13; // eax
+  unsigned int v14; // ecx
+  struct IDXGIDeviceDWM **v15; // rsi
+  struct ID3D11Device1Vtbl *v16; // rax
   __int64 v17; // rcx
-  struct IDXGIDevice3 **v18; // r14
-  __int64 v19; // rcx
-  int v20; // eax
-  __int64 v21; // rcx
-  __int64 v22; // rbx
-  void (__fastcall *v23)(__int64, __int64 *); // rsi
+  HRESULT (__stdcall *v18)(ID3D11Device1 *, const IID *const, void **); // rbx
+  int v19; // eax
+  unsigned int v20; // ecx
+  int v21; // eax
+  unsigned int v22; // ecx
+  char *v23; // r14
   __int64 v24; // rcx
   int v25; // eax
-  __int64 v26; // rcx
+  unsigned int v26; // ecx
+  __int64 v27; // rbx
+  void (__fastcall *v28)(__int64, __int64 *); // r14
+  __int64 v29; // rcx
+  int v30; // eax
+  unsigned int v31; // ecx
   int WarpExtension; // eax
-  __int64 v28; // rcx
-  int v29; // eax
-  __int64 v30; // rcx
+  unsigned int v33; // ecx
+  int v34; // eax
+  unsigned int v35; // ecx
   bool IsShaderLinkingBlacklistedGpu; // al
-  struct IDXGIDevice3 *v32; // rdx
-  int v33; // eax
-  __int64 v34; // rcx
+  unsigned __int64 v37; // r8
+  int v38; // ebx
+  __int64 v39; // rcx
+  enum D3D11_FENCE_FLAG v40; // ebx
+  int SharedHandleFence; // eax
+  unsigned int v42; // ecx
+  int v43; // eax
+  unsigned int v44; // ecx
   int Shaders; // eax
-  __int64 v36; // rcx
+  unsigned int v46; // ecx
   int RenderingResources; // eax
-  __int64 v38; // rcx
-  int inited; // eax
-  __int64 v40; // rcx
-  __int64 v42; // [rsp+68h] [rbp+10h] BYREF
-  __int64 v43; // [rsp+78h] [rbp+20h] BYREF
+  unsigned int v48; // ecx
+  __int64 v50; // [rsp+40h] [rbp-20h] BYREF
+  const char *v51; // [rsp+48h] [rbp-18h] BYREF
+  int v52; // [rsp+50h] [rbp-10h]
+  __int64 v53; // [rsp+98h] [rbp+38h] BYREF
+  __int64 v54; // [rsp+A8h] [rbp+48h] BYREF
 
   lpVtbl = a2->lpVtbl;
-  v42 = 0LL;
-  v43 = 0LL;
-  v6 = ((__int64 (__fastcall *)(struct IDXGIAdapter *, GUID *, __int64 *))lpVtbl->QueryInterface)(
+  v54 = 0LL;
+  v53 = 0LL;
+  QueryInterface = lpVtbl->QueryInterface;
+  v50 = 0LL;
+  v7 = ((__int64 (__fastcall *)(struct IDXGIAdapter *, GUID *, __int64 *))QueryInterface)(
          a2,
          &GUID_3c8d99d1_4fbf_4181_a82c_af66bf7bd24e,
-         &v43);
-  v8 = v6;
-  if ( v6 < 0 )
+         &v50);
+  v9 = v7;
+  if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x173u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x1A9u, 0LL);
   }
   else
   {
-    v9 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v43 + 144LL))(v43, (char *)this + 600);
-    v8 = v9;
-    if ( v9 < 0 )
+    v10 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v50 + 144LL))(v50, (char *)this + 640);
+    v9 = v10;
+    if ( v10 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v9, 0x174u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v10, 0x1AAu, 0LL);
     }
     else
     {
-      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
-        McTemplateU0pqnz_EventWriteTransfer(v11, v10, (_DWORD)this, *((_DWORD *)this + 146));
-      v12 = ((__int64 (__fastcall *)(struct ID3D11Device1 *, __int64, char *, __int64))a3->lpVtbl->CheckFeatureSupport)(
+      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+        McTemplateU0pqnz_EventWriteTransfer(v12, v11, (_DWORD)this, *((_DWORD *)this + 156));
+      v13 = ((__int64 (__fastcall *)(struct ID3D11Device1 *, __int64, char *, __int64))a3->lpVtbl->CheckFeatureSupport)(
               a3,
               11LL,
-              (char *)this + 932,
+              (char *)this + 972,
               4LL);
-      v8 = v12;
-      if ( v12 < 0 )
+      v9 = v13;
+      if ( v13 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x17Eu, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x1B4u, 0LL);
       }
       else
       {
-        v14 = (_QWORD *)((char *)this + 552);
-        *((_QWORD *)this + 148) = this;
-        v15 = *((_QWORD *)this + 69);
-        *((_QWORD *)this + 69) = 0LL;
-        if ( v15 )
-          (*(void (__fastcall **)(__int64))(*(_QWORD *)v15 + 16LL))(v15);
-        v16 = ((__int64 (__fastcall *)(struct ID3D11Device1 *, GUID *, char *))a3->lpVtbl->QueryInterface)(
+        *((_QWORD *)this + 152) = this;
+        v15 = (struct IDXGIDeviceDWM **)((char *)this + 584);
+        v16 = a3->lpVtbl;
+        v17 = *((_QWORD *)this + 73);
+        *((_QWORD *)this + 73) = 0LL;
+        v18 = v16->QueryInterface;
+        if ( v17 )
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v17 + 16LL))(v17);
+        v19 = ((__int64 (__fastcall *)(struct ID3D11Device1 *, GUID *, char *))v18)(
                 a3,
-                &GUID_8ffde202_a0e7_45df_9e01_e837801b5ea0,
-                (char *)this + 552);
-        v8 = v16;
-        if ( v16 < 0 )
+                &GUID_fef19e0a_40c0_472b_ae40_59ef97af3529,
+                (char *)this + 584);
+        v9 = v19;
+        if ( v19 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x182u, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x1B8u, 0LL);
         }
         else
         {
-          v18 = (struct IDXGIDevice3 **)((char *)this + 536);
-          v19 = *((_QWORD *)this + 67);
-          *((_QWORD *)this + 67) = 0LL;
-          if ( v19 )
-            (*(void (__fastcall **)(__int64))(*(_QWORD *)v19 + 16LL))(v19);
-          v20 = (**(__int64 (__fastcall ***)(_QWORD, GUID *, char *))*v14)(
-                  *v14,
-                  &GUID_6007896c_3244_4afd_bf18_a6d3beda5023,
-                  (char *)this + 536);
-          v8 = v20;
-          if ( v20 < 0 )
+          if ( v54 )
+            (*(void (__fastcall **)(__int64))(*(_QWORD *)v54 + 16LL))(v54);
+          v21 = (**(__int64 (__fastcall ***)(struct IDXGIDeviceDWM *, GUID *, __int64 *))*v15)(
+                  *v15,
+                  &GUID_77db970f_6276_48ba_ba28_070143b4392c,
+                  &v54);
+          v9 = v21;
+          if ( v21 < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x183u, 0LL);
+            MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x1BAu, 0LL);
           }
           else
           {
-            ((void (__fastcall *)(struct IDXGIDevice3 *, __int64))(*v18)->lpVtbl->SetMaximumFrameLatency)(*v18, 16LL);
-            v22 = *v14;
-            v23 = *(void (__fastcall **)(__int64, __int64 *))(*(_QWORD *)*v14 + 320LL);
-            if ( v42 )
-              (*(void (__fastcall **)(__int64))(*(_QWORD *)v42 + 16LL))(v42);
-            v23(v22, &v42);
-            v24 = *((_QWORD *)this + 70);
-            *((_QWORD *)this + 70) = 0LL;
+            (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v54 + 96LL))(v54, 16LL);
+            v23 = (char *)this + 592;
+            v24 = *((_QWORD *)this + 74);
+            *((_QWORD *)this + 74) = 0LL;
             if ( v24 )
               (*(void (__fastcall **)(__int64))(*(_QWORD *)v24 + 16LL))(v24);
-            v25 = (**(__int64 (__fastcall ***)(__int64, GUID *, char *))v42)(
-                    v42,
-                    &GUID_917600da_f58c_4c33_98d8_3e15b390fa24,
-                    (char *)this + 560);
-            v8 = v25;
+            v25 = ((__int64 (__fastcall *)(struct ID3D11Device1 *, GUID *, char *))a3->lpVtbl->QueryInterface)(
+                    a3,
+                    &GUID_8ffde202_a0e7_45df_9e01_e837801b5ea0,
+                    (char *)this + 592);
+            v9 = v25;
             if ( v25 < 0 )
             {
-              MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0x188u, 0LL);
+              MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0x1BDu, 0LL);
             }
             else
             {
-              WarpExtension = CD3DDevice::QueryWarpExtension(this);
-              v8 = WarpExtension;
-              if ( WarpExtension < 0 )
+              v27 = *(_QWORD *)v23;
+              v28 = *(void (__fastcall **)(__int64, __int64 *))(**(_QWORD **)v23 + 320LL);
+              if ( v53 )
+                (*(void (__fastcall **)(__int64))(*(_QWORD *)v53 + 16LL))(v53);
+              v28(v27, &v53);
+              v29 = *((_QWORD *)this + 75);
+              *((_QWORD *)this + 75) = 0LL;
+              if ( v29 )
+                (*(void (__fastcall **)(__int64))(*(_QWORD *)v29 + 16LL))(v29);
+              v30 = (**(__int64 (__fastcall ***)(__int64, GUID *, char *))v53)(
+                      v53,
+                      &GUID_917600da_f58c_4c33_98d8_3e15b390fa24,
+                      (char *)this + 600);
+              v9 = v30;
+              if ( v30 < 0 )
               {
-                MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, WarpExtension, 0x18Au, 0LL);
+                MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0, v30, 0x1C0u, 0LL);
               }
               else
               {
-                CD3DDevice::CalcMaxTextureSize(this);
-                v29 = CD3DDevice::GatherSupportedTextureFormats(this);
-                v8 = v29;
-                if ( v29 < 0 )
+                WarpExtension = CD3DDevice::QueryWarpExtension(this);
+                v9 = WarpExtension;
+                if ( WarpExtension < 0 )
                 {
-                  MilInstrumentationCheckHR_MaybeFailFast(v30, 0LL, 0, v29, 0x190u, 0LL);
+                  MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0, WarpExtension, 0x1C2u, 0LL);
                 }
                 else
                 {
-                  IsShaderLinkingBlacklistedGpu = CCommonRegistryData::IsShaderLinkingBlacklistedGpu(
-                                                    *((_DWORD *)this + 214),
-                                                    *((_DWORD *)this + 215));
-                  v32 = *v18;
-                  *((_BYTE *)this + 1505) = IsShaderLinkingBlacklistedGpu;
-                  v33 = CD2DContext::InitializeD2D((CD3DDevice *)((char *)this + 16), v32);
-                  v8 = v33;
-                  if ( v33 < 0 )
+                  CD3DDevice::CalcMaxTextureSize(this);
+                  v34 = CD3DDevice::GatherSupportedTextureFormats(this);
+                  v9 = v34;
+                  if ( v34 < 0 )
                   {
-                    MilInstrumentationCheckHR_MaybeFailFast(v34, 0LL, 0, v33, 0x196u, 0LL);
+                    MilInstrumentationCheckHR_MaybeFailFast(v35, 0LL, 0, v34, 0x1C8u, 0LL);
                   }
                   else
                   {
-                    Shaders = CD3DDevice::GenerateShaders(this);
-                    v8 = Shaders;
-                    if ( Shaders < 0 )
+                    IsShaderLinkingBlacklistedGpu = CCommonRegistryData::IsShaderLinkingBlacklistedGpu(
+                                                      *((_DWORD *)this + 224),
+                                                      *((_DWORD *)this + 225));
+                    v38 = *((_DWORD *)this + 236);
+                    *((_BYTE *)this + 1433) = IsShaderLinkingBlacklistedGpu;
+                    v39 = *((_QWORD *)this + 77);
+                    v40 = ~(_BYTE)v38 & 8;
+                    *((_QWORD *)this + 77) = 0LL;
+                    if ( v39 )
+                      (*(void (__fastcall **)(__int64))(*(_QWORD *)v39 + 16LL))(v39);
+                    v51 = "TokenThreadRenderFence";
+                    v52 = 22;
+                    SharedHandleFence = CD3DDevice::CreateSharedHandleFence(
+                                          this,
+                                          (const struct CResourceTag *)&v51,
+                                          v37,
+                                          (struct ID3D11Fence **)this + 77,
+                                          (void **)this + 122,
+                                          v40);
+                    v9 = SharedHandleFence;
+                    if ( SharedHandleFence < 0 )
                     {
-                      MilInstrumentationCheckHR_MaybeFailFast(v36, 0LL, 0, Shaders, 0x198u, 0LL);
+                      MilInstrumentationCheckHR_MaybeFailFast(v42, 0LL, 0, SharedHandleFence, 0x1D2u, 0LL);
                     }
                     else
                     {
-                      RenderingResources = CDrawListBatchManager::CreateRenderingResources((CD3DDevice *)((char *)this + 24));
-                      v8 = RenderingResources;
-                      if ( RenderingResources < 0 )
+                      v43 = CD2DContext::InitializeD2D((CD3DDevice *)((char *)this + 16), *v15);
+                      v9 = v43;
+                      if ( v43 < 0 )
                       {
-                        MilInstrumentationCheckHR_MaybeFailFast(v38, 0LL, 0, RenderingResources, 0x19Au, 0LL);
+                        MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, v43, 0x1D5u, 0LL);
                       }
                       else
                       {
-                        inited = CD3DDevice::InitSystemDevice(this);
-                        v8 = inited;
-                        if ( inited < 0 )
-                          MilInstrumentationCheckHR_MaybeFailFast(v40, 0LL, 0, inited, 0x19Cu, 0LL);
+                        Shaders = CD3DDevice::GenerateShaders(this);
+                        v9 = Shaders;
+                        if ( Shaders < 0 )
+                        {
+                          MilInstrumentationCheckHR_MaybeFailFast(v46, 0LL, 0, Shaders, 0x1D7u, 0LL);
+                        }
+                        else
+                        {
+                          RenderingResources = CDrawListBatchManager::CreateRenderingResources((CD3DDevice *)((char *)this + 24));
+                          v9 = RenderingResources;
+                          if ( RenderingResources < 0 )
+                            MilInstrumentationCheckHR_MaybeFailFast(v48, 0LL, 0, RenderingResources, 0x1D9u, 0LL);
+                        }
                       }
                     }
                   }
@@ -209,7 +251,8 @@ __int64 __fastcall CD3DDevice::Init(CD3DDevice *this, struct IDXGIAdapter *a2, s
       }
     }
   }
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v42);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v43);
-  return v8;
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v53);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v54);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v50);
+  return v9;
 }

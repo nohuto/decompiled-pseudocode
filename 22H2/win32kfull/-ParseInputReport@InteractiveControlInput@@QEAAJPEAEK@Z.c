@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ParseInputReport@InteractiveControlInput@@QEAAJPEAEK@Z @ 0x1C0246F6C
+ * XREFs of ?ParseInputReport@InteractiveControlInput@@QEAAJPEAEK@Z @ 0x1C0258464
  * Callers:
- *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C0245E94 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
+ *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C02574D0 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?ParseInputReport@InteractiveControlParser@@SAJPEAVInteractiveControlDevice@@PEAEKPEAUtagINTERACTIVECTRL_INFO@@@Z @ 0x1C024AE20 (-ParseInputReport@InteractiveControlParser@@SAJPEAVInteractiveControlDevice@@PEAEKPEAUtagINTERAC.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ?ParseInputReport@InteractiveControlParser@@SAJPEAVInteractiveControlDevice@@PEAEKPEAUtagINTERACTIVECTRL_INFO@@@Z @ 0x1C025BFB0 (-ParseInputReport@InteractiveControlParser@@SAJPEAVInteractiveControlDevice@@PEAEKPEAUtagINTERAC.c)
  */
 
 __int64 __fastcall InteractiveControlInput::ParseInputReport(
@@ -32,7 +32,7 @@ __int64 __fastcall InteractiveControlInput::ParseInputReport(
       v8 = this[10];
       if ( v8 )
         Win32FreePool(v8);
-      v9 = (struct InteractiveControlDevice *)Win32AllocPoolZInit(v4, 1819440195LL);
+      v9 = (struct InteractiveControlDevice *)Win32AllocPool(v4, 1819440195LL);
       this[10] = v9;
       memmove(v9, a2, v4);
     }

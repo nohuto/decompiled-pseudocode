@@ -1,18 +1,18 @@
 /*
- * XREFs of IommuDomainConfigure @ 0x1409356F0
+ * XREFs of IommuDomainConfigure @ 0x1408667B0
  * Callers:
  *     <none>
  * Callees:
- *     IommupHvConfigureDeviceDomain @ 0x1405247F4 (IommupHvConfigureDeviceDomain.c)
+ *     xKdEnumerateDebuggingDevices @ 0x1403CFD40 (xKdEnumerateDebuggingDevices.c)
  */
 
-__int64 __fastcall IommuDomainConfigure(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall IommuDomainConfigure(__int64 a1)
 {
-  if ( *(_DWORD *)(a1 + 8) != 2 )
+  if ( *(_BYTE *)(a1 + 44) )
     return 3221225711LL;
   if ( !HalpHvIommu )
     return 3221225474LL;
   if ( HalpHvParaVirtIommuDomain )
-    return IommupHvConfigureDeviceDomain(*(_DWORD *)(a1 + 48), *(_BYTE *)(a1 + 52), a3, a2);
+    return xKdEnumerateDebuggingDevices();
   return 3221225659LL;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpQueryProcessCommandLine @ 0x14070BB0C
+ * XREFs of EtwpQueryProcessCommandLine @ 0x140602968
  * Callers:
- *     SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x1405F5200 (SepLogUnmatchedSessionFlagImpersonationAttempt.c)
- *     EtwpBuildProcessEvent @ 0x14070B610 (EtwpBuildProcessEvent.c)
- *     EtwQueryProcessTelemetryInfo @ 0x140711F48 (EtwQueryProcessTelemetryInfo.c)
- *     EtwTraceAppStateChange @ 0x140712868 (EtwTraceAppStateChange.c)
- *     EtwTimLogProhibitChildProcessCreation @ 0x1407F74C4 (EtwTimLogProhibitChildProcessCreation.c)
- *     EtwTimLogBlockNonCetBinaries @ 0x1409E67F0 (EtwTimLogBlockNonCetBinaries.c)
- *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1409E6BB0 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
- *     EtwTimLogProhibitLowILImageMap @ 0x1409E7418 (EtwTimLogProhibitLowILImageMap.c)
- *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1409E7718 (EtwTimLogProhibitNonMicrosoftBinaries.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x1409E7AD4 (EtwTimLogRedirectionTrustPolicy.c)
- *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1409E8614 (EtwTimLogUserCetSetContextIpValidationFailure.c)
- *     EtwpTimLogMitigationForProcess @ 0x1409E8BEC (EtwpTimLogMitigationForProcess.c)
+ *     SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x1405972B8 (SepLogUnmatchedSessionFlagImpersonationAttempt.c)
+ *     EtwTimLogBlockNonCetBinaries @ 0x1405D00D4 (EtwTimLogBlockNonCetBinaries.c)
+ *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1405D0494 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x1405D09D0 (EtwTimLogRedirectionTrustPolicy.c)
+ *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1405D1528 (EtwTimLogUserCetSetContextIpValidationFailure.c)
+ *     EtwpBuildProcessEvent @ 0x140602610 (EtwpBuildProcessEvent.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x140611214 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwTraceAppStateChange @ 0x1406CDBB8 (EtwTraceAppStateChange.c)
+ *     EtwTimLogProhibitChildProcessCreation @ 0x14072F834 (EtwTimLogProhibitChildProcessCreation.c)
+ *     EtwTimLogProhibitLowILImageMap @ 0x14093BDC8 (EtwTimLogProhibitLowILImageMap.c)
+ *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x14093C0C8 (EtwTimLogProhibitNonMicrosoftBinaries.c)
+ *     EtwpTimLogMitigationForProcess @ 0x14093C644 (EtwpTimLogMitigationForProcess.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpQueryProcessCommandLine(__int64 a1, __int64 a2)
@@ -28,7 +28,7 @@ __int64 __fastcall EtwpQueryProcessCommandLine(__int64 a1, __int64 a2)
   unsigned __int16 v6; // bx
   unsigned __int64 v7; // rdx
   unsigned __int16 v8; // ax
-  __int64 Pool2; // rax
+  _WORD *PoolWithTag; // rax
   __int64 v10; // rcx
   void *Src[2]; // [rsp+20h] [rbp-38h]
   unsigned __int64 v14; // [rsp+38h] [rbp-20h]
@@ -77,11 +77,11 @@ __int64 __fastcall EtwpQueryProcessCommandLine(__int64 a1, __int64 a2)
     }
     else
     {
-      Pool2 = ExAllocatePool2(256LL, v6, 1350005829LL);
-      v3 = (_WORD *)Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6, 0x50777445u);
+      v3 = PoolWithTag;
+      if ( !PoolWithTag )
         return (unsigned int)-1073741670;
-      *(_QWORD *)(a2 + 8) = Pool2;
+      *(_QWORD *)(a2 + 8) = PoolWithTag;
       *(_WORD *)(a2 + 2) = v6;
     }
     memmove(v3, Src[1], v6);

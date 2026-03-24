@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpGetContextFlagsLocation @ 0x14030D938
+ * XREFs of RtlpGetContextFlagsLocation @ 0x14034021C
  * Callers:
- *     RtlCopyContext @ 0x1407709E0 (RtlCopyContext.c)
- *     RtlWow64GetCpuAreaInfo @ 0x1407A10D8 (RtlWow64GetCpuAreaInfo.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x14067B004 (RtlWow64GetCpuAreaInfo.c)
+ *     RtlCopyContext @ 0x1406C0EA8 (RtlCopyContext.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,20 @@
 /*
- * XREFs of HalpIommuMapLogicalRange @ 0x140529F08
+ * XREFs of HalpIommuMapLogicalRange @ 0x1404DC20C
  * Callers:
- *     HalpIommuDomainMapIdentityRange @ 0x14051AA64 (HalpIommuDomainMapIdentityRange.c)
- *     HalpIommuDomainMapLogicalRange @ 0x14051AC2C (HalpIommuDomainMapLogicalRange.c)
- *     HalpIommuConstructReservedPageTable @ 0x140A61BE0 (HalpIommuConstructReservedPageTable.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1404C92D4 (HalpIommuDomainMapLogicalRange.c)
+ *     IommuMapIdentityRange @ 0x1404DA7D0 (IommuMapIdentityRange.c)
+ *     IommuMapLogicalRange @ 0x1404DA990 (IommuMapLogicalRange.c)
+ *     HalpIommuConstructReservedPageTable @ 0x1409A74A8 (HalpIommuConstructReservedPageTable.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeInvalidateRangeAllCachesNoIpi @ 0x140268B50 (KeInvalidateRangeAllCachesNoIpi.c)
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpIommuAllocateAndZeroPageTable @ 0x140529428 (HalpIommuAllocateAndZeroPageTable.c)
- *     HalpIommuUnmapLogicalRange @ 0x14052A328 (HalpIommuUnmapLogicalRange.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x1403038F0 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x1404DB798 (HalpIommuAllocateAndZeroPageTable.c)
+ *     HalpIommuUnmapLogicalRange @ 0x1404DC62C (HalpIommuUnmapLogicalRange.c)
  */
 
 __int64 __fastcall HalpIommuMapLogicalRange(

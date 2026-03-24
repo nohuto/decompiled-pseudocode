@@ -1,51 +1,51 @@
 /*
- * XREFs of PiDmObjectRelease @ 0x1406D6C18
+ * XREFs of PiDmObjectRelease @ 0x1406AFBD0
  * Callers:
- *     PiControlGetDeviceInterfaceEnabled @ 0x1406D4030 (PiControlGetDeviceInterfaceEnabled.c)
- *     PiDmListEnumObjectsWithCallback @ 0x1406D4484 (PiDmListEnumObjectsWithCallback.c)
- *     PiDmObjectGetCachedObjectPropertyData @ 0x1406D6444 (PiDmObjectGetCachedObjectPropertyData.c)
- *     PiDmObjectGetAggregatedBooleanPropertyData @ 0x1406D6908 (PiDmObjectGetAggregatedBooleanPropertyData.c)
- *     PiDmObjectGetCachedObjectProperty @ 0x1406D6A8C (PiDmObjectGetCachedObjectProperty.c)
- *     PiUEventFreeClientRegistrationContext @ 0x14077F198 (PiUEventFreeClientRegistrationContext.c)
- *     PiDmAddCacheReferenceForObject @ 0x1407885C4 (PiDmAddCacheReferenceForObject.c)
- *     PiPnpRtlObjectEventRelease @ 0x140788E58 (PiPnpRtlObjectEventRelease.c)
- *     PiPnpRtlCmActionCallback @ 0x140789030 (PiPnpRtlCmActionCallback.c)
- *     PiPnpRtlObjectEventCreate @ 0x140789A18 (PiPnpRtlObjectEventCreate.c)
- *     PiDmObjectProcessPropertyChange @ 0x140789C4C (PiDmObjectProcessPropertyChange.c)
- *     PiDmCacheDataFree @ 0x14078D7A4 (PiDmCacheDataFree.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x14078D7DC (PiDmObjectUpdateCachedObjectProperty.c)
- *     IopProcessSetInterfaceState @ 0x140793BE4 (IopProcessSetInterfaceState.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x1407C2788 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDmGetReferencedObjectFromProperty @ 0x1407CC584 (PiDmGetReferencedObjectFromProperty.c)
- *     PiDmObjectGetCachedObjectReference @ 0x1407CC6C4 (PiDmObjectGetCachedObjectReference.c)
- *     PiDqQueryDeleteObjectFromResultSet @ 0x1407E0334 (PiDqQueryDeleteObjectFromResultSet.c)
- *     PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1407E6B24 (PiPnpRtlApplyMandatoryDeviceContainerFilters.c)
- *     PiDqQueryActionQueueEntryFree @ 0x1407FA180 (PiDqQueryActionQueueEntryFree.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407FA618 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDmEnumObjectsWithCallback @ 0x1407FBAF0 (PiDmEnumObjectsWithCallback.c)
- *     PiDmGetObjectConstraintList @ 0x1407FC5B8 (PiDmGetObjectConstraintList.c)
- *     PiDmListInitEnumCallback @ 0x140830DD0 (PiDmListInitEnumCallback.c)
- *     PiDmObjectManagerPopulate @ 0x14083B22C (PiDmObjectManagerPopulate.c)
- *     IopRegisterDeviceInterface @ 0x140866CCC (IopRegisterDeviceInterface.c)
- *     PiDmObjectCreate @ 0x14086BC2C (PiDmObjectCreate.c)
- *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x14088485C (PiPnpRtlFreeInstallerClassChangeInfo.c)
- *     PiPnpRtlEnsureObjectCached @ 0x14095A234 (PiPnpRtlEnsureObjectCached.c)
- *     PiPnpRtlFreePanelRemoveInfo @ 0x14095A3D4 (PiPnpRtlFreePanelRemoveInfo.c)
- *     PiPnpRtlFreeInterfaceDeleteInfo @ 0x14095A418 (PiPnpRtlFreeInterfaceDeleteInfo.c)
- *     PiDmListRemoveObjectWorker @ 0x14095B028 (PiDmListRemoveObjectWorker.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x140695E80 (PiDmObjectGetCachedObjectReference.c)
+ *     PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1406A2378 (PiPnpRtlApplyMandatoryDeviceContainerFilters.c)
+ *     PiDqQueryDeleteObjectFromResultSet @ 0x1406A73D4 (PiDqQueryDeleteObjectFromResultSet.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1406A7660 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqQueryActionQueueEntryFree @ 0x1406A8748 (PiDqQueryActionQueueEntryFree.c)
+ *     PiPnpRtlObjectEventRelease @ 0x1406ACE28 (PiPnpRtlObjectEventRelease.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1406ADEC8 (PiDmEnumObjectsWithCallback.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1406AE094 (PiPnpRtlObjectEventCreate.c)
+ *     PiControlGetDeviceInterfaceEnabled @ 0x1406AE240 (PiControlGetDeviceInterfaceEnabled.c)
+ *     PiDmListEnumObjectsWithCallback @ 0x1406AE5B0 (PiDmListEnumObjectsWithCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x1406AE700 (PiPnpRtlCmActionCallback.c)
+ *     PiDmObjectGetAggregatedBooleanPropertyData @ 0x1406AF534 (PiDmObjectGetAggregatedBooleanPropertyData.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x1406AF6C0 (PiDmObjectGetCachedObjectProperty.c)
+ *     PiDmObjectGetCachedObjectPropertyData @ 0x1406AFC64 (PiDmObjectGetCachedObjectPropertyData.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1406AFE2C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiDmGetObjectConstraintList @ 0x1406B2CCC (PiDmGetObjectConstraintList.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x140714E48 (PiUEventFreeClientRegistrationContext.c)
+ *     PiDmListRemoveObjectWorker @ 0x140730E70 (PiDmListRemoveObjectWorker.c)
+ *     PiPnpRtlFreeInterfaceDeleteInfo @ 0x140734CE0 (PiPnpRtlFreeInterfaceDeleteInfo.c)
+ *     PiPnpRtlFreePanelRemoveInfo @ 0x140734EC4 (PiPnpRtlFreePanelRemoveInfo.c)
+ *     IopRegisterDeviceInterface @ 0x140744910 (IopRegisterDeviceInterface.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x140744D98 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x140744E48 (PiDmAddCacheReferenceForObject.c)
+ *     IopProcessSetInterfaceState @ 0x14074557C (IopProcessSetInterfaceState.c)
+ *     PiDmObjectCreate @ 0x1407461B0 (PiDmObjectCreate.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1407468F4 (PiDmObjectProcessPropertyChange.c)
+ *     PiDmCacheDataFree @ 0x140746D24 (PiDmCacheDataFree.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x140746ED0 (PiDmGetReferencedObjectFromProperty.c)
+ *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x140771AEC (PiPnpRtlFreeInstallerClassChangeInfo.c)
+ *     PiDmListInitEnumCallback @ 0x140790380 (PiDmListInitEnumCallback.c)
+ *     PiDmObjectManagerPopulate @ 0x1407A3270 (PiDmObjectManagerPopulate.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x1408A31CC (PiPnpRtlEnsureObjectCached.c)
  * Callees:
- *     PiDmGetCacheKeys @ 0x1406D63F4 (PiDmGetCacheKeys.c)
- *     PiDmCacheDataFree @ 0x14078D7A4 (PiDmCacheDataFree.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PiDmGetCacheKeys @ 0x1406AFD7C (PiDmGetCacheKeys.c)
+ *     PiDmCacheDataFree @ 0x140746D24 (PiDmCacheDataFree.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PiDmObjectRelease(char *P)
+void __fastcall PiDmObjectRelease(unsigned int *P)
 {
   void *v2; // rcx
   char *v3; // rdi
   __int64 v4; // rsi
   unsigned int v5; // [rsp+30h] [rbp+8h] BYREF
-  DEVPROPKEY **v6; // [rsp+38h] [rbp+10h] BYREF
+  char v6; // [rsp+38h] [rbp+10h] BYREF
 
   v5 = 0;
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)P + 2, 0xFFFFFFFF) == 1 )
@@ -53,10 +53,10 @@ void __fastcall PiDmObjectRelease(char *P)
     v2 = (void *)*((_QWORD *)P + 2);
     if ( v2 )
       ExFreePoolWithTag(v2, 0x5A706E50u);
-    PiDmGetCacheKeys(*((_DWORD *)P + 7), &v6, &v5);
+    PiDmGetCacheKeys(P[7], &v6, &v5);
     if ( v5 )
     {
-      v3 = P + 112;
+      v3 = (char *)(P + 28);
       v4 = v5;
       do
       {

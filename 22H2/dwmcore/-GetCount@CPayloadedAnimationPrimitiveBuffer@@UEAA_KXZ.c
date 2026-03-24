@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetCount@CPayloadedAnimationPrimitiveBuffer@@UEAA_KXZ @ 0x180107B10
+ * XREFs of ?GetCount@CPayloadedAnimationPrimitiveBuffer@@UEAA_KXZ @ 0x1800E2E20
  * Callers:
  *     <none>
  * Callees:

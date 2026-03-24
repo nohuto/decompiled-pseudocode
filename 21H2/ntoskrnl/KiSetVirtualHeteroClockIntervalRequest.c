@@ -1,26 +1,27 @@
 /*
- * XREFs of KiSetVirtualHeteroClockIntervalRequest @ 0x14045B5B2
+ * XREFs of KiSetVirtualHeteroClockIntervalRequest @ 0x140520994
  * Callers:
- *     KeUpdatePendingQosRequest @ 0x14045ABA8 (KeUpdatePendingQosRequest.c)
- *     KiSetVirtualHeteroClockIntervalRequestDpcRoutine @ 0x14045B6F0 (KiSetVirtualHeteroClockIntervalRequestDpcRoutine.c)
+ *     KeUpdatePendingQosRequest @ 0x14051EE60 (KeUpdatePendingQosRequest.c)
+ *     KiSetVirtualHeteroClockIntervalRequestDpcRoutine @ 0x140520AD0 (KiSetVirtualHeteroClockIntervalRequestDpcRoutine.c)
  * Callees:
- *     KiSendClockInterruptToClockOwner @ 0x14022F244 (KiSendClockInterruptToClockOwner.c)
- *     KiSetClockInterval @ 0x14022F2FC (KiSetClockInterval.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x14022F440 (PoTraceSystemTimerResolutionKernel.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x14022F4BC (KiSetClockIntervalToMinimumRequested.c)
- *     RtlRbRemoveNode @ 0x14034D8D0 (RtlRbRemoveNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSendClockInterruptToClockOwner @ 0x140292B04 (KiSendClockInterruptToClockOwner.c)
+ *     KiSetClockInterval @ 0x140292BBC (KiSetClockInterval.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x140293068 (PoTraceSystemTimerResolutionKernel.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x1402930E4 (KiSetClockIntervalToMinimumRequested.c)
+ *     RtlRbRemoveNode @ 0x140340AE0 (RtlRbRemoveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1)
+__int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
   unsigned __int8 CurrentIrql; // bl
-  _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v3; // al
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  unsigned __int8 v7; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v5; // r8
-  int v6; // eax
-  bool v7; // zf
+  _DWORD *v9; // r8
+  int v10; // eax
+  bool v11; // zf
   __int64 result; // rax
 
   CurrentIrql = KeGetCurrentIrql();
@@ -32,33 +33,34 @@ __int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1)
   }
   if ( a1 )
   {
-    if ( byte_140C0CD20 )
+    if ( byte_140C12770 )
     {
       RtlRbRemoveNode((unsigned __int64 *)&KiClockIntervalRequests, (unsigned __int64)&KiVirtualHeteroClockRequest);
-      byte_140C0CD20 = 0;
-      if ( dword_140C0CD28 )
-        PoTraceSystemTimerResolutionKernel(0, dword_140C0CD28, 1);
-      KiSetClockIntervalToMinimumRequested();
+      v6 = (unsigned int)dword_140C12778;
+      byte_140C12770 = 0;
+      if ( dword_140C12778 )
+        PoTraceSystemTimerResolutionKernel(0, dword_140C12778, 1);
+      KiSetClockIntervalToMinimumRequested(v5, v6);
     }
   }
-  else if ( !byte_140C0CD20 && KiQosHysteresisTimerPeriod )
+  else if ( !byte_140C12770 && KiQosHysteresisTimerPeriod )
   {
-    KiSetClockInterval(KiQosHysteresisTimerPeriod, 0, (__int64)&KiVirtualHeteroClockRequest);
+    KiSetClockInterval(KiQosHysteresisTimerPeriod, 0, (__int64)&KiVirtualHeteroClockRequest, (__int64)SchedulerAssist);
     KiSendClockInterruptToClockOwner();
   }
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v3 = KeGetCurrentIrql();
-      if ( v3 <= 0xFu && CurrentIrql <= 0xFu && v3 >= 2u )
+      v7 = KeGetCurrentIrql();
+      if ( v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v5 = CurrentPrcb->SchedulerAssist;
-        v6 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v7 = (v6 & v5[5]) == 0;
-        v5[5] &= v6;
-        if ( v7 )
+        v9 = CurrentPrcb->SchedulerAssist;
+        v10 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v11 = (v10 & v9[5]) == 0;
+        v9[5] &= v10;
+        if ( v11 )
           KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }

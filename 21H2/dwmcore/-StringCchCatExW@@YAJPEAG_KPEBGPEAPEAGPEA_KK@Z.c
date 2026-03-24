@@ -1,53 +1,65 @@
 /*
- * XREFs of ?StringCchCatExW@@YAJPEAG_KPEBGPEAPEAGPEA_KK@Z @ 0x1802704F0
+ * XREFs of ?StringCchCatExW@@YAJPEAG_KPEBGPEAPEAGPEA_KK@Z @ 0x18021F814
  * Callers:
- *     ?WriteSubchannelString@MatrixSubchannelMaskInfo@@QEBAXW4DCOMPOSITION_EXPRESSION_TYPE@@_KPEAG@Z @ 0x180270694 (-WriteSubchannelString@MatrixSubchannelMaskInfo@@QEBAXW4DCOMPOSITION_EXPRESSION_TYPE@@_KPEAG@Z.c)
- *     ?WriteSubchannelString@VectorSubchannelMaskInfo@@QEBAX_KPEAG@Z @ 0x1802707A8 (-WriteSubchannelString@VectorSubchannelMaskInfo@@QEBAX_KPEAG@Z.c)
+ *     ?WriteSubchannelString@MatrixSubchannelMaskInfo@@QEBAXW4DCOMPOSITION_EXPRESSION_TYPE@@_KPEAG@Z @ 0x18021F9D8 (-WriteSubchannelString@MatrixSubchannelMaskInfo@@QEBAXW4DCOMPOSITION_EXPRESSION_TYPE@@_KPEAG@Z.c)
+ *     ?WriteSubchannelString@VectorSubchannelMaskInfo@@QEBAX_KPEAG@Z @ 0x18021FAEC (-WriteSubchannelString@VectorSubchannelMaskInfo@@QEBAX_KPEAG@Z.c)
  * Callees:
- *     StringCopyWorkerW_0 @ 0x1802705D0 (StringCopyWorkerW_0.c)
- *     StringLengthWorkerW @ 0x18027064C (StringLengthWorkerW.c)
+ *     StringCopyWorkerW_0 @ 0x18021F914 (StringCopyWorkerW_0.c)
+ *     StringLengthWorkerW @ 0x18021F990 (StringLengthWorkerW.c)
  */
 
-HRESULT __fastcall StringCchCatExW(
+__int64 __fastcall StringCchCatExW(
         unsigned __int16 *a1,
         size_t a2,
         const unsigned __int16 *a3,
         unsigned __int16 **a4,
         unsigned __int64 *a5)
 {
-  HRESULT result; // eax
-  __int64 v9; // r11
-  size_t v10; // rbx
-  wchar_t *v11; // rdi
-  size_t v12; // [rsp+20h] [rbp-28h]
-  size_t pcchLength[3]; // [rsp+30h] [rbp-18h] BYREF
+  HRESULT v5; // r10d
+  unsigned __int16 *v9; // r11
+  size_t v10; // rax
+  size_t v11; // rbx
+  unsigned __int16 *v12; // rdi
+  size_t v14; // [rsp+20h] [rbp-38h]
+  size_t pcchLength[5]; // [rsp+30h] [rbp-28h] BYREF
 
+  v5 = 0;
   if ( a2 - 1 > 0x7FFFFFFE )
-    return -2147024809;
-  result = StringLengthWorkerW(a1, a2, pcchLength);
-  if ( result < 0 )
-    return result;
-  v10 = a2 - pcchLength[0];
-  v11 = (wchar_t *)(v9 + 2 * pcchLength[0]);
-  result = 0;
-  if ( v10 > 1 )
+    v5 = -2147024809;
+  v9 = a1;
+  if ( v5 < 0 )
   {
-    pcchLength[0] = 0LL;
-    result = StringCopyWorkerW_0(v11, v10, pcchLength, a3, v12);
-    v10 -= pcchLength[0];
-    v11 += pcchLength[0];
-    if ( (int)(result + 0x80000000) >= 0 && result != -2147024774 )
-      return result;
+    v10 = 0LL;
   }
-  else if ( *a3 )
+  else
   {
-    if ( !v9 )
-      return -2147024809;
-    result = -2147024774;
+    v5 = StringLengthWorkerW(a1, a2, pcchLength);
+    v10 = pcchLength[0];
   }
-  if ( a4 )
-    *a4 = v11;
-  if ( a5 )
-    *a5 = v10;
-  return result;
+  if ( v5 >= 0 )
+  {
+    v11 = a2 - v10;
+    v12 = &v9[v10];
+    v5 = 0;
+    if ( v11 > 1 )
+    {
+      pcchLength[0] = 0LL;
+      v5 = StringCopyWorkerW_0(&v9[v10], v11, pcchLength, a3, v14);
+      v11 -= pcchLength[0];
+      v12 += pcchLength[0];
+      if ( (int)(v5 + 0x80000000) >= 0 && v5 != -2147024774 )
+        return (unsigned int)v5;
+    }
+    else if ( *a3 )
+    {
+      if ( !v9 )
+        return (unsigned int)-2147024809;
+      v5 = -2147024774;
+    }
+    if ( a4 )
+      *a4 = v12;
+    if ( a5 )
+      *a5 = v11;
+  }
+  return (unsigned int)v5;
 }

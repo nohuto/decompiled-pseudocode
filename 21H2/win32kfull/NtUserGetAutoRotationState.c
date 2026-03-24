@@ -1,10 +1,10 @@
 /*
- * XREFs of NtUserGetAutoRotationState @ 0x1C0005260
+ * XREFs of NtUserGetAutoRotationState @ 0x1C0008B80
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtUserGetAutoRotationState(_DWORD *a1)
@@ -17,7 +17,7 @@ __int64 __fastcall NtUserGetAutoRotationState(_DWORD *a1)
   v2 = 0;
   if ( a1 )
   {
-    v3 = (*(__int64 (__fastcall **)(PVOID))(*(_QWORD *)qword_1C0335C70 + 16LL))(qword_1C0335C70);
+    v3 = (*(__int64 (__fastcall **)(PVOID))(*(_QWORD *)P + 16LL))(P);
     v4 = a1;
     if ( (unsigned __int64)a1 >= MmUserProbeAddress )
       v4 = (_DWORD *)MmUserProbeAddress;

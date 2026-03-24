@@ -1,17 +1,17 @@
 /*
- * XREFs of PspReferenceCidTableEntry @ 0x140646D30
+ * XREFs of PspReferenceCidTableEntry @ 0x140646D10
  * Callers:
  *     NtSetInformationThread @ 0x1405E9EA0 (NtSetInformationThread.c)
- *     PsLookupProcessByProcessId @ 0x140646C40 (PsLookupProcessByProcessId.c)
- *     PsLookupThreadByThreadId @ 0x1406487C0 (PsLookupThreadByThreadId.c)
+ *     PsLookupProcessByProcessId @ 0x140646C20 (PsLookupProcessByProcessId.c)
+ *     PsLookupThreadByThreadId @ 0x1406487A0 (PsLookupThreadByThreadId.c)
  * Callees:
  *     ExSlowReplenishHandleTableEntry @ 0x140003BE0 (ExSlowReplenishHandleTableEntry.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExLockHandleTableEntry @ 0x140053220 (ExLockHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x1401B7430 (ExfUnblockPushLock.c)
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
+ *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
  *     ExpLookupHandleTableEntry @ 0x1405E8990 (ExpLookupHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x140697884 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140697864 (ExpBlockOnLockedHandleEntry.c)
  */
 
 _BYTE *__fastcall PspReferenceCidTableEntry(__int64 a1, char a2)

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReplenishPageSlist @ 0x1400EE380
+ * XREFs of MiReplenishPageSlist @ 0x1400EE3A0
  * Callers:
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiGetPerfectColorHeadPage @ 0x1400EE028 (MiGetPerfectColorHeadPage.c)
+ *     MiGetPerfectColorHeadPage @ 0x1400EE048 (MiGetPerfectColorHeadPage.c)
  * Callees:
  *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
  *     MiIsFreeZeroPfnCold @ 0x140082370 (MiIsFreeZeroPfnCold.c)
  *     MiIncreaseAvailablePages @ 0x14009CEE0 (MiIncreaseAvailablePages.c)
- *     MiNodeFreeZeroPages @ 0x1400EE2D4 (MiNodeFreeZeroPages.c)
- *     MiDecreaseAvailablePages @ 0x1400EE82C (MiDecreaseAvailablePages.c)
- *     MiNodeLargeFreeZeroPages @ 0x1400EE908 (MiNodeLargeFreeZeroPages.c)
- *     MiUpdateZeroFreeBitmap @ 0x1400EE9B4 (MiUpdateZeroFreeBitmap.c)
- *     MiPageListCollision @ 0x1401212A4 (MiPageListCollision.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     InterlockedPushListSList @ 0x1401C5460 (InterlockedPushListSList.c)
- *     MiArePageContentsZero @ 0x1402BF668 (MiArePageContentsZero.c)
- *     MiNotifyPageHeat @ 0x1402CEE40 (MiNotifyPageHeat.c)
+ *     MiNodeFreeZeroPages @ 0x1400EE2F4 (MiNodeFreeZeroPages.c)
+ *     MiDecreaseAvailablePages @ 0x1400EE84C (MiDecreaseAvailablePages.c)
+ *     MiNodeLargeFreeZeroPages @ 0x1400EE928 (MiNodeLargeFreeZeroPages.c)
+ *     MiUpdateZeroFreeBitmap @ 0x1400EE9D4 (MiUpdateZeroFreeBitmap.c)
+ *     MiPageListCollision @ 0x1401212C4 (MiPageListCollision.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     InterlockedPushListSList @ 0x1401C5480 (InterlockedPushListSList.c)
+ *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
+ *     MiNotifyPageHeat @ 0x1402CEF40 (MiNotifyPageHeat.c)
  */
 
 void __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3)

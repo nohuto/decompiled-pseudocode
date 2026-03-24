@@ -1,90 +1,81 @@
 /*
- * XREFs of ?TryRegisterSuperWetForDrawHost@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x1801CCE04
+ * XREFs of ?TryRegisterSuperWetForDrawHost@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x180195C0C
  * Callers:
- *     ?TryRegisterSuperWetForDraw@CSuperWetInkManager@@QEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x1801CCD30 (-TryRegisterSuperWetForDraw@CSuperWetInkManager@@QEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@.c)
+ *     ?TryRegisterSuperWetForDraw@CSuperWetInkManager@@QEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x180195B74 (-TryRegisterSuperWetForDraw@CSuperWetInkManager@@QEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@.c)
  * Callees:
- *     ?FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z @ 0x180088B84 (-FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?DeactivateCurrentSource@CSuperWetInkManager@@AEAAXXZ @ 0x1801CBCC0 (-DeactivateCurrentSource@CSuperWetInkManager@@AEAAXXZ.c)
- *     ?RegisterStrokeOnHost@CSuperWetInkManager@@AEAAJPEAUVailSuperWetStroke@1@PEA_N@Z @ 0x1801CC3A0 (-RegisterStrokeOnHost@CSuperWetInkManager@@AEAAJPEAUVailSuperWetStroke@1@PEA_N@Z.c)
- *     TryFillRenderState @ 0x1801CCB48 (TryFillRenderState.c)
- *     ?TryLookupVailDataForSource@CSuperWetInkManager@@AEAAPEAUVailSuperWetStroke@1@PEAVCSuperWetSource@@@Z @ 0x1801CCC64 (-TryLookupVailDataForSource@CSuperWetInkManager@@AEAAPEAUVailSuperWetStroke@1@PEAVCSuperWetSourc.c)
- *     ?GetSuperWetInkClip@CTreeData@@QEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@XZ @ 0x1801D760C (-GetSuperWetInkClip@CTreeData@@QEBA-AV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UN.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$emplace_back@$$V@?$vector@UVailSuperWetStroke@CSuperWetInkManager@@V?$allocator@UVailSuperWetStroke@CSuperWetInkManager@@@std@@@std@@QEAAAEAUVailSuperWetStroke@CSuperWetInkManager@@XZ @ 0x180194A20 (--$emplace_back@$$V@-$vector@UVailSuperWetStroke@CSuperWetInkManager@@V-$allocator@UVailSuperWet.c)
+ *     ?RegisterStrokeOnHost@CSuperWetInkManager@@AEAAJPEAUVailSuperWetStroke@1@PEA_N@Z @ 0x180195544 (-RegisterStrokeOnHost@CSuperWetInkManager@@AEAAJPEAUVailSuperWetStroke@1@PEA_N@Z.c)
+ *     TryFillRenderState @ 0x180195A44 (TryFillRenderState.c)
  */
 
 __int64 __fastcall CSuperWetInkManager::TryRegisterSuperWetForDrawHost(
-        struct CSuperWetSource **this,
+        CSuperWetInkManager *this,
         struct CSuperWetSource *a2,
         struct CDrawingContext *a3,
         unsigned __int8 a4,
         bool *a5)
 {
-  struct CSuperWetInkManager::VailSuperWetStroke *v8; // rax
-  __int64 v9; // rcx
-  __int64 v10; // r9
-  struct CSuperWetInkManager::VailSuperWetStroke *v11; // rbx
-  CVisual *v13; // rax
-  __int64 **TreeData; // rax
-  __m128 v15; // xmm3
-  unsigned __int32 v16; // xmm0_4
-  unsigned __int32 v17; // xmm1_4
-  int v18; // eax
-  unsigned int v19; // ebx
-  _BYTE v20[16]; // [rsp+20h] [rbp-48h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
+  __int64 *v5; // rsi
+  __int64 v6; // rbx
+  __int64 v8; // rbp
+  __int64 (__fastcall ***v12)(_QWORD); // rcx
+  __int64 v13; // rbx
+  struct ID3D12Device *v14; // rcx
+  __int128 v15; // xmm1
+  __int128 v16; // xmm0
+  int v17; // eax
+  unsigned int v18; // ebx
+  _OWORD v20[3]; // [rsp+20h] [rbp-68h] BYREF
+  __int64 v21; // [rsp+50h] [rbp-38h]
+  wil::details::in1diag3 *retaddr; // [rsp+88h] [rbp+0h]
 
+  v5 = (__int64 *)((char *)this + 32);
+  v6 = *((_QWORD *)this + 4);
+  v8 = *((_QWORD *)this + 5);
   *a5 = 0;
-  if ( a2 != this[1] || !this[11] )
-    return 0LL;
-  v8 = CSuperWetInkManager::TryLookupVailDataForSource((CSuperWetInkManager *)this, a2);
-  v11 = v8;
-  if ( !*((_QWORD *)v8 + 1) )
+  while ( v6 != v8 )
   {
-    *((_QWORD *)v8 + 1) = v10;
-    *((_QWORD *)v8 + 3) = (***(__int64 (__fastcall ****)(_QWORD))(v9 + 88))(*(_QWORD *)(v9 + 88));
+    if ( *(struct CSuperWetSource **)v6 == a2 )
+    {
+      v12 = (__int64 (__fastcall ***)(_QWORD))*((_QWORD *)this + 7);
+      if ( *(__int64 (__fastcall ****)(_QWORD))(v6 + 8) == v12 && *(_QWORD *)(v6 + 16) == (**v12)(v12) )
+        break;
+    }
+    v6 += 88LL;
   }
-  if ( *((struct CSuperWetSource **)v11 + 1) != this[11] )
-    return 0LL;
-  *((_QWORD *)v11 + 2) = *((_QWORD *)a3 + 5);
-  if ( !TryFillRenderState(a3, a4, 0, (__int64)v11 + 32) )
+  if ( v6 == *((_QWORD *)this + 5) )
   {
-    CSuperWetInkManager::DeactivateCurrentSource(this);
-    return 0LL;
+    if ( *v5 != v5[1] )
+      return 0LL;
+    std::vector<CSuperWetInkManager::VailSuperWetStroke>::emplace_back<>(v5);
+    v13 = *((_QWORD *)this + 5);
+    *(_QWORD *)(v13 - 88) = a2;
+    *(_QWORD *)(v13 - 80) = *((_QWORD *)this + 7);
+    *(_QWORD *)(v13 - 72) = (***((__int64 (__fastcall ****)(_QWORD))this + 7))(*((_QWORD *)this + 7));
+    v6 = *((_QWORD *)this + 5) - 88LL;
   }
-  v13 = (CVisual *)(*(__int64 (__fastcall **)(char *))(*((_QWORD *)a3 + 3) + 32LL))((char *)a3 + 24);
-  TreeData = CVisual::FindTreeData(v13, *((const struct CVisualTree **)a3 + 1007));
-  if ( TreeData )
+  if ( TryFillRenderState(a3, a4, (__int64)v20) )
   {
-    v15 = (__m128)_mm_loadu_si128((const __m128i *)CTreeData::GetSuperWetInkClip(TreeData, v20));
-    v16 = _mm_shuffle_ps(v15, v15, 85).m128_u32[0];
-    v17 = _mm_shuffle_ps(v15, v15, 170).m128_u32[0];
+    v15 = v20[1];
+    *(_OWORD *)(v6 + 24) = v20[0];
+    v16 = v20[2];
+    *(_OWORD *)(v6 + 40) = v15;
+    *(_QWORD *)&v15 = v21;
+    *(_OWORD *)(v6 + 56) = v16;
+    *(_QWORD *)(v6 + 72) = v15;
+    v17 = CSuperWetInkManager::RegisterStrokeOnHost(v14, (struct CSuperWetInkManager::VailSuperWetStroke *)v6, a5);
+    v18 = v17;
+    if ( v17 < 0 )
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x241,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\superwetinkmanager.cpp",
+        (const char *)(unsigned int)v17);
+      return v18;
+    }
   }
-  else
-  {
-    v16 = _mm_shuffle_ps(
-            (__m128)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite,
-            (__m128)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite,
-            85).m128_u32[0];
-    v15 = (__m128)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite;
-    v17 = _mm_shuffle_ps(
-            (__m128)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite,
-            (__m128)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite,
-            170).m128_u32[0];
-  }
-  *((_DWORD *)v11 + 22) = v15.m128_i32[0];
-  *((_DWORD *)v11 + 23) = v16;
-  *((_DWORD *)v11 + 24) = v17;
-  *((_DWORD *)v11 + 25) = _mm_shuffle_ps(v15, v15, 255).m128_u32[0];
-  v18 = CSuperWetInkManager::RegisterStrokeOnHost((struct ID3D12Device *)this, v11, a5);
-  v19 = v18;
-  if ( v18 >= 0 )
-    return 0LL;
-  wil::details::in1diag3::Return_Hr(
-    retaddr,
-    (void *)0x33B,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\globalsuperwetinkmanager.cpp",
-    (const char *)(unsigned int)v18);
-  return v19;
+  return 0LL;
 }

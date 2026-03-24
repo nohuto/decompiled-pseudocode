@@ -1,15 +1,15 @@
 /*
- * XREFs of SepLogLpacAccessFailure @ 0x1402FEB00
+ * XREFs of SepLogLpacAccessFailure @ 0x1402FEC00
  * Callers:
  *     SeAccessCheckWithHintWithAdminlessChecks @ 0x1400516C0 (SeAccessCheckWithHintWithAdminlessChecks.c)
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9450 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6A4 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9470 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6C4 (SepCommonAccessCheckExWithAdminlessChecks.c)
  *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     SepGetStackTraceHash @ 0x1402FE9FC (SepGetStackTraceHash.c)
- *     DbgkQueueUserExceptionReport @ 0x1408106DC (DbgkQueueUserExceptionReport.c)
- *     EtwTraceLpacAccessFailure @ 0x1408C0954 (EtwTraceLpacAccessFailure.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SepGetStackTraceHash @ 0x1402FEAFC (SepGetStackTraceHash.c)
+ *     DbgkQueueUserExceptionReport @ 0x1408106BC (DbgkQueueUserExceptionReport.c)
+ *     EtwTraceLpacAccessFailure @ 0x1408C0934 (EtwTraceLpacAccessFailure.c)
  */
 
 __int64 __fastcall SepLogLpacAccessFailure(ULONG a1)
@@ -30,7 +30,7 @@ __int64 __fastcall SepLogLpacAccessFailure(ULONG a1)
     return 3221226326LL;
   if ( SeLpacEnableWatsonThrottling )
   {
-    if ( _interlockedbittestandset(&dword_1404E14F0[(unsigned __int64)v2 >> 5], v2 & 0x1F) )
+    if ( _interlockedbittestandset(&dword_1404E14B0[(unsigned __int64)v2 >> 5], v2 & 0x1F) )
       return 0LL;
     v1 = v5;
   }

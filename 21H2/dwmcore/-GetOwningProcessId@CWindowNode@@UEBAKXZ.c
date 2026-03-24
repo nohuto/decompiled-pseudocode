@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetOwningProcessId@CWindowNode@@UEBAKXZ @ 0x1800FBA20
+ * XREFs of ?GetOwningProcessId@CWindowNode@@UEBAKXZ @ 0x1800E2FB0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CWindowNode::GetOwningProcessId(CWindowNode *this)
 {
-  return *(unsigned int *)(*((_QWORD *)this + 93) + 128LL);
+  return *(unsigned int *)(*((_QWORD *)this + 79) + 128LL);
 }

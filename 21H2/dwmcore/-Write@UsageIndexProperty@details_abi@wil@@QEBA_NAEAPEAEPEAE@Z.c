@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Write@UsageIndexProperty@details_abi@wil@@QEBA_NAEAPEAEPEAE@Z @ 0x180028F7C
+ * XREFs of ?Write@UsageIndexProperty@details_abi@wil@@QEBA_NAEAPEAEPEAE@Z @ 0x1800AEF30
  * Callers:
- *     ?RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z @ 0x1800290D4 (-RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z.c)
+ *     ?RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z @ 0x1800AF24C (-RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z.c)
  * Callees:
- *     memcpy_s @ 0x18002952C (memcpy_s.c)
+ *     memcpy_s @ 0x1800AF644 (memcpy_s.c)
  */
 
 bool __fastcall wil::details_abi::UsageIndexProperty::Write(

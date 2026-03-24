@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTraceUiLimitWriteClipboard @ 0x1C013BCB0
+ * XREFs of EtwTraceUiLimitWriteClipboard @ 0x1C0124810
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0qm_EtwWriteTransfer @ 0x1C013D1C0 (McTemplateK0qm_EtwWriteTransfer.c)
+ *     McTemplateK0qm_EtwWriteTransfer @ 0x1C00C7DB8 (McTemplateK0qm_EtwWriteTransfer.c)
  */
 
-__int64 __fastcall EtwTraceUiLimitWriteClipboard(int a1, __int64 a2, int a3)
+NTSTATUS __fastcall EtwTraceUiLimitWriteClipboard(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( (Microsoft_Windows_Win32kEnableBits & 0x80000000000LL) != 0 )
-    return McTemplateK0qm_EtwWriteTransfer(a1, (unsigned int)&UiLimitWriteClipboard, a3, a1, a2);
+    return McTemplateK0qm_EtwWriteTransfer(a1, &UiLimitWriteClipboard, a3, a1, a2);
   return result;
 }

@@ -1,14 +1,11 @@
 /*
- * XREFs of ?GetD3DDeviceNoRef@CDeviceManager@CCaptureRenderTarget@@QEAAPEAVCD3DDevice@@AEBU_LUID@@PEAUIFlipProducer@@@Z @ 0x1801ED394
+ * XREFs of ?GetD3DDeviceNoRef@CDeviceManager@CCaptureRenderTarget@@QEAAPEAVCD3DDevice@@AEBU_LUID@@PEAUIFlipProducer@@@Z @ 0x1800ED9C0
  * Callers:
- *     ?CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ @ 0x1801EC938 (-CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ.c)
- *     ?Present@CCaptureRenderTarget@@UEAAJ_N@Z @ 0x1801ED54C (-Present@CCaptureRenderTarget@@UEAAJ_N@Z.c)
- *     ?Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801EDC04 (-Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?CreateTextures@CVirtualMonitorCaptureRenderTarget@@IEAAJI@Z @ 0x1801EE4E8 (-CreateTextures@CVirtualMonitorCaptureRenderTarget@@IEAAJI@Z.c)
+ *     ?GetD3DDeviceNoRef@CCaptureRenderTarget@@IEAAPEAVCD3DDevice@@XZ @ 0x1800ED9A0 (-GetD3DDeviceNoRef@CCaptureRenderTarget@@IEAAPEAVCD3DDevice@@XZ.c)
  * Callees:
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180034B30 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18003D734 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18005F710 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FFF0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 struct CD3DDevice *__fastcall CCaptureRenderTarget::CDeviceManager::GetD3DDeviceNoRef(
@@ -17,36 +14,20 @@ struct CD3DDevice *__fastcall CCaptureRenderTarget::CDeviceManager::GetD3DDevice
         struct IFlipProducer *a3)
 {
   CD3DDevice *v5; // rcx
-  CD3DDevice *v7; // rdx
-  CD3DDevice *v8; // rcx
+  CDeviceManager *v7; // rcx
 
   v5 = *this;
-  if ( !v5 || *((_QWORD *)v5 + 112) != *a2 || *((int *)v5 + 272) < 0 )
+  if ( !v5 || *((_QWORD *)v5 + 117) != *a2 || *((int *)v5 + 282) < 0 )
   {
-    *this = 0LL;
-    v7 = 0LL;
-    if ( v5 )
+    wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(this);
+    if ( a2->LowPart || a2->HighPart )
     {
-      CD3DDevice::Release(v5);
-      v7 = *this;
-    }
-    if ( a2->LowPart != g_luidZero.LowPart || a2->HighPart != g_luidZero.HighPart )
-    {
-      *this = 0LL;
-      if ( v7 )
-        CD3DDevice::Release(v7);
-      if ( (int)CDeviceManager::GetDevice((CDeviceManager *)&g_DeviceManager, *a2, this) >= 0 )
+      wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(this);
+      if ( (int)CDeviceManager::GetDevice(v7, *a2, this) >= 0
+        && ((*((_BYTE *)*this + 944) & 0x18) == 0
+         || (*(int (__fastcall **)(struct IFlipProducer *, _QWORD))(*(_QWORD *)a3 + 40LL))(a3, *((_QWORD *)*this + 74)) < 0) )
       {
-        v8 = *this;
-        if ( (*((_BYTE *)*this + 904) & 0x18) != 0 )
-        {
-          if ( (*(int (__fastcall **)(struct IFlipProducer *, _QWORD))(*(_QWORD *)a3 + 40LL))(a3, *((_QWORD *)v8 + 69)) >= 0 )
-            return *this;
-          v8 = *this;
-        }
-        *this = 0LL;
-        if ( v8 )
-          CD3DDevice::Release(v8);
+        wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(this);
       }
     }
   }

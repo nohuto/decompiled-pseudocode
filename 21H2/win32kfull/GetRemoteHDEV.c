@@ -1,12 +1,12 @@
 /*
- * XREFs of GetRemoteHDEV @ 0x1C021FBE4
+ * XREFs of GetRemoteHDEV @ 0x1C0226328
  * Callers:
- *     CtxDisplayIOCtl @ 0x1C021FADC (CtxDisplayIOCtl.c)
- *     RemotePassthruDisable @ 0x1C021FC30 (RemotePassthruDisable.c)
- *     RemoteShadowCleanup @ 0x1C021FD84 (RemoteShadowCleanup.c)
- *     RemoteShadowStart @ 0x1C021FF90 (RemoteShadowStart.c)
+ *     CtxDisplayIOCtl @ 0x1C0226264 (CtxDisplayIOCtl.c)
+ *     RemotePassthruDisable @ 0x1C0226400 (RemotePassthruDisable.c)
+ *     RemoteShadowCleanup @ 0x1C0226500 (RemoteShadowCleanup.c)
+ *     RemoteShadowStart @ 0x1C02266D0 (RemoteShadowStart.c)
  * Callees:
- *     DrvFindRemoteDriverhdevInMDEV @ 0x1C0271650 (DrvFindRemoteDriverhdevInMDEV.c)
+ *     DrvFindRemoteDriverhdevInMDEV @ 0x1C02739AC (DrvFindRemoteDriverhdevInMDEV.c)
  */
 
 __int64 __fastcall GetRemoteHDEV(__int16 a1, __int64 a2)

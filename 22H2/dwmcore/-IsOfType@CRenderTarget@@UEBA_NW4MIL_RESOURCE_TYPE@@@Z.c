@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CRenderTarget@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C57C0
+ * XREFs of ?IsOfType@CRenderTarget@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F6B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CRenderTarget::IsOfType(__int64 a1, int a2)
 {
-  return ((a2 - 114) & 0xFFFFFFDF) == 0;
+  return a2 == 146 || a2 == 112;
 }

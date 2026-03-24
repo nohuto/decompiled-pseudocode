@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDSM_WaitingForD0EntryOnHwWake @ 0x1C0021C00
+ * XREFs of HUBDSM_WaitingForD0EntryOnHwWake @ 0x1C00217B0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_q @ 0x1C0013D04 (WPP_RECORDER_SF_q.c)
- *     HUBPDO_CompleteWaitWake @ 0x1C0019FC4 (HUBPDO_CompleteWaitWake.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_q @ 0x1C001373C (WPP_RECORDER_SF_q.c)
+ *     HUBPDO_CompleteWaitWake @ 0x1C0019A74 (HUBPDO_CompleteWaitWake.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_WaitingForD0EntryOnHwWake(__int64 a1)
@@ -29,13 +29,13 @@ __int64 __fastcall HUBDSM_WaitingForD0EntryOnHwWake(__int64 a1)
     v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
            WdfDriverGlobals,
            WdfDriverGlobals->Driver,
-           off_1C00671E8);
+           off_1C00661C0);
     WPP_RECORDER_SF_q(
       *(_QWORD *)(v5 + 64),
       4u,
       2u,
       0x7Fu,
-      (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
       v4);
   }
   return 1000LL;

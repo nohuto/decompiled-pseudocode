@@ -1,13 +1,12 @@
 /*
- * XREFs of ObQuerySecurityObject @ 0x14069C84C
+ * XREFs of ObQuerySecurityObject @ 0x140604B34
  * Callers:
- *     RtlIsUntrustedObject @ 0x140200EE0 (RtlIsUntrustedObject.c)
- *     SepMandatorySubProcessToken @ 0x140225BD0 (SepMandatorySubProcessToken.c)
- *     SepVerifyDesktopAppxImage @ 0x1405B8000 (SepVerifyDesktopAppxImage.c)
- *     CmpCheckExeOwnerForPca @ 0x14069A314 (CmpCheckExeOwnerForPca.c)
- *     AstLogDeviceSDDLUpdated @ 0x14069C6E8 (AstLogDeviceSDDLUpdated.c)
+ *     SepVerifyDesktopAppxImage @ 0x1402013A4 (SepVerifyDesktopAppxImage.c)
+ *     SepMandatorySubProcessToken @ 0x14025103C (SepMandatorySubProcessToken.c)
+ *     RtlIsUntrustedObject @ 0x1402FA190 (RtlIsUntrustedObject.c)
+ *     CmpCheckExeOwnerForPca @ 0x14076F828 (CmpCheckExeOwnerForPca.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ObQuerySecurityObject(__int64 a1, int a2, __int64 a3, int a4, _DWORD *a5)

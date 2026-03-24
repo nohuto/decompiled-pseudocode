@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpCreateServerAcl @ 0x140894920
+ * XREFs of RtlpCreateServerAcl @ 0x140894900
  * Callers:
  *     RtlpSetSecurityObject @ 0x1405CA240 (RtlpSetSecurityObject.c)
  *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     RtlUShortAdd @ 0x14011CDFC (RtlUShortAdd.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlUShortAdd @ 0x14011CE1C (RtlUShortAdd.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of DrawCornerLine @ 0x1C0251F9C
+ * XREFs of DrawCornerLine @ 0x1C0153468
  * Callers:
- *     CreateStandardMonoPattern @ 0x1C0251A90 (CreateStandardMonoPattern.c)
+ *     CreateStandardMonoPattern @ 0x1C0153034 (CreateStandardMonoPattern.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 void __fastcall DrawCornerLine(char *a1, unsigned __int16 a2, unsigned __int16 a3, int a4, unsigned __int16 a5, int a6)
 {
-  int v7; // esi
+  int v7; // edi
   int v8; // ecx
   int v9; // r13d
   int v10; // r14d
@@ -17,10 +17,10 @@ void __fastcall DrawCornerLine(char *a1, unsigned __int16 a2, unsigned __int16 a
   int v13; // r12d
   int v14; // ebp
   int v15; // r11d
-  int v16; // eax
+  int v16; // r8d
   int v17; // ebx
-  int v18; // r8d
-  int v19; // edi
+  int v18; // esi
+  int v19; // eax
   int v20; // ecx
   int v21; // edx
   char *v22; // rax
@@ -34,7 +34,7 @@ void __fastcall DrawCornerLine(char *a1, unsigned __int16 a2, unsigned __int16 a
   {
     if ( a2 == 1 || a3 == 1 || a5 >= a2 )
     {
-      memset_0(a1, 255, a3 * (unsigned __int16)a4);
+      memset(a1, 255, a3 * (unsigned __int16)a4);
     }
     else
     {
@@ -64,9 +64,9 @@ void __fastcall DrawCornerLine(char *a1, unsigned __int16 a2, unsigned __int16 a
         if ( v15 < 0 )
           v15 = 0;
       }
-      v16 = 0;
+      v16 = v15;
       v17 = 0;
-      v18 = v15;
+      v18 = 0;
       v19 = 0;
       if ( v10 )
       {
@@ -74,27 +74,35 @@ void __fastcall DrawCornerLine(char *a1, unsigned __int16 a2, unsigned __int16 a
         do
         {
           --v10;
-          ++v18;
-          v7 += v13;
-          v19 += v12;
+          ++v16;
+          v18 += v13;
+          v17 += v12;
           v14 += v20;
           if ( v14 >= 0 )
           {
-            v7 += v12;
-            v19 += v13;
+            v18 += v12;
+            v17 += v13;
             v14 -= v24;
           }
-          if ( v19 != v16 )
+          if ( v17 != v19 )
           {
-            v21 = 128 >> (v17 & 7);
-            v22 = &a1[(__int64)v17 >> 3];
-LABEL_22:
+            v21 = 128 >> (v7 & 7);
+            v22 = &a1[(__int64)v7 >> 3];
+LABEL_16:
             v23 = 0;
-            while ( v18 )
+            while ( v16 )
             {
-              --v18;
+              --v16;
               v23 |= v21;
-              if ( ++v17 < v9 )
+              if ( ++v7 >= v9 )
+              {
+                *v22 = v23;
+                LOBYTE(v21) = 0x80;
+                v23 = *a1;
+                v22 = a1;
+                v7 = 0;
+              }
+              else
               {
                 LOBYTE(v21) = (unsigned __int8)v21 >> 1;
                 if ( !(_BYTE)v21 )
@@ -102,25 +110,17 @@ LABEL_22:
                   *v22 = v23;
                   LOBYTE(v21) = 0x80;
                   ++v22;
-                  goto LABEL_22;
+                  goto LABEL_16;
                 }
-              }
-              else
-              {
-                *v22 = v23;
-                LOBYTE(v21) = 0x80;
-                v23 = *a1;
-                v22 = a1;
-                v17 = 0;
               }
             }
             if ( (_BYTE)v21 != 0x80 )
               *v22 = v23;
             v20 = v25;
-            v17 = v7;
-            v18 = v15;
+            v7 = v18;
+            v16 = v15;
             a1 += a4;
-            v16 = v19;
+            v19 = v17;
           }
         }
         while ( v10 );

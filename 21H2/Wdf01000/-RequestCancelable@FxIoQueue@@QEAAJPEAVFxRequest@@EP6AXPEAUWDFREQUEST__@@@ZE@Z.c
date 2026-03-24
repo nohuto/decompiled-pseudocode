@@ -1,19 +1,20 @@
 /*
- * XREFs of ?RequestCancelable@FxIoQueue@@QEAAJPEAVFxRequest@@EP6AXPEAUWDFREQUEST__@@@ZE@Z @ 0x1C00172E8
+ * XREFs of ?RequestCancelable@FxIoQueue@@QEAAJPEAVFxRequest@@EP6AXPEAUWDFREQUEST__@@@ZE@Z @ 0x1C0016A74
  * Callers:
- *     imp_WdfRequestMarkCancelable @ 0x1C0014540 (imp_WdfRequestMarkCancelable.c)
- *     imp_WdfRequestUnmarkCancelable @ 0x1C00171E0 (imp_WdfRequestUnmarkCancelable.c)
- *     imp_WdfRequestMarkCancelableEx @ 0x1C0017260 (imp_WdfRequestMarkCancelableEx.c)
+ *     imp_WdfRequestMarkCancelable @ 0x1C0016930 (imp_WdfRequestMarkCancelable.c)
+ *     imp_WdfRequestMarkCancelableEx @ 0x1C00169C0 (imp_WdfRequestMarkCancelableEx.c)
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?InsertTailIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z @ 0x1C000A934 (-InsertTailIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z.c)
- *     ?CancelForDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C000DD74 (-CancelForDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z.c)
- *     ?RemoveFromIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@@Z @ 0x1C00173F0 (-RemoveFromIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@@Z.c)
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
- *     ?SetVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0064138 (-SetVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
- *     ?ClearVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0068628 (-ClearVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
- *     ?Vf_VerifyRequestCancelable@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequest@@E@Z @ 0x1C00C8870 (-Vf_VerifyRequestCancelable@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequest@@E@Z.c)
+ *     ?InsertTailIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z @ 0x1C00053B0 (-InsertTailIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     ?RemoveFromIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@@Z @ 0x1C001340C (-RemoveFromIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@@Z.c)
+ *     ?CancelForDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C0015784 (-CancelForDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z.c)
+ *     ?SetVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0049D8C (-SetVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
+ *     ?ClearVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C004ED58 (-ClearVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
+ *     ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C005A978 (-Lock@FxVerifierLock@@QEAAXPEAEE@Z.c)
+ *     ?Unlock@FxVerifierLock@@QEAAXEE@Z @ 0x1C005AC78 (-Unlock@FxVerifierLock@@QEAAXEE@Z.c)
+ *     ?Vf_VerifyRequestCancelable@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequest@@E@Z @ 0x1C00C779C (-Vf_VerifyRequestCancelable@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequest@@E@Z.c)
  */
 
 int __fastcall FxIoQueue::RequestCancelable(
@@ -24,24 +25,37 @@ int __fastcall FxIoQueue::RequestCancelable(
         unsigned __int8 FailIfIrpIsCancelled)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rbp
-  unsigned int *v10; // r8
-  int inserted; // esi
   int result; // eax
-  unsigned __int8 v13; // r8
+  _IRP *v11; // r8
+  int inserted; // esi
+  FxVerifierLock *v13; // rcx
   unsigned __int8 v14; // dl
   unsigned __int8 v15; // r8
+  FxVerifierLock *v16; // rcx
+  unsigned __int8 v17; // r8
   unsigned __int8 irql; // [rsp+40h] [rbp+8h] BYREF
 
   m_Globals = this->m_Globals;
   irql = 0;
-  if ( !m_Globals->FxVerifierOn
-    || (result = FxIoQueue::Vf_VerifyRequestCancelable(this, m_Globals, pRequest, Cancelable), result >= 0) )
+  if ( m_Globals->FxVerifierOn )
+    result = FxIoQueue::Vf_VerifyRequestCancelable(this, m_Globals, pRequest, Cancelable);
+  else
+    result = 0;
+  if ( result >= 0 )
   {
     if ( Cancelable )
     {
       if ( m_Globals->FxVerifierOn )
         FxRequestBase::SetVerifierFlags(pRequest, 16);
-      FxNonPagedObject::Lock(this, &irql, Cancelable);
+      if ( SLOBYTE(this->m_ObjectFlags) < 0
+        && (v13 = *(FxVerifierLock **)&this[-1].m_PowerIdle.m_DbgFlagIsInitialized) != 0LL )
+      {
+        FxVerifierLock::Lock(v13, &irql, Cancelable);
+      }
+      else
+      {
+        irql = KeAcquireSpinLockRaiseToDpc(&this->m_NPLock.m_Lock);
+      }
       pRequest->m_CancelRoutine.m_Cancel = EvtRequestCancel;
       if ( this->m_CancelDispatchedRequests )
       {
@@ -49,10 +63,18 @@ int __fastcall FxIoQueue::RequestCancelable(
       }
       else
       {
-        inserted = FxRequest::InsertTailIrpQueue(pRequest, &this->m_DriverCancelable, v10);
+        inserted = FxRequest::InsertTailIrpQueue(pRequest, &this->m_DriverCancelable, v11);
         if ( inserted >= 0 )
         {
-          FxNonPagedObject::Unlock(this, irql, (unsigned __int8)v10);
+          if ( SLOBYTE(this->m_ObjectFlags) < 0
+            && (v16 = *(FxVerifierLock **)&this[-1].m_PowerIdle.m_DbgFlagIsInitialized) != 0LL )
+          {
+            FxVerifierLock::Unlock(v16, irql, (unsigned __int8)v11);
+          }
+          else
+          {
+            KeReleaseSpinLock(&this->m_NPLock.m_Lock, irql);
+          }
           return inserted;
         }
       }
@@ -61,7 +83,7 @@ int __fastcall FxIoQueue::RequestCancelable(
       {
         inserted = 0;
         pRequest->m_Canceled = 1;
-        FxNonPagedObject::Unlock(this, v14, (unsigned __int8)v10);
+        FxNonPagedObject::Unlock(this, v14, (unsigned __int8)v11);
         FxObject::AddRef(
           pRequest,
           (void *)0x75657551,
@@ -71,7 +93,7 @@ int __fastcall FxIoQueue::RequestCancelable(
         return inserted;
       }
       pRequest->m_CancelRoutine.m_Cancel = 0LL;
-      FxNonPagedObject::Unlock(this, v14, (unsigned __int8)v10);
+      FxNonPagedObject::Unlock(this, v14, (unsigned __int8)v11);
       if ( !m_Globals->FxVerifierOn )
         return inserted;
     }
@@ -81,7 +103,7 @@ int __fastcall FxIoQueue::RequestCancelable(
       inserted = FxRequest::RemoveFromIrpQueue(pRequest, &this->m_DriverCancelable);
       if ( inserted >= 0 )
         pRequest->m_CancelRoutine.m_Cancel = 0LL;
-      FxNonPagedObject::Unlock(this, irql, v13);
+      FxNonPagedObject::Unlock(this, irql, v17);
       if ( !m_Globals->FxVerifierOn || inserted < 0 )
         return inserted;
     }

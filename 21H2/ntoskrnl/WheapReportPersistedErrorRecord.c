@@ -1,31 +1,33 @@
 /*
- * XREFs of WheapReportPersistedErrorRecord @ 0x140643498
+ * XREFs of WheapReportPersistedErrorRecord @ 0x1405BAF98
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403DAA2C (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403BAB88 (WheapCheckForAndReportErrorsFromPreviousSession.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     WheapWorkQueueAddItem @ 0x140646270 (WheapWorkQueueAddItem.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     WheapWorkQueueAddItem @ 0x1405BD7A8 (WheapWorkQueueAddItem.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall WheapReportPersistedErrorRecord(_DWORD *Src)
 {
-  _QWORD *WheaInfo; // rsi
+  _QWORD *WheaInfo; // rdi
   unsigned int v3; // ebp
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v5; // rbx
 
   WheaInfo = KeGetPcr()->Prcb.WheaInfo;
   if ( !WheaInfo )
     return 0;
   v3 = Src[5] + 40;
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, v3, 1634035799LL);
-  v5 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v3, 0x61656857u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
     return 0;
-  Pool2[4] = v3;
-  Pool2[6] = 2;
-  memmove(Pool2 + 10, Src, (unsigned int)Src[5]);
+  memset(PoolWithTag, 0, v3);
+  v5[4] = v3;
+  v5[6] = 2;
+  memmove(v5 + 10, Src, (unsigned int)Src[5]);
   WheapWorkQueueAddItem(WheaInfo[2], v5);
   return 1;
 }

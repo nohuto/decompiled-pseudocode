@@ -1,18 +1,18 @@
 /*
- * XREFs of InbvCheckDisplayOwnership @ 0x140550BA0
+ * XREFs of InbvCheckDisplayOwnership @ 0x1404FEF30
  * Callers:
- *     HalpCheckPowerButton @ 0x140417010 (HalpCheckPowerButton.c)
- *     HaliHaltSystem @ 0x14050A880 (HaliHaltSystem.c)
- *     InbvRotateGuiBootDisplay @ 0x140550E80 (InbvRotateGuiBootDisplay.c)
+ *     HalpCheckPowerButton @ 0x1403EFEB0 (HalpCheckPowerButton.c)
+ *     HaliHaltSystem @ 0x1404BE240 (HaliHaltSystem.c)
+ *     InbvRotateGuiBootDisplay @ 0x1404FF210 (InbvRotateGuiBootDisplay.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 char InbvCheckDisplayOwnership()
 {
   __int64 (*v0)(void); // rax
 
-  if ( qword_140C54D10 && (v0 = *(__int64 (**)(void))(qword_140C54D10 + 64)) != 0LL )
+  if ( qword_140C50B68 && (v0 = *(__int64 (**)(void))(qword_140C50B68 + 64)) != 0LL )
     return v0();
   else
     return 0;

@@ -1,48 +1,58 @@
 /*
- * XREFs of ?SoundSentryTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0211EA0
+ * XREFs of ?SoundSentryTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0213180
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     xxxRedrawWindow @ 0x1C004A1EC (xxxRedrawWindow.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     FindTimer @ 0x1C01041A4 (FindTimer.c)
- *     xxxFlashWindow @ 0x1C010B918 (xxxFlashWindow.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     xxxFlashWindow @ 0x1C002B078 (xxxFlashWindow.c)
+ *     xxxRedrawWindow @ 0x1C0072354 (xxxRedrawWindow.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
  */
 
 void __fastcall SoundSentryTimer(struct tagWND *a1)
 {
   __int64 v1; // rax
-  unsigned __int64 *v2; // rbx
+  struct tagWND *v2; // rbx
   struct tagRECT *v3; // rdx
-  __int64 v4; // rdx
+  __int64 v4; // rax
   __int64 v5; // rcx
-  __int64 v6; // r8
+  __int64 ThreadWin32Thread; // rax
   __int128 v7; // [rsp+30h] [rbp-28h] BYREF
   __int64 v8; // [rsp+40h] [rbp-18h]
 
   v7 = 0LL;
   v8 = 0LL;
-  v1 = HMValidateHandleNoSecure((int)ghwndSoundSentry, 1);
-  v2 = (unsigned __int64 *)v1;
+  v1 = HMValidateHandleNoSecure((unsigned __int64)ghwndSoundSentry, 1);
+  v2 = (struct tagWND *)v1;
   if ( !v1 )
     gdwCurrentEffect = 3;
   switch ( gdwCurrentEffect )
   {
     case 1u:
-      ThreadLock(v1, (__int64 *)&v7);
-      xxxFlashWindow(v2, 0, 0);
-      goto LABEL_12;
+      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      *(_QWORD *)&v7 = *(_QWORD *)(ThreadWin32Thread + 416);
+      *(_QWORD *)(ThreadWin32Thread + 416) = &v7;
+      *((_QWORD *)&v7 + 1) = v2;
+      if ( v2 )
+        HMLockObject(v2);
+      xxxFlashWindow((__int64)v2, 0, 0);
+      goto LABEL_16;
     case 2u:
       if ( (unsigned int)IsWindowDesktopComposed(v1) )
       {
         v3 = &grcScreenFlash;
         goto LABEL_7;
       }
-      ThreadLock((__int64)v2, (__int64 *)&v7);
-      xxxRedrawWindow((struct tagWND *)v2, 0LL, 0LL, 645);
-LABEL_12:
-      ThreadUnlock1(v5, v4, v6);
+      v4 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      *(_QWORD *)&v7 = *(_QWORD *)(v4 + 416);
+      *(_QWORD *)(v4 + 416) = &v7;
+      *((_QWORD *)&v7 + 1) = v2;
+      if ( v2 )
+        HMLockObject(v2);
+      xxxRedrawWindow(v2, 0LL, 0LL, 645);
+LABEL_16:
+      ThreadUnlock1(v5);
       break;
     case 3u:
       v3 = 0LL;

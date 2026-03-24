@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CHolographicDisplayMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C00CB420
+ * XREFs of ?SetRemarshalingFlags@CHolographicDisplayMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C00BC330
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ bool __fastcall DirectComposition::CHolographicDisplayMarshaler::SetRemarshaling
 {
   bool result; // al
 
-  *((_DWORD *)this + 18) &= ~0x80000000;
+  *((_DWORD *)this + 16) &= ~0x80000000;
   result = 1;
   *((_DWORD *)this + 4) |= 0xC0u;
   return result;

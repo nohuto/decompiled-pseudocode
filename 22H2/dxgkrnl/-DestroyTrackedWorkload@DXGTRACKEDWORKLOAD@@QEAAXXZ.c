@@ -1,61 +1,62 @@
 /*
- * XREFs of ?DestroyTrackedWorkload@DXGTRACKEDWORKLOAD@@QEAAXXZ @ 0x1C035DE60
+ * XREFs of ?DestroyTrackedWorkload@DXGTRACKEDWORKLOAD@@QEAAXXZ @ 0x1C02BCBF8
  * Callers:
- *     ??1DXGTRACKEDWORKLOAD@@QEAA@XZ @ 0x1C035DB44 (--1DXGTRACKEDWORKLOAD@@QEAA@XZ.c)
+ *     ??1DXGTRACKEDWORKLOAD@@QEAA@XZ @ 0x1C02BC8CC (--1DXGTRACKEDWORKLOAD@@QEAA@XZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C001F484 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
- *     ?RemoveTrackedWorkloadFromList@DXGDEVICE@@QEAAXPEAVDXGTRACKEDWORKLOAD@@@Z @ 0x1C035E8F4 (-RemoveTrackedWorkloadFromList@DXGDEVICE@@QEAAXPEAVDXGTRACKEDWORKLOAD@@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C001C8A8 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ?RemoveTrackedWorkloadFromList@DXGDEVICE@@QEAAXPEAVDXGTRACKEDWORKLOAD@@@Z @ 0x1C02BD600 (-RemoveTrackedWorkloadFromList@DXGDEVICE@@QEAAXPEAVDXGTRACKEDWORKLOAD@@@Z.c)
  */
 
-void __fastcall DXGTRACKEDWORKLOAD::DestroyTrackedWorkload(DXGTRACKEDWORKLOAD *this)
+void __fastcall DXGTRACKEDWORKLOAD::DestroyTrackedWorkload(DXGTRACKEDWORKLOAD *this, __int64 a2)
 {
-  __int64 v2; // rax
-  void *v3; // rcx
-  char *v4; // rcx
-  char *v5; // rbx
-  void *v6; // rcx
+  __int64 v3; // rax
+  __int64 v4; // rax
+  void *v5; // rcx
+  char *v6; // rcx
+  char *v7; // rbx
+  void *v8; // rcx
 
   if ( *((_BYTE *)this + 116) )
   {
-    DXGDEVICE::RemoveTrackedWorkloadFromList(*((DXGDEVICE **)this + 2), this);
-    v2 = *((_QWORD *)this + 9);
+    v3 = *((_QWORD *)this + 9);
     *((_BYTE *)this + 116) = 0;
-    if ( v2 )
-    {
-      WdLogSingleEntry1(1LL, 1347LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"0 == m_cReference", 1347LL, 0LL, 0LL, 0LL, 0LL);
-    }
-    if ( *((_QWORD *)this + 142) )
-    {
-      KeSetEvent((PRKEVENT)((char *)this + 1112), 0, 0);
-      KeWaitForSingleObject(*((PVOID *)this + 142), Executive, 0, 0, 0LL);
-      ObfDereferenceObject(*((PVOID *)this + 142));
-      *((_QWORD *)this + 142) = 0LL;
-    }
-    v3 = (void *)*((_QWORD *)this + 11);
     if ( v3 )
     {
-      operator delete(v3);
+      v4 = WdLogNewEntry5_WdAssertion(this, a2);
+      *(_QWORD *)(v4 + 24) = 1269LL;
+      WdLogEvent5_WdAssertion(v4);
+    }
+    DXGDEVICE::RemoveTrackedWorkloadFromList(*((DXGDEVICE **)this + 2), this);
+    if ( *((_QWORD *)this + 141) )
+    {
+      KeSetEvent((PRKEVENT)this + 46, 0, 0);
+      KeWaitForSingleObject(*((PVOID *)this + 141), Executive, 0, 0, 0LL);
+      ObfDereferenceObject(*((PVOID *)this + 141));
+      *((_QWORD *)this + 141) = 0LL;
+    }
+    v5 = (void *)*((_QWORD *)this + 11);
+    if ( v5 )
+    {
+      operator delete[](v5);
       *((_QWORD *)this + 11) = 0LL;
     }
-    v4 = (char *)*((_QWORD *)this + 4);
-    if ( v4 )
-    {
-      v5 = v4 - 8;
-      `vector destructor iterator'(
-        v4,
-        136LL,
-        *((_QWORD *)v4 - 1),
-        (void (__fastcall *)(char *))DXGTRACKEDWORKLOAD::WorkloadInstancePair::~WorkloadInstancePair);
-      operator delete(v5);
-      *((_QWORD *)this + 4) = 0LL;
-    }
-    v6 = (void *)*((_QWORD *)this + 3);
+    v6 = (char *)*((_QWORD *)this + 4);
     if ( v6 )
     {
-      operator delete(v6);
+      v7 = v6 - 8;
+      `vector destructor iterator'(
+        v6,
+        136LL,
+        *((_QWORD *)v6 - 1),
+        (void (__fastcall *)(char *))DXGTRACKEDWORKLOAD::WorkloadInstancePair::~WorkloadInstancePair);
+      operator delete[](v7);
+      *((_QWORD *)this + 4) = 0LL;
+    }
+    v8 = (void *)*((_QWORD *)this + 3);
+    if ( v8 )
+    {
+      operator delete[](v8);
       *((_QWORD *)this + 3) = 0LL;
     }
   }

@@ -1,18 +1,19 @@
 /*
- * XREFs of EmpParseTargetRuleStringIndexList @ 0x140B0CFC8
+ * XREFs of EmpParseTargetRuleStringIndexList @ 0x140A46D1C
  * Callers:
- *     EmpParseTargetRules @ 0x140B0CDAC (EmpParseTargetRules.c)
+ *     EmpParseTargetRules @ 0x140A46ADC (EmpParseTargetRules.c)
  * Callees:
- *     strchr @ 0x1403E2AA0 (strchr.c)
- *     RtlCharToInteger @ 0x14082D330 (RtlCharToInteger.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     EmpInfParseGetStringIndexFromName @ 0x140B0D254 (EmpInfParseGetStringIndexFromName.c)
+ *     RtlStringCbCopyNA @ 0x1403B4464 (RtlStringCbCopyNA.c)
+ *     strchr @ 0x1403D36F0 (strchr.c)
+ *     RtlCharToInteger @ 0x14079D2B0 (RtlCharToInteger.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     EmpInfParseGetStringIndexFromName @ 0x140A46F60 (EmpInfParseGetStringIndexFromName.c)
  */
 
 bool __fastcall EmpParseTargetRuleStringIndexList(
         __int64 a1,
-        _BYTE *a2,
+        const char *a2,
         unsigned int a3,
         unsigned int a4,
         __int64 a5,
@@ -20,38 +21,32 @@ bool __fastcall EmpParseTargetRuleStringIndexList(
         int *a7)
 {
   unsigned int v7; // esi
-  char v8; // di
-  int v9; // r13d
-  unsigned int v10; // r12d
-  int v12; // edx
+  char v9; // di
+  int v10; // r15d
+  unsigned int v11; // r14d
+  int v12; // ecx
   bool v13; // zf
-  char v14; // cl
-  _BYTE *v15; // r15
-  unsigned __int64 v16; // rsi
-  char *Pool2; // rax
-  char *v18; // r14
-  char *v19; // rcx
-  __int64 v20; // r15
-  char v21; // al
-  char *v22; // rax
-  __int64 v23; // rcx
-  int v25; // [rsp+20h] [rbp-58h]
-  ULONG Value; // [rsp+24h] [rbp-54h] BYREF
-  unsigned int v27; // [rsp+28h] [rbp-50h]
-  unsigned int v29; // [rsp+88h] [rbp+10h]
-  unsigned int v30; // [rsp+90h] [rbp+18h]
-  unsigned int v31; // [rsp+98h] [rbp+20h]
+  __int64 v14; // r13
+  const char *v15; // r12
+  char *PoolWithTag; // rax
+  char *v17; // rbp
+  __int64 v18; // rcx
+  int v20; // [rsp+20h] [rbp-58h]
+  ULONG Value[21]; // [rsp+24h] [rbp-54h] BYREF
+  unsigned int v23; // [rsp+88h] [rbp+10h]
+  unsigned int v24; // [rsp+90h] [rbp+18h]
+  unsigned int v25; // [rsp+98h] [rbp+20h]
 
-  v31 = a4;
-  v30 = a3;
+  v25 = a4;
+  v24 = a3;
   v7 = 0;
-  Value = 0;
-  v8 = 0;
   v9 = 0;
-  v29 = 0;
+  Value[0] = 0;
   v10 = 0;
+  v11 = 0;
+  v23 = 0;
   v12 = *a7;
-  v25 = *a7;
+  v20 = *a7;
   if ( a5 )
   {
     while ( 1 )
@@ -60,133 +55,101 @@ bool __fastcall EmpParseTargetRuleStringIndexList(
       {
         while ( 1 )
         {
-          while ( 1 )
-          {
-            v13 = v8 == 0;
-            if ( v8 )
-              return v13;
-            if ( v9 )
-              break;
-            if ( *a2 != 123 )
-              goto LABEL_36;
-LABEL_7:
-            ++a2;
-            v9 = 1;
-          }
-          if ( v9 == 1 )
+          v13 = v9 == 0;
+          if ( v9 )
+            return v13;
+          if ( v10 )
             break;
-          if ( v9 != 2 )
-          {
-            if ( !*a2 && v10 == a3 && v7 == a4 )
-            {
-              *a7 = v12 + v7 + v10;
-              return v8 == 0;
-            }
-            goto LABEL_36;
-          }
-          if ( *a2 == 46 )
-            goto LABEL_7;
-          if ( *a2 == 125 )
-          {
-LABEL_44:
-            ++a2;
-            v9 = 3;
-          }
-          else
-          {
-LABEL_36:
-            v8 = 1;
-          }
+          if ( *a2 != 123 )
+            goto LABEL_27;
+LABEL_7:
+          ++a2;
+          v10 = 1;
         }
-        v14 = *a2;
-        if ( *a2 == 125 )
-          goto LABEL_44;
-        if ( v10 > a3 || v7 > a4 || (v27 = v12 + v7 + v10, v27 >= a6) )
-        {
-          v8 = 1;
-          return v8 == 0;
-        }
-        v15 = a2;
-        if ( v14 )
-        {
-          do
-          {
-            if ( strchr(".}", v14) )
-              break;
-            v14 = *++a2;
-          }
-          while ( *a2 );
-          v12 = v25;
-          a3 = v30;
-          a4 = v31;
-        }
-        v16 = a2 - v15 + 1;
-        if ( a2 - v15 != -1 )
+        if ( v10 == 1 )
           break;
-        v7 = v29;
-        v8 = 1;
-      }
-      Pool2 = (char *)ExAllocatePool2(256LL, a2 - v15 + 1, 0x74694D45u);
-      v18 = Pool2;
-      if ( Pool2 && v16 <= 0x7FFFFFFF )
-      {
-        if ( (unsigned __int64)(a2 - v15) > 0x7FFFFFFE )
+        if ( v10 != 2 )
         {
-          *Pool2 = 0;
+          if ( !*a2 && v11 == a3 && v7 == a4 )
+          {
+            *a7 = v12 + v7 + v11;
+            return v9 == 0;
+          }
+          goto LABEL_27;
+        }
+        if ( *a2 == 46 )
+          goto LABEL_7;
+        if ( *a2 == 125 )
+        {
+LABEL_35:
+          ++a2;
+          v10 = 3;
         }
         else
         {
-          v19 = Pool2;
-          v20 = v15 - Pool2;
-          while ( v16 != 1 )
-          {
-            v21 = v19[v20];
-            if ( !v21 )
-              break;
-            *v19++ = v21;
-            --v16;
-          }
-          v22 = v19 - 1;
-          if ( v16 )
-            v22 = v19;
-          *v22 = 0;
-          if ( v16 )
-          {
-            if ( v10 < v30 )
-            {
-              v7 = v29;
-              if ( (int)EmpInfParseGetStringIndexFromName(a1, v18, &Value) < 0 )
-                goto LABEL_45;
-              v23 = v10 + v25;
-              ++v10;
-LABEL_30:
-              v9 = 2;
-              *(_DWORD *)(a5 + 4 * v23) = Value;
-            }
-            else
-            {
-              v7 = v29;
-              if ( RtlCharToInteger(v18, 0x10u, &Value) >= 0 )
-              {
-                v23 = v27;
-                v7 = ++v29;
-                goto LABEL_30;
-              }
-LABEL_45:
-              v8 = 1;
-            }
-            ExFreePoolWithTag(v18, 0x74694D45u);
-            goto LABEL_32;
-          }
+LABEL_27:
+          v9 = 1;
         }
       }
-      v7 = v29;
-      v8 = 1;
-LABEL_32:
-      v12 = v25;
-      a3 = v30;
-      a4 = v31;
+      if ( *a2 == 125 )
+        goto LABEL_35;
+      if ( v11 > a3 || v7 > a4 || (v14 = v12 + v7 + v11, (unsigned int)v14 >= a6) )
+      {
+        v9 = 1;
+        return v9 == 0;
+      }
+      v15 = a2;
+      do
+      {
+        if ( strchr(".}", *a2) )
+          break;
+        ++a2;
+      }
+      while ( a2 );
+      if ( a2 - v15 != -1 )
+      {
+        PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, a2 - v15 + 1, 0x74694D45u);
+        v17 = PoolWithTag;
+        if ( PoolWithTag )
+        {
+          if ( RtlStringCbCopyNA(PoolWithTag, a2 - v15 + 1, v15, a2 - v15) >= 0 )
+            break;
+        }
+      }
+      v7 = v23;
+      v9 = 1;
+LABEL_23:
+      v12 = v20;
+      a3 = v24;
+      a4 = v25;
     }
+    if ( v11 < v24 )
+    {
+      v7 = v23;
+      if ( (int)EmpInfParseGetStringIndexFromName(a1, v17, Value) >= 0 )
+      {
+        v18 = v11 + v20;
+        ++v11;
+        *(_DWORD *)(a5 + 4 * v18) = Value[0];
+        goto LABEL_21;
+      }
+    }
+    else
+    {
+      v7 = v23;
+      if ( RtlCharToInteger(v17, 0x10u, Value) >= 0 )
+      {
+        v7 = ++v23;
+        *(_DWORD *)(a5 + 4 * v14) = Value[0];
+LABEL_21:
+        v10 = 2;
+LABEL_22:
+        ExFreePoolWithTag(v17, 0x74694D45u);
+        goto LABEL_23;
+      }
+    }
+    v9 = 1;
+    goto LABEL_22;
   }
   return 0;
 }

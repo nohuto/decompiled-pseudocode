@@ -1,13 +1,13 @@
 /*
- * XREFs of Bulk_TransferData_Initialize @ 0x1C000EFC8
+ * XREFs of Bulk_TransferData_Initialize @ 0x1C000D390
  * Callers:
- *     Bulk_RetrieveNextStage @ 0x1C000E980 (Bulk_RetrieveNextStage.c)
- *     Bulk_WdfEvtIoCanceledOnQueue @ 0x1C0044E10 (Bulk_WdfEvtIoCanceledOnQueue.c)
+ *     Bulk_RetrieveNextStage @ 0x1C000CD50 (Bulk_RetrieveNextStage.c)
+ *     Bulk_WdfEvtIoCanceledOnQueue @ 0x1C0044960 (Bulk_WdfEvtIoCanceledOnQueue.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     McTemplateK0uqqq_EtwWriteTransfer @ 0x1C0041658 (McTemplateK0uqqq_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     McTemplateK0uqqq_EtwWriteTransfer @ 0x1C0040708 (McTemplateK0uqqq_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall Bulk_TransferData_Initialize(__int64 a1, _QWORD *a2, __int64 a3)

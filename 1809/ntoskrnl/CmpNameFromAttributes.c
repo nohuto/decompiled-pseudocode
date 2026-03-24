@@ -2,17 +2,17 @@
  * XREFs of CmpNameFromAttributes @ 0x1405B7860
  * Callers:
  *     CmLoadDifferencingKey @ 0x1405B4DBC (CmLoadDifferencingKey.c)
- *     NtReplaceKey @ 0x1407EA090 (NtReplaceKey.c)
+ *     NtReplaceKey @ 0x1407EA070 (NtReplaceKey.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwQueryObject @ 0x1401B8370 (ZwQueryObject.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwQueryObject @ 0x1401B8390 (ZwQueryObject.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IoConvertFileHandleToKernelHandle @ 0x14081C020 (IoConvertFileHandleToKernelHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x14081C000 (IoConvertFileHandleToKernelHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall CmpNameFromAttributes(_OWORD *a1, char a2, UNICODE_STRING *a3, __int64 a4)

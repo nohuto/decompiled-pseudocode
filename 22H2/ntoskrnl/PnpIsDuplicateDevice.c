@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpIsDuplicateDevice @ 0x140953E2C
+ * XREFs of PnpIsDuplicateDevice @ 0x14089D26C
  * Callers:
- *     IopIsReportedAlready @ 0x140837110 (IopIsReportedAlready.c)
+ *     IopIsReportedAlready @ 0x1407AF208 (IopIsReportedAlready.c)
  * Callees:
  *     <none>
  */
@@ -13,10 +13,10 @@ __int64 __fastcall PnpIsDuplicateDevice(_DWORD *a1, _DWORD *a2)
   unsigned int v4; // ebp
   unsigned int v5; // edi
   _DWORD *v6; // r10
-  char v7; // bl
+  char v7; // r11
   unsigned int v8; // esi
   unsigned int v9; // r9d
-  _DWORD *v10; // r11
+  _DWORD *v10; // rbx
   _DWORD *v11; // rax
 
   v2 = 0;

@@ -1,18 +1,16 @@
 /*
- * XREFs of SfmSignalTokenEvent @ 0x1C00CC7A0
+ * XREFs of SfmSignalTokenEvent @ 0x1C00A3540
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall SfmSignalTokenEvent(__int64 a1)
+__int64 SfmSignalTokenEvent()
 {
-  __int64 v1; // rax
   LONG PreviousState; // [rsp+30h] [rbp+8h] BYREF
 
   PreviousState = 0;
-  v1 = SGDGetSessionState(a1);
-  ZwSetEvent(*(HANDLE *)(*(_QWORD *)(*(_QWORD *)(v1 + 24) + 6472LL) + 24LL), &PreviousState);
+  ZwSetEvent(*((HANDLE *)gpSfmState + 3), &PreviousState);
   return (unsigned int)PreviousState;
 }

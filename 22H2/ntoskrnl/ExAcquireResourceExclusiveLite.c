@@ -1,280 +1,418 @@
 /*
- * XREFs of ExAcquireResourceExclusiveLite @ 0x1402390C0
+ * XREFs of ExAcquireResourceExclusiveLite @ 0x1402CC2B0
  * Callers:
- *     SepDesktopAppxSubProcessToken @ 0x140225D5C (SepDesktopAppxSubProcessToken.c)
- *     CcPinFileData @ 0x140263770 (CcPinFileData.c)
- *     MiProcessLoaderEntry @ 0x1402908A8 (MiProcessLoaderEntry.c)
- *     SepQueueWorkItem @ 0x140309480 (SepQueueWorkItem.c)
- *     SepRmCallLsa @ 0x14031C700 (SepRmCallLsa.c)
- *     PnpUnregisterPlugPlayNotification @ 0x14032041C (PnpUnregisterPlugPlayNotification.c)
- *     FsRtlAcquireFileForModWriteEx @ 0x140349A9C (FsRtlAcquireFileForModWriteEx.c)
- *     SeTokenSetRedirectionTrustPolicy @ 0x140364B48 (SeTokenSetRedirectionTrustPolicy.c)
- *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x140365550 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
- *     SeTokenSetNoChildProcessRestricted @ 0x14036B3D4 (SeTokenSetNoChildProcessRestricted.c)
- *     SepInternalSetSecurityAttributesToken @ 0x140370364 (SepInternalSetSecurityAttributesToken.c)
- *     CcUnpinRepinnedBcb @ 0x140392610 (CcUnpinRepinnedBcb.c)
- *     SeSetSecurityAttributesTokenEx @ 0x1403A1680 (SeSetSecurityAttributesTokenEx.c)
- *     IoConfigureCrashDump @ 0x14054FA04 (IoConfigureCrashDump.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140551100 (IoUpdateDumpPhysicalRanges.c)
- *     PiSwIrpCancelStartCreate @ 0x1405644F0 (PiSwIrpCancelStartCreate.c)
- *     PiDmaGuardQueueRemoveEntry @ 0x140565168 (PiDmaGuardQueueRemoveEntry.c)
- *     RtlpAllocateHeap @ 0x1405AB2D8 (RtlpAllocateHeap.c)
- *     RtlpFreeHeap @ 0x1405AD338 (RtlpFreeHeap.c)
- *     RtlpSetupExtendedBlock @ 0x1405AE16C (RtlpSetupExtendedBlock.c)
- *     DifExAcquireResourceExclusiveLiteWrapper @ 0x1405D7140 (DifExAcquireResourceExclusiveLiteWrapper.c)
- *     ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x14060AA20 (ExEnterPriorityRegionAndAcquireResourceExclusive.c)
- *     SepBlockAccessForLogonSession @ 0x140682C9C (SepBlockAccessForLogonSession.c)
- *     PpCheckInDriverDatabase @ 0x140692C14 (PpCheckInDriverDatabase.c)
- *     CmpStopRMLog @ 0x140697CEC (CmpStopRMLog.c)
- *     CmpCleanupTransactionState @ 0x14069831C (CmpCleanupTransactionState.c)
- *     CmpAccountForLogReservation @ 0x140698664 (CmpAccountForLogReservation.c)
- *     IopGetSetSecurityObject @ 0x14069C1D0 (IopGetSetSecurityObject.c)
- *     IopSetDeviceSecurityDescriptor @ 0x14069E6A4 (IopSetDeviceSecurityDescriptor.c)
- *     PspLockRootJobExclusive @ 0x14069F000 (PspLockRootJobExclusive.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14069F068 (PspAllocateAndQueryNotificationChannel.c)
- *     PspLockJobsAndProcessExclusive @ 0x14069F70C (PspLockJobsAndProcessExclusive.c)
- *     PspApplyWorkingSetLimitsToProcess @ 0x1406A0894 (PspApplyWorkingSetLimitsToProcess.c)
- *     PspLockJobChain @ 0x1406A0CC8 (PspLockJobChain.c)
- *     PspLockJobConditionally @ 0x1406A30D0 (PspLockJobConditionally.c)
- *     PspLockJobExclusive @ 0x1406A3DF8 (PspLockJobExclusive.c)
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     MmLockPagableDataSection @ 0x1406AD5B0 (MmLockPagableDataSection.c)
- *     NtAdjustPrivilegesToken @ 0x1406BA640 (NtAdjustPrivilegesToken.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9A08 (PnpAcquireDependencyRelationsLock.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     _CmGetDeviceSoftwareKey @ 0x1406C9CDC (_CmGetDeviceSoftwareKey.c)
- *     MiCancelPhase0Locking @ 0x1407010A4 (MiCancelPhase0Locking.c)
- *     CmpTransWriteLog @ 0x140708120 (CmpTransWriteLog.c)
- *     FsRtlAcquireFileExclusiveCommon @ 0x140723B90 (FsRtlAcquireFileExclusiveCommon.c)
- *     MmChangeImageProtection @ 0x140723EB0 (MmChangeImageProtection.c)
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
- *     PfSnPrefetchCacheEntryUpdate @ 0x14074DCA0 (PfSnPrefetchCacheEntryUpdate.c)
- *     PfSnCheckActionsNeeded @ 0x14074E508 (PfSnCheckActionsNeeded.c)
- *     ExAcquireTimeRefreshLock @ 0x14075FE64 (ExAcquireTimeRefreshLock.c)
- *     CmpLockRegistryExclusive @ 0x1407696FC (CmpLockRegistryExclusive.c)
- *     SepDeReferenceLogonSession @ 0x14076D310 (SepDeReferenceLogonSession.c)
- *     SepDeleteLogonSessionTrack @ 0x14076D84C (SepDeleteLogonSessionTrack.c)
- *     PnpNotifyTargetDeviceChange @ 0x14078386C (PnpNotifyTargetDeviceChange.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x1407869A0 (PiDqObjectManagerServiceActionQueue.c)
- *     IopGetDeviceInterfaces @ 0x140787900 (IopGetDeviceInterfaces.c)
- *     PiDmAddCacheReferenceForObject @ 0x1407885C4 (PiDmAddCacheReferenceForObject.c)
- *     PiPnpRtlObjectEventWorker @ 0x1407889E0 (PiPnpRtlObjectEventWorker.c)
- *     PiPnpRtlEndOperation @ 0x140788CDC (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140788EE0 (PiPnpRtlBeginOperation.c)
- *     PnpNotifyDeviceClassChange @ 0x14078F790 (PnpNotifyDeviceClassChange.c)
- *     IopDoDeferredSetInterfaceState @ 0x1407916E4 (IopDoDeferredSetInterfaceState.c)
- *     IoSetDeviceInterfaceState @ 0x140793B70 (IoSetDeviceInterfaceState.c)
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
- *     PipEnumerateCompleted @ 0x140795910 (PipEnumerateCompleted.c)
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     PiPnpRtlSetObjectProperty @ 0x140796C98 (PiPnpRtlSetObjectProperty.c)
- *     PiSwIrpPropertySet @ 0x14079CC08 (PiSwIrpPropertySet.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x1407B4A78 (FsRtlAcquireFileForCcFlushEx.c)
- *     SepCreateLogonSessionTrack @ 0x1407BDA3C (SepCreateLogonSessionTrack.c)
- *     PiDmListAddObjectWorker @ 0x1407BEB6C (PiDmListAddObjectWorker.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x1407C2788 (PiDmRemoveCacheReferenceForObject.c)
- *     SepReferenceLogonSessionSilo @ 0x1407C38DC (SepReferenceLogonSessionSilo.c)
- *     IoGetDeviceInterfaceAlias @ 0x1407C5A60 (IoGetDeviceInterfaceAlias.c)
- *     NtCreateTimer @ 0x1407C6B20 (NtCreateTimer.c)
- *     SepUpdateLogonSessionTrack @ 0x1407C7C24 (SepUpdateLogonSessionTrack.c)
- *     NtGetMUIRegistryInfo @ 0x1407CAB20 (NtGetMUIRegistryInfo.c)
- *     NtAdjustGroupsToken @ 0x1407CAEE0 (NtAdjustGroupsToken.c)
- *     PpDeviceRegistration @ 0x1407CFAC4 (PpDeviceRegistration.c)
- *     PspSetEnergyTrackingStateJobTree @ 0x1407D083C (PspSetEnergyTrackingStateJobTree.c)
- *     PspFreezeJobTree @ 0x1407DA648 (PspFreezeJobTree.c)
- *     PiDcHandleCustomDeviceEvent @ 0x1407DB41C (PiDcHandleCustomDeviceEvent.c)
- *     IoEnumerateRegisteredFiltersList @ 0x1407DC150 (IoEnumerateRegisteredFiltersList.c)
- *     PiSwProcessParentStartIrp @ 0x1407E13C8 (PiSwProcessParentStartIrp.c)
- *     IopBootLog @ 0x1407E3A4C (IopBootLog.c)
- *     PspSetQuotaLimits @ 0x1407E3E94 (PspSetQuotaLimits.c)
- *     PspSetBackgroundJobTree @ 0x1407E5DB8 (PspSetBackgroundJobTree.c)
- *     PiDrvDbUnloadNodeWorkerCallback @ 0x1407E8B60 (PiDrvDbUnloadNodeWorkerCallback.c)
- *     PopAcquireAdaptiveLock @ 0x1407EC41C (PopAcquireAdaptiveLock.c)
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
- *     SeSetMandatoryPolicyToken @ 0x1407F0D88 (SeSetMandatoryPolicyToken.c)
- *     SeSetSessionIdToken @ 0x1407F16F4 (SeSetSessionIdToken.c)
- *     NtCreateLowBoxToken @ 0x1407F2AC0 (NtCreateLowBoxToken.c)
- *     PpDevCfgProcessDevices @ 0x140813294 (PpDevCfgProcessDevices.c)
- *     IopGetRootDevices @ 0x1408144D8 (IopGetRootDevices.c)
- *     PiSwPdoPnPDispatch @ 0x14081B050 (PiSwPdoPnPDispatch.c)
- *     PiSwIrpStartCreateWorker @ 0x14081B5CC (PiSwIrpStartCreateWorker.c)
- *     PiSwCompleteCreate @ 0x14081BD64 (PiSwCompleteCreate.c)
- *     PiSwIrpCleanup @ 0x14081CA34 (PiSwIrpCleanup.c)
- *     PiSwIrpInterfaceRegister @ 0x14081D314 (PiSwIrpInterfaceRegister.c)
- *     PiSwIrpInterfacePropertySet @ 0x14081D6A4 (PiSwIrpInterfacePropertySet.c)
- *     PiSwIrpInterfaceSetState @ 0x14081DC18 (PiSwIrpInterfaceSetState.c)
- *     MiWriteProtectSystemImages @ 0x14081F1B8 (MiWriteProtectSystemImages.c)
- *     SepRmCommandServerThread @ 0x14082D2D0 (SepRmCommandServerThread.c)
- *     IoInitializeCrashDump @ 0x1408360EC (IoInitializeCrashDump.c)
- *     IoReportDetectedDevice @ 0x140836920 (IoReportDetectedDevice.c)
- *     IoReportRootDevice @ 0x140836DC0 (IoReportRootDevice.c)
- *     SeExchangePrimaryToken @ 0x140842088 (SeExchangePrimaryToken.c)
- *     PpReleaseBootDDB @ 0x1408456C4 (PpReleaseBootDDB.c)
- *     IoOpenDeviceInterfaceRegistryKey @ 0x140849F50 (IoOpenDeviceInterfaceRegistryKey.c)
- *     SepRmGlobalSaclSetWrkr @ 0x14084E6D0 (SepRmGlobalSaclSetWrkr.c)
- *     MmFreeBootDriverInitializationCode @ 0x14084E87C (MmFreeBootDriverInitializationCode.c)
- *     FsRtlCopyWrite @ 0x1408509C0 (FsRtlCopyWrite.c)
- *     IoRegisterFsRegistrationChangeMountAware @ 0x1408577F0 (IoRegisterFsRegistrationChangeMountAware.c)
- *     MiRememberUnloadedDriver @ 0x1408592AC (MiRememberUnloadedDriver.c)
- *     ExpRegisterFirmwareTableInformationHandler @ 0x14085C208 (ExpRegisterFirmwareTableInformationHandler.c)
- *     PiSwIrpSetLifetime @ 0x14085C5E4 (PiSwIrpSetLifetime.c)
- *     NtFlushInstallUILanguage @ 0x14085F640 (NtFlushInstallUILanguage.c)
- *     IopCopyBootLogRegistryToFile @ 0x1408659D8 (IopCopyBootLogRegistryToFile.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x14086671C (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x140866854 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     IopRegisterDeviceInterface @ 0x140866CCC (IopRegisterDeviceInterface.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x140868334 (PnpUnlinkDeviceRemovalRelations.c)
- *     PiSwStopDestroy @ 0x14086A198 (PiSwStopDestroy.c)
- *     PiSwProcessParentRemoveIrp @ 0x14086A324 (PiSwProcessParentRemoveIrp.c)
- *     PiDrvDbUnloadNode @ 0x14086BF44 (PiDrvDbUnloadNode.c)
- *     PiDrvDbLoadNode @ 0x14086BFF4 (PiDrvDbLoadNode.c)
- *     IoRegisterFileSystem @ 0x140871D80 (IoRegisterFileSystem.c)
- *     CmpStartRMLog @ 0x140873068 (CmpStartRMLog.c)
- *     IoUnregisterFileSystem @ 0x1408757B0 (IoUnregisterFileSystem.c)
- *     DrvDbReleaseDatabaseNodeBaseKey @ 0x14087728C (DrvDbReleaseDatabaseNodeBaseKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x140877328 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     PiPnpRtlSetDeviceRegProperty @ 0x14087CBD4 (PiPnpRtlSetDeviceRegProperty.c)
- *     PnpChainDereferenceComplete @ 0x140881878 (PnpChainDereferenceComplete.c)
- *     PnpDelayedRemoveWorker @ 0x140881B60 (PnpDelayedRemoveWorker.c)
- *     PnpDisableDeviceInterfaces @ 0x140883160 (PnpDisableDeviceInterfaces.c)
- *     PnpQueuePendingSurpriseRemoval @ 0x140883540 (PnpQueuePendingSurpriseRemoval.c)
- *     SeMarkLogonSessionForTerminationNotificationEx @ 0x140885910 (SeMarkLogonSessionForTerminationNotificationEx.c)
- *     FsRtlPrepareMdlWriteDev @ 0x14093D660 (FsRtlPrepareMdlWriteDev.c)
- *     FsRtlpDedupChangeRegisterVolume @ 0x14093E9C0 (FsRtlpDedupChangeRegisterVolume.c)
- *     FsRtlpDedupChangeUnregisterVolume @ 0x14093EB6C (FsRtlpDedupChangeUnregisterVolume.c)
- *     FsRtlpHeatRegisterVolume @ 0x14093FBC8 (FsRtlpHeatRegisterVolume.c)
- *     FsRtlpHeatUnregisterVolume @ 0x14093FD74 (FsRtlpHeatUnregisterVolume.c)
- *     IopBootLogToFile @ 0x140944264 (IopBootLogToFile.c)
- *     IopInitializeBootLogging @ 0x140944EF8 (IopInitializeBootLogging.c)
- *     IoUnregisterFsRegistrationChange @ 0x140947690 (IoUnregisterFsRegistrationChange.c)
- *     IoCaptureLiveDump @ 0x14094BA98 (IoCaptureLiveDump.c)
- *     PiGetDeviceRegistryProperty @ 0x140954DC8 (PiGetDeviceRegistryProperty.c)
- *     PnpDeleteDeviceInterfaces @ 0x140956504 (PnpDeleteDeviceInterfaces.c)
- *     PnpNotifyHwProfileChange @ 0x14095674C (PnpNotifyHwProfileChange.c)
- *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x1409569A0 (PnpNotifyTargetDeviceChangeNotifyEntry.c)
- *     PnpGetDeviceInstanceRegistryValue @ 0x140957A30 (PnpGetDeviceInstanceRegistryValue.c)
- *     PiDmListRemoveObjectWorker @ 0x14095B028 (PiDmListRemoveObjectWorker.c)
- *     PiSwFreePdoAssociationsList @ 0x1409674B0 (PiSwFreePdoAssociationsList.c)
- *     PiSwIrpGetLifetime @ 0x1409675E0 (PiSwIrpGetLifetime.c)
- *     PiCMCreateDevice @ 0x1409684E0 (PiCMCreateDevice.c)
- *     PiCMDeleteDevice @ 0x140968EF8 (PiCMDeleteDevice.c)
- *     PiCMGenerateDeviceInstance @ 0x140969C6C (PiCMGenerateDeviceInstance.c)
- *     PiCMUnregisterDeviceInterface @ 0x14096AD80 (PiCMUnregisterDeviceInterface.c)
- *     PipKsrNotifyDrivers @ 0x14096D3F0 (PipKsrNotifyDrivers.c)
- *     PiInitializeDevice @ 0x14096DB94 (PiInitializeDevice.c)
- *     PiDmaGuardQueueFlush @ 0x140971FD8 (PiDmaGuardQueueFlush.c)
- *     PipDgqInsertEntry @ 0x140972120 (PipDgqInsertEntry.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x1409937E4 (PopPowerAggregatorEngageModernStandby.c)
- *     PopDripsWatchdogCallbackWorker @ 0x14099C240 (PopDripsWatchdogCallbackWorker.c)
- *     PopDripsWatchdogDiagnosticWorker @ 0x14099C520 (PopDripsWatchdogDiagnosticWorker.c)
- *     PopDripsWatchdogStartWatchdog @ 0x14099C7C8 (PopDripsWatchdogStartWatchdog.c)
- *     PopDripsWatchdogStopWatchdog @ 0x14099C938 (PopDripsWatchdogStopWatchdog.c)
- *     TtmpStopCallout @ 0x1409A3E1C (TtmpStopCallout.c)
- *     TtmCleanupCurrentSession @ 0x1409A3F40 (TtmCleanupCurrentSession.c)
- *     TtmInitCurrentSession @ 0x1409A4050 (TtmInitCurrentSession.c)
- *     TtmpAcquireSessionById @ 0x1409A4FE0 (TtmpAcquireSessionById.c)
- *     TtmpInitiateModernStandbyTransition @ 0x1409A5480 (TtmpInitiateModernStandbyTransition.c)
- *     TtmpSessionPowerControl @ 0x1409A5934 (TtmpSessionPowerControl.c)
- *     TtmpSessionWorker @ 0x1409A59E0 (TtmpSessionWorker.c)
- *     TtmpTerminal0PowerSettingCallback @ 0x1409A5D30 (TtmpTerminal0PowerSettingCallback.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x1409A62E8 (TtmpAcquireSessionFromTerminalHandle.c)
- *     TtmiResetInactivityTimer @ 0x1409AB21C (TtmiResetInactivityTimer.c)
- *     TtmpCloseTerminalHandle @ 0x1409AB810 (TtmpCloseTerminalHandle.c)
- *     TtmpScheduledEvaluationWorker @ 0x1409ABA60 (TtmpScheduledEvaluationWorker.c)
- *     TtmpWnfInactivityTimeoutCallback @ 0x1409ABF00 (TtmpWnfInactivityTimeoutCallback.c)
- *     TtmiCloseEventQueue @ 0x1409ABFF8 (TtmiCloseEventQueue.c)
- *     TtmiRetrieveEventFromQueue @ 0x1409AC1F0 (TtmiRetrieveEventFromQueue.c)
- *     TtmiWriteEventToSingleQueue @ 0x1409AC358 (TtmiWriteEventToSingleQueue.c)
- *     TtmpDeleteQueue @ 0x1409AC510 (TtmpDeleteQueue.c)
- *     PspGetMemoryPartitionFromJobList @ 0x1409B24A8 (PspGetMemoryPartitionFromJobList.c)
- *     PspSetIoPriorityLimitJobTree @ 0x1409B2AB4 (PspSetIoPriorityLimitJobTree.c)
- *     PspSetJobMemoryPartition @ 0x1409B2CD4 (PspSetJobMemoryPartition.c)
- *     PspSetPagePriorityLimitJobTree @ 0x1409B3370 (PspSetPagePriorityLimitJobTree.c)
- *     RtlZeroHeap @ 0x1409BDF10 (RtlZeroHeap.c)
- *     SeSetPrivateNameSpaceToken @ 0x1409C9658 (SeSetPrivateNameSpaceToken.c)
- *     SeSetVirtualizationToken @ 0x1409C989C (SeSetVirtualizationToken.c)
- *     SepSetServerSiloToken @ 0x1409C9AD0 (SepSetServerSiloToken.c)
- *     SepAddTokenLogonSession @ 0x1409CFEC0 (SepAddTokenLogonSession.c)
- *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x1409CFFC0 (SepDeleteUnreferencedLogonSessionsInSilo.c)
- *     SepMakeLogonSessionsSiblings @ 0x1409D0170 (SepMakeLogonSessionsSiblings.c)
- *     SepRemoveTokenLogonSession @ 0x1409D03E4 (SepRemoveTokenLogonSession.c)
- *     WmiAcquireSmbiosLockExclusive @ 0x1409DF63C (WmiAcquireSmbiosLockExclusive.c)
- *     ExpQuerySingleModuleInformation @ 0x1409F7498 (ExpQuerySingleModuleInformation.c)
- *     NtMapCMFModule @ 0x140A032C0 (NtMapCMFModule.c)
- *     AdtpBuildAccessesString @ 0x140A5B944 (AdtpBuildAccessesString.c)
- *     _PnpCtxCloseMachine @ 0x140A607E0 (_PnpCtxCloseMachine.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
- *     IoShutdownSystem @ 0x140A99BF4 (IoShutdownSystem.c)
- *     PipResetDevices @ 0x140B436DC (PipResetDevices.c)
- *     MiInitializeDriverImages @ 0x140B497A0 (MiInitializeDriverImages.c)
- *     IopInitCrashDumpRegCallback @ 0x140B60590 (IopInitCrashDumpRegCallback.c)
- *     MiUnlockBootPageSections @ 0x140B6276C (MiUnlockBootPageSections.c)
+ *     SepDesktopAppxSubProcessToken @ 0x14024FE28 (SepDesktopAppxSubProcessToken.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x14025522C (FsRtlAcquireFileForModWriteEx.c)
+ *     CcAcquireByteRangeForWrite @ 0x1402905C0 (CcAcquireByteRangeForWrite.c)
+ *     CcPinFileData @ 0x14029FCC0 (CcPinFileData.c)
+ *     SeTokenSetNoChildProcessRestricted @ 0x14032ABC0 (SeTokenSetNoChildProcessRestricted.c)
+ *     SepQueueWorkItem @ 0x14034D010 (SepQueueWorkItem.c)
+ *     SepRmCallLsa @ 0x14034D310 (SepRmCallLsa.c)
+ *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x140364690 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
+ *     MiProcessLoaderEntry @ 0x140372B40 (MiProcessLoaderEntry.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x14037F3E0 (PnpUnregisterPlugPlayNotification.c)
+ *     IoConfigureCrashDump @ 0x1403BFA60 (IoConfigureCrashDump.c)
+ *     SeTokenSetRedirectionTrustPolicy @ 0x1403F8680 (SeTokenSetRedirectionTrustPolicy.c)
+ *     CcUnpinRepinnedBcb @ 0x1404EA6A0 (CcUnpinRepinnedBcb.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x1405028CC (IoUpdateDumpPhysicalRanges.c)
+ *     PiSwIrpCancelStartCreate @ 0x14050FCB0 (PiSwIrpCancelStartCreate.c)
+ *     PiDmaGuardQueueRemoveEntry @ 0x140510528 (PiDmaGuardQueueRemoveEntry.c)
+ *     RtlpAllocateHeap @ 0x140588A70 (RtlpAllocateHeap.c)
+ *     RtlpFreeHeap @ 0x14058AAD4 (RtlpFreeHeap.c)
+ *     RtlpSetupExtendedBlock @ 0x14058B818 (RtlpSetupExtendedBlock.c)
+ *     SepInternalSetSecurityAttributesToken @ 0x140595B2C (SepInternalSetSecurityAttributesToken.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x1405974C0 (SeSetSecurityAttributesTokenEx.c)
+ *     ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x1405B52D0 (ExEnterPriorityRegionAndAcquireResourceExclusive.c)
+ *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x1405CEDD8 (PnpNotifyTargetDeviceChangeNotifyEntry.c)
+ *     NtAdjustGroupsToken @ 0x1405DA5F0 (NtAdjustGroupsToken.c)
+ *     SepReferenceLogonSessionSilo @ 0x1405DC7FC (SepReferenceLogonSessionSilo.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x140605A6C (PspApplyWorkingSetLimitsToProcess.c)
+ *     NtAdjustPrivilegesToken @ 0x140608190 (NtAdjustPrivilegesToken.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
+ *     PspLockJobChain @ 0x1406166A0 (PspLockJobChain.c)
+ *     PspLockJobConditionally @ 0x1406167C8 (PspLockJobConditionally.c)
+ *     PspLockJobExclusive @ 0x140618BD4 (PspLockJobExclusive.c)
+ *     PiDrvDbUnloadNode @ 0x14062A278 (PiDrvDbUnloadNode.c)
+ *     PiDrvDbLoadNode @ 0x14062A394 (PiDrvDbLoadNode.c)
+ *     PfSnCheckActionsNeeded @ 0x140630F78 (PfSnCheckActionsNeeded.c)
+ *     FsRtlAcquireFileExclusiveCommon @ 0x1406552D0 (FsRtlAcquireFileExclusiveCommon.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x14065CC90 (PspAllocateAndQueryNotificationChannel.c)
+ *     PspLockRootJobExclusive @ 0x14065CFF0 (PspLockRootJobExclusive.c)
+ *     PspFreezeJobTree @ 0x14065D058 (PspFreezeJobTree.c)
+ *     CmpStopRMLog @ 0x14066D768 (CmpStopRMLog.c)
+ *     NtGetMUIRegistryInfo @ 0x140681030 (NtGetMUIRegistryInfo.c)
+ *     SepCreateLogonSessionTrack @ 0x1406850AC (SepCreateLogonSessionTrack.c)
+ *     IoOpenDeviceRegistryKey @ 0x140688170 (IoOpenDeviceRegistryKey.c)
+ *     PspSetQuotaLimits @ 0x140688A74 (PspSetQuotaLimits.c)
+ *     _CmGetDeviceSoftwareKey @ 0x14068A7FC (_CmGetDeviceSoftwareKey.c)
+ *     SepUpdateLogonSessionTrack @ 0x140692474 (SepUpdateLogonSessionTrack.c)
+ *     SeSetSessionIdToken @ 0x14069D5A0 (SeSetSessionIdToken.c)
+ *     PspSetBackgroundJobTree @ 0x14069F420 (PspSetBackgroundJobTree.c)
+ *     SeSetVirtualizationToken @ 0x1406A1878 (SeSetVirtualizationToken.c)
+ *     SeMarkLogonSessionForTerminationNotificationEx @ 0x1406A5970 (SeMarkLogonSessionForTerminationNotificationEx.c)
+ *     PiPnpRtlEndOperation @ 0x1406ACCB8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406AD460 (PiPnpRtlBeginOperation.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406B29FC (PnpAcquireDependencyRelationsLock.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
+ *     IopGetDeviceInterfaces @ 0x1406B32E8 (IopGetDeviceInterfaces.c)
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x1406B93DC (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1406B9478 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x1406BFFC4 (FsRtlAcquireFileForCcFlushEx.c)
+ *     NtCreateTimer @ 0x1406C5B20 (NtCreateTimer.c)
+ *     IopGetSetSecurityObject @ 0x1406C8520 (IopGetSetSecurityObject.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
+ *     CmpLockRegistryExclusive @ 0x1406EB57C (CmpLockRegistryExclusive.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
+ *     SeSetMandatoryPolicyToken @ 0x1406EF250 (SeSetMandatoryPolicyToken.c)
+ *     NtCreateLowBoxToken @ 0x1406EF370 (NtCreateLowBoxToken.c)
+ *     SepDeReferenceLogonSession @ 0x1406F7CC4 (SepDeReferenceLogonSession.c)
+ *     MiCancelPhase0Locking @ 0x1406FE47C (MiCancelPhase0Locking.c)
+ *     MmLockPagableDataSection @ 0x1406FE5A0 (MmLockPagableDataSection.c)
+ *     MmChangeImageProtection @ 0x1406FE6A0 (MmChangeImageProtection.c)
+ *     ExAcquireTimeRefreshLock @ 0x1407095E4 (ExAcquireTimeRefreshLock.c)
+ *     PfSnPrefetchCacheEntryUpdate @ 0x140709EBC (PfSnPrefetchCacheEntryUpdate.c)
+ *     PspSetEnergyTrackingStateJobTree @ 0x14070DE2C (PspSetEnergyTrackingStateJobTree.c)
+ *     PnpNotifyTargetDeviceChange @ 0x14071AD38 (PnpNotifyTargetDeviceChange.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x14071B508 (PiDcHandleCustomDeviceEvent.c)
+ *     PspLockJobsAndProcessExclusive @ 0x14071FB3C (PspLockJobsAndProcessExclusive.c)
+ *     PopAcquireAdaptiveLock @ 0x1407252B4 (PopAcquireAdaptiveLock.c)
+ *     PiDrvDbUnloadNodeWorkerCallback @ 0x140725BC0 (PiDrvDbUnloadNodeWorkerCallback.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140727CD0 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     IoGetDeviceInterfaceAlias @ 0x14072BED0 (IoGetDeviceInterfaceAlias.c)
+ *     PiCMDeleteDevice @ 0x14072C52C (PiCMDeleteDevice.c)
+ *     PiDmListRemoveObjectWorker @ 0x140730E70 (PiDmListRemoveObjectWorker.c)
+ *     PiSwDeviceFree @ 0x1407342E0 (PiSwDeviceFree.c)
+ *     PiDmListAddObjectWorker @ 0x1407352C0 (PiDmListAddObjectWorker.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x1407358D4 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     PiPnpRtlSetDeviceRegProperty @ 0x140736144 (PiPnpRtlSetDeviceRegProperty.c)
+ *     PnpNotifyDeviceClassChange @ 0x140739A78 (PnpNotifyDeviceClassChange.c)
+ *     PpCheckInDriverDatabase @ 0x140739F60 (PpCheckInDriverDatabase.c)
+ *     IopDoDeferredSetInterfaceState @ 0x14073A250 (IopDoDeferredSetInterfaceState.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140741C2C (PiPnpRtlSetObjectProperty.c)
+ *     PnpSetDevicePropertyData @ 0x14074307C (PnpSetDevicePropertyData.c)
+ *     PiSwLock @ 0x140743564 (PiSwLock.c)
+ *     IopRegisterDeviceInterface @ 0x140744910 (IopRegisterDeviceInterface.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x140744D98 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x140744E48 (PiDmAddCacheReferenceForObject.c)
+ *     IoSetDeviceInterfaceState @ 0x140745500 (IoSetDeviceInterfaceState.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1407464B0 (PiPnpRtlObjectEventWorker.c)
+ *     PpDeviceRegistration @ 0x140748200 (PpDeviceRegistration.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x14074A960 (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x14074AADC (PnpUnlinkDeviceRemovalRelations.c)
+ *     PiSwStopDestroy @ 0x14074BAC8 (PiSwStopDestroy.c)
+ *     PiSwProcessParentRemoveIrp @ 0x14074BC04 (PiSwProcessParentRemoveIrp.c)
+ *     PnpChainDereferenceComplete @ 0x14074C614 (PnpChainDereferenceComplete.c)
+ *     PnpDisableDeviceInterfaces @ 0x14074C9E8 (PnpDisableDeviceInterfaces.c)
+ *     PnpDelayedRemoveWorker @ 0x14074CB70 (PnpDelayedRemoveWorker.c)
+ *     PiSwCompleteCreate @ 0x14074DC58 (PiSwCompleteCreate.c)
+ *     IopGetRootDevices @ 0x14074E2DC (IopGetRootDevices.c)
+ *     PiSwPdoPnPDispatch @ 0x14074E8B0 (PiSwPdoPnPDispatch.c)
+ *     MiRememberUnloadedDriver @ 0x14075F2E4 (MiRememberUnloadedDriver.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x140762740 (PiDqObjectManagerServiceActionQueue.c)
+ *     CmpTransWriteLog @ 0x1407631B8 (CmpTransWriteLog.c)
+ *     CmpAccountForLogReservation @ 0x140766850 (CmpAccountForLogReservation.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x14076A88C (IopSetDeviceSecurityDescriptor.c)
+ *     IoEnumerateRegisteredFiltersList @ 0x14076C090 (IoEnumerateRegisteredFiltersList.c)
+ *     PiSwProcessParentStartIrp @ 0x14076D458 (PiSwProcessParentStartIrp.c)
+ *     PiSwIrpSetLifetime @ 0x14076E848 (PiSwIrpSetLifetime.c)
+ *     CmpCleanupTransactionState @ 0x140770144 (CmpCleanupTransactionState.c)
+ *     IopBootLog @ 0x1407716E0 (IopBootLog.c)
+ *     PiSwIrpCleanup @ 0x1407734BC (PiSwIrpCleanup.c)
+ *     SepBlockAccessForLogonSession @ 0x14077946C (SepBlockAccessForLogonSession.c)
+ *     WmiAcquireSmbiosLockExclusive @ 0x14077A28C (WmiAcquireSmbiosLockExclusive.c)
+ *     SepDeleteLogonSessionTrack @ 0x14077A570 (SepDeleteLogonSessionTrack.c)
+ *     IoUnregisterFileSystem @ 0x14077D010 (IoUnregisterFileSystem.c)
+ *     CmpStartRMLog @ 0x14077D3E4 (CmpStartRMLog.c)
+ *     PnpSetDeviceInterfacePropertyData @ 0x14077DDA8 (PnpSetDeviceInterfacePropertyData.c)
+ *     IoRegisterFileSystem @ 0x1407807C0 (IoRegisterFileSystem.c)
+ *     PiSwIrpPropertySet @ 0x14078A4A4 (PiSwIrpPropertySet.c)
+ *     IopCopyBootLogRegistryToFile @ 0x14079A4DC (IopCopyBootLogRegistryToFile.c)
+ *     MiWriteProtectSystemImages @ 0x1407A1A34 (MiWriteProtectSystemImages.c)
+ *     PpDevCfgProcessDevices @ 0x1407A36EC (PpDevCfgProcessDevices.c)
+ *     SepRmCommandServerThread @ 0x1407AD670 (SepRmCommandServerThread.c)
+ *     IoReportDetectedDevice @ 0x1407AED50 (IoReportDetectedDevice.c)
+ *     MmFreeBootDriverInitializationCode @ 0x1407B3F48 (MmFreeBootDriverInitializationCode.c)
+ *     IoInitializeCrashDump @ 0x1407B7F14 (IoInitializeCrashDump.c)
+ *     SeExchangePrimaryToken @ 0x1407BC404 (SeExchangePrimaryToken.c)
+ *     PpReleaseBootDDB @ 0x1407BD504 (PpReleaseBootDDB.c)
+ *     PiSwIrpInterfacePropertySet @ 0x1407BDA04 (PiSwIrpInterfacePropertySet.c)
+ *     SepRmGlobalSaclSetWrkr @ 0x1407C5470 (SepRmGlobalSaclSetWrkr.c)
+ *     IoReportRootDevice @ 0x1407C7D80 (IoReportRootDevice.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x1407C9B60 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     ExpRegisterFirmwareTableInformationHandler @ 0x1407CB578 (ExpRegisterFirmwareTableInformationHandler.c)
+ *     IoOpenDeviceInterfaceRegistryKey @ 0x1407CCD30 (IoOpenDeviceInterfaceRegistryKey.c)
+ *     NtFlushInstallUILanguage @ 0x1407CF9B0 (NtFlushInstallUILanguage.c)
+ *     FsRtlCopyWrite @ 0x14088A8E0 (FsRtlCopyWrite.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x14088B300 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlpHeatRegisterVolume @ 0x14088D118 (FsRtlpHeatRegisterVolume.c)
+ *     FsRtlpHeatUnregisterVolume @ 0x14088D2B0 (FsRtlpHeatUnregisterVolume.c)
+ *     IopBootLogToFile @ 0x140890F14 (IopBootLogToFile.c)
+ *     IopInitializeBootLogging @ 0x140891768 (IopInitializeBootLogging.c)
+ *     IoUnregisterFsRegistrationChange @ 0x140893E60 (IoUnregisterFsRegistrationChange.c)
+ *     IoCaptureLiveDump @ 0x1408962E8 (IoCaptureLiveDump.c)
+ *     PiGetDeviceRegistryProperty @ 0x14089E568 (PiGetDeviceRegistryProperty.c)
+ *     PnpDeleteDeviceInterfaces @ 0x14089F8F8 (PnpDeleteDeviceInterfaces.c)
+ *     PnpNotifyHwProfileChange @ 0x14089FB18 (PnpNotifyHwProfileChange.c)
+ *     PnpGetDeviceInstanceRegistryValue @ 0x1408A0EE0 (PnpGetDeviceInstanceRegistryValue.c)
+ *     PiSwIrpGetLifetime @ 0x1408AEAC0 (PiSwIrpGetLifetime.c)
+ *     PiCMCreateDevice @ 0x1408AF490 (PiCMCreateDevice.c)
+ *     PiCMGenerateDeviceInstance @ 0x1408B05E0 (PiCMGenerateDeviceInstance.c)
+ *     PiCMUnregisterDeviceInterface @ 0x1408B1148 (PiCMUnregisterDeviceInterface.c)
+ *     PipKsrNotifyDrivers @ 0x1408B2FC8 (PipKsrNotifyDrivers.c)
+ *     PiInitializeDevice @ 0x1408B3CBC (PiInitializeDevice.c)
+ *     PiDmaGuardQueueFlush @ 0x1408B91A4 (PiDmaGuardQueueFlush.c)
+ *     PipDgqInsertEntry @ 0x1408B92E0 (PipDgqInsertEntry.c)
+ *     PopDripsWatchdogAcquireContextLock @ 0x1408EEE00 (PopDripsWatchdogAcquireContextLock.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x1408EF280 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogNotifySessionStart @ 0x1408EF4A0 (PopDripsWatchdogNotifySessionStart.c)
+ *     PopDripsWatchdogStartWatchdog @ 0x1408EF5A4 (PopDripsWatchdogStartWatchdog.c)
+ *     PopDripsWatchdogStopWatchdog @ 0x1408EF714 (PopDripsWatchdogStopWatchdog.c)
+ *     TtmpStopCallout @ 0x1408FD458 (TtmpStopCallout.c)
+ *     TtmpCloseTerminalHandle @ 0x1408FDE40 (TtmpCloseTerminalHandle.c)
+ *     TtmpScheduledEvaluationWorker @ 0x1408FE090 (TtmpScheduledEvaluationWorker.c)
+ *     TtmCleanupCurrentSession @ 0x1408FE53C (TtmCleanupCurrentSession.c)
+ *     TtmInitCurrentSession @ 0x1408FE6AC (TtmInitCurrentSession.c)
+ *     TtmpAcquireSessionById @ 0x1408FF640 (TtmpAcquireSessionById.c)
+ *     TtmpInitiateModernStandbyTransition @ 0x1408FFB00 (TtmpInitiateModernStandbyTransition.c)
+ *     TtmpSessionPowerControl @ 0x1408FFFD4 (TtmpSessionPowerControl.c)
+ *     TtmpSessionWorker @ 0x140900080 (TtmpSessionWorker.c)
+ *     TtmpTerminal0PowerSettingCallback @ 0x1409003D0 (TtmpTerminal0PowerSettingCallback.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x140900984 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiCloseEventQueue @ 0x1409053DC (TtmiCloseEventQueue.c)
+ *     TtmiRetrieveEventFromQueue @ 0x1409055DC (TtmiRetrieveEventFromQueue.c)
+ *     TtmiWriteEventToSingleQueue @ 0x14090574C (TtmiWriteEventToSingleQueue.c)
+ *     TtmpDeleteQueue @ 0x140905910 (TtmpDeleteQueue.c)
+ *     PspGetMemoryPartitionFromJobList @ 0x140908E90 (PspGetMemoryPartitionFromJobList.c)
+ *     PspSetJobMemoryPartition @ 0x14090958C (PspSetJobMemoryPartition.c)
+ *     RtlZeroHeap @ 0x140915980 (RtlZeroHeap.c)
+ *     SeSetPrivateNameSpaceToken @ 0x14091C8B8 (SeSetPrivateNameSpaceToken.c)
+ *     SepSetServerSiloToken @ 0x14091CCB4 (SepSetServerSiloToken.c)
+ *     SepAddTokenLogonSession @ 0x140923720 (SepAddTokenLogonSession.c)
+ *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x14092381C (SepDeleteUnreferencedLogonSessionsInSilo.c)
+ *     SepMakeLogonSessionsSiblings @ 0x1409239CC (SepMakeLogonSessionsSiblings.c)
+ *     SepRemoveTokenLogonSession @ 0x140923C20 (SepRemoveTokenLogonSession.c)
+ *     ExpQuerySingleModuleInformation @ 0x14094B270 (ExpQuerySingleModuleInformation.c)
+ *     NtMapCMFModule @ 0x140959B70 (NtMapCMFModule.c)
+ *     AdtpBuildAccessesString @ 0x14096E308 (AdtpBuildAccessesString.c)
+ *     _PnpCtxCloseMachine @ 0x140974584 (_PnpCtxCloseMachine.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
+ *     IoShutdownSystem @ 0x1409AAF18 (IoShutdownSystem.c)
+ *     PipResetDevices @ 0x140A53B50 (PipResetDevices.c)
+ *     MiUnlockBootPageSections @ 0x140A544E0 (MiUnlockBootPageSections.c)
+ *     MiInitializeKernelCfg @ 0x140A55E64 (MiInitializeKernelCfg.c)
+ *     IopInitCrashDumpRegCallback @ 0x140A67640 (IopInitCrashDumpRegCallback.c)
  * Callees:
- *     ExpAcquireResourceExclusiveLite @ 0x14023B4B0 (ExpAcquireResourceExclusiveLite.c)
- *     ExpFastResourceLegacyAcquireExclusive @ 0x1403C91C0 (ExpFastResourceLegacyAcquireExclusive.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpWaitForResource @ 0x1402C2A60 (ExpWaitForResource.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpTryAcquireResourceExclusive @ 0x1402CDEB0 (ExpTryAcquireResourceExclusive.c)
+ *     ExpBoostIoAfterAcquire @ 0x1402DD0E0 (ExpBoostIoAfterAcquire.c)
+ *     ExpApplyPrewaitBoost @ 0x14030EAD0 (ExpApplyPrewaitBoost.c)
+ *     ExpPrepareToWaitForResourceExclusive @ 0x1403113E0 (ExpPrepareToWaitForResourceExclusive.c)
+ *     ExpFastResourceLegacyAcquireExclusive @ 0x14038DD64 (ExpFastResourceLegacyAcquireExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x1405AACCC (PerfLogExecutiveResourceAcquire.c)
+ *     PerfLogExecutiveResourceWait @ 0x1405AB198 (PerfLogExecutiveResourceWait.c)
  */
 
 BOOLEAN __stdcall ExAcquireResourceExclusiveLite(PERESOURCE Resource, BOOLEAN Wait)
 {
-  __int64 Flag; // r8
-  unsigned __int8 v5; // r9
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 v4; // cl
+  __int16 v5; // ax
+  struct _KTHREAD *v6; // rbp
+  bool v7; // si
+  __int64 v8; // rcx
+  BOOLEAN v9; // di
+  ULONG v10; // ecx
+  unsigned __int64 OldIrql; // rbp
+  ULONG v13; // edi
+  ULONG v14; // edi
+  unsigned __int64 v15; // rbp
+  unsigned __int64 v16; // rdi
+  unsigned __int8 CurrentIrql; // r8
   struct _KTHREAD *CurrentThread; // rdx
-  unsigned __int8 v9; // cl
-  struct _KTHREAD *v10; // rdx
+  unsigned __int64 v19; // rbx
+  unsigned __int8 v20; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r8
+  int v23; // eax
+  bool v24; // zf
+  unsigned __int8 v25; // al
+  struct _KPRCB *v26; // r10
+  _DWORD *v27; // r8
+  int v28; // eax
+  unsigned __int8 v29; // al
+  struct _KPRCB *v30; // r10
+  _DWORD *v31; // r8
+  int v32; // eax
+  unsigned __int8 v33; // al
+  struct _KPRCB *v34; // r10
+  _DWORD *v35; // r8
+  int v36; // eax
+  __int64 v37; // r8
+  __int64 v38; // rcx
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-58h] BYREF
+  _OWORD v40[4]; // [rsp+48h] [rbp-40h] BYREF
 
-  Flag = Resource->Flag;
-  v5 = (Wait == 0) + 1;
-  if ( FeatureFastResource2 )
-  {
-    if ( (Flag & 0x41) != 1 )
-    {
-      if ( (Flag & 1) == 0 )
-        return ExpAcquireResourceExclusiveLite(Resource, Wait, Flag, v5);
-      CurrentIrql = KeGetCurrentIrql();
-      CurrentThread = KeGetCurrentThread();
-      if ( CurrentIrql > v5 )
-        KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, v5, 0LL);
-      if ( CurrentIrql < 2u || (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) == 0 )
-      {
-        if ( (CurrentThread->ApcState.InProgressFlags & 2) == 0 )
-        {
-          if ( CurrentIrql || (CurrentThread->MiscFlags & 0x400) != 0 || CurrentThread->WaitBlock[3].SpareLong )
-          {
-            Flag = Resource->Flag;
-            goto LABEL_12;
-          }
-LABEL_30:
-          KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
-        }
-LABEL_29:
-        KeBugCheckEx(0x1C6u, 6uLL, 0LL, 0LL, 0LL);
-      }
-LABEL_28:
-      KeBugCheckEx(0x1C6u, 5uLL, 0LL, 0LL, 0LL);
-    }
-LABEL_26:
+  v4 = (Wait == 0) + 1;
+  if ( (Resource->Flag & 0x41) == 1 )
     KeBugCheckEx(0x1C6u, 0xFuLL, (ULONG_PTR)Resource, 0LL, 0LL);
-  }
-  if ( (Flag & 0x41) == 1 )
-    goto LABEL_26;
-  Flag = (unsigned __int16)Flag;
-  if ( (Flag & 1) != 0 )
+  v5 = Resource->Flag & 1;
+  if ( v5 )
   {
-    v9 = KeGetCurrentIrql();
-    v10 = KeGetCurrentThread();
-    if ( v9 > v5 )
-      KeBugCheckEx(0x1C6u, 0LL, v9, v5, 0LL);
-    if ( v9 >= 2u && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
-      goto LABEL_28;
-    if ( (v10->ApcState.InProgressFlags & 2) != 0 )
-      goto LABEL_29;
-    if ( !v9 && (v10->MiscFlags & 0x400) == 0 && !v10->WaitBlock[3].SpareLong )
-      goto LABEL_30;
+    CurrentIrql = KeGetCurrentIrql();
+    CurrentThread = KeGetCurrentThread();
+    if ( CurrentIrql > v4 )
+      KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, v4, 0LL);
+    if ( CurrentIrql >= 2u && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
+      KeBugCheckEx(0x1C6u, 5uLL, 0LL, 0LL, 0LL);
+    if ( (CurrentThread->ApcState.InProgressFlags & 2) != 0 )
+      KeBugCheckEx(0x1C6u, 6uLL, 0LL, 0LL, 0LL);
+    if ( !CurrentIrql && (CurrentThread->MiscFlags & 0x400) == 0 && !CurrentThread->WaitBlock[3].SpareLong )
+      KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
   }
-LABEL_12:
-  if ( (Flag & 1) != 0 )
-    return ExpFastResourceLegacyAcquireExclusive((ULONG_PTR)Resource);
-  return ExpAcquireResourceExclusiveLite(Resource, Wait, Flag, v5);
+  if ( !v5 )
+  {
+    memset(&LockHandle, 0, sizeof(LockHandle));
+    memset(v40, 0, 48);
+    v6 = KeGetCurrentThread();
+    v7 = (DWORD1(PerfGlobalGroupMask) & 0x20000) != 0;
+    __incgsdword(0x8678u);
+    KeAcquireInStackQueuedSpinLock(&Resource->SpinLock, &LockHandle);
+    v9 = ExpTryAcquireResourceExclusive(Resource);
+    if ( v9 )
+    {
+      v10 = Resource->OwnerEntry.TableSize & 7;
+      Resource->OwnerEntry.OwnerThread = (ERESOURCE_THREAD)v6;
+      Resource->OwnerEntry.TableSize = v10 | 8;
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      OldIrql = LockHandle.OldIrql;
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          v20 = KeGetCurrentIrql();
+          if ( v20 <= 0xFu && LockHandle.OldIrql <= 0xFu && v20 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v23 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v24 = (v23 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v23;
+            if ( v24 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
+        }
+      }
+      __writecr8(OldIrql);
+      __incgsdword(0x867Cu);
+      __incgsdword(0x8664u);
+      if ( v7 )
+        PerfLogExecutiveResourceAcquire(65569LL, Resource, 1LL, Resource->ContentionCount);
+      return v9;
+    }
+    if ( (Resource->ReservedLowFlags & 0x80u) != 0 && (struct _KTHREAD *)Resource->OwnerEntry.OwnerThread == v6 )
+    {
+      v13 = Resource->OwnerEntry.TableSize + 8;
+      Resource->OwnerEntry.TableSize = v13;
+      v14 = v13 >> 3;
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      v15 = LockHandle.OldIrql;
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          v25 = KeGetCurrentIrql();
+          if ( v25 <= 0xFu && LockHandle.OldIrql <= 0xFu && v25 >= 2u )
+          {
+            v26 = KeGetCurrentPrcb();
+            v27 = v26->SchedulerAssist;
+            v28 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v24 = (v28 & v27[5]) == 0;
+            v27[5] &= v28;
+            if ( v24 )
+              KiRemoveSystemWorkPriorityKick(v26);
+          }
+        }
+      }
+      __writecr8(v15);
+      __incgsdword(0x8680u);
+      __incgsdword(0x8664u);
+      if ( !v7 )
+        return 1;
+      v37 = v14;
+      v38 = 65585LL;
+    }
+    else
+    {
+      if ( !Wait )
+      {
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+        v19 = LockHandle.OldIrql;
+        if ( KiIrqlFlags )
+        {
+          if ( (KiIrqlFlags & 1) != 0 )
+          {
+            v29 = KeGetCurrentIrql();
+            if ( v29 <= 0xFu && LockHandle.OldIrql <= 0xFu && v29 >= 2u )
+            {
+              v30 = KeGetCurrentPrcb();
+              v31 = v30->SchedulerAssist;
+              v32 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+              v24 = (v32 & v31[5]) == 0;
+              v31[5] &= v32;
+              if ( v24 )
+                KiRemoveSystemWorkPriorityKick(v30);
+            }
+          }
+        }
+        __writecr8(v19);
+        __incgsdword(0x8688u);
+        return 0;
+      }
+      ExpPrepareToWaitForResourceExclusive(v8, v6, v40);
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      v16 = LockHandle.OldIrql;
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          v33 = KeGetCurrentIrql();
+          if ( v33 <= 0xFu && LockHandle.OldIrql <= 0xFu && v33 >= 2u )
+          {
+            v34 = KeGetCurrentPrcb();
+            v35 = v34->SchedulerAssist;
+            v36 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v24 = (v36 & v35[5]) == 0;
+            v35[5] &= v36;
+            if ( v24 )
+              KiRemoveSystemWorkPriorityKick(v34);
+          }
+        }
+      }
+      __writecr8(v16);
+      __incgsdword(0x8684u);
+      if ( v7 )
+        PerfLogExecutiveResourceWait(65572LL, Resource, 0LL);
+      ExpApplyPrewaitBoost(Resource);
+      ExpWaitForResource(
+        &Resource->SystemResourcesList,
+        (__int64)v40,
+        0x10224u,
+        (void (__fastcall *)(struct _LIST_ENTRY *))ExpApplyRewaitBoost);
+      ExpBoostIoAfterAcquire(Resource, v6, 0LL);
+      __incgsdword(0x867Cu);
+      __incgsdword(0x8664u);
+      if ( !v7 )
+        return 1;
+      v37 = 1LL;
+      v38 = 65569LL;
+    }
+    PerfLogExecutiveResourceAcquire(v38, Resource, v37, Resource->ContentionCount);
+    return 1;
+  }
+  return ExpFastResourceLegacyAcquireExclusive((ULONG_PTR)Resource);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpCopyDevProperty @ 0x14081C1B0
+ * XREFs of PnpCopyDevProperty @ 0x14074D3C4
  * Callers:
- *     PnpCopyDevPropertyArray @ 0x14081C0E0 (PnpCopyDevPropertyArray.c)
+ *     PnpCopyDevPropertyArray @ 0x14074D2EC (PnpCopyDevPropertyArray.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     PnpAllocatePWSTR @ 0x1406CCCEC (PnpAllocatePWSTR.c)
- *     PnpFreeDevProperty @ 0x140789C08 (PnpFreeDevProperty.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PnpFreeDevProperty @ 0x1406AC4C0 (PnpFreeDevProperty.c)
+ *     PnpAllocatePWSTR @ 0x1406B0F08 (PnpAllocatePWSTR.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCopyDevProperty(__int64 a1, __int64 a2, __int64 a3)
@@ -14,7 +14,7 @@ __int64 __fastcall PnpCopyDevProperty(__int64 a1, __int64 a2, __int64 a3)
   int PWSTR; // edi
   const wchar_t *v6; // rcx
   unsigned int v7; // eax
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
 
   PWSTR = 0;
   *(_OWORD *)a3 = *(_OWORD *)a1;
@@ -32,9 +32,9 @@ __int64 __fastcall PnpCopyDevProperty(__int64 a1, __int64 a2, __int64 a3)
   v7 = *(_DWORD *)(a3 + 36);
   if ( v7 )
   {
-    Pool2 = ExAllocatePool2(256LL, v7, 1466986064LL);
-    *(_QWORD *)(a3 + 40) = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v7, 0x57706E50u);
+    *(_QWORD *)(a3 + 40) = PoolWithTag;
+    if ( !PoolWithTag )
     {
       PWSTR = -1073741670;
 LABEL_9:

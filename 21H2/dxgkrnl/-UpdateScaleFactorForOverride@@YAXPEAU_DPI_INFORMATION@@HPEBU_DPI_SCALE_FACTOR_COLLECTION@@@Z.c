@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UpdateScaleFactorForOverride@@YAXPEAU_DPI_INFORMATION@@HPEBU_DPI_SCALE_FACTOR_COLLECTION@@@Z @ 0x1C004F4B0
+ * XREFs of ?UpdateScaleFactorForOverride@@YAXPEAU_DPI_INFORMATION@@HPEBU_DPI_SCALE_FACTOR_COLLECTION@@@Z @ 0x1C004BB80
  * Callers:
- *     DxgkUpdateDpiInfoForNewOverride @ 0x1C02FA820 (DxgkUpdateDpiInfoForNewOverride.c)
+ *     DxgkUpdateDpiInfoForNewOverride @ 0x1C02A9940 (DxgkUpdateDpiInfoForNewOverride.c)
  * Callees:
- *     ?AdjustDesktopScaleFactorForOverride@DpiInternal@@YAKKUtagSIZE@@PEBU_DPI_SCALE_FACTOR_COLLECTION@@HH@Z @ 0x1C00198BC (-AdjustDesktopScaleFactorForOverride@DpiInternal@@YAKKUtagSIZE@@PEBU_DPI_SCALE_FACTOR_COLLECTION.c)
+ *     ?AdjustDesktopScaleFactorForOverride@DpiInternal@@YAKKUtagSIZE@@PEBU_DPI_SCALE_FACTOR_COLLECTION@@HH@Z @ 0x1C000C118 (-AdjustDesktopScaleFactorForOverride@DpiInternal@@YAKKUtagSIZE@@PEBU_DPI_SCALE_FACTOR_COLLECTION.c)
  */
 
 void __fastcall UpdateScaleFactorForOverride(

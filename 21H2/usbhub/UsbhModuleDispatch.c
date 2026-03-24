@@ -1,20 +1,26 @@
 /*
- * XREFs of UsbhModuleDispatch @ 0x1C0043450
+ * XREFs of UsbhModuleDispatch @ 0x1C0044710
  * Callers:
- *     DriverEntry @ 0x1C00410A8 (DriverEntry.c)
- *     UsbhAddDevice @ 0x1C0041550 (UsbhAddDevice.c)
- *     UsbhDriverUnload @ 0x1C0042120 (UsbhDriverUnload.c)
- *     Usbh_FDO_WaitPnpAdd @ 0x1C0043B30 (Usbh_FDO_WaitPnpAdd.c)
- *     Usbh_FDO_WaitPnpRestart @ 0x1C0043C50 (Usbh_FDO_WaitPnpRestart.c)
- *     Usbh_FDO_WaitPnpStart @ 0x1C0043DF0 (Usbh_FDO_WaitPnpStart.c)
- *     Usbh_FDO_WaitPnpStop @ 0x1C0043FE0 (Usbh_FDO_WaitPnpStop.c)
- *     Usbh_FDO_WaitPnpStop_CB @ 0x1C0044150 (Usbh_FDO_WaitPnpStop_CB.c)
- *     Usbh_PnpRemove @ 0x1C0044294 (Usbh_PnpRemove.c)
+ *     DriverEntry @ 0x1C00422D8 (DriverEntry.c)
+ *     UsbhAddDevice @ 0x1C0042800 (UsbhAddDevice.c)
+ *     UsbhDriverUnload @ 0x1C00433D0 (UsbhDriverUnload.c)
+ *     Usbh_FDO_WaitPnpAdd @ 0x1C0044DE0 (Usbh_FDO_WaitPnpAdd.c)
+ *     Usbh_FDO_WaitPnpRestart @ 0x1C0044F00 (Usbh_FDO_WaitPnpRestart.c)
+ *     Usbh_FDO_WaitPnpStart @ 0x1C00450A0 (Usbh_FDO_WaitPnpStart.c)
+ *     Usbh_FDO_WaitPnpStop @ 0x1C0045290 (Usbh_FDO_WaitPnpStop.c)
+ *     Usbh_FDO_WaitPnpStop_CB @ 0x1C0045400 (Usbh_FDO_WaitPnpStop_CB.c)
+ *     Usbh_PnpRemove @ 0x1C0045544 (Usbh_PnpRemove.c)
  * Callees:
- *     UsbhCallModule @ 0x1C0041E3C (UsbhCallModule.c)
+ *     UsbhCallModule @ 0x1C00430EC (UsbhCallModule.c)
  */
 
-__int64 __fastcall UsbhModuleDispatch(__int64 a1, __int64 a2, _LIST_ENTRY *a3, int a4, __int64 a5, __int64 a6)
+__int64 __fastcall UsbhModuleDispatch(
+        __int64 a1,
+        __int64 a2,
+        struct _DRIVER_OBJECT *a3,
+        int a4,
+        __int64 a5,
+        __int64 a6)
 {
   unsigned int v6; // edi
   unsigned int v7; // ebp

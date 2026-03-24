@@ -1,15 +1,15 @@
 /*
  * XREFs of BgkpLockBgfxCodeSection @ 0x140950680
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x14016EAC0 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14016EAE0 (BgkNotifyDisplayOwnershipChange.c)
  *     BgkResumePrepare @ 0x14056B58C (BgkResumePrepare.c)
- *     BgkInitialize @ 0x1409FB8D0 (BgkInitialize.c)
+ *     BgkInitialize @ 0x1409FB8E0 (BgkInitialize.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     MmLockPagableDataSection @ 0x140651680 (MmLockPagableDataSection.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     MmLockPagableDataSection @ 0x140651660 (MmLockPagableDataSection.c)
  */
 
 _QWORD *BgkpLockBgfxCodeSection()

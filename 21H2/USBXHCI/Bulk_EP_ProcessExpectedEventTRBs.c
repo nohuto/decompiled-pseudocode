@@ -1,9 +1,9 @@
 /*
- * XREFs of Bulk_EP_ProcessExpectedEventTRBs @ 0x1C000CB30
+ * XREFs of Bulk_EP_ProcessExpectedEventTRBs @ 0x1C000EE50
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
  */
 
 void __fastcall Bulk_EP_ProcessExpectedEventTRBs(__int64 a1)

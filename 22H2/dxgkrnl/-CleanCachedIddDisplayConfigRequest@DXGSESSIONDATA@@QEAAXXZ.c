@@ -1,25 +1,26 @@
 /*
- * XREFs of ?CleanCachedIddDisplayConfigRequest@DXGSESSIONDATA@@QEAAXXZ @ 0x1C0058CC8
+ * XREFs of ?CleanCachedIddDisplayConfigRequest@DXGSESSIONDATA@@QEAAXXZ @ 0x1C004AF68
  * Callers:
- *     ?CleanCachedIddDisplayConfigRequest@DXGSESSIONMGR@@QEAAJK@Z @ 0x1C0354D10 (-CleanCachedIddDisplayConfigRequest@DXGSESSIONMGR@@QEAAJK@Z.c)
+ *     ?CleanCachedIddDisplayConfigRequest@DXGSESSIONMGR@@QEAAJK@Z @ 0x1C029ED34 (-CleanCachedIddDisplayConfigRequest@DXGSESSIONMGR@@QEAAJK@Z.c)
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?reset@?$auto_rc@V?$rc_buffer@U?$AlpcRequest@$07@DispBroker@@@@@@QEAAXPEAV?$rc_buffer@U?$AlpcRequest@$07@DispBroker@@@@@Z @ 0x1C0017094 (-reset@-$auto_rc@V-$rc_buffer@U-$AlpcRequest@$07@DispBroker@@@@@@QEAAXPEAV-$rc_buffer@U-$AlpcReq.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?reset@?$auto_rc@V?$rc_buffer@U?$AlpcRequest@$07@DispBroker@@@@@@QEAAXPEAV?$rc_buffer@U?$AlpcRequest@$07@DispBroker@@@@@Z @ 0x1C001A80C (-reset@-$auto_rc@V-$rc_buffer@U-$AlpcRequest@$07@DispBroker@@@@@@QEAAXPEAV-$rc_buffer@U-$AlpcReq.c)
  */
 
 void __fastcall DXGSESSIONDATA::CleanCachedIddDisplayConfigRequest(ReferenceCounted **this)
 {
-  bool v2; // zf
-  _BYTE v3[24]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v2; // rdx
+  bool v3; // zf
+  _BYTE v4[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v3, (struct DXGFASTMUTEX *const)(this + 2378), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v3);
-  auto_rc<rc_buffer<DispBroker::AlpcRequest<8>>>::reset(this + 2385, 0LL);
-  ++*((_DWORD *)this + 4768);
-  v2 = v3[8] == 0;
-  *((_DWORD *)this + 4769) = *((_DWORD *)this + 4768);
-  if ( !v2 )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v3);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v4, (struct DXGFASTMUTEX *const)(this + 2374), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v4);
+  auto_rc<rc_buffer<DispBroker::AlpcRequest<8>>>::reset(this + 2380, 0LL);
+  ++*((_DWORD *)this + 4758);
+  v3 = v4[8] == 0;
+  *((_DWORD *)this + 4759) = *((_DWORD *)this + 4758);
+  if ( !v3 )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v4, v2);
 }

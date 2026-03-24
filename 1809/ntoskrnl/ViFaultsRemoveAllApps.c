@@ -5,7 +5,7 @@
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 
@@ -31,7 +31,7 @@ __int64 ViFaultsRemoveAllApps()
     }
     while ( v3 != &ViFaultApplicationsList );
   }
-  qword_14040D1E8 = (__int64)&ViFaultApplicationsList;
+  qword_14040D1D8 = (__int64)&ViFaultApplicationsList;
   ViFaultApplicationsList = &ViFaultApplicationsList;
   KxReleaseSpinLock(&ViFaultInjectionLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v2 < 2u )

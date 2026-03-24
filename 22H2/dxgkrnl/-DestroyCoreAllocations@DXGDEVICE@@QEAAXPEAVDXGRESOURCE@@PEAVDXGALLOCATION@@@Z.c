@@ -1,258 +1,243 @@
 /*
- * XREFs of ?DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z @ 0x1C02D7560
+ * XREFs of ?DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z @ 0x1C02281C0
  * Callers:
- *     ?DrainCoreAllocations@DXGDEVICE@@QEAAXXZ @ 0x1C02E9A9C (-DrainCoreAllocations@DXGDEVICE@@QEAAXXZ.c)
- *     ?Stop@DXGDEVICE@@QEAAXE@Z @ 0x1C02ED494 (-Stop@DXGDEVICE@@QEAAXE@Z.c)
+ *     ?DrainCoreAllocations@DXGDEVICE@@QEAAXXZ @ 0x1C0254FF4 (-DrainCoreAllocations@DXGDEVICE@@QEAAXXZ.c)
+ *     ?Stop@DXGDEVICE@@QEAAXE@Z @ 0x1C0257220 (-Stop@DXGDEVICE@@QEAAXE@Z.c)
  * Callees:
- *     ?TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z @ 0x1C0003E88 (-TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?Initialize@DXGAUTOMUTEX@@QEAAXQEAVDXGFASTMUTEX@@E@Z @ 0x1C0047C70 (-Initialize@DXGAUTOMUTEX@@QEAAXQEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Destroy@DXGSHAREDRESOURCE@@IEAAXPEAPEAXI@Z @ 0x1C0175A88 (-Destroy@DXGSHAREDRESOURCE@@IEAAXPEAPEAXI@Z.c)
- *     ?DdiDestroyAllocation@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_DESTROYALLOCATION@@E@Z @ 0x1C01BAF20 (-DdiDestroyAllocation@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_DESTROYALLOCATION@@E@Z.c)
- *     ?DdiCloseAllocation@ADAPTER_RENDER@@QEAAJPEAXPEBU_DXGKARG_CLOSEALLOCATION@@@Z @ 0x1C02C4338 (-DdiCloseAllocation@ADAPTER_RENDER@@QEAAJPEAXPEBU_DXGKARG_CLOSEALLOCATION@@@Z.c)
- *     ?DestroyAdapterAllocation@DXGDEVICE@@QEAAXPEAVDXGADAPTERALLOCATION@@@Z @ 0x1C02D7270 (-DestroyAdapterAllocation@DXGDEVICE@@QEAAXPEAVDXGADAPTERALLOCATION@@@Z.c)
- *     ?TraceCloseParavirtualizedAllocation@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z @ 0x1C02D8DB4 (-TraceCloseParavirtualizedAllocation@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z.c)
- *     ?UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z @ 0x1C02D8E98 (-UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z.c)
- *     ?IsDirectFlipAllocationPinned@DXGDEVICE@@QEAAEPEBVDXGALLOCATION@@@Z @ 0x1C02EB8F4 (-IsDirectFlipAllocationPinned@DXGDEVICE@@QEAAEPEBVDXGALLOCATION@@@Z.c)
- *     ?UnpinAllDirectFlipAllocations@DXGDEVICE@@QEAAJIHPEAVCOREDEVICEACCESS@@@Z @ 0x1C02ED764 (-UnpinAllDirectFlipAllocations@DXGDEVICE@@QEAAJIHPEAVCOREDEVICEACCESS@@@Z.c)
- *     ?UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C02EDA48 (-UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C00038D4 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z @ 0x1C0019830 (-TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?Initialize@DXGAUTOMUTEX@@QEAAXQEAVDXGFASTMUTEX@@E@Z @ 0x1C0025F64 (-Initialize@DXGAUTOMUTEX@@QEAAXQEAVDXGFASTMUTEX@@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?UnpinAllDirectFlipAllocations@DXGDEVICE@@QEAAJIHPEAVCOREDEVICEACCESS@@@Z @ 0x1C00E0CEC (-UnpinAllDirectFlipAllocations@DXGDEVICE@@QEAAJIHPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?DdiCloseAllocation@ADAPTER_RENDER@@QEAAJPEAXPEBU_DXGKARG_CLOSEALLOCATION@@@Z @ 0x1C0134AA0 (-DdiCloseAllocation@ADAPTER_RENDER@@QEAAJPEAXPEBU_DXGKARG_CLOSEALLOCATION@@@Z.c)
+ *     ?Destroy@DXGSHAREDRESOURCE@@IEAAXPEAPEAXI@Z @ 0x1C0134E10 (-Destroy@DXGSHAREDRESOURCE@@IEAAXPEAPEAXI@Z.c)
+ *     ?DdiDestroyAllocation@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_DESTROYALLOCATION@@E@Z @ 0x1C01350A0 (-DdiDestroyAllocation@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_DESTROYALLOCATION@@E@Z.c)
+ *     ?UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0171EFC (-UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?IsDirectFlipAllocationPinned@DXGDEVICE@@QEAAEPEBVDXGALLOCATION@@@Z @ 0x1C0172444 (-IsDirectFlipAllocationPinned@DXGDEVICE@@QEAAEPEBVDXGALLOCATION@@@Z.c)
+ *     ?UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z @ 0x1C022976C (-UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z.c)
  */
 
 void __fastcall DXGDEVICE::DestroyCoreAllocations(
-        ADAPTER_RENDER **this,
+        struct _KTHREAD **this,
         struct DXGRESOURCE *a2,
-        struct DXGALLOCATION *a3)
+        struct DXGALLOCATION **a3)
 {
-  struct DXGALLOCATION *v3; // r14
+  __int64 v6; // rcx
   struct DXGALLOCATION *v7; // r9
   HANDLE *v8; // r12
   struct DXGALLOCATION *v9; // rbx
-  struct DXGALLOCATION *v10; // rax
-  struct DXGALLOCATION *v11; // r13
-  __int64 v12; // rax
+  bool i; // zf
+  __int64 v11; // rax
+  struct DXGALLOCATION *v12; // r13
   unsigned int v13; // edx
-  __int64 v14; // rax
+  unsigned int v14; // r14d
   unsigned int v15; // r14d
-  unsigned int v16; // r14d
-  unsigned int v17; // r8d
-  struct COREDEVICEACCESS *v18; // r9
-  __int64 v19; // rdx
-  void *v20; // rcx
-  ADAPTER_RENDER *v21; // rdx
-  ADAPTER_RENDER *v22; // rcx
-  struct DXGALLOCATION *v23; // r13
-  int v24; // ebx
-  __int64 v25; // rax
-  __int64 v27; // rax
-  unsigned int v28; // r8d
-  volatile signed __int32 *v29; // rcx
-  struct DXGADAPTERALLOCATION *v30; // rdx
-  void *v31; // rcx
-  UINT v32; // eax
-  struct DXGALLOCATION *v33; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE v34[16]; // [rsp+58h] [rbp-A8h] BYREF
-  _DXGKARG_CLOSEALLOCATION v35; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v36; // [rsp+78h] [rbp-88h] BYREF
-  char v37; // [rsp+80h] [rbp-80h]
-  struct _DXGKARG_DESTROYALLOCATION v38; // [rsp+88h] [rbp-78h] BYREF
-  _BYTE v39[128]; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v16; // r8
+  __int64 v17; // rdx
+  struct _KTHREAD *v18; // rdx
+  ADAPTER_RENDER *v19; // rcx
+  int v20; // ebx
+  void *v21; // r14
+  __int64 v22; // rax
+  __int64 v23; // rdx
+  __int64 v24; // rax
+  unsigned int v25; // r8d
+  struct DXGALLOCATION *v26; // rax
+  struct DXGALLOCATION *v27; // r13
+  __int64 v28; // rax
+  __int64 v29; // rax
+  struct DXGALLOCATION *v30; // [rsp+30h] [rbp-D0h] BYREF
+  struct _DXGKARG_CLOSEALLOCATION v31; // [rsp+38h] [rbp-C8h] BYREF
+  struct _DXGKARG_DESTROYALLOCATION v32; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v33; // [rsp+68h] [rbp-98h] BYREF
+  char v34; // [rsp+70h] [rbp-90h]
+  _BYTE v35[24]; // [rsp+78h] [rbp-88h] BYREF
+  _BYTE v36[128]; // [rsp+90h] [rbp-70h] BYREF
 
-  v3 = 0LL;
-  v36 = 0LL;
-  v37 = 0;
-  v35 = 0LL;
+  v33 = 0LL;
+  v34 = 0;
+  v31 = 0LL;
   if ( a2 )
   {
-    DXGAUTOMUTEX::Initialize((DXGAUTOMUTEX *)&v36, (struct DXGRESOURCE *)((char *)a2 + 80), 1);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v36);
+    DXGAUTOMUTEX::Initialize((DXGAUTOMUTEX *)&v33, (struct DXGRESOURCE *)((char *)a2 + 80), 1);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v33);
   }
-  memset(v39, 0, sizeof(v39));
+  memset(v36, 0, sizeof(v36));
   if ( !a2 || (v8 = (HANDLE *)*((_QWORD *)a2 + 8)) == 0LL )
-    v8 = (HANDLE *)v39;
-  v9 = a3;
-  v33 = a3;
-  if ( a3 )
+    v8 = (HANDLE *)v36;
+  v9 = (struct DXGALLOCATION *)a3;
+  for ( i = a3 == 0LL; ; i = v12 == 0LL )
   {
-    v10 = a3;
-    v3 = a3;
-    do
+    v30 = v9;
+    if ( i )
+      break;
+    v11 = *((_QWORD *)v9 + 6);
+    v12 = (struct DXGALLOCATION *)*((_QWORD *)v9 + 8);
+    if ( v11 )
     {
-      v11 = (struct DXGALLOCATION *)*((_QWORD *)v10 + 8);
-      v12 = *((_QWORD *)v3 + 6);
-      if ( v12 )
+      v13 = *(_DWORD *)(v11 + 4);
+      if ( (v13 & 0x2000) != 0 || (v13 & 1) != 0 || (v13 & 2) != 0 || (v13 & 8) != 0 )
       {
-        v13 = *(_DWORD *)(v12 + 4);
-        if ( (v13 & 0x200B) != 0 )
-          DXGDEVICE::TestAndSetDisplayedPrimary((DXGDEVICE *)this, (v13 >> 6) & 0xF, v9, v7);
+        DXGDEVICE::TestAndSetDisplayedPrimary(this, (v13 >> 6) & 0xF, v9, v7);
+        v11 = *((_QWORD *)v9 + 6);
       }
-      v14 = *((_QWORD *)v3 + 6);
-      if ( v14 )
+      if ( v11 )
       {
-        v15 = *(_DWORD *)(v14 + 4);
-        if ( (v15 & 0x2000) != 0 )
+        v14 = *(_DWORD *)(v11 + 4);
+        if ( (v14 & 0x2000) != 0 )
         {
           if ( *((_QWORD *)v9 + 3) )
           {
-            v16 = (v15 >> 6) & 0xF;
+            v15 = (v14 >> 6) & 0xF;
             if ( DXGDEVICE::IsDirectFlipAllocationPinned((DXGDEVICE *)this, v9) )
             {
-              if ( *(int *)(*((_QWORD *)this[2] + 2) + 2820LL) >= 2200 )
-                DXGDEVICE::UnpinDirectFlipAllocation((DXGDEVICE *)this, v16, v17, &v33, 0LL);
+              if ( *(int *)(*((_QWORD *)this[2] + 2) + 2596LL) >= 2200 )
+                DXGDEVICE::UnpinDirectFlipAllocation((DXGDEVICE *)this, v15, v16, &v30, 0LL);
               else
-                DXGDEVICE::UnpinAllDirectFlipAllocations((DXGDEVICE *)this, v16, v17, v18);
+                DXGDEVICE::UnpinAllDirectFlipAllocations((PERESOURCE **)this, v15, v16, v7);
             }
           }
         }
       }
-      if ( (*((_DWORD *)v9 + 18) & 0x80000) != 0 )
-        UnlockParavirtualizedAllocationOnGuest(v9, 0);
-      v19 = *((_QWORD *)v9 + 3);
-      if ( v19 )
-      {
-        (*(void (__fastcall **)(_QWORD, __int64, __int64, _QWORD))(*(_QWORD *)(*((_QWORD *)this[2] + 95) + 8LL) + 152LL))(
-          *((_QWORD *)this[2] + 96),
-          v19,
-          (__int64)v9 + 80,
-          0LL);
-        *((_DWORD *)v9 + 18) |= 1u;
-        *((_QWORD *)v9 + 3) = 0LL;
-      }
-      else
-      {
-        DXGDEVICE::TraceCloseParavirtualizedAllocation((DXGDEVICE *)this, v9);
-      }
-      v20 = (void *)*((_QWORD *)v9 + 4);
-      if ( v20 )
-      {
-        v8[v35.NumAllocations++] = v20;
-        *((_QWORD *)v9 + 4) = 0LL;
-      }
-      v9 = v11;
-      v10 = v11;
-      v33 = v11;
-      v3 = v11;
     }
-    while ( v11 );
+    if ( (*((_DWORD *)v9 + 18) & 0x80000) != 0 )
+      UnlockParavirtualizedAllocationOnGuest(v9, 0);
+    v17 = *((_QWORD *)v9 + 3);
+    if ( v17 )
+    {
+      (*(void (__fastcall **)(_QWORD, __int64, __int64, _QWORD))(*(_QWORD *)(*((_QWORD *)this[2] + 80) + 8LL) + 168LL))(
+        *((_QWORD *)this[2] + 81),
+        v17,
+        (__int64)v9 + 80,
+        0LL);
+      *((_DWORD *)v9 + 18) |= 1u;
+      *((_QWORD *)v9 + 3) = 0LL;
+    }
+    v6 = *((_QWORD *)v9 + 4);
+    if ( v6 )
+    {
+      v8[v31.NumAllocations++] = (HANDLE)v6;
+      *((_QWORD *)v9 + 4) = 0LL;
+    }
+    v9 = v12;
   }
-  if ( v35.NumAllocations > (unsigned int)v3 )
+  if ( v31.NumAllocations )
   {
-    v21 = this[77];
-    v22 = this[2];
-    v35.pOpenHandleList = v8;
-    ADAPTER_RENDER::DdiCloseAllocation(v22, v21, &v35);
+    v18 = this[73];
+    v19 = this[2];
+    v31.pOpenHandleList = v8;
+    ADAPTER_RENDER::DdiCloseAllocation(v19, v18, &v31);
   }
-  v23 = v3;
-  v24 = 1;
+  v20 = 1;
+  v21 = 0LL;
   if ( a2 )
   {
+    v6 = *((_QWORD *)a2 + 7);
     if ( (*((_DWORD *)a2 + 1) & 1) != 0 )
     {
-      v25 = *(_QWORD *)(*((_QWORD *)a2 + 7) + 152LL);
-      if ( v25 )
+      v22 = *(_QWORD *)(v6 + 152);
+      if ( v22 )
       {
-        if ( *(ADAPTER_RENDER ***)(v25 + 80) == this && (*(_DWORD *)(v25 + 72))-- == 1 )
+        if ( *(struct _KTHREAD ***)(v22 + 72) == this )
         {
-          DXGAUTOMUTEX::DXGAUTOMUTEX(
-            (DXGAUTOMUTEX *)v34,
-            (struct DXGFASTMUTEX *const)(*(_QWORD *)(*((_QWORD *)a2 + 7) + 152LL) + 8LL),
-            0);
-          DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v34);
-          *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a2 + 7) + 152LL) + 80LL) = v3;
-          if ( v34[8] != (_BYTE)v3 )
-            DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v34);
+          i = (*(_DWORD *)(v22 + 64))-- == 1;
+          if ( i )
+          {
+            DXGAUTOMUTEX::DXGAUTOMUTEX(
+              (DXGAUTOMUTEX *)v35,
+              (struct DXGFASTMUTEX *const)(*(_QWORD *)(*((_QWORD *)a2 + 7) + 152LL) + 8LL),
+              0);
+            DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v35);
+            *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a2 + 7) + 152LL) + 72LL) = 0LL;
+            if ( v35[8] )
+              DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v35, v23);
+          }
         }
       }
-      v27 = *((_QWORD *)a2 + 3);
-      v28 = (unsigned int)v3;
-      while ( v27 )
+      v24 = *((_QWORD *)a2 + 3);
+      v25 = 0;
+      while ( v24 )
       {
-        v27 = *(_QWORD *)(v27 + 64);
-        ++v28;
+        v24 = *(_QWORD *)(v24 + 64);
+        ++v25;
       }
-      v29 = (volatile signed __int32 *)*((_QWORD *)a2 + 7);
-      if ( _InterlockedExchangeAdd(v29 + 17, 0xFFFFFFFF) == 1 )
-        DXGSHAREDRESOURCE::Destroy((DXGSHAREDRESOURCE *)v29, v8, v28);
-      *((_QWORD *)a2 + 7) = v3;
-      v24 = (int)v3;
+      v6 = *((_QWORD *)a2 + 7);
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v6 + 68), 0xFFFFFFFF) == 1 )
+        DXGSHAREDRESOURCE::Destroy((DXGSHAREDRESOURCE *)v6, v8, v25);
+      *((_QWORD *)a2 + 7) = 0LL;
+      v20 = 0;
     }
     else
     {
-      v23 = (struct DXGALLOCATION *)*((_QWORD *)a2 + 7);
+      v21 = (void *)*((_QWORD *)a2 + 7);
     }
   }
-  memset(&v38, 0, sizeof(v38));
+  memset(&v32, 0, sizeof(v32));
   if ( a3 )
   {
-    v3 = a3;
     do
     {
-      v30 = (struct DXGADAPTERALLOCATION *)*((_QWORD *)v3 + 6);
-      a3 = (struct DXGALLOCATION *)*((_QWORD *)a3 + 8);
-      if ( v30 )
+      v26 = a3[6];
+      v27 = a3[8];
+      if ( v26 )
       {
-        if ( !v24 )
-          goto LABEL_49;
-        DXGDEVICE::DestroyAdapterAllocation((DXGDEVICE *)this, v30);
-        v31 = *(void **)(*((_QWORD *)v3 + 6) + 16LL);
-        if ( v31 )
+        if ( !v20 )
+          goto LABEL_52;
+        if ( *((_QWORD *)v26 + 1) )
         {
-          v8[v38.NumAllocations++] = v31;
-          *(_QWORD *)(*((_QWORD *)v3 + 6) + 16LL) = 0LL;
+          (*(void (__fastcall **)(struct _KTHREAD *, _QWORD))(*(_QWORD *)(*((_QWORD *)this[2] + 80) + 8LL) + 136LL))(
+            this[95],
+            0LL);
+          *((_QWORD *)a3[6] + 1) = 0LL;
+          v26 = a3[6];
+        }
+        v6 = *((_QWORD *)v26 + 2);
+        if ( v6 )
+        {
+          v8[v32.NumAllocations++] = (HANDLE)v6;
+          *((_QWORD *)a3[6] + 2) = 0LL;
         }
       }
-      else if ( !v24 )
+      else if ( !v20 )
       {
-LABEL_49:
+LABEL_52:
         if ( !a2 )
         {
-          WdLogSingleEntry1(1LL, 742LL);
-          DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pResource", 742LL, 0LL, 0LL, 0LL, 0LL);
+          v28 = WdLogNewEntry5_WdAssertion(v6, 1LL);
+          *(_QWORD *)(v28 + 24) = 728LL;
+          WdLogEvent5_WdAssertion(v28);
         }
         if ( (*((_DWORD *)a2 + 1) & 1) == 0 )
         {
-          WdLogSingleEntry1(1LL, 743LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"pResource->m_SharedResource",
-            743LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
+          v29 = WdLogNewEntry5_WdAssertion(v6, 1LL);
+          *(_QWORD *)(v29 + 24) = 729LL;
+          WdLogEvent5_WdAssertion(v29);
         }
       }
-      v3 = a3;
+      a3 = (struct DXGALLOCATION **)v27;
     }
-    while ( a3 );
+    while ( v27 );
   }
-  if ( v24 )
+  if ( v20 )
   {
-    v38.hResource = v23;
-    v32 = (unsigned int)v3;
-    if ( a2 )
-      v32 = 1;
-    v38.Flags.Value = v32;
-    if ( v38.NumAllocations )
+    v32.hResource = v21;
+    v32.Flags.Value = a2 != 0LL;
+    if ( v32.NumAllocations )
     {
-      v38.pAllocationList = v8;
-    }
-    else
-    {
-      v38.pAllocationList = (const HANDLE *)v3;
-      if ( !v23 )
-        goto LABEL_62;
-    }
-    ADAPTER_RENDER::DdiDestroyAllocation(this[2], &v38, 0LL);
-  }
+      v32.pAllocationList = v8;
 LABEL_62:
-  if ( v37 != (_BYTE)v3 )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v36);
+      ADAPTER_RENDER::DdiDestroyAllocation(this[2], &v32, 0LL);
+      goto LABEL_63;
+    }
+    v32.pAllocationList = 0LL;
+    if ( v21 )
+      goto LABEL_62;
+  }
+LABEL_63:
+  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)&v33);
 }

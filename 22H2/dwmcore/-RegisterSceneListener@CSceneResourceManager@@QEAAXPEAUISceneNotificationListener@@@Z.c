@@ -1,40 +1,40 @@
 /*
- * XREFs of ?RegisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z @ 0x1801BD3AC
+ * XREFs of ?RegisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z @ 0x18016878C
  * Callers:
- *     ?UpdateSceneLightInfo@CCompositionLight@@QEAAJPEBVCDrawingContext@@@Z @ 0x1802199BC (-UpdateSceneLightInfo@CCompositionLight@@QEAAJPEBVCDrawingContext@@@Z.c)
- *     ?ProcessSetCreationParams@CCompositionMipmapSurface@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONMIPMAPSURFACE_SETCREATIONPARAMS@@@Z @ 0x18022433C (-ProcessSetCreationParams@CCompositionMipmapSurface@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMP.c)
- *     ??0CSceneMesh@@QEAA@PEAVCComposition@@@Z @ 0x18024EA3C (--0CSceneMesh@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CSceneMaterial@@QEAA@PEAVCComposition@@@Z @ 0x18024FD3C (--0CSceneMaterial@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CSceneSurfaceMaterialInput@@QEAA@PEAVCComposition@@@Z @ 0x180251458 (--0CSceneSurfaceMaterialInput@@QEAA@PEAVCComposition@@@Z.c)
- *     ?OnChannelAttached@CSpatialRemarshaler@@MEAAJXZ @ 0x180251E20 (-OnChannelAttached@CSpatialRemarshaler@@MEAAJXZ.c)
- *     ??0CSceneWorld@@QEAA@PEAVCComposition@@PEAVCSceneVisual@@@Z @ 0x1802636CC (--0CSceneWorld@@QEAA@PEAVCComposition@@PEAVCSceneVisual@@@Z.c)
+ *     ??0CScenePbrMaterial@@QEAA@PEAVCComposition@@@Z @ 0x18016AE98 (--0CScenePbrMaterial@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?ProcessSetCreationParams@CCompositionMipmapSurface@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONMIPMAPSURFACE_SETCREATIONPARAMS@@@Z @ 0x1801BA3E0 (-ProcessSetCreationParams@CCompositionMipmapSurface@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMP.c)
+ *     ??0CSceneMesh@@QEAA@PEAVCComposition@@@Z @ 0x1801E88B4 (--0CSceneMesh@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSceneSurfaceMaterialInput@@QEAA@PEAVCComposition@@@Z @ 0x1801EBD08 (--0CSceneSurfaceMaterialInput@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?OnChannelAttached@CSpatialRemarshaler@@MEAAJXZ @ 0x1801ECA40 (-OnChannelAttached@CSpatialRemarshaler@@MEAAJXZ.c)
+ *     ?UpdateSceneLightInfo@CCompositionLight@@QEAAJPEBVCDrawingContext@@@Z @ 0x1801F4980 (-UpdateSceneLightInfo@CCompositionLight@@QEAAJPEBVCDrawingContext@@@Z.c)
+ *     ??0CSceneWorld@@QEAA@PEAVCComposition@@PEAVCSceneVisual@@@Z @ 0x18020AFC0 (--0CSceneWorld@@QEAA@PEAVCComposition@@PEAVCSceneVisual@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$_Emplace_reallocate@AEBQEAUISceneNotificationListener@@@?$vector@PEAUISceneNotificationListener@@V?$allocator@PEAUISceneNotificationListener@@@std@@@std@@QEAAPEAPEAUISceneNotificationListener@@QEAPEAU2@AEBQEAU2@@Z @ 0x1801BC6F8 (--$_Emplace_reallocate@AEBQEAUISceneNotificationListener@@@-$vector@PEAUISceneNotificationListen.c)
- *     ?GetSpectreRenderer@CSceneResourceManager@@QEBAPEAUISpectreRenderer@@XZ @ 0x1801BD0A4 (-GetSpectreRenderer@CSceneResourceManager@@QEBAPEAUISpectreRenderer@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$_Emplace_reallocate@PEBVCVisual@@@?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@QEAAPEAPEBVCVisual@@QEAPEBV2@$$QEAPEBV2@@Z @ 0x180164458 (--$_Emplace_reallocate@PEBVCVisual@@@-$vector@PEBVCVisual@@V-$allocator@PEBVCVisual@@@std@@@std@.c)
+ *     ?GetSpectreRenderer@CSceneResourceManager@@QEBAPEAUISpectreRenderer@@XZ @ 0x180168760 (-GetSpectreRenderer@CSceneResourceManager@@QEBAPEAUISpectreRenderer@@XZ.c)
  */
 
 void __fastcall CSceneResourceManager::RegisterSceneListener(
         CSceneResourceManager *this,
         struct ISceneNotificationListener *a2)
 {
-  const void **v4; // rcx
-  _BYTE *v5; // rdx
+  _QWORD *v4; // rdx
+  __int64 *v5; // rcx
   struct ISpectreRenderer *SpectreRenderer; // rdx
   void (__fastcall ***v7)(_QWORD, struct ISpectreRenderer *); // r8
   struct ISceneNotificationListener *v8; // [rsp+38h] [rbp+10h] BYREF
 
   v8 = a2;
-  v4 = (const void **)((char *)this + 40);
-  v5 = (_BYTE *)*((_QWORD *)this + 6);
-  if ( v5 == *((_BYTE **)this + 7) )
+  v4 = (_QWORD *)*((_QWORD *)this + 6);
+  v5 = (__int64 *)((char *)this + 40);
+  if ( (_QWORD *)v5[2] == v4 )
   {
-    std::vector<ISceneNotificationListener *>::_Emplace_reallocate<ISceneNotificationListener * const &>(v4, v5, &v8);
+    std::vector<CVisual const *>::_Emplace_reallocate<CVisual const *>(v5, v4, &v8);
   }
   else
   {
-    *(_QWORD *)v5 = a2;
-    *((_QWORD *)this + 6) += 8LL;
+    *v4 = a2;
+    v5[1] += 8LL;
   }
   SpectreRenderer = CSceneResourceManager::GetSpectreRenderer(this);
   if ( SpectreRenderer )

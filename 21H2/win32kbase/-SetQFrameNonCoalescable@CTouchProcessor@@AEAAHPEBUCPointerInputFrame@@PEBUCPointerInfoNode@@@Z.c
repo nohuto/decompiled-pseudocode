@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetQFrameNonCoalescable@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@@Z @ 0x1C01D72C4
+ * XREFs of ?SetQFrameNonCoalescable@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@@Z @ 0x1C019E7E4
  * Callers:
- *     ?SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z @ 0x1C01D5850 (-SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z.c)
- *     ?SetPointerInfoNodeTarget@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KAEBVCInputDest@@HPEBUtagPOINT@@HHHH@Z @ 0x1C01D6E88 (-SetPointerInfoNodeTarget@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KAEBVCInputDest@@HPEBUta.c)
+ *     ?SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z @ 0x1C019CB20 (-SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z.c)
+ *     ?SetPointerInfoNodeTarget@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KAEBVCInputDest@@HPEBUtagPOINT@@HHHH@Z @ 0x1C019E288 (-SetPointerInfoNodeTarget@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KAEBVCInputDest@@HPEBUta.c)
  * Callees:
- *     ?IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00DC7A4 (-IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01CE868 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00CCF60 (-IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01971B4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
  */
 
 __int64 __fastcall CTouchProcessor::SetQFrameNonCoalescable(
@@ -14,38 +14,30 @@ __int64 __fastcall CTouchProcessor::SetQFrameNonCoalescable(
         const struct CPointerInputFrame *a2,
         const struct CPointerInfoNode *a3)
 {
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // rcx
+  unsigned int v5; // ecx
+  __int64 v6; // r8
   __int64 result; // rax
 
   if ( !a2 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(this, 0LL, a3);
-  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced((__int64)this, (__int64)a2, (__int64)a3) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v5, v7);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 11429);
+  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced((__int64)this, (__int64)a2) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 11430);
   if ( !(unsigned int)CPointerInfoNode::IsValid(a3) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v9, v8, v10);
-  v11 = *((unsigned int *)a3 + 2);
-  if ( (unsigned int)v11 >= *((_DWORD *)a2 + 12) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 11431);
+  v5 = *((_DWORD *)a3 + 2);
+  if ( v5 >= *((_DWORD *)a2 + 12) )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v9, v11, v10);
-    v11 = *((unsigned int *)a3 + 2);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 11432);
+    v5 = *((_DWORD *)a3 + 2);
   }
-  v12 = *((_QWORD *)a2 + 31);
-  v13 = 160LL * (unsigned int)v11;
-  if ( *(_DWORD *)(v13 + v12) != (_DWORD)v11 )
+  v6 = *((_QWORD *)a2 + 18);
+  if ( *(_DWORD *)(160LL * v5 + v6) != v5 )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v13, v11, v12);
-    LODWORD(v11) = *((_DWORD *)a3 + 2);
-    v12 = *((_QWORD *)a2 + 31);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 11433);
+    v5 = *((_DWORD *)a3 + 2);
+    v6 = *((_QWORD *)a2 + 18);
   }
   result = 1LL;
-  *(_DWORD *)(160LL * (unsigned int)v11 + v12 + 140) &= ~1u;
+  *(_DWORD *)(160LL * v5 + v6 + 140) &= ~1u;
   return result;
 }

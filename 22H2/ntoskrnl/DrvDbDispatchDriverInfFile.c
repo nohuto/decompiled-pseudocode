@@ -1,19 +1,19 @@
 /*
- * XREFs of DrvDbDispatchDriverInfFile @ 0x1408764F0
+ * XREFs of DrvDbDispatchDriverInfFile @ 0x1406B4510
  * Callers:
  *     <none>
  * Callees:
- *     DrvDbGetDriverInfFileMappedProperty @ 0x140876380 (DrvDbGetDriverInfFileMappedProperty.c)
- *     DrvDbOpenDriverInfFileRegKey @ 0x1408764A8 (DrvDbOpenDriverInfFileRegKey.c)
- *     _PnpCtxGetObjectContext @ 0x14087698C (_PnpCtxGetObjectContext.c)
- *     DrvDbDeleteObjectRegKey @ 0x140A6AEB0 (DrvDbDeleteObjectRegKey.c)
- *     DrvDbGetDriverInfFileMappedPropertyKeys @ 0x140A6BDA0 (DrvDbGetDriverInfFileMappedPropertyKeys.c)
- *     DrvDbGetObjectList @ 0x140A6C3A0 (DrvDbGetObjectList.c)
- *     DrvDbSetDriverInfFileMappedProperty @ 0x140A6D0F0 (DrvDbSetDriverInfFileMappedProperty.c)
- *     DrvDbValidateDriverInfFileName @ 0x140A6D908 (DrvDbValidateDriverInfFileName.c)
+ *     DrvDbOpenDriverInfFileRegKey @ 0x1406B3DF4 (DrvDbOpenDriverInfFileRegKey.c)
+ *     DrvDbGetDriverInfFileMappedProperty @ 0x1406B3E3C (DrvDbGetDriverInfFileMappedProperty.c)
+ *     _PnpCtxGetObjectContext @ 0x1406B4F28 (_PnpCtxGetObjectContext.c)
+ *     DrvDbSetDriverInfFileMappedProperty @ 0x140727B94 (DrvDbSetDriverInfFileMappedProperty.c)
+ *     DrvDbDeleteObjectRegKey @ 0x14097CC94 (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbGetDriverInfFileMappedPropertyKeys @ 0x14097D9F4 (DrvDbGetDriverInfFileMappedPropertyKeys.c)
+ *     DrvDbGetObjectList @ 0x14097DF6C (DrvDbGetObjectList.c)
+ *     DrvDbValidateDriverInfFileName @ 0x14097E804 (DrvDbValidateDriverInfFileName.c)
  */
 
-__int64 __fastcall DrvDbDispatchDriverInfFile(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
+__int64 __fastcall DrvDbDispatchDriverInfFile(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, _QWORD *a5)
 {
   int ObjectContext; // eax
   int v7; // r10d
@@ -29,16 +29,15 @@ __int64 __fastcall DrvDbDispatchDriverInfFile(__int64 a1, __int64 a2, unsigned i
   int v17; // r10d
   int DriverInfFileMappedProperty; // eax
   int v20; // r8d
-  __int64 v21; // [rsp+20h] [rbp-38h]
-  int v22[2]; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v21[3]; // [rsp+40h] [rbp-18h] BYREF
 
-  *(_QWORD *)v22 = 0LL;
-  ObjectContext = PnpCtxGetObjectContext(a1, a3, v22);
+  v21[0] = 0LL;
+  ObjectContext = PnpCtxGetObjectContext(a1, a3, v21);
   v8 = (unsigned int)ObjectContext;
   if ( ObjectContext < 0 )
     return (unsigned int)v8;
-  v9 = v22[0];
-  v10 = *(unsigned int *)(*(_QWORD *)v22 + 12LL);
+  v9 = v21[0];
+  v10 = *(unsigned int *)(v21[0] + 12);
   if ( (v10 & 0x10000000) == 0 )
   {
     if ( !(_DWORD)v10 )
@@ -46,36 +45,39 @@ __int64 __fastcall DrvDbDispatchDriverInfFile(__int64 a1, __int64 a2, unsigned i
       LODWORD(v8) = -1073740697;
       return (unsigned int)v8;
     }
-    switch ( v7 )
+    if ( v7 == 2 )
     {
-      case 2:
-        if ( !*(_BYTE *)(a5 + 4) )
-          goto LABEL_28;
-        break;
-      case 3:
-      case 4:
-        break;
-      case 5:
-      case 6:
-      case 8:
+      if ( *((_BYTE *)a5 + 4) )
+      {
 LABEL_28:
-        v10 = (unsigned int)v10 >> 31;
-LABEL_14:
-        v8 = (_BYTE)v10 == 0 ? 0xC0000022 : 0;
-        if ( !(_BYTE)v10 )
-          return (unsigned int)v8;
-        goto LABEL_3;
-      case 9:
-        break;
-      default:
-        LOBYTE(v10) = 1;
-        goto LABEL_14;
+        v10 = (unsigned int)v10 >> 30;
+        LOBYTE(v10) = v10 & 1;
+        goto LABEL_30;
+      }
     }
-    v10 = (unsigned int)v10 >> 30;
-    LOBYTE(v10) = v10 & 1;
-    goto LABEL_14;
+    else
+    {
+      if ( v7 <= 2 )
+      {
+LABEL_26:
+        LOBYTE(v10) = 1;
+        goto LABEL_30;
+      }
+      if ( v7 <= 4 )
+        goto LABEL_28;
+      if ( v7 > 6 && v7 != 8 )
+      {
+        if ( v7 != 9 )
+          goto LABEL_26;
+        goto LABEL_28;
+      }
+    }
+    v10 = (unsigned int)v10 >> 31;
+LABEL_30:
+    v8 = (_BYTE)v10 == 0 ? 0xC0000022 : 0;
+    if ( !(_BYTE)v10 )
+      return (unsigned int)v8;
   }
-LABEL_3:
   v11 = v7 - 1;
   if ( !v11 )
   {
@@ -86,12 +88,12 @@ LABEL_3:
   if ( !v12 )
   {
     DriverInfFileMappedProperty = DrvDbOpenDriverInfFileRegKey(
-                                    v22[0],
+                                    v21[0],
                                     a2,
                                     *(_DWORD *)a5,
-                                    *(_BYTE *)(a5 + 4),
-                                    *(_QWORD *)(a5 + 8),
-                                    a5 + 16);
+                                    *((_BYTE *)a5 + 4),
+                                    a5[1],
+                                    (__int64)(a5 + 2));
 LABEL_11:
     LODWORD(v8) = DriverInfFileMappedProperty;
     return (unsigned int)v8;
@@ -117,62 +119,53 @@ LABEL_11:
               return (unsigned int)v8;
             }
             DriverInfFileMappedProperty = DrvDbSetDriverInfFileMappedProperty(
-                                            v22[0],
+                                            v21[0],
                                             a2,
-                                            *(_QWORD *)a5,
-                                            *(_QWORD *)(a5 + 16),
-                                            *(_DWORD *)(a5 + 24),
-                                            *(_QWORD *)(a5 + 32),
-                                            *(_DWORD *)(a5 + 40));
+                                            *a5,
+                                            a5[2],
+                                            *((_DWORD *)a5 + 6),
+                                            a5[4],
+                                            *((_DWORD *)a5 + 10));
           }
           else
           {
             DriverInfFileMappedProperty = DrvDbGetDriverInfFileMappedProperty(
-                                            *(__int64 *)v22,
+                                            v21[0],
                                             a2,
-                                            *(HANDLE *)a5,
-                                            *(_QWORD *)(a5 + 16),
-                                            *(_DWORD **)(a5 + 24),
-                                            *(_QWORD *)(a5 + 32),
-                                            *(_DWORD *)(a5 + 40),
-                                            *(_DWORD **)(a5 + 48));
+                                            (HANDLE)*a5,
+                                            a5[2],
+                                            (_DWORD *)a5[3],
+                                            a5[4],
+                                            *((_DWORD *)a5 + 10),
+                                            (_DWORD *)a5[6]);
           }
         }
         else
         {
-          LODWORD(v21) = *(_DWORD *)(a5 + 32);
           DriverInfFileMappedProperty = DrvDbGetDriverInfFileMappedPropertyKeys(
-                                          v22[0],
+                                          v21[0],
                                           a2,
-                                          *(_QWORD *)a5,
-                                          *(_QWORD *)(a5 + 24),
-                                          v21,
-                                          *(HANDLE *)(a5 + 40));
+                                          *a5,
+                                          a5[3],
+                                          *((_DWORD *)a5 + 8),
+                                          a5[5]);
         }
       }
       else
       {
-        DriverInfFileMappedProperty = DrvDbGetObjectList(
-                                        v22[0],
-                                        3,
-                                        *(_QWORD *)a5,
-                                        *(_QWORD *)(a5 + 8),
-                                        *(_QWORD *)(a5 + 16),
-                                        *(_DWORD *)(a5 + 24),
-                                        *(_QWORD *)(a5 + 32),
-                                        0);
+        DriverInfFileMappedProperty = DrvDbGetObjectList(v21[0], 3, *a5, a5[1], a5[2], *((_DWORD *)a5 + 6), a5[4], 0);
       }
     }
     else
     {
-      DriverInfFileMappedProperty = DrvDbDeleteObjectRegKey(*(_QWORD *)v22, 3LL, a2);
+      DriverInfFileMappedProperty = DrvDbDeleteObjectRegKey(v21[0], 3LL, a2);
     }
     goto LABEL_11;
   }
   v20 = *(_DWORD *)a5;
-  v22[0] = 0;
-  LODWORD(v8) = DrvDbOpenDriverInfFileRegKey(v9, a2, v20, 1, a5 + 8, (__int64)v22);
+  LODWORD(v21[0]) = 0;
+  LODWORD(v8) = DrvDbOpenDriverInfFileRegKey(v9, a2, v20, 1, (__int64)(a5 + 1), (__int64)v21);
   if ( (int)v8 >= 0 )
-    *(_BYTE *)(a5 + 16) = v22[0] == 1;
+    *((_BYTE *)a5 + 16) = LODWORD(v21[0]) == 1;
   return (unsigned int)v8;
 }

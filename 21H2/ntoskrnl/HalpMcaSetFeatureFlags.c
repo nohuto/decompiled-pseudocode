@@ -1,26 +1,31 @@
 /*
- * XREFs of HalpMcaSetFeatureFlags @ 0x140A5B19C
+ * XREFs of HalpMcaSetFeatureFlags @ 0x1409A1434
  * Callers:
- *     HalpInitializeMce @ 0x140A5A6CC (HalpInitializeMce.c)
+ *     HalpInitializeMce @ 0x1409A0E1C (HalpInitializeMce.c)
  * Callees:
- *     HalpCpuID @ 0x14025DFF0 (HalpCpuID.c)
- *     HalpGetCpuVendor @ 0x1403AAE50 (HalpGetCpuVendor.c)
- *     HalpIsCmciImplemented @ 0x140A5367C (HalpIsCmciImplemented.c)
+ *     HalpCpuID @ 0x1402D38F0 (HalpCpuID.c)
+ *     HalpGetCpuInfo @ 0x1403A0F70 (HalpGetCpuInfo.c)
+ *     HalpIsCmciImplemented @ 0x140999C64 (HalpIsCmciImplemented.c)
  */
 
 char HalpMcaSetFeatureFlags()
 {
   unsigned __int64 v0; // rax
-  signed __int32 v2[8]; // [rsp+0h] [rbp-30h] BYREF
-  int v3; // [rsp+40h] [rbp+10h] BYREF
-  unsigned int v4; // [rsp+48h] [rbp+18h] BYREF
-  int v5; // [rsp+50h] [rbp+20h] BYREF
+  unsigned __int8 v1; // cl
+  signed __int32 v3[8]; // [rsp+0h] [rbp-30h] BYREF
+  unsigned __int8 v4; // [rsp+40h] [rbp+10h] BYREF
+  int v5; // [rsp+48h] [rbp+18h] BYREF
+  unsigned int v6; // [rsp+50h] [rbp+20h] BYREF
+  int v7; // [rsp+58h] [rbp+28h] BYREF
 
-  v3 = 0;
-  v4 = 0;
   v5 = 0;
-  LOBYTE(v0) = HalpGetCpuVendor();
-  if ( (_BYTE)v0 == 2 )
+  v6 = 0;
+  v7 = 0;
+  v4 = 0;
+  LOBYTE(v0) = -HalpGetCpuInfo(0LL, 0LL, 0LL, &v4);
+  v1 = (_BYTE)v0 != 0 ? v4 : 0;
+  v4 = v1;
+  if ( v1 == 2 )
   {
     HalpMceBroadcast = 1;
     if ( !HalpIsCmciImplemented() )
@@ -33,26 +38,26 @@ char HalpMcaSetFeatureFlags()
   }
   else
   {
-    if ( (_BYTE)v0 != 1 )
-      goto LABEL_18;
-    HalpCpuID(0x80000000, &v4, &v3, &v3, &v3);
-    if ( v4 >= 0x80000007 )
+    if ( v1 != 1 )
+      goto LABEL_19;
+    LOBYTE(v0) = HalpCpuID(0x80000000, &v6, &v5, &v5, &v5);
+    if ( v6 >= 0x80000007 )
     {
-      HalpCpuID(0x80000007, &v3, &v5, &v3, &v3);
-      if ( (v5 & 2) != 0 )
+      HalpCpuID(0x80000007, &v5, &v7, &v5, &v5);
+      LOBYTE(v0) = v7;
+      if ( (v7 & 2) != 0 )
         HalpMcaRecoverySupported = 1;
-      if ( (v5 & 1) != 0 )
+      if ( (v7 & 1) != 0 )
         HalpMcaOverflowRecoverySupported = 1;
-      if ( (v5 & 8) != 0 )
+      if ( (v7 & 8) != 0 )
         HalpMcaScalableRasSupported = 1;
     }
-    LOBYTE(v0) = HalpIsCmciImplemented();
-    if ( !(_BYTE)v0 )
-LABEL_18:
+    if ( !HalpMcaScalableRasSupported || (LOBYTE(v0) = HalpIsCmciImplemented(), !(_BYTE)v0) )
+LABEL_19:
       HalpMcaPollForCmc = 1;
   }
   HalpMcaBanksValidOnBoot = 1;
   HalpMcaMiscImplemented = 1;
-  _InterlockedOr(v2, 0);
+  _InterlockedOr(v3, 0);
   return v0;
 }

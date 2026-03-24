@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetMaxTextureSize@CDrawingContext@@QEBAI_N@Z @ 0x1801B2B94
+ * XREFs of ?GetMaxTextureSize@CDrawingContext@@QEBAI_N@Z @ 0x18000EEFC
  * Callers:
- *     ?IsSurfaceSizeValid@CDrawingContext@@AEBA_NII@Z @ 0x1801B2D14 (-IsSurfaceSizeValid@CDrawingContext@@AEBA_NII@Z.c)
+ *     ?IsSurfaceSizeValid@CDrawingContext@@AEBA_NII@Z @ 0x18000EED0 (-IsSurfaceSizeValid@CDrawingContext@@AEBA_NII@Z.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@ __int64 __fastcall CDrawingContext::GetMaxTextureSize(CDrawingContext *this, cha
 {
   __int64 result; // rax
 
-  result = *(unsigned int *)(*((_QWORD *)this + 5) + 928LL);
+  result = *(unsigned int *)(*((_QWORD *)this + 5) + 968LL);
   if ( !a2 && (unsigned int)result >= 0x4000 )
     return 0x4000LL;
   return result;

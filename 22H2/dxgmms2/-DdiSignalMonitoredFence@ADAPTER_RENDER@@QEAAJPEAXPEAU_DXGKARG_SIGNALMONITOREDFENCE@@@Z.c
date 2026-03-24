@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DdiSignalMonitoredFence@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_SIGNALMONITOREDFENCE@@@Z @ 0x1C002C8A4
+ * XREFs of ?DdiSignalMonitoredFence@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_SIGNALMONITOREDFENCE@@@Z @ 0x1C002261C
  * Callers:
- *     ?SignalMonitoredFence@VIDMM_GLOBAL@@QEAAXIPEAU_VIDSCH_SYNC_OBJECT@@_KPEA_N@Z @ 0x1C00E7A3C (-SignalMonitoredFence@VIDMM_GLOBAL@@QEAAXIPEAU_VIDSCH_SYNC_OBJECT@@_KPEA_N@Z.c)
+ *     ?SignalMonitoredFence@VIDMM_GLOBAL@@QEAAXIPEAU_VIDSCH_SYNC_OBJECT@@_KPEA_N@Z @ 0x1C00B2794 (-SignalMonitoredFence@VIDMM_GLOBAL@@QEAAXIPEAU_VIDSCH_SYNC_OBJECT@@_KPEA_N@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ADAPTER_RENDER::DdiSignalMonitoredFence(
@@ -11,7 +11,7 @@ __int64 __fastcall ADAPTER_RENDER::DdiSignalMonitoredFence(
         void *a2,
         struct _DXGKARG_SIGNALMONITOREDFENCE *a3)
 {
-  return ((__int64 (__fastcall *)(ADAPTER_RENDER *, void *, struct _DXGKARG_SIGNALMONITOREDFENCE *))DxgCoreInterface[35])(
+  return ((__int64 (__fastcall *)(ADAPTER_RENDER *, void *, struct _DXGKARG_SIGNALMONITOREDFENCE *))DxgCoreInterface[34])(
            this,
            a2,
            a3);

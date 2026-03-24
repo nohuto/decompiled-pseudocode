@@ -1,5 +1,5 @@
 /*
- * XREFs of UnlockUpdatesForDwm @ 0x1C00C6060
+ * XREFs of UnlockUpdatesForDwm @ 0x1C00B84F0
  * Callers:
  *     <none>
  * Callees:

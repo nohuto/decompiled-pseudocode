@@ -1,41 +1,32 @@
 /*
- * XREFs of WheaAttemptClearPoison @ 0x140A07D60
+ * XREFs of WheaAttemptClearPoison @ 0x14095D2E0
  * Callers:
- *     HalpMemoryErrorDeferredHandler @ 0x140519900 (HalpMemoryErrorDeferredHandler.c)
+ *     HalpMemoryErrorDeferredHandler @ 0x1404CFDEC (HalpMemoryErrorDeferredHandler.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     WheapAttemptPhysicalPageOffline @ 0x140A0824C (WheapAttemptPhysicalPageOffline.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x14095D6EC (WheapAttemptPhysicalPageOffline.c)
  */
 
 __int64 __fastcall WheaAttemptClearPoison(__int64 a1, char a2)
 {
-  struct _WORK_QUEUE_ITEM WorkItem; // [rsp+40h] [rbp+7h] BYREF
-  _QWORD v4[2]; // [rsp+60h] [rbp+27h] BYREF
-  char v5; // [rsp+70h] [rbp+37h]
-  __int16 v6; // [rsp+71h] [rbp+38h]
-  char v7; // [rsp+73h] [rbp+3Ah]
-  __int128 v8; // [rsp+74h] [rbp+3Bh] BYREF
-  __int64 Event_12; // [rsp+84h] [rbp+4Bh]
-  int Event_20; // [rsp+8Ch] [rbp+53h]
+  struct _WORK_QUEUE_ITEM WorkItem; // [rsp+30h] [rbp-50h] BYREF
+  _QWORD v4[6]; // [rsp+50h] [rbp-30h] BYREF
 
   WorkItem.List.Blink = 0LL;
   if ( KeGetCurrentThread()->PreviousMode != 1 )
-    return WheapAttemptPhysicalPageOffline(a1, a1 >> 12, 0, a2, 1, 1, 0);
-  Event_12 = 0LL;
-  Event_20 = 0;
+    return WheapAttemptPhysicalPageOffline(a1, a1 >> 12, a2, 1, 1);
   v4[0] = a1;
+  memset(&v4[2], 0, 32);
   v4[1] = a1 >> 12;
-  v8 = 0LL;
-  v5 = a2;
-  v6 = 257;
-  v7 = 0;
-  KeInitializeEvent((PRKEVENT)((char *)&v8 + 4), NotificationEvent, 0);
+  LOBYTE(v4[2]) = a2;
+  *(_WORD *)((char *)&v4[2] + 1) = 257;
+  KeInitializeEvent((PRKEVENT)&v4[3], NotificationEvent, 0);
   WorkItem.List.Flink = 0LL;
   WorkItem.WorkerRoutine = (void (__fastcall *)(void *))WheapAttemptPhysicalPageOfflineWorker;
   WorkItem.Parameter = v4;
   ExQueueWorkItem(&WorkItem, DelayedWorkQueue);
-  KeWaitForSingleObject((char *)&v8 + 4, Executive, 0, 0, 0LL);
-  return (unsigned int)v8;
+  KeWaitForSingleObject(&v4[3], Executive, 0, 0, 0LL);
+  return HIDWORD(v4[2]);
 }

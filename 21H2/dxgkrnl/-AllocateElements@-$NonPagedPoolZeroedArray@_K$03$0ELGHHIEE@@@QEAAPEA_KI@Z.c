@@ -1,38 +1,39 @@
 /*
- * XREFs of ?AllocateElements@?$NonPagedPoolZeroedArray@_K$03$0ELGHHIEE@@@QEAAPEA_KI@Z @ 0x1C0016438
+ * XREFs of ?AllocateElements@?$NonPagedPoolZeroedArray@_K$03$0ELGHHIEE@@@QEAAPEA_KI@Z @ 0x1C001A8AC
  * Callers:
- *     ?DxgkWaitForSynchronizationObjectFromCpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@HPEAX1@Z @ 0x1C01CD280 (-DxgkWaitForSynchronizationObjectFromCpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFRO.c)
- *     ?SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z @ 0x1C0310230 (-SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z.c)
- *     ?SubmitWaitForSyncObjectsFromGpu@@YAJIPEBIPEB_KIPEAVDXGPROCESS@@_N3@Z @ 0x1C03119C0 (-SubmitWaitForSyncObjectsFromGpu@@YAJIPEBIPEB_KIPEAVDXGPROCESS@@_N3@Z.c)
- *     DxgkSignalSynchronizationObjectFromCpu @ 0x1C0343870 (DxgkSignalSynchronizationObjectFromCpu.c)
+ *     ?DxgkWaitForSynchronizationObjectFromCpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@HPEAX@Z @ 0x1C011AC44 (-DxgkWaitForSynchronizationObjectFromCpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFRO.c)
+ *     ?SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z @ 0x1C026F14C (-SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z.c)
+ *     ?SubmitWaitForSyncObjectsFromGpu@@YAJIPEBIPEB_KIPEAVDXGPROCESS@@_N3@Z @ 0x1C0270660 (-SubmitWaitForSyncObjectsFromGpu@@YAJIPEBIPEB_KIPEAVDXGPROCESS@@_N3@Z.c)
+ *     DxgkSignalSynchronizationObjectFromCpu @ 0x1C02940A0 (DxgkSignalSynchronizationObjectFromCpu.c)
  * Callees:
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
-__int64 __fastcall NonPagedPoolZeroedArray<unsigned __int64,4,1265072196>::AllocateElements(
-        __int64 *a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4)
+PVOID __fastcall NonPagedPoolZeroedArray<unsigned __int64,4,1265072196>::AllocateElements(_DWORD *a1, unsigned int a2)
 {
-  void *v6; // rcx
-  __int64 result; // rax
+  __int64 v4; // rbx
+  PVOID result; // rax
 
-  if ( a2 <= 4 )
+  v4 = a2;
+  if ( a2 > 4 )
   {
-    v6 = a1 + 1;
-    *a1 = (__int64)v6;
+    if ( 0xFFFFFFFFFFFFFFFFuLL / a2 < 8 )
+      return 0LL;
+    result = ExAllocatePoolWithTag((POOL_TYPE)512, 8LL * a2, 0x4B677844u);
+  }
+  else
+  {
+    result = a1 + 2;
+  }
+  *(_QWORD *)a1 = result;
+  a1[10] = a2;
+  if ( result )
+  {
     if ( a2 )
-      memset(v6, 0, 8LL * a2);
-    goto LABEL_4;
+    {
+      memset(result, 0, 8 * v4);
+      return *(PVOID *)a1;
+    }
   }
-  if ( 0xFFFFFFFFFFFFFFFFuLL / a2 >= 8 )
-  {
-    *a1 = ExAllocatePool2(64LL, 8LL * a2, 1265072196LL, a4);
-LABEL_4:
-    result = *a1;
-    *((_DWORD *)a1 + 10) = a2;
-    return result;
-  }
-  return 0LL;
+  return result;
 }

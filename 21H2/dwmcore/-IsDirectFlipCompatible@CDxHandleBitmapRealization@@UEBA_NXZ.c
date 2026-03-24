@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsDirectFlipCompatible@CDxHandleBitmapRealization@@UEBA_NXZ @ 0x180013A00
+ * XREFs of ?IsDirectFlipCompatible@CDxHandleBitmapRealization@@UEBA_NXZ @ 0x18001BE00
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CDxHandleBitmapRealization::IsDirectFlipCompatible(CDxHandleBitmapRealization *this)
 {
-  return (*((_DWORD *)this - 32) & 0x10) != 0;
+  return (*((_DWORD *)this - 29) & 0x10) != 0;
 }

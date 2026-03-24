@@ -1,37 +1,37 @@
 /*
- * XREFs of PopThermalWorker @ 0x140801D90
+ * XREFs of PopThermalWorker @ 0x1407C0A30
  * Callers:
  *     <none>
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeSetTimer2 @ 0x140250130 (KeSetTimer2.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopCheckAndHandleThermalConditions @ 0x140373610 (PopCheckAndHandleThermalConditions.c)
- *     PopDiagTraceThermalZoneEnumeration @ 0x1403736A4 (PopDiagTraceThermalZoneEnumeration.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1405831F0 (PopInternalAddToDumpFile.c)
- *     PopFireThermalWmiEvent @ 0x14058F7D4 (PopFireThermalWmiEvent.c)
- *     PopDiagTraceThermalZoneThrottleDurationPerfTrack @ 0x140594FD4 (PopDiagTraceThermalZoneThrottleDurationPerfTrack.c)
- *     PopDiagTraceThermalZoneThrottlePerfTrack @ 0x140595108 (PopDiagTraceThermalZoneThrottlePerfTrack.c)
- *     PopPrepareIoctl @ 0x140802380 (PopPrepareIoctl.c)
- *     PopCheckThermalPolicy @ 0x1408024A8 (PopCheckThermalPolicy.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x1408025F0 (PopThermalUpdateActiveTimeTracking.c)
- *     PopDiagTraceThermalCoolingMode @ 0x14080262C (PopDiagTraceThermalCoolingMode.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x14098B070 (PopThermalUpdatePassiveTimeTracking.c)
- *     PopDiagTraceActiveCooling @ 0x14098C348 (PopDiagTraceActiveCooling.c)
- *     PopDiagTracePassiveCooling @ 0x14098FFB0 (PopDiagTracePassiveCooling.c)
+ *     KeSetTimer2 @ 0x14022BEC0 (KeSetTimer2.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1403C4D58 (PopCheckAndHandleThermalConditions.c)
+ *     PopDiagTraceThermalZoneEnumeration @ 0x1403C4DFC (PopDiagTraceThermalZoneEnumeration.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x140564E84 (PopInternalAddToDumpFile.c)
+ *     PopFireThermalWmiEvent @ 0x14056F5B0 (PopFireThermalWmiEvent.c)
+ *     PopDiagTraceThermalZoneThrottleDurationPerfTrack @ 0x140573174 (PopDiagTraceThermalZoneThrottleDurationPerfTrack.c)
+ *     PopDiagTraceThermalZoneThrottlePerfTrack @ 0x140573294 (PopDiagTraceThermalZoneThrottlePerfTrack.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140778578 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x14078DE1C (PopThermalUpdateActiveTimeTracking.c)
+ *     PopPrepareIoctl @ 0x1407C0E64 (PopPrepareIoctl.c)
+ *     PopCheckThermalPolicy @ 0x1407C0ED4 (PopCheckThermalPolicy.c)
+ *     PopDiagTraceActiveCooling @ 0x1407C10A0 (PopDiagTraceActiveCooling.c)
+ *     PopDiagTraceThermalCoolingMode @ 0x1407C1130 (PopDiagTraceThermalCoolingMode.c)
+ *     PopDiagTracePassiveCooling @ 0x1408EABD8 (PopDiagTracePassiveCooling.c)
  */
 
 void __fastcall PopThermalWorker(__int64 a1)
 {
   int v1; // esi
-  __int64 *v2; // r12
-  __int64 v4; // r13
-  IRP *v5; // r15
-  struct _DEVICE_OBJECT *BugCheckParameter4; // rbx
+  ULONG_PTR v2; // r12
+  __int64 v4; // rbx
+  IRP *v5; // r13
+  struct _DEVICE_OBJECT *BugCheckParameter4; // r15
   __int64 v7; // r8
   int Status; // eax
   char v9; // bp
@@ -47,56 +47,57 @@ void __fastcall PopThermalWorker(__int64 a1)
   int v19; // edx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
   char v21; // al
-  __int64 v22; // rdx
-  unsigned int v23; // r15d
-  unsigned int v24; // r12d
-  char v25; // cl
+  bool v22; // r13
+  __int64 v23; // rdx
+  unsigned int v24; // r15d
+  unsigned int v25; // r12d
   char v26; // al
   char v27; // cl
-  char v28; // al
+  char v28; // cl
   char v29; // cl
-  unsigned int v30; // ecx
-  unsigned int v31; // eax
-  int v32; // ecx
+  char v30; // al
+  __int64 v31; // r8
+  unsigned int v32; // ecx
   char v33; // al
-  __int64 v34; // r8
-  int v35; // eax
-  int v36; // ecx
+  int v34; // eax
+  int v35; // ecx
+  __int64 v36; // r8
   int v37; // r12d
   int v38; // r8d
-  bool v39; // r15
+  char v39; // al
   char v40; // al
   char v41; // al
-  char v42; // al
+  __int64 v42; // rax
   __int64 v43; // rax
   __int64 v44; // rax
   __int64 v45; // rax
-  __int64 v46; // rax
-  char v47; // [rsp+30h] [rbp-58h]
-  bool v48; // [rsp+31h] [rbp-57h] BYREF
-  char v49; // [rsp+32h] [rbp-56h]
-  int v50; // [rsp+34h] [rbp-54h] BYREF
-  struct _DEVICE_OBJECT *v51; // [rsp+38h] [rbp-50h]
-  IRP *v52; // [rsp+40h] [rbp-48h]
-  __int128 v53; // [rsp+48h] [rbp-40h] BYREF
+  char v46; // [rsp+30h] [rbp-68h]
+  bool v47; // [rsp+31h] [rbp-67h] BYREF
+  char v48; // [rsp+32h] [rbp-66h]
+  int v49; // [rsp+34h] [rbp-64h] BYREF
+  struct _DEVICE_OBJECT *v50; // [rsp+38h] [rbp-60h]
+  __int64 v51; // [rsp+40h] [rbp-58h]
+  IRP *v52; // [rsp+48h] [rbp-50h]
+  __int128 v53; // [rsp+50h] [rbp-48h] BYREF
 
   v1 = 0;
-  v2 = (__int64 *)(a1 + 432);
-  v47 = 0;
-  v49 = 0;
+  v2 = a1 + 432;
+  v46 = 0;
+  v48 = 0;
   v53 = 0LL;
   v4 = MEMORY[0xFFFFF78000000008];
   v5 = *(IRP **)(a1 + 56);
   BugCheckParameter4 = *(struct _DEVICE_OBJECT **)(a1 + 48);
   v52 = v5;
-  v51 = BugCheckParameter4;
-  v48 = 0;
-  v50 = 0;
+  v50 = BugCheckParameter4;
+  v51 = MEMORY[0xFFFFF78000000008];
+  v47 = 0;
+  v49 = 0;
   PopAcquireRwLockExclusive(a1 + 432);
   if ( *(_BYTE *)(a1 + 66) )
   {
     *(_BYTE *)(a1 + 64) = 0;
-    goto LABEL_64;
+    goto LABEL_69;
   }
   Status = v5->IoStatus.Status;
   v9 = 1;
@@ -111,7 +112,7 @@ void __fastcall PopThermalWorker(__int64 a1)
       goto LABEL_7;
     }
     *(_BYTE *)(a1 + 64) = 5;
-LABEL_64:
+LABEL_69:
     KeSetEvent((PRKEVENT)(a1 + 448), 0, 0);
     goto LABEL_26;
   }
@@ -122,11 +123,14 @@ LABEL_64:
     if ( (v21 & 2) == 0 )
     {
       *(_BYTE *)(a1 + 65) = v21 | 2;
-      PopDiagTraceThermalZoneEnumeration(a1);
+      PopDiagTraceThermalZoneEnumeration(
+        (char *)(a1 + 112),
+        (unsigned __int16 *)(a1 + 1040),
+        (__int64)BugCheckParameter4);
     }
-    PopCheckThermalPolicy(a1, v4, &v48, &v50);
+    PopCheckThermalPolicy(a1, v4, &v47, &v49);
     KeSetEvent((PRKEVENT)(a1 + 472), 0, 0);
-    LOBYTE(v7) = v48;
+    v22 = v47;
     goto LABEL_33;
   }
   if ( *(_BYTE *)(a1 + 64) != 2 )
@@ -158,120 +162,127 @@ LABEL_7:
         PopInternalAddToDumpFile((__int64)v5, 0xD0u, (__int64)BugCheckParameter4);
         KeBugCheckEx(0xA0u, 0x500uLL, 5uLL, (ULONG_PTR)v5, (ULONG_PTR)BugCheckParameter4);
     }
-    v30 = *(_DWORD *)(a1 + 216);
-    LOBYTE(v7) = v30 < 0x64;
-    v31 = *(_DWORD *)(a1 + 80) - v30;
-    v48 = v30 < 0x64;
-    v32 = 5 * v31;
+    v32 = *(_DWORD *)(a1 + 216);
+    v22 = v32 < 0x64;
     v33 = *(_BYTE *)(a1 + 65);
-    v50 = 2 * v32;
+    v49 = 10 * (*(_DWORD *)(a1 + 80) - v32);
     if ( (v33 & 2) == 0 )
     {
       *(_BYTE *)(a1 + 65) = v33 | 2;
-      PopDiagTraceThermalZoneEnumeration(a1);
-      LOBYTE(v7) = v48;
+      PopDiagTraceThermalZoneEnumeration(
+        (char *)(a1 + 112),
+        (unsigned __int16 *)(a1 + 1040),
+        (__int64)BugCheckParameter4);
     }
 LABEL_33:
-    v22 = *(unsigned __int8 *)(a1 + 69);
-    v23 = *(_DWORD *)(a1 + 220);
-    v24 = *(unsigned __int8 *)(a1 + 144);
-    if ( v23 == (_DWORD)v22 )
+    v23 = *(unsigned __int8 *)(a1 + 69);
+    v24 = *(_DWORD *)(a1 + 220);
+    v25 = *(unsigned __int8 *)(a1 + 144);
+    if ( v24 == (_DWORD)v23 )
     {
-      v25 = *(_BYTE *)(a1 + 65);
-      v26 = v25 & 4;
-      if ( v23 < v24 )
+      v28 = *(_BYTE *)(a1 + 65);
+      v30 = v28 & 4;
+      if ( v24 >= v25 )
       {
-        if ( v26 )
-          goto LABEL_36;
+        if ( !v30 )
+          goto LABEL_40;
       }
-      else if ( !v26 )
+      else if ( v30 )
       {
-        goto LABEL_36;
+        goto LABEL_40;
       }
     }
     *(_BYTE *)(a1 + 70) = *(_BYTE *)(a1 + 220);
-    PopThermalUpdateActiveTimeTracking(a1 + 504, v22);
-    v28 = *(_BYTE *)(a1 + 65);
-    v47 = 1;
-    if ( v23 < v24 )
+    PopThermalUpdateActiveTimeTracking(a1 + 504, v23);
+    v26 = *(_BYTE *)(a1 + 65);
+    v46 = 1;
+    if ( v24 >= v25 )
+      goto LABEL_35;
+    if ( (v26 & 4) != 0 )
     {
-      if ( (v28 & 4) == 0 )
+      if ( v24 >= v25 )
       {
-        LOBYTE(v7) = 1;
-        PopDiagTraceActiveCooling(a1 + 112, BugCheckParameter4, v7, 0LL);
-        LOBYTE(v34) = 1;
-        PopDiagTraceActiveCooling(a1 + 112, BugCheckParameter4, v34, 1LL);
-        *(_QWORD *)(a1 + 248) = v4;
+LABEL_35:
+        if ( (v26 & 4) != 0 )
+        {
+          PopDiagTraceActiveCooling(a1 + 112, v50, 0LL, 0LL);
+          PopDiagTraceActiveCooling(a1 + 112, v50, 0LL, 1LL);
+        }
       }
     }
-    else if ( (v28 & 4) != 0 )
-    {
-      PopDiagTraceActiveCooling(a1 + 112, BugCheckParameter4, 0LL, 0LL);
-      PopDiagTraceActiveCooling(a1 + 112, BugCheckParameter4, 0LL, 1LL);
-    }
-    v29 = *(_BYTE *)(a1 + 65);
-    LOBYTE(v7) = v48;
-    if ( v23 < v24 )
-      v25 = v29 | 4;
     else
-      v25 = v29 & 0xFB;
-    *(_BYTE *)(a1 + 65) = v25;
-LABEL_36:
+    {
+      LOBYTE(v7) = 1;
+      PopDiagTraceActiveCooling(a1 + 112, v50, v7, 0LL);
+      LOBYTE(v31) = 1;
+      PopDiagTraceActiveCooling(a1 + 112, v50, v31, 1LL);
+      *(_QWORD *)(a1 + 248) = v4;
+    }
+    v27 = *(_BYTE *)(a1 + 65);
+    if ( v24 < v25 )
+      v28 = v27 | 4;
+    else
+      v28 = v27 & 0xFB;
+    *(_BYTE *)(a1 + 65) = v28;
+LABEL_40:
     if ( *(_DWORD *)(a1 + 216) == *(_DWORD *)(a1 + 80) )
     {
-      v27 = v25 & 1;
-      if ( (_BYTE)v7 )
+      BugCheckParameter4 = v50;
+      v29 = v28 & 1;
+      if ( v22 )
       {
-        if ( v27 )
-          goto LABEL_39;
+        if ( v29 )
+          goto LABEL_43;
       }
-      else if ( !v27 )
+      else if ( !v29 )
       {
-LABEL_39:
-        PopCheckAndHandleThermalConditions(a1);
-        v11 = v47;
-        v2 = (__int64 *)(a1 + 432);
-        BugCheckParameter4 = v51;
+LABEL_43:
+        PopCheckAndHandleThermalConditions(a1, v23);
+        v11 = v46;
+        v2 = a1 + 432;
+        v4 = v51;
         v5 = v52;
         goto LABEL_8;
       }
     }
     else
     {
-      LOBYTE(v22) = *(_BYTE *)(a1 + 80);
-      PopThermalUpdatePassiveTimeTracking(a1 + 504, v22);
-      v35 = *(_DWORD *)(a1 + 216);
-      v36 = *(_DWORD *)(a1 + 128);
-      v49 = 1;
-      *(_DWORD *)(a1 + 84) = v35;
-      PopDiagTraceThermalZoneThrottlePerfTrack(v36, 100 - v35, (__int64)BugCheckParameter4);
-      LOBYTE(v7) = v48;
+      PopThermalUpdatePassiveTimeTracking(a1 + 504, *(_BYTE *)(a1 + 80));
+      v34 = *(_DWORD *)(a1 + 216);
+      BugCheckParameter4 = v50;
+      v35 = *(_DWORD *)(a1 + 128);
+      v36 = (__int64)v50;
+      v48 = 1;
+      *(_DWORD *)(a1 + 84) = v34;
+      PopDiagTraceThermalZoneThrottlePerfTrack(v35, 100 - v34, v36);
     }
-    v37 = v50;
-    PopDiagTracePassiveCooling(a1 + 112, (_DWORD)v51, v7, v50, 0);
-    v39 = v48;
-    v40 = *(_BYTE *)(a1 + 65);
-    if ( v48 )
+    v37 = v49;
+    LOBYTE(v7) = v22;
+    PopDiagTracePassiveCooling(a1 + 112, (_DWORD)BugCheckParameter4, v7, v49, 0);
+    v39 = *(_BYTE *)(a1 + 65);
+    if ( v22 )
     {
-      if ( (v40 & 1) == 0 )
+      if ( (v39 & 1) == 0 )
       {
         LOBYTE(v38) = 1;
-        PopDiagTracePassiveCooling(a1 + 112, (_DWORD)v51, v38, v37, 1);
-        *(_QWORD *)(a1 + 256) = v4;
+        PopDiagTracePassiveCooling(a1 + 112, (_DWORD)BugCheckParameter4, v38, v37, 1);
+        *(_QWORD *)(a1 + 256) = v51;
       }
     }
-    else if ( (v40 & 1) != 0 )
+    else if ( (v39 & 1) != 0 )
     {
-      PopDiagTracePassiveCooling(a1 + 112, (_DWORD)v51, 0, v37, 1);
-      PopDiagTraceThermalZoneThrottleDurationPerfTrack((v4 - *(_QWORD *)(a1 + 256)) / 0x2710uLL, (__int64)v51);
+      PopDiagTracePassiveCooling(a1 + 112, (_DWORD)BugCheckParameter4, 0, v37, 1);
+      PopDiagTraceThermalZoneThrottleDurationPerfTrack(
+        (v51 - *(_QWORD *)(a1 + 256)) / 0x2710uLL,
+        (__int64)BugCheckParameter4);
     }
-    v41 = *(_BYTE *)(a1 + 65);
-    if ( v39 )
-      v42 = v41 | 1;
+    v40 = *(_BYTE *)(a1 + 65);
+    if ( v22 )
+      v41 = v40 | 1;
     else
-      v42 = v41 & 0xFE;
-    *(_BYTE *)(a1 + 65) = v42;
-    goto LABEL_39;
+      v41 = v40 & 0xFE;
+    *(_BYTE *)(a1 + 65) = v41;
+    goto LABEL_43;
   }
   *(_BYTE *)(a1 + 67) = *(_BYTE *)(a1 + 68);
   PopDiagTraceThermalCoolingMode(BugCheckParameter4);
@@ -279,7 +290,7 @@ LABEL_39:
     PopFireThermalWmiEvent(*(_BYTE *)(a1 + 67));
   v11 = 1;
 LABEL_8:
-  v12 = v49;
+  v12 = v48;
   v13 = a1 + 70;
   v14 = v11;
   if ( *(_BYTE *)(a1 + 69) != *(_BYTE *)(a1 + 70) )
@@ -299,7 +310,7 @@ LABEL_8:
       v1 = 16;
       goto LABEL_25;
     case 7:
-LABEL_59:
+LABEL_60:
       v13 = a1 + 204;
       v19 = 2703508;
       *(_DWORD *)(a1 + 204) = 1;
@@ -334,37 +345,37 @@ LABEL_59:
   {
     *(_BYTE *)(a1 + 64) = 8;
     *(_BYTE *)(a1 + 208) = 1;
-    goto LABEL_59;
+    goto LABEL_60;
   }
   v17 = 0LL;
   *(_BYTE *)(a1 + 64) = 1;
   if ( (*(_BYTE *)(a1 + 65) & 1) != 0 )
   {
-    v43 = *(unsigned int *)(a1 + 104);
-    if ( (_DWORD)v43 )
+    v42 = *(unsigned int *)(a1 + 104);
+    if ( (_DWORD)v42 )
     {
-      v44 = *(_QWORD *)(a1 + 96) + v43;
-      if ( v44 <= v4 )
+      v43 = *(_QWORD *)(a1 + 96) + v42;
+      if ( v43 <= v4 )
         *(_DWORD *)(a1 + 112) = 0;
       else
-        v17 = v44;
+        v17 = v43;
     }
   }
   v18 = 0LL;
   if ( PopThermalPollingMode )
   {
-    v45 = *(unsigned int *)(a1 + 232);
-    if ( (_DWORD)v45 )
+    v44 = *(unsigned int *)(a1 + 232);
+    if ( (_DWORD)v44 )
     {
-      v46 = *(_QWORD *)(a1 + 240) + v45;
-      if ( v46 <= v4 )
+      v45 = *(_QWORD *)(a1 + 240) + v44;
+      if ( v45 <= v4 )
       {
         *(_DWORD *)(a1 + 112) = 0;
         v17 = 0LL;
       }
-      else if ( !v17 || v17 >= v46 )
+      else if ( !v17 || v17 >= v45 )
       {
-        v17 = v46;
+        v17 = v45;
       }
     }
     if ( !PopThermalPollingWakesAllowed )

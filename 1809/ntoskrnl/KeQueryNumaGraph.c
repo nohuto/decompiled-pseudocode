@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQueryNumaGraph @ 0x1409F6404
+ * XREFs of KeQueryNumaGraph @ 0x1409F6414
  * Callers:
  *     MmInitSystem @ 0x1409BC4E4 (MmInitSystem.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

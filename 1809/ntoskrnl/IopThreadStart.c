@@ -1,12 +1,12 @@
 /*
- * XREFs of IopThreadStart @ 0x1407015F0
+ * XREFs of IopThreadStart @ 0x1407015D0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsTerminateSystemThread @ 0x1406CC590 (PsTerminateSystemThread.c)
+ *     PsTerminateSystemThread @ 0x1406CC570 (PsTerminateSystemThread.c)
  */
 
 NTSTATUS __fastcall IopThreadStart(_QWORD *a1)

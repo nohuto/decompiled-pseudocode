@@ -1,12 +1,12 @@
 /*
- * XREFs of NtGdiCreateEllipticRgn @ 0x1C029DFA0
+ * XREFs of NtGdiCreateEllipticRgn @ 0x1C029F6D0
  * Callers:
  *     <none>
  * Callees:
- *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C0022804 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
- *     ??0EBOX@@QEAA@AEAVERECTL@@H@Z @ 0x1C00FBD00 (--0EBOX@@QEAA@AEAVERECTL@@H@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?bEllipse@@YAHAEAVEPATHOBJ@@AEAVEBOX@@@Z @ 0x1C02AF218 (-bEllipse@@YAHAEAVEPATHOBJ@@AEAVEBOX@@@Z.c)
+ *     ??0EBOX@@QEAA@AEAVERECTL@@H@Z @ 0x1C00A3378 (--0EBOX@@QEAA@AEAVERECTL@@H@Z.c)
+ *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C00BCF24 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?bEllipse@@YAHAEAVEPATHOBJ@@AEAVEBOX@@@Z @ 0x1C02B0604 (-bEllipse@@YAHAEAVEPATHOBJ@@AEAVEBOX@@@Z.c)
  */
 
 struct HOBJ__ *__fastcall NtGdiCreateEllipticRgn(unsigned int a1, unsigned int a2, int a3, int a4)
@@ -50,6 +50,7 @@ LABEL_21:
   }
   if ( (unsigned int)bEllipse((struct EPATHOBJ *)v15, (struct EBOX *)v16) && EPATHOBJ::bFlatten((EPATHOBJ *)v15) )
   {
+    v12 = 0LL;
     v13 = 0;
     RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v12, (struct EPATHOBJ *)v15, 1u, 0LL);
     if ( v12 )

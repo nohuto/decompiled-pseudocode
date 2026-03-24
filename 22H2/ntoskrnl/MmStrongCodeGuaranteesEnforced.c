@@ -1,14 +1,14 @@
 /*
- * XREFs of MmStrongCodeGuaranteesEnforced @ 0x140B76E00
+ * XREFs of MmStrongCodeGuaranteesEnforced @ 0x140A739D8
  * Callers:
- *     KiVerifyXcpt15 @ 0x140B18320 (KiVerifyXcpt15.c)
- *     KeFreeInitializationCode @ 0x140B18BF4 (KeFreeInitializationCode.c)
- *     sub_140B1A730 @ 0x140B1A730 (sub_140B1A730.c)
+ *     KiVerifyXcpt15 @ 0x140A1B320 (KiVerifyXcpt15.c)
+ *     KeFreeInitializationCode @ 0x140A1BB5C (KeFreeInitializationCode.c)
+ *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
  * Callees:
  *     <none>
  */
 
 __int64 MmStrongCodeGuaranteesEnforced()
 {
-  return ((unsigned int)MiFlags >> 15) & 1;
+  return BYTE2(MiFlags) & 1;
 }

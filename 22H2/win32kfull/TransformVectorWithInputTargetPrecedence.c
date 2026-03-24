@@ -1,61 +1,57 @@
 /*
- * XREFs of TransformVectorWithInputTargetPrecedence @ 0x1C0150FD8
+ * XREFs of TransformVectorWithInputTargetPrecedence @ 0x1C00F2968
  * Callers:
- *     EditionPhysicalToLogicalDPIPointWithInputDestHint @ 0x1C0151D90 (EditionPhysicalToLogicalDPIPointWithInputDestHint.c)
- *     EditionGetLogicalPointForMouseCaptureButtonEvent @ 0x1C01AC110 (EditionGetLogicalPointForMouseCaptureButtonEvent.c)
- *     EditionMouseCaptureHitTest @ 0x1C01E63F0 (EditionMouseCaptureHitTest.c)
+ *     EditionMouseSpeedHitTest @ 0x1C004CBB0 (EditionMouseSpeedHitTest.c)
+ *     EditionPhysicalToLogicalDPIPointWithInputDestHint @ 0x1C00F0D60 (EditionPhysicalToLogicalDPIPointWithInputDestHint.c)
+ *     EditionGetLogicalPointForMouseCaptureButtonEvent @ 0x1C00F28F0 (EditionGetLogicalPointForMouseCaptureButtonEvent.c)
  * Callees:
- *     _GetTopLevelWindow @ 0x1C00CFFB0 (_GetTopLevelWindow.c)
- *     GetMonitorTransform @ 0x1C00F388C (GetMonitorTransform.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     TransformVector @ 0x1C01E6D28 (TransformVector.c)
+ *     GetMonitorTransform @ 0x1C00426E4 (GetMonitorTransform.c)
+ *     _GetTopLevelWindow @ 0x1C006FC20 (_GetTopLevelWindow.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     TransformVector @ 0x1C0216FBC (TransformVector.c)
  */
 
-__int64 __fastcall TransformVectorWithInputTargetPrecedence(const struct tagWND *a1, int a2, int a3)
+__int64 __fastcall TransformVectorWithInputTargetPrecedence(__int64 a1, int a2, int a3)
 {
   _BYTE *v6; // rbx
-  unsigned int v7; // esi
-  __int64 v8; // rcx
-  __int64 v9; // rax
+  unsigned int v7; // edi
   __int64 result; // rax
-  __int64 v11; // rdi
-  __int64 v12; // rbp
-  __int64 v13; // rcx
-  __int64 v14; // rcx
-  __int64 v15; // rbx
-  __int64 v16; // rcx
-  _BYTE v17[64]; // [rsp+30h] [rbp-88h] BYREF
+  __int64 v9; // rsi
+  __int64 v10; // rbp
+  __int64 v11; // rcx
+  __int64 v12; // rcx
+  _BYTE v13[64]; // [rsp+30h] [rbp-88h] BYREF
 
-  memset_0(v17, 0, sizeof(v17));
+  memset(v13, 0, sizeof(v13));
   v6 = 0LL;
   v7 = 0;
-  v9 = SGDGetUserSessionState(v8);
-  result = GetTopLevelWindow(*(_QWORD *)(v9 + 15904));
-  v11 = result;
+  result = GetTopLevelWindow(gspwndInternalCapture);
+  v9 = result;
   if ( result )
   {
-    v12 = *((_QWORD *)a1 + 2);
-    if ( result == GetTopLevelWindow((__int64)a1) )
+    v10 = *(_QWORD *)(a1 + 16);
+    if ( result == GetTopLevelWindow(a1) )
     {
-      v14 = *(_QWORD *)(v12 + 672);
-      if ( v14 && *(_QWORD *)(v14 + 16) == v11 )
+      v11 = *(_QWORD *)(v10 + 672);
+      if ( v11 && *(_QWORD *)(v11 + 16) == v9 )
       {
-        if ( (unsigned int)GetMonitorTransform(*(_QWORD *)(v14 + 208), a1, (__int64)v17) )
-          v6 = v17;
+        if ( (unsigned int)GetMonitorTransform(*(_QWORD *)(v11 + 208), a1, (__int64)v13) )
+          v6 = v13;
         goto LABEL_11;
       }
     }
     else
     {
-      v15 = *(_QWORD *)(v12 + 432);
-      if ( !v15 )
+      v12 = *(_QWORD *)(v10 + 432);
+      if ( !v12
+        || v12 != *(_QWORD *)(*(_QWORD *)(gspwndInternalCapture + 16LL) + 432LL)
+        || *(_QWORD *)(v12 + 104) != gspwndInternalCapture )
+      {
         return v7;
-      v16 = *(_QWORD *)(*(_QWORD *)(SGDGetUserSessionState(v13) + 15904) + 16LL);
-      if ( v15 != *(_QWORD *)(v16 + 432) || *(_QWORD *)(v15 + 112) != *(_QWORD *)(SGDGetUserSessionState(v16) + 15904) )
-        return v7;
+      }
     }
-    v6 = *(_BYTE **)(v11 + 216);
+    v6 = *(_BYTE **)(v9 + 216);
 LABEL_11:
     v7 = 1;
     if ( v6 )

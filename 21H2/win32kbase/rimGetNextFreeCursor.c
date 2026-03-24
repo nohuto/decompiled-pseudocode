@@ -1,60 +1,59 @@
 /*
- * XREFs of rimGetNextFreeCursor @ 0x1C01B6AD0
+ * XREFs of rimGetNextFreeCursor @ 0x1C01806E4
  * Callers:
- *     RIMCmActivateContact @ 0x1C01B5F68 (RIMCmActivateContact.c)
+ *     RIMCmActivateContact @ 0x1C017FA74 (RIMCmActivateContact.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall rimGetNextFreeCursor(__int64 a1, __int64 a2)
+__int64 __fastcall rimGetNextFreeCursor(__int64 a1)
 {
-  unsigned int v2; // r9d
-  __int64 v4; // rcx
-  unsigned int v5; // edi
-  __int64 v6; // r8
-  unsigned int v7; // r10d
-  __int64 v8; // rsi
-  unsigned int v9; // ebp
+  unsigned int v1; // r9d
+  unsigned int v2; // r8d
+  unsigned int v4; // edi
+  unsigned int v5; // ecx
+  unsigned int v6; // r10d
+  __int64 v7; // rsi
+  unsigned int v8; // ebp
+  __int64 v9; // rdx
 
-  v2 = *(_DWORD *)(a1 + 1032);
-  v4 = *(unsigned int *)(a1 + 1036);
-  v5 = 0;
-  v6 = (unsigned int)v4;
-  if ( v2 >= (unsigned int)v4 )
+  v1 = *(_DWORD *)(a1 + 976);
+  v2 = *(_DWORD *)(a1 + 980);
+  v4 = 0;
+  v5 = v2;
+  if ( v1 >= v2 )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v4, a2, (unsigned int)v4);
-    v4 = *(unsigned int *)(a1 + 1036);
-    v6 = v4;
-    v2 = *(_DWORD *)(a1 + 1032);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 679);
+    v2 = *(_DWORD *)(a1 + 980);
+    v5 = v2;
+    v1 = *(_DWORD *)(a1 + 976);
   }
-  v7 = 0;
-  if ( (_DWORD)v6 )
+  v6 = 0;
+  if ( v5 )
   {
-    v8 = *(_QWORD *)(a1 + 1024);
-    v9 = v6;
+    v7 = *(_QWORD *)(a1 + 968);
+    v8 = v5;
     while ( 1 )
     {
-      a2 = v2 % (unsigned int)v6;
-      v2 = v2 % (unsigned int)v6 + 1;
-      if ( !*(_DWORD *)(v8 + 12LL * (unsigned int)a2 + 8) )
+      v9 = v1 % v5;
+      v1 = v1 % v5 + 1;
+      if ( !*(_DWORD *)(v7 + 12LL * (unsigned int)v9 + 8) )
         break;
-      ++v7;
-      v9 = v4;
-      if ( v7 >= (unsigned int)v4 )
+      ++v6;
+      v8 = v2;
+      if ( v6 >= v2 )
       {
-        v6 = (unsigned int)v4;
+        v5 = v2;
         goto LABEL_9;
       }
     }
-    v4 = 3 * a2;
-    v5 = *(_DWORD *)(v8 + 12 * a2 + 4);
-    a2 = v2 % v9;
-    *(_DWORD *)(a1 + 1032) = v2 % v9;
-    *(_DWORD *)(v8 + 4 * v4 + 8) = 1;
-    v6 = *(unsigned int *)(a1 + 1036);
+    v4 = *(_DWORD *)(v7 + 12 * v9 + 4);
+    *(_DWORD *)(a1 + 976) = v1 % v8;
+    *(_DWORD *)(v7 + 12 * v9 + 8) = 1;
+    v5 = *(_DWORD *)(a1 + 980);
   }
 LABEL_9:
-  if ( *(_DWORD *)(a1 + 1032) >= (unsigned int)v6 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v4, a2, v6);
-  return v5;
+  if ( *(_DWORD *)(a1 + 976) >= v5 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 694);
+  return v4;
 }

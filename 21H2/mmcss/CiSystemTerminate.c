@@ -1,16 +1,16 @@
 /*
- * XREFs of CiSystemTerminate @ 0x1C000C908
+ * XREFs of CiSystemTerminate @ 0x1C000CCC4
  * Callers:
- *     CiSystemInitialize @ 0x1C000D0B0 (CiSystemInitialize.c)
+ *     CiSystemInitialize @ 0x1C000E230 (CiSystemInitialize.c)
  * Callees:
- *     CiFreeMemory @ 0x1C0004DEC (CiFreeMemory.c)
+ *     CiFreeMemory @ 0x1C0004B3C (CiFreeMemory.c)
  */
 
 void CiSystemTerminate()
 {
-  if ( CiLastIdleStats )
+  if ( CiLastIdleTime )
   {
-    CiFreeMemory((void *)CiLastIdleStats);
-    CiLastIdleStats = 0LL;
+    CiFreeMemory((void *)CiLastIdleTime);
+    CiLastIdleTime = 0LL;
   }
 }

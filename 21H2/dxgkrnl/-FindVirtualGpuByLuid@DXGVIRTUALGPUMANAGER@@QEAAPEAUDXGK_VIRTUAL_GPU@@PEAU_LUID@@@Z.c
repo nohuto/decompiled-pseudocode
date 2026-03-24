@@ -1,12 +1,11 @@
 /*
- * XREFs of ?FindVirtualGpuByLuid@DXGVIRTUALGPUMANAGER@@QEAAPEAUDXGK_VIRTUAL_GPU@@PEAU_LUID@@@Z @ 0x1C035763C
+ * XREFs of ?FindVirtualGpuByLuid@DXGVIRTUALGPUMANAGER@@QEAAPEAUDXGK_VIRTUAL_GPU@@PEAU_LUID@@@Z @ 0x1C022F8D4
  * Callers:
- *     ?FindVirtualGpuByLuid@ADAPTER_RENDER@@QEAAPEAUDXGK_VIRTUAL_GPU@@W4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUID@@@Z @ 0x1C0357600 (-FindVirtualGpuByLuid@ADAPTER_RENDER@@QEAAPEAUDXGK_VIRTUAL_GPU@@W4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUI.c)
+ *     ?FindVirtualGpuByLuid@ADAPTER_RENDER@@QEAAPEAUDXGK_VIRTUAL_GPU@@W4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUID@@@Z @ 0x1C022F898 (-FindVirtualGpuByLuid@ADAPTER_RENDER@@QEAAPEAUDXGK_VIRTUAL_GPU@@W4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUI.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
  */
 
 struct DXGK_VIRTUAL_GPU *__fastcall DXGVIRTUALGPUMANAGER::FindVirtualGpuByLuid(
@@ -16,30 +15,24 @@ struct DXGK_VIRTUAL_GPU *__fastcall DXGVIRTUALGPUMANAGER::FindVirtualGpuByLuid(
   DXGVIRTUALGPUMANAGER *v4; // rdx
   DXGVIRTUALGPUMANAGER *v5; // rcx
   char *v6; // rbx
-  _BYTE v8[8]; // [rsp+50h] [rbp-28h] BYREF
-  DXGPUSHLOCK *v9; // [rsp+58h] [rbp-20h]
-  int v10; // [rsp+60h] [rbp-18h]
+  __int64 v7; // rax
+  _BYTE v9[8]; // [rsp+20h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v10; // [rsp+28h] [rbp-20h]
+  int v11; // [rsp+30h] [rbp-18h]
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v8, this + 9, 0);
-  DXGPUSHLOCK::AcquireShared(v9);
-  v4 = (DXGVIRTUALGPUMANAGER *)(this + 13);
-  v10 = 1;
-  v5 = this[13];
-  if ( v5 == (DXGVIRTUALGPUMANAGER *)(this + 13) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v9, this + 5, 0);
+  DXGPUSHLOCK::AcquireShared(v10);
+  v4 = (DXGVIRTUALGPUMANAGER *)(this + 9);
+  v11 = 1;
+  v5 = this[9];
+  if ( v5 == (DXGVIRTUALGPUMANAGER *)(this + 9) )
   {
 LABEL_5:
-    WdLogSingleEntry2(2LL, a2->HighPart, a2->LowPart);
+    v7 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v7 + 24) = a2->HighPart;
+    *(_QWORD *)(v7 + 32) = a2->LowPart;
+    WdLogEvent5_WdError(v7);
     v6 = 0LL;
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"A virtual GPU with given LUID is not found: 0x%I64x 0x%I64x",
-      a2->HighPart,
-      a2->LowPart,
-      0LL,
-      0LL,
-      0LL);
   }
   else
   {
@@ -53,6 +46,6 @@ LABEL_5:
         goto LABEL_5;
     }
   }
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v8);
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v9);
   return (struct DXGK_VIRTUAL_GPU *)v6;
 }

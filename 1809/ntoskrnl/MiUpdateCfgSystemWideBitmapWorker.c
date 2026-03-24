@@ -1,21 +1,21 @@
 /*
  * XREFs of MiUpdateCfgSystemWideBitmapWorker @ 0x1405F3130
  * Callers:
- *     MiUpdateCfgSystemWideBitmap @ 0x14064F764 (MiUpdateCfgSystemWideBitmap.c)
+ *     MiUpdateCfgSystemWideBitmap @ 0x14064F744 (MiUpdateCfgSystemWideBitmap.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     MiLocatePagefileSubsection @ 0x140119D28 (MiLocatePagefileSubsection.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiLocatePagefileSubsection @ 0x140119D48 (MiLocatePagefileSubsection.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     MmUnmapViewInSystemSpace @ 0x1405DF390 (MmUnmapViewInSystemSpace.c)
  *     MiMapViewInSystemSpace @ 0x1405DF3F4 (MiMapViewInSystemSpace.c)
  *     MiChargeSegmentCommit @ 0x14061E0D0 (MiChargeSegmentCommit.c)
- *     MiEliminateZeroPages @ 0x14066BED0 (MiEliminateZeroPages.c)
- *     RtlEnumRvaListFirst @ 0x1406AB164 (RtlEnumRvaListFirst.c)
+ *     MiEliminateZeroPages @ 0x14066BEB0 (MiEliminateZeroPages.c)
+ *     RtlEnumRvaListFirst @ 0x1406AB144 (RtlEnumRvaListFirst.c)
  */
 
 __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)

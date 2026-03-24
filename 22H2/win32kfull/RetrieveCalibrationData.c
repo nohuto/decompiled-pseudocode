@@ -1,10 +1,10 @@
 /*
- * XREFs of RetrieveCalibrationData @ 0x1C01A57E0
+ * XREFs of RetrieveCalibrationData @ 0x1C01CF060
  * Callers:
  *     <none>
  * Callees:
- *     ?ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z @ 0x1C01A498C (-ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z.c)
- *     GetPointerDeviceKey @ 0x1C01A9F1C (GetPointerDeviceKey.c)
+ *     ?ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z @ 0x1C01CE218 (-ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z.c)
+ *     GetPointerDeviceKey @ 0x1C01D5060 (GetPointerDeviceKey.c)
  */
 
 NTSTATUS __fastcall RetrieveCalibrationData(struct tagHID_POINTER_DEVICE_INFO *a1, struct _UNICODE_STRING *a2)

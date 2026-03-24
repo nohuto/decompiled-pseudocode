@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM30_CheckIfThereIsAPortChangeOnStartResumeOnGetPortStatus @ 0x1C0013900
+ * XREFs of HUBPSM30_CheckIfThereIsAPortChangeOnStartResumeOnGetPortStatus @ 0x1C00123E0
  * Callers:
  *     <none>
  * Callees:
- *     HUBHTX_CheckAndSelectIfAny30PortChangeSet @ 0x1C0005168 (HUBHTX_CheckAndSelectIfAny30PortChangeSet.c)
+ *     HUBHTX_CheckAndSelectIfAny30PortChangeSet @ 0x1C0004B4C (HUBHTX_CheckAndSelectIfAny30PortChangeSet.c)
  */
 
 __int64 __fastcall HUBPSM30_CheckIfThereIsAPortChangeOnStartResumeOnGetPortStatus(__int64 a1)

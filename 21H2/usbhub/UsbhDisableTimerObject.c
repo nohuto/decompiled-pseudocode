@@ -1,25 +1,25 @@
 /*
- * XREFs of UsbhDisableTimerObject @ 0x1C000B4D0
+ * XREFs of UsbhDisableTimerObject @ 0x1C0011260
  * Callers:
- *     UsbhSshSetPortsBusyState @ 0x1C0005CA0 (UsbhSshSetPortsBusyState.c)
- *     UsbhSshSuspendHub @ 0x1C00063E0 (UsbhSshSuspendHub.c)
- *     UsbhFdoSystemPowerState @ 0x1C0007740 (UsbhFdoSystemPowerState.c)
- *     UsbhSshEnterSx @ 0x1C001D88C (UsbhSshEnterSx.c)
- *     Usbh_PIND_Disable_Action @ 0x1C002ECEC (Usbh_PIND_Disable_Action.c)
- *     Usbh_PIND_SetAuto_Action @ 0x1C002EE50 (Usbh_PIND_SetAuto_Action.c)
- *     UsbhFreeTimerObject @ 0x1C003B1B0 (UsbhFreeTimerObject.c)
- *     UsbhAsyncStop @ 0x1C0041C0C (UsbhAsyncStop.c)
- *     UsbhHubStart @ 0x1C0042CB0 (UsbhHubStart.c)
- *     UsbhInitCallbackWorker @ 0x1C0043010 (UsbhInitCallbackWorker.c)
- *     UsbhDeletePdo @ 0x1C00537BC (UsbhDeletePdo.c)
- *     UsbhPdoPnp_StartDevice @ 0x1C0055CA0 (UsbhPdoPnp_StartDevice.c)
- *     UsbhHubSSH_PnpStop @ 0x1C0058680 (UsbhHubSSH_PnpStop.c)
- *     UsbhSshDisabled @ 0x1C00589F0 (UsbhSshDisabled.c)
+ *     UsbhSshEnterSx @ 0x1C00021C0 (UsbhSshEnterSx.c)
+ *     UsbhSshSuspendHub @ 0x1C000D970 (UsbhSshSuspendHub.c)
+ *     UsbhFdoSystemPowerState @ 0x1C000E9B0 (UsbhFdoSystemPowerState.c)
+ *     UsbhSshSetPortsBusyState @ 0x1C000FE00 (UsbhSshSetPortsBusyState.c)
+ *     Usbh_PIND_Disable_Action @ 0x1C00300BC (Usbh_PIND_Disable_Action.c)
+ *     Usbh_PIND_SetAuto_Action @ 0x1C0030220 (Usbh_PIND_SetAuto_Action.c)
+ *     UsbhFreeTimerObject @ 0x1C003C4DC (UsbhFreeTimerObject.c)
+ *     UsbhAsyncStop @ 0x1C0042EBC (UsbhAsyncStop.c)
+ *     UsbhHubStart @ 0x1C0043F60 (UsbhHubStart.c)
+ *     UsbhInitCallbackWorker @ 0x1C00442C0 (UsbhInitCallbackWorker.c)
+ *     UsbhDeletePdo @ 0x1C0054E1C (UsbhDeletePdo.c)
+ *     UsbhPdoPnp_StartDevice @ 0x1C0057340 (UsbhPdoPnp_StartDevice.c)
+ *     UsbhHubSSH_PnpStop @ 0x1C0059D50 (UsbhHubSSH_PnpStop.c)
+ *     UsbhSshDisabled @ 0x1C005A0C0 (UsbhSshDisabled.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhEtwWrite @ 0x1C000CB00 (UsbhEtwWrite.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhEtwWrite @ 0x1C00125E0 (UsbhEtwWrite.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 void __fastcall UsbhDisableTimerObject(__int64 a1, __int64 a2)
@@ -42,7 +42,7 @@ void __fastcall UsbhDisableTimerObject(__int64 a1, __int64 a2)
     UsbhTrapFatal_Dbg(a1, *(_QWORD *)(a1 + 64));
   if ( a2 )
   {
-    if ( dword_1C006A690 )
+    if ( dword_1C006C5F0 )
       UsbhEtwWrite(&USBHUB_ETW_EVENT_HUB_DISABLE_TIMER, 0LL);
     KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 3728));
     v5 = *(int *)(a2 + 4);

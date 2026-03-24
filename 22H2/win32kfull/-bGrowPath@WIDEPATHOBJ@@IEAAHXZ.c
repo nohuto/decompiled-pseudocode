@@ -1,57 +1,62 @@
 /*
- * XREFs of ?bGrowPath@WIDEPATHOBJ@@IEAAHXZ @ 0x1C015D896
+ * XREFs of ?bGrowPath@WIDEPATHOBJ@@IEAAHXZ @ 0x1C01407D0
  * Callers:
- *     ?bBeginFigure@WIDEPATHOBJ@@QEAAHXZ @ 0x1C015D84A (-bBeginFigure@WIDEPATHOBJ@@QEAAHXZ.c)
- *     ?bPenFlatten@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z @ 0x1C02F1908 (-bPenFlatten@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z.c)
- *     ?vGrowPathAndAddPoint@WIDEPATHOBJ@@IEAAXPEBU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C02F2844 (-vGrowPathAndAddPoint@WIDEPATHOBJ@@IEAAXPEBU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
+ *     ?bPenFlatten@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z @ 0x1C013F038 (-bPenFlatten@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z.c)
+ *     ?bBeginFigure@WIDEPATHOBJ@@QEAAHXZ @ 0x1C0140788 (-bBeginFigure@WIDEPATHOBJ@@QEAAHXZ.c)
+ *     ?vGrowPathAndAddPoint@WIDEPATHOBJ@@IEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C02CEE64 (-vGrowPathAndAddPoint@WIDEPATHOBJ@@IEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall WIDEPATHOBJ::bGrowPath(WIDEPATHOBJ *this)
 {
-  __int64 v2; // rdx
-  unsigned __int64 v3; // rax
-  unsigned __int64 v4; // rcx
-  unsigned __int64 v5; // rcx
+  _QWORD *v1; // r9
+  unsigned __int64 v2; // r8
+  __int64 v4; // rdx
   __int64 result; // rax
-  __int64 v7; // rax
-  __int64 v8; // r8
-  _QWORD *v9; // rdx
-  __int64 v10; // rax
+  _QWORD *v6; // rax
+  __int64 v7; // rcx
+  unsigned __int64 v8; // rcx
+  unsigned __int64 v9; // rax
 
-  v2 = *(_QWORD *)(*((_QWORD *)this + 1) + 24LL);
-  if ( !v2
-    || (v3 = *(_QWORD *)(v2 + 8) + 24LL, v4 = v2 + *(unsigned int *)(v2 + 16), v4 <= v3)
-    || (v5 = (__int64)(v4 - v3) >> 3, (unsigned int)v5 < 8) )
+  v1 = (_QWORD *)*((_QWORD *)this + 1);
+  LODWORD(v2) = 0;
+  v4 = v1[3];
+  if ( v4 )
+  {
+    v8 = *(_QWORD *)(v4 + 8) + 24LL;
+    v9 = v4 + *(unsigned int *)(v4 + 16);
+    if ( v9 > v8 )
+      v2 = (__int64)(v9 - v8) >> 3;
+  }
+  if ( (unsigned int)v2 < 8 )
   {
     result = newpathalloc();
-    v2 = result;
+    v4 = result;
     if ( !result )
       return result;
     *(_QWORD *)result = *(_QWORD *)(*((_QWORD *)this + 1) + 24LL);
     *(_QWORD *)(*((_QWORD *)this + 1) + 24LL) = result;
-    v5 = ((unsigned __int64)(unsigned int)(result + *(_DWORD *)(result + 16) - *(_DWORD *)(result + 8)) - 24) >> 3;
+    v1 = (_QWORD *)*((_QWORD *)this + 1);
+    v2 = ((unsigned __int64)(unsigned int)(result + *(_DWORD *)(result + 16) - *(_DWORD *)(result + 8)) - 24) >> 3;
   }
-  v7 = *((_QWORD *)this + 1);
-  v8 = *(_QWORD *)(v2 + 8);
-  v9 = *(_QWORD **)(v7 + 40);
-  if ( v9 )
+  v6 = (_QWORD *)v1[5];
+  v7 = *(_QWORD *)(v4 + 8);
+  if ( v6 )
   {
-    *v9 = v8;
-    v10 = *(_QWORD *)(*((_QWORD *)this + 1) + 40LL);
+    *v6 = v7;
+    v6 = *(_QWORD **)(*((_QWORD *)this + 1) + 40LL);
   }
   else
   {
-    *(_QWORD *)(v7 + 32) = v8;
-    v10 = 0LL;
+    v1[4] = v7;
   }
-  *(_QWORD *)(v8 + 8) = v10;
-  *(_QWORD *)(*((_QWORD *)this + 1) + 40LL) = v8;
-  *(_QWORD *)v8 = 0LL;
-  *(_DWORD *)(v8 + 20) = 0;
-  *((_QWORD *)this + 16) = v8 + 24;
+  *(_QWORD *)(v7 + 8) = v6;
+  *(_QWORD *)(*((_QWORD *)this + 1) + 40LL) = v7;
+  *(_QWORD *)v7 = 0LL;
+  *(_DWORD *)(v7 + 20) = 0;
+  *((_QWORD *)this + 16) = v7 + 24;
   result = 1LL;
-  *((_QWORD *)this + 17) = v8 + 8 * ((unsigned int)v5 + 3LL);
+  *((_QWORD *)this + 17) = v7 + 8LL * (unsigned int)v2 + 24;
   return result;
 }

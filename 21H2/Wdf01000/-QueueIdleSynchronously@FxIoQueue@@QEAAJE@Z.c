@@ -1,19 +1,20 @@
 /*
- * XREFs of ?QueueIdleSynchronously@FxIoQueue@@QEAAJE@Z @ 0x1C0082088
+ * XREFs of ?QueueIdleSynchronously@FxIoQueue@@QEAAJE@Z @ 0x1C0076D48
  * Callers:
- *     imp_WdfIoQueueStopAndPurgeSynchronously @ 0x1C0081110 (imp_WdfIoQueueStopAndPurgeSynchronously.c)
- *     imp_WdfIoQueueStopSynchronously @ 0x1C0081170 (imp_WdfIoQueueStopSynchronously.c)
+ *     imp_WdfIoQueueStopAndPurgeSynchronously @ 0x1C00746B0 (imp_WdfIoQueueStopAndPurgeSynchronously.c)
+ *     imp_WdfIoQueueStopSynchronously @ 0x1C0074710 (imp_WdfIoQueueStopSynchronously.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z @ 0x1C000FAF8 (-WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z.c)
- *     ?QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C001B8B0 (-QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z.c)
- *     WPP_IFR_SF_dq @ 0x1C005319C (WPP_IFR_SF_dq.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C0014E1C (-QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z.c)
+ *     ?WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z @ 0x1C0017894 (-WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z.c)
+ *     WPP_IFR_SF_dq @ 0x1C002EA2C (WPP_IFR_SF_dq.c)
  */
 
 __int64 __fastcall FxIoQueue::QueueIdleSynchronously(FxIoQueue *this, unsigned __int8 CancelRequests)
 {
   int v4; // ebx
   const void *_a2; // rax
+  _FX_DRIVER_GLOBALS *v6; // r10
   void *ObjectHandleUnchecked; // rax
   MxEvent eventOnStack; // [rsp+40h] [rbp-28h] BYREF
 
@@ -26,7 +27,7 @@ __int64 __fastcall FxIoQueue::QueueIdleSynchronously(FxIoQueue *this, unsigned _
     if ( this->m_Globals->FxVerboseOn )
     {
       _a2 = (const void *)FxObject::GetObjectHandleUnchecked(this);
-      WPP_IFR_SF_dq(this->m_Globals, 5u, 0xDu, 0x45u, WPP_FxIoQueue_cpp_Traceguids, this->m_DriverIoCount, _a2);
+      WPP_IFR_SF_dq(v6, 5u, 0xDu, 0x45u, WPP_FxIoQueue_cpp_Traceguids, this->m_DriverIoCount, _a2);
     }
     KeEnterCriticalRegion();
     ObjectHandleUnchecked = (void *)FxObject::GetObjectHandleUnchecked(this);

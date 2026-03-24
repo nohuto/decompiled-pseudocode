@@ -1,10 +1,10 @@
 /*
- * XREFs of Crashdump_Command_TestCommandRingOperation @ 0x1C004EDF4
+ * XREFs of Crashdump_Command_TestCommandRingOperation @ 0x1C004C328
  * Callers:
- *     Crashdump_InitializeWithControllerReset @ 0x1C004C768 (Crashdump_InitializeWithControllerReset.c)
- *     Crashdump_InitializeWithoutControllerReset @ 0x1C004C98C (Crashdump_InitializeWithoutControllerReset.c)
+ *     Crashdump_InitializeWithControllerReset @ 0x1C0049C90 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_InitializeWithoutControllerReset @ 0x1C0049EB4 (Crashdump_InitializeWithoutControllerReset.c)
  * Callees:
- *     Crashdump_Command_SendCommand @ 0x1C004EA8C (Crashdump_Command_SendCommand.c)
+ *     Crashdump_Command_SendCommand @ 0x1C004BFB0 (Crashdump_Command_SendCommand.c)
  */
 
 __int64 __fastcall Crashdump_Command_TestCommandRingOperation(__int64 a1)

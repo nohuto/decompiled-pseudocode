@@ -1,13 +1,13 @@
 /*
- * XREFs of PipCreateDependencyNode @ 0x140739F78
+ * XREFs of PipCreateDependencyNode @ 0x140739F58
  * Callers:
- *     IoResolveDependency @ 0x140181BB0 (IoResolveDependency.c)
- *     IoDuplicateDependency @ 0x1408238E0 (IoDuplicateDependency.c)
- *     PipSetDependency @ 0x140824230 (PipSetDependency.c)
+ *     IoResolveDependency @ 0x140181BD0 (IoResolveDependency.c)
+ *     IoDuplicateDependency @ 0x1408238C0 (IoDuplicateDependency.c)
+ *     PipSetDependency @ 0x140824210 (PipSetDependency.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PipAddBindingId @ 0x140739E38 (PipAddBindingId.c)
- *     PipDeleteDependencyNode @ 0x14075D8CC (PipDeleteDependencyNode.c)
+ *     PipAddBindingId @ 0x140739E18 (PipAddBindingId.c)
+ *     PipDeleteDependencyNode @ 0x14075D8AC (PipDeleteDependencyNode.c)
  */
 
 __int64 __fastcall PipCreateDependencyNode(__int64 a1)

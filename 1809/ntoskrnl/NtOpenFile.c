@@ -1,8 +1,8 @@
 /*
  * XREFs of NtOpenFile @ 0x14060B9C0
  * Callers:
- *     PfSnGetPrefetchInstructions @ 0x140668838 (PfSnGetPrefetchInstructions.c)
- *     RtlpSysVolTakeOwnership @ 0x1408964A0 (RtlpSysVolTakeOwnership.c)
+ *     PfSnGetPrefetchInstructions @ 0x140668818 (PfSnGetPrefetchInstructions.c)
+ *     RtlpSysVolTakeOwnership @ 0x140896480 (RtlpSysVolTakeOwnership.c)
  * Callees:
  *     IopCreateFile @ 0x14060BAC0 (IopCreateFile.c)
  */

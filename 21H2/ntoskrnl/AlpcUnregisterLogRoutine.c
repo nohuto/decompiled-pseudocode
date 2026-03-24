@@ -1,24 +1,24 @@
 /*
- * XREFs of AlpcUnregisterLogRoutine @ 0x140967848
+ * XREFs of AlpcUnregisterLogRoutine @ 0x1408C3A8C
  * Callers:
- *     EtwpDisableKernelTrace @ 0x1406D56D0 (EtwpDisableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x14079846C (EtwpDisableKernelTrace.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 AlpcUnregisterLogRoutine()
 {
   unsigned int v0; // ebx
-  void (__fastcall **v1)(__int64, int); // rcx
-  void (__fastcall *v2)(__int64, int); // rax
+  __int64 (__fastcall **v1)(__int64, int); // rcx
+  __int64 (__fastcall *v2)(__int64, int); // rax
   PVOID *v4; // rdx
 
   v0 = -1073741275;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&AlpcpLogLock, 0LL);
-  v1 = (void (__fastcall **)(__int64, int))AlpcpLogCallbackListHead;
+  v1 = (__int64 (__fastcall **)(__int64, int))AlpcpLogCallbackListHead;
   if ( AlpcpLogCallbackListHead != &AlpcpLogCallbackListHead )
   {
     while ( 1 )
@@ -26,11 +26,11 @@ __int64 AlpcUnregisterLogRoutine()
       v2 = *v1;
       if ( v1[2] == EtwpTraceALPC )
         break;
-      v1 = (void (__fastcall **)(__int64, int))*v1;
+      v1 = (__int64 (__fastcall **)(__int64, int))*v1;
       if ( (char *)v2 == (char *)&AlpcpLogCallbackListHead )
         goto LABEL_4;
     }
-    if ( *((void (__fastcall ***)(__int64, int))v2 + 1) != v1 || (v4 = (PVOID *)v1[1], *v4 != v1) )
+    if ( *((__int64 (__fastcall ***)(__int64, int))v2 + 1) != v1 || (v4 = (PVOID *)v1[1], *v4 != v1) )
       __fastfail(3u);
     *v4 = v2;
     *((_QWORD *)v2 + 1) = v4;

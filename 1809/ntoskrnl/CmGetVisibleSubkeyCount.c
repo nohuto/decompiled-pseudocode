@@ -6,7 +6,7 @@
  *     CmpQueryKeyDataFromCache @ 0x1405D79A0 (CmpQueryKeyDataFromCache.c)
  * Callees:
  *     CmEqualTrans @ 0x1405A94E8 (CmEqualTrans.c)
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmGetVisibleSubkeyCount(__int64 a1, __int64 a2, __int64 a3)

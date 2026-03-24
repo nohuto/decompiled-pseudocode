@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ @ 0x1C0079658
+ * XREFs of ?CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ @ 0x1C006CAC8
  * Callers:
- *     ?FxUsbPipeRequestWorkItemHandler@FxUsbPipeContinuousReader@@IEAAXPEAUFxUsbPipeRepeatReader@@@Z @ 0x1C0079D58 (-FxUsbPipeRequestWorkItemHandler@FxUsbPipeContinuousReader@@IEAAXPEAUFxUsbPipeRepeatReader@@@Z.c)
- *     ?Reset@FxUsbPipe@@QEAAJXZ @ 0x1C007A6DC (-Reset@FxUsbPipe@@QEAAJXZ.c)
- *     ?WaitForSentIoToComplete@FxUsbPipe@@UEAAXXZ @ 0x1C007A9A0 (-WaitForSentIoToComplete@FxUsbPipe@@UEAAXXZ.c)
+ *     ?FxUsbPipeRequestWorkItemHandler@FxUsbPipeContinuousReader@@IEAAXPEAUFxUsbPipeRepeatReader@@@Z @ 0x1C006D218 (-FxUsbPipeRequestWorkItemHandler@FxUsbPipeContinuousReader@@IEAAXPEAUFxUsbPipeRepeatReader@@@Z.c)
+ *     ?Reset@FxUsbPipe@@QEAAJXZ @ 0x1C006DBE0 (-Reset@FxUsbPipe@@QEAAJXZ.c)
+ *     ?WaitForSentIoToComplete@FxUsbPipe@@UEAAXXZ @ 0x1C006DF00 (-WaitForSentIoToComplete@FxUsbPipe@@UEAAXXZ.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?Cancel@FxRequestBase@@QEAAEXZ @ 0x1C000EA30 (-Cancel@FxRequestBase@@QEAAEXZ.c)
- *     ?WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z @ 0x1C000FAF8 (-WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z @ 0x1C0017894 (-WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z.c)
+ *     ?Cancel@FxRequestBase@@QEAAEXZ @ 0x1C0019220 (-Cancel@FxRequestBase@@QEAAEXZ.c)
  */
 
 void __fastcall FxUsbPipeContinuousReader::CancelRepeaters(FxUsbPipeContinuousReader *this)
@@ -31,7 +31,7 @@ void __fastcall FxUsbPipeContinuousReader::CancelRepeaters(FxUsbPipeContinuousRe
         &this->m_Readers[v2].ReadCompletedEvent,
         "waiting for continuous reader to finish, WDFUSBPIPE",
         ObjectHandleUnchecked,
-        *(_DWORD *)(*(_QWORD *)(v5 + 16) + 416LL),
+        *(_DWORD *)(*(_QWORD *)(v5 + 16) + 408LL),
         1);
       ++m_Readers;
       ++v2;

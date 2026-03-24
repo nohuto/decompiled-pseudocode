@@ -1,15 +1,15 @@
 /*
- * XREFs of SimBitBlt @ 0x1C0275CB8
+ * XREFs of SimBitBlt @ 0x1C02784A8
  * Callers:
- *     EngBitBlt @ 0x1C0005C00 (EngBitBlt.c)
- *     NtGdiBitBltInternal @ 0x1C003DD70 (NtGdiBitBltInternal.c)
+ *     NtGdiBitBltInternal @ 0x1C0088690 (NtGdiBitBltInternal.c)
+ *     EngBitBlt @ 0x1C00CB5E0 (EngBitBlt.c)
  * Callees:
- *     EngBitBlt @ 0x1C0005C00 (EngBitBlt.c)
- *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C0009AF4 (-bUMPDSecurityGateEx@@YAHXZ.c)
- *     ?pfnBitBlt@SURFACE@@QEAAP6AHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@ZXZ @ 0x1C008E810 (-pfnBitBlt@SURFACE@@QEAAP6AHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C0275B60 (-vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z.c)
+ *     ?pfnBitBlt@SURFACE@@QEAAP6AHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@ZXZ @ 0x1C00BA100 (-pfnBitBlt@SURFACE@@QEAAP6AHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL.c)
+ *     EngBitBlt @ 0x1C00CB5E0 (EngBitBlt.c)
+ *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C00CFBA8 (-bUMPDSecurityGateEx@@YAHXZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C0278350 (-vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z.c)
  */
 
 __int64 __fastcall SimBitBlt(
@@ -26,7 +26,7 @@ __int64 __fastcall SimBitBlt(
         ROP4 rop4,
         DEVLOCKBLTOBJ *a12)
 {
-  SURFOBJ *v13; // r13
+  SURFOBJ *v13; // r15
   char v14; // r11
   int v15; // r11d
   unsigned int v16; // esi
@@ -41,7 +41,7 @@ __int64 __fastcall SimBitBlt(
   __int64 v25; // r10
   signed __int32 v27; // ett
   int v28; // edi
-  int v29; // r15d
+  int v29; // r12d
   int v30; // ecx
   POINTL v31; // rax
   int v32; // r9d
@@ -53,13 +53,13 @@ __int64 __fastcall SimBitBlt(
   LONG right; // ecx
   LONG bottom; // edx
   POINTL *v40; // rdi
-  BOOL (__stdcall *v41)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *); // r15
+  BOOL (__stdcall *v41)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *); // r12
   __int64 v42; // rax
   __int64 p_hdev; // rdi
-  __int64 p_hsurf; // r12
+  __int64 p_hsurf; // r13
   __int64 v45; // rdi
   int v46; // eax
-  XLATEOBJ *v47; // r12
+  XLATEOBJ *v47; // r13
   int v48; // eax
   __int64 v49; // rcx
   BOOL (__stdcall *v50)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *); // rax
@@ -160,8 +160,8 @@ LABEL_6:
   }
   if ( v18 == 1 && v19 && (*(_DWORD *)(v19 + 40) & 0x20000) != 0 )
   {
-    v28 = *(_DWORD *)(v19 + 2560);
-    v29 = *(_DWORD *)(v19 + 2564);
+    v28 = *(_DWORD *)(v19 + 2584);
+    v29 = *(_DWORD *)(v19 + 2588);
     v55 = v28 + *(_DWORD *)(v17 + 56);
     v30 = v29 + *(_DWORD *)(v17 + 60);
   }
@@ -225,7 +225,7 @@ LABEL_6:
   v82.right = right;
   v82.bottom = bottom;
   v40 = &v53;
-  if ( *(_DWORD *)(v17 + 96) == *(_DWORD *)(v19 + 2076) )
+  if ( *(_DWORD *)(v17 + 96) == *(_DWORD *)(v19 + 2108) )
   {
     v66 = 0LL;
     v41 = EngCopyBits;
@@ -244,7 +244,7 @@ LABEL_6:
       if ( !v13 )
         p_hdev = 48LL;
       v73[2] = bottom;
-      v73[0] = *(_DWORD *)(v19 + 2076);
+      v73[0] = *(_DWORD *)(v19 + 2108);
       if ( !v13 )
         p_hsurf = 112LL;
       v45 = *(_QWORD *)p_hdev;
@@ -256,7 +256,7 @@ LABEL_6:
       if ( !SURFMEM::bCreateDIB((SURFMEM *)&v66, (struct _DEVBITMAPINFO *)v73, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0) )
         goto LABEL_67;
       if ( (*(_DWORD *)p_hsurf & 0x400) != 0 )
-        (*(void (__fastcall **)(__int64, SURFOBJ *, _QWORD, XLATEOBJ *, RECTL *, POINTL *))(v45 + 2816))(
+        (*(void (__fastcall **)(__int64, SURFOBJ *, _QWORD, XLATEOBJ *, RECTL *, POINTL *))(v45 + 2840))(
           (v66 + 24) & -(__int64)(v66 != 0),
           v13,
           0LL,
@@ -284,7 +284,7 @@ LABEL_53:
     }
     v77[3] = 0;
     v80 = 0;
-    v77[0] = *(_DWORD *)(v19 + 2076);
+    v77[0] = *(_DWORD *)(v19 + 2108);
     v48 = *(_DWORD *)(v17 + 112) & 0x40000;
     v77[1] = right;
     v77[2] = bottom;
@@ -311,7 +311,7 @@ LABEL_53:
         v49 = v58;
       }
       if ( (*(_DWORD *)(v17 + 112) & 0x400) != 0 )
-        v50 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))(v19 + 2816);
+        v50 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))(v19 + 2840);
       else
         v50 = EngCopyBits;
       v51 = v72;
@@ -336,7 +336,7 @@ LABEL_53:
         rop4);
       ++*(_DWORD *)(v17 + 92);
       if ( (*(_DWORD *)(v17 + 112) & 0x400) != 0 )
-        v41 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))(v19 + 2816);
+        v41 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))(v19 + 2840);
       v16 = ((__int64 (__fastcall *)(SURFOBJ *, __int64, CLIPOBJ *, XLATEOBJ *const, int *, POINTL *))v41)(
               v51,
               (v58 + 24) & -(__int64)(v58 != 0),

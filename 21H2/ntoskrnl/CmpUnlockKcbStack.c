@@ -1,42 +1,54 @@
 /*
- * XREFs of CmpUnlockKcbStack @ 0x140721BAC
+ * XREFs of CmpUnlockKcbStack @ 0x1406FB440
  * Callers:
- *     CmQueryLayeredKey @ 0x140226200 (CmQueryLayeredKey.c)
- *     CmDeleteLayeredKey @ 0x14053F5E8 (CmDeleteLayeredKey.c)
- *     CmSaveKey @ 0x14065A44C (CmSaveKey.c)
- *     CmpSetKeySecurity @ 0x140677810 (CmpSetKeySecurity.c)
- *     CmDeleteKey @ 0x14067E1BC (CmDeleteKey.c)
- *     CmpGetSymbolicLinkTarget @ 0x1406803C0 (CmpGetSymbolicLinkTarget.c)
- *     CmpStartSiloRegistryNamespace @ 0x140690978 (CmpStartSiloRegistryNamespace.c)
- *     CmDeleteValueKey @ 0x140714E58 (CmDeleteValueKey.c)
- *     CmSetValueKey @ 0x140720260 (CmSetValueKey.c)
- *     CmCallbackGetKeyObjectIDEx @ 0x140720E20 (CmCallbackGetKeyObjectIDEx.c)
- *     CmpQueryKeySecurity @ 0x140721254 (CmpQueryKeySecurity.c)
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
- *     CmQueryValueKey @ 0x1407C83F0 (CmQueryValueKey.c)
- *     CmEnumerateValueFromLayeredKey @ 0x1407F6698 (CmEnumerateValueFromLayeredKey.c)
- *     CmpAssignKeySecurity @ 0x14085BE8C (CmpAssignKeySecurity.c)
- *     CmCallbackGetKeyObjectID @ 0x1408812B0 (CmCallbackGetKeyObjectID.c)
- *     CmOpenKeyForBugCheckRecovery @ 0x14090E160 (CmOpenKeyForBugCheckRecovery.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x14091210C (CmQueryMultipleValueForLayeredKey.c)
- *     CmSetKeyFlags @ 0x140913964 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140913E28 (CmSetLastWriteTimeKey.c)
- *     CmpEnumerateLayeredKey @ 0x140914324 (CmpEnumerateLayeredKey.c)
- *     CmpDoBuildVirtualStack @ 0x140916918 (CmpDoBuildVirtualStack.c)
- *     CmpPromoteKey @ 0x1409226E0 (CmpPromoteKey.c)
+ *     CmQueryLayeredKey @ 0x140200A78 (CmQueryLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x1404ED078 (CmDeleteLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
+ *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
+ *     CmpQueryKeySecurity @ 0x140665360 (CmpQueryKeySecurity.c)
+ *     CmCallbackGetKeyObjectIDEx @ 0x140665BF0 (CmCallbackGetKeyObjectIDEx.c)
+ *     CmDeleteValueKey @ 0x140666544 (CmDeleteValueKey.c)
+ *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x14066DF0C (CmpSetKeySecurity.c)
+ *     CmpStartSiloRegistryNamespace @ 0x1406C39CC (CmpStartSiloRegistryNamespace.c)
+ *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
+ *     CmpAssignKeySecurity @ 0x1407D0450 (CmpAssignKeySecurity.c)
+ *     CmCallbackGetKeyObjectID @ 0x140869A70 (CmCallbackGetKeyObjectID.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x14086C260 (CmEnumerateValueFromLayeredKey.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x14086C548 (CmQueryMultipleValueForLayeredKey.c)
+ *     CmSetKeyFlags @ 0x14086DC78 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x14086E13C (CmSetLastWriteTimeKey.c)
+ *     CmpDoBuildVirtualStack @ 0x14086FF9C (CmpDoBuildVirtualStack.c)
+ *     CmpPromoteKey @ 0x1408802C8 (CmpPromoteKey.c)
  * Callees:
- *     CmpGetKcbAtLayerHeight @ 0x140721CE0 (CmpGetKcbAtLayerHeight.c)
- *     CmpUnlockKcb @ 0x140AB4300 (CmpUnlockKcb.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     CmpFreeKeyControlBlock @ 0x140719B20 (CmpFreeKeyControlBlock.c)
  */
 
-void __fastcall CmpUnlockKcbStack(__int64 a1)
+char __fastcall CmpUnlockKcbStack(__int64 a1)
 {
-  unsigned __int16 i; // bx
-  __int64 KcbAtLayerHeight; // rax
+  __int16 i; // bx
+  ULONG_PTR v3; // rdi
+  bool v4; // bp
+  char result; // al
 
-  for ( i = 0; i <= *(_WORD *)(a1 + 2); ++i )
+  for ( i = 0; i <= *(__int16 *)(a1 + 2); ++i )
   {
-    KcbAtLayerHeight = CmpGetKcbAtLayerHeight(a1, i);
-    CmpUnlockKcb(KcbAtLayerHeight);
+    if ( i >= 2 )
+      v3 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL * i - 16);
+    else
+      v3 = *(_QWORD *)(a1 + 8LL * i + 8);
+    v4 = (*(_DWORD *)(v3 + 8) & 0x80000) != 0;
+    if ( *(struct _KTHREAD **)(v3 + 56) == KeGetCurrentThread() )
+      *(_QWORD *)(v3 + 56) = 0LL;
+    else
+      _InterlockedDecrement((volatile signed __int32 *)(v3 + 56));
+    result = ExReleasePushLockEx(v3 + 48, 0LL);
+    if ( v4 && (*(_DWORD *)(v3 + 8) & 0x80000) != 0 )
+      result = CmpFreeKeyControlBlock(v3);
   }
+  return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of xxxPerformTargetingWithinPwnd @ 0x1C020760C
+ * XREFs of xxxPerformTargetingWithinPwnd @ 0x1C02177AC
  * Callers:
- *     PerformTargetingWithinPwnd @ 0x1C0207170 (PerformTargetingWithinPwnd.c)
+ *     PerformTargetingWithinPwnd @ 0x1C0217310 (PerformTargetingWithinPwnd.c)
  * Callees:
- *     xxxSendTransformableMessageTimeout @ 0x1C0050D70 (xxxSendTransformableMessageTimeout.c)
- *     _GetProp @ 0x1C006B844 (_GetProp.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     TouchTargetingCreateContact @ 0x1C025C52C (TouchTargetingCreateContact.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C0059990 (xxxSendTransformableMessageTimeout.c)
+ *     _GetProp @ 0x1C006B990 (_GetProp.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     TouchTargetingCreateContact @ 0x1C025F804 (TouchTargetingCreateContact.c)
  */
 
-__int64 __fastcall xxxPerformTargetingWithinPwnd(unsigned __int64 *BugCheckParameter2, __int64 a2, _DWORD *a3)
+__int64 __fastcall xxxPerformTargetingWithinPwnd(unsigned __int64 a1, __int64 a2, _DWORD *a3)
 {
   __int64 result; // rax
   __int128 *v7; // r14
@@ -34,7 +34,7 @@ __int64 __fastcall xxxPerformTargetingWithinPwnd(unsigned __int64 *BugCheckParam
 
   *a3 = 0;
   a3[1] = 0;
-  result = GetProp((__int64)BugCheckParameter2, (unsigned __int16)gatomPtrTargetFlags, 1u);
+  result = GetProp(a1, (unsigned __int16)gatomPtrTargetFlags, 1LL);
   if ( (result & 0xFFFD) != 0 )
   {
     result = TouchTargetingEnabledForInput(*(_QWORD *)(a2 + 40), a2 + 8);
@@ -73,7 +73,7 @@ __int64 __fastcall xxxPerformTargetingWithinPwnd(unsigned __int64 *BugCheckParam
           v18 = *(_OWORD *)&v22[16];
           v19 = *(_OWORD *)v22;
           _InterlockedIncrement(&glSendMessage);
-          v10 = xxxSendTransformableMessageTimeout(BugCheckParameter2, 0x24Du, 0LL, (__int64)&v16, 0, 0, 0LL, 1, 0);
+          v10 = xxxSendTransformableMessageTimeout(a1, 0x24Du, 0LL, (struct _LARGE_STRING *)&v16, 0, 0, 0LL, 1, 0);
           result = 4093LL;
           if ( ((unsigned __int16)(v10 >> 20) & 0xFFFu) <= 0xFFD )
           {

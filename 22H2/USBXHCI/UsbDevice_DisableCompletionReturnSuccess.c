@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbDevice_DisableCompletionReturnSuccess @ 0x1C0048A80
+ * XREFs of UsbDevice_DisableCompletionReturnSuccess @ 0x1C0046100
  * Callers:
  *     <none>
  * Callees:
- *     UsbDevice_DisableCompletion @ 0x1C0048760 (UsbDevice_DisableCompletion.c)
+ *     UsbDevice_DisableCompletion @ 0x1C0045DE4 (UsbDevice_DisableCompletion.c)
  */
 
-char __fastcall UsbDevice_DisableCompletionReturnSuccess(__int64 a1, __int64 a2, __int64 a3, int a4)
+void __fastcall UsbDevice_DisableCompletionReturnSuccess(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  return UsbDevice_DisableCompletion(a1, a2, 0, a4);
+  UsbDevice_DisableCompletion(a1, a2, 0, a4);
 }

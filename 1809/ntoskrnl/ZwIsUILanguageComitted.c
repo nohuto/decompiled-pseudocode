@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwIsUILanguageComitted @ 0x1401BA110
+ * XREFs of ZwIsUILanguageComitted @ 0x1401BA130
  * Callers:
  *     <none>
  * Callees:

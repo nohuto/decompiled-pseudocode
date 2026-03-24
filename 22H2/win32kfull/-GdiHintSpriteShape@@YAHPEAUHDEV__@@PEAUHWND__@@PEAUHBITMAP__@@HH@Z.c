@@ -1,112 +1,114 @@
 /*
- * XREFs of ?GdiHintSpriteShape@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@HH@Z @ 0x1C001D3D8
+ * XREFs of ?GdiHintSpriteShape@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@HH@Z @ 0x1C00EE2B8
  * Callers:
- *     GreTransferDwmStateToSpriteState @ 0x1C00587CC (GreTransferDwmStateToSpriteState.c)
- *     GreTransferSpriteStateToDwmState @ 0x1C00597AC (GreTransferSpriteStateToDwmState.c)
- *     GreHintSpriteShape @ 0x1C00D41D4 (GreHintSpriteShape.c)
+ *     GreHintSpriteShape @ 0x1C00BD828 (GreHintSpriteShape.c)
+ *     GreTransferSpriteStateToDwmState @ 0x1C00EA26C (GreTransferSpriteStateToDwmState.c)
+ *     GreTransferDwmStateToSpriteState @ 0x1C00EAC4C (GreTransferDwmStateToSpriteState.c)
  * Callees:
- *     ?pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C001D7AC (-pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
- *     ?pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z @ 0x1C001ECCC (-pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z.c)
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?vSpAddAndCompactDirtyRect@@YAXPEAVSPRITE@@VERECTL@@@Z @ 0x1C0137C50 (-vSpAddAndCompactDirtyRect@@YAXPEAVSPRITE@@VERECTL@@@Z.c)
- *     ?pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX_N@Z @ 0x1C027F53C (-pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX_N@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z @ 0x1C00EE3A4 (-pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z.c)
+ *     ?pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C00F0050 (-pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
+ *     ?vSpAddAndCompactDirtyRect@@YAXPEAVSPRITE@@VERECTL@@@Z @ 0x1C01654C8 (-vSpAddAndCompactDirtyRect@@YAXPEAVSPRITE@@VERECTL@@@Z.c)
+ *     ?pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C0281748 (-pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
  */
 
 __int64 __fastcall GdiHintSpriteShape(HDEV a1, HWND a2, HBITMAP a3, int a4, int a5)
 {
   unsigned int v6; // edi
   unsigned int v7; // r15d
-  HDEV v10; // r13
-  int v11; // esi
-  const struct _SPRITESTATE *v12; // rcx
+  HDEV v9; // r13
+  BOOL v10; // esi
+  const struct _SPRITESTATE *v11; // rcx
   struct SPRITE *Sprite; // rax
-  __int128 *v14; // rcx
-  const signed __int32 *v15; // r14
-  int v16; // ebx
-  __int64 v17; // rax
-  int v19; // r10d
+  struct SPRITE *v13; // r14
+  int v14; // ebx
+  int v16; // r9d
   struct _METASPRITE *MetaSprite; // r14
-  __int64 v21; // rbx
-  __int64 v22; // r15
-  int v23; // r12d
-  __int128 *v24; // rcx
-  HDEV v25; // [rsp+20h] [rbp-68h] BYREF
-  _BYTE v26[8]; // [rsp+28h] [rbp-60h] BYREF
-  __int128 v27; // [rsp+30h] [rbp-58h]
-  _OWORD v28[4]; // [rsp+40h] [rbp-48h] BYREF
-  unsigned int v29; // [rsp+90h] [rbp+8h]
+  __int64 v18; // rbx
+  __int128 *v19; // rcx
+  __int64 v20; // r8
+  unsigned int v21; // ecx
+  __int128 *v22; // rcx
+  int v23; // [rsp+20h] [rbp-60h]
+  HDEV v24; // [rsp+28h] [rbp-58h] BYREF
+  __int128 v25; // [rsp+30h] [rbp-50h]
+  _BYTE v26[16]; // [rsp+40h] [rbp-40h] BYREF
+  __int128 v27; // [rsp+50h] [rbp-30h]
+  __int128 v28; // [rsp+60h] [rbp-20h] BYREF
+  __int128 v29; // [rsp+70h] [rbp-10h] BYREF
+  unsigned int v30; // [rsp+C0h] [rbp+40h]
 
-  v25 = a1;
+  v24 = a1;
   v6 = 0;
   v7 = 0;
-  SPRITELOCK::SPRITELOCK((SPRITELOCK *)v26, (struct PDEVOBJ *)&v25);
-  v10 = v25;
-  v11 = 0;
-  v12 = (const struct _SPRITESTATE *)(v25 + 20);
-  if ( *((_DWORD *)v25 + 35) )
+  SPRITELOCK::SPRITELOCK((SPRITELOCK *)v26, (struct PDEVOBJ *)&v24);
+  v9 = v24;
+  v10 = 0;
+  v11 = (const struct _SPRITESTATE *)(v24 + 22);
+  if ( *((_DWORD *)v24 + 37) )
   {
-    MetaSprite = pSpGetMetaSprite(v12, a2, 0LL, 0);
+    MetaSprite = pSpGetMetaSprite(v11, a2, 0LL);
     if ( MetaSprite )
     {
-      LODWORD(v21) = 0;
-      if ( v19 )
+      LODWORD(v18) = 0;
+      if ( v16 )
       {
         do
         {
-          v22 = *((_QWORD *)MetaSprite + (unsigned int)v21 + 3);
-          v23 = *(_DWORD *)v22 & 0x200;
-          v29 = pSpHintSpriteShape((struct SPRITE *)v22, a3, a4);
-          if ( !v29 )
+          *(_QWORD *)&v25 = *((_QWORD *)MetaSprite + (unsigned int)v18 + 3);
+          v23 = *(_DWORD *)v25 & 0x200;
+          v30 = pSpHintSpriteShape((struct SPRITE *)v25, a3, a4);
+          if ( !v30 )
           {
-            while ( (_DWORD)v21 )
+            while ( (_DWORD)v18 )
             {
-              v21 = (unsigned int)(v21 - 1);
-              pSpHintSpriteShape(*((struct SPRITE **)MetaSprite + v21 + 3), 0LL, a4);
+              v18 = (unsigned int)(v18 - 1);
+              pSpHintSpriteShape(*((struct SPRITE **)MetaSprite + v18 + 3), 0LL, a4);
             }
-            goto LABEL_9;
+            SPRITELOCK::~SPRITELOCK((SPRITELOCK *)v26);
+            return v6;
           }
-          if ( !v23 && (*(_DWORD *)v22 & 0x200) != 0 )
-            v11 = 1;
-          if ( a5 && !(unsigned int)ERECTL::bEmpty((ERECTL *)(v22 + 80)) )
+          if ( !v23 && (*(_DWORD *)v25 & 0x200) != 0 )
+            v10 = 1;
+          if ( a5 && !ERECTL::bEmpty((ERECTL *)(v25 + 80)) )
           {
-            v27 = *v24;
-            v28[0] = v27;
-            vSpAddAndCompactDirtyRect(v22, v28);
+            v27 = *v19;
+            v28 = v27;
+            vSpAddAndCompactDirtyRect(v20, &v28);
           }
-          LODWORD(v21) = v21 + 1;
+          LODWORD(v18) = v18 + 1;
         }
-        while ( (unsigned int)v21 < *((_DWORD *)v10 + 35) );
-        v7 = v29;
-        v14 = (__int128 *)(*((_DWORD *)MetaSprite + 4) | 0x40u);
+        while ( (unsigned int)v18 < *((_DWORD *)v9 + 37) );
+        v21 = *((_DWORD *)MetaSprite + 4) | 0x40;
         if ( !a3 )
-          v14 = (__int128 *)(*((_DWORD *)MetaSprite + 4) & 0xFFFFFFBF);
-        *((_DWORD *)MetaSprite + 4) = (_DWORD)v14;
+          v21 = *((_DWORD *)MetaSprite + 4) & 0xFFFFFFBF;
+        *((_DWORD *)MetaSprite + 4) = v21;
+        goto LABEL_6;
       }
     }
   }
   else
   {
-    Sprite = pSpGetSprite(v12, a2, 0LL);
-    v15 = (const signed __int32 *)Sprite;
+    Sprite = pSpGetSprite(v11, a2, 0LL);
+    v13 = Sprite;
     if ( Sprite )
     {
-      v16 = *(_DWORD *)Sprite;
-      v7 = pSpHintSpriteShape(Sprite, a3, a4);
-      if ( (v16 & 0x200) == 0 )
-        v11 = _bittest(v15, 9u);
-      if ( a5 && !(unsigned int)ERECTL::bEmpty((ERECTL *)(v15 + 20)) )
+      v14 = *(_DWORD *)Sprite;
+      v30 = pSpHintSpriteShape(Sprite, a3, a4);
+      if ( (v14 & 0x200) == 0 )
+        v10 = (*(_DWORD *)v13 & 0x200) != 0;
+      if ( a5 && !ERECTL::bEmpty((struct SPRITE *)((char *)v13 + 80)) )
       {
-        v27 = *v14;
-        v28[0] = v27;
-        vSpAddAndCompactDirtyRect(v15, v28);
+        v25 = *v22;
+        v29 = v25;
+        vSpAddAndCompactDirtyRect(v13, &v29);
       }
+LABEL_6:
+      if ( v10 )
+        _InterlockedAdd(&glDelayedHintShape, 1u);
+      v7 = v30;
     }
   }
-  v17 = SGDGetSessionState(v14);
-  if ( v11 == 1 )
-    _InterlockedAdd((volatile signed __int32 *)(*(_QWORD *)(v17 + 32) + 23656LL), 1u);
-  v6 = v7;
-LABEL_9:
   SPRITELOCK::~SPRITELOCK((SPRITELOCK *)v26);
-  return v6;
+  return v7;
 }

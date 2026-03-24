@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DeferPointerCursorOperation@@YAXPEBUtagPOINTER_INFO@@AEBUtagPOINTERCURSORDATA@@@Z @ 0x1C016A862
+ * XREFs of ?DeferPointerCursorOperation@@YAXPEBUtagPOINTER_INFO@@AEBUtagPOINTERCURSORDATA@@@Z @ 0x1C01DA714
  * Callers:
- *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01D4A20 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
+ *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01DA314 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
  * Callees:
- *     INPUTDEST_FROM_PWND @ 0x1C0077618 (INPUTDEST_FROM_PWND.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     INPUTDEST_FROM_PWND @ 0x1C01325F4 (INPUTDEST_FROM_PWND.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall DeferPointerCursorOperation(const struct tagPOINTER_INFO *a1, const struct tagPOINTERCURSORDATA *a2)

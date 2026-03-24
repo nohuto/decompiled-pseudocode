@@ -1,19 +1,19 @@
 /*
- * XREFs of ?_ClearDeadzoneAreas@RIMDeadzone@@AEAAXXZ @ 0x1C01A2AF0
+ * XREFs of ?_ClearDeadzoneAreas@RIMDeadzone@@AEAAXXZ @ 0x1C016E7C8
  * Callers:
- *     ?Initialize@RIMDeadzone@@QEAAJXZ @ 0x1C01A23E4 (-Initialize@RIMDeadzone@@QEAAJXZ.c)
- *     ?IsInDeadzone@RIMDeadzone@@QEAAHAEBUDEVICE_OUTPUT_CONFIG@@AEBUtagPOINTER_INFO@@01W4tagHANDEDNESS@@@Z @ 0x1C01A243C (-IsInDeadzone@RIMDeadzone@@QEAAHAEBUDEVICE_OUTPUT_CONFIG@@AEBUtagPOINTER_INFO@@01W4tagHANDEDNESS.c)
- *     ?Release@RIMDeadzone@@QEAAXXZ @ 0x1C01A293C (-Release@RIMDeadzone@@QEAAXXZ.c)
+ *     ?Initialize@RIMDeadzone@@QEAAJXZ @ 0x1C016E284 (-Initialize@RIMDeadzone@@QEAAJXZ.c)
+ *     ?IsInDeadzone@RIMDeadzone@@QEAAHUtagRECT@@UtagPOINT@@1W4tagHANDEDNESS@@@Z @ 0x1C016E4E0 (-IsInDeadzone@RIMDeadzone@@QEAAHUtagRECT@@UtagPOINT@@1W4tagHANDEDNESS@@@Z.c)
+ *     ?Release@RIMDeadzone@@QEAAXXZ @ 0x1C016E70C (-Release@RIMDeadzone@@QEAAXXZ.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 void __fastcall RIMDeadzone::_ClearDeadzoneAreas(RIMDeadzone *this)
 {
   bool v2; // zf
-  char *v3; // rdx
-  __int64 v4; // rdi
-  char *v5; // r8
+  __int64 v3; // rdx
+  __int64 i; // rdi
+  __int64 v5; // rcx
 
   *((_DWORD *)this + 10) = 0;
   *(_QWORD *)((char *)this + 44) = 0LL;
@@ -21,32 +21,20 @@ void __fastcall RIMDeadzone::_ClearDeadzoneAreas(RIMDeadzone *this)
   *(_DWORD *)this = 1;
   if ( v2 )
   {
-    v3 = (char *)*((_QWORD *)this + 3);
+    v3 = *((_QWORD *)this + 3);
     if ( v3 )
     {
-      v4 = 0LL;
-      if ( !*((_DWORD *)this + 8) )
-        goto LABEL_9;
-      v5 = (char *)*((_QWORD *)this + 3);
-      do
+      for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 8); i = (unsigned int)(i + 1) )
       {
-        if ( *(_QWORD *)&v3[24 * v4 + 8] )
+        v3 = *((_QWORD *)this + 3);
+        v5 = *(_QWORD *)(v3 + 24 * i + 8);
+        if ( v5 )
         {
-          NSInstrumentation::CLeakTrackingAllocator::Free(
-            (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-            *(char **)&v3[24 * v4 + 8]);
-          v3 = (char *)*((_QWORD *)this + 3);
-          v5 = v3;
+          Win32FreePool(v5);
+          v3 = *((_QWORD *)this + 3);
         }
-        v4 = (unsigned int)(v4 + 1);
       }
-      while ( (unsigned int)v4 < *((_DWORD *)this + 8) );
-      v3 = v5;
-      if ( v5 )
-LABEL_9:
-        NSInstrumentation::CLeakTrackingAllocator::Free(
-          (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-          v3);
+      Win32FreePool(v3);
     }
   }
   *((_OWORD *)this + 1) = 0LL;

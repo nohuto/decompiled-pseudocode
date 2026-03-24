@@ -1,17 +1,17 @@
 /*
- * XREFs of BgpDisplayCharacterEx @ 0x140327774
+ * XREFs of BgpDisplayCharacterEx @ 0x140327874
  * Callers:
- *     BcpDisplayCriticalCharacter @ 0x140327B8C (BcpDisplayCriticalCharacter.c)
- *     BcpDisplayCriticalString @ 0x140327C54 (BcpDisplayCriticalString.c)
- *     BcpDisplayProgress @ 0x140328230 (BcpDisplayProgress.c)
- *     BcpPrintSpaces @ 0x1403285F4 (BcpPrintSpaces.c)
+ *     BcpDisplayCriticalCharacter @ 0x140327C8C (BcpDisplayCriticalCharacter.c)
+ *     BcpDisplayCriticalString @ 0x140327D54 (BcpDisplayCriticalString.c)
+ *     BcpDisplayProgress @ 0x140328330 (BcpDisplayProgress.c)
+ *     BcpPrintSpaces @ 0x1403286F4 (BcpPrintSpaces.c)
  *     BgpConsoleDisplayCharacter @ 0x140953610 (BgpConsoleDisplayCharacter.c)
  *     BgpConsoleDisplayCharacterEx @ 0x140953724 (BgpConsoleDisplayCharacterEx.c)
  *     BgpConsoleDrawCursor @ 0x140953A78 (BgpConsoleDrawCursor.c)
  *     BgpConsoleScrollScreen @ 0x140953C10 (BgpConsoleScrollScreen.c)
  * Callees:
- *     BgpTxtDisplayCharacter @ 0x140179EF4 (BgpTxtDisplayCharacter.c)
- *     BgpTxtAdjustStaticRegion @ 0x140327980 (BgpTxtAdjustStaticRegion.c)
+ *     BgpTxtDisplayCharacter @ 0x140179F14 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtAdjustStaticRegion @ 0x140327A80 (BgpTxtAdjustStaticRegion.c)
  */
 
 __int64 __fastcall BgpDisplayCharacterEx(

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CSurfaceBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800DBC40
+ * XREFs of ?IsOfType@CSurfaceBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C2ED0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CSurfaceBrush::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 181 || a2 == 17 || a2 == 47;
+  return a2 == 14 || a2 == 180 || a2 == 45;
 }

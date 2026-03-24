@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateIoCompletion @ 0x1406A64C0
+ * XREFs of NtCreateIoCompletion @ 0x1406A64A0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeQueue @ 0x1401219B0 (KeInitializeQueue.c)
+ *     KeInitializeQueue @ 0x1401219D0 (KeInitializeQueue.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
  */

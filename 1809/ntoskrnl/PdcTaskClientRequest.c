@@ -1,17 +1,17 @@
 /*
- * XREFs of PdcTaskClientRequest @ 0x14089A708
+ * XREFs of PdcTaskClientRequest @ 0x14089A6E8
  * Callers:
- *     PopDirectedDripsEngagePs4 @ 0x140867BB0 (PopDirectedDripsEngagePs4.c)
- *     PopDirectedDripsTriggerTransition @ 0x1408687A0 (PopDirectedDripsTriggerTransition.c)
- *     PopDisengageDirectedDrips @ 0x140868894 (PopDisengageDirectedDrips.c)
- *     PopDiagStopCsSleepStudySession @ 0x14087059C (PopDiagStopCsSleepStudySession.c)
- *     PopSleepStudyTaskClientTimerWorker @ 0x140875080 (PopSleepStudyTaskClientTimerWorker.c)
+ *     PopDirectedDripsEngagePs4 @ 0x140867B90 (PopDirectedDripsEngagePs4.c)
+ *     PopDirectedDripsTriggerTransition @ 0x140868780 (PopDirectedDripsTriggerTransition.c)
+ *     PopDisengageDirectedDrips @ 0x140868874 (PopDisengageDirectedDrips.c)
+ *     PopDiagStopCsSleepStudySession @ 0x14087057C (PopDiagStopCsSleepStudySession.c)
+ *     PopSleepStudyTaskClientTimerWorker @ 0x140875060 (PopSleepStudyTaskClientTimerWorker.c)
  * Callees:
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLock @ 0x140091480 (ExfReleasePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PdcPortSendMessageSynchronously @ 0x1402FE17C (PdcPortSendMessageSynchronously.c)
- *     PdcAcquireRwLockExclusive @ 0x14089AEEC (PdcAcquireRwLockExclusive.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PdcPortSendMessageSynchronously @ 0x1402FE27C (PdcPortSendMessageSynchronously.c)
+ *     PdcAcquireRwLockExclusive @ 0x14089AECC (PdcAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PdcTaskClientRequest(__int64 a1, char a2)

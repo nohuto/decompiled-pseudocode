@@ -1,18 +1,15 @@
 /*
- * XREFs of ?QueryInterface@FxUserObject@@UEAAJPEAUFxQueryInterfaceParams@@@Z @ 0x1C0011480
+ * XREFs of ?QueryInterface@FxUserObject@@UEAAJPEAUFxQueryInterfaceParams@@@Z @ 0x1C00194A0
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?QueryInterface@FxObject@@UEAAJPEAUFxQueryInterfaceParams@@@Z @ 0x1C00194D0 (-QueryInterface@FxObject@@UEAAJPEAUFxQueryInterfaceParams@@@Z.c)
  */
 
-__int64 __fastcall FxUserObject::QueryInterface(FxUserObject *this, FxQueryInterfaceParams *Params)
+int __fastcall FxUserObject::QueryInterface(FxUserObject *this, FxQueryInterfaceParams *Params)
 {
-  unsigned __int16 Type; // ax
-
-  Type = Params->Type;
-  if ( Type != 4108 && Type != 4096 )
-    return 3221226169LL;
+  if ( Params->Type != 4108 )
+    return FxObject::QueryInterface(this, Params);
   *Params->Object = this;
-  return 0LL;
+  return 0;
 }

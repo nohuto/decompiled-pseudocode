@@ -1,17 +1,18 @@
 /*
- * XREFs of XDCOBJ_vSetDefaultFontWrap @ 0x1C009E0C0
+ * XREFs of XDCOBJ_vSetDefaultFontWrap @ 0x1C0081D04
  * Callers:
- *     GreCreateDisplayDC @ 0x1C003BFE0 (GreCreateDisplayDC.c)
+ *     GreCreateDisplayDC @ 0x1C003CAC0 (GreCreateDisplayDC.c)
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C00934E0 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 (__fastcall *__fastcall XDCOBJ_vSetDefaultFontWrap(__int64 a1, __int64 a2))(_QWORD, _QWORD)
+__int64 (*XDCOBJ_vSetDefaultFontWrap())(void)
 {
-  __int64 (__fastcall *result)(_QWORD, _QWORD); // rax
+  __int64 (*result)(void); // rax
 
-  result = qword_1C0294AC0;
-  if ( qword_1C0294AC0 )
-    return (__int64 (__fastcall *)(_QWORD, _QWORD))qword_1C0294AC0(a1, a2);
+  result = qword_1C02556A8;
+  if ( qword_1C02556A8 )
+    return (__int64 (*)(void))qword_1C02556A8();
   return result;
 }

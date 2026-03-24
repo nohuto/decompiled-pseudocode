@@ -1,10 +1,8 @@
 /*
- * XREFs of wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C001A1FC
+ * XREFs of wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0018020
  * Callers:
- *     Feature_DelayedForceEviction__private_ReportDeviceUsage @ 0x1C0019AA0 (Feature_DelayedForceEviction__private_ReportDeviceUsage.c)
- *     Feature_Wddm30CpuVisible__private_ReportDeviceUsage @ 0x1C0019B54 (Feature_Wddm30CpuVisible__private_ReportDeviceUsage.c)
- *     wil_details_IsEnabledFallback @ 0x1C001A3AC (wil_details_IsEnabledFallback.c)
- *     Feature_GpuVaPagingHistoryFre__private_ReportDeviceUsage @ 0x1C001A4E8 (Feature_GpuVaPagingHistoryFre__private_ReportDeviceUsage.c)
+ *     Feature_VidMMVerifyIntegrity__private_ReportDeviceUsage @ 0x1C0017994 (Feature_VidMMVerifyIntegrity__private_ReportDeviceUsage.c)
+ *     wil_details_IsEnabledFallback @ 0x1C00181F8 (wil_details_IsEnabledFallback.c)
  * Callees:
  *     <none>
  */
@@ -43,7 +41,7 @@ void __fastcall wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath(unsig
       if ( ((a1 ^ (unsigned __int8)v6) & 1) != 0 )
         break;
       v7 = v6;
-      v6 = _InterlockedCompareExchange(v3, v5 | v6, v6);
+      v6 = _InterlockedCompareExchange(v3, v6 | v5, v6);
     }
     while ( v7 != v6 );
   }

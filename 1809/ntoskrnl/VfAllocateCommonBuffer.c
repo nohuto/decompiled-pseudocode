@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     VF_ASSERT_IRQL @ 0x1409296A0 (VF_ASSERT_IRQL.c)
  *     ViGetAdapterInformationInternal @ 0x14092D868 (ViGetAdapterInformationInternal.c)
  *     ViGetRealDmaOperation @ 0x14092DB34 (ViGetRealDmaOperation.c)

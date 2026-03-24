@@ -1,16 +1,16 @@
 /*
- * XREFs of SepVerifyDesktopAppxPackageName @ 0x1402FF0CC
+ * XREFs of SepVerifyDesktopAppxPackageName @ 0x1402FF1CC
  * Callers:
- *     SepVerifyDesktopAppxImage @ 0x1402FEF10 (SepVerifyDesktopAppxImage.c)
+ *     SepVerifyDesktopAppxImage @ 0x1402FF010 (SepVerifyDesktopAppxImage.c)
  * Callees:
  *     AuthzBasepFreeSecurityAttributesList @ 0x140021130 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepEvaluateAceCondition @ 0x1400A62E0 (AuthzBasepEvaluateAceCondition.c)
- *     SeSecurityAttributePresent @ 0x1400A7030 (SeSecurityAttributePresent.c)
- *     RtlFindAceByType @ 0x1400A8F90 (RtlFindAceByType.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8A74 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x140181860 (AuthzBasepAllocateSecurityAttributesList.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1400A6300 (AuthzBasepEvaluateAceCondition.c)
+ *     SeSecurityAttributePresent @ 0x1400A7050 (SeSecurityAttributePresent.c)
+ *     RtlFindAceByType @ 0x1400A8FB0 (RtlFindAceByType.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8A94 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x140181880 (AuthzBasepAllocateSecurityAttributesList.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeQuerySecurityAttributesToken @ 0x140625740 (SeQuerySecurityAttributesToken.c)

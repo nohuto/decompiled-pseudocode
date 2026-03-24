@@ -1,25 +1,23 @@
 /*
- * XREFs of CmpDoesParseEnterRegistryA @ 0x1406E08E4
+ * XREFs of CmpDoesParseEnterRegistryA @ 0x1406F9120
  * Callers:
- *     CmpParseKey @ 0x1407349A0 (CmpParseKey.c)
+ *     CmpParseKey @ 0x1406F8C10 (CmpParseKey.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall CmpDoesParseEnterRegistryA(__int64 a1, unsigned __int16 *a2)
+bool __fastcall CmpDoesParseEnterRegistryA(__int64 a1, __int64 a2)
 {
-  unsigned __int16 v2; // cx
-  _WORD *v3; // rdx
   bool result; // al
+  _WORD *v3; // r8
 
   result = 0;
   if ( *(_QWORD *)(a1 + 8) == *((_QWORD *)CmpRegistryRootObject + 1) )
   {
-    v2 = *a2;
-    if ( *a2 )
+    if ( *(_WORD *)a2 )
     {
-      v3 = (_WORD *)*((_QWORD *)a2 + 1);
-      if ( ((*v3 - 65) & 0xFFDF) == 0 && (v2 <= 2u || v3[1] == 92) )
+      v3 = *(_WORD **)(a2 + 8);
+      if ( ((*v3 - 65) & 0xFFDF) == 0 && (*(_WORD *)a2 <= 2u || v3[1] == 92) )
         return 1;
     }
   }

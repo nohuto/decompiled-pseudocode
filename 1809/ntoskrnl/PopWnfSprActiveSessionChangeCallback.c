@@ -1,13 +1,13 @@
 /*
- * XREFs of PopWnfSprActiveSessionChangeCallback @ 0x14071ED70
+ * XREFs of PopWnfSprActiveSessionChangeCallback @ 0x14071ED50
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
  *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
- *     ExQueryWnfStateData @ 0x1406C82A0 (ExQueryWnfStateData.c)
+ *     ExQueryWnfStateData @ 0x1406C8280 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopWnfSprActiveSessionChangeCallback(__int64 a1)

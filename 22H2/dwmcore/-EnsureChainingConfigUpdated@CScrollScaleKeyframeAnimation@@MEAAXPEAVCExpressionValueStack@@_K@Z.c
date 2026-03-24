@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EnsureChainingConfigUpdated@CScrollScaleKeyframeAnimation@@MEAAXPEAVCExpressionValueStack@@_K@Z @ 0x180266350
+ * XREFs of ?EnsureChainingConfigUpdated@CScrollScaleKeyframeAnimation@@MEAAXPEAVCExpressionValueStack@@_K@Z @ 0x180204CD0
  * Callers:
  *     <none>
  * Callees:
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x180016278 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     ??0CExpressionValue@@QEAA@XZ @ 0x1800C1EC4 (--0CExpressionValue@@QEAA@XZ.c)
- *     ??1CExpressionValue@@QEAA@XZ @ 0x18021737C (--1CExpressionValue@@QEAA@XZ.c)
- *     ?BoundaryFromValue@CInteractionTracker@@QEBA?AW4Boundary@@MW4ScrollAxis@@@Z @ 0x180231454 (-BoundaryFromValue@CInteractionTracker@@QEBA-AW4Boundary@@MW4ScrollAxis@@@Z.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A10F4 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC6A4 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBAA4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     ?BoundaryFromValue@CInteractionTracker@@QEBA?AW4Boundary@@MW4ScrollAxis@@@Z @ 0x1801C8044 (-BoundaryFromValue@CInteractionTracker@@QEBA-AW4Boundary@@MW4ScrollAxis@@@Z.c)
  */
 
 void __fastcall CScrollScaleKeyframeAnimation::EnsureChainingConfigUpdated(
@@ -32,6 +32,6 @@ void __fastcall CScrollScaleKeyframeAnimation::EnsureChainingConfigUpdated(
     CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v4);
     CExpressionValue::~CExpressionValue((CExpressionValue *)v8);
   }
-  v6 = CInteractionTracker::BoundaryFromValue(*((_QWORD *)this + 73), *v5, 2u);
+  v6 = CInteractionTracker::BoundaryFromValue(*((_QWORD *)this + 69), *v5, 2u);
   CScrollKeyframeAnimation::UpdateChainingConfigIfBoundaryStateChanges(this, v7, v6);
 }

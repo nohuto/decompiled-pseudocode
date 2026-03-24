@@ -1,12 +1,12 @@
 /*
- * XREFs of SeCreateClientSecurityFromSubjectContextEx @ 0x1405B90F0
+ * XREFs of SeCreateClientSecurityFromSubjectContextEx @ 0x140597000
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     RtlSidDominatesForTrust @ 0x1402B33C0 (RtlSidDominatesForTrust.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     SepCreateClientSecurityEx @ 0x14071D960 (SepCreateClientSecurityEx.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     RtlSidDominatesForTrust @ 0x140346DF0 (RtlSidDominatesForTrust.c)
+ *     SepCreateClientSecurityEx @ 0x1406D6F20 (SepCreateClientSecurityEx.c)
  */
 
 __int64 __fastcall SeCreateClientSecurityFromSubjectContextEx(__int64 a1, int a2, char a3, __int64 a4)
@@ -26,7 +26,7 @@ __int64 __fastcall SeCreateClientSecurityFromSubjectContextEx(__int64 a1, int a2
   v16 = 0;
   if ( !v4 )
     v4 = *(void **)(a1 + 16);
-  ObfReferenceObjectWithTag(v4, 0x63436553u);
+  ObfReferenceObjectWithTag(v4, 0x746C6644u);
   if ( *(_QWORD *)a1 )
   {
     v12 = 2;
@@ -44,6 +44,6 @@ __int64 __fastcall SeCreateClientSecurityFromSubjectContextEx(__int64 a1, int a2
   LOBYTE(v11) = a3;
   ClientSecurity = SepCreateClientSecurityEx((_DWORD)v4, a2, v11, v12, 0, *(_DWORD *)(a1 + 8), 1, 0LL, v6, v5, a4);
   if ( ClientSecurity < 0 || !*(_BYTE *)(a4 + 8) )
-    ObfDereferenceObjectWithTag(v4, 0x63436553u);
+    ObfDereferenceObjectWithTag(v4, 0x746C6644u);
   return (unsigned int)ClientSecurity;
 }

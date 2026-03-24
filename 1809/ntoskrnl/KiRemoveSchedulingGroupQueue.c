@@ -1,16 +1,16 @@
 /*
- * XREFs of KiRemoveSchedulingGroupQueue @ 0x140116EC8
+ * XREFs of KiRemoveSchedulingGroupQueue @ 0x140116EE8
  * Callers:
  *     KiSwapThread @ 0x140056210 (KiSwapThread.c)
- *     KiGroupSchedulingQuantumEnd @ 0x1400D0F24 (KiGroupSchedulingQuantumEnd.c)
- *     KiQueueReadyThread @ 0x1400D2350 (KiQueueReadyThread.c)
- *     KiComputeGroupSchedulingRank @ 0x1400D3680 (KiComputeGroupSchedulingRank.c)
- *     KeSetSchedulingGroupRankBias @ 0x140116408 (KeSetSchedulingGroupRankBias.c)
- *     KiResetScb @ 0x140116914 (KiResetScb.c)
- *     KiRemoveThreadFromScbQueue @ 0x140116E18 (KiRemoveThreadFromScbQueue.c)
- *     KiResortScbQueue @ 0x140117190 (KiResortScbQueue.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400D0F44 (KiGroupSchedulingQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
+ *     KiComputeGroupSchedulingRank @ 0x1400D36A0 (KiComputeGroupSchedulingRank.c)
+ *     KeSetSchedulingGroupRankBias @ 0x140116428 (KeSetSchedulingGroupRankBias.c)
+ *     KiResetScb @ 0x140116934 (KiResetScb.c)
+ *     KiRemoveThreadFromScbQueue @ 0x140116E38 (KiRemoveThreadFromScbQueue.c)
+ *     KiResortScbQueue @ 0x1401171B0 (KiResortScbQueue.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
  */
 
 char __fastcall KiRemoveSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)

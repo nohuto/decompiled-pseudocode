@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetCallbackId@CResourceMarshaler@DirectComposition@@UEAAJIPEA_N@Z @ 0x1C00C9E30
+ * XREFs of ?SetCallbackId@CResourceMarshaler@DirectComposition@@UEAAJIPEA_N@Z @ 0x1C00BC240
  * Callers:
  *     <none>
  * Callees:

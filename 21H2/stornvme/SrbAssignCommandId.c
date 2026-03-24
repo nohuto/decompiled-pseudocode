@@ -1,7 +1,7 @@
 /*
- * XREFs of SrbAssignCommandId @ 0x1C0025414
+ * XREFs of SrbAssignCommandId @ 0x1C001CAA4
  * Callers:
- *     ProcessMultipleCommandsInSpecificQueue @ 0x1C0024BD0 (ProcessMultipleCommandsInSpecificQueue.c)
+ *     ProcessMultipleCommandsInSpecificQueue @ 0x1C001C584 (ProcessMultipleCommandsInSpecificQueue.c)
  * Callees:
  *     <none>
  */
@@ -9,8 +9,8 @@
 char __fastcall SrbAssignCommandId(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
   unsigned __int16 v5; // r8
-  _WORD *v6; // r11
-  unsigned __int16 *v7; // r10
+  unsigned __int16 *v6; // r10
+  unsigned __int16 *v7; // r11
   unsigned __int16 *v8; // r9
   _QWORD *v9; // rbx
   __int64 v10; // rax
@@ -25,23 +25,23 @@ char __fastcall SrbAssignCommandId(__int64 a1, __int64 a2, unsigned __int16 a3)
   if ( a3 )
   {
     v10 = a3;
-    v5 = *(_WORD *)(a1 + 302);
+    v5 = *(_WORD *)(a1 + 286);
     v11 = 136 * v10;
-    v12 = *(_QWORD *)(a1 + 792);
-    v6 = (_WORD *)(v11 + v12 - 92);
+    v12 = *(_QWORD *)(a1 + 776);
+    v6 = (unsigned __int16 *)(v11 + v12 - 92);
     v7 = (unsigned __int16 *)(v11 + v12 - 88);
     v9 = (_QWORD *)(v11 + v12 - 104);
     v8 = (unsigned __int16 *)(v11 + v12 - 90);
   }
   else
   {
-    v5 = *(_WORD *)(a1 + 300);
-    v6 = (_WORD *)(a1 + 356);
-    v7 = (unsigned __int16 *)(a1 + 360);
-    v8 = (unsigned __int16 *)(a1 + 358);
-    v9 = (_QWORD *)(a1 + 344);
+    v5 = *(_WORD *)(a1 + 284);
+    v6 = (unsigned __int16 *)(a1 + 340);
+    v7 = (unsigned __int16 *)(a1 + 344);
+    v8 = (unsigned __int16 *)(a1 + 342);
+    v9 = (_QWORD *)(a1 + 328);
   }
-  v13 = (unsigned __int16)*v6;
+  v13 = *v6;
   v14 = *v8;
   if ( v14 == v13 + 1 || !(_WORD)v14 && v13 == v5 - 1 )
     return 0;
@@ -55,7 +55,7 @@ char __fastcall SrbAssignCommandId(__int64 a1, __int64 a2, unsigned __int16 a3)
     {
       v16 = v15 + 1;
       if ( !*(_QWORD *)(*v9 + 16LL * v15) )
-        goto LABEL_17;
+        goto LABEL_19;
       ++v15;
     }
     while ( v16 < v5 );
@@ -65,9 +65,8 @@ char __fastcall SrbAssignCommandId(__int64 a1, __int64 a2, unsigned __int16 a3)
   {
 LABEL_15:
     if ( *v6 )
-      --*v6;
-    else
-      *v6 = v5 - 1;
+      v5 = *v6;
+    *v6 = v5 - 1;
     return 0;
   }
   while ( 1 )
@@ -79,7 +78,7 @@ LABEL_15:
     if ( v16 >= *v7 )
       goto LABEL_15;
   }
-LABEL_17:
+LABEL_19:
   *v7 = v16;
   if ( v16 == v5 )
     *v7 = 0;

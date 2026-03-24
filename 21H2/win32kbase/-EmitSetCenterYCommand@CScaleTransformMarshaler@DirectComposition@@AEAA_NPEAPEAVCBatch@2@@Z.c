@@ -1,14 +1,14 @@
 /*
- * XREFs of ?EmitSetCenterYCommand@CScaleTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000E8C8
+ * XREFs of ?EmitSetCenterYCommand@CScaleTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00657C8
  * Callers:
- *     ?EmitUpdateCommands@CScaleTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000E850 (-EmitUpdateCommands@CScaleTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CScaleTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0065750 (-EmitUpdateCommands@CScaleTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CScaleTransformMarshaler::EmitSetCenterYCommand(
         DirectComposition::CScaleTransformMarshaler *this,
-        struct DirectComposition::CBatch **a2)
+        struct DirectComposition::CBatch ***a2)
 {
   char *v4; // rcx
   void *v5; // [rsp+30h] [rbp+8h] BYREF
@@ -22,9 +22,9 @@ char __fastcall DirectComposition::CScaleTransformMarshaler::EmitSetCenterYComma
     *(_DWORD *)v5 = 16;
     *(_QWORD *)(v4 + 4) = 0LL;
     *((_DWORD *)v4 + 3) = 0;
-    *((_DWORD *)v4 + 1) = 605;
-    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-    *((_DWORD *)v4 + 3) = *((_DWORD *)this + 23);
+    *((_DWORD *)v4 + 1) = 600;
+    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+    *((_DWORD *)v4 + 3) = *((_DWORD *)this + 21);
     *((_DWORD *)this + 4) &= ~0x400u;
     return 1;
   }

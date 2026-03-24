@@ -1,30 +1,31 @@
 /*
- * XREFs of ACPIWakeCompleteRequestQueue @ 0x1C002ED3C
+ * XREFs of ACPIWakeCompleteRequestQueue @ 0x1C0025860
  * Callers:
- *     ACPIWakeEmptyRequestQueue @ 0x1C002ECA8 (ACPIWakeEmptyRequestQueue.c)
- *     OSNotifyDeviceWakeCallBack @ 0x1C005A1F0 (OSNotifyDeviceWakeCallBack.c)
+ *     ACPIWakeEmptyRequestQueue @ 0x1C00257CC (ACPIWakeEmptyRequestQueue.c)
+ *     OSNotifyDeviceWakeCallBack @ 0x1C0059380 (OSNotifyDeviceWakeCallBack.c)
  * Callees:
- *     WPP_RECORDER_SF_qLqss @ 0x1C0003A80 (WPP_RECORDER_SF_qLqss.c)
- *     ACPIDeviceIrpWaitWakeRequestComplete @ 0x1C004FD30 (ACPIDeviceIrpWaitWakeRequestComplete.c)
+ *     WPP_RECORDER_SF_qDqss @ 0x1C004E29C (WPP_RECORDER_SF_qDqss.c)
+ *     ACPIDeviceIrpWaitWakeRequestComplete @ 0x1C0050B7C (ACPIDeviceIrpWaitWakeRequestComplete.c)
  */
 
 void __fastcall ACPIWakeCompleteRequestQueue(_QWORD **a1, int a2)
 {
   _QWORD *v2; // rbx
   _QWORD *v5; // rsi
-  const char *v6; // r8
-  const char *v7; // rdx
+  void *v6; // r8
+  void *v7; // rdx
   __int64 v8; // rax
   __int64 v9; // rcx
   __int64 v10; // rcx
+  __int64 v11; // [rsp+48h] [rbp-10h]
 
   v2 = *a1;
   while ( v2 != a1 )
   {
     v5 = v2;
-    v6 = (const char *)&unk_1C006FB8B;
+    v6 = &unk_1C00701BA;
     v2 = (_QWORD *)*v2;
-    v7 = (const char *)&unk_1C006FB8B;
+    v7 = &unk_1C00701BA;
     LOBYTE(v8) = 0;
     v9 = v5[5];
     if ( v9 )
@@ -33,24 +34,28 @@ void __fastcall ACPIWakeCompleteRequestQueue(_QWORD **a1, int a2)
       v10 = *(_QWORD *)(v9 + 8);
       if ( (v10 & 0x200000000000LL) != 0 )
       {
-        v6 = *(const char **)(v8 + 608);
+        v6 = *(void **)(v8 + 568);
         if ( (v10 & 0x400000000000LL) != 0 )
-          v7 = *(const char **)(v8 + 616);
+          v7 = *(void **)(v8 + 576);
       }
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_qLqss(
-        (__int64)WPP_GLOBAL_Control->DeviceExtension,
-        4u,
-        0x11u,
-        0xAu,
-        (__int64)&WPP_f2b70cf489233296687a8e467b880eb0_Traceguids,
+    {
+      v11 = (__int64)v7;
+      LOBYTE(v7) = 4;
+      WPP_RECORDER_SF_qDqss(
+        WPP_GLOBAL_Control->DeviceExtension,
+        (_DWORD)v7,
+        17,
+        10,
+        (__int64)&WPP_78661b2d78ff34e38fc1910a80efa3ce_Traceguids,
         (char)v5,
         a2,
         v8,
-        v6,
-        v7);
+        (__int64)v6,
+        v11);
+    }
     *((_DWORD *)v5 + 64) = a2;
-    ACPIDeviceIrpWaitWakeRequestComplete(v5, v7, v6);
+    ACPIDeviceIrpWaitWakeRequestComplete(v5);
   }
 }

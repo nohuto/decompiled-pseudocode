@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIEcDisconnectGpeVector @ 0x1C00834F8
+ * XREFs of ACPIEcDisconnectGpeVector @ 0x1C00AE940
  * Callers:
- *     ACPIEcInitOpRegionHandler @ 0x1C00251D0 (ACPIEcInitOpRegionHandler.c)
- *     ACPIEcDisconnectInterrupt @ 0x1C0083574 (ACPIEcDisconnectInterrupt.c)
+ *     ACPIEcInitOpRegionHandler @ 0x1C0026A58 (ACPIEcInitOpRegionHandler.c)
+ *     ACPIEcDisconnectInterrupt @ 0x1C00AE9BC (ACPIEcDisconnectInterrupt.c)
  * Callees:
- *     ACPIVectorDisconnect @ 0x1C0044060 (ACPIVectorDisconnect.c)
+ *     ACPIVectorDisconnect @ 0x1C0060DF0 (ACPIVectorDisconnect.c)
  */
 
 __int64 __fastcall ACPIEcDisconnectGpeVector(__int64 a1)

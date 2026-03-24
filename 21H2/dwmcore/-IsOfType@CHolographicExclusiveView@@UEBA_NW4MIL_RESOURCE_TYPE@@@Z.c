@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CHolographicExclusiveView@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180299090
+ * XREFs of ?IsOfType@CHolographicExclusiveView@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180257160
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CHolographicExclusiveView::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 76;
+  return a2 == 74;
 }

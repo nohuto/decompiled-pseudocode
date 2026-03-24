@@ -1,55 +1,50 @@
 /*
- * XREFs of NtInitializeRegistry @ 0x1407E91B0
+ * XREFs of NtInitializeRegistry @ 0x14078D400
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     ZwInitializeRegistry @ 0x14041C780 (ZwInitializeRegistry.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     CmpAcceptBoot @ 0x1407E9258 (CmpAcceptBoot.c)
- *     CmCompleteRegistryInitialization @ 0x14080CEA0 (CmCompleteRegistryInitialization.c)
- *     CmpHandlePageFileOpenNotification @ 0x140854EE0 (CmpHandlePageFileOpenNotification.c)
- *     CmpSyncNextBackupHive @ 0x140A1AEB8 (CmpSyncNextBackupHive.c)
+ *     ZwInitializeRegistry @ 0x1403FBA40 (ZwInitializeRegistry.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     CmpAcceptBoot @ 0x14078D470 (CmpAcceptBoot.c)
+ *     CmCompleteRegistryInitialization @ 0x14079A330 (CmCompleteRegistryInitialization.c)
+ *     CmpHandlePageFileOpenNotification @ 0x1407C8C58 (CmpHandlePageFileOpenNotification.c)
+ *     CmpSyncNextBackupHive @ 0x1408714B0 (CmpSyncNextBackupHive.c)
  */
 
-__int64 NtInitializeRegistry()
+__int64 __fastcall NtInitializeRegistry(__int64 a1, __int64 a2)
 {
-  unsigned __int16 v0; // r9
-  __int64 v1; // rdx
-  unsigned int v2; // r8d
-  __int64 v4[3]; // [rsp+20h] [rbp-18h] BYREF
-
-  *(_OWORD *)v4 = 0LL;
-  CmpInitializeThreadInfo((__int64)v4);
-  LOBYTE(v1) = KeGetCurrentThread()->PreviousMode;
-  if ( (_BYTE)v1 )
+  LOBYTE(a2) = KeGetCurrentThread()->PreviousMode;
+  if ( (_BYTE)a2 )
   {
-    if ( v0 == 5096 )
+    if ( (_WORD)a1 == 5096 )
     {
-      if ( SeSinglePrivilegeCheck(SeBackupPrivilege, v1) )
-        CmpSyncNextBackupHive();
+      if ( SeSinglePrivilegeCheck(SeBackupPrivilege, a2) )
+        return CmpSyncNextBackupHive();
+      else
+        return 3221225569LL;
     }
     else
     {
-      ZwInitializeRegistry(v0, v1);
+      return ZwInitializeRegistry(a1, a2);
     }
   }
-  else if ( (unsigned __int16)(v0 - 4096) > 0x3E7u )
+  else if ( (unsigned __int16)(a1 - 4096) > 0x3E7u )
   {
-    if ( v0 == 2 )
+    if ( (_WORD)a1 == 2 )
     {
-      CmpHandlePageFileOpenNotification();
+      return CmpHandlePageFileOpenNotification();
     }
-    else if ( v0 < 2u )
+    else if ( (unsigned __int16)a1 >= 2u )
     {
-      CmCompleteRegistryInitialization(v0);
+      return 3221225485LL;
+    }
+    else
+    {
+      return CmCompleteRegistryInitialization();
     }
   }
   else
   {
-    CmpAcceptBoot(v0);
+    return CmpAcceptBoot();
   }
-  CmCleanupThreadInfo(v4);
-  return v2;
 }

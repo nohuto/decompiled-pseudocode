@@ -1,7 +1,7 @@
 /*
- * XREFs of ApiSetpSearchForApiSet @ 0x1C00ABDB0
+ * XREFs of ApiSetpSearchForApiSet @ 0x1C009BC68
  * Callers:
- *     ApiSetResolveToHost @ 0x1C00ABCC8 (ApiSetResolveToHost.c)
+ *     ApiSetResolveToHost @ 0x1C009BB8C (ApiSetResolveToHost.c)
  * Callees:
  *     <none>
  */
@@ -11,65 +11,60 @@ __int64 __fastcall ApiSetpSearchForApiSet(_DWORD *a1, const WCHAR *a2, unsigned 
   SIZE_T v3; // r11
   unsigned int v6; // edi
   const WCHAR *v7; // r8
-  int v8; // ebx
-  __int64 v9; // r10
-  unsigned __int16 v10; // dx
-  unsigned __int16 v11; // cx
-  __int64 v12; // rbx
-  int v13; // ecx
-  int v14; // r8d
-  int v15; // edx
-  __int64 v16; // r10
+  __int64 v8; // rbx
+  int v9; // ecx
+  int v10; // r8d
+  int v11; // edx
+  __int64 v12; // r10
+  int v14; // ebx
+  SIZE_T v15; // r10
+  unsigned __int16 v16; // dx
+  unsigned __int16 v17; // cx
 
   v3 = a3;
   v6 = 0;
   v7 = a2;
   if ( (_WORD)v3 )
   {
-    v8 = a1[6];
-    v9 = (unsigned int)v3;
+    v14 = a1[6];
+    v15 = v3;
     do
     {
-      v10 = *v7++;
-      v11 = v10 + 32;
-      if ( (unsigned __int16)(v10 - 65) > 0x19u )
-        v11 = v10;
-      v6 = v11 + v8 * v6;
-      --v9;
+      v16 = *v7++;
+      v17 = v16 + 32;
+      if ( (unsigned __int16)(v16 - 65) > 0x19u )
+        v17 = v16;
+      v6 = v17 + v14 * v6;
+      --v15;
     }
-    while ( v9 );
+    while ( v15 );
   }
-  v12 = 0LL;
-  v13 = a1[3] - 1;
-  v14 = 0;
-  if ( v13 < 0 )
-    return v12;
+  v8 = 0LL;
+  v9 = a1[3] - 1;
+  v10 = 0;
+  if ( v9 < 0 )
+    return v8;
   while ( 1 )
   {
-    v15 = (v14 + v13) >> 1;
-    v16 = (unsigned int)a1[5] + 8LL * v15;
-    if ( v6 >= *(_DWORD *)((char *)a1 + v16) )
+    v11 = (v10 + v9) >> 1;
+    v12 = (unsigned int)a1[5] + 8LL * v11;
+    if ( v6 >= *(_DWORD *)((char *)a1 + v12) )
       break;
-    v13 = v15 - 1;
-LABEL_9:
-    if ( v14 > v13 )
-      return v12;
+    v9 = v11 - 1;
+LABEL_5:
+    if ( v10 > v9 )
+      return v8;
   }
-  if ( v6 > *(_DWORD *)((char *)a1 + v16) )
+  if ( v6 > *(_DWORD *)((char *)a1 + v12) )
   {
-    v14 = v15 + 1;
-    goto LABEL_9;
+    v10 = v11 + 1;
+    goto LABEL_5;
   }
-  v12 = (__int64)&a1[6 * *(_DWORD *)((char *)a1 + v16 + 4)] + (unsigned int)a1[4];
-  if ( !v12
-    || !RtlCompareUnicodeStrings(
-          a2,
-          v3,
-          (PCWCH)((char *)a1 + *(unsigned int *)(v12 + 4)),
-          *(_DWORD *)(v12 + 12) >> 1,
-          1u) )
+  v8 = (__int64)&a1[6 * *(_DWORD *)((char *)a1 + v12 + 4)] + (unsigned int)a1[4];
+  if ( !v8
+    || !RtlCompareUnicodeStrings(a2, v3, (PCWCH)((char *)a1 + *(unsigned int *)(v8 + 4)), *(_DWORD *)(v8 + 12) >> 1, 1u) )
   {
-    return v12;
+    return v8;
   }
   return 0LL;
 }

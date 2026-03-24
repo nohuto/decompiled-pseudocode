@@ -1,71 +1,87 @@
 /*
- * XREFs of ?ivHandlePnpSyncPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01EE030
+ * XREFs of ?ivHandlePnpSyncPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B8CD0
  * Callers:
  *     <none>
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     ?UnLockExclusive@CInpPushLock@@QEAAXXZ @ 0x1C00742F0 (-UnLockExclusive@CInpPushLock@@QEAAXXZ.c)
- *     RIMIDERemoveInjectionDevice @ 0x1C0178FE8 (RIMIDERemoveInjectionDevice.c)
- *     RIMShouldVirtualDeviceBeClosed @ 0x1C019A004 (RIMShouldVirtualDeviceBeClosed.c)
- *     RIMVirtQueueRootPnpEndSyncAsyncWorkItem @ 0x1C01A30D0 (RIMVirtQueueRootPnpEndSyncAsyncWorkItem.c)
- *     IsRimObjectUnregistered @ 0x1C01EEDB8 (IsRimObjectUnregistered.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     RIMIDERemoveInjectionDevice @ 0x1C0156DF4 (RIMIDERemoveInjectionDevice.c)
+ *     RIMSignalOnPnpNotificationAndWait @ 0x1C016C64C (RIMSignalOnPnpNotificationAndWait.c)
+ *     IsRimObjectUnregistered @ 0x1C01BA6A4 (IsRimObjectUnregistered.c)
  */
 
 __int64 __fastcall CBaseInput::ivHandlePnpSyncPacket(__int64 a1, _DWORD *a2, __int64 a3)
 {
-  CInpPushLock *v4; // rbx
-  CInpPushLock *v5; // rcx
+  _DWORD *v4; // rbx
+  __int64 v5; // rcx
   __int64 j; // rax
-  CInpPushLock *v8; // rcx
-  CInpPushLock *v9; // rsi
-  __int64 i; // rbx
-  UNICODE_STRING v11; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v8; // rcx
+  __int64 i; // rsi
+  int v10; // eax
 
-  if ( *a2 != 1 )
+  v4 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    if ( *a2 != 2 || *(_BYTE *)(a3 + 81) )
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_(
+      WPP_MAIN_CB.Queue.ListEntry.Flink,
+      (_DWORD)a2,
+      12,
+      40,
+      (__int64)&WPP_2ccd359dbff93ea23c150f58e4d81fa3_Traceguids);
+  }
+  if ( *v4 != 1 )
+  {
+    if ( *v4 != 2 || *(_BYTE *)(a3 + 81) )
       return 1LL;
-    v9 = (CInpPushLock *)(a3 + 104);
     RIMLockExclusive(a3 + 104);
     if ( (unsigned __int8)IsRimObjectUnregistered(a3) )
     {
-      v5 = v9;
-      goto LABEL_5;
+      *(_QWORD *)(a3 + 112) = 0LL;
+      v5 = a3 + 104;
+      goto LABEL_7;
     }
     for ( i = *(_QWORD *)(a3 + 424); i; i = *(_QWORD *)(i + 40) )
     {
-      if ( (unsigned int)RIMShouldVirtualDeviceBeClosed(i) )
+      v10 = *(_DWORD *)(i + 184);
+      if ( (v10 & 0x40) != 0 && (v10 & 0x40000000) == 0 )
       {
-        if ( (*(_DWORD *)(i + 184) & 0x2000) != 0 )
+        if ( (v10 & 0x2000) != 0 )
         {
           RIMIDERemoveInjectionDevice(*(_QWORD *)(i + 32));
         }
         else
         {
-          v11 = *(UNICODE_STRING *)(i + 208);
-          RIMVirtQueueRootPnpEndSyncAsyncWorkItem((_QWORD *)a3, &v11);
+          *(_DWORD *)(i + 184) = v10 | 0x40000;
+          RIMSignalOnPnpNotificationAndWait(a3, i, 0, 1, 0, 0);
+          *(_DWORD *)(i + 184) |= 0x40000u;
+          RIMSignalOnPnpNotificationAndWait(a3, i, 0, 0, 0, 1);
         }
       }
     }
-    v8 = v9;
-    goto LABEL_22;
+    *(_QWORD *)(a3 + 112) = 0LL;
+    v8 = a3 + 104;
+    goto LABEL_25;
   }
   if ( !*(_BYTE *)(a3 + 81) )
   {
-    v4 = (CInpPushLock *)(a3 + 104);
     RIMLockExclusive(a3 + 104);
     if ( (unsigned __int8)IsRimObjectUnregistered(a3) )
     {
-      v5 = v4;
-LABEL_5:
-      CInpPushLock::UnLockExclusive(v5);
+      *(_QWORD *)(a3 + 112) = 0LL;
+      v5 = a3 + 104;
+LABEL_7:
+      ExReleasePushLockExclusiveEx(v5, 0LL);
+      KeLeaveCriticalRegion();
       return 2LL;
     }
     for ( j = *(_QWORD *)(a3 + 424); j; j = *(_QWORD *)(j + 40) )
-      *(_DWORD *)(j + 188) &= ~1u;
-    v8 = v4;
-LABEL_22:
-    CInpPushLock::UnLockExclusive(v8);
+      *(_DWORD *)(j + 184) &= ~0x40000000u;
+    *(_QWORD *)(a3 + 112) = 0LL;
+    v8 = a3 + 104;
+LABEL_25:
+    ExReleasePushLockExclusiveEx(v8, 0LL);
+    KeLeaveCriticalRegion();
   }
   return 1LL;
 }

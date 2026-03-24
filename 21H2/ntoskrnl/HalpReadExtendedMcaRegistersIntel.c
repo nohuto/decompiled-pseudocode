@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpReadExtendedMcaRegistersIntel @ 0x14050A0C4
+ * XREFs of HalpReadExtendedMcaRegistersIntel @ 0x1404BD688
  * Callers:
- *     HalpMcaPopulateErrorData @ 0x140507040 (HalpMcaPopulateErrorData.c)
+ *     HalpMcaPopulateErrorData @ 0x1404BA67C (HalpMcaPopulateErrorData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpReadExtendedMcaRegistersIntel(int a1, __int64 a2, __int64 a3, __int64 a4)

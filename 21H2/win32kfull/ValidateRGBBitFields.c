@@ -1,10 +1,10 @@
 /*
- * XREFs of ValidateRGBBitFields @ 0x1C0093C30
+ * XREFs of ValidateRGBBitFields @ 0x1C001B718
  * Callers:
- *     ValidateHTSI @ 0x1C00939E0 (ValidateHTSI.c)
- *     GetDstBFInfo @ 0x1C025E228 (GetDstBFInfo.c)
+ *     ValidateHTSI @ 0x1C001B4C8 (ValidateHTSI.c)
+ *     GetDstBFInfo @ 0x1C02615B8 (GetDstBFInfo.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ValidateRGBBitFields(__int128 *a1)

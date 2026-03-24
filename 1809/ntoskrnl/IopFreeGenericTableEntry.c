@@ -1,5 +1,5 @@
 /*
- * XREFs of IopFreeGenericTableEntry @ 0x140819C10
+ * XREFs of IopFreeGenericTableEntry @ 0x140819BF0
  * Callers:
  *     <none>
  * Callees:

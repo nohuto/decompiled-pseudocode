@@ -1,51 +1,33 @@
 /*
- * XREFs of FsFilterPerformCompletionCallbacks @ 0x1402881A0
+ * XREFs of FsFilterPerformCompletionCallbacks @ 0x140356C80
  * Callers:
- *     FsRtlAcquireFileForModWriteEx @ 0x14028B12C (FsRtlAcquireFileForModWriteEx.c)
- *     FsRtlReleaseFileForModWrite @ 0x14028D3BC (FsRtlReleaseFileForModWrite.c)
- *     FsRtlReleaseFile @ 0x1406FE310 (FsRtlReleaseFile.c)
- *     FsRtlAcquireFileExclusiveCommon @ 0x1406FE4F0 (FsRtlAcquireFileExclusiveCommon.c)
- *     FsRtlReleaseFileForCcFlush @ 0x1407F0748 (FsRtlReleaseFileForCcFlush.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x1407F099C (FsRtlAcquireFileForCcFlushEx.c)
- *     FsRtlQueryOpen @ 0x1407F730C (FsRtlQueryOpen.c)
+ *     FsRtlReleaseFileForModWrite @ 0x140254F94 (FsRtlReleaseFileForModWrite.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x1402559CC (FsRtlAcquireFileForModWriteEx.c)
+ *     FsRtlQueryOpen @ 0x1405D8FB0 (FsRtlQueryOpen.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x140647024 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x140647204 (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFile @ 0x140707A70 (FsRtlReleaseFile.c)
+ *     FsRtlAcquireFileExclusiveCommon @ 0x140707C40 (FsRtlAcquireFileExclusiveCommon.c)
  * Callees:
- *     Feature_Servicing_FSRTLQueryOpen__private_IsEnabled @ 0x140417574 (Feature_Servicing_FSRTLQueryOpen__private_IsEnabled.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FsFilterPerformCompletionCallbacks(__int64 a1, unsigned int a2)
 {
-  unsigned __int16 v2; // ax
-  char v5; // dl
-  __int64 v6; // rsi
-  int IsEnabled; // eax
-  unsigned int v8; // ecx
+  unsigned __int16 i; // ax
+  __int64 v5; // r8
 
-  v2 = *(_WORD *)(a1 + 74);
-  if ( v2 )
+  for ( i = *(_WORD *)(a1 + 74); i; *(_WORD *)(a1 + 74) = i )
   {
-    v5 = *(_BYTE *)(a1 + 4);
-    do
-    {
-      v6 = *(_QWORD *)(a1 + 80) + 32LL * v2;
-      if ( v5 == -7 )
-      {
-        IsEnabled = Feature_Servicing_FSRTLQueryOpen__private_IsEnabled();
-        v8 = a2;
-        if ( !IsEnabled )
-          v8 = 0;
-        *(_DWORD *)(a1 + 52) = v8;
-      }
-      *(_QWORD *)(a1 + 8) = *(_QWORD *)(v6 - 32);
-      *(_QWORD *)(a1 + 16) = *(_QWORD *)(v6 - 24);
-      (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(v6 - 8))(a1, a2, *(_QWORD *)(v6 - 16));
-      v5 = *(_BYTE *)(a1 + 4);
-      if ( v5 == -7 )
-        a2 = *(_DWORD *)(a1 + 52);
-      v2 = *(_WORD *)(a1 + 74) - 1;
-      *(_WORD *)(a1 + 74) = v2;
-    }
-    while ( v2 );
+    v5 = *(_QWORD *)(a1 + 80) + 32LL * i;
+    if ( *(_BYTE *)(a1 + 4) == 0xF9 )
+      *(_DWORD *)(a1 + 52) = 0;
+    *(_QWORD *)(a1 + 8) = *(_QWORD *)(v5 - 32);
+    *(_QWORD *)(a1 + 16) = *(_QWORD *)(v5 - 24);
+    (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(v5 - 8))(a1, a2, *(_QWORD *)(v5 - 16));
+    if ( *(_BYTE *)(a1 + 4) == 0xF9 )
+      a2 = *(_DWORD *)(a1 + 52);
+    i = *(_WORD *)(a1 + 74) - 1;
   }
   return a2;
 }

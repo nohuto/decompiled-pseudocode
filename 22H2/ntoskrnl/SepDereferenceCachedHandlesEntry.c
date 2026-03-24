@@ -1,24 +1,24 @@
 /*
- * XREFs of SepDereferenceCachedHandlesEntry @ 0x1407EF89C
+ * XREFs of SepDereferenceCachedHandlesEntry @ 0x140635720
  * Callers:
- *     SepSetTokenBnoIsolation @ 0x140224BC8 (SepSetTokenBnoIsolation.c)
- *     SepTokenDeleteMethod @ 0x140729600 (SepTokenDeleteMethod.c)
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
+ *     SepSetTokenBnoIsolation @ 0x1402511C8 (SepSetTokenBnoIsolation.c)
+ *     SepTokenDeleteMethod @ 0x140635410 (SepTokenDeleteMethod.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     RtlRemoveEntryHashTable @ 0x14036F630 (RtlRemoveEntryHashTable.c)
- *     SepCloseCachedTokenHandles @ 0x14036F9E8 (SepCloseCachedTokenHandles.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     RtlRemoveEntryHashTable @ 0x140251520 (RtlRemoveEntryHashTable.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     SepCloseCachedTokenHandles @ 0x14035F974 (SepCloseCachedTokenHandles.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepDereferenceCachedHandlesEntry(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   ULONG_PTR v3; // rbx
-  unsigned int v5; // esi
+  unsigned int v4; // esi
   __int64 v6; // rax
   char v7; // di
   BOOLEAN v9; // r14
@@ -27,7 +27,7 @@ __int64 __fastcall SepDereferenceCachedHandlesEntry(__int64 a1, __int64 a2)
 
   CurrentThread = KeGetCurrentThread();
   v3 = a1 + 88;
-  v5 = 0;
+  v4 = 0;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx(a1 + 88, 0LL);
   v6 = _InterlockedDecrement64((volatile signed __int64 *)(a2 + 24));
@@ -53,7 +53,7 @@ __int64 __fastcall SepDereferenceCachedHandlesEntry(__int64 a1, __int64 a2)
     {
       return (unsigned int)-1073741823;
     }
-    return v5;
+    return v4;
   }
   else
   {

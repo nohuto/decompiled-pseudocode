@@ -1,18 +1,18 @@
 /*
- * XREFs of BiTranslateObjectIdentifier @ 0x140A5EED4
+ * XREFs of BiTranslateObjectIdentifier @ 0x140972E54
  * Callers:
- *     BiExportEfiBootManager @ 0x140A5E63C (BiExportEfiBootManager.c)
- *     BiHandleFirmwareDefaultEntry @ 0x140A5EA5C (BiHandleFirmwareDefaultEntry.c)
- *     BiTranslateDisplayOrder @ 0x140A5EE4C (BiTranslateDisplayOrder.c)
+ *     BiExportEfiBootManager @ 0x140971C10 (BiExportEfiBootManager.c)
+ *     BiHandleFirmwareDefaultEntry @ 0x1409725AC (BiHandleFirmwareDefaultEntry.c)
+ *     BiTranslateDisplayOrder @ 0x140972CF0 (BiTranslateDisplayOrder.c)
  * Callees:
- *     BiLogMessage @ 0x140807BA0 (BiLogMessage.c)
+ *     BiLogMessage @ 0x140784C9C (BiLogMessage.c)
  */
 
 __int64 __fastcall BiTranslateObjectIdentifier(_QWORD *a1, _QWORD *a2, _DWORD *a3)
 {
   _QWORD *v3; // r9
   unsigned int v6; // r10d
-  int v7; // ebx
+  int v7; // r11d
   __int64 v8; // rcx
   __int64 v10; // r8
 

@@ -1,15 +1,15 @@
 /*
- * XREFs of ?CreateFromValueInternal@SemaphoreValue@details_abi@wil@@AEAAJPEBG_N_K@Z @ 0x180027784
+ * XREFs of ?CreateFromValueInternal@SemaphoreValue@details_abi@wil@@AEAAJPEBG_N_K@Z @ 0x1800B0288
  * Callers:
- *     ?MakeAndInitialize@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@CAJPEBG$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@3@PEAPEAV123@@Z @ 0x1800276B4 (-MakeAndInitialize@-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil.c)
- *     ?MakeAndInitialize@?$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@CAJPEBG$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@3@PEAPEAV123@@Z @ 0x180178118 (-MakeAndInitialize@-$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil.c)
+ *     ?MakeAndInitialize@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@CAJPEBG$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@3@PEAPEAV123@@Z @ 0x1800ADE7C (-MakeAndInitialize@-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil.c)
+ *     ?MakeAndInitialize@?$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@CAJPEBG$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@3@PEAPEAV123@@Z @ 0x18014DEA4 (-MakeAndInitialize@-$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?reset@?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800279B8 (-reset@-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@_E$1-CloseHandle@details@wil@@YAX0@ZU-$i.c)
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x180027CD0 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?GetLastErrorFailHr@details@wil@@YAJXZ @ 0x180177F9C (-GetLastErrorFailHr@details@wil@@YAJXZ.c)
- *     ?_FailFastImmediate_Unexpected@in1diag3@details@wil@@YAXXZ @ 0x180178E94 (-_FailFastImmediate_Unexpected@in1diag3@details@wil@@YAXXZ.c)
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800B04B8 (-reset@-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@Z$1-CloseHandle@details@wil@@YAX0@ZU-$in.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1800B26E0 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?GetLastErrorFailHr@details@wil@@YAJXZ @ 0x18014D7FC (-GetLastErrorFailHr@details@wil@@YAJXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_FailFastImmediate_Unexpected@in1diag3@details@wil@@YAXXZ @ 0x18014ECA4 (-_FailFastImmediate_Unexpected@in1diag3@details@wil@@YAXXZ.c)
  */
 
 __int64 __fastcall wil::details_abi::SemaphoreValue::CreateFromValueInternal(
@@ -19,35 +19,35 @@ __int64 __fastcall wil::details_abi::SemaphoreValue::CreateFromValueInternal(
         unsigned __int64 a4)
 {
   WCHAR *v6; // rax
-  __int64 v7; // r11
+  __int64 v7; // rcx
   LONG v8; // edi
-  __int64 v9; // rbp
-  __int64 v10; // r8
-  WCHAR *v11; // rcx
-  __int64 v12; // rdx
-  __int64 v13; // rax
-  char *v14; // r8
-  WCHAR v15; // r9
-  WCHAR *v16; // rax
-  LONG v17; // r8d
-  unsigned __int64 v18; // r14
-  LONG v19; // esi
+  __int64 v9; // rax
+  WCHAR *v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  char *v13; // rax
+  WCHAR v14; // r9
+  WCHAR *v15; // rax
+  LONG v16; // r8d
+  unsigned __int64 v17; // rbp
+  LONG v18; // esi
   HANDLE Semaphore; // rax
-  wil::details *v21; // rcx
-  int LastErrorFailHr; // eax
-  unsigned int v23; // esi
-  __int64 v24; // rdx
-  WCHAR *v25; // rax
-  __int64 v26; // r8
-  WCHAR *v27; // rcx
-  __int64 v28; // rbx
-  char *v29; // rax
-  WCHAR v30; // dx
-  WCHAR *v31; // rax
-  HANDLE v32; // rax
-  wil::details *v33; // rcx
-  int v34; // eax
-  unsigned int v35; // ebx
+  wil::details *v20; // rcx
+  int LastErrorFailHr; // esi
+  __int64 v22; // rcx
+  WCHAR *v23; // rax
+  __int64 v24; // rax
+  WCHAR *v25; // rcx
+  __int64 v26; // rbx
+  __int64 v27; // rdx
+  char *v28; // rax
+  WCHAR v29; // r8
+  WCHAR *v30; // rax
+  HANDLE v31; // rax
+  wil::details *v32; // rcx
+  int v33; // ebx
+  DWORD dwFlags; // [rsp+20h] [rbp-258h]
+  DWORD dwFlagsa; // [rsp+20h] [rbp-258h]
   WCHAR Name[264]; // [rsp+30h] [rbp-248h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+278h] [rbp+0h]
 
@@ -65,108 +65,134 @@ __int64 __fastcall wil::details_abi::SemaphoreValue::CreateFromValueInternal(
     --v7;
   }
   while ( v7 );
-  v9 = 2147483646LL;
-  v10 = (260 - v7) & -(__int64)(v7 != 0);
+  if ( v7 )
+    v9 = 260 - v7;
+  else
+    v9 = 0LL;
   if ( v7 )
   {
-    v11 = &Name[v10];
-    v12 = 260 - v10;
-    if ( v10 != 260 )
+    v10 = &Name[v9];
+    v11 = 260 - v9;
+    if ( v9 != 260 )
     {
-      v13 = 2147483646LL;
-      v14 = (char *)((char *)L"_p0" - (char *)v11);
+      v12 = 2147483646LL;
+      v13 = (char *)((char *)L"_p0" - (char *)v10);
       do
       {
-        if ( !v13 )
+        if ( !v12 )
           break;
-        v15 = *(WCHAR *)((char *)v11 + (_QWORD)v14);
-        if ( !v15 )
+        v14 = *(WCHAR *)((char *)v10 + (_QWORD)v13);
+        if ( !v14 )
           break;
-        *v11 = v15;
-        --v13;
-        ++v11;
+        *v10 = v14;
         --v12;
+        ++v10;
+        --v11;
       }
-      while ( v12 );
+      while ( v11 );
     }
-    v16 = v11 - 1;
-    if ( v12 )
-      v16 = v11;
-    *v16 = 0;
+    v15 = v10 - 1;
+    if ( v11 )
+      v15 = v10;
+    *v15 = 0;
   }
-  v17 = 1;
-  v18 = a4 >> 31;
-  v19 = a4 & 0x7FFFFFFF;
-  if ( v19 )
-    v17 = v19;
-  Semaphore = CreateSemaphoreExW(0LL, v19, v17, Name, 0, 0x1F0003u);
+  v16 = 1;
+  v17 = a4 >> 31;
+  v18 = a4 & 0x7FFFFFFF;
+  if ( v18 )
+    v16 = v18;
+  Semaphore = CreateSemaphoreExW(0LL, v18, v16, Name, 0, 0x1F0003u);
   if ( Semaphore )
   {
-    _reset___unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__QEAAXPEAX_Z(
+    wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::reset(
       this,
       Semaphore);
+    LastErrorFailHr = 0;
   }
   else
   {
-    LastErrorFailHr = wil::details::GetLastErrorFailHr(v21);
-    v23 = LastErrorFailHr;
-    if ( LastErrorFailHr < 0 )
+    LastErrorFailHr = wil::details::GetLastErrorFailHr(v20);
+  }
+  if ( LastErrorFailHr < 0 )
+  {
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x85,
+      (unsigned int)"wil",
+      (const char *)(unsigned int)LastErrorFailHr,
+      dwFlags);
+    return (unsigned int)LastErrorFailHr;
+  }
+  else
+  {
+    v22 = 260LL;
+    v23 = Name;
+    do
     {
-      wil::details::in1diag3::Return_Hr(retaddr, (void *)0x85, (int)"wil", (const char *)(unsigned int)LastErrorFailHr);
-      return v23;
+      if ( !*v23 )
+        break;
+      ++v23;
+      --v22;
     }
-  }
-  v24 = 260LL;
-  v25 = Name;
-  do
-  {
-    if ( !*v25 )
-      break;
-    ++v25;
-    --v24;
-  }
-  while ( v24 );
-  v26 = (260 - v24) & -(__int64)(v24 != 0);
-  if ( v24 )
-  {
-    v27 = &Name[v26];
-    v28 = 260 - v26;
-    if ( 260 != v26 )
+    while ( v22 );
+    if ( v22 )
+      v24 = 260 - v22;
+    else
+      v24 = 0LL;
+    if ( v22 )
     {
-      v29 = (char *)((char *)L"h" - (char *)v27);
-      do
+      v25 = &Name[v24];
+      v26 = 260 - v24;
+      if ( 260 != v24 )
       {
-        if ( !v9 )
-          break;
-        v30 = *(WCHAR *)((char *)v27 + (_QWORD)v29);
-        if ( !v30 )
-          break;
-        *v27 = v30;
-        --v9;
-        ++v27;
-        --v28;
+        v27 = 2147483646LL;
+        v28 = (char *)((char *)L"h" - (char *)v25);
+        do
+        {
+          if ( !v27 )
+            break;
+          v29 = *(WCHAR *)((char *)v25 + (_QWORD)v28);
+          if ( !v29 )
+            break;
+          *v25 = v29;
+          --v27;
+          ++v25;
+          --v26;
+        }
+        while ( v26 );
       }
-      while ( v28 );
+      v30 = v25 - 1;
+      if ( v26 )
+        v30 = v25;
+      *v30 = 0;
     }
-    v31 = v27 - 1;
-    if ( v28 )
-      v31 = v27;
-    *v31 = 0;
+    if ( (_DWORD)v17 )
+      v8 = v17;
+    v31 = CreateSemaphoreExW(0LL, v17, v8, Name, 0, 0x1F0003u);
+    if ( v31 )
+    {
+      wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::reset(
+        (char *)this + 8,
+        v31);
+      v33 = 0;
+    }
+    else
+    {
+      v33 = wil::details::GetLastErrorFailHr(v32);
+    }
+    if ( v33 < 0 )
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x89,
+        (unsigned int)"wil",
+        (const char *)(unsigned int)v33,
+        dwFlagsa);
+      return (unsigned int)v33;
+    }
+    else
+    {
+      return 0LL;
+    }
   }
-  if ( (_DWORD)v18 )
-    v8 = v18;
-  v32 = CreateSemaphoreExW(0LL, v18, v8, Name, 0, 0x1F0003u);
-  if ( v32 )
-  {
-    _reset___unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__QEAAXPEAX_Z(
-      (char *)this + 8,
-      v32);
-    return 0LL;
-  }
-  v34 = wil::details::GetLastErrorFailHr(v33);
-  v35 = v34;
-  if ( v34 >= 0 )
-    return 0LL;
-  wil::details::in1diag3::Return_Hr(retaddr, (void *)0x89, (int)"wil", (const char *)(unsigned int)v34);
-  return v35;
 }

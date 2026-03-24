@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_DisablingEndpointsOnDetachWithSpecialFileAndResetPending @ 0x1C001D2A0
+ * XREFs of HUBDSM_DisablingEndpointsOnDetachWithSpecialFileAndResetPending @ 0x1C001CD60
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_NotifyDeviceDisconnected @ 0x1C00162B4 (HUBPDO_NotifyDeviceDisconnected.c)
- *     HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl @ 0x1C0025D54 (HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl.c)
+ *     HUBPDO_NotifyDeviceDisconnected @ 0x1C0015DEC (HUBPDO_NotifyDeviceDisconnected.c)
+ *     HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl @ 0x1C00258C8 (HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl.c)
  */
 
 __int64 __fastcall HUBDSM_DisablingEndpointsOnDetachWithSpecialFileAndResetPending(__int64 a1)

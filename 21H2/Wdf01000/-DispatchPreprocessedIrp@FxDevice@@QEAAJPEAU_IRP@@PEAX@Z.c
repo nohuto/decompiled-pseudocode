@@ -1,10 +1,11 @@
 /*
- * XREFs of ?DispatchPreprocessedIrp@FxDevice@@QEAAJPEAU_IRP@@PEAX@Z @ 0x1C0069508
+ * XREFs of ?DispatchPreprocessedIrp@FxDevice@@QEAAJPEAU_IRP@@PEAX@Z @ 0x1C001358C
  * Callers:
- *     imp_WdfDeviceWdmDispatchIrp @ 0x1C0063CC0 (imp_WdfDeviceWdmDispatchIrp.c)
+ *     imp_WdfDeviceWdmDispatchPreprocessedIrp @ 0x1C0013730 (imp_WdfDeviceWdmDispatchPreprocessedIrp.c)
+ *     imp_WdfDeviceWdmDispatchIrp @ 0x1C0049590 (imp_WdfDeviceWdmDispatchIrp.c)
  * Callees:
- *     ?_RequiresRemLock@FxDevice@@SA?AW4FxDeviceRemLockAction@@EE@Z @ 0x1C00350F0 (-_RequiresRemLock@FxDevice@@SA-AW4FxDeviceRemLockAction@@EE@Z.c)
- *     ?DispatchWorker@@YAJPEAVFxDevice@@PEAU_IRP@@PEAX@Z @ 0x1C00695C8 (-DispatchWorker@@YAJPEAVFxDevice@@PEAU_IRP@@PEAX@Z.c)
+ *     ?DispatchWorker@@YAJPEAVFxDevice@@PEAU_IRP@@PEAX@Z @ 0x1C0013630 (-DispatchWorker@@YAJPEAVFxDevice@@PEAU_IRP@@PEAX@Z.c)
+ *     ?_RequiresRemLock@FxDevice@@SA?AW4FxDeviceRemLockAction@@EE@Z @ 0x1C00136F8 (-_RequiresRemLock@FxDevice@@SA-AW4FxDeviceRemLockAction@@EE@Z.c)
  */
 
 NTSTATUS __fastcall FxDevice::DispatchPreprocessedIrp(FxDevice *this, _IRP *Irp, void *DispatchContext)
@@ -15,7 +16,7 @@ NTSTATUS __fastcall FxDevice::DispatchPreprocessedIrp(FxDevice *this, _IRP *Irp,
 
   v4 = --Irp->Tail.Overlay.CurrentStackLocation;
   --Irp->CurrentLocation;
-  if ( (unsigned int)FxDevice::_RequiresRemLock(v4->MajorFunction, v4->MinorFunction) != 1 )
+  if ( FxDevice::_RequiresRemLock(v4->MajorFunction, v4->MinorFunction) != FxDeviceRemLockRequired )
     return DispatchWorker(this, Irp, DispatchContext);
   v7 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)&this->m_DeviceObject.m_DeviceObject[1], Irp, a5, 1u, 0x20u);
   v8 = v7;

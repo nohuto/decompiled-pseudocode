@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Initialize@CColorMatrixEffectMarshaler@DirectComposition@@UEAAJXZ @ 0x1C02168F0
+ * XREFs of ?Initialize@CColorMatrixEffectMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01E0780
  * Callers:
  *     <none>
  * Callees:
- *     ?Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ @ 0x1C0215C70 (-Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ.c)
+ *     ?Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ @ 0x1C01DFE20 (-Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CColorMatrixEffectMarshaler::Initialize(
@@ -15,13 +15,13 @@ __int64 __fastcall DirectComposition::CColorMatrixEffectMarshaler::Initialize(
   if ( (int)result >= 0 )
   {
     result = 0LL;
-    *(_OWORD *)((char *)this + 120) = _xmm;
-    *(_OWORD *)((char *)this + 136) = _xmm;
-    *(_OWORD *)((char *)this + 152) = _xmm;
-    *(_OWORD *)((char *)this + 168) = _xmm;
-    *(_OWORD *)((char *)this + 184) = 0LL;
+    *((_OWORD *)this + 7) = _xmm;
+    *((_OWORD *)this + 8) = _xmm;
+    *((_OWORD *)this + 9) = _xmm;
+    *((_OWORD *)this + 10) = _xmm;
+    *((_OWORD *)this + 11) = 0LL;
   }
-  *((_DWORD *)this + 51) = 0;
-  *((_DWORD *)this + 50) = 1;
+  *((_DWORD *)this + 49) = 0;
+  *((_DWORD *)this + 48) = 1;
   return result;
 }

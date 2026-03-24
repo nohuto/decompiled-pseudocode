@@ -1,5 +1,5 @@
 /*
- * XREFs of WbAddHeapExecutedBlockToCache @ 0x14069158C
+ * XREFs of WbAddHeapExecutedBlockToCache @ 0x14069156C
  * Callers:
  *     WbGetHeapExecutedBlock @ 0x14062490C (WbGetHeapExecutedBlock.c)
  * Callees:
@@ -10,8 +10,8 @@
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     sub_1406245B4 @ 0x1406245B4 (sub_1406245B4.c)
  *     sub_140624D6C @ 0x140624D6C (sub_140624D6C.c)
- *     WbAddHeapExecutedBlockToLRU @ 0x14069169C (WbAddHeapExecutedBlockToLRU.c)
- *     sub_14069176C @ 0x14069176C (sub_14069176C.c)
+ *     WbAddHeapExecutedBlockToLRU @ 0x14069167C (WbAddHeapExecutedBlockToLRU.c)
+ *     sub_14069174C @ 0x14069174C (sub_14069174C.c)
  */
 
 __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD *a3)
@@ -47,7 +47,7 @@ __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD 
   }
   else if ( v10 == -1073741198 )
   {
-    v12 = sub_14069176C((int)a1 + 8, a2, v11, *(_QWORD *)(a2 + 48), 8, v15);
+    v12 = sub_14069174C((int)a1 + 8, a2, v11, *(_QWORD *)(a2 + 48), 8, v15);
     if ( v12 >= 0 )
     {
       v12 = sub_1406245B4(a2);

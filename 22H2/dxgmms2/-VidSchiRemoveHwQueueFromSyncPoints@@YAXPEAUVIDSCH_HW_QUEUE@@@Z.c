@@ -1,11 +1,11 @@
 /*
- * XREFs of ?VidSchiRemoveHwQueueFromSyncPoints@@YAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0042B08
+ * XREFs of ?VidSchiRemoveHwQueueFromSyncPoints@@YAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0038244
  * Callers:
- *     VidSchTerminateHwQueue @ 0x1C00451A0 (VidSchTerminateHwQueue.c)
+ *     VidSchTerminateHwQueue @ 0x1C003AB90 (VidSchTerminateHwQueue.c)
  * Callees:
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C00032E4 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00033A8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     VidSchiCheckPendingDeviceCommand @ 0x1C0009EC0 (VidSchiCheckPendingDeviceCommand.c)
+ *     VidSchiCheckPendingDeviceCommand @ 0x1C000AD40 (VidSchiCheckPendingDeviceCommand.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011E50 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00128EC (-Release@AcquireSpinLock@@QEAAXXZ.c)
  */
 
 void __fastcall VidSchiRemoveHwQueueFromSyncPoints(struct VIDSCH_HW_QUEUE *a1)
@@ -21,7 +21,7 @@ void __fastcall VidSchiRemoveHwQueueFromSyncPoints(struct VIDSCH_HW_QUEUE *a1)
 
   v2 = 0;
   v3 = *(_QWORD **)(*((_QWORD *)a1 + 5) + 8LL);
-  v8[0] = v3[4] + 1728LL;
+  v8[0] = v3[4] + 1712LL;
   v9 = 0;
   AcquireSpinLock::Acquire((Acquire *)v8);
   v4 = (__int64 *)v3[201];

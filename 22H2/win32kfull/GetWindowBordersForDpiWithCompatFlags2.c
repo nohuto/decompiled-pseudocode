@@ -1,100 +1,50 @@
 /*
- * XREFs of GetWindowBordersForDpiWithCompatFlags2 @ 0x1C00EDCBC
+ * XREFs of GetWindowBordersForDpiWithCompatFlags2 @ 0x1C00E0E94
  * Callers:
- *     ?xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z @ 0x1C0062F3C (-xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z.c)
- *     GetWindowBordersForDpi @ 0x1C00C6AB0 (GetWindowBordersForDpi.c)
- *     ?GetWindowBordersWithDpiAwareness@@YAHPEBUtagWND@@_N1I@Z @ 0x1C00EC0BC (-GetWindowBordersWithDpiAwareness@@YAHPEBUtagWND@@_N1I@Z.c)
- *     xxxInitSendValidateMinMaxInfoEx @ 0x1C00ED180 (xxxInitSendValidateMinMaxInfoEx.c)
+ *     GetWindowBordersForDpi @ 0x1C00E0E50 (GetWindowBordersForDpi.c)
  * Callees:
- *     GetDpiCacheSlot @ 0x1C00EDB50 (GetDpiCacheSlot.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
- *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01BF620 (_ScaleSystemMetricForDPIWithoutCache.c)
+ *     ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C004B9B8 (-GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z.c)
+ *     ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00E0F70 (-GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z.c)
  */
 
-__int64 __fastcall GetWindowBordersForDpiWithCompatFlags2(int a1, int a2, __int64 a3, int a4, unsigned int a5, int a6)
+__int64 __fastcall GetWindowBordersForDpiWithCompatFlags2(
+        int a1,
+        int a2,
+        __int64 a3,
+        int a4,
+        unsigned int a5,
+        unsigned int a6)
 {
-  int v7; // edi
-  int v8; // edx
+  __int16 v7; // di
+  int v8; // ebp
   int v9; // r8d
-  unsigned int v10; // r12d
-  int v11; // r9d
-  int v12; // ecx
-  int v13; // esi
+  unsigned int v10; // ebx
+  int WindowFrameMetricForDpiWithCompatFlags2; // r14d
   __int64 result; // rax
-  int v15; // eax
-  unsigned int v16; // r10d
-  int DpiDependentMetric; // eax
-  int v19; // [rsp+80h] [rbp+18h]
 
-  v7 = 1;
+  v7 = a2;
   v8 = a1;
   if ( (a2 & 0x100) != 0 )
     v9 = 2;
   else
     v9 = (a2 & 0x20000) != 0;
   v10 = v9 + 1;
-  v11 = a1 & 0xC00000;
-  v19 = a1 & 0xC00000;
-  if ( (a1 & 0xC00000) == 0 && (a2 & 1) == 0 )
+  LOBYTE(a1) = (a1 & 0xC00000) == 0;
+  if ( ((unsigned __int8)a1 & ((a2 & 1) == 0)) != 0 )
     v10 = v9;
-  v12 = a6 & 0x10000000;
-  if ( (a6 & 0x10000000) != 0 || (a6 & 0x20000000) != 0 )
+  WindowFrameMetricForDpiWithCompatFlags2 = GetWindowFrameMetricForDpiWithCompatFlags2(a1, a5, a6);
+  if ( (v8 & 0x40000) != 0
+    || (result = v10, WindowFrameMetricForDpiWithCompatFlags2 > 0)
+    && ((v8 & 0xC00000) == 12582912 || (v8 & 0x40000) != 0)
+    && (a6 & 0x30000000) == 0 )
   {
-    v13 = 0;
-  }
-  else
-  {
-    if ( a5 == *(unsigned __int16 *)(gpsi + 6998LL) )
-    {
-      v13 = *(_DWORD *)(gpsi + 2400LL);
-    }
-    else if ( a5 == 96 )
-    {
-      v13 = *(_DWORD *)(gpsi + 2520LL);
-    }
-    else
-    {
-      if ( (unsigned int)GetDpiCacheSlot(a5) == -1 )
-        DpiDependentMetric = ScaleSystemMetricForDPIWithoutCache(v16, a5);
-      else
-        DpiDependentMetric = GetDpiDependentMetric(v16, a5);
-      v11 = v19;
-      v13 = DpiDependentMetric;
-      v8 = a1;
-    }
-    v12 = 0;
-  }
-  if ( (v8 & 0x40000) != 0 || (result = v10, v13 > 0) && v11 == 12582912 && (a6 & 0x30000000) == 0 )
-  {
-    if ( !v12 )
-    {
-      v7 = (int)(*(_DWORD *)(Get96DpiServerInfo() + 4) * a5 + 48) / 96;
-      if ( (a6 & 0x20000000) != 0 )
-      {
-        if ( a5 == *(unsigned __int16 *)(gpsi + 6998LL) )
-        {
-          v15 = *(_DWORD *)(gpsi + 2400LL);
-        }
-        else if ( a5 == 96 )
-        {
-          v15 = *(_DWORD *)(gpsi + 2520LL);
-        }
-        else if ( (unsigned int)GetDpiCacheSlot(a5) == -1 )
-        {
-          v15 = ScaleSystemMetricForDPIWithoutCache(29LL, a5);
-        }
-        else
-        {
-          v15 = GetDpiDependentMetric(29LL, a5);
-        }
-        v7 += v15;
-      }
-    }
-    result = v7 + v10 + v13;
+    result = WindowFrameMetricForDpiWithCompatFlags2
+           + v10
+           + (unsigned int)GetResizeBorderWidthForDpiWithAppCompat2(a5, a6);
   }
   if ( a4 )
   {
-    if ( (a2 & 0x200) != 0 )
+    if ( (v7 & 0x200) != 0 )
       return (unsigned int)(result + 2);
   }
   return result;

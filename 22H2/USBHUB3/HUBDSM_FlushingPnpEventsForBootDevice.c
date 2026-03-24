@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_FlushingPnpEventsForBootDevice @ 0x1C001EE60
+ * XREFs of HUBDSM_FlushingPnpEventsForBootDevice @ 0x1C001C450
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_SignalPnpPowerEvent @ 0x1C0019754 (HUBPDO_SignalPnpPowerEvent.c)
+ *     HUBPDO_SignalPnpPowerEvent @ 0x1C001810C (HUBPDO_SignalPnpPowerEvent.c)
  */
 
 __int64 __fastcall HUBDSM_FlushingPnpEventsForBootDevice(__int64 a1)

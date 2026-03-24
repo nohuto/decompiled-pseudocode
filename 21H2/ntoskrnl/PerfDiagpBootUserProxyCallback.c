@@ -1,9 +1,9 @@
 /*
- * XREFs of PerfDiagpBootUserProxyCallback @ 0x14081C860
+ * XREFs of PerfDiagpBootUserProxyCallback @ 0x1407CF520
  * Callers:
  *     <none>
  * Callees:
- *     PerfDiagpRequestState @ 0x14081C88C (PerfDiagpRequestState.c)
+ *     PerfDiagpRequestState @ 0x1407CF54C (PerfDiagpRequestState.c)
  */
 
 void __fastcall PerfDiagpBootUserProxyCallback(
@@ -14,16 +14,15 @@ void __fastcall PerfDiagpBootUserProxyCallback(
 {
   __int64 v4; // rcx
 
-  if ( !(_DWORD)ControlCode )
+  if ( (_DWORD)ControlCode )
+  {
+    if ( (_BYTE)Level != 85 )
+      return;
+    v4 = 3LL;
+  }
+  else
   {
     v4 = 4LL;
-LABEL_3:
-    PerfDiagpRequestState(v4, ControlCode, Level, MatchAnyKeyword);
-    return;
   }
-  if ( (_BYTE)Level == 85 )
-  {
-    v4 = 3LL;
-    goto LABEL_3;
-  }
+  PerfDiagpRequestState(v4, ControlCode, Level, MatchAnyKeyword);
 }

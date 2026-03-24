@@ -1,10 +1,9 @@
 /*
- * XREFs of MiOkToSetPteDirtyForNotValidFault @ 0x14033F048
+ * XREFs of MiOkToSetPteDirtyForNotValidFault @ 0x140303DF4
  * Callers:
- *     MiProbeLeafPteAccess @ 0x140236C30 (MiProbeLeafPteAccess.c)
- *     MiResolveTransitionFault @ 0x1402623B0 (MiResolveTransitionFault.c)
- *     MiCompleteProtoPteFault @ 0x140268AC0 (MiCompleteProtoPteFault.c)
- *     MiIssueHardFault @ 0x1402A0F90 (MiIssueHardFault.c)
+ *     MiProbeLeafPteAccess @ 0x14020B6B0 (MiProbeLeafPteAccess.c)
+ *     MiResolveTransitionFault @ 0x140216750 (MiResolveTransitionFault.c)
+ *     MiIssueHardFault @ 0x14028F030 (MiIssueHardFault.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +20,7 @@ _BOOL8 __fastcall MiOkToSetPteDirtyForNotValidFault(__int64 a1, unsigned __int64
     Process = KeGetCurrentThread()->ApcState.Process;
     if ( a1 >= 0 && (Process[1].DirectoryTableBase & 0x1000000000LL) != 0 )
       return 0;
-    v3 = Process[2].ActiveProcessors.StaticBitmap[2];
+    v3 = Process[2].ActiveProcessors.Bitmap[2];
     if ( v3 )
     {
       if ( *(_QWORD *)(v3 + 24) != v3 + 24 )

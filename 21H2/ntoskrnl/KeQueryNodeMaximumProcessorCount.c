@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryNodeMaximumProcessorCount @ 0x1403DD630
+ * XREFs of KeQueryNodeMaximumProcessorCount @ 0x1403CE5E0
  * Callers:
  *     <none>
  * Callees:
@@ -11,5 +11,5 @@ USHORT __stdcall KeQueryNodeMaximumProcessorCount(USHORT NodeNumber)
   if ( NodeNumber >= (unsigned __int16)KeNumberNodes )
     return 0;
   _mm_lfence();
-  return *(_WORD *)(KeNodeBlock[NodeNumber] + 8);
+  return *(unsigned __int8 *)(KeNodeBlock[NodeNumber] + 180);
 }

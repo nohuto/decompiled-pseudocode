@@ -1,20 +1,20 @@
 /*
- * XREFs of GreDeleteWnd @ 0x1C02844B0
+ * XREFs of GreDeleteWnd @ 0x1C02878F0
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     ?GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z @ 0x1C0140E60 (-GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z.c)
- *     NtGdiEndPage @ 0x1C027ACD0 (NtGdiEndPage.c)
- *     EngDeleteWnd @ 0x1C02843D0 (EngDeleteWnd.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     ?GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z @ 0x1C0152880 (-GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z.c)
+ *     NtGdiEndPage @ 0x1C027D170 (NtGdiEndPage.c)
+ *     EngDeleteWnd @ 0x1C0287810 (EngDeleteWnd.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C002CEF0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003FD70 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C0041980 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?vSpWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z @ 0x1C0281F68 (-vSpWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z.c)
- *     ?bValid@EWNDOBJ@@QEBAHXZ @ 0x1C0283754 (-bValid@EWNDOBJ@@QEBAHXZ.c)
- *     ?vDelete@EWNDOBJ@@QEAAXXZ @ 0x1C0283780 (-vDelete@EWNDOBJ@@QEAAXXZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E9B0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00ACCE0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2C64 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?vSpWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z @ 0x1C02852FC (-vSpWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z.c)
+ *     ?bValid@EWNDOBJ@@QEBAHXZ @ 0x1C0286BA8 (-bValid@EWNDOBJ@@QEBAHXZ.c)
+ *     ?vDelete@EWNDOBJ@@QEAAXXZ @ 0x1C0286BD4 (-vDelete@EWNDOBJ@@QEAAXXZ.c)
  */
 
 __int64 __fastcall GreDeleteWnd(EWNDOBJ *this)
@@ -108,10 +108,10 @@ __int64 __fastcall GreDeleteWnd(EWNDOBJ *this)
       {
         EWNDOBJ::vDelete(v9);
         *(_DWORD *)(*(_QWORD *)(v4 + 16) + 152LL) = 0;
-        Win32FreePool(*(_QWORD *)(v4 + 16));
+        Win32FreePool(*(void **)(v4 + 16));
       }
       *(_DWORD *)v4 = 0;
-      Win32FreePool(v4);
+      Win32FreePool((void *)v4);
     }
     vSpWndobjChange(v17, 0LL);
     SEMOBJ::vUnlock((SEMOBJ *)&v19);

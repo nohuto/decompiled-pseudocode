@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwGetCurrentProcessorNumberEx @ 0x14041C600
+ * XREFs of ZwGetCurrentProcessorNumberEx @ 0x1403FB8C0
  * Callers:
  *     <none>
  * Callees:

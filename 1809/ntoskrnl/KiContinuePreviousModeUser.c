@@ -8,10 +8,10 @@
  *     RtlGetExtendedContextLength @ 0x1400A1D44 (RtlGetExtendedContextLength.c)
  *     RtlInitializeExtendedContext @ 0x1400A1D9C (RtlInitializeExtendedContext.c)
  *     RtlpSanitizeContextFlags @ 0x1400A1E00 (RtlpSanitizeContextFlags.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeContextToKframes @ 0x1401BBCD0 (KeContextToKframes.c)
- *     _alloca_probe @ 0x1401C5DA0 (_alloca_probe.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeContextToKframes @ 0x1401BBCF0 (KeContextToKframes.c)
+ *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlpReadExtendedContext @ 0x140620F80 (RtlpReadExtendedContext.c)
  */
 

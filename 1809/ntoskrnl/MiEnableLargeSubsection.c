@@ -1,7 +1,7 @@
 /*
- * XREFs of MiEnableLargeSubsection @ 0x1402B5BC4
+ * XREFs of MiEnableLargeSubsection @ 0x1402B5CC4
  * Callers:
- *     MiIncrementLargeSubsections @ 0x1402B605C (MiIncrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x1402B615C (MiIncrementLargeSubsections.c)
  * Callees:
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
@@ -9,8 +9,8 @@
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     MiChargeLargeProtoSubsection @ 0x1408528F4 (MiChargeLargeProtoSubsection.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     MiChargeLargeProtoSubsection @ 0x1408528D4 (MiChargeLargeProtoSubsection.c)
  */
 
 __int64 __fastcall MiEnableLargeSubsection(__int64 a1)

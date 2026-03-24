@@ -1,15 +1,15 @@
 /*
- * XREFs of xxxDrawAnimatedRects @ 0x1C0224A30
+ * XREFs of xxxDrawAnimatedRects @ 0x1C023EA44
  * Callers:
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00C4E00 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     NtUserDrawAnimatedRects @ 0x1C01CEAE0 (NtUserDrawAnimatedRects.c)
- *     xxxMinimizeHungWindow @ 0x1C0224BB0 (xxxMinimizeHungWindow.c)
+ *     xxxMinMaximizeEx @ 0x1C002B69C (xxxMinMaximizeEx.c)
+ *     NtUserDrawAnimatedRects @ 0x1C01F79F0 (NtUserDrawAnimatedRects.c)
+ *     xxxMinimizeHungWindow @ 0x1C023EBD0 (xxxMinimizeHungWindow.c)
  * Callees:
- *     IsToplevelWindowDesktopComposed @ 0x1C00D3B08 (IsToplevelWindowDesktopComposed.c)
- *     GetThreadDesktopWindow @ 0x1C00EC080 (GetThreadDesktopWindow.c)
- *     _GetDesktopWindow @ 0x1C00ECDE0 (_GetDesktopWindow.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z @ 0x1C02243DC (-xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z.c)
+ *     IsToplevelWindowDesktopComposed @ 0x1C006BE7C (IsToplevelWindowDesktopComposed.c)
+ *     _GetDesktopWindow @ 0x1C0070420 (_GetDesktopWindow.c)
+ *     GetThreadDesktopWindow @ 0x1C0103DD0 (GetThreadDesktopWindow.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z @ 0x1C023E3AC (-xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z.c)
  */
 
 __int64 __fastcall xxxDrawAnimatedRects(struct tagWND *a1, int a2, struct tagRECT *a3, struct tagRECT *a4)
@@ -17,25 +17,27 @@ __int64 __fastcall xxxDrawAnimatedRects(struct tagWND *a1, int a2, struct tagREC
   struct tagRECT v5; // xmm1
   struct tagRECT v6; // xmm0
   __int64 v7; // rdi
-  __int64 v8; // rbx
-  __int64 v9; // rax
-  _DWORD *v10; // rcx
-  __int64 *DCEx; // r14
-  int v12; // edx
-  int v13; // r8d
-  int v14; // r9d
-  int v15; // r10d
+  __int64 DesktopWindow; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rbx
+  __int64 DCEx; // rax
+  _DWORD *v12; // rcx
+  HDC v13; // r14
+  int v14; // edx
+  int v15; // r8d
+  int v16; // r9d
+  int v17; // r10d
   __int64 ThreadDesktopWindow; // rbx
-  __int64 v17; // rax
-  __int128 v19; // [rsp+20h] [rbp-58h] BYREF
-  struct tagRECT v20; // [rsp+30h] [rbp-48h] BYREF
-  struct tagRECT v21; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v19; // rax
+  __int128 v21; // [rsp+20h] [rbp-58h] BYREF
+  struct tagRECT v22; // [rsp+30h] [rbp-48h] BYREF
+  struct tagRECT v23; // [rsp+40h] [rbp-38h] BYREF
 
   v5 = *a3;
-  v19 = 0LL;
+  v21 = 0LL;
   v6 = *a4;
-  v20 = v5;
-  v21 = v6;
+  v22 = v5;
+  v23 = v6;
   if ( a2 != 3 )
     return 1LL;
   v7 = 0LL;
@@ -43,33 +45,39 @@ __int64 __fastcall xxxDrawAnimatedRects(struct tagWND *a1, int a2, struct tagREC
     return 0LL;
   if ( (unsigned int)IsToplevelWindowDesktopComposed((__int64)a1) )
     return 1LL;
-  v8 = *((_QWORD *)a1 + 13);
-  if ( !v8 || v8 == GetDesktopWindow(*((_QWORD *)a1 + 13)) )
+  if ( !*((_QWORD *)a1 + 13) )
+    goto LABEL_12;
+  DesktopWindow = GetDesktopWindow(*((_QWORD *)a1 + 13));
+  v10 = 0LL;
+  if ( v9 != DesktopWindow )
+    v10 = v9;
+  if ( v10 )
   {
-    ThreadDesktopWindow = GetThreadDesktopWindow(0LL);
-    v19 = *(_OWORD *)(*(_QWORD *)(ThreadDesktopWindow + 40) + 104LL);
-    v17 = GreCreateRectRgnIndirect(&v19);
-    if ( !v17 )
-      v17 = 1LL;
-    DCEx = (__int64 *)_GetDCEx(ThreadDesktopWindow, v17, 1155LL);
-  }
-  else
-  {
-    v9 = _GetDCEx(v8, 1LL, 65665LL);
-    v10 = *(_DWORD **)(v8 + 40);
-    DCEx = (__int64 *)v9;
-    v12 = v10[26];
-    v13 = v10[22];
-    v14 = v10[27];
-    v15 = v10[23];
+    DCEx = _GetDCEx(v10, 1LL, 65665LL);
+    v12 = *(_DWORD **)(v10 + 40);
+    v13 = (HDC)DCEx;
+    v14 = v12[22];
+    v15 = v12[26];
+    v16 = v12[23];
+    v17 = v12[27];
     do
     {
-      *(&v20.left + 2 * v7) += v12 - v13;
-      *(&v20.top + 2 * v7++) += v14 - v15;
+      *(&v22.left + 2 * v7) += v15 - v14;
+      *(&v22.top + 2 * v7++) += v17 - v16;
     }
     while ( v7 < 4 );
   }
-  xxxAnimateCaption(a1, DCEx, &v20, &v21);
-  _ReleaseDC(DCEx);
+  else
+  {
+LABEL_12:
+    ThreadDesktopWindow = GetThreadDesktopWindow(0LL);
+    v21 = *(_OWORD *)(*(_QWORD *)(ThreadDesktopWindow + 40) + 104LL);
+    v19 = GreCreateRectRgnIndirect(&v21);
+    if ( !v19 )
+      v19 = 1LL;
+    v13 = (HDC)_GetDCEx(ThreadDesktopWindow, v19, 1155LL);
+  }
+  xxxAnimateCaption(a1, v13, &v22, &v23);
+  _ReleaseDC(v13);
   return 1LL;
 }

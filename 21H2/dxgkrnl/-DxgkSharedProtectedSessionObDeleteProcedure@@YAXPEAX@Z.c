@@ -1,50 +1,53 @@
 /*
- * XREFs of ?DxgkSharedProtectedSessionObDeleteProcedure@@YAXPEAX@Z @ 0x1C031BAB0
+ * XREFs of ?DxgkSharedProtectedSessionObDeleteProcedure@@YAXPEAX@Z @ 0x1C02772F0
  * Callers:
  *     <none>
  * Callees:
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     ??0DXGPROTECTEDSESSIONMUTEX@@QEAA@PEAVDXGGLOBAL@@_N@Z @ 0x1C005580C (--0DXGPROTECTEDSESSIONMUTEX@@QEAA@PEAVDXGGLOBAL@@_N@Z.c)
- *     ?DestroyProtectedSession@DXGPROTECTEDSESSION@@SAJPEAV1@I@Z @ 0x1C0339ABC (-DestroyProtectedSession@DXGPROTECTEDSESSION@@SAJPEAV1@I@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ??0DXGPROTECTEDSESSIONMUTEX@@QEAA@PEAVDXGGLOBAL@@_N@Z @ 0x1C0047598 (--0DXGPROTECTEDSESSIONMUTEX@@QEAA@PEAVDXGGLOBAL@@_N@Z.c)
+ *     ?DestroyProtectedSession@DXGPROTECTEDSESSION@@SAJPEAV1@I@Z @ 0x1C02884D0 (-DestroyProtectedSession@DXGPROTECTEDSESSION@@SAJPEAV1@I@Z.c)
  */
 
-void __fastcall DxgkSharedProtectedSessionObDeleteProcedure(struct DXGPROTECTEDSESSION **a1, __int64 a2, __int64 a3)
+void __fastcall DxgkSharedProtectedSessionObDeleteProcedure(PVOID *a1, __int64 a2, __int64 a3)
 {
-  struct DXGGLOBAL *Global; // rax
+  __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // r8
-  _BYTE v7[16]; // [rsp+20h] [rbp-30h] BYREF
-  int v8; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v9; // [rsp+38h] [rbp-18h]
-  char v10; // [rsp+40h] [rbp-10h]
+  struct DXGGLOBAL *Global; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  _BYTE v10[16]; // [rsp+20h] [rbp-30h] BYREF
+  int v11; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v12; // [rsp+38h] [rbp-18h]
+  char v13; // [rsp+40h] [rbp-10h]
 
-  v8 = -1;
-  v9 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v11 = -1;
+  v12 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v10 = 1;
-    v8 = 16003;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v13 = 1;
+    v11 = 16003;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)a1, &EventProfilerEnter, a3, 16003);
   }
   else
   {
-    v10 = 0;
+    v13 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v8, 16003);
-  Global = DXGGLOBAL_GetGlobal();
-  DXGPROTECTEDSESSIONMUTEX::DXGPROTECTEDSESSIONMUTEX((DXGPROTECTEDSESSIONMUTEX *)v7, Global);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v11, 16003LL);
+  Global = DXGGLOBAL::GetGlobal(v5, v4);
+  DXGPROTECTEDSESSIONMUTEX::DXGPROTECTEDSESSIONMUTEX((DXGPROTECTEDSESSIONMUTEX *)v10, Global);
   DXGPROTECTEDSESSION::DestroyProtectedSession(*a1, 0);
-  if ( v7[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v7);
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v8);
-  if ( v10 )
+  if ( v10[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v10, v7);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v11, v7);
+  if ( v13 )
   {
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v5, &EventProfilerExit, v6, v8);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v8, &EventProfilerExit, v9, v11);
   }
 }

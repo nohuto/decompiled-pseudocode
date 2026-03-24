@@ -1,77 +1,75 @@
 /*
- * XREFs of ?VmBusSetContextSchedulingPriority@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C03918E0
+ * XREFs of ?VmBusSetContextSchedulingPriority@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C024EF60
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B834 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEA.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     DxgkSetContextInProcessSchedulingPriority @ 0x1C018A6D0 (DxgkSetContextInProcessSchedulingPriority.c)
- *     DxgkSetContextSchedulingPriority @ 0x1C02F2510 (DxgkSetContextSchedulingPriority.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C004065C (--$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEA.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     DxgkSetContextSchedulingPriority @ 0x1C00E4D80 (DxgkSetContextSchedulingPriority.c)
+ *     DxgkSetContextInProcessSchedulingPriority @ 0x1C00ECA80 (DxgkSetContextInProcessSchedulingPriority.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusSetContextSchedulingPriority(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // bl
-  char v4; // si
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // rcx
-  int v8; // eax
-  _BYTE v10[8]; // [rsp+50h] [rbp-28h] BYREF
-  DXGPUSHLOCK *v11; // [rsp+58h] [rbp-20h]
-  int v12; // [rsp+60h] [rbp-18h]
-  int v13; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  char v5; // bl
+  __int64 v6; // rax
+  char v7; // si
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  int v13; // eax
+  _BYTE v15[8]; // [rsp+20h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v16; // [rsp+28h] [rbp-20h]
+  int v17; // [rsp+30h] [rbp-18h]
+  int v18; // [rsp+50h] [rbp+8h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v10, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v11);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 0;
-  v12 = 1;
-  if ( *(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v15, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v16);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 0;
+  v17 = 1;
+  if ( *(_BYTE *)(v4 + 165) )
   {
-    v13 = -1073741811;
-    v4 = 0;
-    v5 = CastToVmBusCommand<DXGKVMB_COMMAND_DESTROYDEVICE>((__int64)a1);
-    if ( !v5 )
+    v18 = -1073741811;
+    v7 = 0;
+    v8 = CastToVmBusCommand<DXGKVMB_COMMAND_DESTROYDEVICE>((__int64)a1);
+    if ( !v8 )
       goto LABEL_13;
-    if ( *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 12) + 608LL) + 392LL) > 0x10u )
+    v10 = *(_QWORD *)(*((_QWORD *)a1 + 7) + 496LL);
+    if ( *(_DWORD *)(v10 + 352) > 0x10u )
     {
-      if ( *((_DWORD *)a1 + 36) < 0x28u )
+      if ( *((_DWORD *)a1 + 22) < 0x28u )
       {
-        WdLogSingleEntry1(2LL, 3221LL);
-        DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Invalid packet size", 3221LL, 0LL, 0LL, 0LL, 0LL);
+        v11 = WdLogNewEntry5_WdError(v10, v8);
+        *(_QWORD *)(v11 + 24) = 2780LL;
+        WdLogEvent5_WdError(v11);
 LABEL_12:
-        VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 16), &v13, 4u);
-        v3 = 1;
+        VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), &v18, 4u);
+        v5 = 1;
         goto LABEL_13;
       }
-      v4 = *(_BYTE *)(v5 + 32);
+      v7 = *(_BYTE *)(v8 + 32);
     }
-    v7 = v5 + 24;
-    if ( v4 )
-      v8 = DxgkSetContextInProcessSchedulingPriority(v7, v5, v6);
+    v12 = v8 + 24;
+    if ( v7 )
+      v13 = DxgkSetContextInProcessSchedulingPriority(v12, v8, v9);
     else
-      v8 = DxgkSetContextSchedulingPriority(v7, v5, v6);
-    v13 = v8;
+      v13 = DxgkSetContextSchedulingPriority(v12, v8, v9);
+    v18 = v13;
     goto LABEL_12;
   }
-  WdLogSingleEntry1(2LL, 3211LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"The adapter is already closed by the guest",
-    3211LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  v6 = WdLogNewEntry5_WdError(v3, v2);
+  *(_QWORD *)(v6 + 24) = 2770LL;
+  WdLogEvent5_WdError(v6);
 LABEL_13:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v10);
-  return v3;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v15);
+  return v5;
 }

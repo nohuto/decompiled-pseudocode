@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCreatePort @ 0x14041BE20
+ * XREFs of ZwCreatePort @ 0x1403FB120
  * Callers:
- *     SeRmInitPhase1 @ 0x140B647DC (SeRmInitPhase1.c)
+ *     SeRmInitPhase1 @ 0x140A4BA3C (SeRmInitPhase1.c)
  * Callees:
  *     <none>
  */

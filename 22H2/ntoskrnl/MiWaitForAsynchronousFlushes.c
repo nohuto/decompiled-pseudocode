@@ -1,24 +1,24 @@
 /*
- * XREFs of MiWaitForAsynchronousFlushes @ 0x1406363C4
+ * XREFs of MiWaitForAsynchronousFlushes @ 0x14053D520
  * Callers:
- *     MiFlushSectionInternal @ 0x140275630 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x140219D70 (MiFlushSectionInternal.c)
  * Callees:
- *     KeWaitForMultipleObjects @ 0x140310FC0 (KeWaitForMultipleObjects.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWaitForMultipleObjects @ 0x14024B500 (KeWaitForMultipleObjects.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiWaitForAsynchronousFlushes(unsigned int *a1)
 {
   unsigned int *v1; // rdi
-  PVOID *v2; // r14
+  PVOID *v2; // rbp
   unsigned __int8 CurrentIrql; // si
   unsigned int v4; // ebx
-  unsigned __int8 v5; // cl
+  unsigned __int8 v5; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v8; // eax
   bool v9; // zf
-  unsigned __int8 v10; // cl
+  unsigned __int8 v10; // al
   struct _KPRCB *v11; // r9
   _DWORD *v12; // r8
   int v13; // eax
@@ -30,7 +30,7 @@ __int64 __fastcall MiWaitForAsynchronousFlushes(unsigned int *a1)
   v4 = 0;
   do
   {
-    if ( !*((_QWORD *)a1 + 2) || a1[13] )
+    if ( !*((_QWORD *)a1 + 2) || a1[13] == 1 )
     {
       a1 += 66;
     }
@@ -38,16 +38,19 @@ __int64 __fastcall MiWaitForAsynchronousFlushes(unsigned int *a1)
     {
       if ( KiIrqlFlags )
       {
-        v5 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v8 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v9 = (v8 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v8;
-          if ( v9 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          v5 = KeGetCurrentIrql();
+          if ( v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v8 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v9 = (v8 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v8;
+            if ( v9 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(CurrentIrql);
@@ -60,16 +63,19 @@ __int64 __fastcall MiWaitForAsynchronousFlushes(unsigned int *a1)
   while ( a1 < (unsigned int *)v2 );
   if ( KiIrqlFlags )
   {
-    v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v11 = KeGetCurrentPrcb();
-      v12 = v11->SchedulerAssist;
-      v13 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v9 = (v13 & v12[5]) == 0;
-      v12[5] &= v13;
-      if ( v9 )
-        KiRemoveSystemWorkPriorityKick((__int64)v11);
+      v10 = KeGetCurrentIrql();
+      if ( v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+      {
+        v11 = KeGetCurrentPrcb();
+        v12 = v11->SchedulerAssist;
+        v13 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v9 = (v13 & v12[5]) == 0;
+        v12[5] &= v13;
+        if ( v9 )
+          KiRemoveSystemWorkPriorityKick((__int64)v11);
+      }
     }
   }
   __writecr8(CurrentIrql);

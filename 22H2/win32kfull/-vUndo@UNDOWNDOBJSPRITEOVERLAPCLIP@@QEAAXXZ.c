@@ -1,65 +1,64 @@
 /*
- * XREFs of ?vUndo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ @ 0x1C0283550
+ * XREFs of ?vUndo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ @ 0x1C0284E4C
  * Callers:
- *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0282134 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
+ *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0283BD4 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0UNDODESKTOPCOORD@@QEAA@PEAVEWNDOBJ@@PEAU_SPRITESTATE@@@Z @ 0x1C02799B4 (--0UNDODESKTOPCOORD@@QEAA@PEAVEWNDOBJ@@PEAU_SPRITESTATE@@@Z.c)
- *     ??1UNDODESKTOPCOORD@@QEAA@XZ @ 0x1C0279B7C (--1UNDODESKTOPCOORD@@QEAA@XZ.c)
- *     ?vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z @ 0x1C028789C (-vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0UNDODESKTOPCOORD@@QEAA@PEAVEWNDOBJ@@PEAU_SPRITESTATE@@@Z @ 0x1C027D934 (--0UNDODESKTOPCOORD@@QEAA@PEAVEWNDOBJ@@PEAU_SPRITESTATE@@@Z.c)
+ *     ??1UNDODESKTOPCOORD@@QEAA@XZ @ 0x1C027DA84 (--1UNDODESKTOPCOORD@@QEAA@XZ.c)
+ *     ?vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z @ 0x1C0286ABC (-vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z.c)
  */
 
 void __fastcall UNDOWNDOBJSPRITEOVERLAPCLIP::vUndo(UNDOWNDOBJSPRITEOVERLAPCLIP *this)
 {
   __int64 v2; // rbp
-  __int64 v3; // rcx
-  __int64 i; // rdi
+  TRACKOBJ *i; // rdi
   __int64 j; // rbx
-  __int64 v6; // rax
-  __int64 v7; // rcx
-  unsigned int v8; // esi
-  _BYTE v9[56]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v10; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v11; // [rsp+68h] [rbp+10h] BYREF
-  __int64 v12; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v5; // rax
+  __int64 v6; // rcx
+  unsigned int v7; // esi
+  _BYTE v8[56]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v9; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v10; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v11; // [rsp+70h] [rbp+18h] BYREF
 
   v2 = *(_QWORD *)(*(_QWORD *)this + 16LL);
-  v12 = *((_QWORD *)Gre::Base::Globals(this) + 7);
-  GreAcquireSemaphore(v12);
-  for ( i = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(v3) + 32) + 23664LL); i; i = *(_QWORD *)(i + 8) )
+  v11 = ghsemWndobj;
+  GreAcquireSemaphore(ghsemWndobj);
+  for ( i = gpto; i; i = (TRACKOBJ *)*((_QWORD *)i + 1) )
   {
-    for ( j = *(_QWORD *)(i + 24); j; j = *(_QWORD *)(j + 160) )
+    for ( j = *((_QWORD *)i + 3); j; j = *(_QWORD *)(j + 160) )
     {
-      UNDODESKTOPCOORD::UNDODESKTOPCOORD((UNDODESKTOPCOORD *)v9, (struct EWNDOBJ *)j, (struct _SPRITESTATE *)v2);
+      UNDODESKTOPCOORD::UNDODESKTOPCOORD((UNDODESKTOPCOORD *)v8, (struct EWNDOBJ *)j, (struct _SPRITESTATE *)v2);
       if ( (*(_DWORD *)(j + 184) & 0x200) != 0 )
       {
-        v6 = *(_QWORD *)(j + 192);
-        v7 = *(_QWORD *)(v2 + 704);
-        v10 = v7;
-        v11 = v6;
-        if ( v6 )
+        v5 = *(_QWORD *)(j + 192);
+        v6 = *(_QWORD *)(v2 + 704);
+        v9 = v6;
+        v10 = v5;
+        if ( v5 )
         {
-          if ( v7 )
+          if ( v6 )
           {
-            v8 = 0;
+            v7 = 0;
             if ( *((_DWORD *)this + 2) )
             {
-              while ( RGNOBJ::bInside((RGNOBJ *)&v11, (struct _RECTL *)(*((_QWORD *)this + 2) + 16LL * v8)) != 2 )
+              while ( RGNOBJ::bInside((RGNOBJ *)&v10, (struct _RECTL *)(*((_QWORD *)this + 2) + 16LL * v7)) != 2 )
               {
-                if ( ++v8 >= *((_DWORD *)this + 2) )
+                if ( ++v7 >= *((_DWORD *)this + 2) )
                   goto LABEL_11;
               }
-              RGNOBJ::vSet((RGNOBJ *)&v10);
-              vUpdateClientRgnOnSpriteOverlap((struct EWNDOBJ *)j, (struct RGNOBJ *)&v10);
-              *(_QWORD *)(v2 + 704) = v10;
+              RGNOBJ::vSet((RGNOBJ *)&v9);
+              vUpdateClientRgnOnSpriteOverlap((struct EWNDOBJ *)j, (struct RGNOBJ *)&v9);
+              *(_QWORD *)(v2 + 704) = v9;
               *(_DWORD *)(j + 184) |= 0x800000u;
             }
           }
         }
       }
 LABEL_11:
-      UNDODESKTOPCOORD::~UNDODESKTOPCOORD((UNDODESKTOPCOORD *)v9);
+      UNDODESKTOPCOORD::~UNDODESKTOPCOORD((UNDODESKTOPCOORD *)v8);
     }
   }
-  SEMOBJ::vUnlock((SEMOBJ *)&v12);
+  SEMOBJ::vUnlock((SEMOBJ *)&v11);
 }

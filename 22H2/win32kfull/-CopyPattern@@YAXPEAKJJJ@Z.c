@@ -1,10 +1,11 @@
 /*
- * XREFs of ?CopyPattern@@YAXPEAKJJJ@Z @ 0x1C0304068
+ * XREFs of ?CopyPattern@@YAXPEAKJJJ@Z @ 0x1C02DB138
  * Callers:
- *     vFetchAndCopy @ 0x1C00184C8 (vFetchAndCopy.c)
- *     vFetchNotAndCopy @ 0x1C030411C (vFetchNotAndCopy.c)
- *     vFetchShiftAndCopy @ 0x1C0304194 (vFetchShiftAndCopy.c)
- *     vFetchShiftNotAndCopy @ 0x1C030428C (vFetchShiftNotAndCopy.c)
+ *     ?vPatCpyRect8@@YAXPEAU_PATBLTFRAME@@@Z @ 0x1C00F88F0 (-vPatCpyRect8@@YAXPEAU_PATBLTFRAME@@@Z.c)
+ *     vFetchAndCopy @ 0x1C02DB1EC (vFetchAndCopy.c)
+ *     vFetchNotAndCopy @ 0x1C02DB25C (vFetchNotAndCopy.c)
+ *     vFetchShiftAndCopy @ 0x1C02DB2D4 (vFetchShiftAndCopy.c)
+ *     vFetchShiftNotAndCopy @ 0x1C02DB3BC (vFetchShiftNotAndCopy.c)
  * Callees:
  *     <none>
  */

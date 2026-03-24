@@ -1,11 +1,11 @@
 /*
- * XREFs of ?IsEmptyProjection@CProjectedShadowScene@@QEBA_NXZ @ 0x1802366BC
+ * XREFs of ?IsEmptyProjection@CProjectedShadowScene@@QEBA_NXZ @ 0x18000C1B0
  * Callers:
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18009FA80 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x180236944 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
+ *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x18000A760 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18007B940 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?CalculateOpacity@CProjectedShadowScene@@AEBAMM@Z @ 0x180236194 (-CalculateOpacity@CProjectedShadowScene@@AEBAMM@Z.c)
+ *     ?CalculateOpacity@CProjectedShadowScene@@AEBAMM@Z @ 0x18000C218 (-CalculateOpacity@CProjectedShadowScene@@AEBAMM@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall CProjectedShadowScene::IsEmptyProjection(CProjectedShadowScene *this)
@@ -14,14 +14,14 @@ bool __fastcall CProjectedShadowScene::IsEmptyProjection(CProjectedShadowScene *
   bool result; // al
 
   result = 1;
-  if ( *((_QWORD *)this + 9) )
+  if ( *((_QWORD *)this + 8) )
   {
-    if ( *((_QWORD *)this + 11) )
+    if ( *((_QWORD *)this + 10) )
     {
-      v2 = *((_QWORD *)this + 12);
+      v2 = *((_QWORD *)this + 11);
       if ( v2 )
       {
-        if ( (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v2 + 200LL))(v2)
+        if ( (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v2 + 216LL))(v2)
           && COERCE_FLOAT(COERCE_UNSIGNED_INT(CProjectedShadowScene::CalculateOpacity(this, 0.0)) & _xmm) >= 0.0000011920929 )
         {
           return 0;

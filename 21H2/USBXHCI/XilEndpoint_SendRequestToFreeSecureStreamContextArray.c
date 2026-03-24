@@ -1,11 +1,11 @@
 /*
- * XREFs of XilEndpoint_SendRequestToFreeSecureStreamContextArray @ 0x1C0037990
+ * XREFs of XilEndpoint_SendRequestToFreeSecureStreamContextArray @ 0x1C00377EC
  * Callers:
- *     XilEndpoint_FreeStreamContextArray @ 0x1C0037764 (XilEndpoint_FreeStreamContextArray.c)
+ *     XilEndpoint_FreeStreamContextArray @ 0x1C00375C0 (XilEndpoint_FreeStreamContextArray.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0050250 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 _UNKNOWN **__fastcall XilEndpoint_SendRequestToFreeSecureStreamContextArray(__int64 a1, __int64 a2)
@@ -35,12 +35,12 @@ _UNKNOWN **__fastcall XilEndpoint_SendRequestToFreeSecureStreamContextArray(__in
       v5 = *(_QWORD *)(a1 + 32);
       v6 = *(unsigned __int8 *)(*(_QWORD *)(v5 + 16) + 135LL);
       LOBYTE(v6) = 2;
-      return (_UNKNOWN **)WPP_RECORDER_SF_DD(
+      return (_UNKNOWN **)WPP_RECORDER_SF_dd(
                             *(_QWORD *)(v5 + 80),
                             v6,
                             13,
                             14,
-                            (__int64)&WPP_c9b84b1160863fb1dfbb88ae491c1c73_Traceguids,
+                            (__int64)&WPP_539d53059a2e35bc1c6dc9c85d9f465f_Traceguids,
                             *(_BYTE *)(*(_QWORD *)(v5 + 16) + 135LL),
                             *(_DWORD *)(v5 + 144));
     }

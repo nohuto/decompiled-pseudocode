@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBREG_QueryGlobalUsbLtmSettings @ 0x1C00353C0
+ * XREFs of HUBREG_QueryGlobalUsbLtmSettings @ 0x1C00321E0
  * Callers:
- *     DriverEntry @ 0x1C0092234 (DriverEntry.c)
+ *     DriverEntry @ 0x1C0088008 (DriverEntry.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_QueryGlobalUsbLtmSettings(__int64 a1)

@@ -1,47 +1,45 @@
 /*
- * XREFs of SmGetRegistrationInfo @ 0x140843114
+ * XREFs of SmGetRegistrationInfo @ 0x1407CF16C
  * Callers:
- *     SmProcessRegistrationRequest @ 0x140843050 (SmProcessRegistrationRequest.c)
+ *     SmProcessRegistrationRequest @ 0x1407CF0C0 (SmProcessRegistrationRequest.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     SmRegistrationInfoFill @ 0x1408431CC (SmRegistrationInfoFill.c)
- *     SmRegistrationCtxStart @ 0x140861930 (SmRegistrationCtxStart.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     SmRegistrationInfoFill @ 0x1407CF218 (SmRegistrationInfoFill.c)
+ *     SmRegistrationCtxStart @ 0x1407D16F8 (SmRegistrationCtxStart.c)
  */
 
-__int64 __fastcall SmGetRegistrationInfo(__int64 a1, char a2, __int64 a3)
+__int64 __fastcall SmGetRegistrationInfo(char a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int64 *v4; // rbp
-  int v8; // edi
-  __int64 v9; // rdx
+  int v5; // edi
+  __int64 v6; // rdx
 
   CurrentThread = KeGetCurrentThread();
-  v4 = (volatile signed __int64 *)(a1 + 1992);
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx(a1 + 1992, 0LL);
-  if ( (*(_DWORD *)(a1 + 1976) & 8) != 0 )
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&BugCheckParameter2, 0LL);
+  if ( (dword_140D24140 & 8) != 0 )
   {
-    v8 = 0;
+    v5 = 0;
   }
   else
   {
-    v8 = SmRegistrationCtxStart(a1 + 2688);
-    if ( v8 >= 0 )
-      *(_DWORD *)(a1 + 1976) |= 8u;
+    v5 = SmRegistrationCtxStart(&qword_140D243F0);
+    if ( v5 >= 0 )
+      dword_140D24140 |= 8u;
   }
-  if ( (_InterlockedExchangeAdd64(v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v4);
-  KeAbPostRelease((ULONG_PTR)v4);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&BugCheckParameter2);
+  KeAbPostRelease((ULONG_PTR)&BugCheckParameter2);
   KeLeaveCriticalRegion();
-  if ( v8 >= 0 )
+  if ( v5 >= 0 )
   {
-    LOBYTE(v9) = a2;
-    v8 = SmRegistrationInfoFill(a1 + 2688, v9, a3 + 8);
-    if ( v8 >= 0 )
+    LOBYTE(v6) = a1;
+    v5 = SmRegistrationInfoFill(&qword_140D243F0, v6, a2 + 8);
+    if ( v5 >= 0 )
       return 0;
   }
-  return (unsigned int)v8;
+  return (unsigned int)v5;
 }

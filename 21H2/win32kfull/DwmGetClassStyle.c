@@ -1,15 +1,15 @@
 /*
- * XREFs of DwmGetClassStyle @ 0x1C0098E00
+ * XREFs of DwmGetClassStyle @ 0x1C00EA4A8
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     ?xxxRedrawForSetLPITEMInfo@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0068C00 (-xxxRedrawForSetLPITEMInfo@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
- *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C0098A20 (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
- *     xxxGetSystemMenu @ 0x1C00BC098 (xxxGetSystemMenu.c)
- *     xxxEnableMenuItem @ 0x1C00BC4A0 (xxxEnableMenuItem.c)
- *     ?xxxRemoveDeleteMenuHelper@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@IKH@Z @ 0x1C00C20C0 (-xxxRemoveDeleteMenuHelper@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@IKH@Z.c)
- *     xxxSetClassData @ 0x1C0115230 (xxxSetClassData.c)
+ *     xxxEnableMenuItem @ 0x1C0046FB0 (xxxEnableMenuItem.c)
+ *     ?xxxRemoveDeleteMenuHelper@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@IKH@Z @ 0x1C00473F8 (-xxxRemoveDeleteMenuHelper@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@IKH@Z.c)
+ *     ?xxxRedrawForSetLPITEMInfo@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C00477F8 (-xxxRedrawForSetLPITEMInfo@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     xxxGetSystemMenu @ 0x1C00DC8C4 (xxxGetSystemMenu.c)
+ *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C00EA0AC (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
+ *     xxxSetClassData @ 0x1C00FC29C (xxxSetClassData.c)
  * Callees:
- *     MNLookUpItem @ 0x1C0067EE0 (MNLookUpItem.c)
+ *     MNLookUpItem @ 0x1C0061BA0 (MNLookUpItem.c)
  */
 
 __int64 __fastcall DwmGetClassStyle(__int64 a1)

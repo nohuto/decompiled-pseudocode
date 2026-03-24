@@ -1,35 +1,34 @@
 /*
- * XREFs of ?ReleaseEntryLock@GdiHandleEntryDirectory@@QEAAXI@Z @ 0x1C0043470
+ * XREFs of ?ReleaseEntryLock@GdiHandleEntryDirectory@@QEAAXI@Z @ 0x1C0030930
  * Callers:
- *     INC_SHARE_REF_CNT @ 0x1C00417D0 (INC_SHARE_REF_CNT.c)
- *     DEC_SHARE_REF_CNT @ 0x1C0042440 (DEC_SHARE_REF_CNT.c)
+ *     EngUnlockSurface @ 0x1C002E4A0 (EngUnlockSurface.c)
+ *     HmgLock @ 0x1C002EE50 (HmgLock.c)
+ *     DEC_SHARE_REF_CNT @ 0x1C002F510 (DEC_SHARE_REF_CNT.c)
+ *     HmgShareLock @ 0x1C002FC10 (HmgShareLock.c)
+ *     HmgMarkLazyDelete @ 0x1C0034A50 (HmgMarkLazyDelete.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall GdiHandleEntryDirectory::ReleaseEntryLock(GdiHandleEntryDirectory *this, unsigned int a2)
 {
-  unsigned int v2; // r9d
-  unsigned __int64 v3; // r8
+  unsigned int v2; // r8d
+  __int64 v3; // r9
   __int64 v4; // r10
-  __int64 v5; // rdx
 
   v2 = *((_DWORD *)this + 514);
-  v3 = a2;
   if ( a2 < v2 + ((*((unsigned __int16 *)this + 1) + 0xFFFF) << 16) )
   {
-    if ( a2 >= v2 )
-    {
-      v5 = ((a2 - v2) >> 16) + 1;
-      v4 = *((_QWORD *)this + v5 + 1);
-      v3 = ((1 - (_DWORD)v5) << 16) - v2 + (unsigned int)v3;
-    }
-    else
-    {
-      v4 = *((_QWORD *)this + 1);
-    }
-    *(_DWORD *)(*(_QWORD *)v4 + 24 * v3 + 8) &= ~1u;
-    ExReleasePushLockExclusiveEx(*(_QWORD *)(**(_QWORD **)(v4 + 24) + 8 * (v3 >> 8)) + 16LL * (unsigned __int8)v3, 0LL);
+    v3 = ((a2 - v2) >> 16) + 1;
+    if ( a2 < v2 )
+      v3 = 0LL;
+    v4 = *((_QWORD *)this + v3 + 1);
+    if ( (_DWORD)v3 )
+      a2 += ((1 - (_DWORD)v3) << 16) - v2;
+    *(_DWORD *)(*(_QWORD *)v4 + 24LL * a2 + 8) &= ~1u;
+    ExReleasePushLockExclusiveEx(
+      *(_QWORD *)(**(_QWORD **)(v4 + 24) + 8 * ((unsigned __int64)a2 >> 8)) + 16LL * (unsigned __int8)a2,
+      0LL);
     KeLeaveCriticalRegion();
   }
 }

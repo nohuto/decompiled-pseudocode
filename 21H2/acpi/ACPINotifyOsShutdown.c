@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPINotifyOsShutdown @ 0x1C005F800
+ * XREFs of ACPINotifyOsShutdown @ 0x1C005E9EC
  * Callers:
- *     ACPIRootEvent @ 0x1C005F9E0 (ACPIRootEvent.c)
+ *     ACPIRootEvent @ 0x1C005EBC0 (ACPIRootEvent.c)
  * Callees:
  *     <none>
  */

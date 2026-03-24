@@ -1,16 +1,15 @@
 /*
- * XREFs of ?ProcessUpdateLowLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@PEAVDXGDXGIKEYEDMUTEX@@PEAU_PRODUCER_INFO@@PEAH3@Z @ 0x1C0333B30
+ * XREFs of ?ProcessUpdateLowLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@PEAVDXGDXGIKEYEDMUTEX@@PEAU_PRODUCER_INFO@@PEAH3@Z @ 0x1C02A2A88
  * Callers:
- *     ?ProcessUpdateHighLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@@Z @ 0x1C03334AC (-ProcessUpdateHighLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@@Z.c)
+ *     ?ProcessUpdateHighLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@@Z @ 0x1C02A24F4 (-ProcessUpdateHighLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C01E93B0 (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
- *     ?GetAllocationSize@@YAJPEAVDXGDEVICE@@IPEAUtagRECT@@@Z @ 0x1C032BC44 (-GetAllocationSize@@YAJPEAVDXGDEVICE@@IPEAUtagRECT@@@Z.c)
- *     ?CombineNewMetaData@DDAMetaData@@QEAAHPEAU_D3DKMT_PRESENT_RGNS@@PEAT_LARGE_INTEGER@@HPEAH@Z @ 0x1C03316E8 (-CombineNewMetaData@DDAMetaData@@QEAAHPEAU_D3DKMT_PRESENT_RGNS@@PEAT_LARGE_INTEGER@@HPEAH@Z.c)
- *     ?GetDirtyRectData@DDAMetaData@@AEAAPEAUtagRECT@@I@Z @ 0x1C0331E50 (-GetDirtyRectData@DDAMetaData@@AEAAPEAUtagRECT@@I@Z.c)
- *     ?SubmitBltForRegions@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@IIPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C03345E4 (-SubmitBltForRegions@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@IIPEAU_D3DKMT_PRESENT.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C016D17C (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
+ *     ?GetAllocationSize@@YAJPEAVDXGDEVICE@@IPEAUtagRECT@@@Z @ 0x1C029A1B8 (-GetAllocationSize@@YAJPEAVDXGDEVICE@@IPEAUtagRECT@@@Z.c)
+ *     ?CombineNewMetaData@DDAMetaData@@QEAAHPEAU_D3DKMT_PRESENT_RGNS@@PEAT_LARGE_INTEGER@@HPEAH@Z @ 0x1C02A0CB0 (-CombineNewMetaData@DDAMetaData@@QEAAHPEAU_D3DKMT_PRESENT_RGNS@@PEAT_LARGE_INTEGER@@HPEAH@Z.c)
+ *     ?GetDirtyRectData@DDAMetaData@@AEAAPEAUtagRECT@@I@Z @ 0x1C02A12A0 (-GetDirtyRectData@DDAMetaData@@AEAAPEAUtagRECT@@I@Z.c)
+ *     ?SubmitBltForRegions@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@IIPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C02A3348 (-SubmitBltForRegions@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@IIPEAU_D3DKMT_PRESENT.c)
  */
 
 __int64 __fastcall OUTPUTDUPL_CONTEXT::ProcessUpdateLowLevel(
@@ -21,219 +20,211 @@ __int64 __fastcall OUTPUTDUPL_CONTEXT::ProcessUpdateLowLevel(
         int *a5,
         int *a6)
 {
-  int v6; // r12d
-  __int64 v10; // rsi
+  __int64 v6; // rsi
+  int v10; // r13d
   LARGE_INTEGER PerformanceCounter; // rax
-  int v12; // ecx
+  LARGE_INTEGER v12; // rdx
   __int64 v13; // rcx
-  int v14; // eax
-  struct _D3DKMT_PRESENT_RGNS *v15; // rcx
-  struct _D3DKMT_PRESENT_RGNS *v16; // r13
-  __int64 v17; // rbx
-  const wchar_t *v18; // r9
-  __int64 v20; // rcx
+  struct _D3DKMT_PRESENT_RGNS *v14; // r12
+  int DirtyRectCount; // eax
+  __int64 v16; // rax
+  __int64 v17; // r9
+  __int64 v18; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rcx
   struct tagRECT *DirtyRectData; // rax
-  __int64 v22; // r8
-  __int64 v23; // rax
-  int v24; // eax
-  const wchar_t *v25; // r9
+  __int64 v24; // r8
+  __int64 v25; // rax
   int v26; // eax
-  __int128 v27; // xmm0
-  __int64 v28; // rax
-  __int64 v29; // rbx
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // rax
+  __int64 v30; // rax
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int128 v33; // xmm0
+  __int64 v34; // rax
+  __int64 v35; // rbx
   void *Buffer; // rax
-  __int64 v31; // rcx
-  __int64 v32; // rax
-  struct _D3DKMT_PRESENT_RGNS v33; // [rsp+50h] [rbp-49h] BYREF
-  _DWORD *v34; // [rsp+70h] [rbp-29h]
-  int *v35; // [rsp+78h] [rbp-21h]
-  union _LARGE_INTEGER v36; // [rsp+80h] [rbp-19h] BYREF
-  struct DXGDXGIKEYEDMUTEX *v37; // [rsp+88h] [rbp-11h]
-  struct tagRECT v38; // [rsp+90h] [rbp-9h] BYREF
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  __int64 v39; // r8
+  __int64 v40; // r9
+  __int64 v41; // rax
+  __int64 v42; // rax
+  struct _D3DKMT_PRESENT_RGNS v43; // [rsp+30h] [rbp-50h] BYREF
+  int *v44; // [rsp+50h] [rbp-30h]
+  union _LARGE_INTEGER v45; // [rsp+58h] [rbp-28h] BYREF
+  struct DXGDXGIKEYEDMUTEX *v46; // [rsp+60h] [rbp-20h]
+  struct tagRECT v47; // [rsp+68h] [rbp-18h] BYREF
 
-  v6 = 0;
-  v37 = a3;
-  v35 = a6;
-  LODWORD(v10) = 0;
+  LODWORD(v6) = 0;
+  v46 = a3;
+  v44 = a6;
+  v10 = 1;
   if ( a5 )
     *a5 = 1;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  v12 = *(_DWORD *)a2;
-  v36 = PerformanceCounter;
-  if ( v12 )
+  v13 = *(unsigned int *)a2;
+  v45 = PerformanceCounter;
+  if ( (_DWORD)v13 )
   {
-    if ( (unsigned int)(v12 - 1) <= 1 )
+    if ( (unsigned int)(v13 - 1) <= 1 )
     {
       *(LARGE_INTEGER *)a4 = PerformanceCounter;
-      v27 = *(_OWORD *)*((_QWORD *)a2 + 4);
+      v33 = *(_OWORD *)*((_QWORD *)a2 + 4);
       *((_DWORD *)a4 + 5) = 1;
-      *(_OWORD *)((char *)a4 + 24) = v27;
+      *(_OWORD *)((char *)a4 + 24) = v33;
       if ( *(_DWORD *)a2 == 2 )
       {
-        v28 = *((_QWORD *)a2 + 3);
-        v29 = (unsigned int)(*(_DWORD *)(v28 + 8) * *(_DWORD *)(v28 + 12));
+        v34 = *((_QWORD *)a2 + 3);
+        v35 = (unsigned int)(*(_DWORD *)(v34 + 8) * *(_DWORD *)(v34 + 12));
         Buffer = AUTOEXPANDALLOCATION::GetBuffer(
-                   *((const void ***)a4 + 11),
-                   *(_DWORD *)(v28 + 8) * *(_DWORD *)(v28 + 12),
+                   *((AUTOEXPANDALLOCATION **)a4 + 11),
+                   *(_DWORD *)(v34 + 8) * *(_DWORD *)(v34 + 12),
                    0);
-        v31 = *((_QWORD *)a2 + 3);
         if ( Buffer )
         {
-          memmove(Buffer, *(const void **)(v31 + 24), (unsigned int)v29);
-          v32 = *((_QWORD *)a2 + 3);
-          *((_OWORD *)a4 + 3) = *(_OWORD *)v32;
-          *((_OWORD *)a4 + 4) = *(_OWORD *)(v32 + 16);
-          *((_QWORD *)a4 + 10) = *(_QWORD *)(v32 + 32);
+          memmove(Buffer, *(const void **)(*((_QWORD *)a2 + 3) + 24LL), (unsigned int)v35);
+          v41 = *((_QWORD *)a2 + 3);
+          *((_OWORD *)a4 + 3) = *(_OWORD *)v41;
+          *((_OWORD *)a4 + 4) = *(_OWORD *)(v41 + 16);
+          *((_QWORD *)a4 + 10) = *(_QWORD *)(v41 + 32);
           *((_QWORD *)a4 + 9) = 0LL;
           *((_DWORD *)a4 + 10) = 1;
         }
         else
         {
-          WdLogSingleEntry2(6LL, v29, *(unsigned int *)(v31 + 16));
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262145,
-            -1,
-            (__int64)L"Failed to allocate 0x%I64x bytes for new pointer shape on source 0x%I64x",
-            v29,
-            *(unsigned int *)(*((_QWORD *)a2 + 3) + 16LL),
-            0LL,
-            0LL,
-            0LL);
-          LODWORD(v10) = -1073741801;
+          v42 = WdLogNewEntry5_WdLowResource(v38, v37, v39, v40);
+          *(_QWORD *)(v42 + 24) = v35;
+          *(_QWORD *)(v42 + 32) = *(unsigned int *)(*((_QWORD *)a2 + 3) + 16LL);
+          WdLogEvent5_WdLowResource(v42);
+          LODWORD(v6) = -1073741801;
         }
       }
     }
-    return (unsigned int)v10;
+    return (unsigned int)v6;
   }
-  v13 = *((unsigned int *)this + 10);
-  memset(&v33, 0, sizeof(v33));
-  v38 = 0LL;
-  if ( (_DWORD)v13 != 1
-    || *((_DWORD *)this + 70) == 1
-    || (v14 = *((_DWORD *)a2 + 6), v34 = (_DWORD *)((char *)a2 + 24), (v14 & 4) != 0) )
+  memset(&v43, 0, sizeof(v43));
+  v47 = 0LL;
+  if ( *((_DWORD *)this + 10) != 1 || *((_DWORD *)this + 70) == 1 || (*((_DWORD *)a2 + 6) & 4) != 0 )
   {
-    WdLogSingleEntry2(4LL, *((int *)this + 70), v13);
-    LODWORD(v10) = GetAllocationSize(*(struct DXGDEVICE **)(*((_QWORD *)a2 + 1) + 16LL), *((_DWORD *)a2 + 7), &v38);
-    if ( (int)v10 < 0 )
+    v16 = ((__int64 (__fastcall *)(_QWORD, _QWORD))WdLogNewEntry5_WdEvent)(v13, (LARGE_INTEGER)v12.QuadPart);
+    *(_QWORD *)(v16 + 24) = *((int *)this + 70);
+    *(_QWORD *)(v16 + 32) = *((unsigned int *)this + 10);
+    WdLogEvent5_WdEvent(v16);
+    LODWORD(v6) = GetAllocationSize(
+                    *(struct DXGDEVICE **)(*((_QWORD *)a2 + 1) + 16LL),
+                    *((unsigned int *)a2 + 7),
+                    &v47,
+                    v17);
+    if ( (int)v6 < 0 )
     {
-      v17 = 1691LL;
-      WdLogSingleEntry1(2LL, 1691LL);
-      v18 = L"Failed to find source surface size";
-LABEL_12:
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v18, v17, 0LL, 0LL, 0LL, 0LL);
+      v18 = ((__int64 (__fastcall *)(_QWORD, _QWORD))WdLogNewEntry5_WdError)(v13, (LARGE_INTEGER)v12.QuadPart);
+      *(_QWORD *)(v18 + 24) = 1682LL;
+LABEL_10:
+      WdLogEvent5_WdError(v18);
       return 3221225473LL;
     }
-    *(_QWORD *)&v33.DirtyRectCount = 1LL;
-    v33.pDirtyRects = &v38;
-    v16 = &v33;
+    *(&v43.DirtyRectCount + 1) = 0;
     *((_DWORD *)this + 70) = 0;
-    v34 = (_DWORD *)((char *)a2 + 24);
-    *(_OWORD *)&v33.MoveRectCount = 0LL;
+    v14 = &v43;
+    v43.pDirtyRects = &v47;
+    DirtyRectCount = 1;
+    v43.DirtyRectCount = 1;
+    *(_OWORD *)&v43.MoveRectCount = 0LL;
   }
   else
   {
-    v15 = (struct _D3DKMT_PRESENT_RGNS *)*((_QWORD *)a2 + 5);
-    v16 = v15;
-    if ( !v15->DirtyRectCount && !v15->MoveRectCount )
-      v6 = 1;
+    v14 = (struct _D3DKMT_PRESENT_RGNS *)*((_QWORD *)a2 + 5);
+    DirtyRectCount = v14->DirtyRectCount;
   }
-  if ( v37 )
+  if ( DirtyRectCount || v14->MoveRectCount )
+    v10 = 0;
+  if ( !v46 )
   {
-    if ( !v6
-      && !(unsigned int)DDAMetaData::CombineNewMetaData(
-                          *((DDAMetaData **)a4 + 1),
-                          v16,
-                          &v36,
-                          *((_DWORD *)a2 + 6) & 1,
-                          v35) )
+    if ( *((_DWORD *)a4 + 4) == 2 )
     {
-      v17 = 1724LL;
-      WdLogSingleEntry1(2LL, 1724LL);
-LABEL_18:
-      v18 = L"Failed to combine present regions to metadata";
-      goto LABEL_12;
+      v30 = ((__int64 (__fastcall *)(_QWORD, _QWORD))WdLogNewEntry5_WdAssertion)(v13, (LARGE_INTEGER)v12.QuadPart);
+      *(_QWORD *)(v30 + 24) = 1771LL;
+      WdLogEvent5_WdAssertion(v30);
+    }
+    if ( !v10 )
+    {
+      if ( !(unsigned int)DDAMetaData::CombineNewMetaData(
+                            *((DDAMetaData **)a4 + 1),
+                            v14,
+                            &v45,
+                            *((_DWORD *)a2 + 6) & 1,
+                            v44) )
+      {
+        v18 = WdLogNewEntry5_WdError(v32, v31);
+        *(_QWORD *)(v18 + 24) = 1783LL;
+        goto LABEL_10;
+      }
+      *((_DWORD *)a4 + 4) = 1;
     }
     if ( *((_DWORD *)a4 + 4) == 1 )
-    {
-      v20 = *((_QWORD *)a4 + 1);
-      *(&v33.DirtyRectCount + 1) = 0;
-      *(&v33.MoveRectCount + 1) = 0;
-      v33.DirtyRectCount = *(_DWORD *)(v20 + 24);
-      DirtyRectData = DDAMetaData::GetDirtyRectData((const void ***)v20, v33.DirtyRectCount);
-      v22 = *((_QWORD *)a4 + 1);
-      v33.pDirtyRects = DirtyRectData;
-      v33.MoveRectCount = *(_DWORD *)(v22 + 44);
-      v23 = *((unsigned int *)this + 11);
-      v33.pMoveRects = **(const D3DKMT_MOVE_RECT ***)(v22 + 48);
-      v24 = OUTPUTDUPL_CONTEXT::SubmitBltForRegions(
-              this,
-              a2,
-              *((_DWORD *)a2 + 7),
-              *(_DWORD *)(*((_QWORD *)this + v23 + 6) + 92LL),
-              &v33);
-      v10 = v24;
-      if ( v24 < 0 )
-      {
-        WdLogSingleEntry1(2LL, v24);
-        v25 = L"Failed to copy pixel data from accumulated + new present rgns, Status 0x%I64x";
-LABEL_22:
-        DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v25, v10, 0LL, 0LL, 0LL, 0LL);
-        return (unsigned int)v10;
-      }
-    }
-    else
-    {
-      if ( v6 )
-      {
-        if ( a5 )
-          *a5 = 0;
-        return (unsigned int)v10;
-      }
-      v26 = OUTPUTDUPL_CONTEXT::SubmitBltForRegions(
-              this,
-              a2,
-              *((_DWORD *)a2 + 7),
-              *(_DWORD *)(*((_QWORD *)this + *((unsigned int *)this + 11) + 6) + 92LL),
-              v16);
-      v10 = v26;
-      if ( v26 < 0 )
-      {
-        WdLogSingleEntry1(2LL, v26);
-        v25 = L"Failed to copy pixel data from new present rgns, Status 0x%I64x";
-        goto LABEL_22;
-      }
-    }
-    *((_DWORD *)a4 + 4) = 2;
-    return (unsigned int)v10;
+      LODWORD(v6) = 259;
+    goto LABEL_34;
   }
-  if ( *((_DWORD *)a4 + 4) == 2 )
+  if ( !v10
+    && !(unsigned int)DDAMetaData::CombineNewMetaData(
+                        *((DDAMetaData **)a4 + 1),
+                        v14,
+                        &v45,
+                        *((_DWORD *)a2 + 6) & 1,
+                        v44) )
   {
-    WdLogSingleEntry1(1LL, 1780LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pFrameInfo->PresentUpdateStatus != PRODUCER_INFO_PRESENT_UPDATE_READY",
-      1780LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-  }
-  if ( !v6 )
-  {
-    if ( !(unsigned int)DDAMetaData::CombineNewMetaData(*((DDAMetaData **)a4 + 1), v16, &v36, *v34 & 1, v35) )
-    {
-      v17 = 1792LL;
-      WdLogSingleEntry1(2LL, 1792LL);
-      goto LABEL_18;
-    }
-    *((_DWORD *)a4 + 4) = 1;
+    v18 = WdLogNewEntry5_WdError(v21, v20);
+    *(_QWORD *)(v18 + 24) = 1715LL;
+    goto LABEL_10;
   }
   if ( *((_DWORD *)a4 + 4) == 1 )
-    LODWORD(v10) = 259;
-  if ( a5 )
-    *a5 = 0;
-  return (unsigned int)v10;
+  {
+    v22 = *((_QWORD *)a4 + 1);
+    *(&v43.DirtyRectCount + 1) = 0;
+    *(&v43.MoveRectCount + 1) = 0;
+    v43.DirtyRectCount = *(_DWORD *)(v22 + 24);
+    DirtyRectData = DDAMetaData::GetDirtyRectData((AUTOEXPANDALLOCATION **)v22, v43.DirtyRectCount);
+    v24 = *((_QWORD *)a4 + 1);
+    v43.pDirtyRects = DirtyRectData;
+    v43.MoveRectCount = *(_DWORD *)(v24 + 44);
+    v25 = *((unsigned int *)this + 11);
+    v43.pMoveRects = **(const D3DKMT_MOVE_RECT ***)(v24 + 48);
+    v26 = OUTPUTDUPL_CONTEXT::SubmitBltForRegions(
+            this,
+            a2,
+            *((_DWORD *)a2 + 7),
+            *(_DWORD *)(*((_QWORD *)this + v25 + 6) + 92LL),
+            &v43);
+    goto LABEL_21;
+  }
+  if ( v10 )
+  {
+LABEL_34:
+    if ( a5 )
+      *a5 = 0;
+    return (unsigned int)v6;
+  }
+  v26 = OUTPUTDUPL_CONTEXT::SubmitBltForRegions(
+          this,
+          a2,
+          *((_DWORD *)a2 + 7),
+          *(_DWORD *)(*((_QWORD *)this + *((unsigned int *)this + 11) + 6) + 92LL),
+          v14);
+LABEL_21:
+  v6 = v26;
+  if ( v26 >= 0 )
+  {
+    *((_DWORD *)a4 + 4) = 2;
+  }
+  else
+  {
+    v29 = WdLogNewEntry5_WdError(v28, v27);
+    *(_QWORD *)(v29 + 24) = v6;
+    WdLogEvent5_WdError(v29);
+  }
+  return (unsigned int)v6;
 }

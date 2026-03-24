@@ -1,13 +1,11 @@
 /*
- * XREFs of AlpcGetMessageAttribute @ 0x14032B830
+ * XREFs of AlpcGetMessageAttribute @ 0x14034A340
  * Callers:
- *     PopUmpoSendPowerMessage @ 0x14032D004 (PopUmpoSendPowerMessage.c)
- *     CmFcpCreateAlpcSectionView @ 0x140680D58 (CmFcpCreateAlpcSectionView.c)
- *     PopUmpoProcessMessages @ 0x1407A6E58 (PopUmpoProcessMessages.c)
- *     SshpAlpcMessageCallback @ 0x14084D6A0 (SshpAlpcMessageCallback.c)
- *     DbgkpSendErrorMessage @ 0x14093A32C (DbgkpSendErrorMessage.c)
+ *     PopUmpoSendPowerMessage @ 0x14034BAC4 (PopUmpoSendPowerMessage.c)
+ *     PopUmpoProcessMessages @ 0x1406F31D4 (PopUmpoProcessMessages.c)
+ *     DbgkpSendErrorMessage @ 0x1408873C0 (DbgkpSendErrorMessage.c)
  * Callees:
- *     AlpcGetHeaderSize @ 0x14032B8D0 (AlpcGetHeaderSize.c)
+ *     AlpcGetHeaderSize @ 0x14034A3E0 (AlpcGetHeaderSize.c)
  */
 
 char *__fastcall AlpcGetMessageAttribute(_DWORD *a1, int a2)

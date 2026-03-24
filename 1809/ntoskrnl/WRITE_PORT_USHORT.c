@@ -1,5 +1,5 @@
 /*
- * XREFs of WRITE_PORT_USHORT @ 0x14013E0C0
+ * XREFs of WRITE_PORT_USHORT @ 0x14013E0E0
  * Callers:
  *     <none>
  * Callees:

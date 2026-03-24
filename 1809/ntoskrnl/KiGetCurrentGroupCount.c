@@ -1,5 +1,5 @@
 /*
- * XREFs of KiGetCurrentGroupCount @ 0x14013BB74
+ * XREFs of KiGetCurrentGroupCount @ 0x14013BB94
  * Callers:
  *     KiUpdateProcessorCount @ 0x1405728EC (KiUpdateProcessorCount.c)
  * Callees:

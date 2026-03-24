@@ -1,14 +1,14 @@
 /*
- * XREFs of GreCreateDIBBrush @ 0x1C014E4E8
+ * XREFs of GreCreateDIBBrush @ 0x1C015DBC8
  * Callers:
- *     GreExtCreatePen @ 0x1C00F2B80 (GreExtCreatePen.c)
- *     NtGdiCreateDIBBrush @ 0x1C014E3E0 (NtGdiCreateDIBBrush.c)
+ *     GreExtCreatePen @ 0x1C0026340 (GreExtCreatePen.c)
+ *     NtGdiCreateDIBBrush @ 0x1C015DAC0 (NtGdiCreateDIBBrush.c)
  * Callees:
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0028338 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     GreCreateDIBitmapReal @ 0x1C002BC78 (GreCreateDIBitmapReal.c)
- *     ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C014E818 (--1BRUSHMEMOBJ@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C008393C (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     GreCreateDIBitmapReal @ 0x1C00AC12C (GreCreateDIBitmapReal.c)
+ *     ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C015DEF8 (--1BRUSHMEMOBJ@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall GreCreateDIBBrush(unsigned int *a1, unsigned int a2, unsigned int a3, int a4, int a5, HBITMAP a6)
@@ -19,31 +19,32 @@ __int64 __fastcall GreCreateDIBBrush(unsigned int *a1, unsigned int a2, unsigned
   unsigned int v12; // eax
   char *v13; // rbx
   int v14; // ecx
-  unsigned int v15; // r14d
-  __int64 v16; // r10
-  unsigned int v17; // eax
-  int v18; // ecx
+  const void *v15; // r13
+  unsigned int v16; // esi
+  __int64 v17; // r10
+  unsigned int v18; // eax
   int v19; // ecx
   int v20; // ecx
   int v21; // ecx
   int v22; // ecx
-  unsigned int v23; // eax
-  unsigned int v24; // ecx
-  unsigned __int64 v25; // r12
-  unsigned int v26; // ecx
+  int v23; // ecx
+  unsigned int v24; // eax
+  unsigned int v25; // ecx
+  unsigned __int64 v26; // rax
+  unsigned int v27; // ecx
   HSURF DIBitmapReal; // rax
-  HSURF v28; // r15
-  __int64 v29; // rax
-  int v30; // eax
-  __int64 v31; // rbx
-  void *v32; // rcx
-  ULONG v34; // ecx
-  void *Src; // [rsp+78h] [rbp-49h]
-  _BYTE v36[32]; // [rsp+80h] [rbp-41h] BYREF
-  __int64 v37; // [rsp+A0h] [rbp-21h]
-  _QWORD v38[6]; // [rsp+A8h] [rbp-19h] BYREF
-  int v39; // [rsp+D8h] [rbp+17h]
-  __int64 v40; // [rsp+118h] [rbp+57h]
+  HSURF v29; // r15
+  __int64 v30; // rax
+  int v31; // eax
+  __int64 v32; // rbx
+  void *v33; // rcx
+  __int64 v34; // rdx
+  ULONG v36; // ecx
+  _BYTE v37[32]; // [rsp+78h] [rbp-39h] BYREF
+  __int64 v38; // [rsp+98h] [rbp-19h]
+  _QWORD v39[6]; // [rsp+A0h] [rbp-11h] BYREF
+  int v40; // [rsp+D0h] [rbp+1Fh]
+  __int64 v41; // [rsp+108h] [rbp+57h]
 
   v6 = 0LL;
   if ( !a1 )
@@ -59,158 +60,158 @@ __int64 __fastcall GreCreateDIBBrush(unsigned int *a1, unsigned int a2, unsigned
   v12 = a1[4];
   v13 = (char *)a1 + v10;
   v14 = *((unsigned __int16 *)a1 + 7);
-  v15 = a1[8];
-  v16 = 4LL;
-  Src = v13;
+  v15 = v13;
+  v16 = a1[8];
+  v17 = 4LL;
   switch ( v12 )
   {
     case 3u:
-      v15 = 3;
-      v17 = 0;
+      v16 = 3;
+      v18 = 0;
       if ( a2 != 1 )
-        v17 = a2;
-      a2 = v17;
+        v18 = a2;
+      a2 = v18;
       if ( ((v14 - 16) & 0xFFFFFFEF) != 0 )
         return 0LL;
       break;
     case 0u:
-      v18 = v14 - 1;
-      if ( v18 )
+      v19 = v14 - 1;
+      if ( v19 )
       {
-        v19 = v18 - 3;
-        if ( v19 )
+        v20 = v19 - 3;
+        if ( v20 )
         {
-          v20 = v19 - 4;
-          if ( v20 )
+          v21 = v20 - 4;
+          if ( v21 )
           {
-            v21 = v20 - 8;
-            if ( v21 )
+            v22 = v21 - 8;
+            if ( v22 )
             {
-              v22 = v21 - 8;
-              if ( v22 )
+              v23 = v22 - 8;
+              if ( v23 )
               {
-                if ( v22 != 8 )
+                if ( v23 != 8 )
                   return 0LL;
               }
             }
-            v23 = 0;
             v24 = 0;
+            v25 = 0;
             if ( a2 != 1 )
-              v23 = a2;
-            a2 = v23;
+              v24 = a2;
+            a2 = v24;
             goto LABEL_25;
           }
-          v24 = 256;
+          v25 = 256;
         }
         else
         {
-          v24 = 16;
+          v25 = 16;
         }
       }
       else
       {
-        v24 = 2;
+        v25 = 2;
       }
-      if ( v15 && v24 >= v15 )
+      if ( v16 && v25 >= v16 )
         break;
 LABEL_25:
-      v15 = v24;
+      v16 = v25;
       break;
     case 2u:
       if ( v14 != 4 )
         return 0LL;
-      if ( !v15 )
-        v15 = 16;
+      if ( !v16 )
+        v16 = 16;
       break;
     default:
       if ( v12 != 1 || v14 != 8 )
         return 0LL;
-      if ( !v15 )
-        v15 = 256;
+      if ( !v16 )
+        v16 = 256;
       break;
   }
   if ( a2 != 1 )
   {
     if ( a2 == 2 )
-      v16 = 0LL;
-    v11 = v16;
+      v17 = 0LL;
+    v11 = v17;
   }
-  v25 = v11 * v15;
-  if ( v25 > 0xFFFFFFFF || (int)v25 + 3 < (unsigned int)v25 )
+  v26 = v11 * v16;
+  if ( v26 > 0xFFFFFFFF || (int)v26 + 3 < (unsigned int)v26 )
   {
-    v34 = 534;
+    v36 = 534;
 LABEL_62:
-    EngSetLastError(v34);
+    EngSetLastError(v36);
     return 0LL;
   }
-  v26 = (v25 + 3) & 0xFFFFFFFC;
-  if ( v26 > a3 - (unsigned int)v10 )
+  v27 = (v26 + 3) & 0xFFFFFFFC;
+  if ( v27 > a3 - (unsigned int)v10 )
   {
 LABEL_61:
-    v34 = 87;
+    v36 = 87;
     goto LABEL_62;
   }
   DIBitmapReal = (HSURF)GreCreateDIBitmapReal(
                           0LL,
-                          6LL,
-                          &v13[v26],
+                          6,
+                          &v13[v27],
                           a1,
                           a2 != 0 ? 3 : 0,
                           a3,
-                          a3 + (_DWORD)a1 - (v26 + (_DWORD)v13),
+                          a3 + (_DWORD)a1 - (v27 + (_DWORD)v13),
                           0LL,
                           0,
                           0LL,
                           1,
                           0LL,
                           0LL);
-  v28 = DIBitmapReal;
+  v29 = DIBitmapReal;
   if ( !DIBitmapReal )
     return 0LL;
   if ( a4 )
   {
-    SURFREF::SURFREF((SURFREF *)v36, DIBitmapReal);
-    if ( !v37 )
+    SURFREF::SURFREF((SURFREF *)v37, DIBitmapReal);
+    if ( !v38 )
     {
-      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v36);
+      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v37);
       return 0LL;
     }
-    v29 = *(_QWORD *)(v37 + 56);
-    if ( (int)v29 > 8 )
-      LODWORD(v29) = 8;
-    LODWORD(v40) = v29;
-    v30 = HIDWORD(v29);
-    if ( *(int *)(v37 + 60) > 8 )
-      v30 = 8;
-    HIDWORD(v40) = v30;
-    *(_QWORD *)(v37 + 56) = v40;
-    if ( v37 )
-      DEC_SHARE_REF_CNT(v37);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v36);
+    v30 = *(_QWORD *)(v38 + 56);
+    if ( (int)v30 > 8 )
+      LODWORD(v30) = 8;
+    LODWORD(v41) = v30;
+    v31 = HIDWORD(v30);
+    if ( *(int *)(v38 + 60) > 8 )
+      v31 = 8;
+    HIDWORD(v41) = v31;
+    *(_QWORD *)(v38 + 56) = v41;
+    if ( v38 )
+      DEC_SHARE_REF_CNT(v38, 8LL);
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v37);
   }
   if ( a2 == 1 )
   {
-    SURFREF::SURFREF((SURFREF *)v36, v28);
-    v31 = *(_QWORD *)(v37 + 128);
-    v32 = *(void **)(v31 + 112);
-    *(_DWORD *)(v31 + 24) |= 0x4000u;
-    memmove(v32, Src, (unsigned int)v25);
-    *(_DWORD *)(v31 + 60) = v15;
-    if ( v37 )
-      DEC_SHARE_REF_CNT(v37);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v36);
+    SURFREF::SURFREF((SURFREF *)v37, v29);
+    v32 = *(_QWORD *)(v38 + 128);
+    v33 = *(void **)(v32 + 112);
+    *(_DWORD *)(v32 + 24) |= 0x4000u;
+    memmove(v33, v15, 2 * v16);
+    *(_DWORD *)(v32 + 60) = v16;
+    if ( v38 )
+      DEC_SHARE_REF_CNT(v38, v34);
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v37);
   }
-  BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v38, (HBITMAP)v28, a6, 0, a2, 0x80u, a5);
-  if ( v38[0] )
+  BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v39, (HBITMAP)v29, a6, 0, a2, 0x80u, a5);
+  if ( v39[0] )
   {
-    v39 = 1;
-    *(_DWORD *)(v38[0] + 84LL) = a2;
-    v6 = *(_QWORD *)v38[0];
+    v40 = 1;
+    *(_DWORD *)(v39[0] + 84LL) = a2;
+    v6 = *(_QWORD *)v39[0];
   }
   else
   {
-    bDeleteSurface(v28);
+    bDeleteSurface(v29);
   }
-  BRUSHMEMOBJ::~BRUSHMEMOBJ((BRUSHMEMOBJ *)v38);
+  BRUSHMEMOBJ::~BRUSHMEMOBJ((BRUSHMEMOBJ *)v39);
   return v6;
 }

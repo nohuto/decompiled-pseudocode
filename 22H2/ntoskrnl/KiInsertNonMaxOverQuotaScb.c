@@ -1,34 +1,35 @@
 /*
- * XREFs of KiInsertNonMaxOverQuotaScb @ 0x1403089BC
+ * XREFs of KiInsertNonMaxOverQuotaScb @ 0x14035D2FC
  * Callers:
- *     KiAddThreadToScbQueue @ 0x1403058F0 (KiAddThreadToScbQueue.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x1403084DC (KiTransitionSchedulingGroupGeneration.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x140259550 (KiTransitionSchedulingGroupGeneration.c)
+ *     KiAddThreadToScbQueue @ 0x14035D254 (KiAddThreadToScbQueue.c)
  * Callees:
- *     KiResortScbQueue @ 0x1403055D0 (KiResortScbQueue.c)
- *     KiInsertSchedulingGroupQueue @ 0x140308A1C (KiInsertSchedulingGroupQueue.c)
+ *     KiInsertSchedulingGroupQueue @ 0x14035D35C (KiInsertSchedulingGroupQueue.c)
+ *     KiResortScbQueue @ 0x14035D48C (KiResortScbQueue.c)
  */
 
-void __fastcall KiInsertNonMaxOverQuotaScb(__int64 a1, __int64 a2, __int64 a3)
+char __fastcall KiInsertNonMaxOverQuotaScb(__int64 a1, __int64 a2, __int64 a3)
 {
   char v3; // si
-  char v6; // al
+  char result; // al
 
   v3 = a3;
   do
   {
-    v6 = *(_BYTE *)(a1 + 112);
-    if ( (v6 & 2) != 0 )
+    result = *(_BYTE *)(a1 + 112);
+    if ( (result & 2) != 0 )
       break;
-    if ( (v6 & 1) != 0 )
+    if ( (result & 1) != 0 )
     {
-      KiResortScbQueue(a2, a1, 0);
+      result = KiResortScbQueue(a2, a1, 0LL);
     }
     else
     {
       LOBYTE(a3) = v3;
-      KiInsertSchedulingGroupQueue(a2, a1, a3);
+      result = KiInsertSchedulingGroupQueue(a2, a1, a3);
     }
     a1 = *(_QWORD *)(a1 + 408);
   }
   while ( a1 );
+  return result;
 }

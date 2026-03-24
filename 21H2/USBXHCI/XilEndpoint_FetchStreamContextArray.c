@@ -1,13 +1,13 @@
 /*
- * XREFs of XilEndpoint_FetchStreamContextArray @ 0x1C0037708
+ * XREFs of XilEndpoint_FetchStreamContextArray @ 0x1C003754C
  * Callers:
- *     ESM_UpdatingTransferRingDequeuePointers @ 0x1C000C0A0 (ESM_UpdatingTransferRingDequeuePointers.c)
- *     ESM_NotifyingTransferRingsFSEReceived @ 0x1C000CD20 (ESM_NotifyingTransferRingsFSEReceived.c)
- *     Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C00393F0 (Endpoint_OnResetEndpointConfigureCompletion_EpDropped.c)
- *     Endpoint_OnResetEndpointResetCompletion @ 0x1C0039670 (Endpoint_OnResetEndpointResetCompletion.c)
- *     Endpoint_SM_NotifyTransferRingsEndpointHalted @ 0x1C0039C4C (Endpoint_SM_NotifyTransferRingsEndpointHalted.c)
+ *     ESM_NotifyingTransferRingsFSEReceived @ 0x1C000EEF0 (ESM_NotifyingTransferRingsFSEReceived.c)
+ *     ESM_UpdatingTransferRingDequeuePointers @ 0x1C000FB60 (ESM_UpdatingTransferRingDequeuePointers.c)
+ *     ESM_NotifyingTransferRingsEndpointHalted @ 0x1C0019E10 (ESM_NotifyingTransferRingsEndpointHalted.c)
+ *     Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C0039170 (Endpoint_OnResetEndpointConfigureCompletion_EpDropped.c)
+ *     Endpoint_OnResetEndpointResetCompletion @ 0x1C00393F0 (Endpoint_OnResetEndpointResetCompletion.c)
  * Callees:
- *     XilEndpoint_SendRequestToGetSecureStreamContextArray @ 0x1C0037A58 (XilEndpoint_SendRequestToGetSecureStreamContextArray.c)
+ *     XilEndpoint_SendRequestToGetSecureStreamContextArray @ 0x1C00378B4 (XilEndpoint_SendRequestToGetSecureStreamContextArray.c)
  */
 
 __int64 __fastcall XilEndpoint_FetchStreamContextArray(__int64 a1)

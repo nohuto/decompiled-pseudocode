@@ -1,41 +1,45 @@
 /*
- * XREFs of ExpSaBinaryArrayInsert @ 0x1403C5AE0
+ * XREFs of ExpSaBinaryArrayInsert @ 0x140391AE4
  * Callers:
- *     ExpSaPageGroupDescriptorAllocate @ 0x1403C577C (ExpSaPageGroupDescriptorAllocate.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x1403916E8 (ExpSaPageGroupDescriptorAllocate.c)
  * Callees:
- *     ExAllocatePool3 @ 0x140AAF430 (ExAllocatePool3.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402BC810 (ExpAllocatePoolWithTagFromNode.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall ExpSaBinaryArrayInsert(__int64 *a1, __int64 a2, unsigned __int16 a3)
+__int64 __fastcall ExpSaBinaryArrayInsert(_QWORD **a1, __int64 a2, unsigned __int16 a3)
 {
-  int v3; // r14d
-  unsigned int v6; // edi
-  __int64 *v7; // r9
+  int v3; // r12d
+  unsigned int v6; // esi
+  _QWORD *v7; // rdi
   unsigned int v8; // ebx
-  __int64 v9; // r8
+  _QWORD *PoolWithTagFromNode; // rax
+  __int64 v10; // r8
   __int64 i; // rdx
-  unsigned int v11; // ebx
-  __int64 Pool3; // rax
-  __int128 v14; // [rsp+30h] [rbp-18h] BYREF
+  unsigned int v12; // ebx
 
   v3 = a3;
   v6 = 0;
   while ( 1 )
   {
-    v7 = (__int64 *)*a1;
+    v7 = *a1;
     v8 = 1 << (v6 + 2);
     if ( !*a1 )
     {
-      v14 = 0LL;
-      LOBYTE(v14) = 3;
-      DWORD2(v14) = v3 | 0x80000000;
-      Pool3 = ExAllocatePool3(64, 8 * v8 + 8, 1632860229, (unsigned int)&v14, 1);
-      v7 = (__int64 *)Pool3;
-      if ( !Pool3 )
+      PoolWithTagFromNode = (_QWORD *)ExpAllocatePoolWithTagFromNode(
+                                        NonPagedPoolNx,
+                                        8 * v8 + 8,
+                                        0x61537845u,
+                                        v3 | 0x80000000,
+                                        0);
+      v7 = PoolWithTagFromNode;
+      if ( PoolWithTagFromNode )
+        memset(PoolWithTagFromNode, 0, 8 * v8 + 8);
+      if ( !v7 )
         return (unsigned int)-1;
-      *a1 = Pool3;
+      *a1 = v7;
     }
-    v9 = *v7;
+    v10 = *v7;
     if ( *v7 < (unsigned __int64)v8 )
       break;
     ++v6;
@@ -43,10 +47,10 @@ __int64 __fastcall ExpSaBinaryArrayInsert(__int64 *a1, __int64 a2, unsigned __in
     if ( v6 >= 0x10 )
       return (unsigned int)-1;
   }
-  for ( i = (unsigned int)v9; v7[i + 1]; i = (v8 - 1) & ((_DWORD)i + 1) )
+  for ( i = (unsigned int)v10; v7[i + 1]; i = (v8 - 1) & ((_DWORD)i + 1) )
     ;
-  v11 = i | v8;
-  *v7 = v9 + 1;
+  v12 = i | v8;
+  *v7 = v10 + 1;
   v7[i + 1] = a2;
-  return v11;
+  return v12;
 }

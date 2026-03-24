@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrResFallbackLangList @ 0x14068B300
+ * XREFs of LdrResFallbackLangList @ 0x14068B2E0
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1400FD9EC (LdrpResSearchResourceMappedFile.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1400FDA0C (LdrpResSearchResourceMappedFile.c)
  * Callees:
- *     LdrpGetParentLangId @ 0x140160FA0 (LdrpGetParentLangId.c)
+ *     LdrpGetParentLangId @ 0x140160FC0 (LdrpGetParentLangId.c)
  */
 
 __int64 __fastcall LdrResFallbackLangList(__int64 a1, __int64 a2, unsigned __int16 a3, char a4, unsigned __int16 *a5)

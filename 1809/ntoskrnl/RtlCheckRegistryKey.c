@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCheckRegistryKey @ 0x1406C7680
+ * XREFs of RtlCheckRegistryKey @ 0x1406C7660
  * Callers:
- *     RtlCheckPortableOperatingSystem @ 0x140135E10 (RtlCheckPortableOperatingSystem.c)
- *     SepInitQuerySigningPolicyExt @ 0x140763B10 (SepInitQuerySigningPolicyExt.c)
- *     WheapCommitPolicy @ 0x1408DC1FC (WheapCommitPolicy.c)
+ *     RtlCheckPortableOperatingSystem @ 0x140135E30 (RtlCheckPortableOperatingSystem.c)
+ *     SepInitQuerySigningPolicyExt @ 0x140763AF0 (SepInitQuerySigningPolicyExt.c)
+ *     WheapCommitPolicy @ 0x1408DC1DC (WheapCommitPolicy.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     RtlpGetRegistryHandle @ 0x1405C7774 (RtlpGetRegistryHandle.c)
  */
 

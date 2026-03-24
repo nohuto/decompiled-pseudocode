@@ -1,96 +1,92 @@
 /*
- * XREFs of HvpGenerateLogEntryHeader @ 0x1402911EC
+ * XREFs of HvpGenerateLogEntryHeader @ 0x1403619E0
  * Callers:
- *     HvpGenerateLogEntry @ 0x140705808 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogEntry @ 0x140720D30 (HvpGenerateLogEntry.c)
  * Callees:
- *     HvpCopyDataToOffsetArray @ 0x140294E74 (HvpCopyDataToOffsetArray.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvpHeaderCheckSum @ 0x140AF6640 (HvpHeaderCheckSum.c)
+ *     HvpCopyDataToOffsetArray @ 0x1403331A0 (HvpCopyDataToOffsetArray.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HvpHeaderCheckSum @ 0x140723C78 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvpGenerateLogEntryHeader(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        __int64 a4,
+        unsigned int *a4,
         unsigned int *a5,
         int a6,
         int a7,
         char a8)
 {
-  _DWORD *v8; // r10
-  int v9; // ebx
-  int v11; // esi
-  __int64 v12; // r11
-  unsigned int v13; // edi
-  bool v14; // zf
+  int v8; // r11d
+  __int64 v11; // r10
+  unsigned int v12; // ebx
+  bool v13; // zf
   __int64 result; // rax
-  _DWORD *v16; // r9
-  __int64 v17; // rdx
-  _OWORD *v18; // rax
-  _OWORD *v19; // rcx
-  __int128 v20; // xmm1
-  int v21; // eax
-  unsigned int v22; // [rsp+30h] [rbp-40h] BYREF
-  int v23; // [rsp+38h] [rbp-38h] BYREF
-  int v24; // [rsp+3Ch] [rbp-34h]
-  int v25; // [rsp+40h] [rbp-30h]
-  int v26; // [rsp+44h] [rbp-2Ch]
-  int v27; // [rsp+48h] [rbp-28h]
-  int v28; // [rsp+4Ch] [rbp-24h]
-  __int128 v29; // [rsp+50h] [rbp-20h]
+  _DWORD *v15; // r9
+  __int64 v16; // rdx
+  _OWORD *v17; // rax
+  _OWORD *v18; // rcx
+  __int128 v19; // xmm1
+  unsigned int v20; // eax
+  unsigned int v21; // [rsp+30h] [rbp-40h] BYREF
+  int v22; // [rsp+38h] [rbp-38h] BYREF
+  int v23; // [rsp+3Ch] [rbp-34h]
+  int v24; // [rsp+40h] [rbp-30h]
+  int v25; // [rsp+44h] [rbp-2Ch]
+  int v26; // [rsp+48h] [rbp-28h]
+  int v27; // [rsp+4Ch] [rbp-24h]
+  __int128 v28; // [rsp+50h] [rbp-20h]
 
-  v8 = (_DWORD *)(a1 + 172);
-  v9 = 0;
-  v11 = a2;
-  v12 = a1;
-  v13 = *a5;
-  v22 = *a5;
+  v8 = 0;
+  v11 = a1;
+  v12 = *a5;
+  v21 = *a5;
   if ( a8 )
   {
-    v16 = *(_DWORD **)(a2 + 8);
-    v17 = 4LL;
-    v18 = *(_OWORD **)(a1 + 64);
-    v19 = v16;
+    v15 = *(_DWORD **)(a2 + 8);
+    v16 = 4LL;
+    v17 = *(_OWORD **)(a1 + 64);
+    v18 = v15;
     do
     {
-      *v19 = *v18;
-      v19[1] = v18[1];
-      v19[2] = v18[2];
-      v19[3] = v18[3];
-      v19[4] = v18[4];
-      v19[5] = v18[5];
-      v19[6] = v18[6];
-      v19 += 8;
-      v20 = v18[7];
+      *v18 = *v17;
+      v18[1] = v17[1];
+      v18[2] = v17[2];
+      v18[3] = v17[3];
+      v18[4] = v17[4];
+      v18[5] = v17[5];
+      v18[6] = v17[6];
       v18 += 8;
-      *(v19 - 1) = v20;
-      --v17;
+      v19 = v17[7];
+      v17 += 8;
+      *(v18 - 1) = v19;
+      --v16;
     }
-    while ( v17 );
-    v16[1] = *v8;
-    v16[2] = *v8;
-    v16[7] = 6;
-    v16[10] = *(_DWORD *)(v12 + 280);
-    v16[11] = 1;
-    v21 = HvpHeaderCheckSum(v16, 0LL, 128LL);
-    *(_DWORD *)(a4 + 508) = v21;
-    v22 = v13 + 512;
+    while ( v16 );
+    v15[1] = *(_DWORD *)(v11 + 168);
+    v15[2] = *(_DWORD *)(v11 + 168);
+    v15[7] = 6;
+    v15[10] = *(_DWORD *)(v11 + 272);
+    v15[11] = 1;
+    v20 = HvpHeaderCheckSum(v15, 0LL, 128LL);
+    a4[127] = v20;
+    v21 = v12 + 512;
   }
-  v29 = 0LL;
-  v23 = 1162638920;
-  v24 = a6;
-  if ( a8 )
-    v24 = a6 - 512;
-  v26 = *v8;
-  v14 = (*(_BYTE *)(*(_QWORD *)(v12 + 64) + 144LL) & 1) == 0;
-  v27 = *(_DWORD *)(v12 + 280);
-  if ( !v14 )
-    v9 = 1;
-  v28 = a7;
-  v25 = v9;
-  HvpCopyDataToOffsetArray((unsigned int)&v23, 40, v11, a4, a4, (__int64)&v22);
-  result = v22;
-  *a5 = v22;
+  v28 = 0LL;
+  v22 = 1162638920;
+  v23 = a6;
+  if ( a8 != (_BYTE)v8 )
+    v23 = a6 - 512;
+  v25 = *(_DWORD *)(v11 + 168);
+  v13 = (*(_BYTE *)(*(_QWORD *)(v11 + 64) + 144LL) & 1) == 0;
+  v26 = *(_DWORD *)(v11 + 272);
+  if ( !v13 )
+    v8 = 1;
+  v27 = a7;
+  v24 = v8;
+  HvpCopyDataToOffsetArray((__int64)&v22, 0x28u, a2, (__int64)a4, a4, &v21);
+  result = v21;
+  *a5 = v21;
   return result;
 }

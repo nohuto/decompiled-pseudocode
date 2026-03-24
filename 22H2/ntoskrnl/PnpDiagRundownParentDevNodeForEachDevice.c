@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpDiagRundownParentDevNodeForEachDevice @ 0x140957EC0
+ * XREFs of PnpDiagRundownParentDevNodeForEachDevice @ 0x1408A1170
  * Callers:
  *     <none>
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PnpDiagRundownParentDevNodeForEachDevice(__int64 a1)
@@ -37,6 +37,6 @@ __int64 __fastcall PnpDiagRundownParentDevNodeForEachDevice(__int64 a1)
   v11 = v1;
   v12 = v2;
   v13 = 0;
-  EtwWrite(PnpRundownEtwHandle, &PPM_ETW_INTERRUPT_STEERING_STATE_RUNDOWN, 0LL, 4u, &UserData);
+  EtwWrite(PnpRundownEtwHandle, &KMPnPRundownEvt_SleepStudy_ParentDevNode, 0LL, 4u, &UserData);
   return 0LL;
 }

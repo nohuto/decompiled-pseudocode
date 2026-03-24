@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMcaProcessorBankConfig @ 0x1403AADCC
+ * XREFs of HalpMcaProcessorBankConfig @ 0x1403A0EB8
  * Callers:
- *     HalpMcaSetProcessorConfig @ 0x140A53828 (HalpMcaSetProcessorConfig.c)
+ *     HalpMcaSetProcessorConfig @ 0x140999E48 (HalpMcaSetProcessorConfig.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x1403AAE50 (HalpGetCpuVendor.c)
- *     HalpMcaProcessorBankConfigAmd @ 0x140509E04 (HalpMcaProcessorBankConfigAmd.c)
+ *     HalpGetCpuVendor @ 0x1403A0F3C (HalpGetCpuVendor.c)
+ *     HalpMcaProcessorBankConfigAmd @ 0x1404BD31C (HalpMcaProcessorBankConfigAmd.c)
  */
 
 __int64 __fastcall HalpMcaProcessorBankConfig(__int64 a1, unsigned int a2)

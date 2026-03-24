@@ -1,131 +1,135 @@
 /*
- * XREFs of HalpDmaAllocateMappingResources @ 0x140B1DD34
+ * XREFs of HalpDmaAllocateMappingResources @ 0x140A65DA8
  * Callers:
- *     HalpDmaInit @ 0x140B1D878 (HalpDmaInit.c)
+ *     HalpDmaInit @ 0x140A659C8 (HalpDmaInit.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402631C0 (KeQueryMaximumProcessorCountEx.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     MmFreeMappingAddress @ 0x1407FA560 (MmFreeMappingAddress.c)
- *     HalpDmaAllocateReservedMapping @ 0x140B1DE58 (HalpDmaAllocateReservedMapping.c)
- *     HalpDmaAllocateReservedMappingArray @ 0x140B4BE3C (HalpDmaAllocateReservedMappingArray.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14027B730 (KeQueryMaximumProcessorCountEx.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     MmFreeMappingAddress @ 0x140768700 (MmFreeMappingAddress.c)
+ *     HalpDmaAllocateReservedMapping @ 0x140A65ECC (HalpDmaAllocateReservedMapping.c)
+ *     HalpDmaAllocateReservedMappingArray @ 0x140A8C8F4 (HalpDmaAllocateReservedMappingArray.c)
  */
 
 __int64 HalpDmaAllocateMappingResources()
 {
-  __int64 MaximumProcessorCount; // rdi
-  __int64 v1; // rbx
-  __int64 v2; // rcx
-  __int64 v3; // rcx
-  __int64 v4; // rax
+  ULONG MaximumProcessorCount; // eax
+  __int64 v1; // rsi
+  unsigned int v2; // edi
+  __int64 v3; // rbx
+  __int64 v4; // rcx
   __int64 v5; // rcx
-  _QWORD *v6; // r8
-  __int64 v7; // rbp
-  _QWORD *v8; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  unsigned int v11; // ebx
-  __int64 v12; // rsi
+  __int64 v6; // rax
+  __int64 v7; // rcx
+  _QWORD *v8; // r8
+  __int64 v9; // rbp
+  _QWORD *v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  unsigned int v13; // ebx
+  __int64 v14; // rsi
   __int64 ReservedMapping; // rax
-  __int64 v14; // rcx
-  __int64 v15; // rdx
+  __int64 v16; // rcx
   __int64 v17; // rdx
-  __int64 v18; // rsi
-  __int64 v19; // r14
-  __int64 v20; // rbx
-  __int64 v21; // rcx
-  __int64 v22; // rcx
-  int ReservedMappingArray; // ebx
+  __int64 v19; // rdx
+  __int64 v20; // rsi
+  __int64 v21; // r14
+  __int64 v22; // rbx
+  __int64 v23; // rcx
   __int64 v24; // rcx
+  int ReservedMappingArray; // ebx
+  __int64 v26; // rcx
 
   MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
-  v1 = MaximumProcessorCount;
-  qword_140C5A860 = HalpMmAllocCtxAlloc(v2, 8 * MaximumProcessorCount);
-  if ( !qword_140C5A860 )
+  v1 = 8LL * MaximumProcessorCount;
+  v2 = MaximumProcessorCount;
+  v3 = MaximumProcessorCount;
+  qword_140C53F20 = HalpMmAllocCtxAlloc(v4, v1);
+  if ( !qword_140C53F20 )
     return 3221225626LL;
-  v4 = HalpMmAllocCtxAlloc(v3, 4144 * MaximumProcessorCount);
-  v7 = v4;
-  if ( !v4 )
+  v6 = HalpMmAllocCtxAlloc(v5, 4144 * v3);
+  v9 = v6;
+  if ( !v6 )
   {
-    v17 = qword_140C5A860;
+    v19 = qword_140C53F20;
 LABEL_14:
-    HalpMmAllocCtxFree(v5, v17);
+    HalpMmAllocCtxFree(v7, v19);
     return 3221225626LL;
   }
-  if ( (_DWORD)MaximumProcessorCount )
+  if ( v2 )
   {
-    v6 = (_QWORD *)qword_140C5A860;
-    v5 = v4 + 32;
+    v8 = (_QWORD *)qword_140C53F20;
+    v7 = v6 + 32;
     do
     {
-      *(_QWORD *)v5 = 0LL;
-      v8 = (_QWORD *)(v5 - 32);
-      *(_DWORD *)(v5 + 12) = 0;
-      *v8 = 0LL;
-      *(_DWORD *)(v5 - 24) = 131128;
-      *(_DWORD *)(v5 + 8) = 4096;
-      v5 += 4144LL;
-      *v6++ = v8;
-      --v1;
+      *(_QWORD *)v7 = 0LL;
+      v10 = (_QWORD *)(v7 - 32);
+      *(_DWORD *)(v7 + 12) = 0;
+      *v10 = 0LL;
+      *(_DWORD *)(v7 - 24) = 131128;
+      *(_DWORD *)(v7 + 8) = 4096;
+      v7 += 4144LL;
+      *v8++ = v10;
+      --v3;
     }
-    while ( v1 );
+    while ( v3 );
   }
-  qword_140CFCED0 = 0LL;
-  v9 = 4LL;
-  if ( (unsigned int)MaximumProcessorCount <= 4 )
+  qword_140CF2790 = 0LL;
+  v11 = 4LL;
+  if ( v2 <= 4 )
   {
-    qword_140C5A868 = HalpMmAllocCtxAlloc(v5, 8 * MaximumProcessorCount);
-    if ( qword_140C5A868 )
+    qword_140C53F28 = HalpMmAllocCtxAlloc(v7, v1);
+    if ( qword_140C53F28 )
     {
-      v11 = 0;
-      if ( !(_DWORD)MaximumProcessorCount )
+      v13 = 0;
+      if ( !v2 )
       {
 LABEL_12:
-        byte_140C5A858 = 1;
+        byte_140C53F18 = 1;
         return 0LL;
       }
-      v12 = 0LL;
+      v14 = 0LL;
       while ( 1 )
       {
         ReservedMapping = HalpDmaAllocateReservedMapping();
-        v15 = qword_140C5A868;
-        *(_QWORD *)(v12 + qword_140C5A868) = ReservedMapping;
+        v17 = qword_140C53F28;
+        *(_QWORD *)(v14 + qword_140C53F28) = ReservedMapping;
         if ( !ReservedMapping )
           break;
-        ++v11;
-        v12 += 8LL;
-        if ( v11 >= (unsigned int)MaximumProcessorCount )
+        ++v13;
+        v14 += 8LL;
+        if ( v13 >= v2 )
           goto LABEL_12;
       }
-      if ( v11 )
+      if ( v13 )
       {
-        v18 = 0LL;
-        v19 = v11;
+        v20 = 0LL;
+        v21 = v13;
         do
         {
-          v20 = *(_QWORD *)(v18 + v15);
-          MmFreeMappingAddress(*(PVOID *)(v20 + 16), 0x446C6148u);
-          HalpMmAllocCtxFree(v21, v20);
-          v15 = qword_140C5A868;
-          v18 += 8LL;
-          --v19;
+          v22 = *(_QWORD *)(v20 + v17);
+          MmFreeMappingAddress(*(PVOID *)(v22 + 16), 0x206C6148u);
+          HalpMmAllocCtxFree(v23, v22);
+          v17 = qword_140C53F28;
+          v20 += 8LL;
+          --v21;
         }
-        while ( v19 );
+        while ( v21 );
       }
-      HalpMmAllocCtxFree(v14, v15);
-      v9 = (unsigned int)MaximumProcessorCount;
+      HalpMmAllocCtxFree(v16, v17);
+      v11 = v2;
       goto LABEL_21;
     }
-    HalpMmAllocCtxFree(v10, qword_140C5A860);
-    v17 = v7;
+    HalpMmAllocCtxFree(v12, qword_140C53F20);
+    v19 = v9;
     goto LABEL_14;
   }
 LABEL_21:
-  ReservedMappingArray = HalpDmaAllocateReservedMappingArray((unsigned int)MaximumProcessorCount, v9, v6);
+  ReservedMappingArray = HalpDmaAllocateReservedMappingArray(v2, v11, v8);
   if ( ReservedMappingArray < 0 )
   {
-    HalpMmAllocCtxFree(v22, qword_140C5A860);
-    HalpMmAllocCtxFree(v24, v7);
+    HalpMmAllocCtxFree(v24, qword_140C53F20);
+    HalpMmAllocCtxFree(v26, v9);
   }
   return (unsigned int)ReservedMappingArray;
 }

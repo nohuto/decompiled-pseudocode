@@ -4,7 +4,7 @@
  *     MiReturnFullProcessCharges @ 0x14007FF10 (MiReturnFullProcessCharges.c)
  *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
  * Callees:
- *     PspReturnQuota @ 0x1400BE9B0 (PspReturnQuota.c)
+ *     PspReturnQuota @ 0x1400BE9D0 (PspReturnQuota.c)
  */
 
 signed __int64 __fastcall PsReturnProcessPageFileQuota(ULONG_PTR a1, ULONG_PTR a2)

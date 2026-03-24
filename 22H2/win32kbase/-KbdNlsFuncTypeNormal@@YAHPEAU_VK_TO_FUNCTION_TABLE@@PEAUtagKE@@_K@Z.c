@@ -1,27 +1,25 @@
 /*
- * XREFs of ?KbdNlsFuncTypeNormal@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z @ 0x1C01EBCA0
+ * XREFs of ?KbdNlsFuncTypeNormal@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z @ 0x1C01AB350
  * Callers:
  *     <none>
  * Callees:
- *     GetModifierBits @ 0x1C00039B0 (GetModifierBits.c)
- *     ?GenerateNlsVkKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z @ 0x1C01EBB4C (-GenerateNlsVkKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z.c)
+ *     GetModifierBits @ 0x1C000B560 (GetModifierBits.c)
+ *     ?GenerateNlsVkKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z @ 0x1C01AB218 (-GenerateNlsVkKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z.c)
  */
 
-__int64 __fastcall KbdNlsFuncTypeNormal(struct _VK_TO_FUNCTION_TABLE *a1, struct tagKE *a2, __int64 a3, __int64 a4)
+__int64 __fastcall KbdNlsFuncTypeNormal(struct _VK_TO_FUNCTION_TABLE *a1, struct tagKE *a2, __int64 a3)
 {
-  __int64 v7; // rax
   unsigned __int16 ModifierBits; // ax
-  int v9; // edx
+  int v7; // edx
 
   if ( !a2 )
     return 0LL;
-  v7 = SGDGetUserSessionState(a1, a2, a3, a4);
-  ModifierBits = GetModifierBits((unsigned __int8 **)&off_1C0246630, v7 + 14056);
-  if ( ModifierBits > 7u )
+  ModifierBits = GetModifierBits((unsigned __int8 **)&Modifiers_NLSKBD, (__int64)gafRawKeyState);
+  if ( ModifierBits > (unsigned __int16)word_1C024AAD0 )
     return 0LL;
-  v9 = *((unsigned __int8 *)&off_1C0246630 + ModifierBits + 10);
-  if ( v9 == 15 )
+  v7 = *((unsigned __int8 *)&Modifiers_NLSKBD + ModifierBits + 10);
+  if ( v7 == 15 )
     return 0LL;
   else
-    return GenerateNlsVkKey(a1, v9, a2, a3);
+    return GenerateNlsVkKey(a1, v7, a2, a3);
 }

@@ -5,7 +5,7 @@
  * Callees:
  *     KiSwInterruptPresent @ 0x1409DE434 (KiSwInterruptPresent.c)
  *     MmStrongCodeGuaranteesEnforced @ 0x1409DE8B8 (MmStrongCodeGuaranteesEnforced.c)
- *     MmDiscardDriverSection @ 0x1409F7A2C (MmDiscardDriverSection.c)
+ *     MmDiscardDriverSection @ 0x1409F7A3C (MmDiscardDriverSection.c)
  */
 
 __int64 KeFreeInitializationCode()

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DoStackCapture@@YAXJIPEAX@Z @ 0x1800C236C
+ * XREFs of ?DoStackCapture@@YAXJIPEAX@Z @ 0x1800DB890
  * Callers:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?MilInstrumentationHandleFailure_MaybeFailFast@@YAXJKIPEAX@Z @ 0x1800C22F8 (-MilInstrumentationHandleFailure_MaybeFailFast@@YAXJKIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationHandleFailure_MaybeFailFast@@YAXJKIPEAX@Z @ 0x1800DB820 (-MilInstrumentationHandleFailure_MaybeFailFast@@YAXJKIPEAX@Z.c)
  * Callees:
- *     ?MilWerRegisterMemoryBlock@@YAXPEBXI@Z @ 0x1800C2524 (-MilWerRegisterMemoryBlock@@YAXPEBXI@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
+ *     ?MilWerRegisterMemoryBlock@@YAXPEBXI@Z @ 0x1800DB9FC (-MilWerRegisterMemoryBlock@@YAXPEBXI@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
  */
 
 void __fastcall DoStackCapture(int a1, int a2, PVOID a3)
@@ -24,7 +24,7 @@ void __fastcall DoStackCapture(int a1, int a2, PVOID a3)
   __m128i si128; // xmm0
   PVOID BackTrace[12]; // [rsp+20h] [rbp-88h] BYREF
 
-  if ( !_InterlockedCompareExchange(&dword_1803E6734, 1, 0) )
+  if ( !_InterlockedCompareExchange(&dword_18034B0D0, 1, 0) )
   {
     MilWerRegisterMemoryBlock(&g_StackCaptureFrames, 0x3800u);
     MilWerRegisterMemoryBlock((const void *)&g_nCurrentStackCaptureIndex, 4u);

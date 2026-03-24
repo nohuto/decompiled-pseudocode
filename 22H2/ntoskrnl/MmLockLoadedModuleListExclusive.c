@@ -1,43 +1,37 @@
 /*
- * XREFs of MmLockLoadedModuleListExclusive @ 0x140290AF8
+ * XREFs of MmLockLoadedModuleListExclusive @ 0x140372D48
  * Callers:
- *     MiSessionRemoveImage @ 0x1402009A8 (MiSessionRemoveImage.c)
- *     MiSessionInsertImage @ 0x14020AE84 (MiSessionInsertImage.c)
- *     RtlInsertInvertedFunctionTable @ 0x1402907E0 (RtlInsertInvertedFunctionTable.c)
- *     MiProcessLoaderEntry @ 0x1402908A8 (MiProcessLoaderEntry.c)
- *     MiUpdateDriverLoadInProgress @ 0x140290A88 (MiUpdateDriverLoadInProgress.c)
- *     RtlRemoveInvertedFunctionTable @ 0x140369610 (RtlRemoveInvertedFunctionTable.c)
- *     PsDispatchIumService @ 0x1405A4EF4 (PsDispatchIumService.c)
- *     MiShowBadMapper @ 0x14063112C (MiShowBadMapper.c)
+ *     RtlInsertInvertedFunctionTable @ 0x1403729D8 (RtlInsertInvertedFunctionTable.c)
+ *     MiProcessLoaderEntry @ 0x140372B40 (MiProcessLoaderEntry.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x140373044 (RtlRemoveInvertedFunctionTable.c)
+ *     MiSessionRemoveImage @ 0x14038A8F8 (MiSessionRemoveImage.c)
+ *     MiSessionInsertImage @ 0x1403A2274 (MiSessionInsertImage.c)
+ *     MiShowBadMapper @ 0x14052D12C (MiShowBadMapper.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140295410 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall MmLockLoadedModuleListExclusive(unsigned __int8 *a1)
 {
-  unsigned __int8 CurrentIrql; // bl
-  unsigned __int8 v3; // dl
+  unsigned __int8 CurrentIrql; // al
+  unsigned __int8 v2; // cl
   _DWORD *SchedulerAssist; // r9
-  __int64 v5; // rdx
 
   CurrentIrql = KeGetCurrentIrql();
+  *a1 = CurrentIrql;
   if ( CurrentIrql < 0xFu )
   {
-    v3 = KeGetCurrentIrql();
+    v2 = KeGetCurrentIrql();
     __writecr8(0xFuLL);
     if ( KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && v3 <= 0xFu )
+      if ( (KiIrqlFlags & 1) != 0 && v2 <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-        if ( v3 == 15 )
-          LODWORD(v5) = 0x8000;
-        else
-          v5 = (-1LL << (v3 + 1)) & 0xFFFC;
-        SchedulerAssist[5] |= v5;
+        SchedulerAssist[5] |= ~((unsigned __int16)(1LL << (v2 + 1)) - 1) & 0xFFFC;
       }
     }
   }
   ExAcquireSpinLockExclusiveAtDpcLevel(&PsLoadedModuleSpinLock);
-  *a1 = CurrentIrql;
 }

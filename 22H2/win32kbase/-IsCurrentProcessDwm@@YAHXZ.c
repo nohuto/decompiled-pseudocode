@@ -1,20 +1,21 @@
 /*
- * XREFs of ?IsCurrentProcessDwm@@YAHXZ @ 0x1C009B7B4
+ * XREFs of ?IsCurrentProcessDwm@@YAHXZ @ 0x1C003ABCC
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
- *     NtUserCheckProcessSession @ 0x1C00AB380 (NtUserCheckProcessSession.c)
+ *     xxxCreateThreadInfo @ 0x1C003ED88 (xxxCreateThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
+ *     ?UnreferenceFrameAndMessageData@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@@Z @ 0x1C019F72C (-UnreferenceFrameAndMessageData@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@@Z.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall IsCurrentProcessDwm(__int64 a1, __int64 a2, __int64 a3)
+_BOOL8 __fastcall IsCurrentProcessDwm(__int64 a1, __int64 a2)
 {
-  __int64 CurrentProcess; // rcx
+  PVOID CurrentProcess; // rcx
   _BOOL8 result; // rax
 
-  CurrentProcess = PsGetCurrentProcess(a1, a2, a3);
+  CurrentProcess = (PVOID)PsGetCurrentProcess(a1, a2);
   result = 0LL;
   if ( CurrentProcess )
-    return CurrentProcess == *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels;
+    return CurrentProcess == g_pepDwm;
   return result;
 }

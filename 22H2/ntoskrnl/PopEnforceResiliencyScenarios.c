@@ -1,40 +1,75 @@
 /*
- * XREFs of PopEnforceResiliencyScenarios @ 0x1409942E8
+ * XREFs of PopEnforceResiliencyScenarios @ 0x140779AFC
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     PoFxSendSystemLatencyUpdate @ 0x14032C150 (PoFxSendSystemLatencyUpdate.c)
- *     PopEnsureCoalescingWorkerWillRun @ 0x14058DA90 (PopEnsureCoalescingWorkerWillRun.c)
- *     PopEnforceDeepSleep @ 0x140994234 (PopEnforceDeepSleep.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14034A558 (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14034A5E0 (PopDeepSleepClearDisengageReason.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14034A828 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
+ *     PopDeepSleepEnabled @ 0x14034AAD0 (PopDeepSleepEnabled.c)
+ *     KeSetMaxDynamicTickDuration @ 0x140514888 (KeSetMaxDynamicTickDuration.c)
+ *     PopEnsureCoalescingWorkerWillRun @ 0x14056EC30 (PopEnsureCoalescingWorkerWillRun.c)
  */
 
 void __fastcall PopEnforceResiliencyScenarios(int *a1)
 {
-  int v2; // ecx
+  char v2; // r8
+  int v3; // r9d
+  int v4; // ecx
 
-  PopEnforceDeepSleep();
-  PpmAcquireLock(&PopFxSystemLatencyLock);
+  _InterlockedCompareExchange64(&PopMaxDynamicTickDurationOriginalValue, KiMaxDynamicTickDuration, 0LL);
+  if ( PopDeepSleepEnabled() && PopPdcIdleResiliency )
+    v2 = 1;
+  if ( !v3 )
+  {
+    if ( !v2 )
+      goto LABEL_6;
+    goto LABEL_12;
+  }
+  if ( v2 )
+  {
+LABEL_12:
+    if ( PopDeepSleepEnforced )
+    {
+      KeSetMaxDynamicTickDuration(PopMaxDynamicTickDurationOriginalValue);
+      PopDeepSleepEnforced = 0;
+      PopDeepSleepSetDisengageReason(0);
+      if ( !byte_140C233F4 )
+        PopDeepSleepSetDisengageReason(1u);
+    }
+    goto LABEL_6;
+  }
+  if ( !PopDeepSleepEnforced )
+  {
+    KeSetMaxDynamicTickDuration((unsigned int)(10000000 * v3));
+    PopDeepSleepEnforced = 1;
+    PopDeepSleepClearDisengageReason(0);
+    PopDeepSleepClearDisengageReason(1u);
+  }
+LABEL_6:
+  PpmAcquireLock((struct _KTHREAD **)&PopFxSystemLatencyLock);
   PoFxSendSystemLatencyUpdate();
-  PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
-  v2 = *a1;
+  PpmReleaseLock(&PopFxSystemLatencyLock);
+  v4 = *a1;
   if ( *a1 )
   {
-    if ( PopCurrentCoalescingSpindownTimeout )
-      return;
-    PopCoalescingState |= 2u;
-    PopCoalescingEnforced = 1;
-    PopEnforcedCoalescingSpindownTimeout = v2;
-    goto LABEL_7;
+    if ( !PopCurrentCoalescingSpindownTimeout )
+    {
+      PopCoalescingState |= 2u;
+      PopCoalescingEnforced = 1;
+      PopEnforcedCoalescingSpindownTimeout = v4;
+LABEL_19:
+      PopEnsureCoalescingWorkerWillRun();
+    }
   }
-  if ( PopCurrentCoalescingSpindownTimeout && PopCoalescingEnforced )
+  else if ( PopCurrentCoalescingSpindownTimeout && PopCoalescingEnforced )
   {
-    PopCoalescingState &= ~2u;
     PopEnforcedCoalescingSpindownTimeout = 0;
+    PopCoalescingState &= ~2u;
     PopCoalescingEnforced = 0;
-LABEL_7:
-    PopEnsureCoalescingWorkerWillRun();
+    goto LABEL_19;
   }
 }

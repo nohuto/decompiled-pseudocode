@@ -1,20 +1,20 @@
 /*
- * XREFs of SiGetEspFromFirmware @ 0x1408F568C
+ * XREFs of SiGetEspFromFirmware @ 0x1408F566C
  * Callers:
- *     SiGetEfiSystemDevice @ 0x1408F52D8 (SiGetEfiSystemDevice.c)
+ *     SiGetEfiSystemDevice @ 0x1408F52B8 (SiGetEfiSystemDevice.c)
  * Callees:
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     ZwEnumerateBootEntries @ 0x1401B9C70 (ZwEnumerateBootEntries.c)
- *     ZwQueryBootEntryOrder @ 0x1401BA870 (ZwQueryBootEntryOrder.c)
- *     ZwQueryBootOptions @ 0x1401BA890 (ZwQueryBootOptions.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     ZwEnumerateBootEntries @ 0x1401B9C90 (ZwEnumerateBootEntries.c)
+ *     ZwQueryBootEntryOrder @ 0x1401BA890 (ZwQueryBootEntryOrder.c)
+ *     ZwQueryBootOptions @ 0x1401BA8B0 (ZwQueryBootOptions.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiReleasePrivilege @ 0x1407114C4 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140711514 (BiAcquirePrivilege.c)
- *     SiBootEntryGetNtFilePath @ 0x1408F5150 (SiBootEntryGetNtFilePath.c)
- *     SiGetEfiBootEntryById @ 0x1408F52B8 (SiGetEfiBootEntryById.c)
- *     SiIsValidWindowsBootEntry @ 0x1408F5AA8 (SiIsValidWindowsBootEntry.c)
+ *     BiReleasePrivilege @ 0x1407114A4 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
+ *     SiBootEntryGetNtFilePath @ 0x1408F5130 (SiBootEntryGetNtFilePath.c)
+ *     SiGetEfiBootEntryById @ 0x1408F5298 (SiGetEfiBootEntryById.c)
+ *     SiIsValidWindowsBootEntry @ 0x1408F5A88 (SiIsValidWindowsBootEntry.c)
  */
 
 __int64 __fastcall SiGetEspFromFirmware(void *a1, ULONG a2)

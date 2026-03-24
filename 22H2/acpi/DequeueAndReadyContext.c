@@ -1,33 +1,32 @@
 /*
- * XREFs of DequeueAndReadyContext @ 0x1C00548C4
+ * XREFs of DequeueAndReadyContext @ 0x1C0029B50
  * Callers:
- *     WriteCookAccess @ 0x1C0005DA0 (WriteCookAccess.c)
- *     SignalASLEvent @ 0x1C0054E4C (SignalASLEvent.c)
- *     ParseRelease @ 0x1C005BF90 (ParseRelease.c)
+ *     WriteCookAccess @ 0x1C0029900 (WriteCookAccess.c)
+ *     SignalASLEvent @ 0x1C0068798 (SignalASLEvent.c)
  * Callees:
- *     InsertReadyQueue @ 0x1C00057E4 (InsertReadyQueue.c)
+ *     InsertReadyQueue @ 0x1C00047A0 (InsertReadyQueue.c)
  */
 
-char *__fastcall DequeueAndReadyContext(char **a1)
+struct _SLIST_ENTRY *__fastcall DequeueAndReadyContext(struct _SLIST_ENTRY **a1)
 {
-  char *v2; // rdi
-  char *v3; // rax
-  char *v4; // rcx
+  struct _SLIST_ENTRY *v2; // rdi
+  struct _SLIST_ENTRY *v3; // rax
+  struct _SLIST_ENTRY *Next; // rcx
 
   v2 = 0LL;
-  NewIrql = KeAcquireSpinLockRaiseToDpc(&SpinLock);
+  byte_1C00827B0 = KeAcquireSpinLockRaiseToDpc(&SpinLock);
   v3 = *a1;
-  if ( *a1 != (char *)a1 )
+  if ( *a1 != (struct _SLIST_ENTRY *)a1 )
   {
-    if ( *((char ***)v3 + 1) != a1 || (v4 = *(char **)v3, *(char **)(*(_QWORD *)v3 + 8LL) != v3) )
+    if ( *((struct _SLIST_ENTRY ***)&v3->Next + 1) != a1 || (Next = v3->Next, *(&v3->Next->Next + 1) != v3) )
       __fastfail(3u);
-    *a1 = v4;
-    v2 = v3 - 32;
-    *((_QWORD *)v4 + 1) = a1;
-    *((_QWORD *)v3 + 1) = v3;
-    *(_QWORD *)v3 = v3;
-    InsertReadyQueue(v3 - 32, 1);
+    *a1 = Next;
+    v2 = v3 - 2;
+    *((_QWORD *)&Next->Next + 1) = a1;
+    *((_QWORD *)&v3->Next + 1) = v3;
+    v3->Next = v3;
+    InsertReadyQueue(v3 - 2, 1);
   }
-  KeReleaseSpinLock(&SpinLock, NewIrql);
+  KeReleaseSpinLock(&SpinLock, byte_1C00827B0);
   return v2;
 }

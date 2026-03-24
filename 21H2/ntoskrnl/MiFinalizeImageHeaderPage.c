@@ -1,79 +1,70 @@
 /*
- * XREFs of MiFinalizeImageHeaderPage @ 0x1402EB1A0
+ * XREFs of MiFinalizeImageHeaderPage @ 0x1402E7BEC
  * Callers:
- *     MiCreateNewSection @ 0x1406F914C (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1406D2BC0 (MiCreateNewSection.c)
  * Callees:
- *     MiReleaseFreshPage @ 0x140268408 (MiReleaseFreshPage.c)
- *     MiIsPfnFromSlabAllocation @ 0x140277C50 (MiIsPfnFromSlabAllocation.c)
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     MiReplaceTransitionPage @ 0x1402E7704 (MiReplaceTransitionPage.c)
- *     MiGetPfnChannel @ 0x1402E8990 (MiGetPfnChannel.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402E89B0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiGetSlabPage @ 0x1402EB440 (MiGetSlabPage.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     MiUseSlabAllocator @ 0x140313D20 (MiUseSlabAllocator.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x140336AD8 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiCheckSlabPage @ 0x1403B1DEC (MiCheckSlabPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReplaceTransitionPage @ 0x14026D370 (MiReplaceTransitionPage.c)
+ *     MiReleaseFreshPage @ 0x1402E6774 (MiReleaseFreshPage.c)
+ *     MiGetSlabPage @ 0x1402E803C (MiGetSlabPage.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
+ *     MiUseSlabAllocator @ 0x140318198 (MiUseSlabAllocator.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140328BC0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140329F30 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiCheckSlabPage @ 0x14037CFD0 (MiCheckSlabPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiFinalizeImageHeaderPage(ULONG_PTR a1)
+__int64 __fastcall MiFinalizeImageHeaderPage(ULONG_PTR BugCheckParameter2)
 {
-  unsigned __int64 *v1; // r15
-  __int64 v2; // rbx
-  unsigned __int64 v4; // r8
-  __int64 v5; // rbx
-  __int64 v6; // r14
-  int v7; // esi
-  int v8; // edi
-  int PfnChannel; // eax
+  _QWORD *v1; // r14
+  __int64 v2; // rdx
+  __int64 v4; // rdx
+  __int64 v5; // rdi
+  __int64 v6; // r12
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  unsigned int v9; // esi
   __int64 SlabPage; // rax
-  unsigned __int64 v11; // rbx
+  unsigned __int64 v11; // rsi
+  __int64 v12; // rdx
+  __int64 SchedulerAssist; // r8
   __int64 result; // rax
-  BOOL IsPfnFromSlabAllocation; // eax
+  int IsPfnFromSlabAllocation; // eax
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *SchedulerAssist; // r8
-  bool v16; // zf
-  unsigned int v17; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v18; // [rsp+68h] [rbp+10h]
+  bool v17; // zf
+  unsigned int v18; // [rsp+60h] [rbp+8h] BYREF
 
-  v1 = (unsigned __int64 *)(a1 + 16);
-  v2 = *(_QWORD *)(a1 + 16);
-  v17 = 0;
-  if ( qword_140C50780 && (v2 & 0x10) == 0 )
-    v2 &= ~qword_140C50780;
-  v4 = *v1;
-  v5 = v2 >> 16;
-  v6 = 0LL;
-  v18 = *(_QWORD *)(qword_140C51F48 + 8LL * (*(_WORD *)(*(_QWORD *)v5 + 60LL) & 0x3FF));
-  if ( (unsigned int)MiUseSlabAllocator(v18, v5, v4, &v17)
-    && (!MiIsPfnFromSlabAllocation(a1) || !(unsigned int)MiCheckSlabPage(a1, v17) && v17 <= 3) )
+  v1 = (_QWORD *)(BugCheckParameter2 + 16);
+  v2 = *(_QWORD *)(BugCheckParameter2 + 16);
+  v18 = 0;
+  if ( qword_140C4DF40 && (v2 & 0x10) == 0 )
+    v2 &= ~qword_140C4DF40;
+  v4 = v2 >> 16;
+  v5 = 0LL;
+  v6 = *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(*(_QWORD *)v4 + 60LL) & 0x3FF));
+  if ( (unsigned int)MiUseSlabAllocator(v6, v4, *v1, &v18) )
   {
-    v7 = *(_DWORD *)(*(_QWORD *)v5 + 56LL);
-    v8 = *((_DWORD *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((__int64)(a1 + 0x220000000000LL) >> 4)) + 2);
-    PfnChannel = MiGetPfnChannel(a1);
-    SlabPage = MiGetSlabPage(
-                 v18,
-                 v17,
-                 (PfnChannel << byte_140C506CD) | (v8 << byte_140C506CC) | (-1431655765
-                                                                          * ((__int64)(a1 + 0x220000000000LL) >> 4)) & dword_140C50738,
-                 (v7 & 0x7F00000) == 0 ? 2 : 0,
-                 -1LL,
-                 0x20000);
-    if ( SlabPage != -1 )
-      v6 = 48 * SlabPage - 0x220000000000LL;
+    v9 = (*(unsigned __int16 *)(v7 + 32) >> 1) & 0x1F;
+    if ( !(unsigned int)MiIsPfnFromSlabAllocation(BugCheckParameter2)
+      || !(unsigned int)MiCheckSlabPage(BugCheckParameter2, v18, v9) && !v18 )
+    {
+      SlabPage = MiGetSlabPage(v6, v9, v18, -1, 0x20000);
+      if ( SlabPage != -1 )
+        v5 = 48 * SlabPage - 0x58000000000LL;
+    }
   }
-  v11 = (unsigned __int8)MiLockPageInline(a1);
-  MiRemoveLockedPageChargeAndDecRef(a1);
-  if ( v6 && !*(_WORD *)(a1 + 32) && *(char *)(a1 + 35) >= 0 && (unsigned __int8)((*(_BYTE *)(a1 + 34) & 7) - 2) <= 1u )
+  v11 = (unsigned __int8)MiLockPageInline(BugCheckParameter2, v7, v8);
+  MiRemoveLockedPageChargeAndDecRef(BugCheckParameter2);
+  if ( v5 && !*(_WORD *)(BugCheckParameter2 + 32) )
   {
-    IsPfnFromSlabAllocation = MiIsPfnFromSlabAllocation(a1);
-    MiReplaceTransitionPage(a1, v6, IsPfnFromSlabAllocation, 0LL);
+    IsPfnFromSlabAllocation = MiIsPfnFromSlabAllocation(BugCheckParameter2);
+    MiReplaceTransitionPage(BugCheckParameter2, v5, IsPfnFromSlabAllocation, 0LL);
     *v1 = ZeroPte;
     MiSetOriginalPtePfnFromFreeList(v1);
-    v6 = a1;
+    v5 = BugCheckParameter2;
   }
-  _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
@@ -84,16 +75,17 @@ __int64 __fastcall MiFinalizeImageHeaderPage(ULONG_PTR a1)
       {
         CurrentPrcb = KeGetCurrentPrcb();
         result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v16 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
-        if ( v16 )
+        SchedulerAssist = (__int64)CurrentPrcb->SchedulerAssist;
+        v17 = ((unsigned int)result & *(_DWORD *)(SchedulerAssist + 20)) == 0;
+        v12 = (unsigned int)result & *(_DWORD *)(SchedulerAssist + 20);
+        *(_DWORD *)(SchedulerAssist + 20) = v12;
+        if ( v17 )
           result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }
   __writecr8(v11);
-  if ( v6 )
-    return MiReleaseFreshPage(v6);
+  if ( v5 )
+    return MiReleaseFreshPage(v5, v12, SchedulerAssist);
   return result;
 }

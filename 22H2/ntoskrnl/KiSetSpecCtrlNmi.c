@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSetSpecCtrlNmi @ 0x140423CD0
+ * XREFs of KiSetSpecCtrlNmi @ 0x1404021C0
  * Callers:
- *     KiNmiInterruptStart @ 0x14042BF80 (KiNmiInterruptStart.c)
- *     KiMcheckAbort @ 0x140430280 (KiMcheckAbort.c)
+ *     KiNmiInterruptStart @ 0x14040A440 (KiNmiInterruptStart.c)
+ *     KiMcheckAbort @ 0x14040E1C0 (KiMcheckAbort.c)
  * Callees:
- *     sub_140423E32 @ 0x140423E32 (sub_140423E32.c)
+ *     sub_140402322 @ 0x140402322 (sub_140402322.c)
  */
 
 __int64 __fastcall KiSetSpecCtrlNmi()
@@ -22,10 +22,10 @@ __int64 __fastcall KiSetSpecCtrlNmi()
         (v1 & 1) == 0) )
   {
     if ( (KeGetPcr()->Prcb.BpbFeatures & 2) == 0 )
-      JUMPOUT(0x140423E56LL);
+      JUMPOUT(0x140402334LL);
     v2 = 73LL;
     __writemsr(0x49u, 1uLL);
   }
-  sub_140423E32(v2, 0LL);
-  return sub_140423D24();
+  sub_140402322(v2, 0LL);
+  return sub_140402214();
 }

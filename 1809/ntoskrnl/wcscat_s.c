@@ -1,16 +1,16 @@
 /*
- * XREFs of wcscat_s @ 0x14019BC00
+ * XREFs of wcscat_s @ 0x14019BC20
  * Callers:
- *     RtlConvertSidToUnicodeString @ 0x14065A6D0 (RtlConvertSidToUnicodeString.c)
- *     NtLockProductActivationKeys @ 0x1406BC050 (NtLockProductActivationKeys.c)
- *     BcdGetSystemStorePath @ 0x140711AC4 (BcdGetSystemStorePath.c)
- *     AslPathToNetworkPathNt @ 0x1407223FC (AslPathToNetworkPathNt.c)
- *     ExpWatchLicenseInfoWork @ 0x1408CD580 (ExpWatchLicenseInfoWork.c)
- *     ExpCreateOutputSIGNATURE @ 0x1408D03B8 (ExpCreateOutputSIGNATURE.c)
+ *     RtlConvertSidToUnicodeString @ 0x14065A6B0 (RtlConvertSidToUnicodeString.c)
+ *     NtLockProductActivationKeys @ 0x1406BC030 (NtLockProductActivationKeys.c)
+ *     BcdGetSystemStorePath @ 0x140711AA4 (BcdGetSystemStorePath.c)
+ *     AslPathToNetworkPathNt @ 0x1407223DC (AslPathToNetworkPathNt.c)
+ *     ExpWatchLicenseInfoWork @ 0x1408CD560 (ExpWatchLicenseInfoWork.c)
+ *     ExpCreateOutputSIGNATURE @ 0x1408D0398 (ExpCreateOutputSIGNATURE.c)
  *     ExpWatchProductTypeInitialization @ 0x1409D5738 (ExpWatchProductTypeInitialization.c)
- *     VhdiMountVhdFile @ 0x1409F9774 (VhdiMountVhdFile.c)
+ *     VhdiMountVhdFile @ 0x1409F9784 (VhdiMountVhdFile.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1401767E0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl wcscat_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src)

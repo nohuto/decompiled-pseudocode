@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdateCommands@CCompositionCubeMapMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022CFF0
+ * XREFs of ?EmitUpdateCommands@CCompositionCubeMapMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F40C0
  * Callers:
  *     <none>
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_0d1723b41587c3d40875eb2502b1a7b6___ @ 0x1C022CDEC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_0d1723b41587c3d40875eb2502b1a7b.c)
- *     ?EmitSurfaces@CCompositionCubeMapMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022CEB0 (-EmitSurfaces@CCompositionCubeMapMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_0d1723b41587c3d40875eb2502b1a7b6___ @ 0x1C01F3EBC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_0d1723b41587c3d40875eb2502b1a7b.c)
+ *     ?EmitSurfaces@CCompositionCubeMapMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F3F78 (-EmitSurfaces@CCompositionCubeMapMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CCompositionCubeMapMarshaler::EmitUpdateCommands(

@@ -1,61 +1,59 @@
 /*
- * XREFs of KappxParsePackageFullNameFromToken @ 0x1C03865C8
+ * XREFs of KappxParsePackageFullNameFromToken @ 0x1C02C58D8
  * Callers:
- *     ?RegQueryControllerInstallKey@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z @ 0x1C004D840 (-RegQueryControllerInstallKey@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z.c)
+ *     ?RegQueryControllerInstallKey@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z @ 0x1C0049CD0 (-RegQueryControllerInstallKey@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z.c)
  * Callees:
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     KappxParseString @ 0x1C03866F4 (KappxParseString.c)
- *     KappxSafeSearch @ 0x1C0386790 (KappxSafeSearch.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     KappxParseString @ 0x1C02C5A04 (KappxParseString.c)
+ *     KappxSafeSearch @ 0x1C02C5A90 (KappxSafeSearch.c)
  */
 
-__int64 __fastcall KappxParsePackageFullNameFromToken(const void **a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall KappxParsePackageFullNameFromToken(unsigned __int16 *a1)
 {
-  char *Pool2; // rax
-  char *v6; // r14
-  unsigned __int16 v8; // di
-  unsigned __int16 v9; // di
-  char *v10; // r15
-  int v11; // ebp
-  unsigned __int16 v12; // ax
-  __int64 v13; // rsi
-  int v14; // ebx
+  char *PoolWithTag; // rax
+  char *v3; // r14
+  char *v5; // r15
+  unsigned __int16 v6; // si
+  int v7; // ebp
+  unsigned __int16 v8; // ax
+  __int64 v9; // rdi
+  int v10; // ebx
 
-  Pool2 = (char *)ExAllocatePool2(256LL, *(unsigned __int16 *)a1, 1483763777LL, a4);
-  v6 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, *a1, 0x58707041u);
+  v3 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225495LL;
-  v8 = *(_WORD *)a1;
-  memmove(Pool2, a1[1], *(unsigned __int16 *)a1);
-  v9 = v8 >> 1;
-  v10 = v6;
-  v11 = 0;
+  memmove(PoolWithTag, *((const void **)a1 + 1), *a1);
+  v5 = v3;
+  v6 = *a1 >> 1;
+  v7 = 0;
   while ( 1 )
   {
-    v12 = KappxSafeSearch(v10, v9, 95LL);
-    v13 = v12;
-    if ( v12 == v9 && v11 != 4 )
+    v8 = KappxSafeSearch(v5, v6, 95LL);
+    v9 = v8;
+    if ( v8 == v6 && v7 != 4 )
     {
-      v14 = -2147483643;
+      v10 = -2147483643;
 LABEL_14:
-      ExFreePoolWithTag(v6, 0x58707041u);
-      return (unsigned int)v14;
+      ExFreePoolWithTag(v3, 0x58707041u);
+      return (unsigned int)v10;
     }
-    if ( !v11 )
+    if ( !v7 )
       goto LABEL_12;
-    if ( v11 != 1 && v11 != 2 )
+    if ( v7 != 1 && v7 != 2 )
       break;
-    v14 = 0;
+    v10 = 0;
 LABEL_13:
-    v10 += 2 * v13 + 2;
-    v9 += -1 - v13;
-    if ( (unsigned int)++v11 >= 5 )
+    v5 += 2 * v9 + 2;
+    v6 += -1 - v9;
+    if ( (unsigned int)++v7 >= 5 )
       goto LABEL_14;
   }
-  if ( (unsigned int)(v11 - 3) <= 1 )
+  if ( (unsigned int)(v7 - 3) <= 1 )
   {
 LABEL_12:
-    v14 = KappxParseString(v10);
-    if ( v14 < 0 )
+    v10 = KappxParseString(v5);
+    if ( v10 < 0 )
       goto LABEL_14;
     goto LABEL_13;
   }

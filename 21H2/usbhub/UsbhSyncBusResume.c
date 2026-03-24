@@ -1,23 +1,24 @@
 /*
- * XREFs of UsbhSyncBusResume @ 0x1C0030F24
+ * XREFs of UsbhSyncBusResume @ 0x1C0002978
  * Callers:
- *     UsbhSshSuspendHub @ 0x1C00063E0 (UsbhSshSuspendHub.c)
- *     UsbhFdoSetD0Warm @ 0x1C003B8A0 (UsbhFdoSetD0Warm.c)
+ *     UsbhSshResumeDownstream @ 0x1C000C0F0 (UsbhSshResumeDownstream.c)
+ *     UsbhSshSuspendHub @ 0x1C000D970 (UsbhSshSuspendHub.c)
+ *     UsbhFdoSetD0Warm @ 0x1C003CBD0 (UsbhFdoSetD0Warm.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDispatch_BusEvent @ 0x1C000FC10 (UsbhDispatch_BusEvent.c)
+ *     UsbhDispatch_BusEvent @ 0x1C0002AF0 (UsbhDispatch_BusEvent.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
-__int64 __fastcall UsbhSyncBusResume(struct _DEVICE_OBJECT *a1, __int64 a2)
+__int64 __fastcall UsbhSyncBusResume(__int64 a1, __int64 a2)
 {
   int v4; // r9d
   int v5; // eax
   unsigned int v6; // r10d
 
-  FdoExt((__int64)a1);
-  Log((__int64)a1, 2048, 1346458174, 0LL, 0LL);
-  v5 = UsbhDispatch_BusEvent(a1, a2, v4 + 8);
-  Log((__int64)a1, 2048, 1346458172, 0LL, v5);
+  FdoExt(a1);
+  Log(a1, 2048, 1346458174, 0, 0LL);
+  v5 = UsbhDispatch_BusEvent(a1, a2, (unsigned int)(v4 + 8));
+  Log(a1, 2048, 1346458172, 0, v5);
   return v6;
 }

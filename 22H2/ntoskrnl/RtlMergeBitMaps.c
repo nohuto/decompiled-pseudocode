@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlMergeBitMaps @ 0x1402F62E0
+ * XREFs of RtlMergeBitMaps @ 0x140362078
  * Callers:
- *     HvUnCOWReconciledPages @ 0x1402F6034 (HvUnCOWReconciledPages.c)
- *     HvStoreModifiedData @ 0x1407075E4 (HvStoreModifiedData.c)
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
- *     HvpPerformLogFileRecovery @ 0x14080093C (HvpPerformLogFileRecovery.c)
- *     HvFoldBackUnreconciledData @ 0x140A20B9C (HvFoldBackUnreconciledData.c)
+ *     HvUnCOWReconciledPages @ 0x140361C30 (HvUnCOWReconciledPages.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
+ *     HvStoreModifiedData @ 0x140720430 (HvStoreModifiedData.c)
+ *     HvpPerformLogFileRecovery @ 0x14087410C (HvpPerformLogFileRecovery.c)
+ *     HvFoldBackUnreconciledData @ 0x140876A74 (HvFoldBackUnreconciledData.c)
  * Callees:
  *     <none>
  */
@@ -14,27 +14,27 @@ __int64 __fastcall RtlMergeBitMaps(__int64 a1, unsigned int *a2)
 {
   unsigned int v2; // r9d
   __int64 result; // rax
-  __int64 v4; // r8
+  __int64 v4; // r11
 
   v2 = *(_DWORD *)a1;
   result = *a2;
   if ( *(_DWORD *)a1 >= (unsigned int)result )
     v2 = *a2;
   v4 = 0LL;
-  if ( v2 )
+  while ( v2 )
   {
-    while ( 1 )
+    result = *((_QWORD *)a2 + 1);
+    if ( v2 < 0x20 )
     {
-      result = *((_QWORD *)a2 + 1);
-      if ( v2 < 0x20 )
-        break;
+      *(_DWORD *)(*(_QWORD *)(a1 + 8) + 4 * v4) |= *(_DWORD *)(result + 4 * v4) & ((1LL << v2) - 1);
+      v2 = 0;
+    }
+    else
+    {
+      v2 -= 32;
       *(_DWORD *)(*(_QWORD *)(a1 + 8) + 4 * v4) |= *(_DWORD *)(result + 4 * v4);
       v4 = (unsigned int)(v4 + 1);
-      v2 -= 32;
-      if ( !v2 )
-        return result;
     }
-    *(_DWORD *)(*(_QWORD *)(a1 + 8) + 4LL * (unsigned int)v4) |= *(_DWORD *)(result + 4LL * (unsigned int)v4) & ((1LL << v2) - 1);
   }
   return result;
 }

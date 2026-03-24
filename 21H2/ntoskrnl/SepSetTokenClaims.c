@@ -1,15 +1,15 @@
 /*
- * XREFs of SepSetTokenClaims @ 0x14066B7B4
+ * XREFs of SepSetTokenClaims @ 0x1405DC6A8
  * Callers:
- *     SepCreateTokenEx @ 0x1402022FC (SepCreateTokenEx.c)
+ *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     SepCreateClaimAttributes @ 0x14066B830 (SepCreateClaimAttributes.c)
- *     SepCompareClaimAttributes @ 0x1406960FC (SepCompareClaimAttributes.c)
- *     SepDeleteClaimAttributes @ 0x1409CE8C4 (SepDeleteClaimAttributes.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     SepCreateClaimAttributes @ 0x1405DC724 (SepCreateClaimAttributes.c)
+ *     SepCompareClaimAttributes @ 0x1407178C0 (SepCompareClaimAttributes.c)
+ *     SepDeleteClaimAttributes @ 0x140924FE8 (SepDeleteClaimAttributes.c)
  */
 
 __int64 __fastcall SepSetTokenClaims(__int64 a1, int a2, int a3, int a4, void *a5)
@@ -49,7 +49,7 @@ __int64 __fastcall SepSetTokenClaims(__int64 a1, int a2, int a3, int a4, void *a
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v11 + 104), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(v11 + 104);
       KeAbPostRelease(v11 + 104);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       v9 = P;
       if ( v6 )
         goto LABEL_13;

@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDevCfgCopyObjectProperties @ 0x14087C8C4
+ * XREFs of PiDevCfgCopyObjectProperties @ 0x140767498
  * Callers:
- *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x14087C388 (PiDevCfgConfigureDeviceDriverConfiguration.c)
- *     PiDevCfgConfigureDeviceInterface @ 0x14095D4A0 (PiDevCfgConfigureDeviceInterface.c)
- *     PiDevCfgInitDriverDatabaseCallback @ 0x14095E6F8 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x140766B40 (PiDevCfgConfigureDeviceDriverConfiguration.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x1408A5A88 (PiDevCfgConfigureDeviceInterface.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x1408A6AE8 (PiDevCfgInitDriverDatabaseCallback.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     _PnpGetGenericStoreProperty @ 0x1406CDAB0 (_PnpGetGenericStoreProperty.c)
- *     _PnpOpenObjectRegKey @ 0x1406CFA10 (_PnpOpenObjectRegKey.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     _PnpGetObjectPropertyKeys @ 0x14083C2BC (_PnpGetObjectPropertyKeys.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140876094 (_PnpGetGenericStorePropertyKeys.c)
- *     PiDevCfgSetObjectProperty @ 0x14087BC10 (PiDevCfgSetObjectProperty.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     _PnpOpenObjectRegKey @ 0x1406B0644 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
+ *     _PnpGetGenericStoreProperty @ 0x1406B0FBC (_PnpGetGenericStoreProperty.c)
+ *     PiDevCfgSetObjectProperty @ 0x14074178C (PiDevCfgSetObjectProperty.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1407675A0 (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpGetObjectPropertyKeys @ 0x140976978 (_PnpGetObjectPropertyKeys.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgCopyObjectProperties(
@@ -22,8 +22,8 @@ __int64 __fastcall PiDevCfgCopyObjectProperties(
         __int64 a2,
         unsigned int a3,
         __int64 a4,
-        unsigned int a5,
-        const WCHAR *a6,
+        SIZE_T NumberOfBytes,
+        __int64 a6,
         unsigned int a7,
         void *a8,
         unsigned __int8 (__fastcall *a9)(char *, __int64),
@@ -31,56 +31,57 @@ __int64 __fastcall PiDevCfgCopyObjectProperties(
         int a11)
 {
   __int64 v11; // rax
+  int v14; // r14d
   int ObjectPropertyKeys; // eax
   int ObjectProperty; // ebx
-  __int64 v19; // r9
-  __int64 v20; // r9
+  int v19; // r9d
+  char *PoolWithTag; // r13
+  int v21; // r9d
   int GenericStorePropertyKeys; // eax
-  wchar_t *Pool2; // rdi
-  unsigned int v23; // r12d
-  char *v24; // rax
+  PVOID v23; // rdi
+  int v24; // r14d
   __int64 v25; // r9
-  HANDLE v26; // rcx
-  int v27; // eax
-  int v28; // [rsp+20h] [rbp-69h]
-  int v29; // [rsp+20h] [rbp-69h]
-  int v30; // [rsp+28h] [rbp-61h]
-  unsigned int v31; // [rsp+60h] [rbp-29h]
-  int v32; // [rsp+64h] [rbp-25h] BYREF
-  char *v33; // [rsp+68h] [rbp-21h]
-  HANDLE Handle; // [rsp+70h] [rbp-19h] BYREF
-  PVOID P; // [rsp+78h] [rbp-11h]
-  HANDLE v36; // [rsp+80h] [rbp-9h] BYREF
-  __int64 v37; // [rsp+88h] [rbp-1h]
-  unsigned int v39; // [rsp+E8h] [rbp+5Fh] BYREF
+  unsigned int v26; // r12d
+  HANDLE v27; // rcx
+  int v28; // [rsp+28h] [rbp-69h]
+  int v29; // [rsp+28h] [rbp-69h]
+  int v30; // [rsp+30h] [rbp-61h]
+  int v31; // [rsp+68h] [rbp-29h] BYREF
+  HANDLE Handle; // [rsp+70h] [rbp-21h] BYREF
+  __int64 v33; // [rsp+78h] [rbp-19h]
+  HANDLE v34; // [rsp+80h] [rbp-11h] BYREF
+  char *v35; // [rsp+88h] [rbp-9h]
+  __int64 v36; // [rsp+90h] [rbp-1h]
+  unsigned int v39; // [rsp+F0h] [rbp+5Fh] BYREF
 
   v11 = *(_QWORD *)&PiPnpRtlCtx;
-  v37 = *(_QWORD *)&PiPnpRtlCtx;
+  v36 = *(_QWORD *)&PiPnpRtlCtx;
   Handle = 0LL;
-  v36 = 0LL;
+  v34 = 0LL;
+  v14 = a2;
   v39 = 0;
-  v32 = 1;
-  a5 = 0;
+  v31 = 1;
+  LODWORD(NumberOfBytes) = 0;
   if ( !a4 )
   {
     ObjectProperty = PnpOpenObjectRegKey(a1, a2, a3, 33554433, 0, (__int64)&Handle);
     if ( ObjectProperty < 0 )
       goto LABEL_8;
-    v11 = v37;
+    v11 = v36;
   }
-  if ( a8
-    || (ObjectProperty = PnpOpenObjectRegKey(v11, (__int64)a6, a7, 33554433, 0, (__int64)&v36), ObjectProperty >= 0) )
+  if ( a8 || (ObjectProperty = PnpOpenObjectRegKey(v11, a6, a7, 33554433, 0, (__int64)&v34), ObjectProperty >= 0) )
   {
     if ( a3 )
     {
-      v19 = (__int64)Handle;
+      v19 = (int)Handle;
       if ( a4 )
         v19 = a4;
-      ObjectPropertyKeys = PnpGetObjectPropertyKeys(a1, a2, a3, v19, v28, 0, 0LL, 0, (__int64)&v39);
+      ObjectPropertyKeys = PnpGetObjectPropertyKeys(a1, v14, a3, v19, v28, 0, 0LL, 0, (__int64)&v39);
     }
     else
     {
-      ObjectPropertyKeys = PnpGetGenericStorePropertyKeys(a1, a4, 0LL, 0, 0LL, 0, &v39);
+      v29 = 0;
+      ObjectPropertyKeys = PnpGetGenericStorePropertyKeys(a1, a4, 0LL, 0LL);
     }
     ObjectProperty = ObjectPropertyKeys;
     if ( (int)(ObjectPropertyKeys + 0x80000000) < 0 || ObjectPropertyKeys == -1073741789 )
@@ -90,112 +91,147 @@ __int64 __fastcall PiDevCfgCopyObjectProperties(
         ObjectProperty = 0;
         goto LABEL_8;
       }
-      P = (PVOID)ExAllocatePool2(256LL, 20LL * v39, 1667526736LL);
-      if ( !P )
+      PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 20LL * v39, 0x63647050u);
+      if ( !PoolWithTag )
       {
         ObjectProperty = -1073741670;
         goto LABEL_8;
       }
       if ( a3 )
       {
-        v20 = (__int64)Handle;
+        v21 = (int)Handle;
         if ( a4 )
-          v20 = a4;
-        GenericStorePropertyKeys = PnpGetObjectPropertyKeys(a1, a2, a3, v20, v29, 0, (__int64)P, v39, (__int64)&v39);
+          v21 = a4;
+        GenericStorePropertyKeys = PnpGetObjectPropertyKeys(
+                                     a1,
+                                     v14,
+                                     a3,
+                                     v21,
+                                     v29,
+                                     0,
+                                     (__int64)PoolWithTag,
+                                     v39,
+                                     (__int64)&v39);
       }
       else
       {
-        GenericStorePropertyKeys = PnpGetGenericStorePropertyKeys(a1, a4, 0LL, 0, (__int64)P, v39, &v39);
+        GenericStorePropertyKeys = PnpGetGenericStorePropertyKeys(a1, a4, 0LL, 0LL);
       }
       ObjectProperty = GenericStorePropertyKeys;
       if ( GenericStorePropertyKeys < 0 )
-        goto LABEL_54;
-      v31 = 256;
-      Pool2 = (wchar_t *)ExAllocatePool2(256LL, 256LL, 1667526736LL);
-      if ( !Pool2 )
+        goto LABEL_57;
+      v33 = 256LL;
+      v23 = ExAllocatePoolWithTag(PagedPool, 0x100uLL, 0x63647050u);
+      if ( !v23 )
       {
-LABEL_39:
         ObjectProperty = -1073741670;
-        goto LABEL_54;
+LABEL_57:
+        ExFreePoolWithTag(PoolWithTag, 0);
+        goto LABEL_8;
       }
-      v23 = 0;
+      v24 = 0;
       if ( !v39 )
-        goto LABEL_53;
+      {
+LABEL_55:
+        if ( v23 )
+          ExFreePoolWithTag(v23, 0);
+        goto LABEL_57;
+      }
       while ( 1 )
       {
-        if ( a9 && !a9((char *)P + 20 * v23, a10) )
-          goto LABEL_50;
-        v24 = (char *)P + 20 * v23;
-        v33 = v24;
+        if ( a9 && !a9(&PoolWithTag[20 * v24], a10) )
+          goto LABEL_51;
         if ( a3 )
         {
           v25 = (__int64)Handle;
+          v26 = v33;
           if ( a4 )
             v25 = a4;
+          v35 = &PoolWithTag[20 * v24];
           ObjectProperty = PnpGetObjectProperty(
                              a1,
                              a2,
                              a3,
                              v25,
                              0LL,
-                             (__int64)v24,
-                             (__int64)&v32,
-                             (__int64)Pool2,
-                             v31,
-                             (__int64)&a5,
+                             (__int64)v35,
+                             (__int64)&v31,
+                             (__int64)v23,
+                             v33,
+                             (__int64)&NumberOfBytes,
                              a11);
           if ( ObjectProperty == -1073741822 )
-            goto LABEL_38;
+          {
+            ObjectProperty = 0;
+            goto LABEL_51;
+          }
         }
         else
         {
-          ObjectProperty = PnpGetGenericStoreProperty(a1, a4, 0LL, (__int64)v24, &v32, (__int64)Pool2, v31, &a5);
+          v26 = v33;
+          v35 = &PoolWithTag[20 * v24];
+          ObjectProperty = PnpGetGenericStoreProperty(
+                             a1,
+                             a4,
+                             0LL,
+                             (__int64)v35,
+                             &v31,
+                             (__int64)v23,
+                             v33,
+                             &NumberOfBytes);
         }
-        if ( ObjectProperty != -1073741789 )
+        if ( ObjectProperty == -1073741789 )
+        {
+          if ( (unsigned int)NumberOfBytes <= v26 )
+          {
+            ObjectProperty = -1073741595;
+            goto LABEL_55;
+          }
+          ExFreePoolWithTag(v23, 0);
+          v33 = (unsigned int)NumberOfBytes;
+          v23 = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x63647050u);
+          if ( !v23 )
+          {
+            ObjectProperty = -1073741670;
+            goto LABEL_55;
+          }
+          ObjectProperty = 0;
+          --v24;
+        }
+        else
         {
           if ( ObjectProperty < 0 )
-            goto LABEL_53;
-          v26 = v36;
+            goto LABEL_55;
+          v27 = v34;
           if ( a8 )
-            v26 = a8;
-          v27 = PiDevCfgSetObjectProperty(v37, 0LL, a6, a7, (__int64)v26, v30, (__int64)v33, v32, Pool2, a5, a11);
-          ObjectProperty = v27;
-          if ( v27 != -1073741790 )
-          {
-            if ( v27 < 0 )
-              goto LABEL_53;
-            goto LABEL_50;
-          }
-LABEL_38:
-          ObjectProperty = 0;
-          goto LABEL_50;
+            v27 = a8;
+          ObjectProperty = PiDevCfgSetObjectProperty(
+                             v36,
+                             0LL,
+                             a6,
+                             a7,
+                             (__int64)v27,
+                             v30,
+                             (__int64)v35,
+                             v31,
+                             (__int64)v23,
+                             NumberOfBytes,
+                             a11);
+          if ( ObjectProperty == -1073741790 )
+            ObjectProperty = 0;
+          if ( ObjectProperty < 0 )
+            goto LABEL_55;
         }
-        if ( a5 <= v31 )
-        {
-          ObjectProperty = -1073741595;
-LABEL_53:
-          ExFreePoolWithTag(Pool2, 0);
-LABEL_54:
-          ExFreePoolWithTag(P, 0);
-          break;
-        }
-        ExFreePoolWithTag(Pool2, 0);
-        v31 = a5;
-        Pool2 = (wchar_t *)ExAllocatePool2(256LL, a5, 1667526736LL);
-        if ( !Pool2 )
-          goto LABEL_39;
-        ObjectProperty = 0;
-        --v23;
-LABEL_50:
-        if ( ++v23 >= v39 )
-          goto LABEL_53;
+LABEL_51:
+        if ( ++v24 >= v39 )
+          goto LABEL_55;
       }
     }
   }
 LABEL_8:
   if ( Handle )
     ZwClose(Handle);
-  if ( v36 )
-    ZwClose(v36);
+  if ( v34 )
+    ZwClose(v34);
   return (unsigned int)ObjectProperty;
 }

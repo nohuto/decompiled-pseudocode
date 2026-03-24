@@ -1,37 +1,42 @@
 /*
- * XREFs of DwmSyncNotifyMinimizing @ 0x1C001383C
+ * XREFs of DwmSyncNotifyMinimizing @ 0x1C002C4FC
  * Callers:
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00C4E00 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
+ *     xxxMinMaximizeEx @ 0x1C002B69C (xxxMinMaximizeEx.c)
  * Callees:
- *     ?DwmSyncLPCAllowed@@YAJXZ @ 0x1C006EA5C (-DwmSyncLPCAllowed@@YAJXZ.c)
- *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C006EA8C (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
+ *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C002EA88 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
  */
 
 __int64 __fastcall DwmSyncNotifyMinimizing(PVOID Object, __int64 a2)
 {
-  int v4; // ebx
-  int v5; // eax
-  struct _PORT_MESSAGE v7; // [rsp+30h] [rbp-40h] BYREF
-  int v8; // [rsp+58h] [rbp-18h]
-  __int64 v9; // [rsp+5Ch] [rbp-14h]
-  __int64 v10; // [rsp+80h] [rbp+10h] BYREF
+  unsigned int v3; // ebx
+  int v4; // eax
+  struct _PORT_MESSAGE v6; // [rsp+30h] [rbp-40h] BYREF
+  int v7; // [rsp+58h] [rbp-18h]
+  __int64 v8; // [rsp+5Ch] [rbp-14h]
+  __int64 v9; // [rsp+80h] [rbp+10h] BYREF
 
-  v4 = -1073741823;
+  v3 = -1073741823;
   if ( Object )
   {
-    v4 = DwmSyncLPCAllowed();
-    if ( v4 >= 0 )
+    v3 = gbInVideoPnpCallout != 0 ? 0xC0000001 : 0;
+    if ( !gbInVideoPnpCallout )
     {
-      memset(&v7, 0, sizeof(v7));
-      v7.u2.s2.Type = 0x8000;
-      v10 = 52LL;
-      v7.u1.Length = 3407884;
-      v8 = 1073741825;
-      v9 = a2;
-      v5 = LpcSendWaitReceivePort(Object, 0x20000LL, &v7, &v7, &v10, 0LL);
-      v4 = SyncLpcCheckNtStatus(v5, &v7);
+      memset(&v6, 0, sizeof(v6));
+      v6.u2.s2.Type = 0x8000;
+      v8 = a2;
+      v9 = 52LL;
+      v6.u1.Length = 3407884;
+      v7 = 1073741825;
+      v4 = ((__int64 (__fastcall *)(PVOID, __int64, struct _PORT_MESSAGE *, struct _PORT_MESSAGE *, __int64 *, _QWORD))LpcSendWaitReceivePort)(
+             Object,
+             0x20000LL,
+             &v6,
+             &v6,
+             &v9,
+             0LL);
+      v3 = SyncLpcCheckNtStatus(v4, &v6);
     }
     ObfDereferenceObject(Object);
   }
-  return (unsigned int)v4;
+  return v3;
 }

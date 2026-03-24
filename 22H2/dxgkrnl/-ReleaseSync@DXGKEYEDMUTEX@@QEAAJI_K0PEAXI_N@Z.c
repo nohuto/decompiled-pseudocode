@@ -1,20 +1,19 @@
 /*
- * XREFs of ?ReleaseSync@DXGKEYEDMUTEX@@QEAAJI_K0PEAXI_N@Z @ 0x1C0350CE0
+ * XREFs of ?ReleaseSync@DXGKEYEDMUTEX@@QEAAJI_K0PEAXI_N@Z @ 0x1C0291E6C
  * Callers:
- *     ?Release@DXGDXGIKEYEDMUTEX@@QEAAJ_KPEAVDXGCONTEXT@@W4_OUTPUTDUPL_MUTEX_TYPE@@@Z @ 0x1C032EAD8 (-Release@DXGDXGIKEYEDMUTEX@@QEAAJ_KPEAVDXGCONTEXT@@W4_OUTPUTDUPL_MUTEX_TYPE@@@Z.c)
- *     DxgkReleaseKeyedMutex @ 0x1C0353460 (DxgkReleaseKeyedMutex.c)
- *     DxgkReleaseKeyedMutex2 @ 0x1C0353720 (DxgkReleaseKeyedMutex2.c)
- *     ?VmBusReleaseKeyedMutexSync@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0384A90 (-VmBusReleaseKeyedMutexSync@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusReleaseKeyedMutexSync@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0246740 (-VmBusReleaseKeyedMutexSync@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     DxgkReleaseKeyedMutex @ 0x1C0294150 (DxgkReleaseKeyedMutex.c)
+ *     DxgkReleaseKeyedMutex2 @ 0x1C02943B0 (DxgkReleaseKeyedMutex2.c)
+ *     ?Release@DXGDXGIKEYEDMUTEX@@QEAAJ_KPEAVDXGCONTEXT@@W4_OUTPUTDUPL_MUTEX_TYPE@@@Z @ 0x1C029CA38 (-Release@DXGDXGIKEYEDMUTEX@@QEAAJ_KPEAVDXGCONTEXT@@W4_OUTPUTDUPL_MUTEX_TYPE@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C0023F34 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
- *     ??0DXGKEYEDMUTEXLOCK@@QEAA@PEAVDXGKEYEDMUTEX@@@Z @ 0x1C00269DC (--0DXGKEYEDMUTEXLOCK@@QEAA@PEAVDXGKEYEDMUTEX@@@Z.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ?IsOwner@DXGKEYEDMUTEX@@QEAAEI@Z @ 0x1C00585C8 (-IsOwner@DXGKEYEDMUTEX@@QEAAEI@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?VmBusSendReleaseKeyedMutexSync@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGKEYEDMUTEX@@I_K2@Z @ 0x1C038D734 (-VmBusSendReleaseKeyedMutexSync@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGKEYEDMUTEX@@.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C00038D4 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??0DXGKEYEDMUTEXLOCK@@QEAA@PEAVDXGKEYEDMUTEX@@@Z @ 0x1C0027E30 (--0DXGKEYEDMUTEXLOCK@@QEAA@PEAVDXGKEYEDMUTEX@@@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?IsOwner@DXGKEYEDMUTEX@@QEAAEI@Z @ 0x1C0049238 (-IsOwner@DXGKEYEDMUTEX@@QEAAEI@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?VmBusSendReleaseKeyedMutexSync@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGKEYEDMUTEX@@I_K2@Z @ 0x1C024BED4 (-VmBusSendReleaseKeyedMutexSync@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGKEYEDMUTEX@@.c)
  */
 
 __int64 __fastcall DXGKEYEDMUTEX::ReleaseSync(
@@ -26,113 +25,133 @@ __int64 __fastcall DXGKEYEDMUTEX::ReleaseSync(
         size_t Size,
         bool a7)
 {
-  unsigned int v11; // ebx
-  unsigned int v12; // esi
-  unsigned int v13; // ecx
-  void *v15; // rcx
-  DXG_GUEST_GLOBAL_VMBUS *v16; // rbx
-  __int64 v17; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // rbx
+  __int64 v15; // rax
+  _QWORD *v16; // rcx
+  __int64 v17; // rdx
+  __int64 v18; // rax
+  __int64 v19; // rdx
+  void *v20; // rcx
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 v24; // r9
   struct DXGPROCESS *Current; // rax
-  char v19; // si
+  char v26; // si
   DXGKEYEDMUTEX *i; // rax
-  struct _KEVENT *v21; // rcx
-  _BYTE v22[16]; // [rsp+50h] [rbp-18h] BYREF
+  struct _KEVENT *v28; // rcx
+  _BYTE v30[40]; // [rsp+30h] [rbp-28h] BYREF
 
-  DXGKEYEDMUTEXLOCK::DXGKEYEDMUTEXLOCK((DXGKEYEDMUTEXLOCK *)v22, (struct DXGKEYEDMUTEX *)this);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v22);
-  v11 = 0;
-  if ( !*((_BYTE *)this + 176) )
+  DXGKEYEDMUTEXLOCK::DXGKEYEDMUTEXLOCK((DXGKEYEDMUTEXLOCK *)v30, (struct DXGKEYEDMUTEX *)this);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v30);
+  LODWORD(v14) = 0;
+  if ( *((_BYTE *)this + 168) )
+    goto LABEL_8;
+  if ( *((_DWORD *)this + 14) == 3 )
   {
-    if ( *((_DWORD *)this + 14) == 3 )
-    {
-      v12 = 128;
-      WdLogSingleEntry2(3LL, this, 128LL);
-LABEL_13:
-      DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v22);
-      return v12;
-    }
-    if ( !DXGKEYEDMUTEX::IsOwner((DXGKEYEDMUTEX *)this, a2) )
-    {
-      v12 = -1073741811;
-      WdLogSingleEntry2(2LL, this, -1073741811LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Keyed mutex 0x%I64x is not owned by this device, returning 0x%I64x",
-        (__int64)this,
-        -1073741811LL,
-        0LL,
-        0LL,
-        0LL);
-      goto LABEL_13;
-    }
+    v15 = WdLogNewEntry5_WdWarning(v12, v11, v13);
+    v14 = 128LL;
+LABEL_4:
+    *(_QWORD *)(v15 + 24) = this;
+    *(_QWORD *)(v15 + 32) = v14;
+LABEL_5:
+    v16 = (_QWORD *)v15;
+LABEL_15:
+    WdLogEvent5_WdWarning(v16);
+    goto LABEL_32;
   }
-  if ( Src )
+  if ( DXGKEYEDMUTEX::IsOwner((DXGKEYEDMUTEX *)this, a2) )
   {
-    if ( !(_DWORD)Size )
+LABEL_8:
+    v19 = (__int64)Src;
+    if ( Src )
     {
-      v12 = -1073741811;
-      WdLogSingleEntry2(3LL, this, -1073741811LL);
-      goto LABEL_13;
+      if ( !(_DWORD)Size )
+      {
+        v15 = WdLogNewEntry5_WdWarning(v12, Src, v13);
+        v14 = -1073741811LL;
+        goto LABEL_4;
+      }
+      if ( (_DWORD)Size != *((_DWORD *)this + 40) )
+      {
+        v16 = (_QWORD *)WdLogNewEntry5_WdWarning(v12, Src, v13);
+        v16[3] = this;
+        v16[4] = (unsigned int)Size;
+        v16[5] = *((unsigned int *)this + 40);
+        LODWORD(v14) = -1073741811;
+        v16[6] = -1073741811LL;
+        goto LABEL_15;
+      }
+      if ( a7 )
+      {
+        v20 = this[19];
+        if ( &Src[(unsigned int)Size] < Src || (unsigned __int64)&Src[(unsigned int)Size] > MmUserProbeAddress )
+          *(_BYTE *)MmUserProbeAddress = 0;
+        memmove(v20, Src, (unsigned int)Size);
+      }
+      else
+      {
+        memmove(this[19], Src, (unsigned int)Size);
+      }
     }
-    v13 = *((_DWORD *)this + 42);
-    if ( (_DWORD)Size != v13 )
+    else if ( (_DWORD)Size )
     {
-      v12 = -1073741811;
-      WdLogSingleEntry4(3LL, this, (unsigned int)Size, v13, -1073741811LL);
-      goto LABEL_13;
+      v15 = WdLogNewEntry5_WdWarning(v12, 0LL, v13);
+      LODWORD(v14) = -1073741811;
+      *(_QWORD *)(v15 + 24) = -1073741811LL;
+      goto LABEL_5;
     }
-    if ( a7 )
+    *((_DWORD *)this + 15) = 0;
+    this[8] = 0LL;
+    if ( *((_BYTE *)this + 168) )
     {
-      v15 = this[20];
-      if ( &Src[(unsigned int)Size] < Src || (unsigned __int64)&Src[(unsigned int)Size] > MmUserProbeAddress )
-        *(_BYTE *)MmUserProbeAddress = 0;
-      memmove(v15, Src, (unsigned int)Size);
+      v14 = *((_QWORD *)DXGGLOBAL::GetGlobal(v12, v19) + 197);
+      Current = DXGPROCESS::GetCurrent(v22, v21, v23, v24);
+      LODWORD(v14) = DXG_GUEST_GLOBAL_VMBUS::VmBusSendReleaseKeyedMutexSync(
+                       (DXG_GUEST_GLOBAL_VMBUS *)v14,
+                       Current,
+                       (const void **)this,
+                       a2,
+                       a3,
+                       a4);
     }
     else
     {
-      memmove(this[20], Src, (unsigned int)Size);
+      v26 = 0;
+      for ( i = (DXGKEYEDMUTEX *)this[12]; i != (DXGKEYEDMUTEX *)(this + 12); i = *(DXGKEYEDMUTEX **)i )
+      {
+        v28 = (struct _KEVENT *)((char *)i - 64);
+        if ( *((_QWORD *)i - 8) == a3 )
+        {
+          v26 = 1;
+          *((_DWORD *)this + 14) = 2;
+          this[11] = v28;
+          v28[2].Header.LockNV = 0;
+          v28[2].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)a4;
+          KeSetEvent(v28 + 1, 0, 0);
+          break;
+        }
+      }
+      if ( !v26 )
+      {
+        *((_DWORD *)this + 14) = 1;
+        this[9] = (void *)a3;
+        this[10] = (void *)a4;
+      }
     }
-  }
-  else if ( (_DWORD)Size )
-  {
-    v12 = -1073741811;
-    WdLogSingleEntry1(3LL, -1073741811LL);
-    goto LABEL_13;
-  }
-  *((_DWORD *)this + 15) = 0;
-  this[8] = 0LL;
-  if ( *((_BYTE *)this + 176) )
-  {
-    v16 = (DXG_GUEST_GLOBAL_VMBUS *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 214);
-    Current = DXGPROCESS::GetCurrent(v17);
-    v11 = DXG_GUEST_GLOBAL_VMBUS::VmBusSendReleaseKeyedMutexSync(v16, Current, (struct DXGKEYEDMUTEX *)this, a2, a3, a4);
   }
   else
   {
-    v19 = 0;
-    for ( i = (DXGKEYEDMUTEX *)this[12]; i != (DXGKEYEDMUTEX *)(this + 12); i = *(DXGKEYEDMUTEX **)i )
-    {
-      v21 = (struct _KEVENT *)((char *)i - 64);
-      if ( *((_QWORD *)i - 8) == a3 )
-      {
-        v19 = 1;
-        *((_DWORD *)this + 14) = 2;
-        this[11] = v21;
-        v21[2].Header.LockNV = 0;
-        v21[2].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)a4;
-        KeSetEvent(v21 + 1, 0, 0);
-        break;
-      }
-    }
-    if ( !v19 )
-    {
-      *((_DWORD *)this + 14) = 1;
-      this[9] = (void *)a3;
-      this[10] = (void *)a4;
-    }
+    v18 = WdLogNewEntry5_WdError(v12, v17);
+    *(_QWORD *)(v18 + 24) = this;
+    LODWORD(v14) = -1073741811;
+    *(_QWORD *)(v18 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v18);
   }
-  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v22);
-  return v11;
+LABEL_32:
+  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v30);
+  return (unsigned int)v14;
 }

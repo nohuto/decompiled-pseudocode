@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetLightInfo@CCompositionEnvironmentLight@@UEBAJPEBVCDrawingContext@@PEBVCMILMatrix@@PEAULightInfo@@@Z @ 0x180107CD0
+ * XREFs of ?GetLightInfo@CCompositionEnvironmentLight@@UEBAJPEBVCDrawingContext@@PEBVCMILMatrix@@PEAULightInfo@@@Z @ 0x1800E2F30
  * Callers:
  *     <none>
  * Callees:

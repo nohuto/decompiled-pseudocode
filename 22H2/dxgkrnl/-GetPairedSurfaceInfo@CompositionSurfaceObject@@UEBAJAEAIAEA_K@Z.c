@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetPairedSurfaceInfo@CompositionSurfaceObject@@UEBAJAEAIAEA_K@Z @ 0x1C007C1B0
+ * XREFs of ?GetPairedSurfaceInfo@CompositionSurfaceObject@@UEBAJAEAIAEA_K@Z @ 0x1C0065E90
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C000AEB4 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C0013858 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000FAAC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C0011930 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CompositionSurfaceObject::GetPairedSurfaceInfo(
@@ -19,7 +19,7 @@ __int64 __fastcall CompositionSurfaceObject::GetPairedSurfaceInfo(
   v6 = CPushLock::AcquireLockShared((CompositionSurfaceObject *)((char *)this + 16));
   if ( v6 >= 0 )
   {
-    v7 = (__int64 (__fastcall ***)(_QWORD, unsigned int *, unsigned __int64 *))*((_QWORD *)this + 14);
+    v7 = (__int64 (__fastcall ***)(_QWORD, unsigned int *, unsigned __int64 *))*((_QWORD *)this + 13);
     if ( v7 )
       v6 = (**v7)(v7, a2, a3);
     else

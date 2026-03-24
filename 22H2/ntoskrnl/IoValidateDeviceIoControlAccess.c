@@ -1,5 +1,5 @@
 /*
- * XREFs of IoValidateDeviceIoControlAccess @ 0x14036A990
+ * XREFs of IoValidateDeviceIoControlAccess @ 0x14037CBD0
  * Callers:
  *     <none>
  * Callees:
@@ -15,9 +15,10 @@ NTSTATUS __stdcall IoValidateDeviceIoControlAccess(PIRP Irp, ULONG RequiredAcces
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
   if ( (unsigned __int8)(CurrentStackLocation->MajorFunction - 13) > 1u )
     return -1073741811;
-  if ( Irp->RequestorMode )
-    return RequiredAccess != (RequiredAccess & (CurrentStackLocation->Flags & 1 | (CurrentStackLocation->Flags >> 1) & 2))
-         ? 0xC0000022
-         : 0;
+  if ( Irp->RequestorMode
+    && (RequiredAccess & (CurrentStackLocation->Flags & 1 | (CurrentStackLocation->Flags >> 1) & 2)) != RequiredAccess )
+  {
+    return -1073741790;
+  }
   return 0;
 }

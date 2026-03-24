@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmPerfApplyProcessorStates @ 0x14034E810
+ * XREFs of PpmPerfApplyProcessorStates @ 0x140398250
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfQueueAction @ 0x140251F58 (PpmPerfQueueAction.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     KeCountSetBitsAffinityEx @ 0x1402C0190 (KeCountSetBitsAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C0280 (KeRemoveProcessorAffinityEx.c)
- *     KiOrAffinityEx @ 0x1402C2A80 (KiOrAffinityEx.c)
- *     PpmPerfApplyProcessorState @ 0x14034EA0C (PpmPerfApplyProcessorState.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     PpmPerfApplyHiddenProcessorState @ 0x14058D06C (PpmPerfApplyHiddenProcessorState.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     KeOrAffinityEx @ 0x14022B1C0 (KeOrAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402BBB30 (KeRemoveProcessorAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x140344490 (KeCountSetBitsAffinityEx.c)
+ *     PpmPerfApplyProcessorState @ 0x14039843C (PpmPerfApplyProcessorState.c)
+ *     PpmPerfQueueAction @ 0x1403989CC (PpmPerfQueueAction.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PpmPerfApplyHiddenProcessorState @ 0x14056E5EC (PpmPerfApplyHiddenProcessorState.c)
  */
 
 char PpmPerfApplyProcessorStates()
@@ -24,92 +24,90 @@ char PpmPerfApplyProcessorStates()
   __int64 v4; // r8
   __int64 v5; // r9
   __int64 v6; // rsi
-  __int64 v7; // r8
-  unsigned int v8; // r14d
-  __int64 v9; // rax
+  __int64 v7; // rax
+  __int64 v8; // r8
+  unsigned int v9; // r14d
   __int64 v10; // rsi
-  __int64 v11; // rax
-  __int64 v13; // [rsp+28h] [rbp-E0h] BYREF
-  unsigned __int16 *v14; // [rsp+30h] [rbp-D8h] BYREF
-  __int64 v15; // [rsp+38h] [rbp-D0h]
-  __int16 v16; // [rsp+40h] [rbp-C8h]
-  int v17; // [rsp+42h] [rbp-C6h]
-  __int16 v18; // [rsp+46h] [rbp-C2h]
-  __int64 v19; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v20; // [rsp+50h] [rbp-B8h]
-  _BYTE v21[248]; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v12; // [rsp+28h] [rbp-99h] BYREF
+  unsigned __int16 *v13; // [rsp+30h] [rbp-91h] BYREF
+  __int64 v14; // [rsp+38h] [rbp-89h]
+  __int16 v15; // [rsp+40h] [rbp-81h]
+  int v16; // [rsp+42h] [rbp-7Fh]
+  __int16 v17; // [rsp+46h] [rbp-7Bh]
+  __int64 v18; // [rsp+48h] [rbp-79h] BYREF
+  __int64 v19; // [rsp+50h] [rbp-71h]
+  _BYTE v20[152]; // [rsp+58h] [rbp-69h] BYREF
 
   v0 = 0;
-  v19 = 2097153LL;
+  v18 = 1310721LL;
+  v16 = 0;
   v17 = 0;
-  v18 = 0;
-  LODWORD(v13) = 0;
-  v20 = 0LL;
-  memset(v21, 0, sizeof(v21));
+  LODWORD(v12) = 0;
+  v19 = 0LL;
+  memset(v20, 0, sizeof(v20));
   for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
   {
-    if ( *(_BYTE *)(i + 1062) )
+    if ( *(_BYTE *)(i + 766) )
     {
-      KiOrAffinityEx((char *)(i + 24), &v19, &v19, WORD1(v19));
-      v8 = 0;
-      LODWORD(v13) = 0;
-      if ( *(_DWORD *)(i + 296) )
+      KeOrAffinityEx((unsigned __int16 *)(i + 24), (unsigned __int16 *)&v18, &v18);
+      LODWORD(v12) = 0;
+      if ( *(_DWORD *)(i + 200) )
       {
-        v9 = 0LL;
+        v9 = 0;
         do
         {
-          v10 = *(_QWORD *)(i + 312) + 144 * v9;
+          v10 = *(_QWORD *)(i + 216) + 136LL * v9;
           if ( *(_DWORD *)(v10 + 16) )
           {
             if ( *(_BYTE *)(v10 + 124) )
             {
-              LOBYTE(v7) = 1;
-              PpmPerfApplyHiddenProcessorState(i, *(_QWORD *)(i + 312) + 144 * v9, v7);
+              LOBYTE(v8) = 1;
+              PpmPerfApplyHiddenProcessorState(i, *(_QWORD *)(i + 216) + 136LL * v9, v8);
               *(_BYTE *)(v10 + 124) = 0;
             }
             PpmPerfApplyHiddenProcessorState(i, v10, 0LL);
           }
-          v9 = ++v8;
+          ++v9;
         }
-        while ( v8 < *(_DWORD *)(i + 296) );
-        LODWORD(v13) = v8;
+        while ( v9 < *(_DWORD *)(i + 200) );
+        LODWORD(v12) = v9;
       }
-      *(_BYTE *)(i + 1062) = 0;
+      *(_BYTE *)(i + 766) = 0;
     }
   }
-  v15 = v20;
-  v14 = (unsigned __int16 *)&v19;
-  v16 = 0;
-  while ( !(unsigned int)KeEnumerateNextProcessor(&v13, &v14) )
+  v14 = v19;
+  v13 = (unsigned __int16 *)&v18;
+  v15 = 0;
+  while ( !(unsigned int)KeEnumerateNextProcessor(&v12, &v13) )
   {
-    Prcb = KeGetPrcb(v13);
-    v6 = *(_QWORD *)(Prcb + 33976);
+    Prcb = KeGetPrcb(v12);
+    v6 = *(_QWORD *)(Prcb + 33136);
     if ( *(_BYTE *)(v6 + 124) )
     {
       LOBYTE(v2) = 1;
       if ( (unsigned __int8)PpmPerfApplyProcessorState(Prcb, v2, v4, v5) )
       {
         *(_BYTE *)(v6 + 124) = 0;
-        goto LABEL_6;
+        goto LABEL_8;
       }
     }
     else
     {
-LABEL_6:
+LABEL_8:
       if ( (unsigned __int8)PpmPerfApplyProcessorState(Prcb, 0LL, v4, v5) )
-        KeRemoveProcessorAffinityEx((unsigned __int16 *)&v19, v13);
+        KeRemoveProcessorAffinityEx((unsigned __int16 *)&v18, v12);
     }
   }
-  PpmCheckCount = KeCountSetBitsAffinityEx((unsigned __int16 *)&v19);
+  PpmCheckCount = KeCountSetBitsAffinityEx((unsigned __int16 *)&v18);
   if ( !PpmCheckCount )
     return 1;
-  v15 = v20;
-  v14 = (unsigned __int16 *)&v19;
-  v16 = 0;
-  while ( !(unsigned int)KeEnumerateNextProcessor(&v13, &v14) )
+  v14 = v19;
+  v13 = (unsigned __int16 *)&v18;
+  v15 = 0;
+  while ( !(unsigned int)KeEnumerateNextProcessor(&v12, &v13) )
   {
-    v11 = KeGetPrcb(v13);
-    PpmPerfQueueAction(v11, 2);
+    v7 = KeGetPrcb(v12);
+    PpmPerfQueueAction(v7, 2LL);
   }
   return v0;
 }

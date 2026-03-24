@@ -1,37 +1,38 @@
 /*
- * XREFs of ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C003AFE4
+ * XREFs of ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C00D7420
  * Callers:
- *     NtUserRegisterWindowArrangementCallout @ 0x1C003AF20 (NtUserRegisterWindowArrangementCallout.c)
+ *     <none>
  * Callees:
- *     IAMThreadAccessGranted @ 0x1C002731C (IAMThreadAccessGranted.c)
- *     ?SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z @ 0x1C003B148 (-SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z.c)
- *     IsIAMThread @ 0x1C003B1AC (IsIAMThread.c)
- *     IsMessageOnlyWindow @ 0x1C00424C0 (IsMessageOnlyWindow.c)
- *     ?_UnregisterHotKey@@YAHPEAUtagWND@@H@Z @ 0x1C0042BDC (-_UnregisterHotKey@@YAHPEAUtagWND@@H@Z.c)
- *     ?_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z @ 0x1C0043264 (-_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z.c)
- *     IsShellProcess @ 0x1C0066FBC (IsShellProcess.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     _UnregisterHotKey @ 0x1C0032850 (_UnregisterHotKey.c)
+ *     _RegisterHotKey @ 0x1C0032BD4 (_RegisterHotKey.c)
+ *     IAMThreadAccessGranted @ 0x1C0037F54 (IAMThreadAccessGranted.c)
+ *     IsShellProcess @ 0x1C003C598 (IsShellProcess.c)
+ *     IsIAMThread @ 0x1C003CE58 (IsIAMThread.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     IsMessageOnlyWindow @ 0x1C00D73E0 (IsMessageOnlyWindow.c)
+ *     ?SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z @ 0x1C00D7534 (-SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z.c)
  */
 
 __int64 __fastcall _RegisterWindowArrangementCallout(struct tagWND *a1, int a2)
 {
   struct tagWND **v4; // rsi
-  __int64 CurrentProcessWin32Process; // rax
-  int v6; // eax
+  __int64 v5; // rdx
+  __int64 v6; // r8
   struct tagWND *v7; // rcx
-  __int64 v8; // rcx
-  struct tagWND *v9; // r8
-  struct tagWND *v10; // r8
+  int v8; // eax
+  int v9; // eax
+  __int64 v11; // rcx
+  struct tagWND *v12; // r8
+  ULONG_PTR BugCheckParameter2; // [rsp+20h] [rbp-18h]
 
   v4 = *(struct tagWND ***)(gptiCurrent + 456LL);
-  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
-  if ( CurrentProcessWin32Process )
-    CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-  if ( (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x80u) != 0 )
-    goto LABEL_20;
-  LOBYTE(v6) = IAMThreadAccessGranted(gptiCurrent);
-  if ( !v6 )
-    goto LABEL_20;
+  v6 = *(unsigned int *)(PsGetCurrentProcessWin32Process(a1) + 12);
+  if ( (v6 & 0x88) != 0 || !IAMThreadAccessGranted(gptiCurrent) )
+  {
+LABEL_12:
+    v11 = 5LL;
+    goto LABEL_13;
+  }
   v7 = v4[41];
   if ( !a2 )
   {
@@ -39,33 +40,34 @@ __int64 __fastcall _RegisterWindowArrangementCallout(struct tagWND *a1, int a2)
       return 1LL;
     if ( *(struct tagWND **)(*((_QWORD *)a1 + 3) + 328LL) == a1 && *((_QWORD *)v7 + 2) == gptiCurrent )
     {
-      _UnregisterHotKey(a1, 61536);
-      ShellWindowManagement::SetWindow((ShellWindowManagement *)v4, 0LL, v10);
+      UnregisterHotKey((__int64)a1, 0xF060u);
+      ShellWindowManagement::SetWindow((ShellWindowManagement *)v4, 0LL, v12);
       return 1LL;
     }
-    goto LABEL_20;
+    goto LABEL_12;
   }
-  if ( !v7 )
+  if ( v7 )
   {
-    if ( *((_QWORD *)a1 + 2) == gptiCurrent
-      && (unsigned int)IsShellProcess(*(_QWORD *)(gptiCurrent + 424LL))
-      && (unsigned int)IsIAMThread(gptiCurrent) )
-    {
-      if ( !(unsigned int)IsMessageOnlyWindow(a1) || (*(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL) & 0xF) != 2 )
-      {
-        v8 = 87LL;
-        goto LABEL_21;
-      }
-      ShellWindowManagement::SetWindow((ShellWindowManagement *)v4, a1, v9);
-      _RegisterHotKey(v4[41], 0LL, -17, 0x6001u, 0x73u, 0LL);
-      return 1LL;
-    }
-LABEL_20:
-    v8 = 5LL;
-    goto LABEL_21;
+    v11 = 1242LL;
+    goto LABEL_13;
   }
-  v8 = 1242LL;
-LABEL_21:
-  UserSetLastError(v8);
+  if ( *((_QWORD *)a1 + 2) != gptiCurrent )
+    goto LABEL_12;
+  if ( !(unsigned int)IsShellProcess(*(_QWORD *)(gptiCurrent + 424LL)) )
+    goto LABEL_12;
+  LOBYTE(v8) = IsIAMThread(gptiCurrent);
+  if ( !v8 )
+    goto LABEL_12;
+  LOBYTE(v9) = IsMessageOnlyWindow((__int64)a1);
+  if ( v9 && (*(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL) & 0xF) == 2 )
+  {
+    ShellWindowManagement::SetWindow((ShellWindowManagement *)v4, a1, (struct tagWND *)v6);
+    LODWORD(BugCheckParameter2) = 115;
+    RegisterHotKey(v4[41], 0LL, 61536LL, 28673, BugCheckParameter2);
+    return 1LL;
+  }
+  v11 = 87LL;
+LABEL_13:
+  UserSetLastError(v11, v5, v6);
   return 0LL;
 }

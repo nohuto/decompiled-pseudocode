@@ -1,19 +1,20 @@
 /*
- * XREFs of ?vGlobal@BRUSHMEMOBJ@@QEAAXXZ @ 0x1C00628A0
+ * XREFs of ?vGlobal@BRUSHMEMOBJ@@QEAAXXZ @ 0x1C001A81C
  * Callers:
- *     bInitBrush @ 0x1C02E518C (bInitBrush.c)
- *     bInitBRUSHOBJ @ 0x1C02E523C (bInitBRUSHOBJ.c)
+ *     bInitBrush @ 0x1C02981F0 (bInitBrush.c)
+ *     bInitBRUSHOBJ @ 0x1C02982A0 (bInitBRUSHOBJ.c)
  * Callees:
- *     HmgSetOwner @ 0x1C0028640 (HmgSetOwner.c)
- *     HmgMarkUndeletable @ 0x1C0063C80 (HmgMarkUndeletable.c)
+ *     HmgMarkUndeletable @ 0x1C001B940 (HmgMarkUndeletable.c)
+ *     HmgSetOwner @ 0x1C0035470 (HmgSetOwner.c)
  */
 
-void __fastcall BRUSHMEMOBJ::vGlobal(__int64 **this)
+void __fastcall BRUSHMEMOBJ::vGlobal(BRUSHMEMOBJ *this, __int64 a2, __int64 a3)
 {
-  __int64 v2; // rdx
+  __int64 v4; // rdx
 
-  *((_DWORD *)*this + 10) |= 0x40200u;
-  HmgSetOwner(**this, 0, 16);
-  LOBYTE(v2) = 16;
-  HmgMarkUndeletable(**this, v2);
+  LOBYTE(a3) = 16;
+  *(_DWORD *)(*(_QWORD *)this + 40LL) |= 0x40200u;
+  HmgSetOwner(**(_QWORD **)this, 0LL, a3);
+  LOBYTE(v4) = 16;
+  HmgMarkUndeletable(**(_QWORD **)this, v4);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?TryGetBrushSourceNoRef@CNineGridBrushMarshaler@DirectComposition@@MEBA_NIPEAPEAVCBrushMarshaler@2@@Z @ 0x1C021D940
+ * XREFs of ?TryGetBrushSourceNoRef@CNineGridBrushMarshaler@DirectComposition@@MEBA_NIPEAPEAVCBrushMarshaler@2@@Z @ 0x1C01E7210
  * Callers:
  *     <none>
  * Callees:
@@ -18,7 +18,7 @@ char __fastcall DirectComposition::CNineGridBrushMarshaler::TryGetBrushSourceNoR
   }
   else
   {
-    *a3 = (struct DirectComposition::CBrushMarshaler *)*((_QWORD *)this + 10);
+    *a3 = (struct DirectComposition::CBrushMarshaler *)*((_QWORD *)this + 9);
     return 1;
   }
 }

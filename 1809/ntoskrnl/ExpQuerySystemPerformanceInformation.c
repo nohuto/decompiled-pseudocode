@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpQuerySystemPerformanceInformation @ 0x14066CFFC
+ * XREFs of ExpQuerySystemPerformanceInformation @ 0x14066CFDC
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:
- *     MiFreePoolPagesLeft @ 0x1400EF544 (MiFreePoolPagesLeft.c)
- *     MiMaximumCommitmentAvailable @ 0x1400EF574 (MiMaximumCommitmentAvailable.c)
- *     MmGetProcessPartitionId @ 0x1400F0CAC (MmGetProcessPartitionId.c)
- *     MmGetAvailablePages @ 0x1400F0CBC (MmGetAvailablePages.c)
- *     MmGetTotalCommittedPages @ 0x1400F0CD8 (MmGetTotalCommittedPages.c)
- *     MmGetTotalCommitLimit @ 0x1400F0CF4 (MmGetTotalCommitLimit.c)
- *     MmGetPeakCommitment @ 0x1400F0D10 (MmGetPeakCommitment.c)
- *     MmGetNumberOfFreeSystemPtes @ 0x1400F0D2C (MmGetNumberOfFreeSystemPtes.c)
- *     MmGetSystemPageCounts @ 0x1400F0D84 (MmGetSystemPageCounts.c)
- *     MmGetWorkingSetLeafSize @ 0x1400F0D98 (MmGetWorkingSetLeafSize.c)
- *     MmGetSharedCommit @ 0x1400F0DD8 (MmGetSharedCommit.c)
- *     MmGetResidentAvailablePages @ 0x1400F0DE8 (MmGetResidentAvailablePages.c)
- *     ExQueryPoolUsage @ 0x1400F0E04 (ExQueryPoolUsage.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     PsQueryRuntimeProcess @ 0x14066DAC0 (PsQueryRuntimeProcess.c)
+ *     MiFreePoolPagesLeft @ 0x1400EF564 (MiFreePoolPagesLeft.c)
+ *     MiMaximumCommitmentAvailable @ 0x1400EF594 (MiMaximumCommitmentAvailable.c)
+ *     MmGetProcessPartitionId @ 0x1400F0CCC (MmGetProcessPartitionId.c)
+ *     MmGetAvailablePages @ 0x1400F0CDC (MmGetAvailablePages.c)
+ *     MmGetTotalCommittedPages @ 0x1400F0CF8 (MmGetTotalCommittedPages.c)
+ *     MmGetTotalCommitLimit @ 0x1400F0D14 (MmGetTotalCommitLimit.c)
+ *     MmGetPeakCommitment @ 0x1400F0D30 (MmGetPeakCommitment.c)
+ *     MmGetNumberOfFreeSystemPtes @ 0x1400F0D4C (MmGetNumberOfFreeSystemPtes.c)
+ *     MmGetSystemPageCounts @ 0x1400F0DA4 (MmGetSystemPageCounts.c)
+ *     MmGetWorkingSetLeafSize @ 0x1400F0DB8 (MmGetWorkingSetLeafSize.c)
+ *     MmGetSharedCommit @ 0x1400F0DF8 (MmGetSharedCommit.c)
+ *     MmGetResidentAvailablePages @ 0x1400F0E08 (MmGetResidentAvailablePages.c)
+ *     ExQueryPoolUsage @ 0x1400F0E24 (ExQueryPoolUsage.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     PsQueryRuntimeProcess @ 0x14066DAA0 (PsQueryRuntimeProcess.c)
  */
 
 void *__fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a2, unsigned int a3)

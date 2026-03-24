@@ -1,17 +1,17 @@
 /*
- * XREFs of IszzzCalcStartCursorHideSupported @ 0x1C0099B48
+ * XREFs of IszzzCalcStartCursorHideSupported @ 0x1C0047334
  * Callers:
- *     DestroyProcessInfo @ 0x1C00188FC (DestroyProcessInfo.c)
- *     xxxCreateThreadInfo @ 0x1C003911C (xxxCreateThreadInfo.c)
- *     xxxSetProcessInitState @ 0x1C0099980 (xxxSetProcessInitState.c)
+ *     xxxCreateThreadInfo @ 0x1C003D918 (xxxCreateThreadInfo.c)
+ *     DestroyProcessInfo @ 0x1C0045950 (DestroyProcessInfo.c)
+ *     xxxSetProcessInitState @ 0x1C0047100 (xxxSetProcessInitState.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 IszzzCalcStartCursorHideSupported()
 {
-  if ( qword_1C029BCE8 )
-    return qword_1C029BCE8();
+  if ( qword_1C0256F98 )
+    return qword_1C0256F98();
   else
     return 3221225659LL;
 }

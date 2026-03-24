@@ -1,33 +1,46 @@
 /*
- * XREFs of ?IsAnalogExclusive@CFlipToken@@UEBA_NXZ @ 0x1C001A820
+ * XREFs of ?IsAnalogExclusive@CFlipToken@@UEBA_NXZ @ 0x1C0017B00
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
-bool __fastcall CFlipToken::IsAnalogExclusive(CFlipToken *this)
+char __fastcall CFlipToken::IsAnalogExclusive(CFlipToken *this)
 {
-  __int64 v1; // rbx
-  __int64 v2; // rdi
+  __int64 v1; // rdi
+  char v2; // bl
   __int64 v3; // rcx
-  char v4; // bl
+  char v4; // si
 
   v1 = *((_QWORD *)this + 4);
-  KeEnterCriticalRegion();
-  v2 = v1 + 48;
-  ExAcquirePushLockSharedEx(v1 + 48, 0LL);
-  v3 = v1 + 48;
-  v4 = *(_BYTE *)(v1 + 153);
-  if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v2 + 8) )
+  v2 = 0;
+  if ( (**(unsigned __int8 (__fastcall ***)(__int64))(v1 + 48))(v1 + 48) )
   {
-    *(_QWORD *)(v2 + 8) = 0LL;
-    ExReleasePushLockExclusiveEx(v3, 0LL);
+    KeEnterCriticalRegion();
+    ExAcquirePushLockSharedEx(v1 + 56, 0LL);
+    if ( (**(unsigned __int8 (__fastcall ***)(__int64))(v1 + 48))(v1 + 48) )
+    {
+      v3 = v1 + 56;
+      v4 = *(_BYTE *)(v1 + 128);
+      if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v1 + 64) )
+      {
+        *(_QWORD *)(v1 + 64) = 0LL;
+        ExReleasePushLockExclusiveEx(v3, 0LL);
+      }
+      else
+      {
+        ExReleasePushLockSharedEx(v3, 0LL);
+      }
+      KeLeaveCriticalRegion();
+      if ( v4 )
+        return 1;
+    }
+    else
+    {
+      CPushLock::ReleaseLock((CPushLock *)(v1 + 48));
+    }
   }
-  else
-  {
-    ExReleasePushLockSharedEx(v3, 0LL);
-  }
-  KeLeaveCriticalRegion();
-  return v4 != 0;
+  return v2;
 }

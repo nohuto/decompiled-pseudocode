@@ -1,31 +1,31 @@
 /*
- * XREFs of IoRegisterPlugPlayNotification @ 0x140768390
+ * XREFs of IoRegisterPlugPlayNotification @ 0x1406C4890
  * Callers:
- *     HalpPostPnpInitialize @ 0x14081E450 (HalpPostPnpInitialize.c)
- *     PopConnectToPolicyDevice @ 0x140858D04 (PopConnectToPolicyDevice.c)
- *     PopRegisterCoolingExtensionProtection @ 0x14098B980 (PopRegisterCoolingExtensionProtection.c)
- *     SmKmStoreFileCreate @ 0x1409D64F8 (SmKmStoreFileCreate.c)
- *     PoInitDriverServices @ 0x140B2D9E4 (PoInitDriverServices.c)
- *     SbpWaitForVmbus @ 0x140B55A38 (SbpWaitForVmbus.c)
+ *     HalpPostPnpInitialize @ 0x1407AE5C8 (HalpPostPnpInitialize.c)
+ *     PopConnectToPolicyDevice @ 0x1407C4368 (PopConnectToPolicyDevice.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x1408E2FB0 (PopRegisterCoolingExtensionProtection.c)
+ *     SmKmStoreFileCreate @ 0x14092BFDC (SmKmStoreFileCreate.c)
+ *     PoInitDriverServices @ 0x140A71D64 (PoInitDriverServices.c)
+ *     SbpWaitForVmbus @ 0x140A95BC4 (SbpWaitForVmbus.c)
  * Callees:
- *     KeAcquireGuardedMutex @ 0x14029ECC0 (KeAcquireGuardedMutex.c)
- *     ObReferenceObjectByPointerWithTag @ 0x1402A48C0 (ObReferenceObjectByPointerWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     PnpGetRelatedTargetDevice @ 0x1402D2E74 (PnpGetRelatedTargetDevice.c)
- *     PsGetServerSiloServiceSessionId @ 0x1402DF7B0 (PsGetServerSiloServiceSessionId.c)
- *     PsGetCurrentServerSilo @ 0x1402F61B0 (PsGetCurrentServerSilo.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IopGetSessionIdFromSymbolicName @ 0x140748F48 (IopGetSessionIdFromSymbolicName.c)
- *     PnpDeferNotification @ 0x140768798 (PnpDeferNotification.c)
- *     PnpInitializeNotifyEntry @ 0x140768894 (PnpInitializeNotifyEntry.c)
- *     IopGetDeviceInterfaces @ 0x1407879A8 (IopGetDeviceInterfaces.c)
- *     PnpNotifyDriverCallback @ 0x14078D3DC (PnpNotifyDriverCallback.c)
- *     PiRegisterKernelSoftRestartNotification @ 0x1408648F8 (PiRegisterKernelSoftRestartNotification.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PsGetCurrentServerSilo @ 0x14025C9C0 (PsGetCurrentServerSilo.c)
+ *     PsGetServerSiloServiceSessionId @ 0x140264460 (PsGetServerSiloServiceSessionId.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeAcquireGuardedMutex @ 0x1402EF360 (KeAcquireGuardedMutex.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByPointerWithTag @ 0x140356710 (ObReferenceObjectByPointerWithTag.c)
+ *     PnpGetRelatedTargetDevice @ 0x14036185C (PnpGetRelatedTargetDevice.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IopGetDeviceInterfaces @ 0x14063A508 (IopGetDeviceInterfaces.c)
+ *     PnpDeferNotification @ 0x1406C4C64 (PnpDeferNotification.c)
+ *     PnpInitializeNotifyEntry @ 0x1406C4D64 (PnpInitializeNotifyEntry.c)
+ *     PnpNotifyDriverCallback @ 0x1406E5CC4 (PnpNotifyDriverCallback.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x14073E0E4 (IopGetSessionIdFromSymbolicName.c)
+ *     PiRegisterKernelSoftRestartNotification @ 0x1408B2DD4 (PiRegisterKernelSoftRestartNotification.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoRegisterPlugPlayNotification(
@@ -37,74 +37,67 @@ NTSTATUS __stdcall IoRegisterPlugPlayNotification(
         PVOID Context,
         PVOID *NotificationEntry)
 {
-  char v9; // r13
   NTSTATUS result; // eax
+  __int32 v11; // ebx
   __int32 v12; // ebx
   __int32 v13; // ebx
-  __int32 v14; // ebx
   NTSTATUS restarted; // ebx
-  _QWORD *Pool2; // rdi
-  _QWORD *v17; // r14
-  PVOID *v18; // rdx
-  struct _FAST_MUTEX *v19; // rcx
-  _DWORD *v20; // r14
-  char *v21; // rax
-  char **v22; // rdx
-  __int128 v23; // xmm1
-  PVOID v24; // r14
+  _QWORD *PoolWithTag; // rdi
+  PCWSTR v16; // rsi
+  PCWSTR *v17; // rdx
+  struct _FAST_MUTEX *v18; // rcx
+  _DWORD *v19; // r14
+  char *v20; // rax
+  char **v21; // rdx
+  __int128 v22; // xmm1
+  WCHAR *v23; // r14
   const WCHAR *i; // rsi
+  __int64 v25; // rdx
+  __int64 v26; // rcx
   __int64 CurrentServerSilo; // rax
   int SessionIdFromSymbolicName; // eax
-  __int64 v28; // rax
   _QWORD *v29; // rax
-  ULONG v30; // edx
-  void *v31; // rcx
-  PVOID P; // [rsp+30h] [rbp-50h] BYREF
+  struct _DMA_ADAPTER *v30; // rcx
+  ULONG v31; // edx
+  PCWSTR SourceString; // [rsp+30h] [rbp-50h] BYREF
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-48h] BYREF
   int v34; // [rsp+48h] [rbp-38h] BYREF
   GUID v35; // [rsp+4Ch] [rbp-34h]
   __int128 v36; // [rsp+5Ch] [rbp-24h]
-  _BYTE v37[12]; // [rsp+6Ch] [rbp-14h] BYREF
+  int v37; // [rsp+6Ch] [rbp-14h]
+  UNICODE_STRING *p_DestinationString; // [rsp+70h] [rbp-10h]
 
-  v9 = EventCategoryFlags;
+  LODWORD(SourceString) = EventCategoryFlags;
   *NotificationEntry = 0LL;
   result = ObReferenceObjectByPointerWithTag(DriverObject, 0, IoDriverObjectType, 0, 0x4E706E50u);
   if ( result >= 0 )
   {
-    v12 = EventCategory - 1;
-    if ( v12 )
+    v11 = EventCategory - 1;
+    if ( v11 )
     {
-      v13 = v12 - 1;
-      if ( v13 )
+      v12 = v11 - 1;
+      if ( v12 )
       {
-        v14 = v13 - 1;
-        if ( v14 )
+        v13 = v12 - 1;
+        if ( v13 )
         {
-          if ( v14 == 1 )
-          {
-            restarted = PiRegisterKernelSoftRestartNotification(
-                          DriverObject,
-                          CallbackRoutine,
-                          Context,
-                          NotificationEntry);
-            if ( restarted >= 0 )
-              return restarted;
-          }
-          else
+          if ( v13 != 1 )
           {
             restarted = -1073741585;
+            goto LABEL_33;
           }
-          goto LABEL_35;
+          restarted = PiRegisterKernelSoftRestartNotification(DriverObject, CallbackRoutine, Context, NotificationEntry);
+          goto LABEL_13;
         }
-        P = 0LL;
-        restarted = PnpGetRelatedTargetDevice((PFILE_OBJECT)EventCategoryData, &P);
+        SourceString = 0LL;
+        restarted = PnpGetRelatedTargetDevice((PFILE_OBJECT)EventCategoryData, &SourceString);
         if ( restarted < 0 )
-          goto LABEL_35;
-        Pool2 = (_QWORD *)ExAllocatePool2(256LL, 112LL, 1131441744LL);
-        if ( Pool2 )
+          goto LABEL_33;
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x70uLL, 0x43706E50u);
+        if ( PoolWithTag )
         {
           restarted = PnpInitializeNotifyEntry(
-                        (_DWORD)Pool2,
+                        (_DWORD)PoolWithTag,
                         3,
                         (_DWORD)CallbackRoutine,
                         (_DWORD)Context,
@@ -112,145 +105,150 @@ NTSTATUS __stdcall IoRegisterPlugPlayNotification(
                         (__int64)&PnpTargetDeviceNotifyLock);
           if ( restarted < 0 )
           {
-            ExFreePoolWithTag(Pool2, 0x43706E50u);
-            v31 = (void *)*((_QWORD *)P + 4);
+            ExFreePoolWithTag(PoolWithTag, 0x43706E50u);
+            v30 = (struct _DMA_ADAPTER *)*((_QWORD *)SourceString + 4);
           }
           else
           {
-            v17 = P;
-            Pool2[10] = EventCategoryData;
-            Pool2[11] = v17[4];
-            restarted = PnpDeferNotification(Pool2);
+            v16 = SourceString;
+            PoolWithTag[10] = EventCategoryData;
+            PoolWithTag[11] = *((_QWORD *)v16 + 4);
+            restarted = PnpDeferNotification(PoolWithTag);
             if ( restarted >= 0 )
             {
               KeAcquireGuardedMutex(&PnpTargetDeviceNotifyLock);
-              v18 = (PVOID *)v17[60];
-              if ( *v18 == v17 + 59 )
+              v17 = (PCWSTR *)*((_QWORD *)v16 + 60);
+              if ( *v17 == v16 + 236 )
               {
-                *Pool2 = v17 + 59;
-                v19 = &PnpTargetDeviceNotifyLock;
-                Pool2[1] = v18;
-                *v18 = Pool2;
-                v17[60] = Pool2;
+                *PoolWithTag = v16 + 236;
+                v18 = &PnpTargetDeviceNotifyLock;
+                PoolWithTag[1] = v17;
+                *v17 = (PCWSTR)PoolWithTag;
+                *((_QWORD *)v16 + 60) = PoolWithTag;
 LABEL_11:
-                KeReleaseGuardedMutex(v19);
+                KeReleaseGuardedMutex(v18);
 LABEL_12:
-                *NotificationEntry = Pool2;
-                return restarted;
+                *NotificationEntry = PoolWithTag;
+                goto LABEL_13;
               }
               goto LABEL_47;
             }
-            ExFreePoolWithTag(Pool2, 0x43706E50u);
-            v31 = (void *)v17[4];
+            ExFreePoolWithTag(PoolWithTag, 0x43706E50u);
+            v30 = (struct _DMA_ADAPTER *)*((_QWORD *)v16 + 4);
           }
-          ObfDereferenceObject(v31);
-LABEL_35:
+          HalPutDmaAdapter(v30);
+LABEL_13:
+          if ( restarted >= 0 )
+            return restarted;
+LABEL_33:
           ObfDereferenceObjectWithTag(DriverObject, 0x4E706E50u);
           return restarted;
         }
-        ObfDereferenceObject(*((PVOID *)P + 4));
-LABEL_39:
+        HalPutDmaAdapter(*((PADAPTER_OBJECT *)SourceString + 4));
+LABEL_38:
         restarted = -1073741670;
-        goto LABEL_35;
+        goto LABEL_33;
       }
-      Pool2 = (_QWORD *)ExAllocatePool2(256LL, 96LL, 1148218960LL);
-      if ( !Pool2 )
-        goto LABEL_39;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x60uLL, 0x44706E50u);
+      if ( !PoolWithTag )
+        goto LABEL_38;
       restarted = PnpInitializeNotifyEntry(
-                    (_DWORD)Pool2,
+                    (_DWORD)PoolWithTag,
                     2,
                     (_DWORD)CallbackRoutine,
                     (_DWORD)Context,
                     (__int64)DriverObject,
                     (__int64)&PnpDeviceClassNotifyLock);
       if ( restarted < 0 )
-        goto LABEL_35;
-      v20 = Pool2 + 10;
-      *((_OWORD *)Pool2 + 5) = *(_OWORD *)EventCategoryData;
-      restarted = PnpDeferNotification(Pool2);
+        goto LABEL_33;
+      v19 = PoolWithTag + 10;
+      *((_OWORD *)PoolWithTag + 5) = *(_OWORD *)EventCategoryData;
+      restarted = PnpDeferNotification(PoolWithTag);
       if ( restarted >= 0 )
       {
         KeAcquireGuardedMutex(&PnpDeviceClassNotifyLock);
-        v21 = (char *)&PnpDeviceClassNotifyList
-            + 16 * ((*v20 + *((_DWORD *)Pool2 + 21) + *((_DWORD *)Pool2 + 22) + *((_DWORD *)Pool2 + 23)) % 0xDu);
-        v22 = (char **)*((_QWORD *)v21 + 1);
-        if ( *v22 != v21 )
-          goto LABEL_47;
-        *Pool2 = v21;
-        Pool2[1] = v22;
-        *v22 = (char *)Pool2;
-        *((_QWORD *)v21 + 1) = Pool2;
-        KeReleaseGuardedMutex(&PnpDeviceClassNotifyLock);
-        if ( (v9 & 1) == 0 )
-          goto LABEL_12;
-        v23 = *(_OWORD *)v20;
-        P = 0LL;
-        DestinationString = 0LL;
-        memset(v37, 0, sizeof(v37));
-        v35 = GUID_DEVICE_INTERFACE_ARRIVAL;
-        v34 = 3145729;
-        v36 = v23;
-        restarted = IopGetDeviceInterfaces((int)Pool2 + 80, 0, 0, 0, (__int64)&P, 0LL);
-        if ( restarted >= 0 )
+        v20 = (char *)&PnpDeviceClassNotifyList
+            + 16
+            * ((*v19 + *((_DWORD *)PoolWithTag + 21) + *((_DWORD *)PoolWithTag + 22) + *((_DWORD *)PoolWithTag + 23))
+             % 0xDu);
+        v21 = (char **)*((_QWORD *)v20 + 1);
+        if ( *v21 == v20 )
         {
-          v24 = P;
-          for ( i = (const WCHAR *)P; *i; i += ((unsigned __int64)DestinationString.Length >> 1) + 1 )
+          *PoolWithTag = v20;
+          PoolWithTag[1] = v21;
+          *v21 = (char *)PoolWithTag;
+          *((_QWORD *)v20 + 1) = PoolWithTag;
+          KeReleaseGuardedMutex(&PnpDeviceClassNotifyLock);
+          if ( ((unsigned __int8)SourceString & 1) != 0 )
           {
-            LODWORD(P) = 0;
-            RtlInitUnicodeString(&DestinationString, i);
-            *(_QWORD *)&v37[4] = &DestinationString;
-            CurrentServerSilo = PsGetCurrentServerSilo();
-            if ( *((_DWORD *)Pool2 + 5) != (unsigned int)PsGetServerSiloServiceSessionId(CurrentServerSilo) )
+            v22 = *(_OWORD *)v19;
+            SourceString = 0LL;
+            DestinationString = 0LL;
+            v37 = 0;
+            v34 = 3145729;
+            v35 = GUID_DEVICE_INTERFACE_ARRIVAL;
+            v36 = v22;
+            restarted = IopGetDeviceInterfaces((int *)PoolWithTag + 20, 0LL, 0, 0, &SourceString, 0LL);
+            if ( restarted < 0 )
+              goto LABEL_33;
+            v23 = (WCHAR *)SourceString;
+            for ( i = SourceString; *i; i += ((unsigned __int64)DestinationString.Length >> 1) + 1 )
             {
-              SessionIdFromSymbolicName = IopGetSessionIdFromSymbolicName();
-              if ( SessionIdFromSymbolicName != -1 && *((_DWORD *)Pool2 + 5) != SessionIdFromSymbolicName )
-                continue;
+              LODWORD(SourceString) = 0;
+              RtlInitUnicodeString(&DestinationString, i);
+              p_DestinationString = &DestinationString;
+              CurrentServerSilo = PsGetCurrentServerSilo(v26, v25);
+              if ( *((_DWORD *)PoolWithTag + 5) != (unsigned int)PsGetServerSiloServiceSessionId(CurrentServerSilo) )
+              {
+                SessionIdFromSymbolicName = IopGetSessionIdFromSymbolicName(p_DestinationString);
+                if ( SessionIdFromSymbolicName != -1 && *((_DWORD *)PoolWithTag + 5) != SessionIdFromSymbolicName )
+                  continue;
+              }
+              PnpNotifyDriverCallback(PoolWithTag, &v34, &SourceString);
             }
-            PnpNotifyDriverCallback(Pool2, &v34, &P);
+            ExFreePoolWithTag(v23, 0);
           }
-          ExFreePoolWithTag(v24, 0);
           goto LABEL_12;
         }
-        goto LABEL_35;
+        goto LABEL_47;
       }
-      v30 = 1148218960;
+      v31 = 1148218960;
     }
     else
     {
-      v28 = ExAllocatePool2(256LL, 80LL, 963669584LL);
-      Pool2 = (_QWORD *)v28;
-      if ( !v28 )
-        goto LABEL_39;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x50uLL, 0x39706E50u);
+      if ( !PoolWithTag )
+        goto LABEL_38;
       restarted = PnpInitializeNotifyEntry(
-                    v28,
+                    (_DWORD)PoolWithTag,
                     1,
                     (_DWORD)CallbackRoutine,
                     (_DWORD)Context,
                     (__int64)DriverObject,
                     (__int64)&PnpHwProfileNotifyLock);
       if ( restarted < 0 )
-        goto LABEL_35;
-      restarted = PnpDeferNotification(Pool2);
+        goto LABEL_33;
+      restarted = PnpDeferNotification(PoolWithTag);
       if ( restarted >= 0 )
       {
         KeAcquireGuardedMutex(&PnpHwProfileNotifyLock);
-        v29 = (_QWORD *)qword_140D3CEC0;
-        if ( *(PVOID **)qword_140D3CEC0 == &PnpProfileNotifyList )
+        v29 = (_QWORD *)qword_140D2EB58;
+        if ( *(PVOID **)qword_140D2EB58 == &PnpProfileNotifyList )
         {
-          *Pool2 = &PnpProfileNotifyList;
-          v19 = &PnpHwProfileNotifyLock;
-          Pool2[1] = v29;
-          *v29 = Pool2;
-          qword_140D3CEC0 = (__int64)Pool2;
+          *PoolWithTag = &PnpProfileNotifyList;
+          v18 = &PnpHwProfileNotifyLock;
+          PoolWithTag[1] = v29;
+          *v29 = PoolWithTag;
+          qword_140D2EB58 = (__int64)PoolWithTag;
           goto LABEL_11;
         }
 LABEL_47:
         __fastfail(3u);
       }
-      v30 = 963669584;
+      v31 = 963669584;
     }
-    ExFreePoolWithTag(Pool2, v30);
-    goto LABEL_35;
+    ExFreePoolWithTag(PoolWithTag, v31);
+    goto LABEL_13;
   }
   return result;
 }

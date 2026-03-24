@@ -4,7 +4,7 @@
  *     IovCallDriver @ 0x140923CD4 (IovCallDriver.c)
  * Callees:
  *     ExAllocateFromNPagedLookasideList @ 0x140018B38 (ExAllocateFromNPagedLookasideList.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     IovpCheckIrpForCriticalTracking @ 0x14092F484 (IovpCheckIrpForCriticalTracking.c)
  */
 

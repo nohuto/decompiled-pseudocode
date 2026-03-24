@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsValid@CCompositionDistantLight@@UEBA_NPEBVCVisualTree@@PEBVCVisual@@@Z @ 0x18020C8A0
+ * XREFs of ?IsValid@CCompositionDistantLight@@UEBA_NPEBVCVisualTree@@PEBVCVisual@@@Z @ 0x1801B9D40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall CCompositionDistantLight::IsValid(
@@ -11,13 +11,9 @@ bool __fastcall CCompositionDistantLight::IsValid(
         const struct CVisualTree *a2,
         const struct CVisual *a3)
 {
-  struct CVisual *v4; // rax
-  CCompositionLight *v5; // rcx
-  const struct CVisual *v6; // r8
+  struct CVisual *v5; // rax
+  CCompositionLight *v6; // rcx
 
-  v4 = (struct CVisual *)(*(__int64 (__fastcall **)(CCompositionDistantLight *, const struct CVisualTree *, const struct CVisual *))(*(_QWORD *)this + 200LL))(
-                           this,
-                           a2,
-                           a3);
-  return CCompositionLight::IsValidCoordinateSpace(v5, a2, v6, v4);
+  v5 = (struct CVisual *)(*(__int64 (__fastcall **)(CCompositionDistantLight *))(*(_QWORD *)this + 216LL))(this);
+  return CCompositionLight::IsValidCoordinateSpace(v6, a2, a3, v5);
 }

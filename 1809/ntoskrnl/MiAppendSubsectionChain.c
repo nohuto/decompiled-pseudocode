@@ -7,11 +7,11 @@
  *     MiDecrementSubsectionViewCount @ 0x1400794C0 (MiDecrementSubsectionViewCount.c)
  *     MiInsertUnusedSubsection @ 0x14007B7DC (MiInsertUnusedSubsection.c)
  *     MiInsertSubsectionNode @ 0x14009290C (MiInsertSubsectionNode.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4BB4 (MiReturnCrossPartitionSectionCharges.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x1402C4C20 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x1402C4D20 (MiUpdateSubsectionCrossPartitionRefs.c)
  */
 
 __int64 __fastcall MiAppendSubsectionChain(__int64 a1, __int64 a2, char a3)

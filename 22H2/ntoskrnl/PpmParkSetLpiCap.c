@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkSetLpiCap @ 0x14059D31C
+ * XREFs of PpmParkSetLpiCap @ 0x14057D954
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     PpmCheckCustomRun @ 0x14032B45C (PpmCheckCustomRun.c)
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     PpmParkApplyPolicy @ 0x140390A80 (PpmParkApplyPolicy.c)
- *     PpmCheckReInit @ 0x14082E63C (PpmCheckReInit.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
+ *     PpmCheckCustomRun @ 0x14037CB48 (PpmCheckCustomRun.c)
+ *     PpmParkApplyPolicy @ 0x1403C18E4 (PpmParkApplyPolicy.c)
+ *     PpmCheckReInit @ 0x1407BAFA4 (PpmCheckReInit.c)
  */
 
 __int64 __fastcall PpmParkSetLpiCap(int a1, int a2, unsigned int *a3)
@@ -15,12 +15,12 @@ __int64 __fastcall PpmParkSetLpiCap(int a1, int a2, unsigned int *a3)
   unsigned int v7; // ebx
   unsigned int v8; // ecx
   __int64 v9; // r9
-  unsigned __int8 *v10; // r8
+  unsigned __int8 *v10; // rdx
   int v11; // eax
-  __int64 v12; // rcx
+  unsigned int v12; // ecx
   unsigned int v13; // edx
-  __int64 v14; // r11
-  unsigned __int8 *v15; // r9
+  __int64 v14; // r10
+  unsigned __int8 *v15; // r8
   int v16; // eax
   char v17; // al
   __int64 v18; // rdx
@@ -36,45 +36,45 @@ __int64 __fastcall PpmParkSetLpiCap(int a1, int a2, unsigned int *a3)
   if ( v7 )
   {
     v8 = 0;
-    if ( !PpmParkNumNodes )
-      goto LABEL_11;
-    v9 = (unsigned int)PpmParkNumNodes;
-    v10 = (unsigned __int8 *)(PpmParkNodes + 10);
-    do
+    if ( PpmParkNumNodes )
     {
-      v11 = *v10;
-      if ( (unsigned __int8)v11 > (unsigned __int8)PpmParkGranularity )
-        v8 += v11 - (unsigned __int8)PpmParkGranularity;
-      v10 += 192;
-      --v9;
+      v9 = (unsigned int)PpmParkNumNodes;
+      v10 = (unsigned __int8 *)(PpmParkNodes + 6);
+      do
+      {
+        v11 = *v10;
+        if ( (unsigned __int8)v11 > (unsigned __int8)PpmParkGranularity )
+          v8 += v11 - (unsigned __int8)PpmParkGranularity;
+        v10 += 272;
+        --v9;
+      }
+      while ( v9 );
     }
-    while ( v9 );
     if ( v7 > v8 )
-LABEL_11:
       v7 = v8;
   }
   v12 = (unsigned __int8)PpmParkGranularity
       + a2
       - 1
       - ((unsigned int)(unsigned __int8)PpmParkGranularity + a2 - 1) % (unsigned __int8)PpmParkGranularity;
-  if ( (_DWORD)v12 )
+  if ( v12 )
   {
     v13 = 0;
-    if ( !PpmParkNumNodes )
-      goto LABEL_19;
-    v14 = (unsigned int)PpmParkNumNodes;
-    v15 = (unsigned __int8 *)(PpmParkNodes + 10);
-    do
+    if ( PpmParkNumNodes )
     {
-      v16 = *v15;
-      if ( (unsigned __int8)v16 > (unsigned __int8)PpmParkGranularity )
-        v13 += v16 - (unsigned __int8)PpmParkGranularity;
-      v15 += 192;
-      --v14;
+      v14 = (unsigned int)PpmParkNumNodes;
+      v15 = (unsigned __int8 *)(PpmParkNodes + 6);
+      do
+      {
+        v16 = *v15;
+        if ( (unsigned __int8)v16 > (unsigned __int8)PpmParkGranularity )
+          v13 += v16 - (unsigned __int8)PpmParkGranularity;
+        v15 += 272;
+        --v14;
+      }
+      while ( v14 );
     }
-    while ( v14 );
-    if ( (unsigned int)v12 > v13 )
-LABEL_19:
+    if ( v12 > v13 )
       v12 = v13;
   }
   v17 = 0;
@@ -84,22 +84,21 @@ LABEL_19:
     v17 = 1;
     PpmParkLpiCapChanged = 1;
   }
-  if ( (_DWORD)v12 == PpmParkThermalCap )
+  if ( v12 != PpmParkThermalCap )
   {
-    if ( !v17 )
-    {
-      PpmReleaseLock(&PpmPerfPolicyLock);
-      goto LABEL_27;
-    }
+    PpmParkThermalCap = v12;
+    v17 = 1;
+  }
+  if ( v17 )
+  {
+    PpmParkApplyPolicy();
+    PpmCheckReInit(v19, v18);
+    PpmCheckCustomRun(4);
   }
   else
   {
-    PpmParkThermalCap = v12;
+    PpmReleaseLock(&PpmPerfPolicyLock);
   }
-  PpmParkApplyPolicy(v12);
-  PpmCheckReInit(v19, v18);
-  PpmCheckCustomRun(4u);
-LABEL_27:
   *a3 = v7;
   return 0LL;
 }

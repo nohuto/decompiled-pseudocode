@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpApplyPackageIdFilter @ 0x1408C1CDC
+ * XREFs of EtwpApplyPackageIdFilter @ 0x1408C1CBC
  * Callers:
  *     EtwpApplyScopeFilters @ 0x1405C42D0 (EtwpApplyScopeFilters.c)
- *     EtwpApplyTransientFilters @ 0x1406DBB58 (EtwpApplyTransientFilters.c)
+ *     EtwpApplyTransientFilters @ 0x1406DBB38 (EtwpApplyTransientFilters.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
- *     RtlQueryPackageIdentity @ 0x1400A5010 (RtlQueryPackageIdentity.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
+ *     RtlQueryPackageIdentity @ 0x1400A5030 (RtlQueryPackageIdentity.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
  *     PsQueryProcessAttributesByToken @ 0x140625960 (PsQueryProcessAttributesByToken.c)
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeSetTimerEx @ 0x140A7F650
+ * XREFs of VerifierKeSetTimerEx @ 0x1409DB6B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierKeSetTimerEx()

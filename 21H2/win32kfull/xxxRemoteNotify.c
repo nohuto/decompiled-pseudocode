@@ -1,22 +1,22 @@
 /*
- * XREFs of xxxRemoteNotify @ 0x1C011D2F0
+ * XREFs of xxxRemoteNotify @ 0x1C0133BD0
  * Callers:
- *     NtUserRemoteNotify @ 0x1C011D2B0 (NtUserRemoteNotify.c)
+ *     <none>
  * Callees:
  *     <none>
  */
 
 // write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall xxxRemoteNotify(_DWORD *a1, __int64 a2)
+__int64 __fastcall xxxRemoteNotify(_DWORD *a1, __int64 a2, __int64 a3)
 {
-  _DWORD *v2; // rbx
+  _DWORD *v3; // rbx
 
-  v2 = a1;
-  if ( PsGetCurrentProcess(a1, a2) == gpepCSRSS )
+  v3 = a1;
+  if ( PsGetCurrentProcess(a1, a2, a3) == gpepCSRSS )
   {
-    if ( v2 + 1 < v2 || (unsigned __int64)(v2 + 1) > MmUserProbeAddress )
-      v2 = (_DWORD *)MmUserProbeAddress;
-    switch ( *v2 )
+    if ( v3 + 1 < v3 || (unsigned __int64)(v3 + 1) > MmUserProbeAddress )
+      v3 = (_DWORD *)MmUserProbeAddress;
+    switch ( *v3 )
     {
       case 6:
         return 0LL;

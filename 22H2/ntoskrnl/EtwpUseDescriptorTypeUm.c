@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpUseDescriptorTypeUm @ 0x1409E7F50
+ * XREFs of EtwpUseDescriptorTypeUm @ 0x140934BA4
  * Callers:
- *     NtTraceControl @ 0x140725C40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall EtwpUseDescriptorTypeUm(__int64 a1)
@@ -13,18 +13,18 @@ NTSTATUS __fastcall EtwpUseDescriptorTypeUm(__int64 a1)
   NTSTATUS result; // eax
   int v4; // ebx
   char v5; // al
-  PVOID Object; // [rsp+40h] [rbp+8h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = *(void **)a1;
-  Object = 0LL;
-  result = ObReferenceObjectByHandle(v2, 0x800u, EtwpRegistrationObjectType, 1, &Object, 0LL);
+  DmaAdapter = 0LL;
+  result = ObReferenceObjectByHandle(v2, 0x800u, EtwpRegistrationObjectType, 1, (PVOID *)&DmaAdapter, 0LL);
   v4 = result;
   if ( result >= 0 )
   {
     v5 = *(_BYTE *)(a1 + 8);
     if ( v5 == 1 )
     {
-      _InterlockedOr16((volatile signed __int16 *)Object + 49, 0x200u);
+      _InterlockedOr16((volatile signed __int16 *)&DmaAdapter[6].Size, 0x200u);
     }
     else if ( v5 )
     {
@@ -32,9 +32,9 @@ NTSTATUS __fastcall EtwpUseDescriptorTypeUm(__int64 a1)
     }
     else
     {
-      _InterlockedAnd16((volatile signed __int16 *)Object + 49, 0xFDFFu);
+      _InterlockedAnd16((volatile signed __int16 *)&DmaAdapter[6].Size, 0xFDFFu);
     }
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter(DmaAdapter);
     return v4;
   }
   return result;

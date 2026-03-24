@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SetVerifierState@_FX_DRIVER_GLOBALS@@QEAAXE@Z @ 0x1C00287D8
+ * XREFs of ?SetVerifierState@_FX_DRIVER_GLOBALS@@QEAAXE@Z @ 0x1C0056B50
  * Callers:
- *     FxRegistrySettingsInitialize @ 0x1C0027EF4 (FxRegistrySettingsInitialize.c)
- *     FxAllocateDriverGlobals @ 0x1C002861C (FxAllocateDriverGlobals.c)
+ *     FxAllocateDriverGlobals @ 0x1C0056C34 (FxAllocateDriverGlobals.c)
+ *     FxRegistrySettingsInitialize @ 0x1C0057AF0 (FxRegistrySettingsInitialize.c)
  * Callees:
  *     <none>
  */

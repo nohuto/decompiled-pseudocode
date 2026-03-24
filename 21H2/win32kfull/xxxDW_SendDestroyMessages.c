@@ -1,73 +1,73 @@
 /*
- * XREFs of xxxDW_SendDestroyMessages @ 0x1C0062F9C
+ * XREFs of xxxDW_SendDestroyMessages @ 0x1C007E71C
  * Callers:
- *     xxxDestroyWindow @ 0x1C0062330 (xxxDestroyWindow.c)
- *     xxxDW_SendDestroyMessages @ 0x1C0062F9C (xxxDW_SendDestroyMessages.c)
+ *     xxxDestroyWindow @ 0x1C007DCA0 (xxxDestroyWindow.c)
+ *     xxxDW_SendDestroyMessages @ 0x1C007E71C (xxxDW_SendDestroyMessages.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     xxxSendMessage @ 0x1C0050D34 (xxxSendMessage.c)
- *     xxxDW_SendDestroyMessages @ 0x1C0062F9C (xxxDW_SendDestroyMessages.c)
- *     ?xxxMoveFocusAway@@YAXPEBUtagWND@@@Z @ 0x1C0063110 (-xxxMoveFocusAway@@YAXPEBUtagWND@@@Z.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     ?xxxDisownClipboard@@YAXPEAUtagWND@@@Z @ 0x1C01459BC (-xxxDisownClipboard@@YAXPEAUtagWND@@@Z.c)
+ *     xxxSendMessage @ 0x1C005D634 (xxxSendMessage.c)
+ *     xxxDW_SendDestroyMessages @ 0x1C007E71C (xxxDW_SendDestroyMessages.c)
+ *     ?xxxMoveFocusAway@@YAXPEBUtagWND@@@Z @ 0x1C007E8C0 (-xxxMoveFocusAway@@YAXPEBUtagWND@@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?xxxDisownClipboard@@YAXPEAUtagWND@@@Z @ 0x1C01238C8 (-xxxDisownClipboard@@YAXPEAUtagWND@@@Z.c)
  */
 
-void __fastcall xxxDW_SendDestroyMessages(const struct tagWND *a1)
+void __fastcall xxxDW_SendDestroyMessages(unsigned __int64 a1)
 {
   __int64 v2; // rcx
   __int64 v3; // rcx
-  __int64 v4; // rdi
-  __int64 v5; // rsi
+  __int64 v4; // rsi
+  __int64 v5; // rdi
   __int64 ThreadWin32Thread; // rax
-  __int64 v7; // rdx
+  __int64 v7; // rax
   __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int128 v13; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v14; // [rsp+30h] [rbp-28h]
-  __int128 v15; // [rsp+38h] [rbp-20h] BYREF
-  __int64 v16; // [rsp+48h] [rbp-10h]
+  __int64 v9; // rcx
+  __int128 v10; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v11; // [rsp+30h] [rbp-28h]
+  __int128 v12; // [rsp+38h] [rbp-20h] BYREF
+  __int64 v13; // [rsp+48h] [rbp-10h]
 
-  v15 = 0LL;
-  v16 = 0LL;
+  v10 = 0LL;
+  v11 = 0LL;
+  v12 = 0LL;
   v13 = 0LL;
-  v14 = 0LL;
-  xxxMoveFocusAway(a1);
+  xxxMoveFocusAway((const struct tagWND *)a1);
   v3 = *(_QWORD *)(PsGetCurrentProcessWin32Process(v2) + 664);
-  if ( v3 && a1 == *(const struct tagWND **)(v3 + 112) )
+  if ( v3 && a1 == *(_QWORD *)(v3 + 112) )
   {
-    xxxDisownClipboard(a1);
+    xxxDisownClipboard((struct tagWND *)a1);
   }
-  else if ( grpWinStaList && a1 == *(const struct tagWND **)(grpWinStaList + 112LL) )
+  else if ( grpWinStaList && a1 == *(_QWORD *)(grpWinStaList + 112LL) )
   {
     HMAssignmentUnlock(grpWinStaList + 112LL);
   }
-  if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 232LL) & 0x20) != 0 )
+  if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 234LL) & 4) != 0 )
   {
-    xxxSendMessage((ULONG_PTR)a1);
-    SetOrClrWF(0LL, a1, 55328LL, 0LL);
+    xxxSendMessage(a1, 0x272u, 0LL, 0LL);
+    *(_BYTE *)(*(_QWORD *)(a1 + 40) + 234LL) &= ~4u;
   }
-  xxxSendMessage((ULONG_PTR)a1);
-  v4 = *((_QWORD *)a1 + 14);
+  xxxSendMessage(a1, 2u, 0LL, 0LL);
+  v4 = *(_QWORD *)(a1 + 112);
   if ( v4 )
   {
     do
     {
       v5 = *(_QWORD *)(v4 + 88);
-      ThreadLock(v5, &v15);
-      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-      *(_QWORD *)&v13 = *(_QWORD *)(ThreadWin32Thread + 416);
-      *(_QWORD *)(ThreadWin32Thread + 416) = &v13;
-      *((_QWORD *)&v13 + 1) = v4;
+      ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+      *(_QWORD *)&v10 = *(_QWORD *)(ThreadWin32Thread + 416);
+      *(_QWORD *)(ThreadWin32Thread + 416) = &v10;
+      *((_QWORD *)&v10 + 1) = v5;
+      if ( v5 )
+        HMLockObject(v5);
+      v7 = W32GetThreadWin32Thread(KeGetCurrentThread());
+      *(_QWORD *)&v12 = *(_QWORD *)(v7 + 416);
+      *(_QWORD *)(v7 + 416) = &v12;
+      *((_QWORD *)&v12 + 1) = v4;
       HMLockObject(v4);
       xxxDW_SendDestroyMessages(v4);
-      ThreadUnlock1(v8, v7, v9);
+      ThreadUnlock1(v8);
       v4 = v5;
     }
-    while ( ThreadUnlock1(v11, v10, v12) && v5 );
+    while ( ThreadUnlock1(v9) && v5 );
   }
-  xxxMoveFocusAway(a1);
+  xxxMoveFocusAway((const struct tagWND *)a1);
 }

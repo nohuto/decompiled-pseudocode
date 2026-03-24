@@ -1,10 +1,10 @@
 /*
- * XREFs of imp_WdfDeviceInitSetIoType @ 0x1C0034300
+ * XREFs of imp_WdfDeviceInitSetIoType @ 0x1C0044F40
  * Callers:
  *     <none>
  * Callees:
- *     ?AssignIoType@WDFDEVICE_INIT@@QEAAXPEAU_WDF_IO_TYPE_CONFIG@@@Z @ 0x1C0034344 (-AssignIoType@WDFDEVICE_INIT@@QEAAXPEAU_WDF_IO_TYPE_CONFIG@@@Z.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?AssignIoType@WDFDEVICE_INIT@@QEAAXPEAU_WDF_IO_TYPE_CONFIG@@@Z @ 0x1C004FFE4 (-AssignIoType@WDFDEVICE_INIT@@QEAAXPEAU_WDF_IO_TYPE_CONFIG@@@Z.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 void __fastcall imp_WdfDeviceInitSetIoType(
@@ -16,7 +16,7 @@ void __fastcall imp_WdfDeviceInitSetIoType(
   void *retaddr; // [rsp+38h] [rbp+0h]
 
   if ( !DeviceInit )
-    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], retaddr);
+    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, retaddr);
   ioTypeConfig.DirectTransferThreshold = 0;
   ioTypeConfig.Size = 16;
   ioTypeConfig.DeviceControlIoType = WdfDeviceIoBuffered;

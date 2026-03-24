@@ -1,108 +1,113 @@
 /*
- * XREFs of NtUserGetWindowRgnEx @ 0x1C01D47C0
+ * XREFs of NtUserGetWindowRgnEx @ 0x1C01FC5A0
  * Callers:
  *     <none>
  * Callees:
- *     MirrorRegion @ 0x1C002561C (MirrorRegion.c)
- *     CalcVisRgn @ 0x1C0033320 (CalcVisRgn.c)
- *     ?GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ @ 0x1C0077D38 (-GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     GreScaleRgnToDestLogPixel @ 0x1C02A8100 (GreScaleRgnToDestLogPixel.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     CalcVisRgn @ 0x1C00738B0 (CalcVisRgn.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     MirrorRegion @ 0x1C010DF9C (MirrorRegion.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     GreScaleRgnToDestLogPixel @ 0x1C029EA14 (GreScaleRgnToDestLogPixel.c)
  */
 
-__int64 __fastcall NtUserGetWindowRgnEx(__int64 a1, unsigned __int64 a2, __int64 a3)
+__int64 __fastcall NtUserGetWindowRgnEx(__int64 a1, HRGN a2, int a3)
 {
-  int v3; // esi
   __int64 v5; // rdx
-  __int64 v6; // rcx
-  const struct tagWND *v7; // rdi
+  HRGN v6; // rcx
+  __int64 v7; // rdi
   __int64 v8; // r8
-  __int64 v9; // r9
-  unsigned int v10; // ebx
-  int v11; // ebx
-  int v12; // edx
-  unsigned int v13; // ecx
-  __int64 v14; // r9
+  int v9; // ebx
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  unsigned int v12; // ebx
+  int v14; // edx
+  int v15; // ecx
+  unsigned int v16; // r9d
   unsigned int RgnBox; // eax
-  HRGN ExplicitClipRgn; // rax
-  __int64 v17; // r10
-  unsigned __int64 v19; // [rsp+20h] [rbp-28h] BYREF
-  __int128 v20; // [rsp+28h] [rbp-20h] BYREF
+  __int64 v18; // rax
+  __int64 v19; // rdx
+  unsigned int v20; // eax
+  HRGN v21; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v22; // [rsp+28h] [rbp-20h] BYREF
 
-  v3 = a3;
-  v19 = a2;
-  EnterSharedCrit(a1, a2, a3);
-  v7 = (const struct tagWND *)ValidateHwnd(a1);
+  v21 = a2;
+  EnterSharedCrit(0LL, 1LL);
+  v7 = ValidateHwnd(a1);
   if ( !v7 )
-    goto LABEL_2;
-  v11 = 63;
-  if ( (unsigned int)UserUnsafeIsCurrentProcessDwm() )
-    v11 = 127;
-  if ( (~v11 & v3) != 0 )
+    goto LABEL_6;
+  v9 = 63;
+  if ( (unsigned int)UserUnsafeIsCurrentProcessDwm(v6, v5, v8) )
+    v9 = 127;
+  if ( (~v9 & a3) != 0 )
   {
-    UserSetLastError(1004);
-LABEL_2:
-    v10 = 0;
-    goto LABEL_30;
+    UserSetLastError(1004LL, v10, v11);
+    goto LABEL_6;
   }
-  if ( !v19 )
+  v6 = v21;
+  if ( !v21 )
   {
-    v10 = 0;
-    UserSetLastError(87);
-    goto LABEL_30;
+    v12 = 0;
+    UserSetLastError(87LL, v10, v11);
+    goto LABEL_7;
   }
-  if ( (v3 & 2) != 0 )
+  if ( (a3 & 2) != 0 )
   {
-    v12 = (2 * (v3 & 4 | 0x4000200)) | 0x10;
-    v20 = 0LL;
-    if ( (v3 & 8) == 0 )
-      v12 = 2 * (v3 & 4 | 0x4000200);
-    v13 = v12 | 1;
-    if ( (v3 & 0x10) != 0 )
-      v13 = v12;
-    v14 = v13;
-    LODWORD(v14) = v13 | 0x1000000;
-    if ( (v3 & 0x40) == 0 )
-      v14 = v13;
-    CalcVisRgn((HRGN *)&v19, v7, v7, v14);
-    RgnBox = GreGetRgnBox(v19, &v20);
+    v14 = (2 * (a3 & 4 | 0x4000200)) | 0x10;
+    if ( (a3 & 8) == 0 )
+      v14 = 2 * (a3 & 4 | 0x4000200);
+    v15 = v14 | 1;
+    if ( (a3 & 0x10) != 0 )
+      v15 = v14;
+    v16 = v15 | 0x1000000;
+    v22 = 0LL;
+    if ( (a3 & 0x40) == 0 )
+      v16 = v15;
+    CalcVisRgn(&v21, v7, (struct tagWND *)v7, v16);
+    RgnBox = GreGetRgnBox(v21, &v22);
   }
   else
   {
-    ExplicitClipRgn = tagWND::GetExplicitClipRgn(v7);
-    if ( !ExplicitClipRgn )
-      goto LABEL_2;
-    RgnBox = GreCombineRgn(v17, ExplicitClipRgn, 0LL, 5LL);
+    v18 = *(_QWORD *)(v7 + 40);
+    v19 = *(_QWORD *)(v18 + 168);
+    if ( !v19 || (*(_BYTE *)(v18 + 21) & 8) != 0 )
+      goto LABEL_6;
+    RgnBox = GreCombineRgn(v21, v19, 0LL, 5LL);
   }
-  v10 = RgnBox;
+  v12 = RgnBox;
   if ( !RgnBox )
-    goto LABEL_2;
-  v6 = *((_QWORD *)v7 + 5);
-  if ( (*(_WORD *)(v6 + 42) & 0x2FFF) != 0x29D )
-    v10 = GreOffsetRgn(v19, (unsigned int)-*(_DWORD *)(v6 + 88), (unsigned int)-*(_DWORD *)(v6 + 92));
-  LOBYTE(v6) = ((v3 & 1) == 0) & (*(_BYTE *)(*((_QWORD *)v7 + 5) + 26LL) >> 6);
-  if ( (_BYTE)v6 )
-    MirrorRegion((__int64)v7, v19, 0);
-  if ( (v3 & 0x20) != 0 )
+  {
+LABEL_6:
+    v12 = 0;
+    goto LABEL_7;
+  }
+  v6 = *(HRGN *)(v7 + 40);
+  if ( (*((_WORD *)v6 + 21) & 0x2FFF) != 0x29D )
+  {
+    v20 = GreOffsetRgn(v21, (unsigned int)-*((_DWORD *)v6 + 22), (unsigned int)-*((_DWORD *)v6 + 23));
+    v6 = *(HRGN *)(v7 + 40);
+    v12 = v20;
+  }
+  LOBYTE(v6) = ((a3 & 1) == 0) & (*((_BYTE *)v6 + 26) >> 6);
+  if ( ((unsigned __int8)v6 & 1) != 0 )
+    MirrorRegion(v7, (unsigned __int64)v21, 0);
+  if ( (a3 & 0x20) != 0 )
   {
     if ( W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) )
     {
-      if ( *((_QWORD *)PtiCurrentShared(v6, v5, v8, v9) + 57) )
+      if ( *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456) )
       {
-        v6 = **(_QWORD **)(*((_QWORD *)PtiCurrentShared(v6, v5, v8, v9) + 57) + 8LL);
-        if ( (*(_DWORD *)(v6 + 64) & 1) != 0 )
+        v6 = **(HRGN **)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456) + 8LL);
+        if ( ((_DWORD)v6[16] & 1) != 0 )
         {
-          v6 = *((_QWORD *)v7 + 5);
-          if ( (*(_DWORD *)(v6 + 288) & 0x4000000F) == 0x40000000 )
-            GreScaleRgnToDestLogPixel(*(unsigned __int16 *)(v6 + 284), v19);
+          v6 = *(HRGN *)(v7 + 40);
+          if ( ((_DWORD)v6[72] & 0x4000000F) == 0x40000000 )
+            GreScaleRgnToDestLogPixel(*((unsigned __int16 *)v6 + 142), v21);
         }
       }
     }
   }
-LABEL_30:
-  UserSessionSwitchLeaveCrit(v6, v5, v8, v9);
-  return v10;
+LABEL_7:
+  UserSessionSwitchLeaveCrit(v6);
+  return v12;
 }

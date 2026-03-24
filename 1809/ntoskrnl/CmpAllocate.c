@@ -2,7 +2,7 @@
  * XREFs of CmpAllocate @ 0x1405A72D0
  * Callers:
  *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
- *     CmpCreateEmptyHiveClone @ 0x1407F65F8 (CmpCreateEmptyHiveClone.c)
+ *     CmpCreateEmptyHiveClone @ 0x1407F65D8 (CmpCreateEmptyHiveClone.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     CmpClaimGlobalQuota @ 0x1405A7334 (CmpClaimGlobalQuota.c)

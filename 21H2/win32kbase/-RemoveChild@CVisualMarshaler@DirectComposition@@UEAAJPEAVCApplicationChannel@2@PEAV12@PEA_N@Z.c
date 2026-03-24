@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RemoveChild@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@PEAV12@PEA_N@Z @ 0x1C00945F0
+ * XREFs of ?RemoveChild@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@PEAV12@PEA_N@Z @ 0x1C0082C80
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CVisualMarshaler::RemoveChild(
@@ -18,22 +18,22 @@ __int64 __fastcall DirectComposition::CVisualMarshaler::RemoveChild(
   __int64 v10; // rax
 
   v4 = 0;
-  if ( *((DirectComposition::CVisualMarshaler **)a3 + 25) == this )
+  if ( *((DirectComposition::CVisualMarshaler **)a3 + 24) == this )
   {
-    for ( i = (_QWORD *)((char *)this + 184);
+    for ( i = (_QWORD *)((char *)this + 176);
           (struct DirectComposition::CVisualMarshaler *)*i != a3;
-          i = (_QWORD *)(*i + 192LL) )
+          i = (_QWORD *)(*i + 184LL) )
     {
       ;
     }
-    *i = *((_QWORD *)a3 + 24);
+    *i = *((_QWORD *)a3 + 23);
     v10 = *(_QWORD *)a3;
-    *((_QWORD *)a3 + 24) = 0LL;
+    *((_QWORD *)a3 + 23) = 0LL;
     if ( (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CVisualMarshaler *))(v10 + 248))(a3) )
     {
       *((_DWORD *)a3 + 4) |= 8u;
-      *((_QWORD *)a3 + 27) = *((_QWORD *)this + 26);
-      *((_QWORD *)this + 26) = a3;
+      *((_QWORD *)a3 + 26) = *((_QWORD *)this + 25);
+      *((_QWORD *)this + 25) = a3;
       *a4 = 1;
     }
     else

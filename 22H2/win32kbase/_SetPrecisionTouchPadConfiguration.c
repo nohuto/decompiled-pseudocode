@@ -1,132 +1,69 @@
 /*
- * XREFs of _SetPrecisionTouchPadConfiguration @ 0x1C0134DF4
+ * XREFs of _SetPrecisionTouchPadConfiguration @ 0x1C011C2E0
  * Callers:
- *     xxxSystemParametersInfo @ 0x1C0094FF0 (xxxSystemParametersInfo.c)
- *     NtUserSetPrecisionTouchPadConfiguration @ 0x1C014BA50 (NtUserSetPrecisionTouchPadConfiguration.c)
- *     UnpackTouchpadSettings @ 0x1C01E9ABC (UnpackTouchpadSettings.c)
+ *     xxxSystemParametersInfo @ 0x1C000CD30 (xxxSystemParametersInfo.c)
+ *     NtUserSetPrecisionTouchPadConfiguration @ 0x1C01347E0 (NtUserSetPrecisionTouchPadConfiguration.c)
+ *     UnpackTouchpadSettings @ 0x1C01AFB3C (UnpackTouchpadSettings.c)
  * Callees:
- *     ResetAccelerationCurves @ 0x1C0063C60 (ResetAccelerationCurves.c)
- *     UpdateTPCurrentActiveState @ 0x1C006EA60 (UpdateTPCurrentActiveState.c)
- *     ?EnumDevices@CBaseInput@@QEBAXPEAXP6A_NQEAUDEVICEINFO@@0@Z@Z @ 0x1C006EDB0 (-EnumDevices@CBaseInput@@QEBAXPEAXP6A_NQEAUDEVICEINFO@@0@Z@Z.c)
- *     BroadcastSettingsUpdateToAllContainers @ 0x1C0095820 (BroadcastSettingsUpdateToAllContainers.c)
- *     WriteSettingValues @ 0x1C013F2A0 (WriteSettingValues.c)
+ *     UpdateTPCurrentActiveState @ 0x1C000C880 (UpdateTPCurrentActiveState.c)
+ *     BroadcastSettingsUpdateToAllContainers @ 0x1C000D350 (BroadcastSettingsUpdateToAllContainers.c)
+ *     ?ResetAccelerationCurves@CDeviceAcceleration@@QEAAXXZ @ 0x1C006F718 (-ResetAccelerationCurves@CDeviceAcceleration@@QEAAXXZ.c)
+ *     WriteSettingValues @ 0x1C0127CB0 (WriteSettingValues.c)
  */
 
-__int64 __fastcall SetPrecisionTouchPadConfiguration(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall SetPrecisionTouchPadConfiguration(_DWORD *a1)
 {
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rsi
-  __int64 v10; // rcx
-  int v11; // ebx
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  unsigned int v14; // ebx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // rdx
-  int v18; // ebp
-  __int64 v19; // rdx
-  int v20; // ecx
-  int v21; // edx
-  int v22; // ecx
-  int v23; // ecx
-  int v24; // eax
-  int v25; // ecx
-  unsigned __int8 v26; // al
-  __int64 v27; // rax
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  __int64 v31; // r9
+  int v2; // edx
+  int v3; // ecx
+  unsigned int v4; // edi
+  int v5; // ecx
 
-  if ( a1 && !*(_DWORD *)a1 )
+  if ( !a1 || *a1 )
+    return 0LL;
+  v2 = qword_1C024ED38;
+  dword_1C024977C = DWORD2(gTouchPadParameters);
+  dword_1C02497EC = qword_1C024ED38;
+  if ( a1[2] <= 4u )
   {
-    v5 = SGDGetUserSessionState(a1, a2, a3, a4);
-    v9 = v5 + 16800;
-    dword_1C02887CC = *(_DWORD *)(v5 + 16808);
-    v10 = *(unsigned int *)(v5 + 16816);
-    dword_1C028883C = *(_DWORD *)(v5 + 16816);
-    if ( *(_DWORD *)(a1 + 8) <= 4u )
-    {
-      dword_1C02887CC = *(_DWORD *)(a1 + 8);
-      *(_DWORD *)(v5 + 16808) = *(_DWORD *)(a1 + 8);
-    }
-    v11 = *(_DWORD *)(a1 + 16);
-    SGDGetUserSessionState(v10, v6, v7, v8);
-    if ( (unsigned int)(v11 - 1) <= 0x13 )
-      dword_1C028883C = *(_DWORD *)(a1 + 16);
-    if ( *(_BYTE *)(a1 + 21) <= 0x64u )
-      dword_1C028888C = *(char *)(a1 + 21);
-    dword_1C02887DC = -__CFSHR__(*(_DWORD *)(a1 + 12), 3);
-    dword_1C02887EC = -__CFSHR__(*(_DWORD *)(a1 + 12), 4);
-    dword_1C02887FC = -__CFSHR__(*(_DWORD *)(a1 + 12), 8);
-    dword_1C028880C = -__CFSHR__(*(_DWORD *)(a1 + 12), 9);
-    dword_1C028881C = -__CFSHR__(*(_DWORD *)(a1 + 12), 10);
-    dword_1C028882C = -__CFSHR__(*(_DWORD *)(a1 + 12), 11);
-    dword_1C028884C = -(*(_DWORD *)(a1 + 20) & 1);
-    dword_1C028885C = -__CFSHR__(*(_DWORD *)(a1 + 20), 2);
-    dword_1C028886C = -__CFSHR__(*(_DWORD *)(a1 + 20), 3);
-    dword_1C028887C = -__CFSHR__(*(_DWORD *)(a1 + 20), 7);
-    dword_1C028889C = -__CFSHR__(*(_DWORD *)(a1 + 20), 17);
-    v14 = WriteSettingValues(0LL, &off_1C02887C0, 14LL);
-    if ( !v14 )
-      goto LABEL_19;
-    v17 = *(_DWORD *)(v9 + 12) ^ (*(_DWORD *)(a1 + 12) ^ *(_DWORD *)(v9 + 12)) & 8u;
-    *(_DWORD *)(v9 + 12) = v17;
-    *(_DWORD *)(v9 + 12) = v17 ^ (*(_DWORD *)(a1 + 12) ^ v17) & 4;
-    v18 = *(_DWORD *)(a1 + 16);
-    if ( *(_DWORD *)(v9 + 16) != v18 )
-    {
-      SGDGetUserSessionState(v13, v17, v15, v16);
-      if ( (unsigned int)(v18 - 1) <= 0x13 )
-      {
-        *(_DWORD *)(v9 + 16) = *(_DWORD *)(a1 + 16);
-        ResetAccelerationCurves(1LL, v19, v15, v16);
-      }
-    }
-    *(_DWORD *)(v9 + 12) ^= (*(_DWORD *)(a1 + 12) ^ *(_DWORD *)(v9 + 12)) & 0x80;
-    v20 = *(_DWORD *)(v9 + 12) ^ (*(_DWORD *)(a1 + 12) ^ *(_DWORD *)(v9 + 12)) & 0x100;
-    *(_DWORD *)(v9 + 12) = v20;
-    v21 = v20 ^ (*(_DWORD *)(a1 + 12) ^ v20) & 0x200;
-    v22 = *(_DWORD *)(v9 + 20);
-    *(_DWORD *)(v9 + 12) = v21;
-    *(_DWORD *)(v9 + 12) = v21 ^ (*(_DWORD *)(a1 + 12) ^ v21) & 0x400;
-    v23 = *(_DWORD *)(v9 + 20) ^ (*(_DWORD *)(a1 + 20) ^ v22) & 1;
-    *(_DWORD *)(v9 + 20) = v23;
-    v24 = v23 ^ (*(_DWORD *)(a1 + 20) ^ v23) & 2;
-    *(_DWORD *)(v9 + 20) = v24;
-    v25 = v24 ^ (*(_DWORD *)(a1 + 20) ^ v24) & 4;
-    *(_DWORD *)(v9 + 20) = v25;
-    v12 = v25 ^ (*(_DWORD *)(a1 + 20) ^ v25) & 0x40u;
-    v13 = 0x10000LL;
-    *(_DWORD *)(v9 + 20) = v12;
-    if ( *(_BYTE *)(v9 + 21) == *(_BYTE *)(a1 + 21) && ((*(_DWORD *)(a1 + 20) ^ (unsigned int)v12) & 0x10000) == 0 )
-      goto LABEL_19;
-    *(_DWORD *)(v9 + 20) = v12 ^ (*(_DWORD *)(a1 + 20) ^ v12) & 0x10000;
-    v26 = *(_BYTE *)(a1 + 21);
-    if ( v26 <= 0x64u )
-      *(_BYTE *)(v9 + 21) = v26;
-    if ( (*(_DWORD *)(v9 + 20) & 0x80u) != 0 )
-    {
-      v27 = SGDGetUserSessionState(0x10000LL, v12, v15, v16);
-      CBaseInput::EnumDevices(
-        *(struct CInpPushLock ***)(v27 + 16840),
-        0LL,
-        (unsigned __int8 (__fastcall *)(__int64, void *))lambda_368b033a81a9ff5b62db10e322fc5b96_::_lambda_invoker_cdecl_);
-      UpdateTPCurrentActiveState(v29, v28, v30, v31);
-    }
-    else
-    {
-LABEL_19:
-      UpdateTPCurrentActiveState(v13, v12, v15, v16);
-      if ( !v14 )
-        return v14;
-    }
-    BroadcastSettingsUpdateToAllContainers();
-    return v14;
+    dword_1C024977C = a1[2];
+    DWORD2(gTouchPadParameters) = a1[2];
   }
-  return 0LL;
+  v3 = a1[4];
+  if ( (unsigned int)(v3 - 1) <= 0x13 )
+    v2 = v3;
+  dword_1C02497EC = v2;
+  dword_1C024978C = -__CFSHR__(a1[3], 3);
+  dword_1C024979C = -__CFSHR__(a1[3], 4);
+  dword_1C02497AC = -__CFSHR__(a1[3], 8);
+  dword_1C02497BC = -__CFSHR__(a1[3], 9);
+  dword_1C02497CC = -__CFSHR__(a1[3], 10);
+  dword_1C02497DC = -__CFSHR__(a1[3], 11);
+  dword_1C02497FC = -(a1[5] & 1);
+  dword_1C024980C = -__CFSHR__(a1[5], 2);
+  dword_1C024981C = -__CFSHR__(a1[5], 3);
+  dword_1C024983C = -__CFSHR__(a1[5], 7);
+  v4 = WriteSettingValues(0LL, &off_1C0249770, 13LL);
+  if ( v4 )
+  {
+    HIDWORD(gTouchPadParameters) ^= (BYTE12(gTouchPadParameters) ^ (unsigned __int8)a1[3]) & 8;
+    HIDWORD(gTouchPadParameters) ^= (BYTE12(gTouchPadParameters) ^ (unsigned __int8)a1[3]) & 4;
+    v5 = a1[4];
+    if ( qword_1C024ED38 != v5 && (unsigned int)(v5 - 1) <= 0x13 )
+    {
+      qword_1C024ED38 = a1[4];
+      CDeviceAcceleration::ResetAccelerationCurves(qword_1C02450B0);
+    }
+    HIDWORD(gTouchPadParameters) ^= (BYTE12(gTouchPadParameters) ^ (unsigned __int8)a1[3]) & 0x80;
+    HIDWORD(gTouchPadParameters) ^= (WORD6(gTouchPadParameters) ^ (unsigned __int16)a1[3]) & 0x100;
+    HIDWORD(gTouchPadParameters) ^= (WORD6(gTouchPadParameters) ^ (unsigned __int16)a1[3]) & 0x200;
+    HIDWORD(gTouchPadParameters) ^= (WORD6(gTouchPadParameters) ^ (unsigned __int16)a1[3]) & 0x400;
+    *(&qword_1C024ED38 + 1) ^= (*((_BYTE *)&qword_1C024ED38 + 4) ^ (unsigned __int8)a1[5]) & 1;
+    *(&qword_1C024ED38 + 1) ^= (*((_BYTE *)&qword_1C024ED38 + 4) ^ (unsigned __int8)a1[5]) & 2;
+    *(&qword_1C024ED38 + 1) ^= (a1[5] ^ *(&qword_1C024ED38 + 1)) & 4;
+    *(&qword_1C024ED38 + 1) ^= (a1[5] ^ *(&qword_1C024ED38 + 1)) & 0x40;
+  }
+  UpdateTPCurrentActiveState();
+  if ( v4 )
+    BroadcastSettingsUpdateToAllContainers();
+  return v4;
 }

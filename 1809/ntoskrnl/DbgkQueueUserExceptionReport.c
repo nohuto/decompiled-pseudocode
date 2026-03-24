@@ -1,22 +1,22 @@
 /*
- * XREFs of DbgkQueueUserExceptionReport @ 0x1408106DC
+ * XREFs of DbgkQueueUserExceptionReport @ 0x1408106BC
  * Callers:
- *     SepLogLpacAccessFailure @ 0x1402FEB00 (SepLogLpacAccessFailure.c)
- *     MiForceCrashForInvalidAccess @ 0x14084BEC4 (MiForceCrashForInvalidAccess.c)
+ *     SepLogLpacAccessFailure @ 0x1402FEC00 (SepLogLpacAccessFailure.c)
+ *     MiForceCrashForInvalidAccess @ 0x14084BEA4 (MiForceCrashForInvalidAccess.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     IoThreadToProcess @ 0x1400ACF00 (IoThreadToProcess.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     IoThreadToProcess @ 0x1400ACF20 (IoThreadToProcess.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsResumeThread @ 0x140676800 (PsResumeThread.c)
- *     PsSuspendThread @ 0x1406C21A0 (PsSuspendThread.c)
+ *     PsResumeThread @ 0x1406767E0 (PsResumeThread.c)
+ *     PsSuspendThread @ 0x1406C2180 (PsSuspendThread.c)
  */
 
 __int64 __fastcall DbgkQueueUserExceptionReport(__int64 Object, unsigned int a2, __int64 a3)

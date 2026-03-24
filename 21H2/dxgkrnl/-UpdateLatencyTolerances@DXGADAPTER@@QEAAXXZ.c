@@ -1,109 +1,109 @@
 /*
- * XREFs of ?UpdateLatencyTolerances@DXGADAPTER@@QEAAXXZ @ 0x1C0008F10
+ * XREFs of ?UpdateLatencyTolerances@DXGADAPTER@@QEAAXXZ @ 0x1C0039D34
  * Callers:
- *     ?NotifyContextCreation@DXGADAPTER@@QEAAXPEAVDXGCONTEXT@@EI@Z @ 0x1C0009C68 (-NotifyContextCreation@DXGADAPTER@@QEAAXPEAVDXGCONTEXT@@EI@Z.c)
- *     ?PowerRuntimeComponentActiveCallback@DXGADAPTER@@QEAAXKE@Z @ 0x1C0009F60 (-PowerRuntimeComponentActiveCallback@DXGADAPTER@@QEAAXKE@Z.c)
- *     ?LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z @ 0x1C000A1D4 (-LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?NotifyPrimaryMonitorPowerChange@DXGADAPTER@@QEAAXE@Z @ 0x1C0025DC4 (-NotifyPrimaryMonitorPowerChange@DXGADAPTER@@QEAAXE@Z.c)
- *     ?NotifyProcessThaw@DXGPROCESS@@QEAAXXZ @ 0x1C015BE1C (-NotifyProcessThaw@DXGPROCESS@@QEAAXXZ.c)
- *     ?NotifyProcessFreeze@DXGPROCESS@@QEAAXXZ @ 0x1C0164528 (-NotifyProcessFreeze@DXGPROCESS@@QEAAXXZ.c)
- *     ?ReleaseCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C01B41A0 (-ReleaseCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
- *     ?InitializePowerManagement@DXGADAPTER@@AEAAJXZ @ 0x1C0200238 (-InitializePowerManagement@DXGADAPTER@@AEAAJXZ.c)
+ *     ?NotifyContextCreation@DXGADAPTER@@QEAAXPEAVDXGCONTEXT@@EI@Z @ 0x1C0002588 (-NotifyContextCreation@DXGADAPTER@@QEAAXPEAVDXGCONTEXT@@EI@Z.c)
+ *     ?LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z @ 0x1C00378B4 (-LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?NotifyPrimaryMonitorPowerChange@DXGADAPTER@@QEAAXE@Z @ 0x1C0037D70 (-NotifyPrimaryMonitorPowerChange@DXGADAPTER@@QEAAXE@Z.c)
+ *     ?PowerRuntimeComponentActiveCallback@DXGADAPTER@@QEAAXKE@Z @ 0x1C00381B4 (-PowerRuntimeComponentActiveCallback@DXGADAPTER@@QEAAXKE@Z.c)
+ *     ?NotifyProcessThaw@DXGPROCESS@@QEAAXXZ @ 0x1C00E2908 (-NotifyProcessThaw@DXGPROCESS@@QEAAXXZ.c)
+ *     ?NotifyProcessFreeze@DXGPROCESS@@QEAAXXZ @ 0x1C00E3408 (-NotifyProcessFreeze@DXGPROCESS@@QEAAXXZ.c)
+ *     ?ReleaseCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C0121824 (-ReleaseCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
+ *     ?InitializePowerManagement@DXGADAPTER@@AEAAJXZ @ 0x1C01862B0 (-InitializePowerManagement@DXGADAPTER@@AEAAJXZ.c)
  * Callees:
- *     ?SetPowerComponentLatencyCB@DXGADAPTER@@QEAAXI_K@Z @ 0x1C000A3B0 (-SetPowerComponentLatencyCB@DXGADAPTER@@QEAAXI_K@Z.c)
+ *     ?SetPowerComponentLatencyCB@DXGADAPTER@@QEAAXI_K@Z @ 0x1C0039BE4 (-SetPowerComponentLatencyCB@DXGADAPTER@@QEAAXI_K@Z.c)
  */
 
 void __fastcall DXGADAPTER::UpdateLatencyTolerances(DXGADAPTER *this)
 {
   char *v1; // rdi
-  unsigned __int64 v3; // rsi
-  DXGADAPTER *v4; // rdi
-  int v5; // eax
-  int v6; // eax
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // rdi
-  int v9; // ecx
-  unsigned int v10; // edx
+  int v3; // eax
+  int v4; // eax
+  __int64 v5; // r8
+  __int64 v6; // rdi
+  int v7; // ecx
+  unsigned int v8; // edx
+  __int64 v9; // rsi
+  DXGADAPTER *v10; // rdi
   DXGADAPTER *v11; // rax
   KSPIN_LOCK *v12; // [rsp+28h] [rbp-30h]
-  _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
   char v14; // [rsp+48h] [rbp-10h]
 
-  v1 = (char *)this + 3360;
-  v12 = (KSPIN_LOCK *)((char *)this + 3360);
+  v1 = (char *)this + 3264;
+  v12 = (KSPIN_LOCK *)((char *)this + 3264);
   v14 = 0;
-  if ( *((struct _KTHREAD **)this + 421) != KeGetCurrentThread() )
+  if ( *((struct _KTHREAD **)this + 409) != KeGetCurrentThread() )
   {
     KeAcquireInStackQueuedSpinLock(v12, &LockHandle);
     *((_QWORD *)v1 + 1) = KeGetCurrentThread();
     v14 = 1;
   }
-  if ( *((_QWORD *)this + 407) && *((_DWORD *)this + 40) != 1 )
+  if ( *((_QWORD *)this + 395) && *((_DWORD *)this + 40) != 1 )
   {
-    v5 = *((_DWORD *)this + 763);
-    if ( *((_BYTE *)this + 3338) )
+    v3 = *((_DWORD *)this + 739);
+    if ( *((_BYTE *)this + 3242) )
     {
-      if ( !v5 )
+      if ( !v3 )
       {
-        v7 = *((_QWORD *)this + 408);
-        v8 = *((_QWORD *)this + 414);
-        goto LABEL_29;
+        v5 = *((_QWORD *)this + 396);
+        v6 = *((_QWORD *)this + 402);
+LABEL_21:
+        if ( *((_BYTE *)this + 3240) )
+          DXGADAPTER::SetPowerComponentLatencyCB(this, *((_DWORD *)this + 737), v5);
+        v8 = *((_DWORD *)this + 738);
+        if ( v8 != -1 )
+          DXGADAPTER::SetPowerComponentLatencyCB(this, v8, v6);
+        goto LABEL_25;
       }
-      v6 = *((_DWORD *)this + 835);
-      if ( v6 )
+      v4 = *((_DWORD *)this + 811);
+      if ( v4 )
       {
-        if ( v6 != 2 )
+        if ( v4 != 2 )
         {
-          v8 = *((_QWORD *)this + 413);
-          if ( v6 == 3 )
-            v7 = *((_QWORD *)this + 405);
+          v6 = *((_QWORD *)this + 401);
+          if ( v4 == 3 )
+            v5 = *((_QWORD *)this + 393);
           else
-            v7 = *((_QWORD *)this + 401);
-          goto LABEL_29;
+            v5 = *((_QWORD *)this + 389);
+          goto LABEL_21;
         }
-        v7 = *((_QWORD *)this + 403);
-        goto LABEL_18;
+        v5 = *((_QWORD *)this + 391);
+        goto LABEL_19;
       }
     }
     else
     {
-      if ( !v5 || (v9 = *((_DWORD *)this + 835), (unsigned int)(v9 - 2) <= 1) )
+      if ( !v3 || (v7 = *((_DWORD *)this + 811), (unsigned int)(v7 - 2) <= 1) )
       {
-        v7 = *((_QWORD *)this + 409);
-        v8 = *((_QWORD *)this + 415);
-        goto LABEL_29;
+        v5 = *((_QWORD *)this + 397);
+        v6 = *((_QWORD *)this + 403);
+        goto LABEL_21;
       }
-      if ( v9 )
+      if ( v7 )
       {
-        v7 = *((_QWORD *)this + 401);
-LABEL_18:
-        v8 = *((_QWORD *)this + 413);
-LABEL_29:
-        if ( *((_BYTE *)this + 3336) )
-          DXGADAPTER::SetPowerComponentLatencyCB(this, *((_DWORD *)this + 761), v7);
-        v10 = *((_DWORD *)this + 762);
-        if ( v10 != -1 )
-          DXGADAPTER::SetPowerComponentLatencyCB(this, v10, v8);
-        goto LABEL_4;
+        v5 = *((_QWORD *)this + 389);
+LABEL_19:
+        v6 = *((_QWORD *)this + 401);
+        goto LABEL_21;
       }
     }
-    v7 = *((_QWORD *)this + 399);
-    v8 = *((_QWORD *)this + 412);
-    goto LABEL_29;
+    v5 = *((_QWORD *)this + 387);
+    v6 = *((_QWORD *)this + 400);
+    goto LABEL_21;
   }
-LABEL_4:
-  if ( *((_DWORD *)this + 763) )
-    v3 = *((_QWORD *)this + 410);
+LABEL_25:
+  if ( *((_DWORD *)this + 739) )
+    v9 = *((_QWORD *)this + 398);
   else
-    v3 = *((_QWORD *)this + 411);
-  v4 = (DXGADAPTER *)*((_QWORD *)this + 425);
-  while ( v4 != (DXGADAPTER *)((char *)this + 3400) )
+    v9 = *((_QWORD *)this + 399);
+  v10 = (DXGADAPTER *)*((_QWORD *)this + 413);
+  while ( v10 != (DXGADAPTER *)((char *)this + 3304) )
   {
-    v11 = v4;
-    v4 = *(DXGADAPTER **)v4;
-    if ( v3 == *((_QWORD *)v11 - 7) )
+    v11 = v10;
+    v10 = *(DXGADAPTER **)v10;
+    if ( v9 == *((_QWORD *)v11 - 7) )
       break;
-    DXGADAPTER::SetPowerComponentLatencyCB(this, *((_DWORD *)v11 - 105), v3);
+    DXGADAPTER::SetPowerComponentLatencyCB(this, *((_DWORD *)v11 - 105), v9);
   }
   if ( v14 )
   {

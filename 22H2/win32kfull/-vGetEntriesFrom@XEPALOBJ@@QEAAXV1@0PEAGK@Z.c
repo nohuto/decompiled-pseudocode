@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vGetEntriesFrom@XEPALOBJ@@QEAAXV1@0PEAGK@Z @ 0x1C02D8FAC
+ * XREFs of ?vGetEntriesFrom@XEPALOBJ@@QEAAXV1@0PEAGK@Z @ 0x1C02BCDB8
  * Callers:
- *     ?GreCreateDIBitmapReal@@YAPEAUHBITMAP__@@PEAUHDC__@@KAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIPEAXK3K_KPEAPEAX@Z @ 0x1C002AB30 (-GreCreateDIBitmapReal@@YAPEAUHBITMAP__@@PEAUHDC__@@KAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIPEAXK.c)
- *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIAEAV?$umptr_w@E@@PEAUtagBITMAPINFO@@III@Z @ 0x1C00300D0 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
- *     ?GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIHPEAX@Z @ 0x1C00DD3B0 (-GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIH.c)
- *     ?GreStretchDIBitsInternalImpl@@YAHPEAUHDC__@@HHHHHHHHAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KKIPEAX@Z @ 0x1C00DF680 (-GreStretchDIBitsInternalImpl@@YAHPEAUHDC__@@HHHHHHHHAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KKIPEAX.c)
+ *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIPEAEPEAUtagBITMAPINFO@@III@Z @ 0x1C007F3A8 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
+ *     GreCreateDIBitmapReal @ 0x1C00ABE5C (GreCreateDIBitmapReal.c)
+ *     GreStretchDIBitsInternal @ 0x1C00ADD74 (GreStretchDIBitsInternal.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF240 (GreSetDIBitsToDeviceInternal.c)
  * Callees:
  *     <none>
  */
@@ -15,8 +15,8 @@ unsigned __int64 __fastcall XEPALOBJ::vGetEntriesFrom(__int64 a1, __int64 a2, __
   unsigned int v7; // esi
   unsigned int v9; // r11d
   unsigned int v10; // r9d
-  __int64 v11; // rbx
-  unsigned __int16 *v12; // rdi
+  unsigned __int16 *v11; // rdi
+  __int64 v12; // rbx
   unsigned int v13; // eax
   unsigned int v14; // edx
   unsigned int v15; // eax
@@ -32,14 +32,14 @@ unsigned __int64 __fastcall XEPALOBJ::vGetEntriesFrom(__int64 a1, __int64 a2, __
   v10 = a5;
   if ( a5 )
   {
-    v11 = 4LL * a5;
-    v12 = (unsigned __int16 *)(a4 + 2LL * a5);
+    v11 = (unsigned __int16 *)(a4 + 2LL * a5);
+    v12 = 4LL * a5;
     do
     {
-      --v12;
+      --v11;
       --v10;
-      v13 = *v12;
-      v11 -= 4LL;
+      v13 = *v11;
+      v12 -= 4LL;
       if ( v13 >= v7 )
         v13 %= v7;
       v14 = *(_DWORD *)(*(_QWORD *)(a2 + 112) + 4LL * v13);
@@ -55,12 +55,12 @@ unsigned __int64 __fastcall XEPALOBJ::vGetEntriesFrom(__int64 a1, __int64 a2, __
         }
         else
         {
-          v17 = dword_1C03293E0[*(_DWORD *)(*(_QWORD *)(a2 + 112) + 4LL * v13) & 0xF];
+          v17 = apalVGA[*(_DWORD *)(*(_QWORD *)(a2 + 112) + 4LL * v13) & 0xF];
         }
       }
       HIBYTE(v17) = 0;
       result = v17;
-      *(_DWORD *)(v11 + *(_QWORD *)(*(_QWORD *)a1 + 112LL)) = v17;
+      *(_DWORD *)(v12 + *(_QWORD *)(*(_QWORD *)a1 + 112LL)) = v17;
     }
     while ( v10 );
   }

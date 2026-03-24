@@ -1,5 +1,5 @@
 /*
- * XREFs of ?RemoveShadow@@YAXPEAUtagSHADOW@@@Z @ 0x1C0221400
+ * XREFs of ?RemoveShadow@@YAXPEAUtagSHADOW@@@Z @ 0x1C023DAD0
  * Callers:
  *     <none>
  * Callees:

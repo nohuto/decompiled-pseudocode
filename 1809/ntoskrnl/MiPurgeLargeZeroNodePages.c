@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPurgeLargeZeroNodePages @ 0x140151AD8
+ * XREFs of MiPurgeLargeZeroNodePages @ 0x140151AF8
  * Callers:
- *     MiPurgeZeroList @ 0x14015199C (MiPurgeZeroList.c)
+ *     MiPurgeZeroList @ 0x1401519BC (MiPurgeZeroList.c)
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiMoveLargeZeroToFree @ 0x140151CA8 (MiMoveLargeZeroToFree.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiMoveLargeZeroToFree @ 0x140151CC8 (MiMoveLargeZeroToFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPurgeLargeZeroNodePages(__int64 a1, __int64 a2, __int64 a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RemoveTrackerBindings@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@QEAAXPEAVCApplicationChannel@2@I@Z @ 0x1C022A43C
+ * XREFs of ?RemoveTrackerBindings@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@QEAAXPEAVCApplicationChannel@2@I@Z @ 0x1C00CE6EC
  * Callers:
- *     ?ReleaseAllReferences@CInteractionTrackerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C02292F0 (-ReleaseAllReferences@CInteractionTrackerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChann.c)
+ *     ?ReleaseAllReferences@CInteractionTrackerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F04B0 (-ReleaseAllReferences@CInteractionTrackerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChann.c)
  * Callees:
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ?CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C022A070 (-CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@A.c)
+ *     ?CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00CE53C (-CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@A.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 void __fastcall DirectComposition::CInteractionTrackerBindingManagerMarshaler::RemoveTrackerBindings(
@@ -20,7 +20,7 @@ void __fastcall DirectComposition::CInteractionTrackerBindingManagerMarshaler::R
   __int128 Src; // [rsp+20h] [rbp-28h] BYREF
   __int128 v12; // [rsp+30h] [rbp-18h]
 
-  if ( !*((_BYTE *)this + 64) )
+  if ( !*((_BYTE *)this + 65) )
   {
     v6 = 0;
     if ( *((_QWORD *)this + 12) )
@@ -33,7 +33,7 @@ void __fastcall DirectComposition::CInteractionTrackerBindingManagerMarshaler::R
         v10 = v9[1];
         Src = *v9;
         v12 = v10;
-        if ( *(_DWORD *)(Src + 32) == a3 || *(_DWORD *)(*((_QWORD *)&Src + 1) + 32LL) == a3 )
+        if ( *(_DWORD *)(Src + 24) == a3 || *(_DWORD *)(*((_QWORD *)&Src + 1) + 24LL) == a3 )
         {
           LODWORD(v12) = 0;
           memmove(v9, &Src, v8);

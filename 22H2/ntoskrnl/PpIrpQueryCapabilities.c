@@ -1,16 +1,16 @@
 /*
- * XREFs of PpIrpQueryCapabilities @ 0x14079BE48
+ * XREFs of PpIrpQueryCapabilities @ 0x1407478A8
  * Callers:
- *     IoGetDeviceProperty @ 0x140792EB0 (IoGetDeviceProperty.c)
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x14079BDE4 (PnpQueryAndSaveDeviceNodeCapabilities.c)
- *     PiControlGetDevicePowerData @ 0x14096D930 (PiControlGetDevicePowerData.c)
+ *     IoGetDeviceProperty @ 0x1406B8A70 (IoGetDeviceProperty.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x140747844 (PnpQueryAndSaveDeviceNodeCapabilities.c)
+ *     PiControlGetDevicePowerData @ 0x1408B34E4 (PiControlGetDevicePowerData.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     IopSynchronousCall @ 0x1407688B4 (IopSynchronousCall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopSynchronousCall @ 0x14071D3C0 (IopSynchronousCall.c)
  */
 
-__int64 __fastcall PpIrpQueryCapabilities(_QWORD *a1, _DWORD *a2)
+__int64 __fastcall PpIrpQueryCapabilities(struct _DEVICE_OBJECT *a1, _DWORD *a2)
 {
   _QWORD v5[10]; // [rsp+30h] [rbp-58h] BYREF
 

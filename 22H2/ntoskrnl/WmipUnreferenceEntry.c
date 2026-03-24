@@ -1,36 +1,36 @@
 /*
- * XREFs of WmipUnreferenceEntry @ 0x1406C7090
+ * XREFs of WmipUnreferenceEntry @ 0x1406B23F8
  * Callers:
- *     WmipPrepareWnodeSI @ 0x1406C6594 (WmipPrepareWnodeSI.c)
- *     WmipAddProviderIdToPIList @ 0x1406C6840 (WmipAddProviderIdToPIList.c)
- *     WmipDeleteMethod @ 0x1406C6CF0 (WmipDeleteMethod.c)
- *     WmipQuerySetExecuteSI @ 0x1406C6DEC (WmipQuerySetExecuteSI.c)
- *     WmipQueryAllData @ 0x1406C7B2C (WmipQueryAllData.c)
- *     WmipSendEnableRequest @ 0x1407D640C (WmipSendEnableRequest.c)
- *     WmipSendEnableDisableRequest @ 0x1407D6510 (WmipSendEnableDisableRequest.c)
- *     WmipUpdateDataSource @ 0x140800178 (WmipUpdateDataSource.c)
- *     WmipUpdateModifyGuid @ 0x1408002C8 (WmipUpdateModifyGuid.c)
- *     WmipAddMofResource @ 0x1408111EC (WmipAddMofResource.c)
- *     WmipLegacyEtwWorker @ 0x140850D90 (WmipLegacyEtwWorker.c)
- *     WmipAddDataSource @ 0x14086A5B0 (WmipAddDataSource.c)
- *     WmipDetermineInstanceBaseIndex @ 0x14086AD1C (WmipDetermineInstanceBaseIndex.c)
- *     WmipGenerateRegistrationNotification @ 0x14086AF18 (WmipGenerateRegistrationNotification.c)
- *     WmipEnableCollectionForNewGuid @ 0x14086B0BC (WmipEnableCollectionForNewGuid.c)
- *     WmipProcessEvent @ 0x14086B2E0 (WmipProcessEvent.c)
- *     WmipMangleInstanceName @ 0x14086B424 (WmipMangleInstanceName.c)
- *     WmipRemoveDS @ 0x140882AD8 (WmipRemoveDS.c)
- *     WmipDSCleanup @ 0x140882B20 (WmipDSCleanup.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x1408838E4 (WmipDisableCollectionForRemovedGuid.c)
- *     WmipDereferenceEvent @ 0x1409E0630 (WmipDereferenceEvent.c)
- *     WmipIncludeStaticNames @ 0x1409E0A34 (WmipIncludeStaticNames.c)
- *     WmipProcessLegacyEtwCallback @ 0x1409E1AD0 (WmipProcessLegacyEtwCallback.c)
- *     WmipUpdateAddGuid @ 0x1409E1C1C (WmipUpdateAddGuid.c)
+ *     WmipSendEnableRequest @ 0x1406A3C24 (WmipSendEnableRequest.c)
+ *     WmipQueryAllData @ 0x1406B1EB4 (WmipQueryAllData.c)
+ *     WmipDeleteMethod @ 0x1406B2300 (WmipDeleteMethod.c)
+ *     WmipAddProviderIdToPIList @ 0x1406B6F68 (WmipAddProviderIdToPIList.c)
+ *     WmipRemoveDS @ 0x140754A8C (WmipRemoveDS.c)
+ *     WmipAddDataSource @ 0x140756098 (WmipAddDataSource.c)
+ *     WmipDetermineInstanceBaseIndex @ 0x140756868 (WmipDetermineInstanceBaseIndex.c)
+ *     WmipQuerySetExecuteSI @ 0x140756A60 (WmipQuerySetExecuteSI.c)
+ *     WmipPrepareWnodeSI @ 0x140756DF4 (WmipPrepareWnodeSI.c)
+ *     WmipGenerateRegistrationNotification @ 0x140757110 (WmipGenerateRegistrationNotification.c)
+ *     WmipEnableCollectionForNewGuid @ 0x1407572BC (WmipEnableCollectionForNewGuid.c)
+ *     WmipProcessEvent @ 0x140757570 (WmipProcessEvent.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x140757904 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipMangleInstanceName @ 0x140757A58 (WmipMangleInstanceName.c)
+ *     WmipDSCleanup @ 0x14076C400 (WmipDSCleanup.c)
+ *     WmipSendEnableDisableRequest @ 0x14077DF00 (WmipSendEnableDisableRequest.c)
+ *     WmipAddMofResource @ 0x1407BEADC (WmipAddMofResource.c)
+ *     WmipUpdateDataSource @ 0x1407C4788 (WmipUpdateDataSource.c)
+ *     WmipUpdateModifyGuid @ 0x1407C48E0 (WmipUpdateModifyGuid.c)
+ *     WmipLegacyEtwWorker @ 0x1407C5780 (WmipLegacyEtwWorker.c)
+ *     WmipDereferenceEvent @ 0x14093243C (WmipDereferenceEvent.c)
+ *     WmipIncludeStaticNames @ 0x14093282C (WmipIncludeStaticNames.c)
+ *     WmipProcessLegacyEtwCallback @ 0x140933780 (WmipProcessLegacyEtwCallback.c)
+ *     WmipUpdateAddGuid @ 0x140933868 (WmipUpdateAddGuid.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall WmipUnreferenceEntry(__int64 a1, volatile signed __int64 *a2)
@@ -65,7 +65,7 @@ __int64 __fastcall WmipUnreferenceEntry(__int64 a1, volatile signed __int64 *a2)
     v8 = *(void (__fastcall **)(volatile signed __int64 *))(a1 + 16);
     if ( v8 )
       v8(a2);
-    ExFreeToNPagedLookasideList(*(PPAGED_LOOKASIDE_LIST *)a1, (PVOID)a2);
+    ExFreeToNPagedLookasideList(*(PNPAGED_LOOKASIDE_LIST *)a1, (PVOID)a2);
   }
   return v4;
 }

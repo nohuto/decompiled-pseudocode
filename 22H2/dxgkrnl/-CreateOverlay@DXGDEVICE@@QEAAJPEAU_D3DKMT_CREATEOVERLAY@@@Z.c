@@ -1,58 +1,75 @@
 /*
- * XREFs of ?CreateOverlay@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z @ 0x1C02E8E0C
+ * XREFs of ?CreateOverlay@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z @ 0x1C0254974
  * Callers:
- *     DxgkCreateOverlay @ 0x1C03357F0 (DxgkCreateOverlay.c)
+ *     DxgkCreateOverlay @ 0x1C027B390 (DxgkCreateOverlay.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??2?$DXGQUOTAALLOCATOR@$0BAA@$0ELGHHIEE@@@SAPEAX_K@Z @ 0x1C0017114 (--2-$DXGQUOTAALLOCATOR@$0BAA@$0ELGHHIEE@@@SAPEAX_K@Z.c)
- *     ??_GDXGOVERLAY@@QEAAPEAXI@Z @ 0x1C0049850 (--_GDXGOVERLAY@@QEAAPEAXI@Z.c)
- *     ?Initialize@DXGOVERLAY@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z @ 0x1C0334E58 (-Initialize@DXGOVERLAY@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z.c)
+ *     ??2?$DXGQUOTAALLOCATOR@$00$0ELGHHIEE@@@SAPEAX_K@Z @ 0x1C00032DC (--2-$DXGQUOTAALLOCATOR@$00$0ELGHHIEE@@@SAPEAX_K@Z.c)
+ *     ??_GDXGOVERLAY@@QEAAPEAXI@Z @ 0x1C0043578 (--_GDXGOVERLAY@@QEAAPEAXI@Z.c)
+ *     ?Initialize@DXGOVERLAY@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z @ 0x1C027ABA0 (-Initialize@DXGOVERLAY@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z.c)
  */
 
 __int64 __fastcall DXGDEVICE::CreateOverlay(DXGDEVICE *this, struct _D3DKMT_CREATEOVERLAY *a2)
 {
-  __int64 v4; // rax
-  DXGOVERLAY *v5; // rbx
-  int v6; // esi
-  DXGOVERLAY **v7; // rax
-  __int64 v8; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  DXGOVERLAY *v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  DXGOVERLAY *v11; // rbx
+  __int64 v12; // rax
+  int v13; // edi
+  char *v14; // rsi
+  __int64 v15; // rax
 
-  if ( !*((_BYTE *)this + 72) && !ExIsResourceAcquiredExclusiveLite(*((PERESOURCE *)this + 17)) )
+  if ( !*((_DWORD *)this + 18) && !ExIsResourceAcquiredExclusiveLite(*((PERESOURCE *)this + 17)) )
   {
-    WdLogSingleEntry1(1LL, 3991LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsDeviceLockExclusiveOwner()", 3991LL, 0LL, 0LL, 0LL, 0LL);
+    v6 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v6 + 24) = 3919LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  v4 = DXGQUOTAALLOCATOR<256,1265072196>::operator new(56LL);
-  v5 = (DXGOVERLAY *)v4;
-  if ( v4 )
+  v7 = (DXGOVERLAY *)DXGQUOTAALLOCATOR<1,1265072196>::operator new(0x38uLL);
+  v11 = v7;
+  if ( v7 )
   {
-    *(_QWORD *)(v4 + 16) = this;
-    *(_OWORD *)v4 = 0LL;
-    *(_DWORD *)(v4 + 24) = 0;
-    *(_DWORD *)(v4 + 28) = 0;
-    *(_DWORD *)(v4 + 32) = -1;
-    *(_QWORD *)(v4 + 40) = 0LL;
-    v6 = DXGOVERLAY::Initialize((DXGOVERLAY *)v4, a2);
-    if ( v6 >= 0 )
+    *((_QWORD *)v7 + 2) = this;
+    *(_OWORD *)v7 = 0LL;
+    *((_DWORD *)v7 + 6) = 0;
+    *((_DWORD *)v7 + 7) = 0;
+    *((_DWORD *)v7 + 8) = -1;
+    *((_QWORD *)v7 + 5) = 0LL;
+  }
+  else
+  {
+    v11 = 0LL;
+  }
+  if ( v11 )
+  {
+    v13 = DXGOVERLAY::Initialize(v11, a2);
+    if ( v13 >= 0 )
     {
-      v7 = (DXGOVERLAY **)((char *)this + 512);
-      v8 = *((_QWORD *)this + 64);
-      if ( *(DXGDEVICE **)(v8 + 8) != (DXGDEVICE *)((char *)this + 512) )
+      v14 = (char *)this + 480;
+      v15 = *(_QWORD *)v14;
+      if ( *(char **)(*(_QWORD *)v14 + 8LL) != v14 )
         __fastfail(3u);
-      *(_QWORD *)v5 = v8;
-      *((_QWORD *)v5 + 1) = v7;
-      *(_QWORD *)(v8 + 8) = v5;
-      *v7 = v5;
+      *(_QWORD *)v11 = v15;
+      *((_QWORD *)v11 + 1) = v14;
+      *(_QWORD *)(v15 + 8) = v11;
+      *(_QWORD *)v14 = v11;
     }
     else
     {
-      DXGOVERLAY::`scalar deleting destructor'(v5);
+      DXGOVERLAY::`scalar deleting destructor'(v11);
     }
   }
   else
   {
-    v6 = -1073741801;
-    WdLogSingleEntry2(3LL, this, -1073741801LL);
+    v12 = WdLogNewEntry5_WdWarning(v9, v8, v10);
+    v13 = -1073741801;
+    *(_QWORD *)(v12 + 24) = this;
+    *(_QWORD *)(v12 + 32) = -1073741801LL;
+    WdLogEvent5_WdWarning(v12);
   }
-  return (unsigned int)v6;
+  return (unsigned int)v13;
 }

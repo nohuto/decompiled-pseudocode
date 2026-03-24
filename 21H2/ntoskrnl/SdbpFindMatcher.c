@@ -1,9 +1,9 @@
 /*
- * XREFs of SdbpFindMatcher @ 0x140843624
+ * XREFs of SdbpFindMatcher @ 0x140754A7C
  * Callers:
- *     SdbpMatchList @ 0x1408434E0 (SdbpMatchList.c)
+ *     SdbpMatchList @ 0x1407548A8 (SdbpMatchList.c)
  * Callees:
- *     SdbGetTagFromTagID @ 0x14079499C (SdbGetTagFromTagID.c)
+ *     SdbGetTagFromTagID @ 0x14075A3F4 (SdbGetTagFromTagID.c)
  */
 
 __int64 __fastcall SdbpFindMatcher(_QWORD *a1, _DWORD *a2, __int64 a3, __int64 a4, unsigned int a5)
@@ -11,13 +11,13 @@ __int64 __fastcall SdbpFindMatcher(_QWORD *a1, _DWORD *a2, __int64 a3, __int64 a
   unsigned __int16 TagFromTagID; // ax
   unsigned __int16 v9; // r9
 
-  TagFromTagID = SdbGetTagFromTagID(a4, a5);
+  TagFromTagID = SdbGetTagFromTagID(a4, a5, a3, a4);
   if ( a5 )
   {
     v9 = 0;
     while ( TagFromTagID != *(_DWORD *)(32LL * v9 + a3 + 584) )
     {
-      if ( ++v9 >= 0x18u )
+      if ( ++v9 >= 0x20u )
         goto LABEL_5;
     }
     *a1 = *(_QWORD *)(32LL * v9 + a3 + 600);

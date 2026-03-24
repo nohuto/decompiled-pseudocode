@@ -1,47 +1,38 @@
 /*
- * XREFs of RtlpUpcaseUnicodeStringPrivate @ 0x14021A3A0
+ * XREFs of RtlpUpcaseUnicodeStringPrivate @ 0x1402069B0
  * Callers:
- *     RtlAreNamesEqual @ 0x140212760 (RtlAreNamesEqual.c)
- *     RtlIsNameInExpression @ 0x140219D90 (RtlIsNameInExpression.c)
- *     RtlIsNameInUnUpcasedExpression @ 0x140219E10 (RtlIsNameInUnUpcasedExpression.c)
+ *     RtlIsNameInExpression @ 0x14024F7F0 (RtlIsNameInExpression.c)
+ *     RtlIsNameInUnUpcasedExpression @ 0x14024F870 (RtlIsNameInUnUpcasedExpression.c)
+ *     RtlAreNamesEqual @ 0x14028ACA0 (RtlAreNamesEqual.c)
  * Callees:
- *     PsGetThreadServerSilo @ 0x140347690 (PsGetThreadServerSilo.c)
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpUpcaseUnicodeStringPrivate(__int64 a1, unsigned __int16 *a2)
 {
-  __int64 ThreadServerSilo; // rax
-  unsigned int v5; // ebx
-  _QWORD *v6; // rax
-  __int64 v7; // r14
-  unsigned int v8; // eax
+  unsigned int v4; // eax
   PVOID PoolWithTag; // rax
-  unsigned int v10; // r11d
-  __int16 v11; // ax
-  __int64 v12; // r10
+  unsigned int v6; // r10d
+  unsigned int v7; // r11d
+  __int16 v8; // ax
+  __int64 v9; // r9
+  int v10; // r10d
 
-  ThreadServerSilo = PsGetThreadServerSilo(KeGetCurrentThread());
-  v5 = 0;
-  if ( ThreadServerSilo )
-    v6 = *(_QWORD **)(ThreadServerSilo + 1464);
-  else
-    v6 = &PspHostSiloGlobals;
-  v7 = v6[154];
-  v8 = *a2;
-  *(_WORD *)(a1 + 2) = v8;
-  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v8, 0x67727453u);
+  v4 = *a2;
+  *(_WORD *)(a1 + 2) = v4;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v4, 0x67727453u);
   *(_QWORD *)(a1 + 8) = PoolWithTag;
+  v6 = 0;
   if ( !PoolWithTag )
     return 3221225495LL;
-  v10 = *a2 >> 1;
-  while ( v5 < v10 )
+  v7 = *a2 >> 1;
+  while ( v6 < v7 )
   {
-    v11 = NLS_UPCASE(v7, *(unsigned __int16 *)(*((_QWORD *)a2 + 1) + 2LL * v5));
-    *(_WORD *)(*(_QWORD *)(a1 + 8) + 2 * v12) = v11;
-    ++v5;
+    v8 = NLS_UPCASE(*(unsigned __int16 *)(*((_QWORD *)a2 + 1) + 2LL * v6));
+    *(_WORD *)(*(_QWORD *)(a1 + 8) + 2 * v9) = v8;
+    v6 = v10 + 1;
   }
   *(_WORD *)a1 = *a2;
   return 0LL;

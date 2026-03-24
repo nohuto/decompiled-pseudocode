@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventHeteroPolicy @ 0x140849D6C
+ * XREFs of PpmEventHeteroPolicy @ 0x1407BB078
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140849B04 (PopInitializeHeteroProcessors.c)
- *     PpmEventTraceControlCallback @ 0x140864680 (PpmEventTraceControlCallback.c)
+ *     PopInitializeHeteroProcessors @ 0x1407BAC0C (PopInitializeHeteroProcessors.c)
+ *     PpmEventTraceControlCallback @ 0x1407D53F0 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventHeteroPolicy(char a1)
@@ -62,9 +62,9 @@ char __fastcall PpmEventHeteroPolicy(char a1)
       UserData.Ptr = (ULONGLONG)&PpmHeteroPolicy;
       v6 = &PopHeteroSystem;
       v9 = &KiDesiredHeteroCpuPolicy;
-      v12 = &unk_140D05434;
+      v12 = &unk_140CFB37C;
       v15 = &KiDynamicHeteroCpuPolicyMask;
-      v18 = &unk_140D05424;
+      v18 = &unk_140CFB36C;
       v21 = &KiDynamicHeteroCpuPolicy;
       v24 = &KiDynamicHeteroCpuPolicyImportantPriority;
       v27 = &KiDynamicHeteroCpuPolicyExpectedRuntime;

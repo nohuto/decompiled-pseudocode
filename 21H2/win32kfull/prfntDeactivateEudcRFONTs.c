@@ -1,99 +1,44 @@
 /*
- * XREFs of prfntDeactivateEudcRFONTs @ 0x1C0011AA8
+ * XREFs of prfntDeactivateEudcRFONTs @ 0x1C00A2438
  * Callers:
- *     bUnloadEudcFont @ 0x1C00119A4 (bUnloadEudcFont.c)
+ *     bUnloadEudcFont @ 0x1C00A1EB0 (bUnloadEudcFont.c)
  * Callees:
- *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C000AD50 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
- *     ?vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C000B034 (-vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
- *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C000B524 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
- *     ?cInactive@PDEVOBJ@@QEAAIXZ @ 0x1C000B838 (-cInactive@PDEVOBJ@@QEAAIXZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C00153D0 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
- *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C00153F0 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
- *     ?vInsert@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C00170CC (-vInsert@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     vDeactivateEudcRFONTsWorker @ 0x1C016C6A8 (vDeactivateEudcRFONTsWorker.c)
  */
 
-__int64 __fastcall prfntDeactivateEudcRFONTs(_QWORD *a1)
+__int64 __fastcall prfntDeactivateEudcRFONTs(__int64 a1)
 {
-  __int64 v2; // rsi
-  struct _FONTHASH **v3; // rdi
-  unsigned int v4; // r12d
-  struct _FONTHASH *i; // r15
-  __int64 v7; // r14
-  __int64 v8; // rax
-  __int64 v9; // rbx
-  int v10; // ecx
-  __int64 v11; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v12; // [rsp+28h] [rbp-18h] BYREF
-  __int64 v13; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v14; // [rsp+38h] [rbp-8h] BYREF
-  struct RFONT *v15; // [rsp+88h] [rbp+48h] BYREF
-  __int64 v16; // [rsp+90h] [rbp+50h] BYREF
-  __int64 v17; // [rsp+98h] [rbp+58h] BYREF
+  __int64 v2; // rdi
+  __int64 v3; // rcx
+  struct _FONTHASH **v4; // rbx
+  unsigned int v5; // esi
+  struct _FONTHASH *v6; // r8
+  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v9; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v10; // [rsp+58h] [rbp+20h] BYREF
 
   v2 = 0LL;
-  v11 = 0LL;
-  v14 = ghsemPublicPFT;
+  v8 = 0LL;
+  v10 = ghsemPublicPFT;
   GreAcquireSemaphore(ghsemPublicPFT);
-  v13 = ghsemRFONTList;
+  v9 = ghsemRFONTList;
   GreAcquireSemaphore(ghsemRFONTList);
-  v3 = gpPFTPublic;
-  v4 = 0;
+  v4 = gpPFTPublic;
+  v5 = 0;
   if ( *((_DWORD *)gpPFTPublic + 6) )
   {
     do
     {
-      for ( i = v3[v4 + 5]; i; i = (struct _FONTHASH *)*((_QWORD *)i + 1) )
-      {
-        if ( (*((_DWORD *)i + 13) & 8) != 0 )
-        {
-          v7 = *((_QWORD *)i + 9);
-          if ( v7 )
-          {
-            v12 = 0LL;
-            do
-            {
-              v8 = *(_QWORD *)(v7 + 120);
-              if ( v8 == *a1 || v8 == a1[1] )
-              {
-                v9 = *(_QWORD *)(v7 + 104);
-                v16 = v9;
-                v17 = v7;
-                if ( *(_DWORD *)(v7 + 660) )
-                {
-                  v15 = PDEVOBJ::prfntActive((PDEVOBJ *)&v16);
-                  RFONTOBJ::vRemove((__int64)&v17, (unsigned __int64 *)&v15, 1);
-                  PDEVOBJ::prfntActive((PDEVOBJ *)&v16, v15);
-                }
-                else
-                {
-                  v15 = PDEVOBJ::prfntInactive((PDEVOBJ *)&v16);
-                  RFONTOBJ::vRemove((__int64)&v17, (unsigned __int64 *)&v15, 1);
-                  PDEVOBJ::prfntInactive((PDEVOBJ *)&v16, v15);
-                  v10 = PDEVOBJ::cInactive((PDEVOBJ *)&v16) - 1;
-                  if ( (*(_DWORD *)(v9 + 40) & 0x800000) != 0 )
-                    *(_DWORD *)(*(_QWORD *)(v9 + 3496) + 1528LL) = v10;
-                  else
-                    *(_DWORD *)(v9 + 1528) = v10;
-                }
-                RFONTOBJ::vInsert(&v17, &v11, 1LL);
-                v17 = 0LL;
-                RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v17);
-              }
-              v7 = *(_QWORD *)(v7 + 496);
-              RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v12);
-            }
-            while ( v7 );
-          }
-        }
-      }
-      ++v4;
+      v6 = v4[v5 + 5];
+      if ( v6 )
+        vDeactivateEudcRFONTsWorker(v3, a1, v6, &v8);
+      ++v5;
     }
-    while ( v4 < *((_DWORD *)v3 + 6) );
-    v2 = v11;
+    while ( v5 < *((_DWORD *)v4 + 6) );
+    v2 = v8;
   }
-  SEMOBJ::vUnlock((SEMOBJ *)&v13);
-  SEMOBJ::vUnlock((SEMOBJ *)&v14);
+  SEMOBJ::vUnlock((SEMOBJ *)&v9);
+  SEMOBJ::vUnlock((SEMOBJ *)&v10);
   return v2;
 }

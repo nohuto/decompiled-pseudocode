@@ -1,5 +1,5 @@
 /*
- * XREFs of EnterSharedRenderCrit @ 0x1C00C5AC0
+ * XREFs of EnterSharedRenderCrit @ 0x1C00B8020
  * Callers:
  *     <none>
  * Callees:

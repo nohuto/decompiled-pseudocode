@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1CHolographicFrameProcessor@@MEAA@XZ @ 0x1802AE7B8
+ * XREFs of ??1CHolographicFrameProcessor@@MEAA@XZ @ 0x18025C468
  * Callers:
- *     ??_ECHolographicFrameProcessor@@MEAAPEAXI@Z @ 0x1802AE8F0 (--_ECHolographicFrameProcessor@@MEAAPEAXI@Z.c)
+ *     ??_ECHolographicFrameProcessor@@MEAAPEAXI@Z @ 0x18025C538 (--_ECHolographicFrameProcessor@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CHolographicFrameProcessor::~CHolographicFrameProcessor(CHolographicFrameProcessor *this)
@@ -15,7 +15,7 @@ void __fastcall CHolographicFrameProcessor::~CHolographicFrameProcessor(CHologra
   __int64 v4; // rcx
 
   *(_QWORD *)this = &CHolographicFrameProcessor::`vftable'{for `IHolographicFrameProcessor'};
-  *((_QWORD *)this + 1) = &CHolographicFrameProcessor::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  *((_QWORD *)this + 1) = &CHolographicFrameProcessor::`vftable'{for `CMILCOMBase'};
   *((_QWORD *)this + 3) = &CHolographicFrameProcessor::`vftable'{for `IFlipPresentCallback'};
   *((_QWORD *)this + 4) = &CHolographicFrameProcessor::`vftable'{for `IFlipContentCallback'};
   *((_QWORD *)this + 5) = &CHolographicFrameProcessor::`vftable'{for `IHolographicWin32kInteropTexture'};
@@ -36,6 +36,7 @@ void __fastcall CHolographicFrameProcessor::~CHolographicFrameProcessor(CHologra
   if ( v4 )
   {
     *((_QWORD *)this + 6) = 0LL;
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease((volatile signed __int32 *)(v4 + 8));
+    CDrawListEntry::Release((CDrawListEntry *)(v4 + 8));
   }
+  *((_QWORD *)this + 1) = &CMILCOMBase::`vftable';
 }

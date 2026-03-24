@@ -1,13 +1,12 @@
 /*
- * XREFs of RtlQueryRegistryValueWithFallback @ 0x140741BA0
+ * XREFs of RtlQueryRegistryValueWithFallback @ 0x1406BD370
  * Callers:
- *     DifRtlQueryRegistryValueWithFallbackWrapper @ 0x1405EB920 (DifRtlQueryRegistryValueWithFallbackWrapper.c)
- *     EtwpGetGuidSecurityDescriptor @ 0x140741A64 (EtwpGetGuidSecurityDescriptor.c)
+ *     EtwpGetGuidSecurityDescriptor @ 0x1406BD23C (EtwpGetGuidSecurityDescriptor.c)
  * Callees:
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall RtlQueryRegistryValueWithFallback(
@@ -19,47 +18,40 @@ NTSTATUS __stdcall RtlQueryRegistryValueWithFallback(
         PVOID ValueData,
         PULONG ResultLength)
 {
-  ULONG Length; // r15d
-  ULONG *Pool2; // rdi
-  int v13; // ebx
-  ULONG v14; // eax
-  ULONG v16; // [rsp+60h] [rbp+8h] BYREF
+  ULONG Length; // esi
+  ULONG *PoolWithTag; // rdi
+  int v12; // ebx
+  ULONG v14; // [rsp+50h] [rbp+8h] BYREF
 
-  v16 = 0;
+  v14 = 0;
   if ( __PAIR128__((unsigned __int64)PrimaryHandle, (unsigned __int64)FallbackHandle) == 0 )
     return -1073741811;
+  Length = ValueLength + 16;
   if ( ValueLength >= 0xFFFFFFF0 )
     return -1073741675;
-  Length = ValueLength + 16;
-  Pool2 = (ULONG *)ExAllocatePool2(256LL, ValueLength + 16, 1835824242LL);
-  if ( !Pool2 )
+  PoolWithTag = (ULONG *)ExAllocatePoolWithTag(PagedPool, Length, 0x6D6C7472u);
+  if ( !PoolWithTag )
     return -1073741801;
-  v13 = -1073741772;
+  v12 = -1073741772;
   if ( PrimaryHandle )
   {
-    v13 = ZwQueryValueKey(PrimaryHandle, ValueName, KeyValuePartialInformation, Pool2, Length, &v16);
-    if ( v13 != -1073741772 )
+    v12 = ZwQueryValueKey(PrimaryHandle, ValueName, KeyValuePartialInformation, PoolWithTag, Length, &v14);
+    if ( v12 != -1073741772 )
       goto LABEL_8;
   }
   if ( FallbackHandle )
   {
-    v13 = ZwQueryValueKey(FallbackHandle, ValueName, KeyValuePartialInformation, Pool2, Length, &v16);
+    v12 = ZwQueryValueKey(FallbackHandle, ValueName, KeyValuePartialInformation, PoolWithTag, Length, &v14);
 LABEL_8:
-    if ( (int)(v13 + 0x80000000) < 0 || v13 == -2147483643 )
+    if ( (int)(v12 + 0x80000000) < 0 || v12 == -2147483643 )
     {
+      *ResultLength = PoolWithTag[2];
       if ( ValueType )
-        *ValueType = Pool2[1];
-      if ( v13 >= 0 )
-      {
-        v14 = Pool2[2];
-        if ( ValueLength < v14 )
-          v13 = -2147483643;
-        else
-          memmove(ValueData, Pool2 + 3, v14);
-      }
-      *ResultLength = Pool2[2];
+        *ValueType = PoolWithTag[1];
+      if ( v12 >= 0 )
+        memmove(ValueData, PoolWithTag + 3, PoolWithTag[2]);
     }
   }
-  ExFreePoolWithTag(Pool2, 0);
-  return v13;
+  ExFreePoolWithTag(PoolWithTag, 0);
+  return v12;
 }

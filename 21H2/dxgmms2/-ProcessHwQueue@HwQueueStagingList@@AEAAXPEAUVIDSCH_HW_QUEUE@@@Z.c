@@ -1,18 +1,18 @@
 /*
- * XREFs of ?ProcessHwQueue@HwQueueStagingList@@AEAAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C001E78A
+ * XREFs of ?ProcessHwQueue@HwQueueStagingList@@AEAAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0035ACC
  * Callers:
- *     VidSchiUpdatePresentParameters @ 0x1C00035D0 (VidSchiUpdatePresentParameters.c)
- *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C0009A80 (--1HwQueueStagingList@@QEAA@XZ.c)
- *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C0009AD0 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
- *     VidSchiScheduleCommandToRun @ 0x1C0009B20 (VidSchiScheduleCommandToRun.c)
- *     VidSchiSubmitWaitCommand @ 0x1C000EC78 (VidSchiSubmitWaitCommand.c)
- *     VidSchiSubmitMmIoFlipCommand @ 0x1C0015200 (VidSchiSubmitMmIoFlipCommand.c)
- *     VidSchiSubmitSignalCommand @ 0x1C00163B0 (VidSchiSubmitSignalCommand.c)
- *     VidSchSubmitWaitFromCpu @ 0x1C0016C00 (VidSchSubmitWaitFromCpu.c)
+ *     VidSchSubmitWaitFromCpu @ 0x1C00018C0 (VidSchSubmitWaitFromCpu.c)
+ *     VidSchiSubmitMmIoFlipCommand @ 0x1C0002F90 (VidSchiSubmitMmIoFlipCommand.c)
+ *     VidSchiUpdatePresentParameters @ 0x1C0003B20 (VidSchiUpdatePresentParameters.c)
+ *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C000AFA0 (--1HwQueueStagingList@@QEAA@XZ.c)
+ *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C000AFF0 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
+ *     VidSchiScheduleCommandToRun @ 0x1C000B040 (VidSchiScheduleCommandToRun.c)
+ *     VidSchiSubmitWaitCommand @ 0x1C0013B98 (VidSchiSubmitWaitCommand.c)
+ *     VidSchiSubmitSignalCommand @ 0x1C0014030 (VidSchiSubmitSignalCommand.c)
  * Callees:
- *     ?VidSchiPacketBlockedOnWaitCondition@@YA_NPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001F0C2 (-VidSchiPacketBlockedOnWaitCondition@@YA_NPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     ?VidSchiReleasePacketToGpu@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C001F222 (-VidSchiReleasePacketToGpu@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAPEAUVIDSCH_H.c)
- *     ?VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z @ 0x1C00406D0 (-VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z.c)
+ *     ?VidSchiPacketBlockedOnWaitCondition@@YA_NPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0037FE0 (-VidSchiPacketBlockedOnWaitCondition@@YA_NPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?VidSchiReleasePacketToGpu@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C00381B0 (-VidSchiReleasePacketToGpu@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAPEAUVIDSCH_H.c)
+ *     ?VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z @ 0x1C0038620 (-VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z.c)
  */
 
 void __fastcall HwQueueStagingList::ProcessHwQueue(HwQueueStagingList *this, struct VIDSCH_HW_QUEUE *a2)
@@ -65,21 +65,21 @@ LABEL_23:
         goto LABEL_23;
       }
       VidSchiSetHwQueueState(a2, 1LL);
-      if ( !*(_BYTE *)(v9 + 11244) && (*(_DWORD *)(v4 + 16) & 0xFFFFFFF7) == 0 )
+      if ( !*(_BYTE *)(v9 + 11228) && (*(_DWORD *)(v4 + 16) & 0xFFFFFFF7) == 0 )
       {
         v12 = (_QWORD *)((char *)a2 + 192);
         if ( *((_QWORD *)a2 + 24) )
           return;
-        v13 = *(_QWORD **)(v9 + 2640);
-        if ( *v13 == v9 + 2632 )
+        v13 = *(_QWORD **)(v9 + 2632);
+        if ( *v13 == v9 + 2624 )
         {
-          *v12 = v9 + 2632;
+          *v12 = v9 + 2624;
           *((_QWORD *)a2 + 25) = v13;
           *v13 = v12;
-          *(_QWORD *)(v9 + 2640) = v12;
+          *(_QWORD *)(v9 + 2632) = v12;
           return;
         }
-LABEL_20:
+LABEL_21:
         __fastfail(3u);
       }
       VidSchiReleasePacketToGpu(this, (struct _VIDSCH_QUEUE_PACKET *)(v4 - 32), &v21);
@@ -93,7 +93,7 @@ LABEL_20:
     {
       v16 = (HwQueueStagingList **)*((_QWORD *)this + 1);
       if ( *v16 != this )
-        goto LABEL_20;
+        goto LABEL_21;
       *(_QWORD *)v15 = this;
       *((_QWORD *)v15 + 1) = v16;
       *v16 = v15;
@@ -105,16 +105,16 @@ LABEL_20:
     if ( v18 )
     {
       if ( *(_QWORD **)(v18 + 8) != v17 )
-        goto LABEL_20;
+        goto LABEL_21;
       v19 = (_QWORD *)v17[1];
       if ( (_QWORD *)*v19 != v17 )
-        goto LABEL_20;
+        goto LABEL_21;
       *v19 = v18;
       *(_QWORD *)(v18 + 8) = v19;
     }
     v20 = *(_QWORD *)this;
     if ( *(HwQueueStagingList **)(*(_QWORD *)this + 8LL) != this )
-      goto LABEL_20;
+      goto LABEL_21;
     *v17 = v20;
     v17[1] = this;
     *(_QWORD *)(v20 + 8) = v17;

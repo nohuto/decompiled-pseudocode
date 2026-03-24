@@ -1,10 +1,10 @@
 /*
- * XREFs of _fputwc_nolock @ 0x1C003645C
+ * XREFs of _fputwc_nolock @ 0x1C001B0C0
  * Callers:
- *     write_char @ 0x1C003631C (write_char.c)
+ *     write_char @ 0x1C001AF68 (write_char.c)
  * Callees:
- *     ?AddChildList@FxDeviceBase@@UEAAXPEAVFxChildList@@@Z @ 0x1C000BAA0 (-AddChildList@FxDeviceBase@@UEAAXPEAVFxChildList@@@Z.c)
- *     _flswbuf @ 0x1C0036588 (_flswbuf.c)
+ *     ?AddChildList@FxDeviceBase@@UEAAXPEAVFxChildList@@@Z @ 0x1C000D9D0 (-AddChildList@FxDeviceBase@@UEAAXPEAVFxChildList@@@Z.c)
+ *     _flswbuf @ 0x1C001B1F8 (_flswbuf.c)
  */
 
 int __fastcall fputwc_nolock(wchar_t ch, _iobuf *str)

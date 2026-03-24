@@ -1,10 +1,10 @@
 /*
- * XREFs of PspFreeStorage @ 0x1409B7D58
+ * XREFs of PspFreeStorage @ 0x14090EE28
  * Callers:
- *     PspJobDeleteStorageArrays @ 0x140687EA0 (PspJobDeleteStorageArrays.c)
- *     PspCreateSilo @ 0x1407E6988 (PspCreateSilo.c)
+ *     PspCreateSilo @ 0x1405D90DC (PspCreateSilo.c)
+ *     PspJobDeleteStorageArrays @ 0x14065CAD4 (PspJobDeleteStorageArrays.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspFreeStorage(_QWORD *P)

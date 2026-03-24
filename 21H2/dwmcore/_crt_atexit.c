@@ -1,7 +1,7 @@
 /*
- * XREFs of _crt_atexit @ 0x180101802
+ * XREFs of _crt_atexit @ 0x1800E8102
  * Callers:
- *     _onexit @ 0x180100B98 (_onexit.c)
+ *     _onexit @ 0x1800E7384 (_onexit.c)
  * Callees:
  *     <none>
  */

@@ -6,9 +6,9 @@
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     RtlWriteAcquireTickLock @ 0x140117A50 (RtlWriteAcquireTickLock.c)
- *     RtlWriteReleaseTickLock @ 0x140177FC8 (RtlWriteReleaseTickLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlWriteAcquireTickLock @ 0x140117A70 (RtlWriteAcquireTickLock.c)
+ *     RtlWriteReleaseTickLock @ 0x140177FE8 (RtlWriteReleaseTickLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KiCreateCpuSetForProcessor(__int64 a1)

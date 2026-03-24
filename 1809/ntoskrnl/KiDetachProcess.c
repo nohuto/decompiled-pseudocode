@@ -1,20 +1,20 @@
 /*
- * XREFs of KiDetachProcess @ 0x1400B9C80
+ * XREFs of KiDetachProcess @ 0x1400B9CA0
  * Callers:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
- *     KeUnstackDetachProcess @ 0x1400F1070 (KeUnstackDetachProcess.c)
- *     KeDetachProcess @ 0x140135B80 (KeDetachProcess.c)
+ *     KeUnstackDetachProcess @ 0x1400F1090 (KeUnstackDetachProcess.c)
+ *     KeDetachProcess @ 0x140135BA0 (KeDetachProcess.c)
  * Callees:
  *     KiMoveApcState @ 0x140017480 (KiMoveApcState.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiSetAddressPolicy @ 0x1400BA120 (KiSetAddressPolicy.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBDF0 (KiAcquireKobjectLockSafe.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheck @ 0x1401BBB80 (KeBugCheck.c)
- *     HvlSwitchVirtualAddressSpace @ 0x1402795C0 (HvlSwitchVirtualAddressSpace.c)
+ *     KiSetAddressPolicy @ 0x1400BA140 (KiSetAddressPolicy.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheck @ 0x1401BBBA0 (KeBugCheck.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x1402796C0 (HvlSwitchVirtualAddressSpace.c)
  */
 
 unsigned __int64 __fastcall KiDetachProcess(__int64 *a1, __int64 a2, __int64 a3)

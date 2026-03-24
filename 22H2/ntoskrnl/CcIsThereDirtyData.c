@@ -1,9 +1,9 @@
 /*
- * XREFs of CcIsThereDirtyData @ 0x1403AC180
+ * XREFs of CcIsThereDirtyData @ 0x1404EA910
  * Callers:
  *     <none>
  * Callees:
- *     CcForEachPartition @ 0x140310BEC (CcForEachPartition.c)
+ *     CcForEachPartition @ 0x140279290 (CcForEachPartition.c)
  */
 
 BOOLEAN __stdcall CcIsThereDirtyData(PVPB Vpb)
@@ -13,10 +13,6 @@ BOOLEAN __stdcall CcIsThereDirtyData(PVPB Vpb)
   v2 = 0LL;
   *(_QWORD *)&v2 = Vpb;
   BYTE8(v2) = 0;
-  CcForEachPartition(
-    (unsigned __int8 (__fastcall *)(__int64, _QWORD, __int64))CcIsThereDirtyDataHelper,
-    (__int64)&v2,
-    1,
-    1);
+  CcForEachPartition((__int64 (__fastcall *)(__int64, __int64))CcIsThereDirtyDataHelper, (__int64)&v2, 1);
   return BYTE8(v2);
 }

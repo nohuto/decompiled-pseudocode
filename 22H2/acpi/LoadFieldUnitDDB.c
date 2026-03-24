@@ -1,25 +1,25 @@
 /*
- * XREFs of LoadFieldUnitDDB @ 0x1C004FB88
+ * XREFs of LoadFieldUnitDDB @ 0x1C0066D9C
  * Callers:
- *     Load @ 0x1C00556E0 (Load.c)
+ *     Load @ 0x1C0024DC0 (Load.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     ReadObject @ 0x1C0005BEE (ReadObject.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
- *     HeapFree @ 0x1C004EE6C (HeapFree.c)
- *     LoadDDB @ 0x1C004FA60 (LoadDDB.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     ReadObject @ 0x1C000B4C0 (ReadObject.c)
+ *     LoadDDB @ 0x1C002372C (LoadDDB.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall LoadFieldUnitDDB(_QWORD *a1, __int64 a2, __int64 a3)
+__int64 __fastcall LoadFieldUnitDDB(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int Object; // eax
   unsigned int DDB; // ebx
   __int64 v8; // rax
-  const char *v9; // rdi
+  _QWORD *v9; // rdi
   int v10; // ecx
   unsigned int v11; // eax
   int v12; // eax
@@ -41,17 +41,17 @@ __int64 __fastcall LoadFieldUnitDDB(_QWORD *a1, __int64 a2, __int64 a3)
   v20 = 0LL;
   DWORD2(v18) = 36;
   v21 = 0LL;
-  Object = ReadObject((__int64)a1, a2, (__int64)&v17);
+  Object = ReadObject(a1, a2, (__int64)&v17);
   DDB = Object;
   if ( !Object )
   {
-    v8 = HeapAlloc(gpheapGlobal, 1179992648, DWORD1(v20));
-    v9 = (const char *)v8;
+    v8 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1179992648, DWORD1(v20));
+    v9 = (_QWORD *)v8;
     if ( !v8 )
     {
       DDB = -1073741670;
       LogError(-1073741670);
-      AcpiDiagTraceAmlError((__int64)a1, -1073741670);
+      AcpiDiagTraceAmlError(a1, -1073741670);
       v10 = 82;
 LABEL_15:
       PrintDebugMessage(v10, 0LL, 0LL, 0LL, 0LL);
@@ -62,7 +62,7 @@ LABEL_15:
     *(_DWORD *)(v8 + 32) = v22;
     DWORD2(v18) = DWORD1(v20) - 36;
     v19 = (__int128 *)(v8 + 36);
-    v11 = ReadObject((__int64)a1, a2, (__int64)&v17);
+    v11 = ReadObject(a1, a2, (__int64)&v17);
     DDB = v11;
     if ( v11 )
     {
@@ -70,7 +70,7 @@ LABEL_15:
       {
         DDB = -1072431098;
         LogError(-1072431098);
-        AcpiDiagTraceAmlError((__int64)a1, -1072431098);
+        AcpiDiagTraceAmlError(a1, -1072431098);
         v14 = 0LL;
         v15 = 83;
         goto LABEL_11;
@@ -80,13 +80,13 @@ LABEL_15:
     {
       if ( ghValidateTable )
       {
-        v12 = ghValidateTable(v9, qword_1C0070290);
+        v12 = ghValidateTable(v9, qword_1C0083300);
         v13 = (const void *)v12;
         if ( v12 )
         {
           DDB = -1072431079;
           LogError(-1072431079);
-          AcpiDiagTraceAmlError((__int64)a1, -1072431079);
+          AcpiDiagTraceAmlError(a1, -1072431079);
           v14 = v13;
           v15 = 84;
 LABEL_11:
@@ -94,17 +94,17 @@ LABEL_11:
           goto LABEL_12;
         }
       }
-      DDB = LoadDDB(a1, v9, a1[10], a3);
+      DDB = LoadDDB((struct _SLIST_ENTRY *)a1, (__int64)v9, *(_QWORD *)(a1 + 80), a3);
     }
 LABEL_12:
-    HeapFree((__int64)v9);
+    HeapFree(v9);
     return DDB;
   }
   if ( Object == 32772 )
   {
     DDB = -1072431098;
     LogError(-1072431098);
-    AcpiDiagTraceAmlError((__int64)a1, -1072431098);
+    AcpiDiagTraceAmlError(a1, -1072431098);
     v10 = 83;
     goto LABEL_15;
   }

@@ -1,267 +1,237 @@
 /*
- * XREFs of ?ProcessChannelMessage@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAAJPEAXI@Z @ 0x1C02E0840
+ * XREFs of ?ProcessChannelMessage@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAAJPEAXI@Z @ 0x1C028D990
  * Callers:
  *     <none>
  * Callees:
- *     ??0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ @ 0x1C0009278 (--0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ.c)
- *     ?AcquireReference@DXGPROCESS@@QEAAXXZ @ 0x1C00092A8 (-AcquireReference@DXGPROCESS@@QEAAXXZ.c)
- *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C000C1D8 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C00138D4 (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?BindCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_BINDCOMPOSITIONSURFACE@@PEAU_DXGCOMPOSITIONMESSAGE_BINDCOMPOSITIONSURFACE_RETURN@@@Z @ 0x1C02DEB54 (-BindCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSA.c)
- *     ?CreateCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE@@PEAU_DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE_RETURN@@@Z @ 0x1C02DF1F4 (-CreateCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMES.c)
- *     ?EnqueueFlipExTokenCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_ENQUEUEFLIPEXTOKEN@@PEAU_DXGCOMPOSITIONMESSAGE_ENQUEUEFLIPEXTOKEN_RETURN@@@Z @ 0x1C02DF6F4 (-EnqueueFlipExTokenCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_E.c)
- *     ?QueryStatsCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_QUERYSTATS@@PEAU_DXGCOMPOSITIONMESSAGE_QUERYSTATS_RETURN@@@Z @ 0x1C02E0D24 (-QueryStatsCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_QUERYSTAT.c)
- *     ?ReleaseCompositionSurfaceReferenceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_RELEASECOMPOSITIONSURFACEREFERENCE@@PEAU_DXGCOMPOSITIONMESSAGE_RELEASECOMPOSITIONSURFACEREFERENCE_RETURN@@@Z @ 0x1C02E1188 (-ReleaseCompositionSurfaceReferenceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMP.c)
- *     ?UnbindCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_UNBINDCOMPOSITIONSURFACE@@PEAU_DXGCOMPOSITIONMESSAGE_UNBINDCOMPOSITIONSURFACE_RETURN@@@Z @ 0x1C02E1E2C (-UnbindCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMES.c)
+ *     ??0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ @ 0x1C0001FAC (--0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C00069B4 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ?AcquireReference@DXGPROCESS@@QEAAXXZ @ 0x1C0006C64 (-AcquireReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C000D12C (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?BindCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_BINDCOMPOSITIONSURFACE@@PEAU_DXGCOMPOSITIONMESSAGE_BINDCOMPOSITIONSURFACE_RETURN@@@Z @ 0x1C028C304 (-BindCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSA.c)
+ *     ?CreateCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE@@PEAU_DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE_RETURN@@@Z @ 0x1C028C7EC (-CreateCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMES.c)
+ *     ?EnqueueFlipExTokenCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_ENQUEUEFLIPEXTOKEN@@PEAU_DXGCOMPOSITIONMESSAGE_ENQUEUEFLIPEXTOKEN_RETURN@@@Z @ 0x1C028CCA4 (-EnqueueFlipExTokenCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_E.c)
+ *     ?ReleaseCompositionSurfaceReferenceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_RELEASECOMPOSITIONSURFACEREFERENCE@@PEAU_DXGCOMPOSITIONMESSAGE_RELEASECOMPOSITIONSURFACEREFERENCE_RETURN@@@Z @ 0x1C028E06C (-ReleaseCompositionSurfaceReferenceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMP.c)
+ *     ?UnbindCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_UNBINDCOMPOSITIONSURFACE@@PEAU_DXGCOMPOSITIONMESSAGE_UNBINDCOMPOSITIONSURFACE_RETURN@@@Z @ 0x1C028EA1C (-UnbindCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMES.c)
  */
 
 __int64 __fastcall DXG_HOST_COMPOSITIONOBJECTCHANNEL::ProcessChannelMessage(
-        DXG_HOST_COMPOSITIONOBJECTCHANNEL *this,
+        struct _KPROCESS **this,
         struct _DXGCOMPOSITIONMESSAGE_BINDCOMPOSITIONSURFACE *a2,
-        unsigned int a3)
+        __int64 a3)
 {
-  __int64 v5; // rdx
-  __int64 v7; // rdx
-  struct _KPROCESS *v8; // rdx
-  DXGPROCESS *v9; // rax
-  DXGPROCESS *v10; // r14
-  __int64 v11; // r8
-  int *v12; // rdx
-  int v13; // eax
-  struct _KPROCESS *v14; // rdx
-  int v15; // eax
+  __int64 v3; // rbx
+  _QWORD *v6; // rax
+  __int64 v8; // rcx
+  int v9; // eax
+  struct _KPROCESS *v10; // rdx
+  int v11; // eax
+  __int64 v12; // r8
+  int *v13; // rdx
+  int v14; // eax
+  struct _KPROCESS *v15; // rdx
   int v16; // eax
   struct _KPROCESS *v17; // rdx
-  int v18; // eax
-  struct _KPROCESS *v19; // rdx
-  DXGPROCESS *v20; // rax
-  DXGPROCESS *v21; // r14
-  DXGPROCESS *v22; // rcx
-  int v23; // eax
-  struct _KPROCESS *v24; // rdx
+  DXGPROCESS *v18; // rax
+  __int64 v19; // rdx
+  DXGPROCESS *v20; // r14
+  __int64 v21; // rdx
+  __int64 v22; // rdx
+  __int64 v23; // rdx
+  DXGPROCESS *v24; // rcx
   int v25; // eax
   struct _KPROCESS *v26; // rdx
+  int v27; // eax
+  struct _KPROCESS *v28; // rdx
   DXGPROCESS *ProcessDxgProcess; // rax
-  DXGPROCESS *v28; // rsi
-  struct _DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE *v29; // rdx
-  __int64 v30; // r9
-  _BYTE v31[8]; // [rsp+20h] [rbp-99h] BYREF
-  char v32; // [rsp+28h] [rbp-91h]
-  struct _KAPC_STATE ApcState; // [rsp+30h] [rbp-89h] BYREF
-  char v34; // [rsp+60h] [rbp-59h]
-  int v35; // [rsp+68h] [rbp-51h] BYREF
-  int v36; // [rsp+6Ch] [rbp-4Dh]
-  __int64 v37; // [rsp+70h] [rbp-49h]
-  int v38; // [rsp+78h] [rbp-41h] BYREF
-  int CompositionSurfaceCallback; // [rsp+7Ch] [rbp-3Dh]
-  __int64 v40; // [rsp+80h] [rbp-39h]
-  __int64 v41; // [rsp+88h] [rbp-31h]
-  _DWORD v42[20]; // [rsp+90h] [rbp-29h] BYREF
+  __int64 v30; // rdx
+  DXGPROCESS *v31; // rdi
+  struct _DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE *v32; // rdx
+  __int64 v33; // r9
+  __int64 v34; // rdx
+  _BYTE v35[8]; // [rsp+20h] [rbp-39h] BYREF
+  char v36; // [rsp+28h] [rbp-31h]
+  struct _KAPC_STATE ApcState; // [rsp+30h] [rbp-29h] BYREF
+  char v38; // [rsp+60h] [rbp+7h]
+  int v39; // [rsp+68h] [rbp+Fh] BYREF
+  int v40; // [rsp+6Ch] [rbp+13h]
+  __int64 v41; // [rsp+70h] [rbp+17h]
+  int v42; // [rsp+78h] [rbp+1Fh] BYREF
+  int CompositionSurfaceCallback; // [rsp+7Ch] [rbp+23h]
+  __int64 v44; // [rsp+80h] [rbp+27h]
+  __int64 v45; // [rsp+88h] [rbp+2Fh]
 
-  if ( a3 < 0xC )
+  v3 = (unsigned int)a3;
+  if ( (unsigned int)a3 < 0xC )
   {
-    v5 = a3;
+    v6 = (_QWORD *)WdLogNewEntry5_WdWarning(this, a2, a3);
+    v6[3] = v3;
 LABEL_3:
-    WdLogSingleEntry2(3LL, v5, -1073741811LL);
+    v6[4] = -1073741811LL;
+LABEL_4:
+    WdLogEvent5_WdWarning(v6);
     return 3221225485LL;
   }
-  v5 = *((int *)a2 + 2);
-  switch ( (_DWORD)v5 )
+  v8 = (unsigned int)(*((_DWORD *)a2 + 2) - 1);
+  if ( *((_DWORD *)a2 + 2) == 1 )
   {
-    case 1:
-      if ( a3 != 16 )
-      {
-        v7 = 1LL;
-        goto LABEL_50;
-      }
-      v25 = *((_DWORD *)a2 + 1);
-      v26 = (struct _KPROCESS *)*((_QWORD *)this + 3);
-      v41 = 0LL;
-      v34 = 0;
-      v38 = 1886220131;
-      v40 = 2LL;
-      CompositionSurfaceCallback = v25;
-      CPROCESSATTACHHELPER::Attach(&ApcState, v26);
-      DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)&v35);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v35);
-      ProcessDxgProcess = (DXGPROCESS *)PsGetProcessDxgProcess(*((_QWORD *)this + 3));
-      v28 = ProcessDxgProcess;
-      if ( ProcessDxgProcess )
-        DXGPROCESS::AcquireReference(ProcessDxgProcess);
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v35);
-      if ( !v28 )
-        goto LABEL_60;
-      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v31, (DXGPROCESS *)((char *)v28 + 104), 0);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v31);
-      if ( *((_DWORD *)v28 + 10) == 1 )
+    if ( (_DWORD)a3 != 16 )
+      goto LABEL_30;
+    v27 = *((_DWORD *)a2 + 1);
+    v28 = this[3];
+    v45 = 0LL;
+    v38 = 0;
+    v42 = 1886220131;
+    v44 = 2LL;
+    CompositionSurfaceCallback = v27;
+    CPROCESSATTACHHELPER::Attach(&ApcState, v28);
+    DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)&v39);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v39);
+    ProcessDxgProcess = (DXGPROCESS *)PsGetProcessDxgProcess(this[3]);
+    v31 = ProcessDxgProcess;
+    if ( ProcessDxgProcess )
+      DXGPROCESS::AcquireReference(ProcessDxgProcess, v30);
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v39, v30);
+    if ( v31 )
+    {
+      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v35, *((struct DXGFASTMUTEX *const *)v31 + 13), 0);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v35);
+      if ( *((_DWORD *)v31 + 10) == 1 )
         CompositionSurfaceCallback = DXG_HOST_COMPOSITIONOBJECTCHANNEL::CreateCompositionSurfaceCallback(
-                                       this,
-                                       v29,
-                                       (struct _DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE_RETURN *)&v38,
-                                       v30);
-      if ( v32 )
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v31);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v35);
-      v22 = v28;
-LABEL_59:
-      DXGPROCESS::ReleaseReference(v22);
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v35);
-LABEL_60:
-      if ( (_BYTE)v37 )
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v35);
-      if ( v34 )
-        KeUnstackDetachProcess(&ApcState);
-      v12 = &v38;
-      v11 = 24LL;
-      goto LABEL_65;
-    case 3:
-      if ( a3 != 16 )
-      {
-        v7 = 3LL;
-        goto LABEL_50;
-      }
-      v23 = *((_DWORD *)a2 + 1);
-      v24 = (struct _KPROCESS *)*((_QWORD *)this + 3);
-      v34 = 0;
-      v37 = 4LL;
-      v35 = 1886220131;
-      v36 = v23;
-      CPROCESSATTACHHELPER::Attach(&ApcState, v24);
-      v15 = DXG_HOST_COMPOSITIONOBJECTCHANNEL::ReleaseCompositionSurfaceReferenceCallback(
-              this,
+                                       (DXG_HOST_COMPOSITIONOBJECTCHANNEL *)this,
+                                       v32,
+                                       (struct _DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE_RETURN *)&v42,
+                                       v33);
+      if ( v36 )
+        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v35, (__int64)v32);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v39);
+      v24 = v31;
+      goto LABEL_39;
+    }
+LABEL_40:
+    if ( (_BYTE)v41 )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v39, v21);
+    if ( v38 )
+      KeUnstackDetachProcess(&ApcState);
+    v13 = &v42;
+    v12 = 24LL;
+    goto LABEL_45;
+  }
+  v8 = (unsigned int)(*((_DWORD *)a2 + 2) - 3);
+  if ( *((_DWORD *)a2 + 2) == 3 )
+  {
+    if ( (_DWORD)a3 == 16 )
+    {
+      v25 = *((_DWORD *)a2 + 1);
+      v26 = this[3];
+      v38 = 0;
+      v41 = 4LL;
+      v39 = 1886220131;
+      v40 = v25;
+      CPROCESSATTACHHELPER::Attach(&ApcState, v26);
+      v11 = DXG_HOST_COMPOSITIONOBJECTCHANNEL::ReleaseCompositionSurfaceReferenceCallback(
+              (DXG_HOST_COMPOSITIONOBJECTCHANNEL *)this,
               a2,
-              (struct _DXGCOMPOSITIONMESSAGE_RELEASECOMPOSITIONSURFACEREFERENCE_RETURN *)&v35);
-LABEL_29:
-      v36 = v15;
-      if ( v34 )
-        KeUnstackDetachProcess(&ApcState);
-      v11 = 16LL;
-      v12 = &v35;
-      goto LABEL_65;
-    case 5:
-      if ( a3 != 1344 )
-      {
-        v7 = 5LL;
-        goto LABEL_50;
-      }
-      v18 = *((_DWORD *)a2 + 1);
-      v19 = (struct _KPROCESS *)*((_QWORD *)this + 3);
-      v41 = 0LL;
-      v34 = 0;
-      v40 = 6LL;
-      v38 = 1886220131;
-      CompositionSurfaceCallback = v18;
-      CPROCESSATTACHHELPER::Attach(&ApcState, v19);
-      DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)&v35);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v35);
-      v20 = (DXGPROCESS *)PsGetProcessDxgProcess(*((_QWORD *)this + 3));
-      v21 = v20;
-      if ( v20 )
-        DXGPROCESS::AcquireReference(v20);
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v35);
-      if ( !v21 )
-        goto LABEL_60;
-      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v31, (DXGPROCESS *)((char *)v21 + 104), 0);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v31);
-      if ( *((_DWORD *)v21 + 10) == 1 )
+              (struct _DXGCOMPOSITIONMESSAGE_RELEASECOMPOSITIONSURFACEREFERENCE_RETURN *)&v39);
+      goto LABEL_13;
+    }
+    goto LABEL_30;
+  }
+  v8 = (unsigned int)(*((_DWORD *)a2 + 2) - 5);
+  if ( *((_DWORD *)a2 + 2) == 5 )
+  {
+    if ( (_DWORD)a3 != 1072 )
+      goto LABEL_30;
+    v16 = *((_DWORD *)a2 + 1);
+    v17 = this[3];
+    v45 = 0LL;
+    v38 = 0;
+    v44 = 6LL;
+    v42 = 1886220131;
+    CompositionSurfaceCallback = v16;
+    CPROCESSATTACHHELPER::Attach(&ApcState, v17);
+    DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)&v39);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v39);
+    v18 = (DXGPROCESS *)PsGetProcessDxgProcess(this[3]);
+    v20 = v18;
+    if ( v18 )
+      DXGPROCESS::AcquireReference(v18, v19);
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v39, v19);
+    if ( v20 )
+    {
+      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v35, *((struct DXGFASTMUTEX *const *)v20 + 13), 0);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v35);
+      if ( *((_DWORD *)v20 + 10) == 1 )
         CompositionSurfaceCallback = DXG_HOST_COMPOSITIONOBJECTCHANNEL::BindCompositionSurfaceCallback(
-                                       this,
+                                       (DXG_HOST_COMPOSITIONOBJECTCHANNEL *)this,
                                        a2,
-                                       (struct _DXGCOMPOSITIONMESSAGE_BINDCOMPOSITIONSURFACE_RETURN *)&v38);
-      if ( v32 )
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v31);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v35);
-      v22 = v21;
-      goto LABEL_59;
-    case 7:
-      if ( a3 != 24 )
-      {
-        v7 = 7LL;
-        goto LABEL_50;
-      }
-      v16 = *((_DWORD *)a2 + 1);
-      v17 = (struct _KPROCESS *)*((_QWORD *)this + 3);
-      v34 = 0;
-      v37 = 8LL;
-      v35 = 1886220131;
-      v36 = v16;
-      CPROCESSATTACHHELPER::Attach(&ApcState, v17);
-      v15 = DXG_HOST_COMPOSITIONOBJECTCHANNEL::UnbindCompositionSurfaceCallback(
-              this,
-              a2,
-              (struct _DXGCOMPOSITIONMESSAGE_UNBINDCOMPOSITIONSURFACE_RETURN *)&v35);
-      goto LABEL_29;
-    case 9:
-      if ( a3 != 488 )
-      {
-        v7 = 9LL;
-        goto LABEL_50;
-      }
-      v13 = *((_DWORD *)a2 + 1);
-      v14 = (struct _KPROCESS *)*((_QWORD *)this + 3);
-      v34 = 0;
-      v37 = 10LL;
-      v35 = 1886220131;
-      v36 = v13;
-      CPROCESSATTACHHELPER::Attach(&ApcState, v14);
-      v15 = DXG_HOST_COMPOSITIONOBJECTCHANNEL::EnqueueFlipExTokenCallback(
-              this,
-              a2,
-              (struct _DXGCOMPOSITIONMESSAGE_ENQUEUEFLIPEXTOKEN_RETURN *)&v35);
-      goto LABEL_29;
+                                       (struct _DXGCOMPOSITIONMESSAGE_BINDCOMPOSITIONSURFACE_RETURN *)&v42);
+      if ( v36 )
+        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v35, v22);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v39);
+      v24 = v20;
+LABEL_39:
+      DXGPROCESS::ReleaseReference(v24, v23);
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v39, v34);
+      goto LABEL_40;
+    }
+    goto LABEL_40;
   }
-  if ( (_DWORD)v5 != 11 )
+  v8 = (unsigned int)(*((_DWORD *)a2 + 2) - 7);
+  if ( *((_DWORD *)a2 + 2) == 7 )
+  {
+    if ( (_DWORD)a3 == 24 )
+    {
+      v14 = *((_DWORD *)a2 + 1);
+      v15 = this[3];
+      v38 = 0;
+      v41 = 8LL;
+      v39 = 1886220131;
+      v40 = v14;
+      CPROCESSATTACHHELPER::Attach(&ApcState, v15);
+      v11 = DXG_HOST_COMPOSITIONOBJECTCHANNEL::UnbindCompositionSurfaceCallback(
+              (DXG_HOST_COMPOSITIONOBJECTCHANNEL *)this,
+              a2,
+              (struct _DXGCOMPOSITIONMESSAGE_UNBINDCOMPOSITIONSURFACE_RETURN *)&v39);
+      goto LABEL_13;
+    }
+LABEL_30:
+    v6 = (_QWORD *)WdLogNewEntry5_WdWarning(v8, a2, a3);
+    v6[3] = *((int *)a2 + 2);
+    v6[4] = v3;
+    v6[5] = -1073741811LL;
+    goto LABEL_4;
+  }
+  if ( *((_DWORD *)a2 + 2) != 9 )
+  {
+    v6 = (_QWORD *)WdLogNewEntry5_WdWarning(v8, a2, a3);
+    v6[3] = *((int *)a2 + 2);
     goto LABEL_3;
-  if ( a3 != 16 )
-  {
-    v7 = 11LL;
-LABEL_50:
-    WdLogSingleEntry3(3LL, v7, a3, -1073741811LL);
-    return 3221225485LL;
   }
-  memset(v42, 0, sizeof(v42));
-  v42[0] = 1886220131;
-  v42[2] = 12;
-  memset(&v42[4], 0, 0x40uLL);
-  v8 = (struct _KPROCESS *)*((_QWORD *)this + 3);
-  v42[1] = *((_DWORD *)a2 + 1);
-  v34 = 0;
-  CPROCESSATTACHHELPER::Attach(&ApcState, v8);
-  DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)&v35);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v35);
-  v9 = (DXGPROCESS *)PsGetProcessDxgProcess(*((_QWORD *)this + 3));
-  v10 = v9;
-  if ( v9 )
-    DXGPROCESS::AcquireReference(v9);
-  DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v35);
-  if ( v10 )
-  {
-    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v31, (DXGPROCESS *)((char *)v10 + 104), 0);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v31);
-    if ( *((_DWORD *)v10 + 10) == 1 )
-      v42[1] = DXG_HOST_COMPOSITIONOBJECTCHANNEL::QueryStatsCallback(
-                 this,
-                 a2,
-                 (struct _DXGCOMPOSITIONMESSAGE_QUERYSTATS_RETURN *)v42);
-    if ( v32 )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v31);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v35);
-    DXGPROCESS::ReleaseReference(v10);
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v35);
-  }
-  if ( (_BYTE)v37 )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v35);
-  if ( v34 )
+  if ( (_DWORD)a3 != 488 )
+    goto LABEL_30;
+  v9 = *((_DWORD *)a2 + 1);
+  v10 = this[3];
+  v38 = 0;
+  v41 = 10LL;
+  v39 = 1886220131;
+  v40 = v9;
+  CPROCESSATTACHHELPER::Attach(&ApcState, v10);
+  v11 = DXG_HOST_COMPOSITIONOBJECTCHANNEL::EnqueueFlipExTokenCallback(
+          (DXG_HOST_COMPOSITIONOBJECTCHANNEL *)this,
+          a2,
+          (struct _DXGCOMPOSITIONMESSAGE_ENQUEUEFLIPEXTOKEN_RETURN *)&v39);
+LABEL_13:
+  v40 = v11;
+  if ( v38 )
     KeUnstackDetachProcess(&ApcState);
-  v11 = 80LL;
-  v12 = v42;
-LABEL_65:
-  (*(void (__fastcall **)(_QWORD, int *, __int64))(**((_QWORD **)this + 1) + 24LL))(*((_QWORD *)this + 1), v12, v11);
+  v12 = 16LL;
+  v13 = &v39;
+LABEL_45:
+  (*(void (__fastcall **)(struct _KPROCESS *, int *, __int64))(*(_QWORD *)this[1] + 24LL))(this[1], v13, v12);
   return 0LL;
 }

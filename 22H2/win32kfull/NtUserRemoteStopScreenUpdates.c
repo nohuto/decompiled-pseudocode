@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserRemoteStopScreenUpdates @ 0x1C01D9DC0
+ * XREFs of NtUserRemoteStopScreenUpdates @ 0x1C0200A80
  * Callers:
  *     <none>
  * Callees:
- *     xxxRemoteStopScreenUpdates @ 0x1C0130758 (xxxRemoteStopScreenUpdates.c)
+ *     xxxRemoteStopScreenUpdates @ 0x1C01284B0 (xxxRemoteStopScreenUpdates.c)
  */
 
 __int64 NtUserRemoteStopScreenUpdates()
@@ -12,26 +12,24 @@ __int64 NtUserRemoteStopScreenUpdates()
   __int64 v1; // rcx
   __int64 v2; // r8
   __int64 CurrentProcess; // rax
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // rcx
-  unsigned int v8; // ebx
+  __int16 v4; // dx
+  __int64 v5; // rcx
+  unsigned int v6; // ebx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   CurrentProcess = PsGetCurrentProcess(v1, v0, v2);
-  v7 = gpepCSRSS;
+  v5 = gpepCSRSS;
   if ( CurrentProcess == gpepCSRSS )
   {
     if ( gfSwitchInProgress )
-      v8 = -1073741823;
+      v6 = -1073741823;
     else
-      v8 = xxxRemoteStopScreenUpdates(gpepCSRSS, v4, v5);
+      v6 = xxxRemoteStopScreenUpdates(gpepCSRSS, v4);
   }
   else
   {
-    v8 = -1073741790;
+    v6 = -1073741790;
   }
-  UserSessionSwitchLeaveCrit(v7, v4, v5, v6);
-  return v8;
+  UserSessionSwitchLeaveCrit(v5);
+  return v6;
 }

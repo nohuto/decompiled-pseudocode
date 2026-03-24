@@ -1,20 +1,20 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CTranslateTransformMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0228FB0
+ * XREFs of ?SetRemarshalingFlags@CTranslateTransformMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DFB60
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0216428 (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DFBB4 (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CTranslateTransformMarshaler::SetRemarshalingFlags(
         DirectComposition::CTranslateTransformMarshaler *this)
 {
-  char v2; // al
+  bool v2; // al
   char v3; // cl
 
-  if ( *((float *)this + 20) != 0.0 )
+  if ( *((float *)this + 18) != 0.0 )
     *((_DWORD *)this + 4) |= 0x80u;
-  if ( *((float *)this + 21) != 0.0 )
+  if ( *((float *)this + 19) != 0.0 )
     *((_DWORD *)this + 4) |= 0x100u;
   v2 = DirectComposition::CPropertyChangeResourceMarshaler::SetRemarshalingFlags(this);
   v3 = 0;

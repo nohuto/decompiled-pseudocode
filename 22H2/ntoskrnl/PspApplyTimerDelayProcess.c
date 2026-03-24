@@ -1,12 +1,12 @@
 /*
- * XREFs of PspApplyTimerDelayProcess @ 0x1405A4238
+ * XREFs of PspApplyTimerDelayProcess @ 0x140581E28
  * Callers:
- *     PspTimerDelayProcess @ 0x1405A4B40 (PspTimerDelayProcess.c)
- *     PspTimerDelayWorkerRoutine @ 0x1405A4BB0 (PspTimerDelayWorkerRoutine.c)
+ *     PspTimerDelayProcess @ 0x1405826B0 (PspTimerDelayProcess.c)
+ *     PspTimerDelayWorkerRoutine @ 0x140582720 (PspTimerDelayWorkerRoutine.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     PspSetProcessTimerDelayForKTimers @ 0x1405A4840 (PspSetProcessTimerDelayForKTimers.c)
- *     PspSetProcessTimerDelayForWin32 @ 0x1405A4A84 (PspSetProcessTimerDelayForWin32.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     PspSetProcessTimerDelayForKTimers @ 0x1405823A8 (PspSetProcessTimerDelayForKTimers.c)
+ *     PspSetProcessTimerDelayForWin32 @ 0x1405825EC (PspSetProcessTimerDelayForWin32.c)
  */
 
 __int64 __fastcall PspApplyTimerDelayProcess(__int64 a1, _DWORD *a2, __int64 a3)
@@ -22,13 +22,12 @@ __int64 __fastcall PspApplyTimerDelayProcess(__int64 a1, _DWORD *a2, __int64 a3)
   __int64 v12; // rtt
   signed __int64 v13; // rcx
   unsigned __int64 v14; // rdi
-  bool v15; // zf
 
   CurrentThread = KeGetCurrentThread();
   v4 = 0;
-  v6 = 0LL;
   --CurrentThread->SpecialApcDisable;
   _interlockedbittestandset((volatile signed __int32 *)(a1 + 632), 4u);
+  v6 = 0LL;
   if ( a2 )
   {
     LOBYTE(a3) = 0;
@@ -101,8 +100,6 @@ __int64 __fastcall PspApplyTimerDelayProcess(__int64 a1, _DWORD *a2, __int64 a3)
     while ( v14 != v10 );
   }
 LABEL_22:
-  v15 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v15 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return v4;
 }

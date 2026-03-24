@@ -1,14 +1,14 @@
 /*
- * XREFs of BgkSetBootGraphicsInformation @ 0x140AB07F4
+ * XREFs of BgkSetBootGraphicsInformation @ 0x1409F64C4
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
  * Callees:
- *     BgSetBootGraphicsInformation @ 0x140AB097C (BgSetBootGraphicsInformation.c)
+ *     BgSetBootGraphicsInformation @ 0x1409F6684 (BgSetBootGraphicsInformation.c)
  */
 
 __int64 BgkSetBootGraphicsInformation()
 {
-  if ( byte_140C54D48 )
+  if ( byte_140C50B99 )
     return BgSetBootGraphicsInformation();
   else
     return 3221225473LL;

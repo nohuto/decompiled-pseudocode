@@ -1,25 +1,25 @@
 /*
- * XREFs of PopInitializeHeteroProcessors @ 0x14074F454
+ * XREFs of PopInitializeHeteroProcessors @ 0x14074F434
  * Callers:
- *     PpmReapplyPerfPolicy @ 0x14074F044 (PpmReapplyPerfPolicy.c)
+ *     PpmReapplyPerfPolicy @ 0x14074F024 (PpmReapplyPerfPolicy.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7900 (KeQueryActiveProcessorCountEx.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     PpmHeteroDetectHgsCores @ 0x14018A1F4 (PpmHeteroDetectHgsCores.c)
- *     PpmHeteroUpdateHgsConfiguration @ 0x14018A244 (PpmHeteroUpdateHgsConfiguration.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     PpmIdleEnableIdleDurationExpirationTimeout @ 0x1402D4B80 (PpmIdleEnableIdleDurationExpirationTimeout.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     PpmHeteroDetectHgsCores @ 0x14018A214 (PpmHeteroDetectHgsCores.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x14018A264 (PpmHeteroUpdateHgsConfiguration.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     PpmIdleEnableIdleDurationExpirationTimeout @ 0x1402D4C80 (PpmIdleEnableIdleDurationExpirationTimeout.c)
  *     PsEnumProcesses @ 0x1405B1AFC (PsEnumProcesses.c)
- *     PpmEventHeteroPolicy @ 0x14074F6E0 (PpmEventHeteroPolicy.c)
- *     PopConfigureHeteroPolicies @ 0x14074F764 (PopConfigureHeteroPolicies.c)
- *     PopDetectSimulatedHeteroProcessors @ 0x14074FE04 (PopDetectSimulatedHeteroProcessors.c)
- *     PpmHeteroComputeRelativePerformance @ 0x14074FEEC (PpmHeteroComputeRelativePerformance.c)
- *     KeConfigureHeteroProcessors @ 0x140842AC8 (KeConfigureHeteroProcessors.c)
+ *     PpmEventHeteroPolicy @ 0x14074F6C0 (PpmEventHeteroPolicy.c)
+ *     PopConfigureHeteroPolicies @ 0x14074F744 (PopConfigureHeteroPolicies.c)
+ *     PopDetectSimulatedHeteroProcessors @ 0x14074FDE4 (PopDetectSimulatedHeteroProcessors.c)
+ *     PpmHeteroComputeRelativePerformance @ 0x14074FECC (PpmHeteroComputeRelativePerformance.c)
+ *     KeConfigureHeteroProcessors @ 0x140842AA8 (KeConfigureHeteroProcessors.c)
  */
 
 char __fastcall PopInitializeHeteroProcessors(__int64 a1, signed __int64 a2)

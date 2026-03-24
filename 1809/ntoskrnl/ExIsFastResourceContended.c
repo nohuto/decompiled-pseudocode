@@ -1,9 +1,9 @@
 /*
- * XREFs of ExIsFastResourceContended @ 0x14031B050
+ * XREFs of ExIsFastResourceContended @ 0x14031B150
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 bool __fastcall ExIsFastResourceContended(ULONG_PTR BugCheckParameter2)

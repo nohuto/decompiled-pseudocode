@@ -1,70 +1,83 @@
 /*
- * XREFs of ??1CManipulationContext@@UEAA@XZ @ 0x1801A3798
+ * XREFs of ??1CManipulationContext@@UEAA@XZ @ 0x180233518
  * Callers:
- *     ??_GCManipulationContext@@UEAAPEAXI@Z @ 0x1801A39A8 (--_GCManipulationContext@@UEAAPEAXI@Z.c)
+ *     ??_GCManipulationContext@@UEAAPEAXI@Z @ 0x1802336C8 (--_GCManipulationContext@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F3C10 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??_GTargetingInfo@@QEAAPEAXI@Z @ 0x18012D7C0 (--_GTargetingInfo@@QEAAPEAXI@Z.c)
- *     ??_G?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAPEAXI@Z @ 0x1801A390C (--_G-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAPEAXI@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D42F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??_G?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAPEAXI@Z @ 0x180221474 (--_G-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAPEAXI@Z.c)
+ *     ??_GTargetingInfo@@QEAAPEAXI@Z @ 0x180233714 (--_GTargetingInfo@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall CManipulationContext::~CManipulationContext(CManipulationContext *this)
 {
   __int64 v2; // rcx
-  _DWORD *v3; // rdi
-  int i; // esi
-  void *v5; // rcx
-  _DWORD *v6; // rdi
-  int j; // esi
-  void *v8; // rcx
-  __int64 v9; // rcx
+  unsigned int v3; // edx
+  void *v4; // rcx
+  int v5; // edi
+  void *v6; // rcx
+  void *v7; // rcx
+  int v8; // edi
+  void *v9; // rcx
+  __int64 v10; // rcx
 
   *(_QWORD *)this = &CManipulationContext::`vftable'{for `IManipulationContext'};
-  *((_QWORD *)this + 1) = &CManipulationContext::`vftable'{for `CMILRefCountBaseT<IMILRefCount>'};
+  *((_QWORD *)this + 1) = &CManipulationContext::`vftable'{for `CMILRefCountBase'};
   v2 = *((_QWORD *)this + 17);
   if ( v2 )
   {
     *((_QWORD *)this + 17) = 0LL;
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 8LL))(v2);
   }
-  Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)this + 16);
-  Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)this + 14);
-  v3 = (_DWORD *)((char *)this + 96);
-  if ( *((_QWORD *)this + 10) )
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)this + 16);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)this + 14);
+  v4 = (void *)*((_QWORD *)this + 10);
+  if ( v4 )
   {
-    for ( i = 0; i < *v3; ++i )
-      TargetingInfo::`scalar deleting destructor'((TargetingInfo *)(*((_QWORD *)this + 11) + 16LL * i));
-    operator delete(*((void **)this + 10));
+    v5 = 0;
+    if ( *((int *)this + 24) > 0 )
+    {
+      do
+        TargetingInfo::`scalar deleting destructor'((TargetingInfo *)(*((_QWORD *)this + 11) + 16LL * v5++), v3);
+      while ( v5 < *((_DWORD *)this + 24) );
+      v4 = (void *)*((_QWORD *)this + 10);
+    }
+    operator delete(v4);
     *((_QWORD *)this + 10) = 0LL;
   }
-  v5 = (void *)*((_QWORD *)this + 11);
-  if ( v5 )
+  v6 = (void *)*((_QWORD *)this + 11);
+  if ( v6 )
   {
-    operator delete(v5);
+    operator delete(v6);
     *((_QWORD *)this + 11) = 0LL;
   }
-  *v3 = 0;
-  v6 = (_DWORD *)((char *)this + 72);
-  if ( *((_QWORD *)this + 7) )
+  *((_DWORD *)this + 24) = 0;
+  v7 = (void *)*((_QWORD *)this + 7);
+  if ( v7 )
   {
-    for ( j = 0; j < *v6; ++j )
-      Microsoft::WRL::ComPtr<CInteraction>::`scalar deleting destructor'(*((_QWORD *)this + 8) + 8LL * j);
-    operator delete(*((void **)this + 7));
+    v8 = 0;
+    if ( *((int *)this + 18) > 0 )
+    {
+      do
+        Microsoft::WRL::ComPtr<CInteraction>::`scalar deleting destructor'((__int64 *)(*((_QWORD *)this + 8) + 8LL * v8++));
+      while ( v8 < *((_DWORD *)this + 18) );
+      v7 = (void *)*((_QWORD *)this + 7);
+    }
+    operator delete(v7);
     *((_QWORD *)this + 7) = 0LL;
   }
-  v8 = (void *)*((_QWORD *)this + 8);
-  if ( v8 )
-  {
-    operator delete(v8);
-    *((_QWORD *)this + 8) = 0LL;
-  }
-  *v6 = 0;
-  v9 = *((_QWORD *)this + 6);
+  v9 = (void *)*((_QWORD *)this + 8);
   if ( v9 )
   {
+    operator delete(v9);
+    *((_QWORD *)this + 8) = 0LL;
+  }
+  *((_DWORD *)this + 18) = 0;
+  v10 = *((_QWORD *)this + 6);
+  if ( v10 )
+  {
     *((_QWORD *)this + 6) = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 8LL))(v10);
   }
 }

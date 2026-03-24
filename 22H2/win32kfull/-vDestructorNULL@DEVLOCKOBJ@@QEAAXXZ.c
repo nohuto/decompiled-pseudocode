@@ -1,28 +1,25 @@
 /*
- * XREFs of ?vDestructorNULL@DEVLOCKOBJ@@QEAAXXZ @ 0x1C027785C
+ * XREFs of ?vDestructorNULL@DEVLOCKOBJ@@QEAAXXZ @ 0x1C027BFBC
  * Callers:
- *     ??1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ @ 0x1C0274EE0 (--1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ.c)
+ *     ??1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ @ 0x1C027B104 (--1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ.c)
  * Callees:
- *     ?bDisposeTrgDco@DEVLOCKOBJ@@QEAAHXZ @ 0x1C011C664 (-bDisposeTrgDco@DEVLOCKOBJ@@QEAAHXZ.c)
- *     ?UntrapAppContainerRenderingWorker@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEBK@Z @ 0x1C011C768 (-UntrapAppContainerRenderingWorker@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEBK@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?UntrapAppContainerRenderingWorker@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEBK@Z @ 0x1C008E548 (-UntrapAppContainerRenderingWorker@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEBK@Z.c)
+ *     ?bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ @ 0x1C008E85C (-bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ.c)
  */
 
 void __fastcall DEVLOCKOBJ::vDestructorNULL(DEVLOCKOBJ *this)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  int v6; // eax
+  int v2; // eax
   __int64 ThreadWin32Thread; // rax
-  int v8; // eax
+  int v4; // eax
+  __int64 v5; // rdx
 
-  DEVLOCKOBJ::bDisposeTrgDco(this);
-  v6 = *((_DWORD *)this + 6);
-  if ( (v6 & 0x1000) != 0 )
+  DEVLOCKOBJ::bDisposeTrgDcoWorker(this);
+  v2 = *((_DWORD *)this + 6);
+  if ( (v2 & 0x1000) != 0 )
   {
-    GreDecLockCount(v3, v2, v4, v5);
+    GreDecLockCount();
     *((_DWORD *)this + 6) &= ~0x1000u;
     ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
     if ( ThreadWin32Thread )
@@ -31,24 +28,25 @@ void __fastcall DEVLOCKOBJ::vDestructorNULL(DEVLOCKOBJ *this)
       *(_QWORD *)(ThreadWin32Thread + 312) = 0LL;
     }
   }
-  else if ( (v6 & 0x800000) != 0 )
+  else if ( (v2 & 0x800000) != 0 )
   {
-    GreDecLockCount(v3, v2, v4, v5);
+    GreDecLockCount();
     *((_DWORD *)this + 6) &= ~0x800000u;
   }
   if ( *(_QWORD *)this )
   {
-    EtwTraceGreLockReleaseSemaphore(L"hsemTrg");
+    EtwTraceGreLockReleaseSemaphore(L"hsemTrg", *(_QWORD *)this);
     GreReleaseSemaphoreInternal(*(_QWORD *)this);
     *(_QWORD *)this = 0LL;
     *((_QWORD *)this + 2) = 0LL;
   }
-  v8 = *((_DWORD *)this + 6);
-  if ( (v8 & 8) != 0 )
-    *((_DWORD *)this + 6) = v8 & 0xFFFFFFF7;
-  if ( *((_QWORD *)this + 1) )
+  v4 = *((_DWORD *)this + 6);
+  if ( (v4 & 8) != 0 )
+    *((_DWORD *)this + 6) = v4 & 0xFFFFFFF7;
+  v5 = *((_QWORD *)this + 1);
+  if ( v5 )
   {
-    EtwTraceGreLockReleaseSemaphore(L"hsemDMC");
+    EtwTraceGreLockReleaseSemaphore(L"hsemDMC", v5);
     GreReleaseSemaphoreInternal(*((_QWORD *)this + 1));
     *((_QWORD *)this + 1) = 0LL;
   }

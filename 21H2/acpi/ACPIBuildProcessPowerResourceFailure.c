@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIBuildProcessPowerResourceFailure @ 0x1C004A9D0
+ * XREFs of ACPIBuildProcessPowerResourceFailure @ 0x1C004BEC0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildProcessGenericComplete @ 0x1C0004900 (ACPIBuildProcessGenericComplete.c)
+ *     ACPIBuildProcessGenericComplete @ 0x1C001D510 (ACPIBuildProcessGenericComplete.c)
  */
 
 __int64 __fastcall ACPIBuildProcessPowerResourceFailure(PSLIST_ENTRY ListEntry)

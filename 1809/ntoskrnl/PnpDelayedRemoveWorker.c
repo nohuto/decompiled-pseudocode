@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpDelayedRemoveWorker @ 0x1406EE840
+ * XREFs of PnpDelayedRemoveWorker @ 0x1406EE820
  * Callers:
- *     PnpChainDereferenceComplete @ 0x1406ECC28 (PnpChainDereferenceComplete.c)
+ *     PnpChainDereferenceComplete @ 0x1406ECC08 (PnpChainDereferenceComplete.c)
  * Callees:
  *     PnpFreeWatchdog @ 0x140005AF8 (PnpFreeWatchdog.c)
  *     PnpAllocateWatchdog @ 0x140005D1C (PnpAllocateWatchdog.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     PnpDisableDelayedRemoveWorkerWatchdog @ 0x1402899B8 (PnpDisableDelayedRemoveWorkerWatchdog.c)
- *     PnpEnableDelayedRemoveWorkerWatchdog @ 0x140289A1C (PnpEnableDelayedRemoveWorkerWatchdog.c)
+ *     PnpDisableDelayedRemoveWorkerWatchdog @ 0x140289AB8 (PnpDisableDelayedRemoveWorkerWatchdog.c)
+ *     PnpEnableDelayedRemoveWorkerWatchdog @ 0x140289B1C (PnpEnableDelayedRemoveWorkerWatchdog.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
  *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
- *     PipRemoveDevicesInRelationList @ 0x1406EF6A0 (PipRemoveDevicesInRelationList.c)
+ *     PipRemoveDevicesInRelationList @ 0x1406EF680 (PipRemoveDevicesInRelationList.c)
  */
 
 void __fastcall PnpDelayedRemoveWorker(__int64 P)

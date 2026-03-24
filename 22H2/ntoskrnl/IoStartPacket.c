@@ -1,30 +1,29 @@
 /*
- * XREFs of IoStartPacket @ 0x140557380
+ * XREFs of IoStartPacket @ 0x1405060C0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KeInsertByKeyDeviceQueue @ 0x14045FF80 (KeInsertByKeyDeviceQueue.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KeInsertDeviceQueue @ 0x140573310 (KeInsertDeviceQueue.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KeInsertByKeyDeviceQueue @ 0x14051A800 (KeInsertByKeyDeviceQueue.c)
+ *     KeInsertDeviceQueue @ 0x14051A8C0 (KeInsertDeviceQueue.c)
  */
 
 void __stdcall IoStartPacket(PDEVICE_OBJECT DeviceObject, PIRP Irp, PULONG Key, PDRIVER_CANCEL CancelFunction)
 {
   KIRQL v8; // r14
-  unsigned __int8 CurrentIrql; // di
+  unsigned __int8 CurrentIrql; // bp
   _DWORD *SchedulerAssist; // r9
-  int v11; // eax
   union _IRP::$66699B8BF83DC91F51A70E4C6E3F33A6 *p_Tail; // rdx
   KDEVICE_QUEUE *p_DeviceQueue; // rcx
   BOOLEAN inserted; // al
-  unsigned __int8 v15; // al
+  unsigned __int8 v14; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v17; // r8
-  int v18; // eax
-  bool v19; // zf
+  _DWORD *v16; // r8
+  int v17; // eax
+  bool v18; // zf
 
   v8 = 0;
   CurrentIrql = KeGetCurrentIrql();
@@ -32,10 +31,7 @@ void __stdcall IoStartPacket(PDEVICE_OBJECT DeviceObject, PIRP Irp, PULONG Key, 
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    v11 = 4;
-    if ( CurrentIrql != 2 )
-      v11 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v11;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
   if ( CancelFunction )
   {
@@ -77,16 +73,19 @@ void __stdcall IoStartPacket(PDEVICE_OBJECT DeviceObject, PIRP Irp, PULONG Key, 
   }
   if ( KiIrqlFlags )
   {
-    v15 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v17 = CurrentPrcb->SchedulerAssist;
-      v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v19 = (v18 & v17[5]) == 0;
-      v17[5] &= v18;
-      if ( v19 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v14 = KeGetCurrentIrql();
+      if ( v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v16 = CurrentPrcb->SchedulerAssist;
+        v17 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v18 = (v17 & v16[5]) == 0;
+        v16[5] &= v17;
+        if ( v18 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);

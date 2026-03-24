@@ -1,37 +1,35 @@
 /*
- * XREFs of GetScreenRectForDpi @ 0x1C00CFD44
+ * XREFs of GetScreenRectForDpi @ 0x1C0042590
  * Callers:
- *     GetScreenRect @ 0x1C00AC98C (GetScreenRect.c)
- *     _MonitorFromRect @ 0x1C00D0160 (_MonitorFromRect.c)
- *     xxxInitSendValidateMinMaxInfoEx @ 0x1C00ED180 (xxxInitSendValidateMinMaxInfoEx.c)
- *     GetScreenRectForWindow @ 0x1C0157A74 (GetScreenRectForWindow.c)
+ *     GetScreenRectForDpiContext @ 0x1C0042514 (GetScreenRectForDpiContext.c)
+ *     GetScreenRect @ 0x1C0122924 (GetScreenRect.c)
+ *     xxxSoundSentry @ 0x1C015D2B0 (xxxSoundSentry.c)
  * Callees:
- *     GetMonitorRectForDpi @ 0x1C00CFCCC (GetMonitorRectForDpi.c)
- *     CalculateLogicalMonitorRect @ 0x1C00D0B34 (CalculateLogicalMonitorRect.c)
+ *     GetMonitorRectForDpi @ 0x1C0041F48 (GetMonitorRectForDpi.c)
  */
 
 __m128i *__fastcall GetScreenRectForDpi(__m128i *a1, unsigned __int16 a2)
 {
-  __int64 *DispInfo; // rax
+  __int64 *v4; // rax
   __int64 v5; // rcx
   __m128i v6; // xmm0
-  __int64 v8; // rax
+  __int64 DispInfo; // rax
   __int64 v9; // rdi
   __m128i v10; // xmm0
-  int v11; // ebp
-  int v12; // r14d
-  int v13; // r15d
-  int v14; // r12d
+  int v11; // r14d
+  int v12; // r15d
+  int v13; // r12d
+  int v14; // r13d
   __int64 *MonitorRectForDpi; // rax
   __m128i v16; // xmm0
   unsigned __int64 v17; // rax
   unsigned __int64 v18; // xmm0_8
   unsigned __int64 v19; // rax
-  __m128i v20; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v21; // [rsp+40h] [rbp-38h] BYREF
+  __m128i v20; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v21; // [rsp+30h] [rbp-10h] BYREF
 
-  DispInfo = (__int64 *)GetDispInfo(a1);
-  v5 = *DispInfo;
+  v4 = (__int64 *)((__int64 (*)(void))GetDispInfo)();
+  v5 = *v4;
   if ( !a2 )
   {
     v6 = *(__m128i *)(v5 + 24);
@@ -41,17 +39,11 @@ LABEL_3:
   }
   if ( *(_DWORD *)v5 == 1 )
   {
-    v8 = GetDispInfo(v5);
-    CalculateLogicalMonitorRect(
-      (unsigned int)&v20,
-      *(_QWORD *)(*(_QWORD *)(v8 + 96) + 40LL) + 28,
-      *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(v8 + 96) + 40LL) + 60LL),
-      a2,
-      *(_WORD *)(*(_QWORD *)(*(_QWORD *)(v8 + 96) + 40LL) + 62LL));
-    v6 = v20;
+    DispInfo = GetDispInfo(v5, 0LL);
+    v6 = *(__m128i *)GetMonitorRectForDpi(v20.m128i_i64, *(_QWORD *)(DispInfo + 96), a2);
     goto LABEL_3;
   }
-  v9 = DispInfo[13];
+  v9 = v4[13];
   v10 = 0LL;
   v20 = 0LL;
   if ( v9 )
@@ -81,11 +73,11 @@ LABEL_3:
         if ( v11 <= SHIDWORD(v18) )
           v11 = HIDWORD(v18);
         v20.m128i_i32[3] = v11;
-        v10 = _mm_loadu_si128(&v20);
       }
       v9 = *(_QWORD *)(v9 + 56);
     }
     while ( v9 );
+    v10 = _mm_loadu_si128(&v20);
   }
   *a1 = v10;
   return a1;

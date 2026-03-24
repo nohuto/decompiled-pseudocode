@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIProcessorBuildBootApicIds @ 0x1C00A1560
+ * XREFs of ACPIProcessorBuildBootApicIds @ 0x1C0090D94
  * Callers:
- *     ACPIProcessorStartDeviceWorker @ 0x1C0004D10 (ACPIProcessorStartDeviceWorker.c)
+ *     ACPIProcessorStartDeviceWorker @ 0x1C000D040 (ACPIProcessorStartDeviceWorker.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
  */
 
 __int64 ACPIProcessorBuildBootApicIds()
@@ -16,7 +16,10 @@ __int64 ACPIProcessorBuildBootApicIds()
   if ( AcpiBootProcessorApicIds )
     return 0LL;
   AcpiBootProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
-  AcpiBootProcessorApicIds = ExAllocatePool2(64LL, 4LL * (unsigned int)AcpiBootProcessorCount, 1299211073LL);
+  AcpiBootProcessorApicIds = (__int64)ExAllocatePoolWithTag(
+                                        NonPagedPoolNx,
+                                        4LL * (unsigned int)AcpiBootProcessorCount,
+                                        0x4D706341u);
   if ( !AcpiBootProcessorApicIds )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )

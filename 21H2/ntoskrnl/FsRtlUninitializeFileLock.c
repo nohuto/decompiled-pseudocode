@@ -1,98 +1,92 @@
 /*
- * XREFs of FsRtlUninitializeFileLock @ 0x140259FA0
+ * XREFs of FsRtlUninitializeFileLock @ 0x14029DDF0
  * Callers:
- *     FsRtlFreeFileLock @ 0x140259F70 (FsRtlFreeFileLock.c)
+ *     FsRtlFreeFileLock @ 0x14029CFC0 (FsRtlFreeFileLock.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     RtlDeleteNoSplay @ 0x14021D900 (RtlDeleteNoSplay.c)
- *     FsRtlCompleteLockIrpReal @ 0x14021F5E4 (FsRtlCompleteLockIrpReal.c)
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     RtlDeleteNoSplay @ 0x14029FFC0 (RtlDeleteNoSplay.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlCompleteLockIrpReal @ 0x1404EF930 (FsRtlCompleteLockIrpReal.c)
  */
 
 void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
 {
   char *LockInformation; // rbx
   KIRQL v3; // bp
-  RTL_SPLAY_LINKS **v4; // r14
-  RTL_SPLAY_LINKS *v5; // rdi
-  PRTL_SPLAY_LINKS *v6; // rsi
-  PRTL_SPLAY_LINKS v7; // rdi
-  _QWORD *v8; // rdi
-  KSPIN_LOCK *v9; // rcx
-  RTL_SPLAY_LINKS *v10; // rsi
+  _QWORD *v4; // rsi
+  PRTL_SPLAY_LINKS *v5; // rsi
+  PRTL_SPLAY_LINKS v6; // rdi
+  _QWORD *v7; // rdi
+  KSPIN_LOCK *v8; // rcx
+  RTL_SPLAY_LINKS *v9; // rdi
   _RTL_SPLAY_LINKS *Parent; // rdx
-  __int64 v12; // rsi
-  KIRQL v13; // dl
+  __int64 v11; // rsi
+  KIRQL v12; // dl
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r8
   _DWORD *SchedulerAssist; // r10
-  int v17; // eax
-  bool v18; // zf
-  unsigned __int8 v19; // al
-  struct _KPRCB *v20; // rdx
-  _DWORD *v21; // r9
-  int v22; // eax
-  NTSTATUS v23; // [rsp+60h] [rbp+8h] BYREF
+  int v16; // eax
+  bool v17; // zf
+  unsigned __int8 v18; // al
+  struct _KPRCB *v19; // rdx
+  _DWORD *v20; // r9
+  int v21; // eax
+  int v22; // [rsp+60h] [rbp+8h] BYREF
 
-  v23 = 0;
+  v22 = 0;
   LockInformation = (char *)FileLock->LockInformation;
   if ( LockInformation )
   {
     v3 = KeAcquireSpinLockRaiseToDpc(&FsRtlFileLockCancelCollideLock);
     KxAcquireSpinLock((PKSPIN_LOCK)LockInformation + 3);
-    v4 = (RTL_SPLAY_LINKS **)(LockInformation + 32);
-    while ( 1 )
+    v4 = LockInformation + 32;
+    while ( *v4 )
     {
-      v5 = *v4;
-      if ( !*v4 )
-        break;
-      v10 = v5 - 1;
-      while ( 1 )
+      v9 = (RTL_SPLAY_LINKS *)(*v4 - 24LL);
+      while ( v9->Parent )
       {
-        Parent = v10->Parent;
-        if ( !v10->Parent )
-          break;
-        v10->Parent = Parent->Parent;
+        Parent = v9->Parent;
+        v9->Parent = v9->Parent->Parent;
         ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, Parent);
       }
-      RtlDeleteNoSplay(v5, (PRTL_SPLAY_LINKS *)LockInformation + 4);
-      ExFreeToNPagedLookasideList(&FsRtlLockTreeNodeLookasideList, &v5[-1]);
+      RtlDeleteNoSplay(v9 + 1, (PRTL_SPLAY_LINKS *)LockInformation + 4);
+      ExFreeToNPagedLookasideList(&FsRtlLockTreeNodeLookasideList, v9);
     }
-    v6 = (PRTL_SPLAY_LINKS *)(LockInformation + 40);
+    v5 = (PRTL_SPLAY_LINKS *)(LockInformation + 40);
     while ( 1 )
     {
-      v7 = *v6;
-      if ( !*v6 )
+      v6 = *v5;
+      if ( !*v5 )
         break;
-      RtlDeleteNoSplay(*v6, (PRTL_SPLAY_LINKS *)LockInformation + 5);
-      ExFreeToNPagedLookasideList(&FsRtlExclusiveLockLookasideList, v7);
+      RtlDeleteNoSplay(*v5, (PRTL_SPLAY_LINKS *)LockInformation + 5);
+      ExFreeToNPagedLookasideList(&FsRtlExclusiveLockLookasideList, v6);
     }
     while ( 1 )
     {
-      v8 = (_QWORD *)*((_QWORD *)LockInformation + 6);
-      v9 = (KSPIN_LOCK *)(LockInformation + 24);
-      if ( !v8 )
+      v7 = (_QWORD *)*((_QWORD *)LockInformation + 6);
+      v8 = (KSPIN_LOCK *)(LockInformation + 24);
+      if ( !v7 )
         break;
-      *((_QWORD *)LockInformation + 6) = *v8;
-      v12 = v8[3];
-      KxReleaseSpinLock(v9);
-      *(_BYTE *)(v12 + 69) = KeAcquireQueuedSpinLock(7uLL);
-      _InterlockedExchange64((volatile __int64 *)(v12 + 104), 0LL);
-      v13 = *(_BYTE *)(v12 + 69);
-      if ( *(_BYTE *)(v12 + 68) )
+      *((_QWORD *)LockInformation + 6) = *v7;
+      v11 = v7[3];
+      KxReleaseSpinLock(v8);
+      *(_BYTE *)(v11 + 69) = KeAcquireQueuedSpinLock(7uLL);
+      _InterlockedExchange64((volatile __int64 *)(v11 + 104), 0LL);
+      v12 = *(_BYTE *)(v11 + 69);
+      if ( *(_BYTE *)(v11 + 68) )
       {
-        KeReleaseQueuedSpinLock(7uLL, v13);
-        *v8 = FsRtlFileLockCancelCollideList;
-        FsRtlFileLockCancelCollideList = (__int64)v8;
+        KeReleaseQueuedSpinLock(7uLL, v12);
+        *v7 = FsRtlFileLockCancelCollideList;
+        FsRtlFileLockCancelCollideList = (__int64)v7;
       }
       else
       {
-        KeReleaseQueuedSpinLock(7uLL, v13);
+        KeReleaseQueuedSpinLock(7uLL, v12);
         KxReleaseSpinLock(&FsRtlFileLockCancelCollideLock);
         if ( KiIrqlFlags )
         {
@@ -103,44 +97,38 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
-              v17 = ~(unsigned __int16)(-1LL << (v3 + 1));
-              v18 = (v17 & SchedulerAssist[5]) == 0;
-              SchedulerAssist[5] &= v17;
-              if ( v18 )
+              v16 = ~(unsigned __int16)(-1LL << (v3 + 1));
+              v17 = (v16 & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= v16;
+              if ( v17 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
         }
         __writecr8(v3);
-        *(_QWORD *)(v12 + 56) = 0LL;
-        FsRtlCompleteLockIrpReal(
-          *((__int64 (__fastcall **)(__int64, IRP *))LockInformation + 1),
-          v8[2],
-          (IRP *)v12,
-          -1073741698,
-          &v23,
-          0LL);
-        ExFreeToNPagedLookasideList(&FsRtlWaitingLockLookasideList, v8);
+        *(_QWORD *)(v11 + 56) = 0LL;
+        FsRtlCompleteLockIrpReal(*((_QWORD *)LockInformation + 1), v7[2], v11, 3221225598LL, &v22, 0LL);
+        ExFreeToNPagedLookasideList(&FsRtlWaitingLockLookasideList, v7);
         v3 = KeAcquireSpinLockRaiseToDpc(&FsRtlFileLockCancelCollideLock);
       }
       KxAcquireSpinLock((PKSPIN_LOCK)LockInformation + 3);
     }
-    KxReleaseSpinLock(v9);
+    KxReleaseSpinLock(v8);
     KxReleaseSpinLock(&FsRtlFileLockCancelCollideLock);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v19 = KeGetCurrentIrql();
-        if ( v19 <= 0xFu && v3 <= 0xFu && v19 >= 2u )
+        v18 = KeGetCurrentIrql();
+        if ( v18 <= 0xFu && v3 <= 0xFu && v18 >= 2u )
         {
-          v20 = KeGetCurrentPrcb();
-          v21 = v20->SchedulerAssist;
-          v22 = ~(unsigned __int16)(-1LL << (v3 + 1));
-          v18 = (v22 & v21[5]) == 0;
-          v21[5] &= v22;
-          if ( v18 )
-            KiRemoveSystemWorkPriorityKick(v20);
+          v19 = KeGetCurrentPrcb();
+          v20 = v19->SchedulerAssist;
+          v21 = ~(unsigned __int16)(-1LL << (v3 + 1));
+          v17 = (v21 & v20[5]) == 0;
+          v20[5] &= v21;
+          if ( v17 )
+            KiRemoveSystemWorkPriorityKick(v19);
         }
       }
     }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Synchronize@CSynchronizationManager@DirectComposition@@SAJPEAVCBatch@2@@Z @ 0x1C00104D4
+ * XREFs of ?Synchronize@CSynchronizationManager@DirectComposition@@SAJPEAVCBatch@2@@Z @ 0x1C005DA30
  * Callers:
- *     NtDCompositionSynchronize @ 0x1C0010400 (NtDCompositionSynchronize.c)
+ *     NtDCompositionSynchronize @ 0x1C005D960 (NtDCompositionSynchronize.c)
  * Callees:
  *     <none>
  */

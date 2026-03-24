@@ -1,16 +1,14 @@
 /*
- * XREFs of CmpCompareUnicodeString @ 0x140690A4C
+ * XREFs of CmpCompareUnicodeString @ 0x1406EB710
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
- *     CmpCreateKeyControlBlock @ 0x1406D8840 (CmpCreateKeyControlBlock.c)
- *     CmpCheckValueList @ 0x1406DE570 (CmpCheckValueList.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7F40 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpFindKcbInHashEntryByName @ 0x1407C4BAC (CmpFindKcbInHashEntryByName.c)
- *     CmpGetMappingHiveForString @ 0x140A19C18 (CmpGetMappingHiveForString.c)
- *     CmpCompareKeysByName @ 0x140A1F774 (CmpCompareKeysByName.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmpFindKcbInHashEntryByName @ 0x1405EFB44 (CmpFindKcbInHashEntryByName.c)
+ *     CmpCheckValueList @ 0x1405F0460 (CmpCheckValueList.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x1406405D0 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpGetMappingHiveForString @ 0x1406EB5F8 (CmpGetMappingHiveForString.c)
+ *     CmpCompareKeysByName @ 0x140875DA4 (CmpCompareKeysByName.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D330 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x140206AB0 (NLS_UPCASE.c)
  */
 
 __int64 __fastcall CmpCompareUnicodeString(__int64 a1, __int64 a2, char a3)
@@ -18,13 +16,9 @@ __int64 __fastcall CmpCompareUnicodeString(__int64 a1, __int64 a2, char a3)
   unsigned __int16 *v4; // rdi
   unsigned __int16 *v5; // rsi
   unsigned __int16 v6; // bx
-  unsigned __int16 v7; // r9
-  unsigned __int16 v8; // r10
-  unsigned __int16 v9; // r11
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 v12; // r10
-  _QWORD *v13; // rax
-  unsigned __int16 v14; // r11
+  unsigned __int16 v7; // r11
+  unsigned __int16 v8; // r9
+  unsigned __int16 v9; // r10
 
   v4 = *(unsigned __int16 **)(a1 + 8);
   v5 = *(unsigned __int16 **)(a2 + 8);
@@ -41,26 +35,16 @@ __int64 __fastcall CmpCompareUnicodeString(__int64 a1, __int64 a2, char a3)
         if ( (a3 & 1) == 0 && v8 >= 0x61u )
         {
           if ( v8 > 0x7Au )
-          {
-            CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-            v8 = NLS_UPCASE(CurrentServerSiloGlobals[154], v12);
-          }
+            v8 = NLS_UPCASE(v8);
           else
-          {
             v8 -= 32;
-          }
         }
         if ( (a3 & 2) == 0 && v9 >= 0x61u )
         {
           if ( v9 <= 0x7Au )
-          {
             v9 -= 32;
-          }
           else
-          {
-            v13 = PsGetCurrentServerSiloGlobals();
-            v9 = NLS_UPCASE(v13[154], v14);
-          }
+            v9 = NLS_UPCASE(v9);
         }
         if ( v8 != v9 )
           return v8 - (unsigned int)v9;

@@ -1,57 +1,64 @@
 /*
- * XREFs of MiDrainSystemAccessLog @ 0x1402829D0
+ * XREFs of MiDrainSystemAccessLog @ 0x14025BB80
  * Callers:
- *     MiDeleteSessionAddressSpace @ 0x140216B04 (MiDeleteSessionAddressSpace.c)
- *     MiCleanWorkingSet @ 0x14024E9E0 (MiCleanWorkingSet.c)
- *     MiDecrementPartialVadSubsections @ 0x1402ED0C4 (MiDecrementPartialVadSubsections.c)
- *     MiEmptyAccessLogs @ 0x140375ED0 (MiEmptyAccessLogs.c)
- *     MiCaptureAndResetWorkingSetAccessBits @ 0x1403D2280 (MiCaptureAndResetWorkingSetAccessBits.c)
- *     MiDeleteVad @ 0x1407BC0B0 (MiDeleteVad.c)
+ *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
+ *     MiCleanWorkingSet @ 0x1402C4164 (MiCleanWorkingSet.c)
+ *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
+ *     MiDeleteSessionAddressSpace @ 0x1403895EC (MiDeleteSessionAddressSpace.c)
+ *     MiCaptureAndResetWorkingSetAccessBits @ 0x1403A0948 (MiCaptureAndResetWorkingSetAccessBits.c)
+ *     MiEmptyAccessLogs @ 0x1403A3430 (MiEmptyAccessLogs.c)
  * Callees:
- *     MiGetSharedVm @ 0x140282AD0 (MiGetSharedVm.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiEmptyPageAccessLog @ 0x140334400 (MiEmptyPageAccessLog.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiEmptyPageAccessLog @ 0x14025BC70 (MiEmptyPageAccessLog.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall MiDrainSystemAccessLog(__int64 a1)
+__int64 __fastcall MiDrainSystemAccessLog(__int64 a1, __int64 a2, __int64 a3)
 {
-  _QWORD *v1; // rbx
-  char result; // al
+  __int64 result; // rax
+  char v4; // cl
+  PVOID *v5; // rbx
   unsigned __int8 CurrentIrql; // di
-  __int64 SharedVm; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rax
+  unsigned __int64 *v7; // rdx
   _DWORD *SchedulerAssist; // r9
   unsigned __int8 v9; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *v11; // r8
   int v12; // eax
   bool v13; // zf
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  v1 = &unk_140C53D28;
-  result = *(_BYTE *)(a1 + 184) & 7;
-  if ( result != 2 )
-    v1 = (_QWORD *)(a1 + 232);
-  if ( *v1 )
+  result = a1;
+  v4 = *(_BYTE *)(a1 + 184) & 7;
+  *(_QWORD *)&LockHandle.OldIrql = 0LL;
+  if ( v4 == 2 )
+    v5 = (PVOID *)&unk_140C4F7A8;
+  else
+    v5 = (PVOID *)(result + 232);
+  if ( *v5 )
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+      a3 = (-1 << (CurrentIrql + 1)) & 4u | SchedulerAssist[5];
+      SchedulerAssist[5] = a3;
     }
-    SharedVm = MiGetSharedVm(a1);
-    ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(SharedVm + 64));
-    if ( *v1 )
+    if ( (*(_BYTE *)(result + 184) & 7) == 2 )
+      v7 = (unsigned __int64 *)&unk_140C4F7C0;
+    else
+      v7 = (unsigned __int64 *)(result + 256);
+    LockHandle.LockQueue.Lock = v7;
+    LockHandle.LockQueue.Next = 0LL;
+    KxAcquireQueuedSpinLock(&LockHandle, v7, a3);
+    if ( *v5 )
     {
-      MiEmptyPageAccessLog(*v1, v6);
-      *v1 = 0LL;
+      MiEmptyPageAccessLog(*v5);
+      *v5 = 0LL;
     }
-    v7 = MiGetSharedVm(a1);
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v7 + 64));
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )

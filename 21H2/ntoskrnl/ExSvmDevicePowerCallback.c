@@ -1,9 +1,9 @@
 /*
- * XREFs of ExSvmDevicePowerCallback @ 0x1406407C0
+ * XREFs of ExSvmDevicePowerCallback @ 0x1405B82F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExSvmDevicePowerCallback(__int64 a1, int a2, __int64 a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of xxxGetWindowText @ 0x1C01F2D84
+ * XREFs of xxxGetWindowText @ 0x1C0159724
  * Callers:
- *     xxxDrawCaptionTemp @ 0x1C022C094 (xxxDrawCaptionTemp.c)
+ *     xxxDrawCaptionTemp @ 0x1C0158B14 (xxxDrawCaptionTemp.c)
  * Callees:
- *     xxxDefWindowProc @ 0x1C0020FF0 (xxxDefWindowProc.c)
- *     xxxSendMessage @ 0x1C0127178 (xxxSendMessage.c)
+ *     xxxDefWindowProc @ 0x1C00484E0 (xxxDefWindowProc.c)
+ *     xxxSendMessage @ 0x1C005D594 (xxxSendMessage.c)
  */
 
-__int64 __fastcall xxxGetWindowText(struct tagWND *a1, _WORD *a2)
+__int64 __fastcall xxxGetWindowText(unsigned __int64 a1, _WORD *a2)
 {
   __int64 v2; // r8
   __int64 v3; // rax
@@ -21,13 +21,13 @@ __int64 __fastcall xxxGetWindowText(struct tagWND *a1, _WORD *a2)
 
   v10 = a2;
   *a2 = 0;
-  v2 = *((_QWORD *)a1 + 2);
+  v2 = *(_QWORD *)(a1 + 16);
   v9 = 512;
   v8 = 0;
   if ( *(_QWORD *)(v2 + 424) == *(_QWORD *)(gptiCurrent + 424LL) )
-    v3 = xxxSendMessage((ULONG_PTR)a1);
+    v3 = xxxSendMessage(a1, 0xDu, 0x100uLL, (struct _LARGE_STRING *)&v8);
   else
-    v3 = xxxDefWindowProc(a1, 0xDu, 256LL, (__int64)&v8);
+    v3 = xxxDefWindowProc((struct tagWND *)a1, 13LL, 256LL, (__int64)&v8);
   v4 = v8;
   v5 = v3;
   if ( v8 > (unsigned __int64)(v9 & 0x7FFFFFFF) - 2 )

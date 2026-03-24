@@ -1,10 +1,11 @@
 /*
- * XREFs of ?zzzFixupGlobalCursorWhenChanged@@YAXPEAUtagCURSOR@@@Z @ 0x1C0021768
+ * XREFs of ?zzzFixupGlobalCursorWhenChanged@@YAXPEAUtagCURSOR@@@Z @ 0x1C0025068
  * Callers:
- *     ?zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z @ 0x1C00213F0 (-zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z.c)
- *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0026260 (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0024BDC (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     ?zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z @ 0x1C0024CC8 (-zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z.c)
+ *     ?zzzSetCursorContents@@YA_NPEAUtagCURSOR@@0@Z @ 0x1C01685C0 (-zzzSetCursorContents@@YA_NPEAUtagCURSOR@@0@Z.c)
  * Callees:
- *     zzzUpdateCursorImage @ 0x1C00E6B60 (zzzUpdateCursorImage.c)
+ *     zzzUpdateCursorImage @ 0x1C0080E90 (zzzUpdateCursorImage.c)
  */
 
 void __fastcall zzzFixupGlobalCursorWhenChanged(struct tagCURSOR **a1)

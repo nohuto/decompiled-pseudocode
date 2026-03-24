@@ -1,9 +1,9 @@
 /*
- * XREFs of MiConfigureMemoryRemoval @ 0x140969320
+ * XREFs of MiConfigureMemoryRemoval @ 0x1408C5AE8
  * Callers:
- *     MiRemovePhysicalMemory @ 0x140969850 (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
  */
 
 __int64 __fastcall MiConfigureMemoryRemoval(_QWORD *a1, unsigned int *a2, _QWORD *a3)
@@ -12,7 +12,7 @@ __int64 __fastcall MiConfigureMemoryRemoval(_QWORD *a1, unsigned int *a2, _QWORD
   char v4; // bl
   unsigned int *v7; // rdi
   _QWORD *v8; // rcx
-  unsigned __int64 v9; // r14
+  unsigned __int64 v9; // r15
   __int64 v10; // r10
   unsigned __int64 v11; // rbp
   __int64 v12; // rsi
@@ -20,17 +20,15 @@ __int64 __fastcall MiConfigureMemoryRemoval(_QWORD *a1, unsigned int *a2, _QWORD
   unsigned __int64 v14; // rdx
   SIZE_T v15; // rdx
   _QWORD *Pool; // rax
-  char *v18; // r12
-  char *v19; // rdx
-  unsigned int v20; // ecx
-  unsigned __int64 *v21; // r11
-  __int64 v22; // r10
-  _QWORD *v23; // r8
-  unsigned __int64 v24; // rcx
-  unsigned __int64 v25; // r9
-  unsigned __int64 v26; // rax
-  __int64 v27; // rcx
-  __int64 v28; // [rsp+50h] [rbp+8h]
+  char *v18; // rdx
+  unsigned int v19; // ecx
+  unsigned __int64 *v20; // r11
+  __int64 v21; // r10
+  _QWORD *v22; // r8
+  unsigned __int64 v23; // rcx
+  unsigned __int64 v24; // r9
+  __int64 v25; // rcx
+  __int64 v26; // [rsp+50h] [rbp+8h]
 
   v3 = *a2;
   v4 = 0;
@@ -42,8 +40,8 @@ __int64 __fastcall MiConfigureMemoryRemoval(_QWORD *a1, unsigned int *a2, _QWORD
   v8 = a2 + 6;
   v9 = a3[2];
   v10 = 0LL;
-  v28 = a3[3];
-  v11 = v28 + v9;
+  v26 = a3[3];
+  v11 = v26 + v9;
   v12 = -2LL;
   while ( 1 )
   {
@@ -78,63 +76,60 @@ LABEL_15:
   if ( !Pool )
     return 3221225626LL;
   Pool[1] = 1LL;
-  v18 = (char *)(Pool + 2);
   *Pool = &MiSystemPartition;
-  v19 = (char *)(Pool + 4);
-  v20 = v12 + *a2;
-  v21 = (unsigned __int64 *)(a2 + 4);
-  v22 = 0LL;
-  *((_DWORD *)Pool + 4) = v20;
-  v23 = &Pool[2 * v20 + 4];
-  Pool[3] = *((_QWORD *)a2 + 1) - v28;
+  v18 = (char *)(Pool + 4);
+  v19 = v12 + *a2;
+  v20 = (unsigned __int64 *)(a2 + 4);
+  v21 = 0LL;
+  *((_DWORD *)Pool + 4) = v19;
+  v22 = &Pool[2 * v19 + 4];
+  Pool[3] = *((_QWORD *)a2 + 1) - v26;
   do
   {
-    v24 = *v21;
-    v25 = *v21 + v21[1];
-    if ( (v4 & 1) != 0 || v9 < v24 || v11 > v25 )
+    v23 = *v20;
+    v24 = *v20 + v20[1];
+    if ( (v4 & 1) != 0 || v9 < v23 || v11 > v24 )
     {
-      *(_OWORD *)v19 = *(_OWORD *)v21;
-      goto LABEL_34;
+      *(_OWORD *)v18 = *(_OWORD *)v20;
+      goto LABEL_33;
     }
     v4 |= 1u;
-    if ( v9 == v24 )
+    if ( v9 == v23 )
     {
-      if ( v11 == v25 )
-        goto LABEL_36;
-LABEL_25:
-      v26 = v24 + v28;
-      if ( v9 != v24 )
-        v26 = *v21;
-      *(_QWORD *)v19 = v26;
-      *((_QWORD *)v19 + 1) = v21[1] - v28;
-LABEL_34:
-      v19 += 16;
+      if ( v11 == v24 )
+        goto LABEL_35;
+      v23 += v26;
+LABEL_26:
+      *(_QWORD *)v18 = v23;
+      *((_QWORD *)v18 + 1) = v20[1] - v26;
+LABEL_33:
+      v18 += 16;
       if ( v7 )
-        *v23++ = *(_QWORD *)&v7[2 * v22];
-      goto LABEL_36;
+        *v22++ = *(_QWORD *)&v7[2 * v21];
+      goto LABEL_35;
     }
-    if ( v11 == v25 )
-      goto LABEL_25;
-    *(_QWORD *)v19 = v24;
-    *((_QWORD *)v19 + 1) = v9 - v24;
+    if ( v11 == v24 )
+      goto LABEL_26;
+    *(_QWORD *)v18 = v23;
+    *((_QWORD *)v18 + 1) = v9 - v23;
     if ( v7 )
     {
-      v27 = 2LL;
+      v25 = 2LL;
       do
       {
-        *v23++ = *(_QWORD *)&v7[2 * v22];
-        --v27;
+        *v22++ = *(_QWORD *)&v7[2 * v21];
+        --v25;
       }
-      while ( v27 );
+      while ( v25 );
     }
-    *((_QWORD *)v19 + 2) = v11;
-    *((_QWORD *)v19 + 3) = v25 - v11;
-    v19 += 32;
-LABEL_36:
-    ++v22;
-    v21 += 2;
+    *((_QWORD *)v18 + 2) = v11;
+    *((_QWORD *)v18 + 3) = v24 - v11;
+    v18 += 32;
+LABEL_35:
+    ++v21;
+    v20 += 2;
   }
-  while ( v22 != *a2 );
-  *a1 = v18;
+  while ( v21 != *a2 );
+  *a1 = Pool + 2;
   return 0LL;
 }

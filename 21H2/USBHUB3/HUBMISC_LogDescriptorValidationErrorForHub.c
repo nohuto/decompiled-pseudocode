@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_LogDescriptorValidationErrorForHub @ 0x1C0031790
+ * XREFs of HUBMISC_LogDescriptorValidationErrorForHub @ 0x1C00310B0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0013230 (McTemplateK0ppqq_EtwWriteTransfer.c)
+ *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0012D2C (McTemplateK0ppqq_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall HUBMISC_LogDescriptorValidationErrorForHub(__int64 a1)

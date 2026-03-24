@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_ClearingEndpointHaltOnClientResetPipe @ 0x1C001F1E0
+ * XREFs of HUBDSM_ClearingEndpointHaltOnClientResetPipe @ 0x1C001C7D0
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_ClearEndpointHaltUsingControlTransfer @ 0x1C002C6E8 (HUBDTX_ClearEndpointHaltUsingControlTransfer.c)
+ *     HUBDTX_ClearEndpointHaltUsingControlTransfer @ 0x1C00297EC (HUBDTX_ClearEndpointHaltUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBDSM_ClearingEndpointHaltOnClientResetPipe(__int64 a1)

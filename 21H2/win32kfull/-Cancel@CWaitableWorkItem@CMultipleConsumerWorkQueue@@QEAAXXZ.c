@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ @ 0x1C02DC998
+ * XREFs of ?Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ @ 0x1C02DFC54
  * Callers:
- *     ?UmfdHostSendCompleteWaitReceive@@YAJW4FontDriverType@@@Z @ 0x1C0011080 (-UmfdHostSendCompleteWaitReceive@@YAJW4FontDriverType@@@Z.c)
- *     ?UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F77E8 (-UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ.c)
- *     ?UmfdCancelServerOutstandingRequests@@YAJPEAX@Z @ 0x1C00F7958 (-UmfdCancelServerOutstandingRequests@@YAJPEAX@Z.c)
+ *     ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A7AC0 (-UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     ?UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F4628 (-UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?UmfdCancelServerOutstandingRequests@@YAJPEAX@Z @ 0x1C00F4798 (-UmfdCancelServerOutstandingRequests@@YAJPEAX@Z.c)
  * Callees:
  *     <none>
  */

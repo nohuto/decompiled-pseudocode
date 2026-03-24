@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CCompositionSkyBoxBrushMarshaler@DirectComposition@@UEAAJXZ @ 0x1C022D6E0
+ * XREFs of ?Initialize@CCompositionSkyBoxBrushMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01F47E0
  * Callers:
  *     <none>
  * Callees:

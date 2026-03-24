@@ -1,32 +1,32 @@
 /*
- * XREFs of PopInvokeWin32Callout @ 0x1407D3E3C
+ * XREFs of PopInvokeWin32Callout @ 0x1406F45B8
  * Callers:
- *     PopEventCalloutDispatch @ 0x1403B5F0C (PopEventCalloutDispatch.c)
- *     PoSessionBuiltinPanelState @ 0x14059E010 (PoSessionBuiltinPanelState.c)
- *     PoSessionEngagementUpdate @ 0x14059E09C (PoSessionEngagementUpdate.c)
- *     PopDispatchStateCallout @ 0x140682AC8 (PopDispatchStateCallout.c)
- *     PopSendSessionInfo @ 0x1406831FC (PopSendSessionInfo.c)
- *     PopNotifyConsoleUserPresent @ 0x1407D3CC4 (PopNotifyConsoleUserPresent.c)
- *     PopPowerRequestCallbackDisplayRequired @ 0x1407D3D80 (PopPowerRequestCallbackDisplayRequired.c)
- *     PopBroadcastSessionInfo @ 0x140825E74 (PopBroadcastSessionInfo.c)
- *     PopPowerAggregatorNotifyCsStateExited @ 0x140993BD4 (PopPowerAggregatorNotifyCsStateExited.c)
- *     PopControlMonitor @ 0x140997E20 (PopControlMonitor.c)
- *     PoSessionPowerControl @ 0x14099BC6C (PoSessionPowerControl.c)
- *     PopWin32CalloutWatchdogCallback @ 0x14099BD20 (PopWin32CalloutWatchdogCallback.c)
+ *     PopGetConsoleDisplayRequestCount @ 0x14034AD04 (PopGetConsoleDisplayRequestCount.c)
+ *     PopEventCalloutDispatch @ 0x1403A707C (PopEventCalloutDispatch.c)
+ *     PoSessionBuiltinPanelState @ 0x14057BF50 (PoSessionBuiltinPanelState.c)
+ *     PoSessionEngagementUpdate @ 0x14057BFE0 (PoSessionEngagementUpdate.c)
+ *     PopDispatchStateCallout @ 0x140725A94 (PopDispatchStateCallout.c)
+ *     PopNotifyConsoleUserPresent @ 0x140772DC0 (PopNotifyConsoleUserPresent.c)
+ *     PopNotifySessionDisplayRequired @ 0x1407730F0 (PopNotifySessionDisplayRequired.c)
+ *     PopControlMonitor @ 0x140779EA0 (PopControlMonitor.c)
+ *     PopBroadcastSessionInfo @ 0x140791634 (PopBroadcastSessionInfo.c)
+ *     PopPowerAggregatorNotifyCsStateExited @ 0x1408EE640 (PopPowerAggregatorNotifyCsStateExited.c)
+ *     PoSessionPowerControl @ 0x1408F543C (PoSessionPowerControl.c)
+ *     PopSendSessionInfo @ 0x1408F54E0 (PopSendSessionInfo.c)
  * Callees:
- *     PdcCreateWatchdogAroundClientCall @ 0x140293330 (PdcCreateWatchdogAroundClientCall.c)
- *     MmGetSessionId @ 0x1402A3B20 (MmGetSessionId.c)
- *     MmGetNextSession @ 0x14035E6A0 (MmGetNextSession.c)
- *     ZwPowerInformation @ 0x14041B280 (ZwPowerInformation.c)
- *     memset @ 0x140435400 (memset.c)
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
+ *     HalSystemVectorDispatchEntry @ 0x1402526A0 (HalSystemVectorDispatchEntry.c)
+ *     MmGetSessionId @ 0x140252DB0 (MmGetSessionId.c)
+ *     MmGetNextSession @ 0x140263DE0 (MmGetNextSession.c)
+ *     ZwPowerInformation @ 0x1403FA600 (ZwPowerInformation.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PsInvokeWin32Callout @ 0x14061B5A0 (PsInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PopInvokeWin32Callout(int a1, __int64 a2, int a3, int *a4)
 {
   char v6; // si
   unsigned int v7; // r14d
-  _QWORD *NextSession; // rdi
+  struct _DMA_ADAPTER *NextSession; // rdi
   int v9; // r14d
   int *p_SessionId; // r15
   int v12; // [rsp+38h] [rbp-49h]
@@ -43,14 +43,15 @@ __int64 __fastcall PopInvokeWin32Callout(int a1, __int64 a2, int a3, int *a4)
   LODWORD(InputBuffer[0]) = 21;
   if ( ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x60u, &OutputBuffer, 8u) < 0 )
     return v7;
-  NextSession = (_QWORD *)MmGetNextSession(0LL);
+  NextSession = (struct _DMA_ADAPTER *)MmGetNextSession(0LL);
   do
   {
-    if ( NextSession && *(_QWORD *)(NextSession[171] + 784LL) != PdcCreateWatchdogAroundClientCall() )
+    if ( NextSession
+      && NextSession[85].DmaOperations[3].BuildScatterGatherList != (int (__fastcall *)(_DMA_ADAPTER *, _DEVICE_OBJECT *, _MDL *, void *, unsigned int, void (__fastcall *)(_DEVICE_OBJECT *, _IRP *, _SCATTER_GATHER_LIST *, void *), void *, unsigned __int8, void *, unsigned int))HalSystemVectorDispatchEntry() )
     {
       if ( a3 == 2 )
       {
-        NextSession = (_QWORD *)MmGetNextSession(NextSession);
+        NextSession = (struct _DMA_ADAPTER *)MmGetNextSession(NextSession);
         if ( NextSession )
           continue;
       }
@@ -67,7 +68,7 @@ __int64 __fastcall PopInvokeWin32Callout(int a1, __int64 a2, int a3, int *a4)
         v9 = 1;
         SessionId = MmGetSessionId((__int64)NextSession);
         p_SessionId = &SessionId;
-        NextSession = (_QWORD *)MmGetNextSession(NextSession);
+        NextSession = (struct _DMA_ADAPTER *)MmGetNextSession(NextSession);
         if ( !NextSession )
           v6 = 1;
       }
@@ -91,7 +92,7 @@ __int64 __fastcall PopInvokeWin32Callout(int a1, __int64 a2, int a3, int *a4)
         HIDWORD(InputBuffer[2]) = v12;
         InputBuffer[4] = KeGetCurrentThread();
         InputBuffer[10] = InputBuffer;
-        InputBuffer[9] = &PopWin32CalloutWatchdogCallback;
+        InputBuffer[9] = PopWin32CalloutWatchdogCallbackLiveDump;
         ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x60u, 0LL, 0);
       }
       v7 = PsInvokeWin32Callout(a1, a2, v9, (__int64)p_SessionId);

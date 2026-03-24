@@ -1,5 +1,5 @@
 /*
- * XREFs of NtAlpcDeleteSectionView @ 0x1406AE3D0
+ * XREFs of NtAlpcDeleteSectionView @ 0x1406AE3B0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     AlpcpEnumerateResourcesPort @ 0x140617AE8 (AlpcpEnumerateResourcesPort.c)
  *     AlpcpDeleteView @ 0x140618AC0 (AlpcpDeleteView.c)

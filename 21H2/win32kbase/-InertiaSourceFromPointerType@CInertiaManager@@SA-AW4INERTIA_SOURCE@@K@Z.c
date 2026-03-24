@@ -1,5 +1,5 @@
 /*
- * XREFs of ?InertiaSourceFromPointerType@CInertiaManager@@SA?AW4INERTIA_SOURCE@@K@Z @ 0x1C01E1140
+ * XREFs of ?InertiaSourceFromPointerType@CInertiaManager@@SA?AW4INERTIA_SOURCE@@K@Z @ 0x1C01A8CD0
  * Callers:
  *     <none>
  * Callees:

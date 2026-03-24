@@ -1,49 +1,50 @@
 /*
- * XREFs of ?FindOrCreateResourceNoRef@?$CDeviceResourceTable@VCD2DGenericInk@@VCGenericInk@@@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DGenericInk@@@Z @ 0x1802159F0
+ * XREFs of ?FindOrCreateResourceNoRef@?$CDeviceResourceTable@VCD2DGenericInk@@VCGenericInk@@@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DGenericInk@@@Z @ 0x1801C2DE4
  * Callers:
- *     ?ComputeBackgroundBlendInfo@CGenericInk@@UEBAXPEA_N0@Z @ 0x18019FE00 (-ComputeBackgroundBlendInfo@CGenericInk@@UEBAXPEA_N0@Z.c)
- *     ?GetBounds@CGenericInk@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180215BD8 (-GetBounds@CGenericInk@@UEBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointA.c)
- *     ?GetDirectInkWetStroke@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAUIDCompositionDirectInkWetStrokePartner@@@Z @ 0x180215CD8 (-GetDirectInkWetStroke@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAUIDCompositionDirectInkWetStrokeP.c)
+ *     ?ComputeBackgroundBlendInfo@CGenericInk@@UEBAXPEA_N0@Z @ 0x18016E430 (-ComputeBackgroundBlendInfo@CGenericInk@@UEBAXPEA_N0@Z.c)
+ *     ?GetBounds@CGenericInk@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801C2FD8 (-GetBounds@CGenericInk@@UEBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointA.c)
+ *     ?GetDirectInkWetStroke@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAUIDCompositionDirectInkWetStrokePartner@@@Z @ 0x1801C30B4 (-GetDirectInkWetStroke@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAUIDCompositionDirectInkWetStrokeP.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x18007E4B0 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18007E4F4 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ??$_Emplace_reallocate@AEBQEAVIDeviceResourceNotify@@@?$vector@PEAVIDeviceResourceNotify@@V?$allocator@PEAVIDeviceResourceNotify@@@std@@@std@@QEAAPEAPEAVIDeviceResourceNotify@@QEAPEAV2@AEBQEAV2@@Z @ 0x1800D5CA8 (--$_Emplace_reallocate@AEBQEAVIDeviceResourceNotify@@@-$vector@PEAVIDeviceResourceNotify@@V-$all.c)
- *     ??$_Emplace_reallocate@AEBV?$com_ptr_t@VCD2DGenericInk@@Uerr_returncode_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@VCD2DGenericInk@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCD2DGenericInk@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAPEAV?$com_ptr_t@VCD2DGenericInk@@Uerr_returncode_policy@wil@@@wil@@QEAV23@AEBV23@@Z @ 0x180214DE8 (--$_Emplace_reallocate@AEBV-$com_ptr_t@VCD2DGenericInk@@Uerr_returncode_policy@wil@@@wil@@@-$vec.c)
- *     ?CreateResource@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DGenericInk@@@Z @ 0x1802151A0 (-CreateResource@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DGenericInk@@@Z.c)
- *     ?GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z @ 0x180277214 (-GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z.c)
+ *     ??$_Emplace_reallocate@PEBUShaderLinkingBody@@@?$vector@PEBUShaderLinkingBody@@V?$allocator@PEBUShaderLinkingBody@@@std@@@std@@QEAAPEAPEBUShaderLinkingBody@@QEAPEBU2@$$QEAPEBU2@@Z @ 0x180045584 (--$_Emplace_reallocate@PEBUShaderLinkingBody@@@-$vector@PEBUShaderLinkingBody@@V-$allocator@PEBU.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FAE0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x18005FB10 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x18005FB60 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     ??$_Emplace_reallocate@AEBV?$com_ptr_t@VCD2DGenericInk@@Uerr_returncode_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@VCD2DGenericInk@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCD2DGenericInk@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAPEAV?$com_ptr_t@VCD2DGenericInk@@Uerr_returncode_policy@wil@@@wil@@QEAV23@AEBV23@@Z @ 0x1801C22D8 (--$_Emplace_reallocate@AEBV-$com_ptr_t@VCD2DGenericInk@@Uerr_returncode_policy@wil@@@wil@@@-$vec.c)
+ *     ?CreateResource@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DGenericInk@@@Z @ 0x1801C2630 (-CreateResource@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DGenericInk@@@Z.c)
+ *     ?GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z @ 0x180238BE8 (-GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z.c)
  */
 
 __int64 __fastcall CDeviceResourceTable<CD2DGenericInk,CGenericInk>::FindOrCreateResourceNoRef(
         __int64 *a1,
         struct CD3DDevice *a2,
-        struct CD2DGenericInk **a3)
+        CMILCOMBase **a3)
 {
   __int64 v3; // r11
   unsigned int v4; // edi
   __int64 v5; // r10
   __int64 v6; // r9
   unsigned __int64 v7; // r10
-  __int64 *v9; // rsi
   __int64 v10; // rax
-  CGenericInk *v11; // rcx
-  int v12; // eax
-  __int64 v13; // rcx
-  struct CD2DGenericInk *v14; // rbx
-  const void **v15; // rcx
-  _BYTE *v16; // rdx
-  struct CD2DGenericInk *v17; // rax
+  CMILCOMBase *v11; // rax
+  CDeviceManager *v12; // rcx
   int DefaultDevice; // eax
-  __int64 v19; // rcx
-  CD3DDevice *v20; // rbx
-  CGenericInk *v21; // rcx
-  int v22; // eax
-  __int64 v23; // rcx
-  struct CD2DGenericInk **v24; // rdx
-  struct CD2DGenericInk *v25; // rcx
-  struct CD2DGenericInk *v27; // [rsp+60h] [rbp+30h] BYREF
-  CD3DDevice *v28; // [rsp+70h] [rbp+40h] BYREF
+  __int64 v14; // rcx
+  CD3DDevice *v15; // rbx
+  CGenericInk *v16; // rcx
+  int v17; // eax
+  __int64 v18; // rcx
+  CGenericInk *v19; // rcx
+  int v20; // eax
+  __int64 v21; // rcx
+  CMILCOMBase *v22; // rbx
+  const void **v23; // rcx
+  _BYTE *v24; // rdx
+  CMILCOMBase **v25; // rdx
+  CRenderTargetBitmap *v26; // rcx
+  CRenderTargetBitmap *v28; // [rsp+60h] [rbp+30h] BYREF
+  CD3DDevice *v29; // [rsp+70h] [rbp+40h] BYREF
 
   v3 = a1[2];
   v4 = 0;
@@ -51,100 +52,99 @@ __int64 __fastcall CDeviceResourceTable<CD2DGenericInk,CGenericInk>::FindOrCreat
   v6 = 0LL;
   *a3 = 0LL;
   v7 = (v5 - v3) >> 3;
-  v9 = a1;
   if ( v7 )
   {
     while ( a2 )
     {
       v10 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v3 + 8 * v6) + 24LL) + 24LL);
-      a1 = (__int64 *)(v10 - 16);
       if ( a2 == (struct CD3DDevice *)((v10 - 16) & -(__int64)(v10 != 0)) )
         break;
       v6 = (unsigned int)(v6 + 1);
       if ( (unsigned int)v6 >= v7 )
-        goto LABEL_5;
+        goto LABEL_7;
     }
-    v17 = *(struct CD2DGenericInk **)(v3 + 8 * v6);
-    *a3 = v17;
-    if ( v17 )
+    v11 = *(CMILCOMBase **)(v3 + 8 * v6);
+    *a3 = v11;
+    if ( v11 )
       return v4;
   }
+LABEL_7:
   if ( a2 )
   {
-LABEL_5:
-    v11 = (CGenericInk *)v9[1];
-    v27 = 0LL;
-    v12 = CGenericInk::CreateResource(v11, a2, &v27);
-    v4 = v12;
-    if ( v12 >= 0 )
-      goto LABEL_6;
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0x52u);
-LABEL_27:
-    v25 = v27;
-    if ( v27 )
-      goto LABEL_28;
+    v19 = (CGenericInk *)a1[1];
+    v28 = 0LL;
+    v20 = CGenericInk::CreateResource(v19, a2, &v28);
+    v4 = v20;
+    if ( v20 >= 0 )
+      goto LABEL_17;
+    MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x52u, 0LL);
+LABEL_28:
+    v26 = v28;
+    if ( v28 )
+      goto LABEL_29;
     return v4;
   }
-  v28 = 0LL;
-  DefaultDevice = CDeviceManager::GetDefaultDevice((CDeviceManager *)a1, &v28);
+  v29 = 0LL;
+  wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(&v29);
+  DefaultDevice = CDeviceManager::GetDefaultDevice(v12, &v29);
   v4 = DefaultDevice;
   if ( DefaultDevice < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0LL, DefaultDevice, 0x4Bu);
-    if ( v28 )
-      CD3DDevice::Release(v28);
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, DefaultDevice, 0x4Bu, 0LL);
+    if ( v29 )
+      CD3DDevice::Release(v29);
     return v4;
   }
-  v20 = v28;
-  v21 = (CGenericInk *)v9[1];
-  v27 = 0LL;
-  v22 = CGenericInk::CreateResource(v21, v28, &v27);
-  v4 = v22;
-  if ( v22 < 0 )
+  v15 = v29;
+  v16 = (CGenericInk *)a1[1];
+  v28 = 0LL;
+  v17 = CGenericInk::CreateResource(v16, v29, &v28);
+  v4 = v17;
+  if ( v17 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0LL, v22, 0x4Eu);
-    if ( v20 )
-      CD3DDevice::Release(v20);
-    goto LABEL_27;
+    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x4Eu, 0LL);
+    if ( v15 )
+      CD3DDevice::Release(v15);
+    goto LABEL_28;
   }
-  if ( v20 )
-    CD3DDevice::Release(v20);
-LABEL_6:
-  v14 = v27;
-  v28 = (CD3DDevice *)v9;
-  v15 = (const void **)((char *)v27 + 56);
-  v16 = (_BYTE *)*((_QWORD *)v27 + 8);
-  if ( v16 == *((_BYTE **)v27 + 9) )
+  if ( v15 )
+    CD3DDevice::Release(v15);
+LABEL_17:
+  v22 = v28;
+  v29 = (CD3DDevice *)a1;
+  v23 = (const void **)((char *)v28 + 56);
+  v24 = (_BYTE *)*((_QWORD *)v28 + 8);
+  if ( *((_BYTE **)v28 + 9) == v24 )
   {
-    std::vector<IDeviceResourceNotify *>::_Emplace_reallocate<IDeviceResourceNotify * const &>(v15, v16, &v28);
+    std::vector<ShaderLinkingBody const *>::_Emplace_reallocate<ShaderLinkingBody const *>(v23, v24, &v29);
   }
   else
   {
-    *(_QWORD *)v16 = v9;
-    v15[1] = (char *)v15[1] + 8;
+    *(_QWORD *)v24 = a1;
+    v23[1] = (char *)v23[1] + 8;
   }
-  v24 = (struct CD2DGenericInk **)v9[3];
-  if ( v24 == (struct CD2DGenericInk **)v9[4] )
+  v25 = (CMILCOMBase **)a1[3];
+  if ( (CMILCOMBase **)a1[4] == v25 )
   {
     std::vector<wil::com_ptr_t<CD2DGenericInk,wil::err_returncode_policy>>::_Emplace_reallocate<wil::com_ptr_t<CD2DGenericInk,wil::err_returncode_policy> const &>(
-      v9 + 2,
-      (__int64)v24,
-      (__int64 *)&v27);
-    v14 = v27;
+      a1 + 2,
+      (__int64)v25,
+      &v28);
+    v22 = v28;
   }
   else
   {
-    *v24 = v14;
-    if ( v14 )
-      CMILRefCountImpl::AddReference((struct CD2DGenericInk *)((char *)v14 + 8));
-    v9[3] += 8LL;
+    *v25 = v22;
+    if ( v22 )
+      CMILCOMBase::InternalAddRef(v22);
+    a1[3] += 8LL;
   }
-  *a3 = v14;
-  if ( v14 )
+  *a3 = v22;
+  if ( v22 )
   {
-    v25 = v14;
-LABEL_28:
-    CMILRefCountBaseT<IUnknown>::InternalRelease((volatile signed __int32 *)v25);
+    v26 = v22;
+LABEL_29:
+    CRenderTargetBitmap::Release(v26);
   }
   return v4;
 }

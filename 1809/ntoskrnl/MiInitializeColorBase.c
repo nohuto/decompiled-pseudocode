@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeColorBase @ 0x14017E4B8
+ * XREFs of MiInitializeColorBase @ 0x14017E4D8
  * Callers:
- *     MmCreateShadowMapping @ 0x14072A178 (MmCreateShadowMapping.c)
+ *     MmCreateShadowMapping @ 0x14072A158 (MmCreateShadowMapping.c)
  * Callees:
  *     MiInitializeColorBaseEx @ 0x140028994 (MiInitializeColorBaseEx.c)
  */

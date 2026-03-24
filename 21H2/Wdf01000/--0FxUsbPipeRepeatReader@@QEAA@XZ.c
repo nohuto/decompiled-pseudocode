@@ -1,5 +1,5 @@
 /*
- * XREFs of ??0FxUsbPipeRepeatReader@@QEAA@XZ @ 0x1C0079210
+ * XREFs of ??0FxUsbPipeRepeatReader@@QEAA@XZ @ 0x1C006C610
  * Callers:
  *     <none>
  * Callees:

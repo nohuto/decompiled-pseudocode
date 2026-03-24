@@ -1,26 +1,26 @@
 /*
- * XREFs of PiDeferSetInterfaceState @ 0x140769010
+ * XREFs of PiDeferSetInterfaceState @ 0x14074B780
  * Callers:
- *     IopProcessSetInterfaceState @ 0x140769170 (IopProcessSetInterfaceState.c)
+ *     IopProcessSetInterfaceState @ 0x1407490DC (IopProcessSetInterfaceState.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     IopAllocateUnicodeString @ 0x140769784 (IopAllocateUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     IopAllocateUnicodeString @ 0x1407496AC (IopAllocateUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDeferSetInterfaceState(__int64 a1, const UNICODE_STRING *a2)
 {
-  __int64 Pool2; // rax
+  UNICODE_STRING *PoolWithTag; // rax
   UNICODE_STRING *v5; // rdi
   int UnicodeString; // ebx
   UNICODE_STRING **v7; // rcx
 
-  Pool2 = ExAllocatePool2(256LL, 32LL, 538996816LL);
-  v5 = (UNICODE_STRING *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = (UNICODE_STRING *)ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x20207050u);
+  v5 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    UnicodeString = IopAllocateUnicodeString(Pool2 + 16);
+    UnicodeString = IopAllocateUnicodeString((__int64)&PoolWithTag[1], a2->Length);
     if ( UnicodeString < 0 )
     {
       UnicodeString = -1073741670;

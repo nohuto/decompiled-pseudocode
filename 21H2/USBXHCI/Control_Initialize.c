@@ -1,10 +1,10 @@
 /*
- * XREFs of Control_Initialize @ 0x1C0072470
+ * XREFs of Control_Initialize @ 0x1C0071A30
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Control_Initialize(__int64 a1)
@@ -14,11 +14,11 @@ __int64 __fastcall Control_Initialize(__int64 a1)
   int v4; // eax
   int v5; // edi
   unsigned __int64 v6; // rax
-  unsigned __int16 v8; // r9
-  int v9; // r8d
-  int v10; // [rsp+28h] [rbp-41h]
-  int v11; // [rsp+30h] [rbp-39h]
-  int v12; // [rsp+38h] [rbp-31h]
+  int v8; // r9d
+  char v9; // r8
+  __int64 v10; // rdx
+  int v11; // eax
+  char v12; // [rsp+38h] [rbp-31h]
   __int128 v13; // [rsp+40h] [rbp-29h] BYREF
   __int64 v14; // [rsp+50h] [rbp-19h]
   __int64 v15; // [rsp+58h] [rbp-11h]
@@ -29,9 +29,6 @@ __int64 __fastcall Control_Initialize(__int64 a1)
   __int128 v20; // [rsp+A0h] [rbp+37h]
   __int64 v21; // [rsp+B0h] [rbp+47h]
 
-  DWORD1(v13) = 0;
-  HIDWORD(v18[0]) = 0;
-  HIDWORD(v19[0]) = 0;
   *(_QWORD *)(a1 + 368) = a1 + 360;
   *(_QWORD *)(a1 + 360) = a1 + 360;
   v2 = (*(_QWORD *)(*(_QWORD *)(a1 + 40) + 336LL) & 0x20000LL) == 0
@@ -64,17 +61,18 @@ __int64 __fastcall Control_Initialize(__int64 a1)
     {
       v8 = 10;
       v12 = v4;
-      v9 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
+      v9 = *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL);
 LABEL_12:
-      v11 = *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL);
-      v10 = v9;
-      WPP_RECORDER_SF_ddd(
+      v10 = *(_QWORD *)(a1 + 56);
+      v11 = *(_DWORD *)(v10 + 144);
+      LOBYTE(v10) = 2;
+      WPP_RECORDER_SF_ddL(
         *(_QWORD *)(*(_QWORD *)(a1 + 40) + 72LL),
-        2u,
-        0xEu,
+        v10,
+        14,
         v8,
         (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
-        v10,
+        v9,
         v11,
         v12);
     }
@@ -100,7 +98,7 @@ LABEL_12:
     {
       v8 = 11;
       v12 = v5;
-      v9 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
+      v9 = *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL);
       goto LABEL_12;
     }
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of xxxKELocaleProcs @ 0x1C00AF9AC
+ * XREFs of xxxKELocaleProcs @ 0x1C009D008
  * Callers:
- *     xxxProcessKeyEvent @ 0x1C00CABA0 (xxxProcessKeyEvent.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1220 (xxxProcessKeyEvent.c)
  * Callees:
- *     ?xxxAltGr@@YAXPEAUtagKE@@@Z @ 0x1C01EA564 (-xxxAltGr@@YAXPEAUtagKE@@@Z.c)
- *     ?xxxShiftLock@@YAHPEAUtagKE@@@Z @ 0x1C01EA604 (-xxxShiftLock@@YAHPEAUtagKE@@@Z.c)
+ *     ?xxxAltGr@@YAXPEAUtagKE@@@Z @ 0x1C01B1594 (-xxxAltGr@@YAXPEAUtagKE@@@Z.c)
+ *     ?xxxShiftLock@@YAHPEAUtagKE@@@Z @ 0x1C01B162C (-xxxShiftLock@@YAHPEAUtagKE@@@Z.c)
  */
 
 __int64 __fastcall xxxKELocaleProcs(struct tagKE *a1)

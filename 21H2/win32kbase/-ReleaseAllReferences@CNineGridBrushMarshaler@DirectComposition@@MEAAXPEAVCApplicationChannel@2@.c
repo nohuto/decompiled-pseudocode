@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ReleaseAllReferences@CNineGridBrushMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00BB890
+ * XREFs of ?ReleaseAllReferences@CNineGridBrushMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00AB360
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CNineGridBrushMarshaler::ReleaseAllReferences(
         struct DirectComposition::CResourceMarshaler **this,
         struct DirectComposition::CApplicationChannel *a2)
 {
-  DirectComposition::CApplicationChannel::ReleaseResource(a2, this[10]);
-  this[10] = 0LL;
+  DirectComposition::CApplicationChannel::ReleaseResource(a2, this[9]);
+  this[9] = 0LL;
 }

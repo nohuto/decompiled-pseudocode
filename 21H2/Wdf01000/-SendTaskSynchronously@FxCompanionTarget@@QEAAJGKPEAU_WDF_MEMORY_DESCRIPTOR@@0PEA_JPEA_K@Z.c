@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SendTaskSynchronously@FxCompanionTarget@@QEAAJGKPEAU_WDF_MEMORY_DESCRIPTOR@@0PEA_JPEA_K@Z @ 0x1C006142C
+ * XREFs of ?SendTaskSynchronously@FxCompanionTarget@@QEAAJGKPEAU_WDF_MEMORY_DESCRIPTOR@@0PEA_JPEA_K@Z @ 0x1C0043A5C
  * Callers:
- *     imp_WdfCompanionTargetSendTaskSynchronously @ 0x1C00604D0 (imp_WdfCompanionTargetSendTaskSynchronously.c)
+ *     imp_WdfCompanionTargetSendTaskSynchronously @ 0x1C00424F0 (imp_WdfCompanionTargetSendTaskSynchronously.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?DecrementPendingTaskCount@FxCompanionTarget@@AEAAXXZ @ 0x1C0060FD4 (-DecrementPendingTaskCount@FxCompanionTarget@@AEAAXXZ.c)
- *     ?IncrementPendingTaskCountWithFloor@FxCompanionTarget@@AEAAJXZ @ 0x1C0061190 (-IncrementPendingTaskCountWithFloor@FxCompanionTarget@@AEAAJXZ.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?DecrementPendingTaskCount@FxCompanionTarget@@AEAAXXZ @ 0x1C0043604 (-DecrementPendingTaskCount@FxCompanionTarget@@AEAAXXZ.c)
+ *     ?IncrementPendingTaskCountWithFloor@FxCompanionTarget@@AEAAJXZ @ 0x1C00437C4 (-IncrementPendingTaskCountWithFloor@FxCompanionTarget@@AEAAJXZ.c)
  */
 
 __int64 __fastcall FxCompanionTarget::SendTaskSynchronously(
@@ -22,20 +22,19 @@ __int64 __fastcall FxCompanionTarget::SendTaskSynchronously(
   __int64 v10; // rcx
   __int64 v11; // r9
   __int64 v12; // rbx
-  __int64 v13; // r10
-  unsigned int Length; // ecx
-  void *Buffer; // r8
-  int v16; // eax
-  unsigned int v17; // ebx
+  unsigned int Length; // r11d
+  void *Buffer; // r10
+  int v15; // r8d
+  unsigned int v16; // ebx
   const void *_a1; // rax
-  __int64 v20; // r10
+  __int64 v19; // r10
 
   v12 = 0LL;
   if ( (int)FxCompanionTarget::IncrementPendingTaskCountWithFloor(this) < 0 )
   {
     _a1 = (const void *)FxObject::GetObjectHandleUnchecked(*(FxObject **)(v10 + 152));
     WPP_IFR_SF_q(
-      *(_FX_DRIVER_GLOBALS **)(v20 + 16),
+      *(_FX_DRIVER_GLOBALS **)(v19 + 16),
       2u,
       0xCu,
       0xBu,
@@ -47,37 +46,31 @@ __int64 __fastcall FxCompanionTarget::SendTaskSynchronously(
   }
   else
   {
-    v13 = *(_QWORD *)(v10 + 144);
     if ( OutputBuffer )
-    {
       Length = OutputBuffer->u.BufferType.Length;
-      Buffer = OutputBuffer->u.BufferType.Buffer;
-    }
     else
-    {
       Length = 0;
-      Buffer = 0LL;
-    }
-    if ( v11 )
-    {
-      v16 = *(_DWORD *)(v11 + 16);
-      v12 = *(_QWORD *)(v11 + 8);
-    }
+    if ( OutputBuffer )
+      Buffer = OutputBuffer->u.BufferType.Buffer;
     else
-    {
-      v16 = 0;
-    }
-    v17 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, __int64, int, void *, unsigned int, __int64 *, unsigned __int64 *))(*(_QWORD *)v13 + 8LL))(
-            v13,
+      Buffer = 0LL;
+    if ( v11 )
+      v15 = *(_DWORD *)(v11 + 16);
+    else
+      v15 = 0;
+    if ( v11 )
+      v12 = *(_QWORD *)(v11 + 8);
+    v16 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64, int, void *, unsigned int, __int64 *, unsigned __int64 *))(**(_QWORD **)(v10 + 144) + 8LL))(
+            *(_QWORD *)(v10 + 144),
             TaskType,
             TaskOpCode,
             v12,
-            v16,
+            v15,
             Buffer,
             Length,
             Timeout,
             BytesReturned);
     FxCompanionTarget::DecrementPendingTaskCount(this);
-    return v17;
+    return v16;
   }
 }

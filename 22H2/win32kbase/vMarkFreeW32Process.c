@@ -1,5 +1,5 @@
 /*
- * XREFs of vMarkFreeW32Process @ 0x1C00B8CB0
+ * XREFs of vMarkFreeW32Process @ 0x1C00A7310
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall vMarkFreeW32Process(__int64 a1)
 {
-  *(_DWORD *)(a1 + 816) |= 0x1000u;
+  *(_DWORD *)(a1 + 820) |= 0x1000u;
 }

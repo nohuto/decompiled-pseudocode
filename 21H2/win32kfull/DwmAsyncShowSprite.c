@@ -1,33 +1,33 @@
 /*
- * XREFs of DwmAsyncShowSprite @ 0x1C0106BEC
+ * XREFs of DwmAsyncShowSprite @ 0x1C011AF98
  * Callers:
- *     GreUpdateSpriteVisRgn @ 0x1C004A690 (GreUpdateSpriteVisRgn.c)
- *     ?vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z @ 0x1C01547A4 (-vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z.c)
+ *     GreUpdateSpriteVisRgn @ 0x1C00731F0 (GreUpdateSpriteVisRgn.c)
+ *     ?vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z @ 0x1C00EC380 (-vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall DwmAsyncShowSprite(PVOID Object, __int64 a2, int a3)
+__int64 __fastcall DwmAsyncShowSprite(PVOID Object, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v4; // ebx
-  _OWORD v6[2]; // [rsp+20h] [rbp-48h] BYREF
-  _BYTE v7[20]; // [rsp+40h] [rbp-28h]
-  int v8; // [rsp+54h] [rbp-14h]
+  unsigned int v5; // ebx
+  _OWORD v7[2]; // [rsp+20h] [rbp-48h] BYREF
+  _BYTE v8[20]; // [rsp+40h] [rbp-28h]
+  int v9; // [rsp+54h] [rbp-14h]
 
-  v4 = -1073741823;
+  v5 = -1073741823;
   _InterlockedIncrement64(&g_cDWMWindowUniqueness);
   if ( Object )
   {
-    memset(v6, 0, sizeof(v6));
-    *(_QWORD *)v7 = 0LL;
-    WORD2(v6[0]) = 0x8000;
-    LODWORD(v6[0]) = 3670032;
-    *(_DWORD *)&v7[8] = 1073741831;
-    *(_QWORD *)&v7[12] = a2;
-    v8 = a3;
-    EtwUpdateEvent(a2);
-    v4 = LpcRequestPort(Object, v6);
+    memset(v7, 0, sizeof(v7));
+    *(_QWORD *)v8 = 0LL;
+    WORD2(v7[0]) = 0x8000;
+    LODWORD(v7[0]) = 3670032;
+    *(_DWORD *)&v8[8] = 1073741831;
+    *(_QWORD *)&v8[12] = a2;
+    v9 = a3;
+    EtwUpdateEvent(a2, 1073741831LL, a3, a4);
+    v5 = LpcRequestPort(Object, v7);
     ObfDereferenceObject(Object);
   }
-  return v4;
+  return v5;
 }

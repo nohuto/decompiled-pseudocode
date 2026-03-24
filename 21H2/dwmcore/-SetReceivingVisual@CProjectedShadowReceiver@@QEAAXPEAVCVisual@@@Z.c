@@ -1,37 +1,48 @@
 /*
- * XREFs of ?SetReceivingVisual@CProjectedShadowReceiver@@QEAAXPEAVCVisual@@@Z @ 0x180235B10
+ * XREFs of ?SetReceivingVisual@CProjectedShadowReceiver@@QEAAXPEAVCVisual@@@Z @ 0x18000CFEC
  * Callers:
- *     ??1CProjectedShadowReceiver@@MEAA@XZ @ 0x180235414 (--1CProjectedShadowReceiver@@MEAA@XZ.c)
- *     ?ProcessSetReceivingVisual@CProjectedShadowReceiver@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWRECEIVER_SETRECEIVINGVISUAL@@@Z @ 0x180235A60 (-ProcessSetReceivingVisual@CProjectedShadowReceiver@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJ.c)
+ *     ?ProcessSetReceivingVisual@CProjectedShadowReceiver@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWRECEIVER_SETRECEIVINGVISUAL@@@Z @ 0x18000DB9C (-ProcessSetReceivingVisual@CProjectedShadowReceiver@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJ.c)
+ *     ??1CProjectedShadowReceiver@@MEAA@XZ @ 0x18000E874 (--1CProjectedShadowReceiver@@MEAA@XZ.c)
  * Callees:
- *     ?AddProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z @ 0x1801F6A58 (-AddProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z.c)
- *     ?RemoveProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z @ 0x1801F8238 (-RemoveProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z.c)
- *     ?InvalidateMaskContent@CProjectedShadowReceiver@@QEAAXXZ @ 0x180235858 (-InvalidateMaskContent@CProjectedShadowReceiver@@QEAAXXZ.c)
- *     ?FindReceiverEntry@CProjectedShadowScene@@AEBAPEAUReceiverEntry@1@PEBVCProjectedShadowReceiver@@@Z @ 0x18023642C (-FindReceiverEntry@CProjectedShadowScene@@AEBAPEAUReceiverEntry@1@PEBVCProjectedShadowReceiver@@.c)
- *     ?clear@?$_Tree@V?$_Tmap_traits@PEAVCProjectedShadowCaster@@V?$com_ptr_t@VCProjectedShadow@@Uerr_returncode_policy@wil@@@wil@@U?$less@PEAVCProjectedShadowCaster@@@std@@V?$allocator@U?$pair@QEAVCProjectedShadowCaster@@V?$com_ptr_t@VCProjectedShadow@@Uerr_returncode_policy@wil@@@wil@@@std@@@5@$0A@@std@@@std@@QEAAXXZ @ 0x180237870 (-clear@-$_Tree@V-$_Tmap_traits@PEAVCProjectedShadowCaster@@V-$com_ptr_t@VCProjectedShadow@@Uerr_.c)
+ *     ?FindReceiverEntry@CProjectedShadowScene@@AEBAPEAUReceiverEntry@1@PEBVCProjectedShadowReceiver@@@Z @ 0x18000C188 (-FindReceiverEntry@CProjectedShadowScene@@AEBAPEAUReceiverEntry@1@PEBVCProjectedShadowReceiver@@.c)
+ *     ?clear@?$_Tree@V?$_Tmap_traits@PEAVCProjectedShadowCaster@@V?$com_ptr_t@VCProjectedShadow@@Uerr_returncode_policy@wil@@@wil@@U?$less@PEAVCProjectedShadowCaster@@@std@@V?$allocator@U?$pair@QEAVCProjectedShadowCaster@@V?$com_ptr_t@VCProjectedShadow@@Uerr_returncode_policy@wil@@@wil@@@std@@@5@$0A@@std@@@std@@QEAAXXZ @ 0x18000CAA8 (-clear@-$_Tree@V-$_Tmap_traits@PEAVCProjectedShadowCaster@@V-$com_ptr_t@VCProjectedShadow@@Uerr_.c)
+ *     ?InvalidateMaskContent@CProjectedShadowReceiver@@QEAAXXZ @ 0x18000CD1C (-InvalidateMaskContent@CProjectedShadowReceiver@@QEAAXXZ.c)
+ *     ?RemoveProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z @ 0x18000DA48 (-RemoveProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z.c)
+ *     ?AddProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z @ 0x18000DAD4 (-AddProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z.c)
  */
 
 void __fastcall CProjectedShadowReceiver::SetReceivingVisual(CVisual **this, struct CVisual *a2)
 {
-  CProjectedShadowScene **v4; // rbp
-  CProjectedShadowScene **i; // rsi
-  struct CProjectedShadowScene::ReceiverEntry *ReceiverEntry; // rax
+  CProjectedShadowScene **v4; // r14
+  __int64 v5; // rbp
+  unsigned __int64 v6; // rsi
+  __int64 **ReceiverEntry; // rax
 
-  if ( a2 != this[8] )
+  if ( a2 != this[7] )
   {
-    if ( this[8] )
+    if ( this[7] )
     {
       CProjectedShadowReceiver::InvalidateMaskContent((CProjectedShadowReceiver *)this);
-      v4 = (CProjectedShadowScene **)this[10];
-      for ( i = (CProjectedShadowScene **)this[9]; i != v4; ++i )
+      v4 = (CProjectedShadowScene **)this[8];
+      v5 = 0LL;
+      v6 = (unsigned __int64)(this[9] - (CVisual *)v4 + 7) >> 3;
+      if ( v4 > (CProjectedShadowScene **)this[9] )
+        v6 = 0LL;
+      if ( v6 )
       {
-        ReceiverEntry = CProjectedShadowScene::FindReceiverEntry(*i, (const struct CProjectedShadowReceiver *)this);
-        *((_QWORD *)ReceiverEntry + 3) = 0LL;
-        std::_Tree<std::_Tmap_traits<CProjectedShadowCaster *,wil::com_ptr_t<CProjectedShadow,wil::err_returncode_policy>,std::less<CProjectedShadowCaster *>,std::allocator<std::pair<CProjectedShadowCaster * const,wil::com_ptr_t<CProjectedShadow,wil::err_returncode_policy>>>,0>>::clear((char *)ReceiverEntry + 8);
+        do
+        {
+          ReceiverEntry = CProjectedShadowScene::FindReceiverEntry(*v4, (const struct CProjectedShadowReceiver *)this);
+          ReceiverEntry[3] = 0LL;
+          std::_Tree<std::_Tmap_traits<CProjectedShadowCaster *,wil::com_ptr_t<CProjectedShadow,wil::err_returncode_policy>,std::less<CProjectedShadowCaster *>,std::allocator<std::pair<CProjectedShadowCaster * const,wil::com_ptr_t<CProjectedShadow,wil::err_returncode_policy>>>,0>>::clear(ReceiverEntry + 1);
+          ++v5;
+          ++v4;
+        }
+        while ( v5 != v6 );
       }
-      CVisual::RemoveProjectedShadowReceiver(this[8], (struct CProjectedShadowReceiver *)this);
+      CVisual::RemoveProjectedShadowReceiver(this[7], (struct CProjectedShadowReceiver *)this);
     }
-    this[8] = a2;
+    this[7] = a2;
     if ( a2 )
     {
       CVisual::AddProjectedShadowReceiver(a2, (struct CProjectedShadowReceiver *)this);

@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CProjectedShadowSceneMarshaler@DirectComposition@@QEAA@XZ @ 0x1C000E638
+ * XREFs of ??0CProjectedShadowSceneMarshaler@DirectComposition@@QEAA@XZ @ 0x1C00054D0
  * Callers:
- *     ?CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C002EB8C (-CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2.c)
+ *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C0029A24 (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
  * Callees:
- *     ??0CNotificationResourceMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C003033C (--0CNotificationResourceMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z.c)
+ *     <none>
  */
 
 DirectComposition::CProjectedShadowSceneMarshaler *__fastcall DirectComposition::CProjectedShadowSceneMarshaler::CProjectedShadowSceneMarshaler(
@@ -11,14 +11,15 @@ DirectComposition::CProjectedShadowSceneMarshaler *__fastcall DirectComposition:
 {
   DirectComposition::CProjectedShadowSceneMarshaler *result; // rax
 
-  DirectComposition::CNotificationResourceMarshaler::CNotificationResourceMarshaler(this, 133LL);
-  *((_DWORD *)this + 29) = 0;
-  *((_DWORD *)this + 30) = 0;
+  *(_QWORD *)((char *)this + 20) = 1LL;
   *(_QWORD *)this = &DirectComposition::CProjectedShadowSceneMarshaler::`vftable';
+  *((_QWORD *)this + 6) = 0LL;
   *((_DWORD *)this + 26) = 1065353216;
-  *((_DWORD *)this + 28) = 1065353216;
+  *((_QWORD *)this + 14) = 1065353216LL;
   result = this;
+  *((_DWORD *)this + 10) = 131;
   *((_DWORD *)this + 27) = 2139095039;
+  *((_DWORD *)this + 30) = 0;
   *((_DWORD *)this + 31) = -1082130432;
   return result;
 }

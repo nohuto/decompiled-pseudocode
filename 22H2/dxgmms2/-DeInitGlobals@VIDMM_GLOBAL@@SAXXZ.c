@@ -1,19 +1,17 @@
 /*
- * XREFs of ?DeInitGlobals@VIDMM_GLOBAL@@SAXXZ @ 0x1C00E0FB0
+ * XREFs of ?DeInitGlobals@VIDMM_GLOBAL@@SAXXZ @ 0x1C00AD26C
  * Callers:
- *     DriverUnload @ 0x1C002CE40 (DriverUnload.c)
- *     DriverEntry @ 0x1C010D1F8 (DriverEntry.c)
+ *     VidMmDeInitGlobals @ 0x1C0022CC0 (VidMmDeInitGlobals.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0005500 (--3@YAXPEAX@Z.c)
- *     McGenEventUnregister_EtwUnregister @ 0x1C002E398 (McGenEventUnregister_EtwUnregister.c)
- *     ??_GVIDMM_PROCESS_FENCE_STORAGE@@QEAAPEAXI@Z @ 0x1C002F748 (--_GVIDMM_PROCESS_FENCE_STORAGE@@QEAAPEAXI@Z.c)
- *     ?DeInitPhysicalHeap@VIDMM_GLOBAL@@CAXXZ @ 0x1C00E10D8 (-DeInitPhysicalHeap@VIDMM_GLOBAL@@CAXXZ.c)
- *     TlgUnregisterAggregateProvider @ 0x1C010A588 (TlgUnregisterAggregateProvider.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     McGenEventUnregister_EtwUnregister @ 0x1C0023E98 (McGenEventUnregister_EtwUnregister.c)
+ *     ??_GVIDMM_PROCESS_FENCE_STORAGE@@QEAAPEAXI@Z @ 0x1C0025B4C (--_GVIDMM_PROCESS_FENCE_STORAGE@@QEAAPEAXI@Z.c)
+ *     wil_UninitializeFeatureStaging @ 0x1C005E9F0 (wil_UninitializeFeatureStaging.c)
+ *     TlgUnregisterAggregateProvider @ 0x1C00D3550 (TlgUnregisterAggregateProvider.c)
  */
 
 void VIDMM_GLOBAL::DeInitGlobals(void)
 {
-  VIDMM_GLOBAL::DeInitPhysicalHeap();
   if ( VIDMM_GLOBAL::PerfCounterSetEngineRegistered )
     PcwUnregister(GpuPerformanceCounterSetEngine);
   if ( VIDMM_GLOBAL::PerfCounterSetProcessMemoryRegistered )
@@ -42,4 +40,9 @@ void VIDMM_GLOBAL::DeInitGlobals(void)
   TlgUnregisterAggregateProvider();
   McGenEventUnregister_EtwUnregister(&DxgkControlGuid_Context);
   DxgkControlGuid_Context = 0LL;
+  if ( VIDMM_GLOBAL::KirEnabled )
+  {
+    wil_UninitializeFeatureStaging();
+    VIDMM_GLOBAL::KirEnabled = 0;
+  }
 }

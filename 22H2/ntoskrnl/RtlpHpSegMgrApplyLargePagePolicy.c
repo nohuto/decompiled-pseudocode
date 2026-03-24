@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegMgrApplyLargePagePolicy @ 0x1403559EC
+ * XREFs of RtlpHpSegMgrApplyLargePagePolicy @ 0x140324714
  * Callers:
- *     RtlpHpSegMgrCommitInitiate @ 0x14024FCE4 (RtlpHpSegMgrCommitInitiate.c)
+ *     RtlpHpSegMgrCommitInitiate @ 0x1402898E8 (RtlpHpSegMgrCommitInitiate.c)
  * Callees:
- *     ExGenRandom @ 0x1403173F0 (ExGenRandom.c)
+ *     ExGenRandom @ 0x14022C200 (ExGenRandom.c)
  */
 
 _BOOL8 __fastcall RtlpHpSegMgrApplyLargePagePolicy(__int64 a1)
@@ -17,13 +17,9 @@ _BOOL8 __fastcall RtlpHpSegMgrApplyLargePagePolicy(__int64 a1)
   {
     v2 = a1 + *(__int16 *)(a1 + 22);
     v3 = *(_QWORD *)(v2 + 56) + *(_QWORD *)(v2 + 40);
-    if ( v3 < *(_QWORD *)(v2 + 72) )
-    {
-      if ( v3 >= *(_QWORD *)(v2 + 64) )
-        return *(_QWORD *)(v2 + 48) + *(_QWORD *)(v2 + 32) >= ((v3 * *(unsigned __int8 *)(v2 + 80)) << 9) / 0x64;
-      return 1LL;
-    }
-    return 0LL;
+    return v3 < *(_QWORD *)(v2 + 72)
+        && (v3 < *(_QWORD *)(v2 + 64)
+         || *(_QWORD *)(v2 + 48) + *(_QWORD *)(v2 + 32) >= ((v3 * *(unsigned __int8 *)(v2 + 80)) << 9) / 0x64);
   }
   if ( v1 == 2 )
     return 0LL;

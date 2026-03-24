@@ -1,464 +1,264 @@
 /*
- * XREFs of ??1CVisual@@MEAA@XZ @ 0x18009A7CC
+ * XREFs of ??1CVisual@@MEAA@XZ @ 0x1800A08FC
  * Callers:
- *     ??_GCShapeVisual@@UEAAPEAXI@Z @ 0x18001DA10 (--_GCShapeVisual@@UEAAPEAXI@Z.c)
- *     ??1CWindowNode@@MEAA@XZ @ 0x1800AB654 (--1CWindowNode@@MEAA@XZ.c)
- *     ??1CSpriteVisual@@UEAA@XZ @ 0x1800EADD4 (--1CSpriteVisual@@UEAA@XZ.c)
- *     ??1CLayerVisual@@UEAA@XZ @ 0x1800F4F74 (--1CLayerVisual@@UEAA@XZ.c)
- *     ??1?$CSceneVisualGeneratedT@VCSceneVisual@@VCVisual@@@@MEAA@XZ @ 0x1801C1C6C (--1-$CSceneVisualGeneratedT@VCSceneVisual@@VCVisual@@@@MEAA@XZ.c)
- *     ??1CCursorVisual@@MEAA@XZ @ 0x1802289B0 (--1CCursorVisual@@MEAA@XZ.c)
- *     ??1?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAA@XZ @ 0x1802439D0 (--1-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAA@XZ.c)
- *     ??1?$CTextVisualGeneratedT@VCTextVisual@@VCVisual@@@@MEAA@XZ @ 0x180254E24 (--1-$CTextVisualGeneratedT@VCTextVisual@@VCVisual@@@@MEAA@XZ.c)
+ *     ??1CWindowNode@@MEAA@XZ @ 0x180035494 (--1CWindowNode@@MEAA@XZ.c)
+ *     ??1CSpriteVisual@@UEAA@XZ @ 0x1800B7614 (--1CSpriteVisual@@UEAA@XZ.c)
+ *     ??_GCRedirectVisual@@UEAAPEAXI@Z @ 0x1800CE700 (--_GCRedirectVisual@@UEAAPEAXI@Z.c)
+ *     ??1CLayerVisual@@UEAA@XZ @ 0x1800D58A4 (--1CLayerVisual@@UEAA@XZ.c)
+ *     ??_GCShapeVisual@@UEAAPEAXI@Z @ 0x18016DA90 (--_GCShapeVisual@@UEAAPEAXI@Z.c)
+ *     ??_GCCursorVisual@@UEAAPEAXI@Z @ 0x1801BE640 (--_GCCursorVisual@@UEAAPEAXI@Z.c)
+ *     ??1?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAA@XZ @ 0x1801DE2EC (--1-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAA@XZ.c)
+ *     ??1?$CSceneVisualGeneratedT@VCSceneVisual@@VCVisual@@@@MEAA@XZ @ 0x1801EC188 (--1-$CSceneVisualGeneratedT@VCSceneVisual@@VCVisual@@@@MEAA@XZ.c)
+ *     ??1?$CTextVisualGeneratedT@VCTextVisual@@VCVisual@@@@MEAA@XZ @ 0x1801F0E5C (--1-$CTextVisualGeneratedT@VCTextVisual@@VCVisual@@@@MEAA@XZ.c)
  * Callees:
- *     ?InvalidateMaskContent@CProjectedShadowReceiver@@QEAAXXZ @ 0x180004D18 (-InvalidateMaskContent@CProjectedShadowReceiver@@QEAAXXZ.c)
- *     ?DiscardCachesForCaster@CProjectedShadowScene@@QEAAXPEAVCProjectedShadowCaster@@@Z @ 0x180004DAC (-DiscardCachesForCaster@CProjectedShadowScene@@QEAAXPEAVCProjectedShadowCaster@@@Z.c)
- *     ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x180004EB0 (-GetProjectedShadowReceivers@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocato.c)
- *     ?FindReceiverEntry@CProjectedShadowScene@@AEBAPEAUReceiverEntry@1@PEBVCProjectedShadowReceiver@@@Z @ 0x180005268 (-FindReceiverEntry@CProjectedShadowScene@@AEBAPEAUReceiverEntry@1@PEBVCProjectedShadowReceiver@@.c)
- *     ?clear@?$_Tree@V?$_Tmap_traits@PEAVCProjectedShadowCaster@@V?$com_ptr_t@VCProjectedShadow@@Uerr_returncode_policy@wil@@@wil@@U?$less@PEAVCProjectedShadowCaster@@@std@@V?$allocator@U?$pair@QEAVCProjectedShadowCaster@@V?$com_ptr_t@VCProjectedShadow@@Uerr_returncode_policy@wil@@@wil@@@std@@@5@$0A@@std@@@std@@QEAAXXZ @ 0x180005334 (-clear@-$_Tree@V-$_Tmap_traits@PEAVCProjectedShadowCaster@@V-$com_ptr_t@VCProjectedShadow@@Uerr_.c)
- *     ?InvalidateMaskContent@CProjectedShadowCaster@@QEAAXXZ @ 0x18000976C (-InvalidateMaskContent@CProjectedShadowCaster@@QEAAXXZ.c)
- *     ?GetProjectedShadowCasters@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@XZ @ 0x18000986C (-GetProjectedShadowCasters@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowCaster@@V-$allocator@PE.c)
- *     ?clear@?$_Tree@V?$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U?$less@PEBVCVisualTree@@@std@@V?$allocator@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@@5@$0A@@std@@@std@@QEAAXXZ @ 0x1800098CC (-clear@-$_Tree@V-$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U-$l.c)
- *     ?GetCachedWindowBackgroundTreatment@CVisual@@QEBAPEAVCCachedWindowBackgroundTreatment@@XZ @ 0x18000B148 (-GetCachedWindowBackgroundTreatment@CVisual@@QEBAPEAVCCachedWindowBackgroundTreatment@@XZ.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?GetCurrentFrameId@@YA_KXZ @ 0x1800895E0 (-GetCurrentFrameId@@YA_KXZ.c)
- *     ?GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ @ 0x18008A5BC (-GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ.c)
- *     ?RemoveAllChildren@CVisual@@IEAAXXZ @ 0x180099FD4 (-RemoveAllChildren@CVisual@@IEAAXXZ.c)
- *     ?RemoveAllLights@CVisual@@AEAAXXZ @ 0x18009A30C (-RemoveAllLights@CVisual@@AEAAXXZ.c)
- *     ?ReleaseBspPolygonList@CVisual@@IEAAXXZ @ 0x18009A39C (-ReleaseBspPolygonList@CVisual@@IEAAXXZ.c)
- *     ??1CSparseStorage@@QEAA@XZ @ 0x18009A3FC (--1CSparseStorage@@QEAA@XZ.c)
- *     ?RemoveDirtyRegionVisualizationData@CVisual@@AEAAXXZ @ 0x18009A440 (-RemoveDirtyRegionVisualizationData@CVisual@@AEAAXXZ.c)
- *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x18009A6B4 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
- *     ?GetDepthSortedList@CVisual@@QEBAPEAV?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@XZ @ 0x18009A7AC (-GetDepthSortedList@CVisual@@QEBAPEAV-$vector@PEAVCVisual@@V-$allocator@PEAVCVisual@@@std@@@std@.c)
- *     ??1CTreeData@@UEAA@XZ @ 0x18009B7E8 (--1CTreeData@@UEAA@XZ.c)
- *     ?GetWindowBackgroundTreatmentInternal@CVisual@@QEBAPEAVCWindowBackgroundTreatment@@XZ @ 0x1800A4BAC (-GetWindowBackgroundTreatmentInternal@CVisual@@QEBAPEAVCWindowBackgroundTreatment@@XZ.c)
- *     ?GetBlurredWallpaperSurface@CVisual@@QEBAPEAVCVisualSurface@@XZ @ 0x1800B3DD8 (-GetBlurredWallpaperSurface@CVisual@@QEBAPEAVCVisualSurface@@XZ.c)
- *     ?RemoveVisualTree@CComposition@@QEAAXPEBVCVisualTree@@@Z @ 0x1800C7E94 (-RemoveVisualTree@CComposition@@QEAAXPEBVCVisualTree@@@Z.c)
- *     ?Remove@CPtrArrayBase@@IEAA_N_K@Z @ 0x1800D62C4 (-Remove@CPtrArrayBase@@IEAA_N_K@Z.c)
- *     ?ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z @ 0x1800DCB3C (-ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x1800E27B0 (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
- *     ?clear_region@?$vector_facade@V?$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@wil@@V?$buffer_impl@V?$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@wil@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800EE21C (-clear_region@-$vector_facade@V-$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@w.c)
- *     ?Remove@?$DynArray@PEAVCVisual@@$0A@@@QEAAHAEBQEAVCVisual@@@Z @ 0x1800FB270 (-Remove@-$DynArray@PEAVCVisual@@$0A@@@QEAAHAEBQEAVCVisual@@@Z.c)
- *     ??$SAFE_DELETE@UTransformParentData@@@@YAXAEAPEAUTransformParentData@@@Z @ 0x180101648 (--$SAFE_DELETE@UTransformParentData@@@@YAXAEAPEAUTransformParentData@@@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?UnregisterSuperWetInkVisual@CSuperWetInkManager@@QEAAXPEAVCVisual@@@Z @ 0x1801CD228 (-UnregisterSuperWetInkVisual@CSuperWetInkManager@@QEAAXPEAVCVisual@@@Z.c)
- *     ??$SAFE_DELETE@V?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@@@YAXAEAPEAV?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@@Z @ 0x1802100FC (--$SAFE_DELETE@V-$vector@PEAVCVisual@@V-$allocator@PEAVCVisual@@@std@@@std@@@@YAXAEAPEAV-$vector.c)
- *     ?SetDepthSortedList@CVisual@@QEAAXPEAV?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@@Z @ 0x180211C38 (-SetDepthSortedList@CVisual@@QEAAXPEAV-$vector@PEAVCVisual@@V-$allocator@PEAVCVisual@@@std@@@std.c)
+ *     ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x18000C25C (-GetProjectedShadowReceivers@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocato.c)
+ *     ?DiscardCachesForCaster@CProjectedShadowScene@@QEAAXPEAVCProjectedShadowCaster@@@Z @ 0x18000C950 (-DiscardCachesForCaster@CProjectedShadowScene@@QEAAXPEAVCProjectedShadowCaster@@@Z.c)
+ *     ?InvalidateMaskContent@CProjectedShadowCaster@@QEAAXXZ @ 0x1800102C0 (-InvalidateMaskContent@CProjectedShadowCaster@@QEAAXXZ.c)
+ *     ?GetCachedWindowBackgroundTreatment@CVisual@@QEBAPEAVCCachedWindowBackgroundTreatment@@XZ @ 0x1800116CC (-GetCachedWindowBackgroundTreatment@CVisual@@QEBAPEAVCCachedWindowBackgroundTreatment@@XZ.c)
+ *     ?GetProjectedShadowCasters@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@XZ @ 0x180011D40 (-GetProjectedShadowCasters@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowCaster@@V-$allocator@PE.c)
+ *     ?clear@?$_Tree@V?$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U?$less@PEBVCVisualTree@@@std@@V?$allocator@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@@5@$0A@@std@@@std@@QEAAXXZ @ 0x180011DA0 (-clear@-$_Tree@V-$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U-$l.c)
+ *     ?ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z @ 0x180024368 (-ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ @ 0x18007AA60 (-GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?ReleaseBspPolygonList@CVisual@@IEAAXXZ @ 0x18009F8FC (-ReleaseBspPolygonList@CVisual@@IEAAXXZ.c)
+ *     ?RemoveDirtyRegionVisualizationData@CVisual@@AEAAXXZ @ 0x18009F95C (-RemoveDirtyRegionVisualizationData@CVisual@@AEAAXXZ.c)
+ *     ?RemoveAllChildren@CVisual@@IEAAXXZ @ 0x18009F990 (-RemoveAllChildren@CVisual@@IEAAXXZ.c)
+ *     ?RemoveAllLights@CVisual@@AEAAXXZ @ 0x18009FCE4 (-RemoveAllLights@CVisual@@AEAAXXZ.c)
+ *     ?GetColorTransform@CVisual@@QEBAPEAV?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@XZ @ 0x18009FE28 (-GetColorTransform@CVisual@@QEBAPEAV-$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFO.c)
+ *     ?GetTransformParentDataInternal@CVisual@@QEBAPEAUTransformParentData@@XZ @ 0x18009FE48 (-GetTransformParentDataInternal@CVisual@@QEBAPEAUTransformParentData@@XZ.c)
+ *     ?ManageTransformParentChildList@CVisual@@AEAAXPEAUTransformParentData@@@Z @ 0x18009FEA8 (-ManageTransformParentChildList@CVisual@@AEAAXPEAUTransformParentData@@@Z.c)
+ *     ?GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ @ 0x1800A0088 (-GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ.c)
+ *     ?RemoveProjectedShadowCasterVisual@CComposition@@QEAAXPEAVCVisual@@@Z @ 0x1800A00E8 (-RemoveProjectedShadowCasterVisual@CComposition@@QEAAXPEAVCVisual@@@Z.c)
+ *     ?ClearInteraction@CVisual@@QEAAXXZ @ 0x1800A01E0 (-ClearInteraction@CVisual@@QEAAXXZ.c)
+ *     ?DeleteDepthSortedList@CVisual@@AEAAXXZ @ 0x1800A03C0 (-DeleteDepthSortedList@CVisual@@AEAAXXZ.c)
+ *     ?GetUnusedTreeData@CVisual@@QEBAPEAVCTreeData@@XZ @ 0x1800A0408 (-GetUnusedTreeData@CVisual@@QEBAPEAVCTreeData@@XZ.c)
+ *     ?GetAdditionalDirtyRects@CVisual@@QEBAPEAVCMergedDirtyRect@@XZ @ 0x1800A07E0 (-GetAdditionalDirtyRects@CVisual@@QEBAPEAVCMergedDirtyRect@@XZ.c)
+ *     ??1CSparseStorage@@QEAA@XZ @ 0x1800A0840 (--1CSparseStorage@@QEAA@XZ.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800A0884 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@QEAAX_NW4R.c)
+ *     ??1CTreeData@@UEAA@XZ @ 0x1800A1160 (--1CTreeData@@UEAA@XZ.c)
+ *     ??$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z @ 0x1800C16BC (--$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z.c)
+ *     ?GetWindowBackgroundTreatmentInternal@CVisual@@QEBAPEAVCWindowBackgroundTreatment@@XZ @ 0x1800C16EC (-GetWindowBackgroundTreatmentInternal@CVisual@@QEBAPEAVCWindowBackgroundTreatment@@XZ.c)
+ *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x1800C64BC (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?Clear@CPtrArrayBase@@IEAAXXZ @ 0x1800CB558 (-Clear@CPtrArrayBase@@IEAAXXZ.c)
+ *     ??$SAFE_DELETE@UTransformParentData@@@@YAXAEAPEAUTransformParentData@@@Z @ 0x1800DD658 (--$SAFE_DELETE@UTransformParentData@@@@YAXAEAPEAUTransformParentData@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?OnDestroyingReceivingVisual@CProjectedShadowReceiver@@QEAAXXZ @ 0x1801E4760 (-OnDestroyingReceivingVisual@CProjectedShadowReceiver@@QEAAXXZ.c)
  */
 
 void __fastcall CVisual::~CVisual(CVisual *this)
 {
-  _DWORD *v2; // r8
-  __int64 v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // rcx
-  __int64 v6; // rdi
-  __int64 v7; // rdi
-  _DWORD *v8; // r8
-  _DWORD *v9; // r8
-  _DWORD *v10; // r8
-  __int64 v11; // rdi
-  CVisual **v12; // r8
-  CVisual **v13; // rcx
-  struct _LIST_ENTRY *TreeDataListHead; // rax
-  struct _LIST_ENTRY *v15; // rsi
-  struct _LIST_ENTRY *n; // rdi
-  __int64 v17; // rdi
-  struct CInteraction *InteractionInternal; // rax
-  _DWORD *v19; // r10
-  __int64 v20; // r8
-  __int64 v21; // rcx
-  _BYTE *v22; // rdx
-  unsigned int ii; // eax
-  _QWORD **v24; // rdi
-  _QWORD *v25; // rdi
-  _DWORD *v26; // r8
-  __int64 v27; // rcx
-  _BYTE *v28; // rdx
-  unsigned int i1; // eax
-  void (__fastcall ****v30)(_QWORD, __int64); // rcx
-  void (__fastcall ***v31)(_QWORD, __int64); // rcx
-  _DWORD *v32; // r8
-  __int64 v33; // rcx
-  __int64 v34; // rcx
-  void *v35; // rcx
-  __int64 v36; // rcx
-  __int64 v37; // rcx
-  _BYTE *v38; // rdx
-  unsigned int i2; // eax
-  void (__fastcall ****v40)(_QWORD, __int64); // rcx
-  void (__fastcall ***v41)(_QWORD, __int64); // rcx
-  __int64 v42; // rcx
-  _BYTE *v43; // rdx
-  unsigned int i; // eax
-  __int64 *v45; // rcx
-  __int64 v46; // rcx
-  CVisual **v47; // rdx
-  __int64 v48; // rcx
-  _BYTE *v49; // rdx
-  unsigned int m; // eax
-  __int64 *v51; // rdi
-  __int64 v52; // rdi
-  __int64 v53; // rcx
-  _BYTE *v54; // rdx
-  unsigned int k; // eax
-  struct CResource ***v56; // rdi
-  struct CResource **v57; // rdi
-  _DWORD *v58; // r10
-  __int64 v59; // rcx
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  struct CResource *ColorTransform; // rax
+  struct TransformParentData *TransformParentDataInternal; // rax
+  struct TransformParentData *v6; // rdi
+  struct CResource *EffectInternal; // rax
+  struct _LIST_ENTRY *TreeDataListHead; // rdi
+  _DWORD *v9; // r10
+  struct CTreeData *UnusedTreeData; // rax
+  struct CMergedDirtyRect *AdditionalDirtyRects; // rax
+  __int64 v12; // r8
+  char v13; // al
+  __int64 v14; // rcx
+  __int64 v15; // rcx
+  void *v16; // rcx
+  _DWORD *v17; // r10
+  __int64 v18; // rcx
   unsigned int Slot; // eax
-  __int64 v61; // r10
-  __int64 v62; // rcx
-  struct CResource *WindowBackgroundTreatmentInternal; // rax
-  _DWORD *v64; // r10
-  __int64 v65; // rcx
-  unsigned int v66; // eax
-  __int64 v67; // r10
+  __int64 v20; // r10
   struct CCachedWindowBackgroundTreatment *CachedWindowBackgroundTreatment; // rax
-  _DWORD *v69; // r10
-  __int64 v70; // rcx
-  unsigned int v71; // eax
-  __int64 v72; // r10
-  CProjectedShadowCaster ***ProjectedShadowCasters; // rdi
-  CProjectedShadowCaster **v74; // r15
-  CProjectedShadowCaster **jj; // rsi
-  _DWORD *v76; // r10
-  __int64 v77; // rcx
-  unsigned int v78; // eax
-  __int64 v79; // r10
+  unsigned int *v22; // r10
+  unsigned int v23; // r11d
+  unsigned int v24; // eax
+  __int64 v25; // r10
+  _DWORD *v26; // r10
+  __int64 v27; // rcx
+  unsigned int v28; // eax
+  __int64 v29; // r10
+  struct TransformParentData *ProjectedShadowCasters; // rdi
+  unsigned int *v31; // r10
+  unsigned int v32; // r11d
+  CProjectedShadowCaster **v33; // r12
+  CProjectedShadowCaster **v34; // rsi
+  CProjectedShadowCaster *v35; // r13
+  _QWORD *v36; // rcx
+  CProjectedShadowScene **v37; // r14
+  __int64 v38; // r15
+  unsigned __int64 v39; // rbp
+  unsigned int v40; // eax
+  __int64 v41; // r10
   CProjectedShadowReceiver ***ProjectedShadowReceivers; // rdi
-  CProjectedShadowReceiver **v81; // r15
-  CProjectedShadowReceiver **mm; // rsi
-  _DWORD *v83; // r10
-  __int64 v84; // rcx
-  unsigned int v85; // eax
-  __int64 v86; // r10
-  __int64 v87; // rcx
-  _BYTE *v88; // rdx
-  unsigned int j; // eax
-  __int64 *v90; // rdi
-  __int64 v91; // rdi
-  struct CResource *BlurredWallpaperSurface; // rax
-  _DWORD *v93; // r10
-  __int64 v94; // rcx
-  unsigned int v95; // eax
-  __int64 v96; // r10
-  unsigned __int64 CurrentFrameId; // rax
-  __int64 v98; // rdx
-  __int64 v99; // rcx
-  unsigned int v100; // eax
-  __int64 v101; // r10
-  CProjectedShadowCaster *v102; // rbp
-  _QWORD *v103; // rcx
-  CProjectedShadowScene **v104; // r12
-  CProjectedShadowScene **kk; // r14
-  CProjectedShadowReceiver *v106; // rbp
-  CProjectedShadowScene **v107; // r12
-  CProjectedShadowScene **nn; // r14
-  __int64 **ReceiverEntry; // rax
-  CVisual *DepthSortedList; // [rsp+50h] [rbp+8h] BYREF
+  _DWORD *v43; // r10
+  __int64 v44; // rbp
+  CProjectedShadowReceiver **v45; // r14
+  unsigned __int64 v46; // rsi
+  unsigned int v47; // eax
+  __int64 v48; // r10
+  struct TransformParentData *WindowBackgroundTreatmentInternal; // [rsp+50h] [rbp+8h] BYREF
 
   *(_QWORD *)this = &CVisual::`vftable';
-  v2 = (_DWORD *)*((_QWORD *)this + 29);
-  if ( (*v2 & 0x4000000) != 0 )
-  {
-    v42 = (unsigned int)v2[1];
-    v43 = v2 + 2;
-    for ( i = 0; i < (unsigned int)v42; ++v43 )
-    {
-      if ( *v43 == 6 )
-        break;
-      ++i;
-    }
-    if ( i >= (unsigned int)v42 )
-      v45 = 0LL;
-    else
-      v45 = (__int64 *)((char *)v2 + v42 + 8LL * i - (((_BYTE)v42 + 15) & 7) + 15);
-    v46 = *v45;
-    if ( v46 )
-    {
-      *(_QWORD *)(v46 + 64) = 0LL;
-      CComposition::RemoveVisualTree(*(CComposition **)(v46 + 16), (const struct CVisualTree *)v46);
-    }
-  }
   CVisual::ReleaseBspPolygonList(this);
-  CVisual::RemoveDirtyRegionVisualizationData(this, v3, v4);
+  CVisual::RemoveDirtyRegionVisualizationData(this, v2, v3);
   CVisual::RemoveAllChildren((CComposition **)this);
   CVisual::RemoveAllLights(this);
-  v5 = *((_QWORD *)this + 32);
-  if ( v5 && (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v5 + 56LL))(v5, 182LL) )
-    CSuperWetInkManager::UnregisterSuperWetInkVisual(*((CSuperWetInkManager **)g_pComposition + 32), this);
-  v6 = *((_QWORD *)this + 32);
-  if ( v6 && CPtrArrayBase::Remove((CPtrArrayBase *)(v6 + 24), (unsigned __int64)this) )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
-  *((_QWORD *)this + 32) = 0LL;
-  v7 = *((_QWORD *)this + 30);
-  if ( v7 && CPtrArrayBase::Remove((CPtrArrayBase *)(v7 + 24), (unsigned __int64)this) )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
-  *((_QWORD *)this + 30) = 0LL;
-  v8 = (_DWORD *)*((_QWORD *)this + 29);
-  if ( (*v8 & 0x2000000) != 0 )
+  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 31));
+  *((_QWORD *)this + 31) = 0LL;
+  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 29));
+  *((_QWORD *)this + 29) = 0LL;
+  ColorTransform = (struct CResource *)CVisual::GetColorTransform((__int64)this);
+  CResource::UnRegisterNotifierInternal(this, ColorTransform);
+  TransformParentDataInternal = CVisual::GetTransformParentDataInternal(this);
+  WindowBackgroundTreatmentInternal = TransformParentDataInternal;
+  v6 = TransformParentDataInternal;
+  if ( TransformParentDataInternal )
   {
-    v87 = (unsigned int)v8[1];
-    v88 = v8 + 2;
-    for ( j = 0; j < (unsigned int)v87; ++v88 )
+    CResource::UnRegisterNotifierInternal(this, *(struct CResource **)TransformParentDataInternal);
+    *(_QWORD *)v6 = 0LL;
+    SAFE_DELETE<TransformParentData>(&WindowBackgroundTreatmentInternal);
+    v17 = (_DWORD *)*((_QWORD *)this + 28);
+    if ( (*v17 & 0x1000000) != 0 )
     {
-      if ( *v88 == 7 )
-        break;
-      ++j;
-    }
-    if ( j >= (unsigned int)v87 )
-      v90 = 0LL;
-    else
-      v90 = (__int64 *)((char *)v8 + 8LL * j - (((_BYTE)v87 + 15) & 7) + v87 + 15);
-    v91 = *v90;
-    if ( v91 && CPtrArrayBase::Remove((CPtrArrayBase *)(v91 + 24), (unsigned __int64)this) )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v91 + 16LL))(v91);
-  }
-  v9 = (_DWORD *)*((_QWORD *)this + 29);
-  if ( (*v9 & 0x1000000) != 0 )
-  {
-    v53 = (unsigned int)v9[1];
-    v54 = v9 + 2;
-    for ( k = 0; k < (unsigned int)v53; ++v54 )
-    {
-      if ( *v54 == 8 )
-        break;
-      ++k;
-    }
-    if ( k >= (unsigned int)v53 )
-      v56 = 0LL;
-    else
-      v56 = (struct CResource ***)((char *)v9 + 8LL * k - (((_BYTE)v53 + 15) & 7) + v53 + 15);
-    v57 = *v56;
-    DepthSortedList = (CVisual *)v57;
-    if ( v57 )
-    {
-      CResource::UnRegisterNotifierInternal(this, *v57);
-      *v57 = 0LL;
-      SAFE_DELETE<TransformParentData>(&DepthSortedList);
-      v58 = (_DWORD *)*((_QWORD *)this + 29);
-      if ( (*v58 & 0x1000000) != 0 )
-      {
-        v59 = *((_QWORD *)this + 29);
-        *v58 &= ~0x1000000u;
-        Slot = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v59, 8LL);
-        if ( Slot < *(_DWORD *)(v61 + 4) )
-          *(_BYTE *)(Slot + v61 + 8) = 0;
-      }
-      v62 = *((_QWORD *)this + 2) + 1016LL;
-      DepthSortedList = this;
-      DynArray<CVisual *,0>::Remove(v62, &DepthSortedList);
+      v18 = *((_QWORD *)this + 28);
+      *v17 &= ~0x1000000u;
+      Slot = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v18, 8LL);
+      if ( Slot < *(_DWORD *)(v20 + 4) )
+        *(_BYTE *)(Slot + v20 + 8) = 0;
     }
   }
-  v10 = (_DWORD *)*((_QWORD *)this + 29);
-  if ( (*v10 & 0x400000) != 0 )
-  {
-    v48 = (unsigned int)v10[1];
-    v49 = v10 + 2;
-    for ( m = 0; m < (unsigned int)v48; ++v49 )
-    {
-      if ( *v49 == 10 )
-        break;
-      ++m;
-    }
-    if ( m >= (unsigned int)v48 )
-      v51 = 0LL;
-    else
-      v51 = (__int64 *)((char *)v10 + 8LL * m - (((_BYTE)v48 + 15) & 7) + v48 + 15);
-    v52 = *v51;
-    if ( v52 && CPtrArrayBase::Remove((CPtrArrayBase *)(v52 + 24), (unsigned __int64)this) )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v52 + 16LL))(v52);
-  }
-  v11 = *((_QWORD *)this + 2);
-  v12 = *(CVisual ***)(v11 + 1088);
-  v13 = *(CVisual ***)(v11 + 1080);
-  if ( v13 != v12 )
-  {
-    while ( 1 )
-    {
-      v47 = v13 + 1;
-      if ( *v13 == this )
-        break;
-      ++v13;
-      if ( v47 == v12 )
-        goto LABEL_9;
-    }
-    memmove_0(v13, v47, (char *)v12 - (char *)v47);
-    *(_QWORD *)(v11 + 1088) -= 8LL;
-  }
-LABEL_9:
-  if ( (**((_DWORD **)this + 29) & 0x200000) != 0 )
+  CVisual::ManageTransformParentChildList(this, WindowBackgroundTreatmentInternal);
+  EffectInternal = CVisual::GetEffectInternal(this);
+  CResource::UnRegisterNotifierInternal(this, EffectInternal);
+  CComposition::RemoveProjectedShadowCasterVisual(*((CComposition **)this + 2), this);
+  if ( (**((_DWORD **)this + 28) & 0x200000) != 0 )
   {
     WindowBackgroundTreatmentInternal = CVisual::GetWindowBackgroundTreatmentInternal(this);
-    CResource::UnRegisterNotifierInternal(this, WindowBackgroundTreatmentInternal);
-    v64 = (_DWORD *)*((_QWORD *)this + 29);
-    if ( (*v64 & 0x200000) != 0 )
+    ReleaseInterface<CResource>(&WindowBackgroundTreatmentInternal);
+    v26 = (_DWORD *)*((_QWORD *)this + 28);
+    if ( (*v26 & 0x200000) != 0 )
     {
-      v65 = *((_QWORD *)this + 29);
-      *v64 &= ~0x200000u;
-      v66 = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v65, 11LL);
-      if ( v66 < *(_DWORD *)(v67 + 4) )
-        *(_BYTE *)(v66 + v67 + 8) = 0;
+      v27 = *((_QWORD *)this + 28);
+      *v26 &= ~0x200000u;
+      v28 = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v27, 11LL);
+      if ( v28 < *(_DWORD *)(v29 + 4) )
+        *(_BYTE *)(v28 + v29 + 8) = 0;
     }
   }
-  if ( (**((_DWORD **)this + 29) & 0x100000) != 0 )
+  if ( (**((_DWORD **)this + 28) & 0x100000) != 0 )
   {
     CachedWindowBackgroundTreatment = CVisual::GetCachedWindowBackgroundTreatment(this);
     if ( CachedWindowBackgroundTreatment )
+    {
       (*(void (__fastcall **)(struct CCachedWindowBackgroundTreatment *))(*(_QWORD *)CachedWindowBackgroundTreatment
                                                                         + 8LL))(CachedWindowBackgroundTreatment);
-    v69 = (_DWORD *)*((_QWORD *)this + 29);
-    if ( (*v69 & 0x100000) != 0 )
+      v22 = (unsigned int *)*((_QWORD *)this + 28);
+      v23 = *v22;
+    }
+    if ( (v23 & 0x100000) != 0 )
     {
-      v70 = *((_QWORD *)this + 29);
-      *v69 &= ~0x100000u;
-      v71 = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v70, 12LL);
-      if ( v71 < *(_DWORD *)(v72 + 4) )
-        *(_BYTE *)(v71 + v72 + 8) = 0;
+      *v22 = v23 & 0xFFEFFFFF;
+      v24 = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v22, 12LL);
+      if ( v24 < *(_DWORD *)(v25 + 4) )
+        *(_BYTE *)(v24 + v25 + 8) = 0;
     }
   }
-  if ( (**((_DWORD **)this + 29) & 0x8000) != 0 )
-  {
-    BlurredWallpaperSurface = CVisual::GetBlurredWallpaperSurface(this);
-    CResource::UnRegisterNotifierInternal(this, BlurredWallpaperSurface);
-    v93 = (_DWORD *)*((_QWORD *)this + 29);
-    if ( (*v93 & 0x8000) != 0 )
-    {
-      v94 = *((_QWORD *)this + 29);
-      *v93 &= ~0x8000u;
-      v95 = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v94, 17LL);
-      if ( v95 < *(_DWORD *)(v96 + 4) )
-        *(_BYTE *)(v95 + v96 + 8) = 0;
-    }
-    *((_QWORD *)g_pComposition + 38) = 0LL;
-    CurrentFrameId = GetCurrentFrameId();
-    *(_QWORD *)(v98 + 312) = CurrentFrameId;
-  }
+  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 30));
+  *((_QWORD *)this + 30) = 0LL;
+  CVisual::ClearInteraction(this);
   TreeDataListHead = CVisual::GetTreeDataListHead(this);
-  v15 = TreeDataListHead;
   if ( TreeDataListHead )
   {
-    for ( n = TreeDataListHead->Flink; n != v15; n = n->Flink )
-    {
-      if ( ((char *)n[-12].Blink - (char *)n[-12].Flink) >> 3 )
-        detail::vector_facade<wil::com_ptr_t<CBackdropVisualImage,wil::err_returncode_policy>,detail::buffer_impl<wil::com_ptr_t<CBackdropVisualImage,wil::err_returncode_policy>,1,1,detail::liberal_expansion_policy>>::clear_region(
-          &n[-12],
-          0LL);
-    }
+    while ( TreeDataListHead->Flink != TreeDataListHead )
+      CVisual::ReleaseVisualTreeData(
+        (CVisual *)TreeDataListHead->Flink[-17].Blink,
+        (struct CVisualTreeData *)&TreeDataListHead->Flink[-18]);
+    operator delete(TreeDataListHead);
   }
-  if ( (__int64)(*((_QWORD *)this + 64) - *((_QWORD *)this + 63)) >> 3 )
-    detail::vector_facade<wil::com_ptr_t<CBackdropVisualImage,wil::err_returncode_policy>,detail::buffer_impl<wil::com_ptr_t<CBackdropVisualImage,wil::err_returncode_policy>,1,1,detail::liberal_expansion_policy>>::clear_region(
-      (char *)this + 504,
-      0LL);
-  v17 = *((_QWORD *)this + 31);
-  if ( v17 && CPtrArrayBase::Remove((CPtrArrayBase *)(v17 + 24), (unsigned __int64)this) )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v17 + 16LL))(v17);
-  *((_QWORD *)this + 31) = 0LL;
-  InteractionInternal = CVisual::GetInteractionInternal(this);
-  if ( InteractionInternal )
-    (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)InteractionInternal + 16LL))(InteractionInternal);
-  v19 = (_DWORD *)*((_QWORD *)this + 29);
-  if ( (*v19 & 0x800000) != 0 )
+  CVisual::DeleteDepthSortedList(this);
+  v9 = (_DWORD *)*((_QWORD *)this + 28);
+  if ( (*v9 & 0x40000) != 0 )
   {
-    v99 = *((_QWORD *)this + 29);
-    *v19 &= ~0x800000u;
-    v100 = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v99, 9LL);
-    if ( v100 < *(_DWORD *)(v101 + 4) )
-      *(_BYTE *)(v100 + v101 + 8) = 0;
-  }
-  v20 = *((_QWORD *)this + 29);
-  if ( *(int *)v20 < 0 )
-  {
-    v21 = *(unsigned int *)(v20 + 4);
-    v22 = (_BYTE *)(v20 + 8);
-    for ( ii = 0; ii < (unsigned int)v21; ++v22 )
+    ProjectedShadowCasters = (struct TransformParentData *)CVisual::GetProjectedShadowCasters((__int64)this);
+    WindowBackgroundTreatmentInternal = ProjectedShadowCasters;
+    v33 = (CProjectedShadowCaster **)*((_QWORD *)ProjectedShadowCasters + 1);
+    v34 = *(CProjectedShadowCaster ***)ProjectedShadowCasters;
+    if ( *(CProjectedShadowCaster ***)ProjectedShadowCasters != v33 )
     {
-      if ( *v22 == 1 )
-        break;
-      ++ii;
+      do
+      {
+        v35 = *v34;
+        v36 = (_QWORD *)((char *)*v34 + 72);
+        *((_QWORD *)*v34 + 7) = 0LL;
+        std::_Tree<std::_Tmap_traits<CVisualTree const *,CProjectedShadowCaster::VisualPropertyData,std::less<CVisualTree const *>,std::allocator<std::pair<CVisualTree const * const,CProjectedShadowCaster::VisualPropertyData>>,0>>::clear(v36);
+        CProjectedShadowCaster::InvalidateMaskContent(v35);
+        v37 = (CProjectedShadowScene **)*((_QWORD *)v35 + 11);
+        v38 = 0LL;
+        v39 = (unsigned __int64)(*((_QWORD *)v35 + 12) - (_QWORD)v37 + 7LL) >> 3;
+        if ( (unsigned __int64)v37 > *((_QWORD *)v35 + 12) )
+          v39 = 0LL;
+        if ( v39 )
+        {
+          do
+          {
+            CProjectedShadowScene::DiscardCachesForCaster(*v37, v35);
+            ++v38;
+            ++v37;
+          }
+          while ( v38 != v39 );
+        }
+        ++v34;
+      }
+      while ( v34 != v33 );
+      v31 = (unsigned int *)*((_QWORD *)this + 28);
+      ProjectedShadowCasters = WindowBackgroundTreatmentInternal;
+      v32 = *v31;
     }
-    if ( ii >= (unsigned int)v21 )
-      v24 = 0LL;
-    else
-      v24 = (_QWORD **)(v21 + 15 + v20 + 8LL * ii - (((_BYTE)v21 + 15) & 7));
-    v25 = *v24;
-    if ( v25 )
+    if ( (v32 & 0x40000) != 0 )
     {
-      while ( (_QWORD *)*v25 != v25 )
-        CVisual::ReleaseVisualTreeData(*(CVisual **)(*v25 - 96LL), (struct CVisualTreeData *)(*v25 - 360LL));
-      operator delete(v25, 0x10uLL);
+      *v31 = v32 & 0xFFFBFFFF;
+      v40 = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v31, 14LL);
+      if ( v40 < *(_DWORD *)(v41 + 4) )
+        *(_BYTE *)(v40 + v41 + 8) = 0;
     }
-  }
-  DepthSortedList = (CVisual *)CVisual::GetDepthSortedList((__int64)this);
-  if ( DepthSortedList )
-  {
-    CVisual::SetDepthSortedList(this, 0LL);
-    SAFE_DELETE<std::vector<CVisual *>>(&DepthSortedList);
-  }
-  if ( (**((_DWORD **)this + 29) & 0x40000) != 0 )
-  {
-    ProjectedShadowCasters = (CProjectedShadowCaster ***)CVisual::GetProjectedShadowCasters((__int64)this);
-    v74 = ProjectedShadowCasters[1];
-    for ( jj = *ProjectedShadowCasters; jj != v74; ++jj )
-    {
-      v102 = *jj;
-      v103 = (_QWORD *)((char *)*jj + 80);
-      *((_QWORD *)*jj + 8) = 0LL;
-      std::_Tree<std::_Tmap_traits<CVisualTree const *,CProjectedShadowCaster::VisualPropertyData,std::less<CVisualTree const *>,std::allocator<std::pair<CVisualTree const * const,CProjectedShadowCaster::VisualPropertyData>>,0>>::clear(v103);
-      CProjectedShadowCaster::InvalidateMaskContent(v102);
-      v104 = (CProjectedShadowScene **)*((_QWORD *)v102 + 13);
-      for ( kk = (CProjectedShadowScene **)*((_QWORD *)v102 + 12); kk != v104; ++kk )
-        CProjectedShadowScene::DiscardCachesForCaster(*kk, v102);
-    }
-    v76 = (_DWORD *)*((_QWORD *)this + 29);
-    if ( (*v76 & 0x40000) != 0 )
-    {
-      v77 = *((_QWORD *)this + 29);
-      *v76 &= ~0x40000u;
-      v78 = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v77, 14LL);
-      if ( v78 < *(_DWORD *)(v79 + 4) )
-        *(_BYTE *)(v78 + v79 + 8) = 0;
-    }
-    if ( *ProjectedShadowCasters )
+    if ( *(_QWORD *)ProjectedShadowCasters )
     {
       std::_Deallocate<16,0>(
-        *ProjectedShadowCasters,
-        ((char *)ProjectedShadowCasters[2] - (char *)*ProjectedShadowCasters) & 0xFFFFFFFFFFFFFFF8uLL);
-      *ProjectedShadowCasters = 0LL;
-      ProjectedShadowCasters[1] = 0LL;
-      ProjectedShadowCasters[2] = 0LL;
+        *(_QWORD *)ProjectedShadowCasters,
+        (*((_QWORD *)ProjectedShadowCasters + 2) - *(_QWORD *)ProjectedShadowCasters) & 0xFFFFFFFFFFFFFFF8uLL);
+      *(_QWORD *)ProjectedShadowCasters = 0LL;
+      *((_QWORD *)ProjectedShadowCasters + 1) = 0LL;
+      *((_QWORD *)ProjectedShadowCasters + 2) = 0LL;
     }
-    operator delete(ProjectedShadowCasters, 0x18uLL);
+    operator delete(ProjectedShadowCasters);
+    v9 = (_DWORD *)*((_QWORD *)this + 28);
   }
-  if ( (**((_DWORD **)this + 29) & 0x20000) != 0 )
+  if ( (*v9 & 0x20000) != 0 )
   {
     ProjectedShadowReceivers = (CProjectedShadowReceiver ***)CVisual::GetProjectedShadowReceivers((__int64)this);
-    v81 = ProjectedShadowReceivers[1];
-    for ( mm = *ProjectedShadowReceivers; mm != v81; ++mm )
+    v44 = 0LL;
+    v45 = *ProjectedShadowReceivers;
+    v46 = (unsigned __int64)((char *)ProjectedShadowReceivers[1] - (char *)*ProjectedShadowReceivers + 7) >> 3;
+    if ( *ProjectedShadowReceivers > ProjectedShadowReceivers[1] )
+      v46 = 0LL;
+    if ( v46 )
     {
-      v106 = *mm;
-      *((_QWORD *)v106 + 8) = 0LL;
-      CProjectedShadowReceiver::InvalidateMaskContent(v106);
-      v107 = (CProjectedShadowScene **)*((_QWORD *)v106 + 10);
-      for ( nn = (CProjectedShadowScene **)*((_QWORD *)v106 + 9); nn != v107; ++nn )
+      do
       {
-        ReceiverEntry = CProjectedShadowScene::FindReceiverEntry(*nn, v106);
-        ReceiverEntry[3] = 0LL;
-        std::_Tree<std::_Tmap_traits<CProjectedShadowCaster *,wil::com_ptr_t<CProjectedShadow,wil::err_returncode_policy>,std::less<CProjectedShadowCaster *>,std::allocator<std::pair<CProjectedShadowCaster * const,wil::com_ptr_t<CProjectedShadow,wil::err_returncode_policy>>>,0>>::clear(ReceiverEntry + 1);
+        CProjectedShadowReceiver::OnDestroyingReceivingVisual(*v45);
+        ++v44;
+        ++v45;
       }
+      while ( v44 != v46 );
+      v43 = (_DWORD *)*((_QWORD *)this + 28);
     }
-    v83 = (_DWORD *)*((_QWORD *)this + 29);
-    if ( (*v83 & 0x20000) != 0 )
+    if ( (*v43 & 0x20000) != 0 )
     {
-      v84 = *((_QWORD *)this + 29);
-      *v83 &= ~0x20000u;
-      v85 = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v84, 15LL);
-      if ( v85 < *(_DWORD *)(v86 + 4) )
-        *(_BYTE *)(v85 + v86 + 8) = 0;
+      *v43 &= ~0x20000u;
+      v47 = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v43, 15LL);
+      if ( v47 < *(_DWORD *)(v48 + 4) )
+        *(_BYTE *)(v47 + v48 + 8) = 0;
     }
     if ( *ProjectedShadowReceivers )
     {
@@ -469,77 +269,50 @@ LABEL_9:
       ProjectedShadowReceivers[1] = 0LL;
       ProjectedShadowReceivers[2] = 0LL;
     }
-    operator delete(ProjectedShadowReceivers, 0x18uLL);
+    operator delete(ProjectedShadowReceivers);
   }
-  v26 = (_DWORD *)*((_QWORD *)this + 29);
-  if ( (*v26 & 0x8000000) != 0 )
+  UnusedTreeData = CVisual::GetUnusedTreeData(this);
+  if ( UnusedTreeData )
+    (**(void (__fastcall ***)(struct CTreeData *, __int64))UnusedTreeData)(UnusedTreeData, 1LL);
+  AdditionalDirtyRects = CVisual::GetAdditionalDirtyRects(this);
+  if ( AdditionalDirtyRects )
+    (**(void (__fastcall ***)(struct CMergedDirtyRect *, __int64))AdditionalDirtyRects)(AdditionalDirtyRects, 1LL);
+  v13 = *((_BYTE *)this + 93);
+  if ( (v13 & 8) != 0 )
   {
-    v27 = (unsigned int)v26[1];
-    v28 = v26 + 2;
-    for ( i1 = 0; i1 < (unsigned int)v27; ++v28 )
-    {
-      if ( *v28 == 5 )
-        break;
-      ++i1;
-    }
-    if ( i1 >= (unsigned int)v27 )
-      v30 = 0LL;
-    else
-      v30 = (void (__fastcall ****)(_QWORD, __int64))((char *)v26 + v27 + 8LL * i1 - (((_BYTE)v27 + 15) & 7) + 15);
-    v31 = *v30;
-    if ( v31 )
-      (**v31)(v31, 1LL);
+    --*(_DWORD *)(*((_QWORD *)this + 2) + 1072LL);
+    v13 = *((_BYTE *)this + 93);
   }
-  v32 = (_DWORD *)*((_QWORD *)this + 29);
-  if ( (*v32 & 0x40000000) != 0 )
+  if ( (v13 & 0x40) != 0 )
+    --*(_DWORD *)(*((_QWORD *)this + 2) + 1076LL);
+  wil::details::FeatureImpl<__WilFeatureTraits_Feature_StereoscopicUwp>::ReportUsage(
+    &`wil::Feature<__WilFeatureTraits_Feature_StereoscopicUwp>::GetImpl'::`2'::impl,
+    0,
+    v12);
+  *((_BYTE *)this + 336) = 0;
+  *((_QWORD *)this + 40) = &CDesktopTreeData::`vftable';
+  CTreeData::~CTreeData((CVisual *)((char *)this + 320));
+  v14 = *((_QWORD *)this + 37);
+  if ( v14 )
   {
-    v37 = (unsigned int)v32[1];
-    v38 = v32 + 2;
-    for ( i2 = 0; i2 < (unsigned int)v37; ++v38 )
-    {
-      if ( *v38 == 2 )
-        break;
-      ++i2;
-    }
-    if ( i2 >= (unsigned int)v37 )
-      v40 = 0LL;
-    else
-      v40 = (void (__fastcall ****)(_QWORD, __int64))((char *)v32 + 8LL * i2 - (((_BYTE)v37 + 15) & 7) + v37 + 15);
-    v41 = *v40;
-    if ( v41 )
-      (**v41)(v41, 1LL);
-  }
-  if ( (*((_BYTE *)this + 101) & 2) != 0 )
-    --*(_DWORD *)(*((_QWORD *)this + 2) + 1224LL);
-  if ( (*((_BYTE *)this + 101) & 0x10) != 0 )
-    --*(_DWORD *)(*((_QWORD *)this + 2) + 1232LL);
-  *((_BYTE *)this + 346) = 0;
-  *((_QWORD *)this + 42) = &CDesktopTreeData::`vftable';
-  CTreeData::~CTreeData((CVisual *)((char *)this + 336));
-  v33 = *((_QWORD *)this + 38);
-  if ( v33 )
-  {
-    std::_Deallocate<16,0>(v33, (*((_QWORD *)this + 40) - v33) & 0xFFFFFFFFFFFFFFF0uLL);
+    std::_Deallocate<16,0>(v14, (*((_QWORD *)this + 39) - v14) & 0xFFFFFFFFFFFFFFF0uLL);
+    *((_QWORD *)this + 37) = 0LL;
     *((_QWORD *)this + 38) = 0LL;
     *((_QWORD *)this + 39) = 0LL;
-    *((_QWORD *)this + 40) = 0LL;
   }
-  v34 = *((_QWORD *)this + 35);
-  if ( v34 )
+  v15 = *((_QWORD *)this + 34);
+  if ( v15 )
   {
-    std::_Deallocate<16,0>(v34, (*((_QWORD *)this + 37) - v34) & 0xFFFFFFFFFFFFFFF0uLL);
+    std::_Deallocate<16,0>(v15, (*((_QWORD *)this + 36) - v15) & 0xFFFFFFFFFFFFFFF0uLL);
+    *((_QWORD *)this + 34) = 0LL;
     *((_QWORD *)this + 35) = 0LL;
     *((_QWORD *)this + 36) = 0LL;
-    *((_QWORD *)this + 37) = 0LL;
   }
-  v35 = (void *)*((_QWORD *)this + 29);
-  if ( v35 != &CSparseAlignedStorage<8,8>::k_defaultEmptyAllocatedStorage )
-    operator delete(v35);
-  CSparseStorage::~CSparseStorage((void **)this + 28);
-  v36 = *((_QWORD *)this + 10);
-  if ( (v36 & 2) != 0 )
-    operator delete((void *)(v36 & 0xFFFFFFFFFFFFFFFCuLL));
-  *((_QWORD *)this + 10) = 0LL;
+  v16 = (void *)*((_QWORD *)this + 28);
+  if ( v16 != &CSparseAlignedStorage<8,8>::k_defaultEmptyAllocatedStorage )
+    operator delete(v16);
+  CSparseStorage::~CSparseStorage((void **)this + 27);
+  CPtrArrayBase::Clear((CVisual *)((char *)this + 72));
   *(_QWORD *)this = &CNotificationResource::`vftable';
   CResource::~CResource(this);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventParkNodeParkHintChanged @ 0x1405DA3B4
+ * XREFs of PpmEventParkNodeParkHintChanged @ 0x140579DE8
  * Callers:
- *     PpmParkApplyPolicy @ 0x1403CEDC4 (PpmParkApplyPolicy.c)
+ *     PpmParkApplyPolicy @ 0x1403C1C84 (PpmParkApplyPolicy.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventParkNodeParkHintChanged(__int16 a1, __int64 a2, __int64 a3)

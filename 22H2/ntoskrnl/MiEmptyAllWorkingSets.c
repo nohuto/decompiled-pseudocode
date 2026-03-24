@@ -1,23 +1,23 @@
 /*
- * XREFs of MiEmptyAllWorkingSets @ 0x140634748
+ * XREFs of MiEmptyAllWorkingSets @ 0x14053B138
  * Callers:
- *     MiFlushAllFilesystemPages @ 0x140629304 (MiFlushAllFilesystemPages.c)
- *     MmEmptyAllWorkingSets @ 0x1406356C0 (MmEmptyAllWorkingSets.c)
- *     MmPerformMemoryListCommand @ 0x140A884BC (MmPerformMemoryListCommand.c)
- *     MiMirrorBrownPhase @ 0x140AAC6EC (MiMirrorBrownPhase.c)
+ *     MiFlushAllFilesystemPages @ 0x140535508 (MiFlushAllFilesystemPages.c)
+ *     MmEmptyAllWorkingSets @ 0x14053C744 (MmEmptyAllWorkingSets.c)
+ *     MiMirrorBrownPhase @ 0x140990BDC (MiMirrorBrownPhase.c)
+ *     MmPerformMemoryListCommand @ 0x14099AB3C (MmPerformMemoryListCommand.c)
  * Callees:
- *     MiQueueWorkingSetRequest @ 0x14035E878 (MiQueueWorkingSetRequest.c)
+ *     MiQueueWorkingSetRequest @ 0x1403A5454 (MiQueueWorkingSetRequest.c)
  */
 
-__int64 __fastcall MiEmptyAllWorkingSets(__int64 a1)
+int __fastcall MiEmptyAllWorkingSets(__int64 a1)
 {
-  __int64 result; // rax
+  __int64 v1; // rax
 
-  result = *(_QWORD *)(a1 + 16920);
-  if ( byte_140C699E4 )
+  v1 = *(_QWORD *)(a1 + 6848);
+  if ( byte_140C4EEDC )
   {
-    ++*(_DWORD *)(result + 28);
-    return MiQueueWorkingSetRequest(a1, 4);
+    ++*(_DWORD *)(v1 + 28);
+    LODWORD(v1) = MiQueueWorkingSetRequest(a1, 4);
   }
-  return result;
+  return v1;
 }

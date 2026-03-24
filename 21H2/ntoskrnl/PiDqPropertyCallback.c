@@ -1,92 +1,92 @@
 /*
- * XREFs of PiDqPropertyCallback @ 0x1407770E0
+ * XREFs of PiDqPropertyCallback @ 0x1406384F0
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     PiDqOpenObjectRegKey @ 0x14069984C (PiDqOpenObjectRegKey.c)
- *     PiDqGetPnpObjectType @ 0x140777298 (PiDqGetPnpObjectType.c)
- *     PiDqPnPGetObjectProperty @ 0x14077D784 (PiDqPnPGetObjectProperty.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     PiDqPnPGetObjectProperty @ 0x140637F94 (PiDqPnPGetObjectProperty.c)
+ *     PiDqGetPnpObjectType @ 0x1406386A0 (PiDqGetPnpObjectType.c)
+ *     PiDqOpenObjectRegKey @ 0x1406A9838 (PiDqOpenObjectRegKey.c)
  */
 
-__int64 __fastcall PiDqPropertyCallback(__int64 *a1, __int64 a2, _DWORD *a3, _DWORD *a4, _QWORD *a5)
+__int64 __fastcall PiDqPropertyCallback(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4, _QWORD *a5)
 {
   unsigned int v9; // edi
   __int64 v10; // r13
   unsigned int v11; // ebp
-  int v12; // ecx
-  int v13; // r10d
-  int v14; // eax
-  __int64 v16; // r8
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  const wchar_t *v19; // rcx
-  const wchar_t *v20; // rdx
+  __int64 v12; // r8
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  const wchar_t *v15; // rcx
+  const wchar_t *v16; // rdx
+  int v18; // ecx
+  unsigned int v19; // ebp
+  int v20; // eax
   int PnpObjectType; // eax
   __int64 v22; // r9
   __int64 v23; // rax
   __int64 v24; // rcx
 
   v9 = 0;
-  LODWORD(v10) = 0;
+  v10 = 0LL;
   v11 = 0;
-  if ( !*((_DWORD *)a1 + 6) )
+  if ( !*(_DWORD *)(a1 + 24) )
   {
-LABEL_2:
-    v12 = *(_DWORD *)(a2 + 20);
-    if ( v12 )
+LABEL_11:
+    v18 = *(_DWORD *)(a2 + 20);
+    if ( v18 )
     {
-      if ( v12 != 1 )
+      if ( v18 != 1 )
         return (unsigned int)-1073741811;
-      if ( !*a1 )
+      v19 = 0;
+      if ( !*(_QWORD *)a1 )
       {
-        PnpObjectType = PiDqGetPnpObjectType(*(unsigned int *)(*(_QWORD *)(a1[5] + 24) + 16LL));
-        v9 = PiDqOpenObjectRegKey(1, a1[4], PnpObjectType, 1, 0, v22, a1);
+        PnpObjectType = PiDqGetPnpObjectType(*(unsigned int *)(*(_QWORD *)(*(_QWORD *)(a1 + 40) + 24LL) + 16LL));
+        v9 = PiDqOpenObjectRegKey(1, *(_QWORD *)(a1 + 32), PnpObjectType, 1, 0, v22, a1);
         if ( v9 == -1073741772 )
         {
-          *a1 = -1LL;
+          *(_QWORD *)a1 = -1LL;
           v9 = 0;
         }
       }
-      v10 = *a1;
-      if ( *a1 == -1 )
+      v10 = *(_QWORD *)a1;
+      if ( *(_QWORD *)a1 == -1LL )
       {
-        v23 = a1[2];
-        v24 = 6LL * *((unsigned int *)a1 + 6);
+        v23 = *(_QWORD *)(a1 + 16);
+        v24 = 6LL * *(unsigned int *)(a1 + 24);
         *(_OWORD *)(v23 + 8 * v24) = *(_OWORD *)a2;
         *(_OWORD *)(v23 + 8 * v24 + 16) = *(_OWORD *)(a2 + 16);
-        ++*((_DWORD *)a1 + 6);
-        goto LABEL_31;
+        ++*(_DWORD *)(a1 + 24);
+        goto LABEL_29;
       }
-      v13 = 0;
-      if ( (v9 & 0x80000000) != 0 )
-        return v9;
     }
     else
     {
-      v13 = PiDqGetPnpObjectType(*(unsigned int *)(*(_QWORD *)(a1[5] + 24) + 16LL));
+      v19 = PiDqGetPnpObjectType(*(unsigned int *)(*(_QWORD *)(*(_QWORD *)(a1 + 40) + 24LL) + 16LL));
     }
-    v14 = PiDqPnPGetObjectProperty(
-            a1[4],
-            v13,
+    if ( (v9 & 0x80000000) != 0 )
+      return v9;
+    v20 = PiDqPnPGetObjectProperty(
+            *(_QWORD *)(a1 + 32),
+            v19,
             v10,
             a2,
             *(_DWORD *)(a2 + 20),
             0LL,
-            a1[2] + 48LL * *((unsigned int *)a1 + 6));
-    v9 = v14;
-    if ( v14 != -1073741811 )
+            (_OWORD *)(*(_QWORD *)(a1 + 16) + 48LL * *(unsigned int *)(a1 + 24)));
+    v9 = v20;
+    if ( v20 != -1073741811 )
     {
-      if ( v14 >= 0 )
+      if ( v20 >= 0 )
       {
-        *a3 = *(_DWORD *)(a1[2] + 48LL * *((unsigned int *)a1 + 6) + 32);
-        *a4 = *(_DWORD *)(a1[2] + 48LL * *((unsigned int *)a1 + 6) + 36);
-        *a5 = *(_QWORD *)(a1[2] + 48LL * (unsigned int)(*((_DWORD *)a1 + 6))++ + 40);
+        *a3 = *(_DWORD *)(*(_QWORD *)(a1 + 16) + 48LL * *(unsigned int *)(a1 + 24) + 32);
+        *a4 = *(_DWORD *)(*(_QWORD *)(a1 + 16) + 48LL * *(unsigned int *)(a1 + 24) + 36);
+        *a5 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 48LL * (unsigned int)(*(_DWORD *)(a1 + 24))++ + 40);
       }
       return v9;
     }
     v9 = 0;
-LABEL_31:
+LABEL_29:
     *a3 = 0;
     *a4 = 0;
     *a5 = 0LL;
@@ -94,26 +94,26 @@ LABEL_31:
   }
   while ( 1 )
   {
-    v16 = a1[2];
-    v17 = 48LL * v11;
-    if ( *(_DWORD *)(a2 + 16) == *(_DWORD *)(v17 + v16 + 16) )
+    v12 = *(_QWORD *)(a1 + 16);
+    v13 = 48LL * v11;
+    if ( *(_DWORD *)(a2 + 16) == *(_DWORD *)(v13 + v12 + 16) )
     {
-      v18 = *(_QWORD *)a2 - *(_QWORD *)(v17 + v16);
-      if ( *(_QWORD *)a2 == *(_QWORD *)(v17 + v16) )
-        v18 = *(_QWORD *)(a2 + 8) - *(_QWORD *)(v17 + v16 + 8);
-      if ( !v18 && *(_DWORD *)(a2 + 20) == *(_DWORD *)(v17 + v16 + 20) )
+      v14 = *(_QWORD *)a2 - *(_QWORD *)(v13 + v12);
+      if ( *(_QWORD *)a2 == *(_QWORD *)(v13 + v12) )
+        v14 = *(_QWORD *)(a2 + 8) - *(_QWORD *)(v13 + v12 + 8);
+      if ( !v14 && *(_DWORD *)(a2 + 20) == *(_DWORD *)(v13 + v12 + 20) )
       {
-        v19 = *(const wchar_t **)(a2 + 24);
-        v20 = *(const wchar_t **)(v17 + v16 + 24);
-        if ( v19 == v20 || v19 && v20 && !wcsicmp(v19, v20) )
+        v15 = *(const wchar_t **)(a2 + 24);
+        v16 = *(const wchar_t **)(v13 + v12 + 24);
+        if ( v15 == v16 || v15 && v16 && !wcsicmp(v15, v16) )
           break;
       }
     }
-    if ( ++v11 >= *((_DWORD *)a1 + 6) )
-      goto LABEL_2;
+    if ( ++v11 >= *(_DWORD *)(a1 + 24) )
+      goto LABEL_11;
   }
-  *a3 = *(_DWORD *)(a1[2] + 48LL * v11 + 32);
-  *a4 = *(_DWORD *)(a1[2] + 48LL * v11 + 36);
-  *a5 = *(_QWORD *)(a1[2] + 48LL * v11 + 40);
+  *a3 = *(_DWORD *)(*(_QWORD *)(a1 + 16) + 48LL * v11 + 32);
+  *a4 = *(_DWORD *)(*(_QWORD *)(a1 + 16) + 48LL * v11 + 36);
+  *a5 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 48LL * v11 + 40);
   return v9;
 }

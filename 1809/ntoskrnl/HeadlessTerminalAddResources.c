@@ -1,9 +1,9 @@
 /*
- * XREFs of HeadlessTerminalAddResources @ 0x1407304FC
+ * XREFs of HeadlessTerminalAddResources @ 0x1407304DC
  * Callers:
  *     IoReportHalResourceUsage @ 0x1409C0AA0 (IoReportHalResourceUsage.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

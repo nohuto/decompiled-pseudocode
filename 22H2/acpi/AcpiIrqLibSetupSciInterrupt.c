@@ -1,108 +1,102 @@
 /*
- * XREFs of AcpiIrqLibSetupSciInterrupt @ 0x1C0098DBC
+ * XREFs of AcpiIrqLibSetupSciInterrupt @ 0x1C0097104
  * Callers:
- *     OSInterruptVector @ 0x1C00A8324 (OSInterruptVector.c)
+ *     OSInterruptVector @ 0x1C00BD980 (OSInterruptVector.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     ProcessorCopyData @ 0x1C009A974 (ProcessorCopyData.c)
- *     IrqArbGetDeviceIrql @ 0x1C009D314 (IrqArbGetDeviceIrql.c)
- *     IcAddPossibleReference @ 0x1C009EB84 (IcAddPossibleReference.c)
- *     IcClearPossibleData @ 0x1C009EFE0 (IcClearPossibleData.c)
- *     IcCopyData @ 0x1C009F088 (IcCopyData.c)
- *     IcCopyInputStateToDeviceState @ 0x1C009F1E0 (IcCopyInputStateToDeviceState.c)
- *     IcRemapInputs @ 0x1C009F4A0 (IcRemapInputs.c)
- *     IcSetPossibleInput @ 0x1C009F6C4 (IcSetPossibleInput.c)
- *     IrqLibpSetSciConnectionData @ 0x1C00ABE24 (IrqLibpSetSciConnectionData.c)
- *     IrqPolicyGetDistributionDisposition @ 0x1C00AC3AC (IrqPolicyGetDistributionDisposition.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     IcAddPossibleReference @ 0x1C0091EB4 (IcAddPossibleReference.c)
+ *     IcCopyInputStateToDeviceState @ 0x1C00937A0 (IcCopyInputStateToDeviceState.c)
+ *     ProcessorCopyData @ 0x1C00944E0 (ProcessorCopyData.c)
+ *     IcClearPossibleData @ 0x1C0094980 (IcClearPossibleData.c)
+ *     IrqArbGetDeviceIrql @ 0x1C0095178 (IrqArbGetDeviceIrql.c)
+ *     IcRemapInputs @ 0x1C00952A8 (IcRemapInputs.c)
+ *     IcSetPossibleInput @ 0x1C0096628 (IcSetPossibleInput.c)
+ *     IcCopyData @ 0x1C00972F4 (IcCopyData.c)
+ *     IrqPolicyGetDistributionDisposition @ 0x1C00BCAA0 (IrqPolicyGetDistributionDisposition.c)
+ *     IrqLibpSetSciConnectionData @ 0x1C00BCBA8 (IrqLibpSetSciConnectionData.c)
  */
 
 __int64 __fastcall AcpiIrqLibSetupSciInterrupt(unsigned __int16 a1, void *a2)
 {
-  ULONGLONG v2; // rdi
-  _DWORD *Pool2; // rax
+  __int64 v2; // rdi
+  _DWORD *PoolWithTag; // rax
   _DWORD *UserData; // rbx
+  char v6; // bp
+  ULONGLONG v7; // rcx
+  char v8; // dl
+  int v9; // eax
   __int64 result; // rax
-  _DWORD *v7; // rsi
-  char v8; // bp
-  ULONGLONG v9; // rdx
-  char v10; // al
-  bool v11; // zf
-  int v12; // eax
-  __int64 v13; // r8
-  __int128 v14; // [rsp+50h] [rbp-78h] BYREF
-  __int128 v15; // [rsp+60h] [rbp-68h]
-  _OWORD v16[2]; // [rsp+70h] [rbp-58h] BYREF
-  __int64 v17; // [rsp+90h] [rbp-38h]
+  __int128 v11; // [rsp+50h] [rbp-78h] BYREF
+  __int128 v12; // [rsp+60h] [rbp-68h]
+  _OWORD v13[2]; // [rsp+70h] [rbp-58h] BYREF
+  __int64 v14; // [rsp+90h] [rbp-38h]
 
   v2 = a1;
-  memset(v16, 0, sizeof(v16));
-  v17 = 0LL;
+  memset(v13, 0, sizeof(v13));
   v14 = 0LL;
-  v15 = 0LL;
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, 120LL, 1232102209LL);
-  UserData = Pool2;
-  if ( !Pool2 )
+  v11 = 0LL;
+  v12 = 0LL;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x49706341u);
+  UserData = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  Pool2[12] = 0;
-  v7 = Pool2 + 8;
-  Pool2[8] = 0;
-  *Pool2 = 1;
-  v8 = 3;
-  Pool2[2] = 1;
-  v9 = v2;
-  Pool2[11] = 2;
+  memset(PoolWithTag, 0, 0x78uLL);
+  *UserData = 1;
+  v6 = 3;
+  UserData[2] = 1;
+  v7 = (unsigned int)v2;
+  UserData[11] = 2;
   if ( (unsigned int)v2 < 0x10 )
   {
     LODWORD(v2) = *((_DWORD *)&IsaVectorOverrides + 2 * v2);
-    v10 = *((_BYTE *)&IsaVectorOverrides + 8 * v9 + 4);
-    if ( v10 != -1 )
+    v8 = *((_BYTE *)&IsaVectorOverrides + 8 * v7 + 4);
+    if ( v8 != -1 )
     {
-      v8 = *((_BYTE *)&IsaVectorOverrides + 8 * v9 + 4);
-      v11 = (v10 & 1) == 0;
-      v12 = UserData[11];
-      if ( v11 )
-        v12 = 1;
-      UserData[11] = v12;
+      v9 = UserData[11];
+      v6 = *((_BYTE *)&IsaVectorOverrides + 8 * v7 + 4);
+      if ( (v8 & 1) == 0 )
+        v9 = 1;
+      UserData[11] = v9;
     }
   }
   UserData[22] = v2;
   IrqLibSciGsiv = v2;
-  RtlAddRange(RangeList, v9, v9, 0, 0x12u, UserData, a2);
+  RtlAddRange(RangeList, v7, v7, 0, 0x12u, UserData, a2);
   result = ((__int64 (__fastcall *)(void *, _QWORD, _QWORD, _OWORD *, int, _DWORD, int, int, __int128 *))ProcessorReserveIdtEntries)(
              a2,
              0LL,
              (unsigned int)IrqLibSciGsiv,
-             v16,
+             v13,
              1,
              0,
              1,
              1,
-             &v14);
+             &v11);
   if ( (int)result >= 0 )
   {
-    *(_OWORD *)(UserData + 14) = v14;
-    UserData[9] = DWORD1(v15);
-    result = IrqArbGetDeviceIrql(v7, UserData + 10);
+    *(_OWORD *)(UserData + 14) = v11;
+    UserData[9] = DWORD1(v12);
+    result = IrqArbGetDeviceIrql(UserData + 8, (_BYTE *)UserData + 40);
     if ( (int)result >= 0 )
     {
       IcClearPossibleData();
-      LOBYTE(v13) = v8;
-      result = IcSetPossibleInput((unsigned int)v2, &v14, v13, 0LL);
+      result = IcSetPossibleInput(v2, (__int64)&v11, v6, 0);
       if ( (int)result >= 0 )
       {
-        IcAddPossibleReference((unsigned int)v2, 0LL);
+        IcAddPossibleReference(v2, 0);
         result = ProcessorCopyData(0LL);
         if ( (int)result >= 0 )
         {
           result = IcRemapInputs();
           if ( (int)result >= 0 )
           {
-            IcCopyInputStateToDeviceState(&IrqLibArbiterInstance, 0LL);
+            IcCopyInputStateToDeviceState((__int64)&IrqLibArbiterInstance, 0);
             result = IcCopyData(0LL);
             if ( (int)result >= 0 )
             {
-              result = IrqLibpSetSciConnectionData(v7, a2);
+              result = IrqLibpSetSciConnectionData(UserData + 8, a2);
               if ( (int)result >= 0 )
               {
                 IrqPolicyGetDistributionDisposition();

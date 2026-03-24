@@ -1,40 +1,64 @@
 /*
- * XREFs of ?FinalizeInitialization@ADAPTER_RENDER@@QEAAJXZ @ 0x1C021B460
+ * XREFs of ?FinalizeInitialization@ADAPTER_RENDER@@QEAAJXZ @ 0x1C019E9EC
  * Callers:
- *     ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01FD460 (-CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS.c)
+ *     ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0183448 (-CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?OpenAdapter@DXGPROCESS@@QEAAJPEAVADAPTER_RENDER@@_N@Z @ 0x1C01688A8 (-OpenAdapter@DXGPROCESS@@QEAAJPEAVADAPTER_RENDER@@_N@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?OpenAdapter@DXGPROCESS@@QEAAJPEAVADAPTER_RENDER@@_N@Z @ 0x1C011FB04 (-OpenAdapter@DXGPROCESS@@QEAAJPEAVADAPTER_RENDER@@_N@Z.c)
+ *     ?EnableIoMmuIsolation@ADAPTER_RENDER@@QEAAJXZ @ 0x1C0215D54 (-EnableIoMmuIsolation@ADAPTER_RENDER@@QEAAJXZ.c)
  */
 
-__int64 __fastcall ADAPTER_RENDER::FinalizeInitialization(ADAPTER_RENDER *this)
+__int64 __fastcall ADAPTER_RENDER::FinalizeInitialization(ADAPTER_RENDER *this, __int64 a2)
 {
   struct DXGGLOBAL *Global; // rax
-  int v3; // edi
-  __int64 result; // rax
-  const wchar_t *v5; // r9
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdi
+  __int64 v7; // rax
+  int v8; // ecx
+  int v9; // eax
+  __int64 v12; // rax
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
 
-  if ( *(_BYTE *)(*((_QWORD *)this + 2) + 209LL) )
-    return 0LL;
-  Global = DXGGLOBAL_GetGlobal();
-  v3 = DXGPROCESS::OpenAdapter(*((DXGPROCESS **)Global + 175), this, 1);
-  if ( v3 < 0 )
+  if ( !*(_BYTE *)(*((_QWORD *)this + 2) + 209LL) )
   {
-    WdLogSingleEntry1(2LL, this);
-    v5 = L"Adapter 0x%I64x: Failed to create KMD process handle for system process";
-LABEL_8:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v5, (__int64)this, 0LL, 0LL, 0LL, 0LL);
-    return (unsigned int)v3;
+    Global = DXGGLOBAL::GetGlobal((__int64)this, a2);
+    LODWORD(v6) = DXGPROCESS::OpenAdapter(*((DXGPROCESS **)Global + 157), this, 1);
+    if ( (int)v6 < 0
+      || (LODWORD(v6) = (*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)(*((_QWORD *)this + 80) + 8LL) + 856LL))(*((_QWORD *)this + 81)),
+          (int)v6 < 0) )
+    {
+      v12 = WdLogNewEntry5_WdError(v5, v4);
+    }
+    else
+    {
+      v7 = *((_QWORD *)this + 2);
+      v8 = *(_DWORD *)(v7 + 2060);
+      if ( (v8 & 0x2000) == 0 )
+      {
+        v9 = *(_DWORD *)(v7 + 2656);
+        if ( (v9 & 1) == 0 || (v8 & 0x800) == 0 && (v9 & 8) == 0 )
+          return (unsigned int)v6;
+      }
+      v13 = ADAPTER_RENDER::EnableIoMmuIsolation(this);
+      v6 = v13;
+      if ( v13 >= 0 )
+        return (unsigned int)v6;
+      v15 = *(unsigned int *)(*((_QWORD *)this + 2) + 2656LL);
+      if ( (v15 & 0x10) != 0 )
+      {
+        LODWORD(v6) = 0;
+        return (unsigned int)v6;
+      }
+      v12 = WdLogNewEntry5_WdError(v15, v14);
+      *(_QWORD *)(v12 + 32) = v6;
+    }
+    *(_QWORD *)(v12 + 24) = this;
+    WdLogEvent5_WdError(v12);
+    return (unsigned int)v6;
   }
-  result = (*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)(*((_QWORD *)this + 81) + 8LL) + 864LL))(*((_QWORD *)this + 82));
-  v3 = result;
-  if ( (int)result < 0 )
-  {
-    WdLogSingleEntry1(2LL, this);
-    v5 = L"Adapter 0x%I64x: Failed to initialize paging process";
-    goto LABEL_8;
-  }
-  return result;
+  return 0LL;
 }

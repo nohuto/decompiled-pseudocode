@@ -1,7 +1,7 @@
 /*
  * XREFs of BgkpUnlockBgfxCodeSection @ 0x14094E3E0
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x14016EAC0 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14016EAE0 (BgkNotifyDisplayOwnershipChange.c)
  *     BgkResumePrepare @ 0x14056B58C (BgkResumePrepare.c)
  *     BgkResumeFinished @ 0x14056C684 (BgkResumeFinished.c)
  * Callees:
@@ -9,7 +9,7 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     MmUnlockPagableImageSection @ 0x140097F00 (MmUnlockPagableImageSection.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 _QWORD *BgkpUnlockBgfxCodeSection()

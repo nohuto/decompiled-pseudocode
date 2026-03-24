@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAcquireInterruptConnectLock @ 0x1403AF9E8
+ * XREFs of KiAcquireInterruptConnectLock @ 0x140377AC0
  * Callers:
- *     KeMaskInterrupt @ 0x1403AED64 (KeMaskInterrupt.c)
- *     KiDisconnectInterruptCommon @ 0x1403AF3B4 (KiDisconnectInterruptCommon.c)
- *     KiConnectInterrupt @ 0x1403AF7F0 (KiConnectInterrupt.c)
+ *     KeMaskInterrupt @ 0x140376F40 (KeMaskInterrupt.c)
+ *     KiDisconnectInterruptCommon @ 0x1403770AC (KiDisconnectInterruptCommon.c)
+ *     KiConnectInterrupt @ 0x14037793C (KiConnectInterrupt.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
  */
 
 struct _KPRCB *__fastcall KiAcquireInterruptConnectLock(int a1, unsigned __int8 *a2, struct _GROUP_AFFINITY *a3)

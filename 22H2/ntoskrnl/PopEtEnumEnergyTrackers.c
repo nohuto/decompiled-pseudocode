@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEtEnumEnergyTrackers @ 0x1407B14E4
+ * XREFs of PopEtEnumEnergyTrackers @ 0x14068A34C
  * Callers:
- *     PoEnergyContextCleanup @ 0x1407B12D0 (PoEnergyContextCleanup.c)
- *     PopEtEnergyContextProcessStateUpdate @ 0x1407B1434 (PopEtEnergyContextProcessStateUpdate.c)
+ *     PoEnergyContextCleanup @ 0x14061410C (PoEnergyContextCleanup.c)
+ *     PopEtEnergyContextProcessStateUpdate @ 0x14068A29C (PopEtEnergyContextProcessStateUpdate.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PopEtGetNextEnergyTracker @ 0x1407B1544 (PopEtGetNextEnergyTracker.c)
- *     PopEtEnergyTrackerEnumSnapshotCallback @ 0x1407B1B20 (PopEtEnergyTrackerEnumSnapshotCallback.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PopEtGetNextEnergyTracker @ 0x14068A3A8 (PopEtGetNextEnergyTracker.c)
+ *     PopEtEnergyTrackerEnumSnapshotCallback @ 0x14069C70C (PopEtEnergyTrackerEnumSnapshotCallback.c)
  */
 
 __int64 __fastcall PopEtEnumEnergyTrackers(__int64 a1, __int64 a2)
@@ -21,11 +21,13 @@ __int64 __fastcall PopEtEnumEnergyTrackers(__int64 a1, __int64 a2)
     NextEnergyTracker = PopEtGetNextEnergyTracker(i);
     v5 = (void *)NextEnergyTracker;
     if ( !NextEnergyTracker )
-      return 0;
+      break;
     v6 = PopEtEnergyTrackerEnumSnapshotCallback(NextEnergyTracker, a2);
     if ( v6 < 0 )
-      break;
+      goto LABEL_4;
   }
+  v6 = 0;
+LABEL_4:
   if ( v5 )
     ObfDereferenceObjectWithTag(v5, 0x74456F50u);
   return (unsigned int)v6;

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiGetSlabPage @ 0x1402C28DC
+ * XREFs of MiGetSlabPage @ 0x1402C29DC
  * Callers:
  *     MiGetHardFaultPages @ 0x140029BE0 (MiGetHardFaultPages.c)
  *     MiResolveMappedFileFault @ 0x14002BE50 (MiResolveMappedFileFault.c)
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
- *     MmAllocateIndependentPagesEx @ 0x140108F9C (MmAllocateIndependentPagesEx.c)
- *     MiFinalizeImageHeaderPage @ 0x14012DD90 (MiFinalizeImageHeaderPage.c)
- *     MmAllocateNonChargedSecurePages @ 0x1402AA20C (MmAllocateNonChargedSecurePages.c)
- *     MiCompleteSecureProcessFault @ 0x1402BBB04 (MiCompleteSecureProcessFault.c)
- *     MmAllocateSecureKernelPages @ 0x1402C2D4C (MmAllocateSecureKernelPages.c)
+ *     MmAllocateIndependentPagesEx @ 0x140108FBC (MmAllocateIndependentPagesEx.c)
+ *     MiFinalizeImageHeaderPage @ 0x14012DDB0 (MiFinalizeImageHeaderPage.c)
+ *     MmAllocateNonChargedSecurePages @ 0x1402AA30C (MmAllocateNonChargedSecurePages.c)
+ *     MiCompleteSecureProcessFault @ 0x1402BBC04 (MiCompleteSecureProcessFault.c)
+ *     MmAllocateSecureKernelPages @ 0x1402C2E4C (MmAllocateSecureKernelPages.c)
  *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
  *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
- *     MiAllocateDriverPage @ 0x140653A34 (MiAllocateDriverPage.c)
+ *     MiAllocateDriverPage @ 0x140653A14 (MiAllocateDriverPage.c)
  * Callees:
- *     MiGetPageFromSlabAllocator @ 0x1402C2580 (MiGetPageFromSlabAllocator.c)
- *     MiReplenishSlabAllocator @ 0x1402C2BB4 (MiReplenishSlabAllocator.c)
- *     MiSlabAllocatorRecentFailure @ 0x1402C2BFC (MiSlabAllocatorRecentFailure.c)
+ *     MiGetPageFromSlabAllocator @ 0x1402C2680 (MiGetPageFromSlabAllocator.c)
+ *     MiReplenishSlabAllocator @ 0x1402C2CB4 (MiReplenishSlabAllocator.c)
+ *     MiSlabAllocatorRecentFailure @ 0x1402C2CFC (MiSlabAllocatorRecentFailure.c)
  */
 
 __int64 __fastcall MiGetSlabPage(__int64 a1, char a2, __int64 *a3)

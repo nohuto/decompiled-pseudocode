@@ -5,7 +5,7 @@
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     RtlFindClearBitsAndSet @ 0x1400D95C0 (RtlFindClearBitsAndSet.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
  */
 
 __int64 __fastcall MiAssignSystemVa(ULONG NumberToClear, unsigned int a2)

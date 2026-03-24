@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlPrivateRemoveLock @ 0x14026F514
+ * XREFs of FsRtlPrivateRemoveLock @ 0x14026F614
  * Callers:
  *     FsRtlPrivateLock @ 0x14008C8F0 (FsRtlPrivateLock.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x14012EF80 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x14012EFA0 (FsRtlPrivateCheckWaitingLocks.c)
  * Callees:
  *     FsRtlFastUnlockSingleShared @ 0x14008C1C8 (FsRtlFastUnlockSingleShared.c)
  *     FsRtlFastUnlockSingleExclusive @ 0x14008C4D0 (FsRtlFastUnlockSingleExclusive.c)

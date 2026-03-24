@@ -1,38 +1,36 @@
 /*
- * XREFs of PnpRequestDeviceRemoval @ 0x14086788C
+ * XREFs of PnpRequestDeviceRemoval @ 0x14074C54C
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406C82E4 (PipCallDriverAddDevice.c)
- *     PipProcessStartPhase2 @ 0x1407913A8 (PipProcessStartPhase2.c)
- *     PiUpdateGuestAssignedState @ 0x140792AD8 (PiUpdateGuestAssignedState.c)
- *     PiProcessQueryDeviceState @ 0x14079379C (PiProcessQueryDeviceState.c)
- *     PipEnumerateCompleted @ 0x140795910 (PipEnumerateCompleted.c)
- *     IopQueueDeviceResetEvent @ 0x14095769C (IopQueueDeviceResetEvent.c)
- *     PiProfileUpdateDeviceTreeCallback @ 0x140963800 (PiProfileUpdateDeviceTreeCallback.c)
- *     PipDmaGuardBlockAddDevice @ 0x14096B1FC (PipDmaGuardBlockAddDevice.c)
- *     PnpReallocateResources @ 0x14096D5F8 (PnpReallocateResources.c)
- *     PnpRebalance @ 0x14096E968 (PnpRebalance.c)
- *     PipProcessRestartPhase2 @ 0x14096F4B8 (PipProcessRestartPhase2.c)
- *     PiProcessDriversLoadedOnSecureDevice @ 0x14096F5B8 (PiProcessDriversLoadedOnSecureDevice.c)
+ *     PipProcessStartPhase2 @ 0x14073A19C (PipProcessStartPhase2.c)
+ *     PipCallDriverAddDevice @ 0x14073DE28 (PipCallDriverAddDevice.c)
+ *     PipEnumerateCompleted @ 0x140741820 (PipEnumerateCompleted.c)
+ *     PiProcessQueryDeviceState @ 0x140745EDC (PiProcessQueryDeviceState.c)
+ *     PiUpdateGuestAssignedState @ 0x14074614C (PiUpdateGuestAssignedState.c)
+ *     PiProcessHaltDevice @ 0x1408A26AC (PiProcessHaltDevice.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1408AB0D0 (PiProfileUpdateDeviceTreeCallback.c)
+ *     PipDmaGuardBlockAddDevice @ 0x1408B130C (PipDmaGuardBlockAddDevice.c)
+ *     PnpReallocateResources @ 0x1408B31B0 (PnpReallocateResources.c)
+ *     PipProcessRestartPhase2 @ 0x1408B5380 (PipProcessRestartPhase2.c)
+ *     PiProcessDriversLoadedOnSecureDevice @ 0x1408B5474 (PiProcessDriversLoadedOnSecureDevice.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9A08 (PnpAcquireDependencyRelationsLock.c)
- *     PnpSetTargetDeviceRemove @ 0x140868120 (PnpSetTargetDeviceRemove.c)
- *     PnpRequestDeviceRemovalWorker @ 0x140869470 (PnpRequestDeviceRemovalWorker.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406B29FC (PnpAcquireDependencyRelationsLock.c)
+ *     PnpSetTargetDeviceRemove @ 0x14074A49C (PnpSetTargetDeviceRemove.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x14074A8A0 (PnpRequestDeviceRemovalWorker.c)
  */
 
-__int64 __fastcall PnpRequestDeviceRemoval(__int64 a1, char a2, int a3, int a4)
+__int64 __fastcall PnpRequestDeviceRemoval(__int64 a1, char a2, unsigned int a3, int a4)
 {
-  int v8; // r8d
-  int v10; // [rsp+40h] [rbp-38h]
-  int v11; // [rsp+48h] [rbp-30h]
+  __int64 result; // rax
 
-  if ( !a1 )
-    return 3221225486LL;
-  PnpAcquireDependencyRelationsLock(1);
-  LOBYTE(v8) = a2;
-  PnpRequestDeviceRemovalWorker(a1, a1, v8, 2, 0);
-  ExReleaseResourceLite(&PiDependencyRelationsLock);
-  PpDevNodeUnlockTree(0);
-  return PnpSetTargetDeviceRemove(*(PVOID *)(a1 + 32), 1, a3, a4, 0LL, v10, v11, 0LL, 0LL, 0LL, 0LL);
+  if ( a1 )
+  {
+    PnpAcquireDependencyRelationsLock(1);
+    PnpRequestDeviceRemovalWorker(a1, a1, a2, 2, 0);
+    ExReleaseResourceLite(&PiDependencyRelationsLock);
+    PpDevNodeUnlockTree(0);
+    return PnpSetTargetDeviceRemove(*(_QWORD **)(a1 + 32), 1, 1, 0, 1, a3, a4, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  return result;
 }

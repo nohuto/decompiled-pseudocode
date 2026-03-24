@@ -1,7 +1,7 @@
 /*
- * XREFs of _lambda_070e29bc377876d11c9c205fcaeb93d1_::operator() @ 0x1C008D574
+ * XREFs of _lambda_070e29bc377876d11c9c205fcaeb93d1_::operator() @ 0x1C00D237C
  * Callers:
- *     ?ValidateIFIMETRICS@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C008D36C (-ValidateIFIMETRICS@@YA_NPEAU_IFIMETRICS@@@Z.c)
+ *     ?ValidateIFIMETRICS@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C00D1948 (-ValidateIFIMETRICS@@YA_NPEAU_IFIMETRICS@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -9,10 +9,10 @@
 char __fastcall lambda_070e29bc377876d11c9c205fcaeb93d1_::operator()(unsigned int ***a1, unsigned int a2)
 {
   unsigned int *v2; // r8
-  __int64 v3; // r10
+  __int64 v3; // r9
   _WORD *v4; // rax
 
-  if ( (unsigned __int64)(int)a2 < 0xC0 )
+  if ( a2 < 0xC0 )
     return 0;
   if ( (a2 & 1) != 0 )
     return 0;

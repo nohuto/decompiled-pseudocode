@@ -6,9 +6,9 @@
  *     IoUnregisterShutdownNotification @ 0x14056E370 (IoUnregisterShutdownNotification.c)
  *     MiShutdownSystem @ 0x14057BBF4 (MiShutdownSystem.c)
  *     ExQuerySystemLockInformation @ 0x14057E5CC (ExQuerySystemLockInformation.c)
- *     PnprUnlockPagesForReplace @ 0x140835D50 (PnprUnlockPagesForReplace.c)
- *     KiStartDynamicProcessor @ 0x140842DE8 (KiStartDynamicProcessor.c)
- *     MiApplyImageHotPatch @ 0x1408546A8 (MiApplyImageHotPatch.c)
+ *     PnprUnlockPagesForReplace @ 0x140835D30 (PnprUnlockPagesForReplace.c)
+ *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
+ *     MiApplyImageHotPatch @ 0x140854688 (MiApplyImageHotPatch.c)
  *     BgkpUnlockBgfxCodeSection @ 0x14094E3E0 (BgkpUnlockBgfxCodeSection.c)
  * Callees:
  *     MiLockPagableImageSection @ 0x14009ABB0 (MiLockPagableImageSection.c)

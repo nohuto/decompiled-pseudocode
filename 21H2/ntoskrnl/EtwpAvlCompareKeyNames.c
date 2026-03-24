@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpAvlCompareKeyNames @ 0x1403CB110
+ * XREFs of EtwpAvlCompareKeyNames @ 0x1403BCD60
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x1407CD7A0 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeStrings @ 0x140681C90 (RtlCompareUnicodeStrings.c)
  */
 
 __int64 __fastcall EtwpAvlCompareKeyNames(

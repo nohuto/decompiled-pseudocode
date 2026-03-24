@@ -1,17 +1,20 @@
 /*
- * XREFs of IsPciDevice @ 0x1C001CDCC
+ * XREFs of IsPciDevice @ 0x1C0017E30
  * Callers:
- *     GetOpRegionScopeWorker @ 0x1C001CCA0 (GetOpRegionScopeWorker.c)
- *     ACPIInternalIsPci @ 0x1C00A0FB0 (ACPIInternalIsPci.c)
- *     AcpiDeletePciBusInterface @ 0x1C00A1094 (AcpiDeletePciBusInterface.c)
+ *     GetOpRegionScopeWorker @ 0x1C0017D20 (GetOpRegionScopeWorker.c)
+ *     AcpiDeletePciBusInterface @ 0x1C00A21D8 (AcpiDeletePciBusInterface.c)
+ *     ACPIInternalIsPci @ 0x1C00A306C (ACPIInternalIsPci.c)
  * Callees:
- *     IsPciDeviceWorker @ 0x1C0007A10 (IsPciDeviceWorker.c)
+ *     IsPciDeviceWorker @ 0x1C00166E0 (IsPciDeviceWorker.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall IsPciDevice(volatile signed __int32 *a1, __int64 a2, __int64 a3, _BYTE *a4)
 {
   __int64 v8; // rax
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
+  char *v10; // rbx
+  char v11; // al
 
   v8 = *(_QWORD *)(*(_QWORD *)a1 + 104LL);
   if ( !v8 )
@@ -23,19 +26,22 @@ __int64 __fastcall IsPciDevice(volatile signed __int32 *a1, __int64 a2, __int64 
   }
   else
   {
-    Pool2 = ExAllocatePool2(64LL, 128LL, 1181770561LL);
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x80uLL, 0x46706341u);
+    v10 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_QWORD *)Pool2 = a1;
-      dword_1C0081AC8 = 0;
-      byte_1C0081ACC = 0;
-      if ( (gdwfAMLI & 4) != 0 )
+      memset(PoolWithTag + 8, 0, 0x78uLL);
+      v11 = gdwfAMLI;
+      *(_QWORD *)v10 = a1;
+      dword_1C0082908 = 0;
+      pszDest = 0;
+      if ( (v11 & 4) != 0 )
         _InterlockedIncrement(a1 + 2);
-      *(_DWORD *)(Pool2 + 36) = -1;
-      *(_QWORD *)(Pool2 + 40) = a2;
-      *(_QWORD *)(Pool2 + 48) = a3;
-      *(_QWORD *)(Pool2 + 56) = a4;
-      return IsPciDeviceWorker((__int64)a1, 0, 0LL, (_QWORD *)Pool2);
+      *((_DWORD *)v10 + 9) = -1;
+      *((_QWORD *)v10 + 5) = a2;
+      *((_QWORD *)v10 + 6) = a3;
+      *((_QWORD *)v10 + 7) = a4;
+      return IsPciDeviceWorker((__int64)a1, 0, 0LL, v10);
     }
     else
     {

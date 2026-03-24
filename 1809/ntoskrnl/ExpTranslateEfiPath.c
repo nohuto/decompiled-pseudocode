@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpTranslateEfiPath @ 0x1408D282C
+ * XREFs of ExpTranslateEfiPath @ 0x1408D280C
  * Callers:
- *     NtTranslateFilePath @ 0x1408D5E80 (NtTranslateFilePath.c)
+ *     NtTranslateFilePath @ 0x1408D5E60 (NtTranslateFilePath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     swprintf_s @ 0x14019A340 (swprintf_s.c)
- *     wcscpy_s @ 0x14019BCA0 (wcscpy_s.c)
- *     wcsncat_s @ 0x14019BD30 (wcsncat_s.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     swprintf_s @ 0x14019A360 (swprintf_s.c)
+ *     wcscpy_s @ 0x14019BCC0 (wcscpy_s.c)
+ *     wcsncat_s @ 0x14019BD50 (wcsncat_s.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
- *     ExpCreateOutputARC @ 0x1408D0018 (ExpCreateOutputARC.c)
- *     ExpCreateOutputNT @ 0x1408D02E8 (ExpCreateOutputNT.c)
- *     ExpCreateOutputSIGNATURE @ 0x1408D03B8 (ExpCreateOutputSIGNATURE.c)
- *     ExpFindDiskSignature @ 0x1408D0840 (ExpFindDiskSignature.c)
- *     ExpGetDriveGeometry @ 0x1408D0C80 (ExpGetDriveGeometry.c)
- *     ExpParseEfiPath @ 0x1408D11B0 (ExpParseEfiPath.c)
- *     ExpTranslateSymbolicLink @ 0x1408D3168 (ExpTranslateSymbolicLink.c)
+ *     ExpCreateOutputARC @ 0x1408CFFF8 (ExpCreateOutputARC.c)
+ *     ExpCreateOutputNT @ 0x1408D02C8 (ExpCreateOutputNT.c)
+ *     ExpCreateOutputSIGNATURE @ 0x1408D0398 (ExpCreateOutputSIGNATURE.c)
+ *     ExpFindDiskSignature @ 0x1408D0820 (ExpFindDiskSignature.c)
+ *     ExpGetDriveGeometry @ 0x1408D0C60 (ExpGetDriveGeometry.c)
+ *     ExpParseEfiPath @ 0x1408D1190 (ExpParseEfiPath.c)
+ *     ExpTranslateSymbolicLink @ 0x1408D3148 (ExpTranslateSymbolicLink.c)
  */
 
 __int64 __fastcall ExpTranslateEfiPath(__int64 a1, int a2, _DWORD *a3, __int64 a4)

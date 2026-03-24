@@ -1,11 +1,10 @@
 /*
- * XREFs of ExpFindEmptyEntry @ 0x1403411A4
+ * XREFs of ExpFindEmptyEntry @ 0x14030FCDC
  * Callers:
- *     ExpAcquireResourceSharedLite @ 0x14023DDA0 (ExpAcquireResourceSharedLite.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1402632C0 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireSharedWaitForExclusive @ 0x1403C82F0 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x14029EDE0 (ExpAcquireSharedStarveExclusive.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1405B4CB0 (ExAcquireSharedWaitForExclusive.c)
  * Callees:
- *     ExpExpandResourceOwnerTable @ 0x140341200 (ExpExpandResourceOwnerTable.c)
+ *     ExpExpandResourceOwnerTable @ 0x14030FD3C (ExpExpandResourceOwnerTable.c)
  */
 
 _QWORD *__fastcall ExpFindEmptyEntry(__int64 a1, __int64 a2, _QWORD *a3)
@@ -22,14 +21,14 @@ _QWORD *__fastcall ExpFindEmptyEntry(__int64 a1, __int64 a2, _QWORD *a3)
     {
       result += 2;
       if ( result == a3 )
-        goto LABEL_6;
+        goto LABEL_5;
     }
     KeGetCurrentThread()->ResourceIndex = ((__int64)result - v3) >> 4;
   }
   else
   {
-LABEL_6:
-    ExpExpandResourceOwnerTable(a1, a2, a3, v3);
+LABEL_5:
+    ExpExpandResourceOwnerTable(a1, a2, a3);
     return 0LL;
   }
   return result;

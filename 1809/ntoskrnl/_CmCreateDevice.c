@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmCreateDevice @ 0x1406FD3AC
+ * XREFs of _CmCreateDevice @ 0x1406FD38C
  * Callers:
  *     _PnpDispatchDevice @ 0x14059AFF0 (_PnpDispatchDevice.c)
- *     PiCreateDeviceInstanceKey @ 0x1406FD2F8 (PiCreateDeviceInstanceKey.c)
- *     IoReportDetectedDevice @ 0x14072D240 (IoReportDetectedDevice.c)
- *     IoReportRootDevice @ 0x140758C10 (IoReportRootDevice.c)
- *     PiDevCfgInitDriverDatabaseCallback @ 0x14082D314 (PiDevCfgInitDriverDatabaseCallback.c)
- *     PiCMCreateDevice @ 0x1408367D4 (PiCMCreateDevice.c)
- *     PiCMGenerateDeviceInstance @ 0x140837E24 (PiCMGenerateDeviceInstance.c)
+ *     PiCreateDeviceInstanceKey @ 0x1406FD2D8 (PiCreateDeviceInstanceKey.c)
+ *     IoReportDetectedDevice @ 0x14072D220 (IoReportDetectedDevice.c)
+ *     IoReportRootDevice @ 0x140758BF0 (IoReportRootDevice.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x14082D2F4 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PiCMCreateDevice @ 0x1408367B4 (PiCMCreateDevice.c)
+ *     PiCMGenerateDeviceInstance @ 0x140837E04 (PiCMGenerateDeviceInstance.c)
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     _CmCreateDeviceWorker @ 0x1406FD518 (_CmCreateDeviceWorker.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     _CmCreateDeviceWorker @ 0x1406FD4F8 (_CmCreateDeviceWorker.c)
  */
 
 __int64 __fastcall CmCreateDevice(__int64 a1, __int64 a2, int a3, HANDLE *a4, _BYTE *a5, int a6)

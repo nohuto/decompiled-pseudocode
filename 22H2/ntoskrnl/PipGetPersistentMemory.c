@@ -1,365 +1,363 @@
 /*
- * XREFs of PipGetPersistentMemory @ 0x140953418
+ * XREFs of PipGetPersistentMemory @ 0x14089C9A8
  * Callers:
- *     IoAcquireKsrPersistentMemoryEx @ 0x140952550 (IoAcquireKsrPersistentMemoryEx.c)
- *     IoQueryKsrPersistentMemorySizeEx @ 0x140952820 (IoQueryKsrPersistentMemorySizeEx.c)
- *     IoReserveKsrPersistentMemoryEx @ 0x140952A70 (IoReserveKsrPersistentMemoryEx.c)
+ *     IoAcquireKsrPersistentMemory @ 0x14089BC10 (IoAcquireKsrPersistentMemory.c)
+ *     IoQueryKsrPersistentMemorySize @ 0x14089BE80 (IoQueryKsrPersistentMemorySize.c)
+ *     IoReserveKsrPersistentMemory @ 0x14089C050 (IoReserveKsrPersistentMemory.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PipUnpackMetadata @ 0x14055FC5C (PipUnpackMetadata.c)
- *     PipGetDriverKsrGuid @ 0x140953250 (PipGetDriverKsrGuid.c)
- *     PipMatchPersistentMemory @ 0x140953AB8 (PipMatchPersistentMemory.c)
- *     PipMatchPersistentMemoryV1 @ 0x140953B9C (PipMatchPersistentMemoryV1.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PipGetDeviceObjectLocation @ 0x14089C594 (PipGetDeviceObjectLocation.c)
+ *     PipGetDriverKsrGuid @ 0x14089C7E4 (PipGetDriverKsrGuid.c)
+ *     PnpCompareMultiSz @ 0x1408B22D4 (PnpCompareMultiSz.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PipGetPersistentMemory(
-        __int64 a1,
-        ULONG_PTR a2,
-        __int64 a3,
-        __int64 a4,
-        _DWORD *a5,
-        size_t *a6,
-        void *a7,
-        int a8)
+__int64 __fastcall PipGetPersistentMemory(__int64 a1, ULONG_PTR a2, size_t *a3, void *a4, int a5)
 {
-  _WORD *Pool2; // r13
-  size_t *v9; // rsi
-  ULONG_PTR v10; // rdi
-  __int64 v12; // rcx
+  unsigned __int64 *v5; // r15
+  ULONG_PTR v6; // rsi
+  __int64 v8; // rcx
+  __int64 v9; // rcx
+  _WORD *v10; // rcx
+  __int64 v11; // rcx
+  unsigned __int16 *v12; // rbx
   __int64 v13; // rcx
-  _WORD *v14; // rcx
+  __int64 v14; // rax
   __int64 v15; // rcx
-  unsigned __int16 *v16; // rbx
-  _WORD *v17; // rcx
-  __int64 v18; // rax
-  __int64 v19; // rcx
-  size_t *v20; // r12
-  char v21; // r15
-  struct _MDL *v22; // r14
+  _WORD *v16; // rcx
+  __int64 v17; // rcx
+  size_t *v18; // rdi
+  WCHAR *v19; // r13
+  struct _MDL *v20; // r14
   int DriverKsrGuid; // ebx
-  unsigned int v24; // r15d
-  __int64 v25; // rbx
-  char v26; // al
-  __int64 v27; // r15
-  int v28; // eax
-  void *v29; // rax
-  unsigned __int64 v30; // r15
-  unsigned __int64 *v31; // rcx
-  __int64 v32; // rdx
-  unsigned __int64 v33; // rax
-  __int64 v34; // rax
-  _QWORD *v35; // r9
-  __int64 v36; // r8
-  unsigned int v37; // edx
-  _QWORD *v38; // rdi
-  unsigned __int64 v39; // rax
-  unsigned __int64 v40; // rcx
-  __int64 v41; // rax
-  __int64 v42; // rdx
-  size_t *v43; // rax
-  void *v44; // r9
-  size_t *v45; // rax
-  size_t v46; // rcx
-  size_t v47; // rdx
-  __int64 v48; // r8
-  unsigned int v49; // r15d
-  char v51; // [rsp+30h] [rbp-79h] BYREF
-  char v52; // [rsp+31h] [rbp-78h]
-  unsigned int v53; // [rsp+34h] [rbp-75h] BYREF
-  ULONG BugCheckOnFailure; // [rsp+38h] [rbp-71h] BYREF
-  unsigned int v55; // [rsp+3Ch] [rbp-6Dh]
-  PVOID P; // [rsp+40h] [rbp-69h]
-  size_t *v57; // [rsp+48h] [rbp-61h]
-  int v58; // [rsp+50h] [rbp-59h]
-  __int128 v59; // [rsp+58h] [rbp-51h] BYREF
-  ULONG_PTR v60; // [rsp+68h] [rbp-41h]
-  __int64 v61; // [rsp+70h] [rbp-39h]
-  __int64 v62; // [rsp+78h] [rbp-31h]
-  __int64 v63; // [rsp+80h] [rbp-29h]
-  _DWORD *v64; // [rsp+88h] [rbp-21h]
-  void *v65; // [rsp+90h] [rbp-19h]
-  __int128 v66; // [rsp+98h] [rbp-11h] BYREF
+  unsigned int v22; // eax
+  __int64 v23; // rdi
+  _DWORD *PoolWithTag; // rax
+  unsigned __int64 *v25; // rax
+  unsigned int v26; // edi
+  unsigned __int64 *v27; // rcx
+  __int64 v28; // rdx
+  unsigned __int64 v29; // rax
+  struct _MDL *v30; // rax
+  struct _MDL *v31; // r9
+  ULONG v32; // edi
+  unsigned int v33; // edx
+  unsigned int i; // r8d
+  unsigned __int64 v35; // rax
+  unsigned __int64 v36; // rcx
+  __int64 v37; // rax
+  __int64 v38; // r8
+  void *v39; // r9
+  size_t v40; // rax
+  int DeviceObjectLocation; // eax
+  size_t v42; // rcx
+  __int64 v43; // r8
+  size_t *v44; // rcx
+  char v46; // [rsp+30h] [rbp-61h]
+  unsigned int v47; // [rsp+34h] [rbp-5Dh] BYREF
+  unsigned int NumberOfBytes; // [rsp+38h] [rbp-59h] BYREF
+  unsigned int NumberOfBytes_4; // [rsp+3Ch] [rbp-55h]
+  PVOID P; // [rsp+40h] [rbp-51h]
+  size_t *v51; // [rsp+48h] [rbp-49h]
+  PCWCH String1; // [rsp+50h] [rbp-41h] BYREF
+  unsigned int v53; // [rsp+58h] [rbp-39h] BYREF
+  int v54; // [rsp+5Ch] [rbp-35h]
+  __int128 v55; // [rsp+60h] [rbp-31h] BYREF
+  void *v56; // [rsp+70h] [rbp-21h]
+  ULONG_PTR v57; // [rsp+78h] [rbp-19h]
+  __int64 v58; // [rsp+80h] [rbp-11h]
+  __int128 v59; // [rsp+88h] [rbp-9h] BYREF
 
-  Pool2 = 0LL;
-  v9 = a6;
-  v64 = a5;
-  v10 = a2;
-  v63 = a3;
-  v65 = a7;
-  v62 = a4;
-  v60 = a2;
-  v57 = a6;
+  v5 = 0LL;
+  v51 = a3;
+  v56 = a4;
+  v57 = a2;
+  v6 = a2;
   v53 = 0;
-  v66 = 0LL;
+  v47 = 0;
+  v59 = 0LL;
   if ( a2 )
   {
-    v12 = *(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL);
-    if ( !v12 || (*(_DWORD *)(v12 + 396) & 0x20000) != 0 )
+    v8 = *(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL);
+    if ( !v8 || (*(_DWORD *)(v8 + 396) & 0x20000) != 0 )
     {
       IoAddTriageDumpDataBlock(a2, (PVOID)*(unsigned __int16 *)(a2 + 2));
-      v13 = *(_QWORD *)(v10 + 8);
-      if ( v13 )
+      v9 = *(_QWORD *)(v6 + 8);
+      if ( v9 )
       {
-        IoAddTriageDumpDataBlock(v13, (PVOID)(unsigned int)*(__int16 *)(v13 + 2));
-        v14 = (_WORD *)(*(_QWORD *)(v10 + 8) + 56LL);
-        if ( *v14 )
+        IoAddTriageDumpDataBlock(v9, (PVOID)(unsigned int)*(__int16 *)(v9 + 2));
+        v10 = (_WORD *)(*(_QWORD *)(v6 + 8) + 56LL);
+        if ( *v10 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)2);
+          IoAddTriageDumpDataBlock((ULONG)v10, (PVOID)2);
           IoAddTriageDumpDataBlock(
-            *(_QWORD *)(*(_QWORD *)(v10 + 8) + 64LL),
-            (PVOID)*(unsigned __int16 *)(*(_QWORD *)(v10 + 8) + 56LL));
+            *(_QWORD *)(*(_QWORD *)(v6 + 8) + 64LL),
+            (PVOID)*(unsigned __int16 *)(*(_QWORD *)(v6 + 8) + 56LL));
         }
       }
-      v15 = *(_QWORD *)(*(_QWORD *)(v10 + 312) + 40LL);
-      if ( v15 )
+      v11 = *(_QWORD *)(*(_QWORD *)(v6 + 312) + 40LL);
+      if ( v11 )
       {
-        v16 = (unsigned __int16 *)(v15 + 40);
-        IoAddTriageDumpDataBlock(v15, (PVOID)0x388);
-        if ( *v16 )
+        v12 = (unsigned __int16 *)(v11 + 40);
+        IoAddTriageDumpDataBlock(v11, (PVOID)0x310);
+        if ( *v12 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)2);
-          IoAddTriageDumpDataBlock(*((_QWORD *)v16 + 1), (PVOID)*v16);
+          IoAddTriageDumpDataBlock((ULONG)v12, (PVOID)2);
+          IoAddTriageDumpDataBlock(*((_QWORD *)v12 + 1), (PVOID)*v12);
         }
-        v17 = (_WORD *)(*(_QWORD *)(*(_QWORD *)(v10 + 312) + 40LL) + 56LL);
-        if ( *v17 )
+        v13 = *(_QWORD *)(v6 + 312);
+        v14 = *(_QWORD *)(v13 + 40);
+        if ( *(_WORD *)(v14 + 56) )
         {
-          IoAddTriageDumpDataBlock((ULONG)v17, (PVOID)2);
+          IoAddTriageDumpDataBlock(v14 + 56, (PVOID)2);
           IoAddTriageDumpDataBlock(
-            *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v10 + 312) + 40LL) + 64LL),
-            (PVOID)*(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(v10 + 312) + 40LL) + 56LL));
+            *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v6 + 312) + 40LL) + 64LL),
+            (PVOID)*(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(v6 + 312) + 40LL) + 56LL));
+          v13 = *(_QWORD *)(v6 + 312);
         }
-        v18 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v10 + 312) + 40LL) + 16LL);
-        if ( v18 )
+        v15 = *(_QWORD *)(*(_QWORD *)(v13 + 40) + 16LL);
+        if ( v15 )
         {
-          if ( *(_WORD *)(v18 + 56) )
+          v16 = (_WORD *)(v15 + 56);
+          if ( *v16 )
           {
-            IoAddTriageDumpDataBlock(v18 + 56, (PVOID)2);
-            v19 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v10 + 312) + 40LL) + 16LL);
-            IoAddTriageDumpDataBlock(*(_QWORD *)(v19 + 64), (PVOID)*(unsigned __int16 *)(v19 + 56));
+            IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)2);
+            v17 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v6 + 312) + 40LL) + 16LL);
+            IoAddTriageDumpDataBlock(*(_QWORD *)(v17 + 64), (PVOID)*(unsigned __int16 *)(v17 + 56));
           }
         }
       }
-      KeBugCheckEx(0xCAu, 2uLL, v10, 0LL, 0LL);
+      KeBugCheckEx(0xCAu, 2uLL, v6, 0LL, 0LL);
     }
   }
+  v46 = 0;
+  String1 = 0LL;
+  v18 = 0LL;
   P = 0LL;
+  v19 = 0LL;
+  NumberOfBytes = 0;
   v20 = 0LL;
-  v51 = 0;
-  BugCheckOnFailure = 0;
-  v21 = 0;
-  v22 = 0LL;
-  DriverKsrGuid = PipGetDriverKsrGuid(a1, (__int64)&v66);
+  DriverKsrGuid = PipGetDriverKsrGuid(a1, (__int64)&v59);
   if ( DriverKsrGuid >= 0 )
   {
-    v59 = 0LL;
-    DriverKsrGuid = KsrEnumeratePersistedMemory(&v66, PipEnumeratePersistedMemory, &v59);
+    v55 = 0LL;
+    DriverKsrGuid = KsrEnumeratePersistedMemory(&v59, PipEnumeratePersistedMemory, &v55);
     if ( DriverKsrGuid >= 0 )
     {
-      if ( !DWORD2(v59) )
+      if ( !DWORD2(v55) )
         return (unsigned int)-1073741772;
-      *(_QWORD *)&v59 = ExAllocatePool2(64LL, 8LL * DWORD2(v59), 1634758224LL);
-      if ( !(_QWORD)v59 )
+      *(_QWORD *)&v55 = ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * DWORD2(v55), 0x61706E50u);
+      if ( !(_QWORD)v55 )
         return (unsigned int)-1073741670;
-      DriverKsrGuid = KsrEnumeratePersistedMemory(&v66, PipEnumeratePersistedMemory, &v59);
+      DriverKsrGuid = KsrEnumeratePersistedMemory(&v59, PipEnumeratePersistedMemory, &v55);
       if ( DriverKsrGuid < 0 )
         return (unsigned int)DriverKsrGuid;
-      v55 = 0;
-      if ( DWORD2(v59) )
+      v22 = 0;
+      NumberOfBytes_4 = 0;
+      if ( DWORD2(v55) )
       {
-        v58 = a8;
+        v54 = a5;
         while ( 1 )
         {
-          Pool2 = 0LL;
-          if ( v21 )
-            goto LABEL_72;
-          v24 = v55;
-          v61 = *(_QWORD *)(v59 + 8LL * v55);
-          v25 = v61;
-          KsrQueryMetadata(&v66, v61, 0LL, 0LL, &BugCheckOnFailure);
-          Pool2 = (_WORD *)ExAllocatePool2(64LL, BugCheckOnFailure, 1634758224LL);
-          if ( !Pool2 )
-            goto LABEL_82;
-          DriverKsrGuid = KsrQueryMetadata(&v66, v25, Pool2, BugCheckOnFailure, &BugCheckOnFailure);
-          if ( DriverKsrGuid < 0 )
-            goto LABEL_72;
-          if ( BugCheckOnFailure < 2 )
-          {
-LABEL_81:
-            DriverKsrGuid = -1073741637;
-            goto LABEL_72;
-          }
-          if ( *Pool2 == 2 )
-          {
-            DriverKsrGuid = PipMatchPersistentMemory(v10, v63, v62, (_DWORD)Pool2, 0, (__int64)&v51);
-            if ( DriverKsrGuid < 0 )
-              goto LABEL_72;
-            v52 = v51;
-            if ( !v51 )
-              goto LABEL_60;
-            PipUnpackMetadata((__int64)Pool2, 0LL, v64);
-            v26 = v52;
-          }
-          else
-          {
-            if ( *Pool2 != 1 )
-              goto LABEL_81;
-            DriverKsrGuid = PipMatchPersistentMemoryV1(v10, Pool2, 0LL, &v51);
-            if ( DriverKsrGuid < 0 )
-              goto LABEL_72;
-            v26 = v51;
-            v52 = v51;
-          }
-          if ( !v26 )
-            goto LABEL_60;
-          v27 = v61;
-          v28 = KsrClaimPersistedMemory(&v66, v61, 0LL, 0LL, 0, &v53);
-          DriverKsrGuid = v28;
-          if ( v28 != -1073741789 && v28 < 0 )
-            goto LABEL_72;
-          v29 = (void *)ExAllocatePool2(64LL, 8LL * v53, 1634758224LL);
-          P = v29;
-          if ( !v29 )
-          {
-LABEL_82:
-            DriverKsrGuid = -1073741670;
-            goto LABEL_72;
-          }
-          DriverKsrGuid = KsrClaimPersistedMemory(&v66, v27, v29, v53, 0, &v53);
-          if ( DriverKsrGuid < 0 )
-            goto LABEL_72;
-          v30 = 0LL;
-          if ( v53 )
-          {
-            v31 = (unsigned __int64 *)P;
-            v32 = v53;
-            do
-            {
-              v33 = *v31++;
-              v30 = (v33 >> 40) + (unsigned int)v30;
-              --v32;
-            }
-            while ( v32 );
-            v10 = v60;
-          }
-          v34 = ExAllocatePool2(64LL, 8 * v30 + 48, 1634758224LL);
-          v22 = (struct _MDL *)v34;
-          if ( !v34 )
-            goto LABEL_72;
-          *(_QWORD *)v34 = 0LL;
-          v35 = (_QWORD *)(v34 + 48);
-          *(_QWORD *)(v34 + 32) = 0LL;
-          v36 = 0LL;
-          *(_DWORD *)(v34 + 44) = 0;
-          *(_DWORD *)(v34 + 40) = (_DWORD)v30 << 12;
-          *(_WORD *)(v34 + 10) = 2;
-          *(_WORD *)(v34 + 8) = 8 * (v30 + 6);
-          v37 = v53;
-          if ( v53 )
-          {
-            v38 = P;
-            do
-            {
-              v39 = v38[v36];
-              v40 = v39 >> 40;
-              v41 = v39 & 0xFFFFFFFFFFLL;
-              if ( (_DWORD)v40 )
-              {
-                v42 = (unsigned int)v40;
-                do
-                {
-                  *v35++ = v41++;
-                  --v42;
-                }
-                while ( v42 );
-                v37 = v53;
-              }
-              v36 = (unsigned int)(v36 + 1);
-            }
-            while ( (unsigned int)v36 < v37 );
-            v10 = v60;
-          }
-          v43 = (size_t *)MmMapLockedPagesSpecifyCache(v22, 0, MmCached, 0LL, 0, 0x40000010u);
-          v20 = v43;
-          if ( !v43 )
-          {
-            DriverKsrGuid = -1073741670;
-            goto LABEL_75;
-          }
-          v44 = v65;
-          if ( !v65 )
-          {
-            v9 = v57;
-            DriverKsrGuid = -1073741789;
-            *v57 = *v43;
-            goto LABEL_70;
-          }
-          v45 = v57;
-          v46 = *v20;
-          v47 = *v57;
-          *v57 = *v20;
-          if ( v47 < v46 )
-          {
-            DriverKsrGuid = -1073741789;
-            v9 = v45;
-            goto LABEL_70;
-          }
-          memmove(v44, v20 + 1, *v20);
-          if ( (v58 & 1) == 0 )
-          {
-            v24 = v55;
-LABEL_60:
-            v49 = v24 + 1;
-            v55 = v49;
-            if ( !v22 )
-              goto LABEL_62;
-            goto LABEL_61;
-          }
-          MmUnmapLockedPages(v20, v22);
-          LOBYTE(v48) = 1;
+          v18 = 0LL;
           v20 = 0LL;
-          KsrFreePersistedMemoryBlock(&v66, v61, v48);
-          v49 = ++v55;
-LABEL_61:
-          ExFreePoolWithTag(v22, 0x61706E50u);
-          v22 = 0LL;
+          v5 = 0LL;
+          P = 0LL;
+          if ( v46 )
+            goto LABEL_74;
+          v58 = *(_QWORD *)(v55 + 8LL * v22);
+          v23 = v58;
+          KsrQueryMetadata(&v59, v58, 0LL, 0LL, &NumberOfBytes);
+          PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, NumberOfBytes, 0x61706E50u);
+          P = PoolWithTag;
+          if ( !PoolWithTag )
+          {
+            DriverKsrGuid = -1073741670;
+LABEL_71:
+            v18 = 0LL;
+            v20 = 0LL;
+            v5 = 0LL;
+            goto LABEL_74;
+          }
+          *PoolWithTag = 0;
+          DriverKsrGuid = KsrQueryMetadata(&v59, v23, PoolWithTag, NumberOfBytes, &NumberOfBytes);
+          if ( DriverKsrGuid < 0 )
+            goto LABEL_71;
+          DriverKsrGuid = KsrClaimPersistedMemory(&v59, v23, 0LL, 0LL, 0, &v47);
+          if ( DriverKsrGuid == -1073741789 )
+            DriverKsrGuid = 0;
+          if ( DriverKsrGuid < 0 )
+            goto LABEL_71;
+          v25 = (unsigned __int64 *)ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * v47, 0x61706E50u);
+          v5 = v25;
+          if ( !v25 )
+          {
+            DriverKsrGuid = -1073741670;
+LABEL_69:
+            v18 = 0LL;
+            v20 = 0LL;
+            goto LABEL_74;
+          }
+          DriverKsrGuid = KsrClaimPersistedMemory(&v59, v23, v25, v47, 0, &v47);
+          if ( DriverKsrGuid < 0 )
+            goto LABEL_69;
+          v26 = 0;
+          if ( v47 )
+          {
+            v27 = v5;
+            v28 = v47;
+            do
+            {
+              v29 = *v27++;
+              v26 += v29 >> 40;
+              --v28;
+            }
+            while ( v28 );
+            v6 = v57;
+          }
+          v30 = (struct _MDL *)ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * v26 + 48, 0x61706E50u);
+          v20 = v30;
+          if ( !v30 )
+          {
+            v18 = 0LL;
+            goto LABEL_74;
+          }
+          v30->Next = 0LL;
+          v31 = v30 + 1;
+          v32 = v26 << 12;
+          v33 = 0;
+          v30->StartVa = 0LL;
+          v30->ByteOffset = 0;
+          v30->Size = 8 * ((v32 >> 12) + 6);
+          v30->ByteCount = v32;
+          v30->MdlFlags = 2;
+          for ( i = v47; v33 < i; ++v33 )
+          {
+            v35 = v5[v33];
+            v36 = v35 >> 40;
+            v37 = v35 & 0xFFFFFFFFFFLL;
+            if ( (_DWORD)v36 )
+            {
+              v38 = (unsigned int)v36;
+              do
+              {
+                v31->Next = (struct _MDL *)v37;
+                v31 = (struct _MDL *)((char *)v31 + 8);
+                ++v37;
+                --v38;
+              }
+              while ( v38 );
+              i = v47;
+            }
+          }
+          v18 = (size_t *)MmMapLockedPagesSpecifyCache(v20, 0, MmCached, 0LL, 0, 0x40000010u);
+          if ( !v18 )
+          {
+            DriverKsrGuid = -1073741670;
+            goto LABEL_74;
+          }
+          if ( *(_WORD *)P > 1u )
+          {
+            DriverKsrGuid = -1073741637;
+            goto LABEL_74;
+          }
+          if ( *((_DWORD *)P + 1) )
+          {
+            if ( v6 )
+            {
+              DeviceObjectLocation = PipGetDeviceObjectLocation(v6, &v53, &String1);
+              v19 = (WCHAR *)String1;
+              DriverKsrGuid = DeviceObjectLocation;
+              if ( DeviceObjectLocation < 0 )
+                goto LABEL_74;
+              if ( (unsigned __int8)PnpCompareMultiSz(String1, (PCWCH)P + 8, 0) )
+              {
+                v39 = v56;
+                v40 = *v18;
+                v46 = 1;
+                if ( !v56 )
+                {
+                  v44 = v51;
+                  DriverKsrGuid = -1073741789;
+                  *v51 = v40;
 LABEL_62:
-          ExFreePoolWithTag(Pool2, 0x61706E50u);
-          Pool2 = 0LL;
-          if ( P )
-          {
-            ExFreePoolWithTag(P, 0x61706E50u);
-            P = 0LL;
+                  if ( v46 )
+                    goto LABEL_74;
+                  goto LABEL_73;
+                }
+                goto LABEL_55;
+              }
+            }
           }
-          if ( v49 >= DWORD2(v59) )
+          else if ( !v6 )
           {
-            v9 = v57;
-LABEL_70:
-            if ( v52 )
-              goto LABEL_72;
-            break;
+            v39 = v56;
+            v40 = *v18;
+            if ( !v56 )
+            {
+              *v51 = v40;
+LABEL_50:
+              DriverKsrGuid = -1073741789;
+              goto LABEL_74;
+            }
+LABEL_55:
+            v42 = *v51;
+            *v51 = v40;
+            if ( v42 < v40 )
+              goto LABEL_50;
+            memmove(v39, v18 + 1, *v18);
+            v46 = 1;
+            if ( (v54 & 1) != 0 )
+            {
+              LOBYTE(v43) = 1;
+              KsrFreePersistedMemoryBlock(&v59, v58, v43);
+              v46 = 1;
+            }
           }
-          v21 = v52;
+          ++NumberOfBytes_4;
+          if ( v19 )
+          {
+            ExFreePoolWithTag(v19, 0x61706E50u);
+            v19 = 0LL;
+            String1 = 0LL;
+          }
+          MmUnmapLockedPages(v18, v20);
+          v18 = 0LL;
+          ExFreePoolWithTag(v20, 0x61706E50u);
+          v20 = 0LL;
+          ExFreePoolWithTag(P, 0x61706E50u);
+          P = 0LL;
+          ExFreePoolWithTag(v5, 0x61706E50u);
+          v22 = NumberOfBytes_4;
+          v5 = 0LL;
+          if ( NumberOfBytes_4 >= DWORD2(v55) )
+          {
+            v44 = v51;
+            goto LABEL_62;
+          }
         }
       }
-      *v9 = 0LL;
+      v44 = v51;
+LABEL_73:
+      *v44 = 0LL;
       DriverKsrGuid = -1073741772;
-LABEL_72:
+LABEL_74:
+      if ( v19 )
+        ExFreePoolWithTag(v19, 0x61706E50u);
+      if ( v18 )
+        MmUnmapLockedPages(v18, v20);
       if ( v20 )
-        MmUnmapLockedPages(v20, v22);
-      if ( v22 )
-LABEL_75:
-        ExFreePoolWithTag(v22, 0x61706E50u);
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0x61706E50u);
+        ExFreePoolWithTag(v20, 0x61706E50u);
       if ( P )
         ExFreePoolWithTag(P, 0x61706E50u);
+      if ( v5 )
+        ExFreePoolWithTag(v5, 0x61706E50u);
     }
   }
   return (unsigned int)DriverKsrGuid;

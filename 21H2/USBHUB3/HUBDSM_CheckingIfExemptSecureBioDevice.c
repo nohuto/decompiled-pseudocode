@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_CheckingIfExemptSecureBioDevice @ 0x1C001ED00
+ * XREFs of HUBDSM_CheckingIfExemptSecureBioDevice @ 0x1C001E7C0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HUBDSM_CheckingIfExemptSecureBioDevice(__int64 a1)

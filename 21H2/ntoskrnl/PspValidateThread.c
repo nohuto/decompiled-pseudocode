@@ -1,8 +1,7 @@
 /*
- * XREFs of PspValidateThread @ 0x140223E40
+ * XREFs of PspValidateThread @ 0x140292410
  * Callers:
- *     PsGetThreadProperty @ 0x140223C50 (PsGetThreadProperty.c)
- *     PsSetThreadProperty @ 0x1403882B0 (PsSetThreadProperty.c)
+ *     PsSetThreadProperty @ 0x1402923D0 (PsSetThreadProperty.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +11,7 @@ __int64 __fastcall PspValidateThread(struct _KTHREAD *a1)
   if ( a1 != KeGetCurrentPrcb()->IdleThread )
   {
     if ( KeGetCurrentIrql() < 2u
-      && (POBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ LOBYTE(a1[-1].EndPadding[0]) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)a1 - 48) >> 8)] != PsThreadType )
+      && (POBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ LOBYTE(a1[-1].EndPadding[1]) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)a1 - 48) >> 8)] != PsThreadType )
     {
       return 3221225485LL;
     }

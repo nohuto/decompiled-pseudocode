@@ -1,50 +1,48 @@
 /*
- * XREFs of VslApplyHotPatch @ 0x14054DBF0
+ * XREFs of VslApplyHotPatch @ 0x1404FBFC0
  * Callers:
- *     MiApplyDriverHotPatch @ 0x140971068 (MiApplyDriverHotPatch.c)
- *     MiLoadHotPatch @ 0x140974020 (MiLoadHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x1408C8DB4 (MiApplyDriverHotPatch.c)
+ *     MiLoadHotPatch @ 0x1408CABD0 (MiLoadHotPatch.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslApplyHotPatch(
+NTSTATUS __fastcall VslApplyHotPatch(
         __int64 a1,
         __int64 a2,
         __int64 a3,
         __int64 a4,
         __int64 a5,
         __int64 a6,
-        int a7,
-        __int64 a8)
+        __int64 a7)
 {
-  __int64 result; // rax
-  int v13; // ecx
-  _OWORD v14[7]; // [rsp+20h] [rbp-81h] BYREF
+  NTSTATUS result; // eax
+  int v12; // ecx
+  _OWORD v13[7]; // [rsp+20h] [rbp-B8h] BYREF
 
-  memset(v14, 0, 0x68uLL);
+  memset(v13, 0, 0x68uLL);
   _InterlockedIncrement(&VslpHotpatchStats);
-  DWORD2(v14[3]) = a7;
-  *((_QWORD *)&v14[0] + 1) = a1;
-  *(_QWORD *)&v14[1] = a2;
-  *((_QWORD *)&v14[1] + 1) = a3;
-  *(_QWORD *)&v14[2] = a4;
-  *((_QWORD *)&v14[2] + 1) = a5;
-  *(_QWORD *)&v14[3] = a6;
-  result = VslpEnterIumSecureMode(2u, 72, 0, (__int64)v14);
-  if ( (int)result < 0 )
+  *((_QWORD *)&v13[0] + 1) = a1;
+  *(_QWORD *)&v13[1] = a2;
+  *((_QWORD *)&v13[1] + 1) = a3;
+  *(_QWORD *)&v13[2] = a4;
+  *((_QWORD *)&v13[2] + 1) = a5;
+  *(_QWORD *)&v13[3] = a6;
+  result = VslpEnterIumSecureMode(2u, 70, 0, (__int64)v13);
+  if ( result < 0 )
   {
-    _InterlockedIncrement(&dword_140C487C8);
+    _InterlockedIncrement(&dword_140C47388);
   }
   else
   {
-    _InterlockedIncrement(&dword_140C487C4);
-    if ( a8 )
+    _InterlockedIncrement(&dword_140C47384);
+    if ( a7 )
     {
-      v13 = v14[2];
-      *(_OWORD *)a8 = v14[1];
-      *(_DWORD *)(a8 + 16) = v13;
+      v12 = v13[2];
+      *(_OWORD *)a7 = v13[1];
+      *(_DWORD *)(a7 + 16) = v12;
     }
   }
   return result;

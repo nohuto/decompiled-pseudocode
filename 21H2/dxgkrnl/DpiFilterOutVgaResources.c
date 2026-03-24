@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiFilterOutVgaResources @ 0x1C01F68CC
+ * XREFs of DpiFilterOutVgaResources @ 0x1C019A46C
  * Callers:
- *     DpiFdoHandleStartDevice @ 0x1C01F6B40 (DpiFdoHandleStartDevice.c)
+ *     DpiFdoHandleStartDevice @ 0x1C017B870 (DpiFdoHandleStartDevice.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     DpiDetermineResourceListSize @ 0x1C01F6AC0 (DpiDetermineResourceListSize.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DpiDetermineResourceListSize @ 0x1C019A660 (DpiDetermineResourceListSize.c)
  */
 
 __int64 __fastcall DpiFilterOutVgaResources(__int64 a1, _DWORD *a2, _QWORD *a3, char a4)

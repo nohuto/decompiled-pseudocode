@@ -1,34 +1,52 @@
 /*
- * XREFs of bWriteUserSystemEUDCRegistry @ 0x1C02A02D8
+ * XREFs of bWriteUserSystemEUDCRegistry @ 0x1C029825C
  * Callers:
- *     bReadUserSystemEUDCRegistry @ 0x1C0089700 (bReadUserSystemEUDCRegistry.c)
- *     GreEudcLoadLinkW @ 0x1C029E958 (GreEudcLoadLinkW.c)
- *     GreEudcUnloadLinkW @ 0x1C029EC80 (GreEudcUnloadLinkW.c)
+ *     bReadUserSystemEUDCRegistry @ 0x1C00E6D18 (bReadUserSystemEUDCRegistry.c)
+ *     GreEudcLoadLinkW @ 0x1C0297780 (GreEudcLoadLinkW.c)
+ *     GreEudcUnloadLinkW @ 0x1C0297A90 (GreEudcUnloadLinkW.c)
  * Callees:
- *     ??1?$AutoResource@$1?Win32FreePool@@YAXPEAX@Z@@QEAA@XZ @ 0x1C0089BF0 (--1-$AutoResource@$1-Win32FreePool@@YAXPEAX@Z@@QEAA@XZ.c)
- *     bNotIsKeySymbolicLink @ 0x1C008A598 (bNotIsKeySymbolicLink.c)
- *     GetUserEUDCRegistryPath @ 0x1C008A64C (GetUserEUDCRegistryPath.c)
- *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C0114FA8 (--0MALLOCOBJ@@QEAA@K@Z.c)
+ *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C009FD78 (--0MALLOCOBJ@@QEAA@K@Z.c)
+ *     bNotIsKeySymbolicLink @ 0x1C00E6E44 (bNotIsKeySymbolicLink.c)
+ *     GetUserEUDCRegistryPath @ 0x1C00E6EF0 (GetUserEUDCRegistryPath.c)
  */
 
-__int64 __fastcall bWriteUserSystemEUDCRegistry(PVOID ValueData)
+__int64 __fastcall bWriteUserSystemEUDCRegistry(PVOID ValueData, unsigned __int16 a2)
 {
-  HANDLE Handle; // [rsp+30h] [rbp-10h] BYREF
-  HANDLE v3; // [rsp+38h] [rbp-8h] BYREF
-  PCWSTR Path; // [rsp+78h] [rbp+38h] BYREF
+  int v2; // ebp
+  WCHAR *v4; // rbx
+  WCHAR *v5; // rcx
+  int UserEUDCRegistryPath; // edi
+  unsigned int v7; // esi
+  HANDLE v9; // [rsp+30h] [rbp-28h] BYREF
+  PCWSTR Path; // [rsp+70h] [rbp+18h] BYREF
+  HANDLE Handle; // [rsp+78h] [rbp+20h] BYREF
 
+  v2 = a2;
   MALLOCOBJ::MALLOCOBJ((MALLOCOBJ *)&Path, 0x208u);
-  if ( Path )
+  v4 = (WCHAR *)Path;
+  if ( !Path )
+    goto LABEL_12;
+  Handle = 0LL;
+  v5 = (WCHAR *)Path;
+  v9 = 0LL;
+  LODWORD(Path) = 0;
+  UserEUDCRegistryPath = GetUserEUDCRegistryPath(v5);
+  v7 = 1;
+  if ( UserEUDCRegistryPath >= 0 )
   {
-    Handle = 0LL;
-    v3 = 0LL;
-    if ( (int)GetUserEUDCRegistryPath((WCHAR *)Path) >= 0 )
-      bNotIsKeySymbolicLink(Path, &Handle, &v3);
-    if ( Handle )
-      ZwClose(Handle);
-    if ( v3 )
-      ZwClose(v3);
+    if ( bNotIsKeySymbolicLink(v4, &Handle, &v9) && (_DWORD)Path )
+      UserEUDCRegistryPath = RtlWriteRegistryValue(0, v4, L"SystemDefaultEUDCFont", 1u, ValueData, 2 * v2);
+    else
+      UserEUDCRegistryPath = -1073741824;
   }
-  AutoResource<&void Win32FreePool(void *)>::~AutoResource<&void Win32FreePool(void *)>((void **)&Path);
-  return 0LL;
+  if ( Handle )
+    ZwClose(Handle);
+  if ( v9 )
+    ZwClose(v9);
+  if ( UserEUDCRegistryPath < 0 )
+LABEL_12:
+    v7 = 0;
+  if ( v4 )
+    Win32FreePool(v4);
+  return v7;
 }

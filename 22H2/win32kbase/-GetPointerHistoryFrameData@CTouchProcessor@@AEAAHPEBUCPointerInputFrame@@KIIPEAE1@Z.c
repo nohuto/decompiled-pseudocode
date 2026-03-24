@@ -1,14 +1,14 @@
 /*
- * XREFs of ?GetPointerHistoryFrameData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KIIPEAE1@Z @ 0x1C01C93E0
+ * XREFs of ?GetPointerHistoryFrameData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KIIPEAE1@Z @ 0x1C019380C
  * Callers:
- *     ?GetPointerFrameDataWithHistory@CTouchProcessor@@QEAAH_KKHKPEAI1PEAE@Z @ 0x1C01C8BF0 (-GetPointerFrameDataWithHistory@CTouchProcessor@@QEAAH_KKHKPEAI1PEAE@Z.c)
+ *     ?GetPointerFrameDataWithHistory@CTouchProcessor@@QEAAH_KKHKPEAI1PEAE@Z @ 0x1C01931F0 (-GetPointerFrameDataWithHistory@CTouchProcessor@@QEAAH_KKHKPEAI1PEAE@Z.c)
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     GetPointerInfoSize @ 0x1C00DFE3A (GetPointerInfoSize.c)
- *     ?CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ @ 0x1C00E3DA4 (-CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ.c)
- *     ?PointerInfoCopyOutHelper@CTouchProcessor@@AEAAHPEAUCPointerInfoNode@@PEAUtagHID_POINTER_DEVICE_INFO@@KIPEAUtagPOINTER_INFO@@@Z @ 0x1C00E4A70 (-PointerInfoCopyOutHelper@CTouchProcessor@@AEAAHPEAUCPointerInfoNode@@PEAUtagHID_POINTER_DEVICE_.c)
- *     ?FindPointerInFrame@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@IPEAK@Z @ 0x1C01C2B60 (-FindPointerInFrame@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@IPEAK@Z.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     GetPointerInfoSize @ 0x1C0128CCC (GetPointerInfoSize.c)
+ *     ?CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ @ 0x1C0188850 (-CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ.c)
+ *     ?FindPointerInFrame@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@IPEAK@Z @ 0x1C018E700 (-FindPointerInFrame@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@IPEAK@Z.c)
+ *     ?PointerInfoCopyOutHelper@CTouchProcessor@@AEAAHPEAUCPointerInfoNode@@PEAUtagHID_POINTER_DEVICE_INFO@@KIPEAUtagPOINTER_INFO@@@Z @ 0x1C0197914 (-PointerInfoCopyOutHelper@CTouchProcessor@@AEAAHPEAUCPointerInfoNode@@PEAUtagHID_POINTER_DEVICE_.c)
  */
 
 __int64 __fastcall CTouchProcessor::GetPointerHistoryFrameData(
@@ -40,19 +40,19 @@ __int64 __fastcall CTouchProcessor::GetPointerHistoryFrameData(
   if ( !CTouchProcessor::CTouchProcessorLockShared(this) )
   {
     v20 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 13964);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13362);
   }
   PointerInfoSize = (unsigned int)GetPointerInfoSize(a3);
   v12 = 1;
   if ( v7 > *((_DWORD *)a2 + 12) )
   {
     v20 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 13976);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13374);
   }
   if ( v7 * (_DWORD)PointerInfoSize != a5 )
   {
     v20 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 13977);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13375);
   }
   v13 = 0;
   while ( v12 && v10 < v7 )
@@ -63,23 +63,23 @@ __int64 __fastcall CTouchProcessor::GetPointerHistoryFrameData(
       v14 = (int *)MmUserProbeAddress;
     v15 = *v14;
     if ( !*v14 || HIWORD(v15) )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 14006);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13404);
     v13 = v20;
-    v16 = (unsigned __int16 *)(*((_QWORD *)a2 + 30) + 480LL * v20);
+    v16 = (unsigned __int16 *)(*((_QWORD *)a2 + 17) + 480LL * v20);
     if ( v16[86] != v15 )
     {
       if ( !(unsigned int)CTouchProcessor::FindPointerInFrame(this, a2, v15, &v20) )
         return 0;
       v13 = v20;
-      v16 = (unsigned __int16 *)(*((_QWORD *)a2 + 30) + 480LL * v20);
+      v16 = (unsigned __int16 *)(*((_QWORD *)a2 + 17) + 480LL * v20);
     }
     v17 = a5;
     if ( a5 >= (unsigned int)PointerInfoSize )
     {
       v12 = CTouchProcessor::PointerInfoCopyOutHelper(
-              this,
+              (CTouchProcessor *)this,
               (struct CPointerInfoNode *)v16,
-              *((struct tagHID_POINTER_DEVICE_INFO **)a2 + 32),
+              *((struct tagHID_POINTER_DEVICE_INFO **)a2 + 19),
               v21,
               PointerInfoSize,
               a7);

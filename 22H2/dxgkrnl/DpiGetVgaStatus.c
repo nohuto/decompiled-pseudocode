@@ -1,16 +1,16 @@
 /*
- * XREFs of DpiGetVgaStatus @ 0x1C0227340
+ * XREFs of DpiGetVgaStatus @ 0x1C019DD50
  * Callers:
- *     DpiAddDevice @ 0x1C0202170 (DpiAddDevice.c)
+ *     DpiAddDevice @ 0x1C018BAE0 (DpiAddDevice.c)
  * Callees:
- *     DpiFdoDetectVgaDeviceInCapabilities @ 0x1C0227388 (DpiFdoDetectVgaDeviceInCapabilities.c)
+ *     DpiFdoDetectVgaDeviceInCapabilities @ 0x1C019DD98 (DpiFdoDetectVgaDeviceInCapabilities.c)
  */
 
 __int64 __fastcall DpiGetVgaStatus(__int64 a1)
 {
   __int64 v1; // rbx
   __int64 result; // rax
-  char v3; // dl
+  char v3; // cl
 
   v1 = *(_QWORD *)(*(_QWORD *)(a1 + 64) + 1112LL);
   result = DpiFdoDetectVgaDeviceInCapabilities();

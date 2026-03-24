@@ -1,11 +1,11 @@
 /*
- * XREFs of ?FxPoolDump@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@@Z @ 0x1C006C54C
+ * XREFs of ?FxPoolDump@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@@Z @ 0x1C0058C74
  * Callers:
- *     FxDestroy @ 0x1C006B75C (FxDestroy.c)
+ *     FxDestroy @ 0x1C0056D9C (FxDestroy.c)
  * Callees:
- *     WPP_IFR_SF_qqq @ 0x1C0030348 (WPP_IFR_SF_qqq.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_iiddiidd @ 0x1C006C8D0 (WPP_IFR_SF_iiddiidd.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qqq @ 0x1C0032C78 (WPP_IFR_SF_qqq.c)
+ *     WPP_IFR_SF_iiddiidd @ 0x1C00590C0 (WPP_IFR_SF_iiddiidd.c)
  */
 
 __int64 __fastcall FxPoolDump(_FX_DRIVER_GLOBALS *FxDriverGlobals, FX_POOL *Pool, unsigned int a3, unsigned __int16 a4)

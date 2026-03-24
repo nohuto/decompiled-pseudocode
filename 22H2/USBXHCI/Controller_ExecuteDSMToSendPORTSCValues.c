@@ -1,11 +1,12 @@
 /*
- * XREFs of Controller_ExecuteDSMToSendPORTSCValues @ 0x1C0033274
+ * XREFs of Controller_ExecuteDSMToSendPORTSCValues @ 0x1C0031884
  * Callers:
- *     Controller_WdfEvtDeviceD0Exit @ 0x1C000E9F0 (Controller_WdfEvtDeviceD0Exit.c)
+ *     Controller_WdfEvtDeviceD0Exit @ 0x1C000B4D0 (Controller_WdfEvtDeviceD0Exit.c)
  * Callees:
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     WPP_RECORDER_SF_P @ 0x1C0037240 (WPP_RECORDER_SF_P.c)
- *     Controller_ExecuteDSM @ 0x1C006E4E4 (Controller_ExecuteDSM.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     WPP_RECORDER_SF_P @ 0x1C0035714 (WPP_RECORDER_SF_P.c)
+ *     Controller_ExecuteDSM @ 0x1C006EEB8 (Controller_ExecuteDSM.c)
  */
 
 void __fastcall Controller_ExecuteDSMToSendPORTSCValues(__int64 a1)
@@ -14,27 +15,28 @@ void __fastcall Controller_ExecuteDSMToSendPORTSCValues(__int64 a1)
   __int64 v3; // r13
   __int64 v4; // rbp
   unsigned int v5; // r15d
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   int v7; // edx
   int v8; // r8d
-  void *v9; // rsi
+  _DWORD *v9; // rsi
   _DWORD *v10; // r14
   int Ulong; // eax
 
   v1 = 0LL;
-  if ( *(_BYTE *)(a1 + 632) )
+  if ( *(_BYTE *)(a1 + 584) )
   {
     v3 = *(_QWORD *)(a1 + 152);
     v4 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 88) + 87LL);
     v5 = 4 * v4 + 4;
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, v5, 1229146200LL);
-    v9 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState, v5, 0x49434858u);
+    v9 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = v4;
+      memset(PoolWithTag, 0, (unsigned int)(4 * v4 + 4));
+      *v9 = v4;
       if ( (_DWORD)v4 )
       {
-        v10 = Pool2 + 1;
+        v10 = v9 + 1;
         do
         {
           Ulong = XilRegister_ReadUlong(
@@ -51,7 +53,7 @@ void __fastcall Controller_ExecuteDSMToSendPORTSCValues(__int64 a1)
     }
     else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      WPP_RECORDER_SF_P(*(_QWORD *)(a1 + 72), v7, v8, 258);
+      WPP_RECORDER_SF_P(*(_QWORD *)(a1 + 72), v7, v8, 253);
     }
   }
 }

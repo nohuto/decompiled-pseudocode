@@ -1,9 +1,9 @@
 /*
- * XREFs of InitializeResetActionWorkItem @ 0x1C008EBAC
+ * XREFs of InitializeResetActionWorkItem @ 0x1C0086CAC
  * Callers:
- *     HUBPDO_EvtDevicePrepareHardware @ 0x1C007BF50 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0077CC0 (HUBPDO_EvtDevicePrepareHardware.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall InitializeResetActionWorkItem(_QWORD *a1, __int64 a2, __int64 a3)
@@ -22,7 +22,7 @@ __int64 __fastcall InitializeResetActionWorkItem(_QWORD *a1, __int64 a2, __int64
 
   v9 = 0;
   v13 = 0LL;
-  v14 = off_1C0069120;
+  v14 = off_1C00660F8;
   v10 = 1;
   v6[2] = 1LL;
   v11 = 1;
@@ -42,7 +42,7 @@ __int64 __fastcall InitializeResetActionWorkItem(_QWORD *a1, __int64 a2, __int64
     *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01015 + 1616))(
                   WdfDriverGlobals,
                   *a1,
-                  off_1C0069120)
+                  off_1C00660F8)
               + 24) = HUBUCX_EvtResetActionCompletion;
     return v5;
   }

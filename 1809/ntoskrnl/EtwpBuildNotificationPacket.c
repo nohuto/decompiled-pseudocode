@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpBuildNotificationPacket @ 0x140658C68
+ * XREFs of EtwpBuildNotificationPacket @ 0x140658C48
  * Callers:
- *     EtwpEnableGuid @ 0x140655F58 (EtwpEnableGuid.c)
- *     EtwpCalculateUpdateNotification @ 0x140657A28 (EtwpCalculateUpdateNotification.c)
- *     EtwpDisallowedGuidAddition @ 0x1408B50C4 (EtwpDisallowedGuidAddition.c)
- *     EtwpDisallowedGuidRemoval @ 0x1408B5378 (EtwpDisallowedGuidRemoval.c)
- *     SendCaptureStateNotificationsWorker @ 0x1408C0640 (SendCaptureStateNotificationsWorker.c)
+ *     EtwpEnableGuid @ 0x140655F38 (EtwpEnableGuid.c)
+ *     EtwpCalculateUpdateNotification @ 0x140657A08 (EtwpCalculateUpdateNotification.c)
+ *     EtwpDisallowedGuidAddition @ 0x1408B50A4 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x1408B5358 (EtwpDisallowedGuidRemoval.c)
+ *     SendCaptureStateNotificationsWorker @ 0x1408C0620 (SendCaptureStateNotificationsWorker.c)
  * Callees:
  *     EtwpGetSchematizedFilterSize @ 0x1405C3DE8 (EtwpGetSchematizedFilterSize.c)
- *     EtwpAllocDataBlock @ 0x140658CE4 (EtwpAllocDataBlock.c)
- *     EtwpCopySchematizedFilters @ 0x1408C1EC4 (EtwpCopySchematizedFilters.c)
+ *     EtwpAllocDataBlock @ 0x140658CC4 (EtwpAllocDataBlock.c)
+ *     EtwpCopySchematizedFilters @ 0x1408C1EA4 (EtwpCopySchematizedFilters.c)
  */
 
 __int64 __fastcall EtwpBuildNotificationPacket(__int64 a1, _OWORD *a2, unsigned __int8 a3, _QWORD *a4)

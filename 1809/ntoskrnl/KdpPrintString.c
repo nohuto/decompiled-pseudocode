@@ -1,11 +1,11 @@
 /*
  * XREFs of KdpPrintString @ 0x1409192C4
  * Callers:
- *     KdRefreshDebuggerNotPresent @ 0x140193E30 (KdRefreshDebuggerNotPresent.c)
+ *     KdRefreshDebuggerNotPresent @ 0x140193E50 (KdRefreshDebuggerNotPresent.c)
  *     KdpPrint @ 0x140918224 (KdpPrint.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KdpPollBreakInWithPortLock @ 0x14028CCC0 (KdpPollBreakInWithPortLock.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KdpPollBreakInWithPortLock @ 0x14028CDC0 (KdpPollBreakInWithPortLock.c)
  *     KdpCopyMemoryChunks @ 0x1409189A8 (KdpCopyMemoryChunks.c)
  */
 

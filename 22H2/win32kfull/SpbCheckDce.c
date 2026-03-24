@@ -1,19 +1,20 @@
 /*
- * XREFs of SpbCheckDce @ 0x1C008F1F0
+ * XREFs of SpbCheckDce @ 0x1C00D53B0
  * Callers:
- *     SpbCheck @ 0x1C0015968 (SpbCheck.c)
- *     RevalidateDCE @ 0x1C008F0E0 (RevalidateDCE.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00726C4 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     RevalidateDCE @ 0x1C00D52B0 (RevalidateDCE.c)
+ *     SpbCheck @ 0x1C021A16C (SpbCheck.c)
  * Callees:
- *     SpbCheckRect @ 0x1C000BF1C (SpbCheckRect.c)
- *     IntersectRect @ 0x1C00D0330 (IntersectRect.c)
- *     GetStyleWindow @ 0x1C0119070 (GetStyleWindow.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     GetStyleWindow @ 0x1C00714C0 (GetStyleWindow.c)
+ *     IntersectRect @ 0x1C00750C0 (IntersectRect.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     SpbCheckRect @ 0x1C021A284 (SpbCheckRect.c)
  */
 
-char __fastcall SpbCheckDce(__int64 a1)
+__int64 __fastcall SpbCheckDce(__int64 a1)
 {
   __int64 v2; // rcx
-  int Bounds; // eax
+  __int64 result; // rax
   __int64 v4; // rcx
   int v5; // eax
   __int64 v6; // rax
@@ -28,55 +29,55 @@ char __fastcall SpbCheckDce(__int64 a1)
   __int64 v15; // rax
   int v16; // edx
   int v17; // ecx
-  struct tagWND *v18; // rbx
-  struct tagRECT v20; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v18; // rbx
+  struct tagRECT v19; // [rsp+20h] [rbp-20h] BYREF
 
   v2 = *(_QWORD *)(a1 + 8);
-  v20 = 0LL;
-  Bounds = GreGetBounds(v2, &v20, 0LL);
-  if ( Bounds )
+  v19 = 0LL;
+  result = GreGetBounds(v2, &v19, 0LL);
+  if ( (_DWORD)result )
   {
     v4 = *(_QWORD *)(a1 + 88);
     if ( !v4 || (v5 = *(_DWORD *)(a1 + 64), (v5 & 0x4000) != 0) || v5 < 0 )
     {
-      bottom = v20.bottom;
-      right = v20.right;
-      top = v20.top;
-      left = v20.left;
+      bottom = v19.bottom;
+      right = v19.right;
+      top = v19.top;
+      left = v19.left;
     }
     else
     {
       v6 = *(_QWORD *)(v4 + 40);
       v7 = *(_DWORD *)(v6 + 32);
-      bottom = v7 + v20.bottom;
+      bottom = v7 + v19.bottom;
       v9 = *(_DWORD *)(v6 + 28);
-      left = v9 + v20.left;
-      right = v9 + v20.right;
-      top = v7 + v20.top;
-      v20.left += v9;
-      v20.top += v7;
-      v20.right += v9;
-      v20.bottom += v7;
+      left = v9 + v19.left;
+      right = v9 + v19.right;
+      top = v7 + v19.top;
+      v19.left += v9;
+      v19.top += v7;
+      v19.right += v9;
+      v19.bottom += v7;
     }
     v13 = *(_DWORD *)(a1 + 64);
     if ( (v13 & 0x4000) != 0 )
     {
-      StyleWindow = GetStyleWindow(*(_QWORD *)(a1 + 16), 2848LL);
+      StyleWindow = GetStyleWindow(*(_QWORD *)(a1 + 16), 2848);
       if ( StyleWindow )
       {
         v15 = *(_QWORD *)(StyleWindow + 40);
         v16 = *(_DWORD *)(v15 + 92);
         v17 = *(_DWORD *)(v15 + 88);
-        v20.left = v17 + left;
-        v20.right = v17 + right;
-        v20.top = v16 + top;
-        v20.bottom = v16 + bottom;
+        v19.left = v17 + left;
+        v19.right = v17 + right;
+        v19.top = v16 + top;
+        v19.bottom = v16 + bottom;
       }
     }
-    v18 = *(struct tagWND **)(a1 + 16);
-    Bounds = IntersectRect(&v20, &v20, *((_QWORD *)v18 + 5) + 88LL);
-    if ( Bounds )
-      LOBYTE(Bounds) = SpbCheckRect(v18, &v20, v13);
+    v18 = *(_QWORD *)(a1 + 16);
+    result = IntersectRect(&v19, &v19.left, (int *)(*(_QWORD *)(v18 + 40) + 88LL));
+    if ( (_DWORD)result )
+      return SpbCheckRect((struct tagWND *)v18, &v19, v13);
   }
-  return Bounds;
+  return result;
 }

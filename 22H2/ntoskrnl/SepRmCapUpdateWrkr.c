@@ -1,14 +1,14 @@
 /*
- * XREFs of SepRmCapUpdateWrkr @ 0x14085D390
+ * XREFs of SepRmCapUpdateWrkr @ 0x1407CDC90
  * Callers:
- *     SepRmCommandServerThread @ 0x14082D2D0 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x1407AD670 (SepRmCommandServerThread.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     SepBuildCapPolicyTable @ 0x1403ADEDC (SepBuildCapPolicyTable.c)
- *     SepRmDereferenceCapTable @ 0x1405B7F40 (SepRmDereferenceCapTable.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     SepBuildCapPolicyTable @ 0x1403CB46C (SepBuildCapPolicyTable.c)
+ *     SepRmDereferenceCapTable @ 0x1405962D0 (SepRmDereferenceCapTable.c)
  */
 
 __int64 __fastcall SepRmCapUpdateWrkr(__int64 a1, __int64 a2)

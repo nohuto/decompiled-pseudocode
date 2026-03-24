@@ -1,163 +1,129 @@
 /*
- * XREFs of SmProcessCompressionInfoRequest @ 0x140843254
+ * XREFs of SmProcessCompressionInfoRequest @ 0x14062C1A0
  * Callers:
- *     SmQueryStoreInformation @ 0x140842DDC (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x1406A5798 (SmQueryStoreInformation.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     SmKmStoreReferenceEx @ 0x140344C68 (SmKmStoreReferenceEx.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140344CA4 (SmKmStoreRefFromStoreIndex.c)
- *     ?SmStGetStoreStats@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x14039B908 (-SmStGetStoreStats@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     PsReferencePartitionByHandle @ 0x14076054C (PsReferencePartitionByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     SmKmStoreReferenceEx @ 0x1402673EC (SmKmStoreReferenceEx.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140267428 (SmKmStoreRefFromStoreIndex.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ?SmStGetStoreStats@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x1403253F0 (-SmStGetStoreStats@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall SmProcessCompressionInfoRequest(void *Src, size_t Size, _DWORD *a3, char a4)
+__int64 __fastcall SmProcessCompressionInfoRequest(unsigned __int64 a1, int a2, _DWORD *a3, char a4)
 {
-  size_t v5; // r14
-  __int64 v7; // rcx
-  __int64 ProcessPartition; // rsi
+  unsigned int v7; // edi
+  __int64 v8; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int64 *v10; // rdi
-  __int64 v11; // rcx
-  unsigned __int64 v12; // rax
-  __int64 v13; // r8
-  unsigned int i; // edi
-  int v15; // ebx
+  __int64 v10; // r12
+  __int64 v11; // r15
+  unsigned int v12; // r14d
+  __int64 v13; // r13
+  unsigned __int64 v14; // rax
   int StoreStats; // ebx
-  struct _EX_RUNDOWN_REF *v18; // rax
-  unsigned int *v19; // rcx
-  __int64 v20; // rdx
-  __int64 v21; // r12
-  __int64 v22; // r13
-  __int64 v23; // [rsp+38h] [rbp-690h] BYREF
-  __int128 Srca; // [rsp+40h] [rbp-688h] BYREF
-  __int128 v25; // [rsp+50h] [rbp-678h]
-  __int128 v26; // [rsp+60h] [rbp-668h]
-  unsigned __int64 v27; // [rsp+70h] [rbp-658h]
-  _DWORD *v28; // [rsp+78h] [rbp-650h]
-  _DWORD v29[384]; // [rsp+80h] [rbp-648h] BYREF
+  struct _EX_RUNDOWN_REF *v17; // rax
+  unsigned int *v18; // rcx
+  __int64 v19; // rdx
+  __int128 v20; // [rsp+28h] [rbp-670h]
+  __int128 v21; // [rsp+38h] [rbp-660h]
+  __int64 v22; // [rsp+48h] [rbp-650h]
+  unsigned __int64 v23; // [rsp+50h] [rbp-648h]
+  _DWORD v25[384]; // [rsp+60h] [rbp-638h] BYREF
 
-  v28 = a3;
-  v5 = (unsigned int)Size;
-  memset(v29, 0, sizeof(v29));
-  v23 = 0LL;
-  Srca = 0LL;
-  v25 = 0LL;
-  v26 = 0LL;
-  if ( (((_DWORD)v5 - 40) & 0xFFFFFFF7) != 0 )
-    goto LABEL_30;
-  if ( a4 )
+  memset(v25, 0, sizeof(v25));
+  v7 = 0;
+  if ( a2 == 40 )
   {
-    if ( v5 - 1 > 0xFFE )
+    if ( a4 )
     {
-      ProbeForWrite(Src, (unsigned int)v5, 8u);
+      if ( (a1 & 7) != 0 )
+        ExRaiseDatatypeMisalignment();
+      v8 = a1;
+      if ( a1 >= 0x7FFFFFFF0000LL )
+        v8 = 0x7FFFFFFF0000LL;
+      *(_BYTE *)v8 = *(_BYTE *)v8;
+      *(_BYTE *)(v8 + 39) = *(_BYTE *)(v8 + 39);
+    }
+    v20 = *(_OWORD *)a1;
+    v22 = *(_QWORD *)(a1 + 32);
+    if ( (unsigned __int8)*(_OWORD *)a1 != 3 || (v20 & 0xFFFFFF00) != 0 )
+    {
+      return (unsigned int)-1073741811;
     }
     else
     {
-      if ( ((unsigned __int8)Src & 7) != 0 )
-        ExRaiseDatatypeMisalignment();
-      v7 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)Src < 0x7FFFFFFF0000LL )
-        v7 = (__int64)Src;
-      *(_BYTE *)v7 = *(_BYTE *)v7;
-      *(_BYTE *)(v7 + v5 - 1) = *(_BYTE *)(v7 + v5 - 1);
-    }
-  }
-  memmove(&Srca, Src, v5);
-  if ( (unsigned int)(unsigned __int8)Srca - 3 > 1 )
-    goto LABEL_28;
-  if ( (_DWORD)v5 != 48 && (unsigned __int8)Srca == 4 || (unsigned __int8)Srca == 3 && (_DWORD)v5 != 40 )
-  {
-LABEL_30:
-    v15 = -1073741306;
-    goto LABEL_21;
-  }
-  if ( (Srca & 0xFFFFFF00) != 0 )
-  {
-LABEL_28:
-    v15 = -1073741811;
-    goto LABEL_21;
-  }
-  if ( *((_QWORD *)&v26 + 1) )
-  {
-    v15 = PsReferencePartitionByHandle(*((ULONG_PTR *)&v26 + 1), 1, a4, 0x52516D53u, &v23);
-    if ( v15 < 0 )
-      goto LABEL_21;
-    ProcessPartition = *(_QWORD *)(v23 + 24);
-    if ( !ProcessPartition )
-      goto LABEL_37;
-  }
-  else
-  {
-    ProcessPartition = SmpGetProcessPartition((__int64)KeGetCurrentThread()->ApcState.Process);
-  }
-  CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  v10 = (volatile signed __int64 *)(ProcessPartition + 1992);
-  ExAcquirePushLockExclusiveEx(ProcessPartition + 1992, 0LL);
-  v11 = *(_QWORD *)(ProcessPartition + 2008);
-  if ( !v11 )
-  {
-    if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)(ProcessPartition + 1992));
-    KeAbPostRelease(ProcessPartition + 1992);
-    KeLeaveCriticalRegion();
-LABEL_37:
-    v15 = -1073741399;
-    goto LABEL_21;
-  }
-  DWORD1(Srca) = *(_DWORD *)(v11 + 1088);
-  *((_QWORD *)&Srca + 1) = *(_QWORD *)(v11 + 1816) << 12;
-  if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)(ProcessPartition + 1992));
-  KeAbPostRelease(ProcessPartition + 1992);
-  KeLeaveCriticalRegion();
-  v21 = 0LL;
-  v22 = 0LL;
-  v25 = 0uLL;
-  for ( i = 0; i < 0x400; ++i )
-  {
-    v12 = SmKmStoreReferenceEx(ProcessPartition, i, v13);
-    v27 = v12;
-    if ( v12 )
-    {
-      StoreStats = SMKM_STORE<SM_TRAITS>::SmStGetStoreStats(v12);
-      v18 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(ProcessPartition, *(_DWORD *)(v27 + 6016) & 0x3FF);
-      ExReleaseRundownProtection_0(v18 + 1);
-      if ( StoreStats >= 0 )
+      CurrentThread = KeGetCurrentThread();
+      --CurrentThread->KernelApcDisable;
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&BugCheckParameter2, 0LL);
+      if ( qword_140D24158 )
       {
-        v13 = v29[3];
-        v19 = &v29[11];
-        v20 = 8LL;
+        DWORD1(v20) = *((_DWORD *)qword_140D24158 + 272);
+        *((_QWORD *)&v20 + 1) = *((_QWORD *)qword_140D24158 + 226) << 12;
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&BugCheckParameter2);
+        KeAbPostRelease((ULONG_PTR)&BugCheckParameter2);
+        KeLeaveCriticalRegion();
+        v10 = 0LL;
+        v11 = 0LL;
+        v21 = 0uLL;
+        v12 = 0;
+        v13 = v22;
         do
         {
-          v21 += v29[3] * (unsigned __int64)*v19;
-          *((_QWORD *)&v25 + 1) = v21;
-          v19 += 2;
-          --v20;
+          v14 = SmKmStoreReferenceEx((__int64)&SmGlobals, v12);
+          v23 = v14;
+          if ( v14 )
+          {
+            StoreStats = SMKM_STORE<SM_TRAITS>::SmStGetStoreStats(v14);
+            v17 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(
+                                              (__int64)&SmGlobals,
+                                              *(_DWORD *)(v23 + 6016) & 0x3FF);
+            ExReleaseRundownProtection(v17 + 1);
+            if ( StoreStats >= 0 )
+            {
+              v18 = &v25[11];
+              v19 = 8LL;
+              do
+              {
+                v10 += v25[3] * (unsigned __int64)*v18;
+                *((_QWORD *)&v21 + 1) = v10;
+                v18 += 2;
+                --v19;
+              }
+              while ( v19 );
+              v11 += (unsigned __int64)v25[8] << 12;
+              *(_QWORD *)&v21 = v11;
+              v13 += (unsigned __int64)v25[9] << 12;
+              v22 = v13;
+            }
+          }
+          ++v12;
         }
-        while ( v20 );
-        v22 += (unsigned __int64)v29[8] << 12;
-        *(_QWORD *)&v25 = v22;
-        *(_QWORD *)&v26 = ((unsigned __int64)v29[9] << 12) + v26;
+        while ( v12 < 0x400 );
+        *(_OWORD *)a1 = v20;
+        *(_OWORD *)(a1 + 16) = v21;
+        *(_QWORD *)(a1 + 32) = v22;
+        *a3 = 40;
+      }
+      else
+      {
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&BugCheckParameter2);
+        KeAbPostRelease((ULONG_PTR)&BugCheckParameter2);
+        KeLeaveCriticalRegion();
+        return (unsigned int)-1073741399;
       }
     }
   }
-  v15 = 0;
-  memmove(Src, &Srca, v5);
-  *v28 = v5;
-LABEL_21:
-  if ( v23 )
-    PsDereferencePartition(v23);
-  return (unsigned int)v15;
+  else
+  {
+    return (unsigned int)-1073741306;
+  }
+  return v7;
 }

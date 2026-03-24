@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmResetPlatformIdleAccounting @ 0x140585B88
+ * XREFs of PpmResetPlatformIdleAccounting @ 0x140567570
  * Callers:
- *     PpmInstallCoordinatedIdleStates @ 0x140981E80 (PpmInstallCoordinatedIdleStates.c)
- *     PpmInstallPlatformIdleStates @ 0x1409824C0 (PpmInstallPlatformIdleStates.c)
+ *     PpmInstallCoordinatedIdleStates @ 0x1408E1D50 (PpmInstallCoordinatedIdleStates.c)
+ *     PpmInstallPlatformIdleStates @ 0x1408E22F0 (PpmInstallPlatformIdleStates.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall PpmResetPlatformIdleAccounting(int *a1)
@@ -19,14 +19,14 @@ __int64 __fastcall PpmResetPlatformIdleAccounting(int *a1)
 
   v1 = a1[1];
   v2 = *a1;
-  memset(a1, 0, 1016 * v1 + 24);
+  memset(a1, 0, 1008 * v1 + 24);
   if ( v1 )
   {
-    v4 = a1 + 54;
+    v4 = a1 + 52;
     v5 = v1;
     do
     {
-      *(v4 - 21) = -1LL;
+      *(v4 - 20) = -1LL;
       v6 = v4;
       v7 = 26LL;
       do
@@ -36,7 +36,7 @@ __int64 __fastcall PpmResetPlatformIdleAccounting(int *a1)
         --v7;
       }
       while ( v7 );
-      v4 += 127;
+      v4 += 126;
       --v5;
     }
     while ( v5 );

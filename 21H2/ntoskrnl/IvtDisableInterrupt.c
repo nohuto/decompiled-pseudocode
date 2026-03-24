@@ -1,5 +1,5 @@
 /*
- * XREFs of IvtDisableInterrupt @ 0x14090B280
+ * XREFs of IvtDisableInterrupt @ 0x140866F80
  * Callers:
  *     <none>
  * Callees:
@@ -13,13 +13,13 @@ __int64 __fastcall IvtDisableInterrupt(__int64 a1)
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
 
   v1 = *(_QWORD *)(a1 + 8);
-  if ( *(_BYTE *)(a1 + 316) )
+  if ( *(_BYTE *)(a1 + 268) )
   {
     result = *(_DWORD *)(v1 + 224) | 0x80000000;
     *(_DWORD *)(v1 + 224) = result;
     _InterlockedOr((volatile signed __int32 *)&retaddr, 0);
   }
-  if ( *(_BYTE *)(a1 + 318) )
+  if ( *(_BYTE *)(a1 + 269) )
   {
     result = *(_DWORD *)(v1 + 56) | 0x80000000;
     *(_DWORD *)(v1 + 56) = result;

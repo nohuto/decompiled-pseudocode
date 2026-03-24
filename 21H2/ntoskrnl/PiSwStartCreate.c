@@ -1,19 +1,17 @@
 /*
- * XREFs of PiSwStartCreate @ 0x140953B9C
+ * XREFs of PiSwStartCreate @ 0x1408AECBC
  * Callers:
- *     PiCreateDriverSwDeviceCallback @ 0x14095A750 (PiCreateDriverSwDeviceCallback.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x1408B46E0 (PiCreateDriverSwDeviceCallback.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     McTemplateK0zzz_EtwWriteTransfer @ 0x140563B98 (McTemplateK0zzz_EtwWriteTransfer.c)
- *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140563CAC (McTemplateK0zzzd_EtwWriteTransfer.c)
- *     PnpGetMultiSzLength @ 0x1407648E4 (PnpGetMultiSzLength.c)
- *     PiSwIrpStartCreateWorker @ 0x140765DC0 (PiSwIrpStartCreateWorker.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074DBB8 (PiSwIrpStartCreateWorker.c)
+ *     PnpGetMultiSzLength @ 0x14074E2A0 (PnpGetMultiSzLength.c)
  */
 
 __int64 __fastcall PiSwStartCreate(
         __int64 a1,
-        const wchar_t *a2,
-        const wchar_t *a3,
+        __int64 a2,
+        __int64 a3,
         __int64 a4,
         __int64 a5,
         __int64 a6,
@@ -25,63 +23,40 @@ __int64 __fastcall PiSwStartCreate(
         __int64 a12,
         int a13)
 {
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r14
-  __int64 v19; // rcx
-  int MultiSzLength; // ebx
-  __int64 v21; // r8
-  _QWORD v23[16]; // [rsp+48h] [rbp-79h] BYREF
-  __int64 v24; // [rsp+E8h] [rbp+27h] BYREF
+  __int64 v16; // rbx
+  __int64 result; // rax
+  _QWORD v18[16]; // [rsp+28h] [rbp-71h] BYREF
+  __int64 v19; // [rsp+B8h] [rbp+1Fh] BYREF
 
-  memset(v23, 0, 0x78uLL);
-  v24 = 0LL;
-  if ( (byte_140C0DD4C & 2) != 0 )
-    McTemplateK0zzz_EtwWriteTransfer(
-      v16,
-      (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_KernelCreate_Start,
-      v17,
-      L"DRIVERENUM",
-      a3,
-      a2);
-  v18 = a5;
-  v23[7] = a6;
-  LODWORD(v23[8]) = a7;
-  v23[9] = a8;
-  v23[10] = a9;
-  LODWORD(v23[11]) = a11;
-  v23[12] = a10;
-  LODWORD(v23[13]) = a13;
-  v23[14] = a12;
-  v23[0] = L"DRIVERENUM";
-  v23[1] = a2;
-  v23[2] = a3;
-  v23[4] = a4;
-  v23[6] = a5;
+  memset(v18, 0, 0x78uLL);
+  v19 = 0LL;
+  v18[0] = L"DRIVERENUM";
+  v18[7] = a6;
+  LODWORD(v18[8]) = a7;
+  v18[9] = a8;
+  v18[10] = a9;
+  LODWORD(v18[11]) = a11;
+  v18[12] = a10;
+  LODWORD(v18[13]) = a13;
+  v18[1] = a2;
+  v16 = a5;
+  v18[2] = a3;
+  v18[14] = a12;
+  v18[4] = a4;
+  v18[6] = a5;
   if ( a4 )
   {
-    MultiSzLength = PnpGetMultiSzLength(a4, 1024LL, &v24);
-    if ( MultiSzLength < 0 )
-      goto LABEL_10;
-    LODWORD(v23[3]) = v24;
+    result = PnpGetMultiSzLength(a4, 1024LL, &v19);
+    if ( (int)result < 0 )
+      return result;
+    LODWORD(v18[3]) = v19;
   }
-  if ( v18 )
+  if ( v16 )
   {
-    MultiSzLength = PnpGetMultiSzLength(v18, 1024LL, &v24);
-    if ( MultiSzLength < 0 )
-      goto LABEL_10;
-    LODWORD(v23[5]) = v24;
+    result = PnpGetMultiSzLength(v16, 1024LL, &v19);
+    if ( (int)result < 0 )
+      return result;
+    LODWORD(v18[5]) = v19;
   }
-  MultiSzLength = PiSwIrpStartCreateWorker((__int64)v23, 0LL);
-LABEL_10:
-  if ( (byte_140C0DD4C & 2) != 0 )
-    McTemplateK0zzzd_EtwWriteTransfer(
-      v19,
-      (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_KernelCreate_Stop,
-      v21,
-      L"DRIVERENUM",
-      a3,
-      a2,
-      MultiSzLength);
-  return (unsigned int)MultiSzLength;
+  return PiSwIrpStartCreateWorker((__int64)v18, 0LL);
 }

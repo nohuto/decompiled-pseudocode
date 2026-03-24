@@ -1,7 +1,7 @@
 /*
- * XREFs of KiReleaseKobjectLock @ 0x1402D3804
+ * XREFs of KiReleaseKobjectLock @ 0x14029AFE0
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x1402BA130 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x140203150 (NtWaitForWorkViaWorkerFactory.c)
  * Callees:
  *     <none>
  */

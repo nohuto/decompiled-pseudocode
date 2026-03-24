@@ -8,7 +8,7 @@
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     PsIsJobParentImmutable @ 0x1406064A4 (PsIsJobParentImmutable.c)
  *     PspIsProcessInJob @ 0x1406065BC (PspIsProcessInJob.c)
- *     PspIsJobMovable @ 0x140889D94 (PspIsJobMovable.c)
+ *     PspIsJobMovable @ 0x140889D74 (PspIsJobMovable.c)
  */
 
 __int64 __fastcall PspGetJobAssignmentDisposition(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

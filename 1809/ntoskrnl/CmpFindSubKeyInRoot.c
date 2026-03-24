@@ -4,10 +4,10 @@
  *     CmpMarkIndexDirty @ 0x1405AD40C (CmpMarkIndexDirty.c)
  *     CmpRemoveSubKeyFromList @ 0x1405AE780 (CmpRemoveSubKeyFromList.c)
  *     CmpWalkOneLevel @ 0x1405D4560 (CmpWalkOneLevel.c)
- *     CmpSelectLeaf @ 0x140700080 (CmpSelectLeaf.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x14073D11C (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpSelectLeaf @ 0x140700060 (CmpSelectLeaf.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x14073D0FC (CmpFindSubKeyByNameWithStatus.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpCompareInIndex @ 0x1405D51D0 (CmpCompareInIndex.c)
  */
 

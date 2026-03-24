@@ -1,9 +1,9 @@
 /*
- * XREFs of wctomb @ 0x140197D90
+ * XREFs of wctomb @ 0x140197DB0
  * Callers:
  *     <none>
  * Callees:
- *     _wctomb_s_l @ 0x140197CD4 (_wctomb_s_l.c)
+ *     _wctomb_s_l @ 0x140197CF4 (_wctomb_s_l.c)
  */
 
 int __cdecl wctomb(char *MbCh, wchar_t WCh)

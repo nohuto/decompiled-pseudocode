@@ -1,10 +1,10 @@
 /*
- * XREFs of Bulk_Stage_EstimateRequiredSegments @ 0x1C000F614
+ * XREFs of Bulk_Stage_EstimateRequiredSegments @ 0x1C000DA60
  * Callers:
- *     Bulk_PrepareStage @ 0x1C000F538 (Bulk_PrepareStage.c)
+ *     Bulk_PrepareStage @ 0x1C000D984 (Bulk_PrepareStage.c)
  * Callees:
- *     WPP_RECORDER_SF_DDDDD @ 0x1C003FF60 (WPP_RECORDER_SF_DDDDD.c)
- *     WPP_RECORDER_SF_DDDDDDD @ 0x1C0044FB4 (WPP_RECORDER_SF_DDDDDDD.c)
+ *     WPP_RECORDER_SF_DDDDD @ 0x1C003F810 (WPP_RECORDER_SF_DDDDD.c)
+ *     WPP_RECORDER_SF_DDDDDDD @ 0x1C0044AF8 (WPP_RECORDER_SF_DDDDDDD.c)
  */
 
 __int64 __fastcall Bulk_Stage_EstimateRequiredSegments(_DWORD *a1, int *a2)

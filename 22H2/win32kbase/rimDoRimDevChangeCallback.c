@@ -1,10 +1,10 @@
 /*
- * XREFs of rimDoRimDevChangeCallback @ 0x1C0003CDC
+ * XREFs of rimDoRimDevChangeCallback @ 0x1C00534C8
  * Callers:
- *     rimDoRimDevChange @ 0x1C0003BFC (rimDoRimDevChange.c)
+ *     rimDoRimDevChange @ 0x1C00533E4 (rimDoRimDevChange.c)
  * Callees:
- *     RimDeviceTypeToRimInputType @ 0x1C0005B28 (RimDeviceTypeToRimInputType.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C0056804 (RimDeviceTypeToRimInputType.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall rimDoRimDevChangeCallback(__int64 a1, __int64 a2, int a3)
@@ -18,7 +18,7 @@ void __fastcall rimDoRimDevChangeCallback(__int64 a1, __int64 a2, int a3)
   __int64 v9; // [rsp+30h] [rbp-18h]
   __int64 v10; // [rsp+38h] [rbp-10h]
 
-  if ( *(_QWORD *)(a1 + 824) )
+  if ( *(_QWORD *)(a1 + 632) )
   {
     v8[3] = 0;
     v8[0] = a3;

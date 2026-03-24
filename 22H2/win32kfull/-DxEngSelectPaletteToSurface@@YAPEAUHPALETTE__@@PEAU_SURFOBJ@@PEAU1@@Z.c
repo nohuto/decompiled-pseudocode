@@ -1,39 +1,40 @@
 /*
- * XREFs of ?DxEngSelectPaletteToSurface@@YAPEAUHPALETTE__@@PEAU_SURFOBJ@@PEAU1@@Z @ 0x1C0007458
+ * XREFs of ?DxEngSelectPaletteToSurface@@YAPEAUHPALETTE__@@PEAU_SURFOBJ@@PEAU1@@Z @ 0x1C0019108
  * Callers:
- *     NtGdiDdDDICreateDCFromMemory @ 0x1C0006FD0 (NtGdiDdDDICreateDCFromMemory.c)
- *     DxgkEngBltViaGDI @ 0x1C026F280 (DxgkEngBltViaGDI.c)
+ *     NtGdiDdDDICreateDCFromMemory @ 0x1C0017990 (NtGdiDdDDICreateDCFromMemory.c)
+ *     DxgkEngBltViaGDI @ 0x1C0276750 (DxgkEngBltViaGDI.c)
  * Callees:
- *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C005848C (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C0019BA8 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
  */
 
 __int64 __fastcall DxEngSelectPaletteToSurface(struct _SURFOBJ *a1, HPALETTE a2)
 {
-  __int64 v3; // rbp
-  HDEV v4; // rbx
+  __int64 v3; // rsi
+  __int64 v4; // rdx
+  HDEV v5; // rbx
   HDEV hdev; // rdi
-  HDEV v6; // rcx
-  HDEV v8; // [rsp+30h] [rbp+8h] BYREF
+  HDEV v7; // rcx
+  HDEV v9; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 0LL;
-  EPALOBJ::EPALOBJ((EPALOBJ *)&v8, a2);
-  v4 = v8;
+  EPALOBJ::EPALOBJ((EPALOBJ *)&v9, a2);
+  v5 = v9;
   if ( a1 )
   {
-    if ( !v8 )
+    if ( !v9 )
       return v3;
     hdev = a1[1].hdev;
-    v6 = v8;
-    a1[1].hdev = v8;
-    INC_SHARE_REF_CNT(v6);
+    v7 = v9;
+    a1[1].hdev = v9;
+    INC_SHARE_REF_CNT(v7);
     if ( hdev )
     {
       v3 = *(_QWORD *)hdev;
-      v8 = hdev;
-      XEPALOBJ::vUnrefPalette((XEPALOBJ *)&v8);
+      v9 = hdev;
+      XEPALOBJ::vUnrefPalette((XEPALOBJ *)&v9);
     }
   }
-  if ( v4 )
-    DEC_SHARE_REF_CNT(v4);
+  if ( v5 )
+    DEC_SHARE_REF_CNT(v5, v4);
   return v3;
 }

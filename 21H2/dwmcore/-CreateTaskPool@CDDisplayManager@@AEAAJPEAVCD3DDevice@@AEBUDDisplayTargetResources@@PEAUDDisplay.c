@@ -1,14 +1,14 @@
 /*
- * XREFs of ?CreateTaskPool@CDDisplayManager@@AEAAJPEAVCD3DDevice@@AEBUDDisplayTargetResources@@PEAUDDisplayTaskPoolResources@@@Z @ 0x180284934
+ * XREFs of ?CreateTaskPool@CDDisplayManager@@AEAAJPEAVCD3DDevice@@AEBUDDisplayTargetResources@@PEAUDDisplayTaskPoolResources@@@Z @ 0x180244234
  * Callers:
- *     ?CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatInfo@@AEBUD2D_SIZE_U@@IPEAXPEAPEAVCDDisplaySwapChain@@@Z @ 0x180283F0C (-CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatI.c)
+ *     ?CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatInfo@@AEBUD2D_SIZE_U@@IPEAXPEAPEAVCDDisplaySwapChain@@@Z @ 0x180243824 (-CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatI.c)
  * Callees:
- *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x18003DB7C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800FFDD8 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??1DDisplayTaskPoolResources@@QEAA@XZ @ 0x1802828E4 (--1DDisplayTaskPoolResources@@QEAA@XZ.c)
- *     ??4DDisplayTaskPoolResources@@QEAAAEAU0@$$QEAU0@@Z @ 0x180282EE8 (--4DDisplayTaskPoolResources@@QEAAAEAU0@$$QEAU0@@Z.c)
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x180030F44 (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5FE0 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??1DDisplayTaskPoolResources@@QEAA@XZ @ 0x180242980 (--1DDisplayTaskPoolResources@@QEAA@XZ.c)
+ *     ??4DDisplayTaskPoolResources@@QEAAAEAU0@$$QEAU0@@Z @ 0x180242CEC (--4DDisplayTaskPoolResources@@QEAAAEAU0@$$QEAU0@@Z.c)
  */
 
 __int64 __fastcall CDDisplayManager::CreateTaskPool(
@@ -46,11 +46,11 @@ __int64 __fastcall CDDisplayManager::CreateTaskPool(
   v11 = v9;
   if ( v9 < 0 )
   {
-    v23 = 443;
+    v23 = 322;
     goto LABEL_12;
   }
   v12 = *((_QWORD *)&v25 + 1);
-  v13 = (__int64 *)*((_QWORD *)a2 + 69);
+  v13 = (__int64 *)*((_QWORD *)a2 + 74);
   v14 = *v13;
   *((_QWORD *)&v25 + 1) = 0LL;
   v15 = *(__int64 (__fastcall **)(__int64 *, _QWORD, __int64, GUID *, char *))(v14 + 544);
@@ -60,7 +60,7 @@ __int64 __fastcall CDDisplayManager::CreateTaskPool(
   v11 = v16;
   if ( v16 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, v16, 0x1C1u);
+    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x148u, 0LL);
     goto LABEL_13;
   }
   v18 = *((_QWORD *)&v25 + 1);
@@ -72,10 +72,10 @@ __int64 __fastcall CDDisplayManager::CreateTaskPool(
   v11 = v9;
   if ( v9 < 0 )
   {
-    v23 = 456;
+    v23 = 335;
     goto LABEL_12;
   }
-  v20 = *((_QWORD *)a3 + 3);
+  v20 = *((_QWORD *)a3 + 2);
   v21 = *(__int64 (__fastcall **)(__int64, _QWORD, GUID *, char *))(*(_QWORD *)v20 + 32LL);
   wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v26 + 1);
   v24 = GUID_04dcf9ef_3406_5700_8fec_77eba4c5a74b;
@@ -83,9 +83,9 @@ __int64 __fastcall CDDisplayManager::CreateTaskPool(
   v11 = v9;
   if ( v9 < 0 )
   {
-    v23 = 461;
+    v23 = 340;
 LABEL_12:
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, v23);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, v23, 0LL);
     goto LABEL_13;
   }
   DDisplayTaskPoolResources::operator=(a4, (void **)&v25);

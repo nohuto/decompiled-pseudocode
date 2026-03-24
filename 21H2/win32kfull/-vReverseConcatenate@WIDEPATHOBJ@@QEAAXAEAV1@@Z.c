@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vReverseConcatenate@WIDEPATHOBJ@@QEAAXAEAV1@@Z @ 0x1C0131C48
+ * XREFs of ?vReverseConcatenate@WIDEPATHOBJ@@QEAAXAEAV1@@Z @ 0x1C0141B34
  * Callers:
- *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C01309F0 (-bWiden@WIDENER@@IEAAHXZ.c)
+ *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C01408C8 (-bWiden@WIDENER@@IEAAHXZ.c)
  * Callees:
- *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@H@Z @ 0x1C0131D00 (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@H@Z.c)
+ *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@H@Z @ 0x1C0141BEC (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@H@Z.c)
  */
 
 void __fastcall WIDEPATHOBJ::vReverseConcatenate(WIDEPATHOBJ *this, struct WIDEPATHOBJ *a2, int a3)

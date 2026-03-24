@@ -1,37 +1,36 @@
 /*
- * XREFs of ?CreateMonitor@@YAPEAUtagMONITOR@@XZ @ 0x1C0012970
+ * XREFs of ?CreateMonitor@@YAPEAUtagMONITOR@@XZ @ 0x1C00B3E50
  * Callers:
- *     ?CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ @ 0x1C0012948 (-CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ.c)
- *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C00624B4 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
+ *     ?CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ @ 0x1C00170C8 (-CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ.c)
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C011E928 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
  * Callees:
- *     HMAllocObjectEx @ 0x1C0012A1C (HMAllocObjectEx.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
+ *     HMAllocObject @ 0x1C0034080 (HMAllocObject.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
  */
 
-struct tagMONITOR *__fastcall CreateMonitor(__int64 a1, __int64 a2, __int64 a3)
+struct tagMONITOR *CreateMonitor(void)
 {
-  _QWORD *v3; // rax
-  _QWORD *v4; // rbx
+  _QWORD *v0; // rax
+  _QWORD *v1; // rbx
 
-  LOBYTE(a3) = 12;
-  v3 = (_QWORD *)HMAllocObjectEx(0LL, 0LL, a3, 152LL, 0);
-  v4 = v3;
-  if ( v3 )
+  v0 = (_QWORD *)HMAllocObject(0LL, 0LL, 0xCu, 0x150u);
+  v1 = v0;
+  if ( v0 )
   {
-    *(_DWORD *)(v3[5] + 28LL) = 0;
-    *(_DWORD *)(v3[5] + 32LL) = 0;
-    *(_DWORD *)(v3[5] + 36LL) = 0;
-    *(_DWORD *)(v3[5] + 40LL) = 0;
-    *(_DWORD *)(v3[5] + 44LL) = 0;
-    *(_DWORD *)(v3[5] + 48LL) = 0;
-    *(_DWORD *)(v3[5] + 52LL) = 0;
-    *(_DWORD *)(v3[5] + 56LL) = 0;
-    v3[14] = 0LL;
-    v3[15] = 0LL;
+    *(_DWORD *)(v0[5] + 28LL) = 0;
+    *(_DWORD *)(v0[5] + 32LL) = 0;
+    *(_DWORD *)(v0[5] + 36LL) = 0;
+    *(_DWORD *)(v0[5] + 40LL) = 0;
+    *(_DWORD *)(v0[5] + 44LL) = 0;
+    *(_DWORD *)(v0[5] + 48LL) = 0;
+    *(_DWORD *)(v0[5] + 52LL) = 0;
+    *(_DWORD *)(v0[5] + 56LL) = 0;
+    v0[37] = 0LL;
+    v0[38] = 0LL;
   }
   else
   {
-    UserSetLastError(8LL);
+    UserSetLastError(8LL, 0LL);
   }
-  return (struct tagMONITOR *)v4;
+  return (struct tagMONITOR *)v1;
 }

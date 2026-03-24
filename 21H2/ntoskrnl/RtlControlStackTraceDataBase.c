@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlControlStackTraceDataBase @ 0x1405E47C4
+ * XREFs of RtlControlStackTraceDataBase @ 0x140585C94
  * Callers:
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
  * Callees:
- *     RtlpInitializeStackTraceDatabase @ 0x1409B75F8 (RtlpInitializeStackTraceDatabase.c)
+ *     RtlpInitializeStackTraceDatabase @ 0x140911A54 (RtlpInitializeStackTraceDatabase.c)
  */
 
 __int64 __fastcall RtlControlStackTraceDataBase(__int64 a1, __int64 a2, _QWORD *a3)

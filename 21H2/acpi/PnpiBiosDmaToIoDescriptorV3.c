@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpiBiosDmaToIoDescriptorV3 @ 0x1C00B33C0
+ * XREFs of PnpiBiosDmaToIoDescriptorV3 @ 0x1C00B3E58
  * Callers:
- *     PnpBiosResourcesToNtResources @ 0x1C009832C (PnpBiosResourcesToNtResources.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  * Callees:
- *     PnpiUpdateResourceList @ 0x1C0098B40 (PnpiUpdateResourceList.c)
+ *     PnpiUpdateResourceList @ 0x1C009D638 (PnpiUpdateResourceList.c)
  */
 
 __int64 __fastcall PnpiBiosDmaToIoDescriptorV3(__int64 a1, __int64 a2, unsigned int a3)
@@ -13,7 +13,7 @@ __int64 __fastcall PnpiBiosDmaToIoDescriptorV3(__int64 a1, __int64 a2, unsigned 
   _WORD *v6; // [rsp+30h] [rbp+8h] BYREF
 
   v6 = 0LL;
-  result = PnpiUpdateResourceList(a2 + 8LL * a3, &v6);
+  result = PnpiUpdateResourceList((const void **)(a2 + 8LL * a3), &v6);
   if ( (int)result >= 0 )
   {
     v5 = v6;

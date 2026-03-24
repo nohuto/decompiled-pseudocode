@@ -1,19 +1,19 @@
 /*
- * XREFs of UsbhBusIf_ResumeChildHub @ 0x1C0002DF0
+ * XREFs of UsbhBusIf_ResumeChildHub @ 0x1C0001010
  * Callers:
  *     <none>
  * Callees:
- *     UsbhUnlatchPdo @ 0x1C0002650 (UsbhUnlatchPdo.c)
- *     UsbhClearPdoIdleReady @ 0x1C0004AC0 (UsbhClearPdoIdleReady.c)
- *     Usbh_SSH_Event @ 0x1C0004D80 (Usbh_SSH_Event.c)
- *     UsbhSshSetPortsBusyState @ 0x1C0005CA0 (UsbhSshSetPortsBusyState.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhLatchPdo @ 0x1C000F240 (UsbhLatchPdo.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
- *     UsbhSshPropagateResume @ 0x1C001E15C (UsbhSshPropagateResume.c)
- *     UsbhSyncResumePort @ 0x1C0039A30 (UsbhSyncResumePort.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhSshSetPortsBusyState @ 0x1C000FE00 (UsbhSshSetPortsBusyState.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     Usbh_SSH_Event @ 0x1C0012810 (Usbh_SSH_Event.c)
+ *     UsbhClearPdoIdleReady @ 0x1C0013058 (UsbhClearPdoIdleReady.c)
+ *     UsbhLatchPdo @ 0x1C0016B5C (UsbhLatchPdo.c)
+ *     UsbhUnlatchPdo @ 0x1C00171A0 (UsbhUnlatchPdo.c)
+ *     UsbhSshPropagateResume @ 0x1C001BB74 (UsbhSshPropagateResume.c)
+ *     UsbhSyncResumePort @ 0x1C003AD40 (UsbhSyncResumePort.c)
  */
 
 __int64 __fastcall UsbhBusIf_ResumeChildHub(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall UsbhBusIf_ResumeChildHub(__int64 a1)
   __int64 v13; // rbp
   __int64 v14; // rax
 
-  v2 = PdoExt(a1);
+  v2 = PdoExt();
   v3 = *(_QWORD *)(v2 + 1184);
   v4 = FdoExt(v3);
   if ( (*(_DWORD *)(v2 + 1420) & 4) != 0 )
@@ -58,7 +58,7 @@ __int64 __fastcall UsbhBusIf_ResumeChildHub(__int64 a1)
         UsbhSshSetPortsBusyState(v3, *(unsigned __int16 *)(v2 + 1428), 2LL);
       v14 = FdoExt(v3);
       v8 = UsbhSshPropagateResume(v3, v14 + 1912, v13);
-      UsbhUnlatchPdo(v3, v13, 0LL, 0x48536942u);
+      UsbhUnlatchPdo(v3, v13, 0LL, 1213425986LL);
     }
     v10 = FdoExt(v3);
     UsbhClearPdoIdleReady(v3, a1, v10 + 1912);

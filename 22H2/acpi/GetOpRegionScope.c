@@ -1,32 +1,36 @@
 /*
- * XREFs of GetOpRegionScope @ 0x1C0034B80
+ * XREFs of GetOpRegionScope @ 0x1C0017C54
  * Callers:
- *     PciConfigSpaceHandlerWorker @ 0x1C00360A0 (PciConfigSpaceHandlerWorker.c)
+ *     PciConfigSpaceHandlerWorker @ 0x1C00184A0 (PciConfigSpaceHandlerWorker.c)
  * Callees:
- *     GetOpRegionScopeWorker @ 0x1C0034C40 (GetOpRegionScopeWorker.c)
- *     AMLIGetParent @ 0x1C0048744 (AMLIGetParent.c)
+ *     GetOpRegionScopeWorker @ 0x1C0017D20 (GetOpRegionScopeWorker.c)
+ *     AMLIGetParent @ 0x1C001B348 (AMLIGetParent.c)
  */
 
 __int64 __fastcall GetOpRegionScope(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  _QWORD *Pool2; // rax
-  _QWORD *v8; // rdi
-  __int64 v10; // rax
+  _OWORD *PoolWithTag; // rax
+  _OWORD *v8; // rbx
+  __int64 v9; // rax
 
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 56LL, 1181770561LL);
-  v8 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x46706341u);
+  v8 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *Pool2 = a1;
-  dword_1C006F938 = 0;
+  *PoolWithTag = 0LL;
+  PoolWithTag[1] = 0LL;
+  PoolWithTag[2] = 0LL;
+  *((_QWORD *)PoolWithTag + 6) = 0LL;
+  *(_QWORD *)PoolWithTag = a1;
+  dword_1C0082908 = 0;
   pszDest = 0;
   if ( (gdwfAMLI & 4) != 0 )
     _InterlockedIncrement((volatile signed __int32 *)(a1 + 8));
-  v10 = AMLIGetParent(a1);
+  v9 = AMLIGetParent(a1);
   *((_DWORD *)v8 + 6) = -1;
-  v8[1] = v10;
-  v8[5] = a3;
-  v8[4] = &PciConfigSpaceHandlerWorker;
-  v8[6] = a4;
+  *((_QWORD *)v8 + 1) = v9;
+  *((_QWORD *)v8 + 5) = a3;
+  *((_QWORD *)v8 + 4) = &PciConfigSpaceHandlerWorker;
+  *((_QWORD *)v8 + 6) = a4;
   return GetOpRegionScopeWorker(a1, 0LL, 0LL, v8);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of GreCancelDC @ 0x1C02AA280
+ * XREFs of GreCancelDC @ 0x1C029F410
  * Callers:
- *     NtGdiCancelDC @ 0x1C02C1F50 (NtGdiCancelDC.c)
+ *     NtGdiCancelDC @ 0x1C02ADC60 (NtGdiCancelDC.c)
  * Callees:
- *     ??1DCOBJA@@QEAA@XZ @ 0x1C0131264 (--1DCOBJA@@QEAA@XZ.c)
- *     ??0DCOBJA@@QEAA@XZ @ 0x1C013FF48 (--0DCOBJA@@QEAA@XZ.c)
+ *     ??1DCOBJA@@QEAA@XZ @ 0x1C0137884 (--1DCOBJA@@QEAA@XZ.c)
+ *     ??0DCOBJA@@QEAA@XZ @ 0x1C016C520 (--0DCOBJA@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreCancelDC(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?bContain@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C007DB3C
+ * XREFs of ?bContain@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C0034A10
  * Callers:
- *     ?bCompute@DC@@QEAAHXZ @ 0x1C003A080 (-bCompute@DC@@QEAAHXZ.c)
- *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C007D990 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
+ *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0033EC0 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
+ *     ?bCompute@DC@@QEAAHXZ @ 0x1C003BFE0 (-bCompute@DC@@QEAAHXZ.c)
  * Callees:
  *     <none>
  */
@@ -14,5 +14,5 @@ _BOOL8 __fastcall RGNOBJ::bContain(RGNOBJ *this, struct RGNOBJ *a2)
 
   v2 = *(_DWORD **)a2;
   v3 = *(_DWORD **)this;
-  return *(_DWORD *)(*(_QWORD *)this + 56LL) <= v2[14] && v3[16] >= v2[16] && v3[15] <= v2[15] && v3[17] >= v2[17];
+  return *(_DWORD *)(*(_QWORD *)this + 96LL) <= v2[24] && v3[26] >= v2[26] && v3[25] <= v2[25] && v3[27] >= v2[27];
 }

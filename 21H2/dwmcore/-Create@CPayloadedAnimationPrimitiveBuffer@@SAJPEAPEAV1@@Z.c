@@ -1,18 +1,18 @@
 /*
- * XREFs of ?Create@CPayloadedAnimationPrimitiveBuffer@@SAJPEAPEAV1@@Z @ 0x180253818
+ * XREFs of ?Create@CPayloadedAnimationPrimitiveBuffer@@SAJPEAPEAV1@@Z @ 0x1800169C0
  * Callers:
- *     ?ProcessAppend@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_APPEND@@PEBXI@Z @ 0x180209628 (-ProcessAppend@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_APPEND@@PEBXI@Z.c)
+ *     ?ProcessAppend@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_APPEND@@PEBXI@Z @ 0x1800168C8 (-ProcessAppend@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_APPEND@@PEBXI@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CPayloadedAnimationPrimitiveBuffer::Create(struct CPayloadedAnimationPrimitiveBuffer **a1)
 {
   unsigned int v2; // edi
   struct CPayloadedAnimationPrimitiveBuffer *v3; // rax
-  __int64 v4; // rcx
+  unsigned int v4; // ecx
   struct CPayloadedAnimationPrimitiveBuffer *v5; // rbx
 
   v2 = 0;
@@ -27,13 +27,20 @@ __int64 __fastcall CPayloadedAnimationPrimitiveBuffer::Create(struct CPayloadedA
     *((_DWORD *)v3 + 8) = 0;
     *((_DWORD *)v3 + 9) = 0;
     *((_DWORD *)v3 + 10) = 0;
-    ((void (__fastcall *)(struct CPayloadedAnimationPrimitiveBuffer *))CPayloadedAnimationPrimitiveBuffer::`vftable')(v3);
+  }
+  else
+  {
+    v5 = 0LL;
+  }
+  if ( v5 )
+  {
+    (**(void (__fastcall ***)(struct CPayloadedAnimationPrimitiveBuffer *))v5)(v5);
     *a1 = v5;
   }
   else
   {
     v2 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, -2147024882, 0xDu);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, -2147024882, 0xDu, 0LL);
   }
   return v2;
 }

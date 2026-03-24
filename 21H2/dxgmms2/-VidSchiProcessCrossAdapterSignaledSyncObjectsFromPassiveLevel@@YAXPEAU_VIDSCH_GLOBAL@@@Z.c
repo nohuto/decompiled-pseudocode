@@ -1,12 +1,12 @@
 /*
- * XREFs of ?VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C003BC24
+ * XREFs of ?VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C0033178
  * Callers:
- *     VidSchFlushAdapter @ 0x1C00F4140 (VidSchFlushAdapter.c)
+ *     VidSchFlushAdapter @ 0x1C00D1510 (VidSchFlushAdapter.c)
  * Callees:
- *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C0009AD0 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0014690 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C0014924 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     VidSchiProcessCrossAdapterSignaledSyncObjects @ 0x1C0038B38 (VidSchiProcessCrossAdapterSignaledSyncObjects.c)
+ *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C000AFF0 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011F60 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00129FC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchiProcessCrossAdapterSignaledSyncObjects @ 0x1C002FD8C (VidSchiProcessCrossAdapterSignaledSyncObjects.c)
  */
 
 void __fastcall VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel(struct _VIDSCH_GLOBAL *a1)
@@ -17,7 +17,7 @@ void __fastcall VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel(st
   __int16 v5; // [rsp+58h] [rbp-8h]
 
   v5 = 0;
-  v4[0] = (char *)a1 + 1728;
+  v4[0] = (char *)a1 + 1712;
   AcquireSpinLock::Acquire((Acquire *)v4);
   v3 = 0;
   v2[1] = v2;

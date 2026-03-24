@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIEcConnectHandler @ 0x1C00AD930
+ * XREFs of ACPIEcConnectHandler @ 0x1C00AECB0
  * Callers:
- *     ACPIEcInternalControl @ 0x1C00AD318 (ACPIEcInternalControl.c)
+ *     ACPIEcInternalControl @ 0x1C00AE690 (ACPIEcInternalControl.c)
  * Callees:
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ACPIEcConnectHandler(__int64 a1, __int64 a2)
@@ -17,8 +17,8 @@ __int64 __fastcall ACPIEcConnectHandler(__int64 a1, __int64 a2)
   int v10; // ecx
   unsigned __int8 v11; // al
   __int64 v12; // r12
-  void *Pool2; // rax
-  void *v14; // r15
+  PVOID PoolWithTag; // rax
+  PVOID v14; // r15
   const void *v15; // rdx
   unsigned __int8 v16; // r8
   __int64 v17; // r9
@@ -49,9 +49,9 @@ __int64 __fastcall ACPIEcConnectHandler(__int64 a1, __int64 a2)
     if ( !v11 )
     {
       v12 = *(unsigned __int8 *)(a1 + 447);
-      Pool2 = (void *)ExAllocatePool2(64LL, 24LL * (unsigned int)(v12 + 4), 1164993345LL);
-      v14 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 24LL * (unsigned int)(v12 + 4), 0x45706341u);
+      v14 = PoolWithTag;
+      if ( !PoolWithTag )
       {
         v9 = -1073741670;
         goto LABEL_19;
@@ -59,7 +59,7 @@ __int64 __fastcall ACPIEcConnectHandler(__int64 a1, __int64 a2)
       v15 = *(const void **)(a1 + 448);
       if ( v15 )
       {
-        memmove(Pool2, v15, 24 * v12);
+        memmove(PoolWithTag, v15, 24 * v12);
         ExFreePoolWithTag(*(PVOID *)(a1 + 448), 0);
       }
       *(_BYTE *)(a1 + 447) += 4;

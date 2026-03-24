@@ -1,91 +1,88 @@
 /*
- * XREFs of MiCombineWorkingSet @ 0x140653488
+ * XREFs of MiCombineWorkingSet @ 0x14055CB64
  * Callers:
- *     MiCombineIdenticalPages @ 0x1407EBA94 (MiCombineIdenticalPages.c)
+ *     MiCombineIdenticalPages @ 0x140726870 (MiCombineIdenticalPages.c)
  * Callees:
- *     MiProcessSuitableForCombining @ 0x140216D74 (MiProcessSuitableForCombining.c)
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14025BBE0 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiProcessCrcList @ 0x1406B02D0 (MiProcessCrcList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiWalkPageTables @ 0x140209280 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiIsStoreProcess @ 0x1403334C0 (MiIsStoreProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiFreeCombineMdls @ 0x140726C28 (MiFreeCombineMdls.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCombineWorkingSet(__int64 a1)
 {
-  __int64 v2; // r14
-  unsigned int v3; // ebx
-  struct _KTHREAD *CurrentThread; // r12
-  PVOID Pool; // rsi
-  __int64 v6; // rdi
-  int v7; // r15d
-  __int64 v8; // rax
-  SIZE_T v9; // rdi
-  int v11; // [rsp+28h] [rbp-E0h]
-  __int128 v12; // [rsp+30h] [rbp-D8h] BYREF
-  __int128 v13; // [rsp+40h] [rbp-C8h]
-  PVOID v14; // [rsp+50h] [rbp-B8h]
-  __m128i v15[11]; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  _DWORD *v4; // r9
+  __int64 v5; // r14
+  unsigned int v6; // ebx
+  int v7; // r13d
+  void *v8; // rsi
+  __int64 v9; // rdi
+  int v10; // r12d
+  __int64 v11; // rax
+  SIZE_T v12; // rdi
+  PVOID Pool; // rax
+  __int128 v15; // [rsp+28h] [rbp-E0h] BYREF
+  __int128 v16; // [rsp+38h] [rbp-D0h]
+  PVOID v17; // [rsp+48h] [rbp-C0h]
+  _QWORD v18[22]; // [rsp+58h] [rbp-B0h] BYREF
 
-  v14 = 0LL;
-  v12 = 0LL;
-  v13 = 0LL;
-  memset(v15, 0, sizeof(v15));
-  v2 = *(_QWORD *)(a1 + 112);
-  v3 = 0;
-  CurrentThread = KeGetCurrentThread();
-  Pool = 0LL;
-  v11 = *(_DWORD *)(a1 + 140);
-  v6 = v2 - 1664;
-  v7 = 4;
-  if ( (*(_BYTE *)(v2 + 184) & 7) != 0 )
-    v6 = 0LL;
-  v15[0].m128i_i8[7] = MiLockWorkingSetShared(v2);
-  if ( !v6 || MiProcessSuitableForCombining(v6) )
+  v17 = 0LL;
+  v15 = 0LL;
+  v16 = 0LL;
+  memset(v18, 0, sizeof(v18));
+  v5 = *(_QWORD *)(a1 + 32);
+  v6 = 0;
+  v7 = *(_DWORD *)(a1 + 60);
+  v8 = 0LL;
+  v9 = v5 - 1664;
+  v10 = 3;
+  if ( (*(_BYTE *)(v5 + 184) & 7) != 0 )
+    v9 = 0LL;
+  BYTE6(v18[0]) = MiLockWorkingSetShared(v5, v2, v3, v4);
+  if ( !v9
+    || (*(_DWORD *)(v9 + 1124) & 0xC00u) >= 0xC00 && !*(_QWORD *)(v5 + 104) && !(unsigned int)MiIsStoreProcess(v9) )
   {
-    v8 = *(_QWORD *)(v2 + 152);
-    if ( v8 )
+    v11 = *(_QWORD *)(v5 + 144);
+    if ( v11 )
     {
-      v9 = (40 * v8 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+      v12 = (40 * v11 + 4095) & 0xFFFFFFFFFFFFF000uLL;
       while ( 1 )
       {
-        Pool = MiAllocatePool(64, v9, 0x6D75534Du);
+        Pool = MiAllocatePool(64, v12, 0x6D75534Du);
+        v8 = Pool;
         if ( Pool )
           break;
-        v9 >>= 1;
-        if ( v9 < 0x10000 )
-          goto LABEL_11;
+        v12 >>= 1;
+        if ( v12 < 0x10000 )
+          goto LABEL_13;
       }
-      v15[2].m128i_i64[1] = -1LL;
-      *((_QWORD *)&v13 + 1) = a1;
-      LODWORD(v12) = v11;
-      v15[10].m128i_i64[1] = (__int64)&v12;
-      v15[9].m128i_i64[1] = (__int64)MiCombinePte;
-      *(_QWORD *)&v13 = v9 / 0x28;
-      v14 = Pool;
-      v15[1].m128i_i64[1] = v2;
-      v15[10].m128i_i64[0] = (__int64)MiCombineWorkingSetTail;
-      v15[0].m128i_i32[0] = 6;
-      v15[0].m128i_i8[6] = 7;
-      v7 = MiWalkPageTables(v15);
+      v18[5] = -1LL;
+      *((_QWORD *)&v16 + 1) = a1;
+      v17 = Pool;
+      v18[21] = &v15;
+      v18[19] = MiCombinePte;
+      v18[20] = MiCombineWorkingSetTail;
+      *(_QWORD *)&v16 = v12 / 0x28;
+      LODWORD(v15) = v7;
+      v18[3] = v5;
+      LOWORD(v18[0]) = 6;
+      BYTE5(v18[0]) = 7;
+      v10 = MiWalkPageTables((__int64)v18);
     }
   }
-LABEL_11:
-  MiUnlockWorkingSetShared(v2, v15[0].m128i_u8[7]);
-  if ( Pool )
-  {
-    if ( *((_QWORD *)&v12 + 1) )
-      MiProcessCrcList(
-        *((_QWORD *)&v13 + 1),
-        Pool,
-        *((_QWORD *)&v12 + 1),
-        *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[CurrentThread->IdealProcessor] + 192) + 138LL));
-    ExFreePoolWithTag(Pool, 0);
-  }
-  if ( v7 == 5 )
+LABEL_13:
+  MiUnlockWorkingSetShared(v5, BYTE6(v18[0]));
+  MiFreeCombineMdls(a1);
+  if ( v8 )
+    ExFreePoolWithTag(v8, 0);
+  if ( v10 == 4 )
     return (unsigned int)-1073741248;
-  return v3;
+  return v6;
 }

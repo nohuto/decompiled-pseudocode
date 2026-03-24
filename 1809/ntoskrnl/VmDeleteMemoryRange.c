@@ -1,10 +1,10 @@
 /*
- * XREFs of VmDeleteMemoryRange @ 0x1408B02F0
+ * XREFs of VmDeleteMemoryRange @ 0x1408B02D0
  * Callers:
  *     <none>
  * Callees:
- *     VmpRemoveMemoryRange @ 0x14030D510 (VmpRemoveMemoryRange.c)
- *     VmpValidateMemoryRangeParameters @ 0x1408B0B5C (VmpValidateMemoryRangeParameters.c)
+ *     VmpRemoveMemoryRange @ 0x14030D610 (VmpRemoveMemoryRange.c)
+ *     VmpValidateMemoryRangeParameters @ 0x1408B0B3C (VmpValidateMemoryRangeParameters.c)
  */
 
 __int64 __fastcall VmDeleteMemoryRange(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

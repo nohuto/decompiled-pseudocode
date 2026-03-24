@@ -1,16 +1,16 @@
 /*
- * XREFs of xxxSendEraseBkgnd @ 0x1C00CE7E4
+ * XREFs of xxxSendEraseBkgnd @ 0x1C0103FD4
  * Callers:
- *     xxxInternalDoSyncPaint @ 0x1C00CE0C0 (xxxInternalDoSyncPaint.c)
- *     xxxSimpleDoSyncPaint @ 0x1C0118654 (xxxSimpleDoSyncPaint.c)
+ *     xxxSimpleDoSyncPaint @ 0x1C006D7A0 (xxxSimpleDoSyncPaint.c)
+ *     xxxBeginPaint @ 0x1C007D854 (xxxBeginPaint.c)
  * Callees:
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
- *     xxxSendMessage @ 0x1C0127178 (xxxSendMessage.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     xxxSendMessage @ 0x1C005D594 (xxxSendMessage.c)
  */
 
-__int64 __fastcall xxxSendEraseBkgnd(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall xxxSendEraseBkgnd(unsigned __int64 a1, unsigned __int64 a2, __int64 a3)
 {
-  __int64 DCEx; // rdi
+  unsigned __int64 DCEx; // rdi
   unsigned int v6; // ebp
 
   if ( !a3 || (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 31LL) & 0x20) != 0 )
@@ -21,14 +21,14 @@ __int64 __fastcall xxxSendEraseBkgnd(__int64 a1, __int64 a2, __int64 a3)
     DCEx = _GetDCEx(a1, a3, 327808LL);
   if ( *(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL) != *(_QWORD *)(gptiCurrent + 424LL) )
     GreSetDCOwnerEx(DCEx, 0LL, 0LL, 1LL);
-  v6 = xxxSendMessage(a1, 20LL, DCEx, 0LL);
+  v6 = xxxSendMessage(a1, 0x14u, DCEx, 0LL);
   if ( *(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL) != *(_QWORD *)(gptiCurrent + 424LL) )
     GreSetDCOwnerEx(DCEx, 2147483650LL, 0LL, 1LL);
   if ( !v6 )
   {
-    SetOrClrWF(1LL, a1, 260LL, 1LL);
+    SetOrClrWF(1, a1, 0x104u, 1);
     if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 21LL) & 1) == 0 )
-      SetOrClrWF(1LL, a1, 258LL, 1LL);
+      SetOrClrWF(1, a1, 0x102u, 1);
   }
   if ( !a2 )
     ReleaseCacheDC(DCEx, 1LL);

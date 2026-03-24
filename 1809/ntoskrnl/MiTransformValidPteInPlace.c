@@ -1,15 +1,15 @@
 /*
- * XREFs of MiTransformValidPteInPlace @ 0x14016A6EC
+ * XREFs of MiTransformValidPteInPlace @ 0x14016A70C
  * Callers:
  *     MiInitializeSystemPageTable @ 0x140026984 (MiInitializeSystemPageTable.c)
- *     MiShadowTopLevelPxes @ 0x14013CDEC (MiShadowTopLevelPxes.c)
- *     MiReplicatePteChangeToProcess @ 0x140175058 (MiReplicatePteChangeToProcess.c)
- *     MiPfnRangeIsZero @ 0x140184634 (MiPfnRangeIsZero.c)
- *     MiDemoteValidLargePageOneLevel @ 0x140184AE4 (MiDemoteValidLargePageOneLevel.c)
- *     MiMakeLargePageTable @ 0x1402B4FE8 (MiMakeLargePageTable.c)
- *     MiInitializeDynamicBitmap @ 0x140715740 (MiInitializeDynamicBitmap.c)
+ *     MiShadowTopLevelPxes @ 0x14013CE0C (MiShadowTopLevelPxes.c)
+ *     MiReplicatePteChangeToProcess @ 0x140175078 (MiReplicatePteChangeToProcess.c)
+ *     MiPfnRangeIsZero @ 0x140184654 (MiPfnRangeIsZero.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x140184B04 (MiDemoteValidLargePageOneLevel.c)
+ *     MiMakeLargePageTable @ 0x1402B50E8 (MiMakeLargePageTable.c)
+ *     MiInitializeDynamicBitmap @ 0x140715720 (MiInitializeDynamicBitmap.c)
  * Callees:
- *     MiFlushValidPteFromTb @ 0x14016A790 (MiFlushValidPteFromTb.c)
+ *     MiFlushValidPteFromTb @ 0x14016A7B0 (MiFlushValidPteFromTb.c)
  */
 
 signed __int64 __fastcall MiTransformValidPteInPlace(

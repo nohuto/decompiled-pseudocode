@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetReferenceProperty@CCompositionSkyBoxBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C02352B0
+ * XREFs of ?SetReferenceProperty@CCompositionSkyBoxBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01F4A00
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CCompositionSkyBoxBrushMarshaler::SetReferenceProperty(
@@ -25,14 +25,14 @@ __int64 __fastcall DirectComposition::CCompositionSkyBoxBrushMarshaler::SetRefer
   if ( a3 == 2 )
   {
     v10 = 512;
-    v11 = 80LL;
+    v11 = 72LL;
   }
   else
   {
-    if ( a3 != 5 )
+    if ( a3 != 8 )
       return 3221225485LL;
     v10 = 1024;
-    v11 = 88LL;
+    v11 = 80LL;
   }
   v12 = (struct DirectComposition::CResourceMarshaler **)((char *)this + v11);
   if ( (DirectComposition::CCompositionSkyBoxBrushMarshaler *)((char *)this + v11)

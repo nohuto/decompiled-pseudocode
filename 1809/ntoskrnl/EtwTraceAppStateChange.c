@@ -9,8 +9,8 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     EtwpWriteAppStateChangeWithStats @ 0x1405B170C (EtwpWriteAppStateChangeWithStats.c)
  *     EtwpWriteAppStateChange @ 0x1405B18E4 (EtwpWriteAppStateChange.c)
@@ -20,9 +20,9 @@
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
  *     PsQueryStatisticsProcess @ 0x1405FE700 (PsQueryStatisticsProcess.c)
  *     EtwpInitStateChangeInfo @ 0x14060DB80 (EtwpInitStateChangeInfo.c)
- *     EtwpQueryProcessCommandLine @ 0x14066C878 (EtwpQueryProcessCommandLine.c)
- *     EtwpQueryProcessOtherInfo @ 0x14066CA0C (EtwpQueryProcessOtherInfo.c)
- *     EtwpQueryTokenPackageInfo @ 0x14066CD6C (EtwpQueryTokenPackageInfo.c)
+ *     EtwpQueryProcessCommandLine @ 0x14066C858 (EtwpQueryProcessCommandLine.c)
+ *     EtwpQueryProcessOtherInfo @ 0x14066C9EC (EtwpQueryProcessOtherInfo.c)
+ *     EtwpQueryTokenPackageInfo @ 0x14066CD4C (EtwpQueryTokenPackageInfo.c)
  */
 
 void __fastcall EtwTraceAppStateChange(__int64 BugCheckParameter1, __int64 a2)

@@ -1,20 +1,19 @@
 /*
- * XREFs of ?ExpressionValueFromInternalValue@CNaturalAnimation@@AEAAXTInternalValue@1@PEAVCExpressionValue@@@Z @ 0x1802261CC
+ * XREFs of ?ExpressionValueFromInternalValue@CNaturalAnimation@@AEAAXTInternalValue@1@PEAVCExpressionValue@@@Z @ 0x1801D7B48
  * Callers:
- *     ?GetProperty@CNaturalAnimation@@UEAAJIPEAVCExpressionValue@@@Z @ 0x180226750 (-GetProperty@CNaturalAnimation@@UEAAJIPEAVCExpressionValue@@@Z.c)
- *     ?ProcessSetBindingBroken@CNaturalAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x180227110 (-ProcessSetBindingBroken@CNaturalAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSIO.c)
+ *     ?GetProperty@CNaturalAnimation@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1801D80A0 (-GetProperty@CNaturalAnimation@@UEAAJIPEAVCExpressionValue@@@Z.c)
+ *     ?ProcessSetBindingBroken@CNaturalAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x1801D8A00 (-ProcessSetBindingBroken@CNaturalAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSIO.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800F19F4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBC54 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CNaturalAnimation::ExpressionValueFromInternalValue(__int64 a1, unsigned int *a2, __int64 a3)
 {
   __int64 result; // rax
   _BYTE v7[64]; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v8; // [rsp+60h] [rbp-18h] BYREF
+  __int64 v8; // [rsp+60h] [rbp-18h]
   int v9; // [rsp+68h] [rbp-10h]
   char v10; // [rsp+6Ch] [rbp-Ch]
   void *retaddr; // [rsp+78h] [rbp+0h]
@@ -24,8 +23,7 @@ __int64 __fastcall CNaturalAnimation::ExpressionValueFromInternalValue(__int64 a
   v9 = 18;
   v10 = 0;
   CExpressionValue::operator=(a3, (__int64)v7);
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v8);
-  result = *(unsigned int *)(a1 + 152);
+  result = *(unsigned int *)(a1 + 144);
   switch ( (_DWORD)result )
   {
     case 0x12:

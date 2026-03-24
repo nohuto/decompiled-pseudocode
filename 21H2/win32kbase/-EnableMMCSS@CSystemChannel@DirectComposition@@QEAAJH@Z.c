@@ -1,15 +1,15 @@
 /*
- * XREFs of ?EnableMMCSS@CSystemChannel@DirectComposition@@QEAAJH@Z @ 0x1C02154E8
+ * XREFs of ?EnableMMCSS@CSystemChannel@DirectComposition@@QEAAJH@Z @ 0x1C01D5AA8
  * Callers:
- *     ?Connect@CConnection@DirectComposition@@QEAAJPEAX@Z @ 0x1C00DD120 (-Connect@CConnection@DirectComposition@@QEAAJPEAX@Z.c)
- *     ?EnableMMCSS@CConnection@DirectComposition@@QEAAJH@Z @ 0x1C0212ECC (-EnableMMCSS@CConnection@DirectComposition@@QEAAJH@Z.c)
+ *     ?Connect@CConnection@DirectComposition@@QEAAJPEAX@Z @ 0x1C00AA79C (-Connect@CConnection@DirectComposition@@QEAAJPEAX@Z.c)
+ *     ?EnableMMCSS@CConnection@DirectComposition@@QEAAJH@Z @ 0x1C01D33D0 (-EnableMMCSS@CConnection@DirectComposition@@QEAAJH@Z.c)
  * Callees:
- *     ?GetPayloadWritePointer@CBatch@DirectComposition@@QEAA_N_KPEAPEAX@Z @ 0x1C000E7E0 (-GetPayloadWritePointer@CBatch@DirectComposition@@QEAA_N_KPEAPEAX@Z.c)
- *     ?Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z @ 0x1C001229C (-Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z.c)
- *     ?PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C0012424 (-PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ.c)
- *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C007349C (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     ?GetPayloadWritePointer@CBatch@DirectComposition@@QEAA_N_KPEAPEAX@Z @ 0x1C005B9A0 (-GetPayloadWritePointer@CBatch@DirectComposition@@QEAA_N_KPEAPEAX@Z.c)
+ *     ?Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z @ 0x1C005D8B4 (-Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z.c)
+ *     ?PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C005DAF4 (-PreallocateNextBatch@CApplicationChannel@DirectComposition@@IEAAXXZ.c)
+ *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C007F240 (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 __int64 __fastcall DirectComposition::CSystemChannel::EnableMMCSS(
@@ -47,7 +47,7 @@ __int64 __fastcall DirectComposition::CSystemChannel::EnableMMCSS(
     StringCchCopyNW((char *)v14, 64LL, (char *)v15, 0xFuLL);
     *(_DWORD *)&v14[66] = 0;
   }
-  *((_DWORD *)v4 + 1) = 274;
+  *((_DWORD *)v4 + 1) = 281;
   v5 = *(_OWORD *)&v14[8];
   *(_OWORD *)(v4 + 12) = *(_OWORD *)v14;
   v6 = *(_OWORD *)&v14[16];

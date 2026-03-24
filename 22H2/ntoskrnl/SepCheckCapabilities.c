@@ -1,127 +1,133 @@
 /*
- * XREFs of SepCheckCapabilities @ 0x1409CF30C
+ * XREFs of SepCheckCapabilities @ 0x14068AA90
  * Callers:
- *     SepIsImpersonationAllowedDueToCapability @ 0x1407ED23C (SepIsImpersonationAllowedDueToCapability.c)
- *     NtCreateLowBoxToken @ 0x1407F2AC0 (NtCreateLowBoxToken.c)
+ *     SepIsImpersonationAllowedDueToCapability @ 0x140681634 (SepIsImpersonationAllowedDueToCapability.c)
+ *     NtCreateLowBoxToken @ 0x1406EF370 (NtCreateLowBoxToken.c)
  * Callees:
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
- *     RtlSubAuthorityCountSid @ 0x1402979A0 (RtlSubAuthorityCountSid.c)
- *     RtlSubAuthoritySid @ 0x1402979B0 (RtlSubAuthoritySid.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     SeQueryInformationToken @ 0x140719710 (SeQueryInformationToken.c)
- *     SepIsLpacCapabilitySid @ 0x1409CF958 (SepIsLpacCapabilitySid.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
+ *     RtlSubAuthorityCountSid @ 0x140348290 (RtlSubAuthorityCountSid.c)
+ *     RtlSubAuthoritySid @ 0x1403482A0 (RtlSubAuthoritySid.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     SepIsLpacCapabilitySid @ 0x14068AC08 (SepIsLpacCapabilitySid.c)
+ *     SeQueryInformationToken @ 0x1406CF990 (SeQueryInformationToken.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepCheckCapabilities(PACCESS_TOKEN Token, unsigned int a2, PSID *a3, __int64 a4, char *a5)
 {
-  char *v5; // r13
-  unsigned int v6; // r14d
-  unsigned int v8; // r12d
-  NTSTATUS v10; // edi
+  unsigned int v5; // r14d
+  char v7; // r15
+  NTSTATUS InformationToken; // edi
+  char v10; // bl
   PSID *v11; // rcx
-  char v12; // bl
   char IsLpacCapabilitySid; // al
-  PSID v14; // rax
-  BOOLEAN v15; // al
-  PSID v16; // rbx
-  PULONG v17; // rbx
-  PULONG v18; // rax
-  PVOID v20; // [rsp+20h] [rbp-30h] BYREF
-  PSID *v21; // [rsp+28h] [rbp-28h]
-  PVOID P; // [rsp+30h] [rbp-20h] BYREF
-  PVOID v23; // [rsp+38h] [rbp-18h] BYREF
-  PSID i; // [rsp+40h] [rbp-10h]
-  PVOID TokenInformation; // [rsp+A8h] [rbp+58h] BYREF
+  unsigned int v14; // r13d
+  PSID v15; // rax
+  BOOLEAN v16; // al
+  PSID v17; // rbx
+  PULONG v18; // rbx
+  PULONG v19; // rax
+  PVOID TokenInformation; // [rsp+20h] [rbp-30h] BYREF
+  unsigned int i; // [rsp+28h] [rbp-28h]
+  PSID *v22; // [rsp+30h] [rbp-20h]
+  PVOID P; // [rsp+38h] [rbp-18h] BYREF
+  PVOID v24; // [rsp+40h] [rbp-10h] BYREF
+  PSID j; // [rsp+48h] [rbp-8h]
+  char v27; // [rsp+A8h] [rbp+58h]
 
-  v5 = a5;
-  v6 = 0;
+  v5 = 0;
   P = 0LL;
-  v8 = a2;
-  v23 = 0LL;
-  LODWORD(TokenInformation) = 0;
-  LODWORD(v20) = 0;
+  v7 = 1;
+  v24 = 0LL;
+  v27 = 1;
+  TokenInformation = 0LL;
   *a5 = 0;
-  v10 = SeQueryInformationToken(Token, TokenIsAppContainer, &TokenInformation);
-  if ( v10 >= 0 )
+  InformationToken = SeQueryInformationToken(Token, TokenIsAppContainer, &TokenInformation);
+  if ( InformationToken >= 0 )
   {
-    if ( !(_DWORD)TokenInformation )
+    if ( (_DWORD)TokenInformation )
     {
-      *v5 = 1;
-      goto LABEL_28;
-    }
-    v10 = SeQueryInformationToken(Token, TokenCapabilities, &P);
-    if ( v10 >= 0 )
-    {
-      v10 = SeQueryInformationToken(Token, TokenIsLessPrivilegedAppContainer, &v20);
-      if ( v10 >= 0 )
+      InformationToken = SeQueryInformationToken(Token, TokenCapabilities, &P);
+      if ( InformationToken >= 0 )
       {
-        v11 = (PSID *)P;
-        v12 = 1;
-        v21 = (PSID *)P;
-        LODWORD(a5) = 0;
-        if ( !v8 )
-          goto LABEL_27;
-        while ( 1 )
+        InformationToken = SeQueryInformationToken(
+                             Token,
+                             TokenIsLessPrivilegedAppContainer,
+                             (PVOID *)((char *)&TokenInformation + 4));
+        if ( InformationToken >= 0 )
         {
-          v12 = 0;
-          if ( (_DWORD)v20 || (IsLpacCapabilitySid = SepIsLpacCapabilitySid(*a3), v11 = v21, !IsLpacCapabilitySid) )
+          v10 = 1;
+          v11 = (PSID *)P;
+          v22 = (PSID *)P;
+          for ( i = 0; i < a2; ++i )
           {
-            HIDWORD(v20) = *(_DWORD *)P;
-            if ( HIDWORD(v20) )
+            v10 = 0;
+            if ( HIDWORD(TokenInformation)
+              || (IsLpacCapabilitySid = SepIsLpacCapabilitySid(*a3), v11 = v22, !IsLpacCapabilitySid) )
             {
-              v14 = *a3;
-              for ( i = *a3; ; v14 = i )
+              v14 = *(_DWORD *)P;
+              if ( *(_DWORD *)P )
               {
-                v15 = RtlEqualSid(v11[2 * v6 + 1], v14);
-                v11 = v21;
-                if ( v15 && LODWORD(v21[2 * v6 + 2]) == *((_DWORD *)a3 + 2) )
+                v15 = *a3;
+                for ( j = *a3; ; v15 = j )
                 {
-                  v8 = a2;
-                  v6 = 0;
-                  goto LABEL_24;
+                  v16 = RtlEqualSid(v11[2 * v5 + 1], v15);
+                  v11 = v22;
+                  if ( v16 && LODWORD(v22[2 * v5 + 2]) == *((_DWORD *)a3 + 2) )
+                  {
+                    v7 = v27;
+                    v10 = 1;
+                    v5 = 0;
+                    goto LABEL_9;
+                  }
+                  if ( ++v5 >= v14 )
+                    break;
                 }
-                if ( ++v6 >= HIDWORD(v20) )
-                  break;
+                v7 = v27;
               }
-              v8 = a2;
-            }
-            if ( *((_BYTE *)*a3 + 1) != 9 || *RtlSubAuthoritySid(*a3, 0) != 3 )
-              goto LABEL_27;
-            v6 = 0;
-            if ( !v23 )
-            {
-              v10 = SeQueryInformationToken(Token, TokenAppContainerSid, &v23);
-              if ( v10 < 0 )
+              if ( *((_BYTE *)*a3 + 1) != 9 || *RtlSubAuthoritySid(*a3, 0) != 3 )
                 break;
+              v5 = 0;
+              if ( !v24 )
+              {
+                InformationToken = SeQueryInformationToken(Token, TokenAppContainerSid, &v24);
+                if ( InformationToken < 0 )
+                  goto LABEL_11;
+              }
+              v17 = *(PSID *)v24;
+              if ( *RtlSubAuthorityCountSid(*(PSID *)v24) < 8u
+                || (v18 = RtlSubAuthoritySid(v17, 1u),
+                    v19 = RtlSubAuthoritySid(*a3, 1u),
+                    RtlCompareMemory(v19, v18, 0x1CuLL) != 28) )
+              {
+                v7 = 0;
+                v27 = 0;
+              }
+              v10 = v7;
+              if ( !v7 )
+                break;
+              v11 = v22;
             }
-            v16 = *(PSID *)v23;
-            if ( *RtlSubAuthorityCountSid(*(PSID *)v23) < 8u
-              || (v17 = RtlSubAuthoritySid(v16, 1u),
-                  v18 = RtlSubAuthoritySid(*a3, 1u),
-                  RtlCompareMemory(v18, v17, 0x1CuLL) != 28) )
+            else
             {
-              v12 = 0;
-LABEL_27:
-              *v5 = v12;
-              break;
+              v10 = 1;
             }
-            v11 = v21;
+LABEL_9:
+            a3 += 2;
           }
-LABEL_24:
-          a3 += 2;
-          v12 = 1;
-          LODWORD(a5) = (_DWORD)a5 + 1;
-          if ( (unsigned int)a5 >= v8 )
-            goto LABEL_27;
+          *a5 = v10;
         }
       }
     }
+    else
+    {
+      *a5 = 1;
+    }
   }
-LABEL_28:
+LABEL_11:
   if ( P )
     ExFreePoolWithTag(P, 0);
-  if ( v23 )
-    ExFreePoolWithTag(v23, 0);
-  return (unsigned int)v10;
+  if ( v24 )
+    ExFreePoolWithTag(v24, 0);
+  return (unsigned int)InformationToken;
 }

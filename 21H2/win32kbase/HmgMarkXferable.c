@@ -1,10 +1,10 @@
 /*
- * XREFs of HmgMarkXferable @ 0x1C00CD350
+ * XREFs of HmgMarkXferable @ 0x1C009B590
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0021FC0 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0022260 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C002F290 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C002F590 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
  */
 
 __int64 __fastcall HmgMarkXferable(unsigned int a1, char a2)
@@ -18,7 +18,7 @@ __int64 __fastcall HmgMarkXferable(unsigned int a1, char a2)
   v6 = 0LL;
   v7 = 0;
   v4 = HIWORD(a1);
-  HANDLELOCK::vLockHandle((HANDLELOCK *)&v6, (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000, 1LL, 0, 0);
+  HANDLELOCK::vLockHandle((HANDLELOCK *)&v6, (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000, 1, 0, 0);
   if ( v7 )
   {
     if ( *(_BYTE *)(v6 + 14) == a2 && *(_WORD *)(v6 + 12) == v4 )

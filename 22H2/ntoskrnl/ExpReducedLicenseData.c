@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpReducedLicenseData @ 0x1407EB2C0
+ * XREFs of ExpReducedLicenseData @ 0x1406A67E0
  * Callers:
- *     SLUpdateLicenseDataInternal @ 0x1409FA744 (SLUpdateLicenseDataInternal.c)
+ *     SLUpdateLicenseDataInternal @ 0x14094E2E0 (SLUpdateLicenseDataInternal.c)
  * Callees:
  *     <none>
  */

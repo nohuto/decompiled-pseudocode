@@ -1,33 +1,32 @@
 /*
- * XREFs of GreClientRgnDone @ 0x1C0287FC4
+ * XREFs of GreClientRgnDone @ 0x1C0287224
  * Callers:
- *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C00F7B60 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C006DF90 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?vSpWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z @ 0x1C0283260 (-vSpWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ?vSpWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z @ 0x1C0284CCC (-vSpWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z.c)
  */
 
-void __fastcall GreClientRgnDone(Gre::Base *a1)
+void GreClientRgnDone()
 {
-  __int64 v1; // rcx
-  __int64 i; // rbx
-  int v3; // eax
+  TRACKOBJ *i; // rbx
+  int v1; // eax
   struct EWNDOBJ *j; // rdi
-  __int64 v5; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v3; // [rsp+38h] [rbp+10h] BYREF
 
-  v5 = *((_QWORD *)Gre::Base::Globals(a1) + 7);
-  GreAcquireSemaphore(v5);
-  for ( i = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(v1) + 32) + 23664LL); i; i = *(_QWORD *)(i + 8) )
+  v3 = ghsemWndobj;
+  GreAcquireSemaphore(ghsemWndobj);
+  for ( i = gpto; i; i = (TRACKOBJ *)*((_QWORD *)i + 1) )
   {
-    v3 = *(_DWORD *)(i + 48);
-    if ( (v3 & 0x4000000) != 0 )
+    v1 = *((_DWORD *)i + 12);
+    if ( (v1 & 0x4000000) != 0 )
     {
-      *(_DWORD *)(i + 48) = v3 & 0xFBFFFFFF;
-      (*(void (__fastcall **)(_QWORD, __int64))(i + 40))(0LL, 64LL);
+      *((_DWORD *)i + 12) = v1 & 0xFBFFFFFF;
+      (*((void (__fastcall **)(_QWORD, __int64))i + 5))(0LL, 64LL);
     }
-    for ( j = *(struct EWNDOBJ **)(i + 24); j; j = (struct EWNDOBJ *)*((_QWORD *)j + 20) )
-      vSpWndobjChange(*(HDEV *)(*(_QWORD *)(i + 32) + 48LL), j);
+    for ( j = (struct EWNDOBJ *)*((_QWORD *)i + 3); j; j = (struct EWNDOBJ *)*((_QWORD *)j + 20) )
+      vSpWndobjChange(*(HDEV *)(*((_QWORD *)i + 4) + 48LL), j);
   }
-  SEMOBJ::vUnlock((SEMOBJ *)&v5);
+  SEMOBJ::vUnlock((SEMOBJ *)&v3);
 }

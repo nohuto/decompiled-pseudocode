@@ -1,11 +1,11 @@
 /*
- * XREFs of ConvertDevpropertyToString @ 0x140A30DE4
+ * XREFs of ConvertDevpropertyToString @ 0x14097F144
  * Callers:
- *     ExpressionConvertToString @ 0x140A314B0 (ExpressionConvertToString.c)
+ *     ExpressionConvertToString @ 0x14097F810 (ExpressionConvertToString.c)
  * Callees:
- *     RtlStringCbPrintfExW @ 0x140204630 (RtlStringCbPrintfExW.c)
- *     RtlStringCbCopyExW @ 0x1402E04F4 (RtlStringCbCopyExW.c)
- *     ConvertDevpropcompkeyToString @ 0x140A30CA8 (ConvertDevpropcompkeyToString.c)
+ *     RtlStringCbPrintfExW @ 0x14024F6C0 (RtlStringCbPrintfExW.c)
+ *     RtlStringCbCopyExW @ 0x1402C2960 (RtlStringCbCopyExW.c)
+ *     ConvertDevpropcompkeyToString @ 0x14097F008 (ConvertDevpropcompkeyToString.c)
  */
 
 __int64 __fastcall ConvertDevpropertyToString(__int64 a1, unsigned int a2, wchar_t *a3, unsigned int *a4)
@@ -323,7 +323,7 @@ LABEL_116:
       do
       {
         v32 += 80;
-        v56 = *(_OWORD *)(*(_QWORD *)(v6 + 40) + v40);
+        v56 = *(_OWORD *)(v40 + *(_QWORD *)(v6 + 40));
         if ( v32 <= (unsigned int)v4 )
         {
           LODWORD(v53) = HIBYTE(*((_QWORD *)&v56 + 1));

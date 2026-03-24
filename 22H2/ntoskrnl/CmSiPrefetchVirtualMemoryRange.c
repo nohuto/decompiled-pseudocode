@@ -1,9 +1,9 @@
 /*
- * XREFs of CmSiPrefetchVirtualMemoryRange @ 0x140207E54
+ * XREFs of CmSiPrefetchVirtualMemoryRange @ 0x140361F7C
  * Callers:
- *     HvpViewMapMakeViewRangeValid @ 0x140689AA4 (HvpViewMapMakeViewRangeValid.c)
+ *     HvpViewMapMakeViewRangeValid @ 0x140722CF4 (HvpViewMapMakeViewRangeValid.c)
  * Callees:
- *     ZwSetInformationVirtualMemory @ 0x14041DC40 (ZwSetInformationVirtualMemory.c)
+ *     ZwSetInformationVirtualMemory @ 0x1403FCE20 (ZwSetInformationVirtualMemory.c)
  */
 
 __int64 __fastcall CmSiPrefetchVirtualMemoryRange(__int64 *a1, __int64 a2, __int64 a3)

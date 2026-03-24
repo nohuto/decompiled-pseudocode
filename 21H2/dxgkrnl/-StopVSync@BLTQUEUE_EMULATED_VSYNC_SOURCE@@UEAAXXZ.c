@@ -1,5 +1,5 @@
 /*
- * XREFs of ?StopVSync@BLTQUEUE_EMULATED_VSYNC_SOURCE@@UEAAXXZ @ 0x1C03BFE90
+ * XREFs of ?StopVSync@BLTQUEUE_EMULATED_VSYNC_SOURCE@@UEAAXXZ @ 0x1C0300C00
  * Callers:
  *     <none>
  * Callees:

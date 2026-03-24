@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z @ 0x140676144
+ * XREFs of ?Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z @ 0x1405C74B4
  * Callers:
- *     ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140675638 (-CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z.c)
- *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x140675B6C (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x140675DA0 (-SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
- *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x140675E48 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x1405C6B48 (-CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C6EE8 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x1405C711C (-SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C71C4 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,13 +12,21 @@
 void __fastcall SC_MBR::Initialize(SC_MBR *this, struct SC_DISK *a2)
 {
   __int64 v2; // rax
+  unsigned int v3; // eax
 
   *(_QWORD *)this = a2;
-  v2 = *((_QWORD *)a2 + 27);
+  v2 = *((_QWORD *)a2 + 26);
   if ( !v2 || v2 > 1024 )
-    *((_QWORD *)a2 + 27) = 1024LL;
-  if ( (unsigned int)(*(_DWORD *)(*(_QWORD *)this + 228LL) - 1) > 0xFE )
-    *(_DWORD *)(*(_QWORD *)this + 228LL) = 255;
-  if ( (unsigned int)(*(_DWORD *)(*(_QWORD *)this + 232LL) - 1) > 0x3E )
-    *(_DWORD *)(*(_QWORD *)this + 232LL) = 63;
+  {
+    *((_QWORD *)a2 + 26) = 1024LL;
+    a2 = *(struct SC_DISK **)this;
+  }
+  v3 = *((_DWORD *)a2 + 55);
+  if ( !v3 || v3 > 0xFF )
+  {
+    *((_DWORD *)a2 + 55) = 255;
+    a2 = *(struct SC_DISK **)this;
+  }
+  if ( (unsigned int)(*((_DWORD *)a2 + 56) - 1) > 0x3E )
+    *((_DWORD *)a2 + 56) = 63;
 }

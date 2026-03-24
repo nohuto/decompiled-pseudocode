@@ -1,14 +1,15 @@
 /*
- * XREFs of KiGetNextTimerExpirationDueTime @ 0x14030A3C0
+ * XREFs of KiGetNextTimerExpirationDueTime @ 0x1402255A0
  * Callers:
- *     PpmIdlePrepare @ 0x1403086B0 (PpmIdlePrepare.c)
- *     KePrepareClockTimerForIdle @ 0x140353FB0 (KePrepareClockTimerForIdle.c)
- *     PpmIdleSelectStates @ 0x1403A1620 (PpmIdleSelectStates.c)
- *     KeEstimateClockTickDuration @ 0x14056C810 (KeEstimateClockTickDuration.c)
+ *     PpmIdlePrepare @ 0x140224F90 (PpmIdlePrepare.c)
+ *     KePrepareClockTimerForIdle @ 0x140293310 (KePrepareClockTimerForIdle.c)
+ *     PpmIdleSelectStates @ 0x140395580 (PpmIdleSelectStates.c)
+ *     KeEstimateClockTickDuration @ 0x140513BA0 (KeEstimateClockTickDuration.c)
  * Callees:
- *     KiFindNextTimerDueTime @ 0x14030A6F0 (KiFindNextTimerDueTime.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExGetNextWakeTimeForDeepSleep @ 0x14063DA44 (ExGetNextWakeTimeForDeepSleep.c)
+ *     KiFindNextTimerDueTime @ 0x140225880 (KiFindNextTimerDueTime.c)
+ *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExGetNextWakeTimeForDeepSleep @ 0x1405B60D4 (ExGetNextWakeTimeForDeepSleep.c)
  */
 
 int *__fastcall KiGetNextTimerExpirationDueTime(
@@ -22,196 +23,185 @@ int *__fastcall KiGetNextTimerExpirationDueTime(
 {
   unsigned __int64 v7; // rbx
   unsigned __int64 v8; // rbp
-  unsigned __int64 v12; // rsi
-  __int64 v13; // r14
-  int v14; // r12d
+  unsigned __int8 v10; // r14
+  __int64 v12; // r15
+  int v13; // r12d
   __int64 NextTimerDueTime; // rax
+  unsigned __int64 v15; // rdx
   unsigned __int64 v16; // r8
-  unsigned __int64 NextWakeTimeForDeepSleep; // rdx
-  unsigned __int64 v18; // r9
+  unsigned __int64 NextWakeTimeForDeepSleep; // rsi
+  unsigned __int64 v18; // rbp
   int *result; // rax
   unsigned __int64 v20; // rax
-  unsigned int v21; // ecx
-  unsigned __int64 v22; // rcx
-  char v23; // al
+  unsigned __int64 v21; // rcx
+  unsigned __int64 v22; // rax
+  unsigned __int64 v23; // rax
   unsigned __int64 v24; // rcx
-  unsigned __int64 v25; // rax
-  unsigned __int64 v26; // [rsp+20h] [rbp-48h] BYREF
+  unsigned __int64 v25; // [rsp+60h] [rbp+8h] BYREF
+  unsigned __int8 v26; // [rsp+68h] [rbp+10h]
+  unsigned __int64 v27; // [rsp+70h] [rbp+18h]
 
+  v27 = a3;
+  v26 = a2;
   v7 = 0LL;
   v8 = -1LL;
-  v26 = -1LL;
+  v10 = a2;
+  v25 = -1LL;
   if ( *(_QWORD *)(a1 + 16) )
   {
-    v14 = 1;
-    goto LABEL_12;
+    v13 = 1;
+    goto LABEL_14;
   }
   if ( PoSkipTickMode == 2 && !KiSerializeTimerExpiration && !*(_BYTE *)(a1 + 33) )
   {
-    v14 = 2;
-    goto LABEL_12;
+    v13 = 2;
+    goto LABEL_14;
   }
-  v12 = -1LL;
-  v13 = 4LL;
-  v14 = 4;
+  v7 = -1LL;
+  v12 = 4LL;
+  v13 = 4;
   if ( a4 )
   {
     NextWakeTimeForDeepSleep = ExGetNextWakeTimeForDeepSleep();
-    v26 = NextWakeTimeForDeepSleep;
+    v25 = NextWakeTimeForDeepSleep;
   }
   else
   {
-    NextTimerDueTime = KiFindNextTimerDueTime(a1, a3, a2, &v26);
-    NextWakeTimeForDeepSleep = v26;
-    v12 = NextTimerDueTime;
+    NextTimerDueTime = KiFindNextTimerDueTime(a1, a3, a2, &v25);
+    NextWakeTimeForDeepSleep = v25;
+    v7 = NextTimerDueTime;
   }
-  v18 = 0x140000000uLL;
-  if ( !KiGroupSchedulingEnabled )
-    goto LABEL_6;
-  if ( a2 )
+  if ( KiGroupSchedulingEnabled )
   {
-    if ( KiGroupSchedulingOverQuotaMask[0] )
+    if ( v10 )
     {
-      while ( !qword_140C0B698[(unsigned __int16)v7] )
-      {
-        LOWORD(v7) = v7 + 1;
-        if ( (unsigned __int16)v7 >= KiGroupSchedulingOverQuotaMask[0] )
-          goto LABEL_6;
-      }
-      goto LABEL_60;
+      if ( (unsigned int)KeIsEmptyAffinityEx(&KiGroupSchedulingOverQuotaMask) )
+        goto LABEL_7;
     }
-  }
-  else
-  {
-    v21 = KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)];
-    v16 = v21 >> 6;
-    if ( (unsigned int)v16 < KiGroupSchedulingOverQuotaMask[0]
-      && (((unsigned __int64)qword_140C0B698[v16] >> (v21 & 0x3F)) & 1) != 0 )
+    else
     {
-LABEL_60:
-      if ( KiGenerationEndTick * (unsigned __int64)(unsigned int)KeMaximumIncrement < NextWakeTimeForDeepSleep )
-      {
-        NextWakeTimeForDeepSleep = KiGenerationEndTick * (unsigned int)KeMaximumIncrement;
-        v26 = NextWakeTimeForDeepSleep;
-        v14 = 5;
-      }
+      v15 = (unsigned __int64)&KiGroupSchedulingOverQuotaMask;
+      v20 = (unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)];
+      if ( ((*((_QWORD *)&KiGroupSchedulingOverQuotaMask + (v20 >> 6) + 1) >> (v20 & 0x3F)) & 1) == 0 )
+        goto LABEL_7;
     }
-  }
-LABEL_6:
-  if ( !*(_BYTE *)(a1 + 33) )
-    goto LABEL_7;
-  v16 = -1LL;
-  if ( !a4 )
-    v13 = 2LL;
-  while ( 1 )
-  {
-    v22 = qword_140C2B8D0[3 * v13];
-    if ( v13 == 2 )
+    if ( KiGenerationEndTick * (unsigned __int64)(unsigned int)KeMaximumIncrement < NextWakeTimeForDeepSleep )
     {
-      if ( v22 < v8 )
-        v8 = qword_140C2B8D0[6];
-      goto LABEL_35;
-    }
-    if ( v22 < v16 )
-    {
-      v16 = qword_140C2B8D0[3 * v13];
-      if ( v13 == 4 )
-        break;
-    }
-LABEL_35:
-    ++v13;
-    v23 = 0;
-    if ( v13 > 4 )
-      goto LABEL_36;
-  }
-  v23 = 1;
-LABEL_36:
-  if ( v8 < v12 )
-  {
-    v12 = v8;
-    v14 = 6;
-  }
-  NextWakeTimeForDeepSleep = v26;
-  if ( v16 < v26 )
-  {
-    NextWakeTimeForDeepSleep = v16;
-    v26 = v16;
-    if ( v16 < v12 )
-    {
-      v14 = 6;
-      if ( v23 )
-        v14 = 7;
+      NextWakeTimeForDeepSleep = KiGenerationEndTick * (unsigned int)KeMaximumIncrement;
+      v25 = NextWakeTimeForDeepSleep;
+      v13 = 5;
     }
   }
 LABEL_7:
-  if ( !KiGlobalTimerResolutionRequests )
+  if ( *(_BYTE *)(a1 + 33) )
   {
-    NextWakeTimeForDeepSleep = v26;
-    v16 = (unsigned int)KeNonHrTimeIncrement
-        - (unsigned __int64)(unsigned int)(KeMinimumIncrement - 1)
-        + KiLastNonHrTimerExpiration;
-    if ( KePseudoHrTimeIncrement < (unsigned int)KeNonHrTimeIncrement && v26 < v16 )
+    v15 = -1LL;
+    if ( !a4 )
+      v12 = 2LL;
+    LOBYTE(v16) = 0;
+    do
     {
-      v18 = v26 + (unsigned int)KeNonHrTimeIncrement;
-      NextWakeTimeForDeepSleep = (unsigned int)KePseudoHrTimeIncrement + a3;
-      if ( NextWakeTimeForDeepSleep < v16 )
+      v21 = qword_140C31C70[3 * v12];
+      if ( v12 == 2 )
       {
-        v20 = (unsigned int)KePseudoHrTimeIncrement + a3;
-        do
-        {
-          v20 += (unsigned int)KePseudoHrTimeIncrement;
-          if ( v20 > v18 )
-            break;
-          NextWakeTimeForDeepSleep = v20;
-        }
-        while ( v20 < v16 );
+        if ( v21 < v8 )
+          v8 = qword_140C31C70[6];
+      }
+      else if ( v21 < v15 )
+      {
+        v15 = qword_140C31C70[3 * v12];
+        if ( v12 == 4 )
+          LOBYTE(v16) = 1;
+      }
+      ++v12;
+    }
+    while ( v12 <= 4 );
+    v10 = v26;
+    if ( v8 < v7 )
+    {
+      v7 = v8;
+      v13 = 6;
+    }
+    NextWakeTimeForDeepSleep = v25;
+    if ( v15 < v25 )
+    {
+      v25 = v15;
+      NextWakeTimeForDeepSleep = v15;
+      if ( v15 < v7 )
+      {
+        v13 = 6;
+        if ( (_BYTE)v16 )
+          v13 = 7;
       }
     }
   }
-  v7 = v12;
-  if ( v12 >= NextWakeTimeForDeepSleep )
+  v18 = v27;
+  if ( (KiVelocityFlags & 0x2000) != 0 )
+  {
+    NextWakeTimeForDeepSleep = v25;
+    v16 = (unsigned int)KeNonHrTimeIncrement
+        - (unsigned __int64)(unsigned int)(KeMinimumIncrement - 1)
+        + KiLastNonHrTimerExpiration;
+    if ( KePseudoHrTimeIncrement < (unsigned int)KeNonHrTimeIncrement && v25 < v16 )
+    {
+      v15 = v25 + (unsigned int)KeNonHrTimeIncrement;
+      NextWakeTimeForDeepSleep = (unsigned int)KePseudoHrTimeIncrement + v27;
+      if ( NextWakeTimeForDeepSleep < v16 )
+      {
+        v23 = (unsigned int)KePseudoHrTimeIncrement + v27;
+        do
+        {
+          v23 += (unsigned int)KePseudoHrTimeIncrement;
+          if ( v23 > v15 )
+            break;
+          NextWakeTimeForDeepSleep = v23;
+        }
+        while ( v23 < v16 );
+      }
+    }
+  }
+  if ( v7 >= NextWakeTimeForDeepSleep )
     v7 = NextWakeTimeForDeepSleep;
-  if ( a2 )
+  if ( v10 )
   {
     if ( KiClockOwnerOneShotRequest && KiClockOwnerOneShotRequest < v7 )
     {
       v7 = KiClockOwnerOneShotRequest;
-      v14 = 6;
+      v13 = 6;
     }
-    if ( !(_BYTE)KdDebuggerNotPresent && a3 < v7 )
+    if ( !(_BYTE)KdDebuggerNotPresent )
     {
       if ( (_BYTE)KdDebuggerEnabled )
       {
-        v24 = (unsigned int)(10000 * KiDebugPollInterval);
-        if ( v7 - a3 > v24 )
+        if ( v27 < v7 )
         {
-          v7 = v24 + a3;
-          v14 = 8;
+          v24 = (unsigned int)(10000 * KiDebugPollInterval);
+          if ( v7 - v27 > v24 )
+          {
+            v7 = v24 + v27;
+            v13 = 8;
+          }
         }
       }
     }
   }
   if ( *(_BYTE *)(a1 + 33) )
   {
-    v25 = ((__int64 (__fastcall *)(_QWORD, unsigned __int64, unsigned __int64, unsigned __int64))off_140C01FB8[0])(
-            a5,
-            NextWakeTimeForDeepSleep,
-            v16,
-            v18);
-    if ( v25 )
+    v22 = ((__int64 (__fastcall *)(_QWORD, unsigned __int64, unsigned __int64))off_140C00968[0])(a5, v15, v16);
+    if ( v22 )
     {
-      if ( v7 > v25 )
+      if ( v7 > v22 )
       {
-        v7 = v25;
-        v14 = 9;
-        if ( a3 > v25 )
-          v7 = a3;
+        v7 = v22;
+        v13 = 9;
+        if ( v18 > v22 )
+          v7 = v18;
       }
     }
   }
-LABEL_12:
+LABEL_14:
   *a6 = v7;
   result = a7;
-  *a7 = v14;
+  *a7 = v13;
   return result;
 }

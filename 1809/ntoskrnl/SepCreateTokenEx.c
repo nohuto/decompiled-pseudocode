@@ -2,18 +2,18 @@
  * XREFs of SepCreateTokenEx @ 0x14001366C
  * Callers:
  *     NtCreateTokenEx @ 0x1405BC550 (NtCreateTokenEx.c)
- *     SepCreateToken @ 0x140727870 (SepCreateToken.c)
+ *     SepCreateToken @ 0x140727850 (SepCreateToken.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
- *     RtlSidHashInitialize @ 0x1400CC420 (RtlSidHashInitialize.c)
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     RtlWalkFrameChain @ 0x1400CCBB0 (RtlWalkFrameChain.c)
- *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x1400CCEB4 (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
- *     DbgPrint @ 0x1401262B0 (DbgPrint.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
+ *     RtlSidHashInitialize @ 0x1400CC440 (RtlSidHashInitialize.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     RtlWalkFrameChain @ 0x1400CCBD0 (RtlWalkFrameChain.c)
+ *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x1400CCED4 (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
+ *     DbgPrint @ 0x1401262D0 (DbgPrint.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SepFinalizeTokenAcls @ 0x140582ABC (SepFinalizeTokenAcls.c)
@@ -26,10 +26,10 @@
  *     SeCreateAccessState @ 0x140612230 (SeCreateAccessState.c)
  *     ObInsertObject @ 0x14061B280 (ObInsertObject.c)
  *     RtlCopySidAndAttributesArray @ 0x14062CDA0 (RtlCopySidAndAttributesArray.c)
- *     RtlCopySid @ 0x1406491B0 (RtlCopySid.c)
- *     SepSetTokenTrust @ 0x1406A4688 (SepSetTokenTrust.c)
- *     SepSetTokenUserAndGroups @ 0x1408A224C (SepSetTokenUserAndGroups.c)
- *     SepAddTokenLogonSession @ 0x1408A2760 (SepAddTokenLogonSession.c)
+ *     RtlCopySid @ 0x140649190 (RtlCopySid.c)
+ *     SepSetTokenTrust @ 0x1406A4668 (SepSetTokenTrust.c)
+ *     SepSetTokenUserAndGroups @ 0x1408A222C (SepSetTokenUserAndGroups.c)
+ *     SepAddTokenLogonSession @ 0x1408A2740 (SepAddTokenLogonSession.c)
  */
 
 __int64 __fastcall SepCreateTokenEx(

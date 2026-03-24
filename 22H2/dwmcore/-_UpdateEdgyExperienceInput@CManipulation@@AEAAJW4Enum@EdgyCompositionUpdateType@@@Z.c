@@ -1,15 +1,14 @@
 /*
- * XREFs of ?_UpdateEdgyExperienceInput@CManipulation@@AEAAJW4Enum@EdgyCompositionUpdateType@@@Z @ 0x18020F7A4
+ * XREFs of ?_UpdateEdgyExperienceInput@CManipulation@@AEAAJW4Enum@EdgyCompositionUpdateType@@@Z @ 0x1801D5AF0
  * Callers:
- *     ?ProcessUpdateEdgyExperienceSource@CManipulation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATION_UPDATEEDGYEXPERIENCESOURCE@@@Z @ 0x18020DFD4 (-ProcessUpdateEdgyExperienceSource@CManipulation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPUL.c)
+ *     ?ProcessUpdateEdgyExperienceSource@CManipulation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATION_UPDATEEDGYEXPERIENCESOURCE@@@Z @ 0x1801D4470 (-ProcessUpdateEdgyExperienceSource@CManipulation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPUL.c)
  * Callees:
- *     ?Get@CWeakResourceReference@@KAJPEAVCResource@@PEAPEAV1@@Z @ 0x180099B0C (-Get@CWeakResourceReference@@KAJPEAVCResource@@PEAPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?UpdateEdgyInput@CInputManager@@QEAAJAEBUEdgyCompositionConfigurationUpdateEx@@@Z @ 0x1801A2DC4 (-UpdateEdgyInput@CInputManager@@QEAAJAEBUEdgyCompositionConfigurationUpdateEx@@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Get@CWeakResourceReference@@KAJPEAVCResource@@PEAPEAV1@@Z @ 0x18006541C (-Get@CWeakResourceReference@@KAJPEAVCResource@@PEAPEAV1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
+ *     ?UpdateEdgyInput@CInputManager@@QEAAJAEBUEdgyCompositionConfigurationUpdateEx@@@Z @ 0x1802221D8 (-UpdateEdgyInput@CInputManager@@QEAAJAEBUEdgyCompositionConfigurationUpdateEx@@@Z.c)
  */
 
 __int64 __fastcall CManipulation::_UpdateEdgyExperienceInput(__int64 a1)
@@ -17,94 +16,86 @@ __int64 __fastcall CManipulation::_UpdateEdgyExperienceInput(__int64 a1)
   int v1; // ebx
   __int128 *v2; // rsi
   int v4; // eax
-  __int64 v5; // rcx
-  struct CWeakResourceReference *v6; // rcx
-  __int64 v7; // rbp
+  struct CWeakResourceReference *v5; // rcx
+  __int128 v6; // xmm0
+  __int128 v7; // xmm1
   __int128 v8; // xmm0
   __int128 v9; // xmm1
   __int128 v10; // xmm0
   __int128 v11; // xmm1
   __int128 v12; // xmm0
-  __int128 v13; // xmm1
-  __int128 v14; // xmm0
-  __int64 v15; // rax
-  unsigned __int64 v16; // r8
+  __int64 v13; // rax
   int updated; // eax
-  __int64 v18; // rcx
-  struct CWeakResourceReference *v20; // [rsp+30h] [rbp-C8h] BYREF
-  __int64 v21; // [rsp+40h] [rbp-B8h] BYREF
-  int v22; // [rsp+48h] [rbp-B0h]
-  __int128 v23; // [rsp+50h] [rbp-A8h]
-  __int128 v24; // [rsp+60h] [rbp-98h]
-  __int128 v25; // [rsp+70h] [rbp-88h]
-  __int128 v26; // [rsp+80h] [rbp-78h]
-  __int128 v27; // [rsp+90h] [rbp-68h]
-  __int128 v28; // [rsp+A0h] [rbp-58h]
-  __int128 v29; // [rsp+B0h] [rbp-48h]
-  __int128 v30; // [rsp+C0h] [rbp-38h]
-  __int64 v31; // [rsp+D0h] [rbp-28h]
+  __int64 v15; // rcx
+  struct CWeakResourceReference *v17; // [rsp+30h] [rbp-C8h] BYREF
+  _QWORD v18[2]; // [rsp+40h] [rbp-B8h] BYREF
+  __int128 v19; // [rsp+50h] [rbp-A8h]
+  __int128 v20; // [rsp+60h] [rbp-98h]
+  __int128 v21; // [rsp+70h] [rbp-88h]
+  __int128 v22; // [rsp+80h] [rbp-78h]
+  __int128 v23; // [rsp+90h] [rbp-68h]
+  __int128 v24; // [rsp+A0h] [rbp-58h]
+  __int128 v25; // [rsp+B0h] [rbp-48h]
+  __int128 v26; // [rsp+C0h] [rbp-38h]
+  __int64 v27; // [rsp+D0h] [rbp-28h]
   void *retaddr; // [rsp+F8h] [rbp+0h]
 
   v1 = 0;
-  v2 = (__int128 *)(a1 + 576);
-  if ( !*(_DWORD *)(a1 + 576) )
+  v2 = (__int128 *)(a1 + 568);
+  if ( !*(_DWORD *)(a1 + 568) )
     ModuleFailFastForHRESULT(2147942487LL, retaddr);
-  if ( *(_QWORD *)(a1 + 720) )
-    goto LABEL_11;
-  v20 = 0LL;
-  v4 = CWeakResourceReference::Get((struct CResource *)a1, &v20);
+  if ( *(_QWORD *)(a1 + 712) )
+    goto LABEL_16;
+  v17 = 0LL;
+  v4 = CWeakResourceReference::Get((struct CResource *)a1, &v17);
   v1 = v4;
   if ( v4 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x94u, 0LL);
-    v6 = v20;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v5, 0LL, 0, v4, 0x97u, 0LL);
+    v5 = v17;
+    if ( v17 )
+      (*(void (__fastcall **)(struct CWeakResourceReference *))(*(_QWORD *)v17 + 8LL))(v17);
   }
   else
   {
-    v6 = 0LL;
-    *(_QWORD *)(a1 + 720) = v20;
+    *(_QWORD *)(a1 + 712) = v17;
   }
-  if ( v6 )
-    (*(void (__fastcall **)(struct CWeakResourceReference *))(*(_QWORD *)v6 + 8LL))(v6);
   if ( v1 >= 0 )
   {
-LABEL_11:
-    v7 = *(_QWORD *)(a1 + 720);
-    if ( v7 )
+LABEL_16:
+    if ( *(_QWORD *)(a1 + 712) )
     {
-      memset_0(&v21, 0, 0x98uLL);
-      v8 = *v2;
-      v21 = v7;
-      v9 = v2[1];
-      v22 = 2;
-      v23 = v8;
-      v10 = v2[2];
-      v24 = v9;
-      v11 = v2[3];
-      v25 = v10;
-      v12 = v2[4];
-      v26 = v11;
-      v13 = v2[5];
-      v27 = v12;
-      v14 = v2[6];
-      v28 = v13;
-      v29 = v14;
-      v15 = *((_QWORD *)v2 + 16);
-      v30 = v2[7];
-      v31 = v15;
-      LODWORD(v23) = *(_DWORD *)(a1 + 712);
+      v6 = *v2;
+      v18[0] = *(_QWORD *)(a1 + 712);
+      v7 = v2[1];
+      v18[1] = 2LL;
+      v19 = v6;
+      v8 = v2[2];
+      v20 = v7;
+      v9 = v2[3];
+      v21 = v8;
+      v10 = v2[4];
+      v22 = v9;
+      v11 = v2[5];
+      v23 = v10;
+      v12 = v2[6];
+      v24 = v11;
+      v25 = v12;
+      v13 = *((_QWORD *)v2 + 16);
+      v26 = v2[7];
+      v27 = v13;
+      LODWORD(v19) = *(_DWORD *)(a1 + 704);
       updated = CInputManager::UpdateEdgyInput(
-                  *(CInputManager **)(*(_QWORD *)(a1 + 16) + 232LL),
-                  (const struct EdgyCompositionConfigurationUpdateEx *)&v21,
-                  v16);
+                  *(CInputManager **)(*(_QWORD *)(a1 + 16) + 104LL),
+                  (const struct EdgyCompositionConfigurationUpdateEx *)v18);
       v1 = updated;
       if ( updated < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, updated, 0x414u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, updated, 0x40Eu, 0LL);
     }
   }
   else
   {
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v6, 0LL, 0, v1, 0x3F9u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v5, 0LL, 0, v1, 0x3F3u, 0LL);
   }
   return (unsigned int)v1;
 }

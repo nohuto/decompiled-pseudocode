@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessPTPMouseInput@CHidInput@@QEAAXPEAXPEAU_MOUSE_INPUT_DATA@@_K2K@Z @ 0x1C01E3190
+ * XREFs of ?ProcessPTPMouseInput@CHidInput@@QEAAXPEAXPEAU_MOUSE_INPUT_DATA@@_K2K@Z @ 0x1C01AAA20
  * Callers:
  *     <none>
  * Callees:
- *     ?SensorDoWorkAndWait@CRIMBase@@IEAAXW4DispatcherHandleName@1@@Z @ 0x1C00B322C (-SensorDoWorkAndWait@CRIMBase@@IEAAXW4DispatcherHandleName@1@@Z.c)
+ *     ?SensorDoWorkAndWait@CRIMBase@@IEAAXW4DispatcherHandleName@1@@Z @ 0x1C00A819C (-SensorDoWorkAndWait@CRIMBase@@IEAAXW4DispatcherHandleName@1@@Z.c)
  */
 
 void __fastcall CHidInput::ProcessPTPMouseInput(
@@ -16,12 +16,12 @@ void __fastcall CHidInput::ProcessPTPMouseInput(
 {
   __int64 v6; // xmm1_8
 
-  *((_QWORD *)this + 171) = a2;
-  *((_OWORD *)this + 86) = *(_OWORD *)&a3->UnitId;
+  *((_QWORD *)this + 162) = a2;
+  *(_OWORD *)((char *)this + 1304) = *(_OWORD *)&a3->UnitId;
   v6 = *(_QWORD *)&a3->LastY;
-  *((_QWORD *)this + 176) = a5;
-  *((_DWORD *)this + 354) = a6;
-  *((_QWORD *)this + 174) = v6;
-  *((_QWORD *)this + 175) = a4;
-  CRIMBase::SensorDoWorkAndWait((__int64)this, 0xCu);
+  *((_QWORD *)this + 167) = a5;
+  *((_DWORD *)this + 336) = a6;
+  *((_QWORD *)this + 165) = v6;
+  *((_QWORD *)this + 166) = a4;
+  CRIMBase::SensorDoWorkAndWait((__int64)this, 0xDu);
 }

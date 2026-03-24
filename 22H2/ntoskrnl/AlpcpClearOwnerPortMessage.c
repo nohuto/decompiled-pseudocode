@@ -1,25 +1,23 @@
 /*
- * XREFs of AlpcpClearOwnerPortMessage @ 0x14071C098
+ * XREFs of AlpcpClearOwnerPortMessage @ 0x1405E393C
  * Callers:
- *     AlpcpCancelMessagesByRequestor @ 0x140719264 (AlpcpCancelMessagesByRequestor.c)
- *     AlpcpDispatchReplyToPort @ 0x14071B25C (AlpcpDispatchReplyToPort.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x14071B668 (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpCancelMessage @ 0x14077971C (AlpcpCancelMessage.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1405E1BDC (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpCancelMessagesByRequestor @ 0x1405E2A50 (AlpcpCancelMessagesByRequestor.c)
+ *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
+ *     AlpcpDispatchReplyToPort @ 0x1405E35BC (AlpcpDispatchReplyToPort.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
  */
 
-LONG_PTR __fastcall AlpcpClearOwnerPortMessage(__int64 a1)
+void __fastcall AlpcpClearOwnerPortMessage(__int64 a1)
 {
-  void *v2; // rcx
-  LONG_PTR result; // rax
+  struct _DMA_ADAPTER *v2; // rcx
 
-  v2 = *(void **)(a1 + 24);
+  v2 = *(struct _DMA_ADAPTER **)(a1 + 24);
   if ( v2 )
   {
     if ( (*(_DWORD *)(a1 + 40) & 0x1000) != 0 )
-      result = ObfDereferenceObject(v2);
+      HalPutDmaAdapter(v2);
     *(_QWORD *)(a1 + 24) = 0LL;
   }
-  return result;
 }

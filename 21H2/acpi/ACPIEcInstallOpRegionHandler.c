@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIEcInstallOpRegionHandler @ 0x1C00AD7DC
+ * XREFs of ACPIEcInstallOpRegionHandler @ 0x1C00AEB54
  * Callers:
- *     ACPIEcStartDeviceWorker @ 0x1C0053300 (ACPIEcStartDeviceWorker.c)
+ *     ACPIEcStartDeviceWorker @ 0x1C0053C40 (ACPIEcStartDeviceWorker.c)
  * Callees:
- *     RegisterOperationRegionHandler @ 0x1C009F5F8 (RegisterOperationRegionHandler.c)
+ *     RegisterOperationRegionHandler @ 0x1C00A1CB0 (RegisterOperationRegionHandler.c)
  */
 
 __int64 __fastcall ACPIEcInstallOpRegionHandler(__int64 a1)

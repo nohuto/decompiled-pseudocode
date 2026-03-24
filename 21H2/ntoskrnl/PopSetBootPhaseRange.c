@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSetBootPhaseRange @ 0x140A4F990
+ * XREFs of PopSetBootPhaseRange @ 0x1409969B8
  * Callers:
- *     RtlMarkHiberPhase @ 0x14038D4F0 (RtlMarkHiberPhase.c)
- *     PopSetRange @ 0x14038DDD4 (PopSetRange.c)
+ *     PopSetRange @ 0x140388200 (PopSetRange.c)
+ *     RtlMarkHiberPhase @ 0x140592CE4 (RtlMarkHiberPhase.c)
  * Callees:
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
  */
 
 void __fastcall PopSetBootPhaseRange(__int64 a1, ULONG a2, ULONG a3)

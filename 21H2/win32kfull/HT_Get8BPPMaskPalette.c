@@ -1,12 +1,12 @@
 /*
- * XREFs of HT_Get8BPPMaskPalette @ 0x1C0142F60
+ * XREFs of HT_Get8BPPMaskPalette @ 0x1C01551E0
  * Callers:
- *     ?bCreateHTPalette@PALMEMOBJ@@QEAAHJPEAU_GDIINFO@@@Z @ 0x1C009700C (-bCreateHTPalette@PALMEMOBJ@@QEAAHJPEAU_GDIINFO@@@Z.c)
- *     NtGdiHT_Get8BPPMaskPalette @ 0x1C0142E30 (NtGdiHT_Get8BPPMaskPalette.c)
+ *     ?bCreateHTPalette@PALMEMOBJ@@QEAAHJPEAU_GDIINFO@@@Z @ 0x1C01131AC (-bCreateHTPalette@PALMEMOBJ@@QEAAHJPEAU_GDIINFO@@@Z.c)
+ *     NtGdiHT_Get8BPPMaskPalette @ 0x1C01550C0 (NtGdiHT_Get8BPPMaskPalette.c)
  * Callees:
- *     DivFD6 @ 0x1C00952E0 (DivFD6.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     HT_Get8BPPFormatPalette @ 0x1C025E120 (HT_Get8BPPFormatPalette.c)
+ *     DivFD6 @ 0x1C001CDDC (DivFD6.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     HT_Get8BPPFormatPalette @ 0x1C02614B0 (HT_Get8BPPFormatPalette.c)
  */
 
 LONG __stdcall HT_Get8BPPMaskPalette(

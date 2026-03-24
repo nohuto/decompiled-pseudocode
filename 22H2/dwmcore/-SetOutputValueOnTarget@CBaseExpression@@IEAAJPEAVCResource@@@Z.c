@@ -1,580 +1,488 @@
 /*
- * XREFs of ?SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z @ 0x180054E50
+ * XREFs of ?SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z @ 0x180074560
  * Callers:
- *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180053F60 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z @ 0x1800BD0B0 (-SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z.c)
+ *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180073B10 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z @ 0x1801DA470 (-SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z.c)
  * Callees:
- *     ??$_Try_emplace@AEBQEAVCResource@@$$V@?$_Hash@V?$_Umap_traits@PEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@V?$_Uhash_compare@PEAVCResource@@U?$hash@PEAVCResource@@@std@@U?$equal_to@PEAVCResource@@@3@@std@@V?$allocator@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@@5@$0A@@std@@@std@@IEAA?AU?$pair@PEAU?$_List_node@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@PEAX@std@@_N@1@AEBQEAVCResource@@@Z @ 0x18003EBC0 (--$_Try_emplace@AEBQEAVCResource@@$$V@-$_Hash@V-$_Umap_traits@PEAVCResource@@UResourceDebugInfo@.c)
- *     ?_Tidy_deallocate@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAAXXZ @ 0x18003EEAC (-_Tidy_deallocate@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@AEAAXXZ.c)
- *     _anonymous_namespace_::SynthesizeDescription @ 0x18004291C (_anonymous_namespace_--SynthesizeDescription.c)
- *     ??0?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAA@QEBG@Z @ 0x1800429C8 (--0-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEAA@QEBG@Z.c)
- *     ??8CExpressionValue@@QEBA_NAEBV0@@Z @ 0x180055770 (--8CExpressionValue@@QEBA_NAEBV0@@Z.c)
- *     ?GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800559D0 (-GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
- *     ??4?$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z @ 0x1800AC08C (--4-$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$insert@$0A@$0A@@?$_Tree@V?$_Tset_traits@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@$0A@@std@@@std@@QEAA?AU?$pair@V?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@@std@@_N@1@$$QEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@1@@Z @ 0x1800D6F08 (--$insert@$0A@$0A@@-$_Tree@V-$_Tset_traits@V-$basic_string@GU-$char_traits@G@std@@V-$allocator@G.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     std::_Tree_temp_node_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______::_Tree_temp_node_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void________std::pair__anonymous_namespace_::AnimationId_unsigned_int___ @ 0x1800F20B8 (std--_Tree_temp_node_std--allocator_std--_Tree_node_std--pair__anonymous_namespace_--AnimationId.c)
- *     std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int_____::_Insert_node @ 0x1800F4B1C (std--_Tree_val_std--_Tree_simple_types_std--pair__anonymous_namespace_--AnimationId_ea_1800F4B1C.c)
- *     std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Insert_node @ 0x1800FE6BC (std--_Tree_val_std--_Tree_simple_types_std--pair__anonymous_namespace_--AnimationId_ea_1800FE6BC.c)
- *     std::_Tree_temp_node_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____void_______::_Tree_temp_node_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____void________std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_____ @ 0x1800FF210 (std--_Tree_temp_node_std--allocator_std--_Tree_node_std--pair__anonymous_namespace__ea_1800FF210.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?LogDebugPropertyUpdate@CAnimationLoggingManager@@QEAAXPEAVCResource@@W4PropertyChangeSource@@_KW4MIL_RESOURCE_TYPE@@IIPEAVSubchannelMaskInfo@@PEBVCExpressionValue@@@Z @ 0x180215910 (-LogDebugPropertyUpdate@CAnimationLoggingManager@@QEAAXPEAVCResource@@W4PropertyChangeSource@@_K.c)
- *     ?GetAnimationLoggingManagerNoRef@CBaseExpression@@IEAAPEAVCAnimationLoggingManager@@XZ @ 0x18023F060 (-GetAnimationLoggingManagerNoRef@CBaseExpression@@IEAAPEAVCAnimationLoggingManager@@XZ.c)
+ *     _anonymous_namespace_::SynthesizeDescription @ 0x18001BF5C (_anonymous_namespace_--SynthesizeDescription.c)
+ *     ??$_Try_emplace@AEBQEAVCResource@@$$V@?$unordered_map@PEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@U?$hash@PEAVCResource@@@std@@U?$equal_to@PEAVCResource@@@5@V?$allocator@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@@5@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@@std@@@std@@@std@@_N@1@AEBQEAVCResource@@@Z @ 0x180034018 (--$_Try_emplace@AEBQEAVCResource@@$$V@-$unordered_map@PEAVCResource@@UResourceDebugInfo@CAnimati.c)
+ *     ??0?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAA@QEBG@Z @ 0x18003454C (--0-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEAA@QEBG@Z.c)
+ *     ?_Tidy_deallocate@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAAXXZ @ 0x180035058 (-_Tidy_deallocate@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@AEAAXXZ.c)
+ *     ??$_Insert_nohint@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U_Not_a_node_tag@2@@?$_Tree@V?$_Tset_traits@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@$0A@@std@@@std@@IEAA?AU?$pair@V?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@@std@@_N@1@_N$$QEAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@1@U_Not_a_node_tag@1@@Z @ 0x180035F68 (--$_Insert_nohint@V-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@U_Not_a_node_tag.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050D58 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??8CExpressionValue@@QEBA_NAEBV0@@Z @ 0x180074D00 (--8CExpressionValue@@QEBA_NAEBV0@@Z.c)
+ *     ?MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z @ 0x1800A91E0 (-MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z.c)
+ *     std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Insert_at_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__&_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void______ @ 0x1800CFE58 (std--_Tree_std--_Tmap_traits__anonymous_namespace_--AnimationId_unsigned_int_A0xd20_ea_1800CFE58.c)
+ *     std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const___A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const______0___::_Insert_at_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____std::_Not_a_node_tag_ @ 0x1800D8FF8 (std--_Tree_std--_Tmap_traits__anonymous_namespace_--AnimationId_std--basic_string_unsigned_short.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?LogDebugPropertyUpdate@CAnimationLoggingManager@@QEAAXPEAVCResource@@W4PropertyChangeSource@@_KW4MIL_RESOURCE_TYPE@@IIPEAVSubchannelMaskInfo@@PEBVCExpressionValue@@@Z @ 0x1801B04E8 (-LogDebugPropertyUpdate@CAnimationLoggingManager@@QEAAXPEAVCResource@@W4PropertyChangeSource@@_K.c)
+ *     ?GetAnimationLoggingManagerNoRef@CBaseExpression@@IEAAPEAVCAnimationLoggingManager@@XZ @ 0x1801D9ADC (-GetAnimationLoggingManagerNoRef@CBaseExpression@@IEAAPEAVCAnimationLoggingManager@@XZ.c)
  */
 
-__int64 __fastcall CBaseExpression::SetOutputValueOnTarget(CBaseExpression *this, struct CResource *a2)
+__int64 __fastcall CBaseExpression::SetOutputValueOnTarget(unsigned __int64 this, struct CResource *a2)
 {
   __int64 v2; // rax
-  char v5; // r14
-  int v6; // eax
-  unsigned int v7; // ecx
-  unsigned int v8; // ebx
-  __int64 v9; // rbx
-  __int64 v10; // rcx
+  __int64 v4; // rdx
+  __int64 (__fastcall *v6)(struct CResource *, __int64, _OWORD *); // rax
+  char v7; // r14
+  int v8; // eax
+  __int64 v9; // rcx
+  unsigned int v10; // esi
+  __int64 v11; // rsi
   __int64 v12; // rcx
-  unsigned int v13; // edx
-  unsigned __int64 v14; // rax
-  int v15; // r9d
-  unsigned int v16; // r10d
-  unsigned int ExpressionTypeChannelCount; // r11d
-  __int64 v18; // rdx
-  __int64 v19; // rax
-  __int128 *v20; // rcx
-  char *v21; // r9
-  int v22; // eax
-  unsigned int v23; // ecx
-  __int64 v24; // r8
-  __int64 v25; // r14
-  __int64 v26; // r14
-  int *v27; // rbx
-  __int64 v28; // rcx
+  char *v14; // r9
+  int v15; // eax
+  __int64 v16; // rcx
+  __int64 v17; // r9
+  __int64 v18; // r9
+  __int64 v19; // r8
+  _QWORD *v20; // r10
+  __int64 v21; // rcx
+  unsigned __int64 v22; // rdx
+  _QWORD *v23; // r11
+  __int64 v24; // rdx
+  _QWORD *i; // rax
+  _QWORD *v26; // rcx
+  wchar_t *v27; // rdi
+  unsigned int v28; // ebx
   __int64 v29; // rax
-  __int64 v30; // rcx
-  wchar_t *v31; // rsi
-  wchar_t **v32; // r15
-  unsigned int v33; // ebx
-  __int64 v34; // rax
-  _QWORD *v35; // r9
-  unsigned __int64 v36; // rcx
-  __int64 v37; // rdx
-  __int64 v38; // r14
-  __int64 v39; // r8
-  __int64 v40; // rdi
-  __int64 v41; // rax
-  __int64 v42; // rcx
-  __int128 v43; // xmm0
-  __int64 v44; // rcx
-  __int64 v45; // rax
-  __int128 *v46; // r9
-  int v47; // eax
-  unsigned int v48; // ecx
-  __int64 v49; // rbx
-  __int64 v50; // rdi
-  __int64 v51; // rax
-  __int64 v52; // rbx
-  __int64 inserted; // rax
-  __int64 v54; // rax
-  __int64 v55; // rbx
+  int v30; // r8d
+  unsigned __int64 v31; // rcx
+  __int64 v32; // r10
+  _QWORD *v33; // rdx
+  _QWORD *v34; // r9
+  __int64 *v35; // rax
+  _QWORD *v36; // rsi
+  __int64 v37; // rax
+  __int64 v38; // rbx
+  __int64 v39; // rax
+  __int64 v40; // rcx
+  int v41; // r8d
+  __int64 v42; // r9
+  __int64 v43; // rdx
+  __int64 v44; // rbx
+  __int64 *v45; // rdx
+  __int64 v46; // rax
+  __int64 v47; // rbx
+  __int64 j; // rax
+  __int64 m; // rax
+  int v50; // eax
+  __int64 v51; // rcx
+  _BYTE *v52; // r9
+  int v53; // eax
+  __int64 v54; // rcx
+  _BYTE *v55; // rcx
   __int64 v56; // rbx
-  __int64 v57; // rbx
+  __int64 v57; // r8
+  __int64 v58; // rax
   struct CAnimationLoggingManager *AnimationLoggingManagerNoRef; // rax
-  unsigned int v59; // ecx
-  struct CAnimationLoggingManager *v60; // rax
-  unsigned int v61; // [rsp+20h] [rbp-E0h]
-  __int64 v62; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v63; // [rsp+58h] [rbp-A8h]
-  __int128 v64; // [rsp+70h] [rbp-90h] BYREF
-  __int128 v65; // [rsp+88h] [rbp-78h] BYREF
-  __int128 v66; // [rsp+A0h] [rbp-60h] BYREF
-  __int128 v67; // [rsp+B0h] [rbp-50h]
-  __int128 v68; // [rsp+C0h] [rbp-40h]
-  __int128 v69; // [rsp+D0h] [rbp-30h]
-  __int128 *v70; // [rsp+E0h] [rbp-20h] BYREF
-  unsigned int v71; // [rsp+E8h] [rbp-18h]
-  char v72; // [rsp+ECh] [rbp-14h]
-  __int128 v73; // [rsp+F0h] [rbp-10h] BYREF
-  int v74; // [rsp+100h] [rbp+0h]
-  __int128 Buf1; // [rsp+110h] [rbp+10h] BYREF
-  __int128 v76; // [rsp+120h] [rbp+20h]
-  __int128 v77; // [rsp+130h] [rbp+30h]
-  __int128 v78; // [rsp+140h] [rbp+40h]
-  __int64 v79; // [rsp+150h] [rbp+50h]
-  int v80; // [rsp+158h] [rbp+58h]
-  char v81; // [rsp+15Ch] [rbp+5Ch]
-  __int128 v82; // [rsp+160h] [rbp+60h] BYREF
-  __int64 v83; // [rsp+170h] [rbp+70h]
+  _BYTE *v60; // rcx
+  struct CAnimationLoggingManager *v61; // rax
+  __int64 k; // rax
+  __int64 n; // rax
+  int v64; // [rsp+20h] [rbp-E0h]
+  char v65; // [rsp+50h] [rbp-B0h]
+  __int64 v66; // [rsp+58h] [rbp-A8h]
+  __int64 v67; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD v68[2]; // [rsp+68h] [rbp-98h] BYREF
+  __int128 v69; // [rsp+78h] [rbp-88h] BYREF
+  __int128 v70; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v71; // [rsp+98h] [rbp-68h]
+  _BYTE v72[64]; // [rsp+B0h] [rbp-50h] BYREF
+  _BYTE *v73; // [rsp+F0h] [rbp-10h]
+  unsigned int v74; // [rsp+F8h] [rbp-8h]
+  char v75; // [rsp+FCh] [rbp-4h]
+  _OWORD Buf1[4]; // [rsp+100h] [rbp+0h] BYREF
+  __int64 v77; // [rsp+140h] [rbp+40h]
+  int v78; // [rsp+148h] [rbp+48h]
+  char v79; // [rsp+14Ch] [rbp+4Ch]
 
-  v2 = *(_QWORD *)a2;
-  *(_QWORD *)&v65 = this;
-  Buf1 = 0LL;
-  v79 = 0LL;
-  v76 = 0LL;
-  v81 = 0;
   v77 = 0LL;
-  v80 = 18;
-  v5 = 0;
-  v78 = 0LL;
-  v6 = (*(__int64 (__fastcall **)(struct CResource *, _QWORD, __int128 *))(v2 + 136))(
-         a2,
-         *((unsigned int *)this + 48),
-         &Buf1);
-  v8 = v6;
-  if ( v6 < 0 )
+  v79 = 0;
+  v2 = *(_QWORD *)a2;
+  v4 = *(unsigned int *)(this + 184);
+  memset(Buf1, 0, sizeof(Buf1));
+  v6 = *(__int64 (__fastcall **)(struct CResource *, __int64, _OWORD *))(v2 + 144);
+  v7 = 0;
+  v78 = 18;
+  v8 = v6(a2, v4, Buf1);
+  v10 = v8;
+  if ( v8 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x277u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x22Fu, 0LL);
   }
   else
   {
-    v9 = *((_QWORD *)this + 25);
-    if ( v9 && *(_BYTE *)(v9 + 4) )
+    v11 = *(_QWORD *)(this + 192);
+    if ( v11 && *(_BYTE *)(v11 + 4) )
     {
-      v70 = 0LL;
-      v66 = 0LL;
-      v71 = 18;
-      v67 = 0LL;
-      v72 = 0;
-      v68 = 0LL;
-      v69 = 0LL;
-      LODWORD(v12) = *(_DWORD *)v9 - 1;
-      if ( *(_DWORD *)v9 == 1 )
+      memset_0(v72, 0, sizeof(v72));
+      v73 = 0LL;
+      v74 = 18;
+      v75 = 0;
+      v50 = CBaseExpression::MergeValueWithMask(
+              (const struct CExpressionValue *)Buf1,
+              (const struct CExpressionValue *)(this + 64),
+              (const struct SubchannelMaskInfo *)v11,
+              (struct CExpressionValue *)v72);
+      v10 = v50;
+      if ( v50 < 0 )
       {
-        v13 = v80;
-        v14 = (unsigned int)(v80 - 18);
-        if ( (unsigned int)v14 <= 0x33 )
-        {
-          v12 = 0x8000400020001LL;
-          if ( _bittest64(&v12, v14) )
-            goto LABEL_14;
-        }
-        v61 = 2007;
+        MilInstrumentationCheckHR_MaybeFailFast(v51, 0LL, 0, v50, 0x252u, 0LL);
       }
       else
       {
-        if ( *(_DWORD *)v9 != 2 )
+        if ( (unsigned __int8)CExpressionValue::operator==(v72)
+          && !(*(unsigned __int8 (__fastcall **)(struct CResource *))(*(_QWORD *)a2 + 136LL))(a2) )
         {
-          v8 = -2147467259;
-          v61 = 2026;
-LABEL_125:
-          MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v8, v61, 0LL);
-          MilInstrumentationCheckHR_MaybeFailFast(v59, 0LL, 0, v8, 0x29Au, 0LL);
-          goto LABEL_126;
+          goto LABEL_93;
         }
-        v13 = v80;
-        if ( v80 == 104 || v80 == 265 )
-        {
-LABEL_14:
-          if ( v13 == 35 )
-          {
-            DWORD1(v66) = DWORD1(Buf1);
-            v71 = 35;
-LABEL_16:
-            LODWORD(v66) = Buf1;
-LABEL_17:
-            v72 = 1;
-          }
-          else
-          {
-            switch ( v13 )
-            {
-              case 0xBu:
-                v71 = 11;
-                v72 = 1;
-                Microsoft::WRL::ComPtr<CPathData>::operator=(&v70, v79);
-                v13 = v80;
-                break;
-              case 0x11u:
-                LOBYTE(v66) = Buf1;
-                v71 = 17;
-                goto LABEL_17;
-              case 0x12u:
-                goto LABEL_16;
-              case 0x2Au:
-                v71 = 42;
-                goto LABEL_16;
-              case 0x34u:
-                *(_QWORD *)&v66 = Buf1;
-                v71 = 52;
-                DWORD2(v66) = DWORD2(Buf1);
-                goto LABEL_17;
-              case 0x45u:
-                v66 = Buf1;
-                v71 = 69;
-                goto LABEL_17;
-              case 0x46u:
-                v66 = Buf1;
-                v71 = 70;
-                goto LABEL_17;
-              case 0x47u:
-                v66 = Buf1;
-                v71 = 71;
-                goto LABEL_17;
-              case 0x68u:
-                v66 = Buf1;
-                *(_QWORD *)&v67 = v76;
-                v71 = 104;
-                goto LABEL_17;
-              case 0x109u:
-                v66 = Buf1;
-                v67 = v76;
-                v68 = v77;
-                v69 = v78;
-                v71 = 265;
-                goto LABEL_17;
-              default:
-                break;
-            }
-          }
-          if ( *(_BYTE *)(v9 + 4) )
-          {
-            ExpressionTypeChannelCount = GetExpressionTypeChannelCount(v13);
-            while ( 1 )
-            {
-              if ( *(_DWORD *)v9 == 1 )
-              {
-                LOBYTE(v15) = 2 * (v15 - v16);
-                LODWORD(v12) = v15 - 2;
-                LODWORD(v18) = (*(unsigned __int8 *)(v9 + 8) >> (v15 - 2)) & 3;
-              }
-              else if ( *(_DWORD *)v9 == 2 )
-              {
-                LODWORD(v12) = 4 * ((unsigned __int8)v15 - v16) - 4;
-                v18 = (*(_QWORD *)(v9 + 8) >> (4 * ((unsigned __int8)v15 - (unsigned __int8)v16) - 4)) & 0xFLL;
-              }
-              else
-              {
-                LODWORD(v18) = -1;
-              }
-              if ( (unsigned int)v18 >= ExpressionTypeChannelCount || (unsigned int)v18 >= 0x10 )
-                break;
-              v19 = v16++;
-              LODWORD(v12) = v18;
-              *((_DWORD *)&v66 + (unsigned int)v18) = *((_DWORD *)this + v19 + 18);
-              LODWORD(v19) = *(unsigned __int8 *)(v9 + 4);
-              v15 = (unsigned __int8)v19;
-              if ( v16 >= (unsigned int)v19 )
-                goto LABEL_25;
-            }
-            v8 = -2147467259;
-            v61 = 2065;
-            goto LABEL_125;
-          }
-LABEL_25:
-          if ( !(unsigned __int8)CExpressionValue::operator==(&v66)
-            || (*(unsigned __int8 (__fastcall **)(struct CResource *))(*(_QWORD *)a2 + 128LL))(a2) )
-          {
-            if ( v71 == 11 )
-              v46 = v70;
-            else
-              v46 = &v66;
-            v47 = (*(__int64 (__fastcall **)(struct CResource *, _QWORD, _QWORD, __int128 *))(*(_QWORD *)a2 + 96LL))(
-                    a2,
-                    *((unsigned int *)this + 48),
-                    v71,
-                    v46);
-            v8 = v47;
-            if ( v47 < 0 )
-            {
-              MilInstrumentationCheckHR_MaybeFailFast(v48, 0LL, 0, v47, 0x29Eu, 0LL);
-LABEL_126:
-              Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v70);
-              goto LABEL_7;
-            }
-            v5 = 1;
-            if ( (*((_BYTE *)this + 232) & 4) != 0 )
-            {
-              AnimationLoggingManagerNoRef = CBaseExpression::GetAnimationLoggingManagerNoRef(this);
-              CAnimationLoggingManager::LogDebugPropertyUpdate(
-                AnimationLoggingManagerNoRef,
+        if ( v74 == 11 )
+          v52 = v73;
+        else
+          v52 = v72;
+        v53 = (*(__int64 (__fastcall **)(struct CResource *, _QWORD, _QWORD, _BYTE *))(*(_QWORD *)a2 + 96LL))(
                 a2,
-                2LL,
-                *((_QWORD *)this + 21),
-                *((_DWORD *)this + 53),
-                *((_DWORD *)this + 52),
-                *((_DWORD *)this + 48),
-                *((_QWORD *)this + 25),
-                &v66);
-            }
-          }
-          v20 = v70;
-          if ( v70 )
+                *(unsigned int *)(this + 184),
+                v74,
+                v52);
+        v10 = v53;
+        if ( v53 >= 0 )
+        {
+          v7 = 1;
+          if ( (*(_BYTE *)(this + 208) & 0x40) != 0 )
           {
-            v70 = 0LL;
-            (*(void (__fastcall **)(__int128 *))(*(_QWORD *)v20 + 16LL))(v20);
+            AnimationLoggingManagerNoRef = CBaseExpression::GetAnimationLoggingManagerNoRef((CBaseExpression *)this);
+            v64 = *(_DWORD *)(this + 204);
+            CAnimationLoggingManager::LogDebugPropertyUpdate(
+              AnimationLoggingManagerNoRef,
+              a2,
+              2LL,
+              *(_QWORD *)(this + 160));
           }
-          if ( !v5 )
+LABEL_93:
+          v55 = v73;
+          if ( v73 )
           {
-LABEL_6:
-            v8 = 0;
-            goto LABEL_7;
+            v73 = 0LL;
+            (*(void (__fastcall **)(_BYTE *))(*(_QWORD *)v55 + 16LL))(v55);
           }
-LABEL_36:
-          if ( !(*(unsigned __int8 (__fastcall **)(CBaseExpression *, __int64))(*(_QWORD *)this + 56LL))(this, 92LL) )
+          if ( !v7 )
             goto LABEL_6;
-          v25 = *((_QWORD *)this + 6);
-          if ( !v25 )
+LABEL_15:
+          *(_QWORD *)&v69 = this >> 8;
+          if ( !(*(unsigned __int8 (__fastcall **)(unsigned __int64, __int64))(*(_QWORD *)this + 56LL))(this, 90LL) )
             goto LABEL_6;
-          v26 = *(_QWORD *)(v25 + 64);
-          if ( !v26 )
+          v17 = *(_QWORD *)(this + 48);
+          if ( !v17 )
             goto LABEL_6;
-          *(_QWORD *)&v73 = this;
-          v27 = 0LL;
+          v18 = *(_QWORD *)(v17 + 56);
+          v67 = v18;
+          if ( !v18 )
+            goto LABEL_6;
+          v19 = 0LL;
+          v68[0] = this;
+          v66 = 0LL;
           if ( this )
           {
-            v24 = *(_QWORD *)(v26 + 104);
-            v28 = *(_QWORD *)(v26 + 120);
-            v29 = *(_QWORD *)(v28
-                            + 16
-                            * ((0x100000001B3LL
-                              * (BYTE7(v65) ^ (0x100000001B3LL
-                                             * (BYTE6(v65) ^ (0x100000001B3LL
-                                                            * (BYTE5(v65) ^ (0x100000001B3LL
-                                                                           * (BYTE4(v65) ^ (0x100000001B3LL
-                                                                                          * (BYTE3(v65) ^ (0x100000001B3LL * (BYTE2(v65) ^ (0x100000001B3LL * (BYTE1(v65) ^ (0x100000001B3LL * ((unsigned __int8)this ^ 0xCBF29CE484222325uLL)))))))))))))))) & *(_QWORD *)(v26 + 144))
-                            + 8);
-            if ( v29 == v24 )
+            v20 = *(_QWORD **)(v18 + 96);
+            v21 = *(_QWORD *)(v18 + 112);
+            v22 = 16
+                * ((0x100000001B3LL
+                  * (HIBYTE(this) ^ (0x100000001B3LL
+                                   * (BYTE6(this) ^ (0x100000001B3LL
+                                                   * (BYTE5(this) ^ (0x100000001B3LL
+                                                                   * (BYTE4(this) ^ (0x100000001B3LL
+                                                                                   * (BYTE3(this) ^ (0x100000001B3LL * (BYTE2(this) ^ (0x100000001B3LL * ((unsigned __int8)v69 ^ (0x100000001B3LL * ((unsigned __int8)this ^ 0xCBF29CE484222325uLL)))))))))))))))) & *(_QWORD *)(v18 + 136));
+            v23 = *(_QWORD **)(v21 + v22);
+            v24 = v21 + v22;
+            for ( i = v23; ; i = (_QWORD *)*i )
             {
-LABEL_87:
-              v29 = 0LL;
+              v26 = v23 == v20 ? *(_QWORD **)(v18 + 96) : **(_QWORD ***)(v24 + 8);
+              if ( i == v26 )
+                break;
+              if ( i[2] == this )
+                goto LABEL_25;
+            }
+            i = *(_QWORD **)(v18 + 96);
+LABEL_25:
+            if ( i != v20 )
+            {
+              v19 = (__int64)(i + 3);
+              v66 = (__int64)(i + 3);
+            }
+          }
+          if ( !v19 )
+          {
+            std::unordered_map<CResource *,CAnimationLoggingManager::ResourceDebugInfo>::_Try_emplace<CResource * const &,>(
+              (_QWORD *)(v18 + 88),
+              (__int64)&v69,
+              v68);
+            v18 = v67;
+            v19 = v69 + 24;
+            v66 = v69 + 24;
+            ++*(_DWORD *)(v67 + 184);
+            *(_DWORD *)v19 = *(_DWORD *)(v18 + 184);
+            *(_DWORD *)(v68[0] + 32LL) |= 0x10u;
+          }
+          v27 = word_1802CE8C0;
+          if ( *(_QWORD *)(v19 + 24) )
+          {
+            v27 = (wchar_t *)(v19 + 8);
+            if ( *(_QWORD *)(v19 + 32) >= 8uLL )
+              v27 = *(wchar_t **)v27;
+          }
+          if ( !*v27 )
+          {
+            if ( !*(_QWORD *)(v18 + 168) )
+              goto LABEL_65;
+            v27 = (wchar_t *)(v18 + 152);
+            if ( *(_QWORD *)(v18 + 176) >= 8uLL )
+              v27 = *(wchar_t **)v27;
+            if ( !*v27 )
+            {
+LABEL_65:
+              v47 = anonymous_namespace_::SynthesizeDescription((__int64)&v70, this, v19);
+              v27 = (wchar_t *)(v66 + 8);
+              if ( v66 + 8 != v47 )
+              {
+                std::wstring::_Tidy_deallocate((_QWORD *)(v66 + 8));
+                *(_OWORD *)v27 = *(_OWORD *)v47;
+                *(_OWORD *)(v66 + 24) = *(_OWORD *)(v47 + 16);
+                *(_QWORD *)(v47 + 16) = 0LL;
+                *(_QWORD *)(v47 + 24) = 7LL;
+                *(_WORD *)v47 = 0;
+              }
+              std::wstring::_Tidy_deallocate(&v70);
+              if ( *(_QWORD *)(v66 + 32) >= 8uLL )
+                v27 = *(wchar_t **)v27;
+              v19 = v66;
+              v18 = v67;
+            }
+          }
+          v28 = *(_DWORD *)v19;
+          v29 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v18 + 168LL))(v18);
+          DWORD2(v69) = v28;
+          LOBYTE(v30) = 1;
+          v71 = 0LL;
+          v31 = *(_QWORD *)(v29 + 16);
+          *(_QWORD *)&v69 = v31;
+          v32 = *((_QWORD *)qword_180347460 + 5);
+          v70 = v69;
+          v33 = *(_QWORD **)(v32 + 144);
+          v34 = v33;
+          v35 = (__int64 *)v33[1];
+          while ( !*((_BYTE *)v35 + 25) )
+          {
+            v34 = v35;
+            if ( v31 >= v35[4] || v28 >= *((_DWORD *)v35 + 10) )
+            {
+              v35 = (__int64 *)v35[2];
+              LOBYTE(v30) = 0;
             }
             else
             {
-              v30 = *(_QWORD *)(v28
-                              + 16
-                              * ((0x100000001B3LL
-                                * (BYTE7(v65) ^ (0x100000001B3LL
-                                               * (BYTE6(v65) ^ (0x100000001B3LL
-                                                              * (BYTE5(v65) ^ (0x100000001B3LL
-                                                                             * (BYTE4(v65) ^ (0x100000001B3LL
-                                                                                            * (BYTE3(v65) ^ (0x100000001B3LL * (BYTE2(v65) ^ (0x100000001B3LL * (BYTE1(v65) ^ (0x100000001B3LL * ((unsigned __int8)this ^ 0xCBF29CE484222325uLL)))))))))))))))) & *(_QWORD *)(v26 + 144)));
-              while ( this != *(CBaseExpression **)(v29 + 16) )
-              {
-                if ( v29 == v30 )
-                  goto LABEL_87;
-                v29 = *(_QWORD *)(v29 + 8);
-              }
+              v35 = (__int64 *)*v35;
+              LOBYTE(v30) = 1;
             }
-            if ( !v29 )
-              goto LABEL_81;
-            if ( v29 != v24 )
-              v27 = (int *)(v29 + 24);
           }
+          v36 = v34;
+          if ( (_BYTE)v30 )
+          {
+            if ( v34 == (_QWORD *)*v33 )
+            {
+              LOBYTE(v30) = 1;
+              v45 = (__int64 *)&v69;
+              goto LABEL_98;
+            }
+            if ( *((_BYTE *)v34 + 25) )
+            {
+              v36 = (_QWORD *)v34[2];
+            }
+            else if ( *(_BYTE *)(*v34 + 25LL) )
+            {
+              for ( j = v34[1]; !*(_BYTE *)(j + 25); j = *(_QWORD *)(j + 8) )
+              {
+                if ( v36 != *(_QWORD **)j )
+                  break;
+                v36 = (_QWORD *)j;
+              }
+              if ( !*((_BYTE *)v36 + 25) )
+                v36 = (_QWORD *)j;
+            }
+            else
+            {
+              v36 = (_QWORD *)*v34;
+              for ( k = *(_QWORD *)(*v34 + 16LL); !*(_BYTE *)(k + 25); k = *(_QWORD *)(k + 16) )
+                v36 = (_QWORD *)k;
+            }
+          }
+          if ( v36[4] >= v31 || *((_DWORD *)v36 + 10) >= v28 )
+            goto LABEL_39;
+          v45 = &v67;
+LABEL_98:
+          v36 = *(_QWORD **)std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const___A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const______0___::_Insert_at_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____std::_Not_a_node_tag_(
+                              (int)v32 + 136,
+                              (_DWORD)v45,
+                              v30,
+                              (_DWORD)v34,
+                              (__int64)&v70);
+LABEL_39:
           if ( v27 )
           {
-LABEL_47:
-            v31 = word_18033C310;
-            v32 = (wchar_t **)(v27 + 2);
-            if ( *((_QWORD *)v27 + 3) )
+            v37 = -1LL;
+            do
+              ++v37;
+            while ( v27[v37] );
+            if ( v37 && !v36[6] )
             {
-              v31 = (wchar_t *)(v27 + 2);
-              if ( *((_QWORD *)v27 + 4) >= 8uLL )
-                v31 = *v32;
+              v56 = *((_QWORD *)qword_180347460 + 5);
+              std::wstring::wstring(&v70, (__int64)v27);
+              LOBYTE(v64) = v65;
+              std::_Tree<std::_Tset_traits<std::wstring,std::less<std::wstring>,std::allocator<std::wstring>,0>>::_Insert_nohint<std::wstring,std::_Not_a_node_tag>(
+                v56 + 160,
+                (__int64)v68,
+                v57,
+                (char *)&v70);
+              std::wstring::_Tidy_deallocate(&v70);
+              v36[6] = v68[0] + 32LL;
             }
-            if ( !*v31 )
-            {
-              if ( !*(_QWORD *)(v26 + 176) )
-                goto LABEL_83;
-              v31 = (wchar_t *)(v26 + 160);
-              if ( *(_QWORD *)(v26 + 184) >= 8uLL )
-                v31 = *(wchar_t **)v31;
-              if ( !*v31 )
-              {
-LABEL_83:
-                v50 = anonymous_namespace_::SynthesizeDescription((__int64)&v82, (__int64)this, v24);
-                if ( v32 != (wchar_t **)v50 )
-                {
-                  std::wstring::_Tidy_deallocate((_QWORD *)v27 + 1);
-                  *(_OWORD *)v32 = *(_OWORD *)v50;
-                  *(_OWORD *)(v27 + 6) = *(_OWORD *)(v50 + 16);
-                  *(_QWORD *)(v50 + 16) = 0LL;
-                  *(_QWORD *)(v50 + 24) = 7LL;
-                  *(_WORD *)v50 = 0;
-                }
-                std::wstring::_Tidy_deallocate(&v82);
-                v31 = (wchar_t *)(v27 + 2);
-                if ( *((_QWORD *)v27 + 4) >= 8uLL )
-                  v31 = *v32;
-              }
-            }
-            v33 = *v27;
-            v34 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v26 + 160LL))(v26);
-            v35 = qword_1803E5C88;
-            DWORD2(v65) = v33;
-            v83 = 0LL;
-            v36 = *(_QWORD *)(v34 + 16);
-            v37 = *((_QWORD *)qword_1803E5C88 + 5);
-            *(_QWORD *)&v65 = v36;
-            LODWORD(v63) = 0;
-            v38 = v37 + 144;
-            v39 = *(_QWORD *)(v37 + 144);
-            v82 = v65;
-            v40 = v39;
-            v41 = *(_QWORD *)(v39 + 8);
-            v62 = v41;
-            while ( !*(_BYTE *)(v41 + 25) )
-            {
-              v62 = v41;
-              if ( *(_QWORD *)(v41 + 32) >= v36 || *(_DWORD *)(v41 + 40) >= v33 )
-              {
-                v40 = v41;
-                LODWORD(v63) = 1;
-                v41 = *(_QWORD *)v41;
-              }
-              else
-              {
-                v41 = *(_QWORD *)(v41 + 16);
-                LODWORD(v63) = 0;
-              }
-            }
-            if ( *(_BYTE *)(v40 + 25) || v36 < *(_QWORD *)(v40 + 32) && v33 < *(_DWORD *)(v40 + 40) )
-            {
-              if ( *(_QWORD *)(v37 + 152) == 0x492492492492492LL )
-                goto LABEL_128;
-              v51 = std::_Tree_temp_node_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____void_______::_Tree_temp_node_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____void________std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_____(
-                      &v65,
-                      v37 + 144,
-                      v39,
-                      &v82);
-              v52 = *(_QWORD *)(v51 + 8);
-              *(_QWORD *)(v51 + 8) = 0LL;
-              if ( *((_QWORD *)&v65 + 1) )
-                std::_Deallocate<16,0>(*((_QWORD *)&v65 + 1), 56LL);
-              inserted = std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Insert_node(
-                           v38,
-                           &v62,
-                           v52);
-              v35 = qword_1803E5C88;
-              v40 = inserted;
-            }
-            if ( v31 )
-            {
-              v42 = -1LL;
-              do
-                ++v42;
-              while ( v31[v42] );
-              if ( v42 && !*(_QWORD *)(v40 + 48) )
-              {
-                v56 = v35[5];
-                std::wstring::wstring(&v82, (__int64)v31);
-                v57 = *(_QWORD *)std::_Tree<std::_Tset_traits<std::wstring,std::less<std::wstring>,std::allocator<std::wstring>,0>>::insert<0,0>(
-                                   v56 + 160,
-                                   &v62,
-                                   &v82)
-                    + 32LL;
-                std::wstring::_Tidy_deallocate(&v82);
-                *(_QWORD *)(v40 + 48) = v57;
-              }
-            }
-            v43 = *(_OWORD *)(v40 + 32);
-            v74 = 0;
-            v44 = qword_1803E5B50;
-            DWORD2(v64) = 0;
-            v45 = *(_QWORD *)(qword_1803E5B50 + 8);
-            v73 = v43;
-            *(_QWORD *)&v64 = v45;
-            while ( !*(_BYTE *)(v45 + 25) )
-            {
-              *(_QWORD *)&v64 = v45;
-              if ( *(_QWORD *)(v45 + 32) >= (unsigned __int64)v43 || *(_DWORD *)(v45 + 40) >= DWORD2(v43) )
-              {
-                v44 = v45;
-                DWORD2(v64) = 1;
-                v45 = *(_QWORD *)v45;
-              }
-              else
-              {
-                v45 = *(_QWORD *)(v45 + 16);
-                DWORD2(v64) = 0;
-              }
-            }
-            if ( !*(_BYTE *)(v44 + 25)
-              && ((unsigned __int64)v43 >= *(_QWORD *)(v44 + 32) || DWORD2(v43) >= *(_DWORD *)(v44 + 40)) )
-            {
-              goto LABEL_69;
-            }
-            if ( qword_1803E5B58 != 0x492492492492492LL )
-            {
-              v54 = std::_Tree_temp_node_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______::_Tree_temp_node_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void________std::pair__anonymous_namespace_::AnimationId_unsigned_int___(
-                      &v62,
-                      &qword_1803E5B50,
-                      qword_1803E5B50,
-                      &v73);
-              v55 = *(_QWORD *)(v54 + 8);
-              *(_QWORD *)(v54 + 8) = 0LL;
-              if ( v63 )
-                std::_Deallocate<16,0>(v63, 56LL);
-              v73 = v64;
-              v44 = std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int_____::_Insert_node(
-                      &qword_1803E5B50,
-                      &v73,
-                      v55);
-LABEL_69:
-              ++*(_DWORD *)(v44 + 48);
-              goto LABEL_6;
-            }
-LABEL_128:
-            std::_Xlength_error("map/set too long");
           }
-LABEL_81:
-          v49 = *(_QWORD *)std::_Hash<std::_Umap_traits<CResource *,CAnimationLoggingManager::ResourceDebugInfo,std::_Uhash_compare<CResource *,std::hash<CResource *>,std::equal_to<CResource *>>,std::allocator<std::pair<CResource * const,CAnimationLoggingManager::ResourceDebugInfo>>,0>>::_Try_emplace<CResource * const &,>(
-                             (float *)(v26 + 96),
-                             (__int64)&v64,
-                             (const unsigned __int8 *)&v73);
-          ++*(_DWORD *)(v26 + 192);
-          v27 = (int *)(v49 + 24);
-          *v27 = *(_DWORD *)(v26 + 192);
-          *(_DWORD *)(v73 + 32) |= 0x10u;
-          goto LABEL_47;
+          v38 = qword_1803473E0;
+          v69 = *((_OWORD *)v36 + 2);
+          v39 = std::_Allocate<16,std::_Default_allocate_traits,0>(0x38uLL);
+          v40 = v39;
+          LOBYTE(v41) = 1;
+          *(_OWORD *)(v39 + 32) = v69;
+          *(_DWORD *)(v39 + 48) = 0;
+          *(_QWORD *)v39 = v38;
+          *(_QWORD *)(v39 + 8) = v38;
+          *(_QWORD *)(v39 + 16) = v38;
+          *(_WORD *)(v39 + 24) = 0;
+          v42 = qword_1803473E0;
+          v43 = *(_QWORD *)(qword_1803473E0 + 8);
+          while ( !*(_BYTE *)(v43 + 25) )
+          {
+            v42 = v43;
+            if ( *(_QWORD *)(v39 + 32) >= *(_QWORD *)(v43 + 32) || *(_DWORD *)(v39 + 40) >= *(_DWORD *)(v43 + 40) )
+            {
+              v43 = *(_QWORD *)(v43 + 16);
+              LOBYTE(v41) = 0;
+            }
+            else
+            {
+              v43 = *(_QWORD *)v43;
+              LOBYTE(v41) = 1;
+            }
+          }
+          v44 = v42;
+          if ( !(_BYTE)v41 )
+            goto LABEL_50;
+          if ( v42 != *(_QWORD *)qword_1803473E0 )
+          {
+            if ( *(_BYTE *)(v42 + 25) )
+            {
+              v44 = *(_QWORD *)(v42 + 16);
+            }
+            else if ( *(_BYTE *)(*(_QWORD *)v42 + 25LL) )
+            {
+              for ( m = *(_QWORD *)(v42 + 8); !*(_BYTE *)(m + 25); m = *(_QWORD *)(m + 8) )
+              {
+                if ( v44 != *(_QWORD *)m )
+                  break;
+                v44 = m;
+              }
+              if ( !*(_BYTE *)(v44 + 25) )
+                v44 = m;
+            }
+            else
+            {
+              v44 = *(_QWORD *)v42;
+              for ( n = *(_QWORD *)(*(_QWORD *)v42 + 16LL); !*(_BYTE *)(n + 25); n = *(_QWORD *)(n + 16) )
+                v44 = n;
+            }
+LABEL_50:
+            if ( *(_QWORD *)(v44 + 32) >= *(_QWORD *)(v40 + 32) || *(_DWORD *)(v44 + 40) >= *(_DWORD *)(v40 + 40) )
+            {
+              operator delete((void *)v40);
+              ++*(_DWORD *)(v44 + 48);
+            }
+            else
+            {
+              v58 = std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Insert_at_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void______(
+                      (unsigned int)&unk_1803473D8,
+                      (unsigned int)&v67,
+                      v41,
+                      v42,
+                      v64,
+                      v40);
+              ++*(_DWORD *)(*(_QWORD *)v58 + 48LL);
+            }
+            goto LABEL_6;
+          }
+          LOBYTE(v41) = 1;
+          v46 = std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Insert_at_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void______(
+                  (unsigned int)&unk_1803473D8,
+                  (unsigned int)&v69,
+                  v41,
+                  v42,
+                  v64,
+                  v39);
+          ++*(_DWORD *)(*(_QWORD *)v46 + 48LL);
+LABEL_6:
+          v10 = 0;
+          goto LABEL_7;
         }
-        v61 = 2016;
+        MilInstrumentationCheckHR_MaybeFailFast(v54, 0LL, 0, v53, 0x256u, 0LL);
       }
-      v8 = -2147024809;
-      goto LABEL_125;
-    }
-    if ( (unsigned __int8)CExpressionValue::operator==(&Buf1)
-      && !(*(unsigned __int8 (__fastcall **)(CBaseExpression *))(*(_QWORD *)this + 272LL))(this)
-      && !(*(unsigned __int8 (__fastcall **)(struct CResource *))(*(_QWORD *)a2 + 128LL))(a2) )
-    {
-      goto LABEL_6;
-    }
-    if ( *((_DWORD *)this + 36) == 11 )
-      v21 = (char *)*((_QWORD *)this + 17);
-    else
-      v21 = (char *)this + 72;
-    v22 = (*(__int64 (__fastcall **)(struct CResource *, _QWORD, _QWORD, char *))(*(_QWORD *)a2 + 96LL))(
-            a2,
-            *((unsigned int *)this + 48),
-            *((unsigned int *)this + 38),
-            v21);
-    v8 = v22;
-    if ( v22 >= 0 )
-    {
-      if ( (*((_BYTE *)this + 232) & 4) != 0 )
+      v60 = v73;
+      if ( v73 )
       {
-        v60 = CBaseExpression::GetAnimationLoggingManagerNoRef(this);
-        CAnimationLoggingManager::LogDebugPropertyUpdate(
-          v60,
-          a2,
-          2LL,
-          *((_QWORD *)this + 21),
-          *((_DWORD *)this + 53),
-          *((_DWORD *)this + 52),
-          *((_DWORD *)this + 48),
-          0LL,
-          (char *)this + 72);
+        v73 = 0LL;
+        (*(void (__fastcall **)(_BYTE *))(*(_QWORD *)v60 + 16LL))(v60);
       }
-      goto LABEL_36;
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x27Eu, 0LL);
+    else
+    {
+      if ( (unsigned __int8)CExpressionValue::operator==(Buf1)
+        && !(*(unsigned __int8 (__fastcall **)(unsigned __int64))(*(_QWORD *)this + 272LL))(this)
+        && !(*(unsigned __int8 (__fastcall **)(struct CResource *))(*(_QWORD *)a2 + 136LL))(a2) )
+      {
+        goto LABEL_6;
+      }
+      if ( *(_DWORD *)(this + 136) == 11 )
+        v14 = *(char **)(this + 128);
+      else
+        v14 = (char *)(this + 64);
+      v15 = (*(__int64 (__fastcall **)(struct CResource *, _QWORD, _QWORD, char *))(*(_QWORD *)a2 + 96LL))(
+              a2,
+              *(unsigned int *)(this + 184),
+              *(unsigned int *)(this + 144),
+              v14);
+      v10 = v15;
+      if ( v15 >= 0 )
+      {
+        if ( (*(_BYTE *)(this + 208) & 0x40) != 0 )
+        {
+          v61 = CBaseExpression::GetAnimationLoggingManagerNoRef((CBaseExpression *)this);
+          v64 = *(_DWORD *)(this + 204);
+          CAnimationLoggingManager::LogDebugPropertyUpdate(v61, a2, 2LL, *(_QWORD *)(this + 160));
+        }
+        goto LABEL_15;
+      }
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x236u, 0LL);
+    }
   }
 LABEL_7:
-  v10 = v79;
-  if ( v79 )
+  v12 = v77;
+  if ( v77 )
   {
-    v79 = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 16LL))(v10);
+    v77 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
   }
-  return v8;
+  return v10;
 }

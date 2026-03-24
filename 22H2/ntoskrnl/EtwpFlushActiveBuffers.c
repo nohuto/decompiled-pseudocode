@@ -1,34 +1,35 @@
 /*
- * XREFs of EtwpFlushActiveBuffers @ 0x1406BDE18
+ * XREFs of EtwpFlushActiveBuffers @ 0x1406BC9F0
  * Callers:
- *     EtwpLogger @ 0x140773610 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1406BE4D0 (EtwpLogger.c)
  * Callees:
- *     EtwpLockUnlockBufferList @ 0x1402278E4 (EtwpLockUnlockBufferList.c)
- *     EtwpRequestFlushTimer @ 0x140227AE0 (EtwpRequestFlushTimer.c)
- *     EtwpPrepareDirtyBuffer @ 0x140227BA8 (EtwpPrepareDirtyBuffer.c)
- *     EtwpEnqueueAvailableBuffer @ 0x140227FC8 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpQueryUsedProcessorCount @ 0x140228144 (EtwpQueryUsedProcessorCount.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     EtwpWaitForBufferReferenceCount @ 0x1406BD91C (EtwpWaitForBufferReferenceCount.c)
- *     EtwpFlushBuffer @ 0x1406BD950 (EtwpFlushBuffer.c)
- *     EtwpAdjustFreeBuffers @ 0x1406BDDAC (EtwpAdjustFreeBuffers.c)
- *     EtwpRealtimeSendEmptyMarker @ 0x1407F7B40 (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpRequestFlushTimer @ 0x14025F43C (EtwpRequestFlushTimer.c)
+ *     EtwpQueryUsedProcessorCount @ 0x14032EE60 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpIsSingleStreamLogger @ 0x14032F3D4 (EtwpIsSingleStreamLogger.c)
+ *     EtwpPrepareDirtyBuffer @ 0x14032F3E4 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpLockUnlockBufferList @ 0x14032F7BC (EtwpLockUnlockBufferList.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     EtwpAdjustFreeBuffers @ 0x1406BBB50 (EtwpAdjustFreeBuffers.c)
+ *     EtwpCompleteBuffer @ 0x1406BD8BC (EtwpCompleteBuffer.c)
+ *     EtwpFlushBuffer @ 0x1406BD8DC (EtwpFlushBuffer.c)
+ *     EtwpWaitForBufferReferenceCount @ 0x1406BDA1C (EtwpWaitForBufferReferenceCount.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x140714534 (EtwpRealtimeSendEmptyMarker.c)
  */
 
 __int64 __fastcall EtwpFlushActiveBuffers(unsigned int *a1, int a2)
 {
+  int v2; // r13d
   __int64 *v5; // r15
   int v6; // esi
   __int64 v7; // rax
-  signed int v8; // ebp
-  unsigned __int64 *v9; // r14
-  __int64 v10; // r12
-  _QWORD *v11; // rdx
-  __int64 v12; // rax
-  __int64 v13; // rax
+  int v8; // eax
+  __int64 v9; // rbp
+  unsigned __int64 *v10; // r14
+  __int64 v11; // r12
+  signed __int64 v12; // r8
+  _QWORD *v13; // rdx
   unsigned __int64 v14; // rbx
   unsigned __int32 v15; // eax
   signed __int64 i; // rcx
@@ -39,98 +40,93 @@ __int64 __fastcall EtwpFlushActiveBuffers(unsigned int *a1, int a2)
   _QWORD **v21; // r14
   __int64 v22; // rbx
   __int64 *v23; // rsi
-  __int64 v24; // r10
-  __int64 v25; // r9
-  __int64 v26; // r11
-  __int64 v27; // r8
+  int v24; // r10d
+  int v25; // r11d
+  __int64 v26; // r8
+  __int64 j; // r9
   __int64 v28; // rdx
   __int64 v29; // rcx
   __int64 v30; // rax
-  __int64 v31; // rdx
-  __int64 v32; // rax
-  unsigned int v33; // eax
-  unsigned __int16 v34; // r15
-  unsigned int v35; // ebp
-  _QWORD *v36; // rbx
-  unsigned __int16 v37; // ax
-  unsigned int *v38; // rsi
-  _QWORD *v39; // r13
-  _QWORD *v40; // r14
-  unsigned int v41; // eax
-  unsigned int v42; // ecx
-  unsigned int v43; // r12d
-  char v44; // [rsp+20h] [rbp-158h]
-  unsigned __int16 v45; // [rsp+28h] [rbp-150h]
-  _BYTE v47[256]; // [rsp+40h] [rbp-138h] BYREF
+  int v31; // eax
+  __int64 v32; // rdx
+  __int64 v33; // rax
+  unsigned int v34; // eax
+  unsigned __int16 v35; // r12
+  unsigned int v36; // ebp
+  _QWORD *v37; // rbx
+  unsigned __int16 v38; // ax
+  _QWORD **v39; // rsi
+  _QWORD *v40; // r13
+  _QWORD *v41; // r14
+  unsigned int v42; // eax
+  unsigned int v43; // r15d
+  char v44; // dl
+  __int64 v45; // rcx
+  char v46; // [rsp+20h] [rbp-158h]
+  unsigned __int16 v48; // [rsp+28h] [rbp-150h]
+  _BYTE v49[256]; // [rsp+40h] [rbp-138h] BYREF
 
-  memset(v47, 0, sizeof(v47));
-  if ( !*((_QWORD *)a1 + 100) && !*((_QWORD *)a1 + 45) )
+  v2 = a2;
+  memset(v49, 0, sizeof(v49));
+  if ( !*((_QWORD *)a1 + 102) && !*((_QWORD *)a1 + 47) )
   {
-    if ( a1[52] )
+    if ( a1[56] )
       EtwpRequestFlushTimer((__int64)a1, 0);
     return 259LL;
   }
-  v5 = (__int64 *)v47;
-  v44 = 0;
+  v5 = (__int64 *)v49;
+  v46 = 0;
   v6 = 0;
-  if ( *((_QWORD *)a1 + 132) )
-    v5 = (__int64 *)*((_QWORD *)a1 + 132);
+  if ( *((_QWORD *)a1 + 130) )
+    v5 = (__int64 *)*((_QWORD *)a1 + 130);
   if ( (a1[3] & 0x40000) != 0 )
   {
-    v7 = _InterlockedExchange64((volatile __int64 *)a1 + 16, 0LL);
+    v7 = _InterlockedExchange64((volatile __int64 *)a1 + 18, 0LL);
     if ( v7 )
     {
       *v5 = v7;
       v6 = 1;
     }
-    goto LABEL_39;
+    goto LABEL_36;
   }
   v8 = EtwpQueryUsedProcessorCount((__int64)a1) - 1;
+  v9 = v8;
   if ( v8 >= 0 )
   {
-    v9 = (unsigned __int64 *)v5;
-    v10 = (__int64)v8 << 6;
+    v10 = (unsigned __int64 *)v5;
+    v11 = (__int64)v8 << 6;
     while ( 1 )
     {
-      if ( (a1[3] & 0x10000000) != 0 )
-      {
-        v11 = a1 + 32;
-      }
+      if ( EtwpIsSingleStreamLogger((__int64)a1) )
+        v13 = a1 + 36;
       else
-      {
-        v12 = *((_QWORD *)a1 + 137);
-        if ( v12 == EtwpHostSiloState )
-          v13 = *(_QWORD *)(*(_QWORD *)(KeGetPrcb(v8) + 34472) + 320LL);
-        else
-          v13 = *(_QWORD *)(*(_QWORD *)(v12 + 4144) + v10);
-        v11 = (_QWORD *)(v13 + 8LL * *a1);
-      }
-      v14 = *v11 & 0xFFFFFFFFFFFFFFF0uLL;
+        v13 = (_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 135) + 4136LL) + v11) + 8LL * *a1);
+      v14 = *v13 & 0xFFFFFFFFFFFFFFF0uLL;
       if ( !v14 )
-        goto LABEL_37;
-      if ( a2 )
+        goto LABEL_34;
+      if ( v2 )
         break;
-      v20 = *(_QWORD *)((*v11 & 0xFFFFFFFFFFFFFFF0uLL) + 0x20);
+      v20 = *(_QWORD *)((*v13 & 0xFFFFFFFFFFFFFFF0uLL) + 0x20);
       if ( v20 )
       {
-        *v9 = v20;
-        *(_QWORD *)(v14 + 32) = 0LL;
-LABEL_36:
+        *v10 = v20;
+        *(_QWORD *)(v14 + 32) = v12;
+LABEL_33:
         ++v6;
-        ++v9;
+        ++v10;
       }
-LABEL_37:
-      v10 -= 64LL;
-      if ( --v8 < 0 )
-        goto LABEL_38;
+LABEL_34:
+      v11 -= 64LL;
+      if ( --v9 < 0 )
+        goto LABEL_35;
     }
     v15 = _InterlockedExchangeAdd((volatile signed __int32 *)(v14 + 8), a1[1]);
     if ( v15 <= a1[1] )
       *(_DWORD *)(v14 + 4) = v15;
-    _m_prefetchw(v11);
-    for ( i = *v11; (v14 ^ i) <= 0xF; i = v17 )
+    _m_prefetchw(v13);
+    for ( i = *v13; (v14 ^ i) <= 0xF; i = v17 )
     {
-      v17 = _InterlockedCompareExchange64(v11, 0LL, i);
+      v17 = _InterlockedCompareExchange64(v13, v12, i);
       if ( i == v17 )
         break;
     }
@@ -153,15 +149,15 @@ LABEL_37:
         }
         while ( v19.QuadPart );
       }
-      QuadPart[4].QuadPart = 0LL;
-      v44 = 1;
+      QuadPart[4].QuadPart = v12;
+      v46 = 1;
     }
-    *v9 = v14;
-    goto LABEL_36;
+    *v10 = v14;
+    goto LABEL_33;
   }
-LABEL_38:
+LABEL_35:
   EtwpLockUnlockBufferList((__int64)a1);
-LABEL_39:
+LABEL_36:
   v21 = 0LL;
   if ( v6 > 0 )
   {
@@ -169,99 +165,99 @@ LABEL_39:
     v23 = &v5[v6 - 1];
     do
     {
-      v24 = 1LL;
-      v25 = 0LL;
-      if ( (unsigned __int64)v22 > 1 )
+      v24 = 1;
+      v25 = 0;
+      v26 = 0LL;
+      for ( j = 1LL; j < v22; v25 = v31 )
       {
-        v26 = 0LL;
-        do
-        {
-          v27 = 8 * v24;
-          v28 = *(_QWORD *)(v5[v24] + 16);
-          v29 = *(_QWORD *)(*(__int64 *)((char *)v5 + v26) + 16);
-          v30 = v24;
-          if ( v28 <= v29 )
-            v30 = v25;
-          ++v24;
-          v25 = v30;
-          if ( v28 <= v29 )
-            v27 = v26;
-          v26 = v27;
-        }
-        while ( v24 < v22 );
+        v28 = *(_QWORD *)(v5[j] + 16);
+        v29 = *(_QWORD *)(v5[v26] + 16);
+        v30 = j;
+        if ( v28 <= v29 )
+          v30 = v26;
+        v26 = v30;
+        v31 = v24;
+        if ( v28 <= v29 )
+          v31 = v25;
+        ++v24;
+        ++j;
       }
-      v31 = v5[v25];
-      v32 = *(_QWORD *)(v31 + 32);
-      v5[v25] = v32;
-      if ( !v32 )
+      v32 = v5[v26];
+      v33 = *(_QWORD *)(v32 + 32);
+      v5[v26] = v33;
+      if ( !v33 )
       {
         --v22;
-        v5[v25] = *v23--;
+        v5[v26] = *v23--;
       }
-      if ( *(int *)(v31 + 12) <= 0
-        && (v33 = *(_DWORD *)(v31 + 4), v33 <= 0x48)
-        && (v33 || *(_DWORD *)(v31 + 8) <= 0x48u) )
+      if ( *(int *)(v32 + 12) <= 0
+        && (v34 = *(_DWORD *)(v32 + 4), v34 <= 0x48)
+        && (v34 || *(_DWORD *)(v32 + 8) <= 0x48u) )
       {
-        *(_WORD *)(v31 + 52) = 0;
-        EtwpEnqueueAvailableBuffer((__int64)a1, (unsigned int *)v31, 0);
+        EtwpCompleteBuffer(a1, v32);
       }
       else
       {
-        *(_QWORD *)(v31 + 32) = v21;
-        v21 = (_QWORD **)(v31 + 32);
+        *(_QWORD *)(v32 + 32) = v21;
+        v21 = (_QWORD **)(v32 + 32);
       }
     }
     while ( v22 > 0 );
+    v2 = a2;
   }
-  v34 = 0;
   v35 = 0;
+  v36 = 0;
   if ( v21 )
   {
-    v36 = *v21;
-    v37 = a2 != 0;
-    v45 = v37;
+    v37 = *v21;
+    v38 = v2 != 0;
+    v48 = v38;
     do
     {
-      v38 = (unsigned int *)(v21 - 4);
-      if ( !v36 )
-        v34 = v37;
+      v39 = v21 - 4;
+      if ( v37 )
+        v38 = v35;
+      v35 = v38;
       EtwpAdjustFreeBuffers((__int64)a1);
-      EtwpWaitForBufferReferenceCount((__int64)(v21 - 4));
+      EtwpWaitForBufferReferenceCount(v21 - 4);
       *v21 = 0LL;
-      v39 = 0LL;
+      v40 = 0LL;
       if ( (a1[3] & 0x40000) != 0 )
       {
-        v39 = (_QWORD *)*((_QWORD *)v38 + 7);
-        v40 = (_QWORD *)*((_QWORD *)v38 + 8);
-        *((_QWORD *)v38 + 7) = 0LL;
-        *((_QWORD *)v38 + 8) = 0LL;
+        v40 = v39[7];
+        v41 = v39[8];
+        v39[7] = 0LL;
+        v39[8] = 0LL;
       }
       else
       {
-        v40 = 0LL;
+        v41 = 0LL;
       }
-      v41 = EtwpFlushBuffer((__int64)a1, v38, v34);
-      v42 = a1[3];
-      v43 = v41;
-      *((_WORD *)v38 + 26) = 0;
-      if ( (v42 & 0x40000) != 0 )
-        ((void (__fastcall *)(_QWORD, unsigned int *, _QWORD *))v39)(v41, v38, v40);
+      v42 = EtwpFlushBuffer(a1, v39, v35);
+      v43 = v42;
+      if ( (a1[3] & 0x40000) != 0 )
+      {
+        *((_WORD *)v39 + 26) = 0;
+        ((void (__fastcall *)(_QWORD, _QWORD **, _QWORD *))v40)(v42, v39, v41);
+      }
       else
-        EtwpEnqueueAvailableBuffer((__int64)a1, v38, 0);
-      v21 = (_QWORD **)v36;
-      if ( v36 )
-        v36 = (_QWORD *)*v36;
-      v37 = v45;
+      {
+        EtwpCompleteBuffer(a1, v39);
+      }
+      v21 = (_QWORD **)v37;
+      if ( v37 )
+        v37 = (_QWORD *)*v37;
+      v38 = v48;
       if ( v43 )
-        v35 = v43;
+        v36 = v43;
     }
     while ( v21 );
-    if ( a1[52] && a2 && ((a1[3] & 0x10000000) == 0 || v44) )
-      EtwpRequestFlushTimer((__int64)a1, 0);
+    if ( a1[56] && a2 && (!EtwpIsSingleStreamLogger((__int64)a1) || v46 != v44) )
+      EtwpRequestFlushTimer(v45, v44);
   }
-  else if ( a2 && (a1[204] & 8) != 0 )
+  else if ( v2 && (a1[208] & 8) != 0 )
   {
     EtwpRealtimeSendEmptyMarker(a1);
   }
-  return v35;
+  return v36;
 }

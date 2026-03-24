@@ -1,9 +1,9 @@
 /*
- * XREFs of SepConcatenatePrivileges @ 0x1407B69F8
+ * XREFs of SepConcatenatePrivileges @ 0x1405D9AA8
  * Callers:
- *     SeAppendPrivileges @ 0x1407B6990 (SeAppendPrivileges.c)
+ *     SeAppendPrivileges @ 0x1405D9A40 (SeAppendPrivileges.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall SepConcatenatePrivileges(_DWORD *a1, __int64 a2, unsigned int *a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VidMmiSetPriorityForMemoryPages@@YAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAX_K@Z @ 0x1C008A6D8
+ * XREFs of ?VidMmiSetPriorityForMemoryPages@@YAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAX_K@Z @ 0x1C006267C
  * Callers:
- *     ?Reset@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@E@Z @ 0x1C008A838 (-Reset@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@E@Z.c)
- *     ?ResetBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0091B3C (-ResetBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?Reset@VIDMM_PROCESS_HEAP@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEAXE@Z @ 0x1C0104EC0 (-Reset@VIDMM_PROCESS_HEAP@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEAXE@Z.c)
+ *     ?Reset@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@E@Z @ 0x1C00624B8 (-Reset@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@E@Z.c)
+ *     ?ResetBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00640AC (-ResetBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?Reset@VIDMM_PROCESS_HEAP@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEAXE@Z @ 0x1C00CC190 (-Reset@VIDMM_PROCESS_HEAP@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEAXE@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,32 +12,44 @@ void __fastcall VidMmiSetPriorityForMemoryPages(struct _VIDMM_GLOBAL_ALLOC *a1, 
 {
   int v6; // ecx
   int v7; // eax
-  _QWORD v8[3]; // [rsp+30h] [rbp-18h] BYREF
-  int v9; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rbp
+  _QWORD *v11; // rax
+  _QWORD v12[3]; // [rsp+30h] [rbp-18h] BYREF
+  int v13; // [rsp+50h] [rbp+8h] BYREF
 
-  v8[0] = a2;
-  v8[1] = a3;
-  v9 = 4;
-  if ( a1 && *(_WORD *)(*((_QWORD *)a1 + 67) + 4LL) == 3 )
+  v12[1] = a3;
+  v12[0] = a2;
+  v13 = 4;
+  if ( a1 && *(_WORD *)(*((_QWORD *)a1 + 62) + 4LL) == 3 )
   {
-    v6 = *((_DWORD *)a1 + 114) - 1;
+    v6 = *((_DWORD *)a1 + 106) - 1;
     if ( v6 )
     {
       if ( v6 == 2 )
-        v9 = 5;
+        v13 = 5;
     }
     else
     {
-      v9 = 3;
+      v13 = 3;
     }
   }
   v7 = ((__int64 (__fastcall *)(__int64, __int64, __int64, _QWORD *, int *, int))ZwSetInformationVirtualMemory)(
          -1LL,
          1LL,
          1LL,
-         v8,
-         &v9,
+         v12,
+         &v13,
          4);
+  v10 = v7;
   if ( v7 < 0 )
-    WdLogSingleEntry4(3LL, a1, a2, a3, v7);
+  {
+    v11 = (_QWORD *)WdLogNewEntry5_WdWarning(v9, v8);
+    v11[3] = a1;
+    v11[4] = a2;
+    v11[5] = a3;
+    v11[6] = v10;
+    WdLogEvent5_WdWarning(v11);
+  }
 }

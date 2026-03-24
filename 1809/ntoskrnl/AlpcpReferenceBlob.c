@@ -16,13 +16,13 @@
  *     AlpcpCreateSection @ 0x14061AF74 (AlpcpCreateSection.c)
  *     AlpcpReceiveMessagePort @ 0x140632980 (AlpcpReceiveMessagePort.c)
  *     AlpcpExposeAttributes @ 0x140633190 (AlpcpExposeAttributes.c)
- *     AlpcpCreateReserve @ 0x1406A3FD8 (AlpcpCreateReserve.c)
- *     AlpcpExposeViewAttribute @ 0x1406A557C (AlpcpExposeViewAttribute.c)
- *     AlpcpViewSearchCallbackFunction @ 0x1406A75EC (AlpcpViewSearchCallbackFunction.c)
- *     AlpcpFlushMessagesByRequestor @ 0x1406BEE50 (AlpcpFlushMessagesByRequestor.c)
- *     AlpcpReferenceMessageByWaitingThreadPortQueue @ 0x14084B560 (AlpcpReferenceMessageByWaitingThreadPortQueue.c)
+ *     AlpcpCreateReserve @ 0x1406A3FB8 (AlpcpCreateReserve.c)
+ *     AlpcpExposeViewAttribute @ 0x1406A555C (AlpcpExposeViewAttribute.c)
+ *     AlpcpViewSearchCallbackFunction @ 0x1406A75CC (AlpcpViewSearchCallbackFunction.c)
+ *     AlpcpFlushMessagesByRequestor @ 0x1406BEE30 (AlpcpFlushMessagesByRequestor.c)
+ *     AlpcpReferenceMessageByWaitingThreadPortQueue @ 0x14084B540 (AlpcpReferenceMessageByWaitingThreadPortQueue.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall AlpcpReferenceBlob(ULONG_PTR BugCheckParameter2)

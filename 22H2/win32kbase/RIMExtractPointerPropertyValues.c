@@ -1,291 +1,188 @@
 /*
- * XREFs of RIMExtractPointerPropertyValues @ 0x1C0188240
+ * XREFs of RIMExtractPointerPropertyValues @ 0x1C015D200
  * Callers:
- *     ?GetPointerRawData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KGIPEBUtagPOINTER_DEVICE_PROPERTY@@PEAJ@Z @ 0x1C01CA7AC (-GetPointerRawData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KGIPEBUtagPOINTER_DEVICE_PROPER.c)
+ *     ?GetPointerRawData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KGIPEBUtagPOINTER_DEVICE_PROPERTY@@PEAJ@Z @ 0x1C0194888 (-GetPointerRawData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@KGIPEBUtagPOINTER_DEVICE_PROPER.c)
  * Callees:
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     rimHidP_GetUsageValue @ 0x1C00E0DCA (rimHidP_GetUsageValue.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
- *     rimHidP_GetSpecificValueCaps @ 0x1C01852B0 (rimHidP_GetSpecificValueCaps.c)
- *     rimHidP_GetUsagesEx @ 0x1C0185354 (rimHidP_GetUsagesEx.c)
- *     GetPreparsedData @ 0x1C01857E8 (GetPreparsedData.c)
- *     SignExtendLong @ 0x1C018E264 (SignExtendLong.c)
+ *     Win32AllocPoolZInit @ 0x1C00298B0 (Win32AllocPoolZInit.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     GetPreparsedData @ 0x1C015B0AC (GetPreparsedData.c)
+ *     SignExtendLong @ 0x1C0160C44 (SignExtendLong.c)
+ *     rimHidP_GetSpecificValueCaps @ 0x1C0163548 (rimHidP_GetSpecificValueCaps.c)
+ *     rimHidP_GetUsageValue @ 0x1C016359C (rimHidP_GetUsageValue.c)
  */
 
 __int64 __fastcall RIMExtractPointerPropertyValues(
         __int64 a1,
         unsigned __int16 a2,
-        int a3,
-        unsigned __int8 *a4,
+        unsigned int a3,
+        char *a4,
         unsigned int a5,
         __int64 a6,
         __int64 a7)
 {
-  unsigned __int16 v7; // r12
-  unsigned int v9; // r15d
-  unsigned int v10; // ebx
-  unsigned __int64 v11; // rdi
-  NSInstrumentation::CLeakTrackingAllocator *v12; // rsi
-  int v13; // eax
-  __int64 Pool2; // rdi
-  _QWORD *v15; // rax
-  char v16; // r10
-  unsigned int v17; // r11d
-  char v18; // r14
-  unsigned int v20; // esi
-  unsigned __int16 v21; // r14
-  __int64 v22; // r12
+  unsigned __int16 v7; // r13
+  unsigned int v9; // ebx
+  int v10; // edi
+  struct _USAGE_AND_PAGE *v11; // rsi
+  unsigned int v13; // r15d
+  __int64 v14; // r13
   int SpecificValueCaps; // eax
-  __int64 v24; // rcx
-  __int64 v25; // r10
-  int v26; // eax
-  __int64 v27; // rdx
-  _DWORD *v28; // r15
-  __int64 v29; // r8
-  unsigned int v30; // ecx
-  __int16 v32; // [rsp+44h] [rbp-1F4h] BYREF
-  int v33; // [rsp+48h] [rbp-1F0h]
-  unsigned int v34; // [rsp+50h] [rbp-1E8h] BYREF
-  unsigned __int16 v35; // [rsp+58h] [rbp-1E0h]
-  int v36; // [rsp+5Ch] [rbp-1DCh]
-  int UsageValue; // [rsp+60h] [rbp-1D8h]
-  int v38; // [rsp+64h] [rbp-1D4h]
-  unsigned int v39; // [rsp+68h] [rbp-1D0h] BYREF
-  __int64 v40; // [rsp+70h] [rbp-1C8h] BYREF
-  int v41; // [rsp+78h] [rbp-1C0h]
-  int v42; // [rsp+7Ch] [rbp-1BCh]
-  int v43; // [rsp+80h] [rbp-1B8h]
-  unsigned int v44; // [rsp+90h] [rbp-1A8h]
-  unsigned __int64 v45; // [rsp+98h] [rbp-1A0h] BYREF
-  unsigned __int8 *v46; // [rsp+A0h] [rbp-198h]
-  __int64 v47; // [rsp+A8h] [rbp-190h]
-  __int64 v48; // [rsp+B0h] [rbp-188h]
-  __int64 v49; // [rsp+B8h] [rbp-180h] BYREF
-  _QWORD v50[4]; // [rsp+C0h] [rbp-178h] BYREF
-  _QWORD v51[4]; // [rsp+E0h] [rbp-158h] BYREF
-  PVOID BackTrace[20]; // [rsp+100h] [rbp-138h] BYREF
-  _DWORD v53[20]; // [rsp+1A0h] [rbp-98h] BYREF
+  __int64 v16; // r10
+  int v17; // eax
+  __int64 v18; // rdx
+  int v19; // r8d
+  _DWORD *v20; // r13
+  __int64 v21; // r8
+  __int64 v22; // r9
+  int Usages; // eax
+  unsigned int v24; // ecx
+  unsigned __int16 v26; // [rsp+44h] [rbp-124h]
+  __int16 v27; // [rsp+4Ch] [rbp-11Ch] BYREF
+  int v28; // [rsp+50h] [rbp-118h]
+  unsigned int v29; // [rsp+54h] [rbp-114h]
+  int v30; // [rsp+58h] [rbp-110h]
+  unsigned int v31; // [rsp+5Ch] [rbp-10Ch] BYREF
+  struct _HIDP_PREPARSED_DATA *v32; // [rsp+60h] [rbp-108h] BYREF
+  int v33; // [rsp+68h] [rbp-100h]
+  unsigned int v34; // [rsp+6Ch] [rbp-FCh]
+  int v35; // [rsp+70h] [rbp-F8h]
+  unsigned int v36; // [rsp+80h] [rbp-E8h]
+  char *v37; // [rsp+88h] [rbp-E0h]
+  __int64 v38; // [rsp+90h] [rbp-D8h]
+  __int64 v39; // [rsp+98h] [rbp-D0h]
+  __int64 v40; // [rsp+A8h] [rbp-C0h]
+  struct _USAGE_AND_PAGE *v41; // [rsp+B0h] [rbp-B8h]
+  __int64 v42; // [rsp+B8h] [rbp-B0h]
+  _DWORD v43[20]; // [rsp+D0h] [rbp-98h] BYREF
 
-  v46 = a4;
-  v36 = a3;
+  v37 = a4;
+  v29 = a3;
   v7 = a2;
-  v9 = a5;
-  v44 = a5;
-  v47 = a6;
-  v48 = a7;
+  v36 = a5;
+  v38 = a6;
+  v39 = a7;
+  v9 = 0;
+  v32 = 0LL;
   v10 = 0;
-  v40 = 0LL;
-  v33 = 0;
-  v38 = 0;
-  memset(v53, 0, 0x48uLL);
-  v32 = 1;
+  v28 = 0;
+  v30 = 0;
+  memset(v43, 0, 0x48uLL);
+  v27 = 1;
   if ( !a5 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 3747);
+  if ( a1 )
   {
-    v34 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 3981);
-  }
-  if ( !a1 || a5 > *(_DWORD *)(a1 + 384) )
-    goto LABEL_60;
-  v11 = 4LL * *(unsigned int *)(a1 + 1040);
-  v34 = 2020635477;
-  v49 = 260LL;
-  v12 = gpLeakTrackingAllocator;
-  v50[0] = v11;
-  v13 = *(_DWORD *)gpLeakTrackingAllocator;
-  if ( !*(_DWORD *)gpLeakTrackingAllocator )
-  {
-    Pool2 = ExAllocatePool2(260LL, v11, 2020635477LL);
-    if ( Pool2 )
-      _InterlockedIncrement64((volatile signed __int64 *)v12 + 14);
-    goto LABEL_28;
-  }
-  if ( v13 != 1 )
-  {
-    if ( v13 == 2 )
+    if ( a5 <= *(_DWORD *)(a1 + 336) )
     {
-      v45 = 0LL;
-      if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 2020635477, &v45) )
+      v11 = (struct _USAGE_AND_PAGE *)Win32AllocPoolZInit(4LL * *(unsigned int *)(a1 + 984), 2020635477LL);
+      v41 = v11;
+      if ( v11 )
       {
-        v51[0] = &v49;
-        v51[1] = &v34;
-        Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                  (__int64)v12,
-                  (__int64)v51,
-                  v50);
-        goto LABEL_28;
-      }
-      v18 = 0;
-      if ( v11 < 0x1000 || (v11 & 0xFFF) != 0 )
-      {
-        v18 = v16;
-        v11 += 16LL;
-        v50[0] = v11;
-      }
-      Pool2 = ExAllocatePool2(260LL, v11, v17);
-      if ( Pool2 )
-      {
-        _InterlockedIncrement64((volatile signed __int64 *)v12 + 16);
-        NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-        if ( v18 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
+        if ( !(unsigned int)GetPreparsedData(a1, &v32) )
         {
-          if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                 (__int64)v12,
-                 (const void *)Pool2,
-                 v45,
-                 (struct NSInstrumentation::CBackTrace *)BackTrace) )
-          {
-            Pool2 += 16LL;
-            goto LABEL_28;
-          }
+          Win32FreePool((__int64)v11);
+          return 0LL;
         }
-        else if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                    (__int64)v12,
-                    Pool2,
-                    v45,
-                    (struct NSInstrumentation::CBackTrace *)BackTrace) )
+        v31 = *(_DWORD *)(a1 + 984);
+        v13 = 0;
+        v35 = 0;
+        while ( v13 < a5 )
         {
-          goto LABEL_28;
-        }
-        _InterlockedIncrement64((volatile signed __int64 *)v12 + 17);
-        _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-      }
-    }
-    goto LABEL_27;
-  }
-  if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x78707355u)
-    || v11 + 16 < v11 )
-  {
-LABEL_27:
-    Pool2 = 0LL;
-    goto LABEL_28;
-  }
-  v15 = (_QWORD *)ExAllocatePool2(v49 & 0xFFFFFFFFFFFFFFFDuLL, v11 + 16, v34);
-  Pool2 = (__int64)v15;
-  if ( !v15
-    || (_InterlockedIncrement64((volatile signed __int64 *)v12 + 14),
-        *v15 = 2020635477LL,
-        Pool2 = (__int64)(v15 + 2),
-        v15 == (_QWORD *)-16LL) )
-  {
-    NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-      *((NSInstrumentation::CPointerHashTable **)v12 + 1),
-      0x78707355uLL);
-  }
-LABEL_28:
-  v50[2] = Pool2;
-  if ( Pool2 )
-  {
-    if ( !(unsigned int)GetPreparsedData(a1, &v40) )
-    {
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)Pool2);
-      return 0LL;
-    }
-    v39 = *(_DWORD *)(a1 + 1040);
-    v20 = 0;
-    v43 = 0;
-    while ( v20 < v9 )
-    {
-      v21 = v7;
-      v35 = v7;
-      if ( *(_DWORD *)(a1 + 404) == *v46 )
-      {
-        v32 = 1;
-        v22 = 28LL * v20;
-        SpecificValueCaps = rimHidP_GetSpecificValueCaps(
-                              0LL,
-                              *(unsigned __int16 *)(v22 + v47 + 24),
-                              a2,
-                              *(unsigned __int16 *)(v22 + v47 + 26),
-                              (__int64)v53,
-                              (__int64)&v32,
-                              v40);
-        UsageValue = SpecificValueCaps;
-        v25 = v47;
-        if ( *(int *)(v22 + v47 + 4) > 1
-          || (v24 = SpecificValueCaps + 0x80000000, (int)v24 < 0)
-          || SpecificValueCaps == -1072627705 )
-        {
-          v26 = 1;
-          v41 = 1;
-        }
-        else
-        {
-          v26 = 0;
-          v41 = 0;
-        }
-        if ( v26 )
-        {
-          v27 = *(_QWORD *)(a1 + 760);
-          v51[2] = v27;
-          if ( v27 && *(_WORD *)(v27 + 8) && (unsigned __int16)(*(_WORD *)(v22 + v47 + 26) - 48) <= 1u )
+          v26 = v7;
+          if ( *(_DWORD *)(a1 + 356) == (unsigned __int8)*v37 )
           {
-            v21 = *(_WORD *)(*(_QWORD *)(v27 + 24) + 8LL * a2 + 2);
-            v35 = v21;
-          }
-          v28 = (_DWORD *)(v48 + 4LL * v20);
-          UsageValue = rimHidP_GetUsageValue(
-                         0LL,
-                         *(unsigned __int16 *)(v22 + v47 + 24),
-                         v21,
-                         *(unsigned __int16 *)(v22 + v47 + 26),
-                         (__int64)v28,
-                         v40,
-                         (__int64)v46,
-                         v36);
-          if ( UsageValue < 0 )
-          {
-LABEL_58:
-            v9 = a5;
-            break;
-          }
-          if ( v53[10] < 0 )
-            *v28 = SignExtendLong((unsigned int)*v28, HIWORD(v53[4]));
-        }
-        else
-        {
-          v29 = v48;
-          *(_DWORD *)(v48 + 4LL * v20) = 0;
-          if ( !v38 )
-          {
-            UsageValue = rimHidP_GetUsagesEx(v24, a2, Pool2, (__int64)&v39, v40, (__int64)v46, v36);
-            v38 = 1;
-            if ( UsageValue < 0 )
-              goto LABEL_58;
-            v25 = v47;
-            v29 = v48;
-          }
-          v30 = 0;
-          v42 = 0;
-          while ( v30 < v39 )
-          {
-            if ( *(_WORD *)(Pool2 + 4LL * v30 + 2) == *(_WORD *)(v22 + v25 + 24)
-              && *(_WORD *)(Pool2 + 4LL * v30) == *(_WORD *)(v22 + v25 + 26) )
+            v27 = 1;
+            v14 = 28LL * v13;
+            v40 = v14;
+            SpecificValueCaps = rimHidP_GetSpecificValueCaps(
+                                  0,
+                                  *(unsigned __int16 *)(v38 + v14 + 24),
+                                  a2,
+                                  *(unsigned __int16 *)(v38 + v14 + 26),
+                                  (__int64)v43,
+                                  (__int64)&v27,
+                                  (__int64)v32);
+            v16 = v38;
+            if ( *(int *)(v38 + v14 + 4) > 1
+              || (int)(SpecificValueCaps + 0x80000000) < 0
+              || SpecificValueCaps == -1072627705 )
             {
-              *(_DWORD *)(v29 + 4LL * v20) = 1;
+              v17 = 1;
+              v33 = 1;
             }
-            v42 = ++v30;
+            else
+            {
+              v17 = 0;
+              v33 = 0;
+            }
+            if ( v17 )
+            {
+              v18 = *(_QWORD *)(a1 + 712);
+              v42 = v18;
+              if ( v18 && *(_WORD *)(v18 + 8) && (unsigned __int16)(*(_WORD *)(v38 + v14 + 26) - 48) <= 1u )
+                v19 = *(unsigned __int16 *)(*(_QWORD *)(v18 + 24) + 8LL * a2 + 2);
+              else
+                v19 = v26;
+              v20 = (_DWORD *)(v39 + 4LL * v13);
+              if ( (int)rimHidP_GetUsageValue(
+                          0,
+                          *(unsigned __int16 *)(v40 + v38 + 24),
+                          v19,
+                          *(unsigned __int16 *)(v40 + v38 + 26),
+                          (__int64)v20,
+                          (__int64)v32,
+                          (__int64)v37,
+                          v29) < 0 )
+                break;
+              if ( v43[10] < 0 )
+                *v20 = SignExtendLong((unsigned int)*v20, HIWORD(v43[4]));
+            }
+            else
+            {
+              v21 = v13;
+              v22 = v39;
+              *(_DWORD *)(v39 + 4LL * v13) = 0;
+              if ( !v30 )
+              {
+                if ( gpfnHidP_GetUsagesEx )
+                {
+                  Usages = gpfnHidP_GetUsagesEx(HidP_Input, a2, v11, &v31, v32, v37, v29);
+                  v16 = v38;
+                  v21 = v13;
+                  v22 = v39;
+                }
+                else
+                {
+                  Usages = -1073741637;
+                }
+                v30 = 1;
+                if ( Usages < 0 )
+                  break;
+              }
+              v24 = 0;
+              v34 = 0;
+              while ( v24 < v31 )
+              {
+                if ( v11[v24].UsagePage == *(_WORD *)(v16 + v14 + 24) && v11[v24].Usage == *(_WORD *)(v16 + v14 + 26) )
+                  *(_DWORD *)(v22 + 4 * v21) = 1;
+                v34 = ++v24;
+              }
+            }
+            ++v10;
+            v7 = a2;
+            v28 = v10;
           }
+          v35 = ++v13;
         }
-        v7 = a2;
-        v9 = a5;
-        ++v33;
+        Win32FreePool((__int64)v11);
       }
-      v43 = ++v20;
     }
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)Pool2);
   }
-LABEL_60:
-  LOBYTE(v10) = v33 == v9;
-  return v10;
+  LOBYTE(v9) = v10 == a5;
+  return v9;
 }

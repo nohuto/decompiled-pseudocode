@@ -1,13 +1,12 @@
 /*
- * XREFs of IommupHvUnregisterDeviceId @ 0x14052565C
+ * XREFs of IommupHvUnregisterDeviceId @ 0x1404DA2FC
  * Callers:
- *     HalpIommuCreateDevice @ 0x14082AB98 (HalpIommuCreateDevice.c)
- *     HalpIommuDeleteDevice @ 0x1409339FC (HalpIommuDeleteDevice.c)
+ *     HalpIommuDeleteDevice @ 0x140864CA0 (HalpIommuDeleteDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 IommupHvUnregisterDeviceId()
 {
-  return ((__int64 (*)(void))qword_140C62700)();
+  return ((__int64 (*)(void))qword_140C4A368)();
 }

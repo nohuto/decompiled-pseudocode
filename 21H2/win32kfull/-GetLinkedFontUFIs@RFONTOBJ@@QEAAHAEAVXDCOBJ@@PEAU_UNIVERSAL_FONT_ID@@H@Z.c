@@ -1,13 +1,15 @@
 /*
- * XREFs of ?GetLinkedFontUFIs@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C0124A18
+ * XREFs of ?GetLinkedFontUFIs@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C014FEE8
  * Callers:
- *     NtGdiGetLinkedUFIs @ 0x1C0124330 (NtGdiGetLinkedUFIs.c)
+ *     NtGdiGetLinkedUFIs @ 0x1C014FD10 (NtGdiGetLinkedUFIs.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?pGetLinkedFontList@PFEOBJ@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x1C0124BD4 (-pGetLinkedFontList@PFEOBJ@@QEAAPEAU_LIST_ENTRY@@XZ.c)
- *     ?AddUFIToBuffer@RFONTOBJ@@AEAAXPEAVPFE@@AEAPEAU_UNIVERSAL_FONT_ID@@AEAHH@Z @ 0x1C0124BF8 (-AddUFIToBuffer@RFONTOBJ@@AEAAXPEAVPFE@@AEAPEAU_UNIVERSAL_FONT_ID@@AEAHH@Z.c)
- *     ?GetEUDCDefaultFontPFE@RFONTOBJ@@AEAAPEAVPFE@@I@Z @ 0x1C0124C50 (-GetEUDCDefaultFontPFE@RFONTOBJ@@AEAAPEAVPFE@@I@Z.c)
- *     ?bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C02A583C (-bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z.c)
+ *     ?pGetLinkedFontList@PFEOBJ@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x1C0063464 (-pGetLinkedFontList@PFEOBJ@@QEAAPEAU_LIST_ENTRY@@XZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?AddUFIToBuffer@RFONTOBJ@@AEAAXPEAVPFE@@AEAPEAU_UNIVERSAL_FONT_ID@@AEAHH@Z @ 0x1C01152F0 (-AddUFIToBuffer@RFONTOBJ@@AEAAXPEAVPFE@@AEAPEAU_UNIVERSAL_FONT_ID@@AEAHH@Z.c)
+ *     ?GetEUDCDefaultFontPFE@RFONTOBJ@@AEAAPEAVPFE@@I@Z @ 0x1C01501CC (-GetEUDCDefaultFontPFE@RFONTOBJ@@AEAAPEAVPFE@@I@Z.c)
+ *     TraceGreReleaseSemaphore @ 0x1C0165D44 (TraceGreReleaseSemaphore.c)
+ *     ?bIsPerFontEUDC@PFFOBJ@@QEBAHXZ @ 0x1C016D404 (-bIsPerFontEUDC@PFFOBJ@@QEBAHXZ.c)
+ *     ?bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C02A7794 (-bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z.c)
  */
 
 __int64 __fastcall RFONTOBJ::GetLinkedFontUFIs(
@@ -16,133 +18,155 @@ __int64 __fastcall RFONTOBJ::GetLinkedFontUFIs(
         struct _UNIVERSAL_FONT_ID *a3,
         int a4)
 {
-  int v4; // esi
+  int v5; // ebx
   struct _UNIVERSAL_FONT_ID *v6; // rdi
   __int64 v8; // rax
-  __int64 v9; // rcx
-  unsigned int v10; // r15d
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  unsigned int v12; // r13d
   struct _LIST_ENTRY *LinkedFontList; // rax
-  __int64 v12; // r8
-  __int64 v13; // r12
+  __int64 v14; // r8
   struct _LIST_ENTRY *Blink; // rcx
-  __int64 v15; // rcx
-  struct _LIST_ENTRY *i; // rdi
-  struct _LIST_ENTRY *v17; // rax
+  struct _LIST_ENTRY *Flink; // rdx
+  struct PFE *v17; // rdx
   __int64 v18; // rcx
-  struct PFE *EUDCDefaultFontPFE; // rax
-  unsigned int v20; // ebx
-  __int64 v22; // rax
-  struct PFE *Flink; // rdx
-  __int64 v24; // rax
+  int v19; // eax
+  int v20; // ebx
+  __int64 v21; // rax
+  __int64 v22; // r12
+  struct _LIST_ENTRY *v23; // rax
+  struct _LIST_ENTRY *v24; // r14
   struct PFE *v25; // rdx
-  __int64 v26; // rax
-  __int64 v27; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v28; // [rsp+38h] [rbp-8h] BYREF
-  struct _UNIVERSAL_FONT_ID *v29; // [rsp+80h] [rbp+40h] BYREF
-  int v30; // [rsp+88h] [rbp+48h] BYREF
+  __int64 v26; // rcx
+  int v27; // eax
+  unsigned int v28; // ebx
+  __int64 v29; // rax
+  struct PFE *EUDCDefaultFontPFE; // rax
+  __int64 v31; // [rsp+30h] [rbp-20h]
+  __int64 v32; // [rsp+38h] [rbp-18h] BYREF
+  _QWORD v33[2]; // [rsp+40h] [rbp-10h] BYREF
+  struct _UNIVERSAL_FONT_ID *v34; // [rsp+A0h] [rbp+50h] BYREF
+  int v35; // [rsp+A8h] [rbp+58h] BYREF
 
-  v29 = a3;
-  v4 = 0;
-  v30 = 0;
+  v34 = a3;
+  v5 = 0;
   v6 = a3;
+  v35 = 0;
   if ( a4 && !a3 )
     return 0LL;
   v8 = *(_QWORD *)this;
-  if ( !*(_DWORD *)(*(_QWORD *)this + 708LL) )
-    goto LABEL_3;
-  if ( !*(_QWORD *)(v8 + 720) && !RFONTOBJ::bInitSystemTT(this, a2) )
-    return 0LL;
-  *(_DWORD *)(*(_QWORD *)this + 712LL) |= 0x100u;
-  v8 = *(_QWORD *)this;
-LABEL_3:
-  v9 = *(_QWORD *)(v8 + 720);
-  if ( v9 )
+  if ( *(_DWORD *)(*(_QWORD *)this + 708LL) )
   {
-    v4 = 1;
-    v30 = 1;
+    if ( !*(_QWORD *)(v8 + 720) && !RFONTOBJ::bInitSystemTT(this, a2) )
+      return 0LL;
+    *(_DWORD *)(*(_QWORD *)this + 712LL) |= 0x100u;
+    v8 = *(_QWORD *)this;
+  }
+  v10 = *(_QWORD *)(v8 + 720);
+  if ( v10 )
+  {
+    v5 = 1;
+    v35 = 1;
     if ( a4 > 0 )
     {
-      v22 = *(_QWORD *)(v9 + 120);
-      v27 = 0LL;
-      *(_QWORD *)v6 = *(_QWORD *)(v22 + 84);
+      v11 = *(_QWORD *)(v10 + 120);
+      v32 = 0LL;
+      *(_QWORD *)v6 = *(_QWORD *)(v11 + 84);
       v6 = (struct _UNIVERSAL_FONT_ID *)((char *)v6 + 8);
-      v29 = v6;
-      RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v27);
+      v34 = v6;
+      RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v32);
       v8 = *(_QWORD *)this;
     }
   }
-  v10 = *(_DWORD *)(v8 + 844) != 0;
+  v12 = *(_DWORD *)(v8 + 844) != 0;
   GreAcquireSemaphore(ghsemEUDC1);
   ++gcEUDCCount;
-  EtwTraceGreLockReleaseSemaphore(L"ghsemEUDC1", ghsemEUDC1);
+  TraceGreReleaseSemaphore(L"ghsemEUDC1", ghsemEUDC1);
   GreReleaseSemaphoreInternal(ghsemEUDC1);
-  v27 = *(_QWORD *)(*(_QWORD *)this + 120LL);
-  LinkedFontList = PFEOBJ::pGetLinkedFontList((PFEOBJ *)&v27);
-  v13 = 0LL;
+  v32 = *(_QWORD *)(*(_QWORD *)this + 120LL);
+  LinkedFontList = PFEOBJ::pGetLinkedFontList((PFEOBJ *)&v32);
+  v31 = 0LL;
   Blink = LinkedFontList->Blink;
   if ( Blink != LinkedFontList )
   {
-    Flink = (struct PFE *)*((_QWORD *)&Blink[2].Flink + v10);
+    Flink = (struct _LIST_ENTRY *)*((_QWORD *)&Blink[2].Flink + v12);
     if ( !Flink )
-      Flink = (struct PFE *)Blink[2].Flink;
-    if ( (*(_DWORD *)(*(_QWORD *)Flink + 52LL) & 0xA) == 8 )
+      Flink = Blink[2].Flink;
+    v33[0] = Flink->Flink;
+    v31 = 0LL;
+    if ( (unsigned int)PFFOBJ::bIsPerFontEUDC((PFFOBJ *)v33) )
     {
-      RFONTOBJ::AddUFIToBuffer(this, Flink, &v29, &v30, a4);
-      v12 = *(_QWORD *)this;
-      v13 = 1LL;
-      v6 = v29;
-      v4 = v30;
+      RFONTOBJ::AddUFIToBuffer(this, v17, &v34, &v35, a4);
+      v14 = *(_QWORD *)this;
+      v6 = v34;
+      v5 = v35;
+      v31 = 1LL;
     }
   }
-  v15 = *(_QWORD *)(v12 + 728);
-  if ( v15 )
+  v18 = *(_QWORD *)(v14 + 728);
+  if ( v18 )
   {
-    v30 = v4 + 1;
-    if ( v4 < a4 )
+    v19 = v5;
+    v20 = v5 + 1;
+    v35 = v20;
+    if ( v19 < a4 )
     {
-      v24 = *(_QWORD *)(v15 + 120);
-      v28 = 0LL;
-      *(_QWORD *)v6 = *(_QWORD *)(v24 + 84);
-      v29 = (struct _UNIVERSAL_FONT_ID *)((char *)v6 + 8);
-      RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v28);
+      v21 = *(_QWORD *)(v18 + 120);
+      v33[0] = 0LL;
+      *(_QWORD *)v6 = *(_QWORD *)(v21 + 84);
+      v6 = (struct _UNIVERSAL_FONT_ID *)((char *)v6 + 8);
+      v34 = v6;
+      RFONTOBJ::~RFONTOBJ((RFONTOBJ *)v33);
     }
+    v22 = v12;
   }
   else
   {
-    RFONTOBJ::AddUFIToBuffer(this, (struct PFE *)(&gappfeSysEUDC)[v10], &v29, &v30, a4);
+    v22 = v12;
+    RFONTOBJ::AddUFIToBuffer(this, (struct PFE *)(&gappfeSysEUDC)[v12], &v34, &v35, a4);
+    v6 = v34;
+    v20 = v35;
   }
-  for ( i = PFEOBJ::pGetLinkedFontList((PFEOBJ *)&v27)->Flink; ; i = i->Flink )
+  v23 = PFEOBJ::pGetLinkedFontList((PFEOBJ *)&v32);
+  v24 = v23->Flink;
+  if ( v23->Flink != v23 )
   {
-    v17 = PFEOBJ::pGetLinkedFontList((PFEOBJ *)&v27);
-    if ( i == v17 )
-      break;
-    v25 = (struct PFE *)*((_QWORD *)&i[2].Flink + v10);
-    if ( !v25 )
-      v25 = (struct PFE *)i[2].Flink;
-    if ( i != v17->Blink || !v13 )
-      RFONTOBJ::AddUFIToBuffer(this, v25, &v29, &v30, a4);
+    do
+    {
+      v25 = (struct PFE *)*((_QWORD *)&v24[2].Flink + v22);
+      if ( !v25 )
+        v25 = (struct PFE *)v24[2].Flink;
+      if ( v24 != v23->Blink || !v31 )
+        RFONTOBJ::AddUFIToBuffer(this, v25, &v34, &v35, a4);
+      v24 = v24->Flink;
+      v23 = PFEOBJ::pGetLinkedFontList((PFEOBJ *)&v32);
+    }
+    while ( v24 != v23 );
+    v6 = v34;
+    v20 = v35;
   }
   GreAcquireSemaphore(ghsemEUDC1);
   --gcEUDCCount;
-  EtwTraceGreLockReleaseSemaphore(L"ghsemEUDC1", ghsemEUDC1);
+  TraceGreReleaseSemaphore(L"ghsemEUDC1", ghsemEUDC1);
   GreReleaseSemaphoreInternal(ghsemEUDC1);
-  v18 = *(_QWORD *)(*(_QWORD *)this + 736LL);
-  if ( v18 )
+  v26 = *(_QWORD *)(*(_QWORD *)this + 736LL);
+  if ( v26 )
   {
-    v20 = v30 + 1;
-    if ( v30 < a4 )
+    v27 = v20;
+    v28 = v20 + 1;
+    if ( v27 < a4 )
     {
-      v26 = *(_QWORD *)(v18 + 120);
-      v28 = 0LL;
-      *(_QWORD *)v29 = *(_QWORD *)(v26 + 84);
-      RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v28);
+      v29 = *(_QWORD *)(v26 + 120);
+      v33[0] = 0LL;
+      *(_QWORD *)v6 = *(_QWORD *)(v29 + 84);
+      RFONTOBJ::~RFONTOBJ((RFONTOBJ *)v33);
     }
   }
   else
   {
-    EUDCDefaultFontPFE = RFONTOBJ::GetEUDCDefaultFontPFE(this, v10);
-    RFONTOBJ::AddUFIToBuffer(this, EUDCDefaultFontPFE, &v29, &v30, a4);
-    return (unsigned int)v30;
+    EUDCDefaultFontPFE = RFONTOBJ::GetEUDCDefaultFontPFE(this, v12);
+    RFONTOBJ::AddUFIToBuffer(this, EUDCDefaultFontPFE, &v34, &v35, a4);
+    return (unsigned int)v35;
   }
-  return v20;
+  return v28;
 }

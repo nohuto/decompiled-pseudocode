@@ -1,16 +1,16 @@
 /*
- * XREFs of SepSetServerSiloToken @ 0x1409C664C
+ * XREFs of SepSetServerSiloToken @ 0x14091CC64
  * Callers:
- *     SepCopyAnonymousTokenAndSetSilo @ 0x1409C6000 (SepCopyAnonymousTokenAndSetSilo.c)
- *     SepCopyClientTokenAndSetSilo @ 0x1409C61B0 (SepCopyClientTokenAndSetSilo.c)
+ *     SepCopyAnonymousTokenAndSetSilo @ 0x14091C640 (SepCopyAnonymousTokenAndSetSilo.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x14091C7CC (SepCopyClientTokenAndSetSilo.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     SepDeReferenceLogonSessionDirect @ 0x1402D6A98 (SepDeReferenceLogonSessionDirect.c)
- *     SepReferenceLogonSessionSilo @ 0x14066B900 (SepReferenceLogonSessionSilo.c)
- *     SepAddTokenLogonSession @ 0x1409CD320 (SepAddTokenLogonSession.c)
- *     SepRemoveTokenLogonSession @ 0x1409CD6CC (SepRemoveTokenLogonSession.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x14027F814 (SepDeReferenceLogonSessionDirect.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     SepReferenceLogonSessionSilo @ 0x1405DC7FC (SepReferenceLogonSessionSilo.c)
+ *     SepAddTokenLogonSession @ 0x1409236D0 (SepAddTokenLogonSession.c)
+ *     SepRemoveTokenLogonSession @ 0x140923BD0 (SepRemoveTokenLogonSession.c)
  */
 
 __int64 __fastcall SepSetServerSiloToken(__int64 a1, __int64 a2)
@@ -32,17 +32,18 @@ __int64 __fastcall SepSetServerSiloToken(__int64 a1, __int64 a2)
   else
   {
     v5 = SepReferenceLogonSessionSilo((_DWORD *)(a1 + 24), a2, &v8);
-    if ( v5 >= 0 )
-    {
-      if ( HIDWORD(NlsMbOemCodePageTag) )
-        SepRemoveTokenLogonSession(a1);
-      SepDeReferenceLogonSessionDirect(*(_QWORD **)(a1 + 216));
-      *(_QWORD *)(a1 + 216) = v8;
-      if ( HIDWORD(NlsMbOemCodePageTag) )
-        SepAddTokenLogonSession(a1);
-      *(_QWORD *)(a1 + 56) = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
-    }
+    if ( v5 < 0 )
+      goto LABEL_10;
+    if ( SeTokenLeakTracking )
+      SepRemoveTokenLogonSession(a1);
+    SepDeReferenceLogonSessionDirect(*(_QWORD **)(a1 + 216));
+    *(_QWORD *)(a1 + 216) = v8;
+    if ( SeTokenLeakTracking )
+      SepAddTokenLogonSession(a1);
   }
+  if ( v5 >= 0 )
+    *(_QWORD *)(a1 + 56) = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
+LABEL_10:
   _InterlockedOr(v7, 0);
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
   KeLeaveCriticalRegion();

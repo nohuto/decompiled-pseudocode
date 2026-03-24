@@ -1,11 +1,11 @@
 /*
- * XREFs of CcAllocateVacbLevel @ 0x1402F3600
+ * XREFs of CcAllocateVacbLevel @ 0x1402F253C
  * Callers:
- *     CcExtendVacbArray @ 0x1402F2A44 (CcExtendVacbArray.c)
- *     CcSetVacbLargeOffset @ 0x1402F2EB0 (CcSetVacbLargeOffset.c)
+ *     CcSetVacbLargeOffset @ 0x140275A2C (CcSetVacbLargeOffset.c)
+ *     CcExtendVacbArray @ 0x1402F2054 (CcExtendVacbArray.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 _QWORD *__fastcall CcAllocateVacbLevel(__int64 a1, int a2)
@@ -25,7 +25,7 @@ _QWORD *__fastcall CcAllocateVacbLevel(__int64 a1, int a2)
   {
     v2 = *(_QWORD **)a1;
     if ( *(_QWORD *)a1 == a1 )
-      KeBugCheckEx(0x34u, 0x15ECuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+      KeBugCheckEx(0x34u, 0x13AEuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
     v3 = *v2;
     if ( *(_QWORD **)(*v2 + 8LL) != v2 || (v4 = (_QWORD *)v2[1], (_QWORD *)*v4 != v2) )
       __fastfail(3u);

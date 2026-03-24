@@ -1,13 +1,13 @@
 /*
- * XREFs of XilCoreDeviceSlot_FreeResources @ 0x1C0052DE4
+ * XREFs of XilCoreDeviceSlot_FreeResources @ 0x1C00500C4
  * Callers:
- *     XilCoreDeviceSlot_AllocateResources @ 0x1C001CA4C (XilCoreDeviceSlot_AllocateResources.c)
- *     XilDeviceSlot_ReleaseHardware @ 0x1C00383F4 (XilDeviceSlot_ReleaseHardware.c)
+ *     XilCoreDeviceSlot_AllocateResources @ 0x1C00161E8 (XilCoreDeviceSlot_AllocateResources.c)
+ *     XilDeviceSlot_ReleaseHardware @ 0x1C0036934 (XilDeviceSlot_ReleaseHardware.c)
  * Callees:
- *     XilCoreCommonBuffer_ReleaseBuffers @ 0x1C000E878 (XilCoreCommonBuffer_ReleaseBuffers.c)
- *     XilRegister_WriteUlong64 @ 0x1C0014CB8 (XilRegister_WriteUlong64.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
- *     CommonBuffer_ReleaseBuffer @ 0x1C001E7A4 (CommonBuffer_ReleaseBuffer.c)
+ *     XilCoreCommonBuffer_ReleaseBuffers @ 0x1C000A2A0 (XilCoreCommonBuffer_ReleaseBuffers.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     XilRegister_WriteUlong64 @ 0x1C00142E0 (XilRegister_WriteUlong64.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
  */
 
 void __fastcall XilCoreDeviceSlot_FreeResources(__int64 a1)

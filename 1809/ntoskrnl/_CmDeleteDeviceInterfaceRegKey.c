@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmDeleteDeviceInterfaceRegKey @ 0x1408F6920
+ * XREFs of _CmDeleteDeviceInterfaceRegKey @ 0x1408F6900
  * Callers:
- *     PiCMDeleteDeviceInterfaceKey @ 0x1408374D0 (PiCMDeleteDeviceInterfaceKey.c)
- *     _CmDeleteDeviceInterfaceWorker @ 0x1408F6D50 (_CmDeleteDeviceInterfaceWorker.c)
+ *     PiCMDeleteDeviceInterfaceKey @ 0x1408374B0 (PiCMDeleteDeviceInterfaceKey.c)
+ *     _CmDeleteDeviceInterfaceWorker @ 0x1408F6D30 (_CmDeleteDeviceInterfaceWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x1408F6A54 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x1408F6A34 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
  */
 
 __int64 __fastcall CmDeleteDeviceInterfaceRegKey(__int64 a1, __int64 a2, int a3, __int64 a4, char a5)

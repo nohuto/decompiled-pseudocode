@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtUpdateRemappingDestination @ 0x14052DC50
+ * XREFs of IvtUpdateRemappingDestination @ 0x1404E10E0
  * Callers:
  *     <none>
  * Callees:
- *     IvtInvalidateRemappingTableEntries @ 0x14035FBF0 (IvtInvalidateRemappingTableEntries.c)
- *     IvtUpdateExtendedDestination @ 0x14052DBBC (IvtUpdateExtendedDestination.c)
+ *     IvtInvalidateRemappingTableEntries @ 0x1404E06FC (IvtInvalidateRemappingTableEntries.c)
+ *     IvtUpdateExtendedDestination @ 0x1404E0EFC (IvtUpdateExtendedDestination.c)
  */
 
 __int64 __fastcall IvtUpdateRemappingDestination(__int64 a1, char a2, int a3, int a4, int a5)
@@ -13,9 +13,9 @@ __int64 __fastcall IvtUpdateRemappingDestination(__int64 a1, char a2, int a3, in
   __int64 *v9; // rbx
   __int64 updated; // rdx
 
-  for ( i = 0; i < *(_DWORD *)(a1 + 304); ++i )
+  for ( i = 0; i < *(_DWORD *)(a1 + 256); ++i )
   {
-    v9 = (__int64 *)(*(_QWORD *)(a1 + 288) + 16LL * i);
+    v9 = (__int64 *)(*(_QWORD *)(a1 + 240) + 16LL * i);
     if ( (*v9 & 1) != 0 && (!a2 || (*v9 & 0x100) != 0) )
     {
       updated = (unsigned int)IvtUpdateExtendedDestination(HIDWORD(*v9), (*v9 & 4) != 0, a3, a4, a5);

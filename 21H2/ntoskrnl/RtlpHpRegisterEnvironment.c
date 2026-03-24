@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpRegisterEnvironment @ 0x140371C50
+ * XREFs of RtlpHpRegisterEnvironment @ 0x14037BB28
  * Callers:
- *     RtlpHpHeapDestroy @ 0x14036EBE8 (RtlpHpHeapDestroy.c)
- *     RtlpHpHeapCreate @ 0x14036F620 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14037AF24 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapDestroy @ 0x1403898BC (RtlpHpHeapDestroy.c)
  * Callees:
- *     RtlpHpEnvGetHeapManager @ 0x140362B58 (RtlpHpEnvGetHeapManager.c)
- *     RtlpHpVaMgrCtxAllocatorReference @ 0x140371E18 (RtlpHpVaMgrCtxAllocatorReference.c)
- *     RtlpHpVaMgrCtxAllocatorDereference @ 0x140372458 (RtlpHpVaMgrCtxAllocatorDereference.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140309414 (RtlpHpEnvGetHeapManager.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x14037BC10 (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlpHpVaMgrCtxAllocatorDereference @ 0x14038CE10 (RtlpHpVaMgrCtxAllocatorDereference.c)
  */
 
 __int64 __fastcall RtlpHpRegisterEnvironment(__int128 *a1)
@@ -41,7 +41,7 @@ __int64 __fastcall RtlpHpRegisterEnvironment(__int128 *a1)
   if ( v5 )
   {
     v6 = 0x200000LL;
-    if ( BYTE1(v1) == 4 )
+    if ( BYTE1(v1) == 3 )
       v6 = 0x40000000LL;
     v7 = RtlpHpVaMgrCtxAllocatorReference(HeapManager + 88, v11, v6);
     if ( v7 == -1 )

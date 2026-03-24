@@ -1,38 +1,36 @@
 /*
- * XREFs of MmSetCommitReleaseEligibility @ 0x140619ADC
+ * XREFs of MmSetCommitReleaseEligibility @ 0x14052CE6C
  * Callers:
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall MmSetCommitReleaseEligibility(__int64 a1, int a2)
+__int64 __fastcall MmSetCommitReleaseEligibility(__int64 a1, int a2, __int64 a3, _DWORD *a4)
 {
-  int v2; // ebp
-  volatile LONG *SharedVm; // rbx
-  KIRQL v6; // al
-  __int64 v7; // r8
-  __int64 v8; // r9
+  int v4; // ebp
+  LONG *SharedVm; // rbx
+  KIRQL v8; // al
   int v9; // edx
   unsigned int v10; // ebx
   char v11; // dl
-  $115DCDF994C6370D29323EAB0E0C9502 v13; // [rsp+28h] [rbp-50h] BYREF
+  _OWORD v13[3]; // [rsp+28h] [rbp-50h] BYREF
 
-  v2 = 0;
-  memset(&v13, 0, sizeof(v13));
+  v4 = 0;
+  memset(v13, 0, sizeof(v13));
   if ( KeGetCurrentThread()->ApcState.Process != (_KPROCESS *)a1 )
   {
-    v2 = 1;
-    KiStackAttachProcess((_KPROCESS *)a1, 0, (__int64)&v13);
+    v4 = 1;
+    KiStackAttachProcess((_KPROCESS *)a1, 0LL, (__int64)v13, a4);
   }
-  SharedVm = (volatile LONG *)MiGetSharedVm(a1 + 1664);
-  v6 = ExAcquireSpinLockExclusive(SharedVm);
-  *((_DWORD *)SharedVm + 1) = 0;
+  SharedVm = MiGetSharedVm(a1 + 1664);
+  v8 = ExAcquireSpinLockExclusive(SharedVm);
+  SharedVm[1] = 0;
   v9 = *(_DWORD *)(a1 + 1848);
   if ( (*(_DWORD *)(a1 + 1124) & 0x20) != 0 )
   {
@@ -47,8 +45,8 @@ __int64 __fastcall MmSetCommitReleaseEligibility(__int64 a1, int a2)
     *(_BYTE *)(a1 + 1851) = v11;
     v10 = 0;
   }
-  MiUnlockWorkingSetExclusive(a1 + 1664, v6, v7, v8);
-  if ( v2 )
-    KiUnstackDetachProcess(&v13);
+  MiUnlockWorkingSetExclusive(a1 + 1664, v8);
+  if ( v4 )
+    KiUnstackDetachProcess((__int64)v13, 0);
   return v10;
 }

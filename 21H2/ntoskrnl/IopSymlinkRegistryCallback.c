@@ -1,9 +1,9 @@
 /*
- * XREFs of IopSymlinkRegistryCallback @ 0x14085D4A0
+ * XREFs of IopSymlinkRegistryCallback @ 0x1407CDBD0
  * Callers:
- *     IopSymlinkRegistryInitCallback @ 0x1403DA7E0 (IopSymlinkRegistryInitCallback.c)
+ *     IopSymlinkRegistryInitCallback @ 0x1403CBB50 (IopSymlinkRegistryInitCallback.c)
  * Callees:
- *     IopSymlinkQueryEnabledClasses @ 0x14085D4CC (IopSymlinkQueryEnabledClasses.c)
+ *     IopSymlinkQueryEnabledClasses @ 0x1407CDBFC (IopSymlinkQueryEnabledClasses.c)
  */
 
 __int64 IopSymlinkRegistryCallback()

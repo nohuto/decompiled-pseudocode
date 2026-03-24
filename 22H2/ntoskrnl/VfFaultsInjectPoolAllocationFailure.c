@@ -1,20 +1,20 @@
 /*
- * XREFs of VfFaultsInjectPoolAllocationFailure @ 0x140AD6EC8
+ * XREFs of VfFaultsInjectPoolAllocationFailure @ 0x1409DC75C
  * Callers:
- *     VfHandlePoolAlloc @ 0x140AD1FB0 (VfHandlePoolAlloc.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D45E0 (VeAllocatePoolWithTagPriority.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD6FAC (VfFaultsInjectResourceFailure.c)
- *     ViFaultsIsTagTarget @ 0x140AD7B9C (ViFaultsIsTagTarget.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC83C (VfFaultsInjectResourceFailure.c)
+ *     ViFaultsIsTagTarget @ 0x1409DD3CC (ViFaultsIsTagTarget.c)
  */
 
 __int64 __fastcall VfFaultsInjectPoolAllocationFailure(unsigned int a1)
 {
   unsigned __int64 v3; // rdi
   unsigned int IsTagTarget; // ebx
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v8; // eax
@@ -24,29 +24,32 @@ __int64 __fastcall VfFaultsInjectPoolAllocationFailure(unsigned int a1)
     return 0LL;
   if ( !ViFaultsInitialized )
   {
-    ++dword_140D70794;
+    ++dword_140D4A3E4;
     return 0LL;
   }
   if ( ViFaultsDisabled )
   {
-    ++dword_140D707BC;
+    ++dword_140D4A40C;
     return 0LL;
   }
   v3 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
   IsTagTarget = ViFaultsIsTagTarget(a1);
-  KxReleaseSpinLock((volatile signed __int64 *)&ViFaultInjectionLock);
+  KxReleaseSpinLock(&ViFaultInjectionLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v9 = (v8 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v8;
-      if ( v9 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+        v9 = (v8 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v8;
+        if ( v9 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v3);

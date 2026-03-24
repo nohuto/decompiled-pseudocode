@@ -1,28 +1,28 @@
 /*
- * XREFs of HvIsInPlaceBaseBlockValid @ 0x14091D508
+ * XREFs of HvIsInPlaceBaseBlockValid @ 0x140876A74
  * Callers:
- *     HvHiveStartMemoryBacked @ 0x14068F7C4 (HvHiveStartMemoryBacked.c)
+ *     HvHiveStartMemoryBacked @ 0x14076FE14 (HvHiveStartMemoryBacked.c)
  * Callees:
- *     HvpHeaderCheckSum @ 0x140AB41B0 (HvpHeaderCheckSum.c)
+ *     HvpHeaderCheckSum @ 0x1407248A8 (HvpHeaderCheckSum.c)
  */
 
-bool __fastcall HvIsInPlaceBaseBlockValid(_DWORD *a1, __int64 a2, __int64 a3)
+bool __fastcall HvIsInPlaceBaseBlockValid(_DWORD *a1)
 {
-  unsigned int v4; // ecx
-  int v5; // eax
-  __int64 v6; // r9
+  unsigned int v2; // ecx
+  int v3; // eax
+  __int64 v4; // r9
   bool result; // al
 
   result = 0;
   if ( *a1 == 1718052210 && !a1[7] && a1[5] <= 1u && (unsigned int)(a1[6] - 3) <= 3 && a1[8] == 1 )
   {
-    v4 = a1[10];
-    if ( v4 )
+    v2 = a1[10];
+    if ( v2 )
     {
-      if ( (v4 & 0xFFF) == 0 && v4 <= 0x7FFFE000 )
+      if ( (v2 & 0xFFF) == 0 && v2 <= 0x7FFFE000 )
       {
-        v5 = HvpHeaderCheckSum(a1, a2, a3);
-        if ( v5 == *(_DWORD *)(v6 + 508) )
+        v3 = HvpHeaderCheckSum(a1);
+        if ( v3 == *(_DWORD *)(v4 + 508) )
           return 1;
       }
     }

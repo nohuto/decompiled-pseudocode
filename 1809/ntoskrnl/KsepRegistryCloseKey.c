@@ -1,10 +1,10 @@
 /*
- * XREFs of KsepRegistryCloseKey @ 0x1407281A4
+ * XREFs of KsepRegistryCloseKey @ 0x140728184
  * Callers:
  *     KsepMatchInitBiosInfo @ 0x1409AF2B4 (KsepMatchInitBiosInfo.c)
  *     KsepEngineReadFlags @ 0x1409AF4F4 (KsepEngineReadFlags.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  */
 
 NTSTATUS __fastcall KsepRegistryCloseKey(void *a1)

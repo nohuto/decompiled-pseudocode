@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlSidDominates @ 0x1400A9210
+ * XREFs of RtlSidDominates @ 0x1400A9230
  * Callers:
- *     SepMandatorySubProcessToken @ 0x1400D9E74 (SepMandatorySubProcessToken.c)
+ *     SepMandatorySubProcessToken @ 0x1400D9E94 (SepMandatorySubProcessToken.c)
  *     SepValidLabelSubjectContext @ 0x1406096D0 (SepValidLabelSubjectContext.c)
  *     SepAdjustPrivileges @ 0x140609D70 (SepAdjustPrivileges.c)
  *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
  *     SeTokenCanImpersonate @ 0x1406380E0 (SeTokenCanImpersonate.c)
- *     SeIsTokenAssignableToProcess @ 0x1406B9118 (SeIsTokenAssignableToProcess.c)
+ *     SeIsTokenAssignableToProcess @ 0x1406B90F8 (SeIsTokenAssignableToProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
  */
 
 __int64 __fastcall RtlSidDominates(_DWORD *Buf1, _DWORD *Buf2, bool *a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of IoWMIWriteEvent @ 0x14010BDA0
+ * XREFs of IoWMIWriteEvent @ 0x14010BDC0
  * Callers:
- *     PpmFireWmiEvent @ 0x1402E4458 (PpmFireWmiEvent.c)
- *     PpmWmiFireIdleAccountingEvent @ 0x1402E44E0 (PpmWmiFireIdleAccountingEvent.c)
+ *     PpmFireWmiEvent @ 0x1402E4558 (PpmFireWmiEvent.c)
+ *     PpmWmiFireIdleAccountingEvent @ 0x1402E45E0 (PpmWmiFireIdleAccountingEvent.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
  *     WmipDoFindRegEntryByProviderId @ 0x14008DB00 (WmipDoFindRegEntryByProviderId.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     ExInterlockedInsertTailList @ 0x14010BF30 (ExInterlockedInsertTailList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceEvent @ 0x14030E6DC (EtwTraceEvent.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     ExInterlockedInsertTailList @ 0x14010BF50 (ExInterlockedInsertTailList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceEvent @ 0x14030E7DC (EtwTraceEvent.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

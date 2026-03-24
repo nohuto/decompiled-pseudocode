@@ -1,28 +1,28 @@
 /*
- * XREFs of AslRegistryOpenSubKey @ 0x140A54660
+ * XREFs of AslRegistryOpenSubKey @ 0x140967F20
  * Callers:
- *     AslpProcessMatchRegNode @ 0x140A56B50 (AslpProcessMatchRegNode.c)
+ *     AslpProcessMatchRegNode @ 0x14096A1C4 (AslpProcessMatchRegNode.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
  */
 
 NTSTATUS __fastcall AslRegistryOpenSubKey(PHANDLE KeyHandle, void *a2, const WCHAR *a3)
 {
   NTSTATUS inited; // ebx
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
+  UNICODE_STRING v7; // [rsp+30h] [rbp-48h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-38h] BYREF
 
   *KeyHandle = 0LL;
-  *(&ObjectAttributes.Attributes + 1) = 0;
   *(&ObjectAttributes.Length + 1) = 0;
-  DestinationString = 0LL;
-  inited = RtlInitUnicodeStringEx(&DestinationString, a3);
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  v7 = 0LL;
+  inited = RtlInitUnicodeStringEx(&v7, a3);
   if ( inited >= 0 )
   {
     ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.ObjectName = &v7;
     ObjectAttributes.RootDirectory = a2;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

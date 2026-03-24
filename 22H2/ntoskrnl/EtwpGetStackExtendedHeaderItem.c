@@ -1,70 +1,82 @@
 /*
- * XREFs of EtwpGetStackExtendedHeaderItem @ 0x1405FFBCC
+ * XREFs of EtwpGetStackExtendedHeaderItem @ 0x1405A5CD4
  * Callers:
- *     EtwpEventWriteFull @ 0x140258450 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x1406F41F0 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14025D7C0 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140627FE0 (EtwpWriteUserEvent.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x140227780 (RtlWalkFrameChain.c)
- *     EtwpGetStackCaptureSettings @ 0x1404682A4 (EtwpGetStackCaptureSettings.c)
+ *     RtlWalkFrameChain @ 0x14021CE70 (RtlWalkFrameChain.c)
+ *     ObGetCurrentIrql @ 0x14025EDF0 (ObGetCurrentIrql.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
  */
 
-char __fastcall EtwpGetStackExtendedHeaderItem(
-        struct _KTHREAD *a1,
-        char a2,
-        ULONG a3,
-        __int64 a4,
-        char a5,
-        signed __int64 *a6)
+void __fastcall EtwpGetStackExtendedHeaderItem(__int64 a1, char a2, ULONG a3, __int64 a4, char a5, signed __int64 *a6)
 {
-  PVOID *v6; // rsi
-  ULONG v11; // ebx
-  signed __int64 v12; // rdi
-  __int16 v13; // r15
-  ULONG v14; // ebx
-  __int16 v15; // bx
-  char result; // al
-  __int16 v17; // bx
-  _BYTE v18[16]; // [rsp+30h] [rbp-38h] BYREF
-  char v19; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v6; // rdi
+  __int64 v7; // r15
+  __int16 v8; // r13
+  signed __int64 v9; // rbx
+  ULONG v14; // edi
+  unsigned __int8 CurrentIrql; // al
+  int v16; // r14d
+  __int16 v17; // di
+  __int16 v18; // di
 
-  v6 = (PVOID *)(*(_QWORD *)a4 + 16LL);
-  v18[0] = 0;
-  v11 = 0;
-  v19 = 0;
-  v12 = 0LL;
-  v13 = 0;
+  v6 = 0LL;
+  v7 = *(_QWORD *)a4 + 16LL;
+  v8 = 0;
+  v9 = 0LL;
   if ( a5 )
   {
-    v14 = RtlWalkFrameChain(v6, a3, 0x300u);
+    v14 = RtlWalkFrameChain((PVOID *)(*(_QWORD *)a4 + 16LL), a3, 0x300u);
     if ( v14 > 3 )
-      v11 = v14 - 3;
+      v6 = v14 - 3;
     else
-      v11 = 0;
+      v6 = 0LL;
   }
-  EtwpGetStackCaptureSettings(a1, 0, 0, &v19, v18);
-  if ( v19 )
+  if ( (*(_DWORD *)(a1 + 116) & 0x400) == 0 && (*(_DWORD *)(a1 + 1296) & 1) == 0 )
   {
-    if ( v18[0] || (a2 & 1) != 0 )
+    CurrentIrql = ObGetCurrentIrql();
+    if ( CurrentIrql == 2 )
     {
-      v12 = _InterlockedIncrement64(&EtwpStackMatchId);
+      if ( !KeGetCurrentPrcb()->NestingLevel )
+LABEL_15:
+        v9 = _InterlockedIncrement64(&EtwpStackMatchId);
     }
-    else
+    else if ( CurrentIrql < 2u )
     {
-      v13 = RtlWalkFrameChain(&v6[v11], a3 - v11, 1u);
-      if ( a6 )
-        v12 = *a6;
+      if ( *(_BYTE *)(a1 + 1310) )
+        goto LABEL_15;
+      if ( KeGetCurrentThread()->ApcStateIndex == 1 )
+        goto LABEL_15;
+      v16 = a2 & 1;
+      if ( v16 )
+      {
+        if ( KeGetCurrentThread()->WaitBlock[3].SpareLong )
+          goto LABEL_15;
+      }
+      if ( !v16 )
+      {
+        v8 = RtlWalkFrameChain((PVOID *)(v7 + 8 * v6), a3 - v6, 1u);
+        if ( a6 )
+          v9 = *a6;
+      }
     }
   }
-  v15 = v13 + v11;
-  if ( !v15 && !v12 )
-    return 0;
-  v17 = 8 * (v15 + 1);
-  *(_QWORD *)(*(_QWORD *)a4 + 8LL) = v12;
-  result = 1;
-  **(_WORD **)a4 = v17 + 8;
-  *(_WORD *)(*(_QWORD *)a4 + 2LL) = 6;
-  *(_WORD *)(*(_QWORD *)a4 + 6LL) = v17;
-  *(_WORD *)(*(_QWORD *)a4 + 4LL) &= ~1u;
-  *(_WORD *)(*(_QWORD *)a4 + 4LL) &= 1u;
-  return result;
+  v17 = v8 + v6;
+  if ( v17 || v9 )
+  {
+    v18 = 8 * (v17 + 1);
+    *(_QWORD *)(*(_QWORD *)a4 + 8LL) = v9;
+    **(_WORD **)a4 = v18 + 8;
+    *(_WORD *)(*(_QWORD *)a4 + 2LL) = 6;
+    *(_WORD *)(*(_QWORD *)a4 + 6LL) = v18;
+    *(_WORD *)(*(_QWORD *)a4 + 4LL) &= ~1u;
+    *(_WORD *)(*(_QWORD *)a4 + 4LL) &= 1u;
+  }
+  else
+  {
+    if ( a3 == 256 )
+      RtlpInterlockedPushEntrySList(&EtwpStackLookAsideList, (PSLIST_ENTRY)(*(_QWORD *)a4 - 16LL));
+    *(_QWORD *)a4 = 0LL;
+  }
 }

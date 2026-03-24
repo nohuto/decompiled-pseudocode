@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCaptureAndResetWorkingSetAccessBits @ 0x140173B68
+ * XREFs of MiCaptureAndResetWorkingSetAccessBits @ 0x140173B88
  * Callers:
  *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
  * Callees:
  *     MiDrainSystemAccessLog @ 0x14000FF28 (MiDrainSystemAccessLog.c)
  *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiTbFlushType @ 0x1400EDB84 (MiTbFlushType.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiCaptureAndResetWorkingSetAccessBits(__int64 a1, char a2, char a3)

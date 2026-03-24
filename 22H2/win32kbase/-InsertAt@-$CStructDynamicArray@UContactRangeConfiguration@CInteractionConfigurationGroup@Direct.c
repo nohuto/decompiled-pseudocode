@@ -1,19 +1,12 @@
 /*
- * XREFs of ?InsertAt@?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@QEAAJAEBUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@I@Z @ 0x1C00940DC
+ * XREFs of ?InsertAt@?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@QEAAJAEBUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@I@Z @ 0x1C0084B68
  * Callers:
- *     ?UpdateContactCountConfigurationArray@CInteractionConfigurationGroup@DirectComposition@@AEAAJW4Enum@InteractionProperty@@UContactRangeConfiguration@12@PEAV?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@PEA_N@Z @ 0x1C0093A88 (-UpdateContactCountConfigurationArray@CInteractionConfigurationGroup@DirectComposition@@AEAAJW4E.c)
- *     ?SetConfigurationAll@CInteractionConfigurationGroup@DirectComposition@@QEAAJW4Enum@InteractionInputType@@@Z @ 0x1C0093FD8 (-SetConfigurationAll@CInteractionConfigurationGroup@DirectComposition@@QEAAJW4Enum@InteractionIn.c)
+ *     ?SetConfigurationAll@CInteractionConfigurationGroup@DirectComposition@@QEAAJW4Enum@InteractionInputType@@@Z @ 0x1C0084878 (-SetConfigurationAll@CInteractionConfigurationGroup@DirectComposition@@QEAAJW4Enum@InteractionIn.c)
+ *     ?UpdateContactCountConfigurationArray@CInteractionConfigurationGroup@DirectComposition@@AEAAJW4Enum@InteractionProperty@@UContactRangeConfiguration@12@PEAV?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@PEA_N@Z @ 0x1C0084994 (-UpdateContactCountConfigurationArray@CInteractionConfigurationGroup@DirectComposition@@AEAAJW4E.c)
  * Callees:
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     ?Grow@?$CDynamicArray@PEAUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@$0HHHAHDFF@@@IEAAJI@Z @ 0x1C00941D0 (-Grow@-$CDynamicArray@PEAUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposi.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     Win32AllocPoolZInit @ 0x1C00298B0 (Win32AllocPoolZInit.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?Grow@?$CDynamicArray@PEAUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@$0HHHAHDFF@@@IEAAJI@Z @ 0x1C0084C18 (-Grow@-$CDynamicArray@PEAUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposi.c)
  */
 
 __int64 __fastcall CStructDynamicArray<DirectComposition::CInteractionConfigurationGroup::ContactRangeConfiguration>::InsertAt(
@@ -21,128 +14,50 @@ __int64 __fastcall CStructDynamicArray<DirectComposition::CInteractionConfigurat
         __int64 a2,
         unsigned int a3)
 {
-  int v3; // edi
-  __int64 v5; // r15
-  NSInstrumentation::CLeakTrackingAllocator *v7; // rsi
-  int v8; // eax
-  __int64 UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64; // rbx
-  __int64 v10; // r8
-  _QWORD *Pool2; // rax
-  __int64 v13; // r10
-  __int64 v14; // r9
-  __int64 v15; // [rsp+20h] [rbp-99h] BYREF
-  __int64 v16; // [rsp+28h] [rbp-91h] BYREF
-  _QWORD v17[2]; // [rsp+30h] [rbp-89h] BYREF
-  PVOID BackTrace[26]; // [rsp+40h] [rbp-79h] BYREF
-  unsigned int v19; // [rsp+120h] [rbp+67h] BYREF
-  unsigned __int64 v20; // [rsp+138h] [rbp+7Fh] BYREF
+  int v3; // ebx
+  __int64 v5; // rsi
+  _DWORD *v7; // r8
+  __int64 v8; // r9
+  __int64 v10; // r10
 
   v3 = 0;
   v5 = a3;
-  if ( *(_DWORD *)(a1 + 8) == *(_DWORD *)(a1 + 12) )
+  if ( *(_DWORD *)(a1 + 8) != *(_DWORD *)(a1 + 12)
+    || (v3 = CDynamicArray<DirectComposition::CInteractionConfigurationGroup::ContactRangeConfiguration *,2003858261>::Grow(),
+        v3 >= 0) )
   {
-    v3 = CDynamicArray<DirectComposition::CInteractionConfigurationGroup::ContactRangeConfiguration *,2003858261>::Grow();
-    if ( v3 < 0 )
-      return (unsigned int)v3;
-  }
-  if ( *(_DWORD *)(a1 + 8) >= *(_DWORD *)(a1 + 12) )
-    return (unsigned int)-1073741823;
-  v7 = gpLeakTrackingAllocator;
-  v19 = 845431620;
-  v15 = 260LL;
-  v16 = 12LL;
-  v8 = *(_DWORD *)gpLeakTrackingAllocator;
-  if ( *(_DWORD *)gpLeakTrackingAllocator )
-  {
-    if ( v8 != 1 )
+    if ( *(_DWORD *)(a1 + 8) >= *(_DWORD *)(a1 + 12) )
+      v3 = -1073741823;
+    if ( v3 >= 0 )
     {
-      if ( v8 != 2 )
-        return (unsigned int)-1073741801;
-      v20 = 0LL;
-      if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 0x32644344u, &v20) )
+      v7 = Win32AllocPoolZInit(0xCuLL, 1685275460LL);
+      if ( !v7 )
+        v3 = -1073741801;
+      if ( v3 < 0 )
       {
-        v17[0] = &v15;
-        v17[1] = &v19;
-        UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                                                                                           (__int64)v7,
-                                                                                           (__int64)v17,
-                                                                                           &v16);
-        goto LABEL_7;
+        if ( v7 )
+          Win32FreePool((__int64)v7);
       }
-      UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = ExAllocatePool2(
-                                                                                         v13,
-                                                                                         28LL,
-                                                                                         845431620LL);
-      if ( !UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 )
-        return (unsigned int)-1073741801;
-      _InterlockedIncrement64((volatile signed __int64 *)v7 + 16);
-      NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-      if ( (unsigned __int64)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 & 0xFFF)
-         + 16 >= 0x1000 )
+      else
       {
-        if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                v7,
-                                UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64,
-                                v20,
-                                BackTrace) )
-          goto LABEL_8;
+        *(_QWORD *)v7 = *(_QWORD *)a2;
+        v7[2] = *(_DWORD *)(a2 + 8);
+        v8 = *(unsigned int *)(a1 + 8);
+        if ( (unsigned int)v8 > (unsigned int)v5 )
+        {
+          v10 = 8 * v8;
+          do
+          {
+            v8 = (unsigned int)(v8 - 1);
+            *(_QWORD *)(v10 + *(_QWORD *)a1) = *(_QWORD *)(*(_QWORD *)a1 + 8 * v8);
+            v10 -= 8LL;
+          }
+          while ( (unsigned int)v8 > (unsigned int)v5 );
+        }
+        *(_QWORD *)(*(_QWORD *)a1 + 8 * v5) = v7;
+        ++*(_DWORD *)(a1 + 8);
       }
-      else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                   v7,
-                                   UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64,
-                                   v20,
-                                   BackTrace) )
-      {
-        UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 += 16LL;
-        goto LABEL_7;
-      }
-      _InterlockedIncrement64((volatile signed __int64 *)v7 + 17);
-      _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64);
-      return (unsigned int)-1073741801;
-    }
-    if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x32644344u) )
-      return (unsigned int)-1073741801;
-    Pool2 = (_QWORD *)ExAllocatePool2(v15 & 0xFFFFFFFFFFFFFFFDuLL, 28LL, v19);
-    UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = (__int64)Pool2;
-    if ( !Pool2
-      || (_InterlockedIncrement64((volatile signed __int64 *)v7 + 14),
-          *Pool2 = 845431620LL,
-          UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = (__int64)(Pool2 + 2),
-          Pool2 == (_QWORD *)-16LL) )
-    {
-      NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-        *((NSInstrumentation::CPointerHashTable **)v7 + 1),
-        (const void *)0x32644344);
     }
   }
-  else
-  {
-    UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = ExAllocatePool2(
-                                                                                       260LL,
-                                                                                       12LL,
-                                                                                       845431620LL);
-    if ( UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 )
-      _InterlockedIncrement64((volatile signed __int64 *)v7 + 14);
-  }
-LABEL_7:
-  if ( !UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 )
-    return (unsigned int)-1073741801;
-LABEL_8:
-  *(_QWORD *)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = *(_QWORD *)a2;
-  *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 8) = *(_DWORD *)(a2 + 8);
-  v10 = *(unsigned int *)(a1 + 8);
-  if ( (unsigned int)v10 > (unsigned int)v5 )
-  {
-    v14 = 8 * v10;
-    do
-    {
-      v10 = (unsigned int)(v10 - 1);
-      *(_QWORD *)(v14 + *(_QWORD *)a1) = *(_QWORD *)(*(_QWORD *)a1 + 8 * v10);
-      v14 -= 8LL;
-    }
-    while ( (unsigned int)v10 > (unsigned int)v5 );
-  }
-  *(_QWORD *)(*(_QWORD *)a1 + 8 * v5) = UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64;
-  ++*(_DWORD *)(a1 + 8);
   return (unsigned int)v3;
 }

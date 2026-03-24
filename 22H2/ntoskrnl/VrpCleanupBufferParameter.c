@@ -1,10 +1,10 @@
 /*
- * XREFs of VrpCleanupBufferParameter @ 0x14068CC68
+ * XREFs of VrpCleanupBufferParameter @ 0x1405D5748
  * Callers:
- *     VrpPostQueryKey @ 0x14068CA48 (VrpPostQueryKey.c)
- *     VrpPostEnumerateKey @ 0x14077AEC8 (VrpPostEnumerateKey.c)
+ *     VrpPostEnumerateKey @ 0x1405D37A4 (VrpPostEnumerateKey.c)
+ *     VrpPostQueryKey @ 0x1405D551C (VrpPostQueryKey.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpCleanupBufferParameter(char a1, PVOID *a2)

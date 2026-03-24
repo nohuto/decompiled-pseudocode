@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBPSM30_SettingU1TImeOut @ 0x1C0012530
+ * XREFs of HUBPSM30_SettingU1TImeOut @ 0x1C0012030
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_DD @ 0x1C0002204 (WPP_RECORDER_SF_DD.c)
- *     HUBMISC_ControlTransfer @ 0x1C002FA0C (HUBMISC_ControlTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPSM30_SettingU1TImeOut(__int64 a1)
@@ -30,12 +30,12 @@ __int64 __fastcall HUBPSM30_SettingU1TImeOut(__int64 a1)
   {
     v7 = *(unsigned __int8 *)(*(_QWORD *)(v1 + 1328) + 2212LL);
     v5 = *(unsigned __int16 *)(v1 + 200);
-    WPP_RECORDER_SF_DD(
+    WPP_RECORDER_SF_dD(
       *(_QWORD *)(v1 + 1432),
       4u,
       4u,
       0x3Cu,
-      (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+      (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
       v5,
       v7);
   }
@@ -59,7 +59,7 @@ __int64 __fastcall HUBPSM30_SettingU1TImeOut(__int64 a1)
         2u,
         4u,
         0x3Du,
-        (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+        (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
         v6);
     }
     (*(void (__fastcall **)(__int64, __int64))(v1 + 1240))(v1, 3008LL);

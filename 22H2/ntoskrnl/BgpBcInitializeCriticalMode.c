@@ -1,37 +1,37 @@
 /*
- * XREFs of BgpBcInitializeCriticalMode @ 0x140B9D3E8
+ * XREFs of BgpBcInitializeCriticalMode @ 0x140A96A10
  * Callers:
- *     BgpFwLibraryInitialize @ 0x140AEEC38 (BgpFwLibraryInitialize.c)
+ *     BgpFwLibraryInitialize @ 0x1409F29E8 (BgpFwLibraryInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     BcpGetProgressMessages @ 0x140383E30 (BcpGetProgressMessages.c)
- *     BgpFwFreeMemory @ 0x1403852A0 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x14038682C (BgpFwAllocateMemory.c)
- *     BcpGetMaxResourceProfile @ 0x140392F90 (BcpGetMaxResourceProfile.c)
- *     BgpDisplayCharacterGetContext @ 0x140AEF478 (BgpDisplayCharacterGetContext.c)
- *     BgpDisplayCharacterDestroyContext @ 0x140AF02B4 (BgpDisplayCharacterDestroyContext.c)
- *     BcpFindMessage @ 0x140B9D35C (BcpFindMessage.c)
- *     BgpFoDetermineFontInformation @ 0x140B9D9D8 (BgpFoDetermineFontInformation.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     BgpFwFreeMemory @ 0x14039B660 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14039BE84 (BgpFwAllocateMemory.c)
+ *     BcpGetProgressMessages @ 0x1403BC3DC (BcpGetProgressMessages.c)
+ *     BcpGetMaxResourceProfile @ 0x1403BC55C (BcpGetMaxResourceProfile.c)
+ *     BgpDisplayCharacterDestroyContext @ 0x1409F3FBC (BgpDisplayCharacterDestroyContext.c)
+ *     BgpDisplayCharacterGetContext @ 0x1409F4A4C (BgpDisplayCharacterGetContext.c)
+ *     BgpFoDetermineFontInformation @ 0x140A96D5C (BgpFoDetermineFontInformation.c)
+ *     BcpFindMessage @ 0x140A96E2C (BcpFindMessage.c)
  */
 
 __int64 __fastcall BgpBcInitializeCriticalMode(__int64 a1, int a2)
 {
   int v3; // eax
   PCWSTR v4; // rbx
-  unsigned __int16 *Message; // rax
-  unsigned __int16 *v6; // rax
-  unsigned __int16 *v7; // rax
-  unsigned __int16 *v8; // rax
-  unsigned __int16 *v9; // rax
-  unsigned __int16 *v10; // rax
-  unsigned __int16 *v11; // rax
-  unsigned __int16 *v12; // rax
-  unsigned __int16 *v13; // rax
-  unsigned __int16 *v14; // rax
-  unsigned __int16 *v15; // rax
-  unsigned __int16 *v16; // rax
-  unsigned __int16 *v17; // rax
-  unsigned __int16 *v18; // rax
+  const WCHAR *Message; // rax
+  const WCHAR *v6; // rax
+  const WCHAR *v7; // rax
+  const WCHAR *v8; // rax
+  const WCHAR *v9; // rax
+  const WCHAR *v10; // rax
+  const WCHAR *v11; // rax
+  const WCHAR *v12; // rax
+  const WCHAR *v13; // rax
+  const WCHAR *v14; // rax
+  const WCHAR *v15; // rax
+  const WCHAR *v16; // rax
+  const WCHAR *v17; // rax
+  const WCHAR *v18; // rax
   int ProgressMessages; // eax
   int v20; // edx
   int v21; // r8d
@@ -60,7 +60,7 @@ __int64 __fastcall BgpBcInitializeCriticalMode(__int64 a1, int a2)
   v34 = 0LL;
   if ( (v3 & 0x400000) != 0 )
   {
-    dword_140C0E4B0 |= 0x400000u;
+    dword_140C134F0 |= 0x400000u;
   }
   else
   {
@@ -71,50 +71,50 @@ __int64 __fastcall BgpBcInitializeCriticalMode(__int64 a1, int a2)
     v37 = 0LL;
     if ( a2 != -1 )
     {
-      Message = BcpFindMessage(0xC1008001);
-      RtlInitUnicodeString(&stru_140C70B40, Message);
-      v6 = BcpFindMessage(0xC1008008);
-      RtlInitUnicodeString(&stru_140C70B60, v6);
-      v7 = BcpFindMessage(0x41008009u);
-      RtlInitUnicodeString(&stru_140C70B70, v7);
-      v8 = BcpFindMessage(0x41008010u);
-      RtlInitUnicodeString(&stru_140C70B80, v8);
-      v9 = BcpFindMessage(0x41008011u);
-      RtlInitUnicodeString(&stru_140C70B90, v9);
-      v10 = BcpFindMessage(0xC1008003);
-      RtlInitUnicodeString(&stru_140C70B50, v10);
-      v11 = BcpFindMessage(0x41008014u);
-      RtlInitUnicodeString(&stru_140C70BE0, v11);
-      v12 = BcpFindMessage(0x41008015u);
-      RtlInitUnicodeString(&stru_140C70BF0, v12);
-      v13 = BcpFindMessage(0x41008016u);
-      RtlInitUnicodeString(&stru_140C70C00, v13);
-      v14 = BcpFindMessage(0x41008018u);
-      RtlInitUnicodeString(&stru_140C70C10, v14);
-      v15 = BcpFindMessage(0x41008017u);
-      RtlInitUnicodeString(&stru_140C70C20, v15);
-      v16 = BcpFindMessage(0x41008019u);
-      RtlInitUnicodeString(&stru_140C70C30, v16);
-      v17 = BcpFindMessage(0x41008020u);
-      RtlInitUnicodeString(&stru_140C70C40, v17);
-      v18 = BcpFindMessage(0x41008021u);
-      RtlInitUnicodeString(&stru_140C70C50, v18);
+      Message = (const WCHAR *)BcpFindMessage(3238035457LL);
+      RtlInitUnicodeString(&stru_140C53DD0, Message);
+      v6 = (const WCHAR *)BcpFindMessage(3238035464LL);
+      RtlInitUnicodeString(&stru_140C53DF0, v6);
+      v7 = (const WCHAR *)BcpFindMessage(1090551817LL);
+      RtlInitUnicodeString(&stru_140C53E00, v7);
+      v8 = (const WCHAR *)BcpFindMessage(1090551824LL);
+      RtlInitUnicodeString(&stru_140C53E10, v8);
+      v9 = (const WCHAR *)BcpFindMessage(1090551825LL);
+      RtlInitUnicodeString(&stru_140C53E20, v9);
+      v10 = (const WCHAR *)BcpFindMessage(3238035459LL);
+      RtlInitUnicodeString(&stru_140C53DE0, v10);
+      v11 = (const WCHAR *)BcpFindMessage(1090551828LL);
+      RtlInitUnicodeString(&stru_140C53E70, v11);
+      v12 = (const WCHAR *)BcpFindMessage(1090551829LL);
+      RtlInitUnicodeString(&stru_140C53E80, v12);
+      v13 = (const WCHAR *)BcpFindMessage(1090551830LL);
+      RtlInitUnicodeString(&stru_140C53E90, v13);
+      v14 = (const WCHAR *)BcpFindMessage(1090551832LL);
+      RtlInitUnicodeString(&stru_140C53EA0, v14);
+      v15 = (const WCHAR *)BcpFindMessage(1090551831LL);
+      RtlInitUnicodeString(&stru_140C53EB0, v15);
+      v16 = (const WCHAR *)BcpFindMessage(1090551833LL);
+      RtlInitUnicodeString(&stru_140C53EC0, v16);
+      v17 = (const WCHAR *)BcpFindMessage(1090551840LL);
+      RtlInitUnicodeString(&stru_140C53ED0, v17);
+      v18 = (const WCHAR *)BcpFindMessage(1090551841LL);
+      RtlInitUnicodeString(&stru_140C53EE0, v18);
       if ( (int)BcpGetProgressMessages(3238035474LL, &SourceString, &v35) >= 0 )
       {
-        RtlInitUnicodeString(&stru_140C70BA0, SourceString);
-        RtlInitUnicodeString(&stru_140C70BB0, v35);
+        RtlInitUnicodeString(&stru_140C53E30, SourceString);
+        RtlInitUnicodeString(&stru_140C53E40, v35);
         ProgressMessages = BcpGetProgressMessages(3238035475LL, &v37, &v35);
         v4 = v37;
         if ( ProgressMessages >= 0 )
         {
-          RtlInitUnicodeString(&stru_140C70BC0, v37);
-          RtlInitUnicodeString(&stru_140C70BD0, v35);
-          if ( *BcpFindMessage(0x41008006u) == 48 )
-            dword_140C0E4B0 |= 0x20000u;
-          v22 = *(_DWORD *)(a1 + 120) & 0x10000000;
+          RtlInitUnicodeString(&stru_140C53E50, v37);
+          RtlInitUnicodeString(&stru_140C53E60, v35);
+          if ( *(_WORD *)BcpFindMessage(1090551814LL) == 48 )
+            dword_140C134F0 |= 0x20000u;
+          v22 = *(_DWORD *)(a1 + 120);
+          v23 = dword_140C10F00;
           v33[1] = -1;
-          v23 = dword_140C0B5A0;
-          v33[0] = v22 != 0 ? -14389468 : -16761454;
+          v33[0] = (v22 & 0x10000000) != 0 ? -14389468 : -16746538;
 LABEL_10:
           v24 = 0LL;
           v25 = v23;
@@ -131,7 +131,7 @@ LABEL_10:
             if ( v24 >= 4 )
             {
               v23 += 18;
-              if ( (__int64)v23 < (__int64)&qword_140C0B708 )
+              if ( (__int64)v23 < (__int64)&qword_140C11068 )
                 goto LABEL_10;
               HIDWORD(v34) = 0;
               if ( (int)BcpGetMaxResourceProfile((__int64)v33, &v32) >= 0 )
@@ -140,14 +140,14 @@ LABEL_10:
                 Memory = BgpFwAllocateMemory(v32);
                 if ( Memory )
                 {
-                  qword_140C0E3F0 = 0LL;
+                  qword_140C13410 = 0LL;
                   BcpWorkspace = Memory;
                   v30 = __PAIR64__(HIDWORD(v29), DWORD2(v32));
-                  qword_140C0E3E8 = v26;
-                  qword_140C70C60 = BgpDisplayCharacterGetContext((__int64)v33, (int *)&v30, 3);
-                  if ( qword_140C70C60 )
+                  qword_140C13408 = v26;
+                  qword_140C53EF0 = BgpDisplayCharacterGetContext((__int64)v33, &v30, 3);
+                  if ( qword_140C53EF0 )
                   {
-                    dword_140C0E4B0 |= 0x10u;
+                    dword_140C134F0 |= 0x10u;
                     return 0LL;
                   }
                 }
@@ -161,8 +161,8 @@ LABEL_10:
         BgpFwFreeMemory((__int64)SourceString);
       if ( v4 )
         BgpFwFreeMemory((__int64)v4);
-      if ( qword_140C70C60 )
-        BgpDisplayCharacterDestroyContext(qword_140C70C60);
+      if ( qword_140C53EF0 )
+        BgpDisplayCharacterDestroyContext(qword_140C53EF0);
     }
   }
   return 0LL;

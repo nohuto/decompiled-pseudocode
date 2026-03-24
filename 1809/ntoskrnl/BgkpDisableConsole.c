@@ -1,5 +1,5 @@
 /*
- * XREFs of BgkpDisableConsole @ 0x14027DC48
+ * XREFs of BgkpDisableConsole @ 0x14027DD48
  * Callers:
  *     BgkDestroy @ 0x140951A04 (BgkDestroy.c)
  * Callees:

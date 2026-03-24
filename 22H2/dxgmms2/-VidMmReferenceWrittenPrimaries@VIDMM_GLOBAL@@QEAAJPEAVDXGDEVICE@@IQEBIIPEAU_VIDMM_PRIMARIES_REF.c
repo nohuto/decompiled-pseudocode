@@ -1,11 +1,10 @@
 /*
- * XREFs of ?VidMmReferenceWrittenPrimaries@VIDMM_GLOBAL@@QEAAJPEAVDXGDEVICE@@IQEBIIPEAU_VIDMM_PRIMARIES_REFERENCES@@PEAUVIDSCH_HW_QUEUE@@PEAPEAVDXGCONTEXT@@@Z @ 0x1C00A7C30
+ * XREFs of ?VidMmReferenceWrittenPrimaries@VIDMM_GLOBAL@@QEAAJPEAVDXGDEVICE@@IQEBIIPEAU_VIDMM_PRIMARIES_REFERENCES@@PEAUVIDSCH_HW_QUEUE@@PEAPEAVDXGCONTEXT@@@Z @ 0x1C006AFF0
  * Callers:
- *     VidMmReferenceWrittenPrimaries @ 0x1C0005F10 (VidMmReferenceWrittenPrimaries.c)
+ *     VidMmReferenceWrittenPrimaries @ 0x1C0001690 (VidMmReferenceWrittenPrimaries.c)
  * Callees:
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0005F38 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C00016E0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024D70 (McTemplateK0q_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::VidMmReferenceWrittenPrimaries(
@@ -17,135 +16,155 @@ __int64 __fastcall VIDMM_GLOBAL::VidMmReferenceWrittenPrimaries(
         struct _VIDMM_PRIMARIES_REFERENCES *a6)
 {
   struct DXGPROCESS *Current; // rax
-  unsigned int v9; // edi
-  struct DXGPROCESS *v10; // r15
-  unsigned int v11; // esi
-  struct VIDSCH_HW_QUEUE *v12; // rbx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  unsigned int v15; // edx
-  unsigned int v16; // eax
-  __int64 v17; // r13
-  int v18; // ecx
-  __int64 v19; // r13
-  volatile signed __int32 *v20; // r9
-  __int64 v21; // r11
-  unsigned int v22; // r8d
-  bool v23; // cl
-  bool v24; // al
-  bool v25; // r8
-  __int64 v27; // rcx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // rdi
+  struct DXGPROCESS *v14; // r15
+  unsigned int v15; // ebp
+  struct VIDSCH_HW_QUEUE *v16; // rbx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // rdx
+  VIDMM_GLOBAL *v21; // r9
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  __int64 v24; // r11
+  __int64 v25; // rax
+  volatile signed __int32 *v26; // r10
+  __int64 v27; // r11
   __int64 v28; // rcx
-  int v29; // r9d
-  __int64 v30; // rcx
-  struct VIDSCH_HW_QUEUE *v34; // [rsp+C0h] [rbp+38h]
+  int v29; // eax
+  __int64 v30; // rax
+  __int64 v31; // rax
+  int v32; // r9d
+  __int64 v33; // rax
+  __int64 v34; // rax
+  __int64 v35; // rax
+  __int64 v37; // [rsp+50h] [rbp+8h]
+  struct VIDSCH_HW_QUEUE *v39; // [rsp+80h] [rbp+38h]
 
   Current = DXGPROCESS::GetCurrent();
-  v9 = 0;
-  v10 = Current;
-  v11 = 0;
-  v12 = (struct DXGPROCESS *)((char *)Current + 248);
-  v34 = (struct DXGPROCESS *)((char *)Current + 248);
-  if ( Current != (struct DXGPROCESS *)-248LL && *((struct _KTHREAD **)Current + 32) == KeGetCurrentThread() )
+  v13 = 0LL;
+  v14 = Current;
+  v15 = 0;
+  v16 = (struct DXGPROCESS *)((char *)Current + 208);
+  v39 = (struct DXGPROCESS *)((char *)Current + 208);
+  if ( Current != (struct DXGPROCESS *)-208LL && *((struct _KTHREAD **)Current + 27) == KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 1453LL);
-    DxgkLogInternalTriageEvent(v28, 262146LL);
+    v31 = WdLogNewEntry5_WdAssertion(v11, v10, v12);
+    *(_QWORD *)(v31 + 24) = 1571LL;
+    WdLogEvent5_WdAssertion(v31);
   }
   KeEnterCriticalRegion();
-  if ( !(unsigned __int8)ExTryAcquirePushLockSharedEx(v12, 0LL) )
+  if ( !(unsigned __int8)ExTryAcquirePushLockSharedEx(v16, 0LL) )
   {
     if ( bTracingEnabled )
     {
-      v29 = *((_DWORD *)v12 + 6);
-      if ( v29 != -1 && (byte_1C0076981 & 1) != 0 )
-        McTemplateK0q_EtwWriteTransfer(v13, (__int64)&EventBlockThread, v14, v29);
+      v32 = *((_DWORD *)v16 + 6);
+      if ( v32 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v17, (const EVENT_DESCRIPTOR *)"g", v18, v32);
     }
-    ExAcquirePushLockSharedEx(v12, 0LL);
+    ExAcquirePushLockSharedEx(v16, 0LL);
   }
-  _InterlockedIncrement((volatile signed __int32 *)v12 + 4);
-  v15 = 0;
+  v19 = 0LL;
   *(_DWORD *)a6 = 0;
   if ( !a3 )
-    goto LABEL_20;
+    goto LABEL_6;
+  v21 = this;
   while ( 1 )
   {
-    v16 = (*a4 >> 6) & 0xFFFFFF;
-    if ( v16 >= *((_DWORD *)v10 + 74) )
-      goto LABEL_22;
-    v17 = *((_QWORD *)v10 + 35) + 16LL * v16;
-    if ( ((*a4 >> 25) & 0x60) != (*(_BYTE *)(v17 + 8) & 0x60) )
-      goto LABEL_22;
-    if ( (*(_DWORD *)(v17 + 8) & 0x2000) != 0 )
-      goto LABEL_22;
-    v18 = *(_DWORD *)(v17 + 8) & 0x1F;
-    if ( !v18 )
-      goto LABEL_22;
-    if ( v18 != 5 )
+    v22 = *a4;
+    v23 = (*a4 >> 6) & 0xFFFFFF;
+    if ( (unsigned int)v23 >= *((_DWORD *)v14 + 64) )
+      goto LABEL_23;
+    v24 = *((_QWORD *)v14 + 30);
+    v22 = ((unsigned int)v22 >> 25) & 0x60;
+    v18 = *(unsigned int *)(v24 + 16 * v23 + 8);
+    if ( (_BYTE)v22 != (*(_BYTE *)(v24 + 16 * v23 + 8) & 0x60) || (v18 & 0x2000) != 0 || (v18 & 0x1F) == 0 )
+      goto LABEL_23;
+    v18 &= 0x1Fu;
+    if ( (_BYTE)v18 != 5 )
     {
-      WdLogSingleEntry1(2LL, 267LL);
-      DxgkLogInternalTriageEvent(v27, 0x40000LL);
-LABEL_22:
-      WdLogSingleEntry1(2LL, 22906LL);
+      v35 = WdLogNewEntry5_WdError(v22, v19, v18, v21);
+      *(_QWORD *)(v35 + 24) = 316LL;
+      WdLogEvent5_WdError(v35);
 LABEL_23:
-      v11 = -1073741811;
-      goto LABEL_34;
+      v30 = WdLogNewEntry5_WdError(v22, v19, v18, v21);
+      *(_QWORD *)(v30 + 24) = 21954LL;
+LABEL_24:
+      WdLogEvent5_WdError(v30);
+      goto LABEL_37;
     }
-    v19 = *(_QWORD *)v17;
-    if ( !v19 )
-      goto LABEL_22;
-    if ( *(struct DXGDEVICE **)(v19 + 8) != a2 )
-    {
-      WdLogSingleEntry2(1LL, *(_QWORD *)(v19 + 8), a2);
-      DxgkLogInternalTriageEvent(v30, 0x40000LL);
-      goto LABEL_23;
-    }
-    v20 = *(volatile signed __int32 **)(v19 + 24);
-    v21 = **(_QWORD **)v20;
-    v22 = **(_DWORD **)(v21 + 536);
-    v23 = ((v22 >> 12) | (v22 | ((v22 | (v22 >> 5)) >> 6)) & 0x80000) >= 0x80000;
-    v24 = (v22 & 0x200000) != 0;
-    v25 = (v22 & 0x100000) != 0;
-    if ( v24 )
-      break;
-    if ( v23 )
-      goto LABEL_15;
+    v25 = *(_QWORD *)(v24 + 16LL * (unsigned int)v23);
+    v37 = v25;
     if ( !v25 )
-    {
-      WdLogSingleEntry1(2LL, 22938LL);
       goto LABEL_23;
+    if ( *(struct DXGDEVICE **)(v25 + 8) != a2 )
+      break;
+    v26 = *(volatile signed __int32 **)(v25 + 24);
+    v27 = **(_QWORD **)v26;
+    v28 = **(unsigned int **)(v27 + 496);
+    v18 = ((unsigned int)v28 >> 12) | ((unsigned int)v28 | (((unsigned int)v28 | (**(_DWORD **)(v27 + 496) >> 5)) >> 6)) & 0x80000;
+    LOBYTE(v28) = (v28 & 0x100000) != 0;
+    if ( (**(_DWORD **)(v27 + 496) & 0x200000) != 0 )
+    {
+      *((_DWORD *)a6 + 34) |= 1u;
+      goto LABEL_26;
     }
-LABEL_19:
-    ++v15;
-    ++a4;
-    if ( v15 >= a3 )
-      goto LABEL_20;
-  }
-  *((_DWORD *)a6 + 34) |= 1u;
-  if ( !v23 )
-    goto LABEL_19;
-LABEL_15:
-  if ( !*(_BYTE *)(v21 + 81) )
-  {
-    _InterlockedExchangeAdd(v20 + 26, a5);
-    *((_QWORD *)a6 + *(unsigned int *)a6 + 1) = v20;
+    if ( (unsigned int)v18 < 0x80000 )
+    {
+      if ( !(_BYTE)v28 )
+      {
+        v30 = WdLogNewEntry5_WdError(v28, v19, v18, v21);
+        *(_QWORD *)(v30 + 24) = 21986LL;
+        goto LABEL_24;
+      }
+LABEL_26:
+      if ( (unsigned int)v18 < 0x80000 )
+        goto LABEL_21;
+    }
+    if ( *(_BYTE *)(v27 + 88) )
+    {
+      v33 = WdLogNewEntry5_WdWarning(v28, v19);
+      WdLogEvent5_WdWarning(v33);
+      v15 = -1071775482;
+      goto LABEL_38;
+    }
+    _InterlockedExchangeAdd(v26 + 26, a5);
+    *((_QWORD *)a6 + *(unsigned int *)a6 + 1) = v26;
+    v29 = *(_DWORD *)a6;
     if ( *(_DWORD *)a6 >= 0x10u )
-      ++*((_DWORD *)this + 1808);
-    ++*(_DWORD *)a6;
-    goto LABEL_19;
+    {
+      ++*((_DWORD *)v21 + 1806);
+      v29 = *(_DWORD *)a6;
+    }
+    *(_DWORD *)a6 = v29 + 1;
+LABEL_21:
+    v19 = (unsigned int)(v19 + 1);
+    ++a4;
+    if ( (unsigned int)v19 >= a3 )
+      goto LABEL_6;
   }
-  WdLogSingleEntry0(3LL);
-  v11 = -1071775482;
-LABEL_34:
+  v34 = WdLogNewEntry5_WdAssertion(v22, v19, v18);
+  *(_QWORD *)(v34 + 24) = *(_QWORD *)(v37 + 8);
+  *(_QWORD *)(v34 + 32) = a2;
+  WdLogEvent5_WdAssertion(v34);
+LABEL_37:
+  v15 = -1073741811;
+LABEL_38:
   if ( *(_DWORD *)a6 )
   {
     do
-      _InterlockedExchangeAdd((volatile signed __int32 *)(*((_QWORD *)a6 + ++v9) + 104LL), -a5);
-    while ( v9 < *(_DWORD *)a6 );
-    v12 = v34;
+    {
+      _InterlockedExchangeAdd((volatile signed __int32 *)(*((_QWORD *)a6 + v13 + 1) + 104LL), -a5);
+      v13 = (unsigned int)(v13 + 1);
+    }
+    while ( (unsigned int)v13 < *(_DWORD *)a6 );
+    v16 = v39;
   }
-LABEL_20:
-  _InterlockedDecrement((volatile signed __int32 *)v12 + 4);
-  ExReleasePushLockSharedEx(v12, 0LL);
+LABEL_6:
+  ExReleasePushLockSharedEx(v16, 0LL);
   KeLeaveCriticalRegion();
-  return v11;
+  return v15;
 }

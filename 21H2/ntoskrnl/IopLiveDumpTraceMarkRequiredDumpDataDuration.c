@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpTraceMarkRequiredDumpDataDuration @ 0x14055B970
+ * XREFs of IopLiveDumpTraceMarkRequiredDumpDataDuration @ 0x140509A38
  * Callers:
- *     IopLiveDumpMarkRequiredDumpData @ 0x140A67248 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x1409ACDEC (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x14055A67C (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140508A20 (IopLiveDumpIsTracingEnabled.c)
  */
 
 char __fastcall IopLiveDumpTraceMarkRequiredDumpDataDuration(const GUID *a1, __int64 a2)
@@ -15,19 +15,15 @@ char __fastcall IopLiveDumpTraceMarkRequiredDumpDataDuration(const GUID *a1, __i
   int v3; // eax
   _DWORD *v4; // rcx
   const EVENT_DESCRIPTOR *v5; // rdx
-  __int64 v7; // [rsp+40h] [rbp-19h] BYREF
-  __int64 v8; // [rsp+48h] [rbp-11h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-9h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v10; // [rsp+60h] [rbp+7h] BYREF
-  __int64 *v11; // [rsp+80h] [rbp+27h]
-  int v12; // [rsp+88h] [rbp+2Fh]
-  int v13; // [rsp+8Ch] [rbp+33h]
-  __int64 *v14; // [rsp+90h] [rbp+37h]
-  int v15; // [rsp+98h] [rbp+3Fh]
-  int v16; // [rsp+9Ch] [rbp+43h]
-  __int64 v17; // [rsp+C8h] [rbp+6Fh] BYREF
+  __int64 v7; // [rsp+40h] [rbp+7h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp+Fh] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v9; // [rsp+58h] [rbp+1Fh] BYREF
+  __int64 *v10; // [rsp+78h] [rbp+3Fh]
+  int v11; // [rsp+80h] [rbp+47h]
+  int v12; // [rsp+84h] [rbp+4Bh]
+  __int64 v13; // [rsp+A8h] [rbp+6Fh] BYREF
 
-  v17 = a2;
+  v13 = a2;
   LOBYTE(v3) = IopLiveDumpIsTracingEnabled();
   if ( (_BYTE)v3 )
   {
@@ -37,32 +33,28 @@ char __fastcall IopLiveDumpTraceMarkRequiredDumpDataDuration(const GUID *a1, __i
       if ( (v3 & 1) != 0 )
       {
         UserData.Reserved = 0;
-        UserData.Ptr = (ULONGLONG)&v17;
+        UserData.Ptr = (ULONGLONG)&v13;
         v5 = (const EVENT_DESCRIPTOR *)LIVEDUMP_EVENT_SIZING_WORKFLOW_SYSTEM_QUISCED_MARK_REQUIRED_DUMP_DATA;
         if ( (v4[20] & 1) == 0 )
           v5 = &LIVEDUMP_EVENT_CAPTURE_PAGES_WORKFLOW_SYSTEM_QUISCED_MARK_REQUIRED_DUMP_DATA;
         UserData.Size = 8;
         LOBYTE(v3) = EtwWriteEx(IopLiveDumpEtwRegHandle, v5, 0LL, 0, 0LL, 0LL, 1u, &UserData);
-        if ( (unsigned int)dword_140C064E0 > 5 )
+        if ( (unsigned int)dword_140C044D8 > 5 )
         {
-          LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140C064E0, 0x400000000000LL);
+          LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140C044D8, 0x200000000000LL);
           if ( (_BYTE)v3 )
           {
-            v13 = 0;
-            v16 = 0;
-            v11 = &v7;
-            v8 = v17;
-            v7 = 0x1000000LL;
-            v14 = &v8;
-            v12 = 8;
-            v15 = 8;
+            v12 = 0;
+            v7 = v13;
+            v11 = 8;
+            v10 = &v7;
             LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
-                           (__int64)&dword_140C064E0,
-                           (unsigned __int8 *)word_14002B332,
-                           a1 + 60,
-                           a1 + 59,
-                           4u,
-                           &v10);
+                           (__int64)&dword_140C044D8,
+                           (unsigned __int8 *)byte_140024D90,
+                           a1 + 54,
+                           a1 + 53,
+                           3u,
+                           &v9);
           }
         }
       }

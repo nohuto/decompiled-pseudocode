@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z @ 0x1C00435D8
+ * XREFs of ?CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z @ 0x1C0037190
  * Callers:
- *     DxgkCompletePStateTransitionCB @ 0x1C004BCC0 (DxgkCompletePStateTransitionCB.c)
+ *     DxgkCompletePStateTransitionCB @ 0x1C0042D10 (DxgkCompletePStateTransitionCB.c)
  * Callees:
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0044DE4 (McTemplateK0pqqq_EtwWriteTransfer.c)
- *     ?RecordPStateChange@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXI@Z @ 0x1C0056E5C (-RecordPStateChange@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXI@Z.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C003A3D8 (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     ?RecordPStateChange@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXI@Z @ 0x1C0047C54 (-RecordPStateChange@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXI@Z.c)
  */
 
 void __fastcall DXGADAPTER::CompletePStateTransitionCB(DXGADAPTER *this, unsigned int a2, unsigned int a3)
@@ -12,18 +12,18 @@ void __fastcall DXGADAPTER::CompletePStateTransitionCB(DXGADAPTER *this, unsigne
   int v4; // r8d
   __int64 v5; // rdi
 
-  if ( *((_QWORD *)this + 363) )
+  if ( *((_QWORD *)this + 351) )
   {
     v5 = *(_QWORD *)(520LL
                    * ((unsigned __int16)a2
-                    + (unsigned int)*((unsigned __int16 *)this + ((unsigned __int64)a2 >> 16) + 1456))
-                   + *((_QWORD *)this + 362)
+                    + (unsigned int)*((unsigned __int16 *)this + ((unsigned __int64)a2 >> 16) + 1408))
+                   + *((_QWORD *)this + 350)
                    + 512);
     if ( bTracingEnabled )
     {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
       {
-        v4 = (unsigned __int16)a2 + *((unsigned __int16 *)this + ((unsigned __int64)a2 >> 16) + 1456);
+        v4 = (unsigned __int16)a2 + *((unsigned __int16 *)this + ((unsigned __int64)a2 >> 16) + 1408);
         McTemplateK0pqqq_EtwWriteTransfer(
           (_DWORD)this,
           (unsigned int)&Dxgk_PowerPStateCompleted,

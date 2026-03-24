@@ -1,20 +1,20 @@
 /*
- * XREFs of ?DwmSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C0153D4C
+ * XREFs of ?DwmSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C00EB92C
  * Callers:
- *     EngSetPointerShape @ 0x1C0153BE0 (EngSetPointerShape.c)
+ *     EngSetPointerShape @ 0x1C00EB7C0 (EngSetPointerShape.c)
  * Callees:
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00228A4 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00228D8 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ?GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHHHHPEBG@Z @ 0x1C0083498 (-GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHH.c)
- *     ?GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z @ 0x1C00B3DC0 (-GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z.c)
- *     ?AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z @ 0x1C00EDC30 (-AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z.c)
- *     ?hspGetNeighborSprite@@YAPEAUHSPRITE__@@PEAU1@_N1@Z @ 0x1C0103498 (-hspGetNeighborSprite@@YAPEAUHSPRITE__@@PEAU1@_N1@Z.c)
- *     ?DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z @ 0x1C01541E4 (-DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z.c)
- *     ?vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z @ 0x1C01547A4 (-vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z.c)
- *     ?bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCTION@@@Z @ 0x1C01547D8 (-bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCT.c)
- *     ?vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z @ 0x1C01549C4 (-vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ @ 0x1C015D684 (--0-$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ.c)
+ *     ?AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z @ 0x1C0017464 (-AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BD148 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BD17C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHHHHPEBG@Z @ 0x1C00BFE7C (-GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHH.c)
+ *     ?DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z @ 0x1C00EBDC4 (-DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z.c)
+ *     ?vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z @ 0x1C00EC380 (-vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z.c)
+ *     ?bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCTION@@@Z @ 0x1C00EC3B4 (-bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCT.c)
+ *     ?vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z @ 0x1C00EC5A0 (-vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z.c)
+ *     ?GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z @ 0x1C00EF4A0 (-GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z.c)
+ *     ?hspGetNeighborSprite@@YAPEAUHSPRITE__@@PEAU1@_N1@Z @ 0x1C0115BB0 (-hspGetNeighborSprite@@YAPEAUHSPRITE__@@PEAU1@_N1@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ @ 0x1C016A6E4 (--0-$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall DwmSetPointerShape(
@@ -44,41 +44,42 @@ __int64 __fastcall DwmSetPointerShape(
   struct DwmState *v23; // rcx
   HSPRITE v24; // rdx
   HSPRITE v25; // rdi
-  __int64 NeighborSprite; // rax
+  HSPRITE NeighborSprite; // rax
   HSPRITE v27; // r14
   struct DWMSPRITE *v28; // rbx
-  HSPRITE v29; // rbx
-  struct _SURFOBJ *v30; // r14
-  __int64 v31; // rdi
-  struct _XLATEOBJ *v32; // r9
-  struct tagRECT *v33; // r8
-  struct _RECTL *v34; // r9
-  _BYTE v36[8]; // [rsp+68h] [rbp-31h] BYREF
-  _BYTE v37[32]; // [rsp+70h] [rbp-29h] BYREF
-  __int64 v38; // [rsp+90h] [rbp-9h]
-  struct DWMSPRITE *v39; // [rsp+E8h] [rbp+4Fh] BYREF
-  struct _SURFOBJ *v40; // [rsp+F0h] [rbp+57h]
-  struct _SURFOBJ *v41; // [rsp+F8h] [rbp+5Fh]
-  struct _XLATEOBJ *v42; // [rsp+100h] [rbp+67h] BYREF
+  __int64 v29; // rdx
+  HSPRITE v30; // rbx
+  struct _SURFOBJ *v31; // r14
+  HSPRITE v32; // rdi
+  struct _XLATEOBJ *v33; // r9
+  struct _RECTL *v34; // r8
+  struct _RECTL *v35; // r9
+  _BYTE v37[8]; // [rsp+68h] [rbp-31h] BYREF
+  _BYTE v38[32]; // [rsp+70h] [rbp-29h] BYREF
+  __int64 v39; // [rsp+90h] [rbp-9h]
+  struct DWMSPRITE *v40; // [rsp+E8h] [rbp+4Fh] BYREF
+  struct _SURFOBJ *v41; // [rsp+F0h] [rbp+57h]
+  struct _SURFOBJ *v42; // [rsp+F8h] [rbp+5Fh]
+  struct _XLATEOBJ *v43; // [rsp+100h] [rbp+67h] BYREF
 
-  v42 = a4;
-  v41 = a3;
-  v40 = a2;
+  v43 = a4;
+  v42 = a3;
+  v41 = a2;
   hdev = a1->hdev;
   v12 = 2;
   if ( *((_DWORD *)g_pDwmState + 25) )
   {
     if ( a2 || a3 )
     {
-      UnexpectedThreadTerminationHandler<DWMSPRITEREF>::UnexpectedThreadTerminationHandler<DWMSPRITEREF>(v37);
+      UnexpectedThreadTerminationHandler<DWMSPRITEREF>::UnexpectedThreadTerminationHandler<DWMSPRITEREF>(v38);
       v16 = a10;
       v17 = ((a10 >> 8) & 0xF) + 1;
-      v38 = 0LL;
+      v39 = 0LL;
       if ( (unsigned __int8)(a10 >> 12) )
         v18 = 0x3E8u / (unsigned __int8)(a10 >> 12);
       else
         v18 = 0;
-      LODWORD(v42) = 0x1000000;
+      LODWORD(v43) = 0x1000000;
       GreAcquireSemaphore(ghsemDwmState);
       EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDwmState", ghsemDwmState, 7LL);
       if ( *((_DWORD *)g_pDwmState + 40) < v17 )
@@ -116,17 +117,17 @@ __int64 __fastcall DwmSetPointerShape(
           do
           {
             NeighborSprite = hspGetNeighborSprite(v25, 1, 0);
-            v39 = 0LL;
-            v27 = (HSPRITE)NeighborSprite;
-            DWMALTSPRITEREF::AltLockSpriteObj((DWMALTSPRITEREF *)&v39, v25);
-            v28 = v39;
-            if ( v39 )
+            v40 = 0LL;
+            v27 = NeighborSprite;
+            DWMALTSPRITEREF::AltLockSpriteObj((DWMALTSPRITEREF *)&v40, v25);
+            v28 = v40;
+            if ( v40 )
             {
-              PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v36, (struct DWMSPRITE *)((char *)v39 + 88));
+              PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v37, (struct DWMSPRITE *)((char *)v40 + 88));
               vSpDwmUpdateSpriteVisibility(v28, 0);
-              PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v36);
+              PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v37);
               v25 = v27;
-              DEC_SHARE_REF_CNT(v28);
+              DEC_SHARE_REF_CNT(v28, v29);
             }
             else
             {
@@ -136,45 +137,45 @@ __int64 __fastcall DwmSetPointerShape(
           }
           while ( v27 != *((HSPRITE *)g_pDwmState + 17) );
         }
-        v29 = *(HSPRITE *)(*(_QWORD *)v23 + 144LL);
-        if ( v29 )
+        v30 = *(HSPRITE *)(*(_QWORD *)v23 + 144LL);
+        if ( v30 )
         {
-          v30 = v41;
+          v31 = v42;
           while ( 1 )
           {
-            v31 = hspGetNeighborSprite(v29, 1, 0);
+            v32 = hspGetNeighborSprite(v30, 1, 0);
             if ( !(unsigned int)bSpDwmUpdateCursor(
-                                  v29,
-                                  v40,
                                   v30,
-                                  v32,
+                                  v41,
+                                  v31,
+                                  v33,
                                   (struct _RECTL *)a9,
-                                  (struct _BLENDFUNCTION *)((unsigned __int64)&v42 & -(__int64)((v16 & 0x40) != 0))) )
+                                  (struct _BLENDFUNCTION *)((unsigned __int64)&v43 & -(__int64)((v16 & 0x40) != 0))) )
               break;
-            v29 = (HSPRITE)v31;
-            if ( !v31 )
+            v30 = v32;
+            if ( !v32 )
               goto LABEL_37;
           }
           v12 = 0;
         }
 LABEL_37:
-        v33 = a9;
+        v34 = (struct _RECTL *)a9;
         *((_DWORD *)g_pDwmState + 38) = a5 - a9->left;
-        *((_DWORD *)g_pDwmState + 39) = a6 - v33->top;
+        *((_DWORD *)g_pDwmState + 39) = a6 - v34->top;
       }
       EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
       GreReleaseSemaphoreInternal(ghsemDwmState);
-      DwmMovePointer(a1, a7, a8, v34, (v16 & 0x60) != 0 ? 4 : 0);
-      if ( v38 )
-        _InterlockedDecrement((volatile signed __int32 *)(v38 + 12));
-      v38 = 0LL;
-      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v37);
+      DwmMovePointer(a1, a7, a8, v35, (v16 & 0x60) != 0 ? 4 : 0);
+      if ( v39 )
+        _InterlockedDecrement((volatile signed __int32 *)(v39 + 12));
+      v39 = 0LL;
+      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v38);
     }
     else
     {
       GreAcquireSemaphore(ghsemDwmState);
       EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDwmState", ghsemDwmState, 7LL);
-      v13 = hdev + 876;
+      v13 = hdev + 882;
       v14 = *v13;
       if ( *(_QWORD **)(*v13 + 8LL) != v13 || (v15 = (_QWORD *)v13[1], (_QWORD *)*v15 != v13) )
         __fastfail(3u);

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCovSampCaptureBufferOptimizeIP @ 0x140469924
+ * XREFs of EtwpCovSampCaptureBufferOptimizeIP @ 0x1405AE5BC
  * Callers:
- *     EtwpCovSampCaptureKernelStack @ 0x140603428 (EtwpCovSampCaptureKernelStack.c)
- *     EtwpCovSampCaptureUserStack @ 0x1408A8C96 (EtwpCovSampCaptureUserStack.c)
+ *     EtwpCovSampCaptureKernelStack @ 0x1405AECB8 (EtwpCovSampCaptureKernelStack.c)
+ *     EtwpCovSampCaptureUserStack @ 0x140942A78 (EtwpCovSampCaptureUserStack.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureBufferOptimizeIP(__int64 a1)

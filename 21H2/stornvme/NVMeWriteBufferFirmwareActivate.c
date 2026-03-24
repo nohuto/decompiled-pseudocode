@@ -1,13 +1,13 @@
 /*
- * XREFs of NVMeWriteBufferFirmwareActivate @ 0x1C001F3CC
+ * XREFs of NVMeWriteBufferFirmwareActivate @ 0x1C0015964
  * Callers:
- *     ScsiToNVMe @ 0x1C0004650 (ScsiToNVMe.c)
- *     NVMeWriteBufferFirmwareActivateCompletion @ 0x1C001F4D0 (NVMeWriteBufferFirmwareActivateCompletion.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
+ *     NVMeWriteBufferFirmwareActivateCompletion @ 0x1C0015A60 (NVMeWriteBufferFirmwareActivateCompletion.c)
  * Callees:
- *     SrbAssignQueueId @ 0x1C0005238 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     NVMeSetSenseData @ 0x1C000E3C0 (NVMeSetSenseData.c)
- *     IsFirmwareActivateWithoutResetEnabled @ 0x1C001C698 (IsFirmwareActivateWithoutResetEnabled.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     IsFirmwareActivateWithoutResetEnabled @ 0x1C0013E0C (IsFirmwareActivateWithoutResetEnabled.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
 __int64 __fastcall NVMeWriteBufferFirmwareActivate(__int64 a1, __int64 a2)
@@ -15,37 +15,41 @@ __int64 __fastcall NVMeWriteBufferFirmwareActivate(__int64 a1, __int64 a2)
   unsigned int v3; // edi
   __int64 SrbExtension; // rax
   __int64 v5; // rdx
-  __int64 v6; // r10
-  __int64 v7; // r8
-  int v8; // r14d
-  __int64 v9; // rbx
-  bool v10; // si
-  int v11; // eax
-  unsigned int v12; // eax
+  __int64 v6; // r8
+  __int64 v7; // r9
+  __int64 v8; // r10
+  int v9; // r14d
+  __int64 v10; // rbx
+  bool v11; // si
+  int v12; // eax
+  unsigned int v13; // eax
 
   v3 = 0;
   SrbExtension = GetSrbExtension(a2);
-  v8 = *(unsigned __int8 *)(v7 + 2);
-  v9 = SrbExtension;
-  v10 = 0;
-  if ( (unsigned __int8)v8 <= (unsigned __int8)((*(_BYTE *)(*(_QWORD *)(a1 + 1640) + 260LL) >> 1) & 7) )
+  v9 = *(unsigned __int8 *)(v6 + 2);
+  v10 = SrbExtension;
+  v11 = 0;
+  if ( (unsigned __int8)v9 <= (unsigned __int8)((*(_BYTE *)(*(_QWORD *)(a1 + 1624) + 260LL) >> 1) & 7) )
   {
     *(_BYTE *)(SrbExtension + 4253) = *(_BYTE *)(SrbExtension + 4253) & 0xFC | 1;
     SrbAssignQueueId(a1, v5);
     if ( IsFirmwareActivateWithoutResetEnabled(a1) )
-      v10 = (*(_DWORD *)(a1 + 32) & 0x400) == 0;
-    *(_BYTE *)(v9 + 4096) = 16;
-    v11 = *(_DWORD *)(v9 + 4136) ^ (*(_DWORD *)(v9 + 4136) ^ v8) & 7;
-    if ( v10 )
-      v12 = v11 | 0x18;
+      v11 = (*(_DWORD *)(a1 + 24) & 0x400) == 0;
+    *(_BYTE *)(v10 + 4096) = 16;
+    v12 = *(_DWORD *)(v10 + 4136) ^ (*(_DWORD *)(v10 + 4136) ^ v9) & 7;
+    if ( v11 )
+      v13 = v12 | 0x18;
     else
-      v12 = v11 & 0xFFFFFFE7 | 8;
-    *(_DWORD *)(v9 + 4136) = v12;
-    *(_QWORD *)(v9 + 4224) = NVMeWriteBufferFirmwareActivateCompletion;
+      v13 = v12 & 0xFFFFFFE7 | 8;
+    *(_DWORD *)(v10 + 4136) = v13;
+    *(_QWORD *)(v10 + 4224) = NVMeWriteBufferFirmwareActivateCompletion;
   }
   else
   {
-    NVMeSetSenseData(v6, 6, 5, 0x24u);
+    LOBYTE(v7) = 36;
+    LOBYTE(v6) = 5;
+    LOBYTE(v5) = 6;
+    NVMeSetSenseData(v8, v5, v6, v7);
     return (unsigned int)-1056964602;
   }
   return v3;

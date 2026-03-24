@@ -1,71 +1,70 @@
 /*
- * XREFs of IopQueryDeviceResources @ 0x140748758
+ * XREFs of IopQueryDeviceResources @ 0x14075046C
  * Callers:
- *     PnpGetResourceRequirementsForAssignTable @ 0x1407483B4 (PnpGetResourceRequirementsForAssignTable.c)
- *     PiQueryAndAllocateBootResources @ 0x14074856C (PiQueryAndAllocateBootResources.c)
- *     IopReleaseDeviceResources @ 0x140766A5C (IopReleaseDeviceResources.c)
+ *     IopReleaseDeviceResources @ 0x140738748 (IopReleaseDeviceResources.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x1407500CC (PnpGetResourceRequirementsForAssignTable.c)
+ *     PiQueryAndAllocateBootResources @ 0x14075028C (PiQueryAndAllocateBootResources.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PnpGetDeviceResourcesFromRegistry @ 0x140748B18 (PnpGetDeviceResourcesFromRegistry.c)
- *     PnpDetermineResourceListSize @ 0x140748D08 (PnpDetermineResourceListSize.c)
- *     IopFilterResourceRequirementsCall @ 0x140748D6C (IopFilterResourceRequirementsCall.c)
- *     PpIrpQueryResourceRequirements @ 0x14074B21C (PpIrpQueryResourceRequirements.c)
- *     IopSynchronousCall @ 0x14074CA9C (IopSynchronousCall.c)
- *     _CmOpenDeviceRegKey @ 0x14077F2EC (_CmOpenDeviceRegKey.c)
- *     PnpCmResourcesToIoResources @ 0x140821D18 (PnpCmResourcesToIoResources.c)
- *     PnpFilterResourceRequirementsList @ 0x14083C0F4 (PnpFilterResourceRequirementsList.c)
- *     PnpMergeFilteredResourceRequirementsList @ 0x1408608EC (PnpMergeFilteredResourceRequirementsList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     IopSynchronousCall @ 0x14071DFF0 (IopSynchronousCall.c)
+ *     PnpGetDeviceResourcesFromRegistry @ 0x140750824 (PnpGetDeviceResourcesFromRegistry.c)
+ *     PnpDetermineResourceListSize @ 0x140750A1C (PnpDetermineResourceListSize.c)
+ *     IopFilterResourceRequirementsCall @ 0x140750A80 (IopFilterResourceRequirementsCall.c)
+ *     PpIrpQueryResourceRequirements @ 0x140750D58 (PpIrpQueryResourceRequirements.c)
+ *     PnpFilterResourceRequirementsList @ 0x1407AD7DC (PnpFilterResourceRequirementsList.c)
+ *     PnpCmResourcesToIoResources @ 0x1407B48F0 (PnpCmResourcesToIoResources.c)
+ *     PnpMergeFilteredResourceRequirementsList @ 0x1407D0B54 (PnpMergeFilteredResourceRequirementsList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall IopQueryDeviceResources(__int64 a1, int a2, PVOID *a3, ULONG *a4)
+__int64 __fastcall IopQueryDeviceResources(struct _DEVICE_OBJECT *a1, int a2, PVOID *a3, ULONG *a4)
 {
   _DWORD *v8; // rdi
-  __int64 v9; // r12
-  int v10; // eax
-  unsigned int v11; // ebx
+  unsigned int **DeviceNode; // r12
+  int v10; // ebx
   __int64 result; // rax
-  __int64 v13; // rcx
-  unsigned int *v14; // rax
-  _DWORD *v15; // rax
-  PVOID v16; // rbx
-  int v17; // r12d
-  void *v18; // rbx
-  __int64 v19; // rdx
-  void *Pool2; // rax
+  __int64 v12; // rcx
+  unsigned int *v13; // rax
+  _DWORD *v14; // rax
+  void *v15; // rbx
+  SIZE_T v16; // rdx
+  PVOID PoolWithTag; // rax
+  PVOID v18; // rbx
+  int v19; // r12d
   PVOID Data; // [rsp+20h] [rbp-79h]
   ULONG DataSize; // [rsp+28h] [rbp-71h]
   UNICODE_STRING ValueName; // [rsp+40h] [rbp-59h] BYREF
   PVOID P; // [rsp+50h] [rbp-49h] BYREF
-  _DWORD *v25; // [rsp+58h] [rbp-41h]
+  _DWORD *v24; // [rsp+58h] [rbp-41h]
   void *Src; // [rsp+60h] [rbp-39h] BYREF
-  _WORD v27[36]; // [rsp+68h] [rbp-31h] BYREF
-  char v28; // [rsp+108h] [rbp+6Fh] BYREF
+  _WORD v26[68]; // [rsp+68h] [rbp-31h] BYREF
+  char v27; // [rsp+108h] [rbp+6Fh] BYREF
   HANDLE KeyHandle; // [rsp+110h] [rbp+77h] BYREF
-  PVOID v30; // [rsp+118h] [rbp+7Fh]
+  PVOID v29; // [rsp+118h] [rbp+7Fh]
 
   *a3 = 0LL;
   KeyHandle = 0LL;
   Src = 0LL;
   P = 0LL;
-  v30 = 0LL;
-  v25 = 0LL;
+  v29 = 0LL;
+  v24 = 0LL;
   v8 = 0LL;
   *a4 = 0;
-  memset(v27, 0, sizeof(v27));
-  v9 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
-  *(_QWORD *)&ValueName.Length = v9;
+  memset(v26, 0, 0x48uLL);
+  DeviceNode = (unsigned int **)a1->DeviceObjectExtension->DeviceNode;
+  *(_QWORD *)&ValueName.Length = DeviceNode;
   if ( a2 )
   {
-    if ( (unsigned int)PnpGetDeviceResourcesFromRegistry(a1, 0, 2, (_DWORD)a3, (__int64)&v28) != -1073741772 )
+    if ( (unsigned int)PnpGetDeviceResourcesFromRegistry((_DWORD)a1, 0, 2, (_DWORD)a3, (__int64)&v27) != -1073741772 )
     {
       if ( *a3 )
       {
-        v8 = (_DWORD *)PnpCmResourcesToIoResources(v13, *a3, 0LL);
+        v8 = (_DWORD *)PnpCmResourcesToIoResources(v12, *a3, 0LL);
         ExFreePoolWithTag(*a3, 0);
         if ( !v8 )
         {
@@ -86,15 +85,23 @@ LABEL_18:
           *a4 = 0;
         return 0LL;
       }
-      v18 = Src;
+      v15 = Src;
       *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
       KeyHandle = 0LL;
       if ( !Src )
       {
         *a4 = 0;
         *a3 = 0LL;
-LABEL_38:
-        if ( (int)CmOpenDeviceRegKey(PiPnpRtlCtx, *(_QWORD *)(v9 + 48), 19, 0, 131097, 1, (__int64)&KeyHandle, 0LL) >= 0 )
+LABEL_27:
+        if ( (int)CmOpenDeviceRegKey(
+                    *(__int64 *)&PiPnpRtlCtx,
+                    (__int64)DeviceNode[6],
+                    19,
+                    0,
+                    131097,
+                    1,
+                    (__int64)&KeyHandle,
+                    0LL) >= 0 )
         {
           ValueName.Buffer = L"FilteredConfigVector";
           DataSize = *a4;
@@ -105,50 +112,49 @@ LABEL_38:
         }
         return 0LL;
       }
-      v19 = *(unsigned int *)Src;
+      v16 = *(unsigned int *)Src;
       *a4 = *(_DWORD *)Src;
-      Pool2 = (void *)ExAllocatePool2(256LL, v19, 538996816LL);
-      *a3 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v16, 0x20207050u);
+      *a3 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memmove(Pool2, v18, *a4);
-        ExFreePoolWithTag(v18, 0);
-        goto LABEL_38;
+        memmove(PoolWithTag, v15, *a4);
+        ExFreePoolWithTag(v15, 0);
+        goto LABEL_27;
       }
-      ExFreePoolWithTag(v18, 0);
+      ExFreePoolWithTag(v15, 0);
       return 3221225626LL;
     }
-    if ( (unsigned int)PnpGetDeviceResourcesFromRegistry(a1, 1, 1, (unsigned int)&KeyHandle, (__int64)&v28) != -1073741772 )
+    if ( (unsigned int)PnpGetDeviceResourcesFromRegistry((_DWORD)a1, 1, 1, (unsigned int)&KeyHandle, (__int64)&v27) != -1073741772 )
     {
       v8 = KeyHandle;
       goto LABEL_17;
     }
-    if ( (*(_DWORD *)(v9 + 396) & 1) != 0 )
+    if ( (*((_DWORD *)DeviceNode + 99) & 1) != 0 )
     {
-      result = PnpGetDeviceResourcesFromRegistry(a1, 1, 2, (unsigned int)&KeyHandle, (__int64)&v28);
+      result = PnpGetDeviceResourcesFromRegistry((_DWORD)a1, 1, 2, (unsigned int)&KeyHandle, (__int64)&v27);
       if ( (_DWORD)result == -1073741772 )
-      {
-        result = 0LL;
-        goto LABEL_16;
-      }
+        goto LABEL_15;
     }
     else
     {
-      v14 = *(unsigned int **)(v9 + 440);
-      if ( v14 )
+      v13 = DeviceNode[55];
+      if ( v13 )
       {
-        v15 = (_DWORD *)ExAllocatePool2(256LL, *v14, 538996816LL);
-        v8 = v15;
-        if ( !v15 )
+        v14 = ExAllocatePoolWithTag(PagedPool, *v13, 0x20207050u);
+        v8 = v14;
+        if ( !v14 )
           return 3221225495LL;
-        memmove(v15, *(const void **)(v9 + 440), **(unsigned int **)(v9 + 440));
+        memmove(v14, DeviceNode[55], *DeviceNode[55]);
         goto LABEL_17;
       }
       result = PpIrpQueryResourceRequirements(a1, &KeyHandle);
       if ( (_DWORD)result == -1073741637 )
       {
         v8 = 0LL;
-        goto LABEL_17;
+LABEL_15:
+        result = 0LL;
+        goto LABEL_16;
       }
     }
     v8 = KeyHandle;
@@ -156,60 +162,56 @@ LABEL_16:
     if ( (int)result < 0 )
       return result;
 LABEL_17:
-    if ( (int)PnpGetDeviceResourcesFromRegistry(a1, 0, 4, (unsigned int)&P, (__int64)&v28) >= 0 )
+    if ( (int)PnpGetDeviceResourcesFromRegistry((_DWORD)a1, 0, 4, (unsigned int)&P, (__int64)&v27) >= 0 )
     {
-      v16 = P;
+      v18 = P;
       if ( !P || !*(_DWORD *)P || *((_DWORD *)P + 1) != 5 )
       {
-        v17 = PnpFilterResourceRequirementsList(v8);
-        if ( v16 )
-          ExFreePoolWithTag(v16, 0);
-        if ( v17 < 0 )
+        v19 = PnpFilterResourceRequirementsList(v8);
+        if ( v18 )
+          ExFreePoolWithTag(v18, 0);
+        if ( v19 < 0 )
         {
           if ( v8 )
             ExFreePoolWithTag(v8, 0);
-          return (unsigned int)v17;
+          return (unsigned int)v19;
         }
-        v9 = *(_QWORD *)&ValueName.Length;
+        DeviceNode = *(unsigned int ***)&ValueName.Length;
         if ( (*(_DWORD *)(*(_QWORD *)&ValueName.Length + 396LL) & 1) != 0 )
         {
           if ( v8 )
             ExFreePoolWithTag(v8, 0);
-          v8 = v30;
+          v8 = v29;
         }
         else
         {
-          v11 = PnpMergeFilteredResourceRequirementsList(v30);
+          v10 = PnpMergeFilteredResourceRequirementsList(v29);
           if ( v8 )
             ExFreePoolWithTag(v8, 0);
-          if ( v30 )
-            ExFreePoolWithTag(v30, 0);
-          if ( (v11 & 0x80000000) != 0 )
-            return v11;
-          v8 = v25;
+          if ( v29 )
+            ExFreePoolWithTag(v29, 0);
+          if ( v10 < 0 )
+            return (unsigned int)v10;
+          v8 = v24;
         }
       }
     }
     goto LABEL_18;
   }
-  if ( (*(_DWORD *)(v9 + 396) & 1) == 0 )
+  if ( (*((_DWORD *)DeviceNode + 99) & 1) == 0 )
   {
-    v27[0] = 2587;
-    v10 = IopSynchronousCall(a1, (unsigned int)v27, -1073741637, 0, (__int64)a3);
-    v11 = v10;
+    v26[0] = 2587;
+    v10 = IopSynchronousCall(a1, (__int64)v26, -1073741637, 0LL, a3);
     if ( v10 == -1073741637 )
     {
       *a3 = 0LL;
-      v11 = 0;
+      v10 = 0;
     }
-    else if ( v10 < 0 )
-    {
-      return v11;
-    }
-    *a4 = PnpDetermineResourceListSize(*a3);
-    return v11;
+    if ( v10 >= 0 )
+      *a4 = PnpDetermineResourceListSize(*a3);
+    return (unsigned int)v10;
   }
-  result = PnpGetDeviceResourcesFromRegistry(a1, 0, 7, (_DWORD)a3, (__int64)a4);
+  result = PnpGetDeviceResourcesFromRegistry((_DWORD)a1, 0, 7, (_DWORD)a3, (__int64)a4);
   if ( (_DWORD)result == -1073741772 )
     return 0LL;
   return result;

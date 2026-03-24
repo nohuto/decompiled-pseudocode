@@ -1,19 +1,19 @@
 /*
- * XREFs of BiGetObjectReferenceFromEfiEntry @ 0x140A202A4
+ * XREFs of BiGetObjectReferenceFromEfiEntry @ 0x140972338
  * Callers:
- *     BiBuildIdentifierList @ 0x140A1E890 (BiBuildIdentifierList.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x140A212A0 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     BiBuildIdentifierList @ 0x140970928 (BiBuildIdentifierList.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x140973334 (BiUpdateObjectReferenceInEfiEntry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     strncmp @ 0x1403E0910 (strncmp.c)
- *     _wcsupr @ 0x1403E17B0 (_wcsupr.c)
- *     wcsnlen @ 0x1403E3480 (wcsnlen.c)
- *     wcsstr @ 0x1403E3540 (wcsstr.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlGUIDFromString @ 0x1407814E0 (RtlGUIDFromString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     strncmp @ 0x1403D1540 (strncmp.c)
+ *     _wcsupr @ 0x1403D23F0 (_wcsupr.c)
+ *     wcsnlen @ 0x1403D40D0 (wcsnlen.c)
+ *     wcsstr @ 0x1403D4190 (wcsstr.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetObjectReferenceFromEfiEntry(__int64 a1, GUID *a2)

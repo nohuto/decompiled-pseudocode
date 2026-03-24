@@ -1,66 +1,73 @@
 /*
- * XREFs of ValidateParentDepth @ 0x1C00CEE6C
+ * XREFs of ValidateParentDepth @ 0x1C0078F00
  * Callers:
- *     ValidateNewParent @ 0x1C00CEFDC (ValidateNewParent.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
+ *     ValidateNewParent @ 0x1C0078D78 (ValidateNewParent.c)
  * Callees:
- *     _GetDesktopWindow @ 0x1C00ECDE0 (_GetDesktopWindow.c)
+ *     <none>
  */
 
 __int64 __fastcall ValidateParentDepth(_QWORD *a1, __int64 a2)
 {
-  _QWORD *v2; // r8
-  unsigned int v3; // r10d
-  __int64 v4; // r9
-  __int64 DesktopWindow; // rax
-  __int64 v6; // rdx
+  unsigned int v2; // r9d
+  unsigned int v3; // r8d
+  __int64 v4; // r10
+  __int64 v5; // rax
+  __int64 v6; // r11
   unsigned int v7; // edx
-  _QWORD *v8; // rcx
-  _QWORD *v9; // rax
-  unsigned int v10; // eax
+  _QWORD *v9; // r10
+  _QWORD *v10; // rax
+  unsigned int v11; // eax
 
-  v2 = a1;
-  v3 = 1;
-  v4 = 0LL;
+  v2 = 1;
+  v3 = 0;
   while ( a2 )
   {
-    DesktopWindow = GetDesktopWindow(a2, a2);
-    if ( v6 == DesktopWindow )
+    v4 = *(_QWORD *)(a2 + 24);
+    v5 = 0LL;
+    if ( v4 )
+    {
+      v6 = *(_QWORD *)(v4 + 8);
+      if ( v6 )
+        v5 = *(_QWORD *)(v6 + 24);
+    }
+    if ( a2 == v5 )
       break;
-    a2 = *(_QWORD *)(v6 + 104);
-    ++v3;
+    a2 = *(_QWORD *)(a2 + 104);
+    ++v2;
   }
-  v7 = v3;
-  if ( v2 && v2[14] != v4 )
+  v7 = v2;
+  if ( a1 && a1[14] )
   {
-    v8 = v2;
+    v9 = (_QWORD *)a1[13];
     while ( 1 )
     {
-      while ( v2[14] )
+      while ( a1[14] )
       {
-        v2 = (_QWORD *)v2[14];
-        ++v3;
+        a1 = (_QWORD *)a1[14];
+        ++v2;
       }
-      v9 = (_QWORD *)v2[11];
-      if ( !v9 )
+      v10 = (_QWORD *)a1[11];
+      if ( !v10 )
         break;
-LABEL_16:
-      v2 = v9;
+LABEL_19:
+      a1 = v10;
     }
-    v10 = v3;
-    if ( v3 <= v7 )
-      v10 = v7;
-    v7 = v10;
+    v11 = v2;
+    if ( v2 <= v7 )
+      v11 = v7;
+    v7 = v11;
     while ( 1 )
     {
-      v2 = (_QWORD *)v2[13];
-      --v3;
-      if ( v2 == v8 )
+      a1 = (_QWORD *)a1[13];
+      --v2;
+      if ( a1 == v9 )
         break;
-      v9 = (_QWORD *)v2[11];
-      if ( v9 )
-        goto LABEL_16;
+      v10 = (_QWORD *)a1[11];
+      if ( v10 )
+        goto LABEL_19;
     }
   }
-  LOBYTE(v4) = v7 <= gNestedWindowLimit;
-  return (unsigned int)v4;
+  LOBYTE(v3) = v7 <= gNestedWindowLimit;
+  return v3;
 }

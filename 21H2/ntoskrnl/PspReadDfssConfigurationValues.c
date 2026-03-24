@@ -1,33 +1,35 @@
 /*
- * XREFs of PspReadDfssConfigurationValues @ 0x1405DFE94
+ * XREFs of PspReadDfssConfigurationValues @ 0x140580DB8
  * Callers:
- *     PspIsDfssEnabled @ 0x140835590 (PspIsDfssEnabled.c)
- *     PspDfssConfigurationChangeHandler @ 0x1409AB6B0 (PspDfssConfigurationChangeHandler.c)
+ *     PspIsDfssEnabled @ 0x1407A8CA0 (PspIsDfssEnabled.c)
+ *     PspDfssConfigurationChangeHandler @ 0x140905A10 (PspDfssConfigurationChangeHandler.c)
  * Callees:
- *     KeUpdateGroupSchedulingConstants @ 0x1403DB3E0 (KeUpdateGroupSchedulingConstants.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwNotifyChangeKey @ 0x14041DB60 (ZwNotifyChangeKey.c)
- *     RtlQueryImageFileKeyOption @ 0x1406CC700 (RtlQueryImageFileKeyOption.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1403CC28C (KeUpdateGroupSchedulingConstants.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwNotifyChangeKey @ 0x1403FC6E0 (ZwNotifyChangeKey.c)
+ *     RtlQueryImageFileKeyOption @ 0x1406AEF00 (RtlQueryImageFileKeyOption.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void PspReadDfssConfigurationValues()
 {
-  _DWORD *v0; // rbx
-  __int64 v1; // rdi
+  NTSTATUS v0; // ecx
+  _DWORD *v1; // rbx
+  __int64 v2; // rdi
   int ImageFileKeyOption; // eax
-  _DWORD *v3; // rcx
-  PIO_APC_ROUTINE v4; // r8
-  HANDLE v5; // rcx
+  _DWORD *v4; // rcx
+  PIO_APC_ROUTINE v5; // r8
+  HANDLE v6; // rcx
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   HANDLE KeyHandle; // [rsp+90h] [rbp+10h] BYREF
 
   KeyHandle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   if ( PspDfssConfigurationKey )
   {
+    v0 = 0;
     KeyHandle = PspDfssConfigurationKey;
   }
   else
@@ -37,52 +39,54 @@ void PspReadDfssConfigurationValues()
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    if ( ZwOpenKey(&KeyHandle, 0x11u, &ObjectAttributes) < 0 )
-      return;
+    v0 = ZwOpenKey(&KeyHandle, 0x11u, &ObjectAttributes);
   }
-  v0 = &PspDfssConfigValues;
-  v1 = 4LL;
-  do
+  if ( v0 >= 0 )
   {
-    ImageFileKeyOption = RtlQueryImageFileKeyOption(KeyHandle, 4, 0LL);
-    v3 = *(_DWORD **)v0;
-    if ( ImageFileKeyOption >= 0 )
+    v1 = &PspDfssConfigValues;
+    v2 = 4LL;
+    do
     {
-      if ( !*v3 )
-        *v3 = 1;
+      ImageFileKeyOption = RtlQueryImageFileKeyOption(KeyHandle, 4, 0LL);
+      v4 = *(_DWORD **)v1;
+      if ( ImageFileKeyOption >= 0 )
+      {
+        if ( !*v4 )
+          *v4 = 1;
+      }
+      else
+      {
+        *v4 = v1[4];
+      }
+      v1 += 6;
+      --v2;
+    }
+    while ( v2 );
+    if ( PspDfssConfigurationNotify )
+    {
+      KeUpdateGroupSchedulingConstants(0);
     }
     else
     {
-      *v3 = v0[4];
+      PspDfssConfigurationNotify = (PIO_APC_ROUTINE)ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x73736644u);
+      if ( !PspDfssConfigurationNotify )
+      {
+        ZwClose(KeyHandle);
+        return;
+      }
+      PspDfssConfigurationKey = KeyHandle;
     }
-    v0 += 6;
-    --v1;
-  }
-  while ( v1 );
-  if ( PspDfssConfigurationNotify )
-  {
-    KeUpdateGroupSchedulingConstants(0);
-  }
-  else
-  {
-    PspDfssConfigurationNotify = (PIO_APC_ROUTINE)ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x73736644u);
-    if ( !PspDfssConfigurationNotify )
+    v5 = PspDfssConfigurationNotify;
+    v6 = PspDfssConfigurationKey;
+    *((_QWORD *)PspDfssConfigurationNotify + 2) = PspDfssConfigurationChangeHandler;
+    *((_QWORD *)v5 + 3) = 0LL;
+    *(_QWORD *)v5 = 0LL;
+    if ( ZwNotifyChangeKey(v6, 0LL, v5, (PVOID)1, (PIO_STATUS_BLOCK)v5 + 2, 4u, 0, 0LL, 0, 1u) < 0 )
     {
-      ZwClose(KeyHandle);
-      return;
+      ZwClose(PspDfssConfigurationKey);
+      PspDfssConfigurationKey = 0LL;
+      ExFreePoolWithTag(PspDfssConfigurationNotify, 0x73736644u);
+      PspDfssConfigurationNotify = 0LL;
     }
-    PspDfssConfigurationKey = KeyHandle;
-  }
-  v4 = PspDfssConfigurationNotify;
-  v5 = PspDfssConfigurationKey;
-  *((_QWORD *)PspDfssConfigurationNotify + 2) = PspDfssConfigurationChangeHandler;
-  *((_QWORD *)v4 + 3) = 0LL;
-  *(_QWORD *)v4 = 0LL;
-  if ( ZwNotifyChangeKey(v5, 0LL, v4, (PVOID)1, (PIO_STATUS_BLOCK)v4 + 2, 4u, 0, 0LL, 0, 1u) < 0 )
-  {
-    ZwClose(PspDfssConfigurationKey);
-    PspDfssConfigurationKey = 0LL;
-    ExFreePoolWithTag(PspDfssConfigurationNotify, 0x73736644u);
-    PspDfssConfigurationNotify = 0LL;
   }
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpQuerySingleModuleInformation @ 0x1409F7498
+ * XREFs of ExpQuerySingleModuleInformation @ 0x14094B270
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExpConvertLdrEntryToModuleInfo @ 0x1407CE314 (ExpConvertLdrEntryToModuleInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x1407B1BDC (ExpConvertLdrEntryToModuleInfo.c)
  */
 
 __int64 __fastcall ExpQuerySingleModuleInformation(unsigned __int64 *a1, unsigned int a2, char a3, _DWORD *a4)
 {
-  unsigned __int64 v7; // rbx
   struct _KTHREAD *CurrentThread; // rax
+  unsigned __int64 v8; // rbx
   PVOID *v9; // rcx
   __int16 v10; // r9
   PVOID v11; // rdx
@@ -23,8 +23,8 @@ __int64 __fastcall ExpQuerySingleModuleInformation(unsigned __int64 *a1, unsigne
     return 3221225506LL;
   if ( a2 < 0x148 )
     return 3221225476LL;
-  v7 = *a1;
   CurrentThread = KeGetCurrentThread();
+  v8 = *a1;
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(&PsLoadedModuleResource, 1u);
   v9 = (PVOID *)PsLoadedModuleList;
@@ -34,7 +34,7 @@ __int64 __fastcall ExpQuerySingleModuleInformation(unsigned __int64 *a1, unsigne
     while ( v9 != &PsLoadedModuleList )
     {
       v11 = v9[6];
-      if ( v7 >= (unsigned __int64)v11 && v7 < (unsigned __int64)v11 + *((unsigned int *)v9 + 16) )
+      if ( v8 >= (unsigned __int64)v11 && v8 < (unsigned __int64)v11 + *((unsigned int *)v9 + 16) )
       {
         *((_WORD *)a1 + 4) = 0;
         ExpConvertLdrEntryToModuleInfo((__int64)v9, v10, (__int64)(a1 + 1));

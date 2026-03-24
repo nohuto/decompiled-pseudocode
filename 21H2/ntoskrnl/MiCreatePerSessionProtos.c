@@ -1,39 +1,37 @@
 /*
- * XREFs of MiCreatePerSessionProtos @ 0x1406DDB48
+ * XREFs of MiCreatePerSessionProtos @ 0x1406BC914
  * Callers:
- *     MiInsertInSystemSpace @ 0x14026D460 (MiInsertInSystemSpace.c)
- *     MiCloneImageVad @ 0x1405B9904 (MiCloneImageVad.c)
- *     MiValidateSectionCreate @ 0x1406B79C8 (MiValidateSectionCreate.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MiFinishCreateSection @ 0x1406FD9F0 (MiFinishCreateSection.c)
- *     MiMapSystemImage @ 0x140761714 (MiMapSystemImage.c)
- *     MiInitializeImageExtents @ 0x1409706E4 (MiInitializeImageExtents.c)
+ *     MiInsertInSystemSpace @ 0x1402FADE0 (MiInsertInSystemSpace.c)
+ *     MiCloneImageVad @ 0x140559280 (MiCloneImageVad.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiFinishCreateSection @ 0x140705C20 (MiFinishCreateSection.c)
+ *     MiValidateSectionCreate @ 0x140714C70 (MiValidateSectionCreate.c)
+ *     MiMapSystemImage @ 0x14075D0C4 (MiMapSystemImage.c)
  * Callees:
- *     MiLocateSessionProtosInSubsection @ 0x140255844 (MiLocateSessionProtosInSubsection.c)
- *     MiUpdatePerSessionProto @ 0x140255870 (MiUpdatePerSessionProto.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     MiDereferenceSubsectionProtos @ 0x1406DDAE0 (MiDereferenceSubsectionProtos.c)
- *     MiAllocatePerSessionProtos @ 0x1406DDC90 (MiAllocatePerSessionProtos.c)
- *     MiFreeSubsectionProtos @ 0x1406DDE9C (MiFreeSubsectionProtos.c)
+ *     MiLocateSessionProtosInSubsection @ 0x1402CF08C (MiLocateSessionProtosInSubsection.c)
+ *     MiUpdatePerSessionProto @ 0x1402CF0B8 (MiUpdatePerSessionProto.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiDereferenceSubsectionProtos @ 0x1406BC8AC (MiDereferenceSubsectionProtos.c)
+ *     MiAllocatePerSessionProtos @ 0x1406BCA38 (MiAllocatePerSessionProtos.c)
+ *     MiFreeSubsectionProtos @ 0x1406BCC40 (MiFreeSubsectionProtos.c)
  */
 
 __int64 __fastcall MiCreatePerSessionProtos(__int64 *a1, unsigned int a2)
 {
-  struct _KTHREAD *CurrentThread; // rdi
-  __int64 v5; // rsi
-  volatile signed __int64 *v6; // rsi
-  __int64 v7; // r14
-  __int64 v8; // rbp
-  bool v9; // zf
+  struct _KTHREAD *CurrentThread; // r15
+  __int64 v5; // rdi
+  volatile signed __int64 *v6; // rdi
+  __int64 v7; // rbp
+  __int64 v8; // rsi
   __int64 *SessionProtosInSubsection; // rax
-  int v12; // ecx
+  int v11; // ecx
   int PerSessionProtos; // r13d
-  __int64 v14; // r8
-  __int64 *v15; // [rsp+80h] [rbp+18h] BYREF
-  __int64 v16; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v13; // r8
+  __int64 *v14; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v15; // [rsp+88h] [rbp+20h] BYREF
 
   if ( a2 - 0x7FFFF <= 0xFFF7FFFF )
     return 3221225678LL;
@@ -50,9 +48,7 @@ LABEL_5:
     if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v6);
     KeAbPostRelease((ULONG_PTR)v6);
-    v9 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v9 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery();
+    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     return 0LL;
   }
   while ( (*(_BYTE *)(v8 + 34) & 2) == 0 )
@@ -63,32 +59,30 @@ LABEL_4:
       goto LABEL_5;
   }
   SessionProtosInSubsection = MiLocateSessionProtosInSubsection(v8, a2);
-  v15 = SessionProtosInSubsection;
+  v14 = SessionProtosInSubsection;
   if ( SessionProtosInSubsection )
   {
     ++*((_DWORD *)SessionProtosInSubsection + 20);
     goto LABEL_4;
   }
-  PerSessionProtos = MiAllocatePerSessionProtos(v12, 0, 0, 0, (__int64)&v15);
+  PerSessionProtos = MiAllocatePerSessionProtos(v11, 0, 0, 0, (__int64)&v14);
   if ( PerSessionProtos >= 0 )
   {
-    v14 = (__int64)v15;
-    *((_DWORD *)v15 + 16) = a2;
-    MiUpdatePerSessionProto((__int64)a1, v8, v14, 1);
+    v13 = (__int64)v14;
+    *((_DWORD *)v14 + 16) = a2;
+    MiUpdatePerSessionProto((__int64)a1, v8, v13, 1);
     goto LABEL_4;
   }
-  v16 = 0LL;
+  v15 = 0LL;
   while ( v7 != v8 )
   {
-    MiDereferenceSubsectionProtos(v7, a2, &v16);
+    MiDereferenceSubsectionProtos(v7, a2, &v15);
     v7 = *(_QWORD *)(v7 + 16);
   }
   if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v6);
   KeAbPostRelease((ULONG_PTR)v6);
-  v9 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v9 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
-  MiFreeSubsectionProtos(&v16);
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  MiFreeSubsectionProtos(&v15);
   return (unsigned int)PerSessionProtos;
 }

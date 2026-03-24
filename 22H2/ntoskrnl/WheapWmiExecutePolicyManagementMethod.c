@@ -1,14 +1,13 @@
 /*
- * XREFs of WheapWmiExecutePolicyManagementMethod @ 0x14061430C
+ * XREFs of WheapWmiExecutePolicyManagementMethod @ 0x1405BDE20
  * Callers:
- *     WheapWmiExecuteMethod @ 0x140613FD0 (WheapWmiExecuteMethod.c)
+ *     WheapWmiExecuteMethod @ 0x1405BDCF0 (WheapWmiExecuteMethod.c)
  * Callees:
- *     WheapCommitPolicy @ 0x140A096F8 (WheapCommitPolicy.c)
- *     WheapGetAllPolicyBufferSize @ 0x140A097E8 (WheapGetAllPolicyBufferSize.c)
- *     WheapGetAllPolicyValues @ 0x140A097F8 (WheapGetAllPolicyValues.c)
- *     WheapGetPolicyValue @ 0x140A0983C (WheapGetPolicyValue.c)
- *     WheapResetPolicyDefaults @ 0x140A09A60 (WheapResetPolicyDefaults.c)
- *     WheapSetPolicyValue @ 0x140A09AA8 (WheapSetPolicyValue.c)
+ *     WheapCommitPolicy @ 0x14095DDA0 (WheapCommitPolicy.c)
+ *     WheapGetAllPolicyBufferSize @ 0x14095DE90 (WheapGetAllPolicyBufferSize.c)
+ *     WheapGetAllPolicyValues @ 0x14095DEA0 (WheapGetAllPolicyValues.c)
+ *     WheapGetPolicyValue @ 0x14095DEE4 (WheapGetPolicyValue.c)
+ *     WheapSetPolicyValue @ 0x14095E088 (WheapSetPolicyValue.c)
  */
 
 __int64 __fastcall WheapWmiExecutePolicyManagementMethod(
@@ -22,52 +21,51 @@ __int64 __fastcall WheapWmiExecutePolicyManagementMethod(
   int v7; // ecx
   int v8; // ecx
   int v9; // ecx
-  int v10; // ecx
   unsigned int AllPolicyValues; // ecx
-  unsigned int v12; // eax
-  __int64 v13; // rcx
+  unsigned int v11; // eax
+  __int64 v12; // rcx
   unsigned int PolicyValue; // eax
-  unsigned int v15; // eax
+  unsigned int v14; // eax
   unsigned int AllPolicyBufferSize; // eax
-  _DWORD *v17; // r8
-  int v18; // r10d
-  unsigned int v19; // edx
-  unsigned int v21[6]; // [rsp+20h] [rbp-18h] BYREF
-  unsigned int v22; // [rsp+40h] [rbp+8h] BYREF
+  _DWORD *v16; // r8
+  int v17; // r10d
+  unsigned int v18; // edx
+  unsigned int v20[6]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v21; // [rsp+40h] [rbp+8h] BYREF
 
-  v22 = 0;
+  v21 = 0;
   v6 = 0;
-  v21[0] = 0;
+  v20[0] = 0;
   v7 = a1 - 1;
   if ( !v7 )
   {
     AllPolicyBufferSize = WheapGetAllPolicyBufferSize();
     v6 = AllPolicyBufferSize + 12;
-    if ( v19 < AllPolicyBufferSize + 12 )
-      goto LABEL_21;
-    *v17 = v18;
-    v17[2] = AllPolicyBufferSize;
-    AllPolicyValues = WheapGetAllPolicyValues(v21, AllPolicyBufferSize, v17 + 3);
-    v15 = v21[0];
-    goto LABEL_23;
+    if ( v18 < AllPolicyBufferSize + 12 )
+      goto LABEL_18;
+    *v16 = v17;
+    v16[2] = AllPolicyBufferSize;
+    AllPolicyValues = WheapGetAllPolicyValues(v20, AllPolicyBufferSize, v16 + 3);
+    v14 = v20[0];
+    goto LABEL_20;
   }
   v8 = v7 - 1;
   if ( !v8 )
   {
     if ( a4 < 4 )
-      goto LABEL_16;
+      goto LABEL_13;
     v6 = 8;
     if ( a2 < 8 )
-      goto LABEL_21;
-    PolicyValue = WheapGetPolicyValue(*a3, &v22);
+      goto LABEL_18;
+    PolicyValue = WheapGetPolicyValue(*a3, &v21);
     *a3 = PolicyValue;
     AllPolicyValues = PolicyValue;
     if ( PolicyValue )
-      goto LABEL_24;
-    v15 = v22;
-LABEL_23:
-    a3[1] = v15;
-    goto LABEL_24;
+      goto LABEL_21;
+    v14 = v21;
+LABEL_20:
+    a3[1] = v14;
+    goto LABEL_21;
   }
   v9 = v8 - 1;
   if ( !v9 )
@@ -75,47 +73,36 @@ LABEL_23:
     if ( a4 >= 8 )
     {
       v6 = 4;
-      v13 = *a3;
-      v22 = a3[1];
+      v12 = *a3;
+      v21 = a3[1];
       if ( a2 >= 4 )
       {
-        v12 = WheapSetPolicyValue(v13, &v22);
-        goto LABEL_14;
+        v11 = WheapSetPolicyValue(v12, &v21);
+        goto LABEL_11;
       }
+LABEL_18:
+      AllPolicyValues = -1073741789;
       goto LABEL_21;
     }
-LABEL_16:
+LABEL_13:
     AllPolicyValues = -1073741811;
-    goto LABEL_24;
-  }
-  v10 = v9 - 1;
-  if ( !v10 )
-  {
-    v6 = 4;
-    if ( a2 >= 4 )
-    {
-      v12 = WheapCommitPolicy();
-      goto LABEL_14;
-    }
-LABEL_21:
-    AllPolicyValues = -1073741789;
-    goto LABEL_24;
-  }
-  if ( v10 == 1 )
-  {
-    v6 = 4;
-    if ( a2 >= 4 )
-    {
-      v12 = WheapResetPolicyDefaults();
-LABEL_14:
-      AllPolicyValues = v12;
-      *a3 = v12;
-      goto LABEL_24;
-    }
     goto LABEL_21;
   }
+  if ( v9 == 1 )
+  {
+    v6 = 4;
+    if ( a2 >= 4 )
+    {
+      v11 = WheapCommitPolicy();
+LABEL_11:
+      AllPolicyValues = v11;
+      *a3 = v11;
+      goto LABEL_21;
+    }
+    goto LABEL_18;
+  }
   AllPolicyValues = -1073741161;
-LABEL_24:
+LABEL_21:
   *a5 = v6;
   return AllPolicyValues;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpFindSecondaryIcEntry @ 0x14037CCD0
+ * XREFs of HalpFindSecondaryIcEntry @ 0x1404D0B98
  * Callers:
- *     HalpDisableSecondaryInterrupt @ 0x140519E38 (HalpDisableSecondaryInterrupt.c)
- *     HalpHandleMaskUnmaskSecondaryInterrupt @ 0x140519FC4 (HalpHandleMaskUnmaskSecondaryInterrupt.c)
- *     HalpInterruptRequestSecondaryInterrupt @ 0x14051A31C (HalpInterruptRequestSecondaryInterrupt.c)
- *     HalpQueryPrimaryInterruptInformation @ 0x14082099C (HalpQueryPrimaryInterruptInformation.c)
- *     HalpEnableSecondaryInterrupt @ 0x140862474 (HalpEnableSecondaryInterrupt.c)
+ *     HalpDisableSecondaryInterrupt @ 0x1404D0AEC (HalpDisableSecondaryInterrupt.c)
+ *     HalpHandleMaskUnmaskSecondaryInterrupt @ 0x1404D0D5C (HalpHandleMaskUnmaskSecondaryInterrupt.c)
+ *     HalpInterruptRequestSecondaryInterrupt @ 0x1404D10B4 (HalpInterruptRequestSecondaryInterrupt.c)
+ *     HalpEnableSecondaryInterrupt @ 0x140865534 (HalpEnableSecondaryInterrupt.c)
+ *     HalpQueryPrimaryInterruptInformation @ 0x140865620 (HalpQueryPrimaryInterruptInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x14037D1C8 (HalpAcquireHighLevelLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378990 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpFindSecondaryIcEntry(unsigned int a1)
@@ -22,8 +22,8 @@ __int64 __fastcall HalpFindSecondaryIcEntry(unsigned int a1)
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v11; // edx
-  bool v12; // zf
+  int v10; // edx
+  bool v11; // zf
 
   v2 = HalpAcquireHighLevelLock(&SecondaryIcListSpinLock);
   v3 = SecondaryIcList;
@@ -40,19 +40,22 @@ __int64 __fastcall HalpFindSecondaryIcEntry(unsigned int a1)
     }
     v3 = *(_QWORD *)v3;
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&SecondaryIcListSpinLock);
+  KxReleaseSpinLock(&SecondaryIcListSpinLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-      v12 = (v11 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v11;
-      if ( v12 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v11 = (v10 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v10;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v4);

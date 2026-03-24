@@ -1,10 +1,10 @@
 /*
- * XREFs of ZwCreateWnfStateName @ 0x1401B9A30
+ * XREFs of ZwCreateWnfStateName @ 0x1401B9A50
  * Callers:
- *     PspAllocateAndQueryProcessNotificationChannel @ 0x14065148C (PspAllocateAndQueryProcessNotificationChannel.c)
- *     PiUEventInitClientRegistrationContext @ 0x140655918 (PiUEventInitClientRegistrationContext.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB24 (PspAllocateAndQueryNotificationChannel.c)
- *     PopCreateNotificationName @ 0x1406CE5C0 (PopCreateNotificationName.c)
+ *     PspAllocateAndQueryProcessNotificationChannel @ 0x14065146C (PspAllocateAndQueryProcessNotificationChannel.c)
+ *     PiUEventInitClientRegistrationContext @ 0x1406558F8 (PiUEventInitClientRegistrationContext.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB04 (PspAllocateAndQueryNotificationChannel.c)
+ *     PopCreateNotificationName @ 0x1406CE5A0 (PopCreateNotificationName.c)
  * Callees:
  *     <none>
  */

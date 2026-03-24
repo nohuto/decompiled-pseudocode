@@ -1,117 +1,119 @@
 /*
- * XREFs of MiChangePageAttributeBatch @ 0x1402680C0
+ * XREFs of MiChangePageAttributeBatch @ 0x1403035A0
  * Callers:
- *     MiConvertContiguousPages @ 0x140265BE4 (MiConvertContiguousPages.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x140265D40 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiGetPageChain @ 0x140323D70 (MiGetPageChain.c)
- *     MiSwitchToTransition @ 0x1405954F4 (MiSwitchToTransition.c)
- *     MiChangeAwePageAttributes @ 0x1405AA320 (MiChangeAwePageAttributes.c)
- *     MiPerformFinalZeroing @ 0x1405ADCD4 (MiPerformFinalZeroing.c)
+ *     MiGetPageChain @ 0x140212D10 (MiGetPageChain.c)
+ *     MiConvertContiguousPages @ 0x1402E3BC4 (MiConvertContiguousPages.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1402E3D24 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiSwitchToTransition @ 0x140539F14 (MiSwitchToTransition.c)
+ *     MiChangeAwePageAttributes @ 0x14054B840 (MiChangeAwePageAttributes.c)
+ *     MiPerformFinalZeroing @ 0x14054F348 (MiPerformFinalZeroing.c)
  * Callees:
- *     KeInvalidateAllCaches @ 0x140259C80 (KeInvalidateAllCaches.c)
- *     MiAbortCombineScan @ 0x140268998 (MiAbortCombineScan.c)
- *     MiFlushCacheForAttributeChange @ 0x140268AB0 (MiFlushCacheForAttributeChange.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14026A230 (MiFlushEntireTbDueToAttributeChange.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiAbortCombineScan @ 0x140303770 (MiAbortCombineScan.c)
+ *     MiFlushCacheForAttributeChange @ 0x140303848 (MiFlushCacheForAttributeChange.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14030438C (MiFlushEntireTbDueToAttributeChange.c)
+ *     KeInvalidateAllCaches @ 0x1403A4E00 (KeInvalidateAllCaches.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall MiChangePageAttributeBatch(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall MiChangePageAttributeBatch(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  unsigned int v4; // r15d
-  __int64 v5; // rsi
-  unsigned __int8 v6; // r12
-  int v7; // r13d
-  unsigned int v8; // ebp
-  int v9; // r14d
-  __int64 v10; // rdi
-  __int64 v11; // rdi
-  int v12; // r8d
-  unsigned int v13; // r11d
-  unsigned int v14; // ecx
-  char v15; // al
+  __int64 v4; // rbx
+  unsigned int v5; // r15d
+  __int64 v6; // rsi
+  unsigned __int8 v7; // r13
+  unsigned int v8; // r14d
+  __int64 v9; // rdi
+  int v10; // ebp
+  int v11; // r12d
+  unsigned int v12; // ecx
+  char v13; // al
+  unsigned int v14; // r11d
+  int v15; // r12d
   __int64 *v16; // rax
+  __int64 v17; // rdi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
   bool v20; // zf
-  int v21; // [rsp+88h] [rbp+20h]
+  unsigned int v21; // [rsp+88h] [rbp+20h]
 
   if ( a1 )
   {
-    v4 = a2;
-    v5 = a1;
-    v6 = 17;
-    v7 = 0;
+    v4 = a3;
+    v5 = a2;
+    v6 = a1;
+    v7 = 17;
     do
     {
       v8 = 0;
-      v9 = 1;
-      v10 = v5;
+      v9 = v6;
+      v21 = 0;
+      v10 = 1;
       do
       {
+        v11 = v10;
         if ( v8 >= 0x1000 )
           break;
         if ( v8 )
         {
-          if ( _interlockedbittestandset64((volatile signed __int32 *)(v10 + 24), 0x3FuLL) )
+          if ( _interlockedbittestandset64((volatile signed __int32 *)(v9 + 24), 0x3FuLL) )
             break;
         }
         else
         {
-          v6 = MiLockPageInline(v10);
+          v7 = MiLockPageInline(v9, a2, a3, SchedulerAssist);
         }
-        if ( (*(_BYTE *)(v10 + 34) & 0xC0) != 0xC0 )
-          v9 = 0;
-        MiAbortCombineScan(v10, a2);
-        v10 = *(_QWORD *)(v10 + 16);
+        v10 = 0;
+        if ( (*(_BYTE *)(v9 + 34) & 0xC0) == 0xC0 )
+          v10 = v11;
+        MiAbortCombineScan(v9);
+        v9 = *(_QWORD *)(v9 + 16);
         ++v8;
       }
-      while ( v10 );
-      if ( v9 || (MiFlushEntireTbDueToAttributeChange(a1, a2), v8 < dword_140C5074C) || v4 == 1 )
+      while ( v9 );
+      if ( v10 || (MiFlushEntireTbDueToAttributeChange(a1, a2, a3, SchedulerAssist), v8 < dword_140C4DF0C) || v5 == 1 )
       {
-        v21 = 0;
-        v11 = v5;
-        v12 = 0;
+        LODWORD(a3) = 0;
       }
       else
       {
-        ++dword_140C50744;
+        ++dword_140C4DF04;
         KeInvalidateAllCaches();
-        v12 = 1;
-        v11 = v5;
+        LODWORD(a3) = 1;
         v21 = 1;
       }
-      v13 = v6 + 1;
-      LOBYTE(a2) = (_BYTE)v4 << 6;
+      v15 = 0;
+      v17 = v6;
+      v14 = v7 + 1;
+      LOBYTE(a2) = (_BYTE)v5 << 6;
       do
       {
-        v14 = *(unsigned __int8 *)(v11 + 34);
-        v15 = a2 | v14 & 0x3F;
-        a1 = v14 >> 6;
-        *(_BYTE *)(v11 + 34) = v15;
-        if ( !v12 && !v9 && v4 != 1 && (_DWORD)a1 == 1 )
+        v12 = *(unsigned __int8 *)(v17 + 34);
+        v13 = a2 | v12 & 0x3F;
+        a1 = v12 >> 6;
+        *(_BYTE *)(v17 + 34) = v13;
+        if ( !(_DWORD)a3 && !v10 && v5 != 1 && (_DWORD)a1 != v5 && (_DWORD)a1 == 1 )
         {
-          ++dword_140C50748;
-          MiFlushCacheForAttributeChange(0xAAAAAAAAAAAAAAABuLL * ((v11 + 0x220000000000LL) >> 4), 1LL, v4);
-          v13 = v6 + 1;
+          ++dword_140C4DF08;
+          MiFlushCacheForAttributeChange((v17 + 0x58000000000LL) / 48, 1LL, v5);
+          v14 = v7 + 1;
         }
-        *(_QWORD *)(v11 + 24) &= 0xC7FFFFFFFFFFFFFFuLL;
-        ++v7;
-        _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( v7 == v8 )
+        *(_QWORD *)(v17 + 24) &= 0xF0FFFFFFFFFFFFFFuLL;
+        ++v15;
+        _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+        if ( v15 == v8 )
         {
           if ( KiIrqlFlags )
           {
             if ( (KiIrqlFlags & 1) != 0 )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+              if ( CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
-                a1 = v13;
+                a1 = v14;
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;
-                a2 = ~(unsigned __int16)(-1LL << v13);
+                a2 = ~(unsigned __int16)(-1LL << v14);
                 v20 = ((unsigned int)a2 & SchedulerAssist[5]) == 0;
                 SchedulerAssist[5] &= a2;
                 if ( v20 )
@@ -119,25 +121,24 @@ void __fastcall MiChangePageAttributeBatch(__int64 a1, __int64 a2, __int64 a3)
               }
             }
           }
-          __writecr8(v6);
-          v16 = (__int64 *)(v11 + 16);
-          v11 = 0LL;
-          v5 = *v16;
+          __writecr8(v7);
+          v16 = (__int64 *)(v17 + 16);
+          v17 = 0LL;
+          v6 = *v16;
         }
         else
         {
-          v16 = (__int64 *)(v11 + 16);
-          v11 = *(_QWORD *)(v11 + 16);
+          v16 = (__int64 *)(v17 + 16);
+          v17 = *(_QWORD *)(v17 + 16);
         }
-        if ( a3 != -1 )
-          *v16 = a3;
-        LOBYTE(a2) = (_BYTE)v4 << 6;
-        v12 = v21;
-        v13 = v6 + 1;
+        if ( v4 != -1 )
+          *v16 = v4;
+        LOBYTE(a2) = (_BYTE)v5 << 6;
+        v14 = v7 + 1;
+        a3 = v21;
       }
-      while ( v11 );
-      v7 = 0;
+      while ( v17 );
     }
-    while ( v5 );
+    while ( v6 );
   }
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpLocateDbgIdForRegEntry @ 0x1406BA0D0
+ * XREFs of EtwpLocateDbgIdForRegEntry @ 0x1406BA0B0
  * Callers:
- *     EtwpProviderArrivalCallback @ 0x14070A0C4 (EtwpProviderArrivalCallback.c)
+ *     EtwpProviderArrivalCallback @ 0x14070A0A4 (EtwpProviderArrivalCallback.c)
  * Callees:
  *     RtlImageNtHeaderEx @ 0x14009D860 (RtlImageNtHeaderEx.c)
- *     RtlPcToFileHeader @ 0x14012F650 (RtlPcToFileHeader.c)
- *     VslGetEtwDebugId @ 0x14027B0EC (VslGetEtwDebugId.c)
- *     EtwpFindDebugId @ 0x1406BA210 (EtwpFindDebugId.c)
- *     MmGetImageBase @ 0x1406BA3C4 (MmGetImageBase.c)
- *     EtwpGetImageSize @ 0x14070F550 (EtwpGetImageSize.c)
+ *     RtlPcToFileHeader @ 0x14012F670 (RtlPcToFileHeader.c)
+ *     VslGetEtwDebugId @ 0x14027B1EC (VslGetEtwDebugId.c)
+ *     EtwpFindDebugId @ 0x1406BA1F0 (EtwpFindDebugId.c)
+ *     MmGetImageBase @ 0x1406BA3A4 (MmGetImageBase.c)
+ *     EtwpGetImageSize @ 0x14070F530 (EtwpGetImageSize.c)
  */
 
 NTSTATUS __fastcall EtwpLocateDbgIdForRegEntry(char a1, __int64 a2, void **a3, unsigned int *a4)

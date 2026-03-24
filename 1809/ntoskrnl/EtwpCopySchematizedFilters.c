@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCopySchematizedFilters @ 0x1408C1EC4
+ * XREFs of EtwpCopySchematizedFilters @ 0x1408C1EA4
  * Callers:
  *     EtwpAddRegEntryToGroup @ 0x1405C2750 (EtwpAddRegEntryToGroup.c)
  *     EtwpRegisterUMGuid @ 0x1405C3970 (EtwpRegisterUMGuid.c)
  *     EtwpClearSessionAndUnreferenceEntry @ 0x1405C4D5C (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpBuildNotificationPacket @ 0x140658C68 (EtwpBuildNotificationPacket.c)
- *     EtwpRegisterProvider @ 0x1406BE5CC (EtwpRegisterProvider.c)
+ *     EtwpBuildNotificationPacket @ 0x140658C48 (EtwpBuildNotificationPacket.c)
+ *     EtwpRegisterProvider @ 0x1406BE5AC (EtwpRegisterProvider.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall EtwpCopySchematizedFilters(char *a1, __int64 a2, unsigned __int8 a3)

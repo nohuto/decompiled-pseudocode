@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z @ 0x1C02562E8
+ * XREFs of ?SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z @ 0x1C0259538
  * Callers:
- *     ?GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z @ 0x1C0255EA4 (-GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z.c)
- *     ?SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z @ 0x1C0256210 (-SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z.c)
+ *     ?GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z @ 0x1C02590D8 (-GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z.c)
+ *     ?SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z @ 0x1C0259460 (-SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z.c)
  * Callees:
- *     xxxSendInput @ 0x1C007EDD4 (xxxSendInput.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     xxxSendInput @ 0x1C00C0268 (xxxSendInput.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void __fastcall InteractiveControlDefaultScroller::SendZoomModifiers(char a1, int a2)

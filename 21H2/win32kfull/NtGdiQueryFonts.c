@@ -1,10 +1,10 @@
 /*
- * XREFs of NtGdiQueryFonts @ 0x1C0142850
+ * XREFs of NtGdiQueryFonts @ 0x1C0154530
  * Callers:
  *     <none>
  * Callees:
- *     GreQueryFonts @ 0x1C0142988 (GreQueryFonts.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     GreQueryFonts @ 0x1C0154664 (GreQueryFonts.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtGdiQueryFonts(char *a1, unsigned int a2, union _LARGE_INTEGER *a3)

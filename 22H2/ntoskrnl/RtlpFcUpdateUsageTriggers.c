@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpFcUpdateUsageTriggers @ 0x1409C83F4
+ * XREFs of RtlpFcUpdateUsageTriggers @ 0x14091A738
  * Callers:
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140A277C8 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E0B0 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
  * Callees:
- *     qsort @ 0x1403D9DD0 (qsort.c)
- *     RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1405B4D4C (RtlpFcCompareUsageSubscriptionToUsageSubscription.c)
- *     RtlpFcAddUsageSubscriptionFromUpdate @ 0x1409C7B78 (RtlpFcAddUsageSubscriptionFromUpdate.c)
- *     RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x1409C7E38 (RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable.c)
+ *     qsort @ 0x1403D23C0 (qsort.c)
+ *     RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1403F7EC8 (RtlpFcCompareUsageSubscriptionToUsageSubscription.c)
+ *     RtlpFcAddUsageSubscriptionFromUpdate @ 0x140919BF8 (RtlpFcAddUsageSubscriptionFromUpdate.c)
+ *     RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x140919EE0 (RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable.c)
  */
 
 NTSTATUS __fastcall RtlpFcUpdateUsageTriggers(

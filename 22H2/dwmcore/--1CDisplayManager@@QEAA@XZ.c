@@ -1,17 +1,15 @@
 /*
- * XREFs of ??1CDisplayManager@@QEAA@XZ @ 0x18010ECF4
+ * XREFs of ??1CDisplayManager@@QEAA@XZ @ 0x1800E65C0
  * Callers:
- *     _dynamic_atexit_destructor_for__g_DisplayManager__ @ 0x180124640 (_dynamic_atexit_destructor_for__g_DisplayManager__.c)
+ *     _dynamic_atexit_destructor_for__g_DisplayManager__ @ 0x1800F9190 (_dynamic_atexit_destructor_for__g_DisplayManager__.c)
  * Callees:
- *     <none>
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
  */
 
-void __fastcall CDisplayManager::~CDisplayManager(struct _RTL_CRITICAL_SECTION *this)
+void __fastcall CDisplayManager::~CDisplayManager(CDisplayManager *this)
 {
-  char *v2; // rcx
-
-  v2 = *(char **)&this[1].LockCount;
-  if ( (unsigned __int64)(v2 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-    CloseHandle(v2);
-  DeleteCriticalSection(this);
+  if ( (char *)hObject - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL )
+    CloseHandle(hObject);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&qword_18034B5C8);
+  DeleteCriticalSection(&g_DisplayManager);
 }

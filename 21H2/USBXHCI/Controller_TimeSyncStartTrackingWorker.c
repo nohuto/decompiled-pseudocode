@@ -1,13 +1,13 @@
 /*
- * XREFs of Controller_TimeSyncStartTrackingWorker @ 0x1C0033800
+ * XREFs of Controller_TimeSyncStartTrackingWorker @ 0x1C00337C0
  * Callers:
  *     <none>
  * Callees:
- *     DynamicLock_Release @ 0x1C0003E5C (DynamicLock_Release.c)
- *     DynamicLock_Acquire @ 0x1C0004248 (DynamicLock_Acquire.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Controller_DetectFrameMicroframeBoundary @ 0x1C0031544 (Controller_DetectFrameMicroframeBoundary.c)
+ *     DynamicLock_Release @ 0x1C0006D40 (DynamicLock_Release.c)
+ *     DynamicLock_Acquire @ 0x1C0007340 (DynamicLock_Acquire.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_DetectFrameMicroframeBoundary @ 0x1C003127C (Controller_DetectFrameMicroframeBoundary.c)
  */
 
 __int64 __fastcall Controller_TimeSyncStartTrackingWorker(__int64 a1)
@@ -15,67 +15,75 @@ __int64 __fastcall Controller_TimeSyncStartTrackingWorker(__int64 a1)
   __int64 v1; // rax
   __int64 v2; // rdi
   int v3; // r14d
-  _QWORD *v4; // rsi
-  _QWORD *v5; // rbx
-  __int64 v6; // rax
-  __int64 v7; // r8
-  int v8; // edx
-  __int64 v9; // rbp
-  __int64 v10; // rcx
+  int v4; // edx
+  int v5; // r8d
+  int v6; // r9d
+  int v7; // edx
+  int v8; // r8d
+  int v9; // r9d
+  _QWORD *v10; // rsi
+  _QWORD *v11; // rbx
+  __int64 v12; // rax
+  __int64 v13; // r8
+  __int64 v14; // rbp
+  int v15; // edx
+  int v16; // r8d
+  int v17; // r9d
+  __int64 v18; // rcx
 
   v1 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 3048))(WdfDriverGlobals, a1);
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          v1,
-         off_1C0061428);
+         off_1C0060428);
   v3 = Controller_DetectFrameMicroframeBoundary(v2);
-  DynamicLock_Acquire(*(_QWORD *)(v2 + 616));
-  v4 = (_QWORD *)(v2 + 640);
+  DynamicLock_Acquire(*(_QWORD *)(v2 + 616), v4, v5, v6);
+  v10 = (_QWORD *)(v2 + 640);
   while ( 1 )
   {
-    v5 = (_QWORD *)*v4;
-    if ( (_QWORD *)*v4 == v4 )
+    v11 = (_QWORD *)*v10;
+    if ( (_QWORD *)*v10 == v10 )
       break;
-    if ( (_QWORD *)v5[1] != v4 || (v6 = *v5, *(_QWORD **)(*v5 + 8LL) != v5) )
+    if ( (_QWORD *)v11[1] != v10 || (v12 = *v11, *(_QWORD **)(*v11 + 8LL) != v11) )
       __fastfail(3u);
-    *v4 = v6;
-    *(_QWORD *)(v6 + 8) = v4;
+    *v10 = v12;
+    *(_QWORD *)(v12 + 8) = v10;
     if ( v3 < 0 )
       goto LABEL_9;
-    v7 = v5[2];
-    *((_BYTE *)v5 + 48) = 1;
+    v13 = v11[2];
+    *((_BYTE *)v11 + 40) = 1;
     v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64))(WdfFunctions_01023 + 120))(
            WdfDriverGlobals,
            *(_QWORD *)(v2 + 632),
-           v7);
+           v13);
     if ( v3 < 0 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v8) = 2;
+        LOBYTE(v7) = 2;
         WPP_RECORDER_SF_d(
           *(_QWORD *)(v2 + 72),
-          v8,
+          v7,
           4,
-          279,
-          (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+          278,
+          (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
           v3);
       }
 LABEL_9:
-      v9 = 0LL;
+      v14 = 0LL;
       goto LABEL_10;
     }
-    v9 = 9LL;
+    v14 = 9LL;
 LABEL_10:
-    DynamicLock_Release(*(_QWORD *)(v2 + 616));
+    DynamicLock_Release(*(_QWORD *)(v2 + 616), v7, v8, v9);
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD, __int64))(WdfFunctions_01023 + 2120))(
       WdfDriverGlobals,
-      v5[4],
+      v11[3],
       (unsigned int)v3,
-      v9);
-    DynamicLock_Acquire(*(_QWORD *)(v2 + 616));
+      v14);
+    DynamicLock_Acquire(*(_QWORD *)(v2 + 616), v15, v16, v17);
   }
-  v10 = *(_QWORD *)(v2 + 616);
+  v18 = *(_QWORD *)(v2 + 616);
   *(_BYTE *)(v2 + 664) = 0;
-  return DynamicLock_Release(v10);
+  return DynamicLock_Release(v18, v7, v8, v9);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtEnableOneCoreTransformMode @ 0x1C0140C70
+ * XREFs of NtEnableOneCoreTransformMode @ 0x1C0129090
  * Callers:
  *     <none>
  * Callees:
@@ -11,8 +11,6 @@ __int64 __fastcall NtEnableOneCoreTransformMode(__int64 a1)
   __int64 CurrentProcessWin32Process; // rax
 
   CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
-  if ( CurrentProcessWin32Process )
-    CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-  *(_DWORD *)(CurrentProcessWin32Process + 816) |= 0x800000u;
+  *(_DWORD *)(CurrentProcessWin32Process + 820) |= 0x800000u;
   return 1LL;
 }

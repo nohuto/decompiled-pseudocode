@@ -1,15 +1,15 @@
 /*
- * XREFs of MiResizeAweBitMap @ 0x140850214
+ * XREFs of MiResizeAweBitMap @ 0x1408501F4
  * Callers:
- *     NtAllocateUserPhysicalPages @ 0x1408506B0 (NtAllocateUserPhysicalPages.c)
+ *     NtAllocateUserPhysicalPages @ 0x140850690 (NtAllocateUserPhysicalPages.c)
  * Callees:
  *     LOCK_ADDRESS_SPACE @ 0x1400767B8 (LOCK_ADDRESS_SPACE.c)
  *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
- *     RtlCopyBitMapEx @ 0x140119120 (RtlCopyBitMapEx.c)
- *     MiLockAwePagesExclusive @ 0x1402B1194 (MiLockAwePagesExclusive.c)
- *     MiUnlockAwePagesExclusive @ 0x1402B1FB8 (MiUnlockAwePagesExclusive.c)
- *     MiCreateAweInfoBitMap @ 0x14084F8E4 (MiCreateAweInfoBitMap.c)
- *     MiDeleteAweBitMap @ 0x14084FCB8 (MiDeleteAweBitMap.c)
+ *     RtlCopyBitMapEx @ 0x140119140 (RtlCopyBitMapEx.c)
+ *     MiLockAwePagesExclusive @ 0x1402B1294 (MiLockAwePagesExclusive.c)
+ *     MiUnlockAwePagesExclusive @ 0x1402B20B8 (MiUnlockAwePagesExclusive.c)
+ *     MiCreateAweInfoBitMap @ 0x14084F8C4 (MiCreateAweInfoBitMap.c)
+ *     MiDeleteAweBitMap @ 0x14084FC98 (MiDeleteAweBitMap.c)
  */
 
 __int64 __fastcall MiResizeAweBitMap(__int64 a1, __int64 a2, __int64 a3)

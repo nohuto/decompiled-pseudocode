@@ -1,12 +1,12 @@
 /*
- * XREFs of Usbh_CheckPortHwPendingStatus @ 0x1C001AEC0
+ * XREFs of Usbh_CheckPortHwPendingStatus @ 0x1C0001C3C
  * Callers:
- *     UsbhResetPort @ 0x1C001AB54 (UsbhResetPort.c)
+ *     UsbhResetPort @ 0x1C00018E8 (UsbhResetPort.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhSignalResumeEvent @ 0x1C001B0E8 (UsbhSignalResumeEvent.c)
- *     UsbhSignalSuspendEvent @ 0x1C00349E0 (UsbhSignalSuspendEvent.c)
+ *     UsbhSignalResumeEvent @ 0x1C00015A0 (UsbhSignalResumeEvent.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhSignalSuspendEvent @ 0x1C0035C9C (UsbhSignalSuspendEvent.c)
  */
 
 void __fastcall Usbh_CheckPortHwPendingStatus(__int64 a1, __int64 a2)
@@ -14,7 +14,7 @@ void __fastcall Usbh_CheckPortHwPendingStatus(__int64 a1, __int64 a2)
   KSPIN_LOCK *v4; // rdi
   KIRQL v5; // al
 
-  v4 = (KSPIN_LOCK *)(FdoExt(a1) + 1236);
+  v4 = (KSPIN_LOCK *)(FdoExt(a1) + 4944);
   v5 = KeAcquireSpinLockRaiseToDpc(v4);
   if ( *(_DWORD *)(a2 + 696) == 2 )
   {

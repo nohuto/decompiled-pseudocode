@@ -1,37 +1,37 @@
 /*
- * XREFs of PopPowerAggregatorAllowModernStandbyPromotion @ 0x14099354C
+ * XREFs of PopPowerAggregatorAllowModernStandbyPromotion @ 0x1408EDFCC
  * Callers:
- *     PopPowerAggregatorHandleModernStandbyIntent @ 0x140993A10 (PopPowerAggregatorHandleModernStandbyIntent.c)
+ *     PopPowerAggregatorHandleModernStandbyIntent @ 0x1408EE3B0 (PopPowerAggregatorHandleModernStandbyIntent.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall PopPowerAggregatorAllowModernStandbyPromotion(__int64 a1, __int64 a2)
+char __fastcall PopPowerAggregatorAllowModernStandbyPromotion(_DWORD *a1, _DWORD *a2)
 {
   char result; // al
-  char v4; // cl
+  int v4; // ecx
   int v5; // ecx
 
   result = 1;
-  if ( *(_DWORD *)(a1 + 16) == 1 )
+  if ( *a1 == 1 )
   {
-    v4 = *(_BYTE *)(a2 + 24);
-    if ( *(_BYTE *)(a1 + 40) )
+    v4 = a1[1];
+    if ( v4 == 3 )
     {
-      if ( !v4 )
-        return result;
-    }
-    else if ( v4 )
-    {
-      return 0;
-    }
-    v5 = *(_DWORD *)(a2 + 8);
-    if ( v5 == 4 )
-    {
-      if ( !dword_140C3D84C )
+      if ( a2[1] == 2 )
         return 0;
     }
-    else if ( v5 != 43 && v5 != 46 && (v5 != 45 || *(_DWORD *)(a1 + 24) == 45) )
+    else if ( v4 == 2 && a2[1] == 3 )
+    {
+      return result;
+    }
+    v5 = a2[2];
+    if ( v5 == 4 )
+    {
+      if ( !a2[8] )
+        return 0;
+    }
+    else if ( v5 != 43 && v5 != 46 && (v5 != 45 || a1[2] == 45) )
     {
       return 0;
     }

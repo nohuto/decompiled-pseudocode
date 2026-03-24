@@ -1,126 +1,127 @@
 /*
- * XREFs of OSReadAcpiConfigurationData @ 0x1C00BC964
+ * XREFs of OSReadAcpiConfigurationData @ 0x1C00BC3BC
  * Callers:
- *     ACPIInitializeAMLI @ 0x1C00BCD04 (ACPIInitializeAMLI.c)
+ *     ACPIInitializeAMLI @ 0x1C00BCC5C (ACPIInitializeAMLI.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_SL @ 0x1C005F214 (WPP_RECORDER_SF_SL.c)
- *     OSOpenUnicodeHandle @ 0x1C008EC0C (OSOpenUnicodeHandle.c)
- *     OSCloseHandle @ 0x1C00954DC (OSCloseHandle.c)
- *     OSGetRegistryValue @ 0x1C009B014 (OSGetRegistryValue.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_SL @ 0x1C005E554 (WPP_RECORDER_SF_SL.c)
+ *     OSOpenUnicodeHandle @ 0x1C008FC50 (OSOpenUnicodeHandle.c)
+ *     OSGetRegistryValue @ 0x1C0094F04 (OSGetRegistryValue.c)
+ *     OSCloseHandle @ 0x1C0096D0C (OSCloseHandle.c)
  */
 
 __int64 __fastcall OSReadAcpiConfigurationData(PVOID *a1)
 {
-  int v2; // eax
+  unsigned int v1; // edi
   int v3; // ebx
-  ULONG v4; // edi
+  ULONG v4; // esi
   __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  _WORD *v8; // rcx
-  wchar_t *v9; // r8
-  int v10; // edx
-  __int64 v11; // rcx
-  BOOLEAN v12; // bl
-  HANDLE v13; // rcx
-  NTSTATUS v14; // ebx
-  int v16; // [rsp+20h] [rbp-29h]
+  int v6; // ebx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  _WORD *v9; // rcx
+  wchar_t *v10; // r8
+  int v11; // edx
+  __int64 v12; // rcx
+  BOOLEAN v13; // bl
+  HANDLE v14; // rcx
+  NTSTATUS v15; // ebx
+  int v17; // [rsp+20h] [rbp-29h]
   HANDLE KeyHandle; // [rsp+40h] [rbp-9h] BYREF
-  void *v18; // [rsp+48h] [rbp-1h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp+7h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-1h] BYREF
+  void *v20; // [rsp+58h] [rbp+Fh] BYREF
   UNICODE_STRING String2; // [rsp+60h] [rbp+17h] BYREF
   UNICODE_STRING String1; // [rsp+70h] [rbp+27h] BYREF
-  char v22; // [rsp+80h] [rbp+37h] BYREF
+  char v23; // [rsp+80h] [rbp+37h] BYREF
 
+  v1 = 0;
   *a1 = 0LL;
   KeyHandle = 0LL;
-  v18 = 0LL;
+  v20 = 0LL;
   String1 = 0LL;
   DestinationString = 0LL;
   String2 = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\Hardware\\Description\\System\\MultiFunctionAdapter");
-  v2 = OSOpenUnicodeHandle(&DestinationString, 0LL, &v18);
-  v3 = v2;
-  if ( v2 < 0 )
+  v3 = OSOpenUnicodeHandle(&DestinationString, 0LL, &v20);
+  if ( v3 >= 0 )
   {
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_D(
-        (__int64)WPP_GLOBAL_Control->DeviceExtension,
-        2u,
-        0x16u,
-        0x10u,
-        (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
-        v2);
-    return (unsigned int)v3;
-  }
-  RtlInitUnicodeString(&String1, L"ACPI BIOS");
-  v4 = 0;
-  DestinationString.Buffer = (wchar_t *)&v22;
-  DestinationString.MaximumLength = 8;
-  while ( 1 )
-  {
-    DestinationString.Length = 0;
-    RtlIntegerToUnicodeString(v4, 0xAu, &DestinationString);
-    v3 = OSOpenUnicodeHandle(&DestinationString, v18, &KeyHandle);
-    if ( v3 < 0 )
-      break;
-    if ( OSGetRegistryValue(KeyHandle, L"Identifier", a1) < 0 )
+    RtlInitUnicodeString(&String1, L"ACPI BIOS");
+    v4 = 0;
+    DestinationString.Buffer = (wchar_t *)&v23;
+    DestinationString.MaximumLength = 8;
+    while ( 1 )
     {
-      v13 = KeyHandle;
-    }
-    else
-    {
-      v8 = *a1;
-      v9 = (wchar_t *)((char *)*a1 + 8);
-      String2.Buffer = v9;
-      String2.MaximumLength = v8[2];
-      v10 = *((_DWORD *)v8 + 1) >> 1;
-      if ( v10 )
+      DestinationString.Length = 0;
+      RtlIntegerToUnicodeString(v4, 0xAu, &DestinationString);
+      v6 = OSOpenUnicodeHandle(&DestinationString, v20, &KeyHandle);
+      if ( v6 < 0 )
       {
-        do
-        {
-          v11 = (unsigned int)(v10 - 1);
-          if ( v9[v11] )
-            break;
-          --v10;
-        }
-        while ( (_DWORD)v11 );
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_SL((__int64)WPP_GLOBAL_Control->DeviceExtension, v5, v7, v8, v17, DestinationString.Buffer);
+        v1 = v6;
+LABEL_13:
+        OSCloseHandle(v20);
+        return v1;
       }
-      String2.Length = 2 * v10;
-      v12 = RtlEqualUnicodeString(&String1, &String2, 1u);
-      ExFreePoolWithTag(*a1, 0);
-      v13 = KeyHandle;
-      if ( v12 )
+      if ( OSGetRegistryValue(KeyHandle, L"Identifier", a1) < 0 )
       {
-        v14 = OSGetRegistryValue(KeyHandle, L"Configuration Data", a1);
-        OSCloseHandle(KeyHandle);
-        if ( v14 >= 0 )
-        {
-          OSCloseHandle(v18);
-          return 0LL;
-        }
-        goto LABEL_10;
+        v14 = KeyHandle;
       }
-    }
-    OSCloseHandle(v13);
+      else
+      {
+        v9 = *a1;
+        v10 = (wchar_t *)((char *)*a1 + 8);
+        String2.Buffer = v10;
+        String2.MaximumLength = v9[2];
+        v11 = *((_DWORD *)v9 + 1) >> 1;
+        if ( v11 )
+        {
+          do
+          {
+            v12 = (unsigned int)(v11 - 1);
+            if ( v10[v12] )
+              break;
+            --v11;
+          }
+          while ( (_DWORD)v12 );
+        }
+        String2.Length = 2 * v11;
+        v13 = RtlEqualUnicodeString(&String1, &String2, 1u);
+        ExFreePoolWithTag(*a1, 0);
+        v14 = KeyHandle;
+        if ( v13 )
+        {
+          v15 = OSGetRegistryValue(KeyHandle, L"Configuration Data", a1);
+          OSCloseHandle(KeyHandle);
+          if ( v15 >= 0 )
+            goto LABEL_13;
+          goto LABEL_10;
+        }
+      }
+      OSCloseHandle(v14);
 LABEL_10:
-    if ( ++v4 >= 0x3E7 )
-    {
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_(
-          (__int64)WPP_GLOBAL_Control->DeviceExtension,
-          2u,
-          0x16u,
-          0x12u,
-          (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids);
-      return 3221225524LL;
+      if ( ++v4 >= 0x3E7 )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_(
+            (__int64)WPP_GLOBAL_Control->DeviceExtension,
+            2u,
+            0x16u,
+            0x12u,
+            (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids);
+        return 3221225524LL;
+      }
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_SL((__int64)WPP_GLOBAL_Control->DeviceExtension, v5, v6, v7, v16, DestinationString.Buffer);
-  OSCloseHandle(v18);
+    WPP_RECORDER_SF_L(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      2u,
+      0x16u,
+      0x10u,
+      (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
+      v3);
   return (unsigned int)v3;
 }

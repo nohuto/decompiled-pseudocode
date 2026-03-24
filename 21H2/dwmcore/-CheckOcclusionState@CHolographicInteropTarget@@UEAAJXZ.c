@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CheckOcclusionState@CHolographicInteropTarget@@UEAAJXZ @ 0x180299A9C
+ * XREFs of ?CheckOcclusionState@CHolographicInteropTarget@@UEAAJXZ @ 0x180257ABC
  * Callers:
- *     ?CheckOcclusionState@CHolographicInteropTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x18010ABF0 (-CheckOcclusionState@CHolographicInteropTarget@@$4PPPPPPPM@A@EAAJXZ.c)
+ *     ?CheckOcclusionState@CHolographicInteropTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x1800F84D0 (-CheckOcclusionState@CHolographicInteropTarget@@$4PPPPPPPM@A@EAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ __int64 __fastcall CHolographicInteropTarget::CheckOcclusionState(CHolographicIn
   __int64 v1; // rax
   __int64 v2; // rax
 
-  v1 = *((_QWORD *)this - 16);
+  v1 = *((_QWORD *)this - 14);
   if ( v1 && (v2 = *(_QWORD *)(v1 + 40)) != 0 && !*(_BYTE *)(v2 + 192) )
     return 0LL;
   else

@@ -1,15 +1,15 @@
 /*
- * XREFs of PiUpdateDevicePanel @ 0x14076E168
+ * XREFs of PiUpdateDevicePanel @ 0x140748294
  * Callers:
- *     PipProcessStartPhase3 @ 0x14076BE08 (PipProcessStartPhase3.c)
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x14074AB70 (PipProcessStartPhase3.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _CmUpdateDevicePanel @ 0x14076E224 (_CmUpdateDevicePanel.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x14076E894 (PnpDeviceObjectToDeviceInstance.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x1407470F4 (PnpDeviceObjectToDeviceInstance.c)
+ *     _CmUpdateDevicePanel @ 0x1407476A8 (_CmUpdateDevicePanel.c)
  */
 
 __int64 __fastcall PiUpdateDevicePanel(__int64 a1, HANDLE a2)
@@ -25,16 +25,16 @@ __int64 __fastcall PiUpdateDevicePanel(__int64 a1, HANDLE a2)
   }
   else
   {
-    updated = PnpDeviceObjectToDeviceInstance(*(_QWORD *)(a1 + 32), &Handle, 131097LL);
+    updated = PnpDeviceObjectToDeviceInstance(*(_QWORD *)(a1 + 32), (__int64)&Handle, 131097);
     if ( updated < 0 )
       goto LABEL_4;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceSharedLite(&PnpRegistryDeviceResource, 1u);
-  updated = CmUpdateDevicePanel(*(_QWORD *)&PiPnpRtlCtx, *(_QWORD *)(a1 + 48), Handle);
+  updated = CmUpdateDevicePanel(*(__int64 *)&PiPnpRtlCtx, *(const WCHAR **)(a1 + 48), (__int64)Handle);
   ExReleaseResourceLite(&PnpRegistryDeviceResource);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 LABEL_4:
   if ( Handle && Handle != a2 )
     ZwClose(Handle);

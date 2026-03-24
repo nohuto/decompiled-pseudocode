@@ -1,16 +1,15 @@
 /*
- * XREFs of UmfdLoadFontFileView @ 0x1C0114178
+ * XREFs of UmfdLoadFontFileView @ 0x1C00A6AA0
  * Callers:
- *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C0112870 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
- *     ?vLoadFontFileView@@YAXPEAGKPEAPEAU_FONTFILEVIEW@@KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KPEA_KPEAPEAVPDEV@@PEAU_FNTCHECKSUM@@HPEAH@Z @ 0x1C026B818 (-vLoadFontFileView@@YAXPEAGKPEAPEAU_FONTFILEVIEW@@KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KPEA_KPEAPEAV.c)
+ *     ?vLoadFontFileView@@YAXPEAGKPEAPEAU_FONTFILEVIEW@@KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KPEA_KPEAPEAVPDEV@@PEAU_FNTCHECKSUM@@HPEAH@Z @ 0x1C00A69A8 (-vLoadFontFileView@@YAXPEAGKPEAPEAU_FONTFILEVIEW@@KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KPEA_KPEAPEAV.c)
  * Callees:
- *     ?bIsPathInSystemFontsDir@@YAHPEBG@Z @ 0x1C00AA328 (-bIsPathInSystemFontsDir@@YAHPEBG@Z.c)
- *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0113620 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
- *     _lambda_609c7463f0af8f0b222c22162fb8f533_::operator() @ 0x1C0114400 (_lambda_609c7463f0af8f0b222c22162fb8f533_--operator().c)
- *     ?UmfdInsertFontFileViewForLookup@@YAHPEAPEAU_FONTFILEVIEW@@I@Z @ 0x1C01144C8 (-UmfdInsertFontFileViewForLookup@@YAHPEAPEAU_FONTFILEVIEW@@I@Z.c)
- *     ?LookUpFNTCacheTable@@YAHKPEAGPEAK1PEAPEAVPDEV@@1HPEAH3PEAPEAU_FONTFILEVIEW@@KPEAUtagDESIGNVECTOR@@K@Z @ 0x1C0114668 (-LookUpFNTCacheTable@@YAHKPEAGPEAK1PEAPEAVPDEV@@1HPEAH3PEAPEAU_FONTFILEVIEW@@KPEAUtagDESIGNVECTO.c)
- *     ?FNTCacheValidateFntFileInfo@@YA?AW4FntFileInfoValidationResult@@PEAPEAU_FONTFILEVIEW@@K@Z @ 0x1C0289C54 (-FNTCacheValidateFntFileInfo@@YA-AW4FntFileInfoValidationResult@@PEAPEAU_FONTFILEVIEW@@K@Z.c)
- *     ?PutFntCacheDrvAndFileInfo@@YAXKPEAVPDEV@@KPEAPEAU_FONTFILEVIEW@@K@Z @ 0x1C0289DD8 (-PutFntCacheDrvAndFileInfo@@YAXKPEAVPDEV@@KPEAPEAU_FONTFILEVIEW@@K@Z.c)
+ *     ?bIsPathInSystemFontsDir@@YAHPEBG@Z @ 0x1C00A4FF8 (-bIsPathInSystemFontsDir@@YAHPEBG@Z.c)
+ *     _lambda_3837b0e11e5c1550d1f290a74bcd7a94_::operator() @ 0x1C00A6CFC (_lambda_3837b0e11e5c1550d1f290a74bcd7a94_--operator().c)
+ *     ?UmfdInsertFontFileViewForLookup@@YAHPEAPEAU_FONTFILEVIEW@@I@Z @ 0x1C00A6D94 (-UmfdInsertFontFileViewForLookup@@YAHPEAPEAU_FONTFILEVIEW@@I@Z.c)
+ *     ?LookUpFNTCacheTable@@YAHKPEAGPEAK1PEAPEAVPDEV@@1HPEAH3PEAPEAU_FONTFILEVIEW@@KPEAUtagDESIGNVECTOR@@K@Z @ 0x1C00A7084 (-LookUpFNTCacheTable@@YAHKPEAGPEAK1PEAPEAVPDEV@@1HPEAH3PEAPEAU_FONTFILEVIEW@@KPEAUtagDESIGNVECTO.c)
+ *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00A7310 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     ?FNTCacheValidateFntFileInfo@@YA?AW4FntFileInfoValidationResult@@PEAPEAU_FONTFILEVIEW@@K@Z @ 0x1C02884EC (-FNTCacheValidateFntFileInfo@@YA-AW4FntFileInfoValidationResult@@PEAPEAU_FONTFILEVIEW@@K@Z.c)
+ *     ?PutFntCacheDrvAndFileInfo@@YAXKPEAVPDEV@@KPEAPEAU_FONTFILEVIEW@@K@Z @ 0x1C028861C (-PutFntCacheDrvAndFileInfo@@YAXKPEAVPDEV@@KPEAPEAU_FONTFILEVIEW@@K@Z.c)
  */
 
 __int64 __fastcall UmfdLoadFontFileView(
@@ -28,182 +27,173 @@ __int64 __fastcall UmfdLoadFontFileView(
         int a12,
         int *a13)
 {
-  unsigned int v15; // esi
+  _QWORD *v15; // r15
   __int64 result; // rax
-  unsigned int *v17; // r13
-  __int64 v18; // rcx
-  int v19; // edi
-  __int64 v20; // rax
+  unsigned int *v17; // r14
+  int v18; // edi
+  int v19; // r13d
+  unsigned int v20; // r8d
   unsigned int v21; // edx
-  unsigned int v22; // r8d
-  char v23; // bl
-  __int64 v24; // rcx
-  Gre::Base *v25; // rcx
-  __int64 v26; // rdx
-  __int64 v27; // rax
-  __int64 v28; // rcx
-  __int64 v29; // r14
-  char v30; // r15
-  unsigned int v31; // r14d
-  int v32; // edi
-  int v33; // r13d
-  __int64 v34; // rdx
-  struct _FONTFILEVIEW **v35; // rcx
+  char v22; // bl
+  __int64 v23; // rcx
+  __int64 v24; // rdx
+  char v25; // r15
+  unsigned int v26; // esi
+  int v27; // r14d
+  __int64 v28; // rax
+  __int64 v29; // rdx
+  __int64 v30; // rsi
   unsigned int j; // edi
   int IsPathInSystemFontsDir; // eax
-  __int64 v38; // rax
-  int v39; // eax
-  int v40; // edx
-  int v41; // edx
-  int v42; // edx
-  unsigned int v43; // ebx
-  struct _FONTFILEVIEW **v44; // rdi
-  __int64 v45; // rax
-  int v46; // [rsp+78h] [rbp-59h] BYREF
-  unsigned int v47; // [rsp+7Ch] [rbp-55h] BYREF
-  int v48; // [rsp+80h] [rbp-51h] BYREF
-  struct PDEV *v49; // [rsp+88h] [rbp-49h] BYREF
-  __int64 i; // [rsp+90h] [rbp-41h] BYREF
-  _QWORD v51[14]; // [rsp+98h] [rbp-39h] BYREF
-  struct _FONTFILEVIEW **v52; // [rsp+128h] [rbp+57h] BYREF
-  unsigned int v53; // [rsp+130h] [rbp+5Fh] BYREF
+  __int64 v33; // rax
+  int v34; // eax
+  __int64 v35; // rax
+  int v36; // ecx
+  int v37; // ecx
+  int v38; // ecx
+  unsigned int v39; // edi
+  unsigned int v40; // [rsp+78h] [rbp-49h] BYREF
+  int v41; // [rsp+7Ch] [rbp-45h] BYREF
+  int v42; // [rsp+80h] [rbp-41h] BYREF
+  struct PDEV *v43; // [rsp+88h] [rbp-39h] BYREF
+  struct PDEV *i; // [rsp+90h] [rbp-31h] BYREF
+  _QWORD v45[12]; // [rsp+98h] [rbp-29h] BYREF
+  struct _FONTFILEVIEW **v46; // [rsp+118h] [rbp+57h] BYREF
+  unsigned int v47; // [rsp+120h] [rbp+5Fh] BYREF
 
-  v53 = a4;
-  v52 = a3;
-  v15 = 0;
-  result = (unsigned __int8)UmfdHostLifeTimeManager::EnsureUmfdHost((__int64)a1);
+  v47 = a4;
+  v46 = a3;
+  LOBYTE(result) = UmfdHostLifeTimeManager::EnsureUmfdHost();
+  v15 = a10;
+  result = (unsigned __int8)result;
   *a9 = 0LL;
-  *a10 = 0LL;
+  *v15 = 0LL;
   if ( (_BYTE)result )
   {
     v17 = a11;
-    v49 = 0LL;
-    v47 = 0;
-    v48 = 0;
-    v46 = 0;
-    result = LookUpFNTCacheTable(a2, a1, a11, a11 + 1, &v49, &v47, a12, &v46, &v48, v52, v53, a7, a8);
-    v19 = result;
+    v43 = 0LL;
+    v40 = 0;
+    v42 = 0;
+    v41 = 0;
+    result = LookUpFNTCacheTable(a2, a1, a11, a11 + 1, &v43, &v40, a12, &v41, &v42, v46, v47, a7, a8);
+    v18 = result;
+    v19 = v41;
     if ( a13 )
+      *a13 = v41;
+    if ( !v42 )
     {
-      v18 = (unsigned int)v46;
-      *a13 = v46;
-    }
-    if ( !v48 )
-    {
-      v20 = SGDGetSessionState(v18);
-      v21 = v53;
-      v22 = 0;
-      v23 = 1;
-      for ( i = *(_QWORD *)(*(_QWORD *)(v20 + 32) + 23448LL); v22 < v53; v21 = v53 )
+      v20 = 0;
+      v21 = v47;
+      v22 = 1;
+      for ( i = qword_1C0340AC0; v20 < v47; v21 = v47 )
       {
-        v24 = v22++;
-        *((_DWORD *)v52[v24] + 16) = 0;
+        v23 = v20++;
+        *((_DWORD *)v46[v23] + 16) = 0;
       }
-      UmfdInsertFontFileViewForLookup(v52, v21);
-      v51[0] = &i;
-      v51[1] = &a7;
-      v51[2] = &v53;
-      v51[3] = &v52;
-      v51[4] = &a5;
-      v51[5] = &a6;
-      v51[6] = Gre::Base::Globals(v25);
-      if ( v19 )
+      UmfdInsertFontFileViewForLookup(v46, v21);
+      v45[0] = &i;
+      v45[1] = &a7;
+      v45[2] = &v47;
+      v45[3] = &v46;
+      v45[4] = &a5;
+      v45[5] = &a6;
+      if ( v18 )
       {
-        if ( v47 == 1 || (v30 = 1, !a1) )
-          v30 = 0;
-        v31 = *v17;
-        v32 = 0;
-        v33 = v46;
-        if ( v46 && v30 )
+        if ( v40 == 1 || (v25 = 1, !a1) )
+          v25 = 0;
+        v26 = *v17;
+        v27 = 0;
+        if ( v19 && v25 )
         {
-          v39 = FNTCacheValidateFntFileInfo(v52, v53);
-          v32 = v39;
-          if ( v39 == 1 )
-          {
-            v31 = 0;
-          }
-          else if ( v39 == 2 )
-          {
-            goto LABEL_9;
-          }
+          v34 = FNTCacheValidateFntFileInfo(v46, v47);
+          v24 = 0LL;
+          v27 = v34;
+          if ( v34 == 1 )
+            v26 = 0;
+          if ( v34 == 2 )
+            goto LABEL_21;
         }
-        LOBYTE(v26) = v30;
-        v29 = lambda_609c7463f0af8f0b222c22162fb8f533_::operator()(v51, v26, v31);
-        if ( v29 )
+        LOBYTE(v24) = v25;
+        v28 = lambda_3837b0e11e5c1550d1f290a74bcd7a94_::operator()(v45, v24, v26);
+        v29 = 0LL;
+        v30 = v28;
+        if ( v28 )
         {
-          for ( j = 0; j < v53; ++j )
+          for ( j = 0; j < v47; ++j )
           {
-            v35 = (struct _FONTFILEVIEW **)v52[j];
-            *((_DWORD *)v35 + 10) |= 8u;
-            if ( !v30 )
+            *((_DWORD *)v46[j] + 10) |= 8u;
+            if ( !v25 )
             {
-              IsPathInSystemFontsDir = bIsPathInSystemFontsDir(*((wchar_t **)v52[j] + 10));
-              v35 = v52;
-              *((_DWORD *)v52[j] + 10) ^= (*((_DWORD *)v52[j] + 10) ^ (16 * IsPathInSystemFontsDir)) & 0x10;
+              IsPathInSystemFontsDir = bIsPathInSystemFontsDir(*((wchar_t **)v46[j] + 10));
+              *((_DWORD *)v46[j] + 10) ^= (*((_DWORD *)v46[j] + 10) ^ (16 * IsPathInSystemFontsDir)) & 0x10;
             }
           }
+          v15 = a10;
         }
         else
         {
-          if ( v47 != 1 || !a1 )
-            v23 = 0;
-          if ( v33 && v23 )
-            v32 = FNTCacheValidateFntFileInfo(v52, v53);
-          if ( v32 == 2 )
-            goto LABEL_9;
-          LOBYTE(v34) = v23;
-          v29 = lambda_609c7463f0af8f0b222c22162fb8f533_::operator()(v51, v34, 0LL);
-        }
-        if ( !v29 )
-        {
-LABEL_9:
-          result = (__int64)a10;
-          *a10 = 0LL;
-          return result;
+          if ( v40 != 1 || !a1 )
+            v22 = 0;
+          if ( v19 && v22 )
+          {
+            v27 = FNTCacheValidateFntFileInfo(v46, v47);
+            v29 = 0LL;
+          }
+          if ( v27 == 2 )
+            goto LABEL_21;
+          LOBYTE(v29) = v22;
+          v35 = lambda_3837b0e11e5c1550d1f290a74bcd7a94_::operator()(v45, v29, 0LL);
+          v15 = a10;
+          v30 = v35;
         }
       }
       else
       {
-        LOBYTE(v26) = a1 != 0LL;
-        v27 = lambda_609c7463f0af8f0b222c22162fb8f533_::operator()(v51, v26, *v17);
-        v29 = v27;
-        if ( !v27 )
-          goto LABEL_9;
-        v40 = *(_DWORD *)(v27 + 8);
-        if ( v40 )
+        LOBYTE(v24) = a1 != 0LL;
+        v33 = lambda_3837b0e11e5c1550d1f290a74bcd7a94_::operator()(v45, v24, *v17);
+        v30 = v33;
+        if ( !v33 )
+          goto LABEL_21;
+        v36 = *(_DWORD *)(v33 + 8);
+        if ( v36 )
         {
-          v41 = v40 - 1;
-          if ( v41 )
+          v37 = v36 - 1;
+          if ( v37 )
           {
-            v42 = v41 - 1;
-            if ( v42 )
+            v38 = v37 - 1;
+            if ( v38 )
             {
-              if ( v42 == 1 )
-                v15 = 4;
+              if ( v38 == 1 )
+                v39 = 4;
+              else
+                v39 = 0;
             }
             else
             {
-              v15 = 3;
+              v39 = 3;
             }
           }
           else
           {
-            v15 = 2;
+            v39 = 2;
           }
         }
         else
         {
-          v15 = 1;
+          v39 = 1;
         }
-        v43 = v53;
-        v44 = v52;
-        v45 = SGDGetSessionState(v28);
-        PutFntCacheDrvAndFileInfo(*v17, *(struct PDEV **)(*(_QWORD *)(v45 + 32) + 23448LL), v15, v44, v43);
+        PutFntCacheDrvAndFileInfo(*v17, qword_1C0340AC0, v39, v46, v47);
       }
-      v38 = SGDGetSessionState(v35);
-      *a10 = *(_QWORD *)(*(_QWORD *)(v38 + 32) + 23448LL);
-      result = (__int64)a9;
-      *a9 = v29;
+      if ( v30 )
+      {
+        *v15 = qword_1C0340AC0;
+        result = (__int64)a9;
+        *a9 = v30;
+        return result;
+      }
+LABEL_21:
+      result = (__int64)a10;
+      *a10 = 0LL;
     }
   }
   return result;

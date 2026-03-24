@@ -1,60 +1,59 @@
 /*
- * XREFs of NtUserSetObjectInformation @ 0x1C01FDC00
+ * XREFs of NtUserSetObjectInformation @ 0x1C0202700
  * Callers:
  *     <none>
  * Callees:
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     _SetUserObjectInformation @ 0x1C01D0684 (_SetUserObjectInformation.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     _SetUserObjectInformation @ 0x1C01D49B8 (_SetUserObjectInformation.c)
  */
 
 __int64 __fastcall NtUserSetObjectInformation(HANDLE Handle, int a2, _DWORD *a3, unsigned int a4)
 {
   SIZE_T v4; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  int v11; // ebx
+  __int64 v8; // rcx
+  int v9; // ebx
   __int64 CurrentProcessWow64Process; // rax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  PVOID Object; // [rsp+40h] [rbp-18h] BYREF
-  char v17; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // rcx
+  PVOID Object; // [rsp+40h] [rbp-28h] BYREF
+  _BYTE v16[24]; // [rsp+48h] [rbp-20h] BYREF
 
   v4 = a4;
-  EnterCrit(0LL, 0LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v17);
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v16);
   if ( a2 == 7 )
   {
-    v11 = 0;
+    v9 = 0;
   }
   else
   {
-    CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v9);
+    CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v8);
     ProbeForRead(a3, v4, CurrentProcessWow64Process != 0 ? 1 : 4);
     Object = 0LL;
     if ( ObReferenceObjectByHandle(Handle, 0, 0LL, 1, &Object, 0LL) >= 0 )
     {
       if ( (unsigned int)SetHandleFlag(Handle, 2LL, 1LL) )
       {
-        v11 = SetUserObjectInformation(Handle, a2, a3, v4);
+        v9 = SetUserObjectInformation(Handle, a2, a3, v4);
         SetHandleFlag(Handle, 2LL, 0LL);
       }
       else
       {
-        v11 = 0;
-        UserSetLastError(8LL, v13);
+        v9 = 0;
+        UserSetLastError(8LL, v11, v12);
       }
     }
     else
     {
-      v11 = 0;
+      v9 = 0;
     }
     if ( Object )
       ObfDereferenceObject(Object);
   }
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v17, v8, v10);
-  UserSessionSwitchLeaveCrit(v14);
-  return v11;
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v16);
+  UserSessionSwitchLeaveCrit(v13);
+  return v9;
 }

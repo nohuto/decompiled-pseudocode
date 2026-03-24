@@ -1,11 +1,10 @@
 /*
- * XREFs of NtUserfnOUTSTRING @ 0x1C00FF7A0
+ * XREFs of NtUserfnOUTSTRING @ 0x1C00F7B70
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtUserfnOUTSTRING(
@@ -18,33 +17,31 @@ __int64 __fastcall NtUserfnOUTSTRING(
         int a7)
 {
   int v11; // ecx
-  int v12; // r8d
+  __int64 v12; // r8
   unsigned __int64 v13; // rdx
   ULONG v14; // r8d
   __int64 v15; // rbx
-  int v17; // [rsp+48h] [rbp-20h] BYREF
-  int v18; // [rsp+4Ch] [rbp-1Ch]
-  _BYTE *v19; // [rsp+50h] [rbp-18h]
+  __int128 v17; // [rsp+48h] [rbp-20h] BYREF
 
-  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  v11 = (a7 << 31) ^ (a3 ^ (a7 << 31)) & 0x7FFFFFFF;
-  v18 = v11;
-  v12 = v11;
+  v17 = 0LL;
+  v11 = (a7 << 31) | a3 & 0x7FFFFFFF;
+  DWORD1(v17) = v11;
+  v12 = (unsigned int)v11;
   if ( !a7 )
   {
     v11 ^= (v11 ^ (2 * v11)) & 0x7FFFFFFF;
-    v18 = v11;
-    v12 = v11;
+    DWORD1(v17) = v11;
+    v12 = (unsigned int)v11;
   }
   v13 = v11 & 0x7FFFFFFF;
   if ( v13 < a3 )
   {
     v15 = 0LL;
-    UserSetLastError(0LL, v13);
+    UserSetLastError(0LL, v13, v12);
     return v15;
   }
-  v17 = 0;
-  v19 = a4;
+  LODWORD(v17) = 0;
+  *((_QWORD *)&v17 + 1) = a4;
   if ( (v11 & 0x7FFFFFFF) != 0 )
   {
     v14 = (v11 >> 31) + 2;
@@ -53,12 +50,12 @@ __int64 __fastcall NtUserfnOUTSTRING(
   {
     if ( !a4 )
       goto LABEL_10;
-    v13 = ((unsigned __int64)(unsigned int)~v12 >> 31) + 1;
+    v13 = ((unsigned __int64)(unsigned int)~(_DWORD)v12 >> 31) + 1;
     v14 = (v11 >> 31) + 2;
   }
   ProbeForWrite(a4, v13, v14);
 LABEL_10:
-  v15 = ((__int64 (__fastcall *)(__int64, _QWORD, unsigned __int64, int *, __int64))mpFnidPfn[(a6 + 6) & 0x1F])(
+  v15 = ((__int64 (__fastcall *)(__int64, _QWORD, unsigned __int64, __int128 *, __int64))mpFnidPfn[(a6 + 6) & 0x1F])(
           a1,
           a2,
           a3,

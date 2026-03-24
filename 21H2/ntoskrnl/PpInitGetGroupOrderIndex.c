@@ -1,13 +1,13 @@
 /*
- * XREFs of PpInitGetGroupOrderIndex @ 0x140B1244C
+ * XREFs of PpInitGetGroupOrderIndex @ 0x140A5EC00
  * Callers:
- *     PipCallDriverAddDeviceQueryRoutine @ 0x14067B998 (PipCallDriverAddDeviceQueryRoutine.c)
- *     IopInitializeBootDrivers @ 0x140B114E8 (IopInitializeBootDrivers.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x140742518 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     PnpRegSzToString @ 0x14067AB94 (PnpRegSzToString.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     PnpRegSzToString @ 0x14074002C (PnpRegSzToString.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int16 __fastcall PpInitGetGroupOrderIndex(void *a1)
@@ -16,9 +16,10 @@ __int16 __fastcall PpInitGetGroupOrderIndex(void *a1)
   unsigned int v2; // edx
   _WORD *v3; // rcx
   unsigned __int16 v4; // si
-  wchar_t *v5; // rax
-  UNICODE_STRING String1; // [rsp+20h] [rbp-18h] BYREF
-  PVOID P; // [rsp+48h] [rbp+10h] BYREF
+  unsigned __int16 v5; // bp
+  wchar_t *v6; // rax
+  UNICODE_STRING String1; // [rsp+20h] [rbp-28h] BYREF
+  PVOID P; // [rsp+58h] [rbp+10h] BYREF
 
   *(_DWORD *)(&String1.MaximumLength + 1) = 0;
   P = 0LL;
@@ -38,10 +39,11 @@ __int16 __fastcall PpInitGetGroupOrderIndex(void *a1)
   LODWORD(P) = 0;
   PnpRegSzToString(v3, v2, (int *)&P);
   v4 = 0;
+  v5 = PiInitGroupOrderTableCount;
   String1.MaximumLength = v1[6];
-  v5 = (_WORD *)((char *)v1 + *((unsigned int *)v1 + 2));
+  v6 = (_WORD *)((char *)v1 + *((unsigned int *)v1 + 2));
   String1.Length = (unsigned __int16)P;
-  for ( String1.Buffer = v5; v4 < (unsigned __int16)PiInitGroupOrderTableCount; ++v4 )
+  for ( String1.Buffer = v6; v4 < v5; ++v4 )
   {
     if ( RtlEqualUnicodeString(&String1, (PCUNICODE_STRING)PiInitGroupOrderTable + v4, 1u) )
       break;

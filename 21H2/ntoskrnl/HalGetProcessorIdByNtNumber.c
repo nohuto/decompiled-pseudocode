@@ -1,15 +1,15 @@
 /*
- * XREFs of HalGetProcessorIdByNtNumber @ 0x1403B4DA0
+ * XREFs of HalGetProcessorIdByNtNumber @ 0x140377550
  * Callers:
- *     HalGetMessageRoutingInfo @ 0x1403AFF80 (HalGetMessageRoutingInfo.c)
- *     HalpInterruptGenerateMessage @ 0x1403D5B40 (HalpInterruptGenerateMessage.c)
- *     KeRegisterProcessorChangeCallback @ 0x140858460 (KeRegisterProcessorChangeCallback.c)
- *     PnprIsProcessorDevice @ 0x140952738 (PnprIsProcessorDevice.c)
- *     HalpInterruptReinitialize @ 0x140A505D4 (HalpInterruptReinitialize.c)
- *     HalpDpStartProcessor @ 0x140A629D4 (HalpDpStartProcessor.c)
- *     PnprQuiesceProcessorDpc @ 0x140A687F0 (PnprQuiesceProcessorDpc.c)
+ *     HalGetMessageRoutingInfo @ 0x140377380 (HalGetMessageRoutingInfo.c)
+ *     HalpInterruptGenerateMessage @ 0x140378448 (HalpInterruptGenerateMessage.c)
+ *     KeRegisterProcessorChangeCallback @ 0x1407C8800 (KeRegisterProcessorChangeCallback.c)
+ *     PnprIsProcessorDevice @ 0x1408ADCD8 (PnprIsProcessorDevice.c)
+ *     HalpInterruptReinitialize @ 0x140995D78 (HalpInterruptReinitialize.c)
+ *     HalpDpStartProcessor @ 0x1409A8A54 (HalpDpStartProcessor.c)
+ *     PnprQuiesceProcessorDpc @ 0x1409AE390 (PnprQuiesceProcessorDpc.c)
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1402949F0 (KeGetProcessorNumberFromIndex.c)
+ *     KeGetProcessorNumberFromIndex @ 0x1402754F0 (KeGetProcessorNumberFromIndex.c)
  */
 
 NTSTATUS __fastcall HalGetProcessorIdByNtNumber(ULONG a1, _DWORD *a2)

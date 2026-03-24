@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@FxDevice@@UEAAJPEAUFxQueryInterfaceParams@@@Z @ 0x1C0001350
+ * XREFs of ?QueryInterface@FxDevice@@UEAAJPEAUFxQueryInterfaceParams@@@Z @ 0x1C0003FE0
  * Callers:
  *     <none>
  * Callees:
@@ -8,40 +8,21 @@
 
 __int64 __fastcall FxDevice::QueryInterface(FxDevice *this, FxQueryInterfaceParams *Params)
 {
-  unsigned __int16 Type; // r8
-  FxDevice *v3; // r9
-  __int64 result; // rax
+  unsigned __int16 Type; // ax
 
   Type = Params->Type;
-  v3 = this;
-  if ( Type == 4098 )
+  switch ( Type )
   {
-    *Params->Object = this;
-    return 0LL;
-  }
-  else
-  {
-    result = 0LL;
-    switch ( Type )
-    {
-      case 0x1030u:
+    case 0x1002u:
+    case 0x1030u:
+      goto LABEL_3;
+    case 0x1503u:
+      this = (FxDevice *)((unsigned __int64)&this->IFxHasCallbacks & -(__int64)(this != 0LL));
+      goto LABEL_3;
+    case 0x1000u:
 LABEL_3:
-        *Params->Object = v3;
-        return result;
-      case 0x1503u:
-        if ( !this )
-        {
-          v3 = 0LL;
-          goto LABEL_3;
-        }
-        *Params->Object = &this->IFxHasCallbacks;
-        break;
-      case 0x1000u:
-        *Params->Object = this;
-        return 0LL;
-      default:
-        return 3221226169LL;
-    }
+      *Params->Object = this;
+      return 0LL;
   }
-  return result;
+  return 3221226169LL;
 }

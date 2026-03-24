@@ -1,18 +1,18 @@
 /*
- * XREFs of MiStoreUpdatePagefileHash @ 0x14037E1B8
+ * XREFs of MiStoreUpdatePagefileHash @ 0x14026E480
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14037B44C (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x140266950 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     MiGetPagingFileOffset @ 0x1402E76C0 (MiGetPagingFileOffset.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     MiMapPageFileHash @ 0x14037E338 (MiMapPageFileHash.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetPagingFileOffset @ 0x1402712A0 (MiGetPagingFileOffset.c)
+ *     MiMapPageFileHash @ 0x1402CDE38 (MiMapPageFileHash.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiStoreUpdatePagefileHash(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   __int64 result; // rax
-  unsigned int v5; // edx
+  __int64 v5; // rdx
   __int64 *v6; // r13
   int v7; // edi
   unsigned int v8; // ebp
@@ -34,9 +34,11 @@ __int64 __fastcall MiStoreUpdatePagefileHash(__int64 a1, __int64 a2, __int64 a3,
   _UNKNOWN *retaddr; // [rsp+88h] [rbp+0h] BYREF
   unsigned int v25; // [rsp+90h] [rbp+8h]
   unsigned __int8 v26; // [rsp+98h] [rbp+10h]
+  __int64 v27; // [rsp+A0h] [rbp+18h]
 
   result = (__int64)&retaddr;
-  v5 = 0;
+  v27 = a3;
+  v5 = 0LL;
   v6 = (__int64 *)(a3 + 48);
   v7 = 0;
   v25 = 0;
@@ -50,16 +52,16 @@ __int64 __fastcall MiStoreUpdatePagefileHash(__int64 a1, __int64 a2, __int64 a3,
     do
     {
       result = *v6;
-      if ( *v6 == qword_140C53278 )
+      if ( *v6 == qword_140C4ED68 )
       {
         v14 = 16;
         v17 = v8;
       }
       else
       {
-        v13 = 48 * result - 0x220000000000LL;
+        v13 = 48 * result - 0x58000000000LL;
         v23 = v13;
-        v26 = MiLockPageInline(v13);
+        v26 = MiLockPageInline(v13, v5, a3);
         v14 = (unsigned __int8)HIBYTE(*(_WORD *)(v13 + 16)) >> 4;
         PagingFileOffset = MiGetPagingFileOffset(v13 + 16);
         v16 = v13;
@@ -74,7 +76,8 @@ __int64 __fastcall MiStoreUpdatePagefileHash(__int64 a1, __int64 a2, __int64 a3,
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
             v21 = ~(unsigned __int16)(-1LL << (v26 + 1));
             v22 = (v21 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v21;
+            a3 = (unsigned int)v21 & SchedulerAssist[5];
+            SchedulerAssist[5] = a3;
             if ( v22 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
@@ -83,11 +86,11 @@ __int64 __fastcall MiStoreUpdatePagefileHash(__int64 a1, __int64 a2, __int64 a3,
         result = v26;
         __writecr8(v26);
         v5 = v25;
-        v11 = a3;
+        v11 = v27;
         if ( !v9 )
         {
-          result = qword_140C51F48;
-          v9 = *(_QWORD *)(qword_140C51F48 + 8 * ((*(_QWORD *)(v16 + 40) >> 43) & 0x3FFLL));
+          result = qword_140C4E648;
+          v9 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v16 + 40) >> 39) & 0x3FFLL));
         }
       }
       if ( v12 == v14 && v17 == v8 )
@@ -97,21 +100,21 @@ __int64 __fastcall MiStoreUpdatePagefileHash(__int64 a1, __int64 a2, __int64 a3,
       else
       {
         if ( v12 != 16 )
-          result = MiMapPageFileHash(*(_QWORD *)(v9 + 8LL * v12 + 16736), v11, v10 - v7, v5, v7);
+          result = MiMapPageFileHash(*(_QWORD *)(v9 + 8LL * v12 + 6944), v11, v10 - v7, (unsigned int)v5, v7);
         v5 = v17;
         v12 = v14;
         v25 = v17;
         v8 = v17;
         v7 = 1;
       }
-      v11 = a3;
+      v11 = v27;
       ++v10;
       ++v6;
       ++v8;
     }
     while ( v10 < a4 );
     if ( v12 != 16 )
-      return MiMapPageFileHash(*(_QWORD *)(v9 + 8LL * v12 + 16736), a3, v10 - v7, v5, v7);
+      return MiMapPageFileHash(*(_QWORD *)(v9 + 8LL * v12 + 6944), v27, v10 - v7, (unsigned int)v5, v7);
   }
   return result;
 }

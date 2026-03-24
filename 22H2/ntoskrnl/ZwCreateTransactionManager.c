@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwCreateTransactionManager @ 0x14041C060
+ * XREFs of ZwCreateTransactionManager @ 0x1403FB320
  * Callers:
- *     DifZwCreateTransactionManagerWrapper @ 0x1405EF1D0 (DifZwCreateTransactionManagerWrapper.c)
- *     CmpInitCmRM @ 0x14068571C (CmpInitCmRM.c)
+ *     CmpInitCmRM @ 0x14070D220 (CmpInitCmRM.c)
  * Callees:
  *     <none>
  */

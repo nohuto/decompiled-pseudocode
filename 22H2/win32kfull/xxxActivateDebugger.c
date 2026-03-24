@@ -1,30 +1,23 @@
 /*
- * XREFs of xxxActivateDebugger @ 0x1C022D650
+ * XREFs of xxxActivateDebugger @ 0x1C0247D08
  * Callers:
- *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00500BC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ *     xxxDoHotKeyStuff @ 0x1C0104F50 (xxxDoHotKeyStuff.c)
  * Callees:
- *     LockProcessByClientId @ 0x1C004FEE0 (LockProcessByClientId.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     LockProcessByClientId @ 0x1C003C078 (LockProcessByClientId.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 _BOOL8 __fastcall xxxActivateDebugger(char a1)
 {
   int v2; // edi
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  PETHREAD *v7; // rcx
+  __int64 v3; // rcx
+  PETHREAD *v4; // rcx
   __int64 ProcessDebugPort; // rbx
-  PVOID Object; // [rsp+20h] [rbp-E0h] BYREF
-  _DWORD v11[10]; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v12; // [rsp+58h] [rbp-A8h]
-  int v13; // [rsp+60h] [rbp-A0h]
-  HANDLE ProcessId; // [rsp+70h] [rbp-90h]
-  HANDLE ThreadId; // [rsp+78h] [rbp-88h]
+  PVOID Object; // [rsp+30h] [rbp-D0h] BYREF
+  _QWORD v8[120]; // [rsp+40h] [rbp-C0h] BYREF
 
-  memset_0(v11, 0, 0x3B8uLL);
+  memset(v8, 0, 0x3B8uLL);
   Object = 0LL;
   if ( (a1 & 2) != 0 )
     return 0LL;
@@ -33,18 +26,18 @@ _BOOL8 __fastcall xxxActivateDebugger(char a1)
   {
     if ( !PsGetProcessDebugPort(gpepCSRSS) )
       return 0LL;
-    ProcessId = PsGetProcessId(gpepCSRSS);
+    v8[8] = PsGetProcessId(gpepCSRSS);
   }
   else
   {
     if ( !gpqForeground )
       return 0LL;
-    v7 = *(PETHREAD **)(gpqForeground + 104LL);
-    if ( !v7 )
+    v4 = *(PETHREAD **)(gpqForeground + 96LL);
+    if ( !v4 )
       return 0LL;
-    ProcessId = PsGetThreadProcessId(*v7);
-    ThreadId = PsGetThreadId(**(PETHREAD **)(gpqForeground + 104LL));
-    if ( (int)LockProcessByClientId(ProcessId, (PEPROCESS *)&Object) < 0 )
+    v8[8] = PsGetThreadProcessId(*v4);
+    v8[9] = PsGetThreadId(**(PETHREAD **)(gpqForeground + 96LL));
+    if ( (int)LockProcessByClientId((void *)v8[8], (PEPROCESS *)&Object) < 0 )
       return 0LL;
     ProcessDebugPort = PsGetProcessDebugPort(Object);
     ObfDereferenceObject(Object);
@@ -53,13 +46,18 @@ _BOOL8 __fastcall xxxActivateDebugger(char a1)
   }
   if ( CsrApiPort )
   {
-    v11[1] = 0;
-    v12 = 0LL;
-    v11[0] = 5242920;
-    v13 = 197635;
-    UserSessionSwitchLeaveCrit(v4, v3, v5, v6);
-    LpcRequestPort(CsrApiPort, v11);
-    EnterCrit(1LL, 0LL);
+    v8[5] = 0LL;
+    v8[0] = 5242920LL;
+    LODWORD(v8[6]) = 197635;
+    if ( gdwInAtomicOperation )
+    {
+      v3 = gdwExtraInstrumentations;
+      if ( (gdwExtraInstrumentations & 1) != 0 )
+        KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+    }
+    UserSessionSwitchLeaveCrit(v3);
+    LpcRequestPort(CsrApiPort, v8);
+    EnterCrit(0LL, 1LL);
   }
   return v2 != 0;
 }

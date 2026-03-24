@@ -1,5 +1,5 @@
 /*
- * XREFs of PiDqConvertQueryFlagsToString @ 0x14082AB38
+ * XREFs of PiDqConvertQueryFlagsToString @ 0x14082AB18
  * Callers:
  *     PiDqIrpQueryCreate @ 0x140590B08 (PiDqIrpQueryCreate.c)
  * Callees:

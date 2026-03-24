@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z @ 0x1C00C2E38
+ * XREFs of ?CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z @ 0x1C002C9C8
  * Callers:
- *     _SetCaretBlinkTime @ 0x1C009E700 (_SetCaretBlinkTime.c)
- *     zzzInternalShowCaret @ 0x1C00C2D88 (zzzInternalShowCaret.c)
- *     zzzSetCaretPos @ 0x1C010A5AC (zzzSetCaretPos.c)
+ *     zzzSetCaretPos @ 0x1C002B4F0 (zzzSetCaretPos.c)
+ *     _SetCaretBlinkTime @ 0x1C0033230 (_SetCaretBlinkTime.c)
+ *     zzzInternalShowCaret @ 0x1C006A12C (zzzInternalShowCaret.c)
  * Callees:
- *     _SetSystemTimer @ 0x1C00C2F28 (_SetSystemTimer.c)
+ *     _SetSystemTimer @ 0x1C002CAB8 (_SetSystemTimer.c)
  */
 
 void __fastcall CreateCaretTimer(struct tagWND *a1, struct tagQ *a2)

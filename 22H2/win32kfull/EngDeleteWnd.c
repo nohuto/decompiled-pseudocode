@@ -1,10 +1,10 @@
 /*
- * XREFs of EngDeleteWnd @ 0x1C0287F80
+ * XREFs of EngDeleteWnd @ 0x1C02871E0
  * Callers:
  *     <none>
  * Callees:
- *     UserAssociateHwnd @ 0x1C01BDD30 (UserAssociateHwnd.c)
- *     GreDeleteWnd @ 0x1C0288120 (GreDeleteWnd.c)
+ *     UserAssociateHwnd @ 0x1C01E84FC (UserAssociateHwnd.c)
+ *     GreDeleteWnd @ 0x1C02872C0 (GreDeleteWnd.c)
  */
 
 void __stdcall EngDeleteWnd(WNDOBJ *pwo)

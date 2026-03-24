@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CaptureUsermodeParameters@QueryFontFileRequest@@UEAAXPEAX@Z @ 0x1C00A73A0
+ * XREFs of ?CaptureUsermodeParameters@QueryFontFileRequest@@UEAAXPEAX@Z @ 0x1C011FB40
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 void __fastcall QueryFontFileRequest::CaptureUsermodeParameters(QueryFontFileRequest *this, int *a2)

@@ -3,8 +3,8 @@
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     HvlQueryHypervisorTscAdjustment @ 0x140142B40 (HvlQueryHypervisorTscAdjustment.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     HvlQueryHypervisorTscAdjustment @ 0x140142B60 (HvlQueryHypervisorTscAdjustment.c)
  *     PopCaptureTimeOnProcZero @ 0x140566454 (PopCaptureTimeOnProcZero.c)
  */
 

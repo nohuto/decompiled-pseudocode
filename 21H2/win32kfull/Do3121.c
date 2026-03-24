@@ -1,7 +1,7 @@
 /*
- * XREFs of Do3121 @ 0x1C0264984
+ * XREFs of Do3121 @ 0x1C02673D4
  * Callers:
- *     FastExpAA_CY @ 0x1C0266D60 (FastExpAA_CY.c)
+ *     FastExpAA_CY @ 0x1C02697C0 (FastExpAA_CY.c)
  * Callees:
  *     <none>
  */

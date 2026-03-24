@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x140882F04
+ * XREFs of _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x140738768
  * Callers:
- *     _CmGetInstallerClassMappedProperty @ 0x14069AF98 (_CmGetInstallerClassMappedProperty.c)
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x140A68D1C (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x14073B410 (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x14097AEF0 (_CmGetInstallerClassMappedPropertyKeys.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     _RegRtlQueryValue @ 0x1406CE918 (_RegRtlQueryValue.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEF60 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     _RegRtlQueryValue @ 0x1406BB0F8 (_RegRtlQueryValue.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406BB5E8 (_PnpCtxGetCachedContextBaseKey.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyFromCoInstallers(

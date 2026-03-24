@@ -2,11 +2,11 @@
  * XREFs of RtlApplyHotPatch @ 0x14057E148
  * Callers:
  *     MiApplyImageHotPatchDpc @ 0x14057C730 (MiApplyImageHotPatchDpc.c)
- *     MiApplyImageHotPatch @ 0x1408546A8 (MiApplyImageHotPatch.c)
- *     MiPerformImageHotPatch @ 0x140856CA0 (MiPerformImageHotPatch.c)
+ *     MiApplyImageHotPatch @ 0x140854688 (MiApplyImageHotPatch.c)
+ *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x1400D95C0 (RtlFindClearBitsAndSet.c)
- *     RtlGetHotPatchSize @ 0x1402F7D74 (RtlGetHotPatchSize.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
+ *     RtlGetHotPatchSize @ 0x1402F7E74 (RtlGetHotPatchSize.c)
  *     RtlpCheckFunctionPatchApplied @ 0x14057E480 (RtlpCheckFunctionPatchApplied.c)
  */
 

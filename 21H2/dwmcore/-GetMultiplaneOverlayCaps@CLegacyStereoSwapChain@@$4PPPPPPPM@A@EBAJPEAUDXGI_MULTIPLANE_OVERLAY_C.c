@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetMultiplaneOverlayCaps@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x180109EB0
+ * XREFs of ?GetMultiplaneOverlayCaps@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x1800F7A00
  * Callers:
  *     <none>
  * Callees:

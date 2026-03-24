@@ -1,78 +1,82 @@
 /*
- * XREFs of HalpCreateSecondaryIcEntry @ 0x14051CFB0
+ * XREFs of HalpCreateSecondaryIcEntry @ 0x1404D09A0
  * Callers:
- *     HalpRegisterSecondaryIcInterface @ 0x14051D9E4 (HalpRegisterSecondaryIcInterface.c)
+ *     HalpRegisterSecondaryIcInterface @ 0x1404D13F4 (HalpRegisterSecondaryIcInterface.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpCreateSecondaryIcEntry(__int64 a1)
 {
-  __int64 Pool2; // rax
-  unsigned int v3; // edi
-  __int64 v4; // rbx
-  unsigned __int64 v5; // rsi
-  __int64 *v6; // rax
+  SIZE_T v2; // rdi
+  PVOID PoolWithTag; // rax
+  unsigned int v4; // esi
+  __int64 v5; // rbx
+  unsigned __int64 v6; // rdi
+  __int64 *v7; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v10; // edx
-  bool v11; // zf
+  int v11; // edx
+  bool v12; // zf
 
-  Pool2 = ExAllocatePool2(64LL, 16 * (*(unsigned __int16 *)(a1 + 20) + 10LL), 845963592LL);
-  v3 = 0;
-  v4 = Pool2;
-  if ( Pool2 )
+  v2 = 16 * (*(unsigned __int16 *)(a1 + 20) + 10LL);
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v2, 0x536C6148u);
+  v4 = 0;
+  v5 = (__int64)PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 16) = *(_DWORD *)(a1 + 16);
-    *(_DWORD *)(Pool2 + 20) = *(unsigned __int16 *)(a1 + 20);
-    *(_OWORD *)(Pool2 + 24) = *(_OWORD *)a1;
-    *(_OWORD *)(Pool2 + 40) = *(_OWORD *)(a1 + 16);
-    *(_OWORD *)(Pool2 + 56) = *(_OWORD *)(a1 + 32);
-    *(_OWORD *)(Pool2 + 72) = *(_OWORD *)(a1 + 48);
-    *(_OWORD *)(Pool2 + 88) = *(_OWORD *)(a1 + 64);
-    *(_QWORD *)(Pool2 + 104) = *(_QWORD *)(a1 + 80);
-    ObfReferenceObjectWithTag(*(PVOID *)(Pool2 + 48), 0x326C6148u);
-    *(_WORD *)(v4 + 120) = 1;
-    *(_QWORD *)(v4 + 136) = v4 + 128;
-    *(_QWORD *)(v4 + 128) = v4 + 128;
-    *(_BYTE *)(v4 + 122) = 6;
-    *(_DWORD *)(v4 + 124) = 1;
-    v5 = HalpAcquireHighLevelLock(&SecondaryIcListSpinLock);
-    v6 = (__int64 *)qword_140C4B0C8;
-    if ( *(__int64 **)qword_140C4B0C8 != &SecondaryIcList )
+    memset(PoolWithTag, 0, v2);
+    *(_DWORD *)(v5 + 16) = *(_DWORD *)(a1 + 16);
+    *(_DWORD *)(v5 + 20) = *(unsigned __int16 *)(a1 + 20);
+    *(_OWORD *)(v5 + 24) = *(_OWORD *)a1;
+    *(_OWORD *)(v5 + 40) = *(_OWORD *)(a1 + 16);
+    *(_OWORD *)(v5 + 56) = *(_OWORD *)(a1 + 32);
+    *(_OWORD *)(v5 + 72) = *(_OWORD *)(a1 + 48);
+    *(_OWORD *)(v5 + 88) = *(_OWORD *)(a1 + 64);
+    *(_QWORD *)(v5 + 104) = *(_QWORD *)(a1 + 80);
+    ObfReferenceObjectWithTag(*(PVOID *)(v5 + 48), 0x536C6148u);
+    *(_WORD *)(v5 + 120) = 1;
+    *(_QWORD *)(v5 + 136) = v5 + 128;
+    *(_QWORD *)(v5 + 128) = v5 + 128;
+    *(_BYTE *)(v5 + 122) = 6;
+    *(_DWORD *)(v5 + 124) = 1;
+    v6 = HalpAcquireHighLevelLock(&SecondaryIcListSpinLock);
+    v7 = (__int64 *)qword_140C49BC8;
+    if ( *(__int64 **)qword_140C49BC8 != &SecondaryIcList )
       __fastfail(3u);
-    *(_QWORD *)v4 = &SecondaryIcList;
-    *(_QWORD *)(v4 + 8) = v6;
-    *v6 = v4;
-    qword_140C4B0C8 = v4;
+    *(_QWORD *)v5 = &SecondaryIcList;
+    *(_QWORD *)(v5 + 8) = v7;
+    *v7 = v5;
+    qword_140C49BC8 = v5;
     KxReleaseSpinLock(&SecondaryIcListSpinLock);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-          v11 = (v10 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v10;
-          if ( v11 )
+          v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+          v12 = (v11 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v11;
+          if ( v12 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }
-    __writecr8(v5);
+    __writecr8(v6);
   }
   else
   {
     return (unsigned int)-1073741801;
   }
-  return v3;
+  return v4;
 }

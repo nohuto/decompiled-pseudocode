@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SetAnimatedProperty@CPropertyChangeResource@@IEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180097CA0
+ * XREFs of ?SetAnimatedProperty@CPropertyChangeResource@@IEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800661E0
  * Callers:
  *     <none>
  * Callees:
- *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180097D88 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
- *     ?FindElement@?$CGenericTableMap@IVCAnimationSourceMapEntry@@@@QEAAPEAVCAnimationSourceMapEntry@@I@Z @ 0x1800BCD08 (-FindElement@-$CGenericTableMap@IVCAnimationSourceMapEntry@@@@QEAAPEAVCAnimationSourceMapEntry@@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memcmp_0 @ 0x18011B98C (memcmp_0.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FindElement@?$CGenericTableMap@IVCAnimationSourceMapEntry@@@@QEAAPEAVCAnimationSourceMapEntry@@I@Z @ 0x180065B04 (-FindElement@-$CGenericTableMap@IVCAnimationSourceMapEntry@@@@QEAAPEAVCAnimationSourceMapEntry@@.c)
+ *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800662B4 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
+ *     memcmp_0 @ 0x1800F3FFF (memcmp_0.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CPropertyChangeResource::SetAnimatedProperty(
@@ -16,51 +16,41 @@ __int64 __fastcall CPropertyChangeResource::SetAnimatedProperty(
         const struct AnimationHelper::AnimatedProperty *a2,
         const void *a3)
 {
-  char *v4; // rsi
+  char *v4; // rbp
   unsigned int v7; // ebx
-  __int64 v8; // rax
-  __int64 v9; // rbx
-  __int64 v10; // rcx
-  __int64 Element; // rax
+  struct _RTL_GENERIC_TABLE *v9; // rcx
+  __int64 v10; // rbx
+  PVOID Element; // rax
   _QWORD *v12; // rdx
   int v13; // eax
-  unsigned int v14; // ecx
-  __int64 v16; // rax
+  __int64 v14; // rcx
   __int64 i; // r8
-  __int64 v18; // rcx
+  __int64 v16; // rcx
 
   v4 = (char *)this + *((_QWORD *)a2 + 1);
   v7 = 0;
   if ( memcmp_0(v4, a3, *((_QWORD *)a2 + 2)) )
   {
     memcpy_0(v4, a3, *((_QWORD *)a2 + 2));
-    v8 = *((_QWORD *)this + 2);
-    v9 = *(_QWORD *)(v8 + 496);
-    if ( v9 == *(_QWORD *)(v8 + 504) )
-    {
-      v16 = v9 + 1;
-      v9 = 1LL;
-      if ( v16 )
-        v9 = v16;
-    }
-    v10 = *((_QWORD *)this + 5);
+    v9 = (struct _RTL_GENERIC_TABLE *)*((_QWORD *)this + 5);
+    v10 = *(_QWORD *)(*((_QWORD *)this + 2) + 352LL);
     Element = 0LL;
-    if ( v10 )
-      Element = CGenericTableMap<unsigned int,CAnimationSourceMapEntry>::FindElement(v10, *(unsigned int *)a2);
-    v12 = (_QWORD *)((Element + 8) & ((unsigned __int128)-(__int128)(unsigned __int64)Element >> 64));
+    if ( v9 )
+      Element = CGenericTableMap<unsigned int,CAnimationSourceMapEntry>::FindElement(v9, *(_DWORD *)a2);
+    v12 = (_QWORD *)(((unsigned __int64)Element + 8) & ((unsigned __int128)-(__int128)(unsigned __int64)Element >> 64));
     if ( v12 )
     {
       for ( i = 0LL;
-            (unsigned int)i < *(_DWORD *)(((Element + 8) & ((unsigned __int128)-(__int128)(unsigned __int64)Element >> 64))
+            (unsigned int)i < *(_DWORD *)((((unsigned __int64)Element + 8) & ((unsigned __int128)-(__int128)(unsigned __int64)Element >> 64))
                                         + 0x18);
-            *(_QWORD *)(v18 + 296) = v9 )
+            *(_QWORD *)(v16 + 272) = v10 )
       {
-        v18 = *(_QWORD *)(*v12 + 8 * i);
+        v16 = *(_QWORD *)(*v12 + 8 * i);
         i = (unsigned int)(i + 1);
       }
-      *(_BYTE *)(*(_QWORD *)(*((_QWORD *)this + 2) + 424LL) + 448LL) |= 2u;
-      (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(*((_QWORD *)this + 2) + 656LL) + 32LL))(
-        *(_QWORD *)(*((_QWORD *)this + 2) + 656LL),
+      *(_BYTE *)(*(_QWORD *)(*((_QWORD *)this + 2) + 272LL) + 416LL) |= 2u;
+      (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(*((_QWORD *)this + 2) + 504LL) + 96LL))(
+        *(_QWORD *)(*((_QWORD *)this + 2) + 504LL),
         0LL,
         8LL);
     }

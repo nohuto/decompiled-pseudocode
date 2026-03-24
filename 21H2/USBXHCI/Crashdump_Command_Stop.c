@@ -1,10 +1,10 @@
 /*
- * XREFs of Crashdump_Command_Stop @ 0x1C004CBD0
+ * XREFs of Crashdump_Command_Stop @ 0x1C004C150
  * Callers:
- *     Crashdump_Cleanup @ 0x1C0049CD0 (Crashdump_Cleanup.c)
- *     Crashdump_Command_PrepareForDump @ 0x1C004C918 (Crashdump_Command_PrepareForDump.c)
+ *     Crashdump_Cleanup @ 0x1C0049210 (Crashdump_Cleanup.c)
+ *     Crashdump_Command_PrepareForDump @ 0x1C004BE98 (Crashdump_Command_PrepareForDump.c)
  * Callees:
- *     Crashdump_EventRing_Poll @ 0x1C004C3AC (Crashdump_EventRing_Poll.c)
+ *     Crashdump_EventRing_Poll @ 0x1C004B92C (Crashdump_EventRing_Poll.c)
  */
 
 __int64 __fastcall Crashdump_Command_Stop(__int64 a1, char a2)
@@ -62,7 +62,7 @@ __int64 __fastcall Crashdump_Command_Stop(__int64 a1, char a2)
     if ( !*(_DWORD *)(*(_QWORD *)a1 + 584LL) || *(_BYTE *)(v11 + 624) )
       v7 = 72LL;
     v12 = Crashdump_EventRing_Poll(
-            v11 + v7,
+            v7 + v11,
             33,
             v10,
             a1,

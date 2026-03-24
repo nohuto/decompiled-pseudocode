@@ -1,14 +1,14 @@
 /*
- * XREFs of PspCreateSilo @ 0x140886FC0
+ * XREFs of PspCreateSilo @ 0x140886FA0
  * Callers:
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
  *     PspUnlockJob @ 0x1405FE0C0 (PspUnlockJob.c)
  *     PspLockJobExclusive @ 0x1405FE100 (PspLockJobExclusive.c)
- *     PspAllocStorage @ 0x1407595A8 (PspAllocStorage.c)
- *     PspJobHasChildren @ 0x140889DD8 (PspJobHasChildren.c)
- *     PspFreeStorage @ 0x14088F358 (PspFreeStorage.c)
+ *     PspAllocStorage @ 0x140759588 (PspAllocStorage.c)
+ *     PspJobHasChildren @ 0x140889DB8 (PspJobHasChildren.c)
+ *     PspFreeStorage @ 0x14088F338 (PspFreeStorage.c)
  */
 
 __int64 __fastcall PspCreateSilo(__int64 a1)

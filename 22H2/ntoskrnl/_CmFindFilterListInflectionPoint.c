@@ -1,22 +1,22 @@
 /*
- * XREFs of _CmFindFilterListInflectionPoint @ 0x140A67B80
+ * XREFs of _CmFindFilterListInflectionPoint @ 0x140979B18
  * Callers:
- *     _CmMergeFilterLists @ 0x140A694FC (_CmMergeFilterLists.c)
+ *     _CmMergeFilterLists @ 0x14097B7BC (_CmMergeFilterLists.c)
  * Callees:
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
  */
 
 const wchar_t *__fastcall CmFindFilterListInflectionPoint(wchar_t *Str1, wchar_t *a2, wchar_t *Str2)
 {
-  const wchar_t *v5; // rdi
+  const wchar_t *v3; // rdi
   const wchar_t *v6; // rbx
-  const wchar_t *v7; // r14
-  __int64 v8; // rbp
+  const wchar_t *v7; // r15
+  __int64 v8; // r14
   const wchar_t *v9; // rsi
-  __int64 v10; // rbx
+  __int64 v10; // rbp
   __int64 v11; // rax
 
-  v5 = Str1;
+  v3 = Str1;
   v6 = 0LL;
   v7 = 0LL;
   if ( a2 && *a2 && *Str1 )
@@ -27,7 +27,7 @@ const wchar_t *__fastcall CmFindFilterListInflectionPoint(wchar_t *Str1, wchar_t
       v8 = -1LL;
       do
         ++v8;
-      while ( v5[v8] );
+      while ( v3[v8] );
       v9 = a2;
       if ( *a2 )
       {
@@ -37,28 +37,25 @@ const wchar_t *__fastcall CmFindFilterListInflectionPoint(wchar_t *Str1, wchar_t
           do
             ++v10;
           while ( v9[v10] );
-          if ( (_DWORD)v10 == (_DWORD)v8 && !wcsicmp(v9, v5) )
+          if ( (_DWORD)v10 == (_DWORD)v8 && !wcsicmp(v9, v3) )
             break;
           v9 += (unsigned int)(v10 + 1);
           if ( !*v9 )
-          {
-            v6 = 0LL;
-            goto LABEL_15;
-          }
+            goto LABEL_14;
         }
         v6 = v9;
       }
+LABEL_14:
       if ( v6 )
         break;
-LABEL_15:
-      if ( !wcsicmp(v5, Str2) )
-        v7 = v5;
+      if ( !wcsicmp(v3, Str2) )
+        v7 = v3;
       v11 = -1LL;
       do
         ++v11;
-      while ( v5[v11] );
-      v5 += v11 + 1;
-      if ( !*v5 )
+      while ( v3[v11] );
+      v3 += v11 + 1;
+      if ( !*v3 )
       {
         if ( v7 )
           return v7;

@@ -1,12 +1,12 @@
 /*
- * XREFs of ArbpBuildAlternative @ 0x1C00A2EFC
+ * XREFs of ArbpBuildAlternative @ 0x1C00957A8
  * Callers:
- *     ArbBootAllocation @ 0x1C00A1090 (ArbBootAllocation.c)
- *     ArbQueryConflict @ 0x1C00A2350 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x1C00A2740 (ArbRetestAllocation.c)
- *     ArbpBuildAllocationStack @ 0x1C00A2D90 (ArbpBuildAllocationStack.c)
+ *     ArbBootAllocation @ 0x1C00954B0 (ArbBootAllocation.c)
+ *     ArbpBuildAllocationStack @ 0x1C0095670 (ArbpBuildAllocationStack.c)
+ *     ArbQueryConflict @ 0x1C00B8080 (ArbQueryConflict.c)
+ *     ArbRetestAllocation @ 0x1C00B8460 (ArbRetestAllocation.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ArbpBuildAlternative(__int64 a1, __int64 a2, __int64 *a3)
@@ -45,7 +45,7 @@ __int64 __fastcall ArbpBuildAlternative(__int64 a1, __int64 a2, __int64 *a3)
     if ( v9 == 3 || (v10 = v6, v9 == 7) )
     {
       v10 = v6;
-      if ( _bittest16((const signed __int16 *)(a2 + 4), 8u) )
+      if ( (*(_WORD *)(a2 + 4) & 0x100) != 0 )
       {
         v10 = v6 | 8;
         *((_DWORD *)a3 + 9) = v6 | 8;

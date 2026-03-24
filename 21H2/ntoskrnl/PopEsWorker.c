@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEsWorker @ 0x1406D1E90
+ * XREFs of PopEsWorker @ 0x1407811F0
  * Callers:
  *     <none>
  * Callees:
- *     PopEsUpdateState @ 0x14024E2C8 (PopEsUpdateState.c)
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     ExSubscribeWnfStateChange @ 0x1406D1FA0 (ExSubscribeWnfStateChange.c)
- *     PopEsStartTelemetry @ 0x14081CC60 (PopEsStartTelemetry.c)
- *     PopEsUpdateSetting @ 0x140861CE0 (PopEsUpdateSetting.c)
- *     PopEsPublishState @ 0x140863B7C (PopEsPublishState.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopEsUpdateState @ 0x14039A908 (PopEsUpdateState.c)
+ *     ExSubscribeWnfStateChange @ 0x1406B17B0 (ExSubscribeWnfStateChange.c)
+ *     PopEsStartTelemetry @ 0x14078E774 (PopEsStartTelemetry.c)
+ *     PopEsUpdateSetting @ 0x1407D1DD8 (PopEsUpdateSetting.c)
+ *     PopEsPublishState @ 0x1407D3D90 (PopEsPublishState.c)
  */
 
 void PopEsWorker()
@@ -75,8 +75,8 @@ void PopEsWorker()
       PopEsStartTelemetry();
       PopReleaseRwLock((ULONG_PTR)&PopEsLock);
       ExSubscribeWnfStateChange(
-        (unsigned int)&PopEsWnfSubscriptionOverride,
-        (unsigned int)&WNF_PO_ENERGY_SAVER_OVERRIDE,
+        (__int64)&PopEsWnfSubscriptionOverride,
+        (__int64)&WNF_PO_ENERGY_SAVER_OVERRIDE,
         1,
         0,
         (__int64)PopEsWnfSubscriptionOverrideCallback,

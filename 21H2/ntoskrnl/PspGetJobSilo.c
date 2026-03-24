@@ -1,18 +1,18 @@
 /*
- * XREFs of PspGetJobSilo @ 0x140212034
+ * XREFs of PspGetJobSilo @ 0x140200084
  * Callers:
- *     PsGetJobSilo @ 0x140212000 (PsGetJobSilo.c)
- *     PsIsProcessInSilo @ 0x140300B74 (PsIsProcessInSilo.c)
- *     PsGetProcessSilo @ 0x1405E0470 (PsGetProcessSilo.c)
- *     NtQueryInformationJobObject @ 0x140684450 (NtQueryInformationJobObject.c)
- *     PsGetParentSilo @ 0x1407FC3C0 (PsGetParentSilo.c)
+ *     PsGetJobSilo @ 0x140200050 (PsGetJobSilo.c)
+ *     PsIsProcessInSilo @ 0x14025CA38 (PsIsProcessInSilo.c)
+ *     PsGetProcessSilo @ 0x1405813A0 (PsGetProcessSilo.c)
+ *     NtQueryInformationJobObject @ 0x140616880 (NtQueryInformationJobObject.c)
+ *     PsGetParentSilo @ 0x140905AF0 (PsGetParentSilo.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall PspGetJobSilo(__int64 a1)
 {
-  while ( a1 && (*(_DWORD *)(a1 + 1512) & 0x40000000) == 0 )
-    a1 = *(_QWORD *)(a1 + 1264);
+  while ( a1 && (*(_DWORD *)(a1 + 1320) & 0x40000000) == 0 )
+    a1 = *(_QWORD *)(a1 + 1072);
   return a1;
 }

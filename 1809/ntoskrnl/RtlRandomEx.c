@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlRandomEx @ 0x14013DAA0
+ * XREFs of RtlRandomEx @ 0x14013DAC0
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x1406D18B8 (MmCreateProcessAddressSpace.c)
- *     PopPublishAndPurgePowerRequestStats @ 0x14087AE3C (PopPublishAndPurgePowerRequestStats.c)
- *     EtwpGetPrivateSessionTraceHandle @ 0x1408BFE44 (EtwpGetPrivateSessionTraceHandle.c)
+ *     MmCreateProcessAddressSpace @ 0x1406D1898 (MmCreateProcessAddressSpace.c)
+ *     PopPublishAndPurgePowerRequestStats @ 0x14087AE1C (PopPublishAndPurgePowerRequestStats.c)
+ *     EtwpGetPrivateSessionTraceHandle @ 0x1408BFE24 (EtwpGetPrivateSessionTraceHandle.c)
  *     VfRandomGetNumber @ 0x140925F50 (VfRandomGetNumber.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)

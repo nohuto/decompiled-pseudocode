@@ -1,36 +1,45 @@
 /*
- * XREFs of ?AllocateWithStore@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAXPEAU_LOOKASIDE_LIST_EX@@PEAPEAXPEAI@Z @ 0x1C0005AF4
+ * XREFs of ?AllocateWithStore@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAXPEAU_LOOKASIDE_LIST_EX@@PEAPEAXPEAI@Z @ 0x1C0005FF4
  * Callers:
- *     ?CreateRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_RANGE@@PEAVVIDMM_RECYCLE_BLOCK@@_K1@Z @ 0x1C008EEE8 (-CreateRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_RANGE@@PEAVVIDMM_RECYCLE_BLOCK@@_K1@Z.c)
- *     ?SplitAt@VIDMM_RECYCLE_MULTIRANGE@@QEAAX_K@Z @ 0x1C009EBB4 (-SplitAt@VIDMM_RECYCLE_MULTIRANGE@@QEAAX_K@Z.c)
- *     ?CreateMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@W4VIDMM_RECYCLE_MULTIRANGE_STATE@@PEAVVIDMM_RECYCLE_BLOCK@@_K2@Z @ 0x1C00A06C0 (-CreateMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@W4VIDMM_RECYCLE_MULT.c)
+ *     ?CreateMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@W4VIDMM_RECYCLE_MULTIRANGE_STATE@@PEAVVIDMM_RECYCLE_BLOCK@@_K2@Z @ 0x1C007D644 (-CreateMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@W4VIDMM_RECYCLE_MULT.c)
+ *     ?CreateRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_RANGE@@PEAVVIDMM_RECYCLE_BLOCK@@_K1@Z @ 0x1C0087858 (-CreateRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_RANGE@@PEAVVIDMM_RECYCLE_BLOCK@@_K1@Z.c)
  * Callees:
- *     <none>
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
  */
 
-PVOID __fastcall VIDMM_RECYCLE_HEAP_MGR::AllocateWithStore(
+PSLIST_ENTRY __fastcall VIDMM_RECYCLE_HEAP_MGR::AllocateWithStore(
         VIDMM_RECYCLE_HEAP_MGR *this,
         struct _LOOKASIDE_LIST_EX *a2,
         void **a3,
         unsigned int *a4)
 {
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  PVOID result; // rax
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  PSLIST_ENTRY result; // rax
 
   if ( *a4 )
   {
-    v5 = *a4 - 1;
-    v6 = (unsigned int)v5;
-    result = a3[v5];
-    a3[v6] = 0LL;
+    v6 = *a4 - 1;
+    v7 = (unsigned int)v6;
+    result = (PSLIST_ENTRY)a3[v6];
+    a3[v7] = 0LL;
     --*a4;
+    goto LABEL_5;
   }
-  else
+  ++a2->L.TotalAllocates;
+  result = ExpInterlockedPopEntrySList(&a2->L.ListHead);
+  if ( !result )
   {
-    result = ExAllocateFromLookasideListEx(a2);
+    ++a2->L.AllocateMisses;
+    result = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, struct _LOOKASIDE_LIST_EX *))a2->L.AllocateEx)(
+                             (unsigned int)a2->L.Type,
+                             a2->L.Size,
+                             a2->L.Tag,
+                             a2);
+LABEL_5:
+    if ( !result )
+      return result;
   }
-  if ( result )
-    ++*((_DWORD *)this + 422);
+  ++*((_DWORD *)this + 420);
   return result;
 }

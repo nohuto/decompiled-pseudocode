@@ -1,23 +1,23 @@
 /*
- * XREFs of WmipGetFilePDO @ 0x1406C1BD4
+ * XREFs of WmipGetFilePDO @ 0x14078D404
  * Callers:
- *     IoWMIHandleToInstanceName @ 0x1406C1900 (IoWMIHandleToInstanceName.c)
- *     WmipTranslateFileHandle @ 0x1409DE060 (WmipTranslateFileHandle.c)
+ *     IoWMIHandleToInstanceName @ 0x14078D130 (IoWMIHandleToInstanceName.c)
+ *     WmipTranslateFileHandle @ 0x140933408 (WmipTranslateFileHandle.c)
  * Callees:
- *     IoSynchronousCallDriver @ 0x140245250 (IoSynchronousCallDriver.c)
- *     IoAllocateIrp @ 0x1402AAB20 (IoAllocateIrp.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     IoGetAttachedDeviceReference @ 0x1403109B0 (IoGetAttachedDeviceReference.c)
- *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     IoGetAttachedDeviceReference @ 0x14022CA10 (IoGetAttachedDeviceReference.c)
+ *     IoSynchronousCallDriver @ 0x1402BECC0 (IoSynchronousCallDriver.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
+ *     IoAllocateIrp @ 0x140361FF0 (IoAllocateIrp.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipGetFilePDO(void *a1, KPROCESSOR_MODE a2, _QWORD *a3)
 {
   NTSTATUS v4; // ebx
-  PFILE_OBJECT v5; // rsi
+  struct _DMA_ADAPTER *v5; // rsi
   struct _DEVICE_OBJECT *RelatedDeviceObject; // rax
   PDEVICE_OBJECT AttachedDeviceReference; // rbp
   PIRP Irp; // rax
@@ -30,7 +30,7 @@ __int64 __fastcall WmipGetFilePDO(void *a1, KPROCESSOR_MODE a2, _QWORD *a3)
   v4 = ObReferenceObjectByHandle(a1, 0, (POBJECT_TYPE)IoFileObjectType, a2, (PVOID *)&FileObject, 0LL);
   if ( v4 >= 0 )
   {
-    v5 = FileObject;
+    v5 = (struct _DMA_ADAPTER *)FileObject;
     RelatedDeviceObject = IoGetRelatedDeviceObject(FileObject);
     AttachedDeviceReference = IoGetAttachedDeviceReference(RelatedDeviceObject);
     Irp = IoAllocateIrp(AttachedDeviceReference->StackSize, 0);
@@ -40,7 +40,7 @@ __int64 __fastcall WmipGetFilePDO(void *a1, KPROCESSOR_MODE a2, _QWORD *a3)
       CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
       *(_WORD *)&CurrentStackLocation[-1].MajorFunction = 1819;
       CurrentStackLocation[-1].Parameters.Read.Length = 4;
-      CurrentStackLocation[-1].FileObject = v5;
+      CurrentStackLocation[-1].FileObject = (PFILE_OBJECT)v5;
       v9->IoStatus.Status = -1073741637;
       v4 = IoSynchronousCallDriver(AttachedDeviceReference, v9);
       if ( v4 >= 0 )
@@ -56,9 +56,9 @@ __int64 __fastcall WmipGetFilePDO(void *a1, KPROCESSOR_MODE a2, _QWORD *a3)
     {
       v4 = -1073741670;
     }
-    ObfDereferenceObject(AttachedDeviceReference);
+    HalPutDmaAdapter((PADAPTER_OBJECT)AttachedDeviceReference);
     if ( v5 )
-      ObfDereferenceObject(v5);
+      HalPutDmaAdapter(v5);
   }
   return (unsigned int)v4;
 }

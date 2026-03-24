@@ -11,8 +11,8 @@
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiInitializeGapFrames(__int64 a1, __int64 *a2)

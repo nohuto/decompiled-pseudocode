@@ -3,137 +3,139 @@
  * Callers:
  *     <none>
  * Callees:
- *     _QdcSdcTranslateStatusDefault @ 0x1C001EDBC (_QdcSdcTranslateStatusDefault.c)
- *     UserIsWddmConnectedSession @ 0x1C001EFF0 (UserIsWddmConnectedSession.c)
- *     DrvQueryDisplayConfig @ 0x1C001F100 (DrvQueryDisplayConfig.c)
- *     DrvSampleDisplayState @ 0x1C001F260 (DrvSampleDisplayState.c)
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00462A0 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C004CDAC (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     DrvSampleDisplayState @ 0x1C001CCD0 (DrvSampleDisplayState.c)
+ *     _QdcSdcTranslateStatusDefault @ 0x1C001F194 (_QdcSdcTranslateStatusDefault.c)
+ *     UserIsWddmConnectedSession @ 0x1C001F320 (UserIsWddmConnectedSession.c)
+ *     DrvQueryDisplayConfig @ 0x1C0020490 (DrvQueryDisplayConfig.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C002A9C0 (Win32AllocPoolWithQuotaZInit.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     EnterSharedCrit @ 0x1C00372A0 (EnterSharedCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
-__int64 __fastcall NtUserQueryDisplayConfig(__int64 a1, unsigned int *a2, volatile void *a3, int *a4, _DWORD *Address)
+__int64 __fastcall NtUserQueryDisplayConfig(
+        unsigned int a1,
+        unsigned int *a2,
+        volatile void *a3,
+        int *a4,
+        _DWORD *Address)
 {
-  unsigned int v8; // ebx
-  const void *QuotaZInit; // rsi
-  int v10; // ecx
+  const void *v9; // rsi
+  ULONG64 v10; // rcx
   _DWORD *v11; // rdx
   __int64 CurrentProcessWow64Process; // rax
-  unsigned __int64 v13; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v14; // rcx
-  __int64 v15; // rcx
-  int v16; // r15d
-  __int64 v17; // rax
-  unsigned int v18; // edi
-  unsigned int v19; // eax
-  unsigned int v20; // ebx
-  unsigned int v22; // [rsp+20h] [rbp-98h] BYREF
-  int v23; // [rsp+24h] [rbp-94h]
-  int v24; // [rsp+28h] [rbp-90h] BYREF
-  const void *v25; // [rsp+30h] [rbp-88h]
-  __int64 v26; // [rsp+48h] [rbp-70h] BYREF
-  int v27; // [rsp+50h] [rbp-68h]
-  __int128 v28; // [rsp+60h] [rbp-58h] BYREF
-  __int64 v29; // [rsp+70h] [rbp-48h]
+  __int64 v13; // rdx
+  int v14; // r15d
+  __int64 v15; // rax
+  unsigned int v16; // edi
+  unsigned int v17; // eax
+  unsigned int v18; // ebx
+  unsigned int v20; // [rsp+20h] [rbp-98h] BYREF
+  int v21; // [rsp+24h] [rbp-94h]
+  int v22; // [rsp+28h] [rbp-90h] BYREF
+  const void *v23; // [rsp+30h] [rbp-88h]
+  __int64 v24; // [rsp+48h] [rbp-70h] BYREF
+  int v25; // [rsp+50h] [rbp-68h]
+  __int128 v26; // [rsp+60h] [rbp-58h] BYREF
+  __int64 v27; // [rsp+70h] [rbp-48h]
 
-  v8 = a1;
-  QuotaZInit = 0LL;
-  v25 = 0LL;
-  v28 = 0LL;
-  v29 = 0LL;
-  v22 = 0;
-  v24 = -1;
+  v9 = 0LL;
+  v23 = 0LL;
   v26 = 0LL;
-  v27 = 0;
-  PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal(a1);
+  v27 = 0LL;
+  v20 = 0;
+  v22 = -1;
+  v24 = 0LL;
+  v25 = 0;
+  EnterSharedCrit(0LL, 1LL);
   if ( !gbVideoInitialized )
   {
-    v18 = -1073741823;
-    goto LABEL_29;
+    v16 = -1073741823;
+    goto LABEL_30;
   }
-  if ( (v8 & 0xFFFFFF88) != 0 || (v10 = v8 & 7, ((v10 - 1) & 0xFFFFFFFC) != 0) || v10 == 3 )
+  if ( (a1 & 0xFFFFFFC8) != 0 || (v10 = a1 & 7, (((_DWORD)v10 - 1) & 0xFFFFFFFC) != 0) || (_DWORD)v10 == 3 )
   {
-    v18 = -1073741811;
-    goto LABEL_29;
+    v16 = -1073741811;
+    goto LABEL_30;
   }
-  PtiCurrentShared();
+  W32GetThreadWin32Thread(KeGetCurrentThread());
+  v10 = MmUserProbeAddress;
   v11 = a2;
   if ( (unsigned __int64)a2 >= MmUserProbeAddress )
     v11 = (_DWORD *)MmUserProbeAddress;
   *v11 = *v11;
-  v22 = *a2;
-  if ( v22 )
+  v20 = *a2;
+  if ( v20 )
   {
-    CurrentProcessWow64Process = PsGetCurrentProcessWow64Process();
-    ProbeForWrite(a3, 216LL * v22, CurrentProcessWow64Process != 0 ? 1 : 4);
-    QuotaZInit = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v14, v13, 216LL * v22, 0x63447355u);
-    v25 = QuotaZInit;
-    if ( !QuotaZInit )
+    CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(MmUserProbeAddress);
+    ProbeForWrite(a3, 200LL * v20, CurrentProcessWow64Process != 0 ? 1 : 4);
+    v9 = (const void *)Win32AllocPoolWithQuotaZInit(200LL * v20);
+    v23 = v9;
+    if ( !v9 )
       ExRaiseStatus(-1073741801);
-    if ( qword_1C0295450 )
-      qword_1C0295450(QuotaZInit, &v28, Win32FreePool);
-    v16 = v8 & 4;
-    if ( (v8 & 4) != 0 )
+    if ( qword_1C0255FC0 )
+      qword_1C0255FC0(v9, &v26, Win32FreePool);
+    v14 = a1 & 4;
+    if ( (a1 & 4) != 0 )
     {
       ProbeForWrite(a4, 4uLL, 4u);
     }
     else if ( a4 )
     {
-      v18 = -1073741811;
-      v23 = -1073741811;
-      goto LABEL_29;
+      v16 = -1073741811;
+      v21 = -1073741811;
+      goto LABEL_30;
     }
     if ( Address )
     {
-      v17 = PsGetCurrentProcessWow64Process();
-      ProbeForWrite(Address, 0xCuLL, v17 != 0 ? 1 : 4);
+      v15 = PsGetCurrentProcessWow64Process(v10);
+      ProbeForWrite(Address, 0xCuLL, v15 != 0 ? 1 : 4);
     }
-    if ( (unsigned int)UserIsWddmConnectedSession(v15) )
+    if ( (unsigned int)UserIsWddmConnectedSession(v10, v13) )
     {
       if ( Address )
-        DrvSampleDisplayState(&v26);
-      v19 = DrvQueryDisplayConfig(v8, &v22, QuotaZInit, &v24);
-      v18 = v19;
-      v23 = v19;
-      if ( v19 == -2147483643 )
+        DrvSampleDisplayState(&v24);
+      v17 = DrvQueryDisplayConfig(a1, &v20, v9, &v22);
+      v16 = v17;
+      v21 = v17;
+      if ( v17 == -2147483643 )
       {
-        v18 = -1073741789;
-        v23 = -1073741789;
+        v16 = -1073741789;
+        v21 = -1073741789;
       }
-      else if ( v19 != -1073741789 )
+      else if ( v17 != -1073741789 )
       {
-        v18 = QdcSdcTranslateStatusDefault(v19);
-        v23 = v18;
+        v16 = QdcSdcTranslateStatusDefault(v17);
+        v21 = v16;
       }
-      v20 = v22;
-      memmove((void *)a3, QuotaZInit, 216LL * v22);
-      *a2 = v20;
-      if ( v16 )
-        *a4 = v24;
+      v18 = v20;
+      memmove((void *)a3, v9, 200LL * v20);
+      *a2 = v18;
+      if ( v14 )
+        *a4 = v22;
       if ( Address )
       {
-        *(_QWORD *)Address = v26;
-        Address[2] = v27;
+        *(_QWORD *)Address = v24;
+        Address[2] = v25;
       }
     }
     else
     {
-      v18 = -1073741790;
+      v16 = -1073741790;
     }
   }
   else
   {
-    v18 = -1073741811;
-    v23 = -1073741811;
-    QuotaZInit = v25;
+    v16 = -1073741811;
+    v21 = -1073741811;
+    v9 = v23;
   }
-LABEL_29:
-  if ( QuotaZInit && qword_1C0295558 )
-    qword_1C0295558(&v28);
-  UserSessionSwitchLeaveCrit();
-  return v18;
+LABEL_30:
+  if ( v9 && qword_1C02560E8 )
+    qword_1C02560E8(&v26);
+  UserSessionSwitchLeaveCrit(v10);
+  return v16;
 }

@@ -1,20 +1,26 @@
 /*
- * XREFs of ??_GCArithmeticCompositeEffectMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0214030
+ * XREFs of ??_GCArithmeticCompositeEffectMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C01D4000
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??1CFilterEffectMarshaler@DirectComposition@@UEAA@XZ @ 0x1C0215C20 (--1CFilterEffectMarshaler@DirectComposition@@UEAA@XZ.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 DirectComposition::CArithmeticCompositeEffectMarshaler *__fastcall DirectComposition::CArithmeticCompositeEffectMarshaler::`scalar deleting destructor'(
         DirectComposition::CArithmeticCompositeEffectMarshaler *this,
         char a2)
 {
-  DirectComposition::CFilterEffectMarshaler::~CFilterEffectMarshaler(this);
-  if ( (a2 & 1) != 0 && this )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)this);
+  __int64 v4; // rcx
+  __int64 v5; // rcx
+
+  *(_QWORD *)this = &DirectComposition::CFilterEffectMarshaler::`vftable';
+  v4 = *((_QWORD *)this + 11);
+  if ( v4 )
+    Win32FreePool(v4);
+  v5 = *((_QWORD *)this + 12);
+  if ( v5 )
+    Win32FreePool(v5);
+  if ( (a2 & 1) != 0 )
+    Win32FreePool((__int64)this);
   return this;
 }

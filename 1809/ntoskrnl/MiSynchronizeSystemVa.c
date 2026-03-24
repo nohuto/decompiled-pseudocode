@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSynchronizeSystemVa @ 0x1400E9F48
+ * XREFs of MiSynchronizeSystemVa @ 0x1400E9F68
  * Callers:
- *     MiLockStealSystemVm @ 0x1400E9958 (MiLockStealSystemVm.c)
- *     MiTranslatePageForCopy @ 0x1400E9C10 (MiTranslatePageForCopy.c)
- *     MiTrimSharedPageFromViews @ 0x1400EB3EC (MiTrimSharedPageFromViews.c)
+ *     MiLockStealSystemVm @ 0x1400E9978 (MiLockStealSystemVm.c)
+ *     MiTranslatePageForCopy @ 0x1400E9C30 (MiTranslatePageForCopy.c)
+ *     MiTrimSharedPageFromViews @ 0x1400EB40C (MiTrimSharedPageFromViews.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
@@ -12,10 +12,10 @@
  *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
- *     MiGetSystemCacheReverseMap @ 0x1400ADF30 (MiGetSystemCacheReverseMap.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     MiUnlockSystemVa @ 0x1400ECDA4 (MiUnlockSystemVa.c)
- *     MiPageTableStillExists @ 0x140134AA4 (MiPageTableStillExists.c)
+ *     MiGetSystemCacheReverseMap @ 0x1400ADF50 (MiGetSystemCacheReverseMap.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockSystemVa @ 0x1400ECDC4 (MiUnlockSystemVa.c)
+ *     MiPageTableStillExists @ 0x140134AC4 (MiPageTableStillExists.c)
  */
 
 __int64 __fastcall MiSynchronizeSystemVa(__int64 a1, unsigned __int64 a2, int a3, int a4, __int64 a5)

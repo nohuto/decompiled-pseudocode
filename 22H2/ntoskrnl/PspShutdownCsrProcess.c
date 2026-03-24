@@ -1,43 +1,44 @@
 /*
- * XREFs of PspShutdownCsrProcess @ 0x1409AD358
+ * XREFs of PspShutdownCsrProcess @ 0x1409066A0
  * Callers:
- *     PspTerminateSiloSubsystemProcesses @ 0x1409ADB70 (PspTerminateSiloSubsystemProcesses.c)
+ *     PspTerminateSiloSubsystemProcesses @ 0x140906E34 (PspTerminateSiloSubsystemProcesses.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     PsDetachSiloFromCurrentThread @ 0x14031CAB0 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CAD0 (PsAttachSiloToCurrentThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x14041A720 (ZwWaitForSingleObject.c)
- *     ZwSetEvent @ 0x14041A860 (ZwSetEvent.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenEvent @ 0x14041AEA0 (ZwOpenEvent.c)
- *     ZwCreateEvent @ 0x14041AFA0 (ZwCreateEvent.c)
- *     PsTerminateProcess @ 0x140683794 (PsTerminateProcess.c)
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14034C200 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14034C220 (PsAttachSiloToCurrentThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1403F9AA0 (ZwWaitForSingleObject.c)
+ *     ZwSetEvent @ 0x1403F9BE0 (ZwSetEvent.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenEvent @ 0x1403FA220 (ZwOpenEvent.c)
+ *     ZwCreateEvent @ 0x1403FA320 (ZwCreateEvent.c)
+ *     PsInvokeWin32Callout @ 0x14061B5A0 (PsInvokeWin32Callout.c)
+ *     PsTerminateProcess @ 0x14069F4E8 (PsTerminateProcess.c)
+ *     PspWaitForUsermodeExit @ 0x14090B33C (PspWaitForUsermodeExit.c)
  */
 
-NTSTATUS __fastcall PspShutdownCsrProcess(struct _LIST_ENTRY *a1, unsigned int a2, _KPROCESS *a3)
+__int64 __fastcall PspShutdownCsrProcess(struct _LIST_ENTRY *a1, unsigned int a2, _KPROCESS *a3)
 {
   struct _LIST_ENTRY *v5; // rdi
   NTSTATUS v6; // eax
   HANDLE v7; // rcx
-  int v8; // ebx
-  HANDLE v9; // rcx
-  NTSTATUS result; // eax
+  _DWORD *v8; // r9
+  int v9; // ebx
+  HANDLE v10; // rcx
+  __int64 result; // rax
   HANDLE Handle; // [rsp+30h] [rbp-D0h] BYREF
   HANDLE EventHandle; // [rsp+38h] [rbp-C8h] BYREF
-  unsigned int v13; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned int v14; // [rsp+40h] [rbp-C0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v16; // [rsp+88h] [rbp-78h] BYREF
+  _OWORD v17[3]; // [rsp+88h] [rbp-78h] BYREF
   wchar_t pszDest[120]; // [rsp+C0h] [rbp-40h] BYREF
 
-  v13 = a2;
-  memset(&v16, 0, sizeof(v16));
+  v14 = a2;
+  memset(v17, 0, sizeof(v17));
   Handle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
@@ -65,28 +66,28 @@ NTSTATUS __fastcall PspShutdownCsrProcess(struct _LIST_ENTRY *a1, unsigned int a
     v7 = 0LL;
   Handle = v7;
   PsDetachSiloFromCurrentThread(v5);
-  KiStackAttachProcess(a3, 0, (__int64)&v16);
-  v8 = PsInvokeWin32Callout(31, 0LL, 1, (__int64)&v13);
-  KiUnstackDetachProcess(&v16);
+  KiStackAttachProcess(a3, 0LL, (__int64)v17, v8);
+  v9 = PsInvokeWin32Callout(31, 0LL, 1, (__int64)&v14);
+  KiUnstackDetachProcess((__int64)v17, 0);
   if ( EventHandle )
   {
     ZwSetEvent(EventHandle, 0LL);
     ZwClose(EventHandle);
     EventHandle = 0LL;
   }
-  v9 = Handle;
+  v10 = Handle;
   if ( Handle )
   {
-    if ( v8 >= 0 )
+    if ( v9 >= 0 )
     {
       ZwWaitForSingleObject(Handle, 0, 0LL);
-      v9 = Handle;
+      v10 = Handle;
     }
-    ZwClose(v9);
+    ZwClose(v10);
     Handle = 0LL;
   }
   result = PsTerminateProcess((ULONG_PTR)a3);
-  if ( result >= 0 )
-    return KeWaitForSingleObject(a3, Executive, 0, 0, 0LL);
+  if ( (int)result >= 0 )
+    return PspWaitForUsermodeExit(a3);
   return result;
 }

@@ -1,157 +1,122 @@
 /*
- * XREFs of xxxPrintWindow @ 0x1C01E297C
+ * XREFs of xxxPrintWindow @ 0x1C01E82D0
  * Callers:
- *     NtUserPrintWindow @ 0x1C01FB1B0 (NtUserPrintWindow.c)
+ *     NtUserPrintWindow @ 0x1C0200470 (NtUserPrintWindow.c)
  * Callees:
- *     SetRedirectedWindow @ 0x1C001F9FC (SetRedirectedWindow.c)
- *     NtGdiBitBltInternal @ 0x1C003DD70 (NtGdiBitBltInternal.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     IntersectRect @ 0x1C004CD28 (IntersectRect.c)
- *     GetStyleWindow @ 0x1C004CDA0 (GetStyleWindow.c)
- *     GetRedirectionFlags @ 0x1C0090390 (GetRedirectionFlags.c)
- *     UnsetRedirectedWindow @ 0x1C00B40A4 (UnsetRedirectedWindow.c)
- *     ?xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z @ 0x1C00C9704 (-xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z.c)
- *     ThreadLockExchangeAlways @ 0x1C010150C (ThreadLockExchangeAlways.c)
- *     GreSpDwmSyncCaptureSurfaceBits @ 0x1C026DCB8 (GreSpDwmSyncCaptureSurfaceBits.c)
+ *     GetStyleWindow @ 0x1C0071560 (GetStyleWindow.c)
+ *     IntersectRect @ 0x1C0075160 (IntersectRect.c)
+ *     NtGdiBitBltInternal @ 0x1C0088690 (NtGdiBitBltInternal.c)
+ *     SetRedirectedWindow @ 0x1C00BD1BC (SetRedirectedWindow.c)
+ *     UnsetRedirectedWindow @ 0x1C00EF7E8 (UnsetRedirectedWindow.c)
+ *     GetRedirectionFlags @ 0x1C00F2430 (GetRedirectionFlags.c)
+ *     ?xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z @ 0x1C00F5550 (-xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z.c)
+ *     GreSpDwmSyncCaptureSurfaceBits @ 0x1C0270200 (GreSpDwmSyncCaptureSurfaceBits.c)
  */
 
 __int64 __fastcall xxxPrintWindow(struct tagWND *a1, HDC a2, char a3)
 {
-  int v4; // ebx
-  unsigned int v5; // r15d
-  __int64 ThreadWin32Thread; // rax
-  _DWORD *v8; // rdx
-  LONG v9; // r12d
-  int v10; // esi
-  int v11; // r13d
-  int v12; // r14d
+  _DWORD *v3; // r9
+  int v5; // edi
+  LONG v6; // r12d
+  int v7; // r14d
+  int v8; // r13d
+  int v9; // r15d
   struct tagWND *StyleWindow; // rax
-  struct tagWND *v14; // rbx
+  __int64 v11; // rcx
+  struct tagWND *v12; // rbx
+  __int64 v13; // rax
+  __int128 v14; // xmm0
   __int64 v15; // rax
-  __int128 v16; // xmm0
-  __int64 v17; // rax
-  __m128i v18; // xmm0
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // r8
-  int v22; // eax
-  __int64 v23; // rcx
+  __m128i v16; // xmm0
+  unsigned int v17; // edi
+  int v18; // eax
+  __int64 v19; // rcx
   HDC DCEx; // rbx
-  __int128 v26; // [rsp+68h] [rbp-31h] BYREF
-  __int64 v27; // [rsp+78h] [rbp-21h] BYREF
-  int v28; // [rsp+80h] [rbp-19h]
-  int v29; // [rsp+84h] [rbp-15h]
-  __int128 v30; // [rsp+88h] [rbp-11h] BYREF
-  _QWORD v31[11]; // [rsp+98h] [rbp-1h] BYREF
-  int v32; // [rsp+100h] [rbp+67h]
-  int v35; // [rsp+118h] [rbp+7Fh]
+  __int128 v22; // [rsp+60h] [rbp-9h] BYREF
+  __int64 v23; // [rsp+70h] [rbp+7h] BYREF
+  int v24; // [rsp+78h] [rbp+Fh]
+  int v25; // [rsp+7Ch] [rbp+13h]
+  int v26[16]; // [rsp+80h] [rbp+17h] BYREF
+  int v28; // [rsp+E0h] [rbp+77h]
 
-  v4 = 0;
-  v5 = 0;
-  v31[2] = 0LL;
-  v32 = 0;
-  v30 = 0LL;
-  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  v31[0] = *(_QWORD *)(ThreadWin32Thread + 416);
-  *(_QWORD *)(ThreadWin32Thread + 416) = v31;
-  v31[1] = a1;
-  HMLockObject(a1);
-  v8 = (_DWORD *)*((_QWORD *)a1 + 5);
-  v35 = a3 & 1;
+  v28 = 0;
+  v3 = (_DWORD *)*((_QWORD *)a1 + 5);
+  *(_OWORD *)v26 = 0LL;
+  v5 = a3 & 1;
   if ( (a3 & 1) != 0 )
   {
-    v9 = v8[26] - v8[22];
-    v10 = v8[28] - v8[26];
-    v11 = v8[27] - v8[23];
-    v12 = v8[29] - v8[27];
+    v6 = v3[26] - v3[22];
+    v7 = v3[28] - v3[26];
+    v8 = v3[27] - v3[23];
+    v9 = v3[29] - v3[27];
   }
   else
   {
-    v9 = 0;
-    v10 = v8[24] - v8[22];
-    v11 = 0;
-    v12 = v8[25] - v8[23];
+    v6 = 0;
+    v7 = v3[24] - v3[22];
+    v8 = 0;
+    v9 = v3[25] - v3[23];
   }
-  if ( (a3 & 2) != 0 && (unsigned int)IsWindowDesktopComposed(a1) )
+  if ( (a3 & 2) != 0
+    && (unsigned int)IsWindowDesktopComposed(a1)
+    && (StyleWindow = (struct tagWND *)GetStyleWindow((__int64)a1, 2568), (v12 = StyleWindow) != 0LL) )
   {
-    StyleWindow = (struct tagWND *)GetStyleWindow((__int64)a1, 2568);
-    v14 = StyleWindow;
-    if ( StyleWindow )
+    if ( StyleWindow != a1 )
     {
-      if ( StyleWindow != a1 )
-      {
-        v15 = *((_QWORD *)a1 + 5);
-        if ( v35 )
-          v16 = *(_OWORD *)(v15 + 104);
-        else
-          v16 = *(_OWORD *)(v15 + 88);
-        v17 = *((_QWORD *)v14 + 5);
-        v26 = v16;
-        v18 = *(__m128i *)(v17 + 88);
-        LODWORD(v17) = _mm_cvtsi128_si32(v18);
-        HIDWORD(v26) -= v18.m128i_i32[1];
-        DWORD1(v26) -= v18.m128i_i32[1];
-        LODWORD(v26) = v26 - v17;
-        DWORD2(v26) -= v17;
-        v28 = v18.m128i_i32[2] - v17;
-        v29 = v18.m128i_i32[3] - v18.m128i_i32[1];
-        v27 = 0LL;
-        v5 = IntersectRect(&v30, (int *)&v27, (int *)&v26);
-        if ( !v5 )
-          goto LABEL_26;
-        v9 = v30;
-        a1 = v14;
-        v11 = DWORD1(v30);
-        v10 = DWORD2(v30) - v30;
-        v12 = HIDWORD(v30) - DWORD1(v30);
-        ThreadLockExchangeAlways((__int64)v14, (__int64)v31);
-      }
-      v4 = 1;
+      v13 = *((_QWORD *)a1 + 5);
+      if ( v5 )
+        v14 = *(_OWORD *)(v13 + 104);
+      else
+        v14 = *(_OWORD *)(v13 + 88);
+      v15 = *((_QWORD *)v12 + 5);
+      v22 = v14;
+      v16 = *(__m128i *)(v15 + 88);
+      LODWORD(v15) = _mm_cvtsi128_si32(v16);
+      HIDWORD(v22) -= v16.m128i_i32[1];
+      DWORD1(v22) -= v16.m128i_i32[1];
+      LODWORD(v22) = v22 - v15;
+      DWORD2(v22) -= v15;
+      v24 = v16.m128i_i32[2] - v15;
+      v25 = v16.m128i_i32[3] - v16.m128i_i32[1];
+      v23 = 0LL;
+      v17 = IntersectRect(v26, (int *)&v23, (int *)&v22);
+      if ( !v17 )
+        return v17;
+      v7 = v26[2] - v26[0];
+      v8 = v26[1];
+      v9 = v26[3] - v26[1];
     }
-    else
+    if ( gdwInAtomicOperation )
     {
-      v4 = 0;
+      v11 = gdwExtraInstrumentations;
+      if ( (gdwExtraInstrumentations & 1) != 0 )
+        KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
     }
+    UserSessionSwitchLeaveCrit(v11);
+    v17 = GreSpDwmSyncCaptureSurfaceBits(*(HWND *)v12, v8, v7, v9);
+    EnterCrit(0LL, 1LL);
   }
-  if ( (GetRedirectionFlags((__int64)a1) & 8) != 0 )
+  else
   {
-LABEL_18:
-    xxxInternalUpdateWindow(a1, 1);
-    if ( v4 )
+    if ( (GetRedirectionFlags((__int64)a1) & 8) == 0 )
     {
-      UserSessionSwitchLeaveCrit(v23);
-      v5 = GreSpDwmSyncCaptureSurfaceBits(*(HWND *)a1, v11, v10, v12);
-      EnterCrit(1LL, 0LL);
+      v18 = SetRedirectedWindow(a1, 8);
+      v19 = *((_QWORD *)a1 + 5);
+      if ( v18 < 0 )
+        return (*(unsigned __int8 *)(v19 + 26) >> 5) & 1;
+      *(_DWORD *)(v19 + 232) |= 4u;
+      v28 = 1;
     }
-    else
+    v17 = 1;
+    xxxInternalUpdateWindow(a1, 1u);
+    DCEx = (HDC)_GetDCEx(a1, 0LL, 3LL);
+    NtGdiBitBltInternal(a2, 0, 0, v7, v9, DCEx, v6, v8, -2134114272, 0, 0);
+    _ReleaseDC(DCEx);
+    if ( v28 && (*(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) & 4) != 0 )
     {
-      v5 = 1;
-      DCEx = (HDC)_GetDCEx(a1, 0LL, 3LL);
-      NtGdiBitBltInternal(a2, 0, 0, v10, v12, DCEx, v9, v11, -2134114272, 0, 0);
-      _ReleaseDC(DCEx);
+      UnsetRedirectedWindow(a1, 8);
+      *(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) &= ~4u;
     }
-    if ( v32 )
-    {
-      v20 = *(unsigned int *)(*((_QWORD *)a1 + 5) + 232LL);
-      if ( (v20 & 1) != 0 )
-      {
-        UnsetRedirectedWindow(a1, 8);
-        *(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) &= ~1u;
-      }
-    }
-    goto LABEL_26;
   }
-  v22 = SetRedirectedWindow(a1, 8);
-  v20 = *((_QWORD *)a1 + 5);
-  if ( v22 >= 0 )
-  {
-    *(_DWORD *)(v20 + 232) |= 1u;
-    v32 = 1;
-    goto LABEL_18;
-  }
-  if ( (*(_BYTE *)(v20 + 26) & 0x20) != 0 )
-    v5 = 1;
-LABEL_26:
-  ThreadUnlock1(v20, v19, v21);
-  return v5;
+  return v17;
 }

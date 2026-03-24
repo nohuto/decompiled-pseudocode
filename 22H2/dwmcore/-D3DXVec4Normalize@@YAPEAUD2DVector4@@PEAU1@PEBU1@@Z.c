@@ -1,11 +1,11 @@
 /*
- * XREFs of ?D3DXVec4Normalize@@YAPEAUD2DVector4@@PEAU1@PEBU1@@Z @ 0x18027EF98
+ * XREFs of ?D3DXVec4Normalize@@YAPEAUD2DVector4@@PEAU1@PEBU1@@Z @ 0x18021E0D8
  * Callers:
- *     ?Normalize@CExpressionValueStack@@QEAAJXZ @ 0x1802607B0 (-Normalize@CExpressionValueStack@@QEAAJXZ.c)
- *     ?InterpolateSpherical@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x180268048 (-InterpolateSpherical@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpression.c)
+ *     ?Normalize@CExpressionValueStack@@QEAAJXZ @ 0x1801FF69C (-Normalize@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?InterpolateSpherical@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x180206DF4 (-InterpolateSpherical@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpression.c)
  * Callees:
- *     WithinEpsilon_0 @ 0x180023D48 (WithinEpsilon_0.c)
- *     sqrtf_0 @ 0x18011B95C (sqrtf_0.c)
+ *     WithinEpsilon_0 @ 0x1800C79AC (WithinEpsilon_0.c)
+ *     sqrtf_0 @ 0x1800F3FDB (sqrtf_0.c)
  */
 
 struct D2DVector4 *__fastcall D3DXVec4Normalize(struct D2DVector4 *a1, const struct D2DVector4 *a2)

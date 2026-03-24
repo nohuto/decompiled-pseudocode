@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MulSetPalette@@YAHPEAUDHPDEV__@@PEAU_PALOBJ@@KKK@Z @ 0x1C015EF90
+ * XREFs of ?MulSetPalette@@YAHPEAUDHPDEV__@@PEAU_PALOBJ@@KKK@Z @ 0x1C0142190
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall MulSetPalette(
@@ -24,9 +24,9 @@ __int64 __fastcall MulSetPalette(
     do
     {
       v10 = v5[6];
-      if ( (*(_DWORD *)(v10 + 2140) & 0x100) != 0 && *(_QWORD *)(v10 + 2840) )
-        v9 &= (*(__int64 (__fastcall **)(_QWORD, struct _PALOBJ *, _QWORD, _QWORD, unsigned int))(v10 + 2840))(
-                *(_QWORD *)(v10 + 1768),
+      if ( (*(_DWORD *)(v10 + 2172) & 0x100) != 0 && *(_QWORD *)(v10 + 2864) )
+        v9 &= (*(__int64 (__fastcall **)(_QWORD, struct _PALOBJ *, _QWORD, _QWORD, unsigned int))(v10 + 2864))(
+                *(_QWORD *)(v10 + 1800),
                 a2,
                 a3,
                 a4,

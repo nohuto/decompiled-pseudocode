@@ -1,11 +1,11 @@
 /*
- * XREFs of HvTruncateCurrentLogFileIfRequired @ 0x14075140C
+ * XREFs of HvTruncateCurrentLogFileIfRequired @ 0x1407237B8
  * Callers:
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
  * Callees:
- *     CmpDoFileSetSizeEx @ 0x14074D908 (CmpDoFileSetSizeEx.c)
- *     HvpLogTypeToLogArrayIndex @ 0x1407516B0 (HvpLogTypeToLogArrayIndex.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x1407516C8 (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1407239C0 (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x140723A2C (HvpLogTypeToLogArrayIndex.c)
+ *     CmpDoFileSetSizeEx @ 0x140723DD0 (CmpDoFileSetSizeEx.c)
  */
 
 __int64 __fastcall HvTruncateCurrentLogFileIfRequired(__int64 a1)
@@ -21,19 +21,19 @@ __int64 __fastcall HvTruncateCurrentLogFileIfRequired(__int64 a1)
   result = *(unsigned int *)(a1 + 160);
   if ( (result & 1) == 0 && (result & 0x8000) == 0 )
   {
-    v2 = *(unsigned int *)(a1 + 168);
+    v2 = *(unsigned int *)(a1 + 164);
     if ( (_DWORD)v2 )
     {
-      if ( *(_QWORD *)(a1 + 8 * v2 + 1544) )
+      if ( *(_QWORD *)(a1 + 8 * v2 + 1536) )
       {
         v3 = HvpLogTypeToLogArrayIndex((unsigned int)v2);
-        v5 = *(_QWORD *)(v4 + 8LL * v3 + 1808);
+        v5 = *(_QWORD *)(v4 + 8LL * v3 + 1800);
         result = HvGetEffectiveLogSizeCapForHive(v4);
         if ( v5 > (unsigned int)result )
         {
-          v7 = *(unsigned int *)(v6 + 180);
+          v7 = *(unsigned int *)(v6 + 176);
           if ( v5 > v7 )
-            return CmpDoFileSetSizeEx(v6, v2, v7, 0);
+            return CmpDoFileSetSizeEx(v6, (unsigned int)v2, v7, 0LL);
         }
       }
     }

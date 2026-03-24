@@ -1,17 +1,17 @@
 /*
- * XREFs of ?CalcInversedOffsetInputBoundsFromVisibleWorldOutputBounds@CLayerVisual@@AEAAXAEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@1PEAV3@2@Z @ 0x180222AD0
+ * XREFs of ?CalcInversedOffsetInputBoundsFromVisibleWorldOutputBounds@CLayerVisual@@AEAAXAEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@1PEAV3@2@Z @ 0x1801D1FE8
  * Callers:
- *     ?CalcInversedWorldShadowOffsetBoundsFromVisibleWorldOutputBounds@CLayerVisual@@QEAAXAEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV3@2@Z @ 0x180223308 (-CalcInversedWorldShadowOffsetBoundsFromVisibleWorldOutputBounds@CLayerVisual@@QEAAXAEBVCMILMatr.c)
+ *     ?CalcInversedWorldShadowOffsetBoundsFromVisibleWorldOutputBounds@CLayerVisual@@QEAAXAEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV3@2@Z @ 0x1801D22A8 (-CalcInversedWorldShadowOffsetBoundsFromVisibleWorldOutputBounds@CLayerVisual@@QEAAXAEBVCMILMatr.c)
  * Callees:
- *     ??$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800AE2E0 (--$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?Get2DBoundsUsing2DInverse@CMILMatrix@@QEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x180260414 (-Get2DBoundsUsing2DInverse@CMILMatrix@@QEBA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointA.c)
+ *     ?Get2DBoundsUsing2DInverse@CMILMatrix@@QEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x18000573C (-Get2DBoundsUsing2DInverse@CMILMatrix@@QEBA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointA.c)
+ *     ??$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800A7AB0 (--$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
-float *__fastcall CLayerVisual::CalcInversedOffsetInputBoundsFromVisibleWorldOutputBounds(
+char __fastcall CLayerVisual::CalcInversedOffsetInputBoundsFromVisibleWorldOutputBounds(
         __int64 a1,
         __int64 a2,
-        __int64 a3,
+        float *a3,
         float *a4,
         float *a5,
         __int64 a6)
@@ -21,78 +21,62 @@ float *__fastcall CLayerVisual::CalcInversedOffsetInputBoundsFromVisibleWorldOut
   __int128 v10; // xmm0
   __int128 v11; // xmm1
   __int128 v12; // xmm0
-  float *result; // rax
-  __int64 v14; // r9
-  _OWORD *v15; // r11
-  float v16; // xmm0_4
-  float v17; // xmm5_4
-  float v18; // xmm0_4
-  float v19; // xmm2_4
-  float v20; // xmm0_4
-  float v21; // xmm1_4
-  float v22; // xmm4_4
-  float v23; // xmm3_4
-  float v24; // xmm1_4
-  float v25; // xmm7_4
-  float v26; // xmm0_4
-  float v27; // xmm6_4
-  float v28[4]; // [rsp+28h] [rbp-79h]
-  _OWORD v29[4]; // [rsp+38h] [rbp-69h] BYREF
-  int v30; // [rsp+78h] [rbp-29h]
-  __int128 v31; // [rsp+88h] [rbp-19h] BYREF
+  char result; // al
+  _OWORD *v14; // r11
+  float v15; // xmm0_4
+  float v16; // xmm1_4
+  float v17; // xmm0_4
+  float v18; // xmm2_4
+  float v19; // xmm1_4
+  float v20; // xmm7_4
+  float v21; // xmm0_4
+  float v22; // xmm6_4
+  float v23[4]; // [rsp+28h] [rbp-79h]
+  _OWORD v24[4]; // [rsp+38h] [rbp-69h] BYREF
+  int v25; // [rsp+78h] [rbp-29h]
+  __int128 v26; // [rsp+88h] [rbp-19h] BYREF
 
   v6 = *(_OWORD *)(a2 + 16);
   v8 = *(_DWORD *)(a2 + 64);
-  *(_QWORD *)v28 = *(_QWORD *)(*(_QWORD *)(a1 + 728) + 96LL);
-  v31 = 0LL;
-  v30 = v8;
+  *(_QWORD *)v23 = *(_QWORD *)(*(_QWORD *)(a1 + 616) + 104LL);
+  v26 = 0LL;
+  v25 = v8;
   v10 = *(_OWORD *)a2;
-  v29[1] = v6;
+  v24[1] = v6;
   v11 = *(_OWORD *)(a2 + 48);
-  v29[0] = v10;
+  v24[0] = v10;
   v12 = *(_OWORD *)(a2 + 32);
-  v29[3] = v11;
-  v29[2] = v12;
-  result = (float *)CMILMatrix::Get2DBoundsUsing2DInverse(v29, a3, &v31);
-  if ( (_BYTE)result )
+  v24[3] = v11;
+  v24[2] = v12;
+  result = CMILMatrix::Get2DBoundsUsing2DInverse((CMILMatrix *)v24, a3);
+  if ( result )
   {
-    *((float *)&v31 + 1) = *((float *)&v31 + 1) + COERCE_FLOAT(LODWORD(v28[1]) ^ _xmm);
-    *(float *)&v31 = *(float *)&v31 + COERCE_FLOAT(LODWORD(v28[0]) ^ _xmm);
-    *((float *)&v31 + 3) = *((float *)&v31 + 3) + COERCE_FLOAT(LODWORD(v28[1]) ^ _xmm);
-    *((float *)&v31 + 2) = *((float *)&v31 + 2) + COERCE_FLOAT(LODWORD(v28[0]) ^ _xmm);
-    result = CMILMatrix::Transform2DBoundsHelper<1>(a2, (__int64)&v31, a5, v14);
-    v16 = *a4;
-    v17 = *a5;
+    *((float *)&v26 + 1) = *((float *)&v26 + 1) + COERCE_FLOAT(LODWORD(v23[1]) ^ _xmm);
+    *(float *)&v26 = *(float *)&v26 + COERCE_FLOAT(LODWORD(v23[0]) ^ _xmm);
+    *((float *)&v26 + 3) = *((float *)&v26 + 3) + COERCE_FLOAT(LODWORD(v23[1]) ^ _xmm);
+    *((float *)&v26 + 2) = *((float *)&v26 + 2) + COERCE_FLOAT(LODWORD(v23[0]) ^ _xmm);
+    result = (unsigned __int8)CMILMatrix::Transform2DBoundsHelper<1>(a2, (float *)&v26, a5);
     if ( *a4 > *a5 )
+      *a5 = *a4;
+    v15 = a4[1];
+    if ( v15 > a5[1] )
+      a5[1] = v15;
+    v16 = a4[2];
+    v17 = a5[2];
+    if ( v17 > v16 )
     {
-      *a5 = v16;
+      a5[2] = v16;
       v17 = v16;
     }
-    v18 = a4[1];
-    v19 = a5[1];
-    if ( v18 > v19 )
+    v18 = a4[3];
+    v19 = a5[3];
+    if ( v19 > v18 )
     {
-      a5[1] = v18;
+      a5[3] = v18;
       v19 = v18;
+      v17 = a5[2];
     }
-    v20 = a5[2];
-    v21 = a4[2];
-    v22 = v20;
-    if ( v20 > v21 )
-    {
-      a5[2] = v21;
-      v20 = v21;
-      v22 = v21;
-    }
-    v23 = a4[3];
-    v24 = a5[3];
-    if ( v24 > v23 )
-    {
-      a5[3] = v23;
-      v20 = v22;
-      v24 = v23;
-    }
-    if ( v20 <= v17 || v24 <= v19 )
+    if ( v17 <= *a5 || v19 <= a5[1] )
     {
       a5[3] = 0.0;
       a5[2] = 0.0;
@@ -100,18 +84,18 @@ float *__fastcall CLayerVisual::CalcInversedOffsetInputBoundsFromVisibleWorldOut
       *a5 = 0.0;
     }
     *(_OWORD *)a6 = *(_OWORD *)a5;
-    v25 = v28[0] + *(float *)(a6 + 8);
-    v26 = v28[1] + *(float *)(a6 + 4);
-    v27 = v28[1] + *(float *)(a6 + 12);
-    *(float *)a6 = v28[0] + *(float *)a6;
-    *(float *)(a6 + 8) = v25;
-    *(float *)(a6 + 4) = v26;
-    *(float *)(a6 + 12) = v27;
+    v20 = v23[0] + *(float *)(a6 + 8);
+    v21 = v23[1] + *(float *)(a6 + 4);
+    v22 = v23[1] + *(float *)(a6 + 12);
+    *(float *)a6 = v23[0] + *(float *)a6;
+    *(float *)(a6 + 8) = v20;
+    *(float *)(a6 + 4) = v21;
+    *(float *)(a6 + 12) = v22;
   }
   else
   {
-    *(_OWORD *)a5 = *v15;
-    *(_OWORD *)a6 = *v15;
+    *(_OWORD *)a5 = *v14;
+    *(_OWORD *)a6 = *v14;
   }
   return result;
 }

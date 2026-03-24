@@ -1,7 +1,7 @@
 /*
- * XREFs of SetUnavailableInputSource @ 0x1C0091F20
+ * XREFs of SetUnavailableInputSource @ 0x1C007FFB0
  * Callers:
- *     <none>
+ *     xxxCreateThreadInfo @ 0x1C003D918 (xxxCreateThreadInfo.c)
  * Callees:
  *     <none>
  */

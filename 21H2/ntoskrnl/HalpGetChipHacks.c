@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpGetChipHacks @ 0x140B2460C
+ * XREFs of HalpGetChipHacks @ 0x140A6AD34
  * Callers:
- *     HalpPiix4Detect @ 0x140A53294 (HalpPiix4Detect.c)
+ *     HalpPiix4Detect @ 0x14099A3E0 (HalpPiix4Detect.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpGetChipHacks(__int16 a1, __int16 a2, unsigned __int8 a3, _DWORD *a4)
@@ -19,7 +19,7 @@ __int64 __fastcall HalpGetChipHacks(__int16 a1, __int16 a2, unsigned __int8 a3, 
       0x8000uLL,
       (ULONG_PTR)"HalpGetChipHacks",
       (ULONG_PTR)"minkernel\\hals\\lib\\errata\\chiphacks.c",
-      0x127uLL);
+      0x125uLL);
   v5 = 0LL;
   if ( !HalpChipHackCount )
     return 3221226021LL;

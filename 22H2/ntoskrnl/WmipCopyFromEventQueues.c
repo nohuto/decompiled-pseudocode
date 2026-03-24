@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipCopyFromEventQueues @ 0x1409E044C
+ * XREFs of WmipCopyFromEventQueues @ 0x14076E9F4
  * Callers:
- *     WmipReceiveNotifications @ 0x140360F3C (WmipReceiveNotifications.c)
+ *     WmipReceiveNotifications @ 0x140319C9C (WmipReceiveNotifications.c)
  * Callees:
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall WmipCopyFromEventQueues(
@@ -17,138 +17,130 @@ LONG __fastcall WmipCopyFromEventQueues(
         _QWORD *a6,
         char a7)
 {
-  __int64 v7; // rsi
-  char *v8; // r11
-  struct _KEVENT **v9; // r14
-  struct _KEVENT **v10; // r8
-  __int64 i; // r9
-  __int64 v12; // rdx
-  __int64 v13; // rax
-  __int64 v14; // rax
-  unsigned int v15; // r8d
-  __int64 v16; // rax
-  unsigned int v17; // ecx
-  int v18; // r12d
-  void *v19; // r13
-  __int64 *v20; // rdx
-  __int64 v21; // r9
-  __int64 v22; // r15
-  unsigned int *v23; // rdi
-  size_t v24; // r8
-  unsigned int v25; // ebx
-  __int64 v26; // rax
-  struct _KEVENT *v27; // rdi
+  __int64 v7; // rbp
+  struct _KEVENT **v8; // rdi
+  struct _KEVENT **v9; // r9
+  __int64 i; // r10
+  __int64 v11; // rdx
+  __int64 v12; // rax
+  int v14; // r15d
+  _DWORD *v15; // r12
+  unsigned int v16; // r8d
+  __int64 v17; // rax
+  unsigned int v18; // ecx
+  __int64 *v19; // rdx
+  __int64 v20; // r9
+  __int64 v21; // r14
+  unsigned int *v22; // rsi
+  size_t v23; // r8
+  unsigned int v24; // ebx
+  __int64 v25; // rax
+  struct _KEVENT *v26; // rsi
   LONG result; // eax
-  __int64 v29; // rdi
-  struct _KEVENT *v30; // rsi
-  unsigned __int64 v31; // rbx
-  _DWORD *v32; // [rsp+80h] [rbp+18h]
+  __int64 v28; // rsi
+  struct _KEVENT *v29; // rbp
+  unsigned __int64 v30; // rbx
+  __int64 v31; // rax
 
-  v32 = a3;
   v7 = a2;
-  v8 = (char *)a3;
-  v9 = a1;
+  v8 = a1;
   if ( a2 )
   {
-    v10 = a1 + 1;
+    v9 = a1 + 1;
     for ( i = a2; i; --i )
     {
-      v12 = (__int64)*(v10 - 1);
+      v11 = (__int64)*(v9 - 1);
       if ( a7 )
       {
-        v13 = *(_QWORD *)(v12 + 96);
-        if ( !v13 || !*(_DWORD *)(v12 + 116) )
-          goto LABEL_10;
-        *v10 = (struct _KEVENT *)v13;
-        *(_WORD *)(v13 + 10) = 0;
-        LODWORD((*v10)->Header.WaitListHead.Flink) |= *(unsigned __int16 *)(v12 + 120) << 16;
-        *(_DWORD *)(v12 + 120) = 0;
+        v31 = *(_QWORD *)(v11 + 96);
+        if ( v31 && *(_DWORD *)(v11 + 116) )
+        {
+          *v9 = (struct _KEVENT *)v31;
+          *(_WORD *)(v31 + 10) = 0;
+          LODWORD((*v9)->Header.WaitListHead.Flink) |= *(unsigned __int16 *)(v11 + 120) << 16;
+          *(_DWORD *)(v11 + 120) = 0;
+          goto LABEL_6;
+        }
       }
       else
       {
-        v14 = *(_QWORD *)(v12 + 128);
-        if ( !v14 || !*(_DWORD *)(v12 + 148) )
+        v12 = *(_QWORD *)(v11 + 128);
+        if ( v12 && *(_DWORD *)(v11 + 148) )
         {
-LABEL_10:
-          *v10 = 0LL;
-          goto LABEL_11;
+          *v9 = (struct _KEVENT *)v12;
+          *(_WORD *)(v12 + 10) = 0;
+          LODWORD((*v9)->Header.WaitListHead.Flink) |= *(unsigned __int16 *)(v11 + 152) << 16;
+          *(_DWORD *)(v11 + 152) = 0;
+          goto LABEL_6;
         }
-        *v10 = (struct _KEVENT *)v14;
-        *(_WORD *)(v14 + 10) = 0;
-        LODWORD((*v10)->Header.WaitListHead.Flink) |= *(unsigned __int16 *)(v12 + 152) << 16;
-        *(_DWORD *)(v12 + 152) = 0;
       }
-LABEL_11:
-      v10 += 2;
+      *v9 = 0LL;
+LABEL_6:
+      v9 += 2;
     }
   }
-  v15 = -1;
-  v16 = 0x7FFFFFFFFFFFFFFFLL;
-  v17 = 0;
-  v18 = 0;
-  v19 = 0LL;
-  if ( (_DWORD)v7 )
+  v14 = 0;
+  v15 = 0LL;
+  while ( 1 )
   {
-    while ( 1 )
-    {
-      v20 = (__int64 *)(v9 + 1);
-      do
-      {
-        v21 = *v20;
-        if ( *v20 && *(_QWORD *)(v21 + 16) < v16 )
-        {
-          v16 = *(_QWORD *)(v21 + 16);
-          v15 = v17;
-        }
-        ++v17;
-        v20 += 2;
-      }
-      while ( v17 < (unsigned int)v7 );
-      if ( v15 == -1 )
-        break;
-      v22 = 2LL * v15;
-      v19 = v8;
-      v23 = (unsigned int *)v9[2 * v15 + 1];
-      v24 = *v23;
-      v25 = (v24 + 7) & 0xFFFFFFF8;
-      memmove(v8, v23, v24);
-      v18 += v25;
-      v32[3] = v25;
-      v8 = (char *)v32 + v25;
-      v26 = v23[3];
-      v32 = v8;
-      if ( (_DWORD)v26 )
-        v27 = (struct _KEVENT *)((char *)v23 + v26);
-      else
-        v27 = 0LL;
-      v15 = -1;
-      v9[v22 + 1] = v27;
-      v16 = 0x7FFFFFFFFFFFFFFFLL;
-      v17 = 0;
-    }
-  }
-  *a6 = v19;
-  result = (int)a5;
-  *a5 = v18;
-  if ( (_DWORD)v7 )
-  {
-    v29 = v7;
+    v16 = -1;
+    v17 = 0x7FFFFFFFFFFFFFFFLL;
+    v18 = 0;
+    if ( !(_DWORD)v7 )
+      break;
+    v19 = (__int64 *)(v8 + 1);
     do
     {
-      v30 = *v9;
-      v31 = (unsigned __int64)&(*v9)[5].Header.WaitListHead + (-(__int64)(a7 != 0) & 0xFFFFFFFFFFFFFFE0uLL);
-      if ( *(_QWORD *)v31 )
+      v20 = *v19;
+      if ( *v19 && *(_QWORD *)(v20 + 16) < v17 )
       {
-        ExFreePoolWithTag(*(PVOID *)v31, 0);
-        *(_QWORD *)v31 = 0LL;
-        *(_DWORD *)(v31 + 20) = 0;
-        *(_QWORD *)(v31 + 8) = 0LL;
+        v17 = *(_QWORD *)(v20 + 16);
+        v16 = v18;
       }
-      result = KeResetEvent(v30);
-      v9 += 2;
-      --v29;
+      ++v18;
+      v19 += 2;
     }
-    while ( v29 );
+    while ( v18 < (unsigned int)v7 );
+    if ( v16 == -1 )
+      break;
+    v21 = 2LL * v16;
+    v15 = a3;
+    v22 = (unsigned int *)v8[2 * v16 + 1];
+    v23 = *v22;
+    v24 = (v23 + 7) & 0xFFFFFFF8;
+    memmove(a3, v22, v23);
+    v14 += v24;
+    a3[3] = v24;
+    a3 = (_DWORD *)((char *)a3 + v24);
+    v25 = v22[3];
+    if ( (_DWORD)v25 )
+      v26 = (struct _KEVENT *)((char *)v22 + v25);
+    else
+      v26 = 0LL;
+    v8[v21 + 1] = v26;
+  }
+  *a6 = v15;
+  result = (int)a5;
+  *a5 = v14;
+  if ( (_DWORD)v7 )
+  {
+    v28 = v7;
+    do
+    {
+      v29 = *v8;
+      v30 = (unsigned __int64)&(*v8)[5].Header.WaitListHead + (-(__int64)(a7 != 0) & 0xFFFFFFFFFFFFFFE0uLL);
+      if ( *(_QWORD *)v30 )
+      {
+        ExFreePoolWithTag(*(PVOID *)v30, 0);
+        *(_QWORD *)v30 = 0LL;
+        *(_DWORD *)(v30 + 20) = 0;
+        *(_QWORD *)(v30 + 8) = 0LL;
+      }
+      result = KeResetEvent(v29);
+      v8 += 2;
+      --v28;
+    }
+    while ( v28 );
   }
   return result;
 }

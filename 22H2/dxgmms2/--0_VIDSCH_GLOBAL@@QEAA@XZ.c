@@ -1,26 +1,26 @@
 /*
- * XREFs of ??0_VIDSCH_GLOBAL@@QEAA@XZ @ 0x1C001904C
+ * XREFs of ??0_VIDSCH_GLOBAL@@QEAA@XZ @ 0x1C001730C
  * Callers:
- *     VidSchInitializeAdapter @ 0x1C00B7A30 (VidSchInitializeAdapter.c)
+ *     VidSchInitializeAdapter @ 0x1C008E2C0 (VidSchInitializeAdapter.c)
  * Callees:
  *     <none>
  */
 
 _VIDSCH_GLOBAL *__fastcall _VIDSCH_GLOBAL::_VIDSCH_GLOBAL(_VIDSCH_GLOBAL *this)
 {
-  *((_QWORD *)this + 57) = 0LL;
-  *((_DWORD *)this + 120) = 0;
-  *((_QWORD *)this + 63) = 0LL;
-  *((_DWORD *)this + 132) = 0;
-  *((_QWORD *)this + 69) = 0LL;
-  *((_DWORD *)this + 144) = 0;
-  *((_QWORD *)this + 75) = 0LL;
-  *((_DWORD *)this + 156) = 0;
-  *((_QWORD *)this + 79) = 0LL;
-  *((_DWORD *)this + 176) = 0;
-  *((_QWORD *)this + 321) = 0LL;
-  *((_DWORD *)this + 652) = 0;
-  *((_QWORD *)this + 416) = 0LL;
-  *((_DWORD *)this + 874) = 0;
+  *((_QWORD *)this + 56) = 0LL;
+  *((_DWORD *)this + 118) = 0;
+  *((_QWORD *)this + 62) = 0LL;
+  *((_DWORD *)this + 130) = 0;
+  *((_QWORD *)this + 68) = 0LL;
+  *((_DWORD *)this + 142) = 0;
+  *((_QWORD *)this + 74) = 0LL;
+  *((_DWORD *)this + 154) = 0;
+  *((_QWORD *)this + 78) = 0LL;
+  *((_DWORD *)this + 174) = 0;
+  *((_QWORD *)this + 310) = 0LL;
+  *((_DWORD *)this + 630) = 0;
+  *((_QWORD *)this + 404) = 0LL;
+  *((_DWORD *)this + 848) = 0;
   return this;
 }

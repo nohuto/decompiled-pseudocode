@@ -1,20 +1,19 @@
 /*
- * XREFs of ExUnsubscribeWnfStateChange @ 0x140791480
+ * XREFs of ExUnsubscribeWnfStateChange @ 0x1406B2A90
  * Callers:
- *     EtwpUnsubscribeContainerStateWnf @ 0x14062D370 (EtwpUnsubscribeContainerStateWnf.c)
- *     RtlpCtContextFree @ 0x1409BE97C (RtlpCtContextFree.c)
- *     SshInitialize @ 0x140B03360 (SshInitialize.c)
+ *     RtlpCtContextFree @ 0x14091947C (RtlpCtContextFree.c)
+ *     SshpUninitialize @ 0x140A935A4 (SshpUninitialize.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpWnfDeleteSubscription @ 0x14079240C (ExpWnfDeleteSubscription.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExpWnfDeleteSubscription @ 0x140613128 (ExpWnfDeleteSubscription.c)
  */
 
-char __fastcall ExUnsubscribeWnfStateChange(void *a1)
+_QWORD *__fastcall ExUnsubscribeWnfStateChange(struct _EX_RUNDOWN_REF *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExpWnfDeleteSubscription(a1);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  ExpWnfDeleteSubscription(a1, PsInitialSystemProcess);
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

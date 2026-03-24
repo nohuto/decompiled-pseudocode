@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetExtendMode@CGradientBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GRADIENTBRUSH_SETEXTENDMODE@@@Z @ 0x18023A5CC
+ * XREFs of ?ProcessSetExtendMode@CGradientBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GRADIENTBRUSH_SETEXTENDMODE@@@Z @ 0x1801E7680
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?InvalidateGradient@CGradientBrush@@AEAAXXZ @ 0x18004185C (-InvalidateGradient@CGradientBrush@@AEAAXXZ.c)
+ *     ?InvalidateGradient@CGradientBrush@@AEAAXXZ @ 0x1801E7358 (-InvalidateGradient@CGradientBrush@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CGradientBrush::ProcessSetExtendMode(
@@ -30,9 +30,9 @@ __int64 __fastcall CGradientBrush::ProcessSetExtendMode(
       v4 = 2;
     }
   }
-  if ( v4 != *((_BYTE *)this + 152) )
+  if ( v4 != *((_BYTE *)this + 104) )
   {
-    *((_BYTE *)this + 152) = v4;
+    *((_BYTE *)this + 104) = v4;
     CGradientBrush::InvalidateGradient(this);
   }
   return 0LL;

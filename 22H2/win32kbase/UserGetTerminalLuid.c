@@ -1,5 +1,5 @@
 /*
- * XREFs of UserGetTerminalLuid @ 0x1C00C1A80
+ * XREFs of UserGetTerminalLuid @ 0x1C00B5030
  * Callers:
  *     <none>
  * Callees:

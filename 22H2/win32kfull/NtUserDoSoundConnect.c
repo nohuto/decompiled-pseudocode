@@ -1,10 +1,10 @@
 /*
- * XREFs of NtUserDoSoundConnect @ 0x1C00BC6D0
+ * XREFs of NtUserDoSoundConnect @ 0x1C0135070
  * Callers:
  *     <none>
  * Callees:
- *     ?Connect@CUserPlaySound@@AEAAJPEAX@Z @ 0x1C003C494 (-Connect@CUserPlaySound@@AEAAJPEAX@Z.c)
- *     ?Disconnect@CUserPlaySound@@AEAAJXZ @ 0x1C003C554 (-Disconnect@CUserPlaySound@@AEAAJXZ.c)
+ *     ?Connect@CUserPlaySound@@AEAAJPEAX@Z @ 0x1C012DB0C (-Connect@CUserPlaySound@@AEAAJPEAX@Z.c)
+ *     ?Disconnect@CUserPlaySound@@AEAAJXZ @ 0x1C012DBC0 (-Disconnect@CUserPlaySound@@AEAAJXZ.c)
  */
 
 __int64 __fastcall NtUserDoSoundConnect(CUserPlaySound *a1)
@@ -25,7 +25,7 @@ __int64 __fastcall NtUserDoSoundConnect(CUserPlaySound *a1)
     v1 = ZwQueryInformationToken(TokenHandle, TokenUser, 0LL, 0, &TokenInformationLength);
     if ( (int)(v1 + 0x80000000) < 0 || v1 == -1073741789 )
     {
-      v2 = (void **)Win32AllocPoolZInit(TokenInformationLength, 1869902677LL);
+      v2 = (void **)Win32AllocPool(TokenInformationLength, 1869902677LL);
       v3 = v2;
       if ( v2 )
       {

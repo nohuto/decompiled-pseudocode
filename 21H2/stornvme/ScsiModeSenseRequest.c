@@ -1,14 +1,14 @@
 /*
- * XREFs of ScsiModeSenseRequest @ 0x1C000335C
+ * XREFs of ScsiModeSenseRequest @ 0x1C000294C
  * Callers:
- *     ScsiToNVMe @ 0x1C0004650 (ScsiToNVMe.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
  * Callees:
- *     SrbAssignQueueId @ 0x1C0005238 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     BuildGetLogPageCommand @ 0x1C0005458 (BuildGetLogPageCommand.c)
- *     NVMeAllocateDmaBuffer @ 0x1C00055C4 (NVMeAllocateDmaBuffer.c)
- *     NVMeSetSenseData @ 0x1C000E3C0 (NVMeSetSenseData.c)
- *     memset @ 0x1C00109C0 (memset.c)
+ *     BuildGetLogPageCommand @ 0x1C0002AA4 (BuildGetLogPageCommand.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C0005B00 (NVMeAllocateDmaBuffer.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
 __int64 __fastcall ScsiModeSenseRequest(__int64 a1, __int64 a2, _BYTE *a3)
@@ -46,35 +46,35 @@ __int64 __fastcall ScsiModeSenseRequest(__int64 a1, __int64 a2, _BYTE *a3)
   if ( v8 >= 0x40u )
   {
     LOBYTE(v7) = 6;
-LABEL_18:
+LABEL_15:
     LOBYTE(a3) = 5;
     LOBYTE(v6) = 36;
     NVMeSetSenseData(a2, v7, a3, v6);
     return 3238002694LL;
   }
   if ( !v5 )
-    goto LABEL_13;
+    goto LABEL_18;
   v9 = *(_DWORD *)(a2 + v6);
   if ( v9 < (unsigned int)v7 )
   {
     v15 = -1056964604;
-    goto LABEL_14;
-  }
-  if ( v8 != 63 && v8 != 8 )
-  {
-LABEL_13:
-    v15 = -1056964602;
-LABEL_14:
+LABEL_19:
     LOBYTE(v6) = 36;
     LOBYTE(a3) = 5;
     LOBYTE(v7) = 6;
     NVMeSetSenseData(a2, v7, a3, v6);
     return v15;
   }
+  if ( v8 != 63 && v8 != 8 )
+  {
+LABEL_18:
+    v15 = -1056964602;
+    goto LABEL_19;
+  }
   if ( v9 - (unsigned int)v7 < 0xC )
   {
     LOBYTE(v7) = 18;
-    goto LABEL_18;
+    goto LABEL_15;
   }
   NVMeAllocateDmaBuffer(a1, 512LL, &v16, &v17);
   if ( v16 )

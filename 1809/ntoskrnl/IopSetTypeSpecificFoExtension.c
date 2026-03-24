@@ -2,10 +2,10 @@
  * XREFs of IopSetTypeSpecificFoExtension @ 0x14008D838
  * Callers:
  *     IopGetSetSpecificExtension @ 0x14008D07C (IopGetSetSpecificExtension.c)
- *     IoSetOplockKeyContext @ 0x140166BE4 (IoSetOplockKeyContext.c)
+ *     IoSetOplockKeyContext @ 0x140166C04 (IoSetOplockKeyContext.c)
  *     IopSymlinkPropagateToExtensionIfNeeded @ 0x140639F90 (IopSymlinkPropagateToExtensionIfNeeded.c)
- *     IopSetFileObjectIosbRange @ 0x14081B03C (IopSetFileObjectIosbRange.c)
- *     IopSetFileMemoryPartitionInformation @ 0x14081CFA0 (IopSetFileMemoryPartitionInformation.c)
+ *     IopSetFileObjectIosbRange @ 0x14081B01C (IopSetFileObjectIosbRange.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x14081CF80 (IopSetFileMemoryPartitionInformation.c)
  * Callees:
  *     <none>
  */

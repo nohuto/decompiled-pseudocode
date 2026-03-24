@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCmciDeferredRoutine @ 0x140505820
+ * XREFs of HalpCmciDeferredRoutine @ 0x14038D3C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpCmciPollProcessor @ 0x1403808E8 (HalpCmciPollProcessor.c)
- *     HalpCmcStartPolling @ 0x1403B42D8 (HalpCmcStartPolling.c)
+ *     HalpCmciPollProcessor @ 0x1403A03AC (HalpCmciPollProcessor.c)
+ *     HalpCmcStartPolling @ 0x1403C53F8 (HalpCmcStartPolling.c)
  */
 
 void __fastcall HalpCmciDeferredRoutine(
@@ -15,9 +15,9 @@ void __fastcall HalpCmciDeferredRoutine(
 {
   __int64 v4; // rcx
 
-  v4 = *(_QWORD *)(DeferredContext + 172);
-  if ( DeferredContext[128] )
-    HalpCmcStartPolling(v4, (__int64)DeferredContext);
+  v4 = *(_QWORD *)(DeferredContext + 164);
+  if ( DeferredContext[120] )
+    HalpCmcStartPolling(v4, DeferredContext, SystemArgument1, SystemArgument2);
   else
-    HalpCmciPollProcessor(v4);
+    HalpCmciPollProcessor(v4, DeferredContext, SystemArgument1, SystemArgument2);
 }

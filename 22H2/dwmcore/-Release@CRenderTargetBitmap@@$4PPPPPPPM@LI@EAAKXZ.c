@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Release@CRenderTargetBitmap@@$4PPPPPPPM@LI@EAAKXZ @ 0x180123620
+ * XREFs of ?Release@CRenderTargetBitmap@@$4PPPPPPPM@LI@EAAKXZ @ 0x1800F8C60
  * Callers:
  *     <none>
  * Callees:

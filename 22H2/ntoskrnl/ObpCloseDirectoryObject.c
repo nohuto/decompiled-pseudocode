@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpCloseDirectoryObject @ 0x1407CBFC0
+ * XREFs of ObpCloseDirectoryObject @ 0x14068AEC0
  * Callers:
  *     <none>
  * Callees:
- *     ObpRemoveNamespaceFromTable @ 0x1407CBFEC (ObpRemoveNamespaceFromTable.c)
+ *     ObpRemoveNamespaceFromTable @ 0x14068AEEC (ObpRemoveNamespaceFromTable.c)
  */
 
-__int64 __fastcall ObpCloseDirectoryObject(__int64 a1, unsigned int *a2, __int64 a3, __int64 a4)
+__int64 __fastcall ObpCloseDirectoryObject(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax
 
   if ( a4 == 1 )
   {
-    result = a2[84];
+    result = *(unsigned int *)(a2 + 336);
     if ( (result & 1) != 0 )
-      return ObpRemoveNamespaceFromTable(a2);
+      return ObpRemoveNamespaceFromTable((PADAPTER_OBJECT)a2);
   }
   return result;
 }

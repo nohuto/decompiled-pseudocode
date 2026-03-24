@@ -1,5 +1,5 @@
 /*
- * XREFs of ?UseIndirectTransform@CInteractionContextWrapper@@UEAAX_N@Z @ 0x180108120
+ * XREFs of ?UseIndirectTransform@CInteractionContextWrapper@@UEAAX_N@Z @ 0x1800E3130
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall CInteractionContextWrapper::UseIndirectTransform(CInteractionContextWrapper *this, char a2)
 {
-  *((_BYTE *)this + 320) = a2;
+  *((_BYTE *)this + 328) = a2;
 }

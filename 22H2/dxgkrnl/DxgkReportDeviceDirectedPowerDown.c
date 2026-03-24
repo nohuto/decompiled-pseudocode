@@ -1,7 +1,7 @@
 /*
- * XREFs of DxgkReportDeviceDirectedPowerDown @ 0x1C0043044
+ * XREFs of DxgkReportDeviceDirectedPowerDown @ 0x1C003C21C
  * Callers:
- *     DpiFdoHandleDevicePower @ 0x1C01F0390 (DpiFdoHandleDevicePower.c)
+ *     DpiFdoHandleDevicePower @ 0x1C0175FC0 (DpiFdoHandleDevicePower.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall DxgkReportDeviceDirectedPowerDown(__int64 a1)
 
   if ( a1 )
   {
-    if ( *(_QWORD *)(a1 + 3032) )
+    if ( *(_QWORD *)(a1 + 2808) )
       return PoFxCompleteDirectedPowerDown();
   }
   return result;

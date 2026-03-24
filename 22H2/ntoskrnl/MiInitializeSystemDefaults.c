@@ -1,94 +1,73 @@
 /*
- * XREFs of MiInitializeSystemDefaults @ 0x140B737C0
+ * XREFs of MiInitializeSystemDefaults @ 0x140A71EC8
  * Callers:
- *     MiInitNucleus @ 0x140B44F88 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42364 (MiInitNucleus.c)
  * Callees:
- *     strstr @ 0x1403D8B70 (strstr.c)
+ *     strstr @ 0x1403D1180 (strstr.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-int __fastcall MiInitializeSystemDefaults(__int64 a1)
+ULONG_PTR __fastcall MiInitializeSystemDefaults(__int64 a1)
 {
-  int v1; // edx
-  int result; // eax
-  unsigned int v3; // edx
+  unsigned int LogicalProcessorsPerCore; // edx
+  ULONG_PTR result; // rax
+  int v3; // edx
 
-  byte_140C69AD4 = 4;
-  byte_140C65BE9 = KeGetCurrentPrcb()->CpuVendor == 1;
-  LODWORD(MiFlags) = MiFlags ^ (MiFlags ^ (KiKvaShadowMode << 21)) & 0x600000;
-  if ( (((unsigned int)MiFlags >> 21) & 3) == 0 )
+  byte_140C4EFD4 = 4;
+  dword_140C4DEE0 = 48;
+  if ( HalpInterruptHyperThreading )
+    LogicalProcessorsPerCore = KeGetCurrentPrcb()->LogicalProcessorsPerCore;
+  else
+    LogicalProcessorsPerCore = 1;
+  dword_140C4DEE4 = LogicalProcessorsPerCore;
+  MiFlags ^= (MiFlags ^ (KiKvaShadowMode << 22)) & 0xC00000;
+  switch ( ((unsigned int)MiFlags >> 22) & 3 )
   {
-    word_140C66DFC = 1;
-    goto LABEL_6;
-  }
-  switch ( ((unsigned int)MiFlags >> 21) & 3 )
-  {
+    case 0u:
+      goto LABEL_23;
     case 1u:
-      word_140C66DFC = 0;
+      word_140C4E008 = 0;
       break;
     case 2u:
-      word_140C66DFC = 256;
+      word_140C4E008 = 256;
       break;
     case 3u:
-      word_140C66DFC = 1;
+LABEL_23:
+      word_140C4E008 = 1;
       break;
-    case 0u:
-      goto LABEL_6;
   }
-  if ( KiImplementedPhysicalBits > 0 )
+  if ( (((unsigned int)MiFlags >> 22) & 3) != 0 && KiImplementedPhysicalBits > 0 )
   {
-    byte_140C02463 = 4;
-    qword_140C65C40 = 1LL << ((unsigned __int8)KiImplementedPhysicalBits - 1);
-    byte_140C02462 = KiImplementedPhysicalBits - 1;
+    byte_140C00DE3 = 4;
+    qword_140C4DF40 = 1LL << ((unsigned __int8)KiImplementedPhysicalBits - 1);
+    byte_140C00DE2 = KiImplementedPhysicalBits - 1;
   }
-LABEL_6:
-  v1 = MiFlags & 0xFBFFFFFF;
-  LODWORD(MiFlags) = MiFlags & 0xF3FFFFFF | 0x8000000;
+  if ( (KeFeatureBits & 0x100000) == 0 )
+    KeBugCheckEx(0x1Au, 0x3030306uLL, KeFeatureBits, 0LL, 0LL);
   if ( KiAccessBitErrata == 1 )
   {
-    v3 = v1 | 0xA000000;
+    v3 = MiFlags | 0x4000000;
   }
   else
   {
     if ( KiAccessBitErrata != 2 )
-      goto LABEL_8;
-    v3 = v1 & 0xF3FFFFFF;
+      goto LABEL_12;
+    v3 = MiFlags | 0x800;
   }
-  LODWORD(MiFlags) = v3;
-LABEL_8:
+  MiFlags = v3;
+LABEL_12:
   if ( strstr(*(const char **)(a1 + 216), "NOACCESSBITREPLACEMENT") )
-    LODWORD(MiFlags) = MiFlags & 0xF3FFFFFF;
-  result = MiFlags;
-  if ( (((unsigned int)MiFlags >> 26) & 3) != 0 )
-  {
-    if ( (((unsigned int)MiFlags >> 26) & 3) == 1 )
-    {
-      byte_140C65B8F = 1;
-      goto LABEL_14;
-    }
-    if ( (((unsigned int)MiFlags >> 26) & 3) == 2 )
-    {
-      byte_140C65B8F = -1;
-      goto LABEL_14;
-    }
-  }
-  byte_140C65B8F = 0;
-LABEL_14:
+    MiFlags |= 0x800u;
+  result = KeFeatureBits;
   if ( (KeFeatureBits & 0x200000) != 0 )
   {
-    result = MiFlags | 0x100;
+    MiFlags |= 0x100u;
   }
-  else
+  else if ( (KeFeatureBits & 0x1000000) != 0 )
   {
-    if ( (KeFeatureBits & 0x1000000) == 0 )
-      goto LABEL_18;
-    result = MiFlags | 0x200;
+    MiFlags |= 0x200u;
   }
-  LODWORD(MiFlags) = result;
-LABEL_18:
   if ( (KeFeatureBits & 0x400000000000LL) != 0 )
-  {
-    result |= 0x1000000u;
-    LODWORD(MiFlags) = result;
-  }
+    MiFlags |= 0x2000000u;
   return result;
 }

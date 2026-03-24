@@ -1,9 +1,9 @@
 /*
- * XREFs of Bulk_Stage_CalculateBytesTransferred @ 0x1C000B48C
+ * XREFs of Bulk_Stage_CalculateBytesTransferred @ 0x1C000E20C
  * Callers:
- *     Bulk_ProcessTransferEventWithED0 @ 0x1C000AE90 (Bulk_ProcessTransferEventWithED0.c)
+ *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DBF8 (Bulk_ProcessTransferEventWithED0.c)
  * Callees:
- *     Bulk_Stage_ProcessSegment @ 0x1C000B4F8 (Bulk_Stage_ProcessSegment.c)
+ *     Bulk_Stage_ProcessSegment @ 0x1C000E278 (Bulk_Stage_ProcessSegment.c)
  */
 
 __int64 __fastcall Bulk_Stage_CalculateBytesTransferred(__int64 a1, __int64 a2, int a3)

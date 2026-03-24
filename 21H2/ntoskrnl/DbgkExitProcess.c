@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgkExitProcess @ 0x14092A938
+ * XREFs of DbgkExitProcess @ 0x140887A0C
  * Callers:
- *     PspExitThread @ 0x1407A0088 (PspExitThread.c)
+ *     PspExitThread @ 0x14064A838 (PspExitThread.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     DbgkpSendApiMessage @ 0x14092A070 (DbgkpSendApiMessage.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     DbgkpSendApiMessage @ 0x140887154 (DbgkpSendApiMessage.c)
  */
 
 struct _KTHREAD *__fastcall DbgkExitProcess(int a1)
@@ -19,9 +19,9 @@ struct _KTHREAD *__fastcall DbgkExitProcess(int a1)
   Process = KeGetCurrentThread()->ApcState.Process;
   result = KeGetCurrentThread();
   v4 = *((_DWORD *)&result[1].SwapListEntry + 2);
-  if ( (v4 & 4) == 0 && Process[1].Affinity.StaticBitmap[29] && (v4 & 2) != 0 )
+  if ( (v4 & 4) == 0 && Process[1].AffinityPadding[9] && (v4 & 2) != 0 )
   {
-    Process[1].ExtendedFeatureDisableMask = MEMORY[0xFFFFF78000000014];
+    Process[1].EndPadding[2] = MEMORY[0xFFFFF78000000014];
     v5[12] = a1;
     v5[0] = 3407884;
     v5[1] = 8;

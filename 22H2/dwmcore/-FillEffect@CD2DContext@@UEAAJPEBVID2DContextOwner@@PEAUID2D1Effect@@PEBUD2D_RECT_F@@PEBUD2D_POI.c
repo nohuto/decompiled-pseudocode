@@ -1,14 +1,14 @@
 /*
- * XREFs of ?FillEffect@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAUID2D1Effect@@PEBUD2D_RECT_F@@PEBUD2D_POINT_2F@@W4D2D1_INTERPOLATION_MODE@@W4D2D1_COMPOSITE_MODE@@@Z @ 0x18000FE90
+ * XREFs of ?FillEffect@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAUID2D1Effect@@PEBUD2D_RECT_F@@PEBUD2D_POINT_2F@@W4D2D1_INTERPOLATION_MODE@@W4D2D1_COMPOSITE_MODE@@@Z @ 0x1800CE200
  * Callers:
- *     ?FillEffect@CDrawingContext@@QEAAJPEAUID2D1Effect@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBUD2D_POINT_2F@@_N@Z @ 0x18000FD9C (-FillEffect@CDrawingContext@@QEAAJPEAUID2D1Effect@@PEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMil.c)
- *     ?DrawMesh2D@CGlobalDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x1801B6500 (-DrawMesh2D@CGlobalDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z.c)
+ *     ?FillEffect@CDrawingContext@@QEAAJPEAUID2D1Effect@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBUD2D_POINT_2F@@_N@Z @ 0x18000D460 (-FillEffect@CDrawingContext@@QEAAJPEAUID2D1Effect@@PEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMil.c)
+ *     ?DrawMesh2D@CDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x18018DE40 (-DrawMesh2D@CDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z.c)
  * Callees:
- *     ?DrawImage@ID2D1DeviceContext@@QEAAXPEAUID2D1Effect@@PEBUD2D_POINT_2F@@PEBUD2D_RECT_F@@W4D2D1_INTERPOLATION_MODE@@W4D2D1_COMPOSITE_MODE@@@Z @ 0x180011A60 (-DrawImage@ID2D1DeviceContext@@QEAAXPEAUID2D1Effect@@PEBUD2D_POINT_2F@@PEBUD2D_RECT_F@@W4D2D1_IN.c)
- *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x18008E000 (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
- *     ?EnsureBeginDraw@CD2DContext@@AEAAXXZ @ 0x18008EA38 (-EnsureBeginDraw@CD2DContext@@AEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x18008FEFC (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
+ *     ?EnsureBeginDraw@CD2DContext@@AEAAXXZ @ 0x1800903A8 (-EnsureBeginDraw@CD2DContext@@AEAAXXZ.c)
+ *     ?DrawImage@ID2D1DeviceContext@@QEAAXPEAUID2D1Effect@@PEBUD2D_POINT_2F@@PEBUD2D_RECT_F@@W4D2D1_INTERPOLATION_MODE@@W4D2D1_COMPOSITE_MODE@@@Z @ 0x1800CE2DC (-DrawImage@ID2D1DeviceContext@@QEAAXPEAUID2D1Effect@@PEBUD2D_POINT_2F@@PEBUD2D_RECT_F@@W4D2D1_IN.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD2DContext::FillEffect(
@@ -20,32 +20,23 @@ __int64 __fastcall CD2DContext::FillEffect(
         enum D2D1_INTERPOLATION_MODE a6,
         enum D2D1_COMPOSITE_MODE a7)
 {
-  int v11; // eax
-  const struct D2D_POINT_2F *v12; // rdi
-  __int64 v13; // rbp
+  const struct D2D_POINT_2F *v11; // r8
   FLOAT y; // xmm1_4
-  __int64 result; // rax
-  _DWORD v16[2]; // [rsp+30h] [rbp-68h] BYREF
-  _BYTE v17[24]; // [rsp+38h] [rbp-60h] BYREF
+  _DWORD v14[2]; // [rsp+30h] [rbp-58h] BYREF
+  _BYTE v15[24]; // [rsp+38h] [rbp-50h] BYREF
 
   CD2DContext::FlushDrawList((CD2DContext *)this);
-  v11 = *((_DWORD *)this + 88);
-  v12 = 0LL;
-  v13 = 0LL;
-  if ( v11 )
-    v13 = *((_QWORD *)this[41] + (unsigned int)(v11 - 1));
   CD2DContext::EnsureBeginDraw((CD2DContext *)this);
-  (*(void (__fastcall **)(const struct ID2DContextOwner *, _BYTE *))(*(_QWORD *)a2 + 8LL))(a2, v17);
-  (*(void (__fastcall **)(ID2D1DeviceContext *, _BYTE *))(*(_QWORD *)this[25] + 240LL))(this[25], v17);
+  (*(void (__fastcall **)(const struct ID2DContextOwner *, _BYTE *))(*(_QWORD *)a2 + 8LL))(a2, v15);
+  (*(void (__fastcall **)(ID2D1DeviceContext *, _BYTE *))(*(_QWORD *)this[30] + 240LL))(this[30], v15);
+  v11 = 0LL;
   if ( a5 )
   {
-    v12 = (const struct D2D_POINT_2F *)v16;
+    v11 = (const struct D2D_POINT_2F *)v14;
     y = a5->y;
-    v16[0] = LODWORD(a5->x);
-    *(FLOAT *)&v16[1] = y;
+    v14[0] = LODWORD(a5->x);
+    *(FLOAT *)&v14[1] = y;
   }
-  ID2D1DeviceContext::DrawImage(this[25], a3, v12, a4, a6, a7);
-  result = 0LL;
-  *(_BYTE *)(v13 + 75) = 1;
-  return result;
+  ID2D1DeviceContext::DrawImage(this[30], a3, v11, a4, a6, a7);
+  return 0LL;
 }

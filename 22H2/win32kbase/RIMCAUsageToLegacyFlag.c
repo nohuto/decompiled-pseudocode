@@ -1,9 +1,9 @@
 /*
- * XREFs of RIMCAUsageToLegacyFlag @ 0x1C019177C
+ * XREFs of RIMCAUsageToLegacyFlag @ 0x1C0166150
  * Callers:
- *     RIMMarkSiblingMouseDevice @ 0x1C0182530 (RIMMarkSiblingMouseDevice.c)
+ *     RIMMarkSiblingMouseDevice @ 0x1C0161C70 (RIMMarkSiblingMouseDevice.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall RIMCAUsageToLegacyFlag(__int16 a1)
@@ -22,8 +22,8 @@ __int64 __fastcall RIMCAUsageToLegacyFlag(__int16 a1)
     case 5:
       return 2;
     default:
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 254);
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 260);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 222);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 228);
       break;
   }
   return v1;

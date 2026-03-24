@@ -1,28 +1,31 @@
 /*
- * XREFs of ?IndirectBlt@BLTENTRY@@QEAAJXZ @ 0x1C03D1B9C
+ * XREFs of ?IndirectBlt@BLTENTRY@@QEAAJXZ @ 0x1C02FDD50
  * Callers:
- *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C01D3F70 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
+ *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C015D654 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
  * Callees:
- *     ?CompletePresentIndirectInternal@BLTQUEUE@@AEAAJPEAVBLTENTRY@@PEAT_LARGE_INTEGER@@H@Z @ 0x1C03D0D34 (-CompletePresentIndirectInternal@BLTQUEUE@@AEAAJPEAVBLTENTRY@@PEAT_LARGE_INTEGER@@H@Z.c)
- *     ?SetVisibilityIfDeferred@BLTQUEUE@@QEAAXXZ @ 0x1C03D4190 (-SetVisibilityIfDeferred@BLTQUEUE@@QEAAXXZ.c)
+ *     ?CompletePresentIndirectInternal@BLTQUEUE@@AEAAJPEAVBLTENTRY@@PEAT_LARGE_INTEGER@@H@Z @ 0x1C02FD0A8 (-CompletePresentIndirectInternal@BLTQUEUE@@AEAAJPEAVBLTENTRY@@PEAT_LARGE_INTEGER@@H@Z.c)
+ *     ?SetVisibilityIfDeferred@BLTQUEUE@@QEAAXXZ @ 0x1C02FFF08 (-SetVisibilityIfDeferred@BLTQUEUE@@QEAAXXZ.c)
  */
 
 __int64 __fastcall BLTENTRY::IndirectBlt(LARGE_INTEGER *this)
 {
-  unsigned int v2; // edi
-  BLTQUEUE **v3; // rsi
+  unsigned int v2; // ebx
+  BLTQUEUE *QuadPart; // rcx
   LARGE_INTEGER v4; // rax
   BLTQUEUE *v5; // rcx
   union _LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = 0;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  v3 = (BLTQUEUE **)&this[3];
   this[68] = PerformanceCounter;
-  if ( (this[8].LowPart & 8) == 0 && !*((_DWORD *)*v3 + 694) )
-    v2 = BLTQUEUE::CompletePresentIndirectInternal(*v3, (struct BLTENTRY *)this, &PerformanceCounter);
+  if ( (this[8].LowPart & 8) == 0 )
+  {
+    QuadPart = (BLTQUEUE *)this[3].QuadPart;
+    if ( !*((_DWORD *)QuadPart + 690) )
+      v2 = BLTQUEUE::CompletePresentIndirectInternal(QuadPart, (struct BLTENTRY *)this, &PerformanceCounter);
+  }
   v4 = KeQueryPerformanceCounter(0LL);
-  v5 = *v3;
+  v5 = (BLTQUEUE *)this[3].QuadPart;
   this[69] = v4;
   BLTQUEUE::SetVisibilityIfDeferred(v5);
   return v2;

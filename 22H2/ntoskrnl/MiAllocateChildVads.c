@@ -1,39 +1,39 @@
 /*
- * XREFs of MiAllocateChildVads @ 0x140A483EC
+ * XREFs of MiAllocateChildVads @ 0x1408D8AE0
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x140A489C4 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x1408D90B0 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     MiVadPureReserve @ 0x140277A50 (MiVadPureReserve.c)
- *     MiIsVadLargePrivate @ 0x140287F50 (MiIsVadLargePrivate.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiLocateVadEvent @ 0x14030B2DC (MiLocateVadEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     MiFreeVadEvents @ 0x140633DA0 (MiFreeVadEvents.c)
- *     MiCloneCaptureVadCommit @ 0x1406435E0 (MiCloneCaptureVadCommit.c)
- *     MiCloneImageVad @ 0x1406631EC (MiCloneImageVad.c)
- *     MiVadShouldBeForked @ 0x140665754 (MiVadShouldBeForked.c)
- *     MiFreePlaceholderStorage @ 0x1406834D8 (MiFreePlaceholderStorage.c)
- *     MiInsertSharedCommitNode @ 0x140722090 (MiInsertSharedCommitNode.c)
- *     MiRemoveSharedCommitNode @ 0x140722410 (MiRemoveSharedCommitNode.c)
- *     MiCreateWriteWatchView @ 0x1407CD094 (MiCreateWriteWatchView.c)
- *     MiCloneNoChange @ 0x140A31EA8 (MiCloneNoChange.c)
- *     MiFreeVadEventBitmap @ 0x140A31F78 (MiFreeVadEventBitmap.c)
- *     MiCloneLargeFileOnlyVad @ 0x140A336F4 (MiCloneLargeFileOnlyVad.c)
- *     MiCloneDiscardVadCommit @ 0x140A3C3B0 (MiCloneDiscardVadCommit.c)
- *     MiVadHasSharedCommit @ 0x140A43E08 (MiVadHasSharedCommit.c)
- *     MiCreatePlaceholderStorage @ 0x140A47CA0 (MiCreatePlaceholderStorage.c)
- *     MiDeletePartialCloneVads @ 0x140A48E9C (MiDeletePartialCloneVads.c)
- *     MiInsertChildVads @ 0x140A490FC (MiInsertChildVads.c)
- *     MiCreateLargePageVad @ 0x140A49658 (MiCreateLargePageVad.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MiVadPureReserve @ 0x14021B950 (MiVadPureReserve.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     MiLocateVadEvent @ 0x14027EA34 (MiLocateVadEvent.c)
+ *     MiIsVadLargePrivate @ 0x140304C64 (MiIsVadLargePrivate.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     MiFreeVadEvents @ 0x14053A6A4 (MiFreeVadEvents.c)
+ *     MiCloneCaptureVadCommit @ 0x140544F8C (MiCloneCaptureVadCommit.c)
+ *     MiCloneImageVad @ 0x1405591C0 (MiCloneImageVad.c)
+ *     MiVadShouldBeForked @ 0x14055BA04 (MiVadShouldBeForked.c)
+ *     MiRemoveSharedCommitNode @ 0x140638C00 (MiRemoveSharedCommitNode.c)
+ *     MiInsertSharedCommitNode @ 0x140638E70 (MiInsertSharedCommitNode.c)
+ *     MiCreateWriteWatchView @ 0x140683D2C (MiCreateWriteWatchView.c)
+ *     MiFreePlaceholderStorage @ 0x1406A6748 (MiFreePlaceholderStorage.c)
+ *     MiCloneNoChange @ 0x1408C86D8 (MiCloneNoChange.c)
+ *     MiFreeVadEventBitmap @ 0x1408C87A8 (MiFreeVadEventBitmap.c)
+ *     MiCloneLargeFileOnlyVad @ 0x1408CFD00 (MiCloneLargeFileOnlyVad.c)
+ *     MiCloneDiscardVadCommit @ 0x1408D0E34 (MiCloneDiscardVadCommit.c)
+ *     MiCreatePlaceholderStorage @ 0x1408D8328 (MiCreatePlaceholderStorage.c)
+ *     MiDeletePartialCloneVads @ 0x1408D9578 (MiDeletePartialCloneVads.c)
+ *     MiInsertChildVads @ 0x1408D97D0 (MiInsertChildVads.c)
+ *     MiVadHasSharedCommit @ 0x1408D9A80 (MiVadHasSharedCommit.c)
+ *     MiCreateLargePageVad @ 0x1408D9FB4 (MiCreateLargePageVad.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateChildVads(ULONG_PTR BugCheckParameter1, _QWORD *a2)
 {
-  __int64 *v3; // r12
+  void *v3; // r12
   int v4; // r15d
   _QWORD *j; // rdi
   _QWORD *i; // rax
@@ -44,19 +44,24 @@ __int64 __fastcall MiAllocateChildVads(ULONG_PTR BugCheckParameter1, _QWORD *a2)
   int v12; // r8d
   ULONG v13; // r9d
   SIZE_T v14; // rsi
-  __int64 **Pool; // rax
-  __int64 **v16; // rbx
-  unsigned int *v17; // rdx
-  unsigned int v18; // ecx
+  _QWORD *Pool; // rax
+  _DWORD *v16; // r9
+  _QWORD *v17; // rbx
+  int v18; // ecx
   unsigned int v19; // ecx
   int inserted; // esi
   __int64 v21; // rax
-  int v22; // eax
+  unsigned __int64 v22; // rcx
   int v23; // eax
   int v24; // eax
-  $115DCDF994C6370D29323EAB0E0C9502 v26; // [rsp+20h] [rbp-78h] BYREF
+  int v25; // eax
+  _DWORD *v27; // r9
+  __int64 v28; // rdx
+  __int64 v29; // r8
+  _DWORD *v30; // r9
+  _OWORD v31[3]; // [rsp+20h] [rbp-78h] BYREF
 
-  memset(&v26, 0, sizeof(v26));
+  memset(v31, 0, sizeof(v31));
   v3 = 0LL;
   v4 = 0;
   j = 0LL;
@@ -91,137 +96,136 @@ __int64 __fastcall MiAllocateChildVads(ULONG_PTR BugCheckParameter1, _QWORD *a2)
     while ( !(unsigned int)MiVadShouldBeForked(v9) );
     v12 = *(_DWORD *)(v9 + 48);
     v13 = 1818517846;
-    v14 = (-(__int64)((v12 & 0x200000) != 0) & 0xFFFFFFFFFFFFFFB8uLL) + 136;
-    if ( (v12 & 0x200000) == 0 && (v12 & 0x70) == 0x20 && (v12 & 0x400000) != 0 )
+    v14 = (-(__int64)((v12 & 0x100000) != 0) & 0xFFFFFFFFFFFFFFB8uLL) + 136;
+    if ( (v12 & 0x100000) == 0 && (v12 & 0x70) == 0x20 && (v12 & 0x200000) != 0 )
     {
       v13 = 1231315286;
       v14 = 8
           * (((unsigned __int64)*(unsigned int *)(***(_QWORD ***)(v9 + 72) + 8LL) >> 6)
            + ((*(_DWORD *)(***(_QWORD ***)(v9 + 72) + 8LL) & 0x3F) != 0)
-           + 21LL);
+           + 20LL);
     }
-    Pool = (__int64 **)MiAllocatePool(64, v14, v13);
-    v16 = Pool;
+    Pool = MiAllocatePool(64, v14, v13);
+    v17 = Pool;
     if ( !Pool )
-    {
-      inserted = -1073741670;
-      goto LABEL_56;
-    }
+      break;
     memmove(Pool, (const void *)v9, v14);
-    v17 = (unsigned int *)(v16 + 6);
-    if ( _bittest((const signed __int32 *)(v9 + 48), 0x15u) )
-      *v17 &= ~8u;
+    v18 = *((_DWORD *)v17 + 12);
+    if ( (*(_DWORD *)(v9 + 48) & 0x100000) != 0 )
+      v18 &= ~8u;
     else
-      v16[14] = (__int64 *)(BugCheckParameter1 | 1);
-    v18 = *v17;
-    v16[7] = (__int64 *)((unsigned __int64)v16[7] & 0xF);
-    v19 = v18 & 0xFFFFFFFE;
-    *((_DWORD *)v16 + 9) = 0;
-    v16[5] = 0LL;
-    v16[1] = 0LL;
-    *v17 = v19 & 0xFFFFFFFD;
-    if ( (v19 & 0x200000) == 0 && (v19 & 0x70) == 0x20 && (v19 & 0x1800000) != 0 )
-      *v17 = v19 & 0xFE7FFFFD;
-    v16[2] = (__int64 *)-2LL;
+      v17[14] = BugCheckParameter1 | 1;
+    v17[7] = 0LL;
+    v19 = v18 & 0xFFFFFFFC;
+    *((_DWORD *)v17 + 9) = 0;
+    v17[5] = 0LL;
+    v17[1] = 0LL;
+    *((_DWORD *)v17 + 12) = v19;
+    if ( (v19 & 0x100000) == 0 && (v19 & 0x70) == 0x20 && (v19 & 0x400000) != 0 )
+      *((_DWORD *)v17 + 12) = v19 & 0xFFBFFFFF;
+    v17[2] = -2LL;
     if ( (unsigned int)MiVadHasSharedCommit(v9) )
     {
       inserted = MiInsertSharedCommitNode(**(_QWORD ***)(v9 + 72), BugCheckParameter1, 0);
       if ( inserted < 0 )
         goto LABEL_52;
     }
-    if ( MiVadPureReserve((__int64)v16) )
+    if ( (unsigned int)MiVadPureReserve((__int64)v17) )
     {
-      v21 = *((unsigned int *)v16 + 13);
+      v21 = *((unsigned int *)v17 + 13);
       LODWORD(v21) = v21 & 0x7FFFFFFF;
-      if ( (v21 | ((unsigned __int64)*((unsigned __int8 *)v16 + 34) << 31)) < 0x7FFFFFFFDLL )
+      if ( (v21 | ((unsigned __int64)*((unsigned __int8 *)v17 + 34) << 31)) < 0x7FFFFFFFDLL )
       {
-        inserted = MiCloneCaptureVadCommit((__int64)v16);
+        inserted = MiCloneCaptureVadCommit((__int64)v17);
         if ( inserted < 0 )
-          break;
+        {
+          if ( (unsigned int)MiVadHasSharedCommit(v17) )
+            MiRemoveSharedCommitNode(*(_QWORD **)v17[9], BugCheckParameter1, 0);
+LABEL_52:
+          ExFreePoolWithTag(v17, 0);
+          v17 = 0LL;
+          goto LABEL_56;
+        }
       }
     }
     if ( (*(_DWORD *)(v9 + 48) & 8) != 0 )
     {
-      inserted = MiCloneNoChange(v9, (__int64)v16);
+      inserted = MiCloneNoChange(v9, (__int64)v17);
       if ( inserted < 0 )
         goto LABEL_56;
     }
     if ( MiLocateVadEvent(v9, 128LL) )
     {
-      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v26);
+      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v31, v16);
       v4 = 1;
-      inserted = MiCreatePlaceholderStorage((__int64)v16);
+      inserted = MiCreatePlaceholderStorage((__int64)v17);
       if ( inserted < 0 )
-        goto LABEL_59;
+        goto LABEL_56;
     }
-    if ( (*(_DWORD *)(v9 + 48) & 0x600000) == 0x600000 )
+    if ( (*(_DWORD *)(v9 + 48) & 0x300000) == 0x300000 )
     {
       if ( !v4 )
       {
-        KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v26);
+        KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v31, v16);
         v4 = 1;
       }
-      inserted = MiCreateWriteWatchView(BugCheckParameter1, (__int64)v16);
+      inserted = MiCreateWriteWatchView(BugCheckParameter1, (__int64)v17);
       if ( inserted < 0 )
-        goto LABEL_59;
+        goto LABEL_56;
     }
     if ( MiIsVadLargePrivate(v9) )
     {
-      v22 = (*((_DWORD *)v16 + 13) ^ (*(_DWORD *)(v9 + 52) & 0x7FFFFFFF | (*(unsigned __int8 *)(v9 + 34) << 31))) & 0x7FFFFFFF;
-      *((_BYTE *)v16 + 34) = (*(_DWORD *)(v9 + 52) & 0x7FFFFFFF | ((unsigned __int64)*(unsigned __int8 *)(v9 + 34) << 31)) >> 31;
-      *((_DWORD *)v16 + 13) ^= v22;
-      inserted = MiCreateLargePageVad(BugCheckParameter1, v16, 0LL, 1LL);
+      v22 = *(_DWORD *)(v9 + 52) & 0x7FFFFFFF | ((unsigned __int64)*(unsigned __int8 *)(v9 + 34) << 31);
+      v23 = (v22 ^ *((_DWORD *)v17 + 13)) & 0x7FFFFFFF;
+      *((_BYTE *)v17 + 34) = v22 >> 31;
+      *((_DWORD *)v17 + 13) ^= v23;
+      inserted = MiCreateLargePageVad(BugCheckParameter1, v17, 0LL, 1LL);
       if ( inserted < 0 )
         goto LABEL_56;
       ++*a2;
     }
     else
     {
-      v23 = *(_DWORD *)(v9 + 48) & 0x70;
-      if ( v23 == 32 )
+      v24 = *(_DWORD *)(v9 + 48) & 0x70;
+      if ( v24 == 32 )
       {
-        v24 = MiCloneImageVad(BugCheckParameter1, (__int64)v16, v9);
+        v25 = MiCloneImageVad(BugCheckParameter1, (__int64)v17, v9);
       }
       else
       {
-        if ( v23 != 80 || !*(_QWORD *)(**(_QWORD **)(v9 + 72) + 64LL) )
+        if ( v24 != 80 || !*(_QWORD *)(**(_QWORD **)(v9 + 72) + 64LL) )
           goto LABEL_47;
-        v24 = MiCloneLargeFileOnlyVad(v9);
+        v25 = MiCloneLargeFileOnlyVad(v9);
       }
-      inserted = v24;
-      if ( v24 < 0 )
+      inserted = v25;
+      if ( v25 < 0 )
         goto LABEL_56;
     }
 LABEL_47:
     if ( v4 )
     {
-      KiUnstackDetachProcess(&v26);
+      KiUnstackDetachProcess((__int64)v31, 0);
       v4 = 0;
     }
-    *v16 = v3;
-    v3 = (__int64 *)v16;
+    *v17 = v3;
+    v3 = v17;
   }
-  if ( (unsigned int)MiVadHasSharedCommit((__int64)v16) )
-    MiRemoveSharedCommitNode(*v16[9], BugCheckParameter1, 0);
-LABEL_52:
-  ExFreePoolWithTag(v16, 0);
-  v16 = 0LL;
+  inserted = -1073741670;
 LABEL_56:
   if ( !v4 )
-    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v26);
-  if ( v16 )
+    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v31, v16);
+  if ( v17 )
   {
-LABEL_59:
-    if ( (unsigned int)MiVadHasSharedCommit((__int64)v16) )
-      MiRemoveSharedCommitNode(*v16[9], BugCheckParameter1, 0);
-    MiCloneDiscardVadCommit((__int64)v16);
-    MiFreeVadEventBitmap((struct _KPROCESS *)BugCheckParameter1, (__int64)v16, 4);
-    MiFreePlaceholderStorage((__int64)v16);
-    MiFreeVadEvents((__int64)v16);
-    ExFreePoolWithTag(v16, 0);
+    if ( (unsigned int)MiVadHasSharedCommit(v17) )
+      MiRemoveSharedCommitNode(*(_QWORD **)v17[9], BugCheckParameter1, 0);
+    MiCloneDiscardVadCommit((__int64)v17);
+    MiFreeVadEventBitmap((struct _KPROCESS *)BugCheckParameter1, (__int64)v17, 4LL, v27);
+    MiFreePlaceholderStorage((__int64)v17, v28, v29, v30);
+    MiFreeVadEvents((__int64)v17);
+    ExFreePoolWithTag(v17, 0);
   }
   if ( v3 )
     MiDeletePartialCloneVads(v3);
-  KiUnstackDetachProcess(&v26);
+  KiUnstackDetachProcess((__int64)v31, 0);
   return (unsigned int)inserted;
 }

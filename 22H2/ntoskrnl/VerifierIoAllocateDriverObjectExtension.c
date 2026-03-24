@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierIoAllocateDriverObjectExtension @ 0x140ACBC40
+ * XREFs of VerifierIoAllocateDriverObjectExtension @ 0x1409C92A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD6FAC (VfFaultsInjectResourceFailure.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC83C (VfFaultsInjectResourceFailure.c)
  */
 
 __int64 __fastcall VerifierIoAllocateDriverObjectExtension(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4)

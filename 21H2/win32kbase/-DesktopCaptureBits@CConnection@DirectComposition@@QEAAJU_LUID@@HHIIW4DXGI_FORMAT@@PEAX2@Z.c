@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DesktopCaptureBits@CConnection@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z @ 0x1C0212AA4
+ * XREFs of ?DesktopCaptureBits@CConnection@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z @ 0x1C01D3030
  * Callers:
- *     NtDesktopCaptureBits @ 0x1C02123B0 (NtDesktopCaptureBits.c)
+ *     NtDesktopCaptureBits @ 0x1C01D2BD0 (NtDesktopCaptureBits.c)
  * Callees:
- *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0013C00 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
- *     OpenDwmHandle @ 0x1C009090C (OpenDwmHandle.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?DesktopCaptureBits@CSystemChannel@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z @ 0x1C0215428 (-DesktopCaptureBits@CSystemChannel@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z.c)
+ *     OpenDwmHandle @ 0x1C0049280 (OpenDwmHandle.c)
+ *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0059A80 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?DesktopCaptureBits@CSystemChannel@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z @ 0x1C01D59E8 (-DesktopCaptureBits@CSystemChannel@DirectComposition@@QEAAJU_LUID@@HHIIW4DXGI_FORMAT@@PEAX2@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CConnection::DesktopCaptureBits(
@@ -63,7 +63,9 @@ __int64 __fastcall DirectComposition::CConnection::DesktopCaptureBits(
     ZwClose(TokenHandle);
     if ( v13 >= 0 )
     {
-      if ( v26[0] )
+      if ( !v26[0] )
+        v13 = -1073741790;
+      if ( v13 >= 0 )
       {
         v13 = OpenDwmHandle(Object, (POBJECT_TYPE)ExEventObjectType, 2u, v14, ReturnLength, &v31);
         if ( v13 >= 0 )
@@ -126,10 +128,6 @@ __int64 __fastcall DirectComposition::CConnection::DesktopCaptureBits(
             while ( *(_DWORD *)(v18 + 24) == 1 );
           }
         }
-      }
-      else
-      {
-        return (unsigned int)-1073741790;
       }
     }
   }

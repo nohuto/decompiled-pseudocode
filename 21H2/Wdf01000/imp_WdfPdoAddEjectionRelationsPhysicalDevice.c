@@ -1,11 +1,11 @@
 /*
- * XREFs of imp_WdfPdoAddEjectionRelationsPhysicalDevice @ 0x1C005AF90
+ * XREFs of imp_WdfPdoAddEjectionRelationsPhysicalDevice @ 0x1C0038DE0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetPdoPackageFromDeviceHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEADPEAPEAVFxPkgPdo@@PEAPEAU1@PEAPEAVFxDevice@@@Z @ 0x1C001C314 (-GetPdoPackageFromDeviceHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEADPEAPEAVFxPkgPdo@.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
- *     ?AddEjectionDevice@FxPkgPdo@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C0083284 (-AddEjectionDevice@FxPkgPdo@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?GetPdoPackageFromDeviceHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEADPEAPEAVFxPkgPdo@@PEAPEAU1@PEAPEAVFxDevice@@@Z @ 0x1C0001928 (-GetPdoPackageFromDeviceHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEADPEAPEAVFxPkgPdo@.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?AddEjectionDevice@FxPkgPdo@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C0078D7C (-AddEjectionDevice@FxPkgPdo@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  */
 
 int __fastcall imp_WdfPdoAddEjectionRelationsPhysicalDevice(
@@ -21,7 +21,7 @@ int __fastcall imp_WdfPdoAddEjectionRelationsPhysicalDevice(
   pFxDriverGlobals = 0LL;
   pPkgPdo = 0LL;
   result = GetPdoPackageFromDeviceHandle(
-             (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+             (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
              Device,
              "imp_WdfPdoAddEjectionRelationsPhysicalDevice",
              &pPkgPdo,

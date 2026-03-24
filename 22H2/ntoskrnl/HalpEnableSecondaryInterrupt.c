@@ -1,49 +1,47 @@
 /*
- * XREFs of HalpEnableSecondaryInterrupt @ 0x140862474
+ * XREFs of HalpEnableSecondaryInterrupt @ 0x140865534
  * Callers:
- *     HalEnableInterrupt @ 0x140320550 (HalEnableInterrupt.c)
+ *     HalEnableInterrupt @ 0x1403775A0 (HalEnableInterrupt.c)
  * Callees:
- *     HalpFindSecondaryIcEntry @ 0x14037CCD0 (HalpFindSecondaryIcEntry.c)
- *     HalpReleaseSecondaryIcEntryShared @ 0x14037D520 (HalpReleaseSecondaryIcEntryShared.c)
- *     HalpCheckInterruptType @ 0x1403B2F2C (HalpCheckInterruptType.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpCheckInterruptType @ 0x1404D08BC (HalpCheckInterruptType.c)
+ *     HalpFindSecondaryIcEntry @ 0x1404D0B98 (HalpFindSecondaryIcEntry.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x1404D1404 (HalpReleaseSecondaryIcEntryShared.c)
  */
 
 __int64 __fastcall HalpEnableSecondaryInterrupt(_DWORD *a1)
 {
-  unsigned int v2; // ebp
+  int v2; // edi
+  unsigned int v3; // ebp
   __int64 SecondaryIcEntry; // rax
-  __int64 v4; // rbx
-  __int64 (__fastcall *v5)(_QWORD, _QWORD, _QWORD, _QWORD, __int64); // r10
-  __int64 v6; // rcx
-  __int64 v7; // rsi
-  __int64 v8; // rdx
-  int v9; // edi
+  __int64 v5; // rbx
+  __int64 (__fastcall *v6)(_QWORD, _QWORD, _QWORD, _QWORD, __int64); // r10
+  __int64 v7; // rcx
+  __int64 v8; // rsi
 
   if ( SecondaryIcServicesEnabled )
   {
     if ( HalpCheckInterruptType(a1) )
     {
-      v2 = a1[16];
-      SecondaryIcEntry = HalpFindSecondaryIcEntry(v2);
-      v4 = SecondaryIcEntry;
+      v3 = a1[16];
+      SecondaryIcEntry = HalpFindSecondaryIcEntry(v3);
+      v5 = SecondaryIcEntry;
       if ( SecondaryIcEntry )
       {
-        v5 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, __int64))(SecondaryIcEntry + 56);
-        v6 = 2 * (v2 - *(_DWORD *)(SecondaryIcEntry + 16) + 10LL);
-        v7 = 2LL * (v2 - *(_DWORD *)(SecondaryIcEntry + 16));
-        *(_DWORD *)(SecondaryIcEntry + 8 * v7 + 164) = a1[6];
-        *(_DWORD *)(SecondaryIcEntry + 8 * v6) = a1[5];
-        *(_DWORD *)(SecondaryIcEntry + 8 * v7 + 168) = a1[3];
-        *(_BYTE *)(SecondaryIcEntry + 8 * v7 + 172) = 1;
-        v9 = v5(*(_QWORD *)(SecondaryIcEntry + 32), v2, (unsigned int)a1[6], (unsigned int)a1[5], SecondaryIcEntry);
-        if ( v9 < 0 )
+        v6 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, __int64))(SecondaryIcEntry + 56);
+        v7 = 2 * (v3 - *(_DWORD *)(SecondaryIcEntry + 16) + 10LL);
+        v8 = 2LL * (v3 - *(_DWORD *)(SecondaryIcEntry + 16));
+        *(_DWORD *)(SecondaryIcEntry + 8 * v8 + 164) = a1[6];
+        *(_DWORD *)(SecondaryIcEntry + 8 * v7) = a1[5];
+        *(_DWORD *)(SecondaryIcEntry + 8 * v8 + 168) = a1[3];
+        *(_BYTE *)(SecondaryIcEntry + 8 * v8 + 172) = 1;
+        v2 = v6(*(_QWORD *)(SecondaryIcEntry + 32), v3, (unsigned int)a1[6], (unsigned int)a1[5], SecondaryIcEntry);
+        if ( v2 < 0 )
         {
-          *(_DWORD *)(v4 + 8 * v7 + 168) |= 0x80000000;
-          *(_BYTE *)(v4 + 8 * v7 + 172) = 0;
+          *(_DWORD *)(v5 + 8 * v8 + 168) |= 0x80000000;
+          *(_BYTE *)(v5 + 8 * v8 + 172) = 0;
         }
-        LOBYTE(v8) = 1;
-        HalpReleaseSecondaryIcEntryShared(v4, v8);
+        HalpReleaseSecondaryIcEntryShared(v5, 1);
       }
       else
       {
@@ -59,5 +57,5 @@ __int64 __fastcall HalpEnableSecondaryInterrupt(_DWORD *a1)
   {
     return (unsigned int)-1073741637;
   }
-  return (unsigned int)v9;
+  return (unsigned int)v2;
 }

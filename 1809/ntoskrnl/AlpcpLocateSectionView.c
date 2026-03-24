@@ -7,7 +7,7 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     AlpcpEnumerateResourcesPort @ 0x140617AE8 (AlpcpEnumerateResourcesPort.c)
- *     AlpcpDereferenceView @ 0x140849934 (AlpcpDereferenceView.c)
+ *     AlpcpDereferenceView @ 0x140849914 (AlpcpDereferenceView.c)
  */
 
 __int64 __fastcall AlpcpLocateSectionView(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

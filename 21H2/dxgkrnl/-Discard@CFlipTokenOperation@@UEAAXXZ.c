@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Discard@CFlipTokenOperation@@UEAAXXZ @ 0x1C007ED00
+ * XREFs of ?Discard@CFlipTokenOperation@@UEAAXXZ @ 0x1C006BED0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CFlipTokenOperation::Discard(CFlipTokenOperation *this)

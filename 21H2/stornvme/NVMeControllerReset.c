@@ -1,112 +1,113 @@
 /*
- * XREFs of NVMeControllerReset @ 0x1C001906C
+ * XREFs of NVMeControllerReset @ 0x1C000E684
  * Callers:
- *     NVMeHwResetBus @ 0x1C0017C60 (NVMeHwResetBus.c)
- *     NVMeControllerAsyncResetWorker @ 0x1C0018A50 (NVMeControllerAsyncResetWorker.c)
+ *     NVMeHwResetBus @ 0x1C000AF10 (NVMeHwResetBus.c)
+ *     NVMeControllerAsyncResetWorker @ 0x1C000D6B0 (NVMeControllerAsyncResetWorker.c)
  * Callees:
- *     IsNVMeControllerOnFatalError @ 0x1C0005834 (IsNVMeControllerOnFatalError.c)
- *     NVMeControllerInitPart3 @ 0x1C0005FFC (NVMeControllerInitPart3.c)
- *     NVMeControllerInitPart2 @ 0x1C0006F74 (NVMeControllerInitPart2.c)
- *     NVMeControllerInitPart1 @ 0x1C0007384 (NVMeControllerInitPart1.c)
- *     ControllerReset @ 0x1C0007A88 (ControllerReset.c)
- *     __security_check_cookie @ 0x1C000E880 (__security_check_cookie.c)
- *     memset @ 0x1C00109C0 (memset.c)
- *     FillControllerRuntimeLog @ 0x1C0017A04 (FillControllerRuntimeLog.c)
- *     NVMeControllerStartFailureEventLog @ 0x1C0017B68 (NVMeControllerStartFailureEventLog.c)
- *     NVMeCancelAllCompletionQueueDpc @ 0x1C00185E0 (NVMeCancelAllCompletionQueueDpc.c)
- *     NVMeControllerCompleteAllIORequests @ 0x1C0018AD4 (NVMeControllerCompleteAllIORequests.c)
- *     NVMeHardwareReset @ 0x1C00197E8 (NVMeHardwareReset.c)
- *     NVMeQueuesReInit @ 0x1C0019CD8 (NVMeQueuesReInit.c)
- *     NvmSubsystemReset @ 0x1C001A000 (NvmSubsystemReset.c)
+ *     IsNVMeControllerOnFatalError @ 0x1C0005E98 (IsNVMeControllerOnFatalError.c)
+ *     NVMeControllerStartFailureEventLog @ 0x1C000A6FC (NVMeControllerStartFailureEventLog.c)
+ *     ControllerReset @ 0x1C000B3DC (ControllerReset.c)
+ *     NVMeCancelAllCompletionQueueDpc @ 0x1C000D1D8 (NVMeCancelAllCompletionQueueDpc.c)
+ *     NVMeControllerCompleteAllIORequests @ 0x1C000D7A4 (NVMeControllerCompleteAllIORequests.c)
+ *     NVMeControllerInitPart1 @ 0x1C000DC0C (NVMeControllerInitPart1.c)
+ *     NVMeControllerInitPart2 @ 0x1C000DDD0 (NVMeControllerInitPart2.c)
+ *     NVMeControllerInitPart3 @ 0x1C000E014 (NVMeControllerInitPart3.c)
+ *     NVMeQueuesReInit @ 0x1C0010990 (NVMeQueuesReInit.c)
+ *     NvmSubsystemReset @ 0x1C0010FB8 (NvmSubsystemReset.c)
  */
 
 char __fastcall NVMeControllerReset(__int64 a1, char a2)
 {
-  char v4; // si
+  char v4; // di
+  __int64 v5; // r8
   __int64 v6; // r9
-  char v7; // dl
-  __int64 v8; // r9
-  __int64 v9; // r8
-  __int64 v10; // r9
-  int v11; // edx
-  char v12; // di
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // r8
+  __int64 v11; // r9
+  int v12; // edx
   __int64 *v13; // rcx
   __int64 v14; // rax
-  _DWORD v15[24]; // [rsp+70h] [rbp-78h] BYREF
 
-  v4 = 0;
-  memset(v15, 0, 0x58uLL);
-  if ( _interlockedbittestandset((volatile signed __int32 *)(a1 + 3828), 0) )
-    return 1;
+  v4 = 1;
+  StorPortDebugPrint(3LL, "StorNVMe - Controller Reset START\n");
+  if ( _interlockedbittestandset((volatile signed __int32 *)(a1 + 3812), 0) )
+  {
+    StorPortDebugPrint(3LL, "StorNVMe - Controller Reset Already in Progress\n");
+    return v4;
+  }
   StorPortPause(a1, 120LL);
-  *(_DWORD *)(a1 + 32) &= 0xFFFFFDFE;
-  StorPortExtendedFunction(81LL, a1, 20000LL, v6);
-  *(_DWORD *)(a1 + 32) |= 0x10u;
-  NVMeCancelAllCompletionQueueDpc(a1, v7);
-  StorPortExtendedFunction(81LL, a1, 20000LL, v8);
-  NVMeControllerCompleteAllIORequests(a1, 14, v9, v10);
+  *(_DWORD *)(a1 + 24) = *(_DWORD *)(a1 + 24) & 0xFFFFFFEE | 0x10;
+  NVMeControllerCompleteAllIORequests(a1, 14, v5, v6);
+  NVMeCancelAllCompletionQueueDpc(a1);
   IsNVMeControllerOnFatalError(a1);
-  if ( !a2 )
+  if ( a2 )
   {
-    if ( (unsigned int)ControllerReset(a1, 0) )
+    if ( (*(_QWORD *)(a1 + 176) & 0x1000000000LL) == 0 || !(unsigned __int8)NvmSubsystemReset(a1) )
     {
-      v12 = 0;
-      if ( (*(_DWORD *)(a1 + 64) & 0x40) == 0 || (unsigned int)NVMeHardwareReset(a1) )
-      {
-        v4 = 1;
-        goto LABEL_18;
-      }
+      StorPortDebugPrint(3LL, "StorNVMe - Controller Reset FAILED (CAP.NSSRS == 0)\n");
+      goto LABEL_11;
     }
-    goto LABEL_8;
+    if ( (*(_BYTE *)(a1 + 3792) & 3) == 3 )
+      *(_BYTE *)(a1 + 3792) |= 4u;
   }
-  if ( _bittest64((const signed __int64 *)(a1 + 192), 0x24u) && (unsigned __int8)NvmSubsystemReset(a1) )
+  else if ( !ControllerReset(a1, v7, v8, v9) )
   {
-    if ( (*(_BYTE *)(a1 + 3808) & 3) == 3 )
-      *(_BYTE *)(a1 + 3808) |= 4u;
-LABEL_8:
-    *(_DWORD *)(a1 + 32) &= ~0x10u;
-    NVMeQueuesReInit(a1);
-    if ( !(unsigned int)NVMeControllerInitPart1(a1, 0)
-      && !(unsigned int)NVMeControllerInitPart2(a1, 0, 1)
-      && NVMeControllerInitPart3(a1) )
+    StorPortDebugPrint(3LL, "StorNVMe - Controller Reset FAILED (ControllerReset() == FALSE)\n");
+    goto LABEL_11;
+  }
+  *(_DWORD *)(a1 + 24) &= ~0x10u;
+  NVMeQueuesReInit(a1);
+  if ( NVMeControllerInitPart1(a1, 0) )
+  {
+    LOBYTE(v10) = 1;
+    if ( NVMeControllerInitPart2(a1, 0LL, v10, v11) )
     {
-      v11 = 0;
-      v12 = 1;
-      if ( *(int *)(a1 + 224) > 0 )
+      if ( NVMeControllerInitPart3(a1) )
       {
-        v13 = (__int64 *)(a1 + 1752);
-        do
+        v12 = 0;
+        if ( *(int *)(a1 + 208) > 0 )
         {
-          v14 = *v13;
-          if ( *v13 )
+          v13 = (__int64 *)(a1 + 1736);
+          do
           {
-            if ( !a2 )
+            v14 = *v13;
+            if ( *v13 )
             {
-              ++*(_DWORD *)(v14 + 40);
-              v14 = *v13;
+              if ( !a2 )
+              {
+                ++*(_DWORD *)(v14 + 40);
+                v14 = *v13;
+              }
+              ++*(_DWORD *)(v14 + 44);
             }
-            ++*(_DWORD *)(v14 + 44);
+            ++v12;
+            ++v13;
           }
-          ++v11;
-          ++v13;
+          while ( v12 < *(_DWORD *)(a1 + 208) );
         }
-        while ( v11 < *(_DWORD *)(a1 + 224) );
+        goto LABEL_25;
       }
-      goto LABEL_18;
+      StorPortDebugPrint(3LL, "StorNVMe - Controller Reset FAILED (NVMeControllerInitPart3() == FALSE)\n");
     }
-  }
-  v12 = 0;
-LABEL_18:
-  *(_DWORD *)(a1 + 3828) &= ~1u;
-  StorPortResume(a1);
-  if ( !v12 )
-  {
-    NVMeControllerStartFailureEventLog(a1);
-    if ( v4 )
+    else
     {
-      FillControllerRuntimeLog(a1, v15);
-      StorPortNotification(4109LL, a1, 0LL, 0LL);
+      StorPortDebugPrint(3LL, "StorNVMe - Controller Reset FAILED (NVMeControllerInitPart2() == FALSE)\n");
     }
   }
-  return v12;
+  else
+  {
+    StorPortDebugPrint(3LL, "StorNVMe - Controller Reset FAILED (NVMeControllerInitPart1() == FALSE)\n");
+  }
+LABEL_11:
+  v4 = 0;
+LABEL_25:
+  *(_DWORD *)(a1 + 3812) &= ~1u;
+  StorPortResume(a1);
+  if ( v4 )
+    StorPortDebugPrint(3LL, "StorNVMe - Controller Reset SUCCESS\n");
+  else
+    NVMeControllerStartFailureEventLog(a1);
+  return v4;
 }

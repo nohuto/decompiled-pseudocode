@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPresentInterval@CFlipToken@@UEBAIXZ @ 0x1C0020660
+ * XREFs of ?GetPresentInterval@CFlipToken@@UEBAIXZ @ 0x1C001B8D0
  * Callers:
  *     <none>
  * Callees:

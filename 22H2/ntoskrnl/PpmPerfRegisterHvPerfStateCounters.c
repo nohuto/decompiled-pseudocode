@@ -1,74 +1,74 @@
 /*
- * XREFs of PpmPerfRegisterHvPerfStateCounters @ 0x14099DAC0
+ * XREFs of PpmPerfRegisterHvPerfStateCounters @ 0x1408F69D0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     HvlGetLpIndexFromProcessorIndex @ 0x14045EDF0 (HvlGetLpIndexFromProcessorIndex.c)
- *     HvlRegisterPerfFeedbackCounters @ 0x140546E4C (HvlRegisterPerfFeedbackCounters.c)
- *     PpmRegisterPerfStates @ 0x14083009C (PpmRegisterPerfStates.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x1404F1E10 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlRegisterPerfFeedbackCounters @ 0x1404F7EB4 (HvlRegisterPerfFeedbackCounters.c)
+ *     PpmRegisterPerfStates @ 0x1407BA4A0 (PpmRegisterPerfStates.c)
  */
 
 __int64 __fastcall PpmPerfRegisterHvPerfStateCounters(__int64 a1)
 {
-  __int64 v1; // r14
-  __int64 v2; // r13
-  unsigned int v3; // r12d
-  unsigned int v4; // ebp
+  int v1; // ebx
+  __int64 v2; // r14
+  __int64 v3; // r13
+  unsigned int v4; // r12d
+  unsigned int v5; // esi
   __int64 i; // rdi
-  __int64 v6; // rax
-  __int64 v7; // rsi
-  int v8; // ecx
-  int LpIndexFromProcessorIndex; // r15d
+  __int64 v7; // rax
+  __int64 v8; // rbp
+  int v9; // ecx
   unsigned int v10; // ebx
-  int v11; // ebx
+  int LpIndexFromProcessorIndex; // r15d
 
   if ( (HvlEnlightenments & 0x400) == 0 )
     return (unsigned int)-1073741637;
-  v1 = *(_QWORD *)(a1 + 16);
-  v2 = *(_QWORD *)(a1 + 8);
-  v3 = *(_DWORD *)(v1 + 16);
+  v2 = *(_QWORD *)(a1 + 16);
+  v3 = *(_QWORD *)(a1 + 8);
+  v4 = *(_DWORD *)(v2 + 16);
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-  v4 = 0;
-  if ( !v3 )
-    return (unsigned int)PpmRegisterPerfStates(v1, 1);
+  v5 = 0;
+  if ( !v4 )
+    return (unsigned int)PpmRegisterPerfStates(v2, 1);
   for ( i = 0LL; ; i += 32LL )
   {
-    v6 = *(_QWORD *)(v1 + 552);
-    v7 = 0LL;
-    v8 = *(_DWORD *)(i + v6 + 28);
-    if ( v8 == 1 )
+    v7 = *(_QWORD *)(v2 + 416);
+    v8 = 0LL;
+    v9 = *(_DWORD *)(i + v7 + 28);
+    if ( v9 == 2 )
+      goto LABEL_15;
+    v10 = *(_DWORD *)(i + v7);
+    if ( v9 == 1 )
     {
-      LpIndexFromProcessorIndex = *(_DWORD *)(i + v6);
-      goto LABEL_9;
+      LpIndexFromProcessorIndex = *(_DWORD *)(i + v7);
+      goto LABEL_10;
     }
-    if ( v8 == 2 )
-      goto LABEL_14;
-    v10 = *(_DWORD *)(i + v6);
     if ( v10 == -1 )
       break;
     LpIndexFromProcessorIndex = HvlGetLpIndexFromProcessorIndex(v10);
-    v7 = KeGetPrcb(v10) + 33600;
-LABEL_9:
-    if ( v2 )
+    v8 = KeGetPrcb(v10) + 0x8000;
+LABEL_10:
+    if ( v3 )
     {
       if ( LpIndexFromProcessorIndex != -1 )
       {
-        v11 = HvlRegisterPerfFeedbackCounters(LpIndexFromProcessorIndex, (__int128 *)(v2 + 104LL * v4));
-        if ( v11 < 0 )
-          goto LABEL_17;
+        v1 = HvlRegisterPerfFeedbackCounters(LpIndexFromProcessorIndex, (__int128 *)(v3 + 104LL * v5));
+        if ( v1 < 0 )
+          goto LABEL_19;
       }
     }
-    if ( v7 )
-      *(_DWORD *)(v7 + 224) = 3;
-LABEL_14:
-    if ( ++v4 >= v3 )
-      return (unsigned int)PpmRegisterPerfStates(v1, 1);
+    if ( v8 )
+      *(_DWORD *)(v8 + 216) = 3;
+LABEL_15:
+    if ( ++v5 >= v4 )
+      return (unsigned int)PpmRegisterPerfStates(v2, 1);
   }
-  v11 = -1073741811;
-LABEL_17:
+  v1 = -1073741811;
+LABEL_19:
   PpmReleaseLock(&PpmPerfPolicyLock);
-  return (unsigned int)v11;
+  return (unsigned int)v1;
 }

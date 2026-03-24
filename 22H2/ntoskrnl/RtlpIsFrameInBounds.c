@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpIsFrameInBounds @ 0x1403C52D0
+ * XREFs of RtlpIsFrameInBounds @ 0x14033E9B0
  * Callers:
- *     RtlDispatchException @ 0x1402A3CA0 (RtlDispatchException.c)
- *     RtlUnwindEx @ 0x1402A4C20 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x14033E580 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x14033EA40 (RtlUnwindEx.c)
  * Callees:
  *     <none>
  */

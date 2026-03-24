@@ -1,22 +1,22 @@
 /*
- * XREFs of PspWow64GetContextThread @ 0x1406A82D8
+ * XREFs of PspWow64GetContextThread @ 0x1406A82B8
  * Callers:
- *     NtQueryInformationThread @ 0x14064A580 (NtQueryInformationThread.c)
- *     WbGetWowTrapFrame @ 0x1408E544C (WbGetWowTrapFrame.c)
- *     WbSetWowTrapFrame @ 0x1408E554C (WbSetWowTrapFrame.c)
+ *     NtQueryInformationThread @ 0x14064A560 (NtQueryInformationThread.c)
+ *     WbGetWowTrapFrame @ 0x1408E542C (WbGetWowTrapFrame.c)
+ *     WbSetWowTrapFrame @ 0x1408E552C (WbSetWowTrapFrame.c)
  * Callees:
  *     RtlGetExtendedContextLength @ 0x1400A1D44 (RtlGetExtendedContextLength.c)
  *     RtlInitializeExtendedContext @ 0x1400A1D9C (RtlInitializeExtendedContext.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _alloca_probe @ 0x1401C5DA0 (_alloca_probe.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PspGetContextThreadInternal @ 0x140620C00 (PspGetContextThreadInternal.c)
  *     RtlCopyContext @ 0x140620E78 (RtlCopyContext.c)
  *     RtlpReadExtendedContext @ 0x140620F80 (RtlpReadExtendedContext.c)
- *     RtlpWriteExtendedContext @ 0x1406A8568 (RtlpWriteExtendedContext.c)
- *     RtlpWow64GetContextOnAmd64 @ 0x1406A8620 (RtlpWow64GetContextOnAmd64.c)
- *     RtlpWow64SanitizeContextFlags @ 0x1406A8D4C (RtlpWow64SanitizeContextFlags.c)
- *     PspWow64ReadOrWriteThreadCpuArea @ 0x1406A8D94 (PspWow64ReadOrWriteThreadCpuArea.c)
+ *     RtlpWriteExtendedContext @ 0x1406A8548 (RtlpWriteExtendedContext.c)
+ *     RtlpWow64GetContextOnAmd64 @ 0x1406A8600 (RtlpWow64GetContextOnAmd64.c)
+ *     RtlpWow64SanitizeContextFlags @ 0x1406A8D2C (RtlpWow64SanitizeContextFlags.c)
+ *     PspWow64ReadOrWriteThreadCpuArea @ 0x1406A8D74 (PspWow64ReadOrWriteThreadCpuArea.c)
  */
 
 __int64 __fastcall PspWow64GetContextThread(__int64 a1, unsigned int *a2, int a3, char a4)

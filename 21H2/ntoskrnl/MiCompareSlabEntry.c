@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCompareSlabEntry @ 0x140248F48
+ * XREFs of MiCompareSlabEntry @ 0x140379C58
  * Callers:
- *     MiFreePageToSlabAllocator @ 0x14023BE50 (MiFreePageToSlabAllocator.c)
- *     MiCheckSlabPage @ 0x1403B1DEC (MiCheckSlabPage.c)
- *     MiInsertSlabEntry @ 0x1403C2B24 (MiInsertSlabEntry.c)
- *     MiGetSlabStandbyListWorker @ 0x1405B11A0 (MiGetSlabStandbyListWorker.c)
- *     MiPurgeSlabEntries @ 0x1405B1568 (MiPurgeSlabEntries.c)
- *     MiUpdateSlabRangeTypeHelper @ 0x140B524A0 (MiUpdateSlabRangeTypeHelper.c)
+ *     MiFreeSlabEntries @ 0x1402BA910 (MiFreeSlabEntries.c)
+ *     MiFreePageToSlabAllocator @ 0x140375730 (MiFreePageToSlabAllocator.c)
+ *     MiCheckSlabPage @ 0x14037CFD0 (MiCheckSlabPage.c)
+ *     MiInsertSlabEntry @ 0x14039A0CC (MiInsertSlabEntry.c)
+ *     MiGetSlabStandbyListWorker @ 0x140552F60 (MiGetSlabStandbyListWorker.c)
+ *     MiUpdateSlabRangeProtectionHelper @ 0x140A92900 (MiUpdateSlabRangeProtectionHelper.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vDIBPatBlt@@YAXPEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@K@Z @ 0x1C00B24D8
+ * XREFs of ?vDIBPatBlt@@YAXPEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@K@Z @ 0x1C00CED34
  * Callers:
- *     EngBitBlt @ 0x1C002D4C0 (EngBitBlt.c)
+ *     EngBitBlt @ 0x1C00CB280 (EngBitBlt.c)
  * Callees:
- *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C0003828 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00541A0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C00CE400 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEBA0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 void __fastcall vDIBPatBlt(
@@ -21,7 +21,7 @@ void __fastcall vDIBPatBlt(
   int v9; // edi
   int v10; // r15d
   __int64 v11; // rdx
-  void (__fastcall *v12)(_QWORD); // r12
+  void (**v12)(struct _PATBLTFRAME *); // r12
   int v13; // ebx
   _QWORD *pvRbrush; // rcx
   unsigned int i; // ebx
@@ -45,22 +45,21 @@ void __fastcall vDIBPatBlt(
   int v34; // [rsp+70h] [rbp-1C8h]
   int v35; // [rsp+74h] [rbp-1C4h]
   struct _POINTL *v36; // [rsp+78h] [rbp-1C0h]
-  void (__fastcall *v37)(_QWORD); // [rsp+80h] [rbp-1B8h]
+  void (**v37)(struct _PATBLTFRAME *); // [rsp+80h] [rbp-1B8h]
   struct _CLIPOBJ *v38; // [rsp+88h] [rbp-1B0h]
   struct _RECTL *v39; // [rsp+90h] [rbp-1A8h]
-  unsigned int v40; // [rsp+A0h] [rbp-198h] BYREF
-  _OWORD v41[20]; // [rsp+A4h] [rbp-194h] BYREF
+  _DWORD v40[84]; // [rsp+A0h] [rbp-198h] BYREF
 
   v38 = a2;
   v39 = a3;
   v36 = a5;
   v29 = 0LL;
   v35 = 0;
-  memset_0(&v40, 0, 0x144uLL);
+  memset(v40, 0, 0x144uLL);
   v9 = 0;
   v10 = 0;
   v11 = *((unsigned int *)a1 + 24);
-  v12 = (void (__fastcall *)(_QWORD))qword_1C030A100[3 * v11 + a6];
+  v12 = (void (**)(struct _PATBLTFRAME *))(&apfnPatBlt)[3 * v11 + a6];
   v37 = v12;
   v13 = *((_DWORD *)&aulMulFormat + v11);
   v34 = v13;
@@ -69,8 +68,8 @@ void __fastcall vDIBPatBlt(
     if ( a2->iDComplexity == 1 )
     {
       v10 = 1;
-      v40 = 1;
-      v41[0] = a2->rclBounds;
+      v40[0] = 1;
+      *(RECTL *)&v40[1] = a2->rclBounds;
     }
     else if ( a2->iDComplexity == 3 )
     {
@@ -84,9 +83,9 @@ void __fastcall vDIBPatBlt(
   pvRbrush = a4[1].pvRbrush;
   v26[1] = pvRbrush[4];
   v28 = *((_DWORD *)pvRbrush + 7);
-  v32 = *((_DWORD *)pvRbrush + 5) * v13;
+  v32 = v13 * *((_DWORD *)pvRbrush + 5);
   v33 = *((_DWORD *)pvRbrush + 6);
-  v30 = v36->x * v13;
+  v30 = v13 * v36->x;
   y = v36->y;
   if ( v10 )
   {
@@ -94,11 +93,11 @@ void __fastcall vDIBPatBlt(
       goto LABEL_10;
     do
     {
-      v9 = XCLIPOBJ::bEnum((XCLIPOBJ *)a2, 0x144u, (char *)&v40, 0LL);
+      v9 = XCLIPOBJ::bEnum((XCLIPOBJ *)a2, 0x144u, (char *)v40, 0LL);
 LABEL_10:
-      for ( i = 0; i < v40; ++i )
+      for ( i = 0; i < v40[0]; ++i )
       {
-        v16 = (LONG *)&v41[i];
+        v16 = &v40[4 * i + 1];
         v17 = *v16;
         left = a3->left;
         if ( *v16 < a3->left )
@@ -129,8 +128,8 @@ LABEL_10:
         }
         if ( v21 < v23 && v17 < v19 )
         {
-          v29 = (struct _RECTL *)&v41[i];
-          v12(v26);
+          v29 = (struct _RECTL *)&v40[4 * i + 1];
+          ((void (__fastcall *)(_QWORD *))v12)(v26);
         }
       }
     }
@@ -139,6 +138,6 @@ LABEL_10:
   else
   {
     v29 = a3;
-    v12(v26);
+    ((void (__fastcall *)(_QWORD *))v12)(v26);
   }
 }

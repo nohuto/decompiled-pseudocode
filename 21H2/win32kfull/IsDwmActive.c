@@ -1,5 +1,5 @@
 /*
- * XREFs of IsDwmActive @ 0x1C0022920
+ * XREFs of IsDwmActive @ 0x1C00BE370
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCovSampContextCleanup @ 0x1408C4ABC
+ * XREFs of EtwpCovSampContextCleanup @ 0x1408C4A9C
  * Callers:
- *     EtwpCoverageSamplerCleanup @ 0x1408C7BC8 (EtwpCoverageSamplerCleanup.c)
+ *     EtwpCoverageSamplerCleanup @ 0x1408C7BA8 (EtwpCoverageSamplerCleanup.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpCovSampContextRemoveAndFreeModule @ 0x1408C6240 (EtwpCovSampContextRemoveAndFreeModule.c)
- *     EtwpCovSampProcessCleanup @ 0x1408C7150 (EtwpCovSampProcessCleanup.c)
+ *     EtwpCovSampContextRemoveAndFreeModule @ 0x1408C6220 (EtwpCovSampContextRemoveAndFreeModule.c)
+ *     EtwpCovSampProcessCleanup @ 0x1408C7130 (EtwpCovSampProcessCleanup.c)
  */
 
 _QWORD *__fastcall EtwpCovSampContextCleanup(__int64 a1)

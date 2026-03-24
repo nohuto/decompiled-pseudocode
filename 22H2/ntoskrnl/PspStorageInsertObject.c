@@ -1,64 +1,50 @@
 /*
- * XREFs of PspStorageInsertObject @ 0x14077D040
+ * XREFs of PspStorageInsertObject @ 0x140660DB8
  * Callers:
- *     PsInsertSiloContext @ 0x14077CEF0 (PsInsertSiloContext.c)
- *     PsInsertPermanentSiloContextEx @ 0x14077CF6C (PsInsertPermanentSiloContextEx.c)
+ *     PsInsertSiloContext @ 0x1405D25C0 (PsInsertSiloContext.c)
+ *     PsInsertPermanentSiloContextEx @ 0x140660CE4 (PsInsertPermanentSiloContextEx.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     PspGetStorageArray @ 0x14077D134 (PspGetStorageArray.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     PspGetStorageArray @ 0x140660E68 (PspGetStorageArray.c)
  */
 
-__int64 __fastcall PspStorageInsertObject(__int64 a1, __int64 a2, char a3, __int64 a4)
+__int64 __fastcall PspStorageInsertObject(__int64 a1, __int64 a2, char a3, signed __int64 a4)
 {
   __int64 result; // rax
-  unsigned int v7; // edi
-  struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR v9; // rbx
-  __int64 v10; // rax
-  __int64 v11; // rbx
-  __int64 v12; // r14
-  __int64 v13; // rcx
-  volatile signed __int64 *v14; // rbx
-  char v15; // si
-  unsigned int v16; // [rsp+20h] [rbp-28h] BYREF
-  _QWORD v17[4]; // [rsp+28h] [rbp-20h] BYREF
+  ULONG_PTR v7; // rbx
+  signed __int64 v8; // rdx
+  signed __int64 v9; // rsi
+  unsigned int v10; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v11; // [rsp+28h] [rbp-10h] BYREF
 
-  v16 = 0;
-  v17[0] = 0LL;
-  result = PspGetStorageArray(a1, a2, &v16, v17);
-  v7 = result;
+  v10 = 0;
+  v11 = 0LL;
+  result = PspGetStorageArray(a1, a2, &v10, &v11);
   if ( (int)result >= 0 )
   {
-    CurrentThread = KeGetCurrentThread();
-    v9 = v17[0] + 16LL * v16;
-    --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx(v9, 0LL);
-    v10 = *(_QWORD *)(v9 + 8);
-    v11 = v16;
-    v12 = v17[0];
-    if ( v10 )
+    ObfReferenceObject((PVOID)a4);
+    v7 = v11 + 16LL * v10;
+    ExAcquirePushLockSharedEx(v7, 0LL);
+    v8 = a4 | 1;
+    if ( !a3 )
+      v8 = a4;
+    v9 = _InterlockedCompareExchange64((volatile signed __int64 *)(v7 + 8), v8, 0LL);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)v7, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)v7);
+    KeAbPostRelease(v7);
+    if ( v9 )
     {
-      v7 = -1073741637;
+      HalPutDmaAdapter((PADAPTER_OBJECT)a4);
+      return 3221225659LL;
     }
     else
     {
-      ObfReferenceObject((PVOID)a4);
-      v13 = a4 | 1;
-      if ( !a3 )
-        v13 = a4;
-      *(_QWORD *)(v12 + 16LL * (unsigned int)v11 + 8) = v13;
+      return 0LL;
     }
-    v14 = (volatile signed __int64 *)(v12 + 16 * v11);
-    v15 = _InterlockedExchangeAdd64(v14, 0xFFFFFFFFFFFFFFFFuLL);
-    if ( (v15 & 2) != 0 && (v15 & 4) == 0 )
-      ExfTryToWakePushLock(v14);
-    KeAbPostRelease((ULONG_PTR)v14);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    return v7;
   }
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of VslSetPlaceholderPages @ 0x1403A1494
+ * XREFs of VslSetPlaceholderPages @ 0x140394D78
  * Callers:
- *     MiUpdateSlabPagePlaceholderState @ 0x1402EB8BC (MiUpdateSlabPagePlaceholderState.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x140375928 (MiUpdateSlabPagePlaceholderState.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslSetPlaceholderPages(__int64 a1, __int64 a2, int a3, int a4)
+NTSTATUS __fastcall VslSetPlaceholderPages(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   __int64 v5; // rsi
   __int64 v6; // rbp

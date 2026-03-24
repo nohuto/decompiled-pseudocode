@@ -1,5 +1,5 @@
 /*
- * XREFs of KiControlProtectionFaultShadow @ 0x140AF7BC0
+ * XREFs of KiControlProtectionFaultShadow @ 0x140A14BC0
  * Callers:
  *     <none>
  * Callees:
@@ -19,7 +19,7 @@ __int64 __fastcall KiControlProtectionFaultShadow(int a1, int a2, int a3, int a4
   {
     __asm { swapgs }
     _mm_lfence();
-    if ( !_bittest(MK_FP(__GS__, 40984LL), 1u) )
+    if ( !_bittest(MK_FP(__GS__, 36888LL), 1u) )
       __writecr3((unsigned __int64)&v10);
     __writegsqword(0x10u, v5);
     v8 = KeGetPcr()->IdtBase + 1056;

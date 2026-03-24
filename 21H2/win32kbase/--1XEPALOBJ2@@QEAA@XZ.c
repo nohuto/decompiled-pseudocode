@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1XEPALOBJ2@@QEAA@XZ @ 0x1C00DA46C
+ * XREFs of ??1XEPALOBJ2@@QEAA@XZ @ 0x1C00C9218
  * Callers:
- *     bDeletePalette @ 0x1C0093780 (bDeletePalette.c)
- *     ??$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00DBBCC (--$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z.c)
+ *     bDeletePalette @ 0x1C0082990 (bDeletePalette.c)
+ *     ??$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CBDF4 (--$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z.c)
  * Callees:
- *     DEC_SHARE_REF_CNT @ 0x1C0021390 (DEC_SHARE_REF_CNT.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C00D8C28 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     PopThreadGuardedObject @ 0x1C002C080 (PopThreadGuardedObject.c)
+ *     DEC_SHARE_REF_CNT @ 0x1C002E0A0 (DEC_SHARE_REF_CNT.c)
  */
 
 void __fastcall XEPALOBJ2::~XEPALOBJ2(unsigned int **this)
@@ -18,5 +18,5 @@ void __fastcall XEPALOBJ2::~XEPALOBJ2(unsigned int **this)
     DEC_SHARE_REF_CNT(v2);
     *this = 0LL;
   }
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(this + 1);
+  PopThreadGuardedObject(this + 1);
 }

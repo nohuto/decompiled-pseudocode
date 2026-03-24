@@ -1,18 +1,18 @@
 /*
- * XREFs of PspSiloInitializeSystemRootSymlink @ 0x1409AD83C
+ * XREFs of PspSiloInitializeSystemRootSymlink @ 0x140906B10
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1409AD150 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409064C0 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     PsDetachSiloFromCurrentThread @ 0x14031CAB0 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CAD0 (PsAttachSiloToCurrentThread.c)
- *     RtlUShortAdd @ 0x1403223E4 (RtlUShortAdd.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateSymbolicLinkObject @ 0x14041BF60 (ZwCreateSymbolicLinkObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     RtlUShortAdd @ 0x140309CBC (RtlUShortAdd.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14034C200 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14034C220 (PsAttachSiloToCurrentThread.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateSymbolicLinkObject @ 0x1403FB240 (ZwCreateSymbolicLinkObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall PspSiloInitializeSystemRootSymlink(struct _LIST_ENTRY *a1)
@@ -20,7 +20,7 @@ NTSTATUS __fastcall PspSiloInitializeSystemRootSymlink(struct _LIST_ENTRY *a1)
   const UNICODE_STRING *ServerSiloGlobals; // rbx
   NTSTATUS result; // eax
   USHORT v4; // si
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   wchar_t *v6; // rdi
   struct _LIST_ENTRY *v7; // rbx
   int SymbolicLinkObject; // esi
@@ -40,19 +40,19 @@ NTSTATUS __fastcall PspSiloInitializeSystemRootSymlink(struct _LIST_ENTRY *a1)
   v15 = 0;
   Handle = 0LL;
   ServerSiloGlobals = (const UNICODE_STRING *)PsGetServerSiloGlobals((__int64)a1);
-  result = RtlUShortAdd(0x14u, ServerSiloGlobals[79].Length, &pusResult);
+  result = RtlUShortAdd(0x14u, ServerSiloGlobals[67].Length, &pusResult);
   if ( result >= 0 )
   {
     v4 = pusResult;
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, pusResult, 1884517200LL);
-    v6 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, pusResult, 0x70537350u);
+    v6 = PoolWithTag;
+    if ( PoolWithTag )
     {
       *(_QWORD *)&DestinationString.Length = 0LL;
       DestinationString.MaximumLength = v4;
-      DestinationString.Buffer = Pool2;
+      DestinationString.Buffer = PoolWithTag;
       RtlCopyUnicodeString(&DestinationString, &PspSystemRootTargetPrefix);
-      RtlAppendUnicodeStringToString(&DestinationString, ServerSiloGlobals + 79);
+      RtlAppendUnicodeStringToString(&DestinationString, ServerSiloGlobals + 67);
       v10 = 48;
       v13 = &PspSystemRootSymlinkName;
       v12 = 0LL;

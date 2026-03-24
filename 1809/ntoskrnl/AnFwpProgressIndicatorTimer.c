@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwQueryPerformanceCounter @ 0x14016EDF4 (BgpFwQueryPerformanceCounter.c)
- *     BgpFwReleaseLock @ 0x14016F1E8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F238 (BgpFwAcquireLock.c)
- *     BgpTxtDisplayCharacter @ 0x140179EF4 (BgpTxtDisplayCharacter.c)
+ *     BgpFwQueryPerformanceCounter @ 0x14016EE14 (BgpFwQueryPerformanceCounter.c)
+ *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
+ *     BgpTxtDisplayCharacter @ 0x140179F14 (BgpTxtDisplayCharacter.c)
  *     LogFwStat @ 0x14094F754 (LogFwStat.c)
  */
 

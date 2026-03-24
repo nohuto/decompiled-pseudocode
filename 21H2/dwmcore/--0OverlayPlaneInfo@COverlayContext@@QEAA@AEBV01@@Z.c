@@ -1,21 +1,24 @@
 /*
- * XREFs of ??0OverlayPlaneInfo@COverlayContext@@QEAA@AEBV01@@Z @ 0x180005DD0
+ * XREFs of ??0OverlayPlaneInfo@COverlayContext@@QEAA@AEBV01@@Z @ 0x180179EB0
  * Callers:
- *     ?PushCandidates@COverlayContext@@AEAAXPEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18001CDE8 (-PushCandidates@COverlayContext@@AEAAXPEAV-$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@.c)
- *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z @ 0x1800B9510 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z.c)
+ *     ?PushCandidates@COverlayContext@@AEAAXPEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18002FC74 (-PushCandidates@COverlayContext@@AEAAXPEAV-$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@.c)
+ *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@PEBVCDirtyRegion@@@Z @ 0x180091230 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@PEBVCDirtyRegion@@@Z.c)
  * Callees:
- *     ??0?$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCCompositionSurfaceInfo@@@Z @ 0x1800081E8 (--0-$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCComposition.c)
- *     ??0?$shared_ptr@UShapeData@CCursorState@@@std@@QEAA@AEBV01@@Z @ 0x18000889C (--0-$shared_ptr@UShapeData@CCursorState@@@std@@QEAA@AEBV01@@Z.c)
+ *     ??0?$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCCompositionSurfaceInfo@@@Z @ 0x180025B70 (--0-$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCComposition.c)
  */
 
 COverlayContext::OverlayPlaneInfo *__fastcall COverlayContext::OverlayPlaneInfo::OverlayPlaneInfo(
         COverlayContext::OverlayPlaneInfo *this,
         const struct COverlayContext::OverlayPlaneInfo *a2)
 {
+  __int64 v4; // rax
+
   *(_QWORD *)this = *(_QWORD *)a2;
-  *((_QWORD *)this + 1) = *((_QWORD *)a2 + 1);
   wil::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>(
-    (char *)this + 16,
+    (_QWORD *)this + 1,
+    *((_QWORD *)a2 + 1));
+  wil::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>(
+    (_QWORD *)this + 2,
     *((_QWORD *)a2 + 2));
   *((_QWORD *)this + 3) = *((_QWORD *)a2 + 3);
   *((_OWORD *)this + 2) = *((_OWORD *)a2 + 2);
@@ -26,23 +29,31 @@ COverlayContext::OverlayPlaneInfo *__fastcall COverlayContext::OverlayPlaneInfo:
   *((_OWORD *)this + 7) = *((_OWORD *)a2 + 7);
   *((_OWORD *)this + 8) = *((_OWORD *)a2 + 8);
   *((_OWORD *)this + 9) = *((_OWORD *)a2 + 9);
-  std::shared_ptr<CCursorState::ShapeData>::shared_ptr<CCursorState::ShapeData>((char *)this + 160, (char *)a2 + 160);
+  *((_QWORD *)this + 20) = 0LL;
+  *((_QWORD *)this + 21) = 0LL;
+  v4 = *((_QWORD *)a2 + 21);
+  if ( v4 )
+    _InterlockedIncrement((volatile signed __int32 *)(v4 + 8));
+  *((_QWORD *)this + 20) = *((_QWORD *)a2 + 20);
+  *((_QWORD *)this + 21) = *((_QWORD *)a2 + 21);
   *((_BYTE *)this + 176) = *((_BYTE *)a2 + 176);
   *((_BYTE *)this + 177) = *((_BYTE *)a2 + 177);
   *((_BYTE *)this + 178) = *((_BYTE *)a2 + 178);
   *((_BYTE *)this + 179) = *((_BYTE *)a2 + 179);
   *((_BYTE *)this + 180) = *((_BYTE *)a2 + 180);
   *((_BYTE *)this + 181) = *((_BYTE *)a2 + 181);
-  *((_BYTE *)this + 182) = *((_BYTE *)a2 + 182);
-  *((_BYTE *)this + 183) = *((_BYTE *)a2 + 183);
-  *((_BYTE *)this + 184) = *((_BYTE *)a2 + 184);
-  *((_DWORD *)this + 47) = *((_DWORD *)a2 + 47);
+  *((_QWORD *)this + 23) = *((_QWORD *)a2 + 23);
   *((_DWORD *)this + 48) = *((_DWORD *)a2 + 48);
   *((_DWORD *)this + 49) = *((_DWORD *)a2 + 49);
   *((_DWORD *)this + 50) = *((_DWORD *)a2 + 50);
-  *((_BYTE *)this + 204) = *((_BYTE *)a2 + 204);
+  *((_DWORD *)this + 51) = *((_DWORD *)a2 + 51);
   *((_DWORD *)this + 52) = *((_DWORD *)a2 + 52);
   *((_DWORD *)this + 53) = *((_DWORD *)a2 + 53);
-  *((_DWORD *)this + 54) = *((_DWORD *)a2 + 54);
+  *((_BYTE *)this + 216) = *((_BYTE *)a2 + 216);
+  *((_BYTE *)this + 217) = *((_BYTE *)a2 + 217);
+  *((_BYTE *)this + 218) = *((_BYTE *)a2 + 218);
+  *((_BYTE *)this + 219) = *((_BYTE *)a2 + 219);
+  *((_BYTE *)this + 220) = *((_BYTE *)a2 + 220);
+  *((_BYTE *)this + 221) = *((_BYTE *)a2 + 221);
   return this;
 }

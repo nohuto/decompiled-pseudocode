@@ -1,12 +1,12 @@
 /*
- * XREFs of KeTimeOutQueueWaiters @ 0x140106F94
+ * XREFs of KeTimeOutQueueWaiters @ 0x140106FB4
  * Callers:
- *     ExpWorkerFactoryManagerThread @ 0x14017FE80 (ExpWorkerFactoryManagerThread.c)
- *     ExpWorkQueueManagerThread @ 0x140740AC0 (ExpWorkQueueManagerThread.c)
+ *     ExpWorkerFactoryManagerThread @ 0x14017FEA0 (ExpWorkerFactoryManagerThread.c)
+ *     ExpWorkQueueManagerThread @ 0x140740AA0 (ExpWorkQueueManagerThread.c)
  * Callees:
- *     KiExitDispatcher @ 0x1400C2F50 (KiExitDispatcher.c)
- *     KiTryUnwaitThread @ 0x1400C4DB0 (KiTryUnwaitThread.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBDF0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
+ *     KiTryUnwaitThread @ 0x1400C4DD0 (KiTryUnwaitThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
  */
 
 __int64 __fastcall KeTimeOutQueueWaiters(__int64 a1, unsigned __int64 a2, __int64 a3)

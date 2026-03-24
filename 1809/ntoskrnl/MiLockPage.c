@@ -1,7 +1,7 @@
 /*
- * XREFs of MiLockPage @ 0x1402BF5F0
+ * XREFs of MiLockPage @ 0x1402BF6F0
  * Callers:
- *     MiScanPagefileSpace @ 0x140853450 (MiScanPagefileSpace.c)
+ *     MiScanPagefileSpace @ 0x140853430 (MiScanPagefileSpace.c)
  *     MmAreMdlPagesLocked @ 0x140924CC8 (MmAreMdlPagesLocked.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)

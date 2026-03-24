@@ -1,65 +1,63 @@
 /*
- * XREFs of ExpWatchProductTypeInitialization @ 0x140B36EB4
+ * XREFs of ExpWatchProductTypeInitialization @ 0x140A41034
  * Callers:
- *     ExInitSystemPhase2 @ 0x140B37968 (ExInitSystemPhase2.c)
+ *     ExInitSystemPhase2 @ 0x140A40FE4 (ExInitSystemPhase2.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcsncmp @ 0x1403DB3F0 (wcsncmp.c)
- *     wcscat_s @ 0x1403DF690 (wcscat_s.c)
- *     wcscpy_s @ 0x1403DF730 (wcscpy_s.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     NtQueryKey @ 0x1406D6C60 (NtQueryKey.c)
- *     NtEnumerateKey @ 0x1406DBEC0 (NtEnumerateKey.c)
- *     NtQueryValueKey @ 0x1406E2F20 (NtQueryValueKey.c)
- *     NtClose @ 0x1406E4570 (NtClose.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     NtNotifyChangeKey @ 0x140767D00 (NtNotifyChangeKey.c)
- *     NtOpenKey @ 0x1407ACA00 (NtOpenKey.c)
- *     ExpGetNtProductTypeFromLicenseValue @ 0x140801AC4 (ExpGetNtProductTypeFromLicenseValue.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     ExpLicenseWatchInitWorker @ 0x140B3734C (ExpLicenseWatchInitWorker.c)
- *     ExpUpdateProductSuiteTypeInRegistry @ 0x140B37414 (ExpUpdateProductSuiteTypeInRegistry.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcsncmp @ 0x1403D3940 (wcsncmp.c)
+ *     wcscat_s @ 0x1403D7AD0 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403D7B70 (wcscpy_s.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     NtEnumerateKey @ 0x1405F3E50 (NtEnumerateKey.c)
+ *     NtClose @ 0x14063E0A0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     NtQueryValueKey @ 0x140645200 (NtQueryValueKey.c)
+ *     NtQueryKey @ 0x140645C90 (NtQueryKey.c)
+ *     NtOpenKey @ 0x1406778D0 (NtOpenKey.c)
+ *     NtNotifyChangeKey @ 0x1406DBFB0 (NtNotifyChangeKey.c)
+ *     ExpGetNtProductTypeFromLicenseValue @ 0x140793BA8 (ExpGetNtProductTypeFromLicenseValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExpUpdateProductSuiteTypeInRegistry @ 0x140A414BC (ExpUpdateProductSuiteTypeInRegistry.c)
+ *     ExpLicenseWatchInitWorker @ 0x140A41774 (ExpLicenseWatchInitWorker.c)
  */
 
-char ExpWatchProductTypeInitialization()
+char __fastcall ExpWatchProductTypeInitialization(__int64 a1)
 {
-  __int64 v0; // rcx
-  PVOID v1; // rsi
+  struct _DMA_ADAPTER *v1; // rsi
   int v2; // eax
   NTSTATUS v3; // eax
-  PVOID v4; // rdi
-  int v5; // eax
+  struct _DMA_ADAPTER *v4; // rdi
+  int ValueKey; // eax
   int v6; // eax
   int v7; // eax
   NTSTATUS v8; // eax
-  char *Pool2; // rax
+  PVOID PoolWithTag; // rax
   int v10; // eax
   size_t v11; // r8
   int v12; // eax
-  __int64 v14; // rax
-  char v15; // r14
-  __int64 v16; // rax
-  HANDLE v17; // r12
-  int Key; // eax
-  unsigned int v19; // r15d
-  __int64 v20; // rsi
-  bool v21; // di
-  ULONG_PTR v22; // r14
-  __int64 v23; // r13
-  ULONG_PTR v24; // r8
-  unsigned int v25; // edx
+  char v14; // r14
+  __int64 v15; // rax
+  HANDLE v16; // r12
+  int v17; // eax
+  unsigned int v18; // r15d
+  wchar_t *v19; // rsi
+  bool v20; // di
+  SIZE_T v21; // r14
+  _DWORD *v22; // r13
+  ULONG_PTR v23; // r8
+  unsigned int v24; // edx
   unsigned int i; // r14d
-  __int64 v27; // rax
-  __int64 v28; // rdi
+  __int64 v26; // rax
+  __int64 v27; // rdi
+  int v28; // eax
   int v29; // eax
-  int v30; // eax
-  wchar_t *v31; // rax
-  __int64 v32; // rcx
+  wchar_t *v30; // rax
+  __int64 v31; // rcx
+  int v32; // eax
   int v33; // eax
-  int v34; // eax
   PVOID *Object; // [rsp+20h] [rbp-E0h]
   PVOID *Objecta; // [rsp+20h] [rbp-E0h]
   PVOID *Objectb; // [rsp+20h] [rbp-E0h]
@@ -68,67 +66,78 @@ char ExpWatchProductTypeInitialization()
   PVOID *Objecte; // [rsp+20h] [rbp-E0h]
   PVOID *Objectf; // [rsp+20h] [rbp-E0h]
   ULONG_PTR BugCheckParameter2; // [rsp+50h] [rbp-B0h] BYREF
-  UNICODE_STRING v43; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v44; // [rsp+68h] [rbp-98h] BYREF
-  PVOID v45; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v46; // [rsp+78h] [rbp-88h]
-  __int64 v47; // [rsp+80h] [rbp-80h]
+  UNICODE_STRING v42; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v43; // [rsp+68h] [rbp-98h] BYREF
+  PVOID v44; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v45; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v46; // [rsp+80h] [rbp-80h]
   UNICODE_STRING *p_DestinationString; // [rsp+88h] [rbp-78h]
-  __int64 v49; // [rsp+90h] [rbp-70h]
-  __int128 v50; // [rsp+98h] [rbp-68h]
+  __int64 v48; // [rsp+90h] [rbp-70h]
+  __int128 v49; // [rsp+98h] [rbp-68h]
   UNICODE_STRING DestinationString; // [rsp+A8h] [rbp-58h] BYREF
-  HANDLE Handle; // [rsp+B8h] [rbp-48h]
-  UNICODE_STRING v53; // [rsp+C0h] [rbp-40h] BYREF
-  __int128 v54; // [rsp+D0h] [rbp-30h] BYREF
-  __int128 v55; // [rsp+E0h] [rbp-20h]
-  __int128 v56; // [rsp+F0h] [rbp-10h]
-  __int128 v57; // [rsp+100h] [rbp+0h] BYREF
-  char v58[12]; // [rsp+110h] [rbp+10h] BYREF
-  int v59; // [rsp+11Ch] [rbp+1Ch]
+  HANDLE Handle; // [rsp+B8h] [rbp-48h] BYREF
+  UNICODE_STRING v52; // [rsp+C0h] [rbp-40h] BYREF
+  __int128 v53; // [rsp+D0h] [rbp-30h] BYREF
+  __int128 v54; // [rsp+E0h] [rbp-20h]
+  __int128 v55; // [rsp+F0h] [rbp-10h]
+  __int128 v56; // [rsp+100h] [rbp+0h] BYREF
+  _BYTE v57[12]; // [rsp+110h] [rbp+10h] BYREF
+  int v58; // [rsp+11Ch] [rbp+1Ch]
 
-  v0 = MmWriteableSharedUserData;
-  v46 = 48LL;
-  v49 = 576LL;
-  DestinationString = 0LL;
+  v45 = 48LL;
   LODWORD(BugCheckParameter2) = 0;
-  *(_BYTE *)(MmWriteableSharedUserData + 616) = 1;
+  v48 = 576LL;
+  DestinationString = 0LL;
   v1 = 0LL;
   Handle = 0LL;
-  v43 = 0LL;
+  v56 = 0LL;
+  MEMORY[0xFFFFF78000000268] = 1;
+  v42 = 0LL;
   ExpSetupModeDetected = 0;
-  v57 = 0LL;
   ExpSystemSetupInProgress = 0;
-  ExpGetNtProductTypeFromLicenseValue((_DWORD *)(v0 + 612));
+  ExpGetNtProductTypeFromLicenseValue(a1);
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\Setup");
-  v47 = 0LL;
+  v46 = 0LL;
   p_DestinationString = &DestinationString;
-  v50 = 0LL;
-  v2 = NtOpenKey();
+  v49 = 0LL;
+  v2 = NtOpenKey((int)&ExpSetupKey, 131103, (int)&v45);
   if ( v2 < 0 )
     KeBugCheckEx(0x9Au, 2uLL, (unsigned int)v2, 0LL, 0LL);
-  v45 = 0LL;
-  v3 = ObReferenceObjectByHandle(ExpSetupKey, 0, (POBJECT_TYPE)CmKeyObjectType, 0, &v45, 0LL);
-  v4 = v45;
+  v44 = 0LL;
+  v3 = ObReferenceObjectByHandle(ExpSetupKey, 0, (POBJECT_TYPE)CmKeyObjectType, 0, &v44, 0LL);
+  v4 = (struct _DMA_ADAPTER *)v44;
   if ( v3 < 0 )
     KeBugCheckEx(0x9Au, 0xBuLL, (unsigned int)v3, 0LL, 0LL);
-  RtlInitUnicodeString(&v43, L"SetupType");
+  RtlInitUnicodeString(&v42, L"SetupType");
   LODWORD(Object) = 72;
-  v5 = NtQueryValueKey(ExpSetupKey, &v43, 2, v58, (size_t)Object, (unsigned int *)&BugCheckParameter2);
-  if ( v5 < 0 )
-    KeBugCheckEx(0x9Au, 3uLL, (unsigned int)v5, 0LL, 0LL);
-  if ( v59 == 1 || v59 == 4 )
+  ValueKey = NtQueryValueKey(
+               ExpSetupKey,
+               (unsigned __int64)&v42,
+               2LL,
+               (unsigned __int64)v57,
+               (size_t)Object,
+               (unsigned __int64)&BugCheckParameter2);
+  if ( ValueKey < 0 )
+    KeBugCheckEx(0x9Au, 3uLL, (unsigned int)ValueKey, 0LL, 0LL);
+  if ( v58 == 1 || v58 == 4 )
   {
     ExpSetupModeDetected = 1;
-    *(_BYTE *)(MmWriteableSharedUserData + 616) = 0;
+    MEMORY[0xFFFFF78000000268] = 0;
     ObfDereferenceObjectWithTag(v4, 0x746C6644u);
     v4 = 0LL;
   }
-  RtlInitUnicodeString(&v43, L"SystemSetupInProgress");
+  RtlInitUnicodeString(&v42, L"SystemSetupInProgress");
   LODWORD(Objecta) = 72;
-  v6 = NtQueryValueKey(ExpSetupKey, &v43, 2, v58, (size_t)Objecta, (unsigned int *)&BugCheckParameter2);
+  v6 = NtQueryValueKey(
+         ExpSetupKey,
+         (unsigned __int64)&v42,
+         2LL,
+         (unsigned __int64)v57,
+         (size_t)Objecta,
+         (unsigned __int64)&BugCheckParameter2);
   if ( v6 < 0 )
     KeBugCheckEx(0x9Au, 3uLL, (unsigned int)v6, 0LL, 0LL);
-  if ( v59 == 1 )
+  if ( v58 == 1 )
     ExpSystemSetupInProgress = 1;
   ExpLicenseWatchInitWorker();
   if ( InitIsWinPEMode )
@@ -136,16 +145,16 @@ char ExpWatchProductTypeInitialization()
     ExpControlKey = v4;
     return 1;
   }
-  qword_140C31830 = (__int64)ExpWatchProductTypeWork;
-  qword_140C31838 = 0LL;
+  qword_140C19530 = (__int64)ExpWatchProductTypeWork;
+  qword_140C19538 = 0LL;
   ExpWatchProductTypeWorkItem = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\ProductOptions");
-  LODWORD(v46) = 48;
+  LODWORD(v45) = 48;
   p_DestinationString = &DestinationString;
-  v47 = 0LL;
-  LODWORD(v49) = 576;
-  v50 = 0LL;
-  v7 = NtOpenKey();
+  v46 = 0LL;
+  LODWORD(v48) = 576;
+  v49 = 0LL;
+  v7 = NtOpenKey((int)&ExpProductTypeKey, 131103, (int)&v45);
   if ( v7 < 0 )
   {
     if ( !ExpSetupModeDetected )
@@ -155,22 +164,28 @@ char ExpWatchProductTypeInitialization()
   {
     if ( !ExpSetupModeDetected )
     {
-      v45 = 0LL;
-      v8 = ObReferenceObjectByHandle(ExpProductTypeKey, 0, (POBJECT_TYPE)CmKeyObjectType, 0, &v45, 0LL);
-      v1 = v45;
+      v44 = 0LL;
+      v8 = ObReferenceObjectByHandle(ExpProductTypeKey, 0, (POBJECT_TYPE)CmKeyObjectType, 0, &v44, 0LL);
+      v1 = (struct _DMA_ADAPTER *)v44;
       if ( v8 < 0 )
         KeBugCheckEx(0x9Au, 0xCuLL, (unsigned int)v8, 0LL, 0LL);
     }
     ExpControlKey = v4;
-    qword_140C31858 = v1;
+    DmaAdapter = v1;
     ExpUpdateProductSuiteTypeInRegistry();
-    RtlInitUnicodeString(&v43, L"ProductType");
-    Pool2 = (char *)ExAllocatePool2(256LL, 0x22uLL, 0x2079654Bu);
-    ExpProductTypeValueInfo = (__int64)Pool2;
-    if ( Pool2 )
+    RtlInitUnicodeString(&v42, L"ProductType");
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x22uLL, 0x2079654Bu);
+    ExpProductTypeValueInfo = (__int64)PoolWithTag;
+    if ( PoolWithTag )
     {
       LODWORD(Objectb) = 34;
-      v10 = NtQueryValueKey(ExpProductTypeKey, &v43, 2, Pool2, (size_t)Objectb, (unsigned int *)&BugCheckParameter2);
+      v10 = NtQueryValueKey(
+              ExpProductTypeKey,
+              (unsigned __int64)&v42,
+              2LL,
+              (unsigned __int64)PoolWithTag,
+              (size_t)Objectb,
+              (unsigned __int64)&BugCheckParameter2);
       if ( v10 < 0 )
       {
         if ( !ExpSetupModeDetected )
@@ -178,29 +193,29 @@ char ExpWatchProductTypeInitialization()
       }
       else
       {
-        RtlInitUnicodeString(&v43, L"ProductSuite");
+        RtlInitUnicodeString(&v42, L"ProductSuite");
         LODWORD(Objectc) = 16;
         if ( (unsigned int)NtQueryValueKey(
                              ExpProductTypeKey,
-                             &v43,
-                             2,
-                             (char *)&v57,
+                             (unsigned __int64)&v42,
+                             2LL,
+                             (unsigned __int64)&v56,
                              (size_t)Objectc,
-                             (unsigned int *)&BugCheckParameter2) != -2147483643 )
+                             (unsigned __int64)&BugCheckParameter2) != -2147483643 )
           goto LABEL_18;
         LODWORD(BugCheckParameter2) = BugCheckParameter2 + 16;
-        qword_140C70E08 = (PVOID)ExAllocatePool2(256LL, (unsigned int)BugCheckParameter2, 0x2079654Bu);
-        if ( !qword_140C70E08 )
+        qword_140C542A0 = ExAllocatePoolWithTag(PagedPool, (unsigned int)BugCheckParameter2, 0x2079654Bu);
+        if ( !qword_140C542A0 )
           KeBugCheckEx(0x9Au, 0x14uLL, (unsigned int)BugCheckParameter2, 2uLL, 0LL);
         LODWORD(Objectd) = BugCheckParameter2;
         if ( (int)NtQueryValueKey(
                     ExpProductTypeKey,
-                    &v43,
-                    2,
-                    (char *)qword_140C70E08,
+                    (unsigned __int64)&v42,
+                    2LL,
+                    (unsigned __int64)qword_140C542A0,
                     (size_t)Objectd,
-                    (unsigned int *)&BugCheckParameter2) >= 0
-          || (ExFreePoolWithTag(qword_140C70E08, 0), qword_140C70E08 = 0LL, !ExpSetupModeDetected) )
+                    (unsigned __int64)&BugCheckParameter2) >= 0
+          || (ExFreePoolWithTag(qword_140C542A0, 0), qword_140C542A0 = 0LL, !ExpSetupModeDetected) )
         {
 LABEL_18:
           v11 = -1LL;
@@ -211,17 +226,16 @@ LABEL_18:
             && (_DWORD)InitSafeBootMode == 3
             && !ExpSetupModeDetected )
           {
-            v14 = MmWriteableSharedUserData;
-            *(_BYTE *)(MmWriteableSharedUserData + 616) = 1;
-            *(_DWORD *)(v14 + 612) = 3;
+            MEMORY[0xFFFFF78000000268] = 1;
+            MEMORY[0xFFFFF78000000264] = 3;
           }
           v12 = NtNotifyChangeKey(
-                  ExpProductTypeKey,
-                  0LL,
-                  (void (__stdcall *)(POPLOCK))&ExpWatchProductTypeWorkItem,
+                  (int)ExpProductTypeKey,
+                  0,
+                  (__int64)&ExpWatchProductTypeWorkItem,
                   1LL,
-                  ExpProductTypeIoSb,
-                  0x10000005u,
+                  &ExpProductTypeIoSb,
+                  268435461,
                   0,
                   &ExpProductTypeChangeBuffer,
                   4,
@@ -231,122 +245,122 @@ LABEL_18:
             RtlInitUnicodeString(
               &DestinationString,
               L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\LicenseInfoSuites");
-            LODWORD(v46) = 48;
+            LODWORD(v45) = 48;
             p_DestinationString = &DestinationString;
-            v47 = 0LL;
-            LODWORD(v49) = 576;
-            v50 = 0LL;
-            if ( (int)NtOpenKey() >= 0 )
+            v46 = 0LL;
+            LODWORD(v48) = 576;
+            v49 = 0LL;
+            if ( (int)NtOpenKey((int)&Handle, 131097, (int)&v45) >= 0 )
             {
-              LODWORD(v44) = 0;
-              v54 = 0LL;
-              v15 = 0;
-              v16 = -1LL;
-              v55 = 0LL;
-              v56 = 0LL;
-              v43 = 0LL;
+              LODWORD(v43) = 0;
               v53 = 0LL;
+              v14 = 0;
+              v15 = -1LL;
+              v54 = 0LL;
+              v55 = 0LL;
+              v42 = 0LL;
+              v52 = 0LL;
               do
-                ++v16;
-              while ( aRegistryMachin_163[v16] );
-              v43.Length = 2 * (v16 + 64);
-              v43.MaximumLength = v43.Length;
-              v43.Buffer = (wchar_t *)ExAllocatePool2(64LL, v43.Length, 0x2079654Bu);
-              if ( !v43.Buffer )
-                KeBugCheckEx(0x9Au, 0x14uLL, v43.Length, 3uLL, 0LL);
-              v17 = Handle;
-              Key = NtQueryKey(Handle, 2u, (unsigned __int64)&v54, 0x30u, (unsigned int *)&v44);
-              if ( Key < 0 )
-                KeBugCheckEx(0x9Au, 0x13uLL, Key, 1uLL, 0LL);
-              v19 = 2 * DWORD2(v55) + 56;
-              if ( v19 < DWORD2(v55) || v19 < 2 * (unsigned __int64)(unsigned int)(DWORD2(v55) + 16) )
-                v15 = 1;
-              v20 = ExAllocatePool2(64LL, v19, 0x2079654Bu);
-              if ( !v20 || v15 )
-                KeBugCheckEx(0x9Au, 0x14uLL, v19, 4uLL, 0LL);
-              LODWORD(v45) = DWORD2(v56) + 32;
-              v21 = (unsigned int)(DWORD2(v56) + 32) < DWORD2(v56);
-              v22 = (unsigned int)(DWORD2(v56) + 32);
-              v23 = ExAllocatePool2(64LL, v22, 0x2079654Bu);
-              if ( !v23 || v21 )
-                KeBugCheckEx(0x9Au, 0x14uLL, v22, 5uLL, 0LL);
-              ExpLicenseInfoCount = DWORD1(v55);
-              v24 = 80LL * DWORD1(v55);
-              if ( v24 > 0xFFFFFFFF )
-                KeBugCheckEx(0x9Au, 0x14uLL, v24, 6uLL, 0LL);
-              ExpLicenseInfo = ExAllocatePool2(64LL, (unsigned int)v24, 0x2079654Bu);
+                ++v15;
+              while ( aRegistryMachin_157[v15] );
+              v42.Length = 2 * (v15 + 64);
+              v42.MaximumLength = v42.Length;
+              v42.Buffer = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, v42.Length, 0x2079654Bu);
+              if ( !v42.Buffer )
+                KeBugCheckEx(0x9Au, 0x14uLL, v42.Length, 3uLL, 0LL);
+              v16 = Handle;
+              v17 = NtQueryKey(Handle, 2u, &v53, 0x30u, &v43);
+              if ( v17 < 0 )
+                KeBugCheckEx(0x9Au, 0x13uLL, v17, 1uLL, 0LL);
+              v18 = 2 * DWORD2(v54) + 56;
+              if ( v18 < DWORD2(v54) || v18 < 2 * (unsigned __int64)(unsigned int)(DWORD2(v54) + 16) )
+                v14 = 1;
+              v19 = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, v18, 0x2079654Bu);
+              if ( !v19 || v14 )
+                KeBugCheckEx(0x9Au, 0x14uLL, v18, 4uLL, 0LL);
+              LODWORD(v44) = DWORD2(v55) + 32;
+              v20 = (unsigned int)(DWORD2(v55) + 32) < DWORD2(v55);
+              v21 = (unsigned int)(DWORD2(v55) + 32);
+              v22 = ExAllocatePoolWithTag(NonPagedPoolNx, v21, 0x2079654Bu);
+              if ( !v22 || v20 )
+                KeBugCheckEx(0x9Au, 0x14uLL, v21, 5uLL, 0LL);
+              ExpLicenseInfoCount = DWORD1(v54);
+              v23 = 80LL * DWORD1(v54);
+              if ( v23 > 0xFFFFFFFF )
+                KeBugCheckEx(0x9Au, 0x14uLL, v23, 6uLL, 0LL);
+              ExpLicenseInfo = (__int64)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)v23, 0x2079654Bu);
               if ( !ExpLicenseInfo )
                 KeBugCheckEx(0x9Au, 0x14uLL, 80LL * (unsigned int)ExpLicenseInfoCount, 6uLL, 0LL);
-              RtlInitUnicodeString(&v53, L"ConcurrentLimit");
-              v25 = 0;
-              for ( i = 0; ; v25 = i )
+              RtlInitUnicodeString(&v52, L"ConcurrentLimit");
+              v24 = 0;
+              for ( i = 0; ; v24 = i )
               {
-                LODWORD(Objecte) = v19;
-                v34 = NtEnumerateKey(v17, v25, 0, (volatile void *)v20, (SIZE_T)Objecte, &v44);
-                if ( v34 == -2147483622 )
+                LODWORD(Objecte) = v18;
+                v33 = NtEnumerateKey(v16, v24, 0, v19, (SIZE_T)Objecte, &v43);
+                if ( v33 == -2147483622 )
                   break;
-                if ( v34 < 0 )
-                  KeBugCheckEx(0x9Au, 0x1AuLL, v34, 0LL, 0LL);
-                *(_WORD *)(v20 + 2 * ((unsigned __int64)*(unsigned int *)(v20 + 12) >> 1) + 16) = 0;
+                if ( v33 < 0 )
+                  KeBugCheckEx(0x9Au, 0x1AuLL, v33, 0LL, 0LL);
+                v19[((unsigned __int64)*((unsigned int *)v19 + 3) >> 1) + 8] = 0;
                 wcscpy_s(
-                  v43.Buffer,
-                  (unsigned __int64)v43.MaximumLength >> 1,
+                  v42.Buffer,
+                  (unsigned __int64)v42.MaximumLength >> 1,
                   L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\LicenseInfoSuites");
-                wcscat_s(v43.Buffer, (unsigned __int64)v43.MaximumLength >> 1, L"\\");
-                wcscat_s(v43.Buffer, (unsigned __int64)v43.MaximumLength >> 1, (const wchar_t *)(v20 + 16));
-                v27 = -1LL;
+                wcscat_s(v42.Buffer, (unsigned __int64)v42.MaximumLength >> 1, L"\\");
+                wcscat_s(v42.Buffer, (unsigned __int64)v42.MaximumLength >> 1, v19 + 8);
+                v26 = -1LL;
                 do
-                  ++v27;
-                while ( v43.Buffer[v27] );
-                v47 = 0LL;
-                v43.Length = 2 * v27;
-                LODWORD(v46) = 48;
-                p_DestinationString = &v43;
-                LODWORD(v49) = 576;
-                v50 = 0LL;
-                v28 = 80LL * i;
-                v29 = NtOpenKey();
-                if ( v29 < 0 )
-                  KeBugCheckEx(0x9Au, 0x16uLL, v29, 1uLL, 0LL);
-                LODWORD(Objectf) = (_DWORD)v45;
-                v30 = NtQueryValueKey(
-                        *(HANDLE *)(v28 + ExpLicenseInfo),
-                        &v53,
-                        2,
-                        (char *)v23,
+                  ++v26;
+                while ( v42.Buffer[v26] );
+                v46 = 0LL;
+                v42.Length = 2 * v26;
+                LODWORD(v45) = 48;
+                p_DestinationString = &v42;
+                LODWORD(v48) = 576;
+                v49 = 0LL;
+                v27 = 80LL * i;
+                v28 = NtOpenKey((int)v27 + (int)ExpLicenseInfo, 131103, (int)&v45);
+                if ( v28 < 0 )
+                  KeBugCheckEx(0x9Au, 0x16uLL, v28, 1uLL, 0LL);
+                LODWORD(Objectf) = (_DWORD)v44;
+                v29 = NtQueryValueKey(
+                        *(HANDLE *)(v27 + ExpLicenseInfo),
+                        (unsigned __int64)&v52,
+                        2LL,
+                        (unsigned __int64)v22,
                         (size_t)Objectf,
-                        (unsigned int *)&v44);
-                if ( v30 < 0 )
-                  KeBugCheckEx(0x9Au, 0x13uLL, v30, 2uLL, 0LL);
-                v31 = (wchar_t *)ExAllocatePool2(64LL, v43.Length, 0x2079654Bu);
-                *(_QWORD *)(v28 + ExpLicenseInfo + 16) = v31;
-                if ( !v31 )
-                  KeBugCheckEx(0x9Au, 0x14uLL, v43.Length, 7uLL, 0LL);
-                wcscpy_s(v31, (unsigned __int64)v43.Length >> 1, v43.Buffer);
-                v32 = v28 + ExpLicenseInfo;
-                *(_DWORD *)(v32 + 8) = *(_DWORD *)(v23 + 12);
-                *(_QWORD *)(v32 + 48) = v32;
-                *(_QWORD *)(v32 + 24) = 0LL;
-                *(_QWORD *)(v32 + 40) = ExpWatchLicenseInfoWork;
-                v33 = NtNotifyChangeKey(
-                        *(void **)v32,
-                        0LL,
-                        (void (__stdcall *)(POPLOCK))(v32 + 24),
+                        (unsigned __int64)&v43);
+                if ( v29 < 0 )
+                  KeBugCheckEx(0x9Au, 0x13uLL, v29, 2uLL, 0LL);
+                v30 = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, v42.Length, 0x2079654Bu);
+                *(_QWORD *)(v27 + ExpLicenseInfo + 16) = v30;
+                if ( !v30 )
+                  KeBugCheckEx(0x9Au, 0x14uLL, v42.Length, 7uLL, 0LL);
+                wcscpy_s(v30, (unsigned __int64)v42.Length >> 1, v42.Buffer);
+                v31 = v27 + ExpLicenseInfo;
+                *(_DWORD *)(v31 + 8) = v22[3];
+                *(_QWORD *)(v31 + 48) = v31;
+                *(_QWORD *)(v31 + 24) = 0LL;
+                *(_QWORD *)(v31 + 40) = ExpWatchLicenseInfoWork;
+                v32 = NtNotifyChangeKey(
+                        *(_QWORD *)v31,
+                        0,
+                        v31 + 24,
                         1LL,
-                        (NTSTATUS *)(v32 + 56),
-                        0x10000005u,
+                        (volatile void *)(v31 + 56),
+                        268435461,
                         1,
-                        (volatile void *)(v32 + 72),
+                        (volatile void *)(v31 + 72),
                         4,
                         1);
-                if ( v33 < 0 )
-                  KeBugCheckEx(0x9Au, 0x18uLL, v33, 1uLL, 0LL);
+                if ( v32 < 0 )
+                  KeBugCheckEx(0x9Au, 0x18uLL, v32, 1uLL, 0LL);
                 ++i;
               }
-              ExFreePoolWithTag((PVOID)v20, 0);
-              ExFreePoolWithTag((PVOID)v23, 0);
-              ExFreePoolWithTag(v43.Buffer, 0);
-              NtClose(v17);
+              ExFreePoolWithTag(v19, 0);
+              ExFreePoolWithTag(v22, 0);
+              ExFreePoolWithTag(v42.Buffer, 0);
+              NtClose(v16);
             }
             return 1;
           }

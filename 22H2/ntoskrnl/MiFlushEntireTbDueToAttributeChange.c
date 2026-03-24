@@ -1,27 +1,21 @@
 /*
- * XREFs of MiFlushEntireTbDueToAttributeChange @ 0x14036EF4C
+ * XREFs of MiFlushEntireTbDueToAttributeChange @ 0x140284A0C
  * Callers:
- *     MiChangePageAttributeContiguous @ 0x14021A6C0 (MiChangePageAttributeContiguous.c)
- *     MiFlushCacheForAttributeChange @ 0x14021ABA4 (MiFlushCacheForAttributeChange.c)
- *     MiChangePageAttributeBatch @ 0x14021C9D4 (MiChangePageAttributeBatch.c)
- *     MiCopyPage @ 0x140283CF0 (MiCopyPage.c)
- *     MiValidateInPage @ 0x1402DC480 (MiValidateInPage.c)
- *     MiReferenceIoPages @ 0x140336360 (MiReferenceIoPages.c)
- *     MiCombiningInProgress @ 0x14036EBEC (MiCombiningInProgress.c)
- *     MiChangePageAttribute @ 0x14036ED6C (MiChangePageAttribute.c)
- *     MiRemovePhysicalMemoryBatchComplete @ 0x14061BFF4 (MiRemovePhysicalMemoryBatchComplete.c)
- *     MiDeleteStaleCacheMaps @ 0x14062DA40 (MiDeleteStaleCacheMaps.c)
- *     MiMakeIoRangePermanent @ 0x14062E4CC (MiMakeIoRangePermanent.c)
- *     MiInsertPartitionPages @ 0x14065A4F0 (MiInsertPartitionPages.c)
- *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
- *     MiRemovePhysicalMemory @ 0x140A2CCBC (MiRemovePhysicalMemory.c)
- *     MiInitializeCacheFlushing @ 0x140B6B46C (MiInitializeCacheFlushing.c)
+ *     MiValidateInPage @ 0x14023AEE0 (MiValidateInPage.c)
+ *     MiCopyPage @ 0x14023FB90 (MiCopyPage.c)
+ *     MiChangePageAttributeBatch @ 0x140283C20 (MiChangePageAttributeBatch.c)
+ *     MiChangePageAttribute @ 0x140284864 (MiChangePageAttribute.c)
+ *     MiChangePageAttributeContiguous @ 0x140328CE8 (MiChangePageAttributeContiguous.c)
+ *     MiCombiningInProgress @ 0x140366608 (MiCombiningInProgress.c)
+ *     MiValidateSectionCreate @ 0x14066B20C (MiValidateSectionCreate.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5FDC (MiRemovePhysicalMemory.c)
+ *     MiInitializeCacheFlushing @ 0x140A54B0C (MiInitializeCacheFlushing.c)
  * Callees:
- *     KeFlushTb @ 0x140279850 (KeFlushTb.c)
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     HvcallFastExtended @ 0x1403CBB50 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeFlushTb @ 0x14022FA90 (KeFlushTb.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     HvcallFastExtended @ 0x14038FC00 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 MiFlushEntireTbDueToAttributeChange()
@@ -29,7 +23,7 @@ __int64 MiFlushEntireTbDueToAttributeChange()
   _BYTE v1[112]; // [rsp+40h] [rbp-A8h] BYREF
   _QWORD v2[4]; // [rsp+B0h] [rbp-38h] BYREF
 
-  ++dword_140C65C00;
+  ++dword_140C4DF00;
   if ( VslVsmEnabled )
   {
     if ( (HvlEnlightenments & 0x4000000) != 0 )

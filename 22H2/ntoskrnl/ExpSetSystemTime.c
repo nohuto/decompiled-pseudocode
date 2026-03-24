@@ -1,41 +1,31 @@
 /*
- * XREFs of ExpSetSystemTime @ 0x140AAAD24
+ * XREFs of ExpSetSystemTime @ 0x140998FB8
  * Callers:
- *     NtSetSystemTime @ 0x1409F8340 (NtSetSystemTime.c)
- *     ExUpdateSystemTimeFromCmos @ 0x140A88304 (ExUpdateSystemTimeFromCmos.c)
+ *     NtSetSystemTime @ 0x14094BD60 (NtSetSystemTime.c)
+ *     ExUpdateSystemTimeFromCmos @ 0x14098F8C4 (ExUpdateSystemTimeFromCmos.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     ExSystemTimeToLocalTime @ 0x14033B0F0 (ExSystemTimeToLocalTime.c)
- *     RtlTimeToTimeFields @ 0x14033B4B0 (RtlTimeToTimeFields.c)
- *     KeSetSystemTime @ 0x1403B571C (KeSetSystemTime.c)
- *     PoNotifySystemTimeSet @ 0x1403B5E38 (PoNotifySystemTimeSet.c)
- *     HalSetRealTimeClock @ 0x1404FED20 (HalSetRealTimeClock.c)
- *     ExpRefreshTimeZoneInformation @ 0x140840928 (ExpRefreshTimeZoneInformation.c)
+ *     ExSystemTimeToLocalTime @ 0x14032C4F0 (ExSystemTimeToLocalTime.c)
+ *     RtlTimeToTimeFields @ 0x14036DE60 (RtlTimeToTimeFields.c)
+ *     PoNotifySystemTimeSet @ 0x1403A7104 (PoNotifySystemTimeSet.c)
+ *     KeSetSystemTime @ 0x1403A7348 (KeSetSystemTime.c)
+ *     HalSetRealTimeClock @ 0x1404B6A90 (HalSetRealTimeClock.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9984 (ExpRefreshTimeZoneInformation.c)
  */
 
-__int64 ExpSetSystemTime(char a1, char a2, int a3, ...)
+void __fastcall ExpSetSystemTime(char a1, char a2, __int64 a3, LARGE_INTEGER a4, __int64 *a5)
 {
-  _QWORD *CurrentServerSiloGlobals; // r14
-  int v8; // [rsp+28h] [rbp-38h]
-  LARGE_INTEGER LocalTime; // [rsp+40h] [rbp-20h] BYREF
-  TIME_FIELDS TimeFields; // [rsp+48h] [rbp-18h] BYREF
-  LARGE_INTEGER SystemTime; // [rsp+98h] [rbp+38h] BYREF
-  va_list SystemTimea; // [rsp+98h] [rbp+38h]
-  __int64 *v13; // [rsp+A0h] [rbp+40h]
-  va_list va1; // [rsp+A8h] [rbp+48h] BYREF
+  LARGE_INTEGER LocalTime; // [rsp+20h] [rbp-20h] BYREF
+  TIME_FIELDS TimeFields; // [rsp+28h] [rbp-18h] BYREF
+  LARGE_INTEGER SystemTime; // [rsp+68h] [rbp+28h] BYREF
 
-  va_start(va1, a3);
-  va_start(SystemTimea, a3);
-  SystemTime.QuadPart = va_arg(va1, _QWORD);
-  v13 = va_arg(va1, __int64 *);
+  SystemTime = a4;
   LocalTime.QuadPart = 0LL;
   TimeFields = 0LL;
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
   if ( ExpRealTimeIsUniversal )
-    LocalTime = SystemTime;
+    LocalTime = a4;
   else
-    ExSystemTimeToLocalTime((PLARGE_INTEGER)SystemTimea, &LocalTime);
-  KeSetSystemTime((__int64)SystemTimea, (__int64)v13, a2 != 0 ? 3 : 0);
+    ExSystemTimeToLocalTime(&SystemTime, &LocalTime);
+  KeSetSystemTime((__int64)&SystemTime, (__int64)a5, a2 != 0 ? 3 : 0);
   if ( a1 )
   {
     ExpRefreshTimeZoneInformation(0);
@@ -44,17 +34,10 @@ __int64 ExpSetSystemTime(char a1, char a2, int a3, ...)
       if ( ExpRealTimeIsUniversal )
         LocalTime = SystemTime;
       else
-        ExSystemTimeToLocalTime((PLARGE_INTEGER)SystemTimea, &LocalTime);
+        ExSystemTimeToLocalTime(&SystemTime, &LocalTime);
       RtlTimeToTimeFields(&LocalTime, &TimeFields);
       HalSetRealTimeClock(&TimeFields.Year);
     }
   }
-  return PoNotifySystemTimeSet(
-           (__int64 *)SystemTimea,
-           v13,
-           a3,
-           (int)&LocalTime,
-           *(_DWORD *)(CurrentServerSiloGlobals[157] + 436LL),
-           v8,
-           ExpSystemIsInCmosMode);
+  PoNotifySystemTimeSet((__int64 *)&SystemTime, a5);
 }

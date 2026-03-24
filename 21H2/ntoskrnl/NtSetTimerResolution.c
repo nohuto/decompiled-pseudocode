@@ -1,36 +1,36 @@
 /*
- * XREFs of NtSetTimerResolution @ 0x1407D6CE0
+ * XREFs of NtSetTimerResolution @ 0x1406DC720
  * Callers:
  *     <none>
  * Callees:
- *     ExpInsertTimerResolutionEntry @ 0x14025AB54 (ExpInsertTimerResolutionEntry.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExpUpdateTimerResolution @ 0x14035C864 (ExpUpdateTimerResolution.c)
- *     PoDiagCaptureUsermodeStack @ 0x1406E8628 (PoDiagCaptureUsermodeStack.c)
- *     PoTraceSystemTimerResolution @ 0x1407D6EC0 (PoTraceSystemTimerResolution.c)
- *     ExAcquireTimeRefreshLock @ 0x1407D6F54 (ExAcquireTimeRefreshLock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExpInsertTimerResolutionEntry @ 0x1402D32AC (ExpInsertTimerResolutionEntry.c)
+ *     ExpUpdateTimerResolution @ 0x1402EC99C (ExpUpdateTimerResolution.c)
+ *     PoDiagCaptureUsermodeStack @ 0x1406C366C (PoDiagCaptureUsermodeStack.c)
+ *     ExReleaseTimeRefreshLock @ 0x1406DBCF0 (ExReleaseTimeRefreshLock.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406DBD14 (ExAcquireTimeRefreshLock.c)
+ *     PoTraceSystemTimerResolution @ 0x1406DC934 (PoTraceSystemTimerResolution.c)
+ *     PoDiagFreeUsermodeStack @ 0x140733434 (PoDiagFreeUsermodeStack.c)
  */
 
-__int64 __fastcall NtSetTimerResolution(__int64 a1, char a2, int *a3)
+__int64 __fastcall NtSetTimerResolution(unsigned int a1, char a2, int *a3)
 {
-  unsigned int v5; // r14d
   __int64 v6; // r8
   _KPROCESS *Process; // rbx
-  unsigned int v8; // esi
-  bool v9; // r15
-  int updated; // edi
+  unsigned int v8; // r15d
+  int updated; // r14d
   signed __int32 DirectoryTableBase_high; // eax
-  signed __int32 v12; // ett
-  __int16 v13; // di
-  unsigned int v14; // edx
-  char v15; // cl
-  signed __int32 v17; // ett
-  _DWORD *v18; // rdi
-  void *LastRebalanceQpc; // rcx
+  signed __int32 v11; // ett
+  unsigned int v12; // edx
+  char v13; // cl
+  bool v14; // si
+  signed __int32 v15; // ett
+  __int16 v16; // di
+  unsigned __int64 v17; // rsi
+  PVOID *v18; // rdi
+  unsigned __int64 v19; // rax
+  bool v20; // zf
+  char v22; // [rsp+78h] [rbp+20h]
 
-  v5 = a1;
   if ( KeGetCurrentThread()->PreviousMode )
   {
     v6 = 0x7FFFFFFF0000LL;
@@ -39,79 +39,100 @@ __int64 __fastcall NtSetTimerResolution(__int64 a1, char a2, int *a3)
     *(_DWORD *)v6 = *(_DWORD *)v6;
   }
   Process = KeGetCurrentThread()->ApcState.Process;
+  v22 = 0;
   v8 = 0;
-  v9 = 1;
-  LOBYTE(a1) = 1;
-  ExAcquireTimeRefreshLock(a1);
+  ExAcquireTimeRefreshLock(1u);
   updated = KeTimeIncrement;
   _m_prefetchw((char *)&Process[1].DirectoryTableBase + 4);
   DirectoryTableBase_high = HIDWORD(Process[1].DirectoryTableBase);
   if ( a2 )
   {
+    v14 = 1;
     do
     {
-      v12 = DirectoryTableBase_high;
+      v15 = DirectoryTableBase_high;
       DirectoryTableBase_high = _InterlockedCompareExchange(
                                   (volatile signed __int32 *)&Process[1].DirectoryTableBase + 1,
                                   DirectoryTableBase_high | 0x80001000,
                                   DirectoryTableBase_high);
     }
-    while ( v12 != DirectoryTableBase_high );
-    v13 = DirectoryTableBase_high;
+    while ( v15 != DirectoryTableBase_high );
+    v16 = DirectoryTableBase_high;
     if ( DirectoryTableBase_high >= 0 )
       ExpInsertTimerResolutionEntry((__int64)Process);
-    if ( (v13 & 0x1000) != 0 )
-      v9 = v5 <= LODWORD(Process[1].PerProcessorCycleTimes);
+    if ( (v16 & 0x1000) != 0 )
+      v14 = a1 <= LODWORD(Process[1].EndPadding[1]);
     else
       ++ExpTimerResolutionCount;
-    if ( !Process[1].LastRebalanceQpc || v5 < HIDWORD(Process[1].PerProcessorCycleTimes) )
-    {
-      v18 = PoDiagCaptureUsermodeStack();
-      if ( v18 )
-      {
-        LastRebalanceQpc = (void *)Process[1].LastRebalanceQpc;
-        if ( LastRebalanceQpc )
-          ExFreePoolWithTag(LastRebalanceQpc, 0x50455654u);
-        Process[1].LastRebalanceQpc = (unsigned __int64)v18;
-        HIDWORD(Process[1].PerProcessorCycleTimes) = v5;
-      }
-    }
-    LODWORD(Process[1].PerProcessorCycleTimes) = v5;
+    if ( !Process[1].EndPadding[0] || a1 < HIDWORD(Process[1].EndPadding[1]) )
+      v22 = 1;
+    LODWORD(Process[1].EndPadding[1]) = a1;
     PoTraceSystemTimerResolution(0LL, Process);
     if ( (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x4000000) != 0 )
     {
-      updated = KePseudoHrTimeIncrement;
-      goto LABEL_16;
+      updated = KeTimeIncrement;
+      goto LABEL_24;
     }
-    v14 = v5;
-    v15 = v9;
+    v12 = a1;
+    v13 = v14;
+    goto LABEL_22;
   }
-  else
+  do
   {
-    do
-    {
-      v17 = DirectoryTableBase_high;
-      DirectoryTableBase_high = _InterlockedCompareExchange(
-                                  (volatile signed __int32 *)&Process[1].DirectoryTableBase + 1,
-                                  DirectoryTableBase_high & 0xFFFFEFFF,
-                                  DirectoryTableBase_high);
-    }
-    while ( v17 != DirectoryTableBase_high );
-    if ( (DirectoryTableBase_high & 0x1000) == 0 )
-    {
-      v8 = -1073741243;
-      goto LABEL_16;
-    }
-    --ExpTimerResolutionCount;
-    LODWORD(Process[1].PerProcessorCycleTimes) = 0;
-    PoTraceSystemTimerResolution(0LL, Process);
-    v14 = 0;
-    v15 = 0;
+    v11 = DirectoryTableBase_high;
+    DirectoryTableBase_high = _InterlockedCompareExchange(
+                                (volatile signed __int32 *)&Process[1].DirectoryTableBase + 1,
+                                DirectoryTableBase_high & 0xFFFFEFFF,
+                                DirectoryTableBase_high);
   }
-  updated = ExpUpdateTimerResolution(v15, v14, 0LL);
-LABEL_16:
-  ExReleaseResourceLite(&ExpTimeRefreshLock);
-  KeLeaveCriticalRegion();
+  while ( v11 != DirectoryTableBase_high );
+  if ( (DirectoryTableBase_high & 0x1000) != 0 )
+  {
+    --ExpTimerResolutionCount;
+    LODWORD(Process[1].EndPadding[1]) = 0;
+    PoTraceSystemTimerResolution(0LL, Process);
+    v12 = 0;
+    v13 = 0;
+LABEL_22:
+    updated = ExpUpdateTimerResolution(v13, v12, 0LL);
+    goto LABEL_24;
+  }
+  v8 = -1073741243;
+LABEL_24:
+  ExReleaseTimeRefreshLock();
+  v17 = 0LL;
+  v18 = 0LL;
+  if ( v22 )
+  {
+    v18 = PoDiagCaptureUsermodeStack();
+    if ( v18 )
+    {
+      ExAcquireTimeRefreshLock(1u);
+      v19 = Process[1].EndPadding[0];
+      v20 = v19 == 0;
+      if ( v19 )
+      {
+        if ( a1 >= HIDWORD(Process[1].EndPadding[1]) )
+        {
+LABEL_32:
+          ExReleaseTimeRefreshLock();
+          goto LABEL_33;
+        }
+        v20 = v19 == 0;
+      }
+      if ( !v20 )
+        v17 = Process[1].EndPadding[0];
+      HIDWORD(Process[1].EndPadding[1]) = a1;
+      Process[1].EndPadding[0] = (unsigned __int64)v18;
+      v18 = 0LL;
+      goto LABEL_32;
+    }
+  }
+LABEL_33:
+  if ( v17 )
+    PoDiagFreeUsermodeStack(v17);
+  if ( v18 )
+    PoDiagFreeUsermodeStack(v18);
   *a3 = updated;
   return v8;
 }

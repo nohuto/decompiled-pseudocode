@@ -1,23 +1,42 @@
 /*
- * XREFs of CreateKernelIocpWcp @ 0x1C00C6470
+ * XREFs of CreateKernelIocpWcp @ 0x1C00AFF30
  * Callers:
- *     ?SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z @ 0x1C0057838 (-SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z.c)
+ *     ?SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z @ 0x1C00445D4 (-SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z.c)
  * Callees:
- *     <none>
+ *     WPP_RECORDER_SF_d @ 0x1C0047F78 (WPP_RECORDER_SF_d.c)
  */
 
 __int64 CreateKernelIocpWcp()
 {
-  _QWORD v1[4]; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v2; // [rsp+40h] [rbp-18h]
-  __int64 v3; // [rsp+60h] [rbp+8h] BYREF
+  int v0; // eax
+  int v1; // edx
+  _DWORD v3[2]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v4; // [rsp+38h] [rbp-30h]
+  __int64 v5; // [rsp+40h] [rbp-28h]
+  int v6; // [rsp+48h] [rbp-20h]
+  int v7; // [rsp+4Ch] [rbp-1Ch]
+  __int128 v8; // [rsp+50h] [rbp-18h]
+  __int64 v9; // [rsp+70h] [rbp+8h] BYREF
 
-  v1[0] = 48LL;
-  v1[3] = 512LL;
-  v1[1] = 0LL;
-  v1[2] = 0LL;
-  v3 = 0LL;
-  v2 = 0LL;
-  ZwCreateWaitCompletionPacket(&v3, 1LL, v1);
-  return v3;
+  v9 = 0LL;
+  v3[1] = 0;
+  v7 = 0;
+  v4 = 0LL;
+  v5 = 0LL;
+  v8 = 0LL;
+  v3[0] = 48;
+  v6 = 512;
+  v0 = ZwCreateWaitCompletionPacket(&v9, 1LL, v3);
+  if ( v0 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v1) = 4;
+    WPP_RECORDER_SF_d(
+      WPP_MAIN_CB.Queue.ListEntry.Flink,
+      v1,
+      17,
+      13,
+      (__int64)&WPP_eb65e8752d313ccdb5208ac13de848c5_Traceguids,
+      v0);
+  }
+  return v9;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MmAllocateNodePagesForMdlEx @ 0x1403A5320
+ * XREFs of MmAllocateNodePagesForMdlEx @ 0x1403CE960
  * Callers:
  *     <none>
  * Callees:
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x140264F60 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402E32F0 (MmAllocatePartitionNodePagesForMdlEx.c)
  */
 
 __int64 __fastcall MmAllocateNodePagesForMdlEx(

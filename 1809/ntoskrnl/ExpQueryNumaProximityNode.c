@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpQueryNumaProximityNode @ 0x1408CC4D0
+ * XREFs of ExpQueryNumaProximityNode @ 0x1408CC4B0
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExpQueryNumaProximityNode(unsigned int *a1, unsigned int a2, _DWORD *a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsExecuteMethodSupported@FxWmiInstanceExternal@@MEAAEXZ @ 0x1C005E660
+ * XREFs of ?IsExecuteMethodSupported@FxWmiInstanceExternal@@MEAAEXZ @ 0x1C003ECB0
  * Callers:
  *     <none>
  * Callees:

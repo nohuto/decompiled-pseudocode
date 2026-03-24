@@ -1,18 +1,18 @@
 /*
- * XREFs of SeRegisterElamCertResources @ 0x140813200
+ * XREFs of SeRegisterElamCertResources @ 0x1407ABDFC
  * Callers:
- *     ExpQueryElamCertInfo @ 0x1409F6B50 (ExpQueryElamCertInfo.c)
- *     PipInitializeEarlyLaunchDrivers @ 0x140B3F7CC (PipInitializeEarlyLaunchDrivers.c)
+ *     ExpQueryElamCertInfo @ 0x14094A928 (ExpQueryElamCertInfo.c)
+ *     PipInitializeEarlyLaunchDrivers @ 0x140A5B484 (PipInitializeEarlyLaunchDrivers.c)
  * Callees:
- *     LdrResSearchResource @ 0x14075A150 (LdrResSearchResource.c)
- *     SepParseElamCertResources @ 0x14081238C (SepParseElamCertResources.c)
+ *     LdrResSearchResource @ 0x140670CE0 (LdrResSearchResource.c)
+ *     SepParseElamCertResources @ 0x1407ABE90 (SepParseElamCertResources.c)
  */
 
-NTSTATUS __fastcall SeRegisterElamCertResources(ULONGLONG a1, __int64 a2, char a3)
+__int64 __fastcall SeRegisterElamCertResources(ULONGLONG a1, __int64 a2, char a3)
 {
-  NTSTATUS result; // eax
+  __int64 result; // rax
   _QWORD v4[5]; // [rsp+40h] [rbp-28h] BYREF
-  unsigned int *v5; // [rsp+78h] [rbp+10h] BYREF
+  __int64 v5; // [rsp+78h] [rbp+10h] BYREF
   __int64 v6; // [rsp+88h] [rbp+20h] BYREF
 
   v5 = 0LL;
@@ -21,7 +21,7 @@ NTSTATUS __fastcall SeRegisterElamCertResources(ULONGLONG a1, __int64 a2, char a
   v4[0] = L"MSELAMCERTINFOID";
   v4[1] = L"MICROSOFTELAMCERTIFICATEINFO";
   result = LdrResSearchResource(a1, v4, 3u, a3 != 0 ? 4624 : 4112, &v5, &v6, 0LL, 0LL);
-  if ( result >= 0 )
+  if ( (int)result >= 0 )
     return SepParseElamCertResources(v5, v6);
   return result;
 }

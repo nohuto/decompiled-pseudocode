@@ -1,11 +1,11 @@
 /*
- * XREFs of ?_WorkItemThunk@FxDisposeList@@CAXPEAX@Z @ 0x1C006AC70
+ * XREFs of ?_WorkItemThunk@FxDisposeList@@CAXPEAX@Z @ 0x1C0055410
  * Callers:
  *     <none>
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?DrainListLocked@FxDisposeList@@AEAAXPEAE@Z @ 0x1C006AB4C (-DrainListLocked@FxDisposeList@@AEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?DrainListLocked@FxDisposeList@@AEAAXPEAE@Z @ 0x1C00551AC (-DrainListLocked@FxDisposeList@@AEAAXPEAE@Z.c)
  */
 
 void __fastcall FxDisposeList::_WorkItemThunk(FxDisposeList *Parameter, __int64 a2, unsigned __int8 a3)

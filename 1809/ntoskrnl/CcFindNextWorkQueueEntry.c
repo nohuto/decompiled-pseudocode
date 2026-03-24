@@ -1,9 +1,9 @@
 /*
- * XREFs of CcFindNextWorkQueueEntry @ 0x14011FDDC
+ * XREFs of CcFindNextWorkQueueEntry @ 0x14011FDFC
  * Callers:
  *     CcWorkerThread @ 0x14007F2E0 (CcWorkerThread.c)
- *     CcCompleteAsyncReadWorker @ 0x1400E1D80 (CcCompleteAsyncReadWorker.c)
- *     CcAsyncReadWorker @ 0x140140390 (CcAsyncReadWorker.c)
+ *     CcCompleteAsyncReadWorker @ 0x1400E1DA0 (CcCompleteAsyncReadWorker.c)
+ *     CcAsyncReadWorker @ 0x1401403B0 (CcAsyncReadWorker.c)
  * Callees:
  *     <none>
  */

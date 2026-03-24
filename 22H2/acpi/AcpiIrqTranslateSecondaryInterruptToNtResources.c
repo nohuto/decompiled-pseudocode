@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiIrqTranslateSecondaryInterruptToNtResources @ 0x1C000AB60
+ * XREFs of AcpiIrqTranslateSecondaryInterruptToNtResources @ 0x1C004AEB4
  * Callers:
- *     IrqArbAddAllocation @ 0x1C009C4C0 (IrqArbAddAllocation.c)
- *     IrqArbpFindSuitableRangeIsa @ 0x1C009DDD0 (IrqArbpFindSuitableRangeIsa.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     IrqArbpFindSuitableRangeIsa @ 0x1C0096EE8 (IrqArbpFindSuitableRangeIsa.c)
  * Callees:
- *     AcpiExternalQueryTranslatedDescriptorForGsiv @ 0x1C0083D18 (AcpiExternalQueryTranslatedDescriptorForGsiv.c)
+ *     AcpiExternalQueryTranslatedDescriptorForGsiv @ 0x1C00AF138 (AcpiExternalQueryTranslatedDescriptorForGsiv.c)
  */
 
 __int64 AcpiIrqTranslateSecondaryInterruptToNtResources()

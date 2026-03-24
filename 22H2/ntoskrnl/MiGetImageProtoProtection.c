@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetImageProtoProtection @ 0x1403562BC
+ * XREFs of MiGetImageProtoProtection @ 0x1403141CC
  * Callers:
- *     MiGetPageProtection @ 0x140272900 (MiGetPageProtection.c)
+ *     MiGetPageProtection @ 0x1402B1430 (MiGetPageProtection.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     MiGetSharedProtos @ 0x14036973C (MiGetSharedProtos.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     MiGetSharedProtos @ 0x1403A5B08 (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiGetImageProtoProtection(__int64 a1, unsigned __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall MiGetImageProtoProtection(__int64 a1, unsigned __int64 a2)
   v6 = 0LL;
   while ( v2 )
   {
-    if ( (*((_BYTE *)v2 + 34) & 2) != 0 && (v8 = *v2, (*(_DWORD *)(*v2 + 56) & 0x8000000) != 0) )
+    if ( (*((_BYTE *)v2 + 34) & 2) != 0 && (v8 = *v2, (*(_DWORD *)(*v2 + 56) & 0x4000000) != 0) )
     {
       SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
       v6 = *(_QWORD *)(MiGetSharedProtos(v8, SessionId, v2) + 72);

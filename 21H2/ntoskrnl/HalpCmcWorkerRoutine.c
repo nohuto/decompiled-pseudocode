@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpCmcWorkerRoutine @ 0x140908680
+ * XREFs of HalpCmcWorkerRoutine @ 0x140864440
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     HalpCmcPollProcessor @ 0x1403AAA5C (HalpCmcPollProcessor.c)
- *     WheaLogInternalEvent @ 0x1403D2A90 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HalpCmciInit @ 0x140A5AAF0 (HalpCmciInit.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpCmcPollProcessor @ 0x1403A0B10 (HalpCmcPollProcessor.c)
+ *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpCmciInit @ 0x1409A1244 (HalpCmciInit.c)
  */
 
 void __fastcall HalpCmcWorkerRoutine(__int64 a1)
@@ -19,7 +19,7 @@ void __fastcall HalpCmcWorkerRoutine(__int64 a1)
   unsigned int v2; // r14d
   ULONG ActiveProcessorCount; // eax
   ULONG v4; // r15d
-  unsigned int *v5; // r12
+  int *v5; // r12
   ULONG v6; // edi
   unsigned int v7; // edx
   struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
@@ -66,9 +66,9 @@ void __fastcall HalpCmcWorkerRoutine(__int64 a1)
       while ( v9 )
       {
         v10 = v2;
-        HalpCmcPollProcessor(HalpCmcErrorPacket, HalpCmciEnabled, *(_QWORD *)(v9 + 172), v9);
-        v2 = *(_DWORD *)(v9 + 164);
-        v9 = *(_QWORD *)(v9 + 184);
+        HalpCmcPollProcessor(HalpCmcErrorPacket, HalpCmciEnabled, *(_QWORD *)(v9 + 164), v9);
+        v2 = *(_DWORD *)(v9 + 156);
+        v9 = *(_QWORD *)(v9 + 176);
         if ( v2 <= v10 )
           v2 = v10;
       }

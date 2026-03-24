@@ -1,39 +1,39 @@
 /*
- * XREFs of IoQuerySystemDeviceName @ 0x1407D19E4
+ * XREFs of IoQuerySystemDeviceName @ 0x14069663C
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     IopRetrieveSystemDeviceName @ 0x1407D1A54 (IopRetrieveSystemDeviceName.c)
- *     IopFindSystemDevice @ 0x14095192C (IopFindSystemDevice.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     IopRetrieveSystemDeviceName @ 0x1406966A8 (IopRetrieveSystemDeviceName.c)
+ *     IopFindSystemDevice @ 0x14089B064 (IopFindSystemDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall IoQuerySystemDeviceName(int a1, __int64 a2)
+__int64 __fastcall IoQuerySystemDeviceName(int a1)
 {
-  __int64 (__fastcall *v3)(); // rcx
+  __int64 (__fastcall *v2)(); // rcx
   __int64 result; // rax
-  __int64 v5; // rcx
-  unsigned int v6; // ebx
-  int SystemDevice; // ecx
+  __int64 v4; // rcx
+  unsigned int v5; // ebx
+  int SystemDevice; // edi
   PVOID P[3]; // [rsp+20h] [rbp-18h] BYREF
 
   P[0] = 0LL;
   switch ( a1 )
   {
     case 98:
-      v3 = SyspartDirectGetSystemPartition;
+      v2 = SyspartDirectGetSystemPartition;
       break;
     case 99:
-      v3 = SyspartDirectGetSystemDisk;
+      v2 = SyspartDirectGetSystemDisk;
       break;
     case 200:
-      v3 = SyspartDirectGetFirmwareSystemPartition;
+      v2 = SyspartDirectGetFirmwareSystemPartition;
       break;
     default:
       return 3221225475LL;
   }
-  result = IopRetrieveSystemDeviceName(v3, a2);
-  v6 = result;
+  result = IopRetrieveSystemDeviceName(v2);
+  v5 = result;
   if ( (_DWORD)result == -1073740718 && IopAmbiguousSystemDisk )
   {
     if ( a1 == 99 )
@@ -42,17 +42,12 @@ __int64 __fastcall IoQuerySystemDeviceName(int a1, __int64 a2)
     }
     else if ( a1 == 98 )
     {
-      SystemDevice = IopFindSystemDevice(v5, P);
-      if ( SystemDevice < 0 )
-      {
-        if ( SystemDevice == -1073740718 )
-          return (unsigned int)-1073740719;
-      }
-      else
-      {
+      SystemDevice = IopFindSystemDevice(v4, P);
+      if ( SystemDevice >= 0 )
         ExFreePoolWithTag(P[0], 0);
-      }
-      return v6;
+      if ( SystemDevice == -1073740718 )
+        return (unsigned int)-1073740719;
+      return v5;
     }
   }
   return result;

@@ -1,29 +1,30 @@
 /*
- * XREFs of IoFlushAdapterBuffersV3 @ 0x140517BAC
+ * XREFs of IoFlushAdapterBuffersV3 @ 0x1404CA910
  * Callers:
- *     IoFlushAdapterBuffers @ 0x140393E00 (IoFlushAdapterBuffers.c)
+ *     IoFlushAdapterBuffers @ 0x140389E20 (IoFlushAdapterBuffers.c)
  * Callees:
- *     Feature_Servicing_DmarPremapLaHibernate__private_IsEnabled @ 0x140416F84 (Feature_Servicing_DmarPremapLaHibernate__private_IsEnabled.c)
- *     HalpDmaFlushContiguousTransferV3 @ 0x140504048 (HalpDmaFlushContiguousTransferV3.c)
- *     HalpDmaFlushScatterTransferV3 @ 0x140504198 (HalpDmaFlushScatterTransferV3.c)
- *     HalpDmaFreeLa @ 0x140504358 (HalpDmaFreeLa.c)
- *     HalpDmaControllerFlushChannel @ 0x1405192A0 (HalpDmaControllerFlushChannel.c)
+ *     HalpDmaFlushContiguousTransferV3 @ 0x1404B75EC (HalpDmaFlushContiguousTransferV3.c)
+ *     HalpDmaFlushScatterTransferV3 @ 0x1404B773C (HalpDmaFlushScatterTransferV3.c)
+ *     HalpDmaFreeLa @ 0x1404B78F8 (HalpDmaFreeLa.c)
+ *     HalpDmaControllerFlushChannel @ 0x1404CE610 (HalpDmaControllerFlushChannel.c)
  */
 
 char __fastcall IoFlushAdapterBuffersV3(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, char a6)
 {
+  bool v10; // zf
+  ULONG_PTR v11; // rdx
+
   if ( a5 )
   {
-    if ( *(_DWORD *)(a1 + 512) == 3 )
+    if ( *(_DWORD *)(a1 + 512) == 2 )
     {
-      if ( *(_BYTE *)(a3 + 64) )
+      v10 = *(_BYTE *)(a3 + 64) == 0;
+      v11 = *(_QWORD *)(a3 + 24);
+      *(_QWORD *)(a3 + 40) = v11;
+      if ( v10 )
       {
-        if ( (unsigned int)Feature_Servicing_DmarPremapLaHibernate__private_IsEnabled() )
-          *(_DWORD *)(a3 + 16) = 0;
-      }
-      else
-      {
-        HalpDmaFreeLa(a1, (__int64 *)(a3 + 24));
+        HalpDmaFreeLa(a1, v11);
+        *(_QWORD *)(a3 + 32) = 0LL;
       }
     }
     if ( !*(_BYTE *)(a1 + 433) )

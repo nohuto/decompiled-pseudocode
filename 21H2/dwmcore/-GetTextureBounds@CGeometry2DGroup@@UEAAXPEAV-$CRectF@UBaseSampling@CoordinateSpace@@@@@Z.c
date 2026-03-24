@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetTextureBounds@CGeometry2DGroup@@UEAAXPEAV?$CRectF@UBaseSampling@CoordinateSpace@@@@@Z @ 0x180207CF0
+ * XREFs of ?GetTextureBounds@CGeometry2DGroup@@UEAAXPEAV?$CRectF@UBaseSampling@CoordinateSpace@@@@@Z @ 0x1801B4ED0
  * Callers:
  *     <none>
  * Callees:
- *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x1800C9E90 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x18006BE00 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGeometry2DGroup::GetTextureBounds(__int64 a1, __int64 a2)
@@ -24,33 +24,33 @@ __int64 __fastcall CGeometry2DGroup::GetTextureBounds(__int64 a1, __int64 a2)
   *(_DWORD *)(a1 + 32) = v2 ^ ((unsigned __int8)v2 ^ (unsigned __int8)(v2 + 2)) & 6;
   if ( (((unsigned __int8)v2 ^ ((unsigned __int8)v2 ^ (unsigned __int8)(v2 + 2)) & 6) & 6) == 2 )
   {
-    v5 = *(_DWORD *)(a1 + 160);
+    v5 = *(_DWORD *)(a1 + 152);
     if ( (v5 & 1) != 0 )
     {
       v6 = 0LL;
       v11 = 0uLL;
-      if ( *(_DWORD *)(a1 + 104) )
+      if ( *(_DWORD *)(a1 + 96) )
       {
         do
         {
-          v7 = *(__int64 **)(*(_QWORD *)(a1 + 112) + 8 * v6);
+          v7 = *(__int64 **)(*(_QWORD *)(a1 + 104) + 8 * v6);
           if ( v7 )
           {
             v8 = *v7;
             v12 = 0LL;
-            (*(void (__fastcall **)(__int64 *, __int128 *))(v8 + 208))(v7, &v12);
+            (*(void (__fastcall **)(__int64 *, __int128 *))(v8 + 224))(v7, &v12);
             TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe((float *)&v11, (float *)&v12);
           }
           v6 = (unsigned int)(v6 + 1);
         }
-        while ( (unsigned int)v6 < *(_DWORD *)(a1 + 104) );
-        v5 = *(_DWORD *)(a1 + 160);
+        while ( (unsigned int)v6 < *(_DWORD *)(a1 + 96) );
+        v5 = *(_DWORD *)(a1 + 152);
       }
       v9 = v11;
-      *(_DWORD *)(a1 + 160) = v5 & 0xFFFFFFFE;
-      *(_OWORD *)(a1 + 144) = v9;
+      *(_DWORD *)(a1 + 152) = v5 & 0xFFFFFFFE;
+      *(_OWORD *)(a1 + 136) = v9;
     }
-    *(_OWORD *)a2 = *(_OWORD *)(a1 + 144);
+    *(_OWORD *)a2 = *(_OWORD *)(a1 + 136);
   }
   else
   {

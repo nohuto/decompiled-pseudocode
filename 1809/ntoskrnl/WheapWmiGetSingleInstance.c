@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapWmiGetSingleInstance @ 0x1403218D4
+ * XREFs of WheapWmiGetSingleInstance @ 0x1403219D4
  * Callers:
- *     WheaWmiDispatch @ 0x140191820 (WheaWmiDispatch.c)
+ *     WheaWmiDispatch @ 0x140191840 (WheaWmiDispatch.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetVertices@CMesh2DEffect@@QEBAJPEAEIPEAI@Z @ 0x1802B23D4
+ * XREFs of ?GetVertices@CMesh2DEffect@@QEBAJPEAEIPEAI@Z @ 0x18026CC08
  * Callers:
- *     ??$BlobGetter@P8CMesh2DEffect@@EBAJPEAEIPEAI@Z$H?GetVertices@1@QEBAJ0I1@ZA@UID2D1EffectImpl@@@@YAJPEBUIUnknown@@PEAEIPEAI@Z @ 0x1802B1D80 (--$BlobGetter@P8CMesh2DEffect@@EBAJPEAEIPEAI@Z$H-GetVertices@1@QEBAJ0I1@ZA@UID2D1EffectImpl@@@@Y.c)
+ *     ??$BlobGetter@P8CMesh2DEffect@@EBAJPEAEIPEAI@Z$H?GetVertices@1@QEBAJ0I1@ZA@UID2D1EffectImpl@@@@YAJPEBUIUnknown@@PEAEIPEAI@Z @ 0x18026C640 (--$BlobGetter@P8CMesh2DEffect@@EBAJPEAEIPEAI@Z$H-GetVertices@1@QEBAJ0I1@ZA@UID2D1EffectImpl@@@@Y.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
  */
 
 __int64 __fastcall CMesh2DEffect::GetVertices(
@@ -28,7 +28,7 @@ __int64 __fastcall CMesh2DEffect::GetVertices(
     {
       *a4 = 0;
       v5 = -2147024809;
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2147024809, 0x1CFu);
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x1CFu, 0LL);
       return v5;
     }
     if ( v4 )

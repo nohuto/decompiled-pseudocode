@@ -1,54 +1,31 @@
 /*
- * XREFs of CleanupHidRequestList @ 0x1C01A9D00
+ * XREFs of CleanupHidRequestList @ 0x1C01D4F50
  * Callers:
  *     <none>
  * Callees:
- *     FreeHidTLCInfo @ 0x1C009ED94 (FreeHidTLCInfo.c)
- *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C009FBE0 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
- *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C009FC90 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C01088FC (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C010892C (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     FreeHidTLCInfo @ 0x1C01D5000 (FreeHidTLCInfo.c)
  */
 
-void __fastcall CleanupHidRequestList(__int64 a1)
+void CleanupHidRequestList()
 {
+  _QWORD *v0; // rcx
   __int64 v1; // rax
-  __int64 v2; // rcx
-  _QWORD *v3; // rcx
-  _QWORD *v4; // rbx
-  __int64 v5; // rcx
-  __int64 v6; // rax
-  __int64 v7; // rcx
-  void ***v8; // rcx
-  void **v9; // rdx
-  void **v10; // rax
-  char v11; // [rsp+30h] [rbp+8h] BYREF
+  _QWORD *v2; // rdx
+  char v3; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = SGDGetUserSessionState(a1);
-  RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v11, (struct _KTHREAD **)(v1 + 288));
-  v4 = *(_QWORD **)(SGDGetUserSessionState(v2) + 376);
-  while ( v4 != (_QWORD *)(SGDGetUserSessionState(v3) + 376) )
+  RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v3, (struct _KTHREAD **)gTLCInfoLock);
+  while ( (_QWORD *)RawInputManagerObject::gHidRequestTable[2] != &RawInputManagerObject::gHidRequestTable[2] )
   {
-    v3 = v4;
-    v4 = (_QWORD *)*v4;
-    *((_DWORD *)v3 + 10) = 0;
-    *((_DWORD *)v3 + 9) = 0;
-    *((_DWORD *)v3 + 8) = 0;
-    *((_DWORD *)v3 + 6) = 0;
-    if ( !*((_DWORD *)v3 + 5) )
-      FreeHidTLCInfo(v3);
-  }
-  while ( 1 )
-  {
-    v6 = SGDGetUserSessionState(v5);
-    if ( *(_QWORD *)(v6 + 392) == v6 + 392 )
-      break;
-    v8 = *(void ****)(SGDGetUserSessionState(v7) + 392);
-    *((_DWORD *)v8 + 5) = 0;
-    v9 = *v8;
-    if ( (*v8)[1] != v8 || (v10 = v8[1], *v10 != v8) )
+    v0 = (_QWORD *)qword_1C033A960;
+    *(_DWORD *)(qword_1C033A960 + 20) = 0;
+    v1 = *v0;
+    if ( *(_QWORD **)(*v0 + 8LL) != v0 || (v2 = (_QWORD *)v0[1], (_QWORD *)*v2 != v0) )
       __fastfail(3u);
-    *v10 = v9;
-    v9[1] = v10;
-    Win32FreePool(v8);
+    *v2 = v1;
+    *(_QWORD *)(v1 + 8) = v2;
+    Win32FreePool(v0);
   }
-  RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v11);
+  RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v3);
 }

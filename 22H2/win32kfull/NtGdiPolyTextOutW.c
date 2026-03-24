@@ -1,51 +1,48 @@
 /*
- * XREFs of NtGdiPolyTextOutW @ 0x1C02C4050
+ * XREFs of NtGdiPolyTextOutW @ 0x1C00AA2E0
  * Callers:
  *     <none>
  * Callees:
- *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C00F8AA8 (--1EUDCCountRegion@@QEAA@XZ.c)
- *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C00FA9A0 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?GrePolyTextOutW@@YAHPEAUHDC__@@PEAUtagPOLYTEXTW@@IKW4EntryPoint@RFONTOBJ@@@Z @ 0x1C02D7814 (-GrePolyTextOutW@@YAHPEAUHDC__@@PEAUtagPOLYTEXTW@@IKW4EntryPoint@RFONTOBJ@@@Z.c)
+ *     GrePolyTextOutW @ 0x1C00AA69C (GrePolyTextOutW.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-__int64 __fastcall NtGdiPolyTextOutW(__int64 a1, char *a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall NtGdiPolyTextOutW(HDC a1, _QWORD *a2, unsigned int a3)
 {
-  unsigned int v6; // edi
-  unsigned int v7; // r14d
-  char *v8; // r15
-  ULONG64 v9; // rdx
+  unsigned int v5; // edi
+  unsigned int v6; // r14d
+  char *v7; // r15
+  ULONG64 v8; // rdx
   unsigned int i; // ecx
-  __int64 v11; // r8
-  unsigned __int64 v12; // r10
-  unsigned int v13; // eax
-  int v14; // edx
-  unsigned int v15; // eax
-  unsigned __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  char *v19; // r12
-  char *v20; // r11
+  __int64 v10; // rax
+  unsigned __int64 v11; // r9
+  unsigned int v12; // edx
+  int v13; // edx
+  unsigned int v14; // eax
+  char *v15; // r12
+  char *v16; // r10
   unsigned int j; // ebx
-  char *v22; // r9
-  unsigned int v23; // r10d
-  char *v24; // r14
   unsigned int k; // ebx
-  __int64 v26; // rax
-  size_t v27; // rax
+  __int64 v19; // rax
+  unsigned int v20; // ecx
+  char *v21; // rdx
+  __int64 v22; // rax
+  char *v23; // r14
+  __int64 v24; // rax
+  unsigned int v25; // ecx
+  char *v26; // r9
+  __int64 v27; // rdx
   char *v28; // r14
-  __int64 v29; // rax
-  __int64 v31; // [rsp+48h] [rbp-90h]
-  __int64 v32; // [rsp+48h] [rbp-90h]
-  char *v33; // [rsp+58h] [rbp-80h]
-  _BYTE v34[104]; // [rsp+70h] [rbp-68h] BYREF
+  __int64 v30; // [rsp+38h] [rbp-60h]
+  __int64 v31; // [rsp+38h] [rbp-60h]
+  char *v32; // [rsp+48h] [rbp-50h]
 
-  v6 = 1;
-  v7 = 56 * a3;
-  v8 = 0LL;
+  v5 = 1;
+  v6 = 56 * a3;
+  v7 = 0LL;
   if ( a3 > 0xB2924 )
   {
-    v6 = 0;
+    v5 = 0;
   }
   else
   {
@@ -53,131 +50,122 @@ __int64 __fastcall NtGdiPolyTextOutW(__int64 a1, char *a2, unsigned int a3, unsi
     {
       if ( ((unsigned __int8)a2 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v9 = (ULONG64)&a2[56 * a3];
-      if ( v9 > MmUserProbeAddress || v9 < (unsigned __int64)a2 )
+      v8 = (ULONG64)&a2[7 * a3];
+      if ( v8 > MmUserProbeAddress || v8 < (unsigned __int64)a2 )
         *(_BYTE *)MmUserProbeAddress = 0;
     }
     for ( i = 0; i < a3; ++i )
     {
-      v11 = 56LL * i;
-      v12 = *(int *)&a2[v11 + 8];
-      v13 = v7;
-      v7 += 2 * v12;
-      if ( v12 > 0x1388000 || v7 < v13 )
+      v10 = 7LL * i;
+      v11 = SLODWORD(a2[v10 + 1]);
+      v12 = v6;
+      v6 += 2 * v11;
+      if ( v11 > 0x1388000 || v6 < v12 )
         goto LABEL_24;
-      if ( *(_QWORD *)&a2[v11 + 48] )
+      if ( a2[v10 + 6] )
       {
-        v14 = 4 * v12;
-        if ( (*(_DWORD *)&a2[v11 + 24] & 0x2000) != 0 )
+        v13 = 4 * v11;
+        if ( (a2[v10 + 3] & 0x2000) != 0 )
         {
-          if ( (unsigned int)(2 * v12) > 0x9C4000 )
-            v6 = 0;
-          v14 = 8 * v12;
+          if ( (unsigned int)(2 * v11) > 0x9C4000 )
+            v5 = 0;
+          v13 = 8 * v11;
         }
-        else if ( v12 > 0x9C4000 )
+        else if ( v11 > 0x9C4000 )
         {
-          v6 = 0;
+          v5 = 0;
         }
-        v15 = v7;
-        v7 += v14;
-        if ( !v6 || v7 < v15 )
+        v14 = v6;
+        v6 += v13;
+        if ( !v5 || v6 < v14 )
           goto LABEL_24;
       }
-      if ( (_DWORD)v12 && !*(_QWORD *)&a2[v11 + 16] )
+      if ( (_DWORD)v11 && !a2[7 * i + 2] )
       {
 LABEL_24:
-        v6 = 0;
+        v5 = 0;
         break;
       }
     }
   }
-  if ( v6 && v7 )
+  if ( v5 && v6 )
   {
-    if ( v7 <= 0x2710000 )
-      v8 = (char *)AllocFreeTmpBuffer(v7);
-    if ( v8 )
+    if ( v6 <= 0x2710000 )
+      v7 = (char *)AllocFreeTmpBuffer(v6);
+    if ( v7 )
     {
-      memmove(v8, a2, 56LL * a3);
-      v19 = &v8[56 * a3];
-      v20 = &v8[v7];
-      v33 = v20;
+      memmove(v7, a2, 56LL * a3);
+      v15 = &v7[56 * a3];
+      v16 = &v7[v6];
+      v32 = v16;
       for ( j = 0; j < a3; ++j )
       {
-        v18 = 56LL * j;
-        v31 = v18;
-        v16 = *(unsigned int *)&v8[v18 + 8];
-        if ( (_DWORD)v16 )
+        v24 = 56LL * j;
+        v31 = v24;
+        v25 = *(_DWORD *)&v7[v24 + 8];
+        if ( v25 )
         {
-          v22 = *(char **)&v8[v18 + 48];
-          if ( v22 )
+          v26 = *(char **)&v7[v24 + 48];
+          if ( v26 )
           {
-            v16 = (unsigned int)(4 * v16);
-            v17 = 56LL * j;
-            v23 = *(_DWORD *)&v8[v17 + 8];
-            if ( (*(_DWORD *)&v8[v18 + 24] & 0x2000) != 0 )
+            v27 = 4 * v25;
+            if ( (*(_DWORD *)&v7[v24 + 24] & 0x2000) != 0 )
             {
-              if ( v23 > 0x4E2000 )
-                v6 = 0;
-              v16 = (unsigned int)(2 * v16);
+              if ( v25 > 0x4E2000 )
+                v5 = 0;
+              v27 = 8 * v25;
             }
-            else if ( v23 > 0x9C4000 )
+            else if ( v25 > 0x9C4000 )
             {
-              v6 = 0;
+              v5 = 0;
             }
-            v18 = (unsigned int)v16;
-            v24 = &v19[v16];
-            if ( !v6 || v24 < v19 || v24 > v20 )
+            v28 = &v15[v27];
+            if ( !v5 || v28 < v15 || v28 > v16 )
             {
-LABEL_62:
-              v6 = 0;
-              goto LABEL_63;
+LABEL_60:
+              v5 = 0;
+              goto LABEL_61;
             }
-            if ( &v22[v16] < v22 || (unsigned __int64)&v22[v16] > MmUserProbeAddress )
+            if ( &v26[v27] < v26 || (unsigned __int64)&v26[v27] > MmUserProbeAddress )
               *(_BYTE *)MmUserProbeAddress = 0;
-            memmove(v19, v22, (unsigned int)v16);
-            *(_QWORD *)&v8[v31 + 48] = v19;
-            v19 = v24;
-            v20 = v33;
+            memmove(v15, v26, (unsigned int)v27);
+            *(_QWORD *)&v7[v31 + 48] = v15;
+            v15 = v28;
+            v16 = v32;
           }
         }
       }
       for ( k = 0; k < a3; ++k )
       {
-        v26 = 56LL * k;
-        v32 = v26;
-        v17 = *(unsigned int *)&v8[v26 + 8];
-        if ( (_DWORD)v17 )
+        v19 = 56LL * k;
+        v30 = v19;
+        v20 = *(_DWORD *)&v7[v19 + 8];
+        if ( v20 )
         {
-          v16 = *(_QWORD *)&v8[v26 + 16];
-          if ( !v16 )
-            goto LABEL_62;
-          v27 = (unsigned int)(2 * v17);
-          v18 = v27;
-          v28 = &v19[v27];
-          if ( (unsigned int)v17 > 0x1388000 || v28 < v19 || v28 > v20 )
-            goto LABEL_62;
-          if ( v16 + v27 < v16 || v16 + v27 > MmUserProbeAddress )
+          v21 = *(char **)&v7[v19 + 16];
+          if ( !v21 )
+            goto LABEL_60;
+          v22 = 2 * v20;
+          v23 = &v15[v22];
+          if ( v20 > 0x1388000 || v23 < v15 || v23 > v16 )
+            goto LABEL_60;
+          if ( &v21[v22] < v21 || (unsigned __int64)&v21[v22] > MmUserProbeAddress )
             *(_BYTE *)MmUserProbeAddress = 0;
-          memmove(v19, (const void *)v16, v27);
-          *(_QWORD *)&v8[v32 + 16] = v19;
-          v19 = v28;
-          v20 = v33;
+          memmove(v15, v21, 2 * v20);
+          *(_QWORD *)&v7[v30 + 16] = v15;
+          v15 = v23;
+          v16 = v32;
         }
       }
-LABEL_63:
-      if ( v6 )
-      {
-        v29 = SGDGetSessionState(v17);
-        EUDCCountRegion::EUDCCountRegion((EUDCCountRegion *)v34, *(struct Gre::Full::SESSION_GLOBALS **)(v29 + 32));
-        v6 = GrePolyTextOutW(a1, v8, a3, a4);
-        EUDCCountRegion::~EUDCCountRegion((EUDCCountRegion *)v34);
-      }
-      FreeTmpBuffer(v8, v16, v18);
+LABEL_61:
+      if ( v5 )
+        v5 = GrePolyTextOutW(a1);
+      FreeTmpBuffer(v7);
     }
     else
     {
       return 0;
     }
   }
-  return v6;
+  return v5;
 }

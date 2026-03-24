@@ -1,25 +1,41 @@
 /*
- * XREFs of ?RemoveHwProtectedResource@CD2DContext@@IEAAXXZ @ 0x180287D90
+ * XREFs of ?RemoveHwProtectedResource@CD2DContext@@IEAAXXZ @ 0x18023CCE8
  * Callers:
- *     ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18003D334 (-UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z.c)
- *     ?DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z @ 0x1800F10B0 (-DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z.c)
+ *     ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18003A158 (-UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z.c)
+ *     ?DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z @ 0x1800D3E7C (-DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z.c)
  * Callees:
- *     McTemplateU0qq_EventWriteTransfer @ 0x18012D476 (McTemplateU0qq_EventWriteTransfer.c)
- *     ?TempReenableHardwareProtection@CD2DContext@@IEAAXXZ @ 0x180287E34 (-TempReenableHardwareProtection@CD2DContext@@IEAAXXZ.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152674 (McTemplateU0q_EventWriteTransfer.c)
+ *     McTemplateU0qq_EventWriteTransfer @ 0x1801526D8 (McTemplateU0qq_EventWriteTransfer.c)
+ *     ?IsHardwareProtectionDisabled@CD2DContext@@QEBA_NXZ @ 0x18023CCA0 (-IsHardwareProtectionDisabled@CD2DContext@@QEBA_NXZ.c)
  */
 
 void __fastcall CD2DContext::RemoveHwProtectedResource(CD2DContext *this)
 {
   int v1; // r8d
+  int v3; // eax
+  CD2DContext *v4; // rcx
+  char IsHardwareProtectionDisabled; // al
+  __int64 v6; // rcx
+  char v7; // dl
 
-  v1 = *((_DWORD *)this + 108);
-  *((_DWORD *)this + 108) = v1 - 1;
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+  v1 = *((_DWORD *)this + 120);
+  v3 = v1 - 1;
+  *((_DWORD *)this + 120) = v1 - 1;
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+  {
     McTemplateU0qq_EventWriteTransfer(
-      (__int64)&Microsoft_Windows_Dwm_Core_Provider_Context,
-      (__int64)&EVTDESC_ETWGUID_HW_PROTECTED_ENTITY_CHANGE,
+      Microsoft_Windows_Dwm_Core_Provider_Context,
+      &EVTDESC_ETWGUID_HW_PROTECTED_ENTITY_CHANGE,
       v1,
-      v1 - 1);
-  if ( !*((_DWORD *)this + 108) )
-    CD2DContext::TempReenableHardwareProtection(this);
+      v3);
+    v3 = *((_DWORD *)this + 120);
+  }
+  if ( !v3 )
+  {
+    CD2DContext::IsHardwareProtectionDisabled(this);
+    *((_BYTE *)this + 484) = 0;
+    IsHardwareProtectionDisabled = CD2DContext::IsHardwareProtectionDisabled(v4);
+    if ( v7 != IsHardwareProtectionDisabled && (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+      McTemplateU0q_EventWriteTransfer(v6, &EVTDESC_ETWGUID_HW_PROTECTION_TEMPDISABLE, 0LL);
+  }
 }

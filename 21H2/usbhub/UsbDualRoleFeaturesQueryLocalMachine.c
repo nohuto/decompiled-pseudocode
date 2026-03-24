@@ -1,16 +1,16 @@
 /*
- * XREFs of UsbDualRoleFeaturesQueryLocalMachine @ 0x1C005C534
+ * XREFs of UsbDualRoleFeaturesQueryLocalMachine @ 0x1C005DBB8
  * Callers:
- *     UsbhSetupDevice @ 0x1C0038CE8 (UsbhSetupDevice.c)
+ *     UsbhSetupDevice @ 0x1C0039FD8 (UsbhSetupDevice.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     CheckUSBFnConfiguration @ 0x1C005B99C (CheckUSBFnConfiguration.c)
- *     CheckUSBFnIncludeDefaultCfg @ 0x1C005BC48 (CheckUSBFnIncludeDefaultCfg.c)
- *     ReadManifestAssignedValue @ 0x1C005BF98 (ReadManifestAssignedValue.c)
- *     ReadTestOverrideValue @ 0x1C005C094 (ReadTestOverrideValue.c)
- *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C005C1EC (ReadUSBFnFeaturesFromCurrentConfiguration.c)
- *     UpdateUcmIsPresentBit @ 0x1C005C3A0 (UpdateUcmIsPresentBit.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     CheckUSBFnConfiguration @ 0x1C005D03C (CheckUSBFnConfiguration.c)
+ *     CheckUSBFnIncludeDefaultCfg @ 0x1C005D2E8 (CheckUSBFnIncludeDefaultCfg.c)
+ *     ReadManifestAssignedValue @ 0x1C005D61C (ReadManifestAssignedValue.c)
+ *     ReadTestOverrideValue @ 0x1C005D718 (ReadTestOverrideValue.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C005D870 (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ *     UpdateUcmIsPresentBit @ 0x1C005DA24 (UpdateUcmIsPresentBit.c)
  */
 
 void __fastcall UsbDualRoleFeaturesQueryLocalMachine(int *a1)

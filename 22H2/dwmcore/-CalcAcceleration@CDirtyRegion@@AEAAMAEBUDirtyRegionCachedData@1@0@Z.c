@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CalcAcceleration@CDirtyRegion@@AEAAMAEBUDirtyRegionCachedData@1@0@Z @ 0x1800E9C60
+ * XREFs of ?CalcAcceleration@CDirtyRegion@@AEAAMAEBUDirtyRegionCachedData@1@0@Z @ 0x1800D8158
  * Callers:
- *     ?Optimize@CDirtyRegion@@QEAAXXZ @ 0x180075040 (-Optimize@CDirtyRegion@@QEAAXXZ.c)
+ *     ?Optimize@CDirtyRegion@@QEAAXXZ @ 0x18008EA70 (-Optimize@CDirtyRegion@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of _anonymous_namespace_::SynthesizeDescription @ 0x180061AA4
+ * XREFs of _anonymous_namespace_::SynthesizeDescription @ 0x18001BF7C
  * Callers:
- *     ?LogKeyframeAnimationDirtiedTarget@CAnimationLoggingManager@@QEAAXPEAVCKeyframeAnimation@@@Z @ 0x1800525F8 (-LogKeyframeAnimationDirtiedTarget@CAnimationLoggingManager@@QEAAXPEAVCKeyframeAnimation@@@Z.c)
+ *     ?SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z @ 0x180074090 (-SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z.c)
  * Callees:
- *     ??0?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAA@QEBG@Z @ 0x180061B50 (--0-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEAA@QEBG@Z.c)
- *     _anonymous_namespace_::GetExpressionTypeString @ 0x180061DCC (_anonymous_namespace_--GetExpressionTypeString.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     swprintf_s @ 0x180101A20 (swprintf_s.c)
+ *     _anonymous_namespace_::GetExpressionTypeString @ 0x18001C028 (_anonymous_namespace_--GetExpressionTypeString.c)
+ *     ??0?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAA@QEBG@Z @ 0x18003468C (--0-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEAA@QEBG@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1800E8290 (swprintf_s.c)
  */
 
 __int64 __fastcall anonymous_namespace_::SynthesizeDescription(__int64 a1, __int64 a2, __int64 a3)
@@ -20,12 +20,12 @@ __int64 __fastcall anonymous_namespace_::SynthesizeDescription(__int64 a1, __int
   wchar_t Buffer[104]; // [rsp+30h] [rbp-E8h] BYREF
 
   ExpressionTypeString = anonymous_namespace_::GetExpressionTypeString(
-                           *(unsigned int *)(a2 + 152),
+                           *(unsigned int *)(a2 + 144),
                            a2,
                            a3,
-                           *(unsigned int *)(a2 + 192));
+                           *(unsigned int *)(a2 + 184));
   v10 = v5;
-  v7 = swprintf_s(Buffer, 0x64uLL, L"%s::%s::%d", off_1802C0E00[*(unsigned int *)(v6 + 212)], ExpressionTypeString, v10);
+  v7 = swprintf_s(Buffer, 0x64uLL, L"%s::%s::%d", off_18027AE80[*(unsigned int *)(v6 + 204)], ExpressionTypeString, v10);
   if ( v7 < 0 || (v8 = Buffer, (unsigned __int64)v7 > 0x64) )
     v8 = L"::ERROR::";
   std::wstring::wstring(a1, v8);

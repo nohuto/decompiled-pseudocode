@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsHardwareProtected@CD2DResource@@$4PPPPPPPM@7EBA_NXZ @ 0x180109450
+ * XREFs of ?IsHardwareProtected@CD2DResource@@$4PPPPPPPM@7EBA_NXZ @ 0x1800F77A0
  * Callers:
  *     <none>
  * Callees:

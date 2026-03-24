@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetVadBits @ 0x140858B34
+ * XREFs of MiSetVadBits @ 0x140858B14
  * Callers:
- *     MiUpdateVadBits @ 0x140679E30 (MiUpdateVadBits.c)
+ *     MiUpdateVadBits @ 0x140679E10 (MiUpdateVadBits.c)
  * Callees:
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
  */

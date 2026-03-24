@@ -1,19 +1,19 @@
 /*
- * XREFs of ?DeleteOutstandingAnalogToken@CTokenManager@@UEAAXXZ @ 0x1C00027D0
+ * XREFs of ?DeleteOutstandingAnalogToken@CTokenManager@@UEAAXXZ @ 0x1C001B2F0
  * Callers:
- *     ??1CTokenManager@@AEAA@XZ @ 0x1C0002B3C (--1CTokenManager@@AEAA@XZ.c)
+ *     ??1CTokenManager@@AEAA@XZ @ 0x1C0012C1C (--1CTokenManager@@AEAA@XZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CTokenManager::DeleteOutstandingAnalogToken(CTokenManager *this)
 {
   void (__fastcall ***v2)(_QWORD, __int64); // rcx
 
-  v2 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 40);
+  v2 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 37);
   if ( v2 )
   {
     (**v2)(v2, 1LL);
-    *((_QWORD *)this + 40) = 0LL;
+    *((_QWORD *)this + 37) = 0LL;
   }
 }

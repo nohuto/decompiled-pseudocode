@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlIncrementCcFastReadResourceMiss @ 0x140540FD0
+ * XREFs of FsRtlIncrementCcFastReadResourceMiss @ 0x1404EEE60
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void FsRtlIncrementCcFastReadResourceMiss(void)
 {
-  __incgsdword(0x8480u);
+  __incgsdword(0x8140u);
 }

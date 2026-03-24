@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpLegacyWorkerInitialization @ 0x14018CFC4
+ * XREFs of ExpLegacyWorkerInitialization @ 0x14018CFE4
  * Callers:
  *     ExpWorkerInitialization @ 0x1409D4C50 (ExpWorkerInitialization.c)
  * Callees:

@@ -1,7 +1,7 @@
 /*
- * XREFs of PspGetProcessParameterOverrides @ 0x1406D7C10
+ * XREFs of PspGetProcessParameterOverrides @ 0x14060713C
  * Callers:
- *     NtCreateUserProcess @ 0x14066D650 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
  * Callees:
  *     <none>
  */
@@ -26,6 +26,6 @@ _DWORD *__fastcall PspGetProcessParameterOverrides(__int64 a1, __int64 a2)
     PsDestroyProcessParameterOverrides(v7);
     result = 0LL;
   }
-  *(_QWORD *)(a1 + 488) = result;
+  *(_QWORD *)(a1 + 512) = result;
   return result;
 }

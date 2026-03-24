@@ -1,14 +1,14 @@
 /*
- * XREFs of RestartCtxtPassive @ 0x1C000D890
+ * XREFs of RestartCtxtPassive @ 0x1C002A540
  * Callers:
  *     <none>
  * Callees:
- *     InsertReadyQueue @ 0x1C000E2B0 (InsertReadyQueue.c)
+ *     InsertReadyQueue @ 0x1C00047A0 (InsertReadyQueue.c)
  */
 
-void __fastcall RestartCtxtPassive(struct _SLIST_ENTRY *a1)
+void __fastcall RestartCtxtPassive(__int64 a1)
 {
-  NewIrql = KeAcquireSpinLockRaiseToDpc(&SpinLock);
-  InsertReadyQueue(a1);
-  KeReleaseSpinLock(&SpinLock, NewIrql);
+  byte_1C00827B0 = KeAcquireSpinLockRaiseToDpc(&SpinLock);
+  InsertReadyQueue((PSLIST_ENTRY)a1, (*(_DWORD *)(a1 + 64) & 0x100) == 0);
+  KeReleaseSpinLock(&SpinLock, byte_1C00827B0);
 }

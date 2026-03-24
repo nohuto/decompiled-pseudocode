@@ -1,34 +1,34 @@
 /*
- * XREFs of EtwTraceJobRemoveProcess @ 0x1409E237C
+ * XREFs of EtwTraceJobRemoveProcess @ 0x140935ED8
  * Callers:
- *     PspRemoveProcessFromJobChain @ 0x140684158 (PspRemoveProcessFromJobChain.c)
+ *     PspRemoveProcessFromJobChain @ 0x140616398 (PspRemoveProcessFromJobChain.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-void __fastcall EtwTraceJobRemoveProcess(__int64 a1, int a2, int a3)
+__int64 __fastcall EtwTraceJobRemoveProcess(__int64 a1, int a2, int a3)
 {
   int v3; // r9d
   __int64 v4; // rax
-  _QWORD v5[2]; // [rsp+30h] [rbp-40h] BYREF
-  int v6; // [rsp+40h] [rbp-30h]
-  int v7; // [rsp+44h] [rbp-2Ch]
-  int v8; // [rsp+48h] [rbp-28h]
-  int v9; // [rsp+4Ch] [rbp-24h]
-  _QWORD v10[2]; // [rsp+50h] [rbp-20h] BYREF
+  _QWORD v6[2]; // [rsp+30h] [rbp-40h] BYREF
+  int v7; // [rsp+40h] [rbp-30h]
+  int v8; // [rsp+44h] [rbp-2Ch]
+  int v9; // [rsp+48h] [rbp-28h]
+  int v10; // [rsp+4Ch] [rbp-24h]
+  _QWORD v11[2]; // [rsp+50h] [rbp-20h] BYREF
 
-  v5[0] = 0LL;
+  v6[0] = 0LL;
   v3 = 0;
-  v5[1] = 0LL;
+  v6[1] = 0LL;
   if ( a1 && (v4 = *(_QWORD *)(a1 + 1296), v3 = *(_DWORD *)(a1 + 1088), v4) )
-    v6 = *(_DWORD *)(v4 + 1428);
+    v7 = *(_DWORD *)(v4 + 1236);
   else
-    v6 = 0;
-  v7 = v3;
-  v8 = a2;
-  v9 = a3;
-  v10[0] = v5;
-  v10[1] = 32LL;
-  EtwTraceKernelEvent((__int64)v10, 1u, 0x80000u, 0x724u, 0x501904u);
+    v7 = 0;
+  v8 = v3;
+  v9 = a2;
+  v10 = a3;
+  v11[0] = v6;
+  v11[1] = 32LL;
+  return EtwTraceKernelEvent((int)v11, 1, 0x80000u, 1828, 5249284);
 }

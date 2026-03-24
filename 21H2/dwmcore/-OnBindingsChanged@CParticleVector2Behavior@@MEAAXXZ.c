@@ -1,17 +1,17 @@
 /*
- * XREFs of ?OnBindingsChanged@CParticleVector2Behavior@@MEAAXXZ @ 0x180231980
+ * XREFs of ?OnBindingsChanged@CParticleVector2Behavior@@MEAAXXZ @ 0x1801E2950
  * Callers:
  *     <none>
  * Callees:
- *     ?AppendFrames@?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEAAJAEBV?$span@$$CBUParticleBindingData@@$0?0@gsl@@@Z @ 0x18022A374 (-AppendFrames@-$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEAAJAE.c)
- *     ??$?0$0?0V?$vector@UParticleBindingData@@V?$allocator@UParticleBindingData@@@std@@@std@@$0A@@?$span@$$CBUParticleBindingData@@$0?0@gsl@@QEAA@AEBV?$vector@UParticleBindingData@@V?$allocator@UParticleBindingData@@@std@@@std@@@Z @ 0x18022B3C8 (--$-0$0-0V-$vector@UParticleBindingData@@V-$allocator@UParticleBindingData@@@std@@@std@@$0A@@-$s.c)
+ *     ?AppendFrames@?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEAAJAEBV?$span@$$CBUParticleBindingData@@$0?0@gsl@@@Z @ 0x1801DB658 (-AppendFrames@-$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEAAJAE.c)
+ *     ??$?0V?$vector@UParticleBindingData@@V?$allocator@UParticleBindingData@@@std@@@std@@X@?$span@$$CBUParticleBindingData@@$0?0@gsl@@QEAA@AEBV?$vector@UParticleBindingData@@V?$allocator@UParticleBindingData@@@std@@@std@@@Z @ 0x1801DC518 (--$-0V-$vector@UParticleBindingData@@V-$allocator@UParticleBindingData@@@std@@@std@@X@-$span@$$C.c)
  */
 
 void __fastcall CParticleVector2Behavior::OnBindingsChanged(CParticleVector2Behavior *this)
 {
-  _QWORD v2[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v2[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  *((_QWORD *)this + 16) = *((_QWORD *)this + 15);
-  gsl::span<ParticleBindingData const,-1>::span<ParticleBindingData const,-1>((gsl::details *)v2, (__int64 *)this + 11);
-  Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float2>::AppendFrames((__int64 *)this + 14, v2);
+  *((_QWORD *)this + 15) = *((_QWORD *)this + 14);
+  gsl::span<ParticleBindingData const,-1>::span<ParticleBindingData const,-1>(v2, (gsl::details **)this + 10);
+  Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float2>::AppendFrames((__int64)this + 104, v2);
 }

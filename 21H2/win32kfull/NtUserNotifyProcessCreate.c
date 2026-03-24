@@ -1,35 +1,35 @@
 /*
- * XREFs of NtUserNotifyProcessCreate @ 0x1C0079FF0
+ * XREFs of NtUserNotifyProcessCreate @ 0x1C003B670
  * Callers:
  *     <none>
  * Callees:
- *     ?PushProcessLaunchForegroundPolicy@ForegroundLaunch@@YAXPEAXUtagProcessLaunchPolicy@@@Z @ 0x1C0077A00 (-PushProcessLaunchForegroundPolicy@ForegroundLaunch@@YAXPEAXUtagProcessLaunchPolicy@@@Z.c)
- *     ?xxxUserNotifyProcessCreate@@YAJKK_KK@Z @ 0x1C007B748 (-xxxUserNotifyProcessCreate@@YAJKK_KK@Z.c)
+ *     ?xxxUserNotifyProcessCreate@@YAJKK_KK@Z @ 0x1C003B714 (-xxxUserNotifyProcessCreate@@YAJKK_KK@Z.c)
  */
 
 __int64 __fastcall NtUserNotifyProcessCreate(signed int a1, unsigned int a2, unsigned __int64 a3, unsigned int a4)
 {
   __int64 v9; // rdx
   __int64 v10; // rcx
+  __int64 v11; // r8
   __int64 CurrentProcess; // rax
-  __int64 v12; // rcx
-  unsigned int v13; // ebx
+  __int64 v13; // rcx
+  unsigned int v14; // ebx
 
   if ( a4 )
   {
-    EnterCrit(0LL, 0LL);
-    CurrentProcess = PsGetCurrentProcess(v10, v9);
-    v12 = gpepCSRSS;
+    EnterCrit(0LL, 1LL);
+    CurrentProcess = PsGetCurrentProcess(v10, v9, v11);
+    v13 = gpepCSRSS;
     if ( CurrentProcess == gpepCSRSS )
-      v13 = xxxUserNotifyProcessCreate(a1, a2, a3, a4);
+      v14 = xxxUserNotifyProcessCreate(a1, a2, a3, a4);
     else
-      v13 = -1073741790;
-    UserSessionSwitchLeaveCrit(v12);
-    return v13;
+      v14 = -1073741790;
+    UserSessionSwitchLeaveCrit(v13);
+    return v14;
   }
   else
   {
-    ForegroundLaunch::PushProcessLaunchForegroundPolicy(a1, 4LL);
+    GiveForegroundActivateRight(a1);
     return 0LL;
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0ppqPR2TR2_EtwWriteTransfer @ 0x1C002E910
+ * XREFs of McTemplateK0ppqPR2TR2_EtwWriteTransfer @ 0x1C0024450
  * Callers:
- *     ?ReferenceDmaBuffer@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DMA_BUFFER@@PEAU_D3DDDI_ALLOCATIONLIST@@IEJPEAKPEAT_LARGE_INTEGER@@PEA_KPEAPEAUVIDMM_ALLOC@@PEAU_VIDMM_PRIMARIES_REFERENCES@@PEAPEAVDXGALLOCATION@@@Z @ 0x1C00A20B0 (-ReferenceDmaBuffer@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DMA_BUFFER@@PEAU_D3DDDI_ALLOCATIONLIST@@IEJPEA.c)
+ *     ?ReferenceDmaBuffer@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DMA_BUFFER@@PEAU_D3DDDI_ALLOCATIONLIST@@IEJPEAKPEAT_LARGE_INTEGER@@PEA_KPEAPEAUVIDMM_ALLOC@@PEAU_VIDMM_PRIMARIES_REFERENCES@@PEAPEAVDXGALLOCATION@@@Z @ 0x1C0068BD0 (-ReferenceDmaBuffer@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DMA_BUFFER@@PEAU_D3DDDI_ALLOCATIONLIST@@IEJPEA.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BD2C (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023ECC (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0ppqPR2TR2_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
@@ -43,17 +43,17 @@ NTSTATUS McTemplateK0ppqPR2TR2_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 
   v21 = va_arg(va3, _QWORD);
   v23 = va_arg(va3, _QWORD);
   v24 = va_arg(va3, _QWORD);
-  va_copy(v5, va);
+  v6 = 8LL;
   v13 = 0;
+  va_copy(v5, va);
+  v16 = 0;
   va_copy(v7, va1);
+  v8 = 8LL;
   va_copy(v9, va2);
   v11 = v23;
   v12 = 8 * v21;
   v14 = v24;
   v15 = 4 * v21;
-  v16 = 0;
-  v6 = 8LL;
-  v8 = 8LL;
   v10 = 4LL;
   return McGenEventWrite_EtwWriteTransfer(&DxgkControlGuid_Context, &EventReferenceAllocations, a3, 6u, &v4);
 }

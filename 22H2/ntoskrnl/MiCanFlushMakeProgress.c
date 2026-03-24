@@ -1,9 +1,8 @@
 /*
- * XREFs of MiCanFlushMakeProgress @ 0x140638C0C
+ * XREFs of MiCanFlushMakeProgress @ 0x1403502E0
  * Callers:
- *     MiFlushAllPagesWorker @ 0x140639D54 (MiFlushAllPagesWorker.c)
- *     MiFlushAllStoreSwapPages @ 0x140639E5C (MiFlushAllStoreSwapPages.c)
- *     MiWaitForFreePage @ 0x140653AB8 (MiWaitForFreePage.c)
+ *     MiFlushAllHintedStorePages @ 0x1403503A0 (MiFlushAllHintedStorePages.c)
+ *     MiFlushAllPagesWorker @ 0x14038282C (MiFlushAllPagesWorker.c)
  * Callees:
  *     <none>
  */
@@ -11,40 +10,36 @@
 __int64 __fastcall MiCanFlushMakeProgress(__int64 a1, int a2)
 {
   unsigned int v2; // edx
-  int v3; // r9d
-  __int64 i; // r10
-  __int16 v5; // ax
-  bool v6; // zf
+  int v3; // r8d
+  __int64 i; // r9
+  __int64 v5; // r10
+  __int16 v6; // ax
 
-  if ( a2 || *(_QWORD *)(a1 + 17600) == *(_QWORD *)(a1 + 17824) )
+  if ( !a2 && *(_QWORD *)(a1 + 7488) != *(_QWORD *)(a1 + 7600) )
+    return 1LL;
+  v2 = *(_DWORD *)(a1 + 6936);
+  if ( v2 )
   {
-    v2 = *(_DWORD *)(a1 + 17048);
-    if ( !v2 )
-      return 0LL;
     v3 = 0;
-    for ( i = a1 + 17056; ; i += 8LL )
+    for ( i = 6944LL; ; i += 8LL )
     {
-      if ( *(_QWORD *)(*(_QWORD *)i + 24LL) )
+      v5 = *(_QWORD *)(i + a1);
+      if ( *(_QWORD *)(v5 + 24) )
       {
-        v5 = *(_WORD *)(*(_QWORD *)i + 204LL);
-        if ( (v5 & 0x40) != 0 )
+        v6 = *(_WORD *)(v5 + 204);
+        if ( (v6 & 0x40) == 0 )
         {
-          if ( *(_QWORD *)(88LL * (v5 & 0xF) + a1 + 3904) )
-            return 1LL;
-          v6 = *(_QWORD *)(a1 + 3776) == 0LL;
+          if ( (v6 & 0x10) == 0 )
+            break;
+          a1 = *(_QWORD *)(v5 + 248);
+          if ( *(_QWORD *)(a1 + 40LL * (v6 & 0xF) + 2816) )
+            break;
         }
-        else
-        {
-          if ( (v5 & 0x10) == 0 )
-            return 1LL;
-          v6 = *(_QWORD *)(88LL * (v5 & 0xF) + a1 + 3904) == 0LL;
-        }
-        if ( !v6 )
-          break;
       }
       if ( ++v3 >= v2 )
         return 0LL;
     }
+    return 1LL;
   }
-  return 1LL;
+  return 0LL;
 }

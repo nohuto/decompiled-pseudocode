@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPDO_CreateUnknownPdo @ 0x1C007F1B4
+ * XREFs of HUBPDO_CreateUnknownPdo @ 0x1C007A9F4
  * Callers:
- *     HUBDSM_CreatingUnknownChildPDOAndReportingToPnp @ 0x1C00233B0 (HUBDSM_CreatingUnknownChildPDOAndReportingToPnp.c)
+ *     HUBDSM_CreatingUnknownChildPDOAndReportingToPnp @ 0x1C0020DB0 (HUBDSM_CreatingUnknownChildPDOAndReportingToPnp.c)
  * Callees:
- *     HUBPDO_CreatePdoInternal @ 0x1C007DE24 (HUBPDO_CreatePdoInternal.c)
+ *     HUBPDO_CreatePdoInternal @ 0x1C00796D4 (HUBPDO_CreatePdoInternal.c)
  */
 
 __int64 __fastcall HUBPDO_CreateUnknownPdo(_QWORD *a1)

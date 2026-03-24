@@ -1,13 +1,12 @@
 /*
- * XREFs of ?DoesRectOverlapWithExistingDirty@DDAMetaData@@AEAA?AW4RECT_OVERLAP@@PEAUtagRECT@@0@Z @ 0x1C0331C88
+ * XREFs of ?DoesRectOverlapWithExistingDirty@DDAMetaData@@AEAA?AW4RECT_OVERLAP@@PEAUtagRECT@@0@Z @ 0x1C02A111C
  * Callers:
- *     ?ProcessDirtyRectAgainstDirtyList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z @ 0x1C03328C0 (-ProcessDirtyRectAgainstDirtyList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z.c)
- *     ?ProcessMoveAgainstDirtyList@DDAMetaData@@AEAAHPEAU_D3DKMT_MOVE_RECT@@PEAUtagRECT@@PEAH@Z @ 0x1C0332C10 (-ProcessMoveAgainstDirtyList@DDAMetaData@@AEAAHPEAU_D3DKMT_MOVE_RECT@@PEAUtagRECT@@PEAH@Z.c)
+ *     ?ProcessDirtyRectAgainstDirtyList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z @ 0x1C02A1B34 (-ProcessDirtyRectAgainstDirtyList@DDAMetaData@@AEAAHPEAUtagRECT@@@Z.c)
+ *     ?ProcessMoveAgainstDirtyList@DDAMetaData@@AEAAHPEAU_D3DKMT_MOVE_RECT@@PEAUtagRECT@@PEAH@Z @ 0x1C02A1DC0 (-ProcessMoveAgainstDirtyList@DDAMetaData@@AEAAHPEAU_D3DKMT_MOVE_RECT@@PEAUtagRECT@@PEAH@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?GetDirtyRectData@DDAMetaData@@AEAAPEAUtagRECT@@I@Z @ 0x1C0331E50 (-GetDirtyRectData@DDAMetaData@@AEAAPEAUtagRECT@@I@Z.c)
- *     ?RectsOverlap@@YA?AW4RECT_OVERLAP@@PEAUtagRECT@@00@Z @ 0x1C0334010 (-RectsOverlap@@YA-AW4RECT_OVERLAP@@PEAUtagRECT@@00@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?GetDirtyRectData@DDAMetaData@@AEAAPEAUtagRECT@@I@Z @ 0x1C02A12A0 (-GetDirtyRectData@DDAMetaData@@AEAAPEAUtagRECT@@I@Z.c)
+ *     ?RectsOverlap@@YA?AW4RECT_OVERLAP@@PEAUtagRECT@@00@Z @ 0x1C02A2E40 (-RectsOverlap@@YA-AW4RECT_OVERLAP@@PEAUtagRECT@@00@Z.c)
  */
 
 __int64 __fastcall DDAMetaData::DoesRectOverlapWithExistingDirty(__int64 a1, unsigned int *a2, __int64 a3)
@@ -16,8 +15,10 @@ __int64 __fastcall DDAMetaData::DoesRectOverlapWithExistingDirty(__int64 a1, uns
   struct tagRECT *DirtyRectData; // rdx
   __int64 result; // rax
   struct tagRECT *v9; // rdx
-  const wchar_t *v10; // r9
-  int v11; // eax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  int v13; // eax
 
   if ( *(_QWORD *)(a1 + 64) )
   {
@@ -26,24 +27,22 @@ __int64 __fastcall DDAMetaData::DoesRectOverlapWithExistingDirty(__int64 a1, uns
            *a2,
            a2[1],
            a2[2],
-           a2[3]) )
+           a2[3])
+      && (v13 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(*(_QWORD *)(a1 + 56) + 104LL))(
+                  *(_QWORD *)(a1 + 72),
+                  *(_QWORD *)(a1 + 72),
+                  *(_QWORD *)(a1 + 64),
+                  1LL)) != 0 )
     {
-      v11 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(*(_QWORD *)(a1 + 56) + 104LL))(
-              *(_QWORD *)(a1 + 72),
-              *(_QWORD *)(a1 + 72),
-              *(_QWORD *)(a1 + 64),
-              1LL);
-      if ( v11 )
-        return v11 != 1 ? 3 : 0;
-      WdLogSingleEntry1(2LL, a2);
-      v10 = L"Failed to combine Gdi region to rect 0x%I64x";
+      if ( v13 == 1 )
+        return 0LL;
     }
     else
     {
-      WdLogSingleEntry1(2LL, a2);
-      v10 = L"Failed to set Gdi region to rect 0x%I64x";
+      v12 = WdLogNewEntry5_WdError(v11, v10);
+      *(_QWORD *)(v12 + 24) = a2;
+      WdLogEvent5_WdError(v12);
     }
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v10, (__int64)a2, 0LL, 0LL, 0LL, 0LL);
     return 3LL;
   }
   v6 = 0;

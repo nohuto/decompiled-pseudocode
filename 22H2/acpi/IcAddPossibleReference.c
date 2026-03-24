@@ -1,8 +1,8 @@
 /*
- * XREFs of IcAddPossibleReference @ 0x1C009EB84
+ * XREFs of IcAddPossibleReference @ 0x1C0091EB4
  * Callers:
- *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DBC (AcpiIrqLibSetupSciInterrupt.c)
- *     IrqArbAddAllocation @ 0x1C009C4C0 (IrqArbAddAllocation.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0097104 (AcpiIrqLibSetupSciInterrupt.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of ACPIPepInitializePlatformNotificationSupport @ 0x1C008FED4
+ * XREFs of ACPIPepInitializePlatformNotificationSupport @ 0x1C00B0EE0
  * Callers:
- *     ACPIBusIrpStartDeviceWorker @ 0x1C008F350 (ACPIBusIrpStartDeviceWorker.c)
+ *     ACPIBusIrpStartDeviceWorker @ 0x1C00A2EE0 (ACPIBusIrpStartDeviceWorker.c)
  * Callees:
- *     ACPIInitReferenceDeviceExtension @ 0x1C00056D8 (ACPIInitReferenceDeviceExtension.c)
- *     AMLIFreeDataBuffs @ 0x1C001C758 (AMLIFreeDataBuffs.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     ACPIAmliEvaluateDsm @ 0x1C0090340 (ACPIAmliEvaluateDsm.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C0099F08 (ACPIAmliEvaluateDsm.c)
  */
 
 char __fastcall ACPIPepInitializePlatformNotificationSupport(char *Context)
 {
-  __int64 v2; // rcx
+  __int64 *v2; // rcx
   signed __int32 v3; // edi
   unsigned int v4; // r10d
   unsigned int v5; // r9d
@@ -27,20 +27,19 @@ char __fastcall ACPIPepInitializePlatformNotificationSupport(char *Context)
   __int128 v16; // [rsp+40h] [rbp-9h] BYREF
   _OWORD v17[3]; // [rsp+50h] [rbp+7h] BYREF
 
-  DWORD1(v17[0]) = 0;
+  *((_QWORD *)Context + 24) = 0LL;
+  *((_DWORD *)Context + 50) = 0;
   OutputBuffer[0] = 0;
   *(_QWORD *)(Context + 260) = 1LL;
   *((_DWORD *)Context + 46) = 1;
-  *((_QWORD *)Context + 24) = 0LL;
-  *((_DWORD *)Context + 50) = 0;
   KeInitializeEvent((PRKEVENT)(Context + 208), SynchronizationEvent, 0);
-  v2 = *((_QWORD *)Context + 95);
+  v2 = (__int64 *)*((_QWORD *)Context + 90);
   memset(v17, 0, sizeof(v17));
   v3 = 0;
   v14 = 0;
   v15 = 0LL;
   v16 = PEP_NOTIFICATIONS_DSM_UUID;
-  if ( (int)ACPIAmliEvaluateDsm(v2, (unsigned int)&v16, 0, 0, (__int64)v17, (__int64)&v15) >= 0 )
+  if ( (int)ACPIAmliEvaluateDsm(v2, (__int64)&v16, 0, 0, (__int64)v17, &v15) >= 0 )
   {
     if ( *(_WORD *)(v15 + 2) == 3 )
     {

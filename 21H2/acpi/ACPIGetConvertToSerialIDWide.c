@@ -1,29 +1,29 @@
 /*
- * XREFs of ACPIGetConvertToSerialIDWide @ 0x1C00561D4
+ * XREFs of ACPIGetConvertToSerialIDWide @ 0x1C0055B10
  * Callers:
- *     ACPIGetWorkerForString @ 0x1C0019740 (ACPIGetWorkerForString.c)
+ *     ACPIGetWorkerForString @ 0x1C000C4F0 (ACPIGetWorkerForString.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1C001DBA0 (RtlStringCchPrintfW.c)
- *     ACPIGetConvertToStringWide @ 0x1C0056314 (ACPIGetConvertToStringWide.c)
+ *     RtlStringCchPrintfW @ 0x1C00287E0 (RtlStringCchPrintfW.c)
+ *     ACPIGetConvertToStringWide @ 0x1C0055C48 (ACPIGetConvertToStringWide.c)
  */
 
 __int64 __fastcall ACPIGetConvertToSerialIDWide(__int64 a1, int a2, __int64 a3, int a4, wchar_t **a5, _DWORD *a6)
 {
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   wchar_t *v9; // rdi
 
   if ( a2 < 0 )
     return (unsigned int)a2;
   if ( *(_WORD *)(a3 + 2) == 1 )
   {
-    Pool2 = (wchar_t *)ExAllocatePool2(
-                         (-(__int64)((a4 & 0x8000000) != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256,
-                         18LL,
-                         1399874369LL);
-    v9 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(
+                               (POOL_TYPE)((a4 & 0x8000000) != 0 ? NonPagedPoolNx : PagedPool),
+                               0x12uLL,
+                               0x53706341u);
+    v9 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      RtlStringCchPrintfW(Pool2, 9uLL, L"%X", *(unsigned int *)(a3 + 16));
+      RtlStringCchPrintfW(PoolWithTag, 9uLL, L"%X", *(unsigned int *)(a3 + 16));
       *a5 = v9;
       if ( a6 )
         *a6 = 18;

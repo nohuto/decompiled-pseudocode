@@ -1,14 +1,14 @@
 /*
- * XREFs of KiBugCheckProgress @ 0x140567390
+ * XREFs of KiBugCheckProgress @ 0x140517EF0
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwReleaseLock @ 0x1403A7BF0 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403A7C40 (BgpFwAcquireLock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiBugCheckConvertProgressValueToUnicodeString @ 0x1405671EC (KiBugCheckConvertProgressValueToUnicodeString.c)
- *     KiHeadlessDisplayString @ 0x140567D6C (KiHeadlessDisplayString.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x14064E7FC (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiBugCheckConvertProgressValueToUnicodeString @ 0x140517D4C (KiBugCheckConvertProgressValueToUnicodeString.c)
+ *     KiHeadlessDisplayString @ 0x1405185B8 (KiHeadlessDisplayString.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x1405C5540 (BgpFwDisplayBugCheckProgressUpdate.c)
  */
 
 __int64 __fastcall KiBugCheckProgress(unsigned int a1)
@@ -28,7 +28,7 @@ __int64 __fastcall KiBugCheckProgress(unsigned int a1)
   v9 = &v10;
   v7 = 0LL;
   BgpFwAcquireLock();
-  if ( (dword_140C0DF90 & 2) != 0 )
+  if ( (dword_140C134F0 & 2) != 0 )
   {
     LOBYTE(v3) = v2;
     BgpFwDisplayBugCheckProgressUpdate(a1, &v7, v3);

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpCheckAndFixSecurityCellsRefcount @ 0x1406BCAA0
+ * XREFs of CmpCheckAndFixSecurityCellsRefcount @ 0x1406BCA80
  * Callers:
  *     CmpCheckRegistry2 @ 0x1405D8EF0 (CmpCheckRegistry2.c)
  * Callees:
- *     CmpRemoveSecurityCellList @ 0x140137F38 (CmpRemoveSecurityCellList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     CmpRemoveSecurityCellList @ 0x140137F58 (CmpRemoveSecurityCellList.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
- *     HvMarkCellDirty @ 0x140800FD4 (HvMarkCellDirty.c)
+ *     HvMarkCellDirty @ 0x140800FB4 (HvMarkCellDirty.c)
  */
 
 char __fastcall CmpCheckAndFixSecurityCellsRefcount(ULONG_PTR BugCheckParameter2)

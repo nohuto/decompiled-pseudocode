@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmIdleUsingStateSelection @ 0x14032C240
+ * XREFs of PpmIdleUsingStateSelection @ 0x14034A8EC
  * Callers:
- *     PoFxSendSystemLatencyUpdate @ 0x14032C150 (PoFxSendSystemLatencyUpdate.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14034A828 (PoFxSendSystemLatencyUpdate.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
  */
 
 bool PpmIdleUsingStateSelection()
@@ -20,6 +20,6 @@ bool PpmIdleUsingStateSelection()
   IdleStates = KeGetCurrentPrcb()->PowerState.IdleStates;
   if ( IdleStates )
     v1 = IdleStates->InterfaceVersion == 1;
-  PopReleaseRwLock(&PpmIdlePolicyLock);
+  PopReleaseRwLock((ULONG_PTR)&PpmIdlePolicyLock);
   return v1;
 }

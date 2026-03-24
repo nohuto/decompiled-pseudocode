@@ -1,9 +1,9 @@
 /*
- * XREFs of ?NotifyInvalidResource@CCompositionSurfaceInfo@@UEAAXPEBVIDeviceResource@@@Z @ 0x18026D310
+ * XREFs of ?NotifyInvalidResource@CCompositionSurfaceInfo@@UEAAXPEBVIDeviceResource@@@Z @ 0x18020CD20
  * Callers:
- *     ?NotifyInvalidResource@CGlobalCompositionSurfaceInfo@@UEAAXPEBVIDeviceResource@@@Z @ 0x18025B620 (-NotifyInvalidResource@CGlobalCompositionSurfaceInfo@@UEAAXPEBVIDeviceResource@@@Z.c)
+ *     ?NotifyInvalidResource@CGlobalCompositionSurfaceInfo@@UEAAXPEBVIDeviceResource@@@Z @ 0x1801F8A00 (-NotifyInvalidResource@CGlobalCompositionSurfaceInfo@@UEAAXPEBVIDeviceResource@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CCompositionSurfaceInfo::NotifyInvalidResource(
@@ -13,9 +13,9 @@ void __fastcall CCompositionSurfaceInfo::NotifyInvalidResource(
   __int64 i; // rbx
   __int64 v5; // rcx
 
-  for ( i = (__int64)(*((_QWORD *)this + 7) - *((_QWORD *)this + 6)) >> 3; i; --i )
+  for ( i = (__int64)(*((_QWORD *)this + 5) - *((_QWORD *)this + 4)) >> 3; i; --i )
   {
-    v5 = *(_QWORD *)(*((_QWORD *)this + 6) + 8 * i - 8);
+    v5 = *(_QWORD *)(*((_QWORD *)this + 4) + 8 * i - 8);
     (*(void (__fastcall **)(__int64, const struct IDeviceResource *))(*(_QWORD *)v5 + 32LL))(v5, a2);
   }
 }

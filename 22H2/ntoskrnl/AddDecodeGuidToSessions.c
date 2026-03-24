@@ -1,19 +1,19 @@
 /*
- * XREFs of AddDecodeGuidToSessions @ 0x1407E9FA0
+ * XREFs of AddDecodeGuidToSessions @ 0x140941B9C
  * Callers:
- *     EtwpSetProviderTraitsCommon @ 0x1406BE544 (EtwpSetProviderTraitsCommon.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1406BC01C (EtwpSetProviderTraitsCommon.c)
  * Callees:
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpTrackDecodeGuidForSession @ 0x1409F5568 (EtwpTrackDecodeGuidForSession.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpTrackDecodeGuidForSession @ 0x1409411E4 (EtwpTrackDecodeGuidForSession.c)
  */
 
-char __fastcall AddDecodeGuidToSessions(__int64 a1)
+bool __fastcall AddDecodeGuidToSessions(__int64 a1)
 {
   unsigned __int8 v1; // si
-  char v3; // di
+  bool v3; // di
   unsigned int v5; // edx
-  unsigned int *v7; // rbx
+  unsigned int *v6; // rbx
 
   v1 = *(_BYTE *)(a1 + 100);
   v3 = 1;
@@ -22,12 +22,12 @@ char __fastcall AddDecodeGuidToSessions(__int64 a1)
     if ( !_BitScanForward(&v5, v1) )
       break;
     v1 &= v1 - 1;
-    v7 = EtwpAcquireLoggerContextByLoggerId(
+    v6 = EtwpAcquireLoggerContextByLoggerId(
            *(_QWORD *)(*(_QWORD *)(a1 + 32) + 392LL),
            *(unsigned __int16 *)(32LL * v5 + *(_QWORD *)(a1 + 32) + 134),
            0);
-    v3 = EtwpTrackDecodeGuidForSession(v7, a1);
-    EtwpReleaseLoggerContext(v7, 0);
+    v3 = EtwpTrackDecodeGuidForSession((__int64)v6, a1);
+    EtwpReleaseLoggerContext(v6, 0);
   }
   while ( v3 );
   return v3;

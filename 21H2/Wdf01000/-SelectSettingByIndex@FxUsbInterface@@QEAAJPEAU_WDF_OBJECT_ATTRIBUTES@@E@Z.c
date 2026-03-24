@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SelectSettingByIndex@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@E@Z @ 0x1C007EEEC
+ * XREFs of ?SelectSettingByIndex@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@E@Z @ 0x1C0072748
  * Callers:
- *     imp_WdfUsbInterfaceSelectSetting @ 0x1C00777B0 (imp_WdfUsbInterfaceSelectSetting.c)
+ *     imp_WdfUsbInterfaceSelectSetting @ 0x1C006A370 (imp_WdfUsbInterfaceSelectSetting.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     ?FormatSelectSettingUrb@FxUsbInterface@@IEAAXPEAU_URB@@GE@Z @ 0x1C007E7CC (-FormatSelectSettingUrb@FxUsbInterface@@IEAAXPEAU_URB@@GE@Z.c)
- *     ?SelectSetting@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@@Z @ 0x1C007EA1C (-SelectSetting@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     ?FormatSelectSettingUrb@FxUsbInterface@@IEAAXPEAU_URB@@GE@Z @ 0x1C0072074 (-FormatSelectSettingUrb@FxUsbInterface@@IEAAXPEAU_URB@@GE@Z.c)
+ *     ?SelectSetting@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@@Z @ 0x1C00722B4 (-SelectSetting@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@@Z.c)
  */
 
 __int64 __fastcall FxUsbInterface::SelectSettingByIndex(
@@ -14,51 +14,35 @@ __int64 __fastcall FxUsbInterface::SelectSettingByIndex(
         _WDF_OBJECT_ATTRIBUTES *PipesAttributes,
         unsigned __int8 SettingIndex)
 {
-  __int64 v4; // rdi
-  _FX_DRIVER_GLOBALS *m_Globals; // r10
-  ULONG Tag; // r8d
-  unsigned __int16 bNumEndpoints; // bp
-  void *v10; // rax
-  FX_POOL **v11; // rax
-  _URB *v12; // rsi
-  unsigned int v13; // ebx
-  __m128i v14; // [rsp+30h] [rbp-28h]
-  __m128i v15; // [rsp+40h] [rbp-18h] BYREF
-  void *retaddr; // [rsp+58h] [rbp+0h]
+  unsigned __int16 bNumEndpoints; // r14
+  FX_POOL **v8; // rax
+  _URB *v9; // rsi
+  unsigned int v10; // ebx
+  void *Caller; // [rsp+38h] [rbp+0h]
 
-  v4 = SettingIndex;
   if ( this->m_ConfiguredPipes && this->m_CurAlternateSetting == SettingIndex )
     return 0LL;
   if ( SettingIndex >= this->m_NumSettings )
     return 3221225485LL;
   _mm_lfence();
-  m_Globals = this->m_Globals;
-  v14.m128i_i64[0] = 0LL;
-  v14.m128i_i64[1] = 64LL;
-  Tag = m_Globals->Tag;
-  bNumEndpoints = this->m_Settings[v4].InterfaceDescriptor->bNumEndpoints;
-  if ( m_Globals->FxPoolTrackingOn )
-    v10 = retaddr;
-  else
-    v10 = 0LL;
-  v15 = v14;
-  v11 = FxPoolAllocator(
-          m_Globals,
-          &m_Globals->FxPoolFrameworks,
-          &v15,
-          (unsigned __int16)(24 * bNumEndpoints + 56),
-          Tag,
-          v10);
-  v12 = (_URB *)v11;
-  if ( v11 )
+  bNumEndpoints = this->m_Settings[SettingIndex].InterfaceDescriptor->bNumEndpoints;
+  v8 = FxPoolAllocator(
+         this->m_Globals,
+         &this->m_Globals->FxPoolFrameworks,
+         ExDefaultNonPagedPoolType,
+         (unsigned __int16)(24 * bNumEndpoints + 56),
+         this->m_Globals->Tag,
+         Caller);
+  v9 = (_URB *)v8;
+  if ( v8 )
   {
-    FxUsbInterface::FormatSelectSettingUrb(this, (_URB *)v11, bNumEndpoints, v4);
-    v13 = FxUsbInterface::SelectSetting(this, PipesAttributes, v12);
-    FxPoolFree((FX_POOL_TRACKER *)v12);
+    FxUsbInterface::FormatSelectSettingUrb(this, (_URB *)v8, bNumEndpoints, SettingIndex);
+    v10 = FxUsbInterface::SelectSetting(this, PipesAttributes, v9);
+    FxPoolFree((FX_POOL_TRACKER *)v9);
   }
   else
   {
     return (unsigned int)-1073741670;
   }
-  return v13;
+  return v10;
 }

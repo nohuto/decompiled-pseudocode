@@ -1,75 +1,50 @@
 /*
- * XREFs of VidSchQueryLastCompletedVidPnSourcePresentIdDWM @ 0x1C003DB80
+ * XREFs of VidSchQueryLastCompletedVidPnSourcePresentIdDWM @ 0x1C00351C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?VidSchQueryLastCompletedPresentIdDWMInternal@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_DEVICE@@IIPEAU_D3DKMT_PRESENT_STATS_DWM2@@@Z @ 0x1C003BA50 (-VidSchQueryLastCompletedPresentIdDWMInternal@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_DEVICE@@IIPEAU.c)
+ *     ?VidSchQueryLastCompletedPresentIdDWMInternal@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_DEVICE@@IIPEAU_D3DKMT_PRESENT_STATS_DWM@@@Z @ 0x1C0032F50 (-VidSchQueryLastCompletedPresentIdDWMInternal@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_DEVICE@@IIPEAU.c)
  */
 
 __int64 __fastcall VidSchQueryLastCompletedVidPnSourcePresentIdDWM(
         KSPIN_LOCK *a1,
-        unsigned int a2,
-        unsigned int a3,
-        __int64 a4)
+        __int64 a2,
+        __int64 a3,
+        struct _D3DKMT_PRESENT_STATS_DWM *a4)
 {
-  __int64 v4; // rsi
-  int v8; // ebx
-  struct _VIDSCH_DEVICE *v9; // rdx
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+58h] [rbp-9h] BYREF
-  __int128 v12; // [rsp+70h] [rbp+Fh] BYREF
-  __int128 v13; // [rsp+80h] [rbp+1Fh]
-  __int128 v14; // [rsp+90h] [rbp+2Fh]
-  __int64 v15; // [rsp+A0h] [rbp+3Fh]
+  unsigned int v4; // ebx
+  __int64 v5; // rsi
+  unsigned int v7; // r15d
+  __int64 v9; // rax
+  __int64 v11; // rax
+  struct _VIDSCH_DEVICE *v12; // rdx
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-38h] BYREF
 
-  v4 = a2;
-  if ( a4 )
+  v4 = 0;
+  v5 = (unsigned int)a2;
+  v7 = a3;
+  if ( !a4 )
   {
-    if ( a2 < *((_DWORD *)a1 + 10) )
-    {
-      _mm_lfence();
-      memset(&LockHandle, 0, sizeof(LockHandle));
-      v15 = 0LL;
-      v8 = 0;
-      v12 = 0LL;
-      v13 = 0LL;
-      v14 = 0LL;
-      KeAcquireInStackQueuedSpinLock(a1 + 216, &LockHandle);
-      v9 = *(struct _VIDSCH_DEVICE **)(a1[v4 + 400] + 16);
-      if ( v9 )
-        VidSchQueryLastCompletedPresentIdDWMInternal(a1, v9, v4, a3, (struct _D3DKMT_PRESENT_STATS_DWM2 *)&v12);
-      else
-        v8 = -1073741811;
-      KeReleaseInStackQueuedSpinLock(&LockHandle);
-      if ( v8 >= 0 )
-      {
-        *(_QWORD *)a4 = *(_QWORD *)((char *)&v12 + 4);
-        *(_QWORD *)(a4 + 8) = v13;
-        *(_DWORD *)(a4 + 16) = DWORD2(v13);
-        *(_QWORD *)(a4 + 24) = v14;
-        *(_DWORD *)(a4 + 32) = DWORD2(v14);
-      }
-    }
-    else
-    {
-      v8 = -1073741811;
-      WdLogSingleEntry2(3LL, a2, -1073741811LL);
-    }
+    v9 = WdLogNewEntry5_WdAssertion(a1, a2, a3);
+    *(_QWORD *)(v9 + 24) = -1073741811LL;
+    WdLogEvent5_WdAssertion(v9);
+    return 3221225485LL;
   }
+  if ( (unsigned int)a2 >= *((_DWORD *)a1 + 10) )
+  {
+    v11 = WdLogNewEntry5_WdWarning(a1, a2);
+    *(_QWORD *)(v11 + 24) = v5;
+    *(_QWORD *)(v11 + 32) = -1073741811LL;
+    WdLogEvent5_WdWarning(v11);
+    return 3221225485LL;
+  }
+  _mm_lfence();
+  KeAcquireInStackQueuedSpinLock(a1 + 214, &LockHandle);
+  v12 = *(struct _VIDSCH_DEVICE **)(a1[v5 + 388] + 16);
+  if ( v12 )
+    VidSchQueryLastCompletedPresentIdDWMInternal(a1, v12, v5, v7, a4);
   else
-  {
-    v8 = -1073741811;
-    WdLogSingleEntry1(1LL, -1073741811LL);
-    ((void (*)(_QWORD, __int64, __int64, const wchar_t *, ...))DxgCoreInterface[85])(
-      0LL,
-      0x40000LL,
-      0xFFFFFFFFLL,
-      L"NULL pointer in pVidSchContext or other required pointer, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-  }
-  return (unsigned int)v8;
+    v4 = -1073741811;
+  KeReleaseInStackQueuedSpinLock(&LockHandle);
+  return v4;
 }

@@ -1,32 +1,36 @@
 /*
- * XREFs of ACPIDeviceInternalDelayedDeviceRequest @ 0x1C0008A3C
+ * XREFs of ACPIDeviceInternalDelayedDeviceRequest @ 0x1C001B254
  * Callers:
- *     ACPIBuildProcessDevicePhasePsc @ 0x1C0008DF0 (ACPIBuildProcessDevicePhasePsc.c)
+ *     ACPIBuildProcessDevicePhasePsc @ 0x1C001A170 (ACPIBuildProcessDevicePhasePsc.c)
  * Callees:
- *     ACPIDeviceInitializePowerRequest @ 0x1C0008B20 (ACPIDeviceInitializePowerRequest.c)
- *     WPP_RECORDER_SF_qdqss @ 0x1C000D718 (WPP_RECORDER_SF_qdqss.c)
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001C9E4 (ACPIDeviceInitializePowerRequest.c)
+ *     WPP_RECORDER_SF_qdqss @ 0x1C001E11C (WPP_RECORDER_SF_qdqss.c)
  */
 
 __int64 __fastcall ACPIDeviceInternalDelayedDeviceRequest(_QWORD *a1, unsigned int a2)
 {
   char v3; // r10
   void *v4; // rcx
+  unsigned int v5; // edi
   void *v6; // r8
   __int64 v7; // rax
   __int64 result; // rax
 
   v3 = 0;
-  v4 = &unk_1C006FB8B;
-  v6 = &unk_1C006FB8B;
+  v4 = &unk_1C00701BA;
+  v5 = a2;
+  v6 = &unk_1C00701BA;
   if ( a1 )
   {
     v7 = a1[1];
+    a2 = 0;
     v3 = (char)a1;
     if ( (v7 & 0x200000000000LL) != 0 )
     {
-      v4 = (void *)a1[76];
+      v4 = (void *)a1[71];
+      a2 = 0;
       if ( (v7 & 0x400000000000LL) != 0 )
-        v6 = (void *)a1[77];
+        v6 = (void *)a1[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -35,13 +39,13 @@ __int64 __fastcall ACPIDeviceInternalDelayedDeviceRequest(_QWORD *a1, unsigned i
       a2,
       10,
       23,
-      (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       0,
-      a2 - 1,
+      v5 - 1,
       v3,
       (__int64)v4,
       (__int64)v6);
-  result = ACPIDeviceInitializePowerRequest(a1, a2, 0LL, 0LL, 0, 0, 9);
+  result = ACPIDeviceInitializePowerRequest(a1, v5, 0LL, 0LL, 0, 0, 9);
   if ( (_DWORD)result == -1073741802 )
     return 259LL;
   return result;

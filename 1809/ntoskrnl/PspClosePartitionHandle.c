@@ -1,5 +1,5 @@
 /*
- * XREFs of PspClosePartitionHandle @ 0x14088D2D0
+ * XREFs of PspClosePartitionHandle @ 0x14088D2B0
  * Callers:
  *     <none>
  * Callees:

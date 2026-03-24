@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlStringCchPrintfExA @ 0x1C001E73C
+ * XREFs of RtlStringCchPrintfExA @ 0x1C0027B70
  * Callers:
- *     ACPIGetProcessorIDWide @ 0x1C001E2B0 (ACPIGetProcessorIDWide.c)
+ *     ACPIGetProcessorIDWide @ 0x1C00276E0 (ACPIGetProcessorIDWide.c)
  * Callees:
- *     RtlStringVPrintfWorkerA @ 0x1C001E838 (RtlStringVPrintfWorkerA.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     RtlStringExHandleOtherFlagsA @ 0x1C0056404 (RtlStringExHandleOtherFlagsA.c)
+ *     RtlStringVPrintfWorkerA @ 0x1C0027C6C (RtlStringVPrintfWorkerA.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     RtlStringExHandleOtherFlagsA @ 0x1C0055EC0 (RtlStringExHandleOtherFlagsA.c)
  */
 
 NTSTATUS RtlStringCchPrintfExA(
@@ -51,7 +51,7 @@ NTSTATUS RtlStringCchPrintfExA(
     v11 = cchDest;
     if ( (dwFlags & 0x100) != 0 )
     {
-      v12 = (const char *)&unk_1C006FB8B;
+      v12 = (const char *)&unk_1C00701BA;
       if ( pszFormat )
         v12 = pszFormat;
     }

@@ -1,7 +1,7 @@
 /*
- * XREFs of WdipSemQueryInflightScenarioTable @ 0x1409DDE94
+ * XREFs of WdipSemQueryInflightScenarioTable @ 0x140930054
  * Callers:
- *     WdipSemUpdateInflightScenarioTable @ 0x1409DDFB8 (WdipSemUpdateInflightScenarioTable.c)
+ *     WdipSemUpdateInflightScenarioTable @ 0x140930180 (WdipSemUpdateInflightScenarioTable.c)
  * Callees:
  *     <none>
  */

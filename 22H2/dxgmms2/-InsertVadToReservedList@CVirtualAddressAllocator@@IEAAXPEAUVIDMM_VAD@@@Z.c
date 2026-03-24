@@ -1,11 +1,11 @@
 /*
- * XREFs of ?InsertVadToReservedList@CVirtualAddressAllocator@@IEAAXPEAUVIDMM_VAD@@@Z @ 0x1C00884A0
+ * XREFs of ?InsertVadToReservedList@CVirtualAddressAllocator@@IEAAXPEAUVIDMM_VAD@@@Z @ 0x1C00842B8
  * Callers:
- *     ?ReserveVirtualAddressRangeNoAccess@CVirtualAddressAllocator@@QEAAJ_K000IPEA_K@Z @ 0x1C00883C8 (-ReserveVirtualAddressRangeNoAccess@CVirtualAddressAllocator@@QEAAJ_K000IPEA_K@Z.c)
- *     ?ReserveVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K000IW4_D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE@@_KEPEA_KPEAPEAUVIDMM_MAPPED_VA_RANGE@@E@Z @ 0x1C0088688 (-ReserveVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K000IW4_D3DDDIGPUVIRTUALADDRESS_RESE.c)
+ *     ?ReserveVirtualAddressRangeNoAccess@CVirtualAddressAllocator@@QEAAJ_K000IPEA_K@Z @ 0x1C0083F24 (-ReserveVirtualAddressRangeNoAccess@CVirtualAddressAllocator@@QEAAJ_K000IPEA_K@Z.c)
+ *     ?ReserveVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K000IW4_D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE@@_KEPEA_KPEAPEAUVIDMM_MAPPED_VA_RANGE@@E@Z @ 0x1C0084188 (-ReserveVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K000IW4_D3DDDIGPUVIRTUALADDRESS_RESE.c)
  * Callees:
- *     McTemplateK0pqxx_EtwWriteTransfer @ 0x1C002FF30 (McTemplateK0pqxx_EtwWriteTransfer.c)
- *     ?CompareVadRangeAvl@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z @ 0x1C00B11D0 (-CompareVadRangeAvl@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z.c)
+ *     McTemplateK0pqxx_EtwWriteTransfer @ 0x1C00261D4 (McTemplateK0pqxx_EtwWriteTransfer.c)
+ *     ?CompareVadRangeAvl@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z @ 0x1C008664C (-CompareVadRangeAvl@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z.c)
  */
 
 void __fastcall CVirtualAddressAllocator::InsertVadToReservedList(
@@ -40,7 +40,7 @@ LABEL_8:
   RtlAvlInsertNodeEx((char *)this + 48, v3, a3, a2);
   v9 = *((_DWORD *)a2 + 18) & 0xFFFFFFF0 | 2;
   *((_DWORD *)a2 + 18) = v9;
-  if ( (byte_1C0076982 & 0x20) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000) != 0 )
     McTemplateK0pqxx_EtwWriteTransfer(
       v9,
       &CreateGpuVirtualAddressRange,

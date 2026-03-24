@@ -1,17 +1,22 @@
 /*
- * XREFs of ??_GCPhysicalMonitorHandle@@UEAAPEAXI@Z @ 0x1C0268B40
+ * XREFs of ??_GCPhysicalMonitorHandle@@UEAAPEAXI@Z @ 0x1C02703D0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CPhysicalMonitorHandle@@UEAA@XZ @ 0x1C0268AE8 (--1CPhysicalMonitorHandle@@UEAA@XZ.c)
+ *     ?Destroy@CPhysicalMonitorHandle@@UEAAJXZ @ 0x1C0271610 (-Destroy@CPhysicalMonitorHandle@@UEAAJXZ.c)
  */
 
-CPhysicalMonitorHandle *__fastcall CPhysicalMonitorHandle::`scalar deleting destructor'(
-        CPhysicalMonitorHandle *P,
-        char a2)
+_QWORD *__fastcall CPhysicalMonitorHandle::`scalar deleting destructor'(_QWORD *P, char a2)
 {
-  CPhysicalMonitorHandle::~CPhysicalMonitorHandle(P);
-  if ( (a2 & 1) != 0 && P )
+  bool v2; // zf
+
+  v2 = P[1] == 0LL;
+  *P = &CPhysicalMonitorHandle::`vftable';
+  if ( !v2 )
+    CPhysicalMonitorHandle::Destroy((CPhysicalMonitorHandle *)P);
+  OPM::CMutex::~CMutex((OPM::CMutex *)(P + 9));
+  OPM::CMonitorPDO::~CMonitorPDO((OPM::CMonitorPDO *)P);
+  if ( (a2 & 1) != 0 )
     ExFreePoolWithTag(P, 0x63326947u);
   return P;
 }

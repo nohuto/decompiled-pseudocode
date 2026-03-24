@@ -1,15 +1,15 @@
 /*
- * XREFs of ObCaptureObjectStateForDuplication @ 0x1406A5948
+ * XREFs of ObCaptureObjectStateForDuplication @ 0x1406A5928
  * Callers:
- *     AlpcpCaptureHandleAttributeInternal @ 0x1406A5684 (AlpcpCaptureHandleAttributeInternal.c)
+ *     AlpcpCaptureHandleAttributeInternal @ 0x1406A5664 (AlpcpCaptureHandleAttributeInternal.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
  *     ObReferenceProcessHandleTable @ 0x1405D1160 (ObReferenceProcessHandleTable.c)
  *     ObpReferenceProcessObjectByHandle @ 0x1405D11B0 (ObpReferenceProcessObjectByHandle.c)
  *     ObpIncrementHandleCountEx @ 0x1405E35F0 (ObpIncrementHandleCountEx.c)
- *     RtlMapGenericMask @ 0x14063ED50 (RtlMapGenericMask.c)
+ *     RtlMapGenericMask @ 0x14063ED30 (RtlMapGenericMask.c)
  */
 
 __int64 __fastcall ObCaptureObjectStateForDuplication(

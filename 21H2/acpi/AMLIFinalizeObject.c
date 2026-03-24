@@ -1,11 +1,11 @@
 /*
- * XREFs of AMLIFinalizeObject @ 0x1C00646F8
+ * XREFs of AMLIFinalizeObject @ 0x1C006344C
  * Callers:
- *     ACPIInitDeleteDeviceExtension @ 0x1C00569B4 (ACPIInitDeleteDeviceExtension.c)
- *     ACPITableNotifyFreeObject @ 0x1C00605B0 (ACPITableNotifyFreeObject.c)
+ *     ACPIInitDeleteDeviceExtension @ 0x1C0056438 (ACPIInitDeleteDeviceExtension.c)
+ *     ACPITableNotifyFreeObject @ 0x1C005F7C0 (ACPITableNotifyFreeObject.c)
  * Callees:
- *     AMLIRestartContext @ 0x1C00648F4 (AMLIRestartContext.c)
- *     SetObjectsFlag @ 0x1C00685CC (SetObjectsFlag.c)
+ *     AMLIRestartContext @ 0x1C0063670 (AMLIRestartContext.c)
+ *     SetObjectsFlag @ 0x1C0066F80 (SetObjectsFlag.c)
  */
 
 void __fastcall AMLIFinalizeObject(_QWORD *a1, char a2)
@@ -17,8 +17,8 @@ void __fastcall AMLIFinalizeObject(_QWORD *a1, char a2)
   KIRQL v7; // al
   bool v8; // di
 
-  dword_1C0081AC8 = 0;
-  byte_1C0081ACC = 0;
+  dword_1C0082908 = 0;
+  pszDest = 0;
   if ( a2 )
   {
     ExAcquireSpinLockShared(&ACPINamespaceLock);

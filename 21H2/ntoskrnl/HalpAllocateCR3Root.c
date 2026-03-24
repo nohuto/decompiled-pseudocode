@@ -1,21 +1,27 @@
 /*
- * XREFs of HalpAllocateCR3Root @ 0x1403B9174
+ * XREFs of HalpAllocateCR3Root @ 0x1403CBAC8
  * Callers:
- *     HalpMmBuildTiledMemoryMap @ 0x140A54CD8 (HalpMmBuildTiledMemoryMap.c)
+ *     HalpDispatchPnp @ 0x140764F80 (HalpDispatchPnp.c)
+ *     HalpMmBuildTiledMemoryMap @ 0x14099A1BC (HalpMmBuildTiledMemoryMap.c)
  * Callees:
- *     MmAllocateContiguousNodeMemory @ 0x140214190 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x140294EA0 (MmAllocateContiguousNodeMemory.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A2374 (HalpQueryMaximumRegisteredProcessorCount.c)
  */
 
-__int64 HalpAllocateCR3Root()
+__int64 __fastcall HalpAllocateCR3Root(unsigned int a1)
 {
-  void *ContiguousNodeMemory; // rax
+  __int64 v1; // rbx
+  __int64 ContiguousNodeMemory; // rcx
 
-  if ( HalpCR3Root )
+  v1 = a1;
+  if ( a1 >= (unsigned int)HalpQueryMaximumRegisteredProcessorCount() )
+    return 3221225485LL;
+  if ( *(_QWORD *)(HalpCR3Root + 8 * v1) )
     return 0LL;
-  ContiguousNodeMemory = (void *)MmAllocateContiguousNodeMemory(4096LL, 0, -1, 0, 4, 0x80000000);
+  ContiguousNodeMemory = MmAllocateContiguousNodeMemory(4096, 0LL, 0xFFFFFFFFLL, 0, 4u, 0x80000000);
   if ( ContiguousNodeMemory )
   {
-    HalpCR3Root = ContiguousNodeMemory;
+    *(_QWORD *)(HalpCR3Root + 8 * v1) = ContiguousNodeMemory;
     return 0LL;
   }
   return 3221225626LL;

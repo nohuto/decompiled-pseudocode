@@ -1,5 +1,5 @@
 /*
- * XREFs of vSrcTranCopyS1D32 @ 0x1C00DBC60
+ * XREFs of vSrcTranCopyS1D32 @ 0x1C00F4BF0
  * Callers:
  *     <none>
  * Callees:
@@ -14,10 +14,10 @@ char *__fastcall vSrcTranCopyS1D32(__int64 a1, int a2, int a3, __int64 a4, int a
   int v12; // r15d
   char *v13; // rsi
   __int64 v14; // r11
-  char *v15; // r10
-  char v16; // dl
-  char *v17; // r8
-  char *i; // rdx
+  char *v15; // rdx
+  char v16; // r8
+  char *v17; // r9
+  char *i; // r8
   char v19; // cl
   char v20; // cl
 

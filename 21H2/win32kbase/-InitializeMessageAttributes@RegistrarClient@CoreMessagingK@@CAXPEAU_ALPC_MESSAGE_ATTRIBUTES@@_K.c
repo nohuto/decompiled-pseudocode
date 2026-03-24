@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InitializeMessageAttributes@RegistrarClient@CoreMessagingK@@CAXPEAU_ALPC_MESSAGE_ATTRIBUTES@@_K@Z @ 0x1C00A9CE4
+ * XREFs of ?InitializeMessageAttributes@RegistrarClient@CoreMessagingK@@CAXPEAU_ALPC_MESSAGE_ATTRIBUTES@@_K@Z @ 0x1C0073FB8
  * Callers:
- *     ?Connect@RegistrarClient@CoreMessagingK@@CAJXZ @ 0x1C00A9ACC (-Connect@RegistrarClient@CoreMessagingK@@CAJXZ.c)
+ *     ?Connect@RegistrarClient@CoreMessagingK@@CAJXZ @ 0x1C0073DAC (-Connect@RegistrarClient@CoreMessagingK@@CAJXZ.c)
  * Callees:
- *     ?BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z @ 0x1C0240E14 (-BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z.c)
+ *     ?BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z @ 0x1C01FF1F4 (-BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z.c)
  */
 
 void __fastcall CoreMessagingK::RegistrarClient::InitializeMessageAttributes(struct _ALPC_MESSAGE_ATTRIBUTES *a1)
@@ -13,11 +13,7 @@ void __fastcall CoreMessagingK::RegistrarClient::InitializeMessageAttributes(str
   __int64 v4[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v4[0] = 32LL;
-  v2 = ((__int64 (__fastcall *)(__int64, struct _ALPC_MESSAGE_ATTRIBUTES *, __int64, __int64 *))AlpcInitializeMessageAttribute)(
-         0x80000000LL,
-         a1,
-         32LL,
-         v4);
+  v2 = AlpcInitializeMessageAttribute(0x80000000LL, a1, 32LL, v4);
   if ( v2 < 0 )
     CoreMessagingK::Runtime::BugCheck(1031LL, v2, 0LL);
   MessageAttribute = AlpcGetMessageAttribute(a1, 0x80000000LL);

@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnReset @ 0x1C0030E90
+ * XREFs of HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnReset @ 0x1C002DCD0
  * Callers:
- *     HUBDSM_PreparingEndpointAndInterfaceListsOnClientReset @ 0x1C001F920 (HUBDSM_PreparingEndpointAndInterfaceListsOnClientReset.c)
+ *     HUBDSM_PreparingEndpointAndInterfaceListsOnClientReset @ 0x1C001CF10 (HUBDSM_PreparingEndpointAndInterfaceListsOnClientReset.c)
  * Callees:
  *     <none>
  */
@@ -9,10 +9,10 @@
 __int64 __fastcall HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnReset(__int64 a1)
 {
   __int64 v2; // r11
-  __int64 v3; // rbx
-  _QWORD *v4; // rcx
-  __int64 v5; // rdx
-  __int64 i; // r9
+  _QWORD *v3; // rdx
+  __int64 v4; // rbx
+  __int64 v5; // r8
+  __int64 i; // rdx
   __int64 v7; // rax
   __int64 v8; // rcx
 
@@ -20,10 +20,10 @@ __int64 __fastcall HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceO
   *(_DWORD *)(a1 + 144) = 0;
   *(_DWORD *)(a1 + 128) = 0;
   v2 = *(_QWORD *)(a1 + 104);
-  v3 = *(_QWORD *)(a1 + 136);
-  v4 = (_QWORD *)(*(_QWORD *)(a1 + 48) + 16LL);
-  v5 = *v4 - 8LL;
-  if ( v4 != (_QWORD *)*v4 )
+  v3 = (_QWORD *)(*(_QWORD *)(a1 + 48) + 16LL);
+  v4 = *(_QWORD *)(a1 + 136);
+  v5 = *v3 - 8LL;
+  if ( v3 != (_QWORD *)*v3 )
   {
     do
     {
@@ -35,7 +35,7 @@ __int64 __fastcall HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceO
         if ( (*(_DWORD *)(v5 + 72 * i + 52) & 1) != 0 )
         {
           *(_DWORD *)(v5 + 72 * i + 48) = 6;
-          *(_QWORD *)(v3 + 8LL * (unsigned int)(*(_DWORD *)(a1 + 144))++) = v7;
+          *(_QWORD *)(v4 + 8LL * (unsigned int)(*(_DWORD *)(a1 + 144))++) = v7;
         }
         else
         {

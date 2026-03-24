@@ -1,37 +1,21 @@
 /*
- * XREFs of MiInitializeSystemSpaceMap @ 0x140B48AA0
+ * XREFs of MiInitializeSystemSpaceMap @ 0x140786650
  * Callers:
- *     MiInitSystem @ 0x140B47C18 (MiInitSystem.c)
+ *     MiSessionCreate @ 0x14078610C (MiSessionCreate.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     MiInitializePteInfo @ 0x140B49C58 (MiInitializePteInfo.c)
+ *     MiInitializePteInfo @ 0x140A4E918 (MiInitializePteInfo.c)
  */
 
-PVOID MiInitializeSystemSpaceMap()
+__int64 __fastcall MiInitializeSystemSpaceMap(_QWORD *a1)
 {
-  PVOID result; // rax
-  void *v1; // rbx
-  unsigned int v2; // edi
+  __int64 result; // rax
 
-  result = MiAllocatePool(64, 144LL * (unsigned int)(unsigned __int16)KeNumberNodes, 0x20206D4Du);
-  v1 = result;
-  if ( result )
-  {
-    qword_140C68640 = 0LL;
-    P = 0LL;
-    v2 = MiInitializePteInfo(
-           (unsigned int)&unk_140C684B0,
-           12,
-           0,
-           5,
-           qword_140C6A6B8,
-           0x8000000000LL,
-           16,
-           (__int64)result);
-    if ( !v2 )
-      ExFreePoolWithTag(v1, 0);
-    return (PVOID)v2;
-  }
+  a1[1] = a1;
+  *a1 = 0LL;
+  result = 1LL;
+  a1[2] = 0LL;
+  if ( a1 == qword_140C4CD68 )
+    return MiInitializePteInfo((unsigned int)&unk_140C4EAF8, 12, 0, 3, qword_140C4FB88, 0x8000000000LL, 16);
   return result;
 }

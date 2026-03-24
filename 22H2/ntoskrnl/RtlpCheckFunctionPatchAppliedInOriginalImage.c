@@ -1,47 +1,26 @@
 /*
- * XREFs of RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x14067AF7C
+ * XREFs of RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x1409B2C50
  * Callers:
- *     RtlHotPatchSynchronizationRequired @ 0x14067AD64 (RtlHotPatchSynchronizationRequired.c)
- *     RtlCountRequiredHotPatchAddressTableEntries @ 0x140A76278 (RtlCountRequiredHotPatchAddressTableEntries.c)
- *     RtlApplyHotPatch @ 0x140AAD830 (RtlApplyHotPatch.c)
- *     RtlpCheckFunctionPatchApplied @ 0x140AADD28 (RtlpCheckFunctionPatchApplied.c)
+ *     RtlCountRequiredHotPatchAddressTableEntries @ 0x14091ACF8 (RtlCountRequiredHotPatchAddressTableEntries.c)
+ *     RtlHotPatchSynchronizationRequired @ 0x14091B0D4 (RtlHotPatchSynchronizationRequired.c)
+ *     RtlApplyHotPatch @ 0x1409B2884 (RtlApplyHotPatch.c)
+ *     RtlpCheckFunctionPatchApplied @ 0x1409B2C38 (RtlpCheckFunctionPatchApplied.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlpCheckFunctionPatchAppliedInOriginalImage(
-        char *a1,
-        _BYTE *a2,
-        __int64 a3,
-        __int64 a4,
-        unsigned __int64 a5)
+__int64 __fastcall RtlpCheckFunctionPatchAppliedInOriginalImage(_BYTE *a1, _BYTE *a2)
 {
-  char v5; // r8
-  unsigned __int8 v7; // cl
-  unsigned __int64 v8; // rcx
-  int v10; // eax
+  char v2; // al
 
-  v5 = *a1;
-  v7 = a1[1];
-  if ( v5 == -21 && v7 >= 0xEEu )
+  v2 = a1[1];
+  if ( *a1 == 0xEB && v2 < 0 )
   {
-    if ( v7 == 0xF9 && *(a1 - 5) == -23 )
-    {
-      v8 = (unsigned __int64)&a1[*((int *)a1 - 1)];
-      if ( v8 >= (unsigned __int64)a1 && (v8 & 7) == 0 && v8 >= a5 && v8 - a5 <= 0xFFFFFFFF )
-        return ((unsigned int)(v8 - a5) >> 13 << 9) + (((unsigned int)(v8 - a5) >> 3) & 0x3FF);
-    }
-    return 0xFFFFFFFFLL;
+    if ( v2 == -8 && *(a1 - 6) == 0xFF && *(a1 - 5) == 37 )
+      return (__int64)&a1[*((int *)a1 - 1)];
+    return -1LL;
   }
-  v10 = 0;
-  if ( a2 )
-  {
-    if ( v5 == *a2 )
-    {
-      LOBYTE(v10) = v7 != a2[1];
-      return (unsigned int)(v10 - 2);
-    }
-    return 0xFFFFFFFFLL;
-  }
-  return 4294967294LL;
+  if ( a2 && (*a1 != *a2 || v2 != a2[1]) )
+    return -1LL;
+  return 0LL;
 }

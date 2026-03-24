@@ -1,125 +1,122 @@
 /*
- * XREFs of ACPIProcessorContainerFillIoctlBuffer @ 0x1C005E054
+ * XREFs of ACPIProcessorContainerFillIoctlBuffer @ 0x1C005D368
  * Callers:
- *     ACPIProcessorContainerFillIoctlBuffer @ 0x1C005E054 (ACPIProcessorContainerFillIoctlBuffer.c)
- *     ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C005E240 (ACPIProcessorContainerGetLpiStatesIoctl.c)
+ *     ACPIProcessorContainerFillIoctlBuffer @ 0x1C005D368 (ACPIProcessorContainerFillIoctlBuffer.c)
+ *     ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C005D55C (ACPIProcessorContainerGetLpiStatesIoctl.c)
  * Callees:
- *     ACPIIoctlCalculateOutputBufferV1 @ 0x1C001BF00 (ACPIIoctlCalculateOutputBufferV1.c)
- *     ACPIIoctlCalculateOutputBufferSizeV1 @ 0x1C001C0A0 (ACPIIoctlCalculateOutputBufferSizeV1.c)
- *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0021FCC (ACPIAmliBuildObjectPathnameUnicode.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     ACPIProcessorContainerFillIoctlBuffer @ 0x1C005E054 (ACPIProcessorContainerFillIoctlBuffer.c)
+ *     ACPIIoctlCalculateOutputBufferSizeV1 @ 0x1C000BE70 (ACPIIoctlCalculateOutputBufferSizeV1.c)
+ *     ACPIIoctlCalculateOutputBufferV1 @ 0x1C000BF6C (ACPIIoctlCalculateOutputBufferV1.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0010920 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     ACPIProcessorContainerFillIoctlBuffer @ 0x1C005D368 (ACPIProcessorContainerFillIoctlBuffer.c)
  */
 
-__int64 __fastcall ACPIProcessorContainerFillIoctlBuffer(__int64 **a1, int a2, __int64 a3, int *a4, int a5)
+__int64 __fastcall ACPIProcessorContainerFillIoctlBuffer(__int64 ***a1, int a2, __int64 a3, int *a4, int a5)
 {
-  __int64 *v5; // rbx
-  int v10; // r12d
-  __int64 v11; // rcx
-  int v12; // eax
-  __int64 v13; // rsi
+  __int64 **v5; // rbx
+  int v10; // r13d
+  __int64 v11; // rax
+  __int64 v12; // rsi
   __int64 result; // rax
-  int v15; // eax
-  __int64 v16; // rax
-  int v17; // r10d
-  __int64 *v18; // rdx
-  __int64 v19; // r8
-  int v20; // eax
-  __int64 v21; // rcx
-  size_t v22; // r8
-  const void *v23; // rdx
-  __int64 v24; // rcx
-  int v25; // eax
-  bool v26; // zf
-  unsigned int v27; // eax
-  __int64 v28; // rcx
-  _DWORD *v29; // r10
-  int v30; // r11d
-  int v31; // ecx
-  int v32; // eax
-  int v33; // [rsp+30h] [rbp-48h] BYREF
-  void *Src[2]; // [rsp+38h] [rbp-40h] BYREF
-  int v35; // [rsp+80h] [rbp+8h] BYREF
+  int v14; // eax
+  __int64 v15; // rax
+  int v16; // r10d
+  __int64 *v17; // rdx
+  __int64 v18; // r8
+  int v19; // eax
+  __int64 v20; // rcx
+  size_t v21; // r8
+  const void *v22; // rdx
+  __int64 v23; // rcx
+  int v24; // eax
+  bool v25; // zf
+  unsigned int v26; // ebp
+  __int64 v27; // rcx
+  _DWORD *v28; // r11
+  int v29; // ecx
+  int v30; // eax
+  int v31; // [rsp+30h] [rbp-48h] BYREF
+  __int128 v32; // [rsp+38h] [rbp-40h] BYREF
+  int v33; // [rsp+80h] [rbp+8h] BYREF
 
   v5 = *a1;
-  *(_OWORD *)Src = 0LL;
-  if ( v5 == (__int64 *)a1 )
+  v32 = 0LL;
+  if ( v5 == (__int64 **)a1 )
     return 0LL;
   v10 = a5;
   while ( 1 )
   {
     v11 = *((unsigned int *)v5 + 14);
-    v12 = a2;
-    if ( a2 == -1 )
-      v12 = *((_DWORD *)v5 + 14);
-    v13 = 3 * v11;
-    *(_DWORD *)(a3 + 8 * v13 + 8) = v11;
-    *(_DWORD *)(a3 + 8 * v13 + 12) = v12;
-    result = ACPIProcessorContainerFillIoctlBuffer((int)v5 + 16, *(_DWORD *)(a3 + 24 * v11 + 8), a3, (_DWORD)a4, v10);
+    v12 = 3 * v11;
+    *(_DWORD *)(a3 + 24 * v11 + 8) = v11;
+    if ( a2 != -1 )
+      LODWORD(v11) = a2;
+    *(_DWORD *)(a3 + 8 * v12 + 12) = v11;
+    result = ACPIProcessorContainerFillIoctlBuffer((int)v5 + 16, *(_DWORD *)(a3 + 8 * v12 + 8), a3, (_DWORD)a4, v10);
     if ( (int)result < 0 )
       break;
-    v15 = *a4;
-    *(_DWORD *)(a3 + 8 * v13 + 24) = 0;
-    v16 = (v15 + 3) & 0xFFFFFFFC;
-    v17 = v16;
-    *(_DWORD *)(a3 + 8 * v13 + 28) = v16;
-    v18 = (__int64 *)v5[4];
-    v19 = a3 + v16;
-    v20 = 0;
-    while ( v18 != v5 + 4 )
+    v14 = *a4;
+    *(_DWORD *)(a3 + 8 * v12 + 24) = 0;
+    v15 = (v14 + 3) & 0xFFFFFFFC;
+    v16 = v15;
+    *(_DWORD *)(a3 + 8 * v12 + 28) = v15;
+    v17 = v5[4];
+    v18 = a3 + v15;
+    v19 = 0;
+    while ( v17 != (__int64 *)(v5 + 4) )
     {
-      *(_DWORD *)(v19 + 4LL * *(unsigned int *)(a3 + 8 * v13 + 24)) = *((_DWORD *)v18 - 1);
-      v20 = *(_DWORD *)(a3 + 8 * v13 + 24) + 1;
-      *(_DWORD *)(a3 + 8 * v13 + 24) = v20;
-      v18 = (__int64 *)*v18;
+      *(_DWORD *)(v18 + 4LL * *(unsigned int *)(a3 + 8 * v12 + 24)) = *((_DWORD *)v17 - 1);
+      v19 = *(_DWORD *)(a3 + 8 * v12 + 24) + 1;
+      *(_DWORD *)(a3 + 8 * v12 + 24) = v19;
+      v17 = (__int64 *)*v17;
     }
-    v21 = v5[72];
-    *a4 = v17 + 4 * v20;
-    result = ACPIAmliBuildObjectPathnameUnicode(v21, (__int64)Src, 1);
+    v20 = (__int64)v5[67];
+    *a4 = v16 + 4 * v19;
+    result = ACPIAmliBuildObjectPathnameUnicode(v20, (__int64)&v32);
     if ( (int)result < 0 )
       break;
-    v22 = WORD1(Src[0]);
-    v23 = Src[1];
-    v24 = (*a4 + 1) & 0xFFFFFFFE;
+    v21 = WORD1(v32);
+    v22 = (const void *)*((_QWORD *)&v32 + 1);
+    v23 = (*a4 + 1) & 0xFFFFFFFE;
+    *a4 = v23;
+    *(_DWORD *)(a3 + 8 * v12 + 16) = v23;
+    memmove((void *)(a3 + v23), v22, v21);
+    ExFreePoolWithTag(*((PVOID *)&v32 + 1), 0);
+    v24 = WORD1(v32) + *a4;
+    v25 = v5[6] == 0LL;
     *a4 = v24;
-    *(_DWORD *)(a3 + 8 * v13 + 16) = v24;
-    memmove((void *)(a3 + v24), v23, v22);
-    ExFreePoolWithTag(Src[1], 0);
-    v25 = WORD1(Src[0]) + *a4;
-    v26 = v5[6] == 0;
-    *a4 = v25;
-    if ( v26 )
+    if ( v25 )
     {
-      *(_DWORD *)(a3 + 8 * v13 + 20) = 0;
+      *(_DWORD *)(a3 + 8 * v12 + 20) = 0;
     }
     else
     {
-      v35 = 0;
       v33 = 0;
-      v27 = (v25 + 3) & 0xFFFFFFFC;
-      *(_DWORD *)(a3 + 8 * v13 + 20) = v27;
-      v28 = v5[6];
-      *a4 = v27;
-      result = ACPIIoctlCalculateOutputBufferSizeV1(v28, &v35, &v33, 0, 1);
+      v31 = 0;
+      v26 = (v24 + 3) & 0xFFFFFFFC;
+      *(_DWORD *)(a3 + 8 * v12 + 20) = v26;
+      v27 = (__int64)v5[6];
+      *a4 = v26;
+      result = ACPIIoctlCalculateOutputBufferSizeV1(v27, &v33, &v31, 0, 1);
       if ( (int)result < 0 )
         return result;
-      v31 = v35 + 12;
-      v32 = v35 + 12;
-      if ( (unsigned int)(v35 + 12) < 0x14 )
+      v29 = v33 + 12;
+      v30 = v33 + 12;
+      if ( (unsigned int)(v33 + 12) < 0x14 )
       {
-        v31 = 20;
-        v32 = 20;
+        v29 = 20;
+        v30 = 20;
       }
-      *v29 = 1114596673;
-      *a4 = v30 + v32;
-      v29[2] = v33;
-      v29[1] = v31;
-      result = ACPIIoctlCalculateOutputBufferV1(v5[6], (__int64)(v29 + 3), 0);
+      *v28 = 1114596673;
+      *a4 = v26 + v30;
+      v28[2] = v31;
+      v28[1] = v29;
+      result = ACPIIoctlCalculateOutputBufferV1((__int64)v5[6], (__int64)(v28 + 3), 0);
       if ( (int)result < 0 )
         return result;
     }
-    v5 = (__int64 *)*v5;
-    if ( v5 == (__int64 *)a1 )
+    v5 = (__int64 **)*v5;
+    if ( v5 == (__int64 **)a1 )
       return 0LL;
   }
   return result;

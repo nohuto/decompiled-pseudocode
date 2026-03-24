@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpSnapshotKcbStackSecurity @ 0x1407F57CC
+ * XREFs of CmpSnapshotKcbStackSecurity @ 0x1407F57AC
  * Callers:
  *     CmDeleteValueKey @ 0x1405B6634 (CmDeleteValueKey.c)
  *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
  * Callees:
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405D8920 (CmpGetSecurityCacheEntryForKcbStack.c)
  */
 

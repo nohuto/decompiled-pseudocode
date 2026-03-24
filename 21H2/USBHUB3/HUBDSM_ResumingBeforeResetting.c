@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_ResumingBeforeResetting @ 0x1C001CEF0
+ * XREFs of HUBDSM_ResumingBeforeResetting @ 0x1C001C9B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_ResumingBeforeResetting(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreateRetpolineRelocationInformation @ 0x140853B20
+ * XREFs of MiCreateRetpolineRelocationInformation @ 0x140853B00
  * Callers:
- *     MiParseImageLoadConfig @ 0x1406508FC (MiParseImageLoadConfig.c)
+ *     MiParseImageLoadConfig @ 0x1406508DC (MiParseImageLoadConfig.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlCreateRetpolineRelocationInformation @ 0x1402F6CC8 (RtlCreateRetpolineRelocationInformation.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlCreateRetpolineRelocationInformation @ 0x1402F6DC8 (RtlCreateRetpolineRelocationInformation.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     MiFreeRetpolineRelocationInformation @ 0x140853C5C (MiFreeRetpolineRelocationInformation.c)
+ *     MiFreeRetpolineRelocationInformation @ 0x140853C3C (MiFreeRetpolineRelocationInformation.c)
  */
 
 __int64 __fastcall MiCreateRetpolineRelocationInformation(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4)

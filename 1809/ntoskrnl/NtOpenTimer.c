@@ -1,5 +1,5 @@
 /*
- * XREFs of NtOpenTimer @ 0x1408CF8F0
+ * XREFs of NtOpenTimer @ 0x1408CF8D0
  * Callers:
  *     <none>
  * Callees:

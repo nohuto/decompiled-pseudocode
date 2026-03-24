@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpCopyEffectiveAce @ 0x140630400 (RtlpCopyEffectiveAce.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 BOOLEAN __stdcall RtlEqualPrefixSid(PSID Sid1, PSID Sid2)

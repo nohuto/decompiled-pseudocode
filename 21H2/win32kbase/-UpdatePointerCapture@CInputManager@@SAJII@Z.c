@@ -1,11 +1,10 @@
 /*
- * XREFs of ?UpdatePointerCapture@CInputManager@@SAJII@Z @ 0x1C023C5E0
+ * XREFs of ?UpdatePointerCapture@CInputManager@@SAJII@Z @ 0x1C01FA850
  * Callers:
- *     NtDCompositionUpdatePointerCapture @ 0x1C02121D0 (NtDCompositionUpdatePointerCapture.c)
+ *     NtDCompositionUpdatePointerCapture @ 0x1C01D2B70 (NtDCompositionUpdatePointerCapture.c)
  * Callees:
- *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00808F0 (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ?InsertAt@?$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAJAEBUPointerCaptureInfo@CInputManager@@I@Z @ 0x1C023C318 (-InsertAt@-$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAJAEBUPointerCaptureInfo.c)
- *     ?RemoveAt@?$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAXI@Z @ 0x1C023C584 (-RemoveAt@-$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAXI@Z.c)
+ *     ?InsertAt@?$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAJAEBUPointerCaptureInfo@CInputManager@@I@Z @ 0x1C01FA66C (-InsertAt@-$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAJAEBUPointerCaptureInfo.c)
+ *     ?RemoveAt@?$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAXI@Z @ 0x1C01FA800 (-RemoveAt@-$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAXI@Z.c)
  */
 
 __int64 __fastcall CInputManager::UpdatePointerCapture(unsigned int a1, unsigned int a2)
@@ -13,14 +12,13 @@ __int64 __fastcall CInputManager::UpdatePointerCapture(unsigned int a1, unsigned
   unsigned int v2; // ebx
   unsigned int v5; // edi
   unsigned int v6; // r8d
-  unsigned __int64 v8; // [rsp+50h] [rbp+18h] BYREF
-  __int64 v9; // [rsp+58h] [rbp+20h] BYREF
+  unsigned __int64 v8; // [rsp+40h] [rbp+18h] BYREF
 
   v2 = 0;
   v5 = 0;
   if ( g_pInputManager )
   {
-    CAutoPushLockEx::CAutoPushLockEx((CAutoPushLockEx *)&v9, (CInputManager *)((char *)g_pInputManager + 120));
+    ExAcquirePushLockExclusiveEx((char *)g_pInputManager + 120, 0LL);
     v6 = *((_DWORD *)g_pInputManager + 28);
     if ( v6 )
     {
@@ -48,8 +46,7 @@ __int64 __fastcall CInputManager::UpdatePointerCapture(unsigned int a1, unsigned
     {
       CStructDynamicArray<CInputManager::PointerCaptureInfo>::RemoveAt((__int64)g_pInputManager + 104, v5);
     }
-    ExReleasePushLockExclusiveEx(v9, 0LL);
-    KeLeaveCriticalRegion();
+    ExReleasePushLockExclusiveEx((char *)g_pInputManager + 120, 0LL);
   }
   else
   {

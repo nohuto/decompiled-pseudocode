@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcMessageCleanupProcedure @ 0x1406A1CC0
+ * XREFs of AlpcMessageCleanupProcedure @ 0x1405DE260
  * Callers:
- *     AlpcpProcessSynchronousRequest @ 0x1407AD040 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PsReleaseProcessWakeCounter @ 0x140668680 (PsReleaseProcessWakeCounter.c)
- *     AlpcpReleaseViewAttribute @ 0x1406D7014 (AlpcpReleaseViewAttribute.c)
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     PsReleaseProcessWakeCounter @ 0x1405DE9D0 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReleaseViewAttribute @ 0x1406B4784 (AlpcpReleaseViewAttribute.c)
  */
 
 __int64 __fastcall AlpcMessageCleanupProcedure(__int64 a1)
 {
-  void *v2; // rcx
+  struct _DMA_ADAPTER *v2; // rcx
   ULONG_PTR v3; // rcx
   ULONG_PTR v4; // rcx
   ULONG_PTR v5; // rcx
@@ -21,11 +21,11 @@ __int64 __fastcall AlpcMessageCleanupProcedure(__int64 a1)
   __int64 result; // rax
 
   *(_DWORD *)(a1 + 264) |= 0x80000000;
-  v2 = *(void **)(a1 + 24);
+  v2 = *(struct _DMA_ADAPTER **)(a1 + 24);
   if ( v2 )
   {
     if ( (*(_DWORD *)(a1 + 40) & 0x1000) != 0 )
-      ObfDereferenceObject(v2);
+      HalPutDmaAdapter(v2);
     *(_QWORD *)(a1 + 24) = 0LL;
   }
   v3 = *(_QWORD *)(a1 + 136);
@@ -50,19 +50,19 @@ __int64 __fastcall AlpcMessageCleanupProcedure(__int64 a1)
   if ( (v6 & 1) != 0 )
   {
     if ( v6 >= 4 && (v6 & 2) != 0 )
-      ObfDereferenceObject((PVOID)(v6 & 0xFFFFFFFFFFFFFFFCuLL));
+      HalPutDmaAdapter((PADAPTER_OBJECT)(v6 & 0xFFFFFFFFFFFFFFFCuLL));
     *(_QWORD *)(a1 + 160) = 0LL;
   }
   v7 = *(_QWORD *)(a1 + 208);
   if ( v7 )
   {
-    PsReleaseProcessWakeCounter(v7);
+    PsReleaseProcessWakeCounter(v7, *(unsigned int *)(a1 + 264));
     *(_QWORD *)(a1 + 208) = 0LL;
   }
   v8 = *(_QWORD *)(a1 + 216);
   if ( v8 )
   {
-    PsReleaseProcessWakeCounter(v8);
+    PsReleaseProcessWakeCounter(v8, *(unsigned int *)(a1 + 264));
     *(_QWORD *)(a1 + 216) = 0LL;
   }
   result = *(_QWORD *)(a1 + 96);

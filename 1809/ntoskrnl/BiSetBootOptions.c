@@ -1,12 +1,12 @@
 /*
- * XREFs of BiSetBootOptions @ 0x1408F45CC
+ * XREFs of BiSetBootOptions @ 0x1408F45AC
  * Callers:
- *     BiExportEfiBootManager @ 0x1408F36A8 (BiExportEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x1408F3688 (BiExportEfiBootManager.c)
  * Callees:
- *     ZwSetBootOptions @ 0x1401BB190 (ZwSetBootOptions.c)
- *     BiReleasePrivilege @ 0x1407114C4 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140711514 (BiAcquirePrivilege.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
+ *     ZwSetBootOptions @ 0x1401BB1B0 (ZwSetBootOptions.c)
+ *     BiReleasePrivilege @ 0x1407114A4 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
  */
 
 __int64 __fastcall BiSetBootOptions(PBOOT_OPTIONS BootOptions, ULONG FieldsToChange)

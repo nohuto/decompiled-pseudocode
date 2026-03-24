@@ -1,56 +1,52 @@
 /*
- * XREFs of NtUserGetInternalWindowPos @ 0x1C01D21B0
+ * XREFs of NtUserGetInternalWindowPos @ 0x1C01F9F30
  * Callers:
  *     <none>
  * Callees:
- *     _GetWindowPlacement @ 0x1C0006908 (_GetWindowPlacement.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     _GetWindowPlacement @ 0x1C0040E78 (_GetWindowPlacement.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall NtUserGetInternalWindowPos(__int64 a1, _OWORD *a2, _QWORD *a3)
 {
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  struct tagWND *v9; // r9
-  unsigned int v10; // ebx
-  _BYTE *v11; // rdx
-  _BYTE *v12; // rdx
-  _OWORD v14[3]; // [rsp+38h] [rbp-50h] BYREF
+  __int64 v6; // rcx
+  __int64 v7; // r9
+  unsigned int v8; // ebx
+  _OWORD *v9; // rax
+  _QWORD *v10; // rdx
+  _OWORD v12[3]; // [rsp+38h] [rbp-50h] BYREF
 
-  memset(v14, 0, 44);
-  EnterSharedCrit(a1, a2, a3);
-  v9 = (struct tagWND *)ValidateHwnd(a1);
-  if ( v9 )
+  memset(v12, 0, 44);
+  EnterSharedCrit(0LL, 1LL);
+  v7 = ValidateHwnd(a1);
+  if ( v7 )
   {
     if ( a2 )
     {
-      v11 = a2;
+      v9 = a2;
       if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-        v11 = (_BYTE *)MmUserProbeAddress;
-      *v11 = *v11;
-      v11[15] = v11[15];
+        v9 = (_OWORD *)MmUserProbeAddress;
+      *v9 = *v9;
     }
     if ( a3 )
     {
-      v12 = a3;
+      v10 = a3;
       if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-        v12 = (_BYTE *)MmUserProbeAddress;
-      *v12 = *v12;
-      v12[7] = v12[7];
+        v10 = (_QWORD *)MmUserProbeAddress;
+      *v10 = *v10;
     }
-    LODWORD(v14[0]) = 44;
-    GetWindowPlacement(v9, (__int64)v14, 0);
-    v10 = DWORD2(v14[0]);
+    LODWORD(v12[0]) = 44;
+    GetWindowPlacement(v7, (__int64)v12, 0);
+    v8 = DWORD2(v12[0]);
     if ( a2 )
-      *a2 = *(_OWORD *)((char *)&v14[1] + 12);
+      *a2 = *(_OWORD *)((char *)&v12[1] + 12);
     if ( a3 )
-      *a3 = *(_QWORD *)((char *)v14 + 12);
+      *a3 = *(_QWORD *)((char *)v12 + 12);
   }
   else
   {
-    v10 = 0;
+    v8 = 0;
   }
-  UserSessionSwitchLeaveCrit(v7, v6, v8, v9);
-  return v10;
+  UserSessionSwitchLeaveCrit(v6);
+  return v8;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of bUMPD @ 0x1C014321C
+ * XREFs of bUMPD @ 0x1C00A7418
  * Callers:
- *     NtGdiExtEscape @ 0x1C00108F0 (NtGdiExtEscape.c)
+ *     NtGdiExtEscape @ 0x1C00A75A0 (NtGdiExtEscape.c)
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall bUMPD(HDC a1)

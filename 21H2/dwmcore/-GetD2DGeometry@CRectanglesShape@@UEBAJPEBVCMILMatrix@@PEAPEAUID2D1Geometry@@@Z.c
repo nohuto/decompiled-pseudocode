@@ -1,16 +1,15 @@
 /*
- * XREFs of ?GetD2DGeometry@CRectanglesShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x1800D0B10
+ * XREFs of ?GetD2DGeometry@CRectanglesShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x180017470
  * Callers:
- *     ?D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x1800D2F7C (-D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
- *     ?Draw@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18020EB6C (-Draw@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801BBF90 (-Draw@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x18025D7A0 (-D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
  * Callees:
- *     ?Transform@CMILMatrix@@QEBAXPEBUMilPoint2F@@PEAU2@I@Z @ 0x1800102BC (-Transform@CMILMatrix@@QEBAXPEBUMilPoint2F@@PEAU2@I@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$ReleaseInterface@UID2D1GeometrySink@@@@YAXAEAPEAUID2D1GeometrySink@@@Z @ 0x1800D0BB4 (--$ReleaseInterface@UID2D1GeometrySink@@@@YAXAEAPEAUID2D1GeometrySink@@@Z.c)
- *     ??$ReleaseInterface@UID2D1PathGeometry@@@@YAXAEAPEAUID2D1PathGeometry@@@Z @ 0x1800D0BF0 (--$ReleaseInterface@UID2D1PathGeometry@@@@YAXAEAPEAUID2D1PathGeometry@@@Z.c)
- *     ?EnsureD2DGeometry@CRectanglesShape@@IEBAJXZ @ 0x1800D0C14 (-EnsureD2DGeometry@CRectanglesShape@@IEBAJXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z @ 0x180017840 (--$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z.c)
+ *     ?EnsureD2DGeometry@CRectanglesShape@@IEBAJXZ @ 0x180017874 (-EnsureD2DGeometry@CRectanglesShape@@IEBAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Transform@CMILMatrix@@QEBAXPEBUMilPoint2F@@PEAU2@I@Z @ 0x180211BE0 (-Transform@CMILMatrix@@QEBAXPEBUMilPoint2F@@PEAU2@I@Z.c)
  */
 
 __int64 __fastcall CRectanglesShape::GetD2DGeometry(
@@ -19,18 +18,18 @@ __int64 __fastcall CRectanglesShape::GetD2DGeometry(
         struct ID2D1Geometry **a3)
 {
   int v6; // eax
-  __int64 v7; // rcx
+  unsigned int v7; // ecx
   unsigned int v8; // ebx
   int v10; // eax
-  __int64 v11; // rcx
+  unsigned int v11; // ecx
   int v12; // eax
-  __int64 v13; // rcx
+  unsigned int v13; // ecx
   unsigned int i; // ebx
   __int64 v15; // rax
   int v16; // xmm2_4
   int v17; // xmm0_4
   int v18; // eax
-  __int64 v19; // rcx
+  unsigned int v19; // ecx
   struct ID2D1Geometry *v20; // rax
   __int64 v21; // [rsp+30h] [rbp-29h] BYREF
   struct ID2D1Geometry *v22; // [rsp+38h] [rbp-21h] BYREF
@@ -48,11 +47,13 @@ __int64 __fastcall CRectanglesShape::GetD2DGeometry(
   v21 = 0LL;
   if ( a2 )
   {
-    v10 = (*(__int64 (__fastcall **)(_QWORD, struct ID2D1Geometry **))(*g_DeviceManager + 80LL))(g_DeviceManager, &v22);
+    v10 = (*(__int64 (__fastcall **)(void *, struct ID2D1Geometry **))(*(_QWORD *)g_DeviceManager + 80LL))(
+            g_DeviceManager,
+            &v22);
     v8 = v10;
     if ( v10 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x38u);
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x38u, 0LL);
     }
     else
     {
@@ -60,7 +61,7 @@ __int64 __fastcall CRectanglesShape::GetD2DGeometry(
       v8 = v12;
       if ( v12 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0x3Au);
+        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x3Au, 0LL);
       }
       else
       {
@@ -77,7 +78,7 @@ __int64 __fastcall CRectanglesShape::GetD2DGeometry(
           v25 = v17;
           v27 = v17;
           v29 = v16;
-          CMILMatrix::Transform(a2, (const struct MilPoint2F *)&v23, (struct MilPoint2F *)v31, 4);
+          CMILMatrix::Transform(a2, (const struct MilPoint2F *)&v23, (struct MilPoint2F *)v31, 4u);
           (*(void (__fastcall **)(__int64, unsigned __int64, _QWORD))(*(_QWORD *)v21 + 40LL))(
             v21,
             _mm_unpacklo_ps((__m128)v31[0], (__m128)v31[1]).m128_u64[0],
@@ -97,7 +98,7 @@ __int64 __fastcall CRectanglesShape::GetD2DGeometry(
         v8 = v18;
         if ( v18 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0LL, v18, 0x5Cu);
+          MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x5Cu, 0LL);
         }
         else
         {
@@ -114,7 +115,7 @@ __int64 __fastcall CRectanglesShape::GetD2DGeometry(
     v8 = v6;
     if ( v6 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x31u);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x31u, 0LL);
     }
     else
     {
@@ -122,7 +123,7 @@ __int64 __fastcall CRectanglesShape::GetD2DGeometry(
       (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 8) + 8LL))(*((_QWORD *)this + 8));
     }
   }
-  ReleaseInterface<ID2D1PathGeometry>(&v22);
-  ReleaseInterface<ID2D1GeometrySink>(&v21);
+  ReleaseInterface<ID2D1Geometry>(&v22);
+  ReleaseInterface<ID2D1Geometry>(&v21);
   return v8;
 }

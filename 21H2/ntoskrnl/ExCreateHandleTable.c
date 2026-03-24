@@ -1,61 +1,58 @@
 /*
- * XREFs of ExCreateHandleTable @ 0x1406A6378
+ * XREFs of ExCreateHandleTable @ 0x14062B4B8
  * Callers:
- *     RtlpInitializeHandleTableForAtomTable @ 0x1406A629C (RtlpInitializeHandleTableForAtomTable.c)
- *     ObInitProcess @ 0x1406A6448 (ObInitProcess.c)
- *     ExDupHandleTable @ 0x1406A6520 (ExDupHandleTable.c)
- *     AlpcpInitSystem @ 0x14085C5A8 (AlpcpInitSystem.c)
- *     AlpcpAllocateMessageFromExtendedTables @ 0x140966C80 (AlpcpAllocateMessageFromExtendedTables.c)
- *     PspInitPhase0 @ 0x140AFD7A4 (PspInitPhase0.c)
- *     ObInitSystem @ 0x140AFE184 (ObInitSystem.c)
- *     PspInitializeJobStructures @ 0x140B2E74C (PspInitializeJobStructures.c)
+ *     ExDupHandleTable @ 0x140606160 (ExDupHandleTable.c)
+ *     ObInitProcess @ 0x140607644 (ObInitProcess.c)
+ *     RtlpInitializeHandleTableForAtomTable @ 0x14062CF58 (RtlpInitializeHandleTableForAtomTable.c)
+ *     AlpcpInitSystem @ 0x1407CE04C (AlpcpInitSystem.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x1408C2DD0 (AlpcpAllocateMessageFromExtendedTables.c)
+ *     PspInitPhase0 @ 0x140A3DC68 (PspInitPhase0.c)
+ *     ObInitSystem @ 0x140A3E538 (ObInitSystem.c)
+ *     PspInitializeJobStructures @ 0x140A72054 (PspInitializeJobStructures.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExpAllocateHandleTable @ 0x1406A6AF8 (ExpAllocateHandleTable.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExpAllocateHandleTable @ 0x14062AF9C (ExpAllocateHandleTable.c)
  */
 
-__int64 __fastcall ExCreateHandleTable(__int64 a1, __int64 a2)
+_QWORD *__fastcall ExCreateHandleTable(struct _KPROCESS *a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rbp
-  int v3; // esi
-  __int64 result; // rax
-  __int64 v5; // rdi
+  _QWORD *result; // rax
+  _QWORD *v5; // rdi
   _QWORD *v6; // rbx
   _QWORD *v7; // rax
   char v8; // si
 
   CurrentThread = KeGetCurrentThread();
-  v3 = a2;
-  LOBYTE(a2) = 1;
-  result = ExpAllocateHandleTable(a1, a2);
+  result = ExpAllocateHandleTable(a1, 1);
   v5 = result;
   if ( result )
   {
-    v6 = (_QWORD *)(result + 24);
-    if ( v3 )
+    v6 = result + 3;
+    if ( a2 )
     {
       --CurrentThread->KernelApcDisable;
       ExAcquirePushLockExclusiveEx((ULONG_PTR)&HandleTableListLock, 0LL);
-      v7 = (_QWORD *)qword_140D3CEB0;
-      if ( *(__int64 **)qword_140D3CEB0 != &HandleTableListHead )
+      v7 = (_QWORD *)qword_140D2EB48;
+      if ( *(__int64 **)qword_140D2EB48 != &HandleTableListHead )
         __fastfail(3u);
       *v6 = &HandleTableListHead;
       v6[1] = v7;
       *v7 = v6;
-      qword_140D3CEB0 = (__int64)v6;
+      qword_140D2EB48 = (__int64)v6;
       v8 = _InterlockedExchangeAdd64((volatile signed __int64 *)&HandleTableListLock, 0xFFFFFFFFFFFFFFFFuLL);
       if ( (v8 & 2) != 0 && (v8 & 4) == 0 )
         ExfTryToWakePushLock(&HandleTableListLock);
       KeAbPostRelease((ULONG_PTR)&HandleTableListLock);
-      KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+      KeLeaveCriticalRegionThread((__int64)CurrentThread);
       return v5;
     }
     else
     {
-      *(_QWORD *)(result + 32) = result + 24;
+      result[4] = result + 3;
       *v6 = v6;
     }
   }

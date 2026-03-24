@@ -1,15 +1,12 @@
 /*
- * XREFs of GreIsVisRgnLockedShared @ 0x1C016A5C0
+ * XREFs of GreIsVisRgnLockedShared @ 0x1C014B7A0
  * Callers:
  *     <none>
  * Callees:
- *     GreIsSemaphoreSharedByCurrentThread @ 0x1C00B2DA0 (GreIsSemaphoreSharedByCurrentThread.c)
+ *     GreIsSemaphoreSharedByCurrentThread @ 0x1C00A8E50 (GreIsSemaphoreSharedByCurrentThread.c)
  */
 
-_BOOL8 __fastcall GreIsVisRgnLockedShared(__int64 a1)
+_BOOL8 GreIsVisRgnLockedShared()
 {
-  __int64 v1; // rax
-
-  v1 = SGDGetSessionState(a1);
-  return GreIsSemaphoreSharedByCurrentThread(*(struct _ERESOURCE **)(*(_QWORD *)(v1 + 24) + 88LL));
+  return GreIsSemaphoreSharedByCurrentThread((struct _ERESOURCE *)ghsemDCVisRgn);
 }

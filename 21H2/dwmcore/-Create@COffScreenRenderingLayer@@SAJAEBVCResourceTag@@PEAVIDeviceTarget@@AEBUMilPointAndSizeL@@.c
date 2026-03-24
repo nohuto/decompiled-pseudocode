@@ -1,16 +1,15 @@
 /*
- * XREFs of ?Create@COffScreenRenderingLayer@@SAJAEBVCResourceTag@@PEAVIDeviceTarget@@AEBUMilPointAndSizeL@@VDisplayId@@W4Enum@CacheMode@@PEAPEAV1@@Z @ 0x1800BA82C
+ * XREFs of ?Create@COffScreenRenderingLayer@@SAJAEBVCResourceTag@@PEAVIDeviceTarget@@AEBUMilPointAndSizeL@@VDisplayId@@W4Enum@CacheMode@@PEAPEAV1@@Z @ 0x180060F3C
  * Callers:
- *     ?PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x1800BA5D0 (-PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@.c)
+ *     ?PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@@_NPEAPEAVIRenderTargetBitmap@@@Z @ 0x180040B6C (-PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CreateBitmap@CExternalLayer@@KAJAEBVCResourceTag@@AEBUMilPointAndSizeL@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x1800BA950 (-CreateBitmap@CExternalLayer@@KAJAEBVCResourceTag@@AEBUMilPointAndSizeL@@AEBUPixelFormatInfo@@AE.c)
- *     ??0CExternalLayer@@IEAA@AEBUMilPointAndSizeL@@PEAVIRenderTargetBitmap@@@Z @ 0x1800BAA9C (--0CExternalLayer@@IEAA@AEBUMilPointAndSizeL@@PEAVIRenderTargetBitmap@@@Z.c)
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D92A8 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CreateBitmap@CExternalLayer@@KAJAEBVCResourceTag@@AEBUMilPointAndSizeL@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x18005F980 (-CreateBitmap@CExternalLayer@@KAJAEBVCResourceTag@@AEBUMilPointAndSizeL@@AEBUPixelFormatInfo@@AE.c)
+ *     ??0CExternalLayer@@IEAA@AEBUMilPointAndSizeL@@PEAVIRenderTargetBitmap@@@Z @ 0x180060EEC (--0CExternalLayer@@IEAA@AEBUMilPointAndSizeL@@PEAVIRenderTargetBitmap@@@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall COffScreenRenderingLayer::Create(
@@ -21,52 +20,64 @@ __int64 __fastcall COffScreenRenderingLayer::Create(
         int a5,
         CExternalLayer **a6)
 {
-  void (__fastcall ***v10)(_QWORD, _BYTE *); // rcx
-  void (__fastcall **v11)(__int64, char *); // rax
-  int v12; // eax
-  __int64 v13; // rcx
-  unsigned int v14; // edi
-  CExternalLayer *v15; // rax
-  __int64 v16; // rcx
-  CExternalLayer *v17; // rbx
-  struct IRenderTargetBitmap *v19; // [rsp+30h] [rbp-40h] BYREF
-  char v20[8]; // [rsp+38h] [rbp-38h] BYREF
-  int v21; // [rsp+40h] [rbp-30h]
-  _BYTE v22[4]; // [rsp+50h] [rbp-20h] BYREF
-  int v23; // [rsp+54h] [rbp-1Ch]
+  int v6; // edi
+  void (__fastcall ***v11)(_QWORD, _BYTE *); // rcx
+  void (__fastcall **v12)(__int64, struct _LUID *); // rax
+  int v13; // eax
+  __int64 v14; // rcx
+  unsigned int v15; // edi
+  CExternalLayer *v16; // rax
+  __int64 v17; // rcx
+  CExternalLayer *v18; // rbx
+  struct IRenderTargetBitmap *v20; // [rsp+30h] [rbp-68h] BYREF
+  struct _LUID v21; // [rsp+38h] [rbp-60h] BYREF
+  int v22; // [rsp+40h] [rbp-58h]
+  _BYTE v23[4]; // [rsp+50h] [rbp-48h] BYREF
+  int v24; // [rsp+54h] [rbp-44h]
 
-  *a6 = 0LL;
-  v10 = (void (__fastcall ***)(_QWORD, _BYTE *))(a2 + 8 + *(int *)(*(_QWORD *)(a2 + 8) + 12LL));
-  (**v10)(v10, v22);
-  v11 = *(void (__fastcall ***)(__int64, char *))a2;
-  v23 = 1;
-  (*v11)(a2, v20);
-  v19 = 0LL;
-  v21 = a4;
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(&v19);
-  v12 = CExternalLayer::CreateBitmap(a1, a3, v22, v20, a5, &v19);
-  v14 = v12;
-  if ( v12 < 0 )
+  v6 = a5;
+  if ( a5 == 1 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0x25u);
+    v6 = 2;
+  }
+  else if ( a5 == 3 )
+  {
+    v6 = 4;
+  }
+  *a6 = 0LL;
+  v11 = (void (__fastcall ***)(_QWORD, _BYTE *))(a2 + *(int *)(*(_QWORD *)(a2 + 8) + 12LL) + 8LL);
+  (**v11)(v11, v23);
+  v12 = *(void (__fastcall ***)(__int64, struct _LUID *))a2;
+  v24 = 1;
+  (*v12)(a2, &v21);
+  v20 = 0LL;
+  v22 = a4;
+  v13 = CExternalLayer::CreateBitmap(a1, a3, (__int64)v23, &v21, v6, (CD3DDevice *)&v20);
+  v15 = v13;
+  if ( v13 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x2Fu, 0LL);
   }
   else
   {
-    v15 = (CExternalLayer *)operator new(0x78uLL);
-    v17 = v15;
-    if ( v15 )
+    v16 = (CExternalLayer *)operator new(0x78uLL);
+    v18 = v16;
+    if ( v16 )
     {
-      CExternalLayer::CExternalLayer(v15, a3, v19);
-      *(_QWORD *)v17 = &COffScreenRenderingLayer::`vftable';
-      *a6 = v17;
+      CExternalLayer::CExternalLayer(v16, a3, v20);
+      *(_QWORD *)v18 = &COffScreenRenderingLayer::`vftable';
     }
     else
     {
-      *a6 = 0LL;
-      v14 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0LL, -2147024882, 0x2Au);
+      v18 = 0LL;
+    }
+    *a6 = v18;
+    if ( !v18 )
+    {
+      v15 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, -2147024882, 0x33u, 0LL);
     }
   }
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v19);
-  return v14;
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v20);
+  return v15;
 }

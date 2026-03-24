@@ -3,7 +3,7 @@
  * Callers:
  *     ViDriverReApplyVerifierForAll @ 0x14092827C (ViDriverReApplyVerifierForAll.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ViThunkFindAllSpecialTables @ 0x140936EBC (ViThunkFindAllSpecialTables.c)
  *     ViThunkReplaceImportEntry @ 0x1409372DC (ViThunkReplaceImportEntry.c)

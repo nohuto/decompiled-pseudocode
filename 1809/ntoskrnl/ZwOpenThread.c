@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwOpenThread @ 0x1401BA670
+ * XREFs of ZwOpenThread @ 0x1401BA690
  * Callers:
  *     <none>
  * Callees:

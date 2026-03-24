@@ -1,12 +1,11 @@
 /*
- * XREFs of RtlEnoughStackSpaceForStackCapture @ 0x140227820
+ * XREFs of RtlEnoughStackSpaceForStackCapture @ 0x140585C04
  * Callers:
- *     RtlWalkFrameChain @ 0x140227780 (RtlWalkFrameChain.c)
- *     IovpLogStackTrace @ 0x140AC2E08 (IovpLogStackTrace.c)
- *     ViPtLogStackTrace @ 0x140AE005C (ViPtLogStackTrace.c)
+ *     IovpLogStackTrace @ 0x1409C5988 (IovpLogStackTrace.c)
+ *     ViPoolLogStackTrace @ 0x1409E03A8 (ViPoolLogStackTrace.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x14022E980 (RtlpGetStackLimits.c)
- *     KeGetCurrentStackPointer @ 0x14041EA70 (KeGetCurrentStackPointer.c)
+ *     RtlpGetStackLimits @ 0x1402D0BE0 (RtlpGetStackLimits.c)
+ *     KeGetCurrentStackPointer @ 0x1403FDC50 (KeGetCurrentStackPointer.c)
  */
 
 __int64 RtlEnoughStackSpaceForStackCapture()
@@ -18,8 +17,8 @@ __int64 RtlEnoughStackSpaceForStackCapture()
   v0 = 0;
   v3 = 0LL;
   v2 = 0LL;
-  if ( !(unsigned __int8)RtlpGetStackLimits(&v2, &v3) )
+  if ( !(unsigned __int8)RtlpGetStackLimits((__int64)&v2, (__int64)&v3) )
     return 0LL;
-  LOBYTE(v0) = (unsigned __int64)(KeGetCurrentStackPointer() - v2) >= 0xE30;
+  LOBYTE(v0) = (unsigned __int64)&KeGetCurrentStackPointer()[-v2] >= 0xE30;
   return v0;
 }

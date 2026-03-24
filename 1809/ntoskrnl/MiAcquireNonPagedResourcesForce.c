@@ -1,8 +1,8 @@
 /*
- * XREFs of MiAcquireNonPagedResourcesForce @ 0x1402A60F0
+ * XREFs of MiAcquireNonPagedResourcesForce @ 0x1402A61F0
  * Callers:
- *     MiActOnPartitionNodePages @ 0x1402D0018 (MiActOnPartitionNodePages.c)
- *     MiTransferPartitionPageRun @ 0x1402D25F8 (MiTransferPartitionPageRun.c)
+ *     MiActOnPartitionNodePages @ 0x1402D0118 (MiActOnPartitionNodePages.c)
+ *     MiTransferPartitionPageRun @ 0x1402D26F8 (MiTransferPartitionPageRun.c)
  * Callees:
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)

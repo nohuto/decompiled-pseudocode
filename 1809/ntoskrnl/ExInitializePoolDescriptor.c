@@ -1,7 +1,7 @@
 /*
- * XREFs of ExInitializePoolDescriptor @ 0x140715A6C
+ * XREFs of ExInitializePoolDescriptor @ 0x140715A4C
  * Callers:
- *     MiInitializeSessionPool @ 0x1407156A4 (MiInitializeSessionPool.c)
+ *     MiInitializeSessionPool @ 0x140715684 (MiInitializeSessionPool.c)
  *     InitializePool @ 0x1409B6DF8 (InitializePool.c)
  *     InitializePagedPool @ 0x1409B7280 (InitializePagedPool.c)
  * Callees:

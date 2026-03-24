@@ -1,108 +1,80 @@
 /*
- * XREFs of ?Add@DXGFIXEDQUEUE@@QEAAJI@Z @ 0x1C005AC3C
+ * XREFs of ?Add@DXGFIXEDQUEUE@@QEAAJI@Z @ 0x1C004BC5C
  * Callers:
- *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z @ 0x1C034BF18 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z.c)
+ *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z @ 0x1C02AC024 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
  */
 
-__int64 __fastcall DXGFIXEDQUEUE::Add(DXGFIXEDQUEUE *this, int a2, __int64 a3, __int64 a4)
+__int64 __fastcall DXGFIXEDQUEUE::Add(DXGFIXEDQUEUE *this, __int64 a2)
 {
-  char *v4; // rdi
-  int v7; // edx
-  int v8; // ecx
-  int v9; // r8d
-  int v11; // ecx
-  int v12; // edx
-  int v13; // eax
-  unsigned __int64 v14; // rax
-  int v15; // edx
-  int v16; // ecx
-  int v17; // r8d
-  int v18; // eax
-  int v19; // ecx
-  void *v20; // rcx
-  int v21; // eax
+  char *v2; // rdi
+  int v3; // esi
+  __int64 v5; // rax
+  int v7; // ecx
+  int v8; // edx
+  int v9; // eax
+  SIZE_T v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  int v14; // eax
+  int v15; // ecx
+  void *v16; // rcx
+  int v17; // eax
 
-  v4 = (char *)*((_QWORD *)this + 2);
-  if ( !v4 )
+  v2 = (char *)*((_QWORD *)this + 2);
+  v3 = a2;
+  if ( !v2 )
   {
-    WdLogSingleEntry1(2LL, 52LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v8,
-          v7,
-          v9,
-          0LL,
-          0,
-          -1,
-          L"Queue Init function not called or failed",
-          52LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v5 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v5 + 24) = 52LL;
+    WdLogEvent5_WdError(v5);
     return 3221225495LL;
   }
-  v11 = *((_DWORD *)this + 2);
-  v12 = *((_DWORD *)this + 1);
-  v13 = v11 + 1;
-  if ( v11 + 1 == v12 )
-    v13 = 0;
-  if ( v13 == *((_DWORD *)this + 3) )
+  v7 = *((_DWORD *)this + 2);
+  v8 = *((_DWORD *)this + 1);
+  v9 = v7 + 1;
+  if ( v7 + 1 == v8 )
+    v9 = 0;
+  if ( v9 == *((_DWORD *)this + 3) )
   {
-    v14 = 4LL * (unsigned int)(*(_DWORD *)this + v12);
-    if ( !is_mul_ok((unsigned int)(*(_DWORD *)this + v12), 4uLL) )
-      v14 = -1LL;
-    v4 = (char *)operator new[](v14, 0x4B677844u, 256LL, a4);
-    if ( !v4 )
+    v10 = 4LL * (unsigned int)(*(_DWORD *)this + v8);
+    if ( !is_mul_ok((unsigned int)(*(_DWORD *)this + v8), 4uLL) )
+      v10 = -1LL;
+    v2 = (char *)operator new[](v10, 0x4B677844u, PagedPool);
+    if ( !v2 )
     {
-      WdLogSingleEntry1(2LL, this);
-      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v16,
-          v15,
-          v17,
-          0LL,
-          0,
-          -1,
-          L"Queue 0x%I64x has run out of space",
-          this,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+      v13 = WdLogNewEntry5_WdError(v12, v11);
+      *(_QWORD *)(v13 + 24) = this;
+      WdLogEvent5_WdError(v13);
       return 3221225507LL;
     }
     memmove(
-      v4,
+      v2,
       (const void *)(*((_QWORD *)this + 2) + 4LL * *((unsigned int *)this + 3)),
       4LL * (unsigned int)(*((_DWORD *)this + 1) - *((_DWORD *)this + 3)));
-    v18 = *((_DWORD *)this + 3);
-    v19 = *((_DWORD *)this + 1);
-    if ( v18 )
+    v14 = *((_DWORD *)this + 3);
+    v15 = *((_DWORD *)this + 1);
+    if ( v14 )
     {
-      memmove(&v4[4 * (v19 - v18)], *((const void **)this + 2), 4LL * *((unsigned int *)this + 2));
-      v19 = *((_DWORD *)this + 1);
+      memmove(&v2[4 * (v15 - v14)], *((const void **)this + 2), 4LL * *((unsigned int *)this + 2));
+      v15 = *((_DWORD *)this + 1);
       *((_DWORD *)this + 3) = 0;
-      *((_DWORD *)this + 2) = v19 - 1;
+      *((_DWORD *)this + 2) = v15 - 1;
     }
-    *((_DWORD *)this + 1) = *(_DWORD *)this + v19;
-    v20 = (void *)*((_QWORD *)this + 2);
-    if ( v20 )
-      ExFreePoolWithTag(v20, 0);
-    v11 = *((_DWORD *)this + 2);
-    *((_QWORD *)this + 2) = v4;
+    *((_DWORD *)this + 1) = *(_DWORD *)this + v15;
+    v16 = (void *)*((_QWORD *)this + 2);
+    if ( v16 )
+      ExFreePoolWithTag(v16, 0);
+    v7 = *((_DWORD *)this + 2);
+    *((_QWORD *)this + 2) = v2;
   }
-  *(_DWORD *)&v4[4 * v11] = a2;
-  v21 = *((_DWORD *)this + 2) + 1;
-  if ( v21 == *((_DWORD *)this + 1) )
-    v21 = 0;
-  *((_DWORD *)this + 2) = v21;
+  *(_DWORD *)&v2[4 * v7] = v3;
+  v17 = *((_DWORD *)this + 2) + 1;
+  if ( v17 == *((_DWORD *)this + 1) )
+    v17 = 0;
+  *((_DWORD *)this + 2) = v17;
   return 0LL;
 }

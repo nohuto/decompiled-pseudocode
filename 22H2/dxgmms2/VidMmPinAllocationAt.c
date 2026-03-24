@@ -1,12 +1,12 @@
 /*
- * XREFs of VidMmPinAllocationAt @ 0x1C002D190
+ * XREFs of VidMmPinAllocationAt @ 0x1C0022E60
  * Callers:
  *     <none>
  * Callees:
- *     ?PinAllocationAt@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@K_K@Z @ 0x1C00E6514 (-PinAllocationAt@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@K_K@Z.c)
+ *     ?PinAllocationAt@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@K_K@Z @ 0x1C00B0BF8 (-PinAllocationAt@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@K_K@Z.c)
  */
 
-int __fastcall VidMmPinAllocationAt(
+__int64 __fastcall VidMmPinAllocationAt(
         VIDMM_GLOBAL *a1,
         struct _VIDMM_MULTI_ALLOC *a2,
         unsigned int a3,

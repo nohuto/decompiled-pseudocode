@@ -1,100 +1,81 @@
 /*
- * XREFs of PiSwIrpCleanup @ 0x14081CA34
+ * XREFs of PiSwIrpCleanup @ 0x1407734BC
  * Callers:
- *     PiSwDispatch @ 0x14079CB30 (PiSwDispatch.c)
- *     PiSwIrpStartCreateWorker @ 0x14081B5CC (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074CF08 (PiSwIrpStartCreateWorker.c)
+ *     PiSwDispatch @ 0x14074DB30 (PiSwDispatch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     _wcsnicmp @ 0x1403D9530 (_wcsnicmp.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x140563874 (McTemplateK0zz_EtwWriteTransfer.c)
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x140563944 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBF54 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiSwCloseDescendants @ 0x14086A2DC (PiSwCloseDescendants.c)
- *     PiSwFindSwDevice @ 0x14086A40C (PiSwFindSwDevice.c)
- *     PiSwCloseDevice @ 0x140967170 (PiSwCloseDevice.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     _wcsnicmp @ 0x1403D1B10 (_wcsnicmp.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406B14B0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiSwCloseDevice @ 0x140734D40 (PiSwCloseDevice.c)
+ *     PiSwCloseDescendants @ 0x14074BCE8 (PiSwCloseDescendants.c)
+ *     PiSwFindSwDevice @ 0x14074BD68 (PiSwFindSwDevice.c)
  */
 
-void __fastcall PiSwIrpCleanup(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall PiSwIrpCleanup(__int64 a1)
 {
-  IRP *v3; // rdi
+  IRP *v1; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v6; // rax
-  char v7; // si
-  const wchar_t *v8; // rbp
-  _QWORD *v9; // rax
-  __int64 v10; // rcx
-  __int64 v11; // rcx
-  __int64 v12; // r8
+  __int64 v4; // rax
+  char v5; // si
+  const wchar_t *v6; // rbp
+  struct _DMA_ADAPTER *v7; // rax
+  __int64 v8; // rcx
   __int64 SwDevice; // rax
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
-  v3 = 0LL;
+  v1 = 0LL;
   DestinationString = 0LL;
-  if ( (byte_140C0E20C & 8) != 0 )
-    McTemplateK0zz_EtwWriteTransfer(
-      a1,
-      (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_IrpClose_Start,
-      a3,
-      *(const wchar_t **)(a1 + 8),
-      *(const wchar_t **)(a1 + 16));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(&PiSwLockObj, 1u);
   if ( !*(_DWORD *)(a1 + 180) )
-    goto LABEL_15;
-  v6 = *(_QWORD *)(a1 + 112);
-  v7 = 0;
+    goto LABEL_11;
+  v4 = *(_QWORD *)(a1 + 112);
+  v5 = 0;
   while ( 1 )
   {
-    v8 = *(const wchar_t **)(v6 + 8);
-    if ( wcsnicmp(v8, L"SWD\\", 4uLL) )
+    v6 = *(const wchar_t **)(v4 + 8);
+    if ( wcsnicmp(v6, L"SWD\\", 4uLL) )
       break;
-    SwDevice = PiSwFindSwDevice(v8);
+    SwDevice = PiSwFindSwDevice(v6);
     if ( !SwDevice )
-      goto LABEL_15;
+      goto LABEL_11;
     if ( !*(_DWORD *)(SwDevice + 180) && (*(_DWORD *)(SwDevice + 4) & 2) == 0 )
-      goto LABEL_8;
-    v6 = *(_QWORD *)(SwDevice + 112);
+      goto LABEL_6;
+    v4 = *(_QWORD *)(SwDevice + 112);
   }
-  RtlInitUnicodeString(&DestinationString, v8);
-  v9 = PnpDeviceObjectFromDeviceInstanceWithTag((__int64)&DestinationString, 0x746C6644u);
-  if ( v9 )
-    ObfDereferenceObject(v9);
+  RtlInitUnicodeString(&DestinationString, v6);
+  v7 = (struct _DMA_ADAPTER *)PnpDeviceObjectFromDeviceInstanceWithTag((__int64)&DestinationString, 0x746C6644u);
+  if ( v7 )
+    HalPutDmaAdapter(v7);
   else
-LABEL_15:
-    v7 = 1;
-LABEL_8:
-  v10 = *(_QWORD *)(a1 + 144);
-  if ( v10 && _InterlockedExchange64((volatile __int64 *)(v10 + 104), 0LL) )
+LABEL_11:
+    v5 = 1;
+LABEL_6:
+  v8 = *(_QWORD *)(a1 + 144);
+  if ( v8 && _InterlockedExchange64((volatile __int64 *)(v8 + 104), 0LL) )
   {
-    v3 = *(IRP **)(a1 + 144);
+    v1 = *(IRP **)(a1 + 144);
     *(_QWORD *)(a1 + 144) = 0LL;
   }
   *(_DWORD *)(a1 + 4) &= ~1u;
-  if ( v7 )
+  if ( v5 )
   {
-    PiSwCloseDescendants(a1 + 72, 0LL);
-    PiSwCloseDevice(a1);
+    PiSwCloseDescendants(a1 + 72, 0);
+    PiSwCloseDevice((PVOID)a1);
   }
   ExReleaseResourceLite(&PiSwLockObj);
-  KeLeaveCriticalRegion();
-  if ( v3 )
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( v1 )
   {
-    v3->IoStatus.Information = 0LL;
-    v3->IoStatus.Status = -1073741536;
-    IofCompleteRequest(v3, 0);
+    v1->IoStatus.Information = 0LL;
+    v1->IoStatus.Status = -1073741536;
+    IofCompleteRequest(v1, 0);
   }
-  if ( (byte_140C0E20C & 8) != 0 )
-    McTemplateK0zzd_EtwWriteTransfer(
-      v11,
-      (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_IrpClose_Stop,
-      v12,
-      *(const wchar_t **)(a1 + 8),
-      *(const wchar_t **)(a1 + 16),
-      v7);
 }

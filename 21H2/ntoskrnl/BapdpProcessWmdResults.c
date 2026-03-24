@@ -1,13 +1,13 @@
 /*
- * XREFs of BapdpProcessWmdResults @ 0x140B1BEA8
+ * XREFs of BapdpProcessWmdResults @ 0x140A40F4C
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140B1C0FC (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140A4117C (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
- *     BapdpQueryData @ 0x140B1C6B0 (BapdpQueryData.c)
- *     BapdpRegisterWmdResult @ 0x140B5421C (BapdpRegisterWmdResult.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     BapdpQueryData @ 0x140A41734 (BapdpQueryData.c)
+ *     BapdpRegisterWmdResult @ 0x140A94488 (BapdpRegisterWmdResult.c)
  */
 
 void BapdpProcessWmdResults()

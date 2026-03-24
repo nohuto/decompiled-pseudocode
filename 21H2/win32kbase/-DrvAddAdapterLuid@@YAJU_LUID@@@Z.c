@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DrvAddAdapterLuid@@YAJU_LUID@@@Z @ 0x1C006A51C
+ * XREFs of ?DrvAddAdapterLuid@@YAJU_LUID@@@Z @ 0x1C007D274
  * Callers:
- *     ?DrvSetDisconnectedGraphicsDevice@@YAHH@Z @ 0x1C006A740 (-DrvSetDisconnectedGraphicsDevice@@YAHH@Z.c)
- *     DrvUpdateGraphicsDeviceList @ 0x1C006ADB0 (DrvUpdateGraphicsDeviceList.c)
- *     ?DrvAddMirrorDriversToRemoteList@@YAHXZ @ 0x1C00D1F30 (-DrvAddMirrorDriversToRemoteList@@YAHXZ.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001DEE0 (DrvUpdateGraphicsDeviceList.c)
+ *     ?DrvSetDisconnectedGraphicsDevice@@YAHH@Z @ 0x1C001EBB0 (-DrvSetDisconnectedGraphicsDevice@@YAHH@Z.c)
+ *     ?DrvAddMirrorDriversToRemoteList@@YAHXZ @ 0x1C00C31D0 (-DrvAddMirrorDriversToRemoteList@@YAHXZ.c)
  * Callees:
- *     ??8@YA_NAEBU_LUID@@0@Z @ 0x1C006A490 (--8@YA_NAEBU_LUID@@0@Z.c)
+ *     ??8@YA_NAEBU_LUID@@0@Z @ 0x1C007D4F8 (--8@YA_NAEBU_LUID@@0@Z.c)
  */
 
 __int64 __fastcall DrvAddAdapterLuid(struct _LUID a1)
@@ -22,24 +22,24 @@ __int64 __fastcall DrvAddAdapterLuid(struct _LUID a1)
   v1 = gpGdiSharedMemory;
   v2 = a1;
   v3 = *((_DWORD *)gpGdiSharedMemory + 393257);
-  if ( v3 >= gcMaximumAdapterCount )
+  if ( v3 >= (unsigned int)gcMaximumAdapterCount )
     return 3221225612LL;
   v4 = 0LL;
   if ( v3 )
   {
-    while ( !operator==(&v8, (_DWORD *)gpAdapterLuids + 2 * v4) )
+    while ( !(unsigned __int8)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))operator==)(&v8, &gpAdapterLuids[v4], v2) )
     {
       v4 = (unsigned int)(v5 + 1);
       if ( (unsigned int)v4 >= v6 )
         goto LABEL_6;
     }
-    ++*((_BYTE *)gpDevicesPerLuid + v5);
+    ++gpDevicesPerLuid[v5];
   }
   else
   {
 LABEL_6:
-    *((struct _LUID *)gpAdapterLuids + v4) = v2;
-    ++*((_BYTE *)gpDevicesPerLuid + v4);
+    gpAdapterLuids[v4] = v2;
+    ++gpDevicesPerLuid[v4];
     ++v1[393257];
     ++v1[393256];
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OpenSharedHandle@CVisualTargetMarshaler@DirectComposition@@UEAAJPEAPEAX@Z @ 0x1C0058530
+ * XREFs of ?OpenSharedHandle@CVisualTargetMarshaler@DirectComposition@@UEAAJPEAPEAX@Z @ 0x1C004A7C0
  * Callers:
  *     <none>
  * Callees:
- *     ?CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C0058820 (-CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
+ *     ?CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C004AC10 (-CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
  */
 
 int __fastcall DirectComposition::CVisualTargetMarshaler::OpenSharedHandle(
@@ -12,7 +12,7 @@ int __fastcall DirectComposition::CVisualTargetMarshaler::OpenSharedHandle(
 {
   __int64 v2; // rcx
 
-  v2 = *((_QWORD *)this + 8);
+  v2 = *((_QWORD *)this + 7);
   if ( v2 )
     return CompositionObject::CreateHandle((CompositionObject *)(v2 - 24), 1u, 0, 1, a2);
   else

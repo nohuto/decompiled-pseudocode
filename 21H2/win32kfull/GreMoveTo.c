@@ -1,11 +1,11 @@
 /*
- * XREFs of GreMoveTo @ 0x1C029EBA8
+ * XREFs of GreMoveTo @ 0x1C02A02C4
  * Callers:
- *     NtGdiMoveTo @ 0x1C02AE220 (NtGdiMoveTo.c)
+ *     NtGdiMoveTo @ 0x1C02AFAE0 (NtGdiMoveTo.c)
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
  */
 
 __int64 __fastcall GreMoveTo(HDC a1, int a2, int a3, _QWORD *a4)

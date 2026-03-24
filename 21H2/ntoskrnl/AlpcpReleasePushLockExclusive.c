@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpReleasePushLockExclusive @ 0x140965BB0
+ * XREFs of AlpcpReleasePushLockExclusive @ 0x1408C1BC0
  * Callers:
- *     AlpcAddHandleTableEntry @ 0x1407A5530 (AlpcAddHandleTableEntry.c)
+ *     AlpcAddHandleTableEntry @ 0x1406627C8 (AlpcAddHandleTableEntry.c)
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
  */
 
-__int64 __fastcall AlpcpReleasePushLockExclusive(volatile signed __int64 *BugCheckParameter2)
+char __fastcall AlpcpReleasePushLockExclusive(volatile signed __int64 *BugCheckParameter2)
 {
   if ( (_InterlockedExchangeAdd64(BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(BugCheckParameter2);

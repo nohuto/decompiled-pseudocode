@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpInitializeHardwareConfiguration @ 0x140B3A3C8
+ * XREFs of CmpInitializeHardwareConfiguration @ 0x140A58AB0
  * Callers:
- *     CmInitSystem1 @ 0x140B39964 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     CmpSetupConfigurationTree @ 0x140B3AAA4 (CmpSetupConfigurationTree.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpSetupConfigurationTree @ 0x140A59198 (CmpSetupConfigurationTree.c)
  */
 
 NTSTATUS __fastcall CmpInitializeHardwareConfiguration(__int64 a1)
@@ -19,12 +19,13 @@ NTSTATUS __fastcall CmpInitializeHardwareConfiguration(__int64 a1)
   HANDLE KeyHandle; // [rsp+88h] [rbp+18h] BYREF
 
   v1 = *(_QWORD *)(a1 + 176);
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   KeyHandle = 0LL;
   Disposition = 0;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &CmRegistryMachineHardwareDeviceMapName;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   result = ZwCreateKey(&KeyHandle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition);
   if ( result >= 0 )
@@ -38,7 +39,7 @@ NTSTATUS __fastcall CmpInitializeHardwareConfiguration(__int64 a1)
     result = ZwCreateKey(&KeyHandle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition);
     if ( result >= 0 )
     {
-      CmpConfigurationData = (PVOID)ExAllocatePool2(256LL, (unsigned int)CmpConfigurationAreaSize, 0x20204D43u);
+      CmpConfigurationData = ExAllocatePoolWithTag(PagedPool, (unsigned int)CmpConfigurationAreaSize, 0x20204D43u);
       if ( CmpConfigurationData )
       {
         if ( v1 )

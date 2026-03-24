@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBPDO_ReportDeviceAsMissing @ 0x1C0019BE8
+ * XREFs of HUBPDO_ReportDeviceAsMissing @ 0x1C0019698
  * Callers:
- *     HUBDSM_ReportingDeviceMissing @ 0x1C001D7D0 (HUBDSM_ReportingDeviceMissing.c)
- *     HUBDSM_ReportingFailedDeviceAsMissing @ 0x1C001D820 (HUBDSM_ReportingFailedDeviceAsMissing.c)
- *     HUBDSM_WaitingForReportedMissingOnDetachInConfigured @ 0x1C001E130 (HUBDSM_WaitingForReportedMissingOnDetachInConfigured.c)
- *     HUBDSM_WaitingForReportedMissingOnDetachInUnConfigured @ 0x1C001E170 (HUBDSM_WaitingForReportedMissingOnDetachInUnConfigured.c)
+ *     HUBDSM_ReportingDeviceMissing @ 0x1C001D290 (HUBDSM_ReportingDeviceMissing.c)
+ *     HUBDSM_ReportingFailedDeviceAsMissing @ 0x1C001D2E0 (HUBDSM_ReportingFailedDeviceAsMissing.c)
+ *     HUBDSM_WaitingForReportedMissingOnDetachInConfigured @ 0x1C001DBF0 (HUBDSM_WaitingForReportedMissingOnDetachInConfigured.c)
+ *     HUBDSM_WaitingForReportedMissingOnDetachInUnConfigured @ 0x1C001DC30 (HUBDSM_WaitingForReportedMissingOnDetachInUnConfigured.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBPDO_ReportDeviceAsMissing(__int64 a1)
@@ -30,7 +30,7 @@ void __fastcall HUBPDO_ReportDeviceAsMissing(__int64 a1)
       2u,
       2u,
       0x7Eu,
-      (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
       v5);
   }
   KeLowerIrql(v2);

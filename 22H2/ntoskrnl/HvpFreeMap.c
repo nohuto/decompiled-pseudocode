@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpFreeMap @ 0x1407E1348
+ * XREFs of HvpFreeMap @ 0x14069E438
  * Callers:
- *     HvFreeHivePartial @ 0x140707258 (HvFreeHivePartial.c)
- *     HvHiveCleanup @ 0x140709780 (HvHiveCleanup.c)
- *     HvpInitMap @ 0x14074EF80 (HvpInitMap.c)
- *     HvpExpandMap @ 0x140750518 (HvpExpandMap.c)
- *     HvpShrinkMap @ 0x140A25BA4 (HvpShrinkMap.c)
+ *     HvHiveCleanup @ 0x1406572B4 (HvHiveCleanup.c)
+ *     HvFreeHivePartial @ 0x14072090C (HvFreeHivePartial.c)
+ *     HvpExpandMap @ 0x140722660 (HvpExpandMap.c)
+ *     HvpInitMap @ 0x14072336C (HvpInitMap.c)
+ *     HvpShrinkMap @ 0x140880BB0 (HvpShrinkMap.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 _UNKNOWN **__fastcall HvpFreeMap(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

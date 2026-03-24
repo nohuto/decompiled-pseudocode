@@ -1,130 +1,79 @@
 /*
- * XREFs of ?GetMouseCoordinateRelative@CMouseProcessor@@AEAAXJJPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouseCoordinateOptions@@@Z @ 0x1C01F75BC
+ * XREFs of ?GetMouseCoordinateRelative@CMouseProcessor@@AEAAXJJPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouseCoordinateOptions@@@Z @ 0x1C006F980
  * Callers:
- *     ?GetMouseCoord@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEAUtagPOINT@@PEAU_SUBPIXELS@@@Z @ 0x1C00E61D2 (-GetMouseCoord@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEAUtagPOINT@@PEAU_SUBPIXELS@@@Z.c)
+ *     ?GetMouseCoord@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEAUtagPOINT@@PEAU_SUBPIXELS@@@Z @ 0x1C006FA94 (-GetMouseCoord@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEAUtagPOINT@@PEAU_SUBPIXELS@@@Z.c)
  * Callees:
- *     ?GetUnionRegion@Mouse@InputConfig@@SA?AUCInputSpaceRegion@@XZ @ 0x1C00644A0 (-GetUnionRegion@Mouse@InputConfig@@SA-AUCInputSpaceRegion@@XZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?ApplyAccelerationToDelta@CMouseProcessor@@AEAAXJJUtagPOINT@@_NPEAU_SUBPIXELS@@PEAJ3@Z @ 0x1C00E5D0A (-ApplyAccelerationToDelta@CMouseProcessor@@AEAAXJJUtagPOINT@@_NPEAU_SUBPIXELS@@PEAJ3@Z.c)
+ *     ?GetUnionRect@Mouse@InputConfig@@SA?AUtagRECT@@XZ @ 0x1C006FD10 (-GetUnionRect@Mouse@InputConfig@@SA-AUtagRECT@@XZ.c)
+ *     ?ApplyAccelerationToDelta@CMouseProcessor@@AEAAXJJUtagPOINT@@_NPEAU_SUBPIXELS@@PEAJ3@Z @ 0x1C006FD68 (-ApplyAccelerationToDelta@CMouseProcessor@@AEAAXJJUtagPOINT@@_NPEAU_SUBPIXELS@@PEAJ3@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall CMouseProcessor::GetMouseCoordinateRelative(
         CMouseProcessor *a1,
-        __int64 a2,
-        __int64 a3,
+        int a2,
+        int a3,
         struct tagPOINT *a4,
         struct _SUBPIXELS *a5,
-        unsigned int a6,
+        int a6,
         __int64 a7,
         char a8)
 {
   __int64 result; // rax
-  __m128i v11; // xmm6
-  __int64 v12; // rcx
-  int v13; // edi
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // rbx
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // r9
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  int v24; // edi
-  __int64 v25; // r8
-  __int64 v26; // r9
-  __int64 v27; // rbx
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  __int64 v31; // r9
-  __int64 v32; // rcx
-  __int64 v33; // r8
-  __int64 v34; // r9
-  __int64 v35; // rbx
-  __int64 v36; // rdx
-  __int64 v37; // rcx
-  __int64 v38; // r8
-  __int64 v39; // r9
-  __int64 v40; // rdx
-  __int64 v41; // rcx
-  __int64 v42; // r8
-  __int64 v43; // r9
-  __int64 v44; // rbx
-  __int64 v45; // rdx
-  __int64 v46; // rcx
-  __int64 v47; // r8
-  __int64 v48; // r9
-  __int64 v49; // rdx
-  __int64 v50; // rcx
-  __int64 v51; // r8
-  __int64 v52; // r9
-  __int64 v53; // rdx
-  __int64 v54; // rcx
-  __int64 v55; // r8
-  __int64 v56; // r9
-  _OWORD v57[46]; // [rsp+48h] [rbp-C0h] BYREF
-  int v58; // [rsp+360h] [rbp+258h] BYREF
-  int v59; // [rsp+368h] [rbp+260h] BYREF
+  __m128i *UnionRect; // rax
+  char v12; // r10
+  __int64 v13; // r9
+  __m128i v14; // xmm0
+  unsigned __int64 v15; // rdx
+  struct tagRECT v16; // [rsp+40h] [rbp-10h] BYREF
+  unsigned int v17; // [rsp+78h] [rbp+28h] BYREF
+  unsigned int v18; // [rsp+80h] [rbp+30h] BYREF
 
-  v59 = a3;
-  v58 = a2;
-  CMouseProcessor::ApplyAccelerationToDelta(a1, a2, a3, *a4, (a8 & 2) != 0, a5, &v58, &v59);
-  switch ( *((_DWORD *)a1 + 696) )
+  v18 = a3;
+  v17 = a2;
+  CMouseProcessor::ApplyAccelerationToDelta(a1, a2, a3, *a4, (a8 & 2) != 0, a5, (int *)&v17, (int *)&v18);
+  switch ( *((_DWORD *)a1 + 698) )
   {
     case 1:
-      goto LABEL_6;
+      goto LABEL_2;
     case 2:
-      a4->x -= v59;
-      result = (unsigned int)v58;
-      goto LABEL_7;
+      a4->x -= v18;
+      result = v17;
+      goto LABEL_3;
     case 3:
-      a4->x -= v58;
-      result = (unsigned int)(a4->y - v59);
+      a4->x -= v17;
+      result = v18;
       break;
     case 4:
-      a4->x += v59;
-      result = (unsigned int)(a4->y - v58);
+      a4->x += v18;
+      result = v17;
       break;
     default:
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 2847);
-LABEL_6:
-      a4->x += v58;
-      result = (unsigned int)v59;
-LABEL_7:
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2734LL);
+LABEL_2:
+      a4->x += v17;
+      result = v18;
+LABEL_3:
       a4->y += result;
-      goto LABEL_8;
+      goto LABEL_4;
   }
-  a4->y = result;
-LABEL_8:
+  a4->y -= result;
+LABEL_4:
   if ( (a8 & 4) == 0 )
   {
-    v11 = *(__m128i *)InputConfig::Mouse::GetUnionRegion(v57);
-    v12 = (unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(v11, 8));
-    LOWORD(v12) = v12 - _mm_cvtsi128_si32(v11) - 1;
-    v13 = LOWORD(a4->x) | ((unsigned __int16)v12 << 16);
-    v17 = SGDGetUserSessionState(v12, v14, v15, v16) + 14368;
-    v22 = 3LL * *(unsigned int *)(SGDGetUserSessionState(v19, v18, v20, v21) + 14364);
-    v23 = (unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(v11, 12));
-    *(_DWORD *)(v17 + 8 * v22) = v13;
-    LOWORD(v23) = v23 - _mm_cvtsi128_si32(_mm_srli_si128(v11, 4)) - 1;
-    v24 = LOWORD(a4->y) | ((unsigned __int16)v23 << 16);
-    v27 = SGDGetUserSessionState(v23, v22, v25, v26) + 14368;
-    v32 = *(unsigned int *)(SGDGetUserSessionState(v29, v28, v30, v31) + 14364);
-    *(_DWORD *)(v27 + 24 * v32 + 4) = v24;
-    v35 = SGDGetUserSessionState(v32, 3 * v32, v33, v34) + 14368;
-    v40 = 3LL * *(unsigned int *)(SGDGetUserSessionState(v37, v36, v38, v39) + 14364);
-    v41 = a6;
-    *(_DWORD *)(v35 + 8 * v40 + 8) = a6;
-    v44 = SGDGetUserSessionState(v41, v40, v42, v43) + 14368;
-    v49 = 3LL * *(unsigned int *)(SGDGetUserSessionState(v46, v45, v47, v48) + 14364);
-    v50 = a7;
-    *(_QWORD *)(v44 + 8 * v49 + 16) = a7;
-    LODWORD(v44) = ((unsigned __int8)*(_DWORD *)(SGDGetUserSessionState(v50, v49, v51, v52) + 14364) + 1) & 0x3F;
-    result = SGDGetUserSessionState(v54, v53, v55, v56);
-    *(_DWORD *)(result + 14364) = v44;
+    UnionRect = (__m128i *)InputConfig::Mouse::GetUnionRect(&v16);
+    v12 = gptInd;
+    v13 = 3LL * (unsigned int)gptInd;
+    v14 = _mm_srli_si128(*UnionRect, 8);
+    v15 = HIDWORD(UnionRect->m128i_i64[0]);
+    *((_DWORD *)&gaptMouse + 2 * v13) = LOWORD(a4->x) | ((unsigned __int16)(v14.m128i_i16[0]
+                                                                          - UnionRect->m128i_i64[0]
+                                                                          - 1) << 16);
+    LODWORD(UnionRect) = a6;
+    *((_DWORD *)&gaptMouse + 2 * v13 + 1) = LOWORD(a4->y) | ((v14.m128i_i32[1] - (_DWORD)v15 - 1) << 16);
+    *((_DWORD *)&gaptMouse + 2 * v13 + 2) = (_DWORD)UnionRect;
+    *((_QWORD *)&gaptMouse + v13 + 2) = a7;
+    result = (v12 + 1) & 0x3F;
+    gptInd = (v12 + 1) & 0x3F;
   }
   return result;
 }

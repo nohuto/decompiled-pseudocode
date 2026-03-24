@@ -1,18 +1,16 @@
 /*
- * XREFs of ?InitializeDeviceTransform@CVirtualMonitorCaptureRenderTarget@@MEAAXPEAVCMILMatrix@@@Z @ 0x1801C5E90
+ * XREFs of ?InitializeDeviceTransform@CVirtualMonitorCaptureRenderTarget@@MEAAXPEAVCMILMatrix@@@Z @ 0x180188A20
  * Callers:
  *     <none>
  * Callees:
- *     ?InitializeDeviceTransform@COffScreenRenderTarget@@MEAAXPEAVCMILMatrix@@@Z @ 0x1801C1650 (-InitializeDeviceTransform@COffScreenRenderTarget@@MEAAXPEAVCMILMatrix@@@Z.c)
+ *     ?InitializeDeviceTransform@COffScreenRenderTarget@@MEAAXPEAVCMILMatrix@@@Z @ 0x180185C70 (-InitializeDeviceTransform@COffScreenRenderTarget@@MEAAXPEAVCMILMatrix@@@Z.c)
  */
 
 void __fastcall CVirtualMonitorCaptureRenderTarget::InitializeDeviceTransform(
         CVirtualMonitorCaptureRenderTarget *this,
         struct CMILMatrix *a2)
 {
-  char v4; // al
-
-  if ( *((_QWORD *)this + 12) )
+  if ( *((_QWORD *)this + 13) )
   {
     COffScreenRenderTarget::InitializeDeviceTransform(this, a2);
   }
@@ -28,12 +26,10 @@ void __fastcall CVirtualMonitorCaptureRenderTarget::InitializeDeviceTransform(
     *((_QWORD *)a2 + 6) = 0LL;
     *((_DWORD *)a2 + 14) = 0;
     *((_DWORD *)a2 + 15) = 1065353216;
-    v4 = *((_BYTE *)a2 + 65) & 0xD7;
-    *((_BYTE *)a2 + 64) = 85;
-    *((_BYTE *)a2 + 65) = v4 | 0x17;
+    *((_WORD *)a2 + 32) = 32085;
   }
   CMILMatrix::Translate(
     a2,
-    COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*((int *)this + 527)) ^ _xmm),
-    COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*((int *)this + 528)) ^ _xmm));
+    COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*((int *)this + 533)) ^ _xmm),
+    COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*((int *)this + 534)) ^ _xmm));
 }

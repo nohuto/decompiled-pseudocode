@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpLeapSecondDataRegistryNotifyHandler @ 0x1409F7D00
+ * XREFs of ExpLeapSecondDataRegistryNotifyHandler @ 0x14094B930
  * Callers:
  *     <none>
  * Callees:
- *     ExpReadLeapSecondData @ 0x140854624 (ExpReadLeapSecondData.c)
+ *     ExpReadLeapSecondData @ 0x1407A95E8 (ExpReadLeapSecondData.c)
  */
 
 void ExpLeapSecondDataRegistryNotifyHandler()

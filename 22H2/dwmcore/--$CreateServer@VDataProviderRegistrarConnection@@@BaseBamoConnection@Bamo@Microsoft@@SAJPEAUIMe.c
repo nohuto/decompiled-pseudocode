@@ -1,75 +1,65 @@
 /*
- * XREFs of ??$CreateServer@VDataProviderRegistrarConnection@@@BaseBamoConnection@Bamo@Microsoft@@SAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBGPEAPEAVDataProviderRegistrarConnection@@@Z @ 0x1800AF930
+ * XREFs of ??$CreateServer@VDataProviderRegistrarConnection@@@BaseBamoConnection@Bamo@Microsoft@@SAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBGPEAPEAVDataProviderRegistrarConnection@@@Z @ 0x1800B3CEC
  * Callers:
- *     ?InitializeServer@DataProviderManager@@AEAAJXZ @ 0x1800FD4AC (-InitializeServer@DataProviderManager@@AEAAJXZ.c)
+ *     ?InitializeServer@DataProviderManager@@AEAAJXZ @ 0x1800B3E58 (-InitializeServer@DataProviderManager@@AEAAJXZ.c)
  * Callees:
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038D40 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?JoinConversationAsServer@BaseBamoConnection@Bamo@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBG@Z @ 0x1800AD450 (-JoinConversationAsServer@BaseBamoConnection@Bamo@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMess.c)
- *     ??0BaseBamoConnectionImpl@BamoImpl@Microsoft@@IEAA@PEAVBaseBamoConnection@Bamo@2@@Z @ 0x1800AFA08 (--0BaseBamoConnectionImpl@BamoImpl@Microsoft@@IEAA@PEAVBaseBamoConnection@Bamo@2@@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??1?$com_ptr_t@VBaseBamoConnection@Bamo@Microsoft@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1801B8B70 (--1-$com_ptr_t@VBaseBamoConnection@Bamo@Microsoft@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBG_N@Z @ 0x1800B376C (-Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMs.c)
+ *     ??0BaseBamoConnectionImpl@BamoImpl@Microsoft@@IEAA@PEAVBaseBamoConnection@Bamo@2@@Z @ 0x1800B3DD4 (--0BaseBamoConnectionImpl@BamoImpl@Microsoft@@IEAA@PEAVBaseBamoConnection@Bamo@2@@Z.c)
+ *     ?_Get@?$_Func_impl_no_alloc@V_lambda_ea5334e7435b0bbc38160b55b647b03d_@@XPEAXPEAVCDebugTreeDumper@@@std@@EEBAPEBXXZ @ 0x1800E1CC0 (-_Get@-$_Func_impl_no_alloc@V_lambda_ea5334e7435b0bbc38160b55b647b03d_@@XPEAXPEAVCDebugTreeDumpe.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ @ 0x180155AF0 (-Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
-__int64 Microsoft::Bamo::BaseBamoConnection::CreateServer<DataProviderRegistrarConnection>(
+__int64 __fastcall Microsoft::Bamo::BaseBamoConnection::CreateServer<DataProviderRegistrarConnection>(
         __int64 *a1,
         __int64 a2,
         __int128 *a3,
-        ...)
+        __int64 a4,
+        _QWORD *a5)
 {
-  _QWORD *v3; // rsi
-  _QWORD *v7; // rdi
-  __int128 v8; // xmm0
-  int v9; // eax
-  unsigned int v10; // ebx
-  int v12; // [rsp+20h] [rbp-38h]
-  __int128 v13; // [rsp+30h] [rbp-28h] BYREF
+  _QWORD *v8; // rdi
+  Microsoft::Bamo::BaseBamoConnection *v9; // rbx
+  __int64 v10; // rax
+  int v11; // eax
+  unsigned int v12; // esi
+  int v14; // [rsp+20h] [rbp-38h]
+  __int128 v15; // [rsp+30h] [rbp-28h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
-  _QWORD *v15; // [rsp+78h] [rbp+20h] BYREF
-  va_list va; // [rsp+78h] [rbp+20h]
-  _QWORD *v17; // [rsp+80h] [rbp+28h]
-  va_list va1; // [rsp+88h] [rbp+30h] BYREF
 
-  va_start(va1, a3);
-  va_start(va, a3);
-  v15 = va_arg(va1, _QWORD *);
-  v17 = va_arg(va1, _QWORD *);
-  v3 = v17;
-  *v17 = 0LL;
-  v7 = DefaultHeap::AllocClear(0x100uLL);
-  if ( !v7 )
+  *a5 = 0LL;
+  v8 = DefaultHeap::AllocClear(0xC0uLL);
+  if ( !v8 )
     ModuleFailFastForHRESULT(2147942414LL, retaddr);
-  *v7 = &dataprovider_AutoBamos::BamoConnection::`vftable';
+  *v8 = &dataprovider_AutoBamos::BamoConnection::`vftable';
   Microsoft::BamoImpl::BaseBamoConnectionImpl::BaseBamoConnectionImpl(
-    (Microsoft::BamoImpl::BaseBamoConnectionImpl *)(v7 + 1),
-    (struct Microsoft::Bamo::BaseBamoConnection *)v7);
-  v8 = *a3;
-  v7[1] = &BamoImpl::dataprovider_AutoBamos::BamoConnectionImpl::`vftable';
-  v7[31] = 0LL;
-  *v7 = &DataProviderRegistrarConnection::`vftable';
-  v15 = v7;
-  v13 = v8;
-  v9 = Microsoft::Bamo::BaseBamoConnection::JoinConversationAsServer(
-         (__int64)v7,
-         a1,
-         a2,
-         &v13,
-         L"System\\CompositionEngineDataProvider");
-  v10 = v9;
-  if ( v9 < 0 )
+    (Microsoft::BamoImpl::BaseBamoConnectionImpl *)(v8 + 1),
+    (struct Microsoft::Bamo::BaseBamoConnection *)v8);
+  v8[1] = &BamoImpl::dataprovider_AutoBamos::BamoConnectionImpl::`vftable';
+  v9 = (Microsoft::Bamo::BaseBamoConnection *)v8;
+  v8[23] = 0LL;
+  *v8 = &DataProviderRegistrarConnection::`vftable';
+  v10 = std::_Func_impl_no_alloc<_lambda_ea5334e7435b0bbc38160b55b647b03d_,void,void *,CDebugTreeDumper *>::_Get(v8);
+  v15 = *a3;
+  v11 = Microsoft::BamoImpl::BaseBamoConnectionImpl::Join(v10, a1, a2, &v15, L"System\\CompositionEngineDataProvider");
+  v12 = v11;
+  if ( v11 < 0 )
   {
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0xAE1,
-      (unsigned int)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoConnection.inl",
-      (const char *)(unsigned int)v9,
-      v12);
-    wil::com_ptr_t<Microsoft::Bamo::BaseBamoConnection,wil::err_returncode_policy>::~com_ptr_t<Microsoft::Bamo::BaseBamoConnection,wil::err_returncode_policy>((_QWORD **)va);
-    return v10;
+      (void *)0x711,
+      (unsigned int)"onecore\\private\\mincore\\priv_sdk\\inc\\BamoConnection.inl",
+      (const char *)(unsigned int)v11,
+      v14);
   }
   else
   {
-    *v3 = v7;
-    return 0LL;
+    v9 = 0LL;
+    *a5 = v8;
+    v12 = 0;
   }
+  if ( v9 )
+    Microsoft::Bamo::BaseBamoConnection::Release(v9);
+  return v12;
 }

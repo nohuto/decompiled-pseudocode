@@ -1,32 +1,40 @@
 /*
- * XREFs of ?GetCursorUpdateHandle@CMouseSensor@@QEBAPEAXXZ @ 0x1C00AB220
+ * XREFs of ?GetCursorUpdateHandle@CMouseSensor@@QEBAPEAXXZ @ 0x1C0088CA0
  * Callers:
- *     GetCursorUpdateHandle @ 0x1C00AB1C4 (GetCursorUpdateHandle.c)
+ *     GetCursorUpdateHandle @ 0x1C0088C0C (GetCursorUpdateHandle.c)
  * Callees:
- *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C0057EC8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
- *     ?GetDispatcherHandleByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@W4HandleAccessMode@1@@Z @ 0x1C00775C0 (-GetDispatcherHandleByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@W4HandleAccessMode@1@@Z.c)
- *     ?GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ @ 0x1C00AB2E4 (-GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?_CalledOnInputThread@CInputThread@@AEBA_NXZ @ 0x1C0043670 (-_CalledOnInputThread@CInputThread@@AEBA_NXZ.c)
+ *     ?GetDispatcherHandleByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@W4HandleAccessMode@1@@Z @ 0x1C00892FC (-GetDispatcherHandleByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@W4HandleAccessMode@1@@Z.c)
+ *     ?GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ @ 0x1C008A13C (-GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void *__fastcall CMouseSensor::GetCursorUpdateHandle(CMouseSensor *this)
 {
+  CInputThread *v1; // rdi
+  bool v3; // bl
   void *SensorHostingProcessHandle; // rbx
   void *DispatcherHandleByName; // rax
-  NTSTATUS v4; // eax
-  __int64 v5; // rcx
+  NTSTATUS v6; // eax
+  __int64 v7; // rcx
   void *TargetHandle; // [rsp+70h] [rbp+18h] BYREF
 
-  if ( !CInputThreadBase::IsInputThread((CInputThreadBase *)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 160LL);
+  v1 = gpInputThread;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v1, 0LL);
+  v3 = CInputThread::_CalledOnInputThread(v1);
+  ExReleasePushLockSharedEx(v1, 0LL);
+  KeLeaveCriticalRegion();
+  if ( !v3 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 159LL);
   TargetHandle = (void *)-1LL;
   SensorHostingProcessHandle = CBaseInput::GetSensorHostingProcessHandle(this);
   if ( SensorHostingProcessHandle != (void *)-1LL )
   {
-    DispatcherHandleByName = (void *)CRIMBase::GetDispatcherHandleByName((__int64)this, 0xDu, 0);
+    DispatcherHandleByName = (void *)CRIMBase::GetDispatcherHandleByName(this, 14LL, 0LL);
     if ( DispatcherHandleByName )
     {
-      v4 = ZwDuplicateObject(
+      v6 = ZwDuplicateObject(
              SensorHostingProcessHandle,
              DispatcherHandleByName,
              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
@@ -34,10 +42,10 @@ void *__fastcall CMouseSensor::GetCursorUpdateHandle(CMouseSensor *this)
              0x100000u,
              0,
              2u);
-      v5 = (__int64)TargetHandle;
-      if ( v4 < 0 )
-        v5 = -1LL;
-      TargetHandle = (void *)v5;
+      v7 = (__int64)TargetHandle;
+      if ( v6 < 0 )
+        v7 = -1LL;
+      TargetHandle = (void *)v7;
     }
     ZwClose(SensorHostingProcessHandle);
   }

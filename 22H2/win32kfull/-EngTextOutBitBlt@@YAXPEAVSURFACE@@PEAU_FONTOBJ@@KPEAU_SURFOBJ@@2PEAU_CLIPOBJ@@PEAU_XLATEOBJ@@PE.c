@@ -1,19 +1,19 @@
 /*
- * XREFs of ?EngTextOutBitBlt@@YAXPEAVSURFACE@@PEAU_FONTOBJ@@KPEAU_SURFOBJ@@2PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@6PEAU_BRUSHOBJ@@6K@Z @ 0x1C0293950
+ * XREFs of ?EngTextOutBitBlt@@YAXPEAVSURFACE@@PEAU_FONTOBJ@@KPEAU_SURFOBJ@@2PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@6PEAU_BRUSHOBJ@@6K@Z @ 0x1C028F9AC
  * Callers:
- *     EngTextOut @ 0x1C0055630 (EngTextOut.c)
+ *     EngTextOut @ 0x1C00CB720 (EngTextOut.c)
  * Callees:
- *     EngBitBlt @ 0x1C002D4C0 (EngBitBlt.c)
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C0091438 (-bUMPDSecurityGateEx@@YAHXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??0UMPDReleaseAcquireRFONTSem@@QEAA@PEAVSURFACE@@PEAU_FONTOBJ@@H@Z @ 0x1C013F178 (--0UMPDReleaseAcquireRFONTSem@@QEAA@PEAVSURFACE@@PEAU_FONTOBJ@@H@Z.c)
- *     ??1UMPDReleaseAcquireRFONTSem@@QEAA@XZ @ 0x1C013F1F4 (--1UMPDReleaseAcquireRFONTSem@@QEAA@XZ.c)
- *     ?TextOutBitBlt@@YAXPEAVSURFACE@@AEAVRFONTOBJ@@PEAU_SURFOBJ@@2PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@6PEAU_BRUSHOBJ@@6K@Z @ 0x1C02BFB00 (-TextOutBitBlt@@YAXPEAVSURFACE@@AEAVRFONTOBJ@@PEAU_SURFOBJ@@2PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_R.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     EngBitBlt @ 0x1C00CB280 (EngBitBlt.c)
+ *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C00CF858 (-bUMPDSecurityGateEx@@YAHXZ.c)
+ *     ?TextOutBitBlt@@YAXPEAVSURFACE@@AEAVRFONTOBJ@@PEAU_SURFOBJ@@2PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@6PEAU_BRUSHOBJ@@6K@Z @ 0x1C0100050 (-TextOutBitBlt@@YAXPEAVSURFACE@@AEAVRFONTOBJ@@PEAU_SURFOBJ@@2PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_R.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??0UMPDReleaseAcquireRFONTSem@@QEAA@PEAVSURFACE@@PEAU_FONTOBJ@@H@Z @ 0x1C016B0BC (--0UMPDReleaseAcquireRFONTSem@@QEAA@PEAVSURFACE@@PEAU_FONTOBJ@@H@Z.c)
+ *     ??1UMPDReleaseAcquireRFONTSem@@QEAA@XZ @ 0x1C016B13C (--1UMPDReleaseAcquireRFONTSem@@QEAA@XZ.c)
  */
 
 void __fastcall EngTextOutBitBlt(
-        struct SURFACE *this,
+        struct SURFACE *a1,
         struct _FONTOBJ *a2,
         char a3,
         struct _SURFOBJ *a4,
@@ -26,43 +26,30 @@ void __fastcall EngTextOutBitBlt(
         struct _BRUSHOBJ *a11,
         struct _POINTL *pptlBrush)
 {
-  int v14; // eax
+  BOOL v14; // eax
   struct _SURFOBJ *v15; // r8
   struct _SURFOBJ *v16; // r9
   RECTL *prclTrg; // [rsp+28h] [rbp-D0h]
   struct _POINTL *v18; // [rsp+38h] [rbp-C0h]
   struct _POINTL *pbo; // [rsp+40h] [rbp-B8h]
-  unsigned int v20; // [rsp+58h] [rbp-A0h]
-  _QWORD v21[2]; // [rsp+60h] [rbp-98h] BYREF
-  _BYTE v22[80]; // [rsp+70h] [rbp-88h] BYREF
+  _QWORD v20[2]; // [rsp+60h] [rbp-98h] BYREF
+  _BYTE v21[80]; // [rsp+70h] [rbp-88h] BYREF
 
   if ( (a3 & 0x10) != 0 )
   {
-    v21[0] = a2;
+    v20[0] = a2;
     v14 = bUMPDSecurityGateEx();
-    UMPDReleaseAcquireRFONTSem::UMPDReleaseAcquireRFONTSem((UMPDReleaseAcquireRFONTSem *)v22, this, a2, v14);
-    TextOutBitBlt(
-      this,
-      (struct RFONTOBJ *)v21,
-      v15,
-      v16,
-      pco,
-      (struct _XLATEOBJ *)prclTrg,
-      a8,
-      v18,
-      pbo,
-      a11,
-      pptlBrush,
-      v20);
-    UMPDReleaseAcquireRFONTSem::~UMPDReleaseAcquireRFONTSem((UMPDReleaseAcquireRFONTSem *)v22);
-    v21[0] = 0LL;
-    RFONTOBJ::~RFONTOBJ((RFONTOBJ *)v21);
+    UMPDReleaseAcquireRFONTSem::UMPDReleaseAcquireRFONTSem((UMPDReleaseAcquireRFONTSem *)v21, a1, a2, v14);
+    TextOutBitBlt(a1, (struct RFONTOBJ *)v20, v15, v16, pco, (struct _XLATEOBJ *)prclTrg, a8, v18, pbo, a11, pptlBrush);
+    UMPDReleaseAcquireRFONTSem::~UMPDReleaseAcquireRFONTSem((UMPDReleaseAcquireRFONTSem *)v21);
+    v20[0] = 0LL;
+    RFONTOBJ::~RFONTOBJ((RFONTOBJ *)v20);
   }
   else
   {
-    UMPDReleaseAcquireRFONTSem::UMPDReleaseAcquireRFONTSem((UMPDReleaseAcquireRFONTSem *)v22, this, a2, 1);
+    UMPDReleaseAcquireRFONTSem::UMPDReleaseAcquireRFONTSem((UMPDReleaseAcquireRFONTSem *)v21, a1, a2, 1);
     EngBitBlt(
-      (SURFOBJ *)(((unsigned __int64)this + 24) & -(__int64)(this != 0LL)),
+      (SURFOBJ *)(((unsigned __int64)a1 + 24) & -(__int64)(a1 != 0LL)),
       0LL,
       0LL,
       pco,
@@ -73,6 +60,6 @@ void __fastcall EngTextOutBitBlt(
       a11,
       pptlBrush,
       0xF0F0u);
-    UMPDReleaseAcquireRFONTSem::~UMPDReleaseAcquireRFONTSem((UMPDReleaseAcquireRFONTSem *)v22);
+    UMPDReleaseAcquireRFONTSem::~UMPDReleaseAcquireRFONTSem((UMPDReleaseAcquireRFONTSem *)v21);
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of VrpOriginalKeyNameParameterCleanup @ 0x14036A1D0
+ * XREFs of VrpOriginalKeyNameParameterCleanup @ 0x140200010
  * Callers:
  *     <none>
  * Callees:
- *     VrpDereferenceJobContext @ 0x1407E6CCC (VrpDereferenceJobContext.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     VrpDereferenceJobContext @ 0x1405D2914 (VrpDereferenceJobContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall VrpOriginalKeyNameParameterCleanup(__int64 a1, _QWORD *a2)

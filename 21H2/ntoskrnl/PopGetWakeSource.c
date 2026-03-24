@@ -1,13 +1,13 @@
 /*
- * XREFs of PopGetWakeSource @ 0x140806788
+ * XREFs of PopGetWakeSource @ 0x1407787B8
  * Callers:
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     PopDereferenceWakeInfos @ 0x1403970F0 (PopDereferenceWakeInfos.c)
- *     PopGetCurrentWakeInfos @ 0x1403971A8 (PopGetCurrentWakeInfos.c)
- *     PopCopyWakeSource @ 0x14098F20C (PopCopyWakeSource.c)
- *     PopWakeSourceSize @ 0x14098F5E8 (PopWakeSourceSize.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     PopDereferenceWakeInfos @ 0x14038B984 (PopDereferenceWakeInfos.c)
+ *     PopGetCurrentWakeInfos @ 0x14038BA3C (PopGetCurrentWakeInfos.c)
+ *     PopCopyWakeSource @ 0x1408E69A0 (PopCopyWakeSource.c)
+ *     PopWakeSourceSize @ 0x1408E6EA0 (PopWakeSourceSize.c)
  */
 
 __int64 __fastcall PopGetWakeSource(_DWORD *a1, unsigned int *a2)
@@ -17,7 +17,7 @@ __int64 __fastcall PopGetWakeSource(_DWORD *a1, unsigned int *a2)
   _DWORD *v4; // rdi
   unsigned int CurrentWakeInfos; // eax
   __int64 v6; // rdx
-  __int64 v7; // r9
+  _QWORD *v7; // r9
   _QWORD *v8; // r13
   __int64 v9; // rbx
   unsigned __int64 v10; // rbp
@@ -50,28 +50,28 @@ __int64 __fastcall PopGetWakeSource(_DWORD *a1, unsigned int *a2)
   if ( (_DWORD)v3 && !a1 )
     return 3221225485LL;
   KeWaitForSingleObject(&PopWakeSourceAvailable, Executive, 0, 0, 0LL);
-  CurrentWakeInfos = PopGetCurrentWakeInfos((__int64 *)&v32);
+  CurrentWakeInfos = PopGetCurrentWakeInfos(&v32);
   v8 = v32;
   v9 = CurrentWakeInfos;
   v31 = CurrentWakeInfos;
   v10 = (int)(4 * CurrentWakeInfos + 4);
   if ( CurrentWakeInfos )
   {
-    v7 = (__int64)v32;
+    v7 = v32;
     v11 = CurrentWakeInfos;
     do
     {
-      v6 = *(_QWORD *)v7;
-      v12 = (_QWORD *)(*(_QWORD *)v7 + 24LL);
+      v6 = *v7;
+      v12 = (_QWORD *)(*v7 + 24LL);
       v13 = (_QWORD *)*v12;
-      v10 = 4 * *(_DWORD *)(*(_QWORD *)v7 + 40LL) + 4 + ((v10 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
+      v10 = 4 * *(_DWORD *)(*v7 + 40LL) + 4 + ((v10 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
       while ( v13 != v12 )
       {
         v23 = PopWakeSourceSize(v13);
         v13 = (_QWORD *)*v24;
         v10 = v23 + ((v10 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
       }
-      v7 += 8LL;
+      ++v7;
       --v11;
     }
     while ( v11 );

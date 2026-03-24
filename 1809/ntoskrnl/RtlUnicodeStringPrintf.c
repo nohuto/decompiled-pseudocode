@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlUnicodeStringPrintf @ 0x14015D6FC
+ * XREFs of RtlUnicodeStringPrintf @ 0x14015D71C
  * Callers:
- *     KiBugCheckProgress @ 0x140292320 (KiBugCheckProgress.c)
- *     KiDisplayBlueScreen @ 0x140292474 (KiDisplayBlueScreen.c)
- *     PiDevCfgConfigureDevice @ 0x1406E2E54 (PiDevCfgConfigureDevice.c)
- *     PiDevCfgBuildDriverNodeStrongName @ 0x1406F3E88 (PiDevCfgBuildDriverNodeStrongName.c)
- *     PiDevCfgBuildIndirectString @ 0x1406F5774 (PiDevCfgBuildIndirectString.c)
- *     PiDevCfgBuildDriverConfigurationId @ 0x1406F5A30 (PiDevCfgBuildDriverConfigurationId.c)
- *     CmSetAcpiHwProfile @ 0x140730EF0 (CmSetAcpiHwProfile.c)
- *     CmpOpenDevicesControlSet @ 0x140731CD4 (CmpOpenDevicesControlSet.c)
- *     CmpSaveBootControlSet @ 0x1407E88F0 (CmpSaveBootControlSet.c)
- *     PiDrvDbResolveNodeFilePaths @ 0x14083ECF8 (PiDrvDbResolveNodeFilePaths.c)
- *     PiCreateDriverSwDeviceCallback @ 0x140840BC0 (PiCreateDriverSwDeviceCallback.c)
- *     PopDiagIdleSystemImageCallback @ 0x14086FB50 (PopDiagIdleSystemImageCallback.c)
- *     PopDiagIdleWakeSourceAccountingToDiagnostic @ 0x14086FDDC (PopDiagIdleWakeSourceAccountingToDiagnostic.c)
+ *     KiBugCheckProgress @ 0x140292420 (KiBugCheckProgress.c)
+ *     KiDisplayBlueScreen @ 0x140292574 (KiDisplayBlueScreen.c)
+ *     PiDevCfgConfigureDevice @ 0x1406E2E34 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgBuildDriverNodeStrongName @ 0x1406F3E68 (PiDevCfgBuildDriverNodeStrongName.c)
+ *     PiDevCfgBuildIndirectString @ 0x1406F5754 (PiDevCfgBuildIndirectString.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x1406F5A10 (PiDevCfgBuildDriverConfigurationId.c)
+ *     CmSetAcpiHwProfile @ 0x140730ED0 (CmSetAcpiHwProfile.c)
+ *     CmpOpenDevicesControlSet @ 0x140731CB4 (CmpOpenDevicesControlSet.c)
+ *     CmpSaveBootControlSet @ 0x1407E88D0 (CmpSaveBootControlSet.c)
+ *     PiDrvDbResolveNodeFilePaths @ 0x14083ECD8 (PiDrvDbResolveNodeFilePaths.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140840BA0 (PiCreateDriverSwDeviceCallback.c)
+ *     PopDiagIdleSystemImageCallback @ 0x14086FB30 (PopDiagIdleSystemImageCallback.c)
+ *     PopDiagIdleWakeSourceAccountingToDiagnostic @ 0x14086FDBC (PopDiagIdleWakeSourceAccountingToDiagnostic.c)
  *     CmpCreateControlSet @ 0x1409C12B4 (CmpCreateControlSet.c)
  *     CmpCreateHardwareProfiles @ 0x1409C172C (CmpCreateHardwareProfiles.c)
- *     CmpAddAliasEntry @ 0x1409F3728 (CmpAddAliasEntry.c)
+ *     CmpAddAliasEntry @ 0x1409F3730 (CmpAddAliasEntry.c)
  * Callees:
- *     RtlUnicodeStringValidateDestWorker @ 0x14015D770 (RtlUnicodeStringValidateDestWorker.c)
- *     _vsnwprintf @ 0x140194C00 (_vsnwprintf.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x14015D790 (RtlUnicodeStringValidateDestWorker.c)
+ *     _vsnwprintf @ 0x140194C20 (_vsnwprintf.c)
  */
 
 NTSTATUS RtlUnicodeStringPrintf(PUNICODE_STRING DestinationString, NTSTRSAFE_PCWSTR pszFormat, ...)

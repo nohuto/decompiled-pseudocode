@@ -1,11 +1,11 @@
 /*
- * XREFs of ?StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C00B0970
+ * XREFs of ?StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C00A32D0
  * Callers:
  *     <none>
  * Callees:
- *     EngCreateDeviceSurface @ 0x1C0062240 (EngCreateDeviceSurface.c)
- *     bDeleteSurface @ 0x1C0062930 (bDeleteSurface.c)
- *     EngAssociateSurface @ 0x1C00B09D0 (EngAssociateSurface.c)
+ *     bDeleteSurface @ 0x1C001CE70 (bDeleteSurface.c)
+ *     EngAssociateSurface @ 0x1C00A3330 (EngAssociateSurface.c)
+ *     EngCreateDeviceSurface @ 0x1C00A3400 (EngCreateDeviceSurface.c)
  */
 
 __int64 __fastcall StubDispEnableSurface(struct DHPDEV__ *a1)

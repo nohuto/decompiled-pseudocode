@@ -1,33 +1,32 @@
 /*
- * XREFs of PiDqActionDataCreate @ 0x1407F9F04
+ * XREFs of PiDqActionDataCreate @ 0x1406A878C
  * Callers:
- *     PiDqQuerySerializeActionQueue @ 0x1407F9B80 (PiDqQuerySerializeActionQueue.c)
+ *     PiDqQuerySerializeActionQueue @ 0x1406A83CC (PiDqQuerySerializeActionQueue.c)
  * Callees:
- *     PiDqGetPnpObjectType @ 0x1406CA43C (PiDqGetPnpObjectType.c)
- *     PnpAllocatePWSTR @ 0x1406CCCEC (PnpAllocatePWSTR.c)
- *     PiDqActionDataFree @ 0x1407FA1C4 (PiDqActionDataFree.c)
- *     PiDqActionDataGetRequestedProperties @ 0x1407FA218 (PiDqActionDataGetRequestedProperties.c)
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14083B7B8 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
- *     PiDqActionDataGetChangedProperties @ 0x14083BF38 (PiDqActionDataGetChangedProperties.c)
- *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x14095BF40 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PiDqActionDataFree @ 0x1406A8934 (PiDqActionDataFree.c)
+ *     PnpAllocatePWSTR @ 0x1406B0F08 (PnpAllocatePWSTR.c)
+ *     PiDqGetPnpObjectType @ 0x1406B1480 (PiDqGetPnpObjectType.c)
+ *     PiDqActionDataGetRequestedProperties @ 0x1406B38DC (PiDqActionDataGetRequestedProperties.c)
+ *     PiDqActionDataGetChangedProperties @ 0x140770E34 (PiDqActionDataGetChangedProperties.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x1408A42A0 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x1408A4530 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqActionDataCreate(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   int PWSTR; // ebx
-  _QWORD *v7; // r14
-  __int64 Pool2; // rax
-  _DWORD *v9; // rdi
-  __int64 *v10; // r13
-  int v11; // r8d
-  __int64 v12; // r9
-  int v13; // r10d
-  unsigned int PnpObjectType; // r14d
+  _QWORD *v8; // r14
+  _DWORD *PoolWithTag; // rdi
+  _QWORD *v10; // r12
+  unsigned int PnpObjectType; // ebp
+  int v12; // r8d
+  __int64 v13; // r9
+  int v14; // r10d
   int v15; // eax
   bool v16; // zf
   __int64 v17; // r8
-  int ChangedProperties; // eax
+  int RequestedProperties; // eax
   __int64 v20; // r9
   int AllPropertiesInBestLanguage; // eax
   _DWORD v22[18]; // [rsp+50h] [rbp-48h] BYREF
@@ -35,139 +34,137 @@ __int64 __fastcall PiDqActionDataCreate(__int64 a1, __int64 a2, __int64 a3, _QWO
   PWSTR = 0;
   v22[0] = 0;
   *a4 = 0LL;
-  v7 = a4;
-  Pool2 = ExAllocatePool2(256LL, 40LL, 1483763280LL);
-  v9 = (_DWORD *)Pool2;
-  if ( !Pool2 )
+  v8 = a4;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x58706E50u);
+  if ( !PoolWithTag )
     return (unsigned int)-1073741670;
+  *(_OWORD *)PoolWithTag = 0LL;
+  *((_OWORD *)PoolWithTag + 1) = 0LL;
+  *((_QWORD *)PoolWithTag + 4) = 0LL;
   if ( *(_QWORD *)(a3 + 16) )
   {
-    v10 = (__int64 *)(Pool2 + 16);
-    *(_DWORD *)Pool2 = *(_DWORD *)(a3 + 32);
-    *(_DWORD *)(Pool2 + 8) = *(_DWORD *)(a1 + 16);
-    PWSTR = PnpAllocatePWSTR(
-              *(NTSTRSAFE_PCWSTR *)(*(_QWORD *)(a3 + 16) + 16LL),
-              0x7FFFFFFFuLL,
-              0x58706E50u,
-              (PVOID *)(Pool2 + 16));
-    if ( PWSTR < 0 )
-      goto LABEL_31;
-    if ( (*(_DWORD *)(a1 + 64) || (*(_DWORD *)(a1 + 40) & 2) != 0) && (unsigned int)(*v9 - 1) <= 1 )
+    v10 = PoolWithTag + 4;
+    *PoolWithTag = *(_DWORD *)(a3 + 32);
+    PoolWithTag[2] = *(_DWORD *)(a1 + 16);
+    PWSTR = PnpAllocatePWSTR(*(NTSTRSAFE_PCWSTR *)(*(_QWORD *)(a3 + 16) + 16LL));
+    if ( PWSTR >= 0 )
     {
-      PnpObjectType = PiDqGetPnpObjectType(*(_DWORD *)(a1 + 16));
+      if ( !*(_DWORD *)(a1 + 64) && (*(_DWORD *)(a1 + 40) & 2) == 0 || (unsigned int)(*PoolWithTag - 1) > 1 )
+        goto LABEL_10;
+      PnpObjectType = PiDqGetPnpObjectType(*(unsigned int *)(a1 + 16));
       v15 = *(_DWORD *)(a1 + 40);
-      if ( (v15 & 2) != 0 )
+      if ( (v15 & 2) == 0 )
       {
-        if ( v11 == 1 )
+        LOBYTE(v13) = v15 & 4;
+        v16 = v12 == 1;
+        v17 = *v10;
+        if ( v16 )
+          RequestedProperties = PiDqActionDataGetRequestedProperties(
+                                  a2,
+                                  PnpObjectType,
+                                  v17,
+                                  v13,
+                                  *(_QWORD *)(a1 + 56),
+                                  *(_QWORD *)(a1 + 72),
+                                  v14,
+                                  PoolWithTag + 8,
+                                  PoolWithTag + 6);
+        else
+          RequestedProperties = PiDqActionDataGetChangedProperties(
+                                  a2,
+                                  PnpObjectType,
+                                  v17,
+                                  v13,
+                                  *(_QWORD *)(a1 + 56),
+                                  *(_QWORD *)(a1 + 72),
+                                  v14,
+                                  *(_QWORD *)(a3 + 24),
+                                  (__int64)(PoolWithTag + 8),
+                                  (__int64)(PoolWithTag + 6));
+        goto LABEL_9;
+      }
+      if ( v12 != 1 )
+      {
+        LOBYTE(v13) = v15 & 4;
+        RequestedProperties = PiDqActionDataGetChangedProperties(
+                                a2,
+                                PnpObjectType,
+                                *v10,
+                                v13,
+                                *(_QWORD *)(a1 + 56),
+                                0LL,
+                                0,
+                                *(_QWORD *)(a3 + 24),
+                                (__int64)(PoolWithTag + 8),
+                                (__int64)(PoolWithTag + 6));
+LABEL_9:
+        v8 = a4;
+        PWSTR = RequestedProperties;
+        goto LABEL_10;
+      }
+      v20 = *v10;
+      if ( (v15 & 4) != 0 )
+      {
+        PWSTR = PiDqActionDataGetAllPropertiesInBestLanguage(
+                  a2,
+                  0LL,
+                  PnpObjectType,
+                  v20,
+                  *(_QWORD *)(a1 + 56),
+                  PoolWithTag + 8,
+                  PoolWithTag + 6,
+                  v22);
+        if ( PWSTR >= 0 )
         {
-          v20 = *v10;
-          if ( (v15 & 4) != 0 )
-          {
-            PWSTR = PiDqActionDataGetAllPropertiesInBestLanguage(
-                      a2,
-                      0,
-                      PnpObjectType,
-                      v20,
-                      *(_QWORD *)(a1 + 56),
-                      (__int64)(v9 + 8),
-                      (__int64)(v9 + 6),
-                      (__int64)v22);
-            if ( PWSTR < 0 )
-              goto LABEL_31;
-            AllPropertiesInBestLanguage = PiDqActionDataGetAllPropertiesInBestLanguage(
-                                            a2,
-                                            1,
-                                            PnpObjectType,
-                                            *v10,
-                                            *(_QWORD *)(a1 + 56),
-                                            (__int64)(v9 + 8),
-                                            (__int64)(v9 + 6),
-                                            (__int64)v22);
-          }
-          else
-          {
-            PWSTR = PiDqActionDataGetAllPropertiesInAllLanguages(
-                      a2,
-                      0,
-                      PnpObjectType,
-                      v20,
-                      (__int64)(v9 + 8),
-                      (__int64)(v9 + 6),
-                      (__int64)v22);
-            if ( PWSTR < 0 )
-              goto LABEL_31;
-            AllPropertiesInBestLanguage = PiDqActionDataGetAllPropertiesInAllLanguages(
-                                            a2,
-                                            1,
-                                            PnpObjectType,
-                                            *v10,
-                                            (__int64)(v9 + 8),
-                                            (__int64)(v9 + 6),
-                                            (__int64)v22);
-          }
-          v7 = a4;
+          AllPropertiesInBestLanguage = PiDqActionDataGetAllPropertiesInBestLanguage(
+                                          a2,
+                                          1LL,
+                                          PnpObjectType,
+                                          *v10,
+                                          *(_QWORD *)(a1 + 56),
+                                          PoolWithTag + 8,
+                                          PoolWithTag + 6,
+                                          v22);
+          goto LABEL_28;
+        }
+      }
+      else
+      {
+        PWSTR = PiDqActionDataGetAllPropertiesInAllLanguages(
+                  a2,
+                  0,
+                  PnpObjectType,
+                  v20,
+                  (__int64)(PoolWithTag + 8),
+                  (__int64)(PoolWithTag + 6),
+                  (__int64)v22);
+        if ( PWSTR >= 0 )
+        {
+          AllPropertiesInBestLanguage = PiDqActionDataGetAllPropertiesInAllLanguages(
+                                          a2,
+                                          1,
+                                          PnpObjectType,
+                                          *v10,
+                                          (__int64)(PoolWithTag + 8),
+                                          (__int64)(PoolWithTag + 6),
+                                          (__int64)v22);
+LABEL_28:
+          v8 = a4;
           PWSTR = AllPropertiesInBestLanguage;
           if ( AllPropertiesInBestLanguage == -1073741772 )
             PWSTR = 0;
           goto LABEL_10;
         }
-        LOBYTE(v12) = v15 & 4;
-        ChangedProperties = PiDqActionDataGetChangedProperties(
-                              a2,
-                              PnpObjectType,
-                              *v10,
-                              v12,
-                              *(_QWORD *)(a1 + 56),
-                              0LL,
-                              0,
-                              *(_QWORD *)(a3 + 24),
-                              (__int64)(v9 + 8),
-                              (__int64)(v9 + 6));
       }
-      else
-      {
-        LOBYTE(v12) = v15 & 4;
-        v16 = v11 == 1;
-        v17 = *v10;
-        if ( v16 )
-          ChangedProperties = PiDqActionDataGetRequestedProperties(
-                                a2,
-                                PnpObjectType,
-                                v17,
-                                v12,
-                                *(_QWORD *)(a1 + 56),
-                                *(_QWORD *)(a1 + 72),
-                                v13,
-                                v9 + 8,
-                                v9 + 6);
-        else
-          ChangedProperties = PiDqActionDataGetChangedProperties(
-                                a2,
-                                PnpObjectType,
-                                v17,
-                                v12,
-                                *(_QWORD *)(a1 + 56),
-                                *(_QWORD *)(a1 + 72),
-                                v13,
-                                *(_QWORD *)(a3 + 24),
-                                (__int64)(v9 + 8),
-                                (__int64)(v9 + 6));
-      }
-      v7 = a4;
-      PWSTR = ChangedProperties;
     }
-LABEL_10:
-    if ( PWSTR >= 0 )
-      goto LABEL_11;
 LABEL_31:
-    PiDqActionDataFree(v9);
+    PiDqActionDataFree(PoolWithTag);
     return (unsigned int)PWSTR;
   }
-  *(_DWORD *)Pool2 = 0;
-  *(_DWORD *)(Pool2 + 8) = 1;
-LABEL_11:
-  if ( *v9 == 2 && !v9[6] )
+  PoolWithTag[2] = 1;
+LABEL_10:
+  if ( PWSTR < 0 || *PoolWithTag == 2 && !PoolWithTag[6] )
     goto LABEL_31;
-  *v7 = v9;
+  *v8 = PoolWithTag;
   return (unsigned int)PWSTR;
 }

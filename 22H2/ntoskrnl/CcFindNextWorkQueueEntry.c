@@ -1,72 +1,59 @@
 /*
- * XREFs of CcFindNextWorkQueueEntry @ 0x1402996CC
+ * XREFs of CcFindNextWorkQueueEntry @ 0x140274178
  * Callers:
- *     CcWorkerThread @ 0x140298820 (CcWorkerThread.c)
- *     CcCachemapUninitWorkerThread @ 0x140299380 (CcCachemapUninitWorkerThread.c)
- *     CcCompleteAsyncReadWorker @ 0x140352FA0 (CcCompleteAsyncReadWorker.c)
- *     CcAsyncReadWorker @ 0x1403BE4A0 (CcAsyncReadWorker.c)
- *     CcAsyncLazywriteWorker @ 0x1405398EC (CcAsyncLazywriteWorker.c)
- *     CcAsyncLazywriteWorkerMulti @ 0x14053ACC4 (CcAsyncLazywriteWorkerMulti.c)
- *     CcCompleteAsyncLazywriteWorker @ 0x14053B250 (CcCompleteAsyncLazywriteWorker.c)
+ *     CcWorkerThread @ 0x140273870 (CcWorkerThread.c)
+ *     CcCachemapUninitWorkerThread @ 0x140273F20 (CcCachemapUninitWorkerThread.c)
+ *     CcCompleteAsyncReadWorker @ 0x140325640 (CcCompleteAsyncReadWorker.c)
+ *     CcAsyncReadWorker @ 0x1403B72F0 (CcAsyncReadWorker.c)
  * Callees:
  *     <none>
  */
 
-_QWORD *__fastcall CcFindNextWorkQueueEntry(__int64 a1, __int64 a2, _QWORD *a3)
+_QWORD *__fastcall CcFindNextWorkQueueEntry(__int64 a1, _QWORD *a2)
 {
+  _QWORD *v2; // r8
   _QWORD *v3; // r9
-  _QWORD *v4; // r10
-  int v5; // eax
-  unsigned int v6; // eax
-  __int64 v8; // rax
-  __int64 v9; // rax
-  _QWORD *v10; // rcx
+  char v4; // al
+  __int64 v5; // rax
+  _QWORD *v6; // rcx
+  unsigned int v8; // eax
 
-  v3 = (_QWORD *)*a3;
-  v4 = 0LL;
-  if ( (_QWORD *)*a3 == a3 )
-    return v4;
-  v5 = *((_DWORD *)v3 + 32);
-  v4 = (_QWORD *)*a3;
-  if ( v5 == 4 )
+  v2 = (_QWORD *)*a2;
+  v3 = 0LL;
+  if ( (_QWORD *)*a2 == a2 )
+    return v3;
+  v4 = *((_BYTE *)v2 + 120);
+  v3 = (_QWORD *)*a2;
+  if ( v4 != 4 )
   {
-    v6 = *(_DWORD *)(a2 + 48);
-    if ( v6 > 1 || *(_DWORD *)(a2 + 152) > 1u )
+    if ( v4 == 2 )
     {
-      if ( !*(_BYTE *)(a2 + 196) )
-      {
-        *(_DWORD *)(a2 + 180) = v6;
-        *(_DWORD *)(a2 + 184) = *(_DWORD *)(a2 + 152);
-      }
-      *(_BYTE *)(a2 + 196) = 1;
-      return 0LL;
+      *(_QWORD *)(v2[2] + 496LL) = 0LL;
     }
+    else if ( v4 == 1 )
+    {
+      *(_QWORD *)(*(_QWORD *)(v2[2] + 48LL) + 112LL) = 0LL;
+    }
+    goto LABEL_5;
   }
-  else
+  v8 = *(_DWORD *)(a1 + 204);
+  if ( v8 <= 1 && *(_DWORD *)(a1 + 320) <= 1u )
   {
-    if ( v5 == 2 )
-    {
-      v8 = v3[2];
-    }
-    else
-    {
-      if ( v5 != 7 )
-      {
-        if ( v5 == 1 )
-          *(_QWORD *)(*(_QWORD *)(v3[2] + 48LL) + 112LL) = 0LL;
-        goto LABEL_16;
-      }
-      v8 = v3[3];
-    }
-    *(_QWORD *)(v8 + 504) = 0LL;
+LABEL_5:
+    v5 = *v2;
+    if ( *(_QWORD **)(*v2 + 8LL) != v2 || (v6 = (_QWORD *)v2[1], (_QWORD *)*v6 != v2) )
+      __fastfail(3u);
+    *v6 = v5;
+    *(_QWORD *)(v5 + 8) = v6;
+    v2[1] = 0LL;
+    *v2 = 0LL;
+    return v3;
   }
-LABEL_16:
-  v9 = *v3;
-  if ( *(_QWORD **)(*v3 + 8LL) != v3 || (v10 = (_QWORD *)v3[1], (_QWORD *)*v10 != v3) )
-    __fastfail(3u);
-  *v10 = v9;
-  *(_QWORD *)(v9 + 8) = v10;
-  v3[1] = 0LL;
-  *v3 = 0LL;
-  return v4;
+  if ( !*(_BYTE *)(a1 + 352) )
+  {
+    *(_DWORD *)(a1 + 360) = v8;
+    *(_DWORD *)(a1 + 364) = *(_DWORD *)(a1 + 320);
+  }
+  *(_BYTE *)(a1 + 352) = 1;
+  return 0LL;
 }

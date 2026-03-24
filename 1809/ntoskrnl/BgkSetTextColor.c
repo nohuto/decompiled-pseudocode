@@ -1,11 +1,11 @@
 /*
- * XREFs of BgkSetTextColor @ 0x14027DB60
+ * XREFs of BgkSetTextColor @ 0x14027DC60
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     BgkpAcquireConsole @ 0x14027DC28 (BgkpAcquireConsole.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     BgkpAcquireConsole @ 0x14027DD28 (BgkpAcquireConsole.c)
  */
 
 __int64 __fastcall BgkSetTextColor(unsigned int a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of xxxHotTrack @ 0x1C0017B20
+ * XREFs of xxxHotTrack @ 0x1C002B3E4
  * Callers:
- *     xxxTrackMouseMove @ 0x1C00188F0 (xxxTrackMouseMove.c)
- *     xxxCancelMouseMoveTracking @ 0x1C00B6B88 (xxxCancelMouseMoveTracking.c)
+ *     xxxTrackMouseMove @ 0x1C002D520 (xxxTrackMouseMove.c)
+ *     xxxCancelMouseMoveTracking @ 0x1C002D95C (xxxCancelMouseMoveTracking.c)
  * Callees:
- *     ?xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z @ 0x1C02257F4 (-xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z.c)
+ *     ?xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z @ 0x1C0242388 (-xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z.c)
  */
 
 __int64 __fastcall xxxHotTrack(struct tagWND *a1, int a2, int a3)

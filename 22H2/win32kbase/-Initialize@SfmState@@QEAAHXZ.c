@@ -1,31 +1,35 @@
 /*
- * XREFs of ?Initialize@SfmState@@QEAAHXZ @ 0x1C00C1B60
+ * XREFs of ?Initialize@SfmState@@QEAAHXZ @ 0x1C00A0624
  * Callers:
- *     InitializeGre @ 0x1C02DB800 (InitializeGre.c)
+ *     InitializeGre @ 0x1C02990FC (InitializeGre.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall SfmState::Initialize(SfmState *this)
 {
-  _QWORD *v1; // rbx
-  struct _OBJECT_ATTRIBUTES v3; // [rsp+30h] [rbp-38h] BYREF
+  SfmTokenArray *v1; // rcx
+  _QWORD *v2; // rbx
+  struct _OBJECT_ATTRIBUTES v4; // [rsp+30h] [rbp-38h] BYREF
 
-  *(_QWORD *)&v3.Length = 48LL;
-  *(_QWORD *)this = 0LL;
-  *((_QWORD *)this + 1) = 0LL;
-  v1 = (_QWORD *)((char *)this + 24);
-  *((_DWORD *)this + 4) = 0;
-  *((_QWORD *)this + 4) = 0LL;
-  *((_DWORD *)this + 14) = 0;
-  *(_QWORD *)&v3.Attributes = 512LL;
-  v3.RootDirectory = 0LL;
-  v3.ObjectName = 0LL;
-  *((_QWORD *)this + 6) = (char *)this + 40;
-  *((_QWORD *)this + 5) = (char *)this + 40;
-  *(_OWORD *)&v3.SecurityDescriptor = 0LL;
-  if ( ZwCreateEvent((PHANDLE)this + 3, 0x1F0003u, &v3, NotificationEvent, 0) >= 0 )
+  v1 = gpSfmState;
+  *(&v4.Length + 1) = 0;
+  *(&v4.Attributes + 1) = 0;
+  *(_QWORD *)gpSfmState = 0LL;
+  *((_QWORD *)v1 + 1) = 0LL;
+  v2 = (_QWORD *)((char *)v1 + 24);
+  *((_DWORD *)v1 + 4) = 0;
+  *((_QWORD *)v1 + 4) = 0LL;
+  *((_DWORD *)v1 + 14) = 0;
+  *((_QWORD *)v1 + 6) = (char *)v1 + 40;
+  *((_QWORD *)v1 + 5) = (char *)v1 + 40;
+  v4.Length = 48;
+  v4.RootDirectory = 0LL;
+  v4.Attributes = 512;
+  v4.ObjectName = 0LL;
+  *(_OWORD *)&v4.SecurityDescriptor = 0LL;
+  if ( ZwCreateEvent((PHANDLE)v1 + 3, 0x1F0003u, &v4, NotificationEvent, 0) >= 0 )
     return 1LL;
-  *v1 = 0LL;
+  *v2 = 0LL;
   return 0LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryIntervalProfile @ 0x140A04600
+ * XREFs of NtQueryIntervalProfile @ 0x140734460
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryIntervalProfile @ 0x140975100 (KeQueryIntervalProfile.c)
+ *     KeQueryIntervalProfile @ 0x1407344C4 (KeQueryIntervalProfile.c)
  */
 
-__int64 __fastcall NtQueryIntervalProfile(int a1, _DWORD *a2)
+__int64 __fastcall NtQueryIntervalProfile(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // r8
 
@@ -17,6 +17,6 @@ __int64 __fastcall NtQueryIntervalProfile(int a1, _DWORD *a2)
       v2 = (__int64)a2;
     *(_DWORD *)v2 = *(_DWORD *)v2;
   }
-  *a2 = KeQueryIntervalProfile(a1);
+  *a2 = KeQueryIntervalProfile();
   return 0LL;
 }

@@ -1,37 +1,37 @@
 /*
- * XREFs of MiSimpleAging @ 0x14035D35C
+ * XREFs of MiSimpleAging @ 0x14036BD78
  * Callers:
- *     MiReduceWs @ 0x14035CFD8 (MiReduceWs.c)
+ *     MiReduceWs @ 0x14036BCDC (MiReduceWs.c)
  * Callees:
- *     MiTbFlushType @ 0x14025B98C (MiTbFlushType.c)
- *     MiWalkPageTables @ 0x14025BBE0 (MiWalkPageTables.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MiWalkPageTables @ 0x140209280 (MiWalkPageTables.c)
+ *     MiTbFlushType @ 0x1402B7898 (MiTbFlushType.c)
+ *     MiGenerateRandomPte @ 0x140318308 (MiGenerateRandomPte.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall MiSimpleAging(__int64 a1, __int8 a2)
+__int64 __fastcall MiSimpleAging(__int64 a1, char a2)
 {
   unsigned __int128 v4; // rax
   unsigned __int64 v5; // r8
   unsigned __int64 v6; // r9
   __int64 v7; // r10
   unsigned __int64 v8; // r9
-  __int64 v9; // r11
-  bool v10; // zf
-  __int64 v11; // rax
-  __m128i v13[11]; // [rsp+20h] [rbp-E0h] BYREF
-  _QWORD v14[32]; // [rsp+D0h] [rbp-30h] BYREF
-  _QWORD v15[24]; // [rsp+1D0h] [rbp+D0h] BYREF
-  _DWORD v16[68]; // [rsp+290h] [rbp+190h] BYREF
+  char v9; // r11
+  unsigned __int64 RandomPte; // rax
+  _QWORD v12[22]; // [rsp+20h] [rbp-E0h] BYREF
+  _QWORD v13[32]; // [rsp+D0h] [rbp-30h] BYREF
+  _QWORD v14[24]; // [rsp+1D0h] [rbp+D0h] BYREF
+  _DWORD v15[68]; // [rsp+290h] [rbp+190h] BYREF
 
-  memset(v14, 0, sizeof(v14));
-  memset(v15, 0, 0xB8uLL);
   memset(v13, 0, sizeof(v13));
-  *(_QWORD *)&v4 = memset(v16, 0, 0x108uLL);
+  memset(v14, 0, 0xB8uLL);
+  memset(v12, 0, sizeof(v12));
+  *(_QWORD *)&v4 = memset(v15, 0, 0x108uLL);
   if ( (*(_BYTE *)(a1 + 184) & 0x40) != 0 )
   {
-    v5 = *(_QWORD *)(a1 + 144);
-    v4 = *(unsigned __int64 *)(a1 + 120) * (unsigned __int128)0xCCCCCCCCCCCCCCCDuLL;
+    v5 = *(_QWORD *)(a1 + 136);
+    v4 = *(unsigned __int64 *)(a1 + 152) * (unsigned __int128)0xCCCCCCCCCCCCCCCDuLL;
     if ( v5 >= (*((_QWORD *)&v4 + 1) & 0xFFFFFFFFFFFFFFFCuLL) )
     {
       v6 = *(_QWORD *)(a1 + 40);
@@ -42,29 +42,29 @@ __int64 __fastcall MiSimpleAging(__int64 a1, __int8 a2)
         v8 = v6 >> 5;
         if ( v8 < 8 )
           v8 = 8LL;
-        v14[6] = v8;
-        LODWORD(v15[0]) = MiTbFlushType(a1);
-        v10 = (*(_BYTE *)(a1 + 184) & 7) == 0;
-        v14[7] = v15;
-        WORD2(v15[0]) = 0;
-        v15[2] = 0LL;
-        LODWORD(v15[1]) = 20;
-        v15[3] = 0LL;
-        if ( v10 && *(_QWORD *)(a1 + 624) )
+        v13[6] = v8;
+        LODWORD(v14[0]) = MiTbFlushType(a1);
+        WORD2(v14[0]) = 0;
+        v13[7] = v14;
+        v14[2] = 0LL;
+        LODWORD(v14[1]) = 20;
+        v14[3] = 0LL;
+        if ( (v9 & 7) == 0 && *(_QWORD *)(a1 + 624) )
         {
-          v16[1] = 32;
-          v14[31] = v16;
+          v15[1] = 32;
+          v13[31] = v15;
         }
-        v13[1].m128i_i64[1] = a1;
-        v13[10].m128i_i64[1] = (__int64)v14;
-        v13[0].m128i_i8[7] = a2;
-        v11 = *(_QWORD *)(v9 + 8);
-        v13[2].m128i_i64[1] = -1LL;
-        v13[3].m128i_i64[1] = v11;
-        v13[9].m128i_i64[1] = (__int64)MiSimpleAgePte;
-        v13[10].m128i_i64[0] = (__int64)MiSimpleAgeWorkingSetTail;
-        v13[0].m128i_i32[0] = 6;
-        *(_QWORD *)&v4 = MiWalkPageTables(v13);
+        LODWORD(v13[0]) |= 4u;
+        v12[21] = v13;
+        v12[3] = a1;
+        BYTE6(v12[0]) = a2;
+        RandomPte = MiGenerateRandomPte((__int64)v12);
+        v12[5] = -1LL;
+        v12[7] = RandomPte;
+        v12[19] = MiSimpleAgePte;
+        v12[20] = MiSimpleAgeWorkingSetTail;
+        LOWORD(v12[0]) = 6;
+        *(_QWORD *)&v4 = MiWalkPageTables((__int64)v12);
       }
     }
   }

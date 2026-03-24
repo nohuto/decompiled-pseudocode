@@ -1,19 +1,19 @@
 /*
- * XREFs of ACPIInternalSendSynchronousIrp @ 0x1C0093610
+ * XREFs of ACPIInternalSendSynchronousIrp @ 0x1C009E0DC
  * Callers:
- *     ACPIBusIrpQueryInterface @ 0x1C0005A80 (ACPIBusIrpQueryInterface.c)
- *     ACPIInternalQueryExtendedAddress @ 0x1C002C054 (ACPIInternalQueryExtendedAddress.c)
- *     ACPIWakeInitializePmeRouting @ 0x1C002D3EC (ACPIWakeInitializePmeRouting.c)
- *     ACPIQueryGedDeviceInterface @ 0x1C0057188 (ACPIQueryGedDeviceInterface.c)
- *     AcpiQueryPciBusInterface @ 0x1C0091224 (AcpiQueryPciBusInterface.c)
- *     ACPIFilterQueryBusD3ColdSupport @ 0x1C009140C (ACPIFilterQueryBusD3ColdSupport.c)
- *     ACPIInternalGetDeviceCapabilities @ 0x1C009305C (ACPIInternalGetDeviceCapabilities.c)
- *     ACPIMatchHardwareId @ 0x1C00930D8 (ACPIMatchHardwareId.c)
- *     ACPIDetectCouldExtensionBeInRelation @ 0x1C00932F8 (ACPIDetectCouldExtensionBeInRelation.c)
- *     ACPIBusIrpDeviceUsageNotification @ 0x1C00A0740 (ACPIBusIrpDeviceUsageNotification.c)
- *     PcisuppInitializePciRouting @ 0x1C00A1210 (PcisuppInitializePciRouting.c)
+ *     ACPIWakeInitializePmeRouting @ 0x1C000CB58 (ACPIWakeInitializePmeRouting.c)
+ *     ACPIBusIrpQueryInterface @ 0x1C0010C50 (ACPIBusIrpQueryInterface.c)
+ *     ACPIInternalQueryExtendedAddress @ 0x1C002D3A0 (ACPIInternalQueryExtendedAddress.c)
+ *     ACPIQueryGedDeviceInterface @ 0x1C005688C (ACPIQueryGedDeviceInterface.c)
+ *     PcisuppInitializePciRouting @ 0x1C00907B0 (PcisuppInitializePciRouting.c)
+ *     AcpiQueryPciBusInterface @ 0x1C0098B00 (AcpiQueryPciBusInterface.c)
+ *     ACPIFilterQueryBusD3ColdSupport @ 0x1C0098CEC (ACPIFilterQueryBusD3ColdSupport.c)
+ *     ACPIDetectCouldExtensionBeInRelation @ 0x1C009DDA4 (ACPIDetectCouldExtensionBeInRelation.c)
+ *     ACPIMatchHardwareId @ 0x1C00A141C (ACPIMatchHardwareId.c)
+ *     ACPIInternalGetDeviceCapabilities @ 0x1C00A226C (ACPIInternalGetDeviceCapabilities.c)
+ *     ACPIBusIrpDeviceUsageNotification @ 0x1C00A2490 (ACPIBusIrpDeviceUsageNotification.c)
  * Callees:
- *     WPP_RECORDER_SF_qD @ 0x1C0007340 (WPP_RECORDER_SF_qD.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
  */
 
 __int64 __fastcall ACPIInternalSendSynchronousIrp(PDEVICE_OBJECT DeviceObject, __int64 a2, unsigned __int64 *a3)
@@ -76,7 +76,7 @@ __int64 __fastcall ACPIInternalSendSynchronousIrp(PDEVICE_OBJECT DeviceObject, _
       4u,
       5u,
       0xCu,
-      (__int64)&WPP_95d701b52be23d9498d45ac18e77591e_Traceguids,
+      (__int64)&WPP_93e06651ed773e0c6f8a5613c80b6645_Traceguids,
       DeviceObject,
       IoStatusBlock);
   }

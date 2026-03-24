@@ -1,8 +1,8 @@
 /*
- * XREFs of HUBMISC_StartResumeRecoveryTimer @ 0x1C002F8F0
+ * XREFs of HUBMISC_StartResumeRecoveryTimer @ 0x1C002F250
  * Callers:
- *     HUBPSM20_StartingResumeRecoveryTimer @ 0x1C00115B0 (HUBPSM20_StartingResumeRecoveryTimer.c)
- *     HUBPSM20_WaitingForResumeRecoveryTimerOnResumeInSuspended @ 0x1C0011D30 (HUBPSM20_WaitingForResumeRecoveryTimerOnResumeInSuspended.c)
+ *     HUBPSM20_StartingResumeRecoveryTimer @ 0x1C00111A0 (HUBPSM20_StartingResumeRecoveryTimer.c)
+ *     HUBPSM20_WaitingForResumeRecoveryTimerOnResumeInSuspended @ 0x1C0011830 (HUBPSM20_WaitingForResumeRecoveryTimerOnResumeInSuspended.c)
  * Callees:
  *     <none>
  */

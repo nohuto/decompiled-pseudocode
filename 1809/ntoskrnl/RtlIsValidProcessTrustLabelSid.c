@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsValidProcessTrustLabelSid @ 0x1400ABB40
+ * XREFs of RtlIsValidProcessTrustLabelSid @ 0x1400ABB60
  * Callers:
- *     SepReconcileTrustSidWithProcessProtection @ 0x1400ABA50 (SepReconcileTrustSidWithProcessProtection.c)
- *     RtlSidDominatesForTrust @ 0x1400AD180 (RtlSidDominatesForTrust.c)
- *     RtlAddProcessTrustLabelAce @ 0x140727950 (RtlAddProcessTrustLabelAce.c)
- *     RtlAddAccessFilterAce @ 0x140892720 (RtlAddAccessFilterAce.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x1400ABA70 (SepReconcileTrustSidWithProcessProtection.c)
+ *     RtlSidDominatesForTrust @ 0x1400AD1A0 (RtlSidDominatesForTrust.c)
+ *     RtlAddProcessTrustLabelAce @ 0x140727930 (RtlAddProcessTrustLabelAce.c)
+ *     RtlAddAccessFilterAce @ 0x140892700 (RtlAddAccessFilterAce.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 bool __fastcall RtlIsValidProcessTrustLabelSid(__int64 a1)

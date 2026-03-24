@@ -1,21 +1,23 @@
 /*
- * XREFs of ?RecordBitmapRealizationInfo@CDrawingContext@@QEAAXPEAVIBitmapRealization@@@Z @ 0x1801D6A7C
+ * XREFs of ?RecordBitmapRealizationInfo@CDrawingContext@@QEAAXPEAVIBitmapRealization@@@Z @ 0x180054134
  * Callers:
- *     ?DrawMesh2D@CGlobalDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x1801B6500 (-DrawMesh2D@CGlobalDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z.c)
- *     ?PrepareOutputTarget@CDrawListBitmap@@QEBAJPEAVCDrawingContext@@@Z @ 0x1801FC394 (-PrepareOutputTarget@CDrawListBitmap@@QEBAJPEAVCDrawingContext@@@Z.c)
+ *     ?RecordContentInfo@CDrawListBitmap@@QEBAXPEAVCDrawingContext@@@Z @ 0x180040D9C (-RecordContentInfo@CDrawListBitmap@@QEBAXPEAVCDrawingContext@@@Z.c)
+ *     ?FillShapeWithBitmapRealization@CDrawingContext@@IEAAJPEAVIBitmapRealization@@AEBVCShape@@AEBVMILMatrix3x2@@_N@Z @ 0x180053998 (-FillShapeWithBitmapRealization@CDrawingContext@@IEAAJPEAVIBitmapRealization@@AEBVCShape@@AEBVMI.c)
+ *     ?UpdateBitmaps@CBrushRenderingEffect@@UEAAJPEAVCDrawingContext@@@Z @ 0x180054020 (-UpdateBitmaps@CBrushRenderingEffect@@UEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?DrawBitmapRealization@CDrawingContext@@IEAAJPEAVIBitmapRealization@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@1_NH@Z @ 0x1801749EC (-DrawBitmapRealization@CDrawingContext@@IEAAJPEAVIBitmapRealization@@AEBV-$TMilRect_@MUMilRectF@.c)
+ *     ?DrawMesh2D@CDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x18018DE40 (-DrawMesh2D@CDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z.c)
  * Callees:
- *     ?IsDXGIColorSpaceHDR@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x180091420 (-IsDXGIColorSpaceHDR@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDrawingContext::RecordBitmapRealizationInfo(CDrawingContext *this, struct IBitmapRealization *a2)
 {
   int v4; // ebx
-  __int64 v5; // rcx
+  char *v5; // rcx
   int v6; // eax
-  char *v7; // rcx
-  __int64 v8; // rax
+  __int64 v7; // rcx
+  int v8; // eax
   int v9; // [rsp+20h] [rbp-28h] BYREF
   _BYTE v10[4]; // [rsp+24h] [rbp-24h] BYREF
   _BYTE v11[16]; // [rsp+28h] [rbp-20h] BYREF
@@ -24,22 +26,22 @@ void __fastcall CDrawingContext::RecordBitmapRealizationInfo(CDrawingContext *th
   v4 = v9;
   if ( v9 != DisplayId::None && v9 != DisplayId::All )
   {
-    v5 = *((_QWORD *)this + 4) + 8LL + *(int *)(*(_QWORD *)(*((_QWORD *)this + 4) + 8LL) + 16LL);
-    v6 = *(_DWORD *)(*(__int64 (__fastcall **)(__int64, _BYTE *))(*(_QWORD *)v5 + 8LL))(v5, v10);
-    if ( v4 == DisplayId::None || v4 == v6 || v6 == DisplayId::All )
-      *((_BYTE *)this + 8093) = 1;
+    v7 = *((_QWORD *)this + 4) + 8LL + *(int *)(*(_QWORD *)(*((_QWORD *)this + 4) + 8LL) + 16LL);
+    v8 = *(_DWORD *)(*(__int64 (__fastcall **)(__int64, _BYTE *))(*(_QWORD *)v7 + 8LL))(v7, v10);
+    if ( v4 == v8 || v4 == DisplayId::None || v8 == DisplayId::All )
+      *((_BYTE *)this + 5949) = 1;
     else
-      *((_BYTE *)this + 8095) = 1;
+      *((_BYTE *)this + 5951) = 1;
   }
   if ( (*(unsigned __int8 (__fastcall **)(struct IBitmapRealization *))(*(_QWORD *)a2 + 24LL))(a2) )
   {
-    if ( *((_BYTE *)g_pComposition + 1274) )
-      *((_BYTE *)this + 8095) = 1;
+    if ( *((_BYTE *)g_pComposition + 1129) )
+      *((_BYTE *)this + 5951) = 1;
     else
-      *((_BYTE *)this + 8092) = 1;
+      *((_BYTE *)this + 5948) = 1;
   }
-  v7 = (char *)a2 + *(int *)(*((_QWORD *)a2 + 1) + 8LL) + 8;
-  v8 = (**(__int64 (__fastcall ***)(char *, _BYTE *))v7)(v7, v11);
-  if ( IsDXGIColorSpaceHDR(*(_DWORD *)(v8 + 8)) )
-    *((_BYTE *)this + 8094) = 1;
+  v5 = (char *)a2 + *(int *)(*((_QWORD *)a2 + 1) + 8LL) + 8;
+  v6 = *(_DWORD *)((**(__int64 (__fastcall ***)(char *, _BYTE *))v5)(v5, v11) + 8);
+  if ( v6 == 1 || v6 == 3 || v6 > 9 && (v6 <= 17 || v6 == 21 || (unsigned int)(v6 - 23) <= 1) )
+    *((_BYTE *)this + 5950) = 1;
 }

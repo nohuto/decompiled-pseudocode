@@ -4,7 +4,7 @@
  *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
  * Callees:
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
- *     RtlGetNtSystemRoot @ 0x140682430 (RtlGetNtSystemRoot.c)
+ *     RtlGetNtSystemRoot @ 0x140682410 (RtlGetNtSystemRoot.c)
  */
 
 bool __fastcall ObpUseSystemDeviceMap(__int64 a1)

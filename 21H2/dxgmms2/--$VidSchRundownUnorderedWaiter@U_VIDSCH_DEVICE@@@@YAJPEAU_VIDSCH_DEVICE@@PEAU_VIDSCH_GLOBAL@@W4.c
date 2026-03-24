@@ -1,12 +1,12 @@
 /*
- * XREFs of ??$VidSchRundownUnorderedWaiter@U_VIDSCH_DEVICE@@@@YAJPEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_STAGE@@_NP6AXPEAVHwQueueStagingList@@0@Z@Z @ 0x1C00143B8
+ * XREFs of ??$VidSchRundownUnorderedWaiter@U_VIDSCH_DEVICE@@@@YAJPEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_STAGE@@_NP6AXPEAVHwQueueStagingList@@0@Z@Z @ 0x1C0011A18
  * Callers:
- *     VidSchFlushDevice @ 0x1C009A0D0 (VidSchFlushDevice.c)
+ *     VidSchFlushDevice @ 0x1C0081F00 (VidSchFlushDevice.c)
  * Callees:
- *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C0009A80 (--1HwQueueStagingList@@QEAA@XZ.c)
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0014690 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C0014924 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     VidSchiRundownUnorderedWaiterDevice @ 0x1C003A364 (VidSchiRundownUnorderedWaiterDevice.c)
+ *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C000AFA0 (--1HwQueueStagingList@@QEAA@XZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011F60 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00129FC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?VidSchiRundownUnorderedWaiterPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C002BDC4 (-VidSchiRundownUnorderedWaiterPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
  */
 
 __int64 __fastcall VidSchRundownUnorderedWaiter<_VIDSCH_DEVICE>(
@@ -16,16 +16,30 @@ __int64 __fastcall VidSchRundownUnorderedWaiter<_VIDSCH_DEVICE>(
         __int64 a4,
         union _LARGE_INTEGER Interval)
 {
-  unsigned int v5; // ebx
-  _QWORD v9[2]; // [rsp+20h] [rbp-40h] BYREF
-  char v10; // [rsp+30h] [rbp-30h]
-  _QWORD v11[4]; // [rsp+38h] [rbp-28h] BYREF
-  __int16 v12; // [rsp+58h] [rbp-8h]
+  unsigned int v5; // edi
+  _QWORD *v9; // rbx
+  _QWORD *v10; // r15
+  _QWORD **v11; // r15
+  _QWORD *v12; // rsi
+  struct _VIDSCH_QUEUE_PACKET *v13; // rdx
+  _QWORD **v14; // r14
+  _QWORD *v15; // rbx
+  _QWORD *v16; // r15
+  _QWORD **v17; // r15
+  _QWORD *v18; // rsi
+  _QWORD *v19; // r13
+  _QWORD **v20; // r13
+  _QWORD *v21; // r12
+  struct _VIDSCH_QUEUE_PACKET *v22; // rdx
+  _QWORD v23[2]; // [rsp+20h] [rbp-40h] BYREF
+  char v24; // [rsp+30h] [rbp-30h]
+  _QWORD v25[4]; // [rsp+38h] [rbp-28h] BYREF
+  __int16 v26; // [rsp+58h] [rbp-8h]
 
   v5 = 0;
   if ( a3 != 5 && *(_DWORD *)(a1 + 1588) )
   {
-    if ( a3 < 8 )
+    if ( a3 < 6 )
     {
       return (unsigned int)-2147483631;
     }
@@ -35,15 +49,50 @@ __int64 __fastcall VidSchRundownUnorderedWaiter<_VIDSCH_DEVICE>(
       KeDelayExecutionThread(0, 0, &Interval);
       if ( *(_DWORD *)(a1 + 1588) )
       {
-        v12 = 0;
-        v11[0] = a2 + 1728;
-        AcquireSpinLock::Acquire((AcquireSpinLock *)v11);
-        v10 = 0;
-        v9[1] = v9;
-        v9[0] = v9;
-        VidSchiRundownUnorderedWaiterDevice((struct HwQueueStagingList *)v9);
-        HwQueueStagingList::~HwQueueStagingList((HwQueueStagingList *)v9);
-        AcquireSpinLock::Release((AcquireSpinLock *)v11);
+        v26 = 0;
+        v25[0] = a2 + 1712;
+        AcquireSpinLock::Acquire((AcquireSpinLock *)v25);
+        v24 = 0;
+        v23[1] = v23;
+        v9 = *(_QWORD **)(a1 + 72);
+        v23[0] = v23;
+        while ( v9 != (_QWORD *)(a1 + 72) )
+        {
+          v10 = v9;
+          v9 = (_QWORD *)*v9;
+          v11 = (_QWORD **)(v10 + 80);
+          v12 = *v11;
+          while ( v12 != v11 )
+          {
+            v13 = (struct _VIDSCH_QUEUE_PACKET *)(v12 - 4);
+            v12 = (_QWORD *)*v12;
+            VidSchiRundownUnorderedWaiterPacket((struct HwQueueStagingList *)v23, v13);
+          }
+        }
+        v14 = (_QWORD **)(a1 + 88);
+        v15 = *v14;
+        while ( v15 != v14 )
+        {
+          v16 = v15;
+          v15 = (_QWORD *)*v15;
+          v17 = (_QWORD **)(v16 + 4);
+          v18 = *v17;
+          while ( v18 != v17 )
+          {
+            v19 = v18;
+            v18 = (_QWORD *)*v18;
+            v20 = (_QWORD **)(v19 + 19);
+            v21 = *v20;
+            while ( v21 != v20 )
+            {
+              v22 = (struct _VIDSCH_QUEUE_PACKET *)(v21 - 4);
+              v21 = (_QWORD *)*v21;
+              VidSchiRundownUnorderedWaiterPacket((struct HwQueueStagingList *)v23, v22);
+            }
+          }
+        }
+        HwQueueStagingList::~HwQueueStagingList((HwQueueStagingList *)v23);
+        AcquireSpinLock::Release((AcquireSpinLock *)v25);
       }
     }
   }

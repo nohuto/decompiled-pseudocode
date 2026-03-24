@@ -1,9 +1,9 @@
 /*
- * XREFs of IopCheckIrpCancelled @ 0x140555038
+ * XREFs of IopCheckIrpCancelled @ 0x140500310
  * Callers:
- *     IopWaitForSynchronousIoEvent @ 0x14040F674 (IopWaitForSynchronousIoEvent.c)
+ *     IopWaitForSynchronousIoEvent @ 0x1403F08E4 (IopWaitForSynchronousIoEvent.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall IopCheckIrpCancelled(__int64 a1, __int64 a2)
@@ -23,16 +23,19 @@ bool __fastcall IopCheckIrpCancelled(__int64 a1, __int64 a2)
     v2 = *(_BYTE *)(a2 + 68) == 1;
   if ( KiIrqlFlags )
   {
-    v4 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v7 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v8 = (v7 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v7;
-      if ( v8 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v4 = KeGetCurrentIrql();
+      if ( v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v7 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v8 = (v7 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v7;
+        if ( v8 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);

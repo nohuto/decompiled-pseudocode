@@ -1,39 +1,23 @@
 /*
- * XREFs of EditionPhysicalToLogicalDPIPointWithInputDestHint @ 0x1C014C470
+ * XREFs of EditionPhysicalToLogicalDPIPointWithInputDestHint @ 0x1C00F10B0
  * Callers:
  *     <none>
  * Callees:
- *     TransformVectorWithInputTargetPrecedence @ 0x1C010F7F8 (TransformVectorWithInputTargetPrecedence.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     ?PhysicalToLogicalDPIPointWithHitTest@@YAHPEAUtagPOINT@@0PEBU_SUBPIXELS@@PEBUtagWND@@@Z @ 0x1C014C4E8 (-PhysicalToLogicalDPIPointWithHitTest@@YAHPEAUtagPOINT@@0PEBU_SUBPIXELS@@PEBUtagWND@@@Z.c)
- *     PWND_FROM_INPUTDEST_OPT @ 0x1C01D4358 (PWND_FROM_INPUTDEST_OPT.c)
+ *     PhysicalToLogicalDPIPointWithHitTest @ 0x1C00F1118 (PhysicalToLogicalDPIPointWithHitTest.c)
+ *     TransformVectorWithInputTargetPrecedence @ 0x1C00F2CB8 (TransformVectorWithInputTargetPrecedence.c)
  */
 
-struct tagPOINT __fastcall EditionPhysicalToLogicalDPIPointWithInputDestHint(
-        struct tagPOINT *a1,
-        struct tagPOINT a2,
-        const struct _SUBPIXELS *a3,
-        __int64 a4)
+__int64 __fastcall EditionPhysicalToLogicalDPIPointWithInputDestHint(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  const struct tagWND *v6; // rax
-  int v7; // r8d
-  const struct tagWND *v8; // rbx
-  struct tagPOINT result; // rax
-  struct tagPOINT v10; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v4; // rbx
+  __int64 result; // rax
+  __int64 v8; // [rsp+38h] [rbp+10h] BYREF
 
-  v10 = a2;
-  v6 = (const struct tagWND *)PWND_FROM_INPUTDEST_OPT(a4);
-  v8 = v6;
-  if ( v6 )
-  {
-    if ( !(unsigned int)TransformVectorWithInputTargetPrecedence(v6, (int)&v10, v7) )
-      PhysicalToLogicalDPIPointWithHitTest(&v10, &v10, a3, v8);
-  }
-  else
-  {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM();
-  }
-  result = v10;
-  *a1 = v10;
+  v8 = a2;
+  v4 = *(_QWORD *)(a4 + 80);
+  if ( !v4 || !(unsigned int)TransformVectorWithInputTargetPrecedence(*(_QWORD *)(a4 + 80), &v8) )
+    PhysicalToLogicalDPIPointWithHitTest(&v8, &v8, a3, v4);
+  result = v8;
+  *a1 = v8;
   return result;
 }

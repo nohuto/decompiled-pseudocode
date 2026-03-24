@@ -1,8 +1,8 @@
 /*
- * XREFs of KiInsertInterruptObjectOrdered @ 0x1403A679C
+ * XREFs of KiInsertInterruptObjectOrdered @ 0x1405212E8
  * Callers:
- *     KiConnectInterrupt @ 0x140320AAC (KiConnectInterrupt.c)
- *     KiConnectSecondaryInterrupt @ 0x1403A2544 (KiConnectSecondaryInterrupt.c)
+ *     KiConnectInterrupt @ 0x1403773AC (KiConnectInterrupt.c)
+ *     KiConnectSecondaryInterrupt @ 0x140518F94 (KiConnectSecondaryInterrupt.c)
  * Callees:
  *     <none>
  */
@@ -31,7 +31,7 @@ __int64 *__fastcall KiInsertInterruptObjectOrdered(__int64 a1, __int64 a2)
         v2[1] = (__int64)result;
         return result;
       }
-FatalListEntryError_48:
+LABEL_12:
       __fastfail(3u);
     }
     v5 = (__int64 *)(a1 + 8);
@@ -51,7 +51,7 @@ FatalListEntryError_48:
   result = (__int64 *)(a2 + 8);
   v7 = (__int64 **)v6[1];
   if ( *v7 != v6 )
-    goto FatalListEntryError_48;
+    goto LABEL_12;
   *result = (__int64)v6;
   result[1] = (__int64)v7;
   *v7 = result;

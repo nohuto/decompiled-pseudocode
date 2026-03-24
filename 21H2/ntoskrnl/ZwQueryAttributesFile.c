@@ -1,9 +1,9 @@
 /*
- * XREFs of ZwQueryAttributesFile @ 0x14041BF00
+ * XREFs of ZwQueryAttributesFile @ 0x1403FAB40
  * Callers:
- *     BiDoesHiveExist @ 0x140813E58 (BiDoesHiveExist.c)
- *     CmpOpenFileWithExtremePrejudice @ 0x140919908 (CmpOpenFileWithExtremePrejudice.c)
- *     BiResolveLocateDevice @ 0x140A1D568 (BiResolveLocateDevice.c)
+ *     BiDoesHiveExist @ 0x140785E64 (BiDoesHiveExist.c)
+ *     CmpOpenFileWithExtremePrejudice @ 0x140872FE8 (CmpOpenFileWithExtremePrejudice.c)
+ *     BiResolveLocateDevice @ 0x14096F608 (BiResolveLocateDevice.c)
  * Callees:
  *     <none>
  */

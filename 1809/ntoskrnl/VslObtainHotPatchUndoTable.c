@@ -1,16 +1,16 @@
 /*
- * XREFs of VslObtainHotPatchUndoTable @ 0x140818B94
+ * XREFs of VslObtainHotPatchUndoTable @ 0x140818B74
  * Callers:
- *     MiApplyDriverHotPatch @ 0x1408540A0 (MiApplyDriverHotPatch.c)
- *     MiUnapplyDriverHotPatch @ 0x140858134 (MiUnapplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x140854080 (MiApplyDriverHotPatch.c)
+ *     MiUnapplyDriverHotPatch @ 0x140858114 (MiUnapplyDriverHotPatch.c)
  * Callees:
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
  *     MmProbeAndLockPages @ 0x140040380 (MmProbeAndLockPages.c)
- *     MmSizeOfMdl @ 0x14011A720 (MmSizeOfMdl.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     VslpLockPagesForTransfer @ 0x14027C414 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x14027C5F0 (VslpUnlockPagesForTransfer.c)
+ *     MmSizeOfMdl @ 0x14011A740 (MmSizeOfMdl.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpLockPagesForTransfer @ 0x14027C514 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14027C6F0 (VslpUnlockPagesForTransfer.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,65 +1,59 @@
 /*
- * XREFs of ?xxxGetCursorPos@@YAHPEAUtagPOINT@@K@Z @ 0x1C009E99C
+ * XREFs of ?xxxGetCursorPos@@YAHPEAUtagPOINT@@K@Z @ 0x1C00332C0
  * Callers:
- *     NtUserGetCursorPos @ 0x1C009E950 (NtUserGetCursorPos.c)
+ *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     CheckWinstaAttributeAccess @ 0x1C009EAE0 (CheckWinstaAttributeAccess.c)
+ *     CheckWinstaAttributeAccess @ 0x1C00333F0 (CheckWinstaAttributeAccess.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005BA00 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall xxxGetCursorPos(unsigned __int64 a1, int a2)
 {
   __int64 v4; // rdi
-  __int64 v5; // rsi
-  __int64 *ThreadWin32Thread; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  int v9; // ebx
+  __int64 v5; // rcx
+  int v6; // ebx
   unsigned int CurrentThreadDpiAwarenessContext; // eax
   __int64 SavedCursorPosition; // rax
-  __int64 v12; // rcx
-  struct tagPOINT v13; // rbx
-  _BYTE *v14; // rdx
+  __int64 v9; // rcx
+  struct tagPOINT v10; // rbx
+  _BYTE *v11; // rdx
 
   v4 = 0LL;
-  v5 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v5 = *ThreadWin32Thread;
   if ( !(unsigned int)CheckWinstaAttributeAccess(2u) )
     return 0LL;
-  v8 = *(_QWORD *)(v5 + 456);
-  if ( v8 && v8 != grpdeskRitInput )
+  v5 = *(_QWORD *)(gptiCurrent + 456LL);
+  if ( v5 && v5 != grpdeskRitInput )
   {
-    UserSetLastError(5LL, v7);
+    UserSetLastError(5LL);
     return 0LL;
   }
-  v9 = a2 - 1;
-  if ( v9 )
+  v6 = a2 - 1;
+  if ( v6 )
   {
-    if ( v9 == 1 )
-      goto LABEL_8;
+    if ( v6 == 1 )
+      goto LABEL_6;
     return 0LL;
   }
-  if ( (unsigned __int8)IsSpatialDelegationEnabledForThread(v5) )
+  if ( (unsigned __int8)IsSpatialDelegationEnabledForThread(gptiCurrent) )
   {
     SavedCursorPosition = GetSavedCursorPosition();
-    goto LABEL_9;
+    goto LABEL_7;
   }
-LABEL_8:
-  CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(v8, v7);
+LABEL_6:
+  CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext();
   SavedCursorPosition = LogicalCursorPosFromDpiAwarenessContext(CurrentThreadDpiAwarenessContext);
-LABEL_9:
-  v13 = (struct tagPOINT)SavedCursorPosition;
-  if ( !PsGetCurrentProcessWow64Process(v12) )
+LABEL_7:
+  v10 = (struct tagPOINT)SavedCursorPosition;
+  if ( !PsGetCurrentProcessWow64Process(v9) )
     v4 = 3LL;
   if ( (v4 & a1) != 0 )
     ExRaiseDatatypeMisalignment();
-  v14 = (_BYTE *)a1;
+  v11 = (_BYTE *)a1;
   if ( a1 >= MmUserProbeAddress )
-    v14 = (_BYTE *)MmUserProbeAddress;
-  *v14 = *v14;
-  v14[7] = v14[7];
-  *(struct tagPOINT *)a1 = v13;
+    v11 = (_BYTE *)MmUserProbeAddress;
+  *v11 = *v11;
+  v11[7] = v11[7];
+  *(struct tagPOINT *)a1 = v10;
   return 1LL;
 }

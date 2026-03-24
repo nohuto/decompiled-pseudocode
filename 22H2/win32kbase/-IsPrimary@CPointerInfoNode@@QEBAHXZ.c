@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsPrimary@CPointerInfoNode@@QEBAHXZ @ 0x1C01CD0E4
+ * XREFs of ?IsPrimary@CPointerInfoNode@@QEBAHXZ @ 0x1C0196F74
  * Callers:
- *     ?FindNodeForPointerPromotion@CTouchProcessor@@AEAAPEBUCPointerInfoNode@@PEBUCPointerInputFrame@@@Z @ 0x1C01C276C (-FindNodeForPointerPromotion@CTouchProcessor@@AEAAPEBUCPointerInfoNode@@PEBUCPointerInputFrame@@.c)
- *     ?IsPrimaryDown@CPointerInfoNode@@QEBAHXZ @ 0x1C01CD114 (-IsPrimaryDown@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?FindNodeForPointerPromotion@CTouchProcessor@@AEAAPEBUCPointerInfoNode@@PEBUCPointerInputFrame@@@Z @ 0x1C018E384 (-FindNodeForPointerPromotion@CTouchProcessor@@AEAAPEBUCPointerInfoNode@@PEBUCPointerInputFrame@@.c)
+ *     ?IsPrimaryDown@CPointerInfoNode@@QEBAHXZ @ 0x1C0196FA4 (-IsPrimaryDown@CPointerInfoNode@@QEBAHXZ.c)
  * Callees:
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C00E4A4E (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01970E4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
  */
 
 __int64 __fastcall CPointerInfoNode::IsPrimary(CPointerInfoNode *this)

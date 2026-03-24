@@ -1,17 +1,16 @@
 /*
- * XREFs of MiSimpleAgeWorkingSetTail @ 0x14046BBB0
+ * XREFs of MiSimpleAgeWorkingSetTail @ 0x14053BF10
  * Callers:
- *     MiSimpleAgePte @ 0x140635100 (MiSimpleAgePte.c)
+ *     MiSimpleAgePte @ 0x14053BC00 (MiSimpleAgePte.c)
  * Callees:
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     MiProcessVmAccessedInfo @ 0x14046B95E (MiProcessVmAccessedInfo.c)
- *     MiQueryEPTAccessedState @ 0x14046BA2C (MiQueryEPTAccessedState.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
+ *     MiProcessVmAccessedInfo @ 0x14053B870 (MiProcessVmAccessedInfo.c)
+ *     MiQueryEPTAccessedState @ 0x14053B940 (MiQueryEPTAccessedState.c)
  */
 
-__int64 __fastcall MiSimpleAgeWorkingSetTail(__int64 a1)
+__int64 __fastcall MiSimpleAgeWorkingSetTail(__int64 a1, _KPROCESS *a2)
 {
   __int64 i; // rbx
-  __int64 v3; // r9
   _DWORD *v4; // rdx
 
   for ( i = *(_QWORD *)(a1 + 168);
@@ -19,12 +18,12 @@ __int64 __fastcall MiSimpleAgeWorkingSetTail(__int64 a1)
         MiProcessVmAccessedInfo(
           a1,
           *(_DWORD **)(i + 248),
-          (__int64 (__fastcall *)(__int64, _QWORD *, unsigned __int64, unsigned __int64, __int64))MiSimpleAgeWorkingSetEPTCallback,
+          (__int64 (__fastcall *)(__int64, _QWORD *, __int64, unsigned __int64, __int64))MiSimpleAgeWorkingSetEPTCallback,
           i) )
   {
-    MiFlushTbList(*(int **)(i + 56));
+    MiFlushTbList(*(_QWORD *)(i + 56), a2);
     v4 = *(_DWORD **)(i + 248);
-    if ( !v4 || !*v4 || !(unsigned int)MiQueryEPTAccessedState(a1, (__int64)v4, 1LL, v3) )
+    if ( !v4 || !*v4 || !(unsigned int)MiQueryEPTAccessedState(a1, v4) )
       break;
   }
   return 0LL;

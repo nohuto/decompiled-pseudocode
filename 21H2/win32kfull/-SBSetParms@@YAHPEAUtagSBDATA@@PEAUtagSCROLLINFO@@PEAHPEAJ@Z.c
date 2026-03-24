@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SBSetParms@@YAHPEAUtagSBDATA@@PEAUtagSCROLLINFO@@PEAHPEAJ@Z @ 0x1C00C67A0
+ * XREFs of ?SBSetParms@@YAHPEAUtagSBDATA@@PEAUtagSCROLLINFO@@PEAHPEAJ@Z @ 0x1C00F6430
  * Callers:
- *     xxxSetScrollBar @ 0x1C00C64F8 (xxxSetScrollBar.c)
- *     xxxSBWndProc @ 0x1C02420E0 (xxxSBWndProc.c)
+ *     xxxSetScrollBar @ 0x1C00F6058 (xxxSetScrollBar.c)
+ *     xxxSBWndProc @ 0x1C0246160 (xxxSBWndProc.c)
  * Callees:
  *     <none>
  */
@@ -22,6 +22,7 @@ __int64 __fastcall SBSetParms(struct tagSBDATA *a1, struct tagSCROLLINFO *a2, in
   int v16; // eax
   int v17; // ecx
   int v18; // edx
+  bool v19; // zf
 
   v4 = *((_DWORD *)a2 + 1);
   v5 = 0;
@@ -116,9 +117,13 @@ __int64 __fastcall SBSetParms(struct tagSBDATA *a1, struct tagSCROLLINFO *a2, in
       return v8;
     goto LABEL_22;
   }
-  if ( *(_DWORD *)a1 != *((_DWORD *)a1 + 1) )
+  v19 = *(_DWORD *)a1 == *((_DWORD *)a1 + 1);
+  *a3 = *(_DWORD *)a1 != *((_DWORD *)a1 + 1);
+  if ( !v19 )
+  {
 LABEL_22:
     LOBYTE(v5) = *((_DWORD *)a1 + 2) <= *((_DWORD *)a1 + 1) - *(_DWORD *)a1;
-  *a3 = v5;
+    *a3 = v5;
+  }
   return v8;
 }

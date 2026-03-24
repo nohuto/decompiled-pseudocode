@@ -1,20 +1,20 @@
 /*
- * XREFs of NtUserFunctionalizeDisplayConfig @ 0x1C0143FD0
+ * XREFs of NtUserFunctionalizeDisplayConfig @ 0x1C012E660
  * Callers:
  *     <none>
  * Callees:
- *     UserIsWddmConnectedSession @ 0x1C001EFF0 (UserIsWddmConnectedSession.c)
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00462A0 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C004CDAC (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     DrvFunctionalizeDisplayConfig @ 0x1C0167244 (DrvFunctionalizeDisplayConfig.c)
- *     DrvIsDisplayStateCurrent @ 0x1C01675C0 (DrvIsDisplayStateCurrent.c)
+ *     DrvSampleDisplayState @ 0x1C001CCD0 (DrvSampleDisplayState.c)
+ *     UserIsWddmConnectedSession @ 0x1C001F320 (UserIsWddmConnectedSession.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C002A9C0 (Win32AllocPoolWithQuotaZInit.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     EnterSharedCrit @ 0x1C00372A0 (EnterSharedCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     DrvFunctionalizeDisplayConfig @ 0x1C0147784 (DrvFunctionalizeDisplayConfig.c)
  */
 
 __int64 __fastcall NtUserFunctionalizeDisplayConfig(
@@ -23,180 +23,166 @@ __int64 __fastcall NtUserFunctionalizeDisplayConfig(
         volatile void *a3,
         unsigned __int64 a4,
         __int64 a5,
-        volatile void *a6)
+        _DWORD *Address)
 {
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // rdx
-  volatile void *v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  int v18; // esi
-  void *QuotaZInit; // r15
-  _DWORD *v20; // rdx
+  unsigned int v10; // esi
+  void *v11; // r14
+  _DWORD *v12; // rdx
   __int64 CurrentProcessWow64Process; // rax
-  unsigned __int64 v22; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v23; // rcx
-  unsigned int v24; // edx
-  unsigned int v25; // eax
+  unsigned int v14; // edx
+  unsigned int v15; // eax
   __int64 *i; // rcx
-  _OWORD *v27; // r8
-  _OWORD *v28; // r11
-  unsigned int v29; // r9d
+  _OWORD *v17; // r9
+  _OWORD *v18; // r11
+  unsigned int v19; // r8d
   unsigned int j; // r10d
-  __int64 v31; // rdx
-  __int64 v32; // rcx
-  __int64 v33; // r8
-  unsigned int v34; // ebx
-  unsigned int v36; // [rsp+30h] [rbp-118h] BYREF
-  unsigned int v37; // [rsp+34h] [rbp-114h]
-  _DWORD v38[2]; // [rsp+38h] [rbp-110h] BYREF
-  void *v39; // [rsp+40h] [rbp-108h]
-  __int64 *v40; // [rsp+48h] [rbp-100h]
-  int v41; // [rsp+50h] [rbp-F8h]
-  int v42; // [rsp+54h] [rbp-F4h]
-  __int64 v43; // [rsp+68h] [rbp-E0h] BYREF
-  int v44; // [rsp+70h] [rbp-D8h]
-  void *v45; // [rsp+78h] [rbp-D0h]
-  volatile void *Address; // [rsp+80h] [rbp-C8h]
-  __int64 v47; // [rsp+90h] [rbp-B8h]
-  _QWORD v48[10]; // [rsp+B0h] [rbp-98h] BYREF
+  __int64 v21; // rcx
+  unsigned int v22; // ebx
+  unsigned int v24; // [rsp+30h] [rbp-108h] BYREF
+  unsigned int v25; // [rsp+34h] [rbp-104h]
+  _DWORD v26[2]; // [rsp+38h] [rbp-100h] BYREF
+  void *v27; // [rsp+40h] [rbp-F8h]
+  __int64 *v28; // [rsp+48h] [rbp-F0h]
+  __int64 v29; // [rsp+50h] [rbp-E8h]
+  int v30; // [rsp+58h] [rbp-E0h]
+  int v31; // [rsp+60h] [rbp-D8h]
+  int v32; // [rsp+64h] [rbp-D4h]
+  __int64 v33; // [rsp+78h] [rbp-C0h] BYREF
+  int v34; // [rsp+80h] [rbp-B8h]
+  void *v35; // [rsp+88h] [rbp-B0h]
+  __int64 v36; // [rsp+98h] [rbp-A0h]
+  _QWORD v37[10]; // [rsp+B0h] [rbp-88h] BYREF
 
-  v47 = a5;
-  Address = a6;
-  v39 = 0LL;
-  v36 = 0;
-  v38[0] = -1;
-  v43 = 0LL;
-  v44 = 0;
-  memset(v48, 0, 0x48uLL);
-  EtwActivityIdControl(3u, (LPGUID)&v48[1]);
-  v48[8] = MEMORY[0xFFFFF78000000014];
-  LODWORD(v48[3]) = 59;
-  LOBYTE(v48[6]) = -1;
-  v38[1] = -1073741811;
-  PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal(v11, v10, v12, v13);
-  PtiCurrentShared();
-  if ( !gbVideoInitialized )
-  {
-    v18 = -1073741823;
-    QuotaZInit = v39;
-LABEL_45:
-    if ( a4 && !(unsigned int)DrvIsDisplayStateCurrent(1LL, &v43) )
-      v18 = -1071774921;
-    goto LABEL_48;
-  }
-  v20 = a2;
-  if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-    v20 = (_DWORD *)MmUserProbeAddress;
-  *v20 = *v20;
-  v36 = *a2;
-  if ( v36 - 1 > 0x3FF )
-    ExRaiseStatus(-1073741811);
-  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(MmUserProbeAddress, v20, v16);
-  ProbeForWrite(a3, 216LL * v36, CurrentProcessWow64Process != 0 ? 1 : 4);
-  QuotaZInit = (void *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v23, v22, 216LL * v36, 0x63447355u);
-  v39 = QuotaZInit;
-  if ( !QuotaZInit )
-    ExRaiseStatus(-1073741801);
-  v40 = 0LL;
-  v45 = 0LL;
-  v37 = 0;
+  v36 = a5;
+  v27 = 0LL;
   v24 = 0;
-  v41 = 0;
-  v25 = 0;
-  for ( i = (__int64 *)a3; ; i += 27 )
+  v26[0] = -1;
+  v29 = 0LL;
+  v30 = 0;
+  memset(v37, 0, 0x48uLL);
+  EtwActivityIdControl(3u, (LPGUID)&v37[1]);
+  v37[8] = MEMORY[0xFFFFF78000000014];
+  LODWORD(v37[3]) = 59;
+  LOBYTE(v37[6]) = -1;
+  v26[1] = -1073741811;
+  EnterSharedCrit(0, 1);
+  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  if ( gbVideoInitialized )
   {
-    v40 = i;
-    v37 = v25;
-    if ( v25 >= v36 )
-      break;
-    if ( *i < 0 )
-      v41 = ++v24;
-    ++v25;
-  }
-  if ( v36 != v24 )
-    ExRaiseStatus(-1073741811);
-  v27 = a3;
-  v40 = (__int64 *)a3;
-  v28 = QuotaZInit;
-  v45 = QuotaZInit;
-  v29 = 0;
-  v42 = 0;
-  for ( j = 0; ; ++j )
-  {
-    v37 = j;
-    if ( j >= v24 )
-      break;
-    if ( *(__int64 *)v27 < 0 )
+    v12 = a2;
+    if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+      v12 = (_DWORD *)MmUserProbeAddress;
+    *v12 = *v12;
+    v24 = *a2;
+    if ( v24 - 1 > 0x3FF )
+      ExRaiseStatus(-1073741811);
+    CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(MmUserProbeAddress);
+    ProbeForWrite(a3, 200LL * v24, CurrentProcessWow64Process != 0 ? 1 : 4);
+    v11 = Win32AllocPoolWithQuotaZInit(200LL * v24, 0x63447355u);
+    v27 = v11;
+    if ( !v11 )
+      ExRaiseStatus(-1073741801);
+    v28 = 0LL;
+    v35 = 0LL;
+    v25 = 0;
+    v14 = 0;
+    v31 = 0;
+    v15 = 0;
+    for ( i = (__int64 *)a3; ; i += 25 )
     {
-      if ( v29 >= v24 )
-        ExRaiseStatus(-1073741811);
-      *v28 = *v27;
-      v28[1] = v27[1];
-      v28[2] = v27[2];
-      v28[3] = v27[3];
-      v28[4] = v27[4];
-      v28[5] = v27[5];
-      v28[6] = v27[6];
-      v28[7] = v27[7];
-      v28[8] = v27[8];
-      v28[9] = v27[9];
-      v28[10] = v27[10];
-      v28[11] = v27[11];
-      v28[12] = v27[12];
-      *((_QWORD *)v28 + 26) = *((_QWORD *)v27 + 26);
-      if ( *(__int64 *)v28 >= 0 )
-        ExRaiseStatus(-1073741790);
-      v42 = ++v29;
-      v28 = (_OWORD *)((char *)v28 + 216);
-      v45 = v28;
+      v28 = i;
+      v25 = v15;
+      if ( v15 >= v24 )
+        break;
+      if ( *i < 0 )
+        v31 = ++v14;
+      ++v15;
     }
-    v27 = (_OWORD *)((char *)v27 + 216);
-    v40 = (__int64 *)v27;
+    if ( v24 != v14 )
+      ExRaiseStatus(-1073741811);
+    v17 = a3;
+    v28 = (__int64 *)a3;
+    v18 = v11;
+    v35 = v11;
+    v19 = 0;
+    v32 = 0;
+    for ( j = 0; ; ++j )
+    {
+      v25 = j;
+      if ( j >= v14 )
+        break;
+      if ( *(__int64 *)v17 < 0 )
+      {
+        if ( v19 >= v14 )
+          ExRaiseStatus(-1073741811);
+        *v18 = *v17;
+        v18[1] = v17[1];
+        v18[2] = v17[2];
+        v18[3] = v17[3];
+        v18[4] = v17[4];
+        v18[5] = v17[5];
+        v18[6] = v17[6];
+        v18[7] = v17[7];
+        v18[8] = v17[8];
+        v18[9] = v17[9];
+        v18[10] = v17[10];
+        v18[11] = v17[11];
+        *((_QWORD *)v18 + 24) = *((_QWORD *)v17 + 24);
+        if ( *(__int64 *)v18 >= 0 )
+          ExRaiseStatus(-1073741790);
+        v32 = ++v19;
+        v18 = (_OWORD *)((char *)v18 + 200);
+        v35 = v18;
+      }
+      v17 = (_OWORD *)((char *)v17 + 200);
+      v28 = (__int64 *)v17;
+    }
+    if ( v19 != v14 )
+      ExRaiseStatus(-1073741811);
+    if ( !Address )
+      ExRaiseStatus(-1073741811);
+    ProbeForWrite(Address, 4uLL, 4u);
+    if ( a4 )
+    {
+      if ( ((PsGetCurrentProcessWow64Process(v21) == 0 ? 3 : 0) & (unsigned __int8)a4) != 0 )
+        ExRaiseDatatypeMisalignment();
+      if ( a4 + 12 > MmUserProbeAddress || a4 + 12 < a4 )
+        *(_BYTE *)MmUserProbeAddress = 0;
+      v29 = *(_QWORD *)a4;
+      v30 = *(_DWORD *)(a4 + 8);
+    }
+    if ( (unsigned int)UserIsWddmConnectedSession() )
+    {
+      if ( !a4 || (v33 = 0LL, v34 = 0, DrvSampleDisplayState(&v33), v34 == v30) && v33 == v29 )
+      {
+        v10 = DrvFunctionalizeDisplayConfig((unsigned int)&v24, (_DWORD)v11, a1, v36, (__int64)v26);
+        if ( v10 == -2147483643 )
+          v10 = -1073741789;
+        v22 = v24;
+        memmove((void *)a3, v11, 200LL * v24);
+        *a2 = v22;
+        *Address = v26[0];
+      }
+      else
+      {
+        v10 = -1071774921;
+      }
+    }
+    else
+    {
+      v10 = -1073741790;
+    }
   }
-  if ( v29 != v24 )
-    ExRaiseStatus(-1073741811);
-  if ( !Address )
-    ExRaiseStatus(-1073741811);
-  ProbeForWrite(Address, 4uLL, 4u);
-  if ( a4 )
+  else
   {
-    if ( ((PsGetCurrentProcessWow64Process(v32, v31, v33) == 0 ? 3 : 0) & (unsigned __int8)a4) != 0 )
-      ExRaiseDatatypeMisalignment();
-    if ( a4 + 12 > MmUserProbeAddress || a4 + 12 < a4 )
-      *(_BYTE *)MmUserProbeAddress = 0;
-    v43 = *(_QWORD *)a4;
-    v44 = *(_DWORD *)(a4 + 8);
+    v10 = -1073741823;
+    v11 = v27;
   }
-  if ( !(unsigned int)UserIsWddmConnectedSession() )
+  if ( v11 )
   {
-    v18 = -1073741790;
-    goto LABEL_45;
+    Win32FreePool((__int64)v11);
+    v27 = 0LL;
   }
-  if ( a4 && !(unsigned int)DrvIsDisplayStateCurrent(1LL, &v43) )
-  {
-    v18 = -1071774921;
-    goto LABEL_45;
-  }
-  v18 = DrvFunctionalizeDisplayConfig((unsigned int)&v36, (_DWORD)QuotaZInit, a1, v47, (__int64)v38);
-  if ( v18 == -2147483643 )
-    v18 = -1073741789;
-  v34 = v36;
-  memmove((void *)a3, QuotaZInit, 216LL * v36);
-  *a2 = v34;
-  v15 = Address;
-  *(_DWORD *)Address = v38[0];
-  if ( v18 < 0 )
-    goto LABEL_45;
-LABEL_48:
-  if ( QuotaZInit )
-  {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)QuotaZInit);
-    v39 = 0LL;
-  }
-  UserSessionSwitchLeaveCrit((__int64)v15, v14, v16, v17);
-  return (unsigned int)v18;
+  UserSessionSwitchLeaveCrit();
+  return v10;
 }

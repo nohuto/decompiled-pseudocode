@@ -1,58 +1,60 @@
 /*
- * XREFs of ?Initialize@CLegacyRemotingSwapChain@@IEAAJPEBG@Z @ 0x180109E08
+ * XREFs of ?Initialize@CLegacyRemotingSwapChain@@IEAAJPEBG@Z @ 0x1800E4180
  * Callers:
- *     ?Create@CLegacyRemotingSwapChain@@KAJPEAVCD3DDevice@@PEBGAEBU_UNSIGNED_RATIO@@PEAVIRenderTargetBitmap@@PEAXPEAPEAVILegacyRemotingSwapChain@@@Z @ 0x180109960 (-Create@CLegacyRemotingSwapChain@@KAJPEAVCD3DDevice@@PEBGAEBU_UNSIGNED_RATIO@@PEAVIRenderTargetB.c)
+ *     ?Create@CLegacyRemotingSwapChain@@KAJPEAVCD3DDevice@@PEBGPEAVIRenderTargetBitmap@@PEAXPEAPEAVILegacyRemotingSwapChain@@@Z @ 0x1800E40B8 (-Create@CLegacyRemotingSwapChain@@KAJPEAVCD3DDevice@@PEBGPEAVIRenderTargetBitmap@@PEAXPEAPEAVILe.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180100300 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?EnsureBitmapDest@CLegacyRemotingSwapChain@@IEAAJXZ @ 0x180109FB4 (-EnsureBitmapDest@CLegacyRemotingSwapChain@@IEAAJXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EnsureBitmapDest@CLegacyRemotingSwapChain@@IEAAJXZ @ 0x1800E4320 (-EnsureBitmapDest@CLegacyRemotingSwapChain@@IEAAJXZ.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5D20 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CLegacyRemotingSwapChain::Initialize(CLegacyRemotingSwapChain *this, const unsigned __int16 *a2)
+__int64 __fastcall CLegacyRemotingSwapChain::Initialize(HMODULE *this, const unsigned __int16 *a2)
 {
   __int64 v4; // rcx
-  FARPROC ProcAddress; // rsi
+  FARPROC ProcAddress; // r14
   int v6; // eax
-  signed int v7; // ebx
+  unsigned int v7; // ebx
   HANDLE CurrentProcess; // rax
-  void *v9; // rdi
+  HMODULE v9; // rdi
   void *v10; // rbx
   HANDLE v11; // rax
   void (__fastcall ***v12)(_QWORD, int *); // rcx
-  char *v13; // rdi
-  __int64 (__fastcall ***v14)(_QWORD, _QWORD, _QWORD); // rsi
-  __int64 (__fastcall *v15)(_QWORD, GUID *, char *); // rdi
+  __int64 (__fastcall ***v13)(_QWORD, _QWORD, _QWORD); // rdi
+  __int64 (__fastcall *v14)(_QWORD, GUID *, HMODULE *); // rbx
   signed int LastError; // eax
-  int v18; // r9d
-  unsigned int v19; // [rsp+20h] [rbp-60h]
-  HANDLE TargetHandle[2]; // [rsp+40h] [rbp-40h] BYREF
-  __int128 v21; // [rsp+50h] [rbp-30h]
-  _OWORD v22[2]; // [rsp+60h] [rbp-20h] BYREF
-  int v23; // [rsp+A0h] [rbp+20h] BYREF
-  int v24; // [rsp+A4h] [rbp+24h]
+  int v17; // r9d
+  unsigned int v18; // [rsp+28h] [rbp-69h]
+  HANDLE TargetHandle[2]; // [rsp+48h] [rbp-49h] BYREF
+  __int128 v20; // [rsp+58h] [rbp-39h]
+  _OWORD v21[2]; // [rsp+68h] [rbp-29h] BYREF
+  int v22; // [rsp+88h] [rbp-9h] BYREF
+  _BYTE v23[72]; // [rsp+90h] [rbp-1h] BYREF
+  int v24; // [rsp+F8h] [rbp+67h] BYREF
+  int v25; // [rsp+FCh] [rbp+6Bh]
 
-  ProcAddress = GetProcAddress(*((HMODULE *)this + 12), "DwmIndirectCreate");
+  ProcAddress = GetProcAddress(this[13], "DwmIndirectCreate");
   if ( !ProcAddress )
   {
     v7 = -2147024809;
-    v19 = 91;
-LABEL_17:
-    v18 = v7;
-    goto LABEL_18;
+    v18 = 97;
+LABEL_19:
+    v17 = v7;
+    goto LABEL_20;
   }
   *(_OWORD *)TargetHandle = 0LL;
-  v21 = 0LL;
-  v6 = CLegacyRemotingSwapChain::EnsureBitmapDest(this);
+  v20 = 0LL;
+  v6 = CLegacyRemotingSwapChain::EnsureBitmapDest((CLegacyRemotingSwapChain *)this);
   v7 = v6;
   if ( v6 < 0 )
   {
-    v19 = 61;
-    goto LABEL_14;
+    v18 = 59;
+    goto LABEL_16;
   }
   SetLastError(0);
   CurrentProcess = GetCurrentProcess();
-  v9 = (void *)*((_QWORD *)this + 25);
+  v9 = this[25];
   v10 = CurrentProcess;
   v11 = GetCurrentProcess();
   if ( !DuplicateHandle(v11, v9, v10, TargetHandle, 0, 0, 2u) )
@@ -61,41 +63,45 @@ LABEL_17:
     v7 = LastError;
     if ( LastError > 0 )
       v7 = (unsigned __int16)LastError | 0x80070000;
-    if ( v7 >= 0 )
+    if ( (v7 & 0x80000000) == 0 )
       v7 = -2003304445;
-    v19 = 72;
-    goto LABEL_17;
+    v18 = 70;
+    goto LABEL_19;
   }
-  v12 = (void (__fastcall ***)(_QWORD, int *))(*((_QWORD *)this + 10)
-                                             + 8LL
-                                             + *(int *)(*(_QWORD *)(*((_QWORD *)this + 10) + 8LL) + 16LL));
-  (**v12)(v12, &v23);
-  v13 = (char *)this + 104;
-  DWORD2(v21) = v23;
-  *(_QWORD *)&v21 = a2;
-  HIDWORD(v21) = -v24;
-  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)this + 13);
-  v22[0] = *(_OWORD *)TargetHandle;
-  v22[1] = v21;
-  v6 = ((__int64 (__fastcall *)(_OWORD *, char *))ProcAddress)(v22, (char *)this + 104);
+  v12 = (void (__fastcall ***)(_QWORD, int *))((char *)this[11] + *(int *)(*((_QWORD *)this[11] + 1) + 16LL) + 8);
+  (**v12)(v12, &v24);
+  DWORD2(v20) = v24;
+  *(_QWORD *)&v20 = a2;
+  HIDWORD(v20) = -v25;
+  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(this + 14);
+  v21[0] = *(_OWORD *)TargetHandle;
+  v21[1] = v20;
+  v6 = ((__int64 (__fastcall *)(_OWORD *, HMODULE *))ProcAddress)(v21, this + 14);
   v7 = v6;
   if ( v6 < 0 )
   {
-    v19 = 84;
-    goto LABEL_14;
+    v18 = 82;
+    goto LABEL_16;
   }
-  v14 = *(__int64 (__fastcall ****)(_QWORD, _QWORD, _QWORD))v13;
-  v15 = ***(__int64 (__fastcall ****)(_QWORD, GUID *, char *))v13;
-  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)this + 14);
-  v6 = v15(v14, &IID_IDWMRemotingIndirectEx, (char *)this + 112);
+  v13 = (__int64 (__fastcall ***)(_QWORD, _QWORD, _QWORD))this[14];
+  v14 = (__int64 (__fastcall *)(_QWORD, GUID *, HMODULE *))**v13;
+  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(this + 15);
+  v6 = v14(v13, &IID_IDWMRemotingIndirectEx, this + 15);
   v7 = v6;
   if ( v6 < 0 )
   {
-    v19 = 87;
-LABEL_14:
-    v18 = v6;
-LABEL_18:
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v18, v19, 0LL);
+    v18 = 85;
+LABEL_16:
+    v17 = v6;
+LABEL_20:
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v17, v18, 0LL);
+    return v7;
   }
-  return (unsigned int)v7;
+  if ( *((_DWORD *)g_pComposition + 238) == 6 )
+  {
+    v22 = 7;
+    memset_0(v23, 0, 0x40uLL);
+    (*(void (__fastcall **)(HMODULE, int *, __int64))(*(_QWORD *)this[15] + 56LL))(this[15], &v22, 1LL);
+  }
+  return v7;
 }

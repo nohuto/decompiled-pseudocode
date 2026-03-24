@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpRegTraceEnableCallback @ 0x1409E62D0
+ * XREFs of EtwpRegTraceEnableCallback @ 0x14093BA00
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     CmRegisterCallbackEx @ 0x14090FD10 (CmRegisterCallbackEx.c)
- *     CmUnRegisterCallback @ 0x14090FD60 (CmUnRegisterCallback.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     CmRegisterCallbackEx @ 0x140869BC0 (CmRegisterCallbackEx.c)
+ *     CmUnRegisterCallback @ 0x140869C10 (CmUnRegisterCallback.c)
  */
 
 void __fastcall EtwpRegTraceEnableCallback(

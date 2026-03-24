@@ -1,20 +1,20 @@
 /*
- * XREFs of ArbpGetRegistryValue @ 0x1408165A8
+ * XREFs of ArbpGetRegistryValue @ 0x1407A2F60
  * Callers:
- *     ArbAddInaccessibleAllocationRange @ 0x140815AD4 (ArbAddInaccessibleAllocationRange.c)
- *     ArbBuildAssignmentOrdering @ 0x140815FF8 (ArbBuildAssignmentOrdering.c)
- *     ArbAddMmConfigRangeAsBootReserved @ 0x140816844 (ArbAddMmConfigRangeAsBootReserved.c)
+ *     ArbAddMmConfigRangeAsBootReserved @ 0x1407A2290 (ArbAddMmConfigRangeAsBootReserved.c)
+ *     ArbAddInaccessibleAllocationRange @ 0x1407A249C (ArbAddInaccessibleAllocationRange.c)
+ *     ArbBuildAssignmentOrdering @ 0x1407A29A8 (ArbBuildAssignmentOrdering.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ArbpGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, _QWORD *a3)
 {
   NTSTATUS v5; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v7; // rbx
   NTSTATUS v8; // edi
   UNICODE_STRING ValueName; // [rsp+30h] [rbp-18h] BYREF
@@ -26,11 +26,11 @@ __int64 __fastcall ArbpGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, _QWOR
   v5 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValueFullInformationAlign64, 0LL, 0, &ResultLength);
   if ( v5 != -1073741789 && v5 != -2147483643 )
     return 3221225473LL;
-  Pool2 = (void *)ExAllocatePool2(256LL, ResultLength, 1298297409LL);
-  v7 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, ResultLength, 0x4D627241u);
+  v7 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  v8 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValueFullInformationAlign64, Pool2, ResultLength, &ResultLength);
+  v8 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValueFullInformationAlign64, PoolWithTag, ResultLength, &ResultLength);
   if ( v8 < 0 )
   {
     ExFreePoolWithTag(v7, 0);

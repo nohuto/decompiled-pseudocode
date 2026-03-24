@@ -3,7 +3,7 @@
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
  *     MiDeleteFinalPageTables @ 0x1400918B8 (MiDeleteFinalPageTables.c)
- *     MiDeleteRotateAndStopFaults @ 0x14013A0D0 (MiDeleteRotateAndStopFaults.c)
+ *     MiDeleteRotateAndStopFaults @ 0x14013A0F0 (MiDeleteRotateAndStopFaults.c)
  * Callees:
  *     MiDeletePagablePteRange @ 0x140067FE0 (MiDeletePagablePteRange.c)
  */

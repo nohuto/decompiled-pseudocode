@@ -1,22 +1,21 @@
 /*
- * XREFs of HalpAddMcaExtendedLogToMemoryErrorSection @ 0x140501EE4
+ * XREFs of HalpAddMcaExtendedLogToMemoryErrorSection @ 0x1404B9174
  * Callers:
- *     HalpCreateMcaMemoryErrorRecord @ 0x140502978 (HalpCreateMcaMemoryErrorRecord.c)
+ *     HalpCreateMcaMemoryErrorRecord @ 0x1404B9BA8 (HalpCreateMcaMemoryErrorRecord.c)
  * Callees:
- *     HalpAddMcaToMemoryErrorSection @ 0x140501F5C (HalpAddMcaToMemoryErrorSection.c)
- *     HalpGetMcaExtendedLogStatusBlock @ 0x140502F14 (HalpGetMcaExtendedLogStatusBlock.c)
- *     HalpAddErrorEntryToPacket @ 0x140518B20 (HalpAddErrorEntryToPacket.c)
+ *     HalpAddMcaToMemoryErrorSection @ 0x1404B91E0 (HalpAddMcaToMemoryErrorSection.c)
+ *     HalpGetMcaExtendedLogStatusBlock @ 0x1404BA060 (HalpGetMcaExtendedLogStatusBlock.c)
+ *     HalpAddErrorEntryToPacket @ 0x1404CF7B0 (HalpAddErrorEntryToPacket.c)
  */
 
 __int64 __fastcall HalpAddMcaExtendedLogToMemoryErrorSection(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v6; // ebx
-  __int64 McaExtendedLogStatusBlock; // rax
-  _DWORD *v8; // rdi
+  __int64 McaExtendedLogStatusBlock; // rcx
+  _DWORD *v8; // rcx
 
   v6 = -1073741823;
   McaExtendedLogStatusBlock = HalpGetMcaExtendedLogStatusBlock();
-  v8 = (_DWORD *)McaExtendedLogStatusBlock;
   if ( McaExtendedLogStatusBlock )
   {
     HalpAddErrorEntryToPacket(McaExtendedLogStatusBlock, a2, a3);

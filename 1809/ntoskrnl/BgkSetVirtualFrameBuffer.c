@@ -1,10 +1,10 @@
 /*
- * XREFs of BgkSetVirtualFrameBuffer @ 0x140191A20
+ * XREFs of BgkSetVirtualFrameBuffer @ 0x140191A40
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     BgSetFrameBufferAccess @ 0x14094E008 (BgSetFrameBufferAccess.c)
  *     BgGetDisplayContext @ 0x14094E024 (BgGetDisplayContext.c)
  *     BgReleaseSpinLock @ 0x140951A24 (BgReleaseSpinLock.c)

@@ -1,5 +1,5 @@
 /*
- * XREFs of CcSetDirtyPageThreshold @ 0x140535A50
+ * XREFs of CcSetDirtyPageThreshold @ 0x1404E9A40
  * Callers:
  *     <none>
  * Callees:
@@ -14,7 +14,7 @@ void __stdcall CcSetDirtyPageThreshold(PFILE_OBJECT FileObject, ULONG DirtyPageT
 
   SharedCacheMap = FileObject->SectionObjectPointer->SharedCacheMap;
   if ( SharedCacheMap )
-    SharedCacheMap[68] = DirtyPageThreshold;
+    SharedCacheMap[66] = DirtyPageThreshold;
   FsContext = FileObject->FsContext;
   v4 = FsContext[4];
   if ( (v4 & 4) == 0 )

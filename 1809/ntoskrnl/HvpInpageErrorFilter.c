@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpInpageErrorFilter @ 0x1407F6E60
+ * XREFs of HvpInpageErrorFilter @ 0x1407F6E40
  * Callers:
  *     HvpViewMapTouchPages @ 0x1405A5B8C (HvpViewMapTouchPages.c)
  * Callees:
- *     CmSiBugCheck @ 0x14026D6B0 (CmSiBugCheck.c)
+ *     CmSiBugCheck @ 0x14026D7B0 (CmSiBugCheck.c)
  */
 
 __int64 __fastcall HvpInpageErrorFilter(ULONG_PTR *a1, int *a2)

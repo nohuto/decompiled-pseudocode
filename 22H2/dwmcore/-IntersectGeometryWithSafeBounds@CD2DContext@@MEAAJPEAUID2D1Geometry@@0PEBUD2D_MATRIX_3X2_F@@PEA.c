@@ -1,15 +1,14 @@
 /*
- * XREFs of ?IntersectGeometryWithSafeBounds@CD2DContext@@MEAAJPEAUID2D1Geometry@@0PEBUD2D_MATRIX_3X2_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAU2@@Z @ 0x1802876A0
+ * XREFs of ?IntersectGeometryWithSafeBounds@CD2DContext@@MEAAJPEAUID2D1Geometry@@0PEBUD2D_MATRIX_3X2_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAU2@@Z @ 0x18023C830
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$ReleaseInterface@UID2D1GeometrySink@@@@YAXAEAPEAUID2D1GeometrySink@@@Z @ 0x1800E7F9C (--$ReleaseInterface@UID2D1GeometrySink@@@@YAXAEAPEAUID2D1GeometrySink@@@Z.c)
- *     ??$ReleaseInterface@UID2D1PathGeometry@@@@YAXAEAPEAUID2D1PathGeometry@@@Z @ 0x1800E7FC0 (--$ReleaseInterface@UID2D1PathGeometry@@@@YAXAEAPEAUID2D1PathGeometry@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ceilf_0 @ 0x18011B89C (ceilf_0.c)
- *     floorf_0 @ 0x18011B8D8 (floorf_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z @ 0x180017820 (--$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ceilf_0 @ 0x1800F3F87 (ceilf_0.c)
+ *     floorf_0 @ 0x1800F3F9F (floorf_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD2DContext::IntersectGeometryWithSafeBounds(
@@ -25,173 +24,155 @@ __int64 __fastcall CD2DContext::IntersectGeometryWithSafeBounds(
   unsigned int v12; // ebx
   int v13; // eax
   __int64 v14; // rcx
-  int v15; // eax
-  __int64 v16; // rcx
-  int v17; // eax
-  __int64 v18; // rcx
-  int v19; // eax
-  __int64 v20; // rcx
-  int v21; // eax
-  __int64 v22; // rcx
-  int v23; // eax
-  __int64 v24; // rcx
-  __m128 v25; // xmm6
-  float v26; // xmm7_4
-  __m128 v27; // xmm8
-  float v28; // xmm1_4
-  int v29; // eax
-  __int64 v30; // rcx
-  int v31; // eax
-  __int64 v32; // rcx
-  __int64 v33; // rax
-  __int64 v35; // [rsp+48h] [rbp-89h] BYREF
-  __int64 v36; // [rsp+50h] [rbp-81h] BYREF
-  __int64 v37; // [rsp+58h] [rbp-79h] BYREF
-  __int64 v38; // [rsp+60h] [rbp-71h] BYREF
-  __int64 v39; // [rsp+68h] [rbp-69h] BYREF
-  _QWORD v40[2]; // [rsp+70h] [rbp-61h] BYREF
+  __m128 v15; // xmm6
+  float v16; // xmm7_4
+  __m128 v17; // xmm8
+  float v18; // xmm1_4
+  __int64 v19; // rax
+  unsigned int v21; // [rsp+28h] [rbp-A9h]
+  __int64 v22; // [rsp+48h] [rbp-89h] BYREF
+  __int64 v23; // [rsp+50h] [rbp-81h] BYREF
+  __int64 v24; // [rsp+58h] [rbp-79h] BYREF
+  __int64 v25; // [rsp+60h] [rbp-71h] BYREF
+  __int64 v26; // [rsp+68h] [rbp-69h] BYREF
+  _QWORD v27[2]; // [rsp+70h] [rbp-61h] BYREF
   float X; // [rsp+80h] [rbp-51h] BYREF
-  float v42; // [rsp+84h] [rbp-4Dh]
-  unsigned int v43; // [rsp+88h] [rbp-49h]
-  float v44; // [rsp+8Ch] [rbp-45h]
+  float v29; // [rsp+84h] [rbp-4Dh]
+  unsigned int v30; // [rsp+88h] [rbp-49h]
+  float v31; // [rsp+8Ch] [rbp-45h]
 
-  v36 = 0LL;
-  v37 = 0LL;
+  v23 = 0LL;
+  v24 = 0LL;
   *a6 = 0LL;
-  v38 = 0LL;
-  v35 = 0LL;
-  v39 = 0LL;
-  v10 = (*(__int64 (__fastcall **)(_QWORD, __int64 *))(***(_QWORD ***)(a1 + 176) + 80LL))(**(_QWORD **)(a1 + 176), &v36);
+  v25 = 0LL;
+  v22 = 0LL;
+  v26 = 0LL;
+  v10 = (*(__int64 (__fastcall **)(_QWORD, __int64 *))(***(_QWORD ***)(a1 + 216) + 80LL))(**(_QWORD **)(a1 + 216), &v23);
   v12 = v10;
   if ( v10 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x559u, 0LL);
+    v21 = 1419;
   }
   else
   {
-    v13 = (*(__int64 (__fastcall **)(_QWORD, __int64 *))(***(_QWORD ***)(a1 + 176) + 80LL))(
-            **(_QWORD **)(a1 + 176),
-            &v38);
-    v12 = v13;
-    if ( v13 < 0 )
+    v10 = (*(__int64 (__fastcall **)(_QWORD, __int64 *))(***(_QWORD ***)(a1 + 216) + 80LL))(
+            **(_QWORD **)(a1 + 216),
+            &v25);
+    v12 = v10;
+    if ( v10 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x55Au, 0LL);
+      v21 = 1420;
     }
     else
     {
-      v15 = (*(__int64 (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v36 + 136LL))(v36, &v37);
-      v12 = v15;
-      if ( v15 < 0 )
+      v10 = (*(__int64 (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v23 + 136LL))(v23, &v24);
+      v12 = v10;
+      if ( v10 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x55Bu, 0LL);
+        v21 = 1421;
       }
       else
       {
-        v17 = (*(__int64 (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v38 + 136LL))(v38, &v35);
-        v12 = v17;
-        if ( v17 < 0 )
+        v10 = (*(__int64 (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v25 + 136LL))(v25, &v22);
+        v12 = v10;
+        if ( v10 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x55Cu, 0LL);
+          v21 = 1422;
         }
         else
         {
-          v19 = (*(__int64 (__fastcall **)(__int64, __int64, __int64, __int64, _DWORD, __int64))(*(_QWORD *)a3 + 88LL))(
+          v10 = (*(__int64 (__fastcall **)(__int64, __int64, __int64, __int64, _DWORD, __int64))(*(_QWORD *)a3 + 88LL))(
                   a3,
                   a2,
                   1LL,
                   a4,
                   LODWORD(FLOAT_0_25),
-                  v37);
-          v12 = v19;
-          if ( v19 < 0 )
+                  v24);
+          v12 = v10;
+          if ( v10 < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x564u, 0LL);
+            v21 = 1430;
           }
           else
           {
-            v21 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v37 + 72LL))(v37);
-            v12 = v21;
-            if ( v21 < 0 )
+            v13 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v24 + 72LL))(v24);
+            v12 = v13;
+            if ( v13 < 0 )
             {
-              MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x566u, 0LL);
+              MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x598u, 0LL);
+              goto LABEL_32;
+            }
+            v10 = (*(__int64 (__fastcall **)(__int64, _QWORD, float *))(*(_QWORD *)v23 + 32LL))(v23, 0LL, &X);
+            v12 = v10;
+            if ( v10 < 0 )
+            {
+              v21 = 1437;
             }
             else
             {
-              v23 = (*(__int64 (__fastcall **)(__int64, _QWORD, float *))(*(_QWORD *)v36 + 32LL))(v36, 0LL, &X);
-              v12 = v23;
-              if ( v23 < 0 )
+              v15 = (__m128)LODWORD(X);
+              v16 = *(float *)&v30;
+              if ( X > *(float *)&v30 )
+                goto LABEL_32;
+              if ( COERCE_FLOAT(LODWORD(X) & _xmm) < 8388608.0 )
+                v15 = (__m128)COERCE_UNSIGNED_INT((float)(int)floorf_0(X));
+              v17 = (__m128)LODWORD(v29);
+              if ( COERCE_FLOAT(LODWORD(v29) & _xmm) < 8388608.0 )
+                v17 = (__m128)COERCE_UNSIGNED_INT((float)(int)floorf_0(v29));
+              if ( COERCE_FLOAT(LODWORD(v16) & _xmm) < 8388608.0 )
+                v16 = (float)(int)ceilf_0(v16);
+              v18 = v31;
+              if ( COERCE_FLOAT(LODWORD(v31) & _xmm) < 8388608.0 )
+                v18 = (float)(int)ceilf_0(v31);
+              if ( a5 )
               {
-                MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0x56Bu, 0LL);
+                *(_DWORD *)a5 = v15.m128_i32[0];
+                *(float *)(a5 + 8) = v16;
+                *(_DWORD *)(a5 + 4) = v17.m128_i32[0];
+                *(float *)(a5 + 12) = v18;
+              }
+              v15.m128_f32[0] = v15.m128_f32[0] - 1.0;
+              v17.m128_f32[0] = v17.m128_f32[0] - 1.0;
+              X = v15.m128_f32[0];
+              v29 = v17.m128_f32[0];
+              *(float *)&v30 = v16 + 1.0;
+              v31 = v18 + 1.0;
+              (*(void (__fastcall **)(__int64, unsigned __int64, _QWORD))(*(_QWORD *)v22 + 40LL))(
+                v22,
+                _mm_unpacklo_ps(v15, v17).m128_u64[0],
+                0LL);
+              (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v22 + 64LL))(v22, 1LL);
+              (*(void (__fastcall **)(__int64, unsigned __int64, _QWORD))(*(_QWORD *)v22 + 40LL))(
+                v22,
+                _mm_unpacklo_ps((__m128)v30, (__m128)LODWORD(v31)).m128_u64[0],
+                0LL);
+              (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v22 + 64LL))(v22, 1LL);
+              v10 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v22 + 72LL))(v22);
+              v12 = v10;
+              if ( v10 < 0 )
+              {
+                v21 = 1483;
               }
               else
               {
-                v25 = (__m128)LODWORD(X);
-                v26 = *(float *)&v43;
-                if ( X <= *(float *)&v43 )
+                v27[0] = v23;
+                v27[1] = v25;
+                v10 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD *, __int64, __int64 *))(***(_QWORD ***)(a1 + 216)
+                                                                                              + 64LL))(
+                        **(_QWORD **)(a1 + 216),
+                        0LL,
+                        v27,
+                        2LL,
+                        &v26);
+                v12 = v10;
+                if ( v10 >= 0 )
                 {
-                  if ( COERCE_FLOAT(LODWORD(X) & _xmm) < 8388608.0 )
-                    v25 = (__m128)COERCE_UNSIGNED_INT((float)(int)floorf_0(X));
-                  v27 = (__m128)LODWORD(v42);
-                  if ( COERCE_FLOAT(LODWORD(v42) & _xmm) < 8388608.0 )
-                    v27 = (__m128)COERCE_UNSIGNED_INT((float)(int)floorf_0(v42));
-                  if ( COERCE_FLOAT(LODWORD(v26) & _xmm) < 8388608.0 )
-                    v26 = (float)(int)ceilf_0(v26);
-                  v28 = v44;
-                  if ( COERCE_FLOAT(LODWORD(v44) & _xmm) < 8388608.0 )
-                    v28 = (float)(int)ceilf_0(v44);
-                  if ( a5 )
-                  {
-                    *(_DWORD *)a5 = v25.m128_i32[0];
-                    *(float *)(a5 + 8) = v26;
-                    *(_DWORD *)(a5 + 4) = v27.m128_i32[0];
-                    *(float *)(a5 + 12) = v28;
-                  }
-                  v25.m128_f32[0] = v25.m128_f32[0] - 1.0;
-                  v27.m128_f32[0] = v27.m128_f32[0] - 1.0;
-                  X = v25.m128_f32[0];
-                  v42 = v27.m128_f32[0];
-                  *(float *)&v43 = v26 + 1.0;
-                  v44 = v28 + 1.0;
-                  (*(void (__fastcall **)(__int64, unsigned __int64, _QWORD))(*(_QWORD *)v35 + 40LL))(
-                    v35,
-                    _mm_unpacklo_ps(v25, v27).m128_u64[0],
-                    0LL);
-                  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v35 + 64LL))(v35, 1LL);
-                  (*(void (__fastcall **)(__int64, unsigned __int64, _QWORD))(*(_QWORD *)v35 + 40LL))(
-                    v35,
-                    _mm_unpacklo_ps((__m128)v43, (__m128)LODWORD(v44)).m128_u64[0],
-                    0LL);
-                  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v35 + 64LL))(v35, 1LL);
-                  v29 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v35 + 72LL))(v35);
-                  v12 = v29;
-                  if ( v29 < 0 )
-                  {
-                    MilInstrumentationCheckHR_MaybeFailFast(v30, 0LL, 0, v29, 0x599u, 0LL);
-                  }
-                  else
-                  {
-                    v40[0] = v36;
-                    v40[1] = v38;
-                    v31 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD *, __int64, __int64 *))(***(_QWORD ***)(a1 + 176)
-                                                                                                  + 64LL))(
-                            **(_QWORD **)(a1 + 176),
-                            0LL,
-                            v40,
-                            2LL,
-                            &v39);
-                    v12 = v31;
-                    if ( v31 < 0 )
-                    {
-                      MilInstrumentationCheckHR_MaybeFailFast(v32, 0LL, 0, v31, 0x5A3u, 0LL);
-                    }
-                    else
-                    {
-                      v33 = v39;
-                      v39 = 0LL;
-                      *a6 = v33;
-                    }
-                  }
+                  v19 = v26;
+                  v26 = 0LL;
+                  *a6 = v19;
+                  goto LABEL_32;
                 }
+                v21 = 1493;
               }
             }
           }
@@ -199,11 +180,13 @@ __int64 __fastcall CD2DContext::IntersectGeometryWithSafeBounds(
       }
     }
   }
-  ReleaseInterface<ID2D1PathGeometry>(&v36);
-  ReleaseInterface<ID2D1GeometrySink>(&v37);
-  ReleaseInterface<ID2D1PathGeometry>(&v38);
-  ReleaseInterface<ID2D1GeometrySink>(&v35);
-  if ( v39 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v39 + 16LL))(v39);
+  MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, v21, 0LL);
+LABEL_32:
+  ReleaseInterface<ID2D1Geometry>(&v23);
+  ReleaseInterface<ID2D1Geometry>(&v24);
+  ReleaseInterface<ID2D1Geometry>(&v25);
+  ReleaseInterface<ID2D1Geometry>(&v22);
+  if ( v26 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v26 + 16LL))(v26);
   return v12;
 }

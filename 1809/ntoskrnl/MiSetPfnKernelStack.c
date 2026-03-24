@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSetPfnKernelStack @ 0x14013D8E0
+ * XREFs of MiSetPfnKernelStack @ 0x14013D900
  * Callers:
- *     MiInPageSingleKernelStack @ 0x14013D480 (MiInPageSingleKernelStack.c)
- *     MiMarkKernelStack @ 0x14017E760 (MiMarkKernelStack.c)
+ *     MiInPageSingleKernelStack @ 0x14013D4A0 (MiInPageSingleKernelStack.c)
+ *     MiMarkKernelStack @ 0x14017E780 (MiMarkKernelStack.c)
  * Callees:
- *     MiMarkPfnTradable @ 0x14013D924 (MiMarkPfnTradable.c)
+ *     MiMarkPfnTradable @ 0x14013D944 (MiMarkPfnTradable.c)
  */
 
 __int64 __fastcall MiSetPfnKernelStack(__int64 *a1, unsigned __int64 a2, __int64 a3, __int64 a4)

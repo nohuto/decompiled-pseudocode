@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIDevicePowerProcessPhase5SystemSubPhase4 @ 0x1C0050DC0
+ * XREFs of ACPIDevicePowerProcessPhase5SystemSubPhase4 @ 0x1C0051860
  * Callers:
  *     <none>
  * Callees:
- *     AMLIGetParent @ 0x1C000A040 (AMLIGetParent.c)
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     WPP_RECORDER_SF_qqss @ 0x1C000E14C (WPP_RECORDER_SF_qqss.c)
- *     ACPIDeviceCompleteGenericPhase @ 0x1C000EB80 (ACPIDeviceCompleteGenericPhase.c)
- *     AMLIAsyncEvalObject @ 0x1C0019E08 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     AMLIGetParent @ 0x1C001B348 (AMLIGetParent.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C001E288 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIDeviceCompleteGenericPhase @ 0x1C001FEE0 (ACPIDeviceCompleteGenericPhase.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
  */
 
 __int64 __fastcall ACPIDevicePowerProcessPhase5SystemSubPhase4(__int64 a1)
@@ -29,20 +29,20 @@ __int64 __fastcall ACPIDevicePowerProcessPhase5SystemSubPhase4(__int64 a1)
   __int64 v15; // [rsp+70h] [rbp-28h]
 
   v1 = *(_QWORD **)(a1 + 40);
-  v2 = (const char *)&unk_1C006FB8B;
+  v2 = (const char *)&unk_1C00701BA;
   v3 = *(_DWORD *)(a1 + 104);
   v4 = 0;
   v6 = 0;
-  v7 = (const char *)&unk_1C006FB8B;
+  v7 = (const char *)&unk_1C00701BA;
   if ( v1 )
   {
     v8 = v1[1];
     v6 = (char)v1;
     if ( (v8 & 0x200000000000LL) != 0 )
     {
-      v2 = (const char *)v1[76];
+      v2 = (const char *)v1[71];
       if ( (v8 & 0x400000000000LL) != 0 )
-        v7 = (const char *)v1[77];
+        v7 = (const char *)v1[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -50,8 +50,8 @@ __int64 __fastcall ACPIDevicePowerProcessPhase5SystemSubPhase4(__int64 a1)
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       0xAu,
-      0x56u,
-      (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+      0x54u,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       a1,
       v6,
       v2,
@@ -61,13 +61,13 @@ __int64 __fastcall ACPIDevicePowerProcessPhase5SystemSubPhase4(__int64 a1)
   v13 = 0LL;
   WORD1(v13) = 1;
   v14 = 0LL;
-  v9 = (__int64 *)AMLIGetParent(v1[95]);
+  v9 = (__int64 *)AMLIGetParent(v1[90]);
   v10 = AMLIGetNamedChild(v9, 1598640991);
-  AMLIDereferenceHandleEx((volatile signed __int32 *)v9);
+  AMLIDereferenceHandleEx((__int64)v9);
   if ( v10 )
   {
     v11 = AMLIGetNamedChild(v10, 1414746975);
-    AMLIDereferenceHandleEx((volatile signed __int32 *)v10);
+    AMLIDereferenceHandleEx((__int64)v10);
     if ( v11 )
     {
       if ( v3 == 1 )
@@ -93,7 +93,7 @@ __int64 __fastcall ACPIDevicePowerProcessPhase5SystemSubPhase4(__int64 a1)
       }
 LABEL_17:
       v4 = AMLIAsyncEvalObject(v11, 0LL, 1u, &v13, ACPIDeviceCompleteGenericPhase, a1);
-      AMLIDereferenceHandleEx((volatile signed __int32 *)v11);
+      AMLIDereferenceHandleEx((__int64)v11);
       result = 259LL;
       if ( v4 == 259 )
         return result;

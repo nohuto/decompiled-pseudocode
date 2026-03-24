@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpStdExtendUpperWatermark @ 0x1405E4B98
+ * XREFs of RtlpStdExtendUpperWatermark @ 0x140586064
  * Callers:
- *     RtlpStdGetRecordedStackTraceIndex @ 0x1405E4CD4 (RtlpStdGetRecordedStackTraceIndex.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1405861A0 (RtlpStdGetRecordedStackTraceIndex.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ZwAllocateVirtualMemory @ 0x14041BA60 (ZwAllocateVirtualMemory.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwAllocateVirtualMemory @ 0x1403FA6A0 (ZwAllocateVirtualMemory.c)
  */
 
 KSPIN_LOCK __fastcall RtlpStdExtendUpperWatermark(KSPIN_LOCK *SpinLock, void *a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of FastExpAA_CX @ 0x1C02603F0
+ * XREFs of FastExpAA_CX @ 0x1C0268B90
  * Callers:
  *     <none>
  * Callees:
@@ -165,7 +165,7 @@ LABEL_16:
       a3[1] = (HIBYTE(v44) + HIBYTE(v45) + 2 * (v35 + (unsigned int)HIBYTE(v44) + 2)) >> 3;
       *a3 = ((unsigned __int8)v44 + (unsigned __int8)v45 + 2 * (v34 + (unsigned int)(unsigned __int8)v44 + 2)) >> 3;
       v36 = &a3[v9];
-      v36[2] = (unsigned int)(4 * (_DWORD)a4 + v18 + 8 + v14 + 2 * (4 * (_DWORD)a4 + v18)) >> 4;
+      v36[2] = (unsigned int)(v18 + 4 * (_DWORD)a4 + 8 + v14 + 2 * (v18 + 4 * (_DWORD)a4)) >> 4;
       v36[1] = (HIBYTE(v44) + 4 * HIBYTE(v45) + 8 + HIBYTE(v46) + 2 * (HIBYTE(v44) + 4 * (unsigned int)HIBYTE(v45))) >> 4;
       *v36 = ((unsigned __int8)v44
             + 4 * (unsigned __int8)v45
@@ -173,7 +173,7 @@ LABEL_16:
             + (unsigned __int8)v46
             + 2 * ((unsigned __int8)v44 + 4 * (unsigned int)(unsigned __int8)v45)) >> 4;
       v54 = &v36[a5];
-      v54[2] = (unsigned int)(4 * (_DWORD)a4 + v14 + 8 + v18 + 2 * (4 * (_DWORD)a4 + v14)) >> 4;
+      v54[2] = (unsigned int)(v14 + 4 * (_DWORD)a4 + 8 + v18 + 2 * (v14 + 4 * (_DWORD)a4)) >> 4;
       v54[1] = (HIBYTE(v46) + 4 * HIBYTE(v45) + 8 + HIBYTE(v44) + 2 * (HIBYTE(v46) + 4 * (unsigned int)HIBYTE(v45))) >> 4;
       *v54 = ((unsigned __int8)v46
             + 4 * (unsigned __int8)v45
@@ -207,8 +207,8 @@ LABEL_17:
       *a3 = (13 * (unsigned __int8)v44 + 16 + 19 * (unsigned int)(unsigned __int8)v11) >> 5;
       v27 = &a3[v9];
       v28 = 25 * v23;
-      v27[2] = (unsigned int)(v14 + 25 * v23 + 2 * (v18 + 2 * v18 + 8)) >> 5;
-      v27[1] = (v26 + 6 * HIBYTE(v44) + (unsigned int)HIBYTE(v13) + 16) >> 5;
+      v27[2] = (unsigned int)(25 * v23 + v14 + 2 * (v18 + 2 * v18 + 8)) >> 5;
+      v27[1] = (HIBYTE(v13) + 6 * (unsigned int)HIBYTE(v44) + v26 + 16) >> 5;
       *v27 = ((unsigned __int8)v13 + 6 * (unsigned __int8)v44 + 25 * (unsigned int)(unsigned __int8)v11 + 16) >> 5;
       v29 = 13 * v23;
       v30 = &v27[a5];
@@ -223,7 +223,7 @@ LABEL_17:
       v31[2] = (unsigned int)(v18 + v32) >> 5;
       v31[1] = (v26 + 6 * HIBYTE(v13) + (unsigned int)HIBYTE(v44) + 16) >> 5;
       a3 = &v31[a5];
-      *v31 = ((unsigned __int8)v44 + 6 * (unsigned __int8)v13 + 25 * (unsigned int)(unsigned __int8)v11 + 16) >> 5;
+      *v31 = (25 * (unsigned __int8)v11 + 6 * (unsigned __int8)v13 + (unsigned int)(unsigned __int8)v44 + 16) >> 5;
       v16 = v49 - 4LL * a5;
       v11 = v47;
       a3[2] = (unsigned int)(13 * v14 + v24 + 16) >> 5;

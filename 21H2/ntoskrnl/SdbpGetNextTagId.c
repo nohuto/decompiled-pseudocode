@@ -1,33 +1,33 @@
 /*
- * XREFs of SdbpGetNextTagId @ 0x1407941A4
+ * XREFs of SdbpGetNextTagId @ 0x14075A2B8
  * Callers:
- *     SdbGetFirstChild @ 0x140791910 (SdbGetFirstChild.c)
- *     SdbGetNextChild @ 0x140792D40 (SdbGetNextChild.c)
- *     SdbpGetNextIndexedRecord @ 0x140842C30 (SdbpGetNextIndexedRecord.c)
+ *     SdbGetNextChild @ 0x14075A1F8 (SdbGetNextChild.c)
+ *     SdbGetFirstChild @ 0x14075A470 (SdbGetFirstChild.c)
+ *     SdbpGetNextIndexedRecord @ 0x1407C0E0C (SdbpGetNextIndexedRecord.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbpGetTagHeadSize @ 0x140793480 (SdbpGetTagHeadSize.c)
- *     SdbGetTagDataSize @ 0x14079422C (SdbGetTagDataSize.c)
- *     SdbGetTagFromTagID @ 0x14079499C (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbpGetTagHeadSize @ 0x14075A268 (SdbpGetTagHeadSize.c)
+ *     SdbGetTagDataSize @ 0x14075A340 (SdbGetTagDataSize.c)
+ *     SdbGetTagFromTagID @ 0x14075A3F4 (SdbGetTagFromTagID.c)
  */
 
-__int64 __fastcall SdbpGetNextTagId(__int64 a1, __int64 a2)
+__int64 __fastcall SdbpGetNextTagId(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v2; // edi
+  unsigned int v4; // edi
   int TagHeadSize; // esi
   unsigned int TagDataSize; // eax
 
-  v2 = a2;
-  if ( (SdbGetTagFromTagID(a1, a2) & 0xF000) == 0x7000 && (unsigned int)SdbGetTagDataSize(a1, v2) == -1 )
+  v4 = a2;
+  if ( (SdbGetTagFromTagID(a1, a2, a3, a4) & 0xF000) == 0x7000 && (unsigned int)SdbGetTagDataSize(a1, v4) == -1 )
   {
     AslLogCallPrintf(1LL);
     return *(unsigned int *)(a1 + 20);
   }
-  TagHeadSize = SdbpGetTagHeadSize(a1, v2);
+  TagHeadSize = SdbpGetTagHeadSize(a1, v4);
   if ( !TagHeadSize )
     return *(unsigned int *)(a1 + 20);
-  TagDataSize = SdbGetTagDataSize(a1, v2);
-  if ( (*(_DWORD *)(a1 + 1328) & 1) == 0 )
+  TagDataSize = SdbGetTagDataSize(a1, v4);
+  if ( (*(_DWORD *)(a1 + 2608) & 1) == 0 )
     TagDataSize = (TagDataSize + 1) & 0xFFFFFFFE;
-  return v2 + TagHeadSize + TagDataSize;
+  return v4 + TagHeadSize + TagDataSize;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PdcPortSendMessageSynchronously @ 0x140200C24
+ * XREFs of PdcPortSendMessageSynchronously @ 0x14059579C
  * Callers:
- *     PdcTaskClientRequest @ 0x140682428 (PdcTaskClientRequest.c)
+ *     PdcTaskClientRequest @ 0x14091B9F0 (PdcTaskClientRequest.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PdcPortSendMessageSynchronously(__int64 a1, __int64 a2)
@@ -14,11 +14,11 @@ __int64 __fastcall PdcPortSendMessageSynchronously(__int64 a1, __int64 a2)
   unsigned int v5; // ebx
 
   v2 = (struct _EX_RUNDOWN_REF *)(a1 + 8);
-  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 8)) )
+  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 8)) )
   {
     *(_DWORD *)(a2 + 44) = 5;
     v5 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64))(a1 + 40))(*(_QWORD *)(a1 + 24), a2, 800LL);
-    ExReleaseRundownProtection_0(v2);
+    ExReleaseRundownProtection(v2);
   }
   else
   {

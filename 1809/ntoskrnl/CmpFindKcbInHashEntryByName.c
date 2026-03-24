@@ -3,12 +3,12 @@
  * Callers:
  *     CmpWalkOneLevel @ 0x1405D4560 (CmpWalkOneLevel.c)
  *     CmpCreateKeyControlBlock @ 0x1405D5EB0 (CmpCreateKeyControlBlock.c)
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x1407FA5CC (CmpSubtreeEnumeratorAdvance.c)
- *     CmpPartialPromoteSubkeys @ 0x140805410 (CmpPartialPromoteSubkeys.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x1407FA5AC (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpPartialPromoteSubkeys @ 0x1408053F0 (CmpPartialPromoteSubkeys.c)
  * Callees:
  *     CmpCompareCompressedName @ 0x1405D5D90 (CmpCompareCompressedName.c)
- *     CmpCompareUnicodeString @ 0x1406B65B8 (CmpCompareUnicodeString.c)
+ *     CmpCompareUnicodeString @ 0x1406B6598 (CmpCompareUnicodeString.c)
  */
 
 __int64 __fastcall CmpFindKcbInHashEntryByName(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

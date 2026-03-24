@@ -1,10 +1,10 @@
 /*
- * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_66f16f058a7148ecab2826ea000753f1___lambda_45b02998bed050691e5b6850ccebf4aa___ @ 0x1C0237904
+ * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_66f16f058a7148ecab2826ea000753f1___lambda_45b02998bed050691e5b6850ccebf4aa___ @ 0x1C01F74D0
  * Callers:
- *     ?EmitUpdateCommands@CSceneMeshRendererComponentMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0237A30 (-EmitUpdateCommands@CSceneMeshRendererComponentMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@.c)
+ *     ?EmitUpdateCommands@CSceneMeshRendererComponentMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F7680 (-EmitUpdateCommands@CSceneMeshRendererComponentMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@.c)
  * Callees:
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C000B6D8 (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005B9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_66f16f058a7148ecab2826ea000753f1___lambda_45b02998bed050691e5b6850ccebf4aa___(
@@ -41,8 +41,8 @@ LABEL_5:
     *(_DWORD *)v18 = 8 * v12 + 20;
     v14 = v13 + 20;
     *(_OWORD *)(v13 + 4) = 0LL;
-    *((_DWORD *)v13 + 1) = 356;
-    *((_DWORD *)v13 + 2) = *(_DWORD *)(a1 + 32);
+    *((_DWORD *)v13 + 1) = 361;
+    *((_DWORD *)v13 + 2) = *(_DWORD *)(a1 + 24);
     *((_DWORD *)v13 + 4) = 8 * v12;
     v13[12] = *a3 != 0;
     if ( (_DWORD)v12 )
@@ -52,7 +52,7 @@ LABEL_5:
       {
         v16 = *a3;
         *a3 = v16 + 1;
-        *v14++ = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v6 + 80LL) + 8 * v16);
+        *v14++ = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v6 + 72LL) + 8 * v16);
         --v15;
       }
       while ( v15 );

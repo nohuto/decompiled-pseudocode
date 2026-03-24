@@ -1,32 +1,37 @@
 /*
- * XREFs of xxxGetControlBrush @ 0x1C0223CAC
+ * XREFs of xxxGetControlBrush @ 0x1C0150AC4
  * Callers:
- *     ?xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C0014C88 (-xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
- *     NtUserGetControlBrush @ 0x1C01D0E40 (NtUserGetControlBrush.c)
+ *     NtUserGetControlBrush @ 0x1C01509E0 (NtUserGetControlBrush.c)
+ *     ?xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C0157E0C (-xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
  * Callees:
- *     xxxGetControlColor @ 0x1C0007990 (xxxGetControlColor.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     xxxGetControlColor @ 0x1C0150B8C (xxxGetControlColor.c)
  */
 
-__int64 __fastcall xxxGetControlBrush(__int64 *a1, __int64 a2, unsigned int a3)
+__int64 __fastcall xxxGetControlBrush(_QWORD *a1, __int64 a2, unsigned int a3)
 {
-  struct tagWND *v6; // rdi
+  _QWORD *v6; // rbx
+  struct _KTHREAD *CurrentThread; // rcx
+  __int64 ThreadWin32Thread; // rax
   __int64 ControlColor; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int128 v12; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v13; // [rsp+30h] [rbp-18h]
+  __int64 v10; // rcx
+  _QWORD v12[5]; // [rsp+20h] [rbp-28h] BYREF
 
-  v12 = 0LL;
-  v13 = 0LL;
-  if ( (((*(_BYTE *)(a1[5] + 31) & 0xC0) + 0x80) & 0xBF) != 0 )
-    v6 = (struct tagWND *)a1[13];
+  v12[2] = 0LL;
+  if ( (((*(_BYTE *)(a1[5] + 31LL) & 0xC0) + 0x80) & 0xBF) != 0 )
+    v6 = (_QWORD *)a1[13];
   else
-    v6 = (struct tagWND *)a1[15];
+    v6 = (_QWORD *)a1[15];
+  CurrentThread = KeGetCurrentThread();
   if ( !v6 )
-    v6 = (struct tagWND *)a1;
-  ThreadLock(v6, &v12);
+    v6 = a1;
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)CurrentThread);
+  v12[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v12;
+  v12[1] = v6;
+  if ( v6 )
+    HMLockObject(v6);
   ControlColor = xxxGetControlColor(v6, a1, a2, a3);
-  ThreadUnlock1(v9, v8, v10);
+  ThreadUnlock1(v10);
   return ControlColor;
 }

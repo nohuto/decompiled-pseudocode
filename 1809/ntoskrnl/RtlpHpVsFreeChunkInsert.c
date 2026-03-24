@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpVsFreeChunkInsert @ 0x1400BD460
+ * XREFs of RtlpHpVsFreeChunkInsert @ 0x1400BD480
  * Callers:
- *     RtlpHpVsChunkSplit @ 0x1400BC830 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsChunkFree @ 0x1400BD370 (RtlpHpVsChunkFree.c)
- *     RtlpHpVsContextAddSubsegment @ 0x140109844 (RtlpHpVsContextAddSubsegment.c)
+ *     RtlpHpVsChunkSplit @ 0x1400BC850 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsChunkFree @ 0x1400BD390 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsContextAddSubsegment @ 0x140109864 (RtlpHpVsContextAddSubsegment.c)
  * Callees:
- *     RtlpHpVsChunkComputeCost @ 0x1400BD5B0 (RtlpHpVsChunkComputeCost.c)
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
+ *     RtlpHpVsChunkComputeCost @ 0x1400BD5D0 (RtlpHpVsChunkComputeCost.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
  */
 
 __int64 __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, _WORD *a3)

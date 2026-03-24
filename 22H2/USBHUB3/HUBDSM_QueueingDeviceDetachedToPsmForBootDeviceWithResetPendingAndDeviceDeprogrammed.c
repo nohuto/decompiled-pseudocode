@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_QueueingDeviceDetachedToPsmForBootDeviceWithResetPendingAndDeviceDeprogrammed @ 0x1C001F830
+ * XREFs of HUBDSM_QueueingDeviceDetachedToPsmForBootDeviceWithResetPendingAndDeviceDeprogrammed @ 0x1C001CE20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_QueueingDeviceDetachedToPsmForBootDeviceWithResetPendingAndDeviceDeprogrammed(__int64 a1)

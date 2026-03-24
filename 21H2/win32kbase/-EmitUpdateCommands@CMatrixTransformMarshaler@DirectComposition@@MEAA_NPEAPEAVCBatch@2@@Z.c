@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitUpdateCommands@CMatrixTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0007F20
+ * XREFs of ?EmitUpdateCommands@CMatrixTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0004C70
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 bool __fastcall DirectComposition::CMatrixTransformMarshaler::EmitUpdateCommands(
@@ -21,10 +21,10 @@ bool __fastcall DirectComposition::CMatrixTransformMarshaler::EmitUpdateCommands
   *(_DWORD *)v5 = 36;
   *(_OWORD *)(v3 + 4) = 0LL;
   *(_OWORD *)(v3 + 20) = 0LL;
-  *((_DWORD *)v3 + 1) = 486;
-  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
+  *((_DWORD *)v3 + 1) = 491;
+  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
   result = 1;
-  *(_OWORD *)(v3 + 12) = *((_OWORD *)this + 5);
-  *(_QWORD *)(v3 + 28) = *((_QWORD *)this + 12);
+  *(_OWORD *)(v3 + 12) = *(_OWORD *)((char *)this + 72);
+  *(_QWORD *)(v3 + 28) = *((_QWORD *)this + 11);
   return result;
 }

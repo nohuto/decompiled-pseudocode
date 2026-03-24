@@ -1,15 +1,15 @@
 /*
- * XREFs of ?UpdateAllocationProperty@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_UPDATEALLOCPROPERTY@@PEA_K@Z @ 0x1C00DA7C4
+ * XREFs of ?UpdateAllocationProperty@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_UPDATEALLOCPROPERTY@@PEA_K@Z @ 0x1C00B4B64
  * Callers:
- *     ?VidMmUpdateAllocationProperty@@YAJPEAVVIDMM_GLOBAL@@PEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_UPDATEALLOCPROPERTY@@PEA_K@Z @ 0x1C002D0B0 (-VidMmUpdateAllocationProperty@@YAJPEAVVIDMM_GLOBAL@@PEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_MULTI_AL.c)
+ *     ?VidMmUpdateAllocationProperty@@YAJPEAVVIDMM_GLOBAL@@PEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_UPDATEALLOCPROPERTY@@PEA_K@Z @ 0x1C0022B50 (-VidMmUpdateAllocationProperty@@YAJPEAVVIDMM_GLOBAL@@PEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_MULTI_AL.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     memset @ 0x1C001DC40 (memset.c)
- *     ?QueueDeferredCommand@VIDMM_GLOBAL@@QEAAJAEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_DEFERRED_COMMAND@@_NPEA_K@Z @ 0x1C0089010 (-QueueDeferredCommand@VIDMM_GLOBAL@@QEAAJAEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_DEFERRED_COMMAND@@_N.c)
- *     ?VerifySupportedSegmentSetAndAdjustFlags@VIDMM_GLOBAL@@IEAAEKKPEAU_DXGK_ALLOCATIONINFOFLAGS_WDDM2_0@@_K1_NPEAU_VIDMM_VERIFY_SUPPORTED_SEGMENT@@@Z @ 0x1C008E370 (-VerifySupportedSegmentSetAndAdjustFlags@VIDMM_GLOBAL@@IEAAEKKPEAU_DXGK_ALLOCATIONINFOFLAGS_WDDM.c)
- *     ?VerifyBudgetGroups@VIDMM_GLOBAL@@IEAAEKKPEAVVIDMM_SEGMENT@@PEAU_VIDMM_VERIFY_BUDGET_GROUPS@@@Z @ 0x1C008EA7C (-VerifyBudgetGroups@VIDMM_GLOBAL@@IEAAEKKPEAVVIDMM_SEGMENT@@PEAU_VIDMM_VERIFY_BUDGET_GROUPS@@@Z.c)
- *     ?GetMostPreferredSegment@VIDMM_GLOBAL@@IEAAPEAVVIDMM_SEGMENT@@KU_D3DDDI_SEGMENTPREFERENCE@@PEA_N@Z @ 0x1C00D755C (-GetMostPreferredSegment@VIDMM_GLOBAL@@IEAAPEAVVIDMM_SEGMENT@@KU_D3DDDI_SEGMENTPREFERENCE@@PEA_N.c)
- *     ?VerifyPreferredSegmentIsSubset@VIDMM_GLOBAL@@IEAAEU_D3DDDI_SEGMENTPREFERENCE@@K@Z @ 0x1C00DBCA0 (-VerifyPreferredSegmentIsSubset@VIDMM_GLOBAL@@IEAAEU_D3DDDI_SEGMENTPREFERENCE@@K@Z.c)
+ *     ?IsXBoxOneDevice@DXGADAPTER@@QEBAEXZ @ 0x1C00176A8 (-IsXBoxOneDevice@DXGADAPTER@@QEBAEXZ.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     ?QueueDeferredCommand@VIDMM_GLOBAL@@QEAAJAEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_DEFERRED_COMMAND@@_NPEA_K@Z @ 0x1C0067994 (-QueueDeferredCommand@VIDMM_GLOBAL@@QEAAJAEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_DEFERRED_COMMAND@@_N.c)
+ *     ?VerifySupportedSegmentSetAndAdjustFlags@VIDMM_GLOBAL@@IEAAEKKPEAU_DXGK_ALLOCATIONINFOFLAGS_WDDM2_0@@_K1_NPEAU_VIDMM_VERIFY_SUPPORTED_SEGMENT@@@Z @ 0x1C00863A0 (-VerifySupportedSegmentSetAndAdjustFlags@VIDMM_GLOBAL@@IEAAEKKPEAU_DXGK_ALLOCATIONINFOFLAGS_WDDM.c)
+ *     ?VerifyBudgetGroups@VIDMM_GLOBAL@@IEAAEKKPEAVVIDMM_SEGMENT@@PEAU_VIDMM_VERIFY_BUDGET_GROUPS@@@Z @ 0x1C0086880 (-VerifyBudgetGroups@VIDMM_GLOBAL@@IEAAEKKPEAVVIDMM_SEGMENT@@PEAU_VIDMM_VERIFY_BUDGET_GROUPS@@@Z.c)
+ *     ?VerifyPreferredSegmentIsSubset@VIDMM_GLOBAL@@IEAAEU_D3DDDI_SEGMENTPREFERENCE@@K@Z @ 0x1C0086F50 (-VerifyPreferredSegmentIsSubset@VIDMM_GLOBAL@@IEAAEU_D3DDDI_SEGMENTPREFERENCE@@K@Z.c)
+ *     ?GetMostPreferredSegment@VIDMM_GLOBAL@@IEAAPEAVVIDMM_SEGMENT@@KU_D3DDDI_SEGMENTPREFERENCE@@PEA_N@Z @ 0x1C00871AC (-GetMostPreferredSegment@VIDMM_GLOBAL@@IEAAPEAVVIDMM_SEGMENT@@KU_D3DDDI_SEGMENTPREFERENCE@@PEA_N.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::UpdateAllocationProperty(
@@ -19,113 +19,138 @@ __int64 __fastcall VIDMM_GLOBAL::UpdateAllocationProperty(
         struct _VIDMM_UPDATEALLOCPROPERTY *a4,
         unsigned __int64 *a5)
 {
-  unsigned int v8; // edx
-  VIDMM_GLOBAL *v9; // rcx
-  __int64 v10; // r15
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  unsigned __int64 v10; // rcx
   unsigned int v11; // r12d
-  struct _D3DDDI_SEGMENTPREFERENCE v12; // ebx
-  unsigned int v13; // esi
-  __int64 v14; // rcx
-  __int64 v16; // rcx
-  struct _DXGK_ALLOCATIONINFOFLAGS_WDDM2_0 *v17; // r9
-  bool v18; // al
-  __int64 v19; // rcx
-  char v20; // si
-  int v21; // r14d
+  __int64 v12; // r15
+  unsigned int v13; // r14d
+  struct _D3DDDI_SEGMENTPREFERENCE v14; // ebx
+  unsigned int v15; // edi
+  __int64 v16; // rax
+  __int64 v18; // rcx
+  int v19; // eax
+  struct _DXGK_ALLOCATIONINFOFLAGS_WDDM2_0 *v20; // r9
+  __int64 v21; // rcx
+  __int64 v22; // rax
+  __int64 v23; // rax
+  char v24; // di
+  int v25; // esi
+  __int64 v26; // rax
   struct VIDMM_SEGMENT *MostPreferredSegment; // rax
-  VIDMM_GLOBAL *v23; // [rsp+50h] [rbp-41h]
-  _QWORD v24[16]; // [rsp+60h] [rbp-31h] BYREF
-  int v26; // [rsp+100h] [rbp+6Fh] BYREF
-  unsigned int v27; // [rsp+108h] [rbp+77h]
+  _DWORD *v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rax
+  _QWORD v31[16]; // [rsp+40h] [rbp-31h] BYREF
+  int v33; // [rsp+E0h] [rbp+6Fh] BYREF
+  VIDMM_GLOBAL *v34; // [rsp+E8h] [rbp+77h]
 
-  memset(v24, 0, 0x50uLL);
-  v8 = (*((_DWORD *)a3 + 8) >> 2) & 0x3F;
-  v9 = (VIDMM_GLOBAL *)HIDWORD(*(_QWORD *)a4);
-  v10 = **a3;
-  *(_OWORD *)((char *)&v24[4] + 4) = *(_OWORD *)a4;
-  LODWORD(v24[0]) = 214;
-  v11 = *(_DWORD *)(v10 + 60);
-  v12.0 = *(struct _D3DDDI_SEGMENTPREFERENCE::$F972DAF4C5B61B4C701096F96A6C826A::$59FADADC9B5649AD99C3978E94186D1F *)(v10 + 64);
-  v24[2] = a3;
-  v27 = v8;
-  v23 = v9;
-  if ( (_mm_srli_si128(*(__m128i *)(v24 + 36), 8).m128i_i8[4] & 2) != 0 )
+  memset(v31, 0, 0x50uLL);
+  v10 = HIDWORD(*(_QWORD *)a4);
+  v11 = (*((_DWORD *)a3 + 8) >> 2) & 0x3F;
+  v12 = **a3;
+  *(_OWORD *)((char *)&v31[4] + 4) = *(_OWORD *)a4;
+  LODWORD(v31[0]) = 214;
+  v13 = *(_DWORD *)(v12 + 68);
+  v14.0 = *(struct _D3DDDI_SEGMENTPREFERENCE::$F972DAF4C5B61B4C701096F96A6C826A::$59FADADC9B5649AD99C3978E94186D1F *)(v12 + 72);
+  v31[2] = a3;
+  v34 = (VIDMM_GLOBAL *)v10;
+  if ( (_mm_srli_si128(*(__m128i *)(v31 + 36), 8).m128i_i8[4] & 2) != 0 )
   {
-    v13 = HIDWORD(v24[4]);
-    if ( !HIDWORD(v24[4]) )
+    v15 = HIDWORD(v31[4]);
+    if ( !HIDWORD(v31[4]) )
       goto LABEL_3;
-    v16 = *((_QWORD *)this + 5028) + 1584LL * v8;
-    if ( _bittest((const int *)&v13, (unsigned __int8)(*(_WORD *)(v16 + 28) - *(_BYTE *)(v16 + 20)))
-      || (~v11 & HIDWORD(v24[4])) != 0 && (*((_BYTE *)a3 + 28) & 8) != 0 )
-    {
+    v18 = *((_QWORD *)this + 5027) + 1584LL * v11;
+    v10 = (unsigned __int8)(*(_WORD *)(v18 + 28) - *(_BYTE *)(v18 + 20));
+    if ( _bittest((const int *)&v15, v10) || (*((_DWORD *)a3 + 7) & 8) != 0 && (~v13 & HIDWORD(v31[4])) != 0 )
       goto LABEL_3;
-    }
-    v17 = *(struct _DXGK_ALLOCATIONINFOFLAGS_WDDM2_0 **)(v10 + 528);
-    v18 = (*(_DWORD *)(v10 + 68) & 0x10000000) != 0;
-    v26 = 0;
+    v19 = *(_DWORD *)(v12 + 76);
+    v20 = *(struct _DXGK_ALLOCATIONINFOFLAGS_WDDM2_0 **)(v12 + 512);
+    v33 = 0;
     if ( !VIDMM_GLOBAL::VerifySupportedSegmentSetAndAdjustFlags(
             this,
-            v8,
-            HIDWORD(v24[4]),
-            v17,
-            *(_QWORD *)(v10 + 16),
-            *(_QWORD *)(v10 + 24),
-            v18,
-            (struct _VIDMM_VERIFY_SUPPORTED_SEGMENT *)&v26) )
+            v11,
+            HIDWORD(v31[4]),
+            v20,
+            *(_QWORD *)(v12 + 16),
+            *(_QWORD *)(v12 + 24),
+            (v19 & 0x8000000) != 0,
+            (struct _VIDMM_VERIFY_SUPPORTED_SEGMENT *)&v33) )
     {
-      WdLogSingleEntry1(1LL, 5548LL);
-      DxgkLogInternalTriageEvent(v19, 0x40000LL);
+      v22 = WdLogNewEntry5_WdAssertion(v21, v8, v9);
+      *(_QWORD *)(v22 + 24) = 5333LL;
+      WdLogEvent5_WdAssertion(v22);
       return -1073741811LL;
     }
-    BYTE4(v24[6]) = v26 & 1;
-    BYTE5(v24[6]) = (v26 & 2) != 0;
-    if ( v13 == v11 )
-      WdLogSingleEntry1(3LL, 5557LL);
-    v9 = v23;
-    v11 = v13;
-  }
-  v20 = v24[6];
-  v21 = (LODWORD(v24[6]) >> 2) & 1;
-  if ( v21 )
-  {
-    if ( (_DWORD)v9 == v12.0 )
+    BYTE4(v31[6]) = v33 & 1;
+    BYTE5(v31[6]) = (v33 & 2) != 0;
+    if ( v15 == v13 )
     {
-      WdLogSingleEntry1(3LL, 5568LL);
-      v9 = v23;
+      LOBYTE(v21) = v33 & 1;
+      v23 = WdLogNewEntry5_WdWarning(v21, v8);
+      *(_QWORD *)(v23 + 24) = 5342LL;
+      WdLogEvent5_WdWarning(v23);
     }
-    v12.0 = (struct _D3DDDI_SEGMENTPREFERENCE::$F972DAF4C5B61B4C701096F96A6C826A::$59FADADC9B5649AD99C3978E94186D1F)v9;
+    v10 = (unsigned __int64)v34;
+    v13 = v15;
   }
-  if ( (v20 & 2) != 0 || v21 )
+  v24 = v31[6];
+  v25 = (LODWORD(v31[6]) >> 2) & 1;
+  if ( v25 )
   {
-    if ( !VIDMM_GLOBAL::VerifyPreferredSegmentIsSubset(v9, v12, v11) )
+    if ( (_DWORD)v10 == v14.0 )
+    {
+      v26 = WdLogNewEntry5_WdWarning(v10, v8);
+      *(_QWORD *)(v26 + 24) = 5353LL;
+      WdLogEvent5_WdWarning(v26);
+      v10 = (unsigned __int64)v34;
+    }
+    v14.0 = (struct _D3DDDI_SEGMENTPREFERENCE::$F972DAF4C5B61B4C701096F96A6C826A::$59FADADC9B5649AD99C3978E94186D1F)v10;
+  }
+  if ( (v24 & 2) != 0 || v25 )
+  {
+    if ( !VIDMM_GLOBAL::VerifyPreferredSegmentIsSubset((VIDMM_GLOBAL *)v10, v14, v13) )
       goto LABEL_3;
-    MostPreferredSegment = VIDMM_GLOBAL::GetMostPreferredSegment(this, v27, v12, (bool *)&v26);
+    MostPreferredSegment = VIDMM_GLOBAL::GetMostPreferredSegment(this, v11, v14, (bool *)&v33);
     if ( !VIDMM_GLOBAL::VerifyBudgetGroups(
             this,
-            v27,
             v11,
+            v13,
             MostPreferredSegment,
-            (struct _VIDMM_VERIFY_BUDGET_GROUPS *)&v24[4]) )
+            (struct _VIDMM_VERIFY_BUDGET_GROUPS *)&v31[4]) )
       goto LABEL_3;
-    v20 = v24[6];
+    v24 = v31[6];
   }
-  if ( (v20 & 1) != 0 && (**(_DWORD **)(v10 + 528) & 0x8000) != 0 )
+  if ( (v24 & 1) != 0 )
   {
-    if ( (v24[5] & 0x100000000LL) == 0 )
+    v28 = *(_DWORD **)(v12 + 512);
+    v10 = *v28 & 0x8000;
+    if ( (*v28 & 0x8000) != 0 && (v31[5] & 0x100000000LL) == 0 )
+      goto LABEL_3;
+    if ( (_DWORD)v10 )
     {
-LABEL_3:
-      WdLogSingleEntry1(1LL, -1073741811LL);
-      DxgkLogInternalTriageEvent(v14, 0x40000LL);
-      return 3221225485LL;
+      v29 = WdLogNewEntry5_WdWarning(v10, v8);
+      *(_QWORD *)(v29 + 24) = 5394LL;
+      WdLogEvent5_WdWarning(v29);
     }
-    WdLogSingleEntry1(3LL, 5609LL);
   }
-  if ( (v20 & 8) != 0 )
+  if ( (v24 & 8) != 0 )
   {
-    if ( (*(_DWORD *)(*((_QWORD *)this + 3) + 436LL) & 0x200) == 0 )
-      goto LABEL_3;
-    if ( (*(_DWORD *)(v10 + 72) & 0x200000) != 0 )
-      WdLogSingleEntry1(3LL, 5626LL);
+    if ( DXGADAPTER::IsXBoxOneDevice(*((DXGADAPTER **)this + 3)) )
+    {
+      if ( (*(_DWORD *)(v12 + 80) & 0x100000) != 0 )
+      {
+        v30 = WdLogNewEntry5_WdWarning(v10, v8);
+        *(_QWORD *)(v30 + 24) = 5411LL;
+        WdLogEvent5_WdWarning(v30);
+      }
+      return VIDMM_GLOBAL::QueueDeferredCommand(this, a2, (struct _VIDMM_DEFERRED_COMMAND *)v31, 0, a5);
+    }
+LABEL_3:
+    v16 = WdLogNewEntry5_WdAssertion(v10, v8, v9);
+    *(_QWORD *)(v16 + 24) = -1073741811LL;
+    WdLogEvent5_WdAssertion(v16);
+    return 3221225485LL;
   }
-  return VIDMM_GLOBAL::QueueDeferredCommand(this, a2, (struct _VIDMM_DEFERRED_COMMAND *)v24, 0, a5);
+  return VIDMM_GLOBAL::QueueDeferredCommand(this, a2, (struct _VIDMM_DEFERRED_COMMAND *)v31, 0, a5);
 }

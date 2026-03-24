@@ -1,18 +1,18 @@
 /*
- * XREFs of IopInitActivityIdIrp @ 0x140556BE4
+ * XREFs of IopInitActivityIdIrp @ 0x140500C9C
  * Callers:
- *     IopAllocateIrpWithExtension @ 0x14020B830 (IopAllocateIrpWithExtension.c)
- *     IopAllocateIrpPrivate @ 0x1402AACD0 (IopAllocateIrpPrivate.c)
- *     IopAllocateBackpocketIrp @ 0x140556050 (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x1405562E8 (IopAllocateReserveIrp.c)
- *     IovAllocateIrp @ 0x140A7FE00 (IovAllocateIrp.c)
+ *     IopAllocateIrpWithExtension @ 0x1402ED748 (IopAllocateIrpWithExtension.c)
+ *     IopAllocateIrpPrivate @ 0x140351A70 (IopAllocateIrpPrivate.c)
+ *     IopAllocateBackpocketIrp @ 0x1405000D0 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x140500370 (IopAllocateReserveIrp.c)
+ *     IovAllocateIrp @ 0x1409C47A0 (IovAllocateIrp.c)
  * Callees:
- *     IoSetActivityIdIrp @ 0x14020C120 (IoSetActivityIdIrp.c)
- *     EtwActivityIdControl @ 0x1402DFD70 (EtwActivityIdControl.c)
- *     PnpIsSafeToExamineUserModeTeb @ 0x1402E08F8 (PnpIsSafeToExamineUserModeTeb.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     IopIsActivityTracingEventEnabled @ 0x140386368 (IopIsActivityTracingEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     EtwActivityIdControl @ 0x1402B1640 (EtwActivityIdControl.c)
+ *     PnpIsSafeToExamineUserModeTeb @ 0x1402EE838 (PnpIsSafeToExamineUserModeTeb.c)
+ *     IoSetActivityIdIrp @ 0x140379200 (IoSetActivityIdIrp.c)
+ *     IopIsActivityTracingEventEnabled @ 0x140399398 (IopIsActivityTracingEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 int __fastcall IopInitActivityIdIrp(__int64 a1)
@@ -53,9 +53,9 @@ LABEL_17:
     if ( PnpIsSafeToExamineUserModeTeb() && (*(_BYTE *)(a1 + 71) & 0x21) != 0x21 )
     {
       v10 = 0;
-      if ( KeGetPcr()->NtTib.$D930595FF9CFE8BC32A0A90C751D1401::$2ADFB250FDFF3378DEB06B8BF0B21A0F::Self )
+      if ( KeGetPcr()->NtTib.$F9435DD2D5013AD282F92902EC38D096::$F6F33802D97B27D62ECE74CBF4C4A83B::Self )
       {
-        v12 = *(__m128i *)&KeGetPcr()->NtTib.$D930595FF9CFE8BC32A0A90C751D1401::$2ADFB250FDFF3378DEB06B8BF0B21A0F::Self[105].SubSystemTib;
+        v12 = *(__m128i *)&KeGetPcr()->NtTib.$F9435DD2D5013AD282F92902EC38D096::$F6F33802D97B27D62ECE74CBF4C4A83B::Self[105].SubSystemTib;
         v10 = 1;
       }
       if ( v10 )

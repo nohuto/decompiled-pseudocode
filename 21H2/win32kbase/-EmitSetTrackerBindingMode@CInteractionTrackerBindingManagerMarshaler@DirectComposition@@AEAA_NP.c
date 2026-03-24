@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EmitSetTrackerBindingMode@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0231258
+ * XREFs of ?EmitSetTrackerBindingMode@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F1528
  * Callers:
- *     ?EmitUpdateCommands@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02313B0 (-EmitUpdateCommands@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVC.c)
+ *     ?EmitUpdateCommands@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F1680 (-EmitUpdateCommands@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVC.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
- *     ?CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0231098 (-CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@A.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00CE3DC (-CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@A.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 char __fastcall DirectComposition::CInteractionTrackerBindingManagerMarshaler::EmitSetTrackerBindingMode(
@@ -28,11 +28,11 @@ char __fastcall DirectComposition::CInteractionTrackerBindingManagerMarshaler::E
     return 1;
   v15 = 0LL;
   v4 = 0;
-  if ( !*((_QWORD *)this + 13) )
+  if ( !*((_QWORD *)this + 12) )
   {
 LABEL_10:
-    if ( *((_BYTE *)this + 72) )
-      *((_BYTE *)this + 72) = 0;
+    if ( *((_BYTE *)this + 64) )
+      *((_BYTE *)this + 64) = 0;
     DirectComposition::CInteractionTrackerBindingManagerMarshaler::CleanUpListItemsPendingDeletion(this, (*a2)[1]);
     *((_DWORD *)this + 4) &= ~0x40u;
     return 1;
@@ -40,15 +40,15 @@ LABEL_10:
   v5 = 0LL;
   while ( 1 )
   {
-    v6 = *((_QWORD *)this + 10);
-    v7 = v5 * *((_QWORD *)this + 14);
+    v6 = *((_QWORD *)this + 9);
+    v7 = v5 * *((_QWORD *)this + 13);
     v8 = *(_OWORD *)(v7 + v6);
     v14 = *(__m128i *)(v7 + v6 + 16);
     Src = v8;
     if ( !(unsigned __int8)_mm_cvtsi128_si32(_mm_srli_si128(v14, 8)) )
       goto LABEL_9;
     v9 = v14.m128i_i32[0];
-    if ( v14.m128i_i32[0] == v14.m128i_i32[1] && !*((_BYTE *)this + 72) )
+    if ( v14.m128i_i32[0] == v14.m128i_i32[1] && !*((_BYTE *)this + 64) )
       goto LABEL_9;
     if ( !DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x18uLL, &v15) )
       return 0;
@@ -58,16 +58,16 @@ LABEL_10:
     *(_DWORD *)v15 = 24;
     *(_OWORD *)(v10 + 4) = 0LL;
     *((_DWORD *)v10 + 5) = 0;
-    *((_DWORD *)v10 + 1) = 218;
-    *((_DWORD *)v10 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v10 + 1) = 228;
+    *((_DWORD *)v10 + 2) = *((_DWORD *)this + 6);
     v11 = *((_QWORD *)&Src + 1);
-    *((_DWORD *)v10 + 3) = *(_DWORD *)(Src + 32);
-    *((_DWORD *)v10 + 4) = *(_DWORD *)(v11 + 32);
+    *((_DWORD *)v10 + 3) = *(_DWORD *)(Src + 24);
+    *((_DWORD *)v10 + 4) = *(_DWORD *)(v11 + 24);
     *((_DWORD *)v10 + 5) = v9;
-    memmove((void *)(*((_QWORD *)this + 10) + v5 * *((_QWORD *)this + 14)), &Src, *((_QWORD *)this + 14));
+    memmove((void *)(*((_QWORD *)this + 9) + v5 * *((_QWORD *)this + 13)), &Src, *((_QWORD *)this + 13));
 LABEL_9:
     v5 = ++v4;
-    if ( (unsigned __int64)v4 >= *((_QWORD *)this + 13) )
+    if ( (unsigned __int64)v4 >= *((_QWORD *)this + 12) )
       goto LABEL_10;
   }
 }

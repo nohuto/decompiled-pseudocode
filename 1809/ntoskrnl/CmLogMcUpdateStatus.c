@@ -1,20 +1,20 @@
 /*
- * XREFs of CmLogMcUpdateStatus @ 0x14026C4A8
+ * XREFs of CmLogMcUpdateStatus @ 0x14026C5A8
  * Callers:
- *     HvlpLogMicrocodeUpdateStatus @ 0x1408177C4 (HvlpLogMicrocodeUpdateStatus.c)
+ *     HvlpLogMicrocodeUpdateStatus @ 0x1408177A4 (HvlpLogMicrocodeUpdateStatus.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlIntegerToChar @ 0x1405A8CF0 (RtlIntegerToChar.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     CmpInitializeRegistryNode @ 0x140732218 (CmpInitializeRegistryNode.c)
+ *     CmpInitializeRegistryNode @ 0x1407321F8 (CmpInitializeRegistryNode.c)
  */
 
 __int64 __fastcall CmLogMcUpdateStatus(ULONG Value, __int64 a2)

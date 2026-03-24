@@ -1,12 +1,12 @@
 /*
- * XREFs of ParseModeCap @ 0x1C020D024
+ * XREFs of ParseModeCap @ 0x1C018BF1C
  * Callers:
- *     ParseResolutionKeyName @ 0x1C020CF8C (ParseResolutionKeyName.c)
- *     ParseFreqRangeValue @ 0x1C03B9604 (ParseFreqRangeValue.c)
+ *     ParseResolutionKeyName @ 0x1C018BE84 (ParseResolutionKeyName.c)
+ *     ParseFreqRangeValue @ 0x1C02F5458 (ParseFreqRangeValue.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?xwtol@@YAKPEBG@Z @ 0x1C020D12C (-xwtol@@YAKPEBG@Z.c)
- *     xwcschr @ 0x1C020D15C (xwcschr.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?xwtol@@YAKPEBG@Z @ 0x1C018C024 (-xwtol@@YAKPEBG@Z.c)
+ *     xwcschr @ 0x1C018C05C (xwcschr.c)
  */
 
 char __fastcall ParseModeCap(_WORD *a1, char a2, _DWORD *a3, int *a4, _DWORD *a5, _DWORD *a6)

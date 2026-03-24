@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwGetNlsSectionPtr @ 0x1401B9FD0
+ * XREFs of ZwGetNlsSectionPtr @ 0x1401B9FF0
  * Callers:
- *     RtlpGetNormalization @ 0x14089A524 (RtlpGetNormalization.c)
+ *     RtlpGetNormalization @ 0x14089A504 (RtlpGetNormalization.c)
  * Callees:
  *     <none>
  */

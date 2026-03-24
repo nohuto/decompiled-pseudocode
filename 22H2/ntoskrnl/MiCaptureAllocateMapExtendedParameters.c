@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCaptureAllocateMapExtendedParameters @ 0x1407A3FF0
+ * XREFs of MiCaptureAllocateMapExtendedParameters @ 0x1405F9738
  * Callers:
- *     MiMapViewOfSectionExCommon @ 0x1407A3A00 (MiMapViewOfSectionExCommon.c)
- *     MmAllocateVirtualMemory @ 0x1407A3E80 (MmAllocateVirtualMemory.c)
- *     MiAllocateUserPhysicalPages @ 0x140A403C8 (MiAllocateUserPhysicalPages.c)
+ *     MmAllocateVirtualMemory @ 0x1405F94E0 (MmAllocateVirtualMemory.c)
+ *     MiMapViewOfSectionExCommon @ 0x1406FCBD8 (MiMapViewOfSectionExCommon.c)
+ *     MiAllocateUserPhysicalPages @ 0x1408D4D38 (MiAllocateUserPhysicalPages.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     memset @ 0x140435400 (memset.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiCaptureAllocateMapExtendedParameters(
-        unsigned __int64 *Address,
+        __int64 *Address,
         ULONGLONG ullMultiplicand,
         char a3,
         int a4,
@@ -30,16 +30,15 @@ __int64 __fastcall MiCaptureAllocateMapExtendedParameters(
   int v18; // ecx
   int v19; // ecx
   int v20; // ecx
-  int v21; // ecx
-  unsigned __int64 v22; // rax
-  unsigned __int64 v23; // rax
-  unsigned __int64 v24; // rax
-  __int64 v25; // rax
-  unsigned __int64 v26; // rcx
-  ULONGLONG pullResult; // [rsp+38h] [rbp-40h] BYREF
-  unsigned __int64 *v28; // [rsp+40h] [rbp-38h]
-  char *v29; // [rsp+50h] [rbp-28h]
-  unsigned __int64 v30; // [rsp+58h] [rbp-20h]
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  unsigned __int64 v24; // rcx
+  ULONGLONG pullResult; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v26; // [rsp+38h] [rbp-40h]
+  __int64 *v27; // [rsp+40h] [rbp-38h]
+  char *v28; // [rsp+50h] [rbp-28h]
+  unsigned __int64 v29; // [rsp+58h] [rbp-20h]
 
   v7 = (unsigned int)ullMultiplicand;
   pullResult = 0LL;
@@ -55,13 +54,13 @@ __int64 __fastcall MiCaptureAllocateMapExtendedParameters(
         v12 = 0;
         if ( a3 )
           ProbeForWrite(Address, pullResult, 8u);
-        v28 = Address;
+        v27 = Address;
         v13 = (char *)&Address[2 * v11];
-        v29 = v13;
-        while ( Address < (unsigned __int64 *)v13 )
+        v28 = v13;
+        while ( Address < (__int64 *)v13 )
         {
           v14 = (unsigned __int8)*(_DWORD *)Address;
-          if ( (unsigned int)(v14 - 1) > 5 || *Address >= 0x100 )
+          if ( (unsigned int)(v14 - 1) > 4 || (unsigned __int64)*Address >= 0x100 )
             return (unsigned int)-1073741811;
           v15 = 1 << v14;
           if ( ((1 << v14) & a4) == 0 )
@@ -81,23 +80,12 @@ __int64 __fastcall MiCaptureAllocateMapExtendedParameters(
                 v20 = v19 - 1;
                 if ( v20 )
                 {
-                  v21 = v20 - 1;
-                  if ( v21 )
-                  {
-                    if ( v21 != 1 )
-                      return (unsigned int)-1073741811;
-                    v23 = Address[1];
-                    if ( v23 > 0xFFFF )
-                      return (unsigned int)-1073741811;
-                    *((_WORD *)a5 + 25) = v23;
-                  }
-                  else
-                  {
-                    v22 = Address[1];
-                    a5[7] = v22;
-                    if ( (v22 & 0xFFFFFF40) != 0 )
-                      return (unsigned int)-1073741811;
-                  }
+                  if ( v20 != 1 )
+                    return (unsigned int)-1073741811;
+                  v21 = Address[1];
+                  a5[7] = v21;
+                  if ( (v21 & 0xFFFFFFFFFFFFFFC0uLL) != 0 )
+                    return (unsigned int)-1073741811;
                 }
                 else
                 {
@@ -107,37 +95,40 @@ __int64 __fastcall MiCaptureAllocateMapExtendedParameters(
               }
               else
               {
-                v24 = Address[1];
-                a5[3] = v24;
-                if ( !v24 )
+                v22 = Address[1];
+                a5[3] = v22;
+                if ( !v22 )
                   return (unsigned int)-1073741811;
               }
             }
             else
             {
-              v25 = Address[1];
-              if ( (unsigned __int64)v25 > 0xFFFFFFFF )
+              v26 = 0LL;
+              v23 = Address[1];
+              v26 = v23;
+              if ( (unsigned __int64)v23 > 0xFFFFFFFF )
               {
-                v26 = Address[1];
-                if ( v25 < 0 )
+                v24 = v23;
+                if ( v23 < 0 )
                 {
-                  v25 &= ~0x8000000000000000uLL;
-                  v26 = v25;
+                  v23 &= ~0x8000000000000000uLL;
+                  v26 = v23;
                   *((_BYTE *)a5 + 49) = 1;
+                  v24 = v23;
                 }
-                if ( v26 > 0xFFFFFFFF )
+                if ( v24 > 0xFFFFFFFF )
                   return (unsigned int)-1073741811;
               }
-              *((_DWORD *)a5 + 8) = v25;
-              if ( (_DWORD)v25 == -1 )
+              *((_DWORD *)a5 + 8) = v23;
+              if ( (_DWORD)v23 == -1 )
                 return (unsigned int)-1073741811;
-              *((_DWORD *)a5 + 8) = v25 + 1;
+              *((_DWORD *)a5 + 8) = v23 + 1;
             }
           }
           else
           {
             v17 = Address[1];
-            v30 = v17;
+            v29 = v17;
             if ( a3 )
             {
               if ( (v17 & 7) != 0 )
@@ -150,7 +141,7 @@ __int64 __fastcall MiCaptureAllocateMapExtendedParameters(
             a5[2] = *(_QWORD *)(v17 + 16);
           }
           Address += 2;
-          v28 = Address;
+          v27 = Address;
         }
         *((_DWORD *)a5 + 13) = v12;
         return 0;

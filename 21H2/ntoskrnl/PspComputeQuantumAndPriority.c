@@ -1,11 +1,11 @@
 /*
- * XREFs of PspComputeQuantumAndPriority @ 0x14079D364
+ * XREFs of PspComputeQuantumAndPriority @ 0x1406D9A54
  * Callers:
- *     PspSetProcessPriorityByClass @ 0x1402EBB00 (PspSetProcessPriorityByClass.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     PspSetProcessPriorityByClass @ 0x1402E98EC (PspSetProcessPriorityByClass.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
  * Callees:
- *     MmSetMemoryPriorityProcess @ 0x1402EC5B0 (MmSetMemoryPriorityProcess.c)
- *     PspComputeQuantum @ 0x14079D40C (PspComputeQuantum.c)
+ *     MmSetMemoryPriorityProcess @ 0x1402E9DB8 (MmSetMemoryPriorityProcess.c)
+ *     PspComputeQuantum @ 0x1406D9AFC (PspComputeQuantum.c)
  */
 
 __int64 __fastcall PspComputeQuantumAndPriority(__int64 a1, __int64 a2, _BYTE *a3, _DWORD *a4, _DWORD *a5)

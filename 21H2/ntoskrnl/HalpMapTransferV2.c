@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpMapTransferV2 @ 0x140458184
+ * XREFs of HalpMapTransferV2 @ 0x1404CC994
  * Callers:
- *     IoMapTransferInternal @ 0x140390C08 (IoMapTransferInternal.c)
+ *     IoMapTransferInternal @ 0x140388CEC (IoMapTransferInternal.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpDmaMapContiguousTransferV2 @ 0x140458E94 (HalpDmaMapContiguousTransferV2.c)
- *     HalpDmaMapScatterTransferV2 @ 0x140458FD4 (HalpDmaMapScatterTransferV2.c)
- *     HalpDmaZeroMapBuffers @ 0x140513F84 (HalpDmaZeroMapBuffers.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpDmaZeroMapBuffers @ 0x1404C88D4 (HalpDmaZeroMapBuffers.c)
+ *     HalpDmaMapContiguousTransferV2 @ 0x1404CDAAC (HalpDmaMapContiguousTransferV2.c)
+ *     HalpDmaMapScatterTransferV2 @ 0x1404CDC04 (HalpDmaMapScatterTransferV2.c)
  */
 
 __int64 __fastcall HalpMapTransferV2(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int *a5, char a6)
@@ -28,7 +28,7 @@ __int64 __fastcall HalpMapTransferV2(__int64 a1, __int64 a2, __int64 a3, __int64
   bool v21; // zf
   __int64 v22; // [rsp+40h] [rbp-20h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+48h] [rbp-18h] BYREF
-  __int64 v24; // [rsp+A0h] [rbp+40h]
+  _QWORD *v24; // [rsp+A0h] [rbp+40h]
 
   result = 0LL;
   v22 = 0LL;
@@ -36,7 +36,7 @@ __int64 __fastcall HalpMapTransferV2(__int64 a1, __int64 a2, __int64 a3, __int64
   if ( *a5 )
   {
     v11 = !a1 || *(_BYTE *)(a1 + 433);
-    v24 = *(_QWORD *)(a3 + 56);
+    v24 = *(_QWORD **)(a3 + 56);
     if ( a1 && *(_BYTE *)(a1 + 434) )
     {
       v12 = a6;

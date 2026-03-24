@@ -1,20 +1,20 @@
 /*
- * XREFs of VerifierIoInitializeRemoveLockEx @ 0x140AD3620
+ * XREFs of VerifierIoInitializeRemoveLockEx @ 0x1409D64D0
  * Callers:
  *     <none>
  * Callees:
- *     VfAvlReserveNode @ 0x14020A294 (VfAvlReserveNode.c)
- *     VfAvlCleanupLockContext @ 0x14020A374 (VfAvlCleanupLockContext.c)
- *     VfAvlInsertReservedTreeNode @ 0x14020A3CC (VfAvlInsertReservedTreeNode.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     VfAvlInitializeLockContext @ 0x140465E48 (VfAvlInitializeLockContext.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
- *     ViRemLockDeleteFirstTreeNode @ 0x140AD38CC (ViRemLockDeleteFirstTreeNode.c)
- *     ViRemLockFindSurrogate @ 0x140AD3978 (ViRemLockFindSurrogate.c)
+ *     VfAvlCleanupLockContext @ 0x140372304 (VfAvlCleanupLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x140372350 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlReserveNode @ 0x1403724D0 (VfAvlReserveNode.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     VfAvlInitializeLockContext @ 0x1405A2514 (VfAvlInitializeLockContext.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
+ *     ViRemLockDeleteFirstTreeNode @ 0x1409D6814 (ViRemLockDeleteFirstTreeNode.c)
+ *     ViRemLockFindSurrogate @ 0x1409D68C0 (ViRemLockFindSurrogate.c)
  */
 
-void __fastcall VerifierIoInitializeRemoveLockEx(
+char __fastcall VerifierIoInitializeRemoveLockEx(
         ULONG_PTR BugCheckParameter3,
         unsigned int a2,
         unsigned int a3,
@@ -27,15 +27,21 @@ void __fastcall VerifierIoInitializeRemoveLockEx(
   char *v12; // rax
   char *v13; // rbp
   void *v14; // rcx
-  __int128 v15; // [rsp+30h] [rbp-38h] BYREF
+  char result; // al
+  __int128 v16; // [rsp+30h] [rbp-38h] BYREF
 
-  v15 = 0LL;
+  v16 = 0LL;
   if ( !ViRemLockInitialized )
-    goto LABEL_14;
+    return ((__int64 (__fastcall *)(ULONG_PTR, _QWORD, _QWORD, _QWORD, unsigned int))pXdvIoInitializeRemoveLockEx)(
+             BugCheckParameter3,
+             a2,
+             a3,
+             a4,
+             a5);
   Surrogate = ViRemLockFindSurrogate();
   if ( Surrogate )
   {
-    if ( (VfRuleClasses & 0x10) != 0 )
+    if ( (MmVerifierData & 0x10) != 0 )
       VerifierBugCheckIfAppropriate(0xC4u, 0xD7uLL, Surrogate + 16, BugCheckParameter3, 0LL);
     _InterlockedAdd(&ViRemLockReusedCount, 1u);
     v10 = a5;
@@ -47,20 +53,23 @@ void __fastcall VerifierIoInitializeRemoveLockEx(
   }
   v11 = 0;
   if ( (MmVerifierData & 0x10) == 0 )
-    goto LABEL_14;
+    return ((__int64 (__fastcall *)(ULONG_PTR, _QWORD, _QWORD, _QWORD, unsigned int))pXdvIoInitializeRemoveLockEx)(
+             BugCheckParameter3,
+             a2,
+             a3,
+             a4,
+             a5);
   v12 = VfAvlReserveNode(&ViRemLockAvl, BugCheckParameter3, v10);
   v13 = v12;
   if ( !v12 )
   {
     _InterlockedExchange(&ViRemLockAllocationFailures, 1);
-LABEL_14:
-    ((void (__fastcall *)(ULONG_PTR, _QWORD, _QWORD, _QWORD, unsigned int))pXdvIoInitializeRemoveLockEx)(
-      BugCheckParameter3,
-      a2,
-      a3,
-      a4,
-      a5);
-    return;
+    return ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD))pXdvIoInitializeRemoveLockEx)(
+             BugCheckParameter3,
+             a2,
+             a3,
+             a4,
+             a5);
   }
   v14 = v12 + 16;
   if ( a5 == 120 )
@@ -72,9 +81,15 @@ LABEL_14:
     ((void (__fastcall *)(void *, _QWORD, _QWORD, _QWORD, int))pXdvIoInitializeRemoveLockEx)(v14, a2, a3, a4, 120);
     v11 = 1;
   }
-  VfAvlInitializeLockContext((__int64)&v15, 0);
-  VfAvlInsertReservedTreeNode((__int64)&ViRemLockAvl, (__int64)&v15, v13);
-  VfAvlCleanupLockContext((__int64)&v15);
+  VfAvlInitializeLockContext((__int64)&v16, 0);
+  VfAvlInsertReservedTreeNode((__int64)&ViRemLockAvl, (__int64)&v16, v13);
+  result = VfAvlCleanupLockContext((__int64)&v16);
   if ( !v11 )
-    goto LABEL_14;
+    return ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD))pXdvIoInitializeRemoveLockEx)(
+             BugCheckParameter3,
+             a2,
+             a3,
+             a4,
+             a5);
+  return result;
 }

@@ -1,10 +1,9 @@
 /*
- * XREFs of ZwFlushInstructionCache @ 0x14041D520
+ * XREFs of ZwFlushInstructionCache @ 0x1403FC0C0
  * Callers:
- *     DifZwFlushInstructionCacheWrapper @ 0x1406206D0 (DifZwFlushInstructionCacheWrapper.c)
- *     sub_1407E2434 @ 0x1407E2434 (sub_1407E2434.c)
- *     sub_140A0F4D4 @ 0x140A0F4D4 (sub_140A0F4D4.c)
- *     sub_140A0F68C @ 0x140A0F68C (sub_140A0F68C.c)
+ *     WbDecryptWarbirdEncryptionSegmentBlockV0 @ 0x1405D772C (WbDecryptWarbirdEncryptionSegmentBlockV0.c)
+ *     sub_140686D40 @ 0x140686D40 (sub_140686D40.c)
+ *     sub_140963D48 @ 0x140963D48 (sub_140963D48.c)
  * Callees:
  *     <none>
  */

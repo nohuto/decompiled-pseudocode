@@ -1,77 +1,58 @@
 /*
- * XREFs of HalpLoadMicrocode @ 0x140934BE0
+ * XREFs of HalpLoadMicrocode @ 0x140866070
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x14037858C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     KeIpiGenericCall @ 0x14039A940 (KeIpiGenericCall.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpMcGetLoadConfiguration @ 0x14051BAA4 (HalpMcGetLoadConfiguration.c)
- *     HalpMcParallelLoadSupported @ 0x14051BBFC (HalpMcParallelLoadSupported.c)
- *     HalpMcPatchConfiguration @ 0x14051BC34 (HalpMcPatchConfiguration.c)
- *     HalpMcResolveMicrocodeOperation @ 0x14051BCDC (HalpMcResolveMicrocodeOperation.c)
- *     HalpMcUpdateLock @ 0x14051BD2C (HalpMcUpdateLock.c)
- *     HalpMcUpdateUnlock @ 0x14051BD84 (HalpMcUpdateUnlock.c)
- *     HalpSetMicrocodeSelfhostFlag @ 0x14051BDD0 (HalpSetMicrocodeSelfhostFlag.c)
- *     PrExtControlOperations @ 0x1406155F8 (PrExtControlOperations.c)
- *     HalpMcUpdateInitialize @ 0x140820694 (HalpMcUpdateInitialize.c)
- *     HalpMcExportAllData @ 0x140860A80 (HalpMcExportAllData.c)
- *     HalpLoadMicrocodeSerialized @ 0x140934D88 (HalpLoadMicrocodeSerialized.c)
- *     HalpUnloadMicrocode @ 0x140934E60 (HalpUnloadMicrocode.c)
- *     PoDisableSleepStates @ 0x140984060 (PoDisableSleepStates.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
+ *     HalpMcUpdateUnlock @ 0x140382170 (HalpMcUpdateUnlock.c)
+ *     HalpMcUpdateLock @ 0x1403877E4 (HalpMcUpdateLock.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1898 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpMcUpdateMicrocode @ 0x1403A5E14 (HalpMcUpdateMicrocode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpMcUpdateInitialize @ 0x14079B080 (HalpMcUpdateInitialize.c)
+ *     HalpMcExportAllData @ 0x14079BB60 (HalpMcExportAllData.c)
+ *     HalpUnloadMicrocode @ 0x140866220 (HalpUnloadMicrocode.c)
+ *     PoDisableSleepStates @ 0x1408E3C70 (PoDisableSleepStates.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall HalpLoadMicrocode(__int64 a1, __int64 a2)
+__int64 __fastcall HalpLoadMicrocode(__int64 a1)
 {
-  bool IsMicrosoftCompatibleHvLoaded; // al
-  char v4; // r14
-  bool v5; // bp
+  bool IsMicrosoftCompatibleHvLoaded; // r15
+  _QWORD *v2; // r10
+  __int64 v3; // rdx
+  __int64 v4; // rcx
   int updated; // ebx
-  bool Supported; // di
-  __int64 v8; // rsi
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  void *v11; // rsi
-  __int64 v12; // r8
-  bool v14; // [rsp+68h] [rbp+10h] BYREF
-  unsigned int v15; // [rsp+70h] [rbp+18h] BYREF
-  __int64 v16; // [rsp+78h] [rbp+20h] BYREF
+  PVOID v6; // rdi
+  ULONG ActiveProcessorCount; // eax
+  char v8; // si
+  int *v9; // rdi
+  __int64 v10; // r14
+  unsigned int v11; // ecx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  unsigned int v16; // [rsp+20h] [rbp-30h] BYREF
+  struct _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
+  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
 
-  v15 = 0;
-  v16 = 0LL;
-  v14 = 0;
-  IsMicrosoftCompatibleHvLoaded = HalpIsMicrosoftCompatibleHvLoaded(a1, a2);
-  v4 = HalpMcUpdateSelfHosting;
-  v5 = IsMicrosoftCompatibleHvLoaded;
-  updated = HalpMcUpdateInitialize(0LL, a1);
+  v16 = 0;
+  Affinity = 0LL;
+  PreviousAffinity = 0LL;
+  IsMicrosoftCompatibleHvLoaded = HalpIsMicrosoftCompatibleHvLoaded(a1);
+  updated = HalpMcUpdateInitialize(0LL, v2);
   if ( updated < 0 )
     goto LABEL_22;
-  HalpMcResolveMicrocodeOperation(a1);
-  updated = HalpMcPatchConfiguration();
-  if ( updated < 0 )
-    goto LABEL_22;
-  HalpMcGetLoadConfiguration(&v14);
-  Supported = v14;
-  if ( v14 )
+  if ( IsMicrosoftCompatibleHvLoaded && qword_140C4A3B8 )
   {
-    Supported = HalpMcParallelLoadSupported();
-    v14 = Supported;
-  }
-  HalpSetMicrocodeSelfhostFlag(v4);
-  v8 = *(_QWORD *)(a1 + 48);
-  updated = PrExtControlOperations(8, v8, 8);
-  if ( updated < 0 )
-    goto LABEL_22;
-  if ( v5 && qword_140C62750 )
-  {
-    v11 = HalpMcExportAllData(&v15, 64LL);
-    if ( v11 )
+    v6 = HalpMcExportAllData(&v16, 0LL, NonPagedPoolNx);
+    if ( v6 )
     {
-      LOBYTE(v12) = Supported;
-      updated = ((__int64 (__fastcall *)(void *, _QWORD, __int64))qword_140C62750)(v11, v15, v12);
-      ExFreePoolWithTag(v11, 0x636C6148u);
+      updated = qword_140C4A3B8(v6, v16);
+      ExFreePoolWithTag(v6, 0x206C6148u);
     }
     else
     {
@@ -81,29 +62,47 @@ __int64 __fastcall HalpLoadMicrocode(__int64 a1, __int64 a2)
   }
   else
   {
-    updated = HalpMcUpdateLock(v10, v9);
+    updated = HalpMcUpdateLock(v4, v3);
     if ( updated < 0 )
     {
 LABEL_22:
       HalpMcUpdateInitialize(0LL, 0LL);
       return (unsigned int)updated;
     }
-    if ( Supported )
+    ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
+    v8 = 0;
+    if ( ActiveProcessorCount )
     {
-      HalpMcLoadSyncBarrier = KeQueryActiveProcessorCountEx(0xFFFFu);
-      HalpMcSyncBarrier = HalpMcLoadSyncBarrier;
-      KeIpiGenericCall((PKIPI_BROADCAST_WORKER)HalpMcLoadMicrocodeWorker, 0LL);
+      v9 = KiProcessorIndexToNumberMappingTable;
+      v10 = ActiveProcessorCount;
+      do
+      {
+        v11 = *v9;
+        Affinity.Reserved[1] = 0;
+        Affinity.Reserved[2] = 0;
+        *(_DWORD *)&Affinity.Group = (unsigned __int16)(v11 >> 6);
+        Affinity.Mask = 1LL << (v11 & 0x3F);
+        if ( v8 )
+        {
+          KeSetSystemGroupAffinityThread(&Affinity, 0LL);
+        }
+        else
+        {
+          KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
+          v8 = 1;
+        }
+        HalpMcUpdateMicrocode(v13, v12, v14);
+        ++v9;
+        --v10;
+      }
+      while ( v10 );
+      KeRevertToUserGroupAffinityThread(&PreviousAffinity);
     }
-    else
-    {
-      HalpLoadMicrocodeSerialized();
-    }
-    updated = PrExtControlOperations(9, v8, 8);
     HalpMcUpdateUnlock();
   }
   if ( updated < 0 )
     goto LABEL_22;
-  if ( v5 && !HalMcSleepDisabled )
+  if ( IsMicrosoftCompatibleHvLoaded && !HalMcSleepDisabled )
   {
     updated = PoDisableSleepStates(1LL, 14LL, &v16);
     if ( updated >= 0 )

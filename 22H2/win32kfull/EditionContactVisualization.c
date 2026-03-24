@@ -1,12 +1,12 @@
 /*
- * XREFs of EditionContactVisualization @ 0x1C014FFF0
+ * XREFs of EditionContactVisualization @ 0x1C01DAA90
  * Callers:
  *     <none>
  * Callees:
- *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01AD114 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
+ *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01D9D54 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
  */
 
-__int64 __fastcall EditionContactVisualization(unsigned int a1, void *a2, unsigned __int64 a3, int a4, unsigned int a5)
+_BOOL8 __fastcall EditionContactVisualization(unsigned int a1, char *a2, __int64 a3, int a4, unsigned int a5)
 {
   return ContactVisualizationWorker(a1, a2, a3, a4, a5);
 }

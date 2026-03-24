@@ -3,9 +3,9 @@
  * Callers:
  *     RtlCreateUserProcessEx @ 0x1409C5E8C (RtlCreateUserProcessEx.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwCreateUserProcess @ 0x1401B99D0 (ZwCreateUserProcess.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwCreateUserProcess @ 0x1401B99F0 (ZwCreateUserProcess.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall RtlpCreateUserProcess(unsigned __int16 *a1, __int64 a2, char a3, __int64 a4, int a5, char *a6)

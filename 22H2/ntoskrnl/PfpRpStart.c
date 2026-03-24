@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpRpStart @ 0x140848CA4
+ * XREFs of PfpRpStart @ 0x1407C0834
  * Callers:
- *     PfpRpInitialize @ 0x140B65750 (PfpRpInitialize.c)
+ *     PfpRpInitialize @ 0x140A6ACA4 (PfpRpInitialize.c)
  * Callees:
  *     <none>
  */

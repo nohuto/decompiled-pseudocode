@@ -1,15 +1,15 @@
 /*
- * XREFs of ??1CCD_BTL@@MEAA@XZ @ 0x1C03BC75C
+ * XREFs of ??1CCD_BTL@@MEAA@XZ @ 0x1C02ED4C8
  * Callers:
- *     ??_ECCD_BTL@@MEAAPEAXI@Z @ 0x1C006B5C0 (--_ECCD_BTL@@MEAAPEAXI@Z.c)
+ *     ??_ECCD_BTL@@MEAAPEAXI@Z @ 0x1C005DD20 (--_ECCD_BTL@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C0180EE4 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
- *     ?Purge@CDS_JOURNAL@@QEAAJXZ @ 0x1C03BF334 (-Purge@CDS_JOURNAL@@QEAAJXZ.c)
+ *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C013E924 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
+ *     ?Purge@CDS_JOURNAL@@QEAAJXZ @ 0x1C016C45C (-Purge@CDS_JOURNAL@@QEAAJXZ.c)
  */
 
 void __fastcall CCD_BTL::~CCD_BTL(CCD_BTL *this)
 {
   *(_QWORD *)this = &CCD_BTL_FULL::`vftable';
-  CDS_JOURNAL::Purge((CCD_BTL *)((char *)this + 112));
+  CDS_JOURNAL::Purge((CCD_BTL *)((char *)this + 104));
   CCD_TOPOLOGY::~CCD_TOPOLOGY((CCD_BTL *)((char *)this + 8));
 }

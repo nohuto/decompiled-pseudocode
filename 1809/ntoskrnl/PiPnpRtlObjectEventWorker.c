@@ -1,8 +1,8 @@
 /*
- * XREFs of PiPnpRtlObjectEventWorker @ 0x1406F1F40
+ * XREFs of PiPnpRtlObjectEventWorker @ 0x1406F1F20
  * Callers:
- *     PiDqIrpPropertySet @ 0x1406D58FC (PiDqIrpPropertySet.c)
- *     PiPnpRtlObjectEventCallback @ 0x1406F1F10 (PiPnpRtlObjectEventCallback.c)
+ *     PiDqIrpPropertySet @ 0x1406D58DC (PiDqIrpPropertySet.c)
+ *     PiPnpRtlObjectEventCallback @ 0x1406F1EF0 (PiPnpRtlObjectEventCallback.c)
  * Callees:
  *     RtlLookupElementGenericTableAvl @ 0x140006BF0 (RtlLookupElementGenericTableAvl.c)
  *     RtlDeleteElementGenericTableAvl @ 0x140006CA0 (RtlDeleteElementGenericTableAvl.c)
@@ -11,10 +11,10 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiPnpRtlObjectEventDispatch @ 0x140595C5C (PiPnpRtlObjectEventDispatch.c)
@@ -23,10 +23,10 @@
  *     PiPnpRtlObjectEventCreate @ 0x1405980E4 (PiPnpRtlObjectEventCreate.c)
  *     PnpAllocatePWSTR @ 0x14059A42C (PnpAllocatePWSTR.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     PiDmObjectProcessPropertyChange @ 0x1406F223C (PiDmObjectProcessPropertyChange.c)
- *     PiDqGetObjectManagerForPnpObjectType @ 0x1406F9530 (PiDqGetObjectManagerForPnpObjectType.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x1406F9750 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDqObjectManagerMakeInconsistent @ 0x14082AF08 (PiDqObjectManagerMakeInconsistent.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1406F221C (PiDmObjectProcessPropertyChange.c)
+ *     PiDqGetObjectManagerForPnpObjectType @ 0x1406F9510 (PiDqGetObjectManagerForPnpObjectType.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x1406F9730 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDqObjectManagerMakeInconsistent @ 0x14082AEE8 (PiDqObjectManagerMakeInconsistent.c)
  */
 
 void __fastcall PiPnpRtlObjectEventWorker(__int64 a1, unsigned int a2, int a3, __int64 a4, unsigned int a5)

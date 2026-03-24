@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpAcquireSpinLockExclusive @ 0x1400BC680
+ * XREFs of ExpAcquireSpinLockExclusive @ 0x1400BC6A0
  * Callers:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     MiLockSectionControlArea @ 0x140020210 (MiLockSectionControlArea.c)
@@ -9,14 +9,14 @@
  *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
  *     MiCheckPurgeAndUpMapCount @ 0x140077DD0 (MiCheckPurgeAndUpMapCount.c)
  *     MiRemoveWsleList @ 0x14007AF50 (MiRemoveWsleList.c)
- *     MiCopyOnWrite @ 0x1400B45C0 (MiCopyOnWrite.c)
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     MmDoesFileHaveUserWritableReferences @ 0x140111F00 (MmDoesFileHaveUserWritableReferences.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     MmDoesFileHaveUserWritableReferences @ 0x140111F20 (MmDoesFileHaveUserWritableReferences.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpAcquireSpinLockExclusive(volatile signed __int32 *a1, unsigned __int8 a2, __int64 a3)

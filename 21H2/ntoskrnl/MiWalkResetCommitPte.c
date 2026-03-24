@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWalkResetCommitPte @ 0x140581640
+ * XREFs of MiWalkResetCommitPte @ 0x14052CBF0
  * Callers:
  *     <none>
  * Callees:
- *     MiLockTransitionLeafPageEx @ 0x140315D60 (MiLockTransitionLeafPageEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUnlinkPageFromListEx @ 0x140326870 (MiUnlinkPageFromListEx.c)
- *     MiDiscardTransitionPteEx @ 0x1403941B0 (MiDiscardTransitionPteEx.c)
+ *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockTransitionLeafPage @ 0x140364704 (MiLockTransitionLeafPage.c)
+ *     MiDiscardTransitionPteEx @ 0x140388E94 (MiDiscardTransitionPteEx.c)
  */
 
 __int64 __fastcall MiWalkResetCommitPte(__int64 a1, ULONG_PTR a2, int a3)
@@ -16,13 +16,13 @@ __int64 __fastcall MiWalkResetCommitPte(__int64 a1, ULONG_PTR a2, int a3)
 
   if ( !a3 && (MI_READ_PTE_LOCK_FREE(a2) & 0xC01) == 0x800 )
   {
-    v5 = MiLockTransitionLeafPageEx(a2, 0LL, 0);
+    v5 = MiLockTransitionLeafPage(a2, 0LL);
     v6 = v5;
     if ( v5 )
     {
       if ( (*(_BYTE *)(v5 + 34) & 0x10) == 0 && (*(_DWORD *)(v5 + 16) & 4) == 0 && !*(_WORD *)(v5 + 32) )
       {
-        MiUnlinkPageFromListEx(v5, 0);
+        MiUnlinkPageFromList(v5, 0);
         MiDiscardTransitionPteEx(v6, 0);
         ++**(_QWORD **)(a1 + 168);
       }

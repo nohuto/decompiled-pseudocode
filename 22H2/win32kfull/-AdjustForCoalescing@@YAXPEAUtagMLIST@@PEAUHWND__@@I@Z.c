@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AdjustForCoalescing@@YAXPEAUtagMLIST@@PEAUHWND__@@I@Z @ 0x1C0115518
+ * XREFs of ?AdjustForCoalescing@@YAXPEAUtagMLIST@@PEAUHWND__@@I@Z @ 0x1C00DA678
  * Callers:
- *     _PostThreadMessageEx @ 0x1C0115548 (_PostThreadMessageEx.c)
+ *     _PostThreadMessageEx @ 0x1C00DA464 (_PostThreadMessageEx.c)
  * Callees:
- *     DelQEntry @ 0x1C01184CC (DelQEntry.c)
+ *     DelQEntry @ 0x1C00667AC (DelQEntry.c)
  */
 
 void __fastcall AdjustForCoalescing(struct tagMLIST *a1, HWND a2, int a3)
@@ -14,6 +14,6 @@ void __fastcall AdjustForCoalescing(struct tagMLIST *a1, HWND a2, int a3)
   {
     v4 = *((_QWORD *)a1 + 1);
     if ( v4 && *(_DWORD *)(v4 + 24) == a3 && *(HWND *)(v4 + 16) == a2 )
-      DelQEntry(a1, v4, 1LL);
+      DelQEntry((unsigned int **)a1, (unsigned int *)v4, 1);
   }
 }

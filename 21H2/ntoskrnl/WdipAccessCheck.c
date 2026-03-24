@@ -1,27 +1,27 @@
 /*
- * XREFs of WdipAccessCheck @ 0x14062C598
+ * XREFs of WdipAccessCheck @ 0x1405A5610
  * Callers:
- *     WdiUpdateSem @ 0x14062C578 (WdiUpdateSem.c)
+ *     WdiUpdateSem @ 0x1405A55F0 (WdiUpdateSem.c)
  * Callees:
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlLengthRequiredSid @ 0x14066A560 (RtlLengthRequiredSid.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     RtlInitializeSid @ 0x14078DDC0 (RtlInitializeSid.c)
- *     RtlAddAccessAllowedAce @ 0x14078ED30 (RtlAddAccessAllowedAce.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlLengthRequiredSid @ 0x1405DC260 (RtlLengthRequiredSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x140676BE0 (RtlAddAccessAllowedAce.c)
+ *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 WdipAccessCheck()
 {
   ACL *v0; // rbx
   ULONG v1; // eax
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v3; // rdi
   unsigned __int8 *v5; // rax
   unsigned int v6; // r14d
@@ -43,11 +43,11 @@ __int64 WdipAccessCheck()
   GenericMapping.GenericAll = 2031617;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   v1 = RtlLengthRequiredSid(6u);
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, v1, 1934181463LL);
-  v3 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v1, 0x73494457u);
+  v3 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  AccessStatus = RtlInitializeSid(Pool2, &IdentifierAuthority, 6u);
+  AccessStatus = RtlInitializeSid(PoolWithTag, &IdentifierAuthority, 6u);
   if ( AccessStatus >= 0 )
   {
     v5 = (unsigned __int8 *)SeLocalSystemSid;
@@ -58,7 +58,7 @@ __int64 WdipAccessCheck()
     v3[6] = 558674196;
     v3[7] = 1451644582;
     v6 = 4 * (*((unsigned __int8 *)v3 + 1) + *((unsigned __int8 *)SeAliasAdminsSid + 1) + v5[1]) + 108;
-    v7 = (ACL *)ExAllocatePool2(256LL, v6, 1934181463LL);
+    v7 = (ACL *)ExAllocatePoolWithTag(PagedPool, v6, 0x73494457u);
     v0 = v7;
     if ( v7 )
     {

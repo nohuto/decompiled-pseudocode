@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0018B1C
+ * XREFs of ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0015ED4
  * Callers:
- *     VidSchiSignalRegisteredSyncObjects @ 0x1C0018A54 (VidSchiSignalRegisteredSyncObjects.c)
- *     VidSchTimeoutSyncObject @ 0x1C001A0C0 (VidSchTimeoutSyncObject.c)
- *     VidSchiProcessCrossAdapterSignaledSyncObjects @ 0x1C0038B38 (VidSchiProcessCrossAdapterSignaledSyncObjects.c)
- *     VidSchDestroyPeriodicFrameNotification @ 0x1C003CE00 (VidSchDestroyPeriodicFrameNotification.c)
+ *     VidSchiSignalRegisteredSyncObjects @ 0x1C0015E0C (VidSchiSignalRegisteredSyncObjects.c)
+ *     VidSchTimeoutSyncObject @ 0x1C0016C9C (VidSchTimeoutSyncObject.c)
+ *     VidSchiProcessCrossAdapterSignaledSyncObjects @ 0x1C002FD8C (VidSchiProcessCrossAdapterSignaledSyncObjects.c)
+ *     VidSchDestroyPeriodicFrameNotification @ 0x1C0034090 (VidSchDestroyPeriodicFrameNotification.c)
  * Callees:
- *     VidSchiUnwaitMonitoredFences @ 0x1C000B960 (VidSchiUnwaitMonitoredFences.c)
- *     VidSchiPropagateCrossAdapterSignal @ 0x1C0039328 (VidSchiPropagateCrossAdapterSignal.c)
+ *     VidSchiUnwaitMonitoredFences @ 0x1C000CC70 (VidSchiUnwaitMonitoredFences.c)
+ *     VidSchiPropagateCrossAdapterSignal @ 0x1C003074C (VidSchiPropagateCrossAdapterSignal.c)
  */
 
 void __fastcall _VIDSCH_SYNC_OBJECT::SetToAlwaysSignaled(
@@ -30,13 +30,12 @@ void __fastcall _VIDSCH_SYNC_OBJECT::SetToAlwaysSignaled(
       else
         _InterlockedExchangeAdd(*((volatile signed __int32 **)this + 8), 0x3FFFFFFFu);
     }
-    VidSchiUnwaitMonitoredFences((__int64)a2, *((_QWORD *)this + 1), 0LL);
+    VidSchiUnwaitMonitoredFences(a2, *((_QWORD *)this + 1), 0LL);
     if ( *((_BYTE *)this + 27) )
     {
       if ( a3 )
       {
         v6 = *((_QWORD *)this + 26);
-        memset(&LockHandle, 0, sizeof(LockHandle));
         KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v6 + 8), &LockHandle);
         *(_BYTE *)(v6 + 48) = 1;
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);

@@ -1,37 +1,33 @@
 /*
- * XREFs of KiSendFreeze @ 0x14020D170
+ * XREFs of KiSendFreeze @ 0x14051E0C0
  * Callers:
- *     KeFreezeExecution @ 0x14020D560 (KeFreezeExecution.c)
- *     KeBugCheck2 @ 0x140568330 (KeBugCheck2.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057A84C (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KeBugCheck2 @ 0x140516A10 (KeBugCheck2.c)
+ *     KeFreezeExecution @ 0x14051D630 (KeFreezeExecution.c)
  * Callees:
- *     HalSendNMI @ 0x14020CF00 (HalSendNMI.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C0280 (KeRemoveProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402BBB30 (KeRemoveProcessorAffinityEx.c)
+ *     HalSendNMI @ 0x1404BDCC0 (HalSendNMI.c)
  */
 
 __int64 __fastcall KiSendFreeze(__int64 a1, char a2)
 {
+  int v4; // ebx
   __int64 result; // rax
-  int v5; // edi
   __int64 v6; // rcx
   signed __int32 v7; // eax
-  _QWORD v8[2]; // [rsp+20h] [rbp-38h] BYREF
+  unsigned __int16 *v8[2]; // [rsp+20h] [rbp-38h] BYREF
   __int16 v9; // [rsp+30h] [rbp-28h]
   int v10; // [rsp+32h] [rbp-26h]
   __int16 v11; // [rsp+36h] [rbp-22h]
-  unsigned int v12; // [rsp+70h] [rbp+18h] BYREF
+  int v12; // [rsp+60h] [rbp+8h] BYREF
 
   v10 = 0;
   v11 = 0;
-  v12 = 0;
-  result = (unsigned int)_InterlockedIncrement(&KiFreezeNestingLevel);
-  if ( (int)result > 1 )
-    return result;
-  v8[1] = *(_QWORD *)(a1 + 8);
-  v5 = 0;
+  v4 = 0;
   v9 = 0;
-  v8[0] = a1;
+  v12 = 0;
+  v8[1] = *(unsigned __int16 **)(a1 + 8);
+  v8[0] = (unsigned __int16 *)a1;
   while ( 1 )
   {
     result = KeEnumerateNextProcessor(&v12, v8);
@@ -51,17 +47,17 @@ __int64 __fastcall KiSendFreeze(__int64 a1, char a2)
         }
         while ( _InterlockedCompareExchange((volatile signed __int32 *)(v6 + 11656), 5, 0) );
       }
-LABEL_6:
-      ++v5;
+LABEL_7:
+      ++v4;
     }
     else
     {
       if ( !v7 )
-        goto LABEL_6;
-      KeRemoveProcessorAffinityEx(a1, v12);
+        goto LABEL_7;
+      KeRemoveProcessorAffinityEx((unsigned __int16 *)a1, v12);
     }
   }
-  if ( v5 )
+  if ( v4 )
     return HalSendNMI(a1);
   return result;
 }

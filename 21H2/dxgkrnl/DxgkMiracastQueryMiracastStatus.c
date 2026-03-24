@@ -1,33 +1,38 @@
 /*
- * XREFs of DxgkMiracastQueryMiracastStatus @ 0x1C038E8A8
+ * XREFs of DxgkMiracastQueryMiracastStatus @ 0x1C02CF958
  * Callers:
- *     DxgkNetDispQueryMiracastDisplayDeviceStatus @ 0x1C02D2A60 (DxgkNetDispQueryMiracastDisplayDeviceStatus.c)
+ *     DxgkNetDispQueryMiracastDisplayDeviceStatus @ 0x1C0224600 (DxgkNetDispQueryMiracastDisplayDeviceStatus.c)
  * Callees:
- *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C0061CB0 (DpiMiracastReleaseMiracastDeviceContext.c)
- *     DpiMiracastGetDeviceContextFromName @ 0x1C038D29C (DpiMiracastGetDeviceContextFromName.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C0054050 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastGetDeviceContextFromName @ 0x1C02CE1CC (DpiMiracastGetDeviceContextFromName.c)
  */
 
 __int64 __fastcall DxgkMiracastQueryMiracastStatus(const WCHAR *a1, _DWORD *a2, _DWORD *a3)
 {
   __int64 DeviceContextFromName; // rax
-  __int64 v6; // rdi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rdi
+  __int64 v9; // rax
   __int64 result; // rax
 
   DeviceContextFromName = DpiMiracastGetDeviceContextFromName(a1);
-  v6 = DeviceContextFromName;
+  v8 = DeviceContextFromName;
   if ( DeviceContextFromName )
   {
     ExEnterCriticalRegionAndAcquireFastMutexUnsafe(DeviceContextFromName + 32);
-    *a2 = *(_DWORD *)(v6 + 408);
-    *a3 = *(_DWORD *)(v6 + 416);
-    *(_QWORD *)(v6 + 88) = 0LL;
-    ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(v6 + 32);
-    DpiMiracastReleaseMiracastDeviceContext((int *)v6, v6);
+    *a2 = *(_DWORD *)(v8 + 408);
+    *a3 = *(_DWORD *)(v8 + 416);
+    *(_QWORD *)(v8 + 88) = 0LL;
+    ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(v8 + 32);
+    DpiMiracastReleaseMiracastDeviceContext((int *)v8, v8);
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, -2147483642LL);
+    v9 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v9 + 24) = -2147483642LL;
+    WdLogEvent5_WdError(v9);
     result = 3221226021LL;
     *a3 = -2147483642;
   }

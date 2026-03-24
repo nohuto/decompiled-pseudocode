@@ -1,29 +1,32 @@
 /*
- * XREFs of AcquireCriticalSectionAndCheckState @ 0x1C006A120
+ * XREFs of AcquireCriticalSectionAndCheckState @ 0x1C00B46E0
  * Callers:
- *     AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C006A150 (AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList.c)
+ *     AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C00B4680 (AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList.c)
  * Callees:
- *     UserSessionSwitchLeaveCrit @ 0x1C0029D70 (UserSessionSwitchLeaveCrit.c)
- *     UserRemoteConnectedSessionUsingXddm @ 0x1C006F4B0 (UserRemoteConnectedSessionUsingXddm.c)
- *     UserSessionSwitchEnterCrit @ 0x1C00B8A10 (UserSessionSwitchEnterCrit.c)
+ *     UserRemoteConnectedSessionUsingXddm @ 0x1C001D190 (UserRemoteConnectedSessionUsingXddm.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0036190 (UserSessionSwitchLeaveCrit.c)
+ *     UserSessionSwitchEnterCrit @ 0x1C0087230 (UserSessionSwitchEnterCrit.c)
  */
 
-__int64 AcquireCriticalSectionAndCheckState()
+__int64 __fastcall AcquireCriticalSectionAndCheckState(__int64 a1)
 {
   __int64 result; // rax
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // r9
+  int v2; // ebx
 
-  result = UserSessionSwitchEnterCrit();
+  result = UserSessionSwitchEnterCrit(a1);
+  v2 = result;
   if ( (int)result >= 0 )
   {
-    result = UserRemoteConnectedSessionUsingXddm();
-    if ( (_DWORD)result )
+    if ( (unsigned int)UserRemoteConnectedSessionUsingXddm() )
+      v2 = -1071774240;
+    if ( v2 < 0 )
     {
-      UserSessionSwitchLeaveCrit(v2, v1, v3, v4);
-      return 3223193056LL;
+      UserSessionSwitchLeaveCrit();
+      return (unsigned int)v2;
+    }
+    else
+    {
+      return 0LL;
     }
   }
   return result;

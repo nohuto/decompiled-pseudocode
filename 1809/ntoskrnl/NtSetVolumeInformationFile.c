@@ -1,28 +1,28 @@
 /*
- * XREFs of NtSetVolumeInformationFile @ 0x1406FF290
+ * XREFs of NtSetVolumeInformationFile @ 0x1406FF270
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     IopReferenceFileObject @ 0x14008C7EC (IopReferenceFileObject.c)
  *     IopVerifierExAllocatePoolWithQuota @ 0x14008C8C0 (IopVerifierExAllocatePoolWithQuota.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B70 (IoGetRelatedDeviceObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     IopAllocateIrpExReturn @ 0x1400B92C0 (IopAllocateIrpExReturn.c)
- *     IopAcquireFastLock_0 @ 0x1400DD9B4 (IopAcquireFastLock_0.c)
- *     IopVerifierExAllocatePool_1 @ 0x1400DD9F0 (IopVerifierExAllocatePool_1.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
+ *     IopAcquireFastLock_0 @ 0x1400DD9D4 (IopAcquireFastLock_0.c)
+ *     IopVerifierExAllocatePool_1 @ 0x1400DDA10 (IopVerifierExAllocatePool_1.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     IoGetRelatedTargetDevice @ 0x1405A2CA4 (IoGetRelatedTargetDevice.c)
  *     IopAcquireFileObjectLock @ 0x1405A3480 (IopAcquireFileObjectLock.c)
  *     IopSynchronousServiceTail @ 0x14063B620 (IopSynchronousServiceTail.c)
- *     IopSynchronousApiServiceTail @ 0x14065E93C (IopSynchronousApiServiceTail.c)
- *     IoReportTargetDeviceChange @ 0x1406FF660 (IoReportTargetDeviceChange.c)
- *     IopAllocateIrpCleanup @ 0x1408193D4 (IopAllocateIrpCleanup.c)
- *     IopExceptionCleanup @ 0x140819B48 (IopExceptionCleanup.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     IopSynchronousApiServiceTail @ 0x14065E91C (IopSynchronousApiServiceTail.c)
+ *     IoReportTargetDeviceChange @ 0x1406FF640 (IoReportTargetDeviceChange.c)
+ *     IopAllocateIrpCleanup @ 0x1408193B4 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanup @ 0x140819B28 (IopExceptionCleanup.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtSetVolumeInformationFile(

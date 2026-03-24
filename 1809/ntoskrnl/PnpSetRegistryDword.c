@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpSetRegistryDword @ 0x14072D1F0
+ * XREFs of PnpSetRegistryDword @ 0x14072D1D0
  * Callers:
- *     IoReportDetectedDevice @ 0x14072D240 (IoReportDetectedDevice.c)
+ *     IoReportDetectedDevice @ 0x14072D220 (IoReportDetectedDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
  */
 
 NTSTATUS __fastcall PnpSetRegistryDword(HANDLE KeyHandle, const WCHAR *a2)

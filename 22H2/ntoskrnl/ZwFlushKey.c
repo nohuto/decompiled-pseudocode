@@ -1,13 +1,12 @@
 /*
- * XREFs of ZwFlushKey @ 0x14041C4A0
+ * XREFs of ZwFlushKey @ 0x1403FB760
  * Callers:
- *     VfClearVerifierSettings @ 0x1405CDEAC (VfClearVerifierSettings.c)
- *     DifZwFlushKeyWrapper @ 0x1405F0750 (DifZwFlushKeyWrapper.c)
- *     ExpRecordShutdownTime @ 0x1406061B8 (ExpRecordShutdownTime.c)
- *     CmpInterlockedFunction @ 0x14080ED54 (CmpInterlockedFunction.c)
- *     SepAuditFailed @ 0x1409D1CF0 (SepAuditFailed.c)
- *     BcdFlushStore @ 0x140A5C298 (BcdFlushStore.c)
- *     PopFlushVolumes @ 0x140AA65A8 (PopFlushVolumes.c)
+ *     VfClearVerifierSettings @ 0x1405A0220 (VfClearVerifierSettings.c)
+ *     ExpRecordShutdownTime @ 0x1405B247C (ExpRecordShutdownTime.c)
+ *     BcdFlushStore @ 0x14077A194 (BcdFlushStore.c)
+ *     CmpInterlockedFunction @ 0x1407AAEE0 (CmpInterlockedFunction.c)
+ *     SepAuditFailed @ 0x140925950 (SepAuditFailed.c)
+ *     PopFlushVolumes @ 0x140997CDC (PopFlushVolumes.c)
  * Callees:
  *     <none>
  */

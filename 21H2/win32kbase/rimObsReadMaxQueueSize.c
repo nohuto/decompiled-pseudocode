@@ -1,9 +1,9 @@
 /*
- * XREFs of rimObsReadMaxQueueSize @ 0x1C01B553C
+ * XREFs of rimObsReadMaxQueueSize @ 0x1C017EEE0
  * Callers:
- *     RawInputManagerInputObserverObjectCreate @ 0x1C019A090 (RawInputManagerInputObserverObjectCreate.c)
+ *     RawInputManagerInputObserverObjectCreate @ 0x1C01662B0 (RawInputManagerInputObserverObjectCreate.c)
  * Callees:
- *     RIMRegQueryDWord @ 0x1C00D5034 (RIMRegQueryDWord.c)
+ *     RIMRegQueryDWord @ 0x1C006C598 (RIMRegQueryDWord.c)
  */
 
 __int64 rimObsReadMaxQueueSize()

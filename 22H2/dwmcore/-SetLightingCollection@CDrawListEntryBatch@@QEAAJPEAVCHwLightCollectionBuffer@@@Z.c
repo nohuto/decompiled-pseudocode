@@ -1,78 +1,82 @@
 /*
- * XREFs of ?SetLightingCollection@CDrawListEntryBatch@@QEAAJPEAVCHwLightCollectionBuffer@@@Z @ 0x180085B20
+ * XREFs of ?SetLightingCollection@CDrawListEntryBatch@@QEAAJPEAVCHwLightCollectionBuffer@@@Z @ 0x18007A6B4
  * Callers:
- *     ?Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z @ 0x180084C60 (-Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z.c)
- *     ?EnsureDrawListBatch@CD2DContext@@IEAAJPEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z @ 0x18008C5D0 (-EnsureDrawListBatch@CD2DContext@@IEAAJPEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z.c)
+ *     ?Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@@Z @ 0x180078970 (-Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@.c)
+ *     ?EnsureDrawListBatch@CD2DContext@@IEAAJPEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z @ 0x18007A618 (-EnsureDrawListBatch@CD2DContext@@IEAAJPEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z.c)
  * Callees:
- *     ?AddStateSettingCommand@CBatchOptimizer@@QEAAX$$QEAV?$unique_ptr@VCBatchCommand@@U?$default_delete@VCBatchCommand@@@std@@@std@@@Z @ 0x18000D7E0 (-AddStateSettingCommand@CBatchOptimizer@@QEAAX$$QEAV-$unique_ptr@VCBatchCommand@@U-$default_dele.c)
- *     ?AddBatchCommand@CDrawListBatchManager@@QEAAJ$$QEAV?$unique_ptr@VCBatchCommand@@U?$default_delete@VCBatchCommand@@@std@@@std@@@Z @ 0x18000DED0 (-AddBatchCommand@CDrawListBatchManager@@QEAAJ$$QEAV-$unique_ptr@VCBatchCommand@@U-$default_delet.c)
- *     ??$TakeItemFromCache@VCBatchCommand@@@CDrawListBatchManager@@CAJPEAV?$ShrinkableArray@PEAVCBatchCommand@@U?$UniqueLifetime@PEAVCBatchCommand@@@@@@PEAPEAVCBatchCommand@@@Z @ 0x18008E97C (--$TakeItemFromCache@VCBatchCommand@@@CDrawListBatchManager@@CAJPEAV-$ShrinkableArray@PEAVCBatch.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??0?$com_ptr_t@VCHwLightCollectionBuffer@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCHwLightCollectionBuffer@@@Z @ 0x1800E5120 (--0-$com_ptr_t@VCHwLightCollectionBuffer@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCHwLightCol.c)
- *     ??_GCBatchCommand@@QEAAPEAXI@Z @ 0x1801FF258 (--_GCBatchCommand@@QEAAPEAXI@Z.c)
+ *     ?AddStateSettingDrawListEntry@CBatchOptimizer@@QEAAXPEAVCStateSettingDrawListEntry@@@Z @ 0x180012070 (-AddStateSettingDrawListEntry@CBatchOptimizer@@QEAAXPEAVCStateSettingDrawListEntry@@@Z.c)
+ *     ??$TakeItemFromCache@VCStateSettingDrawListEntry@@@CDrawListBatchManager@@CAJPEAV?$ShrinkableReferenceArray@PEAVCStateSettingDrawListEntry@@@@PEAPEAVCStateSettingDrawListEntry@@@Z @ 0x1800131DC (--$TakeItemFromCache@VCStateSettingDrawListEntry@@@CDrawListBatchManager@@CAJPEAV-$ShrinkableRef.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?BatchDrawListEntry@CDrawListBatchManager@@QEAAJPEAVCBaseDrawListEntry@@@Z @ 0x1801AA6EC (-BatchDrawListEntry@CDrawListBatchManager@@QEAAJPEAVCBaseDrawListEntry@@@Z.c)
  */
 
 __int64 __fastcall CDrawListEntryBatch::SetLightingCollection(
-        struct CHwLightCollectionBuffer **this,
+        CDrawListEntryBatch *this,
         struct CHwLightCollectionBuffer *a2)
 {
-  int v2; // ebx
-  struct CHwLightCollectionBuffer *v6; // rcx
-  CBatchCommand *v7; // rcx
-  CBatchCommand *v8; // rcx
-  struct CHwLightCollectionBuffer *v9; // rax
-  CBatchOptimizer *v10; // rcx
-  unsigned int v11; // edx
-  int v12; // eax
-  unsigned int v13; // ecx
-  unsigned int v14[2]; // [rsp+38h] [rbp-18h] BYREF
-  char v15; // [rsp+40h] [rbp-10h]
-  CBatchCommand *v16; // [rsp+60h] [rbp+10h] BYREF
+  unsigned int v2; // edi
+  __int64 v6; // rcx
+  int v7; // eax
+  __int64 v8; // rcx
+  struct CStateSettingDrawListEntry *v9; // rbx
+  __int64 v10; // r14
+  __int64 v11; // r8
+  CBatchOptimizer *v12; // rcx
+  CDrawListEntry *v13; // rcx
+  int v14; // eax
+  __int64 v15; // rcx
+  CDrawListEntry *v16; // [rsp+50h] [rbp+8h] BYREF
 
   v2 = 0;
-  if ( a2 == this[5] )
-    return (unsigned int)v2;
-  ++dword_1803E59DC;
-  v6 = this[3];
-  v16 = 0LL;
-  *(_QWORD *)v14 = 0LL;
-  v15 = 1;
-  v2 = CDrawListBatchManager::TakeItemFromCache<CBatchCommand>((char *)v6 + 64, v14);
-  if ( v15 )
+  if ( a2 != *((struct CHwLightCollectionBuffer **)this + 5) )
   {
-    v7 = v16;
-    v16 = *(CBatchCommand **)v14;
-    if ( v7 )
-      CBatchCommand::`scalar deleting destructor'(v7, v14[0]);
-  }
-  if ( v2 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v7, 0LL, 0, v2, 0xC5u, 0LL);
-  }
-  else
-  {
-    v8 = v16;
-    *(_DWORD *)v16 = 2;
-    wil::com_ptr_t<CHwLightCollectionBuffer,wil::err_returncode_policy>::com_ptr_t<CHwLightCollectionBuffer,wil::err_returncode_policy>(
-      (char *)v8 + 8,
-      a2);
-    v9 = this[3];
-    v10 = (CBatchOptimizer *)*((_QWORD *)v9 + 20);
-    if ( v10 )
+    ++dword_18034726C;
+    v6 = *((_QWORD *)this + 3);
+    v16 = 0LL;
+    v7 = CDrawListBatchManager::TakeItemFromCache<CStateSettingDrawListEntry>(v6 + 64, &v16);
+    v2 = v7;
+    if ( v7 < 0 )
     {
-      CBatchOptimizer::AddStateSettingCommand(v10, &v16);
-LABEL_9:
-      this[5] = a2;
-      goto LABEL_10;
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xC6u, 0LL);
+      v13 = v16;
+      if ( !v16 )
+        return v2;
+      goto LABEL_13;
     }
-    v12 = CDrawListBatchManager::AddBatchCommand((__int64)v9 + 24, (__int64 *)&v16);
-    v2 = v12;
-    if ( v12 >= 0 )
-      goto LABEL_9;
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0xCFu, 0LL);
+    v9 = v16;
+    v10 = *((_QWORD *)v16 + 4);
+    *((_QWORD *)v16 + 4) = a2;
+    if ( a2 )
+      (**(void (__fastcall ***)(struct CHwLightCollectionBuffer *))a2)(a2);
+    if ( v10 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 8LL))(v10);
+    v11 = *((_QWORD *)this + 3);
+    v12 = *(CBatchOptimizer **)(v11 + 200);
+    if ( v12 )
+    {
+      CBatchOptimizer::AddStateSettingDrawListEntry(v12, v9);
+    }
+    else
+    {
+      v14 = CDrawListBatchManager::BatchDrawListEntry(
+              (CDrawListBatchManager *)(v11 + 24),
+              (struct CBaseDrawListEntry *)(((unsigned __int64)v9 + 16) & ((unsigned __int128)-(__int128)(unsigned __int64)v9 >> 64)));
+      v2 = v14;
+      if ( v14 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0xD0u, 0LL);
+        goto LABEL_11;
+      }
+    }
+    *((_QWORD *)this + 5) = a2;
+LABEL_11:
+    if ( !v9 )
+      return v2;
+    v13 = v9;
+LABEL_13:
+    CDrawListEntry::Release(v13);
   }
-LABEL_10:
-  if ( v16 )
-    CBatchCommand::`scalar deleting destructor'(v16, v11);
-  return (unsigned int)v2;
+  return v2;
 }

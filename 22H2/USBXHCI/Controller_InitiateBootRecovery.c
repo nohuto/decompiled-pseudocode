@@ -1,10 +1,10 @@
 /*
- * XREFs of Controller_InitiateBootRecovery @ 0x1C0033800
+ * XREFs of Controller_InitiateBootRecovery @ 0x1C0031EF0
  * Callers:
- *     Controller_ReportFatalErrorEx @ 0x1C001EBDC (Controller_ReportFatalErrorEx.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Controller_InternalReset @ 0x1C0033C04 (Controller_InternalReset.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_InternalReset @ 0x1C00322D8 (Controller_InternalReset.c)
  */
 
 void __fastcall Controller_InitiateBootRecovery(_QWORD *a1, char a2)
@@ -18,12 +18,12 @@ void __fastcall Controller_InitiateBootRecovery(_QWORD *a1, char a2)
   }
   if ( (a2 & 1) != 0 )
   {
-    _InterlockedIncrement(&dword_1C0064E00);
+    _InterlockedIncrement(&dword_1C0061BF0);
     Controller_InternalReset();
-    _InterlockedDecrement(&dword_1C0064E00);
+    _InterlockedDecrement(&dword_1C0061BF0);
   }
   else if ( (a2 & 2) != 0 )
   {
-    ((void (__fastcall *)(__int64, _QWORD))qword_1C00647F0)(UcxDriverGlobals, a1[1]);
+    ((void (__fastcall *)(__int64, _QWORD))qword_1C0061790)(UcxDriverGlobals, a1[1]);
   }
 }

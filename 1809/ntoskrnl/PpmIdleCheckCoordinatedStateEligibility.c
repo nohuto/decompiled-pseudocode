@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmIdleCheckCoordinatedStateEligibility @ 0x1402D4594
+ * XREFs of PpmIdleCheckCoordinatedStateEligibility @ 0x1402D4694
  * Callers:
- *     PpmIdleSelectStates @ 0x140180070 (PpmIdleSelectStates.c)
- *     PpmIdleCheckCoordinatedDependency @ 0x1402D42C4 (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleSelectStates @ 0x140180090 (PpmIdleSelectStates.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x1402D43C4 (PpmIdleCheckCoordinatedDependency.c)
  * Callees:
- *     KeAndAffinityEx @ 0x1400DC6E0 (KeAndAffinityEx.c)
- *     KeIsEqualAffinityEx @ 0x14018A2D0 (KeIsEqualAffinityEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PpmCheckIdleVeto @ 0x1402D3B54 (PpmCheckIdleVeto.c)
- *     PpmIdleCheckCoordinatedDependencies @ 0x1402D4164 (PpmIdleCheckCoordinatedDependencies.c)
- *     PpmIdleRollbackCoordinatedSelection @ 0x1402D4F64 (PpmIdleRollbackCoordinatedSelection.c)
- *     PpmIdleWaitForDependentTransitions @ 0x1402D539C (PpmIdleWaitForDependentTransitions.c)
+ *     KeAndAffinityEx @ 0x1400DC700 (KeAndAffinityEx.c)
+ *     KeIsEqualAffinityEx @ 0x14018A2F0 (KeIsEqualAffinityEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PpmCheckIdleVeto @ 0x1402D3C54 (PpmCheckIdleVeto.c)
+ *     PpmIdleCheckCoordinatedDependencies @ 0x1402D4264 (PpmIdleCheckCoordinatedDependencies.c)
+ *     PpmIdleRollbackCoordinatedSelection @ 0x1402D5064 (PpmIdleRollbackCoordinatedSelection.c)
+ *     PpmIdleWaitForDependentTransitions @ 0x1402D549C (PpmIdleWaitForDependentTransitions.c)
  */
 
 __int64 __fastcall PpmIdleCheckCoordinatedStateEligibility(

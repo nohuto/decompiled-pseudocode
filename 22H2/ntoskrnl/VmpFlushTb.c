@@ -1,12 +1,12 @@
 /*
- * XREFs of VmpFlushTb @ 0x1404664CA
+ * XREFs of VmpFlushTb @ 0x1405A3554
  * Callers:
- *     VmFlushTb @ 0x140465E8C (VmFlushTb.c)
+ *     VmFlushTb @ 0x1405A268C (VmFlushTb.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     VmpProcessContextLockExclusive @ 0x1404666BE (VmpProcessContextLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpFlushTbVaRange @ 0x1405F92A0 (VmpFlushTbVaRange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpFlushTbVaRange @ 0x1405A36F0 (VmpFlushTbVaRange.c)
+ *     VmpProcessContextLockExclusive @ 0x1405A489C (VmpProcessContextLockExclusive.c)
  */
 
 __int64 __fastcall VmpFlushTb(PEX_SPIN_LOCK SpinLock, unsigned int a2, unsigned __int64 *a3)
@@ -77,17 +77,20 @@ __int64 __fastcall VmpFlushTb(PEX_SPIN_LOCK SpinLock, unsigned int a2, unsigned 
     ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        LOBYTE(v3) = v19;
-        v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v19 + 1));
-        v15 = (v14 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v14;
-        if ( v15 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+          v15 = (v14 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v14;
+          if ( v15 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          LOBYTE(v3) = v19;
+        }
       }
     }
     result = (unsigned __int8)v3;

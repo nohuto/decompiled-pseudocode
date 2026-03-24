@@ -1,8 +1,8 @@
 /*
  * XREFs of MiWalkVaRange @ 0x140093C90
  * Callers:
- *     MiResetVirtualMemory @ 0x140132AB4 (MiResetVirtualMemory.c)
- *     MiProcessVaRangesInfoClass @ 0x1406BCC58 (MiProcessVaRangesInfoClass.c)
+ *     MiResetVirtualMemory @ 0x140132AD4 (MiResetVirtualMemory.c)
+ *     MiProcessVaRangesInfoClass @ 0x1406BCC38 (MiProcessVaRangesInfoClass.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)
@@ -17,14 +17,14 @@
  *     MiGetNextPageTable @ 0x140084240 (MiGetNextPageTable.c)
  *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiCopyOnWrite @ 0x1400B45C0 (MiCopyOnWrite.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiMakeProtoLeafValid @ 0x14012734C (MiMakeProtoLeafValid.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C70 (MI_PROTO_FORMAT_COMBINED.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiCopyOnWriteCheckConditions @ 0x1402CB11C (MiCopyOnWriteCheckConditions.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiMakeProtoLeafValid @ 0x14012736C (MiMakeProtoLeafValid.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1402CB21C (MiCopyOnWriteCheckConditions.c)
  */
 
 __int64 __fastcall MiWalkVaRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, __int64 a5)

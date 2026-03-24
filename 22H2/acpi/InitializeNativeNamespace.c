@@ -1,12 +1,12 @@
 /*
- * XREFs of InitializeNativeNamespace @ 0x1C0049FF4
+ * XREFs of InitializeNativeNamespace @ 0x1C0023AF0
  * Callers:
- *     AMLIInitialize @ 0x1C00AAAC0 (AMLIInitialize.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
  * Callees:
- *     CreateNativeNameSpaceObject @ 0x1C0049D58 (CreateNativeNameSpaceObject.c)
- *     InsertOwnerObjList @ 0x1C004BE10 (InsertOwnerObjList.c)
- *     NewObjOwner @ 0x1C004C344 (NewObjOwner.c)
- *     NewNameSpaceObject @ 0x1C004FE10 (NewNameSpaceObject.c)
+ *     CreateNativeNameSpaceObject @ 0x1C0022FC4 (CreateNativeNameSpaceObject.c)
+ *     NewObjOwner @ 0x1C0023628 (NewObjOwner.c)
+ *     NewNameSpaceObject @ 0x1C002BD38 (NewNameSpaceObject.c)
+ *     InsertOwnerObjList @ 0x1C002D368 (InsertOwnerObjList.c)
  */
 
 __int64 InitializeNativeNamespace()
@@ -23,7 +23,7 @@ __int64 InitializeNativeNamespace()
   __int64 v10; // [rsp+50h] [rbp+8h] BYREF
 
   v10 = 0LL;
-  LODWORD(v0) = NewObjOwner(gpheapGlobal, &gpNativeNameSpaceOwner);
+  LODWORD(v0) = NewObjOwner((struct _SLIST_ENTRY *)gpheapGlobal, (struct _EX_RUNDOWN_REF **)&gpNativeNameSpaceOwner);
   if ( (int)v0 >= 0 )
   {
     v1 = NewNameSpaceObject(gpheapGlobal);
@@ -36,7 +36,7 @@ __int64 InitializeNativeNamespace()
       v4 = 0LL;
       do
       {
-        v5 = CreateNativeNameSpaceObject(v0, apszDefinedRootObjs[v4], 0LL, v2, v7, v8, v9, &v10);
+        v5 = CreateNativeNameSpaceObject(v0, (&apszDefinedRootObjs)[v4], 0LL, v2, v7, v8, v9, &v10);
         v0 = (unsigned int)v5;
         if ( v5 < 0 )
           break;

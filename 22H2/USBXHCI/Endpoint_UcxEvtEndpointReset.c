@@ -1,13 +1,13 @@
 /*
- * XREFs of Endpoint_UcxEvtEndpointReset @ 0x1C003C730
+ * XREFs of Endpoint_UcxEvtEndpointReset @ 0x1C003A5C0
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     WPP_RECORDER_SF_ddqd @ 0x1C003D7E0 (WPP_RECORDER_SF_ddqd.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     WPP_RECORDER_SF_ddqd @ 0x1C003B4AC (WPP_RECORDER_SF_ddqd.c)
  */
 
 void __fastcall Endpoint_UcxEvtEndpointReset(__int64 a1, __int64 a2, __int64 a3)
@@ -28,8 +28,8 @@ void __fastcall Endpoint_UcxEvtEndpointReset(__int64 a1, __int64 a2, __int64 a3)
   v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a2,
-         off_1C00631A8);
-  if ( *(_DWORD *)(v5 + 1360) == 2 )
+         off_1C00601A8);
+  if ( *(_DWORD *)(v5 + 1352) == 2 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v4, v6, v7);
@@ -51,7 +51,7 @@ LABEL_15:
   v11 = (__int64 *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                      WdfDriverGlobals,
                      a3,
-                     off_1C0063090);
+                     off_1C0060090);
   memset(v11, 0, 0x70uLL);
   _m_prefetchw((const void *)(v5 + 32));
   v14 = *(_DWORD *)(v5 + 32);
@@ -72,7 +72,7 @@ LABEL_15:
     goto LABEL_15;
   }
   *v11 = v5;
-  *(_QWORD *)(v5 + 280) = a3;
-  *(_DWORD *)(v5 + 288) = 259;
-  ESM_AddEvent((KSPIN_LOCK *)(v5 + 296), 23);
+  *(_QWORD *)(v5 + 272) = a3;
+  *(_DWORD *)(v5 + 280) = 259;
+  ESM_AddEvent((KSPIN_LOCK *)(v5 + 288), 23);
 }

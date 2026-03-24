@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpRpCHashAddEntries @ 0x1407D9124
+ * XREFs of PfpRpCHashAddEntries @ 0x1406DCEF4
  * Callers:
- *     PfpRpControlRequestUpdate @ 0x1406ADBC8 (PfpRpControlRequestUpdate.c)
+ *     PfpRpControlRequestUpdate @ 0x1406DCD5C (PfpRpControlRequestUpdate.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     PfpRpCHashGrow @ 0x140988980 (PfpRpCHashGrow.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     PfpRpCHashGrow @ 0x1407B1C38 (PfpRpCHashGrow.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpCHashAddEntries(
@@ -87,7 +87,7 @@ __int64 __fastcall PfpRpCHashAddEntries(
       v21 = 0LL;
       v22 = (__int64 *)(*(_QWORD *)a2 + (v20 << v18));
       if ( !*v22 )
-        goto LABEL_25;
+        goto LABEL_21;
       v23 = *v22;
       do
       {
@@ -108,18 +108,18 @@ __int64 __fastcall PfpRpCHashAddEntries(
       while ( *v22 );
       v5 = a5;
       if ( !v24 )
-        goto LABEL_25;
-LABEL_16:
+        goto LABEL_21;
+LABEL_14:
       v10 = (__int64 *)((char *)v10 + v9);
       if ( (unsigned __int64)v10 >= v8 )
         goto LABEL_4;
       v6 = a1;
     }
     v22 = 0LL;
-LABEL_25:
+LABEL_21:
     memmove(v22, v10, v9);
     ++*(_DWORD *)(a2 + 16);
-    goto LABEL_16;
+    goto LABEL_14;
   }
 LABEL_4:
   if ( v5 )

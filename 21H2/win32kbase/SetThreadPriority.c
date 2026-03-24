@@ -1,30 +1,27 @@
 /*
- * XREFs of SetThreadPriority @ 0x1C00546A0
+ * XREFs of SetThreadPriority @ 0x1C009DE20
  * Callers:
  *     <none>
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     ?_CalledOnInputThread@CInputThreadBase@@IEBA_NXZ @ 0x1C0037D24 (-_CalledOnInputThread@CInputThreadBase@@IEBA_NXZ.c)
- *     SetThreadBasePriority @ 0x1C0054860 (SetThreadBasePriority.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     ?_CalledOnInputThread@CInputThread@@AEBA_NXZ @ 0x1C0042200 (-_CalledOnInputThread@CInputThread@@AEBA_NXZ.c)
+ *     SetThreadBasePriority @ 0x1C009DF40 (SetThreadBasePriority.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void SetThreadPriority()
 {
-  CInputThreadBase *v0; // rdi
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
+  CInputThread *v0; // rbx
 
   v0 = gpInputThread;
-  RIMLockExclusive((__int64)gpInputThread + 8);
-  if ( *((_DWORD *)v0 + 6) == 1 )
+  RIMLockExclusive((__int64)gpInputThread);
+  if ( *((_DWORD *)v0 + 4) == 1 )
   {
-    if ( CInputThreadBase::_CalledOnInputThread(v0) )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v2, v1, v3);
-    SetThreadBasePriority(**((PETHREAD **)v0 + 4));
+    if ( CInputThread::_CalledOnInputThread(v0) )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 181LL);
+    SetThreadBasePriority(**((PETHREAD **)v0 + 3));
   }
-  *((_QWORD *)v0 + 2) = 0LL;
-  ExReleasePushLockExclusiveEx((char *)v0 + 8, 0LL);
+  *((_QWORD *)v0 + 1) = 0LL;
+  ExReleasePushLockExclusiveEx(v0, 0LL);
   KeLeaveCriticalRegion();
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwReadVirtualMemory @ 0x14041BF40
+ * XREFs of ZwReadVirtualMemory @ 0x1403FAB80
  * Callers:
- *     MmCopyMemory @ 0x14026BBB0 (MmCopyMemory.c)
+ *     MmCopyMemory @ 0x1402B48E0 (MmCopyMemory.c)
  * Callees:
  *     <none>
  */

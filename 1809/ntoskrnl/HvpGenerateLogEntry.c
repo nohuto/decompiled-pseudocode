@@ -4,9 +4,9 @@
  *     HvStoreModifiedData @ 0x1405A7438 (HvStoreModifiedData.c)
  * Callees:
  *     RtlNumberOfSetBits @ 0x14000F440 (RtlNumberOfSetBits.c)
- *     SymCryptMarvin32 @ 0x1401AF024 (SymCryptMarvin32.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     SymCryptMarvin32 @ 0x1401AF044 (SymCryptMarvin32.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     HvpHeaderCheckSum @ 0x1405A64F0 (HvpHeaderCheckSum.c)
  *     HvpFindNextDirtyBlock @ 0x1405A7B38 (HvpFindNextDirtyBlock.c)

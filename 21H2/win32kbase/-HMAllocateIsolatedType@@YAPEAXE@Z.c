@@ -1,13 +1,13 @@
 /*
- * XREFs of ?HMAllocateIsolatedType@@YAPEAXE@Z @ 0x1C0030E00
+ * XREFs of ?HMAllocateIsolatedType@@YAPEAXE@Z @ 0x1C0028380
  * Callers:
- *     HMAllocObjectEx @ 0x1C002D20C (HMAllocObjectEx.c)
- *     ?HMAllocateUserOrIsolatedType@@YAPEAX_KGE@Z @ 0x1C00307E4 (-HMAllocateUserOrIsolatedType@@YAPEAX_KGE@Z.c)
+ *     ?HMAllocateUserOrIsolatedType@@YAPEAX_KGE@Z @ 0x1C0027D98 (-HMAllocateUserOrIsolatedType@@YAPEAX_KGE@Z.c)
+ *     HMAllocObject @ 0x1C0032C10 (HMAllocObject.c)
  * Callees:
- *     ?HMTagToIsolatedType@@YA?AW4UserTypeIsolationCountedType@@E@Z @ 0x1C0030E74 (-HMTagToIsolatedType@@YA-AW4UserTypeIsolationCountedType@@E@Z.c)
- *     ?Allocate@?$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C008C910 (-Allocate@-$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAPEAXXZ.c)
- *     ?Allocate@?$CTypeIsolation@$0BEAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C0097740 (-Allocate@-$CTypeIsolation@$0BEAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ.c)
- *     ?Allocate@?$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C009A610 (-Allocate@-$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ *     ?HMTagToIsolatedType@@YA?AW4UserTypeIsolationCountedType@@E@Z @ 0x1C00283F4 (-HMTagToIsolatedType@@YA-AW4UserTypeIsolationCountedType@@E@Z.c)
+ *     ?Allocate@?$CTypeIsolation@$0BEAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C01131B0 (-Allocate@-$CTypeIsolation@$0BEAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ *     ?Allocate@?$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C01132D4 (-Allocate@-$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ *     ?Allocate@?$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C01133F8 (-Allocate@-$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ.c)
  */
 
 void *__fastcall HMAllocateIsolatedType()

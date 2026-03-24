@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpRemoveKeyControlBlock @ 0x1409154C4
+ * XREFs of CmpRemoveKeyControlBlock @ 0x14086F138
  * Callers:
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
  * Callees:
- *     CmpRemoveKeyHash @ 0x14067EAE0 (CmpRemoveKeyHash.c)
+ *     CmpRemoveKeyHash @ 0x14066C8A0 (CmpRemoveKeyHash.c)
  */
 
 __int64 __fastcall CmpRemoveKeyControlBlock(__int64 a1)

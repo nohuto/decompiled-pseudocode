@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAdjustTokenClaimsAndDeviceGroups @ 0x1401B8EF0
+ * XREFs of ZwAdjustTokenClaimsAndDeviceGroups @ 0x1401B8F10
  * Callers:
  *     <none>
  * Callees:

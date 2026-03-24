@@ -1,15 +1,12 @@
 /*
- * XREFs of WdtpArmTimer @ 0x14031D894
+ * XREFs of WdtpArmTimer @ 0x1403488F0
  * Callers:
- *     WdtpTimerCallback @ 0x140674200 (WdtpTimerCallback.c)
- *     PnpWatchdogTimerStart @ 0x140785B20 (PnpWatchdogTimerStart.c)
+ *     PnpEnableWatchdog @ 0x1406F0344 (PnpEnableWatchdog.c)
  * Callees:
- *     ExSetTimer @ 0x14031DC10 (ExSetTimer.c)
+ *     ExSetTimer @ 0x140349080 (ExSetTimer.c)
  */
 
-__int64 __fastcall WdtpArmTimer(__int64 a1, int a2)
+__int64 __fastcall WdtpArmTimer(__int64 a1)
 {
-  *(_QWORD *)(a1 + 120) = MEMORY[0xFFFFF78000000008];
-  *(_DWORD *)(a1 + 128) = a2;
-  return ExSetTimer(*(_QWORD *)(a1 + 48));
+  return ExSetTimer(*(_QWORD *)(a1 + 56));
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of CiLookupTask @ 0x1C000B3D0
+ * XREFs of CiLookupTask @ 0x1C000B060
  * Callers:
- *     CiDispatchCreateTaskIndexClient @ 0x1C000A240 (CiDispatchCreateTaskIndexClient.c)
- *     CiDispatchCreateMmThreadClient @ 0x1C000AD60 (CiDispatchCreateMmThreadClient.c)
+ *     CiDispatchCreateTaskIndexClient @ 0x1C000A580 (CiDispatchCreateTaskIndexClient.c)
+ *     CiDispatchCreateMmThreadClient @ 0x1C000AA00 (CiDispatchCreateMmThreadClient.c)
  * Callees:
- *     WPP_SF_Sd @ 0x1C00046D8 (WPP_SF_Sd.c)
- *     CiTaskLocate @ 0x1C000B450 (CiTaskLocate.c)
+ *     WPP_SF_Sd @ 0x1C0004428 (WPP_SF_Sd.c)
+ *     CiTaskLocate @ 0x1C000B0E0 (CiTaskLocate.c)
  */
 
 __int64 __fastcall CiLookupTask(wchar_t *a1, wchar_t *a2, __int64 a3, char a4, _QWORD *a5)
@@ -22,7 +22,7 @@ __int64 __fastcall CiLookupTask(wchar_t *a1, wchar_t *a2, __int64 a3, char a4, _
       WPP_SF_Sd(
         (__int64)WPP_GLOBAL_Control->AttachedDevice,
         0xBu,
-        (__int64)&WPP_0f75fd9923be30bc1807a9ff104f69db_Traceguids,
+        (__int64)&WPP_f2567f649f8e330a8ddb4ba7f0878bc2_Traceguids,
         v7,
         v8);
   }

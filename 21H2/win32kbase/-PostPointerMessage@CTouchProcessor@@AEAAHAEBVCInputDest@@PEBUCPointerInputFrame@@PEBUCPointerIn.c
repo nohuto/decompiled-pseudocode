@@ -1,23 +1,22 @@
 /*
- * XREFs of ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C01D012C
+ * XREFs of ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C019892C
  * Callers:
- *     ?GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInputDest@@@Z @ 0x1C01C6D20 (-GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInp.c)
+ *     ?GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInputDest@@@Z @ 0x1C018FC3C (-GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInp.c)
  * Callees:
- *     CheckAccess @ 0x1C002FAE0 (CheckAccess.c)
- *     HMValidateHandleNoSecure @ 0x1C0033980 (HMValidateHandleNoSecure.c)
- *     ?GetQueue@CInputDest@@QEBAPEAXW4QType@1@@Z @ 0x1C00341E0 (-GetQueue@CInputDest@@QEBAPEAXW4QType@1@@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?GetExecutionEnvironment@CBaseProcessor@@KA?AW4_ProcessorExecutionEnvironment@@XZ @ 0x1C003B4E4 (-GetExecutionEnvironment@CBaseProcessor@@KA-AW4_ProcessorExecutionEnvironment@@XZ.c)
- *     ?GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C003C340 (-GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ.c)
- *     EtwTraceUIPIInputError @ 0x1C003D190 (EtwTraceUIPIInputError.c)
- *     ApiSetEditionIsGpqForegroundAccessibleExplicit @ 0x1C003EB54 (ApiSetEditionIsGpqForegroundAccessibleExplicit.c)
- *     ApiSetEditionPostInputMessage @ 0x1C0041768 (ApiSetEditionPostInputMessage.c)
- *     GetPointerInputSource @ 0x1C00E9110 (GetPointerInputSource.c)
- *     ?DropInput@Pointer@InputTraceLogging@@SAXPEBUCPointerInputFrame@@PEBUtagPOINTEREVENTINT@@W4DropReason@12@@Z @ 0x1C01C53AC (-DropInput@Pointer@InputTraceLogging@@SAXPEBUCPointerInputFrame@@PEBUtagPOINTEREVENTINT@@W4DropR.c)
- *     flagString @ 0x1C01DA508 (flagString.c)
- *     messageString @ 0x1C01DA5FC (messageString.c)
- *     WPP_RECORDER_AND_TRACE_SF_LsHHsLLLL @ 0x1C01DAC3C (WPP_RECORDER_AND_TRACE_SF_LsHHsLLLL.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     CheckAccess @ 0x1C0042F70 (CheckAccess.c)
+ *     ?GetQueue@CInputDest@@QEBAPEAXW4QType@1@@Z @ 0x1C00444AC (-GetQueue@CInputDest@@QEBAPEAXW4QType@1@@Z.c)
+ *     ?GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C004450C (-GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ.c)
+ *     HMValidateHandleNoSecure @ 0x1C00454C0 (HMValidateHandleNoSecure.c)
+ *     ApiSetEditionPostInputMessage @ 0x1C0047EAC (ApiSetEditionPostInputMessage.c)
+ *     EtwTraceUIPIInputError @ 0x1C004B150 (EtwTraceUIPIInputError.c)
+ *     ApiSetEditionIsGpqForegroundAccessibleExplicit @ 0x1C004D8C4 (ApiSetEditionIsGpqForegroundAccessibleExplicit.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?DropInput@Pointer@InputTraceLogging@@SAXPEBUCPointerInputFrame@@PEBUtagPOINTEREVENTINT@@W4DropReason@12@@Z @ 0x1C018E068 (-DropInput@Pointer@InputTraceLogging@@SAXPEBUCPointerInputFrame@@PEBUtagPOINTEREVENTINT@@W4DropR.c)
+ *     flagString @ 0x1C01A1110 (flagString.c)
+ *     messageString @ 0x1C01A1210 (messageString.c)
+ *     WPP_RECORDER_SF_LsHHsLLLL @ 0x1C01A188C (WPP_RECORDER_SF_LsHHsLLLL.c)
+ *     GetPointerInputSource @ 0x1C01B1520 (GetPointerInputSource.c)
  */
 
 __int64 __fastcall CTouchProcessor::PostPointerMessage(
@@ -28,157 +27,85 @@ __int64 __fastcall CTouchProcessor::PostPointerMessage(
         unsigned __int64 a5,
         unsigned int a6,
         unsigned int a7,
-        int a8,
-        int a9)
+        unsigned int a8,
+        unsigned int a9)
 {
-  unsigned int v10; // r15d
-  __int64 Queue; // rbp
-  char v13; // r12
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  struct tagTHREADINFO *ThreadInfo; // rdi
-  __int64 v20; // r8
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  __int64 v23; // rbx
-  __int64 v24; // r8
-  __int64 v25; // r8
-  __int64 v26; // rcx
-  int v27; // edx
-  unsigned int v28; // ebp
-  int v29; // r14d
-  char v30; // al
-  __int64 v31; // rax
-  __int64 v32; // r8
-  int v33; // r8d
-  int v34; // edx
-  __int64 v35; // rdx
-  bool v36; // cf
-  unsigned int v37; // esi
-  int v38; // r8d
-  int v39; // edx
-  int v41; // [rsp+98h] [rbp-70h]
-  __int64 v42; // [rsp+A0h] [rbp-68h] BYREF
-  __int128 v43; // [rsp+A8h] [rbp-60h] BYREF
-  __int64 v44; // [rsp+B8h] [rbp-50h]
-  char v45; // [rsp+110h] [rbp+8h]
-  int v46; // [rsp+118h] [rbp+10h]
-  bool v47; // [rsp+128h] [rbp+20h]
+  unsigned int v11; // edi
+  __int64 Queue; // r13
+  struct tagTHREADINFO *ThreadInfo; // r14
+  __int64 v15; // rbx
+  int v16; // edx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  int v19; // r14d
+  __int64 v20; // rax
+  int v21; // eax
+  int v22; // edx
+  int v23; // ecx
+  int v24; // r9d
+  bool v25; // cf
+  int v26; // edx
+  unsigned int v27; // ebx
+  __int64 v29; // [rsp+30h] [rbp-98h]
+  __int64 v30; // [rsp+70h] [rbp-58h] BYREF
+  __int128 v31; // [rsp+78h] [rbp-50h] BYREF
+  __int64 v32; // [rsp+88h] [rbp-40h]
+  int v33; // [rsp+D8h] [rbp+10h]
 
-  v46 = (int)a2;
-  v10 = 0;
-  v42 = 0LL;
-  Queue = CInputDest::GetQueue((__int64)a2, 0, (__int64)a3);
-  v13 = 1;
+  v33 = (int)a2;
+  v11 = 0;
+  v30 = 0LL;
+  Queue = CInputDest::GetQueue(a2, 0);
   if ( !Queue )
-    goto LABEL_24;
-  if ( (unsigned int)CBaseProcessor::GetExecutionEnvironment() != 1 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v15, v14, v16);
+    goto LABEL_19;
+  if ( *((_DWORD *)this + 2) != 1 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9624);
   ThreadInfo = CInputDest::GetThreadInfo(a2);
   if ( !ThreadInfo )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v18, v17, v20);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9627);
   if ( !a8 || (*(_DWORD *)a4 & 0x800) != 0 || a9 )
-    goto LABEL_24;
-  v23 = HMValidateHandleNoSecure(*((_QWORD *)a4 + 23), 19);
-  if ( !v23 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v22, v21, v24);
-  if ( CheckAccess((unsigned int *)(*(_QWORD *)(v23 + 472) + 944LL), (unsigned int *)(Queue + 424))
-    || (v26 = *(_QWORD *)(*(_QWORD *)(v23 + 384) + 88LL)) != 0
-    && (*(_DWORD *)(v26 + 820) & 0x30) == 0x10
-    && (v25 = *((_QWORD *)ThreadInfo + 53), v26 == v25)
-    && (unsigned int)ApiSetEditionIsGpqForegroundAccessibleExplicit(a8, (__int64)ThreadInfo, *(_QWORD *)(v25 + 880), 0) )
+    goto LABEL_19;
+  v15 = HMValidateHandleNoSecure(*((_QWORD *)a4 + 23), 19);
+  if ( !v15 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9638);
+  if ( CheckAccess((unsigned int *)(*(_QWORD *)(v15 + 480) + 896LL), (unsigned int *)(Queue + 428))
+    || (v17 = *(_QWORD *)(*(_QWORD *)(v15 + 384) + 88LL)) != 0
+    && (*(_DWORD *)(v17 + 820) & 0x30) == 0x10
+    && (v18 = *((_QWORD *)ThreadInfo + 53), v17 == v18)
+    && (unsigned int)ApiSetEditionIsGpqForegroundAccessibleExplicit(a8, (__int64)ThreadInfo, *(_QWORD *)(v18 + 880), 0) )
   {
-LABEL_24:
-    v28 = a6;
-    v29 = *((unsigned __int16 *)a4 + 86);
-    v41 = v29;
+LABEL_19:
+    v19 = *((unsigned __int16 *)a4 + 86);
     if ( a6 != 595 )
+      v19 |= (*((_WORD *)a4 + 90) & 0xE1F7) << 16;
+    GetPointerInputSource(*((unsigned int *)a4 + 42), a8, a9, &v30);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v29 |= (*((_WORD *)a4 + 90) & 0xE1F7) << 16;
-      v41 = v29;
+      v20 = flagString(HIWORD(v19));
+      v21 = messageString(a6, v20);
+      WPP_RECORDER_SF_LsHHsLLLL(v23, v22, v21, v24);
     }
-    GetPointerInputSource(*((_DWORD *)a4 + 42), a8, a9, &v42);
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-      || (v30 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+    v25 = *((_DWORD *)a4 + 78) != 0;
+    v32 = 0LL;
+    v29 = *((_QWORD *)a4 + 31);
+    v31 = 0LL;
+    v27 = ApiSetEditionPostInputMessage(v33, 0, a6, v19, a5, a7, v29, 0LL, v25 ? 8 : 0, &v30, (__int64)&v31);
+    if ( v27 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v30 = 0;
+      LOBYTE(v26) = 4;
+      WPP_RECORDER_SF_((_DWORD)gBaseLog, v26, 7, 276, (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
     }
-    v45 = v30;
-    v47 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( v30 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      v31 = flagString(HIWORD(v29));
-      messageString(a6, a6, v32, v31);
-      LOBYTE(v33) = v47;
-      LOBYTE(v34) = v45;
-      WPP_RECORDER_AND_TRACE_SF_LsHHsLLLL(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v34,
-        v33,
-        WPP_MAIN_CB.Queue.ListEntry.Flink);
-      v29 = v41;
-      v28 = a6;
-    }
-    v35 = *((_QWORD *)a4 + 31);
-    v36 = *((_DWORD *)a4 + 78) != 0;
-    v44 = 0LL;
-    v43 = 0LL;
-    v37 = ApiSetEditionPostInputMessage(v46, 0LL, v28, v29, a5, a7, v35, 0LL, v36 ? 8 : 0, &v42, (__int64)&v43);
-    if ( v37 )
-    {
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-      {
-        v13 = 0;
-      }
-      if ( v13 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        v39 = 274;
-        LOBYTE(v39) = v13;
-        LOBYTE(v38) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v39,
-          v38,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          4,
-          7,
-          274,
-          (__int64)&WPP_d3dee7beffef3928cf2f9a2bdffe19dc_Traceguids);
-      }
-    }
-    return v37;
+    return v27;
   }
   else
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-      || BYTE1(WPP_GLOBAL_Control->Timer) < 3u )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v13 = 0;
-    }
-    if ( v13 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      v27 = 272;
-      LOBYTE(v27) = v13;
-      LOBYTE(v25) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v27,
-        v25,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        3,
-        7,
-        272,
-        (__int64)&WPP_d3dee7beffef3928cf2f9a2bdffe19dc_Traceguids);
+      LOBYTE(v16) = 3;
+      WPP_RECORDER_SF_((_DWORD)gBaseLog, v16, 7, 274, (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
     }
     InputTraceLogging::Pointer::DropInput();
-    EtwTraceUIPIInputError(gptiCurrent, ThreadInfo, Queue, *(_QWORD *)(Queue + 424), 8);
+    EtwTraceUIPIInputError(gptiCurrent, ThreadInfo, Queue, *(_QWORD *)(Queue + 428), 8);
   }
-  return v10;
+  return v11;
 }

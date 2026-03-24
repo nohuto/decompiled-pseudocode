@@ -1,238 +1,232 @@
 /*
- * XREFs of PiDevCfgQueryDriverConfiguration @ 0x140744E30
+ * XREFs of PiDevCfgQueryDriverConfiguration @ 0x14076BE54
  * Callers:
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1407455A8 (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     PiDevCfgConfigureDevice @ 0x1407702BC (PiDevCfgConfigureDevice.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14094AA64 (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgRequestDriverConfigurations @ 0x14094D7E8 (PiDevCfgRequestDriverConfigurations.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x14094ED84 (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x14076C27C (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1408A4F1C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgRequestDriverConfigurations @ 0x1408A7E6C (PiDevCfgRequestDriverConfigurations.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x1408AA8EC (PpDevCfgProcessDeviceExtensions.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PiDevCfgVerifyService @ 0x14067996C (PiDevCfgVerifyService.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlStringFromGUIDEx @ 0x1407454A8 (RtlStringFromGUIDEx.c)
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1407455A8 (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     PiDevCfgBuildDriverConfigurationId @ 0x140746B5C (PiDevCfgBuildDriverConfigurationId.c)
- *     PiDevCfgQueryObjectProperties @ 0x140746CCC (PiDevCfgQueryObjectProperties.c)
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
+ *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14073CE44 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x14073D468 (PiDevCfgBuildDriverConfigurationId.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x14076C27C (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgVerifyService @ 0x14077BC80 (PiDevCfgVerifyService.c)
  */
 
 __int64 __fastcall PiDevCfgQueryDriverConfiguration(__int64 a1)
 {
   int v1; // eax
-  int ObjectProperties; // ebx
-  __int64 v4; // rbx
+  int ObjectProperties; // edi
+  const WCHAR *v4; // rdi
   int RegistryValues; // eax
   const WCHAR *v6; // rcx
   const WCHAR *v7; // rsi
   const WCHAR *v8; // rsi
-  __int64 v9; // r9
+  void *v9; // r9
   __int64 v10; // rdx
-  __int64 v11; // r8
-  char v12; // al
+  char v11; // al
+  int v13; // eax
   __int64 v14; // rax
-  int v15; // eax
-  __int64 v16; // rax
-  __int64 v17; // [rsp+38h] [rbp-D0h] BYREF
+  __int64 v15; // rax
+  __int64 v16; // [rsp+38h] [rbp-D0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C8h] BYREF
-  _QWORD v19[56]; // [rsp+58h] [rbp-B0h] BYREF
+  _QWORD v18[56]; // [rsp+58h] [rbp-B0h] BYREF
 
   v1 = *(_DWORD *)(a1 + 184);
-  LOWORD(v17) = 0;
+  LOWORD(v16) = 0;
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
   if ( (v1 & 0x20) != 0 )
   {
-    v4 = *(_QWORD *)(a1 + 32);
+    v4 = *(const WCHAR **)(a1 + 32);
   }
   else
   {
-    ObjectProperties = PiDevCfgBuildDriverConfigurationId(a1, a1 + 392);
+    ObjectProperties = PiDevCfgBuildDriverConfigurationId(a1, (UNICODE_STRING *)(a1 + 392));
     if ( ObjectProperties < 0 )
-      goto LABEL_43;
+      goto LABEL_41;
     if ( !*(_QWORD *)(a1 + 24) )
-      goto LABEL_52;
-    v4 = *(_QWORD *)(a1 + 32);
+    {
+LABEL_42:
+      ObjectProperties = -1073740653;
+      goto LABEL_41;
+    }
+    v4 = *(const WCHAR **)(a1 + 32);
   }
   if ( !v4 )
-    goto LABEL_52;
-  memset(v19, 0, sizeof(v19));
-  LODWORD(v19[4]) = 0x1000000;
-  LODWORD(v19[11]) = 117440512;
-  LODWORD(v19[1]) = 288;
-  LODWORD(v19[18]) = 117440512;
-  v19[2] = L"Service";
-  LODWORD(v19[25]) = 0x4000000;
-  LODWORD(v19[8]) = 304;
-  v19[9] = L"LowerFilters";
-  LODWORD(v19[15]) = 304;
-  v19[16] = L"UpperFilters";
-  LODWORD(v19[32]) = 117440512;
-  v19[23] = L"ConfigFlags";
-  LODWORD(v19[29]) = 304;
-  v19[24] = a1 + 384;
-  LODWORD(v19[39]) = 117440512;
-  v19[30] = L"IncludedInfs";
-  LODWORD(v19[36]) = 304;
-  v19[37] = L"IncludedConfigs";
-  LODWORD(v19[46]) = 0x4000000;
-  v19[44] = L"Reboot";
-  LODWORD(v19[43]) = 288;
-  v19[45] = a1 + 388;
-  v19[3] = a1 + 288;
-  v19[10] = a1 + 304;
-  v19[17] = a1 + 320;
-  LODWORD(v19[22]) = 292;
-  v19[31] = a1 + 336;
-  v19[38] = a1 + 352;
-  RegistryValues = RtlpQueryRegistryValues(3221225472LL, v4, v19, 0LL);
+    goto LABEL_42;
+  memset(v18, 0, sizeof(v18));
+  LODWORD(v18[4]) = 0x1000000;
+  LODWORD(v18[11]) = 117440512;
+  LODWORD(v18[1]) = 288;
+  LODWORD(v18[18]) = 117440512;
+  v18[2] = L"Service";
+  LODWORD(v18[25]) = 0x4000000;
+  LODWORD(v18[8]) = 304;
+  v18[9] = L"LowerFilters";
+  LODWORD(v18[15]) = 304;
+  v18[16] = L"UpperFilters";
+  LODWORD(v18[32]) = 117440512;
+  v18[23] = L"ConfigFlags";
+  LODWORD(v18[29]) = 304;
+  v18[24] = a1 + 384;
+  LODWORD(v18[39]) = 117440512;
+  v18[30] = L"IncludedInfs";
+  LODWORD(v18[36]) = 304;
+  v18[37] = L"IncludedConfigs";
+  LODWORD(v18[46]) = 0x4000000;
+  v18[44] = L"Reboot";
+  LODWORD(v18[43]) = 288;
+  v18[45] = a1 + 388;
+  v18[3] = a1 + 288;
+  v18[10] = a1 + 304;
+  v18[17] = a1 + 320;
+  LODWORD(v18[22]) = 292;
+  v18[31] = a1 + 336;
+  v18[38] = a1 + 352;
+  RegistryValues = RtlpQueryRegistryValues(3221225472LL, v4, (__int64)v18, 0LL);
   ObjectProperties = RegistryValues;
   if ( RegistryValues == -1073741772 )
-    goto LABEL_52;
+    goto LABEL_42;
   if ( RegistryValues < 0 )
-    goto LABEL_43;
+    goto LABEL_41;
   if ( *(_WORD *)(a1 + 304) <= 2u && *(_QWORD *)(a1 + 312) )
-    RtlFreeUnicodeString((PUNICODE_STRING)(a1 + 304));
+    RtlFreeAnsiString((PUNICODE_STRING)(a1 + 304));
   if ( *(_WORD *)(a1 + 320) <= 2u && *(_QWORD *)(a1 + 328) )
-    RtlFreeUnicodeString((PUNICODE_STRING)(a1 + 320));
+    RtlFreeAnsiString((PUNICODE_STRING)(a1 + 320));
   if ( *(_WORD *)(a1 + 336) <= 2u && *(_QWORD *)(a1 + 344) )
-    RtlFreeUnicodeString((PUNICODE_STRING)(a1 + 336));
+    RtlFreeAnsiString((PUNICODE_STRING)(a1 + 336));
   if ( *(_WORD *)(a1 + 352) <= 2u && *(_QWORD *)(a1 + 360) )
-    RtlFreeUnicodeString((PUNICODE_STRING)(a1 + 352));
+    RtlFreeAnsiString((PUNICODE_STRING)(a1 + 352));
   if ( (*(_DWORD *)(a1 + 184) & 0x20) != 0 )
   {
-    v15 = *(_DWORD *)(a1 + 104);
-    if ( (v15 & 4) == 0 && *(_QWORD *)(a1 + 296) )
+    v13 = *(_DWORD *)(a1 + 104);
+    if ( (v13 & 4) == 0 && *(_QWORD *)(a1 + 296) )
     {
-      RtlFreeUnicodeString((PUNICODE_STRING)(a1 + 288));
-      v15 = *(_DWORD *)(a1 + 104);
+      RtlFreeAnsiString((PUNICODE_STRING)(a1 + 288));
+      v13 = *(_DWORD *)(a1 + 104);
     }
-    if ( (v15 & 2) == 0 )
+    if ( (v13 & 2) == 0 )
     {
       if ( *(_QWORD *)(a1 + 312) )
-        RtlFreeUnicodeString((PUNICODE_STRING)(a1 + 304));
+        RtlFreeAnsiString((PUNICODE_STRING)(a1 + 304));
       if ( *(_QWORD *)(a1 + 328) )
-        RtlFreeUnicodeString((PUNICODE_STRING)(a1 + 320));
+        RtlFreeAnsiString((PUNICODE_STRING)(a1 + 320));
     }
   }
   v6 = *(const WCHAR **)(a1 + 296);
-  if ( v6 && *(_WORD *)(a1 + 288) )
+  if ( v6 )
   {
-    ObjectProperties = PiDevCfgVerifyService(v6, (bool *)&v17 + 1, (_DWORD *)(a1 + 408));
-    if ( ObjectProperties >= 0 )
+    if ( *(_WORD *)(a1 + 288) )
     {
-      if ( BYTE1(v17) )
-        *(_DWORD *)(a1 + 184) |= 0x10u;
-      goto LABEL_26;
-    }
-LABEL_52:
-    ObjectProperties = -1073740653;
-    goto LABEL_43;
-  }
-LABEL_26:
-  v7 = *(const WCHAR **)(a1 + 312);
-  if ( v7 )
-  {
-    if ( *v7 )
-    {
-      while ( 1 )
-      {
-        ObjectProperties = PiDevCfgVerifyService(v7, 0LL, 0LL);
-        if ( ObjectProperties < 0 )
-          goto LABEL_52;
-        v14 = -1LL;
-        do
-          ++v14;
-        while ( v7[v14] );
-        v7 += v14 + 1;
-        if ( !*v7 )
-          goto LABEL_27;
-      }
-    }
-    if ( ObjectProperties < 0 )
-      goto LABEL_43;
-  }
-LABEL_27:
-  v8 = *(const WCHAR **)(a1 + 328);
-  if ( !v8 )
-    goto LABEL_28;
-  if ( *v8 )
-  {
-    while ( 1 )
-    {
-      ObjectProperties = PiDevCfgVerifyService(v8, 0LL, 0LL);
+      ObjectProperties = PiDevCfgVerifyService(v6);
       if ( ObjectProperties < 0 )
-        goto LABEL_52;
-      v16 = -1LL;
-      do
-        ++v16;
-      while ( v8[v16] );
-      v8 += v16 + 1;
-      if ( !*v8 )
-        goto LABEL_28;
+        goto LABEL_42;
     }
   }
-  if ( ObjectProperties < 0 )
-    goto LABEL_43;
-LABEL_28:
-  if ( (*(_DWORD *)(a1 + 184) & 0x20) != 0 )
+  v7 = *(const WCHAR **)(a1 + 312);
+  if ( !v7 )
+    goto LABEL_75;
+  while ( *v7 )
   {
-LABEL_42:
-    *(_DWORD *)(a1 + 184) |= 1u;
-    goto LABEL_43;
+    ObjectProperties = PiDevCfgVerifyService(v7);
+    if ( ObjectProperties < 0 )
+    {
+      ObjectProperties = -1073740653;
+      break;
+    }
+    v14 = -1LL;
+    do
+      ++v14;
+    while ( v7[v14] );
+    v7 += v14 + 1;
   }
-  memset(v19, 0, 0xA0uLL);
-  v9 = *(_QWORD *)(a1 + 16);
-  v10 = *(_QWORD *)(a1 + 64);
-  v19[0] = DEVPKEY_DriverPackage_ClassGuid;
-  LODWORD(v19[1]) = 13;
-  v19[5] = &DEVPKEY_DriverPackage_ProviderName;
-  v19[10] = DEVPKEY_DriverPackage_NeedsReconfig;
-  v19[12] = &v17;
-  v19[2] = a1 + 240;
-  v19[15] = DEVPKEY_DriverPackage_GroupIds;
-  v19[17] = &DestinationString;
-  LODWORD(v19[3]) = 16;
-  LODWORD(v19[6]) = 18;
-  v19[7] = a1 + 272;
-  HIDWORD(v19[8]) = 6;
-  LODWORD(v19[11]) = 17;
-  LODWORD(v19[13]) = 1;
-  LODWORD(v19[16]) = 8210;
-  HIDWORD(v19[18]) = 6;
-  ObjectProperties = PiDevCfgQueryObjectProperties(6, v10, 8, v9, (__int64)v19, 4);
   if ( ObjectProperties >= 0 )
   {
-    if ( SLODWORD(v19[4]) < 0 )
+LABEL_75:
+    v8 = *(const WCHAR **)(a1 + 328);
+    if ( !v8 )
+      goto LABEL_26;
+    while ( *v8 )
     {
-      *(_OWORD *)(a1 + 240) = 0LL;
-    }
-    else
-    {
-      LOBYTE(v11) = 1;
-      ObjectProperties = RtlStringFromGUIDEx(a1 + 240, a1 + 256, v11);
+      ObjectProperties = PiDevCfgVerifyService(v8);
       if ( ObjectProperties < 0 )
-        goto LABEL_43;
+      {
+        ObjectProperties = -1073740653;
+        break;
+      }
+      v15 = -1LL;
+      do
+        ++v15;
+      while ( v8[v15] );
+      v8 += v15 + 1;
     }
-    if ( SLODWORD(v19[9]) < 0 )
-      RtlInitUnicodeString((PUNICODE_STRING)(a1 + 272), 0LL);
-    v12 = v17;
-    if ( SLODWORD(v19[14]) < 0 )
-      v12 = 0;
-    LOBYTE(v17) = v12;
-    if ( v12 == -1 )
-      *(_DWORD *)(a1 + 184) |= 0x40u;
-    if ( SLODWORD(v19[19]) < 0 )
-      RtlInitUnicodeString(&DestinationString, 0LL);
-    if ( DestinationString.Buffer && DestinationString.Length > 2u )
-      *(_DWORD *)(a1 + 184) |= 0x80u;
-    ObjectProperties = PiDevCfgQueryIncludedDriverConfigurations(a1);
     if ( ObjectProperties >= 0 )
-      goto LABEL_42;
+    {
+LABEL_26:
+      if ( (*(_DWORD *)(a1 + 184) & 0x20) != 0 )
+      {
+LABEL_40:
+        *(_DWORD *)(a1 + 184) |= 1u;
+        goto LABEL_41;
+      }
+      memset(v18, 0, 0xA0uLL);
+      v9 = *(void **)(a1 + 16);
+      v10 = *(_QWORD *)(a1 + 64);
+      v18[0] = DEVPKEY_DriverPackage_ClassGuid;
+      LODWORD(v18[1]) = 13;
+      v18[5] = &DEVPKEY_DriverPackage_ProviderName;
+      v18[10] = DEVPKEY_DriverPackage_NeedsReconfig;
+      v18[12] = &v16;
+      v18[2] = a1 + 240;
+      v18[15] = DEVPKEY_DriverPackage_GroupIds;
+      v18[17] = &DestinationString;
+      LODWORD(v18[3]) = 16;
+      LODWORD(v18[6]) = 18;
+      v18[7] = a1 + 272;
+      HIDWORD(v18[8]) = 6;
+      LODWORD(v18[11]) = 17;
+      LODWORD(v18[13]) = 1;
+      LODWORD(v18[16]) = 8210;
+      HIDWORD(v18[18]) = 6;
+      ObjectProperties = PiDevCfgQueryObjectProperties(6LL, v10, 8u, v9, (__int64)v18, 4u);
+      if ( ObjectProperties >= 0 )
+      {
+        if ( SLODWORD(v18[4]) < 0 )
+        {
+          *(_OWORD *)(a1 + 240) = 0LL;
+        }
+        else
+        {
+          ObjectProperties = RtlStringFromGUIDEx((unsigned int *)(a1 + 240), a1 + 256, 1);
+          if ( ObjectProperties < 0 )
+            goto LABEL_41;
+        }
+        if ( SLODWORD(v18[9]) < 0 )
+          RtlInitUnicodeString((PUNICODE_STRING)(a1 + 272), 0LL);
+        v11 = v16;
+        if ( SLODWORD(v18[14]) < 0 )
+          v11 = 0;
+        LOBYTE(v16) = v11;
+        if ( v11 == -1 )
+          *(_DWORD *)(a1 + 184) |= 0x40u;
+        if ( SLODWORD(v18[19]) < 0 )
+          RtlInitUnicodeString(&DestinationString, 0LL);
+        if ( DestinationString.Buffer && DestinationString.Length > 2u )
+          *(_DWORD *)(a1 + 184) |= 0x80u;
+        ObjectProperties = PiDevCfgQueryIncludedDriverConfigurations(a1);
+        if ( ObjectProperties >= 0 )
+          goto LABEL_40;
+      }
+    }
   }
-LABEL_43:
-  RtlFreeUnicodeString(&DestinationString);
+LABEL_41:
+  RtlFreeAnsiString(&DestinationString);
   return (unsigned int)ObjectProperties;
 }

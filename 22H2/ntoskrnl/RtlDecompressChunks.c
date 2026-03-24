@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlDecompressChunks @ 0x1409B91B0
+ * XREFs of RtlDecompressChunks @ 0x140910360
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlDecompressBuffer @ 0x140463480 (RtlDecompressBuffer.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlDecompressBuffer @ 0x1405852B0 (RtlDecompressBuffer.c)
  */
 
 NTSTATUS __stdcall RtlDecompressChunks(
@@ -95,6 +95,7 @@ NTSTATUS __stdcall RtlDecompressChunks(
               return -1073741246;
             memmove(v20, CompressedBuffer, CompressedBufferSize);
             memmove(&v20[CompressedBufferSize], CompressedTail, *CompressedChunkSizes - CompressedBufferSize);
+            v16 = *CompressedChunkSizes;
             CompressedBuffer = v20;
             NumberOfChunks = v27;
           }
@@ -103,7 +104,7 @@ NTSTATUS __stdcall RtlDecompressChunks(
                      v7,
                      v15,
                      CompressedBuffer,
-                     *CompressedChunkSizes,
+                     v16,
                      &FinalUncompressedSize);
           if ( result < 0 )
             return result;

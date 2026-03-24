@@ -4,9 +4,9 @@
  *     ExpInitSystemPhase1 @ 0x1409B0434 (ExpInitSystemPhase1.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     ObCreateObjectType @ 0x1407289E0 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
  */
 
 bool ExpTimerInitialization()
@@ -16,7 +16,7 @@ bool ExpTimerInitialization()
   _QWORD v3[16]; // [rsp+30h] [rbp-29h] BYREF
 
   ExpWakeTimerLock = 0LL;
-  qword_1404070E8 = (__int64)&ExpWakeTimerList;
+  qword_140407098 = (__int64)&ExpWakeTimerList;
   ExpWakeTimerList = (__int64)&ExpWakeTimerList;
   RtlInitUnicodeString(&DestinationString, L"Timer");
   memset(v3, 0, 0x78uLL);

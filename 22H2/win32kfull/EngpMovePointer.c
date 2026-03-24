@@ -1,54 +1,37 @@
 /*
- * XREFs of EngpMovePointer @ 0x1C0133898
+ * XREFs of EngpMovePointer @ 0x1C0136230
  * Callers:
- *     ?vMovePointer@@YAXPEAUHDEV__@@HHJ@Z @ 0x1C0074F3C (-vMovePointer@@YAXPEAUHDEV__@@HHJ@Z.c)
- *     EngMovePointer @ 0x1C0267360 (EngMovePointer.c)
+ *     ?vMovePointer@@YAXPEAUHDEV__@@HHJ@Z @ 0x1C0014C88 (-vMovePointer@@YAXPEAUHDEV__@@HHJ@Z.c)
+ *     EngMovePointer @ 0x1C026E9D0 (EngMovePointer.c)
  * Callees:
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B818 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z @ 0x1C0134710 (-DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z.c)
- *     ?GdiMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@H@Z @ 0x1C027A3C8 (-GdiMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@H@Z.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z @ 0x1C00EBA74 (-DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z.c)
+ *     ?GdiMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@H@Z @ 0x1C027E280 (-GdiMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@H@Z.c)
  */
 
-void EngpMovePointer(struct _SURFOBJ *a1, int a2, int a3, ...)
+void __fastcall EngpMovePointer(struct _SURFOBJ *a1, int a2, int a3, struct _RECTL *a4, char a5)
 {
-  HDEV hdev; // rbx
-  Gre::Base *v7; // rcx
-  struct _RECTL *v8; // r9
-  struct Gre::Base::SESSION_GLOBALS *v9; // rdi
-  __int64 v10; // rbx
-  Gre::Base *v11; // rcx
-  struct _RECTL *v12; // r9
-  __int64 v13; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v14; // [rsp+68h] [rbp+20h] BYREF
-  va_list va; // [rsp+68h] [rbp+20h]
-  __int64 v16; // [rsp+70h] [rbp+28h]
-  va_list va1; // [rsp+78h] [rbp+30h] BYREF
+  HDEV hdev; // rcx
+  struct _RECTL *v9; // r9
+  __int64 v10; // [rsp+50h] [rbp+8h] BYREF
+  struct _RECTL *v11; // [rsp+68h] [rbp+20h] BYREF
 
-  va_start(va1, a3);
-  va_start(va, a3);
-  v14 = va_arg(va1, _QWORD);
-  v16 = va_arg(va1, _QWORD);
+  v11 = a4;
   hdev = a1->hdev;
-  if ( IsDwmActive((Gre::Base *)a1) )
+  if ( g_pDwmState )
   {
-    v9 = Gre::Base::Globals(v7);
-    v13 = *((_QWORD *)hdev + 7);
-    GreAcquireSemaphore(v13);
-    v14 = *((_QWORD *)v9 + 14);
-    v10 = v14;
-    GreAcquireSemaphoreSharedStarveExclusiveInternal(v14);
-    EtwTraceGreLockAcquireSemaphoreSharedStarveExclusive(L"hsem", v10);
-    if ( IsDwmActive(v11) )
-    {
-      DwmMovePointer(a1, a2, a3, v12, v16);
-      SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)va);
-      SEMOBJ::vUnlock((SEMOBJ *)&v13);
-      return;
-    }
-    SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)va);
-    SEMOBJ::vUnlock((SEMOBJ *)&v13);
+    v10 = *((_QWORD *)hdev + 8);
+    GreAcquireSemaphore(v10);
+    v11 = (struct _RECTL *)ghsemSprite;
+    GreAcquireSemaphoreSharedStarveExclusiveInternal(ghsemSprite);
+    EtwTraceGreLockAcquireSemaphoreSharedStarveExclusive(L"hsem", ghsemSprite);
+    DwmMovePointer(a1, a2, a3, v9, a5);
+    SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)&v11);
+    SEMOBJ::vUnlock((SEMOBJ *)&v10);
   }
-  GdiMovePointer(a1, a2, a3, v8, 0);
+  else
+  {
+    GdiMovePointer(a1, a2, a3, a4, 0);
+  }
 }

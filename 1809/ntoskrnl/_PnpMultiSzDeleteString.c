@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpMultiSzDeleteString @ 0x140900430
+ * XREFs of _PnpMultiSzDeleteString @ 0x140900410
  * Callers:
- *     _CmGetDeviceSiblings @ 0x1408FDEF0 (_CmGetDeviceSiblings.c)
+ *     _CmGetDeviceSiblings @ 0x1408FDED0 (_CmGetDeviceSiblings.c)
  * Callees:
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _PnpMultiSzGetLen @ 0x14059D928 (_PnpMultiSzGetLen.c)

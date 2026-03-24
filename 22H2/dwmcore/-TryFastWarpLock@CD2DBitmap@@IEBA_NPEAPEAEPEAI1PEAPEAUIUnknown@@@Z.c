@@ -1,13 +1,13 @@
 /*
- * XREFs of ?TryFastWarpLock@CD2DBitmap@@IEBA_NPEAPEAEPEAI1PEAPEAUIUnknown@@@Z @ 0x1800A89D8
+ * XREFs of ?TryFastWarpLock@CD2DBitmap@@IEBA_NPEAPEAEPEAI1PEAPEAUIUnknown@@@Z @ 0x18003B75C
  * Callers:
- *     ?LockForRead@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x1800A8320 (-LockForRead@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@.c)
- *     ?SupportsFastLock@CD2DBitmap@@UEBA_NXZ @ 0x1800A8940 (-SupportsFastLock@CD2DBitmap@@UEBA_NXZ.c)
- *     ?CopyPixels@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x18029F2A0 (-CopyPixels@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@.c)
+ *     ?LockForRead@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x18003B4A0 (-LockForRead@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@.c)
+ *     ?SupportsFastLock@CD2DBitmap@@UEBA_NXZ @ 0x18003B700 (-SupportsFastLock@CD2DBitmap@@UEBA_NXZ.c)
+ *     ?CopyPixels@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x1802489C0 (-CopyPixels@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@.c)
  * Callees:
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F334 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ?Create@CWarpLockSubresource@@SAJPEAVCD3DDevice@@PEAUID3D11Texture2D@@IPEAPEAV1@@Z @ 0x1800A8B2C (-Create@CWarpLockSubresource@@SAJPEAVCD3DDevice@@PEAUID3D11Texture2D@@IPEAPEAV1@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Create@CWarpLockSubresource@@SAJPEAVCD3DDevice@@PEAUID3D11Texture2D@@IPEAPEAV1@@Z @ 0x18003B8A0 (-Create@CWarpLockSubresource@@SAJPEAVCD3DDevice@@PEAUID3D11Texture2D@@IPEAPEAV1@@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall CD2DBitmap::TryFastWarpLock(
@@ -18,20 +18,21 @@ bool __fastcall CD2DBitmap::TryFastWarpLock(
         struct IUnknown **a5)
 {
   struct IUnknown **v5; // r13
-  char *v6; // rbx
+  char *v6; // r10
   __int64 v11; // rax
   char *v12; // r14
   char *v13; // rcx
-  __int64 v15; // rax
-  unsigned int v16; // ebx
+  __int64 v14; // rax
+  __int64 v16; // rax
   struct ID3D11Texture2D *v17; // rdi
-  char *v18; // rcx
-  struct CD3DDevice *v19; // rax
-  struct IUnknown **v20; // rdx
-  __m128i v21; // xmm0
-  unsigned int v22; // eax
-  int v23; // eax
-  volatile signed __int32 *v24; // rcx
+  unsigned int v18; // ebx
+  char *v19; // rcx
+  struct CD3DDevice *v20; // rax
+  int v21; // eax
+  __m128i v22; // xmm0
+  unsigned int v23; // ecx
+  int v24; // eax
+  CRenderTargetBitmap *v25; // rcx
 
   v5 = a5;
   v6 = (char *)this + 244;
@@ -46,34 +47,39 @@ bool __fastcall CD2DBitmap::TryFastWarpLock(
     *((_BYTE *)this + 245) = 1;
     *v6 = 0;
     v13 = (char *)this + *(int *)(v11 + 8) + 16;
-    if ( *(_QWORD *)((*(__int64 (__fastcall **)(char *))(*(_QWORD *)v13 + 8LL))(v13) + 568) )
+    v14 = (*(__int64 (__fastcall **)(char *))(*(_QWORD *)v13 + 8LL))(v13);
+    v6 = v12;
+    if ( *(_QWORD *)(v14 + 608) )
     {
-      v15 = *((_QWORD *)this + 2);
-      v16 = *((_DWORD *)this + 60);
-      a5 = 0LL;
+      v16 = *((_QWORD *)this + 2);
       v17 = (struct ID3D11Texture2D *)*((_QWORD *)this + 15);
-      v18 = (char *)this + *(int *)(v15 + 8) + 16;
-      v19 = (struct CD3DDevice *)(*(__int64 (__fastcall **)(char *))(*(_QWORD *)v18 + 8LL))(v18);
-      if ( CWarpLockSubresource::Create(v19, v17, v16, (struct CWarpLockSubresource **)&a5) < 0 )
+      a5 = 0LL;
+      v18 = *((_DWORD *)this + 60);
+      v19 = (char *)this + *(int *)(v16 + 8) + 16;
+      v20 = (struct CD3DDevice *)(*(__int64 (__fastcall **)(char *))(*(_QWORD *)v19 + 8LL))(v19);
+      if ( CWarpLockSubresource::Create(v20, v17, v18, (struct CWarpLockSubresource **)&a5) < 0 )
       {
-        v24 = (volatile signed __int32 *)a5;
+        v25 = (CRenderTargetBitmap *)a5;
       }
       else
       {
-        v20 = a5;
-        v21 = *(__m128i *)(a5 + 5);
-        *a2 = (unsigned __int8 *)v21.m128i_i64[0];
-        v22 = _mm_cvtsi128_si32(_mm_srli_si128(v21, 8));
-        *a3 = v22;
-        v23 = *((_DWORD *)this + 39) * v22;
-        *v5 = (struct IUnknown *)v20;
-        v24 = 0LL;
+        v21 = *((_DWORD *)this + 39);
+        v22 = *(__m128i *)(a5 + 5);
+        *v5 = (struct IUnknown *)a5;
         *v12 = 1;
-        *a4 = v23;
+        *a2 = (unsigned __int8 *)v22.m128i_i64[0];
+        v23 = _mm_cvtsi128_si32(_mm_srli_si128(v22, 8));
+        v24 = v23 * v21;
+        *a3 = v23;
+        v25 = 0LL;
+        *a4 = v24;
       }
       v6 = v12;
-      if ( v24 )
-        CMILRefCountBaseT<IUnknown>::InternalRelease(v24);
+      if ( v25 )
+      {
+        CRenderTargetBitmap::Release(v25);
+        v6 = v12;
+      }
     }
   }
   return *v6;

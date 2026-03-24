@@ -1,20 +1,24 @@
 /*
- * XREFs of ??1CInteractionMarshaler@DirectComposition@@UEAA@XZ @ 0x1C009379C
+ * XREFs of ??1CInteractionMarshaler@DirectComposition@@UEAA@XZ @ 0x1C0084508
  * Callers:
- *     ??_G?$CSharedResourceMarshaler@VCInteractionMarshaler@DirectComposition@@$01@DirectComposition@@UEAAPEAXI@Z @ 0x1C00923F0 (--_G-$CSharedResourceMarshaler@VCInteractionMarshaler@DirectComposition@@$01@DirectComposition@@.c)
- *     ??_ECInteractionMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0093600 (--_ECInteractionMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ *     ??_ECSharedInteractionMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0084000 (--_ECSharedInteractionMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ *     ??_ECInteractionMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0084250 (--_ECInteractionMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1CInteractionConfigurationGroup@DirectComposition@@QEAA@XZ @ 0x1C00942C0 (--1CInteractionConfigurationGroup@DirectComposition@@QEAA@XZ.c)
- *     ??1?$CStructDynamicArray@UManipulationCaptureInfo@CInteractionMarshaler@DirectComposition@@@@QEAA@XZ @ 0x1C0094578 (--1-$CStructDynamicArray@UManipulationCaptureInfo@CInteractionMarshaler@DirectComposition@@@@QEA.c)
- *     ?Reset@?$CDynamicArray@I$0HHHAHDFF@@@QEAAX_N@Z @ 0x1C00B6BB8 (-Reset@-$CDynamicArray@I$0HHHAHDFF@@@QEAAX_N@Z.c)
+ *     ??1CInteractionConfigurationGroup@DirectComposition@@QEAA@XZ @ 0x1C0084CF8 (--1CInteractionConfigurationGroup@DirectComposition@@QEAA@XZ.c)
+ *     ?Reset@?$CStructDynamicArray@UManipulationCaptureInfo@CInteractionMarshaler@DirectComposition@@@@QEAAX_N@Z @ 0x1C0084FA4 (-Reset@-$CStructDynamicArray@UManipulationCaptureInfo@CInteractionMarshaler@DirectComposition@@@.c)
+ *     ?Reset@?$CDynamicArray@PEAUManipulationCaptureInfo@CInteractionMarshaler@DirectComposition@@$0HHHAHDFF@@@QEAAX_N@Z @ 0x1C0084FD8 (-Reset@-$CDynamicArray@PEAUManipulationCaptureInfo@CInteractionMarshaler@DirectComposition@@$0HH.c)
  */
 
 void __fastcall DirectComposition::CInteractionMarshaler::~CInteractionMarshaler(
         DirectComposition::CInteractionMarshaler *this)
 {
+  char *v2; // rbx
+
+  v2 = (char *)this + 296;
   *(_QWORD *)this = &DirectComposition::CInteractionMarshaler::`vftable';
-  CStructDynamicArray<DirectComposition::CInteractionMarshaler::ManipulationCaptureInfo>::~CStructDynamicArray<DirectComposition::CInteractionMarshaler::ManipulationCaptureInfo>((char *)this + 296);
-  CDynamicArray<unsigned int,2003858261>::Reset((char *)this + 280);
+  CStructDynamicArray<DirectComposition::CInteractionMarshaler::ManipulationCaptureInfo>::Reset((char *)this + 296);
+  CDynamicArray<DirectComposition::CInteractionMarshaler::ManipulationCaptureInfo *,2003858261>::Reset(v2);
+  CDynamicArray<DirectComposition::CInteractionMarshaler::ManipulationCaptureInfo *,2003858261>::Reset((char *)this + 280);
   DirectComposition::CInteractionConfigurationGroup::~CInteractionConfigurationGroup((DirectComposition::CInteractionMarshaler *)((char *)this + 160));
   DirectComposition::CInteractionConfigurationGroup::~CInteractionConfigurationGroup((DirectComposition::CInteractionMarshaler *)((char *)this + 56));
 }

@@ -1,22 +1,23 @@
 /*
- * XREFs of PpmIdleInitializeConcurrency @ 0x140849A30
+ * XREFs of PpmIdleInitializeConcurrency @ 0x1407BAB28
  * Callers:
- *     PpmParkRegisterParking @ 0x1403CE6F8 (PpmParkRegisterParking.c)
+ *     PpmParkRegisterParking @ 0x1403C1460 (PpmParkRegisterParking.c)
  * Callees:
- *     KeCountSetBitsAffinityEx @ 0x1402FFAC0 (KeCountSetBitsAffinityEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     KeFirstGroupAffinityEx @ 0x14035C9C0 (KeFirstGroupAffinityEx.c)
- *     PpmQueryTime @ 0x1403CF338 (PpmQueryTime.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeCountSetBitsAffinityEx @ 0x14027B480 (KeCountSetBitsAffinityEx.c)
+ *     KeFirstGroupAffinityEx @ 0x1402C2670 (KeFirstGroupAffinityEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     PpmQueryTime @ 0x1403C2400 (PpmQueryTime.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PpmIdleInitializeConcurrency(_WORD *a1, __int64 *a2, __int64 *a3)
+__int64 __fastcall PpmIdleInitializeConcurrency(unsigned __int16 *a1, _QWORD *a2, _QWORD *a3)
 {
-  int v6; // edi
+  int v6; // esi
   unsigned int GroupAffinity; // ebp
-  __int64 Pool2; // rbx
+  _DWORD *PoolWithTag; // rbx
   struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
   struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
 
@@ -24,23 +25,24 @@ __int64 __fastcall PpmIdleInitializeConcurrency(_WORD *a1, __int64 *a2, __int64 
   PreviousAffinity = 0LL;
   v6 = KeCountSetBitsAffinityEx(a1);
   GroupAffinity = KeFirstGroupAffinityEx((__int64)&Affinity, a1);
-  if ( a3 && (Pool2 = *a3) != 0 && v6 == *(_DWORD *)(Pool2 + 8) )
+  if ( a3 && (PoolWithTag = (_DWORD *)*a3) != 0LL && v6 == PoolWithTag[2] )
   {
     *a3 = 0LL;
   }
   else
   {
     KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
-    Pool2 = ExAllocatePool2(64LL, (unsigned int)(8 * v6 + 336), 1884115024LL);
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(8 * v6 + 40), 0x704D5050u);
     KeRevertToUserGroupAffinityThread(&PreviousAffinity);
-    if ( Pool2 )
+    if ( PoolWithTag )
     {
-      *(_QWORD *)Pool2 = 0LL;
-      *(_DWORD *)(Pool2 + 8) = v6;
+      memset(PoolWithTag, 0, (unsigned int)(8 * v6 + 40));
+      *(_QWORD *)PoolWithTag = 0LL;
+      PoolWithTag[2] = v6;
       PpmQueryTime();
     }
     GroupAffinity = -1073741670;
   }
-  *a2 = Pool2;
+  *a2 = PoolWithTag;
   return GroupAffinity;
 }

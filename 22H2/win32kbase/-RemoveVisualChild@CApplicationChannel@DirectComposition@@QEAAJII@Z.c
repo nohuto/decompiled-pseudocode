@@ -1,73 +1,70 @@
 /*
- * XREFs of ?RemoveVisualChild@CApplicationChannel@DirectComposition@@QEAAJII@Z @ 0x1C002D5E0
+ * XREFs of ?RemoveVisualChild@CApplicationChannel@DirectComposition@@QEAAJII@Z @ 0x1C0027020
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C002D930 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C007F5B4 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
  * Callees:
- *     ?LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z @ 0x1C002EB40 (-LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z.c)
- *     ?IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z @ 0x1C0092B30 (-IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C0027838 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::RemoveVisualChild(
         DirectComposition::CApplicationChannel *this,
-        unsigned int a2,
-        unsigned int a3)
+        int a2,
+        int a3)
 {
-  __int64 v5; // rsi
-  struct DirectComposition::CResourceMarshaler *v6; // rax
-  __int64 v7; // rbx
-  struct DirectComposition::CResourceMarshaler *v8; // rax
+  __int64 v3; // rbx
+  unsigned __int64 v4; // r9
+  struct DirectComposition::CResourceMarshaler *v7; // rsi
+  unsigned __int64 v8; // rdx
   __int64 v9; // rax
   int v10; // eax
-  unsigned int v11; // r9d
-  int v12; // eax
-  unsigned __int8 IsDerivedResourceType; // al
-  char v15; // [rsp+58h] [rbp+20h] BYREF
+  unsigned int v11; // ebx
+  char v13; // [rsp+48h] [rbp+10h] BYREF
 
-  v15 = 0;
-  v5 = 0LL;
-  v6 = DirectComposition::CApplicationChannel::LookupResourceMarshaler(this, a2);
-  if ( v6 )
+  v3 = 0LL;
+  v13 = 0;
+  v4 = (unsigned int)(a2 - 1);
+  if ( a2 && v4 < *((_QWORD *)this + 10) )
   {
-    v7 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *))(*(_QWORD *)v6 + 168LL))(v6);
-    if ( v7
-      && (!a3
-       || (v8 = DirectComposition::CApplicationChannel::LookupResourceMarshaler(this, a3)) != 0LL
-       && (v5 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *))(*(_QWORD *)v8 + 168LL))(v8)) != 0) )
+    _mm_lfence();
+    v7 = *(struct DirectComposition::CResourceMarshaler **)(v4 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
+  }
+  else
+  {
+    v7 = 0LL;
+  }
+  if ( v7 )
+  {
+    if ( !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)v7 + 96LL))(
+            v7,
+            195LL) )
+      return (unsigned int)-1073741811;
+    if ( !a3 )
+      goto LABEL_11;
+    v8 = (unsigned int)(a3 - 1);
+    if ( v8 < *((_QWORD *)this + 10) )
     {
+      _mm_lfence();
+      v3 = *(_QWORD *)(v8 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
+    }
+    if ( v3 && (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v3 + 96LL))(v3, 195LL) )
+    {
+LABEL_11:
       v9 = *(_QWORD *)v7;
-      if ( v5 )
-        v10 = (*(__int64 (__fastcall **)(__int64, DirectComposition::CApplicationChannel *, __int64, char *))(v9 + 296))(
+      if ( v3 )
+        v10 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, DirectComposition::CApplicationChannel *, __int64, char *))(v9 + 232))(
                 v7,
                 this,
-                v5,
-                &v15);
+                v3,
+                &v13);
       else
-        v10 = (*(__int64 (__fastcall **)(__int64, DirectComposition::CApplicationChannel *, char *))(v9 + 304))(
+        v10 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, DirectComposition::CApplicationChannel *, char *))(v9 + 240))(
                 v7,
                 this,
-                &v15);
+                &v13);
       v11 = v10;
-      if ( v10 >= 0 )
-      {
-        if ( v15 )
-        {
-          v12 = *(_DWORD *)(v7 + 16);
-          if ( (v12 & 2) == 0 )
-          {
-            if ( (v12 & 1) != 0 )
-            {
-              IsDerivedResourceType = DirectComposition::CResourceMarshaler::IsDerivedResourceType(
-                                        *(unsigned int *)(v7 + 36),
-                                        170LL);
-              *(_QWORD *)(v7 + 8) = *((_QWORD *)this + IsDerivedResourceType + 52);
-              *((_QWORD *)this + IsDerivedResourceType + 52) = v7;
-            }
-            *(_DWORD *)(v7 + 16) |= 2u;
-            *((_BYTE *)this + 240) |= 1u;
-          }
-        }
-      }
+      if ( v10 >= 0 && v13 )
+        DirectComposition::CApplicationChannel::PutResourceOnUpdatedList(this, v7);
     }
     else
     {

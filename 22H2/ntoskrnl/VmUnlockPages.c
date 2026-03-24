@@ -1,26 +1,26 @@
 /*
- * XREFs of VmUnlockPages @ 0x1405F8D10
+ * XREFs of VmUnlockPages @ 0x1405A2A50
  * Callers:
  *     <none>
  * Callees:
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MmUpdateMdlTrackerForMdlSwitch @ 0x14061D458 (MmUpdateMdlTrackerForMdlSwitch.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     MmUpdateMdlTrackerForMdlSwitch @ 0x1405312D8 (MmUpdateMdlTrackerForMdlSwitch.c)
  */
 
-void __fastcall VmUnlockPages(PMDL MemoryDescriptorList, unsigned int a2)
+void __fastcall VmUnlockPages(struct _MDL *BugCheckParameter3, unsigned int a2)
 {
-  CSHORT MdlFlags; // cx
-  CSHORT v4; // cx
+  CSHORT MdlFlags; // ax
+  CSHORT v4; // ax
 
   if ( a2 > 1 )
     NT_ASSERT("(Operation == IoReadAccess) || (Operation == IoWriteAccess)");
-  MdlFlags = MemoryDescriptorList->MdlFlags;
+  MdlFlags = BugCheckParameter3->MdlFlags;
   if ( (MdlFlags & 0xFFF7) != 0 )
     NT_ASSERT("(Mdl->MdlFlags & ~(0x0008)) == 0");
   v4 = MdlFlags | 0x102;
-  MemoryDescriptorList->MdlFlags = v4;
+  BugCheckParameter3->MdlFlags = v4;
   if ( a2 == 1 )
-    MemoryDescriptorList->MdlFlags = v4 | 0x80;
-  MmUpdateMdlTrackerForMdlSwitch((ULONG_PTR)MemoryDescriptorList);
-  MmUnlockPages(MemoryDescriptorList);
+    BugCheckParameter3->MdlFlags = v4 | 0x80;
+  MmUpdateMdlTrackerForMdlSwitch((ULONG_PTR)BugCheckParameter3, 0);
+  MmUnlockPages(BugCheckParameter3);
 }

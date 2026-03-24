@@ -1,12 +1,12 @@
 /*
- * XREFs of PopNotifyCsStateExited @ 0x14086EF90
+ * XREFs of PopNotifyCsStateExited @ 0x14086EF70
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PopInvokeWin32Callout @ 0x1405B0C84 (PopInvokeWin32Callout.c)
- *     PopBlockSessionSwitch @ 0x1406DDB50 (PopBlockSessionSwitch.c)
- *     TtmNotifyCsStateExited @ 0x14087FBC0 (TtmNotifyCsStateExited.c)
+ *     PopBlockSessionSwitch @ 0x1406DDB30 (PopBlockSessionSwitch.c)
+ *     TtmNotifyCsStateExited @ 0x14087FBA0 (TtmNotifyCsStateExited.c)
  */
 
 __int64 PopNotifyCsStateExited()

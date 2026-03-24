@@ -1,10 +1,10 @@
 /*
- * XREFs of AslpFileGetNtHeaderAttributes @ 0x140A58BDC
+ * XREFs of AslpFileGetNtHeaderAttributes @ 0x14096B7CC
  * Callers:
- *     AslpFileGetHeaderAttributesPE @ 0x140A58888 (AslpFileGetHeaderAttributesPE.c)
+ *     AslpFileGetHeaderAttributesPE @ 0x14096B484 (AslpFileGetHeaderAttributesPE.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslpFileGetImageNtHeader @ 0x140A58B00 (AslpFileGetImageNtHeader.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslpFileGetImageNtHeader @ 0x14096B6B4 (AslpFileGetImageNtHeader.c)
  */
 
 __int64 __fastcall AslpFileGetNtHeaderAttributes(
@@ -15,25 +15,23 @@ __int64 __fastcall AslpFileGetNtHeaderAttributes(
         _WORD *a5,
         _WORD *a6,
         _WORD *a7,
-        _WORD *a8,
+        __int64 a8,
         __int64 a9)
 {
   int ImageNtHeader; // ebx
   __int64 v14; // r8
   __int16 v15; // dx
-  _QWORD v17[3]; // [rsp+38h] [rbp-30h] BYREF
 
-  v17[0] = 0LL;
-  ImageNtHeader = AslpFileGetImageNtHeader(v17, a9);
+  a8 = 0LL;
+  ImageNtHeader = AslpFileGetImageNtHeader(&a8, a9);
   if ( ImageNtHeader >= 0 )
   {
-    v14 = v17[0];
-    *a2 = (unsigned __int8)*(_WORD *)(v17[0] + 70LL) + ((unsigned __int8)*(_WORD *)(v17[0] + 68LL) << 16);
+    v14 = a8;
+    *a2 = (unsigned __int8)*(_WORD *)(a8 + 70) + ((unsigned __int8)*(_WORD *)(a8 + 68) << 16);
     *a3 = *(_DWORD *)(v14 + 8);
     v15 = *(_WORD *)(v14 + 24);
     *a7 = v15;
     *a5 = *(_WORD *)(v14 + 4);
-    *a8 = *(_WORD *)(v14 + 22);
     if ( v15 == 267 || v15 == 523 )
     {
       *a1 = *(_DWORD *)(v14 + 88);

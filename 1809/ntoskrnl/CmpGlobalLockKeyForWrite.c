@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpGlobalLockKeyForWrite @ 0x14068E5C4
+ * XREFs of CmpGlobalLockKeyForWrite @ 0x14068E5A4
  * Callers:
- *     CmLockKeyForWrite @ 0x14068E380 (CmLockKeyForWrite.c)
+ *     CmLockKeyForWrite @ 0x14068E360 (CmLockKeyForWrite.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     CmpCreateGlobalKeyLockEntry @ 0x14068E6E0 (CmpCreateGlobalKeyLockEntry.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmpCreateGlobalKeyLockEntry @ 0x14068E6C0 (CmpCreateGlobalKeyLockEntry.c)
  */
 
 __int64 __fastcall CmpGlobalLockKeyForWrite(__int64 a1, __int64 *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseAllReferences@CGenericMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0230950
+ * XREFs of ?ReleaseAllReferences@CGenericMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F6B00
  * Callers:
  *     <none>
  * Callees:
- *     ?FreeValue@CReferenceProperty@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0230920 (-FreeValue@CReferenceProperty@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     ?FreeValue@CReferenceProperty@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F6AD0 (-FreeValue@CReferenceProperty@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CGenericMarshaler::ReleaseAllReferences(
@@ -14,16 +14,15 @@ void __fastcall DirectComposition::CGenericMarshaler::ReleaseAllReferences(
   DirectComposition::CReferenceProperty **v4; // rdi
   DirectComposition::CReferenceProperty *v5; // rcx
 
-  v2 = (DirectComposition::CReferenceProperty **)*((_QWORD *)this + 7);
-  v4 = &v2[*((_QWORD *)this + 8)];
+  v2 = (DirectComposition::CReferenceProperty **)*((_QWORD *)this + 8);
+  v4 = &v2[*((_QWORD *)this + 9)];
   while ( v2 != v4 )
   {
-    v5 = *v2;
+    v5 = 0LL;
     if ( *((_BYTE *)*v2 + 4) == 4 )
-    {
-      if ( v5 )
-        DirectComposition::CReferenceProperty::FreeValue(v5, a2);
-    }
+      v5 = *v2;
+    if ( v5 )
+      DirectComposition::CReferenceProperty::FreeValue(v5, a2);
     ++v2;
   }
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of InitSafeBoot @ 0x140B4B918
+ * XREFs of InitSafeBoot @ 0x140A8C3D0
  * Callers:
- *     Phase1InitializationIoReady @ 0x140B020A4 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     NtSetValueKey @ 0x14071FAA0 (NtSetValueKey.c)
- *     NtClose @ 0x140731D50 (NtClose.c)
- *     NtQueryValueKey @ 0x1407C9930 (NtQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     NtSetValueKey @ 0x140663DC0 (NtSetValueKey.c)
+ *     NtClose @ 0x1406F0980 (NtClose.c)
+ *     NtQueryValueKey @ 0x1406F7AE0 (NtQueryValueKey.c)
  */
 
 int __fastcall InitSafeBoot(char a1)
@@ -53,9 +53,9 @@ int __fastcall InitSafeBoot(char a1)
                   KeyHandle,
                   (unsigned __int64)&DestinationString,
                   2u,
-                  (char *)v13,
+                  (unsigned __int64)v13,
                   (size_t)Class,
-                  (unsigned int *)&Disposition) < 0 )
+                  (unsigned __int64)&Disposition) < 0 )
         a1 = 0;
     }
     RtlInitUnicodeString(&DestinationString, L"Option");

@@ -1,13 +1,11 @@
 /*
- * XREFs of KiInvokeBugCheckEntryCallbacks @ 0x14056A96C
+ * XREFs of KiInvokeBugCheckEntryCallbacks @ 0x1405186E8
  * Callers:
- *     KeBugCheck2 @ 0x140568330 (KeBugCheck2.c)
- *     KiAttemptBugcheckRecovery @ 0x14057A4BC (KiAttemptBugcheckRecovery.c)
- *     KiCaptureDumpPostRecovery @ 0x14057AD20 (KiCaptureDumpPostRecovery.c)
- *     KiDeferredBugcheckRecoveryWorker @ 0x14057AE70 (KiDeferredBugcheckRecoveryWorker.c)
+ *     KeBugCheck2 @ 0x140516A10 (KeBugCheck2.c)
+ *     KiAttemptBugcheckRecovery @ 0x140524CC4 (KiAttemptBugcheckRecovery.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KeValidateBugCheckCallbackRecord @ 0x140569588 (KeValidateBugCheckCallbackRecord.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140517AD8 (KeValidateBugCheckCallbackRecord.c)
  */
 
 char __fastcall KiInvokeBugCheckEntryCallbacks(unsigned int a1, __int64 a2, unsigned int a3)
@@ -19,7 +17,7 @@ char __fastcall KiInvokeBugCheckEntryCallbacks(unsigned int a1, __int64 a2, unsi
 
   v3 = &retaddr;
   v7 = (PVOID *)KeBugCheckReasonCallbackListHead;
-  if ( KeBugCheckReasonCallbackListHead && qword_140C42248 )
+  if ( KeBugCheckReasonCallbackListHead && qword_140C321A8 )
   {
     v10 = &KeBugCheckReasonCallbackListHead;
     while ( v7 != &KeBugCheckReasonCallbackListHead )

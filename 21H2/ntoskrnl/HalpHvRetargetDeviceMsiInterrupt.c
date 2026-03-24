@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHvRetargetDeviceMsiInterrupt @ 0x14050EEBC
+ * XREFs of HalpHvRetargetDeviceMsiInterrupt @ 0x1404C2A9C
  * Callers:
- *     HalpInterruptSetRemappedDestinationHv @ 0x140508364 (HalpInterruptSetRemappedDestinationHv.c)
+ *     HalpInterruptSetRemappedDestinationHv @ 0x1404BB8C0 (HalpInterruptSetRemappedDestinationHv.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpHvRetargetDeviceMsiInterrupt(__int64 a1, __int64 a2)
@@ -22,9 +22,9 @@ __int64 __fastcall HalpHvRetargetDeviceMsiInterrupt(__int64 a1, __int64 a2)
   v3 = *(_DWORD *)(a1 + 4);
   v8 = 0LL;
   LODWORD(v8) = v3;
-  v4 = *(_DWORD *)(a1 + 52);
+  v4 = *(unsigned __int16 *)(a1 + 52);
   v5 = *(_QWORD *)(a1 + 64);
   v7[3] = v4;
   v7[0] = 1;
-  return ((__int64 (__fastcall *)(__int64, _DWORD *, __int128 *, __int64, _QWORD))qword_140C4C4B8)(v5, v7, &v8, a2, 0LL);
+  return ((__int64 (__fastcall *)(__int64, _DWORD *, __int128 *, __int64, _QWORD))qword_140C4A1B8)(v5, v7, &v8, a2, 0LL);
 }

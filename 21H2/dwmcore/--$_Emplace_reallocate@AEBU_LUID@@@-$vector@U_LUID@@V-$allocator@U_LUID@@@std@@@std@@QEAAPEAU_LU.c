@@ -1,69 +1,79 @@
 /*
- * XREFs of ??$_Emplace_reallocate@AEBU_LUID@@@?$vector@U_LUID@@V?$allocator@U_LUID@@@std@@@std@@QEAAPEAU_LUID@@QEAU2@AEBU2@@Z @ 0x1800F4AE8
+ * XREFs of ??$_Emplace_reallocate@AEBU_LUID@@@?$vector@U_LUID@@V?$allocator@U_LUID@@@std@@@std@@QEAAPEAU_LUID@@QEAU2@AEBU2@@Z @ 0x18001C6B4
  * Callers:
- *     ?ComputeOverlayConfiguration@CRenderTargetManager@@AEAAJXZ @ 0x180079A00 (-ComputeOverlayConfiguration@CRenderTargetManager@@AEAAJXZ.c)
+ *     ?ProcessAddCasters@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_ADDCASTERS@@PEBXI@Z @ 0x18000D728 (-ProcessAddCasters@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOW.c)
+ *     ?ProcessAddReceivers@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_ADDRECEIVERS@@PEBXI@Z @ 0x18000DBF0 (-ProcessAddReceivers@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHAD.c)
+ *     ?ComputeOverlayConfiguration@CRenderTargetManager@@AEAAJXZ @ 0x18006EE40 (-ComputeOverlayConfiguration@CRenderTargetManager@@AEAAJXZ.c)
+ *     ?AddRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z @ 0x1800DFDAC (-AddRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z.c)
+ *     ??$emplace@AEBQEAVCRenderTarget@@@?$vector@PEAVCRenderTarget@@V?$allocator@PEAVCRenderTarget@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCRenderTarget@@@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCRenderTarget@@@std@@@std@@@1@AEBQEAVCRenderTarget@@@Z @ 0x180163AE0 (--$emplace@AEBQEAVCRenderTarget@@@-$vector@PEAVCRenderTarget@@V-$allocator@PEAVCRenderTarget@@@s.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B7030 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     memmove_0 @ 0x18010518B (memmove_0.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     memmove_0 @ 0x1800F47E7 (memmove_0.c)
  */
 
-char *__fastcall std::vector<_LUID>::_Emplace_reallocate<_LUID const &>(__int64 a1, _BYTE *a2, _QWORD *a3)
+char *__fastcall std::vector<_LUID>::_Emplace_reallocate<_LUID const &>(_QWORD *a1, _BYTE *a2, _QWORD *a3)
 {
-  unsigned __int64 v3; // rdi
-  __int64 v5; // rbp
-  __int64 v7; // rax
-  unsigned __int64 v9; // r14
-  unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // rdx
-  SIZE_T size_of; // rax
-  char *v13; // rsi
-  char *v14; // rbp
-  void *v15; // rcx
-  _BYTE *v16; // r8
-  _BYTE *v17; // rdx
-  size_t v18; // r8
+  __int64 v4; // rbp
+  __int64 v6; // rax
+  unsigned __int64 v8; // rsi
+  unsigned __int64 v9; // rcx
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // rax
+  __int64 v12; // r12
+  SIZE_T v13; // rcx
+  char *v14; // rdi
+  char *v15; // r15
+  void *v16; // rcx
+  _BYTE *v17; // r8
+  _BYTE *v18; // rdx
+  size_t v19; // r8
   char *result; // rax
 
-  v3 = 0x1FFFFFFFFFFFFFFFLL;
-  v5 = (__int64)&a2[-*(_QWORD *)a1] >> 3;
-  v7 = (__int64)(*(_QWORD *)(a1 + 8) - *(_QWORD *)a1) >> 3;
-  if ( v7 == 0x1FFFFFFFFFFFFFFFLL )
-    std::_Xlength_error("vector too long");
-  v9 = v7 + 1;
-  v10 = (__int64)(*(_QWORD *)(a1 + 16) - *(_QWORD *)a1) >> 3;
-  v11 = v10 >> 1;
-  if ( v10 <= 0x1FFFFFFFFFFFFFFFLL - (v10 >> 1) )
+  v4 = (__int64)&a2[-*a1] >> 3;
+  v6 = (__int64)(a1[1] - *a1) >> 3;
+  if ( v6 == 0x1FFFFFFFFFFFFFFFLL )
+    std::_Xlength_error("vector<T> too long");
+  v8 = v6 + 1;
+  v9 = (__int64)(a1[2] - *a1) >> 3;
+  v10 = v9 >> 1;
+  if ( v9 > 0x1FFFFFFFFFFFFFFFLL - (v9 >> 1) )
   {
-    v3 = v11 + v10;
-    if ( v11 + v10 < v9 )
-      v3 = v7 + 1;
-  }
-  size_of = std::_Get_size_of_n<8>(v3);
-  v13 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-  v14 = &v13[8 * v5];
-  *(_QWORD *)v14 = *a3;
-  v15 = v13;
-  v16 = *(_BYTE **)(a1 + 8);
-  v17 = *(_BYTE **)a1;
-  if ( a2 == v16 )
-  {
-    v18 = v16 - v17;
+    v11 = v6 + 1;
   }
   else
   {
-    memmove_0(v13, v17, (size_t)&a2[-*(_QWORD *)a1]);
-    v15 = v14 + 8;
-    v18 = *(_QWORD *)(a1 + 8) - (_QWORD)a2;
-    v17 = a2;
+    v11 = v10 + v9;
+    if ( v10 + v9 < v8 )
+      v11 = v8;
   }
-  memmove_0(v15, v17, v18);
-  if ( *(_QWORD *)a1 )
-    std::_Deallocate<16,0>(*(void **)a1, (*(_QWORD *)(a1 + 16) - *(_QWORD *)a1) & 0xFFFFFFFFFFFFFFF8uLL);
-  *(_QWORD *)a1 = v13;
-  *(_QWORD *)(a1 + 8) = &v13[8 * v9];
-  result = v14;
-  *(_QWORD *)(a1 + 16) = &v13[8 * v3];
+  v12 = 8 * v11;
+  v13 = 8 * v11;
+  if ( v11 > 0x1FFFFFFFFFFFFFFFLL )
+    v13 = -1LL;
+  v14 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(v13);
+  v15 = &v14[8 * v4];
+  *(_QWORD *)v15 = *a3;
+  v16 = v14;
+  v17 = (_BYTE *)a1[1];
+  v18 = (_BYTE *)*a1;
+  if ( a2 == v17 )
+  {
+    v19 = v17 - v18;
+  }
+  else
+  {
+    memmove_0(v14, v18, (size_t)&a2[-*a1]);
+    v16 = v15 + 8;
+    v19 = a1[1] - (_QWORD)a2;
+    v18 = a2;
+  }
+  memmove_0(v16, v18, v19);
+  if ( *a1 )
+    std::_Deallocate<16,0>(*a1, (a1[2] - *a1) & 0xFFFFFFFFFFFFFFF8uLL);
+  result = &v14[8 * v4];
+  a1[1] = &v14[8 * v8];
+  a1[2] = &v14[v12];
+  *a1 = v14;
   return result;
 }

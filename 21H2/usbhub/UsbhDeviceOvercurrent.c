@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhDeviceOvercurrent @ 0x1C0049E70
+ * XREFs of UsbhDeviceOvercurrent @ 0x1C004B240
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhDeviceOvercurrentPopup @ 0x1C002F1D4 (UsbhDeviceOvercurrentPopup.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhDeviceOvercurrentPopup @ 0x1C00305A4 (UsbhDeviceOvercurrentPopup.c)
  */
 
 NTSTATUS __fastcall UsbhDeviceOvercurrent(PDEVICE_OBJECT DeviceObject, __int64 a2)

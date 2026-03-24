@@ -1,9 +1,9 @@
 /*
- * XREFs of Interrupter_SetSecondaryInterrupterCount @ 0x1C0001904
+ * XREFs of Interrupter_SetSecondaryInterrupterCount @ 0x1C00058AC
  * Callers:
- *     Interrupter_PrepareHardware @ 0x1C006ED2C (Interrupter_PrepareHardware.c)
- *     Controller_WdfEvtDeviceFilterRemoveResourceRequirements @ 0x1C006F3C0 (Controller_WdfEvtDeviceFilterRemoveResourceRequirements.c)
- *     Interrupter_DetermineSecondaryInterrupterCount @ 0x1C00778E0 (Interrupter_DetermineSecondaryInterrupterCount.c)
+ *     Interrupter_PrepareHardware @ 0x1C006DCA0 (Interrupter_PrepareHardware.c)
+ *     Controller_WdfEvtDeviceFilterRemoveResourceRequirements @ 0x1C006E660 (Controller_WdfEvtDeviceFilterRemoveResourceRequirements.c)
+ *     Interrupter_DetermineSecondaryInterrupterCount @ 0x1C00764E0 (Interrupter_DetermineSecondaryInterrupterCount.c)
  * Callees:
  *     <none>
  */

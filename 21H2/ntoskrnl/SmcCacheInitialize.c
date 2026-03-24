@@ -1,12 +1,12 @@
 /*
- * XREFs of SmcCacheInitialize @ 0x1409D7A10
+ * XREFs of SmcCacheInitialize @ 0x14092D4C4
  * Callers:
- *     SmcProcessCreateRequest @ 0x1409D4BC0 (SmcProcessCreateRequest.c)
+ *     SmcProcessCreateRequest @ 0x14092A7E0 (SmcProcessCreateRequest.c)
  * Callees:
- *     ExInitializePushLock @ 0x1402A0840 (ExInitializePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402F0990 (ExWaitForRundownProtectionRelease.c)
- *     memset @ 0x140435E00 (memset.c)
- *     StEtaInitialize @ 0x1405FADF8 (StEtaInitialize.c)
+ *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     StEtaInitialize @ 0x14059D3C4 (StEtaInitialize.c)
  */
 
 void __fastcall SmcCacheInitialize(struct _EX_RUNDOWN_REF *a1)
@@ -26,7 +26,7 @@ void __fastcall SmcCacheInitialize(struct _EX_RUNDOWN_REF *a1)
     do
     {
       LODWORD(v2->Count) = -1;
-      ExInitializePushLock(v4);
+      ExInitializePushLock(&v4->Count);
       ExWaitForRundownProtectionRelease(v4);
       v2 += 3;
       v4 += 3;

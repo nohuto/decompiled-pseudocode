@@ -1,14 +1,13 @@
 /*
- * XREFs of ?DxgCreateLiveDumpWithDriverBlob@@YAJPEAU_DEVICE_OBJECT@@K_K111PEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C02CDEA4
+ * XREFs of ?DxgCreateLiveDumpWithDriverBlob@@YAJPEAU_DEVICE_OBJECT@@K_K111PEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C0221668
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C0200110 (DpiFdoStartAdapter.c)
- *     DpiAddDevice @ 0x1C0202170 (DpiAddDevice.c)
- *     ?CreateMiniportBlackboxLiveDump@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJXZ @ 0x1C02F8210 (-CreateMiniportBlackboxLiveDump@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJXZ.c)
+ *     DpiFdoStartAdapter @ 0x1C0189268 (DpiFdoStartAdapter.c)
+ *     DpiAddDevice @ 0x1C018BAE0 (DpiAddDevice.c)
+ *     ?CreateMiniportBlackboxLiveDump@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJXZ @ 0x1C02BB240 (-CreateMiniportBlackboxLiveDump@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0pzzzq_EtwWriteTransfer @ 0x1C00477A0 (McTemplateK0pzzzq_EtwWriteTransfer.c)
- *     ?DxgUnicodeStringFromCharBuffer@@YAJAEAU_UNICODE_STRING@@PEADG@Z @ 0x1C02CE37C (-DxgUnicodeStringFromCharBuffer@@YAJAEAU_UNICODE_STRING@@PEADG@Z.c)
- *     ?DxgkAddDiagnosticInfoIntoReport@@YAJPEAU_WD_DEBUG_REPORT@@PEAU_DEVICE_OBJECT@@PEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C030D728 (-DxgkAddDiagnosticInfoIntoReport@@YAJPEAU_WD_DEBUG_REPORT@@PEAU_DEVICE_OBJECT@@PEAU_DXGKARG_COLL.c)
+ *     McTemplateK0pzzzq_EtwWriteTransfer @ 0x1C003F510 (McTemplateK0pzzzq_EtwWriteTransfer.c)
+ *     ?DxgUnicodeStringFromCharBuffer@@YAJAEAU_UNICODE_STRING@@PEADG@Z @ 0x1C0221A04 (-DxgUnicodeStringFromCharBuffer@@YAJAEAU_UNICODE_STRING@@PEADG@Z.c)
+ *     ?DxgkAddDiagnosticInfoIntoReport@@YAJPEAU_WD_DEBUG_REPORT@@PEAU_DEVICE_OBJECT@@PEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C0264798 (-DxgkAddDiagnosticInfoIntoReport@@YAJPEAU_WD_DEBUG_REPORT@@PEAU_DEVICE_OBJECT@@PEAU_DXGKARG_COLL.c)
  */
 
 __int64 __fastcall DxgCreateLiveDumpWithDriverBlob(
@@ -24,11 +23,17 @@ __int64 __fastcall DxgCreateLiveDumpWithDriverBlob(
   __int64 v12; // rcx
   struct _DEVICE_OBJECT *v13; // rcx
   struct _WD_DEBUG_REPORT *v14; // rax
-  struct _WD_DEBUG_REPORT *v15; // rsi
-  int v17; // ebx
-  int v18; // [rsp+30h] [rbp-40h]
-  struct _UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-20h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-10h] BYREF
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  struct _WD_DEBUG_REPORT *v17; // rdi
+  __int64 v18; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  int v22; // ebx
+  __int64 v23; // rax
+  int v24; // [rsp+30h] [rbp-30h]
+  struct _UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-20h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
 
   if ( bTracingEnabled && a7 )
   {
@@ -39,7 +44,7 @@ __int64 __fastcall DxgCreateLiveDumpWithDriverBlob(
     v12 = (unsigned int)(*((_DWORD *)a7 + 2) - 1);
     if ( *((_DWORD *)a7 + 2) == 1 )
     {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x10000000) != 0 )
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000000) != 0 )
         McTemplateK0pzzzq_EtwWriteTransfer(
           v12,
           &AddDeviceFailed,
@@ -50,7 +55,7 @@ __int64 __fastcall DxgCreateLiveDumpWithDriverBlob(
           DestinationString.Buffer,
           a4);
     }
-    else if ( *((_DWORD *)a7 + 2) == 2 && (Microsoft_Windows_DxgKrnlEnableBits & 0x10000000) != 0 )
+    else if ( *((_DWORD *)a7 + 2) == 2 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000000) != 0 )
     {
       McTemplateK0pzzzq_EtwWriteTransfer(
         v12,
@@ -68,36 +73,29 @@ __int64 __fastcall DxgCreateLiveDumpWithDriverBlob(
       RtlFreeUnicodeString(&DestinationString);
   }
   v13 = a1;
-  LOBYTE(v18) = 0;
+  LOBYTE(v24) = 0;
   if ( *((_DWORD *)a7 + 2) != 3 )
     v13 = 0LL;
-  v14 = (struct _WD_DEBUG_REPORT *)WdDbgReportCreate(v13, a2, a3, a4, a5, a6, v18);
-  v15 = v14;
+  v14 = (struct _WD_DEBUG_REPORT *)WdDbgReportCreate(v13, a2, a3, a4, a5, a6, v24);
+  v17 = v14;
   if ( v14 )
   {
-    v17 = DxgkAddDiagnosticInfoIntoReport(v14, a1, a7);
-    if ( v17 < 0 )
+    v22 = DxgkAddDiagnosticInfoIntoReport(v14, a1, a7);
+    if ( v22 < 0 )
     {
-      WdLogSingleEntry1(2LL, 11098LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"DxgkAddDiagnosticInfoIntoReport failed to add all information while building live dump",
-        11098LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      v17 = -1073741823;
+      v23 = WdLogNewEntry5_WdError(v21, v20);
+      *(_QWORD *)(v23 + 24) = 10741LL;
+      WdLogEvent5_WdError(v23);
+      v22 = -1073741823;
     }
-    WdDbgReportComplete(v15);
-    return (unsigned int)v17;
+    WdDbgReportComplete(v17);
+    return (unsigned int)v22;
   }
   else
   {
-    WdLogSingleEntry1(2LL, 11086LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"WdDbgReportCreate failed", 11086LL, 0LL, 0LL, 0LL, 0LL);
+    v18 = WdLogNewEntry5_WdError(v16, v15);
+    *(_QWORD *)(v18 + 24) = 10729LL;
+    WdLogEvent5_WdError(v18);
     return 3221225473LL;
   }
 }

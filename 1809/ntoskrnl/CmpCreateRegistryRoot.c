@@ -3,7 +3,7 @@
  * Callers:
  *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpHashUnicodeComponent @ 0x1405AF2C4 (CmpHashUnicodeComponent.c)
  *     ObCreateObject @ 0x1405BD820 (ObCreateObject.c)
@@ -13,8 +13,8 @@
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
  *     ObInsertObject @ 0x14061B280 (ObInsertObject.c)
- *     EnlistKeyBodyWithKCB @ 0x140733024 (EnlistKeyBodyWithKCB.c)
- *     CmpHiveRootSecurityDescriptor @ 0x1407335A0 (CmpHiveRootSecurityDescriptor.c)
+ *     EnlistKeyBodyWithKCB @ 0x140733004 (EnlistKeyBodyWithKCB.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x140733580 (CmpHiveRootSecurityDescriptor.c)
  *     CmpCreateRootNode @ 0x1409C4170 (CmpCreateRootNode.c)
  */
 

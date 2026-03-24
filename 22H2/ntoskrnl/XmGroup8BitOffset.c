@@ -1,19 +1,19 @@
 /*
- * XREFs of XmGroup8BitOffset @ 0x140532EB0
+ * XREFs of XmGroup8BitOffset @ 0x1404E5450
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmGetOffsetAddress @ 0x1403A497C (XmGetOffsetAddress.c)
- *     XmEvaluateAddressSpecifier @ 0x1403B8BCC (XmEvaluateAddressSpecifier.c)
- *     XmGetCodeByte @ 0x1403B8DB4 (XmGetCodeByte.c)
- *     XmSetDestinationValue @ 0x1403B8F08 (XmSetDestinationValue.c)
+ *     XmSetDestinationValue @ 0x140396898 (XmSetDestinationValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140396914 (XmEvaluateAddressSpecifier.c)
+ *     XmGetCodeByte @ 0x140396C68 (XmGetCodeByte.c)
+ *     XmGetOffsetAddress @ 0x1403C8BDC (XmGetOffsetAddress.c)
  */
 
 __int64 __fastcall XmGroup8BitOffset(__int64 a1)
 {
   unsigned __int16 *OffsetAddress; // rdi
-  unsigned __int8 CodeByte; // al
-  bool v4; // zf
+  bool v3; // zf
+  int v4; // eax
   char v5; // dl
   int v6; // ecx
   __int64 result; // rax
@@ -22,22 +22,24 @@ __int64 __fastcall XmGroup8BitOffset(__int64 a1)
   v8 = 0;
   *(_DWORD *)(a1 + 120) = *(_BYTE *)(a1 + 138) != 0 ? 3 : 1;
   OffsetAddress = (unsigned __int16 *)XmEvaluateAddressSpecifier(a1, &v8);
-  CodeByte = XmGetCodeByte(a1);
-  v4 = *(_BYTE *)(a1 + 142) == 0;
-  *(_DWORD *)(a1 + 108) = CodeByte;
-  if ( v4 )
+  LOBYTE(v4) = XmGetCodeByte(a1);
+  v3 = *(_BYTE *)(a1 + 142) == 0;
+  v4 = (unsigned __int8)v4;
+  *(_DWORD *)(a1 + 108) = (unsigned __int8)v4;
+  if ( v3 )
   {
     v5 = -4;
     if ( *(_DWORD *)(a1 + 120) != 3 )
       v5 = -2;
     OffsetAddress = (unsigned __int16 *)XmGetOffsetAddress(
                                           a1,
-                                          *(_DWORD *)(a1 + 128) + ((CodeByte >> 3) & *(_DWORD *)&v5));
+                                          *(_DWORD *)(a1 + 128) + (((unsigned __int8)v4 >> 3) & *(_DWORD *)&v5));
+    v4 = *(_DWORD *)(a1 + 108);
   }
   v6 = 31;
   if ( *(_DWORD *)(a1 + 120) != 3 )
     v6 = 15;
-  *(_DWORD *)(a1 + 108) &= v6;
+  *(_DWORD *)(a1 + 108) = v4 & v6;
   XmSetDestinationValue(a1, OffsetAddress);
   result = 1LL;
   *(_DWORD *)(a1 + 124) += v8 & 3;

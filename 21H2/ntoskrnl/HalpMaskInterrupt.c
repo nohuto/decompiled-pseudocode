@@ -1,17 +1,16 @@
 /*
- * XREFs of HalpMaskInterrupt @ 0x140397D10
+ * XREFs of HalpMaskInterrupt @ 0x1403A6F90
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpInterruptSetLineStateInternal @ 0x140251FD8 (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptLookupController @ 0x140252134 (HalpInterruptLookupController.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x1402523CC (HalpInterruptFindLinesForGsiRange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpHandleMaskUnmaskSecondaryInterrupt @ 0x14051D410 (HalpHandleMaskUnmaskSecondaryInterrupt.c)
- *     HalpInterruptSetProblemEx @ 0x14051E038 (HalpInterruptSetProblemEx.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpInterruptSetLineStateInternal @ 0x140378BAC (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptLookupController @ 0x140378D00 (HalpInterruptLookupController.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140378FA8 (HalpInterruptFindLinesForGsiRange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpHandleMaskUnmaskSecondaryInterrupt @ 0x1404D0E1C (HalpHandleMaskUnmaskSecondaryInterrupt.c)
  */
 
 __int64 __fastcall HalpMaskInterrupt(unsigned int a1, unsigned int a2)
@@ -21,40 +20,44 @@ __int64 __fastcall HalpMaskInterrupt(unsigned int a1, unsigned int a2)
   ULONG_PTR *v6; // r14
   unsigned __int64 v7; // rsi
   __int64 v8; // r8
-  unsigned int v9; // ebx
-  __int64 v11; // r8
+  int v9; // ecx
+  unsigned int v10; // ecx
+  unsigned int v11; // ebx
+  __int64 v13; // r8
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v15; // eax
-  bool v16; // zf
-  __int64 v17; // [rsp+60h] [rbp+18h] BYREF
+  int v17; // eax
+  bool v18; // zf
+  __int64 v19; // [rsp+50h] [rbp+18h] BYREF
 
-  v17 = 0LL;
+  v19 = 0LL;
   LinesForGsiRange = HalpInterruptFindLinesForGsiRange(a1, a1 + 1);
   v5 = LinesForGsiRange;
   if ( !LinesForGsiRange )
   {
-    if ( ((unsigned __int8 (__fastcall *)(_QWORD, _QWORD))off_140C01DD0[0])(0LL, a1) )
+    if ( ((unsigned __int8 (__fastcall *)(_QWORD, _QWORD))off_140C00780[0])(0LL, a1) )
     {
-      LOBYTE(v11) = 1;
-      return (unsigned int)HalpHandleMaskUnmaskSecondaryInterrupt(a1, a2, v11);
+      LOBYTE(v13) = 1;
+      return (unsigned int)HalpHandleMaskUnmaskSecondaryInterrupt(a1, a2, v13);
     }
-    HalpInterruptSetProblemEx(0, 19, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 1720);
+    HalpInterruptLastProblem = 19;
     return (unsigned int)-1073741811;
   }
-  LODWORD(v17) = LinesForGsiRange[4];
-  HIDWORD(v17) = a1 + LinesForGsiRange[5] - LinesForGsiRange[7];
-  v6 = HalpInterruptLookupController(v17);
+  LODWORD(v19) = LinesForGsiRange[4];
+  HIDWORD(v19) = a1 + LinesForGsiRange[5] - LinesForGsiRange[7];
+  v6 = HalpInterruptLookupController(v19);
   if ( !v6 )
     return (unsigned int)-1073741811;
   v7 = HalpAcquireHighLevelLock(&HalpInterruptLock);
   v8 = *((_QWORD *)v5 + 5) + 56LL * (a1 - v5[7]);
+  v9 = *(_DWORD *)(v8 + 12);
   if ( (a2 & 1) != 0 )
-    *(_DWORD *)(v8 + 12) |= 0x20u;
+    v10 = v9 | 0x20;
   else
-    *(_DWORD *)(v8 + 12) &= ~0x10u;
-  v9 = HalpInterruptSetLineStateInternal((__int64)v6, (__int64)&v17, v8);
+    v10 = v9 & 0xFFFFFFEF;
+  *(_DWORD *)(v8 + 12) = v10;
+  v11 = HalpInterruptSetLineStateInternal((__int64)v6, (__int64)&v19, v8);
   KxReleaseSpinLock(&HalpInterruptLock);
   if ( KiIrqlFlags )
   {
@@ -65,14 +68,14 @@ __int64 __fastcall HalpMaskInterrupt(unsigned int a1, unsigned int a2)
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-        v16 = (v15 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v15;
-        if ( v16 )
+        v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v18 = (v17 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v17;
+        if ( v18 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }
   __writecr8(v7);
-  return v9;
+  return v11;
 }

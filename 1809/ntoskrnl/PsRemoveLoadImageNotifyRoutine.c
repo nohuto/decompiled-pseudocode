@@ -1,14 +1,14 @@
 /*
- * XREFs of PsRemoveLoadImageNotifyRoutine @ 0x14088C930
+ * XREFs of PsRemoveLoadImageNotifyRoutine @ 0x14088C910
  * Callers:
- *     EtwpCoverageSamplerStop @ 0x1408C8E50 (EtwpCoverageSamplerStop.c)
+ *     EtwpCoverageSamplerStop @ 0x1408C8E30 (EtwpCoverageSamplerStop.c)
  * Callees:
  *     ExDereferenceCallBackBlock @ 0x140088AA0 (ExDereferenceCallBackBlock.c)
  *     ExReferenceCallBackBlock @ 0x140088AF0 (ExReferenceCallBackBlock.c)
  *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExCompareExchangeCallBack @ 0x14018665C (ExCompareExchangeCallBack.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExCompareExchangeCallBack @ 0x14018667C (ExCompareExchangeCallBack.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

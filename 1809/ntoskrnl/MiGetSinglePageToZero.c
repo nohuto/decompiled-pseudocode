@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetSinglePageToZero @ 0x1402C1818
+ * XREFs of MiGetSinglePageToZero @ 0x1402C1918
  * Callers:
- *     MiGetPagesToZero @ 0x140185240 (MiGetPagesToZero.c)
+ *     MiGetPagesToZero @ 0x140185260 (MiGetPagesToZero.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiBeginPageAccessor @ 0x140064A20 (MiBeginPageAccessor.c)
  *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiGetSinglePageToZero(__int64 a1, unsigned __int64 a2)

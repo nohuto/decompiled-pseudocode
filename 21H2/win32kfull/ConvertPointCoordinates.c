@@ -1,9 +1,9 @@
 /*
- * XREFs of ConvertPointCoordinates @ 0x1C01CBC64
+ * XREFs of ConvertPointCoordinates @ 0x1C01CF344
  * Callers:
- *     TransformForInputMagnification @ 0x1C016A6E0 (TransformForInputMagnification.c)
+ *     TransformForInputMagnification @ 0x1C01CF690 (TransformForInputMagnification.c)
  * Callees:
- *     ?ConvertCoordinatesWithRounding@@YAHJJJJJPEAJ@Z @ 0x1C01CACE8 (-ConvertCoordinatesWithRounding@@YAHJJJJJPEAJ@Z.c)
+ *     ?ConvertCoordinatesWithRounding@@YAHJJJJJPEAJ@Z @ 0x1C01CE3C4 (-ConvertCoordinatesWithRounding@@YAHJJJJJPEAJ@Z.c)
  */
 
 __int64 __fastcall ConvertPointCoordinates(__int64 a1, int *a2, int *a3, _QWORD *a4)

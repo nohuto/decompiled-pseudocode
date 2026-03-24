@@ -1,11 +1,11 @@
 /*
- * XREFs of WppTraceCallbackWdf @ 0x1C00334D0
+ * XREFs of WppTraceCallbackWdf @ 0x1C003A140
  * Callers:
  *     <none>
  * Callees:
- *     WppInitGlobalLoggerWdf @ 0x1C00335A0 (WppInitGlobalLoggerWdf.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     ?FxIFRReplay@@YAX_K@Z @ 0x1C005D25C (-FxIFRReplay@@YAX_K@Z.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     WppInitGlobalLoggerWdf @ 0x1C0039D28 (WppInitGlobalLoggerWdf.c)
+ *     ?FxIFRReplay@@YAX_K@Z @ 0x1C003CF28 (-FxIFRReplay@@YAX_K@Z.c)
  */
 
 __int64 __fastcall WppTraceCallbackWdf(
@@ -20,7 +20,7 @@ __int64 __fastcall WppTraceCallbackWdf(
   unsigned int TraceInformation; // ebx
   _BYTE *v9; // rdi
   __int128 v10; // xmm0
-  _BYTE *v12; // rdi
+  _BYTE *v11; // rdi
   unsigned int Level; // [rsp+40h] [rbp+8h] BYREF
 
   v6 = Size;
@@ -65,7 +65,7 @@ __int64 __fastcall WppTraceCallbackWdf(
     }
     return (unsigned int)-1073741808;
   }
-  v12 = Context;
+  v11 = Context;
   Level = 0;
   LODWORD(Size) = 0;
   if ( Context )
@@ -77,17 +77,17 @@ __int64 __fastcall WppTraceCallbackWdf(
     else if ( minorFunction == 5 )
     {
       Context[49] = 0;
-      *((_DWORD *)v12 + 13) = 0;
-      *((_QWORD *)v12 + 4) = 0LL;
+      *((_DWORD *)v11 + 13) = 0;
+      *((_QWORD *)v11 + 4) = 0LL;
     }
     else
     {
       *((_QWORD *)Context + 4) = *((_QWORD *)Buffer + 1);
       if ( WmiQueryTraceInformation(TraceEnableLevelClass, &Level, 4u, (PULONG)&Size, Buffer) >= 0 )
-        v12[49] = Level;
-      TraceInformation = WmiQueryTraceInformation(TraceEnableFlagsClass, v12 + 52, 4u, (PULONG)&Size, Buffer);
+        v11[49] = Level;
+      TraceInformation = WmiQueryTraceInformation(TraceEnableFlagsClass, v11 + 52, 4u, (PULONG)&Size, Buffer);
       if ( (WPP_GLOBAL_WDF_Control.Characteristics & 0x200000) != 0 )
-        FxIFRReplay(*((_QWORD *)v12 + 4));
+        FxIFRReplay(*((_QWORD *)v11 + 4));
     }
   }
   else

@@ -1,23 +1,23 @@
 /*
- * XREFs of ?PreTextOut@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02B64A4
+ * XREFs of ?PreTextOut@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C0006548
  * Callers:
- *     ?bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@AEAVRFONTOBJ@@PEAVPDEVOBJ@@K4@Z @ 0x1C029FAB8 (-bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUS.c)
+ *     ?bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@AEAVRFONTOBJ@@PEAVPDEVOBJ@@K4@Z @ 0x1C0005FCC (-bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUS.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
  */
 
 void __fastcall RFONTOBJ::PreTextOut(RFONTOBJ *this, struct XDCOBJ *a2)
 {
-  __int64 v3; // rbx
+  int v3; // eax
   __int64 i; // rdx
   __int64 v5; // [rsp+38h] [rbp+10h] BYREF
 
-  if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 48LL) + 40LL) & 0x8080) == 0x80 && !*(_DWORD *)(*(_QWORD *)this + 92LL) )
+  v3 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 48LL) + 40LL);
+  if ( (v3 & 0x80u) != 0 && (v3 & 0x8000) == 0 && !*(_DWORD *)(*(_QWORD *)this + 92LL) )
   {
-    v3 = *(_QWORD *)(SGDGetSessionState(this) + 32);
-    v5 = *(_QWORD *)(v3 + 23400);
-    GreAcquireSemaphore(v5);
-    for ( i = *(_QWORD *)(v3 + 23392); i; i = *(_QWORD *)(i + 32) )
+    v5 = ghsemPrintKView;
+    GreAcquireSemaphore();
+    for ( i = gpPrintKViewList; i; i = *(_QWORD *)(i + 32) )
     {
       if ( *(_QWORD *)i == *(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 128LL) + 80LL) )
         ++*(_DWORD *)(i + 12);

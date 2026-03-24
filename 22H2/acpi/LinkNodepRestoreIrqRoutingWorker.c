@@ -1,53 +1,53 @@
 /*
- * XREFs of LinkNodepRestoreIrqRoutingWorker @ 0x1C005D960
+ * XREFs of LinkNodepRestoreIrqRoutingWorker @ 0x1C006C060
  * Callers:
- *     LinkNodeRestoreHardwareState @ 0x1C005D7F8 (LinkNodeRestoreHardwareState.c)
+ *     LinkNodeRestoreHardwareState @ 0x1C006BF7C (LinkNodeRestoreHardwareState.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     AMLIAsyncEvalObject @ 0x1C0047908 (AMLIAsyncEvalObject.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
- *     LinkNodepRunSrsAsync @ 0x1C005DACC (LinkNodepRunSrsAsync.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     LinkNodepRunSrsAsync @ 0x1C006C1D0 (LinkNodepRunSrsAsync.c)
  */
 
 __int64 __fastcall LinkNodepRestoreIrqRoutingWorker(__int64 a1, unsigned int a2, __int64 a3, char *a4)
 {
   KSPIN_LOCK *v7; // rsi
-  __int64 v8; // rcx
-  __int64 v9; // rdx
-  bool v10; // zf
-  __int64 *v11; // rax
-  volatile signed __int32 *v12; // rbp
-  __int64 v13; // rdx
+  char i; // al
+  __int64 v9; // rcx
+  __int64 v10; // rdx
+  bool v11; // zf
+  __int64 *v12; // rax
+  __int64 v13; // rbp
   __int64 v14; // rax
   KIRQL v15; // dl
 
   _InterlockedIncrement((volatile signed __int32 *)a4 + 7);
   v7 = (KSPIN_LOCK *)(a4 + 16);
   a4[24] = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)a4 + 2);
-  while ( 1 )
+  for ( i = a4[25]; ; i = 0 )
   {
-    if ( a4[25] )
+    if ( i )
       goto LABEL_8;
-    v8 = *(_QWORD *)a4;
+    v9 = *(_QWORD *)a4;
     if ( *(_DWORD *)(*(_QWORD *)a4 + 24LL) )
     {
-      v9 = *(unsigned int *)(v8 + 32);
-      *((_DWORD *)a4 + 2) = v9;
-      a2 = LinkNodepRunSrsAsync(*(_QWORD *)(v8 + 600), v9, LinkNodepRestoreIrqRoutingWorker, a4);
-      v10 = a2 == 259;
+      v10 = *(unsigned int *)(v9 + 32);
+      *((_DWORD *)a4 + 2) = v10;
+      a2 = LinkNodepRunSrsAsync(*(_QWORD *)(v9 + 560), v10, LinkNodepRestoreIrqRoutingWorker, a4);
+      v11 = a2 == 259;
     }
     else
     {
-      v11 = AMLIGetNamedChild(*(_QWORD **)(v8 + 600), 1397310559);
-      v12 = (volatile signed __int32 *)v11;
-      if ( !v11 )
+      v12 = AMLIGetNamedChild(*(__int64 **)(v9 + 560), 1397310559);
+      v13 = (__int64)v12;
+      if ( !v12 )
         goto LABEL_8;
-      a2 = AMLIAsyncEvalObject(v11, 0LL, 0, 0LL, LinkNodepRestoreIrqRoutingWorker, a4);
-      AMLIDereferenceHandleEx(v12, v13);
-      v10 = a2 == 259;
+      a2 = AMLIAsyncEvalObject(v12, 0LL, 0, 0LL, LinkNodepRestoreIrqRoutingWorker, a4);
+      AMLIDereferenceHandleEx(v13);
+      v11 = a2 == 259;
     }
-    if ( v10 )
+    if ( v11 )
     {
       v15 = a4[24];
       a4[25] = 1;

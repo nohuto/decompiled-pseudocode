@@ -1,9 +1,9 @@
 /*
- * XREFs of VidSchCancelDeviceCommand @ 0x1C003E1D0
+ * XREFs of VidSchCancelDeviceCommand @ 0x1C00339A4
  * Callers:
- *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00ABE50 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
+ *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006C260 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
  * Callees:
- *     ?VidMmiOfferAllocationCallback@VIDMM_GLOBAL@@SAXPEAX@Z @ 0x1C0015A60 (-VidMmiOfferAllocationCallback@VIDMM_GLOBAL@@SAXPEAX@Z.c)
+ *     ?VidMmiOfferAllocationCallback@VIDMM_GLOBAL@@SAXPEAX@Z @ 0x1C00056C0 (-VidMmiOfferAllocationCallback@VIDMM_GLOBAL@@SAXPEAX@Z.c)
  */
 
 __int64 __fastcall VidSchCancelDeviceCommand(__int64 a1, __int64 a2, char a3, char a4)
@@ -17,9 +17,8 @@ __int64 __fastcall VidSchCancelDeviceCommand(__int64 a1, __int64 a2, char a3, ch
   if ( *(_DWORD *)(a2 + 40) != 3 )
     return 3221225485LL;
   v6 = *(_QWORD **)(a2 + 48);
-  memset(&LockHandle, 0, sizeof(LockHandle));
   if ( !a4 )
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*(_QWORD *)(a1 + 32) + 1728LL), &LockHandle);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*(_QWORD *)(a1 + 32) + 1712LL), &LockHandle);
   v7 = v6 + 27;
   v8 = v6[27];
   if ( v8 )

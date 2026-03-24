@@ -1,19 +1,19 @@
 /*
- * XREFs of ViPendingCompleteAfterWait @ 0x140AD2BEC
+ * XREFs of ViPendingCompleteAfterWait @ 0x1409D5B34
  * Callers:
- *     ViPendingCompleteAtDPC @ 0x140AD2D30 (ViPendingCompleteAtDPC.c)
- *     ViPendingWorkerThread @ 0x140AD2F70 (ViPendingWorkerThread.c)
+ *     ViPendingCompleteAtDPC @ 0x1409D5C70 (ViPendingCompleteAtDPC.c)
+ *     ViPendingWorkerThread @ 0x1409D5EB0 (ViPendingWorkerThread.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D25E4 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D262C (ViIrpDatabaseReleaseLockExclusive.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140AC344C (VfUtilAddressRangeRemoveCheckEmpty.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140AE28EC (VfIrpDatabaseEntryReleaseLock.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x1405A254C (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x1405A2594 (ViIrpDatabaseReleaseLockExclusive.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x1409C63C0 (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x1409E093C (VfIrpDatabaseEntryReleaseLock.c)
  */
 
 void __fastcall ViPendingCompleteAfterWait(char *P)
@@ -23,7 +23,7 @@ void __fastcall ViPendingCompleteAfterWait(char *P)
   IRP *v4; // r14
   __int64 v5; // rbp
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r15
-  void *v7; // rbp
+  struct _DMA_ADAPTER *v7; // rbp
   bool v8; // zf
   unsigned __int64 v9; // rbx
   unsigned int (__fastcall *CompletionRoutine)(_QWORD, _QWORD, _QWORD); // rax
@@ -38,7 +38,7 @@ void __fastcall ViPendingCompleteAfterWait(char *P)
   *((_BYTE *)v2 + 16) = v3;
   CurrentStackLocation = v4->Tail.Overlay.CurrentStackLocation;
   *((_DWORD *)v2 + 14) &= ~0x10u;
-  if ( !v5 || (v7 = *(void **)(v5 + 40)) == 0LL )
+  if ( !v5 || (v7 = *(struct _DMA_ADAPTER **)(v5 + 40)) == 0LL )
     v7 = 0LL;
   v8 = (*((_DWORD *)v2 + 6))-- == 1;
   v11 = 0;
@@ -49,7 +49,7 @@ void __fastcall ViPendingCompleteAfterWait(char *P)
     ((void (__fastcall *)(_QWORD *, _QWORD, __int64))v2[6])(v2, *v2, 1LL);
     *v2 = 0LL;
     VfUtilAddressRangeRemoveCheckEmpty(
-      (__int64 *)(ViIrpDatabaseAddressRanges + 16LL * (unsigned __int8)(-125 * (v9 >> 12))),
+      (_QWORD *)(ViIrpDatabaseAddressRanges + 16LL * (unsigned __int8)(-125 * (v9 >> 12))),
       v9);
     ViIrpDatabaseReleaseLockExclusive(v11);
   }
@@ -59,6 +59,6 @@ void __fastcall ViPendingCompleteAfterWait(char *P)
   if ( !CompletionRoutine || CompletionRoutine(*((_QWORD *)P + 1), v4, CurrentStackLocation[-1].Context) != -1073741802 )
     IofCompleteRequest(v4, P[172]);
   if ( v7 )
-    ObfDereferenceObject(v7);
+    HalPutDmaAdapter(v7);
   ExFreePoolWithTag(P, 0);
 }

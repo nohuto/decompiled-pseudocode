@@ -1,26 +1,32 @@
 /*
- * XREFs of xxxOldMessageBeep @ 0x1C02128F8
+ * XREFs of xxxOldMessageBeep @ 0x1C0214128
  * Callers:
- *     xxxMessageBeep @ 0x1C014C6C4 (xxxMessageBeep.c)
+ *     xxxMessageBeep @ 0x1C015D9A0 (xxxMessageBeep.c)
  * Callees:
- *     xxxSoundSentry @ 0x1C011B3AC (xxxSoundSentry.c)
- *     UserBeep @ 0x1C0214878 (UserBeep.c)
+ *     xxxSoundSentry @ 0x1C015DA30 (xxxSoundSentry.c)
+ *     UserBeep @ 0x1C0219C78 (UserBeep.c)
  */
 
-__int64 __fastcall xxxOldMessageBeep(__int64 a1, __int64 a2)
+__int64 __fastcall xxxOldMessageBeep(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned int v2; // ebx
+  unsigned int v3; // ebx
 
   if ( (gdwPUDFlags & 0x80000) != 0 )
   {
+    if ( gdwInAtomicOperation )
+    {
+      a1 = gdwExtraInstrumentations;
+      if ( (gdwExtraInstrumentations & 1) != 0 )
+        KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+    }
     UserSessionSwitchLeaveCrit(a1);
-    v2 = UserBeep(440LL, 125LL);
-    EnterCrit(1LL, 0LL);
-    return v2;
+    v3 = UserBeep(440LL, 125LL);
+    EnterCrit(0LL, 1LL);
+    return v3;
   }
   else
   {
-    xxxSoundSentry(a1, a2);
+    xxxSoundSentry(a1, a2, a3);
     return 1LL;
   }
 }

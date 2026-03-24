@@ -1,11 +1,11 @@
 /*
- * XREFs of KiUpdateProcessorCount @ 0x140A59C88
+ * XREFs of KiUpdateProcessorCount @ 0x14099F584
  * Callers:
- *     KiUpdateNumberProcessorsIpi @ 0x140A69710 (KiUpdateNumberProcessorsIpi.c)
- *     KeStartAllProcessors @ 0x140B03C68 (KeStartAllProcessors.c)
+ *     KiUpdateNumberProcessorsIpi @ 0x1409AF630 (KiUpdateNumberProcessorsIpi.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     KiGetCurrentGroupCount @ 0x14025E8C8 (KiGetCurrentGroupCount.c)
- *     KeAddProcessorAffinityEx @ 0x140294460 (KeAddProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
+ *     KiGetCurrentGroupCount @ 0x1402D3FA8 (KiGetCurrentGroupCount.c)
  */
 
 char __fastcall KiUpdateProcessorCount(__int64 a1, int a2)
@@ -17,7 +17,7 @@ char __fastcall KiUpdateProcessorCount(__int64 a1, int a2)
   KiActiveGroups = KiGetCurrentGroupCount();
   _disable();
   LODWORD(KeNumberProcessors_0) = KeNumberProcessors_0 + 1;
-  KeAddProcessorAffinityEx((unsigned __int16 *)KeActiveProcessors, v3);
+  KeAddProcessorAffinityEx(KeActiveProcessors, v3);
   _enable();
   if ( !a2 )
   {

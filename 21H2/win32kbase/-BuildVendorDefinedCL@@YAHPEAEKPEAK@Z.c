@@ -1,7 +1,7 @@
 /*
- * XREFs of ?BuildVendorDefinedCL@@YAHPEAEKPEAK@Z @ 0x1C019FA30
+ * XREFs of ?BuildVendorDefinedCL@@YAHPEAEKPEAK@Z @ 0x1C016B2D4
  * Callers:
- *     ?SetCollectionLabel@@YAHPEAEKPEAK@Z @ 0x1C019FAD0 (-SetCollectionLabel@@YAHPEAEKPEAK@Z.c)
+ *     ?SetCollectionLabel@@YAHPEAEKPEAK@Z @ 0x1C016B374 (-SetCollectionLabel@@YAHPEAEKPEAK@Z.c)
  * Callees:
  *     <none>
  */

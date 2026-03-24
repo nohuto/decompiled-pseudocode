@@ -1,17 +1,17 @@
 /*
- * XREFs of ?Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0248870
+ * XREFs of ?Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0259A1C
  * Callers:
- *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C02457A4 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0256DD0 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
- *     AllocateUnicodeString @ 0x1C00B1008 (AllocateUnicodeString.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ??$Write@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C01A9358 (--$Write@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0240074 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C024011C (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
- *     ?InitializeSupportedWaveformList@SimpleHapticsController@@IEAAJXZ @ 0x1C0248C28 (-InitializeSupportedWaveformList@SimpleHapticsController@@IEAAJXZ.c)
- *     ?IntializePreparssedData@SimpleHapticsController@@IEAAJXZ @ 0x1C024908C (-IntializePreparssedData@SimpleHapticsController@@IEAAJXZ.c)
- *     ?OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ @ 0x1C024922C (-OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ.c)
+ *     AllocateUnicodeString @ 0x1C01243E4 (AllocateUnicodeString.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C01D4618 (--$Write@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C02510F4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C025119C (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
+ *     ?InitializeSupportedWaveformList@SimpleHapticsController@@IEAAJXZ @ 0x1C0259DD4 (-InitializeSupportedWaveformList@SimpleHapticsController@@IEAAJXZ.c)
+ *     ?IntializePreparssedData@SimpleHapticsController@@IEAAJXZ @ 0x1C025A248 (-IntializePreparssedData@SimpleHapticsController@@IEAAJXZ.c)
+ *     ?OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ @ 0x1C025A3E8 (-OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ.c)
  */
 
 __int64 __fastcall SimpleHapticsController::Initialize(SimpleHapticsController *this, struct _UNICODE_STRING *a2)
@@ -37,16 +37,16 @@ __int64 __fastcall SimpleHapticsController::Initialize(SimpleHapticsController *
   USHORT ValueCapsLength[2]; // [rsp+40h] [rbp-79h] BYREF
   _DWORD v24[3]; // [rsp+44h] [rbp-75h] BYREF
   __int64 v25; // [rsp+50h] [rbp-69h] BYREF
-  _HIDP_CAPS Capabilities; // [rsp+60h] [rbp-59h] BYREF
+  struct _HIDP_CAPS Capabilities; // [rsp+60h] [rbp-59h] BYREF
   struct _HIDP_VALUE_CAPS ValueCaps; // [rsp+A0h] [rbp-19h] BYREF
 
-  memset_0(&Capabilities, 0, sizeof(Capabilities));
-  if ( (unsigned int)dword_1C0354118 > 4 )
+  memset(&Capabilities, 0, sizeof(Capabilities));
+  if ( (unsigned int)dword_1C032A2C0 > 4 )
   {
     *(_QWORD *)&v24[1] = "SimpleHapticsController::Initialize entry";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>>(
-      (__int64)&dword_1C0354118,
-      byte_1C031E275,
+      (__int64)&dword_1C032A2C0,
+      byte_1C02F3A26,
       0LL,
       0LL,
       (void **)&v24[1]);
@@ -56,7 +56,7 @@ __int64 __fastcall SimpleHapticsController::Initialize(SimpleHapticsController *
     v6 = -1073741811;
     goto LABEL_32;
   }
-  if ( !(unsigned int)AllocateUnicodeString((struct _UNICODE_STRING *)this, (const void **)a2) )
+  if ( !(unsigned int)AllocateUnicodeString((struct _UNICODE_STRING *)this, &a2->Length) )
     goto LABEL_6;
   v7 = SimpleHapticsController::OpenHapticsDevice(this);
   v6 = v7;
@@ -88,7 +88,7 @@ LABEL_6:
           *((_WORD *)this + 36) = 0;
           *((_QWORD *)this + 8) = 0LL;
         }
-        memset_0(&ValueCaps, 0, sizeof(ValueCaps));
+        memset(&ValueCaps, 0, sizeof(ValueCaps));
         PreparsedData = (struct _HIDP_PREPARSED_DATA *)*((_QWORD *)this + 2);
         ValueCapsLength[0] = 1;
         if ( HidP_GetSpecificValueCaps(HidP_Output, 0xEu, 0, 0x21u, &ValueCaps, ValueCapsLength, PreparsedData) >= 0 )
@@ -111,13 +111,13 @@ LABEL_6:
       }
       else
       {
-        if ( (unsigned int)dword_1C0354118 > 2 )
+        if ( (unsigned int)dword_1C032A2C0 > 2 )
         {
           v24[0] = Caps;
           *(_QWORD *)&v24[1] = "Function failed.";
           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-            (__int64)&dword_1C0354118,
-            byte_1C031E23E,
+            (__int64)&dword_1C032A2C0,
+            byte_1C02F3A55,
             v14,
             v15,
             (void **)&v24[1],
@@ -129,20 +129,20 @@ LABEL_6:
           "HapticsCtrl: (%s, %s:%d) ERROR: 0x%x, %s\n",
           "SimpleHapticsController::Initialize",
           "clientcore\\windows\\core\\ntuser\\kernel\\windows\\simplehapticsctrl.cxx",
-          62,
+          61,
           v6,
           "Function failed.");
       }
     }
     else
     {
-      if ( (unsigned int)dword_1C0354118 > 2 )
+      if ( (unsigned int)dword_1C032A2C0 > 2 )
       {
         v24[0] = v10;
         *(_QWORD *)&v24[1] = "Function failed.";
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-          (__int64)&dword_1C0354118,
-          byte_1C031E23E,
+          (__int64)&dword_1C032A2C0,
+          byte_1C02F3A55,
           v11,
           v12,
           (void **)&v24[1],
@@ -154,20 +154,20 @@ LABEL_6:
         "HapticsCtrl: (%s, %s:%d) ERROR: 0x%x, %s\n",
         "SimpleHapticsController::Initialize",
         "clientcore\\windows\\core\\ntuser\\kernel\\windows\\simplehapticsctrl.cxx",
-        60,
+        59,
         v6,
         "Function failed.");
     }
   }
   else
   {
-    if ( (unsigned int)dword_1C0354118 > 2 )
+    if ( (unsigned int)dword_1C032A2C0 > 2 )
     {
       v24[0] = v7;
       *(_QWORD *)&v24[1] = "Function failed.";
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-        (__int64)&dword_1C0354118,
-        byte_1C031E23E,
+        (__int64)&dword_1C032A2C0,
+        byte_1C02F3A55,
         v8,
         v9,
         (void **)&v24[1],
@@ -179,19 +179,19 @@ LABEL_6:
       "HapticsCtrl: (%s, %s:%d) ERROR: 0x%x, %s\n",
       "SimpleHapticsController::Initialize",
       "clientcore\\windows\\core\\ntuser\\kernel\\windows\\simplehapticsctrl.cxx",
-      58,
+      57,
       v6,
       "Function failed.");
   }
 LABEL_32:
-  if ( (unsigned int)dword_1C0354118 > 4 )
+  if ( (unsigned int)dword_1C032A2C0 > 4 )
   {
     v24[1] = *((_DWORD *)this + 22);
     v24[0] = v6;
     v25 = (__int64)"SimpleHapticsController::Initialize exit";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C0354118,
-      byte_1C031E38D,
+      (__int64)&dword_1C032A2C0,
+      byte_1C02F3BD8,
       v4,
       v5,
       (void **)&v25,

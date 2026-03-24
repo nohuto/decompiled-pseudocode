@@ -1,1 +1,101 @@
-/*\n * XREFs of MouseAddDeviceEx @ 0x1C000D540\n * Callers:\n *     MouseAddDevice @ 0x1C000D3F0 (MouseAddDevice.c)\n *     MouseClassFindMorePorts @ 0x1C000DD10 (MouseClassFindMorePorts.c)\n *     DriverEntry @ 0x1C00112E0 (DriverEntry.c)\n * Callees:\n *     WPP_RECORDER_SF_S @ 0x1C00023A0 (WPP_RECORDER_SF_S.c)\n *     memmove @ 0x1C0002C00 (memmove.c)\n *     MouseClassLogError @ 0x1C0004BA8 (MouseClassLogError.c)\n *     MouSendConnectRequest @ 0x1C000D660 (MouSendConnectRequest.c)\n */\n\n__int64 __fastcall MouseAddDeviceEx(__int64 a1, const WCHAR *a2, __int64 a3)\n{\n  NTSTATUS v6; // esi\n  __int64 v7; // rdi\n  int v8; // edx\n  __int64 v10; // r15\n  void *Pool2; // r12\n  __int64 v12; // rcx\n  char v13; // cl\n  int ValueData; // [rsp+20h] [rbp-58h]\n\n  v6 = 0;\n  KeInitializeSpinLock((PKSPIN_LOCK)(a1 + 72));\n  v7 = *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels;\n  if ( LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) )\n    v7 = a1;\n  *(_QWORD *)(a1 + 8) = *(_QWORD *)v7;\n  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels == a1 )\n  {\nLABEL_11:\n    if ( a1 == v7 )\n    {\nLABEL_7:\n      v6 = RtlWriteRegistryValue(4u, DestinationString.Buffer, a2, 1u, P, (unsigned __int16)word_1C000A300 + 2);\n      if ( v6 < 0 )\n      {\n        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n        {\n          LOBYTE(v8) = 2;\n          WPP_RECORDER_SF_S(WPP_GLOBAL_Control->DeviceExtension, v8, 1, 19, ValueData, (__int64)a2);\n        }\n        MouseClassLogError((void *)a1, -2147155963, 20014, v6, 0, 0LL, 0);\n      }\n      else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n      {\n        LOBYTE(v8) = 4;\n        WPP_RECORDER_SF_S(WPP_GLOBAL_Control->DeviceExtension, v8, 1, 20, ValueData, (__int64)a2);\n      }\n    }\n    return (unsigned int)v6;\n  }\n  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels != v7 )\n  {\n    if ( a1 == v7 )\n    {\n      MouSendConnectRequest(a1);\n      goto LABEL_7;\n    }\n    return (unsigned int)v6;\n  }\n  v6 = MouSendConnectRequest(a1);\n  ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n  v10 = 0LL;\n  if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )\n  {\n    while ( !*((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v10 + 19) )\n    {\n      v10 = (unsigned int)(v10 + 1);\n      if ( (unsigned int)v10 >= LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )\n        goto LABEL_18;\n    }\n    *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v10 + 19) = 0;\n  }\nLABEL_18:\n  if ( (_DWORD)v10 != LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )\n  {\nLABEL_24:\n    *(_DWORD *)(a1 + 180) = v10;\n    v12 = 3 * v10;\n    *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + v12 + 1) = a1;\n    *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + v12) = a3;\n    v13 = *(_BYTE *)(*(_QWORD *)a1 + 76LL);\n    if ( *(char *)(*(_QWORD *)v7 + 76LL) >= v13 )\n      v13 = *(_BYTE *)(*(_QWORD *)v7 + 76LL);\n    *(_BYTE *)(*(_QWORD *)v7 + 76LL) = v13;\n    ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n    goto LABEL_11;\n  }\n  Pool2 = (void *)ExAllocatePool2(\n                    64LL,\n                    24LL * (unsigned int)(LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) + 1),\n                    1131769677LL);\n  if ( Pool2 )\n  {\n    if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )\n    {\n      memmove(Pool2, WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 24LL * LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext));\n      ExFreePoolWithTag(WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 0);\n    }\n    ++LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext);\n    WPP_MAIN_CB.Queue.Wcb.DeviceRoutine = (PDRIVER_CONTROL)Pool2;\n    goto LABEL_24;\n  }\n  ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n  return 3221225626LL;\n}\n
+/*
+ * XREFs of MouseAddDeviceEx @ 0x1C000C720
+ * Callers:
+ *     MouseClassFindMorePorts @ 0x1C000C3F0 (MouseClassFindMorePorts.c)
+ *     MouseAddDevice @ 0x1C000C5D0 (MouseAddDevice.c)
+ *     DriverEntry @ 0x1C000F500 (DriverEntry.c)
+ * Callees:
+ *     WPP_RECORDER_SF_S @ 0x1C0002310 (WPP_RECORDER_SF_S.c)
+ *     memmove @ 0x1C0002A80 (memmove.c)
+ *     memset @ 0x1C0002D40 (memset.c)
+ *     MouseClassLogError @ 0x1C00045F8 (MouseClassLogError.c)
+ *     MouSendConnectRequest @ 0x1C000CA70 (MouSendConnectRequest.c)
+ */
+
+__int64 __fastcall MouseAddDeviceEx(__int64 a1, const WCHAR *a2, __int64 a3)
+{
+  NTSTATUS v6; // esi
+  __int64 v7; // rdi
+  __int64 v9; // r15
+  PVOID PoolWithTag; // r12
+  __int64 v11; // rcx
+  char v12; // cl
+  int ValueData; // [rsp+20h] [rbp-48h]
+
+  v6 = 0;
+  KeInitializeSpinLock((PKSPIN_LOCK)(a1 + 72));
+  v7 = *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels;
+  if ( LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) )
+    v7 = a1;
+  *(_QWORD *)(a1 + 8) = *(_QWORD *)v7;
+  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels == a1 )
+    goto LABEL_7;
+  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels != v7 )
+  {
+    if ( a1 != v7 )
+      return (unsigned int)v6;
+    v6 = MouSendConnectRequest(a1);
+LABEL_7:
+    if ( a1 == v7 )
+    {
+      v6 = RtlWriteRegistryValue(4u, DestinationString.Buffer, a2, 1u, P, (unsigned __int16)word_1C00092A0 + 2);
+      if ( v6 < 0 )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_S((__int64)WPP_GLOBAL_Control->DeviceExtension, 2u, 1u, 0x13u, ValueData, a2);
+        MouseClassLogError((void *)a1, -2147155963, 20014, v6, 0, 0LL, 0);
+      }
+      else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        WPP_RECORDER_SF_S((__int64)WPP_GLOBAL_Control->DeviceExtension, 4u, 1u, 0x14u, ValueData, a2);
+      }
+    }
+    return (unsigned int)v6;
+  }
+  v6 = MouSendConnectRequest(a1);
+  ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+  v9 = 0LL;
+  if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )
+  {
+    while ( !*((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v9 + 19) )
+    {
+      v9 = (unsigned int)(v9 + 1);
+      if ( (unsigned int)v9 >= LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )
+        goto LABEL_17;
+    }
+    *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v9 + 19) = 0;
+  }
+LABEL_17:
+  if ( (_DWORD)v9 != LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )
+  {
+LABEL_23:
+    *(_DWORD *)(a1 + 180) = v9;
+    v11 = 3 * v9;
+    *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + v11 + 1) = a1;
+    *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + v11) = a3;
+    v12 = *(_BYTE *)(*(_QWORD *)a1 + 76LL);
+    if ( *(char *)(*(_QWORD *)v7 + 76LL) >= v12 )
+      v12 = *(_BYTE *)(*(_QWORD *)v7 + 76LL);
+    *(_BYTE *)(*(_QWORD *)v7 + 76LL) = v12;
+    ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+    goto LABEL_7;
+  }
+  PoolWithTag = ExAllocatePoolWithTag(
+                  (POOL_TYPE)512,
+                  24LL * (unsigned int)(LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) + 1),
+                  0x43756F4Du);
+  if ( PoolWithTag )
+  {
+    memset(PoolWithTag, 0, 24LL * (unsigned int)(LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) + 1));
+    if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )
+    {
+      memmove(PoolWithTag, WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 24LL * LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext));
+      ExFreePoolWithTag(WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 0);
+    }
+    ++LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext);
+    WPP_MAIN_CB.Queue.Wcb.DeviceRoutine = (PDRIVER_CONTROL)PoolWithTag;
+    goto LABEL_23;
+  }
+  ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+  return 3221225626LL;
+}

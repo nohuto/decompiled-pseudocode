@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UpdateTime@InteractiveControlDefaultScroller@@AEAAJPEAH@Z @ 0x1C0247F0C
+ * XREFs of ?UpdateTime@InteractiveControlDefaultScroller@@AEAAJPEAH@Z @ 0x1C02591E4
  * Callers:
- *     ?GenerateMessages@InteractiveControlDefaultScroller@@QEAAJPEAUtagINTERACTIVECTRL_INFO@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C0247594 (-GenerateMessages@InteractiveControlDefaultScroller@@QEAAJPEAUtagINTERACTIVECTRL_INFO@@W4tagINTE.c)
+ *     ?GenerateMessages@InteractiveControlDefaultScroller@@QEAAJPEAUtagINTERACTIVECTRL_INFO@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C0258878 (-GenerateMessages@InteractiveControlDefaultScroller@@QEAAJPEAUtagINTERACTIVECTRL_INFO@@W4tagINTE.c)
  * Callees:
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C003D78C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5B10 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall InteractiveControlDefaultScroller::UpdateTime(LARGE_INTEGER *this, int *a2)
@@ -11,17 +11,16 @@ __int64 __fastcall InteractiveControlDefaultScroller::UpdateTime(LARGE_INTEGER *
   LARGE_INTEGER PerformanceCounter; // rax
   LARGE_INTEGER v5; // rbx
   unsigned __int64 QuadPart; // rsi
-  __int64 v7; // rcx
-  BOOL v8; // edx
+  BOOL v7; // edx
   __int64 result; // rax
 
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
   v5 = this[1];
   QuadPart = this->QuadPart;
   this[1] = PerformanceCounter;
-  v8 = 1000 * (PerformanceCounter.QuadPart - v5.QuadPart) / QuadPart > *((int *)InteractiveControlManager::Instance(v7)
+  v7 = 1000 * (PerformanceCounter.QuadPart - v5.QuadPart) / QuadPart > *((int *)InteractiveControlManager::Instance()
                                                                        + 49);
   result = 0LL;
-  *a2 = v8;
+  *a2 = v7;
   return result;
 }

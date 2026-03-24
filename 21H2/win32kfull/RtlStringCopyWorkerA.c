@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringCopyWorkerA @ 0x1C0119A44
+ * XREFs of RtlStringCopyWorkerA @ 0x1C012E204
  * Callers:
- *     EditionInitializeWppLogging @ 0x1C0119910 (EditionInitializeWppLogging.c)
+ *     EditionInitializeWppLogging @ 0x1C012E0D0 (EditionInitializeWppLogging.c)
  * Callees:
  *     <none>
  */

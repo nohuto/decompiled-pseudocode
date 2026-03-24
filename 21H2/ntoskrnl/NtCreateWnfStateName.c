@@ -1,23 +1,23 @@
 /*
- * XREFs of NtCreateWnfStateName @ 0x14066F980
+ * XREFs of NtCreateWnfStateName @ 0x14060D6D0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExpWnfGenerateStateName @ 0x14066FCE4 (ExpWnfGenerateStateName.c)
- *     ExpWnfSpecializeSecurityDescriptor @ 0x14066FDE8 (ExpWnfSpecializeSecurityDescriptor.c)
- *     ExpWnfCreateNameInstance @ 0x14066FED4 (ExpWnfCreateNameInstance.c)
- *     ExpWnfRegisterPermanentName @ 0x1406E5CB0 (ExpWnfRegisterPermanentName.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ExpWnfResolveScopeInstance @ 0x140798334 (ExpWnfResolveScopeInstance.c)
- *     SeReleaseSecurityDescriptor @ 0x1407B3DA0 (SeReleaseSecurityDescriptor.c)
- *     SeCaptureSecurityDescriptor @ 0x1407B3DD0 (SeCaptureSecurityDescriptor.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExpWnfCreateNameInstance @ 0x14060DA34 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfGenerateStateName @ 0x14060DDB0 (ExpWnfGenerateStateName.c)
+ *     ExpWnfResolveScopeInstance @ 0x14060F4B4 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfSpecializeSecurityDescriptor @ 0x140610CD8 (ExpWnfSpecializeSecurityDescriptor.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     SeCaptureSecurityDescriptor @ 0x14065BB60 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x14065C750 (SeReleaseSecurityDescriptor.c)
+ *     ExpWnfRegisterPermanentName @ 0x1406C1E54 (ExpWnfRegisterPermanentName.c)
  */
 
 __int64 __fastcall NtCreateWnfStateName(
-        __int64 *a1,
+        unsigned __int64 a1,
         unsigned int a2,
         unsigned int a3,
         __int64 a4,
@@ -26,37 +26,38 @@ __int64 __fastcall NtCreateWnfStateName(
         PSECURITY_DESCRIPTOR a7)
 {
   char v7; // bl
-  unsigned __int64 v11; // r8
+  _QWORD *v10; // r13
+  __int64 v11; // rdx
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // si
-  __int64 v14; // rdx
+  __int64 v14; // r8
   __int64 v15; // rbx
   _KPROCESS *Process; // rdi
-  __int64 v18; // rcx
   int NameInstance; // [rsp+34h] [rbp-B4h]
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+40h] [rbp-A8h] BYREF
-  __int64 v21; // [rsp+48h] [rbp-A0h] BYREF
-  int v22[2]; // [rsp+50h] [rbp-98h] BYREF
-  __int128 *v23; // [rsp+58h] [rbp-90h]
-  _QWORD v24[2]; // [rsp+60h] [rbp-88h] BYREF
-  _DWORD v25[2]; // [rsp+70h] [rbp-78h] BYREF
-  __int128 *v26; // [rsp+78h] [rbp-70h]
-  PSECURITY_DESCRIPTOR v27; // [rsp+80h] [rbp-68h]
-  __int128 v28; // [rsp+98h] [rbp-50h] BYREF
+  __int64 v20; // [rsp+48h] [rbp-A0h] BYREF
+  int v21[2]; // [rsp+50h] [rbp-98h] BYREF
+  __int128 *v22; // [rsp+58h] [rbp-90h]
+  _QWORD v23[4]; // [rsp+60h] [rbp-88h] BYREF
+  _DWORD v24[2]; // [rsp+80h] [rbp-68h] BYREF
+  __int128 *v25; // [rsp+88h] [rbp-60h]
+  PSECURITY_DESCRIPTOR v26; // [rsp+90h] [rbp-58h]
+  __int128 v27; // [rsp+98h] [rbp-50h] BYREF
 
   v7 = a4;
+  v10 = (_QWORD *)a1;
   v11 = a5;
-  v24[1] = a7;
-  v28 = 0LL;
-  v21 = 0LL;
-  v24[0] = 0LL;
-  v25[1] = 0;
+  v23[1] = a7;
+  v27 = 0LL;
+  v20 = 0LL;
+  v23[0] = 0LL;
+  v24[1] = 0;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  *(_QWORD *)v22 = 0LL;
+  *(_QWORD *)v21 = 0LL;
   SecurityDescriptor = 0LL;
-  v23 = (__int128 *)a5;
+  v22 = (__int128 *)a5;
   if ( !PreviousMode )
   {
     LOBYTE(a4) = 1;
@@ -78,36 +79,36 @@ LABEL_3:
     else if ( a2 == 3 || SeSinglePrivilegeCheck(SeCreatePermanentPrivilege, PreviousMode) )
     {
       LOBYTE(a4) = v7;
-      NameInstance = ExpWnfGenerateStateName(&v21, a2, a3, a4);
+      NameInstance = ExpWnfGenerateStateName(&v20, a2, a3, a4);
       if ( NameInstance >= 0 )
       {
-        v15 = v21;
-        *a1 = v21 ^ 0x41C64E6DA3BC0074LL;
-        v25[0] = a6;
-        v26 = v23;
-        v27 = SecurityDescriptor;
+        v15 = v20;
+        *v10 = v20 ^ 0x41C64E6DA3BC0074LL;
+        v24[0] = a6;
+        v25 = v22;
+        v26 = SecurityDescriptor;
         if ( a2 == 3 )
         {
           if ( PreviousMode )
           {
             Process = KeGetCurrentThread()->ApcState.Process;
-            LODWORD(v15) = v21;
+            LODWORD(v15) = v20;
           }
           else
           {
             LODWORD(Process) = (_DWORD)PsInitialSystemProcess;
           }
-          NameInstance = ExpWnfResolveScopeInstance((int)v22, (int)Process, 0, a3, 0LL);
+          NameInstance = ExpWnfResolveScopeInstance((int)v21, (int)Process, 0, a3, 0LL);
           if ( NameInstance >= 0 )
           {
-            NameInstance = ExpWnfCreateNameInstance(v22[0], v15, (unsigned int)v25, (_DWORD)Process, (__int64)v24);
+            NameInstance = ExpWnfCreateNameInstance(v21[0], v15, (unsigned int)v24, (_DWORD)Process, (__int64)v23);
             if ( NameInstance >= 0 )
-              ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v24[0] + 8LL));
+              ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v23[0] + 8LL));
           }
         }
         else
         {
-          NameInstance = ExpWnfRegisterPermanentName(v15, v25);
+          NameInstance = ExpWnfRegisterPermanentName(v15, v24);
         }
       }
     }
@@ -118,17 +119,16 @@ LABEL_3:
     goto LABEL_18;
   }
   v14 = 0x7FFFFFFF0000LL;
-  v18 = 0x7FFFFFFF0000LL;
-  if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-    v18 = (__int64)a1;
-  *(_BYTE *)v18 = *(_BYTE *)v18;
-  *(_BYTE *)(v18 + 7) = *(_BYTE *)(v18 + 7);
+  if ( a1 >= 0x7FFFFFFF0000LL )
+    a1 = 0x7FFFFFFF0000LL;
+  *(_BYTE *)a1 = *(_BYTE *)a1;
+  *(_BYTE *)(a1 + 7) = *(_BYTE *)(a1 + 7);
   if ( a5 )
   {
-    if ( a5 < 0x7FFFFFFF0000LL )
-      v14 = a5;
-    v28 = *(_OWORD *)v14;
-    v23 = &v28;
+    if ( a5 >= 0x7FFFFFFF0000LL )
+      v11 = 0x7FFFFFFF0000LL;
+    v27 = *(_OWORD *)v11;
+    v22 = &v27;
   }
   if ( !a7 )
   {
@@ -136,19 +136,19 @@ LABEL_3:
     goto LABEL_18;
   }
   LOBYTE(a4) = 1;
-  LOBYTE(v14) = PreviousMode;
-  NameInstance = SeCaptureSecurityDescriptor((_DWORD)a7, v14, 1, a4, (__int64)&SecurityDescriptor);
+  LOBYTE(v11) = PreviousMode;
+  NameInstance = SeCaptureSecurityDescriptor((_DWORD)a7, v11, 1, a4, (__int64)&SecurityDescriptor);
   if ( NameInstance >= 0 )
     goto LABEL_3;
 LABEL_18:
-  if ( *(_QWORD *)v22 )
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)v22 + 8LL));
+  if ( *(_QWORD *)v21 )
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)v21 + 8LL));
   if ( SecurityDescriptor && SecurityDescriptor != a7 )
   {
-    LOBYTE(v11) = 1;
-    LOBYTE(v14) = PreviousMode;
-    SeReleaseSecurityDescriptor(SecurityDescriptor, v14, v11, a4);
+    LOBYTE(v14) = 1;
+    LOBYTE(v11) = PreviousMode;
+    SeReleaseSecurityDescriptor(SecurityDescriptor, v11, v14, a4);
   }
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)NameInstance;
 }

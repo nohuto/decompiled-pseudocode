@@ -1,21 +1,20 @@
 /*
- * XREFs of TransitionCursorSuppressionState @ 0x1C003D8F0
+ * XREFs of TransitionCursorSuppressionState @ 0x1C0028C70
  * Callers:
- *     NtUserEnableMouseInputForCursorSuppression @ 0x1C003D7F0 (NtUserEnableMouseInputForCursorSuppression.c)
- *     RawInputThread @ 0x1C003F070 (RawInputThread.c)
- *     ?OnPointerCursorOperation@@YAXXZ @ 0x1C008C350 (-OnPointerCursorOperation@@YAXXZ.c)
- *     xxxRemoteReconnect @ 0x1C0132780 (xxxRemoteReconnect.c)
- *     PowerOnGdi @ 0x1C0135390 (PowerOnGdi.c)
- *     PowerOffGdi @ 0x1C01356C0 (PowerOffGdi.c)
- *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C014F34E (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
- *     ?RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z @ 0x1C014FE8C (-RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z.c)
- *     ?xxxSwitchCursors@@YAXHH@Z @ 0x1C01ADB08 (-xxxSwitchCursors@@YAXHH@Z.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
+ *     ?HandlePointerCursorSideOp@@YAXXZ @ 0x1C00282E8 (-HandlePointerCursorSideOp@@YAXXZ.c)
+ *     NtUserEnableMouseInputForCursorSuppression @ 0x1C00284F0 (NtUserEnableMouseInputForCursorSuppression.c)
+ *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C00313BC (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
+ *     xxxRemoteReconnect @ 0x1C0161DA0 (xxxRemoteReconnect.c)
+ *     PowerOnGdi @ 0x1C0163520 (PowerOnGdi.c)
+ *     PowerOffGdi @ 0x1C0163760 (PowerOffGdi.c)
+ *     ?RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z @ 0x1C01DA6B8 (-RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z.c)
+ *     ?xxxSwitchCursors@@YAXHH@Z @ 0x1C01DA9F0 (-xxxSwitchCursors@@YAXHH@Z.c)
  * Callees:
- *     ReadCursorSuppressionConfig @ 0x1C003D9A0 (ReadCursorSuppressionConfig.c)
- *     SetPointerMetaVisibility @ 0x1C003DA0C (SetPointerMetaVisibility.c)
- *     _tlgKeywordOn @ 0x1C0041D94 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@33@Z @ 0x1C01AA950 (--$Write@U-$_tlgWrapSz@D@@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2I.c)
- *     ?CursorSuppressionToString@InputTraceLogging@@CAPEBDW4CURSOR_SUPPRESSION_STATE@@@Z @ 0x1C01AAC48 (-CursorSuppressionToString@InputTraceLogging@@CAPEBDW4CURSOR_SUPPRESSION_STATE@@@Z.c)
+ *     SetPointerMetaVisibility @ 0x1C0028D8C (SetPointerMetaVisibility.c)
+ *     ReadCursorSuppressionConfig @ 0x1C0135B7C (ReadCursorSuppressionConfig.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@33@Z @ 0x1C01D7ED8 (--$Write@U-$_tlgWrapSz@D@@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2I.c)
+ *     ?CursorSuppressionToString@InputTraceLogging@@CAPEBDW4CURSOR_SUPPRESSION_STATE@@@Z @ 0x1C01D80C4 (-CursorSuppressionToString@InputTraceLogging@@CAPEBDW4CURSOR_SUPPRESSION_STATE@@@Z.c)
  */
 
 void __fastcall TransitionCursorSuppressionState(unsigned int a1, int a2)
@@ -26,95 +25,91 @@ void __fastcall TransitionCursorSuppressionState(unsigned int a1, int a2)
   __int64 v6; // [rsp+78h] [rbp+20h] BYREF
 
   v2 = gCursorSuppressionState;
-  switch ( gCursorSuppressionState )
+  if ( gCursorSuppressionState <= 0 )
+    goto LABEL_11;
+  if ( gCursorSuppressionState > 4 )
   {
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-      switch ( a1 )
+    if ( gCursorSuppressionState > 6 && gCursorSuppressionState != 8 )
+    {
+      if ( gCursorSuppressionState == 9 )
       {
-        case 1u:
-          goto LABEL_15;
-        case 2u:
-          goto LABEL_5;
-        case 3u:
-          goto LABEL_30;
+        gCursorSuppressionState = ReadCursorSuppressionConfig();
+        if ( gCursorSuppressionState )
+          SetPointerMetaVisibility(0LL);
       }
-      if ( a1 != 8 )
-        break;
+      goto LABEL_11;
+    }
+    if ( a1 == 8 )
+      goto LABEL_9;
+    if ( a1 == 2 )
+    {
       if ( a2 )
       {
-        gCursorSuppressionState = 4;
-        goto LABEL_20;
+        gCursorSuppressionState = 6;
+        goto LABEL_14;
       }
-      SetPointerMetaVisibility(1LL);
-      goto LABEL_36;
-    case 5:
-    case 6:
-    case 8:
-      if ( a1 != 8 )
+      SetPointerMetaVisibility(0LL);
+LABEL_10:
+      gCursorSuppressionState = 2;
+      goto LABEL_11;
+    }
+    if ( a1 != 1 )
+    {
+      if ( a1 != 3 )
+        goto LABEL_11;
+      if ( a2 )
       {
-        if ( a1 == 2 )
-        {
-          if ( a2 )
-          {
-            gCursorSuppressionState = 6;
-LABEL_20:
-            _InterlockedOr((volatile signed __int32 *)&Feedback::gdwPointerCursorOps, 2u);
-            KeSetEvent(Feedback::gpevtPointerCursorOperation, 1, 0);
-            break;
-          }
-          SetPointerMetaVisibility(0LL);
-LABEL_5:
-          gCursorSuppressionState = 2;
-          break;
-        }
-        if ( a1 == 1 )
-        {
-          if ( a2 )
-          {
-            gCursorSuppressionState = 5;
-            goto LABEL_20;
-          }
-          SetPointerMetaVisibility(0LL);
-LABEL_15:
-          gCursorSuppressionState = 1;
-          break;
-        }
-        if ( a1 != 3 )
-          break;
-        if ( a2 )
-        {
-          gCursorSuppressionState = 7;
-          goto LABEL_20;
-        }
-        SetPointerMetaVisibility(0LL);
-LABEL_30:
-        gCursorSuppressionState = 3;
+        gCursorSuppressionState = 7;
+        goto LABEL_14;
+      }
+      SetPointerMetaVisibility(0LL);
+LABEL_34:
+      gCursorSuppressionState = 3;
+      goto LABEL_11;
+    }
+    if ( a2 )
+    {
+      gCursorSuppressionState = 5;
+      goto LABEL_14;
+    }
+    SetPointerMetaVisibility(0LL);
+LABEL_21:
+    gCursorSuppressionState = 1;
+    goto LABEL_11;
+  }
+  switch ( a1 )
+  {
+    case 1u:
+      goto LABEL_21;
+    case 2u:
+      goto LABEL_10;
+    case 3u:
+      goto LABEL_34;
+    case 8u:
+      if ( !a2 )
+      {
+        SetPointerMetaVisibility(1LL);
+LABEL_9:
+        gCursorSuppressionState = 8;
         break;
       }
-LABEL_36:
-      gCursorSuppressionState = 8;
-      break;
-    case 9:
-      gCursorSuppressionState = ReadCursorSuppressionConfig();
-      SetPointerMetaVisibility(gCursorSuppressionState == 0);
+      gCursorSuppressionState = 4;
+LABEL_14:
+      _InterlockedOr((volatile signed __int32 *)&Feedback::gdwPointerCursorOps, 2u);
+      KeSetEvent(Feedback::gpevtPointerCursorOperation, 1, 0);
       break;
   }
-  if ( (unsigned int)dword_1C0359080 > 4 )
+LABEL_11:
+  if ( (unsigned int)dword_1C032FB20 > 4 && (qword_1C032FB30 & 8) != 0 && (qword_1C032FB38 & 8) == qword_1C032FB38 )
   {
-    if ( (unsigned __int8)tlgKeywordOn(&dword_1C0359080, 8LL) )
-    {
-      v5 = InputTraceLogging::CursorSuppressionToString(gCursorSuppressionState);
-      v6 = InputTraceLogging::CursorSuppressionToString(a1);
-      v4[0] = InputTraceLogging::CursorSuppressionToString(v2);
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>>(
-        (int)&dword_1C0359080,
-        (int)&dword_1C031A150,
-        (__int64)v4,
-        (__int64)&v6,
-        (__int64)&v5);
-    }
+    v5 = InputTraceLogging::CursorSuppressionToString(gCursorSuppressionState);
+    v6 = InputTraceLogging::CursorSuppressionToString(a1);
+    v4[0] = InputTraceLogging::CursorSuppressionToString(v2);
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>>(
+      (int)&dword_1C032FB20,
+      (int)&dword_1C02F05FE,
+      (__int64)v4,
+      (__int64)&v6,
+      (__int64)&v5);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViIrpSynchronousCompletionRoutine @ 0x140ACEE60
+ * XREFs of ViIrpSynchronousCompletionRoutine @ 0x1409D1920
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
  */
 
 __int64 __fastcall ViIrpSynchronousCompletionRoutine(__int64 a1, __int64 a2, struct _KEVENT *a3)

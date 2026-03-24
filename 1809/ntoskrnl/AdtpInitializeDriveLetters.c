@@ -1,16 +1,16 @@
 /*
- * XREFs of AdtpInitializeDriveLetters @ 0x140737754
+ * XREFs of AdtpInitializeDriveLetters @ 0x140737734
  * Callers:
- *     AdtpInitializeAuditingCommon @ 0x140737208 (AdtpInitializeAuditingCommon.c)
+ *     AdtpInitializeAuditingCommon @ 0x1407371E8 (AdtpInitializeAuditingCommon.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     StringCopyWorkerW @ 0x140181B44 (StringCopyWorkerW.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     StringCopyWorkerW @ 0x140181B64 (StringCopyWorkerW.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
  *     NtQuerySymbolicLinkObject @ 0x140625E20 (NtQuerySymbolicLinkObject.c)
- *     NtOpenSymbolicLinkObject @ 0x140691BD0 (NtOpenSymbolicLinkObject.c)
+ *     NtOpenSymbolicLinkObject @ 0x140691BB0 (NtOpenSymbolicLinkObject.c)
  */
 
 __int64 __fastcall AdtpInitializeDriveLetters(__int64 a1, size_t a2, size_t *a3, const wchar_t *a4)

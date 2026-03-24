@@ -1,23 +1,19 @@
 /*
- * XREFs of VfDifCaptureIoCallbacks @ 0x140209F48
+ * XREFs of VfDifCaptureIoCallbacks @ 0x14037D8B0
  * Callers:
- *     VfTargetReplaceIoCallbacks @ 0x1405CF2E8 (VfTargetReplaceIoCallbacks.c)
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
- *     IopInitializeBuiltinDriver @ 0x140B41264 (IopInitializeBuiltinDriver.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140A5E618 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     ViDifCheckCallbackInterception @ 0x14020A54C (ViDifCheckCallbackInterception.c)
- *     ViDifCaptureIoCallbacks @ 0x1405CF04C (ViDifCaptureIoCallbacks.c)
+ *     ViDifCheckCallbackInterception @ 0x14037D908 (ViDifCheckCallbackInterception.c)
+ *     ViDifCaptureIoCallbacks @ 0x1405A0BE8 (ViDifCaptureIoCallbacks.c)
  */
 
-char __fastcall VfDifCaptureIoCallbacks(__int64 a1)
+__int64 __fastcall VfDifCaptureIoCallbacks(__int64 a1)
 {
-  char result; // al
+  __int64 result; // rax
 
   result = ViDifCheckCallbackInterception();
-  if ( result )
-  {
-    ViDifCaptureIoCallbacks(a1);
-    return 1;
-  }
+  if ( (_BYTE)result )
+    return ViDifCaptureIoCallbacks(a1);
   return result;
 }

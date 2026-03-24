@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierRtlCompareUnicodeString @ 0x140AC1920
+ * XREFs of VerifierRtlCompareUnicodeString @ 0x1409E57D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierRtlCompareUnicodeString()

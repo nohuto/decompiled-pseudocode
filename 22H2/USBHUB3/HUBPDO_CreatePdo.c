@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPDO_CreatePdo @ 0x1C007F0F0
+ * XREFs of HUBPDO_CreatePdo @ 0x1C007A930
  * Callers:
- *     HUBDSM_CreatingChildPDOAndReportingToPnp @ 0x1C0023250 (HUBDSM_CreatingChildPDOAndReportingToPnp.c)
+ *     HUBDSM_CreatingChildPDOAndReportingToPnp @ 0x1C0020C50 (HUBDSM_CreatingChildPDOAndReportingToPnp.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     HUBPDO_CreatePdoInternal @ 0x1C007DE24 (HUBPDO_CreatePdoInternal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBPDO_CreatePdoInternal @ 0x1C00796D4 (HUBPDO_CreatePdoInternal.c)
  */
 
 __int64 __fastcall HUBPDO_CreatePdo(__int64 a1)

@@ -1,20 +1,20 @@
 /*
- * XREFs of CcReleaseBcbLockAndVacbLock @ 0x1402A0F10
+ * XREFs of CcReleaseBcbLockAndVacbLock @ 0x1402913A4
  * Callers:
- *     CcUnmapVacbArray @ 0x14029ECA0 (CcUnmapVacbArray.c)
- *     CcGetVacbMiss @ 0x14029EFF0 (CcGetVacbMiss.c)
- *     CcExtendVacbArray @ 0x1402F2A44 (CcExtendVacbArray.c)
- *     CcDereferenceFileOffset @ 0x140537F94 (CcDereferenceFileOffset.c)
- *     CcReferenceFileOffset @ 0x140538160 (CcReferenceFileOffset.c)
- *     CcUnmapInactiveViewsInternal @ 0x140538490 (CcUnmapInactiveViewsInternal.c)
+ *     CcGetVacbMiss @ 0x140291040 (CcGetVacbMiss.c)
+ *     CcUnmapVacbArray @ 0x1402934F0 (CcUnmapVacbArray.c)
+ *     CcExtendVacbArray @ 0x1402F2054 (CcExtendVacbArray.c)
+ *     CcDereferenceFileOffset @ 0x1404EAF88 (CcDereferenceFileOffset.c)
+ *     CcReferenceFileOffset @ 0x1404EB154 (CcReferenceFileOffset.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1404EB484 (CcUnmapInactiveViewsInternal.c)
  * Callees:
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
  */
 
-void __fastcall CcReleaseBcbLockAndVacbLock(int a1, __int64 a2)
+void __fastcall CcReleaseBcbLockAndVacbLock(int a1, struct _FAST_MUTEX *a2)
 {
-  ExReleasePushLockEx((__int64 *)(a2 + 104), 0LL);
+  ExReleasePushLockEx((ULONG_PTR)&a2[1].OldIrql, 0LL);
   if ( a1 )
-    ExReleaseFastMutex((PFAST_MUTEX)(a2 + 288));
+    KeReleaseGuardedMutex(a2 + 5);
 }

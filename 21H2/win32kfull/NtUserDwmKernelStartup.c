@@ -1,48 +1,50 @@
 /*
- * XREFs of NtUserDwmKernelStartup @ 0x1C0121980
+ * XREFs of NtUserDwmKernelStartup @ 0x1C0136150
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     zzzDwmStartRedirection @ 0x1C0098F14 (zzzDwmStartRedirection.c)
- *     UserSetLastStatus @ 0x1C011A880 (UserSetLastStatus.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     zzzDwmStartRedirection @ 0x1C00E977C (zzzDwmStartRedirection.c)
+ *     UserSetLastStatus @ 0x1C00EC7BC (UserSetLastStatus.c)
  */
 
 __int64 NtUserDwmKernelStartup()
 {
   __int64 v0; // rdx
   __int64 v1; // rcx
+  __int64 v2; // r8
   __int64 CurrentProcess; // rax
-  __int64 v3; // rdx
-  __int64 v4; // rbx
-  __int64 v5; // rax
-  __int64 v6; // rax
-  __int64 v7; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  __int64 v6; // rbx
+  __int64 v7; // rax
+  __int64 v8; // rax
+  __int64 v9; // rcx
   NTSTATUS started; // eax
-  __int64 v10; // rcx
+  __int64 v12; // rcx
 
-  EnterCrit(0LL, 0LL);
-  CurrentProcess = PsGetCurrentProcess(v1, v0);
-  v4 = 0LL;
+  EnterCrit(0LL, 1LL);
+  CurrentProcess = PsGetCurrentProcess(v1, v0, v2);
+  v6 = 0LL;
   if ( !(unsigned int)IsProcessDwm(CurrentProcess) )
   {
-    v10 = 5LL;
+    v12 = 5LL;
     goto LABEL_10;
   }
-  v5 = *(_QWORD *)(gptiCurrent + 456LL);
-  if ( !v5 || (v6 = *(_QWORD *)(v5 + 8)) == 0 )
+  v7 = *(_QWORD *)(gptiCurrent + 456LL);
+  if ( !v7 || (v8 = *(_QWORD *)(v7 + 8)) == 0 )
   {
-    v10 = 87LL;
+    v12 = 87LL;
 LABEL_10:
-    UserSetLastError(v10, v3);
+    UserSetLastError(v12, v4, v5);
     goto LABEL_7;
   }
-  v7 = *(unsigned int *)(*(_QWORD *)v6 + 64LL);
-  if ( (v7 & 1) != 0 || (started = zzzDwmStartRedirection(), started >= 0) )
-    v4 = 1LL;
+  v9 = *(unsigned int *)(*(_QWORD *)v8 + 64LL);
+  if ( (v9 & 1) != 0 || (started = zzzDwmStartRedirection(), started >= 0) )
+    v6 = 1LL;
   else
     UserSetLastStatus(started, 1);
 LABEL_7:
-  UserSessionSwitchLeaveCrit(v7);
-  return v4;
+  UserSessionSwitchLeaveCrit(v9);
+  return v6;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?MouseKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01B95D0
+ * XREFs of ?MouseKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C0183800
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ApiSetEditionKillAccessibilityTimer @ 0x1C0209254 (ApiSetEditionKillAccessibilityTimer.c)
- *     ApiSetEditionPostAccessibilityShortcutNotification @ 0x1C020A4F4 (ApiSetEditionPostAccessibilityShortcutNotification.c)
- *     ApiSetEditionPostRitSound @ 0x1C020AA7C (ApiSetEditionPostRitSound.c)
+ *     PostWinlogonMessage @ 0x1C0074CD0 (PostWinlogonMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ApiSetEditionKillAccessibilityTimer @ 0x1C01CC6B0 (ApiSetEditionKillAccessibilityTimer.c)
+ *     ApiSetEditionPostRitSound @ 0x1C01CD51C (ApiSetEditionPostRitSound.c)
  */
 
 __int64 __fastcall MouseKeys(struct tagKE *a1)
@@ -24,14 +24,14 @@ __int64 __fastcall MouseKeys(struct tagKE *a1)
   v2 = *((unsigned __int8 *)a1 + 2);
   v3 = *((_WORD *)a1 + 1) & 0x8000;
   v4 = (unsigned __int8)gLockBits | (unsigned __int8)gLatchBits | (unsigned __int8)gPhysModifierState;
-  if ( (dword_1C0295A24 & 1) == 0 )
+  if ( (dword_1C0250BD4 & 1) == 0 )
   {
-    if ( (dword_1C0295A24 & 4) != 0 && v2 == gNumLockVk && (*((_WORD *)a1 + 1) & 0x8000) == 0 && v4 == 17 )
+    if ( (dword_1C0250BD4 & 4) != 0 && v2 == gNumLockVk && (*((_WORD *)a1 + 1) & 0x8000) == 0 && v4 == 17 )
     {
       gMKPreviousVk = *((_BYTE *)a1 + 2);
-      if ( (dword_1C0295A24 & 0x10) != 0 )
+      if ( (dword_1C0250BD4 & 0x10) != 0 )
         ApiSetEditionPostRitSound(0LL, v1, 0LL);
-      ApiSetEditionPostAccessibilityShortcutNotification(3LL);
+      PostWinlogonMessage(1026LL, 3u);
       return 0LL;
     }
     return 1LL;
@@ -77,5 +77,5 @@ __int64 __fastcall MouseKeys(struct tagKE *a1)
     gtmridMKMoveCursor = 0LL;
   }
   gMKPreviousVk = v2;
-  return off_1C024B4B0[v5](word_1C026A660[v5]);
+  return off_1C020B5A0[v5](word_1C0227190[v5]);
 }

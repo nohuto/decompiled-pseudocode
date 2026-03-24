@@ -1,5 +1,5 @@
 /*
- * XREFs of Bulk_GetCurrentActivityId @ 0x1C000AE40
+ * XREFs of Bulk_GetCurrentActivityId @ 0x1C000A250
  * Callers:
  *     <none>
  * Callees:

@@ -1,27 +1,27 @@
 /*
- * XREFs of ExEnableHandleExceptions @ 0x1407DC544
+ * XREFs of ExEnableHandleExceptions @ 0x14069CB2C
  * Callers:
- *     PspApplyMitigationOptions @ 0x1406B3700 (PspApplyMitigationOptions.c)
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
+ *     PspApplyMitigationOptions @ 0x1407062EC (PspApplyMitigationOptions.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
 bool __fastcall ExEnableHandleExceptions(__int64 a1, char a2)
 {
   struct _KTHREAD *CurrentThread; // r14
-  volatile signed __int64 *v3; // rbp
+  volatile signed __int64 *v5; // rbp
   __int64 v6; // rcx
   char v7; // cl
   bool v8; // di
   int v10; // eax
 
   CurrentThread = KeGetCurrentThread();
-  v3 = (volatile signed __int64 *)(a1 + 56);
   --CurrentThread->KernelApcDisable;
+  v5 = (volatile signed __int64 *)(a1 + 56);
   ExAcquirePushLockExclusiveEx(a1 + 56, 0LL);
   v6 = *(_QWORD *)(a1 + 96);
   if ( v6 )
@@ -47,9 +47,9 @@ LABEL_4:
   }
   v8 = a2 != 0;
 LABEL_5:
-  if ( (_InterlockedExchangeAdd64(v3, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v3);
-  KeAbPostRelease((ULONG_PTR)v3);
+  if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v5);
+  KeAbPostRelease((ULONG_PTR)v5);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   return v8;
 }

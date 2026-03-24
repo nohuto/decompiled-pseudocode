@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBMISC_QueryKseDeviceFlags @ 0x1C00304EC
+ * XREFs of HUBMISC_QueryKseDeviceFlags @ 0x1C002FE4C
  * Callers:
- *     HUBREG_QueryUsbflagsValuesForDevice @ 0x1C007F038 (HUBREG_QueryUsbflagsValuesForDevice.c)
- *     HUBREG_QueryHubErrataFlags @ 0x1C007FB68 (HUBREG_QueryHubErrataFlags.c)
+ *     HUBREG_QueryUsbflagsValuesForDevice @ 0x1C007DA10 (HUBREG_QueryUsbflagsValuesForDevice.c)
+ *     HUBREG_QueryHubErrataFlags @ 0x1C007E5AC (HUBREG_QueryHubErrataFlags.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     RtlStringCbPrintfW @ 0x1C0012E78 (RtlStringCbPrintfW.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     RtlStringCbPrintfW @ 0x1C0012978 (RtlStringCbPrintfW.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 int __fastcall HUBMISC_QueryKseDeviceFlags(
@@ -98,7 +98,7 @@ int __fastcall HUBMISC_QueryKseDeviceFlags(
         v23 = 91;
 LABEL_12:
         LODWORD(v33) = result;
-        result = WPP_RECORDER_SF_d(a16, 2u, 5u, v23, (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids, v33);
+        result = WPP_RECORDER_SF_d(a16, 2u, 5u, v23, (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids, v33);
         goto LABEL_59;
       }
       goto LABEL_59;

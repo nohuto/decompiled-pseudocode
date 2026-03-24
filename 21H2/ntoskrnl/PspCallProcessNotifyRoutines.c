@@ -1,18 +1,18 @@
 /*
- * XREFs of PspCallProcessNotifyRoutines @ 0x1406F80E4
+ * XREFs of PspCallProcessNotifyRoutines @ 0x14061AEAC
  * Callers:
- *     PspInsertThread @ 0x140701218 (PspInsertThread.c)
- *     PspExitProcess @ 0x1407DB734 (PspExitProcess.c)
+ *     PspInsertThread @ 0x140649028 (PspInsertThread.c)
+ *     PspExitProcess @ 0x1406CD37C (PspExitProcess.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140281870 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x140281930 (ExDereferenceCallBackBlock.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ExReleaseExtensionTable @ 0x1403614E0 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PsReferenceProcessFilePointer @ 0x140673AD0 (PsReferenceProcessFilePointer.c)
- *     PsTerminateProcess @ 0x1407D80A4 (PsTerminateProcess.c)
+ *     ExReferenceCallBackBlock @ 0x14025A950 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14025AA10 (ExDereferenceCallBackBlock.c)
+ *     ExReleaseExtensionTable @ 0x14029F2DC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PsReferenceProcessFilePointer @ 0x140604BE0 (PsReferenceProcessFilePointer.c)
+ *     PsTerminateProcess @ 0x1406BC4B8 (PsTerminateProcess.c)
  */
 
 __int64 __fastcall PspCallProcessNotifyRoutines(struct _EX_RUNDOWN_REF *a1, __int64 a2, char a3)
@@ -24,155 +24,153 @@ __int64 __fastcall PspCallProcessNotifyRoutines(struct _EX_RUNDOWN_REF *a1, __in
   unsigned int v10; // r12d
   int v11; // eax
   __int128 v12; // xmm0
-  char *v13; // rcx
-  __int64 v14; // rax
-  _OWORD *v15; // rbx
-  unsigned int v16; // r14d
-  struct _EX_RUNDOWN_REF *v17; // rax
-  __int64 v18; // r8
-  struct _EX_RUNDOWN_REF *v19; // rsi
-  int v21; // eax
-  int v22; // eax
-  __int64 v23; // rcx
-  void (__fastcall **v24)(_QWORD, _QWORD, _QWORD); // [rsp+20h] [rbp-49h]
-  unsigned __int64 v25; // [rsp+28h] [rbp-41h]
-  void (__fastcall **v26)(struct _EX_RUNDOWN_REF *, unsigned __int64, _OWORD *); // [rsp+30h] [rbp-39h]
-  _OWORD v27[8]; // [rsp+40h] [rbp-29h] BYREF
-  char v28; // [rsp+D0h] [rbp+67h]
-  PVOID Object; // [rsp+E8h] [rbp+7Fh] BYREF
+  PADAPTER_OBJECT v13; // rcx
+  _DMA_OPERATIONS **p_DmaOperations; // rax
+  __int64 v15; // rax
+  __int64 v16; // rax
+  _OWORD *v17; // rbx
+  unsigned int v18; // r14d
+  struct _EX_RUNDOWN_REF *v19; // rax
+  __int64 v20; // r8
+  struct _EX_RUNDOWN_REF *v21; // rsi
+  int v23; // eax
+  int v24; // eax
+  _QWORD *v25; // rcx
+  void (__fastcall **v26)(_QWORD, _QWORD, _QWORD); // [rsp+20h] [rbp-49h]
+  unsigned __int64 v27; // [rsp+28h] [rbp-41h]
+  void (__fastcall **v28)(struct _EX_RUNDOWN_REF *, unsigned __int64, _OWORD *); // [rsp+30h] [rbp-39h]
+  _OWORD v29[8]; // [rsp+40h] [rbp-29h] BYREF
+  char v30; // [rsp+D0h] [rbp+67h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  memset(v27, 0, 0x48uLL);
+  memset(v29, 0, 0x48uLL);
   ExtensionTable = (void (__fastcall **)(_QWORD, _QWORD, _QWORD))ExGetExtensionTable((struct _EX_RUNDOWN_REF *)PspDamExtensionHost);
-  v24 = ExtensionTable;
+  v26 = ExtensionTable;
   v7 = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)PspBamExtensionHost);
   Count = a1[280].Count;
   v9 = 0;
   v10 = ((unsigned int)PspNotifyEnableMask >> 2) & 1;
-  v26 = (void (__fastcall **)(struct _EX_RUNDOWN_REF *, unsigned __int64, _OWORD *))v7;
-  Object = 0LL;
-  v28 = 0;
-  v25 = Count;
+  v28 = (void (__fastcall **)(struct _EX_RUNDOWN_REF *, unsigned __int64, _OWORD *))v7;
+  DmaAdapter = 0LL;
+  v30 = 0;
+  v27 = Count;
   if ( !a3 || (PspNotifyEnableMask & 4) == 0 && !ExtensionTable && !v7 )
   {
-    v15 = 0LL;
-    goto LABEL_14;
+    v17 = 0LL;
+    goto LABEL_17;
   }
   v11 = 0;
-  *(_QWORD *)&v27[0] = 72LL;
+  *(_QWORD *)&v29[0] = 72LL;
   if ( Count )
     v11 = 2;
-  DWORD2(v27[0]) = v11;
-  *(struct _EX_RUNDOWN_REF *)&v27[1] = a1[168];
+  DWORD2(v29[0]) = v11;
+  *(struct _EX_RUNDOWN_REF *)&v29[1] = a1[168];
   v12 = *(_OWORD *)&KeGetCurrentThread()[1].CycleTime;
-  LODWORD(v27[4]) = 0;
-  *(_OWORD *)((char *)&v27[1] + 8) = v12;
+  LODWORD(v29[4]) = 0;
+  *(_OWORD *)((char *)&v29[1] + 8) = v12;
   if ( Count )
   {
-    *((_QWORD *)&v27[2] + 1) = 0LL;
-    v27[3] = 0LL;
-    if ( a2 )
-    {
-      v23 = *(_QWORD *)(a2 + 432);
-      if ( v23 )
-      {
-        *((_QWORD *)&v27[2] + 1) = *(_QWORD *)v23;
-        v27[3] = *(_OWORD *)(v23 + 8);
-      }
-    }
-    goto LABEL_13;
-  }
-  if ( a2 && (v13 = *(char **)(a2 + 176)) != 0LL )
-  {
-    Object = *(PVOID *)(a2 + 176);
-    *((_QWORD *)&v27[2] + 1) = v13;
+    *((_QWORD *)&v29[2] + 1) = 0LL;
+    v29[3] = 0LL;
+    if ( !a2 )
+      goto LABEL_16;
+    v25 = *(_QWORD **)(a2 + 456);
+    if ( !v25 )
+      goto LABEL_16;
+    *((_QWORD *)&v29[2] + 1) = *v25;
+    *(_QWORD *)&v29[3] = v25[1];
+    v16 = v25[2];
   }
   else
   {
-    PsReferenceProcessFilePointer(a1, (__int64 *)&Object);
-    v13 = (char *)Object;
-    *((_QWORD *)&v27[2] + 1) = Object;
-    v28 = 1;
-    if ( !a2 )
-      goto LABEL_41;
+    if ( a2 && (v13 = *(PADAPTER_OBJECT *)(a2 + 176)) != 0LL )
+    {
+      DmaAdapter = *(PADAPTER_OBJECT *)(a2 + 176);
+    }
+    else
+    {
+      v30 = 1;
+      PsReferenceProcessFilePointer(a1, (ULONG_PTR *)&DmaAdapter);
+      v13 = DmaAdapter;
+    }
+    *((_QWORD *)&v29[2] + 1) = v13;
+    if ( a2 && (*(_DWORD *)(a2 + 4) & 0x20) != 0 )
+    {
+      DWORD2(v29[0]) |= 1u;
+      p_DmaOperations = (_DMA_OPERATIONS **)(a2 + 232);
+    }
+    else
+    {
+      p_DmaOperations = &v13[5].DmaOperations;
+    }
+    *(_QWORD *)&v29[3] = p_DmaOperations;
+    if ( !a2 || (v15 = *(_QWORD *)(a2 + 208)) == 0 )
+    {
+      *((_QWORD *)&v29[3] + 1) = 0LL;
+      goto LABEL_16;
+    }
+    v16 = v15 + 112;
   }
-  if ( (*(_DWORD *)(a2 + 4) & 0x20) != 0 )
-  {
-    DWORD2(v27[0]) |= 1u;
-    *(_QWORD *)&v27[3] = a2 + 232;
-    goto LABEL_11;
-  }
-LABEL_41:
-  *(_QWORD *)&v27[3] = v13 + 88;
-  if ( !a2 )
-    goto LABEL_42;
-LABEL_11:
-  v14 = *(_QWORD *)(a2 + 208);
-  if ( !v14 )
-  {
-LABEL_42:
-    *((_QWORD *)&v27[3] + 1) = 0LL;
-    goto LABEL_13;
-  }
-  *((_QWORD *)&v27[3] + 1) = v14 + 112;
-LABEL_13:
-  v15 = v27;
-LABEL_14:
+  *((_QWORD *)&v29[3] + 1) = v16;
+LABEL_16:
+  v17 = v29;
+LABEL_17:
   if ( (PspNotifyEnableMask & 2) != 0 || (_BYTE)v10 )
   {
-    v16 = 0;
+    v18 = 0;
     while ( 1 )
     {
-      v17 = ExReferenceCallBackBlock((signed __int64 *)&PspCreateProcessNotifyRoutine.Ptr + v16);
-      v19 = v17;
-      if ( v17 )
+      v19 = ExReferenceCallBackBlock((signed __int64 *)&PspCreateProcessNotifyRoutine.Ptr + v18);
+      v21 = v19;
+      if ( v19 )
       {
-        v21 = v17[2].Count;
-        if ( !v25 || (v21 & 4) != 0 )
+        v23 = v19[2].Count;
+        if ( !v27 || (v23 & 4) != 0 )
         {
-          if ( (v21 & 2) != 0 )
+          if ( (v23 & 2) != 0 )
           {
             if ( (_BYTE)v10 )
-              ((void (__fastcall *)(struct _EX_RUNDOWN_REF *, unsigned __int64, _OWORD *))v19[1].Count)(
+              ((void (__fastcall *)(struct _EX_RUNDOWN_REF *, unsigned __int64, _OWORD *))v21[1].Count)(
                 a1,
                 a1[136].Count,
-                v15);
+                v17);
           }
           else
           {
-            LOBYTE(v18) = a3;
-            ((void (__fastcall *)(unsigned __int64, unsigned __int64, __int64))v19[1].Count)(
+            LOBYTE(v20) = a3;
+            ((void (__fastcall *)(unsigned __int64, unsigned __int64, __int64))v21[1].Count)(
               a1[168].Count,
               a1[136].Count,
-              v18);
+              v20);
           }
         }
-        ExDereferenceCallBackBlock((signed __int64 *)&PspCreateProcessNotifyRoutine.Ptr + v16, v19);
-        if ( v15 )
+        ExDereferenceCallBackBlock((signed __int64 *)&PspCreateProcessNotifyRoutine.Ptr + v18, v21);
+        if ( v17 )
         {
-          v22 = *((_DWORD *)v15 + 16);
-          if ( v22 < 0 )
+          v24 = *((_DWORD *)v17 + 16);
+          if ( v24 < 0 )
             break;
         }
       }
-      if ( ++v16 >= 0x40 )
-        goto LABEL_18;
+      if ( ++v18 >= 0x40 )
+        goto LABEL_21;
     }
-    v9 = *((_DWORD *)v15 + 16);
-    PsTerminateProcess(a1, (unsigned int)v22);
-LABEL_18:
-    ExtensionTable = v24;
+    v9 = *((_DWORD *)v17 + 16);
+    PsTerminateProcess(a1, (unsigned int)v24);
+LABEL_21:
+    ExtensionTable = v26;
   }
-  if ( v26 && (!v15 || *((int *)v15 + 16) >= 0) )
+  if ( v28 && (!v17 || *((int *)v17 + 16) >= 0) )
   {
-    (*v26)(a1, a1[136].Count, v15);
+    (*v28)(a1, a1[136].Count, v17);
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)PspBamExtensionHost);
   }
-  if ( ExtensionTable && (!v15 || *((int *)v15 + 16) >= 0) )
+  if ( ExtensionTable && (!v17 || *((int *)v17 + 16) >= 0) )
   {
-    (*ExtensionTable)(a1, a1[136].Count, v15);
+    (*ExtensionTable)(a1, a1[136].Count, v17);
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)PspDamExtensionHost);
   }
-  if ( v28 )
-    ObfDereferenceObject(Object);
+  if ( v30 )
+    HalPutDmaAdapter(DmaAdapter);
   return v9;
 }

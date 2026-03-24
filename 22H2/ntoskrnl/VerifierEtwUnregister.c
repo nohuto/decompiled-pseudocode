@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierEtwUnregister @ 0x140AE5050
+ * XREFs of VerifierEtwUnregister @ 0x1409E7F40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     VfTargetEtwUnregister @ 0x140ACC734 (VfTargetEtwUnregister.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VfTargetEtwUnregister @ 0x1409D7064 (VfTargetEtwUnregister.c)
  */
 
 __int64 __fastcall VerifierEtwUnregister(__int64 a1)

@@ -1,251 +1,324 @@
 /*
- * XREFs of ?InitCheckCandidatesList@COverlayContext@@CA_NAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x1800FAA7C
+ * XREFs of ?InitCheckCandidatesList@COverlayContext@@CA_NAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18002FDD0
  * Callers:
- *     ?ComputeOverlayConfigurationForAdapter@COverlayContext@@CAJAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@@Z @ 0x180052DE0 (-ComputeOverlayConfigurationForAdapter@COverlayContext@@CAJAEBV-$span@PEAVCOverlayContext@@$0-0@.c)
+ *     ?ComputeOverlayConfiguration@COverlayContext@@SAJAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@@Z @ 0x18006D330 (-ComputeOverlayConfiguration@COverlayContext@@SAJAEBV-$span@PEAVCOverlayContext@@$0-0@gsl@@@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?GetContextCandidates@COverlayContext@@CAXPEAV1@AEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x1800FACC0 (-GetContextCandidates@COverlayContext@@CAXPEAV1@AEBV-$span@PEAVOverlayPlaneInfo@COverlayContext@.c)
- *     ?DeriveDesktopPlaneAttributes@COverlayContext@@AEAAXAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@_N@Z @ 0x1800FAD18 (-DeriveDesktopPlaneAttributes@COverlayContext@@AEAAXAEBV-$span@PEAVOverlayPlaneInfo@COverlayCont.c)
- *     ??$?0$0?0V?$vector_facade@U_LUID@@V?$buffer_impl@U_LUID@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@$0A@@?$span@U_LUID@@$0?0@gsl@@QEAA@AEAV?$vector_facade@U_LUID@@V?$buffer_impl@U_LUID@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x180103B70 (--$-0$0-0V-$vector_facade@U_LUID@@V-$buffer_impl@U_LUID@@$01$00Vliberal_expansion_policy@detail@.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?clear_region@?$vector_facade@PEAVIMonitorTarget@@V?$buffer_impl@PEAVIMonitorTarget@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18012E360 (-clear_region@-$vector_facade@PEAVIMonitorTarget@@V-$buffer_impl@PEAVIMonitorTarget@@$01$00Vlibe.c)
- *     ??A?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@QEBAAEAPEAVOverlayPlaneInfo@COverlayContext@@_K@Z @ 0x18012F752 (--A-$span@PEAVOverlayPlaneInfo@COverlayContext@@$0-0@gsl@@QEBAAEAPEAVOverlayPlaneInfo@COverlayCo.c)
- *     ?erase@?$vector_facade@PEAVCOverlayContext@@V?$buffer_impl@PEAVCOverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@PEAVCOverlayContext@@@2@V?$basic_iterator@QEAVCOverlayContext@@@2@@Z @ 0x18012FD84 (-erase@-$vector_facade@PEAVCOverlayContext@@V-$buffer_impl@PEAVCOverlayContext@@$0BA@$00Vliberal.c)
- *     ?reserve_region@?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAPEAVOverlayPlaneInfo@COverlayContext@@_K0@Z @ 0x18012FDD6 (-reserve_region@-$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V-$buffer_impl@PEAVOverlay.c)
- *     ?IsHigherProprity@COverlayContext@@CA_NAEBVOverlayPlaneInfo@1@0@Z @ 0x1801DDE84 (-IsHigherProprity@COverlayContext@@CA_NAEBVOverlayPlaneInfo@1@0@Z.c)
+ *     ?RemoveUnbackedSurfaces@COverlayContext@@CAXPEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18002FD34 (-RemoveUnbackedSurfaces@COverlayContext@@CAXPEAV-$vector_facade@PEAVOverlayPlaneInfo@COverlayCon.c)
+ *     ?GetContextCandidates@COverlayContext@@CAXPEAV1@AEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18002FD6C (-GetContextCandidates@COverlayContext@@CAXPEAV1@AEBV-$span@PEAVOverlayPlaneInfo@COverlayContext@.c)
+ *     ?DeriveDesktopPlaneAttributes@COverlayContext@@AEAAXAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@_N@Z @ 0x180030064 (-DeriveDesktopPlaneAttributes@COverlayContext@@AEAAXAEBV-$span@PEAVOverlayPlaneInfo@COverlayCont.c)
+ *     ??$?0V?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@X@?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@QEAA@AEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x180042FA8 (--$-0V-$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V-$buffer_impl@PEAVOverlayPlaneInfo@.c)
+ *     ?DoesContain@?$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18006C298 (-DoesContain@-$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAEBV1.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?clear_region@?$vector_facade@PEAVCDesktopTree@@V?$buffer_impl@PEAVCDesktopTree@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180155E6C (-clear_region@-$vector_facade@PEAVCDesktopTree@@V-$buffer_impl@PEAVCDesktopTree@@$00$00Vliberal_.c)
+ *     ?reserve_region@?$vector_facade@PEAUIDXGIResource@@V?$buffer_impl@PEAUIDXGIResource@@$06$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAPEAUIDXGIResource@@_K0@Z @ 0x180163BF4 (-reserve_region@-$vector_facade@PEAUIDXGIResource@@V-$buffer_impl@PEAUIDXGIResource@@$06$00Vlibe.c)
+ *     ??A?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@QEBAAEAPEAVOverlayPlaneInfo@COverlayContext@@_J@Z @ 0x180179E04 (--A-$span@PEAVOverlayPlaneInfo@COverlayContext@@$0-0@gsl@@QEBAAEAPEAVOverlayPlaneInfo@COverlayCo.c)
+ *     ?CheckPaddingCorrectness@COverlayContext@@CA_NAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@AEBVOverlayPlaneInfo@1@@Z @ 0x18017B298 (-CheckPaddingCorrectness@COverlayContext@@CA_NAEBV-$span@PEAVOverlayPlaneInfo@COverlayContext@@$.c)
+ *     ?IsHigherProprity@COverlayContext@@CA_NAEBVOverlayPlaneInfo@1@0@Z @ 0x18017C374 (-IsHigherProprity@COverlayContext@@CA_NAEBVOverlayPlaneInfo@1@0@Z.c)
+ *     ?RequiresFrontPlane@OverlayPlaneInfo@COverlayContext@@QEBA_NXZ @ 0x18017CA68 (-RequiresFrontPlane@OverlayPlaneInfo@COverlayContext@@QEBA_NXZ.c)
+ *     ?erase@?$vector_facade@PEAVCOverlayContext@@V?$buffer_impl@PEAVCOverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@PEAVCOverlayContext@@@2@V?$basic_iterator@QEAVCOverlayContext@@@2@@Z @ 0x18017D05C (-erase@-$vector_facade@PEAVCOverlayContext@@V-$buffer_impl@PEAVCOverlayContext@@$0BA@$00Vliberal.c)
  */
 
-char __fastcall COverlayContext::InitCheckCandidatesList(_QWORD *a1, _QWORD *a2)
+char __fastcall COverlayContext::InitCheckCandidatesList(__int64 *a1, __int64 a2)
 {
-  __int64 *v2; // r14
-  _QWORD *v3; // r12
+  __int64 v2; // r15
+  __int64 *v3; // r14
   char v4; // di
-  __int64 v5; // rax
-  __int64 *v6; // r13
-  __int64 v7; // rsi
-  unsigned int v8; // r15d
-  __int64 v9; // rdx
-  _QWORD *v10; // r13
-  COverlayContext **v11; // rsi
-  COverlayContext **v12; // r15
-  COverlayContext *v13; // r14
-  char v14; // bl
-  _BYTE *v15; // rcx
-  void *v16; // rcx
-  bool v17; // zf
-  __int64 v19; // rcx
-  __int64 v20; // rbx
-  unsigned int v21; // esi
-  int v22; // r14d
-  unsigned int v23; // r15d
-  const struct COverlayContext::OverlayPlaneInfo *v24; // rbx
-  const struct COverlayContext::OverlayPlaneInfo **v25; // rax
-  __int64 *v26; // rbx
-  __int64 v27; // rsi
-  __int64 *v28; // rsi
-  __int64 v30; // rcx
-  __int64 v31; // rdx
-  __int64 v32; // rdx
-  __int64 v33; // rcx
-  __int64 v34; // r10
-  __int64 v35; // r8
-  _BYTE *v36; // rbx
-  char v37; // [rsp+20h] [rbp-E0h]
-  _QWORD *v38; // [rsp+28h] [rbp-D8h] BYREF
-  _QWORD *v39; // [rsp+30h] [rbp-D0h] BYREF
-  _QWORD v40[2]; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v41; // [rsp+48h] [rbp-B8h] BYREF
-  int v42; // [rsp+50h] [rbp-B0h]
-  char v43; // [rsp+54h] [rbp-ACh]
-  __int64 v44; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v45; // [rsp+60h] [rbp-A0h]
-  __m128i v46; // [rsp+68h] [rbp-98h]
-  _BYTE *v47; // [rsp+98h] [rbp-68h] BYREF
-  _BYTE *v48; // [rsp+A0h] [rbp-60h]
-  _BYTE **v49; // [rsp+A8h] [rbp-58h]
-  _BYTE v50[128]; // [rsp+B0h] [rbp-50h] BYREF
-  _BYTE *v51; // [rsp+130h] [rbp+30h] BYREF
-  _BYTE *v52; // [rsp+138h] [rbp+38h]
-  __int64 *v53; // [rsp+140h] [rbp+40h]
-  _BYTE v54[128]; // [rsp+148h] [rbp+48h] BYREF
-  __int64 v55; // [rsp+1C8h] [rbp+C8h] BYREF
+  unsigned __int64 v5; // r12
+  __int64 v6; // r13
+  __int64 *v7; // rax
+  unsigned __int64 v8; // r12
+  __int64 v9; // rsi
+  unsigned int v10; // r15d
+  char v11; // al
+  __int64 v12; // r8
+  __int64 v13; // r12
+  COverlayContext **v14; // r14
+  __int64 v15; // rsi
+  COverlayContext *v16; // r15
+  char v17; // bl
+  _BYTE *v18; // rcx
+  _BYTE *v19; // rcx
+  __int64 v21; // rcx
+  __int64 v22; // rbx
+  unsigned int v23; // r14d
+  int v24; // esi
+  unsigned int v25; // r12d
+  const struct COverlayContext::OverlayPlaneInfo *v26; // rbx
+  const struct COverlayContext::OverlayPlaneInfo **v27; // rax
+  __int64 v28; // r12
+  __m128i **v29; // r14
+  __m128i *v30; // rsi
+  __int32 *v31; // rsi
+  char DoesContain; // al
+  char v34; // r11
+  char v35; // r13
+  char v36; // r10
+  bool v37; // bl
+  __int64 v38; // r14
+  __int64 v39; // rcx
+  __int64 v40; // rdx
+  __int64 v41; // rax
+  __int64 *v42; // r9
+  unsigned int v43; // edx
+  char v44; // al
+  __int64 v45; // rcx
+  __int64 v46; // r10
+  __int64 v47; // r8
+  _BYTE *v48; // rbx
+  char v49; // [rsp+20h] [rbp-E0h]
+  char v50; // [rsp+24h] [rbp-DCh]
+  char v51; // [rsp+28h] [rbp-D8h]
+  __int64 v53; // [rsp+38h] [rbp-C8h] BYREF
+  int v54; // [rsp+40h] [rbp-C0h]
+  __int16 v55; // [rsp+44h] [rbp-BCh]
+  char v56; // [rsp+46h] [rbp-BAh]
+  __int64 *v57; // [rsp+48h] [rbp-B8h]
+  __int64 v58; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v59; // [rsp+58h] [rbp-A8h]
+  _BYTE *v60; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD v61[2]; // [rsp+68h] [rbp-98h] BYREF
+  _QWORD v62[2]; // [rsp+78h] [rbp-88h] BYREF
+  __m128i v63; // [rsp+88h] [rbp-78h]
+  _BYTE v64[8]; // [rsp+B8h] [rbp-48h] BYREF
+  _BYTE *v65; // [rsp+C0h] [rbp-40h] BYREF
+  _BYTE *v66; // [rsp+C8h] [rbp-38h]
+  _BYTE **v67; // [rsp+D0h] [rbp-30h]
+  _BYTE v68[128]; // [rsp+D8h] [rbp-28h] BYREF
+  _BYTE *v69; // [rsp+158h] [rbp+58h] BYREF
+  _BYTE *v70; // [rsp+160h] [rbp+60h]
+  __int64 *v71; // [rsp+168h] [rbp+68h]
+  _BYTE v72[128]; // [rsp+170h] [rbp+70h] BYREF
+  __int64 v73; // [rsp+1F0h] [rbp+F0h] BYREF
 
-  v2 = (__int64 *)a1[1];
-  v47 = v50;
-  v39 = a2;
-  v48 = v50;
-  v3 = a2;
-  v38 = a1;
-  v49 = &v51;
+  v57 = a1;
+  v50 = 0;
+  v65 = v68;
+  v2 = a2;
+  v3 = (__int64 *)a1[1];
   v4 = 1;
   v5 = *a1;
-  v37 = 0;
-  v41 = 0LL;
-  v42 = 0;
-  v6 = &v2[v5];
-  v43 = 0;
-  if ( v2 != v6 )
+  v6 = 0LL;
+  v66 = v68;
+  v67 = &v69;
+  v51 = 0;
+  v7 = &v3[v5];
+  v53 = 0LL;
+  v8 = (v5 * 8) >> 3;
+  v54 = 0;
+  v55 = 0;
+  if ( v3 > v7 )
+    v8 = 0LL;
+  v56 = 0;
+  if ( v8 )
   {
     do
     {
-      v7 = *v2;
-      v8 = 0;
-      *(_BYTE *)(v7 + 11328) = *(_BYTE *)(*v2 + 11306);
-      *(_QWORD *)(v7 + 11316) = 0LL;
-      *(_DWORD *)(v7 + 11324) = 0;
+      v9 = *v3;
+      v10 = 0;
+      *(_QWORD *)(v9 + 11436) = 0LL;
+      v11 = *(_BYTE *)(v9 + 11426);
+      *(_WORD *)(v9 + 11448) = 0;
+      *(_BYTE *)(v9 + 11450) = v11;
+      *(_DWORD *)(v9 + 11444) = 0;
       while ( 1 )
       {
-        v9 = *(_QWORD *)(v7 + 88);
-        if ( v8 >= -1227133513 * (unsigned int)((*(_QWORD *)(v7 + 96) - v9) >> 5) )
+        v12 = *(_QWORD *)(v9 + 96);
+        if ( v10 >= (unsigned int)((*(_QWORD *)(v9 + 104) - v12) / 224) )
           break;
-        v19 = 224LL * v8;
-        *(_DWORD *)(v19 + v9 + 212) = v8;
-        v20 = v19 + *(_QWORD *)(v7 + 88);
-        ++v8;
-        *(_QWORD *)detail::vector_facade<COverlayContext::OverlayPlaneInfo *,detail::buffer_impl<COverlayContext::OverlayPlaneInfo *,16,1,detail::liberal_expansion_policy>>::reserve_region(
-                     &v47,
-                     (v48 - v47) >> 3) = v20;
+        v21 = 224LL * v10;
+        *(_DWORD *)(v21 + v12 + 208) = v10;
+        v22 = v21 + *(_QWORD *)(v9 + 96);
+        ++v10;
+        *(_QWORD *)detail::vector_facade<IDXGIResource *,detail::buffer_impl<IDXGIResource *,7,1,detail::liberal_expansion_policy>>::reserve_region(
+                     &v65,
+                     (v66 - v65) >> 3) = v22;
       }
-      ++v2;
+      ++v3;
+      ++v6;
     }
-    while ( v2 != v6 );
-    v3 = v39;
+    while ( v6 != v8 );
+    v2 = a2;
   }
-  v10 = v38;
-  while ( ((v48 - v47) & 0xFFFFFFFFFFFFFFF8uLL) != 0 )
+  while ( ((v66 - v65) & 0xFFFFFFFFFFFFFFF8uLL) != 0 )
   {
-    gsl::span<_LUID,-1>::span<_LUID,-1>(v40, &v47);
-    v21 = v40[0];
-    v22 = -1;
-    if ( v40[0] )
+    gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::span<COverlayContext::OverlayPlaneInfo *,-1>(v61, &v65);
+    v23 = v61[0];
+    v24 = -1;
+    if ( v61[0] )
     {
-      v22 = 0;
-      v23 = 1;
-      if ( LODWORD(v40[0]) > 1 )
+      v24 = 0;
+      v25 = 1;
+      if ( LODWORD(v61[0]) > 1 )
       {
         do
         {
-          v24 = *(const struct COverlayContext::OverlayPlaneInfo **)gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::operator[](
-                                                                      v40,
-                                                                      v22);
-          v25 = (const struct COverlayContext::OverlayPlaneInfo **)gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::operator[](
-                                                                     v40,
-                                                                     v23);
-          if ( COverlayContext::IsHigherProprity(*v25, v24) )
-            v22 = v23;
-          ++v23;
+          v26 = *(const struct COverlayContext::OverlayPlaneInfo **)gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::operator[](
+                                                                      v61,
+                                                                      v24);
+          v27 = (const struct COverlayContext::OverlayPlaneInfo **)gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::operator[](
+                                                                     v61,
+                                                                     v25);
+          if ( COverlayContext::IsHigherProprity(*v27, v26) )
+            v24 = v25;
+          ++v25;
         }
-        while ( v23 < v21 );
+        while ( v25 < v23 );
+        v2 = a2;
       }
     }
-    v26 = *(__int64 **)&v47[8 * v22];
-    v27 = *v26;
-    v46 = *(__m128i *)(*v26 + 44);
-    if ( (_mm_srli_si128(v46, 8).m128i_i32[1] & 0x2000) != 0 )
-      v28 = &v41;
+    v28 = v24;
+    v29 = *(__m128i ***)&v65[8 * v24];
+    v30 = *v29;
+    v63 = (*v29)[3];
+    if ( (_mm_srli_si128(v63, 8).m128i_i32[1] & 0x2000) != 0 )
+      v31 = (__int32 *)&v53;
     else
-      v28 = (__int64 *)(v27 + 11316);
-    if ( *(_DWORD *)v28 < (unsigned int)(v46.m128i_i32[0] - 1)
-      && (*((_BYTE *)v26 + 176)
-        ? *((_DWORD *)v28 + 2) < v46.m128i_i32[2]
-        : *((_DWORD *)v28 + 1) < (unsigned int)(v46.m128i_i32[1] - 1)) )
+      v31 = &v30[714].m128i_i32[3];
+    if ( *v31 < (unsigned int)(v63.m128i_i32[0] - 1)
+      && (*((_BYTE *)v29 + 176) ? (unsigned int)v31[2] < v63.m128i_i32[2] : v31[1] < (unsigned int)(v63.m128i_i32[1] - 1)) )
     {
-      if ( *v10 <= 1uLL || (gsl::span<_LUID,-1>::span<_LUID,-1>(&v44, v3), v30 = v45, v31 = v45 + 8 * v44, v45 == v31) )
+      v49 = COverlayContext::OverlayPlaneInfo::RequiresFrontPlane((COverlayContext::OverlayPlaneInfo *)v29);
+      DoesContain = TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::DoesContain(
+                      (char *)v29 + 52,
+                      (char *)v29 + 68);
+      v35 = DoesContain;
+      if ( v36 )
       {
-LABEL_45:
-        v32 = 0LL;
-        v33 = (__int64)(v3[1] - *v3) >> 3;
-        if ( (_DWORD)v33 )
-        {
-          v34 = *(_QWORD *)&v47[8 * v22];
-          do
-          {
-            v35 = *(_QWORD *)(*v3 + 8 * v32);
-            if ( *(_QWORD *)v34 == *(_QWORD *)v35 && *(_DWORD *)(v34 + 212) < *(_DWORD *)(v35 + 212) )
-              break;
-            v32 = (unsigned int)(v32 + 1);
-          }
-          while ( (_DWORD)v32 != (_DWORD)v33 );
-        }
-        v36 = v47;
-        *(_QWORD *)detail::vector_facade<COverlayContext::OverlayPlaneInfo *,detail::buffer_impl<COverlayContext::OverlayPlaneInfo *,16,1,detail::liberal_expansion_policy>>::reserve_region(
-                     v3,
-                     v32) = *(_QWORD *)&v36[8 * v22];
-        ++*(_DWORD *)v28;
-        if ( *(_BYTE *)(*(_QWORD *)&v47[8 * v22] + 176LL) )
-          ++*((_DWORD *)v28 + 2);
-        else
-          ++*((_DWORD *)v28 + 1);
+        v37 = DoesContain;
       }
-      else
+      else if ( !DoesContain || (v37 = 1, v51 != v34) )
       {
-        while ( v26[2] != *(_QWORD *)(*(_QWORD *)v30 + 16LL) )
+        gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::span<COverlayContext::OverlayPlaneInfo *,-1>(v62, v2);
+        v37 = (unsigned __int8)COverlayContext::CheckPaddingCorrectness(v62, v29) != 0;
+      }
+      if ( *v57 > 1 )
+      {
+        v38 = *(_QWORD *)&v65[8 * v28];
+        gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::span<COverlayContext::OverlayPlaneInfo *,-1>(&v58, v2);
+        v39 = v59;
+        v40 = v59 + 8 * v58;
+        if ( v59 != v40 )
         {
-          v30 += 8LL;
-          if ( v30 == v31 )
-            goto LABEL_45;
+          while ( *(_QWORD *)(v38 + 16) != *(_QWORD *)(*(_QWORD *)v39 + 16LL) )
+          {
+            v39 += 8LL;
+            if ( v39 == v40 )
+              goto LABEL_55;
+          }
+          v37 = 0;
+        }
+      }
+LABEL_55:
+      if ( v37 )
+      {
+        v41 = **(_QWORD **)&v65[8 * v28];
+        if ( *(_BYTE *)(v41 + 11449) )
+        {
+          if ( v49 != *(_BYTE *)(v41 + 11448) )
+            v37 = 0;
+        }
+        else
+        {
+          *(_BYTE *)(v41 + 11448) = v49;
+        }
+        if ( v37 )
+        {
+          v42 = *(__int64 **)v2;
+          v43 = 0;
+          v44 = v51;
+          if ( !v35 )
+            v44 = 1;
+          v45 = (__int64)(*(_QWORD *)(v2 + 8) - (_QWORD)v42) >> 3;
+          v51 = v44;
+          if ( (_DWORD)v45 )
+          {
+            v46 = *(_QWORD *)&v65[8 * v28];
+            do
+            {
+              v47 = v42[v43];
+              if ( *(_QWORD *)v46 == *(_QWORD *)v47 && *(_DWORD *)(v46 + 208) < *(_DWORD *)(v47 + 208) )
+                break;
+              ++v43;
+            }
+            while ( v43 != (_DWORD)v45 );
+          }
+          v48 = v65;
+          *(_QWORD *)detail::vector_facade<IDXGIResource *,detail::buffer_impl<IDXGIResource *,7,1,detail::liberal_expansion_policy>>::reserve_region(
+                       v2,
+                       (8LL * v43) >> 3) = *(_QWORD *)&v48[8 * v28];
+          *(_BYTE *)(**(_QWORD **)&v65[8 * v28] + 11449LL) = 1;
+          ++*v31;
+          if ( *(_BYTE *)(*(_QWORD *)&v65[8 * v28] + 176LL) )
+            ++v31[2];
+          else
+            ++v31[1];
         }
       }
     }
-    v38 = &v47[8 * v22];
+    v60 = &v65[8 * v28];
     detail::vector_facade<COverlayContext *,detail::buffer_impl<COverlayContext *,16,1,detail::liberal_expansion_policy>>::erase(
-      &v47,
-      &v39,
-      &v38);
+      &v65,
+      v64,
+      &v60);
   }
-  v11 = (COverlayContext **)v10[1];
-  v12 = &v11[*v10];
-  if ( v11 == v12 )
-  {
-    v14 = 0;
-  }
-  else
+  COverlayContext::RemoveUnbackedSurfaces((__int64 **)v2);
+  v13 = 0LL;
+  v14 = (COverlayContext **)v57[1];
+  v15 = *v57 & 0x1FFFFFFFFFFFFFFFLL;
+  if ( v14 > &v14[*v57] )
+    v15 = 0LL;
+  if ( v15 )
   {
     do
     {
-      v13 = *v11;
-      v51 = v54;
-      v52 = v54;
-      v53 = &v55;
-      gsl::span<_LUID,-1>::span<_LUID,-1>(&v44, v3);
-      COverlayContext::GetContextCandidates(v13, &v44, &v51);
-      gsl::span<_LUID,-1>::span<_LUID,-1>(v40, &v51);
-      COverlayContext::DeriveDesktopPlaneAttributes(v13);
-      v14 = v37;
-      if ( *((_BYTE *)v13 + 11024) )
+      v16 = *v14;
+      v69 = v72;
+      v70 = v72;
+      v71 = &v73;
+      gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::span<COverlayContext::OverlayPlaneInfo *,-1>(v62, a2);
+      COverlayContext::GetContextCandidates((__int64)v16, v62, &v69);
+      gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::span<COverlayContext::OverlayPlaneInfo *,-1>(&v58, &v69);
+      COverlayContext::DeriveDesktopPlaneAttributes(v16);
+      v17 = v50;
+      if ( *((_BYTE *)v16 + 11032) )
       {
-        v14 = v37;
-        if ( *((_BYTE *)v13 + 11025) )
-          v14 = 1;
-        v37 = v14;
+        v17 = v50;
+        if ( *((_BYTE *)v16 + 11033) )
+          v17 = 1;
+        v50 = v17;
       }
-      v15 = v51;
-      if ( (v52 - v51) >> 3 )
+      v18 = v69;
+      if ( (v70 - v69) >> 3 )
       {
-        detail::vector_facade<IMonitorTarget *,detail::buffer_impl<IMonitorTarget *,2,1,detail::liberal_expansion_policy>>::clear_region(
-          &v51,
-          0LL);
-        v15 = v51;
+        detail::vector_facade<CDesktopTree *,detail::buffer_impl<CDesktopTree *,1,1,detail::liberal_expansion_policy>>::clear_region(&v69);
+        v18 = v69;
       }
-      v51 = 0LL;
-      if ( v15 == v54 )
-        v15 = 0LL;
-      operator delete(v15);
-      ++v11;
+      v69 = 0LL;
+      if ( v18 == v72 )
+        v18 = 0LL;
+      operator delete(v18);
+      ++v14;
+      ++v13;
     }
-    while ( v11 != v12 );
+    while ( v13 != v15 );
+    v2 = a2;
   }
-  if ( ((v3[1] - *v3) & 0xFFFFFFFFFFFFFFF8uLL) == 0 && !v14 )
+  else
+  {
+    v17 = 0;
+  }
+  if ( ((*(_QWORD *)(v2 + 8) - *(_QWORD *)v2) & 0xFFFFFFFFFFFFFFF8uLL) == 0 && !v17 )
     v4 = 0;
-  if ( (v48 - v47) >> 3 )
-    detail::vector_facade<IMonitorTarget *,detail::buffer_impl<IMonitorTarget *,2,1,detail::liberal_expansion_policy>>::clear_region(
-      &v47,
-      0LL);
-  v16 = v47;
-  v17 = v47 == v50;
-  v47 = 0LL;
-  if ( v17 )
-    v16 = 0LL;
-  operator delete(v16);
+  v19 = v65;
+  if ( (v66 - v65) >> 3 )
+  {
+    detail::vector_facade<CDesktopTree *,detail::buffer_impl<CDesktopTree *,1,1,detail::liberal_expansion_policy>>::clear_region(&v65);
+    v19 = v65;
+  }
+  v65 = 0LL;
+  if ( v19 == v68 )
+    v19 = 0LL;
+  operator delete(v19);
   return v4;
 }

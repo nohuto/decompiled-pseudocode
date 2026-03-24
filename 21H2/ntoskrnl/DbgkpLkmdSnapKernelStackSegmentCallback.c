@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkpLkmdSnapKernelStackSegmentCallback @ 0x140540520
+ * XREFs of DbgkpLkmdSnapKernelStackSegmentCallback @ 0x1404EE3E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapKernelStackSegmentCallback(__int64 a1, unsigned __int64 *a2, __int64 a3)
@@ -19,8 +19,8 @@ __int64 __fastcall DbgkpLkmdSnapKernelStackSegmentCallback(__int64 a1, unsigned 
   if ( v3 >= v5 && v3 < *a2 && !*(_BYTE *)(a3 + 16) )
     v4 = 5LL;
   result = (*(__int64 (__fastcall **)(__int64, unsigned __int64, _QWORD, __int64, _QWORD, _QWORD))(*(_QWORD *)a3
-                                                                                                 + 16448LL))(
-             *(_QWORD *)a3 + 0x4000LL,
+                                                                                                 + 10304LL))(
+             *(_QWORD *)a3 + 10240LL,
              a2[1],
              (unsigned int)(*(_DWORD *)a2 - v5),
              v4,

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?WriteEFE@EFSOBJ@@QEAAXAEBU_EFENTRY@@AEAVPFEOBJ@@@Z @ 0x1C000E3EC
+ * XREFs of ?WriteEFE@EFSOBJ@@QEAAXAEBU_EFENTRY@@AEAVPFEOBJ@@@Z @ 0x1C0062894
  * Callers:
- *     ?bAdd@EFSOBJ@@QEAAHPEAVPFE@@W4_ENUMFONTSTYLE@@KK@Z @ 0x1C000E2A4 (-bAdd@EFSOBJ@@QEAAHPEAVPFE@@W4_ENUMFONTSTYLE@@KK@Z.c)
+ *     ?bAdd@EFSOBJ@@QEAAHPEAVPFE@@W4_ENUMFONTSTYLE@@KK@Z @ 0x1C0062720 (-bAdd@EFSOBJ@@QEAAHPEAVPFE@@W4_ENUMFONTSTYLE@@KK@Z.c)
  * Callees:
- *     cjCopyFontDataW @ 0x1C000E5E8 (cjCopyFontDataW.c)
- *     ?bGrow@EFSOBJ@@QEAAHXZ @ 0x1C013F8C4 (-bGrow@EFSOBJ@@QEAAHXZ.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     cjCopyFontDataW @ 0x1C005F020 (cjCopyFontDataW.c)
+ *     ?bGrow@EFSOBJ@@QEAAHXZ @ 0x1C010FFB0 (-bGrow@EFSOBJ@@QEAAHXZ.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void __fastcall EFSOBJ::WriteEFE(wchar_t ***this, const struct _EFENTRY *a2, struct PFEOBJ *a3)
@@ -19,7 +19,6 @@ void __fastcall EFSOBJ::WriteEFE(wchar_t ***this, const struct _EFENTRY *a2, str
   char v11; // cl
   void *v12; // rax
   const void *v13; // rsi
-  int v14; // [rsp+38h] [rbp-40h]
   unsigned int Size; // [rsp+90h] [rbp+18h]
   __int64 Sizea; // [rsp+90h] [rbp+18h]
 
@@ -71,7 +70,7 @@ void __fastcall EFSOBJ::WriteEFE(wchar_t ***this, const struct _EFENTRY *a2, str
       if ( v12 )
       {
         memset(v12, 0, Size);
-        Sizea = cjCopyFontDataW((int)(*this)[4], (int)v13, (int)a3, *(_DWORD *)a2, Src, v9, v8, v14);
+        Sizea = cjCopyFontDataW((__int64)(*this)[4], (__int64)v13, (__int64)a3, *(_DWORD *)a2, Src, v9, v8);
         memmove((*this)[2], v13, Sizea);
         FreeTmpBuffer(v13);
         (*this)[2] = (wchar_t *)((char *)(*this)[2] + Sizea);

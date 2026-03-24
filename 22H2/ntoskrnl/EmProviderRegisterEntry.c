@@ -1,16 +1,16 @@
 /*
- * XREFs of EmProviderRegisterEntry @ 0x14093C970
+ * XREFs of EmProviderRegisterEntry @ 0x14088A2C0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     EmpQueueRuleUpdateState @ 0x1403878C8 (EmpQueueRuleUpdateState.c)
- *     EmpSearchEntryDatabase @ 0x1403879E0 (EmpSearchEntryDatabase.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     EmpQueueRuleUpdateState @ 0x1403B3B68 (EmpQueueRuleUpdateState.c)
+ *     EmpSearchEntryDatabase @ 0x1403B3EBC (EmpSearchEntryDatabase.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EmProviderRegisterEntry(__int64 a1, _QWORD *a2, __int64 a3, _QWORD *a4)
@@ -23,9 +23,9 @@ __int64 __fastcall EmProviderRegisterEntry(__int64 a1, _QWORD *a2, __int64 a3, _
   _QWORD *v13; // r9
   __int64 v14; // rcx
   void *v15; // rcx
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   unsigned int v18; // eax
-  void *v19; // rax
+  PVOID v19; // rax
   _QWORD *v20; // rdx
   _QWORD *v21; // rax
   _QWORD *v22; // rdx
@@ -59,13 +59,13 @@ __int64 __fastcall EmProviderRegisterEntry(__int64 a1, _QWORD *a2, __int64 a3, _
       if ( (unsigned int)v12 >= v11 )
         goto LABEL_14;
     }
-    Pool2 = (_QWORD *)ExAllocatePool2(256LL, 56LL, 1919962437LL);
-    v8 = Pool2;
-    if ( Pool2
-      && (*Pool2 = v10,
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x38uLL, 0x72704D45u);
+    v8 = PoolWithTag;
+    if ( PoolWithTag
+      && (*PoolWithTag = v10,
           v18 = *(_DWORD *)(a3 + 8),
           *((_DWORD *)v8 + 4) = v18,
-          v19 = (void *)ExAllocatePool2(256LL, v18, 1919962437LL),
+          v19 = ExAllocatePoolWithTag(PagedPool, v18, 0x72704D45u),
           (v8[1] = v19) != 0LL) )
     {
       memmove(v19, *(const void **)a3, *((unsigned int *)v8 + 4));

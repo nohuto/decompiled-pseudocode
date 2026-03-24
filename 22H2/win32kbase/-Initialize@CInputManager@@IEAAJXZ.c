@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Initialize@CInputManager@@IEAAJXZ @ 0x1C00BED60
+ * XREFs of ?Initialize@CInputManager@@IEAAJXZ @ 0x1C00B56CC
  * Callers:
- *     ?CreateSessionGlobal@CInputManager@@SAJXZ @ 0x1C00BECC0 (-CreateSessionGlobal@CInputManager@@SAJXZ.c)
+ *     ?CreateSessionGlobal@CInputManager@@SAJXZ @ 0x1C00B5630 (-CreateSessionGlobal@CInputManager@@SAJXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CInputManager::Initialize(CInputManager *this)
@@ -12,15 +12,14 @@ __int64 __fastcall CInputManager::Initialize(CInputManager *this)
   __int64 v3; // rax
 
   v1 = 0;
-  if ( !qword_1C02960E0 )
-  {
-    *(_QWORD *)this = 0LL;
-    return (unsigned int)-1073741801;
-  }
-  v3 = qword_1C02960E0(1LL, 0LL);
+  if ( qword_1C0256E00 )
+    v3 = qword_1C0256E00(1LL, 0LL);
+  else
+    v3 = 0LL;
   *(_QWORD *)this = v3;
-  if ( !v3 )
+  if ( v3 )
+    *((_QWORD *)this + 15) = 0LL;
+  else
     return (unsigned int)-1073741801;
-  *((_QWORD *)this + 15) = 0LL;
   return v1;
 }

@@ -1,63 +1,66 @@
 /*
- * XREFs of HvpViewMapCleanup @ 0x1407DB0F4
+ * XREFs of HvpViewMapCleanup @ 0x14069887C
  * Callers:
- *     HvHiveCleanup @ 0x140709780 (HvHiveCleanup.c)
+ *     HvHiveCleanup @ 0x1406572B4 (HvHiveCleanup.c)
  * Callees:
- *     CmSiCloseSection @ 0x140374450 (CmSiCloseSection.c)
- *     HvpViewMapDeleteViewTreeNode @ 0x14068F7D4 (HvpViewMapDeleteViewTreeNode.c)
+ *     CmSiCloseSection @ 0x140321658 (CmSiCloseSection.c)
+ *     HvpViewMapDeleteViewTreeNode @ 0x140724FE8 (HvpViewMapDeleteViewTreeNode.c)
  */
 
-NTSTATUS __fastcall HvpViewMapCleanup(__int64 a1)
+char __fastcall HvpViewMapCleanup(__int64 a1)
 {
   __int64 v1; // rbx
   bool v3; // zf
   unsigned __int64 v4; // rcx
-  int v5; // esi
-  unsigned __int64 v6; // rax
+  char result; // al
+  int v6; // esi
   _QWORD *v7; // rdx
-  unsigned __int64 v8; // rdi
-  NTSTATUS result; // eax
+  __int64 v8; // rax
+  unsigned __int64 v9; // rdx
+  unsigned __int64 v10; // rdi
 
   v1 = a1 + 40;
   v3 = (*(_BYTE *)(a1 + 48) & 1) == 0;
   v4 = *(_QWORD *)(a1 + 40);
   if ( !v3 && v4 )
     v4 ^= v1;
-  v5 = *(_BYTE *)(v1 + 8) & 1;
+  result = *(_BYTE *)(v1 + 8);
+  v6 = result & 1;
   if ( v4 )
   {
     while ( 1 )
     {
-      v6 = *(_QWORD *)v4;
-      if ( *(_QWORD *)v4 )
-        break;
-      v7 = (_QWORD *)(v4 + 8);
-      v6 = *(_QWORD *)(v4 + 8);
-      if ( v6 )
+      while ( 1 )
       {
-LABEL_5:
-        if ( v5 )
-          v4 ^= v6;
-        else
-          v4 = v6;
-        *v7 = 0LL;
-      }
-      else
-      {
-        v8 = *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( v5 && v8 )
-          v8 ^= v4;
-        HvpViewMapDeleteViewTreeNode((PPRIVILEGE_SET)v4, a1);
+        while ( *(_QWORD *)v4 )
+        {
+          v7 = (_QWORD *)v4;
+          if ( v6 )
+            v4 ^= *(_QWORD *)v4;
+          else
+            v4 = *(_QWORD *)v4;
+          *v7 = 0LL;
+        }
+        v8 = *(_QWORD *)(v4 + 8);
         if ( !v8 )
-          goto LABEL_13;
-        v4 = v8;
+          break;
+        v9 = v4;
+        if ( v6 )
+          v4 ^= v8;
+        else
+          v4 = *(_QWORD *)(v4 + 8);
+        *(_QWORD *)(v9 + 8) = 0LL;
       }
+      v10 = *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+      if ( v6 && v10 )
+        v10 ^= v4;
+      HvpViewMapDeleteViewTreeNode((PPRIVILEGE_SET)v4);
+      if ( !v10 )
+        break;
+      v4 = v10;
     }
-    v7 = (_QWORD *)v4;
-    goto LABEL_5;
+    result = *(_BYTE *)(v1 + 8);
   }
-LABEL_13:
-  result = *(unsigned __int8 *)(v1 + 8);
   *(_QWORD *)v1 = 0LL;
   *(_QWORD *)(v1 + 8) = 0LL;
   if ( (result & 1) != 0 )

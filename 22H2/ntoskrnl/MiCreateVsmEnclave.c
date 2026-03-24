@@ -1,50 +1,46 @@
 /*
- * XREFs of MiCreateVsmEnclave @ 0x140A3DB30
+ * XREFs of MiCreateVsmEnclave @ 0x1408D2BFC
  * Callers:
- *     MiCreateEnclave @ 0x140A3D6DC (MiCreateEnclave.c)
+ *     MiCreateEnclave @ 0x1408D282C (MiCreateEnclave.c)
  * Callees:
- *     MiGetProcessPartition @ 0x140275574 (MiGetProcessPartition.c)
- *     PsCreateVsmEnclave @ 0x1409B7038 (PsCreateVsmEnclave.c)
+ *     MiGetProcessPartition @ 0x14021AD00 (MiGetProcessPartition.c)
+ *     PsCreateVsmEnclave @ 0x14090D938 (PsCreateVsmEnclave.c)
  */
 
-__int64 __fastcall MiCreateVsmEnclave(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
+__int64 __fastcall MiCreateVsmEnclave(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4, unsigned int a5)
 {
-  __int64 ProcessPartition; // rax
-  int v7; // r8d
-  _BYTE *v8; // r9
-  __int64 v9; // r10
-  struct _MDL *v10; // r11
-  __int64 v11; // rdx
-  unsigned __int8 v12; // si
-  BOOL v13; // ebx
-  __int64 v14; // r8
+  ULONG_PTR *ProcessPartition; // rax
+  int v8; // r8d
+  _BYTE *v9; // r9
+  __int64 v10; // r10
+  ULONG_PTR v11; // rdx
+  BOOL v12; // ebx
   __int64 result; // rax
 
-  ProcessPartition = MiGetProcessPartition(a1);
-  if ( (unsigned __int16 *)ProcessPartition == MiSystemPartition )
-    v11 = 0LL;
+  ProcessPartition = (ULONG_PTR *)MiGetProcessPartition(a1);
+  if ( ProcessPartition == &MiSystemPartition )
+    LODWORD(v11) = 0;
   else
-    v11 = *(_QWORD *)(ProcessPartition + 200);
-  v12 = v7 == 17;
-  v13 = 0;
+    v11 = ProcessPartition[22];
+  v12 = 0;
   if ( a5 >= 4 )
-    v13 = (*v8 & 1) != 0;
-  v14 = (*(unsigned int *)(a2 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a2 + 32) << 32)) << 12;
+    v12 = (*v9 & 1) != 0;
   result = PsCreateVsmEnclave(
-             v9,
+             a1,
              v11,
-             v14,
-             (((*(unsigned int *)(a2 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a2 + 33) << 32)) << 12) | 0xFFF)
-           - v14
-           + 1,
-             v12,
+             a2[6] << 12,
+             ((a2[7] << 12) | 0xFFFu) - (a2[6] << 12) + 1,
+             v8 == 17,
              v10,
              a5,
-             (_QWORD *)(a2 + 72));
+             (__int64)(a2 + 18));
   if ( (int)result >= 0 )
   {
-    if ( v13 )
-      *(_DWORD *)(a2 + 64) |= 4u;
+    if ( v12 )
+    {
+      a2[16] |= 4u;
+      _InterlockedAdd((volatile signed __int32 *)(*(_QWORD *)(a1 + 1680) + 296LL), 1u);
+    }
     return 0LL;
   }
   return result;

@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWnfRegisterPermanentName @ 0x1407E8530
+ * XREFs of ExpWnfRegisterPermanentName @ 0x1406F85AC
  * Callers:
- *     NtCreateWnfStateName @ 0x140711250 (NtCreateWnfStateName.c)
+ *     NtCreateWnfStateName @ 0x14060DB30 (NtCreateWnfStateName.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExpWnfGetNameStoreRegistryRoot @ 0x140710BFC (ExpWnfGetNameStoreRegistryRoot.c)
- *     ExpWnfComposeValueName @ 0x140710D70 (ExpWnfComposeValueName.c)
- *     RtlLengthSecurityDescriptor @ 0x140710FF0 (RtlLengthSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406D8E90 (RtlLengthSecurityDescriptor.c)
+ *     ExpWnfGetNameStoreRegistryRoot @ 0x1406F6668 (ExpWnfGetNameStoreRegistryRoot.c)
+ *     ExpWnfComposeValueName @ 0x1406F67D0 (ExpWnfComposeValueName.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfRegisterPermanentName(unsigned __int64 a1, __int64 a2)
@@ -18,9 +18,9 @@ __int64 __fastcall ExpWnfRegisterPermanentName(unsigned __int64 a1, __int64 a2)
   NTSTATUS NameStoreRegistryRoot; // ebx
   ULONG v5; // eax
   __int64 v6; // rbx
-  __int64 v7; // rdx
+  SIZE_T v7; // rdx
   ULONG DataSize; // ebp
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   char *Data; // rdi
   _OWORD *v11; // rax
   HANDLE KeyHandle; // [rsp+30h] [rbp-68h] BYREF
@@ -40,11 +40,11 @@ __int64 __fastcall ExpWnfRegisterPermanentName(unsigned __int64 a1, __int64 a2)
     if ( !*(_QWORD *)(a2 + 8) )
       v7 = v5 + 4;
     DataSize = v7;
-    Pool2 = (char *)ExAllocatePool2(256LL, v7, 543583831LL);
-    Data = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v7, 0x20666E57u);
+    Data = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memmove(Pool2, *(const void **)(a2 + 16), (unsigned int)v6);
+      memmove(PoolWithTag, *(const void **)(a2 + 16), (unsigned int)v6);
       *(_DWORD *)&Data[v6] = *(_DWORD *)a2;
       v11 = *(_OWORD **)(a2 + 8);
       if ( v11 )

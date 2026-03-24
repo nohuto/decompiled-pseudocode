@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CCachedTarget@CCachedVisualImage@@QEAA@PEAV1@PEAVIRenderTargetBitmap@@@Z @ 0x1800F08FC
+ * XREFs of ??0CCachedTarget@CCachedVisualImage@@QEAA@PEAV1@PEAVIRenderTargetBitmap@@@Z @ 0x1800CCEF4
  * Callers:
- *     ?CreateCachedTarget@CCachedVisualImage@@IEAAJUD2D_SIZE_U@@AEBVRenderTargetInfo@@PEAPEAVCCachedTarget@1@@Z @ 0x1800F07A4 (-CreateCachedTarget@CCachedVisualImage@@IEAAJUD2D_SIZE_U@@AEBVRenderTargetInfo@@PEAPEAVCCachedTa.c)
+ *     ?CreateCachedTarget@CCachedVisualImage@@AEAAJUD2D_SIZE_U@@AEBVRenderTargetInfo@@PEAPEAVCCachedTarget@1@@Z @ 0x1800CCDA8 (-CreateCachedTarget@CCachedVisualImage@@AEAAJUD2D_SIZE_U@@AEBVRenderTargetInfo@@PEAPEAVCCachedTa.c)
  * Callees:
- *     ??0?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVIRenderTargetBitmap@@@Z @ 0x180034918 (--0-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVIRenderTargetBit.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0?$com_ptr_t@VIMonitorTarget@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVIMonitorTarget@@@Z @ 0x180038CCC (--0-$com_ptr_t@VIMonitorTarget@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVIMonitorTarget@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 CCachedVisualImage::CCachedTarget *__fastcall CCachedVisualImage::CCachedTarget::CCachedTarget(
@@ -16,19 +16,17 @@ CCachedVisualImage::CCachedTarget *__fastcall CCachedVisualImage::CCachedTarget:
   __int64 v6; // rcx
 
   *(_QWORD *)this = a2;
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(
+  wil::com_ptr_t<IMonitorTarget,wil::err_returncode_policy>::com_ptr_t<IMonitorTarget,wil::err_returncode_policy>(
     (_QWORD *)this + 1,
     (__int64)a3);
   v5 = *((_QWORD *)this + 1);
   *((_QWORD *)this + 2) = 0LL;
   *((_QWORD *)this + 3) = 0LL;
-  *((_QWORD *)this + 5) = 0LL;
-  *((_QWORD *)this + 6) = 0LL;
   *((_DWORD *)this + 8) = 2;
-  *((_WORD *)this + 28) = 256;
+  *((_WORD *)this + 18) = 1;
   v6 = v5 + 8 + *(int *)(*(_QWORD *)(v5 + 8) + 8LL);
   (*(void (__fastcall **)(__int64, unsigned __int64))(*(_QWORD *)v6 + 40LL))(
     v6,
-    ((unsigned __int64)a2 + 88) & -(__int64)(a2 != 0LL));
+    ((unsigned __int64)a2 + 80) & -(__int64)(a2 != 0LL));
   return this;
 }

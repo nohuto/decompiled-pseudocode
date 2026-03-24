@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpLogUnsupportedOperation @ 0x140A1FEA0
+ * XREFs of CmpLogUnsupportedOperation @ 0x14087639C
  * Callers:
- *     CmpPerformUnloadKey @ 0x140699394 (CmpPerformUnloadKey.c)
- *     CmpCreateChild @ 0x1406D1020 (CmpCreateChild.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
- *     CmRestoreKey @ 0x140A0ACF4 (CmRestoreKey.c)
- *     CmSaveKey @ 0x140A0BA40 (CmSaveKey.c)
- *     CmSaveMergedKeys @ 0x140A0BE34 (CmSaveMergedKeys.c)
- *     NtCompactKeys @ 0x140A0D420 (NtCompactKeys.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
+ *     CmpPerformUnloadKey @ 0x14066CBFC (CmpPerformUnloadKey.c)
+ *     CmpCreateChild @ 0x1406E08C4 (CmpCreateChild.c)
+ *     CmSaveKey @ 0x140729A8C (CmSaveKey.c)
+ *     NtCompactKeys @ 0x140868050 (NtCompactKeys.c)
+ *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
+ *     CmRestoreKey @ 0x14087BF80 (CmRestoreKey.c)
+ *     CmSaveMergedKeys @ 0x14087CAE0 (CmSaveMergedKeys.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     CmpSendUnsupportedOperationTelemetryEvent @ 0x140A20278 (CmpSendUnsupportedOperationTelemetryEvent.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpSendUnsupportedOperationTelemetryEvent @ 0x14087662C (CmpSendUnsupportedOperationTelemetryEvent.c)
  */
 
 NTSTATUS __fastcall CmpLogUnsupportedOperation(unsigned int a1)
@@ -27,15 +27,15 @@ NTSTATUS __fastcall CmpLogUnsupportedOperation(unsigned int a1)
   result = _InterlockedIncrement(&CmpUnsupportedOperationHits[a1]);
   if ( result == 0x7FFFFFFF && _InterlockedExchange(&CmpUnsupportedOperationHits[a1], 0) )
     result = CmpSendUnsupportedOperationTelemetryEvent(a1);
-  if ( (unsigned int)dword_140C04390 > 5 )
+  if ( (unsigned int)dword_140C02130 > 5 )
   {
     v7 = 0;
     v5 = (int *)&v3;
     v3 = a1;
     v6 = 4;
     return tlgWriteTransfer_EtwWriteTransfer(
-             (__int64)&dword_140C04390,
-             (unsigned __int8 *)byte_140037BB9,
+             (__int64)&dword_140C02130,
+             (unsigned __int8 *)&word_140023A46,
              0LL,
              0LL,
              3u,

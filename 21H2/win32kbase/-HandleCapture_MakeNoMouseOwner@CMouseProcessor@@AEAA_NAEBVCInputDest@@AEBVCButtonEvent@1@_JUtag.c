@@ -1,22 +1,22 @@
 /*
- * XREFs of ?HandleCapture_MakeNoMouseOwner@CMouseProcessor@@AEAA_NAEBVCInputDest@@AEBVCButtonEvent@1@_JUtagPOINT@@I@Z @ 0x1C0044884
+ * XREFs of ?HandleCapture_MakeNoMouseOwner@CMouseProcessor@@AEAA_NAEBVCInputDest@@AEBVCButtonEvent@1@_JUtagPOINT@@I@Z @ 0x1C009E2B8
  * Callers:
- *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C0040FFC (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
+ *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C0049550 (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
  * Callees:
- *     _anonymous_namespace_::ValidateUIPI @ 0x1C0007E58 (_anonymous_namespace_--ValidateUIPI.c)
- *     ?GetDpiAwarenessContext@CInputDest@@QEBAKXZ @ 0x1C0034524 (-GetDpiAwarenessContext@CInputDest@@QEBAKXZ.c)
- *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0038C0C (-SetEmpty@CInputDest@@QEAAXXZ.c)
- *     ??0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z @ 0x1C003A380 (--0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z.c)
- *     ApiSetEditionPostInputMessage @ 0x1C0041768 (ApiSetEditionPostInputMessage.c)
- *     _anonymous_namespace_::GetPtiFromInputDest @ 0x1C0041A94 (_anonymous_namespace_--GetPtiFromInputDest.c)
- *     ?Set@MouseOwner@CMouseProcessor@@QEAAXAEBVCInputDest@@@Z @ 0x1C00449A8 (-Set@MouseOwner@CMouseProcessor@@QEAAXAEBVCInputDest@@@Z.c)
- *     ?GetInputDestFromForegroundCapture@QHelper@@YA?AUtagINPUTDEST@@XZ @ 0x1C0044A9C (-GetInputDestFromForegroundCapture@QHelper@@YA-AUtagINPUTDEST@@XZ.c)
- *     PhysicalToLogicalDPIPoint @ 0x1C006DA50 (PhysicalToLogicalDPIPoint.c)
- *     IsWindowDesktopComposed @ 0x1C0087B10 (IsWindowDesktopComposed.c)
- *     HMValidateSharedHandleNoRip @ 0x1C008F240 (HMValidateSharedHandleNoRip.c)
- *     ?IsEqualByQ@CInputDest@@QEBA_NAEBV1@@Z @ 0x1C00CFE9C (-IsEqualByQ@CInputDest@@QEBA_NAEBV1@@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0042894 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     ??0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z @ 0x1C0042A50 (--0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z.c)
+ *     _anonymous_namespace_::GetPtiFromInputDest @ 0x1C004438C (_anonymous_namespace_--GetPtiFromInputDest.c)
+ *     ?GetDpiAwarenessContext@CInputDest@@QEBAKXZ @ 0x1C0044A64 (-GetDpiAwarenessContext@CInputDest@@QEBAKXZ.c)
+ *     ApiSetEditionPostInputMessage @ 0x1C0047EAC (ApiSetEditionPostInputMessage.c)
+ *     PhysicalToLogicalDPIPoint @ 0x1C0070A80 (PhysicalToLogicalDPIPoint.c)
+ *     IsWindowDesktopComposed @ 0x1C007A780 (IsWindowDesktopComposed.c)
+ *     ?Set@MouseOwner@CMouseProcessor@@QEAAXAEBVCInputDest@@@Z @ 0x1C009E3DC (-Set@MouseOwner@CMouseProcessor@@QEAAXAEBVCInputDest@@@Z.c)
+ *     ?GetInputDestFromForegroundCapture@QHelper@@YA?AUtagINPUTDEST@@XZ @ 0x1C009E4CC (-GetInputDestFromForegroundCapture@QHelper@@YA-AUtagINPUTDEST@@XZ.c)
+ *     ?IsEqualByQ@CInputDest@@QEBA_NAEBV1@@Z @ 0x1C009E5AC (-IsEqualByQ@CInputDest@@QEBA_NAEBV1@@Z.c)
+ *     _anonymous_namespace_::ValidateUIPI @ 0x1C00ADC2C (_anonymous_namespace_--ValidateUIPI.c)
+ *     HMValidateSharedHandleNoRip @ 0x1C00B3EE8 (HMValidateSharedHandleNoRip.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 char __fastcall CMouseProcessor::HandleCapture_MakeNoMouseOwner(
@@ -34,102 +34,119 @@ char __fastcall CMouseProcessor::HandleCapture_MakeNoMouseOwner(
   __int128 v14; // xmm0
   __int128 v15; // xmm1
   __int128 v16; // xmm0
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  char v20; // di
-  int v21; // eax
-  bool v22; // zf
-  int v24; // esi
-  __int64 v25; // rbx
-  __int64 v26; // r8
+  char v17; // di
+  int v18; // eax
+  bool v19; // zf
+  int v21; // esi
+  __int64 v22; // rcx
+  __int64 v23; // rbx
   unsigned int DpiAwarenessContext; // eax
-  unsigned __int16 v28; // dx
-  __int64 v29; // rax
-  unsigned int v30; // eax
-  __int64 v31; // rcx
-  __int64 v32; // r8
-  __int64 v33; // rdx
-  unsigned int v34; // ebx
-  __int64 v35; // rdx
+  unsigned __int16 v25; // dx
+  int v26; // edx
+  int v27; // eax
+  int v28; // r8d
+  int v29; // eax
+  __int64 v30; // rax
+  __int64 v31; // rax
+  unsigned int v32; // eax
+  __int64 v33; // rcx
+  __int64 v34; // rax
+  int v35; // edx
+  unsigned int v36; // ebx
+  int v37; // edx
   __int64 PtiFromInputDest; // rax
-  __int64 v37; // rax
-  __int64 v38; // rax
-  __int64 *v39; // [rsp+48h] [rbp-B8h]
-  __int64 v40; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v41; // [rsp+68h] [rbp-98h] BYREF
-  __int128 v42; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v43; // [rsp+80h] [rbp-80h]
-  _OWORD v44[7]; // [rsp+90h] [rbp-70h] BYREF
-  _BYTE v45[112]; // [rsp+100h] [rbp+0h] BYREF
-  _DWORD v46[20]; // [rsp+170h] [rbp+70h] BYREF
-  __int64 v47; // [rsp+1C0h] [rbp+C0h]
-  int v48; // [rsp+1CCh] [rbp+CCh]
+  __int64 v39; // rax
+  __int64 v40; // rax
+  __int64 v41; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v42; // [rsp+68h] [rbp-98h] BYREF
+  __int128 v43; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v44; // [rsp+80h] [rbp-80h]
+  _OWORD v45[7]; // [rsp+90h] [rbp-70h] BYREF
+  char v46[112]; // [rsp+100h] [rbp+0h] BYREF
+  _DWORD v47[20]; // [rsp+170h] [rbp+70h] BYREF
+  __int64 v48; // [rsp+1C0h] [rbp+C0h]
+  int v49; // [rsp+1CCh] [rbp+CCh]
 
   if ( (*(&InputDelegation::CInputDelegationInfo::gInstance + 4) & 2) == 0 )
   {
-    InputDestFromForegroundCapture = (_OWORD *)QHelper::GetInputDestFromForegroundCapture(v45);
+    InputDestFromForegroundCapture = (_OWORD *)QHelper::GetInputDestFromForegroundCapture(v46);
     v11 = InputDestFromForegroundCapture[1];
-    v44[0] = *InputDestFromForegroundCapture;
+    v45[0] = *InputDestFromForegroundCapture;
     v12 = InputDestFromForegroundCapture[2];
-    v44[1] = v11;
+    v45[1] = v11;
     v13 = InputDestFromForegroundCapture[3];
-    v44[2] = v12;
+    v45[2] = v12;
     v14 = InputDestFromForegroundCapture[4];
-    v44[3] = v13;
+    v45[3] = v13;
     v15 = InputDestFromForegroundCapture[5];
-    v44[4] = v14;
+    v45[4] = v14;
     v16 = InputDestFromForegroundCapture[6];
-    v44[5] = v15;
-    v44[6] = v16;
-    CInputDest::CInputDest((CInputDest *)v46, (const struct tagINPUTDEST *)v44);
-    v20 = 0;
-    if ( !v46[0] || CInputDest::IsEqualByQ(a2, (const struct CInputDest *)v46) )
+    v45[5] = v15;
+    v45[6] = v16;
+    CInputDest::CInputDest((CInputDest *)v47, (const struct tagINPUTDEST *)v45);
+    v17 = 0;
+    if ( !v47[0] || CInputDest::IsEqualByQ(a2, (const struct CInputDest *)v47) )
       goto LABEL_3;
-    v24 = v48;
-    v25 = v47;
-    if ( v48 != 2 || !v47 || (unsigned int)IsWindowDesktopComposed(v47) )
+    v21 = v49;
+    v22 = 0LL;
+    v23 = v48;
+    if ( v49 == 2 )
+      v22 = v48;
+    if ( !v22 || (unsigned int)IsWindowDesktopComposed(v22) )
     {
       CInputDest::GetDpiAwarenessContext(a2);
-      DpiAwarenessContext = CInputDest::GetDpiAwarenessContext((CInputDest *)v46);
-      if ( (((unsigned __int16)(DpiAwarenessContext >> 8) ^ v28) & 0x1FF) != 0 )
+      DpiAwarenessContext = CInputDest::GetDpiAwarenessContext((CInputDest *)v47);
+      if ( (((unsigned __int16)(DpiAwarenessContext >> 8) ^ v25) & 0x1FF) != 0 )
+        goto LABEL_23;
+      if ( (CInputDest::GetDpiAwarenessContext(a2) & 0xF) == 2 )
+        CInputDest::GetDpiAwarenessContext(a2);
+      if ( (CInputDest::GetDpiAwarenessContext((CInputDest *)v47) & 0xF) != 2
+        || (v27 = CInputDest::GetDpiAwarenessContext((CInputDest *)v47), v19 = (v27 & v28) == 0, v29 = 1, v19) )
       {
-        v40 = 0LL;
-        if ( v24 == 2 && v25 )
-          v29 = HMValidateSharedHandleNoRip(*(_QWORD *)(*(_QWORD *)(v25 + 40) + 256LL));
+        v29 = 0;
+      }
+      if ( v26 != v29 )
+      {
+LABEL_23:
+        v41 = 0LL;
+        v30 = 0LL;
+        if ( v21 == 2 )
+          v30 = v23;
+        if ( v30 )
+          v31 = HMValidateSharedHandleNoRip(*(_QWORD *)(*(_QWORD *)(v30 + 40) + 256LL));
         else
-          v29 = 0LL;
-        v41 = v29;
-        v30 = CInputDest::GetDpiAwarenessContext((CInputDest *)v46);
-        PhysicalToLogicalDPIPoint(&v40, &a5, v30, &v41);
-        v24 = v48;
-        v25 = v47;
-        a4 = (unsigned __int16)v40 | (WORD2(v40) << 16);
+          v31 = 0LL;
+        v42 = v31;
+        v32 = CInputDest::GetDpiAwarenessContext((CInputDest *)v47);
+        PhysicalToLogicalDPIPoint((__int64)&v41, (__int64)&a5, v32, &v42);
+        v21 = v49;
+        LODWORD(v23) = v48;
+        a4 = (unsigned __int16)v41 | (WORD2(v41) << 16);
       }
     }
-    v31 = *((_QWORD *)a3 + 1);
-    if ( *(_DWORD *)(v31 + 108) != 1 )
+    v33 = *((_QWORD *)a3 + 1);
+    if ( *(_DWORD *)(v33 + 108) != 1 )
     {
-      if ( !anonymous_namespace_::ValidateUIPI(*(_QWORD *)(v31 + 132), v46, v26) )
-        goto LABEL_29;
-      v24 = v48;
-      v25 = v47;
+      if ( !(unsigned __int8)anonymous_namespace_::ValidateUIPI(*(_QWORD *)(v33 + 132), v47) )
+        goto LABEL_37;
+      v21 = v49;
+      LODWORD(v23) = v48;
     }
-    v39 = (__int64 *)(*((_QWORD *)a3 + 1) + 104LL);
-    v33 = 0LL;
-    if ( v24 == 2 )
-      v33 = v25;
-    v34 = a6;
+    v34 = *((_QWORD *)a3 + 1);
+    v44 = 0LL;
+    v35 = 0;
+    if ( v21 == 2 )
+      v35 = v23;
+    v36 = a6;
     v43 = 0LL;
-    v42 = 0LL;
-    ApiSetEditionPostInputMessage((int)v46, v33, a6, 0, a4, 0, 0LL, 0LL, 0, v39, (__int64)&v42);
-    v35 = 0LL;
-    if ( v48 == 2 )
-      v35 = v47;
+    ApiSetEditionPostInputMessage((int)v47, v35, a6, 0, a4, 0, 0LL, 0LL, 0, (__int64 *)(v34 + 104), (__int64)&v43);
+    v37 = 0;
+    if ( v49 == 2 )
+      v37 = v48;
     ApiSetEditionPostInputMessage(
-      (int)v46,
-      v35,
-      v34 + 1,
+      (int)v47,
+      v37,
+      v36 + 1,
       0,
       a4,
       0,
@@ -137,35 +154,39 @@ char __fastcall CMouseProcessor::HandleCapture_MakeNoMouseOwner(
       0LL,
       0,
       (__int64 *)(*((_QWORD *)a3 + 1) + 104LL),
-      (__int64)&v42);
-LABEL_29:
-    PtiFromInputDest = anonymous_namespace_::GetPtiFromInputDest((__int64)v46, 2LL, v32);
+      (__int64)&v43);
+LABEL_37:
+    PtiFromInputDest = anonymous_namespace_::GetPtiFromInputDest((__int64)v47, 2);
     if ( PtiFromInputDest )
     {
       if ( *(_QWORD *)(PtiFromInputDest + 672) )
       {
-        v37 = anonymous_namespace_::GetPtiFromInputDest((__int64)v46, 2LL, v19);
-        if ( !v37 || (v38 = *(_QWORD *)(v37 + 608)) == 0 || (*(_DWORD *)(v38 + 8) & 1) == 0 )
+        v39 = anonymous_namespace_::GetPtiFromInputDest((__int64)v47, 2);
+        if ( !v39 || (v40 = *(_QWORD *)(v39 + 608)) == 0 || (*(_DWORD *)(v40 + 8) & 1) == 0 )
         {
 LABEL_8:
-          CInputDest::SetEmpty((CInputDest *)v46);
-          return v20;
+          CInputDest::SetEmpty((CInputDest *)v47);
+          return v17;
         }
       }
     }
 LABEL_3:
-    v21 = *((_DWORD *)a3 + 7);
-    if ( !v21 )
+    v18 = *((_DWORD *)a3 + 7);
+    if ( !v18 )
     {
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v18, v17, v19);
-      v21 = *((_DWORD *)a3 + 7);
+      LODWORD(v41) = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 7103LL);
+      v18 = *((_DWORD *)a3 + 7);
     }
-    v22 = (v21 | *((_DWORD *)this + 893)) == 0;
-    *((_DWORD *)this + 893) |= v21;
-    if ( v22 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v18, v17, v19);
-    CMouseProcessor::MouseOwner::Set((CMouseProcessor *)((char *)this + 3576), a2);
-    v20 = 1;
+    v19 = (v18 | *((_DWORD *)this + 891)) == 0;
+    *((_DWORD *)this + 891) |= v18;
+    if ( v19 )
+    {
+      LODWORD(v41) = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 3959LL);
+    }
+    CMouseProcessor::MouseOwner::Set((CMouseProcessor *)((char *)this + 3568), a2);
+    v17 = 1;
     goto LABEL_8;
   }
   return 1;

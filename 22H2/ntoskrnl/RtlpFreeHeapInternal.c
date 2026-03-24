@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpFreeHeapInternal @ 0x14034C464
+ * XREFs of RtlpFreeHeapInternal @ 0x1402FEBC4
  * Callers:
- *     RtlFreeHeap @ 0x14034C400 (RtlFreeHeap.c)
- *     RtlpHpFreeWithExceptionProtection @ 0x1405A9E90 (RtlpHpFreeWithExceptionProtection.c)
+ *     RtlFreeHeap @ 0x1402FEB60 (RtlFreeHeap.c)
+ *     RtlpHpFreeWithExceptionProtection @ 0x140586600 (RtlpHpFreeWithExceptionProtection.c)
  * Callees:
- *     RtlpHpVsContextFree @ 0x140323450 (RtlpHpVsContextFree.c)
- *     RtlpHpConvertFlagsToSegmentFlags @ 0x14034C61C (RtlpHpConvertFlagsToSegmentFlags.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     RtlpFreeHeap @ 0x1405AD338 (RtlpFreeHeap.c)
- *     RtlpProbeUserBufferSafe @ 0x1405AE04C (RtlpProbeUserBufferSafe.c)
- *     RtlpLogHeapFailure @ 0x1405B4B5C (RtlpLogHeapFailure.c)
+ *     RtlpHpVsContextFree @ 0x1402C1E90 (RtlpHpVsContextFree.c)
+ *     RtlpHpConvertFlagsToSegmentFlags @ 0x1402FED9C (RtlpHpConvertFlagsToSegmentFlags.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     RtlpFreeHeap @ 0x14058AAD4 (RtlpFreeHeap.c)
+ *     RtlpProbeUserBufferSafe @ 0x14058B6F8 (RtlpProbeUserBufferSafe.c)
+ *     RtlpLogHeapFailure @ 0x1405934AC (RtlpLogHeapFailure.c)
  */
 
 __int64 RtlpFreeHeapInternal(_DWORD *a1, unsigned __int64 a2, unsigned int a3, ...)
@@ -19,28 +19,29 @@ __int64 RtlpFreeHeapInternal(_DWORD *a1, unsigned __int64 a2, unsigned int a3, .
   __int64 v9; // rdi
   int v10; // r8d
   int v11; // ecx
-  int v12; // ecx
-  int v13; // eax
+  int v12; // eax
+  int v13; // ecx
   unsigned __int16 v14; // dx
   int v15; // ecx
   unsigned __int16 v16; // ax
   __int64 v17; // rcx
   int v18; // ecx
   __int64 v19; // r9
-  int v20; // [rsp+38h] [rbp-40h]
-  int v21; // [rsp+48h] [rbp-30h]
-  int v22; // [rsp+58h] [rbp-20h]
-  __int64 v23; // [rsp+98h] [rbp+20h] BYREF
-  va_list va; // [rsp+98h] [rbp+20h]
-  va_list va1; // [rsp+A0h] [rbp+28h] BYREF
+  int v20; // eax
+  int v21; // [rsp+38h] [rbp-28h]
+  int v22; // [rsp+48h] [rbp-18h]
+  int v23; // [rsp+58h] [rbp-8h]
+  __int64 v24; // [rsp+98h] [rbp+38h] BYREF
+  va_list va; // [rsp+98h] [rbp+38h]
+  va_list va1; // [rsp+A0h] [rbp+40h] BYREF
 
   va_start(va1, a3);
   va_start(va, a3);
-  v23 = va_arg(va1, _QWORD);
+  v24 = va_arg(va1, _QWORD);
   v3 = 0;
   if ( a1[4] == -857879331 )
   {
-    LODWORD(v23) = 0;
+    LODWORD(v24) = 0;
     v7 = RtlpHpConvertFlagsToSegmentFlags(a3);
     return (unsigned int)RtlpHpVsContextFree((__int64)(a1 + 16), 0LL, a2, a1[5] | v7, (unsigned int *)va);
   }
@@ -70,70 +71,68 @@ __int64 RtlpFreeHeapInternal(_DWORD *a1, unsigned __int64 a2, unsigned int a3, .
     v9 = 0LL;
   }
 LABEL_13:
-  if ( v9 )
+  if ( !v9 )
+    return v3;
+  if ( *(_BYTE *)(a2 - 1) != 5 )
+    return (unsigned __int8)RtlpFreeHeap(a1, a3 | 2, v9);
+  if ( !a1[31] )
+    goto LABEL_21;
+  v21 = *(_DWORD *)(v9 + 8) ^ a1[34];
+  if ( HIBYTE(v21) != ((unsigned __int8)v21 ^ (unsigned __int8)(BYTE1(v21) ^ BYTE2(v21))) )
   {
-    if ( *(_BYTE *)(a2 - 1) != 5 )
-      return (unsigned __int8)RtlpFreeHeap(a1, a3 | 2, v9);
-    if ( a1[31] )
-    {
-      v22 = a1[34] ^ *(_DWORD *)(v9 + 8);
-      if ( HIBYTE(v22) != ((unsigned __int8)v22 ^ (unsigned __int8)(BYTE1(v22) ^ BYTE2(v22))) )
-        goto LABEL_34;
-    }
-    v12 = a1[31];
-    if ( v12 )
-    {
-      v13 = *(_DWORD *)(v9 + 8);
-      v12 = a1[31];
-      LOWORD(v20) = v13;
-      if ( (v12 & v13) != 0 )
-        v20 = a1[34] ^ v13;
-      v14 = v20;
-    }
-    else
-    {
-      v14 = *(_WORD *)(v9 + 8);
-    }
-    if ( *(_BYTE *)(v9 + 15) == 4 )
-    {
-      if ( v12 )
-      {
-        v15 = *(_DWORD *)(v9 + 8);
-        LOWORD(v21) = v15;
-        if ( (v15 & a1[31]) != 0 )
-          v21 = a1[34] ^ v15;
-        v16 = v21;
-      }
-      else
-      {
-        v16 = *(_WORD *)(v9 + 8);
-      }
-      v17 = v14 + *(_QWORD *)(v9 - 16) - v16;
-    }
-    else
-    {
-      v17 = 16LL * v14;
-    }
-    if ( v17 + v9 < a2 )
-    {
 LABEL_34:
-      RtlpLogHeapFailure(3, (_DWORD)a1, v9, a2, 0LL, 0LL);
-      return v3;
-    }
-    v18 = *(_DWORD *)(a2 - 8);
-    if ( (a3 & 0x3C000102) != 0 )
-      return (unsigned __int8)RtlpFreeHeap(a1, a3 | 2, v9);
-    v19 = *(_BYTE *)(a2 - 16 + 15) == 5 ? a2 - 16LL * *(unsigned __int8 *)(a2 - 16 + 14) : 0LL;
-    if ( v18
-      && (_WORD)v18 == 1
-      && (int)((__int64 (__fastcall *)(_DWORD *, unsigned __int64, __int64, __int64))CLFS_LSN_NULL_EXT)(
-                a1,
-                a2,
-                3LL,
-                v19) >= 0 )
-    {
-      return (unsigned __int8)RtlpFreeHeap(a1, a3 | 2, v9);
-    }
+    RtlpLogHeapFailure(3, (_DWORD)a1, v9, a2, 0LL, 0LL);
+    return v3;
   }
+  if ( a1[31] )
+  {
+    v12 = *(_DWORD *)(v9 + 8);
+    v13 = a1[31];
+    LOWORD(v22) = v12;
+    if ( (v13 & v12) != 0 )
+      v22 = a1[34] ^ v12;
+    v14 = v22;
+  }
+  else
+  {
+LABEL_21:
+    v14 = *(_WORD *)(v9 + 8);
+    v13 = 0;
+  }
+  if ( *(_BYTE *)(v9 + 15) == 4 )
+  {
+    if ( v13 )
+    {
+      v15 = *(_DWORD *)(v9 + 8);
+      LOWORD(v23) = v15;
+      if ( (v15 & a1[31]) != 0 )
+        v23 = a1[34] ^ v15;
+      v16 = v23;
+    }
+    else
+    {
+      v16 = *(_WORD *)(v9 + 8);
+    }
+    v17 = v14 + *(_QWORD *)(v9 - 16) - v16;
+  }
+  else
+  {
+    v17 = 16LL * v14;
+  }
+  if ( v17 + v9 < a2 )
+    goto LABEL_34;
+  v18 = *(_DWORD *)(a2 - 8);
+  if ( (a3 & 0x3C000102) != 0 )
+    return (unsigned __int8)RtlpFreeHeap(a1, a3 | 2, v9);
+  v19 = *(_BYTE *)(a2 - 16 + 15) == 5 ? a2 - 16LL * *(unsigned __int8 *)(a2 - 16 + 14) : 0LL;
+  v20 = v18 && (_WORD)v18 == 1
+      ? ((__int64 (__fastcall *)(_DWORD *, unsigned __int64, __int64, __int64))RtlpInterceptorRoutines)(
+          a1,
+          a2,
+          3LL,
+          v19)
+      : -1073741823;
+  if ( v20 >= 0 )
+    return (unsigned __int8)RtlpFreeHeap(a1, a3 | 2, v9);
   return v3;
 }

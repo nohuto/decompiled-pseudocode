@@ -1,12 +1,12 @@
 /*
- * XREFs of NtAlpcDisconnectPort @ 0x1407D7110
+ * XREFs of NtAlpcDisconnectPort @ 0x14068F3D0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     AlpcpDisconnectPort @ 0x140718F30 (AlpcpDisconnectPort.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     AlpcpDisconnectPort @ 0x1405E26FC (AlpcpDisconnectPort.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall NtAlpcDisconnectPort(void *a1, int a2)
@@ -14,7 +14,7 @@ __int64 __fastcall NtAlpcDisconnectPort(void *a1, int a2)
   struct _KTHREAD *CurrentThread; // rax
   char v3; // di
   int v4; // ebx
-  PVOID Object; // [rsp+50h] [rbp+18h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v3 = a2;
@@ -25,12 +25,18 @@ __int64 __fastcall NtAlpcDisconnectPort(void *a1, int a2)
   }
   else
   {
-    Object = 0LL;
-    v4 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+    DmaAdapter = 0LL;
+    v4 = ObReferenceObjectByHandle(
+           a1,
+           1u,
+           AlpcPortObjectType,
+           KeGetCurrentThread()->PreviousMode,
+           (PVOID *)&DmaAdapter,
+           0LL);
     if ( v4 >= 0 )
     {
-      v4 = AlpcpDisconnectPort((__int64)Object, v3);
-      ObfDereferenceObject(Object);
+      v4 = AlpcpDisconnectPort((__int64)DmaAdapter, v3);
+      HalPutDmaAdapter(DmaAdapter);
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());

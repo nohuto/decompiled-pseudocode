@@ -1,23 +1,28 @@
 /*
- * XREFs of xxxDWP_EraseBkgnd @ 0x1C00C2600
+ * XREFs of xxxDWP_EraseBkgnd @ 0x1C0046028
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
  * Callees:
- *     xxxFillWindow @ 0x1C00C1AAC (xxxFillWindow.c)
- *     xxxInternalPaintDesktop @ 0x1C0110D3C (xxxInternalPaintDesktop.c)
+ *     xxxFillWindow @ 0x1C00454D4 (xxxFillWindow.c)
+ *     xxxInternalPaintDesktop @ 0x1C012D140 (xxxInternalPaintDesktop.c)
  */
 
-__int64 __fastcall xxxDWP_EraseBkgnd(struct tagWND *a1, int a2, __int64 a3)
+__int64 __fastcall xxxDWP_EraseBkgnd(__int64 a1, int a2, __int64 a3)
 {
+  unsigned __int64 v3; // r9
+
   if ( a2 == 20 )
   {
-    if ( !*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 17) + 8LL) + 72LL) )
+    v3 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 136) + 8LL) + 72LL);
+    if ( !v3 )
       return 0LL;
-    xxxFillWindow(a1, (__int64)a1, a3);
+    if ( v3 <= 0x1F )
+      v3 = *(_QWORD *)(gpsi + 8 * v3 + 4688);
+    xxxFillWindow(a1, a1, a3, v3);
   }
   else if ( a2 == 39 )
   {
-    if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0x40) != 0 )
+    if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 31LL) & 0x40) != 0 )
       return 0LL;
     xxxInternalPaintDesktop(a1, a3, 1LL);
   }

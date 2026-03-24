@@ -1,5 +1,5 @@
 /*
- * XREFs of NtUserSetProcessUIAccessZorder @ 0x1C01FDF00
+ * XREFs of NtUserSetProcessUIAccessZorder @ 0x1C02029A0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 NtUserSetProcessUIAccessZorder()
   int v3; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 0;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   if ( (int)RtlQueryElevationFlags(&v3) >= 0 && (v3 & 1) == 0 )
   {
     CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v0);

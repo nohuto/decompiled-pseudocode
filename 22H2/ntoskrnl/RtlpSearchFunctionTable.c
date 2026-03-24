@@ -1,47 +1,57 @@
 /*
- * XREFs of RtlpSearchFunctionTable @ 0x14033C8D0
+ * XREFs of RtlpSearchFunctionTable @ 0x140396DF0
  * Callers:
- *     RtlMarkExceptionHandlingPages @ 0x140745AB0 (RtlMarkExceptionHandlingPages.c)
+ *     RtlMarkExceptionHandlingPages @ 0x14075DEE0 (RtlMarkExceptionHandlingPages.c)
  * Callees:
  *     <none>
  */
 
 unsigned int *__fastcall RtlpSearchFunctionTable(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 v4; // rbx
-  unsigned __int64 v5; // r11
-  unsigned int *v6; // r10
-  int v7; // r9d
-  int i; // r8d
-  int v9; // eax
+  __int64 v4; // r10
+  unsigned __int64 v7; // r8
+  unsigned int *v8; // rdx
+  unsigned __int64 v9; // rcx
+  bool v10; // sf
+  int v11; // r11d
+  int v12; // ebx
+  int v13; // r9d
 
-  if ( !a2 )
-    return 0LL;
-  v4 = a3 - a4;
-  v5 = *(unsigned int *)(a1 + 12LL * (unsigned int)(a2 - 1));
-  v6 = (unsigned int *)(a1 + 12LL * (unsigned int)(a2 - 1));
-  if ( a3 - a4 < v5 )
+  v4 = 0LL;
+  if ( a2 )
   {
-    v7 = 0;
-    for ( i = a2 - 2; i >= v7; LODWORD(v5) = *v6 )
+    v7 = a3 - a4;
+    v8 = (unsigned int *)(a1 + 12LL * (unsigned int)(a2 - 1));
+    v9 = *v8;
+    if ( v7 < v9 )
     {
-      v9 = (v7 + i) >> 1;
-      v6 = (unsigned int *)(a1 + 12LL * v9);
-      if ( v4 < *v6 )
+      v10 = a2 - 2 < 0;
+      v11 = a2 - 2;
+      v12 = 0;
+      if ( !v10 )
       {
-        i = v9 - 1;
-      }
-      else
-      {
-        LODWORD(v5) = *v6;
-        if ( v4 < v6[3] )
-          break;
-        v7 = v9 + 1;
+        do
+        {
+          v13 = (v12 + v11) >> 1;
+          v8 = (unsigned int *)(a1 + 12LL * v13);
+          if ( v7 < *v8 )
+          {
+            v11 = v13 - 1;
+          }
+          else
+          {
+            LODWORD(v9) = *v8;
+            if ( v7 < v8[3] )
+              break;
+            v12 = v13 + 1;
+          }
+          LODWORD(v9) = *v8;
+        }
+        while ( v11 >= v12 );
       }
     }
+    if ( v7 >= (unsigned int)v9 && v7 < v8[1] )
+      return v8;
   }
-  if ( v4 >= (unsigned int)v5 && v4 < v6[1] )
-    return v6;
-  else
-    return 0LL;
+  return (unsigned int *)v4;
 }

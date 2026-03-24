@@ -1,31 +1,34 @@
 /*
- * XREFs of CleanupModuleAllocations @ 0x1C0121EC0
+ * XREFs of CleanupModuleAllocations @ 0x1C01362E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 CleanupModuleAllocations()
+// write access to const memory has been detected, the output may be wrong!
+void CleanupModuleAllocations()
 {
-  __int64 result; // rax
-
-  if ( unk_1C03319F0 )
-    result = Win32FreePool(unk_1C03319F0);
+  if ( unk_1C0336670 )
+    Win32FreePool(unk_1C0336670);
   if ( gpQmsgHistory )
   {
-    result = Win32FreePool(gpQmsgHistory);
+    Win32FreePool(gpQmsgHistory);
     gpQmsgHistory = 0LL;
   }
   if ( gpQmsgHistory2 )
   {
-    result = Win32FreePool(gpQmsgHistory2);
+    Win32FreePool(gpQmsgHistory2);
     gpQmsgHistory2 = 0LL;
   }
-  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
+  if ( gpAtomickCheckStacks )
   {
-    result = Win32FreePool(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
-    *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels = 0LL;
+    Win32FreePool(gpAtomickCheckStacks);
+    gpAtomickCheckStacks = 0LL;
   }
-  return result;
+  if ( WPP_MAIN_CB.Queue.Wcb.DeviceContext )
+  {
+    Win32FreePool(WPP_MAIN_CB.Queue.Wcb.DeviceContext);
+    WPP_MAIN_CB.Queue.Wcb.DeviceContext = 0LL;
+  }
 }

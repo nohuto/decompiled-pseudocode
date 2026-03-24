@@ -1,22 +1,40 @@
 /*
- * XREFs of MiAddUnicodeStringToCrashDump @ 0x14062F944
+ * XREFs of MiAddUnicodeStringToCrashDump @ 0x14053821C
  * Callers:
- *     MiAddPartitionToCrashDump @ 0x14062F67C (MiAddPartitionToCrashDump.c)
+ *     MiAddPartitionToCrashDump @ 0x140537A90 (MiAddPartitionToCrashDump.c)
  * Callees:
- *     MiIsAddressRangeValid @ 0x14062FD54 (MiIsAddressRangeValid.c)
- *     MmAddRangeToCrashDump @ 0x1406301B0 (MmAddRangeToCrashDump.c)
+ *     MmIsAddressValidEx @ 0x14028CB70 (MmIsAddressValidEx.c)
+ *     MmAddRangeToCrashDump @ 0x140538518 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MiAddUnicodeStringToCrashDump(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rdi
+  __int64 v2; // rbp
+  __int64 v4; // rdx
+  unsigned __int64 v6; // rbx
+  unsigned __int64 v7; // rdi
 
-  if ( *(_WORD *)(a2 + 2) )
+  v2 = *(unsigned __int16 *)(a2 + 2);
+  v4 = *(_QWORD *)(a2 + 8);
+  v6 = v4 & 0xFFFFFFFFFFFFF000uLL;
+  v7 = (v4 & 0xFFFFFFFFFFFFF000uLL) + (((v4 & 0xFFF) + v2 + 4095) & 0xFFFFFFFFFFFFF000uLL);
+  if ( (v4 & 0xFFFFFFFFFFFFF000uLL) >= v7 )
   {
-    v4 = *(unsigned __int16 *)(a2 + 2);
-    if ( !(unsigned int)MiIsAddressRangeValid(*(_QWORD *)(a2 + 8), v4) )
-      return 3221225473LL;
-    MmAddRangeToCrashDump(a1, *(_QWORD *)(a2 + 8), v4);
+LABEL_5:
+    MmAddRangeToCrashDump(a1, v4, v2);
+    return 0LL;
   }
-  return 0LL;
+  else
+  {
+    while ( MmIsAddressValidEx(v6) )
+    {
+      v6 += 4096LL;
+      if ( v6 >= v7 )
+      {
+        v4 = *(_QWORD *)(a2 + 8);
+        goto LABEL_5;
+      }
+    }
+    return 3221225473LL;
+  }
 }

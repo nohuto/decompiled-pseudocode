@@ -1,53 +1,43 @@
 /*
- * XREFs of PoTtmInitiatePowerStateTransition @ 0x140997CA8
+ * XREFs of PoTtmInitiatePowerStateTransition @ 0x1408EFBC8
  * Callers:
- *     TtmpInitiateModernStandbyTransition @ 0x1409A5480 (TtmpInitiateModernStandbyTransition.c)
+ *     TtmpInitiateModernStandbyTransition @ 0x1408FFB00 (TtmpInitiateModernStandbyTransition.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     memset @ 0x140435400 (memset.c)
- *     PopFilterCapabilities @ 0x1407A8C44 (PopFilterCapabilities.c)
- *     PopTriggerMonitorPowerEvent @ 0x1407A97EC (PopTriggerMonitorPowerEvent.c)
- *     PopStartStopTtmSxTranstion @ 0x14098AA48 (PopStartStopTtmSxTranstion.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopFilterCapabilities @ 0x1406F4274 (PopFilterCapabilities.c)
+ *     PopStartStopTtmSxTranstion @ 0x1408E7910 (PopStartStopTtmSxTranstion.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1408F0C74 (PopTriggerMonitorPowerEvent.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
-__int64 __fastcall PoTtmInitiatePowerStateTransition(char a1, int a2)
+__int64 __fastcall PoTtmInitiatePowerStateTransition(char a1, unsigned int a2)
 {
   int v4; // ecx
   __int64 v5; // rdx
   __int64 v6; // rcx
-  __int64 v7; // r8
+  unsigned int v7; // ebx
   unsigned int started; // eax
-  unsigned int v9; // ebx
-  _BYTE v11[88]; // [rsp+40h] [rbp-58h] BYREF
+  _BYTE v10[80]; // [rsp+20h] [rbp-58h] BYREF
 
-  memset(v11, 0, 0x4CuLL);
+  memset(v10, 0, 0x4CuLL);
   PopAcquirePolicyLock(v4);
-  PopFilterCapabilities(&PopCapabilities, (__int64)v11);
-  if ( v11[20] )
+  PopFilterCapabilities(&PopCapabilities, (__int64)v10);
+  v7 = 0;
+  if ( v10[20] )
   {
-    started = PopTriggerMonitorPowerEvent(a1 == 0, a2);
-LABEL_8:
-    v9 = started;
-    goto LABEL_9;
-  }
-  if ( v11[3] || v11[4] || v11[5] )
-  {
-    started = PopStartStopTtmSxTranstion(a1);
+    LOBYTE(v6) = a1 == 0;
+    started = PopTriggerMonitorPowerEvent(v6, a2);
+LABEL_7:
+    v7 = started;
     goto LABEL_8;
   }
-  v9 = 0;
-LABEL_9:
-  PopReleasePolicyLock(v6, v5, v7);
-  if ( v11[20]
-    && !a1
-    && (!v9 || v9 == 259)
-    && PopLastStandbyExitScenarioId != PopWdiCurrentScenarioInstanceId
-    && !PopConsoleDisplayState )
+  if ( v10[3] || v10[4] || v10[5] )
   {
-    PopLastStandbyExitScenarioId = PopWdiCurrentScenarioInstanceId;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_MODERN_STANDBY_EXIT_INITIATED, (__int64)&PopWdiCurrentScenarioInstanceId);
+    started = PopStartStopTtmSxTranstion(a1);
+    goto LABEL_7;
   }
-  return v9;
+LABEL_8:
+  PopReleasePolicyLock(v6, v5);
+  return v7;
 }

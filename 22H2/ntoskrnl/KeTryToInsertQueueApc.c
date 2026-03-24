@@ -1,42 +1,44 @@
 /*
- * XREFs of KeTryToInsertQueueApc @ 0x140573250
+ * XREFs of KeTryToInsertQueueApc @ 0x14051A750
  * Callers:
- *     EtwpQueueStackWalkApc @ 0x140468426 (EtwpQueueStackWalkApc.c)
- *     EtwpCovSampCaptureQueueApc @ 0x1406034F0 (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpQueueStackWalkApc @ 0x1405A6B80 (EtwpQueueStackWalkApc.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x1405AED80 (EtwpCovSampCaptureQueueApc.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x14020B9C0 (ObGetCurrentIrql.c)
- *     KiInsertQueueApc @ 0x14030A03C (KiInsertQueueApc.c)
- *     KiSignalThreadForApc @ 0x14030B1D8 (KiSignalThreadForApc.c)
- *     KeIsThreadRunning @ 0x14056EE70 (KeIsThreadRunning.c)
+ *     ObGetCurrentIrql @ 0x14025EDF0 (ObGetCurrentIrql.c)
+ *     KiReleaseThreadLockSafe @ 0x1402F1590 (KiReleaseThreadLockSafe.c)
+ *     KiSignalThreadForApc @ 0x1403436D0 (KiSignalThreadForApc.c)
+ *     KiInsertQueueApc @ 0x140343854 (KiInsertQueueApc.c)
+ *     KiTryToAcquireThreadLock @ 0x14035E7D8 (KiTryToAcquireThreadLock.c)
+ *     KeIsThreadRunning @ 0x140512F94 (KeIsThreadRunning.c)
  */
 
-char __fastcall KeTryToInsertQueueApc(__int64 a1, __int64 a2)
+char __fastcall KeTryToInsertQueueApc(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v2; // rbx
-  struct _KPRCB *CurrentPrcb; // rbp
-  char v6; // si
-  char v7; // r11
+  __int64 v3; // rsi
+  char v7; // bl
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r14
+  char v10; // bp
+  char v12; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = *(_QWORD *)(a1 + 8);
-  if ( !KeIsThreadRunning(v2) )
+  v3 = *(_QWORD *)(a1 + 8);
+  v7 = 0;
+  if ( !KeIsThreadRunning(v3) )
     return 0;
-  ObGetCurrentIrql();
+  CurrentIrql = ObGetCurrentIrql();
   CurrentPrcb = KeGetCurrentPrcb();
-  if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 64), 0LL) )
+  v10 = CurrentIrql;
+  if ( !KiTryToAcquireThreadLock(v3, &v12) )
     return 0;
-  if ( (*(_DWORD *)(v2 + 116) & 0x4000) == 0 || *(_BYTE *)(a1 + 82) )
+  if ( (*(_DWORD *)(v3 + 116) & 0x4000) != 0 && !*(_BYTE *)(a1 + 82) )
   {
-    v6 = 0;
-  }
-  else
-  {
-    *(_QWORD *)(a1 + 72) = 0LL;
-    v6 = 1;
-    *(_BYTE *)(a1 + 82) = 1;
+    v7 = 1;
     *(_QWORD *)(a1 + 64) = a2;
+    *(_BYTE *)(a1 + 82) = 1;
+    *(_QWORD *)(a1 + 72) = a3;
     KiInsertQueueApc(a1);
-    KiSignalThreadForApc((__int64)CurrentPrcb, a1, v7);
+    KiSignalThreadForApc((__int64)CurrentPrcb, a1, v10);
   }
-  *(_QWORD *)(v2 + 64) = 0LL;
-  return v6;
+  KiReleaseThreadLockSafe(v3);
+  return v7;
 }

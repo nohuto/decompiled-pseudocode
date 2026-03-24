@@ -1,12 +1,12 @@
 /*
- * XREFs of _SetCalibrationData @ 0x1C01D1854
+ * XREFs of _SetCalibrationData @ 0x1C01D5DA8
  * Callers:
- *     NtUserSetCalibrationData @ 0x1C01FC760 (NtUserSetCalibrationData.c)
+ *     NtUserSetCalibrationData @ 0x1C02017C0 (NtUserSetCalibrationData.c)
  * Callees:
- *     UpdateTiltCalData @ 0x1C01CBFB0 (UpdateTiltCalData.c)
- *     ValidateCalibrationData @ 0x1C01CC108 (ValidateCalibrationData.c)
- *     WriteTiltCalibrationData @ 0x1C01CC254 (WriteTiltCalibrationData.c)
- *     GetPointerDeviceKey @ 0x1C01D10E0 (GetPointerDeviceKey.c)
+ *     UpdateTiltCalData @ 0x1C01CF730 (UpdateTiltCalData.c)
+ *     ValidateCalibrationData @ 0x1C01CF888 (ValidateCalibrationData.c)
+ *     WriteTiltCalibrationData @ 0x1C01CF9CC (WriteTiltCalibrationData.c)
+ *     GetPointerDeviceKey @ 0x1C01D5620 (GetPointerDeviceKey.c)
  */
 
 __int64 __fastcall SetCalibrationData(__int64 a1, ULONG a2, void *a3, int a4)
@@ -41,7 +41,7 @@ __int64 __fastcall SetCalibrationData(__int64 a1, ULONG a2, void *a3, int a4)
           v4 = L"Default";
           break;
       }
-      updated = UpdateTiltCalData(*(_QWORD *)(a1 + 472), a2, (__int64)a3, a4, &v16);
+      updated = UpdateTiltCalData(*(_QWORD *)(a1 + 480), a2, (__int64)a3, a4, &v16);
       v5 = updated;
       if ( v4 && updated )
       {
@@ -66,7 +66,7 @@ __int64 __fastcall SetCalibrationData(__int64 a1, ULONG a2, void *a3, int a4)
   }
   else
   {
-    return (unsigned int)UpdateTiltCalData(*(_QWORD *)(a1 + 472), a2, 0LL, a4, &v16);
+    return (unsigned int)UpdateTiltCalData(*(_QWORD *)(a1 + 480), a2, 0LL, a4, &v16);
   }
   return v5;
 }

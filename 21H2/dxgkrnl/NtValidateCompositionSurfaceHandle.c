@@ -1,9 +1,9 @@
 /*
- * XREFs of NtValidateCompositionSurfaceHandle @ 0x1C001D090
+ * XREFs of NtValidateCompositionSurfaceHandle @ 0x1C0018BE0
  * Callers:
  *     <none>
  * Callees:
- *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C0005A8C (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
+ *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C00168A4 (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall NtValidateCompositionSurfaceHandle(void *a1, _QWORD *a2, __int64 a3)

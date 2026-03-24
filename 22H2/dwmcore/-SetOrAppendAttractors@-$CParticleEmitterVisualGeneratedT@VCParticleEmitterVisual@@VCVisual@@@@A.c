@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SetOrAppendAttractors@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@AEAAJAEBV?$span@PEAVCParticleAttractor@@$0?0@gsl@@_N@Z @ 0x1801C7D94
+ * XREFs of ?SetOrAppendAttractors@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@AEAAJAEBV?$span@PEAVCParticleAttractor@@$0?0@gsl@@_N@Z @ 0x1801717D0
  * Callers:
- *     ?AppendAttractors@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJAEBV?$span@PEAVCParticleAttractor@@$0?0@gsl@@@Z @ 0x1801C3E4C (-AppendAttractors@-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJA.c)
- *     ?SetAttractors@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJAEBV?$span@PEAVCParticleAttractor@@$0?0@gsl@@@Z @ 0x1801C6320 (-SetAttractors@-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJAEBV.c)
+ *     ?AppendAttractors@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJAEBV?$span@PEAVCParticleAttractor@@$0?0@gsl@@@Z @ 0x18016DE7C (-AppendAttractors@-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJA.c)
+ *     ?SetAttractors@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJAEBV?$span@PEAVCParticleAttractor@@$0?0@gsl@@@Z @ 0x1801700E8 (-SetAttractors@-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJAEBV.c)
  * Callees:
- *     ??$UnRegisterNotifiers@VCKeyframeAnimation@@@CResource@@QEAAXPEAV?$vector@PEAVCKeyframeAnimation@@V?$allocator@PEAVCKeyframeAnimation@@@std@@@std@@@Z @ 0x180023550 (--$UnRegisterNotifiers@VCKeyframeAnimation@@@CResource@@QEAAXPEAV-$vector@PEAVCKeyframeAnimation.c)
- *     ?RegisterNNotifiersInternal@CResource@@AEAAJPEAPEAV1@_K@Z @ 0x18004A86C (-RegisterNNotifiersInternal@CResource@@AEAAJPEAPEAV1@_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$_Insert_range@PEAPEAVCParticleAttractor@@@?$vector@PEAVCParticleAttractor@@V?$allocator@PEAVCParticleAttractor@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCParticleAttractor@@@std@@@std@@@1@PEAPEAVCParticleAttractor@@1Uforward_iterator_tag@1@@Z @ 0x1801BEA20 (--$_Insert_range@PEAPEAVCParticleAttractor@@@-$vector@PEAVCParticleAttractor@@V-$allocator@PEAVC.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNNotifiersInternal@CResource@@AEAAJPEAPEAV1@_K@Z @ 0x1800CD9EC (-RegisterNNotifiersInternal@CResource@@AEAAJPEAPEAV1@_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$UnRegisterNotifiers@VCSceneComponent@@@CResource@@QEAAXPEAV?$vector@PEAVCSceneComponent@@V?$allocator@PEAVCSceneComponent@@@std@@@std@@@Z @ 0x180168A54 (--$UnRegisterNotifiers@VCSceneComponent@@@CResource@@QEAAXPEAV-$vector@PEAVCSceneComponent@@V-$a.c)
+ *     ??$_Insert_range@PEAPEAVCCompositionGlyphRun@@@?$vector@PEAVCCompositionGlyphRun@@V?$allocator@PEAVCCompositionGlyphRun@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCCompositionGlyphRun@@@std@@@std@@@1@PEAPEAVCCompositionGlyphRun@@1Uforward_iterator_tag@1@@Z @ 0x180168F78 (--$_Insert_range@PEAPEAVCCompositionGlyphRun@@@-$vector@PEAVCCompositionGlyphRun@@V-$allocator@P.c)
  */
 
 __int64 __fastcall CParticleEmitterVisualGeneratedT<CParticleEmitterVisual,CVisual>::SetOrAppendAttractors(
-        struct CResource ***this,
+        char **this,
         __int64 a2,
         char a3)
 {
@@ -24,18 +24,18 @@ __int64 __fastcall CParticleEmitterVisualGeneratedT<CParticleEmitterVisual,CVisu
   v8 = v6;
   if ( v6 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x25F8u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x1DF3u, 0LL);
   }
   else
   {
     if ( !a3 )
-      CResource::UnRegisterNotifiers<CKeyframeAnimation>((CResource *)this, this + 106);
-    std::vector<CParticleAttractor *>::_Insert_range<CParticleAttractor * *>(
-      (__int64)(this + 106),
-      this[107],
+      CResource::UnRegisterNotifiers<CSceneComponent>((CResource *)this, (__int64)(this + 95));
+    std::vector<CCompositionGlyphRun *>::_Insert_range<CCompositionGlyphRun * *>(
+      (__int64)(this + 95),
+      this[96],
       *(const void **)(a2 + 8),
       *(_QWORD *)(a2 + 8) + 8LL * *(_QWORD *)a2);
-    ((void (__fastcall *)(struct CResource ***, _QWORD, _QWORD))(*this)[9])(this, 0LL, 0LL);
+    (*((void (__fastcall **)(char **, _QWORD, _QWORD))*this + 9))(this, 0LL, 0LL);
   }
   return v8;
 }

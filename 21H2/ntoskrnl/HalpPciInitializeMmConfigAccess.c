@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPciInitializeMmConfigAccess @ 0x140B26CFC
+ * XREFs of HalpPciInitializeMmConfigAccess @ 0x140A6C8BC
  * Callers:
- *     HalpPciInitSystem @ 0x140A5B510 (HalpPciInitSystem.c)
+ *     HalpPciInitSystem @ 0x1409A14E0 (HalpPciInitSystem.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140213A40 (HalpAcpiGetTable.c)
+ *     HalpAcpiGetTable @ 0x140294680 (HalpAcpiGetTable.c)
  */
 
 __int64 __fastcall HalpPciInitializeMmConfigAccess(__int64 a1)
@@ -67,7 +67,6 @@ LABEL_8:
       }
       while ( v4 < HalpPciMcfgTableCount );
     }
-    off_140C020B0 = (char (*)())HalpPciGetDeviceLocationFromPhysicalAddress;
     return 0LL;
   }
   return 3221225473LL;

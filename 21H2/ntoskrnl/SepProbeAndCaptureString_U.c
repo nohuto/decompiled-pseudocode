@@ -1,17 +1,17 @@
 /*
- * XREFs of SepProbeAndCaptureString_U @ 0x140723E0C
+ * XREFs of SepProbeAndCaptureString_U @ 0x1406273E8
  * Callers:
- *     NtCloseObjectAuditAlarm @ 0x1406BC4A0 (NtCloseObjectAuditAlarm.c)
- *     NtOpenObjectAuditAlarm @ 0x1406C5CA0 (NtOpenObjectAuditAlarm.c)
- *     NtPrivilegedServiceAuditAlarm @ 0x1406D7990 (NtPrivilegedServiceAuditAlarm.c)
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
- *     NtPrivilegeObjectAuditAlarm @ 0x14081A150 (NtPrivilegeObjectAuditAlarm.c)
- *     NtDeleteObjectAuditAlarm @ 0x1409CAC10 (NtDeleteObjectAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     NtCloseObjectAuditAlarm @ 0x1406A0710 (NtCloseObjectAuditAlarm.c)
+ *     NtOpenObjectAuditAlarm @ 0x1406A8C60 (NtOpenObjectAuditAlarm.c)
+ *     NtPrivilegedServiceAuditAlarm @ 0x1406B7670 (NtPrivilegedServiceAuditAlarm.c)
+ *     NtDeleteObjectAuditAlarm @ 0x140734BC0 (NtDeleteObjectAuditAlarm.c)
+ *     NtPrivilegeObjectAuditAlarm @ 0x14078BA20 (NtPrivilegeObjectAuditAlarm.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepProbeAndCaptureString_U(unsigned __int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall SepProbeAndCaptureString_U(unsigned __int64 a1, __int64 a2)
   int v4; // edi
   const void *v5; // rsi
   unsigned __int64 v6; // rcx
-  _WORD *Pool2; // rax
+  _WORD *PoolWithTag; // rax
   unsigned int v9; // [rsp+24h] [rbp-34h]
 
   *(_QWORD *)a2 = 0LL;
@@ -44,11 +44,11 @@ __int64 __fastcall SepProbeAndCaptureString_U(unsigned __int64 a1, __int64 a2)
   }
   else
   {
-    Pool2 = (_WORD *)ExAllocatePool2(256LL, (unsigned __int16)v4 + 16LL, 1934976339LL);
-    *(_QWORD *)a2 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned __int16)v4 + 16LL, 0x73556553u);
+    *(_QWORD *)a2 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = v4;
+      *PoolWithTag = v4;
       *(_WORD *)(*(_QWORD *)a2 + 2LL) = v4;
       *(_QWORD *)(*(_QWORD *)a2 + 8LL) = *(_QWORD *)a2 + 16LL;
       if ( (_WORD)v4 )

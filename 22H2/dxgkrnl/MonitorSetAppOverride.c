@@ -1,109 +1,169 @@
 /*
- * XREFs of MonitorSetAppOverride @ 0x1C03C4C54
+ * XREFs of MonitorSetAppOverride @ 0x1C02F4D98
  * Callers:
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01AD190 (DxgkDisplayConfigDeviceInfo.c)
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C0135B50 (DxgkDisplayConfigDeviceInfo.c)
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?AcquireMonitorExclusive@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0014E7C (-AcquireMonitorExclusive@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAUHDXGMONIT.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?FlushEventsWithContext@MonitorEventDeferral@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0207408 (-FlushEventsWithContext@MonitorEventDeferral@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     ??1MonitorEventDeferral@@UEAA@XZ @ 0x1C020AB18 (--1MonitorEventDeferral@@UEAA@XZ.c)
- *     ?OnUsageUpdated@DXGMONITOR@@QEAAXAEAVIMonitorDeferredEventSource@DxgMonitor@@_N@Z @ 0x1C02103B4 (-OnUsageUpdated@DXGMONITOR@@QEAAXAEAVIMonitorDeferredEventSource@DxgMonitor@@_N@Z.c)
- *     ?RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z @ 0x1C021AE14 (-RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z.c)
- *     ?SetAppOverride@MonitorUsageState@DxgMonitor@@QEAAJU_GUID@@0I_K_NPEBU_UNICODE_STRING@@@Z @ 0x1C03CE6C8 (-SetAppOverride@MonitorUsageState@DxgMonitor@@QEAAJU_GUID@@0I_K_NPEBU_UNICODE_STRING@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009DB4 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0019574 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?_IssueMonitorEvent@MONITOR_MGR@@QEAAJIW4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0179C8C (-_IssueMonitorEvent@MONITOR_MGR@@QEAAJIW4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_D.c)
+ *     ?_UpdateLinkInfo@DXGMONITOR@@QEAAJ_N@Z @ 0x1C0183F54 (-_UpdateLinkInfo@DXGMONITOR@@QEAAJ_N@Z.c)
+ *     ?_CreateTtmDevice@DXGMONITOR@@QEAAJXZ @ 0x1C0185724 (-_CreateTtmDevice@DXGMONITOR@@QEAAJXZ.c)
+ *     ?RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z @ 0x1C019CF40 (-RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z.c)
+ *     ?_SetAppOverride@DXGMONITOR@@QEAAJU_GUID@@I_K@Z @ 0x1C02F6C80 (-_SetAppOverride@DXGMONITOR@@QEAAJU_GUID@@I_K@Z.c)
+ *     ?_DestroyTtmDevice@DXGMONITOR@@QEAAXXZ @ 0x1C02F930C (-_DestroyTtmDevice@DXGMONITOR@@QEAAXXZ.c)
  */
 
 __int64 __fastcall MonitorSetAppOverride(
-        struct HDXGMONITOR__ *a1,
-        GUID *a2,
-        struct _GUID *a3,
+        DXGADAPTER **this,
+        struct HDXGMONITOR__ *a2,
+        GUID *a3,
         unsigned int a4,
-        unsigned __int64 a5,
-        bool a6,
-        struct _UNICODE_STRING *a7)
+        unsigned __int64 a5)
 {
-  __int64 v12; // rbx
-  unsigned int v13; // edi
+  __int64 v8; // rdi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  struct DXGMONITOR *v11; // rbx
+  __int64 v12; // rax
+  char v13; // r13
   __int64 v14; // rax
-  GUID v15; // xmm1
-  int v16; // eax
-  unsigned int v17; // esi
+  struct _ERESOURCE *v15; // rsi
+  __int64 v16; // rdx
+  __int64 v17; // rcx
   __int64 v18; // rax
   struct DXGGLOBAL *Global; // rax
-  int v20; // edi
-  struct _GUID v21; // [rsp+40h] [rbp-C0h] BYREF
-  GUID Guid; // [rsp+50h] [rbp-B0h] BYREF
-  _QWORD v23[10]; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD v24[14]; // [rsp+B0h] [rbp-50h] BYREF
-  int v25; // [rsp+120h] [rbp+20h]
+  __int64 v20; // rdx
+  int v21; // r15d
+  int v22; // ecx
+  int TtmDevice; // eax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // rax
+  int updated; // eax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // rbx
+  __int64 v31; // rax
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  struct _FAST_MUTEX *v34; // rbx
+  __int64 v35; // rax
+  char v37; // [rsp+30h] [rbp-61h]
+  struct DXGMONITOR *v38; // [rsp+38h] [rbp-59h] BYREF
+  GUID Guid; // [rsp+40h] [rbp-51h] BYREF
+  _QWORD v40[10]; // [rsp+50h] [rbp-41h] BYREF
 
-  if ( !a1 )
+  if ( !a2 )
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    return 3221225485LL;
+    LODWORD(v8) = -1073741811;
+    goto LABEL_25;
   }
-  v24[0] = &MonitorEventDeferral::`vftable';
-  memset(&v24[1], 0, 0x68uLL);
-  v25 = 0;
-  MONITOR_MGR::AcquireMonitorExclusive(&v21, a1);
-  v12 = *(_QWORD *)&v21.Data1;
-  if ( *(_QWORD *)&v21.Data1 )
+  v38 = 0LL;
+  LODWORD(v8) = MONITOR_MGR::_GetMonitorFromHandle(a2, &v38);
+  if ( (int)v8 < 0 )
+    goto LABEL_25;
+  v11 = v38;
+  if ( !v38 )
   {
-    v14 = *(_QWORD *)(*(_QWORD *)&v21.Data1 + 168LL);
-    v15 = *a2;
-    v21 = *a3;
-    Guid = v15;
-    v24[1] = (v14 + 8) & -(__int64)(v14 != 0);
-    v16 = DxgMonitor::MonitorUsageState::SetAppOverride(
-            *(DxgMonitor::MonitorUsageState **)(v12 + 240),
-            &Guid,
-            &v21,
-            a4,
-            a5,
-            a6,
-            a7);
-    v17 = v16;
-    if ( v16 >= 0 )
-    {
-      v18 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED.Data1;
-      if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED.Data1 )
-        v18 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED.Data4;
-      if ( !v18 )
-      {
-        Global = DXGGLOBAL::GetGlobal();
-        DXGGLOBAL::RecordFeatureUsage((__int64)Global, 12, 1);
-      }
-      DXGMONITOR::OnUsageUpdated((DXGMONITOR *)v12, (struct DxgMonitor::IMonitorDeferredEventSource *)v24, 1);
-      v20 = *(_DWORD *)(*(_QWORD *)(v12 + 240) + 16LL);
-      ExReleaseResourceLite((PERESOURCE)(v12 + 24));
-      KeLeaveCriticalRegion();
-      memset(v23, 0, 0x48uLL);
-      EtwActivityIdControl(3u, (LPGUID)&v23[1]);
-      v23[8] = MEMORY[0xFFFFF78000000014];
-      LODWORD(v23[3]) = 67;
-      LOBYTE(v23[6]) = -1;
-      LODWORD(v23[4]) = v20;
-      MonitorEventDeferral::FlushEventsWithContext(
-        (MonitorEventDeferral *)v24,
-        (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v23);
-      v13 = 0;
-      goto LABEL_14;
-    }
-    WdLogSingleEntry1(2LL, v16);
-    v13 = v17;
+    v12 = WdLogNewEntry5_WdAssertion(v10, v9);
+    WdLogEvent5_WdAssertion(v12);
   }
-  else
+  v13 = 0;
+  if ( !v11 )
   {
-    v13 = -1073741275;
-    WdLogSingleEntry1(2LL, -1073741275LL);
+    v14 = WdLogNewEntry5_WdAssertion(v10, v9);
+    WdLogEvent5_WdAssertion(v14);
   }
-  if ( v12 )
+  v15 = (struct _ERESOURCE *)((char *)v11 + 296);
+  KeEnterCriticalRegion();
+  ExAcquireResourceExclusiveLite((PERESOURCE)((char *)v11 + 296), 1u);
+  Guid = *a3;
+  LODWORD(v8) = DXGMONITOR::_SetAppOverride(v11, &Guid, a4, a5);
+  if ( (int)v8 < 0 )
   {
-    ExReleaseResourceLite((PERESOURCE)(v12 + 24));
+LABEL_9:
+    ExReleaseResourceLite((PERESOURCE)((char *)v11 + 296));
     KeLeaveCriticalRegion();
+    goto LABEL_25;
   }
-LABEL_14:
-  MonitorEventDeferral::~MonitorEventDeferral((MonitorEventDeferral *)v24);
-  return v13;
+  v18 = *(_QWORD *)&a3->Data1 - *(_QWORD *)&GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED.Data1;
+  if ( *(_QWORD *)&a3->Data1 == *(_QWORD *)&GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED.Data1 )
+    v18 = *(_QWORD *)a3->Data4 - *(_QWORD *)GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED.Data4;
+  if ( !v18 )
+  {
+    Global = DXGGLOBAL::GetGlobal(v17, v16);
+    DXGGLOBAL::RecordFeatureUsage((__int64)Global, 12, 1);
+    v21 = *((_DWORD *)v11 + 148);
+    v37 = *((_BYTE *)v11 + 596);
+    v22 = a4 != 0 ? 2 : 0;
+    if ( v21 != v22 )
+    {
+      *((_DWORD *)v11 + 148) = v22;
+      *((_BYTE *)v11 + 596) = 0;
+      v13 = 1;
+      if ( a4 )
+      {
+        DXGMONITOR::_DestroyTtmDevice(v11);
+      }
+      else
+      {
+        TtmDevice = DXGMONITOR::_CreateTtmDevice(v11, v20);
+        v8 = TtmDevice;
+        if ( TtmDevice < 0 )
+        {
+          *((_BYTE *)v11 + 596) = v37;
+          *((_DWORD *)v11 + 148) = v21;
+          v26 = WdLogNewEntry5_WdError(v25, v24);
+          *(_QWORD *)(v26 + 24) = v8;
+          WdLogEvent5_WdError(v26);
+          goto LABEL_9;
+        }
+      }
+      LOBYTE(v24) = a4 != 0;
+      updated = DXGMONITOR::_UpdateLinkInfo(v11, v24);
+      v30 = updated;
+      if ( updated < 0 )
+      {
+        v31 = WdLogNewEntry5_WdError(v29, v28);
+        *(_QWORD *)(v31 + 24) = v30;
+        WdLogEvent5_WdError(v31);
+      }
+    }
+  }
+  ExReleaseResourceLite(v15);
+  KeLeaveCriticalRegion();
+  if ( v13 )
+  {
+    v33 = *((_QWORD *)*this + 337);
+    v34 = *(struct _FAST_MUTEX **)(v33 + 96);
+    if ( v34 )
+    {
+      memset(v40, 0, 0x48uLL);
+      EtwActivityIdControl(3u, (LPGUID)&v40[1]);
+      v40[8] = MEMORY[0xFFFFF78000000014];
+      LODWORD(v40[3]) = 67;
+      LOBYTE(v40[6]) = -1;
+      LODWORD(v40[4]) = *((_DWORD *)v38 + 148);
+      MONITOR_MGR::_IssueMonitorEvent(
+        v34,
+        *((unsigned int *)v38 + 11),
+        10,
+        (*((_DWORD *)v38 + 148) != 0) + 1LL,
+        *((_DWORD *)v38 + 108),
+        (__int64)v40);
+    }
+    else
+    {
+      v35 = WdLogNewEntry5_WdError(v33, v32);
+      *(_QWORD *)(v35 + 24) = *this;
+      WdLogEvent5_WdError(v35);
+    }
+  }
+  LODWORD(v8) = 0;
+LABEL_25:
+  DXGADAPTER_REFERENCE::Assign(this, 0LL);
+  return (unsigned int)v8;
 }

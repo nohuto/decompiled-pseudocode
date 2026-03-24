@@ -1,49 +1,50 @@
 /*
- * XREFs of ??_ECMultiPrimitiveDrawListBrush@@UEAAPEAXI@Z @ 0x1800B0560
+ * XREFs of ??_ECMultiPrimitiveDrawListBrush@@UEAAPEAXI@Z @ 0x180054450
  * Callers:
- *     ?FillRectanglesWithDrawListBrush@CDrawingContext@@AEAAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x180004A9C (-FillRectanglesWithDrawListBrush@CDrawingContext@@AEAAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$de.c)
+ *     ?FillRectanglesWithDrawListBrush@CDrawingContext@@AEAAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x1800944A0 (-FillRectanglesWithDrawListBrush@CDrawingContext@@AEAAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$de.c)
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800AF6DC (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x180055FE8 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 CMultiPrimitiveDrawListBrush *__fastcall CMultiPrimitiveDrawListBrush::`vector deleting destructor'(
         CMultiPrimitiveDrawListBrush *this,
-        char a2)
+        char a2,
+        unsigned int a3)
 {
-  void (__fastcall ***v4)(_QWORD, __int64); // rcx
+  void (__fastcall ***v5)(_QWORD, __int64); // rcx
   int Current; // eax
-  struct CThreadContext *v6; // rcx
+  struct CThreadContext *v7; // rcx
   void *retaddr; // [rsp+28h] [rbp+0h]
-  struct CThreadContext *v9; // [rsp+30h] [rbp+8h] BYREF
+  struct CThreadContext *v10; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 9);
-  if ( v4 )
-    (**v4)(v4, 1LL);
+  v5 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 9);
+  if ( v5 )
+    (**v5)(v5, 1LL);
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
     {
-      __global_delete(this, 0x60uLL);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x60, a3);
     }
     else
     {
-      Current = CThreadContext::GetCurrent(&v9);
+      Current = CThreadContext::GetCurrent(&v10);
       if ( Current < 0 )
         ModuleFailFastForHRESULT((unsigned int)Current, retaddr);
-      v6 = v9;
-      if ( *((_DWORD *)v9 + 81) >= *((_DWORD *)v9 + 80) )
+      v7 = v10;
+      if ( *((_DWORD *)v10 + 67) >= *((_DWORD *)v10 + 66) )
       {
-        DefaultHeap::Free(this);
+        operator delete(this);
       }
       else
       {
-        *(_QWORD *)this = *((_QWORD *)v9 + 41);
-        ++*((_DWORD *)v6 + 81);
-        *((_QWORD *)v6 + 41) = this;
+        *(_QWORD *)this = *((_QWORD *)v10 + 34);
+        ++*((_DWORD *)v7 + 67);
+        *((_QWORD *)v7 + 34) = this;
       }
     }
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhPCE_Check @ 0x1C00339C8
+ * XREFs of UsbhPCE_Check @ 0x1C0034D2C
  * Callers:
- *     UsbhReset2Complete @ 0x1C000A9D0 (UsbhReset2Complete.c)
+ *     UsbhReset2Complete @ 0x1C0010540 (UsbhReset2Complete.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
- *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002F39C (WPP_RECORDER_SF_dq.c)
  */
 
 __int64 __fastcall UsbhPCE_Check(__int64 a1, __int64 a2, __int64 a3)
@@ -31,6 +31,6 @@ __int64 __fastcall UsbhPCE_Check(__int64 a1, __int64 a2, __int64 a3)
       a3);
   }
   Log(a1, 512, 1346712112, 0LL, *(unsigned __int16 *)(a2 + 4));
-  UsbhDispatch_PortChangeQueueEventEx(a1, a2, 20LL, a3, 0LL, 0, 0LL, (int *)&v10);
+  UsbhDispatch_PortChangeQueueEventEx(a1, a2, 20, a3, 0LL, 0, 0LL, (__int64)&v10);
   return v10;
 }

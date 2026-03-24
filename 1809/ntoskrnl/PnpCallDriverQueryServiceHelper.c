@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpCallDriverQueryServiceHelper @ 0x1406E7A98
+ * XREFs of PnpCallDriverQueryServiceHelper @ 0x1406E7A78
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406E6C6C (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x1406E6C4C (PipCallDriverAddDevice.c)
  * Callees:
- *     RtlULongSub @ 0x140101CF4 (RtlULongSub.c)
+ *     RtlULongSub @ 0x140101D14 (RtlULongSub.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
- *     _CmGetInstallerClassRegProp @ 0x1406F1254 (_CmGetInstallerClassRegProp.c)
- *     PipCallDriverAddDeviceQueryRoutine @ 0x140709174 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     _CmGetInstallerClassRegProp @ 0x1406F1234 (_CmGetInstallerClassRegProp.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x140709154 (PipCallDriverAddDeviceQueryRoutine.c)
  */
 
 __int64 __fastcall PnpCallDriverQueryServiceHelper(

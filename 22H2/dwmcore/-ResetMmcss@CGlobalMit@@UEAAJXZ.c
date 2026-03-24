@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ResetMmcss@CGlobalMit@@UEAAJXZ @ 0x1800C8D80
+ * XREFs of ?ResetMmcss@CGlobalMit@@UEAAJXZ @ 0x1800CDD50
  * Callers:
  *     <none>
  * Callees:
- *     ?SetEvent@details@wil@@YAXPEAX@Z @ 0x1800C8F04 (-SetEvent@details@wil@@YAXPEAX@Z.c)
+ *     ?SetEvent@details@wil@@YAXPEAX@Z @ 0x1800CDDB4 (-SetEvent@details@wil@@YAXPEAX@Z.c)
  */
 
 __int64 __fastcall CGlobalMit::ResetMmcss(wil::details **this, void *a2)

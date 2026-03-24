@@ -1,13 +1,13 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryInsert @ 0x1405E0E68
+ * XREFs of PspJobIoRateVolumeEntryInsert @ 0x1405820EC
  * Callers:
- *     PspSetJobIoRateControlForVolume @ 0x1409B07D4 (PspSetJobIoRateControlForVolume.c)
+ *     PspSetJobIoRateControlForVolume @ 0x140909424 (PspSetJobIoRateControlForVolume.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x14034E6B0 (RtlRbInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockTrackerCompare @ 0x140584510 (MiLockTrackerCompare.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockTrackerCompare @ 0x140530CD0 (MiLockTrackerCompare.c)
  */
 
 __int64 __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, unsigned __int64 a2)
@@ -26,9 +26,9 @@ __int64 __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, unsigned __int64 a2
   _DWORD *SchedulerAssist; // r9
   bool v15; // zf
 
-  v2 = (volatile LONG *)(a1 + 1648);
-  v4 = a1 + 1656;
-  v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1648));
+  v2 = (volatile LONG *)(a1 + 1456);
+  v4 = a1 + 1464;
+  v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1456));
   v6 = *(_QWORD *)(a2 + 24);
   v7 = *(_QWORD *)v4;
   v8 = v5;

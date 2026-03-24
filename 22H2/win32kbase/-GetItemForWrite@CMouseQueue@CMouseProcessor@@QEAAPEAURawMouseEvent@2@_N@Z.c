@@ -1,31 +1,35 @@
 /*
- * XREFs of ?GetItemForWrite@CMouseQueue@CMouseProcessor@@QEAAPEAURawMouseEvent@2@_N@Z @ 0x1C0054C20
+ * XREFs of ?GetItemForWrite@CMouseQueue@CMouseProcessor@@QEAAPEAURawMouseEvent@2@_N@Z @ 0x1C004222C
  * Callers:
- *     ?QueueMouseEvent@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEBU_SUBPIXELS@@PEBUtagUIPI_INFO_INT@@PEBUtagPOINT@@@Z @ 0x1C0054818 (-QueueMouseEvent@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEBU_SUBPIXELS@@PEBUtagUIPI_INFO_I.c)
- *     ?InitiateWaitForInjectionCompletion@CMouseProcessor@@QEAA_NP6AXXZ@Z @ 0x1C01F8428 (-InitiateWaitForInjectionCompletion@CMouseProcessor@@QEAA_NP6AXXZ@Z.c)
+ *     ?QueueMouseEvent@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEBU_SUBPIXELS@@PEBUtagUIPI_INFO_INT@@PEBUtagPOINT@@@Z @ 0x1C0041BB0 (-QueueMouseEvent@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEBU_SUBPIXELS@@PEBUtagUIPI_INFO_I.c)
+ *     ?InitiateWaitForInjectionCompletion@CMouseProcessor@@QEAA_NP6AXXZ@Z @ 0x1C00A21AC (-InitiateWaitForInjectionCompletion@CMouseProcessor@@QEAA_NP6AXXZ@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 struct CMouseProcessor::RawMouseEvent *__fastcall CMouseProcessor::CMouseQueue::GetItemForWrite(
         CMouseProcessor::CMouseQueue *this,
         char a2)
 {
-  __int16 *v2; // rbx
-  __int16 v4; // cx
+  unsigned __int16 v3; // cx
+  bool v4; // zf
 
-  v2 = (__int16 *)((char *)this + 2690);
   if ( !a2 )
   {
-    if ( (unsigned __int16)*v2 > 0x10u )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 6546LL);
-    v4 = *v2;
-    if ( *v2 == 16 )
+    v3 = *((_WORD *)this + 1345);
+    v4 = v3 == 16;
+    if ( v3 > 0x10u )
+    {
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 6281LL);
+      v3 = *((_WORD *)this + 1345);
+      v4 = v3 == 16;
+    }
+    if ( v4 )
       return 0LL;
     *((_WORD *)this + 1344) = ((unsigned __int8)*((_WORD *)this + 1344) + 1) & 0xF;
-    *v2 = v4 + 1;
+    *((_WORD *)this + 1345) = v3 + 1;
   }
-  if ( (unsigned __int16)*v2 > 0x10u )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 6525LL);
+  if ( *((_WORD *)this + 1345) > 0x10u )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 6254LL);
   return (CMouseProcessor::CMouseQueue *)((char *)this + 168 * *((unsigned __int16 *)this + 1344));
 }

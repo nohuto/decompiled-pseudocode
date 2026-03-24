@@ -1,28 +1,21 @@
 /*
- * XREFs of KeInitializeProfileCallback @ 0x1409620D4
+ * XREFs of KeInitializeProfileCallback @ 0x1408BC144
  * Callers:
- *     EtwpSetPmcProfileSource @ 0x1409E39EC (EtwpSetPmcProfileSource.c)
- *     EtwpTimeProfileStart @ 0x1409E3B04 (EtwpTimeProfileStart.c)
- *     EtwpCoverageSamplerStart @ 0x1409F36F4 (EtwpCoverageSamplerStart.c)
- *     KiInitializeCacheErrataSupport @ 0x140B5197C (KiInitializeCacheErrataSupport.c)
+ *     EtwpEnableKernelTrace @ 0x1407981D8 (EtwpEnableKernelTrace.c)
+ *     EtwpSetPmcProfileSource @ 0x14093755C (EtwpSetPmcProfileSource.c)
+ *     EtwpCoverageSamplerStart @ 0x14094718C (EtwpCoverageSamplerStart.c)
+ *     KiInitializeCacheErrataSupport @ 0x140A920CC (KiInitializeCacheErrataSupport.c)
  * Callees:
- *     KiCopyAffinityEx @ 0x140300030 (KiCopyAffinityEx.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-unsigned __int16 __fastcall KeInitializeProfileCallback(
-        unsigned __int16 *a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned __int16 a4)
+unsigned __int16 __fastcall KeInitializeProfileCallback(_DWORD *a1, __int64 a2, __int64 a3, __int16 a4)
 {
-  memset(a1, 0, 0x160uLL);
-  *(_DWORD *)a1 = 23068689;
+  memset(a1, 0, 0xF8uLL);
+  *a1 = 16252945;
   *((_QWORD *)a1 + 4) = a2;
   *((_QWORD *)a1 + 5) = a3;
-  a1[172] = a4;
-  *((_DWORD *)a1 + 19) = 0;
-  *((_DWORD *)a1 + 18) = 2097153;
-  memset(a1 + 40, 0, 0x100uLL);
-  return KiCopyAffinityEx((__int64)(a1 + 36), a1[37], (unsigned __int16 *)KeActiveProcessors);
+  *((_WORD *)a1 + 120) = a4;
+  return KeCopyAffinityEx((__int64)(a1 + 18), (unsigned __int16 *)KeActiveProcessors);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoQuerySystemDeviceName @ 0x1406CDACC
+ * XREFs of IoQuerySystemDeviceName @ 0x1406B367C
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     IopRetrieveSystemDeviceName @ 0x1406CDB38 (IopRetrieveSystemDeviceName.c)
- *     IopFindSystemDevice @ 0x14093FBBC (IopFindSystemDevice.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     IopRetrieveSystemDeviceName @ 0x1406B36E8 (IopRetrieveSystemDeviceName.c)
+ *     IopFindSystemDevice @ 0x14089B014 (IopFindSystemDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoQuerySystemDeviceName(int a1)
@@ -14,7 +14,7 @@ __int64 __fastcall IoQuerySystemDeviceName(int a1)
   __int64 result; // rax
   __int64 v4; // rcx
   unsigned int v5; // ebx
-  int SystemDevice; // ecx
+  int SystemDevice; // edi
   PVOID P[3]; // [rsp+20h] [rbp-18h] BYREF
 
   P[0] = 0LL;
@@ -43,15 +43,10 @@ __int64 __fastcall IoQuerySystemDeviceName(int a1)
     else if ( a1 == 98 )
     {
       SystemDevice = IopFindSystemDevice(v4, P);
-      if ( SystemDevice < 0 )
-      {
-        if ( SystemDevice == -1073740718 )
-          return (unsigned int)-1073740719;
-      }
-      else
-      {
+      if ( SystemDevice >= 0 )
         ExFreePoolWithTag(P[0], 0);
-      }
+      if ( SystemDevice == -1073740718 )
+        return (unsigned int)-1073740719;
       return v5;
     }
   }

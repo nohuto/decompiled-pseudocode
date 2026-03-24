@@ -1,13 +1,13 @@
 /*
- * XREFs of Match_32 @ 0x1C0057908
+ * XREFs of Match_32 @ 0x1C0069AF8
  * Callers:
- *     Match @ 0x1C0057820 (Match.c)
+ *     Match @ 0x1C0069A10 (Match.c)
  * Callees:
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
- *     IsCompatableDSDTRevision @ 0x1C004BE48 (IsCompatableDSDTRevision.c)
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     EvalPackageElement @ 0x1C004F704 (EvalPackageElement.c)
- *     MatchData_32 @ 0x1C0057860 (MatchData_32.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     EvalPackageElement @ 0x1C001246C (EvalPackageElement.c)
+ *     MatchData_32 @ 0x1C0069A50 (MatchData_32.c)
  */
 
 __int64 __fastcall Match_32(__int64 a1, __int64 a2)
@@ -18,9 +18,9 @@ __int64 __fastcall Match_32(__int64 a1, __int64 a2)
   unsigned int v6; // esi
   unsigned int v7; // ecx
   __int64 v8; // r9
-  __int128 v10; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v11; // [rsp+30h] [rbp-38h]
-  __int64 v12; // [rsp+40h] [rbp-28h]
+  __int128 v10; // [rsp+20h] [rbp-38h] BYREF
+  __int128 v11; // [rsp+30h] [rbp-28h]
+  __int64 v12; // [rsp+40h] [rbp-18h]
 
   v3 = ValidateArgTypes(a1, *(_QWORD *)(a2 + 80), 0, "PIIIII");
   if ( !v3 )

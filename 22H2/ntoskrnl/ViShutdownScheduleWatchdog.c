@@ -1,12 +1,12 @@
 /*
- * XREFs of ViShutdownScheduleWatchdog @ 0x140AD6084
+ * XREFs of ViShutdownScheduleWatchdog @ 0x1409DA3B4
  * Callers:
- *     VfShutdownScheduleWatchdog @ 0x1405D1848 (VfShutdownScheduleWatchdog.c)
- *     ViShutdownWatchdogExecuteDpc @ 0x140AD6100 (ViShutdownWatchdogExecuteDpc.c)
+ *     VfShutdownScheduleWatchdog @ 0x1405A20A8 (VfShutdownScheduleWatchdog.c)
+ *     ViShutdownWatchdogExecuteDpc @ 0x1409DA430 (ViShutdownWatchdogExecuteDpc.c)
  * Callees:
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     KeInitializeTimerEx @ 0x1402BE630 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     KeInitializeTimerEx @ 0x140341AF0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
  */
 
 __int64 ViShutdownScheduleWatchdog()

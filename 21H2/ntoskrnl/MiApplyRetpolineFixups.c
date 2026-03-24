@@ -1,15 +1,15 @@
 /*
- * XREFs of MiApplyRetpolineFixups @ 0x1402DB248
+ * XREFs of MiApplyRetpolineFixups @ 0x14029C6A4
  * Callers:
- *     MiReapplyImportOptimizationWorker @ 0x1405A2710 (MiReapplyImportOptimizationWorker.c)
- *     MiPerformFixups @ 0x1407BF2E0 (MiPerformFixups.c)
+ *     MmRemoveImportOptimizationWorker @ 0x140544810 (MmRemoveImportOptimizationWorker.c)
+ *     MiPerformFixups @ 0x1405FC5B8 (MiPerformFixups.c)
  * Callees:
- *     RtlApplyImportRelocationToPage @ 0x1402DB190 (RtlApplyImportRelocationToPage.c)
- *     RtlpApplyGenericRetpolineFixup @ 0x1402DB3F0 (RtlpApplyGenericRetpolineFixup.c)
- *     RtlpConstructImportRelocationFixup @ 0x1402DB460 (RtlpConstructImportRelocationFixup.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlApplyIndirectRelocationToPage @ 0x1405EF0B4 (RtlApplyIndirectRelocationToPage.c)
- *     RtlApplySwitchJumpRelocationToPage @ 0x1405EF160 (RtlApplySwitchJumpRelocationToPage.c)
+ *     RtlApplyImportRelocationToPage @ 0x14029C5EC (RtlApplyImportRelocationToPage.c)
+ *     RtlpApplyGenericRetpolineFixup @ 0x14029C850 (RtlpApplyGenericRetpolineFixup.c)
+ *     RtlpConstructImportRelocationFixup @ 0x14029C8B0 (RtlpConstructImportRelocationFixup.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlApplyIndirectRelocationToPage @ 0x14058FD24 (RtlApplyIndirectRelocationToPage.c)
+ *     RtlApplySwitchJumpRelocationToPage @ 0x14058FDD0 (RtlApplySwitchJumpRelocationToPage.c)
  */
 
 __int64 __fastcall MiApplyRetpolineFixups(
@@ -19,7 +19,7 @@ __int64 __fastcall MiApplyRetpolineFixups(
         int a4,
         __int64 a5,
         unsigned __int16 *a6,
-        unsigned int a7)
+        char a7)
 {
   BOOL v9; // r14d
   int v10; // ebp
@@ -36,9 +36,9 @@ __int64 __fastcall MiApplyRetpolineFixups(
   __int16 v21; // [rsp+64h] [rbp-44h]
 
   v9 = 0;
-  v10 = (a7 & 0x10) != 0 ? 2 : 0;
-  if ( (a7 & 0x10) == 0 )
-    v9 = ((a7 >> 3) & 1) == 0;
+  v10 = (a7 & 8) != 0 ? 2 : 0;
+  if ( (a7 & 8) == 0 )
+    v9 = (a7 & 1) == 0;
   if ( (KiSpeculationFeatures & 0x20000000000LL) == 0 )
     v10 |= 1u;
   switch ( a6[3] )

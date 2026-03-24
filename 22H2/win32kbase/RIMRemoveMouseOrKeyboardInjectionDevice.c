@@ -1,135 +1,82 @@
 /*
- * XREFs of RIMRemoveMouseOrKeyboardInjectionDevice @ 0x1C017ABDC
+ * XREFs of RIMRemoveMouseOrKeyboardInjectionDevice @ 0x1C01581AC
  * Callers:
- *     DestroyProcessInfo @ 0x1C00C5EA0 (DestroyProcessInfo.c)
+ *     DestroyProcessInfo @ 0x1C0046DC0 (DestroyProcessInfo.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0072E20 (RawInputManagerDeviceObjectResolveHandle.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMFreeDev @ 0x1C0170F70 (RIMFreeDev.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     ?bRimDispositionNormal@@YA_NPEAURawInputManagerObject@@@Z @ 0x1C0055178 (-bRimDispositionNormal@@YA_NPEAURawInputManagerObject@@@Z.c)
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0058C60 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMFreeDev @ 0x1C014FBF0 (RIMFreeDev.c)
  */
 
 __int64 __fastcall RIMRemoveMouseOrKeyboardInjectionDevice(char *a1)
 {
-  char v2; // dl
-  int v3; // esi
-  _QWORD *v4; // rdi
-  __int64 v5; // rbx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v18; // rax
-  char v19; // dl
-  char v20; // dl
-  PVOID Object; // [rsp+78h] [rbp+10h] BYREF
+  int v2; // esi
+  _QWORD *v3; // rdi
+  __int64 v4; // rbx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  int v7; // eax
+  __int64 v8; // rcx
+  PVOID Object; // [rsp+68h] [rbp+10h] BYREF
 
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (v2 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    v2 = 0;
-  }
-  if ( v2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v2,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      47,
-      (__int64)&WPP_f9e9c6706b933e49bdb016a372583459_Traceguids);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_((_DWORD)gRimLog, 4, 1, 45, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids);
   Object = 0LL;
-  v3 = RawInputManagerDeviceObjectResolveHandle(a1, 3u, 1, &Object);
-  if ( v3 < 0 )
+  v2 = RawInputManagerDeviceObjectResolveHandle(a1, 3u, 1, &Object);
+  if ( v2 < 0 )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (v20 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
-    {
-      v20 = 0;
-    }
-    if ( v20 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v20,
-        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-        (_DWORD)gRimLog,
-        3,
-        1,
-        49,
-        (__int64)&WPP_f9e9c6706b933e49bdb016a372583459_Traceguids);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_((_DWORD)gRimLog, 3, 1, 47, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids);
   }
   else
   {
-    v4 = Object;
-    if ( *((_BYTE *)Object + 120) >= 2u )
+    v3 = Object;
+    if ( *((_BYTE *)Object + 136) >= 2u )
     {
       LODWORD(Object) = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1436);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1364);
     }
-    v5 = v4[51];
-    RIMLockExclusive(v5 + 104);
-    if ( v5 )
+    v4 = v3[53];
+    RIMLockExclusive(v4 + 104);
+    if ( v4 )
     {
-      if ( (*(_QWORD *)(v5 + 832) || *(_DWORD *)(v5 + 1056)) && *(_QWORD *)(v5 + 32) != PsGetCurrentProcess(v7, v6, v8) )
+      if ( (*(_QWORD *)(v4 + 640) || *(_DWORD *)(v4 + 864)) && *(_QWORD *)(v4 + 32) != PsGetCurrentProcess(v6, v5) )
       {
-        *((_DWORD *)v4 + 64) |= 0x100000u;
-        v13 = SGDGetUserSessionState(v10, v9, v11, v12);
-        RIMLockExclusive(v13 + 240);
-        *((_DWORD *)v4 + 68) |= 4u;
-        v18 = SGDGetUserSessionState(v15, v14, v16, v17);
-        *(_QWORD *)(v18 + 248) = 0LL;
-        ExReleasePushLockExclusiveEx(v18 + 240, 0LL);
+        *((_DWORD *)v3 + 68) |= 0x40000u;
+        RIMLockExclusive((__int64)&gObListLock);
+        *((_DWORD *)v3 + 72) |= 4u;
+        qword_1C0254458 = 0LL;
+        ExReleasePushLockExclusiveEx(&gObListLock, 0LL);
         KeLeaveCriticalRegion();
-        if ( (v4[32] & 0x800000) != 0 )
+        v7 = *((_DWORD *)v3 + 68);
+        if ( (v7 & 0x200000) != 0 )
         {
           LODWORD(Object) = 0x20000;
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1457);
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1385);
+          v7 = *((_DWORD *)v3 + 68);
         }
-        *((_DWORD *)v4 + 64) |= 0x800000u;
-        ZwSetEvent(*(HANDLE *)(v5 + 344), 0LL);
-        v3 = 0;
+        *((_DWORD *)v3 + 68) = v7 | 0x200000;
+        ZwSetEvent(*(HANDLE *)(v4 + 384), 0LL);
+        v2 = 0;
       }
-      else if ( *(_BYTE *)(v5 + 81) || *(_BYTE *)(v5 + 82) )
+      else if ( bRimDispositionNormal((struct RawInputManagerObject *)v4) )
       {
-        v3 = -1073741637;
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-          || (v19 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
-        {
-          v19 = 0;
-        }
-        if ( v19 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_AND_TRACE_SF_(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v19,
-            WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-            (_DWORD)gRimLog,
-            3,
-            1,
-            48,
-            (__int64)&WPP_f9e9c6706b933e49bdb016a372583459_Traceguids);
+        v2 = RIMFreeDev(v8, (__int64)(v3 + 11));
       }
       else
       {
-        v3 = RIMFreeDev(v5, (__int64)(v4 + 9));
+        v2 = -1073741637;
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_((_DWORD)gRimLog, 3, 1, 46, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids);
       }
     }
-    *(_QWORD *)(v5 + 112) = 0LL;
-    ExReleasePushLockExclusiveEx(v5 + 104, 0LL);
+    *(_QWORD *)(v4 + 112) = 0LL;
+    ExReleasePushLockExclusiveEx(v4 + 104, 0LL);
     KeLeaveCriticalRegion();
-    ObfDereferenceObject(v4);
+    ObfDereferenceObject(v3);
   }
-  return (unsigned int)v3;
+  return (unsigned int)v2;
 }

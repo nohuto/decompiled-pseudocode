@@ -1,16 +1,16 @@
 /*
- * XREFs of Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue @ 0x1C00C6D78
+ * XREFs of Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue @ 0x1C00C5C74
  * Callers:
- *     imp_WdfDeviceWdmDispatchIrpToIoQueue @ 0x1C00101E0 (imp_WdfDeviceWdmDispatchIrpToIoQueue.c)
+ *     imp_WdfDeviceWdmDispatchIrpToIoQueue @ 0x1C0012CD0 (imp_WdfDeviceWdmDispatchIrpToIoQueue.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_Dd @ 0x1C003511C (WPP_IFR_SF_Dd.c)
- *     ?GetDispatchPackage@FxDevice@@QEAAPEAVFxPackage@@E@Z @ 0x1C00381C4 (-GetDispatchPackage@FxDevice@@QEAAPEAVFxPackage@@E@Z.c)
- *     ?IsIoEventHandlerRegistered@FxIoQueue@@QEAAEW4_WDF_REQUEST_TYPE@@@Z @ 0x1C0039730 (-IsIoEventHandlerRegistered@FxIoQueue@@QEAAEW4_WDF_REQUEST_TYPE@@@Z.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_qqcDq @ 0x1C00628A0 (WPP_IFR_SF_qqcDq.c)
- *     WPP_IFR_SF_qqcDqd @ 0x1C00629DC (WPP_IFR_SF_qqcDqd.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?GetDispatchPackage@FxDevice@@QEAAPEAVFxPackage@@E@Z @ 0x1C00136A0 (-GetDispatchPackage@FxDevice@@QEAAPEAVFxPackage@@E@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_dd @ 0x1C002E818 (WPP_IFR_SF_dd.c)
+ *     WPP_IFR_SF_qqcDq @ 0x1C0046C48 (WPP_IFR_SF_qqcDq.c)
+ *     WPP_IFR_SF_qqcDqd @ 0x1C0046D84 (WPP_IFR_SF_qqcDqd.c)
+ *     ?IsIoEventHandlerRegistered@FxIoQueue@@QEAAEW4_WDF_REQUEST_TYPE@@@Z @ 0x1C00767C8 (-IsIoEventHandlerRegistered@FxIoQueue@@QEAAEW4_WDF_REQUEST_TYPE@@@Z.c)
  */
 
 __int64 __fastcall Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue(
@@ -18,7 +18,7 @@ __int64 __fastcall Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue(
         FxDevice *device,
         _IRP *Irp,
         FxIoQueue *queue,
-        unsigned int Flags)
+        int Flags)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rax
   unsigned int v10; // ebx
@@ -62,7 +62,7 @@ __int64 __fastcall Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue(
   if ( (Flags & 0xFFFFFFFC) != 0 )
   {
     v10 = -1073741811;
-    WPP_IFR_SF_Dd(FxDriverGlobals, 2u, 0xDu, 0x40u, WPP_FxDeviceApi_cpp_Traceguids, Flags, -1073741811);
+    WPP_IFR_SF_dd(FxDriverGlobals, 2u, 0xDu, 0x40u, WPP_FxDeviceApi_cpp_Traceguids, Flags, -1073741811);
 LABEL_19:
     FxVerifierDbgBreakPoint(FxDriverGlobals);
     return v10;

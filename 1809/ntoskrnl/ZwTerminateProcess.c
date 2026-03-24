@@ -1,11 +1,11 @@
 /*
- * XREFs of ZwTerminateProcess @ 0x1401B86F0
+ * XREFs of ZwTerminateProcess @ 0x1401B8710
  * Callers:
  *     KiDispatchException @ 0x1400A2F50 (KiDispatchException.c)
- *     KiParkUmsThread @ 0x14029D5C0 (KiParkUmsThread.c)
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
- *     KiSwapToUmsThread @ 0x140845790 (KiSwapToUmsThread.c)
- *     PsCallEnclave @ 0x14088D5A0 (PsCallEnclave.c)
+ *     KiParkUmsThread @ 0x14029D6C0 (KiParkUmsThread.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
+ *     KiSwapToUmsThread @ 0x140845770 (KiSwapToUmsThread.c)
+ *     PsCallEnclave @ 0x14088D580 (PsCallEnclave.c)
  * Callees:
  *     <none>
  */

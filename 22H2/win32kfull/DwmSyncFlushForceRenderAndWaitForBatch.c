@@ -1,15 +1,14 @@
 /*
- * XREFs of DwmSyncFlushForceRenderAndWaitForBatch @ 0x1C026DEB0
+ * XREFs of DwmSyncFlushForceRenderAndWaitForBatch @ 0x1C002E840
  * Callers:
- *     DwmSyncFlushWindowChanges @ 0x1C026DFA0 (DwmSyncFlushWindowChanges.c)
+ *     DwmSyncFlushWindowChanges @ 0x1C002E7CC (DwmSyncFlushWindowChanges.c)
  * Callees:
- *     ?DwmSyncLPCAllowed@@YAJXZ @ 0x1C006EA5C (-DwmSyncLPCAllowed@@YAJXZ.c)
- *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C006EA8C (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
+ *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C002EA88 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
  */
 
 __int64 __fastcall DwmSyncFlushForceRenderAndWaitForBatch(PVOID Object, int a2)
 {
-  int v4; // ebx
+  unsigned int v4; // ebx
   int v5; // eax
   struct _PORT_MESSAGE v7; // [rsp+30h] [rbp-30h] BYREF
   int v8; // [rsp+58h] [rbp-8h]
@@ -19,8 +18,8 @@ __int64 __fastcall DwmSyncFlushForceRenderAndWaitForBatch(PVOID Object, int a2)
   v4 = -1073741823;
   if ( Object )
   {
-    v4 = DwmSyncLPCAllowed();
-    if ( v4 >= 0 )
+    v4 = gbInVideoPnpCallout != 0 ? 0xC0000001 : 0;
+    if ( !gbInVideoPnpCallout )
     {
       EtwTraceDwmSyncFlushForceRenderAndWaitForBatchBegin(0xFFFFFFFFLL);
       memset(&v7, 0, sizeof(v7));
@@ -29,11 +28,17 @@ __int64 __fastcall DwmSyncFlushForceRenderAndWaitForBatch(PVOID Object, int a2)
       v7.u2.s2.Type = 0x8000;
       v8 = -2147483639;
       v9 = a2;
-      v5 = LpcSendWaitReceivePort(Object, 0x20000LL, &v7, &v7, &v10, 0LL);
+      v5 = ((__int64 (__fastcall *)(PVOID, __int64, struct _PORT_MESSAGE *, struct _PORT_MESSAGE *, __int64 *, _QWORD))LpcSendWaitReceivePort)(
+             Object,
+             0x20000LL,
+             &v7,
+             &v7,
+             &v10,
+             0LL);
       v4 = SyncLpcCheckNtStatus(v5, &v7);
       EtwTraceDwmSyncFlushForceRenderAndWaitForBatchEnd(0xFFFFFFFFLL);
     }
     ObfDereferenceObject(Object);
   }
-  return (unsigned int)v4;
+  return v4;
 }

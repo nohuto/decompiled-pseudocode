@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetInformationTransaction @ 0x14041EC40
+ * XREFs of ZwSetInformationTransaction @ 0x1403FD760
  * Callers:
- *     DifZwSetInformationTransactionWrapper @ 0x140627910 (DifZwSetInformationTransactionWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

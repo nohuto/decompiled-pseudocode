@@ -1,11 +1,11 @@
 /*
- * XREFs of IopPerfCompletionRoutine @ 0x140559160
+ * XREFs of IopPerfCompletionRoutine @ 0x140507F40
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IopPerfCompletionRoutine(__int64 a1, __int64 a2, __int64 *a3)
@@ -39,7 +39,7 @@ __int64 __fastcall IopPerfCompletionRoutine(__int64 a1, __int64 a2, __int64 *a3)
     v9 = v8();
     v16 = 20;
     v15 = v13;
-    EtwTraceKernelEvent((int)&v15, 1, 0x20000010u, 293, 4200450);
+    EtwTraceKernelEvent((__int64)&v15, 1u, 0x20000010u, 0x125u, 0x401802u);
     if ( v9 == -1073741802 )
       return v9;
   }

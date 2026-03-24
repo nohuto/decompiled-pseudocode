@@ -1,145 +1,137 @@
 /*
- * XREFs of NtUserInjectGesture @ 0x1C01D52A0
+ * XREFs of NtUserInjectGesture @ 0x1C01FD4D0
  * Callers:
  *     <none>
  * Callees:
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     _PostMessageCheckIL @ 0x1C01B704C (_PostMessageCheckIL.c)
- *     AllocGestureInfo @ 0x1C020448C (AllocGestureInfo.c)
- *     ValidateGestureCaller @ 0x1C0204A9C (ValidateGestureCaller.c)
- *     ValidateGestureInfo @ 0x1C0204B50 (ValidateGestureInfo.c)
- *     _FreeGestureInfo @ 0x1C0204B90 (_FreeGestureInfo.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _PostMessageCheckIL @ 0x1C01E21F8 (_PostMessageCheckIL.c)
+ *     AllocGestureInfo @ 0x1C0226F48 (AllocGestureInfo.c)
+ *     ValidateGestureCaller @ 0x1C0227588 (ValidateGestureCaller.c)
+ *     ValidateGestureInfo @ 0x1C022763C (ValidateGestureInfo.c)
+ *     _FreeGestureInfo @ 0x1C0227680 (_FreeGestureInfo.c)
  */
 
 __int64 __fastcall NtUserInjectGesture(__int64 a1, int a2, __int64 a3, ULONG64 a4, volatile void *Address)
 {
   volatile void *v9; // r14
-  __int64 v10; // rdx
-  __int64 v11; // rsi
+  __int64 v10; // rbx
+  __int64 v11; // rdx
   __int64 v12; // r8
-  int v13; // ebx
-  int v14; // ecx
-  __int64 v15; // rax
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  ULONG64 v19; // rcx
-  SIZE_T v20; // xmm0_8
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  ULONG64 v18; // rcx
+  SIZE_T v19; // rsi
   __int64 CurrentProcessWow64Process; // rax
-  __int64 v22; // rax
-  __int64 v23; // rdi
-  __int64 v24; // rax
-  __int64 v25; // rdx
+  __int64 v21; // rax
+  unsigned __int64 v22; // rdi
+  __int64 v23; // rax
+  __int64 v24; // r8
+  __int64 v25; // r9
   __int64 v26; // rcx
-  __int64 v27; // r8
-  __int64 v28; // r9
-  _BYTE v30[16]; // [rsp+30h] [rbp-C8h] BYREF
-  int v31; // [rsp+40h] [rbp-B8h]
-  volatile void *v32; // [rsp+48h] [rbp-B0h]
-  __int128 v33; // [rsp+50h] [rbp-A8h] BYREF
-  __int64 v34; // [rsp+60h] [rbp-98h]
-  __int128 v35; // [rsp+68h] [rbp-90h] BYREF
-  __int128 v36; // [rsp+78h] [rbp-80h]
-  __int128 v37; // [rsp+88h] [rbp-70h]
-  SIZE_T v38; // [rsp+98h] [rbp-60h]
-  __int128 v39; // [rsp+A8h] [rbp-50h]
-  __int128 v40; // [rsp+B8h] [rbp-40h]
-  __int128 v41; // [rsp+C8h] [rbp-30h]
+  _BYTE v28[8]; // [rsp+48h] [rbp-B0h] BYREF
+  __int128 v29; // [rsp+50h] [rbp-A8h] BYREF
+  __int64 v30; // [rsp+60h] [rbp-98h]
+  __int128 v31; // [rsp+68h] [rbp-90h] BYREF
+  __int128 v32; // [rsp+78h] [rbp-80h]
+  __int128 v33; // [rsp+88h] [rbp-70h]
+  SIZE_T v34; // [rsp+98h] [rbp-60h]
+  __int128 v35; // [rsp+A8h] [rbp-50h]
+  __int128 v36; // [rsp+B8h] [rbp-40h]
+  __int128 v37; // [rsp+C8h] [rbp-30h]
   SIZE_T Length; // [rsp+D8h] [rbp-20h]
 
-  v35 = 0LL;
-  v36 = 0LL;
-  v37 = 0LL;
-  v38 = 0LL;
-  v9 = 0LL;
+  v31 = 0LL;
   v32 = 0LL;
   v33 = 0LL;
   v34 = 0LL;
-  EnterCrit(0LL, 0LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v30);
-  v11 = ValidateHwnd(a1);
-  if ( v11 )
+  v9 = 0LL;
+  v29 = 0LL;
+  v30 = 0LL;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v28);
+  v10 = ValidateHwnd(a1);
+  if ( v10 )
   {
-    *(_QWORD *)&v33 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v33;
-    *((_QWORD *)&v33 + 1) = v11;
-    HMLockObject(v11);
+    *(_QWORD *)&v29 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v29;
+    *((_QWORD *)&v29 + 1) = v10;
+    HMLockObject(v10);
     if ( a3 || !a4 || a2 )
     {
-      v14 = 87;
+      v13 = 87LL;
     }
     else
     {
-      v15 = *(_QWORD *)(v11 + 40);
-      if ( *(char *)(v15 + 20) >= 0 && *(char *)(v15 + 19) >= 0 )
+      v14 = *(_QWORD *)(v10 + 40);
+      if ( *(char *)(v14 + 20) >= 0 && *(char *)(v14 + 19) >= 0 )
       {
-        if ( !(unsigned int)ValidateGestureCaller(gptiCurrent, v11) )
+        if ( !(unsigned int)ValidateGestureCaller(gptiCurrent, v10) )
         {
-LABEL_10:
-          v13 = 0;
-LABEL_27:
-          ThreadUnlock1(v17, v16, v18);
-          goto LABEL_28;
+LABEL_9:
+          LODWORD(v10) = 0;
+LABEL_26:
+          ThreadUnlock1(v16);
+          goto LABEL_27;
         }
-        v19 = a4 + 56;
-        if ( a4 + 56 < a4 || v19 > MmUserProbeAddress )
+        v18 = a4 + 56;
+        if ( a4 + 56 < a4 || v18 > MmUserProbeAddress )
           a4 = MmUserProbeAddress;
-        v39 = *(_OWORD *)a4;
-        v40 = *(_OWORD *)(a4 + 16);
-        v41 = *(_OWORD *)(a4 + 32);
-        v20 = *(_QWORD *)(a4 + 48);
-        Length = v20;
-        v35 = v39;
-        v36 = v40;
-        v37 = v41;
-        v38 = v20;
-        if ( (_DWORD)v20 )
+        v35 = *(_OWORD *)a4;
+        v36 = *(_OWORD *)(a4 + 16);
+        v37 = *(_OWORD *)(a4 + 32);
+        Length = *(_QWORD *)(a4 + 48);
+        v31 = v35;
+        v32 = v36;
+        v33 = v37;
+        v34 = Length;
+        v19 = (unsigned int)Length;
+        if ( (_DWORD)Length )
         {
           if ( Address )
-            goto LABEL_19;
+            goto LABEL_18;
         }
         else if ( !Address )
         {
-LABEL_19:
+LABEL_18:
           if ( Address )
           {
-            CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v19, v16, v18);
-            ProbeForRead(Address, (unsigned int)v20, CurrentProcessWow64Process != 0 ? 1 : 4);
+            CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v18);
+            ProbeForRead(Address, v19, CurrentProcessWow64Process != 0 ? 1 : 4);
             v9 = Address;
-            v32 = Address;
           }
-          if ( (unsigned int)ValidateGestureInfo(&v35) )
+          if ( (unsigned int)ValidateGestureInfo(&v31) )
           {
-            v22 = AllocGestureInfo(v11, 0LL, &v35, v9);
-            v23 = v22;
-            if ( v22 )
+            v21 = AllocGestureInfo(v10, 0LL, &v31, v9);
+            v22 = v21;
+            if ( v21 )
             {
-              EtwTracePostInjectedGestureMessage(v11, v22);
-              v24 = _HMObjectFromHandle(v23);
-              v13 = PostMessageCheckIL(v11, 0x119u, *(unsigned int *)(v24 + 40), v23);
-              if ( !v13 )
-                FreeGestureInfo(v23, 1LL);
-              goto LABEL_27;
+              EtwTracePostInjectedGestureMessage(v10, v21);
+              v23 = _HMObjectFromHandle(v22);
+              LODWORD(v10) = PostMessageCheckIL((struct tagWND *)v10, 0x119u, *(unsigned int *)(v23 + 40), v22);
+              if ( !(_DWORD)v10 )
+                FreeGestureInfo(v22, 1LL, v24, v25);
+              goto LABEL_26;
             }
           }
-          goto LABEL_10;
+          goto LABEL_9;
         }
-        v13 = 0;
-        v31 = 0;
-        UserSetLastError(87);
-        goto LABEL_27;
+        LODWORD(v10) = 0;
+        UserSetLastError(87LL, v15, v17);
+        goto LABEL_26;
       }
-      v14 = 1400;
+      v13 = 1400LL;
     }
-    v13 = 0;
-    UserSetLastError(v14);
-    goto LABEL_27;
+    LODWORD(v10) = 0;
+    UserSetLastError(v13, v11, v12);
+    goto LABEL_26;
   }
-  v13 = 0;
-LABEL_28:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v30, v10, v12);
-  UserSessionSwitchLeaveCrit(v26, v25, v27, v28);
-  return v13;
+LABEL_27:
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v28);
+  UserSessionSwitchLeaveCrit(v26);
+  return (int)v10;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of SeCreateClientSecurity @ 0x1406491F0
+ * XREFs of SeCreateClientSecurity @ 0x1406491D0
  * Callers:
  *     AlpcpCreateClientPort @ 0x14061506C (AlpcpCreateClientPort.c)
  *     AlpcpCreateSecurityContext @ 0x14061801C (AlpcpCreateSecurityContext.c)
  *     AlpcpImpersonateMessage @ 0x1406378A0 (AlpcpImpersonateMessage.c)
- *     EtwpStartLogger @ 0x1406591C0 (EtwpStartLogger.c)
- *     NtImpersonateThread @ 0x14069AE10 (NtImpersonateThread.c)
- *     EtwpUpdateTrace @ 0x140725AFC (EtwpUpdateTrace.c)
+ *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
+ *     NtImpersonateThread @ 0x14069ADF0 (NtImpersonateThread.c)
+ *     EtwpUpdateTrace @ 0x140725ADC (EtwpUpdateTrace.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x1400ABA50 (SepReconcileTrustSidWithProcessProtection.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x1400ABA70 (SepReconcileTrustSidWithProcessProtection.c)
  *     SepCreateClientSecurityEx @ 0x140631EC0 (SepCreateClientSecurityEx.c)
- *     PsReferenceEffectiveToken @ 0x1406492D0 (PsReferenceEffectiveToken.c)
+ *     PsReferenceEffectiveToken @ 0x1406492B0 (PsReferenceEffectiveToken.c)
  */
 
 NTSTATUS __stdcall SeCreateClientSecurity(

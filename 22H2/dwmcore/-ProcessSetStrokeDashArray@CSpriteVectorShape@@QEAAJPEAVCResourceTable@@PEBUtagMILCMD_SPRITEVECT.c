@@ -1,38 +1,35 @@
 /*
- * XREFs of ?ProcessSetStrokeDashArray@CSpriteVectorShape@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SPRITEVECTORSHAPE_SETSTROKEDASHARRAY@@PEBXI@Z @ 0x1802521F8
+ * XREFs of ?ProcessSetStrokeDashArray@CSpriteVectorShape@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SPRITEVECTORSHAPE_SETSTROKEDASHARRAY@@PEBXI@Z @ 0x1801ED988
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?reserve@?$vector@MV?$allocator@M@std@@@std@@QEAAX_K@Z @ 0x18001E058 (-reserve@-$vector@MV-$allocator@M@std@@@std@@QEAAX_K@Z.c)
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800255BC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800BC160 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
- *     ??$insert@V?$span_iterator@$$CBM@details@gsl@@$0A@@?$vector@MV?$allocator@M@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@M@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@M@std@@@std@@@1@V?$span_iterator@$$CBM@details@gsl@@1@Z @ 0x1802520A0 (--$insert@V-$span_iterator@$$CBM@details@gsl@@$0A@@-$vector@MV-$allocator@M@std@@@std@@QEAA-AV-$.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180037460 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?reserve@?$vector@MV?$allocator@M@std@@@std@@QEAAX_K@Z @ 0x180173C70 (-reserve@-$vector@MV-$allocator@M@std@@@std@@QEAAX_K@Z.c)
+ *     ??$insert@V?$span_iterator@V?$span@$$CBM$0?0@gsl@@$0A@@details@gsl@@X@?$vector@MV?$allocator@M@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@M@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@M@std@@@std@@@1@V?$span_iterator@V?$span@$$CBM$0?0@gsl@@$0A@@details@gsl@@1@Z @ 0x1801ECCAC (--$insert@V-$span_iterator@V-$span@$$CBM$0-0@gsl@@$0A@@details@gsl@@X@-$vector@MV-$allocator@M@s.c)
  */
 
 __int64 __fastcall CSpriteVectorShape::ProcessSetStrokeDashArray(
         CSpriteVectorShape *this,
         struct CResourceTable *a2,
         const struct tagMILCMD_SPRITEVECTORSHAPE_SETSTROKEDASHARRAY *a3,
-        char *a4,
+        const void *a4,
         unsigned int a5)
 {
   unsigned int v5; // eax
   unsigned int v6; // esi
-  __int64 *v9; // r14
+  _QWORD *v9; // rdi
   unsigned __int64 v10; // rbx
-  gsl::details *v11; // rcx
-  _BYTE *v12; // r8
-  __int64 v13; // rcx
-  char *v15; // [rsp+30h] [rbp-58h] BYREF
-  char *v16; // [rsp+38h] [rbp-50h]
-  char *v17; // [rsp+40h] [rbp-48h]
-  _QWORD v18[4]; // [rsp+50h] [rbp-38h] BYREF
-  struct CResourceTable *v19; // [rsp+98h] [rbp+10h] BYREF
+  char *v11; // r8
+  __int128 v12; // xmm0
+  _QWORD v14[2]; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v15; // [rsp+40h] [rbp-20h] BYREF
+  __int128 v16; // [rsp+50h] [rbp-10h] BYREF
+  struct CResourceTable *v17; // [rsp+88h] [rbp+28h] BYREF
 
-  v19 = a2;
+  v17 = a2;
   v5 = *((_DWORD *)a3 + 3);
   v6 = 0;
   if ( v5 != a5 || (a5 & 3) != 0 )
@@ -42,33 +39,29 @@ __int64 __fastcall CSpriteVectorShape::ProcessSetStrokeDashArray(
   }
   else
   {
-    v9 = (__int64 *)((char *)this + 160);
+    v9 = (_QWORD *)((char *)this + 152);
     v10 = (unsigned __int64)v5 >> 2;
     if ( !*((_BYTE *)a3 + 8) )
     {
-      *((_QWORD *)this + 21) = *((_QWORD *)this + 20);
-      std::vector<float>::reserve((_QWORD *)this + 20, v10);
+      *((_QWORD *)this + 20) = *((_QWORD *)this + 19);
+      std::vector<float>::reserve((_QWORD *)this + 19, v10);
     }
-    gsl::details::extent_type<-1>::extent_type<-1>((gsl::details *)&v15, v10);
-    if ( v15 == (char *)-1LL || !a4 && v15 )
+    v14[0] = v10;
+    v14[1] = a4;
+    if ( !a4 && v10 )
     {
-      gsl::details::terminate(v11);
+      ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
       __debugbreak();
     }
-    v12 = (_BYTE *)*((_QWORD *)this + 21);
-    v16 = &a4[4 * (_QWORD)v15];
-    v17 = v16;
-    v18[1] = v16;
-    v15 = a4;
-    v18[0] = a4;
-    v18[2] = a4;
-    std::vector<float>::insert<gsl::details::span_iterator<float const>,0>(v9, &v19, v12, (__int64)v18, (__int64)&v15);
-    v13 = *((_QWORD *)this + 17);
-    if ( v13 )
-    {
-      *((_QWORD *)this + 17) = 0LL;
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v13 + 16LL))(v13);
-    }
+    v11 = (char *)*((_QWORD *)this + 20);
+    *(_QWORD *)&v15 = v14;
+    *((_QWORD *)&v15 + 1) = v10;
+    v12 = v15;
+    *((_QWORD *)&v15 + 1) = 0LL;
+    *(_QWORD *)&v15 = v14;
+    v16 = v12;
+    std::vector<float>::insert<gsl::details::span_iterator<gsl::span<float const,-1>,0>,void>(v9, &v17, v11, &v15, &v16);
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 16);
     CResource::NotifyOnChanged((__int64)this, 6u, 0LL);
   }
   return v6;

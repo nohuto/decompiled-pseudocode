@@ -1,36 +1,37 @@
 /*
- * XREFs of ??_ECPrimitiveGroupDrawListBrush@@UEAAPEAXI@Z @ 0x1800116E0
+ * XREFs of ??_ECPrimitiveGroupDrawListBrush@@UEAAPEAXI@Z @ 0x180013050
  * Callers:
- *     ?GetBrushParameters@CPrimitiveGroupRenderStrategy@@UEBAJPEBVCSurfaceBrush@@PEAVCBrushDrawListGenerator@@@Z @ 0x18000FFB0 (-GetBrushParameters@CPrimitiveGroupRenderStrategy@@UEBAJPEBVCSurfaceBrush@@PEAVCBrushDrawListGen.c)
+ *     ?GetBrushParameters@CSurfaceBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x1800565B0 (-GetBrushParameters@CSurfaceBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z.c)
  * Callees:
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCPrimitiveGroupDrawListBrush@@@Z @ 0x180011848 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCPrimitiveGroupDrawListBrush@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801051B4 (-__global_delete@@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCPrimitiveGroupDrawListBrush@@@Z @ 0x1800131A8 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCPrimitiveGroupDrawListBrush@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1B00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 CPrimitiveGroupDrawListBrush *__fastcall CPrimitiveGroupDrawListBrush::`vector deleting destructor'(
         CPrimitiveGroupDrawListBrush *this,
-        char a2)
+        char a2,
+        unsigned int a3)
 {
-  struct CPrimitiveGroupDrawListBrush *v4; // rcx
+  struct CPrimitiveGroupDrawListBrush *v5; // rcx
   struct CObjectCache *ObjectCache; // rax
 
-  v4 = (struct CPrimitiveGroupDrawListBrush *)*((_QWORD *)this + 9);
-  if ( v4 )
+  v5 = (struct CPrimitiveGroupDrawListBrush *)*((_QWORD *)this + 9);
+  if ( v5 )
   {
     *((_QWORD *)this + 9) = 0LL;
-    (*(void (__fastcall **)(struct CPrimitiveGroupDrawListBrush *))(*(_QWORD *)v4 + 8LL))(v4);
+    (*(void (__fastcall **)(struct CPrimitiveGroupDrawListBrush *))(*(_QWORD *)v5 + 8LL))(v5);
   }
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
     {
-      __global_delete(this, 0x58uLL);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x58, a3);
     }
     else
     {
-      ObjectCache = CThreadContext::GetObjectCache(v4);
+      ObjectCache = CThreadContext::GetObjectCache(v5);
       if ( *((_DWORD *)ObjectCache + 1) >= *(_DWORD *)ObjectCache )
       {
         operator delete(this);

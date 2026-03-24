@@ -1,18 +1,18 @@
 /*
- * XREFs of KiIpiSendRequest @ 0x1400ED350
+ * XREFs of KiIpiSendRequest @ 0x1400ED370
  * Callers:
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
  *     KeFlushMultipleRangeTb @ 0x140075BB0 (KeFlushMultipleRangeTb.c)
- *     KiIpiSendPacket @ 0x1400ED0E4 (KiIpiSendPacket.c)
- *     KiIpiSendRequestEx @ 0x1400ED140 (KiIpiSendRequestEx.c)
- *     KxFlushNonGlobalTb @ 0x1400ED200 (KxFlushNonGlobalTb.c)
+ *     KiIpiSendPacket @ 0x1400ED104 (KiIpiSendPacket.c)
+ *     KiIpiSendRequestEx @ 0x1400ED160 (KiIpiSendRequestEx.c)
+ *     KxFlushNonGlobalTb @ 0x1400ED220 (KxFlushNonGlobalTb.c)
  * Callees:
  *     KeIsEmptyAffinityEx @ 0x140062160 (KeIsEmptyAffinityEx.c)
- *     KeSubtractAffinityEx @ 0x1400ED820 (KeSubtractAffinityEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeSubtractAffinityEx @ 0x1400ED840 (KeSubtractAffinityEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall KiIpiSendRequest(

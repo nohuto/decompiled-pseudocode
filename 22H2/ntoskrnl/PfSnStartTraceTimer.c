@@ -1,21 +1,21 @@
 /*
- * XREFs of PfSnStartTraceTimer @ 0x1402F5E88
+ * XREFs of PfSnStartTraceTimer @ 0x14026D848
  * Callers:
- *     PfSnBeginScenario @ 0x1407508D0 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x140630458 (PfSnBeginScenario.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PfSnStartTraceTimer(struct _EX_RUNDOWN_REF *a1)
 {
   struct _EX_RUNDOWN_REF *v1; // rbp
   struct _EX_RUNDOWN_REF *v2; // rbx
-  volatile signed __int64 *v3; // r14
+  KSPIN_LOCK *p_Count; // r14
   unsigned __int64 v4; // rsi
   unsigned int v5; // edi
   unsigned __int8 CurrentIrql; // al
@@ -26,9 +26,9 @@ __int64 __fastcall PfSnStartTraceTimer(struct _EX_RUNDOWN_REF *a1)
 
   v1 = a1 + 45;
   v2 = a1;
-  if ( ExAcquireRundownProtection_0(a1 + 45) )
+  if ( ExAcquireRundownProtection(a1 + 45) )
   {
-    v3 = (volatile signed __int64 *)&v2[34];
+    p_Count = &v2[34].Count;
     v4 = KeAcquireSpinLockRaiseToDpc(&v2[34].Count);
     if ( (v2[35].Count & 2) != 0 )
     {
@@ -44,24 +44,27 @@ __int64 __fastcall PfSnStartTraceTimer(struct _EX_RUNDOWN_REF *a1)
       v2 = 0LL;
       v5 = 0;
     }
-    KxReleaseSpinLock(v3);
+    KxReleaseSpinLock(p_Count);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-        v11 = (v10 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v10;
-        if ( v11 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+          v11 = (v10 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v10;
+          if ( v11 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v4);
     if ( v2 )
-      ExReleaseRundownProtection_0(v1);
+      ExReleaseRundownProtection(v1);
   }
   else
   {

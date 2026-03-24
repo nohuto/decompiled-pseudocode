@@ -1,5 +1,5 @@
 /*
- * XREFs of NtLoadEnclaveData @ 0x14085AFD0
+ * XREFs of NtLoadEnclaveData @ 0x14085AFB0
  * Callers:
  *     <none>
  * Callees:
@@ -11,17 +11,17 @@
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
  *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MmSizeOfMdl @ 0x14011A720 (MmSizeOfMdl.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MmSizeOfMdl @ 0x14011A740 (MmSizeOfMdl.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     DbgkMapViewOfSection @ 0x14067749C (DbgkMapViewOfSection.c)
- *     MiCopyPagesIntoEnclave @ 0x1408594AC (MiCopyPagesIntoEnclave.c)
- *     MiDereferenceEnclaveModule @ 0x14085A1CC (MiDereferenceEnclaveModule.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x14085A39C (MiLoadSectionIntoVsmEnclave.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     DbgkMapViewOfSection @ 0x14067747C (DbgkMapViewOfSection.c)
+ *     MiCopyPagesIntoEnclave @ 0x14085948C (MiCopyPagesIntoEnclave.c)
+ *     MiDereferenceEnclaveModule @ 0x14085A1AC (MiDereferenceEnclaveModule.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x14085A37C (MiLoadSectionIntoVsmEnclave.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtLoadEnclaveData(

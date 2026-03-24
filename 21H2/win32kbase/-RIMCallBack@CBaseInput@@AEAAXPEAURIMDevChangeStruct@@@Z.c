@@ -1,133 +1,111 @@
 /*
- * XREFs of ?RIMCallBack@CBaseInput@@AEAAXPEAURIMDevChangeStruct@@@Z @ 0x1C004894C
+ * XREFs of ?RIMCallBack@CBaseInput@@AEAAXPEAURIMDevChangeStruct@@@Z @ 0x1C00520AC
  * Callers:
- *     ?_RIMCallBack@CBaseInput@@CAXPEAURIMDevChangeStruct@@@Z @ 0x1C0048930 (-_RIMCallBack@CBaseInput@@CAXPEAURIMDevChangeStruct@@@Z.c)
+ *     ?_RIMCallBack@CBaseInput@@CAXPEAURIMDevChangeStruct@@@Z @ 0x1C0052090 (-_RIMCallBack@CBaseInput@@CAXPEAURIMDevChangeStruct@@@Z.c)
  * Callees:
- *     IsThreadCrossSessionAttached @ 0x1C0022CC0 (IsThreadCrossSessionAttached.c)
- *     W32GetThreadWin32Thread @ 0x1C0023390 (W32GetThreadWin32Thread.c)
- *     ?ExecutingOnSensorHostingThread@CBaseInput@@QEBA_NXZ @ 0x1C003C780 (-ExecutingOnSensorHostingThread@CBaseInput@@QEBA_NXZ.c)
- *     ?PerformPnpNotification@CBaseInput@@AEAAXPEBU_DevicePnpNotification@@@Z @ 0x1C0048B2C (-PerformPnpNotification@CBaseInput@@AEAAXPEBU_DevicePnpNotification@@@Z.c)
- *     _lambda_fd7880233c47f7262ae148d93969aca2_::operator() @ 0x1C0048D0C (_lambda_fd7880233c47f7262ae148d93969aca2_--operator().c)
- *     RIMHandleAnySignalledReadsOnDestroyed @ 0x1C0048F00 (RIMHandleAnySignalledReadsOnDestroyed.c)
- *     ?ApplyRimDevBackedDeviceSummaryInformation@CBaseInput@@AEAAXK@Z @ 0x1C004A36C (-ApplyRimDevBackedDeviceSummaryInformation@CBaseInput@@AEAAXK@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     ?ExecutingOnSensorHostingThread@CBaseInput@@QEBA_NXZ @ 0x1C0045494 (-ExecutingOnSensorHostingThread@CBaseInput@@QEBA_NXZ.c)
+ *     ?PerformPnpNotification@CBaseInput@@AEAAXPEBU_DevicePnpNotification@@@Z @ 0x1C005224C (-PerformPnpNotification@CBaseInput@@AEAAXPEBU_DevicePnpNotification@@@Z.c)
+ *     RIMHandleAnySignalledReadsOnDestroyed @ 0x1C0052E20 (RIMHandleAnySignalledReadsOnDestroyed.c)
+ *     ?ApplyRimDevBackedDeviceSummaryInformation@CBaseInput@@AEAAXK@Z @ 0x1C00B859C (-ApplyRimDevBackedDeviceSummaryInformation@CBaseInput@@AEAAXK@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CBaseInput::RIMCallBack(CBaseInput *this, struct RIMDevChangeStruct *a2)
 {
-  __int64 v3; // rbx
-  bool v5; // r12
-  bool v6; // r15
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  CBaseInput *v9; // rcx
-  __int64 v10; // r8
-  _QWORD *v11; // rsi
+  __int64 v2; // rsi
+  unsigned int v5; // edx
+  __int64 v6; // r15
+  char v7; // r14
+  __int64 v8; // rbx
+  int v9; // r15d
+  CBaseInput *v10; // rcx
+  int v11; // eax
   int v12; // eax
-  int v13; // r14d
-  int v14; // eax
-  _QWORD *v15; // rax
-  __int64 v16; // r8
-  int v17; // eax
-  _QWORD v18[2]; // [rsp+20h] [rbp-30h] BYREF
-  int v19; // [rsp+30h] [rbp-20h]
-  int v20; // [rsp+34h] [rbp-1Ch]
-  _QWORD v21[2]; // [rsp+38h] [rbp-18h] BYREF
-  int v22; // [rsp+48h] [rbp-8h]
-  int v23; // [rsp+4Ch] [rbp-4h]
-  CBaseInput *v24; // [rsp+88h] [rbp+38h] BYREF
+  _QWORD v13[2]; // [rsp+20h] [rbp-30h] BYREF
+  int v14; // [rsp+30h] [rbp-20h]
+  int v15; // [rsp+34h] [rbp-1Ch]
+  _QWORD v16[2]; // [rsp+38h] [rbp-18h] BYREF
+  int v17; // [rsp+48h] [rbp-8h]
+  int v18; // [rsp+4Ch] [rbp-4h]
 
-  v3 = *((_QWORD *)a2 + 3);
-  v5 = *((_DWORD *)a2 + 1) != 3;
-  v6 = IsThreadCrossSessionAttached();
+  v2 = *((_QWORD *)a2 + 3);
   RIMHandleAnySignalledReadsOnDestroyed(a2);
-  if ( v6 || !CBaseInput::ExecutingOnSensorHostingThread(this) )
+  v5 = *(_DWORD *)a2 - 1;
+  if ( v5 < 5 )
   {
-    v9 = (CBaseInput *)*(unsigned int *)a2;
+    v6 = 2LL * v5;
+    if ( *((_DWORD *)&off_1C020A840 + 4 * v5 + 2) != *(_DWORD *)a2 )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2111LL);
+    v7 = *((_DWORD *)a2 + 1) != 3;
+    if ( !CBaseInput::ExecutingOnSensorHostingThread(this) )
+    {
+      v12 = *(_DWORD *)a2;
+      if ( *(_DWORD *)a2 == 1 )
+      {
+        *(_DWORD *)(v2 + 272) |= 0x8000000u;
+        v7 = 0;
+      }
+      else
+      {
+        if ( v12 == 2 )
+          KeBugCheck(0x164u);
+        if ( (unsigned int)(v12 - 3) > 1 )
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2158LL);
+        v7 &= -(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) != 0);
+      }
+    }
+    if ( *(_DWORD *)a2 == 1 || ((v2 + 88) & -(__int64)(v2 != 0)) == 0 )
+      v8 = 0LL;
+    else
+      v8 = *(_QWORD *)((v2 + 88) & -(__int64)(v2 != 0));
+    RIMLockExclusive((__int64)&CBaseInput::_sLock);
+    v9 = ((__int64 (__fastcall *)(CBaseInput *, __int64))*(&off_1C020A840 + v6))(this, v2);
     if ( *(_DWORD *)a2 == 1 )
     {
-      v5 = 0;
-      *(_DWORD *)(v3 + 272) |= 0x20000000u;
-    }
-    else
-    {
-      if ( *(_DWORD *)a2 == 2 )
-        KeBugCheck(0x164u);
-      if ( (unsigned int)((_DWORD)v9 - 3) > 1 )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(v9, v7, v8);
-      if ( !W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) )
-        v5 = 0;
-    }
-  }
-  v10 = *(unsigned int *)a2;
-  v11 = 0LL;
-  v12 = *(_DWORD *)a2;
-  v24 = this;
-  v13 = 0;
-  v14 = v12 - 1;
-  if ( v14 )
-  {
-    if ( v14 == 1 )
-    {
-      if ( v3 )
-        v15 = (_QWORD *)(v3 + 88);
+      if ( v8 )
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2190LL);
+      if ( ((v2 + 88) & -(__int64)(v2 != 0)) != 0 )
+        v8 = *(_QWORD *)((v2 + 88) & -(__int64)(v2 != 0));
       else
-        v15 = 0LL;
-      v16 = 2LL;
-      if ( !*v15 )
+        v8 = 0LL;
+    }
+    qword_1C02554D8 = 0LL;
+    ExReleasePushLockExclusiveEx(&CBaseInput::_sLock, 0LL);
+    KeLeaveCriticalRegion();
+    if ( ((*(_DWORD *)a2 - 2) & 0xFFFFFFFD) == 0 )
+      CBaseInput::ApplyRimDevBackedDeviceSummaryInformation(v10, *((_DWORD *)a2 + 1));
+    if ( v7 )
+    {
+      if ( *((_DWORD *)a2 + 1) == 3 )
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2209LL);
+      v11 = *(_DWORD *)(v2 + 272);
+      if ( (v11 & 0x8000000) != 0 )
       {
-        lambda_fd7880233c47f7262ae148d93969aca2_::operator()(&v24, v3, 1LL);
-        v16 = *(unsigned int *)a2;
+        *(_DWORD *)(v2 + 272) = v11 & 0xF7FFFFFF;
+        if ( *(_DWORD *)a2 == 2 )
+        {
+          v13[1] = v8;
+          v13[0] = v2 + 88;
+          v14 = 0;
+          v15 = 1;
+          CBaseInput::PerformPnpNotification(this, (const struct _DevicePnpNotification *)v13);
+        }
+        else
+        {
+          v7 = 0;
+        }
       }
-      v13 = lambda_fd7880233c47f7262ae148d93969aca2_::operator()(&v24, v3, v16);
-LABEL_10:
-      if ( v3 )
-        v11 = (_QWORD *)(v3 + 88);
-      v11 = (_QWORD *)*v11;
-      goto LABEL_13;
-    }
-    if ( (*(_DWORD *)(v3 + 272) & 0x20000000) == 0 )
-    {
-      v11 = *(_QWORD **)(v3 + 88);
-      v13 = lambda_fd7880233c47f7262ae148d93969aca2_::operator()(&v24, v3, v10);
-    }
-  }
-  else
-  {
-    if ( !v6 )
-    {
-      v13 = lambda_fd7880233c47f7262ae148d93969aca2_::operator()(&v24, v3, 1LL);
-      if ( !v13 )
-        goto LABEL_13;
-      goto LABEL_10;
-    }
-    if ( (*(_DWORD *)(v3 + 272) & 0x2000) != 0 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v9, v7, v10);
-  }
-LABEL_13:
-  if ( ((*(_DWORD *)a2 - 2) & 0xFFFFFFFD) == 0 )
-    CBaseInput::ApplyRimDevBackedDeviceSummaryInformation(v9, *((_DWORD *)a2 + 1));
-  if ( v5 && v11 )
-  {
-    if ( *((_DWORD *)a2 + 1) == 3 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v9, v7, v10);
-    v17 = *(_DWORD *)(v3 + 272);
-    if ( (v17 & 0x20000000) == 0 )
-      goto LABEL_20;
-    *(_DWORD *)(v3 + 272) = v17 & 0xDFFFFFFF;
-    if ( *(_DWORD *)a2 == 2 )
-    {
-      v19 = 0;
-      v18[0] = v3 + 88;
-      v18[1] = v11;
-      v20 = 1;
-      CBaseInput::PerformPnpNotification(this, (const struct _DevicePnpNotification *)v18);
-LABEL_20:
-      v21[1] = v11;
-      v21[0] = v3 + 88;
-      v23 = *(_DWORD *)a2;
-      v22 = v13;
-      CBaseInput::PerformPnpNotification(this, (const struct _DevicePnpNotification *)v21);
+      if ( v7 )
+      {
+        v16[1] = v8;
+        v16[0] = v2 + 88;
+        v18 = *(_DWORD *)a2;
+        v17 = v9;
+        CBaseInput::PerformPnpNotification(this, (const struct _DevicePnpNotification *)v16);
+      }
     }
   }
 }

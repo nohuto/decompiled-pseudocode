@@ -1,8 +1,9 @@
 /*
- * XREFs of SepAdtIncorporatePerUserPolicy @ 0x1409CA3C4
+ * XREFs of SepAdtIncorporatePerUserPolicy @ 0x140920A8C
  * Callers:
- *     SepAdtAuditThisEventWithContext @ 0x140724320 (SepAdtAuditThisEventWithContext.c)
- *     SeAuditingWithTokenForSubcategory @ 0x14079D560 (SeAuditingWithTokenForSubcategory.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x140608730 (SeAuditingWithTokenForSubcategory.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x1406279F0 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +13,7 @@ _BYTE *__fastcall SepAdtIncorporatePerUserPolicy(unsigned int a1, char a2, char 
   _BYTE *result; // rax
   int v6; // r9d
 
-  if ( *(_BYTE *)(a4 + 118) == 2 )
+  if ( *(_BYTE *)(a4 + 119) == 2 )
   {
     result = (_BYTE *)((unsigned __int64)a1 >> 1);
     v6 = ((unsigned __int8)result[a4 + 88] >> (4 * (a1 & 1))) & 0xF;

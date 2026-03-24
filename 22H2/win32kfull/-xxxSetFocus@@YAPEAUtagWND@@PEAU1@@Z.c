@@ -1,239 +1,195 @@
 /*
- * XREFs of ?xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C004B2B0
+ * XREFs of ?xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0034370
  * Callers:
- *     ?xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z @ 0x1C000BB08 (-xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z.c)
- *     NtUserSetFocus @ 0x1C004B210 (NtUserSetFocus.c)
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00C4E00 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     ?xxxMoveFocusAway@@YAXPEBUtagWND@@@Z @ 0x1C00EB2AC (-xxxMoveFocusAway@@YAXPEBUtagWND@@@Z.c)
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
- *     ?xxxCloseApplication@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C02224C8 (-xxxCloseApplication@@YAXPEAUtagTHREADINFO@@@Z.c)
- *     xxxSBWndProc @ 0x1C022AA50 (xxxSBWndProc.c)
+ *     xxxMinMaximizeEx @ 0x1C002B69C (xxxMinMaximizeEx.c)
+ *     NtUserSetFocus @ 0x1C00342A0 (NtUserSetFocus.c)
+ *     ?xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z @ 0x1C00371DC (-xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
+ *     ?xxxMoveFocusAway@@YAXPEBUtagWND@@@Z @ 0x1C007E820 (-xxxMoveFocusAway@@YAXPEBUtagWND@@@Z.c)
+ *     ?xxxCloseApplication@WindowManagementExtended@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C0240A10 (-xxxCloseApplication@WindowManagementExtended@@YAXPEAUtagTHREADINFO@@@Z.c)
+ *     xxxSBWndProc @ 0x1C0245BA0 (xxxSBWndProc.c)
  * Callees:
- *     ?xxxForceForegroundWindowNoRestoreFocus@@YA_NPEAUtagWND@@W4SetForegroundBehaviors@@@Z @ 0x1C0013F78 (-xxxForceForegroundWindowNoRestoreFocus@@YA_NPEAUtagWND@@W4SetForegroundBehaviors@@@Z.c)
- *     _anonymous_namespace_::xxxSendFocusMessages @ 0x1C004B720 (_anonymous_namespace_--xxxSendFocusMessages.c)
- *     _anonymous_namespace_::FAllowForegroundActivate @ 0x1C005D604 (_anonymous_namespace_--FAllowForegroundActivate.c)
- *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C0065F18 (_anonymous_namespace_--xxxLocalActivateWindow.c)
- *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C00D3128 (-xxxCallHook@@YAHH_K_JH@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00E4E9C (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     ?IsComponentThreadOf@CoreWindowProp@@SAHPEBUtagTHREADINFO@@PEBUtagWND@@@Z @ 0x1C0220354 (-IsComponentThreadOf@CoreWindowProp@@SAHPEBUtagTHREADINFO@@PEBUtagWND@@@Z.c)
- *     ?IsHostThreadOf@CoreWindowProp@@SAHPEBUtagTHREADINFO@@PEBUtagWND@@@Z @ 0x1C02203C8 (-IsHostThreadOf@CoreWindowProp@@SAHPEBUtagTHREADINFO@@PEBUtagWND@@@Z.c)
+ *     _anonymous_namespace_::xxxSendFocusMessages @ 0x1C00346D4 (_anonymous_namespace_--xxxSendFocusMessages.c)
+ *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C0039E68 (_anonymous_namespace_--xxxLocalActivateWindow.c)
+ *     _anonymous_namespace_::FAllowForegroundActivate @ 0x1C003DA08 (_anonymous_namespace_--FAllowForegroundActivate.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C005B860 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C006B6A0 (-IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
+ *     ??$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z @ 0x1C006B6E8 (--$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     ?IsHostThreadOf@CoreWindowProp@@SAHPEBUtagTHREADINFO@@PEBUtagWND@@@Z @ 0x1C0122530 (-IsHostThreadOf@CoreWindowProp@@SAHPEBUtagTHREADINFO@@PEBUtagWND@@@Z.c)
+ *     ?xxxForceForegroundWindowNoRestoreFocus@@YA_NPEAUtagWND@@W4SetForegroundBehaviors@@@Z @ 0x1C01322A0 (-xxxForceForegroundWindowNoRestoreFocus@@YA_NPEAUtagWND@@W4SetForegroundBehaviors@@@Z.c)
  */
 
-struct tagWND *__fastcall xxxSetFocus(struct tagWND *a1, PDEVICE_OBJECT a2, __int64 a3)
+struct tagWND *__fastcall xxxSetFocus(struct tagWND *a1)
 {
-  __int64 v3; // rbx
-  __int64 v5; // rdi
-  __int64 v6; // r15
-  __int64 v7; // r8
-  __int64 *v8; // rcx
-  __int64 *v9; // rcx
-  __int64 v10; // rdx
-  __int64 v12; // rcx
-  struct tagWND *v13; // rsi
-  char v14; // cl
-  PDEVICE_OBJECT **v15; // r12
-  _DWORD *v16; // r13
-  struct tagWND *v17; // r14
-  PDEVICE_OBJECT v18; // rcx
-  __int64 v19; // rdx
+  __int64 v1; // rbx
+  __int64 v3; // rcx
+  struct tagWND *v4; // rsi
+  char v5; // cl
+  __int64 v6; // rax
+  struct tagWND *v7; // r14
+  __int64 v8; // rax
+  int v9; // edx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // r8
+  __int64 v14; // r8
+  __int64 v15; // rdx
+  __int64 v17; // r8
+  __int64 *v18; // rcx
+  __int64 v19; // rcx
   __int64 v20; // r8
-  __int64 v21; // rcx
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
+  __int64 *v21; // rcx
+  __int64 v22; // rcx
+  _QWORD *i; // rsi
+  const struct tagWND *v24; // rcx
   __int64 v25; // rcx
-  __int64 v26; // rdi
-  __int64 v27; // rdi
-  __int128 v28; // [rsp+50h] [rbp-48h] BYREF
-  __int64 v29; // [rsp+60h] [rbp-38h]
+  __int128 v26; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v27; // [rsp+40h] [rbp-28h]
+  __int64 v28; // [rsp+70h] [rbp+8h] BYREF
 
-  v3 = 0LL;
-  v28 = 0LL;
-  v5 = gptiCurrent;
-  v29 = 0LL;
-  v6 = gptiCurrent + 432LL;
-  if ( a1 )
+  v1 = 0LL;
+  v26 = 0LL;
+  v27 = 0LL;
+  if ( !a1 )
   {
-    if ( *(_QWORD *)(*((_QWORD *)a1 + 2) + 432LL) == *(_QWORD *)v6
-      || CoreWindowProp::IsHostThreadOf(gptiCurrent, a1)
-      || (unsigned int)CoreWindowProp::IsComponentThreadOf(gptiCurrent, a1) )
+    if ( ((*(_BYTE *)(gptiCurrent + 680LL) | *(_BYTE *)(**(_QWORD **)(gptiCurrent + 464LL) + 16LL)) & 0x40) != 0 )
     {
-      v13 = a1;
-      do
-      {
-        v14 = *(_BYTE *)(*((_QWORD *)v13 + 5) + 31LL);
-        if ( (v14 & 0x20) != 0 || (v14 & 8) != 0 )
-        {
-          v12 = 87LL;
-          goto LABEL_71;
-        }
-        if ( (v14 & 0xC0) != 0x40 )
-          break;
-        v13 = (struct tagWND *)*((_QWORD *)v13 + 13);
-      }
-      while ( v13 );
-      *(_QWORD *)&v28 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v28;
-      *((_QWORD *)&v28 + 1) = v13;
-      if ( v13 )
-        HMLockObject(v13);
-      v15 = (PDEVICE_OBJECT **)(gptiCurrent + 464LL);
-      v16 = (_DWORD *)(gptiCurrent + 680LL);
-      v17 = *(struct tagWND **)(*(_QWORD *)v6 + 120LL);
-      if ( a1 != v17 )
-      {
-        v18 = **v15;
-        v19 = (unsigned int)(*v16 | LODWORD(v18->NextDevice));
-        if ( ((*(_BYTE *)v16 | LOBYTE(v18->NextDevice)) & 0x40) != 0 )
-        {
-          v20 = 0LL;
-          if ( v17 )
-            v20 = *(_QWORD *)v17;
-          if ( (unsigned int)xxxCallHook(9, *(_QWORD *)a1, v20, 5) )
-          {
-            v21 = 5LL;
-LABEL_27:
-            UserSetLastError(v21);
-            ThreadUnlock1(v23, v22, v24);
-            return 0LL;
-          }
-        }
-        if ( v13 != *(struct tagWND **)(*(_QWORD *)v6 + 128LL) )
-        {
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-            || (LOBYTE(v19) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-          {
-            LOBYTE(v19) = 0;
-          }
-          if ( (_BYTE)v19 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v19,
-              a3,
-              (unsigned int)&WPP_RECORDER_INITIALIZED,
-              4,
-              2,
-              92,
-              (__int64)&WPP_998a63ff47c63414c5882e9b8cb70cf1_Traceguids);
-          }
-          if ( *(_QWORD *)v6 == gpqForeground )
-          {
-            v18 = WPP_GLOBAL_Control;
-            if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-              || (LOBYTE(v19) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-            {
-              LOBYTE(v19) = 0;
-            }
-            LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            if ( (_BYTE)v19 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              WPP_RECORDER_AND_TRACE_SF_(
-                WPP_GLOBAL_Control->AttachedDevice,
-                v19,
-                a3,
-                (unsigned int)&WPP_RECORDER_INITIALIZED,
-                4,
-                2,
-                93,
-                (__int64)&WPP_998a63ff47c63414c5882e9b8cb70cf1_Traceguids);
-            goto LABEL_55;
-          }
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-            || (LOBYTE(v19) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-          {
-            LOBYTE(v19) = 0;
-          }
-          LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          if ( (_BYTE)v19 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_AND_TRACE_SF_q(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v19,
-              a3,
-              94,
-              4,
-              2,
-              94,
-              (__int64)&WPP_998a63ff47c63414c5882e9b8cb70cf1_Traceguids,
-              *(_QWORD *)v13);
-          if ( (unsigned __int8)anonymous_namespace_::FAllowForegroundActivate(v13, v19, a3) )
-          {
-            if ( (*(_BYTE *)(*((_QWORD *)v13 + 5) + 31LL) & 0x10) == 0 )
-              *(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 12LL) |= 0x100u;
-            if ( !xxxForceForegroundWindowNoRestoreFocus((__int64)v13, 8LL, a3) )
-            {
-LABEL_57:
-              v21 = 87LL;
-              goto LABEL_27;
-            }
-          }
-LABEL_55:
-          if ( v13 != *(struct tagWND **)(*(_QWORD *)v6 + 128LL)
-            && !(unsigned __int8)anonymous_namespace_::xxxLocalActivateWindow(v13) )
-          {
-            goto LABEL_57;
-          }
-        }
-        v17 = *(struct tagWND **)(*(_QWORD *)v6 + 120LL);
-        ThreadUnlock1(v18, v19, a3);
-        *(_QWORD *)&v28 = *(_QWORD *)(gptiCurrent + 416LL);
-        *(_QWORD *)(gptiCurrent + 416LL) = &v28;
-        *((_QWORD *)&v28 + 1) = v17;
-        if ( v17 )
-          HMLockObject(v17);
-        anonymous_namespace_::xxxSendFocusMessages(gptiCurrent, a1);
-      }
-      v25 = *(_QWORD *)(*(_QWORD *)v6 + 120LL);
-      if ( v25 )
-        v5 = *(_QWORD *)(v25 + 16);
-      v26 = *(_QWORD *)(v5 + 440);
-      if ( v26 )
-      {
-        v27 = *(_QWORD *)(v26 + 40);
-        if ( *(_QWORD *)(SGDGetUserSessionState(v25) + 13928) != v27 )
-        {
-          a2 = **v15;
-          if ( ((*v16 | LODWORD(a2->NextDevice)) & 0x800) != 0 )
-          {
-            *(_QWORD *)(SGDGetUserSessionState(v25) + 13928) = v27;
-            xxxCallHook(8, 0LL, v27, 10);
-          }
-        }
-      }
-      if ( v17 )
-        v3 = *(_QWORD *)v17;
-      ThreadUnlock1(v25, a2, a3);
-      goto LABEL_9;
+      v20 = 0LL;
+      v21 = *(__int64 **)(*(_QWORD *)(gptiCurrent + 432LL) + 112LL);
+      if ( v21 )
+        v20 = *v21;
+      if ( (unsigned int)xxxCallHook(9, 0LL, v20, 5) )
+        return 0LL;
     }
-    v12 = 5LL;
-LABEL_71:
-    UserSetLastError(v12);
+    v18 = *(__int64 **)(*(_QWORD *)(gptiCurrent + 432LL) + 112LL);
+    if ( v18 )
+      v1 = *v18;
+    anonymous_namespace_::xxxSendFocusMessages(gptiCurrent, 0LL);
+LABEL_25:
+    LOBYTE(v15) = 1;
+    return (struct tagWND *)HMValidateHandleNoSecure(v1, v15);
   }
-  else
+  v3 = *((_QWORD *)a1 + 2);
+  if ( *(_QWORD *)(v3 + 432) != *(_QWORD *)(gptiCurrent + 432LL) && !CoreWindowProp::IsHostThreadOf(gptiCurrent, a1) )
   {
-    if ( ((*(_BYTE *)(gptiCurrent + 680LL) | *(_BYTE *)(**(_QWORD **)(gptiCurrent + 464LL) + 16LL)) & 0x40) == 0 )
-      goto LABEL_6;
-    v7 = 0LL;
-    v8 = *(__int64 **)(*(_QWORD *)v6 + 120LL);
-    if ( v8 )
-      v7 = *v8;
-    if ( !(unsigned int)xxxCallHook(9, 0LL, v7, 5) )
+    v28 = 0LL;
+    if ( (unsigned int)CWindowProp::GetProp<CoreWindowProp>(a1, &v28) )
     {
-LABEL_6:
-      v9 = *(__int64 **)(*(_QWORD *)v6 + 120LL);
-      if ( v9 )
-        v3 = *v9;
-      anonymous_namespace_::xxxSendFocusMessages(gptiCurrent, 0LL);
-LABEL_9:
-      LOBYTE(v10) = 1;
-      return (struct tagWND *)HMValidateHandleNoSecure(v3, v10);
+      for ( i = *(_QWORD **)(v28 + 32); i; i = (_QWORD *)*i )
+      {
+        v24 = (const struct tagWND *)i[1];
+        if ( v24 && (unsigned int)CoreWindowProp::IsComponent(v24) && gptiCurrent == *(_QWORD *)(i[1] + 16LL) )
+          goto LABEL_3;
+      }
     }
+    v19 = 5LL;
+LABEL_41:
+    UserSetLastError(v19);
+    return 0LL;
   }
+LABEL_3:
+  v4 = a1;
+  do
+  {
+    v5 = *(_BYTE *)(*((_QWORD *)v4 + 5) + 31LL);
+    if ( (v5 & 0x20) != 0 || (v5 & 8) != 0 )
+    {
+      v19 = 87LL;
+      goto LABEL_41;
+    }
+    LOBYTE(v3) = v5 & 0xC0;
+    if ( (_BYTE)v3 != 64 )
+      break;
+    v4 = (struct tagWND *)*((_QWORD *)v4 + 13);
+  }
+  while ( v4 );
+  *(_QWORD *)&v26 = *(_QWORD *)(gptiCurrent + 416LL);
+  *(_QWORD *)(gptiCurrent + 416LL) = &v26;
+  *((_QWORD *)&v26 + 1) = v4;
+  if ( v4 )
+    HMLockObject(v4);
+  v6 = *(_QWORD *)(gptiCurrent + 432LL);
+  v7 = *(struct tagWND **)(v6 + 112);
+  if ( a1 == v7 )
+  {
+LABEL_16:
+    v11 = *(_QWORD *)(v6 + 112);
+    if ( v11 )
+      v12 = *(_QWORD *)(v11 + 16);
+    else
+      v12 = gptiCurrent;
+    v13 = *(_QWORD *)(v12 + 440);
+    if ( v13 )
+    {
+      v14 = *(_QWORD *)(v13 + 40);
+      if ( gLCIDSentToShell != v14
+        && ((*(_DWORD *)(gptiCurrent + 680LL) | *(_DWORD *)(**(_QWORD **)(gptiCurrent + 464LL) + 16LL)) & 0x800) != 0 )
+      {
+        gLCIDSentToShell = v14;
+        xxxCallHook(8, 0LL, v14, 10);
+      }
+    }
+    if ( v7 )
+      v1 = *(_QWORD *)v7;
+    ThreadUnlock1(v3);
+    goto LABEL_25;
+  }
+  v8 = *(_QWORD *)(gptiCurrent + 464LL);
+  v9 = *(_DWORD *)(gptiCurrent + 680LL) | *(_DWORD *)(*(_QWORD *)v8 + 16LL);
+  if ( ((*(_BYTE *)(gptiCurrent + 680LL) | *(_BYTE *)(*(_QWORD *)v8 + 16LL)) & 0x40) == 0 )
+    goto LABEL_12;
+  v17 = 0LL;
+  if ( v7 )
+    v17 = *(_QWORD *)v7;
+  if ( !(unsigned int)xxxCallHook(9, *(_QWORD *)a1, v17, 5) )
+  {
+LABEL_12:
+    v10 = *(_QWORD *)(gptiCurrent + 432LL);
+    if ( v4 == *(struct tagWND **)(v10 + 120) )
+    {
+LABEL_13:
+      v7 = *(struct tagWND **)(*(_QWORD *)(gptiCurrent + 432LL) + 112LL);
+      ThreadUnlock1(v10);
+      *(_QWORD *)&v26 = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = &v26;
+      *((_QWORD *)&v26 + 1) = v7;
+      if ( v7 )
+        HMLockObject(v7);
+      anonymous_namespace_::xxxSendFocusMessages(gptiCurrent, a1);
+      v6 = *(_QWORD *)(gptiCurrent + 432LL);
+      goto LABEL_16;
+    }
+    if ( v10 == gpqForeground )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v9) = 4;
+        WPP_RECORDER_SF_(v10, v9, 2, 44, (__int64)&WPP_c5f688376d5d38c4c83ed2e0b189f019_Traceguids);
+      }
+    }
+    else if ( (unsigned __int8)anonymous_namespace_::FAllowForegroundActivate(v4) )
+    {
+      if ( (*(_BYTE *)(*((_QWORD *)v4 + 5) + 31LL) & 0x10) == 0 )
+        *(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 12LL) |= 0x100u;
+      if ( !(unsigned __int8)xxxForceForegroundWindowNoRestoreFocus(v4, 8LL) )
+        goto LABEL_51;
+    }
+    if ( v4 == *(struct tagWND **)(*(_QWORD *)(gptiCurrent + 432LL) + 120LL)
+      || (unsigned __int8)anonymous_namespace_::xxxLocalActivateWindow(v4) )
+    {
+      goto LABEL_13;
+    }
+LABEL_51:
+    v25 = 87LL;
+    goto LABEL_52;
+  }
+  v25 = 5LL;
+LABEL_52:
+  UserSetLastError(v25);
+  ThreadUnlock1(v22);
   return 0LL;
 }

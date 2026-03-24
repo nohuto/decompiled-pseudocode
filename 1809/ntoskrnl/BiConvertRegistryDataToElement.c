@@ -1,16 +1,16 @@
 /*
- * XREFs of BiConvertRegistryDataToElement @ 0x1407140E8
+ * XREFs of BiConvertRegistryDataToElement @ 0x1407140C8
  * Callers:
- *     BcdGetElementDataWithFlags @ 0x140713570 (BcdGetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x140713550 (BcdGetElementDataWithFlags.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140711BE4 (BiConvertBootEnvironmentDeviceToNt.c)
- *     BiResolveLocateDevice @ 0x1408F11E0 (BiResolveLocateDevice.c)
- *     BiConvertBootEnvironmentDeviceToQualifiedPartition @ 0x1408F14F8 (BiConvertBootEnvironmentDeviceToQualifiedPartition.c)
- *     BiConvertBootEnvironmentDeviceToUnknown @ 0x1408F15E8 (BiConvertBootEnvironmentDeviceToUnknown.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140711BC4 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiResolveLocateDevice @ 0x1408F11C0 (BiResolveLocateDevice.c)
+ *     BiConvertBootEnvironmentDeviceToQualifiedPartition @ 0x1408F14D8 (BiConvertBootEnvironmentDeviceToQualifiedPartition.c)
+ *     BiConvertBootEnvironmentDeviceToUnknown @ 0x1408F15C8 (BiConvertBootEnvironmentDeviceToUnknown.c)
  */
 
 __int64 __fastcall BiConvertRegistryDataToElement(

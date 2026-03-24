@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCompareKeysByName @ 0x14065C51C
+ * XREFs of CmpCompareKeysByName @ 0x140875D54
  * Callers:
- *     CmpKeyEnumStackAdvanceInternal @ 0x14065B994 (CmpKeyEnumStackAdvanceInternal.c)
- *     CmpKeyEnumStackEntryAdvance @ 0x14065BB1C (CmpKeyEnumStackEntryAdvance.c)
- *     CmpKeyEnumStackEntryBegin @ 0x14065BDD8 (CmpKeyEnumStackEntryBegin.c)
- *     CmpFindSubKeyByNumberFromMergedView @ 0x140916E20 (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmpKeyEnumStackAdvanceInternal @ 0x140729BBC (CmpKeyEnumStackAdvanceInternal.c)
+ *     CmpKeyEnumStackEntryBegin @ 0x140729E3C (CmpKeyEnumStackEntryBegin.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x140870448 (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmpKeyEnumStackEntryAdvance @ 0x14087A918 (CmpKeyEnumStackEntryAdvance.c)
  * Callees:
- *     CmpCompareTwoCompressedNames @ 0x14065C57C (CmpCompareTwoCompressedNames.c)
- *     CmpCompareUnicodeString @ 0x140717780 (CmpCompareUnicodeString.c)
- *     CmpCompareCompressedName @ 0x1407C45A0 (CmpCompareCompressedName.c)
+ *     CmpCompareCompressedName @ 0x1405EE720 (CmpCompareCompressedName.c)
+ *     CmpCompareUnicodeString @ 0x140672920 (CmpCompareUnicodeString.c)
+ *     CmpCompareTwoCompressedNames @ 0x140875E28 (CmpCompareTwoCompressedNames.c)
  */
 
 __int64 __fastcall CmpCompareKeysByName(__int64 a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall CmpCompareKeysByName(__int64 a1, __int64 a2)
   bool v4; // zf
   unsigned int v5; // eax
   __int64 v6; // rdx
-  __int64 v8; // r8
+  unsigned __int16 v8; // r8
   __int128 v9; // [rsp+20h] [rbp-20h] BYREF
   __int128 v10; // [rsp+30h] [rbp-10h] BYREF
 
@@ -32,16 +32,10 @@ __int64 __fastcall CmpCompareKeysByName(__int64 a1, __int64 a2)
     *((_QWORD *)&v10 + 1) = a1 + 76;
     if ( v3 )
     {
-      v8 = *(unsigned __int16 *)(a2 + 72);
+      v8 = *(_WORD *)(a2 + 72);
       LOWORD(v10) = *(_WORD *)(a1 + 72);
       WORD1(v10) = v10;
-      return ((__int64 (__fastcall *)(__int128 *, __int64, __int64, _QWORD, _QWORD, _QWORD))CmpCompareCompressedName)(
-               &v10,
-               a2 + 76,
-               v8,
-               0LL,
-               v9,
-               *((_QWORD *)&v9 + 1));
+      return CmpCompareCompressedName((__int64)&v10, (unsigned __int8 *)(a2 + 76), v8, 0);
     }
     else
     {
@@ -50,7 +44,7 @@ __int64 __fastcall CmpCompareKeysByName(__int64 a1, __int64 a2)
       LOWORD(v10) = *(_WORD *)(a1 + 72);
       WORD1(v10) = v10;
       *((_QWORD *)&v9 + 1) = a2 + 76;
-      return CmpCompareUnicodeString(&v10, &v9, 0LL);
+      return CmpCompareUnicodeString((__int64)&v10, (__int64)&v9, 0);
     }
   }
   else
@@ -59,18 +53,14 @@ __int64 __fastcall CmpCompareKeysByName(__int64 a1, __int64 a2)
     v6 = *(unsigned __int16 *)(a1 + 72);
     if ( v3 )
     {
-      return CmpCompareTwoCompressedNames(a1 + 76, v6, v2, v5, v9, *((_QWORD *)&v9 + 1), v10, *((_QWORD *)&v10 + 1));
+      return CmpCompareTwoCompressedNames(a1 + 76, v6, v2, v5);
     }
     else
     {
       *((_QWORD *)&v9 + 1) = v2;
       LOWORD(v9) = v5;
       WORD1(v9) = v5;
-      return (unsigned int)-((__int64 (__fastcall *)(__int128 *, __int64, _QWORD, _QWORD))CmpCompareCompressedName)(
-                              &v9,
-                              a1 + 76,
-                              (unsigned int)v6,
-                              0LL);
+      return (unsigned int)-CmpCompareCompressedName((__int64)&v9, (unsigned __int8 *)(a1 + 76), v6, 0);
     }
   }
 }

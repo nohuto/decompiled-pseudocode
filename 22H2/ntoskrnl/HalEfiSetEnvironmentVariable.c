@@ -1,28 +1,26 @@
 /*
- * XREFs of HalEfiSetEnvironmentVariable @ 0x14050CE9C
+ * XREFs of HalEfiSetEnvironmentVariable @ 0x1404C3B68
  * Callers:
- *     HalSetEnvironmentVariableEx @ 0x140504B70 (HalSetEnvironmentVariableEx.c)
+ *     HalSetEnvironmentVariableEx @ 0x1404BBCE0 (HalSetEnvironmentVariableEx.c)
  * Callees:
- *     HalpEfiDecrementEfiCall @ 0x14035E4B4 (HalpEfiDecrementEfiCall.c)
- *     HalpConvertEfiToNtStatus @ 0x14035E4DC (HalpConvertEfiToNtStatus.c)
- *     HalpEfiIncrementEfiCall @ 0x14035E510 (HalpEfiIncrementEfiCall.c)
- *     HalpEfiStartRuntimeCode @ 0x14035E538 (HalpEfiStartRuntimeCode.c)
+ *     HalpConvertEfiToNtStatus @ 0x1404C3EB4 (HalpConvertEfiToNtStatus.c)
+ *     HalpEfiStartRuntimeCode @ 0x1404C3EE8 (HalpEfiStartRuntimeCode.c)
  */
 
 __int64 __fastcall HalEfiSetEnvironmentVariable(__int64 a1)
 {
   unsigned int v2; // r10d
   __int64 v3; // r11
-  __int64 v4; // r8
+  __int64 v4; // rax
 
   if ( !HalEfiRuntimeServicesTable || !HalEfiRuntimeServicesTable[5] )
     return 3221225474LL;
-  HalpEfiIncrementEfiCall(&HalpEfiVariableCalls);
-  HalpEfiIncrementEfiCall(&HalpEfiVariableWrites);
-  HalpEfiStartRuntimeCode(0x20u);
-  ((void (__fastcall *)(__int64, __int64, _QWORD))HalEfiRuntimeServicesTable[5])(a1, v3, v2);
+  _InterlockedIncrement(&HalpEfiVariableCalls);
+  _InterlockedIncrement(&HalpEfiVariableWrites);
+  HalpEfiStartRuntimeCode(32LL);
+  v4 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD))HalEfiRuntimeServicesTable[5])(a1, v3, v2);
   _InterlockedAnd((volatile signed __int32 *)&KeGetPcr()->HalReserved[8], 0xFFFFFFDF);
-  HalpEfiDecrementEfiCall(&HalpEfiVariableWrites);
-  HalpEfiDecrementEfiCall(&HalpEfiVariableCalls);
+  _InterlockedDecrement(&HalpEfiVariableWrites);
+  _InterlockedDecrement(&HalpEfiVariableCalls);
   return HalpConvertEfiToNtStatus(v4);
 }

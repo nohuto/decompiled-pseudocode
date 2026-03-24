@@ -4,9 +4,9 @@
  *     PspCallProcessNotifyRoutines @ 0x1405F4C14 (PspCallProcessNotifyRoutines.c)
  *     PspCallThreadNotifyRoutines @ 0x1405F4F90 (PspCallThreadNotifyRoutines.c)
  *     PsCallImageNotifyRoutines @ 0x1405F50F0 (PsCallImageNotifyRoutines.c)
- *     PspSetCreateProcessNotifyRoutine @ 0x140748480 (PspSetCreateProcessNotifyRoutine.c)
- *     DbgkpLkmdFireCallbacks @ 0x140811C0C (DbgkpLkmdFireCallbacks.c)
- *     PsRemoveCreateThreadNotifyRoutine @ 0x14088C830 (PsRemoveCreateThreadNotifyRoutine.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140748460 (PspSetCreateProcessNotifyRoutine.c)
+ *     DbgkpLkmdFireCallbacks @ 0x140811BEC (DbgkpLkmdFireCallbacks.c)
+ *     PsRemoveCreateThreadNotifyRoutine @ 0x14088C810 (PsRemoveCreateThreadNotifyRoutine.c)
  * Callees:
  *     <none>
  */

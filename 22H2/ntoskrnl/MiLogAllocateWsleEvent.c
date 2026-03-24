@@ -1,18 +1,19 @@
 /*
- * XREFs of MiLogAllocateWsleEvent @ 0x14061C2C8
+ * XREFs of MiLogAllocateWsleEvent @ 0x140530478
  * Callers:
- *     MiAllocateWsle @ 0x14026B6B0 (MiAllocateWsle.c)
+ *     MiAllocateWsle @ 0x140211C80 (MiAllocateWsle.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     MiIdentifyPfnWrapper @ 0x14023CC20 (MiIdentifyPfnWrapper.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MiFillPageExtraInfo @ 0x14061C260 (MiFillPageExtraInfo.c)
+ *     MiIdentifyPfnWrapper @ 0x1402C9880 (MiIdentifyPfnWrapper.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F3F48 (MI_PFN_IS_PROTO.c)
+ *     MiFillPageExtraInfo @ 0x140530428 (MiFillPageExtraInfo.c)
  */
 
-__int64 __fastcall MiLogAllocateWsleEvent(__int64 a1, int a2, __int64 a3)
+void __fastcall MiLogAllocateWsleEvent(__int64 a1, int a2, __int64 a3, _DWORD *a4)
 {
-  __int16 v6; // ax
-  int v7; // ecx
+  unsigned __int16 v7; // ax
+  int v8; // ecx
   __int128 v9; // [rsp+30h] [rbp-48h] BYREF
   __int128 v10; // [rsp+40h] [rbp-38h] BYREF
   __int128 *v11; // [rsp+50h] [rbp-28h] BYREF
@@ -21,20 +22,20 @@ __int64 __fastcall MiLogAllocateWsleEvent(__int64 a1, int a2, __int64 a3)
 
   v9 = 0LL;
   v10 = 0LL;
-  MiIdentifyPfnWrapper(a1, (__int64)&v9);
-  if ( *(__int64 *)(a1 + 40) >= 0 )
+  MiIdentifyPfnWrapper(a1, (__int64)&v9, a3, a4);
+  if ( MI_PFN_IS_PROTO(a1) )
   {
-    v6 = 630;
-    v7 = 24;
+    MiFillPageExtraInfo((unsigned __int64 *)&v10 + 1, a2, a3);
+    v7 = 642;
+    v8 = 32;
   }
   else
   {
-    MiFillPageExtraInfo((unsigned __int64 *)&v10 + 1, a2, a3);
-    v6 = 642;
-    v7 = 32;
+    v7 = 630;
+    v8 = 24;
   }
   v13 = 0;
   v11 = &v9;
-  v12 = v7;
-  return EtwTraceKernelEvent((int)&v11, 1, 0x28000001u, v6, 289413892);
+  v12 = v8;
+  EtwTraceKernelEvent((__int64)&v11, 1u, 0x28000001u, v7, 0x11401B02u);
 }

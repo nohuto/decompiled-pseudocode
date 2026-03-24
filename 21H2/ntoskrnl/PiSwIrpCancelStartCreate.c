@@ -1,13 +1,13 @@
 /*
- * XREFs of PiSwIrpCancelStartCreate @ 0x140564310
+ * XREFs of PiSwIrpCancelStartCreate @ 0x14050FD70
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
  */
 
 void __fastcall PiSwIrpCancelStartCreate(__int64 a1, IRP *a2)
@@ -28,7 +28,7 @@ void __fastcall PiSwIrpCancelStartCreate(__int64 a1, IRP *a2)
     v3 = 1;
   }
   ExReleaseResourceLite(&PiSwLockObj);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v3 )
   {
     a2->IoStatus.Information = 0LL;

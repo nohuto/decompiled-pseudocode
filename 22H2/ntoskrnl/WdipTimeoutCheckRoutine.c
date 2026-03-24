@@ -1,17 +1,17 @@
 /*
- * XREFs of WdipTimeoutCheckRoutine @ 0x1407DADC0
+ * XREFs of WdipTimeoutCheckRoutine @ 0x140698FB0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ExSetTimer @ 0x14031DC10 (ExSetTimer.c)
- *     WdipSemMarkNextTimedOutInstanceForDeletion @ 0x1407DAE70 (WdipSemMarkNextTimedOutInstanceForDeletion.c)
- *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1407DAEF8 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
- *     WdipSemDeleteTransitionalInstance @ 0x1408318C0 (WdipSemDeleteTransitionalInstance.c)
- *     WdipSemDisableContextProviders @ 0x140831E8C (WdipSemDisableContextProviders.c)
- *     WdipSemLogTimeoutInformation @ 0x1409DE31C (WdipSemLogTimeoutInformation.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     ExSetTimer @ 0x140349080 (ExSetTimer.c)
+ *     WdipSemMarkNextTimedOutInstanceForDeletion @ 0x140699060 (WdipSemMarkNextTimedOutInstanceForDeletion.c)
+ *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1406990E8 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
+ *     WdipSemDeleteTransitionalInstance @ 0x140788620 (WdipSemDeleteTransitionalInstance.c)
+ *     WdipSemDisableContextProviders @ 0x140789800 (WdipSemDisableContextProviders.c)
+ *     WdipSemLogTimeoutInformation @ 0x140930500 (WdipSemLogTimeoutInformation.c)
  */
 
 _BOOL8 WdipTimeoutCheckRoutine()
@@ -46,7 +46,7 @@ _BOOL8 WdipTimeoutCheckRoutine()
     }
   }
   v3 = WdipSemOneSecond * (WdipSemTimeoutValue / 0xAu);
-  ExReleasePushLockEx((__int64 *)&WdipSemPushLock, 0LL);
+  ExReleasePushLockEx((ULONG_PTR)&WdipSemPushLock, 0LL);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return ExSetTimer(WdipTimeoutTimer, v3, 0LL, (__int64)&WdipTimeoutTimerParameters);
 }

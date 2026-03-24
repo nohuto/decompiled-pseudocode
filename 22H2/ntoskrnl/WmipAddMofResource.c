@@ -1,30 +1,30 @@
 /*
- * XREFs of WmipAddMofResource @ 0x1408111EC
+ * XREFs of WmipAddMofResource @ 0x1407BEADC
  * Callers:
- *     WmipAddDataSource @ 0x14086A5B0 (WmipAddDataSource.c)
- *     WmipInitializeDataStructs @ 0x140B3C6E4 (WmipInitializeDataStructs.c)
+ *     WmipAddDataSource @ 0x140756098 (WmipAddDataSource.c)
+ *     WmipInitializeDataStructs @ 0x140A69EBC (WmipInitializeDataStructs.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x14022B024 (RtlStringCbCopyW.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     WmipUnreferenceEntry @ 0x1406C7090 (WmipUnreferenceEntry.c)
- *     WmipFindMRByNames @ 0x1408113AC (WmipFindMRByNames.c)
- *     WmipInsertMofResource @ 0x140811474 (WmipInsertMofResource.c)
- *     WmipAllocEntry @ 0x14086B3D0 (WmipAllocEntry.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     RtlStringCbCopyW @ 0x14032E038 (RtlStringCbCopyW.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     WmipUnreferenceEntry @ 0x1406B23F8 (WmipUnreferenceEntry.c)
+ *     WmipAllocEntry @ 0x1407578B0 (WmipAllocEntry.c)
+ *     WmipInsertMofResource @ 0x1407BEC94 (WmipInsertMofResource.c)
+ *     WmipFindMRByNames @ 0x1407BED18 (WmipFindMRByNames.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipAddMofResource(__int64 a1, const wchar_t *a2, char a3, const wchar_t *a4, char *a5)
 {
   unsigned int inserted; // ebx
   __int64 MRByNames; // rdi
-  __int64 v11; // rax
-  char v12; // bp
-  __int64 v13; // rsi
+  _QWORD *v11; // rax
+  char v12; // si
+  __int64 v13; // rbp
   __int64 v14; // rax
-  size_t v15; // r13
-  size_t v16; // rsi
-  __int64 Pool2; // rax
+  SIZE_T v15; // r13
+  SIZE_T v16; // rbp
+  PVOID PoolWithTag; // rax
   wchar_t *v18; // rcx
   __int64 v19; // rax
   __int64 *v20; // rcx
@@ -37,28 +37,28 @@ __int64 __fastcall WmipAddMofResource(__int64 a1, const wchar_t *a2, char a3, co
   }
   else
   {
-    v11 = WmipAllocEntry(&WmipMRChunkInfo);
-    MRByNames = v11;
+    v11 = WmipAllocEntry((__int64)&WmipMRChunkInfo);
+    MRByNames = (__int64)v11;
     if ( !v11 )
       return (unsigned int)-1073741670;
     v12 = 1;
     if ( a3 )
-      *(_DWORD *)(v11 + 16) |= 1u;
+      *((_DWORD *)v11 + 4) |= 1u;
     v13 = -1LL;
     v14 = -1LL;
     do
       ++v14;
     while ( a2[v14] );
     v15 = 2 * v14 + 2;
-    *(_QWORD *)(MRByNames + 40) = ExAllocatePool2(256LL, v15, 1885957463LL);
+    *(_QWORD *)(MRByNames + 40) = ExAllocatePoolWithTag(PagedPool, v15, 0x70696D57u);
     do
       ++v13;
     while ( a4[v13] );
     v16 = 2 * v13 + 2;
-    Pool2 = ExAllocatePool2(256LL, v16, 1885957463LL);
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v16, 0x70696D57u);
     v18 = *(wchar_t **)(MRByNames + 40);
-    *(_QWORD *)(MRByNames + 48) = Pool2;
-    if ( !v18 || !Pool2 )
+    *(_QWORD *)(MRByNames + 48) = PoolWithTag;
+    if ( !v18 || !PoolWithTag )
     {
       inserted = -1073741670;
       goto LABEL_15;

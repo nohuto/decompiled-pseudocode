@@ -1,15 +1,16 @@
 /*
- * XREFs of UsbhGetSerialNumber @ 0x1C00500D4
+ * XREFs of UsbhGetSerialNumber @ 0x1C00516AC
  * Callers:
- *     UsbhSyncResetDeviceInternal @ 0x1C0003078 (UsbhSyncResetDeviceInternal.c)
- *     UsbhSetupDevice @ 0x1C0038CE8 (UsbhSetupDevice.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C00162A8 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhSetupDevice @ 0x1C0039FD8 (UsbhSetupDevice.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
- *     UsbhFreeID @ 0x1C004FAE8 (UsbhFreeID.c)
- *     UsbhValidateSerialNumberString @ 0x1C00526D8 (UsbhValidateSerialNumberString.c)
- *     UsbhValidateStringDescriptor @ 0x1C00527D4 (UsbhValidateStringDescriptor.c)
- *     UsbhGetStringFromDevice @ 0x1C0053F4C (UsbhGetStringFromDevice.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
+ *     UsbhFreeID @ 0x1C0051094 (UsbhFreeID.c)
+ *     UsbhValidateSerialNumberString @ 0x1C0053D28 (UsbhValidateSerialNumberString.c)
+ *     UsbhValidateStringDescriptor @ 0x1C0053E24 (UsbhValidateStringDescriptor.c)
+ *     UsbhGetStringFromDevice @ 0x1C00555D8 (UsbhGetStringFromDevice.c)
  */
 
 __int64 __fastcall UsbhGetSerialNumber(__int64 a1, __int64 a2, __int64 a3)
@@ -18,7 +19,7 @@ __int64 __fastcall UsbhGetSerialNumber(__int64 a1, __int64 a2, __int64 a3)
   int v5; // edi
   _DWORD *v6; // rax
   _DWORD *v7; // r15
-  __int64 Pool2; // rax
+  unsigned __int8 *PoolWithTag; // rax
   unsigned __int8 *v9; // r14
   int StringFromDevice; // eax
   int v11; // edi
@@ -44,19 +45,24 @@ __int64 __fastcall UsbhGetSerialNumber(__int64 a1, __int64 a2, __int64 a3)
   v7 = v6;
   if ( (v6[358] & 0x800) == 0 && *((_BYTE *)v6 + 1416) )
   {
-    Pool2 = ExAllocatePool2(64LL, 255LL, 1112885333LL);
+    PoolWithTag = (unsigned __int8 *)ExAllocatePoolWithTag(
+                                       SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory),
+                                       0xFFuLL,
+                                       0x42554855u);
+    v9 = PoolWithTag;
+    if ( PoolWithTag )
+      memset(PoolWithTag, 0, 0xFFuLL);
     LOBYTE(v27) = 0;
-    v9 = (unsigned __int8 *)Pool2;
-    if ( Pool2 )
+    if ( v9 )
     {
       v20 = *((_BYTE *)v7 + 1416);
       v23[0] = 255;
-      StringFromDevice = UsbhGetStringFromDevice(a1, v5, (unsigned int)&v24, Pool2, (__int64)v23, 1033, v20);
+      StringFromDevice = UsbhGetStringFromDevice(a1, v5, (unsigned int)&v24, (_DWORD)v9, (__int64)v23, 1033, v20);
       v25 = StringFromDevice;
       v11 = StringFromDevice;
       if ( (StringFromDevice & 0xC0000000) == 0xC0000000 )
       {
-        UsbhException(a1, *((_WORD *)v7 + 714), 0x59u, v9, v23[0], StringFromDevice, v24, usbfile_idstring_c, 1337, 0);
+        UsbhException(a1, *((_WORD *)v7 + 714), 0x59u, v9, v23[0], StringFromDevice, v24, usbfile_idstring_c, 1343, 0);
       }
       else
       {
@@ -76,7 +82,7 @@ __int64 __fastcall UsbhGetSerialNumber(__int64 a1, __int64 a2, __int64 a3)
             *(_QWORD *)(a3 + 8) = v9;
             if ( !(unsigned __int8)UsbhValidateSerialNumberString(a1, (__int64)&v27) )
             {
-              UsbhException(a1, *((_WORD *)v7 + 714), 0x25u, v9, v12, v18, v24, usbfile_idstring_c, 1402, 0);
+              UsbhException(a1, *((_WORD *)v7 + 714), 0x25u, v9, v12, v18, v24, usbfile_idstring_c, 1408, 0);
               UsbhFreeID(a3);
               if ( (_BYTE)v27 )
               {
@@ -87,13 +93,13 @@ __int64 __fastcall UsbhGetSerialNumber(__int64 a1, __int64 a2, __int64 a3)
             return v4;
           }
           v13 = 59;
-          v22 = 1423;
+          v22 = 1429;
           v21 = v24;
         }
         else
         {
           v13 = 38;
-          v22 = 1350;
+          v22 = 1356;
           v21 = v24;
         }
         UsbhException(a1, *((_WORD *)v7 + 714), v13, v9, v12, v11, v21, usbfile_idstring_c, v22, 0);

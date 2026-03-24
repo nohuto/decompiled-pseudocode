@@ -1,46 +1,44 @@
 /*
- * XREFs of NtGdiAbortPath @ 0x1C02C0AC0
+ * XREFs of NtGdiAbortPath @ 0x1C02ACFA0
  * Callers:
  *     <none>
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall NtGdiAbortPath(HDC a1)
 {
-  DC *v1; // rax
-  int v3; // ecx
-  _QWORD v4[2]; // [rsp+20h] [rbp-38h] BYREF
-  _BYTE v5[40]; // [rsp+30h] [rbp-28h] BYREF
+  DC *v1; // rcx
+  unsigned int v2; // ebx
+  int v3; // eax
+  _QWORD v5[2]; // [rsp+20h] [rbp-38h] BYREF
+  _BYTE v6[40]; // [rsp+30h] [rbp-28h] BYREF
 
-  DCOBJ::DCOBJ((DCOBJ *)v4, a1);
-  v1 = (DC *)v4[0];
-  if ( v4[0] )
+  DCOBJ::DCOBJ((DCOBJ *)v5, a1);
+  v1 = (DC *)v5[0];
+  v2 = 0;
+  if ( v5[0] )
   {
-    if ( *(_QWORD *)(v4[0] + 200LL) )
+    if ( *(_QWORD *)(v5[0] + 200LL) )
     {
-      v3 = *(_DWORD *)(v4[0] + 248LL);
+      v3 = *(_DWORD *)(v5[0] + 248LL);
       if ( (v3 & 2) != 0 )
       {
-        *(_DWORD *)(v4[0] + 248LL) = v3 & 0xFFFFFFFD;
-        v1 = (DC *)v4[0];
+        *(_DWORD *)(v5[0] + 248LL) = v3 & 0xFFFFFFFD;
+        v1 = (DC *)v5[0];
       }
       *((_DWORD *)v1 + 62) &= ~1u;
       DC::hpath(v1, 0LL);
-      v1 = (DC *)v4[0];
     }
-    if ( v1 )
-      XDCOBJ::vUnlockFast((XDCOBJ *)v4);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v5);
-    return 1LL;
+    v2 = 1;
   }
   else
   {
     EngSetLastError(6u);
-    DCOBJ::~DCOBJ((DCOBJ *)v4);
-    return 0LL;
   }
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v5);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v6);
+  return v2;
 }

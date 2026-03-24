@@ -1,36 +1,36 @@
 /*
- * XREFs of IopExecuteHardwareProfileChange @ 0x14095E13C
+ * XREFs of IopExecuteHardwareProfileChange @ 0x1408B8B44
  * Callers:
- *     PnpProfileUpdateHardwareProfile @ 0x14094F96C (PnpProfileUpdateHardwareProfile.c)
+ *     PnpProfileUpdateHardwareProfile @ 0x1408AB17C (PnpProfileUpdateHardwareProfile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlCompareUnicodeString @ 0x1407CAA80 (RtlCompareUnicodeString.c)
- *     CmSetAcpiHwProfile @ 0x140837F88 (CmSetAcpiHwProfile.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     CmSetAcpiHwProfile @ 0x1407A5908 (CmSetAcpiHwProfile.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopExecuteHardwareProfileChange(__int64 a1, PCWSTR *a2, unsigned int a3, HANDLE *a4, _BYTE *a5)
 {
-  __int64 v6; // r14
-  __int64 Pool2; // rax
+  __int64 v6; // rsi
+  UNICODE_STRING *PoolWithTag; // rax
   UNICODE_STRING *v8; // r15
   unsigned int v9; // ebx
   __int16 v10; // bp
   UNICODE_STRING *v11; // rbx
-  __int64 v12; // rsi
+  __int64 v12; // r14
   __int64 v13; // r12
   UNICODE_STRING *v14; // rdi
   __int64 v15; // r12
   UNICODE_STRING *v16; // rbx
   UNICODE_STRING v17; // xmm0
-  UNICODE_STRING *v18; // rcx
-  __int64 v19; // rdx
-  int v20; // esi
+  int v18; // r14d
+  UNICODE_STRING *v19; // rdx
+  __int64 v20; // r8
   int Length; // eax
-  unsigned int v22; // esi
-  __int64 v23; // rax
+  unsigned int v22; // r14d
+  unsigned __int16 *v23; // rax
   __int64 v24; // r8
   unsigned __int16 *v25; // rdi
   _WORD *v26; // r13
@@ -41,15 +41,15 @@ __int64 __fastcall IopExecuteHardwareProfileChange(__int64 a1, PCWSTR *a2, unsig
   UNICODE_STRING *v32; // [rsp+30h] [rbp-38h]
 
   v6 = a3;
-  Pool2 = ExAllocatePool2(64LL, 16 * a3, 863006288LL);
-  v32 = (UNICODE_STRING *)Pool2;
-  v8 = (UNICODE_STRING *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = (UNICODE_STRING *)ExAllocatePoolWithTag(NonPagedPoolNx, 16 * a3, 0x33706E50u);
+  v32 = PoolWithTag;
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
     v10 = 1;
     if ( (_DWORD)v6 )
     {
-      v11 = (UNICODE_STRING *)Pool2;
+      v11 = PoolWithTag;
       v12 = v6;
       v13 = v6;
       do
@@ -82,29 +82,28 @@ __int64 __fastcall IopExecuteHardwareProfileChange(__int64 a1, PCWSTR *a2, unsig
         --v12;
       }
       while ( v12 );
-      v18 = v8;
-      v19 = v6;
-      v20 = 0;
+    }
+    v18 = 0;
+    if ( (_DWORD)v6 )
+    {
+      v19 = v8;
+      v20 = v6;
       do
       {
-        Length = v18->Length;
-        ++v18;
-        v20 += Length;
-        --v19;
+        Length = v19->Length;
+        ++v19;
+        v18 += Length;
+        --v20;
       }
-      while ( v19 );
+      while ( v20 );
     }
-    else
-    {
-      v20 = 0;
-    }
-    v22 = v20 + 2;
-    v23 = ExAllocatePool2(64LL, v22 + 6LL, 863006288LL);
-    v25 = (unsigned __int16 *)v23;
+    v22 = v18 + 2;
+    v23 = (unsigned __int16 *)ExAllocatePoolWithTag(NonPagedPoolNx, v22 + 6LL, 0x33706E50u);
+    v25 = v23;
     if ( v23 )
     {
-      v26 = (_WORD *)(v23 + 4);
-      v27 = (_WORD *)(v23 + 4);
+      v26 = v23 + 2;
+      v27 = v23 + 2;
       if ( (_DWORD)v6 )
       {
         v28 = (const void **)v8;

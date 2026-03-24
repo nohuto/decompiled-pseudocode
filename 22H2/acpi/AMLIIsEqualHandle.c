@@ -1,10 +1,9 @@
 /*
- * XREFs of AMLIIsEqualHandle @ 0x1C00487B4
+ * XREFs of AMLIIsEqualHandle @ 0x1C0063534
  * Callers:
- *     ACPIBuildDevicePowerNodes @ 0x1C000C5A4 (ACPIBuildDevicePowerNodes.c)
- *     ACPIEcStartDevice @ 0x1C0025470 (ACPIEcStartDevice.c)
- *     CacheBBNResult @ 0x1C00349F8 (CacheBBNResult.c)
- *     GetCachedBBNResult @ 0x1C0034AEC (GetCachedBBNResult.c)
+ *     ACPIBuildDevicePowerNodes @ 0x1C0015E24 (ACPIBuildDevicePowerNodes.c)
+ *     CacheBBNResult @ 0x1C0031710 (CacheBBNResult.c)
+ *     ACPIEcStartDevice @ 0x1C00539F0 (ACPIEcStartDevice.c)
  * Callees:
  *     <none>
  */

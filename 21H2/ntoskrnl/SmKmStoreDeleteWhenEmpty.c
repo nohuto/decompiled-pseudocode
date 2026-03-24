@@ -1,21 +1,20 @@
 /*
- * XREFs of SmKmStoreDeleteWhenEmpty @ 0x14035F344
+ * XREFs of SmKmStoreDeleteWhenEmpty @ 0x1402CC1B8
  * Callers:
- *     ?SmFeEvictComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x14037A04C (-SmFeEvictComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z.c)
- *     SmpKeyedStoreCreate @ 0x1406ED260 (SmpKeyedStoreCreate.c)
- *     PspProcessDelete @ 0x1407E0F30 (PspProcessDelete.c)
+ *     ?SmFeEvictComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x1402D5268 (-SmFeEvictComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z.c)
+ *     SmpKeyedStoreCreate @ 0x140710B44 (SmpKeyedStoreCreate.c)
+ *     SmProcessDeleteNotification @ 0x140929A94 (SmProcessDeleteNotification.c)
  * Callees:
- *     ?StDmGetSpaceStats@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAK1@Z @ 0x140240FB0 (-StDmGetSpaceStats@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAK1@Z.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     SmKmStoreRefFromStoreIndex @ 0x14035F5E8 (SmKmStoreRefFromStoreIndex.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ?StDmGetSpaceStats@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAK1@Z @ 0x1402B9F40 (-StDmGetSpaceStats@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAK1@Z.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
  */
 
-__int64 __fastcall SmKmStoreDeleteWhenEmpty(__int64 a1, __int64 a2)
+__int64 __fastcall SmKmStoreDeleteWhenEmpty(__int64 a1, __int64 a2, __int64 a3)
 {
-  int v2; // r11d
-  unsigned int v3; // ebx
-  __int64 v6; // rax
+  __int64 v5; // rax
+  unsigned int v6; // ebx
   int v7; // r9d
   __int64 v9; // r10
   int v10; // r11d
@@ -27,19 +26,15 @@ __int64 __fastcall SmKmStoreDeleteWhenEmpty(__int64 a1, __int64 a2)
   int v16; // [rsp+A8h] [rbp+28h] BYREF
   int v17; // [rsp+B0h] [rbp+30h] BYREF
 
-  v2 = *(_DWORD *)(a2 + 6016);
-  v3 = 0;
-  WorkItem.List.Blink = 0LL;
-  BYTE3(Object) = 0;
-  v15 = 0;
-  v6 = SmKmStoreRefFromStoreIndex(a1, v2 & 0x3FF);
+  v5 = SmKmStoreRefFromStoreIndex(a1, *(_DWORD *)(a2 + 6016) & 0x3FF, a3, (unsigned int)a3);
+  v6 = 0;
   if ( v7 )
   {
-    _InterlockedOr8((volatile signed __int8 *)(v6 + 34), 1u);
+    _InterlockedOr8((volatile signed __int8 *)(v5 + 34), 1u);
   }
-  else if ( (*(_BYTE *)(v6 + 34) & 1) == 0 )
+  else if ( (*(_BYTE *)(v5 + 34) & 1) == 0 )
   {
-    return v3;
+    return v6;
   }
   v16 = 0;
   v17 = 0;
@@ -64,5 +59,5 @@ __int64 __fastcall SmKmStoreDeleteWhenEmpty(__int64 a1, __int64 a2)
       return 1;
     }
   }
-  return v3;
+  return v6;
 }

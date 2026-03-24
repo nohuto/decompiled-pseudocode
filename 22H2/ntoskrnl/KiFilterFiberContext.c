@@ -1,18 +1,18 @@
 /*
- * XREFs of KiFilterFiberContext @ 0x140B18C30
+ * XREFs of KiFilterFiberContext @ 0x140A1BBA0
  * Callers:
- *     KeInitAmd64SpecificState @ 0x140B739B0 (KeInitAmd64SpecificState.c)
+ *     KeInitAmd64SpecificState @ 0x140A5F0D4 (KeInitAmd64SpecificState.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExNotifyCallback @ 0x14033BD40 (ExNotifyCallback.c)
- *     ExInitializeNPagedLookasideList @ 0x1403C2C30 (ExInitializeNPagedLookasideList.c)
- *     KeExpandKernelStackAndCallout @ 0x1403D6280 (KeExpandKernelStackAndCallout.c)
- *     KdDisableDebugger @ 0x1405675B0 (KdDisableDebugger.c)
- *     KdEnableDebugger @ 0x1405677E0 (KdEnableDebugger.c)
- *     KeKeepData @ 0x14056B664 (KeKeepData.c)
- *     ExCreateCallback @ 0x1407DC8B0 (ExCreateCallback.c)
- *     ExFreePool @ 0x140AAFCC0 (ExFreePool.c)
- *     KiSwInterruptPresent @ 0x140B373F0 (KiSwInterruptPresent.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExNotifyCallback @ 0x140307D90 (ExNotifyCallback.c)
+ *     KeExpandKernelStackAndCallout @ 0x14032C5C0 (KeExpandKernelStackAndCallout.c)
+ *     ExInitializeNPagedLookasideList @ 0x14037A130 (ExInitializeNPagedLookasideList.c)
+ *     KdDisableDebugger @ 0x1403CF320 (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x140510C80 (KdEnableDebugger.c)
+ *     ExCreateCallback @ 0x1406A0050 (ExCreateCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     KiSwInterruptPresent @ 0x140A41820 (KiSwInterruptPresent.c)
+ *     KeKeepData @ 0x140A73BDC (KeKeepData.c)
  */
 
 _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
@@ -28,43 +28,44 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
   unsigned __int128 v10; // rax
   unsigned __int64 v11; // r15
   NTSTATUS v12; // eax
-  char v13; // r14
-  unsigned __int64 v14; // rax
-  unsigned __int128 v15; // rax
-  int v16; // r8d
-  unsigned __int64 v17; // rax
-  unsigned __int128 v18; // rax
-  NTSTATUS v19; // eax
-  char v20; // cl
-  int v21; // eax
-  int v22; // edx
-  NTSTATUS v23; // eax
-  char v24; // cl
-  int v25; // ecx
-  __int64 *v26; // rax
-  __int64 v27; // rdx
+  ULONG v13; // edx
+  char v14; // di
+  unsigned __int64 v15; // rax
+  unsigned __int128 v16; // rax
+  int v17; // r8d
+  unsigned __int64 v18; // rax
+  unsigned __int128 v19; // rax
+  NTSTATUS v20; // eax
+  char v21; // cl
+  int v22; // eax
+  int v23; // edx
+  NTSTATUS v24; // eax
+  char v25; // cl
+  int v26; // ecx
+  __int64 *v27; // rax
+  __int64 v28; // rdx
   _DWORD Parameter[4]; // [rsp+40h] [rbp-89h] BYREF
-  __int64 v30; // [rsp+50h] [rbp-79h]
-  int v31; // [rsp+58h] [rbp-71h]
-  char v32; // [rsp+5Ch] [rbp-6Dh]
-  _DWORD v33[4]; // [rsp+60h] [rbp-69h] BYREF
-  __int64 v34; // [rsp+70h] [rbp-59h]
-  int v35; // [rsp+78h] [rbp-51h]
-  char v36; // [rsp+7Ch] [rbp-4Dh]
-  _DWORD v37[4]; // [rsp+80h] [rbp-49h] BYREF
-  __int64 v38; // [rsp+90h] [rbp-39h]
-  int v39; // [rsp+98h] [rbp-31h]
-  char v40; // [rsp+9Ch] [rbp-2Dh]
-  __int64 v41; // [rsp+A0h] [rbp-29h]
-  __int64 v42; // [rsp+A8h] [rbp-21h]
+  __int64 v31; // [rsp+50h] [rbp-79h]
+  int v32; // [rsp+58h] [rbp-71h]
+  char v33; // [rsp+5Ch] [rbp-6Dh]
+  _DWORD v34[4]; // [rsp+60h] [rbp-69h] BYREF
+  __int64 v35; // [rsp+70h] [rbp-59h]
+  int v36; // [rsp+78h] [rbp-51h]
+  char v37; // [rsp+7Ch] [rbp-4Dh]
+  _DWORD v38[4]; // [rsp+80h] [rbp-49h] BYREF
+  __int64 v39; // [rsp+90h] [rbp-39h]
+  int v40; // [rsp+98h] [rbp-31h]
+  char v41; // [rsp+9Ch] [rbp-2Dh]
+  __int64 v42; // [rsp+A0h] [rbp-29h]
+  __int64 v43; // [rsp+A8h] [rbp-21h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B0h] [rbp-19h] BYREF
   PCALLBACK_OBJECT CallbackObject; // [rsp+130h] [rbp+67h] BYREF
-  __int64 v45; // [rsp+138h] [rbp+6Fh]
-  __int64 v46; // [rsp+140h] [rbp+77h]
-  __int64 v47; // [rsp+148h] [rbp+7Fh]
+  __int64 v46; // [rsp+138h] [rbp+6Fh]
+  __int64 v47; // [rsp+140h] [rbp+77h]
+  __int64 v48; // [rsp+148h] [rbp+7Fh]
 
   v2 = KdDisableDebugger();
-  KeKeepData();
+  KeKeepData(KiFilterFiberContext);
   _disable();
   if ( !(_BYTE)KdDebuggerNotPresent )
   {
@@ -74,9 +75,9 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
   _enable();
   v3 = __rdtsc();
   v4 = (__ROR8__(v3, 3) ^ v3) * (unsigned __int128)0x7010008004002001uLL;
-  v45 = *((_QWORD *)&v4 + 1);
+  v46 = *((_QWORD *)&v4 + 1);
   v5 = ((unsigned __int64)v4 ^ *((_QWORD *)&v4 + 1)) % 0xA;
-  if ( !*(_QWORD *)&MaxDataSize && !a1 && !__30 )
+  if ( !*(_QWORD *)&MaxDataSize && !a1 && !__32 )
   {
     if ( PsIntegrityCheckEnabled )
     {
@@ -87,122 +88,111 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
       if ( ExCreateCallback(&CallbackObject, &ObjectAttributes, 0, 0) >= 0 )
       {
-        ExNotifyCallback(CallbackObject, sub_1403E51E0, &__27);
-        ObfDereferenceObject(CallbackObject);
-        if ( __27 )
-          __30 = 1;
+        ExNotifyCallback(CallbackObject, sub_1403DD750, &__29);
+        HalPutDmaAdapter((PADAPTER_OBJECT)CallbackObject);
+        if ( __29 )
+          __32 = 1;
         ExInitializeNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&Lookaside, 0LL, 0LL, 0x200u, 0xAF0uLL, 0x746E494Bu, 0);
       }
     }
   }
   v6 = __rdtsc();
   v7 = (__ROR8__(v6, 3) ^ v6) * (unsigned __int128)0x7010008004002001uLL;
-  v46 = *((_QWORD *)&v7 + 1);
+  v47 = *((_QWORD *)&v7 + 1);
   v8 = v7;
   *(_QWORD *)&v7 = __rdtsc();
   v9 = v8 ^ *((_QWORD *)&v7 + 1);
   Parameter[2] = (v5 < 6) + 1;
-  v30 = a1;
-  v31 = 1;
-  v32 = 0;
+  v31 = a1;
+  v32 = 1;
+  v33 = 0;
   v10 = (__ROR8__(v7, 3) ^ (unsigned __int64)v7) * (unsigned __int128)0x7010008004002001uLL;
-  v47 = *((_QWORD *)&v10 + 1);
+  v48 = *((_QWORD *)&v10 + 1);
   v11 = ((unsigned __int64)v10 ^ *((_QWORD *)&v10 + 1)) % 6;
   Parameter[1] = v11;
   Parameter[0] = v9 % 0xD;
-  v12 = KeExpandKernelStackAndCallout(sub_140B35090, Parameter, 0xC000uLL);
-  v13 = v32;
+  v12 = KeExpandKernelStackAndCallout(sub_140A379E0, Parameter, 0xC000uLL);
+  v14 = v33;
   if ( v12 < 0 )
-    v13 = 0;
-  v32 = v13;
-  if ( v13 )
+    v14 = 0;
+  v33 = v14;
+  if ( v14 )
   {
-    if ( v5 >= 6 )
-      goto LABEL_21;
-    v14 = __rdtsc();
-    v15 = (__ROR8__(v14, 3) ^ v14) * (unsigned __int128)0x7010008004002001uLL;
-    v41 = *((_QWORD *)&v15 + 1);
-    v16 = ((unsigned __int64)v15 ^ *((_QWORD *)&v15 + 1)) % 0xD;
-    do
+    if ( v5 < 6 )
     {
-      v17 = __rdtsc();
-      v18 = (__ROR8__(v17, 3) ^ v17) * (unsigned __int128)0x7010008004002001uLL;
-      v42 = *((_QWORD *)&v18 + 1);
-    }
-    while ( (_DWORD)v11 && ((unsigned __int64)v18 ^ *((_QWORD *)&v18 + 1)) % 6 == (_DWORD)v11 );
-    v33[0] = v16;
-    v33[1] = ((unsigned __int64)v18 ^ *((_QWORD *)&v18 + 1)) % 6;
-    v33[2] = (v5 < 6) + 1;
-    v34 = a1;
-    v35 = 0;
-    v36 = 0;
-    v19 = KeExpandKernelStackAndCallout(sub_140B35090, v33, 0xC000uLL);
-    v20 = v36;
-    if ( v19 < 0 )
-      v20 = 0;
-    v36 = v20;
-    v13 = v20;
-    if ( v20 )
-    {
-LABEL_21:
-      if ( *(_QWORD *)&MaxDataSize )
-        goto LABEL_30;
-      if ( a1 )
-        goto LABEL_38;
-      if ( (int)KiSwInterruptPresent() < 0 && !__30 )
+      v15 = __rdtsc();
+      v16 = (__ROR8__(v15, 3) ^ v15) * (unsigned __int128)0x7010008004002001uLL;
+      v42 = *((_QWORD *)&v16 + 1);
+      v17 = ((unsigned __int64)v16 ^ *((_QWORD *)&v16 + 1)) % 0xD;
+      do
       {
-LABEL_31:
-        if ( qword_140D81650 )
-          ExFreePool(qword_140D81650);
-        v25 = 24;
-        v26 = &__28;
-        v27 = 3LL;
+        v18 = __rdtsc();
+        v19 = (__ROR8__(v18, 3) ^ v18) * (unsigned __int128)0x7010008004002001uLL;
+        v43 = *((_QWORD *)&v19 + 1);
+      }
+      while ( (_DWORD)v11 && ((unsigned __int64)v19 ^ *((_QWORD *)&v19 + 1)) % 6 == (_DWORD)v11 );
+      v34[0] = v17;
+      v34[1] = ((unsigned __int64)v19 ^ *((_QWORD *)&v19 + 1)) % 6;
+      v34[2] = (v5 < 6) + 1;
+      v35 = a1;
+      v36 = 0;
+      v37 = 0;
+      v20 = KeExpandKernelStackAndCallout(sub_140A379E0, v34, 0xC000uLL);
+      v21 = v37;
+      if ( v20 < 0 )
+        v21 = 0;
+      v37 = v21;
+      v14 = v21;
+    }
+    if ( v14 )
+    {
+      if ( !*(_QWORD *)&MaxDataSize && !a1 && ((int)KiSwInterruptPresent() >= 0 || __32) )
+      {
+        v38[0] = 0;
+        v38[1] = 7;
+        v38[2] = 1;
+        v39 = 0LL;
+        v22 = KiSwInterruptPresent();
+        v41 = 0;
+        v23 = 8;
+        if ( v22 >= 0 )
+          v23 = 0;
+        v40 = v23;
+        v24 = KeExpandKernelStackAndCallout(sub_140A379E0, v38, 0xC000uLL);
+        v25 = v41;
+        if ( v24 < 0 )
+          v25 = 0;
+        v41 = v25;
+        v14 = v25;
+      }
+      if ( v14 && !a1 )
+      {
+        if ( qword_140D58650 )
+          ExFreePoolWithTag(qword_140D58650, v13);
+        v26 = 24;
+        v27 = &__2a;
+        v28 = 3LL;
         do
         {
-          *v26 = 0LL;
-          v25 -= 8;
-          ++v26;
-          --v27;
+          *v27 = 0LL;
+          v26 -= 8;
+          ++v27;
+          --v28;
         }
-        while ( v27 );
-        for ( ; v25; --v25 )
+        while ( v28 );
+        for ( ; v26; --v26 )
         {
-          *(_BYTE *)v26 = 0;
-          v26 = (__int64 *)((char *)v26 + 1);
+          *(_BYTE *)v27 = 0;
+          v27 = (__int64 *)((char *)v27 + 1);
         }
-        __32 = 0;
-        __29 = 0;
-        __2a = 0LL;
-        dword_140C0E000 = 0;
-        qword_140D81080 = 0LL;
-        goto LABEL_38;
-      }
-      v37[0] = 0;
-      v37[1] = 7;
-      v37[2] = 1;
-      v38 = 0LL;
-      v21 = KiSwInterruptPresent();
-      v40 = 0;
-      v22 = 8;
-      if ( v21 >= 0 )
-        v22 = 0;
-      v39 = v22;
-      v23 = KeExpandKernelStackAndCallout(sub_140B35090, v37, 0xC000uLL);
-      v24 = v40;
-      if ( v23 < 0 )
-        v24 = 0;
-      v40 = v24;
-      v13 = v24;
-      if ( v24 )
-      {
-LABEL_30:
-        if ( a1 )
-          goto LABEL_38;
-        goto LABEL_31;
+        __20 = 0;
+        __2b = 0;
+        __2c = 0LL;
+        dword_140C13040 = 0;
+        qword_140D58080 = 0LL;
       }
     }
   }
-LABEL_38:
   _disable();
   if ( !(_BYTE)KdDebuggerNotPresent )
   {
@@ -214,5 +204,5 @@ LABEL_38:
   _enable();
   if ( v2 >= 0 )
     KdEnableDebugger();
-  return v13 != 0;
+  return v14 != 0;
 }

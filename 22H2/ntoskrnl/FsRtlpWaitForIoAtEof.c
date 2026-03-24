@@ -1,26 +1,26 @@
 /*
- * XREFs of FsRtlpWaitForIoAtEof @ 0x140304990
+ * XREFs of FsRtlpWaitForIoAtEof @ 0x1402EE2CC
  * Callers:
- *     FsRtlAcquireEofLock @ 0x140304790 (FsRtlAcquireEofLock.c)
- *     FsRtlGetIoAtEof @ 0x140304CB0 (FsRtlGetIoAtEof.c)
+ *     FsRtlGetIoAtEof @ 0x1402EE000 (FsRtlGetIoAtEof.c)
+ *     FsRtlAcquireEofLock @ 0x1402EE090 (FsRtlAcquireEofLock.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     FsRtlReleaseHeaderMutex @ 0x1402301C0 (FsRtlReleaseHeaderMutex.c)
- *     FsRtlAcquireHeaderMutex @ 0x140230240 (FsRtlAcquireHeaderMutex.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     PsGetIoPriorityThread @ 0x1402A8A90 (PsGetIoPriorityThread.c)
- *     KeQueryPriorityThread @ 0x140304B70 (KeQueryPriorityThread.c)
- *     KeSetPriorityBoost @ 0x140307860 (KeSetPriorityBoost.c)
- *     IoBoostThreadIoPriority @ 0x14031B140 (IoBoostThreadIoPriority.c)
+ *     KeSetPriorityBoost @ 0x14022F060 (KeSetPriorityBoost.c)
+ *     PsGetIoPriorityThread @ 0x140242180 (PsGetIoPriorityThread.c)
+ *     KeQueryPriorityThread @ 0x1402682A0 (KeQueryPriorityThread.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     FsRtlReleaseHeaderMutex @ 0x1402C9230 (FsRtlReleaseHeaderMutex.c)
+ *     FsRtlAcquireHeaderMutex @ 0x1402C9760 (FsRtlAcquireHeaderMutex.c)
+ *     PsBoostThreadIoEx @ 0x1402CDF90 (PsBoostThreadIoEx.c)
+ *     IoBoostThreadIoPriority @ 0x1402D8E10 (IoBoostThreadIoPriority.c)
  */
 
 char __fastcall FsRtlpWaitForIoAtEof(__int64 a1, volatile signed __int32 *a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // r15
-  struct _KTHREAD *v6; // r14
+  KSPIN_LOCK *v6; // r14
   int IoPriorityThread; // esi
   int v8; // eax
-  int v9; // r9d
+  int v9; // r8d
   KPRIORITY PriorityThread; // edi
   __int64 v11; // rdx
   __int64 v12; // r8
@@ -43,7 +43,7 @@ char __fastcall FsRtlpWaitForIoAtEof(__int64 a1, volatile signed __int32 *a2, __
   v20 = 0LL;
   v23 = 0;
   CurrentThread = KeGetCurrentThread();
-  v6 = *(struct _KTHREAD **)a1;
+  v6 = *(KSPIN_LOCK **)a1;
   IoPriorityThread = PsGetIoPriorityThread((__int64)CurrentThread);
   if ( IoPriorityThread >= 2 )
     IoPriorityThread = 2;
@@ -53,7 +53,7 @@ char __fastcall FsRtlpWaitForIoAtEof(__int64 a1, volatile signed __int32 *a2, __
     if ( v8 < v9 )
     {
       PsBoostThreadIoEx((__int64)v6, 0, 0, 0LL);
-      IoBoostThreadIoPriority(v6, (unsigned int)IoPriorityThread, 0LL);
+      IoBoostThreadIoPriority(v6, IoPriorityThread, 0);
       *(_BYTE *)(a1 + 36) = 1;
     }
   }
@@ -63,8 +63,8 @@ char __fastcall FsRtlpWaitForIoAtEof(__int64 a1, volatile signed __int32 *a2, __
   if ( PriorityThread > *(_DWORD *)(a1 + 32) )
   {
     *(_DWORD *)(a1 + 32) = PriorityThread;
-    if ( PriorityThread > KeQueryPriorityThread(v6) )
-      KeSetPriorityBoost(v6, (unsigned int)PriorityThread);
+    if ( PriorityThread > KeQueryPriorityThread((PKTHREAD)v6) )
+      KeSetPriorityBoost((__int64)v6, PriorityThread);
   }
   v11 = *(_QWORD *)(a1 + 16);
   v12 = a1 + 8;

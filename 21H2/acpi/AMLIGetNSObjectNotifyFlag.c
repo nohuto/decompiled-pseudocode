@@ -1,7 +1,7 @@
 /*
- * XREFs of AMLIGetNSObjectNotifyFlag @ 0x1C002BD04
+ * XREFs of AMLIGetNSObjectNotifyFlag @ 0x1C002D354
  * Callers:
- *     ACPIInternalNotifyAvailableDeviceObject @ 0x1C00A0270 (ACPIInternalNotifyAvailableDeviceObject.c)
+ *     ACPIInternalNotifyAvailableDeviceObject @ 0x1C00A2218 (ACPIInternalNotifyAvailableDeviceObject.c)
  * Callees:
  *     <none>
  */

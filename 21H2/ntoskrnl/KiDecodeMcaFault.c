@@ -1,26 +1,26 @@
 /*
- * XREFs of KiDecodeMcaFault @ 0x1403EB020
+ * XREFs of KiDecodeMcaFault @ 0x1403DBD40
  * Callers:
- *     KiMachineCheckControl @ 0x14042C490 (KiMachineCheckControl.c)
- *     $$11 @ 0x14042C4A0 ($$11.c)
- *     $$12 @ 0x14042C4B0 ($$12.c)
- *     $$13 @ 0x14042C4C0 ($$13.c)
- *     $$14 @ 0x14042C4D0 ($$14.c)
- *     $$15 @ 0x14042C4E0 ($$15.c)
- *     $$16 @ 0x14042C4F0 ($$16.c)
- *     $$17 @ 0x14042C500 ($$17.c)
- *     $$18 @ 0x14042C510 ($$18.c)
- *     $$19 @ 0x14042C520 ($$19.c)
- *     $$1a @ 0x14042C530 ($$1a.c)
- *     $$1b @ 0x14042C540 ($$1b.c)
- *     $$1c @ 0x14042C550 ($$1c.c)
- *     $$1d @ 0x14042C560 ($$1d.c)
- *     $$1e @ 0x14042C570 ($$1e.c)
- *     $$1f @ 0x14042C580 ($$1f.c)
+ *     KiMachineCheckControl @ 0x14040A410 (KiMachineCheckControl.c)
+ *     $$11 @ 0x14040A420 ($$11.c)
+ *     $$12 @ 0x14040A430 ($$12.c)
+ *     $$13 @ 0x14040A440 ($$13.c)
+ *     $$14 @ 0x14040A450 ($$14.c)
+ *     $$15 @ 0x14040A460 ($$15.c)
+ *     $$16 @ 0x14040A470 ($$16.c)
+ *     $$17 @ 0x14040A480 ($$17.c)
+ *     $$18 @ 0x14040A490 ($$18.c)
+ *     $$19 @ 0x14040A4A0 ($$19.c)
+ *     $$1a @ 0x14040A4B0 ($$1a.c)
+ *     $$1b @ 0x14040A4C0 ($$1b.c)
+ *     $$1c @ 0x14040A4D0 ($$1c.c)
+ *     $$1d @ 0x14040A4E0 ($$1d.c)
+ *     $$1e @ 0x14040A4F0 ($$1e.c)
+ *     $$1f @ 0x14040A500 ($$1f.c)
  * Callees:
- *     KeTestSpinLock @ 0x1402E2BE0 (KeTestSpinLock.c)
- *     FsRtlMdlReadCompleteDevEx @ 0x140AB9010 (FsRtlMdlReadCompleteDevEx.c)
- *     KeGuardDispatchICall @ 0x140AD23B0 (KeGuardDispatchICall.c)
+ *     KeTestSpinLock @ 0x14029DED0 (KeTestSpinLock.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x1409F8010 (FsRtlMdlReadCompleteDevEx.c)
+ *     KeGuardDispatchICall @ 0x140A11330 (KeGuardDispatchICall.c)
  */
 
 __int64 KiDecodeMcaFault()
@@ -39,12 +39,12 @@ __int64 KiDecodeMcaFault()
   bool v12; // zf
 
   CompleteDev = (_BYTE *)FsRtlMdlReadCompleteDevEx();
-  if ( !KeTestSpinLock((PKSPIN_LOCK)CompleteDev + 249) )
-    return (*((__int64 (__fastcall **)(_BYTE *, _QWORD))CompleteDev + 76))(CompleteDev + 1992, 0LL);
-  v2 = *((unsigned int *)CompleteDev + 491);
-  v3 = *((_QWORD *)CompleteDev + 242);
-  v4 = (__int64 (__fastcall *)(__int64, __int64, _QWORD, __int64))*((_QWORD *)CompleteDev + 30);
-  v5 = *((unsigned int *)CompleteDev + 486);
+  if ( !KeTestSpinLock((PKSPIN_LOCK)CompleteDev + 256) )
+    return (*((__int64 (__fastcall **)(_BYTE *, _QWORD))CompleteDev + 78))(CompleteDev + 2048, 0LL);
+  v2 = *((unsigned int *)CompleteDev + 505);
+  v3 = *((_QWORD *)CompleteDev + 249);
+  v4 = (__int64 (__fastcall *)(__int64, __int64, _QWORD, __int64))*((_QWORD *)CompleteDev + 32);
+  v5 = *((unsigned int *)CompleteDev + 500);
   if ( (unsigned int)v2 >= 8 )
   {
     v6 = (unsigned __int64)(unsigned int)v2 >> 3;

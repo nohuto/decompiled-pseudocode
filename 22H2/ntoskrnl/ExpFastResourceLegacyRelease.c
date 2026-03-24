@@ -1,80 +1,66 @@
 /*
- * XREFs of ExpFastResourceLegacyRelease @ 0x1403CA140
+ * XREFs of ExpFastResourceLegacyRelease @ 0x14038DDBC
  * Callers:
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     CcUnpinFileDataEx @ 0x14025D6F0 (CcUnpinFileDataEx.c)
- *     ExReleaseResourceForThreadLite @ 0x14025FC40 (ExReleaseResourceForThreadLite.c)
- *     ExReleaseResourceAndLeaveCriticalRegion @ 0x140260360 (ExReleaseResourceAndLeaveCriticalRegion.c)
- *     SeAccessCheckByType @ 0x1402B3A90 (SeAccessCheckByType.c)
- *     SepMandatoryIntegrityCheck @ 0x1402B5E70 (SepMandatoryIntegrityCheck.c)
+ *     CcUnpinFileDataEx @ 0x140274CB0 (CcUnpinFileDataEx.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExReleaseResourceAndLeaveCriticalRegion @ 0x1402CD780 (ExReleaseResourceAndLeaveCriticalRegion.c)
+ *     ExReleaseResourceForThreadLite @ 0x1402F1ED0 (ExReleaseResourceForThreadLite.c)
  * Callees:
- *     ExpFindFastOwnerEntryForThread @ 0x1403CA294 (ExpFindFastOwnerEntryForThread.c)
- *     ExReleaseFastResource @ 0x1403CA7F0 (ExReleaseFastResource.c)
- *     ExpFastResourceLegacyRelease2 @ 0x1404151E8 (ExpFastResourceLegacyRelease2.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExReleaseFastResource @ 0x14038E1F0 (ExReleaseFastResource.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x14038EFC0 (ExpFindFastOwnerEntryForThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall ExpFastResourceLegacyRelease(
-        ULONG_PTR BugCheckParameter1,
-        __int64 a2,
-        __int64 a3,
-        _DWORD *SchedulerAssist)
+void __fastcall ExpFastResourceLegacyRelease(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, __int64 a4)
 {
-  struct _KTHREAD *CurrentThread; // r11
-  unsigned __int8 CurrentIrql; // bl
-  int v7; // eax
+  struct _KTHREAD *CurrentThread; // rbp
+  unsigned __int8 CurrentIrql; // di
   __int64 FastOwnerEntryForThread; // rax
-  unsigned __int8 v9; // r9
-  __int64 v10; // r10
-  ULONG_PTR v11; // r11
-  void *v12; // rdi
-  unsigned __int8 v13; // al
+  unsigned __int8 v8; // r9
+  __int64 v9; // r11
+  void *v10; // rbx
+  _DWORD *SchedulerAssist; // r10
+  unsigned __int8 v12; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v15; // r8
-  int v16; // eax
-  bool v17; // zf
+  _DWORD *v14; // r8
+  int v15; // eax
+  bool v16; // zf
 
-  if ( FeatureFastResource2 )
+  CurrentThread = KeGetCurrentThread();
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(2uLL);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
-    ExpFastResourceLegacyRelease2(BugCheckParameter1);
+    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+    a4 = (-1 << (CurrentIrql + 1)) & 4u | SchedulerAssist[5];
+    SchedulerAssist[5] = a4;
   }
-  else
+  LOBYTE(a4) = 1;
+  FastOwnerEntryForThread = ExpFindFastOwnerEntryForThread(CurrentThread, BugCheckParameter1, 0LL, a4);
+  v10 = (void *)FastOwnerEntryForThread;
+  if ( !FastOwnerEntryForThread )
+    KeBugCheckEx(0xE3u, BugCheckParameter1, (ULONG_PTR)CurrentThread, 0LL, 0LL);
+  *(_BYTE *)(FastOwnerEntryForThread + 17) &= ~2u;
+  if ( KiIrqlFlags )
   {
-    CurrentThread = KeGetCurrentThread();
-    CurrentIrql = KeGetCurrentIrql();
-    __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( ((unsigned __int8)KiIrqlFlags & v8) != 0 )
     {
-      SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      v7 = 4;
-      if ( CurrentIrql != 2 )
-        v7 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v7;
-    }
-    LOBYTE(SchedulerAssist) = 1;
-    FastOwnerEntryForThread = ExpFindFastOwnerEntryForThread(CurrentThread, BugCheckParameter1, 0LL, SchedulerAssist);
-    v12 = (void *)FastOwnerEntryForThread;
-    if ( !FastOwnerEntryForThread )
-      KeBugCheckEx(0xE3u, BugCheckParameter1, v11, 0LL, 0LL);
-    *(_BYTE *)(FastOwnerEntryForThread + 17) &= ~2u;
-    if ( KiIrqlFlags )
-    {
-      v13 = KeGetCurrentIrql();
-      if ( ((unsigned __int8)KiIrqlFlags & v9) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+      v12 = KeGetCurrentIrql();
+      if ( v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v15 = CurrentPrcb->SchedulerAssist;
-        v16 = ~(unsigned __int16)(v10 << (CurrentIrql + 1));
-        v17 = (v16 & v15[5]) == 0;
-        v15[5] &= v16;
-        if ( v17 )
+        v14 = CurrentPrcb->SchedulerAssist;
+        v15 = ~(unsigned __int16)(v9 << (CurrentIrql + 1));
+        v16 = (v15 & v14[5]) == 0;
+        v14[5] &= v15;
+        if ( v16 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
-    __writecr8(CurrentIrql);
-    ExReleaseFastResource(BugCheckParameter1, (ULONG_PTR)v12);
-    ExFreePoolWithTag(v12, 0);
   }
+  __writecr8(CurrentIrql);
+  ExReleaseFastResource(BugCheckParameter1, (ULONG_PTR)v10);
+  ExFreePoolWithTag(v10, 0);
 }

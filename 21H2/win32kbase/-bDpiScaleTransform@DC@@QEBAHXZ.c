@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bDpiScaleTransform@DC@@QEBAHXZ @ 0x1C0031718
+ * XREFs of ?bDpiScaleTransform@DC@@QEBAHXZ @ 0x1C0023338
  * Callers:
- *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C002F130 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
- *     ?vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z @ 0x1C0031540 (-vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z.c)
- *     ?vUpdateWtoDXform@DC@@QEAAXXZ @ 0x1C0031740 (-vUpdateWtoDXform@DC@@QEAAXXZ.c)
- *     GreSetDCOrg @ 0x1C0092E00 (GreSetDCOrg.c)
- *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C0169B88 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
+ *     GreSetDCOrg @ 0x1C00214D0 (GreSetDCOrg.c)
+ *     ?vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z @ 0x1C0023160 (-vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z.c)
+ *     ?vUpdateWtoDXform@DC@@QEAAXXZ @ 0x1C0023360 (-vUpdateWtoDXform@DC@@QEAAXXZ.c)
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C0092720 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
+ *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C013C754 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

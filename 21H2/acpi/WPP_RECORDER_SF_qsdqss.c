@@ -1,13 +1,13 @@
 /*
- * XREFs of WPP_RECORDER_SF_qsdqss @ 0x1C0029A54
+ * XREFs of WPP_RECORDER_SF_qsdqss @ 0x1C002B5AC
  * Callers:
- *     ACPIBusIrpQueryDeviceRelations @ 0x1C008E540 (ACPIBusIrpQueryDeviceRelations.c)
- *     ACPIBusIrpQueryId @ 0x1C0093F10 (ACPIBusIrpQueryId.c)
- *     ACPIInternalDeviceQueryDeviceRelations @ 0x1C009F950 (ACPIInternalDeviceQueryDeviceRelations.c)
- *     ACPIDockIrpQueryDeviceRelations @ 0x1C00AA8A0 (ACPIDockIrpQueryDeviceRelations.c)
- *     ACPIDockIrpQueryID @ 0x1C00AACA0 (ACPIDockIrpQueryID.c)
+ *     ACPIBusIrpQueryDeviceRelations @ 0x1C008F4A0 (ACPIBusIrpQueryDeviceRelations.c)
+ *     ACPIBusIrpQueryId @ 0x1C008FF00 (ACPIBusIrpQueryId.c)
+ *     ACPIInternalDeviceQueryDeviceRelations @ 0x1C00A0BB0 (ACPIInternalDeviceQueryDeviceRelations.c)
+ *     ACPIDockIrpQueryDeviceRelations @ 0x1C00ABAE0 (ACPIDockIrpQueryDeviceRelations.c)
+ *     ACPIDockIrpQueryID @ 0x1C00ABF30 (ACPIDockIrpQueryID.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qsdqss(

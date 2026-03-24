@@ -1,66 +1,61 @@
 /*
- * XREFs of CMFCheckAccess @ 0x140A01994
+ * XREFs of CMFCheckAccess @ 0x1409582C4
  * Callers:
- *     NtMapCMFModule @ 0x140A032C0 (NtMapCMFModule.c)
+ *     NtMapCMFModule @ 0x140959B70 (NtMapCMFModule.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x140231630 (SeAccessCheck.c)
- *     SepDeleteAccessState @ 0x140232250 (SepDeleteAccessState.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeCreateAccessState @ 0x1406C2F10 (SeCreateAccessState.c)
- *     SeUnlockSubjectContext @ 0x1406C31E0 (SeUnlockSubjectContext.c)
- *     SeLockSubjectContext @ 0x1406C3220 (SeLockSubjectContext.c)
- *     SePrivilegeCheck @ 0x14072F320 (SePrivilegeCheck.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     SeAppendPrivileges @ 0x1407B6990 (SeAppendPrivileges.c)
- *     CMFCreateSecurityDescriptor @ 0x140A01BFC (CMFCreateSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SeAccessCheck @ 0x140206720 (SeAccessCheck.c)
+ *     SepDeleteAccessState @ 0x140345670 (SepDeleteAccessState.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SeAppendPrivileges @ 0x1405D9A40 (SeAppendPrivileges.c)
+ *     SeLockSubjectContext @ 0x140643550 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1406435B0 (SeUnlockSubjectContext.c)
+ *     RtlMapGenericMask @ 0x1406505C0 (RtlMapGenericMask.c)
+ *     SePrivilegeCheck @ 0x1406CDD00 (SePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessState @ 0x1406DA670 (SeCreateAccessState.c)
+ *     CMFCreateSecurityDescriptor @ 0x140958514 (CMFCreateSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall CMFCheckAccess(__int64 a1, int a2, KPROCESSOR_MODE a3)
+__int64 __fastcall CMFCheckAccess(__int64 a1, ACCESS_MASK a2, KPROCESSOR_MODE a3)
 {
-  unsigned int v6; // edi
-  unsigned __int64 v7; // rdx
+  unsigned int v5; // ebx
   GENERIC_MAPPING *GenericMapping; // rsi
-  int v9; // ebx
-  BOOLEAN v10; // al
-  BOOLEAN v11; // r14
+  ACCESS_MASK v7; // edi
+  BOOLEAN v8; // al
+  BOOLEAN v9; // r14
   ACCESS_MASK GrantedAccess; // [rsp+50h] [rbp-B0h] BYREF
   PVOID P; // [rsp+58h] [rbp-A8h] BYREF
-  NTSTATUS AccessStatus; // [rsp+60h] [rbp-A0h] BYREF
-  PPRIVILEGE_SET Privileges; // [rsp+68h] [rbp-98h] BYREF
-  struct _PRIVILEGE_SET RequiredPrivileges; // [rsp+78h] [rbp-88h] BYREF
-  struct _ACCESS_STATE AccessState; // [rsp+90h] [rbp-70h] BYREF
-  _BYTE v19[224]; // [rsp+130h] [rbp+30h] BYREF
+  ACCESS_MASK AccessMask; // [rsp+60h] [rbp-A0h] BYREF
+  NTSTATUS AccessStatus; // [rsp+68h] [rbp-98h] BYREF
+  PPRIVILEGE_SET Privileges; // [rsp+70h] [rbp-90h] BYREF
+  struct _PRIVILEGE_SET RequiredPrivileges; // [rsp+80h] [rbp-80h] BYREF
+  struct _ACCESS_STATE AccessState; // [rsp+A0h] [rbp-60h] BYREF
+  _BYTE v18[224]; // [rsp+140h] [rbp+40h] BYREF
 
+  AccessMask = a2;
   memset(&AccessState, 0, sizeof(AccessState));
-  memset(v19, 0, sizeof(v19));
+  memset(v18, 0, sizeof(v18));
   Privileges = 0LL;
   if ( a1 )
   {
-    v7 = (unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8);
-    GenericMapping = (GENERIC_MAPPING *)(ObTypeIndexTable[v7] + 76);
-    if ( a2 < 0 )
-      a2 |= GenericMapping->GenericRead;
-    if ( (a2 & 0x40000000) != 0 )
-      a2 |= *(_DWORD *)(ObTypeIndexTable[v7] + 80);
-    if ( (a2 & 0x20000000) != 0 )
-      a2 |= *(_DWORD *)(ObTypeIndexTable[v7] + 84);
-    if ( (a2 & 0x10000000) != 0 )
-      a2 |= *(_DWORD *)(ObTypeIndexTable[v7] + 88);
-    v9 = a2 & 0xFFFFFFF;
+    GenericMapping = (GENERIC_MAPPING *)(ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8)]
+                                       + 76);
+    RtlMapGenericMask(&AccessMask, GenericMapping);
     if ( !CMFSecurityDescriptor )
     {
       P = 0LL;
-      v6 = CMFCreateSecurityDescriptor(&P, GenericMapping);
-      if ( (v6 & 0xC0000000) == 0xC0000000 )
-        return v6;
+      v5 = CMFCreateSecurityDescriptor(&P, GenericMapping);
+      if ( (v5 & 0xC0000000) == 0xC0000000 )
+        return v5;
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CMFSecurityDescriptor, (signed __int64)P, 0LL) )
         ExFreePoolWithTag(P, 0);
     }
-    v6 = SeCreateAccessState((int)&AccessState, (int)v19, v9, (__int64)GenericMapping);
-    if ( (v6 & 0xC0000000) != 0xC0000000 )
+    v7 = AccessMask;
+    v5 = SeCreateAccessState((int)&AccessState, (int)v18, AccessMask, (__int64)GenericMapping);
+    if ( (v5 & 0xC0000000) != 0xC0000000 )
     {
       SeLockSubjectContext(&AccessState.SubjectSecurityContext);
       RequiredPrivileges.Control = 0;
@@ -68,27 +63,27 @@ __int64 __fastcall CMFCheckAccess(__int64 a1, int a2, KPROCESSOR_MODE a3)
       P = (PVOID)18;
       RequiredPrivileges.Privilege[0].Luid = (LUID)18LL;
       RequiredPrivileges.PrivilegeCount = 1;
-      v10 = SePrivilegeCheck(&RequiredPrivileges, &AccessState.SubjectSecurityContext, a3);
+      v8 = SePrivilegeCheck(&RequiredPrivileges, &AccessState.SubjectSecurityContext, a3);
       AccessStatus = 0;
-      v11 = v10;
+      v9 = v8;
       GrantedAccess = 0;
-      if ( v10 )
+      if ( v8 )
       {
-        GrantedAccess = v9;
+        GrantedAccess = v7;
       }
       else
       {
-        v11 = SeAccessCheck(
-                CMFSecurityDescriptor,
-                &AccessState.SubjectSecurityContext,
-                1u,
-                v9,
-                0,
-                &Privileges,
-                GenericMapping,
-                a3,
-                &GrantedAccess,
-                &AccessStatus);
+        v9 = SeAccessCheck(
+               CMFSecurityDescriptor,
+               &AccessState.SubjectSecurityContext,
+               1u,
+               v7,
+               0,
+               &Privileges,
+               GenericMapping,
+               a3,
+               &GrantedAccess,
+               &AccessStatus);
         if ( Privileges )
         {
           SeAppendPrivileges(&AccessState, Privileges);
@@ -96,13 +91,13 @@ __int64 __fastcall CMFCheckAccess(__int64 a1, int a2, KPROCESSOR_MODE a3)
         }
       }
       SeUnlockSubjectContext(&AccessState.SubjectSecurityContext);
-      v6 = AccessStatus;
+      v5 = AccessStatus;
       if ( (AccessStatus & 0xC0000000) != 0xC0000000 )
       {
-        if ( !v11 || (~GrantedAccess & v9) != 0 )
-          v6 = -1073741790;
+        if ( !v9 || (~GrantedAccess & v7) != 0 )
+          v5 = -1073741790;
         else
-          v6 = 0;
+          v5 = 0;
       }
       SepDeleteAccessState((__int64)&AccessState);
       SeReleaseSubjectContext(&AccessState.SubjectSecurityContext);
@@ -112,5 +107,5 @@ __int64 __fastcall CMFCheckAccess(__int64 a1, int a2, KPROCESSOR_MODE a3)
   {
     return (unsigned int)-1073741811;
   }
-  return v6;
+  return v5;
 }

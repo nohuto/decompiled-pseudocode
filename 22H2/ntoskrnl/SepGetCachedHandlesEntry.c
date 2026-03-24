@@ -1,41 +1,34 @@
 /*
- * XREFs of SepGetCachedHandlesEntry @ 0x1407F4CCC
+ * XREFs of SepGetCachedHandlesEntry @ 0x14070EF64
  * Callers:
- *     SepSetTokenCachedHandles @ 0x1407F4B10 (SepSetTokenCachedHandles.c)
+ *     SepSetTokenCachedHandles @ 0x14070EDA4 (SepSetTokenCachedHandles.c)
  * Callees:
- *     RtlInsertEntryHashTable @ 0x1402266A0 (RtlInsertEntryHashTable.c)
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
- *     RtlGetNextEntryHashTable @ 0x140337E80 (RtlGetNextEntryHashTable.c)
- *     RtlLookupEntryHashTable @ 0x140370A30 (RtlLookupEntryHashTable.c)
- *     RtlHashUnicodeString @ 0x1406D94E0 (RtlHashUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     SepAllocateAndInitializeCachedHandleEntry @ 0x1407F510C (SepAllocateAndInitializeCachedHandleEntry.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInsertEntryHashTable @ 0x140250E50 (RtlInsertEntryHashTable.c)
+ *     RtlHashUnicodeString @ 0x1406AFA80 (RtlHashUnicodeString.c)
+ *     SepFindMatchingCachedHandlesEntry @ 0x14070F048 (SepFindMatchingCachedHandlesEntry.c)
+ *     SepAllocateAndInitializeCachedHandleEntry @ 0x1407109EC (SepAllocateAndInitializeCachedHandleEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall SepGetCachedHandlesEntry(__int64 a1, int *a2, _BYTE *a3, _QWORD *a4)
+__int64 __fastcall SepGetCachedHandlesEntry(__int64 a1, int *a2, _BYTE *a3, PRTL_DYNAMIC_HASH_TABLE_ENTRY *a4)
 {
-  struct _RTL_DYNAMIC_HASH_TABLE *v4; // r12
+  struct _RTL_DYNAMIC_HASH_TABLE *v4; // rbp
   unsigned int v5; // ebx
   int v6; // ecx
-  ULONG_PTR v10; // rbp
+  ULONG_PTR v10; // rsi
   __int64 v11; // rcx
   __int64 v12; // rax
   __int64 v13; // rdx
-  PRTL_DYNAMIC_HASH_TABLE_ENTRY v14; // r15
-  char v15; // si
-  PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
-  __int64 v17; // rdx
   __int64 result; // rax
-  PRTL_DYNAMIC_HASH_TABLE_ENTRY v19; // rdi
-  int v20; // ecx
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-58h] BYREF
-  ULONG HashValue; // [rsp+80h] [rbp+8h] BYREF
-  PRTL_DYNAMIC_HASH_TABLE_ENTRY Entry; // [rsp+88h] [rbp+10h] BYREF
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY v15; // rdi
+  ULONG HashValue; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v17; // [rsp+58h] [rbp+10h]
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY Entry; // [rsp+60h] [rbp+18h] BYREF
 
   v4 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(a1 + 8);
   v5 = 0;
   v6 = *a2;
+  v17 = 0LL;
   Entry = 0LL;
   HashValue = 0;
   v10 = 0LL;
@@ -57,51 +50,28 @@ __int64 __fastcall SepGetCachedHandlesEntry(__int64 a1, int *a2, _BYTE *a3, _QWO
       v10 = *(unsigned int *)(v11 + 4 * v12 + 8);
   }
   *a3 = 0;
-  v14 = 0LL;
-  memset(&Context, 0, sizeof(Context));
-  v15 = 0;
-  for ( i = RtlLookupEntryHashTable(v4, v10, &Context); i; i = RtlGetNextEntryHashTable(v4, &Context) )
-  {
-    v20 = *a2;
-    v14 = i;
-    if ( *a2 == LODWORD(i[1].Linkage.Blink) )
-    {
-      if ( v20 )
-      {
-        if ( v20 == 1 && RtlEqualUnicodeString((PCUNICODE_STRING)(a2 + 2), (PCUNICODE_STRING)&i[1].Signature, 1u) )
-          v15 = 1;
-      }
-      else if ( RtlEqualSid(*((PSID *)a2 + 1), (PSID)i[1].Signature) )
-      {
-        v15 = 1;
-        break;
-      }
-      if ( v15 )
-        break;
-    }
-  }
-  v17 = (unsigned __int64)v14 & -(__int64)(v15 != 0);
+  SepFindMatchingCachedHandlesEntry(v4);
   if ( v17 )
   {
     if ( _InterlockedIncrement64((volatile signed __int64 *)(v17 + 24)) <= 1 )
       __fastfail(0xEu);
-    *a3 = 1;
+    *a4 = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)v17;
     result = 0LL;
-    *a4 = v17;
+    *a3 = 1;
   }
   else
   {
     result = SepAllocateAndInitializeCachedHandleEntry(a2, &Entry);
     if ( (int)result >= 0 )
     {
-      v19 = Entry;
+      v15 = Entry;
       if ( RtlInsertEntryHashTable(v4, Entry, v10, 0LL) )
       {
-        *a4 = v19;
+        *a4 = v15;
       }
       else
       {
-        ExFreePoolWithTag(v19, 0);
+        ExFreePoolWithTag(v15, 0);
         return (unsigned int)-1073741670;
       }
       return v5;

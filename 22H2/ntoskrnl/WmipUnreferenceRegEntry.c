@@ -1,19 +1,19 @@
 /*
- * XREFs of WmipUnreferenceRegEntry @ 0x14022AAD4
+ * XREFs of WmipUnreferenceRegEntry @ 0x14032E244
  * Callers:
- *     WmipDeregisterRegEntry @ 0x1403D4480 (WmipDeregisterRegEntry.c)
- *     WmipForwardWmiIrp @ 0x1406C7530 (WmipForwardWmiIrp.c)
- *     WmipQueryWmiDataBlock @ 0x1407ABB30 (WmipQueryWmiDataBlock.c)
- *     IoWMISystemControl @ 0x1407E3064 (IoWMISystemControl.c)
- *     WmipFreeTraceDeviceList @ 0x14084A218 (WmipFreeTraceDeviceList.c)
- *     WmipEventNotification @ 0x140856900 (WmipEventNotification.c)
- *     WmipUpdateRegistration @ 0x140863464 (WmipUpdateRegistration.c)
- *     IoWMIRegistrationControl @ 0x14086C380 (IoWMIRegistrationControl.c)
- *     WmipRegisterDevice @ 0x14086C458 (WmipRegisterDevice.c)
- *     WmipRegistrationWorker @ 0x14086F590 (WmipRegistrationWorker.c)
- *     WmipDeregisterDevice @ 0x140882A38 (WmipDeregisterDevice.c)
+ *     WmipDeregisterRegEntry @ 0x140371974 (WmipDeregisterRegEntry.c)
+ *     WmipQueryWmiDataBlock @ 0x14065F9D0 (WmipQueryWmiDataBlock.c)
+ *     IoWMISystemControl @ 0x1406A25F4 (IoWMISystemControl.c)
+ *     WmipForwardWmiIrp @ 0x1406B24CC (WmipForwardWmiIrp.c)
+ *     WmipUpdateRegistration @ 0x140752FAC (WmipUpdateRegistration.c)
+ *     WmipDeregisterDevice @ 0x140754674 (WmipDeregisterDevice.c)
+ *     IoWMIRegistrationControl @ 0x140754720 (IoWMIRegistrationControl.c)
+ *     WmipRegisterDevice @ 0x1407547F8 (WmipRegisterDevice.c)
+ *     WmipEventNotification @ 0x140755D00 (WmipEventNotification.c)
+ *     WmipRegistrationWorker @ 0x14076C580 (WmipRegistrationWorker.c)
+ *     WmipFreeTraceDeviceList @ 0x1407C1DA0 (WmipFreeTraceDeviceList.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
  */
 
 LONG __fastcall WmipUnreferenceRegEntry(__int64 a1)

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDecommitPages @ 0x1402FD5FC
+ * XREFs of RtlpHpLfhSubsegmentDecommitPages @ 0x1402FD6FC
  * Callers:
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x1400BEE10 (RtlpHpLfhSubsegmentFreeBlock.c)
- *     RtlpHpLfhOwnerCompact @ 0x1401B65D0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x1400BEE30 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpLfhOwnerCompact @ 0x1401B65F0 (RtlpHpLfhOwnerCompact.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -15,14 +15,14 @@
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     RtlpHpAcquireLockExclusive @ 0x1400BC480 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlpHpLfhSubsegmentFindEmptyUnits @ 0x14010E8B0 (RtlpHpLfhSubsegmentFindEmptyUnits.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x1402FD530 (RtlpHpLfhSubsegmentDecBlockCounts.c)
- *     RtlpHpScheduleCompaction @ 0x14031EDB4 (RtlpHpScheduleCompaction.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpLfhSubsegmentFindEmptyUnits @ 0x14010E8D0 (RtlpHpLfhSubsegmentFindEmptyUnits.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x1402FD630 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     RtlpHpScheduleCompaction @ 0x14031EEB4 (RtlpHpScheduleCompaction.c)
  */
 
 unsigned __int64 __fastcall RtlpHpLfhSubsegmentDecommitPages(__int64 a1, __int64 a2, int a3, unsigned int a4, char a5)

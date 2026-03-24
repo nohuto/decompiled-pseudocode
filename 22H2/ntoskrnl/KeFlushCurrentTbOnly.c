@@ -1,36 +1,40 @@
 /*
- * XREFs of KeFlushCurrentTbOnly @ 0x14038A330
+ * XREFs of KeFlushCurrentTbOnly @ 0x1403B6E38
  * Callers:
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     MiAgeWorkingSetTail @ 0x140334210 (MiAgeWorkingSetTail.c)
- *     MiConvertHiberPhasePages @ 0x140AAC12C (MiConvertHiberPhasePages.c)
- *     MiInitNucleus @ 0x140B44F88 (MiInitNucleus.c)
- *     MiInitSystem @ 0x140B47C18 (MiInitSystem.c)
- *     MiZeroBootMappings @ 0x140B5AD24 (MiZeroBootMappings.c)
+ *     MiAgeWorkingSetTail @ 0x14022DDD0 (MiAgeWorkingSetTail.c)
+ *     MiDeleteVaTail @ 0x1402BB1C0 (MiDeleteVaTail.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
+ *     MiConvertHiberPhasePages @ 0x140995708 (MiConvertHiberPhasePages.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiZeroBootMappings @ 0x140A5661C (MiZeroBootMappings.c)
+ *     MiInitializePfnsForValidMappings @ 0x140A5668C (MiInitializePfnsForValidMappings.c)
  * Callees:
- *     KiFlushCurrentTbOnly @ 0x1403BDCC0 (KiFlushCurrentTbOnly.c)
- *     HvlFlushAddressSpaceTb @ 0x1403CB938 (HvlFlushAddressSpaceTb.c)
- *     KiPrepareFlushParameters @ 0x1403CE3EC (KiPrepareFlushParameters.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiIsFlushEntire @ 0x14045FF3C (KiIsFlushEntire.c)
- *     KiPrepareFlushCurrentAffinity @ 0x1405721B4 (KiPrepareFlushCurrentAffinity.c)
+ *     HvlFlushAddressSpaceTb @ 0x14038FCEC (HvlFlushAddressSpaceTb.c)
+ *     KiPrepareFlushParameters @ 0x14039062C (KiPrepareFlushParameters.c)
+ *     KiFlushCurrentTbOnly @ 0x140396D7C (KiFlushCurrentTbOnly.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KiIsFlushEntire @ 0x1405199CC (KiIsFlushEntire.c)
+ *     KiPrepareFlushCurrentAffinity @ 0x140519A04 (KiPrepareFlushCurrentAffinity.c)
  */
 
-__int64 __fastcall KeFlushCurrentTbOnly(unsigned int a1)
+struct _KTHREAD *__fastcall KeFlushCurrentTbOnly(unsigned int a1)
 {
+  __int64 v2; // rdx
   __int64 v3; // r8
-  _BYTE v4[8]; // [rsp+20h] [rbp-138h] BYREF
-  __int64 v5; // [rsp+28h] [rbp-130h] BYREF
-  _BYTE v6[272]; // [rsp+30h] [rbp-128h] BYREF
+  __int64 v4; // r9
+  __int64 v6; // r8
+  char v7[8]; // [rsp+20h] [rbp-D8h] BYREF
+  __int64 v8; // [rsp+28h] [rbp-D0h] BYREF
+  _BYTE v9[176]; // [rsp+30h] [rbp-C8h] BYREF
 
-  v5 = 0LL;
-  memset(v6, 0, 0x108uLL);
-  v4[0] = 0;
+  v8 = 0LL;
+  memset(v9, 0, 0xA8uLL);
+  v7[0] = 0;
   if ( (HvlEnlightenments & 0x800000) == 0 || (HvlEnlightenments & 2) == 0 && !(unsigned __int8)KiIsFlushEntire(a1) )
-    return KiFlushCurrentTbOnly(a1);
-  KiPrepareFlushParameters(a1, &v5, v4);
-  KiPrepareFlushCurrentAffinity(v6);
-  LOBYTE(v3) = v4[0];
-  return HvlFlushAddressSpaceTb(v5, v6, v3);
+    return KiFlushCurrentTbOnly(a1, v2, v3, v4);
+  KiPrepareFlushParameters(a1, (unsigned __int64 *)&v8, v7);
+  KiPrepareFlushCurrentAffinity(v9);
+  LOBYTE(v6) = v7[0];
+  return (struct _KTHREAD *)HvlFlushAddressSpaceTb(v8, (__int64)v9, v6);
 }

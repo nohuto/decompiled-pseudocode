@@ -1,12 +1,12 @@
 /*
- * XREFs of ?HMDoubleFree@@YAXPEAX@Z @ 0x1C012C740
+ * XREFs of ?HMDoubleFree@@YAXPEAX@Z @ 0x1C0113CA0
  * Callers:
- *     <none>
+ *     HMFreeObject @ 0x1C0009390 (HMFreeObject.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall __noreturn HMDoubleFree(ULONG_PTR BugCheckParameter2)
 {
-  KeBugCheckEx(0x164u, 0x1BuLL, BugCheckParameter2, 0LL, 0LL);
+  KeBugCheckEx(0x137u, 0LL, BugCheckParameter2, 0LL, 0LL);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of imp_WdfDeviceEnqueueRequest @ 0x1C0008F10
+ * XREFs of imp_WdfDeviceEnqueueRequest @ 0x1C0007A30
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0005DAC (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
- *     ?EnqueueRequest@FxPkgIo@@QEAAJPEAVFxDevice@@PEAVFxRequest@@@Z @ 0x1C0009010 (-EnqueueRequest@FxPkgIo@@QEAAJPEAVFxDevice@@PEAVFxRequest@@@Z.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0003F34 (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
+ *     ?EnqueueRequest@FxPkgIo@@QEAAJPEAVFxDevice@@PEAVFxRequest@@@Z @ 0x1C0007B30 (-EnqueueRequest@FxPkgIo@@QEAAJPEAVFxDevice@@PEAVFxRequest@@@Z.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
  */
 
 int __fastcall imp_WdfDeviceEnqueueRequest(
@@ -18,7 +18,7 @@ int __fastcall imp_WdfDeviceEnqueueRequest(
   FxDevice *v7; // rdi
   FxDevice *v8; // rcx
   _FX_DRIVER_GLOBALS *m_Globals; // r12
-  FxRequest *v10; // r10
+  FxRequest *v10; // rcx
   FxDevice *pDevice; // [rsp+68h] [rbp+10h] BYREF
   FxRequest *pRequest; // [rsp+78h] [rbp+20h] BYREF
 
@@ -26,7 +26,7 @@ int __fastcall imp_WdfDeviceEnqueueRequest(
   pDevice = 0LL;
   pRequest = 0LL;
   if ( !Device )
-    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], WDF_INVALID_HANDLE, 0LL, 0x1002uLL);
+    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, WDF_INVALID_HANDLE, 0LL, 0x1002uLL);
   LOWORD(Offset) = 0;
   v7 = (FxDevice *)(~Device & 0xFFFFFFFFFFFFFFF8uLL);
   v8 = v7;

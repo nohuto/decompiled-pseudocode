@@ -1,79 +1,76 @@
 /*
- * XREFs of DxgkCheckDisplayState @ 0x1C02F0140
+ * XREFs of DxgkCheckDisplayState @ 0x1C02BBFA0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C0027574 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
- *     ??0DISPLAYSTATECHECKER@@QEAA@XZ @ 0x1C004D018 (--0DISPLAYSTATECHECKER@@QEAA@XZ.c)
- *     DpiTryLidStateRecovery @ 0x1C005F948 (DpiTryLidStateRecovery.c)
- *     ?CheckPrimaryContentState@DISPLAYSTATECHECKER@@QEAAJXZ @ 0x1C02ED8D8 (-CheckPrimaryContentState@DISPLAYSTATECHECKER@@QEAAJXZ.c)
- *     ?Initialize@DISPLAYSTATECHECKER@@QEAAJW4_D3DKMT_BLACK_SCREEN_DETECTION_TRIGGER@@HPEBDU_GUID@@@Z @ 0x1C02EF308 (-Initialize@DISPLAYSTATECHECKER@@QEAAJW4_D3DKMT_BLACK_SCREEN_DETECTION_TRIGGER@@HPEBDU_GUID@@@Z.c)
- *     ?LogAllDisplayDiagInfo@DISPLAYSTATECHECKER@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02EF7B8 (-LogAllDisplayDiagInfo@DISPLAYSTATECHECKER@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     ?NeedLidStateRecovery@DISPLAYSTATECHECKER@@QEAA_NXZ @ 0x1C02F00E8 (-NeedLidStateRecovery@DISPLAYSTATECHECKER@@QEAA_NXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0019FF4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C001C958 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ?CheckPrimaryContentState@DISPLAYSTATECHECKER@@QEAAJXZ @ 0x1C02B9C24 (-CheckPrimaryContentState@DISPLAYSTATECHECKER@@QEAAJXZ.c)
+ *     ?Initialize@DISPLAYSTATECHECKER@@QEAAJW4_D3DKMT_BLACK_SCREEN_DETECTION_TRIGGER@@HPEBDU_GUID@@@Z @ 0x1C02BB3E4 (-Initialize@DISPLAYSTATECHECKER@@QEAAJW4_D3DKMT_BLACK_SCREEN_DETECTION_TRIGGER@@HPEBDU_GUID@@@Z.c)
+ *     ?LogAllDisplayDiagInfo@DISPLAYSTATECHECKER@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02BB7D8 (-LogAllDisplayDiagInfo@DISPLAYSTATECHECKER@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  */
 
-__int64 __fastcall DxgkCheckDisplayState(unsigned int *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall DxgkCheckDisplayState(unsigned int *a1)
 {
-  DISPLAYSTATECHECKER *v5; // rax
-  char *v6; // rbx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  PVOID v4; // rbx
+  __int64 v5; // rax
+  int v6; // edi
   const char *v7; // r9
   int v8; // r8d
   __int64 v9; // rdx
-  int v10; // edi
-  __int128 v12; // [rsp+50h] [rbp-18h] BYREF
+  __int128 v11; // [rsp+30h] [rbp-18h] BYREF
 
-  v5 = (DISPLAYSTATECHECKER *)operator new[](0x3710uLL, 0x4B677844u, 256LL, a4);
-  if ( !v5 )
+  v4 = operator new[](0x36F0uLL, 0x4B677844u, PagedPool);
+  if ( v4 )
   {
-    v6 = 0LL;
-    goto LABEL_8;
+    *(_OWORD *)v4 = 0LL;
+    *((_OWORD *)v4 + 1) = 0LL;
+    *((_DWORD *)v4 + 8) = 0;
+    `vector constructor iterator'(
+      (char *)v4 + 40,
+      3504LL,
+      4LL,
+      (void (__fastcall *)(char *))DISPLAYDIAGNOSTICADAPTERDATA::DISPLAYDIAGNOSTICADAPTERDATA);
+    *((_DWORD *)v4 + 3514) = 0;
   }
-  v6 = (char *)DISPLAYSTATECHECKER::DISPLAYSTATECHECKER(v5);
-  if ( !v6 )
+  else
   {
-LABEL_8:
-    WdLogSingleEntry1(2LL, 68LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"No memory available for DISPLAYSTATECHECKER",
-      68LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v10 = -1073741801;
-    goto LABEL_9;
+    v4 = 0LL;
   }
-  v7 = (const char *)*((_QWORD *)a1 + 1);
-  v8 = a1[1];
-  v9 = *a1;
-  v12 = *(_OWORD *)(a1 + 6);
-  v10 = DISPLAYSTATECHECKER::Initialize((__int64)v6, v9, v8, v7, &v12);
-  if ( v10 >= 0 )
+  if ( v4 )
   {
-    DISPLAYSTATECHECKER::CheckPrimaryContentState((DISPLAYSTATECHECKER *)v6);
-    DISPLAYSTATECHECKER::LogAllDisplayDiagInfo(
-      (DISPLAYSTATECHECKER *)v6,
-      *((struct _DXGK_DISPLAY_SCENARIO_CONTEXT **)a1 + 2));
-    if ( a1[1] && DISPLAYSTATECHECKER::NeedLidStateRecovery((DISPLAYSTATECHECKER *)v6) )
-      DpiTryLidStateRecovery();
-    goto LABEL_10;
+    v7 = (const char *)*((_QWORD *)a1 + 1);
+    v8 = a1[1];
+    v9 = *a1;
+    v11 = *(_OWORD *)(a1 + 6);
+    v6 = DISPLAYSTATECHECKER::Initialize((__int64)v4, v9, v8, v7, &v11);
+    if ( v6 >= 0 )
+    {
+      DISPLAYSTATECHECKER::CheckPrimaryContentState((DISPLAYSTATECHECKER *)v4);
+      DISPLAYSTATECHECKER::LogAllDisplayDiagInfo(
+        (DISPLAYSTATECHECKER *)v4,
+        *((struct _DXGK_DISPLAY_SCENARIO_CONTEXT **)a1 + 2));
+    }
   }
-LABEL_9:
-  if ( v6 )
+  else
   {
-LABEL_10:
+    v5 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v5 + 24) = 69LL;
+    WdLogEvent5_WdError(v5);
+    v6 = -1073741801;
+  }
+  if ( v4 )
+  {
     `vector destructor iterator'(
-      v6 + 40,
-      3512LL,
+      (char *)v4 + 40,
+      3504LL,
       4LL,
       (void (__fastcall *)(char *))DISPLAYDIAGNOSTICADAPTERDATA::~DISPLAYDIAGNOSTICADAPTERDATA);
-    operator delete(v6);
+    operator delete(v4);
   }
-  return (unsigned int)v10;
+  return (unsigned int)v6;
 }

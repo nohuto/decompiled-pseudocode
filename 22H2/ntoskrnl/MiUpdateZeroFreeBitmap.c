@@ -1,31 +1,31 @@
 /*
- * XREFs of MiUpdateZeroFreeBitmap @ 0x1402EA100
+ * XREFs of MiUpdateZeroFreeBitmap @ 0x140316E64
  * Callers:
- *     MiReplenishPageSlist @ 0x1402E7AD0 (MiReplenishPageSlist.c)
+ *     MiReplenishPageSlist @ 0x140298D80 (MiReplenishPageSlist.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall MiUpdateZeroFreeBitmap(__int64 a1, int a2, int a3, unsigned int a4, int a5)
+__int64 __fastcall MiUpdateZeroFreeBitmap(__int64 a1, int a2, unsigned int a3, int a4)
 {
-  unsigned __int64 v6; // r10
-  unsigned __int64 v7; // r9
-  char v8; // cl
-  unsigned __int64 v9; // r9
-  unsigned __int64 v10; // rbx
+  unsigned __int64 v5; // r10
+  unsigned __int64 v6; // r8
+  char v7; // cl
+  unsigned __int64 v8; // r8
+  unsigned int v9; // ebx
   __int64 result; // rax
-  __int64 v12; // rcx
+  __int64 v11; // rdx
 
-  v6 = a4;
-  v7 = a4 & dword_140C65BF8;
-  v8 = v7;
-  v9 = v7 >> 6;
-  v10 = 1LL << (v8 & 0x3F);
+  v5 = a3;
+  v6 = a3 & dword_140C4DEF8;
+  v7 = v6;
+  v8 = v6 >> 5;
+  v9 = 1 << (v7 & 0x1F);
   result = *(_QWORD *)(a1 + 16);
-  v12 = *(_QWORD *)(result + 16 * (a2 + 2 * (a3 + 794 * (v6 >> byte_140C65B8D))) + 22472);
-  if ( a5 )
-    _InterlockedOr64((volatile signed __int64 *)(v12 + 8 * v9), v10);
+  v11 = *(_QWORD *)(result + 16 * (a2 + 284 * (v5 >> byte_140C4DE8C)) + 4040);
+  if ( a4 )
+    _InterlockedOr((volatile signed __int32 *)(v11 + 4 * v8), v9);
   else
-    _InterlockedAnd64((volatile signed __int64 *)(v12 + 8 * v9), ~v10);
+    _InterlockedAnd((volatile signed __int32 *)(v11 + 4 * v8), ~v9);
   return result;
 }

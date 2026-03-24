@@ -1,5 +1,5 @@
 /*
- * XREFs of PiDevCfgConfigurePropertyMatchCallback @ 0x14082C260
+ * XREFs of PiDevCfgConfigurePropertyMatchCallback @ 0x14082C240
  * Callers:
  *     <none>
  * Callees:

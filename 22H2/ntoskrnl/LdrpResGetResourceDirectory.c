@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpResGetResourceDirectory @ 0x14075A6B8
+ * XREFs of LdrpResGetResourceDirectory @ 0x140671EB4
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1402F7FA8 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpResSearchResourceMappedFile @ 0x140300848 (LdrpResSearchResourceMappedFile.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x140214B80 (RtlImageNtHeaderEx.c)
- *     RtlULongLongAdd @ 0x1402504A0 (RtlULongLongAdd.c)
- *     LdrpSectionTableFromVirtualAddress @ 0x1407D7080 (LdrpSectionTableFromVirtualAddress.c)
+ *     RtlULongLongAdd @ 0x14024CF90 (RtlULongLongAdd.c)
+ *     RtlImageNtHeaderEx @ 0x14029D010 (RtlImageNtHeaderEx.c)
+ *     LdrpSectionTableFromVirtualAddress @ 0x14067240C (LdrpSectionTableFromVirtualAddress.c)
  */
 
 __int64 __fastcall LdrpResGetResourceDirectory(
@@ -15,159 +15,163 @@ __int64 __fastcall LdrpResGetResourceDirectory(
         ULONGLONG *a4,
         _QWORD *a5)
 {
-  ULONGLONG v6; // rdi
-  unsigned int v7; // ebx
-  char v8; // r14
-  bool v9; // si
-  int v10; // r15d
+  ULONGLONG v5; // rdi
+  unsigned int v6; // ebx
+  char v7; // r15
+  bool v8; // r14
+  int v9; // r12d
   __int64 result; // rax
-  int v12; // r9d
-  __int64 v13; // r13
-  __int128 *v14; // rcx
-  __int16 v15; // ax
-  unsigned int v16; // eax
-  __int64 v17; // rcx
-  __int64 v18; // r14
-  ULONGLONG v19; // rdx
-  unsigned int *v20; // rax
-  unsigned __int64 v21; // r8
-  int v22; // eax
-  int v23; // ecx
-  ULONGLONG pullResult; // [rsp+40h] [rbp-128h] BYREF
-  ULONGLONG v25; // [rsp+48h] [rbp-120h]
-  __int128 v26; // [rsp+50h] [rbp-118h]
-  __int128 v27; // [rsp+60h] [rbp-108h]
-  __int128 v28; // [rsp+70h] [rbp-F8h]
-  __int128 v29; // [rsp+80h] [rbp-E8h]
-  __int128 v30; // [rsp+90h] [rbp-D8h]
-  __int128 v31; // [rsp+A0h] [rbp-C8h]
-  __int128 v32; // [rsp+B0h] [rbp-B8h]
-  __int128 ullAddend; // [rsp+C0h] [rbp-A8h]
-  __int128 v34; // [rsp+D0h] [rbp-98h]
-  __int128 v35; // [rsp+E0h] [rbp-88h]
-  __int128 v36; // [rsp+F0h] [rbp-78h]
-  __int128 v37; // [rsp+100h] [rbp-68h]
-  __int128 v38; // [rsp+110h] [rbp-58h]
-  __int128 v39; // [rsp+120h] [rbp-48h]
-  __int128 v40; // [rsp+130h] [rbp-38h]
-  __int64 v41; // [rsp+170h] [rbp+8h] BYREF
-  ULONGLONG *v42; // [rsp+188h] [rbp+20h]
+  int v11; // r9d
+  __int64 v12; // r13
+  __int128 *v13; // rcx
+  __int16 v14; // ax
+  unsigned int v15; // eax
+  unsigned int v16; // esi
+  ULONGLONG v17; // rdx
+  unsigned __int64 v18; // r14
+  unsigned int *v19; // rax
+  unsigned __int64 v20; // r8
+  int v21; // eax
+  int v22; // ecx
+  ULONGLONG pullResult; // [rsp+40h] [rbp-138h] BYREF
+  ULONGLONG v24; // [rsp+48h] [rbp-130h]
+  __int128 v25; // [rsp+50h] [rbp-128h]
+  __int128 v26; // [rsp+60h] [rbp-118h]
+  __int128 v27; // [rsp+70h] [rbp-108h]
+  __int128 v28; // [rsp+80h] [rbp-F8h]
+  __int128 v29; // [rsp+90h] [rbp-E8h]
+  __int128 v30; // [rsp+A0h] [rbp-D8h]
+  __int128 v31; // [rsp+B0h] [rbp-C8h]
+  __int128 ullAddend; // [rsp+C0h] [rbp-B8h]
+  __int128 v33; // [rsp+D0h] [rbp-A8h]
+  __int128 v34; // [rsp+E0h] [rbp-98h]
+  __int128 v35; // [rsp+F0h] [rbp-88h]
+  __int128 v36; // [rsp+100h] [rbp-78h]
+  __int128 v37; // [rsp+110h] [rbp-68h]
+  __int128 v38; // [rsp+120h] [rbp-58h]
+  __int128 v39; // [rsp+130h] [rbp-48h]
+  __int64 v40; // [rsp+180h] [rbp+8h] BYREF
+  unsigned __int64 v41; // [rsp+188h] [rbp+10h]
+  ULONGLONG *v42; // [rsp+198h] [rbp+20h]
 
   v42 = a4;
-  v6 = ullAugend;
-  v7 = 0;
-  v25 = 0LL;
-  v41 = 0LL;
+  v41 = a2;
+  v5 = ullAugend;
+  v6 = 0;
+  v24 = 0LL;
+  v40 = 0LL;
+  v7 = 1;
   v8 = 1;
-  v9 = 1;
   pullResult = 0LL;
   if ( !ullAugend || !a4 || !a5 )
     return 3221225485LL;
   if ( (ullAugend & 3) != 0 )
   {
-    v6 = ullAugend & 0xFFFFFFFFFFFFFFFCuLL;
-    v9 = !(ullAugend & 1);
+    v5 = ullAugend & 0xFFFFFFFFFFFFFFFCuLL;
+    v8 = !(ullAugend & 1);
   }
-  v10 = a3 & 0x1000;
-  result = RtlImageNtHeaderEx(v10 == 0, v6, a2, &v41);
+  v9 = a3 & 0x1000;
+  result = RtlImageNtHeaderEx(v9 == 0, v5, a2, &v40);
   if ( (int)result >= 0 )
   {
-    v13 = v41;
-    v14 = (__int128 *)(v41 + 24);
-    v15 = *(_WORD *)(v41 + 24);
-    if ( v15 == 267 )
+    v12 = v40;
+    v13 = (__int128 *)(v40 + 24);
+    v14 = *(_WORD *)(v40 + 24);
+    if ( v14 == 267 )
     {
-      v26 = *v14;
-      v27 = *(_OWORD *)(v41 + 40);
-      v28 = *(_OWORD *)(v41 + 56);
-      v29 = *(_OWORD *)(v41 + 72);
-      v30 = *(_OWORD *)(v41 + 88);
-      v31 = *(_OWORD *)(v41 + 104);
-      v32 = *(_OWORD *)(v41 + 120);
-      ullAddend = *(_OWORD *)(v41 + 136);
-      v34 = *(_OWORD *)(v41 + 152);
-      v35 = *(_OWORD *)(v41 + 168);
-      v36 = *(_OWORD *)(v41 + 184);
-      v37 = *(_OWORD *)(v41 + 200);
-      v38 = *(_OWORD *)(v41 + 216);
-      v39 = *(_OWORD *)(v41 + 232);
+      v25 = *v13;
+      v26 = *(_OWORD *)(v40 + 40);
+      v27 = *(_OWORD *)(v40 + 56);
+      v28 = *(_OWORD *)(v40 + 72);
+      v29 = *(_OWORD *)(v40 + 88);
+      v30 = *(_OWORD *)(v40 + 104);
+      v31 = *(_OWORD *)(v40 + 120);
+      ullAddend = *(_OWORD *)(v40 + 136);
+      v33 = *(_OWORD *)(v40 + 152);
+      v34 = *(_OWORD *)(v40 + 168);
+      v35 = *(_OWORD *)(v40 + 184);
+      v36 = *(_OWORD *)(v40 + 200);
+      v37 = *(_OWORD *)(v40 + 216);
+      v38 = *(_OWORD *)(v40 + 232);
     }
     else
     {
-      if ( v15 != 523 )
+      if ( v14 != 523 )
         return (unsigned int)-1073741701;
-      v26 = *v14;
-      v27 = *(_OWORD *)(v41 + 40);
-      v28 = *(_OWORD *)(v41 + 56);
-      v29 = *(_OWORD *)(v41 + 72);
-      v30 = *(_OWORD *)(v41 + 88);
-      v31 = *(_OWORD *)(v41 + 104);
-      v32 = *(_OWORD *)(v41 + 120);
-      ullAddend = *(_OWORD *)(v41 + 136);
-      v34 = *(_OWORD *)(v41 + 152);
-      v35 = *(_OWORD *)(v41 + 168);
-      v36 = *(_OWORD *)(v41 + 184);
-      v37 = *(_OWORD *)(v41 + 200);
-      v38 = *(_OWORD *)(v41 + 216);
-      v39 = *(_OWORD *)(v41 + 232);
-      v40 = *(_OWORD *)(v41 + 248);
-      v8 = 0;
+      v25 = *v13;
+      v26 = *(_OWORD *)(v40 + 40);
+      v27 = *(_OWORD *)(v40 + 56);
+      v28 = *(_OWORD *)(v40 + 72);
+      v29 = *(_OWORD *)(v40 + 88);
+      v30 = *(_OWORD *)(v40 + 104);
+      v31 = *(_OWORD *)(v40 + 120);
+      ullAddend = *(_OWORD *)(v40 + 136);
+      v33 = *(_OWORD *)(v40 + 152);
+      v34 = *(_OWORD *)(v40 + 168);
+      v35 = *(_OWORD *)(v40 + 184);
+      v36 = *(_OWORD *)(v40 + 200);
+      v37 = *(_OWORD *)(v40 + 216);
+      v38 = *(_OWORD *)(v40 + 232);
+      v39 = *(_OWORD *)(v40 + 248);
+      v7 = 0;
     }
-    v16 = HIDWORD(v32);
-    if ( v8 )
-      v16 = HIDWORD(v31);
-    if ( v16 <= 2 )
+    v15 = HIDWORD(v31);
+    if ( v7 )
+      v15 = HIDWORD(v30);
+    if ( v15 <= 2 )
     {
       return (unsigned int)-1073741687;
     }
     else
     {
-      v17 = (unsigned int)v34;
-      if ( v8 )
-        v17 = (unsigned int)ullAddend;
-      if ( (_DWORD)v17 )
+      v16 = v33;
+      if ( v7 )
+        v16 = ullAddend;
+      if ( v16 )
       {
-        v18 = (unsigned int)v17;
-        if ( v6 > 0x7FFFFFFEFFFFLL || v6 + v17 - 1 >= v6 && (unsigned int)v17 + v6 - 1 <= 0x7FFFFFFEFFFFLL )
+        if ( v5 < 0x7FFFFFFEFFFFLL && v5 + v16 >= 0x7FFFFFFEFFFFLL )
         {
-          if ( v9 || (unsigned int)v17 < HIDWORD(v29) )
-          {
-            if ( RtlULongLongAdd(v6, (unsigned int)v17, &pullResult) < 0 )
-              return (unsigned int)-1073741701;
-            v19 = pullResult;
-          }
-          else
-          {
-            v20 = (unsigned int *)LdrpSectionTableFromVirtualAddress(v6, a2, v41, v12, v17, v10 != 0);
-            if ( !v20 )
-              return (unsigned int)-1073741701;
-            if ( !v20[4] )
-              return (unsigned int)-1073741687;
-            v19 = v6 + v18 + v20[5] - (unsigned __int64)v20[3];
-          }
-          v25 = v19;
-          if ( !v19 )
-            return (unsigned int)-1073741687;
-          if ( v10 )
-          {
-            if ( v19 <= v6 )
-              return (unsigned int)-1073741701;
-            v21 = (v6 & 0xFFFFFFFFFFFFFFFCuLL) + a2;
-            if ( v19 + 16 > v21 )
-              return (unsigned int)-1073741701;
-            v22 = *(unsigned __int16 *)(v19 + 12);
-            v23 = *(unsigned __int16 *)(v19 + 14);
-            if ( !__PAIR32__(v23, v22) )
-              return (unsigned int)-1073741686;
-            if ( v19 + 8LL * (unsigned int)(v22 + v23) > v21 )
-              return (unsigned int)-1073741701;
-          }
-          *v42 = v19;
-          *a5 = v13;
+          return (unsigned int)-1073741701;
         }
         else
         {
-          return (unsigned int)-1073741701;
+          if ( v8 || v16 < HIDWORD(v28) )
+          {
+            if ( RtlULongLongAdd(v5, v16, &pullResult) < 0 )
+              return (unsigned int)-1073741701;
+            v17 = pullResult;
+            v24 = pullResult;
+            v18 = v41;
+          }
+          else
+          {
+            v18 = v41;
+            v19 = (unsigned int *)LdrpSectionTableFromVirtualAddress(v5, v41, v40, v11, v16, v9 != 0);
+            if ( !v19 )
+              return (unsigned int)-1073741701;
+            if ( !v19[4] )
+              return (unsigned int)-1073741687;
+            v17 = v5 + v19[5] - (unsigned __int64)v19[3] + v16;
+            v24 = v17;
+          }
+          if ( !v17 )
+            return (unsigned int)-1073741687;
+          if ( v9 )
+          {
+            if ( v17 <= v5 )
+              return (unsigned int)-1073741701;
+            v20 = (v5 & 0xFFFFFFFFFFFFFFFCuLL) + v18;
+            if ( v17 + 16 > v20 )
+              return (unsigned int)-1073741701;
+            v21 = *(unsigned __int16 *)(v17 + 12);
+            v22 = *(unsigned __int16 *)(v17 + 14);
+            if ( !__PAIR32__(v22, v21) )
+              return (unsigned int)-1073741686;
+            if ( v17 + 8LL * (unsigned int)(v21 + v22) > v20 )
+              return (unsigned int)-1073741701;
+          }
+          *v42 = v17;
+          *a5 = v12;
         }
       }
       else
@@ -175,7 +179,7 @@ __int64 __fastcall LdrpResGetResourceDirectory(
         return (unsigned int)-1073741687;
       }
     }
-    return v7;
+    return v6;
   }
   return result;
 }

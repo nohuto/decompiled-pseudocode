@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z @ 0x1C009A420
+ * XREFs of ?GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z @ 0x1C00DA41C
  * Callers:
- *     ?DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z @ 0x1C009959C (-DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z.c)
- *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C0099B78 (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ *     ?DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z @ 0x1C00D7FB0 (-DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z.c)
+ *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00D8838 (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
  * Callees:
  *     <none>
  */

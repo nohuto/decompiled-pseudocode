@@ -1,97 +1,93 @@
 /*
- * XREFs of ?VailSendDestroyBundleObject@DXGSESSIONDATA@@QEAAJI@Z @ 0x1C0352A3C
+ * XREFs of ?VailSendDestroyBundleObject@DXGSESSIONDATA@@QEAAJI@Z @ 0x1C02B78E0
  * Callers:
- *     ?PairedBind@DXGCOMPOSITIONSURFACEPROXY@@UEAAJPEAUCSM_BUFFER_INFO@@_NPEA_K@Z @ 0x1C02DFE10 (-PairedBind@DXGCOMPOSITIONSURFACEPROXY@@UEAAJPEAUCSM_BUFFER_INFO@@_NPEA_K@Z.c)
+ *     ?DxgkSendDestroyBundleObject@@YAJI@Z @ 0x1C028AE80 (-DxgkSendDestroyBundleObject@@YAJI@Z.c)
+ *     ?PairedBind@DXGCOMPOSITIONSURFACEPROXY@@UEAAJAEAU_CSM_BUFFER_INFO_WRAPPER@@_NPEA_K@Z @ 0x1C028D330 (-PairedBind@DXGCOMPOSITIONSURFACEPROXY@@UEAAJAEAU_CSM_BUFFER_INFO_WRAPPER@@_NPEA_K@Z.c)
  * Callees:
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?SendDestroyBundleObject@DXG_GUEST_REMOTEOBJECTCHANNEL@@QEAAJI@Z @ 0x1C033D1B8 (-SendDestroyBundleObject@DXG_GUEST_REMOTEOBJECTCHANNEL@@QEAAJI@Z.c)
- *     ?ReleaseVailGuestReference@DXGSESSIONDATA@@QEAAXXZ @ 0x1C0351968 (-ReleaseVailGuestReference@DXGSESSIONDATA@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?SendDestroyBundleObject@DXG_GUEST_REMOTEOBJECTCHANNEL@@QEAAJI@Z @ 0x1C028C188 (-SendDestroyBundleObject@DXG_GUEST_REMOTEOBJECTCHANNEL@@QEAAJI@Z.c)
+ *     ?ReleaseVailGuestReference@DXGSESSIONDATA@@QEAAXXZ @ 0x1C02B5B30 (-ReleaseVailGuestReference@DXGSESSIONDATA@@QEAAXXZ.c)
  */
 
-__int64 __fastcall DXGSESSIONDATA::VailSendDestroyBundleObject(DXGSESSIONDATA *this, unsigned int a2, __int64 a3)
+__int64 __fastcall DXGSESSIONDATA::VailSendDestroyBundleObject(DXGSESSIONDATA *this, unsigned int a2)
 {
-  struct _EX_RUNDOWN_REF *v5; // rcx
+  struct DXGFASTMUTEX *v2; // r14
+  __int64 v5; // rdx
   __int64 v6; // r8
-  __int64 v7; // r9
-  int v8; // eax
-  unsigned int v9; // edi
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  _BYTE v13[8]; // [rsp+20h] [rbp-30h] BYREF
-  char v14; // [rsp+28h] [rbp-28h]
-  int v15; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v16; // [rsp+38h] [rbp-18h]
-  char v17; // [rsp+40h] [rbp-10h]
+  struct _EX_RUNDOWN_REF *v7; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  int v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // rsi
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rdx
+  _BYTE v21[8]; // [rsp+20h] [rbp-10h] BYREF
+  char v22; // [rsp+28h] [rbp-8h]
 
-  v15 = -1;
-  v16 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v2 = (DXGSESSIONDATA *)((char *)this + 18880);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v21, (DXGSESSIONDATA *)((char *)this + 18880), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v21);
+  v7 = (struct _EX_RUNDOWN_REF *)*((_QWORD *)this + 2366);
+  if ( v7 )
+    ++*((_DWORD *)this + 4730);
+  if ( v22 )
   {
-    v17 = 1;
-    v15 = 17003;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, a3, 17003);
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v21, v5);
+    v7 = (struct _EX_RUNDOWN_REF *)*((_QWORD *)this + 2366);
   }
-  else
+  if ( v7 && ExAcquireRundownProtection(v7 + 7) )
   {
-    v17 = 0;
-  }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v15, 17003);
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v13, (DXGSESSIONDATA *)((char *)this + 18904), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v13);
-  v5 = (struct _EX_RUNDOWN_REF *)*((_QWORD *)this + 2370);
-  if ( v5 )
-    ++*((_DWORD *)this + 4738);
-  if ( v14 )
-  {
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v13);
-    v5 = (struct _EX_RUNDOWN_REF *)*((_QWORD *)this + 2370);
-  }
-  if ( v5 && ExAcquireRundownProtection(v5 + 8) )
-  {
-    if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)(*((_QWORD *)this + 2370) + 72LL) + 64LL)) )
+    if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)(*((_QWORD *)this + 2366) + 64LL) + 64LL)) )
     {
-      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v13, (struct DXGFASTMUTEX *const)(*((_QWORD *)this + 2370) + 16LL), 0);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v13);
-      v8 = DXG_GUEST_REMOTEOBJECTCHANNEL::SendDestroyBundleObject(
-             *(DXG_GUEST_REMOTEOBJECTCHANNEL **)(*((_QWORD *)this + 2370) + 80LL),
-             a2,
-             v6,
-             v7);
-      v9 = v8;
-      if ( v8 < 0 )
-        WdLogSingleEntry1(3LL, v8);
-      if ( v14 )
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v13);
-      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)(*((_QWORD *)this + 2370) + 72LL) + 64LL));
+      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v21, (struct DXGFASTMUTEX *const)(*((_QWORD *)this + 2366) + 16LL), 0);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v21);
+      v11 = DXG_GUEST_REMOTEOBJECTCHANNEL::SendDestroyBundleObject(
+              *(DXG_GUEST_REMOTEOBJECTCHANNEL **)(*((_QWORD *)this + 2366) + 72LL),
+              a2);
+      v15 = v11;
+      if ( v11 < 0 )
+      {
+        v16 = WdLogNewEntry5_WdWarning(v13, v12, v14);
+        *(_QWORD *)(v16 + 24) = v15;
+        WdLogEvent5_WdWarning(v16);
+      }
+      if ( v22 )
+        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v21, v12);
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)(*((_QWORD *)this + 2366) + 64LL) + 64LL));
     }
     else
     {
-      v9 = -2147483611;
-      WdLogSingleEntry2(3LL, 2LL, -2147483611LL);
+      LODWORD(v15) = -2147483611;
+      v17 = WdLogNewEntry5_WdWarning(v9, v8, v10);
+      *(_QWORD *)(v17 + 24) = 2LL;
+      *(_QWORD *)(v17 + 32) = -2147483611LL;
+      WdLogEvent5_WdWarning(v17);
     }
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*((_QWORD *)this + 2370) + 64LL));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*((_QWORD *)this + 2366) + 56LL));
   }
   else
   {
-    v9 = -2147483611;
-    WdLogSingleEntry2(3LL, 1LL, -2147483611LL);
+    LODWORD(v15) = -2147483611;
+    v18 = WdLogNewEntry5_WdWarning(v7, v5, v6);
+    *(_QWORD *)(v18 + 24) = 1LL;
+    *(_QWORD *)(v18 + 32) = -2147483611LL;
+    WdLogEvent5_WdWarning(v18);
   }
-  if ( *((_QWORD *)this + 2370) )
+  if ( *((_QWORD *)this + 2366) )
   {
-    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v13, (DXGSESSIONDATA *)((char *)this + 18904), 0);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v13);
+    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v21, v2, 0);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v21);
     DXGSESSIONDATA::ReleaseVailGuestReference(this);
-    if ( v14 )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v13);
+    if ( v22 )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v21, v19);
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v15);
-  if ( v17 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v10, &EventProfilerExit, v11, v15);
-  return v9;
+  return (unsigned int)v15;
 }

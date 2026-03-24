@@ -1,67 +1,44 @@
 /*
- * XREFs of CmFcpManagerPublishChangeNotifications @ 0x140A27D04
+ * XREFs of CmFcpManagerPublishChangeNotifications @ 0x14087E814
  * Callers:
- *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A26ECC (CmFcManagerOverwriteFeatureConfigurationSection.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140A273A0 (CmFcManagerUpdateFeatureConfigurations.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140A277C8 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD54 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E0B0 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     CmpWorkItemQueueWork @ 0x140374BF0 (CmpWorkItemQueueWork.c)
- *     ZwQueryWnfStateData @ 0x14041D460 (ZwQueryWnfStateData.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ZwQueryWnfStateData @ 0x1403FC6A0 (ZwQueryWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     CmFcpWorkItemQueueWork @ 0x1404ED90C (CmFcpWorkItemQueueWork.c)
  */
 
-__int64 __fastcall CmFcpManagerPublishChangeNotifications(__int64 a1, __int64 a2)
+__int64 __fastcall CmFcpManagerPublishChangeNotifications(__int64 a1, unsigned __int64 a2)
 {
-  signed __int64 *v2; // rbx
-  unsigned __int64 v4; // rdi
-  __int64 *i; // rdi
-  char v6; // bl
+  __int64 i; // rbx
   __int64 result; // rax
-  __int64 v8; // [rsp+A8h] [rbp+48h] BYREF
-  int v9; // [rsp+B0h] [rbp+50h]
-  int v10; // [rsp+B8h] [rbp+58h]
+  unsigned __int64 v4; // [rsp+88h] [rbp+30h] BYREF
+  int v5; // [rsp+90h] [rbp+38h]
+  unsigned __int64 v6; // [rsp+98h] [rbp+40h]
 
-  v8 = a2;
-  v2 = (signed __int64 *)(a1 + 560);
-  v9 = 0;
-  v10 = 0;
-  v4 = KeAbPreAcquire(a1 + 560, 0LL);
-  if ( _InterlockedCompareExchange64(v2, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v2, 0LL, v4, (__int64)v2);
-  if ( v4 )
-    *(_BYTE *)(v4 + 18) = 1;
-  for ( i = *(__int64 **)(a1 + 568); i != (__int64 *)(a1 + 568); i = (__int64 *)*i )
-    CmpWorkItemQueueWork((PWORK_QUEUE_ITEM)(i + 2));
-  if ( _InterlockedCompareExchange64(v2, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared(v2);
-  KeAbPostRelease((ULONG_PTR)v2);
-  v6 = *(_BYTE *)(a1 + 339);
-  for ( result = ZwQueryWnfStateData((__int64)&WNF_CMFC_FEATURE_CONFIGURATION_CHANGED, (__int64)CmFcpWnfTypeId);
-        (int)result >= 0;
-        result = ZwQueryWnfStateData((__int64)&WNF_CMFC_FEATURE_CONFIGURATION_CHANGED, (__int64)CmFcpWnfTypeId) )
+  v4 = a2;
+  v5 = 0;
+  ExAcquirePushLockSharedEx((ULONG_PTR)&stru_140C483B0, 0LL);
+  for ( i = qword_140C483B8; (__int64 *)i != &qword_140C483B8; i = *(_QWORD *)i )
+    CmFcpWorkItemQueueWork((PWORK_QUEUE_ITEM)(i + 16));
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140C483B0, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&stru_140C483B0);
+  KeAbPostRelease((ULONG_PTR)&stru_140C483B0);
+  do
   {
-    result = v8;
-    if ( !v8 )
+    v6 = 0LL;
+    result = ZwQueryWnfStateData((__int64)&WNF_CMFC_FEATURE_CONFIGURATION_CHANGED, (__int64)CmFcpWnfTypeId);
+    if ( (int)result < 0 )
       break;
-    result = ZwUpdateWnfStateData((__int64)&WNF_CMFC_FEATURE_CONFIGURATION_CHANGED, (__int64)&v8);
-    if ( (((_DWORD)result + 0x80000000) & 0x80000000) == 0 && (_DWORD)result != -1073741823 )
+    result = v4;
+    if ( v6 >= v4 )
       break;
-    if ( v6 && (int)result >= 0 )
-    {
-      v10 = 8;
-      result = ZwQueryWnfStateData((__int64)&WNF_CMFC_HOST_OS_FEATURE_CONFIGURATION_CHANGED, 0LL);
-      if ( (int)result >= 0 )
-      {
-        result = v8;
-        if ( v8 )
-          return ZwUpdateWnfStateData((__int64)&WNF_CMFC_HOST_OS_FEATURE_CONFIGURATION_CHANGED, (__int64)&v8);
-      }
-      return result;
-    }
+    result = ZwUpdateWnfStateData((__int64)&WNF_CMFC_FEATURE_CONFIGURATION_CHANGED, (__int64)&v4);
   }
+  while ( (_DWORD)result == -1073741823 );
   return result;
 }

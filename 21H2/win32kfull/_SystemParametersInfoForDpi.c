@@ -1,12 +1,12 @@
 /*
- * XREFs of _SystemParametersInfoForDpi @ 0x1C00F8C8C
+ * XREFs of _SystemParametersInfoForDpi @ 0x1C010F92C
  * Callers:
- *     NtUserSystemParametersInfoForDpi @ 0x1C00F8B10 (NtUserSystemParametersInfoForDpi.c)
+ *     NtUserSystemParametersInfoForDpi @ 0x1C010F7B0 (NtUserSystemParametersInfoForDpi.c)
  * Callees:
- *     GetScaledLogFontForDpi @ 0x1C0063C80 (GetScaledLogFontForDpi.c)
- *     GetWindowNCMetricsForDpi @ 0x1C00654D8 (GetWindowNCMetricsForDpi.c)
- *     GetDpiDependentMetric @ 0x1C006718C (GetDpiDependentMetric.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     GetScaledLogFontForDpi @ 0x1C0047AC4 (GetScaledLogFontForDpi.c)
+ *     GetDpiDependentMetric @ 0x1C00614D0 (GetDpiDependentMetric.c)
+ *     GetWindowNCMetricsForDpi @ 0x1C0064180 (GetWindowNCMetricsForDpi.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall SystemParametersInfoForDpi(int a1, __int64 a2, _DWORD *a3, __int64 a4, unsigned int a5)
@@ -30,7 +30,7 @@ __int64 __fastcall SystemParametersInfoForDpi(int a1, __int64 a2, _DWORD *a3, __
       if ( *a3 != 108 )
       {
 LABEL_12:
-        UserSetLastError(87LL, a2);
+        UserSetLastError(87LL, a2, (__int64)a3);
         return v5;
       }
       a3[1] = GetDpiDependentMetric(18LL, a5);

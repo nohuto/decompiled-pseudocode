@@ -1,20 +1,20 @@
 /*
- * XREFs of CmLogMcUpdateStatus @ 0x14061588C
+ * XREFs of CmLogMcUpdateStatus @ 0x1404EC9D8
  * Callers:
- *     HvlpLogMicrocodeUpdateStatus @ 0x140941224 (HvlpLogMicrocodeUpdateStatus.c)
+ *     HvlpLogMicrocodeUpdateStatus @ 0x14088E674 (HvlpLogMicrocodeUpdateStatus.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     RtlIntegerToChar @ 0x1407CF6F0 (RtlIntegerToChar.c)
- *     CmpInitializeRegistryNode @ 0x14080F2E8 (CmpInitializeRegistryNode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     RtlIntegerToChar @ 0x1406F70C0 (RtlIntegerToChar.c)
+ *     CmpInitializeRegistryNode @ 0x1407A711C (CmpInitializeRegistryNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmLogMcUpdateStatus(unsigned int a1, __int64 a2)
@@ -48,7 +48,7 @@ __int64 __fastcall CmLogMcUpdateStatus(unsigned int a1, __int64 a2)
   {
     ObjectAttributes.RootDirectory = KeyHandle;
     ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_140D55AB0;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_140D2F790;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v4 = ZwOpenKey(&v9, 0x20019u, &ObjectAttributes);
@@ -66,15 +66,15 @@ __int64 __fastcall CmLogMcUpdateStatus(unsigned int a1, __int64 a2)
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
       if ( ZwOpenKey(&Handle, 0x2001Fu, &ObjectAttributes) >= 0 )
         goto LABEL_7;
-      CmpConfigurationData = (PVOID)ExAllocatePool2(256LL, (unsigned int)CmpConfigurationAreaSize, 538987843LL);
+      CmpConfigurationData = ExAllocatePoolWithTag(PagedPool, (unsigned int)CmpConfigurationAreaSize, 0x20204D43u);
       if ( !CmpConfigurationData )
       {
         v4 = -1073741670;
         goto LABEL_12;
       }
-      v13[10] = a1;
       v13[6] = 1;
       v13[7] = 1;
+      v13[10] = a1;
       v4 = CmpInitializeRegistryNode(
              (unsigned int)v13,
              (_DWORD)KeyHandle,

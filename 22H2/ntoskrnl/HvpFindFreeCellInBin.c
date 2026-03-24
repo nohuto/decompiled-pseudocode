@@ -1,28 +1,27 @@
 /*
- * XREFs of HvpFindFreeCellInBin @ 0x14070AA00
+ * XREFs of HvpFindFreeCellInBin @ 0x140656440
  * Callers:
- *     HvpFindFreeCell @ 0x14070A7E0 (HvpFindFreeCell.c)
+ *     HvpFindFreeCell @ 0x1406555DC (HvpFindFreeCell.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpMarkCellDirty @ 0x1407474B0 (HvpMarkCellDirty.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HvpMarkCellDirty @ 0x140655AB0 (HvpMarkCellDirty.c)
  */
 
 __int64 __fastcall HvpFindFreeCellInBin(
-        ULONG_PTR BugCheckParameter3,
+        ULONG_PTR BugCheckParameter2,
         unsigned int a2,
         int a3,
         _DWORD *a4,
         unsigned int *a5,
         __int64 *a6,
-        unsigned int *a7)
+        __int64 a7)
 {
   unsigned int *v7; // r10
   unsigned __int64 v8; // r11
   unsigned int v10; // eax
-  __int64 result; // rax
   unsigned int v12; // ebx
-  __int64 CellFlat; // rax
+  __int64 v13; // rax
+  __int64 v14; // rcx
 
   v7 = a4 + 8;
   v8 = (unsigned __int64)a4 + (unsigned int)a4[2];
@@ -42,18 +41,14 @@ LABEL_4:
   v12 = a4[1] + (_DWORD)v7 + (a3 << 31) - (_DWORD)a4;
   if ( a2 > v10 )
     goto LABEL_4;
-  result = HvpMarkCellDirty(BugCheckParameter3, v12);
-  if ( (int)result >= 0 )
-  {
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      CellFlat = HvpGetCellFlat(BugCheckParameter3, v12);
-    else
-      CellFlat = HvpGetCellPaged(BugCheckParameter3, v12, a7);
-    if ( CellFlat )
-      CellFlat -= 4LL;
-    *a6 = CellFlat;
-    result = 0LL;
-    *a5 = v12;
-  }
-  return result;
+  if ( !HvpMarkCellDirty(BugCheckParameter2, v12, 1) )
+    return 3221225853LL;
+  v13 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, __int64))(BugCheckParameter2 + 8))(BugCheckParameter2, v12, a7);
+  if ( v13 )
+    v14 = v13 - 4;
+  else
+    v14 = 0LL;
+  *a6 = v14;
+  *a5 = v12;
+  return 0LL;
 }

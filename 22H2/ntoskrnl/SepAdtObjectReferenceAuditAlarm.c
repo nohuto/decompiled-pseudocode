@@ -1,18 +1,18 @@
 /*
- * XREFs of SepAdtObjectReferenceAuditAlarm @ 0x1409CBFEC
+ * XREFs of SepAdtObjectReferenceAuditAlarm @ 0x14091F2BC
  * Callers:
- *     SeObjectReferenceAuditAlarm @ 0x1406C3280 (SeObjectReferenceAuditAlarm.c)
+ *     SeObjectReferenceAuditAlarm @ 0x1406D9E3C (SeObjectReferenceAuditAlarm.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x14039B490 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SepQueryNameString @ 0x1407F555C (SepQueryNameString.c)
- *     SepQueryTypeString @ 0x1409CD4A0 (SepQueryTypeString.c)
- *     SepAuditFailed @ 0x1409D1CF0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     SepAdtLogAuditRecord @ 0x1403C20B4 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SepQueryNameString @ 0x14070F83C (SepQueryNameString.c)
+ *     SepQueryTypeString @ 0x140920754 (SepQueryTypeString.c)
+ *     SepAuditFailed @ 0x140925950 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall SepAdtObjectReferenceAuditAlarm(char *a1, __int64 *a2, unsigned int a3, char a4)
+void __fastcall SepAdtObjectReferenceAuditAlarm(__int64 a1, __int64 *a2, unsigned int a3, char a4)
 {
   void *v4; // rdi
   __int64 v5; // r14
@@ -21,12 +21,10 @@ void __fastcall SepAdtObjectReferenceAuditAlarm(char *a1, __int64 *a2, unsigned 
   __int64 v11; // r13
   __int64 v12; // rbx
   int v13; // esi
-  __int64 v14; // r8
-  __int64 v15; // r9
+  int v14; // eax
+  int v15; // eax
   int v16; // eax
-  int v17; // eax
-  int v18; // eax
-  unsigned __int16 *v20; // [rsp+30h] [rbp-D8h] BYREF
+  unsigned __int16 *v18; // [rsp+30h] [rbp-D8h] BYREF
   PVOID P; // [rsp+38h] [rbp-D0h] BYREF
   _QWORD Src[132]; // [rsp+48h] [rbp-C0h] BYREF
 
@@ -34,7 +32,7 @@ void __fastcall SepAdtObjectReferenceAuditAlarm(char *a1, __int64 *a2, unsigned 
   v4 = 0LL;
   v5 = *a2;
   v7 = a2[2];
-  v20 = 0LL;
+  v18 = 0LL;
   if ( v5 )
     v10 = *(__int64 **)(v5 + 152);
   else
@@ -49,37 +47,37 @@ void __fastcall SepAdtObjectReferenceAuditAlarm(char *a1, __int64 *a2, unsigned 
   v13 = SepQueryNameString(a1, &P);
   if ( v13 >= 0 )
   {
-    v13 = SepQueryTypeString(a1, &v20, v14, v15);
+    v13 = SepQueryTypeString(a1, &v18);
     if ( v13 < 0 )
     {
-      v4 = v20;
+      v4 = v18;
     }
     else
     {
-      v16 = *(unsigned __int8 *)(v11 + 1);
+      v14 = *(unsigned __int8 *)(v11 + 1);
       LODWORD(Src[3]) = 4;
       Src[6] = v11;
       Src[11] = 0x800000005LL;
-      HIDWORD(Src[3]) = 4 * v16 + 8;
+      HIDWORD(Src[3]) = 4 * v14 + 8;
       Src[10] = &SeSubsystemName;
       Src[7] = 0x2000000001LL;
       if ( v5 )
         Src[12] = *(_QWORD *)(v5 + 24);
       else
         Src[12] = v12;
-      v4 = v20;
-      if ( v20 )
+      v4 = v18;
+      if ( v18 )
       {
-        v17 = *v20;
+        v15 = *v18;
         LODWORD(Src[15]) = 1;
-        HIDWORD(Src[15]) = v17 + 16;
-        Src[18] = v20;
+        HIDWORD(Src[15]) = v15 + 16;
+        Src[18] = v18;
       }
       if ( P )
       {
-        v18 = *(unsigned __int16 *)P;
+        v16 = *(unsigned __int16 *)P;
         LODWORD(Src[19]) = 1;
-        HIDWORD(Src[19]) = v18 + 16;
+        HIDWORD(Src[19]) = v16 + 16;
         Src[22] = P;
       }
       Src[24] = a3;

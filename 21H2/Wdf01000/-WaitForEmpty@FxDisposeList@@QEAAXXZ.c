@@ -1,15 +1,15 @@
 /*
- * XREFs of ?WaitForEmpty@FxDisposeList@@QEAAXXZ @ 0x1C006ABC8
+ * XREFs of ?WaitForEmpty@FxDisposeList@@QEAAXXZ @ 0x1C00552B4
  * Callers:
- *     ?DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z @ 0x1C00301DC (-DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z.c)
- *     ?Dispose@FxDevice@@UEAAEXZ @ 0x1C0035760 (-Dispose@FxDevice@@UEAAEXZ.c)
- *     ?Dispose@FxMpDevice@@UEAAEXZ @ 0x1C0066EB0 (-Dispose@FxMpDevice@@UEAAEXZ.c)
- *     ?Dispose@FxDriver@@UEAAEXZ @ 0x1C0069E20 (-Dispose@FxDriver@@UEAAEXZ.c)
- *     ?PnpEventRemovedCommonCode@FxPkgPnp@@IEAAXXZ @ 0x1C00847C0 (-PnpEventRemovedCommonCode@FxPkgPnp@@IEAAXXZ.c)
+ *     ?Dispose@FxMpDevice@@UEAAEXZ @ 0x1C004CDE0 (-Dispose@FxMpDevice@@UEAAEXZ.c)
+ *     ?DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z @ 0x1C0051B74 (-DeleteDeviceFromFailedCreateNoDelete@FxDevice@@AEAAJJE@Z.c)
+ *     ?Dispose@FxDevice@@UEAAEXZ @ 0x1C0051E20 (-Dispose@FxDevice@@UEAAEXZ.c)
+ *     ?Dispose@FxDriver@@UEAAEXZ @ 0x1C0053C30 (-Dispose@FxDriver@@UEAAEXZ.c)
+ *     ?PnpEventRemovedCommonCode@FxPkgPnp@@IEAAXXZ @ 0x1C007AFD0 (-PnpEventRemovedCommonCode@FxPkgPnp@@IEAAXXZ.c)
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?DrainListLocked@FxDisposeList@@AEAAXPEAE@Z @ 0x1C006AB4C (-DrainListLocked@FxDisposeList@@AEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?DrainListLocked@FxDisposeList@@AEAAXPEAE@Z @ 0x1C00551AC (-DrainListLocked@FxDisposeList@@AEAAXPEAE@Z.c)
  */
 
 void __fastcall FxDisposeList::WaitForEmpty(FxDisposeList *this, __int64 a2, unsigned __int8 a3)

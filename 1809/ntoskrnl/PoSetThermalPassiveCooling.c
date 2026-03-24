@@ -1,14 +1,14 @@
 /*
- * XREFs of PoSetThermalPassiveCooling @ 0x140867470
+ * XREFs of PoSetThermalPassiveCooling @ 0x140867450
  * Callers:
  *     <none>
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     PopPropogateCoolingChange @ 0x14018DA84 (PopPropogateCoolingChange.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x1406DCE34 (PopThermalUpdatePassiveTimeTracking.c)
- *     PoGetThermalRequestSupport @ 0x140755D50 (PoGetThermalRequestSupport.c)
- *     PopDiagTraceThermalRequestPassiveUpdate @ 0x140874620 (PopDiagTraceThermalRequestPassiveUpdate.c)
+ *     PopPropogateCoolingChange @ 0x14018DAA4 (PopPropogateCoolingChange.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x1406DCE14 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PoGetThermalRequestSupport @ 0x140755D30 (PoGetThermalRequestSupport.c)
+ *     PopDiagTraceThermalRequestPassiveUpdate @ 0x140874600 (PopDiagTraceThermalRequestPassiveUpdate.c)
  */
 
 __int64 __fastcall PoSetThermalPassiveCooling(__int64 a1, unsigned __int8 a2)

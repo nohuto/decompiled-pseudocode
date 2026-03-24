@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhBillboardCleanup @ 0x1C00529F4
+ * XREFs of UsbhBillboardCleanup @ 0x1C0054048
  * Callers:
- *     UsbhDeletePdo @ 0x1C00537BC (UsbhDeletePdo.c)
- *     UsbhPdoPnp_SurpriseRemoveDevice @ 0x1C0056200 (UsbhPdoPnp_SurpriseRemoveDevice.c)
+ *     UsbhDeletePdo @ 0x1C0054E1C (UsbhDeletePdo.c)
+ *     UsbhPdoPnp_SurpriseRemoveDevice @ 0x1C00578C0 (UsbhPdoPnp_SurpriseRemoveDevice.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhFdoCleanupDeviceInterfaceForBillBoard @ 0x1C00299A8 (UsbhFdoCleanupDeviceInterfaceForBillBoard.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhFdoCleanupDeviceInterfaceForBillBoard @ 0x1C002ACF8 (UsbhFdoCleanupDeviceInterfaceForBillBoard.c)
  */
 
 void __fastcall UsbhBillboardCleanup(PDEVICE_OBJECT Pdo)

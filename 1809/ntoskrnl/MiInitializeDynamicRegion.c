@@ -1,11 +1,11 @@
 /*
  * XREFs of MiInitializeDynamicRegion @ 0x1409B6DDC
  * Callers:
- *     MiInitializeSpecialPool @ 0x1407155E8 (MiInitializeSpecialPool.c)
- *     MiInitializeSystemCache @ 0x14072A6BC (MiInitializeSystemCache.c)
+ *     MiInitializeSpecialPool @ 0x1407155C8 (MiInitializeSpecialPool.c)
+ *     MiInitializeSystemCache @ 0x14072A69C (MiInitializeSystemCache.c)
  * Callees:
- *     MiSystemVaToDynamicBitmap @ 0x1400F71E0 (MiSystemVaToDynamicBitmap.c)
- *     MiBuildDynamicRegion @ 0x14017E8C0 (MiBuildDynamicRegion.c)
+ *     MiSystemVaToDynamicBitmap @ 0x1400F7200 (MiSystemVaToDynamicBitmap.c)
+ *     MiBuildDynamicRegion @ 0x14017E8E0 (MiBuildDynamicRegion.c)
  */
 
 ULONG_PTR __fastcall MiInitializeDynamicRegion(int a1)

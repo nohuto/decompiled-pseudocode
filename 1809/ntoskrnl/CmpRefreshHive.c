@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpRefreshHive @ 0x140802DCC
+ * XREFs of CmpRefreshHive @ 0x140802DAC
  * Callers:
- *     CmRestoreKey @ 0x1408013CC (CmRestoreKey.c)
+ *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
@@ -10,9 +10,9 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
  *     CmpRebuildKcbCache @ 0x1405A8F78 (CmpRebuildKcbCache.c)
  *     CmpFlushNotifiesOnKeyBodyList @ 0x1405AD310 (CmpFlushNotifiesOnKeyBodyList.c)
@@ -20,14 +20,14 @@
  *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpCleanUpKCBCacheTable @ 0x140692B3C (CmpCleanUpKCBCacheTable.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140736470 (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x1407368A0 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x1407F12DC (CmpSearchKeyControlBlockTreeEx.c)
- *     CmpDestroyHive @ 0x1407F6798 (CmpDestroyHive.c)
- *     CmpSwapHiveStorage @ 0x1407F6920 (CmpSwapHiveStorage.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpCleanUpKCBCacheTable @ 0x140692B1C (CmpCleanUpKCBCacheTable.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140736450 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x140736880 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x1407F12BC (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
+ *     CmpSwapHiveStorage @ 0x1407F6900 (CmpSwapHiveStorage.c)
  */
 
 __int64 __fastcall CmpRefreshHive(__int64 a1)

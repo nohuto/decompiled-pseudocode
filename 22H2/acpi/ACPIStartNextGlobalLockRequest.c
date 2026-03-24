@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIStartNextGlobalLockRequest @ 0x1C0039524
+ * XREFs of ACPIStartNextGlobalLockRequest @ 0x1C000EAE0
  * Callers:
- *     ACPIInterruptServiceRoutineDPC @ 0x1C0003E70 (ACPIInterruptServiceRoutineDPC.c)
- *     ACPIReleaseGlobalLock @ 0x1C003939C (ACPIReleaseGlobalLock.c)
+ *     ACPIReleaseGlobalLock @ 0x1C000F4A4 (ACPIReleaseGlobalLock.c)
+ *     ACPIInterruptServiceRoutineDPC @ 0x1C0025DB0 (ACPIInterruptServiceRoutineDPC.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_qq @ 0x1C00249A0 (WPP_RECORDER_SF_qq.c)
- *     ACPIReleaseHardwareGlobalLock @ 0x1C00394DC (ACPIReleaseHardwareGlobalLock.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C000EA0C (WPP_RECORDER_SF_qq.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ACPIReleaseHardwareGlobalLock @ 0x1C005C628 (ACPIReleaseHardwareGlobalLock.c)
  */
 
 void ACPIStartNextGlobalLockRequest()
@@ -17,9 +17,8 @@ void ACPIStartNextGlobalLockRequest()
   _QWORD *v2; // rcx
   _QWORD *v3; // rbx
   __int64 v4; // rax
-  int v5; // edx
-  IRP **v6; // rbx
-  IRP *v7; // rcx
+  IRP **v5; // rbx
+  IRP *v6; // rcx
 
   v1 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)AcpiInformation + 8);
   v2 = (_QWORD *)((char *)AcpiInformation + 48);
@@ -46,30 +45,27 @@ void ACPIStartNextGlobalLockRequest()
     *v2 = v4;
     *(_QWORD *)(v4 + 8) = v2;
     KeReleaseSpinLock((PKSPIN_LOCK)AcpiInformation + 8, v1);
-    v6 = (IRP **)(v3 - 2);
-    *((_QWORD *)AcpiInformation + 9) = v6;
-    *((_DWORD *)AcpiInformation + 20) = *((unsigned __int16 *)v6 + 5);
+    v5 = (IRP **)(v3 - 2);
+    *((_QWORD *)AcpiInformation + 9) = v5;
+    *((_DWORD *)AcpiInformation + 20) = *((unsigned __int16 *)v5 + 5);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v5) = 4;
       WPP_RECORDER_SF_qq(
-        WPP_GLOBAL_Control->DeviceExtension,
-        v5,
-        3,
-        19,
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        4u,
+        3u,
+        0x13u,
         (__int64)&WPP_46fdfefd1e063d3591824ef1bcf3110e_Traceguids,
-        (char)v6,
-        (char)*v6);
-    }
-    if ( *((_WORD *)v6 + 4) == 1 )
+        v5,
+        *v5);
+    if ( *((_WORD *)v5 + 4) == 1 )
     {
-      v7 = *v6;
-      v7->IoStatus.Status = 0;
-      IofCompleteRequest(v7, 0);
+      v6 = *v5;
+      v6->IoStatus.Status = 0;
+      IofCompleteRequest(v6, 0);
     }
-    else if ( *((_WORD *)v6 + 4) == 2 )
+    else if ( *((_WORD *)v5 + 4) == 2 )
     {
-      ((void (__fastcall *)(IRP **))*v6)(v6);
+      ((void (__fastcall *)(IRP **))*v5)(v5);
     }
   }
 }

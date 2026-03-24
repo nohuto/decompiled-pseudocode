@@ -1,147 +1,103 @@
 /*
- * XREFs of PpmParkRecordNodeStatistics @ 0x14033C4A0
+ * XREFs of PpmParkRecordNodeStatistics @ 0x1402DF5E0
  * Callers:
- *     PpmCheckRecordAllUtility @ 0x140256820 (PpmCheckRecordAllUtility.c)
+ *     PpmCheckRecordAllUtility @ 0x1402DF230 (PpmCheckRecordAllUtility.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     PpmPerfRecordMostActiveWorkloadClass @ 0x14033C618 (PpmPerfRecordMostActiveWorkloadClass.c)
- *     PpmParkComputeSnapStatistics @ 0x14033C6AC (PpmParkComputeSnapStatistics.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PpmEventParkNodeClassRecordedStats @ 0x14059AC48 (PpmEventParkNodeClassRecordedStats.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     PpmParkComputeSnapStatistics @ 0x1402DF750 (PpmParkComputeSnapStatistics.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PpmEventParkNodeClassRecordedStats @ 0x140579C0C (PpmEventParkNodeClassRecordedStats.c)
  */
 
 __int64 PpmParkRecordNodeStatistics()
 {
-  int v0; // edx
+  int v0; // r15d
+  __int64 v1; // rcx
   __int64 result; // rax
-  unsigned __int16 v2; // si
-  int v3; // r10d
-  __int64 v4; // rcx
-  char v5; // r11
-  char v6; // cl
-  __int64 v7; // rbx
-  int v8; // edx
-  REGHANDLE v9; // rdi
-  int v10; // edx
-  unsigned __int8 v11; // di
-  int v12; // esi
-  __int64 v13; // rcx
-  char *v14; // r14
-  char *v15; // r15
-  __int64 v16; // r13
-  _BYTE *v17; // r12
-  int v18; // r8d
-  int v19; // r9d
-  char i; // [rsp+48h] [rbp-89h]
-  char v21; // [rsp+49h] [rbp-88h]
-  char v22; // [rsp+50h] [rbp-81h] BYREF
-  char v23; // [rsp+58h] [rbp-79h] BYREF
-  unsigned __int16 v24; // [rsp+60h] [rbp-71h]
-  __int16 v25; // [rsp+68h] [rbp-69h] BYREF
-  int v26; // [rsp+70h] [rbp-61h]
-  __int64 v27; // [rsp+78h] [rbp-59h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+88h] [rbp-49h] BYREF
-  __int64 *v29; // [rsp+98h] [rbp-39h]
-  __int64 v30; // [rsp+A0h] [rbp-31h]
-  char *v31; // [rsp+A8h] [rbp-29h]
-  __int64 v32; // [rsp+B0h] [rbp-21h]
-  __int64 v33; // [rsp+B8h] [rbp-19h]
-  __int64 v34; // [rsp+C0h] [rbp-11h]
-  __int64 v35; // [rsp+C8h] [rbp-9h]
-  int v36; // [rsp+D0h] [rbp-1h]
-  int v37; // [rsp+D4h] [rbp+3h]
-  char *v38; // [rsp+D8h] [rbp+7h]
-  __int64 v39; // [rsp+E0h] [rbp+Fh]
-  __int64 v40; // [rsp+E8h] [rbp+17h]
-  int v41; // [rsp+F0h] [rbp+1Fh]
-  int v42; // [rsp+F4h] [rbp+23h]
+  unsigned __int16 v3; // di
+  unsigned __int8 v4; // r12
+  unsigned __int8 i; // r13
+  __int64 v6; // rbx
+  REGHANDLE v7; // rsi
+  int v8; // ecx
+  unsigned __int8 v9; // si
+  char *v10; // r14
+  int v11; // edi
+  int v12; // r9d
+  char v13; // [rsp+48h] [rbp-69h] BYREF
+  char v14; // [rsp+50h] [rbp-61h] BYREF
+  unsigned __int16 v15; // [rsp+58h] [rbp-59h]
+  __int16 v16; // [rsp+60h] [rbp-51h] BYREF
+  __int64 v17; // [rsp+68h] [rbp-49h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+78h] [rbp-39h] BYREF
+  __int64 *v19; // [rsp+88h] [rbp-29h]
+  __int64 v20; // [rsp+90h] [rbp-21h]
+  char *v21; // [rsp+98h] [rbp-19h]
+  __int64 v22; // [rsp+A0h] [rbp-11h]
+  __int64 v23; // [rsp+A8h] [rbp-9h]
+  __int64 v24; // [rsp+B0h] [rbp-1h]
+  __int64 v25; // [rsp+B8h] [rbp+7h]
+  int v26; // [rsp+C0h] [rbp+Fh]
+  int v27; // [rsp+C4h] [rbp+13h]
+  char *v28; // [rsp+C8h] [rbp+17h]
+  __int64 v29; // [rsp+D0h] [rbp+1Fh]
 
-  v0 = (int)PpmCurrentProfile;
-  result = dword_140C3D90C;
-  v2 = 0;
-  v3 = PpmCheckMakeupCount;
-  v4 = 55LL * dword_140C3D90C;
-  v26 = PpmCheckMakeupCount;
-  v24 = 0;
-  v5 = BYTE5(PpmCurrentProfile[v4 + 20]);
-  v6 = HIBYTE(PpmCurrentProfile[v4 + 20]);
-  v21 = v6;
-  for ( i = v5; v2 < (unsigned int)PpmParkNumNodes; v24 = v2 )
+  v0 = PpmCheckMakeupCount;
+  v1 = 342LL * dword_140C2334C;
+  result = 0LL;
+  v3 = 0;
+  v15 = 0;
+  v4 = BYTE5(PpmCurrentProfile[v1 + 20]);
+  for ( i = HIBYTE(PpmCurrentProfile[v1 + 20]); v3 < (unsigned int)PpmParkNumNodes; v15 = v3 )
   {
-    LOBYTE(v0) = v5;
-    v7 = PpmParkNodes + 192LL * v2;
-    if ( (unsigned __int8)PpmParkComputeSnapStatistics(v3, v0, v6, (int)v7 + 56, v7 + 116, v7 + 117, v7 + 118) )
+    v6 = PpmParkNodes + 272LL * v3;
+    if ( (unsigned __int8)PpmParkComputeSnapStatistics(v0, v4, i, (int)v6 + 80, v6 + 140, v6 + 141, v6 + 142) )
     {
-      v23 = *(_BYTE *)(v7 + 118);
-      v22 = *(_BYTE *)(v7 + 116);
-      v27 = *(_QWORD *)(v7 + 16);
-      v25 = *(_WORD *)(v7 + 4);
+      v14 = *(_BYTE *)(v6 + 142);
+      v13 = *(_BYTE *)(v6 + 140);
+      v17 = *(_QWORD *)(v6 + 8);
+      v16 = *(_WORD *)(v6 + 4);
       if ( PpmEtwRegistered )
       {
-        v9 = PpmEtwHandle;
+        v7 = PpmEtwHandle;
         if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PARK_NODE_STATS) )
         {
           *(_QWORD *)&UserData.Size = 2LL;
-          v10 = *(_DWORD *)(v7 + 104);
-          UserData.Ptr = (ULONGLONG)&v25;
-          v29 = &v27;
-          v33 = v7 + 104;
-          v31 = &v22;
-          v35 = *(_QWORD *)(v7 + 64);
-          v38 = &v23;
-          v40 = *(_QWORD *)(v7 + 72);
-          v36 = 8 * v10;
-          v41 = 8 * v10;
-          v30 = 8LL;
-          v32 = 1LL;
-          v34 = 4LL;
-          v37 = 0;
-          v39 = 1LL;
-          v42 = 0;
-          EtwWriteEx(v9, &PPM_ETW_PARK_NODE_STATS, 0LL, 0, 0LL, 0LL, 7u, &UserData);
+          UserData.Ptr = (ULONGLONG)&v16;
+          v20 = 8LL;
+          v19 = &v17;
+          v22 = 1LL;
+          v21 = &v13;
+          v24 = 4LL;
+          v23 = v6 + 120;
+          v8 = *(_DWORD *)(v6 + 120);
+          v25 = *(_QWORD *)(v6 + 88);
+          v27 = 0;
+          v29 = 1LL;
+          v26 = 8 * v8;
+          v28 = &v14;
+          EtwWriteEx(v7, &PPM_ETW_PARK_NODE_STATS, 0LL, 0, 0LL, 0LL, 6u, &UserData);
         }
       }
     }
-    if ( *(_BYTE *)(v7 + 121) )
+    if ( *(_BYTE *)(v6 + 6) != *(_BYTE *)(v6 + 128) )
     {
-      v11 = 0;
-      if ( *(_BYTE *)(v7 + 11) )
+      v9 = 0;
+      v10 = (char *)(v6 + 264);
+      v11 = v6 + 168;
+      do
       {
-        v12 = v26;
-        do
-        {
-          LOBYTE(v8) = i;
-          v13 = *(_QWORD *)(v7 + 184) + 104LL * v11;
-          v14 = (char *)(v13 + 96);
-          v15 = (char *)(v13 + 98);
-          v16 = v13 + 40;
-          v17 = (_BYTE *)(v13 + 97);
-          if ( (unsigned __int8)PpmParkComputeSnapStatistics(v12, v8, v21, (int)v13 + 40, v13 + 97, v13 + 98, v13 + 96) )
-          {
-            LOBYTE(v18) = v11;
-            LOBYTE(v19) = *v17;
-            PpmEventParkNodeClassRecordedStats(
-              *(unsigned __int16 *)(v7 + 4),
-              *(_QWORD *)(v7 + 16),
-              v18,
-              v19,
-              *v15,
-              v16,
-              *v14);
-          }
-          ++v11;
-        }
-        while ( v11 < *(_BYTE *)(v7 + 11) );
-        v2 = v24;
+        if ( (unsigned __int8)PpmParkComputeSnapStatistics(v0, v4, i, v11, 0LL, 0LL, (__int64)v10) )
+          PpmEventParkNodeClassRecordedStats(*(unsigned __int16 *)(v6 + 4), *(_QWORD *)(v6 + 8), v9, v12, *v10);
+        ++v9;
+        v11 += 48;
+        ++v10;
       }
+      while ( v9 < 2u );
+      v3 = v15;
     }
-    PpmPerfRecordMostActiveWorkloadClass(v7);
-    v3 = v26;
-    ++v2;
-    v5 = i;
-    v6 = v21;
-    result = v2;
+    result = ++v3;
   }
   return result;
 }

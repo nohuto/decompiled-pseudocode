@@ -1,13 +1,13 @@
 /*
- * XREFs of PiProcessDriversLoadedOnSecureDevice @ 0x140841914
+ * XREFs of PiProcessDriversLoadedOnSecureDevice @ 0x1408418F4
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406E6C6C (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x1406E6C4C (PipCallDriverAddDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PnpRequestDeviceRemoval @ 0x1406EF22C (PnpRequestDeviceRemoval.c)
- *     PnpQueryInterface @ 0x1406F9198 (PnpQueryInterface.c)
- *     PnpTraceSecureDeviceEnumeration @ 0x14083A0B4 (PnpTraceSecureDeviceEnumeration.c)
- *     PipUnprotectDevice @ 0x1408419CC (PipUnprotectDevice.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PnpRequestDeviceRemoval @ 0x1406EF20C (PnpRequestDeviceRemoval.c)
+ *     PnpQueryInterface @ 0x1406F9178 (PnpQueryInterface.c)
+ *     PnpTraceSecureDeviceEnumeration @ 0x14083A094 (PnpTraceSecureDeviceEnumeration.c)
+ *     PipUnprotectDevice @ 0x1408419AC (PipUnprotectDevice.c)
  */
 
 __int64 __fastcall PiProcessDriversLoadedOnSecureDevice(__int64 a1)

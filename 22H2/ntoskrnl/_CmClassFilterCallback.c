@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmClassFilterCallback @ 0x140A64F30
+ * XREFs of _CmClassFilterCallback @ 0x140976F00
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
  */
 
 char __fastcall CmClassFilterCallback(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -38,8 +38,8 @@ char __fastcall CmClassFilterCallback(__int64 a1, __int64 a2, unsigned int a3, _
       && (SourceString[38] = 0, RtlInitUnicodeStringEx(&String2, SourceString) >= 0)
       && RtlEqualUnicodeString(&DestinationString, &String2, 1u) )
     {
-      v8 = 1;
       v10 = *(__int64 (__fastcall **)(__int64, __int64, _QWORD, _QWORD))(a4 + 8);
+      v8 = 1;
       if ( v10 )
         return v10(a1, a2, a3, *(_QWORD *)(a4 + 16));
     }

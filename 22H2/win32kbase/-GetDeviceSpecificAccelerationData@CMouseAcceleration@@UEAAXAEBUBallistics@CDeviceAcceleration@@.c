@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDeviceSpecificAccelerationData@CMouseAcceleration@@UEAAXAEBUBallistics@CDeviceAcceleration@@PEAKPEAPEB_J22@Z @ 0x1C00C9770
+ * XREFs of ?GetDeviceSpecificAccelerationData@CMouseAcceleration@@UEAAXAEBUBallistics@CDeviceAcceleration@@PEAKPEAPEB_J22@Z @ 0x1C00BBFC0
  * Callers:
  *     <none>
  * Callees:

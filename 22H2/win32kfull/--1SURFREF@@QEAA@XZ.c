@@ -1,38 +1,33 @@
 /*
- * XREFs of ??1SURFREF@@QEAA@XZ @ 0x1C0087EAC
+ * XREFs of ??1SURFREF@@QEAA@XZ @ 0x1C0082F38
  * Callers:
- *     NtGdiDdDDICreateDCFromMemory @ 0x1C0006FD0 (NtGdiDdDDICreateDCFromMemory.c)
- *     NtGdiDdDDIDestroyDCFromMemory @ 0x1C000BD90 (NtGdiDdDDIDestroyDCFromMemory.c)
- *     GreMaskBlt @ 0x1C001C9BC (GreMaskBlt.c)
- *     GreDereferenceObject @ 0x1C002D3F8 (GreDereferenceObject.c)
- *     GreSelectRedirectionBitmap @ 0x1C002F2A0 (GreSelectRedirectionBitmap.c)
- *     ?GreGetDIBitsInternalImpl@@YAHPEAUHDC__@@PEAUHBITMAP__@@IIAEAV?$umptr_w@E@@PEAUtagBITMAPINFO@@III@Z @ 0x1C002F6C0 (-GreGetDIBitsInternalImpl@@YAHPEAUHDC__@@PEAUHBITMAP__@@IIAEAV-$umptr_w@E@@PEAUtagBITMAPINFO@@II.c)
- *     EngCopyBits @ 0x1C0030980 (EngCopyBits.c)
- *     GreReferenceObject @ 0x1C0079EC8 (GreReferenceObject.c)
- *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C0086DD4 (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
- *     GreIsReusedDeviceDependentBitmap @ 0x1C008E90C (GreIsReusedDeviceDependentBitmap.c)
- *     RecreateRedirectionBitmap @ 0x1C008E968 (RecreateRedirectionBitmap.c)
- *     ?TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z @ 0x1C0103ED0 (-TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z.c)
- *     ?vSetPointer@@YAXPEAUHDEV__@@PEAU_CURSINFO@@KKK@Z @ 0x1C01359C8 (-vSetPointer@@YAXPEAUHDEV__@@PEAU_CURSINFO@@KKK@Z.c)
- *     ??1SURFFAKEOBJ@@QEAA@XZ @ 0x1C013EF70 (--1SURFFAKEOBJ@@QEAA@XZ.c)
- *     ?vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02815EC (-vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
- *     EngMarkBandingSurface @ 0x1C028E860 (EngMarkBandingSurface.c)
- *     GrePlgBlt @ 0x1C0290EF0 (GrePlgBlt.c)
- *     GreGetBitmapDpiScaleValue @ 0x1C02A7D84 (GreGetBitmapDpiScaleValue.c)
- *     ?UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C02B9F50 (-UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
- *     NtGdiEngCreateBitmap @ 0x1C02C9260 (NtGdiEngCreateBitmap.c)
- *     NtGdiEngDeleteSurface @ 0x1C02C9840 (NtGdiEngDeleteSurface.c)
- *     NtGdiMonoBitmap @ 0x1C02D13F0 (NtGdiMonoBitmap.c)
+ *     NtGdiDdDDICreateDCFromMemory @ 0x1C0017990 (NtGdiDdDDICreateDCFromMemory.c)
+ *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C001ED70 (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
+ *     GreDereferenceObject @ 0x1C004B8AC (GreDereferenceObject.c)
+ *     GreReferenceObject @ 0x1C0065940 (GreReferenceObject.c)
+ *     EngCopyBits @ 0x1C007EAA0 (EngCopyBits.c)
+ *     GreGetDIBitsInternal @ 0x1C0082984 (GreGetDIBitsInternal.c)
+ *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C008C800 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z.c)
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C00CF9EC (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
+ *     RecreateRedirectionBitmap @ 0x1C00F1598 (RecreateRedirectionBitmap.c)
+ *     NtGdiDdDDIDestroyDCFromMemory @ 0x1C011E920 (NtGdiDdDDIDestroyDCFromMemory.c)
+ *     NtGdiEngCreateBitmap @ 0x1C015CF30 (NtGdiEngCreateBitmap.c)
+ *     NtGdiEngDeleteSurface @ 0x1C015DBE0 (NtGdiEngDeleteSurface.c)
+ *     EngMarkBandingSurface @ 0x1C015E360 (EngMarkBandingSurface.c)
+ *     ?UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C015E840 (-UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
+ *     ?TmpSrcCleanup@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C016A68C (-TmpSrcCleanup@DEVLOCKBLTOBJ@@QEAAXXZ.c)
+ *     ??1SURFFAKEOBJ@@QEAA@XZ @ 0x1C016AB40 (--1SURFFAKEOBJ@@QEAA@XZ.c)
+ *     DxgkEngBltViaGDI @ 0x1C0276750 (DxgkEngBltViaGDI.c)
  * Callees:
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
-void __fastcall SURFREF::~SURFREF(SURFREF *this)
+void __fastcall SURFREF::~SURFREF(SURFREF *this, __int64 a2)
 {
-  __int64 v2; // rcx
+  __int64 v3; // rcx
 
-  v2 = *((_QWORD *)this + 4);
-  if ( v2 )
-    DEC_SHARE_REF_CNT(v2);
+  v3 = *((_QWORD *)this + 4);
+  if ( v3 )
+    DEC_SHARE_REF_CNT(v3, a2);
   UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(this);
 }

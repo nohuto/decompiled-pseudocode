@@ -1,367 +1,270 @@
 /*
- * XREFs of CmEnumerateValueKeyFromMergedView @ 0x140A17A84
+ * XREFs of CmEnumerateValueKeyFromMergedView @ 0x14086F460
  * Callers:
- *     CmQueryKey @ 0x1406D7280 (CmQueryKey.c)
- *     NtEnumerateValueKey @ 0x14070E3E0 (NtEnumerateValueKey.c)
+ *     NtEnumerateValueKey @ 0x1405F48F0 (NtEnumerateValueKey.c)
+ *     CmQueryKey @ 0x1405F5810 (CmQueryKey.c)
  * Callees:
- *     CmpFindNameInList @ 0x1406D0F6C (CmpFindNameInList.c)
- *     CmpUnlockTwoKcbs @ 0x1406DBDC4 (CmpUnlockTwoKcbs.c)
- *     CmpLockTwoKcbsShared @ 0x1406DBE1C (CmpLockTwoKcbsShared.c)
- *     CmpQueryKeyValueData @ 0x1406DCE80 (CmpQueryKeyValueData.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140768D0C (CmpTransSearchAddTransFromKeyBody.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140AF62F0 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpLockTwoKcbsShared @ 0x1405F38C0 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x1405F3950 (CmpUnlockTwoKcbs.c)
+ *     CmpQueryKeyValueData @ 0x1405F7EB0 (CmpQueryKeyValueData.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140649D20 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x14066DDB4 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpFindNameInList @ 0x1406E23E8 (CmpFindNameInList.c)
  */
 
 __int64 __fastcall CmEnumerateValueKeyFromMergedView(
         __int64 a1,
         __int64 a2,
-        __int64 a3,
-        __int64 a4,
+        char a3,
+        unsigned int a4,
         int a5,
         _DWORD *Size,
         unsigned int a7,
         unsigned int *a8,
         unsigned int *a9)
 {
-  char v10; // r15
-  __int64 v12; // rsi
+  __int64 v12; // r15
   int KeyValueData; // ebx
-  __int64 v14; // r12
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  __int64 v19; // r15
-  __int64 v20; // r13
-  char v21; // al
-  __int64 v22; // rax
-  unsigned int *v23; // rsi
-  ULONG_PTR v24; // rcx
-  ULONG_PTR v25; // rdx
-  __int64 CellFlat; // rax
-  ULONG_PTR *v27; // r14
-  ULONG_PTR v28; // rcx
-  ULONG_PTR v29; // rdx
-  __int64 CellPaged; // rax
-  __int64 v31; // r12
-  unsigned int v32; // r15d
-  unsigned int v33; // r12d
-  __int64 v34; // rsi
-  ULONG_PTR v35; // rcx
-  ULONG_PTR v36; // rdx
-  __int64 v37; // rax
-  ULONG_PTR v38; // r15
-  ULONG_PTR v39; // rdx
-  __int64 v40; // rax
-  __int64 v41; // r12
-  __int16 v42; // r9
-  __int64 v43; // rcx
-  __int64 v44; // rcx
-  __int64 v45; // rsi
-  __int64 v46; // rcx
-  unsigned int v47; // ecx
-  ULONG_PTR v48; // rcx
-  ULONG_PTR v49; // rdx
-  __int64 v50; // rax
-  __int64 v51; // rbx
-  ULONG_PTR v52; // rdx
-  __int64 v53; // rax
-  __int64 v54; // rcx
-  __int64 v55; // rcx
-  __int64 v56; // rcx
-  __int64 v57; // rcx
-  __int64 v59; // [rsp+48h] [rbp-79h]
-  __int64 v60; // [rsp+50h] [rbp-71h] BYREF
-  int v61[2]; // [rsp+58h] [rbp-69h] BYREF
-  int v62; // [rsp+60h] [rbp-61h]
-  __int64 v63; // [rsp+68h] [rbp-59h] BYREF
-  unsigned int *v64; // [rsp+70h] [rbp-51h]
-  __int64 v65; // [rsp+78h] [rbp-49h]
-  int v66; // [rsp+80h] [rbp-41h] BYREF
-  int v67; // [rsp+84h] [rbp-3Dh]
-  __int64 v68; // [rsp+88h] [rbp-39h] BYREF
-  __int64 v69; // [rsp+90h] [rbp-31h] BYREF
-  __int64 v70; // [rsp+98h] [rbp-29h] BYREF
-  _DWORD *v71; // [rsp+A0h] [rbp-21h]
-  __int64 v72; // [rsp+A8h] [rbp-19h]
-  __int64 v73; // [rsp+B0h] [rbp-11h]
-  __int128 v74; // [rsp+B8h] [rbp-9h] BYREF
-  unsigned int v75; // [rsp+108h] [rbp+47h]
-  char v76; // [rsp+118h] [rbp+57h]
-  unsigned int v77; // [rsp+120h] [rbp+5Fh]
+  unsigned int *v14; // r12
+  ULONG_PTR v15; // rdi
+  ULONG_PTR v16; // r14
+  char v17; // al
+  unsigned int *v18; // r13
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rsi
+  unsigned int v22; // esi
+  unsigned int v23; // r15d
+  __int64 v24; // rax
+  __int64 v25; // rcx
+  __int64 v26; // r15
+  __int64 v27; // rdx
+  __int64 (__fastcall *v28)(__int64, __int64, _DWORD *); // rax
+  __int64 v29; // rax
+  __int64 v30; // r13
+  __int16 v31; // r9
+  __int64 v32; // rcx
+  __int64 v33; // rsi
+  unsigned int v34; // ecx
+  __int64 v35; // rax
+  __int64 v36; // rdx
+  __int64 (__fastcall *v37)(__int64, __int64, _DWORD *); // rax
+  int v39; // [rsp+48h] [rbp-69h]
+  int v40; // [rsp+4Ch] [rbp-65h] BYREF
+  int v41[2]; // [rsp+50h] [rbp-61h] BYREF
+  _DWORD v42[2]; // [rsp+58h] [rbp-59h] BYREF
+  __int64 v43; // [rsp+60h] [rbp-51h]
+  unsigned int *v44; // [rsp+68h] [rbp-49h]
+  _DWORD v45[2]; // [rsp+70h] [rbp-41h] BYREF
+  __int64 v46; // [rsp+78h] [rbp-39h]
+  _DWORD v47[2]; // [rsp+80h] [rbp-31h] BYREF
+  _DWORD v48[2]; // [rsp+88h] [rbp-29h] BYREF
+  _DWORD v49[2]; // [rsp+90h] [rbp-21h] BYREF
+  __int64 v50; // [rsp+98h] [rbp-19h]
+  __int128 v51; // [rsp+A0h] [rbp-11h] BYREF
+  int v52; // [rsp+F8h] [rbp+47h]
 
-  v77 = a4;
-  v76 = a3;
-  *(_QWORD *)v61 = 0LL;
-  v72 = 0LL;
-  v69 = 0xFFFFFFFFLL;
-  v10 = a3;
-  v65 = 0LL;
-  v70 = 0xFFFFFFFFLL;
+  *(_QWORD *)v41 = 0LL;
+  v50 = 0LL;
+  v48[0] = -1;
+  v48[1] = 0;
+  v46 = 0LL;
+  v49[0] = -1;
   v12 = 0LL;
+  v49[1] = 0;
   KeyValueData = 0;
-  v64 = 0LL;
+  v44 = 0LL;
   v14 = 0LL;
-  v71 = 0LL;
-  v62 = 0;
-  v75 = 0;
-  v59 = 0LL;
-  v63 = 0xFFFFFFFFLL;
-  v68 = 0xFFFFFFFFLL;
-  v60 = 0xFFFFFFFFLL;
-  v66 = 0;
-  v74 = 0LL;
-  if ( !(_BYTE)a3 )
-    CmpLockRegistry(0xFFFFFFFFLL, a2, a3, a4);
+  v52 = 0;
+  v39 = 0;
+  v43 = 0LL;
+  v45[0] = -1;
+  v45[1] = 0;
+  v47[0] = -1;
+  v47[1] = 0;
+  v42[0] = -1;
+  v42[1] = 0;
+  v40 = 0;
+  v51 = 0LL;
+  if ( !a3 )
+    CmpLockRegistry();
   if ( *(_QWORD *)(a1 + 56) || *(_QWORD *)(a1 + 64) )
   {
-    KeyValueData = CmpTransSearchAddTransFromKeyBody((_QWORD *)a1, v61);
+    KeyValueData = CmpTransSearchAddTransFromKeyBody((_QWORD *)a1, v41);
     if ( KeyValueData < 0 )
     {
-      if ( !v10 )
-        goto LABEL_102;
+      if ( !a3 )
+        goto LABEL_67;
       return (unsigned int)KeyValueData;
     }
-    v12 = *(_QWORD *)v61;
+    v12 = *(_QWORD *)v41;
   }
-  v19 = *(_QWORD *)(a2 + 8);
-  v20 = *(_QWORD *)(a1 + 8);
-  *(_QWORD *)v61 = v19;
-  if ( !v76 )
-    CmpLockTwoKcbsShared(v20, v19);
-  if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(a1, v12) )
+  v15 = *(_QWORD *)(a1 + 8);
+  v16 = *(_QWORD *)(a2 + 8);
+  if ( !a3 )
+    CmpLockTwoKcbsShared(*(_QWORD *)(a1 + 8), *(_QWORD *)(a2 + 8));
+  if ( CmpIsKeyDeletedForKeyBody(a1, v12) )
   {
-    v21 = *(_BYTE *)(a1 + 48);
+    v17 = *(_BYTE *)(a1 + 48);
 LABEL_13:
-    KeyValueData = (v21 & 1) != 0 ? -1073740763 : -1073741444;
-    goto LABEL_100;
+    KeyValueData = (v17 & 1) != 0 ? -1073740763 : -1073741444;
+    goto LABEL_65;
   }
-  if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(a2, v12) )
+  if ( CmpIsKeyDeletedForKeyBody(a2, v12) )
   {
-    v21 = *(_BYTE *)(a2 + 48);
+    v17 = *(_BYTE *)(a2 + 48);
     goto LABEL_13;
   }
   if ( !v12 )
-    goto LABEL_24;
-  if ( *(_QWORD *)(v20 + 288) == v12 )
+    goto LABEL_23;
+  if ( *(_QWORD *)(v15 + 288) == v12 )
   {
-    v22 = v20 + 280;
-    v64 = (unsigned int *)(v20 + 280);
+    v18 = (unsigned int *)(v15 + 280);
+    v44 = (unsigned int *)(v15 + 280);
   }
   else
   {
-    v22 = 0LL;
+    v18 = 0LL;
   }
-  if ( *(_QWORD *)(v19 + 288) == v12 )
+  if ( *(_QWORD *)(v16 + 288) == v12 )
+    v14 = (unsigned int *)(v16 + 280);
+  if ( !v18 )
   {
-    v14 = v19 + 280;
-    v71 = (_DWORD *)(v19 + 280);
-  }
-  if ( v22 )
-  {
-    v23 = v64;
-  }
-  else
-  {
-LABEL_24:
-    v24 = *(_QWORD *)(v20 + 32);
-    v25 = *(unsigned int *)(v20 + 40);
-    if ( (*(_BYTE *)(v24 + 140) & 1) != 0 )
-      CellFlat = HvpGetCellFlat(v24, v25, &v69);
-    else
-      CellFlat = HvpGetCellPaged(v24, v25, (unsigned int *)&v69);
-    v72 = CellFlat;
-    if ( !CellFlat )
+LABEL_23:
+    v19 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _DWORD *))(*(_QWORD *)(v15 + 32) + 8LL))(
+            *(_QWORD *)(v15 + 32),
+            *(unsigned int *)(v15 + 40),
+            v48);
+    v50 = v19;
+    if ( !v19 )
     {
       KeyValueData = -1073741670;
-      goto LABEL_100;
+      goto LABEL_65;
     }
-    v23 = (unsigned int *)(CellFlat + 36);
-    v64 = (unsigned int *)(CellFlat + 36);
+    v18 = (unsigned int *)(v19 + 36);
+    v44 = (unsigned int *)(v19 + 36);
   }
-  v27 = (ULONG_PTR *)(v19 + 32);
   if ( v14 )
-    goto LABEL_37;
-  v28 = *v27;
-  v29 = *(unsigned int *)(v19 + 40);
-  if ( (*(_BYTE *)(*v27 + 140) & 1) != 0 )
-    CellPaged = HvpGetCellFlat(v28, v29, &v70);
-  else
-    CellPaged = HvpGetCellPaged(v28, v29, (unsigned int *)&v70);
-  v65 = CellPaged;
-  v31 = CellPaged;
-  if ( CellPaged )
+    goto LABEL_30;
+  v20 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _DWORD *))(*(_QWORD *)(v16 + 32) + 8LL))(
+          *(_QWORD *)(v16 + 32),
+          *(unsigned int *)(v16 + 40),
+          v49);
+  v46 = v20;
+  v21 = v20;
+  if ( v20 )
   {
-    v71 = (_DWORD *)(CellPaged + 36);
-LABEL_37:
-    v32 = 0;
-    v33 = 0;
-    while ( v33 < *v23 )
+    v14 = (unsigned int *)(v20 + 36);
+LABEL_30:
+    v22 = 0;
+    v23 = 0;
+    while ( v23 < *v18 )
     {
-      v34 = v59;
-      if ( !v59 )
+      v24 = v43;
+      if ( !v43 )
       {
-        v35 = *(_QWORD *)(v20 + 32);
-        v36 = v64[1];
-        v37 = (*(_BYTE *)(v35 + 140) & 1) != 0
-            ? HvpGetCellFlat(v35, v36, &v63)
-            : HvpGetCellPaged(v35, v36, (unsigned int *)&v63);
-        v59 = v37;
-        v34 = v37;
-        if ( !v37 )
+        v24 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _DWORD *))(*(_QWORD *)(v15 + 32) + 8LL))(
+                *(_QWORD *)(v15 + 32),
+                v18[1],
+                v45);
+        v43 = v24;
+        if ( !v24 )
         {
           KeyValueData = -1073741670;
-          goto LABEL_91;
+          goto LABEL_60;
         }
       }
-      v38 = *(_QWORD *)(v20 + 32);
-      v39 = *(unsigned int *)(v34 + 4LL * v33);
-      v67 = *(_DWORD *)(v34 + 4LL * v33);
-      if ( (*(_BYTE *)(v38 + 140) & 1) != 0 )
-        v40 = HvpGetCellFlat(v38, v39, &v60);
-      else
-        v40 = HvpGetCellPaged(v38, v39, (unsigned int *)&v60);
-      v41 = v40;
-      if ( !v40 )
+      v25 = v23;
+      v26 = *(_QWORD *)(v15 + 32);
+      v27 = *(unsigned int *)(v24 + 4 * v25);
+      v28 = *(__int64 (__fastcall **)(__int64, __int64, _DWORD *))(v26 + 8);
+      v41[0] = v27;
+      v29 = v28(v26, v27, v42);
+      v30 = v29;
+      if ( !v29 )
       {
         KeyValueData = -1073741670;
-LABEL_66:
-        v45 = 0LL;
-        goto LABEL_83;
+LABEL_46:
+        v33 = 0LL;
+        goto LABEL_56;
       }
-      v42 = *(_WORD *)(v40 + 16);
-      *((_QWORD *)&v74 + 1) = v40 + 20;
-      LOWORD(v74) = *(_WORD *)(v40 + 2);
-      v73 = *(_QWORD *)v61 + 32LL;
-      if ( CmpFindNameInList(
-             *(_QWORD *)(*(_QWORD *)v61 + 32LL),
-             (__int64)v71,
-             (__int64)&v74,
-             (unsigned __int8)(v42 & 1) << 16,
-             0LL,
-             (__int64)&v66)
-        && v66 == -1 )
+      v31 = *(_WORD *)(v29 + 16);
+      *((_QWORD *)&v51 + 1) = v29 + 20;
+      LOWORD(v51) = *(_WORD *)(v29 + 2);
+      if ( CmpFindNameInList(*(_QWORD *)(v16 + 32), v14, (__int64)&v51, (v31 & 1) << 16, 0LL, (__int64)&v40)
+        && v40 == -1 )
       {
-        if ( v75 == v77 )
+        if ( v22 == a4 )
         {
-          v46 = v20;
-          v45 = 0LL;
-          goto LABEL_80;
+          v32 = v15;
+          v33 = 0LL;
+          goto LABEL_54;
         }
-        v32 = ++v75;
+        v39 = ++v22;
       }
-      else
+      v23 = ++v52;
+      (*(void (__fastcall **)(_QWORD, _DWORD *))(*(_QWORD *)(v15 + 32) + 16LL))(*(_QWORD *)(v15 + 32), v42);
+      if ( v43 )
       {
-        v32 = v75;
+        (*(void (__fastcall **)(_QWORD, _DWORD *))(*(_QWORD *)(v15 + 32) + 16LL))(*(_QWORD *)(v15 + 32), v45);
+        v43 = 0LL;
       }
-      v43 = *(_QWORD *)(v20 + 32);
-      v33 = ++v62;
-      if ( (*(_BYTE *)(v43 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(v43, &v60);
-      else
-        HvpReleaseCellPaged(v43, (unsigned int *)&v60);
-      if ( v34 )
-      {
-        v44 = *(_QWORD *)(v20 + 32);
-        if ( (*(_BYTE *)(v44 + 140) & 1) != 0 )
-          HvpReleaseCellFlat(v44, &v63);
-        else
-          HvpReleaseCellPaged(v44, (unsigned int *)&v63);
-        v59 = 0LL;
-      }
-      v45 = 0LL;
-      if ( v32 > v77 )
-        goto LABEL_83;
-      v27 = (ULONG_PTR *)v73;
-      v23 = v64;
+      if ( v22 > a4 )
+        goto LABEL_46;
+      v18 = v44;
     }
-    v47 = v32 + *v71;
-    if ( v47 <= v77 )
+    v34 = v22 + *v14;
+    if ( v34 <= a4 )
     {
       KeyValueData = -2147483622;
       if ( a9 )
-        *a9 = v47;
-      goto LABEL_66;
+        *a9 = v34;
+      goto LABEL_46;
     }
-    v48 = *v27;
-    v49 = (unsigned int)v71[1];
-    if ( (*(_BYTE *)(*v27 + 140) & 1) != 0 )
-      v50 = HvpGetCellFlat(v48, v49, &v68);
-    else
-      v50 = HvpGetCellPaged(v48, v49, (unsigned int *)&v68);
-    v45 = v50;
-    if ( !v50
-      || ((v51 = v77 - v75,
-           v38 = *v27,
-           v52 = *(unsigned int *)(v50 + 4 * v51),
-           v67 = *(_DWORD *)(v50 + 4 * v51),
-           (*(_BYTE *)(v38 + 140) & 1) == 0)
-        ? (v53 = HvpGetCellPaged(v38, v52, (unsigned int *)&v60))
-        : (v53 = HvpGetCellFlat(v38, v52, &v60)),
-          (v41 = v53) == 0) )
+    v35 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _DWORD *))(*(_QWORD *)(v16 + 32) + 8LL))(
+            *(_QWORD *)(v16 + 32),
+            v14[1],
+            v47);
+    v33 = v35;
+    if ( !v35
+      || (v26 = *(_QWORD *)(v16 + 32),
+          v36 = *(unsigned int *)(v35 + 4LL * (a4 - v39)),
+          v37 = *(__int64 (__fastcall **)(__int64, __int64, _DWORD *))(v26 + 8),
+          v41[0] = v36,
+          (v30 = v37(v26, v36, v42)) == 0) )
     {
       KeyValueData = -1073741670;
-      goto LABEL_83;
+      goto LABEL_56;
     }
-    v46 = *(_QWORD *)v61;
-LABEL_80:
-    KeyValueData = CmpQueryKeyValueData(v46, v67, v41, a5, Size, a7, a8);
-    if ( (*(_BYTE *)(v38 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v38, &v60);
-    else
-      HvpReleaseCellPaged(v38, (unsigned int *)&v60);
-LABEL_83:
-    if ( v59 )
-    {
-      v54 = *(_QWORD *)(v20 + 32);
-      if ( (*(_BYTE *)(v54 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(v54, &v63);
-      else
-        HvpReleaseCellPaged(v54, (unsigned int *)&v63);
-    }
-    if ( v45 )
-    {
-      v55 = *v27;
-      if ( (*(_BYTE *)(*v27 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(v55, &v68);
-      else
-        HvpReleaseCellPaged(v55, (unsigned int *)&v68);
-    }
-LABEL_91:
-    v31 = v65;
-    v19 = *(_QWORD *)v61;
-    goto LABEL_92;
+    v32 = v16;
+LABEL_54:
+    KeyValueData = CmpQueryKeyValueData(v32, v41[0], v30, a5, Size, a7, a8);
+    if ( v30 )
+      (*(void (__fastcall **)(__int64, _DWORD *))(v26 + 16))(v26, v42);
+LABEL_56:
+    if ( v43 )
+      (*(void (__fastcall **)(_QWORD, _DWORD *))(*(_QWORD *)(v15 + 32) + 16LL))(*(_QWORD *)(v15 + 32), v45);
+    if ( v33 )
+      (*(void (__fastcall **)(_QWORD, _DWORD *))(*(_QWORD *)(v16 + 32) + 16LL))(*(_QWORD *)(v16 + 32), v47);
+LABEL_60:
+    v21 = v46;
+    goto LABEL_61;
   }
   KeyValueData = -1073741670;
-LABEL_92:
-  if ( v72 )
+LABEL_61:
+  if ( v50 )
+    (*(void (__fastcall **)(_QWORD, _DWORD *))(*(_QWORD *)(v15 + 32) + 16LL))(*(_QWORD *)(v15 + 32), v48);
+  if ( v21 )
+    (*(void (__fastcall **)(_QWORD, _DWORD *))(*(_QWORD *)(v16 + 32) + 16LL))(*(_QWORD *)(v16 + 32), v49);
+LABEL_65:
+  if ( !a3 )
   {
-    v56 = *(_QWORD *)(v20 + 32);
-    if ( (*(_BYTE *)(v56 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v56, &v69);
-    else
-      HvpReleaseCellPaged(v56, (unsigned int *)&v69);
-  }
-  if ( v31 )
-  {
-    v57 = *v27;
-    if ( (*(_BYTE *)(*v27 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v57, &v70);
-    else
-      HvpReleaseCellPaged(v57, (unsigned int *)&v70);
-  }
-LABEL_100:
-  if ( !v76 )
-  {
-    CmpUnlockTwoKcbs(v20, v19);
-LABEL_102:
-    CmpUnlockRegistry(v16, v15, v17, v18);
+    CmpUnlockTwoKcbs(v15, v16);
+LABEL_67:
+    CmpUnlockRegistry();
   }
   return (unsigned int)KeyValueData;
 }

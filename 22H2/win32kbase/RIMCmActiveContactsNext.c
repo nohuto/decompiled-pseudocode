@@ -1,44 +1,48 @@
 /*
- * XREFs of RIMCmActiveContactsNext @ 0x1C01AFE8C
+ * XREFs of RIMCmActiveContactsNext @ 0x1C017FCBC
  * Callers:
- *     rimCountContactsToDeliverWithFrame @ 0x1C00E1A7E (rimCountContactsToDeliverWithFrame.c)
- *     rimAbIsPointerSuppressedByOtherDeviceContacts @ 0x1C017BC38 (rimAbIsPointerSuppressedByOtherDeviceContacts.c)
- *     rimAbSuppressLowerRankActivityForFrame @ 0x1C017C440 (rimAbSuppressLowerRankActivityForFrame.c)
- *     rimAbSuppressLowerRankActivityInFrame @ 0x1C017C960 (rimAbSuppressLowerRankActivityInFrame.c)
- *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C017CDA4 (rimAbUpdateDeadzonesAndResurrectContacts.c)
- *     RIMSuppressAllActiveContacts @ 0x1C018C2BC (RIMSuppressAllActiveContacts.c)
- *     rimEndAllActiveContactsWorker @ 0x1C018E494 (rimEndAllActiveContactsWorker.c)
- *     rimIsWakeablePointerFrame @ 0x1C01A0FB8 (rimIsWakeablePointerFrame.c)
- *     rimStorePointersInHoldingFrame @ 0x1C01A11E0 (rimStorePointersInHoldingFrame.c)
- *     RIMInsertSimulatedKeepAliveStateForActiveContacts @ 0x1C01A6F9C (RIMInsertSimulatedKeepAliveStateForActiveContacts.c)
- *     RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C01A75A0 (RIMUpdatePointerDeviceStateAfterFrameCompleted.c)
- *     RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C01A792C (RIMUpdatePrimaryAndFinalizePointerFlags.c)
- *     rimEndPointerDeviceStaleContacts @ 0x1C01A894C (rimEndPointerDeviceStaleContacts.c)
- *     rimProcessMissingPointerDeviceContacts @ 0x1C01AB398 (rimProcessMissingPointerDeviceContacts.c)
- *     RIMCmActiveContactsBeginNoButton @ 0x1C01AFE08 (RIMCmActiveContactsBeginNoButton.c)
+ *     rimAbIsPointerSuppressedByOtherDeviceContacts @ 0x1C0158D94 (rimAbIsPointerSuppressedByOtherDeviceContacts.c)
+ *     rimAbSuppressLowerRankActivityForFrame @ 0x1C0159500 (rimAbSuppressLowerRankActivityForFrame.c)
+ *     rimAbSuppressLowerRankActivityInFrame @ 0x1C01598CC (rimAbSuppressLowerRankActivityInFrame.c)
+ *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C0159C24 (rimAbUpdateDeadzonesAndResurrectContacts.c)
+ *     RIMEndAllActiveContacts @ 0x1C015D000 (RIMEndAllActiveContacts.c)
+ *     RIMSuppressAllActiveContacts @ 0x1C015FB2C (RIMSuppressAllActiveContacts.c)
+ *     rimCountContactsToDeliverWithFrame @ 0x1C0171F84 (rimCountContactsToDeliverWithFrame.c)
+ *     rimStorePointersInHoldingFrame @ 0x1C01729D8 (rimStorePointersInHoldingFrame.c)
+ *     RIMInsertSimulatedKeepAliveStateForActiveContacts @ 0x1C01783F8 (RIMInsertSimulatedKeepAliveStateForActiveContacts.c)
+ *     RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C017889C (RIMUpdatePointerDeviceStateAfterFrameCompleted.c)
+ *     RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C0178C24 (RIMUpdatePrimaryAndFinalizePointerFlags.c)
+ *     rimEndPointerDeviceStaleContacts @ 0x1C0179B00 (rimEndPointerDeviceStaleContacts.c)
+ *     rimProcessMissingPointerDeviceContacts @ 0x1C017C108 (rimProcessMissingPointerDeviceContacts.c)
+ *     RIMCmActiveContactsBeginNoButton @ 0x1C017FBB8 (RIMCmActiveContactsBeginNoButton.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ListTableEnd @ 0x1C00E375E (ListTableEnd.c)
- *     ListTableIteratorNext @ 0x1C00E37FA (ListTableIteratorNext.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ListTableEnd @ 0x1C018276C (ListTableEnd.c)
+ *     ListTableIteratorNext @ 0x1C0182808 (ListTableIteratorNext.c)
  */
 
-__int64 *__fastcall RIMCmActiveContactsNext(__int64 a1, __int64 a2)
+__int64 __fastcall RIMCmActiveContactsNext(__int64 a1, __int64 *a2)
 {
-  _QWORD *v4; // rax
-  __int64 *result; // rax
-  __int64 v6; // xmm0_8
-  __int64 v7[4]; // [rsp+38h] [rbp-20h] BYREF
+  __int64 v4; // rdx
+  _QWORD *v5; // rax
+  __int64 result; // rax
+  __int64 v7; // xmm0_8
+  _BYTE v8[32]; // [rsp+38h] [rbp-20h] BYREF
 
-  if ( !*(_DWORD *)(a1 + 1000) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 478);
-  if ( *(_QWORD *)a2 != a1 + 992 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 479);
-  v4 = (_QWORD *)ListTableEnd((__int64)v7, *(_QWORD *)a2);
-  if ( *(_QWORD *)a2 == *v4 && *(_DWORD *)(a2 + 8) == (unsigned int)v4[1] && *(_QWORD *)(a2 + 16) == v4[2] )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 480);
-  result = ListTableIteratorNext(v7, a2);
-  v6 = result[2];
+  if ( !*(_DWORD *)(a1 + 944) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 455);
+  v4 = *a2;
+  if ( *a2 != a1 + 936 )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 456);
+    v4 = *a2;
+  }
+  v5 = (_QWORD *)ListTableEnd(v8, v4);
+  if ( *a2 == *v5 && *((_DWORD *)a2 + 2) == (unsigned int)v5[1] && a2[2] == v5[2] )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 457);
+  result = ListTableIteratorNext(v8, a2);
+  v7 = *(_QWORD *)(result + 16);
   *(_OWORD *)a2 = *(_OWORD *)result;
-  *(_QWORD *)(a2 + 16) = v6;
+  a2[2] = v7;
   return result;
 }

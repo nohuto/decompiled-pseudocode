@@ -1,89 +1,87 @@
 /*
- * XREFs of EtwpGetAutoLoggerLevelKwFilter @ 0x140856A54
+ * XREFs of EtwpGetAutoLoggerLevelKwFilter @ 0x1407CB108
  * Callers:
- *     EtwpGetAutoLoggerProviderFilter @ 0x140822030 (EtwpGetAutoLoggerProviderFilter.c)
+ *     EtwpGetAutoLoggerProviderFilter @ 0x140795014 (EtwpGetAutoLoggerProviderFilter.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpGetAutoLoggerLevelKwFilter(__int64 a1, __int64 a2, PVOID *a3)
 {
-  __int64 v4; // rsi
-  __int64 v5; // rax
-  WCHAR *v8; // rbx
-  __int64 v9; // r12
-  wchar_t *Pool2; // rax
-  WCHAR *v11; // rdi
-  NTSTATUS v12; // ecx
+  __int64 v5; // rsi
+  __int64 v6; // rax
+  WCHAR *v8; // rdi
+  SIZE_T v9; // r12
+  wchar_t *PoolWithTag; // rax
+  WCHAR *v11; // r14
+  int RegistryValues; // ebx
   HANDLE v13; // rax
-  unsigned int v14; // esi
-  wchar_t *v15; // rax
-  HANDLE v16; // rax
-  __int64 v17; // rax
-  __int64 v18; // rsi
+  wchar_t *v14; // rax
+  HANDLE v15; // rax
+  char *v16; // rax
+  char *v17; // rbx
   HANDLE KeyHandle; // [rsp+30h] [rbp-D0h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-C8h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-C0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
-  int v23; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v24; // [rsp+88h] [rbp-78h]
-  int v25; // [rsp+90h] [rbp-70h] BYREF
-  __int64 v26; // [rsp+98h] [rbp-68h]
-  int v27; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v28; // [rsp+A8h] [rbp-58h]
-  int v29; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v30; // [rsp+B8h] [rbp-48h]
-  _QWORD v31[148]; // [rsp+1D0h] [rbp+D0h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
+  int v22; // [rsp+80h] [rbp-80h] BYREF
+  char *v23; // [rsp+88h] [rbp-78h]
+  int v24; // [rsp+90h] [rbp-70h] BYREF
+  char *v25; // [rsp+98h] [rbp-68h]
+  int v26; // [rsp+A0h] [rbp-60h] BYREF
+  char *v27; // [rsp+A8h] [rbp-58h]
+  int v28; // [rsp+B0h] [rbp-50h] BYREF
+  char *v29; // [rsp+B8h] [rbp-48h]
+  _QWORD v30[148]; // [rsp+1D0h] [rbp+D0h] BYREF
 
-  v4 = -1LL;
-  KeyHandle = 0LL;
   v5 = -1LL;
+  KeyHandle = 0LL;
+  v6 = -1LL;
   Handle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
   v8 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
   do
-    ++v5;
-  while ( *(_WORD *)(a1 + 2 * v5) );
-  v9 = (unsigned int)(2 * v5 + 40);
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, v9, 1350005829LL);
-  v11 = Pool2;
-  if ( !Pool2 )
+    ++v6;
+  while ( *(_WORD *)(a1 + 2 * v6) );
+  v9 = (unsigned int)(2 * v6 + 40);
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v9, 0x50777445u);
+  v11 = PoolWithTag;
+  if ( !PoolWithTag )
     goto LABEL_11;
-  v12 = RtlStringCbPrintfW(Pool2, (unsigned int)v9, L"%ws\\StackLevelKwFilter", a1);
-  if ( v12 )
+  RegistryValues = RtlStringCbPrintfW(PoolWithTag, (unsigned int)v9, L"%ws\\StackLevelKwFilter", a1);
+  if ( RegistryValues )
     goto LABEL_10;
   RtlInitUnicodeString(&DestinationString, v11);
-  ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.ObjectName = &DestinationString;
-  ObjectAttributes.Attributes = 576;
   ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  v12 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+  RegistryValues = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   v13 = KeyHandle;
-  if ( v12 < 0 )
+  if ( RegistryValues < 0 )
     v13 = 0LL;
   KeyHandle = v13;
   if ( a2 )
   {
     do
-      ++v4;
-    while ( *(_WORD *)(a2 + 2 * v4) );
-    v14 = 2 * v4 + 40;
-    v15 = (wchar_t *)ExAllocatePool2(256LL, v14, 1350005829LL);
-    v8 = v15;
-    if ( !v15 )
+      ++v5;
+    while ( *(_WORD *)(a2 + 2 * v5) );
+    v14 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)(2 * v5 + 40), 0x50777445u);
+    v8 = v14;
+    if ( !v14 )
       goto LABEL_11;
-    v12 = RtlStringCbPrintfW(v15, v14, L"%ws\\StackLevelKwFilter", a2);
-    if ( v12 )
+    RegistryValues = RtlStringCbPrintfW(v14, (unsigned int)(2 * v5 + 40), L"%ws\\StackLevelKwFilter", a2);
+    if ( RegistryValues )
       goto LABEL_10;
     RtlInitUnicodeString(&DestinationString, v8);
     ObjectAttributes.Length = 48;
@@ -91,66 +89,65 @@ void __fastcall EtwpGetAutoLoggerLevelKwFilter(__int64 a1, __int64 a2, PVOID *a3
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v12 = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
-    v16 = Handle;
-    if ( v12 < 0 )
-      v16 = 0LL;
-    Handle = v16;
+    RegistryValues = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
+    v15 = Handle;
+    if ( RegistryValues < 0 )
+      v15 = 0LL;
+    Handle = v15;
   }
   if ( !KeyHandle && !Handle )
+    goto LABEL_10;
+  v16 = (char *)ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x50777445u);
+  *a3 = v16;
+  v17 = v16;
+  if ( v16 )
   {
-LABEL_10:
-    if ( v12 >= 0 )
-      goto LABEL_13;
-    goto LABEL_11;
-  }
-  v17 = ExAllocatePool2(256LL, 24LL, 1350005829LL);
-  *a3 = (PVOID)v17;
-  v18 = v17;
-  if ( !v17 )
-    goto LABEL_11;
-  memset(v31, 0, 0x498uLL);
-  v24 = v18;
-  LODWORD(v31[4]) = 11;
-  v23 = 11;
-  v31[3] = &v23;
-  LODWORD(v31[11]) = 11;
-  v31[2] = L"MatchAnyKeyword";
-  v25 = 11;
-  v31[10] = &v25;
-  v31[0] = EtwpQueryRegistryCallback;
-  v31[9] = L"MatchAllKeyword";
-  v26 = v18 + 8;
-  v31[17] = &v27;
-  v31[16] = L"Level";
-  v28 = v18 + 16;
-  v31[24] = &v29;
-  v31[23] = L"FilterIn";
-  v31[7] = EtwpQueryRegistryCallback;
-  v31[14] = EtwpQueryRegistryCallback;
-  LODWORD(v31[18]) = 4;
-  v27 = 4;
-  v31[21] = EtwpQueryRegistryCallback;
-  LODWORD(v31[25]) = 4;
-  v29 = 4;
-  v30 = v18 + 17;
-  if ( (int)RtlpQueryRegistryValues(0x40000000, (const WCHAR *)KeyHandle, (__int64)v31, 0LL) < 0 )
-  {
-LABEL_11:
-    if ( *a3 )
+    memset(v30, 0, 0x498uLL);
+    v23 = v17;
+    LODWORD(v30[4]) = 11;
+    v22 = 11;
+    v30[3] = &v22;
+    LODWORD(v30[11]) = 11;
+    v30[2] = L"MatchAnyKeyword";
+    v24 = 11;
+    v30[10] = &v24;
+    v30[0] = EtwpQueryRegistryCallback;
+    v30[9] = L"MatchAllKeyword";
+    v30[7] = EtwpQueryRegistryCallback;
+    v25 = v17 + 8;
+    v30[17] = &v26;
+    v30[16] = L"Level";
+    v27 = v17 + 16;
+    v30[24] = &v28;
+    v30[23] = L"FilterIn";
+    v30[14] = EtwpQueryRegistryCallback;
+    LODWORD(v30[18]) = 4;
+    v26 = 4;
+    v30[21] = EtwpQueryRegistryCallback;
+    LODWORD(v30[25]) = 4;
+    v28 = 4;
+    v29 = v17 + 17;
+    RegistryValues = RtlpQueryRegistryValues(0x40000000LL, (const WCHAR *)KeyHandle, (__int64)v30, 0LL);
+    if ( RegistryValues >= 0 )
     {
-      ExFreePoolWithTag(*a3, 0);
-      *a3 = 0LL;
+      if ( Handle )
+      {
+        v30[5] = *a3;
+        v30[12] = v30[5] + 8LL;
+        v30[19] = v30[5] + 16LL;
+        v30[26] = v30[5] + 17LL;
+        RtlpQueryRegistryValues(0x40000000LL, (const WCHAR *)Handle, (__int64)v30, 0LL);
+      }
+LABEL_10:
+      if ( RegistryValues >= 0 )
+        goto LABEL_13;
     }
-    goto LABEL_13;
   }
-  if ( Handle )
+LABEL_11:
+  if ( *a3 )
   {
-    v31[5] = *a3;
-    v31[12] = v31[5] + 8LL;
-    v31[19] = v31[5] + 16LL;
-    v31[26] = v31[5] + 17LL;
-    RtlpQueryRegistryValues(0x40000000, (const WCHAR *)Handle, (__int64)v31, 0LL);
+    ExFreePoolWithTag(*a3, 0);
+    *a3 = 0LL;
   }
 LABEL_13:
   if ( KeyHandle )

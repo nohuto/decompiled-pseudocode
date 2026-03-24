@@ -1,22 +1,22 @@
 /*
- * XREFs of PopDiagTraceDeviceComplianceUpdate @ 0x140592958
+ * XREFs of PopDiagTraceDeviceComplianceUpdate @ 0x1405715B0
  * Callers:
- *     PopPdcUpdateDeviceCompliance @ 0x140998234 (PopPdcUpdateDeviceCompliance.c)
+ *     PopPdcUpdateDeviceCompliance @ 0x1408F01CC (PopPdcUpdateDeviceCompliance.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDeviceComplianceUpdate(int a1, int a2)
 {
   REGHANDLE v2; // rbx
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-38h] BYREF
-  int *v4; // [rsp+40h] [rbp-28h]
-  int v5; // [rsp+48h] [rbp-20h]
-  int v6; // [rsp+4Ch] [rbp-1Ch]
-  int v7; // [rsp+70h] [rbp+8h] BYREF
-  int v8; // [rsp+78h] [rbp+10h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-38h] BYREF
+  int *v4; // [rsp+50h] [rbp-28h]
+  int v5; // [rsp+58h] [rbp-20h]
+  int v6; // [rsp+5Ch] [rbp-1Ch]
+  int v7; // [rsp+80h] [rbp+8h] BYREF
+  int v8; // [rsp+88h] [rbp+10h] BYREF
 
   v8 = a2;
   v7 = a1;
@@ -31,7 +31,7 @@ void __fastcall PopDiagTraceDeviceComplianceUpdate(int a1, int a2)
       UserData.Size = 4;
       v4 = &v8;
       v5 = 4;
-      EtwWrite(v2, &POP_ETW_EVENT_CS_COMPLIANCE_UPDATE, 0LL, 2u, &UserData);
+      EtwWriteEx(v2, &POP_ETW_EVENT_CS_COMPLIANCE_UPDATE, 0LL, 0, 0LL, 0LL, 2u, &UserData);
     }
   }
 }

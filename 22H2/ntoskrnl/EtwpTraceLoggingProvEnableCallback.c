@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTraceLoggingProvEnableCallback @ 0x1408659B0
+ * XREFs of EtwpTraceLoggingProvEnableCallback @ 0x1407D54C0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpPsProvCaptureState @ 0x1409EFA84 (EtwpPsProvCaptureState.c)
+ *     EtwpPsProvCaptureState @ 0x14093EB28 (EtwpPsProvCaptureState.c)
  */
 
 __int64 *__fastcall EtwpTraceLoggingProvEnableCallback(

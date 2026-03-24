@@ -1,41 +1,44 @@
 /*
- * XREFs of UpdateTopLevelWindowDPITransform @ 0x1C009AF58
+ * XREFs of UpdateTopLevelWindowDPITransform @ 0x1C0042710
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     UpdateWindowMonitor @ 0x1C006BAD0 (UpdateWindowMonitor.c)
+ *     UpdateWindowMonitor @ 0x1C0070270 (UpdateWindowMonitor.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
  * Callees:
- *     ResetWindowTransform @ 0x1C009B010 (ResetWindowTransform.c)
- *     GetMonitorTransform @ 0x1C009B038 (GetMonitorTransform.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     GetMonitorTransform @ 0x1C0042784 (GetMonitorTransform.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
-_OWORD *__fastcall UpdateTopLevelWindowDPITransform(__int64 a1, __int64 a2)
+void __fastcall UpdateTopLevelWindowDPITransform(__int64 a1, __int64 a2)
 {
-  _OWORD *result; // rax
-  __int128 v5; // xmm1
-  __int128 v6; // xmm0
+  int v4; // ecx
+  void *v5; // rcx
+  _OWORD *v6; // rax
   __int128 v7; // xmm1
-  _OWORD v8[4]; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v8; // xmm0
+  __int128 v9; // xmm1
+  _OWORD v10[4]; // [rsp+20h] [rbp-48h] BYREF
 
-  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 40) + 288LL) & 0xF) == 2 )
-    return (_OWORD *)ResetWindowTransform(a1);
-  memset(v8, 0, sizeof(v8));
-  if ( !(unsigned int)GetMonitorTransform(a2, a1, v8) )
-    return (_OWORD *)ResetWindowTransform(a1);
-  result = *(_OWORD **)(a1 + 216);
-  if ( !result )
+  v4 = *(_DWORD *)(*(_QWORD *)(a1 + 40) + 288LL);
+  if ( ((v4 & 0xF) != 2 || (v4 & 0x20000000) != 0)
+    && (memset(v10, 0, sizeof(v10)), (unsigned int)GetMonitorTransform(a2, a1, v10))
+    && ((v6 = *(_OWORD **)(a1 + 216)) != 0LL
+     || (v6 = (_OWORD *)Win32AllocPoolWithQuota(64LL, 2020438869LL), (*(_QWORD *)(a1 + 216) = v6) != 0LL)) )
   {
-    result = (_OWORD *)Win32AllocPoolWithQuotaZInit(64LL, 2020438869LL);
-    *(_QWORD *)(a1 + 216) = result;
-    if ( !result )
-      return (_OWORD *)ResetWindowTransform(a1);
+    v7 = v10[1];
+    *v6 = v10[0];
+    v8 = v10[2];
+    v6[1] = v7;
+    v9 = v10[3];
+    v6[2] = v8;
+    v6[3] = v9;
   }
-  v5 = v8[1];
-  *result = v8[0];
-  v6 = v8[2];
-  result[1] = v5;
-  v7 = v8[3];
-  result[2] = v6;
-  result[3] = v7;
-  return result;
+  else
+  {
+    v5 = *(void **)(a1 + 216);
+    if ( v5 )
+    {
+      Win32FreePool(v5);
+      *(_QWORD *)(a1 + 216) = 0LL;
+    }
+  }
 }

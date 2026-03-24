@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReleaseAllReferences@CInjectionAnimationMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C02335C0
+ * XREFs of ?ReleaseAllReferences@CInjectionAnimationMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F3060
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseAllReferences@CBaseExpressionMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C000B260 (-ReleaseAllReferences@CBaseExpressionMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2.c)
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseAllReferences@CBaseExpressionMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C005FEC0 (-ReleaseAllReferences@CBaseExpressionMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2.c)
  */
 
 void __fastcall DirectComposition::CInjectionAnimationMarshaler::ReleaseAllReferences(
@@ -16,12 +16,12 @@ void __fastcall DirectComposition::CInjectionAnimationMarshaler::ReleaseAllRefer
   DirectComposition::CBaseExpressionMarshaler::ReleaseAllReferences(
     (DirectComposition::CBaseExpressionMarshaler *)this,
     a2);
-  v4 = this[17];
+  v4 = this[16];
   if ( v4 )
   {
     DirectComposition::CApplicationChannel::ReleaseResource(a2, v4);
-    this[17] = 0LL;
-    this[19] = 0LL;
+    this[16] = 0LL;
     this[18] = 0LL;
+    this[17] = 0LL;
   }
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInsertRecursiveTbFlushEntries @ 0x140367B48
+ * XREFs of MiInsertRecursiveTbFlushEntries @ 0x1402EA5F8
  * Callers:
- *     MiDeleteNonPagedPoolPte @ 0x140212710 (MiDeleteNonPagedPoolPte.c)
- *     MiInitializeSystemPageTable @ 0x1402E45A8 (MiInitializeSystemPageTable.c)
- *     MiFlushValidPteFromTb @ 0x14038A3A4 (MiFlushValidPteFromTb.c)
- *     MiReplacePfnWithGapMapping @ 0x14038D978 (MiReplacePfnWithGapMapping.c)
- *     MiWritePteHighLevel @ 0x14064E32C (MiWritePteHighLevel.c)
+ *     MiDeleteNonPagedPoolPte @ 0x1402E9620 (MiDeleteNonPagedPoolPte.c)
+ *     MiInitializeSystemPageTable @ 0x1403569E4 (MiInitializeSystemPageTable.c)
+ *     MiFlushValidPteFromTb @ 0x140378B6C (MiFlushValidPteFromTb.c)
+ *     MiReplacePfnWithGapMapping @ 0x1403B98EC (MiReplacePfnWithGapMapping.c)
+ *     MiReplicatePfnDatabaseMappings @ 0x14052EE6C (MiReplicatePfnDatabaseMappings.c)
  * Callees:
- *     MiInsertTbFlushEntry @ 0x14027F450 (MiInsertTbFlushEntry.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
  */
 
 unsigned __int64 __fastcall MiInsertRecursiveTbFlushEntries(__int64 a1, int a2, unsigned __int64 a3)

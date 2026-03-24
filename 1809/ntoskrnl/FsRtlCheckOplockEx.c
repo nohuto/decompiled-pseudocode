@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlCheckOplockEx @ 0x1400B7C60
+ * XREFs of FsRtlCheckOplockEx @ 0x1400B7C80
  * Callers:
- *     FsRtlCheckOplock @ 0x1400B7BB0 (FsRtlCheckOplock.c)
+ *     FsRtlCheckOplock @ 0x1400B7BD0 (FsRtlCheckOplock.c)
  *     FsRtlpOplockFsctrlInternal @ 0x1405DC640 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
  *     ExpAcquireFastMutexContended @ 0x140005480 (ExpAcquireFastMutexContended.c)
@@ -18,22 +18,22 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1400B8710 (FsRtlpOplockStoreKeyForDeleteOperation.c)
- *     FsRtlpClearOwner @ 0x14012171C (FsRtlpClearOwner.c)
- *     FsRtlpOplockBreakToII @ 0x140130710 (FsRtlpOplockBreakToII.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x140133270 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpOplockBreakToNone @ 0x14013AAEC (FsRtlpOplockBreakToNone.c)
- *     IoSetOplockKeyContext @ 0x140166BE4 (IoSetOplockKeyContext.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     FsRtlGetMarkHandleInfo @ 0x14026F628 (FsRtlGetMarkHandleInfo.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030F934 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1400B8730 (FsRtlpOplockStoreKeyForDeleteOperation.c)
+ *     FsRtlpClearOwner @ 0x14012173C (FsRtlpClearOwner.c)
+ *     FsRtlpOplockBreakToII @ 0x140130730 (FsRtlpOplockBreakToII.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x140133290 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpOplockBreakToNone @ 0x14013AB0C (FsRtlpOplockBreakToNone.c)
+ *     IoSetOplockKeyContext @ 0x140166C04 (IoSetOplockKeyContext.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     FsRtlGetMarkHandleInfo @ 0x14026F728 (FsRtlGetMarkHandleInfo.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     FsRtlFreeExtraCreateParameter @ 0x14060CFB0 (FsRtlFreeExtraCreateParameter.c)
  *     FsRtlFindExtraCreateParameter @ 0x140639830 (FsRtlFindExtraCreateParameter.c)
  *     FsRtlRemoveExtraCreateParameter @ 0x1406398C0 (FsRtlRemoveExtraCreateParameter.c)
- *     IoGetIrpExtraCreateParameter @ 0x14063EDB0 (IoGetIrpExtraCreateParameter.c)
- *     FsRtlAcknowledgeEcp @ 0x1406C1FE0 (FsRtlAcknowledgeEcp.c)
+ *     IoGetIrpExtraCreateParameter @ 0x14063ED90 (IoGetIrpExtraCreateParameter.c)
+ *     FsRtlAcknowledgeEcp @ 0x1406C1FC0 (FsRtlAcknowledgeEcp.c)
  */
 
 NTSTATUS __stdcall FsRtlCheckOplockEx(

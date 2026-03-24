@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlDissectName @ 0x14032F2B0
+ * XREFs of RtlDissectName @ 0x1402EDE60
  * Callers:
  *     <none>
  * Callees:
@@ -8,10 +8,10 @@
 
 void __stdcall RtlDissectName(UNICODE_STRING *Path, PUNICODE_STRING FirstName, PUNICODE_STRING RemainingName)
 {
-  __int64 v3; // r10
+  __int64 v3; // r9
   unsigned int v6; // r8d
-  wchar_t *Buffer; // r9
-  wchar_t v8; // bx
+  wchar_t *Buffer; // rdx
+  wchar_t v8; // di
   unsigned int i; // eax
   unsigned __int16 v10; // dx
   unsigned __int16 v11; // r8
@@ -36,13 +36,13 @@ void __stdcall RtlDissectName(UNICODE_STRING *Path, PUNICODE_STRING FirstName, P
     if ( v8 == 92 )
       v3 = 1LL;
     FirstName->MaximumLength = v10;
-    FirstName->Buffer = &Buffer[v3];
+    FirstName->Buffer = &Path->Buffer[v3];
     if ( i < v6 )
     {
       v11 = 2 * (v6 - i) - 2;
       RemainingName->Length = v11;
       RemainingName->MaximumLength = v11;
-      RemainingName->Buffer = &Buffer[i + 1];
+      RemainingName->Buffer = &Path->Buffer[i + 1];
     }
   }
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpSetTimerObject2 @ 0x1402D594C
+ * XREFs of ExpSetTimerObject2 @ 0x14028026C
  * Callers:
- *     ExpSetTimer2 @ 0x1402D5824 (ExpSetTimer2.c)
- *     NtSetTimerEx @ 0x1402E3150 (NtSetTimerEx.c)
- *     NtCancelTimer @ 0x140356F50 (NtCancelTimer.c)
- *     ExpSetTimer @ 0x140374AC0 (ExpSetTimer.c)
+ *     NtCancelTimer @ 0x140248B00 (NtCancelTimer.c)
+ *     NtSetTimerEx @ 0x1402491A0 (NtSetTimerEx.c)
+ *     ExpSetTimer2 @ 0x140280144 (ExpSetTimer2.c)
+ *     ExpSetTimer @ 0x140376AF0 (ExpSetTimer.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeCancelTimer2 @ 0x1402D3FB0 (KeCancelTimer2.c)
- *     ExpTimerSetParametersAreValid @ 0x1402D59E8 (ExpTimerSetParametersAreValid.c)
- *     KeSetTimer2 @ 0x140353C40 (KeSetTimer2.c)
+ *     KeSetTimer2 @ 0x14022C550 (KeSetTimer2.c)
+ *     KeCancelTimer2 @ 0x14027FB40 (KeCancelTimer2.c)
+ *     ExpTimerSetParametersAreValid @ 0x140280308 (ExpTimerSetParametersAreValid.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
  */
 
 __int64 __fastcall ExpSetTimerObject2(_QWORD *Object, __int64 *a2, __int64 a3, __int64 a4)
@@ -44,7 +44,7 @@ __int64 __fastcall ExpSetTimerObject2(_QWORD *Object, __int64 *a2, __int64 a3, _
     if ( a4 )
       Object[19] = *(_QWORD *)(a4 + 8);
     if ( v7 )
-      KeSetTimer2(Object, Object[18], a3, a4);
+      KeSetTimer2((__int64)Object, Object[18], a3, a4);
     else
       KeCancelTimer2((__int64)Object);
   }

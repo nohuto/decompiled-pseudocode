@@ -1,11 +1,11 @@
 /*
- * XREFs of ?IsFeatureEnabled@DXGVAILOBJECT@@SAEXZ @ 0x1C036202C
+ * XREFs of ?IsFeatureEnabled@DXGVAILOBJECT@@SAEXZ @ 0x1C02B5E0C
  * Callers:
- *     DxgkDeviceIoctl @ 0x1C004DE30 (DxgkDeviceIoctl.c)
- *     ?InitializeVirtualMachine@DXGVIRTUALMACHINE@@QEAAJPEAXE@Z @ 0x1C03451FC (-InitializeVirtualMachine@DXGVIRTUALMACHINE@@QEAAJPEAXE@Z.c)
- *     NtDxgkRegisterVailProcess @ 0x1C03645B0 (NtDxgkRegisterVailProcess.c)
+ *     DxgkDeviceIoctl @ 0x1C0044480 (DxgkDeviceIoctl.c)
+ *     ?InitializeVirtualMachine@DXGVIRTUALMACHINE@@QEAAJPEAXE@Z @ 0x1C0285BB8 (-InitializeVirtualMachine@DXGVIRTUALMACHINE@@QEAAJPEAXE@Z.c)
+ *     NtDxgkRegisterVailProcess @ 0x1C02B8C10 (NtDxgkRegisterVailProcess.c)
  * Callees:
- *     Feature_Vail__private_ReportDeviceUsage @ 0x1C0026AAC (Feature_Vail__private_ReportDeviceUsage.c)
+ *     Feature_Vail__private_ReportDeviceUsage @ 0x1C002808C (Feature_Vail__private_ReportDeviceUsage.c)
  */
 
 bool DXGVAILOBJECT::IsFeatureEnabled(void)

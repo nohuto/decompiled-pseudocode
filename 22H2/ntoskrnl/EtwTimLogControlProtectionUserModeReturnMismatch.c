@@ -1,412 +1,267 @@
 /*
- * XREFs of EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1409E92A0
+ * XREFs of EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1405D0494
  * Callers:
- *     KiLogControlProtectionUserModeReturnMismatch @ 0x14057BEFC (KiLogControlProtectionUserModeReturnMismatch.c)
+ *     KiLogControlProtectionUserModeReturnMismatch @ 0x1403F22FC (KiLogControlProtectionUserModeReturnMismatch.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwpTiFillProcessIdentity @ 0x140303F54 (EtwpTiFillProcessIdentity.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x14041AB00 (ZwQueryVirtualMemory.c)
- *     EtwpQueryProcessCommandLine @ 0x1407550F8 (EtwpQueryProcessCommandLine.c)
- *     MmGetImageInformation @ 0x14077E790 (MmGetImageInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x14025EE64 (EtwpTiFillProcessIdentity.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1403F9E80 (ZwQueryVirtualMemory.c)
+ *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
  */
 
-void __fastcall EtwTimLogControlProtectionUserModeReturnMismatch(int a1, __int64 a2, __int64 a3)
+void __fastcall EtwTimLogControlProtectionUserModeReturnMismatch(int a1, __int64 a2, void *a3, void *a4, int a5)
 {
-  int v3; // eax
-  int v5; // ecx
-  int v6; // ecx
-  const EVENT_DESCRIPTOR *v7; // r15
-  __int64 *v8; // r12
-  const wchar_t *v9; // rdi
-  unsigned __int16 v10; // ax
-  ULONG v11; // r13d
+  __int64 *v5; // rax
+  const wchar_t *v6; // r12
+  __int64 *v7; // rcx
+  ULONG v9; // r15d
+  unsigned __int16 v11; // ax
   int v12; // eax
   const wchar_t *v13; // rcx
-  int v14; // ecx
-  __int16 v15; // ax
-  unsigned int v16; // ebx
+  PVOID v14; // r13
+  int v15; // ecx
+  __int16 v16; // ax
+  unsigned int v17; // ebx
   unsigned __int16 *Pool2; // rax
-  unsigned __int16 *v18; // r14
-  __int64 v19; // rax
-  ULONG v20; // r9d
+  unsigned __int16 *v19; // rsi
+  unsigned __int16 v20; // ax
   __int64 v21; // rax
-  unsigned int v22; // ebx
-  __int64 v23; // rax
-  unsigned __int16 *v24; // rax
-  unsigned __int16 *v25; // rdi
-  __int64 v26; // rax
-  unsigned int v27; // ecx
-  const wchar_t *v28; // rdx
-  __int64 v29; // rax
+  ULONG v22; // ecx
+  const wchar_t *v23; // rdx
+  __int64 v24; // rax
+  __int64 v25; // rax
+  unsigned int v26; // r14d
+  unsigned __int16 *v27; // rax
+  unsigned __int16 *v28; // rbx
+  unsigned __int16 v29; // ax
   __int64 v30; // rax
-  unsigned int v31; // ecx
+  __int64 v31; // rax
   __int64 v32; // rax
-  __int64 v33; // rax
-  unsigned int v34; // ebx
-  __int64 v35; // rax
-  PVOID v36; // rcx
-  char *v37; // rax
-  __int64 v38; // rax
-  __int64 v39; // rax
-  __int64 v40; // rax
-  unsigned int v41; // ebx
-  PVOID v42; // rcx
-  char *v43; // rax
-  __int64 v44; // rax
-  __int64 v45; // rax
-  unsigned int v46; // ebx
-  __int64 v47; // rax
-  REGHANDLE v48; // rcx
-  unsigned __int16 *v49; // r9
-  unsigned __int16 *v50; // r10
-  PVOID v51; // rbx
-  _WORD v52[2]; // [rsp+30h] [rbp-D0h] BYREF
-  _WORD v53[2]; // [rsp+34h] [rbp-CCh] BYREF
-  _WORD v54[2]; // [rsp+38h] [rbp-C8h] BYREF
-  _WORD v55[2]; // [rsp+3Ch] [rbp-C4h] BYREF
-  unsigned int v56; // [rsp+40h] [rbp-C0h] BYREF
-  int v57; // [rsp+44h] [rbp-BCh] BYREF
-  int v58; // [rsp+48h] [rbp-B8h] BYREF
-  int v59; // [rsp+4Ch] [rbp-B4h] BYREF
-  __int64 v60; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned int v61; // [rsp+58h] [rbp-A8h] BYREF
-  int v62; // [rsp+5Ch] [rbp-A4h] BYREF
-  int v63; // [rsp+60h] [rbp-A0h] BYREF
-  int v64; // [rsp+64h] [rbp-9Ch] BYREF
-  PVOID P; // [rsp+68h] [rbp-98h] BYREF
-  PVOID BaseAddress; // [rsp+70h] [rbp-90h] BYREF
-  PVOID v67; // [rsp+78h] [rbp-88h] BYREF
-  char *v68; // [rsp+80h] [rbp-80h] BYREF
-  char *v69; // [rsp+88h] [rbp-78h] BYREF
-  unsigned __int64 v70; // [rsp+90h] [rbp-70h] BYREF
-  unsigned __int64 v71; // [rsp+98h] [rbp-68h] BYREF
-  PVOID v72; // [rsp+A0h] [rbp-60h] BYREF
-  char *v73; // [rsp+A8h] [rbp-58h] BYREF
-  PVOID v74; // [rsp+B0h] [rbp-50h] BYREF
-  char *v75; // [rsp+B8h] [rbp-48h] BYREF
-  __int64 v76; // [rsp+C0h] [rbp-40h] BYREF
-  __int128 v77; // [rsp+C8h] [rbp-38h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v78; // [rsp+E0h] [rbp-20h] BYREF
-  int *v79; // [rsp+100h] [rbp+0h]
-  __int64 v80; // [rsp+108h] [rbp+8h]
-  _DWORD *v81; // [rsp+110h] [rbp+10h]
-  __int64 v82; // [rsp+118h] [rbp+18h]
-  __int64 v83; // [rsp+120h] [rbp+20h]
-  _DWORD v84[2]; // [rsp+128h] [rbp+28h] BYREF
-  _DWORD *v85; // [rsp+130h] [rbp+30h]
-  __int64 v86; // [rsp+138h] [rbp+38h]
-  PVOID v87; // [rsp+140h] [rbp+40h]
-  _DWORD v88[2]; // [rsp+148h] [rbp+48h] BYREF
-  unsigned __int64 *v89; // [rsp+150h] [rbp+50h]
-  __int64 v90; // [rsp+158h] [rbp+58h]
-  _DWORD *v91; // [rsp+160h] [rbp+60h]
-  __int64 v92; // [rsp+168h] [rbp+68h]
-  __int64 v93; // [rsp+170h] [rbp+70h]
-  _DWORD v94[2]; // [rsp+178h] [rbp+78h] BYREF
-  _DWORD *v95; // [rsp+180h] [rbp+80h]
-  __int64 v96; // [rsp+188h] [rbp+88h]
-  __int64 v97; // [rsp+190h] [rbp+90h]
-  _DWORD v98[2]; // [rsp+198h] [rbp+98h] BYREF
-  unsigned int *v99; // [rsp+1A0h] [rbp+A0h]
-  __int64 v100; // [rsp+1A8h] [rbp+A8h]
-  int *v101; // [rsp+1B0h] [rbp+B0h]
-  __int64 v102; // [rsp+1B8h] [rbp+B8h]
-  PVOID *v103; // [rsp+1C0h] [rbp+C0h]
-  __int64 v104; // [rsp+1C8h] [rbp+C8h]
-  char **v105; // [rsp+1D0h] [rbp+D0h]
-  __int64 v106; // [rsp+1D8h] [rbp+D8h]
-  PVOID *p_P; // [rsp+1E0h] [rbp+E0h]
-  __int64 v108; // [rsp+1E8h] [rbp+E8h]
-  PVOID *v109; // [rsp+1F0h] [rbp+F0h]
-  __int64 v110; // [rsp+1F8h] [rbp+F8h]
-  char **v111; // [rsp+200h] [rbp+100h]
-  __int64 v112; // [rsp+208h] [rbp+108h]
-  __int64 *v113; // [rsp+210h] [rbp+110h]
-  __int64 v114; // [rsp+218h] [rbp+118h]
-  __int64 *v115; // [rsp+220h] [rbp+120h]
-  __int64 v116; // [rsp+228h] [rbp+128h]
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+230h] [rbp+130h] BYREF
-  const wchar_t *v118; // [rsp+240h] [rbp+140h]
-  int v119; // [rsp+248h] [rbp+148h]
-  int v120; // [rsp+24Ch] [rbp+14Ch]
-  _WORD *v121; // [rsp+250h] [rbp+150h]
-  __int64 v122; // [rsp+258h] [rbp+158h]
-  const wchar_t *v123; // [rsp+260h] [rbp+160h]
-  int v124; // [rsp+268h] [rbp+168h]
-  int v125; // [rsp+26Ch] [rbp+16Ch]
-  __int64 v126[38]; // [rsp+270h] [rbp+170h] BYREF
+  const EVENT_DESCRIPTOR *v33; // rdx
+  unsigned int v34; // r9d
+  int v35; // r14d
+  __int64 v36; // rax
+  ULONG v37; // r9d
+  bool v38; // zf
+  REGHANDLE v39; // rcx
+  unsigned __int16 *v40; // r9
+  unsigned __int16 *v41; // r10
+  _WORD v42[2]; // [rsp+30h] [rbp-D0h] BYREF
+  _WORD v43[2]; // [rsp+34h] [rbp-CCh] BYREF
+  _WORD v44[2]; // [rsp+38h] [rbp-C8h] BYREF
+  _WORD v45[2]; // [rsp+3Ch] [rbp-C4h] BYREF
+  int v46; // [rsp+40h] [rbp-C0h] BYREF
+  int v47; // [rsp+44h] [rbp-BCh] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 *v49; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 *v50; // [rsp+58h] [rbp-A8h] BYREF
+  PVOID P[2]; // [rsp+60h] [rbp-A0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v52; // [rsp+70h] [rbp-90h] BYREF
+  int *v53; // [rsp+90h] [rbp-70h]
+  __int64 v54; // [rsp+98h] [rbp-68h]
+  _DWORD *v55; // [rsp+A0h] [rbp-60h]
+  __int64 v56; // [rsp+A8h] [rbp-58h]
+  __int64 v57; // [rsp+B0h] [rbp-50h]
+  _DWORD v58[2]; // [rsp+B8h] [rbp-48h] BYREF
+  _DWORD *v59; // [rsp+C0h] [rbp-40h]
+  __int64 v60; // [rsp+C8h] [rbp-38h]
+  PVOID v61; // [rsp+D0h] [rbp-30h]
+  _DWORD v62[2]; // [rsp+D8h] [rbp-28h] BYREF
+  __int64 **v63; // [rsp+E0h] [rbp-20h]
+  __int64 v64; // [rsp+E8h] [rbp-18h]
+  _DWORD *v65; // [rsp+F0h] [rbp-10h]
+  __int64 v66; // [rsp+F8h] [rbp-8h]
+  __int64 v67; // [rsp+100h] [rbp+0h]
+  _DWORD v68[2]; // [rsp+108h] [rbp+8h] BYREF
+  _DWORD *v69; // [rsp+110h] [rbp+10h]
+  __int64 v70; // [rsp+118h] [rbp+18h]
+  __int64 v71; // [rsp+120h] [rbp+20h]
+  _DWORD v72[2]; // [rsp+128h] [rbp+28h] BYREF
+  int *v73; // [rsp+130h] [rbp+30h]
+  __int64 v74; // [rsp+138h] [rbp+38h]
+  PVOID *p_BaseAddress; // [rsp+140h] [rbp+40h]
+  __int64 v76; // [rsp+148h] [rbp+48h]
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+150h] [rbp+50h] BYREF
+  const wchar_t *v78; // [rsp+160h] [rbp+60h]
+  int v79; // [rsp+168h] [rbp+68h]
+  int v80; // [rsp+16Ch] [rbp+6Ch]
+  _WORD *v81; // [rsp+170h] [rbp+70h]
+  __int64 v82; // [rsp+178h] [rbp+78h]
+  const wchar_t *v83; // [rsp+180h] [rbp+80h]
+  int v84; // [rsp+188h] [rbp+88h]
+  int v85; // [rsp+18Ch] [rbp+8Ch]
+  __int64 v86[22]; // [rsp+190h] [rbp+90h] BYREF
 
-  v3 = (*(_DWORD *)a3 >> 20) & 1;
-  v59 = a1;
-  v61 = v3;
-  v62 = *(_DWORD *)(a3 + 4);
-  BaseAddress = *(PVOID *)(a3 + 8);
-  v67 = *(PVOID *)(a3 + 16);
-  v63 = *(_DWORD *)(a3 + 24);
-  v64 = *(_DWORD *)(a3 + 28);
-  v55[0] = 0;
-  v53[0] = 0;
-  v68 = 0LL;
-  v60 = 0LL;
-  v52[0] = 0;
-  v54[0] = 0;
-  v69 = 0LL;
-  v71 = 0LL;
-  v77 = 0LL;
-  v5 = a1 - 1;
-  if ( !v5 )
-  {
-    v58 = 0;
-    goto LABEL_7;
-  }
-  v6 = v5 - 1;
-  if ( !v6 )
-  {
-    v58 = 1;
-LABEL_7:
-    v7 = (const EVENT_DESCRIPTOR *)MITIGATION_AUDIT_CONTROL_PROTECTION_USER_MODE_RETURN_MISMATCH;
-    goto LABEL_8;
-  }
-  if ( v6 != 1 )
-    return;
-  v58 = -1;
-  v7 = &MITIGATION_ENFORCE_CONTROL_PROTECTION_USER_MODE_RETURN_MISMATCH;
-LABEL_8:
-  v8 = &EmptyUnicodeString;
-  v9 = L"(null)";
-  if ( *(_QWORD *)(a2 + 1472) )
-    v8 = *(__int64 **)(a2 + 1472);
-  v10 = *(_WORD *)v8;
-  v11 = 12;
+  v5 = *(__int64 **)(a2 + 1472);
+  v6 = L"(null)";
+  v47 = a1;
+  v50 = 0LL;
+  v7 = &EmptyUnicodeString;
+  BaseAddress = a4;
+  if ( v5 )
+    v7 = v5;
+  v49 = v7;
+  v9 = 12;
+  v11 = *(_WORD *)v7;
   *(_QWORD *)&UserData.Size = 2LL;
-  if ( v10 )
+  *(_OWORD *)P = 0LL;
+  if ( v11 )
   {
-    v52[0] = v10 >> 1;
-    UserData.Ptr = (ULONGLONG)v52;
-    v12 = *(unsigned __int16 *)v8;
-    v13 = (const wchar_t *)v8[1];
+    v42[0] = v11 >> 1;
+    UserData.Ptr = (ULONGLONG)v42;
+    v12 = *(unsigned __int16 *)v7;
+    v13 = (const wchar_t *)v7[1];
   }
   else
   {
-    v52[0] = 6;
-    UserData.Ptr = (ULONGLONG)v52;
+    v42[0] = 6;
+    UserData.Ptr = (ULONGLONG)v42;
     v13 = L"(null)";
     v12 = 12;
   }
-  v118 = v13;
-  v119 = v12;
-  v120 = 0;
-  EtwpQueryProcessCommandLine(a2, (__int64)&v77);
-  P = (PVOID)*((_QWORD *)&v77 + 1);
-  LOWORD(v57) = v77;
-  v122 = 2LL;
-  if ( (_WORD)v77 )
+  v78 = v13;
+  v79 = v12;
+  v80 = 0;
+  EtwpQueryProcessCommandLine(a2, P);
+  v14 = P[1];
+  LOWORD(v46) = P[0];
+  v82 = 2LL;
+  if ( LOWORD(P[0]) )
   {
-    v123 = (const wchar_t *)*((_QWORD *)&v77 + 1);
-    v121 = v55;
-    v14 = (unsigned __int16)v77;
-    v15 = (unsigned __int16)v77 >> 1;
+    v83 = (const wchar_t *)P[1];
+    v81 = v45;
+    v15 = LOWORD(P[0]);
+    v16 = LOWORD(P[0]) >> 1;
   }
   else
   {
-    v123 = L"(null)";
-    v121 = v55;
-    v14 = 12;
-    v15 = 6;
+    v83 = L"(null)";
+    v81 = v45;
+    v15 = 12;
+    v16 = 6;
   }
-  v124 = v14;
-  v55[0] = v15;
-  v125 = 0;
-  v16 = EtwpTiFillProcessIdentity(v126, a2, &v71) + 4;
+  v84 = v15;
+  v45[0] = v16;
+  v85 = 0;
+  v17 = EtwpTiFillProcessIdentity(v86, a2, (unsigned __int64 *)&v50) + 4;
   Pool2 = (unsigned __int16 *)ExAllocatePool2(256LL, 512LL, 1853049172LL);
-  v18 = Pool2;
-  if ( !Pool2 )
-    goto LABEL_21;
-  if ( ZwQueryVirtualMemory(
-         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-         BaseAddress,
-         (MEMORY_INFORMATION_CLASS)2,
-         Pool2,
-         0x200uLL,
-         0LL) < 0 )
-    *v18 = 0;
-  if ( *v18 )
+  v19 = Pool2;
+  if ( Pool2
+    && (ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a3, (MEMORY_INFORMATION_CLASS)2, Pool2, 0x200uLL, 0LL) >= 0
+      ? (v20 = *v19)
+      : (*v19 = 0, v20 = 0),
+        v20) )
   {
-    v53[0] = *v18 >> 1;
-    v19 = 2LL * v16;
-    *(&UserData.Ptr + v19) = (ULONGLONG)v53;
-    *((_QWORD *)&UserData.Size + v19) = 2LL;
-    v20 = *v18;
-    v9 = (const wchar_t *)*((_QWORD *)v18 + 1);
-  }
-  else
-  {
-LABEL_21:
-    v53[0] = 6;
-    v20 = 12;
-    v21 = 2LL * v16;
-    *(&UserData.Ptr + v21) = (ULONGLONG)v53;
+    v43[0] = v20 >> 1;
+    v21 = 2LL * v17;
+    *(&UserData.Ptr + v21) = (ULONGLONG)v43;
     *((_QWORD *)&UserData.Size + v21) = 2LL;
-  }
-  v22 = v16 + 1;
-  v23 = 16LL * v22;
-  v56 = v22 + 1;
-  *(ULONGLONG *)((char *)&UserData.Ptr + v23) = (ULONGLONG)v9;
-  *(ULONG *)((char *)&UserData.Size + v23) = v20;
-  *(ULONG *)((char *)&UserData.Reserved + v23) = 0;
-  v24 = (unsigned __int16 *)ExAllocatePool2(256LL, 512LL, 1853049172LL);
-  v25 = v24;
-  if ( !v24 )
-    goto LABEL_27;
-  if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v67, (MEMORY_INFORMATION_CLASS)2, v24, 0x200uLL, 0LL) < 0 )
-    *v25 = 0;
-  if ( *v25 )
-  {
-    v54[0] = *v25 >> 1;
-    v26 = 2LL * v56;
-    v27 = v56 + 1;
-    *(&UserData.Ptr + v26) = (ULONGLONG)v54;
-    *((_QWORD *)&UserData.Size + v26) = 2LL;
-    v11 = *v25;
-    v28 = (const wchar_t *)*((_QWORD *)v25 + 1);
+    v22 = *v19;
+    v23 = (const wchar_t *)*((_QWORD *)v19 + 1);
   }
   else
   {
-LABEL_27:
-    v54[0] = 6;
-    v28 = L"(null)";
-    v29 = 2LL * (v22 + 1);
-    *(&UserData.Ptr + v29) = (ULONGLONG)v54;
-    v27 = v22 + 2;
-    *((_QWORD *)&UserData.Size + v29) = 2LL;
+    v43[0] = 6;
+    v23 = L"(null)";
+    v24 = 2LL * v17;
+    *(&UserData.Ptr + v24) = (ULONGLONG)v43;
+    v22 = 12;
+    *((_QWORD *)&UserData.Size + v24) = 2LL;
   }
-  v30 = 16LL * v27;
-  v31 = v27 + 1;
-  *(ULONGLONG *)((char *)&UserData.Ptr + v30) = (ULONGLONG)v28;
-  *(ULONG *)((char *)&UserData.Size + v30) = v11;
-  *(ULONG *)((char *)&UserData.Reserved + v30) = 0;
-  v32 = 2LL * v31;
-  *(&UserData.Ptr + v32) = (ULONGLONG)&v61;
-  *((_QWORD *)&UserData.Size + v32) = 4LL;
-  v33 = 2LL * (v31 + 1);
-  *(&UserData.Ptr + v33) = (ULONGLONG)&v62;
-  *((_QWORD *)&UserData.Size + v33) = 4LL;
-  v34 = v31 + 3;
-  v35 = 2LL * (v31 + 2);
-  *(&UserData.Ptr + v35) = (ULONGLONG)&v58;
-  v36 = BaseAddress;
-  *((_QWORD *)&UserData.Size + v35) = 4LL;
-  if ( (int)MmGetImageInformation((unsigned __int64)v36, &v60, &v70, (int *)&v56) < 0 )
-    v37 = 0LL;
-  else
-    v37 = (char *)BaseAddress - v60;
-  v68 = v37;
-  v38 = 2LL * v34;
-  *(&UserData.Ptr + v38) = (ULONGLONG)&BaseAddress;
-  *((_QWORD *)&UserData.Size + v38) = 8LL;
-  v39 = 2LL * (v34 + 1);
-  *(&UserData.Ptr + v39) = (ULONGLONG)&v68;
-  *((_QWORD *)&UserData.Size + v39) = 8LL;
-  v40 = v34 + 2;
-  v41 = v34 + 3;
-  v40 *= 2LL;
-  *(&UserData.Ptr + v40) = (ULONGLONG)&v63;
-  v42 = v67;
-  *((_QWORD *)&UserData.Size + v40) = 4LL;
-  if ( (int)MmGetImageInformation((unsigned __int64)v42, &v60, &v70, (int *)&v56) < 0 )
-    v43 = 0LL;
-  else
-    v43 = (char *)v67 - v60;
-  v69 = v43;
-  v44 = 2LL * v41;
-  *(&UserData.Ptr + v44) = (ULONGLONG)&v67;
-  *((_QWORD *)&UserData.Size + v44) = 8LL;
-  v45 = v41 + 1;
-  v46 = v41 + 2;
-  v45 *= 2LL;
-  *(&UserData.Ptr + v45) = (ULONGLONG)&v69;
-  *((_QWORD *)&UserData.Size + v45) = 8LL;
-  v47 = 2LL * v46;
-  *(&UserData.Ptr + v47) = (ULONGLONG)&v64;
-  v48 = EtwSecurityMitigationsRegHandle;
-  *((_QWORD *)&UserData.Size + v47) = 4LL;
-  EtwWrite(v48, v7, 0LL, v46 + 1, &UserData);
-  if ( (unsigned int)dword_140C066C0 > 5 && tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL) )
+  v25 = 2LL * (v17 + 1);
+  v26 = v17 + 2;
+  *(&UserData.Ptr + v25) = (ULONGLONG)v23;
+  *(&UserData.Size + 2 * v25) = v22;
+  *(&UserData.Reserved + 2 * v25) = 0;
+  v27 = (unsigned __int16 *)ExAllocatePool2(256LL, 512LL, 1853049172LL);
+  v28 = v27;
+  if ( v27
+    && (ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress, (MEMORY_INFORMATION_CLASS)2, v27, 0x200uLL, 0LL) >= 0
+      ? (v29 = *v28)
+      : (*v28 = 0, v29 = 0),
+        v29) )
   {
-    v51 = P;
-    v79 = &v59;
-    v81 = v84;
-    v83 = v8[1];
-    v84[0] = *(unsigned __int16 *)v8;
-    v85 = v88;
-    v88[0] = (unsigned __int16)v57;
-    v70 = v71;
-    v89 = &v70;
-    v91 = v94;
-    v93 = *((_QWORD *)v50 + 1);
-    v94[0] = *v50;
-    v95 = v98;
-    v97 = *((_QWORD *)v49 + 1);
-    v98[0] = *v49;
-    v56 = v61;
-    v99 = &v56;
-    v57 = v62;
-    v101 = &v57;
-    v72 = BaseAddress;
-    v103 = &v72;
-    v73 = v68;
-    v105 = &v73;
-    LODWORD(P) = v63;
-    p_P = &P;
-    v74 = v67;
-    v109 = &v74;
-    v75 = v69;
-    v111 = &v75;
-    LODWORD(v60) = v64;
-    v113 = &v60;
-    v80 = 4LL;
-    v82 = 2LL;
-    v84[1] = 0;
-    v86 = 2LL;
-    v87 = v51;
-    v88[1] = 0;
-    v90 = 8LL;
-    v92 = 2LL;
-    v94[1] = 0;
-    v96 = 2LL;
-    v98[1] = 0;
-    v100 = 4LL;
-    v102 = 4LL;
-    v104 = 8LL;
-    v106 = 8LL;
-    v108 = 4LL;
-    v110 = 8LL;
-    v112 = 8LL;
-    v114 = 4LL;
-    v115 = &v76;
-    v76 = 0x1000000LL;
-    v116 = 8LL;
+    v44[0] = v29 >> 1;
+    v30 = 2LL * v26;
+    *(&UserData.Ptr + v30) = (ULONGLONG)v44;
+    *((_QWORD *)&UserData.Size + v30) = 2LL;
+    v9 = *v28;
+    v6 = (const wchar_t *)*((_QWORD *)v28 + 1);
+  }
+  else
+  {
+    v44[0] = 6;
+    v31 = 2LL * v26;
+    *(&UserData.Ptr + v31) = (ULONGLONG)v44;
+    *((_QWORD *)&UserData.Size + v31) = 2LL;
+  }
+  v32 = 2LL * (v26 + 1);
+  v33 = (const EVENT_DESCRIPTOR *)MITIGATION_AUDIT_CONTROL_PROTECTION_USER_MODE_RETURN_MISMATCH;
+  v34 = v26 + 2;
+  *(&UserData.Ptr + v32) = (ULONGLONG)v6;
+  *(&UserData.Size + 2 * v32) = v9;
+  *(&UserData.Reserved + 2 * v32) = 0;
+  v35 = v47;
+  v36 = 2LL * v34;
+  v37 = v34 + 1;
+  v38 = v47 == 1;
+  *(&UserData.Ptr + v36) = (ULONGLONG)&a5;
+  v39 = EtwSecurityMitigationsRegHandle;
+  *((_QWORD *)&UserData.Size + v36) = 4LL;
+  if ( !v38 )
+    v33 = &MITIGATION_ENFORCE_CONTROL_PROTECTION_USER_MODE_RETURN_MISMATCH;
+  EtwWrite(v39, v33, 0LL, v37, &UserData);
+  if ( (unsigned int)dword_140C02BF0 > 5 && tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL) )
+  {
+    v53 = &v47;
+    v47 = v35;
+    v55 = v58;
+    v57 = v49[1];
+    v58[0] = *(unsigned __int16 *)v49;
+    v59 = v62;
+    v62[0] = (unsigned __int16)v46;
+    v49 = v50;
+    v63 = &v49;
+    v65 = v68;
+    v67 = *((_QWORD *)v40 + 1);
+    v68[0] = *v40;
+    v69 = v72;
+    v71 = *((_QWORD *)v41 + 1);
+    v72[0] = *v41;
+    v46 = a5;
+    v73 = &v46;
+    p_BaseAddress = &BaseAddress;
+    v54 = 4LL;
+    v56 = 2LL;
+    v58[1] = 0;
+    v60 = 2LL;
+    v61 = v14;
+    v62[1] = 0;
+    v64 = 8LL;
+    v66 = 2LL;
+    v68[1] = 0;
+    v70 = 2LL;
+    v72[1] = 0;
+    v74 = 4LL;
+    BaseAddress = (PVOID)0x1000000;
+    v76 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C066C0,
-      (unsigned __int8 *)&dword_140035854,
+      (__int64)&dword_140C02BF0,
+      (unsigned __int8 *)byte_14002D3C1,
       0LL,
       0LL,
-      0x15u,
-      &v78);
+      0xEu,
+      &v52);
   }
-  else
-  {
-    v51 = P;
-  }
-  if ( v51 )
-    ExFreePoolWithTag(v51, 0);
-  if ( v18 )
-    ExFreePoolWithTag(v18, 0);
-  if ( v25 )
-    ExFreePoolWithTag(v25, 0);
+  if ( v14 )
+    ExFreePoolWithTag(v14, 0);
+  if ( v19 )
+    ExFreePoolWithTag(v19, 0);
+  if ( v28 )
+    ExFreePoolWithTag(v28, 0);
 }

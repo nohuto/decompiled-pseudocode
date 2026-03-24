@@ -1,5 +1,5 @@
 /*
- * XREFs of IntelPptFilter_ControllerResetPostReset @ 0x1C007A010
+ * XREFs of IntelPptFilter_ControllerResetPostReset @ 0x1C0079010
  * Callers:
  *     <none>
  * Callees:

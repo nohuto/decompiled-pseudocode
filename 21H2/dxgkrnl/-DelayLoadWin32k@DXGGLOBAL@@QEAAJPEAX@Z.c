@@ -1,25 +1,27 @@
 /*
- * XREFs of ?DelayLoadWin32k@DXGGLOBAL@@QEAAJPEAX@Z @ 0x1C001DDD4
+ * XREFs of ?DelayLoadWin32k@DXGGLOBAL@@QEAAJPEAX@Z @ 0x1C0019C00
  * Callers:
- *     DxgkInternalDeviceIoctl @ 0x1C01E0A20 (DxgkInternalDeviceIoctl.c)
+ *     DxgkInternalDeviceIoctl @ 0x1C0164E00 (DxgkInternalDeviceIoctl.c)
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?CreateWin32kImportTable@@YAJPEAXPEAPEAVDXGKW32KIMPORTS@@@Z @ 0x1C0029108 (-CreateWin32kImportTable@@YAJPEAXPEAPEAVDXGKW32KIMPORTS@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?CreateWin32kImportTable@@YAJPEAXPEAPEAVDXGKW32KIMPORTS@@@Z @ 0x1C0023A5C (-CreateWin32kImportTable@@YAJPEAXPEAPEAVDXGKW32KIMPORTS@@@Z.c)
  */
 
-__int64 __fastcall DXGGLOBAL::DelayLoadWin32k(struct DXGKW32KIMPORTS **this, void *a2)
+__int64 __fastcall DXGGLOBAL::DelayLoadWin32k(DXGGLOBAL *this, void *a2)
 {
   unsigned int Win32kImportTable; // edi
-  _BYTE v6[24]; // [rsp+20h] [rbp-18h] BYREF
+  struct DXGKW32KIMPORTS **v5; // rdx
+  _BYTE v7[24]; // [rsp+20h] [rbp-18h] BYREF
 
   Win32kImportTable = 0;
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v6, (struct DXGFASTMUTEX *const)(this + 38074), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v6);
-  if ( !this[38073] )
-    Win32kImportTable = CreateWin32kImportTable(a2, this + 38073);
-  if ( v6[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v6);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v7, (DXGGLOBAL *)((char *)this + 304392), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v7);
+  v5 = (struct DXGKW32KIMPORTS **)((char *)this + 304384);
+  if ( !*((_QWORD *)this + 38048) )
+    Win32kImportTable = CreateWin32kImportTable(a2, v5);
+  if ( v7[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v7, (__int64)v5);
   return Win32kImportTable;
 }

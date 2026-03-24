@@ -1,12 +1,12 @@
 /*
- * XREFs of GetMonitorPhysicalDimensions @ 0x1C0175210
+ * XREFs of GetMonitorPhysicalDimensions @ 0x1C0148170
  * Callers:
- *     RIMGetMonitorPhysicalSize @ 0x1C0198300 (RIMGetMonitorPhysicalSize.c)
+ *     RIMGetMonitorPhysicalSize @ 0x1C0164840 (RIMGetMonitorPhysicalSize.c)
  * Callees:
- *     UpdateMonitorDevices @ 0x1C006C2B0 (UpdateMonitorDevices.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     UpdateMonitorDevices @ 0x1C001CE40 (UpdateMonitorDevices.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 __int64 __fastcall GetMonitorPhysicalDimensions(__int64 a1, unsigned int *a2, unsigned int *a3, _DWORD *a4, _QWORD *a5)
@@ -20,11 +20,11 @@ __int64 __fastcall GetMonitorPhysicalDimensions(__int64 a1, unsigned int *a2, un
   __int64 v13; // [rsp+30h] [rbp-418h]
   _QWORD v17[118]; // [rsp+50h] [rbp-3F8h] BYREF
 
-  UpdateMonitorDevices(0);
+  UpdateMonitorDevices();
   v6 = 0;
   if ( !a1 )
     return (unsigned int)-1073741823;
-  v7 = *(_QWORD *)(a1 + 2552);
+  v7 = *(_QWORD *)(a1 + 2576);
   if ( !*(_DWORD *)(v7 + 216) )
     return (unsigned int)-1073741810;
   v8 = gpGraphicsDeviceList;
@@ -55,7 +55,7 @@ LABEL_12:
       v17[0] = 0x3ACFFFFFFF9LL;
       v17[1] = *(_QWORD *)(v13 + 20LL * v10 + 8);
       LODWORD(v17[2]) = *(_DWORD *)(v13 + 20LL * v10 + 4);
-      if ( (int)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD *, _QWORD, _QWORD))qword_1C0296768)(
+      if ( (int)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD *, _QWORD, _QWORD))qword_1C0251978)(
                   v17[1],
                   LODWORD(v17[2]),
                   v17,

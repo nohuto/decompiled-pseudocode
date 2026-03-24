@@ -1,62 +1,41 @@
 /*
- * XREFs of ?Present@CLegacySwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x18010A9E0
+ * XREFs of ?Present@CLegacySwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x1800F1D48
  * Callers:
- *     ?Present@CLegacySwapChain@@$4PPPPPPPM@BLA@EAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x18011FAE0 (-Present@CLegacySwapChain@@$4PPPPPPPM@BLA@EAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@s.c)
- *     ?Present@CConversionSwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x1802A27C0 (-Present@CConversionSwapChain@@UEAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@.c)
- *     ?PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x1802A2870 (-PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPL.c)
+ *     ?Present@CConversionSwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x1800F1FD8 (-Present@CConversionSwapChain@@UEAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@.c)
+ *     ?Present@CLegacySwapChain@@$4PPPPPPPM@A@EAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x1800F6E50 (-Present@CLegacySwapChain@@$4PPPPPPPM@A@EAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std.c)
+ *     ?PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x18024F8F8 (-PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPL.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PostPresent@CLegacySwapChain@@MEAAJ_N0@Z @ 0x1800C7520 (-PostPresent@CLegacySwapChain@@MEAAJ_N0@Z.c)
- *     ?Present@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIIPEAUIDXGIResource@@PEBUtagRECT@@I@Z @ 0x18010AABC (-Present@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIIPEAUIDXGIResource@@PEBUtagRECT@@I@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0qqq_EventWriteTransfer @ 0x18012DF20 (McTemplateU0qqq_EventWriteTransfer.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Present@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIIPEAUIDXGIResource@@PEBUtagRECT@@I@Z @ 0x18009279C (-Present@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIIPEAUIDXGIResource@@PEBUtagRECT@@I@Z.c)
+ *     ?PostPresent@CLegacySwapChain@@IEAAX_N@Z @ 0x1800C5EC4 (-PostPresent@CLegacySwapChain@@IEAAX_N@Z.c)
+ *     ?PrePresent@CLegacySwapChain@@IEAAX_N@Z @ 0x1800C8D10 (-PrePresent@CLegacySwapChain@@IEAAX_N@Z.c)
+ *     McTemplateU0qqq_EventWriteTransfer @ 0x180152748 (McTemplateU0qqq_EventWriteTransfer.c)
  */
 
-__int64 __fastcall CLegacySwapChain::Present(
-        CD3DDevice **this,
-        unsigned int a2,
-        unsigned int a3,
-        __int64 a4,
-        unsigned int a5)
+__int64 __fastcall CLegacySwapChain::Present(__int64 a1, unsigned int a2, char a3, __int64 a4, unsigned int a5)
 {
-  const struct tagRECT *v9; // rcx
-  __int64 v10; // rax
-  char v11; // bl
-  __int64 v12; // rax
-  int v13; // eax
-  __int64 v14; // rcx
-  unsigned int v15; // edi
+  CLegacySwapChain *v5; // r14
+  int v8; // ebx
+  char v10; // bp
+  int v11; // eax
+  __int64 v12; // rcx
+  unsigned int v13; // ebx
 
-  if ( (a3 & 2) != 0 )
+  v5 = (CLegacySwapChain *)(a1 - 352);
+  v8 = a3 & 2;
+  v10 = v8 != 0;
+  CLegacySwapChain::PrePresent((CLegacySwapChain *)(a1 - 352), v8 != 0);
+  v11 = CD3DDevice::Present(*(CD3DDevice **)(a1 - 288), *(struct IDXGISwapChainDWM1 **)(a1 - 280), a2, a3);
+  v13 = v11;
+  if ( v11 < 0 )
   {
-    v9 = 0LL;
-    v11 = 1;
-    LODWORD(v12) = 0;
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x2B1u, 0LL);
   }
   else
   {
-    (*((void (__fastcall **)(CD3DDevice **))*this + 3))(this);
-    v9 = *(const struct tagRECT **)a4;
-    v10 = *(_QWORD *)(a4 + 8);
-    v11 = 0;
-    v12 = (v10 - (__int64)v9) >> 4;
-    if ( !(_DWORD)v12 )
-    {
-      LODWORD(v12) = 1;
-      v9 = (const struct tagRECT *)&TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::sc_rcEmpty;
-    }
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+      McTemplateU0qqq_EventWriteTransfer(v12, (unsigned int)&EVTDESC_ETWGUID_PRESENT, a5, 0, a3);
+    CLegacySwapChain::PostPresent(v5, v10);
   }
-  v13 = CD3DDevice::Present(this[10], this[28], a2, a3, a5, 0LL, v9, v12);
-  v15 = v13;
-  if ( v13 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x3DAu, 0LL);
-  }
-  else
-  {
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
-      McTemplateU0qqq_EventWriteTransfer(v14, (unsigned int)&EVTDESC_ETWGUID_PRESENT, a5, 0, a3);
-    CLegacySwapChain::PostPresent((CLegacySwapChain *)this, v11, v15 == 142213121);
-  }
-  return v15;
+  return v13;
 }

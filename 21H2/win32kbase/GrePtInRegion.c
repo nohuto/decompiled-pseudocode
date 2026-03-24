@@ -1,12 +1,12 @@
 /*
- * XREFs of GrePtInRegion @ 0x1C00980D0
+ * XREFs of GrePtInRegion @ 0x1C0085BF0
  * Callers:
- *     NtGdiPtInRegion @ 0x1C016BC90 (NtGdiPtInRegion.c)
+ *     NtGdiPtInRegion @ 0x1C013EC80 (NtGdiPtInRegion.c)
  * Callees:
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0027B78 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
- *     ?bInside@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C0098150 (-bInside@RGNOBJ@@QEAAHPEAU_POINTL@@@Z.c)
- *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DA130 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00348A0 (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ?bInside@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C0085C70 (-bInside@RGNOBJ@@QEAAHPEAU_POINTL@@@Z.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00C8F50 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
  */
 
 __int64 __fastcall GrePtInRegion(HRGN a1, LONG a2, LONG a3)

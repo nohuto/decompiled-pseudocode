@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIDockIntfReference @ 0x1C00AA200
+ * XREFs of ACPIDockIntfReference @ 0x1C00AB400
  * Callers:
- *     ACPIDockIrpQueryInterface @ 0x1C00AAFD0 (ACPIDockIrpQueryInterface.c)
+ *     ACPIDockIrpQueryInterface @ 0x1C00AC290 (ACPIDockIrpQueryInterface.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIInitReferenceDeviceExtension @ 0x1C00056D8 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
  */
 
 char __fastcall ACPIDockIntfReference(PVOID Object)

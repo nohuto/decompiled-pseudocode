@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InitializeSection@CDCompMappedSharedSectionMarshaler@DirectComposition@@QEAAJ_KPEAPEAX@Z @ 0x1C00933D4
+ * XREFs of ?InitializeSection@CDCompMappedSharedSectionMarshaler@DirectComposition@@QEAAJ_KPEAPEAX@Z @ 0x1C009F714
  * Callers:
- *     ?CreateAndBindSharedSection@CApplicationChannel@DirectComposition@@QEAAJI_KPEAPEAX@Z @ 0x1C009334C (-CreateAndBindSharedSection@CApplicationChannel@DirectComposition@@QEAAJI_KPEAPEAX@Z.c)
+ *     ?CreateAndBindSharedSection@CApplicationChannel@DirectComposition@@QEAAJI_KPEAPEAX@Z @ 0x1C009F66C (-CreateAndBindSharedSection@CApplicationChannel@DirectComposition@@QEAAJI_KPEAPEAX@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CDCompMappedSharedSectionMarshaler::InitializeSection(
@@ -26,7 +26,7 @@ __int64 __fastcall DirectComposition::CDCompMappedSharedSectionMarshaler::Initia
   else
   {
     v7 = 0LL;
-    v6 = (*(__int64 (__fastcall **)(DirectComposition::CDCompMappedSharedSectionMarshaler *, __int64, HANDLE *))(*(_QWORD *)this + 296LL))(
+    v6 = (*(__int64 (__fastcall **)(DirectComposition::CDCompMappedSharedSectionMarshaler *, __int64, HANDLE *))(*(_QWORD *)this + 232LL))(
            this,
            a2,
            &Handle);

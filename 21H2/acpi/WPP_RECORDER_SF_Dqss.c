@@ -1,19 +1,33 @@
 /*
- * XREFs of WPP_RECORDER_SF_dqss @ 0x1C004DEE0
+ * XREFs of WPP_RECORDER_SF_Dqss @ 0x1C001DBF4
  * Callers:
- *     ACPIInitStartDevice @ 0x1C00050B0 (ACPIInitStartDevice.c)
- *     ACPIInitDosDeviceName @ 0x1C0022B6C (ACPIInitDosDeviceName.c)
- *     ACPICMButtonNotify @ 0x1C004D608 (ACPICMButtonNotify.c)
- *     ACPICMExperienceButtonHandleEvent @ 0x1C004D9FC (ACPICMExperienceButtonHandleEvent.c)
- *     ACPIFanFSTCallback @ 0x1C0054AC0 (ACPIFanFSTCallback.c)
- *     ACPIWakeEnableDisableAsync @ 0x1C0062CD8 (ACPIWakeEnableDisableAsync.c)
- *     ACPIFanPrepareImpactZoneSupport @ 0x1C0090490 (ACPIFanPrepareImpactZoneSupport.c)
- *     ACPIFanValidateImpactZoneSupport @ 0x1C00AE6D4 (ACPIFanValidateImpactZoneSupport.c)
+ *     ACPIInternalRegisterPowerCallBack @ 0x1C000CA70 (ACPIInternalRegisterPowerCallBack.c)
+ *     ACPIProcessorStartDeviceWorker @ 0x1C000D040 (ACPIProcessorStartDeviceWorker.c)
+ *     ACPIFanPowerCallback @ 0x1C000D2C0 (ACPIFanPowerCallback.c)
+ *     ACPIInitStartDevice @ 0x1C000D968 (ACPIInitStartDevice.c)
+ *     ACPIBuildProcessorExtension @ 0x1C0016024 (ACPIBuildProcessorExtension.c)
+ *     ACPIInitDosDeviceName @ 0x1C0016A68 (ACPIInitDosDeviceName.c)
+ *     PciConfigSpaceHandlerWorker @ 0x1C00184A0 (PciConfigSpaceHandlerWorker.c)
+ *     ACPISystemPowerUpdateDeviceCapabilities @ 0x1C0019C4C (ACPISystemPowerUpdateDeviceCapabilities.c)
+ *     ACPIBuildProcessSpecialSynchronizationList @ 0x1C001D2F4 (ACPIBuildProcessSpecialSynchronizationList.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398 (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     ACPIWakeEnableDisableAsync @ 0x1C002F564 (ACPIWakeEnableDisableAsync.c)
+ *     ACPIBuildThermalZoneExtension @ 0x1C002FAC4 (ACPIBuildThermalZoneExtension.c)
+ *     ACPIBuildProcessThermalZoneCheckType @ 0x1C00300B0 (ACPIBuildProcessThermalZoneCheckType.c)
+ *     ACPICMButtonNotify @ 0x1C004E918 (ACPICMButtonNotify.c)
+ *     ACPICMExperienceButtonHandleEvent @ 0x1C004ED7C (ACPICMExperienceButtonHandleEvent.c)
+ *     ACPICMLidPowerStateCallBack @ 0x1C004EE50 (ACPICMLidPowerStateCallBack.c)
+ *     ACPIFanEvent @ 0x1C00552A0 (ACPIFanEvent.c)
+ *     ACPIFanFSTCallback @ 0x1C0055370 (ACPIFanFSTCallback.c)
+ *     ACPIInitDeleteDeviceExtension @ 0x1C0056438 (ACPIInitDeleteDeviceExtension.c)
+ *     ACPIInternalEvaluateOST @ 0x1C0056CB4 (ACPIInternalEvaluateOST.c)
+ *     ACPIRootEvent @ 0x1C005EBC0 (ACPIRootEvent.c)
+ *     ACPIProcessorGetInitialApicId @ 0x1C00910B8 (ACPIProcessorGetInitialApicId.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall WPP_RECORDER_SF_dqss(
+__int64 __fastcall WPP_RECORDER_SF_Dqss(
         __int64 a1,
         unsigned __int8 a2,
         unsigned int a3,
@@ -33,12 +47,12 @@ __int64 __fastcall WPP_RECORDER_SF_dqss(
   int v16; // eax
   unsigned __int8 v17; // cf
   __int64 v18; // r8
-  __int64 v19; // r8
-  const char *v20; // r9
-  __int64 v21; // rdx
-  __int64 v22; // rdx
-  const char *v23; // rcx
-  __int64 v24; // rax
+  __int64 v19; // rax
+  __int64 v21; // r8
+  const char *v22; // r9
+  __int64 v23; // rdx
+  __int64 v24; // rdx
+  const char *v25; // rcx
   int v26; // [rsp+20h] [rbp-78h]
   __int64 v27; // [rsp+A0h] [rbp+8h]
 
@@ -56,30 +70,30 @@ __int64 __fastcall WPP_RECORDER_SF_dqss(
   {
     if ( a9 )
     {
-      v19 = -1LL;
-      do
-        ++v19;
-      while ( a9[v19] );
-      v18 = v19 + 1;
-    }
-    v20 = a9;
-    if ( !a9 )
-      v20 = "NULL";
-    if ( a8 )
-    {
       v21 = -1LL;
       do
         ++v21;
-      while ( a8[v21] );
-      v22 = v21 + 1;
+      while ( a9[v21] );
+      v18 = v21 + 1;
+    }
+    v22 = a9;
+    if ( !a9 )
+      v22 = "NULL";
+    if ( a8 )
+    {
+      v23 = -1LL;
+      do
+        ++v23;
+      while ( a8[v23] );
+      v24 = v23 + 1;
     }
     else
     {
-      v22 = 5LL;
+      v24 = 5LL;
     }
-    v23 = a8;
+    v25 = a8;
     if ( !a8 )
-      v23 = "NULL";
+      v25 = "NULL";
     ((void (__fastcall *)(_QWORD, __int64, __int64, _QWORD, char *, __int64, char *, __int64, const char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
       *((_QWORD *)&WPP_GLOBAL_Control->AttachedDevice + 10 * v12),
       43LL,
@@ -89,19 +103,19 @@ __int64 __fastcall WPP_RECORDER_SF_dqss(
       4LL,
       &a7,
       8LL,
-      v23,
+      v25,
+      v24,
       v22,
-      v20,
       v18,
       0LL);
     a1 = v27;
   }
   if ( v9 )
   {
-    v24 = -1LL;
+    v19 = -1LL;
     do
-      ++v24;
-    while ( *(_BYTE *)(v9 + v24) );
+      ++v19;
+    while ( *(_BYTE *)(v9 + v19) );
   }
   if ( v10 )
   {

@@ -1,25 +1,25 @@
 /*
- * XREFs of PiDqDeleteUserObjectFromLoadedHives @ 0x14094A4EC
+ * XREFs of PiDqDeleteUserObjectFromLoadedHives @ 0x14072D604
  * Callers:
- *     PiDqObjectManagerHandleObjectEvent @ 0x1406C7D58 (PiDqObjectManagerHandleObjectEvent.c)
+ *     PiDqObjectManagerHandleObjectEvent @ 0x140766798 (PiDqObjectManagerHandleObjectEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _RegRtlEnumKey @ 0x1406CB3B4 (_RegRtlEnumKey.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     PiDqDeleteUserObject @ 0x14094A3E4 (PiDqDeleteUserObject.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     PiDqDeleteUserObject @ 0x14072D748 (PiDqDeleteUserObject.c)
+ *     _RegRtlEnumKey @ 0x140766B7C (_RegRtlEnumKey.c)
  */
 
-NTSTATUS __fastcall PiDqDeleteUserObjectFromLoadedHives(int a1, int a2)
+NTSTATUS __fastcall PiDqDeleteUserObjectFromLoadedHives(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rcx
   NTSTATUS result; // eax
-  ULONG i; // ebx
+  int i; // ebx
   __int64 v7; // rcx
   HANDLE KeyHandle; // [rsp+38h] [rbp-D0h] BYREF
-  __int64 v9; // [rsp+40h] [rbp-C8h] BYREF
+  __int64 v9; // [rsp+40h] [rbp-C8h]
   HANDLE Handle[2]; // [rsp+48h] [rbp-C0h] BYREF
-  char v11[512]; // [rsp+58h] [rbp-B0h] BYREF
+  _BYTE v11[512]; // [rsp+58h] [rbp-B0h] BYREF
 
   KeyHandle = 0LL;
   Handle[0] = 0LL;
@@ -33,7 +33,7 @@ NTSTATUS __fastcall PiDqDeleteUserObjectFromLoadedHives(int a1, int a2)
     for ( i = 0; ; ++i )
     {
       LODWORD(v9) = 256;
-      result = RegRtlEnumKey(KeyHandle, i, v11, (unsigned int *)&v9);
+      result = RegRtlEnumKey(KeyHandle);
       if ( result < 0 )
         break;
       if ( *(_QWORD *)&PiPnpRtlCtx )
@@ -42,7 +42,7 @@ NTSTATUS __fastcall PiDqDeleteUserObjectFromLoadedHives(int a1, int a2)
         v7 = 0LL;
       if ( (int)SysCtxRegOpenKey(v7, (__int64)KeyHandle, (__int64)v11, 0, 1u, (__int64)Handle) >= 0 )
       {
-        PiDqDeleteUserObject((char *)Handle[0], a1, a2);
+        PiDqDeleteUserObject(Handle[0], a1, a2);
         ZwClose(Handle[0]);
       }
     }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetRegionHandleAndReset@CRegion@@UEAAJPEAPEAUHRGN__@@@Z @ 0x1C007D080
+ * XREFs of ?GetRegionHandleAndReset@CRegion@@UEAAJPEAPEAUHRGN__@@@Z @ 0x1C0025590
  * Callers:
  *     <none>
  * Callees:
- *     ?GreHRGNFromRegionCore@@YAPEAUHRGN__@@AEAVRGNCOREOBJ@@@Z @ 0x1C007D110 (-GreHRGNFromRegionCore@@YAPEAUHRGN__@@AEAVRGNCOREOBJ@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C0025620 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRegion::GetRegionHandleAndReset(CRegion *this, HRGN *a2)
@@ -31,7 +31,7 @@ LABEL_6:
   if ( v6 == 1 )
   {
     v9 = *((_QWORD *)this + 2);
-    v7 = GreHRGNFromRegionCore((struct RGNCOREOBJ *)&v9);
+    v7 = RGNOBJ::hrgnAssociate((RGNOBJ *)&v9);
     *a2 = v7;
     if ( !v7 )
     {

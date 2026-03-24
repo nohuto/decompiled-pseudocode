@@ -1,11 +1,11 @@
 /*
- * XREFs of VfIsPCIBus @ 0x140AC7E74
+ * XREFs of VfIsPCIBus @ 0x1409CC7F8
  * Callers:
- *     VfGetDmaAdapter @ 0x140AC7560 (VfGetDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x1409CBE70 (VfGetDmaAdapter.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     IoGetDeviceProperty @ 0x140792EB0 (IoGetDeviceProperty.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     IoGetDeviceProperty @ 0x1406B8A70 (IoGetDeviceProperty.c)
  */
 
 __int64 __fastcall VfIsPCIBus(struct _DEVICE_OBJECT *a1)

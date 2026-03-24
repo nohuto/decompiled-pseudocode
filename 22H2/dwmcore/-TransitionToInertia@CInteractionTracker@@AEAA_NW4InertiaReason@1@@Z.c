@@ -1,40 +1,38 @@
 /*
- * XREFs of ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x180235D98
+ * XREFs of ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x1801CD010
  * Callers:
- *     ?AnimateToScale@CInteractionTracker@@AEAAJMAEBUD2DVector2@@MH@Z @ 0x180230F84 (-AnimateToScale@CInteractionTracker@@AEAAJMAEBUD2DVector2@@MH@Z.c)
- *     ?ApplyPositionImpulse@CInteractionTracker@@AEAA_NAEBUD2DVector3@@@Z @ 0x1802310E4 (-ApplyPositionImpulse@CInteractionTracker@@AEAA_NAEBUD2DVector3@@@Z.c)
- *     ?ApplyScaleImpulse@CInteractionTracker@@AEAA_NMAEBUD2DVector2@@@Z @ 0x180231288 (-ApplyScaleImpulse@CInteractionTracker@@AEAA_NMAEBUD2DVector2@@@Z.c)
- *     ?CheckForIdle@CInteractionTracker@@AEAAXXZ @ 0x180231D44 (-CheckForIdle@CInteractionTracker@@AEAAXXZ.c)
- *     ?ScrollToPosition@CInteractionTracker@@AEAAJAEBUD2DVector3@@MH@Z @ 0x180234260 (-ScrollToPosition@CInteractionTracker@@AEAAJAEBUD2DVector3@@MH@Z.c)
- *     ?UpdateActiveManipulations@InteractionSourceManager@@AEAAXXZ @ 0x18027559C (-UpdateActiveManipulations@InteractionSourceManager@@AEAAXXZ.c)
+ *     ?AnimateToScale@CInteractionTracker@@AEAAJMAEBUD2DVector2@@MH@Z @ 0x1801C7C5C (-AnimateToScale@CInteractionTracker@@AEAAJMAEBUD2DVector2@@MH@Z.c)
+ *     ?ApplyPositionImpulse@CInteractionTracker@@AEAA_NAEBUD2DVector3@@@Z @ 0x1801C7D94 (-ApplyPositionImpulse@CInteractionTracker@@AEAA_NAEBUD2DVector3@@@Z.c)
+ *     ?ApplyScaleImpulse@CInteractionTracker@@AEAA_NMAEBUD2DVector2@@@Z @ 0x1801C7F18 (-ApplyScaleImpulse@CInteractionTracker@@AEAA_NMAEBUD2DVector2@@@Z.c)
+ *     ?CheckForIdle@CInteractionTracker@@AEAAXXZ @ 0x1801C88EC (-CheckForIdle@CInteractionTracker@@AEAAXXZ.c)
+ *     ?ScrollToPosition@CInteractionTracker@@AEAAJAEBUD2DVector3@@MH@Z @ 0x1801CAD68 (-ScrollToPosition@CInteractionTracker@@AEAAJAEBUD2DVector3@@MH@Z.c)
+ *     ?UpdateActiveManipulations@InteractionSourceManager@@AEAAXXZ @ 0x180213E60 (-UpdateActiveManipulations@InteractionSourceManager@@AEAAXXZ.c)
  * Callees:
- *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180053F60 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x1800BCE8C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ @ 0x180132B0E (-HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ.c)
- *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B5B34 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?BoostCompositorClock@CInteractionTracker@@AEAAX_N@Z @ 0x1802313FC (-BoostCompositorClock@CInteractionTracker@@AEAAX_N@Z.c)
- *     ?DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z @ 0x180232194 (-DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z.c)
- *     ?DestroyInteractionAnimations@CInteractionTracker@@AEAAXXZ @ 0x1802322C0 (-DestroyInteractionAnimations@CInteractionTracker@@AEAAXXZ.c)
- *     ?EnsureInteractionAnimations@CInteractionTracker@@AEAAJXZ @ 0x180232390 (-EnsureInteractionAnimations@CInteractionTracker@@AEAAJXZ.c)
- *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x180232888 (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
- *     ?HasImpulse@CInteractionTracker@@QEBA_NXZ @ 0x180232F58 (-HasImpulse@CInteractionTracker@@QEBA_NXZ.c)
- *     ?IsOutOfBounds@CInteractionTracker@@QEAA_NXZ @ 0x1802332DC (-IsOutOfBounds@CInteractionTracker@@QEAA_NXZ.c)
- *     ?SetState@CInteractionTracker@@AEAAXW4ScrollState@@W4TrackerUpdateType@1@@Z @ 0x18023545C (-SetState@CInteractionTracker@@AEAAXW4ScrollState@@W4TrackerUpdateType@1@@Z.c)
- *     ?StopCustomAnimations@CInteractionTracker@@AEAAX_N@Z @ 0x180235A2C (-StopCustomAnimations@CInteractionTracker@@AEAAX_N@Z.c)
- *     ?ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z @ 0x1802361B4 (-ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z.c)
- *     ?StartInertia@CScrollAnimation@@QEAAXM_N@Z @ 0x180265540 (-StartInertia@CScrollAnimation@@QEAAXM_N@Z.c)
+ *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180062C44 (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
+ *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180073B10 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180184EF4 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z @ 0x1801C8E9C (-DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z.c)
+ *     ?DestroyInteractionAnimations@CInteractionTracker@@AEAAXXZ @ 0x1801C8FD4 (-DestroyInteractionAnimations@CInteractionTracker@@AEAAXXZ.c)
+ *     ?EnsureInteractionAnimations@CInteractionTracker@@AEAAJXZ @ 0x1801C90A0 (-EnsureInteractionAnimations@CInteractionTracker@@AEAAJXZ.c)
+ *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1801C94D0 (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?HasImpulse@CInteractionTracker@@QEBA_NXZ @ 0x1801C9B80 (-HasImpulse@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?IsOutOfBounds@CInteractionTracker@@QEAA_NXZ @ 0x1801C9E78 (-IsOutOfBounds@CInteractionTracker@@QEAA_NXZ.c)
+ *     ?SetState@CInteractionTracker@@AEAAXW4ScrollState@@W4TrackerUpdateType@1@@Z @ 0x1801CC6FC (-SetState@CInteractionTracker@@AEAAXW4ScrollState@@W4TrackerUpdateType@1@@Z.c)
+ *     ?StopCustomAnimations@CInteractionTracker@@AEAAX_N@Z @ 0x1801CCCD8 (-StopCustomAnimations@CInteractionTracker@@AEAAX_N@Z.c)
+ *     ?ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z @ 0x1801CD3E4 (-ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z.c)
+ *     ?StartInertia@CScrollAnimation@@QEAAXM_N@Z @ 0x180203E24 (-StartInertia@CScrollAnimation@@QEAAXM_N@Z.c)
  */
 
-bool __fastcall CInteractionTracker::TransitionToInertia(__int64 a1, int a2)
+char __fastcall CInteractionTracker::TransitionToInertia(__int64 a1, int a2)
 {
   unsigned int v2; // esi
   int v4; // ecx
-  bool v6; // r14
-  char v7; // r15
+  char v6; // r14
+  int v7; // ecx
   int v8; // ecx
-  int v9; // ecx
-  CInteractionTracker *v10; // rcx
+  CInteractionTracker *v9; // rcx
+  __int64 v10; // r9
   CInteractionTracker *v11; // rcx
   __int64 *v12; // rcx
   __int64 v13; // rax
@@ -43,89 +41,82 @@ bool __fastcall CInteractionTracker::TransitionToInertia(__int64 a1, int a2)
   __int64 v16; // rcx
   double v17; // xmm0_8
   __int64 v18; // r11
-  CBaseExpression **v19; // r15
-  __int64 v20; // rcx
-  __int64 v21; // rax
-  CBaseExpression *v22; // rcx
-  int v23; // eax
-  CScrollAnimation *v24; // rbx
+  LARGE_INTEGER **v19; // r14
+  LARGE_INTEGER *v20; // rax
+  LARGE_INTEGER *v21; // rcx
+  int v22; // eax
+  LARGE_INTEGER *v23; // rbx
   float CurrentValue; // xmm0_4
-  bool v27; // [rsp+20h] [rbp-60h] BYREF
-  _QWORD v28[2]; // [rsp+28h] [rbp-58h] BYREF
-  int v29; // [rsp+38h] [rbp-48h]
-  __int128 v30; // [rsp+40h] [rbp-40h] BYREF
-  __int64 v31; // [rsp+50h] [rbp-30h]
-  int v32; // [rsp+58h] [rbp-28h]
-  __int64 v33; // [rsp+60h] [rbp-20h] BYREF
-  __int64 v34; // [rsp+68h] [rbp-18h]
-  __int64 v35; // [rsp+70h] [rbp-10h]
-  __int64 v36; // [rsp+78h] [rbp-8h] BYREF
+  bool v26; // [rsp+20h] [rbp-60h] BYREF
+  _QWORD v27[2]; // [rsp+28h] [rbp-58h] BYREF
+  int v28; // [rsp+38h] [rbp-48h]
+  __int128 v29; // [rsp+40h] [rbp-40h] BYREF
+  __int64 v30; // [rsp+50h] [rbp-30h]
+  int v31; // [rsp+58h] [rbp-28h]
+  __int64 v32; // [rsp+60h] [rbp-20h] BYREF
+  __int64 v33; // [rsp+68h] [rbp-18h]
+  __int64 v34; // [rsp+70h] [rbp-10h]
+  __int64 v35; // [rsp+78h] [rbp-8h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+98h] [rbp+18h]
 
   v2 = 0;
-  v4 = *(_DWORD *)(a1 + 176);
+  v4 = *(_DWORD *)(a1 + 168);
   v6 = 0;
-  v7 = 0;
   if ( !v4 )
     goto LABEL_5;
-  v8 = v4 - 1;
-  if ( !v8 )
+  v7 = v4 - 1;
+  if ( !v7 )
   {
-    v6 = a2 == 0;
     if ( a2 )
-      return v6;
+      return v2;
     goto LABEL_9;
   }
-  v9 = v8 - 1;
-  if ( v9 )
+  v8 = v7 - 1;
+  if ( v8 )
   {
-    if ( v9 != 1 )
-      return v6;
+    if ( v8 != 1 )
+      return v2;
 LABEL_5:
     if ( !CInteractionTracker::IsOutOfBounds((CInteractionTracker *)a1)
-      && !CInteractionTracker::HasImpulse(v10)
+      && !CInteractionTracker::HasImpulse(v9)
       && a2 != 1 )
     {
-      return v6;
+      return v2;
     }
     goto LABEL_8;
   }
   if ( a2 == 1 )
-  {
-LABEL_8:
-    v6 = 1;
-    goto LABEL_9;
-  }
+    goto LABEL_16;
   if ( !CInteractionTracker::IsOutOfBounds((CInteractionTracker *)a1) && !CInteractionTracker::HasImpulse(v11) )
-    return v6;
+    return v2;
   v6 = 1;
-  v7 = 1;
-LABEL_9:
-  CInteractionTracker::BoostCompositorClock((CInteractionTracker *)a1, 1);
-  CInteractionTracker::StopCustomAnimations((CInteractionTracker *)a1, 0);
+LABEL_8:
   if ( a2 == 1 )
   {
+LABEL_16:
+    CInteractionTracker::StopCustomAnimations((CInteractionTracker *)a1, 0);
     CInteractionTracker::DestroyInteractionAnimations((CInteractionTracker *)a1);
+    goto LABEL_17;
   }
-  else
+LABEL_9:
+  CInteractionTracker::StopCustomAnimations((CInteractionTracker *)a1, 0);
+  CInteractionTracker::DestroyDefaultAnimations((CInteractionTracker *)a1, 0);
+  CInteractionTracker::EnsureInteractionAnimations((struct CComposition **)a1);
+  CInteractionTracker::DestroyDefaultAnimations((CInteractionTracker *)a1, 0);
+LABEL_17:
+  if ( v6 )
   {
-    CInteractionTracker::DestroyDefaultAnimations((CInteractionTracker *)a1, 0);
-    CInteractionTracker::EnsureInteractionAnimations((struct CComposition **)a1);
-    CInteractionTracker::DestroyDefaultAnimations((CInteractionTracker *)a1, 0);
-  }
-  if ( v7 )
-  {
-    v12 = &v33;
+    v12 = &v32;
+    v32 = *(_QWORD *)(a1 + 328);
     v33 = *(_QWORD *)(a1 + 336);
-    v34 = *(_QWORD *)(a1 + 344);
-    v35 = *(_QWORD *)(a1 + 328);
+    v34 = *(_QWORD *)(a1 + 320);
     do
     {
       v13 = *v12;
       ++v2;
       ++v12;
-      *(_BYTE *)(v13 + 368) |= 4u;
-      *(_BYTE *)(v13 + 396) |= 1u;
+      *(_BYTE *)(v13 + 344) |= 4u;
+      *(_BYTE *)(v13 + 372) |= 1u;
     }
     while ( v2 < 3 );
   }
@@ -134,45 +125,44 @@ LABEL_9:
     v14 = CInteractionTracker::ValueFromBoundary(a1, 2LL, 2LL);
     v15 = LODWORD(v14);
     v17 = CInteractionTracker::ValueFromBoundary(v16, 1LL, 2LL);
-    *(_DWORD *)(v18 + 520) = LODWORD(v17);
-    v19 = (CBaseExpression **)&v33;
-    *(_DWORD *)(v18 + 492) = v15;
+    *(_DWORD *)(v18 + 496) = LODWORD(v17);
+    *(_DWORD *)(v18 + 468) = v15;
+    v19 = (LARGE_INTEGER **)&v32;
+    v32 = *(_QWORD *)(a1 + 320);
     v33 = *(_QWORD *)(a1 + 328);
     v34 = *(_QWORD *)(a1 + 336);
-    v35 = *(_QWORD *)(a1 + 344);
-    v20 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL);
-    v28[0] = &CExpressionValueStack::`vftable';
-    v28[1] = v20;
-    v29 = 0;
+    v27[1] = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 272LL);
+    v27[0] = &CExpressionValueStack::`vftable';
+    v28 = 0;
+    v29 = 0LL;
     v30 = 0LL;
-    v31 = 0LL;
-    v32 = 0;
+    v31 = 0;
     do
     {
-      if ( *(_DWORD *)(a1 + 176) == 1
-        && InteractionSourceManager::HasActiveManipulation((InteractionSourceManager *)(a1 + 200)) )
+      if ( *(_DWORD *)(a1 + 168) == 1 )
       {
-        v21 = *(_QWORD *)(a1 + 16);
-        v22 = *v19;
-        v27 = 0;
-        v23 = CBaseExpression::CalculateValue(v22, (struct CExpressionValueStack *)v28, *(_QWORD *)(v21 + 496), &v27);
-        if ( v23 < 0 )
+        v20 = *(LARGE_INTEGER **)(a1 + 16);
+        v21 = *v19;
+        v26 = 0;
+        v22 = CBaseExpression::CalculateValue(v21, (struct CExpressionValueStack *)v27, v20[44], &v26);
+        if ( v22 < 0 )
           wil::details::in1diag3::_Log_Hr(
             retaddr,
-            2868LL,
+            (void *)0xB25,
             (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\interactiontracker.cpp",
-            (const char *)(unsigned int)v23);
+            (const char *)(unsigned int)v22);
       }
-      v24 = *v19;
-      CurrentValue = CInteractionTracker::GetCurrentValue(a1, *((_DWORD *)*v19 + 85));
-      CScrollAnimation::StartInertia(v24, CurrentValue, 0);
-      *((_BYTE *)v24 + 396) |= 1u;
+      v23 = *v19;
+      CurrentValue = CInteractionTracker::GetCurrentValue(a1, (*v19)[39].HighPart);
+      CScrollAnimation::StartInertia((CScrollAnimation *)v23, CurrentValue, 0);
+      BYTE4(v23[46].QuadPart) |= 1u;
       ++v19;
     }
-    while ( v19 != (CBaseExpression **)&v36 );
-    v28[0] = &CExpressionValueStack::`vftable';
-    DynArrayImpl<1>::~DynArrayImpl<1>((void **)&v30);
+    while ( v19 != (LARGE_INTEGER **)&v35 );
+    v27[0] = &CExpressionValueStack::`vftable';
+    DynArrayImpl<1>::~DynArrayImpl<1>((void **)&v29);
   }
-  CInteractionTracker::SetState(a1, 2, 0);
-  return v6;
+  CInteractionTracker::SetState(a1, 2, 0LL, v10);
+  LOBYTE(v2) = 1;
+  return v2;
 }

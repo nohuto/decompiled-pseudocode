@@ -1,7 +1,7 @@
 /*
  * XREFs of BgGetIsColorOverridden @ 0x140951A4C
  * Callers:
- *     BgkSetVirtualFrameBuffer @ 0x140191A20 (BgkSetVirtualFrameBuffer.c)
+ *     BgkSetVirtualFrameBuffer @ 0x140191A40 (BgkSetVirtualFrameBuffer.c)
  * Callees:
  *     <none>
  */

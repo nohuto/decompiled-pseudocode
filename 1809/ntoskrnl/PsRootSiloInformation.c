@@ -1,5 +1,5 @@
 /*
- * XREFs of PsRootSiloInformation @ 0x140886980
+ * XREFs of PsRootSiloInformation @ 0x140886960
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:

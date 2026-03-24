@@ -1,142 +1,118 @@
 /*
- * XREFs of xxxSetWindowNCMetrics @ 0x1C0076530
+ * XREFs of xxxSetWindowNCMetrics @ 0x1C00E22DC
  * Callers:
- *     xxxInitWindowStation @ 0x1C003DB88 (xxxInitWindowStation.c)
- *     xxxUpdatePerUserSystemParameters @ 0x1C0072BDC (xxxUpdatePerUserSystemParameters.c)
- *     UserOnGreTextReady @ 0x1C0088E50 (UserOnGreTextReady.c)
- *     ?xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01C83EC (-xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z.c)
+ *     xxxInitWindowStation @ 0x1C000C0B8 (xxxInitWindowStation.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C0026774 (xxxUpdatePerUserSystemParameters.c)
+ *     UserOnGreTextReady @ 0x1C00E5F8C (UserOnGreTextReady.c)
+ *     ?xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01D6F68 (-xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z.c)
  * Callees:
- *     ?GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z @ 0x1C00767A0 (-GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z.c)
- *     CreateBitmapStrip @ 0x1C0076930 (CreateBitmapStrip.c)
- *     xxxSetNCFonts @ 0x1C0078690 (xxxSetNCFonts.c)
- *     ?SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C00AA418 (-SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ?SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C00DB4C0 (-SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z.c)
+ *     ?GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z @ 0x1C00E2534 (-GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z.c)
+ *     CreateBitmapStrip @ 0x1C00E2680 (CreateBitmapStrip.c)
+ *     xxxSetNCFonts @ 0x1C00E2938 (xxxSetNCFonts.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-__int64 __fastcall xxxSetWindowNCMetrics(struct _UNICODE_STRING *a1, struct tagNONCLIENTMETRICSW *a2, int a3)
+_BOOL8 __fastcall xxxSetWindowNCMetrics(struct _UNICODE_STRING *a1, struct tagNONCLIENTMETRICSW *a2, int a3)
 {
-  unsigned int v6; // edi
-  int v7; // eax
-  int v8; // ecx
-  int v9; // esi
-  int v10; // ecx
-  int v11; // eax
-  int v12; // ecx
-  int v13; // eax
-  int v14; // ecx
-  int v15; // eax
-  __int64 v16; // rcx
-  int v17; // ecx
-  int v18; // eax
-  __int64 v19; // rcx
+  int v6; // ecx
+  int v7; // edi
+  int v8; // eax
+  int v9; // ecx
+  int v10; // eax
+  int v11; // ecx
+  int v12; // eax
+  int v13; // ecx
+  int v14; // eax
+  int v15; // ecx
+  int v16; // ecx
+  int v17; // eax
   __int64 SessionDpiMetrics; // rax
-  int v21; // edx
-  int v22; // r8d
-  __int64 v23; // r9
-  int v24; // ecx
+  int v19; // edx
+  int v20; // r8d
+  __int64 v21; // r9
+  int v22; // ecx
+  int v23; // edx
+  int v24; // eax
   int v25; // edx
-  int v26; // eax
-  int v27; // edx
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  int v31; // [rsp+20h] [rbp-E0h] BYREF
-  int TWIPSMetricById; // [rsp+24h] [rbp-DCh]
-  int v33; // [rsp+28h] [rbp-D8h]
-  int v34; // [rsp+2Ch] [rbp-D4h]
-  int v35; // [rsp+30h] [rbp-D0h]
-  int v36; // [rsp+34h] [rbp-CCh]
-  int v37; // [rsp+94h] [rbp-6Ch]
-  int v38; // [rsp+98h] [rbp-68h]
-  int v39; // [rsp+F8h] [rbp-8h]
-  int v40; // [rsp+FCh] [rbp-4h]
-  int v41; // [rsp+214h] [rbp+114h]
+  _DWORD v27[128]; // [rsp+20h] [rbp-E0h] BYREF
 
-  memset_0(&v31, 0, 0x1F8uLL);
-  v6 = 0;
+  memset(v27, 0, 0x1F8uLL);
   if ( !(unsigned int)xxxSetNCFonts(a1, a2) )
     return 0LL;
   if ( !a2 )
   {
-    v31 = 504;
+    v27[0] = 504;
     if ( a3 >= 0 )
-      TWIPSMetricById = a3;
+      v27[1] = a3;
     else
-      TWIPSMetricById = GetTWIPSMetricById(a1, 0x88u, -15);
-    v33 = GetTWIPSMetricById(a1, 0x98u, -240);
-    v34 = GetTWIPSMetricById(a1, 0x99u, -240);
-    v35 = GetTWIPSMetricById(a1, 0x89u, -270);
-    v36 = GetTWIPSMetricById(a1, 0x8Au, -270);
-    v37 = GetTWIPSMetricById(a1, 0x8Cu, -195);
-    v38 = GetTWIPSMetricById(a1, 0x8Du, -195);
-    v39 = GetTWIPSMetricById(a1, 0x8Fu, -270);
-    v40 = GetTWIPSMetricById(a1, 0x90u, -270);
-    v41 = GetTWIPSMetricById(a1, 0x9Eu, 0);
-    a2 = (struct tagNONCLIENTMETRICSW *)&v31;
+      v27[1] = GetTWIPSMetricById(a1, 0x88u, -15);
+    v27[2] = GetTWIPSMetricById(a1, 0x98u, -240);
+    v27[3] = GetTWIPSMetricById(a1, 0x99u, -240);
+    v27[4] = GetTWIPSMetricById(a1, 0x89u, -270);
+    v27[5] = GetTWIPSMetricById(a1, 0x8Au, -270);
+    v27[29] = GetTWIPSMetricById(a1, 0x8Cu, -195);
+    v27[30] = GetTWIPSMetricById(a1, 0x8Du, -195);
+    v27[54] = GetTWIPSMetricById(a1, 0x8Fu, -270);
+    v27[55] = GetTWIPSMetricById(a1, 0x90u, -270);
+    v27[125] = GetTWIPSMetricById(a1, 0x9Eu, 0);
+    a2 = (struct tagNONCLIENTMETRICSW *)v27;
   }
-  v7 = *((_DWORD *)a2 + 1);
-  if ( v7 > 1 )
-  {
-    v8 = 50;
-    if ( v7 >= 50 )
-      goto LABEL_9;
-  }
-  else
-  {
-    v7 = 1;
-  }
-  v8 = v7;
-LABEL_9:
+  v6 = 1;
+  if ( *((int *)a2 + 1) > 1 )
+    v6 = *((_DWORD *)a2 + 1);
+  v7 = 8;
+  v8 = 50;
+  if ( v6 < 50 )
+    v8 = v6;
+  v9 = *((_DWORD *)a2 + 125);
   *((_DWORD *)a2 + 1) = v8;
-  v9 = 8;
-  v10 = *((_DWORD *)a2 + 125);
-  v11 = 100;
-  if ( v10 <= 0 )
-    v10 = 0;
-  if ( v10 < 100 )
-    v11 = v10;
-  v12 = 8;
-  *((_DWORD *)a2 + 125) = v11;
+  v10 = 100;
+  if ( v9 <= 0 )
+    v9 = 0;
+  if ( v9 < 100 )
+    v10 = v9;
+  v11 = 8;
+  *((_DWORD *)a2 + 125) = v10;
   if ( *((int *)a2 + 2) > 8 )
-    v12 = *((_DWORD *)a2 + 2);
-  v13 = *((_DWORD *)a2 + 3);
-  *((_DWORD *)a2 + 2) = v12;
-  v14 = 8;
-  if ( v13 > 8 )
-    v14 = v13;
-  v15 = *((_DWORD *)a2 + 4);
-  *((_DWORD *)a2 + 3) = v14;
-  v16 = 8LL;
-  if ( v15 > 8 )
-    v16 = (unsigned int)v15;
-  *((_DWORD *)a2 + 4) = v16;
-  v17 = *(_DWORD *)(GetSessionDpiServerInfo(v16) + 20);
-  v18 = *((_DWORD *)a2 + 5);
-  v19 = (unsigned int)(v17 + 2);
-  if ( v18 <= (int)v19 )
-    v18 = *(_DWORD *)(GetSessionDpiServerInfo(v19) + 20) + 2;
-  *((_DWORD *)a2 + 5) = v18;
-  SessionDpiMetrics = GetSessionDpiMetrics(v19);
-  v21 = 8;
-  v22 = *((_DWORD *)a2 + 55);
-  v23 = SessionDpiMetrics;
+    v11 = *((_DWORD *)a2 + 2);
+  v12 = *((_DWORD *)a2 + 3);
+  *((_DWORD *)a2 + 2) = v11;
+  v13 = 8;
+  if ( v12 > 8 )
+    v13 = v12;
+  v14 = *((_DWORD *)a2 + 4);
+  *((_DWORD *)a2 + 3) = v13;
+  v15 = 8;
+  if ( v14 > 8 )
+    v15 = v14;
+  *((_DWORD *)a2 + 4) = v15;
+  v16 = *(_DWORD *)(GetSessionDpiServerInfo() + 20);
+  v17 = *((_DWORD *)a2 + 5);
+  if ( v17 <= v16 + 2 )
+    v17 = *(_DWORD *)(GetSessionDpiServerInfo() + 20) + 2;
+  *((_DWORD *)a2 + 5) = v17;
+  SessionDpiMetrics = GetSessionDpiMetrics();
+  v19 = 8;
+  v20 = *((_DWORD *)a2 + 55);
+  v21 = SessionDpiMetrics;
   if ( *((int *)a2 + 29) > 8 )
-    v21 = *((_DWORD *)a2 + 29);
-  v24 = *((_DWORD *)a2 + 30);
-  *((_DWORD *)a2 + 29) = v21;
-  v25 = *(_DWORD *)(SessionDpiMetrics + 44);
-  v26 = *((_DWORD *)a2 + 54);
-  v27 = v25 + 2;
-  if ( v24 <= v27 )
-    v24 = v27;
-  *((_DWORD *)a2 + 30) = v24;
-  if ( v26 > 8 )
-    v9 = v26;
-  *((_DWORD *)a2 + 54) = v9;
-  if ( v22 <= *(_DWORD *)(v23 + 28) )
-    v22 = *(_DWORD *)(v23 + 28);
-  *((_DWORD *)a2 + 55) = v22;
+    v19 = *((_DWORD *)a2 + 29);
+  v22 = *((_DWORD *)a2 + 30);
+  *((_DWORD *)a2 + 29) = v19;
+  v23 = *(_DWORD *)(SessionDpiMetrics + 44);
+  v24 = *((_DWORD *)a2 + 54);
+  v25 = v23 + 2;
+  if ( v22 <= v25 )
+    v22 = v25;
+  *((_DWORD *)a2 + 30) = v22;
+  if ( v24 > 8 )
+    v7 = v24;
+  *((_DWORD *)a2 + 54) = v7;
+  if ( v20 <= *(_DWORD *)(v21 + 28) )
+    v20 = *(_DWORD *)(v21 + 28);
+  *((_DWORD *)a2 + 55) = v20;
   SetNCMetrics(a2);
-  LOBYTE(v6) = (unsigned int)CreateBitmapStrip(v29, v28) != 0;
-  return v6;
+  return (unsigned int)CreateBitmapStrip() != 0;
 }

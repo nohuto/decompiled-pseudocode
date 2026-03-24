@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AllowDesktopDestruction@@YAXPEAX@Z @ 0x1C00BE040
+ * XREFs of ?AllowDesktopDestruction@@YAXPEAX@Z @ 0x1C0136A60
  * Callers:
  *     <none>
  * Callees:

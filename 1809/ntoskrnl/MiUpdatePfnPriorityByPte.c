@@ -1,16 +1,16 @@
 /*
  * XREFs of MiUpdatePfnPriorityByPte @ 0x14003DA70
  * Callers:
- *     MiSystemFault @ 0x1400E88E0 (MiSystemFault.c)
+ *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
  *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
  *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiRelinkStandbyPage @ 0x1400F0A18 (MiRelinkStandbyPage.c)
- *     MiIsPteInStore @ 0x1401417E8 (MiIsPteInStore.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRelinkStandbyPage @ 0x1400F0A38 (MiRelinkStandbyPage.c)
+ *     MiIsPteInStore @ 0x140141808 (MiIsPteInStore.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUpdatePfnPriorityByPte(unsigned __int64 a1, unsigned int a2)

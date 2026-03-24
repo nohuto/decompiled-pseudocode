@@ -1,19 +1,18 @@
 /*
- * XREFs of ?CreatePolygonAndPushToBspTree@CBspPreComputeHelper@@AEAAJPEAVCVisual@@_N11@Z @ 0x1801D7F80
+ * XREFs of ?CreatePolygonAndPushToBspTree@CBspPreComputeHelper@@AEAAJPEAVCVisual@@_N11@Z @ 0x18019949C
  * Callers:
- *     ?CheckVisibilityAndInsertIntoBspTree@CBspPreComputeHelper@@AEAAJPEAVCVisual@@_N@Z @ 0x1801D7910 (-CheckVisibilityAndInsertIntoBspTree@CBspPreComputeHelper@@AEAAJPEAVCVisual@@_N@Z.c)
+ *     ?CheckVisibilityAndInsertIntoBspTree@CBspPreComputeHelper@@AEAAJPEAVCVisual@@_N@Z @ 0x180199384 (-CheckVisibilityAndInsertIntoBspTree@CBspPreComputeHelper@@AEAAJPEAVCVisual@@_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ @ 0x1800DBDB4 (-GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ.c)
- *     ?GetTopByReference@?$CWatermarkStack@M$0EA@$01$09@@QEBAPEBMXZ @ 0x1801008E4 (-GetTopByReference@-$CWatermarkStack@M$0EA@$01$09@@QEBAPEBMXZ.c)
- *     ??2CBspNode@@SAPEAX_K@Z @ 0x1801C252C (--2CBspNode@@SAPEAX_K@Z.c)
- *     ??$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z @ 0x1801D78D4 (--$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z.c)
- *     ?GetTopByReference@?$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEBAPEBQEAVCBspNode@@XZ @ 0x1801D819C (-GetTopByReference@-$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEBAPEBQEAVCBspNode@@XZ.c)
- *     ?Pop@?$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEAA_NPEAPEAVCBspNode@@@Z @ 0x1801D81B8 (-Pop@-$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEAA_NPEAPEAVCBspNode@@@Z.c)
- *     ?Push@?$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEAAJAEBQEAVCBspNode@@@Z @ 0x1801D839C (-Push@-$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEAAJAEBQEAVCBspNode@@@Z.c)
- *     ?GetPolygonNoRef@CVisual@@IEAAJPEAVCMILMatrix@@MIW4Enum@MilBitmapBorderMode@@W43MilCompositingMode@@W43MilBitmapInterpolationMode@@_N44PEAPEAVCPolygon@@@Z @ 0x180210C00 (-GetPolygonNoRef@CVisual@@IEAAJPEAVCMILMatrix@@MIW4Enum@MilBitmapBorderMode@@W43MilCompositingMo.c)
- *     ??0CBspNode@@QEAA@_N@Z @ 0x1802596E4 (--0CBspNode@@QEAA@_N@Z.c)
- *     ?PushPolygon@CBspNode@@QEAAJPEAVCPolygon@@_N@Z @ 0x18025991C (-PushPolygon@CBspNode@@QEAAJPEAVCPolygon@@_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ @ 0x18008D0E8 (-GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ.c)
+ *     ?GetTopByReference@?$CWatermarkStack@W4Enum@MilBackfaceVisibility@@$0EA@$01$09@@QEBAPEBW4Enum@MilBackfaceVisibility@@XZ @ 0x1800CB580 (-GetTopByReference@-$CWatermarkStack@W4Enum@MilBackfaceVisibility@@$0EA@$01$09@@QEBAPEBW4Enum@Mi.c)
+ *     ?GetTopByReference@?$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEBAPEBQEAVCBspNode@@XZ @ 0x1800D96E4 (-GetTopByReference@-$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEBAPEBQEAVCBspNode@@XZ.c)
+ *     ??2CBspNode@@SAPEAX_K@Z @ 0x18016C16C (--2CBspNode@@SAPEAX_K@Z.c)
+ *     ??$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z @ 0x180199354 (--$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z.c)
+ *     ?Pop@?$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEAA_NPEAPEAVCBspNode@@@Z @ 0x1801996E0 (-Pop@-$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEAA_NPEAPEAVCBspNode@@@Z.c)
+ *     ?Push@?$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEAAJAEBQEAVCBspNode@@@Z @ 0x1801999B0 (-Push@-$CWatermarkStack@PEAVCBspNode@@$0EA@$01$09@@QEAAJAEBQEAVCBspNode@@@Z.c)
+ *     ?GetPolygonNoRef@CVisual@@IEAAJPEAVCMILMatrix@@MIW4Enum@MilBitmapBorderMode@@W43MilCompositingMode@@W43MilBitmapInterpolationMode@@_N44PEAPEAVCPolygon@@@Z @ 0x1801AD860 (-GetPolygonNoRef@CVisual@@IEAAJPEAVCMILMatrix@@MIW4Enum@MilBitmapBorderMode@@W43MilCompositingMo.c)
+ *     ?PushPolygon@CBspNode@@QEAAJPEAVCPolygon@@_N@Z @ 0x1801FA5A4 (-PushPolygon@CBspNode@@QEAAJPEAVCPolygon@@_N@Z.c)
  */
 
 __int64 __fastcall CBspPreComputeHelper::CreatePolygonAndPushToBspTree(
@@ -36,10 +35,10 @@ __int64 __fastcall CBspPreComputeHelper::CreatePolygonAndPushToBspTree(
   int v19; // r11d
   int PolygonNoRef; // eax
   __int64 v21; // rcx
-  unsigned int v22; // ebx
+  unsigned int v22; // edi
   __int64 v23; // rcx
-  CBspNode *v24; // rsi
-  CBspNode *v25; // rax
+  CBspNode *v24; // rbx
+  volatile signed __int32 *v25; // rax
   __int64 v26; // rcx
   int v27; // eax
   __int64 v28; // rcx
@@ -65,40 +64,55 @@ __int64 __fastcall CBspPreComputeHelper::CreatePolygonAndPushToBspTree(
   if ( v10 )
     v14 = (char *)(*((_QWORD *)this + 38) + (unsigned int)(v10 - 1));
   v15 = *v14;
-  CWatermarkStack<float,64,2,10>::GetTopByReference((__int64)this + 256);
+  CWatermarkStack<enum MilBackfaceVisibility::Enum,64,2,10>::GetTopByReference((__int64)this + 256);
   PolygonNoRef = CVisual::GetPolygonNoRef(a2, v33, v16, *v16, v17, v18, v19, a4, v15, a5, &v35);
   v22 = PolygonNoRef;
   if ( PolygonNoRef < 0 )
   {
     MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, PolygonNoRef, 0x1BCu, 0LL);
-    goto LABEL_13;
+    goto LABEL_15;
   }
-  v24 = *(CBspNode **)CWatermarkStack<CBspNode *,64,2,10>::GetTopByReference(this);
-  if ( v24 )
-    goto LABEL_10;
-  CWatermarkStack<CBspNode *,64,2,10>::Pop(v23, 0LL);
-  v25 = (CBspNode *)CBspNode::operator new();
-  if ( !v25 || (v32 = CBspNode::CBspNode(v25, a3), (v24 = v32) == 0LL) )
+  v24 = *(CBspNode **)CWatermarkStack<CBspNode *,64,2,10>::GetTopByReference((__int64)this);
+  v32 = v24;
+  if ( !v24 )
   {
-    v22 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, -2147024882, 0x1C7u, 0LL);
-    goto LABEL_13;
+    CWatermarkStack<CBspNode *,64,2,10>::Pop(v23, 0LL);
+    v25 = (volatile signed __int32 *)CBspNode::operator new();
+    v24 = (CBspNode *)v25;
+    if ( v25 )
+    {
+      *((_QWORD *)v25 + 4) = 0LL;
+      *((_QWORD *)v25 + 5) = 0LL;
+      *((_QWORD *)v25 + 6) = 0LL;
+      *((_DWORD *)v25 + 2) = 0;
+      *(_QWORD *)v25 = &CBspNode::`vftable';
+      *((_BYTE *)v25 + 56) = a3;
+      _InterlockedIncrement(v25 + 2);
+    }
+    else
+    {
+      v24 = 0LL;
+    }
+    v32 = v24;
+    if ( !v24 )
+    {
+      v22 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, -2147024882, 0x1C7u, 0LL);
+      goto LABEL_15;
+    }
+    v27 = CWatermarkStack<CBspNode *,64,2,10>::Push(this, &v32);
+    v22 = v27;
+    if ( v27 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, v27, 0x1C9u, 0LL);
+      goto LABEL_15;
+    }
   }
-  v27 = CWatermarkStack<CBspNode *,64,2,10>::Push(this, &v32);
-  v22 = v27;
-  if ( v27 >= 0 )
-  {
-LABEL_10:
-    v29 = CBspNode::PushPolygon(v24, v35, a3);
-    v22 = v29;
-    if ( v29 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v30, 0LL, 0, v29, 0x1CCu, 0LL);
-  }
-  else
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, v27, 0x1C9u, 0LL);
-  }
-LABEL_13:
+  v29 = CBspNode::PushPolygon(v24, v35, a3);
+  v22 = v29;
+  if ( v29 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v30, 0LL, 0, v29, 0x1CCu, 0LL);
+LABEL_15:
   ReleaseInterface<CPolygon>((__int64 *)&v35);
   return v22;
 }

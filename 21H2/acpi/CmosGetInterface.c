@@ -1,7 +1,7 @@
 /*
- * XREFs of CmosGetInterface @ 0x1C009F804
+ * XREFs of CmosGetInterface @ 0x1C00A1EB4
  * Callers:
- *     ACPIGetCmosInterface @ 0x1C0029714 (ACPIGetCmosInterface.c)
+ *     ACPIGetCmosInterface @ 0x1C002C4B0 (ACPIGetCmosInterface.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,12 @@
 /*
- * XREFs of _vsnwprintf @ 0x1C00CE184
+ * XREFs of _vsnwprintf @ 0x1C00C55C4
  * Callers:
- *     ?RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ @ 0x1C00061E8 (-RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ.c)
- *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C001F2E4 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00AEFC4 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00B1304 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     StringCchPrintfW @ 0x1C00BE214 (StringCchPrintfW.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0068828 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00750D8 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00AE020 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ @ 0x1C0166DCC (-RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ.c)
  * Callees:
- *     _vsnwprintf_l @ 0x1C00CE1A4 (_vsnwprintf_l.c)
+ *     _vsnwprintf_l @ 0x1C00C55E4 (_vsnwprintf_l.c)
  */
 
 int __cdecl vsnwprintf(wchar_t *Dest, size_t Count, const wchar_t *Format, va_list Args)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspLazyInitializeStorageExpansion @ 0x1409B4A64
+ * XREFs of PspLazyInitializeStorageExpansion @ 0x14090EE48
  * Callers:
- *     PspGetStorageArray @ 0x140692BA8 (PspGetStorageArray.c)
+ *     PspGetStorageArray @ 0x140715F44 (PspGetStorageArray.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PspLazyInitializeStorageExpansion(__int64 a1)

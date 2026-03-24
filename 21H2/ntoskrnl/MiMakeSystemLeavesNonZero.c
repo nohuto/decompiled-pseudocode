@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMakeSystemLeavesNonZero @ 0x1403C9B90
+ * XREFs of MiMakeSystemLeavesNonZero @ 0x1403792AC
  * Callers:
- *     MiCreateSystemPageTable @ 0x14027CE40 (MiCreateSystemPageTable.c)
- *     MiComputePxeWalkAction @ 0x14031B1C0 (MiComputePxeWalkAction.c)
+ *     MiComputePxeWalkAction @ 0x14020CA50 (MiComputePxeWalkAction.c)
+ *     MiCreateSystemPageTable @ 0x1402E5210 (MiCreateSystemPageTable.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402294F0 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140229550 (MiPteHasShadow.c)
- *     MiSwizzleInvalidPte @ 0x1402CCC50 (MiSwizzleInvalidPte.c)
- *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
  */
 
 char __fastcall MiMakeSystemLeavesNonZero(__int64 a1, __int64 a2, int a3)
@@ -23,7 +23,8 @@ char __fastcall MiMakeSystemLeavesNonZero(__int64 a1, __int64 a2, int a3)
   int i; // ebp
   unsigned __int64 v13; // rbx
   int v14; // r14d
-  bool v15; // zf
+  __int64 v15; // r8
+  bool v16; // zf
 
   v4 = *(_QWORD *)(a1 + 32);
   v5 = *(_QWORD *)(a1 + 40);
@@ -58,9 +59,9 @@ char __fastcall MiMakeSystemLeavesNonZero(__int64 a1, __int64 a2, int a3)
       if ( (_DWORD)CurrentThread )
       {
         v14 = 1;
-        if ( !HIBYTE(word_140C51864) )
+        if ( !HIBYTE(word_140C4E008) )
         {
-          v15 = (v11 & 1) == 0;
+          v16 = (v11 & 1) == 0;
           goto LABEL_19;
         }
       }
@@ -69,16 +70,16 @@ char __fastcall MiMakeSystemLeavesNonZero(__int64 a1, __int64 a2, int a3)
         CurrentThread = KeGetCurrentThread();
         if ( (HIDWORD(CurrentThread->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
         {
-          v15 = (v11 & 1) == 0;
+          v16 = (v11 & 1) == 0;
 LABEL_19:
-          if ( !v15 )
+          if ( !v16 )
             v13 = v11 | 0x8000000000000000uLL;
         }
       }
     }
     *v8 = v13;
     if ( v14 )
-      LOBYTE(CurrentThread) = MiWritePteShadow((__int64)v8, v13);
+      LOBYTE(CurrentThread) = MiWritePteShadow((__int64)v8, v13, v15);
     ++v8;
   }
   return (char)CurrentThread;

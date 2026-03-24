@@ -1,119 +1,140 @@
 /*
- * XREFs of MiCreateEnclaveRegions @ 0x140B08E90
+ * XREFs of MiCreateEnclaveRegions @ 0x140A54ED8
  * Callers:
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     ExInitializePushLock @ 0x1402A0840 (ExInitializePushLock.c)
- *     MiUpdateLargePageBitMap @ 0x1402C38D0 (MiUpdateLargePageBitMap.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     MiInitializeEnclaveMetadataPage @ 0x140B5229C (MiInitializeEnclaveMetadataPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
+ *     MiInitializeMdlPfn @ 0x1402E37C4 (MiInitializeMdlPfn.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInitializeEnclaveMetadataPage @ 0x140A92754 (MiInitializeEnclaveMetadataPage.c)
  */
 
 _BOOL8 __fastcall MiCreateEnclaveRegions(__int64 a1)
 {
-  _QWORD *v2; // rdi
-  __int64 v3; // rbx
-  __int64 v4; // rax
-  unsigned __int64 v5; // rbx
-  unsigned __int64 v6; // rcx
-  _QWORD *v7; // rcx
-  _QWORD *v8; // rax
-  unsigned __int64 v10; // rsi
-  unsigned __int64 v11; // rbp
-  __int64 v12; // rdx
+  _QWORD *v2; // rbp
+  __int64 *v3; // r13
+  __int64 v4; // rbx
+  __int64 *i; // rdi
+  unsigned __int64 v7; // r14
+  unsigned __int64 v8; // r15
+  __int64 v9; // rdx
   _QWORD *Pool; // rax
-  bool v14; // r8
-  PMDL v15; // rdx
-  struct _MDL *Next; // rax
+  bool v11; // r8
+  _QWORD *v12; // rdx
+  _QWORD *v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  _DWORD *SchedulerAssist; // r9
+  __int64 v17; // rsi
+  unsigned __int8 v18; // al
+  __int64 v19; // rcx
+  unsigned __int64 v20; // r12
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  int v23; // eax
+  bool v24; // zf
+  __int64 *v25; // [rsp+60h] [rbp+8h]
 
+  qword_140C4EEB0 = (__int64)&qword_140C4EEA8;
+  qword_140C4EEA8 = (__int64)&qword_140C4EEA8;
   v2 = 0LL;
-  qword_140C53418 = (__int64)&qword_140C53410;
-  qword_140C53420 = 0LL;
-  qword_140C53410 = (__int64)&qword_140C53410;
-  ExInitializePushLock(&stru_140C53428);
-  v3 = a1 + 352;
-  v4 = *(_QWORD *)(v3 + 8);
-  if ( (v4 & 1) == 0 )
+  qword_140C4EEB8 = 0LL;
+  ExInitializePushLock(&stru_140C4EEC0);
+  v3 = (__int64 *)(a1 + 32);
+  v4 = MiSwizzleInvalidPte(128LL);
+  v25 = v3;
+  for ( i = (__int64 *)*v3; i != v3; i = (__int64 *)*i )
   {
-    v5 = *(_QWORD *)(v3 + 8);
-    goto LABEL_8;
-  }
-  if ( v4 != 1 )
-  {
-    v5 = v4 ^ (v3 | 1);
-    while ( 1 )
+    if ( ((*((_DWORD *)i + 4) - 33) & 0xFFFFFFFD) != 0 )
+      continue;
+    v7 = i[3];
+    v8 = i[4];
+    if ( v2 )
     {
-LABEL_8:
-      if ( !v5 )
-        return !MemoryDescriptorList || (unsigned int)MiInitializeEnclaveMetadataPage();
-      if ( ((*(_DWORD *)(v5 + 24) - 33) & 0xFFFFFFFD) != 0 )
-        goto LABEL_10;
-      v10 = *(_QWORD *)(v5 + 32);
-      v11 = *(_QWORD *)(v5 + 40);
-      if ( v2 )
+      v9 = v2[4];
+      if ( v7 == v9 + v2[3] )
       {
-        v12 = v2[4];
-        if ( v10 == v12 + v2[3] )
-        {
-          v2[4] = v12 + v11;
-          goto LABEL_24;
-        }
-      }
-      Pool = MiAllocatePool(64, 0x28uLL, 0x52456D4Du);
-      v2 = Pool;
-      if ( !Pool )
-        return 0LL;
-      Pool[3] = v10;
-      v14 = 0;
-      Pool[4] = v11;
-      v15 = MemoryDescriptorList;
-      if ( !MemoryDescriptorList )
-        goto LABEL_23;
-      while ( (PVOID)v10 < v15->MappedSystemVa )
-      {
-        Next = v15->Next;
-        if ( !v15->Next )
-          goto LABEL_23;
-LABEL_27:
-        v15 = Next;
-      }
-      Next = *(struct _MDL **)&v15->Size;
-      if ( Next )
-        goto LABEL_27;
-      v14 = 1;
-LABEL_23:
-      RtlAvlInsertNodeEx((unsigned __int64 *)&MemoryDescriptorList, (unsigned __int64)v15, v14, v2);
-LABEL_24:
-      MiUpdateLargePageBitMap((__int64)&MiSystemPartition, v10, v11, 0, 0);
-LABEL_10:
-      v8 = *(_QWORD **)(v5 + 8);
-      v6 = v5;
-      if ( v8 )
-      {
-        v7 = (_QWORD *)*v8;
-        v5 = *(_QWORD *)(v5 + 8);
-        if ( *v8 )
-        {
-          do
-          {
-            v5 = (unsigned __int64)v7;
-            v7 = (_QWORD *)*v7;
-          }
-          while ( v7 );
-        }
-      }
-      else
-      {
-        while ( 1 )
-        {
-          v5 = *(_QWORD *)(v5 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( !v5 || *(_QWORD *)v5 == v6 )
-            break;
-          v6 = v5;
-        }
+        v2[4] = v9 + v8;
+        goto LABEL_16;
       }
     }
+    Pool = MiAllocatePool(64, 0x28uLL, 0x52456D4Du);
+    v2 = Pool;
+    if ( !Pool )
+      return 0LL;
+    Pool[3] = v7;
+    v11 = 0;
+    Pool[4] = v8;
+    v12 = (_QWORD *)qword_140C4EE80;
+    if ( !qword_140C4EE80 )
+      goto LABEL_15;
+    while ( v7 < v12[3] )
+    {
+      v13 = (_QWORD *)*v12;
+      if ( !*v12 )
+        goto LABEL_15;
+LABEL_20:
+      v12 = v13;
+    }
+    v13 = (_QWORD *)v12[1];
+    if ( v13 )
+      goto LABEL_20;
+    v11 = 1;
+LABEL_15:
+    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4EE80, (unsigned __int64)v12, v11, v2);
+LABEL_16:
+    MiUpdateLargePageBitMap((__int64)&MiSystemPartition, v7, v8, 0, 0);
+    v17 = 48 * v7 - 0x58000000000LL;
+    if ( v8 )
+    {
+      do
+      {
+        v18 = MiLockPageInline(v17, v14, v15, SchedulerAssist);
+        v19 = *(_QWORD *)(v17 + 40);
+        v20 = v18;
+        *(_QWORD *)(v17 + 24) &= 0x8000000000000000uLL;
+        *(_WORD *)(v17 + 32) = 0;
+        *(_QWORD *)(v17 + 16) = v4;
+        *(_QWORD *)(v17 + 40) = v19 & 0x8FFFFFFFFFFFFFFFuLL | 0x1000000000000000LL;
+        if ( *((_DWORD *)i + 4) == 33 )
+          MiInsertPageInFreeOrZeroedList(v7, 256);
+        else
+          MiInitializeMdlPfn(v17, 0);
+        _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+        if ( KiIrqlFlags )
+        {
+          if ( (KiIrqlFlags & 1) != 0 )
+          {
+            CurrentIrql = KeGetCurrentIrql();
+            if ( CurrentIrql <= 0xFu && (unsigned __int8)v20 <= 0xFu && CurrentIrql >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              v14 = -1LL << ((unsigned __int8)v20 + 1);
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v23 = ~(unsigned __int16)v14;
+              v24 = (v23 & SchedulerAssist[5]) == 0;
+              v15 = (unsigned int)v23 & SchedulerAssist[5];
+              SchedulerAssist[5] = v15;
+              if ( v24 )
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            }
+          }
+        }
+        __writecr8(v20);
+        v17 += 48LL;
+        ++v7;
+        --v8;
+      }
+      while ( v8 );
+      v3 = v25;
+    }
+    qword_140C4EFB8 -= i[4];
   }
-  return !MemoryDescriptorList || (unsigned int)MiInitializeEnclaveMetadataPage();
+  return !qword_140C4EE80 || (unsigned int)MiInitializeEnclaveMetadataPage();
 }

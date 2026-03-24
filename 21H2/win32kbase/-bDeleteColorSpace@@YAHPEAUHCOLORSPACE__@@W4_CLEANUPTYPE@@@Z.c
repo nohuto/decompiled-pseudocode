@@ -1,48 +1,40 @@
 /*
- * XREFs of ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00DBD84
+ * XREFs of ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00CAF18
  * Callers:
- *     ?NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z @ 0x1C0017B90 (-NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z.c)
- *     ??$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00DB9B4 (--$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z.c)
- *     NtGdiDeleteColorSpace @ 0x1C0179810 (NtGdiDeleteColorSpace.c)
+ *     ?NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z @ 0x1C007D6C8 (-NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z.c)
+ *     ??$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CBAE4 (--$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z.c)
+ *     NtGdiDeleteColorSpace @ 0x1C01489B0 (NtGdiDeleteColorSpace.c)
  * Callees:
- *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C001E9A4 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
- *     HmgRemoveObject @ 0x1C001F4E0 (HmgRemoveObject.c)
- *     FreeObject @ 0x1C0027670 (FreeObject.c)
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
- *     ?Feature_1827749177__private_IsEnabled@@YAHXZ @ 0x1C00D8C50 (-Feature_1827749177__private_IsEnabled@@YAHXZ.c)
+ *     FreeObject @ 0x1C002A7D0 (FreeObject.c)
+ *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C002C350 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
+ *     HmgRemoveObject @ 0x1C00311D0 (HmgRemoveObject.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
  */
 
 __int64 __fastcall bDeleteColorSpace(struct HOBJ__ *a1, int a2)
 {
   unsigned int v2; // ebx
-  struct _SLIST_ENTRY *v5; // rax
+  __int64 v3; // rax
 
   v2 = 0;
   if ( a1 == (struct HOBJ__ *)ghStockColorSpace )
-  {
-    if ( (unsigned int)Feature_1827749177__private_IsEnabled() )
-    {
-      LOBYTE(v2) = a2 != 3;
-      return v2;
-    }
-    return 1;
-  }
-  if ( (unsigned int)Feature_1827749177__private_IsEnabled() && a2 )
+    return a2 != 3;
+  if ( a2 )
   {
     if ( a2 != 3 )
     {
-LABEL_11:
+LABEL_8:
       EngSetLastError(0x57u);
       return v2;
     }
-    v5 = (struct _SLIST_ENTRY *)HmgRemoveObjectImpl(a1, 0, 1, 2, 9, 0LL);
+    v3 = HmgRemoveObjectImpl(a1, 0, 1, 2, 9, 0LL);
   }
   else
   {
-    v5 = (struct _SLIST_ENTRY *)HmgRemoveObject((__int64)a1, 0, 0, 1, 9, 0LL);
+    v3 = HmgRemoveObject((__int64)a1, 0, 0, 1, 9, 0LL);
   }
-  if ( !v5 )
-    goto LABEL_11;
-  FreeObject(v5, 9);
+  if ( !v3 )
+    goto LABEL_8;
+  FreeObject(v3, 9);
   return 1;
 }

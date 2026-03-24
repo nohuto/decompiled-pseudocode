@@ -1,27 +1,27 @@
 /*
- * XREFs of HalpIommuProcessReservations @ 0x14039E928
+ * XREFs of HalpIommuProcessReservations @ 0x1403B3738
  * Callers:
- *     HalpIommuInitSystem @ 0x140A8A420 (HalpIommuInitSystem.c)
+ *     HalpIommuInitSystem @ 0x14099EB40 (HalpIommuInitSystem.c)
  * Callees:
- *     HalpIommuProcessReservationsInternal @ 0x14039E984 (HalpIommuProcessReservationsInternal.c)
+ *     HalpIommuProcessReservationsInternal @ 0x1404C9AE0 (HalpIommuProcessReservationsInternal.c)
  */
 
 __int64 __fastcall HalpIommuProcessReservations(__int64 a1)
 {
-  ULONG_PTR *v1; // rbx
+  __int64 *v1; // rbx
   __int64 result; // rax
 
-  v1 = (ULONG_PTR *)HalpIommuList;
+  v1 = (__int64 *)HalpIommuList;
   result = 0LL;
   while ( v1 != &HalpIommuList )
   {
-    if ( v1[43] )
+    if ( v1[41] )
     {
       result = HalpIommuProcessReservationsInternal(v1, a1);
       if ( (int)result < 0 )
         break;
     }
-    v1 = (ULONG_PTR *)*v1;
+    v1 = (__int64 *)*v1;
   }
   return result;
 }

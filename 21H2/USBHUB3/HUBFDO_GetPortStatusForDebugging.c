@@ -1,56 +1,52 @@
 /*
- * XREFs of HUBFDO_GetPortStatusForDebugging @ 0x1C000D35C
+ * XREFs of HUBFDO_GetPortStatusForDebugging @ 0x1C000CF7C
  * Callers:
- *     HUBFDO_IoctlGetNodeConnectionInfo @ 0x1C000D5AC (HUBFDO_IoctlGetNodeConnectionInfo.c)
+ *     HUBFDO_IoctlGetNodeConnectionInfo @ 0x1C000D1D4 (HUBFDO_IoctlGetNodeConnectionInfo.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBMISC_ControlTransfer @ 0x1C002FA0C (HUBMISC_ControlTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
  */
 
-_QWORD *__fastcall HUBFDO_GetPortStatusForDebugging(_QWORD *a1, int a2)
+__int64 __fastcall HUBFDO_GetPortStatusForDebugging(_QWORD *a1, int a2)
 {
-  _QWORD *result; // rax
-  _QWORD *v4; // r8
-  char v5; // al
-  int v6; // ecx
-  unsigned __int16 v7; // dx
-  __int64 v8; // [rsp+28h] [rbp-30h]
+  __int64 i; // r8
+  __int64 v4; // r8
+  __int64 result; // rax
+  char v6; // al
+  int v7; // ecx
+  unsigned __int16 v8; // dx
+  __int64 v9; // [rsp+28h] [rbp-30h]
 
-  for ( result = (_QWORD *)a1[295]; ; result = (_QWORD *)*result )
+  for ( i = a1[295]; ; i = *(_QWORD *)(v4 + 248) )
   {
-    v4 = result - 31;
-    if ( a1 + 295 == result )
+    v4 = i - 248;
+    result = v4 - 2112;
+    if ( a1 == (_QWORD *)(v4 - 2112) )
       break;
-    if ( *((unsigned __int16 *)v4 + 100) == a2 )
+    if ( *(unsigned __int16 *)(v4 + 200) == a2 )
     {
-      v5 = v4[21] & 0x1C;
-      *((_WORD *)v4 + 86) = a2;
-      *((_BYTE *)v4 + 169) = 0;
-      *((_BYTE *)v4 + 168) = v5 | 0xA3;
-      v6 = *((_DWORD *)v4 + 51) & 0x100;
-      v7 = v6 != 0 ? 8 : 4;
-      *((_WORD *)v4 + 85) = v6 != 0 ? 2 : 0;
-      *((_WORD *)v4 + 87) = v7;
-      result = (_QWORD *)HUBMISC_ControlTransfer(
-                           (_DWORD)a1,
-                           a1[31],
-                           (_DWORD)v4,
-                           (int)v4 + 16,
-                           (__int64)HUBFDO_GetPortStatusForDebuggingComplete,
-                           (__int64)(v4 + 23),
-                           v7,
-                           0,
-                           0);
+      v6 = *(_BYTE *)(v4 + 168) & 0x1C;
+      *(_WORD *)(v4 + 172) = a2;
+      *(_BYTE *)(v4 + 169) = 0;
+      *(_BYTE *)(v4 + 168) = v6 | 0xA3;
+      v7 = *(_DWORD *)(v4 + 204) & 0x100;
+      v8 = v7 != 0 ? 8 : 4;
+      *(_WORD *)(v4 + 170) = v7 != 0 ? 2 : 0;
+      *(_WORD *)(v4 + 174) = v8;
+      result = HUBMISC_ControlTransfer(
+                 (_DWORD)a1,
+                 a1[31],
+                 v4,
+                 (int)v4 + 16,
+                 (__int64)HUBFDO_GetPortStatusForDebuggingComplete,
+                 v4 + 184,
+                 v8,
+                 0,
+                 0);
       if ( (int)result < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LODWORD(v8) = (_DWORD)result;
-        return (_QWORD *)WPP_RECORDER_SF_d(
-                           a1[315],
-                           2u,
-                           3u,
-                           0x29u,
-                           (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids,
-                           v8);
+        LODWORD(v9) = result;
+        return WPP_RECORDER_SF_d(a1[315], 2u, 3u, 0x25u, (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids, v9);
       }
       return result;
     }

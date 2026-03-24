@@ -1,33 +1,33 @@
 /*
- * XREFs of ACPIIoctlRegisterDeviceFirmwareLock @ 0x1C00312DC
+ * XREFs of ACPIIoctlRegisterDeviceFirmwareLock @ 0x1C003093C
  * Callers:
- *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIIrpDispatchDeviceControl @ 0x1C000B8A0 (ACPIIrpDispatchDeviceControl.c)
  * Callees:
- *     AcpiRegisterDeviceFirmwareLockHandler @ 0x1C0082754 (AcpiRegisterDeviceFirmwareLockHandler.c)
+ *     AcpiRegisterDeviceFirmwareLockHandler @ 0x1C00A319C (AcpiRegisterDeviceFirmwareLockHandler.c)
  */
 
 __int64 __fastcall ACPIIoctlRegisterDeviceFirmwareLock(void *a1, IRP *a2, __int64 a3)
 {
   unsigned int v3; // eax
-  unsigned int v5; // ebx
   _IRP *MasterIrp; // rax
+  unsigned int v6; // edi
 
   v3 = *(_DWORD *)(a3 + 16);
   a2->IoStatus.Information = 32LL;
-  if ( v3 >= 0x20 )
+  if ( v3 < 0x20 )
   {
-    MasterIrp = a2->AssociatedIrp.MasterIrp;
-    if ( *(_DWORD *)&MasterIrp->Type == 1382433857 && MasterIrp->AllocationProcessorNumber )
-      v5 = AcpiRegisterDeviceFirmwareLockHandler(a1);
-    else
-      v5 = -1072431089;
+    v6 = -1073741820;
   }
   else
   {
-    v5 = -1073741820;
+    MasterIrp = a2->AssociatedIrp.MasterIrp;
+    if ( *(_DWORD *)&MasterIrp->Type == 1382433857 && MasterIrp->AllocationProcessorNumber )
+      v6 = AcpiRegisterDeviceFirmwareLockHandler(a1);
+    else
+      v6 = -1072431089;
   }
   a2->IoStatus.Information = 0LL;
-  a2->IoStatus.Status = v5;
+  a2->IoStatus.Status = v6;
   IofCompleteRequest(a2, 0);
-  return v5;
+  return v6;
 }

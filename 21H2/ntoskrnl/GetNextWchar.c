@@ -1,9 +1,9 @@
 /*
- * XREFs of GetNextWchar @ 0x1406AA3A0
+ * XREFs of GetNextWchar @ 0x14068B9B8
  * Callers:
- *     RtlGenerate8dot3Name @ 0x1406A9EA0 (RtlGenerate8dot3Name.c)
+ *     RtlGenerate8dot3Name @ 0x14068B5E0 (RtlGenerate8dot3Name.c)
  * Callees:
- *     RtlIsValidOemCharacter @ 0x1409BBB30 (RtlIsValidOemCharacter.c)
+ *     RtlIsValidOemCharacter @ 0x1409164D0 (RtlIsValidOemCharacter.c)
  */
 
 __int64 __fastcall GetNextWchar(unsigned __int16 *a1, unsigned int *a2, char a3, char a4)
@@ -35,7 +35,7 @@ __int64 __fastcall GetNextWchar(unsigned __int16 *a1, unsigned int *a2, char a3,
       if ( v6 < 0x80u )
       {
 LABEL_7:
-        v11 = *((_DWORD *)RtlFatIllegalTable + ((unsigned __int64)v6 >> 5));
+        v11 = RtlFatIllegalTable[(unsigned __int64)v6 >> 5];
         if ( _bittest(&v11, v6 & 0x1F) )
           v6 = 95;
       }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtEnableInterrupt @ 0x140A63C70
+ * XREFs of IvtEnableInterrupt @ 0x1409A98E0
  * Callers:
  *     <none>
  * Callees:
- *     IvtClearPendingFaults @ 0x14052E3B0 (IvtClearPendingFaults.c)
+ *     IvtClearPendingFaults @ 0x1404DF988 (IvtClearPendingFaults.c)
  */
 
 int __fastcall IvtEnableInterrupt(__int64 a1)
@@ -13,13 +13,13 @@ int __fastcall IvtEnableInterrupt(__int64 a1)
   signed __int32 v4[10]; // [rsp+0h] [rbp-28h] BYREF
 
   v2 = *(_QWORD *)(a1 + 8);
-  if ( *(_BYTE *)(a1 + 316) )
+  if ( *(_BYTE *)(a1 + 268) )
   {
     result = *(_DWORD *)(v2 + 224) & 0x7FFFFFFF;
     *(_DWORD *)(v2 + 224) = result;
     _InterlockedOr(v4, 0);
   }
-  if ( *(_BYTE *)(a1 + 318) )
+  if ( *(_BYTE *)(a1 + 269) )
   {
     IvtClearPendingFaults(a1);
     *(_DWORD *)(v2 + 56) &= ~0x80000000;

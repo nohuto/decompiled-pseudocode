@@ -1,16 +1,16 @@
 /*
- * XREFs of ?vSrcCopyS4D4Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C0146CB0
+ * XREFs of ?vSrcCopyS4D4Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C0152E10
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 void __fastcall vSrcCopyS4D4Identity(struct BLTINFO *a1)
 {
   unsigned __int8 v1; // r9
   int v3; // ebp
-  _BYTE *v4; // rdi
+  _BYTE *v4; // rbx
   char *v5; // r14
   _BYTE *v6; // r15
   int v7; // eax

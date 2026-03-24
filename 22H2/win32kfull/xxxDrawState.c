@@ -1,33 +1,33 @@
 /*
- * XREFs of xxxDrawState @ 0x1C023F6F0
+ * XREFs of xxxDrawState @ 0x1C0250784
  * Callers:
- *     xxxDrawMenuItem @ 0x1C0234CAC (xxxDrawMenuItem.c)
+ *     xxxDrawMenuItem @ 0x1C004470C (xxxDrawMenuItem.c)
  * Callees:
- *     GreGetTextColor @ 0x1C0014D18 (GreGetTextColor.c)
- *     GreGetLayout @ 0x1C0024844 (GreGetLayout.c)
- *     GreSetBkColor @ 0x1C0027760 (GreSetBkColor.c)
- *     GreSetTextColor @ 0x1C0027D58 (GreSetTextColor.c)
- *     GrePolyPatBlt @ 0x1C0029770 (GrePolyPatBlt.c)
- *     GreExtGetObjectW @ 0x1C002E520 (GreExtGetObjectW.c)
- *     MNGetpItemIndex @ 0x1C0064060 (MNGetpItemIndex.c)
- *     GetDPIServerInfo @ 0x1C00AB4C8 (GetDPIServerInfo.c)
- *     NtGdiPatBlt @ 0x1C00DBEF0 (NtGdiPatBlt.c)
- *     GreSetBkMode @ 0x1C0115C14 (GreSetBkMode.c)
- *     GreSelectFontInternal @ 0x1C0119F34 (GreSelectFontInternal.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     xxxRealDrawMenuItem @ 0x1C0236930 (xxxRealDrawMenuItem.c)
- *     BltColor @ 0x1C023F394 (BltColor.c)
- *     GreGetHFONT @ 0x1C02AA304 (GreGetHFONT.c)
- *     GreSetViewportOrg @ 0x1C02D05C4 (GreSetViewportOrg.c)
- *     GreGetTextAlign @ 0x1C02D7C60 (GreGetTextAlign.c)
- *     GreGetTextCharacterExtra @ 0x1C02D7CB4 (GreGetTextCharacterExtra.c)
- *     GreSetTextAlign @ 0x1C02D7D04 (GreSetTextAlign.c)
- *     GreSetTextCharacterExtra @ 0x1C02D7D98 (GreSetTextCharacterExtra.c)
+ *     GreSetTextColor @ 0x1C0044578 (GreSetTextColor.c)
+ *     GreSetBkColor @ 0x1C0044600 (GreSetBkColor.c)
+ *     GrePolyPatBlt @ 0x1C00456F4 (GrePolyPatBlt.c)
+ *     GreSelectFont @ 0x1C0045E80 (GreSelectFont.c)
+ *     GreSetBkMode @ 0x1C0045E9C (GreSetBkMode.c)
+ *     GreGetLayout @ 0x1C0045F14 (GreGetLayout.c)
+ *     MNGetpItemIndex @ 0x1C00482D0 (MNGetpItemIndex.c)
+ *     GreExtGetObjectW @ 0x1C0083078 (GreExtGetObjectW.c)
+ *     NtGdiPatBlt @ 0x1C00B3F50 (NtGdiPatBlt.c)
+ *     GetDPIServerInfo @ 0x1C00E0AC8 (GetDPIServerInfo.c)
+ *     GreSetViewportOrg @ 0x1C010C438 (GreSetViewportOrg.c)
+ *     GreSetTextAlign @ 0x1C01241C0 (GreSetTextAlign.c)
+ *     GreGetTextAlign @ 0x1C0125448 (GreGetTextAlign.c)
+ *     GreGetTextColor @ 0x1C0157E4C (GreGetTextColor.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     xxxRealDrawMenuItem @ 0x1C024D2E4 (xxxRealDrawMenuItem.c)
+ *     BltColor @ 0x1C025063C (BltColor.c)
+ *     GreGetHFONT @ 0x1C029F494 (GreGetHFONT.c)
+ *     GreGetTextCharacterExtra @ 0x1C02BBDC8 (GreGetTextCharacterExtra.c)
+ *     GreSetTextCharacterExtra @ 0x1C02BBE10 (GreSetTextCharacterExtra.c)
  */
 
 __int64 __fastcall xxxDrawState(
-        Gre::Base *a1,
+        XLATEOBJ *a1,
         __int64 a2,
         __int64 *a3,
         LONG a4,
@@ -41,7 +41,7 @@ __int64 __fastcall xxxDrawState(
   int v12; // r15d
   int v13; // esi
   int v14; // ebx
-  HDC v15; // r14
+  XLATEOBJ *v15; // r14
   unsigned int Layout; // eax
   __int64 v17; // r8
   int v18; // ebx
@@ -51,12 +51,12 @@ __int64 __fastcall xxxDrawState(
   __int64 v22; // rax
   int v23; // eax
   int v24; // ecx
-  __int64 v25; // rcx
-  __int64 v26; // rbx
+  unsigned __int16 v25; // ax
+  __int64 v26; // rcx
   __int64 v27; // rbx
   int v28; // ebx
   __int64 v29; // r9
-  HBRUSH v30; // rbx
+  HSURF v30; // rbx
   BOOL v31; // ebx
   HDC v32; // rcx
   __int64 v33; // rax
@@ -64,37 +64,34 @@ __int64 __fastcall xxxDrawState(
   LONG v35; // r9d
   int v36; // eax
   unsigned int v37; // ebx
-  int v39; // [rsp+20h] [rbp-E0h]
-  int v40; // [rsp+50h] [rbp-B0h]
-  int v41; // [rsp+50h] [rbp-B0h]
-  BOOL v42; // [rsp+54h] [rbp-ACh]
-  __int64 v43; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v44; // [rsp+60h] [rbp-A0h]
-  int v45; // [rsp+68h] [rbp-98h]
+  int v39; // [rsp+50h] [rbp-B0h]
+  BOOL v40; // [rsp+50h] [rbp-B0h]
+  BOOL v41; // [rsp+54h] [rbp-ACh]
+  __int64 v42; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v43; // [rsp+60h] [rbp-A0h]
+  int v44; // [rsp+68h] [rbp-98h]
   int TextAlign; // [rsp+6Ch] [rbp-94h]
   __int64 Bitmap; // [rsp+70h] [rbp-90h]
-  __int64 *v48; // [rsp+78h] [rbp-88h]
-  __int64 v49; // [rsp+80h] [rbp-80h]
-  __int128 v50; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v51; // [rsp+98h] [rbp-68h] BYREF
-  int v52; // [rsp+A0h] [rbp-60h]
-  int v53; // [rsp+A4h] [rbp-5Ch]
-  __int64 v54; // [rsp+A8h] [rbp-58h]
-  _OWORD v55[2]; // [rsp+B0h] [rbp-50h] BYREF
-  _BYTE v56[46]; // [rsp+D0h] [rbp-30h] BYREF
-  __int16 v57; // [rsp+FEh] [rbp-2h]
-  int v58; // [rsp+100h] [rbp+0h]
+  __int64 *v47; // [rsp+78h] [rbp-88h]
+  __int64 v48; // [rsp+80h] [rbp-80h]
+  __int128 v49; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v50; // [rsp+98h] [rbp-68h] BYREF
+  int v51; // [rsp+A0h] [rbp-60h]
+  int v52; // [rsp+A4h] [rbp-5Ch]
+  __int64 v53; // [rsp+A8h] [rbp-58h]
+  _OWORD v54[2]; // [rsp+B0h] [rbp-50h] BYREF
+  _DWORD v55[28]; // [rsp+D0h] [rbp-30h] BYREF
 
-  v48 = a3;
-  v44 = a2;
-  v49 = 0LL;
+  v47 = a3;
+  v43 = a2;
+  v48 = 0LL;
   v9 = a8;
-  v43 = 0LL;
-  v42 = 0;
-  v40 = 0;
+  v42 = 0LL;
+  v41 = 0;
+  v39 = 0;
   TextAlign = 0;
-  memset(v55, 0, sizeof(v55));
-  v50 = 0LL;
+  memset(v54, 0, sizeof(v54));
+  v49 = 0LL;
   if ( (a8 & 0x20) != 0 && (*(_WORD *)(gpsi + 6996LL) == 1 || *(_DWORD *)(gpsi + 2188LL)) )
     v9 = a8 & 0xFFFFFFCF | 0x10;
   v11 = a6;
@@ -107,10 +104,10 @@ __int64 __fastcall xxxDrawState(
   if ( !a7 )
     return 1LL;
   v14 = v12 & 0x80;
-  v45 = v14;
+  v44 = v14;
   if ( (v12 & 0x80) != 0 )
   {
-    v15 = *(HDC *)(gpDispInfo + 72LL);
+    v15 = *(XLATEOBJ **)(gpDispInfo + 72LL);
     GreSetLayout(v15, 0xFFFFFFFFLL, 0LL);
     Layout = GreGetLayout((HDC)a1);
     if ( Layout != -1 )
@@ -126,7 +123,7 @@ __int64 __fastcall xxxDrawState(
         v21 = (unsigned int)v20;
       if ( (int)v19 <= v18 )
         v19 = (unsigned int)v18;
-      Bitmap = GreCreateBitmap(v19, v21, 1LL, 1LL, 0LL);
+      Bitmap = GreCreateBitmap(v19, v21, 1LL);
       if ( Bitmap )
       {
         v22 = GreSelectBitmap(*(_QWORD *)(gpDispInfo + 72LL), Bitmap);
@@ -158,67 +155,67 @@ __int64 __fastcall xxxDrawState(
       16711778);
     GreGetTextCharacterExtra((HDC)a1);
     GreSetTextCharacterExtra(*(HDC *)(gpDispInfo + 72LL));
-    TextAlign = GreGetTextAlign(v15);
-    GreGetTextAlign((HDC)a1);
-    GreSetTextAlign(v15);
-    v26 = *(_QWORD *)(GetDPIServerInfo(v25) + 24);
-    if ( GreGetHFONT((HDC)a1) != v26 )
+    TextAlign = GreGetTextAlign((HDC)v15);
+    v25 = GreGetTextAlign((HDC)a1);
+    GreSetTextAlign((HDC)v15, TextAlign ^ ((unsigned __int16)TextAlign ^ v25) & 0x106);
+    v27 = *(_QWORD *)(GetDPIServerInfo(v26) + 24);
+    if ( GreGetHFONT((HDC)a1) != v27 )
     {
-      v27 = GreSelectFontInternal((__int64)a1, v26, 1);
-      GreSelectFontInternal((__int64)a1, v27, 1);
-      v49 = GreSelectFontInternal(*(_QWORD *)(gpDispInfo + 72LL), v27, 1);
-      *(_QWORD *)&v50 = *(_QWORD *)(gpDispInfo + 72LL);
-      *((_QWORD *)&v50 + 1) = v49;
-      v40 = GrePushThreadGuardedObject(v55, &v50, SelectFont);
+      GreSelectFont((HDC)a1);
+      GreSelectFont((HDC)a1);
+      v48 = GreSelectFont(*(HDC *)(gpDispInfo + 72LL));
+      *(_QWORD *)&v49 = *(_QWORD *)(gpDispInfo + 72LL);
+      *((_QWORD *)&v49 + 1) = v48;
+      v39 = GrePushThreadGuardedObject(v54, &v49, SelectFont);
     }
-    v14 = v45;
+    v14 = v44;
   }
   else
   {
-    v15 = (HDC)a1;
-    GreGetDCPoint(a1, 4LL, &v43);
-    GreSetViewportOrg((HDC)a1);
+    v15 = a1;
+    GreGetDCPoint(a1, 4LL, &v42);
+    GreSetViewportOrg((HDC)a1, a4 + v42, a5 + HIDWORD(v42));
   }
-  LODWORD(Bitmap) = xxxRealDrawMenuItem((Gre::Base *)v15, v48, v11, v13, 0, v12);
-  if ( v40 )
-    GrePopThreadGuardedObject(v55);
-  v41 = 1;
+  LODWORD(Bitmap) = xxxRealDrawMenuItem(v15, v47, v11, v13, 0, v12);
+  if ( v39 )
+    GrePopThreadGuardedObject(v54);
+  v40 = 1;
   if ( !v14 )
   {
     v28 = *(_DWORD *)(gpsi + 4636LL);
-    if ( (unsigned int)GreGetTextColor(v15) != v28 )
-      v41 = 0;
+    if ( (unsigned int)GreGetTextColor((HDC)v15) != v28 )
+      v40 = 0;
   }
-  if ( (unsigned int)MNGetpItemIndex(*v48, v48[1]) == -1 || (v30 = *(HBRUSH *)(*(_QWORD *)v29 + 96LL)) == 0LL )
+  if ( (unsigned int)MNGetpItemIndex(*v47, v47[1]) == -1 || (v30 = *(HSURF *)(*(_QWORD *)v29 + 96LL)) == 0LL )
   {
     v31 = 0;
   }
   else
   {
-    memset_0(v56, 0, 0x68uLL);
-    v31 = (unsigned int)GreExtGetObjectW(v30, 104LL, (__int64)v56) == 104 && v57 == 32 && !v58;
-    v42 = v31;
+    memset(v55, 0, 0x68uLL);
+    v31 = (unsigned int)GreExtGetObjectW(v30, 104LL, (char *)v55) == 104 && HIWORD(v55[11]) == 32 && !v55[12];
+    v41 = v31;
   }
   v32 = *(HDC *)(gpDispInfo + 72LL);
-  if ( v15 == v32 )
+  if ( v15 == (XLATEOBJ *)v32 )
   {
     GreSetBkColor(v32, 0xFFFFFF);
-    GreSetTextColor(*(_QWORD *)(gpDispInfo + 72LL), 0);
+    GreSetTextColor(*(HDC *)(gpDispInfo + 72LL), 0);
     GreSelectBrush(*(_QWORD *)(gpDispInfo + 72LL), ghbrBlack);
     GreSetBkMode(*(HDC *)(gpDispInfo + 72LL), 2);
   }
-  if ( v45 )
+  if ( v44 )
   {
-    if ( v49 )
-      GreSelectFontInternal((__int64)v15, v49, 1);
-    GreSetTextAlign(v15);
+    if ( v48 )
+      GreSelectFont((HDC)v15);
+    GreSetTextAlign((HDC)v15, TextAlign);
     if ( (v12 & 0x10) != 0 )
     {
-      v51 = 0LL;
-      v52 = v11;
-      v53 = v13;
-      v54 = *(_QWORD *)(gpsi + 4944LL);
-      GrePolyPatBlt(*(HDC *)(gpDispInfo + 72LL), 0xFA0089u, (struct _POLYPATBLT *)&v51, 1u, v39);
+      v50 = 0LL;
+      v51 = v11;
+      v52 = v13;
+      v53 = *(_QWORD *)(gpsi + 4944LL);
+      GrePolyPatBlt(*(HDC *)(gpDispInfo + 72LL), 0xFA0089u, (struct _POLYPATBLT *)&v50, 1u);
     }
     if ( (v12 & 0x100) == 0 )
     {
@@ -226,19 +223,19 @@ __int64 __fastcall xxxDrawState(
       {
         if ( (v12 & 0x40) != 0 )
         {
-          v34 = v44;
-          BltColor((HDC)a1, v44, *(HDC *)(gpDispInfo + 72LL), a4, a5, v11, v13, 0, 0, 1);
+          v34 = v43;
+          BltColor((HDC)a1, v43, *(HDC *)(gpDispInfo + 72LL), a4, a5, v11, v13, 0, 0, 1);
           v35 = a4 + 1;
 LABEL_59:
           BltColor((HDC)a1, v34, *(HDC *)(gpDispInfo + 72LL), v35, a5, v11, v13, 0, 0, 1);
           GreSetLayout(v15, 0xFFFFFFFFLL, 0LL);
-          if ( v42 )
+          if ( v41 )
           {
-            GreGetDCPoint(a1, 4LL, &v43);
-            GreSetViewportOrg((HDC)a1);
-            v36 = xxxRealDrawMenuItem(a1, v48, v11, v13, 1, v41);
+            GreGetDCPoint(a1, 4LL, &v42);
+            GreSetViewportOrg((HDC)a1, a4 + v42, a5 + HIDWORD(v42));
+            v36 = xxxRealDrawMenuItem(a1, v47, v11, v13, 1, v40);
             v37 = v36 & Bitmap;
-            GreSetViewportOrg((HDC)a1);
+            GreSetViewportOrg((HDC)a1, v42, SHIDWORD(v42));
           }
           else
           {
@@ -246,9 +243,9 @@ LABEL_59:
           }
           return v37;
         }
-        v33 = v44;
+        v33 = v43;
 LABEL_58:
-        v44 = v33;
+        v43 = v33;
         v35 = a4;
         v34 = v33;
         goto LABEL_59;
@@ -259,7 +256,7 @@ LABEL_58:
     goto LABEL_58;
   }
   if ( v31 )
-    xxxRealDrawMenuItem((Gre::Base *)v15, v48, v11, v13, 1, v41);
-  GreSetViewportOrg(v15);
+    xxxRealDrawMenuItem(v15, v47, v11, v13, 1, v40);
+  GreSetViewportOrg((HDC)v15, v42, SHIDWORD(v42));
   return 1LL;
 }

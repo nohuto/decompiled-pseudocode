@@ -1,64 +1,61 @@
 /*
- * XREFs of ?bInit@BEZIER32@@QEAAHPEAU_POINTFIX@@PEAU_RECTFX@@@Z @ 0x1C015D220
+ * XREFs of ?bInit@BEZIER32@@QEAAHPEAU_POINTFIX@@PEAU_RECTFX@@@Z @ 0x1C0083160
  * Callers:
- *     ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C015DD70 (-pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z.c)
+ *     ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C0082CC0 (-pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z.c)
  * Callees:
- *     ?bIntersect@@YA_NPEAU_RECTFX@@0@Z @ 0x1C015D4DC (-bIntersect@@YA_NPEAU_RECTFX@@0@Z.c)
- *     ?vBoundBox@@YAXPEAU_POINTFIX@@PEAU_RECTFX@@@Z @ 0x1C015E00C (-vBoundBox@@YAXPEAU_POINTFIX@@PEAU_RECTFX@@@Z.c)
- *     ?vSteadyState@HFDBASIS32@@QEAAXJ@Z @ 0x1C015E35C (-vSteadyState@HFDBASIS32@@QEAAXJ@Z.c)
+ *     ?vSteadyState@HFDBASIS32@@QEAAXJ@Z @ 0x1C00833F0 (-vSteadyState@HFDBASIS32@@QEAAXJ@Z.c)
+ *     ?vBoundBox@@YAXPEAU_POINTFIX@@PEAU_RECTFX@@@Z @ 0x1C0083428 (-vBoundBox@@YAXPEAU_POINTFIX@@PEAU_RECTFX@@@Z.c)
+ *     ?bIntersect@@YA_NPEAU_RECTFX@@0@Z @ 0x1C0140E04 (-bIntersect@@YA_NPEAU_RECTFX@@0@Z.c)
  */
 
 __int64 __fastcall BEZIER32::bInit(BEZIER32 *this, struct _POINTFIX *a2, struct _RECTFX *a3)
 {
-  struct _RECTFX *v3; // rdi
-  int v6; // ebp
-  __m128i *v7; // r11
+  struct _RECTFX *v4; // r14
+  int v7; // esi
   __m128i v8; // xmm1
   __m128i v9; // xmm2
   int v10; // edx
   unsigned __int32 v11; // r10d
   __int32 v12; // r11d
-  unsigned __int32 v13; // r14d
+  unsigned __int32 v13; // ebx
   int v14; // eax
   int v15; // r8d
   int v16; // r15d
   int v17; // r12d
   int v18; // r13d
+  HFDBASIS32 *v19; // r9
+  int v20; // r8d
+  int v21; // ebx
+  int v22; // eax
+  int v23; // ecx
+  int v24; // r11d
+  int v25; // ecx
+  int v26; // eax
+  HFDBASIS32 *v27; // r10
+  _DWORD *v28; // r9
+  int v29; // ecx
+  _DWORD *v30; // r10
+  int v31; // edx
+  int v32; // eax
+  int v33; // eax
+  int v34; // ecx
+  int v35; // ecx
   __int64 result; // rax
-  HFDBASIS32 *v20; // r9
-  int v21; // r8d
-  int v22; // r11d
-  int v23; // esi
-  int v24; // edi
-  int v25; // edx
-  int v26; // r15d
-  int v27; // eax
-  int v28; // ecx
-  int v29; // edx
-  int v30; // ecx
-  int v31; // eax
-  int v32; // edx
-  int v33; // ecx
-  HFDBASIS32 *v34; // r10
-  _DWORD *v35; // r9
-  int v36; // ecx
-  _DWORD *v37; // r10
-  int v38; // edx
-  int v39; // eax
+  int v37; // edx
+  int v38; // eax
+  int v39; // edx
   int v40; // eax
-  int v41; // ecx
-  int v42; // ecx
 
-  v3 = (struct _RECTFX *)((char *)this + 36);
   *(_DWORD *)this = 1;
-  v6 = 0;
+  v4 = (struct _RECTFX *)((char *)this + 36);
+  v7 = 0;
   vBoundBox(a2, (struct _RECTFX *)((char *)this + 36));
-  v8 = *v7;
-  v9 = v7[1];
-  v10 = *(_OWORD *)v7 - v3->xLeft;
-  v11 = _mm_srli_si128(*v7, 8).m128i_u32[0] - v3->xLeft;
-  v12 = v9.m128i_i32[0] - v3->xLeft;
-  v13 = _mm_srli_si128(v9, 8).m128i_u32[0] - v3->xLeft;
+  v8 = *(__m128i *)&a2->x;
+  v9 = *(__m128i *)&a2[2].x;
+  v10 = *(_OWORD *)&a2->x - v4->xLeft;
+  v11 = _mm_srli_si128(*(__m128i *)&a2->x, 8).m128i_u32[0] - v4->xLeft;
+  v12 = v9.m128i_i32[0] - v4->xLeft;
+  v13 = _mm_srli_si128(v9, 8).m128i_u32[0] - v4->xLeft;
   v14 = *((_DWORD *)this + 10);
   v15 = _mm_cvtsi128_si32(_mm_srli_si128(v8, 4)) - v14;
   v16 = _mm_cvtsi128_si32(_mm_srli_si128(v9, 12)) - v14;
@@ -66,7 +63,7 @@ __int64 __fastcall BEZIER32::bInit(BEZIER32 *this, struct _POINTFIX *a2, struct 
   v18 = _mm_cvtsi128_si32(_mm_srli_si128(v8, 12)) - v14;
   if ( ((v10 | v11 | v12 | v13 | v15 | v18 | v17 | v16) & 0xFFFFC000) != 0 )
     return 0LL;
-  v20 = (BEZIER32 *)((char *)this + 4);
+  v19 = (BEZIER32 *)((char *)this + 4);
   *((_DWORD *)this + 1) = v10 << 10;
   *((_DWORD *)this + 2) = (v13 - v10) << 10;
   *((_DWORD *)this + 3) = 6144 * (v13 + v11 - 2 * v12);
@@ -75,82 +72,68 @@ __int64 __fastcall BEZIER32::bInit(BEZIER32 *this, struct _POINTFIX *a2, struct 
   *((_DWORD *)this + 6) = (v16 - v15) << 10;
   *((_DWORD *)this + 7) = 6144 * (v16 + v18 - 2 * v17);
   *((_DWORD *)this + 8) = 6144 * (v17 + v15 - 2 * v18);
-  if ( !a3 || bIntersect(v3, a3) )
+  if ( !a3 || bIntersect(v4, a3) )
   {
-    v21 = *((_DWORD *)this + 7);
-    v22 = *((_DWORD *)this + 8);
     while ( 1 )
     {
-      v23 = *((_DWORD *)this + 3);
-      v24 = *((_DWORD *)this + 4);
-      v25 = -v23;
-      v26 = 65472 << v6;
-      v27 = -v23;
-      v28 = -v24;
-      if ( v24 >= 0 )
-        v28 = *((_DWORD *)this + 4);
-      if ( v23 >= 0 )
-        v27 = *((_DWORD *)this + 3);
-      if ( v27 <= v28 )
+      v20 = *((_DWORD *)this + 4);
+      v21 = 65472 << v7;
+      v22 = abs32(*((_DWORD *)this + 3));
+      v23 = -v20;
+      if ( v20 >= 0 )
+        v23 = *((_DWORD *)this + 4);
+      if ( v22 <= v23 )
       {
-        v25 = *((_DWORD *)this + 4);
-        if ( v24 < 0 )
-          v25 = -*((_DWORD *)this + 4);
+        v22 = *((_DWORD *)this + 4);
+        if ( v20 < 0 )
+          v22 = -*((_DWORD *)this + 4);
       }
-      else if ( v23 >= 0 )
+      if ( v22 <= v21 )
       {
-        v25 = *((_DWORD *)this + 3);
-      }
-      if ( v25 <= v26 )
-      {
-        v29 = -v21;
-        v30 = -v22;
-        v31 = -v21;
-        if ( v22 >= 0 )
-          v30 = v22;
-        if ( v21 >= 0 )
-          v31 = v21;
-        if ( v31 <= v30 )
+        v24 = *((_DWORD *)this + 8);
+        v25 = -v24;
+        v26 = abs32(*((_DWORD *)this + 7));
+        if ( v24 >= 0 )
+          v25 = *((_DWORD *)this + 8);
+        if ( v26 <= v25 )
         {
-          v29 = v22;
-          if ( v22 < 0 )
-            v29 = -v22;
+          v26 = *((_DWORD *)this + 8);
+          if ( v24 < 0 )
+            v26 = -*((_DWORD *)this + 8);
         }
-        else if ( v21 >= 0 )
-        {
-          v29 = v21;
-        }
-        if ( v29 <= v26 )
+        if ( v26 <= v21 )
           break;
       }
-      v6 += 2;
-      v32 = (v24 + v23) >> 1;
-      *((_DWORD *)this + 3) = v32;
-      v21 = (v22 + v21) >> 1;
-      *((_DWORD *)this + 2) = (*((_DWORD *)this + 2) - (v32 >> v6)) >> 1;
-      v33 = *((_DWORD *)this + 6) - (v21 >> v6);
-      *((_DWORD *)this + 7) = v21;
-      *((_DWORD *)this + 6) = v33 >> 1;
+      v7 += 2;
+      v37 = (v20 + *((_DWORD *)this + 3)) >> 1;
+      *((_DWORD *)this + 3) = v37;
+      v38 = *((_DWORD *)this + 2) - (v37 >> v7);
+      v39 = *((_DWORD *)this + 8) + *((_DWORD *)this + 7);
+      *((_DWORD *)this + 2) = v38 >> 1;
+      v40 = *((_DWORD *)this + 6);
+      v39 >>= 1;
+      *((_DWORD *)this + 7) = v39;
+      *((_DWORD *)this + 6) = (v40 - (v39 >> v7)) >> 1;
       *(_DWORD *)this *= 2;
     }
   }
-  HFDBASIS32::vSteadyState(v20, v6);
-  HFDBASIS32::vSteadyState(v34, v6);
-  v36 = v35[2];
-  v38 = v37[2];
-  v39 = v35[1];
-  *v35 += v39;
-  v35[1] = v36 + v39;
-  v40 = v36 + v36 - v35[3];
-  v35[3] = v36;
-  v41 = v37[1];
-  *v37 += v41;
-  v37[1] = v38 + v41;
-  v42 = v38 - v37[3];
-  v35[2] = v40;
+  HFDBASIS32::vSteadyState(v19, v7);
+  HFDBASIS32::vSteadyState(v27, v7);
+  v29 = v28[2];
+  v31 = v30[2];
+  v32 = v28[1];
+  *v28 += v32;
+  v28[1] = v29 + v32;
+  v33 = v29 + v29 - v28[3];
+  v28[3] = v29;
+  v34 = v30[1];
+  *v30 += v34;
+  v30[1] = v31 + v34;
+  v35 = v31 - v30[3];
+  v28[2] = v33;
   --*(_DWORD *)this;
   result = 1LL;
-  v37[2] = v38 + v42;
-  v37[3] = v38;
+  v30[2] = v31 + v35;
+  v30[3] = v31;
   return result;
 }

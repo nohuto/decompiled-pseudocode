@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDecrementDeviceObjectRefCount @ 0x1400DC9E0
+ * XREFs of IopDecrementDeviceObjectRefCount @ 0x1400DCA00
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x1400DA8EC (IopCompleteUnloadOrDelete.c)
+ *     IopCompleteUnloadOrDelete @ 0x1400DA90C (IopCompleteUnloadOrDelete.c)
  *     IopDeleteFile @ 0x14063B3C0 (IopDeleteFile.c)
- *     IoUnregisterFileSystem @ 0x140706BC0 (IoUnregisterFileSystem.c)
+ *     IoUnregisterFileSystem @ 0x140706BA0 (IoUnregisterFileSystem.c)
  * Callees:
- *     IopInterlockedDecrementUlong @ 0x14016A130 (IopInterlockedDecrementUlong.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CCC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     IopInterlockedDecrementUlong @ 0x14016A150 (IopInterlockedDecrementUlong.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IopDecrementDeviceObjectRefCount(ULONG_PTR BugCheckParameter2, char a2)

@@ -1,18 +1,18 @@
 /*
- * XREFs of VRegSetup @ 0x14085B100
+ * XREFs of VRegSetup @ 0x1407CAEC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1406D2264 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     ObSetSecurityObjectByPointer @ 0x140724D30 (ObSetSecurityObjectByPointer.c)
- *     IoCreateDevice @ 0x14074ED50 (IoCreateDevice.c)
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
- *     ObCreateObjectTypeEx @ 0x140824B30 (ObCreateObjectTypeEx.c)
- *     PspStorageAllocSlot @ 0x1408258B8 (PspStorageAllocSlot.c)
- *     VrpInitializeLoadedDifferencingHives @ 0x14085B2C4 (VrpInitializeLoadedDifferencingHives.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
+ *     ObSetSecurityObjectByPointer @ 0x140660460 (ObSetSecurityObjectByPointer.c)
+ *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D094 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     PspStorageAllocSlot @ 0x140795848 (PspStorageAllocSlot.c)
+ *     ObCreateObjectTypeEx @ 0x1407958F0 (ObCreateObjectTypeEx.c)
+ *     VrpInitializeLoadedDifferencingHives @ 0x1407CB084 (VrpInitializeLoadedDifferencingHives.c)
  */
 
 __int64 __fastcall VRegSetup(PDRIVER_OBJECT DriverObject)
@@ -28,8 +28,12 @@ __int64 __fastcall VRegSetup(PDRIVER_OBJECT DriverObject)
 
   DestinationString = 0LL;
   SourceString = 0LL;
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C038A0, 0LL, 0LL);
-  RtlpQueryRegistryValues(-2147483646, L"Session Manager\\Configuration Manager", (__int64)&VrpRegistryValuesTable, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((ULONGLONG *)&dword_140C02168, 0LL, 0LL);
+  RtlpQueryRegistryValues(
+    2147483650LL,
+    L"Session Manager\\Configuration Manager",
+    (__int64)&VrpRegistryValuesTable,
+    0LL);
   RtlInitUnicodeString(&DestinationString, L"\\Device\\VRegDriver");
   v2 = IoCreateDevice(DriverObject, 0, &DestinationString, 0x22u, 0x100u, 0, &VrpDeviceObject);
   if ( v2 < 0 )
@@ -53,7 +57,7 @@ __int64 __fastcall VRegSetup(PDRIVER_OBJECT DriverObject)
   *((_QWORD *)&v9[1] + 1) = 0xF0000000F0000LL;
   *((_QWORD *)&v9[4] + 1) = VrpJobContextDelete;
   *(_QWORD *)((char *)&v9[2] + 4) = 0x6000000001LL;
-  v4 = ObCreateObjectTypeEx(&SourceString, v9, 0LL, 0LL, &VrpJobContextType);
+  v4 = ObCreateObjectTypeEx(&SourceString, v9, 0LL, 0LL, (__int64 *)&VrpJobContextType);
   if ( v4 < 0 )
     KeBugCheckEx(0x51u, 0x1EuLL, v4, 4uLL, 0LL);
   v5 = VrpInitializeLoadedDifferencingHives();

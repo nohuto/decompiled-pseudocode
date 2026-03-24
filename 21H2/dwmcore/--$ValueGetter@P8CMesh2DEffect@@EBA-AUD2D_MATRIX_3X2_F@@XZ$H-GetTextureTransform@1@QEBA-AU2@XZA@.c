@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$ValueGetter@P8CMesh2DEffect@@EBA?AUD2D_MATRIX_3X2_F@@XZ$H?GetTextureTransform@1@QEBA?AU2@XZA@UID2D1EffectImpl@@@@YAJPEBUIUnknown@@PEAEIPEAI@Z @ 0x1802B1E40
+ * XREFs of ??$ValueGetter@P8CMesh2DEffect@@EBA?AUD2D_MATRIX_3X2_F@@XZ$H?GetTextureTransform@1@QEBA?AU2@XZA@UID2D1EffectImpl@@@@YAJPEBUIUnknown@@PEAEIPEAI@Z @ 0x18026C6F0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetTextureTransform@CMesh2DEffect@@QEBA?AUD2D_MATRIX_3X2_F@@XZ @ 0x1800FCFB0 (-GetTextureTransform@CMesh2DEffect@@QEBA-AUD2D_MATRIX_3X2_F@@XZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?GetTextureTransform@CMesh2DEffect@@QEBA?AUD2D_MATRIX_3X2_F@@XZ @ 0x1800E3D28 (-GetTextureTransform@CMesh2DEffect@@QEBA-AUD2D_MATRIX_3X2_F@@XZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ValueGetter<D2D_MATRIX_3X2_F (CMesh2DEffect::*)(void)const,{public: D2D_MATRIX_3X2_F CMesh2DEffect::GetTextureTransform(void)const,0},ID2D1EffectImpl>(

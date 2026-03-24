@@ -1,17 +1,17 @@
 /*
- * XREFs of PspSetupUserFiberShadowStack @ 0x1409AFAA0
+ * XREFs of PspSetupUserFiberShadowStack @ 0x14090A500
  * Callers:
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
- *     MmFreeVirtualMemory @ 0x1407B99C0 (MmFreeVirtualMemory.c)
- *     PspReserveAndCommitUserShadowStack @ 0x1409AF8C4 (PspReserveAndCommitUserShadowStack.c)
+ *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x14090A318 (PspReserveAndCommitUserShadowStack.c)
  */
 
 __int64 __fastcall PspSetupUserFiberShadowStack(unsigned __int64 a1, ULONG_PTR a2, unsigned int a3, _QWORD *a4)
 {
   int v4; // ebx
   __int64 v10; // [rsp+38h] [rbp-20h] BYREF
-  unsigned __int64 v11[3]; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v11[3]; // [rsp+40h] [rbp-18h] BYREF
 
   v11[0] = 0LL;
   v10 = 0LL;
@@ -19,7 +19,7 @@ __int64 __fastcall PspSetupUserFiberShadowStack(unsigned __int64 a1, ULONG_PTR a
   if ( v4 >= 0 )
   {
     _RCX = v11[0] - 8;
-    _RAX = qword_140D07178;
+    _RAX = PspUserFiberStart;
     __asm { wrussq  qword ptr [rcx], rax }
     _RDX = v11[0] - 16;
     *a4 = v11[0] - 16;
@@ -30,7 +30,7 @@ __int64 __fastcall PspSetupUserFiberShadowStack(unsigned __int64 a1, ULONG_PTR a
   if ( v10 )
   {
     v11[0] = 0LL;
-    MmFreeVirtualMemory(0xFFFFFFFFFFFFFFFFuLL, (unsigned __int64 *)&v10, v11, 0x8000u, 0, 0x40000000);
+    MmFreeVirtualMemory(0xFFFFFFFFFFFFFFFFuLL, (unsigned __int64 *)&v10, v11, 0x8000, 0, 0x40000000);
     *a4 = 0LL;
   }
   return (unsigned int)v4;

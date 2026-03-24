@@ -1,10 +1,10 @@
 /*
- * XREFs of NtOpenPartition @ 0x140861A60
+ * XREFs of NtOpenPartition @ 0x1407D18E0
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x14068C9D0 (ObOpenObjectByName.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     ObOpenObjectByName @ 0x1406CEA10 (ObOpenObjectByName.c)
  */
 
 __int64 __fastcall NtOpenPartition(HANDLE *a1, int a2, __int64 a3)

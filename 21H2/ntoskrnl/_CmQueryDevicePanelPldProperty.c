@@ -1,79 +1,89 @@
 /*
- * XREFs of _CmQueryDevicePanelPldProperty @ 0x14076E548
+ * XREFs of _CmQueryDevicePanelPldProperty @ 0x140748120
  * Callers:
- *     _CmUpdateDevicePanel @ 0x14076E224 (_CmUpdateDevicePanel.c)
- *     _CmUpdateDevicePanelInterface @ 0x140A297B0 (_CmUpdateDevicePanelInterface.c)
+ *     _CmUpdateDevicePanel @ 0x1407476A8 (_CmUpdateDevicePanel.c)
+ *     _CmUpdateDevicePanelInterface @ 0x140978E20 (_CmUpdateDevicePanelInterface.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmQueryDevicePanelPldProperty(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
+        __int64 a1,
+        __int64 a2,
+        unsigned int a3,
+        __int64 a4,
         __int64 a5,
         PVOID *a6,
-        unsigned int *a7,
+        int *a7,
         _QWORD *a8,
-        unsigned int *a9)
+        _DWORD *a9)
 {
-  __int64 v13; // r10
-  int ObjectProperty; // eax
-  unsigned int v15; // ecx
-  unsigned int v17; // eax
-  __int64 Pool2; // rax
-  unsigned int v19; // edx
-  _BYTE *v20; // r8
-  unsigned int v21; // eax
-  unsigned int v22; // [rsp+60h] [rbp-38h] BYREF
-  int v23[3]; // [rsp+64h] [rbp-34h] BYREF
+  PVOID v13; // r10
+  int ObjectProperty; // ecx
+  unsigned int v16; // eax
+  PVOID PoolWithTag; // rax
+  int v18; // edx
+  _BYTE *v19; // r8
+  unsigned int v20; // eax
+  SIZE_T NumberOfBytes[2]; // [rsp+60h] [rbp-38h] BYREF
 
   *a8 = 0LL;
   *a9 = 0;
-  v13 = (__int64)*a6;
-  v23[0] = 0;
-  v22 = 0;
+  v13 = *a6;
+  NumberOfBytes[0] = 0LL;
   while ( 1 )
   {
-    ObjectProperty = PnpGetObjectProperty(a1, a2, a3, a4, 0LL, a5, (__int64)v23, v13, *a7, (__int64)&v22, 0);
-    v15 = ObjectProperty;
+    ObjectProperty = PnpGetObjectProperty(
+                       a1,
+                       a2,
+                       a3,
+                       a4,
+                       0LL,
+                       a5,
+                       (__int64)NumberOfBytes + 4,
+                       (__int64)v13,
+                       *a7,
+                       (__int64)NumberOfBytes,
+                       0);
     if ( ObjectProperty != -1073741789 )
       break;
-    v17 = v22;
-    if ( v22 <= *a7 )
+    v16 = NumberOfBytes[0];
+    if ( LODWORD(NumberOfBytes[0]) <= *a7 )
       return (unsigned int)-1073741823;
     if ( *a6 )
     {
       ExFreePoolWithTag(*a6, 0);
-      v17 = v22;
+      v16 = NumberOfBytes[0];
     }
-    *a7 = v17;
-    Pool2 = ExAllocatePool2(256LL, v17, 1380994640LL);
-    *a6 = (PVOID)Pool2;
-    v13 = Pool2;
-    if ( !Pool2 )
-      return (unsigned int)-1073741801;
+    *a7 = v16;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v16, 0x52504E50u);
+    *a6 = PoolWithTag;
+    v13 = PoolWithTag;
+    if ( !PoolWithTag )
+    {
+      ObjectProperty = -1073741801;
+      break;
+    }
   }
   if ( ObjectProperty < 0 )
-    return v15;
-  if ( v23[0] != 4099 )
+    return (unsigned int)ObjectProperty;
+  if ( HIDWORD(NumberOfBytes[0]) != 4099 || (v18 = NumberOfBytes[0]) == 0 )
     return (unsigned int)-1073741823;
-  v19 = v22;
-  if ( !v22 )
-    return (unsigned int)-1073741823;
-  v20 = *a6;
-  v21 = *(_DWORD *)*a6 & 0x7F;
-  if ( v21 && (v21 != 1 || v22 >= 0x10) && (v21 < 2 || v22 >= 0x14) && (v20[8] & 0x38u) < 0x30 )
+  v19 = *a6;
+  v20 = *(_DWORD *)*a6 & 0x7F;
+  if ( v20
+    && (v20 != 1 || LODWORD(NumberOfBytes[0]) >= 0x10)
+    && (v20 < 2 || LODWORD(NumberOfBytes[0]) >= 0x14)
+    && (v19[8] & 0x38u) < 0x30 )
   {
-    *a8 = v20;
-    *a9 = v19;
+    *a8 = v19;
+    *a9 = v18;
   }
   else
   {
     return (unsigned int)-1073741275;
   }
-  return v15;
+  return (unsigned int)ObjectProperty;
 }

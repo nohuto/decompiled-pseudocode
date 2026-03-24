@@ -1,44 +1,27 @@
 /*
- * XREFs of HvpCopyModifiedData @ 0x1407FED30
+ * XREFs of HvpCopyModifiedData @ 0x140873E40
  * Callers:
- *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407FEC7C (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x140873D8C (HvpApplyLogEntryDataToFileBackedHive.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     HvpMapEntryGetBlockAddress @ 0x1406E02E4 (HvpMapEntryGetBlockAddress.c)
- *     HvpMapEntryReleaseBlockAddress @ 0x1407E8C90 (HvpMapEntryReleaseBlockAddress.c)
- *     HvpGetBinContextInitialize @ 0x140AF6200 (HvpGetBinContextInitialize.c)
- *     HvpGetCellMap @ 0x140AF6280 (HvpGetCellMap.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     HvpGetCellMap @ 0x140655DC0 (HvpGetCellMap.c)
  */
 
-__int64 __fastcall HvpCopyModifiedData(ULONG_PTR BugCheckParameter2, int a2, __int64 a3, unsigned int a4)
+void __fastcall HvpCopyModifiedData(ULONG_PTR BugCheckParameter2, int a2, __int64 a3, unsigned int a4)
 {
-  __int64 result; // rax
-  unsigned int v9; // edi
-  int v10; // r9d
+  unsigned int i; // ebx
   _QWORD *CellMap; // rax
-  unsigned int v12; // r8d
-  __int64 v13; // rsi
-  void *BlockAddress; // rax
-  __int16 v15; // [rsp+78h] [rbp+20h] BYREF
+  unsigned int v10; // r10d
 
-  v15 = 0;
-  result = HvpGetBinContextInitialize(&v15);
-  v9 = 0;
-  if ( v10 )
+  if ( a4 )
   {
-    do
+    for ( i = 0; i < a4; i += 4096 )
     {
-      CellMap = (_QWORD *)HvpGetCellMap(BugCheckParameter2, v9 + a2);
-      v13 = (__int64)CellMap;
+      CellMap = (_QWORD *)HvpGetCellMap(BugCheckParameter2, i + a2);
       if ( !CellMap )
-        KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v12, 0xC40uLL);
-      BlockAddress = (void *)HvpMapEntryGetBlockAddress(BugCheckParameter2, CellMap, (__int64)&v15);
-      memmove(BlockAddress, (const void *)(a3 + v9), 0x1000uLL);
-      result = HvpMapEntryReleaseBlockAddress(BugCheckParameter2, v13, (__int64)&v15);
-      v9 += 4096;
+        KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v10, 0xC2DuLL);
+      memmove((void *)(*CellMap + (CellMap[1] & 0xFFFFFFFFFFFFFFF0uLL)), (const void *)(a3 + i), 0x1000uLL);
     }
-    while ( v9 < a4 );
   }
-  return result;
 }

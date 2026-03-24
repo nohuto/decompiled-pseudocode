@@ -1,69 +1,63 @@
 /*
- * XREFs of AddBGRMapCache @ 0x1C02532F8
+ * XREFs of AddBGRMapCache @ 0x1C0261118
  * Callers:
- *     CreateDyesColorMappingTable @ 0x1C0254FA8 (CreateDyesColorMappingTable.c)
+ *     CreateDyesColorMappingTable @ 0x1C001B810 (CreateDyesColorMappingTable.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
- *     TrimBGRMapCache @ 0x1C02555B0 (TrimBGRMapCache.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     TrimBGRMapCache @ 0x1C0262318 (TrimBGRMapCache.c)
  */
 
 __int64 __fastcall AddBGRMapCache(__int64 a1, int a2)
 {
-  unsigned int v4; // edi
-  __int64 v5; // rbx
-  unsigned int v6; // eax
-  unsigned int v7; // esi
-  unsigned __int64 v8; // rax
-  PVOID v9; // rax
-  PVOID v10; // rbp
-  const void *v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  __int64 v14; // rax
+  unsigned int v4; // ebx
+  unsigned int v5; // edi
+  unsigned __int64 v6; // rax
+  PVOID v7; // rax
+  void *v8; // rbp
+  PVOID v9; // rsi
+  _DWORD *v10; // rdx
+  __int64 v11; // rax
 
   v4 = 1;
-  v5 = *(_QWORD *)(SGDGetSessionState(a1) + 48);
-  EngAcquireSemaphore(*(HSEMAPHORE *)(v5 + 24));
-  if ( *(int *)(v5 + 56) > 5 && *(_DWORD *)(v5 + 64) )
+  EngAcquireSemaphore(qword_1C0339F88);
+  if ( dword_1C0339FA8 > 5 && HIDWORD(qword_1C0339FAC) )
     TrimBGRMapCache();
-  v6 = *(_DWORD *)(v5 + 60);
-  if ( *(_DWORD *)(v5 + 56) >= (signed int)v6 )
+  if ( dword_1C0339FA8 >= (int)qword_1C0339FAC )
   {
-    v7 = v6 + 10;
-    if ( v6 + 10 >= v6 )
+    v5 = qword_1C0339FAC + 10;
+    if ( (int)qword_1C0339FAC + 10 >= (unsigned int)qword_1C0339FAC )
     {
-      v8 = 16LL * v7;
-      if ( v8 <= 0xFFFFFFFF )
+      v6 = 16LL * v5;
+      if ( v6 <= 0xFFFFFFFF )
       {
-        v9 = EngAllocMem(1u, v8, 0x30365448u);
-        v10 = v9;
-        if ( v9 )
+        v7 = EngAllocMem(1u, v6, 0x30365448u);
+        v8 = v7;
+        if ( v7 )
         {
-          v11 = *(const void **)(v5 + 48);
-          if ( v11 )
+          v9 = Src;
+          if ( Src )
           {
-            memmove(v9, v11, 16LL * *(int *)(v5 + 56));
-            EngFreeMem(*(PVOID *)(v5 + 48));
+            memmove(v7, Src, 16LL * dword_1C0339FA8);
+            EngFreeMem(v9);
           }
-          *(_QWORD *)(v5 + 48) = v10;
-          *(_DWORD *)(v5 + 60) = v7;
+          Src = v8;
+          LODWORD(qword_1C0339FAC) = v5;
         }
       }
     }
   }
-  v12 = *(_QWORD *)(v5 + 48);
-  if ( v12 && (v13 = *(int *)(v5 + 56), (int)v13 < *(_DWORD *)(v5 + 60)) )
+  v10 = Src;
+  if ( Src && dword_1C0339FA8 < (int)qword_1C0339FAC )
   {
-    v14 = 2 * v13;
-    *(_QWORD *)(v12 + 8 * v14) = a1;
-    *(_DWORD *)(v12 + 8 * v14 + 12) = a2;
-    *(_DWORD *)(v12 + 8 * v14 + 8) = 1;
-    ++*(_DWORD *)(v5 + 56);
+    v11 = 2LL * dword_1C0339FA8++;
+    *((_QWORD *)Src + v11) = a1;
+    v10[2 * v11 + 3] = a2;
+    v10[2 * v11 + 2] = 1;
   }
   else
   {
     v4 = 0;
   }
-  EngReleaseSemaphore(*(HSEMAPHORE *)(v5 + 24));
+  EngReleaseSemaphore(qword_1C0339F88);
   return v4;
 }

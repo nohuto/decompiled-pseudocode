@@ -1,10 +1,10 @@
 /*
- * XREFs of WriteSettingValues @ 0x1C013F2A0
+ * XREFs of WriteSettingValues @ 0x1C0127CB0
  * Callers:
- *     _SetPrecisionTouchPadConfiguration @ 0x1C0134DF4 (_SetPrecisionTouchPadConfiguration.c)
- *     WritePointerDeviceSettings @ 0x1C013F160 (WritePointerDeviceSettings.c)
+ *     _SetPrecisionTouchPadConfiguration @ 0x1C011C2E0 (_SetPrecisionTouchPadConfiguration.c)
+ *     WritePointerDeviceSettings @ 0x1C0127B80 (WritePointerDeviceSettings.c)
  * Callees:
- *     ApiSetEditionGetPointerDeviceConfigurationKey @ 0x1C0095F84 (ApiSetEditionGetPointerDeviceConfigurationKey.c)
+ *     ApiSetEditionGetPointerDeviceConfigurationKey @ 0x1C000C540 (ApiSetEditionGetPointerDeviceConfigurationKey.c)
  */
 
 _BOOL8 __fastcall WriteSettingValues(unsigned int a1, const WCHAR **a2, unsigned int a3)

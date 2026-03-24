@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SetClip@CVisual@@QEAAJPEAVCGeometry@@@Z @ 0x1800E4E34
+ * XREFs of ?SetClip@CVisual@@QEAAJPEAVCGeometry@@@Z @ 0x1800C9B20
  * Callers:
- *     ?ProcessSetClip@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCLIP@@@Z @ 0x1800E4DE4 (-ProcessSetClip@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCLIP@@@Z.c)
+ *     ?ProcessSetClip@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCLIP@@@Z @ 0x1800C9AD0 (-ProcessSetClip@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCLIP@@@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18004A8DC (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z @ 0x1800991C8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?OnTransformChanged@CVisual@@AEAAXXZ @ 0x1800E4EF0 (-OnTransformChanged@CVisual@@AEAAXXZ.c)
- *     ?OnClipChanged@CVisual@@AEAAXXZ @ 0x1800E4F28 (-OnClipChanged@CVisual@@AEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D9B0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009FAF8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
+ *     ?OnClipChanged@CVisual@@AEAAXXZ @ 0x1800A1E5C (-OnClipChanged@CVisual@@AEAAXXZ.c)
+ *     ?OnTransformChanged@CVisual@@AEAAXXZ @ 0x1800C9BD4 (-OnTransformChanged@CVisual@@AEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CVisual::SetClip(struct CResource **this, struct CGeometry *a2)
@@ -20,21 +20,21 @@ __int64 __fastcall CVisual::SetClip(struct CResource **this, struct CGeometry *a
   __int64 v7; // rcx
 
   v3 = 0;
-  if ( a2 != this[31] )
+  if ( a2 != this[30] )
   {
     v5 = 0;
     if ( a2 )
-      v5 = (*(__int64 (__fastcall **)(struct CGeometry *))(*(_QWORD *)a2 + 200LL))(a2);
+      v5 = (*(__int64 (__fastcall **)(struct CGeometry *))(*(_QWORD *)a2 + 216LL))(a2);
     v6 = CResource::RegisterNotifier((CResource *)this, a2);
     v3 = v6;
     if ( v6 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xA95u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xB18u, 0LL);
     }
     else
     {
-      CResource::UnRegisterNotifierInternal((CResource *)this, this[31]);
-      this[31] = a2;
+      CResource::UnRegisterNotifierInternal((CResource *)this, this[30]);
+      this[30] = a2;
       if ( !v5 )
       {
         CVisual::PropagateFlags((__int64)this, 5u);

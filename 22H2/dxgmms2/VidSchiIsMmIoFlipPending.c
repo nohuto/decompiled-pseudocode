@@ -1,43 +1,37 @@
 /*
- * XREFs of VidSchiIsMmIoFlipPending @ 0x1C0017D7C
+ * XREFs of VidSchiIsMmIoFlipPending @ 0x1C0015044
  * Callers:
- *     VidSchWaitForEvents @ 0x1C0001A80 (VidSchWaitForEvents.c)
- *     VidSchiWaitForDrainFlipQueue @ 0x1C00B5608 (VidSchiWaitForDrainFlipQueue.c)
+ *     VidSchWaitForEvents @ 0x1C0011994 (VidSchWaitForEvents.c)
+ *     VidSchiWaitForDrainFlipQueue @ 0x1C00CF658 (VidSchiWaitForDrainFlipQueue.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall VidSchiIsMmIoFlipPending(__int64 a1, unsigned int *a2)
+char __fastcall VidSchiIsMmIoFlipPending(__int64 a1)
 {
-  char v4; // bl
-  unsigned int v5; // esi
-  unsigned int v6; // r8d
-  unsigned int v7; // eax
-  __int64 v8; // rcx
+  char v2; // bl
+  unsigned int v3; // r8d
+  unsigned int v4; // edx
+  __int64 v5; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
+  v2 = 0;
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1712), &LockHandle);
+  v3 = *(_DWORD *)(a1 + 40);
   v4 = 0;
-  v5 = 0;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1728), &LockHandle);
-  v6 = *(_DWORD *)(a1 + 40);
-  v7 = 0;
-  if ( v6 )
+  if ( v3 )
   {
-    v8 = a1 + 3200;
-    while ( !*(_QWORD *)v8 || !*(_DWORD *)(*(_QWORD *)v8 + 3088LL) )
+    v5 = a1 + 3104;
+    while ( !*(_QWORD *)v5 || !*(_DWORD *)(*(_QWORD *)v5 + 2352LL) )
     {
-      ++v7;
-      v8 += 8LL;
-      if ( v7 >= v6 )
+      ++v4;
+      v5 += 8LL;
+      if ( v4 >= v3 )
         goto LABEL_6;
     }
-    v4 = 1;
-    v5 = v7;
+    v2 = 1;
   }
 LABEL_6:
   KeReleaseInStackQueuedSpinLock(&LockHandle);
-  if ( v4 && a2 )
-    *a2 = v5;
-  return v4;
+  return v2;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTracePointerDeviceContactIds @ 0x1C014E210
+ * XREFs of EtwTracePointerDeviceContactIds @ 0x1C01235F0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0qqqdd_EtwWriteTransfer @ 0x1C0150D90 (McTemplateK0qqqdd_EtwWriteTransfer.c)
+ *     McTemplateK0qqqdd_EtwWriteTransfer @ 0x1C0126784 (McTemplateK0qqqdd_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTracePointerDeviceContactIds(int a1, int a2, int a3, __int64 a4)

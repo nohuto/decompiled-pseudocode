@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpSearchAndRehashWorker @ 0x1407F1290
+ * XREFs of CmpSearchAndRehashWorker @ 0x1407F1270
  * Callers:
  *     <none>
  * Callees:
- *     CmpRehashKcbSubtree @ 0x1407F11B8 (CmpRehashKcbSubtree.c)
+ *     CmpRehashKcbSubtree @ 0x1407F1198 (CmpRehashKcbSubtree.c)
  */
 
 __int64 __fastcall CmpSearchAndRehashWorker(__int64 a1, __int64 a2)

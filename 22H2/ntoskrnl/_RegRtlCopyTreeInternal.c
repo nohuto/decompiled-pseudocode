@@ -1,93 +1,89 @@
 /*
- * XREFs of _RegRtlCopyTreeInternal @ 0x140A6A708
+ * XREFs of _RegRtlCopyTreeInternal @ 0x14097C4B0
  * Callers:
- *     PiDevCfgConfigureDeviceFilters @ 0x14087D10C (PiDevCfgConfigureDeviceFilters.c)
- *     PiDevCfgConfigureSoftwareDevices @ 0x14087D1C4 (PiDevCfgConfigureSoftwareDevices.c)
- *     _PnpCtxRegCopyTree @ 0x140A60B1C (_PnpCtxRegCopyTree.c)
- *     _RegRtlCopyTreeInternal @ 0x140A6A708 (_RegRtlCopyTreeInternal.c)
+ *     PiDevCfgConfigureDeviceFilters @ 0x140766E60 (PiDevCfgConfigureDeviceFilters.c)
+ *     PiDevCfgConfigureSoftwareDevices @ 0x140766F18 (PiDevCfgConfigureSoftwareDevices.c)
+ *     _PnpCtxRegCopyTree @ 0x1409748BC (_PnpCtxRegCopyTree.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C4B0 (_RegRtlCopyTreeInternal.c)
  * Callees:
- *     IoGetStackLimits @ 0x14022E950 (IoGetStackLimits.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryKey @ 0x14041A960 (ZwQueryKey.c)
- *     ZwQuerySecurityObject @ 0x14041D360 (ZwQuerySecurityObject.c)
- *     ZwSetSecurityObject @ 0x14041DD60 (ZwSetSecurityObject.c)
- *     _RegRtlOpenKeyTransacted @ 0x1406CEE20 (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlCreateKeyTransacted @ 0x14079844C (_RegRtlCreateKeyTransacted.c)
- *     _RegRtlSetValue @ 0x1407D4F54 (_RegRtlSetValue.c)
- *     _RegRtlQueryInfoKey @ 0x14086B8B4 (_RegRtlQueryInfoKey.c)
- *     _RegRtlEnumKey @ 0x14086B97C (_RegRtlEnumKey.c)
- *     _RegRtlEnumValue @ 0x14086EAA0 (_RegRtlEnumValue.c)
- *     _RegRtlCopyTreeInternal @ 0x140A6A708 (_RegRtlCopyTreeInternal.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IoGetStackLimits @ 0x1402D0BB0 (IoGetStackLimits.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryKey @ 0x1403F9CE0 (ZwQueryKey.c)
+ *     ZwQuerySecurityObject @ 0x1403FC5A0 (ZwQuerySecurityObject.c)
+ *     ZwSetSecurityObject @ 0x1403FCF40 (ZwSetSecurityObject.c)
+ *     _RegRtlEnumValue @ 0x140694A64 (_RegRtlEnumValue.c)
+ *     _RegRtlQueryInfoKey @ 0x140699968 (_RegRtlQueryInfoKey.c)
+ *     _RegRtlCreateKeyTransacted @ 0x1406B733C (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406BB4DC (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlEnumKey @ 0x14076619C (_RegRtlEnumKey.c)
+ *     _RegRtlSetValue @ 0x140768114 (_RegRtlSetValue.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C4B0 (_RegRtlCopyTreeInternal.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlCopyTreeInternal(
-        void *a1,
+        char *a1,
         const WCHAR *a2,
-        __int64 a3,
+        char *a3,
         const WCHAR *a4,
         char a5,
         __int64 a6,
         char a7)
 {
-  __int64 Pool2; // r15
+  unsigned __int64 PoolWithTag; // r12
   ULONG v9; // edi
-  char *v10; // rsi
-  void *v11; // r12
+  unsigned int *v10; // rsi
+  PVOID v11; // r13
   int v14; // ebx
-  int v15; // eax
-  ULONG v16; // r13d
-  ULONG v17; // eax
-  unsigned __int64 v18; // rdi
-  __int64 v19; // r14
+  unsigned int v15; // eax
+  unsigned __int64 v16; // rdi
+  SIZE_T v17; // r15
+  ULONG v18; // eax
+  unsigned int v19; // r14d
   int v20; // eax
-  ULONG v21; // r13d
-  unsigned int v22; // eax
-  ULONG v23; // edx
-  ULONG v24; // r8d
-  int v25; // eax
-  ULONG v27; // [rsp+50h] [rbp-61h] BYREF
-  ULONG v28; // [rsp+54h] [rbp-5Dh] BYREF
-  unsigned int v29; // [rsp+58h] [rbp-59h] BYREF
+  ULONG v21; // edx
+  ULONG v22; // r8d
+  int v23; // eax
+  ULONG i; // [rsp+50h] [rbp-61h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+54h] [rbp-5Dh] BYREF
   HANDLE KeyHandle; // [rsp+60h] [rbp-51h] BYREF
   ULONG LengthNeeded; // [rsp+68h] [rbp-49h] BYREF
-  __int64 v32; // [rsp+6Ch] [rbp-45h] BYREF
+  __int64 v29; // [rsp+6Ch] [rbp-45h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp-39h] BYREF
   ULONG ResultLength; // [rsp+80h] [rbp-31h] BYREF
-  __int64 v35; // [rsp+88h] [rbp-29h]
+  __int64 v32; // [rsp+88h] [rbp-29h]
   unsigned __int64 HighLimit; // [rsp+90h] [rbp-21h] BYREF
   unsigned __int64 LowLimit; // [rsp+98h] [rbp-19h] BYREF
-  __int64 v38; // [rsp+A0h] [rbp-11h]
+  char *v35; // [rsp+A0h] [rbp-11h]
   __int64 KeyInformation; // [rsp+A8h] [rbp-9h] BYREF
-  int v40; // [rsp+B0h] [rbp-1h]
+  int v37; // [rsp+B0h] [rbp-1h]
 
-  v35 = a6;
+  v32 = a6;
   KeyHandle = 0LL;
   Handle = 0LL;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   ResultLength = 0;
   v9 = 0;
   LengthNeeded = 0;
   v10 = 0LL;
   v11 = 0LL;
-  v28 = 0;
-  v27 = 0;
-  v29 = 0;
-  v32 = 0LL;
+  i = 0;
+  NumberOfBytes = 0LL;
+  v29 = 0LL;
   HighLimit = 0LL;
   LowLimit = 0LL;
   KeyInformation = 0LL;
-  v40 = 0;
-  v38 = a3;
+  v37 = 0;
+  v35 = a3;
   IoGetStackLimits(&LowLimit, &HighLimit);
   if ( (unsigned __int64)&HighLimit - LowLimit < 0x400 )
   {
     v14 = -1073741670;
-    goto LABEL_71;
+    goto LABEL_78;
   }
-  v14 = RegRtlOpenKeyTransacted(a1, a2, 8u, 0x20019u, &KeyHandle, v35);
+  v14 = RegRtlOpenKeyTransacted(a1, a2, 8u, 0x20019u, &KeyHandle, v32);
   if ( v14 >= 0 )
   {
     if ( !ZwQueryKey(KeyHandle, KeyFlagsInformation, &KeyInformation, 0xCu, &ResultLength) )
@@ -95,168 +91,185 @@ __int64 __fastcall RegRtlCopyTreeInternal(
       if ( (KeyInformation & 0x200000000LL) != 0 )
       {
         v14 = -2147483603;
-        goto LABEL_71;
+        goto LABEL_78;
       }
       v9 = (KeyInformation & 0x100000000LL) != 0;
     }
-    if ( a5 )
+    if ( !a5 )
+      goto LABEL_87;
+    while ( ZwQuerySecurityObject(KeyHandle, 4u, (PSECURITY_DESCRIPTOR)PoolWithTag, LengthNeeded, &LengthNeeded) == -1073741789 )
     {
-      while ( ZwQuerySecurityObject(KeyHandle, 4u, (PSECURITY_DESCRIPTOR)Pool2, LengthNeeded, &LengthNeeded) == -1073741789 )
+      if ( PoolWithTag )
+        ExFreePoolWithTag((PVOID)PoolWithTag, 0);
+      PoolWithTag = (unsigned __int64)ExAllocatePoolWithTag(PagedPool, LengthNeeded, 0x4C474552u);
+      if ( !PoolWithTag )
       {
-        if ( Pool2 )
-          ExFreePoolWithTag((PVOID)Pool2, 0);
-        Pool2 = ExAllocatePool2(256LL, LengthNeeded, 1279739218LL);
-        if ( !Pool2 )
-          goto LABEL_28;
+        v14 = -1073741801;
+        break;
       }
     }
-    v15 = RegRtlCreateKeyTransacted(
-            v38,
-            a4,
-            v9,
-            0x6001Fu,
-            (void *)(Pool2 & -(__int64)(a5 != 0)),
-            0,
-            &Handle,
-            (ULONG *)&v32 + 1,
-            v35);
-    v16 = 0;
-    v14 = v15;
-    if ( v15 >= 0 )
+    if ( v14 >= 0 )
     {
-      if ( a5 && Pool2 && HIDWORD(v32) == 2 )
-        ZwSetSecurityObject(Handle, 4u, (PSECURITY_DESCRIPTOR)Pool2);
-      if ( (unsigned int)RegRtlQueryInfoKey(KeyHandle, 0LL, &v28, 0LL, &v27, &v29) )
+LABEL_87:
+      v14 = RegRtlCreateKeyTransacted(
+              v35,
+              a4,
+              v9,
+              0x6001Fu,
+              (void *)(PoolWithTag & -(__int64)(a5 != 0)),
+              0,
+              &Handle,
+              (PULONG)&v29 + 1,
+              v32);
+      if ( v14 >= 0 )
       {
-        LODWORD(v18) = 0;
-        LODWORD(v19) = 0;
-        goto LABEL_34;
-      }
-      v17 = v28;
-      if ( v28 <= v27 )
-        v17 = v27;
-      if ( v17 )
-      {
-        if ( v17 + 1 < v17 )
-          goto LABEL_32;
-        ++v17;
-      }
-      v18 = 2LL * v17;
-      if ( v18 <= 0xFFFFFFFF )
-      {
-        v19 = v29;
-        v14 = 0;
-        if ( !(_DWORD)v18 || (v10 = (char *)ExAllocatePool2(256LL, (unsigned int)v18, 1279739218LL)) != 0LL )
+        if ( a5 && PoolWithTag && HIDWORD(v29) == 2 )
+          ZwSetSecurityObject(Handle, 4u, (PSECURITY_DESCRIPTOR)PoolWithTag);
+        if ( (unsigned int)RegRtlQueryInfoKey(
+                             KeyHandle,
+                             0LL,
+                             (unsigned int *)&NumberOfBytes + 1,
+                             0LL,
+                             &i,
+                             &NumberOfBytes) )
         {
-          if ( !(_DWORD)v19 || (v11 = (void *)ExAllocatePool2(256LL, v19, 1279739218LL)) != 0LL )
+          LODWORD(v16) = 0;
+          LODWORD(v17) = 0;
+        }
+        else
+        {
+          v15 = HIDWORD(NumberOfBytes);
+          if ( HIDWORD(NumberOfBytes) <= i )
+            v15 = i;
+          if ( v15 )
           {
-LABEL_34:
-            while ( 1 )
+            if ( v15 + 1 < v15 )
             {
-              v27 = (unsigned int)v18 >> 1;
-              v29 = (unsigned int)v18 >> 1;
-              v20 = RegRtlEnumKey(KeyHandle, v16, v10, &v29);
+              v14 = -1073741675;
+              v15 = -1;
+            }
+            else
+            {
+              v14 = 0;
+              ++v15;
+            }
+            if ( v14 < 0 )
+              goto LABEL_78;
+          }
+          v16 = 2LL * v15;
+          if ( v16 > 0xFFFFFFFF )
+          {
+            v14 = -1073741675;
+            goto LABEL_78;
+          }
+          LODWORD(v17) = NumberOfBytes;
+          v14 = 0;
+        }
+        if ( !(_DWORD)v16
+          || (v10 = (unsigned int *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v16, 0x4C474552u)) != 0LL )
+        {
+          if ( !(_DWORD)v17 || (v11 = ExAllocatePoolWithTag(PagedPool, (unsigned int)v17, 0x4C474552u)) != 0LL )
+          {
+            v18 = 0;
+LABEL_39:
+            for ( i = v18; ; v18 = i )
+            {
+              v19 = (unsigned int)v16 >> 1;
+              HIDWORD(NumberOfBytes) = (unsigned int)v16 >> 1;
+              v20 = RegRtlEnumKey(KeyHandle, v18, v10, (unsigned int *)&NumberOfBytes + 1);
               if ( v20 == -2147483622 )
                 break;
-              if ( v20 == -1073741789 )
+              if ( v20 != -1073741789 )
               {
-                v18 = 2LL * v29;
-                if ( v18 > 0xFFFFFFFF )
+                if ( !v20 )
                 {
-LABEL_65:
-                  v14 = -1073741675;
-                  goto LABEL_67;
+                  *((_WORD *)v10 + ((unsigned __int64)(unsigned int)v16 >> 1) - 1) = 0;
+                  v20 = RegRtlCopyTreeInternal((_DWORD)KeyHandle, (_DWORD)v10, (_DWORD)Handle, (_DWORD)v10, a5, v32, a7);
+                  if ( !v20 || v20 == -2147483603 )
+                  {
+                    v18 = i + 1;
+                    goto LABEL_39;
+                  }
                 }
-                v14 = 0;
-                if ( v10 )
-                  ExFreePoolWithTag(v10, 0);
-                v10 = (char *)ExAllocatePool2(256LL, (unsigned int)v18, 1279739218LL);
-                if ( !v10 )
-                {
-LABEL_40:
-                  v14 = -1073741801;
-                  goto LABEL_67;
-                }
+                v14 = v20;
+                break;
               }
-              else
+              v16 = 2LL * HIDWORD(NumberOfBytes);
+              if ( v16 > 0xFFFFFFFF )
               {
-                if ( v20
-                  || (*(_WORD *)&v10[2 * ((unsigned __int64)(unsigned int)v18 >> 1) - 2] = 0,
-                      (v20 = RegRtlCopyTreeInternal(
-                               (_DWORD)KeyHandle,
-                               (_DWORD)v10,
-                               (_DWORD)Handle,
-                               (_DWORD)v10,
-                               a5,
-                               v35,
-                               a7)) != 0)
-                  && v20 != -2147483603 )
-                {
-                  v14 = v20;
-                  break;
-                }
-                ++v16;
+LABEL_51:
+                v14 = -1073741675;
+                goto LABEL_74;
+              }
+              v14 = 0;
+              if ( v10 )
+                ExFreePoolWithTag(v10, 0);
+              v10 = (unsigned int *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v16, 0x4C474552u);
+              if ( !v10 )
+              {
+LABEL_72:
+                v14 = -1073741801;
+                goto LABEL_74;
               }
             }
-            v21 = 0;
             if ( v14 >= 0 )
             {
-              v22 = v27;
-              v23 = 0;
+              HIDWORD(NumberOfBytes) = 0;
+              v21 = 0;
               while ( 1 )
               {
-                v27 = v22;
-                v28 = v19;
-                v25 = RegRtlEnumValue(KeyHandle, v23, v10, &v27, &v32, v11, &v28);
-                if ( v25 == -2147483622 )
+                i = v19;
+                LODWORD(NumberOfBytes) = v17;
+                v23 = RegRtlEnumValue(KeyHandle, v21, v10, &i, &v29, v11, (unsigned int *)&NumberOfBytes);
+                if ( v23 == -2147483622 )
                   break;
-                if ( v25 == -1073741789 )
+                if ( v23 == -1073741789 )
                 {
-                  if ( v27 > (unsigned int)v18 >> 1 )
+                  if ( i > v19 )
                   {
-                    v18 = 2LL * v27;
-                    if ( v18 > 0xFFFFFFFF )
-                      goto LABEL_65;
+                    v16 = 2LL * i;
+                    if ( v16 > 0xFFFFFFFF )
+                      goto LABEL_51;
                     v14 = 0;
                     if ( v10 )
                       ExFreePoolWithTag(v10, 0);
-                    v10 = (char *)ExAllocatePool2(256LL, (unsigned int)v18, 1279739218LL);
+                    v10 = (unsigned int *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v16, 0x4C474552u);
                     if ( !v10 )
-                      goto LABEL_40;
+                      goto LABEL_72;
                   }
-                  if ( v28 > (unsigned int)v19 )
+                  if ( (unsigned int)NumberOfBytes > (unsigned int)v17 )
                   {
-                    v19 = v28;
+                    v17 = (unsigned int)NumberOfBytes;
                     if ( v11 )
                       ExFreePoolWithTag(v11, 0);
-                    v11 = (void *)ExAllocatePool2(256LL, v19, 1279739218LL);
+                    v11 = ExAllocatePoolWithTag(PagedPool, v17, 0x4C474552u);
                     if ( !v11 )
-                      goto LABEL_31;
+                      goto LABEL_37;
                   }
                 }
                 else
                 {
-                  if ( v25
-                    || (v24 = v32,
-                        *(_WORD *)&v10[2 * ((unsigned __int64)(unsigned int)v18 >> 1) - 2] = 0,
-                        (v25 = RegRtlSetValue(Handle, (const WCHAR *)v10, v24, v11, v28)) != 0) )
+                  if ( v23
+                    || (v22 = v29,
+                        *((_WORD *)v10 + ((unsigned __int64)(unsigned int)v16 >> 1) - 1) = 0,
+                        (v23 = RegRtlSetValue(Handle, (const WCHAR *)v10, v22, v11, NumberOfBytes)) != 0) )
                   {
-                    v14 = v25;
+                    v14 = v23;
                     break;
                   }
-                  ++v21;
+                  ++HIDWORD(NumberOfBytes);
                 }
-                v23 = v21;
-                v22 = (unsigned int)v18 >> 1;
+                v21 = HIDWORD(NumberOfBytes);
+                v19 = (unsigned int)v16 >> 1;
               }
             }
-LABEL_67:
+LABEL_74:
             if ( v11 )
               ExFreePoolWithTag(v11, 0);
           }
           else
           {
-LABEL_31:
+LABEL_37:
             v14 = -1073741801;
           }
           if ( v10 )
@@ -264,21 +277,17 @@ LABEL_31:
         }
         else
         {
-LABEL_28:
           v14 = -1073741801;
         }
-        goto LABEL_71;
       }
-LABEL_32:
-      v14 = -1073741675;
     }
   }
-LABEL_71:
+LABEL_78:
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( Handle )
     ZwClose(Handle);
-  if ( Pool2 )
-    ExFreePoolWithTag((PVOID)Pool2, 0);
+  if ( PoolWithTag )
+    ExFreePoolWithTag((PVOID)PoolWithTag, 0);
   return (unsigned int)v14;
 }

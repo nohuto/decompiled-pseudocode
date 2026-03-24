@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerButtonBugcheckWatchCallback @ 0x140877140
+ * XREFs of PopPowerButtonBugcheckWatchCallback @ 0x140877120
  * Callers:
  *     <none>
  * Callees:
- *     PopPowerButtonBugcheckConfigure @ 0x140729920 (PopPowerButtonBugcheckConfigure.c)
+ *     PopPowerButtonBugcheckConfigure @ 0x140729900 (PopPowerButtonBugcheckConfigure.c)
  */
 
 NTSTATUS __fastcall PopPowerButtonBugcheckWatchCallback(void *a1)

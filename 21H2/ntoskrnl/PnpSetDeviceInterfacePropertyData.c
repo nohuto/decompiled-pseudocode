@@ -1,14 +1,17 @@
 /*
- * XREFs of PnpSetDeviceInterfacePropertyData @ 0x14080D8A8
+ * XREFs of PnpSetDeviceInterfacePropertyData @ 0x14077DEA8
  * Callers:
- *     IoSetDeviceInterfacePropertyData @ 0x14080D860 (IoSetDeviceInterfacePropertyData.c)
+ *     IoSetDeviceInterfacePropertyData @ 0x14077DE60 (IoSetDeviceInterfacePropertyData.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PiPnpRtlSetObjectProperty @ 0x140771524 (PiPnpRtlSetObjectProperty.c)
- *     PnpUnicodeStringToWstr @ 0x140779CA0 (PnpUnicodeStringToWstr.c)
- *     PnpUnicodeStringToWstrFree @ 0x14077BAB8 (PnpUnicodeStringToWstrFree.c)
- *     RtlLCIDToCultureName @ 0x1409BB670 (RtlLCIDToCultureName.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PnpUnicodeStringToWstrFree @ 0x140635794 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x14063755C (PnpUnicodeStringToWstr.c)
+ *     PiPnpRtlSetObjectProperty @ 0x14074578C (PiPnpRtlSetObjectProperty.c)
+ *     RtlLCIDToCultureName @ 0x140916020 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall PnpSetDeviceInterfacePropertyData(
@@ -20,12 +23,12 @@ __int64 __fastcall PnpSetDeviceInterfacePropertyData(
         unsigned int a6,
         const wchar_t *a7)
 {
-  __int64 v10; // rsi
+  struct _KTHREAD *CurrentThread; // rax
   int v11; // ebx
-  WCHAR *v13; // [rsp+50h] [rbp-108h] BYREF
-  __int64 v14; // [rsp+58h] [rbp-100h] BYREF
-  _BYTE *v15; // [rsp+60h] [rbp-F8h]
-  _BYTE v16[176]; // [rsp+70h] [rbp-E8h] BYREF
+  WCHAR *v13; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v14; // [rsp+58h] [rbp-A8h] BYREF
+  _BYTE *v15; // [rsp+60h] [rbp-A0h]
+  _BYTE v16[176]; // [rsp+70h] [rbp-90h] BYREF
 
   memset(v16, 0, 0xAAuLL);
   v14 = 0LL;
@@ -38,16 +41,20 @@ __int64 __fastcall PnpSetDeviceInterfacePropertyData(
     v15 = v16;
     if ( !(unsigned __int8)RtlLCIDToCultureName(a3, &v14) )
       return (unsigned int)-1073741823;
-    v10 = (__int64)v15;
   }
   else
   {
-    v10 = 0LL;
+    v15 = 0LL;
   }
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquireResourceExclusiveLite(&PnpDevicePropertyLock, 1u);
   v11 = PnpUnicodeStringToWstr((__int16 **)&v13, 0LL, (unsigned __int16 *)a1);
   if ( v11 >= 0 )
-    v11 = PiPnpRtlSetObjectProperty(*(__int64 *)&PiPnpRtlCtx, v13, 3, 0LL, v10, a2, a5, a7, a6, 0);
+    v11 = PiPnpRtlSetObjectProperty(*(__int64 *)&PiPnpRtlCtx, v13, 3, 0LL, (__int64)v15, a2, a5, a7, a6, 0);
   PnpUnicodeStringToWstrFree(v13, a1);
+  ExReleaseResourceLite(&PnpDevicePropertyLock);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v11 == -1073741275 )
     return (unsigned int)-1073741772;
   return (unsigned int)v11;

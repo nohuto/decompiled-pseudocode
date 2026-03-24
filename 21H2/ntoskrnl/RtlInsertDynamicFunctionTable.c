@@ -1,19 +1,21 @@
 /*
- * XREFs of RtlInsertDynamicFunctionTable @ 0x14036858C
+ * XREFs of RtlInsertDynamicFunctionTable @ 0x1402A75C8
  * Callers:
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
- *     KiAbThreadRemoveBoostsSlow @ 0x14022B568 (KiAbThreadRemoveBoostsSlow.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14034EE30 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlInsertDynamicFunctionTable(__int64 a1)
@@ -22,195 +24,201 @@ __int64 __fastcall RtlInsertDynamicFunctionTable(__int64 a1)
   unsigned __int64 v3; // rax
   unsigned int v4; // eax
   unsigned int v6; // edi
-  char *v7; // rsi
-  unsigned int v8; // r14d
-  unsigned int v9; // ecx
-  unsigned int v10; // r9d
-  unsigned __int64 *v11; // rcx
-  __int64 v12; // r12
-  bool v13; // zf
-  __int64 v14; // rcx
-  void *v15; // r13
-  ULONG_PTR p_UserCetLogging; // r14
-  struct _KTHREAD *v17; // rsi
-  unsigned int SessionId; // r8d
-  unsigned int v19; // ecx
-  __int64 p_Process; // rbx
-  int v21; // edx
-  __int64 v22; // r12
-  unsigned __int64 v23; // rcx
-  __int64 v24; // r15
+  ULONG_PTR v7; // r13
+  char *v8; // rbx
+  unsigned int v9; // r14d
+  unsigned int v10; // ecx
+  unsigned int v11; // r9d
+  unsigned __int64 *v12; // rcx
+  __int64 v13; // r12
+  bool v14; // zf
+  __int64 v15; // rcx
+  void *v16; // r15
+  struct _KTHREAD *v17; // rbx
+  unsigned int SessionId; // edx
+  unsigned __int8 v19; // r12
+  __int64 v20; // r14
+  unsigned int v21; // r8d
+  __int64 v22; // rcx
+  __int64 v23; // rcx
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r12
+  unsigned __int64 v27; // rcx
+  unsigned __int64 v28; // rsi
   char *PoolWithQuotaTag; // rax
-  _OWORD *v26; // rcx
-  int v27; // [rsp+30h] [rbp-58h]
-  int v28; // [rsp+34h] [rbp-54h]
-  unsigned __int64 v29; // [rsp+38h] [rbp-50h]
-  unsigned __int64 v30; // [rsp+40h] [rbp-48h]
-  PVOID P; // [rsp+98h] [rbp+10h]
-  _KPROCESS *Process; // [rsp+A0h] [rbp+18h]
-  struct _KTHREAD *CurrentThread; // [rsp+A8h] [rbp+20h]
+  _OWORD *v30; // rcx
+  int v31; // [rsp+30h] [rbp-68h]
+  int v32; // [rsp+34h] [rbp-64h]
+  unsigned __int64 v33; // [rsp+38h] [rbp-60h]
+  unsigned __int64 v34; // [rsp+40h] [rbp-58h]
+  _KPROCESS *Process; // [rsp+48h] [rbp-50h]
+  struct _KTHREAD *CurrentThread; // [rsp+50h] [rbp-48h]
+  PVOID P; // [rsp+B8h] [rbp+20h]
 
   if ( (a1 & 3) != 0 )
     ExRaiseDatatypeMisalignment();
-  v29 = *(_QWORD *)(a1 + 48);
+  v33 = *(_QWORD *)(a1 + 48);
   v2 = *(_QWORD *)(a1 + 40);
-  v30 = v2;
-  if ( v2 < v29 )
+  v34 = v2;
+  if ( v2 < v33 )
     return 3221225621LL;
-  v3 = v2 - v29;
+  v3 = v2 - v33;
   if ( v3 > 0xFFFFFFFF )
     return 3221225621LL;
-  v28 = v3;
+  v32 = v3;
   v4 = *(_DWORD *)(a1 + 84);
   if ( v4 > 0x15555555 )
     return 3221225621LL;
-  v27 = 12 * v4;
+  v31 = 12 * v4;
   P = 0LL;
   v6 = 0;
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->Process;
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&Process[1].UserCetLogging, 0LL);
-  v7 = *(char **)&Process[1].PrimaryGroup;
-  if ( v7 )
+  v7 = (ULONG_PTR)&Process[1].EndPadding[4];
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&Process[1].EndPadding[4], 0LL);
+  v8 = (char *)Process[1].EndPadding[3];
+  if ( v8 )
   {
-    v8 = *(_DWORD *)v7;
-    v9 = *((_DWORD *)v7 + 1);
+    v9 = *(_DWORD *)v8;
+    v10 = *((_DWORD *)v8 + 1);
   }
   else
   {
-    v8 = 0;
     v9 = 0;
+    v10 = 0;
   }
-  if ( v8 + 1 <= v9 )
+  if ( v9 + 1 <= v10 )
     goto LABEL_11;
-  v22 = v9 + 10;
-  if ( (unsigned int)v22 < v9 || (v23 = 24 * v22 + 16, v23 >= 0xFFFFFFFF) )
+  v26 = v10 + 10;
+  if ( (unsigned int)v26 < v10 || (v27 = 24 * v26 + 16, v27 >= 0xFFFFFFFF) )
   {
     v6 = -1073741675;
     goto LABEL_22;
   }
-  v24 = *(_QWORD *)&Process[1].PrimaryGroup;
-  P = (PVOID)v24;
-  PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, (unsigned int)v23, 0x46447452u);
-  v7 = PoolWithQuotaTag;
+  v28 = Process[1].EndPadding[3];
+  P = (PVOID)v28;
+  PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, (unsigned int)v27, 0x46447452u);
+  v8 = PoolWithQuotaTag;
   if ( PoolWithQuotaTag )
   {
-    v26 = PoolWithQuotaTag + 16;
-    if ( v8 )
+    v30 = PoolWithQuotaTag + 16;
+    if ( v9 )
     {
-      memmove(v26, (const void *)(v24 + 16), 24LL * v8);
+      memmove(v30, (const void *)(v28 + 16), 24LL * v9);
     }
     else
     {
-      *v26 = 0LL;
+      *v30 = 0LL;
       *((_QWORD *)PoolWithQuotaTag + 4) = 0LL;
-      v8 = 1;
+      v9 = 1;
     }
-    *(_DWORD *)v7 = v8;
-    *((_DWORD *)v7 + 1) = v22;
-    v7[12] = 0;
-    *(_QWORD *)&Process[1].PrimaryGroup = v7;
+    *(_DWORD *)v8 = v9;
+    *((_DWORD *)v8 + 1) = v26;
+    v8[12] = 0;
+    Process[1].EndPadding[3] = (unsigned __int64)v8;
 LABEL_11:
-    v10 = 1;
-    if ( v8 > 1 )
+    v11 = 1;
+    if ( v9 > 1 )
     {
-      v11 = (unsigned __int64 *)(v7 + 48);
+      v12 = (unsigned __int64 *)(v8 + 48);
       do
       {
-        if ( v29 < *v11 )
+        if ( v33 < *v12 )
           break;
-        ++v10;
-        v11 += 3;
+        ++v11;
+        v12 += 3;
       }
-      while ( v10 < v8 );
+      while ( v11 < v9 );
     }
-    if ( *(_QWORD *)&v7[24 * v10] + (unsigned __int64)*(unsigned int *)&v7[24 * v10 + 8] <= v29 )
+    if ( *(_QWORD *)&v8[24 * v11] + (unsigned __int64)*(unsigned int *)&v8[24 * v11 + 8] <= v33 )
     {
-      v12 = v10;
-      v13 = v10 == v8;
-      if ( v10 >= v8 )
+      v13 = v11;
+      v14 = v11 == v9;
+      if ( v11 >= v9 )
       {
 LABEL_19:
-        if ( !v13 )
-          memmove(&v7[16 * v10 + 40 + 8 * v10], &v7[16 * v10 + 16 + 8 * v10], 24LL * (v8 - v10));
-        v14 = 3 * v12;
-        *(_QWORD *)&v7[8 * v14 + 16] = a1;
-        *(_QWORD *)&v7[8 * v14 + 24] = v29;
-        *(_DWORD *)&v7[8 * v14 + 32] = v28;
-        *(_DWORD *)&v7[8 * v14 + 36] = v27;
-        *(_DWORD *)v7 = v8 + 1;
+        if ( !v14 )
+          memmove(&v8[16 * v11 + 40 + 8 * v11], &v8[16 * v11 + 16 + 8 * v11], 24LL * (v9 - v11));
+        v15 = 3 * v13;
+        *(_QWORD *)&v8[8 * v15 + 16] = a1;
+        *(_QWORD *)&v8[8 * v15 + 24] = v33;
+        *(_DWORD *)&v8[8 * v15 + 32] = v32;
+        *(_DWORD *)&v8[8 * v15 + 36] = v31;
+        *(_DWORD *)v8 = v9 + 1;
         goto LABEL_22;
       }
-      if ( *(_QWORD *)&v7[24 * v10 + 24] >= v30 )
+      if ( *(_QWORD *)&v8[24 * v11 + 24] >= v34 )
       {
-        v13 = v10 == v8;
+        v14 = v11 == v9;
         goto LABEL_19;
       }
     }
     v6 = -1073741800;
 LABEL_22:
-    v15 = P;
+    v16 = P;
     goto LABEL_23;
   }
   v6 = -1073741670;
-  v15 = 0LL;
+  v16 = 0LL;
 LABEL_23:
-  p_UserCetLogging = (ULONG_PTR)&Process[1].UserCetLogging;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&Process[1].UserCetLogging, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(p_UserCetLogging);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v7);
   v17 = KeGetCurrentThread();
-  if ( p_UserCetLogging - qword_140C50630 < 0x8000000000LL )
-    SessionId = MmGetSessionIdEx((__int64)v17->ApcState.Process);
+  if ( (unsigned int)MiGetSystemRegionType(v7) == 1 )
+    SessionId = MmGetSessionIdEx(v17->ApcState.Process);
   else
     SessionId = -1;
-  _disable();
-  v19 = 0;
-  p_Process = (__int64)&v17[1].Process;
-  do
+  --v17->SpecialApcDisable;
+  v19 = ++v17->AbAllocationRegionCount;
+  v20 = 0LL;
+  v21 = ((char)v17->AbEntrySummary | (char)v17->AbOrphanedEntrySummary) ^ 0x3F;
+  while ( 1 )
   {
-    if ( (*(_QWORD *)p_Process & 0x7FFFFFFFFFFFFFFCLL) == (p_UserCetLogging & 0x7FFFFFFFFFFFFFFCLL)
-      && *(_BYTE *)(p_Process + 18)
-      && (*(_DWORD *)p_Process & 1) == 0
-      && *(_DWORD *)(p_Process + 8) == SessionId )
+    v14 = !_BitScanReverse((unsigned int *)&v22, v21);
+    if ( v14 )
+      break;
+    v21 &= ~(1 << v22);
+    v23 = (__int64)&v17->LockEntries[v22];
+    if ( (*(_BYTE *)(v23 + 26) & 1) != 0
+      && (*(_DWORD *)(v23 + 32) & 1) == 0
+      && (*(_QWORD *)(v23 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v7 & 0x7FFFFFFFFFFFFFFCLL)
+      && *(_DWORD *)(v23 + 40) == SessionId )
     {
-      *(_BYTE *)(p_Process + 18) = 0;
-      goto LABEL_33;
+      *(_BYTE *)(v23 + 26) &= ~1u;
+      if ( *(_QWORD *)(v23 + 32) )
+      {
+        v20 = v23;
+        break;
+      }
     }
-    ++v19;
-    p_Process += 96LL;
   }
-  while ( v19 < 6 );
-  p_Process = 0LL;
-LABEL_33:
-  if ( p_Process )
+  if ( v20 )
   {
-    if ( *(__int64 *)p_Process < 0 )
-    {
-      *(_BYTE *)p_Process |= 2u;
-      _enable();
-      KiAbEntryRemoveFromTree(p_Process);
-      _disable();
-    }
-    v21 = *(_DWORD *)(p_Process + 88);
-    *(_DWORD *)(p_Process + 88) = 0;
-    *(_BYTE *)(p_Process + 17) = 0;
-    *(_QWORD *)p_Process = 0LL;
-    v17->AbEntrySummary |= 1 << *(_BYTE *)(p_Process + 16);
-    _enable();
-    if ( v21 )
-      KiAbThreadRemoveBoostsSlow((ULONG_PTR)v17, p_UserCetLogging, v21);
+    *(_BYTE *)(v20 + 32) |= 2u;
+    if ( *(__int64 *)(v20 + 32) < 0 )
+      KiAbEntryRemoveFromTree(v20);
+    *(_DWORD *)(v20 + 88) &= 0xFFFE0000;
+    *(_BYTE *)(v20 + 25) &= ~1u;
+    *(_QWORD *)(v20 + 32) = 0LL;
+    v24 = (signed __int64)(v20 - (unsigned __int64)v17->LockEntries) / 96;
+    if ( v19 == 1 )
+      v17->AbEntrySummary |= 1 << v24;
+    else
+      _InterlockedOr8((volatile signed __int8 *)&v17->AbOrphanedEntrySummary, 1 << v24);
   }
-  else
+  else if ( (*((_DWORD *)&v17->0 + 1) & 0x10000) == 0 )
   {
-    if ( (*((_DWORD *)&v17->0 + 1) & 0x10000) == 0 )
-      KeBugCheckEx(0x162u, (ULONG_PTR)v17, p_UserCetLogging, SessionId, 0LL);
-    _enable();
+    KeBugCheckEx(0x162u, (ULONG_PTR)v17, v7, SessionId, 0LL);
   }
-  v13 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v13 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
-  if ( v15 )
-    ExFreePoolWithTag(v15, 0x46447452u);
+  --v17->AbAllocationRegionCount;
+  KiAbThreadRemoveBoosts((ULONG_PTR)v17);
+  v14 = v17->SpecialApcDisable++ == -1;
+  if ( v14 && ($C459BD0D405E8E46662177FB3D0A143F *)v17->ApcState.ApcListHead[0].Flink != &v17->152 )
+    KiCheckForKernelApcDelivery(v25);
+  KiLeaveGuardedRegionUnsafe(CurrentThread);
+  if ( v16 )
+    ExFreePoolWithTag(v16, 0x46447452u);
   return v6;
 }

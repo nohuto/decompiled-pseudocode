@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_DWriteCreateFactory @ 0x1801029F6
+ * XREFs of __imp_load_DWriteCreateFactory @ 0x1800E8CA7
  * Callers:
  *     <none>
  * Callees:

@@ -1,8 +1,8 @@
 /*
- * XREFs of PtrToUlong @ 0x1401348E0
+ * XREFs of PtrToUlong @ 0x140134900
  * Callers:
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

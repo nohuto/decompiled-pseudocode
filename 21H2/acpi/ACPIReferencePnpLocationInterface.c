@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIReferencePnpLocationInterface @ 0x1C008ECF0
+ * XREFs of ACPIReferencePnpLocationInterface @ 0x1C0090430
  * Callers:
  *     <none>
  * Callees:

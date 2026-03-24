@@ -1,12 +1,12 @@
 /*
- * XREFs of PspGetHostSiloStorage @ 0x1405A39A4
+ * XREFs of PspGetHostSiloStorage @ 0x140580ED8
  * Callers:
- *     PsUnregisterSiloMonitor @ 0x1409B40C0 (PsUnregisterSiloMonitor.c)
+ *     PsUnregisterSiloMonitor @ 0x14090B530 (PsUnregisterSiloMonitor.c)
  * Callees:
  *     <none>
  */
 
 __int64 PspGetHostSiloStorage()
 {
-  return qword_140D49ED0;
+  return qword_140D24990;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiMiracastDdiMiracastIoControl @ 0x1C038CE68
+ * XREFs of DpiMiracastDdiMiracastIoControl @ 0x1C02CDD98
  * Callers:
- *     DxgkHandleMiracastEscape @ 0x1C038E208 (DxgkHandleMiracastEscape.c)
+ *     DxgkHandleMiracastEscape @ 0x1C02CF1E8 (DxgkHandleMiracastEscape.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0ppqqq_EtwWriteTransfer @ 0x1C006433C (McTemplateK0ppqqq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0ppqqq_EtwWriteTransfer @ 0x1C00567C4 (McTemplateK0ppqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DpiMiracastDdiMiracastIoControl(
@@ -27,7 +27,7 @@ __int64 __fastcall DpiMiracastDdiMiracastIoControl(
   int v20; // [rsp+38h] [rbp-20h]
 
   v8 = a3;
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200000000LL) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x20000000) != 0 )
   {
     v20 = 0;
     v15 = a3;
@@ -50,7 +50,7 @@ __int64 __fastcall DpiMiracastDdiMiracastIoControl(
           a6,
           a7);
   v13 = v11;
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200000000LL) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x20000000) != 0 )
   {
     LODWORD(v19) = v11;
     LODWORD(v18) = *a7;

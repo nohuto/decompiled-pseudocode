@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x1408FD12C
+ * XREFs of _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x1408FD10C
  * Callers:
- *     _CmSetInstallerClassMappedProperty @ 0x1408FF4A0 (_CmSetInstallerClassMappedProperty.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x1408FF480 (_CmSetInstallerClassMappedProperty.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x1401B9B90 (ZwDeleteValueKey.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
  *     _PnpOpenPropertiesKey @ 0x14059AA2C (_PnpOpenPropertiesKey.c)
  *     _CmOpenInstallerClassRegKey @ 0x14059EB8C (_CmOpenInstallerClassRegKey.c)
  */
@@ -34,7 +34,7 @@ __int64 __fastcall CmDeleteInstallerClassMappedPropertyFromRegValue(__int64 a1, 
   KeyHandle = 0LL;
   v6 = 0;
   Handle = 0LL;
-  v9 = &off_14090AC00;
+  v9 = &off_14090ABE0;
   v10 = 0LL;
   do
   {
@@ -98,7 +98,7 @@ LABEL_22:
         goto LABEL_32;
       }
     }
-    if ( RtlInitUnicodeStringEx(&DestinationString, &word_140766570) >= 0 )
+    if ( RtlInitUnicodeStringEx(&DestinationString, &word_140766550) >= 0 )
       ZwDeleteValueKey(v5, &DestinationString);
     goto LABEL_32;
   }

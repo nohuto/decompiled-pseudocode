@@ -1,23 +1,27 @@
 /*
- * XREFs of ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00027C4
+ * XREFs of ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C0002530
  * Callers:
- *     ??1VIDMM_RECYCLE_HEAP_MGR@@UEAA@XZ @ 0x1C0081C04 (--1VIDMM_RECYCLE_HEAP_MGR@@UEAA@XZ.c)
- *     ??1_VIDMM_GLOBAL_ALLOC@@QEAA@XZ @ 0x1C008DB14 (--1_VIDMM_GLOBAL_ALLOC@@QEAA@XZ.c)
- *     ??1VIDMM_PROCESS_HEAP@@UEAA@XZ @ 0x1C00F01BC (--1VIDMM_PROCESS_HEAP@@UEAA@XZ.c)
+ *     ??_GDXGFASTMUTEX@@QEAAPEAXI@Z @ 0x1C00233C8 (--_GDXGFASTMUTEX@@QEAAPEAXI@Z.c)
+ *     ??1VIDMM_RECYCLE_HEAP_MGR@@UEAA@XZ @ 0x1C007AD3C (--1VIDMM_RECYCLE_HEAP_MGR@@UEAA@XZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     <none>
  */
 
 void __fastcall DXGFASTMUTEX::~DXGFASTMUTEX(DXGFASTMUTEX *this)
 {
-  if ( *((_QWORD *)this + 3) )
+  __int64 v2; // rax
+  __int64 v3; // rax
+
+  if ( *((_QWORD *)this + 2) )
   {
-    WdLogSingleEntry1(1LL, 452LL);
-    DxgCoreInterface[85](0LL, 262146LL, 0xFFFFFFFFLL, L"NULL == m_OwningThread", 452LL, 0LL, 0LL, 0LL, 0LL);
+    v2 = WdLogNewEntry5_WdAssertion();
+    *(_QWORD *)(v2 + 24) = 641LL;
+    WdLogEvent5_WdAssertion(v2);
   }
-  if ( *((_DWORD *)this + 8) )
+  if ( *((_DWORD *)this + 6) )
   {
-    WdLogSingleEntry1(1LL, 453LL);
-    DxgCoreInterface[85](0LL, 262146LL, 0xFFFFFFFFLL, L"0 == m_OwnerAcquireCount", 453LL, 0LL, 0LL, 0LL, 0LL);
+    v3 = WdLogNewEntry5_WdAssertion();
+    *(_QWORD *)(v3 + 24) = 642LL;
+    WdLogEvent5_WdAssertion(v3);
   }
 }

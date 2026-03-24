@@ -1,12 +1,18 @@
 /*
- * XREFs of VerifierExEnterPriorityRegionAndAcquireResourceShared @ 0x140AE52F0
+ * XREFs of VerifierExEnterPriorityRegionAndAcquireResourceShared @ 0x1409E2190
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5D8 (VfDeadlockAcquireResource.c)
  */
 
-__int64 VerifierExEnterPriorityRegionAndAcquireResourceShared()
+__int64 __fastcall VerifierExEnterPriorityRegionAndAcquireResourceShared(ULONG_PTR a1)
 {
-  return ((__int64 (*)(void))pXdvExEnterPriorityRegionAndAcquireResourceShared)();
+  __int64 v2; // rbx
+  PVOID retaddr; // [rsp+38h] [rbp+0h]
+
+  v2 = ((__int64 (*)(void))pXdvExEnterPriorityRegionAndAcquireResourceShared)();
+  VfDeadlockAcquireResource(a1, 8, (__int64)KeGetCurrentThread(), 0, retaddr);
+  return v2;
 }

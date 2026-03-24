@@ -1,15 +1,15 @@
 /*
- * XREFs of IoGetFsZeroingOffset @ 0x1403ABEA0
+ * XREFs of IoGetFsZeroingOffset @ 0x140507830
  * Callers:
  *     <none>
  * Callees:
- *     IopIrpHasExtensionType @ 0x140290158 (IopIrpHasExtensionType.c)
+ *     IopIrpHasExtensionType @ 0x1402E6690 (IopIrpHasExtensionType.c)
  */
 
 __int64 __fastcall IoGetFsZeroingOffset(__int64 a1)
 {
   __int64 v1; // rcx
-  _DWORD *v2; // r9
+  _DWORD *v2; // r8
   __int64 result; // rax
 
   if ( !IopIrpHasExtensionType(a1, 4u) )

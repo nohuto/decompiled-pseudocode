@@ -1,55 +1,43 @@
 /*
- * XREFs of _lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator() @ 0x1C00B9600
+ * XREFs of _lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator() @ 0x1C007C488
  * Callers:
- *     ?Win32kNtUserCleanupInternal@@YAXXZ @ 0x1C00B8EAC (-Win32kNtUserCleanupInternal@@YAXXZ.c)
+ *     ?Win32kNtUserCleanupInternal@@YAXXZ @ 0x1C007B65C (-Win32kNtUserCleanupInternal@@YAXXZ.c)
  * Callees:
- *     UserIsUserCritSecInExclusive @ 0x1C002A1D0 (UserIsUserCritSecInExclusive.c)
- *     IS_USERCRIT_OWNED_SHARED @ 0x1C002C87C (IS_USERCRIT_OWNED_SHARED.c)
- *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z @ 0x1C002DC3C (-LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z.c)
- *     HMAssignmentUnlockWorker @ 0x1C0038F7C (HMAssignmentUnlockWorker.c)
- *     ?HMMarkObjectDestroyWorker@@YAHPEAX@Z @ 0x1C004E6D0 (-HMMarkObjectDestroyWorker@@YAHPEAX@Z.c)
- *     DestroyKL @ 0x1C005206C (DestroyKL.c)
- *     ?IsLockedShared@tagDomLock@@QEBA_NXZ @ 0x1C006D24C (-IsLockedShared@tagDomLock@@QEBA_NXZ.c)
- *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C006D270 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ *     DestroyKL @ 0x1C00072A8 (DestroyKL.c)
+ *     ?HMMarkObjectDestroyWorker@@YAHPEAX@Z @ 0x1C0008348 (-HMMarkObjectDestroyWorker@@YAHPEAX@Z.c)
+ *     HMAssignmentUnlock @ 0x1C0030630 (HMAssignmentUnlock.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0031C90 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
  */
 
-__int64 __fastcall lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator()(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator()(__int64 a1, __int64 a2)
 {
-  _QWORD *v4; // rdi
-  const struct tagDomLock *v6; // rcx
+  _QWORD *v2; // rdi
   __int64 result; // rax
-  _QWORD *v8; // rbx
-  __int64 v9; // [rsp+38h] [rbp+10h] BYREF
+  _QWORD *v5; // rbx
+  _BYTE v6[24]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v7; // [rsp+48h] [rbp+10h] BYREF
 
-  v9 = a2;
-  v4 = *(_QWORD **)(a2 + 16);
-  if ( (_QWORD *)v4[2] != v4 )
+  v7 = a2;
+  v2 = *(_QWORD **)(a2 + 16);
+  if ( (_QWORD *)v2[2] != v2 )
   {
     do
     {
-      v8 = (_QWORD *)v4[2];
-      DestroyKL(v4);
-      v4 = v8;
+      v5 = (_QWORD *)v2[2];
+      DestroyKL(v2);
+      v2 = v5;
     }
-    while ( (_QWORD *)v8[2] != v8 );
+    while ( (_QWORD *)v5[2] != v5 );
   }
-  if ( !gbInDestroyHandleTableObjects
-    && !UserIsUserCritSecInExclusive()
-    && (!IS_USERCRIT_OWNED_SHARED()
-     || !tagDomLock::IsLockedExclusive(&gDomainHandleManagerLock)
-     && !tagDomLock::IsLockedShared(&gDomainHandleManagerLock)) )
+  CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>((__int64)v6);
+  if ( (*((_BYTE *)qword_1C024FD58 + dword_1C024FD60 * (unsigned int)(unsigned __int16)*(_DWORD *)a2 + 25) & 1) == 0 )
   {
-    __int2c();
-  }
-  v6 = (const struct tagDomLock *)(dword_1C0294B70 * (unsigned int)(unsigned __int16)*(_DWORD *)a2);
-  if ( (*((_BYTE *)qword_1C0294B68 + (_QWORD)v6 + 25) & 1) == 0 )
-  {
-    LockRefactorStagingAssertOwned(v6);
+    CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>((__int64)v6);
     HMMarkObjectDestroyWorker((_DWORD *)a2);
   }
   gdwHydraHint |= 0x8000u;
-  result = HMAssignmentUnlockWorker(&v9, a2, a3, a4);
+  result = HMAssignmentUnlock(&v7);
   if ( result )
-    return DestroyKL(v4);
+    return DestroyKL(v2);
   return result;
 }

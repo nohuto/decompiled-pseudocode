@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReInitializeFreeSlabPfn @ 0x1402C2B00
+ * XREFs of MiReInitializeFreeSlabPfn @ 0x1402C2C00
  * Callers:
- *     MiAllocateSlabEntry @ 0x1402C1B9C (MiAllocateSlabEntry.c)
- *     MiFreePageToSlabAllocator @ 0x1402C1E80 (MiFreePageToSlabAllocator.c)
+ *     MiAllocateSlabEntry @ 0x1402C1C9C (MiAllocateSlabEntry.c)
+ *     MiFreePageToSlabAllocator @ 0x1402C1F80 (MiFreePageToSlabAllocator.c)
  * Callees:
  *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
  *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)

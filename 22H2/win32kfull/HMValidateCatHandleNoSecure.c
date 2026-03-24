@@ -1,31 +1,30 @@
 /*
- * XREFs of HMValidateCatHandleNoSecure @ 0x1C024B964
+ * XREFs of HMValidateCatHandleNoSecure @ 0x1C025CFEC
  * Callers:
- *     xxxDDETrackGetMessageHook @ 0x1C01FB134 (xxxDDETrackGetMessageHook.c)
+ *     xxxDDETrackGetMessageHook @ 0x1C021C734 (xxxDDETrackGetMessageHook.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
-__int64 __fastcall HMValidateCatHandleNoSecure(int a1)
+__int64 __fastcall HMValidateCatHandleNoSecure(unsigned __int64 a1)
 {
   __int64 v2; // rbx
-  __int64 v3; // rsi
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
+  int v3; // ecx
+  __int64 v4; // rsi
+  unsigned __int64 v5; // rdi
+  __int64 v6; // rcx
   __int64 v7; // r14
 
   v2 = 0LL;
   W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v3 = (unsigned __int16)a1;
   if ( (unsigned __int64)(unsigned __int16)a1 < *(_QWORD *)(gpsi + 8LL) )
   {
-    v3 = gSharedInfo[1] + LODWORD(gSharedInfo[2]) * (unsigned int)(unsigned __int16)a1;
-    v7 = HMPkheFromPhe(v3);
-    LOWORD(a1) = HIWORD(a1) & 0x7FFF;
-    if ( ((HIWORD(a1) & 0x7FFF) == *(_WORD *)(v3 + 26)
-       || (_WORD)a1 == 0x7FFF
-       || !(_WORD)a1 && PsGetCurrentProcessWow64Process(v5, v4, v6))
-      && *(_BYTE *)(v3 + 24) == 1 )
+    v4 = gSharedInfo[1] + (unsigned int)(unsigned __int16)a1 * LODWORD(gSharedInfo[2]);
+    v5 = a1 >> 16;
+    v7 = HMPkheFromPhe(gSharedInfo[1] + (unsigned int)(v3 * LODWORD(gSharedInfo[2])));
+    if ( ((_WORD)v5 == *(_WORD *)(v4 + 26) || (_WORD)v5 == 0xFFFF || !(_WORD)v5 && PsGetCurrentProcessWow64Process(v6))
+      && *(_BYTE *)(v4 + 24) == 1 )
     {
       return *(_QWORD *)v7;
     }

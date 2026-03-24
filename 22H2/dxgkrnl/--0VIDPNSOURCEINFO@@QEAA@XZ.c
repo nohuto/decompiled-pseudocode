@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0VIDPNSOURCEINFO@@QEAA@XZ @ 0x1C0019720
+ * XREFs of ??0VIDPNSOURCEINFO@@QEAA@XZ @ 0x1C001B710
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 VIDPNSOURCEINFO *__fastcall VIDPNSOURCEINFO::VIDPNSOURCEINFO(VIDPNSOURCEINFO *this)

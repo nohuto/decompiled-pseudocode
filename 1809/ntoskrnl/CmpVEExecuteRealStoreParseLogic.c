@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpVEExecuteRealStoreParseLogic @ 0x1407F3A08
+ * XREFs of CmpVEExecuteRealStoreParseLogic @ 0x1407F39E8
  * Callers:
- *     CmpVEExecuteParseLogic @ 0x140640F80 (CmpVEExecuteParseLogic.c)
+ *     CmpVEExecuteParseLogic @ 0x140640F60 (CmpVEExecuteParseLogic.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpIsKeyDeleted @ 0x140698140 (CmpIsKeyDeleted.c)
- *     CmpBlockHiveWrites @ 0x1407F06C0 (CmpBlockHiveWrites.c)
- *     CmpUnblockHiveWrites @ 0x1407F0908 (CmpUnblockHiveWrites.c)
- *     CmRealKCBToVirtualPath @ 0x1407F1FC8 (CmRealKCBToVirtualPath.c)
- *     CmpFindPathByName @ 0x1407F2EC4 (CmpFindPathByName.c)
- *     CmpVirtualBranchIsReplicated @ 0x1407F3DDC (CmpVirtualBranchIsReplicated.c)
+ *     CmpIsKeyDeleted @ 0x140698120 (CmpIsKeyDeleted.c)
+ *     CmpBlockHiveWrites @ 0x1407F06A0 (CmpBlockHiveWrites.c)
+ *     CmpUnblockHiveWrites @ 0x1407F08E8 (CmpUnblockHiveWrites.c)
+ *     CmRealKCBToVirtualPath @ 0x1407F1FA8 (CmRealKCBToVirtualPath.c)
+ *     CmpFindPathByName @ 0x1407F2EA4 (CmpFindPathByName.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1407F3DBC (CmpVirtualBranchIsReplicated.c)
  */
 
 __int64 __fastcall CmpVEExecuteRealStoreParseLogic(__int64 a1, __m128i *a2, _DWORD *a3, UNICODE_STRING *a4, __int64 a5)

@@ -1,24 +1,23 @@
 /*
- * XREFs of SeExamineSacl @ 0x1408A6730
+ * XREFs of SeExamineSacl @ 0x140921470
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0580 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeObjectReferenceAuditAlarm @ 0x1406C3280 (SeObjectReferenceAuditAlarm.c)
- *     NtOpenObjectAuditAlarm @ 0x1407DFA00 (NtOpenObjectAuditAlarm.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x140862CC0 (SeOpenObjectAuditAlarmForNonObObject.c)
- *     SeExamineGlobalSacl @ 0x1408A6BEA (SeExamineGlobalSacl.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x1409CA0C4 (SeAdtRegistryValueChangedAuditAlarm.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CE210 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
- *     CmpExamineSaclForAuditEvent @ 0x140A1B918 (CmpExamineSaclForAuditEvent.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1405ECE20 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     NtOpenObjectAuditAlarm @ 0x14068BC10 (NtOpenObjectAuditAlarm.c)
+ *     SeObjectReferenceAuditAlarm @ 0x1406D9E3C (SeObjectReferenceAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x1407D2660 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     CmpExamineSaclForAuditEvent @ 0x140871CD0 (CmpExamineSaclForAuditEvent.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x14091D39C (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x140921860 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeExamineGlobalSacl @ 0x140924A68 (SeExamineGlobalSacl.c)
  * Callees:
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x14022525C (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     AuthzBasepEvaluateAceCondition @ 0x14022BF60 (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1402A8C20 (AuthzBasepFreeSecurityAttributesList.c)
- *     SepSidInToken @ 0x14035BB6C (SepSidInToken.c)
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14024D5F0 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x140275910 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x14030A378 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepSidInToken @ 0x140347A94 (SepSidInToken.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-// local variable allocation has failed, the output may be wrong!
 void __stdcall SeExamineSacl(
         PACL Sacl,
         PACL ResourceSacl,
@@ -29,171 +28,184 @@ void __stdcall SeExamineSacl(
         PBOOLEAN GenerateAlarm)
 {
   _DWORD *v7; // rbp
-  _QWORD **v9; // r13
-  __int64 v10; // r8
-  PACL v11; // r10
-  char v13; // si
-  PSID v14; // rdx
-  _WORD *v15; // rcx
-  int v16; // eax
-  unsigned int v17; // ecx
-  PACL v18; // rbx
+  PBOOLEAN v8; // r15
+  unsigned int v9; // r13d
+  _QWORD **v10; // r10
+  PBOOLEAN v11; // rax
+  PACL v12; // r8
+  unsigned int AceCount; // edi
+  BOOLEAN v15; // r12
+  char v16; // si
+  _WORD *v17; // rcx
+  int v18; // eax
+  unsigned int v19; // edx
+  PACL v20; // rbx
   char Sbz1; // di
-  ACL *v20; // r15
-  unsigned int v21; // r13d
-  signed int v22; // r10d
-  _QWORD *v23; // rax
-  void *v24; // r9
-  __int64 v25; // rcx
-  __int64 v26; // rdx
-  __int64 v27; // r8
-  __int64 v28; // rax
-  int v29; // [rsp+60h] [rbp-58h] BYREF
-  unsigned int AceCount; // [rsp+64h] [rbp-54h]
-  __int64 v31[10]; // [rsp+68h] [rbp-50h] BYREF
-  unsigned int Size; // [rsp+C0h] [rbp+8h]
-  unsigned int GenerateAudita; // [rsp+E8h] [rbp+30h]
-  int GenerateAlarma; // [rsp+F0h] [rbp+38h]
+  ACL *v22; // r14
+  unsigned int v23; // r11d
+  int v24; // eax
+  unsigned int v25; // ecx
+  _QWORD *v26; // rax
+  __int64 v27; // r10
+  __int64 v28; // r8
+  __int64 v29; // rdx
+  __int64 v30; // r9
+  int v31; // [rsp+60h] [rbp-58h]
+  unsigned int v32; // [rsp+64h] [rbp-54h]
+  __int64 v33[10]; // [rsp+68h] [rbp-50h] BYREF
+  int v34; // [rsp+C0h] [rbp+8h] BYREF
+  PACL v35; // [rsp+C8h] [rbp+10h]
+  __int64 *v36; // [rsp+D0h] [rbp+18h]
+  ACCESS_MASK v37; // [rsp+D8h] [rbp+20h]
 
-  v29 = -1;
+  v37 = DesiredAccess;
+  v36 = (__int64 *)Token;
+  v35 = ResourceSacl;
+  v34 = -1;
   v7 = 0LL;
-  v9 = (_QWORD **)Token;
-  v10 = 0LL;
-  v31[0] = 0LL;
-  v11 = ResourceSacl;
-  Size = 0;
+  v8 = GenerateAudit;
+  v9 = 0;
+  v33[0] = 0LL;
+  v10 = (_QWORD **)Token;
+  v11 = GenerateAlarm;
+  v12 = ResourceSacl;
   *GenerateAudit = 0;
-  *GenerateAlarm = 0;
+  *v11 = 0;
   if ( Sacl )
   {
     AceCount = Sacl->AceCount;
-    if ( AceCount )
+    v32 = AceCount;
+    if ( Sacl->AceCount )
     {
-      v13 = 0;
+      v15 = AccessGranted;
+      v16 = 0;
       if ( (DesiredAccess & 0x2000000) != 0 )
-        v13 = AccessGranted != 0 ? 64 : 0x80;
-      v14 = SeAnonymousLogonSid;
-      v15 = (_WORD *)*v9[19];
-      if ( *v15 == *(_WORD *)SeAnonymousLogonSid )
+        v16 = AccessGranted != 0 ? 64 : 0x80;
+      v17 = (_WORD *)*v10[19];
+      if ( *v17 == *(_WORD *)SeAnonymousLogonSid )
       {
-        v16 = memcmp(v15, SeAnonymousLogonSid, 4LL * *((unsigned __int8 *)SeAnonymousLogonSid + 1) + 8);
-        v11 = ResourceSacl;
-        if ( !v16 )
-          Size = 4 * *((unsigned __int8 *)SeWorldSid + 1) + 8;
+        v18 = memcmp(v17, SeAnonymousLogonSid, 4LL * *((unsigned __int8 *)SeAnonymousLogonSid + 1) + 8);
+        v10 = (_QWORD **)v36;
+        v12 = v35;
+        if ( !v18 )
+          v9 = 4 * *((unsigned __int8 *)SeWorldSid + 1) + 8;
       }
-      v17 = 0;
-      v18 = Sacl + 1;
-      GenerateAudita = 0;
-      while ( 1 )
+      v19 = 0;
+      v20 = Sacl + 1;
+      LODWORD(GenerateAudit) = 0;
+      if ( AceCount )
       {
-        if ( *GenerateAudit )
+        while ( 1 )
         {
-LABEL_24:
-          if ( v7 )
+          if ( *v8 )
           {
-            AuthzBasepFreeSecurityAttributesList(v7, (__int64)v14, v10, *(__int64 *)&DesiredAccess);
-            ExFreePoolWithTag(v7, 0);
+LABEL_51:
+            if ( v7 )
+            {
+              AuthzBasepFreeSecurityAttributesList(v7);
+              ExFreePoolWithTag(v7, 0);
+            }
+            return;
           }
-          return;
+          Sbz1 = v20->Sbz1;
+          if ( (Sbz1 & 8) == 0 )
+            break;
+LABEL_50:
+          ++v19;
+          v10 = (_QWORD **)v36;
+          v20 = (PACL)((char *)v20 + v20->AclSize);
+          v12 = v35;
+          LODWORD(GenerateAudit) = v19;
+          if ( v19 >= v32 )
+            goto LABEL_51;
         }
-        Sbz1 = v18->Sbz1;
-        if ( (Sbz1 & 8) == 0 )
-          break;
-LABEL_23:
-        ++v17;
-        v11 = ResourceSacl;
-        v18 = (PACL)((char *)v18 + v18->AclSize);
-        GenerateAudita = v17;
-        if ( v17 >= AceCount )
-          goto LABEL_24;
-      }
-      if ( v18->AclRevision == 2 )
-      {
-        if ( !SepSidInToken((__int64)v9, 0LL, (unsigned __int8 *)&v18[1], 1, 0, 0) )
+        if ( v20->AclRevision == 2 )
         {
-          v10 = Size;
-          if ( !Size || *(_WORD *)SeWorldSid != *(_WORD *)&v18[1].AclRevision || memcmp(SeWorldSid, &v18[1], Size) )
-            goto LABEL_22;
-        }
-        if ( (*(_DWORD *)&v18->AceCount & DesiredAccess) == 0 )
-        {
-          v17 = GenerateAudita;
-          if ( ((unsigned __int8)v13 & (unsigned __int8)Sbz1) != 0 )
-            *GenerateAudit = 1;
-          goto LABEL_23;
-        }
-      }
-      else
-      {
-        if ( v18->AclRevision != 13 )
-          goto LABEL_23;
-        v20 = v18 + 1;
-        v21 = 4 * v18[1].Sbz1 + 8;
-        GenerateAlarma = *(_DWORD *)&v18->AceCount;
-        if ( v11 && !v7 )
-        {
-          AuthzBasepInitializeResourceClaimsFromSacl((__int64)v11, v31);
-          v17 = GenerateAudita;
-          v7 = (_DWORD *)v31[0];
-        }
-        v22 = v18->AclSize - v21 - 8;
-        if ( v22 <= 0 )
-        {
-          v9 = (_QWORD **)Token;
-          goto LABEL_23;
-        }
-        v23 = (_QWORD *)*((_QWORD *)Token + 137);
-        if ( v23 )
-        {
-          v24 = (void *)v23[72];
-          v25 = v23[74];
-          v26 = v23[73];
-          v27 = v23[75];
+          if ( !SepSidInToken((__int64)v10, 0LL, &v20[1], 1, 0, 0, 0)
+            && (!v9 || *(_WORD *)SeWorldSid != *(_WORD *)&v20[1].AclRevision || memcmp(SeWorldSid, &v20[1], v9)) )
+          {
+            goto LABEL_49;
+          }
+          if ( (*(_DWORD *)&v20->AceCount & v37) == 0 )
+          {
+            v19 = (unsigned int)GenerateAudit;
+            if ( ((unsigned __int8)v16 & (unsigned __int8)Sbz1) != 0 )
+              *v8 = 1;
+            goto LABEL_50;
+          }
         }
         else
         {
-          v24 = 0LL;
-          v25 = 0LL;
-          v26 = 0LL;
-          v27 = 0LL;
+          if ( v20->AclRevision != 13 )
+            goto LABEL_50;
+          v22 = v20 + 1;
+          v23 = 4 * v20[1].Sbz1 + 8;
+          v24 = *(_DWORD *)&v20->AceCount;
+          LODWORD(GenerateAlarm) = v23;
+          v31 = v24;
+          if ( v12 && !v7 )
+          {
+            AuthzBasepInitializeResourceClaimsFromSacl((__int64)v12, v33);
+            v23 = (unsigned int)GenerateAlarm;
+            v19 = (unsigned int)GenerateAudit;
+            v7 = (_DWORD *)v33[0];
+          }
+          v25 = v20->AclSize - v23;
+          if ( (int)(v25 - 8) <= 0 )
+            goto LABEL_50;
+          v26 = (_QWORD *)v36[137];
+          if ( v26 )
+            v27 = v26[75];
+          else
+            v27 = 0LL;
+          if ( v26 )
+            v28 = v26[73];
+          else
+            v28 = 0LL;
+          if ( v26 )
+            v29 = v26[74];
+          else
+            v29 = 0LL;
+          if ( v26 )
+            v30 = v26[72];
+          else
+            v30 = 0LL;
+          AuthzBasepEvaluateAceCondition(
+            (__int64)v36,
+            v36[97],
+            (__int64)v7,
+            v30,
+            v29,
+            v28,
+            v27,
+            (ACL *)((char *)v22 + v23),
+            v25 - 8,
+            1u,
+            0,
+            &v34);
+          if ( ((v34 + 1) & 0xFFFFFFFD) != 0
+            || !SepSidInToken((__int64)v36, 0LL, &v20[1], 1, 0, 0, 0)
+            && (!v9 || *(_WORD *)SeWorldSid != *(_WORD *)&v22->AclRevision || memcmp(SeWorldSid, &v20[1], v9)) )
+          {
+            goto LABEL_49;
+          }
+          if ( (v37 & v31) == 0 )
+          {
+            if ( ((unsigned __int8)v16 & (unsigned __int8)Sbz1) == 0 )
+            {
+LABEL_49:
+              v19 = (unsigned int)GenerateAudit;
+              goto LABEL_50;
+            }
+LABEL_48:
+            *v8 = 1;
+            goto LABEL_49;
+          }
         }
-        v28 = v21;
-        v9 = (_QWORD **)Token;
-        AuthzBasepEvaluateAceCondition(
-          Token,
-          *((void **)Token + 97),
-          v7,
-          v24,
-          v25,
-          v26,
-          v27,
-          (ACL *)((char *)v20 + v28),
-          v22,
-          1u,
-          0,
-          &v29);
-        if ( ((v29 + 1) & 0xFFFFFFFD) != 0 )
-          goto LABEL_22;
-        if ( !SepSidInToken((__int64)Token, 0LL, (unsigned __int8 *)&v18[1], 1, 0, 0) )
-        {
-          v10 = Size;
-          if ( !Size || *(_WORD *)SeWorldSid != *(_WORD *)&v20->AclRevision || memcmp(SeWorldSid, &v18[1], Size) )
-            goto LABEL_22;
-        }
-        if ( (DesiredAccess & GenerateAlarma) == 0 )
-        {
-          if ( ((unsigned __int8)v13 & (unsigned __int8)Sbz1) == 0 )
-            goto LABEL_22;
-          goto LABEL_21;
-        }
+        if ( ((Sbz1 & 0x40) == 0 || !v15) && (Sbz1 >= 0 || v15) )
+          goto LABEL_49;
+        goto LABEL_48;
       }
-      if ( ((Sbz1 & 0x40) == 0 || !AccessGranted) && (Sbz1 >= 0 || AccessGranted) )
-        goto LABEL_22;
-LABEL_21:
-      *GenerateAudit = 1;
-LABEL_22:
-      v17 = GenerateAudita;
-      goto LABEL_23;
     }
   }
 }

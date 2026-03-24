@@ -1,66 +1,78 @@
 /*
- * XREFs of IopSetFileMemoryPartitionInformation @ 0x140936BF8
+ * XREFs of IopSetFileMemoryPartitionInformation @ 0x1408942EC
  * Callers:
- *     NtSetInformationFile @ 0x1402F72B0 (NtSetInformationFile.c)
- *     IoSetInformation @ 0x14080AE60 (IoSetInformation.c)
+ *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
+ *     IoSetInformation @ 0x14077C0D0 (IoSetInformation.c)
  * Callees:
- *     IopAllocateFileObjectExtension @ 0x1402A3A60 (IopAllocateFileObjectExtension.c)
- *     IopSetTypeSpecificFoExtension @ 0x1402A3F70 (IopSetTypeSpecificFoExtension.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PsDereferencePartition @ 0x1403606C4 (PsDereferencePartition.c)
- *     PsReferencePartitionByHandle @ 0x1407DE8D0 (PsReferencePartitionByHandle.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     IopAllocateFileObjectExtension @ 0x14022C1D0 (IopAllocateFileObjectExtension.c)
+ *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
+ *     IopSetTypeSpecificFoExtension @ 0x1402B7F84 (IopSetTypeSpecificFoExtension.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePartitionByHandle @ 0x140692204 (PsReferencePartitionByHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetFileMemoryPartitionInformation(__int64 a1, __int64 a2, unsigned int a3)
 {
   int v5; // ebx
-  _DWORD *Pool2; // rdi
-  int v7; // eax
-  PVOID v8; // rbp
-  __int64 v10; // [rsp+30h] [rbp-38h] BYREF
-  __m128i v11; // [rsp+38h] [rbp-30h]
+  _OWORD *PoolWithTag; // rax
+  _DWORD *v7; // rdi
+  int v8; // eax
+  PVOID v9; // rbp
+  __int64 v11; // [rsp+30h] [rbp-38h] BYREF
+  __m128i v12; // [rsp+38h] [rbp-30h]
   PVOID Object; // [rsp+88h] [rbp+20h] BYREF
 
-  v10 = 0LL;
+  v11 = 0LL;
   Object = 0LL;
   if ( a3 < 0x10 )
     return (unsigned int)-1073741811;
-  v11 = *(__m128i *)a2;
-  if ( (unsigned __int8)_mm_cvtsi128_si32(_mm_srli_si128(v11, 8)) > 1u )
+  v12 = *(__m128i *)a2;
+  if ( (unsigned __int8)_mm_cvtsi128_si32(_mm_srli_si128(v12, 8)) > 1u )
     return (unsigned int)-1073741811;
-  v11.m128i_i8[8] = 0;
-  if ( v11.m128i_i32[2] )
+  v12.m128i_i8[8] = 0;
+  if ( v12.m128i_i32[2] )
   {
     return (unsigned int)-1073741811;
   }
   else
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, 16LL, 1716547401LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x66506F49u);
+    v7 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v7 = PsReferencePartitionByHandle(*(_QWORD *)a2, 2, 0, 0x66506F49u, &Object);
-      v8 = Object;
-      v5 = v7;
-      if ( v7 >= 0 )
+      *PoolWithTag = 0LL;
+      v8 = PsReferencePartitionByHandle(*(_QWORD *)a2, 2LL, 0LL, 0x66506F49u, &Object);
+      v9 = Object;
+      v5 = v8;
+      if ( v8 >= 0 )
       {
         ObfReferenceObjectWithTag(Object, 0x6F466F49u);
-        PsDereferencePartition((__int64)v8);
-        *(_QWORD *)Pool2 = v8;
-        Pool2[2] ^= (Pool2[2] ^ *(unsigned __int8 *)(a2 + 8)) & 1;
-        v5 = IopAllocateFileObjectExtension(a1, &v10);
+        PsDereferencePartition((__int64)v9);
+        *(_QWORD *)v7 = v9;
+        v7[2] ^= (v7[2] ^ *(unsigned __int8 *)(a2 + 8)) & 1;
+        v5 = IopAllocateFileObjectExtension(a1, &v11);
         if ( v5 >= 0 )
         {
-          if ( (int)IopSetTypeSpecificFoExtension(v10, 8u, (signed __int64)Pool2) >= 0 )
-            return 0;
-          v5 = -1073741791;
+          if ( (int)IopSetTypeSpecificFoExtension(v11, 8u, (signed __int64)v7) >= 0 )
+          {
+            v7 = 0LL;
+            v5 = 0;
+          }
+          else
+          {
+            v5 = -1073741791;
+          }
         }
       }
-      if ( *(_QWORD *)Pool2 )
-        ObfDereferenceObjectWithTag(v8, 0x6F466F49u);
-      ExFreePoolWithTag(Pool2, 0);
+      if ( v7 )
+      {
+        if ( *(_QWORD *)v7 )
+          ObfDereferenceObjectWithTag(v9, 0x6F466F49u);
+        ExFreePoolWithTag(v7, 0);
+      }
     }
     else
     {

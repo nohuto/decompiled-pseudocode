@@ -1,27 +1,26 @@
 /*
  * XREFs of IopAllocRealFileObject @ 0x14063BB00
  * Callers:
- *     IopParseDevice @ 0x14063CD00 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
  * Callees:
  *     IoGetSilo @ 0x14008D860 (IoGetSilo.c)
  *     PsIsSystemThread @ 0x1400A3960 (PsIsSystemThread.c)
  *     IopCheckInitiatorHint @ 0x1400A39EC (IopCheckInitiatorHint.c)
- *     PsIsHostSilo @ 0x1400B8A60 (PsIsHostSilo.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     EvaluateCurrentState @ 0x1401B3674 (EvaluateCurrentState.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
+ *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
  *     ObpFreeObjectNameBuffer @ 0x1405C8FE4 (ObpFreeObjectNameBuffer.c)
  *     ObpCaptureObjectCreateInformation @ 0x1405E2910 (ObpCaptureObjectCreateInformation.c)
  *     IopAllocateFoExtensionsOnCreate @ 0x1405F9484 (IopAllocateFoExtensionsOnCreate.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  *     SeReleaseSecurityDescriptor @ 0x140631850 (SeReleaseSecurityDescriptor.c)
  *     IopRetrieveTransactionParameters @ 0x140639970 (IopRetrieveTransactionParameters.c)
- *     ObpAllocateObject @ 0x140645A60 (ObpAllocateObject.c)
- *     ObpRegisterObject @ 0x14086362C (ObpRegisterObject.c)
+ *     ObpAllocateObject @ 0x140645A40 (ObpAllocateObject.c)
+ *     ObpRegisterObject @ 0x14086360C (ObpRegisterObject.c)
  */
 
 __int64 __fastcall IopAllocRealFileObject(
@@ -200,42 +199,39 @@ LABEL_28:
     v31 = *(_QWORD *)(*(_QWORD *)a1 + 208LL);
     if ( v31 )
       *((_QWORD *)v25 + 26) = v31;
-    goto LABEL_55;
   }
-  if ( (*(_DWORD *)(a6 + 152) & 0x47) != 0
-    || !PsIsHostSilo(*(_QWORD *)(a7 + 8))
-    || (v32 = *(_QWORD *)(a6 + 40)) != 0 && (Silo = IoGetSilo(v32), !PsIsHostSilo(Silo)) )
+  else
   {
-    TransactionParameters = IopAllocateFoExtensionsOnCreate((__int64)v25, a2, a6, a7, a9);
-  }
-  if ( TransactionParameters >= 0 )
-  {
-    if ( a5 )
+    if ( (*(_DWORD *)(a6 + 152) & 0x47) != 0
+      || !PsIsHostSilo(*(_QWORD *)(a7 + 8))
+      || (v32 = *(_QWORD *)(a6 + 40)) != 0 && (Silo = IoGetSilo(v32), !PsIsHostSilo(Silo)) )
     {
-      if ( (*(_DWORD *)(a6 + 152) & 0x20) != 0 )
+      TransactionParameters = IopAllocateFoExtensionsOnCreate((__int64)v25, a2, a6, a7, a9);
+    }
+    if ( TransactionParameters >= 0 )
+    {
+      if ( a5 )
       {
-        if ( (*(_DWORD *)(a2 + 48) & 0x40000) != 0
-          || (v34 = *(unsigned int *)(a2 + 72), (unsigned int)v34 <= 0x35)
-          && (v35 = 0x20000100100108LL, _bittest64(&v35, v34)) )
+        if ( (*(_DWORD *)(a6 + 152) & 0x20) != 0 )
         {
-          TransactionParameters = IopRetrieveTransactionParameters(a2, a6, a9, (__int64)v25);
+          if ( (*(_DWORD *)(a2 + 48) & 0x40000) != 0
+            || (v34 = *(unsigned int *)(a2 + 72), (unsigned int)v34 <= 0x35)
+            && (v35 = 0x20000100100108LL, _bittest64(&v35, v34)) )
+          {
+            TransactionParameters = IopRetrieveTransactionParameters(a2, a6, a9, (__int64)v25);
+          }
         }
       }
+      if ( TransactionParameters >= 0
+        && a5
+        && !PsIsSystemThread(KeGetCurrentThread())
+        && (*(_DWORD *)(a6 + 64) & 0x20000) != 0 )
+      {
+        TransactionParameters = IopCheckInitiatorHint((__int64)v25, *(_QWORD *)(a6 + 40));
+      }
     }
+    v12 = v48;
   }
-  if ( EvaluateCurrentState((_DWORD **)&reg_FeatureDescriptors_a) )
-  {
-    if ( TransactionParameters >= 0 && a5 && !PsIsSystemThread(KeGetCurrentThread()) )
-      goto LABEL_52;
-  }
-  else if ( TransactionParameters >= 0 && a5 )
-  {
-LABEL_52:
-    if ( (*(_DWORD *)(a6 + 64) & 0x20000) != 0 )
-      TransactionParameters = IopCheckInitiatorHint((__int64)v25, *(_QWORD *)(a6 + 40));
-  }
-  v12 = v48;
-LABEL_55:
   *(_QWORD *)a1 = v25;
   if ( !*(_BYTE *)(a6 + 138) && !*(_BYTE *)(a6 + 137) )
   {

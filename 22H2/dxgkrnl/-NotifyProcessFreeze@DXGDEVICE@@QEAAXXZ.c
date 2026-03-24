@@ -1,29 +1,29 @@
 /*
- * XREFs of ?NotifyProcessFreeze@DXGDEVICE@@QEAAXXZ @ 0x1C018B774
+ * XREFs of ?NotifyProcessFreeze@DXGDEVICE@@QEAAXXZ @ 0x1C00EDA08
  * Callers:
- *     ?NotifyProcessFreeze@DXGPROCESS@@QEAAXXZ @ 0x1C01A4F00 (-NotifyProcessFreeze@DXGPROCESS@@QEAAXXZ.c)
+ *     ?NotifyProcessFreeze@DXGPROCESS@@QEAAXXZ @ 0x1C00ED878 (-NotifyProcessFreeze@DXGPROCESS@@QEAAXXZ.c)
  * Callees:
- *     ?Release@COREDEVICEACCESS@@QEAAXXZ @ 0x1C00046C0 (-Release@COREDEVICEACCESS@@QEAAXXZ.c)
- *     ?TryAcquire@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAHXZ @ 0x1C00046EC (-TryAcquire@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAHXZ.c)
- *     ?NotifyContextCreation@DXGADAPTER@@QEAAXPEAVDXGCONTEXT@@EI@Z @ 0x1C0004AAC (-NotifyContextCreation@DXGADAPTER@@QEAAXPEAVDXGCONTEXT@@EI@Z.c)
- *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C00073B4 (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
- *     ??1COREACCESS@@QEAA@XZ @ 0x1C00075BC (--1COREACCESS@@QEAA@XZ.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Acquire@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0007900 (-Acquire@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C0007F7C (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
- *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0008088 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
- *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000AF80 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@I_N@Z @ 0x1C018AF08 (-FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@I_N@Z.c)
- *     ?FlushDeferredDestruction@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@EE@Z @ 0x1C018B3A4 (-FlushDeferredDestruction@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@EE@Z.c)
- *     ?FlushPagingQueues@DXGDEVICE@@QEAAXXZ @ 0x1C018B6D4 (-FlushPagingQueues@DXGDEVICE@@QEAAXXZ.c)
- *     DpiEnableD3Requests @ 0x1C01987EC (DpiEnableD3Requests.c)
- *     ?TrimAllDmaPoolsToMinimum@DXGDEVICE@@QEAAXXZ @ 0x1C02ED700 (-TrimAllDmaPoolsToMinimum@DXGDEVICE@@QEAAXXZ.c)
+ *     ?TryAcquire@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAHXZ @ 0x1C0002CB4 (-TryAcquire@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAHXZ.c)
+ *     ?Acquire@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0002DA4 (-Acquire@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C0002FB8 (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
+ *     ?NotifyContextCreation@DXGADAPTER@@QEAAXPEAVDXGCONTEXT@@EI@Z @ 0x1C0003308 (-NotifyContextCreation@DXGADAPTER@@QEAAXPEAVDXGCONTEXT@@EI@Z.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??1COREACCESS@@QEAA@XZ @ 0x1C0004E50 (--1COREACCESS@@QEAA@XZ.c)
+ *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0005100 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C00087C0 (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000903C (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Release@COREDEVICEACCESS@@QEAAXXZ @ 0x1C000A008 (-Release@COREDEVICEACCESS@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?FlushPagingQueues@DXGDEVICE@@QEAAXXZ @ 0x1C00ECCC0 (-FlushPagingQueues@DXGDEVICE@@QEAAXXZ.c)
+ *     DpiEnableD3Requests @ 0x1C00ECD4C (DpiEnableD3Requests.c)
+ *     ?FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@@Z @ 0x1C00EF2E8 (-FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@@Z.c)
+ *     ?FlushDeferredDestruction@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@EE@Z @ 0x1C00EFC44 (-FlushDeferredDestruction@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@EE@Z.c)
+ *     ?TrimAllDmaPoolsToMinimum@DXGDEVICE@@QEAAXXZ @ 0x1C016A488 (-TrimAllDmaPoolsToMinimum@DXGDEVICE@@QEAAXXZ.c)
  */
 
 void __fastcall DXGDEVICE::NotifyProcessFreeze(DXGDEVICE *this)
@@ -31,93 +31,96 @@ void __fastcall DXGDEVICE::NotifyProcessFreeze(DXGDEVICE *this)
   DXGADAPTER *v2; // rcx
   bool v3; // si
   __int64 v4; // rax
+  __int64 v5; // r9
   int *i; // rdi
-  __int64 v6; // rcx
   __int64 v7; // rdx
-  DXGDEVICE *v8; // [rsp+20h] [rbp-E0h] BYREF
-  int v9; // [rsp+28h] [rbp-D8h]
-  _BYTE v10[8]; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v11; // [rsp+38h] [rbp-C8h]
-  char v12; // [rsp+40h] [rbp-C0h]
-  _BYTE v13[8]; // [rsp+48h] [rbp-B8h] BYREF
-  DXGPUSHLOCK *v14; // [rsp+50h] [rbp-B0h]
-  int v15; // [rsp+58h] [rbp-A8h]
-  _BYTE v16[8]; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v17[64]; // [rsp+68h] [rbp-98h] BYREF
-  _BYTE v18[64]; // [rsp+A8h] [rbp-58h] BYREF
-  DXGDEVICE *v19; // [rsp+E8h] [rbp-18h]
-  char v20; // [rsp+F0h] [rbp-10h]
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // rax
+  DXGDEVICE *v14; // [rsp+30h] [rbp-D0h] BYREF
+  int v15; // [rsp+38h] [rbp-C8h]
+  _BYTE v16[8]; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-B8h]
+  char v18; // [rsp+50h] [rbp-B0h]
+  _BYTE v19[8]; // [rsp+58h] [rbp-A8h] BYREF
+  DXGPUSHLOCK *v20; // [rsp+60h] [rbp-A0h]
+  int v21; // [rsp+68h] [rbp-98h]
+  _BYTE v22[8]; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE v23[64]; // [rsp+78h] [rbp-88h] BYREF
+  _BYTE v24[88]; // [rsp+B8h] [rbp-48h] BYREF
 
   v2 = *(DXGADAPTER **)(*((_QWORD *)this + 2) + 16LL);
   if ( !*((_BYTE *)v2 + 209) )
   {
-    v9 = 0;
-    v8 = this;
+    v15 = 0;
+    v14 = this;
     if ( DXGADAPTER::IsDxgmms2(v2) )
     {
-      v3 = (unsigned int)DXGDEVICEACCESSLOCKEXCLUSIVE::TryAcquire((DXGDEVICEACCESSLOCKEXCLUSIVE *)&v8) != 0;
+      v3 = (unsigned int)DXGDEVICEACCESSLOCKEXCLUSIVE::TryAcquire((DXGDEVICEACCESSLOCKEXCLUSIVE *)&v14) != 0;
     }
     else
     {
-      DXGDEVICEACCESSLOCKEXCLUSIVE::Acquire((DXGDEVICEACCESSLOCKEXCLUSIVE *)&v8);
+      DXGDEVICEACCESSLOCKEXCLUSIVE::Acquire((DXGDEVICEACCESSLOCKEXCLUSIVE *)&v14);
       v3 = 1;
     }
     v4 = *((_QWORD *)this + 2);
-    v12 = 0;
-    v11 = *(_QWORD *)(v4 + 16);
-    DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v10);
-    COREACCESS::COREACCESS((COREACCESS *)v17, *(struct DXGADAPTER *const *)(*((_QWORD *)this + 2) + 16LL));
-    COREACCESS::COREACCESS((COREACCESS *)v18, *(struct DXGADAPTER *const *)(*((_QWORD *)this + 2) + 16LL));
-    v19 = this;
-    v20 = 0;
-    if ( (int)COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v16, 0LL) >= 0 )
+    v18 = 0;
+    v17 = *(_QWORD *)(v4 + 16);
+    DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v16);
+    COREDEVICEACCESS::COREDEVICEACCESS((__int64)v22, (__int64)this, 0, v5, 0);
+    if ( (int)COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v22, 0LL) >= 0 )
     {
-      DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v13, (struct _KTHREAD **)this + 50, 0);
-      DXGPUSHLOCK::AcquireShared(v14);
-      v15 = 1;
-      for ( i = (int *)*((_QWORD *)this + 62); i != (int *)((char *)this + 496) && i; i = *(int **)i )
+      DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v19, (struct _KTHREAD **)this + 50, 0);
+      DXGPUSHLOCK::AcquireShared(v20);
+      v21 = 1;
+      for ( i = (int *)*((_QWORD *)this + 58); i != (int *)((char *)this + 464) && i; i = *(int **)i )
       {
         DXGADAPTER::NotifyContextCreation(
           *(DXGADAPTER **)(*((_QWORD *)this + 2) + 16LL),
           (struct DXGCONTEXT *)i,
           0,
-          i[98]);
-        *((_BYTE *)i + 437) = 1;
+          i[102]);
+        *((_BYTE *)i + 453) = 1;
       }
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v13);
+      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v19);
       if ( v3 )
       {
         if ( DXGADAPTER::IsDxgmms2(*(DXGADAPTER **)(*((_QWORD *)this + 2) + 16LL)) )
-          _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(v6 + 216) + 64LL) + 4104LL));
-        COREDEVICEACCESS::Release((COREDEVICEACCESS *)v16);
+          _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(v11 + 216) + 64LL) + 4080LL));
+        COREDEVICEACCESS::Release((COREDEVICEACCESS *)v22, v10);
         if ( DXGADAPTER::IsDxgmms2(*(DXGADAPTER **)(*((_QWORD *)this + 2) + 16LL)) )
         {
-          DXGDEVICE::FlushDeferredDestruction(this, 0LL, 0, 1);
+          DXGDEVICE::FlushDeferredDestruction(this, 0LL, 0, 1u);
           DXGDEVICE::FlushPagingQueues(this);
-          LOBYTE(v7) = 1;
-          (*(void (__fastcall **)(_QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 760LL) + 8LL)
-                                                  + 1112LL))(
-            *((_QWORD *)this + 99),
-            v7);
+          LOBYTE(v12) = 1;
+          (*(void (__fastcall **)(_QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL) + 8LL)
+                                                  + 1120LL))(
+            *((_QWORD *)this + 95),
+            v12);
           DpiEnableD3Requests(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 216LL));
         }
         else
         {
-          DXGDEVICE::FlushScheduler(this, 1u, 0xFFFFFFFD, 0);
+          DXGDEVICE::FlushScheduler(this, 1LL);
           DXGDEVICE::FlushDeferredDestruction(this, 0LL, 0, 0);
           DXGDEVICE::TrimAllDmaPoolsToMinimum(this);
         }
       }
       else
       {
-        WdLogSingleEntry1(3LL, this);
+        v13 = WdLogNewEntry5_WdWarning(v8, v7, v9);
+        *(_QWORD *)(v13 + 24) = this;
+        WdLogEvent5_WdWarning(v13);
       }
     }
-    COREACCESS::~COREACCESS((COREACCESS *)v18);
-    COREACCESS::~COREACCESS((COREACCESS *)v17);
-    if ( v12 )
-      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v10);
-    if ( v8 )
-      DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)&v8);
+    COREACCESS::~COREACCESS((COREACCESS *)v24);
+    COREACCESS::~COREACCESS((COREACCESS *)v23);
+    if ( v18 )
+      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v16);
+    if ( v14 )
+      DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)&v14);
   }
 }

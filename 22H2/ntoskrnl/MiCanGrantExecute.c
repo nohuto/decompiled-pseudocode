@@ -1,50 +1,41 @@
 /*
- * XREFs of MiCanGrantExecute @ 0x140645B34
+ * XREFs of MiCanGrantExecute @ 0x140548018
  * Callers:
- *     MiValidFault @ 0x140333340 (MiValidFault.c)
- *     MiLargePageFault @ 0x1406464DC (MiLargePageFault.c)
+ *     MiValidFault @ 0x140209710 (MiValidFault.c)
+ *     MiLargePageFault @ 0x1405489F4 (MiLargePageFault.c)
  * Callees:
- *     MiLocateAddress @ 0x140217260 (MiLocateAddress.c)
- *     MiUnlockVadTree @ 0x140287758 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x14028A7A0 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x14025B070 (MiLocateAddress.c)
  */
 
-__int64 __fastcall MiCanGrantExecute(__int64 a1, unsigned __int64 a2)
+_BOOL8 __fastcall MiCanGrantExecute(__int64 a1, unsigned __int64 a2)
 {
-  unsigned int v2; // ebx
+  __int64 v2; // rax
   char v4; // dl
-  __int64 **Address; // rdi
+  __int64 **Address; // rax
   int v6; // ecx
+  _BOOL8 result; // rax
 
-  v2 = 0;
-  if ( *(_QWORD *)(a1 + 1408) )
+  v2 = *(_QWORD *)(a1 + 1408);
+  result = 0;
+  if ( v2 )
   {
-    if ( *(_WORD *)(a1 + 2412) == 332 )
+    if ( *(_WORD *)(v2 + 8) == 332 )
     {
       if ( (KeFeatureBits & 0x40000000) != 0
         || (v4 = *(_BYTE *)(a1 + 643), (v4 & 2) != 0)
         || (KeFeatureBits & 0x80000000) == 0 && (v4 & 1) == 0 )
       {
         if ( (a2 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 && (*(_DWORD *)(a1 + 2172) & 1) == 0 )
-          return 1LL;
-        MiLockVadTree(1);
+          return 1;
         Address = MiLocateAddress(a2);
-        MiUnlockVadTree(1, 0x11u);
         if ( Address )
         {
           v6 = *((_DWORD *)Address + 12);
-          if ( (v6 & 0x70) != 0x30 )
-          {
-            if ( (v6 & 0x70) == 0x20 )
-            {
-              LOBYTE(v2) = (v6 & 0xF80) != 128;
-              return v2;
-            }
-            return 1LL;
-          }
+          if ( (v6 & 0x70) != 0x30 && ((v6 & 0x70) != 0x20 || (v6 & 0xF80) != 0x80) )
+            return 1;
         }
       }
     }
   }
-  return 0LL;
+  return result;
 }

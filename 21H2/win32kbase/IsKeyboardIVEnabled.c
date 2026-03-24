@@ -1,33 +1,24 @@
 /*
- * XREFs of IsKeyboardIVEnabled @ 0x1C0006EF4
+ * XREFs of IsKeyboardIVEnabled @ 0x1C01BA704
  * Callers:
- *     NtMITSynthesizeKeyboardInput @ 0x1C0005F10 (NtMITSynthesizeKeyboardInput.c)
- *     RIMChildInputTypeIsVirtualized @ 0x1C00C1E80 (RIMChildInputTypeIsVirtualized.c)
+ *     RIMChildInputTypeIsVirtualized @ 0x1C0055848 (RIMChildInputTypeIsVirtualized.c)
+ *     ?VirtualizeKeyboardInput@Keyboard@IVRootDeliver@@YA?AW4_SYNTHESIZED_KEYBOARD_PROCESSING_RESULT@@W4_SYNTHESIZE_KEYBOARD_OPTIONS@@AEBUCONTAINER_ID@@AEBU_KEYBOARD_INPUT_DATA@@PEAX@Z @ 0x1C01BD0A4 (-VirtualizeKeyboardInput@Keyboard@IVRootDeliver@@YA-AW4_SYNTHESIZED_KEYBOARD_PROCESSING_RESULT@@.c)
  * Callees:
- *     isChildPartition @ 0x1C00383F0 (isChildPartition.c)
- *     UseVelocityToEnableIV @ 0x1C0038478 (UseVelocityToEnableIV.c)
- *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C00384DC (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
+ *     isChildPartition @ 0x1C0040F30 (isChildPartition.c)
+ *     UseVelocityToEnableIV @ 0x1C0041550 (UseVelocityToEnableIV.c)
+ *     Feature_KeyboardInputVirtualization__private_ReportDeviceUsage @ 0x1C00CD9D8 (Feature_KeyboardInputVirtualization__private_ReportDeviceUsage.c)
  */
 
 char IsKeyboardIVEnabled()
 {
-  char v0; // bl
+  char v0; // dl
 
-  v0 = 1;
-  if ( (unsigned __int8)UseVelocityToEnableIV() )
+  if ( UseVelocityToEnableIV() )
   {
-    wil_details_FeatureReporting_ReportUsageToService(
-      &Feature_KeyboardInputVirtualization__private_reporting,
-      18837801LL,
-      0LL,
-      0LL,
-      &Feature_KeyboardInputVirtualization_logged_traits,
-      1,
-      3);
+    Feature_KeyboardInputVirtualization__private_ReportDeviceUsage();
+    return 1;
   }
-  else if ( !(unsigned __int8)isChildPartition() || !byte_1C02A0542 )
-  {
-    return 0;
-  }
+  if ( isChildPartition() && byte_1C02595D1 != v0 )
+    return 1;
   return v0;
 }

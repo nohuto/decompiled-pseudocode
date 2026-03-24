@@ -1,11 +1,11 @@
 /*
- * XREFs of ?InsertModecapList@@YAKPEAUtagModeCap@@0K@Z @ 0x1C0068FAC
+ * XREFs of ?InsertModecapList@@YAKPEAUtagModeCap@@0K@Z @ 0x1C00905A4
  * Callers:
- *     ?GetMonitorCapability1@@YAKPEAEPEAUtagModeCap@@PEAU_FREQUENCY_RAGE@@E@Z @ 0x1C0068B14 (-GetMonitorCapability1@@YAKPEAEPEAUtagModeCap@@PEAU_FREQUENCY_RAGE@@E@Z.c)
- *     ?GetMonitorCapabilityFromInf@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@E@Z @ 0x1C00696F8 (-GetMonitorCapabilityFromInf@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@E@Z.c)
+ *     ?GetMonitorCapability1@@YAKPEAEPEAUtagModeCap@@PEAU_FREQUENCY_RAGE@@E@Z @ 0x1C0090110 (-GetMonitorCapability1@@YAKPEAEPEAUtagModeCap@@PEAU_FREQUENCY_RAGE@@E@Z.c)
+ *     ?GetMonitorCapabilityFromInf@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@E@Z @ 0x1C0090D58 (-GetMonitorCapabilityFromInf@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@E@Z.c)
  * Callees:
- *     ?compModeCap@@YAHPEAUtagModeCap@@0@Z @ 0x1C00695E8 (-compModeCap@@YAHPEAUtagModeCap@@0@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?compModeCap@@YAHPEAUtagModeCap@@0@Z @ 0x1C0090B90 (-compModeCap@@YAHPEAUtagModeCap@@0@Z.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall InsertModecapList(struct tagModeCap *a1, struct tagModeCap *a2, unsigned int a3)

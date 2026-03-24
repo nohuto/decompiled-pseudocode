@@ -1,5 +1,5 @@
 /*
- * XREFs of ExSvmFinalizeDeviceReset @ 0x14031D980
+ * XREFs of ExSvmFinalizeDeviceReset @ 0x14031DA80
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExSvmFinalizeDeviceReset(__int64 a1)

@@ -1,23 +1,23 @@
 /*
- * XREFs of UsbhGetInitRegUsbDeviceFlags @ 0x1C0044570
+ * XREFs of UsbhGetInitRegUsbDeviceFlags @ 0x1C0045830
  * Callers:
- *     UsbhSetupDevice @ 0x1C0038CE8 (UsbhSetupDevice.c)
+ *     UsbhSetupDevice @ 0x1C0039FD8 (UsbhSetupDevice.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_S @ 0x1C003ADD0 (WPP_RECORDER_SF_S.c)
- *     UsbhGetPersistedUsbFlagsPath @ 0x1C00448B0 (UsbhGetPersistedUsbFlagsPath.c)
- *     WPP_RECORDER_SF_dDD @ 0x1C0047C4C (WPP_RECORDER_SF_dDD.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003C0E0 (WPP_RECORDER_SF_S.c)
+ *     UsbhGetPersistedUsbFlagsPath @ 0x1C0045B84 (UsbhGetPersistedUsbFlagsPath.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C0048FCC (WPP_RECORDER_SF_DDD.c)
  */
 
 void __fastcall UsbhGetInitRegUsbDeviceFlags(__int64 a1, __int64 a2)
 {
   _WORD *v3; // rdi
   __int64 v4; // rcx
-  int v5; // edx
-  void *PersistedUsbFlagsPath; // rbx
-  int v7; // r8d
+  __int64 v5; // rdx
+  wchar_t *PersistedUsbFlagsPath; // rbx
+  __int64 v7; // r8
   wchar_t *v8; // rax
   wchar_t **v9; // rdi
   int v10; // eax
@@ -42,13 +42,13 @@ void __fastcall UsbhGetInitRegUsbDeviceFlags(__int64 a1, __int64 a2)
       0x4Fu,
       (__int64)&WPP_290dcc7ac903398322657943f635c8d9_Traceguids);
   v3 = PdoExt(a2);
-  PersistedUsbFlagsPath = (void *)UsbhGetPersistedUsbFlagsPath(v4, a2);
+  PersistedUsbFlagsPath = (wchar_t *)UsbhGetPersistedUsbFlagsPath(v4, a2);
   if ( PersistedUsbFlagsPath )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
-        WPP_RECORDER_SF_dDD(
+        WPP_RECORDER_SF_DDD(
           WPP_GLOBAL_Control->DeviceExtension,
           (unsigned __int16)v3[706],
           (unsigned __int16)v3[705],
@@ -59,12 +59,12 @@ void __fastcall UsbhGetInitRegUsbDeviceFlags(__int64 a1, __int64 a2)
           v3[706]);
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
         WPP_RECORDER_SF_S(
-          WPP_GLOBAL_Control->DeviceExtension,
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
           v5,
           v7,
-          81,
+          0x51u,
           (__int64)&WPP_290dcc7ac903398322657943f635c8d9_Traceguids,
-          (__int64)PersistedUsbFlagsPath);
+          PersistedUsbFlagsPath);
     }
     v8 = GlobalInitDeviceValues;
     v9 = &GlobalInitDeviceValues;
@@ -86,7 +86,7 @@ void __fastcall UsbhGetInitRegUsbDeviceFlags(__int64 a1, __int64 a2)
       SystemRoutineAddress = MmGetSystemRoutineAddress(&DestinationString);
       if ( !SystemRoutineAddress )
         SystemRoutineAddress = RtlQueryRegistryValues;
-      ((void (__fastcall *)(_QWORD, void *, __int64 (__fastcall **)(int, int, int, int, __int64, __int64), __int64, _QWORD))SystemRoutineAddress)(
+      ((void (__fastcall *)(_QWORD, wchar_t *, __int64 (__fastcall **)(int, int, int, int, __int64, __int64), __int64, _QWORD))SystemRoutineAddress)(
         0LL,
         PersistedUsbFlagsPath,
         &v13,

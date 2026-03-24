@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapSqmSetDword @ 0x1408DD494
+ * XREFs of WheapSqmSetDword @ 0x1408DD474
  * Callers:
- *     WheapSqmCollectWheaOscTelemetry @ 0x140321934 (WheapSqmCollectWheaOscTelemetry.c)
+ *     WheapSqmCollectWheaOscTelemetry @ 0x140321A34 (WheapSqmCollectWheaOscTelemetry.c)
  * Callees:
- *     WheapSqmDwordCommon @ 0x140321A98 (WheapSqmDwordCommon.c)
+ *     WheapSqmDwordCommon @ 0x140321B98 (WheapSqmDwordCommon.c)
  */
 
 NTSTATUS __fastcall WheapSqmSetDword(int a1, int a2)

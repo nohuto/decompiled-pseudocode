@@ -1,27 +1,26 @@
 /*
- * XREFs of BRUSHOBJ_pvAllocRbrush @ 0x1C026B050
+ * XREFs of BRUSHOBJ_pvAllocRbrush @ 0x1C026D2E0
  * Callers:
- *     VerifierBRUSHOBJ_pvAllocRbrush @ 0x1C029C9F0 (VerifierBRUSHOBJ_pvAllocRbrush.c)
- *     ?MulRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C02A1D20 (-MulRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
+ *     VerifierBRUSHOBJ_pvAllocRbrush @ 0x1C029E100 (VerifierBRUSHOBJ_pvAllocRbrush.c)
+ *     ?MulRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C02A3F80 (-MulRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
  * Callees:
- *     <none>
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
  */
 
 PVOID __stdcall BRUSHOBJ_pvAllocRbrush(BRUSHOBJ *pbo, ULONG cj)
 {
-  __int64 v4; // r8
+  unsigned int *v4; // r8
   PVOID result; // rax
   ULONG v6; // ebx
-  __int64 v7; // rax
 
   if ( gpCachedDbrush )
   {
-    v4 = _InterlockedExchange64((volatile __int64 *)gpCachedDbrush, 0LL);
+    v4 = (unsigned int *)_InterlockedExchange64((volatile __int64 *)gpCachedDbrush, 0LL);
     if ( v4 )
     {
-      if ( cj + 16 >= cj && *(unsigned int *)(v4 + 4) >= (unsigned __int64)cj + 16 )
+      if ( cj + 16 >= cj && v4[1] >= (unsigned __int64)cj + 16 )
       {
-        result = (PVOID)(v4 + 16);
+        result = v4 + 4;
 LABEL_6:
         pbo->pvRbrush = result;
         return result;
@@ -30,15 +29,12 @@ LABEL_6:
     }
   }
   v6 = cj + 16;
-  if ( v6 )
+  result = PALLOCMEM2(v6, 1919050823LL, 1);
+  if ( result )
   {
-    v7 = Win32AllocPoolZInit(v6, 1919050823LL);
-    if ( v7 )
-    {
-      *(_DWORD *)(v7 + 4) = v6;
-      result = (PVOID)(v7 + 16);
-      goto LABEL_6;
-    }
+    *((_DWORD *)result + 1) = v6;
+    result = (char *)result + 16;
+    goto LABEL_6;
   }
-  return 0LL;
+  return result;
 }

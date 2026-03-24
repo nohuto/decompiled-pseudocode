@@ -1,7 +1,8 @@
 /*
- * XREFs of ?FindFirstOutstandingFrameIndex@CPartitionVerticalBlankScheduler@@AEAAIXZ @ 0x18007C450
+ * XREFs of ?FindFirstOutstandingFrameIndex@CPartitionVerticalBlankScheduler@@AEAAIXZ @ 0x18006D688
  * Callers:
- *     ?RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x18007BF7C (-RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
+ *     ?RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x1800271E8 (-RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
+ *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18006DBD0 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -19,21 +20,21 @@ __int64 __fastcall CPartitionVerticalBlankScheduler::FindFirstOutstandingFrameIn
   __int64 v10; // r10
   unsigned int v11; // eax
 
-  v2 = *((_DWORD *)this + 1127);
+  v2 = *((_DWORD *)this + 1257);
   v3 = -1;
   if ( v2 == -1 )
   {
-    v7 = *((_DWORD *)this + 1126);
+    v7 = *((_DWORD *)this + 1256);
     if ( v7 != -1 )
     {
       v9 = ((_BYTE)v7 + 1) & 0xF;
       while ( v7 != v9 )
       {
-        v10 = 272LL * v7;
-        if ( *((_BYTE *)this + v10 + 298) )
+        v10 = 304LL * v7;
+        if ( *((_BYTE *)this + v10 + 290) )
           break;
         v11 = v7;
-        if ( !*((_BYTE *)this + v10 + 297) )
+        if ( !*((_BYTE *)this + v10 + 289) )
           v11 = v3;
         v7 = ((_BYTE)v7 - 1) & 0xF;
         v3 = v11;
@@ -47,10 +48,10 @@ __int64 __fastcall CPartitionVerticalBlankScheduler::FindFirstOutstandingFrameIn
       v5 = i & 0xF;
       if ( v5 == v2 || v3 != -1 )
         break;
-      v6 = 272LL * v5;
-      if ( *((_BYTE *)this + v6 + 297) )
+      v6 = 304LL * v5;
+      if ( *((_BYTE *)this + v6 + 289) )
       {
-        if ( !*((_BYTE *)this + v6 + 298) )
+        if ( !*((_BYTE *)this + v6 + 290) )
           v3 = v5;
       }
     }

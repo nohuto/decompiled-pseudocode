@@ -1,9 +1,9 @@
 /*
- * XREFs of BcpGetMaxResourceProfile @ 0x140186930
+ * XREFs of BcpGetMaxResourceProfile @ 0x140186950
  * Callers:
- *     BgpBcInitializeCriticalMode @ 0x1409FB410 (BgpBcInitializeCriticalMode.c)
+ *     BgpBcInitializeCriticalMode @ 0x1409FB420 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     BcpGetCharacterMaxResourceProfile @ 0x1401869F4 (BcpGetCharacterMaxResourceProfile.c)
+ *     BcpGetCharacterMaxResourceProfile @ 0x140186A14 (BcpGetCharacterMaxResourceProfile.c)
  */
 
 __int64 __fastcall BcpGetMaxResourceProfile(__int64 a1, _QWORD *a2)

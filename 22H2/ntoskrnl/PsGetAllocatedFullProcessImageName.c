@@ -1,34 +1,34 @@
 /*
- * XREFs of PsGetAllocatedFullProcessImageName @ 0x140742CB8
+ * XREFs of PsGetAllocatedFullProcessImageName @ 0x14062F20C
  * Callers:
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742C84 (PsGetAllocatedFullProcessImageNameEx.c)
- *     PfCalculateProcessHash @ 0x140761120 (PfCalculateProcessHash.c)
- *     PiUEventHandleVetoEvent @ 0x140882E18 (PiUEventHandleVetoEvent.c)
- *     PnpLogVetoInformation @ 0x140964490 (PnpLogVetoInformation.c)
- *     ViCreateProcessCallbackInternal @ 0x140AD7224 (ViCreateProcessCallbackInternal.c)
+ *     PfCalculateProcessHash @ 0x14062ED30 (PfCalculateProcessHash.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14062F1D8 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     PnpLogVetoInformation @ 0x140732AE4 (PnpLogVetoInformation.c)
+ *     PiUEventHandleVetoEvent @ 0x14076DDE8 (PiUEventHandleVetoEvent.c)
+ *     ViCreateProcessCallbackInternal @ 0x1409DCAB4 (ViCreateProcessCallbackInternal.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PsGetAllocatedFullProcessImageName(__int64 a1, __int64 *a2)
+__int64 __fastcall PsGetAllocatedFullProcessImageName(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rsi
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   unsigned int v5; // edi
-  __int64 v6; // rbx
+  _QWORD *v6; // rbx
 
   v2 = *(_QWORD *)(a1 + 1472);
-  Pool2 = ExAllocatePool2(64LL, *(unsigned __int16 *)(v2 + 2) + 16LL, 1850307408LL);
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, *(unsigned __int16 *)(v2 + 2) + 16LL, 0x6E497350u);
   v5 = 0;
-  v6 = Pool2;
-  if ( Pool2 )
+  v6 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_OWORD *)Pool2 = *(_OWORD *)v2;
-    if ( *(_QWORD *)(Pool2 + 8) )
+    *(_OWORD *)PoolWithTag = *(_OWORD *)v2;
+    if ( PoolWithTag[1] )
     {
-      *(_QWORD *)(Pool2 + 8) = Pool2 + 16;
-      memmove((void *)(Pool2 + 16), *(const void **)(v2 + 8), *(unsigned __int16 *)(v2 + 2));
+      PoolWithTag[1] = PoolWithTag + 2;
+      memmove(PoolWithTag + 2, *(const void **)(v2 + 8), *(unsigned __int16 *)(v2 + 2));
     }
     *a2 = v6;
   }

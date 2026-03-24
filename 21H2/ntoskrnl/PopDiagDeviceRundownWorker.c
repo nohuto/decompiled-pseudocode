@@ -1,39 +1,39 @@
 /*
- * XREFs of PopDiagDeviceRundownWorker @ 0x140990BB0
+ * XREFs of PopDiagDeviceRundownWorker @ 0x1406B45B0
  * Callers:
  *     <none>
  * Callees:
- *     IoControlPnpDeviceActionQueue @ 0x140253DB4 (IoControlPnpDeviceActionQueue.c)
- *     PoDiagTraceDeviceRundown @ 0x1409909A4 (PoDiagTraceDeviceRundown.c)
+ *     IoControlPnpDeviceActionQueue @ 0x1402C6F2C (IoControlPnpDeviceActionQueue.c)
+ *     PoDiagTraceDeviceRundown @ 0x1406B4630 (PoDiagTraceDeviceRundown.c)
  */
 
 __int64 PopDiagDeviceRundownWorker()
 {
-  unsigned __int16 *v0; // rbx
-  unsigned __int16 *i; // rax
-  unsigned __int16 *v2; // rax
+  _QWORD *v0; // rbx
+  _QWORD *i; // rax
+  _QWORD *v2; // rax
 
   _InterlockedExchange(&PopDiagDeviceRundownRequests, 0);
   IoControlPnpDeviceActionQueue(1);
-  v0 = (unsigned __int16 *)IopRootDeviceNode;
-  for ( i = (unsigned __int16 *)*((_QWORD *)IopRootDeviceNode + 1); i; i = (unsigned __int16 *)*((_QWORD *)i + 1) )
+  v0 = IopRootDeviceNode;
+  for ( i = (_QWORD *)*((_QWORD *)IopRootDeviceNode + 1); i; i = (_QWORD *)i[1] )
     v0 = i;
   while ( v0 != IopRootDeviceNode )
   {
-    PoDiagTraceDeviceRundown((__int64)v0, v0 + 20, v0 + 28, *((_DWORD *)v0 + 39));
-    v2 = *(unsigned __int16 **)v0;
-    if ( *(_QWORD *)v0 )
+    PoDiagTraceDeviceRundown(v0, v0 + 5, v0 + 7, *((unsigned int *)v0 + 39));
+    v2 = (_QWORD *)*v0;
+    if ( *v0 )
     {
       do
       {
         v0 = v2;
-        v2 = (unsigned __int16 *)*((_QWORD *)v2 + 1);
+        v2 = (_QWORD *)v2[1];
       }
       while ( v2 );
     }
     else
     {
-      v0 = (unsigned __int16 *)*((_QWORD *)v0 + 2);
+      v0 = (_QWORD *)v0[2];
     }
   }
   return IoControlPnpDeviceActionQueue(0);

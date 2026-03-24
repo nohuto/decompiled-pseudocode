@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLogRelocationRva @ 0x1407E5148
+ * XREFs of MiLogRelocationRva @ 0x1407138D4
  * Callers:
- *     MiCaptureImageCfgContext @ 0x140706680 (MiCaptureImageCfgContext.c)
- *     MiParseImageLoadConfig @ 0x140706ABC (MiParseImageLoadConfig.c)
- *     MiLogRelocationFaults @ 0x140707460 (MiLogRelocationFaults.c)
- *     MiParseComAndCetHeaders @ 0x1407E4D40 (MiParseComAndCetHeaders.c)
+ *     MiParseComAndCetHeaders @ 0x1406D27F4 (MiParseComAndCetHeaders.c)
+ *     MiParseImageLoadConfig @ 0x140712E88 (MiParseImageLoadConfig.c)
+ *     MiCaptureImageCfgContext @ 0x140713450 (MiCaptureImageCfgContext.c)
+ *     MiLogRelocationFaults @ 0x14071384C (MiLogRelocationFaults.c)
  * Callees:
- *     MiOffsetToProtos @ 0x140286F90 (MiOffsetToProtos.c)
- *     PsGetIoPriorityThread @ 0x14033D760 (PsGetIoPriorityThread.c)
- *     PfSnLogPageFault @ 0x140365C94 (PfSnLogPageFault.c)
- *     PfLogFileDataAccess @ 0x1405C629C (PfLogFileDataAccess.c)
+ *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
+ *     MiOffsetToProtos @ 0x140320B50 (MiOffsetToProtos.c)
+ *     PfSnLogPageFault @ 0x14035EB88 (PfSnLogPageFault.c)
+ *     PfLogFileDataAccess @ 0x140564E48 (PfLogFileDataAccess.c)
  */
 
 void __fastcall MiLogRelocationRva(unsigned int a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -30,21 +30,21 @@ void __fastcall MiLogRelocationRva(unsigned int a1, unsigned int a2, __int64 a3,
   if ( v7 )
   {
     v8 = (v12[0] << 12) + ((unsigned __int64)v7[9] << 9);
-    if ( (PfSnNumActiveTraces || dword_140CF5E58) && (int)PsGetIoPriorityThread((__int64)KeGetCurrentThread()) >= 2 )
+    if ( (PfSnNumActiveTraces || dword_140CEC358) && (int)PsGetIoPriorityThread((__int64)KeGetCurrentThread()) >= 2 )
     {
       v9 = ((unsigned __int64)(v6 & 0xFFF) + v5 + 4095) >> 12;
       v10 = v9 + 1;
       if ( (v8 & 0xFFF) == 0 )
         v10 = v9;
       v11 = v8 & 0xFFFFFFFFFFFFF000uLL;
-      if ( dword_140CF5E58 )
+      if ( dword_140CEC358 )
         PfLogFileDataAccess(*(_QWORD *)(a3 + 24), (__int64)KeGetCurrentThread(), v11, v10, 0);
       if ( PfSnNumActiveTraces && v10 )
       {
         do
         {
           PfSnLogPageFault(a3, v11, 2u);
-          LODWORD(v11) = v11 + 4096;
+          v11 += 4096LL;
           --v10;
         }
         while ( v10 );

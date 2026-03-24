@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CBitmapResource@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800EF090
+ * XREFs of ?IsOfType@CBitmapResource@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D19D0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CBitmapResource::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 85 || a2 == 13;
+  return a2 == 83 || a2 == 11;
 }

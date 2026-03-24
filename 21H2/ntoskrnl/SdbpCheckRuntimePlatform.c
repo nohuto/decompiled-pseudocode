@@ -1,10 +1,10 @@
 /*
- * XREFs of SdbpCheckRuntimePlatform @ 0x140A121C0
+ * XREFs of SdbpCheckRuntimePlatform @ 0x140965840
  * Callers:
  *     <none>
  * Callees:
- *     SdbReadDWORDTag @ 0x1407ECF5C (SdbReadDWORDTag.c)
- *     SdbpCheckRuntimePlatformImpl @ 0x140A12218 (SdbpCheckRuntimePlatformImpl.c)
+ *     SdbReadDWORDTag @ 0x140759D94 (SdbReadDWORDTag.c)
+ *     SdbpCheckRuntimePlatformImpl @ 0x140965898 (SdbpCheckRuntimePlatformImpl.c)
  */
 
 __int64 __fastcall SdbpCheckRuntimePlatform(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
@@ -13,6 +13,6 @@ __int64 __fastcall SdbpCheckRuntimePlatform(__int64 a1, __int64 a2, __int64 a3, 
   unsigned int DWORDTag; // eax
 
   v5 = *(_DWORD *)(a2 + 544);
-  DWORDTag = SdbReadDWORDTag(a3, a5, 0xFFu);
-  return SdbpCheckRuntimePlatformImpl(a1, *(unsigned int *)(a3 + 1328), v5, DWORDTag);
+  DWORDTag = SdbReadDWORDTag(a3, a5, 255LL, a4);
+  return SdbpCheckRuntimePlatformImpl(a1, *(unsigned int *)(a3 + 2608), v5, DWORDTag);
 }

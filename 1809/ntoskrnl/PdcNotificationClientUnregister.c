@@ -1,5 +1,5 @@
 /*
- * XREFs of PdcNotificationClientUnregister @ 0x14089AB08
+ * XREFs of PdcNotificationClientUnregister @ 0x14089AAE8
  * Callers:
  *     PopInitializeDirectedDrips @ 0x1409DC6E0 (PopInitializeDirectedDrips.c)
  * Callees:
@@ -7,10 +7,10 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  *     ExfReleasePushLock @ 0x140091480 (ExfReleasePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PdcpPortReleaseResources @ 0x14089A68C (PdcpPortReleaseResources.c)
- *     PdcAcquireRwLockExclusive @ 0x14089AEEC (PdcAcquireRwLockExclusive.c)
+ *     PdcpPortReleaseResources @ 0x14089A66C (PdcpPortReleaseResources.c)
+ *     PdcAcquireRwLockExclusive @ 0x14089AECC (PdcAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PdcNotificationClientUnregister(struct _KTHREAD **P)

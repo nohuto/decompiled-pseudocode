@@ -1,109 +1,109 @@
 /*
- * XREFs of ?CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z @ 0x18006051C
+ * XREFs of ?CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z @ 0x180033404
  * Callers:
- *     ?EnsureBitmapRealization@CGdiSpriteBitmap@@AEAA_NXZ @ 0x1800604DC (-EnsureBitmapRealization@CGdiSpriteBitmap@@AEAA_NXZ.c)
- *     ?SetPixelFormat@?$CGdiSpriteBitmapGeneratedT@VCGdiSpriteBitmap@@VCResource@@@@QEAAJW4DXGI_FORMAT@@@Z @ 0x180060AA8 (-SetPixelFormat@-$CGdiSpriteBitmapGeneratedT@VCGdiSpriteBitmap@@VCResource@@@@QEAAJW4DXGI_FORMAT.c)
- *     ?GetCurrentRenderingRealization@CGdiSpriteBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z @ 0x1800D0930 (-GetCurrentRenderingRealization@CGdiSpriteBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z.c)
+ *     ?EnsureBitmapRealization@CGdiSpriteBitmap@@AEAA_NXZ @ 0x1800333C8 (-EnsureBitmapRealization@CGdiSpriteBitmap@@AEAA_NXZ.c)
+ *     ?GetCurrentRenderingRealization@CGdiSpriteBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z @ 0x1800C329C (-GetCurrentRenderingRealization@CGdiSpriteBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z.c)
+ *     ?ProcessUpdateSurface@CGdiSpriteBitmap@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_GDISPRITEBITMAP_UPDATESURFACE@@@Z @ 0x1800DA74C (-ProcessUpdateSurface@CGdiSpriteBitmap@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_GDISPRITEBITMAP_U.c)
  * Callees:
- *     ?CreateSectionBitmap@CGdiSpriteBitmap@@AEAAJPEAXII@Z @ 0x18005E3E8 (-CreateSectionBitmap@CGdiSpriteBitmap@@AEAAJPEAXII@Z.c)
- *     ?RegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAJXZ @ 0x1800600F8 (-RegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAJXZ.c)
- *     ?CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z @ 0x18006014C (-CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z.c)
- *     ?OnMarginsChanged@CGdiSpriteBitmap@@QEAAXXZ @ 0x1800606A0 (-OnMarginsChanged@CGdiSpriteBitmap@@QEAAXXZ.c)
- *     ?GetSurfaceData@CRedirectedGDISurface@@QEAAJPEAW4_RedirectGDISurfaceRedirStyle@@PEAI11PEAPEAXPEAU_LUID@@2PEAW4DXGI_FORMAT@@@Z @ 0x180060738 (-GetSurfaceData@CRedirectedGDISurface@@QEAAJPEAW4_RedirectGDISurfaceRedirStyle@@PEAI11PEAPEAXPEA.c)
- *     ?ReleaseBitmapResources@CGdiSpriteBitmap@@AEAAXXZ @ 0x180060834 (-ReleaseBitmapResources@CGdiSpriteBitmap@@AEAAXXZ.c)
- *     ?RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ @ 0x180060964 (-RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ.c)
- *     ?UpdatePixelFormat@CGdiSpriteBitmap@@AEAAXW4DXGI_FORMAT@@@Z @ 0x180060A64 (-UpdatePixelFormat@CGdiSpriteBitmap@@AEAAXW4DXGI_FORMAT@@@Z.c)
- *     ?UnRegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAXXZ @ 0x180060D28 (-UnRegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAXXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CreateSectionBitmap@CGdiSpriteBitmap@@AEAAJPEAXII@Z @ 0x180031BA4 (-CreateSectionBitmap@CGdiSpriteBitmap@@AEAAJPEAXII@Z.c)
+ *     ?RegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAJXZ @ 0x180032CE0 (-RegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAJXZ.c)
+ *     ?CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z @ 0x180032FBC (-CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z.c)
+ *     ?UpdateMargins@CGdiSpriteBitmap@@AEBAXXZ @ 0x180033584 (-UpdateMargins@CGdiSpriteBitmap@@AEBAXXZ.c)
+ *     ?GetInformation@CRedirectedGDISurface@@QEAAJW4_RedirectGDISurfaceInformationClass@@PEAKPEAX@Z @ 0x1800336BC (-GetInformation@CRedirectedGDISurface@@QEAAJW4_RedirectGDISurfaceInformationClass@@PEAKPEAX@Z.c)
+ *     ?ReleaseBitmapResources@CGdiSpriteBitmap@@AEAAXXZ @ 0x180033868 (-ReleaseBitmapResources@CGdiSpriteBitmap@@AEAAXXZ.c)
+ *     ?RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ @ 0x180033988 (-RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ.c)
+ *     ?HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z @ 0x180033A80 (-HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z.c)
+ *     ?UnRegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAXXZ @ 0x180033B58 (-UnRegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
-__int64 __fastcall CGdiSpriteBitmap::CreateBitmap(CRedirectedGDISurface **this, enum DXGI_FORMAT a2)
+__int64 __fastcall CGdiSpriteBitmap::CreateBitmap(CGdiSpriteBitmap *this, enum DXGI_FORMAT a2)
 {
-  unsigned int v3; // ebx
-  int v4; // esi
-  enum DXGI_FORMAT v5; // edx
-  int v6; // esi
+  unsigned int v4; // esi
+  __int64 v5; // rcx
+  enum DXGI_FORMAT v6; // ecx
+  int v7; // edx
+  int v8; // edx
   int DeviceBitmap; // eax
-  unsigned int v8; // ecx
-  int v9; // eax
   unsigned int v10; // ecx
   int v11; // eax
   unsigned int v12; // ecx
+  int v13; // eax
+  unsigned int v14; // ecx
   int SectionBitmap; // eax
-  unsigned int v15; // ecx
-  unsigned int v16; // [rsp+50h] [rbp-28h] BYREF
-  struct _LUID v17; // [rsp+58h] [rbp-20h] BYREF
-  void *v18; // [rsp+60h] [rbp-18h] BYREF
-  void *v19; // [rsp+68h] [rbp-10h] BYREF
-  unsigned int v20; // [rsp+A0h] [rbp+28h] BYREF
-  enum DXGI_FORMAT v21; // [rsp+A8h] [rbp+30h] BYREF
-  unsigned int v22; // [rsp+B0h] [rbp+38h] BYREF
-  int v23; // [rsp+B8h] [rbp+40h] BYREF
+  unsigned int v17; // ecx
+  int v18[4]; // [rsp+30h] [rbp-D0h] BYREF
+  int v19; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE v20[16]; // [rsp+48h] [rbp-B8h] BYREF
+  void *v21; // [rsp+58h] [rbp-A8h]
+  unsigned int v22; // [rsp+60h] [rbp-A0h]
+  unsigned int v23; // [rsp+64h] [rbp-9Ch]
+  int v24; // [rsp+68h] [rbp-98h]
+  enum DXGI_FORMAT v25; // [rsp+6Ch] [rbp-94h]
+  struct _LUID v26; // [rsp+78h] [rbp-88h]
+  void *v27; // [rsp+80h] [rbp-80h]
 
-  v21 = a2;
-  v3 = 0;
-  CGdiSpriteBitmap::ReleaseBitmapResources((CGdiSpriteBitmap *)this);
-  if ( (int)CRedirectedGDISurface::GetSurfaceData(
-              this[15],
-              (enum _RedirectGDISurfaceRedirStyle *)&v23,
-              &v22,
-              &v20,
-              &v16,
-              &v19,
-              &v17,
-              &v18,
-              &v21) < 0 )
-    goto LABEL_10;
-  v4 = v23;
-  if ( !v23 )
-    goto LABEL_10;
-  v5 = v21;
-  *((_DWORD *)this + 104) = v16;
-  CGdiSpriteBitmap::UpdatePixelFormat((CGdiSpriteBitmap *)this, v5);
-  v6 = v4 - 1;
-  if ( !v6 )
+  v4 = 0;
+  CGdiSpriteBitmap::ReleaseBitmapResources(this);
+  v19 = 0;
+  memset_0(v20, 0, 0x130uLL);
+  v5 = *((_QWORD *)this + 11);
+  v25 = a2;
+  v18[0] = 312;
+  if ( (int)CRedirectedGDISurface::GetInformation(v5, 2LL, v18, &v19) < 0 || !v19 )
+    goto LABEL_11;
+  v6 = v25;
+  *((_DWORD *)this + 118) = v24;
+  if ( *((_BYTE *)this + 132) && *((_BYTE *)this + 440) && v6 == DXGI_FORMAT_B8G8R8X8_UNORM )
+    v6 = DXGI_FORMAT_B8G8R8A8_UNORM;
+  *((_DWORD *)this + 24) = v6;
+  *((_DWORD *)this + 25) = (unsigned int)HasAlphaChannel(v6) != 0 ? 1 : 3;
+  v8 = v7 - 1;
+  if ( !v8 )
   {
-    CGdiSpriteBitmap::UnRegisterWithSurfaceManager((CGdiSpriteBitmap *)this);
-    SectionBitmap = CGdiSpriteBitmap::CreateSectionBitmap((CGdiSpriteBitmap *)this, v19, v22, v20);
-    v3 = SectionBitmap;
+    CGdiSpriteBitmap::UnRegisterWithSurfaceManager(this);
+    SectionBitmap = CGdiSpriteBitmap::CreateSectionBitmap(this, v21, v22, v23);
+    v4 = SectionBitmap;
     if ( SectionBitmap < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, SectionBitmap, 0xDFu, 0LL);
-      goto LABEL_10;
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, SectionBitmap, 0x10Fu, 0LL);
+      goto LABEL_11;
     }
-    goto LABEL_8;
+    goto LABEL_9;
   }
-  if ( v6 != 1 )
+  if ( v8 != 1 )
   {
-LABEL_8:
-    if ( this[53] )
+LABEL_9:
+    if ( *((_QWORD *)this + 60) )
     {
-      v11 = CGdiSpriteBitmap::RegisterForSignaling((CGdiSpriteBitmap *)this);
-      v3 = v11;
-      if ( v11 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x101u, 0LL);
+      v13 = CGdiSpriteBitmap::RegisterForSignaling(this);
+      v4 = v13;
+      if ( v13 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x132u, 0LL);
     }
-    goto LABEL_10;
+    goto LABEL_11;
   }
-  DeviceBitmap = CGdiSpriteBitmap::CreateDeviceBitmap((CGdiSpriteBitmap *)this, v18, v17, v22, v20);
-  v3 = DeviceBitmap;
+  DeviceBitmap = CGdiSpriteBitmap::CreateDeviceBitmap(this, v27, v26, v22, v23);
+  v4 = DeviceBitmap;
   if ( DeviceBitmap < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, DeviceBitmap, 0xEBu, 0LL);
-    goto LABEL_10;
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, DeviceBitmap, 0x11Cu, 0LL);
+    goto LABEL_11;
   }
-  if ( this[53] )
+  if ( *((_QWORD *)this + 60) )
   {
-    v9 = CGdiSpriteBitmap::RegisterWithSurfaceManager((CGdiSpriteBitmap *)this);
-    v3 = v9;
-    if ( v9 < 0 )
+    v11 = CGdiSpriteBitmap::RegisterWithSurfaceManager(this);
+    v4 = v11;
+    if ( v11 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xF4u, 0LL);
-      goto LABEL_10;
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x125u, 0LL);
+      goto LABEL_11;
     }
-    goto LABEL_8;
+    goto LABEL_9;
   }
-LABEL_10:
-  CGdiSpriteBitmap::OnMarginsChanged((CGdiSpriteBitmap *)this);
-  return v3;
+LABEL_11:
+  CGdiSpriteBitmap::UpdateMargins(this);
+  return v4;
 }

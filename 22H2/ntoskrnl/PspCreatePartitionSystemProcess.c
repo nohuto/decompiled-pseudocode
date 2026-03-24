@@ -1,12 +1,12 @@
 /*
- * XREFs of PspCreatePartitionSystemProcess @ 0x1409B6628
+ * XREFs of PspCreatePartitionSystemProcess @ 0x14090CFA8
  * Callers:
- *     PspAllocatePartition @ 0x14085A080 (PspAllocatePartition.c)
+ *     PspAllocatePartition @ 0x1407CC1D4 (PspAllocatePartition.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     PsCreateMinimalProcess @ 0x140853DBC (PsCreateMinimalProcess.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     PsCreateMinimalProcess @ 0x140798E60 (PsCreateMinimalProcess.c)
  */
 
 __int64 __fastcall PspCreatePartitionSystemProcess(PVOID *a1, _QWORD *a2)
@@ -16,14 +16,14 @@ __int64 __fastcall PspCreatePartitionSystemProcess(PVOID *a1, _QWORD *a2)
   PVOID v6; // rbx
   NTSTATUS v7; // edi
   __int64 result; // rax
-  _QWORD v9[2]; // [rsp+60h] [rbp-10h] BYREF
-  PVOID Handle; // [rsp+A0h] [rbp+30h] BYREF
+  _QWORD v9[2]; // [rsp+50h] [rbp-10h] BYREF
+  PVOID Handle; // [rsp+90h] [rbp+30h] BYREF
 
   Handle = 0LL;
   v9[1] = L"PartitionSystm";
   v4 = BYTE2(PsInitialSystemProcess[2].Header.WaitListHead.Flink);
   v9[0] = 1966108LL;
-  v5 = PsCreateMinimalProcess((__int64)PsInitialSystemProcess, (__int64)v9, 0LL, v4, 0LL, 0, 1, 0LL, 0LL, 0LL, &Handle);
+  v5 = PsCreateMinimalProcess(PsInitialSystemProcess, (__int64)v9, 0LL, v4, 0LL, 0, 1, 0LL, 0LL, &Handle);
   v6 = Handle;
   v7 = v5;
   if ( v5 >= 0 )
@@ -38,7 +38,7 @@ __int64 __fastcall PspCreatePartitionSystemProcess(PVOID *a1, _QWORD *a2)
       return result;
     }
     if ( Handle )
-      ObfDereferenceObject(Handle);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Handle);
   }
   if ( v6 )
     ObCloseHandle(v6, 0);

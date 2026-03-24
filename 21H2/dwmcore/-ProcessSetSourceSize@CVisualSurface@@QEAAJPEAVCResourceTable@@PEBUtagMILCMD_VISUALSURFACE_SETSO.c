@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessSetSourceSize@CVisualSurface@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALSURFACE_SETSOURCESIZE@@@Z @ 0x1800E9F9C
+ * XREFs of ?ProcessSetSourceSize@CVisualSurface@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALSURFACE_SETSOURCESIZE@@@Z @ 0x1801F2B0C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CVisualSurface::ProcessSetSourceSize(
@@ -16,8 +16,8 @@ __int64 __fastcall CVisualSurface::ProcessSetSourceSize(
   unsigned int v4; // ebx
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
-  v3 = ((__int64 (__fastcall *)(char *, void *, char *))xmmword_1803D1BC0)(
-         (char *)this + SDWORD2(xmmword_1803D1BC0),
+  v3 = ((__int64 (__fastcall *)(char *, void *, char *))xmmword_180346590)(
+         (char *)this + SDWORD2(xmmword_180346590),
          &CVisualSurface::sc_sourceSize,
          (char *)a3 + 8);
   v4 = v3;
@@ -25,8 +25,8 @@ __int64 __fastcall CVisualSurface::ProcessSetSourceSize(
     return 0LL;
   wil::details::in1diag3::Return_Hr(
     retaddr,
-    (void *)0xAB,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\visualsurface.cpp",
+    (void *)0x9A,
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\visualsurface.cpp",
     (const char *)(unsigned int)v3);
   return v4;
 }

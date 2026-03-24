@@ -1,20 +1,20 @@
 /*
- * XREFs of PiIrpQueryRemoveDevice @ 0x14096D1CC
+ * XREFs of PiIrpQueryRemoveDevice @ 0x14073463C
  * Callers:
- *     PnpDisableDevice @ 0x1409589C8 (PnpDisableDevice.c)
- *     PnpQueryRemoveLockedDeviceNode @ 0x1409591E8 (PnpQueryRemoveLockedDeviceNode.c)
+ *     PnpQueryRemoveLockedDeviceNode @ 0x14073454C (PnpQueryRemoveLockedDeviceNode.c)
+ *     PnpDisableDevice @ 0x1408A1DDC (PnpDisableDevice.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     PnpFindMountableDevice @ 0x1403B6DBC (PnpFindMountableDevice.c)
- *     PnpMarkDeviceForRemove @ 0x1403D4748 (PnpMarkDeviceForRemove.c)
- *     PnpLockMountableDevice @ 0x1403D4B50 (PnpLockMountableDevice.c)
- *     PnpUnlockMountableDevice @ 0x1403D502C (PnpUnlockMountableDevice.c)
- *     IopDecrementDeviceObjectHandleCount @ 0x1403D6B4C (IopDecrementDeviceObjectHandleCount.c)
- *     memset @ 0x140435400 (memset.c)
- *     PnpAsynchronousCall @ 0x1407954A4 (PnpAsynchronousCall.c)
- *     IopInvalidateVolumesForDevice @ 0x140882338 (IopInvalidateVolumesForDevice.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     PnpFindMountableDevice @ 0x140370400 (PnpFindMountableDevice.c)
+ *     PnpMarkDeviceForRemove @ 0x1403934C4 (PnpMarkDeviceForRemove.c)
+ *     PnpLockMountableDevice @ 0x1403936BC (PnpLockMountableDevice.c)
+ *     PnpUnlockMountableDevice @ 0x140393718 (PnpUnlockMountableDevice.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x140394E1C (IopDecrementDeviceObjectHandleCount.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PnpAsynchronousCall @ 0x14076872C (PnpAsynchronousCall.c)
+ *     IopInvalidateVolumesForDevice @ 0x14077B720 (IopInvalidateVolumesForDevice.c)
  */
 
 __int64 __fastcall PiIrpQueryRemoveDevice(PDEVICE_OBJECT DeviceObject, _QWORD *a2)
@@ -22,25 +22,25 @@ __int64 __fastcall PiIrpQueryRemoveDevice(PDEVICE_OBJECT DeviceObject, _QWORD *a
   int v4; // r14d
   PDEVICE_OBJECT v5; // rdi
   int v6; // edi
-  PVOID v7; // rsi
+  struct _DMA_ADAPTER *v8; // rsi
   __int64 v9; // [rsp+38h] [rbp-29h] BYREF
   struct _KEVENT Event; // [rsp+40h] [rbp-21h] BYREF
   int v11; // [rsp+58h] [rbp-9h]
   int v12; // [rsp+5Ch] [rbp-5h]
-  PVOID Object[2]; // [rsp+60h] [rbp-1h] BYREF
-  _BYTE v14[72]; // [rsp+70h] [rbp+Fh] BYREF
+  PADAPTER_OBJECT DmaAdapter[2]; // [rsp+60h] [rbp-1h] BYREF
+  _WORD v14[36]; // [rsp+70h] [rbp+Fh] BYREF
 
   v12 = 0;
   v4 = 0;
-  *(_OWORD *)Object = 0LL;
+  *(_OWORD *)DmaAdapter = 0LL;
   memset(&Event, 0, sizeof(Event));
   memset(v14, 0, sizeof(v14));
-  *(_WORD *)v14 = 283;
+  v14[0] = 283;
   if ( PnpFindMountableDevice((__int64)DeviceObject) )
   {
     v4 = 1;
     PnpLockMountableDevice(DeviceObject);
-    v5 = (PDEVICE_OBJECT)PnpMarkDeviceForRemove((ULONG_PTR)DeviceObject, 1, (ULONG_PTR *)Object);
+    v5 = (PDEVICE_OBJECT)PnpMarkDeviceForRemove((ULONG_PTR)DeviceObject, 1, (ULONG_PTR *)DmaAdapter);
     PnpUnlockMountableDevice((__int64)DeviceObject);
   }
   else
@@ -50,7 +50,7 @@ __int64 __fastcall PiIrpQueryRemoveDevice(PDEVICE_OBJECT DeviceObject, _QWORD *a
   v9 = 0LL;
   v11 = -1073741823;
   KeInitializeEvent(&Event, SynchronizationEvent, 0);
-  v6 = PnpAsynchronousCall(v5, (__int128 *)v14, (IO_COMPLETION_ROUTINE *)PnpDiagnosticCompletionRoutine, &v9);
+  v6 = PnpAsynchronousCall(v5, v14, PnpDiagnosticCompletionRoutine, &v9);
   if ( v6 == 259 )
   {
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
@@ -61,11 +61,11 @@ __int64 __fastcall PiIrpQueryRemoveDevice(PDEVICE_OBJECT DeviceObject, _QWORD *a
   if ( v4 )
   {
     PnpLockMountableDevice(DeviceObject);
-    v7 = Object[1];
-    if ( Object[1] )
+    v8 = DmaAdapter[1];
+    if ( DmaAdapter[1] )
     {
-      IopDecrementDeviceObjectHandleCount((ULONG_PTR)Object[1]);
-      ObfDereferenceObject(v7);
+      IopDecrementDeviceObjectHandleCount((ULONG_PTR)DmaAdapter[1]);
+      HalPutDmaAdapter(v8);
     }
     PnpUnlockMountableDevice((__int64)DeviceObject);
     if ( v6 >= 0 )

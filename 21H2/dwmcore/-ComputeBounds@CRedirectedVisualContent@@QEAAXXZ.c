@@ -1,31 +1,26 @@
 /*
- * XREFs of ?ComputeBounds@CRedirectedVisualContent@@QEAAXXZ @ 0x18025B49C
+ * XREFs of ?ComputeBounds@CRedirectedVisualContent@@QEAAXXZ @ 0x1800DB524
  * Callers:
- *     ?GetContentBounds@CRedirectVisual@@UEAAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18023B460 (-GetContentBounds@CRedirectVisual@@UEAAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSiz.c)
+ *     ?GetContentBounds@CRedirectVisual@@UEAAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800DB4C0 (-GetContentBounds@CRedirectVisual@@UEAAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSiz.c)
  * Callees:
- *     ?Clean@CVisualTree@@IEAAJPEAVCPreComputeContext@@@Z @ 0x18008F144 (-Clean@CVisualTree@@IEAAJPEAVCPreComputeContext@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CRedirectedVisualContent::ComputeBounds(CRedirectedVisualContent *this)
 {
   __int64 v2; // rax
-  __int128 *v3; // rax
-  __int64 v4; // xmm1_8
+  __int64 v3; // xmm1_8
 
-  if ( (int)CVisualTree::Clean(*((CVisualTree **)this + 10), 0LL) < 0 )
+  if ( (*(int (__fastcall **)(_QWORD))(**((_QWORD **)this + 9) + 208LL))(*((_QWORD *)this + 9)) < 0 )
   {
-    *(_OWORD *)((char *)this + 88) = TMil3DRect<float,TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite;
-    v4 = qword_1803D26E8;
+    *((_OWORD *)this + 5) = TMil3DRect<float,TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite;
+    v3 = qword_1803467E8;
   }
   else
   {
-    v2 = *((_QWORD *)this + 10);
-    if ( *(_QWORD *)(v2 + 64) )
-      v3 = (__int128 *)(v2 + 72);
-    else
-      v3 = &TMil3DRect<float,TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
-    *(_OWORD *)((char *)this + 88) = *v3;
-    v4 = *((_QWORD *)v3 + 2);
+    v2 = *((_QWORD *)this + 9);
+    *((_OWORD *)this + 5) = *(_OWORD *)(v2 + 64);
+    v3 = *(_QWORD *)(v2 + 80);
   }
-  *((_QWORD *)this + 13) = v4;
+  *((_QWORD *)this + 12) = v3;
 }

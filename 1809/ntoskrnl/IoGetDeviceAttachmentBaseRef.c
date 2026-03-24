@@ -6,10 +6,10 @@
  *     FsRtlAcquireFileForCcFlushEx @ 0x1405DD0AC (FsRtlAcquireFileForCcFlushEx.c)
  *     FsRtlReleaseFile @ 0x1405DE940 (FsRtlReleaseFile.c)
  *     FsRtlAcquireFileExclusiveCommon @ 0x1405DEB10 (FsRtlAcquireFileExclusiveCommon.c)
- *     IoWMIDeviceObjectToInstanceName @ 0x14071D930 (IoWMIDeviceObjectToInstanceName.c)
- *     PipSetDevNodeStateFlags @ 0x1408285B8 (PipSetDevNodeStateFlags.c)
- *     PipRecordOpenHandleVeto @ 0x1408406E8 (PipRecordOpenHandleVeto.c)
- *     PopRegisterCoolingExtensionProtection @ 0x140867964 (PopRegisterCoolingExtensionProtection.c)
+ *     IoWMIDeviceObjectToInstanceName @ 0x14071D910 (IoWMIDeviceObjectToInstanceName.c)
+ *     PipSetDevNodeStateFlags @ 0x140828598 (PipSetDevNodeStateFlags.c)
+ *     PipRecordOpenHandleVeto @ 0x1408406C8 (PipRecordOpenHandleVeto.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x140867944 (PopRegisterCoolingExtensionProtection.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  */

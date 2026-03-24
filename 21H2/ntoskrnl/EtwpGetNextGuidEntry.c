@@ -1,38 +1,39 @@
 /*
- * XREFs of EtwpGetNextGuidEntry @ 0x1407969D0
+ * XREFs of EtwpGetNextGuidEntry @ 0x1406E100C
  * Callers:
- *     EtwpEnumerateTraceGuids @ 0x1407949D4 (EtwpEnumerateTraceGuids.c)
- *     EtwpDisableTraceProviders @ 0x140795400 (EtwpDisableTraceProviders.c)
- *     EtwpTracingProvEnableCallback @ 0x140865450 (EtwpTracingProvEnableCallback.c)
- *     EtwpGetGuidList @ 0x140883086 (EtwpGetGuidList.c)
- *     EtwpSetProviderBinaryTracking @ 0x1409F5378 (EtwpSetProviderBinaryTracking.c)
- *     EtwpEventTracingCounterSetCallback @ 0x140A36BE0 (EtwpEventTracingCounterSetCallback.c)
+ *     EtwpDisableTraceProviders @ 0x1406E0F28 (EtwpDisableTraceProviders.c)
+ *     EtwpEnumerateTraceGuids @ 0x14072AA88 (EtwpEnumerateTraceGuids.c)
+ *     EtwpTracingProvEnableCallback @ 0x1407D5700 (EtwpTracingProvEnableCallback.c)
+ *     EtwpGetTraceGroupList @ 0x1409349C8 (EtwpGetTraceGroupList.c)
+ *     EtwpGetTraceGuidList @ 0x140934A68 (EtwpGetTraceGuidList.c)
+ *     EtwpSetProviderBinaryTracking @ 0x140940E40 (EtwpSetProviderBinaryTracking.c)
+ *     EtwpEventTracingCounterSetCallback @ 0x140982BC0 (EtwpEventTracingCounterSetCallback.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     EtwpUnreferenceGuidEntry @ 0x140796B04 (EtwpUnreferenceGuidEntry.c)
- *     EtwpReferenceGuidEntry @ 0x140796BF4 (EtwpReferenceGuidEntry.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     EtwpReferenceGuidEntry @ 0x1405EBAA4 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
  */
 
-signed __int64 *__fastcall EtwpGetNextGuidEntry(__int64 a1, signed __int64 **a2, int a3)
+signed __int64 *__fastcall EtwpGetNextGuidEntry(__int64 a1, __int64 *a2, int a3)
 {
-  __int64 v3; // r13
-  char v4; // bp
-  signed __int64 **v5; // rbx
-  signed __int64 *v6; // rsi
-  __int64 v7; // r14
-  signed __int64 *v8; // rdi
-  signed __int64 *v9; // r14
-  __int64 i; // r12
+  __int64 v3; // rbp
+  __int64 *v4; // rdi
+  char v5; // r12
+  signed __int64 *v6; // r15
+  __int64 v7; // rbx
+  signed __int64 *v8; // rsi
+  signed __int64 *v9; // rbx
+  __int64 i; // r13
   struct _KTHREAD *CurrentThread; // rax
-  signed __int64 **v12; // rax
-  signed __int64 *v13; // r15
+  __int64 *v12; // rax
+  signed __int64 *j; // r14
 
   v3 = a1 + 464;
-  v4 = 0;
-  v5 = a2;
+  v4 = a2;
+  v5 = 0;
   v6 = 0LL;
   if ( a2 )
     v7 = v3
@@ -47,36 +48,30 @@ signed __int64 *__fastcall EtwpGetNextGuidEntry(__int64 a1, signed __int64 **a2,
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquirePushLockSharedEx((ULONG_PTR)v9, 0LL);
-    v12 = (signed __int64 **)v8;
-    if ( v5 )
-      v12 = v5;
-    v13 = *v12;
-    if ( *v12 != v8 )
+    v12 = v8;
+    if ( v4 )
+      v12 = v4;
+    for ( j = (signed __int64 *)*v12; j != v8; j = (signed __int64 *)*j )
     {
-      while ( 1 )
+      v6 = j;
+      if ( EtwpReferenceGuidEntry((ULONG_PTR)j) )
       {
-        v6 = v13;
-        if ( (unsigned __int8)EtwpReferenceGuidEntry((ULONG_PTR)v13) )
-          break;
-        v13 = (signed __int64 *)*v13;
-        if ( v13 == v8 )
-          goto LABEL_9;
+        v5 = 1;
+        break;
       }
-      v4 = 1;
     }
-LABEL_9:
     if ( _InterlockedCompareExchange64(v9, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared(v9);
     KeAbPostRelease((ULONG_PTR)v9);
     KeLeaveCriticalRegion();
-    if ( v5 )
-      EtwpUnreferenceGuidEntry(v5);
     if ( v4 )
+      EtwpUnreferenceGuidEntry(v4);
+    if ( v5 )
       return v6;
     v9 += 7;
     if ( v9 == (signed __int64 *)(v3 + 3632) )
       break;
-    v5 = 0LL;
+    v4 = 0LL;
   }
   return 0LL;
 }

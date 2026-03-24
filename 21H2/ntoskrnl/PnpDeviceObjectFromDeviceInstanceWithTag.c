@@ -1,38 +1,38 @@
 /*
- * XREFs of PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140779C10
+ * XREFs of PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406386D0
  * Callers:
- *     NtReplacePartitionUnit @ 0x140654720 (NtReplacePartitionUnit.c)
- *     PiQueueDeviceRequest @ 0x14065F5D4 (PiQueueDeviceRequest.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x14065FA0C (PnpQueueQueryAndRemoveEvent.c)
- *     PiSwProcessRemove @ 0x1406619F8 (PiSwProcessRemove.c)
- *     IopInitializeDeviceInstanceKey @ 0x1406CF970 (IopInitializeDeviceInstanceKey.c)
- *     PiSwGetChildPdo @ 0x1406E32E4 (PiSwGetChildPdo.c)
- *     PiQueryDeviceRelations @ 0x1406E397C (PiQueryDeviceRelations.c)
- *     IopDeviceObjectFromSymbolicName @ 0x140748FA4 (IopDeviceObjectFromSymbolicName.c)
- *     PiSwIrpStartCreateWorker @ 0x140765DC0 (PiSwIrpStartCreateWorker.c)
- *     IopProcessSetInterfaceState @ 0x140769170 (IopProcessSetInterfaceState.c)
- *     PnpIsDeviceInstanceEnabled @ 0x14076B030 (PnpIsDeviceInstanceEnabled.c)
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
- *     PiGetDeviceDepth @ 0x140773B10 (PiGetDeviceDepth.c)
- *     PiControlGetPropertyData @ 0x140775140 (PiControlGetPropertyData.c)
- *     PiGetRelatedDevice @ 0x1407754E4 (PiGetRelatedDevice.c)
- *     PipProcessDevNodeTree @ 0x140777578 (PipProcessDevNodeTree.c)
- *     PiControlGetSetDeviceStatus @ 0x1407793D0 (PiControlGetSetDeviceStatus.c)
- *     PiPnpRtlCmActionCallback @ 0x140779F10 (PiPnpRtlCmActionCallback.c)
- *     IoReportDetectedDevice @ 0x14081EB20 (IoReportDetectedDevice.c)
- *     PnpDriverLoadingFailed @ 0x140862BA0 (PnpDriverLoadingFailed.c)
- *     PiDcResetChildDeviceContainerCallback @ 0x140949470 (PiDcResetChildDeviceContainerCallback.c)
- *     PiSwCloseDevice @ 0x14095341C (PiSwCloseDevice.c)
- *     PiSwIrpCleanup @ 0x140953700 (PiSwIrpCleanup.c)
- *     PiCMCreateDevice @ 0x140954434 (PiCMCreateDevice.c)
- *     PiControlQueryConflictList @ 0x140959490 (PiControlQueryConflictList.c)
- *     PiInitializeDevice @ 0x14095975C (PiInitializeDevice.c)
- *     PipAddDevicesToBootDriverWorker @ 0x140B277F4 (PipAddDevicesToBootDriverWorker.c)
+ *     NtReplacePartitionUnit @ 0x1405C9FF0 (NtReplacePartitionUnit.c)
+ *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
+ *     PiControlGetSetDeviceStatus @ 0x140639930 (PiControlGetSetDeviceStatus.c)
+ *     PiControlGetPropertyData @ 0x1406ADDA0 (PiControlGetPropertyData.c)
+ *     PiGetRelatedDevice @ 0x1406AE154 (PiGetRelatedDevice.c)
+ *     PiGetDeviceDepth @ 0x1406BD9E0 (PiGetDeviceDepth.c)
+ *     PiQueueDeviceRequest @ 0x14072F218 (PiQueueDeviceRequest.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14072F3E8 (PnpQueueQueryAndRemoveEvent.c)
+ *     PiSwProcessRemove @ 0x140732BD8 (PiSwProcessRemove.c)
+ *     PiSwCloseDevice @ 0x1407349F0 (PiSwCloseDevice.c)
+ *     IopDeviceObjectFromSymbolicName @ 0x14073E140 (IopDeviceObjectFromSymbolicName.c)
+ *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
+ *     IopProcessSetInterfaceState @ 0x1407490DC (IopProcessSetInterfaceState.c)
+ *     PiSwIrpCleanup @ 0x14074CE88 (PiSwIrpCleanup.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074DBB8 (PiSwIrpStartCreateWorker.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074ED50 (IopInitializeDeviceInstanceKey.c)
+ *     PnpIsDeviceInstanceEnabled @ 0x140752C1C (PnpIsDeviceInstanceEnabled.c)
+ *     PiSwGetChildPdo @ 0x14077093C (PiSwGetChildPdo.c)
+ *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
+ *     PnpDriverLoadingFailed @ 0x1407D2C50 (PnpDriverLoadingFailed.c)
+ *     PiDcResetChildDeviceContainerCallback @ 0x1408A3670 (PiDcResetChildDeviceContainerCallback.c)
+ *     PiCMCreateDevice @ 0x1408AF440 (PiCMCreateDevice.c)
+ *     PiControlQueryConflictList @ 0x1408B3850 (PiControlQueryConflictList.c)
+ *     PiInitializeDevice @ 0x1408B3C6C (PiInitializeDevice.c)
+ *     PiQueryDeviceRelations @ 0x1408B407C (PiQueryDeviceRelations.c)
+ *     PipAddDevicesToBootDriverWorker @ 0x140A6C2D0 (PipAddDevicesToBootDriverWorker.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     RtlLookupElementGenericTableAvl @ 0x1402DF3F0 (RtlLookupElementGenericTableAvl.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     RtlLookupElementGenericTableAvl @ 0x140264810 (RtlLookupElementGenericTableAvl.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
  */
 
 _QWORD *__fastcall PnpDeviceObjectFromDeviceInstanceWithTag(__int64 a1, ULONG a2)
@@ -52,10 +52,18 @@ _QWORD *__fastcall PnpDeviceObjectFromDeviceInstanceWithTag(__int64 a1, ULONG a2
     v2 = *v4;
     if ( *v4 )
     {
-      if ( *(_WORD *)v2 == 3 && (v5 = *(_QWORD *)(v2[39] + 40LL)) != 0 && *(_QWORD **)(v5 + 32) == v2 )
-        ObfReferenceObjectWithTag(v2, a2);
+      if ( *(_WORD *)v2 == 3 )
+      {
+        v5 = *(_QWORD *)(v2[39] + 40LL);
+        if ( !v5 || *(_QWORD **)(v5 + 32) != v2 )
+          v2 = 0LL;
+        if ( v2 )
+          ObfReferenceObjectWithTag(v2, a2);
+      }
       else
+      {
         v2 = 0LL;
+      }
     }
   }
   KeReleaseGuardedMutex(&PnpDeviceReferenceTableLock);

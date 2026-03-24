@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTraceTouchpadGestureDetected @ 0x1C013B810
+ * XREFs of EtwTraceTouchpadGestureDetected @ 0x1C0124460
  * Callers:
- *     ?SetLastAction@Usage@PTPTelemetry@@SAXW4tagPTP_ACTION@@@Z @ 0x1C01E071C (-SetLastAction@Usage@PTPTelemetry@@SAXW4tagPTP_ACTION@@@Z.c)
+ *     ?SetLastAction@Usage@PTPTelemetry@@SAXW4tagPTP_ACTION@@@Z @ 0x1C01A7268 (-SetLastAction@Usage@PTPTelemetry@@SAXW4tagPTP_ACTION@@@Z.c)
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C00DF278 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124850 (McTemplateK0_EtwWriteTransfer.c)
  */
 
-NTSTATUS __fastcall EtwTraceTouchpadGestureDetected(__int64 a1)
+__int64 __fastcall EtwTraceTouchpadGestureDetected(__int64 a1)
 {
-  NTSTATUS result; // eax
+  __int64 result; // rax
 
   if ( (Microsoft_Windows_Win32kEnableBits & 0x4000) != 0 )
     return McTemplateK0_EtwWriteTransfer(a1, &TouchpadGestureDetected, &W32kControlGuid);

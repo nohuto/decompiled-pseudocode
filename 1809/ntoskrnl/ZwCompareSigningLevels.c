@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCompareSigningLevels @ 0x1401B94B0
+ * XREFs of ZwCompareSigningLevels @ 0x1401B94D0
  * Callers:
  *     <none>
  * Callees:

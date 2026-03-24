@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
  *     ViDdiDispatchWmiQueryAllData @ 0x1409278F8 (ViDdiDispatchWmiQueryAllData.c)
  *     ViDdiDispatchWmiRegInfoEx @ 0x140927A84 (ViDdiDispatchWmiRegInfoEx.c)
  */

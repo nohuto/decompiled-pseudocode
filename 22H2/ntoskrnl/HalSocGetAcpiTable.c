@@ -1,18 +1,19 @@
 /*
- * XREFs of HalSocGetAcpiTable @ 0x1403A447C
+ * XREFs of HalSocGetAcpiTable @ 0x1403B32D4
  * Callers:
- *     HalpHpetDiscover @ 0x140377E30 (HalpHpetDiscover.c)
- *     HalpRtcDiscover @ 0x1403795E8 (HalpRtcDiscover.c)
- *     HalpPicDiscover @ 0x140379884 (HalpPicDiscover.c)
- *     HalpApicTimerDiscover @ 0x1403A405C (HalpApicTimerDiscover.c)
- *     HalpPmTimerDiscover @ 0x1403A41D8 (HalpPmTimerDiscover.c)
- *     HalpApicDiscover @ 0x1403A42D8 (HalpApicDiscover.c)
- *     HalpWdatDiscover @ 0x1403A4388 (HalpWdatDiscover.c)
- *     HalpWdatInitialize @ 0x14051EFE0 (HalpWdatInitialize.c)
- *     HalpIommuIvtDiscover @ 0x140B66634 (HalpIommuIvtDiscover.c)
- *     HalpPciGetHpetInterruptSource @ 0x140B93B50 (HalpPciGetHpetInterruptSource.c)
+ *     HalpIommuRegisterBuiltinPlugins @ 0x1403B0648 (HalpIommuRegisterBuiltinPlugins.c)
+ *     HalpPmTimerDiscover @ 0x1403B17DC (HalpPmTimerDiscover.c)
+ *     HalpSfiTimerDiscover @ 0x1403B18DC (HalpSfiTimerDiscover.c)
+ *     HalpRtcDiscover @ 0x1403B1968 (HalpRtcDiscover.c)
+ *     HalpApicTimerDiscover @ 0x1403B1AAC (HalpApicTimerDiscover.c)
+ *     HalpApicDiscover @ 0x1403B1D50 (HalpApicDiscover.c)
+ *     HalpPicDiscover @ 0x1403B2100 (HalpPicDiscover.c)
+ *     HalpHpetDiscover @ 0x1403B25CC (HalpHpetDiscover.c)
+ *     HalpWdatDiscover @ 0x1403B3240 (HalpWdatDiscover.c)
+ *     HalpWdatInitialize @ 0x1404D4CE0 (HalpWdatInitialize.c)
+ *     HalpPciGetHpetInterruptSource @ 0x140A8E120 (HalpPciGetHpetInterruptSource.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140336E50 (HalpAcpiGetTable.c)
+ *     HalpAcpiGetTable @ 0x1402E77D0 (HalpAcpiGetTable.c)
  */
 
 __int64 __fastcall HalSocGetAcpiTable(int a1)

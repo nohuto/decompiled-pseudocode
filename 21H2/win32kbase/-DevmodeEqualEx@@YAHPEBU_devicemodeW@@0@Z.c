@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DevmodeEqualEx@@YAHPEBU_devicemodeW@@0@Z @ 0x1C00C41BC
+ * XREFs of ?DevmodeEqualEx@@YAHPEBU_devicemodeW@@0@Z @ 0x1C00B422C
  * Callers:
- *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C00771B8 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
+ *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C0013658 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
  * Callees:
- *     memcmp @ 0x1C00DD6E0 (memcmp.c)
+ *     memcmp @ 0x1C00CE7B0 (memcmp.c)
  */
 
 __int64 __fastcall DevmodeEqualEx(const struct _devicemodeW *a1, const struct _devicemodeW *a2)

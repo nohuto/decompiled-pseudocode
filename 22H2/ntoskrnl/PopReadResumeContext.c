@@ -1,12 +1,12 @@
 /*
- * XREFs of PopReadResumeContext @ 0x140988E38
+ * XREFs of PopReadResumeContext @ 0x1408E7198
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1406F1BE4 (PopPowerInformationInternal.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     memset @ 0x140435400 (memset.c)
- *     PopReadPagesFromHiberFile @ 0x140988BDC (PopReadPagesFromHiberFile.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopReadPagesFromHiberFile @ 0x1408E6F3C (PopReadPagesFromHiberFile.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopReadResumeContext(_DWORD *a1, _QWORD *a2)
@@ -42,12 +42,12 @@ __int64 __fastcall PopReadResumeContext(_DWORD *a1, _QWORD *a2)
     {
       goto LABEL_8;
     }
-    v9 = *((_DWORD *)P + 242);
+    v9 = *((_DWORD *)P + 216);
     if ( !v9 )
       goto LABEL_8;
     PagesFromHiberFile = PopReadPagesFromHiberFile(2u, v9, (PVOID *)&v14);
     if ( PagesFromHiberFile < 0
-      || (PagesFromHiberFile = RtlULongLongMult(v6[242], 0x1000uLL, pullResult), PagesFromHiberFile < 0) )
+      || (PagesFromHiberFile = RtlULongLongMult(v6[216], 0x1000uLL, pullResult), PagesFromHiberFile < 0) )
     {
       v2 = v14;
     }

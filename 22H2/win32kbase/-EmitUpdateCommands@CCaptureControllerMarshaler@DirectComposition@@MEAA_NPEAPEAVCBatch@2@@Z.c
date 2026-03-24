@@ -1,14 +1,13 @@
 /*
- * XREFs of ?EmitUpdateCommands@CCaptureControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022EAF0
+ * XREFs of ?EmitUpdateCommands@CCaptureControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F5B10
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     ?EmitCaptureState@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022E8A8 (-EmitCaptureState@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitContentSize@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022E918 (-EmitContentSize@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitDefaultSDRBoost@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022E98C (-EmitDefaultSDRBoost@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitIsConstrainedBySize@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022E9FC (-EmitIsConstrainedBySize@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitTransform@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022EA6C (-EmitTransform@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EmitCaptureState@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F5934 (-EmitCaptureState@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitContentSize@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F59A4 (-EmitContentSize@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitIsConstrainedBySize@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F5A18 (-EmitIsConstrainedBySize@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitTransform@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F5A88 (-EmitTransform@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CCaptureControllerMarshaler::EmitUpdateCommands(
@@ -31,11 +30,11 @@ char __fastcall DirectComposition::CCaptureControllerMarshaler::EmitUpdateComman
     *v9 = 16;
     *(_QWORD *)(v5 + 1) = 0LL;
     v5[3] = 0;
-    v5[1] = 34;
-    v5[2] = *((_DWORD *)this + 8);
+    v5[1] = 35;
+    v5[2] = *((_DWORD *)this + 6);
     v6 = *((_QWORD *)this + 7);
     if ( v6 )
-      v7 = *(_DWORD *)(v6 + 32);
+      v7 = *(_DWORD *)(v6 + 24);
     else
       v7 = 0;
     v5[3] = v7;
@@ -44,8 +43,7 @@ char __fastcall DirectComposition::CCaptureControllerMarshaler::EmitUpdateComman
   if ( DirectComposition::CCaptureControllerMarshaler::EmitCaptureState(this, a2)
     && DirectComposition::CCaptureControllerMarshaler::EmitContentSize(this, a2)
     && DirectComposition::CCaptureControllerMarshaler::EmitTransform(this, a2)
-    && DirectComposition::CCaptureControllerMarshaler::EmitIsConstrainedBySize(this, a2)
-    && DirectComposition::CCaptureControllerMarshaler::EmitDefaultSDRBoost(this, a2) )
+    && DirectComposition::CCaptureControllerMarshaler::EmitIsConstrainedBySize(this, a2) )
   {
     return 1;
   }

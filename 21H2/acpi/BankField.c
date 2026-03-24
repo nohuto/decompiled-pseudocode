@@ -1,28 +1,28 @@
 /*
- * XREFs of BankField @ 0x1C0068620
+ * XREFs of BankField @ 0x1C0066FD0
  * Callers:
  *     <none>
  * Callees:
- *     CreateNameSpaceObject @ 0x1C0013250 (CreateNameSpaceObject.c)
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     ParseFieldList @ 0x1C0015C40 (ParseFieldList.c)
- *     DereferenceObjectEx @ 0x1C00189F4 (DereferenceObjectEx.c)
- *     GetNameSpaceObject @ 0x1C0019AC8 (GetNameSpaceObject.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     GetNameSpaceObject @ 0x1C002183C (GetNameSpaceObject.c)
+ *     ParseFieldList @ 0x1C0021C38 (ParseFieldList.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall BankField(__int64 a1, _QWORD *a2)
+__int64 __fastcall BankField(__int64 a1, unsigned __int64 *a2)
 {
-  __int64 v4; // rcx
+  unsigned __int64 v4; // rcx
   unsigned __int64 v5; // rdi
   unsigned int NameSpaceObject; // eax
   unsigned __int64 v7; // r15
   unsigned int v8; // ebx
   __int64 *v10; // r14
-  _SLIST_ENTRY *v11; // rax
+  __int64 v11; // rax
   unsigned __int64 *v12; // rdx
   unsigned __int64 v13; // [rsp+60h] [rbp+8h] BYREF
   unsigned __int64 v14; // [rsp+68h] [rbp+10h] BYREF
@@ -36,7 +36,7 @@ __int64 __fastcall BankField(__int64 a1, _QWORD *a2)
   v8 = NameSpaceObject;
   if ( NameSpaceObject )
     goto LABEL_6;
-  v8 = GetNameSpaceObject(*(_BYTE **)(a2[10] + 72LL), *(_QWORD *)(a1 + 80), (__int64 *)&v13, 0x80000000);
+  v8 = GetNameSpaceObject(*(_BYTE **)(a2[10] + 72), *(_QWORD *)(a1 + 80), (__int64 *)&v13, 0x80000000);
   if ( v8 )
     goto LABEL_5;
   if ( *(_WORD *)(v7 + 66) != 10 )
@@ -44,7 +44,7 @@ __int64 __fastcall BankField(__int64 a1, _QWORD *a2)
     v8 = -1072431095;
     LogError(-1072431095);
     AcpiDiagTraceAmlError(a1, -1072431095);
-    PrintDebugMessage(15, *(const void **)(a2[10] + 32LL), 0LL, 0LL, 0LL);
+    PrintDebugMessage(15, *(const void **)(a2[10] + 32), 0LL, 0LL, 0LL);
 LABEL_5:
     v5 = v13;
     goto LABEL_6;
@@ -52,7 +52,7 @@ LABEL_5:
   v5 = v13;
   if ( *(_WORD *)(v13 + 66) == 5 )
   {
-    v10 = a2 + 8;
+    v10 = (__int64 *)(a2 + 8);
     v8 = CreateNameSpaceObject(
            *(_QWORD *)(a1 + 320),
            0LL,
@@ -72,8 +72,8 @@ LABEL_5:
         v12 = *(unsigned __int64 **)(*v10 + 96);
         *v12 = v7;
         v12[1] = v5;
-        v12[2] = *(_QWORD *)(a2[10] + 96LL);
-        v8 = ParseFieldList(a1, a2[5], *v10, *(unsigned int *)(a2[10] + 136LL), *(_DWORD *)(*(_QWORD *)(v7 + 96) + 8LL));
+        v12[2] = *(_QWORD *)(a2[10] + 96);
+        v8 = ParseFieldList(a1, a2[5], *v10, *(unsigned int *)(a2[10] + 136), *(_DWORD *)(*(_QWORD *)(v7 + 96) + 8LL));
         if ( !v8 )
           return v8;
       }
@@ -91,7 +91,7 @@ LABEL_5:
     v8 = -1072431095;
     LogError(-1072431095);
     AcpiDiagTraceAmlError(a1, -1072431095);
-    PrintDebugMessage(15, *(const void **)(a2[10] + 72LL), 0LL, 0LL, 0LL);
+    PrintDebugMessage(15, *(const void **)(a2[10] + 72), 0LL, 0LL, 0LL);
   }
 LABEL_6:
   if ( v7 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of PiUEventHandleIoctl @ 0x14078C5BC
+ * XREFs of PiUEventHandleIoctl @ 0x1406E1C5C
  * Callers:
- *     PiUEventDispatch @ 0x14078C520 (PiUEventDispatch.c)
+ *     PiUEventDispatch @ 0x1406E1BC0 (PiUEventDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     PiUEventHandleUnregisterClient @ 0x1406E6124 (PiUEventHandleUnregisterClient.c)
- *     PiUEventHandleGetEvent @ 0x14078C678 (PiUEventHandleGetEvent.c)
- *     PiUEventHandleRegistration @ 0x14078D764 (PiUEventHandleRegistration.c)
- *     PiUEventHandleVetoEvent @ 0x1407FBA68 (PiUEventHandleVetoEvent.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     PiUEventHandleUnregisterClient @ 0x1406E14A0 (PiUEventHandleUnregisterClient.c)
+ *     PiUEventHandleGetEvent @ 0x1406E1D18 (PiUEventHandleGetEvent.c)
+ *     PiUEventHandleRegistration @ 0x1406E20B0 (PiUEventHandleRegistration.c)
+ *     PiUEventHandleVetoEvent @ 0x14076E718 (PiUEventHandleVetoEvent.c)
  */
 
 __int64 __fastcall PiUEventHandleIoctl(PIRP Irp, __int64 a2, int a3, int a4)

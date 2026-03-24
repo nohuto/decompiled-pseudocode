@@ -3,8 +3,8 @@
  * Callers:
  *     RtlCompressBufferLZNT1 @ 0x140565C30 (RtlCompressBufferLZNT1.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall LZNT1CompressChunk(

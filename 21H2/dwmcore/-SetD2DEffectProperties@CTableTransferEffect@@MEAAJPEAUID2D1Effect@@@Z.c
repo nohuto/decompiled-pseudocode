@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetD2DEffectProperties@CTableTransferEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x1802422D0
+ * XREFs of ?SetD2DEffectProperties@CTableTransferEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x1801F0C80
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEffect *this, struct ID2D1Effect *a2)
@@ -34,12 +34,12 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
          a2,
          0LL,
          0LL,
-         *((_QWORD *)this + 21),
-         4 * *((_DWORD *)this + 48));
+         *((_QWORD *)this + 20),
+         4 * *((_DWORD *)this + 46));
   v6 = v4;
   if ( v4 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, v4, 0x3Au);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x3Au, 0LL);
   }
   else
   {
@@ -47,12 +47,12 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
            a2,
            2LL,
            0LL,
-           *((_QWORD *)this + 26),
-           4 * *((_DWORD *)this + 58));
+           *((_QWORD *)this + 25),
+           4 * *((_DWORD *)this + 56));
     v6 = v7;
     if ( v7 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x40u);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x40u, 0LL);
     }
     else
     {
@@ -60,12 +60,12 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
              a2,
              4LL,
              0LL,
-             *((_QWORD *)this + 31),
-             4 * *((_DWORD *)this + 68));
+             *((_QWORD *)this + 30),
+             4 * *((_DWORD *)this + 66));
       v6 = v9;
       if ( v9 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0x46u);
+        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x46u, 0LL);
       }
       else
       {
@@ -73,16 +73,16 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
                 a2,
                 6LL,
                 0LL,
-                *((_QWORD *)this + 36),
-                4 * *((_DWORD *)this + 78));
+                *((_QWORD *)this + 35),
+                4 * *((_DWORD *)this + 76));
         v6 = v11;
         if ( v11 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0x4Cu);
+          MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x4Cu, 0LL);
         }
         else
         {
-          v24 = *((unsigned __int8 *)this + 160);
+          v24 = *((unsigned __int8 *)this + 152);
           v13 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                   a2,
                   1LL,
@@ -92,11 +92,11 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
           v6 = v13;
           if ( v13 < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0x51u);
+            MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x51u, 0LL);
           }
           else
           {
-            v24 = *((unsigned __int8 *)this + 161);
+            v24 = *((unsigned __int8 *)this + 153);
             v15 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                     a2,
                     3LL,
@@ -106,11 +106,11 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
             v6 = v15;
             if ( v15 < 0 )
             {
-              MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0LL, v15, 0x56u);
+              MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x56u, 0LL);
             }
             else
             {
-              v24 = *((unsigned __int8 *)this + 162);
+              v24 = *((unsigned __int8 *)this + 154);
               v17 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                       a2,
                       5LL,
@@ -120,11 +120,11 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
               v6 = v17;
               if ( v17 < 0 )
               {
-                MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0LL, v17, 0x5Bu);
+                MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x5Bu, 0LL);
               }
               else
               {
-                v24 = *((unsigned __int8 *)this + 163);
+                v24 = *((unsigned __int8 *)this + 155);
                 v19 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                         a2,
                         7LL,
@@ -134,11 +134,11 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
                 v6 = v19;
                 if ( v19 < 0 )
                 {
-                  MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0LL, v19, 0x60u);
+                  MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x60u, 0LL);
                 }
                 else
                 {
-                  v24 = *((unsigned __int8 *)this + 164);
+                  v24 = *((unsigned __int8 *)this + 156);
                   v21 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                           a2,
                           8LL,
@@ -147,7 +147,7 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
                           4);
                   v6 = v21;
                   if ( v21 < 0 )
-                    MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0LL, v21, 0x65u);
+                    MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x65u, 0LL);
                 }
               }
             }

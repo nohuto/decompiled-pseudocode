@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIsCmciImplementedAMD @ 0x140A9589C
+ * XREFs of HalpIsCmciImplementedAMD @ 0x1409A70D0
  * Callers:
- *     HalpCmciInitProcessor @ 0x1403807F8 (HalpCmciInitProcessor.c)
+ *     HalpCmciInitProcessor @ 0x140999D10 (HalpCmciInitProcessor.c)
  * Callees:
- *     HalpWheaReadMsrMisc @ 0x140518AC8 (HalpWheaReadMsrMisc.c)
+ *     HalpWheaReadMsrMisc @ 0x1404CF758 (HalpWheaReadMsrMisc.c)
  */
 
 char HalpIsCmciImplementedAMD()
@@ -15,11 +15,11 @@ char HalpIsCmciImplementedAMD()
   int v4; // esi
   __int64 MsrMisc; // rax
 
-  for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; ; i = *(_QWORD *)(i + 184) )
+  for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; ; i = *(_QWORD *)(i + 176) )
   {
     if ( !i )
       return 0;
-    v1 = *(_QWORD *)(i + 172);
+    v1 = *(_QWORD *)(i + 164);
     if ( !HalpMcaNumberOfBanks )
     {
       v2 = __readmsr(0x179u);

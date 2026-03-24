@@ -1,9 +1,9 @@
 /*
- * XREFs of CiLogTaskIndexYield @ 0x1C00042C4
+ * XREFs of CiLogTaskIndexYield @ 0x1C0004014
  * Callers:
- *     CiSchedulerTaskIndexYield @ 0x1C00021C0 (CiSchedulerTaskIndexYield.c)
+ *     CiSchedulerTaskIndexYield @ 0x1C0001170 (CiSchedulerTaskIndexYield.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0003170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0002FD0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CiLogTaskIndexYield(__int64 a1, int a2, int a3)

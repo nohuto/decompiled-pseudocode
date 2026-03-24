@@ -1,54 +1,50 @@
 /*
- * XREFs of Interrupter_FlushPendingDpcOrWorkItemPreReset @ 0x1C003DE10
+ * XREFs of Interrupter_FlushPendingDpcOrWorkItemPreReset @ 0x1C003BB4C
  * Callers:
- *     Controller_InternalReset @ 0x1C0033C04 (Controller_InternalReset.c)
+ *     Controller_InternalReset @ 0x1C00322D8 (Controller_InternalReset.c)
  * Callees:
- *     Interrupter_ReleaseEventRingLock @ 0x1C000F4F4 (Interrupter_ReleaseEventRingLock.c)
- *     Interrupter_AcquireEventRingLock @ 0x1C000F52C (Interrupter_AcquireEventRingLock.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
  */
 
 void __fastcall Interrupter_FlushPendingDpcOrWorkItemPreReset(__int64 a1)
 {
-  __int64 i; // rdi
-  __int64 v3; // rax
-  __int64 v4; // rsi
-  char v5; // al
-  __int64 j; // rdi
-  _QWORD *v7; // rsi
-  int v8; // edx
+  __int64 i; // rsi
+  __int64 v3; // rbp
+  KIRQL v4; // al
+  __int64 j; // rbx
+  _QWORD *v6; // rsi
+  int v7; // edx
   union _LARGE_INTEGER Timeout; // [rsp+40h] [rbp+8h] BYREF
 
   Timeout.QuadPart = 0LL;
   for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 80); i = (unsigned int)(i + 1) )
   {
-    v3 = *(_QWORD *)(a1 + 32);
-    v4 = *(_QWORD *)(v3 + 8 * i);
-    if ( v4 )
+    v3 = *(_QWORD *)(*(_QWORD *)(a1 + 32) + 8 * i);
+    if ( v3 )
     {
-      v5 = Interrupter_AcquireEventRingLock(*(_QWORD *)(v3 + 8 * i));
-      *(_DWORD *)(v4 + 96) |= 0x10u;
-      Interrupter_ReleaseEventRingLock(v4, v5);
+      v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v3 + 208));
+      *(_DWORD *)(v3 + 96) |= 0x10u;
+      KeReleaseSpinLock((PKSPIN_LOCK)(v3 + 208), v4);
     }
   }
   KeFlushQueuedDpcs();
   for ( j = 0LL; (unsigned int)j < *(_DWORD *)(a1 + 80); j = (unsigned int)(j + 1) )
   {
-    v7 = *(_QWORD **)(*(_QWORD *)(a1 + 32) + 8 * j);
-    if ( v7 && v7[25] )
+    v6 = *(_QWORD **)(*(_QWORD *)(a1 + 32) + 8 * j);
+    if ( v6 && v6[25] )
     {
       Timeout.QuadPart = -600000000LL;
-      while ( KeWaitForSingleObject(v7 + 22, Executive, 0, 0, &Timeout) == 258 )
+      while ( KeWaitForSingleObject(v6 + 22, Executive, 0, 0, &Timeout) == 258 )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          LOBYTE(v8) = 4;
+          LOBYTE(v7) = 4;
           WPP_RECORDER_SF_d(
-            *(_QWORD *)(v7[1] + 72LL),
-            v8,
+            *(_QWORD *)(v6[1] + 72LL),
+            v7,
             9,
-            34,
-            (__int64)&WPP_89e87cee83d7332425398286600bed19_Traceguids,
+            33,
+            (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
             j);
         }
       }

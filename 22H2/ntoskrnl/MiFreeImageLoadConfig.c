@@ -1,34 +1,29 @@
 /*
- * XREFs of MiFreeImageLoadConfig @ 0x140A4A354
+ * XREFs of MiFreeImageLoadConfig @ 0x14076A848
  * Callers:
- *     MiParseImageLoadConfig @ 0x1406A828C (MiParseImageLoadConfig.c)
- *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
- *     MiFreeRelocations @ 0x140A48128 (MiFreeRelocations.c)
+ *     MiParseImageLoadConfig @ 0x140662858 (MiParseImageLoadConfig.c)
+ *     MiRelocateImage @ 0x140702D80 (MiRelocateImage.c)
+ *     MiFreeRelocations @ 0x14076A7B8 (MiFreeRelocations.c)
  * Callees:
- *     MiFreeNextAffinityWalker @ 0x1405B7A4C (MiFreeNextAffinityWalker.c)
- *     MiFreeRetpolineRelocationInformation @ 0x140865B08 (MiFreeRetpolineRelocationInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiFreeRetpolineRelocationInformation @ 0x14078D6C4 (MiFreeRetpolineRelocationInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiFreeImageLoadConfig(_QWORD *a1)
+void __fastcall MiFreeImageLoadConfig(__int64 a1)
 {
   void *v2; // rcx
-  _QWORD *v3; // rcx
-  void *v4; // rcx
+  void *v3; // rcx
 
-  v2 = (void *)a1[1];
+  v2 = *(void **)(a1 + 16);
   if ( v2 )
   {
     ExFreePoolWithTag(v2, 0x4C617652u);
-    a1[1] = 0LL;
+    *(_QWORD *)(a1 + 16) = 0LL;
   }
-  v3 = (_QWORD *)a1[2];
+  v3 = *(void **)(a1 + 24);
   if ( v3 )
   {
     MiFreeRetpolineRelocationInformation(v3);
-    a1[2] = 0LL;
+    *(_QWORD *)(a1 + 24) = 0LL;
   }
-  v4 = (void *)a1[3];
-  if ( v4 )
-    MiFreeNextAffinityWalker(v4);
 }

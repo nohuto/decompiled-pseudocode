@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDevCfgSplitDriverConfigurationId @ 0x1409626EC
+ * XREFs of PiDevCfgSplitDriverConfigurationId @ 0x1408AA67C
  * Callers:
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14095C980 (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1408A4F6C (PiDevCfgCheckDeviceNeedsUpdate.c)
  * Callees:
- *     RtlTimeFieldsToTime @ 0x14033B150 (RtlTimeFieldsToTime.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     swscanf_s @ 0x1403DF630 (swscanf_s.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     __report_rangecheckfailure @ 0x1404FE1FC (__report_rangecheckfailure.c)
- *     ExpAllocateStringRoutine @ 0x1407C7520 (ExpAllocateStringRoutine.c)
+ *     RtlTimeFieldsToTime @ 0x14030D050 (RtlTimeFieldsToTime.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     swscanf_s @ 0x1403D7A70 (swscanf_s.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     __report_rangecheckfailure @ 0x1404B63BC (__report_rangecheckfailure.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
  */
 
 __int64 __fastcall PiDevCfgSplitDriverConfigurationId(
@@ -25,8 +25,8 @@ __int64 __fastcall PiDevCfgSplitDriverConfigurationId(
   wchar_t *v10; // rbp
   unsigned __int64 v11; // rcx
   unsigned __int64 v12; // rsi
-  __int64 v13; // rcx
-  void *StringRoutine; // rax
+  SIZE_T v13; // rcx
+  PVOID StringRoutine; // rax
   wchar_t *v15; // rax
   wchar_t *v16; // rsi
   wchar_t *v17; // rax
@@ -53,7 +53,7 @@ __int64 __fastcall PiDevCfgSplitDriverConfigurationId(
     *(_WORD *)a2 = v11;
     v13 = (unsigned __int16)(v11 + 2);
     *(_WORD *)(a2 + 2) = v13;
-    StringRoutine = (void *)ExpAllocateStringRoutine(v13);
+    StringRoutine = ExpAllocateStringRoutine(v13);
     *(_QWORD *)(a2 + 8) = StringRoutine;
     if ( !StringRoutine )
       return (unsigned int)-1073741670;

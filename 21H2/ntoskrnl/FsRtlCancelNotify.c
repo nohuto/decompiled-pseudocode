@@ -1,25 +1,25 @@
 /*
- * XREFs of FsRtlCancelNotify @ 0x14024CCD0
+ * XREFs of FsRtlCancelNotify @ 0x1402AA750
  * Callers:
- *     FsRtlNotifySetCancelRoutine @ 0x140233104 (FsRtlNotifySetCancelRoutine.c)
+ *     FsRtlNotifySetCancelRoutine @ 0x1402AA638 (FsRtlNotifySetCancelRoutine.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x1402331E0 (PsReturnProcessPagedPoolQuota.c)
- *     FsRtlIsNtstatusExpected @ 0x140247160 (FsRtlIsNtstatusExpected.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     PsChargeProcessPoolQuota @ 0x140367C40 (PsChargeProcessPoolQuota.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     PsChargeProcessPoolQuota @ 0x1402AA710 (PsChargeProcessPoolQuota.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C2240 (FsRtlIsNtstatusExpected.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140318410 (PsReturnProcessPagedPoolQuota.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall FsRtlCancelNotify(__int64 a1, __int64 a2)
+_QWORD *__fastcall FsRtlCancelNotify(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // rsi
   struct _KTHREAD *CurrentThread; // rax
@@ -31,21 +31,20 @@ __int64 __fastcall FsRtlCancelNotify(__int64 a1, __int64 a2)
   PVOID v10; // rcx
   __int64 v11; // r10
   PVOID v12; // rax
-  PVOID Pool2; // r15
+  PVOID PoolWithTag; // r15
   unsigned int v14; // esi
   char *v15; // rcx
   __int64 v16; // rcx
   NTSTATUS v17; // eax
-  __int64 v18; // r9
-  __int16 v19; // ax
-  struct _SECURITY_SUBJECT_CONTEXT *SubjectContext; // [rsp+48h] [rbp-60h]
-  __int64 v23; // [rsp+60h] [rbp-48h]
-  _QWORD *v24; // [rsp+68h] [rbp-40h]
-  char *P; // [rsp+C0h] [rbp+18h]
+  __int16 v18; // ax
+  struct _SECURITY_SUBJECT_CONTEXT *SubjectContext; // [rsp+48h] [rbp-70h]
+  __int64 v22; // [rsp+60h] [rbp-58h]
+  _QWORD *v23; // [rsp+68h] [rbp-50h]
+  char *P; // [rsp+D0h] [rbp+18h]
 
   SubjectContext = 0LL;
   v3 = *(_QWORD **)(a2 + 56);
-  v24 = v3;
+  v23 = v3;
   P = (char *)v3;
   _InterlockedExchange64((volatile __int64 *)(a2 + 104), 0LL);
   *(_QWORD *)(a2 + 56) = 0LL;
@@ -81,7 +80,7 @@ __int64 __fastcall FsRtlCancelNotify(__int64 a1, __int64 a2)
           v12 == v10)
       || v10 == *(PVOID *)(a2 + 24) )
     {
-      Pool2 = 0LL;
+      PoolWithTag = 0LL;
       v14 = 0;
       v15 = (char *)*((_QWORD *)P + 6);
       if ( v15 == P + 48 )
@@ -91,13 +90,13 @@ __int64 __fastcall FsRtlCancelNotify(__int64 a1, __int64 a2)
       }
       else
       {
-        v23 = *((_QWORD *)v15 + 2);
-        if ( *(_DWORD *)(v23 + 8) >= *((_DWORD *)P + 26) )
+        v22 = *((_QWORD *)v15 + 2);
+        if ( *(_DWORD *)(v22 + 8) >= *((_DWORD *)P + 26) )
         {
-          v14 = *(_DWORD *)(v23 + 8);
+          v14 = *(_DWORD *)(v22 + 8);
           if ( *((_QWORD *)v15 - 18) )
           {
-            Pool2 = (PVOID)*((_QWORD *)v15 - 18);
+            PoolWithTag = (PVOID)*((_QWORD *)v15 - 18);
           }
           else
           {
@@ -106,12 +105,12 @@ __int64 __fastcall FsRtlCancelNotify(__int64 a1, __int64 a2)
             {
               if ( (*(_BYTE *)(v16 + 10) & 5) != 0 )
               {
-                Pool2 = *(PVOID *)(v16 + 24);
+                PoolWithTag = *(PVOID *)(v16 + 24);
               }
               else
               {
-                Pool2 = MmMapLockedPagesSpecifyCache((PMDL)v16, 0, MmCached, 0LL, 0, 0x40000010u);
-                v14 = *(_DWORD *)(v23 + 8);
+                PoolWithTag = MmMapLockedPagesSpecifyCache((PMDL)v16, 0, MmCached, 0LL, 0, 0x40000010u);
+                v14 = *(_DWORD *)(v22 + 8);
               }
             }
           }
@@ -121,25 +120,25 @@ __int64 __fastcall FsRtlCancelNotify(__int64 a1, __int64 a2)
       }
       if ( v14 )
       {
-        if ( !Pool2 )
+        if ( !PoolWithTag )
         {
           v17 = PsChargeProcessPoolQuota(*((PEPROCESS *)P + 15), PagedPool, v14);
           if ( v17 < 0 )
-            RtlRaiseStatus((unsigned int)v17);
-          Pool2 = (PVOID)ExAllocatePool2(290LL, v14, 1316115270LL, v18);
-          *((_QWORD *)P + 10) = Pool2;
+            RtlRaiseStatus(v17);
+          PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)17, v14, 0x4E725346u);
+          *((_QWORD *)P + 10) = PoolWithTag;
         }
-        memmove(Pool2, *((const void **)P + 11), *((unsigned int *)P + 26));
+        memmove(PoolWithTag, *((const void **)P + 11), *((unsigned int *)P + 26));
         *((_DWORD *)P + 25) = v14;
-        *((_QWORD *)P + 11) = Pool2;
-        v19 = *((_WORD *)v24 + 36);
+        *((_QWORD *)P + 11) = PoolWithTag;
+        v18 = *((_WORD *)v23 + 36);
       }
       else
       {
         *((_WORD *)P + 36) |= 2u;
-        v19 = *((_WORD *)P + 36);
+        v18 = *((_WORD *)P + 36);
       }
-      if ( (v19 & 2) != 0 )
+      if ( (v18 & 2) != 0 )
       {
         *((_QWORD *)P + 11) = 0LL;
         *((_QWORD *)P + 10) = 0LL;
@@ -155,7 +154,7 @@ __int64 __fastcall FsRtlCancelNotify(__int64 a1, __int64 a2)
   {
     if ( *((_QWORD *)P + 10) )
     {
-      PsReturnProcessPagedPoolQuota(*((struct _KPROCESS **)P + 15), *((unsigned int *)P + 25));
+      PsReturnProcessPagedPoolQuota(*((_QWORD *)P + 15), *((unsigned int *)P + 25));
       ExFreePoolWithTag(*((PVOID *)P + 10), 0);
     }
     if ( (P[72] & 0x40) != 0 || *((_QWORD *)P + 17) )
@@ -172,5 +171,5 @@ __int64 __fastcall FsRtlCancelNotify(__int64 a1, __int64 a2)
     SeReleaseSubjectContext(SubjectContext);
     ExFreePoolWithTag(SubjectContext, 0);
   }
-  return KiLeaveCriticalRegionUnsafe(KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

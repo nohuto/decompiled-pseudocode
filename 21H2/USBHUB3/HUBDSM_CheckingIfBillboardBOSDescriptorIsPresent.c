@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfBillboardBOSDescriptorIsPresent @ 0x1C00200B0
+ * XREFs of HUBDSM_CheckingIfBillboardBOSDescriptorIsPresent @ 0x1C001FCA0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiPccExecuteCommandAsync @ 0x1C0033FD0
+ * XREFs of AcpiPccExecuteCommandAsync @ 0x1C0059D10
  * Callers:
- *     AcpiPccExecuteCommand @ 0x1C0089A10 (AcpiPccExecuteCommand.c)
+ *     AcpiPccExecuteCommand @ 0x1C00B0AD0 (AcpiPccExecuteCommand.c)
  * Callees:
- *     AcpiPccRingDoorbell @ 0x1C0034360 (AcpiPccRingDoorbell.c)
+ *     AcpiPccRingDoorbell @ 0x1C005A200 (AcpiPccRingDoorbell.c)
  */
 
 __int64 __fastcall AcpiPccExecuteCommandAsync(char *DeferredContext, char a2, __int64 a3, __int64 a4)
@@ -20,10 +20,10 @@ __int64 __fastcall AcpiPccExecuteCommandAsync(char *DeferredContext, char a2, __
   unsigned int v17; // ecx
   union _LARGE_INTEGER PerformanceFrequency; // [rsp+60h] [rbp+8h] BYREF
 
-  v4 = (KSPIN_LOCK *)(DeferredContext + 648);
+  v4 = (KSPIN_LOCK *)(DeferredContext + 640);
   PerformanceFrequency.QuadPart = 0LL;
   v9 = 0LL;
-  v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)DeferredContext + 81);
+  v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)DeferredContext + 80);
   if ( *((_QWORD *)DeferredContext + 37) )
   {
     v11 = KeQueryPerformanceCounter(&PerformanceFrequency);

@@ -1,28 +1,25 @@
 /*
- * XREFs of DrvEnumDisplayDevices @ 0x1C00721C0
+ * XREFs of DrvEnumDisplayDevices @ 0x1C0027520
  * Callers:
- *     ?NtUserEnumDisplayDevicesShared@@YAJPEAU_UNICODE_STRING@@KPEAU_DISPLAY_DEVICEW@@K@Z @ 0x1C007213C (-NtUserEnumDisplayDevicesShared@@YAJPEAU_UNICODE_STRING@@KPEAU_DISPLAY_DEVICEW@@K@Z.c)
+ *     NtUserEnumDisplayDevices @ 0x1C001DD60 (NtUserEnumDisplayDevices.c)
  * Callees:
- *     UserIsCurrentProcessDwm @ 0x1C0014970 (UserIsCurrentProcessDwm.c)
- *     Win32FreePool @ 0x1C0026670 (Win32FreePool.c)
- *     PALLOCNOZ @ 0x1C0027CFC (PALLOCNOZ.c)
- *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C00384DC (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
- *     ?DrvForceChildDeviceReenumeration@@YAJPEAU_DEVICE_OBJECT@@PEAPEAU_DEVICE_RELATIONS@@@Z @ 0x1C006A5AC (-DrvForceChildDeviceReenumeration@@YAJPEAU_DEVICE_OBJECT@@PEAPEAU_DEVICE_RELATIONS@@@Z.c)
- *     DrvGetDeviceFromName @ 0x1C00719F0 (DrvGetDeviceFromName.c)
- *     ?DrvProbeAndCaptureString@@YAJPEAU_UNICODE_STRING@@PEAUAUTO_FREE_STRING@@@Z @ 0x1C0071D50 (-DrvProbeAndCaptureString@@YAJPEAU_UNICODE_STRING@@PEAUAUTO_FREE_STRING@@@Z.c)
- *     ?DrvGetPruneFlag@@YAHPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0072BC8 (-DrvGetPruneFlag@@YAHPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C0072CC4 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
- *     PALLOCMEM @ 0x1C0086980 (PALLOCMEM.c)
- *     DrvpGetDeviceInterfaceName @ 0x1C00C6070 (DrvpGetDeviceInterfaceName.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     ??$invoke@P6A_JPEAX@ZAEAPEAU_FILE_OBJECT@@@wistd@@YA_J$$QEAP6A_JPEAX@ZAEAPEAU_FILE_OBJECT@@@Z @ 0x1C00DB0A8 (--$invoke@P6A_JPEAX@ZAEAPEAU_FILE_OBJECT@@@wistd@@YA_J$$QEAP6A_JPEAX@ZAEAPEAU_FILE_OBJECT@@@Z.c)
- *     ??0?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_DEVICE_OBJECT@@$$A6A_JPEAX@Z$1?ObfDereferenceObject@@YA_J0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x1C00DB0C4 (--0-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAU_DEVICE_OBJECT@@$$A6A_JPEAX@Z$1-ObfDe.c)
- *     ??1?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_DEVICE_OBJECT@@$$A6A_JPEAX@Z$1?ObfDereferenceObject@@YA_J0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x1C00DB0D4 (--1-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAU_DEVICE_OBJECT@@$$A6A_JPEAX@Z$1-ObfDe.c)
- *     ??1?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_FILE_OBJECT@@$$A6A_JPEAX@Z$1?ObfDereferenceObject@@YA_J0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x1C00DB0EC (--1-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAU_FILE_OBJECT@@$$A6A_JPEAX@Z$1-ObfDere.c)
- *     ??1AUTO_FREE_STRING@@QEAA@XZ @ 0x1C00DB104 (--1AUTO_FREE_STRING@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?DrvGetPruneFlag@@YAHPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0015CCC (-DrvGetPruneFlag@@YAHPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     UpdateMonitorDevices @ 0x1C001CE40 (UpdateMonitorDevices.c)
+ *     ?DrvProbeAndCaptureString@@YAJPEAU_UNICODE_STRING@@PEAUAUTO_FREE_STRING@@@Z @ 0x1C001F804 (-DrvProbeAndCaptureString@@YAJPEAU_UNICODE_STRING@@PEAUAUTO_FREE_STRING@@@Z.c)
+ *     DrvGetDeviceFromName @ 0x1C0021400 (DrvGetDeviceFromName.c)
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C00297C0 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002AE08 (PALLOCMEM2.c)
+ *     Win32AllocPool @ 0x1C002AE60 (Win32AllocPool.c)
+ *     UserIsCurrentProcessDwm @ 0x1C00478C0 (UserIsCurrentProcessDwm.c)
+ *     ?DrvForceChildDeviceReenumeration@@YAJPEAU_DEVICE_OBJECT@@PEAPEAU_DEVICE_RELATIONS@@@Z @ 0x1C00B0B68 (-DrvForceChildDeviceReenumeration@@YAJPEAU_DEVICE_OBJECT@@PEAPEAU_DEVICE_RELATIONS@@@Z.c)
+ *     DrvpGetDeviceInterfaceName @ 0x1C00B8500 (DrvpGetDeviceInterfaceName.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     ??0?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_DEVICE_OBJECT@@$$A6A_JPEAX@Z$1?ObfDereferenceObject@@YA_J0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x1C00CA968 (--0-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAU_DEVICE_OBJECT@@$$A6A_JPEAX@Z$1-ObfDe.c)
+ *     ??1?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_DEVICE_OBJECT@@$$A6A_JPEAX@Z$1?ObfDereferenceObject@@YA_J0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x1C00CA978 (--1-$unique_any_t@V-$unique_storage@U-$resource_policy@PEAU_DEVICE_OBJECT@@$$A6A_JPEAX@Z$1-ObfDe.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall DrvEnumDisplayDevices(
@@ -33,448 +30,450 @@ __int64 __fastcall DrvEnumDisplayDevices(
         unsigned int a5,
         int a6)
 {
-  __int64 v6; // rdi
+  __int64 v7; // rdi
   wchar_t *DeviceFromName; // rsi
-  int v9; // r14d
-  int v10; // r15d
-  unsigned int v11; // r8d
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  ULONG v15; // eax
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  struct _DEVICE_OBJECT *v21; // rax
-  unsigned int *v22; // rax
-  unsigned int v23; // r13d
-  _DWORD *v24; // rdi
-  struct _DEVICE_OBJECT *v25; // rcx
-  PDEVICE_OBJECT v26; // rdi
-  int (__fastcall *v27)(__int64, _QWORD, void **, PDEVICE_OBJECT *); // rdi
-  _OWORD *v28; // r9
-  wchar_t *v29; // rcx
-  const wchar_t *v30; // r8
-  ULONG i; // ecx
-  NTSTATUS DeviceProperty; // eax
-  void *v33; // r14
+  int v10; // r14d
+  __int64 v11; // r15
+  __int64 v12; // rcx
+  _QWORD *v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  ULONG v16; // eax
+  struct _DEVICE_OBJECT *v17; // rax
+  unsigned int *v18; // rax
+  unsigned int v19; // r13d
+  __int64 v20; // rdx
+  PDEVICE_OBJECT v21; // rcx
+  char *v22; // rdi
+  _OWORD *v23; // r9
+  const wchar_t *v24; // r8
+  ULONG v25; // r14d
   int PruneFlag; // eax
-  int v35; // edx
-  unsigned int v36; // edx
-  struct _UNICODE_STRING *v37; // r14
-  char v38; // r8
-  int DeviceInterfaceName; // eax
-  ULONG j; // ecx
-  NTSTATUS v41; // eax
-  void *v42; // r12
-  __int64 v43; // r14
+  char v27; // r8
+  void *v28; // r12
+  NTSTATUS v29; // eax
+  unsigned int v30; // r8d
+  __int64 v31; // r14
+  char *v32; // r12
+  void *v33; // rsi
+  __int64 v34; // rax
+  __int64 v36; // rax
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  __int64 v39; // rdx
+  size_t v40; // rcx
+  void *v41; // r12
+  NTSTATUS DeviceProperty; // eax
+  __int64 v43; // rdx
   __int64 v44; // rax
   ULONG v45; // eax
-  unsigned int v46; // r8d
-  __int64 v47; // rdx
-  _DWORD *v48; // r12
-  __int64 v49; // rdx
-  void *v50; // rsi
-  PULONG ResultLength; // [rsp+20h] [rbp-1C8h]
-  ULONG BufferLength; // [rsp+40h] [rbp-1A8h] BYREF
-  PVOID P; // [rsp+48h] [rbp-1A0h] BYREF
-  PDEVICE_OBJECT DeviceObject; // [rsp+50h] [rbp-198h] BYREF
-  unsigned int Length; // [rsp+58h] [rbp-190h]
-  unsigned int Length_4; // [rsp+5Ch] [rbp-18Ch]
-  void *v57; // [rsp+60h] [rbp-188h] BYREF
-  struct _UNICODE_STRING *v58; // [rsp+68h] [rbp-180h]
-  void *v59; // [rsp+70h] [rbp-178h]
-  PVOID Object; // [rsp+78h] [rbp-170h] BYREF
-  unsigned int v61; // [rsp+80h] [rbp-168h]
-  __int64 v62; // [rsp+88h] [rbp-160h]
-  _QWORD v63[2]; // [rsp+90h] [rbp-158h] BYREF
+  int DeviceInterfaceName; // eax
+  struct _DEVICE_OBJECT *v47; // rcx
+  __int64 v48; // rax
+  __int64 v49; // rax
+  __int64 v50; // rax
+  ULONG BufferLength; // [rsp+30h] [rbp-1B8h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+38h] [rbp-1B0h] BYREF
+  unsigned int Length; // [rsp+40h] [rbp-1A8h]
+  unsigned int Length_4; // [rsp+44h] [rbp-1A4h]
+  PVOID v55; // [rsp+48h] [rbp-1A0h] BYREF
+  struct _UNICODE_STRING *v56; // [rsp+50h] [rbp-198h]
+  void *v57; // [rsp+58h] [rbp-190h]
+  PVOID Object; // [rsp+60h] [rbp-188h] BYREF
+  void *v59; // [rsp+68h] [rbp-180h]
+  int v60; // [rsp+70h] [rbp-178h]
+  PCUNICODE_STRING String1; // [rsp+78h] [rbp-170h] BYREF
+  PVOID P[2]; // [rsp+80h] [rbp-168h] BYREF
+  __int64 v63; // [rsp+90h] [rbp-158h]
   wchar_t PropertyBuffer[128]; // [rsp+A0h] [rbp-148h] BYREF
 
-  v59 = a4;
-  v6 = a3;
-  v61 = a3;
-  v58 = a1;
-  v63[1] = a4;
+  v57 = a4;
+  v7 = a3;
+  v60 = a3;
+  v56 = a1;
+  P[1] = a4;
   DeviceFromName = 0LL;
   Length = 0;
   BufferLength = 0;
   DeviceObject = 0LL;
-  v9 = 0;
-  wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>(&v57);
-  wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>(&Object);
   v10 = 0;
-  v62 = v6;
+  wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>(&v55);
+  wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>(&Object);
+  LODWORD(v11) = 0;
+  v13 = (_QWORD *)WdLogNewEntry5_WdEvent(v12);
+  v13[3] = a1;
+  v63 = (unsigned int)v7;
+  v13[4] = (unsigned int)v7;
+  v13[5] = a4;
   Length_4 = a5;
-  ResultLength = (PULONG)a5;
-  WdLogSingleEntry4(4LL, a1, v11);
+  v13[6] = a5;
+  WdLogEvent5_WdEvent(v13);
   if ( a1 )
   {
-    wil_details_FeatureReporting_ReportUsageToService(
-      (__int64)&Feature_EnumDisplayDevices_UseSharedLock__private_reporting,
-      31048924LL,
-      0LL,
-      0LL,
-      (const struct FEATURE_LOGGED_TRAITS *)&Feature_KeyboardInputVirtualization_logged_traits,
-      1,
-      3);
-    wil_details_FeatureReporting_ReportUsageToService(
-      (__int64)&Feature_EnumDisplayDevices_UseSharedLock_DontCheck__private_reporting,
-      31051196LL,
-      0LL,
-      0LL,
-      (const struct FEATURE_LOGGED_TRAITS *)&Feature_KeyboardInputVirtualization_logged_traits,
-      1,
-      3);
+    UpdateMonitorDevices();
     if ( a6 == 1 )
     {
-      P = 0LL;
-      if ( (int)DrvProbeAndCaptureString(a1, (struct AUTO_FREE_STRING *)&P) >= 0 )
-        DeviceFromName = DrvGetDeviceFromName((PCUNICODE_STRING)P);
-      AUTO_FREE_STRING::~AUTO_FREE_STRING((AUTO_FREE_STRING *)&P);
+      String1 = 0LL;
+      if ( (int)DrvProbeAndCaptureString(a1, (struct AUTO_FREE_STRING *)&String1) >= 0 )
+        DeviceFromName = DrvGetDeviceFromName(String1);
+      if ( String1 )
+        Win32FreePool(String1);
     }
     else
     {
       DeviceFromName = DrvGetDeviceFromName(a1);
     }
-    if ( !DeviceFromName || (unsigned int)v6 >= *((_DWORD *)DeviceFromName + 54) )
-      goto LABEL_14;
-    v27 = (int (__fastcall *)(__int64, _QWORD, void **, PDEVICE_OBJECT *))qword_1C0296828;
-    if ( v57 )
+    if ( DeviceFromName && (unsigned int)v7 < *((_DWORD *)DeviceFromName + 54) )
     {
-      P = v57;
-      v63[0] = ObfDereferenceObject;
-      wistd::invoke<__int64 (*)(void *),_FILE_OBJECT * &>(v63, &P);
+      if ( v55 )
+        ObfDereferenceObject(v55);
+      v55 = 0LL;
+      if ( (int)((__int64 (__fastcall *)(__int64, _QWORD, PVOID *, PDEVICE_OBJECT *))qword_1C0251A38)(
+                  *((_QWORD *)DeviceFromName + 28) + 4 * (5 * v7 + 2),
+                  *(unsigned int *)(*((_QWORD *)DeviceFromName + 28) + 20 * v7 + 4),
+                  &v55,
+                  &DeviceObject) >= 0 )
+        goto LABEL_13;
+      v49 = WdLogNewEntry5_WdError(v38, v37);
+      WdLogEvent5_WdError(v49);
     }
-    v57 = 0LL;
-    if ( v27(
-           *((_QWORD *)DeviceFromName + 28) + 20 * v62 + 8,
-           *(unsigned int *)(*((_QWORD *)DeviceFromName + 28) + 20 * v62 + 4),
-           &v57,
-           &DeviceObject) < 0 )
-    {
-      WdLogSingleEntry0(2LL);
-      goto LABEL_14;
-    }
-    goto LABEL_27;
+LABEL_65:
+    wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>(&Object);
+    wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>(&v55);
+    return 3221225473LL;
   }
   DeviceFromName = gpGraphicsDeviceList;
   if ( !gpGraphicsDeviceList )
-    goto LABEL_13;
-  v15 = BufferLength;
+    goto LABEL_64;
+  v16 = BufferLength;
   do
   {
     if ( a6
-      && ((v12 = *((unsigned int *)DeviceFromName + 40), (v12 & 0x2000000) != 0)
-       || gProtocolType && DeviceFromName[110] != gProtocolType && (v12 & 0x4000008) == 0) )
+      && ((v14 = *((unsigned int *)DeviceFromName + 40), (v14 & 0x2000000) != 0)
+       || (v15 = (unsigned __int16)gProtocolType, gProtocolType)
+       && DeviceFromName[110] != gProtocolType
+       && (v14 & 0x4000008) == 0) )
     {
-      BufferLength = --v15;
+      BufferLength = --v16;
     }
-    else if ( v15 == (_DWORD)v6 )
+    else if ( v16 == (_DWORD)v7 )
     {
       break;
     }
     DeviceFromName = (wchar_t *)*((_QWORD *)DeviceFromName + 16);
-    BufferLength = ++v15;
+    BufferLength = ++v16;
   }
   while ( DeviceFromName );
   if ( !DeviceFromName )
   {
-LABEL_13:
-    WdLogSingleEntry0(5LL);
-LABEL_14:
-    wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>(&Object);
-    wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_FILE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_FILE_OBJECT *,_FILE_OBJECT *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_FILE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_FILE_OBJECT *,_FILE_OBJECT *,0,std::nullptr_t>>>(&v57);
-    return 3221225473LL;
+LABEL_64:
+    v36 = WdLogNewEntry5_WdTrace(v15, v14);
+    WdLogEvent5_WdTrace(v36);
+    goto LABEL_65;
   }
-  if ( dword_1C0297080
+  if ( dword_1C02522A0
     && (unsigned __int16)(gProtocolType - 1) <= 0xFFFDu
     && ::Object
-    && (PVOID)PsGetCurrentProcess(65533LL, v12, v13, v14) != gpepCSRSS
-    && !UserIsCurrentProcessDwm(v18, v17, v19, v20)
+    && (PVOID)PsGetCurrentProcess(65533LL, v14) != gpepCSRSS
+    && !(unsigned int)UserIsCurrentProcessDwm()
     && (DeviceFromName[80] & 8) == 0 )
   {
-    v9 = 1;
+    v10 = 1;
   }
-  v21 = (struct _DEVICE_OBJECT *)*((_QWORD *)DeviceFromName + 18);
-  if ( !v21 || !*((_QWORD *)DeviceFromName + 29) )
+  P[0] = 0LL;
+  v17 = (struct _DEVICE_OBJECT *)*((_QWORD *)DeviceFromName + 18);
+  if ( v17 && *((_QWORD *)DeviceFromName + 29) )
+    goto LABEL_12;
+  if ( v10 )
   {
-    if ( !v9 )
-    {
-      v25 = (struct _DEVICE_OBJECT *)*((_QWORD *)DeviceFromName + 17);
-      if ( v25 )
-      {
-        P = 0LL;
-        if ( (int)DrvForceChildDeviceReenumeration(v25, (struct _DEVICE_RELATIONS **)&P) >= 0 )
-        {
-          DeviceObject = (PDEVICE_OBJECT)*((_QWORD *)P + 1);
-          ExFreePoolWithTag(P, 0);
-          v26 = DeviceObject;
-          if ( Object )
-            ObfDereferenceObject(Object);
-          Object = v26;
-        }
-      }
-      else
-      {
-        WdLogSingleEntry0(5LL);
-      }
-      goto LABEL_27;
-    }
-    v21 = (struct _DEVICE_OBJECT *)::Object;
+    v17 = (struct _DEVICE_OBJECT *)::Object;
+LABEL_12:
+    DeviceObject = v17;
+    goto LABEL_13;
   }
-  DeviceObject = v21;
-LABEL_27:
-  P = 0LL;
-  if ( a6 == 1 )
+  v47 = (struct _DEVICE_OBJECT *)*((_QWORD *)DeviceFromName + 17);
+  if ( v47 )
   {
-    v22 = (unsigned int *)v59;
-    if ( (unsigned __int64)v59 >= MmUserProbeAddress )
-      v22 = (unsigned int *)MmUserProbeAddress;
-    Length = *v22;
-    v23 = Length;
-    if ( Length > 0x348 )
-      v23 = 840;
-    Length = v23;
-    v24 = (_DWORD *)PALLOCMEM(v23, 1936876615LL);
-    P = v24;
-    if ( !v24 )
+    if ( (int)DrvForceChildDeviceReenumeration(v47, (struct _DEVICE_RELATIONS **)P) >= 0 )
     {
-      v10 = -1073741823;
-      goto LABEL_123;
+      DeviceObject = (PDEVICE_OBJECT)*((_QWORD *)P[0] + 1);
+      ExFreePoolWithTag(P[0], 0);
+      if ( Object )
+        ObfDereferenceObject(Object);
+      Object = DeviceObject;
     }
   }
   else
   {
-    v23 = 840;
-    if ( *(_DWORD *)v59 < 0x348u )
-      v23 = *(_DWORD *)v59;
-    Length = v23;
-    v24 = v59;
-    P = v59;
-    memset(v59, 0, v23);
+    v48 = WdLogNewEntry5_WdTrace(0LL, v14);
+    WdLogEvent5_WdTrace(v48);
   }
-  if ( v23 >= 4 )
-    *v24 = 4;
-  if ( v23 >= 0x44 )
+LABEL_13:
+  v59 = 0LL;
+  if ( a6 == 1 )
   {
-    *v24 = 68;
-    v28 = DeviceFromName + 32;
-    v29 = (wchar_t *)(v24 + 1);
-    if ( v58 )
+    v18 = (unsigned int *)v57;
+    if ( (unsigned __int64)v57 >= MmUserProbeAddress )
+      v18 = (unsigned int *)MmUserProbeAddress;
+    Length = *v18;
+    v19 = Length;
+    if ( Length > 0x348 )
+      v19 = 840;
+    Length = v19;
+    v22 = (char *)PALLOCMEM2(v19);
+    v59 = v22;
+    if ( !v22 )
     {
-      LODWORD(ResultLength) = v61;
-      swprintf_s(v29, 0x20uLL, L"%ws\\Monitor%d", v28, ResultLength);
+      LODWORD(v11) = -1073741823;
+      goto LABEL_54;
+    }
+  }
+  else
+  {
+    v19 = 840;
+    if ( *(_DWORD *)v57 < 0x348u )
+      v19 = *(_DWORD *)v57;
+    Length = v19;
+    v22 = (char *)v57;
+    v59 = v57;
+    memset(v57, 0, v19);
+  }
+  if ( v19 >= 4 )
+    *(_DWORD *)v22 = 4;
+  if ( v19 >= 0x44 )
+  {
+    *(_DWORD *)v22 = 68;
+    v23 = DeviceFromName + 32;
+    v21 = (PDEVICE_OBJECT)(v22 + 4);
+    if ( v56 )
+    {
+      swprintf_s((wchar_t *)v21, 0x20uLL, L"%ws\\Monitor%d", v23, v60);
     }
     else
     {
-      *(_OWORD *)v29 = *v28;
-      *(_OWORD *)(v24 + 5) = *((_OWORD *)DeviceFromName + 5);
-      *(_OWORD *)(v24 + 9) = *((_OWORD *)DeviceFromName + 6);
-      *(_OWORD *)(v24 + 13) = *((_OWORD *)DeviceFromName + 7);
+      *(_OWORD *)&v21->Type = *v23;
+      *(_OWORD *)(v22 + 20) = *((_OWORD *)DeviceFromName + 5);
+      *(_OWORD *)(v22 + 36) = *((_OWORD *)DeviceFromName + 6);
+      *(_OWORD *)(v22 + 52) = *((_OWORD *)DeviceFromName + 7);
     }
-    *((_WORD *)v24 + 33) = 0;
+    *((_WORD *)v22 + 33) = 0;
   }
-  if ( v23 >= 0x144 )
+  if ( v19 >= 0x144 )
   {
-    *v24 = 324;
-    *((_WORD *)v24 + 34) = 0;
-    if ( v58 || v9 )
+    *(_DWORD *)v22 = 324;
+    *((_WORD *)v22 + 34) = 0;
+    if ( v56 || v10 )
     {
       if ( DeviceObject )
       {
-        BufferLength = 256;
-        for ( i = 256; ; i = BufferLength )
+        v25 = 256;
+        v40 = 256LL;
+        for ( BufferLength = 256; ; v40 = BufferLength )
         {
-          v33 = PALLOCNOZ(i, 0x64646547u);
-          if ( !v33 )
+          v41 = (void *)PALLOCMEM2(v40);
+          if ( !v41 )
           {
-            v10 = -1073741670;
-            goto LABEL_72;
+            LODWORD(v11) = -1073741670;
+            goto LABEL_31;
           }
           DeviceProperty = IoGetDeviceProperty(
                              DeviceObject,
                              DevicePropertyDeviceDescription,
                              BufferLength,
-                             v33,
+                             v41,
                              &BufferLength);
           if ( DeviceProperty != -1073741789 )
             break;
-          Win32FreePool((char *)v33);
+          Win32FreePool(v41);
         }
         if ( !DeviceProperty )
-          wcsncpy_s((wchar_t *)v24 + 34, 0x80uLL, (const wchar_t *)v33, 0x7FuLL);
-        Win32FreePool((char *)v33);
+          wcsncpy_s((wchar_t *)v22 + 34, 0x80uLL, (const wchar_t *)v41, 0x7FuLL);
+        Win32FreePool(v41);
+        goto LABEL_31;
       }
     }
     else
     {
-      v30 = (const wchar_t *)*((_QWORD *)DeviceFromName + 26);
-      if ( v30 )
-        wcsncpy_s((wchar_t *)v24 + 34, 0x80uLL, v30, 0x7FuLL);
+      v24 = (const wchar_t *)*((_QWORD *)DeviceFromName + 26);
+      if ( v24 )
+        wcsncpy_s((wchar_t *)v22 + 34, 0x80uLL, v24, 0x7FuLL);
     }
-LABEL_72:
-    *((_WORD *)v24 + 161) = 0;
+    v25 = 256;
+LABEL_31:
+    *((_WORD *)v22 + 161) = 0;
+    goto LABEL_32;
   }
-  if ( v23 < 0x148 )
+  v25 = 256;
+LABEL_32:
+  if ( v19 < 0x148 )
   {
-    v37 = v58;
-    v38 = Length_4;
+    v27 = Length_4;
   }
   else
   {
-    *v24 = 328;
+    *(_DWORD *)v22 = 328;
     PruneFlag = DrvGetPruneFlag((struct tagGRAPHICS_DEVICE *)DeviceFromName);
-    v35 = *((_DWORD *)DeviceFromName + 40);
+    v20 = *((unsigned int *)DeviceFromName + 40);
     if ( PruneFlag )
-      v36 = v35 & 0xFFF7FFFF;
+      LODWORD(v20) = v20 & 0xFFF7FFFF;
     else
-      v36 = v35 | 0x80000;
-    *((_DWORD *)DeviceFromName + 40) = v36;
-    v37 = v58;
-    v38 = Length_4;
-    if ( v58 )
-      v24[81] = *(_DWORD *)(*((_QWORD *)DeviceFromName + 28) + 20 * v62) & 0xFFFFFFF;
+      LODWORD(v20) = v20 | 0x80000;
+    *((_DWORD *)DeviceFromName + 40) = v20;
+    v27 = Length_4;
+    if ( v56 )
+    {
+      v21 = (PDEVICE_OBJECT)(5 * v63);
+      v20 = *(_DWORD *)(*((_QWORD *)DeviceFromName + 28) + 20 * v63) & 0xFFFFFFF;
+      *((_DWORD *)v22 + 81) = v20;
+    }
     else
-      v24[81] = v36 & ((Length_4 & 2) != 0 ? 0xFFFFFFF : 254803967);
+    {
+      v21 = (PDEVICE_OBJECT)((unsigned int)v20 & ((Length_4 & 2) != 0 ? 0xFFFFFFF : 254803967));
+      *((_DWORD *)v22 + 81) = (_DWORD)v21;
+    }
   }
-  if ( v23 < 0x248 )
+  if ( v19 < 0x248 )
   {
-    v43 = -1LL;
-    goto LABEL_113;
+    v31 = -1LL;
+    goto LABEL_50;
   }
-  *v24 = 584;
-  *((_WORD *)v24 + 164) = 0;
-  if ( (v38 & 1) != 0 )
+  *(_DWORD *)v22 = 584;
+  *((_WORD *)v22 + 164) = 0;
+  if ( (v27 & 1) != 0 )
   {
+    v21 = DeviceObject;
     if ( DeviceObject )
     {
       DeviceInterfaceName = DrvpGetDeviceInterfaceName(DeviceObject);
-      v10 = DeviceInterfaceName;
+      v11 = DeviceInterfaceName;
       if ( DeviceInterfaceName < 0 )
       {
-        WdLogSingleEntry1(5LL, DeviceInterfaceName);
-        goto LABEL_123;
+        v50 = WdLogNewEntry5_WdTrace(v21, v20);
+        *(_QWORD *)(v50 + 24) = v11;
+        WdLogEvent5_WdTrace(v50);
+        goto LABEL_54;
       }
     }
-LABEL_110:
-    v43 = -1LL;
-    goto LABEL_111;
+LABEL_102:
+    v31 = -1LL;
+    goto LABEL_49;
   }
   if ( !DeviceObject )
-    goto LABEL_110;
-  BufferLength = 256;
-  for ( j = 256; ; j = BufferLength )
+    goto LABEL_102;
+  for ( BufferLength = 256; ; v25 = BufferLength )
   {
-    v42 = PALLOCNOZ(j, 0x64646547u);
-    if ( !v42 )
+    v28 = 0LL;
+    if ( v25 )
     {
-      v10 = -1073741670;
-LABEL_95:
-      v43 = -1LL;
-      goto LABEL_96;
+      v28 = (void *)Win32AllocPool(v25, 1684301127LL);
+      v25 = BufferLength;
     }
-    v41 = IoGetDeviceProperty(DeviceObject, DevicePropertyHardwareID, BufferLength, v42, &BufferLength);
-    if ( v41 != -1073741789 )
+    if ( !v28 )
+    {
+      LODWORD(v11) = -1073741670;
+      goto LABEL_132;
+    }
+    v29 = IoGetDeviceProperty(DeviceObject, DevicePropertyHardwareID, v25, v28, &BufferLength);
+    if ( v29 != -1073741789 )
       break;
-    Win32FreePool((char *)v42);
+    Win32FreePool(v28);
   }
-  if ( v41 )
+  if ( v29 )
   {
-    Win32FreePool((char *)v42);
-    goto LABEL_95;
+    Win32FreePool(v28);
+LABEL_132:
+    v31 = -1LL;
+    goto LABEL_48;
   }
-  v46 = 0;
-  if ( v37 )
+  v30 = 0;
+  v31 = -1LL;
+  if ( v56 )
   {
     v43 = -1LL;
-    v47 = -1LL;
     do
-      ++v47;
-    while ( *((_WORD *)v42 + v47) );
-    if ( BufferLength > 2 * (unsigned __int64)(unsigned int)(v47 + 2) )
-      v46 = v47 + 1;
+      ++v43;
+    while ( *((_WORD *)v28 + v43) );
+    if ( BufferLength > 2 * (unsigned __int64)(unsigned int)(v43 + 2) )
+      v30 = v43 + 1;
   }
-  else
+  wcsncpy_s((wchar_t *)v22 + 164, 0x80uLL, (const wchar_t *)v28 + v30, 0x7FuLL);
+  Win32FreePool(v28);
+LABEL_48:
+  if ( v56 )
   {
-    v43 = -1LL;
-  }
-  wcsncpy_s((wchar_t *)v24 + 164, 0x80uLL, (const wchar_t *)v42 + v46, 0x7FuLL);
-  Win32FreePool((char *)v42);
-LABEL_96:
-  if ( v58 )
-  {
-    *((_WORD *)v24 + 291) = 0;
+    *((_WORD *)v22 + 291) = 0;
     v44 = -1LL;
     do
       ++v44;
-    while ( *((_WORD *)v24 + v44 + 164) );
+    while ( *(_WORD *)&v22[2 * v44 + 328] );
     v45 = v44 + 1;
     BufferLength = v45;
     if ( v45 < 0x7E )
     {
-      *((_WORD *)v24 + v45 + 163) = 92;
+      *(_WORD *)&v22[2 * v45 + 326] = 92;
       IoGetDeviceProperty(
         DeviceObject,
         DevicePropertyDriverKeyName,
         2 * (127 - BufferLength),
-        (char *)v24 + 2 * BufferLength + 328,
+        &v22[2 * BufferLength + 328],
         &BufferLength);
     }
   }
-LABEL_111:
-  *((_WORD *)v24 + 291) = 0;
-LABEL_113:
-  if ( v23 >= 0x348 )
+LABEL_49:
+  *((_WORD *)v22 + 291) = 0;
+LABEL_50:
+  if ( v19 >= 0x348 )
   {
-    *v24 = 840;
-    v48 = v24 + 146;
-    *((_WORD *)v24 + 292) = 0;
-    if ( v58 )
+    *(_DWORD *)v22 = 840;
+    v32 = v22 + 584;
+    *((_WORD *)v22 + 292) = 0;
+    if ( v56 )
     {
       if ( IoGetDeviceProperty(DeviceObject, DevicePropertyDriverKeyName, 0xFEu, PropertyBuffer, &BufferLength) >= 0 )
       {
-        wcscpy_s((wchar_t *)v24 + 292, 0x80uLL, L"\\Registry\\Machine\\System\\CurrentControlSet");
-        v49 = -1LL;
+        wcscpy_s((wchar_t *)v22 + 292, 0x80uLL, L"\\Registry\\Machine\\System\\CurrentControlSet");
+        v39 = -1LL;
         do
-          ++v49;
-        while ( *((_WORD *)v48 + v49) );
-        BufferLength = v49;
+          ++v39;
+        while ( *(_WORD *)&v32[2 * v39] );
+        BufferLength = v39;
         wcsncpy_s(
-          (wchar_t *)v24 + (unsigned int)v49 + 292,
-          128LL - (unsigned int)v49,
+          (wchar_t *)&v22[2 * (unsigned int)v39 + 584],
+          128LL - (unsigned int)v39,
           L"\\Control\\Class\\",
-          (unsigned int)(127 - v49));
+          (unsigned int)(127 - v39));
         do
-          ++v43;
-        while ( *((_WORD *)v48 + v43) );
-        BufferLength = v43;
+          ++v31;
+        while ( *(_WORD *)&v32[2 * v31] );
+        BufferLength = v31;
         wcsncpy_s(
-          (wchar_t *)v24 + (unsigned int)v43 + 292,
-          128LL - (unsigned int)v43,
+          (wchar_t *)&v22[2 * (unsigned int)v31 + 584],
+          128LL - (unsigned int)v31,
           PropertyBuffer,
-          (unsigned int)(127 - v43));
+          (unsigned int)(127 - v31));
       }
     }
     else
     {
-      DrvGetRegistryHandleFromDeviceMap(DeviceFromName, 3LL, 0LL, v24 + 146, 128, 0LL);
+      DrvGetRegistryHandleFromDeviceMap(DeviceFromName, 3LL, 0LL, v22 + 584, 128, 0LL, BufferLength);
     }
-    *((_WORD *)v24 + 419) = 0;
+    *((_WORD *)v22 + 419) = 0;
   }
-LABEL_123:
-  v50 = v59;
-  if ( v24 != v59 )
+LABEL_54:
+  v33 = v57;
+  if ( v22 != v57 )
   {
-    if ( v24 )
+    if ( v22 )
     {
-      ProbeForWrite(v59, v23, 4u);
-      memmove(v50, v24, v23);
-      Win32FreePool((char *)v24);
+      ProbeForWrite(v57, v19, 4u);
+      memmove(v33, v22, v19);
+      Win32FreePool(v22);
     }
   }
-  WdLogSingleEntry1(5LL, v10);
+  v34 = WdLogNewEntry5_WdTrace(v21, v20);
+  *(_QWORD *)(v34 + 24) = (int)v11;
+  WdLogEvent5_WdTrace(v34);
   wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>(&Object);
-  wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_FILE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_FILE_OBJECT *,_FILE_OBJECT *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_FILE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_FILE_OBJECT *,_FILE_OBJECT *,0,std::nullptr_t>>>(&v57);
-  return (unsigned int)v10;
+  wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>::~unique_any_t<wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,__int64 (void *),&__int64 ObfDereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>>(&v55);
+  return (unsigned int)v11;
 }

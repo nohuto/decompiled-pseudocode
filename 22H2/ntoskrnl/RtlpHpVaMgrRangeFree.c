@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpVaMgrRangeFree @ 0x140210990
+ * XREFs of RtlpHpVaMgrRangeFree @ 0x1402FBF04
  * Callers:
- *     RtlpHpVaMgrCtxFree @ 0x140210A8C (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrCtxFree @ 0x1402FBDA0 (RtlpHpVaMgrCtxFree.c)
  * Callees:
- *     RtlpHpVaMgrRangeCleanup @ 0x1402108CC (RtlpHpVaMgrRangeCleanup.c)
- *     RtlpHpEnvFreeVA @ 0x140212200 (RtlpHpEnvFreeVA.c)
+ *     RtlpHpEnvFreeVA @ 0x14027AE84 (RtlpHpEnvFreeVA.c)
+ *     RtlpHpVaMgrRangeCleanup @ 0x1402FBF6C (RtlpHpVaMgrRangeCleanup.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrRangeFree(__int64 a1, __int64 a2)
 {
   bool v2; // zf
   __int64 v3; // rax
-  __int64 v5; // [rsp+40h] [rbp+8h] BYREF
-  unsigned __int64 v6; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 v6; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = (*(_BYTE *)a2 & 4) == 0;
   v6 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL)
@@ -22,6 +22,6 @@ __int64 __fastcall RtlpHpVaMgrRangeFree(__int64 a1, __int64 a2)
   else
     v3 = *(_QWORD *)(a2 + 24);
   v5 = v3 << 20;
-  RtlpHpVaMgrRangeCleanup(a1, (char *)a2);
-  return RtlpHpEnvFreeVA(&v6, &v5, 0x8000LL);
+  RtlpHpVaMgrRangeCleanup(a1);
+  return RtlpHpEnvFreeVA(&v6, (unsigned __int64 *)&v5, 0x8000);
 }

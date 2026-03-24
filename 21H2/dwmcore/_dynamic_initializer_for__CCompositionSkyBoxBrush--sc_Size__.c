@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CCompositionSkyBoxBrush::sc_Size__ @ 0x180001FF0
+ * XREFs of _dynamic_initializer_for__CCompositionSkyBoxBrush::sc_Size__ @ 0x180001CD0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CCompositionSkyBoxBrush::sc_Size__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D1F08 = (unsigned __int64)CResource::SetAnimatedProperty;
-  qword_1803D1F18 = v1;
+  xmmword_180346018 = (unsigned __int64)CResource::SetAnimatedProperty;
+  qword_180346028 = v1;
   return result;
 }

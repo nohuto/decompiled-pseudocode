@@ -1,16 +1,16 @@
 /*
- * XREFs of ?EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ @ 0x1802B0E80
+ * XREFs of ?EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ @ 0x180262D90
  * Callers:
- *     ?Create@CGDISubSectionBitmapRealization@@SAJPEAEAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1IW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@PEAPEAVIGDIBitmapRealization@@@Z @ 0x1802B0D04 (-Create@CGDISubSectionBitmapRealization@@SAJPEAEAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeed.c)
+ *     ?Create@CGDISubSectionBitmapRealization@@SAJPEAEAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1IW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@PEAPEAVIGDIBitmapRealization@@@Z @ 0x180262C20 (-Create@CGDISubSectionBitmapRealization@@SAJPEAEAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeed.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800343F8 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
- *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003E7E0 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
- *     ?MapSection@CSectionBitmapRealization@@IEAAJXZ @ 0x1800A5DF4 (-MapSection@CSectionBitmapRealization@@IEAAJXZ.c)
- *     ?GetRequiredBufferSize@@YAIW4DXGI_FORMAT@@IPEBUWICRect@@@Z @ 0x1800A7514 (-GetRequiredBufferSize@@YAIW4DXGI_FORMAT@@IPEBUWICRect@@@Z.c)
- *     ?HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@@@Z @ 0x1800A7DA4 (-HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@@@Z @ 0x1800320F8 (-HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@.c)
+ *     ?GetRequiredBufferSize@@YAIW4DXGI_FORMAT@@IPEBUWICRect@@@Z @ 0x18003BD64 (-GetRequiredBufferSize@@YAIW4DXGI_FORMAT@@IPEBUWICRect@@@Z.c)
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003C06C (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ?MapSection@CSectionBitmapRealization@@IEAAJXZ @ 0x180044F3C (-MapSection@CSectionBitmapRealization@@IEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x180068DD4 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGDISubSectionBitmapRealization::EnsureBitmapCacheSource(CGDISubSectionBitmapRealization *this)
@@ -39,21 +39,21 @@ __int64 __fastcall CGDISubSectionBitmapRealization::EnsureBitmapCacheSource(CGDI
   struct IBitmapSource *v24; // [rsp+80h] [rbp+20h] BYREF
 
   v1 = 0;
-  v2 = (struct ID2DBitmapCacheSource **)((char *)this + 344);
-  if ( !*((_QWORD *)this + 43) )
+  v2 = (struct ID2DBitmapCacheSource **)((char *)this + 312);
+  if ( !*((_QWORD *)this + 39) )
   {
-    v4 = *((_DWORD *)this + 90);
+    v4 = *((_DWORD *)this + 82);
     if ( v4 )
     {
-      v5 = *((_DWORD *)this + 91);
+      v5 = *((_DWORD *)this + 83);
       if ( v5 )
       {
-        v6 = *((_DWORD *)this + 93);
+        v6 = *((_DWORD *)this + 85);
         v23.X = 0;
         v23.Y = 0;
         v23.Width = v4;
         v22[1] = *((_DWORD *)this + 24);
-        v7 = *((_DWORD *)this + 36);
+        v7 = *((_DWORD *)this + 35);
         v23.Height = v5;
         v22[2] = v7;
         v22[0] = v6;
@@ -65,18 +65,18 @@ __int64 __fastcall CGDISubSectionBitmapRealization::EnsureBitmapCacheSource(CGDI
         }
         else
         {
-          v10 = *((_DWORD *)this + 92);
+          v10 = *((_DWORD *)this + 84);
           GetPixelFormatSize(v6);
-          RequiredBufferSize = GetRequiredBufferSize(*((_DWORD *)this + 93), v10, &v23);
-          v12 = *((_DWORD *)this + 91);
+          RequiredBufferSize = GetRequiredBufferSize((enum DXGI_FORMAT)*((_DWORD *)this + 85), v10, &v23);
+          v12 = *((_DWORD *)this + 83);
           v24 = 0LL;
           v14 = HrCreateBitmapFromMemoryEx(
-                  *((_DWORD *)this + 90),
+                  *((_DWORD *)this + 82),
                   v12,
                   (const struct PixelFormatInfo *)v22,
                   v10,
                   RequiredBufferSize,
-                  (unsigned __int8 *)(*((_QWORD *)this + 47) + v13),
+                  (unsigned __int8 *)(*((_QWORD *)this + 43) + v13),
                   0LL,
                   &v24);
           v1 = v14;

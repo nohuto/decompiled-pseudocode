@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryInformationResourceManager @ 0x1401BAA10
+ * XREFs of ZwQueryInformationResourceManager @ 0x1401BAA30
  * Callers:
  *     <none>
  * Callees:

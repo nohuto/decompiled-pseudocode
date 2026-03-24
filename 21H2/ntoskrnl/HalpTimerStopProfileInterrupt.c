@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerStopProfileInterrupt @ 0x14050E038
+ * XREFs of HalpTimerStopProfileInterrupt @ 0x1404C1ADC
  * Callers:
- *     HalpTimerSelectRoles @ 0x1403BC388 (HalpTimerSelectRoles.c)
- *     DefaultDisableMonitoring @ 0x14050FC10 (DefaultDisableMonitoring.c)
+ *     HalpTimerSelectRoles @ 0x1403A9D9C (HalpTimerSelectRoles.c)
+ *     DefaultDisableMonitoring @ 0x1404BE6D0 (DefaultDisableMonitoring.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void HalpTimerStopProfileInterrupt()

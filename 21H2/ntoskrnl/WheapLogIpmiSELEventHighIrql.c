@@ -1,20 +1,20 @@
 /*
- * XREFs of WheapLogIpmiSELEventHighIrql @ 0x140646180
+ * XREFs of WheapLogIpmiSELEventHighIrql @ 0x1405BD5D8
  * Callers:
- *     WheapLogIpmiSELEvent @ 0x1406460E0 (WheapLogIpmiSELEvent.c)
+ *     WheapLogIpmiSELEvent @ 0x1405BD538 (WheapLogIpmiSELEvent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1406460B8 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1405BD510 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
  */
 
 void WheapLogIpmiSELEventHighIrql()
 {
-  if ( WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters && WheapHighIrqlLogSelEventHandlerAcquireLock(0) )
+  if ( LODWORD(WheapDispatchPtr.Queue.Wcb.DeviceRoutine) && WheapHighIrqlLogSelEventHandlerAcquireLock(0) )
   {
-    if ( WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters )
-      ((void (__fastcall *)(PVOID, ULONG *))WheapDispatchPtr.Queue.Wcb.DeviceObject)(
-        WheapDispatchPtr.Queue.Wcb.CurrentIrp,
-        &WheapDispatchPtr.AlignmentRequirement);
-    _InterlockedExchange((volatile __int32 *)(&WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters + 1), 0);
+    if ( LODWORD(WheapDispatchPtr.Queue.Wcb.DeviceRoutine) )
+      ((void (__fastcall *)(_QWORD, PVOID *))WheapDispatchPtr.Queue.Wcb.DeviceContext)(
+        *(_QWORD *)&WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters,
+        &WheapDispatchPtr.Queue.Wcb.CurrentIrp);
+    _InterlockedExchange((_DWORD *)&WheapDispatchPtr.Queue.Wcb.DeviceRoutine + 1, 0);
   }
 }

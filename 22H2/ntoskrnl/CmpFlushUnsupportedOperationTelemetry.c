@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFlushUnsupportedOperationTelemetry @ 0x1407E29E4
+ * XREFs of CmpFlushUnsupportedOperationTelemetry @ 0x140724E14
  * Callers:
- *     CmpDoReconcileNextHive @ 0x140750F50 (CmpDoReconcileNextHive.c)
- *     CmpFlushTraceLoggingProvider @ 0x140A127FC (CmpFlushTraceLoggingProvider.c)
+ *     CmpDoReconcileNextHive @ 0x140724450 (CmpDoReconcileNextHive.c)
+ *     CmpFlushTraceLoggingProvider @ 0x14086A7A8 (CmpFlushTraceLoggingProvider.c)
  * Callees:
- *     CmpSendUnsupportedOperationTelemetryEvent @ 0x140A20278 (CmpSendUnsupportedOperationTelemetryEvent.c)
+ *     CmpSendUnsupportedOperationTelemetryEvent @ 0x14087662C (CmpSendUnsupportedOperationTelemetryEvent.c)
  */
 
 __int64 CmpFlushUnsupportedOperationTelemetry()
@@ -22,6 +22,6 @@ __int64 CmpFlushUnsupportedOperationTelemetry()
     ++v0;
     ++v1;
   }
-  while ( v0 < 27 );
+  while ( v0 < 28 );
   return result;
 }

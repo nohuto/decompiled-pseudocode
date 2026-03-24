@@ -1,12 +1,14 @@
 /*
- * XREFs of PopDiagTracePowerRequestChange @ 0x14036A410
+ * XREFs of PopDiagTracePowerRequestChange @ 0x140282394
  * Callers:
- *     PopPowerRequestReferenceRelease @ 0x140369FDC (PopPowerRequestReferenceRelease.c)
- *     PopPowerRequestReferenceAcquire @ 0x14036A2C8 (PopPowerRequestReferenceAcquire.c)
+ *     PoClearPowerRequestInternal @ 0x140281F9C (PoClearPowerRequestInternal.c)
+ *     PoSetPowerRequestInternal @ 0x140282160 (PoSetPowerRequestInternal.c)
+ *     PopClearSpecialRequest @ 0x1408E17FC (PopClearSpecialRequest.c)
+ *     PopSetSpecialRequest @ 0x1408E1BAC (PopSetSpecialRequest.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTracePowerRequestChange(__int64 a1)
@@ -51,12 +53,12 @@ char __fastcall PopDiagTracePowerRequestChange(__int64 a1)
       v20 = 0;
       v23 = 0;
       UserData.Ptr = (ULONGLONG)&v25;
-      v6 = a1 + 44;
-      v9 = a1 + 40;
-      v12 = a1 + 48;
-      v15 = a1 + 52;
-      v18 = a1 + 56;
-      v21 = a1 + 60;
+      v6 = a1 + 36;
+      v9 = a1 + 32;
+      v12 = a1 + 40;
+      v15 = a1 + 44;
+      v18 = a1 + 48;
+      v21 = a1 + 52;
       v7 = 4;
       v10 = 4;
       v13 = 4;

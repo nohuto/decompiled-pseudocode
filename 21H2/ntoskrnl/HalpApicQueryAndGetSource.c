@@ -1,56 +1,50 @@
 /*
- * XREFs of HalpApicQueryAndGetSource @ 0x140231830
+ * XREFs of HalpApicQueryAndGetSource @ 0x1402AC650
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpApicQueryAndGetSource(__int64 a1, __int64 a2, _DWORD *a3, _BYTE *a4)
 {
-  int v4; // ebp
-  int v7; // edi
+  int v4; // ebx
+  int v7; // ebp
   int v8; // esi
-  int v9; // ebx
-  int v10; // eax
-  int v11; // ecx
-  unsigned int v12; // eax
-  unsigned int v14; // ebp
-  int v15; // eax
+  int v9; // r14d
+  unsigned int v10; // eax
+  unsigned int v12; // ebx
 
   v4 = 0;
   if ( a4 )
     *a4 = 1;
-  v7 = 7;
-  v8 = 224;
-  v9 = 624;
+  v7 = 224;
+  v8 = 624;
+  v9 = 7;
   while ( 1 )
   {
-    v10 = ((__int64 (__fastcall *)(_QWORD))HalpApicRead)((unsigned int)v9);
-    v11 = -65536;
-    if ( v7 )
-      v11 = -1;
-    v12 = v11 & v10;
-    if ( v12 )
+    v10 = ((unsigned __int16)-(v9 != 0) - 0x10000) & ((__int64 (__fastcall *)(_QWORD))HalpApicRead)((unsigned int)v8);
+    if ( v10 )
     {
-      if ( v4 )
-        break;
-      _BitScanReverse(&v14, v12);
-      v15 = v12 & ~(1 << v14);
-      v4 = v8 + v14;
-      if ( !a4 )
-        goto LABEL_8;
-      if ( v15 )
+      if ( !v4 )
+      {
+        _BitScanReverse(&v12, v10);
+        v10 &= ~(1 << v12);
+        v4 = v7 + v12;
+        if ( !a4 )
+          goto LABEL_6;
+      }
+      if ( v10 )
         break;
     }
-    --v7;
-    v9 -= 16;
-    v8 -= 32;
-    if ( v9 < 512 )
-      goto LABEL_8;
+    --v9;
+    v8 -= 16;
+    v7 -= 32;
+    if ( v8 < 512 )
+      goto LABEL_6;
   }
   *a4 = 0;
-LABEL_8:
+LABEL_6:
   if ( !v4 )
     return 4LL;
   *a3 = v4;

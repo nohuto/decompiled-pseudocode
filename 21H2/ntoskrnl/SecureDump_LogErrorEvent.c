@@ -1,23 +1,30 @@
 /*
- * XREFs of SecureDump_LogErrorEvent @ 0x14055EBC8
+ * XREFs of SecureDump_LogErrorEvent @ 0x14050A9F0
  * Callers:
- *     SecureDump_PrepareForInit @ 0x1403DB720 (SecureDump_PrepareForInit.c)
- *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14055E2F4 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
- *     SecureDump_LoadCertAndProvisionKey @ 0x14055E880 (SecureDump_LoadCertAndProvisionKey.c)
- *     SecureDump_SymmetricEncryptionSetup @ 0x14055EDD4 (SecureDump_SymmetricEncryptionSetup.c)
+ *     SecureDump_PrepareForInit @ 0x1403CC470 (SecureDump_PrepareForInit.c)
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14050A4D4 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ *     SecureDump_SymmetricEncryptionSetup @ 0x14050AA84 (SecureDump_SymmetricEncryptionSetup.c)
  * Callees:
- *     McTemplateK0q_EtwWriteTransfer @ 0x140555FF0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall SecureDump_LogErrorEvent(int a1, __int64 a2, __int64 a3)
+BOOLEAN __fastcall SecureDump_LogErrorEvent(int a1)
 {
-  NTSTATUS result; // eax
+  REGHANDLE v1; // rbx
+  BOOLEAN result; // al
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-28h] BYREF
+  int v4; // [rsp+70h] [rbp+8h] BYREF
 
-  if ( (Microsoft_Windows_Kernel_IOEnableBits & 4) != 0 )
-    return McTemplateK0q_EtwWriteTransfer(
-             IoMgrProvider_Context,
-             (const EVENT_DESCRIPTOR *)IoMgr_DumpEncryptionFailure,
-             a3,
-             a1);
+  v4 = a1;
+  v1 = IoMgrTraceHandle;
+  result = EtwEventEnabled(IoMgrTraceHandle, &IoMgr_DumpEncryptionFailure);
+  if ( result )
+  {
+    *(_QWORD *)&UserData.Size = 4LL;
+    UserData.Ptr = (ULONGLONG)&v4;
+    return EtwWriteEx(v1, &IoMgr_DumpEncryptionFailure, 0LL, 0, 0LL, 0LL, 1u, &UserData);
+  }
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ReadCalibrationDataImp@@YAJU_UNICODE_STRING@@0PEAKPEAPEAE@Z @ 0x1C01CAF74
+ * XREFs of ?ReadCalibrationDataImp@@YAJU_UNICODE_STRING@@0PEAKPEAPEAE@Z @ 0x1C01CE650
  * Callers:
- *     ReadTiltCalibrationData @ 0x1C01CBCFC (ReadTiltCalibrationData.c)
+ *     ReadTiltCalibrationData @ 0x1C01CF3DC (ReadTiltCalibrationData.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
- *     ?RegQueryValueCal@@YAJPEAXU_UNICODE_STRING@@KPEAEKPEAK@Z @ 0x1C01CB670 (-RegQueryValueCal@@YAJPEAXU_UNICODE_STRING@@KPEAEKPEAK@Z.c)
- *     ValidateCalibrationData @ 0x1C01CC108 (ValidateCalibrationData.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?RegQueryValueCal@@YAJPEAXU_UNICODE_STRING@@KPEAEKPEAK@Z @ 0x1C01CED48 (-RegQueryValueCal@@YAJPEAXU_UNICODE_STRING@@KPEAEKPEAK@Z.c)
+ *     ValidateCalibrationData @ 0x1C01CF888 (ValidateCalibrationData.c)
  */
 
 __int64 __fastcall ReadCalibrationDataImp(
@@ -48,7 +48,7 @@ __int64 __fastcall ReadCalibrationDataImp(
           *a4 = 0LL;
           v9 = *a3;
         }
-        v10 = (unsigned __int8 *)Win32AllocPoolZInit(v9, 2020635477LL);
+        v10 = (unsigned __int8 *)Win32AllocPool(v9, 2020635477LL);
         *a4 = v10;
         if ( v10 )
         {

@@ -1,9 +1,9 @@
 /*
- * XREFs of VidSchiCancelDelayTimerDevice @ 0x1C00F2EA8
+ * XREFs of VidSchiCancelDelayTimerDevice @ 0x1C00CF9E8
  * Callers:
- *     VidSchFlushAdapter @ 0x1C00F4140 (VidSchFlushAdapter.c)
+ *     VidSchFlushAdapter @ 0x1C00D1510 (VidSchFlushAdapter.c)
  * Callees:
- *     VidSchiCancelDelayTimerContext @ 0x1C001440C (VidSchiCancelDelayTimerContext.c)
+ *     VidSchiCancelDelayTimerContext @ 0x1C0011928 (VidSchiCancelDelayTimerContext.c)
  */
 
 void __fastcall VidSchiCancelDelayTimerDevice(__int64 a1, __int64 a2)

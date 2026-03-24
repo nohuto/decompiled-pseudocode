@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ReleaseCopyBuffers@CWICBitmapRealization@@UEAAJXZ @ 0x1802B1490
+ * XREFs of ?ReleaseCopyBuffers@CWICBitmapRealization@@UEAAJXZ @ 0x180263370
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CWICBitmapRealization::ReleaseCopyBuffers(CWICBitmapRealization *this)
@@ -40,7 +40,7 @@ __int64 __fastcall CWICBitmapRealization::ReleaseCopyBuffers(CWICBitmapRealizati
       wil::details::in1diag3::Return_Hr(
         retaddr,
         (void *)0x7D,
-        (int)"onecoreuap\\windows\\DWM\\dwmcore\\bitmaps/WICBitmapRealization.h",
+        (__int64)"onecoreuap\\windows\\DWM\\dwmcore\\bitmaps/WICBitmapRealization.h",
         (const char *)(unsigned int)v3);
     }
   }

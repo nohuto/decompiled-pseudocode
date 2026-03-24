@@ -1,27 +1,27 @@
 /*
- * XREFs of UsbhAssignHubNumber @ 0x1C0041AB0
+ * XREFs of UsbhAssignHubNumber @ 0x1C0042D60
  * Callers:
- *     UsbhAddDevice @ 0x1C0041550 (UsbhAddDevice.c)
+ *     UsbhAddDevice @ 0x1C0042800 (UsbhAddDevice.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 LONG __fastcall UsbhAssignHubNumber(__int64 a1)
 {
   _DWORD *v1; // rbx
-  void **CurrentIrp; // rax
-  void ***v3; // rbx
+  _QWORD *v2; // rax
+  _QWORD *v3; // rbx
 
   v1 = FdoExt(a1);
   v1[344] = USBD_AllocateHubNumber();
-  KeWaitForSingleObject(&WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, Executive, 0, 0, 0LL);
-  CurrentIrp = (void **)WPP_MAIN_CB.Queue.Wcb.CurrentIrp;
-  v3 = (void ***)(v1 + 1288);
-  if ( *(struct _DEVICE_OBJECT **)WPP_MAIN_CB.Queue.Wcb.CurrentIrp != (struct _DEVICE_OBJECT *)&WPP_MAIN_CB.Queue.Wcb.DeviceObject )
+  KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+  v2 = (_QWORD *)qword_1C006C4A8;
+  v3 = v1 + 1288;
+  if ( *(__int64 **)qword_1C006C4A8 != &qword_1C006C4A0 )
     __fastfail(3u);
-  *v3 = &WPP_MAIN_CB.Queue.Wcb.DeviceObject;
-  v3[1] = CurrentIrp;
-  *CurrentIrp = v3;
-  WPP_MAIN_CB.Queue.Wcb.CurrentIrp = v3;
-  return KeSetEvent((PRKEVENT)&WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 0, 0);
+  *v3 = &qword_1C006C4A0;
+  v3[1] = v2;
+  *v2 = v3;
+  qword_1C006C4A8 = (__int64)v3;
+  return KeSetEvent(&Event, 0, 0);
 }

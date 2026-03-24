@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSessionReferenceImage @ 0x1401782BC
+ * XREFs of MiSessionReferenceImage @ 0x1401782DC
  * Callers:
- *     MmChangeImageProtection @ 0x140651780 (MmChangeImageProtection.c)
- *     MiResolveImageReferences @ 0x140678FD0 (MiResolveImageReferences.c)
+ *     MmChangeImageProtection @ 0x140651760 (MmChangeImageProtection.c)
+ *     MiResolveImageReferences @ 0x140678FB0 (MiResolveImageReferences.c)
  * Callees:
  *     MiSessionLookupImage @ 0x14009DBC8 (MiSessionLookupImage.c)
  */

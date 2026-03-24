@@ -1,16 +1,16 @@
 /*
- * XREFs of PopBootStatRestoreDefaults @ 0x140998F18
+ * XREFs of PopBootStatRestoreDefaults @ 0x1408F2538
  * Callers:
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     RtlLockBootStatusData @ 0x1406D6540 (RtlLockBootStatusData.c)
- *     RtlUnlockBootStatusData @ 0x1406D6AD0 (RtlUnlockBootStatusData.c)
- *     PopBootStatAccessCheck @ 0x1406D6C24 (PopBootStatAccessCheck.c)
- *     RtlRestoreBootStatusDefaults @ 0x1409BABB4 (RtlRestoreBootStatusDefaults.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     RtlLockBootStatusData @ 0x14077F570 (RtlLockBootStatusData.c)
+ *     RtlUnlockBootStatusData @ 0x14078C6B0 (RtlUnlockBootStatusData.c)
+ *     PopBootStatAccessCheck @ 0x1407C141C (PopBootStatAccessCheck.c)
+ *     RtlRestoreBootStatusDefaults @ 0x1409155A8 (RtlRestoreBootStatusDefaults.c)
  */
 
 __int64 PopBootStatRestoreDefaults()
@@ -36,6 +36,6 @@ __int64 PopBootStatRestoreDefaults()
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopBootStatLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(&PopBootStatLock);
   KeAbPostRelease((ULONG_PTR)&PopBootStatLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)v2;
 }

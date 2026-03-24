@@ -1,11 +1,11 @@
 /*
- * XREFs of imp_WdfIoTargetWdmGetTargetPhysicalDevice @ 0x1C00739F0
+ * XREFs of imp_WdfIoTargetWdmGetTargetPhysicalDevice @ 0x1C0064650
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
  */
 
 _DEVICE_OBJECT *__fastcall imp_WdfIoTargetWdmGetTargetPhysicalDevice(
@@ -19,7 +19,11 @@ _DEVICE_OBJECT *__fastcall imp_WdfIoTargetWdmGetTargetPhysicalDevice(
   FxIoTarget *pTarget; // [rsp+50h] [rbp+8h] BYREF
 
   pTarget = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)IoTarget, 0x1200u, (void **)&pTarget);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)IoTarget,
+    0x1200u,
+    (void **)&pTarget);
   v3 = pTarget;
   m_Globals = pTarget->m_Globals;
   if ( m_Globals->FxVerboseOn )

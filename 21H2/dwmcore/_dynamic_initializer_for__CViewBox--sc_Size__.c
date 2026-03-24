@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CViewBox::sc_Size__ @ 0x180003140
+ * XREFs of _dynamic_initializer_for__CViewBox::sc_Size__ @ 0x180002A20
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CViewBox::sc_Size__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D23D8 = (unsigned __int64)CViewBox::SetAnimatedProperty;
-  qword_1803D23E8 = v1;
+  xmmword_1803464B0 = (unsigned __int64)CViewBox::SetAnimatedProperty;
+  qword_1803464C0 = v1;
   return result;
 }

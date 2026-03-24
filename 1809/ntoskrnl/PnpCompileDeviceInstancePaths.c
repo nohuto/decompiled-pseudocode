@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpCompileDeviceInstancePaths @ 0x1406EDF4C
+ * XREFs of PnpCompileDeviceInstancePaths @ 0x1406EDF2C
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF7B0 (PnpProcessQueryRemoveAndEject.c)
- *     PnpCancelRemoveOnHungDevices @ 0x14082800C (PnpCancelRemoveOnHungDevices.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpCancelRemoveOnHungDevices @ 0x140827FEC (PnpCancelRemoveOnHungDevices.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     IopEnumerateRelations @ 0x1406EE0D4 (IopEnumerateRelations.c)
- *     PnpAllocateCriticalMemory @ 0x1406EEB84 (PnpAllocateCriticalMemory.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     IopEnumerateRelations @ 0x1406EE0B4 (IopEnumerateRelations.c)
+ *     PnpAllocateCriticalMemory @ 0x1406EEB64 (PnpAllocateCriticalMemory.c)
  */
 
 __int64 __fastcall PnpCompileDeviceInstancePaths(unsigned int a1, __int64 a2, char a3, char a4, __int64 *a5)

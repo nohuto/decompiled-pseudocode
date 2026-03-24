@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDqInit @ 0x140B2B1C0
+ * XREFs of PiDqInit @ 0x140A51FA0
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     PiDqObjectManagerInit @ 0x14085D1F8 (PiDqObjectManagerInit.c)
+ *     PiDqObjectManagerInit @ 0x1407A3174 (PiDqObjectManagerInit.c)
  */
 
 __int64 PiDqInit()

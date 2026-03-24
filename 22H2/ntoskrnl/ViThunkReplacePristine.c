@@ -1,7 +1,7 @@
 /*
- * XREFs of ViThunkReplacePristine @ 0x140ADD0D8
+ * XREFs of ViThunkReplacePristine @ 0x1409D9698
  * Callers:
- *     ViThunkRecoverPristines @ 0x140ADCD6C (ViThunkRecoverPristines.c)
+ *     ViThunkRecoverPristines @ 0x1409D91A4 (ViThunkRecoverPristines.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ __int64 __fastcall ViThunkReplacePristine(_QWORD *a1, __int64 a2, _QWORD *a3)
   {
     while ( *a3 != a1[1] )
     {
-      a1 += 7;
+      a1 = (_QWORD *)((char *)a1 + a2);
       if ( !*a1 )
         return result;
     }

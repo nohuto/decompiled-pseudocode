@@ -1,5 +1,5 @@
 /*
- * XREFs of VfPnpAdvanceIrpStatus @ 0x140AA5E10
+ * XREFs of VfPnpAdvanceIrpStatus @ 0x1409E2710
  * Callers:
  *     <none>
  * Callees:

@@ -1,16 +1,16 @@
 /*
- * XREFs of KsepDriverPathTail @ 0x140693FA4
+ * XREFs of KsepDriverPathTail @ 0x14075B1A4
  * Callers:
- *     KseShimDriverIoCallbacks @ 0x140693D74 (KseShimDriverIoCallbacks.c)
+ *     KseShimDriverIoCallbacks @ 0x140757D14 (KseShimDriverIoCallbacks.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
  */
 
 __int64 __fastcall KsepDriverPathTail(unsigned __int16 *a1, UNICODE_STRING *a2)
 {
   unsigned int v3; // r8d
-  __int64 v4; // rdx
-  __int64 v5; // r10
+  __int64 v4; // r10
+  __int64 v5; // rdx
   const WCHAR *v6; // rdx
 
   if ( !a1 || !a2 )

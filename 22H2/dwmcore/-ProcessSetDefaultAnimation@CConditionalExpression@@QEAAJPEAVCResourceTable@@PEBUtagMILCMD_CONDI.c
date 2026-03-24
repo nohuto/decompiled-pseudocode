@@ -1,12 +1,13 @@
 /*
- * XREFs of ?ProcessSetDefaultAnimation@CConditionalExpression@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CONDITIONALEXPRESSION_SETDEFAULTANIMATION@@@Z @ 0x180228614
+ * XREFs of ?ProcessSetDefaultAnimation@CConditionalExpression@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CONDITIONALEXPRESSION_SETDEFAULTANIMATION@@@Z @ 0x1801BDF4C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800F2C10 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A1010 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800A9CA4 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CConditionalExpression::ProcessSetDefaultAnimation(
@@ -14,27 +15,30 @@ __int64 __fastcall CConditionalExpression::ProcessSetDefaultAnimation(
         struct CResourceTable *a2,
         const struct tagMILCMD_CONDITIONALEXPRESSION_SETDEFAULTANIMATION *a3)
 {
-  unsigned int v4; // ebx
-  unsigned int v5; // edx
-  __int64 Resource; // rdi
-  __int64 v8; // rcx
-  __int64 v10; // [rsp+50h] [rbp+18h] BYREF
+  struct CResource *ResourceWithoutType; // rax
+  __int64 v5; // rbx
+  __int64 v6; // rcx
+  unsigned int v7; // ebx
+  __int64 v9; // [rsp+50h] [rbp+18h] BYREF
 
-  v4 = 0;
-  v5 = *((_DWORD *)a3 + 2);
-  Resource = 0LL;
-  if ( !v5 || (Resource = CResourceTable::GetResource((__int64)a2, v5, 0x3Cu)) != 0 )
+  ResourceWithoutType = CResourceTable::GetResourceWithoutType(a2, *((_DWORD *)a3 + 2));
+  v5 = (__int64)ResourceWithoutType;
+  if ( !ResourceWithoutType
+    || (*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)ResourceWithoutType + 56LL))(
+         ResourceWithoutType,
+         58LL) )
   {
-    v10 = Resource;
-    Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef(&v10);
-    v10 = *((_QWORD *)this + 46);
-    *((_QWORD *)this + 46) = Resource;
-    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v10);
+    v9 = v5;
+    Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef(&v9);
+    v9 = *((_QWORD *)this + 43);
+    *((_QWORD *)this + 43) = v5;
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v9);
+    return 0;
   }
   else
   {
-    v4 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2003303421, 0x8Bu, 0LL);
+    v7 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2003303421, 0x89u, 0LL);
   }
-  return v4;
+  return v7;
 }

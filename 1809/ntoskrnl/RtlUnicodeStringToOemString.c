@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlUnicodeStringToOemString @ 0x1406D04B0
+ * XREFs of RtlUnicodeStringToOemString @ 0x1406D0490
  * Callers:
  *     ExpSystemErrorHandler2 @ 0x14057E930 (ExpSystemErrorHandler2.c)
  * Callees:
  *     ExFreePool @ 0x14034D780 (ExFreePool.c)
- *     RtlxUnicodeStringToOemSize @ 0x14067BEB0 (RtlxUnicodeStringToOemSize.c)
- *     RtlUnicodeToOemN @ 0x14067C380 (RtlUnicodeToOemN.c)
- *     ExpAllocateStringRoutine @ 0x1406B2120 (ExpAllocateStringRoutine.c)
+ *     RtlxUnicodeStringToOemSize @ 0x14067BE90 (RtlxUnicodeStringToOemSize.c)
+ *     RtlUnicodeToOemN @ 0x14067C360 (RtlUnicodeToOemN.c)
+ *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringToOemString(

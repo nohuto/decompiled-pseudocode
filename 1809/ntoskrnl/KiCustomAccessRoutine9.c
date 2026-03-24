@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCustomAccessRoutine9 @ 0x1401C7A80
+ * XREFs of KiCustomAccessRoutine9 @ 0x1401C7AA0
  * Callers:
- *     ExpCenturyDpcRoutine @ 0x1401601A0 (ExpCenturyDpcRoutine.c)
+ *     ExpCenturyDpcRoutine @ 0x1401601C0 (ExpCenturyDpcRoutine.c)
  * Callees:
- *     KiCustomRecurseRoutine9 @ 0x1401C7A60 (KiCustomRecurseRoutine9.c)
+ *     KiCustomRecurseRoutine9 @ 0x1401C7A80 (KiCustomRecurseRoutine9.c)
  */
 
 __int64 __fastcall KiCustomAccessRoutine9(unsigned int *a1)

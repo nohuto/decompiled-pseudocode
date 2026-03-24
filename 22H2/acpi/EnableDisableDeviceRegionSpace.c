@@ -1,25 +1,25 @@
 /*
- * XREFs of EnableDisableDeviceRegionSpace @ 0x1C0039920
+ * XREFs of EnableDisableDeviceRegionSpace @ 0x1C005C880
  * Callers:
- *     EnableDisableDeviceTreeRegionSpace @ 0x1C00399C0 (EnableDisableDeviceTreeRegionSpace.c)
- *     EnableDisableRegionSpacesForDevice @ 0x1C0039AFC (EnableDisableRegionSpacesForDevice.c)
+ *     EnableDisableDeviceTreeRegionSpace @ 0x1C0018210 (EnableDisableDeviceTreeRegionSpace.c)
+ *     EnableDisableRegionSpacesForDevice @ 0x1C005C920 (EnableDisableRegionSpacesForDevice.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIEvalNameSpaceObject @ 0x1C0047BBC (AMLIEvalNameSpaceObject.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall EnableDisableDeviceRegionSpace(__int64 a1, unsigned int a2, char a3)
 {
   __int64 v4; // rbp
   __int64 v5; // rbx
-  __int64 v6; // rdi
+  __int64 *v6; // rdi
   _QWORD v8[10]; // [rsp+20h] [rbp-58h] BYREF
 
   v4 = a2;
   v5 = 0LL;
-  v6 = AMLIGetNamedChild(*(_QWORD *)(a1 + 760), 1195725407LL);
+  v6 = AMLIGetNamedChild(*(__int64 **)(a1 + 720), 1195725407);
   if ( v6 )
   {
     memset(v8, 0, sizeof(v8));
@@ -28,8 +28,8 @@ __int64 __fastcall EnableDisableDeviceRegionSpace(__int64 a1, unsigned int a2, c
     WORD1(v8[5]) = 1;
     LOBYTE(v5) = a3 != 0;
     v8[7] = v5;
-    LODWORD(v5) = AMLIEvalNameSpaceObject(v6, 0LL, 2LL, v8);
-    AMLIDereferenceHandleEx(v6);
+    LODWORD(v5) = AMLIEvalNameSpaceObject((unsigned __int64 *)v6, 0LL, 2, v8);
+    AMLIDereferenceHandleEx((__int64)v6);
   }
   return (unsigned int)v5;
 }

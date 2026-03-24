@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RemoveVadFromFreeList@CVirtualAddressAllocator@@IEAAXPEAUVIDMM_VAD@@@Z @ 0x1C008C58C
+ * XREFs of ?RemoveVadFromFreeList@CVirtualAddressAllocator@@IEAAXPEAUVIDMM_VAD@@@Z @ 0x1C00683A0
  * Callers:
- *     ?FreeVadVirtualAddressRangeInternal@CVirtualAddressAllocator@@AEAAXPEAUVIDMM_VAD@@@Z @ 0x1C008C2D0 (-FreeVadVirtualAddressRangeInternal@CVirtualAddressAllocator@@AEAAXPEAUVIDMM_VAD@@@Z.c)
- *     ?AllocateVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAU_RTL_AVL_TREE@@_K111IPEAPEAUVIDMM_VAD@@E@Z @ 0x1C00A47E0 (-AllocateVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAU_RTL_AVL_TREE@@_K111IPEAPEAUVIDM.c)
+ *     ?AllocateVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAU_RTL_AVL_TREE@@_K111IPEAPEAUVIDMM_VAD@@E@Z @ 0x1C00680E8 (-AllocateVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAU_RTL_AVL_TREE@@_K111IPEAPEAUVIDM.c)
+ *     ?FreeVadVirtualAddressRangeInternal@CVirtualAddressAllocator@@AEAAXPEAUVIDMM_VAD@@@Z @ 0x1C006863C (-FreeVadVirtualAddressRangeInternal@CVirtualAddressAllocator@@AEAAXPEAUVIDMM_VAD@@@Z.c)
  * Callees:
- *     McTemplateK0pqxx_EtwWriteTransfer @ 0x1C002FF30 (McTemplateK0pqxx_EtwWriteTransfer.c)
+ *     McTemplateK0pqxx_EtwWriteTransfer @ 0x1C00261D4 (McTemplateK0pqxx_EtwWriteTransfer.c)
  */
 
 void __fastcall CVirtualAddressAllocator::RemoveVadFromFreeList(
@@ -14,7 +14,7 @@ void __fastcall CVirtualAddressAllocator::RemoveVadFromFreeList(
 {
   int v5; // [rsp+20h] [rbp-28h]
 
-  if ( (byte_1C0076982 & 0x20) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000) != 0 )
   {
     v5 = *((_DWORD *)a2 + 18);
     McTemplateK0pqxx_EtwWriteTransfer(

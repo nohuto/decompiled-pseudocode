@@ -1,204 +1,196 @@
 /*
- * XREFs of RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C01ADFB4
+ * XREFs of RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C017896C
  * Callers:
- *     RIMEndAllActiveContacts @ 0x1C0191610 (RIMEndAllActiveContacts.c)
- *     RIMAbandonPointerDeviceFrame @ 0x1C01A614C (RIMAbandonPointerDeviceFrame.c)
- *     RIMCompletePointerDeviceFrame @ 0x1C01A62A0 (RIMCompletePointerDeviceFrame.c)
- *     rimEndPointerDeviceStaleContacts @ 0x1C01AF120 (rimEndPointerDeviceStaleContacts.c)
+ *     RIMAbandonPointerDeviceFrame @ 0x1C0171414 (RIMAbandonPointerDeviceFrame.c)
+ *     RIMCompletePointerDeviceFrame @ 0x1C01714F4 (RIMCompletePointerDeviceFrame.c)
  * Callees:
- *     RIMCmActiveContactsBegin @ 0x1C00E74FA (RIMCmActiveContactsBegin.c)
- *     RIMCmActiveContactsEnd @ 0x1C00E756C (RIMCmActiveContactsEnd.c)
- *     RIMRemoveFromActiveDevices @ 0x1C0194D44 (RIMRemoveFromActiveDevices.c)
- *     RIMUpdatePrimaryDevice @ 0x1C0195A10 (RIMUpdatePrimaryDevice.c)
- *     RIMResetPointerDevicePrimaryContact @ 0x1C01ADE28 (RIMResetPointerDevicePrimaryContact.c)
- *     RIMCmActiveContactsNext @ 0x1C01B6120 (RIMCmActiveContactsNext.c)
- *     RIMCmDeactivateContact @ 0x1C01B6684 (RIMCmDeactivateContact.c)
- *     RIMCmIsContactDeliveringPointerData @ 0x1C01B6928 (RIMCmIsContactDeliveringPointerData.c)
- *     RIMCmResetContactFrameState @ 0x1C01B6A90 (RIMCmResetContactFrameState.c)
- *     ApiSetDwmAsyncNotifyDigitizerActiveContacts @ 0x1C0205F80 (ApiSetDwmAsyncNotifyDigitizerActiveContacts.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMRemoveFromActiveDevices @ 0x1C015F4FC (RIMRemoveFromActiveDevices.c)
+ *     RIMUpdatePrimaryDevice @ 0x1C015FD6C (RIMUpdatePrimaryDevice.c)
+ *     RIMResetPointerDevicePrimaryContact @ 0x1C0178774 (RIMResetPointerDevicePrimaryContact.c)
+ *     RIMCmActiveContactsBegin @ 0x1C017FC18 (RIMCmActiveContactsBegin.c)
+ *     RIMCmActiveContactsEnd @ 0x1C017FD1C (RIMCmActiveContactsEnd.c)
+ *     RIMCmActiveContactsNext @ 0x1C017FD8C (RIMCmActiveContactsNext.c)
+ *     RIMCmDeactivateContact @ 0x1C01801B0 (RIMCmDeactivateContact.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C01803F4 (RIMCmIsContactDeliveringPointerData.c)
+ *     RIMCmResetContactFrameState @ 0x1C0180688 (RIMCmResetContactFrameState.c)
+ *     ApiSetDwmAsyncNotifyDigitizerActiveContacts @ 0x1C01CA7AC (ApiSetDwmAsyncNotifyDigitizerActiveContacts.c)
  */
 
-__int64 __fastcall RIMUpdatePointerDeviceStateAfterFrameCompleted(__int64 a1, __int64 a2, __int64 a3, int a4)
+__int64 __fastcall RIMUpdatePointerDeviceStateAfterFrameCompleted(__int64 a1, __int64 a2, int a3, int a4)
 {
   __int64 v4; // rdi
-  int v6; // r15d
   __int64 v8; // rbx
   __int64 v9; // rax
   __int64 active; // rax
-  __int64 v11; // r8
-  __int64 v12; // xmm1_8
-  __int64 v13; // rax
-  __int128 v14; // xmm1
-  __int64 v15; // xmm0_8
-  __int64 v16; // rax
+  __int64 v11; // xmm1_8
+  __int64 v12; // rax
+  __int128 v13; // xmm1
+  __int64 v14; // xmm0_8
+  __int64 v15; // rax
   __int64 result; // rax
-  __int64 v18; // rbx
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // r8
-  int v22; // eax
-  __int64 v23; // rcx
-  __int64 v24; // rdx
-  __int128 v25; // xmm1
-  __int128 v26; // xmm0
-  __int128 v27; // xmm1
-  __int128 v28; // xmm0
+  __int64 v17; // rbx
+  int v18; // edx
+  __int64 v19; // rcx
+  __int64 v20; // rdx
+  int v21; // eax
+  __int128 v22; // xmm1
+  __int128 v23; // xmm0
+  __int128 v24; // xmm1
+  __int128 v25; // xmm0
+  __int128 v26; // xmm1
+  __int128 v27; // xmm0
+  __int128 v28; // xmm1
   __int128 v29; // xmm1
   __int128 v30; // xmm0
   __int128 v31; // xmm1
-  __int128 v32; // xmm1
-  __int128 v33; // xmm0
-  __int128 v34; // xmm1
-  __int128 v35; // xmm0
-  __int128 v36; // xmm1
-  __int128 v37; // xmm0
-  __int64 v38; // rdx
-  __int64 v39; // rcx
-  __int64 v40; // r8
-  __int128 v41; // [rsp+20h] [rbp-50h] BYREF
-  __int64 v42; // [rsp+30h] [rbp-40h]
-  __int128 v43; // [rsp+38h] [rbp-38h] BYREF
-  __int64 v44; // [rsp+48h] [rbp-28h]
-  _BYTE v45[32]; // [rsp+50h] [rbp-20h] BYREF
+  __int128 v32; // xmm0
+  __int128 v33; // xmm1
+  __int128 v34; // xmm0
+  __int128 v35; // [rsp+28h] [rbp-48h] BYREF
+  __int64 v36; // [rsp+38h] [rbp-38h]
+  __int128 v37; // [rsp+40h] [rbp-30h] BYREF
+  __int64 v38; // [rsp+50h] [rbp-20h]
+  _BYTE v39[24]; // [rsp+58h] [rbp-18h] BYREF
 
-  v4 = *(_QWORD *)(a2 + 472);
-  v6 = a3;
-  v8 = *(_QWORD *)(v4 + 760);
+  v4 = *(_QWORD *)(a2 + 480);
+  v8 = *(_QWORD *)(v4 + 712);
   v9 = v8;
-  if ( (_DWORD)a3 && a4 )
+  if ( a3 && a4 )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-    v9 = *(_QWORD *)(v4 + 760);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 774);
+    v9 = *(_QWORD *)(v4 + 712);
   }
   if ( v9 )
     *(_DWORD *)(v8 + 36) = 0;
-  active = RIMCmActiveContactsBegin((__int64)&v43, v4, a3);
-  v12 = *(_QWORD *)(active + 16);
-  v41 = *(_OWORD *)active;
-  v42 = v12;
+  active = RIMCmActiveContactsBegin(&v37, v4);
+  v11 = *(_QWORD *)(active + 16);
+  v35 = *(_OWORD *)active;
+  v36 = v11;
   while ( 1 )
   {
-    v13 = RIMCmActiveContactsEnd((__int64)v45, v4, v11);
-    v14 = *(_OWORD *)v13;
-    v15 = *(_QWORD *)(v13 + 16);
-    v16 = *(_QWORD *)v13;
-    v44 = v15;
-    v43 = v14;
-    if ( (_QWORD)v41 == v16 )
+    v12 = RIMCmActiveContactsEnd(v39, v4);
+    v13 = *(_OWORD *)v12;
+    v14 = *(_QWORD *)(v12 + 16);
+    v15 = *(_QWORD *)v12;
+    v38 = v14;
+    v37 = v13;
+    if ( (_QWORD)v35 == v15 )
     {
-      result = DWORD2(v43);
-      if ( DWORD2(v41) == DWORD2(v43) && v42 == v44 )
+      result = DWORD2(v37);
+      if ( DWORD2(v35) == DWORD2(v37) && v36 == v38 )
         break;
     }
-    v18 = v42 - 16;
-    if ( (*(_DWORD *)(v42 + 16) & 2) == 0 )
+    v17 = v36 - 16;
+    if ( (*(_DWORD *)(v36 + 16) & 2) == 0 )
       __int2c();
-    RIMCmActiveContactsNext(v4, &v41);
-    if ( v6 && (*(_DWORD *)(v18 + 2340) & 1) != 0 )
+    RIMCmActiveContactsNext(v4, &v35);
+    if ( a3 && (*(_DWORD *)(v17 + 2340) & 1) != 0 )
     {
-      v22 = *(_DWORD *)(v18 + 2420);
-      if ( (*(_DWORD *)(v18 + 2660) & 4) != 0 )
+      if ( (*(_DWORD *)(v17 + 2660) & 4) == 0 )
       {
-        if ( (v22 & 4) == 0 )
+        v18 = *(_DWORD *)(v17 + 2420);
+        if ( (v18 & 4) != 0 )
         {
-          v23 = *(unsigned int *)(v18 + 32);
-          if ( (v23 & 4) == 0 && (v22 & 0x40000) == 0 )
+          v19 = *(unsigned int *)(v17 + 32);
+          if ( (v19 & 4) == 0 && (v18 & 0x10000) == 0 )
           {
-            MicrosoftTelemetryAssertTriggeredNoArgsKM(v23, v19, v21);
-            v23 = *(unsigned int *)(v18 + 32);
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 803);
+            v19 = *(unsigned int *)(v17 + 32);
           }
-          v24 = (unsigned int)(*(_DWORD *)(a1 + 468) - 1);
-          *(_DWORD *)(a1 + 468) = v24;
-          if ( (v23 & 4) == 0 )
-            --*(_DWORD *)(a1 + 472);
-LABEL_27:
-          ApiSetDwmAsyncNotifyDigitizerActiveContacts(v23, v24);
+          v20 = (unsigned int)(*(_DWORD *)(a1 + 468) + 1);
+          *(_DWORD *)(a1 + 468) = v20;
+          if ( (v19 & 4) == 0 )
+            ++*(_DWORD *)(a1 + 472);
+          goto LABEL_28;
         }
       }
-      else if ( (v22 & 4) != 0 )
+      if ( (*(_DWORD *)(v17 + 2660) & 4) != 0 )
       {
-        v23 = *(unsigned int *)(v18 + 32);
-        if ( (v23 & 4) == 0 && (v22 & 0x10000) == 0 )
+        v21 = *(_DWORD *)(v17 + 2420);
+        if ( (v21 & 4) == 0 )
         {
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(v23, v19, v21);
-          v23 = *(unsigned int *)(v18 + 32);
+          v19 = *(unsigned int *)(v17 + 32);
+          if ( (v19 & 4) == 0 && (v21 & 0x40000) == 0 )
+          {
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 812);
+            v19 = *(unsigned int *)(v17 + 32);
+          }
+          v20 = (unsigned int)(*(_DWORD *)(a1 + 468) - 1);
+          *(_DWORD *)(a1 + 468) = v20;
+          if ( (v19 & 4) == 0 )
+            --*(_DWORD *)(a1 + 472);
+LABEL_28:
+          ApiSetDwmAsyncNotifyDigitizerActiveContacts(v19, v20);
         }
-        v24 = (unsigned int)(*(_DWORD *)(a1 + 468) + 1);
-        *(_DWORD *)(a1 + 468) = v24;
-        if ( (v23 & 4) == 0 )
-          ++*(_DWORD *)(a1 + 472);
-        goto LABEL_27;
       }
-      if ( (*(_DWORD *)(v18 + 32) & 8) != 0 && (*(_DWORD *)(v18 + 2660) & 2) != 0 && (*(_DWORD *)(v18 + 2420) & 2) == 0 )
+      if ( (*(_DWORD *)(v17 + 32) & 8) != 0 && (*(_DWORD *)(v17 + 2660) & 2) != 0 && (*(_DWORD *)(v17 + 2420) & 2) == 0 )
       {
-        if ( *(_QWORD *)(v4 + 1016) != v18 )
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(v20, v19, v21);
-        RIMResetPointerDevicePrimaryContact(v4, v19, v21);
+        if ( *(_QWORD *)(v4 + 960) != v17 )
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 820);
+        RIMResetPointerDevicePrimaryContact(v4);
       }
-      v19 = 128LL;
-      v25 = *(_OWORD *)(v18 + 2360);
-      *(_OWORD *)(v18 + 2584) = *(_OWORD *)(v18 + 2344);
-      v26 = *(_OWORD *)(v18 + 2376);
-      *(_OWORD *)(v18 + 2600) = v25;
-      v27 = *(_OWORD *)(v18 + 2392);
-      *(_OWORD *)(v18 + 2616) = v26;
-      v28 = *(_OWORD *)(v18 + 2408);
-      *(_OWORD *)(v18 + 2632) = v27;
-      v29 = *(_OWORD *)(v18 + 2424);
-      *(_OWORD *)(v18 + 2648) = v28;
-      v30 = *(_OWORD *)(v18 + 2440);
-      *(_OWORD *)(v18 + 2664) = v29;
-      v31 = *(_OWORD *)(v18 + 2456);
-      *(_OWORD *)(v18 + 2680) = v30;
-      v20 = v18 + 2712;
-      *(_OWORD *)(v18 + 2696) = v31;
-      v32 = *(_OWORD *)(v18 + 2488);
-      *(_OWORD *)(v18 + 2712) = *(_OWORD *)(v18 + 2472);
-      v33 = *(_OWORD *)(v18 + 2504);
-      *(_OWORD *)(v18 + 2728) = v32;
-      v34 = *(_OWORD *)(v18 + 2520);
-      *(_OWORD *)(v18 + 2744) = v33;
-      v35 = *(_OWORD *)(v18 + 2536);
-      *(_OWORD *)(v18 + 2760) = v34;
-      v36 = *(_OWORD *)(v18 + 2552);
-      *(_OWORD *)(v18 + 2776) = v35;
-      v37 = *(_OWORD *)(v18 + 2568);
-      *(_OWORD *)(v18 + 2792) = v36;
-      *(_OWORD *)(v18 + 2808) = v37;
+      v22 = *(_OWORD *)(v17 + 2360);
+      *(_OWORD *)(v17 + 2584) = *(_OWORD *)(v17 + 2344);
+      v23 = *(_OWORD *)(v17 + 2376);
+      *(_OWORD *)(v17 + 2600) = v22;
+      v24 = *(_OWORD *)(v17 + 2392);
+      *(_OWORD *)(v17 + 2616) = v23;
+      v25 = *(_OWORD *)(v17 + 2408);
+      *(_OWORD *)(v17 + 2632) = v24;
+      v26 = *(_OWORD *)(v17 + 2424);
+      *(_OWORD *)(v17 + 2648) = v25;
+      v27 = *(_OWORD *)(v17 + 2440);
+      *(_OWORD *)(v17 + 2664) = v26;
+      v28 = *(_OWORD *)(v17 + 2456);
+      *(_OWORD *)(v17 + 2680) = v27;
+      *(_OWORD *)(v17 + 2696) = v28;
+      v29 = *(_OWORD *)(v17 + 2488);
+      *(_OWORD *)(v17 + 2712) = *(_OWORD *)(v17 + 2472);
+      v30 = *(_OWORD *)(v17 + 2504);
+      *(_OWORD *)(v17 + 2728) = v29;
+      v31 = *(_OWORD *)(v17 + 2520);
+      *(_OWORD *)(v17 + 2744) = v30;
+      v32 = *(_OWORD *)(v17 + 2536);
+      *(_OWORD *)(v17 + 2760) = v31;
+      v33 = *(_OWORD *)(v17 + 2552);
+      *(_OWORD *)(v17 + 2776) = v32;
+      v34 = *(_OWORD *)(v17 + 2568);
+      *(_OWORD *)(v17 + 2792) = v33;
+      *(_OWORD *)(v17 + 2808) = v34;
     }
-    if ( a4 || (*(_DWORD *)(v18 + 2340) & 4) == 0 )
+    if ( a4 || (*(_DWORD *)(v17 + 2340) & 4) == 0 )
     {
-      RIMCmResetContactFrameState(v18);
+      RIMCmResetContactFrameState(v17);
     }
     else
     {
-      if ( (*(_DWORD *)(v18 + 32) & 8) != 0 )
+      if ( (*(_DWORD *)(v17 + 32) & 8) != 0 )
       {
-        if ( *(_QWORD *)(v4 + 1016) != v18 )
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(v20, v19, v21);
-        RIMResetPointerDevicePrimaryContact(v4, v19, v21);
+        if ( *(_QWORD *)(v4 + 960) != v17 )
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 836);
+        RIMResetPointerDevicePrimaryContact(v4);
       }
-      if ( (unsigned int)RIMCmIsContactDeliveringPointerData(v18) )
+      if ( (unsigned int)RIMCmIsContactDeliveringPointerData(v17) )
       {
-        if ( (*(_DWORD *)(v18 + 32) & 4) == 0 )
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(v39, v38, v40);
+        if ( (*(_DWORD *)(v17 + 32) & 4) == 0 )
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 842);
       }
-      RIMCmDeactivateContact(v4, v18);
+      RIMCmDeactivateContact(v4, v17);
     }
   }
   if ( !a4 )
   {
-    if ( v4 == *(_QWORD *)(a1 + 504) && !*(_DWORD *)(v4 + 1012) )
+    if ( v4 == *(_QWORD *)(a1 + 480) && !*(_DWORD *)(v4 + 956) )
       result = RIMUpdatePrimaryDevice(a1, 0LL);
-    if ( !*(_DWORD *)(v4 + 1008) )
+    if ( !*(_DWORD *)(v4 + 952) )
     {
       RIMRemoveFromActiveDevices(a1, v4, 0, 0LL);
       result = 0LL;
-      *(_OWORD *)(v4 + 832) = 0LL;
-      *(_OWORD *)(v4 + 848) = 0LL;
-      *(_OWORD *)(v4 + 864) = 0LL;
-      *(_QWORD *)(v4 + 880) = 0LL;
+      *(_OWORD *)(v4 + 784) = 0LL;
+      *(_OWORD *)(v4 + 800) = 0LL;
+      *(_OWORD *)(v4 + 816) = 0LL;
+      *(_QWORD *)(v4 + 832) = 0LL;
     }
   }
   return result;

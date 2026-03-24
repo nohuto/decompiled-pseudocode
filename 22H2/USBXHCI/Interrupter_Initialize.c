@@ -1,20 +1,18 @@
 /*
- * XREFs of Interrupter_Initialize @ 0x1C0014D0C
+ * XREFs of Interrupter_Initialize @ 0x1C00146A8
  * Callers:
- *     Interrupter_D0Entry @ 0x1C0014974 (Interrupter_D0Entry.c)
- *     Interrupter_ControllerResetPostReset @ 0x1C003DB84 (Interrupter_ControllerResetPostReset.c)
+ *     Interrupter_D0Entry @ 0x1C0014640 (Interrupter_D0Entry.c)
+ *     Interrupter_ControllerResetPostReset @ 0x1C003B850 (Interrupter_ControllerResetPostReset.c)
  * Callees:
- *     memset @ 0x1C0020600 (memset.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 _UNKNOWN **__fastcall Interrupter_Initialize(__int64 a1)
 {
   _UNKNOWN **result; // rax
-  __int64 i; // rdi
+  __int64 i; // rsi
   _QWORD *v4; // rbx
-  __int64 *v5; // r14
-  __int64 *j; // rsi
-  __int64 v7; // rax
+  _QWORD *v5; // rdi
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   result = &retaddr;
@@ -24,12 +22,19 @@ _UNKNOWN **__fastcall Interrupter_Initialize(__int64 a1)
     v4 = result[i];
     if ( v4 )
     {
-      v5 = v4 + 20;
-      for ( j = (__int64 *)v4[20]; j != v5; j = (__int64 *)*j )
-        memset((void *)j[2], 0, *((unsigned int *)j + 10));
-      v7 = *v5;
-      v4[18] = *v5;
-      result = *(_UNKNOWN ***)(v7 + 16);
+      v5 = (_QWORD *)v4[20];
+      if ( v5 != v4 + 20 )
+      {
+        do
+        {
+          memset((void *)v5[2], 0, *((unsigned int *)v5 + 10));
+          v5 = (_QWORD *)*v5;
+        }
+        while ( v5 != v4 + 20 );
+        v5 = (_QWORD *)v4[20];
+      }
+      v4[18] = v5;
+      result = (_UNKNOWN **)v5[2];
       *((_DWORD *)v4 + 31) = 0;
       *((_DWORD *)v4 + 32) = 0;
       v4[17] = result;

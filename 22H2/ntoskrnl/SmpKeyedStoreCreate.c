@@ -1,23 +1,23 @@
 /*
- * XREFs of SmpKeyedStoreCreate @ 0x1407B7A40
+ * XREFs of SmpKeyedStoreCreate @ 0x1406FB6E4
  * Callers:
- *     SmProcessCreateNotification @ 0x1406B639C (SmProcessCreateNotification.c)
+ *     SmProcessCreateNotification @ 0x140706F4C (SmProcessCreateNotification.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D1C0 (SSHSupportAllocateNonPaged.c)
- *     SmKmStoreDeleteWhenEmpty @ 0x140342C4C (SmKmStoreDeleteWhenEmpty.c)
- *     SmpKeyedStoreEntryGet @ 0x1403445F4 (SmpKeyedStoreEntryGet.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140344CA4 (SmKmStoreRefFromStoreIndex.c)
- *     SmpDirtyStoreCreate @ 0x1407B7B24 (SmpDirtyStoreCreate.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SmpKeyedStoreEntryGet @ 0x140264198 (SmpKeyedStoreEntryGet.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140267428 (SmKmStoreRefFromStoreIndex.c)
+ *     SmKmStoreDeleteWhenEmpty @ 0x140320DB8 (SmKmStoreDeleteWhenEmpty.c)
+ *     SSHSupportAllocateNonPaged @ 0x140322FE4 (SSHSupportAllocateNonPaged.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     SmpDirtyStoreCreate @ 0x1406FB7C8 (SmpDirtyStoreCreate.c)
  */
 
-__int64 __fastcall SmpKeyedStoreCreate(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
+__int64 __fastcall SmpKeyedStoreCreate(ULONG_PTR BugCheckParameter2, __int64 a2, LUID a3)
 {
   int v3; // eax
   struct _PRIVILEGE_SET *v5; // rbx
   int v8; // edi
-  __int64 NonPaged; // rax
+  struct _PRIVILEGE_SET *NonPaged; // rax
   int v10; // esi
   unsigned int v12; // esi
   __int64 *v13; // rax
@@ -25,14 +25,14 @@ __int64 __fastcall SmpKeyedStoreCreate(ULONG_PTR BugCheckParameter2, __int64 a2,
   struct _EX_RUNDOWN_REF *v15; // rax
   int v16; // [rsp+50h] [rbp+18h] BYREF
 
-  v3 = *(_DWORD *)(a3 + 2172);
+  v3 = *(_DWORD *)(*(_QWORD *)&a3 + 2172LL);
   v16 = -1;
   v5 = 0LL;
   v8 = SmpDirtyStoreCreate(a2, (v3 & 1) != 0 ? 2048 : 512, 1LL, &v16);
   if ( v8 < 0 )
     goto LABEL_11;
-  NonPaged = SSHSupportAllocateNonPaged(48LL, 0x53506D73u);
-  v5 = (struct _PRIVILEGE_SET *)NonPaged;
+  NonPaged = (struct _PRIVILEGE_SET *)SSHSupportAllocateNonPaged(0x30uLL, 0x53506D73u);
+  v5 = NonPaged;
   if ( !NonPaged )
   {
     v8 = -1073741670;
@@ -40,13 +40,13 @@ LABEL_11:
     v10 = v16;
     goto LABEL_5;
   }
-  *(_OWORD *)NonPaged = 0LL;
-  *(_OWORD *)(NonPaged + 16) = 0LL;
-  *(_OWORD *)(NonPaged + 32) = 0LL;
-  *(_QWORD *)(NonPaged + 8) = a3;
+  *(_OWORD *)&NonPaged->PrivilegeCount = 0LL;
+  *(_OWORD *)&NonPaged->Privilege[0].Attributes = 0LL;
+  *(_OWORD *)&NonPaged[1].Privilege[0].Luid.HighPart = 0LL;
+  NonPaged->Privilege[0].Luid = a3;
   v10 = v16;
-  *(_WORD *)(NonPaged + 16) = v16;
-  if ( SmpKeyedStoreEntryGet(BugCheckParameter2, (_QWORD *)(NonPaged + 8), 1, 0) )
+  LOWORD(NonPaged->Privilege[0].Attributes) = v16;
+  if ( SmpKeyedStoreEntryGet(BugCheckParameter2, &NonPaged->Privilege[0].Luid, 1, 0) )
   {
     v10 = -1;
     v5 = 0LL;
@@ -61,9 +61,9 @@ LABEL_5:
   {
     v12 = v10 & 0x3FF;
     v13 = (__int64 *)SmKmStoreRefFromStoreIndex(a2, v12);
-    SmKmStoreDeleteWhenEmpty(v14, *v13, 1LL);
+    SmKmStoreDeleteWhenEmpty(v14, *v13);
     v15 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(a2, v12);
-    ExReleaseRundownProtection_0(v15 + 1);
+    ExReleaseRundownProtection(v15 + 1);
   }
   if ( v5 )
     CmSiFreeMemory(v5);

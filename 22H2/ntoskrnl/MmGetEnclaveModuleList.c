@@ -1,19 +1,19 @@
 /*
- * XREFs of MmGetEnclaveModuleList @ 0x140648D90
+ * XREFs of MmGetEnclaveModuleList @ 0x14054B674
  * Callers:
- *     PsGetProcessEnclaveModuleInfo @ 0x1405A68BC (PsGetProcessEnclaveModuleInfo.c)
+ *     PsGetProcessEnclaveModuleInfo @ 0x14058464C (PsGetProcessEnclaveModuleInfo.c)
  * Callees:
- *     MiObtainReferencedVadEx @ 0x140274B90 (MiObtainReferencedVadEx.c)
- *     MiUnlockAndDereferenceVadShared @ 0x140275350 (MiUnlockAndDereferenceVadShared.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
+ *     MiObtainReferencedVadEx @ 0x14021B260 (MiObtainReferencedVadEx.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14025AAB0 (MiUnlockAndDereferenceVadShared.c)
  */
 
 __int64 __fastcall MmGetEnclaveModuleList(unsigned __int64 a1, _QWORD *a2, unsigned int *a3)
 {
   unsigned int v3; // ebx
-  __int64 *v6; // rax
-  char *v7; // rdi
-  __int64 **v9; // rsi
+  volatile signed __int32 *v6; // rax
+  char *v7; // rsi
+  __int64 **v9; // rdi
   unsigned int v10; // ecx
   __int64 **v11; // rax
   _QWORD *Pool; // r8
@@ -29,26 +29,26 @@ __int64 __fastcall MmGetEnclaveModuleList(unsigned __int64 a1, _QWORD *a2, unsig
   v7 = (char *)v6;
   if ( !v6 )
     return v17;
-  if ( (v6[6] & 0x6200000) != 0x4200000 || (v6[8] & 1) != 0 )
+  if ( (v6[12] & 0x3100000) != 0x2100000 || (v6[16] & 1) != 0 )
   {
     v3 = -1073741800;
   }
   else
   {
-    v9 = (__int64 **)(v6 + 10);
+    v9 = (__int64 **)(v6 + 20);
     v10 = 0;
-    v11 = (__int64 **)v6[10];
+    v11 = (__int64 **)*((_QWORD *)v6 + 10);
     while ( v11 != v9 )
     {
       if ( v10 == -1 )
-        goto LABEL_11;
+        goto LABEL_10;
       v11 = (__int64 **)*v11;
       ++v10;
     }
     Pool = MiAllocatePool(256, 24LL * v10, 0x4C4D4556u);
     if ( !Pool )
     {
-LABEL_11:
+LABEL_10:
       v3 = -1073741670;
       goto LABEL_16;
     }

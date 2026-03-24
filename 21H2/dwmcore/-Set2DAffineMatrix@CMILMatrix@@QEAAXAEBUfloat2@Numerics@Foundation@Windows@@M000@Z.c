@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Set2DAffineMatrix@CMILMatrix@@QEAAXAEBUfloat2@Numerics@Foundation@Windows@@M000@Z @ 0x180260B3C
+ * XREFs of ?Set2DAffineMatrix@CMILMatrix@@QEAAXAEBUfloat2@Numerics@Foundation@Windows@@M000@Z @ 0x1802116B0
  * Callers:
- *     _anonymous_namespace_::DecomposeMatrix @ 0x18018CBA8 (_anonymous_namespace_--DecomposeMatrix.c)
+ *     _anonymous_namespace_::DecomposeMatrix @ 0x18022D46C (_anonymous_namespace_--DecomposeMatrix.c)
  * Callees:
- *     ??DNumerics@Foundation@Windows@@YA?AUfloat4x4@012@AEBU3012@0@Z @ 0x1802602C4 (--DNumerics@Foundation@Windows@@YA-AUfloat4x4@012@AEBU3012@0@Z.c)
- *     ?make_float4x4_rotation_z@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@MAEBUfloat3@123@@Z @ 0x1802618C4 (-make_float4x4_rotation_z@Numerics@Foundation@Windows@@YA-AUfloat4x4@123@MAEBUfloat3@123@@Z.c)
- *     ?make_float4x4_scale@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBUfloat3@123@0@Z @ 0x180261990 (-make_float4x4_scale@Numerics@Foundation@Windows@@YA-AUfloat4x4@123@AEBUfloat3@123@0@Z.c)
+ *     ??DNumerics@Foundation@Windows@@YA?AUfloat4x4@012@AEBU3012@0@Z @ 0x180015A1C (--DNumerics@Foundation@Windows@@YA-AUfloat4x4@012@AEBU3012@0@Z.c)
+ *     ?make_float4x4_scale@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBUfloat3@123@0@Z @ 0x1800D5418 (-make_float4x4_scale@Numerics@Foundation@Windows@@YA-AUfloat4x4@123@AEBUfloat3@123@0@Z.c)
+ *     ?make_float4x4_rotation_z@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@MAEBUfloat3@123@@Z @ 0x1802120E0 (-make_float4x4_rotation_z@Numerics@Foundation@Windows@@YA-AUfloat4x4@123@MAEBUfloat3@123@@Z.c)
  */
 
 void __fastcall CMILMatrix::Set2DAffineMatrix(
@@ -43,7 +43,7 @@ void __fastcall CMILMatrix::Set2DAffineMatrix(
   v14 = 1065353216;
   v15 = *(_QWORD *)a5;
   v13 = *(_QWORD *)a2;
-  Windows::Foundation::Numerics::make_float4x4_scale(v27, &v13, &v15, a4);
+  Windows::Foundation::Numerics::make_float4x4_scale((__int64)v27, (float *)&v13, (float *)&v15);
   v14 = 0;
   v13 = *(_QWORD *)a6;
   Windows::Foundation::Numerics::make_float4x4_rotation_z(v26, v8, &v13);
@@ -63,8 +63,6 @@ void __fastcall CMILMatrix::Set2DAffineMatrix(
   *((_OWORD *)this + 1) = v11[1];
   *((_OWORD *)this + 2) = v11[2];
   v12 = v11[3];
-  *((_BYTE *)this + 65) &= 0xD4u;
-  *((_BYTE *)this + 65) |= 0x14u;
+  *((_WORD *)this + 32) = 0x4000;
   *((_OWORD *)this + 3) = v12;
-  *((_BYTE *)this + 64) = 4;
 }

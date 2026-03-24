@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpiValidateSidebandResources @ 0x1C0092558
+ * XREFs of PnpiValidateSidebandResources @ 0x1C00B453C
  * Callers:
- *     PnpiAddSidebandResources @ 0x1C008FF88 (PnpiAddSidebandResources.c)
+ *     PnpiAddSidebandResources @ 0x1C00B30D0 (PnpiAddSidebandResources.c)
  * Callees:
  *     <none>
  */
@@ -14,12 +14,12 @@ char __fastcall PnpiValidateSidebandResources(__int64 a1, __int64 a2)
   __int64 v5; // r9
   _QWORD *i; // rax
   unsigned int v7; // r10d
-  unsigned int v8; // esi
+  unsigned int v8; // edi
   __int64 v9; // rcx
   unsigned int v10; // r13d
   __int64 v11; // r11
   unsigned int v12; // r15d
-  unsigned int v13; // edi
+  unsigned int v13; // esi
   unsigned int v14; // r14d
   _QWORD *v15; // r9
   bool v16; // zf

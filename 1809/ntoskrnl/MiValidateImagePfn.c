@@ -3,7 +3,7 @@
  * Callers:
  *     MiValidateInPage @ 0x14002EC10 (MiValidateInPage.c)
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
- *     MiMakeImagePageOk @ 0x1402C44FC (MiMakeImagePageOk.c)
+ *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
  * Callees:
  *     MiMarkPfnVerified @ 0x14000F960 (MiMarkPfnVerified.c)
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
@@ -11,12 +11,12 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeValidateImageData @ 0x1405A8A20 (SeValidateImageData.c)
  *     MiRevertRelocatedImagePfn @ 0x1405A8A60 (MiRevertRelocatedImagePfn.c)
- *     MiGetSectionStrongImageReference @ 0x14085C318 (MiGetSectionStrongImageReference.c)
+ *     MiGetSectionStrongImageReference @ 0x14085C2F8 (MiGetSectionStrongImageReference.c)
  */
 
 __int64 __fastcall MiValidateImagePfn(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, char a6, __int64 a7)

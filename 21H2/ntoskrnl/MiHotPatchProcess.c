@@ -1,86 +1,104 @@
 /*
- * XREFs of MiHotPatchProcess @ 0x1409736EC
+ * XREFs of MiHotPatchProcess @ 0x1408CA658
  * Callers:
- *     MiHotPatchAllProcesses @ 0x140973630 (MiHotPatchAllProcesses.c)
+ *     MiHotPatchAllProcesses @ 0x1408CA278 (MiHotPatchAllProcesses.c)
  * Callees:
- *     MiUnlockVadShared @ 0x140280EF8 (MiUnlockVadShared.c)
- *     MiGetNextVad @ 0x140281C00 (MiGetNextVad.c)
- *     MiGetFirstVad @ 0x1402D75D4 (MiGetFirstVad.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14030EA00 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14030EA70 (MiUnlockAndDereferenceVadShared.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14030EB30 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiReferenceVad @ 0x14030EB64 (MiReferenceVad.c)
- *     MiVadDeleted @ 0x14030EB80 (MiVadDeleted.c)
- *     MiLockVadShared @ 0x14030EBA0 (MiLockVadShared.c)
- *     MiImageVadHotPatchEligible @ 0x1406AD6A0 (MiImageVadHotPatchEligible.c)
- *     MiInjectThreadForHotPatch @ 0x140973B80 (MiInjectThreadForHotPatch.c)
+ *     MiUnlockVadShared @ 0x14025B10C (MiUnlockVadShared.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14025B210 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14025B250 (MiUnlockAndDereferenceVadShared.c)
+ *     MiVadDeleted @ 0x14025B330 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x14025B344 (MiLockVadShared.c)
+ *     MiReferenceVad @ 0x14025B390 (MiReferenceVad.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140348790 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiHotPatchImage @ 0x1408CA334 (MiHotPatchImage.c)
  */
 
-__int64 __fastcall MiHotPatchProcess(__int64 a1, unsigned int a2, unsigned int a3)
+__int64 __fastcall MiHotPatchProcess(struct _EX_RUNDOWN_REF *a1, int a2, int a3)
 {
-  struct _KTHREAD *CurrentThread; // rsi
-  int v7; // ebx
-  __int64 i; // rax
-  unsigned __int64 v9; // rdi
-  __int64 v10; // rcx
-  __int64 v11; // rcx
-  __int64 v12; // rax
-  unsigned __int64 v13; // rbx
-  int v14; // r15d
-  char *v15; // rcx
+  struct _EX_RUNDOWN_REF *v3; // r15
+  struct _KTHREAD *CurrentThread; // rbp
+  _QWORD *Count; // rax
+  unsigned __int64 i; // rsi
+  int v11; // ecx
+  __int64 *v12; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // rax
+  signed __int64 v15; // rax
+  char v16; // bl
+  __int64 v17; // rdi
+  __int64 v18; // rcx
+  int v19; // ebx
+  char *v20; // rcx
+  _QWORD **v21; // rax
+  unsigned __int64 v22; // rcx
+  _QWORD *v23; // rcx
 
+  v3 = a1 + 139;
+  if ( !ExAcquireRundownProtection_0(a1 + 139) )
+    return 3221225738LL;
   CurrentThread = KeGetCurrentThread();
-  v7 = 0;
-  LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, a1);
-  if ( (*(_DWORD *)(a1 + 1124) & 0x20) != 0 )
-  {
-LABEL_17:
-    v7 = -1073741558;
-  }
-  else if ( (*(_BYTE *)(*(_QWORD *)(a1 + 1680) + 341LL) & 2) != 0 )
-  {
-    v7 = -1073741637;
-  }
-  else
-  {
+  LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)a1);
 LABEL_4:
-    for ( i = (__int64)MiGetFirstVad(a1); ; i = MiGetNextVad(v9) )
+  Count = (_QWORD *)a1[251].Count;
+  i = 0LL;
+  while ( Count )
+  {
+    i = (unsigned __int64)Count;
+    Count = (_QWORD *)*Count;
+  }
+  while ( i )
+  {
+    if ( (*(_DWORD *)(i + 48) & 0x70) == 0x20 )
     {
-      v9 = i;
-      if ( !i )
-        break;
-      if ( (*(_DWORD *)(i + 48) & 0x70) == 0x20 )
+      MiLockVadShared((__int64)CurrentThread, i);
+      if ( !(unsigned int)MiVadDeleted(i)
+        && (v11 = *(_DWORD *)(i + 48), (v11 & 0x100000) == 0)
+        && (v11 & 0x70) == 0x20
+        && (v11 & 0x400000) != 0
+        && (v12 = **(__int64 ***)(i + 72), v13 = *v12, v14 = *(_QWORD *)(*v12 + 56), *(_DWORD *)(v14 + 60) == a2)
+        && *(_DWORD *)(v14 + 72) == a3 )
       {
+        v15 = _InterlockedCompareExchange64((volatile signed __int64 *)(v13 + 24), -1LL, -1LL);
+        v16 = *(_BYTE *)(v13 + 15) >> 4;
+        v17 = v15;
+        MiReferenceVad(i);
+        MiUnlockVadShared((__int64)CurrentThread, i);
+        UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)a1);
+        MiHotPatchImage(v18, v17, i, a2, a3, v16, 0);
+        LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)a1);
         MiLockVadShared((__int64)CurrentThread, i);
-        if ( !(unsigned int)MiVadDeleted(v9)
-          && MiImageVadHotPatchEligible(v10)
-          && (v11 = **(_QWORD **)(v9 + 72), v12 = *(_QWORD *)(*(_QWORD *)v11 + 56LL), *(_DWORD *)(v12 + 60) == a2)
-          && *(_DWORD *)(v12 + 72) == a3 )
-        {
-          v13 = (*(unsigned int *)(v9 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 32) << 32)) << 12;
-          _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)v11 + 24LL), -1LL, -1LL);
-          MiReferenceVad(v9);
-          MiUnlockVadShared((__int64)CurrentThread, v9);
-          UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, a1);
-          v7 = MiInjectThreadForHotPatch(v13, a2, a3);
-          LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, a1);
-          MiLockVadShared((__int64)CurrentThread, v9);
-          v14 = MiVadDeleted(v9);
-          MiUnlockAndDereferenceVadShared(v15);
-          if ( v7 < 0 )
-            break;
-          if ( (*(_DWORD *)(a1 + 1124) & 0x20) != 0 )
-            goto LABEL_17;
-          if ( v14 )
-            goto LABEL_4;
-        }
-        else
-        {
-          MiUnlockVadShared((__int64)CurrentThread, v9);
-        }
+        v19 = MiVadDeleted(i);
+        MiUnlockAndDereferenceVadShared(v20);
+        if ( v19 )
+          goto LABEL_4;
+      }
+      else
+      {
+        MiUnlockVadShared((__int64)CurrentThread, i);
+      }
+    }
+    v21 = *(_QWORD ***)(i + 8);
+    v22 = i;
+    if ( v21 )
+    {
+      v23 = *v21;
+      for ( i = *(_QWORD *)(i + 8); v23; v23 = (_QWORD *)*v23 )
+        i = (unsigned __int64)v23;
+    }
+    else
+    {
+      while ( 1 )
+      {
+        i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+        if ( !i || *(_QWORD *)i == v22 )
+          break;
+        v22 = i;
       }
     }
   }
-  UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, a1);
-  return (unsigned int)v7;
+  UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)a1);
+  ExReleaseRundownProtection_0(v3);
+  return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IopIncDisableableDepends @ 0x140756DF4
+ * XREFs of IopIncDisableableDepends @ 0x140756DD4
  * Callers:
- *     PiProcessQueryDeviceState @ 0x1406E9C64 (PiProcessQueryDeviceState.c)
+ *     PiProcessQueryDeviceState @ 0x1406E9C44 (PiProcessQueryDeviceState.c)
  * Callees:
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1406E5A90 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1406E5A70 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
  */
 
 void __fastcall IopIncDisableableDepends(__int64 a1)

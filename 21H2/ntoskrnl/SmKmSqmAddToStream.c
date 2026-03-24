@@ -1,78 +1,76 @@
 /*
- * XREFs of SmKmSqmAddToStream @ 0x1405FD958
+ * XREFs of SmKmSqmAddToStream @ 0x1405A016C
  * Callers:
- *     SmKmStoreTerminateWorker @ 0x1405FBC00 (SmKmStoreTerminateWorker.c)
+ *     SmKmStoreTerminateWorker @ 0x14059E1E0 (SmKmStoreTerminateWorker.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall SmKmSqmAddToStream(REGHANDLE RegHandle, __int64 a2, __int64 a3, _DWORD *a4)
 {
   char *v4; // rdx
   char *v6; // rcx
-  unsigned int v8; // r10d
-  _DWORD *v9; // r8
-  int v10; // r9d
-  __int64 *v11; // rax
-  const wchar_t *v12; // r9
-  __int64 v13; // rax
-  int v15; // [rsp+48h] [rbp-C0h] BYREF
-  int v16; // [rsp+50h] [rbp-B8h] BYREF
-  int v17; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v18; // [rsp+60h] [rbp-A8h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+68h] [rbp-A0h] BYREF
-  void *v20; // [rsp+78h] [rbp-90h]
-  __int64 v21; // [rsp+80h] [rbp-88h]
-  int *v22; // [rsp+88h] [rbp-80h]
-  __int64 v23; // [rsp+90h] [rbp-78h]
-  int *v24; // [rsp+98h] [rbp-70h]
-  __int64 v25; // [rsp+A0h] [rbp-68h]
-  char v26; // [rsp+A8h] [rbp-60h] BYREF
-  char v27; // [rsp+C4h] [rbp-44h] BYREF
+  __int64 v7; // r10
+  int v8; // r8d
+  int *v9; // rax
+  const wchar_t *v10; // r8
+  __int64 v11; // rax
+  int v13; // [rsp+40h] [rbp-C0h] BYREF
+  int v14; // [rsp+48h] [rbp-B8h] BYREF
+  int v15; // [rsp+50h] [rbp-B0h] BYREF
+  int v16; // [rsp+58h] [rbp-A8h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+60h] [rbp-A0h] BYREF
+  void *v18; // [rsp+70h] [rbp-90h]
+  __int64 v19; // [rsp+78h] [rbp-88h]
+  int *v20; // [rsp+80h] [rbp-80h]
+  __int64 v21; // [rsp+88h] [rbp-78h]
+  int *v22; // [rsp+90h] [rbp-70h]
+  __int64 v23; // [rsp+98h] [rbp-68h]
+  char v24; // [rsp+A0h] [rbp-60h] BYREF
+  char v25; // [rsp+BCh] [rbp-44h] BYREF
 
-  v17 = 2;
-  UserData.Ptr = (ULONGLONG)&v15;
-  v4 = &v26;
-  v16 = 6839;
-  v20 = &unk_140C0D8B0;
-  v15 = 11;
-  v22 = &v16;
-  LODWORD(v18) = 0;
-  v24 = &v17;
-  v6 = &v27;
+  v15 = 2;
+  UserData.Ptr = (ULONGLONG)&v13;
+  v4 = &v24;
+  v14 = 6839;
+  v18 = &unk_140C12E40;
+  v13 = 11;
+  v20 = &v14;
+  v16 = 0;
+  v22 = &v15;
+  v6 = &v25;
   *(_QWORD *)&UserData.Size = 4LL;
-  v21 = 16LL;
-  v8 = 0;
+  v7 = 2LL;
+  v19 = 16LL;
+  v21 = 4LL;
   v23 = 4LL;
-  v9 = a4;
-  v25 = 4LL;
   do
   {
-    v10 = *v9;
-    v11 = (__int64 *)(v9 + 2);
-    *(_QWORD *)v4 = v9;
+    v8 = *a4;
+    v9 = a4 + 2;
+    *(_QWORD *)v4 = a4;
     *(_QWORD *)(v6 - 20) = 4LL;
-    if ( v10 != 1 )
-      v11 = &v18;
-    *(_QWORD *)(v6 - 12) = v11;
+    if ( v8 != 1 )
+      v9 = &v16;
+    *(_QWORD *)(v6 - 12) = v9;
     *(_QWORD *)(v6 - 4) = 4LL;
-    if ( v10 == 2 )
-      v12 = *(const wchar_t **)&a4[4 * v8 + 2];
+    if ( v8 == 2 )
+      v10 = (const wchar_t *)*((_QWORD *)a4 + 1);
     else
-      v12 = L"0";
-    v13 = -1LL;
+      v10 = L"0";
+    v11 = -1LL;
     do
-      ++v13;
-    while ( v12[v13] );
-    *(_QWORD *)(v6 + 4) = v12;
-    *((_DWORD *)v6 + 3) = 2 * v13 + 2;
-    ++v8;
+      ++v11;
+    while ( v10[v11] );
+    *(_QWORD *)(v6 + 4) = v10;
+    *((_DWORD *)v6 + 3) = 2 * v11 + 2;
+    a4 += 4;
     *((_DWORD *)v6 + 4) = 0;
-    v9 += 4;
-    v6 += 48;
     v4 += 48;
+    v6 += 48;
+    --v7;
   }
-  while ( v8 < 2 );
+  while ( v7 );
   return EtwWriteEx(RegHandle, &SmEventSQMStreamRow, 0LL, 0, 0LL, 0LL, (v4 - (char *)&UserData) >> 4, &UserData);
 }

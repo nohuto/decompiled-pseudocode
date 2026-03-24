@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBMUX_QueueStopAfterSuspendToAllDSMs @ 0x1C0011188
+ * XREFs of HUBMUX_QueueStopAfterSuspendToAllDSMs @ 0x1C000FD5C
  * Callers:
- *     HUBHSM_NotifyingHubStopToDevicesOnSuspriseRemove @ 0x1C0008BE0 (HUBHSM_NotifyingHubStopToDevicesOnSuspriseRemove.c)
+ *     HUBHSM_NotifyingHubStopToDevicesOnSuspriseRemove @ 0x1C0008420 (HUBHSM_NotifyingHubStopToDevicesOnSuspriseRemove.c)
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 _QWORD *__fastcall HUBMUX_QueueStopAfterSuspendToAllDSMs(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExInitializeUtcTimeZoneBias @ 0x140763F98
+ * XREFs of ExInitializeUtcTimeZoneBias @ 0x140763F78
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     RtlTimeToTimeFields @ 0x14015DA00 (RtlTimeToTimeFields.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlTimeToTimeFields @ 0x14015DA20 (RtlTimeToTimeFields.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExpWriteTimeZoneBias @ 0x140583B28 (ExpWriteTimeZoneBias.c)
- *     RtlQueryDynamicTimeZoneInformation @ 0x140699B00 (RtlQueryDynamicTimeZoneInformation.c)
- *     RtlCutoverTimeToSystemTime @ 0x140734C80 (RtlCutoverTimeToSystemTime.c)
+ *     RtlQueryDynamicTimeZoneInformation @ 0x140699AE0 (RtlQueryDynamicTimeZoneInformation.c)
+ *     RtlCutoverTimeToSystemTime @ 0x140734C60 (RtlCutoverTimeToSystemTime.c)
  */
 
 __int64 __fastcall ExInitializeUtcTimeZoneBias(PLARGE_INTEGER CurrentTime)

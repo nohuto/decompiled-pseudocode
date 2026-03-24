@@ -1,19 +1,19 @@
 /*
- * XREFs of ?InformUMObservers@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@AEBUtagPOINT@@1@Z @ 0x1C01F821C
+ * XREFs of ?InformUMObservers@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@AEBUtagPOINT@@1@Z @ 0x1C00A5438
  * Callers:
- *     ?ProcessMouseMove@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@@Z @ 0x1C00557D8 (-ProcessMouseMove@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@@Z.c)
- *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C01F9484 (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
- *     ?ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z @ 0x1C01FA328 (-ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z.c)
+ *     ?ProcessMouseMove@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@@Z @ 0x1C0040034 (-ProcessMouseMove@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@@Z.c)
+ *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C004ABB0 (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
+ *     ?ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z @ 0x1C01C16DC (-ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z.c)
  * Callees:
- *     SendMessageTo @ 0x1C006A100 (SendMessageTo.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ?GetButtonMessage@CButtonEvent@CMouseProcessor@@QEBAIXZ @ 0x1C01F7048 (-GetButtonMessage@CButtonEvent@CMouseProcessor@@QEBAIXZ.c)
- *     ?GetExtraInfoForHook@CMouseEvent@CMouseProcessor@@QEBA_KXZ @ 0x1C01F70AC (-GetExtraInfoForHook@CMouseEvent@CMouseProcessor@@QEBA_KXZ.c)
- *     ?GetMessageWParamInfo@CButtonEvent@CMouseProcessor@@QEBA_KXZ @ 0x1C01F72C8 (-GetMessageWParamInfo@CButtonEvent@CMouseProcessor@@QEBA_KXZ.c)
- *     ?GetWheelMessage@CWheelEvent@CMouseProcessor@@QEBAKXZ @ 0x1C01F7A00 (-GetWheelMessage@CWheelEvent@CMouseProcessor@@QEBAKXZ.c)
- *     ?InformUMObservers@Mouse@InputTraceLogging@@SAXAEBU_MIT_MOUSE_INPUT_OBSERVER_PACKET@@@Z @ 0x1C01F835C (-InformUMObservers@Mouse@InputTraceLogging@@SAXAEBU_MIT_MOUSE_INPUT_OBSERVER_PACKET@@@Z.c)
- *     ?IsInputThreadDesktopActive@CMasterInputThread@@QEBA_NXZ @ 0x1C01FC8F4 (-IsInputThreadDesktopActive@CMasterInputThread@@QEBA_NXZ.c)
+ *     ?GetMessageWParamInfo@CButtonEvent@CMouseProcessor@@QEBA_KXZ @ 0x1C004B13C (-GetMessageWParamInfo@CButtonEvent@CMouseProcessor@@QEBA_KXZ.c)
+ *     ?GetButtonMessage@CButtonEvent@CMouseProcessor@@QEBAIXZ @ 0x1C004B164 (-GetButtonMessage@CButtonEvent@CMouseProcessor@@QEBAIXZ.c)
+ *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C004DFF4 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
+ *     ?IsInputThreadDesktopActive@CInputThread@@QEBA_NXZ @ 0x1C009EF24 (-IsInputThreadDesktopActive@CInputThread@@QEBA_NXZ.c)
+ *     ?GetExtraInfoForHook@CMouseEvent@CMouseProcessor@@QEBA_KXZ @ 0x1C00A28B4 (-GetExtraInfoForHook@CMouseEvent@CMouseProcessor@@QEBA_KXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     ?GetWheelMessage@CWheelEvent@CMouseProcessor@@QEBAKXZ @ 0x1C01C041C (-GetWheelMessage@CWheelEvent@CMouseProcessor@@QEBAKXZ.c)
+ *     ?InformUMObservers@Mouse@InputTraceLogging@@SAXAEBU_MIT_MOUSE_INPUT_OBSERVER_PACKET@@@Z @ 0x1C01C07A4 (-InformUMObservers@Mouse@InputTraceLogging@@SAXAEBU_MIT_MOUSE_INPUT_OBSERVER_PACKET@@@Z.c)
  */
 
 void __fastcall CMouseProcessor::InformUMObservers(
@@ -22,59 +22,56 @@ void __fastcall CMouseProcessor::InformUMObservers(
         const struct tagPOINT *a3,
         const struct tagPOINT *a4)
 {
-  __int64 v8; // rax
-  __int64 v9; // rcx
-  __int64 v10; // rax
+  __int64 v8; // r8
   __int64 ExtraInfoForHook; // rax
+  __int64 v10; // r8
+  int v11; // ecx
   int v12; // ecx
   int v13; // ecx
-  int v14; // ecx
-  int WheelMessage; // eax
-  __int64 v16; // r9
-  _QWORD v17[10]; // [rsp+30h] [rbp-50h] BYREF
+  unsigned int WheelMessage; // eax
+  __int64 v15; // rcx
+  _QWORD v16[10]; // [rsp+30h] [rbp-50h] BYREF
 
-  if ( CMasterInputThread::IsInputThreadDesktopActive(this) && (*((_DWORD *)this + 2) & 6) != 0 )
+  if ( CInputThread::IsInputThreadDesktopActive(this) && (*((_DWORD *)this + 3) & 6) != 0 )
   {
-    memset(v17, 0, 0x48uLL);
+    memset(v16, 0, 0x48uLL);
     v8 = *((_QWORD *)a2 + 1);
-    LODWORD(v17[0]) = 72;
-    v9 = *(_QWORD *)(v8 + 88);
-    v17[3] = *a3;
-    v10 = (__int64)*a4;
-    v17[1] = v9;
-    *(_QWORD *)((char *)&v17[7] + 4) = v10;
+    LODWORD(v16[0]) = 72;
+    v16[1] = *(_QWORD *)(v8 + 88);
+    v16[3] = *a3;
+    *(struct tagPOINT *)((char *)&v16[7] + 4) = *a4;
     ExtraInfoForHook = CMouseProcessor::CMouseEvent::GetExtraInfoForHook(a2);
-    v12 = *((_DWORD *)a2 + 4);
-    v17[5] = ExtraInfoForHook;
-    LODWORD(v17[6]) = 4;
-    v13 = v12 - 1;
-    if ( !v13 )
+    v11 = *((_DWORD *)a2 + 4);
+    v16[5] = ExtraInfoForHook;
+    LODWORD(v16[6]) = 4;
+    v12 = v11 - 1;
+    if ( !v12 )
     {
-      LODWORD(v17[7]) = 0;
-      LODWORD(v17[4]) = 512;
-      goto LABEL_11;
+      LODWORD(v16[7]) = 0;
+      LODWORD(v16[4]) = 512;
+      goto LABEL_12;
     }
-    v14 = v13 - 1;
-    if ( v14 )
+    v13 = v12 - 1;
+    if ( v13 )
     {
-      if ( v14 != 1 )
+      if ( v13 != 1 )
       {
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 3524);
-LABEL_11:
-        LODWORD(v17[2]) ^= (LOBYTE(v17[2]) ^ (unsigned __int8)(*(_DWORD *)(*((_QWORD *)a2 + 1) + 112LL) >> 7)) & 1;
-        InputTraceLogging::Mouse::InformUMObservers((const struct _MIT_MOUSE_INPUT_OBSERVER_PACKET *)v17);
-        SendMessageTo(11LL, (__int64)v17, 72LL, v16);
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 3384LL);
+LABEL_12:
+        LODWORD(v16[2]) ^= (LOBYTE(v16[2]) ^ (unsigned __int8)(*(_DWORD *)(*((_QWORD *)a2 + 1) + 112LL) >> 7)) & 1;
+        InputTraceLogging::Mouse::InformUMObservers((const struct _MIT_MOUSE_INPUT_OBSERVER_PACKET *)v16);
+        InputExtensibilityCallout::CoreMsgSendMessage(v15, 12);
         return;
       }
-      LODWORD(v17[7]) = *((unsigned __int16 *)a2 + 16);
+      LODWORD(v16[7]) = *(unsigned __int16 *)(v10 + 30);
       WheelMessage = CMouseProcessor::CWheelEvent::GetWheelMessage(a2);
     }
     else
     {
-      LODWORD(v17[7]) = CMouseProcessor::CButtonEvent::GetMessageWParamInfo(a2);
+      LODWORD(v16[7]) = CMouseProcessor::CButtonEvent::GetMessageWParamInfo(a2);
       WheelMessage = CMouseProcessor::CButtonEvent::GetButtonMessage(a2);
     }
-    LODWORD(v17[4]) = WheelMessage;
-    goto LABEL_11;
+    LODWORD(v16[4]) = WheelMessage;
+    goto LABEL_12;
   }
 }

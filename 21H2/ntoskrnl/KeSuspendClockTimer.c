@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSuspendClockTimer @ 0x14038D088
+ * XREFs of KeSuspendClockTimer @ 0x140383C68
  * Callers:
- *     PopHandleNextState @ 0x140A4B5A0 (PopHandleNextState.c)
+ *     PopHandleNextState @ 0x1409930D0 (PopHandleNextState.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 KeSuspendClockTimer()
@@ -17,12 +17,11 @@ __int64 KeSuspendClockTimer()
   v2 = KiClockTimerOwner;
   if ( (CurrentPrcb->PendingTickFlags & 1) != 0 )
   {
-    result = off_140C01ED8[0]();
+    result = off_140C00888[0]();
     CurrentPrcb->PendingTickFlags &= ~1u;
-    CurrentPrcb->ClockTimerState.ClockActive = 0;
   }
   if ( CurrentPrcb->Number == v2 )
-    ++dword_140C2B148;
+    ++dword_140C31B88;
   if ( CurrentPrcb->ClockOwner )
     CurrentPrcb->ClockOwner = 0;
   return result;

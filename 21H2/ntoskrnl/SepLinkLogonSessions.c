@@ -1,29 +1,29 @@
 /*
- * XREFs of SepLinkLogonSessions @ 0x14025CB88
+ * XREFs of SepLinkLogonSessions @ 0x1402D2FE4
  * Callers:
- *     NtSetInformationToken @ 0x140754810 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1406749A0 (NtSetInformationToken.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     SepDeReferenceLogonSessionDirect @ 0x1402D6A98 (SepDeReferenceLogonSessionDirect.c)
- *     SepReferenceLogonSession @ 0x14066B8C8 (SepReferenceLogonSession.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     SepStopReferencingLogonSession @ 0x1407556D4 (SepStopReferencingLogonSession.c)
- *     SepDuplicateToken @ 0x1407CDED0 (SepDuplicateToken.c)
- *     SepRemoveTokenLogonSession @ 0x1409CD6CC (SepRemoveTokenLogonSession.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x14027F814 (SepDeReferenceLogonSessionDirect.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     SepReferenceLogonSession @ 0x1405DC7C4 (SepReferenceLogonSession.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     SepStopReferencingLogonSession @ 0x1406774A0 (SepStopReferencingLogonSession.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
+ *     SepRemoveTokenLogonSession @ 0x140923BD0 (SepRemoveTokenLogonSession.c)
  */
 
 __int64 __fastcall SepLinkLogonSessions(__int64 a1, void *a2, KPROCESSOR_MODE a3)
 {
   PVOID v5; // rdi
-  __int64 v6; // r14
+  _QWORD *v6; // r14
   NTSTATUS v8; // eax
   int v9; // ebx
   __int64 v10; // rcx
   __int64 v11; // rax
   PVOID v13; // [rsp+40h] [rbp-19h] BYREF
   PVOID Object; // [rsp+48h] [rbp-11h] BYREF
-  __int64 v15; // [rsp+50h] [rbp-9h] BYREF
+  _QWORD *v15; // [rsp+50h] [rbp-9h] BYREF
   __int128 v16; // [rsp+58h] [rbp-1h] BYREF
   __int128 v17; // [rsp+68h] [rbp+Fh]
   __int128 v18; // [rsp+78h] [rbp+1Fh]
@@ -31,13 +31,12 @@ __int64 __fastcall SepLinkLogonSessions(__int64 a1, void *a2, KPROCESSOR_MODE a3
 
   v13 = 0LL;
   v19 = 0LL;
-  v15 = 0LL;
   v5 = 0LL;
-  *(_QWORD *)&v18 = 0LL;
+  v15 = 0LL;
   v6 = 0LL;
-  DWORD2(v18) = 0;
   v16 = 0LL;
   v17 = 0LL;
+  v18 = 0LL;
   if ( !SeSinglePrivilegeCheck(SeCreateTokenPrivilege, a3) )
   {
     v9 = -1073741727;
@@ -96,7 +95,7 @@ LABEL_26:
   *(_QWORD *)(*((_QWORD *)v13 + 27) + 48LL) = v13;
   *(_QWORD *)(*((_QWORD *)v13 + 27) + 16LL) = *(_QWORD *)(*((_QWORD *)v19 + 27) + 8LL);
   *(_DWORD *)(*((_QWORD *)v13 + 27) + 32LL) |= 4u;
-  if ( HIDWORD(NlsMbOemCodePageTag) )
+  if ( SeTokenLeakTracking )
   {
     SepRemoveTokenLogonSession(v13);
     SepRemoveTokenLogonSession(v19);

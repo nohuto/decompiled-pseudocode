@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmiSessionsRundown @ 0x1409A4B8C
+ * XREFs of TtmiSessionsRundown @ 0x1408FF1C8
  * Callers:
- *     TtmpTraceLoggingCallback @ 0x1409AAE30 (TtmpTraceLoggingCallback.c)
+ *     TtmpTraceLoggingCallback @ 0x1409053C0 (TtmpTraceLoggingCallback.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     TtmiDevicesRundown @ 0x1409A2C1C (TtmiDevicesRundown.c)
- *     TtmiAcquireCurrentSession @ 0x1409A49E0 (TtmiAcquireCurrentSession.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
- *     TtmiLogSessionRundown @ 0x1409A9D64 (TtmiLogSessionRundown.c)
- *     TtmiTerminalsRundown @ 0x1409AB708 (TtmiTerminalsRundown.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     TtmiDevicesRundown @ 0x1408FC250 (TtmiDevicesRundown.c)
+ *     TtmiTerminalsRundown @ 0x1408FDD38 (TtmiTerminalsRundown.c)
+ *     TtmiAcquireCurrentSession @ 0x1408FF014 (TtmiAcquireCurrentSession.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
+ *     TtmiLogSessionRundown @ 0x1409042E8 (TtmiLogSessionRundown.c)
  */
 
 void TtmiSessionsRundown()
@@ -35,12 +35,12 @@ void TtmiSessionsRundown()
     v2[8] = v3[66];
     v2[9] = v3[67];
     TtmiLogSessionRundown(v2);
-    TtmiTerminalsRundown(v1);
+    TtmiTerminalsRundown((__int64)v1);
     TtmiDevicesRundown(v1);
   }
   else
   {
-    TtmiLogError("TtmiSessionsRundown", 4293LL, (unsigned int)v0, 0xFFFFFFFFLL);
+    TtmiLogError("TtmiSessionsRundown", 4297LL, (unsigned int)v0, 0xFFFFFFFFLL);
   }
   if ( v1 )
   {

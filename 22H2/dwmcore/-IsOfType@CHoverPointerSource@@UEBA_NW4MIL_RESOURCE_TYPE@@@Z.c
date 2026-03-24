@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CHoverPointerSource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180104760
+ * XREFs of ?IsOfType@CHoverPointerSource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E0120
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CHoverPointerSource::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 82;
+  return a2 == 79;
 }

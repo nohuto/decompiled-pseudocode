@@ -1,5 +1,5 @@
 /*
- * XREFs of RIMRemoveInputObserver @ 0x1C017ABC0
+ * XREFs of RIMRemoveInputObserver @ 0x1C0158190
  * Callers:
  *     <none>
  * Callees:

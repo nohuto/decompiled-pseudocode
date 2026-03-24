@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbDevice_GetEndpointOffloadInformation @ 0x1C00467DC
+ * XREFs of UsbDevice_GetEndpointOffloadInformation @ 0x1C004631C
  * Callers:
- *     UsbDevice_EndpointsConfigureCompletion @ 0x1C00020D0 (UsbDevice_EndpointsConfigureCompletion.c)
+ *     UsbDevice_EndpointsConfigureCompletion @ 0x1C00074B0 (UsbDevice_EndpointsConfigureCompletion.c)
  * Callees:
- *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C000154C (XilUsbDevice_GetDeviceContextBufferVA.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Controller_IncrementNumberOfEndpointsOffloaded @ 0x1C0031D50 (Controller_IncrementNumberOfEndpointsOffloaded.c)
- *     WPP_RECORDER_SF_sds @ 0x1C003609C (WPP_RECORDER_SF_sds.c)
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C00057C4 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_IncrementNumberOfEndpointsOffloaded @ 0x1C0031E60 (Controller_IncrementNumberOfEndpointsOffloaded.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
  */
 
 __int64 __fastcall UsbDevice_GetEndpointOffloadInformation(__int64 a1, __int64 a2, __int64 a3)
@@ -15,16 +15,15 @@ __int64 __fastcall UsbDevice_GetEndpointOffloadInformation(__int64 a1, __int64 a
   __int64 v4; // r14
   __int64 v8; // r13
   __int64 v9; // rsi
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
+  int v10; // edx
+  int v11; // r8d
+  int v12; // r9d
   __int64 v13; // rdi
   int v14; // ecx
   __int64 v15; // rcx
   __int64 DeviceContextBufferVA; // rax
   int v17; // r9d
   __int64 v18; // rdx
-  __int64 v19; // [rsp+20h] [rbp-38h]
 
   result = *(_QWORD *)(a1 + 8);
   v4 = 0LL;
@@ -42,7 +41,7 @@ __int64 __fastcall UsbDevice_GetEndpointOffloadInformation(__int64 a1, __int64 a
       result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
                  WdfDriverGlobals,
                  *(_QWORD *)(*(_QWORD *)(a2 + 32) + 8 * v9),
-                 off_1C00611A8);
+                 off_1C00601A8);
       v13 = result;
       if ( *(unsigned __int8 *)(result + 98) == *(_WORD *)(a3 + 4) )
         break;
@@ -56,15 +55,7 @@ __int64 __fastcall UsbDevice_GetEndpointOffloadInformation(__int64 a1, __int64 a
       if ( v14 == 2 )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_sds(
-            (__int64)WPP_GLOBAL_Control->DeviceExtension,
-            v10,
-            v11,
-            v12,
-            v19,
-            "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\endpoint.h",
-            5,
-            "Endpoint is already offloaded");
+          WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v10, v11, v12);
         if ( !KdRefreshDebuggerNotPresent() )
           __debugbreak();
       }
@@ -73,21 +64,13 @@ __int64 __fastcall UsbDevice_GetEndpointOffloadInformation(__int64 a1, __int64 a
         if ( *(_DWORD *)(*(_QWORD *)result + 588LL) == 2 && v14 != 1 )
         {
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_sds(
-              (__int64)WPP_GLOBAL_Control->DeviceExtension,
-              v10,
-              v11,
-              v12,
-              v19,
-              "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\endpoint.h",
-              12,
-              "Invalid current offload state");
+            WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v10, v11, v12);
           if ( !KdRefreshDebuggerNotPresent() )
             __debugbreak();
         }
         v15 = *(_QWORD *)v13;
         *(_DWORD *)(v13 + 1352) = 2;
-        Controller_IncrementNumberOfEndpointsOffloaded(v15);
+        Controller_IncrementNumberOfEndpointsOffloaded(v15, v10, v11, v12);
       }
     }
     DeviceContextBufferVA = XilUsbDevice_GetDeviceContextBufferVA(a1);

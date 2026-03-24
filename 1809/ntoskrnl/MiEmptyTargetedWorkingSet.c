@@ -1,13 +1,13 @@
 /*
- * XREFs of MiEmptyTargetedWorkingSet @ 0x1402B2ED8
+ * XREFs of MiEmptyTargetedWorkingSet @ 0x1402B2FD8
  * Callers:
- *     MiTrimAllSystemPagableMemory @ 0x1402B3A90 (MiTrimAllSystemPagableMemory.c)
+ *     MiTrimAllSystemPagableMemory @ 0x1402B3B90 (MiTrimAllSystemPagableMemory.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiReturnWsToExpansionList @ 0x1400F3364 (MiReturnWsToExpansionList.c)
- *     MiEmptyWorkingSetInitiate @ 0x140142200 (MiEmptyWorkingSetInitiate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiReturnWsToExpansionList @ 0x1400F3384 (MiReturnWsToExpansionList.c)
+ *     MiEmptyWorkingSetInitiate @ 0x140142220 (MiEmptyWorkingSetInitiate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiEmptyTargetedWorkingSet(__int64 a1)

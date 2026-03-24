@@ -1,12 +1,12 @@
 /*
- * XREFs of VidSchiDrainContextFromWorkerThread @ 0x1C003A6F0
+ * XREFs of VidSchiDrainContextFromWorkerThread @ 0x1C002F4D4
  * Callers:
- *     VidSchiCleanupPacket_PriorityTable @ 0x1C010A0A0 (VidSchiCleanupPacket_PriorityTable.c)
+ *     VidSchiCleanupPacket_PriorityTable @ 0x1C00D3018 (VidSchiCleanupPacket_PriorityTable.c)
  * Callees:
- *     VidSchiSetTransferContextRunningTime @ 0x1C0014770 (VidSchiSetTransferContextRunningTime.c)
- *     VidSchiProcessPrimariesTerminationList @ 0x1C003B244 (VidSchiProcessPrimariesTerminationList.c)
- *     VidSchiReadCommandFromContextQueue @ 0x1C003B38C (VidSchiReadCommandFromContextQueue.c)
- *     VidSchiSubmitQueueCommand @ 0x1C0106878 (VidSchiSubmitQueueCommand.c)
+ *     VidSchiSetTransferContextRunningTime @ 0x1C0013A20 (VidSchiSetTransferContextRunningTime.c)
+ *     VidSchiProcessPrimariesTerminationList @ 0x1C0030618 (VidSchiProcessPrimariesTerminationList.c)
+ *     VidSchiReadCommandFromContextQueue @ 0x1C0030744 (VidSchiReadCommandFromContextQueue.c)
+ *     VidSchiSubmitQueueCommand @ 0x1C00CEF10 (VidSchiSubmitQueueCommand.c)
  */
 
 void __fastcall VidSchiDrainContextFromWorkerThread(__int64 a1)

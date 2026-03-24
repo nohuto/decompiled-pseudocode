@@ -1,460 +1,442 @@
 /*
- * XREFs of ApiSetComposeSchema @ 0x140614A14
+ * XREFs of ApiSetComposeSchema @ 0x1405BE4E0
  * Callers:
- *     ApiSetpLoadSchemaExtension @ 0x140A0A070 (ApiSetpLoadSchemaExtension.c)
+ *     ApiSetpLoadSchemaExtension @ 0x14095EBD0 (ApiSetpLoadSchemaExtension.c)
  * Callees:
- *     ApiSetpSearchForApiSet @ 0x14035EF30 (ApiSetpSearchForApiSet.c)
- *     ApiSetComposeSchema_V7 @ 0x140416F98 (ApiSetComposeSchema_V7.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ApiSetValidateSchemaFormat @ 0x14061473C (ApiSetValidateSchemaFormat.c)
- *     AsiAddDataToSchema @ 0x14061515C (AsiAddDataToSchema.c)
- *     AsiPopulateHashes @ 0x1406151F4 (AsiPopulateHashes.c)
- *     AsiSortValueList @ 0x140615350 (AsiSortValueList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     ApiSetpSearchForApiSet @ 0x1403A2C30 (ApiSetpSearchForApiSet.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ApiSetValidateSchemaFormat @ 0x1405BE224 (ApiSetValidateSchemaFormat.c)
+ *     AsiAddDataToSchema @ 0x1405BEBC4 (AsiAddDataToSchema.c)
+ *     AsiPopulateHashes @ 0x1405BEC5C (AsiPopulateHashes.c)
+ *     AsiSortValueList @ 0x1405BEDB0 (AsiSortValueList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ApiSetComposeSchema(PVOID *a1, unsigned int *a2, _DWORD *a3, unsigned int a4)
+__int64 __fastcall ApiSetComposeSchema(_DWORD **a1, unsigned int *a2, _DWORD *a3, int a4)
 {
-  _DWORD *v4; // r12
-  unsigned int v7; // edx
-  unsigned int v8; // r13d
-  PVOID v9; // rcx
-  unsigned int v10; // r15d
-  int v11; // ebx
-  __int64 v12; // rsi
-  char *v13; // rdi
-  int v14; // eax
-  __int64 v15; // rax
-  char v16; // r13
-  __int64 v17; // rdx
-  char *v18; // r8
-  __int64 v19; // r9
-  __int64 v20; // rax
-  const WCHAR *v21; // r9
-  _WORD *v22; // rcx
-  unsigned __int16 v23; // ax
-  _DWORD *v24; // rax
-  int v25; // edx
-  int v26; // r13d
-  _DWORD *Pool2; // rsi
-  unsigned int v28; // ebx
-  __int64 v29; // rdi
-  __int64 v30; // rcx
-  unsigned int v31; // eax
-  unsigned int v32; // ebx
-  unsigned int v33; // ebx
-  unsigned int v34; // r15d
-  unsigned int i; // r9d
-  char *v36; // r8
-  int v37; // eax
-  unsigned int v38; // ecx
-  unsigned int j; // ebx
-  char *v40; // r11
-  int v41; // eax
-  int v42; // eax
-  unsigned int v43; // ecx
-  __int64 v44; // rax
-  __int64 v45; // r13
-  char *v46; // r8
-  __int64 v47; // r11
-  int v48; // eax
-  char *v49; // r11
-  __int64 v50; // r9
-  char *v51; // rdx
-  __int64 v52; // rcx
-  __int64 v53; // r10
-  __int64 v54; // rax
-  __int64 v55; // rdx
-  char *v56; // r9
-  __int64 v57; // rbx
-  const WCHAR *v58; // rcx
-  _WORD *v59; // rax
-  __int64 v60; // rdi
-  __int64 v61; // r9
-  const WCHAR *v62; // r8
-  char *v63; // rcx
-  __int64 v64; // rcx
-  char *v65; // rdx
-  int v66; // edx
-  int v67; // r10d
-  _DWORD *v68; // rcx
-  unsigned int v69; // eax
-  void *v70; // rcx
-  int v71; // [rsp+28h] [rbp-69h] BYREF
-  unsigned int v72; // [rsp+2Ch] [rbp-65h]
-  int v73; // [rsp+30h] [rbp-61h]
-  unsigned int v74; // [rsp+34h] [rbp-5Dh]
-  unsigned int k; // [rsp+38h] [rbp-59h]
-  unsigned int v76; // [rsp+3Ch] [rbp-55h]
-  int v77; // [rsp+40h] [rbp-51h]
-  char *v78; // [rsp+48h] [rbp-49h]
-  __int64 v79; // [rsp+50h] [rbp-41h]
-  __int64 v80; // [rsp+58h] [rbp-39h]
-  char *v81; // [rsp+60h] [rbp-31h]
-  const WCHAR *v82; // [rsp+68h] [rbp-29h]
-  char *v83; // [rsp+70h] [rbp-21h]
-  char *v84; // [rsp+78h] [rbp-19h]
-  __int64 v85; // [rsp+80h] [rbp-11h] BYREF
-  int v86; // [rsp+88h] [rbp-9h]
-  int v87; // [rsp+8Ch] [rbp-5h]
-  unsigned int v88; // [rsp+90h] [rbp-1h]
-  __int128 v89; // [rsp+98h] [rbp+7h] BYREF
-  int v90; // [rsp+A8h] [rbp+17h]
+  _DWORD *v4; // r13
+  unsigned int v6; // r12d
+  unsigned int v7; // r14d
+  int v8; // ebx
+  __int64 v9; // rsi
+  __int64 v10; // rdx
+  _DWORD *v11; // rbx
+  unsigned int v12; // ecx
+  __int64 v13; // rax
+  char v14; // di
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r12
+  unsigned int v18; // eax
+  const WCHAR *v19; // rdx
+  _WORD *v20; // rcx
+  unsigned __int16 v21; // ax
+  _DWORD *v22; // rax
+  int v23; // edx
+  int v24; // r12d
+  _DWORD *PoolWithTag; // rsi
+  unsigned int v26; // ebx
+  __int64 v27; // rdi
+  __int64 v28; // rcx
+  unsigned int v29; // eax
+  unsigned int v30; // ebx
+  unsigned int v31; // ebx
+  unsigned int v32; // r14d
+  __int64 i; // r11
+  char *v34; // rdx
+  int v35; // eax
+  int v36; // eax
+  __int64 j; // r8
+  char *v38; // r10
+  int v39; // eax
+  int v40; // eax
+  unsigned int v41; // ecx
+  __int64 v42; // rax
+  unsigned int v43; // edi
+  __int64 v44; // r12
+  char *v45; // r9
+  unsigned int v46; // r11d
+  __int64 v47; // r10
+  char *v48; // rdx
+  __int64 v49; // rcx
+  __int64 v50; // r8
+  __int64 v51; // rax
+  __int64 v52; // rdx
+  char *v53; // r9
+  __int64 v54; // rbx
+  const WCHAR *v55; // rcx
+  _WORD *v56; // rax
+  __int64 v57; // rdi
+  __int64 v58; // r9
+  int v59; // edx
+  int v60; // r8d
+  _DWORD *v61; // rcx
+  ULONG_PTR v62; // rcx
+  unsigned int v64; // [rsp+28h] [rbp-59h]
+  int v65; // [rsp+2Ch] [rbp-55h]
+  unsigned int v66; // [rsp+30h] [rbp-51h]
+  unsigned int v67; // [rsp+30h] [rbp-51h]
+  int v68; // [rsp+34h] [rbp-4Dh]
+  unsigned int v69; // [rsp+34h] [rbp-4Dh]
+  int v70; // [rsp+34h] [rbp-4Dh]
+  unsigned int v71; // [rsp+38h] [rbp-49h]
+  unsigned int v72; // [rsp+3Ch] [rbp-45h]
+  int v73; // [rsp+3Ch] [rbp-45h]
+  __int64 v74; // [rsp+40h] [rbp-41h]
+  int v75; // [rsp+40h] [rbp-41h]
+  __int64 v76; // [rsp+48h] [rbp-39h]
+  int v77; // [rsp+48h] [rbp-39h]
+  __int64 v78; // [rsp+50h] [rbp-31h]
+  char *v79; // [rsp+58h] [rbp-29h]
+  const WCHAR *v80; // [rsp+60h] [rbp-21h]
+  char *v81; // [rsp+68h] [rbp-19h]
+  char *v82; // [rsp+70h] [rbp-11h]
+  __int64 v83; // [rsp+78h] [rbp-9h] BYREF
+  int v84; // [rsp+80h] [rbp-1h]
+  int v85; // [rsp+84h] [rbp+3h]
+  unsigned int v86; // [rsp+88h] [rbp+7h]
+  __int128 v87; // [rsp+90h] [rbp+Fh] BYREF
+  int v88; // [rsp+A0h] [rbp+1Fh]
+  int v91; // [rsp+100h] [rbp+7Fh] BYREF
 
+  v91 = a4;
   v4 = *a1;
-  if ( *(_BYTE *)*a1 == 7 )
-    return ApiSetComposeSchema_V7(a1, a2, a3, a4);
-  if ( *v4 == 6 )
-  {
-    if ( (v4[2] & 4) == 0 )
-      goto LABEL_6;
-    if ( *((_BYTE *)v4 + 28) == 7 )
-      return ApiSetComposeSchema_V7(a1, a2, a3, a4);
-  }
-  if ( *v4 < 5u )
-    return 3221225659LL;
-LABEL_6:
-  if ( *a3 < 5u )
+  if ( **a1 < 5u || *a3 < 5u )
     return 3221225659LL;
   if ( (v4[2] & 1) != 0 )
     return 3221225485LL;
-  if ( !a3[3] )
-    return 0LL;
-  v7 = v4[1];
-  v8 = 0;
-  v9 = *a1;
-  v72 = 0;
-  v10 = 0;
-  v11 = ApiSetValidateSchemaFormat((__int64)v9, v7);
-  if ( v11 < 0 )
-    return (unsigned int)v11;
-  v11 = ApiSetValidateSchemaFormat((__int64)a3, a3[1]);
-  if ( v11 < 0 )
-    return (unsigned int)v11;
-  v12 = 0LL;
-  if ( !a3[3] )
+  if ( !v4[3] )
+    return 3221225485LL;
+  v6 = a3[3];
+  v66 = v6;
+  if ( !v6 )
+    return 3221225485LL;
+  v64 = 0;
+  v7 = 0;
+  v8 = ApiSetValidateSchemaFormat(v4, v4[1]);
+  if ( v8 < 0 )
+    return (unsigned int)v8;
+  v8 = ApiSetValidateSchemaFormat(a3, a3[1]);
+  if ( v8 < 0 )
+    return (unsigned int)v8;
+  v9 = 0LL;
+  v10 = (unsigned int)a3[4];
+  v74 = v10;
+  while ( 1 )
   {
-LABEL_34:
-    v26 = 24 * v8;
-    k = v4[1] + v10 + v26 + 8 * v72;
-    Pool2 = (_DWORD *)ExAllocatePool2(256LL, k, 1751339841LL);
-    if ( Pool2 )
+    v11 = (_DWORD *)((char *)&a3[6 * v9] + v10);
+    if ( (*v11 & 4) == 0 )
+      break;
+    ++v64;
+    v7 += (v11[2] + 3) & 0xFFFFFFFC;
+LABEL_29:
+    v9 = (unsigned int)(v9 + 1);
+    if ( (unsigned int)v9 >= v6 )
     {
-      v28 = v4[4] + 24 * v4[3];
-      v29 = v28;
-      memmove(Pool2, v4, v28);
-      v30 = v28 + v26;
-      v31 = v4[5] - v28;
-      v32 = v31 + v30;
-      v73 = v31 + v30;
-      v71 = v31 + v30;
-      memmove((char *)Pool2 + v30, (char *)v4 + v29, v31);
-      memset((char *)Pool2 + v32, 0, v10);
-      v33 = v10 + v32;
-      memmove((char *)Pool2 + v33, (char *)v4 + (unsigned int)v4[5], (unsigned int)(8 * v4[3]));
-      v34 = k;
-      Pool2[1] = k;
-      Pool2[5] = v33;
-      if ( v26 )
+      v24 = 24 * v64;
+      v69 = v7 + 24 * v64 + v4[1] + 8 * v64;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v69, 0x68635341u);
+      if ( PoolWithTag )
       {
-        for ( i = 0; i < Pool2[3]; ++i )
+        v26 = v4[4] + 24 * v4[3];
+        v27 = v26;
+        memmove(PoolWithTag, v4, v26);
+        v28 = v24 + v26;
+        v29 = v4[5] - v26;
+        v30 = v29 + v28;
+        v65 = v29 + v28;
+        v91 = v29 + v28;
+        memmove((char *)PoolWithTag + v28, (char *)v4 + v27, v29);
+        memset((char *)PoolWithTag + v30, 0, v7);
+        v31 = v7 + v30;
+        memmove((char *)PoolWithTag + v31, (char *)v4 + (unsigned int)v4[5], (unsigned int)(8 * v4[3]));
+        v32 = v69;
+        PoolWithTag[1] = v69;
+        PoolWithTag[5] = v31;
+        if ( v24 )
         {
-          v36 = (char *)Pool2 + (unsigned int)Pool2[4];
-          v37 = *(_DWORD *)&v36[24 * i + 4];
-          if ( v37 )
-            *(_DWORD *)&v36[24 * i + 4] = v26 + v37;
-          v38 = *(_DWORD *)&v36[24 * i + 16];
-          if ( v38 )
+          for ( i = 0LL; (unsigned int)i < PoolWithTag[3]; i = (unsigned int)(i + 1) )
           {
-            v38 += v26;
-            *(_DWORD *)&v36[24 * i + 16] = v38;
-          }
-          for ( j = 0; j < *(_DWORD *)&v36[24 * i + 20]; ++j )
-          {
-            v40 = (char *)Pool2 + v38;
-            v41 = *(_DWORD *)&v40[20 * j + 4];
-            if ( v41 )
+            v34 = (char *)PoolWithTag + (unsigned int)PoolWithTag[4];
+            v35 = *(_DWORD *)&v34[24 * i + 4];
+            if ( v35 )
+              *(_DWORD *)&v34[24 * i + 4] = v24 + v35;
+            v36 = *(_DWORD *)&v34[24 * i + 16];
+            if ( v36 )
+              *(_DWORD *)&v34[24 * i + 16] = v24 + v36;
+            for ( j = 0LL; (unsigned int)j < *(_DWORD *)&v34[24 * i + 20]; j = (unsigned int)(j + 1) )
             {
-              *(_DWORD *)&v40[20 * j + 4] = v26 + v41;
-              v38 = *(_DWORD *)&v36[24 * i + 16];
-            }
-            v42 = *(_DWORD *)&v40[20 * j + 12];
-            if ( v42 )
-            {
-              *(_DWORD *)&v40[20 * j + 12] = v26 + v42;
-              v38 = *(_DWORD *)&v36[24 * i + 16];
+              v38 = (char *)PoolWithTag + *(unsigned int *)&v34[24 * i + 16];
+              v39 = *(_DWORD *)&v38[20 * j + 4];
+              if ( v39 )
+                *(_DWORD *)&v38[20 * j + 4] = v24 + v39;
+              v40 = *(_DWORD *)&v38[20 * j + 12];
+              if ( v40 )
+                *(_DWORD *)&v38[20 * j + 12] = v24 + v40;
             }
           }
         }
-      }
-      v11 = ApiSetValidateSchemaFormat((__int64)Pool2, v34);
-      if ( v11 < 0 )
-        goto LABEL_85;
-      v43 = 0;
-      v44 = 0LL;
-      v76 = 0;
-      for ( k = 0; (unsigned int)v44 < a3[3]; k = v44 )
-      {
-        v45 = 3 * v44;
-        v46 = (char *)a3 + (unsigned int)a3[4];
-        v84 = v46;
-        v47 = *(unsigned int *)&v46[24 * v44 + 4];
-        v48 = *(_DWORD *)&v46[24 * v44];
-        v49 = (char *)a3 + v47;
-        v50 = *(unsigned int *)&v46[8 * v45 + 8];
-        v74 = *(_DWORD *)&v46[8 * v45 + 8];
-        v83 = v49;
-        if ( (v48 & 4) != 0 )
+        v8 = ApiSetValidateSchemaFormat(PoolWithTag, v69);
+        if ( v8 < 0 )
+          goto LABEL_83;
+        v41 = 0;
+        v42 = 0LL;
+        v71 = 0;
+        v70 = 0;
+        if ( a3[3] )
         {
-          if ( v43 >= v72 )
+          v43 = v64;
+          do
           {
-LABEL_88:
-            v11 = -2147483643;
-            goto LABEL_85;
+            v44 = 3 * v42;
+            v45 = (char *)a3 + (unsigned int)a3[4];
+            v82 = v45;
+            v46 = *(_DWORD *)&v45[24 * v42 + 8];
+            v47 = *(unsigned int *)&v45[24 * v42 + 4];
+            v67 = v46;
+            if ( (*(_DWORD *)&v45[24 * v42] & 4) != 0 )
+            {
+              if ( v41 >= v43 )
+              {
+LABEL_86:
+                v8 = -2147483643;
+                goto LABEL_83;
+              }
+              v48 = (char *)PoolWithTag + (unsigned int)PoolWithTag[4];
+              v71 = v41 + 1;
+              v49 = (unsigned int)PoolWithTag[3];
+              v50 = 3 * v49;
+              PoolWithTag[3] = v49 + 1;
+              *(_OWORD *)&v48[8 * v50] = 0LL;
+              *(_QWORD *)&v48[8 * v50 + 16] = 0LL;
+              *(_DWORD *)&v48[8 * v50] = *(_DWORD *)&v45[24 * v42];
+              *(_DWORD *)&v48[8 * v50 + 4] = v65;
+              *(_DWORD *)&v48[8 * v50 + 8] = v46;
+              *(_DWORD *)&v48[8 * v50 + 12] = v46;
+              v8 = AsiAddDataToSchema(PoolWithTag, &v91, (char *)a3 + v47, v46);
+              if ( v8 < 0 )
+                goto LABEL_83;
+              v65 = v91;
+LABEL_78:
+              v41 = v71;
+            }
+            else
+            {
+              v81 = (char *)a3 + v47;
+              v51 = 0LL;
+              v75 = 0;
+              v73 = 0;
+              if ( *(_DWORD *)&v45[8 * v44 + 20] )
+              {
+                while ( 1 )
+                {
+                  v52 = 5 * v51;
+                  v53 = (char *)a3 + *(unsigned int *)&v45[8 * v44 + 16];
+                  v78 = 5 * v51;
+                  v79 = v53;
+                  v54 = *(unsigned int *)&v53[20 * v51 + 16];
+                  v55 = (const WCHAR *)((char *)a3 + *(unsigned int *)&v53[20 * v51 + 12]);
+                  v80 = v55;
+                  v56 = (_WORD *)((char *)v55 + v54);
+                  do
+                  {
+                    if ( (unsigned int)v54 <= 1 )
+                      break;
+                    LODWORD(v54) = v54 - 2;
+                    --v56;
+                  }
+                  while ( *v56 != 45 );
+                  if ( !((unsigned __int16)v54 >> 1) )
+                    break;
+                  v77 = *(_DWORD *)&v53[4 * v52 + 4];
+                  v57 = ApiSetpSearchForApiSet(PoolWithTag, v55, (unsigned __int16)v54 >> 1);
+                  if ( v57 )
+                  {
+                    v59 = v65;
+                  }
+                  else
+                  {
+                    if ( v71 >= v64 )
+                      goto LABEL_86;
+                    v58 = (unsigned int)PoolWithTag[3];
+                    ++v71;
+                    v57 = (__int64)&PoolWithTag[6 * v58] + (unsigned int)PoolWithTag[4];
+                    PoolWithTag[3] = v58 + 1;
+                    *(_OWORD *)v57 = 0LL;
+                    *(_QWORD *)(v57 + 16) = 0LL;
+                    *(_DWORD *)(v57 + 4) = v65;
+                    *(_DWORD *)(v57 + 8) = *(_DWORD *)&v79[4 * v78 + 16];
+                    *(_DWORD *)(v57 + 12) = v54;
+                    v8 = AsiAddDataToSchema(PoolWithTag, &v91, v80, *(unsigned int *)&v79[4 * v78 + 16]);
+                    if ( v8 < 0 )
+                      goto LABEL_83;
+                    *(_DWORD *)(v57 + 20) = 1;
+                    v88 = 0;
+                    *(_DWORD *)(v57 + 16) = v91;
+                    v87 = 0LL;
+                    v8 = AsiAddDataToSchema(PoolWithTag, &v91, &v87, 20LL);
+                    if ( v8 < 0 )
+                      goto LABEL_83;
+                    v59 = v91;
+                    v65 = v91;
+                  }
+                  if ( (*(_DWORD *)v57 & 1) == 0 )
+                  {
+                    v60 = v75;
+                    if ( !v75 )
+                    {
+                      v75 = v59;
+                      v8 = AsiAddDataToSchema(PoolWithTag, &v91, v81, v67);
+                      if ( v8 < 0 )
+                        goto LABEL_83;
+                      v60 = v75;
+                      v65 = v91;
+                    }
+                    if ( !*(_DWORD *)(v57 + 20) )
+                    {
+                      v8 = -1073741811;
+                      goto LABEL_83;
+                    }
+                    v61 = (_DWORD *)((char *)PoolWithTag + *(unsigned int *)(v57 + 16));
+                    if ( v61[4] && v77 )
+                    {
+                      v61[1] = v60;
+                      v61[2] = v67;
+                      v8 = AsiAddDataToSchema(PoolWithTag, &v91, v61, (unsigned int)(20 * *(_DWORD *)(v57 + 20)));
+                      if ( v8 < 0 )
+                        goto LABEL_83;
+                      v83 = 0LL;
+                      v84 = 0;
+                      *(_DWORD *)(v57 + 16) = v65;
+                      v85 = v75;
+                      v86 = v67;
+                      v8 = AsiAddDataToSchema(PoolWithTag, &v91, &v83, 20LL);
+                      if ( v8 < 0 )
+                        goto LABEL_83;
+                      ++*(_DWORD *)(v57 + 20);
+                      AsiSortValueList(PoolWithTag, v57);
+                      v65 = v91;
+                    }
+                    else
+                    {
+                      v61[1] = 0;
+                      v61[2] = 0;
+                      v61[3] = v60;
+                      v61[4] = v67;
+                      *(_DWORD *)(v57 + 20) = 1;
+                    }
+                  }
+                  v45 = v82;
+                  v51 = (unsigned int)(v73 + 1);
+                  v73 = v51;
+                  if ( (unsigned int)v51 >= *(_DWORD *)&v82[8 * v44 + 20] )
+                  {
+                    v43 = v64;
+                    goto LABEL_78;
+                  }
+                }
+                v8 = -1073740670;
+                goto LABEL_83;
+              }
+            }
+            v42 = (unsigned int)(v70 + 1);
+            v70 = v42;
           }
-          v51 = (char *)Pool2 + (unsigned int)Pool2[4];
-          v76 = v43 + 1;
-          v52 = (unsigned int)Pool2[3];
-          v53 = 3 * v52;
-          Pool2[3] = v52 + 1;
-          *(_OWORD *)&v51[8 * v53] = 0LL;
-          *(_QWORD *)&v51[8 * v53 + 16] = 0LL;
-          *(_DWORD *)&v51[8 * v53] = *(_DWORD *)&v46[8 * v45];
-          *(_DWORD *)&v51[8 * v53 + 4] = v73;
-          *(_DWORD *)&v51[8 * v53 + 8] = v50;
-          *(_DWORD *)&v51[8 * v53 + 12] = v50;
-          v11 = AsiAddDataToSchema(Pool2, &v71, v49, v50);
-          if ( v11 < 0 )
-            goto LABEL_85;
-          v73 = v71;
-LABEL_80:
-          v43 = v76;
+          while ( (unsigned int)v42 < a3[3] );
+        }
+        if ( v64 && !(unsigned int)AsiPopulateHashes(PoolWithTag) )
+        {
+          v8 = -1073741823;
+          goto LABEL_83;
+        }
+        v8 = ApiSetValidateSchemaFormat(PoolWithTag, v32);
+        if ( v8 < 0 )
+        {
+LABEL_83:
+          v62 = (ULONG_PTR)PoolWithTag;
         }
         else
         {
-          v54 = 0LL;
-          LODWORD(v78) = 0;
-          v77 = 0;
-          if ( *(_DWORD *)&v46[8 * v45 + 20] )
-          {
-            while ( 1 )
-            {
-              v55 = 5 * v54;
-              v56 = (char *)a3 + *(unsigned int *)&v46[8 * v45 + 16];
-              v80 = 5 * v54;
-              v81 = v56;
-              v57 = *(unsigned int *)&v56[20 * v54 + 16];
-              v58 = (const WCHAR *)((char *)a3 + *(unsigned int *)&v56[20 * v54 + 12]);
-              v82 = v58;
-              v59 = (_WORD *)((char *)v58 + v57);
-              do
-              {
-                if ( (unsigned int)v57 <= 1 )
-                  break;
-                LODWORD(v57) = v57 - 2;
-                --v59;
-              }
-              while ( *v59 != 45 );
-              if ( !((unsigned __int16)v57 >> 1) )
-                break;
-              LODWORD(v79) = *(_DWORD *)&v56[4 * v55 + 4];
-              v60 = ApiSetpSearchForApiSet(Pool2, v58, (unsigned __int16)v57 >> 1);
-              if ( v60 )
-              {
-                v66 = v73;
-              }
-              else
-              {
-                if ( v76 >= v72 )
-                  goto LABEL_88;
-                v61 = (unsigned int)Pool2[3];
-                v62 = v82;
-                v63 = (char *)Pool2 + (unsigned int)Pool2[4];
-                ++v76;
-                v60 = (__int64)&v63[24 * v61];
-                Pool2[3] = v61 + 1;
-                v64 = v80;
-                v65 = v81;
-                *(_OWORD *)v60 = 0LL;
-                *(_QWORD *)(v60 + 16) = 0LL;
-                *(_DWORD *)(v60 + 4) = v73;
-                *(_DWORD *)(v60 + 8) = *(_DWORD *)&v65[4 * v64 + 16];
-                *(_DWORD *)(v60 + 12) = v57;
-                v11 = AsiAddDataToSchema(Pool2, &v71, v62, *(unsigned int *)&v65[4 * v64 + 16]);
-                if ( v11 < 0 )
-                  goto LABEL_85;
-                *(_DWORD *)(v60 + 20) = 1;
-                v90 = 0;
-                *(_DWORD *)(v60 + 16) = v71;
-                v89 = 0LL;
-                v11 = AsiAddDataToSchema(Pool2, &v71, &v89, 20LL);
-                if ( v11 < 0 )
-                  goto LABEL_85;
-                v66 = v71;
-                v73 = v71;
-              }
-              if ( (*(_DWORD *)v60 & 1) == 0 )
-              {
-                v67 = v77;
-                if ( !v77 )
-                {
-                  v77 = v66;
-                  v11 = AsiAddDataToSchema(Pool2, &v71, v83, v74);
-                  if ( v11 < 0 )
-                    goto LABEL_85;
-                  v67 = v77;
-                  v73 = v71;
-                }
-                if ( !*(_DWORD *)(v60 + 20) )
-                {
-                  v11 = -1073741811;
-                  goto LABEL_85;
-                }
-                v68 = (_DWORD *)((char *)Pool2 + *(unsigned int *)(v60 + 16));
-                if ( v68[4] && (_DWORD)v79 )
-                {
-                  v68[2] = v74;
-                  v68[1] = v67;
-                  v11 = AsiAddDataToSchema(Pool2, &v71, v68, (unsigned int)(20 * *(_DWORD *)(v60 + 20)));
-                  if ( v11 < 0 )
-                    goto LABEL_85;
-                  v85 = 0LL;
-                  v86 = 0;
-                  *(_DWORD *)(v60 + 16) = v73;
-                  v87 = v77;
-                  v88 = v74;
-                  v11 = AsiAddDataToSchema(Pool2, &v71, &v85, 20LL);
-                  if ( v11 < 0 )
-                    goto LABEL_85;
-                  ++*(_DWORD *)(v60 + 20);
-                  AsiSortValueList(Pool2, v60);
-                  v73 = v71;
-                }
-                else
-                {
-                  v68[1] = 0;
-                  v69 = v74;
-                  v68[2] = 0;
-                  v68[3] = v67;
-                  v68[4] = v69;
-                  *(_DWORD *)(v60 + 20) = 1;
-                }
-              }
-              v46 = v84;
-              v54 = (unsigned int)((_DWORD)v78 + 1);
-              LODWORD(v78) = v54;
-              if ( (unsigned int)v54 >= *(_DWORD *)&v84[8 * v45 + 20] )
-                goto LABEL_80;
-            }
-            v11 = -1073740670;
-            goto LABEL_85;
-          }
+          v62 = (ULONG_PTR)v4;
+          *a1 = PoolWithTag;
+          *a2 = v32;
         }
-        v44 = k + 1;
-      }
-      if ( v72 && !(unsigned int)AsiPopulateHashes(Pool2) )
-      {
-        v11 = -1073741823;
-        goto LABEL_85;
-      }
-      v11 = ApiSetValidateSchemaFormat((__int64)Pool2, v34);
-      if ( v11 < 0 )
-      {
-LABEL_85:
-        v70 = Pool2;
+        ExFreeHeapPool(v62);
       }
       else
       {
-        v70 = v4;
-        *a1 = Pool2;
-        *a2 = v34;
+        return (unsigned int)-1073741801;
       }
-      ExFreePoolWithTag(v70, 0);
+      return (unsigned int)v8;
     }
-    else
-    {
-      return (unsigned int)-1073741801;
-    }
-    return (unsigned int)v11;
   }
+  v12 = v11[5];
+  v13 = 0LL;
+  v14 = 0;
+  v91 = 0;
+  v72 = v12;
+  if ( !v12 )
+    goto LABEL_29;
+  v15 = (unsigned int)v11[4];
+  v76 = v15;
   while ( 1 )
   {
-    v13 = (char *)a3 + (unsigned int)a3[4];
-    if ( (*(_DWORD *)&v13[24 * v12] & 4) == 0 )
-      break;
-    ++v8;
-    v14 = *(_DWORD *)&v13[24 * v12 + 8] + 3;
-    v72 = v8;
-    v10 += v14 & 0xFFFFFFFC;
-LABEL_33:
-    v12 = (unsigned int)(v12 + 1);
-    if ( (unsigned int)v12 >= a3[3] )
-      goto LABEL_34;
-  }
-  v15 = 0LL;
-  v16 = 0;
-  v74 = 0;
-  if ( !*(_DWORD *)&v13[24 * v12 + 20] )
-  {
-LABEL_32:
-    v8 = v72;
-    goto LABEL_33;
-  }
-  while ( 1 )
-  {
-    v17 = 5 * v15;
-    v18 = (char *)a3 + *(unsigned int *)&v13[24 * v12 + 16];
-    v79 = 5 * v15;
-    v78 = v18;
-    v19 = *(unsigned int *)&v18[20 * v15 + 12];
-    v20 = *(unsigned int *)&v18[20 * v15 + 16];
-    v21 = (const WCHAR *)((char *)a3 + v19);
-    v22 = (_WORD *)((char *)v21 + v20);
-    do
+    v16 = v15 + 20 * v13;
+    v17 = *(unsigned int *)((char *)a3 + v16 + 16);
+    v18 = *(_DWORD *)((char *)a3 + v16 + 16);
+    v19 = (const WCHAR *)((char *)a3 + *(unsigned int *)((char *)a3 + v16 + 12));
+    v20 = (_WORD *)((char *)v19 + v17);
+    if ( (unsigned int)v17 > 1 )
     {
-      if ( (unsigned int)v20 <= 1 )
-        break;
-      LODWORD(v20) = v20 - 2;
-      --v22;
-    }
-    while ( *v22 != 45 );
-    v23 = (unsigned __int16)v20 >> 1;
-    if ( !v23 )
-      break;
-    k = *(_DWORD *)&v18[4 * v17 + 4];
-    v24 = (_DWORD *)ApiSetpSearchForApiSet(v4, v21, v23);
-    if ( v24 )
-    {
-      if ( (*v24 & 1) == 0 )
+      do
       {
-        if ( !v16 )
+        v18 -= 2;
+        --v20;
+      }
+      while ( *v20 != 45 && v18 > 1 );
+    }
+    v21 = (unsigned __int16)v18 >> 1;
+    if ( !v21 )
+      break;
+    v68 = *(_DWORD *)((char *)a3 + v16 + 4);
+    v22 = (_DWORD *)ApiSetpSearchForApiSet(v4, v19, v21);
+    if ( v22 )
+    {
+      if ( (*v22 & 1) == 0 )
+      {
+        if ( !v14 )
         {
-          v16 = 1;
-          v10 += (*(_DWORD *)&v13[24 * v12 + 8] + 3) & 0xFFFFFFFC;
+          v14 = 1;
+          v7 += (v11[2] + 3) & 0xFFFFFFFC;
         }
-        v25 = v24[5];
-        if ( !v25 )
+        v23 = v22[5];
+        if ( !v23 )
           return (unsigned int)-1073741811;
-        if ( *(_DWORD *)((char *)v4 + (unsigned int)v24[4] + 16) && k )
-          v10 += 20 * v25 + 20;
+        if ( *(_DWORD *)((char *)v4 + (unsigned int)v22[4] + 16) && v68 )
+          v7 += 20 * v23 + 20;
       }
     }
     else
     {
-      ++v72;
-      v10 += ((*(_DWORD *)&v78[4 * v79 + 16] + 3) & 0xFFFFFFFC) + 20;
-      if ( !v16 )
+      ++v64;
+      v7 += ((v17 + 3) & 0xFFFFFFFC) + 20;
+      if ( !v14 )
       {
-        v16 = 1;
-        v10 += (*(_DWORD *)&v13[24 * v12 + 8] + 3) & 0xFFFFFFFC;
+        v14 = 1;
+        v7 += (v11[2] + 3) & 0xFFFFFFFC;
       }
     }
-    v15 = v74 + 1;
-    v74 = v15;
-    if ( (unsigned int)v15 >= *(_DWORD *)&v13[24 * v12 + 20] )
-      goto LABEL_32;
+    v15 = v76;
+    v13 = (unsigned int)(v91 + 1);
+    v91 = v13;
+    if ( (unsigned int)v13 >= v72 )
+    {
+      v6 = v66;
+      v10 = v74;
+      goto LABEL_29;
+    }
   }
   return (unsigned int)-1073740670;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInsertChildVads @ 0x14085E710
+ * XREFs of MiInsertChildVads @ 0x14085E6F0
  * Callers:
- *     MiAllocateChildVads @ 0x14085DA18 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -11,11 +11,11 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     MiGetWsAndInsertVad @ 0x140063E20 (MiGetWsAndInsertVad.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiUpControlAreaRefs @ 0x1402A3350 (MiUpControlAreaRefs.c)
- *     MiCommitPageTableRangesForVad @ 0x1402BA05C (MiCommitPageTableRangesForVad.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiUpControlAreaRefs @ 0x1402A3450 (MiUpControlAreaRefs.c)
+ *     MiCommitPageTableRangesForVad @ 0x1402BA15C (MiCommitPageTableRangesForVad.c)
  *     MiInsertVadCharges @ 0x1405F1E60 (MiInsertVadCharges.c)
- *     MiDeletePartialCloneVads @ 0x14085E4E8 (MiDeletePartialCloneVads.c)
+ *     MiDeletePartialCloneVads @ 0x14085E4C8 (MiDeletePartialCloneVads.c)
  */
 
 __int64 __fastcall MiInsertChildVads(__int64 a1, __int64 a2)

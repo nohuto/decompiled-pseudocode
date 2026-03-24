@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E6F64
+ * XREFs of ?ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B1C0C
  * Callers:
- *     ?ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E7100 (-ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B1DA8 (-ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
- *     McTemplateK0ppqqpx_EtwWriteTransfer @ 0x1C002EAF0 (McTemplateK0ppqqpx_EtwWriteTransfer.c)
- *     ?ReportState@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00C3E12 (-ReportState@VIDMM_DEVICE@@QEAAXXZ.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     McTemplateK0ppqqpx_EtwWriteTransfer @ 0x1C002462C (McTemplateK0ppqqpx_EtwWriteTransfer.c)
+ *     ?ReportState@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00B6F14 (-ReportState@VIDMM_DEVICE@@QEAAXXZ.c)
  */
 
 void __fastcall VIDMM_GLOBAL::ReportPagingProcessState(VIDMM_GLOBAL *this)
@@ -15,10 +15,10 @@ void __fastcall VIDMM_GLOBAL::ReportPagingProcessState(VIDMM_GLOBAL *this)
   __int64 v4; // [rsp+30h] [rbp-78h]
   _QWORD v5[10]; // [rsp+50h] [rbp-58h] BYREF
 
-  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 1754); i = (unsigned int)(i + 1) )
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 1750); i = (unsigned int)(i + 1) )
   {
     memset(v5, 0, sizeof(v5));
-    if ( bTracingEnabled && (byte_1C0076981 & 1) != 0 )
+    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     {
       LODWORD(v4) = HIDWORD(v5[0]);
       LODWORD(v3) = 4;
@@ -27,7 +27,7 @@ void __fastcall VIDMM_GLOBAL::ReportPagingProcessState(VIDMM_GLOBAL *this)
         &EventReportMonitoredFence,
         0LL,
         *((_QWORD *)this + 3),
-        *((_QWORD *)this + i + 749),
+        *((_QWORD *)this + i + 747),
         v3,
         v4,
         0LL,

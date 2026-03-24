@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Draw@CShapeTree@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180107A50
+ * XREFs of ?Draw@CShapeTree@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F6A00
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CShapeTree::Draw(
+int __fastcall CShapeTree::Draw(
         __int64 a1,
         struct CDrawingContext *a2,
         const struct D2D_SIZE_F *a3,

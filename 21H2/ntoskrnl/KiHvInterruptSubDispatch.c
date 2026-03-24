@@ -1,17 +1,17 @@
 /*
- * XREFs of KiHvInterruptSubDispatch @ 0x1404270A0
+ * XREFs of KiHvInterruptSubDispatch @ 0x140404CA0
  * Callers:
- *     KiHvInterruptDispatch @ 0x140426820 (KiHvInterruptDispatch.c)
+ *     KiHvInterruptDispatch @ 0x1404044B0 (KiHvInterruptDispatch.c)
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x140223A20 (EtwGetKernelTraceTimestamp.c)
- *     KiEntropyQueueDpc @ 0x14024B080 (KiEntropyQueueDpc.c)
- *     KiEndThreadAccountingPeriod @ 0x1402B9660 (KiEndThreadAccountingPeriod.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HvlSharedIsr @ 0x140459B00 (HvlSharedIsr.c)
- *     KiEpfCompletionIsr @ 0x14045B8A0 (KiEpfCompletionIsr.c)
- *     PerfInfoLogInterruptHv @ 0x140460150 (PerfInfoLogInterruptHv.c)
- *     HvlDummyInterruptCallback @ 0x140543130 (HvlDummyInterruptCallback.c)
- *     KzSetIrqlUnsafe @ 0x140569E70 (KzSetIrqlUnsafe.c)
+ *     KiEndThreadAccountingPeriod @ 0x140231380 (KiEndThreadAccountingPeriod.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
+ *     KiEntropyQueueDpc @ 0x1402C4130 (KiEntropyQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HvlDummyInterruptCallback @ 0x1404F1840 (HvlDummyInterruptCallback.c)
+ *     HvlSharedIsr @ 0x1404F1F00 (HvlSharedIsr.c)
+ *     KzSetIrqlUnsafe @ 0x140512C40 (KzSetIrqlUnsafe.c)
+ *     KiEpfCompletionIsr @ 0x140524160 (KiEpfCompletionIsr.c)
+ *     PerfInfoLogInterruptHv @ 0x1405AA140 (PerfInfoLogInterruptHv.c)
  */
 
 __int64 __fastcall KiHvInterruptSubDispatch()
@@ -23,13 +23,13 @@ __int64 __fastcall KiHvInterruptSubDispatch()
   unsigned int EntropyCount; // r11d
   unsigned int *v5; // r10
   __int64 CurrentThread; // r8
-  __int64 v7; // rax
+  unsigned __int64 v7; // rax
   __int64 v8; // rdx
   unsigned __int64 v9; // rdx
   int v10; // ecx
   bool v11; // zf
   __int64 result; // rax
-  _BYTE v13[40]; // [rsp+20h] [rbp-28h] BYREF
+  LARGE_INTEGER v13[5]; // [rsp+20h] [rbp-28h] BYREF
 
   if ( KiIrqlFlags )
   {
@@ -62,7 +62,7 @@ __int64 __fastcall KiHvInterruptSubDispatch()
     if ( HIDWORD(v9) )
       v10 = -1;
     *(_DWORD *)(CurrentThread + 80) = v10;
-    if ( (*(_BYTE *)(CurrentThread + 2) & 0xBE) != 0 )
+    if ( (*(_BYTE *)(CurrentThread + 2) & 0x3E) != 0 )
       KiEndThreadAccountingPeriod((__int64)KeGetCurrentPrcb(), CurrentThread, v7);
   }
   _enable();
@@ -71,7 +71,7 @@ __int64 __fastcall KiHvInterruptSubDispatch()
   v11 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
   *(_BYTE *)(v0 + 243) = (WORD2(PerfGlobalGroupMask) & 0x4000) != 0;
   if ( !v11 )
-    EtwGetKernelTraceTimestamp((unsigned __int64)v13, 0x20004000uLL);
+    EtwGetKernelTraceTimestamp(v13, 0x20004000u);
   KiEpfCompletionIsr();
   HvlSharedIsr();
   result = HvlpInterruptCallback[*(unsigned int *)(v0 + 224)]();

@@ -1,43 +1,61 @@
 /*
- * XREFs of MmRemoveSystemCacheFromDump @ 0x14059368C
+ * XREFs of MmRemoveSystemCacheFromDump @ 0x140538B8C
  * Callers:
- *     MmGetDumpRange @ 0x140593388 (MmGetDumpRange.c)
- *     IopLiveDumpRemoveSystemCacheFromDump @ 0x140A678E0 (IopLiveDumpRemoveSystemCacheFromDump.c)
+ *     MmGetDumpRange @ 0x140538770 (MmGetDumpRange.c)
+ *     IopLiveDumpRemoveSystemCacheFromDump @ 0x1409AD4A4 (IopLiveDumpRemoveSystemCacheFromDump.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402CF4F0 (MiLockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14030CF90 (MiWalkPageTables.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiCheckProcessShadow @ 0x14020F880 (MiCheckProcessShadow.c)
+ *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall MmRemoveSystemCacheFromDump(__int64 a1)
+void __fastcall MmRemoveSystemCacheFromDump(ULONG_PTR BugCheckParameter2)
 {
-  __int64 v2; // rbx
-  _QWORD v4[2]; // [rsp+20h] [rbp-79h] BYREF
-  __m128i v5[11]; // [rsp+30h] [rbp-69h] BYREF
+  char *AnyMultiplexedVm; // rax
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  _DWORD *v5; // r9
+  __int64 v6; // rbx
+  LONG *v7; // rax
+  LONG *SharedVm; // rax
+  _QWORD v9[22]; // [rsp+30h] [rbp-C8h] BYREF
 
-  memset(v5, 0, sizeof(v5));
-  v4[1] = 0LL;
-  v5[9].m128i_i64[1] = (__int64)MiCrashdumpRemovePte;
-  v5[10].m128i_i64[1] = (__int64)v4;
-  v5[2] = _mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffff800000000000);
-  v4[0] = a1;
-  if ( !(_DWORD)InitializationPhase
-    || (KiBugCheckActive & 3) != 0
-    || (struct _KTHREAD *)qword_140C52A08 == KeGetCurrentThread() )
+  memset(v9, 0, sizeof(v9));
+  v9[5] = -1LL;
+  v9[19] = MiCrashdumpRemovePte;
+  v9[21] = BugCheckParameter2;
+  AnyMultiplexedVm = MiGetAnyMultiplexedVm(0);
+  v6 = (__int64)AnyMultiplexedVm;
+  v9[3] = AnyMultiplexedVm;
+  if ( (KiBugCheckActive & 3) != 0 || (struct _KTHREAD *)qword_140C4E708 == KeGetCurrentThread() )
   {
-    v5[0].m128i_i32[0] = 67584;
-    return MiWalkPageTables(v5);
+    BYTE6(v9[0]) = 17;
+    SharedVm = MiGetSharedVm((__int64)AnyMultiplexedVm);
+    if ( !(unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(SharedVm) )
+      KeBugCheckEx(0x1Au, 0x50000uLL, BugCheckParameter2, 0LL, 0LL);
   }
   else
   {
-    v5[1].m128i_i64[1] = (__int64)MiGetAnyMultiplexedVm(0);
-    v2 = v5[1].m128i_i64[1];
-    v5[0].m128i_i32[0] = 6;
-    v5[0].m128i_i8[7] = MiLockWorkingSetShared(v5[1].m128i_i64[1]);
-    MiWalkPageTables(v5);
-    return MiUnlockWorkingSetShared(v2, v5[0].m128i_u8[7]);
+    LOWORD(v9[0]) = 6;
+    BYTE6(v9[0]) = MiLockWorkingSetShared((__int64)AnyMultiplexedVm, v3, v4, v5);
+  }
+  MiWalkPageTables((__int64)v9);
+  if ( BYTE6(v9[0]) == 17 )
+  {
+    MiCheckProcessShadow(v6, 2u);
+    v7 = MiGetSharedVm(v6);
+    ExReleaseSpinLockExclusiveFromDpcLevel(v7);
+  }
+  else
+  {
+    MiUnlockWorkingSetShared(v6, BYTE6(v9[0]));
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0pxffffffffffffffff_EventWriteTransfer @ 0x1801D76D4
+ * XREFs of McTemplateU0pxffffffffffffffff_EventWriteTransfer @ 0x18018FA20
  * Callers:
- *     ?SetWorldTransform@CDesktopTreeData@@MEAA_NAEBVCMILMatrix@@_NPEAV2@@Z @ 0x1800C2CC0 (-SetWorldTransform@CDesktopTreeData@@MEAA_NAEBVCMILMatrix@@_NPEAV2@@Z.c)
+ *     ?SetWorldTransform@CDesktopTreeData@@MEAAJAEBVCMILMatrix@@_NPEAV2@@Z @ 0x1800BE5B0 (-SetWorldTransform@CDesktopTreeData@@MEAAJAEBVCMILMatrix@@_NPEAV2@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateU0pxffffffffffffffff_EventWriteTransfer(
@@ -108,7 +108,7 @@ ULONG __fastcall McTemplateU0pxffffffffffffffff_EventWriteTransfer(
   v55 = 4LL;
   v57 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_INPUT_SINK_UPDATE_TRANSFORM,
            a3,
            0x13u,

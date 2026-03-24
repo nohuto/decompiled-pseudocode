@@ -1,111 +1,96 @@
 /*
- * XREFs of ?RetrievePinnedModeForTarget@@YAJQEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPN__@@IPEAU_D3DKMDT_VIDPN_TARGET_MODE@@PEAU_D3DDDI_RATIONAL@@PEAI@Z @ 0x1C01F4938
+ * XREFs of ?RetrievePinnedModeForTarget@@YAJQEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPN__@@IPEAU_D3DKMDT_VIDPN_TARGET_MODE@@@Z @ 0x1C025E690
  * Callers:
- *     ?PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@I_KPEAU_DXGK_DISPLAYMODE_INFO@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@EEPEAPEAU2@@Z @ 0x1C01F434C (-PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM.c)
+ *     ?PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@I_KPEAU_D3DKMT_DISPLAYMODE@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@EEPEAPEAU2@@Z @ 0x1C025DA64 (-PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Own@?$AutoRelease@PEAUD3DKMDT_HVIDPNTARGETMODESET__@@P6AJPEAUD3DKMDT_HVIDPN__@@PEAU1@@ZPEAU2@@DXGDMM@@QEAAXPEAUD3DKMDT_HVIDPNTARGETMODESET__@@Q6AJPEAUD3DKMDT_HVIDPN__@@0@Z1@Z @ 0x1C0013E94 (-Own@-$AutoRelease@PEAUD3DKMDT_HVIDPNTARGETMODESET__@@P6AJPEAUD3DKMDT_HVIDPN__@@PEAU1@@ZPEAU2@@D.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?Own@?$AutoRelease@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@P6AJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU1@@ZPEAU2@@DXGDMM@@QEAAXPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@Q6AJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@0@Z1@Z @ 0x1C0002B08 (-Own@-$AutoRelease@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@P6AJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU1@@ZPE.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall RetrievePinnedModeForTarget(
         const struct _DXGDMM_VIDPN_INTERFACE *const a1,
         struct D3DKMDT_HVIDPN__ *a2,
         unsigned int a3,
-        struct _D3DKMDT_VIDPN_TARGET_MODE *a4,
-        struct _D3DDDI_RATIONAL *a5,
-        unsigned int *a6)
+        struct _D3DKMDT_VIDPN_TARGET_MODE *a4)
 {
-  __int64 (__fastcall *v6)(struct D3DKMDT_HVIDPN__ *, _QWORD, __int64 *, __int64 *); // rax
-  __int64 v8; // rdi
-  int v11; // eax
-  __int64 v12; // r14
-  __int64 v13; // r8
-  int v14; // eax
-  __int64 v15; // rsi
-  __int64 v16; // rdi
-  _OWORD *v17; // rdx
-  __int64 v18; // rax
-  __int64 v19; // rcx
-  __int64 v21; // [rsp+50h] [rbp-19h] BYREF
-  _OWORD *v22; // [rsp+58h] [rbp-11h] BYREF
-  _BYTE v23[8]; // [rsp+60h] [rbp-9h] BYREF
-  __int64 v24; // [rsp+68h] [rbp-1h]
-  void (__fastcall *v25)(__int64, __int64); // [rsp+70h] [rbp+7h]
-  __int64 v26; // [rsp+78h] [rbp+Fh]
-  int v27; // [rsp+80h] [rbp+17h]
-  __int64 v28; // [rsp+C0h] [rbp+57h] BYREF
+  __int64 (__fastcall *v4)(struct D3DKMDT_HVIDPN__ *, _QWORD, __int64 *, __int64 *); // rax
+  __int64 v7; // rsi
+  int v9; // eax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rbx
+  _QWORD *v13; // rax
+  __int64 v14; // r8
+  int v15; // eax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rdi
+  __int64 v19; // rax
+  _OWORD *v20; // rdx
+  __int64 v21; // rax
+  __int64 v22; // rcx
+  __int64 v24; // [rsp+30h] [rbp-40h] BYREF
+  _OWORD *v25; // [rsp+38h] [rbp-38h] BYREF
+  _BYTE v26[8]; // [rsp+40h] [rbp-30h] BYREF
+  __int64 v27; // [rsp+48h] [rbp-28h]
+  void (__fastcall *v28)(__int64, __int64); // [rsp+50h] [rbp-20h]
+  __int64 v29; // [rsp+58h] [rbp-18h]
+  int v30; // [rsp+60h] [rbp-10h]
+  __int64 v31; // [rsp+90h] [rbp+20h] BYREF
 
-  v6 = (__int64 (__fastcall *)(struct D3DKMDT_HVIDPN__ *, _QWORD, __int64 *, __int64 *))*((_QWORD *)a1 + 3);
-  v8 = a3;
-  v28 = 0LL;
-  v21 = 0LL;
-  v11 = v6(a2, a3, &v28, &v21);
-  v12 = v11;
-  if ( v11 < 0 )
+  v4 = (__int64 (__fastcall *)(struct D3DKMDT_HVIDPN__ *, _QWORD, __int64 *, __int64 *))*((_QWORD *)a1 + 3);
+  v31 = 0LL;
+  v24 = 0LL;
+  v7 = a3;
+  v9 = v4(a2, a3, &v31, &v24);
+  v12 = v9;
+  if ( v9 < 0 )
   {
-    WdLogSingleEntry3(2LL, v8, a2, v11);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to acquire target mode set of target 0x%I64x in VidPN 0x%I64x (status = 0x%I64x)",
-      v8,
-      (__int64)a2,
-      v12,
-      0LL,
-      0LL);
+    v13 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+    v13[3] = v7;
+    v13[4] = a2;
+    v13[5] = v12;
+    WdLogEvent5_WdError(v13);
     return (unsigned int)v12;
   }
-  else
+  v14 = *((_QWORD *)a1 + 4);
+  v27 = 0LL;
+  v28 = 0LL;
+  v29 = 0LL;
+  v30 = 0;
+  v26[0] = 0;
+  DXGDMM::AutoRelease<_D3DKMDT_VIDPN_PRESENT_PATH const *,long (*)(D3DKMDT_HVIDPNTOPOLOGY__ *,_D3DKMDT_VIDPN_PRESENT_PATH const *),D3DKMDT_HVIDPNTOPOLOGY__ *>::Own(
+    (__int64)v26,
+    v31,
+    v14,
+    (__int64)a2);
+  v25 = 0LL;
+  v15 = (*(__int64 (__fastcall **)(__int64, _OWORD **))(v24 + 24))(v31, &v25);
+  v18 = v27;
+  v12 = v15;
+  if ( v15 < 0 )
+    goto LABEL_6;
+  if ( v15 == 1075708679 )
   {
-    v13 = *((_QWORD *)a1 + 4);
-    v24 = 0LL;
-    v25 = 0LL;
-    v26 = 0LL;
-    v27 = 0;
-    v23[0] = 0;
-    DXGDMM::AutoRelease<D3DKMDT_HVIDPNTARGETMODESET__ *,long (*)(D3DKMDT_HVIDPN__ *,D3DKMDT_HVIDPNTARGETMODESET__ *),D3DKMDT_HVIDPN__ *>::Own(
-      (__int64)v23,
-      v28,
-      v13,
-      (__int64)a2);
-    v22 = 0LL;
-    v14 = (*(__int64 (__fastcall **)(__int64, _OWORD **, struct _D3DDDI_RATIONAL *, unsigned int *))(v21 + 24))(
-            v28,
-            &v22,
-            a5,
-            a6);
-    v15 = v24;
-    v16 = v14;
-    if ( v14 < 0 || v14 == 1075708679 )
-    {
-      WdLogSingleEntry2(2LL, v24, v14);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to acquire info of mode pinned in VidPN target mode set 0x%I64x (status = 0x%I64x)",
-        v15,
-        v16,
-        0LL,
-        0LL,
-        0LL);
-    }
-    else
-    {
-      v17 = v22;
-      v18 = v21;
-      v19 = v28;
-      *(_OWORD *)&a4->Id = *v22;
-      *(_OWORD *)&a4->VideoSignalInfo.TotalSize.cy = v17[1];
-      *(_OWORD *)&a4->VideoSignalInfo.VSyncFreq.Denominator = v17[2];
-      *(_OWORD *)&a4->VideoSignalInfo.PixelRate = v17[3];
-      *(_OWORD *)&a4->WireFormatAndPreference.0 = v17[4];
-      (*(void (__fastcall **)(__int64))(v18 + 32))(v19);
-    }
-    if ( v23[0] )
-      v25(v26, v15);
-    return (unsigned int)v16;
+    v12 = -1071774970LL;
+LABEL_6:
+    v19 = WdLogNewEntry5_WdError(v17, v16);
+    *(_QWORD *)(v19 + 24) = v18;
+    *(_QWORD *)(v19 + 32) = v12;
+    WdLogEvent5_WdError(v19);
+    goto LABEL_8;
   }
+  v20 = v25;
+  v21 = v24;
+  v22 = v31;
+  *(_OWORD *)&a4->Id = *v25;
+  *(_OWORD *)&a4->VideoSignalInfo.TotalSize.cy = v20[1];
+  *(_OWORD *)&a4->VideoSignalInfo.VSyncFreq.Denominator = v20[2];
+  *(_OWORD *)&a4->VideoSignalInfo.PixelRate = v20[3];
+  *(_QWORD *)&a4->WireFormatAndPreference.0 = *((_QWORD *)v20 + 8);
+  (*(void (__fastcall **)(__int64))(v21 + 32))(v22);
+LABEL_8:
+  if ( v26[0] )
+    v28(v29, v18);
+  return (unsigned int)v12;
 }

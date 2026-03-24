@@ -1,9 +1,9 @@
 /*
- * XREFs of DCompositionThreadCallout @ 0x1C00A7760
+ * XREFs of DCompositionThreadCallout @ 0x1C0097770
  * Callers:
  *     <none>
  * Callees:
- *     ?OnDwmRenderThreadExit@CConnection@DirectComposition@@SAXXZ @ 0x1C00A7788 (-OnDwmRenderThreadExit@CConnection@DirectComposition@@SAXXZ.c)
+ *     ?OnDwmRenderThreadExit@CConnection@DirectComposition@@SAXXZ @ 0x1C0097798 (-OnDwmRenderThreadExit@CConnection@DirectComposition@@SAXXZ.c)
  */
 
 __int64 __fastcall DCompositionThreadCallout(struct _ETHREAD *a1, int a2)

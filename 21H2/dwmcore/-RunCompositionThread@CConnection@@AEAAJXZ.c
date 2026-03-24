@@ -1,50 +1,68 @@
 /*
- * XREFs of ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800DD5DC
+ * XREFs of ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x18002692C
  * Callers:
- *     ?CompositionThreadEntryPoint@CConnection@@CAKPEAX@Z @ 0x1800DD5D0 (-CompositionThreadEntryPoint@CConnection@@CAKPEAX@Z.c)
+ *     ?CompositionThreadEntryPoint@CConnection@@CAKPEAX@Z @ 0x180026920 (-CompositionThreadEntryPoint@CConnection@@CAKPEAX@Z.c)
  * Callees:
- *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x18003DB7C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18004F61C (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?MainCompositionThreadLoop@CConnection@@AEAAJXZ @ 0x1800DD6EC (-MainCompositionThreadLoop@CConnection@@AEAAJXZ.c)
- *     _anonymous_namespace_::State::State @ 0x1800DDC30 (_anonymous_namespace_--State--State.c)
- *     ??0CEnergyReporter@@AEAA@XZ @ 0x1800DDD50 (--0CEnergyReporter@@AEAA@XZ.c)
- *     ??0CProcessAttributionReporter@@AEAA@XZ @ 0x1800DDDEC (--0CProcessAttributionReporter@@AEAA@XZ.c)
- *     ??0CProcessResourceAttributionReporter@@AEAA@XZ @ 0x1800DDE54 (--0CProcessResourceAttributionReporter@@AEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180193D74 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _anonymous_namespace_::State::_State @ 0x1801A97FC (_anonymous_namespace_--State--_State.c)
- *     ??1CProcessAttributionManager@@AEAA@XZ @ 0x1801AE724 (--1CProcessAttributionManager@@AEAA@XZ.c)
- *     ??1CEnergyReporter@@AEAA@XZ @ 0x1801AEAA4 (--1CEnergyReporter@@AEAA@XZ.c)
- *     ??1CProcessAttributionReporter@@AEAA@XZ @ 0x1801AEC28 (--1CProcessAttributionReporter@@AEAA@XZ.c)
- *     ??1CProcessResourceAttributionReporter@@AEAA@XZ @ 0x1801AEDC8 (--1CProcessResourceAttributionReporter@@AEAA@XZ.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?Initialize@CPartitionVerticalBlankScheduler@@AEAAJXZ @ 0x180026D74 (-Initialize@CPartitionVerticalBlankScheduler@@AEAAJXZ.c)
+ *     ??0CPartitionVerticalBlankScheduler@@AEAA@PEAVCTransport@@PEAVCConnection@@@Z @ 0x180027274 (--0CPartitionVerticalBlankScheduler@@AEAA@PEAVCTransport@@PEAVCConnection@@@Z.c)
+ *     _anonymous_namespace_::State::State @ 0x18002841C (_anonymous_namespace_--State--State.c)
+ *     ??0CProcessResourceAttributionReporter@@AEAA@XZ @ 0x1800292F8 (--0CProcessResourceAttributionReporter@@AEAA@XZ.c)
+ *     ??0CEnergyReporter@@AEAA@XZ @ 0x18002936C (--0CEnergyReporter@@AEAA@XZ.c)
+ *     ??0CProcessAttributionReporter@@AEAA@XZ @ 0x180029408 (--0CProcessAttributionReporter@@AEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F358 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     ?Create@CKernelTransport@@SAJPEAPEAVCTransport@@@Z @ 0x1800DF8C8 (-Create@CKernelTransport@@SAJPEAPEAVCTransport@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??1CProcessAttributionManager@@AEAA@XZ @ 0x180151AE4 (--1CProcessAttributionManager@@AEAA@XZ.c)
+ *     _anonymous_namespace_::State::_State @ 0x180152800 (_anonymous_namespace_--State--_State.c)
+ *     ??1CProcessAttributionReporter@@AEAA@XZ @ 0x180152FBC (--1CProcessAttributionReporter@@AEAA@XZ.c)
+ *     ??1CProcessResourceAttributionReporter@@AEAA@XZ @ 0x1801535D0 (--1CProcessResourceAttributionReporter@@AEAA@XZ.c)
+ *     ??_GCPartitionVerticalBlankScheduler@@UEAAPEAXI@Z @ 0x180153F60 (--_GCPartitionVerticalBlankScheduler@@UEAAPEAXI@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CConnection::RunCompositionThread(CConnection *this)
 {
   CProcessAttributionManager *v2; // rax
-  LPVOID v3; // rax
+  void *v3; // rax
   void *v4; // rax
   void *v5; // rax
   CEnergyReporter *v6; // rax
   CProcessAttributionReporter *v7; // rax
-  void *v8; // rax
-  union _SLIST_HEADER *v9; // rax
-  int v10; // eax
-  unsigned int v11; // edi
-  void (__fastcall ***v12)(_QWORD, __int64); // rcx
-  void (__fastcall ***v13)(_QWORD, __int64); // rcx
-  CProcessResourceAttributionReporter *v14; // rbx
-  CProcessAttributionReporter *v15; // rbx
-  CEnergyReporter *v16; // rbx
-  void *v17; // rbx
-  CProcessAttributionManager *v18; // rbx
-  int v20; // [rsp+20h] [rbp-8h]
-  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  CProcessAttributionReporter *v8; // rax
+  void *v9; // rax
+  union _SLIST_HEADER *v10; // rax
+  struct CTransport **v11; // r14
+  int v12; // eax
+  unsigned int v13; // ecx
+  int v14; // ebx
+  struct CTransport *v15; // rbx
+  CPartitionVerticalBlankScheduler *v16; // rax
+  CPartitionVerticalBlankScheduler *v17; // rax
+  unsigned int v18; // ecx
+  CPartitionVerticalBlankScheduler *v19; // rsi
+  unsigned int v20; // ecx
+  int v21; // eax
+  __int64 v22; // r8
+  __int64 v23; // r8
+  void (__fastcall ***v24)(_QWORD, __int64); // rcx
+  CProcessAttributionReporter *v25; // rdi
+  CProcessResourceAttributionReporter *v26; // rdi
+  CEnergyReporter *v27; // rdi
+  void (__fastcall ***v28)(_QWORD, __int64); // rcx
+  void *v29; // rdi
+  CProcessAttributionManager *v30; // rdi
+  unsigned int v32; // [rsp+20h] [rbp-68h]
+  char v33[16]; // [rsp+30h] [rbp-58h] BYREF
+  char v34[16]; // [rsp+40h] [rbp-48h] BYREF
+  void *retaddr; // [rsp+88h] [rbp+0h]
 
   v2 = (CProcessAttributionManager *)DefaultHeap::AllocClear(0x30uLL);
   if ( !v2 )
@@ -55,105 +73,155 @@ __int64 __fastcall CConnection::RunCompositionThread(CConnection *this)
   *((_QWORD *)v2 + 3) = 0LL;
   *((_QWORD *)v2 + 4) = 0LL;
   *((_QWORD *)v2 + 5) = 0LL;
-  qword_1803D33D8 = v2;
+  lpMem = v2;
   v3 = operator new(0x40uLL);
   if ( v3 )
     v4 = (void *)anonymous_namespace_::State::State(v3);
   else
     v4 = 0LL;
-  qword_1803D33C8 = v4;
+  qword_1803471C8 = v4;
   v5 = DefaultHeap::Alloc(0x78uLL);
   if ( v5 )
     v6 = CEnergyReporter::CEnergyReporter(v5);
   else
     v6 = 0LL;
-  qword_1803D33E0 = v6;
+  qword_180347470 = v6;
   v7 = (CProcessAttributionReporter *)DefaultHeap::Alloc(0x80uLL);
-  if ( !v7 )
-  {
-    qword_1803D33E8 = 0LL;
-LABEL_36:
-    ModuleFailFastForHRESULT(2147942414LL, retaddr);
-  }
-  qword_1803D33E8 = CProcessAttributionReporter::CProcessAttributionReporter(v7);
-  if ( !qword_1803D33E8 )
-    goto LABEL_36;
-  v8 = DefaultHeap::Alloc(0x40uLL);
+  if ( v7 )
+    v8 = CProcessAttributionReporter::CProcessAttributionReporter(v7);
+  else
+    v8 = 0LL;
+  qword_180347478 = v8;
   if ( !v8 )
-  {
-    qword_1803D33F0 = 0LL;
-LABEL_34:
     ModuleFailFastForHRESULT(2147942414LL, retaddr);
-  }
-  v9 = (union _SLIST_HEADER *)CProcessResourceAttributionReporter::CProcessResourceAttributionReporter(v8);
-  qword_1803D33F0 = (CProcessResourceAttributionReporter *)v9;
-  if ( !v9 )
-    goto LABEL_34;
-  InitializeSListHead(v9 + 1);
-  v10 = CConnection::MainCompositionThreadLoop(this);
-  v11 = v10;
-  if ( v10 < 0 )
-    wil::details::in1diag3::_Log_Hr(
-      retaddr,
-      (void *)0x79,
-      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\connection.cpp",
-      (const char *)(unsigned int)v10,
-      v20);
-  (*(void (__fastcall **)(CConnection *, __int64))(*(_QWORD *)this + 24LL))(this, 2291663905LL);
-  v12 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 4);
-  if ( v12 )
+  v9 = DefaultHeap::Alloc(0x40uLL);
+  if ( v9 )
+    v10 = (union _SLIST_HEADER *)CProcessResourceAttributionReporter::CProcessResourceAttributionReporter(v9);
+  else
+    v10 = 0LL;
+  qword_180347480 = (CProcessResourceAttributionReporter *)v10;
+  if ( !v10 )
+    ModuleFailFastForHRESULT(2147942414LL, retaddr);
+  InitializeSListHead(v10 + 1);
+  v11 = (struct CTransport **)((char *)this + 40);
+  v12 = CKernelTransport::Create((struct CTransport **)this + 5);
+  v14 = v12;
+  if ( v12 < 0 )
   {
-    (**v12)(v12, 1LL);
-    *((_QWORD *)this + 4) = 0LL;
+    v32 = 200;
+LABEL_33:
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, v32, 0LL);
   }
-  v13 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 1);
-  if ( v13 )
+  else
   {
-    (**v13)(v13, 1LL);
-    *((_QWORD *)this + 1) = 0LL;
+    v15 = *v11;
+    v16 = (CPartitionVerticalBlankScheduler *)DefaultHeap::AllocClear(0x3E50uLL);
+    if ( !v16 )
+      ModuleFailFastForHRESULT(2147942414LL, retaddr);
+    v17 = CPartitionVerticalBlankScheduler::CPartitionVerticalBlankScheduler(v16, v15, this);
+    v19 = v17;
+    if ( !v17 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2147024882, 0x1Fu, 0LL);
+      v14 = -2147024882;
+LABEL_20:
+      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v14, 0xCDu, 0LL);
+      goto LABEL_34;
+    }
+    v21 = CPartitionVerticalBlankScheduler::Initialize(v17);
+    v14 = v21;
+    if ( v21 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v21, 0x20u, 0LL);
+      CPartitionVerticalBlankScheduler::`scalar deleting destructor'(v19, 1u);
+    }
+    else
+    {
+      *((_QWORD *)this + 2) = v19;
+    }
+    if ( v14 < 0 )
+      goto LABEL_20;
+    SetEvent(*((HANDLE *)this + 4));
+    *((_BYTE *)this + 56) = 1;
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+      McGenEventWrite_EventWriteTransfer(
+        &Microsoft_Windows_Dwm_Core_Provider_Context,
+        &EVTDESC_SCHEDULE_VBLANK_LOOP_Start,
+        v22,
+        1LL,
+        v33);
+    do
+    {
+      v12 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 2) + 128LL))(*((_QWORD *)this + 2));
+      v14 = v12;
+      if ( v12 < 0 )
+      {
+        v32 = 218;
+        goto LABEL_33;
+      }
+    }
+    while ( *((_BYTE *)this + 56) );
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+      McGenEventWrite_EventWriteTransfer(
+        &Microsoft_Windows_Dwm_Core_Provider_Context,
+        &EVTDESC_SCHEDULE_VBLANK_LOOP_Stop,
+        v23,
+        1LL,
+        v34);
   }
-  v14 = qword_1803D33F0;
-  if ( qword_1803D33F0 )
+LABEL_34:
+  (*(void (__fastcall **)(CConnection *, __int64))(*(_QWORD *)this + 40LL))(this, 2291663905LL);
+  v24 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 2);
+  if ( v24 )
   {
-    CProcessResourceAttributionReporter::~CProcessResourceAttributionReporter(qword_1803D33F0);
-    operator delete(v14, 0x40uLL);
+    (**v24)(v24, 1LL);
+    *((_QWORD *)this + 2) = 0LL;
   }
-  v15 = qword_1803D33E8;
-  qword_1803D33F0 = 0LL;
-  if ( qword_1803D33E8 )
+  if ( *v11 )
   {
-    CProcessAttributionReporter::~CProcessAttributionReporter(qword_1803D33E8);
-    operator delete(v15, 0x80uLL);
+    (**(void (__fastcall ***)(struct CTransport *, __int64))*v11)(*v11, 1LL);
+    *v11 = 0LL;
   }
-  v16 = qword_1803D33E0;
-  qword_1803D33E8 = 0LL;
-  if ( qword_1803D33E0 )
+  v25 = qword_180347478;
+  if ( qword_180347478 )
   {
-    CEnergyReporter::~CEnergyReporter(qword_1803D33E0);
-    operator delete(v16, 0x78uLL);
+    CProcessAttributionReporter::~CProcessAttributionReporter(qword_180347478);
+    operator delete(v25, 0x80uLL);
   }
-  v17 = qword_1803D33C8;
-  qword_1803D33E0 = 0LL;
-  if ( qword_1803D33C8 )
+  v26 = qword_180347480;
+  qword_180347478 = 0LL;
+  if ( qword_180347480 )
   {
-    anonymous_namespace_::State::_State(qword_1803D33C8);
-    operator delete(v17, 0x40uLL);
+    CProcessResourceAttributionReporter::~CProcessResourceAttributionReporter(qword_180347480);
+    operator delete(v26, 0x40uLL);
   }
-  v18 = qword_1803D33D8;
-  qword_1803D33C8 = 0LL;
-  if ( qword_1803D33D8 )
+  v27 = qword_180347470;
+  qword_180347480 = 0LL;
+  if ( qword_180347470 )
   {
-    CProcessAttributionManager::~CProcessAttributionManager(qword_1803D33D8);
-    DefaultHeap::Free(v18);
+    WaitForThreadpoolWorkCallbacks(*((PTP_WORK *)qword_180347470 + 9), 1);
+    CloseThreadpoolWork(*((PTP_WORK *)v27 + 9));
+    v28 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)v27 + 6);
+    if ( v28 )
+      (**v28)(v28, 1LL);
+    DynArrayImpl<0>::~DynArrayImpl<0>((char *)v27 + 88);
+    DynArrayImpl<0>::~DynArrayImpl<0>((char *)v27 + 16);
+    operator delete(v27, 0x78uLL);
   }
-  qword_1803D33D8 = 0LL;
-  if ( qword_1803D7618 )
+  v29 = qword_1803471C8;
+  qword_180347470 = 0LL;
+  if ( qword_1803471C8 )
   {
-    (*(void (__fastcall **)(CDisplayManager *))(*(_QWORD *)qword_1803D7618 + 16LL))(qword_1803D7618);
-    qword_1803D7618 = 0LL;
+    anonymous_namespace_::State::_State(qword_1803471C8);
+    operator delete(v29, 0x40uLL);
   }
-  wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
-    (void **)&qword_1803D7620,
-    0LL);
-  return v11;
+  v30 = lpMem;
+  qword_1803471C8 = 0LL;
+  if ( lpMem )
+  {
+    CProcessAttributionManager::~CProcessAttributionManager(lpMem);
+    operator delete(v30);
+  }
+  lpMem = 0LL;
+  return (unsigned int)v14;
 }

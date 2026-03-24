@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpSampledProfileRunDown @ 0x1409EB5B4
+ * XREFs of EtwpSampledProfileRunDown @ 0x14093ED08
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140814360 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x14079743C (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall EtwpSampledProfileRunDown(__int64 a1, char a2, char a3)
 {
   unsigned __int16 v3; // si
-  unsigned __int16 *v6; // rcx
+  char *v6; // rcx
   unsigned int v7; // eax
   __int16 *v8; // rdi
   __int64 v9; // r15
-  unsigned int v10; // r14d
-  unsigned int v11; // eax
+  int v10; // r14d
+  int v11; // eax
   const WCHAR *v12; // rcx
   const WCHAR *v13; // rdx
   __int64 v14; // rax
@@ -27,8 +27,8 @@ void __fastcall EtwpSampledProfileRunDown(__int64 a1, char a2, char a3)
   int v17; // [rsp+38h] [rbp-29h] BYREF
   __int128 v18; // [rsp+40h] [rbp-21h] BYREF
   const WCHAR *v19; // [rsp+50h] [rbp-11h]
-  unsigned __int64 v20; // [rsp+58h] [rbp-9h] BYREF
-  unsigned int v21; // [rsp+60h] [rbp-1h]
+  __int64 v20; // [rsp+58h] [rbp-9h] BYREF
+  int v21; // [rsp+60h] [rbp-1h]
   _QWORD v22[3]; // [rsp+68h] [rbp+7h] BYREF
   int v23; // [rsp+80h] [rbp+1Fh]
   int v24; // [rsp+84h] [rbp+23h]
@@ -41,14 +41,14 @@ void __fastcall EtwpSampledProfileRunDown(__int64 a1, char a2, char a3)
   v18 = 0LL;
   if ( a3 )
   {
-    v6 = EtwpProfileObject;
+    v6 = (char *)&EtwpProfileObject;
     v7 = 1;
   }
   else
   {
     KeWaitForSingleObject(&EtwpGroupMaskMutex, Executive, 0, 0, 0LL);
     v7 = EtwpPmcProfile;
-    v6 = (unsigned __int16 *)qword_140C16468;
+    v6 = (char *)qword_140C19E88;
     if ( !EtwpPmcProfile )
     {
 LABEL_14:
@@ -56,14 +56,17 @@ LABEL_14:
       return;
     }
   }
-  v8 = (__int16 *)(v6 + 172);
+  v22[1] = 12LL;
+  v22[0] = &v20;
+  v8 = (__int16 *)(v6 + 240);
+  v24 = 0;
   v9 = v7;
   do
   {
     v10 = *v8;
     v17 = 0;
     LODWORD(v18) = v10;
-    if ( ((int (__fastcall *)(__int64, __int64, __int128 *, int *))off_140C020D8[0])(1LL, 24LL, &v18, &v17) < 0 )
+    if ( ((int (__fastcall *)(__int64, __int64, __int128 *, int *))off_140C00A68[0])(1LL, 24LL, &v18, &v17) < 0 )
     {
       v11 = 0;
       v12 = L"Unknown";
@@ -73,24 +76,22 @@ LABEL_14:
       v11 = DWORD2(v18);
       v12 = v19;
     }
+    HIDWORD(v20) = v11;
     v13 = L"Unknown";
     v21 = v11;
-    v20 = __PAIR64__(v11, v10);
     if ( v12 )
       v13 = v12;
-    v22[0] = &v20;
+    LODWORD(v20) = v10;
+    v22[2] = v13;
     v14 = -1LL;
-    v22[1] = 12LL;
     do
       ++v14;
     while ( v13[v14] );
     v15 = *(_DWORD *)a1;
-    v22[2] = v13;
-    v16 = *(_QWORD *)(a1 + 1096);
+    v16 = *(_QWORD *)(a1 + 1080);
     v23 = 2 * v14 + 2;
-    v24 = 0;
     EtwpLogKernelEvent((__int64)v22, v16, v15, 2u, v3, 0x401903u);
-    v8 += 176;
+    v8 += 124;
     --v9;
   }
   while ( v9 );

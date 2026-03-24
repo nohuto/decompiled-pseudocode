@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIRegLocalCopyString @ 0x1C008D398
+ * XREFs of ACPIRegLocalCopyString @ 0x1C008FEA8
  * Callers:
- *     ACPIRegGetTableFromSimulatorRegistryEntry @ 0x1C008D16C (ACPIRegGetTableFromSimulatorRegistryEntry.c)
- *     ACPIRegReadAMLRegistryEntry @ 0x1C008D3EC (ACPIRegReadAMLRegistryEntry.c)
- *     PnpiUpdateForceActiveBothInterrupts @ 0x1C0091FD4 (PnpiUpdateForceActiveBothInterrupts.c)
- *     ACPIRegDumpAcpiTable @ 0x1C00A9FFC (ACPIRegDumpAcpiTable.c)
+ *     ACPIRegReadAMLRegistryEntry @ 0x1C008FCF0 (ACPIRegReadAMLRegistryEntry.c)
+ *     ACPIRegGetTableFromSimulatorRegistryEntry @ 0x1C00B2278 (ACPIRegGetTableFromSimulatorRegistryEntry.c)
+ *     PnpiUpdateForceActiveBothInterrupts @ 0x1C00B41DC (PnpiUpdateForceActiveBothInterrupts.c)
+ *     ACPIRegDumpAcpiTable @ 0x1C00BC6F4 (ACPIRegDumpAcpiTable.c)
  * Callees:
  *     <none>
  */

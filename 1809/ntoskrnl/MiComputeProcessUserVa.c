@@ -1,11 +1,11 @@
 /*
- * XREFs of MiComputeProcessUserVa @ 0x14067A11C
+ * XREFs of MiComputeProcessUserVa @ 0x14067A0FC
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406798D8 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406798B8 (MmInitializeProcessAddressSpace.c)
  * Callees:
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiCreateSystemWsles @ 0x1400F3184 (MiCreateSystemWsles.c)
- *     MiUpdateChargedWsles @ 0x1402CB58C (MiUpdateChargedWsles.c)
+ *     MiCreateSystemWsles @ 0x1400F31A4 (MiCreateSystemWsles.c)
+ *     MiUpdateChargedWsles @ 0x1402CB68C (MiUpdateChargedWsles.c)
  *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
  */
 

@@ -1,46 +1,44 @@
 /*
- * XREFs of AlpcpReleaseMessageAttributesOnCancel @ 0x140779CD0
+ * XREFs of AlpcpReleaseMessageAttributesOnCancel @ 0x1405E2F90
  * Callers:
- *     AlpcpCancelMessagesByRequestor @ 0x140719264 (AlpcpCancelMessagesByRequestor.c)
- *     AlpcpCancelMessage @ 0x14077971C (AlpcpCancelMessage.c)
+ *     AlpcpCancelMessagesByRequestor @ 0x1405E2A50 (AlpcpCancelMessagesByRequestor.c)
+ *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
- *     AlpcpReleaseViewAttribute @ 0x1407DC078 (AlpcpReleaseViewAttribute.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReleaseViewAttribute @ 0x140697744 (AlpcpReleaseViewAttribute.c)
  */
 
-__int64 __fastcall AlpcpReleaseMessageAttributesOnCancel(__int64 a1)
+void __fastcall AlpcpReleaseMessageAttributesOnCancel(__int64 a1, int a2)
 {
-  ULONG_PTR v2; // rcx
-  ULONG_PTR v3; // rcx
   ULONG_PTR v4; // rcx
-  unsigned __int64 v5; // rcx
-  __int64 result; // rax
+  ULONG_PTR v5; // rcx
+  ULONG_PTR v6; // rcx
+  unsigned __int64 v7; // rcx
 
-  v2 = *(_QWORD *)(a1 + 136);
-  if ( v2 )
-  {
-    result = AlpcpDereferenceBlobEx(v2, 1);
-    *(_QWORD *)(a1 + 136) = 0LL;
-  }
-  v3 = *(_QWORD *)(a1 + 144);
-  if ( v3 && (*(_DWORD *)(a1 + 40) & 0x4000) == 0 )
-  {
-    result = AlpcpReleaseViewAttribute(v3);
-    *(_QWORD *)(a1 + 144) = 0LL;
-  }
-  v4 = *(_QWORD *)(a1 + 152);
+  v4 = *(_QWORD *)(a1 + 136);
   if ( v4 )
   {
-    result = AlpcpDereferenceBlobEx(v4, 1);
+    AlpcpDereferenceBlobEx(v4);
+    *(_QWORD *)(a1 + 136) = 0LL;
+  }
+  v5 = *(_QWORD *)(a1 + 144);
+  if ( v5 && (!a2 || (*(_DWORD *)(a1 + 40) & 0x4000) == 0) )
+  {
+    AlpcpReleaseViewAttribute(v5);
+    *(_QWORD *)(a1 + 144) = 0LL;
+  }
+  v6 = *(_QWORD *)(a1 + 152);
+  if ( v6 )
+  {
+    AlpcpDereferenceBlobEx(v6);
     *(_QWORD *)(a1 + 152) = 0LL;
   }
-  v5 = *(_QWORD *)(a1 + 160);
-  if ( (v5 & 1) != 0 )
+  v7 = *(_QWORD *)(a1 + 160);
+  if ( (v7 & 1) != 0 )
   {
-    if ( v5 >= 4 && (v5 & 2) != 0 )
-      result = ObfDereferenceObject((PVOID)(v5 & 0xFFFFFFFFFFFFFFFCuLL));
+    if ( v7 >= 4 && (v7 & 2) != 0 )
+      HalPutDmaAdapter((PADAPTER_OBJECT)(v7 & 0xFFFFFFFFFFFFFFFCuLL));
     *(_QWORD *)(a1 + 160) = 0LL;
   }
-  return result;
 }

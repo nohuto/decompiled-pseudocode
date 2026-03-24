@@ -1,40 +1,73 @@
 /*
- * XREFs of PopFxUnregisterDevice @ 0x14082310C
+ * XREFs of PopFxUnregisterDevice @ 0x1407B4F70
  * Callers:
- *     PopFxUnregisterDeviceOrWait @ 0x14080D7EC (PopFxUnregisterDeviceOrWait.c)
- *     PoFxUnregisterDevice @ 0x140864C90 (PoFxUnregisterDevice.c)
+ *     PopFxUnregisterDeviceOrWait @ 0x140736750 (PopFxUnregisterDeviceOrWait.c)
+ *     PoFxUnregisterDevice @ 0x1407D5160 (PoFxUnregisterDevice.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x140355058 (PopFxAddLogEntry.c)
- *     PoFxActivateComponent @ 0x140357D10 (PoFxActivateComponent.c)
- *     IoReleaseRemoveLockAndWaitEx @ 0x1403A7530 (IoReleaseRemoveLockAndWaitEx.c)
- *     PopPlUnregisterDevice @ 0x1403B9260 (PopPlUnregisterDevice.c)
- *     PopFxComponentRelationsCleanup @ 0x1403B9594 (PopFxComponentRelationsCleanup.c)
- *     PopFxAssignDeviceToDevNode @ 0x1403BA794 (PopFxAssignDeviceToDevNode.c)
- *     PopFxRemoveDevice @ 0x1403BA838 (PopFxRemoveDevice.c)
- *     PopFxDestroyDeviceDpm @ 0x1403DCAD0 (PopFxDestroyDeviceDpm.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PopFxDeviceRelationsCleanup @ 0x140419798 (PopFxDeviceRelationsCleanup.c)
- *     PopPluginUnregisterDevice @ 0x1405CEFE4 (PopPluginUnregisterDevice.c)
- *     PopPepUnregisterDevice @ 0x140823318 (PopPepUnregisterDevice.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
+ *     PoFxActivateComponent @ 0x1402627E0 (PoFxActivateComponent.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IoReleaseRemoveLockAndWaitEx @ 0x14039AE40 (IoReleaseRemoveLockAndWaitEx.c)
+ *     PopFxAssignDeviceToDevNode @ 0x1403BECA4 (PopFxAssignDeviceToDevNode.c)
+ *     PopFxRemoveDevice @ 0x1403BF3FC (PopFxRemoveDevice.c)
+ *     PopFxDestroyDeviceDpm @ 0x1403CD618 (PopFxDestroyDeviceDpm.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PopPluginUnregisterDevice @ 0x14056E0FC (PopPluginUnregisterDevice.c)
+ *     PopPlCalculateDevicePowerDraw @ 0x14057E364 (PopPlCalculateDevicePowerDraw.c)
+ *     PopPlLockPowerPlane @ 0x14057E4B0 (PopPlLockPowerPlane.c)
+ *     PopPlPublishSystemPowerChange @ 0x14057E778 (PopPlPublishSystemPowerChange.c)
+ *     PopPlUnlockPowerPlane @ 0x14057EF40 (PopPlUnlockPowerPlane.c)
+ *     PopPepUnregisterDevice @ 0x1407B52D0 (PopPepUnregisterDevice.c)
+ *     PopPlUnregisterComponent @ 0x1408F9ACC (PopPlUnregisterComponent.c)
  */
 
 __int64 __fastcall PopFxUnregisterDevice(ULONG_PTR BugCheckParameter2)
 {
   unsigned int v2; // eax
-  unsigned int i; // edi
-  unsigned int v4; // edi
-  struct _KEVENT *v5; // rdi
-  REGHANDLE v6; // rsi
+  unsigned int i; // ebx
+  unsigned int v4; // ebx
+  struct _KEVENT *v5; // rsi
+  REGHANDLE v6; // rbx
   unsigned int j; // r8d
-  unsigned int k; // esi
-  ULONG_PTR v9; // rcx
+  ULONG_PTR v8; // rcx
+  __int64 v9; // r14
+  unsigned __int16 *v10; // r12
+  int v11; // ebx
+  int v12; // eax
+  __int64 v13; // r8
+  int v14; // r15d
+  __int64 v15; // rax
+  int v16; // ecx
+  unsigned __int64 k; // rbx
   __int64 result; // rax
-  struct _KEVENT *v11; // [rsp+30h] [rbp-28h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-20h] BYREF
+  int v19; // [rsp+38h] [rbp-D0h] BYREF
+  unsigned int v20; // [rsp+3Ch] [rbp-CCh] BYREF
+  int v21; // [rsp+40h] [rbp-C8h] BYREF
+  int v22; // [rsp+44h] [rbp-C4h] BYREF
+  int v23; // [rsp+48h] [rbp-C0h] BYREF
+  int v24; // [rsp+4Ch] [rbp-BCh] BYREF
+  __int64 v25; // [rsp+50h] [rbp-B8h] BYREF
+  struct _KEVENT *v26; // [rsp+58h] [rbp-B0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+60h] [rbp-A8h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v28; // [rsp+78h] [rbp-90h] BYREF
+  int *v29; // [rsp+98h] [rbp-70h]
+  __int64 v30; // [rsp+A0h] [rbp-68h]
+  _DWORD *v31; // [rsp+A8h] [rbp-60h]
+  __int64 v32; // [rsp+B0h] [rbp-58h]
+  __int64 v33; // [rsp+B8h] [rbp-50h]
+  _DWORD v34[2]; // [rsp+C0h] [rbp-48h] BYREF
+  int *v35; // [rsp+C8h] [rbp-40h]
+  __int64 v36; // [rsp+D0h] [rbp-38h]
+  int *v37; // [rsp+D8h] [rbp-30h]
+  __int64 v38; // [rsp+E0h] [rbp-28h]
+  int *v39; // [rsp+E8h] [rbp-20h]
+  __int64 v40; // [rsp+F0h] [rbp-18h]
+  __int64 *v41; // [rsp+F8h] [rbp-10h]
+  __int64 v42; // [rsp+100h] [rbp-8h]
 
   if ( (*(_DWORD *)(BugCheckParameter2 + 824) & 1) == 0 )
   {
@@ -61,7 +94,7 @@ __int64 __fastcall PopFxUnregisterDevice(ULONG_PTR BugCheckParameter2)
   if ( v5 )
   {
     PopFxRemoveDevice(BugCheckParameter2, (_QWORD *)BugCheckParameter2);
-    v11 = v5;
+    v26 = v5;
     PopFxAddLogEntry((__int64)v5, 0, 2, 0LL);
     if ( PopDiagHandleRegistered )
     {
@@ -69,7 +102,7 @@ __int64 __fastcall PopFxUnregisterDevice(ULONG_PTR BugCheckParameter2)
       if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEVICE_UNREGISTRATION) )
       {
         *(_QWORD *)&UserData.Size = 8LL;
-        UserData.Ptr = (ULONGLONG)&v11;
+        UserData.Ptr = (ULONGLONG)&v26;
         EtwWrite(v6, &POP_ETW_EVENT_DEVICE_UNREGISTRATION, 0LL, 1u, &UserData);
       }
     }
@@ -81,17 +114,64 @@ __int64 __fastcall PopFxUnregisterDevice(ULONG_PTR BugCheckParameter2)
       _InterlockedDecrement(&PopFxResidentComponentCount);
   }
   IoReleaseRemoveLockAndWaitEx((PIO_REMOVE_LOCK)(BugCheckParameter2 + 240), 0LL, 0x20u);
-  if ( (_InterlockedCompareExchange((volatile signed __int32 *)(BugCheckParameter2 + 824), 0, 0) & 1) == 0 )
-  {
-    PopFxDeviceRelationsCleanup(BugCheckParameter2);
-    for ( k = 0; k < *(_DWORD *)(BugCheckParameter2 + 828); ++k )
-      PopFxComponentRelationsCleanup(*(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 832) + 8LL * k));
-  }
   PopPepUnregisterDevice(*(PVOID *)(BugCheckParameter2 + 56));
-  v9 = *(_QWORD *)(BugCheckParameter2 + 64);
+  v8 = *(_QWORD *)(BugCheckParameter2 + 64);
+  if ( v8 )
+    PopPluginUnregisterDevice(v8, *(_QWORD *)(BugCheckParameter2 + 72));
+  v9 = *(_QWORD *)(BugCheckParameter2 + 1184);
   if ( v9 )
-    PopPluginUnregisterDevice(v9, *(_QWORD *)(BugCheckParameter2 + 72));
-  PopPlUnregisterDevice(BugCheckParameter2);
+  {
+    v10 = *(unsigned __int16 **)(v9 + 16);
+    PopPlLockPowerPlane((__int64)v10);
+    v11 = *(_DWORD *)(v9 + 32);
+    v20 = 0;
+    v21 = 1;
+    v12 = PopPlCalculateDevicePowerDraw(BugCheckParameter2, &v21, &v20, 0LL);
+    *(_DWORD *)(v9 + 32) = v12;
+    v14 = v12 - v11;
+    if ( (unsigned int)dword_140C02228 > 5 )
+    {
+      v23 = v12;
+      v30 = 2LL;
+      LOWORD(v19) = 1;
+      v32 = 2LL;
+      v29 = &v19;
+      v34[1] = 0;
+      v31 = v34;
+      v33 = *(_QWORD *)(BugCheckParameter2 + 224);
+      v34[0] = *(unsigned __int16 *)(BugCheckParameter2 + 216);
+      v35 = &v22;
+      v37 = &v23;
+      v39 = &v24;
+      v15 = *(_QWORD *)(v9 + 16);
+      v22 = v14;
+      v36 = 4LL;
+      v38 = 4LL;
+      v24 = v14;
+      v40 = 4LL;
+      v16 = *(_DWORD *)(v15 + 28);
+      v41 = &v25;
+      LODWORD(v25) = v14 + v16;
+      v42 = 4LL;
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140C02228,
+        (unsigned __int8 *)&dword_14002A494,
+        0LL,
+        0LL,
+        9u,
+        &v28);
+    }
+    PopPlPublishSystemPowerChange(v10, v14, v13);
+    for ( k = 0LL;
+          k < *(unsigned int *)(BugCheckParameter2 + 828);
+          PopPlUnregisterComponent(*(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 832) + 8 * k++)) )
+    {
+      ;
+    }
+    *(_QWORD *)(v9 + 24) = 0LL;
+    *(_QWORD *)(BugCheckParameter2 + 1184) = 0LL;
+    PopPlUnlockPowerPlane((__int64)v10);
+  }
   if ( v5 )
     KeSetEvent(v5 + 4, 0, 0);
   result = *(unsigned int *)(BugCheckParameter2 + 824);

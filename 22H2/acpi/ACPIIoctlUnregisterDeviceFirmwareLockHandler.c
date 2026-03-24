@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIIoctlUnregisterDeviceFirmwareLockHandler @ 0x1C003152C
+ * XREFs of ACPIIoctlUnregisterDeviceFirmwareLockHandler @ 0x1C00583D4
  * Callers:
- *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIIrpDispatchDeviceControl @ 0x1C000B8A0 (ACPIIrpDispatchDeviceControl.c)
  * Callees:
- *     AcpiUnregisterDeviceFirmwareLockHandler @ 0x1C008285C (AcpiUnregisterDeviceFirmwareLockHandler.c)
+ *     AcpiUnregisterDeviceFirmwareLockHandler @ 0x1C00AE47C (AcpiUnregisterDeviceFirmwareLockHandler.c)
  */
 
 __int64 __fastcall ACPIIoctlUnregisterDeviceFirmwareLockHandler(__int64 a1, IRP *a2, __int64 a3)

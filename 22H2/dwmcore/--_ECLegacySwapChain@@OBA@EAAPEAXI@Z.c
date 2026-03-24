@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECLegacySwapChain@@OBA@EAAPEAXI@Z @ 0x18011F620
+ * XREFs of ??_ECLegacySwapChain@@OBA@EAAPEAXI@Z @ 0x1800F6C40
  * Callers:
  *     <none>
  * Callees:

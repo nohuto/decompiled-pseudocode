@@ -1,11 +1,11 @@
 /*
- * XREFs of GreDesktopSwitch @ 0x1C0118A54
+ * XREFs of GreDesktopSwitch @ 0x1C002AA68
  * Callers:
- *     xxxSwitchDesktop @ 0x1C00B0E54 (xxxSwitchDesktop.c)
+ *     xxxSwitchDesktop @ 0x1C0029904 (xxxSwitchDesktop.c)
  * Callees:
- *     ?SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z @ 0x1C0080944 (-SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z.c)
- *     ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C0086D14 (-ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z.c)
- *     ?LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z @ 0x1C0089970 (-LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z.c)
+ *     ?LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z @ 0x1C0015600 (-LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z.c)
+ *     ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C0015774 (-ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z.c)
+ *     ?SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z @ 0x1C0015DF8 (-SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z.c)
  */
 
 __int64 __fastcall GreDesktopSwitch(__int64 a1, int a2, int a3, __int64 a4, int a5)
@@ -25,14 +25,14 @@ __int64 __fastcall GreDesktopSwitch(__int64 a1, int a2, int a3, __int64 a4, int 
   {
     if ( (*(_DWORD *)(a1 + 40) & 0x20000) != 0 )
     {
-      for ( i = **(_QWORD ***)(a1 + 1768); i; i = (_QWORD *)*i )
+      for ( i = **(_QWORD ***)(a1 + 1800); i; i = (_QWORD *)*i )
       {
         v11 = i[6];
         if ( v11 )
         {
           if ( (*(_DWORD *)(v11 + 40) & 1) != 0 )
           {
-            v12 = *(_QWORD *)(v11 + 2528);
+            v12 = *(_QWORD *)(v11 + 2552);
             if ( v12 )
               *(_QWORD *)(v12 + 648) = a4;
           }
@@ -41,7 +41,7 @@ __int64 __fastcall GreDesktopSwitch(__int64 a1, int a2, int a3, __int64 a4, int 
     }
     else
     {
-      *(_QWORD *)(*(_QWORD *)(a1 + 2528) + 648LL) = a4;
+      *(_QWORD *)(*(_QWORD *)(a1 + 2552) + 648LL) = a4;
     }
   }
   if ( a5 )

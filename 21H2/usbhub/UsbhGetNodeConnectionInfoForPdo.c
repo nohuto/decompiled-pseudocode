@@ -1,16 +1,16 @@
 /*
- * XREFs of UsbhGetNodeConnectionInfoForPdo @ 0x1C003D878
+ * XREFs of UsbhGetNodeConnectionInfoForPdo @ 0x1C003EA6C
  * Callers:
- *     UsbhIoctlGetNodeConnectionInfoExApi @ 0x1C003F5CC (UsbhIoctlGetNodeConnectionInfoExApi.c)
+ *     UsbhIoctlGetNodeConnectionInfoExApi @ 0x1C00407B8 (UsbhIoctlGetNodeConnectionInfoExApi.c)
  * Callees:
- *     UsbhDerefPdoDeviceHandle @ 0x1C0003470 (UsbhDerefPdoDeviceHandle.c)
- *     UsbhRefPdoDeviceHandle @ 0x1C00036C0 (UsbhRefPdoDeviceHandle.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     memset @ 0x1C001F800 (memset.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhGetDeviceInformationEx @ 0x1C003D708 (UsbhGetDeviceInformationEx.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0015C80 (UsbhRefPdoDeviceHandle.c)
+ *     UsbhDerefPdoDeviceHandle @ 0x1C0016670 (UsbhDerefPdoDeviceHandle.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhGetDeviceInformationEx @ 0x1C003E8E8 (UsbhGetDeviceInformationEx.c)
  */
 
 __int64 __fastcall UsbhGetNodeConnectionInfoForPdo(
@@ -32,7 +32,7 @@ __int64 __fastcall UsbhGetNodeConnectionInfoForPdo(
   char v18; // al
   int v19; // ecx
   unsigned int v20; // r9d
-  unsigned int v21; // r8d
+  __int64 v21; // rax
   unsigned int v22; // r10d
   __int64 v23; // rdx
   __int64 v24; // r8
@@ -80,13 +80,13 @@ __int64 __fastcall UsbhGetNodeConnectionInfoForPdo(
       v19 = 1;
       *(_WORD *)((char *)v12 + 25) = *((_WORD *)v17 + 17);
       v20 = 0;
-      v21 = v17[12];
-      *(_DWORD *)((char *)v12 + 27) = v21;
+      *(_DWORD *)((char *)v12 + 27) = v17[12];
       if ( (unsigned int)(*(_DWORD *)(a3 + 428) - 4) <= 3 )
         v19 = *(_DWORD *)(a3 + 428);
       *(_DWORD *)((char *)v12 + 31) = v19;
+      v21 = *(unsigned int *)((char *)v12 + 27);
       v22 = *v14 - 35;
-      if ( v21 )
+      if ( (_DWORD)v21 )
       {
         do
         {
@@ -99,11 +99,11 @@ __int64 __fastcall UsbhGetNodeConnectionInfoForPdo(
           *(_WORD *)((char *)v12 + v24 + 39) = v17[3 * v23 + 14];
           *((_BYTE *)v12 + v24 + 41) = BYTE2(v17[3 * v23 + 14]);
           *(_DWORD *)((char *)v12 + v24 + 42) = v17[3 * v23 + 15];
-          v21 = *(_DWORD *)((char *)v12 + 27);
+          v21 = *(unsigned int *)((char *)v12 + 27);
         }
-        while ( v20 < v21 );
+        while ( v20 < (unsigned int)v21 );
       }
-      if ( v20 != v21 )
+      if ( v20 != (_DWORD)v21 )
         Log(a1, 32, 1735290451, v22, v21);
       *v14 -= v22;
     }

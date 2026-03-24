@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlLoadString @ 0x1409B7260
+ * XREFs of RtlLoadString @ 0x1409116C0
  * Callers:
  *     <none>
  * Callees:
- *     DownLevelLanguageNameToLangID @ 0x1403C68CC (DownLevelLanguageNameToLangID.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     LdrResSearchResource @ 0x140673120 (LdrResSearchResource.c)
- *     LdrpSearchResourceSection_U @ 0x14075717C (LdrpSearchResourceSection_U.c)
- *     LdrpAccessResourceData @ 0x14075883C (LdrpAccessResourceData.c)
+ *     DownLevelLanguageNameToLangID @ 0x1403ACCF4 (DownLevelLanguageNameToLangID.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     LdrResSearchResource @ 0x14068C140 (LdrResSearchResource.c)
+ *     LdrpAccessResourceData @ 0x14068D9BC (LdrpAccessResourceData.c)
+ *     LdrpSearchResourceSection_U @ 0x14068DCE4 (LdrpSearchResourceSection_U.c)
  */
 
 __int64 __fastcall RtlLoadString(
-        unsigned __int64 a1,
+        ULONGLONG a1,
         unsigned __int16 a2,
         _WORD *a3,
         int a4,
@@ -29,7 +29,7 @@ __int64 __fastcall RtlLoadString(
   __int16 v16; // r8
   unsigned __int64 v17; // [rsp+40h] [rbp-78h] BYREF
   int v18; // [rsp+48h] [rbp-70h]
-  unsigned __int64 v19; // [rsp+50h] [rbp-68h] BYREF
+  __int64 v19; // [rsp+50h] [rbp-68h] BYREF
   unsigned int *v20; // [rsp+58h] [rbp-60h] BYREF
   _QWORD *v21; // [rsp+60h] [rbp-58h]
   __int64 v22[4]; // [rsp+68h] [rbp-50h] BYREF
@@ -66,10 +66,10 @@ __int64 __fastcall RtlLoadString(
     v17 = 0LL;
     if ( v10 )
     {
-      v13 = LdrpSearchResourceSection_U(a1, v22, 4u, 1, (unsigned __int64 *)&v20);
+      v13 = LdrpSearchResourceSection_U(a1, v22, 4u, 1, &v20);
       if ( v13 < 0 )
         return (unsigned int)v13;
-      v13 = LdrpAccessResourceData(a1, v20, &v19, 0LL);
+      v13 = LdrpAccessResourceData(a1, (unsigned __int64)v20, (__int64)&v19, 0LL);
     }
     else
     {

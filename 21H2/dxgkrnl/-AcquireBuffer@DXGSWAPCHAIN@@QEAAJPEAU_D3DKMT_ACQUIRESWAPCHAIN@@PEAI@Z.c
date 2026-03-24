@@ -1,17 +1,16 @@
 /*
- * XREFs of ?AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z @ 0x1C0225596
+ * XREFs of ?AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z @ 0x1C02AA004
  * Callers:
- *     ?UnOrderedPresent@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_UNORDEREDPRESENTSWAPCHAIN@@@Z @ 0x1C034CDE4 (-UnOrderedPresent@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_UNORDEREDPRESENTSWAPCHAIN@@@Z.c)
- *     DxgkAcquireSwapChain @ 0x1C034D320 (DxgkAcquireSwapChain.c)
+ *     ?UnOrderedPresent@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_UNORDEREDPRESENTSWAPCHAIN@@@Z @ 0x1C02ACCA4 (-UnOrderedPresent@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_UNORDEREDPRESENTSWAPCHAIN@@@Z.c)
+ *     DxgkAcquireSwapChain @ 0x1C02AD0F0 (DxgkAcquireSwapChain.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?GetClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF_INFO@1@PEAPEAUSWAPCHAIN_CLIENT_SURF_INFO@1@@Z @ 0x1C005AE1C (-GetClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF_INFO.c)
- *     ?Remove@DXGFIXEDQUEUE@@QEAAJPEAI@Z @ 0x1C005B07C (-Remove@DXGFIXEDQUEUE@@QEAAJPEAI@Z.c)
- *     McTemplateK0pqddqq_EtwWriteTransfer @ 0x1C005B1BC (McTemplateK0pqddqq_EtwWriteTransfer.c)
- *     ?InsertGPUWait@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_CLIENT_INFO@1@PEAUSWAPCHAIN_SURF_INFO@1@I@Z @ 0x1C0225A02 (-InsertGPUWait@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_CLIENT_INFO@1@PEAUSWAPCHAIN_SURF_INFO@1@I@Z.c)
- *     ?MarkAbandoned@DXGSWAPCHAIN@@QEAAX_N@Z @ 0x1C034B21C (-MarkAbandoned@DXGSWAPCHAIN@@QEAAX_N@Z.c)
- *     ?OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z @ 0x1C034B894 (-OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z.c)
- *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z @ 0x1C034BF18 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z.c)
+ *     ?GetClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF_INFO@1@PEAPEAUSWAPCHAIN_CLIENT_SURF_INFO@1@@Z @ 0x1C004BDBC (-GetClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF_INFO.c)
+ *     ?Remove@DXGFIXEDQUEUE@@QEAAJPEAI@Z @ 0x1C004BF4C (-Remove@DXGFIXEDQUEUE@@QEAAJPEAI@Z.c)
+ *     McTemplateK0pqddqq_EtwWriteTransfer @ 0x1C004C004 (McTemplateK0pqddqq_EtwWriteTransfer.c)
+ *     ?InsertGPUWait@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_CLIENT_INFO@1@PEAUSWAPCHAIN_SURF_INFO@1@I@Z @ 0x1C02AB318 (-InsertGPUWait@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_CLIENT_INFO@1@PEAUSWAPCHAIN_SURF_INFO@1@I@Z.c)
+ *     ?MarkAbandoned@DXGSWAPCHAIN@@QEAAX_N@Z @ 0x1C02AB478 (-MarkAbandoned@DXGSWAPCHAIN@@QEAAX_N@Z.c)
+ *     ?OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z @ 0x1C02AB99C (-OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z.c)
+ *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z @ 0x1C02AC024 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z.c)
  */
 
 __int64 __fastcall DXGSWAPCHAIN::AcquireBuffer(
@@ -21,54 +20,50 @@ __int64 __fastcall DXGSWAPCHAIN::AcquireBuffer(
 {
   unsigned int *v3; // r14
   struct _KTHREAD **v5; // rdi
-  char *v6; // rsi
+  __int64 v6; // rax
+  char *v7; // rsi
+  __int64 v8; // rax
   int inserted; // ebx
-  void *v8; // r8
-  unsigned int v9; // r15d
-  int v10; // eax
-  struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *v11; // r14
-  struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_SURF_INFO *v12; // r13
-  unsigned int v13; // r9d
-  struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_SURF_INFO **v15; // [rsp+20h] [rbp-68h]
-  __int64 v16; // [rsp+28h] [rbp-60h]
-  __int64 v17; // [rsp+30h] [rbp-58h]
-  __int64 v18; // [rsp+38h] [rbp-50h]
-  __int64 v19; // [rsp+40h] [rbp-48h]
-  struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *v20; // [rsp+90h] [rbp+8h] BYREF
-  struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_SURF_INFO *v21; // [rsp+98h] [rbp+10h] BYREF
+  void *v10; // r8
+  unsigned int v11; // r15d
+  int v12; // eax
+  struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *v13; // r14
+  struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_SURF_INFO *v14; // r13
+  unsigned int v15; // r9d
+  struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_SURF_INFO **v17; // [rsp+20h] [rbp-68h]
+  BOOL bProducer; // [rsp+28h] [rbp-60h]
+  BOOL bReleaseBeforeAcquire; // [rsp+30h] [rbp-58h]
+  int v20; // [rsp+38h] [rbp-50h]
+  int hNtSwapChain; // [rsp+40h] [rbp-48h]
+  unsigned int v22; // [rsp+90h] [rbp+8h] BYREF
+  struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *v23; // [rsp+98h] [rbp+10h] BYREF
+  struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_SURF_INFO *v24; // [rsp+A8h] [rbp+20h] BYREF
 
   v3 = a3;
   v5 = this;
-  if ( this[3] != KeGetCurrentThread() )
+  if ( this[2] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 2667LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_SwapChainLock.IsOwner()", 2667LL, 0LL, 0LL, 0LL, 0LL);
+    v6 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v6 + 24) = 2614LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  v6 = (char *)v5 + (a2->bProducer ? 144LL : 96LL);
+  v7 = (char *)v5 + (a2->bProducer ? 136LL : 88LL);
   if ( a2->bReleaseBeforeAcquire )
   {
-    if ( *((_DWORD *)v6 + 7) != 1 )
+    if ( *((_DWORD *)v7 + 7) != 1 )
     {
-      WdLogSingleEntry1(2LL, 2679LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Release before acquire is only supported for consumers",
-        2679LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v8 = WdLogNewEntry5_WdError(this, a2);
+      *(_QWORD *)(v8 + 24) = 2626LL;
+      WdLogEvent5_WdError(v8);
       inserted = -1073741637;
       goto LABEL_28;
     }
-    this = (struct _KTHREAD **)v5[27];
+    this = (struct _KTHREAD **)v5[26];
     if ( *((_DWORD *)this + 2) == *((_DWORD *)this + 3) )
       goto LABEL_27;
-    v8 = *(void **)&a2->AcquiredBufferIdx;
+    v10 = *(void **)&a2->AcquiredBufferIdx;
     *(_QWORD *)&a2->AcquiredBufferIdx = 0LL;
-    inserted = DXGSWAPCHAIN::ReleaseBuffer((DXGSWAPCHAIN *)v5, &a2->ReleaseInfo, v8, 1);
+    inserted = DXGSWAPCHAIN::ReleaseBuffer((DXGSWAPCHAIN *)v5, &a2->ReleaseInfo, v10, 1);
     if ( inserted < 0 )
     {
 LABEL_8:
@@ -76,79 +71,88 @@ LABEL_8:
       goto LABEL_28;
     }
   }
-  if ( *((_DWORD *)v6 + 10) != -1 )
+  if ( *((_DWORD *)v7 + 10) != -1 )
     goto LABEL_27;
-  LODWORD(v20) = 0;
-  if ( !*((_DWORD *)v6 + 7) )
+  v22 = 0;
+  if ( !*((_DWORD *)v7 + 7) )
   {
     if ( !v3 )
-      v3 = (unsigned int *)v5[28];
-    v9 = *v3;
+      v3 = (unsigned int *)v5[27];
+    v11 = *v3;
     goto LABEL_17;
   }
-  v10 = DXGFIXEDQUEUE::Remove(v5[27], (unsigned int *)&v20);
-  inserted = v10;
-  if ( v10 == -2147483622 )
+  v12 = DXGFIXEDQUEUE::Remove(v5[26], &v22);
+  inserted = v12;
+  if ( v12 == -2147483622 )
   {
 LABEL_27:
     inserted = 259;
     goto LABEL_28;
   }
-  if ( v10 < 0 )
+  if ( v12 < 0 )
     goto LABEL_8;
-  v9 = (unsigned int)v20;
+  v11 = v22;
 LABEL_17:
-  v20 = 0LL;
-  v21 = 0LL;
+  v23 = 0LL;
+  v24 = 0LL;
   DXGSWAPCHAIN::GetClientSurfaceInfo(
     (DXGSWAPCHAIN *)v5,
-    (struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_INFO *)v6,
-    v9,
-    &v20,
-    &v21);
-  v11 = v20;
-  v12 = v21;
-  if ( *((_DWORD *)v5 + 58) )
+    (struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_INFO *)v7,
+    v11,
+    &v23,
+    &v24);
+  v13 = v23;
+  v14 = v24;
+  if ( *((_DWORD *)v5 + 56) )
   {
-    if ( !*(_BYTE *)v21 )
+    if ( !*(_BYTE *)v24 )
     {
-      inserted = DXGSWAPCHAIN::OpenSurfacesResourcesLocalForOpener((DXGSWAPCHAIN *)v5, v20, 0, 0LL);
+      inserted = DXGSWAPCHAIN::OpenSurfacesResourcesLocalForOpener((DXGSWAPCHAIN *)v5, v23, 0, 0LL);
       if ( inserted < 0 )
         goto LABEL_8;
     }
   }
-  if ( *(_DWORD *)v11 == 2 )
-    *(_DWORD *)v11 = 0;
-  if ( *(_DWORD *)v11 || *((_DWORD *)v11 + 1) != *((_DWORD *)v6 + 7) )
+  if ( *(_DWORD *)v13 == 2 )
+    *(_DWORD *)v13 = 0;
+  if ( *(_DWORD *)v13 || *((_DWORD *)v13 + 1) != *((_DWORD *)v7 + 7) )
     goto LABEL_27;
-  *(_DWORD *)v11 = 1;
+  *(_DWORD *)v13 = 1;
   inserted = 0;
-  *((_DWORD *)v6 + 10) = v9;
-  *((_DWORD *)v11 + 6) = 0;
-  v13 = *((_DWORD *)v12 + 1);
-  if ( v13 )
+  *((_DWORD *)v7 + 10) = v11;
+  *((_DWORD *)v13 + 6) = 0;
+  v15 = *((_DWORD *)v14 + 1);
+  if ( v15 )
   {
     inserted = DXGSWAPCHAIN::InsertGPUWait(
                  (DXGSWAPCHAIN *)v5,
-                 (struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_INFO *)v6,
-                 v11,
-                 v13);
+                 (struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_INFO *)v7,
+                 v13,
+                 v15);
     if ( inserted < 0 )
       goto LABEL_8;
   }
-  LODWORD(a2[1].hNtSwapChain) = v9;
-  *(_QWORD *)&a2[1].bReleaseBeforeAcquire = *((_QWORD *)v12 + 3);
-  this = (struct _KTHREAD **)*(unsigned int *)(*((_QWORD *)v11 + 2) + 8LL);
+  LODWORD(a2[1].hNtSwapChain) = v11;
+  *(_QWORD *)&a2[1].bReleaseBeforeAcquire = *((_QWORD *)v14 + 3);
+  this = (struct _KTHREAD **)*(unsigned int *)(*((_QWORD *)v13 + 2) + 8LL);
   LODWORD(a2[1].ReleaseInfo.hNtSwapChain) = (_DWORD)this;
 LABEL_28:
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x1000000000LL) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100000000LL) != 0 )
   {
-    LODWORD(v19) = a2[1].ReleaseInfo.hNtSwapChain;
-    LODWORD(v18) = a2[1].hNtSwapChain;
-    LODWORD(v17) = a2->bReleaseBeforeAcquire;
-    LODWORD(v16) = a2->bProducer;
-    LODWORD(v15) = inserted;
-    McTemplateK0pqddqq_EtwWriteTransfer((__int64)this, (__int64)a2, (__int64)a3, v5, v15, v16, v17, v18, v19);
+    hNtSwapChain = (int)a2[1].ReleaseInfo.hNtSwapChain;
+    v20 = (int)a2[1].hNtSwapChain;
+    bReleaseBeforeAcquire = a2->bReleaseBeforeAcquire;
+    bProducer = a2->bProducer;
+    LODWORD(v17) = inserted;
+    McTemplateK0pqddqq_EtwWriteTransfer(
+      (__int64)this,
+      (__int64)a2,
+      (__int64)a3,
+      v5,
+      v17,
+      bProducer,
+      bReleaseBeforeAcquire,
+      v20,
+      hNtSwapChain);
   }
   return (unsigned int)inserted;
 }

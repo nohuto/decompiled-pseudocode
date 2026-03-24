@@ -1,5 +1,5 @@
 /*
- * XREFs of PspEnableWakeCounters @ 0x1406E5700
+ * XREFs of PspEnableWakeCounters @ 0x1406BF960
  * Callers:
  *     <none>
  * Callees:
@@ -12,12 +12,12 @@ __int64 __fastcall PspEnableWakeCounters(__int64 a1)
   _QWORD *v3; // r8
   __int64 v4; // r10
 
-  v1 = *(_QWORD *)(a1 + 1264);
+  v1 = *(_QWORD *)(a1 + 1072);
   if ( v1 )
   {
-    if ( _bittest((const signed __int32 *)(v1 + 1512), 0xCu) )
+    if ( (*(_DWORD *)(v1 + 1320) & 0x1000) != 0 )
       return 0LL;
-    v3 = (_QWORD *)(v1 + 1080);
+    v3 = (_QWORD *)(v1 + 888);
     v4 = 7LL;
     do
     {
@@ -26,9 +26,9 @@ __int64 __fastcall PspEnableWakeCounters(__int64 a1)
       --v4;
     }
     while ( v4 );
-    *(_QWORD *)(v1 + 1136) += *(_QWORD *)(a1 + 1136);
+    *(_QWORD *)(v1 + 944) += *(_QWORD *)(a1 + 944);
   }
-  if ( !_bittest((const signed __int32 *)(a1 + 1512), 0xCu) )
-    _interlockedbittestandset((volatile signed __int32 *)(a1 + 1512), 0xCu);
+  if ( (*(_DWORD *)(a1 + 1320) & 0x1000) == 0 )
+    _interlockedbittestandset((volatile signed __int32 *)(a1 + 1320), 0xCu);
   return 0LL;
 }

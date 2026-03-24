@@ -1,12 +1,11 @@
 /*
- * XREFs of KeVerifyContextXStateCetU @ 0x1402A3AC0
+ * XREFs of KeVerifyContextXStateCetU @ 0x14034095C
  * Callers:
- *     KiContinuePreviousModeUser @ 0x14030D004 (KiContinuePreviousModeUser.c)
- *     KyRaiseException @ 0x140578B80 (KyRaiseException.c)
- *     PspGetSetContextInternal @ 0x140724A70 (PspGetSetContextInternal.c)
+ *     KiRaiseException @ 0x140521DD0 (KiRaiseException.c)
+ *     PspGetSetContextInternal @ 0x1406C2670 (PspGetSetContextInternal.c)
  * Callees:
- *     KiVerifyContextXStateCetUEnabled @ 0x14045FAAC (KiVerifyContextXStateCetUEnabled.c)
- *     RtlLocateExtendedFeature2 @ 0x140463BE0 (RtlLocateExtendedFeature2.c)
+ *     RtlLocateExtendedFeature2 @ 0x140380F40 (RtlLocateExtendedFeature2.c)
+ *     KiVerifyContextXStateCetUEnabled @ 0x140515F60 (KiVerifyContextXStateCetUEnabled.c)
  */
 
 __int64 __fastcall KeVerifyContextXStateCetU(__int64 a1, __int64 a2, unsigned __int64 *a3)
@@ -41,12 +40,9 @@ __int64 __fastcall KeVerifyContextXStateCetU(__int64 a1, __int64 a2, unsigned __
   }
   else
   {
-    if ( !v10 )
+    if ( !v10 || !*ExtendedFeature2 && !ExtendedFeature2[1] )
       return 0LL;
-    if ( *ExtendedFeature2 )
-      return 3221227018LL;
-    else
-      return ExtendedFeature2[1] != 0LL ? 0xC000060A : 0;
+    return 3221227018LL;
   }
   return result;
 }

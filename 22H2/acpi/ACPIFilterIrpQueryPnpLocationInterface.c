@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIFilterIrpQueryPnpLocationInterface @ 0x1C008654C
+ * XREFs of ACPIFilterIrpQueryPnpLocationInterface @ 0x1C0098E4C
  * Callers:
- *     ACPIFilterIrpQueryInterface @ 0x1C0086170 (ACPIFilterIrpQueryInterface.c)
+ *     ACPIFilterIrpQueryInterface @ 0x1C0099170 (ACPIFilterIrpQueryInterface.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     ACPIEjectPnpLocationInterface @ 0x1C0087580 (ACPIEjectPnpLocationInterface.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIEjectPnpLocationInterface @ 0x1C00993E0 (ACPIEjectPnpLocationInterface.c)
  */
 
 __int64 __fastcall ACPIFilterIrpQueryPnpLocationInterface(ULONG_PTR a1, IRP *a2)
@@ -29,7 +29,7 @@ __int64 __fastcall ACPIFilterIrpQueryPnpLocationInterface(ULONG_PTR a1, IRP *a2)
   v6[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))ACPIRootIrpCompleteRoutine;
   v6[-1].Context = &Event;
   v6[-1].Control = -32;
-  Status = IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 776), a2);
+  Status = IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 736), a2);
   if ( Status == 259 )
   {
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);

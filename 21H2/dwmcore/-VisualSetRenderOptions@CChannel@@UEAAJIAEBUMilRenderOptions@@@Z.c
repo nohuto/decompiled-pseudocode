@@ -1,11 +1,11 @@
 /*
- * XREFs of ?VisualSetRenderOptions@CChannel@@UEAAJIAEBUMilRenderOptions@@@Z @ 0x180074520
+ * XREFs of ?VisualSetRenderOptions@CChannel@@UEAAJIAEBUMilRenderOptions@@@Z @ 0x1800D5730
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CChannel::VisualSetRenderOptions(CChannel *this, unsigned int a2, const struct MilRenderOptions *a3)
@@ -15,13 +15,13 @@ __int64 __fastcall CChannel::VisualSetRenderOptions(CChannel *this, unsigned int
   unsigned int v8; // ebx
   _DWORD v10[2]; // [rsp+20h] [rbp-30h] BYREF
   _BYTE v11[40]; // [rsp+28h] [rbp-28h] BYREF
-  char *v12; // [rsp+60h] [rbp+10h] BYREF
+  struct _RTL_CRITICAL_SECTION *v12; // [rsp+60h] [rbp+10h] BYREF
 
-  v12 = (char *)this + 168;
+  v12 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
   EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
   CChannel::CheckHandle((__int64)this, a2, 195);
   v6 = *((_OWORD *)a3 + 1);
-  v10[0] = 425;
+  v10[0] = 428;
   v10[1] = a2;
   memset(&v11[4], 0, 32);
   v7 = *(_OWORD *)a3;

@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBUCX_CreateDeviceInUCX @ 0x1C0024A94
+ * XREFs of HUBUCX_CreateDeviceInUCX @ 0x1C0024654
  * Callers:
- *     HUBDSM_CreatingUCXDevice30 @ 0x1C001E700 (HUBDSM_CreatingUCXDevice30.c)
+ *     HUBDSM_CreatingUCXDevice30 @ 0x1C001E1C0 (HUBDSM_CreatingUCXDevice30.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_CreateDeviceInUCX(__int64 *a1)
@@ -56,7 +56,7 @@ LABEL_9:
         2u,
         5u,
         0x25u,
-        (__int64)&WPP_a5663512bb0f384af60f2cebe8e2cf44_Traceguids,
+        (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
         v5);
     *((_DWORD *)a1 + 391) = -1073737728;
     *((_DWORD *)a1 + 390) = -1073741670;

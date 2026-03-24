@@ -1,20 +1,20 @@
 /*
- * XREFs of ?DxgkGetMonitorDeviceObject@@YAJPEBU_LUID@@IPEAPEAU_FILE_OBJECT@@PEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C01AC740
+ * XREFs of ?DxgkGetMonitorDeviceObject@@YAJPEBU_LUID@@IPEAPEAU_FILE_OBJECT@@PEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C01359F0
  * Callers:
- *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C0307E5C (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C025FCF4 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?Release@COREACCESS@@QEAAXXZ @ 0x1C000A9D0 (-Release@COREACCESS@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     MonitorGetDeviceObject @ 0x1C01AC5FC (MonitorGetDeviceObject.c)
- *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C01AC934 (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
- *     DxgkConvertLegacyQDCAdapterAndIdToActual @ 0x1C01D8BA0 (DxgkConvertLegacyQDCAdapterAndIdToActual.c)
- *     ?DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C031266C (-DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C0121C38 (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
+ *     MonitorGetDeviceObject @ 0x1C01358E8 (MonitorGetDeviceObject.c)
+ *     DxgkConvertLegacyQDCAdapterAndIdToActual @ 0x1C0137450 (DxgkConvertLegacyQDCAdapterAndIdToActual.c)
  */
 
 __int64 __fastcall DxgkGetMonitorDeviceObject(
@@ -23,165 +23,123 @@ __int64 __fastcall DxgkGetMonitorDeviceObject(
         struct _FILE_OBJECT **a3,
         struct _DEVICE_OBJECT **a4)
 {
-  __int64 v6; // rdi
-  int v8; // eax
-  __int64 v9; // rsi
+  __int64 v7; // r15
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  int v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  DXGADAPTER *v14; // rbx
   DXGGLOBAL *Global; // rax
-  struct DXGADAPTER *v11; // rax
-  __int64 v12; // rbx
-  int v13; // eax
-  int v14; // edi
-  struct DXGADAPTER *v15; // rcx
-  struct DXGADAPTER *v16; // rcx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  unsigned int v20; // [rsp+50h] [rbp-B0h] BYREF
-  struct _LUID v21; // [rsp+58h] [rbp-A8h] BYREF
-  int v22; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v23; // [rsp+70h] [rbp-90h]
-  char v24; // [rsp+78h] [rbp-88h]
-  unsigned __int64 v25; // [rsp+80h] [rbp-80h] BYREF
-  char v26; // [rsp+90h] [rbp-70h] BYREF
-  char v27; // [rsp+91h] [rbp-6Fh]
-  _BYTE v28[8]; // [rsp+98h] [rbp-68h] BYREF
-  __int64 v29; // [rsp+A0h] [rbp-60h]
-  struct DXGADAPTER *v30; // [rsp+A8h] [rbp-58h]
-  char v31; // [rsp+B0h] [rbp-50h]
-  __int64 v32; // [rsp+B8h] [rbp-48h]
-  _BYTE v33[8]; // [rsp+D8h] [rbp-28h] BYREF
-  __int64 v34; // [rsp+E0h] [rbp-20h]
-  struct DXGADAPTER *v35; // [rsp+E8h] [rbp-18h]
-  char v36; // [rsp+F0h] [rbp-10h]
-  __int64 v37; // [rsp+F8h] [rbp-8h]
+  struct DXGADAPTER *v16; // rax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  int v22; // eax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // rdi
+  __int64 v27; // rdx
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  _QWORD *v32; // rax
+  _QWORD *v33; // rax
+  __int64 v34; // rax
+  __int64 v35; // rax
+  unsigned int v36; // [rsp+20h] [rbp-A9h] BYREF
+  struct _LUID v37; // [rsp+28h] [rbp-A1h] BYREF
+  int v38; // [rsp+30h] [rbp-99h] BYREF
+  __int64 v39; // [rsp+38h] [rbp-91h]
+  char v40; // [rsp+40h] [rbp-89h]
+  unsigned __int64 v41; // [rsp+48h] [rbp-81h] BYREF
+  _BYTE v42[144]; // [rsp+50h] [rbp-79h] BYREF
 
-  v22 = -1;
-  v6 = a2;
-  v23 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v38 = -1;
+  v39 = 0LL;
+  v7 = a2;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v24 = 1;
-    v22 = 2166;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v40 = 1;
+    v38 = 2166;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)a1, &EventProfilerEnter, (__int64)a3, 2166);
   }
   else
   {
-    v24 = 0;
+    v40 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v22, 2166);
-  v20 = 0;
-  if ( a1 && a3 && a4 )
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v38, 2166LL);
+  v36 = 0;
+  if ( !a1 || !a3 || !a4 )
   {
-    v21 = *a1;
-    v8 = DxgkConvertLegacyQDCAdapterAndIdToActual(&v21, (unsigned int)v6, &v21, &v20);
-    v9 = v8;
-    if ( v8 < 0 )
+    v33 = (_QWORD *)WdLogNewEntry5_WdWarning(v9, v8, v10);
+    LODWORD(v14) = -1073741811;
+    v33[3] = -1073741811LL;
+LABEL_21:
+    WdLogEvent5_WdWarning(v33);
+    goto LABEL_12;
+  }
+  v37 = *a1;
+  v11 = DxgkConvertLegacyQDCAdapterAndIdToActual(&v37, (unsigned int)v7, &v37, &v36);
+  v14 = (DXGADAPTER *)v11;
+  if ( v11 >= 0 )
+  {
+    Global = DXGGLOBAL::GetGlobal(v13, v12);
+    v16 = DXGGLOBAL::ReferenceAdapterByLuid(Global, v37, &v41);
+    v14 = v16;
+    if ( v16 )
     {
-      WdLogSingleEntry4(2LL, a1->LowPart, a1->HighPart, v6, v8);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to find the real target ID from Adapter LUID (0x%I64x, 0x%I64x) target ID 0x%I64x, returning 0x%I64x",
-        a1->LowPart,
-        a1->HighPart,
-        v6,
-        v9,
-        0LL);
-    }
-    else
-    {
-      Global = DXGGLOBAL::GetGlobal();
-      v11 = DXGGLOBAL::ReferenceAdapterByLuid(Global, v21, &v25);
-      v12 = (__int64)v11;
-      if ( v11 )
+      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v42, v16, 0LL);
+      DXGADAPTER::ReleaseReference(v14);
+      if ( *((_QWORD *)v14 + 337) )
       {
-        v27 = 0;
-        v30 = v11;
-        v31 = 0;
-        v32 = 0LL;
-        _InterlockedIncrement64((volatile signed __int64 *)v11 + 3);
-        v35 = v11;
-        v29 = -1LL;
-        v36 = 0;
-        v37 = 0LL;
-        _InterlockedIncrement64((volatile signed __int64 *)v11 + 3);
-        v34 = -1LL;
-        if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v11 + 3, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-          DXGGLOBAL::DestroyAdapter(*((DXGGLOBAL **)v11 + 2), v11);
-        if ( *(_QWORD *)(v12 + 2920) )
+        v22 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v42, 0LL);
+        v26 = v22;
+        if ( v22 < 0 )
         {
-          v13 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)&v26, 0LL);
-          v14 = v13;
-          if ( v13 < 0 )
-          {
-            WdLogSingleEntry2(3LL, v12, v13);
-            LODWORD(v9) = v14;
-          }
-          else
-          {
-            LODWORD(v9) = MonitorGetDeviceObject(v12, v20, a3, a4);
-          }
+          v35 = WdLogNewEntry5_WdWarning(v24, v23, v25);
+          *(_QWORD *)(v35 + 24) = v14;
+          *(_QWORD *)(v35 + 32) = v26;
+          WdLogEvent5_WdWarning(v35);
+          LODWORD(v14) = v26;
         }
         else
         {
-          LODWORD(v9) = -1073741811;
-          WdLogSingleEntry2(2LL, v12, -1073741811LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"DxgkGetMonitorDeviceObject is called on the non-display adapter 0x%I64x, returning 0x%I64x.",
-            v12,
-            -1073741811LL,
-            0LL,
-            0LL,
-            0LL);
-        }
-        if ( v27 )
-        {
-          if ( v30 != v35 )
-            COREACCESS::Release((COREACCESS *)v28);
-          COREACCESS::Release((COREACCESS *)v33);
-          v27 = 0;
-        }
-        v15 = v35;
-        if ( v35 )
-        {
-          if ( v36 )
-          {
-            COREACCESS::Release((COREACCESS *)v33);
-            v15 = v35;
-          }
-          if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v15 + 3, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-            DXGGLOBAL::DestroyAdapter(*((DXGGLOBAL **)v15 + 2), v15);
-        }
-        v16 = v30;
-        if ( v30 )
-        {
-          if ( v31 )
-          {
-            COREACCESS::Release((COREACCESS *)v28);
-            v16 = v30;
-          }
-          if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v16 + 3, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-            DXGGLOBAL::DestroyAdapter(*((DXGGLOBAL **)v16 + 2), v16);
+          LODWORD(v14) = MonitorGetDeviceObject(v14, v36, a3, a4);
         }
       }
       else
       {
-        LODWORD(v9) = -1073741811;
-        WdLogSingleEntry3(3LL, v21.LowPart, v21.HighPart, -1073741811LL);
+        v34 = WdLogNewEntry5_WdError(v21, v20);
+        *(_QWORD *)(v34 + 24) = v14;
+        LODWORD(v14) = -1073741811;
+        *(_QWORD *)(v34 + 32) = -1073741811LL;
+        WdLogEvent5_WdError(v34);
       }
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v42, v27);
+      goto LABEL_12;
     }
+    v33 = (_QWORD *)WdLogNewEntry5_WdWarning(v18, v17, v19);
+    LODWORD(v14) = -1073741811;
+    v33[3] = v37.LowPart;
+    v33[4] = v37.HighPart;
+    v33[5] = -1073741811LL;
+    goto LABEL_21;
   }
-  else
-  {
-    LODWORD(v9) = -1073741811;
-    WdLogSingleEntry1(3LL, -1073741811LL);
-  }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v22);
-  if ( v24 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v17, &EventProfilerExit, v18, v22);
-  return (unsigned int)v9;
+  v32 = (_QWORD *)WdLogNewEntry5_WdError(v13, v12);
+  v32[3] = a1->LowPart;
+  v32[4] = a1->HighPart;
+  v32[5] = v7;
+  v32[6] = v14;
+  WdLogEvent5_WdError(v32);
+LABEL_12:
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38, v28);
+  if ( v40 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v29, &EventProfilerExit, v30, v38);
+  return (unsigned int)v14;
 }

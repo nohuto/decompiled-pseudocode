@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_ddLLdiDD @ 0x1C001F1B4
+ * XREFs of WPP_IFR_SF_ddLLdiDD @ 0x1C0089F48
  * Callers:
- *     ?AssignResources@FxInterrupt@@QEAAXPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0@Z @ 0x1C001F048 (-AssignResources@FxInterrupt@@QEAAXPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0@Z.c)
+ *     ?AssignResources@FxInterrupt@@QEAAXPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0@Z @ 0x1C0089110 (-AssignResources@FxInterrupt@@QEAAXPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0@Z.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_ddLLdiDD(
@@ -25,7 +25,7 @@ void __fastcall WPP_IFR_SF_ddLLdiDD(
   if ( (WPP_GLOBAL_WDF_Control.Characteristics & 0x800) != 0 && BYTE1(WPP_GLOBAL_WDF_Control.Flags) >= 4u )
     FxWmiTraceMessage(
       (unsigned __int64)WPP_GLOBAL_WDF_Control.CurrentIrp,
-      0x2Bu,
+      43LL,
       WPP_InterruptObject_cpp_Traceguids,
       0x15u,
       &_a5,

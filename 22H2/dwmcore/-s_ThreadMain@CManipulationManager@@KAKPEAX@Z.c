@@ -1,9 +1,9 @@
 /*
- * XREFs of ?s_ThreadMain@CManipulationManager@@KAKPEAX@Z @ 0x180104C20
+ * XREFs of ?s_ThreadMain@CManipulationManager@@KAKPEAX@Z @ 0x1800E0560
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CManipulationManager::s_ThreadMain(PVOID Parameter)

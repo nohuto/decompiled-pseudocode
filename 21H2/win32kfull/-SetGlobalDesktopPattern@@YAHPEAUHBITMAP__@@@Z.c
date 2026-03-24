@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetGlobalDesktopPattern@@YAHPEAUHBITMAP__@@@Z @ 0x1C021CEDC
+ * XREFs of ?SetGlobalDesktopPattern@@YAHPEAUHBITMAP__@@@Z @ 0x1C022353C
  * Callers:
- *     SetDesktopPattern @ 0x1C00F2908 (SetDesktopPattern.c)
+ *     SetDesktopPattern @ 0x1C00260D0 (SetDesktopPattern.c)
  * Callees:
  *     <none>
  */

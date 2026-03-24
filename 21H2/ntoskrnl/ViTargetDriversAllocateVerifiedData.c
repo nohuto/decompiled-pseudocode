@@ -1,32 +1,32 @@
 /*
- * XREFs of ViTargetDriversAllocateVerifiedData @ 0x140A8B104
+ * XREFs of ViTargetDriversAllocateVerifiedData @ 0x1409D7350
  * Callers:
- *     VfTargetDriversAdd @ 0x1402D8104 (VfTargetDriversAdd.c)
- *     VfTargetDriversEnableVerifier @ 0x140A8AB50 (VfTargetDriversEnableVerifier.c)
+ *     VfTargetDriversAdd @ 0x140371A3C (VfTargetDriversAdd.c)
+ *     VfTargetDriversEnableVerifier @ 0x1409D6D94 (VfTargetDriversEnableVerifier.c)
  * Callees:
- *     InitializeSListHead @ 0x1402A05A0 (InitializeSListHead.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 union _SLIST_HEADER *__fastcall ViTargetDriversAllocateVerifiedData(unsigned __int64 a1)
 {
-  union _SLIST_HEADER *Pool2; // rax
+  union _SLIST_HEADER *PoolWithTag; // rax
   union _SLIST_HEADER *v3; // rbx
 
-  Pool2 = (union _SLIST_HEADER *)ExAllocatePool2(64LL, 0x130uLL, 0x44566656u);
-  v3 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (union _SLIST_HEADER *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x130uLL, 0x44566656u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    Pool2->Alignment = a1;
-    Pool2[2].Region = 2557876544LL;
-    Pool2[1].Region = (unsigned __int64)&Pool2[1];
-    Pool2[1].Alignment = (unsigned __int64)&Pool2[1];
-    Pool2[6].Region = (unsigned __int64)&Pool2[6];
-    Pool2[6].Alignment = (unsigned __int64)&Pool2[6];
-    InitializeSListHead(Pool2 + 4);
+    memset(PoolWithTag, 0, 0x130uLL);
+    v3->Alignment = a1;
+    v3[2].Region = 2557876544LL;
+    v3[1].Region = (unsigned __int64)&v3[1];
+    v3[1].Alignment = (unsigned __int64)&v3[1];
+    InitializeSListHead(v3 + 4);
     InitializeSListHead(v3 + 5);
-    v3[17].Alignment = (unsigned __int64)&v3[16].Region;
-    v3[16].Region = (unsigned __int64)&v3[16].Region;
+    v3[16].Region = (unsigned __int64)&v3[16];
+    v3[16].Alignment = (unsigned __int64)&v3[16];
   }
   else
   {

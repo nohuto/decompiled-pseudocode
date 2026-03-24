@@ -1,20 +1,20 @@
 /*
- * XREFs of NtQuerySystemEnvironmentValueEx @ 0x1406CAD20
+ * XREFs of NtQuerySystemEnvironmentValueEx @ 0x1406CAD00
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     PsIsProcessAppContainer @ 0x1406B8208 (PsIsProcessAppContainer.c)
- *     ExGetFirmwareEnvironmentVariable @ 0x1406CADC0 (ExGetFirmwareEnvironmentVariable.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1408D0A30 (ExpFirmwareAccessAppContainerCheck.c)
- *     ExpGetFirmwareEnvironmentVariable @ 0x1408D0DC8 (ExpGetFirmwareEnvironmentVariable.c)
- *     ExpUmdfSidCheck @ 0x1408D32F0 (ExpUmdfSidCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     PsIsProcessAppContainer @ 0x1406B81E8 (PsIsProcessAppContainer.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x1406CADA0 (ExGetFirmwareEnvironmentVariable.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x1408D0A10 (ExpFirmwareAccessAppContainerCheck.c)
+ *     ExpGetFirmwareEnvironmentVariable @ 0x1408D0DA8 (ExpGetFirmwareEnvironmentVariable.c)
+ *     ExpUmdfSidCheck @ 0x1408D32D0 (ExpUmdfSidCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtQuerySystemEnvironmentValueEx(
@@ -48,7 +48,7 @@ NTSTATUS __stdcall NtQuerySystemEnvironmentValueEx(
              (_DWORD)Value,
              (_DWORD)ReturnLength,
              (__int64)Attributes);
-  if ( dword_140409DD0 != 2 )
+  if ( dword_140409D90 != 2 )
     return -1073741822;
   if ( ((unsigned __int8)VariableName & 3) != 0 )
     ExRaiseDatatypeMisalignment();

@@ -1,31 +1,43 @@
 /*
- * XREFs of ??1OUTPUTDUPL_SESSION_MGR@@QEAA@XZ @ 0x1C01E66F4
+ * XREFs of ??1OUTPUTDUPL_SESSION_MGR@@QEAA@XZ @ 0x1C0161F44
  * Callers:
- *     ??_GOUTPUTDUPL_SESSION_MGR@@QEAAPEAXI@Z @ 0x1C00162B0 (--_GOUTPUTDUPL_SESSION_MGR@@QEAAPEAXI@Z.c)
+ *     ??_GOUTPUTDUPL_SESSION_MGR@@QEAAPEAXI@Z @ 0x1C0019B70 (--_GOUTPUTDUPL_SESSION_MGR@@QEAAPEAXI@Z.c)
  * Callees:
- *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00083F8 (--1DXGFASTMUTEX@@QEAA@XZ.c)
- *     ??_GAUTOEXPANDALLOCATION@@QEAAPEAXI@Z @ 0x1C0016374 (--_GAUTOEXPANDALLOCATION@@QEAAPEAXI@Z.c)
- *     ?DestroyOutputDuplManager@@YAJPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C032B2EC (-DestroyOutputDuplManager@@YAJPEAVOUTPUTDUPL_MGR@@@Z.c)
+ *     ??_GDXGFASTMUTEX@@QEAAPEAXI@Z @ 0x1C000B66C (--_GDXGFASTMUTEX@@QEAAPEAXI@Z.c)
+ *     ??_GAUTOEXPANDALLOCATION@@QEAAPEAXI@Z @ 0x1C0019BA4 (--_GAUTOEXPANDALLOCATION@@QEAAPEAXI@Z.c)
+ *     ?DestroyOutputDuplManager@@YAJPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C0299948 (-DestroyOutputDuplManager@@YAJPEAVOUTPUTDUPL_MGR@@@Z.c)
  */
 
-void __fastcall OUTPUTDUPL_SESSION_MGR::~OUTPUTDUPL_SESSION_MGR(OUTPUTDUPL_SESSION_MGR *this)
+void __fastcall OUTPUTDUPL_SESSION_MGR::~OUTPUTDUPL_SESSION_MGR(OUTPUTDUPL_SESSION_MGR *this, __int64 a2)
 {
-  struct OUTPUTDUPL_MGR *v2; // rcx
-  AUTOEXPANDALLOCATION *v3; // rcx
+  struct OUTPUTDUPL_MGR *v3; // rcx
+  AUTOEXPANDALLOCATION *v4; // rcx
+  DXGFASTMUTEX *v5; // rcx
+  DXGFASTMUTEX *v6; // rcx
 
-  v2 = (struct OUTPUTDUPL_MGR *)*((_QWORD *)this + 15);
-  if ( v2 )
-  {
-    DestroyOutputDuplManager(v2);
-    *((_QWORD *)this + 15) = 0LL;
-  }
-  v3 = (AUTOEXPANDALLOCATION *)*((_QWORD *)this + 7);
+  v3 = (struct OUTPUTDUPL_MGR *)*((_QWORD *)this + 5);
   if ( v3 )
   {
-    AUTOEXPANDALLOCATION::`scalar deleting destructor'(v3);
-    *((_QWORD *)this + 7) = 0LL;
+    DestroyOutputDuplManager(v3);
+    *((_QWORD *)this + 5) = 0LL;
+  }
+  v4 = (AUTOEXPANDALLOCATION *)*((_QWORD *)this + 2);
+  if ( v4 )
+  {
+    AUTOEXPANDALLOCATION::`scalar deleting destructor'(v4);
+    *((_QWORD *)this + 2) = 0LL;
     *((_DWORD *)this + 1) = 0;
   }
-  DXGFASTMUTEX::~DXGFASTMUTEX((OUTPUTDUPL_SESSION_MGR *)((char *)this + 72));
-  DXGFASTMUTEX::~DXGFASTMUTEX((OUTPUTDUPL_SESSION_MGR *)((char *)this + 8));
+  v5 = (DXGFASTMUTEX *)*((_QWORD *)this + 4);
+  if ( v5 )
+  {
+    DXGFASTMUTEX::`scalar deleting destructor'(v5, a2);
+    *((_QWORD *)this + 4) = 0LL;
+  }
+  v6 = (DXGFASTMUTEX *)*((_QWORD *)this + 1);
+  if ( v6 )
+  {
+    DXGFASTMUTEX::`scalar deleting destructor'(v6, a2);
+    *((_QWORD *)this + 1) = 0LL;
+  }
 }

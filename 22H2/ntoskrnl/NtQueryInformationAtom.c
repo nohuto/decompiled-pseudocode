@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryInformationAtom @ 0x1407DBCF0
+ * XREFs of NtQueryInformationAtom @ 0x140683E50
  * Callers:
  *     <none>
  * Callees:
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
- *     RtlQueryAtomInAtomTable @ 0x140715170 (RtlQueryAtomInAtomTable.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     RtlQueryAtomsInAtomTable @ 0x1409BBEC8 (RtlQueryAtomsInAtomTable.c)
+ *     PsInvokeWin32Callout @ 0x14061B5A0 (PsInvokeWin32Callout.c)
+ *     RtlQueryAtomInAtomTable @ 0x14061BBF0 (RtlQueryAtomInAtomTable.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     RtlQueryAtomsInAtomTable @ 0x140913208 (RtlQueryAtomsInAtomTable.c)
  */
 
 __int64 __fastcall NtQueryInformationAtom(unsigned __int16 a1, int a2, _WORD *a3, unsigned int a4, int *a5)

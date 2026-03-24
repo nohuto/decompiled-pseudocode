@@ -1,22 +1,23 @@
 /*
- * XREFs of IopAllocateFileObjectExtension @ 0x1402A3A60
+ * XREFs of IopAllocateFileObjectExtension @ 0x14022C1D0
  * Callers:
- *     IoSetOplockPrivateFoExt @ 0x1402A2EF0 (IoSetOplockPrivateFoExt.c)
- *     IopSetFileObjectExtensionFlag @ 0x1402A34C8 (IopSetFileObjectExtensionFlag.c)
- *     IoGetFileObjectFilterContext @ 0x1402A3610 (IoGetFileObjectFilterContext.c)
- *     IopGetSetSpecificExtension @ 0x1402A38B4 (IopGetSetSpecificExtension.c)
- *     NtSetInformationFile @ 0x1402F72B0 (NtSetInformationFile.c)
- *     IoSetOplockKeyContext @ 0x14039E588 (IoSetOplockKeyContext.c)
- *     IoSetIoPriorityHintIntoFileObject @ 0x140557D20 (IoSetIoPriorityHintIntoFileObject.c)
- *     IopSymlinkSetFoExtension @ 0x1406DF940 (IopSymlinkSetFoExtension.c)
- *     IopSetFileObjectIosbRange @ 0x140935790 (IopSetFileObjectIosbRange.c)
- *     IopSetFileMemoryPartitionInformation @ 0x140936BF8 (IopSetFileMemoryPartitionInformation.c)
+ *     IoSetOplockPrivateFoExt @ 0x140206288 (IoSetOplockPrivateFoExt.c)
+ *     IoGetFileObjectFilterContext @ 0x1402A2A8C (IoGetFileObjectFilterContext.c)
+ *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
+ *     IopGetSetSpecificExtension @ 0x140356AE8 (IopGetSetSpecificExtension.c)
+ *     IopSetFileObjectExtensionFlag @ 0x1403621E0 (IopSetFileObjectExtensionFlag.c)
+ *     IoSetOplockKeyContext @ 0x140390E44 (IoSetOplockKeyContext.c)
+ *     IoSetIoPriorityHintIntoFileObject @ 0x140506320 (IoSetIoPriorityHintIntoFileObject.c)
+ *     IopSymlinkSetFoExtension @ 0x14069BA2C (IopSymlinkSetFoExtension.c)
+ *     IopSetFileObjectIosbRange @ 0x140892814 (IopSetFileObjectIosbRange.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x1408942EC (IopSetFileMemoryPartitionInformation.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1402B6C78 (IopVerifierExAllocatePool_0.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopAllocateFileObjectExtension(__int64 a1, __int64 *a2)
@@ -24,18 +25,20 @@ __int64 __fastcall IopAllocateFileObjectExtension(__int64 a1, __int64 *a2)
   void *v2; // rax
   void *v3; // rbp
   unsigned __int8 CurrentIrql; // r15
-  __int64 Pool2; // rsi
-  _DWORD *v8; // r9
+  __int64 v7; // rsi
+  __int64 v8; // rcx
+  void *Pool_0; // rax
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v11; // al
+  unsigned __int8 v12; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v13; // r9
-  int v14; // eax
-  bool v15; // zf
-  unsigned __int8 v16; // al
-  struct _KPRCB *v17; // r9
-  _DWORD *v18; // r8
-  int v19; // eax
+  _DWORD *v14; // r9
+  int v15; // eax
+  bool v16; // zf
+  _DWORD *v17; // r9
+  unsigned __int8 v18; // al
+  struct _KPRCB *v19; // r9
+  _DWORD *v20; // r8
+  int v21; // eax
 
   v2 = *(void **)(a1 + 208);
   v3 = 0LL;
@@ -58,66 +61,69 @@ __int64 __fastcall IopAllocateFileObjectExtension(__int64 a1, __int64 *a2)
       SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     KxAcquireSpinLock((PKSPIN_LOCK)(a1 + 184));
-    Pool2 = *(_QWORD *)(a1 + 208);
-    if ( Pool2 )
-      goto LABEL_12;
+    v7 = *(_QWORD *)(a1 + 208);
+    if ( v7 )
+      goto LABEL_9;
     KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 184));
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v11 = KeGetCurrentIrql();
-        if ( v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+        v12 = KeGetCurrentIrql();
+        if ( v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v13 = CurrentPrcb->SchedulerAssist;
-          v14 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v15 = (v14 & v13[5]) == 0;
-          v13[5] &= v14;
-          if ( v15 )
+          v8 = (unsigned int)CurrentIrql + 1;
+          v14 = CurrentPrcb->SchedulerAssist;
+          v15 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v16 = (v15 & v14[5]) == 0;
+          v14[5] &= v15;
+          if ( v16 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }
     __writecr8(CurrentIrql);
-    Pool2 = ExAllocatePool2(64LL, 88LL, 1162243913LL);
-    if ( Pool2 )
+    Pool_0 = (void *)IopVerifierExAllocatePool_0(v8, 88LL);
+    v7 = (__int64)Pool_0;
+    if ( Pool_0 )
     {
+      memset(Pool_0, 0, 0x58uLL);
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
-        v8 = KeGetCurrentPrcb()->SchedulerAssist;
-        v8[5] |= (-1 << (CurrentIrql + 1)) & 4;
+        v17 = KeGetCurrentPrcb()->SchedulerAssist;
+        v17[5] |= (-1 << (CurrentIrql + 1)) & 4;
       }
       KxAcquireSpinLock((PKSPIN_LOCK)(a1 + 184));
       if ( *(_QWORD *)(a1 + 208) )
       {
-        v3 = (void *)Pool2;
-        Pool2 = *(_QWORD *)(a1 + 208);
+        v3 = (void *)v7;
+        v7 = *(_QWORD *)(a1 + 208);
       }
       else
       {
-        _InterlockedExchange64((volatile __int64 *)(a1 + 208), Pool2);
+        _InterlockedExchange64((volatile __int64 *)(a1 + 208), v7);
       }
-LABEL_12:
+LABEL_9:
       if ( a2 )
-        *a2 = Pool2;
+        *a2 = v7;
       KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 184));
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v16 = KeGetCurrentIrql();
-          if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+          v18 = KeGetCurrentIrql();
+          if ( v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
           {
-            v17 = KeGetCurrentPrcb();
-            v18 = v17->SchedulerAssist;
-            v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-            v15 = (v19 & v18[5]) == 0;
-            v18[5] &= v19;
-            if ( v15 )
-              KiRemoveSystemWorkPriorityKick(v17);
+            v19 = KeGetCurrentPrcb();
+            v20 = v19->SchedulerAssist;
+            v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v16 = (v21 & v20[5]) == 0;
+            v20[5] &= v21;
+            if ( v16 )
+              KiRemoveSystemWorkPriorityKick(v19);
           }
         }
       }

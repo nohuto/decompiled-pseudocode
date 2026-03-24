@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z @ 0x1C016ABDA
+ * XREFs of ?GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z @ 0x1C01E04EC
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C0058FB0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C2120 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
- *     ?MiPConvertPoint@@YA?AUtagPOINT@@PEBU1@@Z @ 0x1C01DBC98 (-MiPConvertPoint@@YA-AUtagPOINT@@PEBU1@@Z.c)
- *     ?RefreshMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z @ 0x1C01DC2FC (-RefreshMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z.c)
- *     ?StopMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z @ 0x1C01DC55C (-StopMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?MiPConvertPoint@@YA?AUtagPOINT@@PEBU1@@Z @ 0x1C01E0A58 (-MiPConvertPoint@@YA-AUtagPOINT@@PEBU1@@Z.c)
+ *     ?RefreshMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z @ 0x1C01E1074 (-RefreshMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z.c)
+ *     ?StopMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z @ 0x1C01E12D8 (-StopMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z.c)
  */
 
 __int64 __fastcall GeneratePointerMessageFromMouse(
@@ -21,7 +21,7 @@ __int64 __fastcall GeneratePointerMessageFromMouse(
   int NextFrameId; // eax
   unsigned int *v12; // r15
   __int64 v13; // r8
-  int PointerFlagsFromMouse; // eax
+  int v14; // r8d
   struct tagPOINT v15; // rax
   bool v16; // zf
   int v17; // eax
@@ -32,18 +32,18 @@ __int64 __fastcall GeneratePointerMessageFromMouse(
   _OWORD v23[6]; // [rsp+38h] [rbp-31h] BYREF
 
   memset(v23, 0, sizeof(v23));
-  v9 = *(_DWORD **)(gptiCurrent + 1312LL);
+  v9 = *(_DWORD **)(gptiCurrent + 1280LL);
   if ( !v9 )
   {
     v9 = (_DWORD *)Win32AllocPoolZInit(384LL, 1347253077LL);
     if ( !v9 )
       goto LABEL_29;
-    *(_QWORD *)(gptiCurrent + 1312LL) = v9;
+    *(_QWORD *)(gptiCurrent + 1280LL) = v9;
   }
   if ( a5 && (*v9 & 0x10) != 0 )
   {
     *v9 &= ~0x10u;
-    **(_DWORD **)(gptiCurrent + 1312LL) &= ~4u;
+    **(_DWORD **)(gptiCurrent + 1280LL) &= ~4u;
   }
   if ( (unsigned int)IsMiPMouseMessage(*((unsigned int *)a3 + 6)) )
   {
@@ -70,22 +70,17 @@ __int64 __fastcall GeneratePointerMessageFromMouse(
     LODWORD(v23[4]) = *((_DWORD *)a3 + 12);
     *(_QWORD *)&v23[5] = *((_QWORD *)a3 + 16);
     DWORD1(v23[4]) = 1;
-    PointerFlagsFromMouse = GetPointerFlagsFromMouse(
-                              (char *)a1 + 24,
-                              a2,
-                              v13,
-                              (char *)&v23[4] + 12,
-                              (char *)&v23[5] + 8);
-    HIDWORD(v23[0]) = PointerFlagsFromMouse;
-    if ( PointerFlagsFromMouse )
+    HIDWORD(v23[0]) = GetPointerFlagsFromMouse((char *)a1 + 24, a2, v13, (char *)&v23[4] + 12, (char *)&v23[5] + 8);
+    v14 = HIDWORD(v23[0]);
+    if ( HIDWORD(v23[0]) )
     {
-      if ( (**(_DWORD **)(gptiCurrent + 1312LL) & 4) == 0 )
+      if ( (**(_DWORD **)(gptiCurrent + 1280LL) & 4) == 0 )
       {
-        PointerFlagsFromMouse |= 0x2000u;
-        HIDWORD(v23[0]) = PointerFlagsFromMouse;
+        v14 = HIDWORD(v23[0]) | 0x2000;
+        HIDWORD(v23[0]) |= 0x2000u;
       }
-      if ( (*((_DWORD *)a3 + 25) & 0x1000) != 0 )
-        HIDWORD(v23[0]) = PointerFlagsFromMouse | 0x400000;
+      if ( (*((_DWORD *)a3 + 25) & 0x2000) != 0 )
+        HIDWORD(v23[0]) = v14 | 0x400000;
       LODWORD(v23[2]) = *((__int16 *)a3 + 20);
       DWORD1(v23[2]) = *((__int16 *)a3 + 21);
       v15 = MiPConvertPoint((const struct tagPOINT *)&v23[2]);
@@ -104,23 +99,23 @@ __int64 __fastcall GeneratePointerMessageFromMouse(
         v17 = WORD4(v23[4]);
       }
       *((_QWORD *)a1 + 4) = (unsigned int)(v17 << 16) | 1LL;
-      v18 = *(_QWORD *)(gptiCurrent + 1312LL);
+      v18 = *(_QWORD *)(gptiCurrent + 1280LL);
       *(_OWORD *)(v18 + 24) = v23[0];
       *(_OWORD *)(v18 + 40) = v23[1];
       *(_OWORD *)(v18 + 56) = v23[2];
       *(_OWORD *)(v18 + 72) = v23[3];
       *(_OWORD *)(v18 + 88) = v23[4];
       *(_OWORD *)(v18 + 104) = v23[5];
-      **(_DWORD **)(gptiCurrent + 1312LL) |= 1u;
+      **(_DWORD **)(gptiCurrent + 1280LL) |= 1u;
       if ( a5 )
       {
         if ( ((*v12 - 579) & 0xFFFFFFFB) == 0 )
         {
-          v19 = *(_DWORD **)(gptiCurrent + 1312LL);
+          v19 = *(_DWORD **)(gptiCurrent + 1280LL);
           if ( (*v19 & 4) != 0 )
           {
             *v19 |= 0x10u;
-            **(_DWORD **)(gptiCurrent + 1312LL) &= ~2u;
+            **(_DWORD **)(gptiCurrent + 1280LL) &= ~2u;
           }
         }
       }
@@ -131,14 +126,14 @@ __int64 __fastcall GeneratePointerMessageFromMouse(
       }
       else
       {
-        *(_QWORD *)(*(_QWORD *)(gptiCurrent + 1312LL) + 376LL) = *((_QWORD *)a1 + 5);
+        *(_QWORD *)(*(_QWORD *)(gptiCurrent + 1280LL) + 376LL) = *((_QWORD *)a1 + 5);
         RefreshMiPIdleNotificationTimer(a4);
       }
       return 1LL;
     }
   }
 LABEL_29:
-  v22 = *(_DWORD **)(gptiCurrent + 1312LL);
+  v22 = *(_DWORD **)(gptiCurrent + 1280LL);
   if ( v22 )
     *v22 &= ~1u;
   return 0LL;

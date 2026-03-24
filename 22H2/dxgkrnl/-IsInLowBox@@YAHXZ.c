@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsInLowBox@@YAHXZ @ 0x1C032C934
+ * XREFs of ?IsInLowBox@@YAHXZ @ 0x1C029AD90
  * Callers:
- *     DxgkCreateOutputDupl @ 0x1C032FC50 (DxgkCreateOutputDupl.c)
+ *     DxgkCreateOutputDupl @ 0x1C029D5E0 (DxgkCreateOutputDupl.c)
  * Callees:
- *     ?OpenThreadToken@@YAJPEAPEAX@Z @ 0x1C0046F74 (-OpenThreadToken@@YAJPEAPEAX@Z.c)
+ *     ?OpenThreadToken@@YAJPEAPEAX@Z @ 0x1C003F0CC (-OpenThreadToken@@YAJPEAPEAX@Z.c)
  */
 
 __int64 IsInLowBox(void)

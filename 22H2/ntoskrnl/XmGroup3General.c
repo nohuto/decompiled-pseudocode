@@ -1,42 +1,44 @@
 /*
- * XREFs of XmGroup3General @ 0x1403B8320
+ * XREFs of XmGroup3General @ 0x140395FD0
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x1403B8BCC (XmEvaluateAddressSpecifier.c)
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
- *     XmSetDataType @ 0x1403B8E88 (XmSetDataType.c)
- *     XmGetImmediateSourceValue @ 0x1403B8EB4 (XmGetImmediateSourceValue.c)
- *     XmSetDestinationValue @ 0x1403B8F08 (XmSetDestinationValue.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x140396898 (XmSetDestinationValue.c)
+ *     XmGetImmediateSourceValue @ 0x1403968C0 (XmGetImmediateSourceValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140396914 (XmEvaluateAddressSpecifier.c)
+ *     XmSetDataType @ 0x140396CC8 (XmSetDataType.c)
  */
 
 __int64 __fastcall XmGroup3General(__int64 a1)
 {
   __int64 v2; // rdi
-  char v3; // al
-  int v4; // r8d
-  __int64 v6; // rdx
-  int v7; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v3; // r8
+  __int64 v4; // r9
+  char v5; // al
+  int v6; // r8d
+  __int64 v8; // rdx
+  int v9; // [rsp+30h] [rbp+8h] BYREF
 
-  v7 = 0;
-  XmSetDataType(a1);
-  v2 = XmEvaluateAddressSpecifier(a1, &v7);
-  v3 = v7;
-  *(_DWORD *)(a1 + 124) += v7;
+  v9 = 0;
+  XmSetDataType();
+  v2 = XmEvaluateAddressSpecifier(a1, &v9);
+  v5 = v9;
+  *(_DWORD *)(a1 + 124) += v9;
   if ( *(_DWORD *)(a1 + 124) == 22 )
   {
     XmGetImmediateSourceValue(a1, 0LL);
     XmSetDestinationValue(a1, v2);
-    *(_DWORD *)(a1 + 108) = v4;
+    *(_DWORD *)(a1 + 108) = v6;
   }
-  else if ( (v3 & 4) != 0 )
+  else if ( (v5 & 4) != 0 )
   {
-    v6 = a1 + 24;
-    if ( (v3 & 2) != 0 )
-      *(_QWORD *)(a1 + 88) = v6;
+    v8 = a1 + 24;
+    if ( (v5 & 2) != 0 )
+      *(_QWORD *)(a1 + 88) = v8;
     else
-      XmSetDestinationValue(a1, v6);
-    XmSetSourceValue(a1, v2);
+      XmSetDestinationValue(a1, v8);
+    XmSetSourceValue(a1, v2, v3, v4);
   }
   else
   {

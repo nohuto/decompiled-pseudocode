@@ -1,52 +1,49 @@
 /*
- * XREFs of KiAbThreadBoostIoPriority @ 0x140319118
+ * XREFs of KiAbThreadBoostIoPriority @ 0x1402DE724
  * Callers:
- *     KiAbSetMinimumThreadPriority @ 0x140318C48 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbSetMinimumThreadPriority @ 0x140272404 (KiAbSetMinimumThreadPriority.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     KiAbQueueAutoBoostDpc @ 0x140307C18 (KiAbQueueAutoBoostDpc.c)
- *     PsBoostThreadIoQoS @ 0x14031A52C (PsBoostThreadIoQoS.c)
- *     KiAbThreadInsertList @ 0x14035F9D0 (KiAbThreadInsertList.c)
+ *     PsBoostThreadIoEx @ 0x1402CDF90 (PsBoostThreadIoEx.c)
+ *     PsBoostThreadIoQoS @ 0x1402DD248 (PsBoostThreadIoQoS.c)
+ *     KiAbQueueAutoBoostDpc @ 0x1402DE7EC (KiAbQueueAutoBoostDpc.c)
+ *     KiAbThreadInsertList @ 0x14032116C (KiAbThreadInsertList.c)
  */
 
-__int64 __fastcall KiAbThreadBoostIoPriority(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall KiAbThreadBoostIoPriority(__int64 a1, __int64 a2, int a3, _DWORD *a4)
 {
-  int v6; // edi
-  __int64 v8; // r8
-  __int64 v9; // r10
-  unsigned int v10; // ecx
-  signed __int32 v12[10]; // [rsp+0h] [rbp-28h] BYREF
+  __int64 v8; // r10
+  unsigned int v9; // ecx
+  signed __int32 v11[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  v6 = a3;
-  if ( (_DWORD)a3 )
+  if ( a3 )
   {
-    PsBoostThreadIoQoS(a1, 0LL, a3);
-    v9 = 864LL;
+    PsBoostThreadIoQoS(a1, 0LL);
+    v8 = 864LL;
   }
   else
   {
     PsBoostThreadIoEx(a1, 0, 0, 0LL);
-    v9 = 860LL;
+    v8 = 860LL;
   }
-  _InterlockedOr(v12, 0);
-  if ( *(_DWORD *)(v9 + a1) )
+  _InterlockedOr(v11, 0);
+  if ( *(_DWORD *)(v8 + a1) )
   {
-    v10 = 1;
+    v9 = 1;
     goto LABEL_12;
   }
   if ( !a2 )
   {
-    v10 = 1;
-    *a4 |= (v6 != 0) + 1;
+    v9 = 1;
+    *a4 |= (a3 != 0) + 1;
 LABEL_12:
-    _InterlockedAdd((volatile signed __int32 *)(v9 + a1), 1u);
-    return v10;
+    _InterlockedAdd((volatile signed __int32 *)(v8 + a1), 1u);
+    return v9;
   }
-  if ( v6 )
-    PsBoostThreadIoQoS(a1, 1LL, v8);
+  if ( a3 )
+    PsBoostThreadIoQoS(a1, 1LL);
   else
     PsBoostThreadIoEx(a1, 1, 0, 0LL);
   if ( (unsigned int)KiAbThreadInsertList(a1, a2, a1 + 816) )
-    KiAbQueueAutoBoostDpc(a2 - 35696);
+    KiAbQueueAutoBoostDpc((PVOID)(a2 - 34672));
   return 0;
 }

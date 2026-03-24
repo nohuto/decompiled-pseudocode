@@ -1,5 +1,5 @@
 /*
- * XREFs of IoSetIoPriorityHint @ 0x1401130D0
+ * XREFs of IoSetIoPriorityHint @ 0x1401130F0
  * Callers:
  *     <none>
  * Callees:

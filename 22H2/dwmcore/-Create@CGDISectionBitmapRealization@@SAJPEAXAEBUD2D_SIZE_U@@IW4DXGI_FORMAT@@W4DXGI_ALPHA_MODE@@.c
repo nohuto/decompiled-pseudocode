@@ -1,18 +1,17 @@
 /*
- * XREFs of ?Create@CGDISectionBitmapRealization@@SAJPEAXAEBUD2D_SIZE_U@@IW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@PEAPEAEPEAPEAVIGDIBitmapRealization@@@Z @ 0x1800F5A04
+ * XREFs of ?Create@CGDISectionBitmapRealization@@SAJPEAXAEBUD2D_SIZE_U@@IW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@PEAPEAEPEAPEAVIGDIBitmapRealization@@@Z @ 0x180031660
  * Callers:
- *     ?CreateSectionBitmap@CGdiSpriteBitmap@@AEAAJPEAXII@Z @ 0x1800F586C (-CreateSectionBitmap@CGdiSpriteBitmap@@AEAAJPEAXII@Z.c)
+ *     ?CreateSectionBitmap@CGdiSpriteBitmap@@AEAAJPEAXII@Z @ 0x180031A64 (-CreateSectionBitmap@CGdiSpriteBitmap@@AEAAJPEAXII@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??4?$com_ptr_t@VCGDISectionBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCGDISectionBitmapRealization@@@Z @ 0x1800F5B78 (--4-$com_ptr_t@VCGDISectionBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVC.c)
- *     ??0CGDISectionBitmapRealization@@IEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_SYSMEM_SECTION_INFO@@_N@Z @ 0x1800F5BC8 (--0CGDISectionBitmapRealization@@IEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUC.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0CGDISectionBitmapRealization@@IEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_SYSMEM_SECTION_INFO@@_N@Z @ 0x1800317B0 (--0CGDISectionBitmapRealization@@IEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUC.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGDISectionBitmapRealization::Create(
-        HANDLE hObject,
+        void *a1,
         const struct D2D_SIZE_U *a2,
         int a3,
         enum DXGI_FORMAT a4,
@@ -20,85 +19,73 @@ __int64 __fastcall CGDISectionBitmapRealization::Create(
         unsigned __int8 **a6,
         struct IGDIBitmapRealization **a7)
 {
-  unsigned __int8 **v7; // r15
-  struct IGDIBitmapRealization **v9; // r12
-  UINT32 width; // eax
   UINT32 height; // eax
-  CGDISectionBitmapRealization *v15; // rax
-  __int64 v16; // rcx
-  unsigned __int8 **v17; // rbx
-  unsigned __int8 **v18; // rsi
-  int v19; // eax
-  __int64 v20; // rcx
-  unsigned int v21; // edi
-  unsigned __int64 v22; // rdx
-  bool v24; // [rsp+28h] [rbp-B1h]
-  HANDLE v25; // [rsp+38h] [rbp-A1h] BYREF
-  UINT32 v26; // [rsp+40h] [rbp-99h]
-  UINT32 v27; // [rsp+44h] [rbp-95h]
-  int v28; // [rsp+48h] [rbp-91h]
-  enum DXGI_FORMAT v29; // [rsp+4Ch] [rbp-8Dh]
-  _OWORD v30[2]; // [rsp+50h] [rbp-89h] BYREF
-  __int64 v31; // [rsp+70h] [rbp-69h]
-  _DWORD v32[20]; // [rsp+78h] [rbp-61h] BYREF
-  __int128 v33; // [rsp+C8h] [rbp-11h]
+  CGDISectionBitmapRealization *v12; // rax
+  unsigned int v13; // ecx
+  CGDISectionBitmapRealization *v14; // rbx
+  int v15; // eax
+  unsigned int v16; // ecx
+  unsigned int v17; // edi
+  bool v19; // [rsp+28h] [rbp-A1h]
+  void *v20; // [rsp+38h] [rbp-91h] BYREF
+  UINT32 width; // [rsp+40h] [rbp-89h]
+  UINT32 v22; // [rsp+44h] [rbp-85h]
+  int v23; // [rsp+48h] [rbp-81h]
+  enum DXGI_FORMAT v24; // [rsp+4Ch] [rbp-7Dh]
+  _OWORD v25[2]; // [rsp+50h] [rbp-79h] BYREF
+  _DWORD v26[32]; // [rsp+78h] [rbp-51h] BYREF
 
-  v7 = a6;
-  v9 = a7;
   *a6 = 0LL;
-  *v9 = 0LL;
-  memset_0(v32, 0, 0x90uLL);
-  v32[12] = 0;
-  a6 = 0LL;
-  v32[0] = a5;
-  v31 = 0LL;
+  *a7 = 0LL;
+  memset_0(v26, 0, 0x78uLL);
+  v26[11] = 0;
+  v26[18] = 0;
+  v26[19] = 0;
+  v26[20] = 0;
+  v26[22] = 0;
+  v26[0] = a5;
   width = a2->width;
-  v32[18] = (_DWORD)FLOAT_1_0;
-  v26 = width;
   height = a2->height;
-  memset(v30, 0, sizeof(v30));
-  v27 = height;
-  v32[19] = 0;
-  v33 = _xmm;
-  LODWORD(v30[0]) = 1;
-  v25 = hObject;
-  v28 = a3;
-  v29 = a4;
-  v15 = (CGDISectionBitmapRealization *)operator new(0x1F8uLL);
-  if ( v15 )
-    v15 = CGDISectionBitmapRealization::CGDISectionBitmapRealization(
-            v15,
-            (const struct CSM_BUFFER_ATTRIBUTES *)v32,
-            (const struct CSM_REALIZATION_INFO *)v30,
-            (const struct CSM_SYSMEM_SECTION_INFO *)&v25,
-            v24);
-  wil::com_ptr_t<CGDISectionBitmapRealization,wil::err_returncode_policy>::operator=(&a6, v15);
-  v17 = a6;
-  if ( a6 )
+  memset(v25, 0, sizeof(v25));
+  v22 = height;
+  v26[17] = 1065353216;
+  v26[21] = 1065353216;
+  LODWORD(v25[0]) = 1;
+  v20 = a1;
+  v23 = a3;
+  v24 = a4;
+  v12 = (CGDISectionBitmapRealization *)operator new(0x1D8uLL);
+  if ( v12 )
+    v14 = CGDISectionBitmapRealization::CGDISectionBitmapRealization(
+            v12,
+            (const struct CSM_BUFFER_ATTRIBUTES *)v26,
+            (const struct CSM_REALIZATION_INFO *)v25,
+            (const struct CSM_SYSMEM_SECTION_INFO *)&v20,
+            v19);
+  else
+    v14 = 0LL;
+  if ( v14 )
   {
-    v18 = a6;
-    v19 = (*((__int64 (__fastcall **)(unsigned __int8 **))*a6 + 8))(a6);
-    v21 = v19;
-    if ( v19 < 0 )
+    (*(void (__fastcall **)(CGDISectionBitmapRealization *))(*(_QWORD *)v14 + 8LL))(v14);
+    a1 = 0LL;
+    v15 = (*(__int64 (__fastcall **)(CGDISectionBitmapRealization *))(*(_QWORD *)v14 + 56LL))(v14);
+    v17 = v15;
+    if ( v15 >= 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x37u, 0LL);
+      *a6 = (unsigned __int8 *)*((_QWORD *)v14 + 43);
+      *a7 = (CGDISectionBitmapRealization *)((char *)v14 + 360);
+      return v17;
     }
-    else
-    {
-      v22 = (unsigned __int64)(v17 + 49);
-      *v7 = v17[47];
-      v17 = 0LL;
-      *v9 = (struct IGDIBitmapRealization *)(v22 & -(__int64)(v18 != 0LL));
-    }
+    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x37u, 0LL);
   }
   else
   {
-    v21 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, -2147024882, 0x32u, 0LL);
-    if ( hObject )
-      CloseHandle(hObject);
+    v17 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2147024882, 0x32u, 0LL);
   }
-  if ( v17 )
-    (*((void (__fastcall **)(unsigned __int8 **))*v17 + 2))(v17);
-  return v21;
+  if ( a1 )
+    CloseHandle(a1);
+  if ( v14 )
+    (*(void (__fastcall **)(CGDISectionBitmapRealization *))(*(_QWORD *)v14 + 16LL))(v14);
+  return v17;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryEvent @ 0x1401B8C30
+ * XREFs of ZwQueryEvent @ 0x1401B8C50
  * Callers:
  *     <none>
  * Callees:

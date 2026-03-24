@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EmitSleepStudyTotalTimeModernStandbyTelemetry@DripsBlockerTrackingHelper@@IEAAX_K@Z @ 0x1C02FBA14
+ * XREFs of ?EmitSleepStudyTotalTimeModernStandbyTelemetry@DripsBlockerTrackingHelper@@IEAAX_K@Z @ 0x1C02C085C
  * Callers:
- *     ?EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z @ 0x1C02FB27C (-EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z.c)
+ *     ?EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z @ 0x1C02C00AC (-EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0012AB4 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C001A400 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C000B1A8 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C002145C (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 void __fastcall DripsBlockerTrackingHelper::EmitSleepStudyTotalTimeModernStandbyTelemetry(
@@ -60,9 +60,9 @@ void __fastcall DripsBlockerTrackingHelper::EmitSleepStudyTotalTimeModernStandby
     --v6;
   }
   while ( v6 );
-  if ( (unsigned int)dword_1C012F918 > 5 )
+  if ( (unsigned int)dword_1C00B1A90 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_1C012F918, 0x400000002000LL) )
+    if ( tlgKeywordOn((__int64)&dword_1C00B1A90, 0x400000002000LL) )
     {
       v11 = *((_QWORD *)this + 37765);
       v36 &= v10;
@@ -90,8 +90,8 @@ void __fastcall DripsBlockerTrackingHelper::EmitSleepStudyTotalTimeModernStandby
       v16 = a2;
       v17 = 16LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_1C012F918,
-        (unsigned __int8 *)dword_1C0097FEC,
+        (__int64)&dword_1C00B1A90,
+        (unsigned __int8 *)dword_1C00807B5,
         0LL,
         0LL,
         v10 + 8,

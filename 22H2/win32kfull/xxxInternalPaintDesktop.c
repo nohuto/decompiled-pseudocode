@@ -1,14 +1,14 @@
 /*
- * XREFs of xxxInternalPaintDesktop @ 0x1C00B5048
+ * XREFs of xxxInternalPaintDesktop @ 0x1C012CD90
  * Callers:
- *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C0020C7C (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
- *     xxxDWP_EraseBkgnd @ 0x1C00C4090 (xxxDWP_EraseBkgnd.c)
- *     ?xxxRedrawHungWindow@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C0156B26 (-xxxRedrawHungWindow@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
- *     xxxRealizeDesktop @ 0x1C01BEC0C (xxxRealizeDesktop.c)
- *     NtUserPaintDesktop @ 0x1C01D7F50 (NtUserPaintDesktop.c)
+ *     xxxDWP_EraseBkgnd @ 0x1C0045F88 (xxxDWP_EraseBkgnd.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00462FC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     xxxRealizeDesktop @ 0x1C01E9658 (xxxRealizeDesktop.c)
+ *     NtUserPaintDesktop @ 0x1C01FF8A0 (NtUserPaintDesktop.c)
+ *     xxxRedrawHungWindow @ 0x1C0240D14 (xxxRedrawHungWindow.c)
  * Callees:
- *     GreOffsetClipRgn @ 0x1C00B51E4 (GreOffsetClipRgn.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     GreOffsetClipRgn @ 0x1C012CF2C (GreOffsetClipRgn.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall xxxInternalPaintDesktop(__int64 a1, HDC a2, int a3)

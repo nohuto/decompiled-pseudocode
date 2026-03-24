@@ -1,26 +1,27 @@
 /*
- * XREFs of KeSaveExtendedAndSupervisorState @ 0x14020DDFC
+ * XREFs of KeSaveExtendedAndSupervisorState @ 0x14031A61C
  * Callers:
- *     KeSaveExtendedProcessorState @ 0x14020DDB0 (KeSaveExtendedProcessorState.c)
- *     PnprQuiesceProcessorDpc @ 0x140A9D540 (PnprQuiesceProcessorDpc.c)
- *     PopHandleNextState @ 0x140AA81DC (PopHandleNextState.c)
+ *     KeSaveExtendedProcessorState @ 0x14031A5D0 (KeSaveExtendedProcessorState.c)
+ *     PopHandleNextState @ 0x1409938B0 (PopHandleNextState.c)
+ *     PnprQuiesceProcessorDpc @ 0x1409AE4D0 (PnprQuiesceProcessorDpc.c)
  * Callees:
- *     KeAllocateXStateContext @ 0x14020DF70 (KeAllocateXStateContext.c)
- *     RtlXSave @ 0x14020DFD0 (RtlXSave.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     RtlXSaveS @ 0x14036DE54 (RtlXSaveS.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlXSaveS @ 0x14031A7EC (RtlXSaveS.c)
+ *     RtlXSave @ 0x14031A820 (RtlXSave.c)
+ *     KeAllocateXStateContext @ 0x14031A874 (KeAllocateXStateContext.c)
+ *     RtlXRestore @ 0x14031C12C (RtlXRestore.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall KeSaveExtendedAndSupervisorState(ULONG_PTR BugCheckParameter3, PVOID *a2)
 {
-  unsigned __int8 CurrentIrql; // r15
+  unsigned __int8 CurrentIrql; // bp
   struct _KTHREAD *CurrentThread; // r14
   bool v5; // zf
-  unsigned __int8 v6; // r13
-  _BYTE *SparePtr; // r8
-  ULONG_PTR v8; // rbp
+  unsigned __int8 v6; // r12
+  _BYTE *SparePtr; // rax
+  ULONG_PTR v8; // r15
   unsigned int *v9; // rax
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // rbx
@@ -34,10 +35,17 @@ __int64 __fastcall KeSaveExtendedAndSupervisorState(ULONG_PTR BugCheckParameter3
   {
     if ( CurrentIrql == 2 && (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
     {
-      if ( (~(KeEnabledSupervisorXStateFeatures | MEMORY[0xFFFFF780000003D8]) & BugCheckParameter3) == 0 )
-        goto LABEL_29;
-LABEL_31:
-      KeBugCheckEx(0x131u, 0LL, KeFeatureBits & 0x800000, (unsigned int)BugCheckParameter3, HIDWORD(BugCheckParameter3));
+      if ( (~(MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF780000005F0]) & BugCheckParameter3) != 0 )
+LABEL_33:
+        KeBugCheckEx(
+          0x131u,
+          0LL,
+          KeFeatureBits & 0x800000,
+          (unsigned int)BugCheckParameter3,
+          HIDWORD(BugCheckParameter3));
+LABEL_26:
+      v6 = CurrentIrql + 1;
+      goto LABEL_9;
     }
     v5 = (~MEMORY[0xFFFFF780000003D8] & BugCheckParameter3) == 0;
   }
@@ -46,45 +54,47 @@ LABEL_31:
     v5 = (BugCheckParameter3 & 0xFFFFFFFFFFFFFFFCuLL) == 0;
   }
   if ( !v5 )
-    goto LABEL_31;
-  if ( !CurrentIrql && (CurrentThread->ApcState.InProgressFlags & 1) == 0 )
-  {
-    v6 = 0;
-    goto LABEL_9;
-  }
-LABEL_29:
-  v6 = CurrentIrql + 1;
+    goto LABEL_33;
+  if ( CurrentIrql || (CurrentThread->ApcState.InProgressFlags & 1) != 0 )
+    goto LABEL_26;
+  v6 = 0;
 LABEL_9:
   SparePtr = CurrentThread->WaitBlock[1].SparePtr;
-  v8 = (MEMORY[0xFFFFF780000003D8] | BugCheckParameter3) & 0xFFFFFFFFFFFFFFFCuLL;
+  v8 = (BugCheckParameter3 | MEMORY[0xFFFFF780000003D8]) & 0xFFFFFFFFFFFFFFFCuLL;
   if ( SparePtr && SparePtr[16] > v6 )
     KeBugCheckEx(0x131u, 2uLL, (unsigned __int8)SparePtr[16], v6, 0LL);
-  if ( !v8 )
+  if ( v8 )
   {
-    *((_DWORD *)a2 + 8) = 0;
-    a2[6] = 0LL;
-    a2[5] = 0LL;
-    goto LABEL_14;
-  }
-  if ( CurrentIrql < 2u )
-    goto LABEL_12;
-  if ( !SparePtr || SparePtr[16] != v6 )
-  {
+    if ( CurrentIrql < 2u )
+      goto LABEL_12;
+    if ( SparePtr && SparePtr[16] == v6 )
+    {
+      v9 = (unsigned int *)0xFFFFF78000000600LL;
+      if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
+      {
+LABEL_13:
+        result = KeAllocateXStateContext(a2 + 3, BugCheckParameter3, *v9);
+        if ( (int)result < 0 )
+          return result;
+        goto LABEL_14;
+      }
+LABEL_12:
+      v9 = (unsigned int *)0xFFFFF780000003E8LL;
+      goto LABEL_13;
+    }
     CurrentPrcb = KeGetCurrentPrcb();
     memset(&CurrentPrcb->ExtendedState->Header, 0, sizeof(CurrentPrcb->ExtendedState->Header));
     v12 = KeXStateLength;
     a2[6] = 0LL;
     *((_DWORD *)a2 + 8) = v12;
     a2[5] = CurrentPrcb->ExtendedState;
-    goto LABEL_14;
   }
-  v9 = (unsigned int *)0xFFFFF78000000600LL;
-  if ( (MEMORY[0xFFFFF780000003EC] & 2) == 0 )
-LABEL_12:
-    v9 = (unsigned int *)0xFFFFF780000003E8LL;
-  result = KeAllocateXStateContext(a2 + 3, a2, *v9);
-  if ( (int)result < 0 )
-    return result;
+  else
+  {
+    *((_DWORD *)a2 + 8) = 0;
+    a2[6] = 0LL;
+    a2[5] = 0LL;
+  }
 LABEL_14:
   a2[1] = CurrentThread;
   *((_BYTE *)a2 + 16) = v6;
@@ -92,26 +102,21 @@ LABEL_14:
   if ( !CurrentIrql )
     --CurrentThread->SpecialApcDisable;
   *a2 = CurrentThread->WaitBlock[1].SparePtr;
-  if ( !v8 || (KeFeatureBits & 0x800000) == 0 )
-    goto LABEL_20;
-  if ( CurrentIrql != 2 || (MEMORY[0xFFFFF780000003EC] & 2) == 0 )
+  if ( v8 && (KeFeatureBits & 0x800000) != 0 )
   {
-    RtlXSave(a2[5], v8);
-LABEL_20:
-    CurrentThread->WaitBlock[1].SparePtr = a2;
-    if ( !CurrentIrql )
+    if ( CurrentIrql == 2 && (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
     {
-      v5 = CurrentThread->SpecialApcDisable++ == -1;
-      if ( v5
-        && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      {
-        KiCheckForKernelApcDelivery();
-      }
+      RtlXRestore(a2[5], 0LL);
+      *((_QWORD *)a2[5] + 65) = v8;
+      RtlXSaveS(a2[5], v8);
     }
-    return 0LL;
+    else
+    {
+      RtlXSave(a2[5], v8);
+    }
   }
-  *((_QWORD *)a2[5] + 65) = v8;
-  RtlXSaveS(a2[5], v8);
   CurrentThread->WaitBlock[1].SparePtr = a2;
+  if ( !CurrentIrql )
+    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return 0LL;
 }

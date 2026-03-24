@@ -1,78 +1,76 @@
 /*
- * XREFs of ?FindEntry@InputObjectMap@@CAPEAUInputObjectMapEntry@@AEBU_LUID@@@Z @ 0x1C0232040
+ * XREFs of ?FindEntry@InputObjectMap@@CAPEAUInputObjectMapEntry@@AEBU_LUID@@@Z @ 0x1C01FB580
  * Callers:
- *     ?AddMapping@InputObjectMap@@SAJAEBU_LUID@@PEBUCompositionInputObject@@@Z @ 0x1C0231C24 (-AddMapping@InputObjectMap@@SAJAEBU_LUID@@PEBUCompositionInputObject@@@Z.c)
- *     ?GetTransform@InputObjectMap@@SAJAEBU_LUID@@PEAUtagINPUT_TRANSFORM@@@Z @ 0x1C02321A0 (-GetTransform@InputObjectMap@@SAJAEBU_LUID@@PEAUtagINPUT_TRANSFORM@@@Z.c)
- *     ?RemoveMapping@InputObjectMap@@SAJAEBU_LUID@@W4RemoveRestriction@1@@Z @ 0x1C023224C (-RemoveMapping@InputObjectMap@@SAJAEBU_LUID@@W4RemoveRestriction@1@@Z.c)
+ *     ?AddMapping@InputObjectMap@@SAJAEBU_LUID@@PEBUCompositionInputObject@@@Z @ 0x1C01FB194 (-AddMapping@InputObjectMap@@SAJAEBU_LUID@@PEBUCompositionInputObject@@@Z.c)
+ *     ?GetTransform@InputObjectMap@@SAJAEBU_LUID@@PEAUtagINPUT_TRANSFORM@@@Z @ 0x1C01FB6FC (-GetTransform@InputObjectMap@@SAJAEBU_LUID@@PEAUtagINPUT_TRANSFORM@@@Z.c)
+ *     ?RemoveMapping@InputObjectMap@@SAJAEBU_LUID@@W4RemoveRestriction@1@@Z @ 0x1C01FB7A0 (-RemoveMapping@InputObjectMap@@SAJAEBU_LUID@@W4RemoveRestriction@1@@Z.c)
  * Callees:
  *     <none>
  */
 
 struct InputObjectMapEntry *__fastcall InputObjectMap::FindEntry(const struct _LUID *a1)
 {
-  __int64 v2; // r9
-  __int64 v3; // rbx
-  __int64 v4; // r11
+  __int64 v1; // r9
+  __int64 v2; // rsi
+  __int64 v3; // r11
+  __int64 v4; // rbx
   char *v5; // rdx
-  DWORD LowPart; // ecx
+  __int64 v7; // [rsp+8h] [rbp+8h]
 
-  v2 = 0LL;
-  v3 = -1LL << (*(&InputObjectMap::s_hashTable + 4) & 0x1F);
-  v4 = v3 & (HIBYTE(a1->HighPart)
-           + 37
-           * (BYTE2(a1->HighPart)
-            + 37
-            * (BYTE1(a1->HighPart)
-             + 37
-             * (LOBYTE(a1->HighPart)
-              + 37
-              * (HIBYTE(a1->LowPart)
-               + 37 * (BYTE2(a1->LowPart) + 37 * (BYTE1(a1->LowPart) + 37 * (LOBYTE(a1->LowPart) + 11623883LL))))))));
-  if ( *(&InputObjectMap::s_hashTable + 1) >> 5 )
+  v1 = 0LL;
+  v2 = HIBYTE(a1->HighPart)
+     + 37
+     * (BYTE2(a1->HighPart)
+      + 37
+      * (BYTE1(a1->HighPart)
+       + 37
+       * (LOBYTE(a1->HighPart)
+        + 37
+        * (HIBYTE(a1->LowPart)
+         + 37 * (BYTE2(a1->LowPart) + 37 * (BYTE1(a1->LowPart) + 37 * (LOBYTE(a1->LowPart) + 11623883LL)))))));
+  v3 = -1LL << (dword_1C0254554 & 0x1F);
+  v4 = v3 & v2;
+  if ( (unsigned int)dword_1C0254554 >> 5 )
   {
+    v7 = v3 & v2;
     v5 = (char *)Buffer
        + 8
        * ((37
-         * (BYTE6(v4)
+         * (BYTE6(v7)
           + 37
-          * (BYTE5(v4)
+          * (BYTE5(v7)
            + 37
-           * (BYTE4(v4) + 37 * (BYTE3(v4) + 37 * (BYTE2(v4) + 37 * (BYTE1(v4) + 37 * ((unsigned __int8)v4 + 11623883)))))))
-         + HIBYTE(v4)) & (unsigned int)((*(&InputObjectMap::s_hashTable + 1) >> 5) - 1));
+           * (BYTE4(v7) + 37 * (BYTE3(v7) + 37 * (BYTE2(v7) + 37 * (BYTE1(v7) + 37 * ((unsigned __int8)v4 + 11623883)))))))
+         + HIBYTE(v7)) & (((unsigned int)dword_1C0254554 >> 5) - 1));
     while ( 1 )
     {
       v5 = *(char **)v5;
       if ( ((unsigned __int8)v5 & 1) != 0 )
         break;
       if ( v4 == (v3 & *((_QWORD *)v5 + 1)) )
-      {
-        if ( v5 )
-        {
-          LowPart = a1->LowPart;
+        goto LABEL_7;
+    }
+    v5 = 0LL;
 LABEL_7:
-          if ( *((_DWORD *)v5 + 4) == LowPart && *((_DWORD *)v5 + 5) == a1->HighPart )
-          {
-            return (struct InputObjectMapEntry *)v5;
-          }
-          else
-          {
-            while ( 1 )
-            {
-              v5 = *(char **)v5;
-              if ( ((unsigned __int8)v5 & 1) != 0 )
-                break;
-              if ( v4 == (v3 & *((_QWORD *)v5 + 1)) )
-              {
-                if ( v5 )
-                  goto LABEL_7;
-                return (struct InputObjectMapEntry *)v2;
-              }
-            }
-          }
+    if ( v5 )
+    {
+      while ( *((_DWORD *)v5 + 4) != a1->LowPart || *((_DWORD *)v5 + 5) != a1->HighPart )
+      {
+        while ( 1 )
+        {
+          v5 = *(char **)v5;
+          if ( ((unsigned __int8)v5 & 1) != 0 )
+            break;
+          if ( (v2 & v3) == (v3 & *((_QWORD *)v5 + 1)) )
+            goto LABEL_14;
         }
-        return (struct InputObjectMapEntry *)v2;
+        v5 = 0LL;
+LABEL_14:
+        if ( !v5 )
+          return (struct InputObjectMapEntry *)v1;
       }
+      return (struct InputObjectMapEntry *)v5;
     }
   }
-  return (struct InputObjectMapEntry *)v2;
+  return (struct InputObjectMapEntry *)v1;
 }

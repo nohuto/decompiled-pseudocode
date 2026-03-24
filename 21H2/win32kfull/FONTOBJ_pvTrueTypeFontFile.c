@@ -1,10 +1,10 @@
 /*
- * XREFs of FONTOBJ_pvTrueTypeFontFile @ 0x1C0291270
+ * XREFs of FONTOBJ_pvTrueTypeFontFile @ 0x1C0293710
  * Callers:
  *     <none>
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?pvFile@RFONTOBJ@@QEAAPEAXPEAK@Z @ 0x1C02A70BC (-pvFile@RFONTOBJ@@QEAAPEAXPEAK@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?pvFile@RFONTOBJ@@QEAAPEAXPEAK@Z @ 0x1C02A8928 (-pvFile@RFONTOBJ@@QEAAPEAXPEAK@Z.c)
  */
 
 PVOID __stdcall FONTOBJ_pvTrueTypeFontFile(FONTOBJ *pfo, ULONG *pcjFile)

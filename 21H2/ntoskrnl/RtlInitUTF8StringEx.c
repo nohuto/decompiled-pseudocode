@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInitUTF8StringEx @ 0x1405E4040
+ * XREFs of RtlInitUTF8StringEx @ 0x140585470
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitAnsiStringEx @ 0x1403C7DA0 (RtlInitAnsiStringEx.c)
+ *     RtlInitAnsiStringEx @ 0x1403B7E40 (RtlInitAnsiStringEx.c)
  */
 
 NTSTATUS __fastcall RtlInitUTF8StringEx(STRING *a1, const char *a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of VidSchiSubmitSignalCommand @ 0x1C00163B0
+ * XREFs of VidSchiSubmitSignalCommand @ 0x1C0014030
  * Callers:
- *     VidSchiRun_PriorityTable @ 0x1C00AE010 (VidSchiRun_PriorityTable.c)
- *     VidSchiSubmitQueueCommand @ 0x1C00F379C (VidSchiSubmitQueueCommand.c)
+ *     VidSchiRun_PriorityTable @ 0x1C0090830 (VidSchiRun_PriorityTable.c)
+ *     VidSchiSubmitQueueCommand @ 0x1C00D04F0 (VidSchiSubmitQueueCommand.c)
  * Callees:
- *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C00087D0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
- *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C0009AD0 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
- *     VidSchiCompleteSignalCommmand @ 0x1C0019138 (VidSchiCompleteSignalCommmand.c)
- *     ?ProcessHwQueue@HwQueueStagingList@@AEAAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C001E78A (-ProcessHwQueue@HwQueueStagingList@@AEAAXPEAUVIDSCH_HW_QUEUE@@@Z.c)
+ *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C000A060 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
+ *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C000AFF0 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
+ *     VidSchiCompleteSignalCommmand @ 0x1C00165FC (VidSchiCompleteSignalCommmand.c)
+ *     ?ProcessHwQueue@HwQueueStagingList@@AEAAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0035ACC (-ProcessHwQueue@HwQueueStagingList@@AEAAXPEAUVIDSCH_HW_QUEUE@@@Z.c)
  */
 
 void __fastcall VidSchiSubmitSignalCommand(struct _VIDSCH_QUEUE_PACKET *a1)
@@ -28,11 +28,10 @@ void __fastcall VidSchiSubmitSignalCommand(struct _VIDSCH_QUEUE_PACKET *a1)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-20h] BYREF
 
   v1 = *((_QWORD *)a1 + 11);
-  memset(&LockHandle, 0, sizeof(LockHandle));
   v2 = a1;
   v3 = 0;
   v4 = *(_QWORD *)(*(_QWORD *)(v1 + 96) + 24LL);
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v4 + 1728), &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v4 + 1712), &LockHandle);
   v13 = 0;
   v12[1] = v12;
   v6 = v12;
@@ -50,7 +49,7 @@ void __fastcall VidSchiSubmitSignalCommand(struct _VIDSCH_QUEUE_PACKET *a1)
       {
         LOBYTE(v5) = 1;
         VidSchiCompleteSignalCommmand(v12, v2, v5);
-        _InterlockedIncrement((volatile signed __int32 *)(v4 + 980));
+        _InterlockedIncrement((volatile signed __int32 *)(v4 + 964));
         v7 = *((_DWORD *)v2 + 20);
         v6 = (_QWORD *)v12[0];
       }

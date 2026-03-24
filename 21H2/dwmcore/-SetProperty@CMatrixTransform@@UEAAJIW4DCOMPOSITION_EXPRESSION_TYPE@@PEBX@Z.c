@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetProperty@CMatrixTransform@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180224D10
+ * XREFs of ?SetProperty@CMatrixTransform@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801B5BC0
  * Callers:
  *     <none>
  * Callees:
- *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800443B0 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800375A0 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CMatrixTransform::SetProperty(float *a1, int a2, int a3, float *a4)
@@ -40,34 +40,34 @@ __int64 __fastcall CMatrixTransform::SetProperty(float *a1, int a2, int a3, floa
             {
 LABEL_18:
               v11 = -2147024809;
-              MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0LL, -2147024809, 0x61u);
+              MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, 0x63u, 0LL);
               return v11;
             }
-            v10 = 180LL;
+            v10 = 172LL;
           }
           else
           {
-            v10 = 176LL;
+            v10 = 168LL;
           }
         }
         else
         {
-          v10 = 172LL;
+          v10 = 164LL;
         }
       }
       else
       {
-        v10 = 168LL;
+        v10 = 160LL;
       }
     }
     else
     {
-      v10 = 164LL;
+      v10 = 156LL;
     }
   }
   else
   {
-    v10 = 160LL;
+    v10 = 152LL;
   }
   a1 = (float *)((char *)a1 + v10);
   if ( !a1 )

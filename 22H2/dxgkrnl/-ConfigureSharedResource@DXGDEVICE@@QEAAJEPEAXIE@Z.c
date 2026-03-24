@@ -1,100 +1,120 @@
 /*
- * XREFs of ?ConfigureSharedResource@DXGDEVICE@@QEAAJEPEAXIE@Z @ 0x1C01A318C
+ * XREFs of ?ConfigureSharedResource@DXGDEVICE@@QEAAJEPEAXIE@Z @ 0x1C012AEB4
  * Callers:
- *     DxgkConfigureSharedResource @ 0x1C01A2970 (DxgkConfigureSharedResource.c)
+ *     DxgkConfigureSharedResource @ 0x1C0128E40 (DxgkConfigureSharedResource.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?ConfigureSharedResourceHelper@DXGDEVICE@@QEAAJEPEAXPEAVDXGSHAREDRESOURCE@@EH@Z @ 0x1C01A273C (-ConfigureSharedResourceHelper@DXGDEVICE@@QEAAJEPEAXPEAVDXGSHAREDRESOURCE@@EH@Z.c)
- *     ??0DXGRESOURCEREFERENCE@@QEAA@PEAVDXGRESOURCE@@@Z @ 0x1C01A3F58 (--0DXGRESOURCEREFERENCE@@QEAA@PEAVDXGRESOURCE@@@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ??1DXGRESOURCEREFERENCE@@QEAA@XZ @ 0x1C01C6300 (--1DXGRESOURCEREFERENCE@@QEAA@XZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??1DXGRESOURCEREFERENCE@@QEAA@XZ @ 0x1C0101D00 (--1DXGRESOURCEREFERENCE@@QEAA@XZ.c)
+ *     ??0DXGRESOURCEREFERENCE@@QEAA@PEAVDXGRESOURCE@@@Z @ 0x1C0112F64 (--0DXGRESOURCEREFERENCE@@QEAA@PEAVDXGRESOURCE@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?ConfigureSharedResourceHelper@DXGDEVICE@@QEAAJEPEAXPEAVDXGSHAREDRESOURCE@@EH@Z @ 0x1C012B02C (-ConfigureSharedResourceHelper@DXGDEVICE@@QEAAJEPEAXPEAVDXGSHAREDRESOURCE@@EH@Z.c)
  */
 
 __int64 __fastcall DXGDEVICE::ConfigureSharedResource(
-        DXGDEVICE *this,
-        char a2,
+        PERESOURCE *this,
+        __int64 a2,
         void *a3,
-        unsigned int a4,
+        __int64 a4,
         unsigned __int8 a5)
 {
-  __int64 v6; // rbx
-  struct DXGPROCESS *Current; // rbp
+  __int64 v6; // rdi
+  unsigned __int8 v7; // r15
+  struct DXGPROCESS *Current; // rsi
   unsigned int v10; // ecx
-  __int64 v11; // r10
+  __int64 v11; // r9
   int v12; // edx
-  struct DXGRESOURCE *v13; // rdx
-  DXGDEVICE *v14; // r9
-  unsigned int v15; // ebx
-  __int64 v17; // r8
-  __int64 v18; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v13; // rdx
+  struct _EX_RUNDOWN_REF *v14; // rdx
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // rdx
+  unsigned int v20; // ebx
+  __int64 v22; // rax
+  __int64 v23; // rax
+  _QWORD *v24; // rax
+  struct _EX_RUNDOWN_REF *v25; // [rsp+50h] [rbp+8h] BYREF
 
-  v6 = a4;
-  if ( !*((_BYTE *)this + 72) && !ExIsResourceAcquiredExclusiveLite(*((PERESOURCE *)this + 17)) )
+  v6 = (unsigned int)a4;
+  v7 = a2;
+  if ( !*((_DWORD *)this + 18) && !ExIsResourceAcquiredExclusiveLite(this[17]) )
   {
-    WdLogSingleEntry1(1LL, 5456LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsDeviceLockExclusiveOwner()", 5456LL, 0LL, 0LL, 0LL, 0LL);
+    v22 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v22 + 24) = 5366LL;
+    WdLogEvent5_WdAssertion(v22);
   }
   if ( !(_DWORD)v6 )
   {
-    v15 = -1073741811;
-    WdLogSingleEntry2(3LL, this, -1073741811LL);
-    return v15;
+    v23 = WdLogNewEntry5_WdWarning(this, a2, a3);
+    *(_QWORD *)(v23 + 24) = this;
+    v20 = -1073741811;
+    *(_QWORD *)(v23 + 32) = -1073741811LL;
+    WdLogEvent5_WdWarning(v23);
+    return v20;
   }
-  Current = DXGPROCESS::GetCurrent();
-  DXGPUSHLOCK::AcquireShared((struct DXGPROCESS *)((char *)Current + 248));
+  Current = DXGPROCESS::GetCurrent((__int64)this, a2, (__int64)a3, a4);
+  DXGPUSHLOCK::AcquireShared((struct DXGPROCESS *)((char *)Current + 208));
   v10 = ((unsigned int)v6 >> 6) & 0xFFFFFF;
-  if ( v10 >= *((_DWORD *)Current + 74) )
-    goto LABEL_12;
-  v11 = *((_QWORD *)Current + 35);
-  if ( (((unsigned int)v6 >> 25) & 0x60) != (*(_BYTE *)(v11 + 16LL * v10 + 8) & 0x60) )
-    goto LABEL_12;
-  if ( (*(_DWORD *)(v11 + 16LL * v10 + 8) & 0x2000) != 0 )
-    goto LABEL_12;
-  v12 = *(_DWORD *)(v11 + 16LL * v10 + 8) & 0x1F;
-  if ( !v12 )
-    goto LABEL_12;
-  if ( v12 != 4 )
+  if ( v10 < *((_DWORD *)Current + 64) )
   {
-    WdLogSingleEntry1(2LL, 316LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
-LABEL_12:
-    v13 = 0LL;
-    goto LABEL_13;
+    v11 = *((_QWORD *)Current + 30);
+    v12 = *(_DWORD *)(v11 + 16LL * v10 + 8);
+    if ( (((unsigned int)v6 >> 25) & 0x60) == (v12 & 0x60) && (v12 & 0x2000) == 0 && (v12 & 0x1F) != 0 )
+    {
+      v13 = v12 & 0x1F;
+      if ( (_BYTE)v13 == 4 )
+      {
+        v14 = *(struct _EX_RUNDOWN_REF **)(v11 + 16LL * v10);
+        goto LABEL_13;
+      }
+      v15 = WdLogNewEntry5_WdError(((unsigned int)v6 >> 25) & 0x60, v13);
+      *(_QWORD *)(v15 + 24) = 316LL;
+      WdLogEvent5_WdError(v15);
+    }
   }
-  v13 = *(struct DXGRESOURCE **)(v11 + 16LL * v10);
+  v14 = 0LL;
 LABEL_13:
-  DXGRESOURCEREFERENCE::DXGRESOURCEREFERENCE((DXGRESOURCEREFERENCE *)&v18, v13);
-  _InterlockedDecrement((volatile signed __int32 *)Current + 66);
-  ExReleasePushLockSharedEx((char *)Current + 248, 0LL);
+  DXGRESOURCEREFERENCE::DXGRESOURCEREFERENCE((DXGRESOURCEREFERENCE *)&v25, v14);
+  ExReleasePushLockSharedEx((char *)Current + 208, 0LL);
   KeLeaveCriticalRegion();
-  if ( v18 )
+  if ( !v25 )
   {
-    v14 = *(DXGDEVICE **)(v18 + 8);
-    if ( v14 == this )
-    {
-      if ( (*(_DWORD *)(v18 + 4) & 1) != 0 )
-      {
-        v15 = DXGDEVICE::ConfigureSharedResourceHelper(this, a2, a3, *(struct DXGSHAREDRESOURCE **)(v18 + 56), a5, 1);
-      }
-      else
-      {
-        v15 = -1073741811;
-        WdLogSingleEntry3(3LL, this, v18, -1073741811LL);
-      }
-    }
-    else
-    {
-      v15 = -1073741811;
-      WdLogSingleEntry4(3LL, this, v18, v14, -1073741811LL);
-    }
+    v24 = (_QWORD *)WdLogNewEntry5_WdWarning(v17, v16, v18);
+    v24[3] = this;
+    v24[4] = v6;
+LABEL_23:
+    v20 = -1073741811;
+    v24[5] = -1073741811LL;
+    goto LABEL_24;
   }
-  else
+  if ( (PERESOURCE *)v25[1].Count != this )
   {
-    v17 = v6;
-    v15 = -1073741811;
-    WdLogSingleEntry3(3LL, this, v17, -1073741811LL);
+    v24 = (_QWORD *)WdLogNewEntry5_WdWarning(v17, v16, v18);
+    v24[3] = this;
+    v20 = -1073741811;
+    v24[4] = v25;
+    v24[5] = v25[1].Count;
+    v24[6] = -1073741811LL;
+LABEL_24:
+    WdLogEvent5_WdWarning(v24);
+    goto LABEL_17;
   }
-  DXGRESOURCEREFERENCE::~DXGRESOURCEREFERENCE((DXGRESOURCEREFERENCE *)&v18);
-  return v15;
+  if ( (HIDWORD(v25->Ptr) & 1) == 0 )
+  {
+    v24 = (_QWORD *)WdLogNewEntry5_WdWarning(v17, v16, v18);
+    v24[3] = this;
+    v24[4] = v25;
+    goto LABEL_23;
+  }
+  v20 = DXGDEVICE::ConfigureSharedResourceHelper(
+          (DXGDEVICE *)this,
+          v7,
+          a3,
+          (struct DXGSHAREDRESOURCE *)v25[7].Count,
+          a5,
+          1);
+LABEL_17:
+  DXGRESOURCEREFERENCE::~DXGRESOURCEREFERENCE(&v25, v19);
+  return v20;
 }

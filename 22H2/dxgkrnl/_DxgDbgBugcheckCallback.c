@@ -1,9 +1,9 @@
 /*
- * XREFs of _DxgDbgBugcheckCallback @ 0x1C005A890
+ * XREFs of _DxgDbgBugcheckCallback @ 0x1C0043BE0
  * Callers:
  *     <none>
  * Callees:
- *     ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N1@Z @ 0x1C004FCE8 (-TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N1@Z.c)
+ *     ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z @ 0x1C0044E4C (-TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z.c)
  */
 
 void __fastcall DxgDbgBugcheckCallback(
@@ -17,19 +17,19 @@ void __fastcall DxgDbgBugcheckCallback(
   unsigned int v6; // ecx
   __int128 v7; // xmm0
   unsigned int v8; // eax
-  char *v9; // rcx
-  unsigned int v10; // edx
+  unsigned int v9; // edx
+  void *v10; // rcx
 
   if ( Reason == KbCallbackSecondaryDumpData )
   {
-    if ( KiBugCheckData == 278 && qword_1C0142330 )
+    if ( KiBugCheckData == 278 && qword_1C00B4708 )
     {
-      v4 = (unsigned int)(dword_1C014232C - 1);
-      if ( dword_1C014232C != 1 )
+      v4 = (unsigned int)(dword_1C00B4704 - 1);
+      if ( dword_1C00B4704 != 1 )
       {
         do
         {
-          if ( *(_BYTE *)(v4 + qword_1C0142330) )
+          if ( *(_BYTE *)(v4 + qword_1C00B4708) )
             break;
           v5 = (_DWORD)v4 == 1;
           v4 = (unsigned int)(v4 - 1);
@@ -37,8 +37,8 @@ void __fastcall DxgDbgBugcheckCallback(
         while ( !v5 );
       }
       v6 = v4 + 1;
-      v7 = xmmword_1C0140B48;
-      ReasonSpecificData[4] = qword_1C0142330;
+      v7 = xmmword_1C00B3118;
+      ReasonSpecificData[4] = qword_1C00B4708;
       v8 = *((_DWORD *)ReasonSpecificData + 3);
       *((_OWORD *)ReasonSpecificData + 1) = v7;
       if ( v6 >= v8 )
@@ -47,19 +47,20 @@ void __fastcall DxgDbgBugcheckCallback(
     }
     else
     {
-      v9 = (char *)ReasonSpecificData[4];
-      *((_OWORD *)ReasonSpecificData + 1) = xmmword_1C0140B48;
-      if ( v9 )
+      v5 = ReasonSpecificData[4] == 0LL;
+      *((_OWORD *)ReasonSpecificData + 1) = xmmword_1C00B3118;
+      if ( v5 )
       {
-        v9 = (char *)*ReasonSpecificData;
-        v10 = *((_DWORD *)ReasonSpecificData + 2);
-        ReasonSpecificData[4] = *ReasonSpecificData;
+        v9 = *((_DWORD *)ReasonSpecificData + 3);
+        v10 = 0LL;
       }
       else
       {
-        v10 = *((_DWORD *)ReasonSpecificData + 3);
+        v10 = (void *)*ReasonSpecificData;
+        v9 = *((_DWORD *)ReasonSpecificData + 2);
+        ReasonSpecificData[4] = *ReasonSpecificData;
       }
-      *((_DWORD *)ReasonSpecificData + 10) = TdrCollectBugcheckSecondaryDumpData(v9, v10, 0, 0);
+      *((_DWORD *)ReasonSpecificData + 10) = TdrCollectBugcheckSecondaryDumpData(v10, v9, 0);
     }
   }
 }

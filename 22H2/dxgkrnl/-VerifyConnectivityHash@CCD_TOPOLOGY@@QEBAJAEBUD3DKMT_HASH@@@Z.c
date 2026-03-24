@@ -1,29 +1,37 @@
 /*
- * XREFs of ?VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBUD3DKMT_HASH@@@Z @ 0x1C01846DC
+ * XREFs of ?VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBUD3DKMT_HASH@@@Z @ 0x1C0148BA4
  * Callers:
- *     ?CommitTo@CDS_JOURNAL@@QEBAJPEAVCCD_TOPOLOGY@@_NPEAG@Z @ 0x1C0184568 (-CommitTo@CDS_JOURNAL@@QEBAJPEAVCCD_TOPOLOGY@@_NPEAG@Z.c)
- *     ?VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBVCCD_SET_STRING_ID@@@Z @ 0x1C0184658 (-VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBVCCD_SET_STRING_ID@@@Z.c)
- *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03BEA24 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ *     ?VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBVCCD_SET_STRING_ID@@@Z @ 0x1C0148B20 (-VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBVCCD_SET_STRING_ID@@@Z.c)
+ *     ?CommitTo@CDS_JOURNAL@@QEBAJPEAVCCD_TOPOLOGY@@_NPEAG@Z @ 0x1C0150174 (-CommitTo@CDS_JOURNAL@@QEBAJPEAVCCD_TOPOLOGY@@_NPEAG@Z.c)
+ *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C0150390 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
  * Callees:
- *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C0002F24 (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
+ *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C000BAD8 (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
  */
 
-__int64 __fastcall CCD_TOPOLOGY::VerifyConnectivityHash(CCD_TOPOLOGY *this, const struct D3DKMT_HASH *a2)
+__int64 __fastcall CCD_TOPOLOGY::VerifyConnectivityHash(CCD_TOPOLOGY *this, const struct D3DKMT_HASH *a2, __int64 a3)
 {
-  _DWORD *v4; // rax
-  unsigned __int16 v5; // bx
-  __int64 v7; // rax
+  _DWORD *v5; // rdx
+  unsigned __int16 v6; // bx
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rax
 
   if ( *(_DWORD *)a2 != 1 )
-    WdLogSingleEntry0(1LL);
-  v4 = (_DWORD *)*((_QWORD *)this + 8);
-  v5 = 0;
-  if ( v4 && *v4 == 1 )
-    return RtlCompareMemory(a2, *((const void **)this + 8), 0x14uLL) != 20 ? 0xC000022E : 0;
-  WdLogSingleEntry2(3LL, this, *((_QWORD *)this + 8));
-  v7 = *((_QWORD *)this + 8);
-  if ( v7 )
-    v5 = *(_WORD *)(v7 + 20);
-  DxgkLogCodePointPacket(0x40u, v5, 0, 0, 0LL);
+  {
+    v10 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v10);
+  }
+  v5 = (_DWORD *)*((_QWORD *)this + 8);
+  v6 = 0;
+  if ( v5 && *v5 == 1 )
+    return RtlCompareMemory(a2, v5, 0x14uLL) != 20 ? 0xC000022E : 0;
+  v8 = WdLogNewEntry5_WdWarning(this, v5, a3);
+  *(_QWORD *)(v8 + 24) = this;
+  *(_QWORD *)(v8 + 32) = *((_QWORD *)this + 8);
+  WdLogEvent5_WdWarning(v8);
+  v9 = *((_QWORD *)this + 8);
+  if ( v9 )
+    v6 = *(_WORD *)(v9 + 20);
+  DxgkLogCodePointPacket(0x40u, v6, 0, 0, 0LL);
   return 0LL;
 }

@@ -1,21 +1,20 @@
 /*
- * XREFs of RtlGetDaclSecurityDescriptor @ 0x140297520
+ * XREFs of RtlGetDaclSecurityDescriptor @ 0x1402526B0
  * Callers:
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14067033C (AdtpBuildAccessReasonAuditStringInternal.c)
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x14069AA88 (PipChangeDeviceObjectFromRegistryProperties.c)
- *     SepHasCriticalAcesRemoved @ 0x14069C020 (SepHasCriticalAcesRemoved.c)
- *     LocalConvertSDToStringSD_Rev1 @ 0x14069CE68 (LocalConvertSDToStringSD_Rev1.c)
- *     ObpInsertOrLocateNamedObject @ 0x1406C0B0C (ObpInsertOrLocateNamedObject.c)
- *     ExpWnfSpecializeSecurityDescriptor @ 0x14071170C (ExpWnfSpecializeSecurityDescriptor.c)
- *     MiInitializeMemoryEvents @ 0x14081E318 (MiInitializeMemoryEvents.c)
- *     IopGetSecurityDescriptorInformation @ 0x14083D014 (IopGetSecurityDescriptorInformation.c)
- *     ObpCreateDosDevicesDirectory @ 0x1408596D0 (ObpCreateDosDevicesDirectory.c)
- *     ExpInitFullProcessSecurityInfo @ 0x14085F8E0 (ExpInitFullProcessSecurityInfo.c)
- *     ObCleanupSecurityDescriptor @ 0x1408643C0 (ObCleanupSecurityDescriptor.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x14087EFD0 (PiDevCfgGetKeySecurityDescriptor.c)
- *     RtlReplaceSidInSd @ 0x1409BC3E0 (RtlReplaceSidInSd.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1409BE764 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     CmpCopySaclToVirtualKey @ 0x140A1B43C (CmpCopySaclToVirtualKey.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C2834 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     ExpWnfSpecializeSecurityDescriptor @ 0x140611138 (ExpWnfSpecializeSecurityDescriptor.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1406DB6F0 (ObpInsertOrLocateNamedObject.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x1406EFC20 (LocalConvertSDToStringSD_Rev1.c)
+ *     SepHasCriticalAcesRemoved @ 0x1406F2450 (SepHasCriticalAcesRemoved.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x140732348 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x140738828 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     IopGetSecurityDescriptorInformation @ 0x140738B6C (IopGetSecurityDescriptorInformation.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x14073AEAC (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     MiInitializeMemoryEvents @ 0x1407A0B04 (MiInitializeMemoryEvents.c)
+ *     ObCleanupSecurityDescriptor @ 0x1407A1098 (ObCleanupSecurityDescriptor.c)
+ *     ObpCreateDosDevicesDirectory @ 0x1407A1228 (ObpCreateDosDevicesDirectory.c)
+ *     CmpCopySaclToVirtualKey @ 0x140871814 (CmpCopySaclToVirtualKey.c)
+ *     RtlReplaceSidInSd @ 0x140913990 (RtlReplaceSidInSd.c)
  * Callees:
  *     <none>
  */
@@ -26,36 +25,34 @@ NTSTATUS __stdcall RtlGetDaclSecurityDescriptor(
         PACL *Dacl,
         PBOOLEAN DaclDefaulted)
 {
-  ACL *v4; // rax
-  __int16 v5; // dx
-  __int64 v6; // rdx
+  __int16 v5; // cx
+  ACL *v6; // rax
+  __int16 v7; // cx
+  __int64 v8; // rcx
 
   if ( *(_BYTE *)SecurityDescriptor != 1 )
     return -1073741736;
-  v4 = 0LL;
-  if ( (*((_BYTE *)SecurityDescriptor + 2) & 4) != 0 )
+  v5 = *((_WORD *)SecurityDescriptor + 1) & 4;
+  *DaclPresent = v5 != 0;
+  v6 = 0LL;
+  if ( v5 )
   {
-    *DaclPresent = 1;
-    v5 = *((_WORD *)SecurityDescriptor + 1);
-    if ( (v5 & 4) != 0 )
+    v7 = *((_WORD *)SecurityDescriptor + 1);
+    if ( (v7 & 4) != 0 )
     {
-      if ( v5 >= 0 )
+      if ( v7 >= 0 )
       {
-        v4 = (ACL *)*((_QWORD *)SecurityDescriptor + 4);
+        v6 = (ACL *)*((_QWORD *)SecurityDescriptor + 4);
       }
       else
       {
-        v6 = *((unsigned int *)SecurityDescriptor + 4);
-        if ( (_DWORD)v6 )
-          v4 = (ACL *)((char *)SecurityDescriptor + v6);
+        v8 = *((unsigned int *)SecurityDescriptor + 4);
+        if ( (_DWORD)v8 )
+          v6 = (ACL *)((char *)SecurityDescriptor + v8);
       }
     }
-    *Dacl = v4;
+    *Dacl = v6;
     *DaclDefaulted = (*((_BYTE *)SecurityDescriptor + 2) & 8) != 0;
-  }
-  else
-  {
-    *DaclPresent = 0;
   }
   return 0;
 }

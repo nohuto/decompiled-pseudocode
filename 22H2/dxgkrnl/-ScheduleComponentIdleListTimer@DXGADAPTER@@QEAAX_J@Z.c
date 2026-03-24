@@ -1,16 +1,17 @@
 /*
- * XREFs of ?ScheduleComponentIdleListTimer@DXGADAPTER@@QEAAX_J@Z @ 0x1C000D404
+ * XREFs of ?ScheduleComponentIdleListTimer@DXGADAPTER@@QEAAX_J@Z @ 0x1C00390EC
  * Callers:
- *     ?DxgkpComponentIdleListTimerDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C000D210 (-DxgkpComponentIdleListTimerDpc@@YAXPEAU_KDPC@@PEAX11@Z.c)
+ *     ?ProcessComponentIdleList@DXGADAPTER@@QEAAXXZ @ 0x1C00389F8 (-ProcessComponentIdleList@DXGADAPTER@@QEAAXXZ.c)
+ *     ?SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z @ 0x1C0039980 (-SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall DXGADAPTER::ScheduleComponentIdleListTimer(DXGADAPTER *this, __int64 a2)
 {
-  if ( !*((_BYTE *)this + 3461) )
+  if ( !*((_BYTE *)this + 3237) )
   {
-    *((_BYTE *)this + 3461) = 1;
-    KeSetTimer((PKTIMER)((char *)this + 3576), (LARGE_INTEGER)-a2, (PKDPC)((char *)this + 3640));
+    *((_BYTE *)this + 3237) = 1;
+    KeSetTimer((PKTIMER)((char *)this + 3352), (LARGE_INTEGER)-a2, (PKDPC)((char *)this + 3416));
   }
 }

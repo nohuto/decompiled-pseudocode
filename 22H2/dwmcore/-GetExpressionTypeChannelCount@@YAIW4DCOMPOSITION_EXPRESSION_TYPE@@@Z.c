@@ -1,36 +1,18 @@
 /*
- * XREFs of ?GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800559D0
+ * XREFs of ?GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800A9608
  * Callers:
- *     ?SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z @ 0x180054E50 (-SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z.c)
- *     ?Swizzle@CExpressionValueStack@@QEAAJPEAUExpressionNode@@@Z @ 0x1800C12E8 (-Swizzle@CExpressionValueStack@@QEAAJPEAUExpressionNode@@@Z.c)
- *     ?CopyIntoFloatArray@CExpressionValue@@QEBAJIPEAM@Z @ 0x1800C15E8 (-CopyIntoFloatArray@CExpressionValue@@QEBAJIPEAM@Z.c)
- *     ?MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z @ 0x1800EA78C (-MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z.c)
- *     ?ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z @ 0x18021738C (-ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z.c)
+ *     ?MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z @ 0x1800A91E0 (-MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z.c)
+ *     ?Swizzle@CExpressionValueStack@@QEAAJPEAUExpressionNode@@@Z @ 0x1800A92B4 (-Swizzle@CExpressionValueStack@@QEAAJPEAUExpressionNode@@@Z.c)
+ *     ?CopyIntoFloatArray@CExpressionValue@@QEBAJIPEAM@Z @ 0x1800A95BC (-CopyIntoFloatArray@CExpressionValue@@QEBAJIPEAM@Z.c)
+ *     ?ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z @ 0x1801B149C (-ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall GetExpressionTypeChannelCount(int a1)
 {
-  __int64 result; // rax
-
-  if ( a1 == 35 )
+  if ( a1 >= 17 && (a1 == 35 || a1 == 52 || a1 <= 18 || a1 == 42 || a1 > 68 && (a1 <= 71 || a1 == 104 || a1 == 265)) )
     return (unsigned int)(a1 >> 4);
-  switch ( a1 )
-  {
-    case 17:
-    case 18:
-    case 42:
-    case 52:
-    case 69:
-    case 70:
-    case 71:
-    case 104:
-    case 265:
-      return (unsigned int)(a1 >> 4);
-    default:
-      result = 0LL;
-      break;
-  }
-  return result;
+  else
+    return 0LL;
 }

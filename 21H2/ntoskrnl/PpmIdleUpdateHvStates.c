@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmIdleUpdateHvStates @ 0x14099E040
+ * XREFs of PpmIdleUpdateHvStates @ 0x1408F6850
  * Callers:
  *     <none>
  * Callees:
- *     HvlGetLpIndexFromApicId @ 0x140543A10 (HvlGetLpIndexFromApicId.c)
- *     HvlConfigureIdleStates @ 0x140549824 (HvlConfigureIdleStates.c)
+ *     HvlGetLpIndexFromApicId @ 0x1404F2160 (HvlGetLpIndexFromApicId.c)
+ *     HvlConfigureIdleStates @ 0x1404F7A44 (HvlConfigureIdleStates.c)
  */
 
 __int64 __fastcall PpmIdleUpdateHvStates(__int64 a1)
 {
   int LpIndexFromApicId; // eax
 
-  if ( (HvlEnlightenments & 0x400) == 0 )
+  if ( (HvlEnlightenments & 0x408) == 0 )
     return 3221225659LL;
   LpIndexFromApicId = HvlGetLpIndexFromApicId(*(unsigned int *)(a1 + 4));
   if ( LpIndexFromApicId == -1 )

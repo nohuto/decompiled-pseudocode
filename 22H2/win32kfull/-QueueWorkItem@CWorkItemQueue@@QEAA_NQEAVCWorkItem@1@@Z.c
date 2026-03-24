@@ -1,19 +1,17 @@
 /*
- * XREFs of ?QueueWorkItem@CWorkItemQueue@@QEAA_NQEAVCWorkItem@1@@Z @ 0x1C03074D8
+ * XREFs of ?QueueWorkItem@CWorkItemQueue@@QEAA_NQEAVCWorkItem@1@@Z @ 0x1C02DF04C
  * Callers:
- *     ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C0077200 (-UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A7970 (-UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall CWorkItemQueue::QueueWorkItem(union _SLIST_HEADER *this, struct CWorkItemQueue::CWorkItem *const a2)
+char __fastcall CWorkItemQueue::QueueWorkItem(CWorkItemQueue *this, struct CWorkItemQueue::CWorkItem *const a2)
 {
-  signed __int32 v3[10]; // [rsp+0h] [rbp-28h] BYREF
-
-  if ( LOBYTE(this->Alignment) )
+  if ( *(_BYTE *)this )
     return 0;
   *((_DWORD *)a2 + 2) = 1;
-  ExpInterlockedPushEntrySList(this + 1, (PSLIST_ENTRY)a2);
-  _InterlockedOr(v3, 0);
+  ExpInterlockedPushEntrySList((PSLIST_HEADER)this + 1, (PSLIST_ENTRY)a2);
+  KeSetEvent(**((PRKEVENT **)this + 1), 1, 0);
   return 1;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetAlphaMode@CConversionSwapChain@@$4PPPPPPPM@A@EAAXW4DXGI_ALPHA_MODE@@@Z @ 0x18010A7B0
+ * XREFs of ?SetAlphaMode@CConversionSwapChain@@$4PPPPPPPM@A@EAAXW4DXGI_ALPHA_MODE@@@Z @ 0x1800F7F80
  * Callers:
  *     <none>
  * Callees:

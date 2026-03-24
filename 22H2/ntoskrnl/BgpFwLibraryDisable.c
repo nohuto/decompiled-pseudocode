@@ -1,62 +1,62 @@
 /*
- * XREFs of BgpFwLibraryDisable @ 0x140AED1B0
+ * XREFs of BgpFwLibraryDisable @ 0x1409F3FE8
  * Callers:
- *     BgpFwLibraryDestroy @ 0x140AEFA48 (BgpFwLibraryDestroy.c)
- *     BgLibraryDisable @ 0x140AF01D0 (BgLibraryDisable.c)
+ *     BgLibraryDisable @ 0x1409F3ED0 (BgLibraryDisable.c)
+ *     BgpFwLibraryDestroy @ 0x1409F3F0C (BgpFwLibraryDestroy.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403852A0 (BgpFwFreeMemory.c)
- *     LogFwReport @ 0x140AED0B8 (LogFwReport.c)
- *     BgpTxtDestroyRegion @ 0x140AED8C8 (BgpTxtDestroyRegion.c)
- *     AnFwFadeCompletion @ 0x140AEDF7C (AnFwFadeCompletion.c)
- *     AnFwDisplayProgressIndicator @ 0x140AEE558 (AnFwDisplayProgressIndicator.c)
- *     BgpFoDestroy @ 0x140AF0360 (BgpFoDestroy.c)
- *     ResFwpPageOutBackground @ 0x140AF0490 (ResFwpPageOutBackground.c)
- *     AnFwDisableBackgroundUpdateTimer @ 0x140AF06E8 (AnFwDisableBackgroundUpdateTimer.c)
+ *     BgpFwFreeMemory @ 0x14039B660 (BgpFwFreeMemory.c)
+ *     LogFwReport @ 0x1409F1524 (LogFwReport.c)
+ *     AnFwFadeCompletion @ 0x1409F21B4 (AnFwFadeCompletion.c)
+ *     ResFwBackgroundTransition @ 0x1409F3408 (ResFwBackgroundTransition.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x1409F34CC (AnFwDisableBackgroundUpdateTimer.c)
+ *     BgpTxtDestroyRegion @ 0x1409F40EC (BgpTxtDestroyRegion.c)
+ *     BgpFoDestroy @ 0x1409F41CC (BgpFoDestroy.c)
+ *     AnFwDisplayProgressIndicator @ 0x1409F4370 (AnFwDisplayProgressIndicator.c)
  */
 
 __int64 BgpFwLibraryDisable()
 {
   __int64 result; // rax
 
-  result = (unsigned int)dword_140C0E4B0;
-  if ( (dword_140C0E4B0 & 2) != 0 )
+  result = (unsigned int)dword_140C134F0;
+  if ( (dword_140C134F0 & 2) != 0 )
   {
-    if ( (dword_140C0E4B0 & 0x4000000) != 0 )
+    if ( (dword_140C134F0 & 0x4000000) != 0 )
       AnFwDisableBackgroundUpdateTimer();
     AnFwFadeCompletion();
-    if ( qword_140C0E578 )
+    if ( qword_140C135B8 )
     {
-      BgpTxtDestroyRegion();
-      if ( BgpTextRegionSave == qword_140C0E578 )
+      BgpTxtDestroyRegion(qword_140C135B8);
+      if ( BgpTextRegionSave == qword_140C135B8 )
         BgpTextRegionSave = 0LL;
-      qword_140C0E578 = 0LL;
+      qword_140C135B8 = 0LL;
     }
     AnFwDisplayProgressIndicator(0LL);
-    if ( qword_140C0E570 )
+    if ( qword_140C135B0 )
     {
-      BgpTxtDestroyRegion();
-      if ( BgpAnimationRegionSave == qword_140C0E570 )
+      BgpTxtDestroyRegion(qword_140C135B0);
+      if ( BgpAnimationRegionSave == qword_140C135B0 )
         BgpAnimationRegionSave = 0LL;
-      qword_140C0E570 = 0LL;
+      qword_140C135B0 = 0LL;
     }
-    if ( qword_140C0E558 )
+    if ( qword_140C13598 )
     {
-      BgpFoDestroy();
-      if ( *(_QWORD *)qword_140C0E558 )
+      BgpFoDestroy(qword_140C13598);
+      if ( *(_QWORD *)qword_140C13598 )
       {
-        if ( (*(_DWORD *)(qword_140C0E558 + 12) & 1) == 0 )
-          BgpFwFreeMemory(*(_QWORD *)qword_140C0E558);
+        if ( (*(_DWORD *)(qword_140C13598 + 12) & 1) == 0 )
+          BgpFwFreeMemory(*(_QWORD *)qword_140C13598);
       }
-      BgpFwFreeMemory(qword_140C0E558);
-      qword_140C0E558 = 0LL;
+      BgpFwFreeMemory(qword_140C13598);
+      qword_140C13598 = 0LL;
     }
     LogFwReport();
-    ResFwpPageOutBackground();
+    ResFwBackgroundTransition(1);
     result = 0LL;
-    dword_140C0E4B0 &= ~2u;
+    dword_140C134F0 &= ~2u;
     BgInternal = 0LL;
-    qword_140C0E460 = 0LL;
-    xmmword_140C0E450 = 0LL;
+    qword_140C134A0 = 0LL;
+    xmmword_140C13490 = 0LL;
   }
   return result;
 }

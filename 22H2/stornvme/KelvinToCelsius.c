@@ -1,9 +1,9 @@
 /*
- * XREFs of KelvinToCelsius @ 0x1C0014B64
+ * XREFs of KelvinToCelsius @ 0x1C0013E44
  * Callers:
- *     IoctlQueryTemperatureInfoProcess @ 0x1C0013ED8 (IoctlQueryTemperatureInfoProcess.c)
- *     QueryTemperatureInfoHealthLogCompletion @ 0x1C0019980 (QueryTemperatureInfoHealthLogCompletion.c)
- *     QueryTemperatureThresholdCompletion @ 0x1C0019B50 (QueryTemperatureThresholdCompletion.c)
+ *     IoctlQueryTemperatureInfoProcess @ 0x1C001348C (IoctlQueryTemperatureInfoProcess.c)
+ *     QueryTemperatureInfoHealthLogCompletion @ 0x1C00167E0 (QueryTemperatureInfoHealthLogCompletion.c)
+ *     QueryTemperatureThresholdCompletion @ 0x1C00169A0 (QueryTemperatureThresholdCompletion.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmIdleRecheckCoordinatedIdleMask @ 0x1402D4DB0
+ * XREFs of PpmIdleRecheckCoordinatedIdleMask @ 0x1402D4EB0
  * Callers:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
  * Callees:
- *     KeAndAffinityEx @ 0x1400DC6E0 (KeAndAffinityEx.c)
- *     KeIsEqualAffinityEx @ 0x14018A2D0 (KeIsEqualAffinityEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeAndAffinityEx @ 0x1400DC700 (KeAndAffinityEx.c)
+ *     KeIsEqualAffinityEx @ 0x14018A2F0 (KeIsEqualAffinityEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 char __fastcall PpmIdleRecheckCoordinatedIdleMask(__int64 a1, unsigned __int16 a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?OnPropertyValueChanged@CEffectBrush@@EEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18003F3E0
+ * XREFs of ?OnPropertyValueChanged@CEffectBrush@@EEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800490C0
  * Callers:
  *     <none>
  * Callees:
- *     ?HasValidTemplate@CEffectBrush@@AEBA_NXZ @ 0x18003F6A0 (-HasValidTemplate@CEffectBrush@@AEBA_NXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?HasValidTemplate@CEffectBrush@@AEBA_NXZ @ 0x180049568 (-HasValidTemplate@CEffectBrush@@AEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CEffectBrush::OnPropertyValueChanged(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4)
@@ -21,10 +21,10 @@ __int64 __fastcall CEffectBrush::OnPropertyValueChanged(__int64 a1, unsigned int
   _DWORD v17[4]; // [rsp+40h] [rbp-28h] BYREF
   char v18; // [rsp+70h] [rbp+8h] BYREF
 
-  v4 = a1 - 88;
-  if ( CEffectBrush::HasValidTemplate((CEffectBrush *)(a1 - 88)) )
+  v4 = a1 - 80;
+  if ( CEffectBrush::HasValidTemplate((CEffectBrush *)(a1 - 80)) )
   {
-    v10 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 80LL) + 48LL);
+    v10 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL) + 48LL);
     if ( a2 < (*(unsigned int (__fastcall **)(__int64))(*(_QWORD *)v10 + 16LL))(v10) )
     {
       v11 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64, char *, _DWORD *))(**(_QWORD **)(a1 + 24) + 32LL))(
@@ -37,7 +37,7 @@ __int64 __fastcall CEffectBrush::OnPropertyValueChanged(__int64 a1, unsigned int
       v13 = v11;
       if ( v11 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x364u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x31Cu, 0LL);
         return v13;
       }
       v14 = 1;
@@ -50,7 +50,7 @@ __int64 __fastcall CEffectBrush::OnPropertyValueChanged(__int64 a1, unsigned int
   else
   {
     v13 = -2147483634;
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147483634, 0x355u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147483634, 0x30Du, 0LL);
   }
   return v13;
 }

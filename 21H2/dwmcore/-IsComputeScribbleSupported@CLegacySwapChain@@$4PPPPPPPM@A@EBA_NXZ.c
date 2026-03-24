@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsComputeScribbleSupported@CLegacySwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x180109010
+ * XREFs of ?IsComputeScribbleSupported@CLegacySwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F75C0
  * Callers:
  *     <none>
  * Callees:

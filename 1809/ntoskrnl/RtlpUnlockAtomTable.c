@@ -2,7 +2,7 @@
  * XREFs of RtlpUnlockAtomTable @ 0x1405F6288
  * Callers:
  *     RtlAddAtomToAtomTableEx @ 0x1400895B0 (RtlAddAtomToAtomTableEx.c)
- *     RtlDestroyLowBoxAtoms @ 0x14012662C (RtlDestroyLowBoxAtoms.c)
+ *     RtlDestroyLowBoxAtoms @ 0x14012664C (RtlDestroyLowBoxAtoms.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

@@ -1,7 +1,7 @@
 /*
  * XREFs of BapdpQueryData @ 0x1409D160C
  * Callers:
- *     BapdpProcessEtwEvents @ 0x140186180 (BapdpProcessEtwEvents.c)
+ *     BapdpProcessEtwEvents @ 0x1401861A0 (BapdpProcessEtwEvents.c)
  *     BapdpProcessEDrvHintInfo @ 0x1409D0D68 (BapdpProcessEDrvHintInfo.c)
  *     BapdpProcessFwUpdateResults @ 0x1409D0DF8 (BapdpProcessFwUpdateResults.c)
  *     BapdpProcessWmdResults @ 0x1409D0E88 (BapdpProcessWmdResults.c)
@@ -12,7 +12,7 @@
  *     BapdpRegisterWbclData @ 0x1409D14E8 (BapdpRegisterWbclData.c)
  *     BapdpProcessBootMetadata @ 0x1409D1DB0 (BapdpProcessBootMetadata.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall BapdpQueryData(__int64 a1, _QWORD *a2, int a3, void *a4, unsigned int *a5)

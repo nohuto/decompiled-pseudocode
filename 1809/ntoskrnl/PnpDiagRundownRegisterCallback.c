@@ -1,5 +1,5 @@
 /*
- * XREFs of PnpDiagRundownRegisterCallback @ 0x1408271D0
+ * XREFs of PnpDiagRundownRegisterCallback @ 0x1408271B0
  * Callers:
  *     <none>
  * Callees:

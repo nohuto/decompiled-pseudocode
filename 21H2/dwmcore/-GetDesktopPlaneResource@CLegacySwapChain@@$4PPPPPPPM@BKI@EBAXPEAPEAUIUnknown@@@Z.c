@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAXPEAPEAUIUnknown@@@Z @ 0x18010A450
+ * XREFs of ?GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAXPEAPEAUIUnknown@@@Z @ 0x1800F7CF0
  * Callers:
  *     <none>
  * Callees:

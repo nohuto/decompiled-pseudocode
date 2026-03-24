@@ -1,13 +1,13 @@
 /*
- * XREFs of SleepstudyHelper_ReleaseComponentLock @ 0x1405A35E0
+ * XREFs of SleepstudyHelper_ReleaseComponentLock @ 0x140580900
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall SleepstudyHelper_ReleaseComponentLock(volatile signed __int64 *a1, unsigned __int8 a2)
+__int64 __fastcall SleepstudyHelper_ReleaseComponentLock(KSPIN_LOCK *a1, unsigned __int8 a2)
 {
   unsigned int v2; // ebx
   unsigned __int64 v3; // rdi
@@ -24,16 +24,19 @@ __int64 __fastcall SleepstudyHelper_ReleaseComponentLock(volatile signed __int64
     KxReleaseSpinLock(a1);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v7 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-        v8 = (v7 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v7;
-        if ( v8 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v7 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+          v8 = (v7 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v7;
+          if ( v8 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v3);

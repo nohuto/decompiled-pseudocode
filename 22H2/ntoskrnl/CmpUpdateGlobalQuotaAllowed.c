@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpUpdateGlobalQuotaAllowed @ 0x1407030A0
+ * XREFs of CmpUpdateGlobalQuotaAllowed @ 0x140720268
  * Callers:
- *     CmpClaimGlobalQuota @ 0x14070304C (CmpClaimGlobalQuota.c)
- *     CmQueryRegistryQuotaInformation @ 0x140884B6C (CmQueryRegistryQuotaInformation.c)
+ *     CmpClaimGlobalQuota @ 0x140720214 (CmpClaimGlobalQuota.c)
+ *     CmQueryRegistryQuotaInformation @ 0x14077C89C (CmQueryRegistryQuotaInformation.c)
  * Callees:
  *     <none>
  */

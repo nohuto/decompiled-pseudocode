@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSetEventBoostPriority @ 0x140571930
+ * XREFs of KeSetEventBoostPriority @ 0x140518BA0
  * Callers:
- *     NtSetEventBoostPriority @ 0x1409FB9D0 (NtSetEventBoostPriority.c)
+ *     NtSetEventBoostPriority @ 0x14094F470 (NtSetEventBoostPriority.c)
  * Callees:
- *     KeSetEventBoostPriorityEx @ 0x1402BBFA0 (KeSetEventBoostPriorityEx.c)
+ *     KeSetEventBoostPriorityEx @ 0x140271E08 (KeSetEventBoostPriorityEx.c)
  */
 
 __int64 __fastcall KeSetEventBoostPriority(__int64 a1, char *a2)
@@ -14,5 +14,5 @@ __int64 __fastcall KeSetEventBoostPriority(__int64 a1, char *a2)
   v2 = &v4;
   if ( a2 )
     v2 = a2;
-  return KeSetEventBoostPriorityEx(a1, v2, 0LL, 0LL, 1, 0);
+  return KeSetEventBoostPriorityEx(a1, (__int64)v2, 0LL, 0LL, 1, 0);
 }

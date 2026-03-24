@@ -1,11 +1,11 @@
 /*
- * XREFs of IsStartedIndirectDisplayDevice @ 0x1C021B658
+ * XREFs of IsStartedIndirectDisplayDevice @ 0x1C019F638
  * Callers:
- *     _lambda_98a973f9db80c22b1740ef6057097b25_::_lambda_invoker_cdecl_ @ 0x1C021B630 (_lambda_98a973f9db80c22b1740ef6057097b25_--_lambda_invoker_cdecl_.c)
- *     _lambda_85aa73a68ff66b421643f8c78198376d_::_lambda_invoker_cdecl_ @ 0x1C02CE300 (_lambda_85aa73a68ff66b421643f8c78198376d_--_lambda_invoker_cdecl_.c)
+ *     _lambda_98a973f9db80c22b1740ef6057097b25_::_lambda_invoker_cdecl_ @ 0x1C019F610 (_lambda_98a973f9db80c22b1740ef6057097b25_--_lambda_invoker_cdecl_.c)
+ *     _lambda_85aa73a68ff66b421643f8c78198376d_::_lambda_invoker_cdecl_ @ 0x1C0220840 (_lambda_85aa73a68ff66b421643f8c78198376d_--_lambda_invoker_cdecl_.c)
  * Callees:
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3A0 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3FC (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00065B8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0006614 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
  */
 
 bool __fastcall IsStartedIndirectDisplayDevice(__int64 a1)
@@ -15,7 +15,7 @@ bool __fastcall IsStartedIndirectDisplayDevice(__int64 a1)
   __int64 v5; // [rsp+28h] [rbp-20h]
   char v6; // [rsp+30h] [rbp-18h]
 
-  if ( (*(_DWORD *)(a1 + 436) & 0x100) == 0 )
+  if ( (*(_DWORD *)(a1 + 348) & 0x100) == 0 )
     return 0;
   v5 = a1;
   v6 = 0;

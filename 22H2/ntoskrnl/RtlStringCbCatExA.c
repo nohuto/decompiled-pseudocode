@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlStringCbCatExA @ 0x1404FDE48
+ * XREFs of RtlStringCbCatExA @ 0x1404B6018
  * Callers:
- *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A39F24 (InitBootProcessor.c)
  * Callees:
- *     RtlStringCopyWorkerA @ 0x140347BB4 (RtlStringCopyWorkerA.c)
- *     RtlStringLengthWorkerA @ 0x1404FE184 (RtlStringLengthWorkerA.c)
+ *     RtlStringCopyWorkerA @ 0x1402640F4 (RtlStringCopyWorkerA.c)
+ *     RtlStringLengthWorkerA @ 0x1404B634C (RtlStringLengthWorkerA.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCatExA(
@@ -18,7 +18,7 @@ NTSTATUS __stdcall RtlStringCbCatExA(
   NTSTATUS result; // eax
   __int64 v8; // r10
   size_t v9; // rbx
-  char *v10; // rdi
+  char *v10; // rsi
   size_t v11; // [rsp+20h] [rbp-18h]
   size_t pcchNewDestLength; // [rsp+50h] [rbp+18h] BYREF
 
@@ -40,7 +40,7 @@ NTSTATUS __stdcall RtlStringCbCatExA(
       result = RtlStringCopyWorkerA(v10, v9, &pcchNewDestLength, ", ", v11);
       v10 += pcchNewDestLength;
       v9 -= pcchNewDestLength;
-      if ( result < 0 && result != -2147483643 )
+      if ( (int)(result + 0x80000000) >= 0 && result != -2147483643 )
         return result;
     }
     if ( ppszDestEnd )

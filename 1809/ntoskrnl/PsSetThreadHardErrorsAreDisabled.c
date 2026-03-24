@@ -1,5 +1,5 @@
 /*
- * XREFs of PsSetThreadHardErrorsAreDisabled @ 0x14016CF80
+ * XREFs of PsSetThreadHardErrorsAreDisabled @ 0x14016CFA0
  * Callers:
  *     <none>
  * Callees:

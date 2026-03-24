@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetOffsetCommand@CParticleAttractorMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021913C
+ * XREFs of ?EmitSetOffsetCommand@CParticleAttractorMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D8E44
  * Callers:
- *     ?EmitUpdateCommands@CParticleAttractorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021BA90 (-EmitUpdateCommands@CParticleAttractorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CParticleAttractorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DACF0 (-EmitUpdateCommands@CParticleAttractorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CParticleAttractorMarshaler::EmitSetOffsetCommand(
@@ -22,8 +22,8 @@ char __fastcall DirectComposition::CParticleAttractorMarshaler::EmitSetOffsetCom
     *(_DWORD *)v5 = 24;
     *(_OWORD *)(v3 + 4) = 0LL;
     *((_DWORD *)v3 + 5) = 0;
-    *((_DWORD *)v3 + 1) = 548;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v3 + 1) = 524;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
     *(_QWORD *)(v3 + 12) = *((_QWORD *)this + 7);
     *((_DWORD *)v3 + 5) = *((_DWORD *)this + 16);
     *((_DWORD *)this + 4) &= ~0x20u;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MmEnumerateSystemImages @ 0x140726B8C
+ * XREFs of MmEnumerateSystemImages @ 0x140726B6C
  * Callers:
- *     EtwpSysModuleRunDown @ 0x140726A58 (EtwpSysModuleRunDown.c)
- *     PopDiagIdleWakeSourceAccountingToDiagnostic @ 0x14086FDDC (PopDiagIdleWakeSourceAccountingToDiagnostic.c)
- *     EtwpCoverageSamplerStart @ 0x1408C8B70 (EtwpCoverageSamplerStart.c)
- *     ExpCovQueryInformation @ 0x1408D796C (ExpCovQueryInformation.c)
- *     ExpCovResetInformation @ 0x1408D8204 (ExpCovResetInformation.c)
+ *     EtwpSysModuleRunDown @ 0x140726A38 (EtwpSysModuleRunDown.c)
+ *     PopDiagIdleWakeSourceAccountingToDiagnostic @ 0x14086FDBC (PopDiagIdleWakeSourceAccountingToDiagnostic.c)
+ *     EtwpCoverageSamplerStart @ 0x1408C8B50 (EtwpCoverageSamplerStart.c)
+ *     ExpCovQueryInformation @ 0x1408D794C (ExpCovQueryInformation.c)
+ *     ExpCovResetInformation @ 0x1408D81E4 (ExpCovResetInformation.c)
  * Callees:
  *     MmGetNextSession @ 0x140012740 (MmGetNextSession.c)
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
@@ -14,12 +14,12 @@
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     MiSessionLookupImage @ 0x14009DBC8 (MiSessionLookupImage.c)
- *     MmDetachSession @ 0x14011A5A0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A630 (MmAttachSession.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     MmReleaseLoadLock @ 0x140651A40 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A80 (MmAcquireLoadLock.c)
+ *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
  */
 
 __int64 __fastcall MmEnumerateSystemImages(__int64 (__fastcall *a1)(PVOID *, __int64), __int64 a2)

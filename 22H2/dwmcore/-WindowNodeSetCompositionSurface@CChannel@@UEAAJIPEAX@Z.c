@@ -1,70 +1,63 @@
 /*
- * XREFs of ?WindowNodeSetCompositionSurface@CChannel@@UEAAJIPEAX@Z @ 0x1801D1470
+ * XREFs of ?WindowNodeSetCompositionSurface@CChannel@@UEAAJIPEAX@Z @ 0x180151420
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180044038 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044610 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800CEACC (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x18019A210 (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
- *     ??1CPresentStats@CDummyRemotingSwapChain@@QEAA@XZ @ 0x1801B3CC0 (--1CPresentStats@CDummyRemotingSwapChain@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005E108 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E530 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CChannel::WindowNodeSetCompositionSurface(CChannel *this, unsigned int a2, void *a3)
 {
   HANDLE CurrentProcess; // rbx
   HANDLE v7; // rax
-  const char *v8; // r9
-  unsigned int LastError; // ebx
-  int v10; // eax
-  __m128i si128; // [rsp+40h] [rbp-20h] BYREF
-  _BYTE v13[16]; // [rsp+50h] [rbp-10h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+8h]
-  HANDLE TargetHandle; // [rsp+80h] [rbp+20h] BYREF
+  signed int LastError; // eax
+  __int64 v9; // rcx
+  signed int v10; // ebx
+  int v11; // eax
+  __int64 v12; // rcx
+  __m128i si128; // [rsp+40h] [rbp-18h] BYREF
+  HANDLE TargetHandle; // [rsp+60h] [rbp+8h] BYREF
+  struct _RTL_CRITICAL_SECTION *v16; // [rsp+70h] [rbp+18h] BYREF
 
   TargetHandle = 0LL;
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v13, this);
-  CChannel::CheckHandle((__int64)this, a2, 204);
+  v16 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
+  CChannel::CheckHandle((__int64)this, a2, 203);
   si128 = _mm_load_si128((const __m128i *)&_xmm);
   si128.m128i_i32[1] = a2;
   if ( a3 )
   {
-    wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
-      &TargetHandle,
-      0LL);
+    SetLastError(0);
     CurrentProcess = GetCurrentProcess();
     v7 = GetCurrentProcess();
     if ( !DuplicateHandle(v7, a3, CurrentProcess, &TargetHandle, 0, 0, 2u) )
     {
-      LastError = wil::details::in1diag3::Return_GetLastError(
-                    retaddr,
-                    (void *)0x706,
-                    (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-                    v8);
-LABEL_7:
-      CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v13);
-      CDummyRemotingSwapChain::CPresentStats::~CPresentStats(&TargetHandle);
-      return LastError;
+      LastError = GetLastError();
+      v10 = LastError;
+      if ( LastError > 0 )
+        v10 = (unsigned __int16)LastError | 0x80070000;
+      if ( v10 >= 0 )
+        v10 = -2003304445;
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v10, 0x6C6u, 0LL);
+      goto LABEL_12;
     }
     si128.m128i_i64[1] = (__int64)TargetHandle;
   }
-  v10 = CChannel::SendCommand(this, &si128, 0x10u);
-  LastError = v10;
-  if ( v10 < 0 )
+  v11 = CChannel::SendCommand(this, &si128, 0x10u);
+  v10 = v11;
+  if ( v11 >= 0 )
   {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x70B,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-      (const char *)(unsigned int)v10);
-    goto LABEL_7;
+    TargetHandle = 0LL;
+    goto LABEL_14;
   }
-  TargetHandle = 0LL;
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v13);
-  if ( (char *)TargetHandle - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL )
+  MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x6CBu, 0LL);
+LABEL_12:
+  if ( TargetHandle )
     CloseHandle(TargetHandle);
-  return 0LL;
+LABEL_14:
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v16);
+  return (unsigned int)v10;
 }

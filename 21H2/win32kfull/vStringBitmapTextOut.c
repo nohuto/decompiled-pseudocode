@@ -1,13 +1,13 @@
 /*
- * XREFs of vStringBitmapTextOut @ 0x1C0297210
+ * XREFs of vStringBitmapTextOut @ 0x1C016C9BC
  * Callers:
- *     ?GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@I@Z @ 0x1C0295CB8 (-GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@I@Z.c)
+ *     ?GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@I@Z @ 0x1C02981E4 (-GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@I@Z.c)
  * Callees:
- *     STROBJ_bEnum @ 0x1C013A2C0 (STROBJ_bEnum.c)
- *     vDrawGlyph @ 0x1C0296DD8 (vDrawGlyph.c)
+ *     STROBJ_bEnum @ 0x1C00CD0F0 (STROBJ_bEnum.c)
+ *     vDrawGlyph @ 0x1C016C7FC (vDrawGlyph.c)
  */
 
-char __fastcall vStringBitmapTextOut(STROBJ *a1, unsigned int *a2, unsigned int a3)
+char __fastcall vStringBitmapTextOut(STROBJ *a1, _DWORD *a2, unsigned int a3)
 {
   LONG left; // ebx
   PGLYPHPOS pgp; // r8

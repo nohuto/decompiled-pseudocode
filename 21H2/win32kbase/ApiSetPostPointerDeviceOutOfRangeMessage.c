@@ -1,69 +1,55 @@
 /*
- * XREFs of ApiSetPostPointerDeviceOutOfRangeMessage @ 0x1C020ECC8
+ * XREFs of ApiSetPostPointerDeviceOutOfRangeMessage @ 0x1C01D00C4
  * Callers:
- *     RIMRemoveFromActiveDevices @ 0x1C0194D44 (RIMRemoveFromActiveDevices.c)
+ *     RIMRemoveFromActiveDevices @ 0x1C015F4FC (RIMRemoveFromActiveDevices.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     EtwTracePointerDeviceOutOfRangeMessageStart @ 0x1C014E310 (EtwTracePointerDeviceOutOfRangeMessageStart.c)
- *     EtwTracePointerDeviceOutOfRangeMessageStop @ 0x1C014E340 (EtwTracePointerDeviceOutOfRangeMessageStop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     EtwTracePointerDeviceOutOfRangeMessageStart @ 0x1C01236F0 (EtwTracePointerDeviceOutOfRangeMessageStart.c)
+ *     EtwTracePointerDeviceOutOfRangeMessageStop @ 0x1C0123720 (EtwTracePointerDeviceOutOfRangeMessageStop.c)
  */
 
-void __fastcall ApiSetPostPointerDeviceOutOfRangeMessage(__int64 a1)
+_UNKNOWN **__fastcall ApiSetPostPointerDeviceOutOfRangeMessage(PDEVICE_OBJECT a1)
 {
-  PDEVICE_OBJECT v2; // rcx
-  char v3; // bl
-  char v4; // dl
-  char v5; // r8
-  __int64 v6; // rcx
-  char v7; // dl
+  _UNKNOWN **result; // rax
+  PDEVICE_OBJECT v2; // rbx
+  __int64 v3; // rcx
+  int v4; // eax
+  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
 
-  v2 = WPP_GLOBAL_Control;
-  v3 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (v4 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  result = &retaddr;
+  v2 = a1;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v4 = 0;
+    a1 = WPP_GLOBAL_Control;
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      result = (_UNKNOWN **)WPP_RECORDER_SF_(
+                              WPP_GLOBAL_Control->DeviceExtension,
+                              5,
+                              10,
+                              72,
+                              (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (v5 = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
+  if ( LODWORD(v2->AttachedDevice) != 7 )
   {
-    v5 = 0;
+    EtwTracePointerDeviceOutOfRangeMessageStart((__int64)a1);
+    if ( qword_1C0257F98 )
+      v4 = qword_1C0257F98();
+    else
+      v4 = -1073741637;
+    if ( v4 >= 0 && qword_1C0257FA0 )
+      qword_1C0257FA0(v2, 0LL, 0LL);
+    result = (_UNKNOWN **)EtwTracePointerDeviceOutOfRangeMessageStop(v3);
   }
-  if ( v4 || v5 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v4,
-      v5,
-      WPP_GLOBAL_Control->DeviceExtension,
-      5,
-      10,
-      72,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
-  if ( *(_DWORD *)(a1 + 24) != 7 )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    EtwTracePointerDeviceOutOfRangeMessageStart((__int64)v2);
-    if ( qword_1C029CBB8 && (int)qword_1C029CBB8() >= 0 && qword_1C029CBC0 )
-      qword_1C029CBC0(a1, 0LL, 0LL);
-    EtwTracePointerDeviceOutOfRangeMessageStop(v6);
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      return (_UNKNOWN **)WPP_RECORDER_SF_(
+                            WPP_GLOBAL_Control->DeviceExtension,
+                            5,
+                            10,
+                            73,
+                            (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (v7 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    v7 = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v3 = 0;
-  if ( v7 || v3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v7,
-      v3,
-      WPP_GLOBAL_Control->DeviceExtension,
-      5,
-      10,
-      73,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+  return result;
 }

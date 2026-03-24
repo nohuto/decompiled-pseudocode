@@ -1,82 +1,91 @@
 /*
- * XREFs of ??1DMMVIDEOPRESENTTARGET@@UEAA@XZ @ 0x1C039F524
+ * XREFs of ??1DMMVIDEOPRESENTTARGET@@UEAA@XZ @ 0x1C02E52F0
  * Callers:
- *     ??_EDMMVIDEOPRESENTTARGET@@UEAAPEAXI@Z @ 0x1C00698C0 (--_EDMMVIDEOPRESENTTARGET@@UEAAPEAXI@Z.c)
+ *     ??_EDMMVIDEOPRESENTTARGET@@UEAAPEAXI@Z @ 0x1C005CFA0 (--_EDMMVIDEOPRESENTTARGET@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ @ 0x1C000A6A4 (-ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ.c)
- *     ??1ReferenceCounted@@UEAA@XZ @ 0x1C000C768 (--1ReferenceCounted@@UEAA@XZ.c)
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ?RemoveChildTarget@DMMVIDEOPRESENTTARGET@@QEAAXAEAV1@@Z @ 0x1C006996C (-RemoveChildTarget@DMMVIDEOPRESENTTARGET@@QEAAXAEAV1@@Z.c)
- *     ?RemoveJoinedTarget@DMMVIDEOPRESENTTARGET@@QEAAXAEAV1@@Z @ 0x1C00699F0 (-RemoveJoinedTarget@DMMVIDEOPRESENTTARGET@@QEAAXAEAV1@@Z.c)
- *     ?ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z @ 0x1C01D730C (-ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z.c)
- *     ?CancelLinkTrainingTimer@DMMVIDEOPRESENTTARGET@@QEAAXXZ @ 0x1C01E9B14 (-CancelLinkTrainingTimer@DMMVIDEOPRESENTTARGET@@QEAAXXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ?ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ @ 0x1C0007634 (-ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ.c)
+ *     ??1ReferenceCounted@@UEAA@XZ @ 0x1C0008FB0 (--1ReferenceCounted@@UEAA@XZ.c)
+ *     ?RemoveChildTarget@DMMVIDEOPRESENTTARGET@@QEAAXAEAV1@@Z @ 0x1C005D04C (-RemoveChildTarget@DMMVIDEOPRESENTTARGET@@QEAAXAEAV1@@Z.c)
+ *     ?RemoveJoinedTarget@DMMVIDEOPRESENTTARGET@@QEAAXAEAV1@@Z @ 0x1C005D0D0 (-RemoveJoinedTarget@DMMVIDEOPRESENTTARGET@@QEAAXAEAV1@@Z.c)
+ *     ?ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z @ 0x1C01481CC (-ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z.c)
+ *     ?CancelLinkTrainingTimer@DMMVIDEOPRESENTTARGET@@QEAAXXZ @ 0x1C016EC60 (-CancelLinkTrainingTimer@DMMVIDEOPRESENTTARGET@@QEAAXXZ.c)
  */
 
-void __fastcall DMMVIDEOPRESENTTARGET::~DMMVIDEOPRESENTTARGET(DMMVIDEOPRESENTTARGET *this)
+void __fastcall DMMVIDEOPRESENTTARGET::~DMMVIDEOPRESENTTARGET(
+        DMMVIDEOPRESENTTARGET *this,
+        char **a2,
+        __int64 a3,
+        __int64 a4)
 {
-  struct HDXGMONITOR__ *v1; // rsi
-  __int64 v3; // rax
-  VIDPN_MGR *v4; // rdi
-  char *v5; // rcx
+  struct HDXGMONITOR__ *v4; // rsi
   __int64 v6; // rax
-  char **v7; // rdx
-  DMMVIDEOPRESENTTARGET *v8; // rcx
-  DMMVIDEOPRESENTTARGET *v9; // rcx
-  DXGADAPTER **v10; // rcx
+  __int64 v7; // rax
+  VIDPN_MGR *v8; // rdi
+  __int64 v9; // rax
+  char *v10; // rcx
+  __int64 v11; // rax
+  DMMVIDEOPRESENTTARGET *v12; // rcx
+  DMMVIDEOPRESENTTARGET *v13; // rcx
+  DXGADAPTER **v14; // rcx
 
-  v1 = (struct HDXGMONITOR__ *)*((_QWORD *)this + 14);
+  v4 = (struct HDXGMONITOR__ *)*((_QWORD *)this + 14);
   *(_QWORD *)this = &DMMVIDEOPRESENTTARGET::`vftable'{for `IndexedSetElement<unsigned int>'};
   *((_QWORD *)this + 4) = &DMMVIDEOPRESENTTARGET::`vftable'{for `ContainedBy<DMMVIDEOPRESENTTARGETSET>'};
   *((_QWORD *)this + 6) = &DMMVIDEOPRESENTTARGET::`vftable'{for `SignedWithClassSignature<DMMVIDEOPRESENTTARGET>'};
   *((_QWORD *)this + 8) = &DMMVIDEOPRESENTTARGET::`vftable'{for `ReferenceCounted'};
-  if ( v1 )
+  if ( v4 )
   {
-    v3 = *((_QWORD *)this + 5);
-    if ( !v3 )
+    v6 = *((_QWORD *)this + 5);
+    if ( !v6 )
     {
-      WdLogSingleEntry0(1LL);
-      v3 = *((_QWORD *)this + 5);
+      v7 = WdLogNewEntry5_WdAssertion(this, a2);
+      WdLogEvent5_WdAssertion(v7);
+      v6 = *((_QWORD *)this + 5);
     }
-    v4 = *(VIDPN_MGR **)(v3 + 88);
-    if ( !v4 )
-      WdLogSingleEntry0(1LL);
-    VIDPN_MGR::ReleaseMonitorHandle(v4, v1);
+    v8 = *(VIDPN_MGR **)(v6 + 88);
+    if ( !v8 )
+    {
+      v9 = WdLogNewEntry5_WdAssertion(this, a2);
+      WdLogEvent5_WdAssertion(v9);
+    }
+    VIDPN_MGR::ReleaseMonitorHandle(v8, v4, a3, a4);
   }
-  v5 = (char *)this + 512;
-  v6 = *((_QWORD *)this + 64);
-  if ( v6 )
+  v10 = (char *)this + 512;
+  v11 = *((_QWORD *)this + 64);
+  if ( v11 )
   {
-    if ( *(char **)(v6 + 8) != v5 || (v7 = (char **)*((_QWORD *)this + 65), *v7 != v5) )
+    if ( *(char **)(v11 + 8) != v10 || (a2 = (char **)*((_QWORD *)this + 65), *a2 != v10) )
       __fastfail(3u);
-    *v7 = (char *)v6;
-    *(_QWORD *)(v6 + 8) = v7;
+    *a2 = (char *)v11;
+    *(_QWORD *)(v11 + 8) = a2;
   }
-  v8 = (DMMVIDEOPRESENTTARGET *)*((_QWORD *)this + 59);
-  if ( v8 )
-    DMMVIDEOPRESENTTARGET::RemoveChildTarget(v8, this);
-  v9 = (DMMVIDEOPRESENTTARGET *)*((_QWORD *)this + 66);
-  if ( v9 )
-    DMMVIDEOPRESENTTARGET::RemoveJoinedTarget(v9, this);
+  v12 = (DMMVIDEOPRESENTTARGET *)*((_QWORD *)this + 59);
+  if ( v12 )
+    DMMVIDEOPRESENTTARGET::RemoveChildTarget(v12, this);
+  v13 = (DMMVIDEOPRESENTTARGET *)*((_QWORD *)this + 66);
+  if ( v13 )
+    DMMVIDEOPRESENTTARGET::RemoveJoinedTarget(v13, this);
   if ( *((_QWORD *)this + 67) )
   {
-    DMMVIDEOPRESENTTARGET::CancelLinkTrainingTimer(this);
+    DMMVIDEOPRESENTTARGET::CancelLinkTrainingTimer(this, (__int64)a2, a3, a4);
     if ( _InterlockedExchange((volatile __int32 *)(*((_QWORD *)this + 67) + 152LL), -1) != 5 )
     {
-      v10 = (DXGADAPTER **)*((_QWORD *)this + 67);
-      if ( *v10 )
+      v14 = (DXGADAPTER **)*((_QWORD *)this + 67);
+      if ( *v14 )
       {
-        DXGADAPTER::ReleaseReferenceNoTracking(*v10);
-        v10 = (DXGADAPTER **)*((_QWORD *)this + 67);
+        DXGADAPTER::ReleaseReferenceNoTracking(*v14);
+        v14 = (DXGADAPTER **)*((_QWORD *)this + 67);
       }
-      if ( v10[18] )
+      if ( v14[18] )
       {
-        IoFreeWorkItem(v10[18]);
-        v10 = (DXGADAPTER **)*((_QWORD *)this + 67);
+        IoFreeWorkItem(v14[18]);
+        v14 = (DXGADAPTER **)*((_QWORD *)this + 67);
       }
-      operator delete(v10);
+      operator delete(v14);
     }
   }
-  ReferenceCounted::~ReferenceCounted((DMMVIDEOPRESENTTARGET *)((char *)this + 64));
+  ReferenceCounted::~ReferenceCounted((DMMVIDEOPRESENTTARGET *)((char *)this + 64), (__int64)a2);
   *((_DWORD *)this + 14) |= 0x6D640000u;
   *((_QWORD *)this + 5) = 0LL;
   *((_QWORD *)this + 6) = &SignedWithClassSignature<DMMVIDPNSOURCESET>::`vftable';

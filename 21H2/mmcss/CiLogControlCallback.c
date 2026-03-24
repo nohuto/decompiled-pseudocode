@@ -1,5 +1,5 @@
 /*
- * XREFs of CiLogControlCallback @ 0x1C000C330
+ * XREFs of CiLogControlCallback @ 0x1C000C600
  * Callers:
  *     <none>
  * Callees:
@@ -11,11 +11,11 @@ void __fastcall CiLogControlCallback(LPCGUID SourceId, ULONG ControlCode, UCHAR 
   if ( ControlCode )
   {
     RegHandle = CiLoggerContext;
-    byte_1C00073C0 = 1;
+    byte_1C0007370 = 1;
   }
   else
   {
     RegHandle = 0LL;
-    byte_1C00073C0 = 0;
+    byte_1C0007370 = 0;
   }
 }

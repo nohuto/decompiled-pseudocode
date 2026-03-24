@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CRectangleGeometry::sc_Offset__ @ 0x180002BF0
+ * XREFs of _dynamic_initializer_for__CRectangleGeometry::sc_Offset__ @ 0x180002620
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CRectangleGeometry::sc_Offset__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D0398 = (unsigned __int64)CPropertyChangeResource::SetAnimatedProperty;
-  qword_1803D03A8 = v1;
+  xmmword_1803449F8 = (unsigned __int64)CPropertyChangeResource::SetAnimatedProperty;
+  qword_180344A08 = v1;
   return result;
 }

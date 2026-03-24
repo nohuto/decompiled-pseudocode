@@ -1,41 +1,40 @@
 /*
- * XREFs of PopCreateDynamicIrpWorker @ 0x1403418B8
+ * XREFs of PopCreateDynamicIrpWorker @ 0x1403A4AD0
  * Callers:
- *     PopIrpWorkerControl @ 0x1403B0E50 (PopIrpWorkerControl.c)
- *     PopRunMaximumIrpWorkers @ 0x140598B64 (PopRunMaximumIrpWorkers.c)
+ *     PopRunMaximumIrpWorkers @ 0x14038BCE0 (PopRunMaximumIrpWorkers.c)
+ *     PopIrpWorkerControl @ 0x1403CB8B0 (PopIrpWorkerControl.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B00 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     PopCreatePowerThread @ 0x1403425EC (PopCreatePowerThread.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202C74 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PopCreatePowerThread @ 0x1403A4B38 (PopCreatePowerThread.c)
  */
 
 __int64 __fastcall PopCreateDynamicIrpWorker(__int64 a1)
 {
   _QWORD *v2; // rax
-  unsigned int v3; // ebx
-  void *v4; // rdi
-  int PowerThread; // esi
+  void *v3; // rbx
+  int PowerThread; // edi
 
   v2 = ExAllocateFromNPagedLookasideList(&PopDynamicIrpWorkerLookaside);
-  v3 = 0;
-  v4 = v2;
-  if ( v2 )
-  {
-    *v2 = a1;
-    PowerThread = PopCreatePowerThread(PopIrpWorker, v2);
-    if ( PowerThread >= 0 )
-      return v3;
-  }
-  else
+  v3 = v2;
+  if ( !v2 )
   {
     PowerThread = -1073741670;
+LABEL_7:
+    if ( v3 )
+      ExFreeToNPagedLookasideList(&PopDynamicIrpWorkerLookaside, v3);
+    ExAcquireFastMutex(&PopIrpWorkerMutex);
+    --PopIrpWorkerPendingCount;
+    KeReleaseGuardedMutex(&PopIrpWorkerMutex);
+    return (unsigned int)PowerThread;
   }
-  if ( v4 )
-    ExFreeToNPagedLookasideList(&PopDynamicIrpWorkerLookaside, v4);
-  ExAcquireFastMutex(&PopIrpWorkerMutex);
-  --PopIrpWorkerPendingCount;
-  ExReleaseFastMutex(&PopIrpWorkerMutex);
+  *v2 = a1;
+  PowerThread = PopCreatePowerThread(PopIrpWorker, v2);
+  if ( PowerThread >= 0 )
+    PowerThread = 0;
+  if ( PowerThread < 0 )
+    goto LABEL_7;
   return (unsigned int)PowerThread;
 }

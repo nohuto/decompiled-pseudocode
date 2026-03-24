@@ -1,23 +1,21 @@
 /*
- * XREFs of RtlValidProcessProtection @ 0x1407EA140
+ * XREFs of RtlValidProcessProtection @ 0x1406A5F40
  * Callers:
- *     PspBuildCreateProcessContext @ 0x140771678 (PspBuildCreateProcessContext.c)
+ *     PspBuildCreateProcessContext @ 0x1406090A4 (PspBuildCreateProcessContext.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall RtlValidProcessProtection(unsigned __int8 a1)
+char __fastcall RtlValidProcessProtection(unsigned __int8 a1)
 {
-  if ( a1 > 0x51u )
+  if ( a1 <= 0x41u )
   {
-    if ( a1 == 82 || a1 == 97 || a1 == 98 || a1 == 114 )
+    if ( a1 == 65 || !a1 || a1 == 49 || a1 == 8 || a1 == 18 || a1 == 33 )
       return 1;
-    return a1 == 129;
   }
-  else
+  else if ( a1 >= 0x51u && (a1 <= 0x52u || a1 > 0x60u && (a1 <= 0x62u || a1 == 114 || a1 == 0x81)) )
   {
-    if ( a1 == 81 || !a1 || a1 == 49 || a1 == 8 || a1 == 18 || a1 == 33 )
-      return 1;
-    return a1 == 65;
+    return 1;
   }
+  return 0;
 }

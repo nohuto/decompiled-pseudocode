@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ProcessAddSurfaceResources@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_ADDSURFACERESOURCES@@PEBXI@Z @ 0x1800E1414
+ * XREFs of ?ProcessAddSurfaceResources@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_ADDSURFACERESOURCES@@PEBXI@Z @ 0x180059E48
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x180049524 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     ?ReleaseSurfaceResources@CPrimitiveGroup@@AEAAXXZ @ 0x1800E13A0 (-ReleaseSurfaceResources@CPrimitiveGroup@@AEAAXXZ.c)
- *     ?ReleasePrimitiveCaches@CPrimitiveGroup@@AEAAX_N@Z @ 0x1800E1914 (-ReleasePrimitiveCaches@CPrimitiveGroup@@AEAAX_N@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ReleaseSurfaceResources@CPrimitiveGroup@@AEAAXXZ @ 0x1800599AC (-ReleaseSurfaceResources@CPrimitiveGroup@@AEAAXXZ.c)
+ *     ?ReleasePrimitiveCaches@CPrimitiveGroup@@AEAAX_N@Z @ 0x180059FA4 (-ReleasePrimitiveCaches@CPrimitiveGroup@@AEAAX_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A1010 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CPrimitiveGroup::ProcessAddSurfaceResources(
@@ -17,77 +17,65 @@ __int64 __fastcall CPrimitiveGroup::ProcessAddSurfaceResources(
         const struct tagMILCMD_PRIMITIVEGROUP_ADDSURFACERESOURCES *a3,
         unsigned int *a4)
 {
-  unsigned int v4; // ebx
-  int v5; // ebp
+  int v4; // ebx
+  unsigned int i; // ebp
   struct CResource *ResourceWithoutType; // rax
-  __int64 v11; // rcx
+  unsigned int v11; // ecx
   unsigned int v12; // eax
   unsigned int v13; // r8d
-  int v14; // edi
-  int v16; // eax
-  __int64 v17; // rcx
-  __int64 v18; // rcx
-  struct CResource *v19; // [rsp+70h] [rbp+18h] BYREF
+  int v15; // eax
+  unsigned int v16; // ecx
+  struct CResource *v17; // [rsp+60h] [rbp+18h] BYREF
 
   v4 = 0;
-  v5 = 0;
-  if ( *((_DWORD *)a3 + 2) )
+  for ( i = 0; i < *((_DWORD *)a3 + 2); ++i )
   {
-    while ( 1 )
+    ResourceWithoutType = CResourceTable::GetResourceWithoutType(a2, *a4);
+    v17 = ResourceWithoutType;
+    v11 = (unsigned int)ResourceWithoutType;
+    if ( !ResourceWithoutType
+      || !(*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)ResourceWithoutType + 56LL))(
+            ResourceWithoutType,
+            40LL) )
     {
-      ResourceWithoutType = CResourceTable::GetResourceWithoutType(a2, *a4);
-      v19 = ResourceWithoutType;
-      v11 = (__int64)ResourceWithoutType;
-      if ( !ResourceWithoutType
-        || !(*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)ResourceWithoutType + 56LL))(
-              ResourceWithoutType,
-              42LL) )
-      {
-        break;
-      }
-      v12 = *((_DWORD *)this + 40);
-      v13 = v12 + 1;
-      if ( v12 + 1 < v12 )
-      {
-        v4 = -2147024362;
-        v14 = -2147024362;
-        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, -2147024362, 0xB5u, 0LL);
-        goto LABEL_13;
-      }
-      v14 = 0;
-      if ( v13 > *((_DWORD *)this + 39) )
-      {
-        v16 = DynArrayImpl<0>::AddMultipleAndSet((__int64)this + 136, 8, 1, &v19);
-        v14 = v16;
-        v4 = v16;
-        if ( v16 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0xC0u, 0LL);
-LABEL_13:
-          MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v14, 0xE9u, 0LL);
-          goto LABEL_15;
-        }
-      }
-      else
-      {
-        *(_QWORD *)(*((_QWORD *)this + 17) + 8LL * v12) = v19;
-        *((_DWORD *)this + 40) = v13;
-      }
-      v4 = v14;
-      (*(void (__fastcall **)(struct CResource *))(*(_QWORD *)v19 + 8LL))(v19);
-      ++a4;
-      if ( (unsigned int)++v5 >= *((_DWORD *)a3 + 2) )
-        goto LABEL_8;
+      v4 = -2003303421;
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, -2003303421, 0xE3u, 0LL);
+      goto LABEL_18;
     }
-    v4 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, -2003303421, 0xE1u, 0LL);
-LABEL_15:
+    v12 = *((_DWORD *)this + 50);
+    v13 = v12 + 1;
+    if ( v12 + 1 < v12 )
+    {
+      v4 = -2147024362;
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, -2147024362, 0xB5u, 0LL);
+    }
+    else
+    {
+      if ( v13 <= *((_DWORD *)this + 49) )
+      {
+        v4 = 0;
+        *(_QWORD *)(*((_QWORD *)this + 22) + 8LL * v12) = v17;
+        *((_DWORD *)this + 50) = v13;
+        goto LABEL_7;
+      }
+      v15 = DynArrayImpl<0>::AddMultipleAndSet((char *)this + 176, 8LL, 1LL, &v17);
+      v4 = v15;
+      if ( v15 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0xC0u, 0LL);
+    }
+    if ( v4 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v4, 0xEBu, 0LL);
+      goto LABEL_9;
+    }
+LABEL_7:
+    (*(void (__fastcall **)(struct CResource *))(*(_QWORD *)v17 + 8LL))(v17);
+    ++a4;
+  }
+  CPrimitiveGroup::ReleasePrimitiveCaches(this, 1);
+LABEL_9:
+  if ( v4 < 0 )
+LABEL_18:
     CPrimitiveGroup::ReleaseSurfaceResources(this);
-  }
-  else
-  {
-LABEL_8:
-    CPrimitiveGroup::ReleasePrimitiveCaches(this, 1);
-  }
-  return v4;
+  return (unsigned int)v4;
 }

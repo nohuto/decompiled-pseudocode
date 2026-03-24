@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBMUX_EnableResetHub @ 0x1C0010E80
+ * XREFs of HUBMUX_EnableResetHub @ 0x1C000FA54
  * Callers:
- *     HUBHSM_WaitingForPortsToAcquireReferenceOnStart @ 0x1C0009440 (HUBHSM_WaitingForPortsToAcquireReferenceOnStart.c)
+ *     HUBHSM_WaitingForPortsToAcquireReferenceOnStart @ 0x1C0008C70 (HUBHSM_WaitingForPortsToAcquireReferenceOnStart.c)
  * Callees:
  *     <none>
  */

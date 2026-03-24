@@ -1,18 +1,12 @@
 /*
- * XREFs of ?IsPropertyAnimatable@CMatrixTransformMarshaler@DirectComposition@@UEAA_NIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1C0212920
+ * XREFs of ?IsPropertyAnimatable@CMatrixTransformMarshaler@DirectComposition@@UEAA_NIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1C01E3AD0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsPropertyAnimatable@CResourceMarshaler@DirectComposition@@UEAA_NIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1C0007DA0 (-IsPropertyAnimatable@CResourceMarshaler@DirectComposition@@UEAA_NIW4DCOMPOSITION_EXPRESSION_TYP.c)
+ *     <none>
  */
 
-char __fastcall DirectComposition::CMatrixTransformMarshaler::IsPropertyAnimatable(
-        DirectComposition::CResourceMarshaler *a1,
-        unsigned int a2,
-        int a3)
+bool __fastcall DirectComposition::CMatrixTransformMarshaler::IsPropertyAnimatable(__int64 a1, unsigned int a2, int a3)
 {
-  if ( a2 >= 6 )
-    return DirectComposition::CResourceMarshaler::IsPropertyAnimatable(a1, a2);
-  else
-    return a3 == 18;
+  return a2 < 6 && a3 == 18;
 }

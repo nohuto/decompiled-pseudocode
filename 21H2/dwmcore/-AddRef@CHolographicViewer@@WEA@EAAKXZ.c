@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@CHolographicViewer@@WEA@EAAKXZ @ 0x18010AB70
+ * XREFs of ?AddRef@CHolographicViewer@@WEA@EAAKXZ @ 0x1800F4B70
  * Callers:
  *     <none>
  * Callees:

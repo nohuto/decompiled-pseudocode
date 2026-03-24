@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFinishPageFileExtension @ 0x1402B7E20
+ * XREFs of MiFinishPageFileExtension @ 0x1402B7F20
  * Callers:
- *     MiAttemptPageFileExtension @ 0x140852FD0 (MiAttemptPageFileExtension.c)
+ *     MiAttemptPageFileExtension @ 0x140852FB0 (MiAttemptPageFileExtension.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     MiCoalescePageFileBitmapsCache @ 0x14002A820 (MiCoalescePageFileBitmapsCache.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     MiUpdateReserveClusterInfo @ 0x140188108 (MiUpdateReserveClusterInfo.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     MiUpdateReserveClusterInfo @ 0x140188128 (MiUpdateReserveClusterInfo.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG __fastcall MiFinishPageFileExtension(struct _KEVENT *a1, __int64 a2, __int64 a3)

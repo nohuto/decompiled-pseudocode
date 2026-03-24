@@ -1,16 +1,18 @@
 /*
- * XREFs of ?vDeleteRFONTRef@PFFOBJ@@QEAAXXZ @ 0x1C0087CDC
+ * XREFs of ?vDeleteRFONTRef@PFFOBJ@@QEAAXXZ @ 0x1C009F278
  * Callers:
- *     ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z @ 0x1C0087828 (-vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z.c)
- *     ??1PFFREFOBJ@@QEAA@XZ @ 0x1C0140048 (--1PFFREFOBJ@@QEAA@XZ.c)
- *     vKillRFONTList @ 0x1C026B774 (vKillRFONTList.c)
- *     ?GreGetKerningPairs@@YAKPEAUHDC__@@KPEAUtagKERNINGPAIR@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C028DE40 (-GreGetKerningPairs@@YAKPEAUHDC__@@KPEAUtagKERNINGPAIR@@W4EntryPoint@RFONTOBJ@@@Z.c)
- *     ?vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02B5720 (-vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?vRestartbRealizeFont@@YAXPEAVRFONT@@@Z @ 0x1C02B75B0 (-vRestartbRealizeFont@@YAXPEAVRFONT@@@Z.c)
+ *     ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z @ 0x1C009EE74 (-vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z.c)
+ *     ?vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z @ 0x1C00E8260 (-vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z.c)
+ *     GreGetKerningPairs @ 0x1C013FA44 (GreGetKerningPairs.c)
+ *     ??1PFFREFOBJ@@QEAA@XZ @ 0x1C016CAD0 (--1PFFREFOBJ@@QEAA@XZ.c)
+ *     vKillRFONTList @ 0x1C0272C2C (vKillRFONTList.c)
+ *     ?vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02A7388 (-vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z @ 0x1C02A7D6C (-bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z.c)
+ *     ?vRestartbRealizeFont@@YAXPEAVRFONT@@@Z @ 0x1C02A85C0 (-vRestartbRealizeFont@@YAXPEAVRFONT@@@Z.c)
  * Callees:
- *     ?vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z @ 0x1C007C20C (-vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z.c)
- *     ?vCleanupFontFile@@YAXPEAVPFFCLEANUP@@@Z @ 0x1C007C488 (-vCleanupFontFile@@YAXPEAVPFFCLEANUP@@@Z.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vCleanupFontFile@@YAXPEAVPFFCLEANUP@@@Z @ 0x1C00A57FC (-vCleanupFontFile@@YAXPEAVPFFCLEANUP@@@Z.c)
+ *     ?vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z @ 0x1C00A58B4 (-vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z.c)
  */
 
 void __fastcall PFFOBJ::vDeleteRFONTRef(PFFOBJ *this)
@@ -24,13 +26,13 @@ void __fastcall PFFOBJ::vDeleteRFONTRef(PFFOBJ *this)
   v4 = 0LL;
   v5 = 0LL;
   v2 = 0;
-  v6 = *((_QWORD *)Gre::Base::Globals(this) + 6);
-  GreAcquireSemaphore(v6);
+  v6 = ghsemPublicPFT;
+  GreAcquireSemaphore(ghsemPublicPFT);
   --*(_DWORD *)(*(_QWORD *)this + 68LL);
   v3 = *(_QWORD *)this;
   if ( !*(_QWORD *)(*(_QWORD *)this + 56LL) && !*(_QWORD *)(v3 + 144) && !*(_DWORD *)(v3 + 68) && !*(_DWORD *)(v3 + 64) )
   {
-    PFFOBJ::vPFFC_Delete((void **)this, (struct PFFCLEANUP *)&v4);
+    PFFOBJ::vPFFC_Delete(this, (struct PFFCLEANUP *)&v4);
     v2 = 1;
   }
   SEMOBJ::vUnlock((SEMOBJ *)&v6);

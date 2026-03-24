@@ -1,224 +1,228 @@
 /*
- * XREFs of DpiFdoHandleTargetConnectionState @ 0x1C039C378
+ * XREFs of DpiFdoHandleTargetConnectionState @ 0x1C02CB274
  * Callers:
- *     DxgkQueryConnectionChanges @ 0x1C001C200 (DxgkQueryConnectionChanges.c)
+ *     DxgkQueryConnectionChanges @ 0x1C00205E0 (DxgkQueryConnectionChanges.c)
  * Callees:
- *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0002EE4 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
- *     DpiFdoGetChildDescriptor @ 0x1C00157F4 (DpiFdoGetChildDescriptor.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C017CDCC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     DpiPdoHandleChildConnectionChange @ 0x1C020F55C (DpiPdoHandleChildConnectionChange.c)
- *     DpiFdoCreateChildDescriptor @ 0x1C02177D4 (DpiFdoCreateChildDescriptor.c)
- *     DpiFdoRemoveChildDescriptor @ 0x1C039CF24 (DpiFdoRemoveChildDescriptor.c)
- *     ?DmmBuildDynamicVideoPresentTargetChildRelations@@YAJPEAXIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C03B1978 (-DmmBuildDynamicVideoPresentTargetChildRelations@@YAJPEAXIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILUR.c)
- *     ?DmmCreateDynamicVideoPresentTarget@@YAJPEAXIIAEAU_DXGK_CHILD_CAPABILITIES@@EPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C03B1A2C (-DmmCreateDynamicVideoPresentTarget@@YAJPEAXIIAEAU_DXGK_CHILD_CAPABILITIES@@EPEAW4_CONNECTION_CH.c)
- *     ?DmmDestroyDynamicVideoPresentTarget@@YAJPEAXIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C03B1AE8 (-DmmDestroyDynamicVideoPresentTarget@@YAJPEAXIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z.c)
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000983C (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     DpiFdoGetChildDescriptor @ 0x1C001A070 (DpiFdoGetChildDescriptor.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C0145F7C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpiPdoHandleChildConnectionChange @ 0x1C0178898 (DpiPdoHandleChildConnectionChange.c)
+ *     DpiFdoCreateChildDescriptor @ 0x1C01978C4 (DpiFdoCreateChildDescriptor.c)
+ *     DpiFdoRemoveChildDescriptor @ 0x1C02CC0F4 (DpiFdoRemoveChildDescriptor.c)
+ *     ?DmmBuildDynamicVideoPresentTargetChildRelations@@YAJPEAXIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C02E4B8C (-DmmBuildDynamicVideoPresentTargetChildRelations@@YAJPEAXIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILUR.c)
+ *     ?DmmCreateDynamicVideoPresentTarget@@YAJPEAXIIAEAU_DXGK_CHILD_CAPABILITIES@@EPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C02E4C4C (-DmmCreateDynamicVideoPresentTarget@@YAJPEAXIIAEAU_DXGK_CHILD_CAPABILITIES@@EPEAW4_CONNECTION_CH.c)
+ *     ?DmmDestroyDynamicVideoPresentTarget@@YAJPEAXIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C02E4D14 (-DmmDestroyDynamicVideoPresentTarget@@YAJPEAXIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z.c)
  */
 
-__int64 __fastcall DpiFdoHandleTargetConnectionState(__int64 a1, __int64 a2, _DWORD *a3)
+__int64 __fastcall DpiFdoHandleTargetConnectionState(__int64 a1, __int64 a2)
 {
-  unsigned int v4; // ecx
-  __int64 v6; // rdx
-  unsigned int v7; // edi
-  int v9; // ebx
-  int v10; // edx
-  _QWORD *ChildDescriptor; // rax
-  int v12; // r9d
-  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v13; // r10d
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  int v16; // r9d
-  unsigned int *Pool2; // r15
-  unsigned int v18; // r14d
-  int v19; // edx
-  _QWORD *v20; // rax
-  __int64 v21; // r9
-  _QWORD *v22; // rdi
-  int v23; // eax
-  int v24; // edx
-  int v25; // r9d
-  int v26; // r11d
-  int v27; // eax
-  __int64 v28; // rdx
-  unsigned int v30; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v31; // [rsp+64h] [rbp-9Ch] BYREF
-  _DXGK_CHILD_CAPABILITIES v32; // [rsp+68h] [rbp-98h] BYREF
-  _OWORD v33[2]; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v34; // [rsp+A0h] [rbp-60h]
-  __int64 v35; // [rsp+A8h] [rbp-58h]
-  int v36; // [rsp+B0h] [rbp-50h]
-  int v37; // [rsp+B4h] [rbp-4Ch]
-  int v38; // [rsp+B8h] [rbp-48h]
-  int v39; // [rsp+BCh] [rbp-44h]
-  __int64 v40; // [rsp+C0h] [rbp-40h]
-  _DWORD v41[8]; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 v42; // [rsp+F0h] [rbp-10h]
-  __int64 v43; // [rsp+F8h] [rbp-8h]
-  int v44; // [rsp+100h] [rbp+0h]
-  unsigned int v45; // [rsp+104h] [rbp+4h]
-  int v46; // [rsp+108h] [rbp+8h]
-  int v47; // [rsp+10Ch] [rbp+Ch]
-  __int64 v48; // [rsp+110h] [rbp+10h]
+  unsigned int v3; // ecx
+  unsigned int v5; // edi
+  int v6; // eax
+  __int64 v7; // rbx
+  __int64 v8; // rdx
+  unsigned int *PoolWithTag; // r15
+  __int64 v10; // rax
+  int v11; // edx
+  _QWORD *ChildDescriptor; // rdx
+  __int64 v13; // rcx
+  int v14; // r10d
+  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v15; // r11d
+  __int64 v16; // rax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v21; // rax
+  unsigned int v22; // edi
+  _QWORD *v23; // rax
+  _QWORD *v24; // rsi
+  int v25; // eax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  int v29; // r9d
+  int v30; // r10d
+  __int64 v31; // rdx
+  unsigned int v33; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int v34; // [rsp+54h] [rbp-ACh] BYREF
+  _DXGK_CHILD_CAPABILITIES v35; // [rsp+58h] [rbp-A8h] BYREF
+  _DWORD v36[8]; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v37; // [rsp+90h] [rbp-70h]
+  __int64 v38; // [rsp+98h] [rbp-68h]
+  int v39; // [rsp+A0h] [rbp-60h]
+  int v40; // [rsp+A4h] [rbp-5Ch]
+  int v41; // [rsp+A8h] [rbp-58h]
+  int v42; // [rsp+ACh] [rbp-54h]
+  __int64 v43; // [rsp+B0h] [rbp-50h]
+  _DWORD v44[8]; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v45; // [rsp+E0h] [rbp-20h]
+  __int64 v46; // [rsp+E8h] [rbp-18h]
+  int v47; // [rsp+F0h] [rbp-10h]
+  unsigned int v48; // [rsp+F4h] [rbp-Ch]
+  int v49; // [rsp+F8h] [rbp-8h]
+  int v50; // [rsp+FCh] [rbp-4h]
+  __int64 v51; // [rsp+100h] [rbp+0h]
 
-  *(_QWORD *)&v33[0] = 0x480000001ELL;
-  v4 = a3[2];
-  v30 = 0;
-  v33[1] = 0LL;
-  v6 = *(_QWORD *)(a1 + 5744);
-  v7 = 1;
-  v31 = 1;
-  v38 = v4 & 0xFFFFFF;
-  v37 = HIBYTE(v4) & 0xF;
-  v39 = a3[4];
-  v9 = 0;
-  v40 = *(_QWORD *)(a1 + 2672);
-  v32 = 0LL;
+  v36[0] = 30;
+  v36[1] = 72;
+  v3 = *(_DWORD *)(a2 + 8);
+  v33 = 0;
+  v38 = 0LL;
+  v5 = 1;
+  v34 = 1;
+  v40 = HIBYTE(v3) & 0xF;
+  v6 = *(_DWORD *)(a2 + 16);
+  LODWORD(v7) = 0;
+  v8 = *(_QWORD *)(a1 + 5936);
+  PoolWithTag = 0LL;
+  v42 = v6;
+  v10 = *(_QWORD *)(a1 + 2672);
+  v41 = v3 & 0xFFFFFF;
+  v43 = v10;
   v35 = 0LL;
-  v34 = 0LL;
-  memset((char *)v33 + 8, 0, 24);
-  v36 = 92;
-  DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v33, v6);
-  v10 = a3[2] & 0xFFFFFF;
-  v32.Type.Other.MustBeZero = a3[3];
-  v32.Type.VideoOutput.MonitorOrientationAwareness = D3DKMDT_MOA_NONE;
-  v32.Type.VideoOutput.SupportsSdtvModes = 0;
-  v32.HpdAwareness = HpdAwarenessInterruptible;
-  ChildDescriptor = DpiFdoGetChildDescriptor(a1, v10);
+  v37 = 0LL;
+  memset(&v36[2], 0, 24);
+  v39 = 92;
+  DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v36, v8);
+  v11 = *(_DWORD *)(a2 + 8) & 0xFFFFFF;
+  v35.Type.Other.MustBeZero = *(_DWORD *)(a2 + 12);
+  v35.Type.VideoOutput.MonitorOrientationAwareness = D3DKMDT_MOA_NONE;
+  v35.Type.VideoOutput.SupportsSdtvModes = 0;
+  v35.HpdAwareness = HpdAwarenessInterruptible;
+  ChildDescriptor = DpiFdoGetChildDescriptor(a1, v11);
   if ( !ChildDescriptor )
   {
-    v9 = -1073741810;
-    v14 = -1073741810LL;
+    LODWORD(v7) = -1073741810;
+    v16 = WdLogNewEntry5_WdError(v13, 0LL);
+    *(_QWORD *)(v16 + 24) = -1073741810LL;
 LABEL_3:
-    v15 = 2LL;
-LABEL_4:
-    WdLogSingleEntry1(v15, v14);
-LABEL_32:
-    v43 = 0LL;
-    v28 = *(_QWORD *)(a1 + 5744);
-    v48 = *(_QWORD *)(a1 + 2672);
-    v41[0] = 30;
-    v41[1] = 72;
-    v42 = 0LL;
-    memset(&v41[2], 0, 24);
-    v44 = 93;
-    v45 = v7;
-    v46 = v9;
-    v47 = 0;
-    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v41, v28);
-    return (unsigned int)v9;
+    WdLogEvent5_WdError(v16);
+LABEL_33:
+    v31 = *(_QWORD *)(a1 + 5936);
+    v46 = 0LL;
+    v51 = *(_QWORD *)(a1 + 2672);
+    v44[0] = 30;
+    v44[1] = 72;
+    v45 = 0LL;
+    memset(&v44[2], 0, 24);
+    v47 = 93;
+    v48 = v5;
+    v49 = v7;
+    v50 = 0;
+    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v44, v31);
+    return (unsigned int)v7;
   }
-  v16 = v12 & 0xF000000;
-  if ( v16 == 83886080 || v16 == 100663296 )
+  if ( (((v14 & 0xF000000) - 83886080) & 0xFEFFFFFF) != 0 )
   {
-    if ( ChildDescriptor[6] )
+    if ( (v14 & 0xF000000) != 0x4000000 )
+      return (unsigned int)v7;
+    v34 = *(_DWORD *)(a1 + 3480);
+    PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, 4LL * v34, 0x74727044u);
+    if ( !PoolWithTag )
     {
-      v14 = -1073741811LL;
-      v7 = 2;
-      v9 = -1073741811;
-      v15 = 2LL;
-      goto LABEL_4;
+      v5 = 0x80000000;
+      LODWORD(v7) = -1073741801;
+      v21 = WdLogNewEntry5_WdLowResource(v18, v17, v19, v20);
+      *(_QWORD *)(v21 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v21);
+      goto LABEL_33;
     }
-    if ( IsInternalVideoOutput(v13) )
+    LODWORD(v7) = DmmBuildDynamicVideoPresentTargetChildRelations(
+                    *(void **)(a1 + 3896),
+                    *(_DWORD *)(a2 + 8) & 0xFFFFFF,
+                    &v34,
+                    PoolWithTag,
+                    (enum _CONNECTION_CHANGE_FAILURE_REASON *)&v33);
+    if ( (int)v7 >= 0 )
     {
-      v14 = -1073741811LL;
-      v7 = 4;
-      v9 = -1073741811;
-      goto LABEL_3;
-    }
-    if ( DpiFdoGetChildDescriptor(a1, a3[4]) )
-    {
-      if ( v25 == v26 )
+      v22 = v34;
+      while ( v22 )
       {
-        v14 = -1073741811LL;
-        v7 = 3;
-        v9 = -1073741811;
-        goto LABEL_3;
+        v23 = DpiFdoGetChildDescriptor(a1, PoolWithTag[--v22]);
+        v24 = v23;
+        if ( v23[6] )
+        {
+          v25 = DpiPdoHandleChildConnectionChange(
+                  *(_QWORD *)(a1 + 24),
+                  *((_DWORD *)v23 + 6),
+                  *((_DWORD *)v23 + 1),
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)(a2 + 24));
+          v7 = v25;
+          if ( v25 < 0 )
+          {
+            v5 = 2;
+            v28 = WdLogNewEntry5_WdError(v27, v26);
+            *(_QWORD *)(v28 + 24) = v7;
+            WdLogEvent5_WdError(v28);
+            goto LABEL_30;
+          }
+        }
+        LODWORD(v7) = DmmDestroyDynamicVideoPresentTarget(
+                        *(void **)(a1 + 3896),
+                        *((_DWORD *)v24 + 6),
+                        (enum _CONNECTION_CHANGE_FAILURE_REASON *)&v33);
+        if ( (int)v7 < 0 )
+          goto LABEL_29;
+        DpiFdoRemoveChildDescriptor(a1, v24);
       }
     }
-    else
+    goto LABEL_29;
+  }
+  if ( ChildDescriptor[6] )
+  {
+    v5 = 2;
+LABEL_19:
+    LODWORD(v7) = -1073741811;
+    v16 = WdLogNewEntry5_WdError(v13, ChildDescriptor);
+    *(_QWORD *)(v16 + 24) = -1073741811LL;
+    goto LABEL_3;
+  }
+  if ( IsInternalVideoOutput(v15) )
+  {
+    v5 = 4;
+    goto LABEL_19;
+  }
+  if ( DpiFdoGetChildDescriptor(a1, *(_DWORD *)(a2 + 16)) )
+  {
+    if ( v29 == 83886080 )
     {
-      v9 = DpiFdoCreateChildDescriptor(a1, v24, 0, (int *)&v31, (__int64)&v32, 0);
-      if ( v9 < 0 )
-      {
-        v7 = 0x80000000;
-        goto LABEL_32;
-      }
-      LOBYTE(v7) = 0;
+      v5 = 3;
+      goto LABEL_19;
     }
-    v27 = DmmCreateDynamicVideoPresentTarget(
-            *(void **)(a1 + 3912),
-            a3[4],
-            a3[2] & 0xFFFFFF,
-            &v32,
-            v7,
-            (enum _CONNECTION_CHANGE_FAILURE_REASON *)&v30);
-    v7 = v30;
-    v9 = v27;
   }
   else
   {
-    if ( v16 != 0x4000000 )
-      return (unsigned int)v9;
-    v31 = *(_DWORD *)(a1 + 3496);
-    Pool2 = (unsigned int *)ExAllocatePool2(256LL, 4LL * v31, 1953656900LL);
-    if ( !Pool2 )
+    LODWORD(v7) = DpiFdoCreateChildDescriptor(a1, (__int64)ChildDescriptor, 0, &v34, (__int128 *)&v35, 0);
+    if ( (int)v7 < 0 )
     {
-      v14 = -1073741801LL;
-      v7 = 0x80000000;
-      v9 = -1073741801;
-      v15 = 6LL;
-      goto LABEL_4;
+      v5 = 0x80000000;
+      goto LABEL_32;
     }
-    v9 = DmmBuildDynamicVideoPresentTargetChildRelations(
-           *(void **)(a1 + 3912),
-           a3[2] & 0xFFFFFF,
-           &v31,
-           Pool2,
-           (enum _CONNECTION_CHANGE_FAILURE_REASON *)&v30);
-    if ( v9 >= 0 )
-    {
-      v18 = v31;
-      while ( v18 )
-      {
-        v19 = Pool2[--v18];
-        v20 = DpiFdoGetChildDescriptor(a1, v19);
-        v22 = v20;
-        if ( v20[6] != v21 )
-        {
-          v23 = DpiPdoHandleChildConnectionChange(
-                  *(_QWORD *)(a1 + 24),
-                  *((_DWORD *)v20 + 6),
-                  *((_DWORD *)v20 + 1),
-                  0,
-                  v21,
-                  v21,
-                  v21,
-                  v21,
-                  v21,
-                  a2,
-                  (__int64)(a3 + 10));
-          v9 = v23;
-          if ( v23 < 0 )
-          {
-            v7 = 2;
-            WdLogSingleEntry1(2LL, v23);
-            goto LABEL_18;
-          }
-        }
-        v9 = DmmDestroyDynamicVideoPresentTarget(
-               *(void **)(a1 + 3912),
-               *((_DWORD *)v22 + 6),
-               (enum _CONNECTION_CHANGE_FAILURE_REASON *)&v30);
-        if ( v9 < 0 )
-          break;
-        DpiFdoRemoveChildDescriptor(a1, v22);
-      }
-    }
-    v7 = v30;
-LABEL_18:
-    ExFreePoolWithTag(Pool2, 0);
+    v30 = *(_DWORD *)(a2 + 8);
+    LOBYTE(v5) = 0;
+    LODWORD(ChildDescriptor) = *(_DWORD *)(a2 + 16);
   }
-  if ( v9 < 0 )
-    goto LABEL_32;
-  return (unsigned int)v9;
+  LODWORD(v7) = DmmCreateDynamicVideoPresentTarget(
+                  *(void **)(a1 + 3896),
+                  (unsigned int)ChildDescriptor,
+                  v30 & 0xFFFFFF,
+                  &v35,
+                  v5,
+                  (enum _CONNECTION_CHANGE_FAILURE_REASON *)&v33);
+LABEL_29:
+  v5 = v33;
+LABEL_30:
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
+LABEL_32:
+  if ( (int)v7 < 0 )
+    goto LABEL_33;
+  return (unsigned int)v7;
 }

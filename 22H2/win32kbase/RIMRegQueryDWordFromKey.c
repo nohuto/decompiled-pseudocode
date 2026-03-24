@@ -1,10 +1,11 @@
 /*
- * XREFs of RIMRegQueryDWordFromKey @ 0x1C006C9F0
+ * XREFs of RIMRegQueryDWordFromKey @ 0x1C006D19C
  * Callers:
- *     ?ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z @ 0x1C006C974 (-ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z.c)
- *     RIMRegQueryDWord @ 0x1C006DA64 (RIMRegQueryDWord.c)
+ *     RIMRegQueryDWord @ 0x1C006D048 (RIMRegQueryDWord.c)
+ *     ?ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z @ 0x1C006D120 (-ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z.c)
+ *     ?WritePTPProperty@@YAXW4PTPRegistryEntry@@PEAX1K@Z @ 0x1C00CC8D4 (-WritePTPProperty@@YAXW4PTPRegistryEntry@@PEAX1K@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RIMRegQueryDWordFromKey(HANDLE KeyHandle, const WCHAR *a2, int a3, _DWORD *a4)

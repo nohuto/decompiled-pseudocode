@@ -1,11 +1,10 @@
 /*
- * XREFs of Feature_VAIL_Vsync_Projection__private_ReportDeviceUsage @ 0x1C0026E44
+ * XREFs of Feature_VAIL_Vsync_Projection__private_ReportDeviceUsage @ 0x1C00268B0
  * Callers:
- *     _lambda_7b458e3d0f2dd7ba0be5d339fdccf20b_::operator() @ 0x1C0167720 (_lambda_7b458e3d0f2dd7ba0be5d339fdccf20b_--operator().c)
- *     _lambda_e7624565a55af25c5c5aa1d22c9a7051_::operator() @ 0x1C016798C (_lambda_e7624565a55af25c5c5aa1d22c9a7051_--operator().c)
+ *     _lambda_933b32e0a92a62a544db01ace2b25516_::operator() @ 0x1C00D7CE4 (_lambda_933b32e0a92a62a544db01ace2b25516_--operator().c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C00245B0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0024828 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0024F04 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0025174 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_VAIL_Vsync_Projection__private_ReportDeviceUsage()

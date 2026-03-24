@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReadWorkingSetConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00B74F8
+ * XREFs of ?ReadWorkingSetConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0096D48
  * Callers:
- *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00B41D8 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0093BFC (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     memset @ 0x1C001DC40 (memset.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
  */
 
 void VIDMM_GLOBAL::ReadWorkingSetConfiguration(void)
@@ -14,19 +14,19 @@ void VIDMM_GLOBAL::ReadWorkingSetConfiguration(void)
   _QWORD v2[22]; // [rsp+40h] [rbp-69h] BYREF
 
   v0 = 90;
-  dword_1C006E370 = 90;
+  dword_1C0050300 = 90;
   v1 = 65;
-  dword_1C006E374 = 65;
+  dword_1C0050304 = 65;
   memset(v2, 0, 0xA8uLL);
   v2[7] = 0LL;
   v2[2] = L"WorkingSet.DefaultMaximumPercentile";
   LODWORD(v2[1]) = 288;
   LODWORD(v2[4]) = 67108868;
-  v2[3] = &dword_1C006E370;
+  v2[3] = &dword_1C0050300;
   LODWORD(v2[6]) = 4;
   v2[5] = &v0;
   v2[9] = L"WorkingSet.DefaultMinimumPercentile";
-  v2[10] = &dword_1C006E374;
+  v2[10] = &dword_1C0050304;
   LODWORD(v2[8]) = 288;
   LODWORD(v2[11]) = 67108868;
   LODWORD(v2[13]) = 4;

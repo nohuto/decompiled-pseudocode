@@ -2,16 +2,16 @@
  * XREFs of CmpCreateKeyControlBlock @ 0x1405D5EB0
  * Callers:
  *     CmpWalkOneLevel @ 0x1405D4560 (CmpWalkOneLevel.c)
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
  *     CmpCreateRegistryRoot @ 0x1409C3FAC (CmpCreateRegistryRoot.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35C4 (CmpFindSecurityCellCacheIndexNew.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35E4 (CmpFindSecurityCellCacheIndexNew.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpDereferenceKeyControlBlockUnsafe @ 0x1405AFFE0 (CmpDereferenceKeyControlBlockUnsafe.c)
  *     CmpUpdateKeyNodeAccessBits @ 0x1405CF3BC (CmpUpdateKeyNodeAccessBits.c)
@@ -26,10 +26,10 @@
  *     CmpKeyNodeNeedsAccessBitUpdate @ 0x1405D8B0C (CmpKeyNodeNeedsAccessBitUpdate.c)
  *     CmpTryToLockKcbExclusive @ 0x1405D8B30 (CmpTryToLockKcbExclusive.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpReferenceKeyControlBlockLockNotHeld @ 0x140691C8C (CmpReferenceKeyControlBlockLockNotHeld.c)
- *     CmpFreeKeyControlBlock @ 0x140692C14 (CmpFreeKeyControlBlock.c)
- *     CmpEtwDumpKcb @ 0x1407EB9A0 (CmpEtwDumpKcb.c)
- *     CmpCreateLayerLink @ 0x1407F9C10 (CmpCreateLayerLink.c)
+ *     CmpReferenceKeyControlBlockLockNotHeld @ 0x140691C6C (CmpReferenceKeyControlBlockLockNotHeld.c)
+ *     CmpFreeKeyControlBlock @ 0x140692BF4 (CmpFreeKeyControlBlock.c)
+ *     CmpEtwDumpKcb @ 0x1407EB980 (CmpEtwDumpKcb.c)
+ *     CmpCreateLayerLink @ 0x1407F9BF0 (CmpCreateLayerLink.c)
  */
 
 __int64 __fastcall CmpCreateKeyControlBlock(

@@ -1,17 +1,18 @@
 /*
- * XREFs of ?Initialize@CDxHandleYUVBitmapRealization@@IEAAJPEAVIYUVSwapChainRealization@@@Z @ 0x1802B44E0
+ * XREFs of ?Initialize@CDxHandleYUVBitmapRealization@@IEAAJPEAVIYUVSwapChainRealization@@@Z @ 0x180266000
  * Callers:
- *     ?Create@CDxHandleYUVBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@PEAPEAVISwapChainRealization@@@Z @ 0x1802B3C3C (-Create@CDxHandleYUVBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIB.c)
- *     ?CreateSubResource@CDxHandleYUVBitmapRealization@@SAJPEAVIYUVSwapChainRealization@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@PEAPEAVISwapChainRealization@@@Z @ 0x1802B3D4C (-CreateSubResource@CDxHandleYUVBitmapRealization@@SAJPEAVIYUVSwapChainRealization@@U_LUID@@AEBUC.c)
+ *     ?Create@CDxHandleYUVBitmapRealization@@SAJU_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@PEAPEAVISwapChainRealization@@@Z @ 0x180265548 (-Create@CDxHandleYUVBitmapRealization@@SAJU_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION.c)
+ *     ?CreateSubResource@CDxHandleYUVBitmapRealization@@SAJPEAVIYUVSwapChainRealization@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@PEAPEAVISwapChainRealization@@@Z @ 0x18026564C (-CreateSubResource@CDxHandleYUVBitmapRealization@@SAJPEAVIYUVSwapChainRealization@@U_LUID@@AEBUC.c)
  * Callees:
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180034B30 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18003D734 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ??$_Emplace_reallocate@AEBQEAVIDeviceResourceNotify@@@?$vector@PEAVIDeviceResourceNotify@@V?$allocator@PEAVIDeviceResourceNotify@@@std@@@std@@QEAAPEAPEAVIDeviceResourceNotify@@QEAPEAV2@AEBQEAV2@@Z @ 0x1800B9B84 (--$_Emplace_reallocate@AEBQEAVIDeviceResourceNotify@@@-$vector@PEAVIDeviceResourceNotify@@V-$all.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetAdapterLuid@CDxHandleYUVBitmapRealization@@UEBA?AU_LUID@@XZ @ 0x180135BFA (-GetAdapterLuid@CDxHandleYUVBitmapRealization@@UEBA-AU_LUID@@XZ.c)
- *     ?reset@?$com_ptr_t@VCD3DVidMemOnlyTexture@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1801BD62C (-reset@-$com_ptr_t@VCD3DVidMemOnlyTexture@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?EnsureTexture@CDxHandleYUVBitmapRealization@@IEAAJXZ @ 0x1802B3EA4 (-EnsureTexture@CDxHandleYUVBitmapRealization@@IEAAJXZ.c)
- *     ?Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z @ 0x1802BFCEC (-Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z.c)
+ *     ??$_Emplace_reallocate@PEBUShaderLinkingBody@@@?$vector@PEBUShaderLinkingBody@@V?$allocator@PEBUShaderLinkingBody@@@std@@@std@@QEAAPEAPEBUShaderLinkingBody@@QEAPEBU2@$$QEAPEBU2@@Z @ 0x180045444 (--$_Emplace_reallocate@PEBUShaderLinkingBody@@@-$vector@PEBUShaderLinkingBody@@V-$allocator@PEBU.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18005F710 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FFF0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180060020 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ?reset@?$com_ptr_t@VCD3DVidMemOnlyTexture@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1801689A0 (-reset@-$com_ptr_t@VCD3DVidMemOnlyTexture@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?EnsureTexture@CDxHandleYUVBitmapRealization@@IEAAJXZ @ 0x1802657AC (-EnsureTexture@CDxHandleYUVBitmapRealization@@IEAAJXZ.c)
+ *     ?GetAdapterLuid@CDxHandleYUVBitmapRealization@@UEBA?AU_LUID@@XZ @ 0x180265934 (-GetAdapterLuid@CDxHandleYUVBitmapRealization@@UEBA-AU_LUID@@XZ.c)
+ *     ?Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z @ 0x18026D038 (-Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall CDxHandleYUVBitmapRealization::Initialize(
@@ -22,81 +23,82 @@ __int64 __fastcall CDxHandleYUVBitmapRealization::Initialize(
   __int64 v5; // rcx
   unsigned int v6; // edi
   struct _LUID *AdapterLuid; // rax
+  CDeviceManager *v8; // rcx
   int Device; // eax
-  __int64 v9; // rcx
-  char *v10; // r14
+  __int64 v10; // rcx
   __int64 v11; // rax
   CD3DDevice *v12; // rbx
   bool v13; // r8
   int v14; // eax
   __int64 v15; // rcx
-  __int64 v16; // rdx
-  _BYTE *v17; // rax
-  CD3DDevice *v18; // r8
-  const void **v19; // rcx
-  CD3DDevice *v20; // rcx
-  CD3DDevice *v22; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v23; // [rsp+60h] [rbp+18h] BYREF
+  CD3DDevice *v16; // rax
+  __int64 v17; // rcx
+  _BYTE *v18; // rdx
+  CD3DDevice *v19; // rcx
+  CD3DDevice *v21; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v22; // [rsp+60h] [rbp+18h] BYREF
 
   if ( !a2 )
   {
     v4 = CDxHandleYUVBitmapRealization::EnsureTexture(this);
     v6 = v4;
     if ( v4 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x9Bu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x95u, 0LL);
     return v6;
   }
-  v22 = 0LL;
+  v21 = 0LL;
+  wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(&v21);
   AdapterLuid = (struct _LUID *)CDxHandleYUVBitmapRealization::GetAdapterLuid(
-                                  (CDxHandleYUVBitmapRealization *)((char *)this + 480),
-                                  &v23);
-  Device = CDeviceManager::GetDevice((CDeviceManager *)&g_DeviceManager, *AdapterLuid, &v22);
+                                  (CDxHandleYUVBitmapRealization *)((char *)this + 456),
+                                  &v22);
+  Device = CDeviceManager::GetDevice(v8, *AdapterLuid, &v21);
   v6 = Device;
   if ( Device < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, Device, 0xA6u, 0LL);
-    v20 = v22;
-    if ( !v22 )
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, Device, 0xA0u, 0LL);
+    v19 = v21;
+    if ( !v21 )
       return v6;
 LABEL_13:
-    CD3DDevice::Release(v20);
+    CD3DDevice::Release(v19);
     return v6;
   }
-  v10 = (char *)this + 376;
-  wil::com_ptr_t<CD3DVidMemOnlyTexture,wil::err_returncode_policy>::reset((volatile signed __int32 **)this + 47);
+  wil::com_ptr_t<CD3DVidMemOnlyTexture,wil::err_returncode_policy>::reset((CMILPoolResource **)this + 43);
   v11 = *((_QWORD *)a2 + 2);
-  v12 = v22;
+  v12 = v21;
   v14 = CD3DVidMemOnlyTexture::Create(
-          *(struct ID3D11Texture2D **)(v11 + 96),
-          *((_DWORD *)this + 68),
+          *(struct ID3D11Texture2D **)(v11 + 112),
+          *((_DWORD *)this + 60),
           v13,
-          v22,
-          (struct CD3DVidMemOnlyTexture **)this + 47);
+          v21,
+          (struct CD3DVidMemOnlyTexture **)this + 43);
   v6 = v14;
   if ( v14 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0xACu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0xA6u, 0LL);
   }
   else
   {
-    v16 = *(_QWORD *)v10;
-    v17 = *(_BYTE **)(*(_QWORD *)v10 + 80LL);
-    v18 = (CDxHandleYUVBitmapRealization *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16);
-    v19 = (const void **)(*(_QWORD *)v10 + 72LL);
-    v22 = v18;
-    if ( v17 == *(_BYTE **)(v16 + 88) )
+    v16 = (CDxHandleYUVBitmapRealization *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16);
+    v17 = *((_QWORD *)this + 43) + 88LL;
+    v21 = v16;
+    v18 = *(_BYTE **)(v17 + 8);
+    if ( *(_BYTE **)(v17 + 16) == v18 )
     {
-      std::vector<IDeviceResourceNotify *>::_Emplace_reallocate<IDeviceResourceNotify * const &>(v19, v17, &v22);
+      std::vector<ShaderLinkingBody const *>::_Emplace_reallocate<ShaderLinkingBody const *>(
+        (const void **)v17,
+        v18,
+        &v21);
     }
     else
     {
-      *(_QWORD *)v17 = v18;
-      *(_QWORD *)(v16 + 80) += 8LL;
+      *(_QWORD *)v18 = v16;
+      *(_QWORD *)(v17 + 8) += 8LL;
     }
   }
   if ( v12 )
   {
-    v20 = v12;
+    v19 = v12;
     goto LABEL_13;
   }
   return v6;

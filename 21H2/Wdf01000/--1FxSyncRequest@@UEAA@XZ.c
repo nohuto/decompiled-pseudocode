@@ -1,29 +1,29 @@
 /*
- * XREFs of ??1FxSyncRequest@@UEAA@XZ @ 0x1C001A228
+ * XREFs of ??1FxSyncRequest@@UEAA@XZ @ 0x1C0017C64
  * Callers:
- *     FxIoTargetSendIoctl @ 0x1C0019E84 (FxIoTargetSendIoctl.c)
- *     FxIoTargetSendIo @ 0x1C00726D4 (FxIoTargetSendIo.c)
- *     imp_WdfIoTargetSendInternalIoctlOthersSynchronously @ 0x1C0073280 (imp_WdfIoTargetSendInternalIoctlOthersSynchronously.c)
- *     imp_WdfUsbTargetPipeAbortSynchronously @ 0x1C0075D60 (imp_WdfUsbTargetPipeAbortSynchronously.c)
- *     imp_WdfUsbTargetPipeResetSynchronously @ 0x1C00768B0 (imp_WdfUsbTargetPipeResetSynchronously.c)
- *     imp_WdfUsbTargetPipeSendUrbSynchronously @ 0x1C0076A80 (imp_WdfUsbTargetPipeSendUrbSynchronously.c)
- *     imp_WdfUsbTargetDeviceSendUrbSynchronously @ 0x1C0077230 (imp_WdfUsbTargetDeviceSendUrbSynchronously.c)
- *     imp_WdfUsbTargetDeviceSendControlTransferSynchronously @ 0x1C0078E40 (imp_WdfUsbTargetDeviceSendControlTransferSynchronously.c)
- *     ?Reset@FxUsbPipe@@QEAAJXZ @ 0x1C007A6DC (-Reset@FxUsbPipe@@QEAAJXZ.c)
- *     ?_SendTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAU_WDF_MEMORY_DESCRIPTOR@@PEAKK@Z @ 0x1C007AF70 (-_SendTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAU_WD.c)
- *     ?CyclePort@FxUsbDevice@@QEAAJXZ @ 0x1C007CBB8 (-CyclePort@FxUsbDevice@@QEAAJXZ.c)
- *     ?Deconfig@FxUsbDevice@@QEAAJXZ @ 0x1C007CC50 (-Deconfig@FxUsbDevice@@QEAAJXZ.c)
- *     ?GetPortStatus@FxUsbDevice@@IEAAJPEAK@Z @ 0x1C007CF98 (-GetPortStatus@FxUsbDevice@@IEAAJPEAK@Z.c)
- *     ?SelectConfig@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@W4_FX_URB_TYPE@@PEAE@Z @ 0x1C007D5CC (-SelectConfig@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@W4_FX_URB_TYPE@@PEAE@Z.c)
- *     ?SelectSetting@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@@Z @ 0x1C007EA1C (-SelectSetting@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@@Z.c)
- *     ?GetString@FxUsbDevice@@QEAAJPEAG0EGPEAUWDFREQUEST__@@PEAU_WDF_REQUEST_SEND_OPTIONS@@@Z @ 0x1C007F720 (-GetString@FxUsbDevice@@QEAAJPEAG0EGPEAUWDFREQUEST__@@PEAU_WDF_REQUEST_SEND_OPTIONS@@@Z.c)
- *     ?InitDevice@FxUsbDevice@@QEAAJK@Z @ 0x1C007F964 (-InitDevice@FxUsbDevice@@QEAAJK@Z.c)
- *     ?Reset@FxUsbDevice@@QEAAJXZ @ 0x1C0080068 (-Reset@FxUsbDevice@@QEAAJXZ.c)
- *     ??_GFxSyncRequest@@UEAAPEAXI@Z @ 0x1C00917E0 (--_GFxSyncRequest@@UEAAPEAXI@Z.c)
+ *     FxIoTargetSendIoctl @ 0x1C0017974 (FxIoTargetSendIoctl.c)
+ *     FxIoTargetSendIo @ 0x1C0062804 (FxIoTargetSendIo.c)
+ *     imp_WdfIoTargetSendInternalIoctlOthersSynchronously @ 0x1C0063A60 (imp_WdfIoTargetSendInternalIoctlOthersSynchronously.c)
+ *     imp_WdfUsbTargetPipeAbortSynchronously @ 0x1C0068680 (imp_WdfUsbTargetPipeAbortSynchronously.c)
+ *     imp_WdfUsbTargetPipeResetSynchronously @ 0x1C0069230 (imp_WdfUsbTargetPipeResetSynchronously.c)
+ *     imp_WdfUsbTargetPipeSendUrbSynchronously @ 0x1C00694A0 (imp_WdfUsbTargetPipeSendUrbSynchronously.c)
+ *     imp_WdfUsbTargetDeviceSendUrbSynchronously @ 0x1C0069D40 (imp_WdfUsbTargetDeviceSendUrbSynchronously.c)
+ *     imp_WdfUsbTargetDeviceSendControlTransferSynchronously @ 0x1C006BA90 (imp_WdfUsbTargetDeviceSendControlTransferSynchronously.c)
+ *     ?Reset@FxUsbPipe@@QEAAJXZ @ 0x1C006DBE0 (-Reset@FxUsbPipe@@QEAAJXZ.c)
+ *     ?_SendTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAU_WDF_MEMORY_DESCRIPTOR@@PEAKK@Z @ 0x1C006E4F0 (-_SendTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAU_WD.c)
+ *     ?CyclePort@FxUsbDevice@@QEAAJXZ @ 0x1C00703E4 (-CyclePort@FxUsbDevice@@QEAAJXZ.c)
+ *     ?Deconfig@FxUsbDevice@@QEAAJXZ @ 0x1C007047C (-Deconfig@FxUsbDevice@@QEAAJXZ.c)
+ *     ?GetPortStatus@FxUsbDevice@@IEAAJPEAK@Z @ 0x1C00707FC (-GetPortStatus@FxUsbDevice@@IEAAJPEAK@Z.c)
+ *     ?SelectConfig@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@W4_FX_URB_TYPE@@PEAE@Z @ 0x1C0070ECC (-SelectConfig@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@W4_FX_URB_TYPE@@PEAE@Z.c)
+ *     ?SelectSetting@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@@Z @ 0x1C00722B4 (-SelectSetting@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@@Z.c)
+ *     ?GetString@FxUsbDevice@@QEAAJPEAG0EGPEAUWDFREQUEST__@@PEAU_WDF_REQUEST_SEND_OPTIONS@@@Z @ 0x1C0072F00 (-GetString@FxUsbDevice@@QEAAJPEAG0EGPEAUWDFREQUEST__@@PEAU_WDF_REQUEST_SEND_OPTIONS@@@Z.c)
+ *     ?InitDevice@FxUsbDevice@@QEAAJK@Z @ 0x1C0073130 (-InitDevice@FxUsbDevice@@QEAAJK@Z.c)
+ *     ?Reset@FxUsbDevice@@QEAAJXZ @ 0x1C00737FC (-Reset@FxUsbDevice@@QEAAJXZ.c)
+ *     ??_GFxSyncRequest@@UEAAPEAXI@Z @ 0x1C0091610 (--_GFxSyncRequest@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1FxRequestBase@@MEAA@XZ @ 0x1C00070E0 (--1FxRequestBase@@MEAA@XZ.c)
- *     ?Release@FxObject@@UEAAKPEAXJPEBD@Z @ 0x1C000AC50 (-Release@FxObject@@UEAAKPEAXJPEBD@Z.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
+ *     ?Release@FxObject@@UEAAKPEAXJPEBD@Z @ 0x1C0002940 (-Release@FxObject@@UEAAKPEAXJPEBD@Z.c)
+ *     ??1FxRequestBase@@MEAA@XZ @ 0x1C00058E4 (--1FxRequestBase@@MEAA@XZ.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
  */
 
 void __fastcall FxSyncRequest::~FxSyncRequest(FxSyncRequest *this)
@@ -35,7 +35,7 @@ void __fastcall FxSyncRequest::~FxSyncRequest(FxSyncRequest *this)
   _FX_DRIVER_GLOBALS *v6; // rcx
 
   this->__vftable = (FxSyncRequest_vtbl *)FxSyncRequest::`vftable';
-  v2 = FxObject::Release(this, 0LL, 129, "minkernel\\wdf\\framework\\shared\\core\\fxsyncrequest.cpp");
+  v2 = FxObject::Release(this, 0LL, 129LL, "minkernel\\wdf\\framework\\shared\\core\\fxsyncrequest.cpp");
   m_TrueRequest = (FxSyncRequest *)this->m_TrueRequest;
   if ( m_TrueRequest != this )
   {

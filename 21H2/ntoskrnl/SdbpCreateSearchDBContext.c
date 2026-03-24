@@ -1,17 +1,18 @@
 /*
- * XREFs of SdbpCreateSearchDBContext @ 0x14075B270
+ * XREFs of SdbpCreateSearchDBContext @ 0x14075AE40
  * Callers:
- *     SdbGetDatabaseMatch @ 0x14075E2D8 (SdbGetDatabaseMatch.c)
- *     SdbpCheckKObject @ 0x140843160 (SdbpCheckKObject.c)
+ *     SdbpCheckKObject @ 0x140754D5C (SdbpCheckKObject.c)
+ *     SdbGetDatabaseMatch @ 0x14077E648 (SdbGetDatabaseMatch.c)
  * Callees:
- *     RtlStringCchCatW @ 0x1402D87F0 (RtlStringCchCatW.c)
- *     RtlStringCchCopyW @ 0x1402E0200 (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B444 (AslAlloc.c)
- *     AslPathSplit @ 0x14075CF70 (AslPathSplit.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyW @ 0x1403716A0 (RtlStringCchCopyW.c)
+ *     RtlStringCchCatW @ 0x140371960 (RtlStringCchCatW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F96BC (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075B098 (AslAlloc.c)
+ *     AslPathSplit @ 0x14077F6C8 (AslPathSplit.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SdbpCreateSearchDBContext(_QWORD *a1, const wchar_t **a2)
@@ -25,88 +26,88 @@ __int64 __fastcall SdbpCreateSearchDBContext(_QWORD *a1, const wchar_t **a2)
   wchar_t *v10; // rbp
   __int64 v11; // rcx
   wchar_t *v12; // rax
-  unsigned int v13; // r11d
-  __int64 v15; // rax
-  char *v16; // rdx
-  __int64 v17; // r8
-  _WORD *v18; // rcx
-  __int16 v19; // ax
+  __int64 v13; // rax
+  char *v14; // rdx
+  __int64 v15; // r8
+  _WORD *v16; // rcx
+  __int16 v17; // ax
+  _WORD *v18; // rax
+  __int64 v19; // rcx
   _WORD *v20; // rax
-  __int64 v21; // rcx
-  _WORD *v22; // rax
-  int v23; // [rsp+20h] [rbp-488h]
+  int v22; // [rsp+20h] [rbp-488h]
   wchar_t pszSrc[264]; // [rsp+40h] [rbp-468h] BYREF
-  wchar_t v25[264]; // [rsp+250h] [rbp-258h] BYREF
+  wchar_t v24[264]; // [rsp+250h] [rbp-258h] BYREF
 
   v4 = 0;
-  memset(v25, 0, 0x208uLL);
+  memset(v24, 0, 0x208uLL);
   v5 = 0LL;
   memset(pszSrc, 0, 0x208uLL);
-  if ( !a2 )
+  if ( a2 )
   {
-    v15 = AslAlloc(v6, 4LL);
-    v16 = (char *)L"." - v15;
-    v10 = (wchar_t *)v15;
-    v17 = 2LL;
-    v18 = (_WORD *)v15;
+    v7 = *a2;
+    v8 = -1LL;
     do
+      ++v8;
+    while ( v7[v8] );
+    v9 = v8 + 1;
+    v10 = (wchar_t *)AslAlloc(v6, 2LL * (unsigned int)(v8 + 1));
+    if ( !v10 )
     {
-      if ( v17 == -2147483644 )
-        break;
-      v19 = *(_WORD *)((char *)v18 + (_QWORD)v16);
-      if ( !v19 )
-        break;
-      *v18++ = v19;
-      --v17;
+      AslLogCallPrintf(1LL);
+      return v4;
     }
-    while ( v17 );
-    v20 = v18 - 1;
-    if ( v17 )
-      v20 = v18;
-    *v20 = 0;
-    v5 = (wchar_t *)AslAlloc(v18, 2LL);
-    *v5 = 0;
-    v22 = (_WORD *)AslAlloc(v21, 2LL);
-    *v22 = 0;
-    a1[3] = v22;
-    goto LABEL_9;
-  }
-  v7 = *a2;
-  v8 = -1LL;
-  do
-    ++v8;
-  while ( v7[v8] );
-  v9 = v8 + 1;
-  v10 = (wchar_t *)AslAlloc(v6, 2LL * (unsigned int)(v8 + 1));
-  if ( !v10 )
-  {
-    AslLogCallPrintf(1LL);
-    return v4;
-  }
-  if ( (int)AslPathSplit(v7, v10, v9, pszSrc, v23, v25) >= 0
-    && (v12 = (wchar_t *)AslAlloc(v11, 520LL), (v5 = v12) != 0LL) )
-  {
-    if ( RtlStringCchCopyW(v12, 0x104uLL, pszSrc) >= 0 && RtlStringCchCatW(v5, v13, v25) >= 0 )
+    if ( (int)AslPathSplit(v7, v10, v9, pszSrc, v22, v24) < 0
+      || (v12 = (wchar_t *)AslAlloc(v11, 520LL), (v5 = v12) == 0LL) )
     {
-LABEL_9:
-      a1[7] = 0LL;
-      a1[6] = 0LL;
-      a1[9] = 0LL;
-      a1[8] = 0LL;
-      a1[11] = 0LL;
-      v4 = 1;
-      a1[1] = a2;
-      a1[4] = v10;
-      a1[5] = v5;
+      AslLogCallPrintf(1LL);
+      goto LABEL_11;
+    }
+    if ( RtlStringCchCopyW(v12, 0x104uLL, pszSrc) < 0 || RtlStringCchCatW(v5, 0x104uLL, v24) < 0 )
+    {
+LABEL_11:
+      ExFreePoolWithTag(v10, 0x74705041u);
+      if ( v5 )
+        ExFreePoolWithTag(v5, 0x74705041u);
       return v4;
     }
   }
   else
   {
-    AslLogCallPrintf(1LL);
+    v13 = AslAlloc(v6, 4LL);
+    v14 = (char *)L"." - v13;
+    v10 = (wchar_t *)v13;
+    v15 = 2LL;
+    v16 = (_WORD *)v13;
+    do
+    {
+      if ( v15 == -2147483644 )
+        break;
+      v17 = *(_WORD *)((char *)v16 + (_QWORD)v14);
+      if ( !v17 )
+        break;
+      *v16++ = v17;
+      --v15;
+    }
+    while ( v15 );
+    v18 = v16 - 1;
+    if ( v15 )
+      v18 = v16;
+    *v18 = 0;
+    v5 = (wchar_t *)AslAlloc(v16, 2LL);
+    *v5 = 0;
+    v20 = (_WORD *)AslAlloc(v19, 2LL);
+    *v20 = 0;
+    a1[3] = v20;
   }
-  ExFreePoolWithTag(v10, 0x74705041u);
-  if ( v5 )
-    ExFreePoolWithTag(v5, 0x74705041u);
-  return v4;
+  a1[1] = a2;
+  a1[7] = 0LL;
+  a1[4] = v10;
+  a1[5] = v5;
+  a1[6] = 0LL;
+  a1[9] = 0LL;
+  a1[8] = 0LL;
+  a1[11] = 0LL;
+  if ( (unsigned int)Feature_CompatBuildInVb__private_IsEnabledDeviceUsage() )
+    a1[12] = 0LL;
+  return 1;
 }

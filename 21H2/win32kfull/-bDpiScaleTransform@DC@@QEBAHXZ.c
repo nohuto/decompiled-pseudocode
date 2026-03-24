@@ -1,11 +1,9 @@
 /*
- * XREFs of ?bDpiScaleTransform@DC@@QEBAHXZ @ 0x1C011A1AC
+ * XREFs of ?bDpiScaleTransform@DC@@QEBAHXZ @ 0x1C0147FA0
  * Callers:
- *     GreSetDIBitsToDeviceInternal @ 0x1C002E3F0 (GreSetDIBitsToDeviceInternal.c)
- *     ?bClipSrcDstRectsAndValidate@@YA_NPEAU_SURFOBJ@@0PEAVDCOBJ@@1PEAU_CLIPOBJ@@PEAU_RECTL@@3@Z @ 0x1C0030EE4 (-bClipSrcDstRectsAndValidate@@YA_NPEAU_SURFOBJ@@0PEAVDCOBJ@@1PEAU_CLIPOBJ@@PEAU_RECTL@@3@Z.c)
- *     ?GreScaleValuesInternal@@YAHAEAVXDCOBJ@@PEAJI@Z @ 0x1C0139224 (-GreScaleValuesInternal@@YAHAEAVXDCOBJ@@PEAJI@Z.c)
- *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C016EAE6 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
- *     GreScaleRgn @ 0x1C029D89C (GreScaleRgn.c)
+ *     ?GreScaleValuesInternal@@YAHAEAVXDCOBJ@@PEAJI@Z @ 0x1C0147F44 (-GreScaleValuesInternal@@YAHAEAVXDCOBJ@@PEAJI@Z.c)
+ *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C02737AC (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
+ *     GreScaleRgn @ 0x1C029EF98 (GreScaleRgn.c)
  * Callees:
  *     <none>
  */

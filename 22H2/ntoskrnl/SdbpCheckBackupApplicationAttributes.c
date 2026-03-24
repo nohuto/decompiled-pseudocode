@@ -1,10 +1,9 @@
 /*
- * XREFs of SdbpCheckBackupApplicationAttributes @ 0x140A4F580
+ * XREFs of SdbpCheckBackupApplicationAttributes @ 0x1405D1D80
  * Callers:
  *     <none>
  * Callees:
- *     Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage @ 0x140419BFC (Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage.c)
- *     SdbpCheckApplicationTypeAttributes @ 0x14066DE54 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbpCheckApplicationTypeAttributes @ 0x1403F8D90 (SdbpCheckApplicationTypeAttributes.c)
  */
 
 __int64 __fastcall SdbpCheckBackupApplicationAttributes(
@@ -17,8 +16,6 @@ __int64 __fastcall SdbpCheckBackupApplicationAttributes(
 {
   __int64 result; // rax
 
-  if ( !(unsigned int)Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage() )
-    return 1LL;
   result = SdbpCheckApplicationTypeAttributes(a1, a3, a5, *(unsigned __int64 **)(a6 + 96));
   if ( (_DWORD)result )
     return 1LL;

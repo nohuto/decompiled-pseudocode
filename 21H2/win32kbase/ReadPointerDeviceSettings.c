@@ -1,11 +1,11 @@
 /*
- * XREFs of ReadPointerDeviceSettings @ 0x1C0082DA0
+ * XREFs of ReadPointerDeviceSettings @ 0x1C000BF10
  * Callers:
- *     xxxSystemParametersInfo @ 0x1C0165BD0 (xxxSystemParametersInfo.c)
+ *     xxxSystemParametersInfo @ 0x1C000BBC0 (xxxSystemParametersInfo.c)
  * Callees:
- *     ApiSetEditionOverrideUserTouchGestureSettings @ 0x1C0082F14 (ApiSetEditionOverrideUserTouchGestureSettings.c)
- *     ?LoadPointerDeviceTouchSettings@@YAHXZ @ 0x1C008338C (-LoadPointerDeviceTouchSettings@@YAHXZ.c)
- *     GetDWORDSettingValuesEx @ 0x1C0083920 (GetDWORDSettingValuesEx.c)
+ *     ?LoadPointerDeviceTouchSettings@@YAHXZ @ 0x1C000AF7C (-LoadPointerDeviceTouchSettings@@YAHXZ.c)
+ *     GetDWORDSettingValuesEx @ 0x1C000B020 (GetDWORDSettingValuesEx.c)
+ *     ApiSetEditionOverrideUserTouchGestureSettings @ 0x1C000C084 (ApiSetEditionOverrideUserTouchGestureSettings.c)
  */
 
 __int64 __fastcall ReadPointerDeviceSettings(int a1, _DWORD *a2)
@@ -33,9 +33,9 @@ __int64 __fastcall ReadPointerDeviceSettings(int a1, _DWORD *a2)
   {
     if ( !gTouchMonitor || !gMultiTouchMonitor )
       LoadPointerDeviceTouchSettings();
-    ApiSetEditionOverrideUserTouchGestureSettings(off_1C02880F8, off_1C02880E8);
-    v4 = off_1C02880F8;
-    *a2 = (unsigned int)(*((_DWORD *)off_1C02880F8 + 3) - 1) > 0xFFFFFFFD;
+    ApiSetEditionOverrideUserTouchGestureSettings(off_1C02460F8, off_1C02460E8);
+    v4 = off_1C02460F8;
+    *a2 = (unsigned int)(*((_DWORD *)off_1C02460F8 + 3) - 1) > 0xFFFFFFFD;
     v5 = *((_DWORD *)v4 + 7);
     if ( v5 == -1 )
       v5 = *((_DWORD *)v4 + 6);
@@ -84,10 +84,10 @@ __int64 __fastcall ReadPointerDeviceSettings(int a1, _DWORD *a2)
     if ( v16 == -1 )
       v16 = *((_DWORD *)v4 + 50);
     v17 = gMultiTouchMonitor == 0;
-    v18 = off_1C02880E8;
+    v18 = off_1C02460E8;
     a2[13] = v16;
     if ( v17 )
-      GetDWORDSettingValuesEx(3LL, v18, 1LL);
+      GetDWORDSettingValuesEx(3LL, (__int64)v18, 1u, 0);
     v19 = *((_DWORD *)v18 + 3);
     if ( v19 == -1 )
       v19 = *((_DWORD *)v18 + 2);

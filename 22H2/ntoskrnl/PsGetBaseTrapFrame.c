@@ -1,10 +1,10 @@
 /*
- * XREFs of PsGetBaseTrapFrame @ 0x140463240
+ * XREFs of PsGetBaseTrapFrame @ 0x140581260
  * Callers:
- *     PsPicoWalkUserStack @ 0x1409B525C (PsPicoWalkUserStack.c)
- *     PsCallEnclave @ 0x1409B68B0 (PsCallEnclave.c)
+ *     PsPicoWalkUserStack @ 0x14090BA3C (PsPicoWalkUserStack.c)
+ *     PsCallEnclave @ 0x14090D220 (PsCallEnclave.c)
  * Callees:
- *     PspGetBaseTrapFrame @ 0x1402A6500 (PspGetBaseTrapFrame.c)
+ *     PspGetBaseTrapFrame @ 0x140340930 (PspGetBaseTrapFrame.c)
  */
 
 __int64 __fastcall PsGetBaseTrapFrame(__int64 a1, _DWORD *a2)

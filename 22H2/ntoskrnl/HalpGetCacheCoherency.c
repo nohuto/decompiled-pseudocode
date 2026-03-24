@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpGetCacheCoherency @ 0x140829AF4
+ * XREFs of HalpGetCacheCoherency @ 0x14076431C
  * Callers:
- *     HalGetAdapterV3 @ 0x140829080 (HalGetAdapterV3.c)
- *     HalGetAdapterV2 @ 0x140829610 (HalGetAdapterV2.c)
+ *     HalGetAdapterV2 @ 0x140763E30 (HalGetAdapterV2.c)
+ *     HalGetAdapterV3 @ 0x1407C3B70 (HalGetAdapterV3.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KeSystemFullyCacheCoherent @ 0x140572250 (KeSystemFullyCacheCoherent.c)
- *     IoQueryInterface @ 0x14082A2D0 (IoQueryInterface.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KeSystemFullyCacheCoherent @ 0x140519AA0 (KeSystemFullyCacheCoherent.c)
+ *     IoQueryInterface @ 0x140764BB0 (IoQueryInterface.c)
  */
 
 char __fastcall HalpGetCacheCoherency(__int64 a1, __int64 a2, _BYTE *a3)
@@ -26,7 +26,7 @@ char __fastcall HalpGetCacheCoherency(__int64 a1, __int64 a2, _BYTE *a3)
     result = *(_BYTE *)(a1 + 72);
     *a3 = result;
   }
-  else if ( a2 && (int)IoQueryInterface(a2, 1, (int)&GUID_DMA_CACHE_COHERENCY_INTERFACE, 40, 1, 0LL, &v6) >= 0 )
+  else if ( a2 && (int)IoQueryInterface(a2, 1, (unsigned int)&GUID_DMA_CACHE_COHERENCY_INTERFACE, 40, 1, 0LL, &v6) >= 0 )
   {
     v4 = *((_QWORD *)&v6 + 1);
     *a3 = v8;

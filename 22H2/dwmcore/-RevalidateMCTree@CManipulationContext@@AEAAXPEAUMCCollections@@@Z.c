@@ -1,424 +1,376 @@
 /*
- * XREFs of ?RevalidateMCTree@CManipulationContext@@AEAAXPEAUMCCollections@@@Z @ 0x1801A6038
+ * XREFs of ?RevalidateMCTree@CManipulationContext@@AEAAXPEAUMCCollections@@@Z @ 0x180235A80
  * Callers:
- *     ?Revalidate@CManipulationContext@@SAXPEAUMCCollections@@PEAV?$CQueue@PEAVCResource@@@@@Z @ 0x1801A5954 (-Revalidate@CManipulationContext@@SAXPEAUMCCollections@@PEAV-$CQueue@PEAVCResource@@@@@Z.c)
+ *     ?Revalidate@CManipulationContext@@SAXPEAUMCCollections@@PEAV?$CQueue@PEAVCResource@@@@@Z @ 0x180235420 (-Revalidate@CManipulationContext@@SAXPEAUMCCollections@@PEAV-$CQueue@PEAVCResource@@@@@Z.c)
  * Callees:
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800BB2A0 (_tlgWriteTransfer_EventWriteTransfer.c)
- *     ?GetTotalNumContacts@CInteraction@@AEBAIXZ @ 0x1800E8C9C (-GetTotalNumContacts@CInteraction@@AEBAIXZ.c)
- *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800F2C10 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?FindKey@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBAHAEBI@Z @ 0x18012D2B0 (-FindKey@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3@Z @ 0x1801A3428 (--$Write@U-$_tlgWrapperByVal@$07@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUI.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U1@U1@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@333AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1801A34A8 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U1@U1@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJP.c)
- *     ?CleanStaleFork@CManipulationContext@@AEAAXW4InputType@@PEAVCInteraction@@@Z @ 0x1801A40B8 (-CleanStaleFork@CManipulationContext@@AEAAXW4InputType@@PEAVCInteraction@@@Z.c)
- *     ?FindWorkspace@CManipulationContext@@SAXPEAUMCCollections@@PEAVCInteraction@@PEAK@Z @ 0x1801A44A8 (-FindWorkspace@CManipulationContext@@SAXPEAUMCCollections@@PEAVCInteraction@@PEAK@Z.c)
- *     ?GetClosestInteractionAncestor@CManipulationContext@@SAPEAVCInteraction@@PEBVCVisual@@PEA_N@Z @ 0x1801A44F0 (-GetClosestInteractionAncestor@CManipulationContext@@SAPEAVCInteraction@@PEBVCVisual@@PEA_N@Z.c)
- *     ?OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z @ 0x1801A52DC (-OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z.c)
- *     ?SetAtIndex@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAHHAEBIAEBV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@Z @ 0x1801A6968 (-SetAtIndex@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@VCInt.c)
- *     ?UpdateDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z @ 0x18020CE90 (-UpdateDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3444 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180152990 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3@Z @ 0x18015B95C (--$Write@U-$_tlgWrapperByVal@$07@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUI.c)
+ *     ?UpdateDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z @ 0x1801C6F90 (-UpdateDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z.c)
+ *     ?FindKey@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBAHAEBI@Z @ 0x1802249F8 (-FindKey@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@.c)
+ *     ?GetTotalNumContacts@CInteraction@@AEBAIXZ @ 0x180224A2C (-GetTotalNumContacts@CInteraction@@AEBAIXZ.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U1@U1@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@333AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1802333E0 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U1@U1@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJP.c)
+ *     ?CleanStaleFork@CManipulationContext@@AEAAXW4InputType@@PEAVCInteraction@@@Z @ 0x180233D18 (-CleanStaleFork@CManipulationContext@@AEAAXW4InputType@@PEAVCInteraction@@@Z.c)
+ *     ?FindWorkspace@CManipulationContext@@SAXPEAUMCCollections@@PEAVCInteraction@@PEAK@Z @ 0x1802340C4 (-FindWorkspace@CManipulationContext@@SAXPEAUMCCollections@@PEAVCInteraction@@PEAK@Z.c)
+ *     ?GetClosestInteractionAncestor@CManipulationContext@@SAPEAVCInteraction@@PEBVCVisual@@PEA_N@Z @ 0x180234104 (-GetClosestInteractionAncestor@CManipulationContext@@SAPEAVCInteraction@@PEBVCVisual@@PEA_N@Z.c)
+ *     ?OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z @ 0x180234E80 (-OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z.c)
+ *     ?SetAtIndex@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAHHAEBIAEBV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@Z @ 0x180236314 (-SetAtIndex@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@VCInt.c)
  */
 
 void __fastcall CManipulationContext::RevalidateMCTree(CManipulationContext *this, struct MCCollections *a2)
 {
-  int v2; // r8d
-  struct CInteraction *v5; // r12
+  int v2; // eax
+  int v5; // r8d
   __int64 v6; // rdx
   __int64 v7; // rcx
   __int64 v8; // rax
-  int v9; // eax
-  unsigned int v10; // r13d
-  _QWORD *v11; // rdi
-  __int64 v12; // rcx
-  char *v13; // r8
+  unsigned int v9; // esi
+  __int64 v10; // rcx
+  _QWORD *v11; // r12
+  char *v12; // r8
   int Key; // eax
-  __int64 v15; // r10
-  __int64 v16; // r11
-  int v17; // r15d
-  __int64 v18; // rbx
-  struct CInteraction *v19; // rbx
-  bool *v20; // rdx
-  struct CInteraction *v21; // rax
-  struct CInteraction *ClosestInteractionAncestor; // rsi
-  __int64 v23; // rax
-  struct CInteraction *i; // rdi
-  __int64 v25; // r8
-  __int64 v26; // r9
-  const struct CVisual *v27; // rcx
-  __int64 v28; // rax
-  __int64 v29; // rsi
-  __int64 v30; // r8
-  __int64 v31; // r9
-  unsigned __int8 v32; // r15
-  char v33; // r13
-  unsigned int v34; // esi
-  struct CInteraction *v35; // rbx
-  __int64 *v36; // rcx
-  __int64 v37; // rax
-  __int64 v38; // rax
-  struct CVisual *v39; // rcx
-  bool v40; // dl
-  bool *v41; // rdx
-  __int64 v42; // rax
-  const struct CVisual *v43; // rcx
-  __int64 v44; // r12
-  struct CInteraction *v45; // rsi
-  __int64 v46; // r8
-  __int64 v47; // r9
-  __int64 v48; // rcx
-  __int64 v49; // rcx
-  __int64 v50; // rcx
-  __int64 v51; // r8
-  int v52; // r12d
-  __int64 v53; // rax
-  __int64 v54; // rdx
-  __int64 v55; // r8
-  int v56; // r11d
-  __int64 v57; // rax
-  int v58; // edx
-  __int64 v59; // r8
-  __int64 j; // rcx
-  struct CInteraction *v61; // [rsp+58h] [rbp-A8h] BYREF
-  int v62; // [rsp+60h] [rbp-A0h]
-  CManipulationContext *v63; // [rsp+68h] [rbp-98h] BYREF
-  struct CInteraction *v64; // [rsp+70h] [rbp-90h] BYREF
-  unsigned int v65; // [rsp+78h] [rbp-88h]
-  unsigned int v66; // [rsp+7Ch] [rbp-84h] BYREF
-  CResource *v67; // [rsp+80h] [rbp-80h] BYREF
-  CManipulationContext *v68; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v69; // [rsp+90h] [rbp-70h]
-  __int64 v70; // [rsp+98h] [rbp-68h]
-  __int64 v71; // [rsp+A0h] [rbp-60h]
-  struct MCCollections *v72; // [rsp+A8h] [rbp-58h]
-  CManipulationContext *v73; // [rsp+B0h] [rbp-50h] BYREF
-  struct CInteraction *v74; // [rsp+B8h] [rbp-48h]
-  struct _EVENT_DATA_DESCRIPTOR v75; // [rsp+C0h] [rbp-40h] BYREF
-  CManipulationContext **v76; // [rsp+E0h] [rbp-20h]
-  int v77; // [rsp+E8h] [rbp-18h]
-  int v78; // [rsp+ECh] [rbp-14h]
-  CManipulationContext **v79; // [rsp+F0h] [rbp-10h]
-  int v80; // [rsp+F8h] [rbp-8h]
-  int v81; // [rsp+FCh] [rbp-4h]
-  __int64 *v82; // [rsp+100h] [rbp+0h]
-  int v83; // [rsp+108h] [rbp+8h]
-  int v84; // [rsp+10Ch] [rbp+Ch]
+  __int64 v14; // r10
+  __int64 v15; // r11
+  int v16; // r15d
+  __int64 v17; // rbx
+  struct CInteraction *v18; // rbx
+  bool *v19; // rdx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  struct CInteraction *v22; // rax
+  struct CInteraction *ClosestInteractionAncestor; // rdi
+  __int64 v24; // rax
+  struct CInteraction *i; // rsi
+  const struct CVisual *v26; // rcx
+  __int64 v27; // rax
+  struct CInteraction *j; // rsi
+  unsigned __int8 v29; // r12
+  __int64 v30; // rbx
+  __int64 *v31; // rcx
+  __int64 v32; // rax
+  __int64 v33; // rax
+  struct CVisual *v34; // rcx
+  bool *v35; // rdx
+  __int64 v36; // rax
+  const struct CVisual *v37; // rcx
+  struct CInteraction *v38; // r15
+  struct CInteraction *v39; // rsi
+  __int64 v40; // r8
+  __int64 v41; // r9
+  __int64 v42; // rcx
+  __int64 v43; // rcx
+  __int64 v44; // rcx
+  __int64 v45; // rcx
+  struct CInteraction *v46; // r8
+  unsigned int v47; // r15d
+  __int64 v48; // rax
+  __int64 v49; // rdx
+  __int64 v50; // r8
+  __int64 v51; // rax
+  int v52; // edx
+  __int64 v53; // r8
+  __int64 k; // rcx
+  struct CInteraction *v55; // [rsp+50h] [rbp-B0h] BYREF
+  CManipulationContext *v56; // [rsp+58h] [rbp-A8h] BYREF
+  unsigned int v57; // [rsp+60h] [rbp-A0h]
+  unsigned int v58; // [rsp+64h] [rbp-9Ch]
+  CManipulationContext *v59; // [rsp+68h] [rbp-98h] BYREF
+  unsigned int v60; // [rsp+70h] [rbp-90h] BYREF
+  CRenderTargetBitmap *v61; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v62; // [rsp+80h] [rbp-80h]
+  __int64 v63; // [rsp+88h] [rbp-78h]
+  __int64 v64; // [rsp+90h] [rbp-70h]
+  struct MCCollections *v65; // [rsp+98h] [rbp-68h]
+  struct CInteraction *v66; // [rsp+A0h] [rbp-60h] BYREF
+  CManipulationContext *v67; // [rsp+A8h] [rbp-58h] BYREF
+  struct CInteraction *v68; // [rsp+B0h] [rbp-50h]
+  struct _EVENT_DATA_DESCRIPTOR v69; // [rsp+C0h] [rbp-40h] BYREF
+  CManipulationContext **v70; // [rsp+E0h] [rbp-20h]
+  __int64 v71; // [rsp+E8h] [rbp-18h]
+  CManipulationContext **v72; // [rsp+F0h] [rbp-10h]
+  __int64 v73; // [rsp+F8h] [rbp-8h]
+  struct CInteraction **v74; // [rsp+100h] [rbp+0h]
+  __int64 v75; // [rsp+108h] [rbp+8h]
 
-  v2 = 0;
-  v72 = a2;
-  if ( *((int *)this + 18) > 0 )
+  v2 = *((_DWORD *)this + 18);
+  v65 = a2;
+  v5 = 0;
+  if ( v2 > 0 )
   {
-    v5 = (CManipulationContext *)((char *)this + 64);
     v6 = 0LL;
-    v64 = (CManipulationContext *)((char *)this + 64);
     do
     {
-      v7 = *(_QWORD *)(v6 + *(_QWORD *)v5);
+      v7 = *(_QWORD *)(v6 + *((_QWORD *)this + 8));
       if ( v7 )
       {
         do
         {
-          v8 = *(_QWORD *)(v7 + 216);
-          *(_QWORD *)(v7 + 208) = v8;
+          v8 = *(_QWORD *)(v7 + 208);
+          *(_QWORD *)(v7 + 200) = v8;
           v7 = v8;
         }
         while ( v8 );
       }
-      v9 = *((_DWORD *)this + 18);
-      ++v2;
+      v2 = *((_DWORD *)this + 18);
+      ++v5;
       v6 += 8LL;
     }
-    while ( v2 < v9 );
-    v10 = 0;
-    v65 = 0;
-    if ( v9 > 0 )
+    while ( v5 < v2 );
+  }
+  v58 = 0;
+  v9 = 0;
+  if ( v2 > 0 )
+  {
+    v10 = 0LL;
+    v64 = 0LL;
+    v63 = 0LL;
+    v11 = (_QWORD *)((char *)this + 56);
+    v12 = (char *)a2 + 40;
+    while ( 1 )
     {
+      LODWORD(v56) = *(_DWORD *)(v10 + *v11);
+      Key = CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::FindKey(
+              (__int64)v12,
+              (int *)&v56);
+      if ( Key == -1 )
+        v16 = 2;
+      else
+        v16 = *(_DWORD *)(*(_QWORD *)(v15 + 48) + 4LL * Key);
+      v17 = *((_QWORD *)this + 8);
+      v57 = v16;
+      v18 = *(struct CInteraction **)(v14 + v17);
+      v68 = v18;
+      v55 = v18;
+      Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef((__int64 (__fastcall ****)(_QWORD))&v55);
+      v22 = (struct CInteraction *)*((_QWORD *)v18 + 24);
+      ClosestInteractionAncestor = v18;
+      if ( v22 )
+      {
+        do
+        {
+          ClosestInteractionAncestor = v22;
+          v22 = (struct CInteraction *)*((_QWORD *)v22 + 24);
+        }
+        while ( v22 );
+        v55 = ClosestInteractionAncestor;
+        Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef((__int64 (__fastcall ****)(_QWORD))&v55);
+        CMap<unsigned int,Microsoft::WRL::ComPtr<CInteraction>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CInteraction>>>::SetAtIndex(
+          v11,
+          v9,
+          &v56,
+          &v55);
+        (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)ClosestInteractionAncestor + 8LL))(ClosestInteractionAncestor);
+      }
+      v24 = *((_QWORD *)ClosestInteractionAncestor + 13);
+      if ( !v24 || !*(_QWORD *)(v24 + 16) )
+      {
+        v55 = 0LL;
+        ClosestInteractionAncestor = 0LL;
+        Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef((__int64 (__fastcall ****)(_QWORD))&v55);
+        CMap<unsigned int,Microsoft::WRL::ComPtr<CInteraction>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CInteraction>>>::SetAtIndex(
+          v11,
+          v9,
+          &v56,
+          &v55);
+      }
+      for ( i = ClosestInteractionAncestor; i; i = CManipulationContext::GetClosestInteractionAncestor(v26, v19) )
+      {
+        if ( (unsigned int)dword_180344E80 > 4 && (qword_180344E90 & 2) != 0 && (qword_180344E98 & 2) == qword_180344E98 )
+        {
+          v55 = i;
+          v56 = this;
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
+            (__int64)&dword_180344E80,
+            byte_1802ED384,
+            v20,
+            v21,
+            (__int64)&v56,
+            (__int64)&v55);
+        }
+        *((_BYTE *)i + 184) |= 0x40u;
+        v26 = 0LL;
+        v27 = *((_QWORD *)i + 13);
+        if ( v27 )
+          v26 = *(const struct CVisual **)(v27 + 16);
+      }
+      for ( j = v18; j; j = (struct CInteraction *)*((_QWORD *)j + 25) )
+      {
+        if ( (unsigned int)dword_180344E80 > 4 && (qword_180344E90 & 2) != 0 && (qword_180344E98 & 2) == qword_180344E98 )
+        {
+          v55 = j;
+          v56 = this;
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
+            (__int64)&dword_180344E80,
+            byte_1802ED2D1,
+            v20,
+            v21,
+            (__int64)&v56,
+            (__int64)&v55);
+        }
+        *((_BYTE *)j + 184) |= 0x80u;
+      }
+      if ( (unsigned int)dword_180344E80 > 4 && (qword_180344E90 & 2) != 0 && (qword_180344E98 & 2) == qword_180344E98 )
+      {
+        v55 = v18;
+        v74 = &v55;
+        v56 = ClosestInteractionAncestor;
+        v72 = &v56;
+        v59 = this;
+        v70 = &v59;
+        v75 = 8LL;
+        v73 = 8LL;
+        v71 = 8LL;
+        tlgWriteTransfer_EventWriteTransfer(
+          (__int64)&dword_180344E80,
+          (unsigned __int8 *)dword_1802ED322,
+          0LL,
+          0LL,
+          5u,
+          &v69);
+      }
+      if ( ClosestInteractionAncestor != v18 )
+        CManipulationContext::CleanStaleFork((__int64)this, v16, v18);
+      v29 = 0;
+      if ( ClosestInteractionAncestor )
+        break;
+LABEL_75:
+      if ( v18 )
+        (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)v18 + 8LL))(v18);
       v11 = (_QWORD *)((char *)this + 56);
-      v12 = 0LL;
-      v71 = 0LL;
-      v70 = 0LL;
-      v13 = (char *)a2 + 40;
-      while ( 1 )
-      {
-        LODWORD(v63) = *(_DWORD *)(v12 + *v11);
-        Key = CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::FindKey(
-                (__int64)v13,
-                (int *)&v63);
-        if ( Key == -1 )
-          v17 = 2;
-        else
-          v17 = *(_DWORD *)(*(_QWORD *)(v16 + 48) + 4LL * Key);
-        v18 = *(_QWORD *)v5;
-        v62 = v17;
-        v19 = *(struct CInteraction **)(v15 + v18);
-        v74 = v19;
-        v61 = v19;
-        Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef((__int64 *)&v61);
-        v21 = (struct CInteraction *)*((_QWORD *)v19 + 25);
-        ClosestInteractionAncestor = v19;
-        if ( v21 )
-        {
-          do
-          {
-            ClosestInteractionAncestor = v21;
-            v21 = (struct CInteraction *)*((_QWORD *)v21 + 25);
-          }
-          while ( v21 );
-          v61 = ClosestInteractionAncestor;
-          Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef((__int64 *)&v61);
-          CMap<unsigned int,Microsoft::WRL::ComPtr<CInteraction>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CInteraction>>>::SetAtIndex(
-            v11,
-            v10,
-            &v63,
-            &v61);
-          (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)ClosestInteractionAncestor + 16LL))(ClosestInteractionAncestor);
-        }
-        v23 = *((_QWORD *)ClosestInteractionAncestor + 14);
-        if ( v23 && *(_QWORD *)(v23 + 16) )
-        {
-          for ( i = ClosestInteractionAncestor;
-                ClosestInteractionAncestor;
-                ClosestInteractionAncestor = CManipulationContext::GetClosestInteractionAncestor(v27, v20) )
-          {
-            if ( (unsigned int)dword_1803E3798 > 4 && tlgKeywordOn((__int64)&dword_1803E3798, 2LL) )
-            {
-              v61 = ClosestInteractionAncestor;
-              v63 = this;
-              _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
-                (__int64)&dword_1803E3798,
-                byte_18037DCE9,
-                v25,
-                v26,
-                (__int64)&v63,
-                (__int64)&v61);
-            }
-            *((_BYTE *)ClosestInteractionAncestor + 192) |= 0x80u;
-            v27 = 0LL;
-            v28 = *((_QWORD *)ClosestInteractionAncestor + 14);
-            if ( v28 )
-              v27 = *(const struct CVisual **)(v28 + 16);
-          }
-        }
-        else
-        {
-          i = 0LL;
-          v61 = 0LL;
-          Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef((__int64 *)&v61);
-          CMap<unsigned int,Microsoft::WRL::ComPtr<CInteraction>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CInteraction>>>::SetAtIndex(
-            (char *)this + 56,
-            v10,
-            &v63,
-            &v61);
-        }
-        v29 = (__int64)v19;
-        if ( v19 )
-        {
-          do
-          {
-            if ( (unsigned int)dword_1803E3798 > 4 && tlgKeywordOn((__int64)&dword_1803E3798, 2LL) )
-            {
-              v61 = (struct CInteraction *)v29;
-              v63 = this;
-              _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
-                (__int64)&dword_1803E3798,
-                byte_18037DC36,
-                v30,
-                v31,
-                (__int64)&v63,
-                (__int64)&v61);
-            }
-            *(_BYTE *)(v29 + 193) |= 1u;
-            v29 = *(_QWORD *)(v29 + 208);
-          }
-          while ( v29 );
-        }
-        if ( (unsigned int)dword_1803E3798 > 4 && tlgKeywordOn((__int64)&dword_1803E3798, 2LL) )
-        {
-          v84 = 0;
-          v81 = 0;
-          v78 = 0;
-          v82 = (__int64 *)&v61;
-          v61 = v19;
-          v79 = &v63;
-          v63 = i;
-          v76 = &v68;
-          v68 = this;
-          v83 = 8;
-          v80 = 8;
-          v77 = 8;
-          tlgWriteTransfer_EventWriteTransfer(
-            (__int64)&dword_1803E3798,
-            (unsigned __int8 *)dword_18037DC87,
-            0LL,
-            0LL,
-            5u,
-            &v75);
-        }
-        if ( i != v19 )
-          CManipulationContext::CleanStaleFork((__int64)this, v17, (__int64)v19);
-        v32 = 0;
-        v33 = 0;
-        if ( i )
-          break;
-LABEL_80:
-        if ( v19 )
-          (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)v19 + 16LL))(v19);
-        v11 = (_QWORD *)((char *)this + 56);
-        v10 = v65 + 1;
-        v12 = v70 + 4;
-        v9 = *((_DWORD *)this + 18);
-        v65 = v10;
-        v70 += 4LL;
-        v71 += 8LL;
-        v13 = (char *)v72 + 40;
-        if ( (int)v10 >= v9 )
-          goto LABEL_83;
-      }
-      v34 = v62;
-      v35 = v64;
-      HIDWORD(v69) = -2;
-      while ( 1 )
-      {
-        CManipulationContext::FindWorkspace(v72, i, &v66);
-        v36 = (__int64 *)*((_QWORD *)this + 5);
-        LODWORD(v69) = v66;
-        v37 = *v36;
-        v67 = 0LL;
-        (*(void (__fastcall **)(__int64 *, __int64, CResource **))(v37 + 56))(v36, v69, &v67);
-        if ( v67 )
-        {
-          v38 = *((_QWORD *)i + 14);
-          v39 = 0LL;
-          if ( v38 )
-            v39 = *(struct CVisual **)(v38 + 16);
-          CManipulationContext::OnVisualPropertyChange(v39, v67);
-        }
-        if ( *((_DWORD *)i + 49) == 2 )
-        {
-          v33 = 0;
-          v32 = 1;
-        }
-        else if ( !v32 || v33 )
-        {
-          v40 = 0;
-          goto LABEL_47;
-        }
-        v40 = 1;
-LABEL_47:
-        CInteraction::UpdateDefaultInteractionForCurrentMC(i, v40);
-        if ( v32
-          && (*((_BYTE *)i + 192) & 0x10) != 0
-          && (*(unsigned int (__fastcall **)(__int64, _QWORD, _QWORD))(*((_QWORD *)i + 8) + 80LL))(
-               (__int64)i + 64,
-               v34,
-               0LL) )
-        {
-          v33 = 1;
-        }
-        v42 = *((_QWORD *)i + 14);
-        v43 = 0LL;
-        v44 = *((_QWORD *)i + 26);
-        v45 = i;
-        if ( v42 )
-          v43 = *(const struct CVisual **)(v42 + 16);
-        i = CManipulationContext::GetClosestInteractionAncestor(v43, v41);
-        if ( (unsigned int)dword_1803E3798 > 4 && tlgKeywordOn((__int64)&dword_1803E3798, 2LL) )
-        {
-          LODWORD(v63) = v32;
-          v68 = v45;
-          v61 = (struct CInteraction *)v44;
-          v64 = i;
-          v73 = this;
-          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
-            v32,
-            byte_18037DB54,
-            v46,
-            v47,
-            (__int64)&v73,
-            (__int64)&v64,
-            (__int64)&v61,
-            (__int64)&v68,
-            (__int64)&v63);
-        }
-        if ( (struct CInteraction *)v44 != i )
-        {
-          v48 = *((_QWORD *)v45 + 28);
-          if ( v48 )
-            *(_QWORD *)(v48 + 232) = *((_QWORD *)v45 + 29);
-          v49 = *((_QWORD *)v45 + 29);
-          if ( v49 )
-            *(_QWORD *)(v49 + 224) = *((_QWORD *)v45 + 28);
-          v50 = *((_QWORD *)v45 + 27);
-          if ( v50 && *(struct CInteraction **)(v50 + 240) == v45 )
-            *(_QWORD *)(v50 + 240) = *((_QWORD *)v45 + 28);
-          *((_QWORD *)v45 + 29) = 0LL;
-          v51 = v44;
-          v52 = v62;
-          *((_QWORD *)v45 + 28) = 0LL;
-          *((_QWORD *)v45 + 27) = 0LL;
-          CManipulationContext::CleanStaleFork((__int64)this, v52, v51);
-          if ( !i )
-            goto LABEL_76;
-          *((_QWORD *)v45 + 28) = *((_QWORD *)i + 30);
-          v53 = *((_QWORD *)i + 30);
-          if ( v53 )
-            *(_QWORD *)(v53 + 232) = v45;
-          *((_QWORD *)i + 30) = v45;
-          *((_QWORD *)v45 + 27) = i;
-          goto LABEL_70;
-        }
-        if ( i )
-        {
-          v52 = v62;
-LABEL_70:
-          if ( (*((_BYTE *)i + 193) & 1) == 0 )
-          {
-            if ( !(unsigned int)CInteraction::GetTotalNumContacts(i) )
-            {
-              LOBYTE(v55) = v56 & *((_BYTE *)this + 28);
-              LOBYTE(v54) = v56;
-              (*(void (__fastcall **)(__int64, __int64, __int64, _QWORD))(*((_QWORD *)i + 8) + 40LL))(
-                (__int64)i + 64,
-                v54,
-                v55,
-                (unsigned int)v52);
-              v56 = 1;
-            }
-            v57 = v52 - 1LL;
-            if ( (unsigned int)(v52 - 1) >= 6 )
-              v57 = 0LL;
-            *((_DWORD *)i + v57 + 62) += v56;
-          }
-        }
-LABEL_76:
-        *((_BYTE *)v45 + 192) &= ~0x80u;
-        *((_BYTE *)v45 + 193) &= ~1u;
-        if ( v67 )
-          CResource::InternalRelease(v67);
-        v34 = v62;
-        if ( !i )
-        {
-          v64 = v35;
-          v19 = v74;
-          v5 = v64;
-          goto LABEL_80;
-        }
-      }
+      v9 = v58 + 1;
+      v10 = v63 + 4;
+      v2 = *((_DWORD *)this + 18);
+      v58 = v9;
+      v63 += 4LL;
+      v64 += 8LL;
+      v12 = (char *)v65 + 40;
+      if ( (int)v9 >= v2 )
+        goto LABEL_78;
     }
-LABEL_83:
-    v58 = 0;
-    if ( v9 > 0 )
+    v30 = v16;
+    HIDWORD(v62) = -2;
+    while ( 1 )
     {
-      v59 = 0LL;
-      do
+      CManipulationContext::FindWorkspace(v65, ClosestInteractionAncestor, &v60);
+      v31 = (__int64 *)*((_QWORD *)this + 5);
+      LODWORD(v62) = v60;
+      v32 = *v31;
+      v61 = 0LL;
+      (*(void (__fastcall **)(__int64 *, __int64, CRenderTargetBitmap **))(v32 + 32))(v31, v62, &v61);
+      if ( v61 )
       {
-        for ( j = *(_QWORD *)(v59 + *(_QWORD *)v5); j; j = *(_QWORD *)(j + 216) )
-          *(_QWORD *)(j + 208) = 0LL;
-        ++v58;
-        v59 += 8LL;
+        v33 = *((_QWORD *)ClosestInteractionAncestor + 13);
+        v34 = 0LL;
+        if ( v33 )
+          v34 = *(struct CVisual **)(v33 + 16);
+        CManipulationContext::OnVisualPropertyChange(v34, v61);
       }
-      while ( v58 < *((_DWORD *)this + 18) );
+      if ( *((_DWORD *)ClosestInteractionAncestor + 47) == 2 )
+        v29 = 1;
+      CInteraction::UpdateDefaultInteractionForCurrentMC(ClosestInteractionAncestor);
+      v36 = *((_QWORD *)ClosestInteractionAncestor + 13);
+      v37 = 0LL;
+      v38 = (struct CInteraction *)*((_QWORD *)ClosestInteractionAncestor + 25);
+      v39 = ClosestInteractionAncestor;
+      if ( v36 )
+        v37 = *(const struct CVisual **)(v36 + 16);
+      ClosestInteractionAncestor = CManipulationContext::GetClosestInteractionAncestor(v37, v35);
+      if ( (unsigned int)dword_180344E80 > 4 && (qword_180344E90 & 2) != 0 )
+      {
+        v42 = qword_180344E98 & 2;
+        if ( v42 == qword_180344E98 )
+        {
+          LODWORD(v56) = v29;
+          v59 = v39;
+          v55 = v38;
+          v66 = ClosestInteractionAncestor;
+          v67 = this;
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
+            v42,
+            byte_1802ED1EF,
+            v40,
+            v41,
+            (__int64)&v67,
+            (__int64)&v66,
+            (__int64)&v55,
+            (__int64)&v59,
+            (__int64)&v56);
+        }
+      }
+      if ( v38 == ClosestInteractionAncestor )
+      {
+        v47 = v57;
+      }
+      else
+      {
+        v43 = *((_QWORD *)v39 + 27);
+        if ( v43 )
+          *(_QWORD *)(v43 + 224) = *((_QWORD *)v39 + 28);
+        v44 = *((_QWORD *)v39 + 28);
+        if ( v44 )
+          *(_QWORD *)(v44 + 216) = *((_QWORD *)v39 + 27);
+        v45 = *((_QWORD *)v39 + 26);
+        if ( v45 && *(struct CInteraction **)(v45 + 232) == v39 )
+          *(_QWORD *)(v45 + 232) = *((_QWORD *)v39 + 27);
+        v46 = v38;
+        *((_QWORD *)v39 + 28) = 0LL;
+        v47 = v57;
+        *((_QWORD *)v39 + 27) = 0LL;
+        *((_QWORD *)v39 + 26) = 0LL;
+        CManipulationContext::CleanStaleFork((__int64)this, v47, v46);
+        if ( !ClosestInteractionAncestor )
+          goto LABEL_71;
+        *((_QWORD *)v39 + 27) = *((_QWORD *)ClosestInteractionAncestor + 29);
+        v48 = *((_QWORD *)ClosestInteractionAncestor + 29);
+        if ( v48 )
+          *(_QWORD *)(v48 + 224) = v39;
+        *((_QWORD *)ClosestInteractionAncestor + 29) = v39;
+        *((_QWORD *)v39 + 26) = ClosestInteractionAncestor;
+      }
+      if ( ClosestInteractionAncestor && *((char *)ClosestInteractionAncestor + 184) >= 0 )
+      {
+        if ( !(unsigned int)CInteraction::GetTotalNumContacts(ClosestInteractionAncestor) )
+        {
+          LOBYTE(v49) = 1;
+          LOBYTE(v50) = *((_BYTE *)this + 28) & 1;
+          (*(void (__fastcall **)(struct CInteraction *, __int64, __int64, _QWORD))(*(_QWORD *)ClosestInteractionAncestor
+                                                                                  + 40LL))(
+            ClosestInteractionAncestor,
+            v49,
+            v50,
+            v47);
+        }
+        v51 = v30 - 1;
+        if ( v47 - 1 >= 6 )
+          v51 = 0LL;
+        ++*((_DWORD *)ClosestInteractionAncestor + v51 + 60);
+      }
+LABEL_71:
+      *((_BYTE *)v39 + 184) &= 0x3Fu;
+      if ( v61 )
+        CRenderTargetBitmap::Release(v61);
+      if ( !ClosestInteractionAncestor )
+      {
+        v18 = v68;
+        goto LABEL_75;
+      }
     }
+  }
+LABEL_78:
+  v52 = 0;
+  if ( v2 > 0 )
+  {
+    v53 = 0LL;
+    do
+    {
+      for ( k = *(_QWORD *)(v53 + *((_QWORD *)this + 8)); k; k = *(_QWORD *)(k + 208) )
+        *(_QWORD *)(k + 200) = 0LL;
+      ++v52;
+      v53 += 8LL;
+    }
+    while ( v52 < *((_DWORD *)this + 18) );
   }
 }

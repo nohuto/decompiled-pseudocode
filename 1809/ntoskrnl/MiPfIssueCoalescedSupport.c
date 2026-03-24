@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPfIssueCoalescedSupport @ 0x1402AEEA4
+ * XREFs of MiPfIssueCoalescedSupport @ 0x1402AEFA4
  * Callers:
- *     MiPfIssueCoalesceCandidates @ 0x1402AEDCC (MiPfIssueCoalesceCandidates.c)
+ *     MiPfIssueCoalesceCandidates @ 0x1402AEECC (MiPfIssueCoalesceCandidates.c)
  * Callees:
  *     MiInitializeInPageSupport @ 0x14002C6B0 (MiInitializeInPageSupport.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     IoPageReadEx @ 0x1400DE720 (IoPageReadEx.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     IoPageReadEx @ 0x1400DE740 (IoPageReadEx.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

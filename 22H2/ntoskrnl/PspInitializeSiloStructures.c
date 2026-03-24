@@ -1,29 +1,31 @@
 /*
- * XREFs of PspInitializeSiloStructures @ 0x140B4CF10
+ * XREFs of PspInitializeSiloStructures @ 0x140A3BFF4
  * Callers:
- *     PspInitPhase0 @ 0x140B4DF94 (PspInitPhase0.c)
+ *     PspInitPhase0 @ 0x140A3D098 (PspInitPhase0.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x140435400 (memset.c)
- *     PspAllocStorage @ 0x1407E6A74 (PspAllocStorage.c)
- *     PspSiloInitializeSharedUserSessionId @ 0x1407EB540 (PspSiloInitializeSharedUserSessionId.c)
- *     PspStorageAllocSlot @ 0x14082150C (PspStorageAllocSlot.c)
- *     ObCreateObjectType @ 0x140821750 (ObCreateObjectType.c)
- *     PspStorageFreeSlot @ 0x1409B7EF4 (PspStorageFreeSlot.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PspAllocStorage @ 0x1406A5540 (PspAllocStorage.c)
+ *     PspSiloInitializeSharedUserSessionId @ 0x1406A68F0 (PspSiloInitializeSharedUserSessionId.c)
+ *     PspStorageAllocSlot @ 0x1407906D8 (PspStorageAllocSlot.c)
+ *     ObCreateObjectType @ 0x140790760 (ObCreateObjectType.c)
+ *     PspStorageFreeSlot @ 0x14090EF94 (PspStorageFreeSlot.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char PspInitializeSiloStructures()
 {
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   unsigned int v2; // ecx
-  PVOID v3; // rcx
+  struct _DMA_ADAPTER *v3; // rcx
   _QWORD v4[16]; // [rsp+20h] [rbp-29h] BYREF
 
-  Pool2 = ExAllocatePool2(64LL, 0x270uLL, 0x476C6953u);
-  qword_140D49EE8 = Pool2;
-  if ( !Pool2
-    || (int)PspSiloInitializeSharedUserSessionId(Pool2) < 0
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x270uLL, 0x476C6953u);
+  qword_140D249A8 = (__int64)PoolWithTag;
+  if ( !PoolWithTag )
+    return 0;
+  memset(PoolWithTag, 0, 0x270uLL);
+  if ( (int)PspSiloInitializeSharedUserSessionId(qword_140D249A8) < 0
     || (int)PspStorageAllocSlot((ULONG *)&PsObjectDirectorySiloContextSlot) < 0 )
   {
     return 0;
@@ -42,7 +44,7 @@ LABEL_13:
     goto LABEL_13;
   }
   PspSiloMonitorLock = 0LL;
-  qword_140C381C8 = (__int64)&PspSiloMonitorList;
+  qword_140C1E0A8 = (__int64)&PspSiloMonitorList;
   PspSiloMonitorList = (__int64)&PspSiloMonitorList;
   memset(v4, 0, 0x78uLL);
   BYTE2(v4[0]) |= 0x84u;
@@ -61,12 +63,12 @@ LABEL_13:
     }
     else
     {
-      if ( (int)PspAllocStorage(&qword_140D49ED0) >= 0 )
+      if ( (int)PspAllocStorage(&qword_140D24990) >= 0 )
         return 1;
-      ObfDereferenceObjectWithTag(PsSiloContextPagedType, 0x746C6644u);
+      HalPutDmaAdapter(PsSiloContextPagedType);
       v3 = PsSiloContextNonPagedType;
     }
-    ObfDereferenceObjectWithTag(v3, 0x746C6644u);
+    HalPutDmaAdapter(v3);
   }
   return 0;
 }

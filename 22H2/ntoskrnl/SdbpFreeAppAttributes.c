@@ -1,71 +1,54 @@
 /*
- * XREFs of SdbpFreeAppAttributes @ 0x140A50D9C
+ * XREFs of SdbpFreeAppAttributes @ 0x1405D1E50
  * Callers:
- *     SdbpReleaseSearchDBContext @ 0x140757528 (SdbpReleaseSearchDBContext.c)
+ *     SdbpReleaseSearchDBContext @ 0x1407543EC (SdbpReleaseSearchDBContext.c)
  * Callees:
- *     Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage @ 0x140419BFC (Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage.c)
- *     AslFree @ 0x140A54268 (AslFree.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     AslFree @ 0x140753F6C (AslFree.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SdbpFreeAppAttributes(__int64 a1)
 {
   unsigned __int64 v1; // rax
-  unsigned __int64 v2; // rsi
+  unsigned __int64 i; // rsi
   unsigned __int16 *v4; // rdi
   unsigned __int64 v5; // rax
   unsigned __int64 v6; // rcx
-  int IsEnabledDeviceUsage; // eax
-  __int64 v8; // rcx
-  unsigned __int64 v9; // rax
-  __int64 v10; // rdx
-  void *v11; // rcx
+  unsigned __int64 v7; // rcx
+  __int64 v8; // rax
+  void *v9; // rcx
 
   if ( a1 )
   {
     v1 = *(_QWORD *)(a1 + 16);
-    v2 = 0LL;
-    if ( v1 )
+    for ( i = 0LL; i < v1; ++i )
     {
-      while ( 1 )
+      v4 = 0LL;
+      if ( i < v1 )
       {
-        v4 = 0LL;
-        if ( v2 < v1 )
+        v5 = *(_QWORD *)(a1 + 8) * i;
+        if ( !is_mul_ok(*(_QWORD *)(a1 + 8), i)
+          || (v6 = *(_QWORD *)(a1 + 40), v4 = (unsigned __int16 *)(v6 + v5), v6 + v5 < v6) )
         {
-          v5 = *(_QWORD *)(a1 + 8) * v2;
-          if ( !is_mul_ok(*(_QWORD *)(a1 + 8), v2)
-            || (v6 = *(_QWORD *)(a1 + 40), v4 = (unsigned __int16 *)(v6 + v5), v6 + v5 < v6) )
-          {
-            v4 = 0LL;
-          }
+          v4 = 0LL;
         }
-        IsEnabledDeviceUsage = Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage();
-        v8 = *v4;
-        if ( IsEnabledDeviceUsage )
-          break;
-        LOWORD(v8) = v8 - 24617;
-        if ( (unsigned __int16)v8 <= 2u )
-          goto LABEL_13;
-LABEL_14:
-        v1 = *(_QWORD *)(a1 + 16);
-        if ( ++v2 >= v1 )
-          goto LABEL_15;
       }
-      v9 = (unsigned __int16)v8;
-      if ( (unsigned __int16)(v8 - 24593) > 0x37u
-        || (v10 = 0x82000007000001LL, LOWORD(v9) = v8 - 24593, !_bittest64(&v10, v9)) )
+      v7 = *v4;
+      if ( (unsigned __int16)(v7 - 24617) <= 1u || (_WORD)v7 == 24619 )
       {
-        if ( (_WORD)v8 != 24577 )
-          goto LABEL_14;
+        AslFree(v7, *((_QWORD *)v4 + 1));
+        v7 = *v4;
       }
-LABEL_13:
-      AslFree(v8, *((_QWORD *)v4 + 1));
-      goto LABEL_14;
+      if ( (_WORD)v7 == 24577
+        || (LOWORD(v7) = v7 - 24593, (unsigned __int16)v7 <= 0x37u) && (v8 = 0x82000000000001LL, _bittest64(&v8, v7)) )
+      {
+        AslFree(v7, *((_QWORD *)v4 + 1));
+      }
+      v1 = *(_QWORD *)(a1 + 16);
     }
-LABEL_15:
-    v11 = *(void **)(a1 + 40);
-    if ( v11 )
-      ExFreePoolWithTag(v11, 0x72615452u);
+    v9 = *(void **)(a1 + 40);
+    if ( v9 )
+      ExFreePoolWithTag(v9, 0x72615452u);
     *(_OWORD *)a1 = 0LL;
     *(_OWORD *)(a1 + 16) = 0LL;
     *(_OWORD *)(a1 + 32) = 0LL;

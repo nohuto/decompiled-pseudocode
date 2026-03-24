@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerSetTimerBackedProfileInterval @ 0x14050A6A0
+ * XREFs of HalpTimerSetTimerBackedProfileInterval @ 0x1404C18F4
  * Callers:
- *     DefaultSetInterval @ 0x14050CA60 (DefaultSetInterval.c)
+ *     DefaultSetInterval @ 0x1404BE6B0 (DefaultSetInterval.c)
  * Callees:
- *     HalpSetTimer @ 0x140337740 (HalpSetTimer.c)
+ *     HalpSetTimer @ 0x14024DCEC (HalpSetTimer.c)
  */
 
 unsigned __int64 __fastcall HalpTimerSetTimerBackedProfileInterval(unsigned int a1)
@@ -33,7 +33,7 @@ LABEL_9:
   {
     v3 = 0;
   }
-  v5 = HalpSetTimer(HalpProfileTimer, 2, a1, v3, &v6);
+  v5 = HalpSetTimer(HalpProfileTimer, 2u, a1, v3, &v6);
   v4 = v6;
   if ( v5 >= 0 )
     goto LABEL_9;

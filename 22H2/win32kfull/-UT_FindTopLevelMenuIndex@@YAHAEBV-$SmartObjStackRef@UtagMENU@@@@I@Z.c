@@ -1,59 +1,44 @@
 /*
- * XREFs of ?UT_FindTopLevelMenuIndex@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@I@Z @ 0x1C0230280
+ * XREFs of ?UT_FindTopLevelMenuIndex@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@I@Z @ 0x1C015C094
  * Callers:
- *     ?xxxTA_AccelerateMenu@@YAIQEAUtagWND@@AEBV?$SmartObjStackRef@UtagMENU@@@@IQEAPEAUHMENU__@@@Z @ 0x1C023035C (-xxxTA_AccelerateMenu@@YAIQEAUtagWND@@AEBV-$SmartObjStackRef@UtagMENU@@@@IQEAPEAUHMENU__@@@Z.c)
- *     xxxHiliteMenuItem @ 0x1C0230534 (xxxHiliteMenuItem.c)
+ *     ?xxxTA_AccelerateMenu@@YAIQEAUtagWND@@AEBV?$SmartObjStackRef@UtagMENU@@@@IQEAPEAUHMENU__@@@Z @ 0x1C015BFFC (-xxxTA_AccelerateMenu@@YAIQEAUtagWND@@AEBV-$SmartObjStackRef@UtagMENU@@@@IQEAPEAUHMENU__@@@Z.c)
+ *     xxxHiliteMenuItem @ 0x1C0248B14 (xxxHiliteMenuItem.c)
  * Callees:
- *     MNLookUpItem @ 0x1C006482C (MNLookUpItem.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C0064FE4 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NAEBV0@@Z @ 0x1C0065458 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NAEBV0@@Z.c)
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C009D540 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C009E5C0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     ?ItemContainingSubMenu@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@_K@Z @ 0x1C02301C4 (-ItemContainingSubMenu@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@_K@Z.c)
+ *     MNLookUpItem @ 0x1C0061B00 (MNLookUpItem.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A94C (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE190 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010104C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NAEBV0@@Z @ 0x1C011E8F8 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NAEBV0@@Z.c)
+ *     ?ItemContainingSubMenu@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@_K@Z @ 0x1C0248A58 (-ItemContainingSubMenu@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@_K@Z.c)
  */
 
 __int64 __fastcall UT_FindTopLevelMenuIndex(__int64 a1, unsigned int a2)
 {
-  __int64 v2; // rdi
   __int64 v4; // rcx
-  __int64 v5; // rax
-  __int64 v6; // rsi
-  __int64 v7; // rdx
-  unsigned int v8; // ebx
-  _QWORD v10[2]; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v11; // [rsp+30h] [rbp-10h]
-  __int64 v12; // [rsp+50h] [rbp+10h] BYREF
+  _QWORD *v5; // rax
+  _QWORD *v6; // rsi
+  unsigned int v7; // ebx
+  _QWORD v9[5]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v10; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = a2;
-  SmartObjStackRefBase<tagMENU>::Init(v10, 0LL);
-  v11 = 0LL;
+  SmartObjStackRefBase<tagMENU>::Init(v9, 0LL);
   v4 = *(_QWORD *)(a1 + 16);
-  v12 = *(_QWORD *)v10[0];
+  v10 = *(_QWORD *)v9[0];
   if ( !v4 )
     v4 = **(_QWORD **)a1;
-  v5 = MNLookUpItem(v4, v2, 0, &v12);
-  v11 = 0LL;
+  v5 = MNLookUpItem(v4, a2, 0, &v10);
+  v9[2] = 0LL;
   v6 = v5;
-  SmartObjStackRefBase<tagMENU>::operator=(v10, v12);
-  if ( !v6 || *(_QWORD *)(v6 + 16) )
+  SmartObjStackRefBase<tagMENU>::operator=(v9, v10);
+  if ( !v6 || v6[2] )
   {
-    SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v10);
-    return 0xFFFFFFFFLL;
+    v7 = -1;
   }
   else
   {
-    if ( SmartObjStackRef<tagMENU>::operator==((__int64)v10, a1) )
-    {
-      v7 = v2;
-    }
-    else
-    {
-      v7 = v11;
-      if ( !v11 )
-        v7 = *(_QWORD *)v10[0];
-    }
-    v8 = ItemContainingSubMenu(a1, v7);
-    SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v10);
-    return v8;
+    SmartObjStackRef<tagMENU>::operator==((__int64)v9, a1);
+    v7 = ItemContainingSubMenu(a1);
   }
+  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v9);
+  return v7;
 }

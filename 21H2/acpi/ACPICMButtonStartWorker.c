@@ -1,62 +1,62 @@
 /*
- * XREFs of ACPICMButtonStartWorker @ 0x1C00029E0
+ * XREFs of ACPICMButtonStartWorker @ 0x1C000CC70
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
- *     ACPIRegisterForDeviceNotifications @ 0x1C0002D90 (ACPIRegisterForDeviceNotifications.c)
- *     ACPIInternalSetDeviceInterface @ 0x1C0004F28 (ACPIInternalSetDeviceInterface.c)
- *     WPP_RECORDER_SF_qss @ 0x1C00077E8 (WPP_RECORDER_SF_qss.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     ACPIGet @ 0x1C0010180 (ACPIGet.c)
- *     RtlStringCchPrintfA @ 0x1C001D284 (RtlStringCchPrintfA.c)
- *     ACPISetDeviceWorker @ 0x1C00215BC (ACPISetDeviceWorker.c)
- *     ACPIInternalRegisterPowerCallBack @ 0x1C002490C (ACPIInternalRegisterPowerCallBack.c)
- *     ACPICMLidPowerStateCallBack @ 0x1C004DAC0 (ACPICMLidPowerStateCallBack.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     RtlStringCchPrintfA @ 0x1C000C948 (RtlStringCchPrintfA.c)
+ *     ACPIInternalRegisterPowerCallBack @ 0x1C000CA70 (ACPIInternalRegisterPowerCallBack.c)
+ *     ACPIInternalSetDeviceInterface @ 0x1C000D230 (ACPIInternalSetDeviceInterface.c)
+ *     ACPIRegisterForDeviceNotifications @ 0x1C000DFE0 (ACPIRegisterForDeviceNotifications.c)
+ *     ACPISetDeviceWorker @ 0x1C0013470 (ACPISetDeviceWorker.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C001DAB8 (WPP_RECORDER_SF_qss.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     ACPICMLidPowerStateCallBack @ 0x1C004EE50 (ACPICMLidPowerStateCallBack.c)
  */
 
 void __fastcall ACPICMButtonStartWorker(__int64 a1)
 {
   struct _DEVICE_OBJECT *v1; // r15
   char v2; // si
-  const char **DeviceExtension; // rax
+  _DWORD *DeviceExtension; // rax
   IRP *v5; // r13
   const char *v6; // r14
-  const char **v7; // rdi
+  _DWORD *v7; // rdi
   int Status; // ebx
   unsigned int MinorFunction; // r12d
   KIRQL v10; // al
   POWER_STATE v11; // ebx
   GUID *v12; // rbx
   const char *v13; // rcx
-  const char *v14; // rax
+  __int64 v14; // rax
   __int64 v15; // rax
-  char *Pool2; // rax
-  const char *v17; // rcx
-  const char *v18; // rdx
+  _BYTE *PoolWithTag; // rax
+  __int64 v17; // rcx
+  void *v18; // rdx
   void *v19; // rax
   int v20; // eax
   char v21; // r8
   NTSTATUS v22; // eax
   char v23; // r8
   NTSTATUS v24; // eax
-  const char *v25; // rcx
-  const char *v26; // r8
-  const char *v27; // rdx
+  __int64 v25; // rcx
+  void *v26; // r8
+  void *v27; // rdx
   NTSTATUS v28; // eax
-  const char *v29; // rcx
-  const char *v30; // r8
-  const char *v31; // rdx
-  const char *v32; // rax
-  const char *v33; // rdx
-  const char *v34; // rcx
-  const char *v35; // rax
-  const char *v36; // rdx
-  const char *v37; // rcx
-  const char *v38; // rax
-  const char *v39; // rdx
-  const char *v40; // rcx
+  __int64 v29; // rcx
+  void *v30; // r8
+  void *v31; // rdx
+  __int64 v32; // rax
+  void *v33; // rdx
+  void *v34; // rcx
+  __int64 v35; // rax
+  void *v36; // rdx
+  void *v37; // rcx
+  __int64 v38; // rax
+  void *v39; // rdx
+  void *v40; // rcx
   __int64 v41; // [rsp+30h] [rbp-48h]
   __int64 v42; // [rsp+38h] [rbp-40h]
   __int64 v43; // [rsp+38h] [rbp-40h]
@@ -76,15 +76,15 @@ void __fastcall ACPICMButtonStartWorker(__int64 a1)
   DataSize = 0;
   DestinationString = 0LL;
   v48 = 0;
-  DeviceExtension = (const char **)ACPIInternalGetDeviceExtension((ULONG_PTR)v1);
+  DeviceExtension = (_DWORD *)ACPIInternalGetDeviceExtension((ULONG_PTR)v1);
   v5 = *(IRP **)(a1 + 40);
-  v6 = (const char *)&unk_1C006FB8B;
+  v6 = (const char *)&unk_1C00701BA;
   v7 = DeviceExtension;
   Status = v5->IoStatus.Status;
   MinorFunction = v5->Tail.Overlay.CurrentStackLocation->MinorFunction;
   if ( Status >= 0 )
   {
-    if ( ((_DWORD)DeviceExtension[25] & 4) != 0 )
+    if ( (DeviceExtension[50] & 4) != 0 )
     {
       ACPIInternalRegisterPowerCallBack(DeviceExtension, ACPICMLidPowerStateCallBack);
       ACPICMLidPowerStateCallBack(v7, 0LL, 0LL);
@@ -93,31 +93,33 @@ void __fastcall ACPICMButtonStartWorker(__int64 a1)
     else
     {
       v10 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
-      v11.SystemState = (int)v7[67];
+      v11.SystemState = v7[124];
       KeReleaseSpinLock(&AcpiPowerLock, v10);
       PoRequestPowerIrp(v1, 0, v11, ACPIInternalWaitWakeLoop, 0LL, 0LL);
     }
-    if ( ((_DWORD)v7[1] & 0x2000LL) != 0 )
+    if ( (v7[2] & 0x2000LL) != 0 )
     {
       v12 = &GUID_DEVICE_APPLICATIONLAUNCH_BUTTON;
-      if ( !v7[77] )
+      if ( !*((_QWORD *)v7 + 72) )
       {
         v48 = _InterlockedExchangeAdd(&AcpipExperienceButtonInstanceID, 1u);
-        Pool2 = (char *)ExAllocatePool2(64LL, 9LL, 1399874369LL);
-        v7[77] = Pool2;
-        if ( Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 9uLL, 0x53706341u);
+        *((_QWORD *)v7 + 72) = PoolWithTag;
+        if ( PoolWithTag )
         {
-          RtlStringCchPrintfA(Pool2, 9uLL, "%d", v48);
+          *(_QWORD *)PoolWithTag = 0LL;
+          PoolWithTag[8] = 0;
+          RtlStringCchPrintfA(*((NTSTRSAFE_PSTR *)v7 + 72), 9uLL, "%d", v48);
         }
         else
         {
-          v17 = v7[1];
-          v18 = (const char *)&unk_1C006FB8B;
-          v19 = &unk_1C006FB8B;
-          if ( ((unsigned __int64)v17 & 0x200000000000LL) != 0 )
+          v17 = *((_QWORD *)v7 + 1);
+          v18 = &unk_1C00701BA;
+          v19 = &unk_1C00701BA;
+          if ( (v17 & 0x200000000000LL) != 0 )
           {
-            v18 = v7[76];
-            if ( ((unsigned __int64)v17 & 0x400000000000LL) != 0 )
+            v18 = (void *)*((_QWORD *)v7 + 71);
+            if ( (v17 & 0x400000000000LL) != 0 )
               v19 = 0LL;
           }
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -129,25 +131,25 @@ void __fastcall ACPICMButtonStartWorker(__int64 a1)
               (_DWORD)v18,
               5,
               14,
-              (__int64)&WPP_72d86d3b604930d5754709d36f3716bf_Traceguids,
+              (__int64)&WPP_2bc47f5d635e376f4e7295df6662785e_Traceguids,
               (char)v7,
               v41,
               (__int64)v19);
           }
         }
       }
-      v20 = ACPIGet((_DWORD)v7, 1145653319, 268501000, 0, 0, 0LL, 0LL, (__int64)&Data, (__int64)&DataSize);
+      v20 = ACPIGet((__int64 *)v7, 1145653319, 268501000, 0LL, 0, 0LL, 0LL, (__int64)&Data, (__int64)&DataSize);
       v21 = v20;
       if ( v20 < 0 )
       {
-        v35 = v7[1];
-        v36 = (const char *)&unk_1C006FB8B;
-        v37 = (const char *)&unk_1C006FB8B;
-        if ( ((unsigned __int64)v35 & 0x200000000000LL) != 0 )
+        v35 = *((_QWORD *)v7 + 1);
+        v36 = &unk_1C00701BA;
+        v37 = &unk_1C00701BA;
+        if ( (v35 & 0x200000000000LL) != 0 )
         {
-          v36 = v7[76];
-          if ( ((unsigned __int64)v35 & 0x400000000000LL) != 0 )
-            v37 = v7[77];
+          v36 = (void *)*((_QWORD *)v7 + 71);
+          if ( (v35 & 0x400000000000LL) != 0 )
+            v37 = (void *)*((_QWORD *)v7 + 72);
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
@@ -158,7 +160,7 @@ void __fastcall ACPICMButtonStartWorker(__int64 a1)
             (_DWORD)v36,
             5,
             18,
-            (__int64)&WPP_72d86d3b604930d5754709d36f3716bf_Traceguids,
+            (__int64)&WPP_2bc47f5d635e376f4e7295df6662785e_Traceguids,
             v21,
             (char)v7,
             v43,
@@ -171,14 +173,14 @@ void __fastcall ACPICMButtonStartWorker(__int64 a1)
         v23 = v22;
         if ( v22 < 0 )
         {
-          v32 = v7[1];
-          v33 = (const char *)&unk_1C006FB8B;
-          v34 = (const char *)&unk_1C006FB8B;
-          if ( ((unsigned __int64)v32 & 0x200000000000LL) != 0 )
+          v32 = *((_QWORD *)v7 + 1);
+          v33 = &unk_1C00701BA;
+          v34 = &unk_1C00701BA;
+          if ( (v32 & 0x200000000000LL) != 0 )
           {
-            v33 = v7[76];
-            if ( ((unsigned __int64)v32 & 0x400000000000LL) != 0 )
-              v34 = v7[77];
+            v33 = (void *)*((_QWORD *)v7 + 71);
+            if ( (v32 & 0x400000000000LL) != 0 )
+              v34 = (void *)*((_QWORD *)v7 + 72);
           }
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
@@ -189,7 +191,7 @@ void __fastcall ACPICMButtonStartWorker(__int64 a1)
               (_DWORD)v33,
               5,
               17,
-              (__int64)&WPP_72d86d3b604930d5754709d36f3716bf_Traceguids,
+              (__int64)&WPP_2bc47f5d635e376f4e7295df6662785e_Traceguids,
               v23,
               (char)v7,
               v42,
@@ -202,14 +204,14 @@ void __fastcall ACPICMButtonStartWorker(__int64 a1)
           v24 = ZwSetValueKey(DeviceRegKey, &DestinationString, 0, 3u, Data, DataSize);
           if ( v24 < 0 )
           {
-            v25 = v7[1];
-            v26 = (const char *)&unk_1C006FB8B;
-            v27 = (const char *)&unk_1C006FB8B;
-            if ( ((unsigned __int64)v25 & 0x200000000000LL) != 0 )
+            v25 = *((_QWORD *)v7 + 1);
+            v26 = &unk_1C00701BA;
+            v27 = &unk_1C00701BA;
+            if ( (v25 & 0x200000000000LL) != 0 )
             {
-              v26 = v7[76];
-              if ( ((unsigned __int64)v25 & 0x400000000000LL) != 0 )
-                v27 = v7[77];
+              v26 = (void *)*((_QWORD *)v7 + 71);
+              if ( (v25 & 0x400000000000LL) != 0 )
+                v27 = (void *)*((_QWORD *)v7 + 72);
             }
             if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             {
@@ -220,7 +222,7 @@ void __fastcall ACPICMButtonStartWorker(__int64 a1)
                 (_DWORD)v27,
                 5,
                 15,
-                (__int64)&WPP_72d86d3b604930d5754709d36f3716bf_Traceguids,
+                (__int64)&WPP_2bc47f5d635e376f4e7295df6662785e_Traceguids,
                 v24,
                 (char)v7,
                 (__int64)v26,
@@ -228,18 +230,18 @@ void __fastcall ACPICMButtonStartWorker(__int64 a1)
             }
           }
           RtlInitUnicodeString(&DestinationString, L"ButtonInstanceID");
-          v48 = _strtoui64(v7[77], 0LL, 10);
+          v48 = _strtoui64(*((const char **)v7 + 72), 0LL, 10);
           v28 = ZwSetValueKey(DeviceRegKey, &DestinationString, 0, 4u, &v48, 4u);
           if ( v28 < 0 )
           {
-            v29 = v7[1];
-            v30 = (const char *)&unk_1C006FB8B;
-            v31 = (const char *)&unk_1C006FB8B;
-            if ( ((unsigned __int64)v29 & 0x200000000000LL) != 0 )
+            v29 = *((_QWORD *)v7 + 1);
+            v30 = &unk_1C00701BA;
+            v31 = &unk_1C00701BA;
+            if ( (v29 & 0x200000000000LL) != 0 )
             {
-              v30 = v7[76];
-              if ( ((unsigned __int64)v29 & 0x400000000000LL) != 0 )
-                v31 = v7[77];
+              v30 = (void *)*((_QWORD *)v7 + 71);
+              if ( (v29 & 0x400000000000LL) != 0 )
+                v31 = (void *)*((_QWORD *)v7 + 72);
             }
             if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             {
@@ -250,7 +252,7 @@ void __fastcall ACPICMButtonStartWorker(__int64 a1)
                 (_DWORD)v31,
                 5,
                 16,
-                (__int64)&WPP_72d86d3b604930d5754709d36f3716bf_Traceguids,
+                (__int64)&WPP_2bc47f5d635e376f4e7295df6662785e_Traceguids,
                 v28,
                 (char)v7,
                 (__int64)v30,
@@ -269,14 +271,14 @@ void __fastcall ACPICMButtonStartWorker(__int64 a1)
     Status = ACPIInternalSetDeviceInterface(v1, v12);
     if ( Status < 0 )
     {
-      v38 = v7[1];
-      v39 = (const char *)&unk_1C006FB8B;
-      v40 = (const char *)&unk_1C006FB8B;
-      if ( ((unsigned __int64)v38 & 0x200000000000LL) != 0 )
+      v38 = *((_QWORD *)v7 + 1);
+      v39 = &unk_1C00701BA;
+      v40 = &unk_1C00701BA;
+      if ( (v38 & 0x200000000000LL) != 0 )
       {
-        v39 = v7[76];
-        if ( ((unsigned __int64)v38 & 0x400000000000LL) != 0 )
-          v40 = v7[77];
+        v39 = (void *)*((_QWORD *)v7 + 71);
+        if ( (v38 & 0x400000000000LL) != 0 )
+          v40 = (void *)*((_QWORD *)v7 + 72);
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
@@ -287,7 +289,7 @@ void __fastcall ACPICMButtonStartWorker(__int64 a1)
           (_DWORD)v39,
           5,
           19,
-          (__int64)&WPP_72d86d3b604930d5754709d36f3716bf_Traceguids,
+          (__int64)&WPP_2bc47f5d635e376f4e7295df6662785e_Traceguids,
           Status,
           (char)v7,
           v44,
@@ -298,16 +300,16 @@ void __fastcall ACPICMButtonStartWorker(__int64 a1)
   v5->IoStatus.Status = Status;
   v5->IoStatus.Information = 0LL;
   IofCompleteRequest(v5, 0);
-  v13 = (const char *)&unk_1C006FB8B;
+  v13 = (const char *)&unk_1C00701BA;
   if ( v7 )
   {
-    v14 = v7[1];
+    v14 = *((_QWORD *)v7 + 1);
     v2 = (char)v7;
-    if ( ((unsigned __int64)v14 & 0x200000000000LL) != 0 )
+    if ( (v14 & 0x200000000000LL) != 0 )
     {
-      v6 = v7[76];
-      if ( ((unsigned __int64)v14 & 0x400000000000LL) != 0 )
-        v13 = v7[77];
+      v6 = (const char *)*((_QWORD *)v7 + 71);
+      if ( (v14 & 0x400000000000LL) != 0 )
+        v13 = (const char *)*((_QWORD *)v7 + 72);
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -320,7 +322,7 @@ void __fastcall ACPICMButtonStartWorker(__int64 a1)
       4u,
       5u,
       0x14u,
-      (__int64)&WPP_72d86d3b604930d5754709d36f3716bf_Traceguids,
+      (__int64)&WPP_2bc47f5d635e376f4e7295df6662785e_Traceguids,
       (char)v5,
       ACPIDispatchPnpTableNames[v15],
       Status,

@@ -1,11 +1,11 @@
 /*
- * XREFs of strtoxq @ 0x1403E09CC
+ * XREFs of strtoxq @ 0x1403D15FC
  * Callers:
- *     _strtoi64 @ 0x1403E0BE4 (_strtoi64.c)
- *     _strtoui64 @ 0x1403E0C10 (_strtoui64.c)
+ *     _strtoi64 @ 0x1403D1820 (_strtoi64.c)
+ *     _strtoui64 @ 0x1403D1850 (_strtoui64.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
- *     __pctype_func @ 0x1403E50E4 (__pctype_func.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
+ *     __pctype_func @ 0x1403D5D38 (__pctype_func.c)
  */
 
 unsigned __int64 __fastcall strtoxq(__int64 a1, unsigned __int8 *a2, unsigned __int8 **a3, int a4, int a5)
@@ -13,14 +13,15 @@ unsigned __int64 __fastcall strtoxq(__int64 a1, unsigned __int8 *a2, unsigned __
   int v5; // r14d
   __int64 v7; // rbp
   unsigned __int8 *v8; // rbx
-  unsigned __int64 v9; // rdi
-  __int64 v10; // rsi
-  int v11; // esi
+  unsigned __int64 v9; // rsi
+  __int64 v10; // rdi
+  int v11; // edi
   unsigned __int64 v12; // r12
   unsigned int v13; // ecx
   int v14; // ecx
   __int64 v15; // rdx
   unsigned __int8 *v16; // rbx
+  unsigned __int64 result; // rax
 
   v5 = a4;
   if ( a3 )
@@ -56,11 +57,7 @@ unsigned __int64 __fastcall strtoxq(__int64 a1, unsigned __int8 *a2, unsigned __
   LOBYTE(v7) = *v8++;
 LABEL_13:
   if ( v5 )
-  {
-    if ( v5 != 16 || (_BYTE)v7 != 48 )
-      goto LABEL_23;
-    goto LABEL_21;
-  }
+    goto LABEL_19;
   if ( (_BYTE)v7 == 48 )
   {
     if ( ((*v8 - 88) & 0xDF) != 0 )
@@ -69,8 +66,8 @@ LABEL_13:
       goto LABEL_23;
     }
     v5 = 16;
-LABEL_21:
-    if ( ((*v8 - 88) & 0xDF) == 0 )
+LABEL_19:
+    if ( v5 == 16 && (_BYTE)v7 == 48 && ((*v8 - 88) & 0xDF) == 0 )
     {
       LOBYTE(v7) = v8[1];
       v8 += 2;
@@ -123,37 +120,34 @@ LABEL_41:
     if ( (v11 & 4) == 0 )
     {
       if ( (v11 & 1) != 0 )
-        goto LABEL_53;
+        goto LABEL_51;
       if ( (v11 & 2) != 0 )
       {
         if ( v9 <= 0x8000000000000000uLL )
-          goto LABEL_53;
-LABEL_51:
-        v9 = 0x8000000000000000uLL;
-        goto LABEL_53;
+          goto LABEL_51;
       }
-      if ( v9 <= 0x7FFFFFFFFFFFFFFFLL )
-        goto LABEL_53;
+      else if ( v9 <= 0x7FFFFFFFFFFFFFFFLL )
+      {
+        goto LABEL_51;
+      }
     }
+    gbl_errno = 34;
     if ( (v11 & 1) != 0 )
-    {
       v9 = -1LL;
-      goto LABEL_53;
-    }
-    if ( (v11 & 2) == 0 )
-    {
-      v9 = 0x7FFFFFFFFFFFFFFFLL;
-      goto LABEL_53;
-    }
-    goto LABEL_51;
+    else
+      v9 = ((v11 & 2) != 0) + 0x7FFFFFFFFFFFFFFFLL;
   }
-  if ( a3 )
-    v16 = a2;
-  v9 = 0LL;
-LABEL_53:
+  else
+  {
+    if ( a3 )
+      v16 = a2;
+    v9 = 0LL;
+  }
+LABEL_51:
   if ( a3 )
     *a3 = v16;
-  if ( (v11 & 2) != 0 )
-    return -(__int64)v9;
-  return v9;
+  result = -(__int64)v9;
+  if ( (v11 & 2) == 0 )
+    return v9;
+  return result;
 }

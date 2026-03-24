@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMakeDriverPagesPrivate @ 0x1400DB3F0
+ * XREFs of MiMakeDriverPagesPrivate @ 0x1400DB410
  * Callers:
  *     MiSetSystemCodeProtection @ 0x1400862E0 (MiSetSystemCodeProtection.c)
  *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
- *     MiLockHotPatchPageRange @ 0x1402B95B4 (MiLockHotPatchPageRange.c)
- *     MiBackSingleImageWithPagefile @ 0x14070D480 (MiBackSingleImageWithPagefile.c)
- *     MiSplitDriverPage @ 0x14084C898 (MiSplitDriverPage.c)
+ *     MiLockHotPatchPageRange @ 0x1402B96B4 (MiLockHotPatchPageRange.c)
+ *     MiBackSingleImageWithPagefile @ 0x14070D460 (MiBackSingleImageWithPagefile.c)
+ *     MiSplitDriverPage @ 0x14084C878 (MiSplitDriverPage.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -27,17 +27,17 @@
  *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     MiSessionLookupImage @ 0x14009DBC8 (MiSessionLookupImage.c)
- *     MiCopyOnWrite @ 0x1400B45C0 (MiCopyOnWrite.c)
- *     MiDriverPageMustStayResident @ 0x1400DB0F8 (MiDriverPageMustStayResident.c)
- *     MiUnlockLoaderEntry @ 0x1400DBB0C (MiUnlockLoaderEntry.c)
- *     MiLockLoaderEntry @ 0x1400DBD44 (MiLockLoaderEntry.c)
- *     MiUseSlabAllocatorForDriverPage @ 0x1400DBE10 (MiUseSlabAllocatorForDriverPage.c)
- *     MiReleaseFreshPage @ 0x1400E0FE4 (MiReleaseFreshPage.c)
- *     MiGetSessionVm @ 0x1400E943C (MiGetSessionVm.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiRemoveSystemImagePage @ 0x14012C09C (MiRemoveSystemImagePage.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiAllocateDriverPage @ 0x140653A34 (MiAllocateDriverPage.c)
+ *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
+ *     MiDriverPageMustStayResident @ 0x1400DB118 (MiDriverPageMustStayResident.c)
+ *     MiUnlockLoaderEntry @ 0x1400DBB2C (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x1400DBD64 (MiLockLoaderEntry.c)
+ *     MiUseSlabAllocatorForDriverPage @ 0x1400DBE30 (MiUseSlabAllocatorForDriverPage.c)
+ *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
+ *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiRemoveSystemImagePage @ 0x14012C0BC (MiRemoveSystemImagePage.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiAllocateDriverPage @ 0x140653A14 (MiAllocateDriverPage.c)
  */
 
 __int64 __fastcall MiMakeDriverPagesPrivate(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4)

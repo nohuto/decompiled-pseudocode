@@ -1,13 +1,11 @@
 /*
- * XREFs of ??0CPartitionVerticalBlankScheduler@@AEAA@PEAVCTransport@@PEAVCConnection@@@Z @ 0x1800D685C
+ * XREFs of ??0CPartitionVerticalBlankScheduler@@AEAA@PEAVCTransport@@PEAVCConnection@@@Z @ 0x180027134
  * Callers:
- *     ?MainCompositionThreadLoop@CConnection@@AEAAJXZ @ 0x1800D6788 (-MainCompositionThreadLoop@CConnection@@AEAAJXZ.c)
+ *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800267EC (-RunCompositionThread@CConnection@@AEAAJXZ.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18003A394 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     ?Reset@?$LinearFitT@$0BAA@@@QEAAXXZ @ 0x18004C898 (-Reset@-$LinearFitT@$0BAA@@@QEAAXXZ.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800AF8A8 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??0CTelemetryTouchLatencyAnalysis@@QEAA@XZ @ 0x1800272E8 (--0CTelemetryTouchLatencyAnalysis@@QEAA@XZ.c)
+ *     ??0CDwmRenderThreadWatchdog@@QEAA@XZ @ 0x180027490 (--0CDwmRenderThreadWatchdog@@QEAA@XZ.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x180094E70 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
  */
 
 CPartitionVerticalBlankScheduler *__fastcall CPartitionVerticalBlankScheduler::CPartitionVerticalBlankScheduler(
@@ -15,57 +13,47 @@ CPartitionVerticalBlankScheduler *__fastcall CPartitionVerticalBlankScheduler::C
         struct CTransport *a2,
         struct CConnection *a3)
 {
-  unsigned __int64 v6; // rax
-  __int64 v7; // r8
-  __int64 v8; // r9
-  _QWORD *v9; // rax
-  _QWORD *v10; // rbx
-  void *v11; // rcx
+  __int64 v6; // rcx
+  CPartitionVerticalBlankScheduler *result; // rax
 
   *(_QWORD *)this = &CPartitionVerticalBlankScheduler::`vftable';
-  *((_DWORD *)this + 22) = 16;
-  `vector constructor iterator'((char *)this + 96, 256LL, 16LL, (void (__fastcall *)(char *))CFrameInfo::CFrameInfo);
-  *((_DWORD *)this + 2197) = -1;
-  *((_DWORD *)this + 2196) = -1;
-  *((_DWORD *)this + 1161) = -1;
-  *((_DWORD *)this + 1160) = -1;
-  *((_QWORD *)this + 1097) = g_qpcFrequency.QuadPart / 60;
-  *((_QWORD *)this + 1170) = 0LL;
-  *((_DWORD *)this + 2326) = GetCurrentThreadId();
-  v6 = ((unsigned __int64)*((unsigned int *)this + 1048) << 8) + 96;
-  *((_DWORD *)this + 1049) = 15;
-  *((_DWORD *)this + 1050) = -1;
-  *((_QWORD *)this + 526) = (char *)this + v6;
-  *((_QWORD *)this + 527) = (char *)this + 3936;
-  *((_DWORD *)this + 1051) = -1;
-  *((_BYTE *)this + 4551) = 1;
+  CDwmRenderThreadWatchdog::CDwmRenderThreadWatchdog((CPartitionVerticalBlankScheduler *)((char *)this + 72));
+  `vector constructor iterator'((char *)this + 152, 0x130uLL, 0x10uLL, (void *(*)(void *))CFrameInfo::CFrameInfo);
+  *((_QWORD *)this + 672) = 0LL;
+  *((_QWORD *)this + 673) = 0LL;
+  *((_DWORD *)this + 1348) = 0;
+  *((_DWORD *)this + 1349) = 0;
+  *((_DWORD *)this + 1350) = 0;
+  *((_QWORD *)this + 742) = GetTickCount64() + 3600000;
+  *((_DWORD *)this + 1480) = 0;
+  *((_QWORD *)this + 741) = (char *)this + 5408;
+  *((_DWORD *)this + 1481) = 2048;
+  if ( ((char *)this + 5920 >= (char *)this + 5408 ? 0x40 : 0) != 0 )
+    memset64(
+      (char *)this + 5408,
+      ((unsigned __int64)this + 5920) | 1,
+      (char *)this + 5920 >= (char *)this + 5408 ? 0x40 : 0);
+  CTelemetryTouchLatencyAnalysis::CTelemetryTouchLatencyAnalysis((CPartitionVerticalBlankScheduler *)((char *)this + 5952));
+  *((_DWORD *)this + 2802) = 0;
+  *((_QWORD *)this + 1400) = &CDebugFrameCounter::`vftable';
+  *((_QWORD *)this + 1982) = &CDisplayDebugFrameCounter::`vftable';
+  *((_DWORD *)this + 3966) = 0;
+  *((_DWORD *)this + 3841) = -1;
+  *((_DWORD *)this + 3840) = -1;
+  *((_DWORD *)this + 2805) = -1;
+  *((_DWORD *)this + 2804) = -1;
+  *((_DWORD *)this + 3839) = 1;
+  *((_DWORD *)this + 3838) = 1;
+  *((_DWORD *)this + 3974) = GetCurrentThreadId();
+  v6 = 304LL * *((unsigned int *)this + 1254);
   *((_QWORD *)this + 6) = a2;
+  *((_QWORD *)this + 629) = (char *)this + v6 + 152;
+  *((_QWORD *)this + 630) = (char *)this + 4712;
+  result = this;
   *((_QWORD *)this + 7) = a3;
-  wil::details::FeatureImpl<__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing>::ReportUsage(
-    `wil::Feature<__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing>::GetImpl'::`2'::impl,
-    1u,
-    v7,
-    v8);
-  v9 = operator new(0x1068uLL);
-  v10 = v9;
-  if ( v9 )
-  {
-    v9[11] = 0LL;
-    v9[12] = 0LL;
-    *v9 = &LinearFitT<256>::`vftable';
-    v9[4] = 0x3FF0000000000000LL;
-    LinearFitT<256>::Reset((__int64)v9);
-    *v10 = &CPartitionVerticalBlankScheduler::SchedulerLinearFit::`vftable';
-  }
-  else
-  {
-    v10 = 0LL;
-  }
-  v11 = (void *)*((_QWORD *)this + 1170);
-  *((_QWORD *)this + 1170) = v10;
-  if ( v11 )
-    operator delete(v11, 0x1068uLL);
-  *(_QWORD *)(*((_QWORD *)this + 1170) + 88LL) = 1LL;
-  *(_QWORD *)(*((_QWORD *)this + 1170) + 96LL) = 5 * g_qpcFrequency.QuadPart;
-  return this;
+  *((_DWORD *)this + 1255) = 15;
+  *((_DWORD *)this + 1256) = -1;
+  *((_DWORD *)this + 1257) = -1;
+  *((_BYTE *)this + 5375) = 1;
+  return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x140A83EE0
+ * XREFs of VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x1409CA328
  * Callers:
- *     VfIoDeleteDevice @ 0x140A91824 (VfIoDeleteDevice.c)
+ *     VfIoDeleteDevice @ 0x1409D6144 (VfIoDeleteDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 struct _LIST_ENTRY *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(struct _LIST_ENTRY *a1)
@@ -22,7 +22,7 @@ struct _LIST_ENTRY *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(struct _LIS
   struct _LIST_ENTRY *Blink; // rdx
 
   v2 = 0LL;
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140D575A0);
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140D4A088);
   Flink = ViAdapterList.Flink;
   if ( &ViAdapterList != ViAdapterList.Flink )
   {
@@ -43,7 +43,7 @@ struct _LIST_ENTRY *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(struct _LIS
     v5->Blink = Blink;
   }
 LABEL_4:
-  KxReleaseSpinLock(&qword_140D575A0);
+  KxReleaseSpinLock(&qword_140D4A088);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

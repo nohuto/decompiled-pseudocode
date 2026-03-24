@@ -1,24 +1,22 @@
 /*
- * XREFs of ObUnRegisterCallbacks @ 0x14097C340
+ * XREFs of ObUnRegisterCallbacks @ 0x1408DDC90
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A210 (ExWaitForRundownProtectionRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1403427F0 (ExWaitForRundownProtectionRelease.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __stdcall ObUnRegisterCallbacks(PVOID RegistrationHandle)
 {
-  unsigned int i; // ebx
-  struct _EX_RUNDOWN_REF *v3; // rsi
+  unsigned int i; // esi
+  struct _EX_RUNDOWN_REF *v3; // rdi
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 Count; // rcx
   struct _EX_RUNDOWN_REF **v6; // rax
-  struct _KTHREAD *v7; // rax
-  bool v8; // zf
 
   for ( i = 0; i < *((unsigned __int16 *)RegistrationHandle + 1); ++i )
   {
@@ -32,11 +30,8 @@ void __stdcall ObUnRegisterCallbacks(PVOID RegistrationHandle)
       __fastfail(3u);
     *v6 = (struct _EX_RUNDOWN_REF *)Count;
     *(_QWORD *)(Count + 8) = v6;
-    ExReleasePushLockEx((__int64 *)(v3[4].Count + 184), 0LL);
-    v7 = KeGetCurrentThread();
-    v8 = v7->SpecialApcDisable++ == -1;
-    if ( v8 && ($C71981A45BEB2B45F82C232A7085991E *)v7->ApcState.ApcListHead[0].Flink != &v7->152 )
-      KiCheckForKernelApcDelivery();
+    ExReleasePushLockEx(v3[4].Count + 184, 0LL);
+    KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   }
   ExFreePoolWithTag(RegistrationHandle, 0x6C46624Fu);
 }

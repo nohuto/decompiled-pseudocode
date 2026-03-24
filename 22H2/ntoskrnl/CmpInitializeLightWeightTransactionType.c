@@ -1,27 +1,26 @@
 /*
- * XREFs of CmpInitializeLightWeightTransactionType @ 0x14080EC90
+ * XREFs of CmpInitializeLightWeightTransactionType @ 0x1407A5A64
  * Callers:
- *     CmInitSystem1 @ 0x140B39964 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     ObCreateObjectTypeEx @ 0x140821770 (ObCreateObjectTypeEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObCreateObjectTypeEx @ 0x140790780 (ObCreateObjectTypeEx.c)
  */
 
 __int64 CmpInitializeLightWeightTransactionType()
 {
-  _QWORD v1[15]; // [rsp+30h] [rbp-29h] BYREF
+  __int128 v1[8]; // [rsp+30h] [rbp-29h] BYREF
 
-  memset(v1, 0, sizeof(v1));
-  v1[6] = 0LL;
-  v1[3] = 0x1F003F001F003FLL;
+  memset(v1, 0, 0x78uLL);
+  v1[3] = 0uLL;
+  HIDWORD(v1[1]) = 2031679;
   LOWORD(v1[0]) = 120;
-  v1[1] = 0x12000100000030LL;
-  v1[7] = 0LL;
+  *((_QWORD *)&v1[0] + 1) = 0x12000100000030LL;
   BYTE2(v1[0]) = BYTE2(v1[0]) & 0xE3 | 0xC;
-  v1[8] = CmpCloseLightWeightTransaction;
-  v1[9] = CmpDeleteLightWeightTransaction;
-  v1[2] = 0x1200180012003ELL;
-  LODWORD(v1[5]) = 32;
-  HIDWORD(v1[4]) = 1;
-  return ObCreateObjectTypeEx(&CmpTransactionTypeNameString, (__int64)&CmRegistryTransactionType);
+  *(_QWORD *)&v1[4] = CmpCloseLightWeightTransaction;
+  *((_QWORD *)&v1[4] + 1) = CmpDeleteLightWeightTransaction;
+  LODWORD(v1[1]) = 1179710;
+  *(_QWORD *)((char *)&v1[1] + 4) = 0x1F003F00120018LL;
+  *(_QWORD *)((char *)&v1[2] + 4) = 0x2000000001LL;
+  return ObCreateObjectTypeEx(&CmpTransactionTypeNameString, v1, 0LL, 0LL, (__int64 *)&CmRegistryTransactionType);
 }

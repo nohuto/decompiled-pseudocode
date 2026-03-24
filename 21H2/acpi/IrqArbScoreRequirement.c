@@ -1,5 +1,5 @@
 /*
- * XREFs of IrqArbScoreRequirement @ 0x1C00A0F80
+ * XREFs of IrqArbScoreRequirement @ 0x1C00A2E10
  * Callers:
  *     <none>
  * Callees:

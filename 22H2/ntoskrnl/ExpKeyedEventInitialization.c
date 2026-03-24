@@ -1,71 +1,73 @@
 /*
- * XREFs of ExpKeyedEventInitialization @ 0x140B6ECCC
+ * XREFs of ExpKeyedEventInitialization @ 0x140A6F2EC
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140B4D6E4 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140A3C2EC (ExpInitSystemPhase1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateKeyedEvent @ 0x14041BD40 (ZwCreateKeyedEvent.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x140736AB0 (RtlSetSaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     RtlAddAccessAllowedAce @ 0x1407EF9B0 (RtlAddAccessAllowedAce.c)
- *     RtlAddMandatoryAce @ 0x1407F33F0 (RtlAddMandatoryAce.c)
- *     ObCreateObjectType @ 0x140821750 (ObCreateObjectType.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateKeyedEvent @ 0x1403FB040 (ZwCreateKeyedEvent.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1405DADB0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     RtlAddMandatoryAce @ 0x1406D44E0 (RtlAddMandatoryAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x1406EF9D0 (RtlAddAccessAllowedAce.c)
+ *     ObCreateObjectType @ 0x140790760 (ObCreateObjectType.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 int ExpKeyedEventInitialization()
 {
   int result; // eax
   ULONG v1; // edi
-  ACL *Pool2; // rax
+  ACL *PoolWithTag; // rax
   ACL *v3; // rbx
   NTSTATUS Acl; // edi
   ACL *v5; // rcx
   ULONG v6; // esi
   ACL *v7; // rax
   ACL *v8; // rdi
+  __int64 v9; // rdx
   int KeyedEvent; // esi
+  PVOID *Object; // [rsp+20h] [rbp-E0h]
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-D0h] BYREF
-  int v11; // [rsp+40h] [rbp-C0h]
-  int v12; // [rsp+44h] [rbp-BCh]
-  __int64 v13; // [rsp+48h] [rbp-B8h]
+  int v13; // [rsp+40h] [rbp-C0h]
+  int v14; // [rsp+44h] [rbp-BCh]
+  __int64 v15; // [rsp+48h] [rbp-B8h]
   UNICODE_STRING *p_DestinationString; // [rsp+50h] [rbp-B0h]
-  int v15; // [rsp+58h] [rbp-A8h]
-  int v16; // [rsp+5Ch] [rbp-A4h]
-  _OWORD *v17; // [rsp+60h] [rbp-A0h]
-  __int64 v18; // [rsp+68h] [rbp-98h]
+  int v17; // [rsp+58h] [rbp-A8h]
+  int v18; // [rsp+5Ch] [rbp-A4h]
+  _OWORD *v19; // [rsp+60h] [rbp-A0h]
+  __int64 v20; // [rsp+68h] [rbp-98h]
   _OWORD SecurityDescriptor[2]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v20; // [rsp+90h] [rbp-70h]
-  _DWORD v21[40]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v22; // [rsp+90h] [rbp-70h]
+  _DWORD v23[32]; // [rsp+A0h] [rbp-60h] BYREF
   HANDLE Handle; // [rsp+150h] [rbp+50h] BYREF
-  PVOID Object; // [rsp+158h] [rbp+58h] BYREF
+  PVOID v25; // [rsp+158h] [rbp+58h] BYREF
 
   DestinationString = 0LL;
-  memset(v21, 0, 0x78uLL);
-  v16 = 0;
+  memset(v23, 0, 0x78uLL);
+  v14 = 0;
+  v18 = 0;
   Handle = 0LL;
-  v12 = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  v20 = 0LL;
+  v22 = 0LL;
   RtlInitUnicodeString(&DestinationString, L"KeyedEvent");
-  v21[2] = 0;
-  v21[10] = 0;
-  v21[11] = 0;
-  BYTE2(v21[0]) |= 4u;
-  v21[7] = 983043;
-  v21[6] = 983043;
-  LOWORD(v21[0]) = 120;
-  v21[9] = 1;
-  v21[3] = 131073;
-  v21[4] = 131074;
-  v21[5] = 0x20000;
-  result = ObCreateObjectType(&DestinationString, (__int64)v21, 0LL, (__int64)&ExpKeyedEventObjectType);
+  v23[2] = 0;
+  v23[10] = 0;
+  v23[11] = 0;
+  BYTE2(v23[0]) |= 4u;
+  v23[9] = 1;
+  v23[7] = 983043;
+  v23[6] = 983043;
+  LOWORD(v23[0]) = 120;
+  v23[3] = 131073;
+  v23[4] = 131074;
+  v23[5] = 0x20000;
+  result = ObCreateObjectType(&DestinationString, (__int64)v23, 0LL, (__int64)&ExpKeyedEventObjectType);
   if ( result < 0 )
     return result;
   result = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
@@ -76,11 +78,11 @@ int ExpKeyedEventInitialization()
       + *((unsigned __int8 *)SeAliasAdminsSid + 1)
       + *((unsigned __int8 *)SeWorldSid + 1))
      + 68;
-  Pool2 = (ACL *)ExAllocatePool2(256LL, v1, 0x6C636144u);
-  v3 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v1, 0x6C636144u);
+  v3 = PoolWithTag;
+  if ( !PoolWithTag )
     return -1073741670;
-  Acl = RtlCreateAcl(Pool2, v1, 2u);
+  Acl = RtlCreateAcl(PoolWithTag, v1, 2u);
   v5 = v3;
   if ( Acl < 0
     || (Acl = RtlAddAccessAllowedAce(v3, 2u, 0x20003u, SeWorldSid), v5 = v3, Acl < 0)
@@ -98,7 +100,7 @@ LABEL_19:
     goto LABEL_20;
   }
   v6 = 4 * *((unsigned __int8 *)SeLowMandatorySid + 1) + 28;
-  v7 = (ACL *)ExAllocatePool2(256LL, v6, 0x6C636144u);
+  v7 = (ACL *)ExAllocatePoolWithTag(PagedPool, v6, 0x6C636144u);
   v8 = v7;
   if ( !v7 )
   {
@@ -107,7 +109,8 @@ LABEL_19:
   }
   KeyedEvent = RtlCreateAcl(v7, v6, 2u);
   if ( KeyedEvent < 0
-    || (KeyedEvent = RtlAddMandatoryAce((__int64)v8, 2u, 0, (__int64)SeLowMandatorySid, 17, 1), KeyedEvent < 0)
+    || (KeyedEvent = RtlAddMandatoryAce((__int64)v8, v9, 0, (__int64)SeLowMandatorySid, (__int64)Object, 1),
+        KeyedEvent < 0)
     || (KeyedEvent = RtlSetSaclSecurityDescriptor((__int64)SecurityDescriptor, 1, (__int64)v8, 0), KeyedEvent < 0) )
   {
     ExFreePoolWithTag(v3, 0);
@@ -116,20 +119,20 @@ LABEL_19:
   else
   {
     RtlInitUnicodeString(&DestinationString, L"\\KernelObjects\\CritSecOutOfMemoryEvent");
-    v13 = 0LL;
-    v18 = 0LL;
+    v15 = 0LL;
+    v20 = 0LL;
     p_DestinationString = &DestinationString;
-    v11 = 48;
-    v17 = SecurityDescriptor;
-    v15 = 16;
+    v13 = 48;
+    v19 = SecurityDescriptor;
+    v17 = 16;
     KeyedEvent = ZwCreateKeyedEvent((__int64)&Handle, 983043LL);
     ExFreePoolWithTag(v3, 0);
     ExFreePoolWithTag(v8, 0);
     if ( KeyedEvent >= 0 )
     {
-      Object = 0LL;
-      KeyedEvent = ObReferenceObjectByHandle(Handle, 0xF0003u, ExpKeyedEventObjectType, 0, &Object, 0LL);
-      ExpCritSecOutOfMemoryEvent = (__int64)Object;
+      v25 = 0LL;
+      KeyedEvent = ObReferenceObjectByHandle(Handle, 0xF0003u, ExpKeyedEventObjectType, 0, &v25, 0LL);
+      ExpCritSecOutOfMemoryEvent = (__int64)v25;
       ZwClose(Handle);
     }
   }

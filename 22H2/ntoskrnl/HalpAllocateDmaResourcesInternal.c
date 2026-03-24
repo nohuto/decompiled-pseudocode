@@ -1,146 +1,143 @@
 /*
- * XREFs of HalpAllocateDmaResourcesInternal @ 0x140514F7C
+ * XREFs of HalpAllocateDmaResourcesInternal @ 0x1404CA51C
  * Callers:
- *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x14050098C (HalpDmaReturnEmergencyLogicalAddressResources.c)
- *     HalpContinueProcessingWaitQueue @ 0x14050FCA4 (HalpContinueProcessingWaitQueue.c)
- *     HalpDmaProcessMapRegisterQueueV3 @ 0x14050FF38 (HalpDmaProcessMapRegisterQueueV3.c)
- *     HalpAllocateAdapterChannel @ 0x140514D80 (HalpAllocateAdapterChannel.c)
- *     HalpFreeDmaChannels @ 0x14051731C (HalpFreeDmaChannels.c)
+ *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x1404B82B8 (HalpDmaReturnEmergencyLogicalAddressResources.c)
+ *     HalpDmaProcessMapRegisterQueueV3 @ 0x1404C6298 (HalpDmaProcessMapRegisterQueueV3.c)
+ *     IoFreeAdapterChannelV3 @ 0x1404C62DC (IoFreeAdapterChannelV3.c)
+ *     HalpAllocateAdapterChannel @ 0x1404CA310 (HalpAllocateAdapterChannel.c)
+ *     HalpAllocateDmaResources @ 0x1404CA500 (HalpAllocateDmaResources.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpDmaAllocateMapRegisters @ 0x14045B93E (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaRemoveAdapterFromMasterQueue @ 0x140500660 (HalpDmaRemoveAdapterFromMasterQueue.c)
- *     HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x140500784 (HalpDmaRemoveFromEmergencyLogicalAddressQueue.c)
- *     HalpDmaUseEmergencyLogicalAddressResources @ 0x140500BCC (HalpDmaUseEmergencyLogicalAddressResources.c)
- *     HalpQueueMapBufferWorker @ 0x140505114 (HalpQueueMapBufferWorker.c)
- *     HalFreeAdapterObject @ 0x14050F020 (HalFreeAdapterObject.c)
- *     IoFreeAdapterChannelV3 @ 0x1405102C0 (IoFreeAdapterChannelV3.c)
- *     HalpDmaQueueAdapter @ 0x140511498 (HalpDmaQueueAdapter.c)
- *     HalpAllocateDmaChannels @ 0x140516310 (HalpAllocateDmaChannels.c)
- *     HalpDmaRemoveAdapterFromChannelQueue @ 0x140517004 (HalpDmaRemoveAdapterFromChannelQueue.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpDmaAllocateAndPremapLa @ 0x1404B6CC0 (HalpDmaAllocateAndPremapLa.c)
+ *     HalpDmaRemoveAdapterFromMasterQueue @ 0x1404B7F90 (HalpDmaRemoveAdapterFromMasterQueue.c)
+ *     HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x1404B80B0 (HalpDmaRemoveFromEmergencyLogicalAddressQueue.c)
+ *     IoFreeAdapterChannel @ 0x1404B8C60 (IoFreeAdapterChannel.c)
+ *     HalpQueueMapBufferWorker @ 0x1404BC538 (HalpQueueMapBufferWorker.c)
+ *     HalFreeAdapterObject @ 0x1404C5EC0 (HalFreeAdapterObject.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C683C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaQueueAdapter @ 0x1404C7CD4 (HalpDmaQueueAdapter.c)
+ *     HalpAllocateDmaChannels @ 0x1404CE1CC (HalpAllocateDmaChannels.c)
+ *     HalpDmaRemoveAdapterFromChannelQueue @ 0x1404CEE44 (HalpDmaRemoveAdapterFromChannelQueue.c)
  */
 
-char __fastcall HalpAllocateDmaResourcesInternal(__int64 a1, char a2, int *a3)
+char __fastcall HalpAllocateDmaResourcesInternal(PDMA_ADAPTER DmaAdapter, char a2, __int64 a3)
 {
-  __int64 v3; // rdi
-  int v5; // ecx
-  int v8; // ecx
-  int v9; // ecx
-  int v10; // ecx
-  unsigned int v12; // esi
-  _QWORD *MapRegisters; // rax
-  _QWORD *v14; // rcx
-  int v15; // eax
+  __int64 DmaOperations_low; // r9
+  _DMA_OPERATIONS *DmaOperations; // rbp
+  _DWORD *v6; // r14
+  unsigned int v9; // ebx
+  _DMA_OPERATIONS *MapRegisters; // rax
+  _DMA_OPERATIONS *v11; // rcx
   unsigned int i; // eax
-  _QWORD *v17; // rsi
-  __int64 (__fastcall *v18)(_QWORD, _QWORD, _QWORD, _QWORD); // rax
-  int v19; // eax
+  _DMA_OPERATIONS *v13; // rdi
+  int v14; // eax
+  int AllocateCommonBuffer_high; // eax
+  void (__fastcall *FreeCommonBuffer)(_DMA_ADAPTER *, unsigned int, _LARGE_INTEGER, void *, unsigned __int8); // rax
+  int v17; // eax
 
-  v3 = *(_QWORD *)(a1 + 352);
-  v5 = *(_DWORD *)(a1 + 624);
-  if ( !v5 )
+  DmaOperations_low = LODWORD(DmaAdapter[38].DmaOperations);
+  DmaOperations = DmaAdapter[21].DmaOperations;
+  v6 = (_DWORD *)a3;
+  switch ( (_DWORD)DmaOperations_low )
   {
-    *(_DWORD *)(a1 + 624) = 1;
+    case 0:
+      LODWORD(DmaAdapter[38].DmaOperations) = 1;
 LABEL_8:
-    if ( !*(_BYTE *)(a1 + 441) && !(unsigned __int8)HalpAllocateDmaChannels(a1) )
-      goto LABEL_16;
-    ++*(_DWORD *)(a1 + 624);
-    goto LABEL_11;
-  }
-  v8 = v5 - 1;
-  if ( !v8 )
-    goto LABEL_8;
-  v9 = v8 - 1;
-  if ( !v9 )
-  {
+      if ( !HIBYTE(DmaAdapter[27].Version) && !(unsigned __int8)HalpAllocateDmaChannels(DmaAdapter) )
+        goto LABEL_25;
+      DmaOperations_low = (unsigned int)++LODWORD(DmaAdapter[38].DmaOperations);
+      goto LABEL_11;
+    case 1:
+      goto LABEL_8;
+    case 2:
 LABEL_11:
-    v12 = *(_DWORD *)(a1 + 248);
-    if ( v12 && *(_BYTE *)(a1 + 440) )
-    {
-      MapRegisters = (_QWORD *)HalpDmaAllocateMapRegisters(a1, v12);
-      *(_QWORD *)(a1 + 240) = MapRegisters;
-      v14 = MapRegisters;
-      if ( !MapRegisters )
+      v9 = *(_DWORD *)&DmaAdapter[15].Version;
+      if ( v9 && LOBYTE(DmaAdapter[27].Version) )
       {
-        HalpQueueMapBufferWorker(a1, v12);
-        if ( (*(_DWORD *)(v3 + 20) & 1) == 0 )
-          HalpDmaQueueAdapter(a1);
-        goto LABEL_16;
-      }
-      MapRegisters[3] = 0LL;
-      MapRegisters[4] = 0LL;
-      MapRegisters[5] = 0LL;
-      if ( (*(_DWORD *)(v3 + 20) & 4) != 0 )
-      {
-        for ( i = 0; i < v12; ++i )
+        MapRegisters = (_DMA_OPERATIONS *)HalpDmaAllocateMapRegisters((__int64)DmaAdapter, v9, a3, DmaOperations_low);
+        DmaAdapter[14].DmaOperations = MapRegisters;
+        v11 = MapRegisters;
+        if ( !MapRegisters )
         {
-          if ( !v14 )
-            break;
-          v14[6] |= 0x20uLL;
-          v14 = (_QWORD *)v14[1];
+          HalpQueueMapBufferWorker((__int64)DmaAdapter, v9);
+          if ( (HIDWORD(DmaOperations->AllocateCommonBuffer) & 1) == 0 )
+            HalpDmaQueueAdapter((__int64)DmaAdapter);
+          goto LABEL_25;
         }
+        MapRegisters->FreeCommonBuffer = (void (__fastcall *)(_DMA_ADAPTER *, unsigned int, _LARGE_INTEGER, void *, unsigned __int8))-1LL;
+        MapRegisters->AllocateAdapterChannel = 0LL;
+        if ( (HIDWORD(DmaOperations->AllocateCommonBuffer) & 4) != 0 )
+        {
+          for ( i = 0; i < v9; ++i )
+          {
+            if ( !v11 )
+              break;
+            v11->FreeAdapterChannel = (void (__fastcall *)(_DMA_ADAPTER *))((unsigned __int64)v11->FreeAdapterChannel | 0x20);
+            v11 = (_DMA_OPERATIONS *)v11->PutDmaAdapter;
+          }
+        }
+        LODWORD(DmaOperations_low) = DmaAdapter[38].DmaOperations;
       }
-    }
-    else
-    {
-      *(_QWORD *)(a1 + 240) = 0LL;
-      *(_DWORD *)(a1 + 248) = 0;
-    }
-    ++*(_DWORD *)(a1 + 624);
-    goto LABEL_25;
-  }
-  v10 = v9 - 1;
-  if ( !v10 )
-  {
+      else
+      {
+        DmaAdapter[14].DmaOperations = 0LL;
+        *(_DWORD *)&DmaAdapter[15].Version = 0;
+      }
+      LODWORD(DmaAdapter[38].DmaOperations) = DmaOperations_low + 1;
+      goto LABEL_23;
+    case 3:
+LABEL_23:
+      if ( *(_DWORD *)&DmaAdapter[32].Version != 2
+        || (v13 = DmaAdapter[14].DmaOperations,
+            LOBYTE(a3) = (HIDWORD(DmaOperations->AllocateCommonBuffer) & 1) == 0,
+            v14 = HalpDmaAllocateAndPremapLa(
+                    (__int64)DmaAdapter,
+                    HIDWORD(DmaOperations->AllocateCommonBuffer) & 0xFFFFF000,
+                    a3,
+                    (__int64 *)&v13->FreeCommonBuffer),
+            v13->FlushAdapterBuffers = (unsigned __int8 (__fastcall *)(_DMA_ADAPTER *, _MDL *, void *, void *, unsigned int, unsigned __int8))v13->FreeCommonBuffer,
+            v14 >= 0) )
+      {
+        LODWORD(DmaOperations_low) = ++LODWORD(DmaAdapter[38].DmaOperations);
+        goto LABEL_34;
+      }
 LABEL_25:
-    if ( *(_DWORD *)(a1 + 520) != 3 )
-      goto LABEL_29;
-    v17 = (_QWORD *)(*(_QWORD *)(a1 + 240) + 24LL);
-    if ( (*(int (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD *))(HalpDmaIommuInterfaceFcnTable + 128))(
-           *(_QWORD *)(*(_QWORD *)(a1 + 512) + 40LL),
-           *(_DWORD *)(v3 + 20) & 0xFFFFF000,
-           0LL,
-           0LL,
-           0LL,
-           v17) >= 0 )
-      goto LABEL_29;
-    if ( HalpDmaUseEmergencyLogicalAddressResources(a1, (_QWORD *)(a1 + 600), (*(_BYTE *)(v3 + 20) & 1) == 0) )
-    {
-      *v17 = *(_QWORD *)(a1 + 560);
-LABEL_29:
-      ++*(_DWORD *)(a1 + 624);
-      goto LABEL_30;
-    }
-LABEL_16:
-    v15 = *(_DWORD *)(v3 + 20);
-    if ( (v15 & 1) != 0
-      || (v15 & 2) != 0
-      && (*(_DWORD *)(v3 - 8) & 2) != 0
-      && (HalpDmaRemoveFromEmergencyLogicalAddressQueue(a1, (_QWORD *)(a1 + 600))
-       || HalpDmaRemoveAdapterFromMasterQueue(a1)
-       || (unsigned __int8)HalpDmaRemoveAdapterFromChannelQueue(a1)) )
-    {
-      *(_DWORD *)(a1 + 248) = 0;
-      IoFreeAdapterChannelV3(a1);
-    }
-    return 0;
+      AllocateCommonBuffer_high = HIDWORD(DmaOperations->AllocateCommonBuffer);
+      if ( (AllocateCommonBuffer_high & 1) != 0
+        || (AllocateCommonBuffer_high & 2) != 0
+        && ((__int64)DmaOperations[-1].FreeCommonBufferVector & 2) != 0
+        && (HalpDmaRemoveFromEmergencyLogicalAddressQueue((__int64)DmaAdapter, &DmaAdapter[37].Version)
+         || HalpDmaRemoveAdapterFromMasterQueue((__int64)DmaAdapter)
+         || (unsigned __int8)HalpDmaRemoveAdapterFromChannelQueue(DmaAdapter)) )
+      {
+        *(_DWORD *)&DmaAdapter[15].Version = 0;
+        IoFreeAdapterChannel(DmaAdapter);
+      }
+      return 0;
   }
-  if ( v10 != 1 )
+  if ( (_DWORD)DmaOperations_low != 4 )
     return 0;
-LABEL_30:
-  if ( (*(_DWORD *)(v3 + 20) & 2) != 0 )
-    _InterlockedOr((volatile signed __int32 *)(v3 - 8), 1u);
-  ++*(_DWORD *)(a1 + 624);
-  if ( (*(_DWORD *)(v3 + 20) & 2) != 0 )
-    *(_QWORD *)(a1 + 360) = v3 - 16;
-  v18 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))(v3 + 24);
-  if ( v18 )
+LABEL_34:
+  if ( (HIDWORD(DmaOperations->AllocateCommonBuffer) & 2) != 0 )
   {
-    v19 = v18(*(_QWORD *)(v3 + 48), *(_QWORD *)(v3 + 56), *(_QWORD *)(a1 + 240), *(_QWORD *)(v3 + 32));
-    if ( a3 )
-      *a3 = v19;
+    _InterlockedOr((volatile signed __int32 *)&DmaOperations[-1].FreeCommonBufferVector, 1u);
+    LODWORD(DmaOperations_low) = DmaAdapter[38].DmaOperations;
+  }
+  LODWORD(DmaAdapter[38].DmaOperations) = DmaOperations_low + 1;
+  if ( (HIDWORD(DmaOperations->AllocateCommonBuffer) & 2) != 0 )
+    *(_QWORD *)&DmaAdapter[22].Version = (char *)DmaOperations - 16;
+  FreeCommonBuffer = DmaOperations->FreeCommonBuffer;
+  if ( FreeCommonBuffer )
+  {
+    v17 = ((__int64 (__fastcall *)(void (__fastcall *)(_DMA_ADAPTER *), void (__fastcall *)(_DMA_ADAPTER *, void *, unsigned int), _DMA_OPERATIONS *, int (__fastcall *)(_DMA_ADAPTER *, _DEVICE_OBJECT *, unsigned int, _IO_ALLOCATION_ACTION (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *, void *), void *)))FreeCommonBuffer)(
+            DmaOperations->FreeAdapterChannel,
+            DmaOperations->FreeMapRegisters,
+            DmaAdapter[14].DmaOperations,
+            DmaOperations->AllocateAdapterChannel);
+    if ( v6 )
+      *v6 = v17;
     if ( a2 )
-      HalFreeAdapterObject(a1, v19);
+      HalFreeAdapterObject((__int64)DmaAdapter, v17);
   }
   return 1;
 }

@@ -4,8 +4,8 @@
  *     BgLibraryDisable @ 0x140950E10 (BgLibraryDisable.c)
  *     BgpFwLibraryDestroy @ 0x140950E4C (BgpFwLibraryDestroy.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14016ECCC (BgpFwFreeMemory.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     LogFwReport @ 0x14094E514 (LogFwReport.c)
  *     AnFwFadeCompletion @ 0x14094F140 (AnFwFadeCompletion.c)
  *     ResFwBackgroundTransition @ 0x140950360 (ResFwBackgroundTransition.c)

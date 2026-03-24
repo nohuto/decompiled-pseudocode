@@ -1,22 +1,22 @@
 /*
- * XREFs of PdcPoNetworkResiliency @ 0x1409979E0
+ * XREFs of PdcPoNetworkResiliency @ 0x1408EF8E0
  * Callers:
  *     <none>
  * Callees:
- *     KeCancelTimer2 @ 0x14031DD00 (KeCancelTimer2.c)
- *     PopQueueWorkItem @ 0x14032CB04 (PopQueueWorkItem.c)
- *     PopNetUpdateDsAccounting @ 0x140599010 (PopNetUpdateDsAccounting.c)
- *     PopNetArmDsEvaluationTimer @ 0x140996614 (PopNetArmDsEvaluationTimer.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PopQueueWorkItem @ 0x14032CC74 (PopQueueWorkItem.c)
+ *     KeCancelTimer2 @ 0x140348B50 (KeCancelTimer2.c)
+ *     PopNetUpdateDsAccounting @ 0x140578620 (PopNetUpdateDsAccounting.c)
+ *     PopNetArmDsEvaluationTimer @ 0x1408F1BF4 (PopNetArmDsEvaluationTimer.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PdcPoNetworkResiliency(int a1)
 {
   char v1; // bl
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
+  __int64 v2; // rcx
+  __int64 v3; // rdx
+  __int64 v4; // rcx
 
   v1 = a1;
   PopAcquirePolicyLock(a1);
@@ -24,15 +24,14 @@ __int64 __fastcall PdcPoNetworkResiliency(int a1)
   if ( v1 )
   {
     PopNetResiliencyEngaged = 1;
-    _InterlockedExchange(&PopNetGracePeriodState, 1);
-    PopNetArmDsEvaluationTimer();
+    PopNetArmDsEvaluationTimer(v2, (unsigned int)_InterlockedExchange(&PopNetGracePeriodState, 1));
   }
   else
   {
     PopNetResiliencyEngaged = 0;
     KeCancelTimer2((__int64)&PopNetEvaluationTimer);
     _InterlockedExchange(&PopNetGracePeriodState, 0);
-    PopQueueWorkItem((__int64)&unk_140C3A368, DelayedWorkQueue);
+    PopQueueWorkItem((__int64)&unk_140C20A08, DelayedWorkQueue);
   }
-  return PopReleasePolicyLock(v3, v2, v4);
+  return PopReleasePolicyLock(v4, v3);
 }

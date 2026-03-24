@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetFlags@FxRequestOutputBuffer@@UEAAGXZ @ 0x1C0038B10
+ * XREFs of ?GetFlags@FxRequestOutputBuffer@@UEAAGXZ @ 0x1C0055A00
  * Callers:
  *     <none>
  * Callees:

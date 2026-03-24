@@ -1,12 +1,12 @@
 /*
- * XREFs of MIDL_user_allocate @ 0x1407E7230
+ * XREFs of MIDL_user_allocate @ 0x1406A39F0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void *__stdcall MIDL_user_allocate(size_t size)
 {
-  return (void *)ExAllocatePool2(256LL, size, 1668313707LL);
+  return ExAllocatePoolWithTag(PagedPool, size, 0x6370726Bu);
 }

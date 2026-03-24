@@ -1,16 +1,24 @@
 /*
- * XREFs of Win32AllocPoolWithPriority @ 0x1C0167210
+ * XREFs of Win32AllocPoolWithPriority @ 0x1C0139A90
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocatePriority@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0IW4_EX_POOL_PRIORITY@@@Z @ 0x1C0179E7C (-AllocatePriority@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0IW4_EX_POOL_PRIORITY@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-void *__fastcall Win32AllocPoolWithPriority(
-        NSInstrumentation::CLeakTrackingAllocator *a1,
-        unsigned __int64 a2,
-        unsigned int a3,
-        enum _EX_POOL_PRIORITY a4)
+__int64 __fastcall Win32AllocPoolWithPriority(unsigned int a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
-  return NSInstrumentation::CLeakTrackingAllocator::AllocatePriority(a1, (unsigned __int64)a1, a2, a3, a4);
+  __int64 v4; // rbx
+  int v9; // eax
+
+  v4 = 0LL;
+  if ( qword_1C0257D20 )
+    v9 = qword_1C0257D20();
+  else
+    v9 = -1073741637;
+  if ( v9 < 0 )
+    return 0LL;
+  if ( qword_1C0257D28 )
+    return qword_1C0257D28(a1, a2, a3, a4);
+  return v4;
 }

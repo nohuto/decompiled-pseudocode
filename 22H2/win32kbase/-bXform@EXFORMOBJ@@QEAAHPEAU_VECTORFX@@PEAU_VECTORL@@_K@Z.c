@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORFX@@PEAU_VECTORL@@_K@Z @ 0x1C0152720
+ * XREFs of ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORFX@@PEAU_VECTORL@@_K@Z @ 0x1C00C07D0
  * Callers:
  *     <none>
  * Callees:
- *     EngSetLastError @ 0x1C00AADD0 (EngSetLastError.c)
- *     bCvtVts @ 0x1C02362CC (bCvtVts.c)
+ *     EngSetLastError @ 0x1C009F430 (EngSetLastError.c)
+ *     bCvtVts @ 0x1C00BE0A8 (bCvtVts.c)
  */
 
 __int64 __fastcall EXFORMOBJ::bXform(EXFORMOBJ *this, struct _VECTORFX *a2, struct _VECTORL *a3, __int64 a4)
@@ -33,7 +33,7 @@ __int64 __fastcall EXFORMOBJ::bXform(EXFORMOBJ *this, struct _VECTORFX *a2, stru
   }
   else
   {
-    v8 = bCvtVts(v4, a2, a3);
+    v8 = bCvtVts(v4, (int *)a2, (int *)a3, a4);
     if ( !v8 )
       EngSetLastError(0x216u);
     return v8;

@@ -1,23 +1,23 @@
 /*
- * XREFs of SepDereferenceLowBoxNumberEntry @ 0x1406AB17C
+ * XREFs of SepDereferenceLowBoxNumberEntry @ 0x1406E7EBC
  * Callers:
- *     SeSubProcessToken @ 0x140671BE0 (SeSubProcessToken.c)
- *     SepTokenDeleteMethod @ 0x1406FE720 (SepTokenDeleteMethod.c)
- *     SeSetSessionIdToken @ 0x1407530D0 (SeSetSessionIdToken.c)
- *     NtSetInformationToken @ 0x140754810 (NtSetInformationToken.c)
- *     SeExchangePrimaryToken @ 0x140847260 (SeExchangePrimaryToken.c)
+ *     SeSubProcessToken @ 0x140603B5C (SeSubProcessToken.c)
+ *     NtSetInformationToken @ 0x1406749A0 (NtSetInformationToken.c)
+ *     SeSetSessionIdToken @ 0x1406BA010 (SeSetSessionIdToken.c)
+ *     SepTokenDeleteMethod @ 0x1406E7CF0 (SepTokenDeleteMethod.c)
+ *     SeExchangePrimaryToken @ 0x1407BBC44 (SeExchangePrimaryToken.c)
  * Callees:
- *     RtlRemoveEntryHashTable @ 0x1402069A0 (RtlRemoveEntryHashTable.c)
- *     ExRemoveLowBoxAtomReferences @ 0x140232EC0 (ExRemoveLowBoxAtomReferences.c)
- *     RtlDereferenceAtomTable @ 0x140232ED8 (RtlDereferenceAtomTable.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     SepGetTokenSessionMapEntry @ 0x1405F5A58 (SepGetTokenSessionMapEntry.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlRemoveEntryHashTable @ 0x140251CC0 (RtlRemoveEntryHashTable.c)
+ *     ExRemoveLowBoxAtomReferences @ 0x1402BC5D4 (ExRemoveLowBoxAtomReferences.c)
+ *     RtlDereferenceAtomTable @ 0x1402BC5EC (RtlDereferenceAtomTable.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     SepGetTokenSessionMapEntry @ 0x140597B98 (SepGetTokenSessionMapEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepDereferenceLowBoxNumberEntry(unsigned int a1, __int64 a2)
@@ -37,7 +37,7 @@ __int64 __fastcall SepDereferenceLowBoxNumberEntry(unsigned int a1, __int64 a2)
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquirePushLockSharedEx((ULONG_PTR)&LowboxSessionMapLock, 0LL);
-    TokenSessionMapEntry = SepGetTokenSessionMapEntry(a1, 0, (__int64 *)&BugCheckParameter2);
+    TokenSessionMapEntry = SepGetTokenSessionMapEntry(a1, 0, &BugCheckParameter2);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&LowboxSessionMapLock, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)&LowboxSessionMapLock);
     KeAbPostRelease((ULONG_PTR)&LowboxSessionMapLock);

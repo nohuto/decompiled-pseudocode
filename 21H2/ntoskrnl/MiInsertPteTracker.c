@@ -1,27 +1,28 @@
 /*
- * XREFs of MiInsertPteTracker @ 0x1405B6C18
+ * XREFs of MiInsertPteTracker @ 0x14055EDE0
  * Callers:
- *     MiMapContiguousMemory @ 0x14021538C (MiMapContiguousMemory.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     MmAllocateMappingAddressEx @ 0x1407F9D50 (MmAllocateMappingAddressEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiMapContiguousMemory @ 0x140295824 (MiMapContiguousMemory.c)
+ *     MmMapMdl @ 0x1405375B0 (MmMapMdl.c)
+ *     MmAllocateMappingAddressEx @ 0x1406AE4A0 (MmAllocateMappingAddressEx.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     RtlCaptureStackBackTrace @ 0x140295EF0 (RtlCaptureStackBackTrace.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x140429900 (RtlpInterlockedFlushSList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CE20 (RtlCaptureStackBackTrace.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
 {
   PSLIST_ENTRY v8; // rdi
-  __int64 result; // rax
-  PSLIST_ENTRY v10; // rax
+  PSLIST_ENTRY v9; // rax
   _SLIST_ENTRY *Next; // rcx
-  _SLIST_ENTRY *v12; // rbx
+  _SLIST_ENTRY *v11; // rbx
+  __int64 result; // rax
   unsigned __int64 v13; // rcx
   __int64 v14; // rcx
   __int64 v15; // rax
@@ -43,40 +44,38 @@ __int64 __fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
 
   BackTraceHash = 0;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( LOWORD(stru_140C52F00.Alignment) >= 0xAu )
+  if ( LOWORD(stru_140C4EAC0.Alignment) < 0xAu )
   {
-    v10 = RtlpInterlockedFlushSList(&stru_140C52F00);
-    v8 = v10;
-    if ( v10 )
-    {
-      Next = v10->Next;
-      if ( v10->Next )
-      {
-        do
-        {
-          v12 = Next->Next;
-          ExFreePoolWithTag(Next, 0);
-          Next = v12;
-        }
-        while ( v12 );
-      }
-      goto LABEL_8;
-    }
+    v8 = RtlpInterlockedPopEntrySList(&stru_140C4EAC0);
+    goto LABEL_6;
   }
-  else
+  v9 = RtlpInterlockedFlushSList(&stru_140C4EAC0);
+  v8 = v9;
+  if ( v9 )
   {
-    v8 = RtlpInterlockedPopEntrySList(&stru_140C52F00);
+    Next = v9->Next;
+    if ( v9->Next )
+    {
+      do
+      {
+        v11 = Next->Next;
+        ExFreePoolWithTag(Next, 0);
+        Next = v11;
+      }
+      while ( v11 );
+    }
+LABEL_6:
     if ( v8 )
-      goto LABEL_8;
+      goto LABEL_9;
   }
   result = (__int64)MiAllocatePool(64, 0x80uLL, 0x79536D4Du);
   v8 = (PSLIST_ENTRY)result;
   if ( !result )
   {
-    byte_140C5304D = 1;
+    byte_140C4EBBD = 1;
     return result;
   }
-LABEL_8:
+LABEL_9:
   if ( !a2 )
   {
     v17 = (*(_DWORD *)(a1 + 32) + *(_DWORD *)(a1 + 44)) & 0xFFF;
@@ -86,7 +85,7 @@ LABEL_8:
     *((_QWORD *)&v8[2].Next + 1) = *(_QWORD *)(a1 + 32);
     LODWORD(v8[3].Next) = *(_DWORD *)(a1 + 44);
     HIDWORD(v8[3].Next) = *(_DWORD *)(a1 + 40);
-    goto LABEL_13;
+    goto LABEL_14;
   }
   if ( a2 == 1 )
   {
@@ -94,13 +93,13 @@ LABEL_8:
     v15 = *(_QWORD *)(a1 + 16) + 4095LL;
     v8[1].Next = (_SLIST_ENTRY *)1;
     v16 = v15 + v14;
-LABEL_13:
+LABEL_14:
     v13 = v16 >> 12;
-    goto LABEL_14;
+    goto LABEL_15;
   }
   v13 = *(_QWORD *)(a1 + 16) >> 12;
   v8[1].Next = 0LL;
-LABEL_14:
+LABEL_15:
   v19 = v13 + 1;
   if ( (a3 & 2) == 0 )
     v19 = v13;
@@ -111,8 +110,8 @@ LABEL_14:
   *((_QWORD *)&v8[3].Next + 1) = *(_QWORD *)(a1 + 48);
   LODWORD(v8[4].Next) = (4 * (a4 & 3)) | a3 & 1 | (__int64)v8[4].Next & 0xFFFFFFE0 | ((a3 & 2) != 0 ? 0x10 : 0);
   v21 = 40543LL * (unsigned int)((unsigned __int64)v20 >> 12);
-  KeAcquireInStackQueuedSpinLock(&qword_140C52F10, &LockHandle);
-  v22 = (char *)&unk_140C53DB0 + 16 * (((unsigned __int8)v21 ^ BYTE4(v21)) & 0xF);
+  KeAcquireInStackQueuedSpinLock(&qword_140C4EAD0, &LockHandle);
+  v22 = (char *)&unk_140C4F830 + 16 * (((unsigned __int8)v21 ^ BYTE4(v21)) & 0xF);
   v23 = *(_QWORD *)v22;
   if ( *(char **)(*(_QWORD *)v22 + 8LL) != v22 )
     __fastfail(3u);
@@ -120,10 +119,10 @@ LABEL_14:
   v8->Next = (_SLIST_ENTRY *)v23;
   *(_QWORD *)(v23 + 8) = v8;
   *(_QWORD *)v22 = v8;
-  qword_140C53EB0 += v19;
-  v24 = ++qword_140C53EB8;
-  if ( qword_140C53EB8 > (unsigned __int64)qword_140C53EC0 )
-    qword_140C53EC0 = v24;
+  qword_140C4F930 += v19;
+  v24 = ++qword_140C4F938;
+  if ( qword_140C4F938 > (unsigned __int64)qword_140C4F940 )
+    qword_140C4F940 = v24;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   result = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;

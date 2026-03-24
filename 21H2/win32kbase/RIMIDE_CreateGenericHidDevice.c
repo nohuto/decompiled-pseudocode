@@ -1,61 +1,69 @@
 /*
- * XREFs of RIMIDE_CreateGenericHidDevice @ 0x1C019FC14
+ * XREFs of RIMIDE_CreateGenericHidDevice @ 0x1C016B4B8
  * Callers:
- *     NtUserInitializeGenericHidInjection @ 0x1C015B1B0 (NtUserInitializeGenericHidInjection.c)
- *     ?CreateRimDevice@VirtualTouchpadProcessor@@AEAAJPEAVVPTPTouchpad@@@Z @ 0x1C01F3340 (-CreateRimDevice@VirtualTouchpadProcessor@@AEAAJPEAVVPTPTouchpad@@@Z.c)
+ *     NtUserInitializeGenericHidInjection @ 0x1C012FFB0 (NtUserInitializeGenericHidInjection.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     rimHidP_GetUsageValue @ 0x1C00E63A2 (rimHidP_GetUsageValue.c)
- *     RIMIDECreatePseudoHIDDevice @ 0x1C019C4FC (RIMIDECreatePseudoHIDDevice.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     rimHidP_GetUsageValue @ 0x1C016366C (rimHidP_GetUsageValue.c)
+ *     RIMIDECreatePseudoHIDDevice @ 0x1C0168074 (RIMIDECreatePseudoHIDDevice.c)
  */
 
-__int64 __fastcall RIMIDE_CreateGenericHidDevice(__int64 a1, _QWORD *a2)
+__int64 __fastcall RIMIDE_CreateGenericHidDevice(__int64 a1, __int64 *a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 result; // rax
-  char *v7; // rcx
-  __int16 v8; // dx
-  __int16 v9; // cx
-  __int64 v10; // [rsp+48h] [rbp-61h]
-  unsigned int v11[4]; // [rsp+60h] [rbp-49h] BYREF
-  __int128 v12[4]; // [rsp+70h] [rbp-39h] BYREF
-  _OWORD v13[4]; // [rsp+B0h] [rbp+7h] BYREF
+  unsigned int v4; // ebx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  int v7; // eax
+  char *v8; // rcx
+  __int16 v9; // dx
+  __int16 v10; // cx
+  __int64 v11; // rax
+  __int64 v13; // [rsp+48h] [rbp-61h]
+  unsigned int v14[4]; // [rsp+50h] [rbp-59h] BYREF
+  __int128 v15[4]; // [rsp+60h] [rbp-49h] BYREF
+  _OWORD v16[4]; // [rsp+A0h] [rbp-9h] BYREF
 
-  memset(v13, 0, sizeof(v13));
-  v4 = *(unsigned __int16 *)(a1 + 40);
-  v5 = *(_QWORD *)(a1 + 32);
-  v11[0] = 1;
-  if ( !gpfnHidP_GetCollectionDescription )
-    return 3221225659LL;
-  result = ((__int64 (__fastcall *)(__int64, __int64, __int64, _OWORD *))gpfnHidP_GetCollectionDescription)(
-             v5,
-             v4,
-             1LL,
-             v13);
-  if ( (int)result >= 0 )
+  v4 = 0;
+  memset(v16, 0, sizeof(v16));
+  v5 = *(unsigned __int16 *)(a1 + 40);
+  v6 = *(_QWORD *)(a1 + 32);
+  v14[0] = 1;
+  if ( gpfnHidP_GetCollectionDescription )
+    v7 = ((__int64 (__fastcall *)(__int64, __int64, __int64, _OWORD *))gpfnHidP_GetCollectionDescription)(
+           v6,
+           v5,
+           1LL,
+           v16);
+  else
+    v7 = -1073741637;
+  if ( v7 >= 0 )
   {
-    v7 = *(char **)(a1 + 48);
-    if ( v7 )
+    v8 = *(char **)(a1 + 48);
+    if ( v8 )
       rimHidP_GetUsageValue(
         HidP_Feature,
         0xDu,
         0,
         0x55u,
-        v11,
-        *(struct _HIDP_PREPARSED_DATA **)(*(_QWORD *)&v13[0] + 32LL),
-        v7,
+        v14,
+        *(struct _HIDP_PREPARSED_DATA **)(*(_QWORD *)&v16[0] + 32LL),
+        v8,
         *(unsigned __int16 *)(a1 + 56));
-    v10 = *(_QWORD *)(a1 + 24);
-    v12[1] = v13[1];
-    v8 = *(_WORD *)(*(_QWORD *)&v13[0] + 2LL);
-    v9 = **(_WORD **)&v13[0];
-    v12[0] = v13[0];
-    v12[2] = v13[2];
-    v12[3] = v13[3];
-    return RIMIDECreatePseudoHIDDevice(v9, v8, v11[0], 1u, 0LL, v12, 1, 0, 0, v10, a2);
+    v13 = *(_QWORD *)(a1 + 24);
+    v15[1] = v16[1];
+    v15[0] = v16[0];
+    v9 = *(_WORD *)(*(_QWORD *)&v16[0] + 2LL);
+    v10 = **(_WORD **)&v16[0];
+    v15[2] = v16[2];
+    v15[3] = v16[3];
+    v11 = RIMIDECreatePseudoHIDDevice(v10, v9, v14[0], 1u, 0LL, v15, 1, 0, 0, v13);
+    if ( v11 )
+    {
+      *a2 = v11;
+      return 1;
+    }
   }
-  return result;
+  return v4;
 }

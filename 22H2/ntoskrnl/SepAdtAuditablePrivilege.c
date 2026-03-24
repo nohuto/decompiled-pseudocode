@@ -1,7 +1,7 @@
 /*
- * XREFs of SepAdtAuditablePrivilege @ 0x1405B8CEC
+ * XREFs of SepAdtAuditablePrivilege @ 0x140596C0C
  * Callers:
- *     SepAdtTokenRightAdjusted @ 0x1406BB15C (SepAdtTokenRightAdjusted.c)
+ *     SepAdtTokenRightAdjusted @ 0x140608AA0 (SepAdtTokenRightAdjusted.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ char __fastcall SepAdtAuditablePrivilege(_DWORD *a1, unsigned int a2)
   {
     while ( 2 )
     {
-      v5 = off_14000AC50;
+      v5 = off_140009B40;
       for ( i = 0; i < 0xE; ++i )
       {
         if ( *a1 == (*v5)->LowPart && a1[1] == (*v5)->HighPart )

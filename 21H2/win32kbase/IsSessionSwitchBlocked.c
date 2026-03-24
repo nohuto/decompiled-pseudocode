@@ -1,5 +1,5 @@
 /*
- * XREFs of IsSessionSwitchBlocked @ 0x1C01468B0
+ * XREFs of IsSessionSwitchBlocked @ 0x1C01177A0
  * Callers:
  *     <none>
  * Callees:

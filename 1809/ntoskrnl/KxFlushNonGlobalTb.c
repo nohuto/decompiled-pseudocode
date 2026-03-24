@@ -1,18 +1,18 @@
 /*
- * XREFs of KxFlushNonGlobalTb @ 0x1400ED200
+ * XREFs of KxFlushNonGlobalTb @ 0x1400ED220
  * Callers:
  *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
  * Callees:
- *     KiIpiSendRequestEx @ 0x1400ED140 (KiIpiSendRequestEx.c)
- *     KiIpiSendRequest @ 0x1400ED350 (KiIpiSendRequest.c)
- *     KeRemoveProcessorAffinityEx @ 0x1400EDA50 (KeRemoveProcessorAffinityEx.c)
- *     KeCopyAffinityEx @ 0x1400EDA90 (KeCopyAffinityEx.c)
- *     KxSetTimeStampBusy @ 0x140117C30 (KxSetTimeStampBusy.c)
- *     KiFlushProcessTbWorker @ 0x140125470 (KiFlushProcessTbWorker.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlNotifyLongSpinWait @ 0x1402712D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298230 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiIpiSendRequestEx @ 0x1400ED160 (KiIpiSendRequestEx.c)
+ *     KiIpiSendRequest @ 0x1400ED370 (KiIpiSendRequest.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1400EDA70 (KeRemoveProcessorAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
+ *     KxSetTimeStampBusy @ 0x140117C50 (KxSetTimeStampBusy.c)
+ *     KiFlushProcessTbWorker @ 0x140125490 (KiFlushProcessTbWorker.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall KxFlushNonGlobalTb(int a1)

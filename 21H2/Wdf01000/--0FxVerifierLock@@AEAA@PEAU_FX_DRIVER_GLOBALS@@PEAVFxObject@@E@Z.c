@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0FxVerifierLock@@AEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@E@Z @ 0x1C0067338
+ * XREFs of ??0FxVerifierLock@@AEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@E@Z @ 0x1C004D3D4
  * Callers:
- *     ?CreateAndInitialize@FxVerifierLock@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@E@Z @ 0x1C006749C (-CreateAndInitialize@FxVerifierLock@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@E@Z.c)
+ *     ?CreateAndInitialize@FxVerifierLock@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@E@Z @ 0x1C004D97C (-CreateAndInitialize@FxVerifierLock@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@E@Z.c)
  * Callees:
- *     ?InitializeLockOrder@FxVerifierLock@@AEAAXXZ @ 0x1C006D898 (-InitializeLockOrder@FxVerifierLock@@AEAAXXZ.c)
+ *     ?InitializeLockOrder@FxVerifierLock@@AEAAXXZ @ 0x1C005A8FC (-InitializeLockOrder@FxVerifierLock@@AEAAXXZ.c)
  */
 
 void __fastcall FxVerifierLock::FxVerifierLock(

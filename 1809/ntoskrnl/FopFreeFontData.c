@@ -2,9 +2,9 @@
  * XREFs of FopFreeFontData @ 0x1409511C0
  * Callers:
  *     BgpFoDestroy @ 0x1409510F8 (BgpFoDestroy.c)
- *     FopInitializeFonts @ 0x1409FA984 (FopInitializeFonts.c)
+ *     FopInitializeFonts @ 0x1409FA994 (FopInitializeFonts.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14016ECCC (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
  *     FopFreeMappingTable @ 0x140951234 (FopFreeMappingTable.c)
  */
 

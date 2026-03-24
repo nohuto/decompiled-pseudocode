@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceBootError @ 0x140595270
+ * XREFs of PopTraceBootError @ 0x1405733B8
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PopProcessBootstat @ 0x140A4477C (PopProcessBootstat.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void PopTraceBootError()
@@ -28,9 +28,9 @@ void PopTraceBootError()
   __int64 *v15; // [rsp+B0h] [rbp+37h]
   __int64 v16; // [rsp+B8h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140C03950 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03950, 0x800000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02228, 0x800000000000LL) )
     {
       v1 = *v0;
       v8 = 4LL;
@@ -47,13 +47,7 @@ void PopTraceBootError()
       v12 = 4LL;
       v14 = 4LL;
       v16 = 8LL;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03950,
-        (unsigned __int8 *)&byte_14002E9E7,
-        0LL,
-        0LL,
-        7u,
-        &v6);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, (unsigned __int8 *)word_14002758A, 0LL, 0LL, 7u, &v6);
     }
   }
 }

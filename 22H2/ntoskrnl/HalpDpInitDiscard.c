@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDpInitDiscard @ 0x140B6B400
+ * XREFs of HalpDpInitDiscard @ 0x140A6D3F4
  * Callers:
- *     HalpDpInitSystem @ 0x140A91760 (HalpDpInitSystem.c)
+ *     HalpDpInitSystem @ 0x1409A11D0 (HalpDpInitSystem.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140336E50 (HalpAcpiGetTable.c)
+ *     HalpAcpiGetTable @ 0x1402E77D0 (HalpAcpiGetTable.c)
  */
 
 __int64 __fastcall HalpDpInitDiscard(__int64 a1)

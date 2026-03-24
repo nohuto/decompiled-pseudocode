@@ -1,14 +1,14 @@
 /*
- * XREFs of MmStoreFlushOutstandingEvictions @ 0x1402C4264
+ * XREFs of MmStoreFlushOutstandingEvictions @ 0x1402C4364
  * Callers:
- *     SmStoreCompressionStart @ 0x1408AB720 (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStart @ 0x1408AB700 (SmStoreCompressionStart.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS MmStoreFlushOutstandingEvictions()

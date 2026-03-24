@@ -1,9 +1,9 @@
 /*
- * XREFs of KdSetOwedBreakpoints @ 0x1405680D0
+ * XREFs of KdSetOwedBreakpoints @ 0x140511E20
  * Callers:
- *     KiPageFault @ 0x14042F300 (KiPageFault.c)
+ *     KiPageFault @ 0x14040D300 (KiPageFault.c)
  * Callees:
- *     KdpSetOwedBreakpoints @ 0x140AB6B70 (KdpSetOwedBreakpoints.c)
+ *     KdpSetOwedBreakpoints @ 0x1409BA5E0 (KdpSetOwedBreakpoints.c)
  */
 
 __int64 KdSetOwedBreakpoints()

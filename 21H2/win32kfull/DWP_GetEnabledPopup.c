@@ -1,49 +1,54 @@
 /*
- * XREFs of DWP_GetEnabledPopup @ 0x1C023F45C
+ * XREFs of DWP_GetEnabledPopup @ 0x1C00071D0
  * Callers:
- *     GetActiveTrackPwnd @ 0x1C01DCBDC (GetActiveTrackPwnd.c)
- *     NtUserDWP_GetEnabledPopupOffset @ 0x1C01F2410 (NtUserDWP_GetEnabledPopupOffset.c)
- *     xxxActivateEnabledPopup @ 0x1C023F4F4 (xxxActivateEnabledPopup.c)
- *     xxxFlashEnabledPopup @ 0x1C023F618 (xxxFlashEnabledPopup.c)
+ *     xxxActivateEnabledPopup @ 0x1C000710C (xxxActivateEnabledPopup.c)
+ *     GetActiveTrackPwnd @ 0x1C01E1C6C (GetActiveTrackPwnd.c)
+ *     DWP_GetEnabledPopupOffset @ 0x1C0243BE0 (DWP_GetEnabledPopupOffset.c)
+ *     xxxFlashEnabledPopup @ 0x1C0243C64 (xxxFlashEnabledPopup.c)
  * Callees:
- *     _GhostWindowFromHungWindow @ 0x1C00B4C0C (_GhostWindowFromHungWindow.c)
+ *     _GhostWindowFromHungWindow @ 0x1C003B5B0 (_GhostWindowFromHungWindow.c)
  */
 
 _QWORD *__fastcall DWP_GetEnabledPopup(_QWORD *a1)
 {
   _QWORD *v1; // rbx
-  int v2; // r8d
+  __int64 v2; // r8
+  __int64 v3; // r9
   _QWORD *i; // rax
   __int64 v5; // rax
 
   v1 = (_QWORD *)a1[11];
-  v2 = 0;
+  v2 = 0LL;
+  v3 = a1[2];
   while ( v1 != a1 )
   {
     if ( v1 )
     {
-      if ( *(_QWORD *)(v1[2] + 432LL) == *(_QWORD *)(a1[2] + 432LL) && (*(_BYTE *)(v1[5] + 31LL) & 0x18) == 0x10 )
+      if ( *(_QWORD *)(v1[2] + 432LL) == *(_QWORD *)(v3 + 432) && (*(_BYTE *)(v1[5] + 31LL) & 0x18) == 0x10 )
       {
         for ( i = (_QWORD *)v1[15]; i; i = (_QWORD *)i[15] )
         {
           if ( i == a1 )
-          {
-            v5 = GhostWindowFromHungWindow((__int64)v1);
-            if ( v5 )
-              return (_QWORD *)v5;
-            return v1;
-          }
+            goto LABEL_11;
         }
       }
       v1 = (_QWORD *)v1[11];
     }
     else
     {
-      if ( v2 )
+      if ( (_DWORD)v2 )
         return 0LL;
-      v2 = 1;
+      v2 = 1LL;
       v1 = *(_QWORD **)(a1[13] + 112LL);
     }
   }
-  return 0LL;
+  v1 = 0LL;
+LABEL_11:
+  if ( v1 )
+  {
+    v5 = GhostWindowFromHungWindow(v1, a1, v2, v3);
+    if ( v5 )
+      return (_QWORD *)v5;
+  }
+  return v1;
 }

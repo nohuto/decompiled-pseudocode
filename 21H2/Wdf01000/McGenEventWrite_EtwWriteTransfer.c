@@ -1,8 +1,8 @@
 /*
- * XREFs of McGenEventWrite_EtwWriteTransfer @ 0x1C0061544
+ * XREFs of McGenEventWrite_EtwWriteTransfer @ 0x1C0043B80
  * Callers:
- *     McTemplateK0upp_EtwWriteTransfer @ 0x1C00615A8 (McTemplateK0upp_EtwWriteTransfer.c)
- *     McTemplateK0pp_EtwWriteTransfer @ 0x1C0061A00 (McTemplateK0pp_EtwWriteTransfer.c)
+ *     McTemplateK0upp_EtwWriteTransfer @ 0x1C0043BE4 (McTemplateK0upp_EtwWriteTransfer.c)
+ *     McTemplateK0pp_EtwWriteTransfer @ 0x1C0044000 (McTemplateK0pp_EtwWriteTransfer.c)
  * Callees:
  *     <none>
  */

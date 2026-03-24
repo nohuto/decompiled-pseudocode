@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z @ 0x1C00089D4
+ * XREFs of ?EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z @ 0x1C001D898
  * Callers:
- *     ?SetIndependentFlip@CFlipExBuffer@@UEAAJ_N0IIPEBIPEAH@Z @ 0x1C0008B50 (-SetIndependentFlip@CFlipExBuffer@@UEAAJ_N0IIPEBIPEAH@Z.c)
+ *     ?SetIndependentFlip@CFlipExBuffer@@UEAAJ_N0IIPEBIPEAH@Z @ 0x1C001D800 (-SetIndependentFlip@CFlipExBuffer@@UEAAJ_N0IIPEBIPEAH@Z.c)
  * Callees:
- *     ?OpenDxSurfaceHandle@CBufferRealization@@QEBAJ_N0PEAPEAX@Z @ 0x1C0007A94 (-OpenDxSurfaceHandle@CBufferRealization@@QEBAJ_N0PEAPEAX@Z.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     DxgkSetIndependentFlipMode @ 0x1C0161E30 (DxgkSetIndependentFlipMode.c)
+ *     ?OpenDxSurfaceHandle@CBufferRealization@@QEBAJ_N0PEAPEAX@Z @ 0x1C0011800 (-OpenDxSurfaceHandle@CBufferRealization@@QEBAJ_N0PEAPEAX@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DxgkSetIndependentFlipMode @ 0x1C0174948 (DxgkSetIndependentFlipMode.c)
  */
 
 __int64 __fastcall CFlipExBuffer::EnableDxgkrnlIndependentFlipMode(
@@ -23,31 +23,31 @@ __int64 __fastcall CFlipExBuffer::EnableDxgkrnlIndependentFlipMode(
 
   v5 = 0;
   v10 = -1073741275;
-  if ( *((_DWORD *)this + 68) )
+  if ( *((_DWORD *)this + 60) )
   {
-    v11 = (CBufferRealization *)(*((_QWORD *)this + 32) - 8LL);
+    v11 = (CBufferRealization *)(*((_QWORD *)this + 28) - 8LL);
     Handle = 0LL;
-    v10 = CBufferRealization::OpenDxSurfaceHandle(v11, 0, 1u, &Handle);
+    v10 = CBufferRealization::OpenDxSurfaceHandle(v11, 0LL, 1u, &Handle);
     if ( v10 >= 0 )
     {
-      v10 = DxgkSetIndependentFlipMode(Handle, a2, a3, (__int64)a4, (__int64)a5, (__int64)this + 536);
+      v10 = DxgkSetIndependentFlipMode(Handle, a2, a3, (__int64)a4, (__int64)a5, (__int64)this + 480);
       if ( v10 < 0 )
       {
         ObCloseHandle(Handle, 0);
       }
       else
       {
-        *((_QWORD *)this + 68) = Handle;
-        *((_DWORD *)this + 96) = 1;
-        *((_DWORD *)this + 154) = a3;
-        *((_DWORD *)this + 155) = a2;
-        memset((char *)this + 552, 0, 0x40uLL);
+        *((_QWORD *)this + 61) = Handle;
+        *((_DWORD *)this + 88) = 1;
+        *((_DWORD *)this + 140) = a3;
+        *((_DWORD *)this + 141) = a2;
+        memset((char *)this + 496, 0, 0x40uLL);
         for ( ; a3; a3 >>= 1 )
         {
           if ( (a3 & 1) != 0 )
           {
             v12 = v5++;
-            *((_DWORD *)this + v12 + 138) = a4[v12];
+            *((_DWORD *)this + v12 + 124) = a4[v12];
           }
         }
       }

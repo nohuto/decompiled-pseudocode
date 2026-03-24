@@ -1,108 +1,99 @@
 /*
- * XREFs of VidSchControlVSyncAdapter @ 0x1C0090EC0
+ * XREFs of VidSchControlVSyncAdapter @ 0x1C0088620
  * Callers:
- *     VidSchCreatePeriodicFrameNotification @ 0x1C003E8E0 (VidSchCreatePeriodicFrameNotification.c)
- *     VidSchDestroyPeriodicFrameNotification @ 0x1C003EE20 (VidSchDestroyPeriodicFrameNotification.c)
- *     VidSchControlVSyncDevice @ 0x1C0090D20 (VidSchControlVSyncDevice.c)
- *     VidSchTerminateAdapter @ 0x1C01087F0 (VidSchTerminateAdapter.c)
+ *     VidSchCreatePeriodicFrameNotification @ 0x1C0033B80 (VidSchCreatePeriodicFrameNotification.c)
+ *     VidSchDestroyPeriodicFrameNotification @ 0x1C0034000 (VidSchDestroyPeriodicFrameNotification.c)
+ *     VidSchControlVSyncDevice @ 0x1C00884D0 (VidSchControlVSyncDevice.c)
+ *     VidSchTerminateAdapter @ 0x1C00D1620 (VidSchTerminateAdapter.c)
  * Callees:
- *     ?IncrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0004B34 (-IncrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z.c)
- *     ?IncrementRequestVSyncReasonAdapter@@YAXW4_VIDSCH_VSYNC_REASON_ADAPTER@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0004B7C (-IncrementRequestVSyncReasonAdapter@@YAXW4_VIDSCH_VSYNC_REASON_ADAPTER@@PEAU_VIDSCH_GLOBAL@@I@Z.c)
- *     ?DecrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0004E58 (-DecrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z.c)
- *     ?DerementRequestVSyncReasonAdapter@@YAXW4_VIDSCH_VSYNC_REASON_ADAPTER@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0004E74 (-DerementRequestVSyncReasonAdapter@@YAXW4_VIDSCH_VSYNC_REASON_ADAPTER@@PEAU_VIDSCH_GLOBAL@@I@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     VidSchiControlVSync @ 0x1C00AE7D0 (VidSchiControlVSync.c)
+ *     ?IncrementRequestVSyncReasonAdapter@@YAXW4_VIDSCH_VSYNC_REASON_ADAPTER@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0015C2C (-IncrementRequestVSyncReasonAdapter@@YAXW4_VIDSCH_VSYNC_REASON_ADAPTER@@PEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     ?IncrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0015C58 (-IncrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     ?DecrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0015CA0 (-DecrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     ?DerementRequestVSyncReasonAdapter@@YAXW4_VIDSCH_VSYNC_REASON_ADAPTER@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0015CBC (-DerementRequestVSyncReasonAdapter@@YAXW4_VIDSCH_VSYNC_REASON_ADAPTER@@PEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     VidSchiControlVSync @ 0x1C0079384 (VidSchiControlVSync.c)
  */
 
-__int64 __fastcall VidSchControlVSyncAdapter(struct _VIDSCH_GLOBAL *a1, unsigned int a2, char a3, unsigned int a4)
+__int64 __fastcall VidSchControlVSyncAdapter(struct _VIDSCH_GLOBAL *a1, __int64 a2, __int64 a3, unsigned int a4)
 {
-  unsigned int v4; // ebp
-  __int64 v5; // rbx
-  int v9; // r15d
-  __int64 v10; // rax
+  int v4; // r14d
+  __int64 v5; // rdi
+  char v6; // bp
+  unsigned int v7; // r12d
+  struct _ERESOURCE *v9; // r15
+  __int64 v10; // rdx
   __int64 v11; // rdx
-  unsigned int *v12; // rsi
-  __int64 v13; // rdx
-  unsigned int v14; // r8d
-  struct _VIDSCH_GLOBAL *v16; // rdx
-  int v17; // r8d
-  __int64 v18; // r9
-  __int64 v19; // rcx
+  unsigned int v12; // r8d
+  int v14; // r8d
+  __int64 v15; // rax
+  unsigned int v16; // r9d
+  __int64 i; // rsi
 
   v4 = 0;
   v5 = a4;
-  v9 = 0;
+  v6 = a3;
+  v7 = a2;
   if ( !a1 )
   {
-    WdLogSingleEntry0(1LL);
-    goto LABEL_16;
+    v15 = WdLogNewEntry5_WdAssertion(0LL, a2, a3);
+    goto LABEL_13;
   }
-  v10 = *((unsigned int *)a1 + 10);
   if ( a4 == -3 )
     goto LABEL_3;
-  if ( a4 >= (unsigned int)v10 )
+  if ( a4 >= *((_DWORD *)a1 + 10) )
   {
-    WdLogSingleEntry2(1LL, a4, v10);
-LABEL_16:
-    DxgkLogInternalTriageEvent(v19, 0x40000LL);
+    v15 = WdLogNewEntry5_WdAssertion(a1, a2, a3);
+    *(_QWORD *)(v15 + 24) = v5;
+    *(_QWORD *)(v15 + 32) = *((unsigned int *)a1 + 10);
+LABEL_13:
+    WdLogEvent5_WdAssertion(v15);
     return 0LL;
   }
-  if ( !*((_BYTE *)a1 + 2212) )
+  if ( !*((_BYTE *)a1 + 2132) )
     v5 = 4294967293LL;
 LABEL_3:
-  ExAcquireResourceExclusiveLite((PERESOURCE)((char *)a1 + 1088), 1u);
-  if ( a3 )
+  v9 = (struct _ERESOURCE *)((char *)a1 + 1072);
+  ExAcquireResourceExclusiveLite((PERESOURCE)((char *)a1 + 1072), 1u);
+  if ( !v6 )
   {
-    v12 = (unsigned int *)((char *)a1 + 1824);
+    DerementRequestVSyncReasonAdapter(v7, (__int64)a1, v5);
+    DecrementRequestVSyncCount((unsigned int *)a1 + 452, a1, v14);
   }
-  else
+  if ( !*((_BYTE *)a1 + 2132) )
   {
-    DerementRequestVSyncReasonAdapter(a2, (__int64)a1, v5);
-    v12 = (unsigned int *)((char *)a1 + 1824);
-    DecrementRequestVSyncCount((unsigned int *)a1 + 456, v16, v17);
-  }
-  if ( !*((_BYTE *)a1 + 2212) )
-  {
-    if ( *v12 )
+    if ( *((_DWORD *)a1 + 452) )
       goto LABEL_7;
-    v18 = 4294967293LL;
-LABEL_13:
-    LOBYTE(v11) = a3;
-    v9 = VidSchiControlVSync(a1, v11, a3 != 0 ? 0x10000 : 0, v18);
+    v16 = -3;
+LABEL_27:
+    LOBYTE(v10) = v6;
+    v4 = VidSchiControlVSync((__int64)a1, v10, v6 != 0 ? 0x10000 : 0, v16);
     goto LABEL_7;
   }
   if ( (_DWORD)v5 == -3 )
   {
-    if ( *((_DWORD *)a1 + 10) )
+    for ( i = 0LL; (unsigned int)i < *((_DWORD *)a1 + 10); i = (unsigned int)(i + 1) )
     {
-      do
+      if ( !*((_DWORD *)a1 + i + 452) )
       {
-        if ( !*((_DWORD *)a1 + v4 + 456) )
-        {
-          LOBYTE(v11) = a3;
-          v9 = VidSchiControlVSync(a1, v11, a3 != 0 ? 0x10000 : 0, v4);
-        }
-        ++v4;
+        LOBYTE(v10) = v6;
+        v4 = VidSchiControlVSync((__int64)a1, v10, v6 != 0 ? 0x10000 : 0, i);
       }
-      while ( v4 < *((_DWORD *)a1 + 10) );
-      v12 = (unsigned int *)((char *)a1 + 1824);
     }
     goto LABEL_7;
   }
-  if ( !*((_DWORD *)a1 + v5 + 456) )
+  if ( !*((_DWORD *)a1 + v5 + 452) )
   {
-    v18 = (unsigned int)v5;
-    goto LABEL_13;
+    v16 = v5;
+    goto LABEL_27;
   }
 LABEL_7:
-  if ( a3 )
+  if ( v6 )
   {
-    if ( v9 >= 0 )
+    if ( v4 >= 0 )
     {
-      IncrementRequestVSyncCount(v12, a1, v5);
-      IncrementRequestVSyncReasonAdapter(a2, v13, v14);
+      IncrementRequestVSyncCount((unsigned int *)a1 + 452, a1, v5);
+      IncrementRequestVSyncReasonAdapter(v7, v11, v12);
     }
   }
-  ExReleaseResourceLite((PERESOURCE)((char *)a1 + 1088));
-  return (unsigned int)v9;
+  ExReleaseResourceLite(v9);
+  return (unsigned int)v4;
 }

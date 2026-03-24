@@ -1,15 +1,15 @@
 /*
- * XREFs of HUBDTX_LogAlternateMode @ 0x1C002A65C
+ * XREFs of HUBDTX_LogAlternateMode @ 0x1C0029F8C
  * Callers:
- *     HUBDSM_CheckingIfAlternateModeStringDescriptorShouldBeQueried @ 0x1C0020020 (HUBDSM_CheckingIfAlternateModeStringDescriptorShouldBeQueried.c)
- *     HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor @ 0x1C0020830 (HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor.c)
+ *     HUBDSM_CheckingIfAlternateModeStringDescriptorShouldBeQueried @ 0x1C001FC10 (HUBDSM_CheckingIfAlternateModeStringDescriptorShouldBeQueried.c)
+ *     HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor @ 0x1C0020420 (HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C0002204 (WPP_RECORDER_SF_DD.c)
- *     McTemplateK0phuzu_EtwWriteTransfer @ 0x1C0026D64 (McTemplateK0phuzu_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_DDD @ 0x1C0026F14 (WPP_RECORDER_SF_DDD.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     memmove @ 0x1C0043840 (memmove.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     McTemplateK0phuzu_EtwWriteTransfer @ 0x1C00268B4 (McTemplateK0phuzu_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C0026A64 (WPP_RECORDER_SF_DDD.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 int __fastcall HUBDTX_LogAlternateMode(__int64 a1, _BYTE *a2)
@@ -41,12 +41,12 @@ int __fastcall HUBDTX_LogAlternateMode(__int64 a1, _BYTE *a2)
     *((_BYTE *)v2 + 10) = 1;
     v9 = &WPP_RECORDER_INITIALIZED;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      LODWORD(v9) = WPP_RECORDER_SF_DD(
+      LODWORD(v9) = WPP_RECORDER_SF_dD(
                       *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
                       4u,
                       5u,
-                      0x59u,
-                      (__int64)&WPP_54051f9f773a359161ccd48cdf39bc09_Traceguids,
+                      0x58u,
+                      (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
                       *(unsigned __int16 *)(v5 + 4 * v6 + 44),
                       *(unsigned __int8 *)(v5 + 4 * v6 + 46));
     if ( (BYTE3(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 1) != 0 )
@@ -76,8 +76,8 @@ LABEL_12:
                       *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
                       4u,
                       *(unsigned __int16 *)(v5 + 4 * v6 + 44),
-                      0x5Au,
-                      (__int64)&WPP_54051f9f773a359161ccd48cdf39bc09_Traceguids,
+                      0x59u,
+                      (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
                       *(unsigned __int16 *)(v5 + 4 * v6 + 44),
                       *(unsigned __int8 *)(v5 + 4 * v6 + 46),
                       v7);

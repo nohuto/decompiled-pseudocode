@@ -1,65 +1,66 @@
 /*
- * XREFs of PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x1403228D4
+ * XREFs of PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x14036EDF8
  * Callers:
- *     PnpDeviceCompletionRoutine @ 0x140322760 (PnpDeviceCompletionRoutine.c)
- *     PipEnumerateDevice @ 0x14079528C (PipEnumerateDevice.c)
- *     PiProcessNewDeviceNodeWorker @ 0x140959540 (PiProcessNewDeviceNodeWorker.c)
+ *     PnpDeviceCompletionRoutine @ 0x14036ECE0 (PnpDeviceCompletionRoutine.c)
+ *     PipEnumerateDevice @ 0x1407432C8 (PipEnumerateDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseSemaphoreEx @ 0x1402B7170 (KeReleaseSemaphoreEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeReleaseSemaphoreEx @ 0x140262770 (KeReleaseSemaphoreEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PnpDeviceCompletionQueueDispatchedEntryCompleted(__int64 a1, _QWORD *a2)
 {
   KIRQL v3; // al
-  __int64 v4; // rcx
-  unsigned __int64 v5; // rdi
-  _QWORD *v6; // rax
+  _DWORD *v4; // r9
+  __int64 v5; // rcx
+  unsigned __int64 v6; // rdi
   _QWORD *v7; // rax
+  _QWORD *v8; // rax
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v11; // zf
+  bool v12; // zf
 
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C5CAC8);
-  v4 = *a2;
-  v5 = v3;
-  v6 = (_QWORD *)a2[1];
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C44BA8);
+  v5 = *a2;
+  v6 = v3;
+  v7 = (_QWORD *)a2[1];
   if ( *(_QWORD **)(*a2 + 8LL) != a2
-    || (_QWORD *)*v6 != a2
-    || (*v6 = v4,
-        *(_QWORD *)(v4 + 8) = v6,
-        v7 = (_QWORD *)qword_140C5CAA0,
-        --dword_140C5CA90,
-        *(__int64 **)qword_140C5CAA0 != &qword_140C5CA98) )
+    || (_QWORD *)*v7 != a2
+    || (*v7 = v5,
+        *(_QWORD *)(v5 + 8) = v7,
+        v8 = (_QWORD *)qword_140C44B80,
+        --dword_140C44B70,
+        *(__int64 **)qword_140C44B80 != &qword_140C44B78) )
   {
     __fastfail(3u);
   }
-  *a2 = &qword_140C5CA98;
-  a2[1] = v7;
-  *v7 = a2;
-  qword_140C5CAA0 = (__int64)a2;
-  KeReleaseSemaphoreEx((__int64)&byte_140C5CAA8, 0, 1);
-  result = KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5CAC8);
+  *a2 = &qword_140C44B78;
+  a2[1] = v8;
+  *v8 = a2;
+  qword_140C44B80 = (__int64)a2;
+  KeReleaseSemaphoreEx((__int64)&byte_140C44B88, 0LL, 1LL, v4, 0);
+  KxReleaseSpinLock(&qword_140C44BA8);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v5 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-      v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v11 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v6 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v12 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
-  __writecr8(v5);
+  __writecr8(v6);
   return result;
 }

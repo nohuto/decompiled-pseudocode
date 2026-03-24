@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapFreeErrorRecord @ 0x140320320
+ * XREFs of WheapFreeErrorRecord @ 0x140320420
  * Callers:
- *     WheaReportHwError @ 0x14031FC20 (WheaReportHwError.c)
- *     WheapProcessWorkQueueItem @ 0x1403203D0 (WheapProcessWorkQueueItem.c)
- *     WheapEtwEnableCallback @ 0x1407614A0 (WheapEtwEnableCallback.c)
+ *     WheaReportHwError @ 0x14031FD20 (WheaReportHwError.c)
+ *     WheapProcessWorkQueueItem @ 0x1403204D0 (WheapProcessWorkQueueItem.c)
+ *     WheapEtwEnableCallback @ 0x140761480 (WheapEtwEnableCallback.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

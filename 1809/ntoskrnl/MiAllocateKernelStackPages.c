@@ -1,8 +1,8 @@
 /*
- * XREFs of MiAllocateKernelStackPages @ 0x1400B5640
+ * XREFs of MiAllocateKernelStackPages @ 0x1400B5660
  * Callers:
- *     MmCreateKernelStack @ 0x1400C9EF0 (MmCreateKernelStack.c)
- *     MmGrowKernelStackEx @ 0x140132EB0 (MmGrowKernelStackEx.c)
+ *     MmCreateKernelStack @ 0x1400C9F10 (MmCreateKernelStack.c)
+ *     MmGrowKernelStackEx @ 0x140132ED0 (MmGrowKernelStackEx.c)
  * Callees:
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
@@ -11,13 +11,13 @@
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     PsGetPagePriorityThread @ 0x1400B5BC0 (PsGetPagePriorityThread.c)
- *     MiReleaseFreshPage @ 0x1400E0FE4 (MiReleaseFreshPage.c)
- *     MiChangePageAttribute @ 0x1400EF900 (MiChangePageAttribute.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiWaitForFreePage @ 0x1402CB3A4 (MiWaitForFreePage.c)
+ *     PsGetPagePriorityThread @ 0x1400B5BE0 (PsGetPagePriorityThread.c)
+ *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
+ *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MiAllocateKernelStackPages(

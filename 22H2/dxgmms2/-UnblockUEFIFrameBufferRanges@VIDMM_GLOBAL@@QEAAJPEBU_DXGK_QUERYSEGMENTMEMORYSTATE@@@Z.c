@@ -1,41 +1,49 @@
 /*
- * XREFs of ?UnblockUEFIFrameBufferRanges@VIDMM_GLOBAL@@QEAAJPEBU_DXGK_QUERYSEGMENTMEMORYSTATE@@@Z @ 0x1C00E804C
+ * XREFs of ?UnblockUEFIFrameBufferRanges@VIDMM_GLOBAL@@QEAAJPEBU_DXGK_QUERYSEGMENTMEMORYSTATE@@@Z @ 0x1C00B2E20
  * Callers:
- *     VidMmUnblockUEFIFrameBufferRanges @ 0x1C002D440 (VidMmUnblockUEFIFrameBufferRanges.c)
+ *     VidMmUnblockUEFIFrameBufferRanges @ 0x1C0023110 (VidMmUnblockUEFIFrameBufferRanges.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     ?UnblockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z @ 0x1C00FFF4C (-UnblockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z.c)
+ *     ?UnblockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z @ 0x1C00C8574 (-UnblockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::UnblockUEFIFrameBufferRanges(
         VIDMM_GLOBAL *this,
         const struct _DXGK_QUERYSEGMENTMEMORYSTATE *a2)
 {
-  UINT NumInvalidMemoryRanges; // eax
-  __int64 PhysicalAdapterIndex; // rcx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
+  _QWORD *v4; // rax
+  __int64 v5; // rax
+  __int64 v6; // rcx
+  __int64 v7; // rdx
 
   if ( KeGetCurrentThread() == *(struct _KTHREAD **)(*(_QWORD *)this + 8LL) )
-    WdLogSingleEntry5(0LL, 275LL, 23LL, 0LL, 0LL, 0LL);
-  NumInvalidMemoryRanges = a2->NumInvalidMemoryRanges;
-  if ( NumInvalidMemoryRanges == 1 )
   {
-    v6 = *(_DWORD *)(1616LL * a2->PhysicalAdapterIndex + *((_QWORD *)this + 5028) + 28)
-       + (unsigned int)a2->DriverSegmentId;
-    if ( (unsigned int)v6 < *((_DWORD *)this + 926) )
+    v4 = (_QWORD *)WdLogNewEntry5_WdCriticalError(this, a2);
+    v4[5] = 0LL;
+    v4[6] = 0LL;
+    v4[7] = 0LL;
+    v4[3] = 275LL;
+    v4[4] = 23LL;
+    WdLogEvent5_WdCriticalError(v4);
+  }
+  if ( a2->NumInvalidMemoryRanges == 1 )
+  {
+    v6 = 1584LL * a2->PhysicalAdapterIndex;
+    v7 = *(_DWORD *)(v6 + *((_QWORD *)this + 5027) + 20) + (unsigned int)a2->DriverSegmentId;
+    if ( (unsigned int)v7 < *((_DWORD *)this + 926) )
     {
-      v7 = *(_QWORD *)(*((_QWORD *)this + 464) + 8 * v6);
-      if ( v7 )
-        return VIDMM_SEGMENT::UnblockMemoryRanges(v7, v6, 1LL, a2->pMemoryRanges);
+      v6 = *(_QWORD *)(*((_QWORD *)this + 464) + 8 * v7);
+      if ( v6 )
+        return VIDMM_SEGMENT::UnblockMemoryRanges(v6, v7, 1LL, a2->pMemoryRanges);
     }
-    WdLogSingleEntry2(1LL, a2->PhysicalAdapterIndex, a2->DriverSegmentId);
-    PhysicalAdapterIndex = a2->PhysicalAdapterIndex;
+    v5 = WdLogNewEntry5_WdAssertion(v6, v7, 1LL);
+    *(_QWORD *)(v5 + 24) = a2->PhysicalAdapterIndex;
+    *(_QWORD *)(v5 + 32) = a2->DriverSegmentId;
   }
   else
   {
-    WdLogSingleEntry1(1LL, NumInvalidMemoryRanges);
+    v5 = WdLogNewEntry5_WdAssertion(this, a2, 1LL);
+    *(_QWORD *)(v5 + 24) = a2->NumInvalidMemoryRanges;
   }
-  DxgkLogInternalTriageEvent(PhysicalAdapterIndex, 0x40000LL);
+  WdLogEvent5_WdAssertion(v5);
   return 3221225485LL;
 }

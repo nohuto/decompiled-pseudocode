@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpReleaseDisownedFastResourceExclusive @ 0x14063CF10
+ * XREFs of ExpReleaseDisownedFastResourceExclusive @ 0x1405B4A90
  * Callers:
- *     ExReleaseDisownedFastResource @ 0x14039CB30 (ExReleaseDisownedFastResource.c)
- *     ExReleaseDisownedFastResourceExclusive @ 0x14063C690 (ExReleaseDisownedFastResourceExclusive.c)
- *     ExReleaseDisownedFastResourceShared @ 0x14063C7A0 (ExReleaseDisownedFastResourceShared.c)
+ *     ExReleaseDisownedFastResource @ 0x14038E570 (ExReleaseDisownedFastResource.c)
+ *     ExReleaseDisownedFastResourceExclusive @ 0x1405B4210 (ExReleaseDisownedFastResourceExclusive.c)
+ *     ExReleaseDisownedFastResourceShared @ 0x1405B4320 (ExReleaseDisownedFastResourceShared.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KxAcquireQueuedSpinLock @ 0x1403119F0 (KxAcquireQueuedSpinLock.c)
- *     KeWakeWaitChain @ 0x14035B8F4 (KeWakeWaitChain.c)
- *     KeAbCrossThreadRelease @ 0x14039CE24 (KeAbCrossThreadRelease.c)
- *     ExpRotateFastOwnerEntrySublistHead @ 0x14039CEC8 (ExpRotateFastOwnerEntrySublistHead.c)
- *     ExpPrepareToWakeResourceExclusive @ 0x14039D600 (ExpPrepareToWakeResourceExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeWakeWaitChain @ 0x1402BA75C (KeWakeWaitChain.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeAbCrossThreadRelease @ 0x14038E820 (KeAbCrossThreadRelease.c)
+ *     ExpRotateFastOwnerEntrySublistHead @ 0x14038EB48 (ExpRotateFastOwnerEntrySublistHead.c)
+ *     ExpPrepareToWakeResourceExclusive @ 0x14038FD98 (ExpPrepareToWakeResourceExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG_PTR __fastcall ExpReleaseDisownedFastResourceExclusive(__int64 a1, __int64 a2)
@@ -60,8 +60,8 @@ LONG_PTR __fastcall ExpReleaseDisownedFastResourceExclusive(__int64 a1, __int64 
   }
   v6 = *(_QWORD *)(a2 + 32);
   v28.LockQueue.Next = 0LL;
-  v28.LockQueue.Lock = (unsigned __int64 *volatile)(v6 + 1672);
-  KxAcquireQueuedSpinLock((__int64)&v28, (volatile __int64 *)(v6 + 1672));
+  v28.LockQueue.Lock = (unsigned __int64 *volatile)(v6 + 1592);
+  KxAcquireQueuedSpinLock((__int64)&v28, (volatile __int64 *)(v6 + 1592));
   if ( !*(_BYTE *)(a2 + 18) )
   {
     v7 = *(_QWORD *)a2;

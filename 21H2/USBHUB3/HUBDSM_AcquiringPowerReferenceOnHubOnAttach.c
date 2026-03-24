@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_AcquiringPowerReferenceOnHubOnAttach @ 0x1C001CA70
+ * XREFs of HUBDSM_AcquiringPowerReferenceOnHubOnAttach @ 0x1C001C530
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_AcquiringPowerReferenceOnHubOnAttach(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall HUBDSM_AcquiringPowerReferenceOnHubOnAttach(__int64 a1)
          v3,
          0LL,
          0LL,
-         9268,
+         9245,
          "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubpdo.c");
   KeLowerIrql(v2);
   if ( v4 >= 0 )

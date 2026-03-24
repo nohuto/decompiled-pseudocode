@@ -1,11 +1,11 @@
 /*
- * XREFs of RootHub_Read30PortSpeeds @ 0x1C0017624
+ * XREFs of RootHub_Read30PortSpeeds @ 0x1C0017F24
  * Callers:
- *     RootHub_UcxEvtGet30PortInfo @ 0x1C0017420 (RootHub_UcxEvtGet30PortInfo.c)
+ *     RootHub_UcxEvtGet30PortInfo @ 0x1C0017D20 (RootHub_UcxEvtGet30PortInfo.c)
  * Callees:
- *     WPP_RECORDER_SF_DDDD @ 0x1C000B300 (WPP_RECORDER_SF_DDDD.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     XilRegister_ReadUlong @ 0x1C00139CC (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C000E080 (WPP_RECORDER_SF_dddd.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
  */
 
 __int64 __fastcall RootHub_Read30PortSpeeds(
@@ -18,172 +18,172 @@ __int64 __fastcall RootHub_Read30PortSpeeds(
         char a7)
 {
   unsigned int v7; // edi
-  int v12; // r14d
+  int v11; // r15d
+  unsigned __int16 v12; // bx
   unsigned __int16 v13; // r12
-  __int64 v14; // r8
-  unsigned __int16 v15; // bx
+  __int64 v14; // r9
   int Ulong; // eax
-  int v17; // edx
-  unsigned int v18; // ebp
-  int v19; // r8d
-  unsigned __int16 v20; // bx
-  int v21; // edx
-  unsigned __int16 v22; // cx
-  __int64 v24; // rax
-  int v25; // r8d
-  int v26; // edx
-  int v27; // r9d
+  int v16; // edx
+  unsigned int v17; // ebp
+  int v18; // r8d
+  unsigned __int16 v19; // bx
+  int v20; // edx
+  __int64 v22; // rax
+  int v23; // r8d
+  int v24; // edx
+  int v25; // edx
+  int v26; // r9d
+  unsigned __int16 v27; // bx
   unsigned __int16 v28; // bx
-  unsigned __int16 v29; // bx
-  __int64 v30; // [rsp+90h] [rbp+8h]
+  __int64 v29; // [rsp+90h] [rbp+8h]
+  unsigned __int16 *v30; // [rsp+A0h] [rbp+18h]
 
+  v30 = a3;
   v7 = 0;
+  v11 = 0;
   v12 = 0;
   v13 = 0;
   v14 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 88LL);
+  v29 = v14;
   *a3 = 0;
-  v15 = 0;
-  v30 = v14;
-  if ( a6 )
+  if ( !a6 )
   {
-    while ( 1 )
+LABEL_18:
+    if ( (v11 & 4) != 0 )
     {
-      Ulong = XilRegister_ReadUlong(v14, (unsigned int *)(a5 + 4LL * v13));
-      v18 = Ulong & 0xF;
-      if ( _bittest(&v12, v18) )
+      if ( v12 < a4 )
       {
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          v27 = 194;
-LABEL_54:
-          LOBYTE(v17) = 2;
-          WPP_RECORDER_SF_d(
-            *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
-            v17,
-            11,
-            v27,
-            (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
-            v18);
-        }
-        return (unsigned int)-1073741811;
+        *(_DWORD *)(a2 + 4LL * v12) = 52;
+        *(_WORD *)(a2 + 4LL * v12 + 2) = 5;
       }
-      v12 |= 1 << v18;
-      v17 = v15;
-      if ( v15 < a4 )
+      v27 = v12 + 1;
+      if ( v27 < a4 )
       {
-        if ( !a7 || (v19 = 0x4000, v18 <= 4) )
-          v19 = 0;
-        *(_DWORD *)(a2 + 4LL * v15) = v19 | Ulong & 0x30;
-        *(_WORD *)(a2 + 4LL * v15 + 2) = HIWORD(Ulong);
-        *(_DWORD *)(a2 + 4LL * v15) = v18 | *(_DWORD *)(a2 + 4LL * v15) & 0xFFFFFFF0;
+        *(_DWORD *)(a2 + 4LL * v27) = 180;
+        *(_WORD *)(a2 + 4LL * v27 + 2) = 5;
       }
-      if ( (Ulong & 0xC0) == 0x80 )
-        break;
-      if ( (Ulong & 0xC0) == 0 )
-      {
-        if ( v15 < a4 )
-          *(_DWORD *)(a2 + 4LL * v15) &= 0xFFFFFF3F;
-        v20 = v15 + 1;
-        if ( v20 < a4 )
-        {
-          if ( !a7 || (v21 = 0x4000, v18 <= 4) )
-            v21 = 0;
-          *(_DWORD *)(a2 + 4LL * v20) = v21 | Ulong & 0x30;
-          *(_WORD *)(a2 + 4LL * v20 + 2) = HIWORD(Ulong);
-          *(_DWORD *)(a2 + 4LL * v20) = Ulong & 0xF | *(_DWORD *)(a2 + 4LL * v20) & 0xFFFFFFB0 | 0x80;
-        }
-LABEL_15:
-        v15 = v20 + 1;
-        goto LABEL_16;
-      }
-      if ( (Ulong & 0xC0) == 0xC0 )
-      {
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          v27 = 197;
-          goto LABEL_54;
-        }
-        return (unsigned int)-1073741811;
-      }
-LABEL_16:
-      ++v13;
-      v22 = v15;
-      if ( v13 >= a6 )
-      {
-        if ( (v12 & 4) != 0 )
-        {
-          if ( v15 < a4 )
-          {
-            *(_DWORD *)(a2 + 4LL * v15) = 52;
-            *(_WORD *)(a2 + 4LL * v15 + 2) = 5;
-          }
-          v28 = v15 + 1;
-          if ( (unsigned __int16)(v22 + 1) < a4 )
-          {
-            *(_DWORD *)(a2 + 4LL * v28) = 180;
-            *(_WORD *)(a2 + 4LL * v28 + 2) = 5;
-          }
-          v15 = v22 + 2;
-        }
-        if ( (v12 & 5) == 5 )
-        {
-          if ( v15 < a4 )
-          {
-            *(_DWORD *)(a2 + 4LL * v15) = (a7 != 0 ? 0x4000 : 0) | 0x35;
-            *(_WORD *)(a2 + 4LL * v15 + 2) = 10;
-          }
-          v29 = v15 + 1;
-          if ( v29 < a4 )
-          {
-            *(_DWORD *)(a2 + 4LL * v29) = (a7 != 0 ? 0x4000 : 0) | 0xB5;
-            *(_WORD *)(a2 + 4LL * v29 + 2) = 10;
-          }
-          v15 = v29 + 1;
-        }
-        goto LABEL_22;
-      }
-      v14 = v30;
+      v12 = v27 + 1;
     }
-    if ( v15 < a4 )
-      *(_DWORD *)(a2 + 4LL * v15) = *(_DWORD *)(a2 + 4LL * v15) & 0xFFFFFF3F | 0x40;
-    v20 = v15 + 1;
+    if ( (v11 & 5) == 5 )
+    {
+      if ( v12 < a4 )
+      {
+        *(_DWORD *)(a2 + 4LL * v12) = (a7 != 0 ? 0x4000 : 0) | 0x35;
+        *(_WORD *)(a2 + 4LL * v12 + 2) = 10;
+      }
+      v28 = v12 + 1;
+      if ( v28 < a4 )
+      {
+        *(_DWORD *)(a2 + 4LL * v28) = (a7 != 0 ? 0x4000 : 0) | 0xB5;
+        *(_WORD *)(a2 + 4LL * v28 + 2) = 10;
+      }
+      v12 = v28 + 1;
+    }
+    *a3 = v12;
+    return v7;
+  }
+  while ( 1 )
+  {
+    Ulong = XilRegister_ReadUlong(v14, (unsigned int *)(a5 + 4LL * v13));
+    v17 = Ulong & 0xF;
+    if ( _bittest(&v11, v17) )
+    {
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        return (unsigned int)-1073741811;
+      v26 = 193;
+      goto LABEL_46;
+    }
+    v11 |= 1 << v17;
+    v16 = v12;
+    if ( v12 < a4 )
+    {
+      if ( !a7 || (v18 = 0x4000, v17 <= 4) )
+        v18 = 0;
+      *(_DWORD *)(a2 + 4LL * v12) = v18 | Ulong & 0x30;
+      *(_WORD *)(a2 + 4LL * v12 + 2) = HIWORD(Ulong);
+      *(_DWORD *)(a2 + 4LL * v12) = v17 | *(_DWORD *)(a2 + 4LL * v12) & 0xFFFFFFF0;
+    }
+    if ( (Ulong & 0xC0) == 0x80 )
+      break;
+    if ( (Ulong & 0xC0) == 0 )
+    {
+      if ( v12 < a4 )
+        *(_DWORD *)(a2 + 4LL * v12) &= 0xFFFFFF3F;
+      v19 = v12 + 1;
+      if ( v19 < a4 )
+      {
+        if ( !a7 || (v20 = 0x4000, v17 <= 4) )
+          v20 = 0;
+        *(_DWORD *)(a2 + 4LL * v19) = v20 | Ulong & 0x30;
+        *(_WORD *)(a2 + 4LL * v19 + 2) = HIWORD(Ulong);
+        *(_DWORD *)(a2 + 4LL * v19) = Ulong & 0xF | *(_DWORD *)(a2 + 4LL * v19) & 0xFFFFFFB0 | 0x80;
+      }
+LABEL_15:
+      v12 = v19 + 1;
+      goto LABEL_16;
+    }
+    if ( (Ulong & 0xC0) == 0xC0 )
+    {
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        return (unsigned int)-1073741811;
+      v26 = 196;
+LABEL_46:
+      LOBYTE(v16) = 2;
+      WPP_RECORDER_SF_d(
+        *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
+        v16,
+        11,
+        v26,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+        v17);
+      return (unsigned int)-1073741811;
+    }
+LABEL_16:
     if ( ++v13 >= a6 )
     {
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        v27 = 195;
-        goto LABEL_54;
-      }
-      return (unsigned int)-1073741811;
+      a3 = v30;
+      goto LABEL_18;
     }
-    v24 = XilRegister_ReadUlong(v30, (unsigned int *)(a5 + 4LL * v13));
-    v25 = v24 & 0xF;
-    if ( v25 != v18 || (unsigned __int8)v24 >> 6 != 3 )
-    {
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_DDDD(
-          *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
-          2u,
-          0xBu,
-          0xC4u,
-          (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
-          v18,
-          2,
-          v24 & 0xF,
-          (unsigned __int8)v24 >> 6);
+    v14 = v29;
+  }
+  if ( v12 < a4 )
+    *(_DWORD *)(a2 + 4LL * v12) = *(_DWORD *)(a2 + 4LL * v12) & 0xFFFFFF3F | 0x40;
+  v19 = v12 + 1;
+  if ( ++v13 >= a6 )
+  {
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return (unsigned int)-1073741811;
-    }
-    if ( v20 < a4 )
+    v26 = 194;
+    goto LABEL_46;
+  }
+  v22 = XilRegister_ReadUlong(v29, (unsigned int *)(a5 + 4LL * v13));
+  v23 = v22 & 0xF;
+  v24 = (unsigned __int8)v22 >> 6;
+  if ( v23 == v17 && v24 == 3 )
+  {
+    if ( v19 < a4 )
     {
-      if ( !a7 || (v26 = 0x4000, v18 <= 4) )
-        v26 = 0;
-      *(_DWORD *)(a2 + 4LL * v20) = v26 | v24 & 0x30;
-      *(_WORD *)(a2 + 4LL * v20 + 2) = WORD1(v24);
-      *(_DWORD *)(a2 + 4LL * v20) = v25 | *(_DWORD *)(a2 + 4LL * v20) & 0xFFFFFFF0 | 0xC0;
+      if ( !a7 || (v25 = 0x4000, v17 <= 4) )
+        v25 = 0;
+      *(_DWORD *)(a2 + 4LL * v19) = v25 | v22 & 0x30;
+      *(_WORD *)(a2 + 4LL * v19 + 2) = WORD1(v22);
+      *(_DWORD *)(a2 + 4LL * v19) = v23 | *(_DWORD *)(a2 + 4LL * v19) & 0xFFFFFFF0 | 0xC0;
     }
     goto LABEL_15;
   }
-LABEL_22:
-  *a3 = v15;
-  return v7;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v24) = 2;
+    WPP_RECORDER_SF_dddd(
+      *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
+      v24,
+      11,
+      195,
+      (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+      v17,
+      2,
+      v23,
+      (unsigned __int8)v22 >> 6);
+  }
+  return (unsigned int)-1073741811;
 }

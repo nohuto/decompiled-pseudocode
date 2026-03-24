@@ -1,9 +1,9 @@
 /*
- * XREFs of Bulk_Stage_AcquireMdl @ 0x1C002282E
+ * XREFs of Bulk_Stage_AcquireMdl @ 0x1C0044648
  * Callers:
- *     Bulk_PrepareStage @ 0x1C00123CC (Bulk_PrepareStage.c)
+ *     Bulk_PrepareStage @ 0x1C000D984 (Bulk_PrepareStage.c)
  * Callees:
- *     WPP_RECORDER_SF_DDDqq @ 0x1C0012848 (WPP_RECORDER_SF_DDDqq.c)
+ *     WPP_RECORDER_SF_DDDqq @ 0x1C000CFB8 (WPP_RECORDER_SF_DDDqq.c)
  */
 
 __int64 __fastcall Bulk_Stage_AcquireMdl(__int64 a1)

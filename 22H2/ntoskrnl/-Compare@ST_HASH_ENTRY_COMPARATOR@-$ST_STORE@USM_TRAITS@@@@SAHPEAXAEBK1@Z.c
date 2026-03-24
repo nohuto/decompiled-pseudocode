@@ -1,8 +1,8 @@
 /*
- * XREFs of ?Compare@ST_HASH_ENTRY_COMPARATOR@?$ST_STORE@USM_TRAITS@@@@SAHPEAXAEBK1@Z @ 0x1405BDE50
+ * XREFs of ?Compare@ST_HASH_ENTRY_COMPARATOR@?$ST_STORE@USM_TRAITS@@@@SAHPEAXAEBK1@Z @ 0x1402F9DC0
  * Callers:
- *     ?BTreeNodeFindKey@?$B_TREE@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HASH_ENTRY_COMPARATOR@2@@@SAKPEAU1@PEAUNODE@?$B_TREE_HEADER@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@K@Z @ 0x1405BC2F8 (-BTreeNodeFindKey@-$B_TREE@KU_ST_HASH_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HAS.c)
- *     ?BTreeSearchKey@?$B_TREE@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HASH_ENTRY_COMPARATOR@2@@@SAJPEAU1@KPEAUSEARCH_RESULT@1@@Z @ 0x1405BCF04 (-BTreeSearchKey@-$B_TREE@KU_ST_HASH_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HASH_.c)
+ *     ?BTreeSearchKey@?$B_TREE@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HASH_ENTRY_COMPARATOR@2@@@SAJPEAU1@KPEAUSEARCH_RESULT@1@@Z @ 0x140269074 (-BTreeSearchKey@-$B_TREE@KU_ST_HASH_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HASH_.c)
+ *     ?BTreeNodeFindKey@?$B_TREE@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HASH_ENTRY_COMPARATOR@2@@@SAKPEAU1@PEAUNODE@?$B_TREE_HEADER@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@K@Z @ 0x1402691AC (-BTreeNodeFindKey@-$B_TREE@KU_ST_HASH_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HAS.c)
  * Callees:
  *     <none>
  */
@@ -14,41 +14,39 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::ST_HASH_ENTRY_COMPARATOR::Compare(
 {
   unsigned int v3; // r14d
   int v5; // ecx
-  unsigned int v6; // r12d
-  unsigned int v7; // r15d
-  __int64 v8; // r10
-  int v9; // ebx
-  __int64 v10; // rdi
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // r11
-  unsigned int v14; // r9d
-  __int64 v15; // rax
+  unsigned int v6; // r15d
+  __int64 v7; // r10
+  int v8; // ebx
+  __int64 v9; // rdi
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // r11
+  unsigned int v13; // r9d
+  unsigned int v14; // eax
 
   v3 = *a2;
   v5 = a1[82];
-  v6 = 0;
-  v7 = *a3;
-  v8 = *a2 >> v5;
-  v9 = a1[84];
-  v10 = (unsigned int)a1[86];
-  v11 = *a3 >> v5;
-  _BitScanReverse((unsigned int *)&v12, v8);
-  _BitScanReverse((unsigned int *)&v13, v11);
-  v14 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)&a1[2 * v12 + 16] + 16 * (v8 ^ (unsigned int)(1 << v12)))
-                  + v9 * (*a2 & a1[83])
-                  + v10
+  v6 = *a3;
+  v7 = *a2 >> v5;
+  v8 = a1[84];
+  v9 = (unsigned int)a1[86];
+  v10 = *a3 >> v5;
+  _BitScanReverse((unsigned int *)&v11, v7);
+  _BitScanReverse((unsigned int *)&v12, v10);
+  v13 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)&a1[2 * v11 + 16] + 16 * (v7 ^ (unsigned int)(1 << v11)))
+                  + v8 * (*a2 & a1[83])
+                  + v9
                   + 8);
-  v15 = *(_QWORD *)(*(_QWORD *)&a1[2 * v13 + 16] + 16 * (v11 ^ (unsigned int)(1 << v13))) + v9 * (v7 & a1[83]);
-  if ( v14 >= *(_DWORD *)(v15 + v10 + 8) )
-  {
-    if ( v14 > *(_DWORD *)(v15 + v10 + 8) )
-      return 1LL;
-    if ( v3 >= v7 )
-    {
-      LOBYTE(v6) = v3 > v7;
-      return v6;
-    }
-  }
-  return 0xFFFFFFFFLL;
+  v14 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)&a1[2 * v12 + 16] + 16 * (v10 ^ (unsigned int)(1 << v12)))
+                  + v8 * (v6 & a1[83])
+                  + v9
+                  + 8);
+  if ( v13 < v14 )
+    return 0xFFFFFFFFLL;
+  if ( v13 > v14 || v3 > v6 )
+    return 1LL;
+  if ( v3 < v6 )
+    return 0xFFFFFFFFLL;
+  else
+    return 0LL;
 }

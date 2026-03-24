@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmIsAllocationCPUVisible @ 0x1C0019000
+ * XREFs of VidMmIsAllocationCPUVisible @ 0x1C0016270
  * Callers:
  *     <none>
  * Callees:
- *     ?IsAllocationCPUVisible@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@@Z @ 0x1C00D79F4 (-IsAllocationCPUVisible@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@@Z.c)
+ *     ?IsAllocationCPUVisible@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@@Z @ 0x1C00B0B0C (-IsAllocationCPUVisible@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@@Z.c)
  */
 
 unsigned __int8 __fastcall VidMmIsAllocationCPUVisible(VIDMM_GLOBAL *a1, struct _VIDMM_MULTI_GLOBAL_ALLOC *a2)

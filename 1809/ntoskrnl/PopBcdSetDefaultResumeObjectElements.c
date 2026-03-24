@@ -1,17 +1,17 @@
 /*
- * XREFs of PopBcdSetDefaultResumeObjectElements @ 0x140712330
+ * XREFs of PopBcdSetDefaultResumeObjectElements @ 0x140712310
  * Callers:
- *     PopBcdEstablishResumeObject @ 0x1407118A8 (PopBcdEstablishResumeObject.c)
- *     PopBcdRegenerateResumeObject @ 0x14087A280 (PopBcdRegenerateResumeObject.c)
+ *     PopBcdEstablishResumeObject @ 0x140711888 (PopBcdEstablishResumeObject.c)
+ *     PopBcdRegenerateResumeObject @ 0x14087A260 (PopBcdRegenerateResumeObject.c)
  * Callees:
- *     wcsrchr @ 0x1401978A0 (wcsrchr.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     wcsrchr @ 0x1401978C0 (wcsrchr.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopBcdReadElement @ 0x140712888 (PopBcdReadElement.c)
- *     BcdSetElementDataWithFlags @ 0x140713390 (BcdSetElementDataWithFlags.c)
- *     BcdGetElementDataWithFlags @ 0x140713570 (BcdGetElementDataWithFlags.c)
- *     PopBcdSetupResumeObject @ 0x140714F48 (PopBcdSetupResumeObject.c)
+ *     PopBcdReadElement @ 0x140712868 (PopBcdReadElement.c)
+ *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x140713550 (BcdGetElementDataWithFlags.c)
+ *     PopBcdSetupResumeObject @ 0x140714F28 (PopBcdSetupResumeObject.c)
  */
 
 __int64 PopBcdSetDefaultResumeObjectElements(__int64 a1, __int64 a2, ...)
@@ -84,7 +84,7 @@ __int64 PopBcdSetDefaultResumeObjectElements(__int64 a1, __int64 a2, ...)
       if ( v11 )
       {
         v12 = L"winresume.efi";
-        if ( dword_140409DD0 != 2 )
+        if ( dword_140409D90 != 2 )
           v12 = L"winresume.exe";
         v13 = -1LL;
         v14 = ((char *)v11 - (char *)v4 + 2) >> 1;

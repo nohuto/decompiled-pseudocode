@@ -3,11 +3,11 @@
  * Callers:
  *     HvStoreModifiedData @ 0x1405A7438 (HvStoreModifiedData.c)
  *     HvpGenerateLogEntry @ 0x1405A7860 (HvpGenerateLogEntry.c)
- *     HvWriteHivePrimaryFile @ 0x1406B8358 (HvWriteHivePrimaryFile.c)
+ *     HvWriteHivePrimaryFile @ 0x1406B8338 (HvWriteHivePrimaryFile.c)
  * Callees:
  *     HvpFindNextDirtyRun @ 0x14000F28C (HvpFindNextDirtyRun.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     HvpMapEntryGetFreeBin @ 0x1405F9C1C (HvpMapEntryGetFreeBin.c)
  *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)

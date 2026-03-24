@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0ppqqqq_EtwWriteTransfer @ 0x1C0048E7C
+ * XREFs of McTemplateK0ppqqqq_EtwWriteTransfer @ 0x1C0048C44
  * Callers:
- *     UsbDevice_CompleteConfigureEndpointRequest @ 0x1C00025C0 (UsbDevice_CompleteConfigureEndpointRequest.c)
+ *     UsbDevice_CompleteConfigureEndpointRequest @ 0x1C000793C (UsbDevice_CompleteConfigureEndpointRequest.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C00351EC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0ppqqqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

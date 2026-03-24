@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetEffectGuid@CArithmeticCompositeEffect@@MEBAAEBU_GUID@@XZ @ 0x1800F9CC0
+ * XREFs of ?GetEffectGuid@CArithmeticCompositeEffect@@MEBAAEBU_GUID@@XZ @ 0x1800E1F70
  * Callers:
  *     <none>
  * Callees:

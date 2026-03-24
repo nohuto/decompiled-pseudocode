@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapWorkQueueAddItem @ 0x140321084
+ * XREFs of WheapWorkQueueAddItem @ 0x140321184
  * Callers:
- *     WheapReportBootError @ 0x14031F9EC (WheapReportBootError.c)
- *     WheapReportPersistedErrorRecord @ 0x14031FAAC (WheapReportPersistedErrorRecord.c)
- *     WheaReportHwError @ 0x14031FC20 (WheaReportHwError.c)
+ *     WheapReportBootError @ 0x14031FAEC (WheapReportBootError.c)
+ *     WheapReportPersistedErrorRecord @ 0x14031FBAC (WheapReportPersistedErrorRecord.c)
+ *     WheaReportHwError @ 0x14031FD20 (WheaReportHwError.c)
  * Callees:
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     ExInterlockedInsertTailList @ 0x14010BF30 (ExInterlockedInsertTailList.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     ExInterlockedInsertTailList @ 0x14010BF50 (ExInterlockedInsertTailList.c)
  */
 
 void __fastcall WheapWorkQueueAddItem(__int64 a1, struct _LIST_ENTRY *a2)

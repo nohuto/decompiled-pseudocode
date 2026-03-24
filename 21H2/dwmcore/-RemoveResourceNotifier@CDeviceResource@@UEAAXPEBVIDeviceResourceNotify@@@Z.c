@@ -1,21 +1,20 @@
 /*
- * XREFs of ?RemoveResourceNotifier@CDeviceResource@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800D0A14
+ * XREFs of ?RemoveResourceNotifier@CDeviceResource@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800481B4
  * Callers:
- *     ?RemoveResourceNotifier@CRenderTargetBitmap@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800D0A04 (-RemoveResourceNotifier@CRenderTargetBitmap@@UEAAXPEBVIDeviceResourceNotify@@@Z.c)
- *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@A@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x180108AD0 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@A@EAAXPEBVIDeviceResourceNotify@@@Z.c)
- *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@BNI@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x180108AF0 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@BNI@EAAXPEBVIDeviceResourceNotify@@@Z.c)
- *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@MI@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x180108C10 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@MI@EAAXPEBVIDeviceResourceNotify@@@Z.c)
- *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@BBI@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x180109150 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@BBI@EAAXPEBVIDeviceResourceNotify@@@Z.c)
- *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@BGA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x180109670 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@BGA@EAAXPEBVIDeviceResourceNotify@@@Z.c)
- *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@BDA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x18010A170 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@BDA@EAAXPEBVIDeviceResourceNotify@@@Z.c)
- *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@CMA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x18010A790 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@CMA@EAAXPEBVIDeviceResourceNotify@@@Z.c)
- *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@MA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x18010AB30 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@MA@EAAXPEBVIDeviceResourceNotify@@@Z.c)
- *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@HA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x18010BB70 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@HA@EAAXPEBVIDeviceResourceNotify@@@Z.c)
- *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@JA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x18010BB90 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@JA@EAAXPEBVIDeviceResourceNotify@@@Z.c)
- *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@KA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x18010C130 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@KA@EAAXPEBVIDeviceResourceNotify@@@Z.c)
- *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@NI@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x18010C3D0 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@NI@EAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?RemoveResourceNotifier@CRenderTargetBitmap@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x180048158 (-RemoveResourceNotifier@CRenderTargetBitmap@@UEAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@A@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800F6000 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@A@EAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@BII@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800F73F0 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@BII@EAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@OI@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800F7690 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@OI@EAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@BAA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800F7B20 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@BAA@EAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@CJA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800F7F60 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@CJA@EAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@BEI@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800F8170 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@BEI@EAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@LA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800F84A0 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@LA@EAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@HA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800F8CE0 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@HA@EAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@JA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800F8CF0 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@JA@EAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@KA@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800F8EF0 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@KA@EAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@NI@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800F90B0 (-RemoveResourceNotifier@CDeviceResource@@$4PPPPPPPM@NI@EAAXPEBVIDeviceResourceNotify@@@Z.c)
  * Callees:
- *     memmove_0 @ 0x18010518B (memmove_0.c)
+ *     memmove_0 @ 0x1800F47E7 (memmove_0.c)
  */
 
 void __fastcall CDeviceResource::RemoveResourceNotifier(CDeviceResource *this, const struct IDeviceResourceNotify *a2)
@@ -24,13 +23,11 @@ void __fastcall CDeviceResource::RemoveResourceNotifier(CDeviceResource *this, c
   const struct IDeviceResourceNotify **i; // rcx
 
   v2 = (const struct IDeviceResourceNotify **)*((_QWORD *)this - 4);
-  for ( i = (const struct IDeviceResourceNotify **)*((_QWORD *)this - 5); i != v2; ++i )
+  for ( i = (const struct IDeviceResourceNotify **)*((_QWORD *)this - 5); i != v2 && *i != a2; ++i )
+    ;
+  if ( i != v2 )
   {
-    if ( *i == a2 )
-    {
-      memmove_0(i, i + 1, (char *)v2 - (char *)(i + 1));
-      *((_QWORD *)this - 4) -= 8LL;
-      return;
-    }
+    memmove_0(i, i + 1, (char *)v2 - (char *)(i + 1));
+    *((_QWORD *)this - 4) -= 8LL;
   }
 }

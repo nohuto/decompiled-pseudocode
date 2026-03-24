@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRemoveUnusedSubsection @ 0x14026EF44
+ * XREFs of MiRemoveUnusedSubsection @ 0x1402F8B04
  * Callers:
- *     MiDereferenceControlAreaPfnList @ 0x1402206C0 (MiDereferenceControlAreaPfnList.c)
- *     MiPrepareSegmentForDeletion @ 0x140270274 (MiPrepareSegmentForDeletion.c)
- *     MmPurgeSection @ 0x14027F360 (MmPurgeSection.c)
- *     MiReferenceSubsection @ 0x140286D4C (MiReferenceSubsection.c)
- *     MiReferenceActiveSubsection @ 0x140286DE0 (MiReferenceActiveSubsection.c)
- *     MiFlushSectionInternal @ 0x140329730 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
+ *     MmPurgeSection @ 0x140238BA0 (MmPurgeSection.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140263AA0 (MiDereferenceControlAreaPfnList.c)
+ *     MiPrepareSegmentForDeletion @ 0x1402F7D04 (MiPrepareSegmentForDeletion.c)
+ *     MiReferenceSubsection @ 0x14031555C (MiReferenceSubsection.c)
+ *     MiReferenceActiveSubsection @ 0x140315D00 (MiReferenceActiveSubsection.c)
  * Callees:
- *     MiReduceUnusedSubsectionCount @ 0x14026EFD0 (MiReduceUnusedSubsectionCount.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReduceUnusedSubsectionCount @ 0x1402F8B90 (MiReduceUnusedSubsectionCount.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall MiRemoveUnusedSubsection(__int64 a1)
@@ -20,7 +20,7 @@ void __fastcall MiRemoveUnusedSubsection(__int64 a1)
   __int64 v4; // r8
   _QWORD *v5; // rdx
 
-  v2 = *(_QWORD *)(qword_140C51F48 + 8LL * (*(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
+  v2 = *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v2 + 1344));
   v3 = (_QWORD *)(a1 + 80);
   v4 = *(_QWORD *)(a1 + 80);

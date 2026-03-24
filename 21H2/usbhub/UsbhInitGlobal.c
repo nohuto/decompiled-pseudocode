@@ -1,49 +1,51 @@
 /*
- * XREFs of UsbhInitGlobal @ 0x1C00430C8
+ * XREFs of UsbhInitGlobal @ 0x1C0044378
  * Callers:
- *     DriverEntry @ 0x1C00410A8 (DriverEntry.c)
+ *     DriverEntry @ 0x1C00422D8 (DriverEntry.c)
  * Callees:
- *     memset @ 0x1C001F800 (memset.c)
+ *     memset @ 0x1C001E180 (memset.c)
  */
 
 __int64 UsbhInitGlobal()
 {
   __int64 result; // rax
 
-  memset(&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, 0, 0x1B8uLL);
-  KeInitializeSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
+  memset(&HubG, 0, 0x1B8uLL);
+  KeInitializeSpinLock(&HubG);
   KeInitializeSpinLock(&SpinLock);
-  KeInitializeEvent((PRKEVENT)&WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, SynchronizationEvent, 1u);
-  KeInitializeEvent(&stru_1C006A6B0, SynchronizationEvent, 0);
-  WPP_MAIN_CB.Dpc.DeferredContext = (void *)0x378425548LL;
-  dword_1C006A618 = 1734964085;
-  LODWORD(WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Blink) = 1734964085;
-  WPP_MAIN_CB.DeviceLock.Header.LockNV = 1734964085;
-  WPP_MAIN_CB.ActiveThreadCount = 1734964085;
-  *(_DWORD *)(&WPP_MAIN_CB.Spare1 + 1) = 1734964085;
-  LODWORD(WPP_MAIN_CB.Reserved) = 1734964085;
-  *((_DWORD *)&WPP_MAIN_CB.Reserved + 3) = 1734964085;
-  dword_1C006A620 = 1734964085;
-  qword_1C006A660 = (__int64)&qword_1C006A658;
-  qword_1C006A658 = (__int64)&qword_1C006A658;
-  WPP_MAIN_CB.Queue.Wcb.CurrentIrp = &WPP_MAIN_CB.Queue.Wcb.DeviceObject;
-  WPP_MAIN_CB.Queue.Wcb.DeviceObject = &WPP_MAIN_CB.Queue.Wcb.DeviceObject;
-  qword_1C006A6A8 = (__int64)&qword_1C006A6A0;
-  qword_1C006A6A0 = (__int64)&qword_1C006A6A0;
+  KeInitializeEvent(&Event, SynchronizationEvent, 1u);
+  KeInitializeEvent(&stru_1C006C610, SynchronizationEvent, 0);
+  dword_1C006C508 = 2017613128;
+  dword_1C006C578 = 1734964085;
+  dword_1C006C548 = 1734964085;
+  dword_1C006C538 = 1734964085;
+  dword_1C006C528 = 1734964085;
+  dword_1C006C554 = 1734964085;
+  dword_1C006C560 = 1734964085;
+  dword_1C006C56C = 1734964085;
+  dword_1C006C580 = 1734964085;
+  qword_1C006C5C0 = (__int64)&qword_1C006C5B8;
+  qword_1C006C5B8 = (__int64)&qword_1C006C5B8;
+  qword_1C006C4A8 = (__int64)&qword_1C006C4A0;
+  qword_1C006C4A0 = (__int64)&qword_1C006C4A0;
+  qword_1C006C608 = (__int64)&qword_1C006C600;
+  qword_1C006C600 = (__int64)&qword_1C006C600;
   result = 2LL;
-  *(&WPP_MAIN_CB.AlignmentRequirement + 1) = 2;
-  WPP_MAIN_CB.Dpc.TargetInfoAsUlong = 2;
-  WPP_MAIN_CB.Dpc.SystemArgument2 = &WPP_MAIN_CB.Queue.Wcb.NumberOfChannels;
-  WPP_MAIN_CB.Dpc.SystemArgument1 = 0LL;
-  WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc = (_KDPC *)0x8000001F4LL;
-  WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink = (_LIST_ENTRY *)32;
-  LODWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) = 1;
-  LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) = 0;
-  *(unsigned __int64 *)((char *)&WPP_MAIN_CB.DeviceQueue.Lock + 4) = 10LL;
-  HIDWORD(WPP_MAIN_CB.Dpc.DpcListEntry.Next) = 300;
-  dword_1C006A668 = 3;
-  *((_DWORD *)&WPP_MAIN_CB.DeviceQueue.1 + 1) = 2000;
-  dword_1C006A678 = 1;
-  dword_1C006A6D0 = 25;
+  dword_1C006C4BC = 2;
+  dword_1C006C4E8 = 2;
+  qword_1C006C518 = (__int64)&HubG;
+  dword_1C006C50C = 3;
+  qword_1C006C510 = 0LL;
+  dword_1C006C4B0 = 500;
+  dword_1C006C4B4 = 8;
+  qword_1C006C4C8 = 32LL;
+  dword_1C006C4D0 = 1;
+  dword_1C006C4D8 = 0;
+  qword_1C006C4DC = 10LL;
+  dword_1C006C4F4 = 300;
+  dword_1C006C5C8 = 3;
+  dword_1C006C4E4 = 2000;
+  dword_1C006C5D8 = 1;
+  dword_1C006C630 = 25;
   return result;
 }

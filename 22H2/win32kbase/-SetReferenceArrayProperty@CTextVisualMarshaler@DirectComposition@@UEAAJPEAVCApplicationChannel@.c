@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetReferenceArrayProperty@CTextVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C021E700
+ * XREFs of ?SetReferenceArrayProperty@CTextVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C01DDA50
  * Callers:
  *     <none>
  * Callees:
- *     ?Set@CResourceMarshalerArrayBase@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAPEAVCResourceMarshaler@2@_KW4MIL_RESOURCE_TYPE@@@Z @ 0x1C002C410 (-Set@CResourceMarshalerArrayBase@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAPEAVCResou.c)
- *     ?SetReferenceArrayProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C0214310 (-SetReferenceArrayProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IP.c)
+ *     ?SetReferenceArrayProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C005E4C0 (-SetReferenceArrayProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IP.c)
+ *     ?Set@CResourceMarshalerArray@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAPEAVCResourceMarshaler@2@_KW4MIL_RESOURCE_TYPE@@@Z @ 0x1C005E528 (-Set@CResourceMarshalerArray@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAPEAVCResourceM.c)
  */
 
 __int64 __fastcall DirectComposition::CTextVisualMarshaler::SetReferenceArrayProperty(
@@ -20,41 +20,29 @@ __int64 __fastcall DirectComposition::CTextVisualMarshaler::SetReferenceArrayPro
   *a6 = 0;
   if ( !a3 )
   {
-    result = DirectComposition::CResourceMarshalerArrayBase::Set(
-               (DirectComposition::CTextVisualMarshaler *)((char *)this + 376),
-               a2,
-               (__int64)a4,
-               a5,
-               0x23u);
+    result = DirectComposition::CResourceMarshalerArray::Set((__int64)this + 368, a2, (__int64)a4, a5, 0x21u);
     if ( (int)result < 0 )
       return result;
-    *((_DWORD *)this + 112) |= 2u;
+    *((_DWORD *)this + 98) = 0;
+    *((_DWORD *)this + 115) |= 2u;
     goto LABEL_11;
   }
   if ( a3 == 1 )
   {
-    result = DirectComposition::CResourceMarshalerArrayBase::Set(
-               (DirectComposition::CTextVisualMarshaler *)((char *)this + 400),
-               a2,
-               (__int64)a4,
-               a5,
-               0x2Bu);
+    result = DirectComposition::CResourceMarshalerArray::Set((__int64)this + 400, a2, (__int64)a4, a5, 0x29u);
     if ( (int)result < 0 )
       return result;
-    *((_DWORD *)this + 112) |= 4u;
+    *((_DWORD *)this + 106) = 0;
+    *((_DWORD *)this + 115) |= 4u;
     goto LABEL_11;
   }
   if ( a3 != 2 )
     return DirectComposition::CVisualMarshaler::SetReferenceArrayProperty(this, a2, a3, a4, a5, a6);
-  result = DirectComposition::CResourceMarshalerArrayBase::Set(
-             (DirectComposition::CTextVisualMarshaler *)((char *)this + 424),
-             a2,
-             (__int64)a4,
-             a5,
-             0x2Bu);
+  result = DirectComposition::CResourceMarshalerArray::Set((__int64)this + 432, a2, (__int64)a4, a5, 0x29u);
   if ( (int)result >= 0 )
   {
-    *((_DWORD *)this + 112) |= 8u;
+    *((_DWORD *)this + 114) = 0;
+    *((_DWORD *)this + 115) |= 8u;
 LABEL_11:
     *a6 = 1;
   }

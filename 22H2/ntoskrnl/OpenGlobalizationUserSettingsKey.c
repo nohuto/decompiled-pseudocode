@@ -1,14 +1,14 @@
 /*
- * XREFs of OpenGlobalizationUserSettingsKey @ 0x1403713AC
+ * XREFs of OpenGlobalizationUserSettingsKey @ 0x1403A414C
  * Callers:
- *     ExpSetPendingUILanguage @ 0x1407FC998 (ExpSetPendingUILanguage.c)
- *     NtSetDefaultLocale @ 0x1407FCF20 (NtSetDefaultLocale.c)
+ *     NtSetDefaultLocale @ 0x14078BD50 (NtSetDefaultLocale.c)
+ *     ExpSetPendingUILanguage @ 0x14078BF70 (ExpSetPendingUILanguage.c)
  * Callees:
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14060FAB0 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x14060FD50 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
- *     RtlIsMultiSessionSku @ 0x1407ED2A0 (RtlIsMultiSessionSku.c)
- *     RtlOpenCurrentUser @ 0x1407FC860 (RtlOpenCurrentUser.c)
- *     RtlIsMultiUsersInSessionSku @ 0x1409BC330 (RtlIsMultiUsersInSessionSku.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x1405BA840 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x1405BAAD0 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     RtlIsMultiSessionSku @ 0x1406816A0 (RtlIsMultiSessionSku.c)
+ *     RtlOpenCurrentUser @ 0x14078C480 (RtlOpenCurrentUser.c)
+ *     RtlIsMultiUsersInSessionSku @ 0x140913970 (RtlIsMultiUsersInSessionSku.c)
  */
 
 __int64 __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *a3)
@@ -21,14 +21,14 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *
   v8 = a1;
   if ( !a3 )
     return 3221225485LL;
-  v4 = dword_140C64AF8;
-  if ( !dword_140C64AF8 )
+  v4 = dword_140CDB108;
+  if ( !dword_140CDB108 )
   {
     if ( (unsigned __int8)RtlIsMultiSessionSku() )
       v4 = 1;
     else
       v4 = ((unsigned __int8)RtlIsMultiUsersInSessionSku() != 0) + 2;
-    dword_140C64AF8 = v4;
+    dword_140CDB108 = v4;
   }
   v5 = v4 - 1;
   if ( !v5 )

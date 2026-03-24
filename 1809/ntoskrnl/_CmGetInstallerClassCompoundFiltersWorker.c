@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmGetInstallerClassCompoundFiltersWorker @ 0x1408FE288
+ * XREFs of _CmGetInstallerClassCompoundFiltersWorker @ 0x1408FE268
  * Callers:
- *     _CmGetInstallerClassCompoundFilters @ 0x1406F0F7C (_CmGetInstallerClassCompoundFilters.c)
+ *     _CmGetInstallerClassCompoundFilters @ 0x1406F0F5C (_CmGetInstallerClassCompoundFilters.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1406F110C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406F5654 (_PnpCtxRegQueryInfoKey.c)
- *     _RegRtlSetValue @ 0x1406FCBC8 (_RegRtlSetValue.c)
- *     _CmGetInstallerClassCompoundFilterList @ 0x1408FE058 (_CmGetInstallerClassCompoundFilterList.c)
- *     _CmMergeInstallerClassFilterLists @ 0x1408FF030 (_CmMergeInstallerClassFilterLists.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1406F10EC (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406F5634 (_PnpCtxRegQueryInfoKey.c)
+ *     _RegRtlSetValue @ 0x1406FCBA8 (_RegRtlSetValue.c)
+ *     _CmGetInstallerClassCompoundFilterList @ 0x1408FE038 (_CmGetInstallerClassCompoundFilterList.c)
+ *     _CmMergeInstallerClassFilterLists @ 0x1408FF010 (_CmMergeInstallerClassFilterLists.c)
  */
 
 __int64 __fastcall CmGetInstallerClassCompoundFiltersWorker(

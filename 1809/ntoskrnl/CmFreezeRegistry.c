@@ -1,7 +1,7 @@
 /*
- * XREFs of CmFreezeRegistry @ 0x1407F5844
+ * XREFs of CmFreezeRegistry @ 0x1407F5824
  * Callers:
- *     NtFreezeRegistry @ 0x1407E93B0 (NtFreezeRegistry.c)
+ *     NtFreezeRegistry @ 0x1407E9390 (NtFreezeRegistry.c)
  * Callees:
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
@@ -9,14 +9,14 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     CmpDisableLazyFlush @ 0x14013BBC0 (CmpDisableLazyFlush.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmpDisableLazyFlush @ 0x14013BBE0 (CmpDisableLazyFlush.c)
  *     CmpGetNextActiveHive @ 0x1405B1474 (CmpGetNextActiveHive.c)
  *     CmpLockRegistryExclusive @ 0x1405B16C8 (CmpLockRegistryExclusive.c)
  *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     HvMarkBaseBlockDirty @ 0x1406CAF54 (HvMarkBaseBlockDirty.c)
- *     CmThawRegistry @ 0x1407F5A94 (CmThawRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     HvMarkBaseBlockDirty @ 0x1406CAF34 (HvMarkBaseBlockDirty.c)
+ *     CmThawRegistry @ 0x1407F5A74 (CmThawRegistry.c)
  */
 
 __int64 __fastcall CmFreezeRegistry(int a1)

@@ -1,169 +1,170 @@
 /*
- * XREFs of PspProcessDynamicEnforcedAddressRanges @ 0x1409AF098
+ * XREFs of PspProcessDynamicEnforcedAddressRanges @ 0x1405CF6F4
  * Callers:
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlAddDynamicEnforcedAddressRange @ 0x1409C26B8 (RtlAddDynamicEnforcedAddressRange.c)
- *     RtlRemoveDynamicEnforcedAddressRange @ 0x1409C2834 (RtlRemoveDynamicEnforcedAddressRange.c)
+ *     KeUnstackDetachProcess @ 0x140207580 (KeUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14025B970 (KeStackAttachProcess.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlAddDynamicEnforcedAddressRange @ 0x1405CFDB0 (RtlAddDynamicEnforcedAddressRange.c)
+ *     RtlRemoveDynamicEnforcedAddressRange @ 0x1405CFF24 (RtlRemoveDynamicEnforcedAddressRange.c)
  */
 
 __int64 __fastcall PspProcessDynamicEnforcedAddressRanges(
-        ULONG_PTR BugCheckParameter1,
+        PRKPROCESS PROCESS,
         __int64 a2,
         __int64 a3,
         unsigned __int16 a4,
         unsigned int *a5)
 {
   volatile signed __int64 *v5; // r15
-  unsigned int v7; // r14d
-  unsigned int v8; // ebx
-  unsigned int v10; // esi
-  unsigned int v11; // r9d
-  int v12; // ebp
-  unsigned int v13; // r12d
-  _DWORD *v14; // rcx
-  unsigned __int64 v15; // rdx
-  __int64 v16; // r8
-  unsigned __int64 v17; // rax
+  unsigned int v6; // ebp
+  char v7; // bl
+  unsigned int v8; // esi
+  struct _EX_RUNDOWN_REF *p_Blink; // r12
+  unsigned int v12; // esi
+  unsigned int v13; // edx
+  unsigned int v14; // r12d
+  bool v15; // zf
+  struct _KTHREAD *v16; // rsi
+  _DWORD *v17; // rcx
   unsigned __int64 v18; // rax
-  int *v19; // rbx
-  int v20; // r14d
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  int v23; // eax
-  unsigned int v25; // [rsp+20h] [rbp-A8h]
-  struct _KTHREAD *CurrentThread; // [rsp+28h] [rbp-A0h]
-  _KPROCESS *Process; // [rsp+38h] [rbp-90h]
-  struct _EX_RUNDOWN_REF *RunRef; // [rsp+40h] [rbp-88h]
-  $115DCDF994C6370D29323EAB0E0C9502 v30; // [rsp+50h] [rbp-78h] BYREF
+  __int64 v19; // r9
+  int *v20; // r14
+  int v21; // ebp
+  __int64 v22; // rdx
+  __int64 v23; // r8
+  int v24; // eax
+  unsigned int v26; // [rsp+20h] [rbp-A8h]
+  struct _LIST_ENTRY **v27; // [rsp+28h] [rbp-A0h]
+  struct _KTHREAD *CurrentThread; // [rsp+30h] [rbp-98h]
+  struct _KPROCESS *v30; // [rsp+40h] [rbp-88h]
+  struct _KAPC_STATE ApcState; // [rsp+50h] [rbp-78h] BYREF
 
   v5 = (volatile signed __int64 *)(a2 + 8);
-  memset(&v30, 0, sizeof(v30));
+  memset(&ApcState, 0, sizeof(ApcState));
+  v6 = 0;
   v7 = 0;
   v8 = a4;
   CurrentThread = KeGetCurrentThread();
-  v25 = 0;
-  Process = CurrentThread->ApcState.Process;
+  v26 = 0;
+  v30 = CurrentThread->ApcState.Process;
   --CurrentThread->KernelApcDisable;
-  RunRef = (struct _EX_RUNDOWN_REF *)(BugCheckParameter1 + 1112);
-  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
+  p_Blink = (struct _EX_RUNDOWN_REF *)&PROCESS[1].ProfileListHead.Blink;
+  v27 = &PROCESS[1].ProfileListHead.Blink;
+  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)&PROCESS[1].ProfileListHead.Blink) )
   {
-    v11 = 0;
-    v12 = 2;
-    v13 = v8;
-    if ( v8 )
+    v13 = 0;
+    v14 = v8;
+    v15 = v8 == 0;
+    v7 = 2;
+    v16 = CurrentThread;
+    if ( v15 )
     {
-      v14 = (_DWORD *)(a3 + 16);
-      while ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) == 0 )
+LABEL_13:
+      if ( PROCESS != v30 )
       {
-        if ( (*(_DWORD *)(BugCheckParameter1 + 1124) & 0x40000008) != 0 )
-        {
-          v10 = -1073741558;
-          goto LABEL_39;
-        }
-        v15 = *((_QWORD *)v14 - 2);
-        v16 = *((_QWORD *)v14 - 1);
-        if ( v15 < 0x10000 )
-          goto LABEL_26;
-        v17 = v16 + v15 - 1;
-        if ( !v16 )
-          v17 = *((_QWORD *)v14 - 2);
-        if ( v17 < v15 )
-          goto LABEL_26;
-        v18 = v16 + v15 - 1;
-        if ( !v16 )
-          v18 = *((_QWORD *)v14 - 2);
-        if ( v18 > 0x7FFFFFFEFFFFLL || !v16 )
-        {
-LABEL_26:
-          v10 = -1073741503;
-          goto LABEL_39;
-        }
-        if ( (*v14 & 0xFFFFFFFE) != 0 )
-        {
-          v10 = -1073741811;
-          goto LABEL_39;
-        }
-        ++v11;
-        v14 += 6;
-        if ( v11 >= v8 )
-          goto LABEL_17;
+        KeStackAttachProcess(PROCESS, &ApcState);
+        v7 = 3;
       }
-      v10 = -1073741749;
-    }
-    else
-    {
-LABEL_17:
-      if ( (_KPROCESS *)BugCheckParameter1 != Process )
-      {
-        KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v30);
-        v12 = 3;
-      }
+      v7 |= 4u;
       ExAcquirePushLockExclusiveEx((ULONG_PTR)v5, 0LL);
-      if ( v8 )
+      if ( v14 )
       {
-        v19 = (int *)(a3 + 16);
-        while ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) == 0 )
+        v20 = (int *)(a3 + 16);
+        while ( 1 )
         {
-          if ( (*(_DWORD *)(BugCheckParameter1 + 1124) & 0x40000008) != 0 )
+          if ( (*(_DWORD *)(&v16[1].SwapListEntry + 1) & 1) != 0 )
           {
-            v10 = -1073741558;
-            goto LABEL_33;
+            v12 = -1073741749;
+            goto LABEL_34;
           }
-          v20 = *v19;
-          v21 = *((_QWORD *)v19 - 2);
-          v22 = *((_QWORD *)v19 - 1);
-          if ( (*v19 & 1) != 0 )
-            v23 = RtlAddDynamicEnforcedAddressRange(a2, v21, v22);
-          else
-            v23 = RtlRemoveDynamicEnforcedAddressRange(a2, v21, v22);
-          v10 = v23;
-          if ( v23 < 0 )
+          if ( (PROCESS[1].DirectoryTableBase & 0x4000000800000000LL) != 0 )
           {
-            v7 = v25;
-            goto LABEL_33;
+            v12 = -1073741558;
+            goto LABEL_34;
           }
-          *v19 = v20 | 2;
-          v19 += 6;
-          v7 = v25 + 1;
-          v25 = v7;
-          if ( v7 >= v13 )
+          v21 = *v20;
+          v22 = *((_QWORD *)v20 - 2);
+          v23 = *((_QWORD *)v20 - 1);
+          v24 = (*v20 & 1) != 0
+              ? RtlAddDynamicEnforcedAddressRange(a2, v22, v23)
+              : RtlRemoveDynamicEnforcedAddressRange(a2, v22, v23);
+          v12 = v24;
+          if ( v24 < 0 )
+            break;
+          *v20 = v21 | 2;
+          v20 += 6;
+          v6 = v26 + 1;
+          v26 = v6;
+          if ( v6 >= v14 )
             goto LABEL_32;
+          v16 = CurrentThread;
         }
-        v10 = -1073741749;
+        v6 = v26;
       }
       else
       {
 LABEL_32:
-        v10 = 0;
+        v12 = 0;
       }
-LABEL_33:
-      if ( (v12 | 4u) >= 4 )
-      {
-        if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock(v5);
-        KeAbPostRelease((ULONG_PTR)v5);
-      }
-      if ( (v12 & 1) != 0 )
-        KiUnstackDetachProcess(&v30);
+LABEL_34:
+      if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(v5);
+      KeAbPostRelease((ULONG_PTR)v5);
     }
-LABEL_39:
-    ExReleaseRundownProtection_0(RunRef);
+    else
+    {
+      v17 = (_DWORD *)(a3 + 16);
+      while ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) == 0 )
+      {
+        if ( (PROCESS[1].DirectoryTableBase & 0x4000000800000000LL) != 0 )
+        {
+          v12 = -1073741558;
+          goto LABEL_37;
+        }
+        v18 = *((_QWORD *)v17 - 2);
+        v19 = *((_QWORD *)v17 - 1);
+        if ( v19 + v18 < v18 )
+        {
+          v12 = -1073741675;
+          goto LABEL_37;
+        }
+        if ( v18 - 0x10000 > 0x7FFFFFFDFFFFLL || v19 + v18 - 0x10000 > 0x7FFFFFFDFFFFLL || !v19 )
+        {
+          v12 = -1073741503;
+          goto LABEL_37;
+        }
+        if ( (*v17 & 0xFFFFFFFE) != 0 )
+        {
+          v12 = -1073741811;
+          goto LABEL_37;
+        }
+        ++v13;
+        v17 += 6;
+        if ( v13 >= v14 )
+          goto LABEL_13;
+      }
+      v12 = -1073741749;
+    }
+LABEL_37:
+    p_Blink = (struct _EX_RUNDOWN_REF *)v27;
   }
   else
   {
-    v10 = -1073741558;
+    v12 = -1073741558;
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  *a5 = v7;
-  return v10;
+  if ( (v7 & 1) != 0 )
+    KeUnstackDetachProcess(&ApcState);
+  if ( (v7 & 2) != 0 )
+    ExReleaseRundownProtection(p_Blink);
+  KeLeaveCriticalRegion();
+  *a5 = v6;
+  return v12;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of GreFillFontDir @ 0x1C02D56EC
+ * XREFs of GreFillFontDir @ 0x1C02BA578
  * Callers:
- *     GreMakeFontDir @ 0x1C02D5B38 (GreMakeFontDir.c)
+ *     GreMakeFontDir @ 0x1C02BA958 (GreMakeFontDir.c)
  * Callees:
  *     <none>
  */
@@ -31,8 +31,8 @@ __int64 __fastcall GreFillFontDir(__int64 a1, int a2, __int64 a3)
   __int64 v26; // rax
   const WCHAR *v27; // r9
 
-  *(_QWORD *)a3 = 0x95020000000001LL;
-  *(_WORD *)(a3 + 8) = 0;
+  *(_QWORD *)a3 = qword_1C0334D98;
+  *(_WORD *)(a3 + 8) = word_1C0334DA0;
   strcpy((char *)(a3 + 10), "Windows! Windows! Windows!");
   if ( a2 )
   {
@@ -45,7 +45,7 @@ __int64 __fastcall GreFillFontDir(__int64 a1, int a2, __int64 a3)
   *(_OWORD *)(a3 + 37) = 0LL;
   *(_OWORD *)(a3 + 53) = 0LL;
   *(_BYTE *)(a3 + 69) = 0;
-  *(_DWORD *)(a3 + 37) = 16843536;
+  *(_DWORD *)(a3 + 37) = dword_1C0334DA4;
   v7 = 67;
   if ( a2 != 2 )
     v7 = 3;
@@ -57,16 +57,16 @@ __int64 __fastcall GreFillFontDir(__int64 a1, int a2, __int64 a3)
   *(_WORD *)(a3 + 76) = 72;
   *(_BYTE *)(a3 + 78) = *(_BYTE *)(a1 + 60);
   *(_BYTE *)(a3 + 79) = *(_BYTE *)(a1 + 61);
-  *(_WORD *)(a3 + 80) = *(_WORD *)(a1 + 60) + *(_WORD *)(a1 + 62) - *(_WORD *)(a1 + 56);
-  v8 = *(_BYTE *)(a1 + 64) + *(_BYTE *)(a1 + 68) - *(_BYTE *)(a1 + 62) - *(_BYTE *)(a1 + 66) - *(_BYTE *)(a1 + 60);
+  *(_WORD *)(a3 + 80) = *(_WORD *)(a1 + 62) + *(_WORD *)(a1 + 60) - *(_WORD *)(a1 + 56);
+  v8 = *(_BYTE *)(a1 + 64) + *(_BYTE *)(a1 + 68) - *(_BYTE *)(a1 + 60) - *(_BYTE *)(a1 + 66) - *(_BYTE *)(a1 + 62);
   if ( (__int16)(*(_WORD *)(a1 + 64)
                + *(_WORD *)(a1 + 68)
-               - *(_WORD *)(a1 + 62)
+               - *(_WORD *)(a1 + 60)
                - *(_WORD *)(a1 + 66)
-               - *(_WORD *)(a1 + 60)) <= 0 )
+               - *(_WORD *)(a1 + 62)) <= 0 )
     v8 = 0;
   *(_BYTE *)(a3 + 82) = v8;
-  v9 = *(_WORD *)(a1 + 64) + *(_WORD *)(a1 + 68) - *(_WORD *)(a1 + 62) - *(_WORD *)(a1 + 66) - *(_WORD *)(a1 + 60);
+  v9 = *(_WORD *)(a1 + 64) + *(_WORD *)(a1 + 68) - *(_WORD *)(a1 + 60) - *(_WORD *)(a1 + 66) - *(_WORD *)(a1 + 62);
   if ( v9 <= 0 )
     HIBYTE(v9) = 0;
   *(_BYTE *)(a3 + 83) = HIBYTE(v9);
@@ -77,7 +77,7 @@ __int64 __fastcall GreFillFontDir(__int64 a1, int a2, __int64 a3)
   *(_BYTE *)(a3 + 88) = *(_BYTE *)(a1 + 47);
   *(_BYTE *)(a3 + 89) = *(_BYTE *)(a1 + 44);
   *(_WORD *)(a3 + 90) = 0;
-  *(_WORD *)(a3 + 92) = *(_WORD *)(a1 + 60) + *(_WORD *)(a1 + 62);
+  *(_WORD *)(a3 + 92) = *(_WORD *)(a1 + 62) + *(_WORD *)(a1 + 60);
   *(_BYTE *)(a3 + 94) = *(_BYTE *)(a1 + 45) & 0xF0 | (*(_DWORD *)(a1 + 48) >> 1) & 2 | ((*(_DWORD *)(a1 + 48) & 1) != 0
                                                                                       ? 6
                                                                                       : 0) | ((*(_DWORD *)(a1 + 48) & 0x401000) == 0);

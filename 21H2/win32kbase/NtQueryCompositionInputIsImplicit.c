@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQueryCompositionInputIsImplicit @ 0x1C00B5800
+ * XREFs of NtQueryCompositionInputIsImplicit @ 0x1C009C3D0
  * Callers:
  *     <none>
  * Callees:
- *     ?ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C0093F40 (-ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ?ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C0082B80 (-ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z.c)
  */
 
 __int64 __fastcall NtQueryCompositionInputIsImplicit(void *a1, int *a2, __int64 a3)
@@ -17,7 +17,7 @@ __int64 __fastcall NtQueryCompositionInputIsImplicit(void *a1, int *a2, __int64 
   v4 = CompositionInputObject::ResolveHandle(a1, 1LL, a3, (struct CompositionInputObject **)&Object);
   if ( v4 >= 0 )
   {
-    v5 = *((_DWORD *)Object + 46) & 1;
+    v5 = *((_DWORD *)Object + 48) & 1;
     ObfDereferenceObject(Object);
     if ( a2 + 1 < a2 || (unsigned __int64)(a2 + 1) > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;

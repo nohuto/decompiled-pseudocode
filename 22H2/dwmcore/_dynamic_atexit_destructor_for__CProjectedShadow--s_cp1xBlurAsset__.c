@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_atexit_destructor_for__CProjectedShadow::s_cp1xBlurAsset__ @ 0x1801244A0
+ * XREFs of _dynamic_atexit_destructor_for__CProjectedShadow::s_cp1xBlurAsset__ @ 0x1800F9000
  * Callers:
  *     <none>
  * Callees:

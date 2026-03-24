@@ -1,30 +1,26 @@
 /*
- * XREFs of vCleanupPrivateFonts @ 0x1C0113F20
+ * XREFs of vCleanupPrivateFonts @ 0x1C00A2F50
  * Callers:
  *     <none>
  * Callees:
- *     ?bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z @ 0x1C009AC84 (-bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z.c)
+ *     ?bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z @ 0x1C010E844 (-bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z.c)
  */
 
-struct Gre::Base::SESSION_GLOBALS *__fastcall vCleanupPrivateFonts(Gre::Base *a1)
+__int64 vCleanupPrivateFonts()
 {
-  struct Gre::Base::SESSION_GLOBALS *result; // rax
-  struct Gre::Base::SESSION_GLOBALS *v2; // rbx
-  __int64 v3; // rcx
-  _QWORD v4[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 result; // rax
+  struct PFT **v1; // [rsp+30h] [rbp+8h] BYREF
 
-  result = Gre::Base::Globals(a1);
-  v2 = result;
-  v3 = *((_QWORD *)result + 6);
-  if ( v3 )
+  result = ghsemPublicPFT;
+  if ( ghsemPublicPFT )
   {
-    GreAcquireSemaphore(v3);
-    EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemPublicPFT", *((_QWORD *)v2 + 6), 14LL);
-    v4[0] = *((_QWORD *)v2 + 796);
-    if ( v4[0] )
-      PUBLIC_PFTOBJ::bCleanupPFT((PFTOBJ *)v4, 0, 0LL);
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemPublicPFT");
-    return (struct Gre::Base::SESSION_GLOBALS *)GreReleaseSemaphoreInternal(*((_QWORD *)v2 + 6));
+    GreAcquireSemaphore(ghsemPublicPFT);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemPublicPFT", ghsemPublicPFT, 15LL);
+    v1 = gpPFTPrivate;
+    if ( gpPFTPrivate )
+      PUBLIC_PFTOBJ::bCleanupPFT(&v1, 0LL, 0LL);
+    EtwTraceGreLockReleaseSemaphore(L"ghsemPublicPFT", ghsemPublicPFT);
+    return GreReleaseSemaphoreInternal(ghsemPublicPFT);
   }
   return result;
 }

@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwAlpcDeletePortSection @ 0x14041B6A0
+ * XREFs of ZwAlpcDeletePortSection @ 0x1403FAA20
  * Callers:
- *     CmFcpSendFeatureUsageReportAlpcMessage @ 0x14041980C (CmFcpSendFeatureUsageReportAlpcMessage.c)
- *     CmFcpCreateAlpcSectionView @ 0x140680D58 (CmFcpCreateAlpcSectionView.c)
+ *     <none>
  * Callees:
  *     <none>
  */

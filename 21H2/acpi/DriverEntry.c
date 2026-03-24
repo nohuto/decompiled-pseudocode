@@ -1,22 +1,23 @@
 /*
- * XREFs of DriverEntry @ 0x1C00BBAC8
+ * XREFs of DriverEntry @ 0x1C00BB98C
  * Callers:
  *     GsDriverEntry @ 0x1C00BB010 (GsDriverEntry.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     WppLoadTracingSupport @ 0x1C008EDE0 (WppLoadTracingSupport.c)
- *     WppInitKm @ 0x1C008EF24 (WppInitKm.c)
- *     AcpiInitializeExternalResourceTranslation @ 0x1C008EFD8 (AcpiInitializeExternalResourceTranslation.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     Feature_Pldr_Ignore_Vetoes__private_ReportDeviceUsage @ 0x1C0031E04 (Feature_Pldr_Ignore_Vetoes__private_ReportDeviceUsage.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     WppLoadTracingSupport @ 0x1C00904A0 (WppLoadTracingSupport.c)
+ *     WppInitKm @ 0x1C00905E4 (WppInitKm.c)
+ *     AcpiInitializeExternalResourceTranslation @ 0x1C0090698 (AcpiInitializeExternalResourceTranslation.c)
  *     wil_InitializeFeatureStaging @ 0x1C00BB078 (wil_InitializeFeatureStaging.c)
- *     ACPIInitGetEmOverride @ 0x1C00BB4D4 (ACPIInitGetEmOverride.c)
- *     Simulator_InitializeInterface @ 0x1C00BB710 (Simulator_InitializeInterface.c)
- *     ACPIInitializeWorker @ 0x1C00BB7AC (ACPIInitializeWorker.c)
- *     AcpiDiagInitialize @ 0x1C00BB8FC (AcpiDiagInitialize.c)
- *     ACPIInitRecordEmOverrides @ 0x1C00BB9F0 (ACPIInitRecordEmOverrides.c)
- *     ACPIGlobalInitialize @ 0x1C00BC3C4 (ACPIGlobalInitialize.c)
- *     ACPIInitGetPlatformOverrides @ 0x1C00BCB2C (ACPIInitGetPlatformOverrides.c)
- *     ACPIInitReadRegistryKeys @ 0x1C00BD39C (ACPIInitReadRegistryKeys.c)
+ *     Simulator_InitializeInterface @ 0x1C00BB6C8 (Simulator_InitializeInterface.c)
+ *     ACPIInitializeWorker @ 0x1C00BB764 (ACPIInitializeWorker.c)
+ *     ACPIInitRecordEmOverrides @ 0x1C00BB8B4 (ACPIInitRecordEmOverrides.c)
+ *     ACPIGlobalInitialize @ 0x1C00BC294 (ACPIGlobalInitialize.c)
+ *     ACPIInitGetPlatformOverrides @ 0x1C00BC920 (ACPIInitGetPlatformOverrides.c)
+ *     ACPIInitReadRegistryKeys @ 0x1C00BD2FC (ACPIInitReadRegistryKeys.c)
+ *     ACPIInitGetEmOverride @ 0x1C00BDC24 (ACPIInitGetEmOverride.c)
+ *     AcpiDiagInitialize @ 0x1C00BDE98 (AcpiDiagInitialize.c)
  */
 
 NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
@@ -25,11 +26,11 @@ NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING Reg
   ULONG ReturnLength; // [rsp+40h] [rbp-48h] BYREF
   __int128 SystemInformation; // [rsp+48h] [rbp-40h] BYREF
 
-  WPP_MAIN_CB.Timer = (_IO_TIMER *)1;
   *(_QWORD *)&WPP_MAIN_CB.Type = 0LL;
   WPP_MAIN_CB.DriverObject = (_DRIVER_OBJECT *)&WPP_ThisDir_CTLGUID_AcpiTraceGuid;
   WPP_MAIN_CB.NextDevice = 0LL;
   WPP_MAIN_CB.CurrentIrp = 0LL;
+  WPP_MAIN_CB.Timer = (_IO_TIMER *)1;
   WPP_MAIN_CB.DeviceExtension = 0LL;
   WPP_MAIN_CB.DeviceType = 0;
   WppLoadTracingSupport();
@@ -41,16 +42,16 @@ NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING Reg
   ACPIInitGetEmOverride();
   ACPIInitReadRegistryKeys();
   ACPIInitGetPlatformOverrides();
+  AcpiIgnorePnpVetoesInPLDR = 0;
+  Feature_Pldr_Ignore_Vetoes__private_ReportDeviceUsage();
+  AcpiIgnorePnpVetoesInPLDR = 1;
   if ( (AcpiOverrideAttributes & 0x10000) != 0 )
-  {
-    AcpiLoadSimulatorTable = 1;
     Simulator_InitializeInterface();
-  }
   AcpiRegistryPath.Length = 0;
   v4 = (unsigned __int16)(RegistryPath->Length + 2);
   AcpiDriverObject = DriverObject;
   AcpiRegistryPath.MaximumLength = v4;
-  AcpiRegistryPath.Buffer = (wchar_t *)ExAllocatePool2(256LL, RegistryPath->Length + 2LL, 1299211073LL);
+  AcpiRegistryPath.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, RegistryPath->Length + 2LL, 0x4D706341u);
   if ( AcpiRegistryPath.Buffer )
     RtlCopyUnicodeString(&AcpiRegistryPath, RegistryPath);
   else
@@ -78,75 +79,75 @@ NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING Reg
   AcpiProcessorStartupLock.Owner = 0LL;
   AcpiProcessorStartupLock.Contention = 0;
   KeInitializeEvent(&AcpiProcessorStartupLock.Event, SynchronizationEvent, 0);
-  qword_1C0081318 = (__int64)&AcpiPowerDelayedQueueList;
+  qword_1C00820F8 = (__int64)&AcpiPowerDelayedQueueList;
   AcpiPowerDelayedQueueList = (__int64)&AcpiPowerDelayedQueueList;
-  qword_1C0081328 = (__int64)&AcpiPowerQueueList;
+  qword_1C0082108 = (__int64)&AcpiPowerQueueList;
   AcpiPowerQueueList = (__int64)&AcpiPowerQueueList;
-  qword_1C0081338 = (__int64)&AcpiPowerBlockedOnDependencyList;
+  qword_1C0082118 = (__int64)&AcpiPowerBlockedOnDependencyList;
   AcpiPowerBlockedOnDependencyList = (__int64)&AcpiPowerBlockedOnDependencyList;
-  qword_1C0081348 = (__int64)&AcpiPowerBlockedOnPhase3List;
+  qword_1C0082128 = (__int64)&AcpiPowerBlockedOnPhase3List;
   AcpiPowerBlockedOnPhase3List = (__int64)&AcpiPowerBlockedOnPhase3List;
-  qword_1C0081358 = (__int64)&AcpiPowerPhase0List;
+  qword_1C0082138 = (__int64)&AcpiPowerPhase0List;
   AcpiPowerPhase0List = &AcpiPowerPhase0List;
-  qword_1C0081368 = (__int64)&AcpiPowerPhase1List;
+  qword_1C0082148 = (__int64)&AcpiPowerPhase1List;
   AcpiPowerPhase1List = (__int64)&AcpiPowerPhase1List;
-  qword_1C0081378 = (__int64)&AcpiPowerPhase2List;
+  qword_1C0082158 = (__int64)&AcpiPowerPhase2List;
   AcpiPowerPhase2List = (__int64)&AcpiPowerPhase2List;
-  qword_1C0081388 = (__int64)&AcpiPowerPhase3List;
+  qword_1C0082168 = (__int64)&AcpiPowerPhase3List;
   AcpiPowerPhase3List = (__int64)&AcpiPowerPhase3List;
-  qword_1C0081398 = (__int64)&AcpiPowerPhase4List;
+  qword_1C0082178 = (__int64)&AcpiPowerPhase4List;
   AcpiPowerPhase4List = &AcpiPowerPhase4List;
-  qword_1C00813A8 = (__int64)&AcpiPowerPhase5List;
-  AcpiPowerPhase5List = (__int64)&AcpiPowerPhase5List;
-  qword_1C00813B8 = (__int64)&AcpiPowerWaitWakeList;
+  qword_1C0082188 = (__int64)&AcpiPowerPhase5List;
+  AcpiPowerPhase5List = &AcpiPowerPhase5List;
+  qword_1C0082198 = (__int64)&AcpiPowerWaitWakeList;
   AcpiPowerWaitWakeList = (__int64)&AcpiPowerWaitWakeList;
-  qword_1C0080AF8 = (__int64)&AcpiPowerWaitWakeInterruptList;
+  qword_1C0081958 = (__int64)&AcpiPowerWaitWakeInterruptList;
   AcpiPowerWaitWakeInterruptList = (__int64)&AcpiPowerWaitWakeInterruptList;
-  qword_1C00813C8 = (__int64)&AcpiPowerSynchronizeList;
+  qword_1C00821A8 = (__int64)&AcpiPowerSynchronizeList;
   AcpiPowerSynchronizeList = (__int64)&AcpiPowerSynchronizeList;
-  qword_1C00813D8 = (__int64)&AcpiPowerNodeList;
+  qword_1C00821B8 = (__int64)&AcpiPowerNodeList;
   AcpiPowerNodeList = (__int64)&AcpiPowerNodeList;
-  qword_1C00813E8 = (__int64)&AcpiDevicesWhichMightNeedEnumerationList;
+  qword_1C00821C8 = (__int64)&AcpiDevicesWhichMightNeedEnumerationList;
   AcpiDevicesWhichMightNeedEnumerationList = (__int64)&AcpiDevicesWhichMightNeedEnumerationList;
-  qword_1C0081638 = (__int64)&AcpiBuildQueueList;
+  qword_1C0082418 = (__int64)&AcpiBuildQueueList;
   AcpiBuildQueueList = (__int64)&AcpiBuildQueueList;
-  qword_1C00816C8 = (__int64)&AcpiBuildDeviceList;
+  qword_1C00824A8 = (__int64)&AcpiBuildDeviceList;
   AcpiBuildDeviceList = (__int64)&AcpiBuildDeviceList;
-  qword_1C0081648 = (__int64)&AcpiBuildDelayedDependencyList;
+  qword_1C0082428 = (__int64)&AcpiBuildDelayedDependencyList;
   AcpiBuildDelayedDependencyList = (__int64)&AcpiBuildDelayedDependencyList;
-  qword_1C0081658 = (__int64)&AcpiBuildOperationRegionList;
+  qword_1C0082438 = (__int64)&AcpiBuildOperationRegionList;
   AcpiBuildOperationRegionList = (__int64)&AcpiBuildOperationRegionList;
-  qword_1C0081668 = (__int64)&AcpiBuildPowerResourceList;
+  qword_1C0082448 = (__int64)&AcpiBuildPowerResourceList;
   AcpiBuildPowerResourceList = (__int64)&AcpiBuildPowerResourceList;
-  qword_1C0081678 = (__int64)&AcpiBuildRunMethodList;
+  qword_1C0082458 = (__int64)&AcpiBuildRunMethodList;
   AcpiBuildRunMethodList = (__int64)&AcpiBuildRunMethodList;
-  qword_1C0081688 = (__int64)&AcpiBuildSpecialSynchronizationList;
+  qword_1C0082468 = (__int64)&AcpiBuildSpecialSynchronizationList;
   AcpiBuildSpecialSynchronizationList = (PSLIST_ENTRY)&AcpiBuildSpecialSynchronizationList;
-  qword_1C0081698 = (__int64)&AcpiBuildSynchronizationList;
+  qword_1C0082478 = (__int64)&AcpiBuildSynchronizationList;
   AcpiBuildSynchronizationList = (PSLIST_ENTRY)&AcpiBuildSynchronizationList;
-  qword_1C00816A8 = (__int64)&AcpiBuildThermalZoneList;
+  qword_1C0082488 = (__int64)&AcpiBuildThermalZoneList;
   AcpiBuildThermalZoneList = (__int64)&AcpiBuildThermalZoneList;
-  qword_1C00815C8 = (__int64)&AcpiUnresolvedEjectList;
+  qword_1C00823A8 = (__int64)&AcpiUnresolvedEjectList;
   AcpiUnresolvedEjectList = (__int64)&AcpiUnresolvedEjectList;
-  qword_1C0080B88 = (__int64)&AcpiThermalList;
+  qword_1C00819C8 = (__int64)&AcpiThermalList;
   AcpiThermalList = (__int64)&AcpiThermalList;
-  qword_1C0080BB8 = (__int64)&AcpiThermalClientList;
+  qword_1C00819F8 = (__int64)&AcpiThermalClientList;
   AcpiThermalClientList = (__int64)&AcpiThermalClientList;
-  qword_1C0080B98 = (__int64)&AcpiThermalUnclaimedConstraintList;
+  qword_1C00819D8 = (__int64)&AcpiThermalUnclaimedConstraintList;
   AcpiThermalUnclaimedConstraintList = (__int64)&AcpiThermalUnclaimedConstraintList;
-  qword_1C0080BC8 = (__int64)&AcpiThermalZoneList;
+  qword_1C0081A08 = (__int64)&AcpiThermalZoneList;
   AcpiThermalZoneList = (__int64)&AcpiThermalZoneList;
-  qword_1C00811C8 = (__int64)&AcpiFanList;
+  qword_1C0081FB8 = (__int64)&AcpiFanList;
   AcpiFanList = (__int64)&AcpiFanList;
-  qword_1C00815B8 = (__int64)&AcpiButtonList;
+  qword_1C0082398 = (__int64)&AcpiButtonList;
   AcpiButtonList = (__int64)&AcpiButtonList;
-  qword_1C0081908 = (__int64)&AcpiGetListEntry;
+  qword_1C00826E8 = (__int64)&AcpiGetListEntry;
   AcpiGetListEntry = (__int64)&AcpiGetListEntry;
-  qword_1C0080D68 = (__int64)&AcpiOpRegionHandlerList;
+  qword_1C0081BA8 = (__int64)&AcpiOpRegionHandlerList;
   AcpiOpRegionHandlerList = (__int64)&AcpiOpRegionHandlerList;
-  qword_1C0081178 = (__int64)&AcpiIgnoreResourceMapValidationList;
+  qword_1C0081F78 = (__int64)&AcpiIgnoreResourceMapValidationList;
   AcpiIgnoreResourceMapValidationList = (__int64)&AcpiIgnoreResourceMapValidationList;
-  qword_1C0080CC8 = (__int64)&AcpiProcessorContainerRootList;
+  qword_1C0081B08 = (__int64)&AcpiProcessorContainerRootList;
   AcpiProcessorContainerRootList = (__int64)&AcpiProcessorContainerRootList;
   AcpiPowerDpcFlags = 0;
   AcpiPowerCurrentPagingPathTransitions = 0;
@@ -158,14 +159,7 @@ NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING Reg
   AcpiGpeWorkDone = 0;
   AcpiRegisteredOpRegionMask = 0;
   BYTE1(WPP_MAIN_CB.Queue.ListEntry.Flink) = 0;
-  ExInitializeNPagedLookasideList(
-    (PNPAGED_LOOKASIDE_LIST)&BuildRequestLookAsideList,
-    0LL,
-    0LL,
-    0x200u,
-    0x88uLL,
-    0x44706341u,
-    0x1Eu);
+  ExInitializeNPagedLookasideList(&BuildRequestLookAsideList, 0LL, 0LL, 0x200u, 0x88uLL, 0x44706341u, 0x1Eu);
   ExInitializeNPagedLookasideList(
     (PNPAGED_LOOKASIDE_LIST)&RequestLookAsideList,
     0LL,
@@ -174,7 +168,7 @@ NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING Reg
     0x108uLL,
     0x50706341u,
     0x3Eu);
-  ExInitializeNPagedLookasideList(&DeviceExtensionLookAsideList, 0LL, 0LL, 0x200u, 0x3F0uLL, 0x44706341u, 0x40u);
+  ExInitializeNPagedLookasideList(&DeviceExtensionLookAsideList, 0LL, 0LL, 0x200u, 0x3C8uLL, 0x44706341u, 0x40u);
   ExInitializeNPagedLookasideList(&RequestDependencyLookAsideList, 0LL, 0LL, 0x200u, 0x20uLL, 0x44706341u, 0x32u);
   ExInitializeNPagedLookasideList(&ObjectDataLookAsideList, 0LL, 0LL, 0x200u, 0x28uLL, 0x4F706341u, 0x66u);
   ExInitializeNPagedLookasideList(&XswContextLookAsideList, 0LL, 0LL, 0x200u, 0x30uLL, 0x50706341u, 0x10u);
@@ -183,7 +177,7 @@ NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING Reg
   KeInitializeSpinLock(&gPreAllocPciPoolSpinLock);
   memset(gPreAllocPciPool, 0, 0x240uLL);
   KeInitializeSpinLock(&gBBNResultCacheLock);
-  qword_1C0081078 = (__int64)&gBBNResultCacheListHead;
+  qword_1C0081E98 = (__int64)&gBBNResultCacheListHead;
   gBBNResultCacheListHead = (__int64)&gBBNResultCacheListHead;
   ACPIInitializeWorker();
   DriverObject->DriverExtension->AddDevice = (int (__fastcall *)(_DRIVER_OBJECT *, _DEVICE_OBJECT *))ACPIDispatchAddDevice;
@@ -197,7 +191,7 @@ NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING Reg
   ACPIInitRecordEmOverrides();
   ACPIGlobalInitialize();
   AcpiInitializeExternalResourceTranslation(DriverObject);
-  qword_1C0081408 = (__int64)&AcpiDeviceFirmwareLockHandlerList;
+  qword_1C00821E8 = (__int64)&AcpiDeviceFirmwareLockHandlerList;
   AcpiDeviceFirmwareLockHandlerList = (__int64)&AcpiDeviceFirmwareLockHandlerList;
   KeInitializeSpinLock(&AcpiDeviceFirmwareLockGlobalLock);
   LOBYTE(WPP_MAIN_CB.Queue.ListEntry.Flink) = 0;

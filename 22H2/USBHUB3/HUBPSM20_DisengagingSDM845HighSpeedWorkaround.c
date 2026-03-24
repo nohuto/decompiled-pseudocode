@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPSM20_DisengagingSDM845HighSpeedWorkaround @ 0x1C0011C20
+ * XREFs of HUBPSM20_DisengagingSDM845HighSpeedWorkaround @ 0x1C0010800
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBACPI_ExecuteDSM @ 0x1C00889D4 (HUBACPI_ExecuteDSM.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBACPI_ExecuteDSM @ 0x1C0082960 (HUBACPI_ExecuteDSM.c)
  */
 
 __int64 __fastcall HUBPSM20_DisengagingSDM845HighSpeedWorkaround(__int64 a1, __int64 a2, __int64 a3)
@@ -18,7 +18,7 @@ __int64 __fastcall HUBPSM20_DisengagingSDM845HighSpeedWorkaround(__int64 a1, __i
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     v6 = v4;
-    WPP_RECORDER_SF_d(v3[179], 4u, 5u, 0x7Fu, (__int64)&WPP_f96a94952a6932bc87af489d3d93d325_Traceguids, v6);
+    WPP_RECORDER_SF_d(v3[179], 4u, 5u, 0x7Eu, (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids, v6);
   }
   return 3013LL;
 }

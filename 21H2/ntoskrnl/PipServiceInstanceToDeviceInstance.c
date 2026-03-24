@@ -1,17 +1,17 @@
 /*
- * XREFs of PipServiceInstanceToDeviceInstance @ 0x140946900
+ * XREFs of PipServiceInstanceToDeviceInstance @ 0x1408A17A0
  * Callers:
- *     PnpDriverLoadingFailed @ 0x140862BA0 (PnpDriverLoadingFailed.c)
+ *     PnpDriverLoadingFailed @ 0x1407D2C50 (PnpDriverLoadingFailed.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     PnpRegSzToString @ 0x14067AB94 (PnpRegSzToString.c)
- *     PipOpenServiceEnumKeys @ 0x14067B470 (PipOpenServiceEnumKeys.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     PnpConcatenateUnicodeStrings @ 0x1407690BC (PnpConcatenateUnicodeStrings.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     PnpRegSzToString @ 0x14074002C (PnpRegSzToString.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     PipOpenServiceEnumKeys @ 0x140742BEC (PipOpenServiceEnumKeys.c)
+ *     PnpConcatenateUnicodeStrings @ 0x140749024 (PnpConcatenateUnicodeStrings.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall PipServiceInstanceToDeviceInstance(
@@ -68,15 +68,15 @@ NTSTATUS __fastcall PipServiceInstanceToDeviceInstance(
         SourceString.Buffer = (_WORD *)((char *)v8 + *((unsigned int *)v8 + 2));
         if ( !(_WORD)P )
           RegistryValue = -1073741766;
-        if ( RegistryValue >= 0 )
-        {
-          if ( a4 )
-            RegistryValue = PnpConcatenateUnicodeStrings(a4, &SourceString);
-        }
       }
       else
       {
         RegistryValue = -1073741215;
+      }
+      if ( RegistryValue >= 0 )
+      {
+        if ( a4 )
+          RegistryValue = PnpConcatenateUnicodeStrings(a4, &SourceString);
       }
       ExFreePoolWithTag(v8, 0);
     }

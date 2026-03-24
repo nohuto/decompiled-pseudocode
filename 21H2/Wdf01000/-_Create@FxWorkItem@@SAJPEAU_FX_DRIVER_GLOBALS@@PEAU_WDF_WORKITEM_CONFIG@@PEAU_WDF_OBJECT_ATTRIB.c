@@ -1,13 +1,13 @@
 /*
- * XREFs of ?_Create@FxWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_WORKITEM_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@PEAPEAUWDFWORKITEM__@@@Z @ 0x1C0018CCC
+ * XREFs of ?_Create@FxWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_WORKITEM_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@PEAPEAUWDFWORKITEM__@@@Z @ 0x1C0014028
  * Callers:
- *     imp_WdfWorkItemCreate @ 0x1C0018C00 (imp_WdfWorkItemCreate.c)
+ *     imp_WdfWorkItemCreate @ 0x1C00142E0 (imp_WdfWorkItemCreate.c)
  * Callees:
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ?Initialize@FxWorkItem@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_WORKITEM_CONFIG@@PEAVFxObject@@PEAPEAUWDFWORKITEM__@@@Z @ 0x1C00191FC (-Initialize@FxWorkItem@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_WORKITEM_CONFIG@@PEAVFxObject@.c)
- *     ??0FxWorkItem@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0019B58 (--0FxWorkItem@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     ?Initialize@FxWorkItem@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_WORKITEM_CONFIG@@PEAVFxObject@@PEAPEAUWDFWORKITEM__@@@Z @ 0x1C0013B34 (-Initialize@FxWorkItem@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_WORKITEM_CONFIG@@PEAVFxObject@.c)
+ *     ??0FxWorkItem@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00140E4 (--0FxWorkItem@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxWorkItem::_Create(
@@ -19,20 +19,29 @@ __int64 __fastcall FxWorkItem::_Create(
 {
   FxWorkItem *v9; // rax
   FxWorkItem *v10; // rax
-  FxObject *v11; // rbx
+  FxWorkItem *v11; // rbx
   int v12; // edi
-  FxPoolTypeOrPoolFlags v14; // [rsp+40h] [rbp-18h] BYREF
 
-  *(_QWORD *)&v14.UsePoolType = 0LL;
-  v14.u.PoolFlags = 64LL;
-  v9 = (FxWorkItem *)FxObjectHandleAllocCommon(FxDriverGlobals, &v14, 0xD0uLL, 0, Attributes, 0, FxObjectTypeExternal);
-  if ( !v9 )
+  v9 = (FxWorkItem *)FxObjectHandleAlloc(
+                       FxDriverGlobals,
+                       ExDefaultNonPagedPoolType,
+                       0xD0uLL,
+                       0,
+                       Attributes,
+                       0,
+                       FxObjectTypeExternal);
+  if ( v9 )
+  {
+    FxWorkItem::FxWorkItem(v9, FxDriverGlobals);
+    v11 = v10;
+  }
+  else
+  {
+    v11 = 0LL;
+  }
+  if ( !v11 )
     return 3221225626LL;
-  FxWorkItem::FxWorkItem(v9, FxDriverGlobals);
-  v11 = v10;
-  if ( !v10 )
-    return 3221225626LL;
-  v12 = FxWorkItem::Initialize(v10, Attributes, Config, ParentObject, WorkItem);
+  v12 = FxWorkItem::Initialize(v11, (_FX_DRIVER_GLOBALS *)Attributes, Config, ParentObject, WorkItem);
   if ( v12 < 0 )
   {
     FxObject::ClearEvtCallbacks(v11);

@@ -1,25 +1,25 @@
 /*
- * XREFs of PfpRpControlRequestReset @ 0x14084FB34
+ * XREFs of PfpRpControlRequestReset @ 0x1407C6250
  * Callers:
- *     PfpRpControlRequestPerform @ 0x1407B55E4 (PfpRpControlRequestPerform.c)
- *     PfpRpShutdown @ 0x14097F514 (PfpRpShutdown.c)
+ *     PfpRpControlRequestPerform @ 0x14070A38C (PfpRpControlRequestPerform.c)
+ *     PfpRpShutdown @ 0x1408E06E8 (PfpRpShutdown.c)
  * Callees:
- *     PsGetNextProcess @ 0x1407446C0 (PsGetNextProcess.c)
- *     PfpRpCHashEmpty @ 0x14084FB8C (PfpRpCHashEmpty.c)
+ *     PsGetNextProcess @ 0x14062BFA0 (PsGetNextProcess.c)
+ *     PfpRpCHashEmpty @ 0x1407C62A8 (PfpRpCHashEmpty.c)
  */
 
 __int64 __fastcall PfpRpControlRequestReset(__int64 a1)
 {
-  __int64 *i; // rcx
-  __int64 *NextProcess; // rax
+  _QWORD *i; // rcx
+  unsigned __int64 NextProcess; // rax
 
   PfpRpCHashEmpty(a1, a1 + 96, a1 + 120);
-  for ( i = 0LL; ; i = NextProcess )
+  for ( i = 0LL; ; i = (_QWORD *)NextProcess )
   {
     NextProcess = PsGetNextProcess(i);
     if ( !NextProcess )
       break;
-    _InterlockedAnd((volatile signed __int32 *)NextProcess + 281, 0xFFFFBFFF);
+    _InterlockedAnd((volatile signed __int32 *)(NextProcess + 1124), 0xFFFFBFFF);
   }
   PfpRpCHashEmpty(a1, a1 + 56, a1 + 88);
   *(_QWORD *)(a1 + 80) = 0LL;

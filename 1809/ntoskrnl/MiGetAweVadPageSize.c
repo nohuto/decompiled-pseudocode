@@ -1,5 +1,5 @@
 /*
- * XREFs of MiGetAweVadPageSize @ 0x14084FF24
+ * XREFs of MiGetAweVadPageSize @ 0x14084FF04
  * Callers:
  *     MiReturnPageTablePageCommitment @ 0x1405EC380 (MiReturnPageTablePageCommitment.c)
  *     MiCommitPageTablesForVad @ 0x1405ECBB0 (MiCommitPageTablesForVad.c)

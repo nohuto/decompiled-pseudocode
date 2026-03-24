@@ -1,74 +1,76 @@
 /*
- * XREFs of rimProcessInjectedDeviceBuffers @ 0x1C0003D68
+ * XREFs of rimProcessInjectedDeviceBuffers @ 0x1C0175898
  * Callers:
- *     rimProcessDeviceBufferAndStartRead @ 0x1C0003B78 (rimProcessDeviceBufferAndStartRead.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175130 (rimProcessDeviceBufferAndStartRead.c)
  * Callees:
- *     RIMTransferInjectionDeviceDataFifoToDataBuffer @ 0x1C00042B8 (RIMTransferInjectionDeviceDataFifoToDataBuffer.c)
- *     ?DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z @ 0x1C019A7B0 (-DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z.c)
- *     ?PauseDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z @ 0x1C01A8D4C (-PauseDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z @ 0x1C0166854 (-DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z.c)
+ *     RIMTransferInjectionDeviceDataFifoToDataBuffer @ 0x1C016A6C4 (RIMTransferInjectionDeviceDataFifoToDataBuffer.c)
+ *     ?PauseDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z @ 0x1C0173B70 (-PauseDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z.c)
  */
 
-char __fastcall rimProcessInjectedDeviceBuffers(__int64 a1, __int64 a2, __int64 a3)
+char __fastcall rimProcessInjectedDeviceBuffers(__int64 a1, __int64 a2)
 {
-  int v3; // eax
-  __int64 v5; // rdi
-  __int64 v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  _QWORD *v10; // rbx
-  _QWORD *v11; // rcx
+  int v2; // eax
+  __int64 v4; // rdi
+  __int64 v5; // rax
+  int v6; // r8d
+  __int64 *v7; // rbx
+  __int64 **v8; // rcx
 
-  v3 = *(_DWORD *)(a2 + 184);
-  v5 = a1;
-  if ( (v3 & 0x2000) == 0 && (v3 & 0x40) == 0 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  LOBYTE(v6) = *(_BYTE *)(a2 + 48);
+  v2 = *(_DWORD *)(a2 + 184);
+  v4 = a1;
+  if ( (v2 & 0x2000) == 0 && (v2 & 0x40) == 0 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 979);
+  LOBYTE(v5) = *(_BYTE *)(a2 + 48);
   LOBYTE(a1) = 1;
-  if ( !(_BYTE)v6 && *(_DWORD *)(a2 + 916) || (_BYTE)v6 == 1 && *(_DWORD *)(a2 + 692) )
+  if ( !(_BYTE)v5 && *(_DWORD *)(a2 + 924) || (_BYTE)v5 == 1 && *(_DWORD *)(a2 + 700) )
   {
-    if ( *(_BYTE *)(v5 + 808) )
+    if ( !*(_BYTE *)(v4 + 584) )
     {
-      if ( (_BYTE)v6 )
+      if ( (_BYTE)v5 )
       {
-        if ( !*(_DWORD *)(a2 + 688) )
+        if ( *(_DWORD *)(a2 + 696) )
         {
-          LOBYTE(v6) = InputTraceLogging::RIM::DropInput(a2, 8LL);
-          *(_DWORD *)(a2 + 692) = 0;
+          v6 = 1001;
+          goto LABEL_14;
         }
       }
-      else if ( !*(_DWORD *)(a2 + 912) )
+      else if ( *(_DWORD *)(a2 + 920) )
       {
-        LOBYTE(v6) = InputTraceLogging::RIM::DropInput(a2, 8LL);
-        *(_DWORD *)(a2 + 916) = 0;
-      }
-      return v6;
-    }
-    if ( (_BYTE)v6 )
-    {
-      if ( *(_DWORD *)(a2 + 688) )
+        v6 = 997;
 LABEL_14:
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, v6);
+      }
+      RIMTransferInjectionDeviceDataFifoToDataBuffer(a1, a2);
+      InputTraceLogging::RIM::PauseDevice((const struct RIMDEV *)a2);
+      *(_DWORD *)(a2 + 184) |= 0x200u;
+      v7 = (__int64 *)(a2 + 104);
+      if ( (__int64 *)*v7 != v7 )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1015);
+      v5 = v4 + 592;
+      v8 = *(__int64 ***)(v4 + 600);
+      if ( *v8 != (__int64 *)(v4 + 592) )
+        __fastfail(3u);
+      *v7 = v5;
+      v7[1] = (__int64)v8;
+      *v8 = v7;
+      *(_QWORD *)(v4 + 600) = v7;
+      return v5;
     }
-    else if ( *(_DWORD *)(a2 + 912) )
+    if ( (_BYTE)v5 )
     {
-      goto LABEL_14;
+      if ( !*(_DWORD *)(a2 + 696) )
+      {
+        LOBYTE(v5) = InputTraceLogging::RIM::DropInput(a2);
+        *(_DWORD *)(a2 + 700) = 0;
+      }
     }
-    RIMTransferInjectionDeviceDataFifoToDataBuffer(a1, a2);
-    InputTraceLogging::RIM::PauseDevice((const struct RIMDEV *)a2);
-    *(_DWORD *)(a2 + 184) |= 0x200u;
-    v10 = (_QWORD *)(a2 + 104);
-    if ( (_QWORD *)*v10 != v10 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v8, v7, v9);
-    v6 = v5 + 816;
-    v11 = *(_QWORD **)(v5 + 824);
-    if ( *v11 != v5 + 816 )
-      __fastfail(3u);
-    *v10 = v6;
-    v10[1] = v11;
-    *v11 = v10;
-    *(_QWORD *)(v5 + 824) = v10;
+    else if ( !*(_DWORD *)(a2 + 920) )
+    {
+      LOBYTE(v5) = InputTraceLogging::RIM::DropInput(a2);
+      *(_DWORD *)(a2 + 924) = 0;
+    }
   }
-  return v6;
+  return v5;
 }

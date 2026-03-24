@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetContentType@CGlobalCompositionSurfaceInfo@@UEBA?AW4BufferContentType@@XZ @ 0x1801343F0
+ * XREFs of ?GetContentType@CGlobalCompositionSurfaceInfo@@UEBA?AW4BufferContentType@@XZ @ 0x1801F8800
  * Callers:
  *     <none>
  * Callees:
@@ -10,9 +10,9 @@ __int64 __fastcall CGlobalCompositionSurfaceInfo::GetContentType(__int64 a1)
 {
   __int64 v1; // rcx
 
-  v1 = *(_QWORD *)(a1 + 208);
+  v1 = *(_QWORD *)(a1 + 184);
   if ( v1 )
-    return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v1 + 32LL))(v1);
+    return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v1 + 24LL))(v1);
   else
     return 0LL;
 }

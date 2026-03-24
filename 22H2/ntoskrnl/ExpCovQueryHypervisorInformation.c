@@ -1,24 +1,25 @@
 /*
- * XREFs of ExpCovQueryHypervisorInformation @ 0x140A065F8
+ * XREFs of ExpCovQueryHypervisorInformation @ 0x1409575C0
  * Callers:
- *     ExpCovQueryInformation @ 0x140A0685C (ExpCovQueryInformation.c)
+ *     ExpCovQueryInformation @ 0x14095782C (ExpCovQueryInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     HvlGetCoverageData @ 0x14053F668 (HvlGetCoverageData.c)
- *     HvlGetCoverageInfo @ 0x14053F7C8 (HvlGetCoverageInfo.c)
- *     HvlResetCoverageVector @ 0x14053FCEC (HvlResetCoverageVector.c)
- *     RtlCompareUnicodeString @ 0x1406DA1F0 (RtlCompareUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HvlGetCoverageData @ 0x1404F14D8 (HvlGetCoverageData.c)
+ *     HvlGetCoverageInfo @ 0x1404F1630 (HvlGetCoverageInfo.c)
+ *     HvlResetCoverageVector @ 0x1404F1A0C (HvlResetCoverageVector.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall ExpCovQueryHypervisorInformation(__int64 *a1)
 {
   void *v2; // rsi
-  WCHAR *Pool2; // rax
-  __int64 v4; // rdx
-  WCHAR *v5; // r14
+  WCHAR *PoolWithTag; // rax
+  WCHAR *v4; // r14
+  __int64 v5; // rdx
   char v6; // r12
   unsigned int v7; // edx
   int v8; // eax
@@ -29,51 +30,51 @@ void __fastcall ExpCovQueryHypervisorInformation(__int64 *a1)
   unsigned int v13; // eax
   unsigned int v14; // ecx
   unsigned int v15; // eax
-  __int64 v16; // rax
-  __int64 v17; // r9
+  PVOID v16; // rax
   unsigned int Length; // edx
   unsigned __int16 MaximumLength; // ax
-  void *v20; // rcx
-  size_t v21; // r8
+  void *v19; // rcx
+  size_t v20; // r8
   wchar_t *Buffer; // rdx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-10h] BYREF
-  size_t Size; // [rsp+78h] [rbp+48h] BYREF
-  unsigned int v25; // [rsp+80h] [rbp+50h] BYREF
-  unsigned int v26; // [rsp+88h] [rbp+58h]
+  SIZE_T NumberOfBytes; // [rsp+78h] [rbp+48h] BYREF
+  unsigned int v24; // [rsp+80h] [rbp+50h] BYREF
+  unsigned int v25; // [rsp+88h] [rbp+58h]
 
-  v25 = 0;
+  v24 = 0;
   v2 = 0LL;
   DestinationString = 0LL;
-  LODWORD(Size) = 0;
+  LODWORD(NumberOfBytes) = 0;
   if ( HvlHypervisorConnected )
   {
-    Pool2 = (WCHAR *)ExAllocatePool2(256LL, 64LL, 1920364355LL);
-    v5 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, 0x40uLL, 0x72766F43u);
+    v4 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      if ( HvlGetCoverageInfo(Pool2, v4, &Size, &v25) )
+      memset(PoolWithTag, 0, 0x40uLL);
+      if ( HvlGetCoverageInfo(v4, v5, &NumberOfBytes, &v24) )
       {
-        RtlInitUnicodeString(&DestinationString, v5);
+        RtlInitUnicodeString(&DestinationString, v4);
         v6 = *((_BYTE *)a1 + 12);
         v7 = *((_DWORD *)a1 + 2);
         v8 = *((_DWORD *)a1 + 12);
         v9 = *a1;
-        v26 = v7;
+        v25 = v7;
         if ( v6 )
         {
           if ( v6 == 1 && v8 == 2 )
           {
-            v10 = v25;
+            v10 = v24;
             if ( !RtlCompareUnicodeString((PCUNICODE_STRING)a1 + 1, &DestinationString, 1u) )
             {
-              v7 = v26;
+              v7 = v25;
               goto LABEL_11;
             }
           }
         }
         else if ( !v8 )
         {
-          v10 = (unsigned int)Size;
+          v10 = (unsigned int)NumberOfBytes;
 LABEL_11:
           v11 = -1;
           if ( (unsigned int)v10 < 0xFFFFFFE0 )
@@ -93,11 +94,11 @@ LABEL_11:
               v15 = 4096;
               if ( (unsigned int)v10 > 0x1000 )
                 v15 = v10;
-              v16 = ExAllocatePool2(64LL, v15, 1920364355LL);
-              v2 = (void *)v16;
+              v16 = ExAllocatePoolWithTag(NonPagedPoolNx, v15, 0x72766F43u);
+              v2 = v16;
               if ( v16 )
               {
-                if ( HvlGetCoverageData(v6, v10, v16, v17) )
+                if ( HvlGetCoverageData(v6, v10, v16) )
                 {
                   *(_DWORD *)(v9 + 4) = 1;
                   *(_DWORD *)v9 = v11;
@@ -105,13 +106,13 @@ LABEL_11:
                   memmove((void *)(v9 + 28), v2, v10);
                   Length = DestinationString.Length;
                   MaximumLength = DestinationString.MaximumLength;
-                  v20 = (void *)(v10 + v9 + 32);
+                  v19 = (void *)(v10 + v9 + 32);
                   *(_WORD *)(v9 + 8) = DestinationString.Length;
-                  v21 = Length;
+                  v20 = Length;
                   Buffer = DestinationString.Buffer;
-                  *(_QWORD *)(v9 + 16) = v20;
+                  *(_QWORD *)(v9 + 16) = v19;
                   *(_WORD *)(v9 + 10) = MaximumLength;
-                  memmove(v20, Buffer, v21);
+                  memmove(v19, Buffer, v20);
                   ++*((_DWORD *)a1 + 13);
                   *a1 += v11;
                   if ( v6 )
@@ -126,7 +127,7 @@ LABEL_11:
           }
         }
       }
-      ExFreePoolWithTag(v5, 0);
+      ExFreePoolWithTag(v4, 0);
       if ( v2 )
         ExFreePoolWithTag(v2, 0);
     }

@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhResetNotifyCompletion @ 0x1C003CC60
+ * XREFs of UsbhResetNotifyCompletion @ 0x1C003DE40
  * Callers:
- *     UsbhFdoSetD0Cold @ 0x1C0009FA0 (UsbhFdoSetD0Cold.c)
+ *     UsbhFdoSetD0Cold @ 0x1C000CF10 (UsbhFdoSetD0Cold.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     WPP_RECORDER_SF_q @ 0x1C002E090 (WPP_RECORDER_SF_q.c)
- *     UsbhSetPdo_AllowIo @ 0x1C003CE78 (UsbhSetPdo_AllowIo.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002F46C (WPP_RECORDER_SF_q.c)
+ *     UsbhSetPdo_AllowIo @ 0x1C003E058 (UsbhSetPdo_AllowIo.c)
  */
 
 _DWORD *__fastcall UsbhResetNotifyCompletion(__int64 a1)

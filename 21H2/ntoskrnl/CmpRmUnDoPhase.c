@@ -1,62 +1,71 @@
 /*
- * XREFs of CmpRmUnDoPhase @ 0x14091C5C4
+ * XREFs of CmpRmUnDoPhase @ 0x1408759F4
  * Callers:
- *     CmpStartRMLog @ 0x14080C884 (CmpStartRMLog.c)
+ *     CmpStartRMLog @ 0x14077D4E4 (CmpStartRMLog.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenTransaction @ 0x14041DE40 (ZwOpenTransaction.c)
- *     CmpTransMgrRollback @ 0x1406E2798 (CmpTransMgrRollback.c)
- *     CmpTransMgrFreeVolatileData @ 0x14071BC94 (CmpTransMgrFreeVolatileData.c)
- *     CmpTransMgrPrepare @ 0x1407424F0 (CmpTransMgrPrepare.c)
- *     CmpTransMgrCommit @ 0x1407426B8 (CmpTransMgrCommit.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     CmListGetNextElement @ 0x140AB4218 (CmListGetNextElement.c)
- *     CmpAttachToRegistryProcess @ 0x140AB4550 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140AB4580 (CmpDetachFromRegistryProcess.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenTransaction @ 0x1403FC9C0 (ZwOpenTransaction.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
+ *     CmpTransMgrFreeVolatileData @ 0x14071D4D0 (CmpTransMgrFreeVolatileData.c)
+ *     CmpTransMgrPrepare @ 0x140768D04 (CmpTransMgrPrepare.c)
+ *     CmpTransMgrCommit @ 0x140768EA0 (CmpTransMgrCommit.c)
+ *     CmpTransMgrRollback @ 0x140771090 (CmpTransMgrRollback.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall CmpRmUnDoPhase(__int64 a1)
+char *__fastcall CmpRmUnDoPhase(__int64 a1)
 {
-  __int64 result; // rax
+  char *result; // rax
   __int64 v3; // r8
-  _QWORD *v4; // rbx
+  char *v4; // rbx
   __int64 v5; // rcx
-  int v6; // edx
-  __int64 v7; // rcx
-  _QWORD *v8; // rax
-  __int64 v9; // [rsp+28h] [rbp-39h]
-  _BYTE v10[4]; // [rsp+38h] [rbp-29h] BYREF
-  _DWORD v11[3]; // [rsp+3Ch] [rbp-25h] BYREF
-  __int64 v12; // [rsp+48h] [rbp-19h] BYREF
+  _DWORD *v6; // r9
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  _DWORD *v9; // r9
+  int v10; // edx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  _DWORD *v13; // r9
+  __int64 v14; // rcx
+  char **v15; // rax
+  __int64 v16; // [rsp+28h] [rbp-39h]
+  char v17[4]; // [rsp+38h] [rbp-29h] BYREF
+  int v18; // [rsp+3Ch] [rbp-25h] BYREF
+  HANDLE TransactionHandle; // [rsp+40h] [rbp-21h] BYREF
+  _QWORD *v20; // [rsp+48h] [rbp-19h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-11h] BYREF
-  _OWORD v14[3]; // [rsp+80h] [rbp+1Fh] BYREF
+  _OWORD v22[3]; // [rsp+80h] [rbp+1Fh] BYREF
 
-  memset(v11, 0, sizeof(v11));
-  memset(&ObjectAttributes, 0, 44);
-  v10[0] = 0;
-  memset(v14, 0, sizeof(v14));
+  TransactionHandle = 0LL;
+  v18 = 0;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  v17[0] = 0;
+  memset(v22, 0, sizeof(v22));
 LABEL_2:
-  v12 = 0LL;
+  v20 = 0LL;
   while ( 1 )
   {
-    result = CmListGetNextElement(a1 + 16, &v12, 0LL);
-    v4 = (_QWORD *)result;
+    result = CmListGetNextElement((_QWORD **)(a1 + 16), &v20, 0);
+    v4 = result;
     if ( !result )
       return result;
-    if ( (*(_DWORD *)(result + 48) & 2) != 0 )
+    if ( (*((_DWORD *)result + 12) & 2) != 0 )
     {
-      CmpTransMgrRollback(result, v11);
-      CmpAttachToRegistryProcess(v14);
-      v6 = 8;
+      CmpTransMgrRollback((__int64)result, &v18);
+      CmpAttachToRegistryProcess((__int64)v22, v11, v12, v13);
+      v10 = 8;
 LABEL_12:
-      CmpTransMgrFreeVolatileData((ULONG_PTR)v4, v6);
-      CmpDetachFromRegistryProcess(v14);
-      v7 = *v4;
-      if ( *(_QWORD **)(*v4 + 8LL) != v4 || (v8 = (_QWORD *)v4[1], (_QWORD *)*v8 != v4) )
+      CmpTransMgrFreeVolatileData((ULONG_PTR)v4, v10);
+      KiUnstackDetachProcess((__int64)v22, 0);
+      v14 = *(_QWORD *)v4;
+      if ( *(char **)(*(_QWORD *)v4 + 8LL) != v4 || (v15 = (char **)*((_QWORD *)v4 + 1), *v15 != v4) )
         __fastfail(3u);
-      *v8 = v7;
-      *(_QWORD *)(v7 + 8) = v8;
+      *v15 = (char *)v14;
+      *(_QWORD *)(v14 + 8) = v15;
       ExFreePoolWithTag(v4, 0x72544D43u);
       goto LABEL_2;
     }
@@ -65,17 +74,18 @@ LABEL_12:
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 512;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    if ( ZwOpenTransaction((PHANDLE)&v11[1], 0x1F003Fu, &ObjectAttributes, (LPGUID)(result + 88), (HANDLE)(v3 & v9)) < 0 )
+    if ( ZwOpenTransaction(&TransactionHandle, 0x1F003Fu, &ObjectAttributes, (LPGUID)(result + 88), (HANDLE)(v3 & v16)) < 0 )
     {
-      if ( (int)CmpTransMgrPrepare(a1, (__int64)v4, v11, v10) < 0 || (int)CmpTransMgrCommit(v5, (__int64)v4, v11) < 0 )
+      if ( (int)CmpTransMgrPrepare(a1, (__int64)v4, &v18, v17) < 0
+        || (int)CmpTransMgrCommit(v5, (__int64)v4, &v18, v6) < 0 )
       {
         *((_DWORD *)v4 + 12) |= 2u;
         goto LABEL_2;
       }
-      CmpAttachToRegistryProcess(v14);
-      v6 = 4;
+      CmpAttachToRegistryProcess((__int64)v22, v7, v8, v9);
+      v10 = 4;
       goto LABEL_12;
     }
-    ZwClose(*(HANDLE *)&v11[1]);
+    ZwClose(TransactionHandle);
   }
 }

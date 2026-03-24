@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CParticleEmitter@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18022B650
+ * XREFs of ?IsOfType@CParticleEmitter@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801DC7A0
  * Callers:
  *     <none>
  * Callees:

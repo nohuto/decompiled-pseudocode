@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpIsKeyStackDeleted @ 0x140644670
+ * XREFs of CmpIsKeyStackDeleted @ 0x140644650
  * Callers:
  *     CmpCheckOpenAccessOnKeyBody @ 0x140596210 (CmpCheckOpenAccessOnKeyBody.c)
  *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
  *     CmpGetSymbolicLinkTarget @ 0x1405D7CC0 (CmpGetSymbolicLinkTarget.c)
  *     CmpCreateKeyBody @ 0x1405E0970 (CmpCreateKeyBody.c)
- *     CmpDoWritethroughReparse @ 0x14063C100 (CmpDoWritethroughReparse.c)
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
- *     CmpIsKeyDeleted @ 0x140698140 (CmpIsKeyDeleted.c)
- *     CmpPromoteKey @ 0x140805600 (CmpPromoteKey.c)
+ *     CmpDoWritethroughReparse @ 0x14063C0E0 (CmpDoWritethroughReparse.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpIsKeyDeleted @ 0x140698120 (CmpIsKeyDeleted.c)
+ *     CmpPromoteKey @ 0x1408055E0 (CmpPromoteKey.c)
  * Callees:
  *     CmEqualTrans @ 0x1405A94E8 (CmEqualTrans.c)
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
  */
 
 char __fastcall CmpIsKeyStackDeleted(__int64 a1, __int64 a2)

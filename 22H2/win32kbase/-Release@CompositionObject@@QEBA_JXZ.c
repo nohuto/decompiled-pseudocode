@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Release@CompositionObject@@QEBA_JXZ @ 0x1C0083F10
+ * XREFs of ?Release@CompositionObject@@QEBA_JXZ @ 0x1C004C3C0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?pxrlStrRead16@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02E2050
+ * XREFs of ?pxrlStrRead16@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02C2760
  * Callers:
  *     <none>
  * Callees:
- *     XLATEOBJ_iXlate @ 0x1C008CAC0 (XLATEOBJ_iXlate.c)
+ *     XLATEOBJ_iXlate @ 0x1C00C77F0 (XLATEOBJ_iXlate.c)
  */
 
 struct _XRUNLEN *__fastcall pxrlStrRead16(
@@ -34,21 +34,21 @@ struct _XRUNLEN *__fastcall pxrlStrRead16(
   ULONG *v23; // rdi
   __int64 v24; // rcx
   int v26; // r13d
-  unsigned __int8 *v27; // r8
-  int v28; // r11d
+  unsigned __int8 *v27; // r11
+  int v28; // r9d
   __int64 v29; // rdx
   __int64 v30; // r10
-  char *v31; // r9
+  char *v31; // r8
   ULONG v32; // ecx
   ULONG v33; // eax
-  __int64 v34; // r11
+  __int64 v34; // r9
   ULONG v35; // eax
   ULONG *v36; // rdi
   __int64 v37; // rcx
   int v38; // edx
   __int64 v39; // rdi
-  int *v40; // rax
-  int v41; // ecx
+  int v40; // ecx
+  unsigned __int8 *v41; // rax
   __int64 v42; // rax
   __int64 v43; // [rsp+20h] [rbp-48h]
   __int64 v44; // [rsp+78h] [rbp+10h]
@@ -83,14 +83,14 @@ struct _XRUNLEN *__fastcall pxrlStrRead16(
         if ( pxlo )
         {
           v33 = XLATEOBJ_iXlate(pxlo, v32);
-          v27 = v46;
-          v32 = v33;
           v31 = v45;
+          v32 = v33;
           v30 = v43;
+          v27 = v46;
           v29 = v44;
           v28 = v47;
         }
-        if ( (v28 & dword_1C0319790[v30]) != 0 )
+        if ( (dword_1C02EFA80[v30] & v28) != 0 )
         {
           v34 = *(unsigned int *)v31;
           if ( (_DWORD)v34 )
@@ -129,25 +129,23 @@ struct _XRUNLEN *__fastcall pxrlStrRead16(
         v39 = v30 + 1;
         if ( v8 >= a7 )
           break;
-        v40 = (int *)(v27 + 4);
-        v41 = v38 & 0x20;
+        v40 = v38 & 0x20;
         if ( (v38 & 0x20) != 0 )
         {
-          v28 = *v40;
-          v47 = *v40;
+          v28 = *((_DWORD *)v27 + 1);
+          v47 = v28;
         }
-        else
-        {
-          v40 = (int *)v27;
-        }
+        v41 = v27 + 4;
+        if ( (v38 & 0x20) == 0 )
+          v41 = v27;
         v26 = 0;
-        v46 = (unsigned __int8 *)v40;
-        v27 = (unsigned __int8 *)v40;
+        v46 = v41;
+        v27 = v41;
         if ( (v38 & 0x20) == 0 )
           v26 = v38;
         v29 = v44;
         v30 = 0LL;
-        if ( !v41 )
+        if ( !v40 )
           v30 = v39;
       }
       if ( v10 > 0 )

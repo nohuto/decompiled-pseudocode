@@ -1,32 +1,36 @@
 /*
- * XREFs of ?PauseVmBusChannels@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C0345800
+ * XREFs of ?PauseVmBusChannels@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C0286060
  * Callers:
- *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01A8AD0 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
- *     ?ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z @ 0x1C0345B20 (-ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0123534 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     ?ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z @ 0x1C028626C (-ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z.c)
  * Callees:
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?RemoveMapping@HOSTVMMONITORMAPPING@@QEAAJPEAX_N@Z @ 0x1C0058030 (-RemoveMapping@HOSTVMMONITORMAPPING@@QEAAJPEAX_N@Z.c)
- *     ?PauseChannel@DXG_VMBUS_CHANNEL_BASE@@QEAAX_N@Z @ 0x1C037612C (-PauseChannel@DXG_VMBUS_CHANNEL_BASE@@QEAAX_N@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?RemoveMapping@REMOTEVSYNCMAPPING@@QEAAJPEAX_N@Z @ 0x1C004F748 (-RemoveMapping@REMOTEVSYNCMAPPING@@QEAAJPEAX_N@Z.c)
+ *     ?PauseChannel@DXG_VMBUS_CHANNEL_BASE@@QEAAXXZ @ 0x1C023B2D0 (-PauseChannel@DXG_VMBUS_CHANNEL_BASE@@QEAAXXZ.c)
  */
 
-void __fastcall DXGVIRTUALMACHINE::PauseVmBusChannels(DXGVIRTUALMACHINE *this)
+void __fastcall DXGVIRTUALMACHINE::PauseVmBusChannels(struct _KTHREAD **this)
 {
   char *v1; // rsi
+  struct _KTHREAD *v3; // rbx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
   struct DXGGLOBAL *Global; // rax
-  __int64 **v4; // rdi
-  __int64 *i; // rbx
+  struct _KTHREAD ***v7; // rdi
+  struct _KTHREAD **i; // rbx
 
-  v1 = (char *)this + 64;
-  DXGPUSHLOCK::AcquireExclusive((DXGVIRTUALMACHINE *)((char *)this + 64));
-  DXG_VMBUS_CHANNEL_BASE::PauseChannel((DXGVIRTUALMACHINE *)((char *)this + 160), 1);
-  Global = DXGGLOBAL::GetGlobal();
-  HOSTVMMONITORMAPPING::RemoveMapping((struct DXGGLOBAL *)((char *)Global + 304888), (char *)this + 160);
-  v4 = (__int64 **)((char *)this + 40);
-  for ( i = *v4; i != (__int64 *)v4; i = (__int64 *)*i )
+  v1 = (char *)(this + 8);
+  DXGPUSHLOCK::AcquireExclusive((DXGPUSHLOCK *)(this + 8));
+  DXG_VMBUS_CHANNEL_BASE::PauseChannel(this + 16);
+  v3 = this[16];
+  Global = DXGGLOBAL::GetGlobal(v5, v4);
+  REMOTEVSYNCMAPPING::RemoveMapping((struct DXGGLOBAL *)((char *)Global + 304672), v3);
+  v7 = (struct _KTHREAD ***)(this + 5);
+  for ( i = *v7; i != (struct _KTHREAD **)v7; i = (struct _KTHREAD **)*i )
   {
     if ( *((_BYTE *)i + 16) )
-      DXG_VMBUS_CHANNEL_BASE::PauseChannel((DXG_VMBUS_CHANNEL_BASE *)(i + 5), 1);
+      DXG_VMBUS_CHANNEL_BASE::PauseChannel(i + 4);
   }
   *((_QWORD *)v1 + 1) = 0LL;
   ExReleasePushLockExclusiveEx(v1, 0LL);

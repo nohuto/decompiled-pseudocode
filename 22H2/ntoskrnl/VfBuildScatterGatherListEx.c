@@ -1,21 +1,21 @@
 /*
- * XREFs of VfBuildScatterGatherListEx @ 0x140AC69B0
+ * XREFs of VfBuildScatterGatherListEx @ 0x1409CB370
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     VfReportIssueWithOptions @ 0x1405CFD90 (VfReportIssueWithOptions.c)
- *     DECREMENT_SCATTER_GATHER_LISTS @ 0x140AC53C0 (DECREMENT_SCATTER_GATHER_LISTS.c)
- *     VERIFY_BUFFER_LOCKED @ 0x140AC5620 (VERIFY_BUFFER_LOCKED.c)
- *     VF_ASSERT_IRQL @ 0x140AC56AC (VF_ASSERT_IRQL.c)
- *     ViCheckMdlLength @ 0x140AC931C (ViCheckMdlLength.c)
- *     ViGetAdapterInformationInternal @ 0x140AC9E44 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140ACA158 (ViGetRealDmaAdapter.c)
- *     ViHalPreprocessOptions @ 0x140ACA2F4 (ViHalPreprocessOptions.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VfReportIssueWithOptions @ 0x1405A1D34 (VfReportIssueWithOptions.c)
+ *     DECREMENT_SCATTER_GATHER_LISTS @ 0x1409C9E10 (DECREMENT_SCATTER_GATHER_LISTS.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x1409CA070 (VERIFY_BUFFER_LOCKED.c)
+ *     VF_ASSERT_IRQL @ 0x1409CA0FC (VF_ASSERT_IRQL.c)
+ *     ViCheckMdlLength @ 0x1409CDC64 (ViCheckMdlLength.c)
+ *     ViGetAdapterInformationInternal @ 0x1409CE758 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x1409CEA60 (ViGetRealDmaOperation.c)
+ *     ViHalPreprocessOptions @ 0x1409CEC70 (ViHalPreprocessOptions.c)
  */
 
 __int64 __fastcall VfBuildScatterGatherListEx(
-        int a1,
+        __int64 a1,
         __int64 a2,
         __int64 a3,
         ULONG_PTR a4,
@@ -31,58 +31,43 @@ __int64 __fastcall VfBuildScatterGatherListEx(
         __int64 a14,
         __int64 a15)
 {
-  __int64 RealDmaAdapter; // r15
   __int64 AdapterInformationInternal; // rdi
-  unsigned int v22; // eax
-  unsigned int v23; // ebx
-  int v24; // eax
-  unsigned int v25; // ebx
+  unsigned int v21; // eax
+  unsigned int v22; // ebx
+  int v23; // eax
+  unsigned int v24; // ebx
+  __int64 (__fastcall *RealDmaOperation)(__int64, __int64, __int64, ULONG_PTR, __int64, unsigned int, int, __int64, __int64, char, __int64, int, __int64, __int64, __int64); // [rsp+80h] [rbp-38h]
 
-  RealDmaAdapter = ViGetRealDmaAdapter(a1);
+  RealDmaOperation = (__int64 (__fastcall *)(__int64, __int64, __int64, ULONG_PTR, __int64, unsigned int, int, __int64, __int64, char, __int64, int, __int64, __int64, __int64))ViGetRealDmaOperation(a1);
   AdapterInformationInternal = ViGetAdapterInformationInternal(a1);
   if ( AdapterInformationInternal )
   {
     VF_ASSERT_IRQL(2u);
     if ( !a4 )
       return 3221225485LL;
-    _InterlockedIncrement((volatile signed __int32 *)(AdapterInformationInternal + 196));
-    _InterlockedIncrement((volatile signed __int32 *)(AdapterInformationInternal + 200));
+    _InterlockedIncrement((volatile signed __int32 *)(AdapterInformationInternal + 164));
+    _InterlockedIncrement((volatile signed __int32 *)(AdapterInformationInternal + 168));
     VERIFY_BUFFER_LOCKED(a4);
-    v22 = ViCheckMdlLength(a4, a5, a6);
-    if ( v22 )
+    v21 = ViCheckMdlLength(a4, a5, a6);
+    if ( v21 )
     {
-      v23 = v22;
+      v22 = v21;
       ViHalPreprocessOptions(
-        byte_140C0DDB8,
+        byte_140C12E70,
         "The provided MDL is not sufficient to satisfy the requested length",
         36LL,
-        v22,
+        v21,
         0LL,
         0LL);
-      VfReportIssueWithOptions(0xE6u, 0x24uLL, v23, 0LL, 0LL, byte_140C0DDB8);
+      VfReportIssueWithOptions(0xE6u, 0x24uLL, v22, 0LL, 0LL, byte_140C12E70);
     }
   }
-  v24 = (*(__int64 (__fastcall **)(__int64, __int64, __int64, ULONG_PTR, __int64, unsigned int, int, __int64, __int64, char, __int64, int, __int64, __int64, __int64))(*(_QWORD *)(RealDmaAdapter + 8) + 200LL))(
-          RealDmaAdapter,
-          a2,
-          a3,
-          a4,
-          a5,
-          a6,
-          a7,
-          a8,
-          a9,
-          a10,
-          a11,
-          a12,
-          a13,
-          a14,
-          a15);
-  v25 = v24;
+  v23 = RealDmaOperation(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15);
+  v24 = v23;
   if ( AdapterInformationInternal )
   {
-    if ( v24 < 0 )
+    if ( v23 < 0 )
       DECREMENT_SCATTER_GATHER_LISTS(AdapterInformationInternal);
   }
-  return v25;
+  return v24;
 }

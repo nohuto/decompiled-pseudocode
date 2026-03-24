@@ -1,242 +1,229 @@
 /*
- * XREFs of GetNewMonitor @ 0x1C010B39C
+ * XREFs of GetNewMonitor @ 0x1C006BEBC
  * Callers:
- *     zzzUpdateWindowsAfterModeChange @ 0x1C008E138 (zzzUpdateWindowsAfterModeChange.c)
- *     xxxInheritWindowMonitor @ 0x1C00D0C30 (xxxInheritWindowMonitor.c)
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00F58E4 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C0123FE0 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
- *     NtUserUpdateLayeredWindow @ 0x1C01DF6D0 (NtUserUpdateLayeredWindow.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068290 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     xxxInheritWindowMonitor @ 0x1C006C7D8 (xxxInheritWindowMonitor.c)
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C0070758 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
+ *     zzzUpdateWindowsAfterModeChange @ 0x1C00F1018 (zzzUpdateWindowsAfterModeChange.c)
+ *     NtUserUpdateLayeredWindow @ 0x1C00F1880 (NtUserUpdateLayeredWindow.c)
  * Callees:
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00ABF38 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C00D003C (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
- *     _MonitorFromRect @ 0x1C00D0160 (_MonitorFromRect.c)
- *     GetMonitorTransform @ 0x1C00F388C (GetMonitorTransform.c)
- *     GetInheritedMonitor @ 0x1C010E880 (GetInheritedMonitor.c)
- *     _IsTopLevelWindow @ 0x1C0122310 (_IsTopLevelWindow.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?IsNewMonitorRectMostOccupied@@YAHPEBUtagRECT@@00@Z @ 0x1C01B92E4 (-IsNewMonitorRectMostOccupied@@YAHPEBUtagRECT@@00@Z.c)
- *     ?TransformRectAroundCursor@@YAXPEAUMOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z @ 0x1C01B93D4 (-TransformRectAroundCursor@@YAXPEAUMOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z.c)
- *     TransformRectAroundPoint @ 0x1C01BA120 (TransformRectAroundPoint.c)
- *     TransformVector @ 0x1C01E6D28 (TransformVector.c)
+ *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C0042160 (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
+ *     _MonitorFromRect @ 0x1C0042270 (_MonitorFromRect.c)
+ *     GetMonitorTransform @ 0x1C00426E4 (GetMonitorTransform.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C0067530 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     GetInheritedMonitor @ 0x1C006C0E4 (GetInheritedMonitor.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?IsNewMonitorRectMostOccupied@@YAHPEBUtagRECT@@00@Z @ 0x1C01E3C20 (-IsNewMonitorRectMostOccupied@@YAHPEBUtagRECT@@00@Z.c)
+ *     ?TransformRectAroundCursor@@YAXPEAU_MOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z @ 0x1C01E3D5C (-TransformRectAroundCursor@@YAXPEAU_MOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z.c)
+ *     TransformRectAroundPoint @ 0x1C01E5944 (TransformRectAroundPoint.c)
+ *     TransformVector @ 0x1C0216FBC (TransformVector.c)
  */
 
-__int64 __fastcall GetNewMonitor(struct tagWND *a1, struct tagRECT *a2, _OWORD *a3)
+__int64 __fastcall GetNewMonitor(struct tagWND *a1, struct tagRECT *a2, __int64 a3)
 {
   __int64 v3; // rax
   __int64 InheritedMonitor; // rbx
-  __int64 v7; // r14
-  __int64 v8; // rdi
-  int v9; // eax
-  __int64 v10; // rcx
-  BOOL v11; // r13d
-  int v12; // r12d
-  signed __int32 *v13; // r9
-  int v14; // ecx
+  __int64 v7; // rax
+  __int64 v8; // r9
+  int v9; // r13d
+  __int64 v10; // r14
+  __int64 v11; // rax
+  __int64 v12; // rdi
+  BOOL v13; // r11d
+  int v14; // r15d
   int v15; // r8d
-  BOOL v16; // r11d
-  __int64 v17; // r10
+  int v16; // edx
+  BOOL v17; // r10d
   __m128i v18; // xmm6
-  int v19; // r15d
-  int v20; // r13d
-  struct tagRECT *v21; // r12
-  _OWORD *v22; // rax
-  struct tagMONITOR *v24; // rax
-  struct tagMONITOR *v25; // rax
-  __int64 v26; // rdx
-  unsigned __int64 v27; // rcx
-  bool v28; // zf
-  unsigned __int32 v29; // ecx
-  struct tagRECT v30; // xmm0
-  int v31; // r9d
-  __int64 v32; // r8
-  int v33; // [rsp+28h] [rbp-89h]
-  struct tagRECT v35; // [rsp+48h] [rbp-69h] BYREF
-  struct tagRECT v36; // [rsp+58h] [rbp-59h] BYREF
-  _BYTE v37[64]; // [rsp+68h] [rbp-49h] BYREF
-  struct tagRECT v38; // [rsp+A8h] [rbp-9h] BYREF
+  struct tagRECT *v19; // r15
+  struct tagMONITOR *v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rcx
+  unsigned __int64 v24; // rcx
+  struct tagRECT v25; // xmm0
+  int v26; // r9d
+  __int64 v27; // r10
+  int v28; // [rsp+28h] [rbp-89h]
+  struct tagRECT v29; // [rsp+38h] [rbp-79h] BYREF
+  BOOL v30; // [rsp+48h] [rbp-69h]
+  struct tagRECT v31; // [rsp+58h] [rbp-59h] BYREF
+  _BYTE v32[64]; // [rsp+68h] [rbp-49h] BYREF
+  struct tagRECT v33; // [rsp+A8h] [rbp-9h] BYREF
 
   v3 = *((_QWORD *)a1 + 5);
-  *(_QWORD *)&v36.left = a2;
+  *(_QWORD *)&v31.left = a3;
   InheritedMonitor = 0LL;
   v7 = ValidateHmonitorNoRip(*(_QWORD *)(v3 + 256));
-  v35 = 0LL;
-  v8 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 672LL);
-  v9 = *((_DWORD *)a1 + 80);
-  v11 = 1;
-  if ( (v9 & 0x4000000) == 0 && (v9 & 0x8000000) == 0 )
+  v8 = *((_QWORD *)a1 + 5);
+  v9 = 1;
+  v10 = v7;
+  v11 = *((_QWORD *)a1 + 2);
+  v29 = 0LL;
+  v12 = *(_QWORD *)(v11 + 672);
+  v13 = (*(_BYTE *)(v8 + 233) & 3) != 0 || (*(_BYTE *)(v8 + 31) & 1) != 0 || (*(_BYTE *)(v8 + 20) & 0x40) != 0;
+  if ( v12 && *(struct tagWND **)(v12 + 16) == a1 )
   {
-    v10 = *((_QWORD *)a1 + 5);
-    if ( (*(_BYTE *)(v10 + 31) & 1) == 0 && (*(_BYTE *)(v10 + 20) & 0x40) == 0 )
-      v11 = 0;
-  }
-  if ( v8 && *(struct tagWND **)(v8 + 16) == a1 )
-  {
-    v13 = (signed __int32 *)(v8 + 200);
-    v12 = 1;
-    if ( !_bittest((const signed __int32 *)(v8 + 200), 0x1Du) )
+    v14 = 1;
+    if ( *(int *)(v12 + 196) >= 0 )
     {
-      v14 = 1;
-LABEL_9:
-      v15 = 0;
-      goto LABEL_10;
+      v15 = 1;
+      goto LABEL_45;
     }
   }
   else
   {
-    v12 = 0;
-    v13 = (signed __int32 *)(v8 + 200);
+    v14 = 0;
   }
-  v14 = 0;
-  if ( !v12 || !_bittest(v13, 0x1Du) )
+  v15 = 0;
+  if ( !v14 )
+  {
+LABEL_8:
+    v16 = 0;
     goto LABEL_9;
-  v15 = 1;
-LABEL_10:
-  v16 = v14 && (*v13 & 8) != 0 && v11;
-  v17 = *((_QWORD *)a1 + 5);
-  v18 = *(__m128i *)(v17 + 88);
-  v38 = (struct tagRECT)v18;
+  }
+LABEL_45:
+  if ( *(int *)(v12 + 196) >= 0 )
+    goto LABEL_8;
+  v16 = 1;
+LABEL_9:
+  v17 = v15 && (*(_DWORD *)(v12 + 196) & 8) != 0 && v13;
+  v18 = *(__m128i *)(v8 + 88);
+  v33 = (struct tagRECT)v18;
   if ( a2 )
   {
-    if ( !v14 )
-      goto LABEL_36;
-    v26 = *(_QWORD *)(v8 + 24) - *(_QWORD *)(v17 + 88);
-    if ( !v26 )
-      v26 = *(_QWORD *)(v8 + 32) - *(_QWORD *)(v17 + 96);
-    if ( v26 )
+    if ( !v15 )
+      goto LABEL_38;
+    v23 = *(_QWORD *)(v12 + 24) - *(_QWORD *)(v8 + 88);
+    if ( !v23 )
+      v23 = *(_QWORD *)(v12 + 32) - *(_QWORD *)(v8 + 96);
+    if ( v23 )
     {
-LABEL_36:
+LABEL_38:
       v18 = *(__m128i *)a2;
-      v38 = *a2;
+      v33 = *a2;
     }
   }
-  if ( !v16 && v14 && (unsigned int)(*(_DWORD *)(v8 + 176) - 9) <= 1 )
+  if ( v17 || !v15 || (unsigned int)(*(_DWORD *)(v12 + 176) - 9) > 1 )
+    v9 = 0;
+  v30 = !v15 && !v13;
+  if ( v14 && (v15 || a2) )
   {
-    v19 = 1;
-LABEL_38:
-    v20 = 0;
-    goto LABEL_18;
-  }
-  v19 = 0;
-  if ( v14 || v11 )
-    goto LABEL_38;
-  v20 = 1;
-LABEL_18:
-  if ( v12 && (v14 || *(_QWORD *)&v36.left) )
-  {
-    v27 = *(_QWORD *)(v8 + 24) - v18.m128i_i64[0];
-    if ( !v27 )
-      v27 = *(_QWORD *)(v8 + 32) - _mm_srli_si128(v18, 8).m128i_u64[0];
-    v28 = v27 == 0;
-    v29 = *v13;
-    if ( v28 )
+    v24 = *(_QWORD *)(v12 + 24) - v18.m128i_i64[0];
+    if ( !v24 )
+      v24 = *(_QWORD *)(v12 + 32) - _mm_srli_si128(v18, 8).m128i_u64[0];
+    if ( v24 )
     {
-      InheritedMonitor = *(_QWORD *)(v8 + 208);
-      v15 = (v29 >> 3) & 1;
+      *(_DWORD *)(v12 + 196) |= 0x20000000u;
     }
     else
     {
-      *v13 = v29 | 0x8000000;
+      InheritedMonitor = *(_QWORD *)(v12 + 208);
+      v16 = (*(_DWORD *)(v12 + 196) >> 3) & 1;
     }
   }
-  v21 = *(struct tagRECT **)&v36.left;
-  if ( v15 )
+  if ( v16 )
   {
-    v30 = *(struct tagRECT *)(v8 + 24);
-    v35 = v30;
-    if ( *(_QWORD *)&v36.left )
-      *(struct tagRECT *)*(_QWORD *)&v36.left = v30;
+    v25 = *(struct tagRECT *)(v12 + 24);
+    v29 = v25;
+    if ( a2 )
+      *a2 = v25;
   }
-  v22 = a3;
-  if ( a3 )
-    *a3 = v18;
+  v19 = *(struct tagRECT **)&v31.left;
+  if ( *(_QWORD *)&v31.left )
+    *(__m128i *)*(_QWORD *)&v31.left = v18;
   if ( !InheritedMonitor )
   {
     InheritedMonitor = GetInheritedMonitor(a1);
     if ( !InheritedMonitor )
     {
-      v24 = _MonitorFromWindowInternal(a1, 0, 1);
-      InheritedMonitor = (__int64)v24;
-      if ( v24 )
+      v21 = _MonitorFromWindowInternal(a1, 0, 1);
+      InheritedMonitor = (__int64)v21;
+      if ( !v21 )
+        goto LABEL_34;
+      if ( v10 && v21 != (struct tagMONITOR *)v10 && v9 )
       {
-        if ( !v7 || v24 == (struct tagMONITOR *)v7 || !v19 )
-          goto LABEL_24;
-        v36 = (struct tagRECT)v18;
-        memset_0(v37, 0, sizeof(v37));
-        if ( (unsigned int)GetMonitorTransform(v7, a1, (__int64)v37) )
+        v31 = (struct tagRECT)v18;
+        memset(v32, 0, sizeof(v32));
+        if ( (unsigned int)GetMonitorTransform(v10, (__int64)a1, (__int64)v32) )
         {
-          TransformVector((unsigned int)v37, (unsigned int)&v36, (unsigned int)&v36.top, 0, 0);
-          TransformVector((unsigned int)v37, (unsigned int)&v36.right, (unsigned int)&v36.bottom, v31, v31 & v33);
+          TransformVector((unsigned int)v32, (unsigned int)&v31, (unsigned int)&v31.top, 0, 0);
+          TransformVector((unsigned int)v32, (unsigned int)&v31.right, (unsigned int)&v31.bottom, v26, v26 & v28);
         }
         TransformRectAroundCursor(
-          (struct MOVESIZEDATA *)v8,
-          &v36,
-          *(_WORD *)(*(_QWORD *)(v7 + 40) + 60LL),
-          v21,
-          &v35,
-          *(_WORD *)(*(_QWORD *)(InheritedMonitor + 40) + 60LL));
-        if ( (unsigned int)IsNewMonitorRectMostOccupied(
-                             &v35,
-                             (const struct tagRECT *)(*(_QWORD *)(InheritedMonitor + 40) + 28LL),
-                             (const struct tagRECT *)(*(_QWORD *)(v7 + 40) + 28LL)) )
-          goto LABEL_24;
-        v35 = (struct tagRECT)v18;
+          (struct _MOVESIZEDATA *)v12,
+          &v31,
+          *(_WORD *)(*(_QWORD *)(v10 + 40) + 64LL),
+          a2,
+          &v29,
+          *(_WORD *)(*(_QWORD *)(InheritedMonitor + 40) + 64LL));
+        if ( !(unsigned int)IsNewMonitorRectMostOccupied(
+                              &v29,
+                              (const struct tagRECT *)(*(_QWORD *)(InheritedMonitor + 40) + 28LL),
+                              (const struct tagRECT *)(*(_QWORD *)(v10 + 40) + 28LL)) )
+        {
+          InheritedMonitor = 0LL;
+          v29 = (struct tagRECT)v18;
+        }
       }
-      if ( (*(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL) & 0xF) == 2 )
+      if ( !InheritedMonitor )
       {
-        v25 = (struct tagMONITOR *)MonitorFromRect((__int64)&v38, 2u, 0);
-        v18 = (__m128i)v38;
+LABEL_34:
+        if ( (*(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL) & 0xF) == 2 )
+        {
+          v22 = MonitorFromRect(&v33, 2u, 0);
+          v18 = (__m128i)v33;
+        }
+        else
+        {
+          v22 = (__int64)_MonitorFromWindowInternal(a1, 2, 1);
+        }
+        InheritedMonitor = v22;
       }
-      else
-      {
-        v25 = _MonitorFromWindowInternal(a1, 2u, 1);
-      }
-      InheritedMonitor = (__int64)v25;
     }
-LABEL_24:
-    v22 = a3;
   }
-  if ( v22
+  if ( v19
     && (*(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL) & 0xF) == 2
     && (*(_DWORD *)(*((_QWORD *)a1 + 2) + 648LL) & 0x2000000) == 0
-    && v7
-    && v7 != InheritedMonitor
+    && v10
+    && v10 != InheritedMonitor
     && (unsigned int)IsTopLevelWindow(a1) )
   {
-    if ( IsRectEmptyInl(&v35) )
+    if ( IsRectEmptyInl(&v29) )
     {
-      if ( v19 )
+      if ( v9 )
       {
         TransformRectAroundCursor(
-          (struct MOVESIZEDATA *)v8,
-          &v38,
-          *(_WORD *)(*(_QWORD *)(v7 + 40) + 60LL),
-          v21,
-          &v35,
-          *(_WORD *)(*(_QWORD *)(InheritedMonitor + 40) + 60LL));
+          (struct _MOVESIZEDATA *)v12,
+          &v33,
+          *(_WORD *)(*(_QWORD *)(v10 + 40) + 64LL),
+          a2,
+          &v29,
+          *(_WORD *)(*(_QWORD *)(InheritedMonitor + 40) + 64LL));
       }
-      else if ( v20 )
+      else if ( v30 )
       {
         TransformRectAroundPoint(
-          (unsigned int)&v38,
-          *(unsigned __int16 *)(*(_QWORD *)(v7 + 40) + 60LL),
-          (_DWORD)v21,
-          (unsigned int)&v35,
-          *(_WORD *)(*(_QWORD *)(InheritedMonitor + 40) + 60LL),
-          *(_QWORD *)(v32 + 88));
+          (unsigned int)&v33,
+          *(unsigned __int16 *)(*(_QWORD *)(v10 + 40) + 64LL),
+          (_DWORD)a2,
+          (unsigned int)&v29,
+          *(_WORD *)(*(_QWORD *)(InheritedMonitor + 40) + 64LL),
+          *(_QWORD *)(v27 + 88));
       }
-      if ( !IsRectEmptyInl(&v35)
+      if ( !IsRectEmptyInl(&v29)
         && !(unsigned int)IsNewMonitorRectMostOccupied(
-                            &v35,
+                            &v29,
                             (const struct tagRECT *)(*(_QWORD *)(InheritedMonitor + 40) + 28LL),
-                            (const struct tagRECT *)(*(_QWORD *)(v7 + 40) + 28LL)) )
+                            (const struct tagRECT *)(*(_QWORD *)(v10 + 40) + 28LL)) )
       {
-        InheritedMonitor = v7;
-        v35 = (struct tagRECT)v18;
+        InheritedMonitor = v10;
+        v29 = (struct tagRECT)v18;
       }
     }
-    if ( !IsRectEmptyInl(&v35) )
-      *a3 = v35;
+    if ( !IsRectEmptyInl(&v29) )
+      *v19 = v29;
   }
   return InheritedMonitor;
 }

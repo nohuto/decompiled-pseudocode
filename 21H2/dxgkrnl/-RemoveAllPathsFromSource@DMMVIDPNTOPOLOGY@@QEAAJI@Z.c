@@ -1,76 +1,95 @@
 /*
- * XREFs of ?RemoveAllPathsFromSource@DMMVIDPNTOPOLOGY@@QEAAJI@Z @ 0x1C03A5824
+ * XREFs of ?RemoveAllPathsFromSource@DMMVIDPNTOPOLOGY@@QEAAJI@Z @ 0x1C014B0F4
  * Callers:
- *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C01B85D0 (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
- *     ?RemoveAllPathsFromSource@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@I@Z @ 0x1C03A3090 (-RemoveAllPathsFromSource@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY_.c)
- *     ?CommitVidPnOnAdapter@VIDPN_MGR@@AEAAJKW4_DMM_CLIENT_TYPE@@QEBVDMMVIDPN@@KPEAU_DXGK_SET_TIMING_PATH_INFO@@PEAIPEAUD3DKMT_VIDPN_SOURCE_MASKS@@AEAK3PEAU_DXGK_SET_TIMING_RESULTS@@PEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@E@Z @ 0x1C03A3518 (-CommitVidPnOnAdapter@VIDPN_MGR@@AEAAJKW4_DMM_CLIENT_TYPE@@QEBVDMMVIDPN@@KPEAU_DXGK_SET_TIMING_P.c)
- *     ?DmmDisableAllFailurePathsOnAdapter@@YAJPEAXKW4_DMM_CLIENT_TYPE@@PEAVDXGDEVICE@@@Z @ 0x1C03A478C (-DmmDisableAllFailurePathsOnAdapter@@YAJPEAXKW4_DMM_CLIENT_TYPE@@PEAVDXGDEVICE@@@Z.c)
+ *     ?DmmDisableAllFailurePathsOnAdapter@@YAJPEAXKW4_DMM_CLIENT_TYPE@@PEAVDXGDEVICE@@@Z @ 0x1C00DDE1C (-DmmDisableAllFailurePathsOnAdapter@@YAJPEAXKW4_DMM_CLIENT_TYPE@@PEAVDXGDEVICE@@@Z.c)
+ *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C013FB1C (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
+ *     ?CommitVidPnOnAdapter@VIDPN_MGR@@AEAAJKW4_DMM_CLIENT_TYPE@@QEBVDMMVIDPN@@KPEAU_DXGK_SET_TIMING_PATH_INFO@@PEAIPEAUD3DKMT_VIDPN_SOURCE_MASKS@@AEAK3PEAU_DXGK_SET_TIMING_RESULTS@@PEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@E@Z @ 0x1C014A6EC (-CommitVidPnOnAdapter@VIDPN_MGR@@AEAAJKW4_DMM_CLIENT_TYPE@@QEBVDMMVIDPN@@KPEAU_DXGK_SET_TIMING_P.c)
+ *     ?RemoveAllPathsFromSource@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@I@Z @ 0x1C02E4200 (-RemoveAllPathsFromSource@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY_.c)
  * Callees:
- *     ?IsSourceInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z @ 0x1C0011D9C (-IsSourceInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z.c)
- *     ?EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z @ 0x1C01AA388 (-EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z.c)
- *     ?RemovePath@DMMVIDPNTOPOLOGY@@QEAAJIIPEAPEAVDMMVIDPNPRESENTPATH@@@Z @ 0x1C01B0B38 (-RemovePath@DMMVIDPNTOPOLOGY@@QEAAJIIPEAPEAVDMMVIDPNPRESENTPATH@@@Z.c)
+ *     ?IsSourceInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z @ 0x1C000B5A8 (-IsSourceInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z.c)
+ *     ?EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z @ 0x1C0124D74 (-EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z.c)
+ *     ?RemovePath@DMMVIDPNTOPOLOGY@@QEAAJIIPEAPEAVDMMVIDPNPRESENTPATH@@@Z @ 0x1C013BC8C (-RemovePath@DMMVIDPNTOPOLOGY@@QEAAJIIPEAPEAVDMMVIDPNPRESENTPATH@@@Z.c)
  */
 
-__int64 __fastcall DMMVIDPNTOPOLOGY::RemoveAllPathsFromSource(DMMVIDPNTOPOLOGY **this, unsigned int a2)
+__int64 __fastcall DMMVIDPNTOPOLOGY::RemoveAllPathsFromSource(char **this, unsigned int a2)
 {
   __int64 v2; // rbx
   __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // rax
+  __int64 v6; // r8
+  __int64 v7; // r9
   char i; // r14
   int v9; // eax
   __int64 v10; // rdx
   __int64 v11; // rcx
-  __int64 v12; // rbp
-  __int64 v13; // r14
-  int v14; // eax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  _QWORD *v17; // rax
-  __int64 v18; // rax
-  unsigned int v19; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v12; // r8
+  __int64 v13; // r9
+  __int64 v14; // rbp
+  __int64 v15; // r14
+  int v16; // eax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v21; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  _QWORD *v26; // rax
+  _QWORD *v27; // rax
+  unsigned int v28; // [rsp+40h] [rbp+18h] BYREF
 
   v2 = a2;
   if ( DMMVIDPNTOPOLOGY::IsSourceInTopology((DMMVIDPNTOPOLOGY *)this, a2) )
   {
-    v19 = -1;
+    v28 = -1;
     for ( i = 0; ; i = 1 )
     {
-      v9 = DMMVIDPNTOPOLOGY::EnumPathTargetsFromSource(this, v2, 0LL, &v19);
-      LODWORD(v12) = v9;
+      v9 = DMMVIDPNTOPOLOGY::EnumPathTargetsFromSource(this, (unsigned int)v2, 0LL, &v28);
+      v14 = v9;
       if ( v9 == -1071774919 )
-        break;
+      {
+        v21 = WdLogNewEntry5_WdTrace(v11, v10, v12, v13);
+        *(_QWORD *)(v21 + 24) = v2;
+        *(_QWORD *)(v21 + 32) = this;
+        return i == 0 ? 0xC01E0339 : 0;
+      }
       if ( v9 < 0 )
       {
-        WdLogSingleEntry3(2LL, v2, this, v9);
-        return (unsigned int)v12;
+        v27 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+        v27[3] = v2;
+        v27[4] = this;
+        v27[5] = v14;
+        WdLogEvent5_WdError(v27);
+        return (unsigned int)v14;
       }
-      v13 = v19;
-      if ( v19 == -1 )
-        WdLogSingleEntry0(1LL);
-      v14 = DMMVIDPNTOPOLOGY::RemovePath((DMMVIDPNTOPOLOGY *)this, v2, v13, 0LL);
-      v12 = v14;
-      if ( v14 < 0 )
+      v15 = v28;
+      if ( v28 == -1 )
       {
-        if ( v14 != -1073741790 )
-          WdLogSingleEntry0(1LL);
-        v17 = (_QWORD *)WdLogNewEntry5_WdTrace(v16, v15);
-        v17[3] = v2;
-        v17[4] = v13;
-        v17[5] = v12;
-        return (unsigned int)v12;
+        v24 = WdLogNewEntry5_WdAssertion(v11, v10);
+        WdLogEvent5_WdAssertion(v24);
       }
+      v16 = DMMVIDPNTOPOLOGY::RemovePath((DMMVIDPNTOPOLOGY *)this, (unsigned int)v2, v15, 0LL);
+      v14 = v16;
+      if ( v16 < 0 )
+        break;
     }
-    v18 = WdLogNewEntry5_WdTrace(v11, v10);
-    *(_QWORD *)(v18 + 24) = v2;
-    *(_QWORD *)(v18 + 32) = this;
-    return i == 0 ? 0xC01E0339 : 0;
+    if ( v16 != -1073741790 )
+    {
+      v25 = WdLogNewEntry5_WdAssertion(v18, v17);
+      WdLogEvent5_WdAssertion(v25);
+    }
+    v26 = (_QWORD *)WdLogNewEntry5_WdTrace(v18, v17, v19, v20);
+    v26[3] = v2;
+    v26[4] = v15;
+    v26[5] = v14;
+    return (unsigned int)v14;
   }
   else
   {
-    v6 = WdLogNewEntry5_WdTrace(v5, v4);
-    *(_QWORD *)(v6 + 24) = v2;
-    *(_QWORD *)(v6 + 32) = this;
+    v23 = WdLogNewEntry5_WdTrace(v5, v4, v6, v7);
+    *(_QWORD *)(v23 + 24) = v2;
+    *(_QWORD *)(v23 + 32) = this;
     return 3223192377LL;
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of NtListenPort @ 0x140864AC0
+ * XREFs of NtListenPort @ 0x1407D41A0
  * Callers:
  *     <none>
  * Callees:
- *     NtReplyWaitReceivePortEx @ 0x14071BAA0 (NtReplyWaitReceivePortEx.c)
+ *     NtReplyWaitReceivePortEx @ 0x1405EAA60 (NtReplyWaitReceivePortEx.c)
  */
 
-__int64 __fastcall NtListenPort(HANDLE Handle, __int64 a2)
+__int64 __fastcall NtListenPort(HANDLE Handle, unsigned __int64 a2)
 {
   __int64 result; // rax
 

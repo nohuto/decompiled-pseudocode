@@ -1,32 +1,28 @@
 /*
- * XREFs of DrvSetGraphicsDevices @ 0x1C00C36A0
+ * XREFs of DrvSetGraphicsDevices @ 0x1C0086C10
  * Callers:
  *     <none>
  * Callees:
- *     DrvUpdateGraphicsDeviceList @ 0x1C001CDB0 (DrvUpdateGraphicsDeviceList.c)
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0023A80 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001F350 (DrvUpdateGraphicsDeviceList.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0086C74 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
  */
 
-__int64 __fastcall DrvSetGraphicsDevices(size_t *a1)
+__int64 __fastcall DrvSetGraphicsDevices(unsigned __int16 *a1)
 {
-  __int64 v2; // rdi
   __int64 result; // rax
-  __int64 v4; // rcx
 
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  StringCchCopyW(*(unsigned __int16 **)(v2 + 3056), *(unsigned int *)(v2 + 3064), a1);
+  StringCchCopyW((unsigned __int16 *)qword_1C02512C8, (unsigned int)dword_1C02512D0, a1);
   if ( gProtocolType )
   {
-    *(_DWORD *)(v2 + 1336) = 0;
-    *(_DWORD *)(v2 + 1416) = 0;
+    gcRemoteNextGlobalDeviceNumber = 0;
+    gcRemoteNextMirrorDriverDeviceNumber = 0;
   }
   else
   {
-    *(_DWORD *)(v2 + 1340) = 0;
+    gcLocalNextGlobalDeviceNumber = 0;
   }
   result = DrvUpdateGraphicsDeviceList(1);
-  v4 = *(_QWORD *)(v2 + 1928);
-  if ( v4 )
-    _InterlockedIncrement((volatile signed __int32 *)(v4 + 1573024));
+  if ( gpGdiSharedMemory )
+    _InterlockedIncrement((volatile signed __int32 *)gpGdiSharedMemory + 393256);
   return result;
 }

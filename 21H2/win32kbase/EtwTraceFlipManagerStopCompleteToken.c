@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceFlipManagerStopCompleteToken @ 0x1C014DF10
+ * XREFs of EtwTraceFlipManagerStopCompleteToken @ 0x1C01222B0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0x_EtwWriteTransfer @ 0x1C0151A58 (McTemplateK0x_EtwWriteTransfer.c)
+ *     McTemplateK0x_EtwWriteTransfer @ 0x1C01273D8 (McTemplateK0x_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceFlipManagerStopCompleteToken(__int64 a1, __int64 a2, __int64 a3)

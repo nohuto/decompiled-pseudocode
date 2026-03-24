@@ -31,7 +31,7 @@ __int64 __fastcall CmGetDeviceInterfaceMappedProperty(
   *a9 = 0;
   if ( !a4 )
   {
-    v13 = &off_140908F18;
+    v13 = &off_140908EF8;
     while ( 1 )
     {
       v14 = *v13;
@@ -60,7 +60,7 @@ __int64 __fastcall CmGetDeviceInterfaceMappedProperty(
     if ( DeviceInterfaceMappedPropertyFromRegValue != -1073741802 )
       return DeviceInterfaceMappedPropertyFromRegValue;
 LABEL_6:
-    v15 = &off_140909440;
+    v15 = &off_140909420;
     v16 = 0;
     while ( 1 )
     {

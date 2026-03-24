@@ -1,14 +1,14 @@
 /*
- * XREFs of ?xxxUpdateModifierState@@YAXHH@Z @ 0x1C01BB060
+ * XREFs of ?xxxUpdateModifierState@@YAXHH@Z @ 0x1C01857A0
  * Callers:
- *     ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01BAA50 (-xxxStickyKeys@@YAHPEAUtagKE@@KH@Z.c)
- *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C01BAF10 (-xxxTurnOffStickyKeys@@YAXXZ.c)
- *     ?xxxTwoKeysDown@@YAHH@Z @ 0x1C01BAF70 (-xxxTwoKeysDown@@YAHH@Z.c)
- *     ?xxxUnlatchStickyKeys@@YAXXZ @ 0x1C01BAFF0 (-xxxUnlatchStickyKeys@@YAXXZ.c)
+ *     ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C0185190 (-xxxStickyKeys@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C0185650 (-xxxTurnOffStickyKeys@@YAXXZ.c)
+ *     ?xxxTwoKeysDown@@YAHH@Z @ 0x1C01856B0 (-xxxTwoKeysDown@@YAHH@Z.c)
+ *     ?xxxUnlatchStickyKeys@@YAXXZ @ 0x1C0185730 (-xxxUnlatchStickyKeys@@YAXXZ.c)
  * Callees:
- *     xxxProcessKeyEvent @ 0x1C00CABA0 (xxxProcessKeyEvent.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     ?AccessProceduresStream@@YAHPEAUtagKE@@KH@Z @ 0x1C00E7BD0 (-AccessProceduresStream@@YAHPEAUtagKE@@KH@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     ?AccessProceduresStream@@YAHPEAUtagKE@@KH@Z @ 0x1C01831C0 (-AccessProceduresStream@@YAHPEAUtagKE@@KH@Z.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1220 (xxxProcessKeyEvent.c)
  */
 
 void __fastcall xxxUpdateModifierState(int a1, unsigned int a2)
@@ -20,7 +20,7 @@ void __fastcall xxxUpdateModifierState(int a1, unsigned int a2)
   __int16 v8; // ax
   _OWORD v9[2]; // [rsp+30h] [rbp-48h] BYREF
 
-  v2 = &unk_1C026A684;
+  v2 = &unk_1C02271B4;
   v3 = (unsigned __int8)gLockBits | (unsigned __int8)gLatchBits;
   v5 = 0;
   memset(v9, 0, sizeof(v9));
@@ -35,7 +35,7 @@ void __fastcall xxxUpdateModifierState(int a1, unsigned int a2)
       if ( v7 )
         WORD1(v9[0]) = v8 | 0x8000;
       if ( (unsigned int)AccessProceduresStream((struct tagKE *)v9, 0, a2) )
-        xxxProcessKeyEvent((unsigned __int8 *)v9, 0LL, 0, 0, 0LL, 0LL);
+        xxxProcessKeyEvent(v9, 0LL, 0LL, 0LL, 0LL, 0LL);
     }
     ++v5;
     v2 += 2;

@@ -1,7 +1,7 @@
 /*
- * XREFs of DxDdEnumLockedSurfaceRect @ 0x1C026F16C
+ * XREFs of DxDdEnumLockedSurfaceRect @ 0x1C0276324
  * Callers:
- *     ?vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C001DAA8 (-vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00F03AC (-vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -9,9 +9,8 @@
 __int64 *__fastcall DxDdEnumLockedSurfaceRect(__int64 a1, __int64 *a2, _OWORD *a3)
 {
   __int64 *v3; // rcx
-  __int64 *result; // rax
 
-  v3 = (__int64 *)(a1 + 2600);
+  v3 = (__int64 *)(a1 + 2624);
   if ( !a2 )
     a2 = v3;
   while ( 1 )
@@ -21,9 +20,8 @@ __int64 *__fastcall DxDdEnumLockedSurfaceRect(__int64 a1, __int64 *a2, _OWORD *a
       break;
     if ( *((_DWORD *)a2 + 5) )
     {
-      result = a2;
       *a3 = *(_OWORD *)((char *)a2 + 28);
-      return result;
+      return a2;
     }
   }
   return 0LL;

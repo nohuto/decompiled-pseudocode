@@ -1,22 +1,21 @@
 /*
- * XREFs of PopEvaluateInputSuppressionAction @ 0x140995F04
+ * XREFs of PopEvaluateInputSuppressionAction @ 0x1408EEB74
  * Callers:
- *     PopExternalMonitorUpdatedWorker @ 0x1407ED710 (PopExternalMonitorUpdatedWorker.c)
- *     PopBroadcastInputSuppressionCallback @ 0x140811D40 (PopBroadcastInputSuppressionCallback.c)
+ *     PopBroadcastInputSuppressionCallback @ 0x140781BB0 (PopBroadcastInputSuppressionCallback.c)
+ *     PopExternalMonitorUpdatedWorker @ 0x1407D5790 (PopExternalMonitorUpdatedWorker.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14041F2A0 (ZwUpdateWnfStateData.c)
- *     PopBroadcastSessionInfo @ 0x140828EBC (PopBroadcastSessionInfo.c)
- *     PopTraceInputSuppressionActionUpdate @ 0x140993DA0 (PopTraceInputSuppressionActionUpdate.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
+ *     PopBroadcastSessionInfo @ 0x1407967A4 (PopBroadcastSessionInfo.c)
+ *     PopTraceInputSuppressionActionUpdate @ 0x1408EC3E0 (PopTraceInputSuppressionActionUpdate.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
-void PopEvaluateInputSuppressionAction()
+void __fastcall PopEvaluateInputSuppressionAction(int a1)
 {
-  int v0; // ecx
   __int64 v1; // rdx
   __int64 v2; // rcx
   char v3; // bp
@@ -33,18 +32,18 @@ void PopEvaluateInputSuppressionAction()
   GUID v14; // [rsp+48h] [rbp-40h] BYREF
   BOOL v15; // [rsp+58h] [rbp-30h]
 
+  v15 = 0;
   v13 = 0;
   v14 = 0LL;
-  v15 = 0;
+  PopAcquirePolicyLock(a1);
   PopAcquireRwLockExclusive((ULONG_PTR)&PopInputSuppressionLock);
-  PopAcquirePolicyLock(v0);
   v3 = PopConsoleExternalDisplayConnected;
   v4 = PopLidOpened == 0;
-  v5 = dword_140C232CC == 1;
+  v5 = dword_140C23E8C == 1;
   v6 = PopConsoleDisplayState == 0;
   if ( PopErrataReportingIncorrectLidState
     || !PopIgnoreLidStateForInputSuppression && PopLidOpened
-    || dword_140C232CC != 1
+    || dword_140C23E8C != 1
     || PopConsoleExternalDisplayConnected
     || (v7 = 1, PopConsoleDisplayState) )
   {

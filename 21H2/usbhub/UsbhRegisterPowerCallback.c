@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhRegisterPowerCallback @ 0x1C0058904
+ * XREFs of UsbhRegisterPowerCallback @ 0x1C0059FD4
  * Callers:
- *     UsbhInitialize @ 0x1C002C450 (UsbhInitialize.c)
+ *     UsbhInitialize @ 0x1C002D870 (UsbhInitialize.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
  */
 
 NTSTATUS __fastcall UsbhRegisterPowerCallback(PDEVICE_OBJECT DeviceObject)

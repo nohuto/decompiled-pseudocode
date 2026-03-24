@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECCompositionToken@@W7EAAPEAXI@Z @ 0x1C002D550
+ * XREFs of ??_ECCompositionToken@@W7EAAPEAXI@Z @ 0x1C0029330
  * Callers:
  *     <none>
  * Callees:

@@ -1,19 +1,19 @@
 /*
- * XREFs of GreCreateSemaphoreNonTracked @ 0x1C00C2B48
+ * XREFs of GreCreateSemaphoreNonTracked @ 0x1C009FBEC
  * Callers:
- *     InitializeGre @ 0x1C02E38D0 (InitializeGre.c)
+ *     InitializeGre @ 0x1C029A0FC (InitializeGre.c)
  * Callees:
  *     <none>
  */
 
 struct _ERESOURCE *GreCreateSemaphoreNonTracked()
 {
-  struct _ERESOURCE *Pool2; // rax
+  struct _ERESOURCE *PoolWithTag; // rax
   struct _ERESOURCE *v1; // rbx
 
-  Pool2 = (struct _ERESOURCE *)ExAllocatePool2(64LL, 104LL);
-  v1 = Pool2;
-  if ( Pool2 && ExInitializeResourceLite(Pool2) < 0 )
+  PoolWithTag = (struct _ERESOURCE *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x68uLL, 0x6D657347u);
+  v1 = PoolWithTag;
+  if ( PoolWithTag && ExInitializeResourceLite(PoolWithTag) < 0 )
   {
     ExFreePoolWithTag(v1, 0);
     return 0LL;

@@ -1,22 +1,22 @@
 /*
- * XREFs of PfSnGetFileInformation @ 0x1403140E0
+ * XREFs of PfSnGetFileInformation @ 0x14029C120
  * Callers:
- *     MiCompleteProtoPteFault @ 0x140268AC0 (MiCompleteProtoPteFault.c)
- *     PfSnLogPageFaultCommon @ 0x140313118 (PfSnLogPageFaultCommon.c)
+ *     MiCompleteProtoPteFault @ 0x140213D50 (MiCompleteProtoPteFault.c)
+ *     PfSnLogPageFaultCommon @ 0x14029B6DC (PfSnLogPageFaultCommon.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     RtlRbInsertNodeEx @ 0x14024CCA0 (RtlRbInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x1402C0B10 (RtlRbInsertNodeEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
@@ -30,22 +30,22 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   unsigned __int64 *v10; // r13
   __int64 v11; // rcx
   unsigned __int64 v12; // r14
-  int v13; // ecx
-  unsigned __int64 v14; // rax
-  _OWORD *Pool2; // rax
-  unsigned __int64 v17; // r14
+  int v14; // ecx
+  unsigned __int64 v15; // rax
+  _OWORD *PoolWithTag; // rax
+  _OWORD *v17; // r14
   KIRQL v18; // al
-  __int64 v19; // rdx
-  unsigned __int64 v20; // rcx
-  unsigned __int64 v21; // rbp
-  int v22; // edx
-  unsigned __int64 v23; // rax
-  __int64 v24; // rax
-  unsigned __int64 v25; // rdx
-  bool v26; // r8
+  __int64 v19; // r8
+  __int64 v20; // rdx
+  unsigned __int64 v21; // rcx
+  unsigned __int64 v22; // rbp
+  int v23; // edx
+  unsigned __int64 v24; // rax
+  __int64 v25; // rax
+  unsigned __int64 v26; // rdx
   int v27; // ecx
   unsigned __int64 v28; // rax
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v32; // eax
@@ -54,7 +54,7 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   struct _KPRCB *v35; // r9
   _DWORD *v36; // r8
   int v37; // eax
-  unsigned __int8 v38; // cl
+  unsigned __int8 v38; // al
   struct _KPRCB *v39; // r10
   _DWORD *v40; // r9
   int v41; // eax
@@ -77,212 +77,229 @@ LABEL_5:
     v12 = *(_QWORD *)(a1 + 520);
     if ( (v11 & 1) != 0 )
     {
-      if ( !v12 )
-        goto LABEL_16;
-      v12 ^= (unsigned __int64)v10;
+      if ( v12 )
+        v12 ^= (unsigned __int64)v10;
+      else
+        v12 = 0LL;
     }
-    v13 = v11 & 1;
+    v14 = v11 & 1;
     while ( v12 )
     {
-      if ( *(_QWORD *)(v12 + 24) <= v3 )
+      if ( *(_QWORD *)(v12 + 24) > v3 )
       {
-        if ( *(_QWORD *)(v12 + 24) >= v3 )
-          break;
-        v14 = *(_QWORD *)(v12 + 8);
-        if ( v13 && v14 )
+        v15 = *(_QWORD *)v12;
+        if ( v14 && v15 )
         {
-LABEL_24:
-          v12 ^= v14;
+          v12 ^= v15;
           continue;
         }
       }
       else
       {
-        v14 = *(_QWORD *)v12;
-        if ( v13 && v14 )
-          goto LABEL_24;
+        if ( *(_QWORD *)(v12 + 24) >= v3 )
+          break;
+        v15 = *(_QWORD *)(v12 + 8);
+        if ( v14 && v15 )
+        {
+          v12 ^= v15;
+          continue;
+        }
       }
-      v12 = v14;
+      v12 = v15;
     }
-LABEL_16:
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 576));
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v42 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v32 = ~(unsigned __int16)(-1LL << (v42 + 1));
-        v33 = (v32 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v32;
-        if ( v33 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && v42 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v32 = ~(unsigned __int16)(-1LL << (v42 + 1));
+          v33 = (v32 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v32;
+          if ( v33 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v42);
     if ( v12 )
     {
       *(_QWORD *)(a1 + 8LL * (++*(_BYTE *)(a1 + 580) & 3) + 488) = v3;
-      return v2;
+      return 0LL;
     }
-    Pool2 = (_OWORD *)ExAllocatePool2(64LL, 48LL, 1850762051LL);
-    v17 = (unsigned __int64)Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x6E506343u);
+    v17 = PoolWithTag;
+    if ( !PoolWithTag )
     {
       if ( (*(_BYTE *)(a1 + 484) & 2) == 0 )
         _InterlockedOr16((volatile signed __int16 *)(a1 + 484), 2u);
       return 3221225626LL;
     }
-    *Pool2 = 0LL;
-    Pool2[1] = 0LL;
-    Pool2[2] = 0LL;
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    PoolWithTag[2] = 0LL;
     ObfReferenceObjectWithTag(a2, 0x746C6644u);
-    *(_QWORD *)(v17 + 40) = a2;
-    *(_QWORD *)(v17 + 24) = v3;
+    *((_QWORD *)v17 + 5) = a2;
+    *((_QWORD *)v17 + 3) = v3;
     v18 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576));
-    v19 = *(_QWORD *)(a1 + 528);
-    v20 = *v10;
-    v21 = v18;
-    if ( (v19 & 1) != 0 )
+    v20 = *(_QWORD *)(a1 + 528);
+    v21 = *v10;
+    v22 = v18;
+    if ( (v20 & 1) != 0 )
     {
-      if ( !v20 )
-        goto LABEL_32;
-      v20 ^= (unsigned __int64)v10;
+      if ( v21 )
+        v21 ^= (unsigned __int64)v10;
+      else
+        v21 = 0LL;
     }
-    v22 = v19 & 1;
-    while ( v20 )
+    v23 = v20 & 1;
+    if ( !v21 )
     {
-      if ( *(_QWORD *)(v20 + 24) <= v3 )
+LABEL_36:
+      if ( !*(_QWORD *)(a1 + 568) )
       {
-        if ( *(_QWORD *)(v20 + 24) >= v3 )
-          goto LABEL_75;
-        v23 = *(_QWORD *)(v20 + 8);
-        if ( v22 && v23 )
+        v4 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 360));
+        if ( !v4 )
         {
-LABEL_48:
-          v20 ^= v23;
-          continue;
+          v2 = -1073741431;
+LABEL_31:
+          ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 576));
+          if ( KiIrqlFlags )
+          {
+            if ( (KiIrqlFlags & 1) != 0 )
+            {
+              v34 = KeGetCurrentIrql();
+              if ( v34 <= 0xFu && (unsigned __int8)v22 <= 0xFu && v34 >= 2u )
+              {
+                v35 = KeGetCurrentPrcb();
+                v36 = v35->SchedulerAssist;
+                v37 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v22 + 1));
+                v33 = (v37 & v36[5]) == 0;
+                v36[5] &= v37;
+                if ( v33 )
+                  KiRemoveSystemWorkPriorityKick(v35);
+              }
+            }
+          }
+          __writecr8(v22);
+          HalPutDmaAdapter(*((PADAPTER_OBJECT *)v17 + 5));
+          ExFreePoolWithTag(v17, 0);
+          return v2;
+        }
+        *(_QWORD *)(a1 + 568) = a1;
+        *(_QWORD *)(a1 + 560) = PfSnNameQueryWorker;
+        v7 = 1;
+        *(_QWORD *)(a1 + 544) = 0LL;
+      }
+      *((_QWORD *)v17 + 4) = *(_QWORD *)(a1 + 536);
+      *(_QWORD *)(a1 + 536) = v17 + 2;
+      v25 = *(_QWORD *)(a1 + 528);
+      v26 = *v10;
+      if ( (v25 & 1) != 0 )
+      {
+        if ( v26 )
+          v26 ^= (unsigned __int64)v10;
+        else
+          v26 = 0LL;
+      }
+      LOBYTE(v19) = 0;
+      v27 = v25 & 1;
+      if ( v26 )
+      {
+        while ( 1 )
+        {
+          if ( *(_QWORD *)(v26 + 24) > v3 )
+          {
+            v28 = *(_QWORD *)v26;
+            if ( v27 )
+            {
+              if ( !v28 )
+                break;
+              v28 ^= v26;
+            }
+            if ( !v28 )
+              break;
+          }
+          else
+          {
+            v28 = *(_QWORD *)(v26 + 8);
+            if ( v27 )
+            {
+              if ( !v28 )
+                goto LABEL_59;
+              v28 ^= v26;
+            }
+            if ( !v28 )
+            {
+LABEL_59:
+              LOBYTE(v19) = 1;
+              break;
+            }
+          }
+          v26 = v28;
+        }
+      }
+      RtlRbInsertNodeEx(a1 + 520, v26, v19, v17);
+      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 576));
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          v38 = KeGetCurrentIrql();
+          if ( v38 <= 0xFu && (unsigned __int8)v22 <= 0xFu && v38 >= 2u )
+          {
+            v39 = KeGetCurrentPrcb();
+            v40 = v39->SchedulerAssist;
+            v41 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v22 + 1));
+            v33 = (v41 & v40[5]) == 0;
+            v40[5] &= v41;
+            if ( v33 )
+              KiRemoveSystemWorkPriorityKick(v39);
+          }
+        }
+      }
+      __writecr8(v22);
+      if ( v7 )
+      {
+        v4 = 0;
+        ExQueueWorkItem((PWORK_QUEUE_ITEM)(a1 + 544), DelayedWorkQueue);
+      }
+      *(_QWORD *)(a1 + 8LL * (++*(_BYTE *)(a1 + 580) & 3) + 488) = v3;
+      if ( v4 )
+        ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a1 + 360));
+      return 0LL;
+    }
+    while ( 1 )
+    {
+      if ( *(_QWORD *)(v21 + 24) > v3 )
+      {
+        v24 = *(_QWORD *)v21;
+        if ( v23 && v24 )
+        {
+          v21 ^= v24;
+          goto LABEL_35;
         }
       }
       else
       {
-        v23 = *(_QWORD *)v20;
-        if ( v22 && v23 )
-          goto LABEL_48;
-      }
-      v20 = v23;
-    }
-LABEL_32:
-    if ( !*(_QWORD *)(a1 + 568) )
-    {
-      v4 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 360));
-      if ( !v4 )
-      {
-        v2 = -1073741431;
-LABEL_75:
-        ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 576));
-        if ( KiIrqlFlags )
+        if ( *(_QWORD *)(v21 + 24) >= v3 )
+          goto LABEL_31;
+        v24 = *(_QWORD *)(v21 + 8);
+        if ( v23 && v24 )
         {
-          v34 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v34 >= 2u )
-          {
-            v35 = KeGetCurrentPrcb();
-            v36 = v35->SchedulerAssist;
-            v37 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v21 + 1));
-            v33 = (v37 & v36[5]) == 0;
-            v36[5] &= v37;
-            if ( v33 )
-              KiRemoveSystemWorkPriorityKick(v35);
-          }
+          v21 ^= v24;
+          goto LABEL_35;
         }
-        __writecr8(v21);
-        ObfDereferenceObject(*(PVOID *)(v17 + 40));
-        ExFreePoolWithTag((PVOID)v17, 0);
-        return v2;
       }
-      *(_QWORD *)(a1 + 568) = a1;
-      *(_QWORD *)(a1 + 560) = PfSnNameQueryWorker;
-      v7 = 1;
-      *(_QWORD *)(a1 + 544) = 0LL;
+      v21 = v24;
+LABEL_35:
+      if ( !v21 )
+        goto LABEL_36;
     }
-    *(_QWORD *)(v17 + 32) = *(_QWORD *)(a1 + 536);
-    *(_QWORD *)(a1 + 536) = v17 + 32;
-    v24 = *(_QWORD *)(a1 + 528);
-    v25 = *v10;
-    if ( (v24 & 1) != 0 )
-    {
-      if ( !v25 )
-      {
-        v26 = 0;
-        goto LABEL_55;
-      }
-      v25 ^= (unsigned __int64)v10;
-    }
-    v26 = 0;
-    v27 = v24 & 1;
-    if ( v25 )
-    {
-      while ( 1 )
-      {
-        if ( *(_QWORD *)(v25 + 24) <= v3 )
-        {
-          v28 = *(_QWORD *)(v25 + 8);
-          if ( v27 )
-          {
-            if ( !v28 )
-              goto LABEL_53;
-            v28 ^= v25;
-          }
-          if ( !v28 )
-          {
-LABEL_53:
-            v26 = 1;
-            break;
-          }
-        }
-        else
-        {
-          v28 = *(_QWORD *)v25;
-          if ( v27 )
-          {
-            if ( !v28 )
-              break;
-            v28 ^= v25;
-          }
-          if ( !v28 )
-            break;
-        }
-        v25 = v28;
-      }
-    }
-LABEL_55:
-    RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 520), v25, v26, v17);
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 576));
-    if ( KiIrqlFlags )
-    {
-      v38 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v38 >= 2u )
-      {
-        v39 = KeGetCurrentPrcb();
-        v40 = v39->SchedulerAssist;
-        v41 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v21 + 1));
-        v33 = (v41 & v40[5]) == 0;
-        v40[5] &= v41;
-        if ( v33 )
-          KiRemoveSystemWorkPriorityKick(v39);
-      }
-    }
-    __writecr8(v21);
-    if ( v7 )
-    {
-      v4 = 0;
-      ExQueueWorkItem((PWORK_QUEUE_ITEM)(a1 + 544), DelayedWorkQueue);
-    }
-    *(_QWORD *)(a1 + 8LL * (++*(_BYTE *)(a1 + 580) & 3) + 488) = v3;
-    if ( v4 )
-      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 360));
-    return v2;
   }
   while ( *v8 != v3 )
   {

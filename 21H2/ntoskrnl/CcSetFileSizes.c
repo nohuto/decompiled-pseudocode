@@ -1,9 +1,9 @@
 /*
- * XREFs of CcSetFileSizes @ 0x14025BDB0
+ * XREFs of CcSetFileSizes @ 0x1402D3570
  * Callers:
  *     <none>
  * Callees:
- *     CcSetFileSizesEx @ 0x1402823F0 (CcSetFileSizesEx.c)
+ *     CcSetFileSizesEx @ 0x14022E120 (CcSetFileSizesEx.c)
  */
 
 void __stdcall CcSetFileSizes(PFILE_OBJECT FileObject, PCC_FILE_SIZES FileSizes)

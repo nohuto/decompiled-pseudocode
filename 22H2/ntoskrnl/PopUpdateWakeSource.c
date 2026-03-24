@@ -1,72 +1,91 @@
 /*
- * XREFs of PopUpdateWakeSource @ 0x14058E7A8
+ * XREFs of PopUpdateWakeSource @ 0x14056EF9C
  * Callers:
- *     PopRequestCompletion @ 0x14028DFA0 (PopRequestCompletion.c)
- *     PoSetSystemWakeDevice @ 0x140583BC0 (PoSetSystemWakeDevice.c)
+ *     PopRequestCompletion @ 0x14037A370 (PopRequestCompletion.c)
+ *     PoSetSystemWakeDevice @ 0x140565310 (PoSetSystemWakeDevice.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopUpdateWakeSource(PVOID Object)
 {
-  unsigned int v2; // edi
-  _QWORD *Pool2; // rbx
-  _QWORD *v4; // rax
+  _QWORD *PoolWithTag; // rax
+  unsigned int v3; // edi
+  _QWORD *v4; // rbx
+  __int64 v5; // rax
+  _QWORD *v6; // rax
+  bool v7; // zf
   unsigned __int64 OldIrql; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v9; // eax
-  bool v10; // zf
+  int v12; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v2 = 0;
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 24LL, 544040269LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x206D654Du);
+  v3 = 0;
+  v4 = PoolWithTag;
+  if ( PoolWithTag )
   {
+    *(_OWORD *)PoolWithTag = 0LL;
+    *((_OWORD *)PoolWithTag + 1) = 0LL;
+    PoolWithTag[4] = 0LL;
     KeAcquireInStackQueuedSpinLock(&PopWakeSourceLock, &LockHandle);
-    if ( PopCurrentWakeInfo && (unsigned int)PopWakeSourceWorkState <= 1 )
+    if ( PopCurrentWakeInfo )
     {
       ObfReferenceObjectWithTag(Object, 0x67446F50u);
-      Pool2[2] = Object;
-      v4 = (_QWORD *)qword_140C3E7E8;
-      if ( *(PVOID **)qword_140C3E7E8 != &PopWakeSourceWorkList )
+      v5 = PopCurrentWakeInfo;
+      v4[3] = PopCurrentWakeInfo;
+      v4[2] = Object;
+      _InterlockedIncrement((volatile signed __int32 *)(v5 + 16));
+      v6 = (_QWORD *)qword_140C243E8;
+      if ( *(PVOID **)qword_140C243E8 != &PopWakeSourceWorkList )
         __fastfail(3u);
-      *Pool2 = &PopWakeSourceWorkList;
-      Pool2[1] = v4;
-      *v4 = Pool2;
-      qword_140C3E7E8 = (__int64)Pool2;
-      Pool2 = 0LL;
+      v7 = PopWakeSourceWorkInProgress == 0;
+      *v4 = &PopWakeSourceWorkList;
+      v4[1] = v6;
+      *v6 = v4;
+      qword_140C243E8 = (__int64)v4;
+      v4 = 0LL;
+      if ( v7 )
+      {
+        PopWakeSourceWorkInProgress = 1;
+        ExQueueWorkItem(&PopWakeSourceWorkItem, DelayedWorkQueue);
+      }
     }
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v9 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v10 = (v9 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v9;
-        if ( v10 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v12 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v7 = (v12 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v12;
+          if ( v7 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(OldIrql);
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0x206D654Du);
+    if ( v4 )
+      ExFreePoolWithTag(v4, 0x206D654Du);
   }
   else
   {
     return (unsigned int)-1073741670;
   }
-  return v2;
+  return v3;
 }

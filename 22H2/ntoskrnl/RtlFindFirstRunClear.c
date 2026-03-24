@@ -1,78 +1,74 @@
 /*
- * XREFs of RtlFindFirstRunClear @ 0x1403A1AC0
+ * XREFs of RtlFindFirstRunClear @ 0x1403333B0
  * Callers:
- *     PnprMirrorMarkedPages @ 0x140A9D1EC (PnprMirrorMarkedPages.c)
+ *     PnprMirrorMarkedPages @ 0x1409AE16C (PnprMirrorMarkedPages.c)
  * Callees:
  *     <none>
  */
 
 ULONG __stdcall RtlFindFirstRunClear(PRTL_BITMAP BitMapHeader, PULONG StartingIndex)
 {
-  unsigned int SizeOfBitMap; // r10d
-  ULONG v3; // r8d
-  unsigned int *Buffer; // rbx
-  unsigned int *v6; // rdx
-  unsigned int v7; // r11d
-  unsigned __int64 v8; // rdi
-  unsigned int v9; // r11d
-  __int64 v10; // rcx
-  ULONG v11; // r9d
-  unsigned __int64 i; // rax
-  unsigned int *v13; // rax
-  unsigned int v14; // r8d
-  unsigned int *v16; // rax
+  unsigned int SizeOfBitMap; // r8d
+  ULONG v3; // r9d
+  unsigned int *Buffer; // rdx
+  unsigned int v7; // r10d
+  unsigned int *v8; // rbx
+  ULONG v9; // r8d
+  __int64 v10; // rdi
+  unsigned int v11; // ecx
+  unsigned int i; // eax
+  unsigned int *v14; // rdx
 
   SizeOfBitMap = BitMapHeader->SizeOfBitMap;
   v3 = 0;
-  if ( BitMapHeader->SizeOfBitMap )
+  if ( !BitMapHeader->SizeOfBitMap )
   {
-    Buffer = BitMapHeader->Buffer;
-    v6 = Buffer;
-    v7 = *Buffer;
-    v8 = (unsigned __int64)&Buffer[(unsigned __int64)(SizeOfBitMap - 1) >> 5];
-    while ( 1 )
-    {
-      v9 = ~v7;
-      if ( v9 )
-        break;
-      v16 = v6 + 1;
-      v6 = v16;
-      if ( (unsigned __int64)v16 > v8 )
-        goto LABEL_15;
-      v7 = *v16;
-    }
-    _BitScanForward64((unsigned __int64 *)&v10, v9);
-    v11 = v10 + 32 * (v6 - Buffer);
-    if ( v11 > SizeOfBitMap )
-    {
-LABEL_15:
-      v11 = SizeOfBitMap;
-      goto LABEL_13;
-    }
-    for ( i = ~(v9 | ((1 << v10) - 1)); ; i = *v13 )
-    {
-      if ( (_DWORD)i )
-      {
-        _BitScanForward64(&i, i);
-        goto LABEL_10;
-      }
-      v13 = v6 + 1;
-      if ( (unsigned __int64)(v6 + 1) > v8 )
-        break;
-      ++v6;
-    }
-    LODWORD(i) = 32;
-LABEL_10:
-    v14 = SizeOfBitMap;
-    if ( 32 * (unsigned int)(v6 - Buffer) + (unsigned int)i <= SizeOfBitMap )
-      v14 = 32 * (v6 - Buffer) + i;
-    v3 = v14 - v11;
+    *StartingIndex = 0;
+    return v3;
   }
-  else
+  Buffer = BitMapHeader->Buffer;
+  v7 = 0;
+  v8 = &Buffer[(unsigned __int64)(SizeOfBitMap - 1) >> 5];
+  if ( Buffer != v8 && *Buffer == -1 )
   {
-    v11 = 0;
+    v7 = 32;
+    for ( ++Buffer; Buffer < v8 && *Buffer == -1; ++Buffer )
+      v7 += 32;
   }
+  for ( ; v7 < SizeOfBitMap; ++v7 )
+  {
+    if ( !_bittest((const signed __int32 *)BitMapHeader->Buffer, v7) )
+      break;
+  }
+  v9 = 0;
+  if ( Buffer == v8 )
+    goto LABEL_13;
+  v10 = v7 & 0x1F;
+  if ( (*Buffer & ~*((_DWORD *)qword_1400127A0 + v10)) != 0 )
+    goto LABEL_13;
+  v9 = 32 - v10;
+  if ( (_DWORD)v10 != 33 )
+  {
+    v14 = Buffer + 1;
+    while ( v14 < v8 && !*v14 )
+    {
+      ++v14;
+      v9 += 32;
+      if ( v9 == -1 )
+        goto LABEL_17;
+    }
 LABEL_13:
-  *StartingIndex = v11;
-  return v3;
+    v11 = BitMapHeader->SizeOfBitMap;
+    for ( i = v9 + v7; i < v11; ++v9 )
+    {
+      if ( _bittest((const signed __int32 *)BitMapHeader->Buffer, i) )
+        break;
+      if ( v9 == -1 )
+        break;
+      ++i;
+    }
+  }
+LABEL_17:
+  *StartingIndex = v7;
+  return v9;
 }

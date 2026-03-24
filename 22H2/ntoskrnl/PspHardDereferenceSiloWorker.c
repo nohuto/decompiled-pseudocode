@@ -1,13 +1,12 @@
 /*
- * XREFs of PspHardDereferenceSiloWorker @ 0x140353F7C
+ * XREFs of PspHardDereferenceSiloWorker @ 0x14020098C
  * Callers:
- *     PsReleaseSiloHardReference @ 0x140353F50 (PsReleaseSiloHardReference.c)
- *     PspEvaluateAndNotifyEmptyJob @ 0x1406A07B4 (PspEvaluateAndNotifyEmptyJob.c)
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspJobClose @ 0x1407DD7D0 (PspJobClose.c)
+ *     PsReleaseSiloHardReference @ 0x140200960 (PsReleaseSiloHardReference.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x140604FA0 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PspBeginSiloTeardown @ 0x140905F38 (PspBeginSiloTeardown.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
  */
 
 void __fastcall PspHardDereferenceSiloWorker(__int64 a1)
@@ -18,9 +17,9 @@ void __fastcall PspHardDereferenceSiloWorker(__int64 a1)
 
   if ( !a1 )
     __int2c();
-  if ( (*(_DWORD *)(a1 + 1536) & 0x40000000) == 0 )
+  if ( (*(_DWORD *)(a1 + 1320) & 0x40000000) == 0 )
     __int2c();
-  v2 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 1736), 0xFFFFFFFFFFFFFFFFuLL);
+  v2 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 1520), 0xFFFFFFFFFFFFFFFFuLL);
   v3 = v2 <= 1;
   v4 = v2 - 1;
   if ( v3 )
@@ -28,9 +27,9 @@ void __fastcall PspHardDereferenceSiloWorker(__int64 a1)
     if ( v4 )
       __fastfail(0xEu);
     ObfReferenceObjectWithTag((PVOID)a1, 0x746C6644u);
-    *(_QWORD *)(a1 + 1744) = 0LL;
-    *(_QWORD *)(a1 + 1760) = PspCompleteHardDereferenceSiloDeferred;
-    *(_QWORD *)(a1 + 1768) = a1;
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)(a1 + 1744), DelayedWorkQueue);
+    *(_QWORD *)(a1 + 1528) = 0LL;
+    *(_QWORD *)(a1 + 1544) = PspCompleteHardDereferenceSiloDeferred;
+    *(_QWORD *)(a1 + 1552) = a1;
+    ExQueueWorkItem((PWORK_QUEUE_ITEM)(a1 + 1528), DelayedWorkQueue);
   }
 }

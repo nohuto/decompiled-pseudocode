@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiDiagTraceTemperatureChange @ 0x1C0008890
+ * XREFs of AcpiDiagTraceTemperatureChange @ 0x1C0011CA0
  * Callers:
- *     ACPIThermalLoopEx @ 0x1C0041110 (ACPIThermalLoopEx.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0010920 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 void __fastcall AcpiDiagTraceTemperatureChange(__int64 a1, __int64 a2)
@@ -25,7 +25,7 @@ void __fastcall AcpiDiagTraceTemperatureChange(__int64 a1, __int64 a2)
   RtlInitUnicodeString(&DestinationString, 0LL);
   if ( AcpiDiagHandle
     && EtwEventEnabled(AcpiDiagHandle, &ACPI_ETW_EVENT_TEMPERATURE_CHANGE)
-    && (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a2 + 760), &DestinationString, 1LL) >= 0 )
+    && (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a2 + 720), (__int64)&DestinationString) >= 0 )
   {
     v4 = DestinationString.Length >> 1;
     UserData.Ptr = (unsigned __int64)&v4;

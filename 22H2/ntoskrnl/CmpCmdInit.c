@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpCmdInit @ 0x140844824
+ * XREFs of CmpCmdInit @ 0x140799498
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14080CEA0 (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x14079A330 (CmCompleteRegistryInitialization.c)
  * Callees:
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     KeInitializeTimerEx @ 0x1402BE630 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     ExGenRandom @ 0x1403173F0 (ExGenRandom.c)
- *     CmpInitializeLazyWriters @ 0x14080CBAC (CmpInitializeLazyWriters.c)
- *     PoRegisterCoalescingCallback @ 0x140844D00 (PoRegisterCoalescingCallback.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExGenRandom @ 0x14022C200 (ExGenRandom.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     KeInitializeTimerEx @ 0x140341AF0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     PoRegisterCoalescingCallback @ 0x1407999B0 (PoRegisterCoalescingCallback.c)
+ *     CmpInitializeLazyWriters @ 0x140799DE8 (CmpInitializeLazyWriters.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCmdInit(char a1)
 {
   int v2; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   unsigned __int64 v4; // rsi
   void *v10; // r8
   __int64 v11; // rdx
@@ -41,11 +41,11 @@ __int64 __fastcall CmpCmdInit(char a1)
   }
   KiSetTimerEx((__int64)&CmpEnableLazyFlushTimer, -10000000LL * v2, 0, 0, (__int64)&CmpEnableLazyFlushDpc);
   _mm_lfence();
-  Pool2 = (void *)ExAllocatePool2(64LL, 8LL, 1482911812LL);
-  v4 = (unsigned __int64)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 8uLL, 0x58637044u);
+  v4 = (unsigned __int64)PoolWithTag;
+  if ( PoolWithTag )
   {
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
     _RAX = 2147483656LL;
     __asm { cpuid }
     v10 = (void *)(v4 ^ ((unsigned __int64)(unsigned int)ExGenRandom(0) << SBYTE1(_RAX)));
@@ -60,7 +60,7 @@ __int64 __fastcall CmpCmdInit(char a1)
   CmpFreezeThawWorkItem.List.Flink = 0LL;
   CmpFreezeThawWorkItem.WorkerRoutine = (void (__fastcall *)(void *))CmpFreezeThawWorker;
   LOBYTE(v11) = 1;
-  BYTE1(NlsMbOemCodePageTag) = CmpMiniNTBoot;
+  BYTE1(NlsMbCodePageTag) = CmpMiniNTBoot;
   CmpWorkerDataInitialized = 1;
   CmpWasSetupBoot = a1;
   CmpEnableLazyFlushTimerInitialized = 1;

@@ -1,14 +1,14 @@
 /*
- * XREFs of XmMulOp @ 0x14039EC10
+ * XREFs of XmMulOp @ 0x1403C3400
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x1403B8FA8 (XmStoreResult.c)
+ *     XmStoreResult @ 0x1403966C0 (XmStoreResult.c)
  */
 
 __int64 __fastcall XmMulOp(_DWORD *a1)
 {
-  unsigned int v1; // r9d
+  int v1; // r9d
   int v2; // eax
   __int64 v3; // rcx
   int v4; // r10d
@@ -30,14 +30,14 @@ __int64 __fastcall XmMulOp(_DWORD *a1)
   {
     if ( v2 == 3 )
     {
-      XmStoreResult(a1, v1);
+      XmStoreResult((__int64)a1, v1);
       *(_QWORD *)(v11 + 88) = v12;
-      XmStoreResult(v11, HIDWORD(v14));
+      XmStoreResult(v11, SHIDWORD(v14));
       v5 = v13 == 0;
     }
     else
     {
-      XmStoreResult(a1, (unsigned __int16)v1);
+      XmStoreResult((__int64)a1, (unsigned __int16)v1);
       *(_QWORD *)(v8 + 88) = v9;
       XmStoreResult(v8, HIWORD(v7));
       v5 = *v10 == (unsigned __int16)v4;
@@ -46,7 +46,7 @@ __int64 __fastcall XmMulOp(_DWORD *a1)
   else
   {
     a1[30] = 1;
-    XmStoreResult(a1, v1);
+    XmStoreResult((__int64)a1, v1);
     v5 = *(_BYTE *)(v3 + 25) == (unsigned __int8)v4;
   }
   LOBYTE(v4) = !v5;

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DisableStablePowerState@DXGADAPTER@@QEAAXXZ @ 0x1C02B6D10
+ * XREFs of ?DisableStablePowerState@DXGADAPTER@@QEAAXXZ @ 0x1C020CFE8
  * Callers:
- *     ?DisableStablePowerState@DXGGLOBAL@@QEAAXXZ @ 0x1C03126CC (-DisableStablePowerState@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?DisableStablePowerState@DXGGLOBAL@@QEAAXXZ @ 0x1C02696C8 (-DisableStablePowerState@DXGGLOBAL@@QEAAXXZ.c)
  * Callees:
- *     ?SetPowerComponentIdleCBInternal@DXGADAPTER@@QEAAXIK@Z @ 0x1C001B73C (-SetPowerComponentIdleCBInternal@DXGADAPTER@@QEAAXIK@Z.c)
- *     ?ReleaseStablePowerReferenceWithoutLock@ADAPTER_RENDER@@QEAAXXZ @ 0x1C00407DC (-ReleaseStablePowerReferenceWithoutLock@ADAPTER_RENDER@@QEAAXXZ.c)
- *     ?DisableStablePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0055464 (-DisableStablePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ.c)
+ *     ?ReleaseStablePowerReferenceWithoutLock@ADAPTER_RENDER@@QEAAXXZ @ 0x1C0038E18 (-ReleaseStablePowerReferenceWithoutLock@ADAPTER_RENDER@@QEAAXXZ.c)
+ *     ?SetPowerComponentIdleCBInternal@DXGADAPTER@@QEAAXIK@Z @ 0x1C0039904 (-SetPowerComponentIdleCBInternal@DXGADAPTER@@QEAAXIK@Z.c)
+ *     ?DisableStablePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0047914 (-DisableStablePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ.c)
  */
 
 void __fastcall DXGADAPTER::DisableStablePowerState(DXGADAPTER *this)
@@ -16,12 +16,12 @@ void __fastcall DXGADAPTER::DisableStablePowerState(DXGADAPTER *this)
   __int64 v5; // rcx
   ADAPTER_RENDER *v6; // rcx
 
-  if ( *((_BYTE *)this + 3463) )
+  if ( *((_BYTE *)this + 3239) )
   {
-    for ( i = 0; i < *((_DWORD *)this + 792); ++i )
+    for ( i = 0; i < *((_DWORD *)this + 736); ++i )
     {
       v3 = 520LL * i;
-      v4 = *((_QWORD *)this + 378);
+      v4 = *((_QWORD *)this + 350);
       if ( !*(_DWORD *)(v3 + v4 + 208) )
       {
         v5 = *(_QWORD *)(v3 + v4 + 512);
@@ -30,9 +30,9 @@ void __fastcall DXGADAPTER::DisableStablePowerState(DXGADAPTER *this)
         DXGADAPTER::SetPowerComponentIdleCBInternal(this, i, 0);
       }
     }
-    v6 = (ADAPTER_RENDER *)*((_QWORD *)this + 366);
+    v6 = (ADAPTER_RENDER *)*((_QWORD *)this + 338);
     if ( v6 )
       ADAPTER_RENDER::ReleaseStablePowerReferenceWithoutLock(v6);
-    *((_BYTE *)this + 3463) = 0;
+    *((_BYTE *)this + 3239) = 0;
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoAttachDeviceByPointer @ 0x140557420
+ * XREFs of IoAttachDeviceByPointer @ 0x140505900
  * Callers:
  *     <none>
  * Callees:
- *     IopAttachDeviceToDeviceStackSafe @ 0x14024FC04 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x1402832F4 (IopAttachDeviceToDeviceStackSafe.c)
  */
 
 NTSTATUS __stdcall IoAttachDeviceByPointer(PDEVICE_OBJECT SourceDevice, PDEVICE_OBJECT TargetDevice)

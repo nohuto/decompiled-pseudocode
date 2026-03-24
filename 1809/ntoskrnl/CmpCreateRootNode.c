@@ -3,11 +3,11 @@
  * Callers:
  *     CmpCreateRegistryRoot @ 0x1409C3FAC (CmpCreateRegistryRoot.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpCopyName @ 0x1405ACDB0 (CmpCopyName.c)
  *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
- *     CmpNameSize @ 0x1406A54B4 (CmpNameSize.c)
+ *     CmpNameSize @ 0x1406A5494 (CmpNameSize.c)
  */
 
 char __fastcall CmpCreateRootNode(__int64 a1, __int64 a2, _DWORD *a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIDockIrpSetLock @ 0x1C007B9F0
+ * XREFs of ACPIDockIrpSetLock @ 0x1C00AC550
  * Callers:
  *     <none>
  * Callees:

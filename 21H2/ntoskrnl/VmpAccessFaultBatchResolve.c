@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpAccessFaultBatchResolve @ 0x1409D9B98
+ * XREFs of VmpAccessFaultBatchResolve @ 0x14092F2C8
  * Callers:
- *     VmpAccessFaultBatch @ 0x14062908C (VmpAccessFaultBatch.c)
+ *     VmpAccessFaultBatch @ 0x1405A2B6C (VmpAccessFaultBatch.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MmGetNodeFastLargePageCounts @ 0x14057F740 (MmGetNodeFastLargePageCounts.c)
- *     MmVirtualAccessFault @ 0x140881C00 (MmVirtualAccessFault.c)
- *     MmBuildLargePages @ 0x14097F59C (MmBuildLargePages.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MmGetNodeFastLargePageCounts @ 0x140547D00 (MmGetNodeFastLargePageCounts.c)
+ *     MmVirtualAccessFault @ 0x1408D1D64 (MmVirtualAccessFault.c)
+ *     MmBuildLargePages @ 0x1408D76D4 (MmBuildLargePages.c)
  */
 
 __int64 __fastcall VmpAccessFaultBatchResolve(_QWORD *a1, unsigned int a2, __int64 a3, char a4, char a5, int a6)
@@ -29,7 +29,7 @@ __int64 __fastcall VmpAccessFaultBatchResolve(_QWORD *a1, unsigned int a2, __int
   __int64 v21; // rcx
   size_t v22; // rsi
   __int64 result; // rax
-  const signed __int64 *v24; // rdx
+  char *v24; // rdx
   char v25; // [rsp+20h] [rbp-F8h]
   int v26; // [rsp+24h] [rbp-F4h]
   int v27; // [rsp+28h] [rbp-F0h]
@@ -92,31 +92,31 @@ __int64 __fastcall VmpAccessFaultBatchResolve(_QWORD *a1, unsigned int a2, __int
       if ( (v6 & 0x40) != 0 && v17 == 512 && !MmGetNodeFastLargePageCounts(i, a6 - 1) )
         MmBuildLargePages(v21, a6 - 1);
     }
-    v31 = v17 << 12;
     v22 = 8LL * v17;
+    v31 = v17 << 12;
     memset(v9, 0, v22);
     result = MmVirtualAccessFault(&v30, (__int64)v9, v25);
     if ( (int)result >= 0 )
     {
-      v24 = (const signed __int64 *)v9;
+      v24 = v9;
       if ( v9 < &v9[v22] )
       {
         do
         {
-          if ( (*v24 & 0x10000000000000LL) == 0 )
+          if ( (*(_QWORD *)v24 & 0x10000000000000LL) == 0 )
             break;
-          a1[5] = *v24 & 0xFFFFFFFFFFFFFLL;
-          if ( v12 || (*v24 & 0x20000000000000LL) != 0 && (a5 & 2) != 0 )
+          a1[5] = *(_QWORD *)v24 & 0xFFFFFFFFFFFFFLL;
+          if ( v12 || (*(_QWORD *)v24 & 0x20000000000000LL) != 0 && (a5 & 2) != 0 )
             a1[4] |= 0x10000000000000uLL;
           if ( v27 )
             a1[4] |= 0x20000000000000uLL;
-          if ( _bittest64(v24, 0x37u) )
+          if ( (*(_QWORD *)v24 & 0x80000000000000LL) != 0 )
             a1[4] |= 0x40000000000000uLL;
-          ++v24;
+          v24 += 8;
           a1 += 6;
           --v17;
         }
-        while ( v24 < (const signed __int64 *)&v9[v22] );
+        while ( v24 < &v9[v22] );
         v6 = a4;
         v16 = v29;
       }

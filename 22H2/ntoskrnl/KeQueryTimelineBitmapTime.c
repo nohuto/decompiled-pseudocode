@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryTimelineBitmapTime @ 0x1402C0834
+ * XREFs of KeQueryTimelineBitmapTime @ 0x1402056E0
  * Callers:
- *     PoEnergyContextUpdateComponentPower @ 0x1406A7514 (PoEnergyContextUpdateComponentPower.c)
- *     PsQueryProcessEnergyValues @ 0x1407424E0 (PsQueryProcessEnergyValues.c)
- *     PoEnergyContextCleanup @ 0x1407B12D0 (PoEnergyContextCleanup.c)
- *     PopEtEnergyTrackerQuery @ 0x1407B897C (PopEtEnergyTrackerQuery.c)
+ *     PsQueryProcessEnergyValues @ 0x1405E92D0 (PsQueryProcessEnergyValues.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x14060526C (PoEnergyContextUpdateComponentPower.c)
+ *     PoEnergyContextCleanup @ 0x14061410C (PoEnergyContextCleanup.c)
+ *     PopEtEnergyTrackerQuery @ 0x1406732D8 (PopEtEnergyTrackerQuery.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HrFindInterface@CHolographicClient@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802ACFE0
+ * XREFs of ?HrFindInterface@CHolographicClient@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18025B0C0
  * Callers:
  *     <none>
  * Callees:

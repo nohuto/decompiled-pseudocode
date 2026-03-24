@@ -1,12 +1,12 @@
 /*
- * XREFs of Interrupter_UpdateERDP @ 0x1C0014AF0
+ * XREFs of Interrupter_UpdateERDP @ 0x1C0014228
  * Callers:
- *     Interrupter_DeferredWorkProcessor @ 0x1C0008C10 (Interrupter_DeferredWorkProcessor.c)
- *     Interrupter_InterrupterRegisterIntialize @ 0x1C0014BA4 (Interrupter_InterrupterRegisterIntialize.c)
- *     Interrupter_InitializeForOffload @ 0x1C003DF28 (Interrupter_InitializeForOffload.c)
+ *     Interrupter_DeferredWorkProcessor @ 0x1C0006130 (Interrupter_DeferredWorkProcessor.c)
+ *     Interrupter_InterrupterRegisterIntialize @ 0x1C00143C4 (Interrupter_InterrupterRegisterIntialize.c)
+ *     Interrupter_InitializeForOffload @ 0x1C003BC78 (Interrupter_InitializeForOffload.c)
  * Callees:
- *     XilRegister_WriteUlong64 @ 0x1C0014CB8 (XilRegister_WriteUlong64.c)
- *     WPP_RECORDER_SF_i @ 0x1C001C61C (WPP_RECORDER_SF_i.c)
+ *     XilRegister_WriteUlong64 @ 0x1C00142E0 (XilRegister_WriteUlong64.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
  */
 
 __int64 __fastcall Interrupter_UpdateERDP(__int64 a1, char a2)
@@ -23,15 +23,13 @@ __int64 __fastcall Interrupter_UpdateERDP(__int64 a1, char a2)
 
   v3 = *(_QWORD *)(a1 + 8);
   v4 = *(_QWORD *)(v3 + 88);
-  v5 = (*(_DWORD *)(*(_QWORD *)(a1 + 144) + 24LL) ^ *(_DWORD *)(a1 + 128)) & 7 ^ (*(_QWORD *)(*(_QWORD *)(a1 + 144)
-                                                                                            + 24LL)
-                                                                                + 16LL * *(unsigned int *)(a1 + 124));
+  v5 = ((unsigned __int8)*(_DWORD *)(a1 + 128) ^ (unsigned __int8)*(_QWORD *)(*(_QWORD *)(a1 + 144) + 24LL)) & 7 ^ (*(_QWORD *)(*(_QWORD *)(a1 + 144) + 24LL) + 16LL * *(unsigned int *)(a1 + 124));
   v6 = v5 & 0xFFFFFFFFFFFFFFF7uLL;
   v7 = v5 | 8;
   if ( !a2 )
     v7 = v6;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    WPP_RECORDER_SF_i(*(_QWORD *)(v3 + 72), 5, 9, 31, (__int64)&WPP_89e87cee83d7332425398286600bed19_Traceguids, v7);
+    WPP_RECORDER_SF_i(*(_QWORD *)(v3 + 72), 5, 9, 30, (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids, v7);
   v8 = *(_QWORD *)(a1 + 24);
   v9 = (_DWORD *)(v8 + 24);
   if ( !*(_BYTE *)(v4 + 137) )

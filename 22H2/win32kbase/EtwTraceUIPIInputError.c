@@ -1,17 +1,16 @@
 /*
- * XREFs of EtwTraceUIPIInputError @ 0x1C0074560
+ * XREFs of EtwTraceUIPIInputError @ 0x1C0007E30
  * Callers:
- *     NtUserSetKeyboardState @ 0x1C0009A80 (NtUserSetKeyboardState.c)
- *     NtUserGetKeyState @ 0x1C004E960 (NtUserGetKeyState.c)
- *     NtUserGetKeyboardState @ 0x1C00708C0 (NtUserGetKeyboardState.c)
- *     NtUserGetAsyncKeyState @ 0x1C0070AB0 (NtUserGetAsyncKeyState.c)
- *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C01CED30 (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
- *     _anonymous_namespace_::ValidateUIPI @ 0x1C01FB800 (_anonymous_namespace_--ValidateUIPI.c)
+ *     NtUserGetAsyncKeyState @ 0x1C0006820 (NtUserGetAsyncKeyState.c)
+ *     NtUserGetKeyboardState @ 0x1C0006BE0 (NtUserGetKeyboardState.c)
+ *     NtUserGetKeyState @ 0x1C0006DA0 (NtUserGetKeyState.c)
+ *     _anonymous_namespace_::ValidateUIPI @ 0x1C00ADF68 (_anonymous_namespace_--ValidateUIPI.c)
+ *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C019885C (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
  * Callees:
- *     ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C0074858 (-EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@.c)
- *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C00749F8 (WPP_RECORDER_AND_TRACE_SF_qq.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     McTemplateK0nqqq_EtwWriteTransfer @ 0x1C013C8A0 (McTemplateK0nqqq_EtwWriteTransfer.c)
+ *     ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C0008070 (-EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0008140 (WPP_RECORDER_SF_qq.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     McTemplateK0nqqq_EtwWriteTransfer @ 0x1C01259E4 (McTemplateK0nqqq_EtwWriteTransfer.c)
  */
 
 _UNKNOWN **__fastcall EtwTraceUIPIInputError(
@@ -28,9 +27,9 @@ _UNKNOWN **__fastcall EtwTraceUIPIInputError(
   int v10; // r8d
   int v11; // r9d
   _UNKNOWN **result; // rax
-  char v13; // [rsp+54h] [rbp-54h]
-  _OWORD v14[2]; // [rsp+58h] [rbp-50h] BYREF
-  int v15; // [rsp+78h] [rbp-30h]
+  char v13; // [rsp+44h] [rbp-54h]
+  _OWORD v14[2]; // [rsp+48h] [rbp-50h] BYREF
+  int v15; // [rsp+68h] [rbp-30h]
 
   v5 = a4;
   v7 = (char)a1;
@@ -46,22 +45,16 @@ _UNKNOWN **__fastcall EtwTraceUIPIInputError(
     0LL);
   if ( (Microsoft_Windows_Win32kEnableBits & 4) != 0 )
     McTemplateK0nqqq_EtwWriteTransfer(v9, (unsigned int)&UIPIInputEvent, v10, v11, (__int64)v14, a5, v5, v13);
-  LOBYTE(v8) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x2000) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
   result = &WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)v8 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v10) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    return (_UNKNOWN **)WPP_RECORDER_AND_TRACE_SF_qq(
-                          WPP_GLOBAL_Control->AttachedDevice,
-                          v8,
-                          v10,
+    LOBYTE(v8) = 4;
+    return (_UNKNOWN **)WPP_RECORDER_SF_qq(
                           WPP_MAIN_CB.Queue.ListEntry.Flink,
-                          4,
+                          v8,
+                          18,
                           14,
-                          14,
-                          (__int64)&WPP_638838901a81363f021dd330a5466106_Traceguids,
+                          (__int64)&WPP_54d33ffc9e3d3dbf4995411973a3d843_Traceguids,
                           v7,
                           a3);
   }

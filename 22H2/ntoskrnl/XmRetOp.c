@@ -1,10 +1,10 @@
 /*
- * XREFs of XmRetOp @ 0x1403B8510
+ * XREFs of XmRetOp @ 0x140396110
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmPopStack @ 0x1403B8E14 (XmPopStack.c)
- *     XmGetWordImmediate @ 0x1403B9010 (XmGetWordImmediate.c)
+ *     XmPopStack @ 0x1403967BC (XmPopStack.c)
+ *     XmGetWordImmediate @ 0x140396D40 (XmGetWordImmediate.c)
  */
 
 __int64 __fastcall XmRetOp(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall XmRetOp(__int64 a1)
   if ( (*(_DWORD *)(a1 + 112) & 1) != 0 )
     WordImmediate = 0;
   else
-    WordImmediate = (unsigned __int16)XmGetWordImmediate(a1);
+    WordImmediate = (unsigned __int16)XmGetWordImmediate();
   *(_DWORD *)(a1 + 120) = *(_BYTE *)(a1 + 138) != 0 ? 3 : 1;
   *(_DWORD *)(a1 + 20) = XmPopStack(a1);
   if ( (*(_DWORD *)(a1 + 112) & 8) != 0 )

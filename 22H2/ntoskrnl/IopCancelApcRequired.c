@@ -1,17 +1,17 @@
 /*
- * XREFs of IopCancelApcRequired @ 0x140351630
+ * XREFs of IopCancelApcRequired @ 0x1402DA478
  * Callers:
- *     IopCancelIrpsInThreadListForCurrentProcess @ 0x1407C1FA8 (IopCancelIrpsInThreadListForCurrentProcess.c)
- *     IopCancelSynchronousIrpsForThread @ 0x140944584 (IopCancelSynchronousIrpsForThread.c)
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x140657884 (IopCancelIrpsInThreadListForCurrentProcess.c)
+ *     IopCancelSynchronousIrpsForThread @ 0x140891230 (IopCancelSynchronousIrpsForThread.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IopCancelApcRequired(__int64 a1, __int64 a2, __int64 a3)
 {
-  volatile signed __int64 *v3; // r14
+  KSPIN_LOCK *v3; // r14
   KIRQL v7; // al
   _QWORD *v8; // rdx
   unsigned __int64 v9; // rbp
@@ -23,12 +23,12 @@ __int64 __fastcall IopCancelApcRequired(__int64 a1, __int64 a2, __int64 a3)
   int v16; // edx
   bool v17; // zf
 
-  v3 = (volatile signed __int64 *)(a1 + 1496);
-  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 1496));
-  v8 = (_QWORD *)(a1 + 1280);
+  v3 = (KSPIN_LOCK *)(a1 + 1416);
+  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 1416));
+  v8 = (_QWORD *)(a1 + 1200);
   v9 = v7;
-  v10 = *(_QWORD **)(a1 + 1280);
-  if ( v10 == (_QWORD *)(a1 + 1280) )
+  v10 = *(_QWORD **)(a1 + 1200);
+  if ( v10 == (_QWORD *)(a1 + 1200) )
   {
 LABEL_2:
     v11 = 0;
@@ -46,16 +46,19 @@ LABEL_2:
   KxReleaseSpinLock(v3);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-      v17 = (v16 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v16;
-      if ( v17 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+        v17 = (v16 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v16;
+        if ( v17 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v9);

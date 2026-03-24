@@ -1,20 +1,20 @@
 /*
- * XREFs of VrpHandleIoctlLoadDifferencingHive @ 0x140690CFC
+ * XREFs of VrpHandleIoctlLoadDifferencingHive @ 0x1405D29EC
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140692780 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x1405D3110 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     PsGetPermanentSiloContext @ 0x140211FA0 (PsGetPermanentSiloContext.c)
- *     PsGetJobSilo @ 0x140212000 (PsGetJobSilo.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PsIsThreadInSilo @ 0x1402F6170 (PsIsThreadInSilo.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     VrpUnlockJobContextExclusive @ 0x140690FAC (VrpUnlockJobContextExclusive.c)
- *     VrpLoadDifferencingHive @ 0x140690FEC (VrpLoadDifferencingHive.c)
- *     VrpLockJobContextExclusive @ 0x14069186C (VrpLockJobContextExclusive.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140732CC0 (ObReferenceObjectByHandleWithTag.c)
- *     VrpUnloadDifferencingHive @ 0x1407F6200 (VrpUnloadDifferencingHive.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     PsGetJobSilo @ 0x140200050 (PsGetJobSilo.c)
+ *     PsIsThreadInSilo @ 0x14025C988 (PsIsThreadInSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x14035FF90 (PsGetPermanentSiloContext.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     VrpUnlockJobContextExclusive @ 0x1405D2EBC (VrpUnlockJobContextExclusive.c)
+ *     VrpLockJobContextExclusive @ 0x1405D5E18 (VrpLockJobContextExclusive.c)
+ *     VrpLoadDifferencingHive @ 0x1405D5E44 (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x1405D6264 (VrpUnloadDifferencingHive.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlLoadDifferencingHive(

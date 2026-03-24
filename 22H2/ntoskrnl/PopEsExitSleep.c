@@ -1,16 +1,16 @@
 /*
- * XREFs of PopEsExitSleep @ 0x1409983FC
+ * XREFs of PopEsExitSleep @ 0x14077A4A8
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopEsStartTelemetry @ 0x140863BD4 (PopEsStartTelemetry.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopEsStartTelemetry @ 0x14078E674 (PopEsStartTelemetry.c)
  */
 
 void PopEsExitSleep()
 {
   PopAcquireRwLockExclusive((ULONG_PTR)&PopEsLock);
   PopEsStartTelemetry();
-  PopReleaseRwLock(&PopEsLock);
+  PopReleaseRwLock((ULONG_PTR)&PopEsLock);
 }

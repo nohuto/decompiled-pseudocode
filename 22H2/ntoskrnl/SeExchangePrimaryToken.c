@@ -1,54 +1,54 @@
 /*
- * XREFs of SeExchangePrimaryToken @ 0x140842088
+ * XREFs of SeExchangePrimaryToken @ 0x1407BC404
  * Callers:
- *     PspAssignPrimaryToken @ 0x140841EB8 (PspAssignPrimaryToken.c)
+ *     PspAssignPrimaryToken @ 0x1407BC200 (PspAssignPrimaryToken.c)
  * Callees:
- *     SepSetTrustLevelForProcessToken @ 0x140224B44 (SepSetTrustLevelForProcessToken.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ObFastReplaceObject @ 0x14029A458 (ObFastReplaceObject.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     MmGetSessionId @ 0x1402A3B20 (MmGetSessionId.c)
- *     MmGetSessionObjectById @ 0x1402C0B30 (MmGetSessionObjectById.c)
- *     SepSetTokenSessionById @ 0x1406B7AE0 (SepSetTokenSessionById.c)
- *     SeAuditingWithTokenForSubcategory @ 0x1406BB250 (SeAuditingWithTokenForSubcategory.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1407EF74C (SepDereferenceLowBoxNumberEntry.c)
- *     SepSetTokenLowboxNumber @ 0x1407F4DBC (SepSetTokenLowboxNumber.c)
- *     SepAuditAssignPrimaryToken @ 0x140842830 (SepAuditAssignPrimaryToken.c)
+ *     MmGetSessionObjectById @ 0x140206324 (MmGetSessionObjectById.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     SepSetTrustLevelForProcessToken @ 0x140250FB8 (SepSetTrustLevelForProcessToken.c)
+ *     MmGetSessionId @ 0x140252DB0 (MmGetSessionId.c)
+ *     ObFastReplaceObject @ 0x140277500 (ObFastReplaceObject.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     SepSetTokenSessionById @ 0x140604300 (SepSetTokenSessionById.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x140608B90 (SeAuditingWithTokenForSubcategory.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1406355DC (SepDereferenceLowBoxNumberEntry.c)
+ *     SepSetTokenLowboxNumber @ 0x14070F0FC (SepSetTokenLowboxNumber.c)
+ *     SepAuditAssignPrimaryToken @ 0x1407BC5A4 (SepAuditAssignPrimaryToken.c)
  */
 
-__int64 __fastcall SeExchangePrimaryToken(__int64 a1, __int64 a2, unsigned __int64 *a3)
+__int64 __fastcall SeExchangePrimaryToken(__int64 a1, ULONG_PTR a2, ULONG_PTR *a3)
 {
   bool v4; // zf
-  void *SessionObjectById; // rdi
+  struct _DMA_ADAPTER *SessionObjectById; // rdi
   unsigned int SessionId; // eax
   __int64 v9; // rdx
   unsigned int v10; // eax
   struct _KTHREAD *CurrentThread; // rcx
   unsigned int v12; // ebp
   int v13; // r14d
-  unsigned __int64 v14; // rbx
+  ULONG_PTR v14; // rbx
   struct _KTHREAD *v15; // rax
   __int64 result; // rax
-  PVOID v17; // rcx
+  struct _DMA_ADAPTER *v17; // rcx
   unsigned int v18; // ecx
   __int64 v19; // rdx
   signed __int32 v20[8]; // [rsp+0h] [rbp-58h] BYREF
   char v21; // [rsp+68h] [rbp+10h] BYREF
-  PVOID Object; // [rsp+78h] [rbp+20h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+78h] [rbp+20h] BYREF
 
   v4 = *(_DWORD *)(a2 + 192) == 1;
-  Object = 0LL;
+  DmaAdapter = 0LL;
   SessionObjectById = 0LL;
   v21 = 0;
   if ( !v4 )
     return 3221225640LL;
   SessionId = MmGetSessionIdEx(a1);
   if ( SessionId != -1 && !SeTokenDoesNotTrackSessionObject )
-    SessionObjectById = MmGetSessionObjectById(SessionId, v9);
+    SessionObjectById = (struct _DMA_ADAPTER *)MmGetSessionObjectById(SessionId, v9);
   v10 = MmGetSessionId(a1);
   CurrentThread = KeGetCurrentThread();
   v12 = v10;
@@ -61,7 +61,7 @@ __int64 __fastcall SeExchangePrimaryToken(__int64 a1, __int64 a2, unsigned __int
     ExReleaseResourceLite(*(PERESOURCE *)(a2 + 48));
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( SessionObjectById )
-      ObfDereferenceObject(SessionObjectById);
+      HalPutDmaAdapter(SessionObjectById);
     return 3221225771LL;
   }
   else
@@ -77,7 +77,7 @@ __int64 __fastcall SeExchangePrimaryToken(__int64 a1, __int64 a2, unsigned __int
         return (unsigned int)v13;
       v17 = SessionObjectById;
 LABEL_21:
-      ObfDereferenceObject(v17);
+      HalPutDmaAdapter(v17);
       return (unsigned int)v13;
     }
     if ( (*(_DWORD *)(a2 + 200) & 0x4000) != 0 )
@@ -87,7 +87,7 @@ LABEL_21:
       {
         SepDereferenceLowBoxNumberEntry(v18, *(_QWORD *)(a2 + 1080));
         *(_QWORD *)(a2 + 1080) = 0LL;
-        SepSetTokenSessionById(a2, v12, 1, (__int64)SessionObjectById, &Object);
+        SepSetTokenSessionById(a2, v12, 1, (__int64)SessionObjectById, &DmaAdapter);
         v19 = *(_QWORD *)(a2 + 784);
         *(_DWORD *)(a2 + 120) = v12;
         v13 = SepSetTokenLowboxNumber(a2, v19);
@@ -96,20 +96,20 @@ LABEL_21:
           _InterlockedOr(v20, 0);
           ExReleaseResourceLite(*(PERESOURCE *)(a2 + 48));
           KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-          v17 = Object;
-          if ( !Object )
+          v17 = DmaAdapter;
+          if ( !DmaAdapter )
             return (unsigned int)v13;
           goto LABEL_21;
         }
       }
     }
-    SepSetTokenSessionById(a2, v12, 1, (__int64)SessionObjectById, &Object);
+    SepSetTokenSessionById(a2, v12, 1, (__int64)SessionObjectById, &DmaAdapter);
     *(_DWORD *)(a2 + 120) = v12;
     _InterlockedOr(v20, 0);
     ExReleaseResourceLite(*(PERESOURCE *)(a2 + 48));
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    if ( Object )
-      ObfDereferenceObject(Object);
+    if ( DmaAdapter )
+      HalPutDmaAdapter(DmaAdapter);
     if ( SeAuditingWithTokenForSubcategory(134, 0LL) )
       SepAuditAssignPrimaryToken(a1, a2);
     ObfReferenceObject((PVOID)a2);

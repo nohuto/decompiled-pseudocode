@@ -1,11 +1,11 @@
 /*
- * XREFs of GreConvertMemToRedirectionDC @ 0x1C00A672C
+ * XREFs of GreConvertMemToRedirectionDC @ 0x1C00F2518
  * Callers:
- *     ?BltOldRedirectionBitsToNewBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@1PEBUtagBITMAP@@2HH@Z @ 0x1C00103C8 (-BltOldRedirectionBitsToNewBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@1PEBUtagBITMAP@@2HH@Z.c)
- *     UpdateSpriteArea @ 0x1C00A6444 (UpdateSpriteArea.c)
+ *     ?BltOldRedirectionBitsToNewBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@1PEBUtagBITMAP@@2HH@Z @ 0x1C00F2220 (-BltOldRedirectionBitsToNewBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@1PEBUtagBITMAP@@2HH@Z.c)
+ *     UpdateSpriteArea @ 0x1C015B014 (UpdateSpriteArea.c)
  * Callees:
- *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C00A6820 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C00F2608 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreConvertMemToRedirectionDC(HDC a1, _DWORD *a2)
@@ -31,7 +31,7 @@ __int64 __fastcall GreConvertMemToRedirectionDC(HDC a1, _DWORD *a2)
       v5 = v4[6];
       if ( v5 )
       {
-        if ( (*(_DWORD *)(v5 + 2096) & 0x400) != 0 )
+        if ( (*(_DWORD *)(v5 + 2128) & 0x400) != 0 )
         {
           *((_DWORD *)v4 + 9) |= 0x4000u;
           v3 = 1;
@@ -55,7 +55,7 @@ __int64 __fastcall GreConvertMemToRedirectionDC(HDC a1, _DWORD *a2)
       v8 = *v4;
       HmgDecrementShareReferenceCountEx(v4, &v12);
       if ( v12 )
-        GrepDeleteDC(v8, 0x2000000LL);
+        bDeleteDCInternalEx(v8, 0LL);
     }
   }
   UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v11);

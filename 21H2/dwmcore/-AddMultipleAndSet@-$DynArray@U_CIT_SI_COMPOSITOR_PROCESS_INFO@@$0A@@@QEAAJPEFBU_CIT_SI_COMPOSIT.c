@@ -1,12 +1,12 @@
 /*
- * XREFs of ?AddMultipleAndSet@?$DynArray@U_CIT_SI_COMPOSITOR_PROCESS_INFO@@$0A@@@QEAAJPEFBU_CIT_SI_COMPOSITOR_PROCESS_INFO@@I@Z @ 0x1800CAD04
+ * XREFs of ?AddMultipleAndSet@?$DynArray@U_CIT_SI_COMPOSITOR_PROCESS_INFO@@$0A@@@QEAAJPEFBU_CIT_SI_COMPOSITOR_PROCESS_INFO@@I@Z @ 0x1800B858C
  * Callers:
- *     _lambda_e8a4873f02d019eba969ac862a7eef0f_::operator() @ 0x180074038 (_lambda_e8a4873f02d019eba969ac862a7eef0f_--operator().c)
- *     ?SendReportToE3@CEnergyReporter@@AEAAXXZ @ 0x18007878C (-SendReportToE3@CEnergyReporter@@AEAAXXZ.c)
+ *     _lambda_1ddd33c55d82b8cc6d4854a5a942093f_::operator() @ 0x1800B1F60 (_lambda_1ddd33c55d82b8cc6d4854a5a942093f_--operator().c)
+ *     ?SendReportToE3@CEnergyReporter@@AEAAXXZ @ 0x1800CD518 (-SendReportToE3@CEnergyReporter@@AEAAXXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800CB358 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8AF4 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
  */
 
 __int64 __fastcall DynArray<_CIT_SI_COMPOSITOR_PROCESS_INFO,0>::AddMultipleAndSet(
@@ -25,7 +25,7 @@ __int64 __fastcall DynArray<_CIT_SI_COMPOSITOR_PROCESS_INFO,0>::AddMultipleAndSe
   if ( (int)v4 + (int)a3 < (unsigned int)v4 )
   {
     v6 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, -2147024362, 0xB5u);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, -2147024362, 0xB5u, 0LL);
   }
   else
   {
@@ -35,7 +35,7 @@ __int64 __fastcall DynArray<_CIT_SI_COMPOSITOR_PROCESS_INFO,0>::AddMultipleAndSe
       v8 = DynArrayImpl<0>::AddMultipleAndSet(a1, 24LL, a3, a2);
       v6 = v8;
       if ( v8 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0xC0u);
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xC0u, 0LL);
     }
     else
     {

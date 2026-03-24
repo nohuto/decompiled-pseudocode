@@ -1,55 +1,57 @@
 /*
- * XREFs of PopPlPublishSystemPowerChange @ 0x1405DE728
+ * XREFs of PopPlPublishSystemPowerChange @ 0x14057E778
  * Callers:
- *     PopPlNotifyDeviceDState @ 0x1403B171C (PopPlNotifyDeviceDState.c)
- *     PopPlUnregisterDevice @ 0x1403B9260 (PopPlUnregisterDevice.c)
- *     PopPlNotifyDeviceFState @ 0x14045EA32 (PopPlNotifyDeviceFState.c)
- *     PopPlPublishInitialPowerDraw @ 0x1405DE550 (PopPlPublishInitialPowerDraw.c)
+ *     PopPlNotifyDeviceDState @ 0x1403A049C (PopPlNotifyDeviceDState.c)
+ *     PopPlNotifyDeviceFState @ 0x1403A4A78 (PopPlNotifyDeviceFState.c)
+ *     PopPlPublishInitialPowerDraw @ 0x14057E5A0 (PopPlPublishInitialPowerDraw.c)
+ *     PopFxUnregisterDevice @ 0x1407B4F70 (PopFxUnregisterDevice.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x14024A9B0 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall PopPlPublishSystemPowerChange(unsigned __int16 *a1, int a2)
+__int64 __fastcall PopPlPublishSystemPowerChange(unsigned __int16 *a1, int a2, __int64 a3)
 {
-  int v4; // eax
+  int v5; // eax
   __int64 result; // rax
-  __int16 v6; // [rsp+40h] [rbp-39h] BYREF
-  int v7; // [rsp+44h] [rbp-35h] BYREF
-  int v8; // [rsp+48h] [rbp-31h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v9; // [rsp+50h] [rbp-29h] BYREF
-  __int16 *v10; // [rsp+70h] [rbp-9h]
-  __int64 v11; // [rsp+78h] [rbp-1h]
-  _DWORD *v12; // [rsp+80h] [rbp+7h]
-  __int64 v13; // [rsp+88h] [rbp+Fh]
-  __int64 v14; // [rsp+90h] [rbp+17h]
-  _DWORD v15[2]; // [rsp+98h] [rbp+1Fh] BYREF
-  int *v16; // [rsp+A0h] [rbp+27h]
-  __int64 v17; // [rsp+A8h] [rbp+2Fh]
-  int *v18; // [rsp+B0h] [rbp+37h]
-  __int64 v19; // [rsp+B8h] [rbp+3Fh]
+  int v7; // [rsp+20h] [rbp-59h]
+  int v8; // [rsp+28h] [rbp-51h]
+  __int16 v9; // [rsp+40h] [rbp-39h] BYREF
+  int v10; // [rsp+44h] [rbp-35h] BYREF
+  int v11; // [rsp+48h] [rbp-31h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v12; // [rsp+50h] [rbp-29h] BYREF
+  __int16 *v13; // [rsp+70h] [rbp-9h]
+  __int64 v14; // [rsp+78h] [rbp-1h]
+  _DWORD *v15; // [rsp+80h] [rbp+7h]
+  __int64 v16; // [rsp+88h] [rbp+Fh]
+  __int64 v17; // [rsp+90h] [rbp+17h]
+  _DWORD v18[2]; // [rsp+98h] [rbp+1Fh] BYREF
+  int *v19; // [rsp+A0h] [rbp+27h]
+  __int64 v20; // [rsp+A8h] [rbp+2Fh]
+  int *v21; // [rsp+B0h] [rbp+37h]
+  __int64 v22; // [rsp+B8h] [rbp+3Fh]
 
   if ( a2 )
   {
-    if ( (unsigned int)dword_140C03A00 > 5 )
+    if ( (unsigned int)dword_140C02228 > 5 )
     {
-      v15[1] = 0;
-      v6 = 1;
-      v10 = &v6;
-      v11 = 2LL;
-      v12 = v15;
-      v14 = *((_QWORD *)a1 + 1);
-      v15[0] = *a1;
-      v16 = &v7;
-      v4 = *((_DWORD *)a1 + 7);
-      v13 = 2LL;
-      v8 = a2 + v4;
-      v18 = &v8;
-      v7 = a2;
-      v17 = 4LL;
-      v19 = 4LL;
-      tlgWriteEx_EtwWriteEx((__int64)&dword_140C03A00, (unsigned __int8 *)&byte_140032358, 0LL, 1u, 0, 0, 7u, &v9);
+      v18[1] = 0;
+      v9 = 1;
+      v13 = &v9;
+      v14 = 2LL;
+      v15 = v18;
+      v17 = *((_QWORD *)a1 + 1);
+      v18[0] = *a1;
+      v19 = &v10;
+      v5 = *((_DWORD *)a1 + 7);
+      v16 = 2LL;
+      v11 = a2 + v5;
+      v21 = &v11;
+      v10 = a2;
+      v20 = 4LL;
+      v22 = 4LL;
+      tlgWriteEx_EtwWriteEx((__int64)&dword_140C02228, (unsigned __int8 *)&byte_14002A111, a3, 1u, v7, v8, 7u, &v12);
     }
     *((_DWORD *)a1 + 7) += a2;
     return (*((__int64 (__fastcall **)(_QWORD, _QWORD))a1 + 5))(*((_QWORD *)a1 + 4), *((unsigned int *)a1 + 7));

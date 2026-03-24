@@ -1,64 +1,71 @@
 /*
- * XREFs of CmpDoFileWrite @ 0x1406895CC
+ * XREFs of CmpDoFileWrite @ 0x1406EA3AC
  * Callers:
- *     CmpFileWrite @ 0x140689590 (CmpFileWrite.c)
- *     CmpWriteOffsetArrayToFile @ 0x140A1B01C (CmpWriteOffsetArrayToFile.c)
+ *     CmpFileWrite @ 0x1406EAEA0 (CmpFileWrite.c)
+ *     CmpWriteOffsetArrayToFile @ 0x14087167C (CmpWriteOffsetArrayToFile.c)
  * Callees:
- *     CmpSetPriorityThread @ 0x1402079DC (CmpSetPriorityThread.c)
- *     CmpSetIoPriorityThread @ 0x1402079F4 (CmpSetIoPriorityThread.c)
- *     CmpSetRespectIoPriorityThread @ 0x140207D0C (CmpSetRespectIoPriorityThread.c)
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForMultipleObjects @ 0x140310FC0 (KeWaitForMultipleObjects.c)
- *     ZwWriteFile @ 0x14041A7A0 (ZwWriteFile.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     CmpCreateEvent @ 0x1406898C8 (CmpCreateEvent.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     KeWaitForMultipleObjects @ 0x14024B500 (KeWaitForMultipleObjects.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     CmpSetIoPriorityThread @ 0x14032B854 (CmpSetIoPriorityThread.c)
+ *     CmpSetPriorityThread @ 0x14032B86C (CmpSetPriorityThread.c)
+ *     CmpSetRespectIoPriorityThread @ 0x140348088 (CmpSetRespectIoPriorityThread.c)
+ *     ZwWriteFile @ 0x1403F9B20 (ZwWriteFile.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpCreateEvent @ 0x1406EAC60 (CmpCreateEvent.c)
  */
 
-__int64 __fastcall CmpDoFileWrite(void *a1, __int64 a2, __int64 a3, unsigned int a4, char a5)
+__int64 __fastcall CmpDoFileWrite(void *a1, __int64 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4, char a5)
 {
+  int v6; // edi
   ULONG v7; // esi
-  __int64 Pool; // rbx
-  unsigned int v9; // r13d
+  char *TransientPoolWithTag; // rax
+  char *v9; // rbx
   unsigned int v10; // eax
   _DWORD *v11; // r14
   char *Buffer; // rdi
   unsigned int v13; // ebp
-  __int64 v14; // rax
-  HANDLE *v15; // r12
-  HANDLE v16; // rdx
+  HANDLE *v14; // r12
   NTSTATUS Event; // edi
   ULONG Length; // r15d
-  unsigned int v19; // ebp
-  HANDLE *v20; // rsi
-  unsigned int v22; // ecx
-  NTSTATUS *v23; // rax
-  unsigned int v24; // [rsp+50h] [rbp-58h]
-  LARGE_INTEGER ByteOffset; // [rsp+58h] [rbp-50h] BYREF
-  char *v26; // [rsp+60h] [rbp-48h]
-  PIO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-40h]
-  char v29; // [rsp+B8h] [rbp+10h]
+  unsigned int v17; // ebp
+  PADAPTER_OBJECT *v18; // rsi
+  unsigned int v20; // ecx
+  NTSTATUS *v21; // rax
+  unsigned int v22; // [rsp+50h] [rbp-58h]
+  int v23; // [rsp+54h] [rbp-54h]
+  KPRIORITY v24; // [rsp+58h] [rbp-50h]
+  LARGE_INTEGER ByteOffset; // [rsp+60h] [rbp-48h] BYREF
+  char *v26; // [rsp+68h] [rbp-40h]
+  char v28; // [rsp+B8h] [rbp+10h]
+  unsigned int v29; // [rsp+C8h] [rbp+20h]
   char v31; // [rsp+D8h] [rbp+30h]
 
+  v29 = (unsigned int)a4;
   ByteOffset.QuadPart = 0LL;
-  v29 = 0;
+  v28 = 0;
   v24 = 0;
+  v23 = 0;
+  v6 = (int)a4;
   v7 = 0;
-  Pool = CmpAllocatePool(64LL, 5120LL, 2002931011LL);
-  if ( Pool )
+  TransientPoolWithTag = (char *)CmpAllocateTransientPoolWithTag(NonPagedPoolNx, 0x1400uLL, 0x77624D43u, a4);
+  v9 = TransientPoolWithTag;
+  if ( TransientPoolWithTag )
   {
+    memset(TransientPoolWithTag, 0, 0x1400uLL);
     if ( (a5 & 1) != 0 )
     {
-      v24 = CmpSetIoPriorityThread((__int64)KeGetCurrentThread(), 0);
-      CmpSetPriorityThread((ULONG_PTR)KeGetCurrentThread());
-      v29 = 1;
+      v23 = CmpSetIoPriorityThread((__int64)KeGetCurrentThread(), 0);
+      v24 = CmpSetPriorityThread(KeGetCurrentThread(), 4);
+      v28 = 1;
     }
     v31 = CmpSetRespectIoPriorityThread((__int64)KeGetCurrentThread(), 1);
-    v9 = 0;
-    if ( a4 )
+    v10 = 0;
+    v22 = 0;
+    if ( v6 )
     {
-      v10 = a4;
       v11 = (_DWORD *)(a3 + 16);
       while ( 1 )
       {
@@ -69,35 +76,40 @@ __int64 __fastcall CmpDoFileWrite(void *a1, __int64 a2, __int64 a3, unsigned int
         if ( v13 )
           break;
 LABEL_16:
-        ++v9;
+        ++v10;
         v11 += 6;
-        if ( v9 >= v10 )
+        v22 = v10;
+        if ( v10 >= v29 )
           goto LABEL_17;
       }
       while ( 1 )
       {
-        v14 = v7;
-        v15 = (HANDLE *)(Pool + 8LL * v7);
-        v16 = *v15;
-        if ( !*v15 )
+        v14 = (HANDLE *)&v9[8 * v7];
+        if ( !*v14 )
         {
           Event = CmpCreateEvent(SynchronizationEvent);
           if ( Event < 0 )
             goto LABEL_18;
-          v16 = *v15;
           Buffer = v26;
-          v14 = v7;
         }
         Length = 0x100000;
         if ( v13 < 0x100000 )
           Length = v13;
-        IoStatusBlock = (PIO_STATUS_BLOCK)(Pool + 16 * (v14 + 256));
-        if ( ZwWriteFile(a1, v16, 0LL, 0LL, IoStatusBlock, Buffer, Length, &ByteOffset, 0LL) < 0 )
+        if ( ZwWriteFile(a1, *v14, 0LL, 0LL, (PIO_STATUS_BLOCK)&v9[16 * v7 + 4096], Buffer, Length, &ByteOffset, 0LL) < 0 )
         {
           Length = 0x10000;
           if ( v13 < 0x10000 )
             Length = v13;
-          Event = ZwWriteFile(a1, *v15, 0LL, 0LL, IoStatusBlock, Buffer, Length, &ByteOffset, 0LL);
+          Event = ZwWriteFile(
+                    a1,
+                    *v14,
+                    0LL,
+                    0LL,
+                    (PIO_STATUS_BLOCK)&v9[16 * v7 + 4096],
+                    Buffer,
+                    Length,
+                    &ByteOffset,
+                    0LL);
           if ( Event < 0 )
             goto LABEL_18;
           Buffer = v26;
@@ -112,22 +124,22 @@ LABEL_16:
 LABEL_14:
         if ( !v13 )
         {
-          v10 = a4;
+          v10 = v22;
           goto LABEL_16;
         }
       }
-      KeWaitForMultipleObjects(0x40u, (PVOID *)(Pool + 512), WaitAll, Executive, 0, 0, 0LL, (PKWAIT_BLOCK)(Pool + 1024));
-      v22 = 0;
-      v23 = (NTSTATUS *)(Pool + 4096);
+      KeWaitForMultipleObjects(0x40u, (PVOID *)v9 + 64, WaitAll, Executive, 0, 0, 0LL, (PKWAIT_BLOCK)(v9 + 1024));
+      v20 = 0;
+      v21 = (NTSTATUS *)(v9 + 4096);
       v7 = 0;
       while ( 1 )
       {
-        Event = *v23;
-        if ( *v23 < 0 )
+        Event = *v21;
+        if ( *v21 < 0 )
           break;
-        ++v22;
-        v23 += 4;
-        if ( v22 >= 0x40 )
+        ++v20;
+        v21 += 4;
+        if ( v20 >= 0x40 )
         {
           Buffer = v26;
           goto LABEL_14;
@@ -140,27 +152,27 @@ LABEL_17:
       Event = 0;
 LABEL_18:
       if ( v7 )
-        KeWaitForMultipleObjects(v7, (PVOID *)(Pool + 512), WaitAll, Executive, 0, 0, 0LL, (PKWAIT_BLOCK)(Pool + 1024));
+        KeWaitForMultipleObjects(v7, (PVOID *)v9 + 64, WaitAll, Executive, 0, 0, 0LL, (PKWAIT_BLOCK)(v9 + 1024));
     }
-    if ( v29 )
+    if ( v28 )
     {
-      CmpSetIoPriorityThread((__int64)KeGetCurrentThread(), v24);
-      CmpSetPriorityThread((ULONG_PTR)KeGetCurrentThread());
+      CmpSetIoPriorityThread((__int64)KeGetCurrentThread(), v23);
+      CmpSetPriorityThread(KeGetCurrentThread(), v24);
     }
     CmpSetRespectIoPriorityThread((__int64)KeGetCurrentThread(), v31);
-    v19 = 0;
-    v20 = (HANDLE *)Pool;
+    v17 = 0;
+    v18 = (PADAPTER_OBJECT *)v9;
     do
     {
-      if ( !*v20 )
+      if ( !*v18 )
         break;
-      ObfDereferenceObject(v20[64]);
-      ZwClose(*v20);
-      ++v19;
-      ++v20;
+      HalPutDmaAdapter(v18[64]);
+      ZwClose(*v18);
+      ++v17;
+      ++v18;
     }
-    while ( v19 < 0x40 );
-    CmSiFreeMemory((PPRIVILEGE_SET)Pool);
+    while ( v17 < 0x40 );
+    CmSiFreeMemory((PPRIVILEGE_SET)v9);
   }
   else
   {

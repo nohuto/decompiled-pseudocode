@@ -1,5 +1,5 @@
 /*
- * XREFs of ?_InterruptMarkDisconnecting@FxInterrupt@@CAEPEAX@Z @ 0x1C000C040
+ * XREFs of ?_InterruptMarkDisconnecting@FxInterrupt@@CAEPEAX@Z @ 0x1C000DFA0
  * Callers:
  *     <none>
  * Callees:

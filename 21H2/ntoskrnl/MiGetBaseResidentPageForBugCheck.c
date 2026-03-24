@@ -1,20 +1,20 @@
 /*
- * XREFs of MiGetBaseResidentPageForBugCheck @ 0x1405AF110
+ * XREFs of MiGetBaseResidentPageForBugCheck @ 0x1403F688C
  * Callers:
- *     MiMirrorRemoveInactivePages @ 0x14058CF54 (MiMirrorRemoveInactivePages.c)
- *     MiGetPagesRemainingInResidentPage @ 0x1405AF1CC (MiGetPagesRemainingInResidentPage.c)
+ *     MiGetPagesRemainingInResidentPage @ 0x1403F69B8 (MiGetPagesRemainingInResidentPage.c)
+ *     MiMirrorRemoveInactivePages @ 0x140534D74 (MiMirrorRemoveInactivePages.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiGetBaseResidentPageForBugCheck(__int64 a1)
 {
-  unsigned __int64 v1; // rdx
+  __int64 v1; // rdx
   int v2; // r9d
   int i; // r8d
   __int64 v4; // rax
 
-  v1 = 0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4);
+  v1 = (a1 + 0x58000000000LL) / 48;
   v2 = 0;
   for ( i = 2; ; --i )
   {
@@ -22,11 +22,11 @@ __int64 __fastcall MiGetBaseResidentPageForBugCheck(__int64 a1)
     if ( (v4 & v1) != 0 )
     {
       v1 &= ~v4;
-      a1 = 48 * v1 - 0x220000000000LL;
+      a1 = 48 * v1 - 0x58000000000LL;
       if ( (unsigned int)++v2 > 3 )
         return 0LL;
     }
-    if ( (*(_BYTE *)(a1 + 36) & 3) != 0 )
+    if ( (*(_BYTE *)(a1 + 39) & 3) != 0 )
       break;
     if ( !i )
       return 0LL;

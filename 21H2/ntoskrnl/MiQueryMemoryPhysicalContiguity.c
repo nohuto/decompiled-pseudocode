@@ -1,29 +1,29 @@
 /*
- * XREFs of MiQueryMemoryPhysicalContiguity @ 0x140978430
+ * XREFs of MiQueryMemoryPhysicalContiguity @ 0x1408D12A0
  * Callers:
- *     MmQueryVirtualMemory @ 0x1407BA750 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
  * Callees:
- *     MmSizeOfMdl @ 0x140231480 (MmSizeOfMdl.c)
- *     MiGetLargestPageIndex @ 0x14023A8F8 (MiGetLargestPageIndex.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     MiObtainReferencedVadEx @ 0x14030E7C0 (MiObtainReferencedVadEx.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14030EA70 (MiUnlockAndDereferenceVadShared.c)
- *     MmProbeAndLockPages @ 0x140319E90 (MmProbeAndLockPages.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     MiQueryVaPhysicalContiguity @ 0x1405A645C (MiQueryVaPhysicalContiguity.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
+ *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14025B250 (MiUnlockAndDereferenceVadShared.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     MmSizeOfMdl @ 0x1402986E0 (MmSizeOfMdl.c)
+ *     MiGetLargestPageIndex @ 0x1402C9DE0 (MiGetLargestPageIndex.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     MiQueryVaPhysicalContiguity @ 0x140547254 (MiQueryVaPhysicalContiguity.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiQueryMemoryPhysicalContiguity(ULONG_PTR a1, volatile void **a2, __int64 a3, KPROCESSOR_MODE a4)
 {
   struct _MDL *v5; // r14
-  __int64 v6; // rsi
+  volatile signed __int32 *v6; // rsi
   unsigned int v7; // ebx
   unsigned __int64 v8; // r15
   unsigned __int64 v9; // r12
@@ -41,30 +41,29 @@ __int64 __fastcall MiQueryMemoryPhysicalContiguity(ULONG_PTR a1, volatile void *
   unsigned __int64 v21; // r15
   unsigned __int64 v22; // r12
   unsigned __int64 v23; // r13
-  int VaPhysicalContiguity; // eax
-  struct _KTHREAD *v25; // rcx
-  int v28; // [rsp+34h] [rbp-104h]
-  int v29; // [rsp+40h] [rbp-F8h]
-  unsigned int v30; // [rsp+44h] [rbp-F4h] BYREF
-  struct _MDL *v31; // [rsp+48h] [rbp-F0h]
-  struct _KTHREAD *CurrentThread; // [rsp+50h] [rbp-E8h]
-  int v33; // [rsp+58h] [rbp-E0h]
+  int v26; // [rsp+34h] [rbp-104h]
+  __int64 v27; // [rsp+38h] [rbp-100h]
+  int v28; // [rsp+40h] [rbp-F8h]
+  unsigned int v29; // [rsp+44h] [rbp-F4h] BYREF
+  struct _MDL *v30; // [rsp+48h] [rbp-F0h]
+  SIZE_T v31; // [rsp+50h] [rbp-E8h]
+  unsigned int v32; // [rsp+58h] [rbp-E0h]
   ULONG_PTR BugCheckParameter1; // [rsp+60h] [rbp-D8h]
-  __int128 v35; // [rsp+68h] [rbp-D0h]
-  __int128 v36; // [rsp+78h] [rbp-C0h]
+  __int128 v34; // [rsp+68h] [rbp-D0h]
+  __int128 v35; // [rsp+78h] [rbp-C0h]
   volatile void *Address; // [rsp+88h] [rbp-B0h]
-  unsigned __int64 v38; // [rsp+90h] [rbp-A8h]
-  SIZE_T v39; // [rsp+98h] [rbp-A0h]
-  _OWORD v40[3]; // [rsp+A0h] [rbp-98h] BYREF
+  unsigned __int64 v37; // [rsp+90h] [rbp-A8h]
+  struct _KTHREAD *CurrentThread; // [rsp+98h] [rbp-A0h]
+  _OWORD v39[3]; // [rsp+A0h] [rbp-98h] BYREF
   _BYTE Src[32]; // [rsp+D0h] [rbp-68h] BYREF
 
   BugCheckParameter1 = a1;
-  v30 = 0;
-  memset(v40, 0, sizeof(v40));
+  v29 = 0;
+  memset(v39, 0, sizeof(v39));
   v5 = 0LL;
-  v31 = 0LL;
+  v30 = 0LL;
   v6 = 0LL;
-  v28 = 0;
+  v26 = 0;
   CurrentThread = KeGetCurrentThread();
   if ( a3 != 40 )
   {
@@ -73,33 +72,33 @@ __int64 __fastcall MiQueryMemoryPhysicalContiguity(ULONG_PTR a1, volatile void *
   }
   if ( a4 )
     ProbeForWrite(a2, 0x28uLL, 8u);
-  v35 = *(_OWORD *)a2;
-  v36 = *((_OWORD *)a2 + 1);
+  v34 = *(_OWORD *)a2;
+  v35 = *((_OWORD *)a2 + 1);
   Address = a2[4];
-  if ( (DWORD2(v36) & 0xFFFFFFFE) != 0 )
+  if ( (DWORD2(v35) & 0xFFFFFFFE) != 0 )
     goto LABEL_51;
-  v8 = v35;
-  if ( (unsigned __int64)v35 > 0x7FFFFFFEFFFFLL )
+  v8 = v34;
+  if ( (unsigned __int64)v34 > 0x7FFFFFFEFFFFLL )
     goto LABEL_51;
-  v9 = v36;
-  if ( !(_QWORD)v36 || (((_QWORD)v36 - 1LL) & (unsigned __int64)v36) != 0 || (unsigned __int64)v36 <= 0x1000 )
+  v9 = v35;
+  if ( !(_QWORD)v35 || (((_QWORD)v35 - 1LL) & (unsigned __int64)v35) != 0 || (unsigned __int64)v35 <= 0x1000 )
     goto LABEL_51;
   LargestPageIndex = MiGetLargestPageIndex();
   v14 = LargestPageIndex;
-  v29 = LargestPageIndex;
+  v28 = LargestPageIndex;
   if ( LargestPageIndex < 3 )
   {
     v15 = &MiLargePageSizes[LargestPageIndex];
     do
     {
-      if ( *v15 == (unsigned __int64)v36 >> 12 )
+      if ( *v15 == (unsigned __int64)v35 >> 12 )
         break;
       v14 = (unsigned int)(v14 + 1);
-      v29 = v14;
+      v28 = v14;
       ++v15;
     }
     while ( (unsigned int)v14 < 3 );
-    v11 = BYTE8(v36);
+    v11 = BYTE8(v35);
   }
   if ( (_DWORD)v14 == 3 )
   {
@@ -107,20 +106,20 @@ LABEL_16:
     v7 = -1073741637;
     goto LABEL_52;
   }
-  if ( (v12 & *((_QWORD *)&v35 + 1)) != 0 || ((unsigned __int64)v35 & ~v12) != (_QWORD)v35 )
+  if ( (v12 & *((_QWORD *)&v34 + 1)) != 0 || ((unsigned __int64)v34 & ~v12) != (_QWORD)v34 )
     goto LABEL_51;
-  v33 = 2 * (v11 & 1);
-  v38 = *((_QWORD *)&v35 + 1) / (unsigned __int64)v36;
-  v16 = 4 * (*((_QWORD *)&v35 + 1) / (unsigned __int64)v36);
-  v39 = v16;
+  v32 = 2 * (v11 & 1);
+  v37 = *((_QWORD *)&v34 + 1) / (unsigned __int64)v35;
+  v16 = 4 * (*((_QWORD *)&v34 + 1) / (unsigned __int64)v35);
+  v31 = v16;
   if ( v16 > 0x20 )
   {
-    if ( v16 <= 0xFFFFF000 )
+    if ( v16 <= 0xFFFFE000 )
     {
       v18 = MmSizeOfMdl((PVOID)Address, v16);
       Pool = (struct _MDL *)MiAllocatePool(64, v18, 0x20206D4Du);
       v5 = Pool;
-      v31 = Pool;
+      v30 = Pool;
       if ( !Pool )
         goto LABEL_24;
       Pool->Next = 0LL;
@@ -148,23 +147,23 @@ LABEL_51:
   }
   v17 = Src;
   if ( v13 )
-    ProbeForWrite(Address, 4 * (*((_QWORD *)&v35 + 1) / (unsigned __int64)v36), 4u);
+    ProbeForWrite(Address, v16, 4u);
 LABEL_29:
   if ( CurrentThread->ApcState.Process != (_KPROCESS *)BugCheckParameter1 )
   {
-    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v40, (_DWORD *)v14);
-    v28 = 1;
+    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v39, (_DWORD *)v14);
+    v26 = 1;
   }
   v21 = v8 >> 12;
   v22 = v9 >> 12;
-  CurrentThread = 0LL;
-  if ( v38 )
+  v27 = 0LL;
+  if ( v37 )
   {
     while ( 1 )
     {
       if ( v6
-        && (v21 < (*(unsigned int *)(v6 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v6 + 32) << 32))
-         || v21 > (*(unsigned int *)(v6 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v6 + 33) << 32))) )
+        && (v21 < (*((unsigned int *)v6 + 6) | ((unsigned __int64)*((unsigned __int8 *)v6 + 32) << 32))
+         || v21 > (*((unsigned int *)v6 + 7) | ((unsigned __int64)*((unsigned __int8 *)v6 + 33) << 32))) )
       {
         MiUnlockAndDereferenceVadShared((char *)v6);
         v6 = 0LL;
@@ -172,26 +171,27 @@ LABEL_29:
       v23 = v21 << 12;
       if ( !v6 )
       {
-        v6 = MiObtainReferencedVadEx(v21 << 12, 2, (int *)&v30);
+        v6 = MiObtainReferencedVadEx(v21 << 12, 2, (int *)&v29);
         if ( !v6 )
         {
-          v7 = v30;
+          v7 = v29;
           goto LABEL_54;
         }
       }
       v21 += v22;
-      if ( v21 - 1 > (*(unsigned int *)(v6 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v6 + 33) << 32)) )
+      if ( v21 - 1 > (*((unsigned int *)v6 + 7) | ((unsigned __int64)*((unsigned __int8 *)v6 + 33) << 32)) )
         break;
-      if ( (*(_DWORD *)(v6 + 48) & 0x70) != 0 || (*(_DWORD *)(v6 + 48) & 0x200000) == 0 )
+      if ( (v6[12] & 0x70) != 0 || (v6[12] & 0x100000) == 0 )
         goto LABEL_16;
-      *(_DWORD *)&v17[4 * (_QWORD)CurrentThread] = 0;
-      VaPhysicalContiguity = MiQueryVaPhysicalContiguity(BugCheckParameter1 + 1664, v23, v29, v33);
-      v25 = CurrentThread;
-      *(_DWORD *)&v17[4 * (_QWORD)CurrentThread] ^= (*(_DWORD *)&v17[4 * (_QWORD)CurrentThread] ^ VaPhysicalContiguity) & 3;
-      CurrentThread = (struct _KTHREAD *)((char *)&v25->Header.Lock + 1);
-      if ( (unsigned __int64)&v25->Header.Lock + 1 >= v38 )
+      *(_DWORD *)&v17[4 * v27] = 0;
+      *(_DWORD *)&v17[4 * v27] ^= (*(_DWORD *)&v17[4 * v27] ^ MiQueryVaPhysicalContiguity(
+                                                                BugCheckParameter1 + 1664,
+                                                                v23,
+                                                                v28,
+                                                                (_DWORD *)v32)) & 3;
+      if ( ++v27 >= v37 )
       {
-        v16 = v39;
+        v16 = v31;
         goto LABEL_44;
       }
     }
@@ -201,14 +201,13 @@ LABEL_29:
   {
 LABEL_44:
     if ( v6 )
-    {
       MiUnlockAndDereferenceVadShared((char *)v6);
-      v6 = 0LL;
-    }
-    if ( v28 )
+    v6 = 0LL;
+    v31 = 0LL;
+    if ( v26 )
     {
-      KiUnstackDetachProcess((__int64)v40, 0LL);
-      v28 = 0;
+      KiUnstackDetachProcess((__int64)v39, 0);
+      v26 = 0;
     }
     if ( v17 == Src )
       memmove((void *)Address, v17, v16);
@@ -218,8 +217,8 @@ LABEL_52:
   if ( v6 )
     MiUnlockAndDereferenceVadShared((char *)v6);
 LABEL_54:
-  if ( v28 )
-    KiUnstackDetachProcess((__int64)v40, 0LL);
+  if ( v26 )
+    KiUnstackDetachProcess((__int64)v39, 0);
   if ( v5 )
   {
     if ( (v5->MdlFlags & 2) != 0 )

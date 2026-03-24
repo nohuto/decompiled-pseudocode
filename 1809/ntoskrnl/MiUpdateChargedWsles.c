@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdateChargedWsles @ 0x1402CB58C
+ * XREFs of MiUpdateChargedWsles @ 0x1402CB68C
  * Callers:
  *     MiReturnPageTablePageCommitment @ 0x1405EC380 (MiReturnPageTablePageCommitment.c)
  *     MiCommitPageTablesForVad @ 0x1405ECBB0 (MiCommitPageTablesForVad.c)
  *     MiDeleteVadBitmap @ 0x140608CFC (MiDeleteVadBitmap.c)
- *     MiComputeProcessUserVa @ 0x14067A11C (MiComputeProcessUserVa.c)
+ *     MiComputeProcessUserVa @ 0x14067A0FC (MiComputeProcessUserVa.c)
  * Callees:
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
  */

@@ -1,256 +1,200 @@
 /*
- * XREFs of MiHotAddPartitionMemory @ 0x140A44D10
+ * XREFs of MiHotAddPartitionMemory @ 0x1408DB2CC
  * Callers:
- *     MmManagePartitionInitialAddMemory @ 0x140A4573C (MmManagePartitionInitialAddMemory.c)
+ *     MmManagePartitionInitialAddMemory @ 0x1408DBA14 (MmManagePartitionInitialAddMemory.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14028AE30 (RtlAvlRemoveNode.c)
- *     RtlAreBitsClearEx @ 0x140350DE0 (RtlAreBitsClearEx.c)
- *     MiHugePagesSupported @ 0x1403C7244 (MiHugePagesSupported.c)
- *     memset @ 0x140435400 (memset.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140551100 (IoUpdateDumpPhysicalRanges.c)
- *     MiActOnPartitionNodePages @ 0x1406580F0 (MiActOnPartitionNodePages.c)
- *     MiAddRangeToPartitionTree @ 0x140658B8C (MiAddRangeToPartitionTree.c)
- *     MiDeletePartitionPageNode @ 0x140659438 (MiDeletePartitionPageNode.c)
- *     MiFreePartitionTree @ 0x140659F08 (MiFreePartitionTree.c)
- *     MiInsertPartitionPages @ 0x14065A4F0 (MiInsertPartitionPages.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x140A452F8 (MiUpdatePartitionLargePfnBitMap.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     RtlAreBitsClearEx @ 0x1402C9680 (RtlAreBitsClearEx.c)
+ *     MiActOnPartitionNodePages @ 0x1405607E0 (MiActOnPartitionNodePages.c)
+ *     MiAddRangeToPartitionTree @ 0x1405610AC (MiAddRangeToPartitionTree.c)
+ *     MiFreePartitionTree @ 0x14056227C (MiFreePartitionTree.c)
+ *     MiInsertPartitionPages @ 0x140562480 (MiInsertPartitionPages.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x1408DB7C8 (MiUpdatePartitionLargePfnBitMap.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiHotAddPartitionMemory(__int64 a1, unsigned __int64 *a2, int *a3)
+__int64 __fastcall MiHotAddPartitionMemory(unsigned __int64 a1, unsigned __int64 *a2, int *a3, __int64 a4)
 {
-  int *v4; // r13
-  __int64 v5; // r15
-  __int64 v6; // r9
   int updated; // ebx
   int v9; // ecx
-  int v10; // edx
-  __int64 v11; // r14
-  __int64 v12; // r8
-  unsigned __int64 v13; // rsi
-  __int16 *v14; // rdi
-  unsigned int v15; // ebx
-  unsigned __int64 v16; // rdx
-  unsigned __int64 v17; // r8
-  unsigned __int64 v18; // rcx
-  int v19; // eax
-  int v20; // esi
-  int v21; // esi
-  int v22; // r12d
-  int v23; // r12d
-  unsigned __int64 *i; // rdi
-  unsigned __int64 *v25; // rax
-  int v26; // r13d
-  int v27; // r15d
-  unsigned __int64 **v28; // rax
-  unsigned __int64 *v29; // r14
-  unsigned __int64 *v30; // rcx
-  unsigned __int64 *v31; // rcx
-  int v32; // eax
-  int v33; // [rsp+38h] [rbp-69h]
-  unsigned __int64 *v34; // [rsp+40h] [rbp-61h] BYREF
-  unsigned int v35; // [rsp+48h] [rbp-59h]
-  int v36; // [rsp+4Ch] [rbp-55h]
-  __int128 v37; // [rsp+50h] [rbp-51h] BYREF
-  __int128 v38; // [rsp+60h] [rbp-41h]
-  __int16 *v39[16]; // [rsp+78h] [rbp-29h] BYREF
-  unsigned int v42; // [rsp+120h] [rbp+7Fh]
+  unsigned int v10; // r13d
+  unsigned __int64 v11; // r12
+  unsigned __int64 v12; // rdi
+  unsigned int v13; // esi
+  unsigned __int64 v14; // rdx
+  unsigned __int64 v15; // r8
+  int v16; // esi
+  _QWORD *v17; // rax
+  int v18; // r12d
+  _QWORD *i; // rdi
+  _QWORD **v20; // rax
+  __int64 v21; // r13
+  _QWORD *v22; // rcx
+  _QWORD *v23; // rcx
+  int v24; // eax
+  __int128 v25; // [rsp+30h] [rbp-39h] BYREF
+  __int128 v26; // [rsp+40h] [rbp-29h]
+  __int128 v27; // [rsp+50h] [rbp-19h] BYREF
+  __int128 v28; // [rsp+60h] [rbp-9h]
+  __int128 v29; // [rsp+70h] [rbp+7h]
+  __int64 v30; // [rsp+80h] [rbp+17h]
+  int v31; // [rsp+D0h] [rbp+67h]
+  _QWORD *v32; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  v4 = a3;
-  v5 = a1;
-  v37 = 0LL;
-  v38 = 0LL;
-  memset(v39, 0, 0x48uLL);
-  v34 = 0LL;
-  v42 = 14;
-  if ( (unsigned __int16 *)v5 == MiSystemPartition && (*v4 & 4) == 0
-    || (v9 = *v4, (*v4 & 8) != 0) && (unsigned __int16 *)v5 == MiSystemPartition
-    || (v10 = *v4 & 4, (v9 & 4) != 0) && !(unsigned int)MiHugePagesSupported() )
+  v32 = 0LL;
+  v30 = 0LL;
+  v25 = 0LL;
+  v26 = 0LL;
+  v27 = 0LL;
+  v28 = 0LL;
+  v29 = 0LL;
+  if ( (ULONG_PTR *)a1 == &MiSystemPartition && (*a3 & 4) == 0 )
   {
     updated = -1073741637;
 LABEL_4:
-    MiFreePartitionTree((__int16 *)v5, (unsigned __int64 *)&v34, 0, 0);
+    MiFreePartitionTree(a1, (unsigned __int64 *)&v32, 0, 0);
     return (unsigned int)updated;
   }
-  v11 = 0LL;
-  if ( (v9 & 0x60) != 0 )
+  if ( KeGetCurrentThread()->PreviousMode )
   {
-    if ( v10 )
-    {
-LABEL_12:
-      updated = -1073741811;
-      goto LABEL_4;
-    }
-    if ( (v9 & 0x20) != 0 )
-    {
-      if ( (v9 & 0x40) != 0 )
-        goto LABEL_12;
-      v11 = 512LL;
-    }
-    else
-    {
-      v11 = 0x40000LL;
-    }
+    updated = -1073741727;
+    goto LABEL_4;
   }
-  *((_QWORD *)v4 + 1) = 0LL;
-  v12 = (unsigned int)v4[1];
-  v35 = v4[1];
-  if ( (v9 & 1) != 0 )
+  *((_QWORD *)a3 + 1) = 0LL;
+  v9 = *a3;
+  v10 = a3[1];
+  if ( (*a3 & 1) != 0 )
   {
-    v33 = 1;
+    v31 = 1;
   }
   else
   {
-    if ( (*(_DWORD *)(v5 + 4) & 0x20) != 0 || v10 )
+    if ( (*(_DWORD *)(a1 + 4) & 0x40) != 0 || (v9 & 4) != 0 )
     {
       updated = -1073741584;
       goto LABEL_4;
     }
-    v33 = 0;
+    v31 = 0;
   }
-  v13 = 0LL;
-  v14 = 0LL;
-  v15 = 0;
-  if ( (_DWORD)v12 )
+  v11 = 0LL;
+  v12 = 0LL;
+  v13 = 0;
+  if ( v10 )
   {
-    do
+    while ( 1 )
     {
-      v16 = *a2;
-      if ( *a2 < v13 )
-        goto LABEL_12;
-      v17 = a2[1];
-      v13 = v17 + v16;
-      if ( v17 + v16 <= v16 || (__int16 *)((char *)v14 + v17) <= v14 )
-        goto LABEL_12;
-      if ( (*v4 & 4) != 0 )
-      {
-        v18 = v16 | v17;
-        if ( ((v16 | v17) & 0x3FFFF) != 0 )
-          goto LABEL_12;
-      }
-      else
-      {
-        v18 = v17 | v16;
-      }
-      if ( v11 && ((v11 - 1) & v18) != 0 )
-        goto LABEL_12;
-      v14 = (__int16 *)((char *)v14 + v17);
-      if ( !(unsigned int)MiAddRangeToPartitionTree((unsigned __int64 *)&v34, v16, v17, 0) )
+      v14 = *a2;
+      if ( *a2 < v11 )
+        break;
+      v15 = a2[1];
+      v11 = v15 + v14;
+      if ( v15 + v14 <= v14 || v15 + v12 <= v12 || (*a3 & 4) != 0 && ((v14 & 0x3FFFF) != 0 || (v15 & 0x3FFFF) != 0) )
+        break;
+      v12 += v15;
+      if ( !MiAddRangeToPartitionTree((unsigned __int64 *)&v32, v14, v15, 0) )
       {
         updated = -1073741670;
         goto LABEL_4;
       }
-      ++v15;
+      ++v13;
       a2 += 2;
+      if ( v13 >= v10 )
+      {
+        v9 = *a3;
+        goto LABEL_24;
+      }
     }
-    while ( v15 < v35 );
+    updated = -1073741811;
+    goto LABEL_4;
   }
-  v19 = *v4;
-  if ( (*v4 & 4) != 0 )
+LABEL_24:
+  if ( (v9 & 4) != 0 )
   {
-    BYTE2(v39[2]) = 1;
-    HIDWORD(v39[2]) = (v19 & 2 | 4u) >> 1;
+    BYTE2(v28) = 1;
+    if ( (v9 & 2) != 0 )
+      BYTE3(v28) = 1;
   }
   else
   {
-    updated = MiUpdatePartitionLargePfnBitMap(v5, &v34, v12, v6);
+    updated = MiUpdatePartitionLargePfnBitMap(a1, &v32, a3, a4);
     if ( updated < 0 )
       goto LABEL_4;
   }
   updated = 0;
-  v20 = DWORD2(v38);
-  if ( (*(_DWORD *)(v5 + 4) & 0x20) != 0 )
+  v16 = DWORD2(v26);
+  if ( (*(_DWORD *)(a1 + 4) & 0x40) != 0 )
   {
-    BYTE1(v39[2]) = 1;
-    v20 = DWORD2(v38) | 8;
+    v16 = DWORD2(v26) | 8;
+    BYTE1(v28) = 1;
+    DWORD2(v26) |= 8u;
   }
-  if ( v33 )
+  if ( v31 )
   {
-    v22 = *v4;
-    v35 = 16 * (*v4 & 8);
-    v23 = v22 & 2;
-    if ( !v23 )
-      v20 |= 0x100u;
-    v39[0] = (__int16 *)v5;
-    v39[7] = (__int16 *)v11;
-    v21 = v20 | 0x200;
-    v36 = v21;
-    v42 = 12 - (v23 != 0);
+    v17 = v32;
+    v18 = 0;
     i = 0LL;
-    v25 = v34;
-    DWORD2(v38) = v21;
-    while ( v25 )
+    *(_QWORD *)&v27 = a1;
+    while ( v17 )
     {
-      i = v25;
-      v25 = (unsigned __int64 *)*v25;
+      i = v17;
+      v17 = (_QWORD *)*v17;
     }
-    if ( i )
+    while ( i )
     {
-      v26 = v35;
-      v27 = 0;
-      do
+      v20 = (_QWORD **)i[1];
+      v21 = (__int64)i;
+      v22 = i;
+      if ( v20 )
       {
-        v28 = (unsigned __int64 **)i[1];
-        v29 = i;
-        v30 = i;
-        if ( v28 )
-        {
-          v31 = *v28;
-          for ( i = (unsigned __int64 *)i[1]; v31; v31 = (unsigned __int64 *)*v31 )
-            i = v31;
-        }
-        else
-        {
-          while ( 1 )
-          {
-            i = (unsigned __int64 *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
-            if ( !i || (unsigned __int64 *)*i == v30 )
-              break;
-            v30 = i;
-          }
-        }
-        if ( !v27 )
-        {
-          MiActOnPartitionNodePages((__int64)v29, v42, v26, v39);
-          if ( SLODWORD(v39[3]) < 0 )
-          {
-            updated = (int)v39[3];
-            if ( v23 && RtlAreBitsClearEx(v29 + 4, 0LL, v29[4]) )
-              i = v29;
-            v27 = 1;
-          }
-          if ( v23 )
-            continue;
-        }
-        RtlAvlRemoveNode((unsigned __int64 *)&v34, v29);
-        MiDeletePartitionPageNode((PVOID *)v29);
+        v23 = *v20;
+        for ( i = (_QWORD *)i[1]; v23; v23 = (_QWORD *)*v23 )
+          i = v23;
       }
-      while ( i );
-      v21 = v36;
-      v5 = a1;
-      v4 = a3;
+      else
+      {
+        while ( 1 )
+        {
+          i = (_QWORD *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
+          if ( !i || (_QWORD *)*i == v22 )
+            break;
+          v22 = i;
+        }
+      }
+      if ( v18 == 1 )
+      {
+        RtlAvlRemoveNode((unsigned __int64 *)&v32, (unsigned __int64 *)v21);
+        ExFreePoolWithTag(*(PVOID *)(v21 + 40), 0);
+        ExFreePoolWithTag((PVOID)v21, 0);
+      }
+      else
+      {
+        MiActOnPartitionNodePages(v21, 9u, (__int16 **)&v27);
+        if ( SDWORD1(v28) < 0 )
+        {
+          updated = DWORD1(v28);
+          v18 = 1;
+          if ( RtlAreBitsClearEx(v21 + 32, 0LL, 0x40000uLL) )
+            i = (_QWORD *)v21;
+        }
+      }
     }
-    v14 = v39[6];
-    if ( !v39[6] )
+    v12 = *((_QWORD *)&v29 + 1);
+    if ( !*((_QWORD *)&v29 + 1) )
       goto LABEL_4;
-    IoUpdateDumpPhysicalRanges();
   }
   else
   {
-    v21 = v20 | 2;
-    DWORD2(v38) = v21;
+    v16 |= 2u;
+    DWORD2(v26) = v16;
   }
-  v32 = *v4;
-  if ( (*v4 & 2) == 0 )
-    DWORD2(v38) = v21 | 1;
-  *(_QWORD *)&v37 = &v34;
-  if ( (v32 & 4) != 0 )
-  {
-    MiFreePartitionTree((__int16 *)v5, (unsigned __int64 *)&v34, 0, 0);
-  }
-  else if ( v42 != 12 )
-  {
-    MiInsertPartitionPages((__int16 *)MiSystemPartition, v5, (__int64)&v37, (__int64)v14, 0LL);
-  }
-  *((_QWORD *)v4 + 1) = v14;
+  v24 = *a3;
+  if ( (*a3 & 2) == 0 )
+    DWORD2(v26) = v16 | 1;
+  *(_QWORD *)&v25 = &v32;
+  if ( (v24 & 4) != 0 )
+    MiFreePartitionTree(a1, (unsigned __int64 *)&v32, 0, 0);
+  else
+    MiInsertPartitionPages((unsigned __int64)&MiSystemPartition, a1, (__int64)&v25, v12, 0LL);
+  *((_QWORD *)a3 + 1) = v12;
   return (unsigned int)updated;
 }

@@ -1,63 +1,54 @@
 /*
- * XREFs of ??$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z @ 0x1C00A2A1C
+ * XREFs of ??$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z @ 0x1C01191CC
  * Callers:
- *     QueryRegistryFontSubstituteListRoutine @ 0x1C03B4760 (QueryRegistryFontSubstituteListRoutine.c)
+ *     QueryRegistryFontSubstituteListRoutine @ 0x1C0393610 (QueryRegistryFontSubstituteListRoutine.c)
  * Callees:
- *     PREALLOCMEM2 @ 0x1C00B7D9C (PREALLOCMEM2.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     PREALLOCMEM2 @ 0x1C01324E0 (PREALLOCMEM2.c)
  */
 
 __int64 __fastcall AllocAndCopyRegistryEntries<_FONTSUB,1651729991>(
-        unsigned int *a1,
-        void **a2,
-        _DWORD *a3,
+        __int64 a1,
+        __int64 a2,
+        unsigned int *a3,
         _OWORD *a4)
 {
-  int v4; // eax
-  _OWORD *v9; // rdx
-  __int128 v10; // xmm0
-  _OWORD *v11; // rbx
-  int v13; // esi
-  unsigned int v14; // r8d
-  __int64 v15; // rax
+  _OWORD *v6; // rdx
+  __int128 v7; // xmm0
+  _OWORD *v8; // rbx
+  unsigned int v10; // edi
+  void *v11; // rax
 
-  v4 = *a1;
-  if ( *a1 < *a3 )
+  if ( gcfsTable < *a3 )
     goto LABEL_2;
-  v13 = v4 + 32;
-  v14 = 196 * (v4 + 32);
-  if ( *a2 )
-  {
-    v15 = PREALLOCMEM2(*a2);
-  }
+  v10 = gcfsTable + 32;
+  if ( gpfsTable )
+    v11 = (void *)PREALLOCMEM2(gpfsTable);
   else
+    v11 = PALLOCMEM2(196 * (gcfsTable + 32), 1651729991LL, 1);
+  if ( v11 )
   {
-    if ( !v14 )
-      return 3221225495LL;
-    v15 = Win32AllocPoolZInit(v14, 1651729991LL);
-  }
-  if ( v15 )
-  {
-    *a2 = (void *)v15;
-    *a3 = v13;
+    gpfsTable = v11;
+    *a3 = v10;
 LABEL_2:
-    v9 = (char *)*a2 + 196 * *a1;
-    *v9 = *a4;
-    v9[1] = a4[1];
-    v9[2] = a4[2];
-    v9[3] = a4[3];
-    v9[4] = a4[4];
-    v9[5] = a4[5];
-    v9[6] = a4[6];
-    v9 += 8;
-    v10 = a4[7];
-    v11 = a4 + 8;
-    *(v9 - 1) = v10;
-    *v9 = *v11;
-    v9[1] = v11[1];
-    v9[2] = v11[2];
-    v9[3] = v11[3];
-    *((_DWORD *)v9 + 16) = *((_DWORD *)v11 + 16);
-    ++*a1;
+    v6 = (char *)gpfsTable + 196 * gcfsTable;
+    *v6 = *a4;
+    v6[1] = a4[1];
+    v6[2] = a4[2];
+    v6[3] = a4[3];
+    v6[4] = a4[4];
+    v6[5] = a4[5];
+    v6[6] = a4[6];
+    v6 += 8;
+    v7 = a4[7];
+    v8 = a4 + 8;
+    *(v6 - 1) = v7;
+    *v6 = *v8;
+    v6[1] = v8[1];
+    v6[2] = v8[2];
+    v6[3] = v8[3];
+    *((_DWORD *)v6 + 16) = *((_DWORD *)v8 + 16);
+    ++gcfsTable;
     return 0LL;
   }
   return 3221225495LL;

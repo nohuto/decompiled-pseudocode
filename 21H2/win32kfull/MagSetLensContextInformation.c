@@ -1,633 +1,660 @@
 /*
- * XREFs of MagSetLensContextInformation @ 0x1C01CA01C
+ * XREFs of MagSetLensContextInformation @ 0x1C01CD254
  * Callers:
- *     NtUserMagSetContextInformation @ 0x1C01F9900 (NtUserMagSetContextInformation.c)
+ *     MagSlicerControl @ 0x1C01CDFF4 (MagSlicerControl.c)
+ *     NtUserMagSetContextInformation @ 0x1C01FEED0 (NtUserMagSetContextInformation.c)
  * Callees:
- *     MagpFindThreadContext @ 0x1C0060DF0 (MagpFindThreadContext.c)
- *     MagpRevokeInputTransfrom @ 0x1C0098330 (MagpRevokeInputTransfrom.c)
- *     memcmp @ 0x1C0159400 (memcmp.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?MagpFindLensContext@@YAPEAU_MAG_LENS_CONTEXT@@PEAU_MAG_THREAD_CONTEXT@@PEAUtagWND@@@Z @ 0x1C01C95C8 (-MagpFindLensContext@@YAPEAU_MAG_LENS_CONTEXT@@PEAU_MAG_THREAD_CONTEXT@@PEAUtagWND@@@Z.c)
- *     ?MagpUpdateInputTransfrom@@YAJPEAU_MAGN_INPUT_TRANSFORM@@@Z @ 0x1C01C95EC (-MagpUpdateInputTransfrom@@YAJPEAU_MAGN_INPUT_TRANSFORM@@@Z.c)
- *     ChangeComposableCursor @ 0x1C01CFAF0 (ChangeComposableCursor.c)
- *     DwmAsyncMagnCreate @ 0x1C0271E20 (DwmAsyncMagnCreate.c)
- *     DwmAsyncMagnDestroy @ 0x1C0271EF8 (DwmAsyncMagnDestroy.c)
- *     DwmAsyncMagnSetDesktopColorTransform @ 0x1C0271FA8 (DwmAsyncMagnSetDesktopColorTransform.c)
- *     DwmAsyncMagnSetDesktopSamplingMode @ 0x1C0272154 (DwmAsyncMagnSetDesktopSamplingMode.c)
- *     DwmAsyncMagnSetDesktopTransform @ 0x1C0272214 (DwmAsyncMagnSetDesktopTransform.c)
- *     DwmAsyncMagnSetSamplingMode @ 0x1C02723C4 (DwmAsyncMagnSetSamplingMode.c)
- *     DwmAsyncMagnSetWindowColorTransform @ 0x1C0272488 (DwmAsyncMagnSetWindowColorTransform.c)
- *     DwmAsyncMagnSetWindowFilterList @ 0x1C0272588 (DwmAsyncMagnSetWindowFilterList.c)
- *     DwmAsyncMagnSetWindowSharedTextures @ 0x1C027269C (DwmAsyncMagnSetWindowSharedTextures.c)
+ *     MagpFindThreadContext @ 0x1C007C568 (MagpFindThreadContext.c)
+ *     MagpRevokeInputTransfrom @ 0x1C00EB650 (MagpRevokeInputTransfrom.c)
+ *     memcmp @ 0x1C0165DD0 (memcmp.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?MagpFindLensContext@@YAPEAU_MAG_LENS_CONTEXT@@PEAU_MAG_THREAD_CONTEXT@@PEAUtagWND@@W4_MAG_LENS_CONTEXT_FILTER@@@Z @ 0x1C01CC74C (-MagpFindLensContext@@YAPEAU_MAG_LENS_CONTEXT@@PEAU_MAG_THREAD_CONTEXT@@PEAUtagWND@@W4_MAG_LENS_.c)
+ *     ?MagpUpdateInputTransfrom@@YAJPEAU_MAGN_INPUT_TRANSFORM@@@Z @ 0x1C01CC790 (-MagpUpdateInputTransfrom@@YAJPEAU_MAGN_INPUT_TRANSFORM@@@Z.c)
+ *     ChangeComposableCursor @ 0x1C01D42BC (ChangeComposableCursor.c)
+ *     DwmAsyncMagnCreate @ 0x1C0274354 (DwmAsyncMagnCreate.c)
+ *     DwmAsyncMagnDestroy @ 0x1C027442C (DwmAsyncMagnDestroy.c)
+ *     DwmAsyncMagnSetDesktopColorTransform @ 0x1C02744DC (DwmAsyncMagnSetDesktopColorTransform.c)
+ *     DwmAsyncMagnSetDesktopSamplingMode @ 0x1C0274688 (DwmAsyncMagnSetDesktopSamplingMode.c)
+ *     DwmAsyncMagnSetDesktopTransform @ 0x1C0274748 (DwmAsyncMagnSetDesktopTransform.c)
+ *     DwmAsyncMagnSetSamplingMode @ 0x1C02748F8 (DwmAsyncMagnSetSamplingMode.c)
+ *     DwmAsyncMagnSetWindowColorTransform @ 0x1C0274B04 (DwmAsyncMagnSetWindowColorTransform.c)
+ *     DwmAsyncMagnSetWindowFilterList @ 0x1C0274C04 (DwmAsyncMagnSetWindowFilterList.c)
+ *     DwmAsyncMagnSetWindowSharedTextures @ 0x1C0274D14 (DwmAsyncMagnSetWindowSharedTextures.c)
  */
 
-__int64 __fastcall MagSetLensContextInformation(_QWORD *a1, __int64 a2, struct tagWND *a3, __int64 a4, char *Buf1)
+__int64 __fastcall MagSetLensContextInformation(_QWORD *a1, __int64 a2, __int64 a3, int a4, int a5, _DWORD *Buf1)
 {
-  unsigned int v6; // edi
-  __int64 v7; // r12
-  __int64 v8; // rsi
-  struct _MAG_THREAD_CONTEXT *ThreadContext; // rax
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  int v12; // r9d
-  struct _MAG_THREAD_CONTEXT *v13; // r13
-  int v14; // r9d
-  int v15; // r9d
-  int v16; // r9d
-  struct _MAG_LENS_CONTEXT *v18; // rax
-  struct _MAG_LENS_CONTEXT *v19; // r12
-  double v20; // xmm0_8
-  bool v21; // cl
-  __int64 v22; // rdx
-  struct _MAG_LENS_CONTEXT *v23; // rax
-  int v24; // edi
+  __int64 *v6; // r12
+  _QWORD *v7; // rbx
+  int v8; // esi
+  unsigned int v10; // edi
+  _QWORD *ThreadContext; // rax
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r13
+  __int64 *v16; // rax
+  __int64 *v17; // r12
+  double v18; // xmm0_8
+  __int64 v19; // rsi
+  __int64 *v20; // rbx
+  __int64 v21; // rdx
+  int v22; // ebx
+  void *v23; // rax
+  int v24; // ebx
   void *v25; // rax
-  int v26; // edi
+  int v26; // ebx
   void *v27; // rax
-  int v28; // edi
-  void *v29; // rax
-  double v30; // xmm1_8
-  __int64 v31; // rax
-  double v32; // xmm2_8
-  int v33; // ecx
-  __int128 v34; // xmm1
-  struct _MAG_LENS_CONTEXT *v35; // rax
-  struct _MAG_LENS_CONTEXT *v36; // rbx
-  INT v37; // edx
-  INT v38; // ecx
-  INT v39; // eax
-  __int128 v40; // xmm0
-  struct _MAG_LENS_CONTEXT *v41; // rax
-  __int64 v42; // r14
-  __int64 v43; // rax
-  _QWORD *v44; // rcx
-  int v45; // eax
-  void *v46; // rax
-  __int64 v47; // rcx
-  __int64 v48; // rcx
-  __int64 v49; // rax
-  __int64 v50; // rcx
-  void *v51; // rax
-  __int64 v52; // rax
-  void *v53; // rax
-  int v54; // edx
-  void *v55; // rax
-  int v56; // eax
-  __int64 v57; // rcx
-  char *v58; // r13
-  __int64 *v59; // rax
-  struct _MAG_LENS_CONTEXT *v60; // rax
-  struct _MAG_LENS_CONTEXT *v61; // rsi
-  bool v62; // cl
-  __int64 v63; // rdx
-  struct _MAG_LENS_CONTEXT *v64; // rax
-  void *v65; // rax
-  void *v66; // rax
-  void *v67; // rax
-  int v68; // eax
-  void *v69; // rax
-  int v70; // eax
-  int v71; // r9d
-  int v72; // r9d
-  int v73; // r9d
-  struct _MAG_LENS_CONTEXT *v74; // rax
-  struct _MAG_LENS_CONTEXT *v75; // rsi
-  void *v76; // rax
-  int v77; // eax
-  void *v78; // rax
-  int v79; // ebx
-  struct _MAG_LENS_CONTEXT *LensContext; // rax
-  struct _MAG_LENS_CONTEXT *v81; // rsi
-  unsigned int v82; // ebx
-  struct _MAG_LENS_CONTEXT *v83; // rbx
-  __int64 v84; // r8
-  __int64 v85; // rdx
-  int v86; // ecx
-  __int64 v87; // rcx
-  void *v88; // rax
-  __int64 v89; // rcx
-  int v90; // edx
-  unsigned int v91; // ecx
-  int v92; // edx
-  __int64 v93; // rsi
-  struct _MAG_LENS_CONTEXT *v94; // rbx
-  __int64 v95; // rdi
-  _QWORD *v96; // rcx
-  void *v97; // rax
-  __int64 v98; // rcx
-  int v99; // ecx
-  unsigned int v100; // eax
-  int v101; // ecx
-  __int64 v103; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v104; // [rsp+38h] [rbp-18h]
-  __int64 v105; // [rsp+40h] [rbp-10h]
+  double v28; // xmm1_8
+  __int64 v29; // rax
+  double v30; // xmm2_8
+  int v31; // ecx
+  __int128 v32; // xmm1
+  __int64 *v33; // rax
+  __int64 *v34; // rbx
+  INT v35; // edx
+  INT v36; // ecx
+  int *v37; // rdi
+  INT v38; // eax
+  _DWORD *v39; // rcx
+  int v40; // edx
+  __int128 v41; // xmm0
+  __int64 *v42; // rax
+  __int64 v43; // rdx
+  __int64 v44; // rcx
+  __int64 *v45; // rax
+  int v46; // eax
+  void *v47; // rax
+  void *v48; // rcx
+  void *v49; // rcx
+  __int64 v50; // rax
+  __int64 v51; // rcx
+  void *v52; // rax
+  __int64 v53; // rax
+  void *v54; // rax
+  int v55; // eax
+  __int64 v56; // rdx
+  void *v57; // rax
+  int v58; // eax
+  unsigned int *v59; // rbx
+  int v60; // ecx
+  unsigned int v61; // eax
+  __int64 v62; // r13
+  __int64 **v63; // rax
+  __int64 *v64; // rax
+  __int64 v65; // rdx
+  __int64 *v66; // rsi
+  __int64 v67; // r15
+  __int64 *v68; // rbx
+  __int64 v69; // rdx
+  void *v70; // rax
+  int v71; // eax
+  void *v72; // rax
+  void *v73; // rax
+  unsigned int v74; // eax
+  void *v75; // rax
+  __int64 *v76; // rax
+  __int64 v77; // rdx
+  __int64 *v78; // rsi
+  _QWORD *v79; // rcx
+  void *v80; // rax
+  unsigned int v81; // eax
+  void *v82; // rax
+  int v83; // ebx
+  __int64 *v84; // rax
+  __int64 *v85; // rsi
+  unsigned int v86; // ebx
+  __int64 *v87; // rsi
+  __int64 v88; // r11
+  __int64 v89; // rdx
+  int v90; // ecx
+  __int64 v91; // rcx
+  void *v92; // rax
+  void *v93; // rcx
+  int v94; // eax
+  unsigned int v95; // eax
+  unsigned int v96; // ebx
+  char *v97; // rdx
+  __int64 *LensContext; // rsi
+  __int64 v99; // rdi
+  _QWORD *v100; // r15
+  _QWORD *v101; // rcx
+  void *v102; // rax
+  void *v103; // rcx
+  int v104; // eax
+  unsigned int v105; // eax
+  _QWORD *v107; // [rsp+30h] [rbp-30h]
+  __int128 v108; // [rsp+40h] [rbp-20h] BYREF
+  _QWORD *v109; // [rsp+50h] [rbp-10h]
 
-  v6 = -1073741811;
+  v6 = 0LL;
+  *(_QWORD *)&v108 = 0LL;
   v7 = 0LL;
-  v8 = 0LL;
-  ThreadContext = (struct _MAG_THREAD_CONTEXT *)MagpFindThreadContext(a1, a2);
-  v13 = ThreadContext;
+  v107 = 0LL;
+  v8 = a4;
+  v10 = -1073741811;
+  ThreadContext = MagpFindThreadContext(a1, a2);
+  v14 = (__int64)ThreadContext;
   if ( !ThreadContext )
     return (unsigned int)-1073741661;
-  if ( v12 > 5 )
+  if ( a5 > 5 )
   {
-    v71 = v12 - 6;
-    if ( v71 )
+    switch ( a5 )
     {
-      v72 = v71 - 1;
-      if ( v72 )
-      {
-        v73 = v72 - 2;
-        if ( !v73 )
+      case 6:
+        v96 = *Buf1 + Buf1[1];
+        if ( v96 > 0x19 )
+          return v10;
+        if ( (unsigned __int64)(v13 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
+          return v10;
+        LensContext = MagpFindLensContext((__int64)ThreadContext, a3, v8);
+        if ( !LensContext )
+          return v10;
+        v99 = v96;
+        if ( v96 )
         {
-          v79 = *(_DWORD *)Buf1;
-          if ( (*(_DWORD *)Buf1 & 0xFFFFFFFE) != 0 )
-            return v6;
-          if ( (unsigned __int64)(v11 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
-            return v6;
-          LensContext = MagpFindLensContext(ThreadContext, a3);
-          v81 = LensContext;
-          if ( !LensContext )
-            return v6;
-          v82 = v79 & 1;
-          if ( ((*((_DWORD *)LensContext + 4) >> 6) & 1) != v82 )
-          {
-            ChangeComposableCursor(v82);
-            *((_DWORD *)v81 + 4) = *((_DWORD *)v81 + 4) & 0xFFFFFFBF | (v82 << 6);
-          }
-          return 0;
-        }
-        if ( v73 != 1 )
-          return v6;
-        if ( !a3 )
-          return v6;
-        v74 = MagpFindLensContext(ThreadContext, a3);
-        v75 = v74;
-        if ( !v74 )
-          return v6;
-        if ( a3 == (struct tagWND *)-1LL )
-        {
-          v76 = (void *)ReferenceDwmApiPort(**(_QWORD **)(*(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL) + 8LL));
-          v77 = DwmAsyncMagnSetDesktopSamplingMode(v76);
+          v100 = (_QWORD *)Win32AllocPool(8LL * v96, 1735226197LL);
+          if ( !v100 )
+            return (unsigned int)-1073741801;
         }
         else
         {
-          if ( (*((_DWORD *)v74 + 4) & 0x20) != 0 )
-          {
-LABEL_113:
-            *((_DWORD *)v75 + 66) = *(_DWORD *)Buf1;
-            return 0;
-          }
-          v78 = (void *)ReferenceDwmApiPort(**(_QWORD **)(*(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL) + 8LL));
-          v77 = DwmAsyncMagnSetSamplingMode(v78);
+          v100 = (_QWORD *)v108;
         }
-        v6 = v77;
-        if ( v77 < 0 )
-          return v6;
-        goto LABEL_113;
-      }
-      if ( *(_DWORD *)Buf1 > 6u )
-        return v6;
-      if ( (unsigned __int64)a3 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
-        return v6;
-      v83 = MagpFindLensContext(ThreadContext, a3);
-      if ( !v83 )
-        return v6;
-      if ( (_DWORD)v84 )
-      {
-        v8 = Win32AllocPoolZInit(24 * v84, 1735226197LL);
-        if ( !v8 )
-          return (unsigned int)-1073741801;
-      }
-      v85 = 0LL;
-      v86 = *(_DWORD *)Buf1;
-      HIDWORD(v103) = *((_DWORD *)Buf1 + 1);
-      v104 = *((_QWORD *)Buf1 + 1);
-      LODWORD(v103) = v86;
-      v105 = v8;
-      if ( v86 )
-      {
-        do
+        *(_QWORD *)&v108 = *(_QWORD *)Buf1;
+        *((_QWORD *)&v108 + 1) = v100;
+        if ( v96 )
         {
-          v87 = 3 * v85;
-          v85 = (unsigned int)(v85 + 1);
-          *(_OWORD *)(v8 + 8 * v87) = *(_OWORD *)&Buf1[8 * v87 + 16];
-          *(_QWORD *)(v8 + 8 * v87 + 16) = *(_QWORD *)&Buf1[8 * v87 + 32];
-        }
-        while ( (unsigned int)v85 < *(_DWORD *)Buf1 );
-      }
-      if ( (*((_DWORD *)v83 + 4) & 0x20) != 0
-        || (v88 = (void *)ReferenceDwmApiPort(**(_QWORD **)(*(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL) + 8LL)),
-            v6 = DwmAsyncMagnSetWindowSharedTextures(v88),
-            (v6 & 0x80000000) == 0) )
-      {
-        v89 = *((_QWORD *)v83 + 32);
-        if ( v89 )
-        {
-          Win32FreePool(v89);
-          *((_QWORD *)v83 + 32) = 0LL;
-        }
-        v90 = *((_DWORD *)v83 + 4);
-        *((_DWORD *)v83 + 60) = *(_DWORD *)Buf1;
-        v91 = v90 & 0xFFFFFFEF;
-        v92 = v90 | 0x10;
-        *((_DWORD *)v83 + 61) = *((_DWORD *)Buf1 + 1);
-        *((_DWORD *)v83 + 62) = *((_DWORD *)Buf1 + 2);
-        *((_DWORD *)v83 + 63) = *((_DWORD *)Buf1 + 3);
-        *((_QWORD *)v83 + 32) = v8;
-        if ( !*(_DWORD *)Buf1 )
-          v92 = v91;
-        *((_DWORD *)v83 + 4) = v92;
-        return 0;
-      }
-      if ( !v8 )
-        return v6;
-      v57 = v8;
-    }
-    else
-    {
-      v93 = (unsigned int)(*(_DWORD *)Buf1 + *((_DWORD *)Buf1 + 1));
-      if ( (unsigned int)v93 > 0x19 )
-        return v6;
-      if ( (unsigned __int64)(v11 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
-        return v6;
-      v94 = MagpFindLensContext(ThreadContext, a3);
-      if ( !v94 )
-        return v6;
-      v95 = (unsigned int)v93;
-      if ( (_DWORD)v93 )
-      {
-        v7 = Win32AllocPoolZInit(8 * v93, 1735226197LL);
-        if ( !v7 )
-          return (unsigned int)-1073741801;
-      }
-      v103 = *(_QWORD *)Buf1;
-      v104 = v7;
-      if ( (_DWORD)v93 )
-      {
-        v96 = (_QWORD *)v7;
-        do
-        {
-          *v96 = *(_QWORD *)&Buf1[(_QWORD)v96 - v7 + 8];
-          ++v96;
-          --v95;
-        }
-        while ( v95 );
-      }
-      if ( (*((_DWORD *)v94 + 4) & 0x20) != 0
-        || (v97 = (void *)ReferenceDwmApiPort(**(_QWORD **)(*(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL) + 8LL)),
-            v6 = DwmAsyncMagnSetWindowFilterList(v97),
-            (v6 & 0x80000000) == 0) )
-      {
-        v98 = *((_QWORD *)v94 + 29);
-        if ( v98 )
-        {
-          Win32FreePool(v98);
-          *((_QWORD *)v94 + 29) = 0LL;
-        }
-        v99 = *((_DWORD *)v94 + 4);
-        *((_DWORD *)v94 + 56) = *(_DWORD *)Buf1;
-        *((_DWORD *)v94 + 57) = *((_DWORD *)Buf1 + 1);
-        v100 = v99 & 0xFFFFFFF7;
-        *((_QWORD *)v94 + 29) = v7;
-        v101 = v99 | 8;
-        if ( !(_DWORD)v93 )
           v101 = v100;
-        *((_DWORD *)v94 + 4) = v101;
+          v97 = (char *)((char *)Buf1 - (char *)v100);
+          do
+          {
+            *v101 = *(_QWORD *)((char *)v101 + (_QWORD)v97 + 8);
+            ++v101;
+            --v99;
+          }
+          while ( v99 );
+        }
+        if ( (LensContext[2] & 0x20) == 0 )
+        {
+          v102 = (void *)ReferenceDwmApiPort(**(_QWORD **)(*(_QWORD *)(*(_QWORD *)(v14 + 16) + 456LL) + 8LL), v97);
+          v10 = DwmAsyncMagnSetWindowFilterList(v102);
+          if ( (v10 & 0x80000000) != 0 )
+          {
+LABEL_165:
+            if ( !v100 )
+              return v10;
+            Win32FreePool(v100);
+            goto LABEL_167;
+          }
+        }
+        v103 = (void *)LensContext[29];
+        if ( v103 )
+        {
+          Win32FreePool(v103);
+          LensContext[29] = 0LL;
+        }
+        *((_DWORD *)LensContext + 56) = *Buf1;
+        *((_DWORD *)LensContext + 57) = Buf1[1];
+        v104 = *((_DWORD *)LensContext + 4);
+        LensContext[29] = (__int64)v100;
+        if ( v96 )
+          v105 = v104 | 8;
+        else
+          v105 = v104 & 0xFFFFFFF7;
+        *((_DWORD *)LensContext + 4) = v105;
+        v10 = 0;
+        break;
+      case 7:
+        if ( *Buf1 > 6u )
+          return v10;
+        if ( (unsigned __int64)(v13 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
+          return v10;
+        v87 = MagpFindLensContext((__int64)ThreadContext, a3, v8);
+        if ( !v87 )
+          return v10;
+        if ( (_DWORD)v88 )
+        {
+          v107 = (_QWORD *)Win32AllocPool(24 * v88, 1735226197LL);
+          v7 = v107;
+          if ( !v107 )
+            return (unsigned int)-1073741801;
+        }
+        v89 = 0LL;
+        v90 = *Buf1;
+        *(_QWORD *)((char *)&v108 + 4) = *(_QWORD *)(Buf1 + 1);
+        HIDWORD(v108) = Buf1[3];
+        LODWORD(v108) = v90;
+        v109 = v7;
+        if ( v90 )
+        {
+          do
+          {
+            v91 = 3 * v89;
+            v89 = (unsigned int)(v89 + 1);
+            *(_OWORD *)&v7[v91] = *(_OWORD *)&Buf1[2 * v91 + 4];
+            v7[v91 + 2] = *(_QWORD *)&Buf1[2 * v91 + 8];
+          }
+          while ( (unsigned int)v89 < *Buf1 );
+        }
+        if ( (v87[2] & 0x20) != 0 )
+        {
+LABEL_139:
+          v93 = (void *)v87[32];
+          if ( v93 )
+          {
+            Win32FreePool(v93);
+            v87[32] = 0LL;
+          }
+          *((_DWORD *)v87 + 60) = *Buf1;
+          *((_DWORD *)v87 + 61) = Buf1[1];
+          *((_DWORD *)v87 + 62) = Buf1[2];
+          *((_DWORD *)v87 + 63) = Buf1[3];
+          v94 = *((_DWORD *)v87 + 4);
+          v87[32] = (__int64)v7;
+          if ( *Buf1 )
+            v95 = v94 | 0x10;
+          else
+            v95 = v94 & 0xFFFFFFEF;
+          *((_DWORD *)v87 + 4) = v95;
+          return 0;
+        }
+        v92 = (void *)ReferenceDwmApiPort(**(_QWORD **)(*(_QWORD *)(*(_QWORD *)(v14 + 16) + 456LL) + 8LL), v89);
+        v10 = DwmAsyncMagnSetWindowSharedTextures(v92);
+        if ( (v10 & 0x80000000) == 0 )
+        {
+          v7 = v107;
+          goto LABEL_139;
+        }
+        break;
+      case 9:
+        v83 = *Buf1;
+        if ( (*Buf1 & 0xFFFFFFFE) != 0 )
+          return v10;
+        if ( (unsigned __int64)(v13 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
+          return v10;
+        v84 = MagpFindLensContext((__int64)ThreadContext, a3, v8);
+        v85 = v84;
+        if ( !v84 )
+          return v10;
+        v86 = v83 & 1;
+        if ( ((*((_DWORD *)v84 + 4) >> 6) & 1) != v86 )
+        {
+          ChangeComposableCursor(v86);
+          *((_DWORD *)v85 + 4) = v85[2] & 0xFFFFFFBF | (v86 << 6);
+        }
         return 0;
-      }
-      if ( !v7 )
-        return v6;
-      v57 = v7;
+      case 10:
+        if ( !a3 )
+          return v10;
+        v76 = MagpFindLensContext((__int64)ThreadContext, a3, v8);
+        v78 = v76;
+        if ( !v76 )
+          return v10;
+        if ( a3 == -1 )
+        {
+          v79 = *(_QWORD **)(*(_QWORD *)(*(_QWORD *)(v14 + 16) + 456LL) + 8LL);
+          v80 = (void *)ReferenceDwmApiPort(v79, *v79);
+          v81 = DwmAsyncMagnSetDesktopSamplingMode(v80);
+        }
+        else
+        {
+          if ( (v76[2] & 0x20) != 0 )
+          {
+            v10 = 0;
+            goto LABEL_122;
+          }
+          v82 = (void *)ReferenceDwmApiPort(**(_QWORD **)(*(_QWORD *)(*(_QWORD *)(v14 + 16) + 456LL) + 8LL), v77);
+          v81 = DwmAsyncMagnSetSamplingMode(v82);
+        }
+        v10 = v81;
+LABEL_122:
+        if ( (v10 & 0x80000000) != 0 )
+          return v10;
+        *((_DWORD *)v78 + 66) = *Buf1;
+        return 0;
+      default:
+        return v10;
     }
-LABEL_147:
-    Win32FreePool(v57);
-    return v6;
+    if ( !v107 )
+      return v10;
+    Win32FreePool(v107);
+    v100 = 0LL;
+    goto LABEL_165;
   }
-  if ( v12 == 5 )
+  if ( a5 == 5 )
   {
     if ( !a3 )
-      return v6;
-    v60 = MagpFindLensContext(ThreadContext, a3);
-    v61 = v60;
-    if ( !v60 )
-      return v6;
-    if ( a3 == (struct tagWND *)-1LL )
+      return v10;
+    v64 = MagpFindLensContext((__int64)ThreadContext, a3, v8);
+    v66 = v64;
+    if ( !v64 )
+      return v10;
+    if ( a3 == -1 )
     {
-      v62 = memcmp(Buf1, &gMagEffectIdentity, 0x64uLL) == 0;
-      v63 = *(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL);
-      v64 = *(struct _MAG_LENS_CONTEXT **)(v63 + 232);
-      if ( v62 )
+      v67 = *(_QWORD *)(*(_QWORD *)(v14 + 16) + 456LL);
+      v68 = *(__int64 **)(v67 + 232);
+      if ( !memcmp(Buf1, &gMagEffectIdentity, (unsigned int)(v65 + 101)) )
       {
-        if ( v64 )
+        if ( v68 )
         {
-          if ( v64 != v61 )
-            return v6;
-          v65 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v63 + 8));
-          v6 = DwmAsyncMagnSetDesktopColorTransform(v65);
-          if ( (v6 & 0x80000000) != 0 )
-            return v6;
-          *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL) + 232LL) = 0LL;
+          if ( v68 != v66 )
+            return v10;
+          v70 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v67 + 8), v69);
+          v10 = DwmAsyncMagnSetDesktopColorTransform(v70);
+          if ( (v10 & 0x80000000) != 0 )
+            return v10;
+          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v14 + 16) + 456LL) + 232LL) = 0LL;
+          goto LABEL_100;
         }
-        goto LABEL_101;
+        goto LABEL_99;
       }
-      if ( !v64 )
+      if ( !v68 )
       {
-        v66 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v63 + 8));
-        v6 = DwmAsyncMagnSetDesktopColorTransform(v66);
-        if ( (v6 & 0x80000000) != 0 )
-          return v6;
-        *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL) + 232LL) = v61;
-        goto LABEL_101;
+        v72 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v67 + 8), v69);
+        v10 = DwmAsyncMagnSetDesktopColorTransform(v72);
+        if ( (v10 & 0x80000000) != 0 )
+          return v10;
+        *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v14 + 16) + 456LL) + 232LL) = v66;
+        goto LABEL_100;
       }
-      if ( v64 != v61 )
-        return v6;
-      v67 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v63 + 8));
-      v68 = DwmAsyncMagnSetDesktopColorTransform(v67);
+      if ( v68 != v66 )
+        return v10;
+      v73 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v67 + 8), v69);
+      v74 = DwmAsyncMagnSetDesktopColorTransform(v73);
     }
     else
     {
-      if ( (*((_DWORD *)v60 + 4) & 0x20) != 0 )
+      if ( (v64[2] & 0x20) != 0 )
       {
-LABEL_101:
-        *(_OWORD *)((char *)v61 + 120) = *(_OWORD *)Buf1;
-        *(_OWORD *)((char *)v61 + 136) = *((_OWORD *)Buf1 + 1);
-        *(_OWORD *)((char *)v61 + 152) = *((_OWORD *)Buf1 + 2);
-        *(_OWORD *)((char *)v61 + 168) = *((_OWORD *)Buf1 + 3);
-        *(_OWORD *)((char *)v61 + 184) = *((_OWORD *)Buf1 + 4);
-        *(_OWORD *)((char *)v61 + 200) = *((_OWORD *)Buf1 + 5);
-        v70 = *((_DWORD *)Buf1 + 24);
-        *((_DWORD *)v61 + 4) |= 4u;
-        *((_DWORD *)v61 + 54) = v70;
+LABEL_99:
+        v10 = 0;
+LABEL_100:
+        if ( (v10 & 0x80000000) != 0 )
+          return v10;
+        *(_OWORD *)(v66 + 15) = *(_OWORD *)Buf1;
+        *(_OWORD *)(v66 + 17) = *((_OWORD *)Buf1 + 1);
+        *(_OWORD *)(v66 + 19) = *((_OWORD *)Buf1 + 2);
+        *(_OWORD *)(v66 + 21) = *((_OWORD *)Buf1 + 3);
+        *(_OWORD *)(v66 + 23) = *((_OWORD *)Buf1 + 4);
+        *(_OWORD *)(v66 + 25) = *((_OWORD *)Buf1 + 5);
+        v71 = Buf1[24];
+        *((_DWORD *)v66 + 4) |= 4u;
+        *((_DWORD *)v66 + 54) = v71;
         return 0;
       }
-      v69 = (void *)ReferenceDwmApiPort(**(_QWORD **)(*(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL) + 8LL));
-      v68 = DwmAsyncMagnSetWindowColorTransform(v69);
+      v75 = (void *)ReferenceDwmApiPort(**(_QWORD **)(*(_QWORD *)(*(_QWORD *)(v14 + 16) + 456LL) + 8LL), v65);
+      v74 = DwmAsyncMagnSetWindowColorTransform(v75);
     }
-    v6 = v68;
-    if ( v68 < 0 )
-      return v6;
-    goto LABEL_101;
+    v10 = v74;
+    goto LABEL_100;
   }
-  if ( !v12 )
+  if ( !a5 )
   {
-    if ( !a3 || MagpFindLensContext(ThreadContext, a3) )
-      return v6;
-    v42 = Win32AllocPoolZInit(272LL, 1735226197LL);
-    if ( v42 )
+    if ( !a3 || MagpFindLensContext((__int64)ThreadContext, a3, 2) )
+      return v10;
+    v6 = (__int64 *)Win32AllocPool(272LL, 1735226197LL);
+    if ( v6 )
     {
-      if ( a3 != (struct tagWND *)-1LL )
+      if ( a3 != -1 )
       {
-        v55 = (void *)ReferenceDwmApiPort(**(_QWORD **)(*(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL) + 8LL));
-        v56 = DwmAsyncMagnCreate(v55);
-        v6 = v56;
-        if ( v56 != -1073741823 && v56 < 0 )
-          goto LABEL_78;
+        v57 = (void *)ReferenceDwmApiPort(*(unsigned int *)(*(_QWORD *)(a3 + 40) + 288LL), v56);
+        v58 = DwmAsyncMagnCreate(v57);
+        v10 = v58;
+        if ( v58 != -1073741823 && v58 < 0 )
+          goto LABEL_167;
+        v8 = a4;
       }
-      memset((void *)(v42 + 16), 0, 0x100uLL);
-      *(double *)(v42 + 40) = gOneDouble;
-      *(double *)(v42 + 48) = gOneDouble;
-      if ( a3 == (struct tagWND *)-1LL )
+      v59 = (unsigned int *)(v6 + 2);
+      memset(v6 + 2, 0, 0x100uLL);
+      v6[5] = *(_QWORD *)&gOneDouble;
+      v6[6] = *(_QWORD *)&gOneDouble;
+      if ( a3 == -1 )
       {
-        *(_QWORD *)(v42 + 24) = -1LL;
+        v6[3] = -1LL;
       }
       else
       {
-        v103 = v42 + 24;
-        v104 = (__int64)a3;
-        HMAssignmentLock(&v103, 0LL);
+        *(_QWORD *)&v108 = v6 + 3;
+        *((_QWORD *)&v108 + 1) = a3;
+        HMAssignmentLock(&v108);
       }
-      *(_DWORD *)(v42 + 264) = 0;
-      v58 = (char *)v13 + 40;
-      v59 = (__int64 *)*((_QWORD *)v58 + 1);
-      if ( (char *)*v59 == v58 )
+      v60 = 0;
+      if ( v8 == 1 )
+        v60 = 128;
+      v61 = *v59;
+      *((_DWORD *)v6 + 66) = 0;
+      v62 = v14 + 40;
+      *v59 = v61 & 0xFFFFFF7F | v60;
+      v63 = *(__int64 ***)(v62 + 8);
+      if ( *v63 == (__int64 *)v62 )
       {
-        *(_QWORD *)v42 = v58;
-        *(_QWORD *)(v42 + 8) = v59;
-        *v59 = v42;
-        *((_QWORD *)v58 + 1) = v42;
+        *v6 = v62;
+        v6[1] = (__int64)v63;
+        *v63 = v6;
+        *(_QWORD *)(v62 + 8) = v6;
         return 0;
       }
-      goto LABEL_83;
+LABEL_88:
+      __fastfail(3u);
     }
     return (unsigned int)-1073741801;
   }
-  v14 = v12 - 1;
-  if ( !v14 )
+  if ( a5 != 1 )
   {
-    MagpRevokeInputTransfrom();
-    if ( !a3 )
-      return v6;
-    v41 = MagpFindLensContext(v13, a3);
-    v42 = (__int64)v41;
-    if ( !v41 )
-      return v6;
-    v43 = *(_QWORD *)v41;
-    if ( *(_QWORD *)(v43 + 8) == v42 )
+    if ( a5 != 2 )
     {
-      v44 = *(_QWORD **)(v42 + 8);
-      if ( *v44 == v42 )
+      if ( a5 != 3 )
       {
-        *v44 = v43;
-        *(_QWORD *)(v43 + 8) = v44;
-        if ( a3 == (struct tagWND *)-1LL )
+        if ( a5 == 4 )
         {
-          v49 = *((_QWORD *)v13 + 2);
-          v50 = *(_QWORD *)(v49 + 456);
-          if ( *(_QWORD *)(v50 + 232) == v42 )
+          if ( Buf1[8] == 3 )
+            return (unsigned int)MagpRevokeInputTransfrom();
+          else
+            return (unsigned int)MagpUpdateInputTransfrom((struct _MAGN_INPUT_TRANSFORM *)Buf1, v12, v13);
+        }
+        return v10;
+      }
+      if ( !a3 )
+        return v10;
+      v16 = MagpFindLensContext((__int64)ThreadContext, a3, v8);
+      v17 = v16;
+      if ( !v16 )
+        return v10;
+      v18 = *(double *)Buf1;
+      if ( a3 == -1 )
+      {
+        if ( v18 != *((double *)Buf1 + 1) )
+          return v10;
+        v19 = *(_QWORD *)(*(_QWORD *)(v14 + 16) + 456LL);
+        v20 = *(__int64 **)(v19 + 224);
+        if ( memcmp(Buf1, &gMagOutTransformIdentity, 0x20uLL) )
+        {
+          if ( v20 )
           {
-            v51 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v50 + 8));
-            v6 = DwmAsyncMagnSetDesktopColorTransform(v51);
-            *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL) + 232LL) = 0LL;
-            v49 = *((_QWORD *)v13 + 2);
+            if ( v17 != v20 )
+              return v10;
+            v26 = (int)*((double *)Buf1 + 3);
+            v27 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v19 + 8), v21);
+            v10 = DwmAsyncMagnSetDesktopTransform(v27, v26);
           }
           else
           {
-            v6 = 0;
+            v24 = (int)*((double *)Buf1 + 3);
+            v25 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v19 + 8), v21);
+            v10 = DwmAsyncMagnSetDesktopTransform(v25, v24);
+            if ( (v10 & 0x80000000) != 0 )
+              return v10;
+            *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v14 + 16) + 456LL) + 224LL) = v17;
           }
-          v52 = *(_QWORD *)(v49 + 456);
-          if ( *(_QWORD *)(v52 + 224) == v42 )
-          {
-            v53 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v52 + 8));
-            v54 = DwmAsyncMagnSetDesktopTransform(v53, 0);
-            *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL) + 224LL) = 0LL;
-          }
-          else
-          {
-            v54 = 0;
-          }
-          if ( (v6 & 0x80000000) != 0 )
-            goto LABEL_78;
-          if ( v54 < 0 )
-          {
-            v6 = v54;
-            goto LABEL_78;
-          }
+          goto LABEL_33;
         }
-        else
+        if ( v20 )
         {
-          v45 = *(_DWORD *)(v42 + 16);
-          if ( (v45 & 0x40) != 0 )
-          {
-            ChangeComposableCursor(0LL);
-            *(_DWORD *)(v42 + 16) &= ~0x40u;
-            v45 = *(_DWORD *)(v42 + 16);
-          }
-          if ( (v45 & 0x20) != 0 )
-          {
-            v6 = 0;
-          }
-          else
-          {
-            v46 = (void *)ReferenceDwmApiPort(**(_QWORD **)(*(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL) + 8LL));
-            v6 = DwmAsyncMagnDestroy(v46);
-          }
-          HMAssignmentUnlock(v42 + 24);
-          v47 = *(_QWORD *)(v42 + 232);
-          if ( v47 )
-            Win32FreePool(v47);
-          v48 = *(_QWORD *)(v42 + 256);
-          if ( v48 )
-            Win32FreePool(v48);
-          if ( (v6 & 0x80000000) != 0 )
-            goto LABEL_78;
+          if ( v17 != v20 )
+            return v10;
+          v22 = (int)*((double *)Buf1 + 3);
+          v23 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v19 + 8), v21);
+          v10 = DwmAsyncMagnSetDesktopTransform(v23, v22);
+          if ( (v10 & 0x80000000) != 0 )
+            return v10;
+          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v14 + 16) + 456LL) + 224LL) = 0LL;
+          goto LABEL_33;
         }
-        v6 = 0;
-LABEL_78:
-        v57 = v42;
-        goto LABEL_147;
-      }
-    }
-LABEL_83:
-    __fastfail(3u);
-  }
-  v15 = v14 - 1;
-  if ( !v15 )
-  {
-    if ( (unsigned __int64)(v11 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
-      return v6;
-    v35 = MagpFindLensContext(ThreadContext, a3);
-    v36 = v35;
-    if ( !v35 )
-      return v6;
-    if ( (*(_DWORD *)(*(_QWORD *)(*((_QWORD *)v35 + 3) + 40LL) + 288LL) & 0xF) != 0
-      || (v37 = *(unsigned __int16 *)(gpsi + 6998LL), (unsigned __int16)v37 <= 0x60u) )
-    {
-      v38 = *(_DWORD *)Buf1;
-      if ( (*((_DWORD *)v35 + 4) & 2) == 0 )
-      {
-        *((_DWORD *)v35 + 8) = -v38;
-        v39 = *((_DWORD *)Buf1 + 1);
-        goto LABEL_44;
-      }
-    }
-    else
-    {
-      v38 = *(_DWORD *)Buf1;
-      if ( (*((_DWORD *)v35 + 4) & 2) == 0 )
-      {
-        *((_DWORD *)v35 + 8) = -EngMulDiv(v38, v37, 96);
-        v39 = EngMulDiv(*((_DWORD *)Buf1 + 1), *(unsigned __int16 *)(gpsi + 6998LL), 96);
-        goto LABEL_44;
-      }
-    }
-    *((_DWORD *)v35 + 8) = -(int)((double)v38 * *((double *)v35 + 11));
-    v39 = (int)((double)*((int *)Buf1 + 1) * *((double *)v35 + 12));
-LABEL_44:
-    *((_DWORD *)v36 + 9) = -v39;
-    v40 = *(_OWORD *)Buf1;
-    *((_DWORD *)v36 + 4) |= 1u;
-    *(_OWORD *)((char *)v36 + 72) = v40;
-    return 0;
-  }
-  v16 = v15 - 1;
-  if ( !v16 )
-  {
-    if ( !a3 )
-      return v6;
-    v18 = MagpFindLensContext(ThreadContext, a3);
-    v19 = v18;
-    if ( !v18 )
-      return v6;
-    v20 = *(double *)Buf1;
-    if ( a3 == (struct tagWND *)-1LL )
-    {
-      if ( v20 != *((double *)Buf1 + 1) )
-        return v6;
-      v21 = memcmp(Buf1, &gMagOutTransformIdentity, 0x20uLL) == 0;
-      v22 = *(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL);
-      v23 = *(struct _MAG_LENS_CONTEXT **)(v22 + 224);
-      if ( v21 )
-      {
-        if ( v23 )
-        {
-          if ( v19 != v23 )
-            return v6;
-          v24 = (int)*((double *)Buf1 + 3);
-          v25 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v22 + 8));
-          v6 = DwmAsyncMagnSetDesktopTransform(v25, v24);
-          if ( (v6 & 0x80000000) != 0 )
-            return v6;
-          *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL) + 224LL) = 0LL;
-        }
-        else
-        {
-          v6 = 0;
-        }
-      }
-      else if ( v23 )
-      {
-        if ( v19 != v23 )
-          return v6;
-        v28 = (int)*((double *)Buf1 + 3);
-        v29 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v22 + 8));
-        v6 = DwmAsyncMagnSetDesktopTransform(v29, v28);
       }
       else
       {
-        v26 = (int)*((double *)Buf1 + 3);
-        v27 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v22 + 8));
-        v6 = DwmAsyncMagnSetDesktopTransform(v27, v26);
-        if ( (v6 & 0x80000000) != 0 )
-          return v6;
-        *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v13 + 2) + 456LL) + 224LL) = v19;
+        *((double *)v16 + 5) = v18;
+        v16[6] = *((_QWORD *)Buf1 + 1);
+        v28 = *((double *)Buf1 + 2);
+        v29 = v16[3];
+        *((double *)v17 + 7) = v28;
+        v30 = *((double *)Buf1 + 3);
+        *((double *)v17 + 8) = v30;
+        if ( (*(_DWORD *)(*(_QWORD *)(v29 + 40) + 288LL) & 0xF) == 0 )
+        {
+          v31 = *(unsigned __int16 *)(gpsi + 6998LL);
+          if ( (unsigned __int16)v31 > 0x60u )
+          {
+            *((double *)v17 + 7) = (double)v31 * v28 / 96.0;
+            *((double *)v17 + 8) = (double)*(unsigned __int16 *)(gpsi + 6998LL) * v30 / 96.0;
+            *((double *)v17 + 5) = *(double *)Buf1 * 96.0 / (double)*(unsigned __int16 *)(gpsi + 6998LL);
+            *((double *)v17 + 6) = *((double *)Buf1 + 1) * 96.0 / (double)*(unsigned __int16 *)(gpsi + 6998LL);
+          }
+        }
       }
-      if ( (v6 & 0x80000000) != 0 )
-        return v6;
+      v10 = 0;
+LABEL_33:
+      if ( (v10 & 0x80000000) != 0 )
+        return v10;
+      *(_OWORD *)(v17 + 11) = *(_OWORD *)Buf1;
+      v32 = *((_OWORD *)Buf1 + 1);
+      *((_DWORD *)v17 + 4) |= 2u;
+      *(_OWORD *)(v17 + 13) = v32;
+      return 0;
+    }
+    if ( (unsigned __int64)(v13 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
+      return v10;
+    v33 = MagpFindLensContext((__int64)ThreadContext, a3, v8);
+    v34 = v33;
+    if ( !v33 )
+      return v10;
+    if ( (*(_DWORD *)(*(_QWORD *)(v33[3] + 40) + 288LL) & 0xF) != 0
+      || (v35 = *(unsigned __int16 *)(gpsi + 6998LL), (unsigned __int16)v35 <= 0x60u) )
+    {
+      v40 = *Buf1;
+      v37 = (int *)(v33 + 2);
+      v39 = v33 + 2;
+      if ( (v33[2] & 2) != 0 )
+      {
+        *((_DWORD *)v33 + 8) = -(int)((double)v40 * *((double *)v33 + 11));
+        v38 = (int)((double)(int)Buf1[1] * *((double *)v33 + 12));
+      }
+      else
+      {
+        *((_DWORD *)v33 + 8) = -v40;
+        v38 = Buf1[1];
+      }
     }
     else
     {
-      *((double *)v18 + 5) = v20;
-      *((_QWORD *)v18 + 6) = *((_QWORD *)Buf1 + 1);
-      v30 = *((double *)Buf1 + 2);
-      v31 = *((_QWORD *)v18 + 3);
-      *((double *)v19 + 7) = v30;
-      v32 = *((double *)Buf1 + 3);
-      *((double *)v19 + 8) = v32;
-      if ( (*(_DWORD *)(*(_QWORD *)(v31 + 40) + 288LL) & 0xF) == 0 )
+      v36 = *Buf1;
+      v37 = (int *)(v33 + 2);
+      if ( (v33[2] & 2) != 0 )
       {
-        v33 = *(unsigned __int16 *)(gpsi + 6998LL);
-        if ( (unsigned __int16)v33 > 0x60u )
-        {
-          *((double *)v19 + 7) = (double)v33 * v30 / 96.0;
-          *((double *)v19 + 8) = (double)*(unsigned __int16 *)(gpsi + 6998LL) * v32 / 96.0;
-          *((double *)v19 + 5) = *(double *)Buf1 * 96.0 / (double)*(unsigned __int16 *)(gpsi + 6998LL);
-          *((double *)v19 + 6) = *((double *)Buf1 + 1) * 96.0 / (double)*(unsigned __int16 *)(gpsi + 6998LL);
-        }
+        *((_DWORD *)v33 + 8) = -(int)((double)v36 * *((double *)v33 + 11));
+        v38 = (int)((double)(int)Buf1[1] * *((double *)v33 + 12));
       }
+      else
+      {
+        *((_DWORD *)v33 + 8) = -EngMulDiv(v36, v35, 96);
+        v38 = EngMulDiv(Buf1[1], *(unsigned __int16 *)(gpsi + 6998LL), 96);
+      }
+      v39 = v34 + 2;
     }
-    *(_OWORD *)((char *)v19 + 88) = *(_OWORD *)Buf1;
-    v34 = *((_OWORD *)Buf1 + 1);
-    *((_DWORD *)v19 + 4) |= 2u;
-    *(_OWORD *)((char *)v19 + 104) = v34;
+    *((_DWORD *)v34 + 9) = -v38;
+    v41 = *(_OWORD *)Buf1;
+    *v37 = *v39 | 1;
+    *(_OWORD *)(v34 + 9) = v41;
     return 0;
   }
-  if ( v16 == 1 )
+  MagpRevokeInputTransfrom();
+  if ( !a3 )
+    return v10;
+  v42 = MagpFindLensContext(v14, a3, v8);
+  v6 = v42;
+  if ( !v42 )
+    return v10;
+  v44 = *v42;
+  v45 = (__int64 *)v42[1];
+  if ( *(__int64 **)(v44 + 8) != v6 || (__int64 *)*v45 != v6 )
+    goto LABEL_88;
+  *v45 = v44;
+  *(_QWORD *)(v44 + 8) = v45;
+  if ( a3 != -1 )
   {
-    if ( *((_DWORD *)Buf1 + 8) == 3 )
-      return (unsigned int)MagpRevokeInputTransfrom();
+    v46 = *((_DWORD *)v6 + 4);
+    if ( (v46 & 0x40) != 0 )
+    {
+      ChangeComposableCursor(0LL);
+      *((_DWORD *)v6 + 4) &= ~0x40u;
+      v46 = *((_DWORD *)v6 + 4);
+    }
+    if ( (v46 & 0x20) != 0 )
+    {
+      v10 = 0;
+    }
     else
-      return (unsigned int)MagpUpdateInputTransfrom((struct _MAGN_INPUT_TRANSFORM *)Buf1, v10);
+    {
+      v47 = (void *)ReferenceDwmApiPort(**(_QWORD **)(*(_QWORD *)(*(_QWORD *)(v14 + 16) + 456LL) + 8LL), v43);
+      v10 = DwmAsyncMagnDestroy(v47);
+    }
+    HMAssignmentUnlock(v6 + 3);
+    v48 = (void *)v6[29];
+    if ( v48 )
+      Win32FreePool(v48);
+    v49 = (void *)v6[32];
+    if ( v49 )
+      Win32FreePool(v49);
+    if ( (v10 & 0x80000000) != 0 )
+      goto LABEL_167;
+    goto LABEL_72;
   }
-  return v6;
+  v50 = *(_QWORD *)(v14 + 16);
+  v51 = *(_QWORD *)(v50 + 456);
+  if ( *(__int64 **)(v51 + 232) == v6 )
+  {
+    v52 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v51 + 8), v43);
+    v10 = DwmAsyncMagnSetDesktopColorTransform(v52);
+    *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v14 + 16) + 456LL) + 232LL) = 0LL;
+    v50 = *(_QWORD *)(v14 + 16);
+  }
+  else
+  {
+    v10 = 0;
+  }
+  v53 = *(_QWORD *)(v50 + 456);
+  if ( *(__int64 **)(v53 + 224) == v6 )
+  {
+    v54 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v53 + 8), v43);
+    v55 = DwmAsyncMagnSetDesktopTransform(v54, 0);
+    *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v14 + 16) + 456LL) + 224LL) = 0LL;
+  }
+  else
+  {
+    v55 = 0;
+  }
+  if ( (v10 & 0x80000000) == 0 )
+  {
+    if ( v55 >= 0 )
+    {
+LABEL_72:
+      v10 = 0;
+      goto LABEL_167;
+    }
+    v10 = v55;
+  }
+LABEL_167:
+  if ( v6 )
+    Win32FreePool(v6);
+  return v10;
 }

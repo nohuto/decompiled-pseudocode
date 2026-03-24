@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpValidateParameters @ 0x14093D400
+ * XREFs of IopLiveDumpValidateParameters @ 0x1408989E4
  * Callers:
- *     IoCaptureLiveDump @ 0x14093A0B8 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x140896298 (IoCaptureLiveDump.c)
  * Callees:
- *     IopLiveDumpValidateCancelObject @ 0x14093D33C (IopLiveDumpValidateCancelObject.c)
- *     IopLiveDumpValidateDumpFileHandle @ 0x14093D3A4 (IopLiveDumpValidateDumpFileHandle.c)
+ *     IopLiveDumpValidateCancelObject @ 0x140898920 (IopLiveDumpValidateCancelObject.c)
+ *     IopLiveDumpValidateDumpFileHandle @ 0x140898988 (IopLiveDumpValidateDumpFileHandle.c)
  */
 
 int __fastcall IopLiveDumpValidateParameters(__int64 a1, __int64 a2)
@@ -12,7 +12,7 @@ int __fastcall IopLiveDumpValidateParameters(__int64 a1, __int64 a2)
   __int64 v2; // rbx
   int result; // eax
   unsigned int v6; // eax
-  __int64 i; // rax
+  __int64 v7; // rcx
   unsigned int v8; // eax
   __int64 v9; // rcx
 
@@ -24,35 +24,49 @@ int __fastcall IopLiveDumpValidateParameters(__int64 a1, __int64 a2)
   if ( *(_DWORD *)(a2 + 4) < 0x30u )
     return -1073741811;
   v6 = *(_DWORD *)(a2 + 28);
-  if ( v6 >= 4 )
+  if ( v6 >= 2 )
     return -1073741811;
   *(_DWORD *)(a1 + 44) = v6;
   if ( *(_DWORD *)(a2 + 36) || *(_DWORD *)(a2 + 32) )
     return -1073741811;
-  for ( i = *(_QWORD *)(a2 + 40); i; i = *(_QWORD *)(i + 32) )
+  v7 = *(_QWORD *)(a2 + 40);
+  result = 0;
+  while ( v7 )
   {
-    if ( *(_DWORD *)(i + 28) || !*(_QWORD *)(i + 16) || !*(_DWORD *)(i + 24) )
+    if ( *(_DWORD *)(v7 + 28) )
       return -1073741811;
+    if ( !*(_QWORD *)(v7 + 16) || !*(_DWORD *)(v7 + 24) )
+    {
+      result = -1073741811;
+      break;
+    }
+    v7 = *(_QWORD *)(v7 + 32);
   }
-  *(_OWORD *)(a1 + 48) = *(_OWORD *)(a2 + 32);
-  v8 = *(_DWORD *)(a2 + 24);
-  if ( v8 >= 0x20 )
+  if ( result >= 0 )
+  {
+    *(_OWORD *)(a1 + 48) = *(_OWORD *)(a2 + 32);
+    v8 = *(_DWORD *)(a2 + 24);
+    if ( v8 < 0x20 )
+    {
+      if ( (v8 & 3) != 0 )
+        return -1073741822;
+      *(_DWORD *)(a1 + 40) = v8;
+      result = IopLiveDumpValidateDumpFileHandle(*(void **)(a2 + 8));
+      if ( result < 0 )
+      {
+        *(_QWORD *)(a1 + 64) = 0LL;
+      }
+      else
+      {
+        *(_QWORD *)(a1 + 64) = *(_QWORD *)(a2 + 8);
+        result = IopLiveDumpValidateCancelObject(*(_QWORD *)(a2 + 16));
+        if ( result >= 0 )
+          v2 = v9;
+        *(_QWORD *)(a1 + 72) = v2;
+      }
+      return result;
+    }
     return -1073741811;
-  if ( (v8 & 3) != 0 )
-    return -1073741822;
-  *(_DWORD *)(a1 + 40) = v8;
-  result = IopLiveDumpValidateDumpFileHandle(*(void **)(a2 + 8));
-  if ( result < 0 )
-  {
-    *(_QWORD *)(a1 + 64) = 0LL;
-  }
-  else
-  {
-    *(_QWORD *)(a1 + 64) = *(_QWORD *)(a2 + 8);
-    result = IopLiveDumpValidateCancelObject(*(_QWORD *)(a2 + 16));
-    if ( result >= 0 )
-      v2 = v9;
-    *(_QWORD *)(a1 + 72) = v2;
   }
   return result;
 }

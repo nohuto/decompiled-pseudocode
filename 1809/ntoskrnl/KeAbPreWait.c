@@ -7,12 +7,12 @@
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     MiReferenceControlArea @ 0x14001C358 (MiReferenceControlArea.c)
  *     MiLockControlAreaSectionExtend @ 0x140092CE0 (MiLockControlAreaSectionExtend.c)
- *     ExAcquireFastResourceExclusive @ 0x1401652B0 (ExAcquireFastResourceExclusive.c)
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x140165910 (ExAcquireFastResourceSharedStarveExclusive.c)
- *     ExAcquireFastResourceShared @ 0x140165B40 (ExAcquireFastResourceShared.c)
- *     MiChangingSubsectionProtos @ 0x1402B5330 (MiChangingSubsectionProtos.c)
- *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x14080DEE8 (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
- *     PfpPrefetchSharedConflictNotifyStart @ 0x1408646A0 (PfpPrefetchSharedConflictNotifyStart.c)
+ *     ExAcquireFastResourceExclusive @ 0x1401652D0 (ExAcquireFastResourceExclusive.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x140165930 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExAcquireFastResourceShared @ 0x140165B60 (ExAcquireFastResourceShared.c)
+ *     MiChangingSubsectionProtos @ 0x1402B5430 (MiChangingSubsectionProtos.c)
+ *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x14080DEC8 (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
+ *     PfpPrefetchSharedConflictNotifyStart @ 0x140864680 (PfpPrefetchSharedConflictNotifyStart.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  */

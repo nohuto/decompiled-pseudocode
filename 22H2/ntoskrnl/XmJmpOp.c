@@ -1,7 +1,7 @@
 /*
- * XREFs of XmJmpOp @ 0x1403C2E30
+ * XREFs of XmJmpOp @ 0x1403990B0
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
  *     <none>
  */

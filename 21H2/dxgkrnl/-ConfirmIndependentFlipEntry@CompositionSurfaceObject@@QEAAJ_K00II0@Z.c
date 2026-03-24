@@ -1,14 +1,12 @@
 /*
- * XREFs of ?ConfirmIndependentFlipEntry@CompositionSurfaceObject@@QEAAJ_K00II0@Z @ 0x1C00038CC
+ * XREFs of ?ConfirmIndependentFlipEntry@CompositionSurfaceObject@@QEAAJ_K00II0@Z @ 0x1C001E2B0
  * Callers:
- *     ?Confirm@CFlipToken@@UEAAXXZ @ 0x1C00037A0 (-Confirm@CFlipToken@@UEAAXXZ.c)
- *     ?ConfirmIndependentFlipEntry@CFlipToken@@IEAAXXZ @ 0x1C0006A80 (-ConfirmIndependentFlipEntry@CFlipToken@@IEAAXXZ.c)
- *     ?Discard@CFlipToken@@UEAAXXZ @ 0x1C0019150 (-Discard@CFlipToken@@UEAAXXZ.c)
- *     ?Confirm@CFlipContentToken@@UEAAXXZ @ 0x1C0082BF0 (-Confirm@CFlipContentToken@@UEAAXXZ.c)
+ *     ?Confirm@CFlipToken@@UEAAXXZ @ 0x1C0017900 (-Confirm@CFlipToken@@UEAAXXZ.c)
+ *     ?Discard@CFlipToken@@UEAAXXZ @ 0x1C001B580 (-Discard@CFlipToken@@UEAAXXZ.c)
  * Callees:
- *     ?ConfirmIndependentFlipEntry@CCompositionSurface@@QEAAJ_K00II0@Z @ 0x1C0003964 (-ConfirmIndependentFlipEntry@CCompositionSurface@@QEAAJ_K00II0@Z.c)
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00069FC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0007EB4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0010CC4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ConfirmIndependentFlipEntry@CCompositionSurface@@QEAAJ_K00II0@Z @ 0x1C001E348 (-ConfirmIndependentFlipEntry@CCompositionSurface@@QEAAJ_K00II0@Z.c)
  */
 
 __int64 __fastcall CompositionSurfaceObject::ConfirmIndependentFlipEntry(

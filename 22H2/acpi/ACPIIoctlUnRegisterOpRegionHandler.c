@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIIoctlUnRegisterOpRegionHandler @ 0x1C00314C4
+ * XREFs of ACPIIoctlUnRegisterOpRegionHandler @ 0x1C005836C
  * Callers:
- *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIIrpDispatchDeviceControl @ 0x1C000B8A0 (ACPIIrpDispatchDeviceControl.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     UnRegisterOperationRegionHandler @ 0x1C008BE00 (UnRegisterOperationRegionHandler.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     UnRegisterOperationRegionHandler @ 0x1C00B1C74 (UnRegisterOperationRegionHandler.c)
  */
 
 __int64 __fastcall ACPIIoctlUnRegisterOpRegionHandler(ULONG_PTR a1, IRP *a2, __int64 a3)
@@ -16,7 +16,7 @@ __int64 __fastcall ACPIIoctlUnRegisterOpRegionHandler(ULONG_PTR a1, IRP *a2, __i
   v3 = *(_DWORD *)(a3 + 16);
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   if ( v3 >= 0x10 )
-    v6 = UnRegisterOperationRegionHandler(*(_QWORD *)(DeviceExtension + 760), a2->AssociatedIrp.MasterIrp->MdlAddress);
+    v6 = UnRegisterOperationRegionHandler(*(_QWORD *)(DeviceExtension + 720), a2->AssociatedIrp.MasterIrp->MdlAddress);
   else
     v6 = -1073741820;
   a2->IoStatus.Information = 0LL;

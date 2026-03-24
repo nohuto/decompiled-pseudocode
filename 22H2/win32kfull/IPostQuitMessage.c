@@ -1,19 +1,33 @@
 /*
- * XREFs of IPostQuitMessage @ 0x1C003C308
+ * XREFs of IPostQuitMessage @ 0x1C000AD64
  * Callers:
- *     ?TerminateDesktopThreads@@YAXXZ @ 0x1C003B28C (-TerminateDesktopThreads@@YAXXZ.c)
- *     NtUserPostQuitMessage @ 0x1C003C2C0 (NtUserPostQuitMessage.c)
- *     xxxSwitchDesktop @ 0x1C006BB2C (xxxSwitchDesktop.c)
- *     _PostQuitMessage @ 0x1C013A284 (_PostQuitMessage.c)
+ *     ?TerminateDesktopThreads@@YAXXZ @ 0x1C000AA2C (-TerminateDesktopThreads@@YAXXZ.c)
+ *     _PostQuitMessage @ 0x1C000AD40 (_PostQuitMessage.c)
+ *     xxxSwitchDesktop @ 0x1C0029864 (xxxSwitchDesktop.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
  * Callees:
- *     SetWakeBit @ 0x1C0118350 (SetWakeBit.c)
+ *     SetWakeBit @ 0x1C0051880 (SetWakeBit.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     LogQMsg @ 0x1C01D2AFC (LogQMsg.c)
  */
 
-__int64 __fastcall IPostQuitMessage(__int64 a1, int a2, __int64 a3, __int64 a4)
+__int64 __fastcall IPostQuitMessage(__int64 a1, int a2)
 {
-  EtwTraceWakePump(a1, 0LL, 18LL, a4);
+  __int64 v3; // rdi
+  _QWORD v5[21]; // [rsp+20h] [rbp-A8h] BYREF
+
+  v3 = a2;
+  if ( (_DWORD)gMsgQLog )
+  {
+    memset(v5, 0, 0xA0uLL);
+    v5[5] = 0LL;
+    LODWORD(v5[3]) = 18;
+    v5[4] = v3;
+    LogQMsg(v5);
+  }
+  EtwTraceWakePump(a1, 0LL, 18LL);
   *(_DWORD *)(a1 + 488) |= 0x40000000u;
-  *(_DWORD *)(a1 + 584) = a2;
+  *(_DWORD *)(a1 + 584) = v3;
   SetWakeBit(a1, 264LL);
   return 1LL;
 }

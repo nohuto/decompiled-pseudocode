@@ -1,12 +1,12 @@
 /*
- * XREFs of GetConsoleDesktop @ 0x1C01E4070
+ * XREFs of GetConsoleDesktop @ 0x1C01E987C
  * Callers:
- *     _GetThreadDesktop @ 0x1C00F046C (_GetThreadDesktop.c)
- *     _OpenThreadDesktop @ 0x1C01E418C (_OpenThreadDesktop.c)
- *     NtUserCheckWindowThreadDesktop @ 0x1C01F1C20 (NtUserCheckWindowThreadDesktop.c)
+ *     _GetThreadDesktop @ 0x1C0104484 (_GetThreadDesktop.c)
+ *     _OpenThreadDesktop @ 0x1C01E99F8 (_OpenThreadDesktop.c)
+ *     NtUserCheckWindowThreadDesktop @ 0x1C01F71C0 (NtUserCheckWindowThreadDesktop.c)
  * Callees:
- *     LockProcessByClientId @ 0x1C007AC20 (LockProcessByClientId.c)
- *     ?GetConsoleHostProcess@@YAJKPEAPEAX@Z @ 0x1C01E3D64 (-GetConsoleHostProcess@@YAJKPEAPEAX@Z.c)
+ *     LockProcessByClientId @ 0x1C003C118 (LockProcessByClientId.c)
+ *     ?GetConsoleHostProcess@@YAJKPEAPEAX@Z @ 0x1C01E96C8 (-GetConsoleHostProcess@@YAJKPEAPEAX@Z.c)
  */
 
 __int64 __fastcall GetConsoleDesktop(int a1, _QWORD *a2, _QWORD *a3, __int64 *a4)

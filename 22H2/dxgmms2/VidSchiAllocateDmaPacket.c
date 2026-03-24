@@ -1,14 +1,13 @@
 /*
- * XREFs of VidSchiAllocateDmaPacket @ 0x1C0087530
+ * XREFs of VidSchiAllocateDmaPacket @ 0x1C0086E5C
  * Callers:
- *     VidSchiSubmitPreemptionCommand @ 0x1C0087458 (VidSchiSubmitPreemptionCommand.c)
- *     VidSchiSwitchNodeFromContext @ 0x1C0087640 (VidSchiSwitchNodeFromContext.c)
- *     VidSchiSubmitPagingCommand @ 0x1C01064F4 (VidSchiSubmitPagingCommand.c)
- *     VidSchiSubmitRenderCommand @ 0x1C01069AC (VidSchiSubmitRenderCommand.c)
+ *     VidSchiSubmitPreemptionCommand @ 0x1C0086D2C (VidSchiSubmitPreemptionCommand.c)
+ *     VidSchiSwitchNodeFromContext @ 0x1C008B130 (VidSchiSwitchNodeFromContext.c)
+ *     VidSchiSubmitRenderCommand @ 0x1C00CF04C (VidSchiSubmitRenderCommand.c)
  * Callees:
- *     VidSchiInterlockedRemoveHeadListIfExist @ 0x1C0007120 (VidSchiInterlockedRemoveHeadListIfExist.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     VidSchWaitForCompletionEvent @ 0x1C0087E2C (VidSchWaitForCompletionEvent.c)
+ *     VidSchiInterlockedRemoveHeadListIfExist @ 0x1C0007BA0 (VidSchiInterlockedRemoveHeadListIfExist.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C0080A40 (VidSchWaitForCompletionEvent.c)
  */
 
 _QWORD *__fastcall VidSchiAllocateDmaPacket(__int64 a1)
@@ -19,11 +18,11 @@ _QWORD *__fastcall VidSchiAllocateDmaPacket(__int64 a1)
   int v6; // eax
   _DWORD v7[40]; // [rsp+20h] [rbp-B8h] BYREF
 
-  for ( i = *(_QWORD *)(a1 + 24); ; VidSchWaitForCompletionEvent(i, v7, 20LL) )
+  for ( i = *(_QWORD *)(a1 + 24); ; VidSchWaitForCompletionEvent(i, (__int64)v7, 20LL) )
   {
-    *(_QWORD *)(i + 1456) = MEMORY[0xFFFFF78000000320];
-    KeResetEvent((PRKEVENT)(i + 1416));
-    v3 = VidSchiInterlockedRemoveHeadListIfExist((KSPIN_LOCK *)(i + 1736), (_QWORD **)(a1 + 11280), 0LL);
+    *(_QWORD *)(i + 1440) = MEMORY[0xFFFFF78000000320];
+    KeResetEvent((PRKEVENT)(i + 1400));
+    v3 = VidSchiInterlockedRemoveHeadListIfExist((KSPIN_LOCK *)(i + 1720), (_QWORD **)(a1 + 11232), 0LL);
     if ( v3 )
       break;
     memset(v7, 0, sizeof(v7));

@@ -1,24 +1,25 @@
 /*
- * XREFs of MiLogMapFileEvent @ 0x14096CDB8
+ * XREFs of MiLogMapFileEvent @ 0x1408C4748
  * Callers:
- *     MiUnmapVad @ 0x1406F9060 (MiUnmapVad.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiUnmapVad @ 0x14061E420 (MiUnmapVad.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
  * Callees:
- *     MiLogPerfMemoryEvent @ 0x140583E7C (MiLogPerfMemoryEvent.c)
- *     MiFillMapFileInfo @ 0x14096CB14 (MiFillMapFileInfo.c)
+ *     MiLogPerfMemoryEvent @ 0x140530600 (MiLogPerfMemoryEvent.c)
+ *     MiFillMapFileInfo @ 0x1408C456C (MiFillMapFileInfo.c)
  */
 
-void __fastcall MiLogMapFileEvent(__int64 a1, unsigned __int16 a2)
+char __fastcall MiLogMapFileEvent(__int64 a1, __int16 a2)
 {
-  char v2; // al
+  char result; // al
   _OWORD v4[3]; // [rsp+30h] [rbp-38h] BYREF
 
-  v2 = *(_DWORD *)(a1 + 48) & 0x70;
+  result = *(_DWORD *)(a1 + 48) & 0x70;
   memset(v4, 0, sizeof(v4));
-  if ( v2 != 16 )
+  if ( result != 16 )
   {
     MiFillMapFileInfo(a1, (__int64)v4);
-    MiLogPerfMemoryEvent(a2, 0x8000u, (__int64)v4, 44, 4200707);
+    return MiLogPerfMemoryEvent(a2, 0x8000u, (__int64)v4, 44, 4200707);
   }
+  return result;
 }

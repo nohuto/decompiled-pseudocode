@@ -1,25 +1,24 @@
 /*
- * XREFs of KiReleaseSpinLockInstrumented @ 0x14056E8CC
+ * XREFs of KiReleaseSpinLockInstrumented @ 0x140516998
  * Callers:
- *     IopQueueIrpToFileObject @ 0x140211BD0 (IopQueueIrpToFileObject.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KdPollBreakIn @ 0x1402223B0 (KdPollBreakIn.c)
- *     PsGetThreadProperty @ 0x140223C50 (PsGetThreadProperty.c)
- *     KiCallInterruptServiceRoutine @ 0x140294110 (KiCallInterruptServiceRoutine.c)
- *     IopCancelIrpsInFileObjectList @ 0x1402A7370 (IopCancelIrpsInFileObjectList.c)
- *     KiExecuteAllDpcs @ 0x1402A9790 (KiExecuteAllDpcs.c)
- *     IopQueueThreadIrp @ 0x1402AE1B0 (IopQueueThreadIrp.c)
- *     KeReleaseSpinLock @ 0x1402B1CB0 (KeReleaseSpinLock.c)
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
- *     ExpSetTimerObject @ 0x1402E33D0 (ExpSetTimerObject.c)
- *     PpmIdleExecuteTransition @ 0x140306100 (PpmIdleExecuteTransition.c)
- *     PpmUpdatePerformanceFeedback @ 0x1403072A0 (PpmUpdatePerformanceFeedback.c)
- *     KiInsertQueueDpc @ 0x140345190 (KiInsertQueueDpc.c)
- *     IopDequeueIrpFromThread @ 0x1403489B0 (IopDequeueIrpFromThread.c)
- *     NtCancelTimer @ 0x140356F50 (NtCancelTimer.c)
- *     ViFilterDeviceUsageNotificationCompletion @ 0x140A9E300 (ViFilterDeviceUsageNotificationCompletion.c)
+ *     IoRemoveIoCompletion @ 0x1402043D0 (IoRemoveIoCompletion.c)
+ *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
+ *     PpmUpdatePerformanceFeedback @ 0x140224070 (PpmUpdatePerformanceFeedback.c)
+ *     KeReleaseSpinLock @ 0x140229C10 (KeReleaseSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
+ *     KiExecuteAllDpcs @ 0x1402472B0 (KiExecuteAllDpcs.c)
+ *     NtCancelTimer @ 0x140248B00 (NtCancelTimer.c)
+ *     ExpSetTimerObject @ 0x140249420 (ExpSetTimerObject.c)
+ *     KiCallInterruptServiceRoutine @ 0x14027A9B0 (KiCallInterruptServiceRoutine.c)
+ *     PsGetThreadProperty @ 0x140292580 (PsGetThreadProperty.c)
+ *     IopQueueIrpToFileObject @ 0x140293860 (IopQueueIrpToFileObject.c)
+ *     IopCompleteRequest @ 0x140342B20 (IopCompleteRequest.c)
+ *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
+ *     IopDequeueIrpFromThread @ 0x140353760 (IopDequeueIrpFromThread.c)
+ *     ViFilterDeviceUsageNotificationCompletion @ 0x1409E50C0 (ViFilterDeviceUsageNotificationCompletion.c)
  * Callees:
- *     PerfLogSpinLockRelease @ 0x140632CBC (PerfLogSpinLockRelease.c)
+ *     PerfLogSpinLockRelease @ 0x1405AB448 (PerfLogSpinLockRelease.c)
  */
 
 __int64 __fastcall KiReleaseSpinLockInstrumented(volatile signed __int64 *a1, __int64 a2)

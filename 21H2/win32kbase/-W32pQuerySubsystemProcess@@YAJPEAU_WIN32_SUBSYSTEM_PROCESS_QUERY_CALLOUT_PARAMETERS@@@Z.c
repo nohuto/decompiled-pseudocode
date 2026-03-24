@@ -1,7 +1,7 @@
 /*
- * XREFs of ?W32pQuerySubsystemProcess@@YAJPEAU_WIN32_SUBSYSTEM_PROCESS_QUERY_CALLOUT_PARAMETERS@@@Z @ 0x1C0146864
+ * XREFs of ?W32pQuerySubsystemProcess@@YAJPEAU_WIN32_SUBSYSTEM_PROCESS_QUERY_CALLOUT_PARAMETERS@@@Z @ 0x1C0117700
  * Callers:
- *     W32CalloutDispatch @ 0x1C00E4D10 (W32CalloutDispatch.c)
+ *     W32CalloutDispatch @ 0x1C004DFB0 (W32CalloutDispatch.c)
  * Callees:
  *     <none>
  */

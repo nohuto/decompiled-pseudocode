@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDmaGuardQueueFlush @ 0x140840A04
+ * XREFs of PiDmaGuardQueueFlush @ 0x1408409E4
  * Callers:
- *     PipDmgFlushQueueAndRestartDevices @ 0x1408393C4 (PipDmgFlushQueueAndRestartDevices.c)
+ *     PipDmgFlushQueueAndRestartDevices @ 0x1408393A4 (PipDmgFlushQueueAndRestartDevices.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 _QWORD *__fastcall PiDmaGuardQueueFlush(__int64 a1)

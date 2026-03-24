@@ -1,31 +1,39 @@
 /*
- * XREFs of VfThunkAddTargetNotify @ 0x140ABDF7C
+ * XREFs of VfThunkAddTargetNotify @ 0x1409C2100
  * Callers:
- *     VfTargetDriversAdd @ 0x14020A1B8 (VfTargetDriversAdd.c)
+ *     VfTargetDriversAdd @ 0x14037221C (VfTargetDriversAdd.c)
  * Callees:
- *     ViThunkFreeSharedThunksArray @ 0x140ABDF50 (ViThunkFreeSharedThunksArray.c)
- *     ViThunkCreateSharedExportInformation @ 0x140ABE010 (ViThunkCreateSharedExportInformation.c)
+ *     ViThunkCreateSharedExportInformation @ 0x1409C21D8 (ViThunkCreateSharedExportInformation.c)
+ *     ViThunkFreeSharedThunksArray @ 0x1409C2458 (ViThunkFreeSharedThunksArray.c)
  */
 
-void __fastcall VfThunkAddTargetNotify(void **a1, __int64 a2, __int64 a3)
+__int64 __fastcall VfThunkAddTargetNotify(_QWORD *a1)
 {
-  void **v3; // rdi
-  __int64 v5; // r8
-  __int64 v6; // r8
+  _DWORD *v1; // rdi
+  __int64 result; // rax
 
-  v3 = a1 + 3;
+  v1 = a1 + 3;
   if ( !(unsigned int)ViThunkCreateSharedExportInformation(
                         *a1,
                         &VfRegularThunks,
-                        a3,
+                        48LL,
                         &VfRegularThunksBitMapHeader,
                         a1 + 3)
-    || !(unsigned int)ViThunkCreateSharedExportInformation(*a1, &VfPoolThunks, v5, &VfPoolThunksBitMapHeader, a1 + 4)
-    || !(unsigned int)ViThunkCreateSharedExportInformation(*a1, &VfDifThunks, v6, &VfDifThunksBitMapHeader, a1 + 5) )
+    || !(unsigned int)ViThunkCreateSharedExportInformation(*a1, &VfPoolThunks, 48LL, &VfPoolThunksBitMapHeader, a1 + 4)
+    || !(unsigned int)ViThunkCreateSharedExportInformation(
+                        *a1,
+                        &VfOrderDependentThunks,
+                        56LL,
+                        &VfOrderDependentThunksBitMapHeader,
+                        a1 + 5)
+    || (result = ViThunkCreateSharedExportInformation(*a1, &VfXdvThunks, 48LL, &VfXdvThunksBitMapHeader, a1 + 6),
+        !(_DWORD)result) )
   {
-    ViThunkFreeSharedThunksArray(v3);
+    ViThunkFreeSharedThunksArray(v1);
     ViThunkFreeSharedThunksArray(a1 + 4);
     ViThunkFreeSharedThunksArray(a1 + 5);
-    *(_DWORD *)v3 |= 1u;
+    result = ViThunkFreeSharedThunksArray(a1 + 6);
+    *v1 |= 1u;
   }
+  return result;
 }

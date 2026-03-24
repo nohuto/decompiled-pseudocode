@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSetIdealProcessorThread @ 0x14015CD60
+ * XREFs of KeSetIdealProcessorThread @ 0x14015CD80
  * Callers:
  *     NtSetInformationThread @ 0x1405E9EA0 (NtSetInformationThread.c)
  * Callees:
- *     KeSetIdealProcessorThreadByNumber @ 0x14015CDB0 (KeSetIdealProcessorThreadByNumber.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x14015CDD0 (KeSetIdealProcessorThreadByNumber.c)
  */
 
 UCHAR __stdcall KeSetIdealProcessorThread(PKTHREAD Thread, UCHAR Processor)

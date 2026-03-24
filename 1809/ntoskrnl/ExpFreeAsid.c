@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpFreeAsid @ 0x14031DD18
+ * XREFs of ExpFreeAsid @ 0x14031DE18
  * Callers:
- *     ExFreeSvmAsid @ 0x140132B88 (ExFreeSvmAsid.c)
- *     ExpAssignPasid @ 0x1408D710C (ExpAssignPasid.c)
+ *     ExFreeSvmAsid @ 0x140132BA8 (ExFreeSvmAsid.c)
+ *     ExpAssignPasid @ 0x1408D70EC (ExpAssignPasid.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG_PTR __fastcall ExpFreeAsid(unsigned int a1)
@@ -21,13 +21,13 @@ LONG_PTR __fastcall ExpFreeAsid(unsigned int a1)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   Process = KeGetCurrentThread()->ApcState.Process;
-  KeAcquireInStackQueuedSpinLock(&qword_140406E98, &LockHandle);
-  v3 = (char *)qword_140406E90 + 16 * a1;
+  KeAcquireInStackQueuedSpinLock(&qword_140406E58, &LockHandle);
+  v3 = (char *)qword_140406E50 + 16 * a1;
   if ( v3[1]-- == 1LL )
   {
     *v3 = 0LL;
     v5 = 1;
-    --dword_140406E88;
+    --dword_140406E48;
   }
   else
   {

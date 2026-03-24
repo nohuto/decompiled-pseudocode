@@ -1,11 +1,10 @@
 /*
- * XREFs of ??1FxPagedObject@@UEAA@XZ @ 0x1C0015B50
+ * XREFs of ??1FxPagedObject@@UEAA@XZ @ 0x1C005F6B4
  * Callers:
- *     ??1FxRegKey@@UEAA@XZ @ 0x1C0015B88 (--1FxRegKey@@UEAA@XZ.c)
- *     ??_GFxPagedObject@@UEAAPEAXI@Z @ 0x1C0070F60 (--_GFxPagedObject@@UEAAPEAXI@Z.c)
+ *     ??_GFxPagedObject@@UEAAPEAXI@Z @ 0x1C005F6F0 (--_GFxPagedObject@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxObject@@UEAA@XZ @ 0x1C00083A0 (--1FxObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxObject@@UEAA@XZ @ 0x1C00079A0 (--1FxObject@@UEAA@XZ.c)
  */
 
 void __fastcall FxPagedObject::~FxPagedObject(FxPagedObject *this, unsigned int a2, unsigned int a3)

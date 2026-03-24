@@ -1,14 +1,14 @@
 /*
- * XREFs of NtCancelIoFile @ 0x1407C1CC0
+ * XREFs of NtCancelIoFile @ 0x140682230
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     IopCancelIrpsInFileObjectList @ 0x1402AF910 (IopCancelIrpsInFileObjectList.c)
- *     IopReferenceFileObject @ 0x1403016DC (IopReferenceFileObject.c)
- *     IoCancelIrp @ 0x140351890 (IoCancelIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     IopReferenceFileObject @ 0x1402C90B0 (IopReferenceFileObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     IopCancelIrpsInFileObjectList @ 0x140313D7C (IopCancelIrpsInFileObjectList.c)
+ *     IoCancelIrp @ 0x140314120 (IoCancelIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall NtCancelIoFile(void *a1, unsigned __int64 a2)
@@ -22,23 +22,23 @@ __int64 __fastcall NtCancelIoFile(void *a1, unsigned __int64 a2)
   unsigned __int8 CurrentIrql; // si
   unsigned int *p_SystemCallNumber; // rdi
   unsigned int *i; // rbx
-  PVOID v13; // rbx
-  char v14; // bl
-  unsigned __int8 v15; // si
+  char v13; // bl
+  unsigned __int8 v14; // si
   unsigned int *j; // rcx
-  unsigned __int8 v17; // cl
+  struct _DMA_ADAPTER *v16; // rbx
+  unsigned __int8 v17; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v20; // edx
   bool v21; // zf
-  unsigned __int8 v22; // cl
+  unsigned __int8 v22; // al
   struct _KPRCB *v23; // r10
   _DWORD *v24; // r9
   int v25; // eax
-  PVOID Object; // [rsp+70h] [rbp+18h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+70h] [rbp+18h] BYREF
   LARGE_INTEGER Interval; // [rsp+78h] [rbp+20h] BYREF
 
-  Object = 0LL;
+  DmaAdapter = 0LL;
   v4 = 0;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
@@ -49,7 +49,7 @@ __int64 __fastcall NtCancelIoFile(void *a1, unsigned __int64 a2)
       v7 = a2;
     *(_DWORD *)v7 = *(_DWORD *)v7;
   }
-  result = IopReferenceFileObject(a1, 0, PreviousMode, &Object, 0LL);
+  result = IopReferenceFileObject(a1, 0, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( (int)result >= 0 )
   {
     v9 = KeGetCurrentThread();
@@ -60,7 +60,7 @@ __int64 __fastcall NtCancelIoFile(void *a1, unsigned __int64 a2)
     p_SystemCallNumber = &CurrentThread[1].SystemCallNumber;
     for ( i = *(unsigned int **)p_SystemCallNumber; p_SystemCallNumber != i; i = *(unsigned int **)i )
     {
-      if ( *((PVOID *)i + 20) == Object )
+      if ( *((PADAPTER_OBJECT *)i + 20) == DmaAdapter )
       {
         v4 = 1;
         IoCancelIrp((PIRP)(i - 8));
@@ -68,61 +68,64 @@ __int64 __fastcall NtCancelIoFile(void *a1, unsigned __int64 a2)
     }
     if ( KiIrqlFlags )
     {
-      v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v20 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v21 = (v20 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v20;
-        if ( v21 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        v17 = KeGetCurrentIrql();
+        if ( v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v20 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v21 = (v20 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v20;
+          if ( v21 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(CurrentIrql);
     if ( v4 )
     {
       Interval.QuadPart = -100000LL;
-      while ( 2 )
+      while ( 1 )
       {
-        v14 = 0;
-        v15 = KeGetCurrentIrql();
+        v13 = 0;
+        v14 = KeGetCurrentIrql();
         __writecr8(1uLL);
         for ( j = *(unsigned int **)p_SystemCallNumber; p_SystemCallNumber != j; j = *(unsigned int **)j )
         {
-          if ( *((PVOID *)j + 20) == Object )
+          if ( *((PADAPTER_OBJECT *)j + 20) == DmaAdapter )
           {
-            v14 = 1;
+            v13 = 1;
             break;
           }
         }
         if ( KiIrqlFlags )
         {
-          v22 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && v15 <= 0xFu && v22 >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            v23 = KeGetCurrentPrcb();
-            v24 = v23->SchedulerAssist;
-            v25 = ~(unsigned __int16)(-1LL << (v15 + 1));
-            v21 = (v25 & v24[5]) == 0;
-            v24[5] &= v25;
-            if ( v21 )
-              KiRemoveSystemWorkPriorityKick((__int64)v23);
+            v22 = KeGetCurrentIrql();
+            if ( v22 <= 0xFu && v14 <= 0xFu && v22 >= 2u )
+            {
+              v23 = KeGetCurrentPrcb();
+              v24 = v23->SchedulerAssist;
+              v25 = ~(unsigned __int16)(-1LL << (v14 + 1));
+              v21 = (v25 & v24[5]) == 0;
+              v24[5] &= v25;
+              if ( v21 )
+                KiRemoveSystemWorkPriorityKick((__int64)v23);
+            }
           }
         }
-        __writecr8(v15);
-        if ( v14 )
-        {
-          KeDelayExecutionThread(0, 0, &Interval);
-          continue;
-        }
-        break;
+        __writecr8(v14);
+        if ( !v13 )
+          break;
+        KeDelayExecutionThread(0, 0, &Interval);
       }
     }
-    v13 = Object;
+    v16 = DmaAdapter;
     IopCancelIrpsInFileObjectList(
-      (__int64)Object,
+      (__int64)DmaAdapter,
       (int)KeGetCurrentThread()->ApcState.Process,
       0,
       (int)KeGetCurrentThread(),
@@ -130,7 +133,7 @@ __int64 __fastcall NtCancelIoFile(void *a1, unsigned __int64 a2)
       0);
     *(_DWORD *)a2 = 0;
     *(_QWORD *)(a2 + 8) = 0LL;
-    ObfDereferenceObject(v13);
+    HalPutDmaAdapter(v16);
     return 0LL;
   }
   return result;

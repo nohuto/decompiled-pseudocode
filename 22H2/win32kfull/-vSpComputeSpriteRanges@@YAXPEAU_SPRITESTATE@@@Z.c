@@ -1,97 +1,94 @@
 /*
- * XREFs of ?vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C001E774
+ * XREFs of ?vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00F04E0
  * Callers:
- *     ?vSpHook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C001B69C (-vSpHook@@YAXPEAU_SPRITESTATE@@@Z.c)
- *     ?vSpZorderSprite@@YAXPEAUHDEV__@@PEAVSPRITE@@1@Z @ 0x1C001D7E4 (-vSpZorderSprite@@YAXPEAUHDEV__@@PEAVSPRITE@@1@Z.c)
- *     ?vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C001DAA8 (-vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z.c)
- *     ?vComputeUncoveredSpriteRegion@RGNOBJ@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C001EA6C (-vComputeUncoveredSpriteRegion@RGNOBJ@@QEAAXAEAVPDEVOBJ@@@Z.c)
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C01137BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ?vSpHook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00ED260 (-vSpHook@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?vSpZorderSprite@@YAXPEAUHDEV__@@PEAVSPRITE@@1@Z @ 0x1C00F0084 (-vSpZorderSprite@@YAXPEAUHDEV__@@PEAVSPRITE@@1@Z.c)
+ *     ?vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00F03AC (-vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?vComputeUncoveredSpriteRegion@RGNOBJ@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C00F06D4 (-vComputeUncoveredSpriteRegion@RGNOBJ@@QEAAXAEAVPDEVOBJ@@@Z.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F09BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
  * Callees:
- *     ?bSpComputeScan@@YAHPEAU_SPRITESTATE@@PEAVSPRITE@@JJPEAPEAU_SPRITESCAN@@PEA_K@Z @ 0x1C001E87C (-bSpComputeScan@@YAHPEAU_SPRITESTATE@@PEAVSPRITE@@JJPEAPEAU_SPRITESCAN@@PEA_K@Z.c)
- *     ?vSpComputeUncoveredRegion@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C001E96C (-vSpComputeUncoveredRegion@@YAXPEAU_SPRITESTATE@@H@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ?vSpComputeUncoveredRegion@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00F05E4 (-vSpComputeUncoveredRegion@@YAXPEAU_SPRITESTATE@@H@Z.c)
+ *     ?bSpComputeScan@@YAHPEAU_SPRITESTATE@@PEAVSPRITE@@JJPEAPEAU_SPRITESCAN@@PEA_K@Z @ 0x1C00F08AC (-bSpComputeScan@@YAHPEAU_SPRITESTATE@@PEAVSPRITE@@JJPEAPEAU_SPRITESCAN@@PEA_K@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 void __fastcall vSpComputeSpriteRanges(struct _SPRITESTATE *a1)
 {
-  Gre::Base *v2; // rcx
-  struct _SPRITESCAN *v3; // rax
-  int v4; // r8d
-  int v5; // ebp
-  __int64 v6; // rdi
-  struct SPRITE *v7; // rax
-  struct SPRITE *v8; // rdx
-  int v9; // ebx
-  int v10; // ecx
-  int v11; // eax
-  _BYTE *v12; // rcx
-  _QWORD *v13; // rdx
-  int v14; // eax
-  unsigned __int64 v15; // [rsp+30h] [rbp-138h] BYREF
-  struct _SPRITESCAN *v16; // [rsp+38h] [rbp-130h] BYREF
-  _BYTE v17[56]; // [rsp+40h] [rbp-128h] BYREF
-  struct SPRITE *v18; // [rsp+78h] [rbp-F0h]
+  struct _SPRITESCAN *v2; // rax
+  int v3; // r8d
+  int v4; // ebp
+  __int64 v5; // rdi
+  struct SPRITE *v6; // rax
+  struct SPRITE **v7; // rdx
+  int v8; // ebx
+  int v9; // ecx
+  int v10; // eax
+  int v11; // edx
+  struct SPRITE **v12; // rcx
+  struct SPRITE **v13; // r9
+  unsigned __int64 v14; // [rsp+30h] [rbp-138h] BYREF
+  struct _SPRITESCAN *v15; // [rsp+38h] [rbp-130h] BYREF
+  struct SPRITE *v16[34]; // [rsp+40h] [rbp-128h] BYREF
 
-  memset_0(v17, 0, 0x110uLL);
-  Gre::Base::Globals(v2);
-  v3 = (struct _SPRITESCAN *)*((_QWORD *)a1 + 17);
-  v15 = 0LL;
-  v4 = *((_DWORD *)a1 + 11);
-  v5 = *((_DWORD *)a1 + 13);
-  v6 = *((_QWORD *)a1 + 3);
-  v16 = v3;
-  while ( v6 && *(_DWORD *)(v6 + 92) <= v4 )
-    v6 = *(_QWORD *)(v6 + 40);
+  memset(v16, 0, sizeof(v16));
+  v2 = (struct _SPRITESCAN *)*((_QWORD *)a1 + 17);
+  v14 = 0LL;
+  v3 = *((_DWORD *)a1 + 11);
+  v4 = *((_DWORD *)a1 + 13);
+  v5 = *((_QWORD *)a1 + 3);
+  v15 = v2;
+  while ( v5 && *(_DWORD *)(v5 + 92) <= v3 )
+    v5 = *(_QWORD *)(v5 + 40);
   while ( 1 )
   {
-    v7 = v18;
-    v8 = (struct SPRITE *)v17;
-    v9 = v5;
-    while ( v7 )
+    v6 = v16[7];
+    v7 = v16;
+    v8 = v4;
+    while ( v6 )
     {
-      v10 = *((_DWORD *)v7 + 23);
-      if ( v10 == v4 )
+      v9 = *((_DWORD *)v6 + 23);
+      if ( v9 == v3 )
       {
-        *((_QWORD *)v8 + 7) = *((_QWORD *)v7 + 7);
+        v7[7] = (struct SPRITE *)*((_QWORD *)v6 + 7);
       }
       else
       {
-        v8 = v7;
-        if ( v10 > v9 )
-          v10 = v9;
-        v9 = v10;
+        v7 = (struct SPRITE **)v6;
+        if ( v9 > v8 )
+          v9 = v8;
+        v8 = v9;
       }
-      v7 = (struct SPRITE *)*((_QWORD *)v8 + 7);
+      v6 = v7[7];
     }
-    while ( v6 )
+    while ( v5 )
     {
-      v11 = *(_DWORD *)(v6 + 84);
-      if ( v11 != v4 )
+      v10 = *(_DWORD *)(v5 + 84);
+      v11 = v8;
+      if ( v10 != v3 )
       {
-        if ( v11 <= v9 )
-          v9 = *(_DWORD *)(v6 + 84);
+        if ( v10 <= v8 )
+          v8 = *(_DWORD *)(v5 + 84);
         break;
       }
-      v12 = v17;
+      v12 = v16;
       do
       {
-        v13 = v12 + 56;
-        v12 = (_BYTE *)*((_QWORD *)v12 + 7);
+        v13 = v12;
+        v12 = (struct SPRITE **)v12[7];
       }
-      while ( v12 && *((_DWORD *)v12 + 16) < *(_DWORD *)(v6 + 64) );
-      *v13 = v6;
-      v14 = *(_DWORD *)(v6 + 92);
-      *(_QWORD *)(v6 + 56) = v12;
-      v6 = *(_QWORD *)(v6 + 40);
-      if ( v14 > v9 )
-        v14 = v9;
-      v9 = v14;
+      while ( v12 && *((_DWORD *)v12 + 16) < *(_DWORD *)(v5 + 64) );
+      v13[7] = (struct SPRITE *)v5;
+      v8 = *(_DWORD *)(v5 + 92);
+      *(_QWORD *)(v5 + 56) = v12;
+      v5 = *(_QWORD *)(v5 + 40);
+      if ( v8 > v11 )
+        v8 = v11;
     }
-    if ( !(unsigned int)bSpComputeScan(a1, v18, v4, v9, &v16, &v15) )
+    if ( !(unsigned int)bSpComputeScan(a1, v16[7], v3, v8, &v15, &v14) )
       break;
-    v4 = v9;
-    if ( v9 >= v5 )
+    v3 = v8;
+    if ( v8 >= v4 )
     {
       *((_DWORD *)a1 + 29) = 1;
       vSpComputeUncoveredRegion(a1, 1);

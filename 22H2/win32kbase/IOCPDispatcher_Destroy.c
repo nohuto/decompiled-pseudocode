@@ -1,20 +1,20 @@
 /*
- * XREFs of IOCPDispatcher_Destroy @ 0x1C0080A80
+ * XREFs of IOCPDispatcher_Destroy @ 0x1C00B38A0
  * Callers:
- *     UserActivateMITInputProcessing @ 0x1C0087624 (UserActivateMITInputProcessing.c)
- *     UninitializeInputSensorsOnSharedThread @ 0x1C01E92D8 (UninitializeInputSensorsOnSharedThread.c)
+ *     UserActivateMITInputProcessing @ 0x1C0088848 (UserActivateMITInputProcessing.c)
+ *     ?UninitializeInputSensors@@YAXXZ @ 0x1C01B1CF4 (-UninitializeInputSensors@@YAXXZ.c)
  * Callees:
- *     ??_GIOCPDispatcher@@QEAAPEAXI@Z @ 0x1C00831E8 (--_GIOCPDispatcher@@QEAAPEAXI@Z.c)
+ *     ??_GIOCPDispatcher@@QEAAPEAXI@Z @ 0x1C00B3994 (--_GIOCPDispatcher@@QEAAPEAXI@Z.c)
  */
 
 void *__fastcall IOCPDispatcher_Destroy(__int64 a1, unsigned int a2)
 {
   void *result; // rax
 
-  if ( WPP_MAIN_CB.Queue.Wcb.DeviceObject )
+  if ( gpIOCPDispatcher )
   {
-    result = IOCPDispatcher::`scalar deleting destructor'((IOCPDispatcher *)WPP_MAIN_CB.Queue.Wcb.DeviceObject, a2);
-    WPP_MAIN_CB.Queue.Wcb.DeviceObject = 0LL;
+    result = IOCPDispatcher::`scalar deleting destructor'(gpIOCPDispatcher, a2);
+    gpIOCPDispatcher = 0LL;
   }
   return result;
 }

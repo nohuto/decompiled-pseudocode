@@ -1,75 +1,76 @@
 /*
- * XREFs of ?xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z @ 0x1C01AFE3C
+ * XREFs of ?xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z @ 0x1C01DBD5C
  * Callers:
- *     xxxInjectTouchInput @ 0x1C01B07F4 (xxxInjectTouchInput.c)
+ *     xxxInjectTouchInput @ 0x1C01DC7EC (xxxInjectTouchInput.c)
  * Callees:
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?_GetQpcBasedTouchStackTime@@YAKXZ @ 0x1C01AFCC0 (-_GetQpcBasedTouchStackTime@@YAKXZ.c)
- *     ?xxxSendToTouchStack@@YAXPEAUDEVICEINFO@@IPEAUtagPOINTER_TOUCH_INFO@@K@Z @ 0x1C01AFFA4 (-xxxSendToTouchStack@@YAXPEAUDEVICEINFO@@IPEAUtagPOINTER_TOUCH_INFO@@K@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     ?_GetQpcBasedTouchStackTime@@YAKXZ @ 0x1C01DBBEC (-_GetQpcBasedTouchStackTime@@YAKXZ.c)
+ *     ?xxxSendToTouchStack@@YAXPEAUDEVICEINFO@@IPEAUtagPOINTER_TOUCH_INFO@@K@Z @ 0x1C01DBEC4 (-xxxSendToTouchStack@@YAXPEAUDEVICEINFO@@IPEAUtagPOINTER_TOUCH_INFO@@K@Z.c)
  */
 
-void __fastcall xxxSendLastFrameTouchUp(struct tagINJECTED_CONTACT *a1, struct DEVICEINFO *a2, unsigned int a3, int a4)
+void __fastcall xxxSendLastFrameTouchUp(struct tagINJECTED_CONTACT *a1, struct DEVICEINFO *a2, __int64 a3, int a4)
 {
+  unsigned int v4; // r14d
   unsigned int v5; // ebx
   unsigned int v8; // ebp
   _DWORD *v9; // rsi
-  __int64 v10; // rdx
-  _DWORD *v11; // rcx
-  struct tagPOINTER_TOUCH_INFO *v12; // rdi
-  unsigned int v13; // r9d
-  unsigned int v14; // r8d
-  __int64 v15; // rdx
+  _DWORD *v10; // rcx
+  struct tagPOINTER_TOUCH_INFO *v11; // rdi
+  unsigned int v12; // r9d
+  unsigned int v13; // r8d
+  __int64 v14; // rdx
   __int64 ThreadWin32Thread; // rax
-  __int128 v17; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v18; // [rsp+30h] [rbp-38h]
+  __int128 v16; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v17; // [rsp+30h] [rbp-38h]
 
+  v4 = a3;
   v5 = 0;
   v8 = 0;
+  v16 = 0LL;
   v17 = 0LL;
-  v18 = 0LL;
-  if ( a3 )
+  if ( (_DWORD)a3 )
   {
     v9 = (_DWORD *)((char *)a1 + 8);
-    v10 = a3;
-    v11 = (_DWORD *)((char *)a1 + 8);
+    a3 = (unsigned int)a3;
+    v10 = (_DWORD *)((char *)a1 + 8);
     do
     {
-      if ( ((*v11 - 0x20000) & 0xFFFDFFFF) != 0 )
+      if ( ((*v10 - 0x20000) & 0xFFFDFFFF) != 0 )
         ++v8;
-      v11 += 3;
-      --v10;
+      v10 += 3;
+      --a3;
     }
-    while ( v10 );
+    while ( a3 );
     if ( v8 )
     {
-      v12 = (struct tagPOINTER_TOUCH_INFO *)Win32AllocPoolWithQuotaZInit(144LL * v8, 1953067861LL);
-      if ( v12 )
+      v11 = (struct tagPOINTER_TOUCH_INFO *)Win32AllocPoolWithQuotaZInit(144LL * v8, 1953067861LL);
+      if ( v11 )
       {
+        v12 = 0;
         v13 = 0;
-        v14 = 0;
         do
         {
           if ( ((*v9 - 0x20000) & 0xFFFDFFFF) != 0 )
           {
-            v15 = 18LL * v13;
-            *((_DWORD *)v12 + 2 * v15 + 1) = v14;
-            *((_QWORD *)v12 + v15 + 4) = *((_QWORD *)v9 - 1);
-            *((_DWORD *)v12 + 2 * v15 + 3) = ((*v9 & 4) != 0 ? 0x40000 : 0x20000) | 0x8000;
-            ++v13;
+            v14 = 18LL * v12;
+            *((_DWORD *)v11 + 2 * v14 + 1) = v13;
+            *((_QWORD *)v11 + v14 + 4) = *((_QWORD *)v9 - 1);
+            *((_DWORD *)v11 + 2 * v14 + 3) = ((*v9 & 4) != 0 ? 0x40000 : 0x20000) | 0x8000;
+            ++v12;
             *v9 = 0x20000;
           }
-          ++v14;
+          ++v13;
           v9 += 3;
         }
-        while ( v14 < a3 );
-        PushW32ThreadLock((__int64)v12, &v17, (__int64)Win32FreePool);
+        while ( v13 < v4 );
+        PushW32ThreadLock((__int64)v11, &v16, (__int64)Win32FreePool);
         if ( a4 )
           v5 = _GetQpcBasedTouchStackTime() - a4;
-        xxxSendToTouchStack(a2, v8, v12, v5);
+        xxxSendToTouchStack(a2, v8, v11, v5);
         ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-        *(_QWORD *)(ThreadWin32Thread + 16) = v17;
-        Win32FreePool(v12);
+        *(_QWORD *)(ThreadWin32Thread + 16) = v16;
+        Win32FreePool(v11);
       }
     }
   }

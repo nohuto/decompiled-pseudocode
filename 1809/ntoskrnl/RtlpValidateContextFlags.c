@@ -9,8 +9,8 @@
  *     RtlpCopyExtendedContext @ 0x1400A210C (RtlpCopyExtendedContext.c)
  *     RtlCopyContext @ 0x140620E78 (RtlCopyContext.c)
  *     RtlpReadExtendedContext @ 0x140620F80 (RtlpReadExtendedContext.c)
- *     RtlpWriteExtendedContext @ 0x1406A8568 (RtlpWriteExtendedContext.c)
- *     RtlpWow64SanitizeContextFlags @ 0x1406A8D4C (RtlpWow64SanitizeContextFlags.c)
+ *     RtlpWriteExtendedContext @ 0x1406A8548 (RtlpWriteExtendedContext.c)
+ *     RtlpWow64SanitizeContextFlags @ 0x1406A8D2C (RtlpWow64SanitizeContextFlags.c)
  * Callees:
  *     <none>
  */

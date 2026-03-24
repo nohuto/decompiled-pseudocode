@@ -1,29 +1,30 @@
 /*
- * XREFs of AlpcpSendLegacySynchronousRequest @ 0x14071AC80
+ * XREFs of AlpcpSendLegacySynchronousRequest @ 0x1405DFA58
  * Callers:
- *     AlpcpProcessSynchronousRequest @ 0x14073DAE0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     AlpcpAllocateMessage @ 0x140716914 (AlpcpAllocateMessage.c)
- *     AlpcpProbeAndCaptureMessageHeader @ 0x14071B1A4 (AlpcpProbeAndCaptureMessageHeader.c)
- *     AlpcpUnlockMessage @ 0x14071BF28 (AlpcpUnlockMessage.c)
- *     AlpcpValidateMessage @ 0x14071C018 (AlpcpValidateMessage.c)
- *     AlpcpSetOwnerPortMessage @ 0x14071C064 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpSendMessage @ 0x1407395B0 (AlpcpSendMessage.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14073A344 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpCaptureMessageData @ 0x14073AF30 (AlpcpCaptureMessageData.c)
- *     AlpcpInsertMessagePendingQueue @ 0x14073DA20 (AlpcpInsertMessagePendingQueue.c)
- *     AlpcpInsertMessageMainQueue @ 0x1407E2220 (AlpcpInsertMessageMainQueue.c)
- *     AlpcpLogSendMessage @ 0x14097A550 (AlpcpLogSendMessage.c)
- *     AlpcpLogWaitForReply @ 0x14097A728 (AlpcpLogWaitForReply.c)
- *     AlpcpEnterAllocationEventMessageLog @ 0x14097A98C (AlpcpEnterAllocationEventMessageLog.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     AlpcpAvailableBufferSize @ 0x1405CF054 (AlpcpAvailableBufferSize.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x1405E0284 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpAllocateMessage @ 0x1405E09E4 (AlpcpAllocateMessage.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x1405E3C64 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpCaptureMessageData @ 0x1405E3D7C (AlpcpCaptureMessageData.c)
+ *     AlpcpValidateMessage @ 0x1405E3F28 (AlpcpValidateMessage.c)
+ *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
+ *     AlpcpSetOwnerPortMessage @ 0x1405E6040 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     AlpcpInsertMessageMainQueue @ 0x14069DE84 (AlpcpInsertMessageMainQueue.c)
+ *     AlpcpEnterAllocationEventMessageLog @ 0x1408C2AF0 (AlpcpEnterAllocationEventMessageLog.c)
+ *     AlpcpLogSendMessage @ 0x1408C3E50 (AlpcpLogSendMessage.c)
+ *     AlpcpLogWaitForReply @ 0x1408C4024 (AlpcpLogWaitForReply.c)
  */
 
 __int64 __fastcall AlpcpSendLegacySynchronousRequest(__int64 a1, __int64 a2, __int128 *a3, __int64 a4)
@@ -36,39 +37,38 @@ __int64 __fastcall AlpcpSendLegacySynchronousRequest(__int64 a1, __int64 a2, __i
   signed __int32 v11; // eax
   ULONG_PTR v12; // rcx
   ULONG_PTR v13; // rdi
-  __int64 v14; // rdx
-  __int64 v15; // rax
-  unsigned __int64 v16; // rax
-  int v17; // r14d
-  signed __int64 *v18; // r14
-  __int64 v19; // r15
-  _QWORD *v20; // rax
-  signed __int64 *v21; // r14
-  __int64 v22; // rcx
-  struct _KTHREAD *v23; // rax
-  ULONG_PTR v24; // rdi
-  _QWORD *v25; // rax
-  _QWORD *v26; // rcx
+  unsigned __int64 v14; // rax
+  size_t v15; // rdx
+  int v16; // r14d
+  unsigned __int64 v17; // rax
+  size_t v18; // rdx
+  __int64 v19; // rcx
+  signed __int64 *v20; // r14
+  __int64 v21; // r13
+  _QWORD *v22; // rax
+  signed __int64 *v23; // r14
+  ULONG_PTR v24; // rax
+  struct _KTHREAD *v25; // rcx
+  ULONG_PTR v26; // rdi
   _QWORD *v27; // rax
-  _QWORD *v28; // rax
-  __int64 v29; // rdx
-  _QWORD *v30; // rcx
-  __int64 v31; // rax
-  unsigned __int64 v32; // rax
-  int v33; // [rsp+20h] [rbp-A8h]
-  _DWORD *v34; // [rsp+28h] [rbp-A0h] BYREF
-  _QWORD *v35; // [rsp+30h] [rbp-98h]
-  _WORD *v36; // [rsp+38h] [rbp-90h]
-  _QWORD *v37; // [rsp+40h] [rbp-88h]
-  ULONG_PTR BugCheckParameter2; // [rsp+48h] [rbp-80h]
-  __int128 v39; // [rsp+50h] [rbp-78h] BYREF
-  __int128 v40; // [rsp+60h] [rbp-68h]
-  __int64 v41; // [rsp+70h] [rbp-58h]
-  unsigned __int64 v42; // [rsp+78h] [rbp-50h]
-  struct _KTHREAD *CurrentThread; // [rsp+80h] [rbp-48h]
-  char v44; // [rsp+E8h] [rbp+20h]
+  _QWORD *v28; // rcx
+  _QWORD *v29; // rax
+  _QWORD *v30; // rax
+  __int64 v31; // rdx
+  _QWORD *v32; // rcx
+  int v33; // [rsp+20h] [rbp-98h]
+  ULONG_PTR v34; // [rsp+28h] [rbp-90h] BYREF
+  _QWORD *v35; // [rsp+30h] [rbp-88h]
+  ULONG_PTR v36; // [rsp+38h] [rbp-80h]
+  _QWORD *v37; // [rsp+40h] [rbp-78h]
+  ULONG_PTR BugCheckParameter2; // [rsp+48h] [rbp-70h]
+  __int128 v39; // [rsp+50h] [rbp-68h] BYREF
+  __int128 v40; // [rsp+60h] [rbp-58h]
+  __int64 v41; // [rsp+70h] [rbp-48h]
+  struct _KTHREAD *CurrentThread; // [rsp+78h] [rbp-40h]
+  char v43; // [rsp+D8h] [rbp+20h]
 
-  v44 = a4;
+  v43 = a4;
   v5 = a2;
   v39 = 0LL;
   v40 = 0LL;
@@ -96,7 +96,7 @@ __int64 __fastcall AlpcpSendLegacySynchronousRequest(__int64 a1, __int64 a2, __i
   if ( (int)result >= 0 )
   {
     v9 = (_DWORD *)_InterlockedExchange64((volatile __int64 *)(a1 + 440), 0LL);
-    v34 = v9;
+    v34 = (ULONG_PTR)v9;
     if ( v9 )
     {
       AlpcpLockForCachedReferenceBlob((ULONG_PTR)v9);
@@ -107,172 +107,166 @@ __int64 __fastcall AlpcpSendLegacySynchronousRequest(__int64 a1, __int64 a2, __i
       do
         v11 = _InterlockedIncrement(&AlpcpNextCallbackId);
       while ( !v11 );
-      v12 = (ULONG_PTR)v34;
-      v34[68] = v11;
+      v12 = v34;
+      *(_DWORD *)(v34 + 272) = v11;
       if ( AlpcpMessageLogEnabled )
         AlpcpEnterAllocationEventMessageLog(v12);
-LABEL_15:
-      CurrentThread = KeGetCurrentThread();
-      v13 = (ULONG_PTR)v34;
-      *(_OWORD *)(v34 + 62) = *(_OWORD *)&CurrentThread[1].CycleTime;
-      *(_DWORD *)(v13 + 240) = v39;
-      *(_WORD *)(v13 + 244) = 8193;
-      if ( v44 )
+    }
+    else
+    {
+      result = AlpcpAllocateMessage(&v34, 0LL, 0LL);
+      if ( (int)result < 0 )
+        return result;
+    }
+    CurrentThread = KeGetCurrentThread();
+    v13 = v34;
+    *(_OWORD *)(v34 + 248) = *(_OWORD *)&CurrentThread[1].CycleTime;
+    *(_DWORD *)(v13 + 240) = v39;
+    *(_WORD *)(v13 + 244) = 8193;
+    if ( v43 )
+    {
+      v14 = AlpcpAvailableBufferSize(v13);
+      if ( v15 > v14 )
       {
-        v14 = (__int16)v39;
-        v15 = *(_QWORD *)(v13 + 96);
-        if ( v15 )
-          v16 = *(_QWORD *)(v15 + 32) - 40LL;
-        else
-          v16 = 512LL;
-        v42 = v16;
-        if ( (__int16)v39 <= v16 )
-        {
-          memmove((void *)(v13 + 280), (char *)a3 + 40, (__int16)v39);
-          v17 = 0;
-          v33 = 0;
-          goto LABEL_22;
-        }
+        v16 = AlpcpCaptureMessageData(v13, v15, (char *)a3 + 40);
+        v33 = v16;
       }
       else
       {
-        v14 = (__int16)v39;
-        v31 = *(_QWORD *)(v13 + 96);
-        if ( v31 )
-          v32 = *(_QWORD *)(v31 + 32) - 40LL;
-        else
-          v32 = 512LL;
-        if ( (__int16)v39 <= v32 )
-        {
-          memmove((void *)(v13 + 280), (char *)a3 + 40, (__int16)v39);
-          v33 = 0;
-          goto LABEL_23;
-        }
+        memmove((void *)(v13 + 280), (char *)a3 + 40, v15);
+        v16 = 0;
+        v33 = 0;
       }
-      v17 = AlpcpCaptureMessageData(v13, v14, (char *)a3 + 40);
-      v33 = v17;
-LABEL_22:
-      if ( v17 < 0 )
+    }
+    else
+    {
+      v17 = AlpcpAvailableBufferSize(v13);
+      if ( v18 <= v17 )
       {
-LABEL_67:
-        if ( v13 )
-          AlpcpUnlockMessage(v13);
-        return (unsigned int)v17;
+        memmove((void *)(v13 + 280), (char *)a3 + 40, v18);
+        v33 = 0;
+        goto LABEL_26;
       }
-LABEL_23:
-      v37 = *(_QWORD **)(a1 + 16);
-      v18 = v37 - 2;
-      BugCheckParameter2 = (ULONG_PTR)(v37 - 2);
-      ExAcquirePushLockSharedEx((ULONG_PTR)(v37 - 2), 0LL);
-      v19 = *(_QWORD *)(a1 + 424);
-      v20 = *(_QWORD **)(a1 + 432);
-      v35 = v20;
-      if ( v19 && v20 )
+      v16 = AlpcpCaptureMessageData(v19, v18, (char *)a3 + 40);
+      v33 = v16;
+    }
+    if ( v16 < 0 )
+    {
+LABEL_57:
+      if ( v13 )
+        AlpcpUnlockMessage(v13);
+      return (unsigned int)v16;
+    }
+LABEL_26:
+    v37 = *(_QWORD **)(a1 + 16);
+    v20 = v37 - 2;
+    BugCheckParameter2 = (ULONG_PTR)(v37 - 2);
+    ExAcquirePushLockSharedEx((ULONG_PTR)(v37 - 2), 0LL);
+    v21 = *(_QWORD *)(a1 + 424);
+    v22 = *(_QWORD **)(a1 + 432);
+    v35 = v22;
+    if ( v21 && v22 )
+    {
+      v23 = v22 + 44;
+      ExAcquirePushLockSharedEx((ULONG_PTR)(v22 + 44), 0LL);
+      if ( (v35[52] & 0x20) != 0 )
+        goto LABEL_29;
+      *(_QWORD *)(v13 + 120) = v35[7];
+      if ( _InterlockedCompareExchange64(v23, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared(v23);
+      KeAbPostRelease((ULONG_PTR)v23);
+      v23 = (signed __int64 *)(v21 + 352);
+      ExAcquirePushLockSharedEx(v21 + 352, 0LL);
+      if ( (*(_DWORD *)(v21 + 416) & 0x20) != 0 )
       {
-        v21 = v20 + 44;
-        ExAcquirePushLockSharedEx((ULONG_PTR)(v20 + 44), 0LL);
-        if ( (v35[52] & 0x20) != 0 )
-          goto LABEL_62;
-        *(_QWORD *)(v13 + 120) = v35[7];
-        if ( _InterlockedCompareExchange64(v21, 0LL, 17LL) != 17 )
-          ExfReleasePushLockShared(v21);
-        KeAbPostRelease((ULONG_PTR)v21);
-        v21 = (signed __int64 *)(v19 + 352);
-        ExAcquirePushLockSharedEx(v19 + 352, 0LL);
-        if ( (*(_DWORD *)(v19 + 416) & 0x20) != 0 )
-        {
-LABEL_62:
-          v33 = -1073741769;
-        }
-        else
-        {
-          v22 = (__int64)v34;
-          v36 = (_WORD *)v34 - 15;
-          *v36 += 3;
-          v23 = CurrentThread;
-          _InterlockedExchange64((volatile __int64 *)&CurrentThread[1].RelativeTimerBias, v22);
-          v24 = (ULONG_PTR)v34;
-          *((_QWORD *)v34 + 4) = v23;
-          AlpcpSetOwnerPortMessage(v24, a1);
-          v25 = v37;
-          *(_QWORD *)(v24 + 184) = v37;
-          *(_QWORD *)(v24 + 192) = *v25;
-          *(_QWORD *)(v5 + 8) = v24;
-          if ( AlpcpLogEnabled )
-          {
-            AlpcpLogSendMessage(v24);
-            if ( AlpcpLogEnabled )
-              AlpcpLogWaitForReply(v24);
-          }
-          v26 = 0LL;
-          v35 = 0LL;
-          if ( *(_QWORD *)(v19 + 232) != v19 + 232 )
-          {
-            ExAcquirePushLockExclusiveEx(v19 + 224, 0LL);
-            v27 = *(_QWORD **)(v19 + 232);
-            v37 = v27;
-            if ( v27 != (_QWORD *)(v19 + 232) )
-            {
-              v35 = v27 - 177;
-              AlpcpInsertMessagePendingQueue(v19, v24);
-              ++*v36;
-              *(_DWORD *)(v24 + 40) |= 0x2000u;
-              v35[176] = v24;
-              v28 = v37;
-              v29 = *v37;
-              v30 = (_QWORD *)v37[1];
-              if ( *(_QWORD **)(*v37 + 8LL) != v37 || (_QWORD *)*v30 != v37 )
-                __fastfail(3u);
-              *v30 = v29;
-              *(_QWORD *)(v29 + 8) = v30;
-              *v28 = 0LL;
-            }
-            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v19 + 224), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-              ExfTryToWakePushLock((volatile signed __int64 *)(v19 + 224));
-            KeAbPostRelease(v19 + 224);
-            v24 = (ULONG_PTR)v34;
-            v26 = v35;
-          }
-          *(_QWORD *)(v5 + 32) = 0LL;
-          *(_QWORD *)(v5 + 24) = 0LL;
-          *(_QWORD *)(v5 + 40) = 0LL;
-          if ( v26 )
-          {
-            *(_QWORD *)(v5 + 24) = v26;
-          }
-          else
-          {
-            AlpcpInsertMessageMainQueue(v19, v24);
-            if ( (*(_DWORD *)(v19 + 416) & 0x200) != 0 )
-            {
-              ObfReferenceObject((PVOID)v19);
-              *(_QWORD *)(v5 + 32) = v19;
-              *(_BYTE *)(v5 + 58) = 0;
-            }
-          }
-          AlpcpUnlockMessage(v24);
-        }
-        if ( _InterlockedCompareExchange64(v21, 0LL, 17LL) != 17 )
-          ExfReleasePushLockShared(v21);
-        KeAbPostRelease((ULONG_PTR)v21);
-        v18 = (signed __int64 *)BugCheckParameter2;
-      }
-      else
-      {
+LABEL_29:
         v33 = -1073741769;
       }
-      if ( _InterlockedCompareExchange64(v18, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared(v18);
-      KeAbPostRelease((ULONG_PTR)v18);
-      v13 = (ULONG_PTR)v34;
-      v17 = v33;
-      if ( v33 >= 0 )
-        return (unsigned int)v17;
-      goto LABEL_67;
+      else
+      {
+        v24 = v34;
+        v36 = v34 - 48;
+        *(_WORD *)(v36 + 18) += 3;
+        v25 = CurrentThread;
+        _InterlockedExchange64((volatile __int64 *)&CurrentThread[1].RelativeTimerBias, v24);
+        v26 = v34;
+        *(_QWORD *)(v34 + 32) = v25;
+        AlpcpSetOwnerPortMessage(v26, a1);
+        v27 = v37;
+        *(_QWORD *)(v26 + 184) = v37;
+        *(_QWORD *)(v26 + 192) = *v27;
+        *(_QWORD *)(v5 + 8) = v26;
+        if ( AlpcpLogEnabled )
+        {
+          AlpcpLogSendMessage(v26);
+          if ( AlpcpLogEnabled )
+            AlpcpLogWaitForReply(v26);
+        }
+        v28 = 0LL;
+        v35 = 0LL;
+        if ( *(_QWORD *)(v21 + 232) != v21 + 232 )
+        {
+          ExAcquirePushLockExclusiveEx(v21 + 224, 0LL);
+          v29 = *(_QWORD **)(v21 + 232);
+          v37 = v29;
+          if ( v29 != (_QWORD *)(v21 + 232) )
+          {
+            v35 = v29 - 167;
+            AlpcpInsertMessagePendingQueue(v21, v26);
+            ++*(_WORD *)(v36 + 18);
+            *(_DWORD *)(v26 + 40) |= 0x2000u;
+            v35[166] = v26;
+            v30 = v37;
+            v31 = *v37;
+            v32 = (_QWORD *)v37[1];
+            if ( *(_QWORD **)(*v37 + 8LL) != v37 || (_QWORD *)*v32 != v37 )
+              __fastfail(3u);
+            *v32 = v31;
+            *(_QWORD *)(v31 + 8) = v32;
+            *v30 = 0LL;
+          }
+          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v21 + 224), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+            ExfTryToWakePushLock((volatile signed __int64 *)(v21 + 224));
+          KeAbPostRelease(v21 + 224);
+          v26 = v34;
+          v28 = v35;
+        }
+        *(_QWORD *)(v5 + 32) = 0LL;
+        *(_QWORD *)(v5 + 24) = 0LL;
+        *(_QWORD *)(v5 + 40) = 0LL;
+        if ( v28 )
+        {
+          *(_QWORD *)(v5 + 24) = v28;
+        }
+        else
+        {
+          AlpcpInsertMessageMainQueue(v21, v26);
+          if ( (*(_DWORD *)(v21 + 416) & 0x200) != 0 )
+          {
+            ObfReferenceObject((PVOID)v21);
+            *(_QWORD *)(v5 + 32) = v21;
+            *(_BYTE *)(v5 + 58) = 0;
+          }
+        }
+        AlpcpUnlockMessage(v26);
+      }
+      if ( _InterlockedCompareExchange64(v23, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared(v23);
+      KeAbPostRelease((ULONG_PTR)v23);
+      v20 = (signed __int64 *)BugCheckParameter2;
     }
-    result = AlpcpAllocateMessage((ULONG_PTR *)&v34, 0LL);
-    if ( (int)result >= 0 )
-      goto LABEL_15;
+    else
+    {
+      v33 = -1073741769;
+    }
+    if ( _InterlockedCompareExchange64(v20, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared(v20);
+    KeAbPostRelease((ULONG_PTR)v20);
+    v13 = v34;
+    v16 = v33;
+    if ( v33 >= 0 )
+      return (unsigned int)v16;
+    goto LABEL_57;
   }
   return result;
 }

@@ -1,26 +1,27 @@
 /*
- * XREFs of NtCopyFileChunk @ 0x1406588A0
+ * XREFs of NtCopyFileChunk @ 0x1405CDD80
  * Callers:
  *     <none>
  * Callees:
- *     IopExceptionFilter @ 0x14025E7A8 (IopExceptionFilter.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IopReferenceFileObject @ 0x1402AC790 (IopReferenceFileObject.c)
- *     IopFileObjectRevoked @ 0x1402AC840 (IopFileObjectRevoked.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     IoIs32bitProcess @ 0x1402DF4A0 (IoIs32bitProcess.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     IopWaitForSynchronousIoEvent @ 0x140417B94 (IopWaitForSynchronousIoEvent.c)
- *     IopFreeCopyObjectsFromDataBuffer @ 0x140418218 (IopFreeCopyObjectsFromDataBuffer.c)
- *     IopPopulateCopyWriteWorkerData @ 0x1404182FC (IopPopulateCopyWriteWorkerData.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObReferenceFileObjectForWrite @ 0x14071E230 (ObReferenceFileObjectForWrite.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     IopReadFile @ 0x14073A450 (IopReadFile.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     IoIs32bitProcess @ 0x1402644F0 (IoIs32bitProcess.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     IopFileObjectRevoked @ 0x14027BCE0 (IopFileObjectRevoked.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     IopReferenceFileObject @ 0x140348A20 (IopReferenceFileObject.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     IopWaitForSynchronousIoEvent @ 0x1403F1280 (IopWaitForSynchronousIoEvent.c)
+ *     IopFreeCopyObjectsFromDataBuffer @ 0x1403F1B00 (IopFreeCopyObjectsFromDataBuffer.c)
+ *     IopPopulateCopyWriteWorkerData @ 0x1403F1BE4 (IopPopulateCopyWriteWorkerData.c)
+ *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopExceptionFilter @ 0x140500A60 (IopExceptionFilter.c)
+ *     IopReadFile @ 0x1405CE318 (IopReadFile.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     ObReferenceFileObjectForWrite @ 0x140650510 (ObReferenceFileObjectForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall NtCopyFileChunk(
@@ -35,133 +36,154 @@ __int64 __fastcall NtCopyFileChunk(
         __int64 a9,
         int a10)
 {
-  struct _KEVENT *v11; // r14
-  KPROCESSOR_MODE PreviousMode; // r12
-  __int64 v14; // r13
-  __int64 v15; // rcx
-  __int128 v16; // xmm6
-  __int64 v17; // rdi
+  KPROCESSOR_MODE PreviousMode; // r15
+  __int64 v13; // r12
+  __int64 v14; // rcx
+  __int128 v15; // xmm6
+  __int64 v16; // rdi
   char *Pool2; // rax
-  char *v19; // rsi
+  char *v18; // rsi
   int File; // edi
+  char *v20; // r13
   __int64 v21; // rcx
   __int64 v22; // rdx
-  char *v23; // rcx
-  PVOID *v24; // rdi
-  int Object; // [rsp+20h] [rbp-108h]
-  SIZE_T Length; // [rsp+30h] [rbp-F8h]
-  int v27; // [rsp+70h] [rbp-B8h]
-  char *v28; // [rsp+78h] [rbp-B0h]
-  char v29; // [rsp+90h] [rbp-98h]
-  __int64 v30; // [rsp+98h] [rbp-90h]
-  _DWORD v31[3]; // [rsp+A4h] [rbp-84h] BYREF
-  POBJECT_HANDLE_INFORMATION v32; // [rsp+B0h] [rbp-78h]
-  PIRP v33; // [rsp+B8h] [rbp-70h]
-  struct _KEVENT Event; // [rsp+C0h] [rbp-68h] BYREF
-  __int128 v35; // [rsp+D8h] [rbp-50h]
-  int v39; // [rsp+178h] [rbp+50h]
+  int v23; // r13d
+  PIRP *v24; // r13
+  PADAPTER_OBJECT *v25; // rdi
+  int InitialState; // [rsp+20h] [rbp-128h]
+  SIZE_T Length; // [rsp+30h] [rbp-118h]
+  int v28; // [rsp+60h] [rbp-E8h]
+  char v29; // [rsp+70h] [rbp-D8h]
+  HANDLE EventHandle; // [rsp+78h] [rbp-D0h] BYREF
+  PRKEVENT Event; // [rsp+80h] [rbp-C8h]
+  PIRP *v32; // [rsp+88h] [rbp-C0h]
+  __int64 v33; // [rsp+90h] [rbp-B8h]
+  __int64 v34; // [rsp+98h] [rbp-B0h]
+  PVOID Object; // [rsp+A0h] [rbp-A8h] BYREF
+  PVOID v36; // [rsp+A8h] [rbp-A0h] BYREF
+  POBJECT_HANDLE_INFORMATION v37; // [rsp+B0h] [rbp-98h]
+  _DWORD *v38; // [rsp+B8h] [rbp-90h]
+  PIRP Irp; // [rsp+C0h] [rbp-88h]
+  __int128 v40; // [rsp+C8h] [rbp-80h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D8h] [rbp-70h] BYREF
+  int v45; // [rsp+198h] [rbp+50h]
 
-  v35 = 0LL;
-  memset(&Event, 0, sizeof(Event));
-  v11 = 0LL;
-  v33 = 0LL;
+  v40 = 0LL;
+  v34 = 0LL;
+  v38 = 0LL;
+  EventHandle = (HANDLE)-1LL;
+  Event = 0LL;
+  Irp = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( a10 )
     return 3221225485LL;
   if ( PreviousMode )
   {
-    v14 = a6;
+    v13 = a6;
     if ( (a6 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v15 = 0x7FFFFFFF0000LL;
-    v30 = *(_QWORD *)a6;
+    v14 = 0x7FFFFFFF0000LL;
+    v33 = *(_QWORD *)a6;
     if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-      v15 = (__int64)a4;
-    *(_DWORD *)v15 = *(_DWORD *)v15;
-    v16 = *(_OWORD *)a4;
-    v35 = *(_OWORD *)a4;
-    v17 = v30;
+      v14 = (__int64)a4;
+    *(_DWORD *)v14 = *(_DWORD *)v14;
+    v15 = *(_OWORD *)a4;
+    v40 = *(_OWORD *)a4;
+    v16 = v33;
   }
   else
   {
-    v14 = a6;
-    v17 = *(_QWORD *)a6;
-    v16 = *(_OWORD *)a4;
-    v35 = *(_OWORD *)a4;
+    v13 = a6;
+    v16 = *(_QWORD *)a6;
+    v33 = *(_QWORD *)a6;
+    v15 = *(_OWORD *)a4;
+    v40 = *(_OWORD *)a4;
   }
   Pool2 = (char *)ExAllocatePool2(67LL, a5 + 72LL, 1883467593LL);
-  v19 = Pool2;
+  v18 = Pool2;
   if ( Pool2 )
   {
-    v28 = Pool2;
+    v20 = Pool2;
     memset(Pool2, 0, 0x48uLL);
-    v19 += 72;
-    *((_QWORD *)v28 + 8) = v17;
-    v32 = (POBJECT_HANDLE_INFORMATION)(v28 + 56);
-    File = IopReferenceFileObject(a1, 1u, PreviousMode, (PVOID *)v28 + 7, 0LL);
+    v18 += 72;
+    *((_QWORD *)v20 + 8) = v16;
+    v37 = (POBJECT_HANDLE_INFORMATION)(v20 + 56);
+    File = IopReferenceFileObject(a1, 1u, PreviousMode, (PVOID *)v20 + 7, 0LL);
     if ( File < 0 )
-      goto LABEL_40;
+      goto LABEL_42;
     File = ObReferenceFileObjectForWrite(a2);
-    if ( File >= 0 && IopFileObjectRevoked(*((_QWORD *)v28 + 6)) )
+    if ( File >= 0 && IopFileObjectRevoked(*((_QWORD *)v20 + 6)) )
       File = -1073739504;
     if ( File < 0 )
-      goto LABEL_40;
-    v21 = *((_QWORD *)v28 + 6);
-    v39 = *(_DWORD *)(v21 + 80) & 2;
+      goto LABEL_42;
+    v21 = *((_QWORD *)v20 + 6);
+    v45 = *(_DWORD *)(v21 + 80) & 2;
     v29 = (*(_DWORD *)(v21 + 80) & 4) != 0;
+    v32 = (PIRP *)(v20 + 32);
     v22 = 0LL;
-    if ( !v39 )
+    if ( !v45 )
       v22 = (__int64)a3;
     File = IopPopulateCopyWriteWorkerData(
              v21,
              (__int64)a4,
-             (__int64)v19,
+             (__int64)v18,
              a5,
-             Object,
-             (__int64)v32,
+             InitialState,
+             (__int64)v37,
              v22,
              a7,
              a9,
-             0,
-             (__int64)(v28 + 32));
+             SHIDWORD(v34),
+             (__int64)(v20 + 32));
     if ( File >= 0 )
     {
-      if ( v39 )
+      v23 = v45;
+      if ( v45 )
       {
-        KeInitializeEvent(&Event, SynchronizationEvent, 0);
-        v23 = v28;
-        *(_QWORD *)(*((_QWORD *)v28 + 4) + 80LL) = &Event;
-        *(_DWORD *)(*((_QWORD *)v28 + 4) + 16LL) |= 4u;
+        memset(&ObjectAttributes.Length + 1, 0, 20);
+        memset(&ObjectAttributes.Attributes + 1, 0, 20);
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.Attributes = 512;
+        File = ZwCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, SynchronizationEvent, 0);
+        if ( File < 0 )
+          goto LABEL_42;
+        Object = 0LL;
+        File = ObReferenceObjectByHandle(EventHandle, 0, (POBJECT_TYPE)ExEventObjectType, 0, &Object, 0LL);
+        v38 = Object;
+        if ( File < 0 )
+          goto LABEL_42;
+        v24 = v32;
+        (*v32)->UserEvent = (PKEVENT)Object;
         if ( a3 )
         {
-          *(_QWORD *)&v31[1] = 0LL;
-          File = ObReferenceObjectByHandle(a3, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, (PVOID *)&v31[1], 0LL);
-          v11 = *(struct _KEVENT **)&v31[1];
+          v36 = 0LL;
+          File = ObReferenceObjectByHandle(a3, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &v36, 0LL);
+          Event = (PRKEVENT)v36;
           if ( File < 0 )
-            goto LABEL_40;
-          KeResetEvent(*(PRKEVENT *)&v31[1]);
-          v23 = v28;
+            goto LABEL_42;
+          KeResetEvent((PRKEVENT)v36);
         }
-        v33 = (PIRP)*((_QWORD *)v23 + 4);
+        Irp = *v24;
+        v23 = v45;
       }
-      *(_OWORD *)a4 = v16;
-      v24 = (PVOID *)v32;
-      ObfReferenceObject(*(PVOID *)v32);
+      *(_OWORD *)a4 = v15;
+      v25 = (PADAPTER_OBJECT *)v37;
+      ObfReferenceObject(*(PVOID *)v37);
       LODWORD(Length) = a5;
-      File = IopReadFile(*v24, (__int64)a4, v19, Length, v14, a8, 0LL, 0LL, 0x40000000, (__int64)v24);
-      v19 = 0LL;
-      if ( File >= 0 && v39 )
+      File = IopReadFile(*v25, (__int64)a4, v18, Length, v13, a8, 0x40000000, (__int64)v25);
+      v18 = 0LL;
+      if ( File >= 0 && v23 )
       {
-        File = IopWaitForSynchronousIoEvent(v33, PreviousMode, v29, &Event);
+        File = IopWaitForSynchronousIoEvent(Irp, PreviousMode, v29, v38);
         if ( File >= 0 )
         {
           if ( PreviousMode )
           {
             if ( IoIs32bitProcess(0LL) )
-              v27 = *(_DWORD *)(unsigned int)*a4;
+              v28 = *(_DWORD *)(unsigned int)*a4;
             else
-              v27 = *a4;
-            File = v27;
+              v28 = *a4;
+            File = v28;
           }
           else if ( IoIs32bitProcess(0LL) )
           {
@@ -172,25 +194,27 @@ __int64 __fastcall NtCopyFileChunk(
             File = *a4;
           }
         }
-        if ( v11 )
-          KeSetEvent(v11, 0, 0);
+        if ( Event )
+          KeSetEvent(Event, 0, 0);
       }
       else if ( File >= 0 )
       {
         File = 259;
       }
-      goto LABEL_40;
+      goto LABEL_42;
     }
-    *((_QWORD *)v28 + 6) = 0LL;
+    *((_QWORD *)v20 + 6) = 0LL;
   }
   else
   {
     File = -1073741670;
   }
-LABEL_40:
-  if ( v19 )
-    IopFreeCopyObjectsFromDataBuffer((__int64)v19, 1);
-  if ( v11 )
-    ObfDereferenceObject(v11);
+LABEL_42:
+  if ( v18 )
+    IopFreeCopyObjectsFromDataBuffer((__int64)v18, 1);
+  if ( EventHandle != (HANDLE)-1LL )
+    ObCloseHandle(EventHandle, 0);
+  if ( Event )
+    HalPutDmaAdapter((PADAPTER_OBJECT)Event);
   return (unsigned int)File;
 }

@@ -1,54 +1,39 @@
 /*
- * XREFs of CmpLoadManufacturingProfileNode @ 0x140B9A124
+ * XREFs of CmpLoadManufacturingProfileNode @ 0x140A8EDBC
  * Callers:
- *     CmpLoadManufacturingProfileServicesNode @ 0x140B9A214 (CmpLoadManufacturingProfileServicesNode.c)
+ *     CmpLoadManufacturingProfileServicesNode @ 0x140A8EE84 (CmpLoadManufacturingProfileServicesNode.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpFindSubKeyByName @ 0x1408264AC (CmpFindSubKeyByName.c)
- *     CmpLoadManufacturingModeNode @ 0x140B99FFC (CmpLoadManufacturingModeNode.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByName @ 0x1407ACD14 (CmpFindSubKeyByName.c)
+ *     CmpLoadManufacturingModeNode @ 0x140A8ECCC (CmpLoadManufacturingModeNode.c)
  */
 
-bool __fastcall CmpLoadManufacturingProfileNode(
-        ULONG_PTR BugCheckParameter3,
-        ULONG_PTR a2,
-        const WCHAR *a3,
-        __int64 *a4,
-        unsigned int *a5)
+bool __fastcall CmpLoadManufacturingProfileNode(__int64 a1, __int64 a2, const WCHAR *a3, __int64 *a4, __int64 a5)
 {
   unsigned int SubKeyByName; // edi
-  __int64 CellFlat; // rax
-  __int64 v11; // [rsp+20h] [rbp-20h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-18h] BYREF
-  __int64 v13; // [rsp+60h] [rbp+20h] BYREF
+  __int64 v10; // rax
+  __int64 v11; // [rsp+20h] [rbp-28h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-20h] BYREF
+  int v13; // [rsp+60h] [rbp+18h] BYREF
+  int v14; // [rsp+64h] [rbp+1Ch]
 
   v11 = 0LL;
-  v13 = 0xFFFFFFFFLL;
+  v13 = -1;
+  v14 = 0;
   DestinationString = 0LL;
-  if ( !a3 || !CmpLoadManufacturingModeNode(BugCheckParameter3, a2, &v11, (unsigned int *)&v13) )
+  if ( !a3 || !CmpLoadManufacturingModeNode(a1, a2, &v11, (__int64)&v13) )
     return 0;
   if ( RtlInitUnicodeStringEx(&DestinationString, a3) < 0 )
   {
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter3, &v13);
-    else
-      HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v13);
+    (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v13);
     return 0;
   }
-  SubKeyByName = CmpFindSubKeyByName(BugCheckParameter3);
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(BugCheckParameter3, &v13);
-  else
-    HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v13);
+  SubKeyByName = CmpFindSubKeyByName(a1, v11, (__int64)&DestinationString);
+  (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v13);
   if ( SubKeyByName == -1 )
     return 0;
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(BugCheckParameter3, SubKeyByName, a5);
-  else
-    CellFlat = HvpGetCellPaged(BugCheckParameter3, SubKeyByName, a5);
-  *a4 = CellFlat;
-  return CellFlat != 0;
+  v10 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64))(a1 + 8))(a1, SubKeyByName, a5);
+  *a4 = v10;
+  return v10 != 0;
 }

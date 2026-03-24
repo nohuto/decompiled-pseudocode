@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetFloatAnimatableProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C0215AE0
+ * XREFs of ?GetFloatAnimatableProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C01E8600
  * Callers:
  *     <none>
  * Callees:
- *     ?GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C020D650 (-GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CRectangleClipMarshaler::GetFloatAnimatableProperty(
@@ -12,58 +12,90 @@ __int64 __fastcall DirectComposition::CRectangleClipMarshaler::GetFloatAnimatabl
         float *a3)
 {
   unsigned int v3; // r9d
-  int v4; // eax
+  unsigned int v4; // edx
+  unsigned int v5; // edx
+  unsigned int v6; // edx
+  unsigned int v7; // edx
+  unsigned int v8; // edx
+  int v9; // eax
+  unsigned int v10; // edx
+  unsigned int v11; // edx
+  unsigned int v12; // edx
+  unsigned int v13; // edx
 
   v3 = 0;
   if ( a2 > 0xA )
   {
-    switch ( a2 )
+    v10 = a2 - 11;
+    if ( !v10 )
     {
-      case 0xBu:
-        v4 = *((_DWORD *)this + 31);
-        goto LABEL_27;
-      case 0xCu:
-        v4 = *((_DWORD *)this + 32);
-        goto LABEL_27;
-      case 0xDu:
-        v4 = *((_DWORD *)this + 33);
-        goto LABEL_27;
-      case 0xEu:
-        v4 = *((_DWORD *)this + 34);
-        goto LABEL_27;
-      case 0xFu:
-        v4 = *((_DWORD *)this + 35);
-        goto LABEL_27;
+      *a3 = *((float *)this + 31);
+      return v3;
     }
+    v11 = v10 - 1;
+    if ( !v11 )
+    {
+      v9 = *((_DWORD *)this + 32);
+      goto LABEL_15;
+    }
+    v12 = v11 - 1;
+    if ( !v12 )
+    {
+      v9 = *((_DWORD *)this + 33);
+      goto LABEL_15;
+    }
+    v13 = v12 - 1;
+    if ( !v13 )
+    {
+      v9 = *((_DWORD *)this + 34);
+      goto LABEL_15;
+    }
+    if ( v13 == 1 )
+    {
+      v9 = *((_DWORD *)this + 35);
+      goto LABEL_15;
+    }
+    return (unsigned int)-1073741811;
   }
-  else
+  if ( a2 == 10 )
   {
-    switch ( a2 )
-    {
-      case 0xAu:
-        v4 = *((_DWORD *)this + 30);
-        goto LABEL_27;
-      case 4u:
-        v4 = *((_DWORD *)this + 24);
-        goto LABEL_27;
-      case 5u:
-        v4 = *((_DWORD *)this + 25);
-        goto LABEL_27;
-      case 6u:
-        v4 = *((_DWORD *)this + 26);
-        goto LABEL_27;
-      case 7u:
-        v4 = *((_DWORD *)this + 27);
-        goto LABEL_27;
-      case 8u:
-        v4 = *((_DWORD *)this + 28);
-        goto LABEL_27;
-      case 9u:
-        v4 = *((_DWORD *)this + 29);
-LABEL_27:
-        *(_DWORD *)a3 = v4;
-        return v3;
-    }
+    v9 = *((_DWORD *)this + 30);
+    goto LABEL_15;
   }
-  return (unsigned int)DirectComposition::CResourceMarshaler::GetFloatAnimatableProperty(this, a2, a3);
+  v4 = a2 - 4;
+  if ( !v4 )
+  {
+    v9 = *((_DWORD *)this + 24);
+    goto LABEL_15;
+  }
+  v5 = v4 - 1;
+  if ( !v5 )
+  {
+    v9 = *((_DWORD *)this + 25);
+    goto LABEL_15;
+  }
+  v6 = v5 - 1;
+  if ( !v6 )
+  {
+    v9 = *((_DWORD *)this + 26);
+    goto LABEL_15;
+  }
+  v7 = v6 - 1;
+  if ( !v7 )
+  {
+    v9 = *((_DWORD *)this + 27);
+    goto LABEL_15;
+  }
+  v8 = v7 - 1;
+  if ( !v8 )
+  {
+    v9 = *((_DWORD *)this + 28);
+    goto LABEL_15;
+  }
+  if ( v8 != 1 )
+    return (unsigned int)-1073741811;
+  v9 = *((_DWORD *)this + 29);
+LABEL_15:
+  *(_DWORD *)a3 = v9;
+  return v3;
 }

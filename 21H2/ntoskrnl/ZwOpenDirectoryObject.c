@@ -1,18 +1,15 @@
 /*
- * XREFs of ZwOpenDirectoryObject @ 0x14041C260
+ * XREFs of ZwOpenDirectoryObject @ 0x1403FAEA0
  * Callers:
- *     DifZwOpenDirectoryObjectWrapper @ 0x140621660 (DifZwOpenDirectoryObjectWrapper.c)
- *     SepCleanupLUIDDeviceMapDirectory @ 0x14069CEC8 (SepCleanupLUIDDeviceMapDirectory.c)
- *     IopGetLegacyVetoListDrivers @ 0x140799218 (IopGetLegacyVetoListDrivers.c)
- *     BiGetNtPartitionPath @ 0x140802BE0 (BiGetNtPartitionPath.c)
- *     PiDrvDbRegisterNode @ 0x14082666C (PiDrvDbRegisterNode.c)
- *     PiDrvDbEnumDriverStoreNodes @ 0x1408276AC (PiDrvDbEnumDriverStoreNodes.c)
- *     ObpInitializeRootNamespace @ 0x14082C020 (ObpInitializeRootNamespace.c)
- *     PiDrvDbUnregisterNode @ 0x14095E00C (PiDrvDbUnregisterNode.c)
- *     ExpFindArcName @ 0x1409FC2D0 (ExpFindArcName.c)
- *     SiGetEfiSystemDevice @ 0x140A21C40 (SiGetEfiSystemDevice.c)
- *     ObCreateSiloRootDirectory @ 0x140A34510 (ObCreateSiloRootDirectory.c)
- *     CmGetSystemDriverList @ 0x140B12C84 (CmGetSystemDriverList.c)
+ *     IopGetLegacyVetoListDrivers @ 0x140661930 (IopGetLegacyVetoListDrivers.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x1406A5914 (SepCleanupLUIDDeviceMapDirectory.c)
+ *     BiGetNtPartitionPath @ 0x140782748 (BiGetNtPartitionPath.c)
+ *     ObpInitializeRootNamespace @ 0x1407A0990 (ObpInitializeRootNamespace.c)
+ *     PiDrvDbEnumDriverStoreNodes @ 0x1407A43FC (PiDrvDbEnumDriverStoreNodes.c)
+ *     ExpFindArcName @ 0x14094FF14 (ExpFindArcName.c)
+ *     SiGetEfiSystemDevice @ 0x140973BD0 (SiGetEfiSystemDevice.c)
+ *     ObCreateSiloRootDirectory @ 0x1409804D0 (ObCreateSiloRootDirectory.c)
+ *     CmGetSystemDriverList @ 0x140A5F174 (CmGetSystemDriverList.c)
  * Callees:
  *     <none>
  */

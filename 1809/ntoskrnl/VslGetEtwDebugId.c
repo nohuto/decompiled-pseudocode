@@ -1,12 +1,12 @@
 /*
- * XREFs of VslGetEtwDebugId @ 0x14027B0EC
+ * XREFs of VslGetEtwDebugId @ 0x14027B1EC
  * Callers:
- *     EtwpLocateDbgIdForRegEntry @ 0x1406BA0D0 (EtwpLocateDbgIdForRegEntry.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x1406BA0B0 (EtwpLocateDbgIdForRegEntry.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     VslpLockPagesForTransfer @ 0x14027C414 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x14027C5F0 (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpLockPagesForTransfer @ 0x14027C514 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14027C6F0 (VslpUnlockPagesForTransfer.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpReleaseCellPaged @ 0x140684510
+ * XREFs of HvpReleaseCellPaged @ 0x1406844F0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HvpReleaseCellPaged(ULONG_PTR BugCheckParameter2, unsigned int *a2)

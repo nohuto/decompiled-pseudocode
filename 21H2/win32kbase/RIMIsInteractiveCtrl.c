@@ -1,9 +1,9 @@
 /*
- * XREFs of RIMIsInteractiveCtrl @ 0x1C018C204
+ * XREFs of RIMIsInteractiveCtrl @ 0x1C00B675C
  * Callers:
- *     RIMAllocateHidDesc @ 0x1C018A2D4 (RIMAllocateHidDesc.c)
- *     RIMVirtAllocateHidDesc @ 0x1C018D358 (RIMVirtAllocateHidDesc.c)
- *     RIMIDECreateHIDDesc @ 0x1C019B10C (RIMIDECreateHIDDesc.c)
+ *     RIMAllocateHidDesc @ 0x1C0056F3C (RIMAllocateHidDesc.c)
+ *     RIMVirtAllocateHidDesc @ 0x1C0162908 (RIMVirtAllocateHidDesc.c)
+ *     RIMIDECreateHIDDesc @ 0x1C01674DC (RIMIDECreateHIDDesc.c)
  * Callees:
  *     <none>
  */

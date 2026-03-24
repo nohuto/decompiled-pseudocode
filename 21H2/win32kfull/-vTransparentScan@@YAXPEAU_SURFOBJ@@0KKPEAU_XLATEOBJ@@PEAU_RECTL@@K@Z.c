@@ -1,12 +1,12 @@
 /*
- * XREFs of ?vTransparentScan@@YAXPEAU_SURFOBJ@@0KKPEAU_XLATEOBJ@@PEAU_RECTL@@K@Z @ 0x1C0290F68
+ * XREFs of ?vTransparentScan@@YAXPEAU_SURFOBJ@@0KKPEAU_XLATEOBJ@@PEAU_RECTL@@K@Z @ 0x1C02933F8
  * Callers:
- *     ?GreTransparentBltPS@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3K@Z @ 0x1C028F38C (-GreTransparentBltPS@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3K@Z.c)
+ *     ?GreTransparentBltPS@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3K@Z @ 0x1C02916AC (-GreTransparentBltPS@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3K@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?ReadScanLine@@YAKPEAEKKKK@Z @ 0x1C028F698 (-ReadScanLine@@YAKPEAEKKKK@Z.c)
- *     ?SkipScanLine@@YAKPEAEKKKK@Z @ 0x1C028F778 (-SkipScanLine@@YAKPEAEKKKK@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?ReadScanLine@@YAKPEAEKKKK@Z @ 0x1C02919CC (-ReadScanLine@@YAKPEAEKKKK@Z.c)
+ *     ?SkipScanLine@@YAKPEAEKKKK@Z @ 0x1C0291AAC (-SkipScanLine@@YAKPEAEKKKK@Z.c)
  */
 
 void __fastcall vTransparentScan(
@@ -59,7 +59,7 @@ void __fastcall vTransparentScan(
         if ( !a1 )
           p_hsurf = 112LL;
         if ( (*(_DWORD *)p_hsurf & 0x400) != 0 )
-          (*(void (__fastcall **)(struct _SURFOBJ *, struct _SURFOBJ *, _QWORD, struct _XLATEOBJ *, __int128 *, _DWORD *))(v15 + 2816))(
+          (*(void (__fastcall **)(struct _SURFOBJ *, struct _SURFOBJ *, _QWORD, struct _XLATEOBJ *, __int128 *, _DWORD *))(v15 + 2840))(
             a1,
             a2,
             0LL,

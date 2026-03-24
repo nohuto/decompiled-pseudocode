@@ -1,62 +1,54 @@
 /*
- * XREFs of ?Resume@VIDMM_DEVICE@@QEAAJ_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0088C50
+ * XREFs of ?Resume@VIDMM_DEVICE@@QEAAJ_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0083190
  * Callers:
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00B5730 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008C500 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
  * Callees:
- *     ?RemoveFromPenaltyBoxByListEntry@VIDMM_GLOBAL@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0001D4C (-RemoveFromPenaltyBoxByListEntry@VIDMM_GLOBAL@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00052B8 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005408 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0005468 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C002E3CC (McTemplateK0p_EtwWriteTransfer.c)
- *     ?TryPageInDevice@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0088BB4 (-TryPageInDevice@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z.c)
- *     ?ResumeSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ @ 0x1C0088E2C (-ResumeSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ.c)
- *     ?ResumePagingQueues@VIDMM_DEVICE@@QEAAXXZ @ 0x1C0088E54 (-ResumePagingQueues@VIDMM_DEVICE@@QEAAXXZ.c)
- *     ?RecordVaPagingHistorySuspendResumeDevice@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAVVIDMM_DEVICE@@E@Z @ 0x1C00892B4 (-RecordVaPagingHistorySuspendResumeDevice@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAVVIDMM_DEVICE.c)
- *     ?LogDeviceInPenaltyBoxEvent@VIDMM_COMMIT_TELEMETRY@@QEAAXPEAVVIDMM_DEVICE@@_N@Z @ 0x1C00B4ECC (-LogDeviceInPenaltyBoxEvent@VIDMM_COMMIT_TELEMETRY@@QEAAXPEAVVIDMM_DEVICE@@_N@Z.c)
- *     ?Init@VIDMM_COMMIT_TELEMETRY@@QEAAXPEAVVIDMM_GLOBAL@@PEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@@Z @ 0x1C00B55A0 (-Init@VIDMM_COMMIT_TELEMETRY@@QEAAXPEAVVIDMM_GLOBAL@@PEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@@Z.c)
- *     GetBucketIdForAllocationSizePow2 @ 0x1C00F3CD0 (GetBucketIdForAllocationSizePow2.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001B54 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001BCC (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001D2C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?RemoveFromPenaltyBoxByListEntry@VIDMM_GLOBAL@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0012AD8 (-RemoveFromPenaltyBoxByListEntry@VIDMM_GLOBAL@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0023F2C (McTemplateK0p_EtwWriteTransfer.c)
+ *     ?TryPageInDevice@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0060594 (-TryPageInDevice@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?RecordVaPagingHistorySuspendResumeDevice@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAVVIDMM_DEVICE@@E@Z @ 0x1C0083114 (-RecordVaPagingHistorySuspendResumeDevice@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAVVIDMM_DEVICE.c)
+ *     ?ResumeSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ @ 0x1C0083168 (-ResumeSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ.c)
+ *     ?ResumePagingQueues@VIDMM_DEVICE@@QEAAXXZ @ 0x1C0083320 (-ResumePagingQueues@VIDMM_DEVICE@@QEAAXXZ.c)
+ *     ?Init@VIDMM_COMMIT_TELEMETRY@@QEAAXPEAVVIDMM_GLOBAL@@PEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@@Z @ 0x1C00BE390 (-Init@VIDMM_COMMIT_TELEMETRY@@QEAAXPEAVVIDMM_GLOBAL@@PEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@@Z.c)
+ *     ?LogDeviceInPenaltyBoxEvent@VIDMM_COMMIT_TELEMETRY@@QEAAXPEAVVIDMM_DEVICE@@_N@Z @ 0x1C00BE70C (-LogDeviceInPenaltyBoxEvent@VIDMM_COMMIT_TELEMETRY@@QEAAXPEAVVIDMM_DEVICE@@_N@Z.c)
  */
 
-__int64 __fastcall VIDMM_DEVICE::Resume(VIDMM_DEVICE *this, char a2, bool *a3, struct VIDMM_ALLOC **a4)
+__int64 __fastcall VIDMM_DEVICE::Resume(VIDMM_DEVICE *this, bool a2, bool *a3, struct VIDMM_ALLOC **a4)
 {
-  LARGE_INTEGER PerformanceCounter; // rdi
-  char v9; // al
-  __int64 v10; // rcx
-  int v11; // ebp
+  int v8; // esi
+  __int64 v9; // rcx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
   VIDMM_GLOBAL *v12; // rcx
   __int64 v13; // rbx
-  __int64 TimeIncrement; // rcx
+  ULONG TimeIncrement; // eax
   __int64 v15; // r8
-  char v16; // al
-  __int64 v17; // rcx
-  __int64 v19; // rbx
-  VIDMM_COMMIT_TELEMETRY *v20; // rcx
+  __int64 v16; // rcx
+  bool v17; // zf
+  int v18; // edx
+  __int64 v20; // rax
   __int64 v21; // rax
-  LARGE_INTEGER v22; // rax
-  __int64 v23; // r8
-  __int64 v24; // rdx
-  __int64 v25; // r10
-  __int64 v26; // r9
-  _QWORD *v27; // rax
-  _BYTE v28[8]; // [rsp+30h] [rbp-38h] BYREF
-  DXGPUSHLOCK *v29; // [rsp+38h] [rbp-30h]
-  int v30; // [rsp+40h] [rbp-28h]
+  _QWORD *v22; // rax
+  __int64 v23; // rbx
+  VIDMM_COMMIT_TELEMETRY *v24; // rcx
+  _BYTE v25[8]; // [rsp+30h] [rbp-38h] BYREF
+  DXGPUSHLOCK *v26; // [rsp+38h] [rbp-30h]
+  int v27; // [rsp+40h] [rbp-28h]
 
   if ( g_IsInternalReleaseOrDbg )
   {
-    v21 = WdLogNewEntry5_WdTrace(this);
-    *(_QWORD *)(v21 + 24) = this;
-    *(_QWORD *)(v21 + 32) = *((_DWORD *)this + 15) & 7;
+    v20 = WdLogNewEntry5_WdTrace(this);
+    *(_QWORD *)(v20 + 24) = this;
+    *(_QWORD *)(v20 + 32) = *((_DWORD *)this + 13) & 7;
   }
-  PerformanceCounter.QuadPart = 0LL;
-  v9 = *((_BYTE *)this + 58) | 2;
-  *((_BYTE *)this + 58) = v9;
-  if ( (v9 & 4) != 0 )
-    PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  v10 = *((_QWORD *)this + 4);
-  v11 = 0;
-  if ( v10 && (*(_BYTE *)(v10 + 204) || _InterlockedCompareExchange((volatile signed __int32 *)(v10 + 200), 0, 0))
-    || (v11 = VIDMM_GLOBAL::TryPageInDevice(*(VIDMM_GLOBAL **)this, this, a2, a3, a4), v11 >= 0) )
+  *((_BYTE *)this + 50) |= 2u;
+  v8 = 0;
+  v9 = *((_QWORD *)this + 4);
+  if ( v9 && (*(_BYTE *)(v9 + 204) || _InterlockedCompareExchange((volatile signed __int32 *)(v9 + 200), 0, 0))
+    || (v8 = VIDMM_GLOBAL::TryPageInDevice(*(VIDMM_GLOBAL **)this, this, a2, a3, a4), v8 >= 0) )
   {
     VIDMM_DEVICE::ResumePagingQueues(this);
     VIDMM_DEVICE::ResumeSchedulerDevice(this);
@@ -64,65 +56,59 @@ __int64 __fastcall VIDMM_DEVICE::Resume(VIDMM_DEVICE *this, char a2, bool *a3, s
       *(VIDMM_GLOBAL **)this,
       *((struct VIDMM_PROCESS **)this + 1),
       this,
-      1u);
-    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v28, (struct _KTHREAD **)(*(_QWORD *)this + 44512LL), 0);
-    DXGPUSHLOCK::AcquireExclusive(v29);
-    v30 = 2;
-    VIDMM_GLOBAL::RemoveFromPenaltyBoxByListEntry(v12, (struct _LIST_ENTRY *)this + 12);
-    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v28);
+      1);
+    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v25, (struct _KTHREAD **)(*(_QWORD *)this + 44472LL), 0);
+    DXGPUSHLOCK::AcquireExclusive(v26);
+    v27 = 2;
+    VIDMM_GLOBAL::RemoveFromPenaltyBoxByListEntry(v12, (struct _LIST_ENTRY *)((char *)this + 184));
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v25);
     v13 = MEMORY[0xFFFFF78000000320];
     TimeIncrement = KeQueryTimeIncrement();
-    v16 = *((_BYTE *)this + 58) & 0xED;
-    *((_QWORD *)this + 31) = 0LL;
-    v17 = *((_QWORD *)this + 30) + v13 * TimeIncrement;
-    *((_QWORD *)this + 29) = v17;
+    *((_BYTE *)this + 50) &= 0xEDu;
     *((_QWORD *)this + 30) = 0LL;
-    *((_BYTE *)this + 58) = v16;
-    if ( (v16 & 4) != 0 )
+    v16 = *((_QWORD *)this + 29) + v13 * TimeIncrement;
+    v17 = (*((_BYTE *)this + 50) & 4) == 0;
+    *((_QWORD *)this + 28) = v16;
+    *((_QWORD *)this + 29) = 0LL;
+    if ( !v17 )
     {
-      --*(_DWORD *)(*(_QWORD *)this + 44656LL);
-      *((_BYTE *)this + 58) &= ~4u;
-      v22 = KeQueryPerformanceCounter(0LL);
-      v15 = (unsigned int)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))GetBucketIdForAllocationSizePow2)(
-                            *(_QWORD *)(**(_QWORD **)this + 288LL),
-                            (LARGE_INTEGER)v22.QuadPart,
-                            v23,
-                            v22.QuadPart - *((_QWORD *)this + 6));
-      ++*(_DWORD *)(v25 + 4 * v15 + 8);
-      *(_QWORD *)(v25 + 8 * v15 + 96) += v26;
-      *(_QWORD *)(v25 + 8 * v15 + 272) += v24 - PerformanceCounter.QuadPart;
-      *(_BYTE *)(v25 + 976) = 1;
+      --*(_DWORD *)(*(_QWORD *)this + 44616LL);
+      *((_BYTE *)this + 50) &= ~4u;
     }
     if ( g_IsInternalReleaseOrDbg )
     {
-      v27 = (_QWORD *)WdLogNewEntry5_WdTrace(v17);
-      v27[3] = this;
-      v17 = *((_DWORD *)this + 15) & 7;
-      v27[5] = 0LL;
-      v27[4] = v17;
+      v22 = (_QWORD *)WdLogNewEntry5_WdTrace(v16);
+      v22[3] = this;
+      v16 = *((_DWORD *)this + 13) & 7;
+      v22[5] = 0LL;
+      v22[4] = v16;
     }
-    if ( (*((_BYTE *)this + 60) & 7) == 3 )
+    v18 = *((_DWORD *)this + 13);
+    if ( (*((_BYTE *)this + 52) & 7) == 3 )
     {
-      v17 = *(_QWORD *)(*((_QWORD *)this + 3) + 40LL);
-      if ( (*(_DWORD *)(v17 + 424) & 4) != 0 )
+      v16 = *(_QWORD *)(*((_QWORD *)this + 3) + 40LL);
+      if ( *(_BYTE *)(v16 + 346) )
       {
-        v19 = **(_QWORD **)this + 208LL;
-        VIDMM_COMMIT_TELEMETRY::Init((VIDMM_COMMIT_TELEMETRY *)v19, *(struct VIDMM_GLOBAL **)this, this, 0LL);
-        VIDMM_COMMIT_TELEMETRY::LogDeviceInPenaltyBoxEvent(v20, this, 0);
-        *(_QWORD *)(v19 + 8) = 0LL;
-        *(_QWORD *)(v19 + 16) = 0LL;
-        *(_QWORD *)v19 = 0LL;
-        *(_BYTE *)(v19 + 24) = 0;
+        v23 = **(_QWORD **)this + 208LL;
+        VIDMM_COMMIT_TELEMETRY::Init((VIDMM_COMMIT_TELEMETRY *)v23, *(struct VIDMM_GLOBAL **)this, this, 0LL);
+        VIDMM_COMMIT_TELEMETRY::LogDeviceInPenaltyBoxEvent(v24, this, 0);
+        *(_QWORD *)(v23 + 8) = 0LL;
+        *(_QWORD *)(v23 + 16) = 0LL;
+        *(_QWORD *)v23 = 0LL;
+        *(_BYTE *)(v23 + 24) = 0;
+        v18 = *((_DWORD *)this + 13);
       }
     }
-    *((_DWORD *)this + 15) &= 0xFFFFFFF8;
-    if ( (byte_1C0076982 & 0x40) != 0 )
-      McTemplateK0p_EtwWriteTransfer(v17, &EventVidMmResumeDevice, v15, *((_QWORD *)this + 3));
+    *((_DWORD *)this + 13) = v18 & 0xFFFFFFF8;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100000) != 0 )
+      McTemplateK0p_EtwWriteTransfer(v16, &EventVidMmResumeDevice, v15, *((_QWORD *)this + 3));
   }
   else
   {
-    WdLogSingleEntry1(3LL, this);
-    *((_BYTE *)this + 58) &= ~2u;
+    v21 = WdLogNewEntry5_WdWarning(v11, v10);
+    *(_QWORD *)(v21 + 24) = this;
+    WdLogEvent5_WdWarning(v21);
+    *((_BYTE *)this + 50) &= ~2u;
   }
-  return (unsigned int)v11;
+  return (unsigned int)v8;
 }

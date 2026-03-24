@@ -1,11 +1,11 @@
 /*
- * XREFs of _PnpGetObjectPropertyLocales @ 0x1406987CC
+ * XREFs of _PnpGetObjectPropertyLocales @ 0x140976C08
  * Callers:
- *     PiDqPnPGetObjectPropertyLocales @ 0x1406986FC (PiDqPnPGetObjectPropertyLocales.c)
+ *     PiDqPnPGetObjectPropertyLocales @ 0x1408A4A64 (PiDqPnPGetObjectPropertyLocales.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _PnpGetObjectPropertyLocalesWorker @ 0x1406988E0 (_PnpGetObjectPropertyLocalesWorker.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _PnpGetObjectPropertyLocalesWorker @ 0x140976D7C (_PnpGetObjectPropertyLocalesWorker.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyLocales(
@@ -23,9 +23,9 @@ __int64 __fastcall PnpGetObjectPropertyLocales(
   int v13; // eax
   unsigned int ObjectPropertyLocalesWorker; // eax
   unsigned int v15; // ebx
-  int v17; // eax
-  int v18; // ecx
-  unsigned int v19; // eax
+  int v16; // eax
+  int v17; // ecx
+  unsigned int v18; // eax
   _QWORD v20[10]; // [rsp+58h] [rbp-31h] BYREF
 
   v8 = *(_QWORD *)&PiPnpRtlCtx;
@@ -66,14 +66,14 @@ __int64 __fastcall PnpGetObjectPropertyLocales(
   if ( !v12 )
     return v15;
   LODWORD(v20[0]) = ObjectPropertyLocalesWorker;
-  v17 = v12(v8, a2, a3, 7LL, 2, v20);
-  v18 = v17;
-  if ( v17 == -1073741822 )
+  v16 = v12(v8, a2, a3, 7LL, 2, v20);
+  v17 = v16;
+  if ( v16 == -1073741822 )
     return v15;
-  if ( v17 == -1073741536 )
+  if ( v16 == -1073741536 )
     return LODWORD(v20[0]);
-  v19 = v15;
-  if ( v18 )
+  v18 = v15;
+  if ( v17 )
     return (unsigned int)-1073741595;
-  return v19;
+  return v18;
 }

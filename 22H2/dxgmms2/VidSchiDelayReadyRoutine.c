@@ -1,9 +1,9 @@
 /*
- * XREFs of VidSchiDelayReadyRoutine @ 0x1C0002770
+ * XREFs of VidSchiDelayReadyRoutine @ 0x1C0011890
  * Callers:
- *     VidSchiCancelDelayTimerContext @ 0x1C00026F4 (VidSchiCancelDelayTimerContext.c)
+ *     VidSchiCancelDelayTimerContext @ 0x1C0011818 (VidSchiCancelDelayTimerContext.c)
  * Callees:
- *     VidSchiUnwaitContext @ 0x1C0002398 (VidSchiUnwaitContext.c)
+ *     VidSchiUnwaitContext @ 0x1C0010EEC (VidSchiUnwaitContext.c)
  */
 
 void __fastcall VidSchiDelayReadyRoutine(
@@ -16,15 +16,14 @@ void __fastcall VidSchiDelayReadyRoutine(
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v5 = *(_QWORD *)(DeferredContext[12] + 24LL);
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v5 + 1728), &LockHandle);
+  KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v5 + 1712), &LockHandle);
   if ( (DeferredContext[23] & 0x40) != 0 )
   {
     *((_DWORD *)DeferredContext + 46) &= ~0x40u;
-    if ( VidSchiUnwaitContext((__int64)DeferredContext, 0x6FADu) )
+    if ( VidSchiUnwaitContext((__int64)DeferredContext, 0x6861u) )
     {
-      *(_QWORD *)(v5 + 1224) = MEMORY[0xFFFFF78000000320];
-      KeSetEvent((PRKEVENT)(v5 + 1192), 0, 0);
+      *(_QWORD *)(v5 + 1208) = MEMORY[0xFFFFF78000000320];
+      KeSetEvent((PRKEVENT)(v5 + 1176), 0, 0);
     }
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);

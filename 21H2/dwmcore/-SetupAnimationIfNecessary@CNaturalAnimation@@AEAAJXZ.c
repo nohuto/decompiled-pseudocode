@@ -1,41 +1,42 @@
 /*
- * XREFs of ?SetupAnimationIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x180227D6C
+ * XREFs of ?SetupAnimationIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x1801D9550
  * Callers:
- *     ?CalculateValueWorker@CNaturalAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180225EF0 (-CalculateValueWorker@CNaturalAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z @ 0x18022656C (-GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z.c)
+ *     ?CalculateValueWorker@CNaturalAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801D78B0 (-CalculateValueWorker@CNaturalAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z @ 0x1801D7EDC (-GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InitializeForces@CNaturalAnimation@@AEAAXXZ @ 0x180226998 (-InitializeForces@CNaturalAnimation@@AEAAXXZ.c)
- *     ?SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x180227558 (-SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ.c)
- *     ?SetStartTimeIfNecessary@CNaturalAnimation@@AEAAX_K@Z @ 0x180227AD0 (-SetStartTimeIfNecessary@CNaturalAnimation@@AEAAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeForces@CNaturalAnimation@@AEAAXXZ @ 0x1801D82CC (-InitializeForces@CNaturalAnimation@@AEAAXXZ.c)
+ *     ?SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x1801D8D90 (-SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ.c)
+ *     ?SetStartTimeIfNecessary@CNaturalAnimation@@AEAAX_K@Z @ 0x1801D92C8 (-SetStartTimeIfNecessary@CNaturalAnimation@@AEAAX_K@Z.c)
  */
 
 __int64 __fastcall CNaturalAnimation::SetupAnimationIfNecessary(CNaturalAnimation *this)
 {
-  unsigned int v1; // edi
+  int v1; // edi
   int v3; // eax
   __int64 v4; // rcx
   int v5; // ecx
 
   v1 = 0;
-  if ( (*((_BYTE *)this + 588) & 1) == 0 )
+  if ( (*((_BYTE *)this + 564) & 1) == 0 )
   {
     v3 = CNaturalAnimation::SampleInitialValueAndFinalValueIfNecessary(this);
     v1 = v3;
     if ( v3 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, v3, 0x292u);
-      *((_BYTE *)this + 588) &= ~1u;
+      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x28Cu, 0LL);
     }
     else
     {
-      v5 = *((_DWORD *)this + 86);
-      *(_QWORD *)((char *)this + 348) = *((_QWORD *)this + 42);
-      *((_DWORD *)this + 89) = v5;
+      v5 = *((_DWORD *)this + 80);
+      *(_QWORD *)((char *)this + 324) = *((_QWORD *)this + 39);
+      *((_DWORD *)this + 83) = v5;
       CNaturalAnimation::InitializeForces(this);
-      CNaturalAnimation::SetStartTimeIfNecessary(this, *(_QWORD *)(*((_QWORD *)this + 2) + 608LL));
-      *((_BYTE *)this + 588) = *((_BYTE *)this + 588) & 0xF6 | 1;
+      CNaturalAnimation::SetStartTimeIfNecessary(this, *(_QWORD *)(*((_QWORD *)this + 2) + 456LL));
+      *((_BYTE *)this + 564) = *((_BYTE *)this + 564) & 0xF6 | 1;
     }
+    if ( v1 < 0 )
+      *((_BYTE *)this + 564) &= ~1u;
   }
-  return v1;
+  return (unsigned int)v1;
 }

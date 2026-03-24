@@ -1,60 +1,67 @@
 /*
- * XREFs of GreSetBrushOrg @ 0x1C00C1C04
+ * XREFs of GreSetBrushOrg @ 0x1C004562C
  * Callers:
- *     _DrawIconEx @ 0x1C00BDD48 (_DrawIconEx.c)
- *     xxxPaintRect @ 0x1C00C1B34 (xxxPaintRect.c)
- *     NtGdiSetBrushOrg @ 0x1C01483A0 (NtGdiSetBrushOrg.c)
- *     MNEraseBackground @ 0x1C0247D38 (MNEraseBackground.c)
- *     xxxMNDrawFullNC @ 0x1C0247E7C (xxxMNDrawFullNC.c)
+ *     NtGdiSetBrushOrg @ 0x1C0043580 (NtGdiSetBrushOrg.c)
+ *     _DrawIconEx @ 0x1C0043F94 (_DrawIconEx.c)
+ *     xxxPaintRect @ 0x1C004555C (xxxPaintRect.c)
+ *     MNEraseBackground @ 0x1C024C8FC (MNEraseBackground.c)
+ *     xxxMNDrawFullNC @ 0x1C024CA44 (xxxMNDrawFullNC.c)
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C016A60C (--0-$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ.c)
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C016A898 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreSetBrushOrg(HDC a1, int a2, int a3, _QWORD *a4)
 {
-  __int64 v7; // rcx
-  unsigned int v8; // ebx
-  _DWORD *v9; // rcx
-  int v10; // edx
+  __int64 v8; // rcx
+  unsigned int v9; // ebx
+  _DWORD *v10; // rcx
   int v11; // edx
-  int v12; // eax
+  int v12; // edx
   int v13; // eax
-  _QWORD v15[2]; // [rsp+20h] [rbp-38h] BYREF
-  _BYTE v16[40]; // [rsp+30h] [rbp-28h] BYREF
+  int v14; // eax
+  __int64 v16; // [rsp+20h] [rbp-38h] BYREF
+  int v17; // [rsp+28h] [rbp-30h]
+  int v18; // [rsp+2Ch] [rbp-2Ch]
+  _BYTE v19[40]; // [rsp+30h] [rbp-28h] BYREF
 
-  DCOBJ::DCOBJ((DCOBJ *)v15, a1);
-  v7 = v15[0];
-  if ( v15[0] )
+  v16 = 0LL;
+  v17 = 0;
+  v18 = 0;
+  UnexpectedThreadTerminationHandler<DCOBJ>::UnexpectedThreadTerminationHandler<DCOBJ>(v19);
+  XDCOBJ::vLock((XDCOBJ *)&v16, a1);
+  v8 = v16;
+  if ( v16 )
   {
     if ( a4 )
-      *a4 = *(_QWORD *)(v15[0] + 124LL);
-    v8 = 1;
-    *(_DWORD *)(*(_QWORD *)(v7 + 976) + 344LL) = a2;
-    *(_DWORD *)(*(_QWORD *)(v15[0] + 976LL) + 348LL) = a3;
-    v9 = (_DWORD *)v15[0];
-    v10 = *(_DWORD *)(v15[0] + 40LL);
-    *(_DWORD *)(v15[0] + 124LL) = a2;
-    v9[32] = a3;
-    v11 = v10 & 1;
-    if ( v11 )
-      v12 = v9[256];
+      *a4 = *(_QWORD *)(v16 + 124);
+    v9 = 1;
+    *(_DWORD *)(*(_QWORD *)(v8 + 976) + 344LL) = a2;
+    *(_DWORD *)(*(_QWORD *)(v16 + 976) + 348LL) = a3;
+    v10 = (_DWORD *)v16;
+    v11 = *(_DWORD *)(v16 + 40);
+    *(_DWORD *)(v16 + 124) = a2;
+    v10[32] = a3;
+    v12 = v11 & 1;
+    if ( v12 )
+      v13 = v10[256];
     else
-      v12 = v9[254];
-    v9[298] = a2 + v12;
-    if ( v11 )
-      v13 = v9[257];
+      v13 = v10[254];
+    v10[300] = a2 + v13;
+    if ( v12 )
+      v14 = v10[257];
     else
-      v13 = v9[255];
-    v9[299] = a3 + v13;
+      v14 = v10[255];
+    v10[301] = a3 + v14;
   }
   else
   {
     EngSetLastError(6u);
-    v8 = 0;
+    v9 = 0;
   }
-  MDCOBJ::~MDCOBJ((MDCOBJ *)v15);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v16);
-  return v8;
+  MDCOBJ::~MDCOBJ((MDCOBJ *)&v16);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v19);
+  return v9;
 }

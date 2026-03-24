@@ -1,9 +1,9 @@
 /*
- * XREFs of _dynamic_initializer_for__CCommonRegistryData::EnableMegaRects__ @ 0x1800034F0
+ * XREFs of _dynamic_initializer_for__CCommonRegistryData::EnableMegaRects__ @ 0x180002D20
  * Callers:
  *     <none>
  * Callees:
- *     ?Load@?$CRegistryKeyLoader@_N@details@@SA_NPEBG_NW4DwmRegistrySubkey@@@Z @ 0x180025D4C (-Load@-$CRegistryKeyLoader@_N@details@@SA_NPEBG_NW4DwmRegistrySubkey@@@Z.c)
+ *     ?Load@?$CRegistryKeyLoader@_N@details@@SA_NPEBG_NW4DwmRegistrySubkey@@@Z @ 0x1800B2EA4 (-Load@-$CRegistryKeyLoader@_N@details@@SA_NPEBG_NW4DwmRegistrySubkey@@@Z.c)
  */
 
 __int64 __fastcall dynamic_initializer_for__CCommonRegistryData::EnableMegaRects__(__int64 a1, __int64 a2)

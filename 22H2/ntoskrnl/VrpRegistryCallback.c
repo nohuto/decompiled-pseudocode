@@ -1,181 +1,72 @@
 /*
- * XREFs of VrpRegistryCallback @ 0x14068E300
+ * XREFs of VrpRegistryCallback @ 0x1405D3FD0
  * Callers:
  *     <none>
  * Callees:
- *     EtwActivityIdControl @ 0x140208AA0 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     VrpPostQueryKey @ 0x14068CA48 (VrpPostQueryKey.c)
- *     VrpPreOpenOrCreate @ 0x14068CFD8 (VrpPreOpenOrCreate.c)
- *     VrpPostOpenOrCreate @ 0x14068DF0C (VrpPostOpenOrCreate.c)
- *     VRegEnabledInJob @ 0x14068EB28 (VRegEnabledInJob.c)
- *     VrpFreeKeyContext @ 0x14068EC34 (VrpFreeKeyContext.c)
- *     VrpDecommissionKeyContext @ 0x14068EC6C (VrpDecommissionKeyContext.c)
- *     VrpPreLoadKey @ 0x14077A954 (VrpPreLoadKey.c)
- *     VrpPostEnumerateKey @ 0x14077AEC8 (VrpPostEnumerateKey.c)
- *     VrpPostUnloadKey @ 0x140A72C3C (VrpPostUnloadKey.c)
- *     VrpPreFlushKey @ 0x140A72CDC (VrpPreFlushKey.c)
- *     VrpPreQueryKeyName @ 0x140A72DA4 (VrpPreQueryKeyName.c)
- *     VrpPreUnloadKey @ 0x140A73014 (VrpPreUnloadKey.c)
+ *     EtwActivityIdControl @ 0x140308D90 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     VrpPostEnumerateKey @ 0x1405D37A4 (VrpPostEnumerateKey.c)
+ *     VrpShouldOperateOnCall @ 0x1405D4160 (VrpShouldOperateOnCall.c)
+ *     VrpPostOpenOrCreate @ 0x1405D4420 (VrpPostOpenOrCreate.c)
+ *     VrpPreOpenOrCreate @ 0x1405D4868 (VrpPreOpenOrCreate.c)
+ *     VrpPostQueryKey @ 0x1405D551C (VrpPostQueryKey.c)
+ *     VrpFreeKeyContext @ 0x1405D5A80 (VrpFreeKeyContext.c)
+ *     VrpDecommissionKeyContext @ 0x1405D5AB8 (VrpDecommissionKeyContext.c)
+ *     VrpPostUnloadKey @ 0x140883268 (VrpPostUnloadKey.c)
+ *     VrpPreFlushKey @ 0x140883308 (VrpPreFlushKey.c)
+ *     VrpPreLoadKey @ 0x1408833DC (VrpPreLoadKey.c)
+ *     VrpPreQueryKeyName @ 0x140883F40 (VrpPreQueryKeyName.c)
+ *     VrpPreUnloadKey @ 0x1408841B0 (VrpPreUnloadKey.c)
  */
 
-__int64 __fastcall VrpRegistryCallback(__int64 a1, unsigned int a2, __int64 *a3)
+__int64 __fastcall VrpRegistryCallback(__int64 a1, unsigned int a2, __int64 a3)
 {
-  unsigned int v3; // edi
-  __int64 v6; // rcx
-  __int64 v7; // rax
-  _QWORD *v9; // rcx
-  _QWORD *v10; // rax
-  __int64 v11; // rdx
-  void *v12; // rbp
-  __int64 v13; // rcx
-  void *v15; // [rsp+20h] [rbp-38h] BYREF
-  GUID ActivityId; // [rsp+28h] [rbp-30h] BYREF
+  unsigned int v3; // ebx
+  __int64 v8; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v9; // [rsp+28h] [rbp-30h] BYREF
+  GUID ActivityId; // [rsp+30h] [rbp-28h] BYREF
 
   v3 = 0;
+  v8 = 0LL;
+  v9 = 0LL;
   ActivityId = 0LL;
-  if ( a2 > 0x33 )
-    return v3;
-  v15 = 0LL;
-  if ( a2 == 8 )
+  if ( a2 <= 0x31 && (unsigned int)VrpShouldOperateOnCall(a2, a3, &v9, &v8) )
   {
-LABEL_21:
-    v6 = a3[7];
-LABEL_9:
-    v7 = 0LL;
-    goto LABEL_10;
-  }
-  if ( a2 == 23 )
-  {
-LABEL_7:
-    v6 = a3[5];
-    v7 = a3[4];
-    goto LABEL_10;
-  }
-  if ( a2 != 29 )
-  {
-    if ( a2 != 28 )
-    {
-      switch ( a2 )
-      {
-        case 0u:
-        case 0xEu:
-        case 0x1Eu:
-          v6 = a3[2];
-          goto LABEL_9;
-        case 1u:
-        case 5u:
-        case 6u:
-        case 7u:
-          v6 = a3[6];
-          goto LABEL_9;
-        case 2u:
-        case 4u:
-        case 0x22u:
-          v6 = a3[3];
-          goto LABEL_9;
-        case 3u:
-        case 0x24u:
-        case 0x2Fu:
-        case 0x31u:
-          v6 = a3[5];
-          goto LABEL_9;
-        case 9u:
-          goto LABEL_21;
-        case 0xBu:
-        case 0xDu:
-        case 0xFu:
-        case 0x10u:
-        case 0x11u:
-        case 0x12u:
-        case 0x13u:
-        case 0x14u:
-        case 0x15u:
-        case 0x16u:
-        case 0x18u:
-        case 0x19u:
-        case 0x1Fu:
-        case 0x23u:
-        case 0x25u:
-        case 0x27u:
-        case 0x2Au:
-        case 0x2Cu:
-        case 0x2Eu:
-        case 0x30u:
-        case 0x32u:
-          goto LABEL_7;
-        case 0x1Au:
-          break;
-        case 0x1Bu:
-        case 0x21u:
-          goto LABEL_15;
-        case 0x20u:
-          v6 = *(_QWORD *)(*a3 + 72);
-          goto LABEL_9;
-        case 0x26u:
-        case 0x29u:
-        case 0x2Bu:
-        case 0x2Du:
-          v6 = a3[4];
-          goto LABEL_9;
-        case 0x28u:
-          v6 = a3[1];
-          goto LABEL_9;
-        default:
-          goto LABEL_12;
-      }
-    }
-    v6 = *(_QWORD *)(*a3 + 88);
-    goto LABEL_9;
-  }
-LABEL_15:
-  v6 = *(_QWORD *)(*a3 + 40);
-  v7 = *(_QWORD *)(*a3 + 32);
-LABEL_10:
-  if ( v6 )
-  {
-    v12 = *(void **)(v6 + 40);
-    goto LABEL_26;
-  }
-  if ( v7 )
-  {
-    v12 = *(void **)(v7 + 8);
-LABEL_26:
     EtwActivityIdControl(1u, &ActivityId);
     switch ( a2 )
     {
       case 0x1Du:
-        return (unsigned int)VrpPostOpenOrCreate(a3, v12);
+        return (unsigned int)VrpPostOpenOrCreate(a3, v8);
       case 0x1Cu:
-        return (unsigned int)VrpPreOpenOrCreate((__int64)a3, v12);
+        return (unsigned int)VrpPreOpenOrCreate(a3, v8);
       case 0x16u:
-        return (unsigned int)VrpPostQueryKey((__int64)a3);
+        return (unsigned int)VrpPostQueryKey(a3);
       default:
         if ( a2 != 7 )
         {
           switch ( a2 )
           {
             case 0xEu:
-              if ( a3[2] )
+              if ( *(_QWORD *)(a3 + 16) )
                 VrpDecommissionKeyContext();
               break;
             case 0x14u:
-              v3 = VrpPostEnumerateKey(a3, v12);
+              v3 = VrpPostEnumerateKey(a3, v8);
               break;
             case 0x1Au:
-              return (unsigned int)VrpPreOpenOrCreate((__int64)a3, v12);
+              return (unsigned int)VrpPreOpenOrCreate(a3, v8);
             case 0x1Bu:
-              return (unsigned int)VrpPostOpenOrCreate(a3, v12);
+              return (unsigned int)VrpPostOpenOrCreate(a3, v8);
             case 0x1Eu:
-              return (unsigned int)VrpPreFlushKey(v13, v12);
+              return (unsigned int)VrpPreFlushKey(0x140000000uLL, v8);
             case 0x20u:
-              return (unsigned int)VrpPreLoadKey(a3, v12);
+              return (unsigned int)VrpPreLoadKey(a3, v8);
             case 0x22u:
-              return (unsigned int)VrpPreUnloadKey(a3, v12);
+              return (unsigned int)VrpPreUnloadKey(a3, v8);
             case 0x23u:
-              return (unsigned int)VrpPostUnloadKey(a3, v12);
+              return (unsigned int)VrpPostUnloadKey(a3, v8);
             case 0x28u:
-              VrpFreeKeyContext((PVOID)a3[1]);
+              VrpFreeKeyContext(*(PVOID *)(a3 + 8));
               break;
             case 0x2Fu:
               return (unsigned int)VrpPreQueryKeyName(a3);
@@ -185,36 +76,6 @@ LABEL_26:
         }
         break;
     }
-    return v3;
-  }
-LABEL_12:
-  if ( a2 != 32 )
-  {
-    if ( ((a2 - 27) & 0xFFFFFFFD) != 0 )
-      return v3;
-    v9 = *(_QWORD **)(a3[1] + 16);
-    v10 = (_QWORD *)*v9;
-    if ( (_QWORD *)*v9 == v9 )
-      return v3;
-    while ( 1 )
-    {
-      v11 = v10[2] - VRP_ORIGINAL_KEY_NAME_PARAMETER_GUID;
-      if ( !v11 )
-        v11 = v10[3] - *((_QWORD *)&VRP_ORIGINAL_KEY_NAME_PARAMETER_GUID + 1);
-      if ( !v11 )
-        break;
-      v10 = (_QWORD *)*v10;
-      if ( v10 == v9 )
-        return v3;
-    }
-    v12 = (void *)v10[6];
-    goto LABEL_26;
-  }
-  if ( (unsigned int)VRegEnabledInJob(&v15) )
-  {
-    v12 = v15;
-    EtwActivityIdControl(1u, &ActivityId);
-    return (unsigned int)VrpPreLoadKey(a3, v12);
   }
   return v3;
 }

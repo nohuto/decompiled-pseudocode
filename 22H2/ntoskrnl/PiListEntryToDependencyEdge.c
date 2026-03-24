@@ -1,14 +1,14 @@
 /*
- * XREFs of PiListEntryToDependencyEdge @ 0x140396904
+ * XREFs of PiListEntryToDependencyEdge @ 0x14050C438
  * Callers:
- *     PipNotifyDeviceDependencyList @ 0x14079C794 (PipNotifyDeviceDependencyList.c)
- *     PipCheckValidNewDependencyEdge @ 0x140839D5C (PipCheckValidNewDependencyEdge.c)
- *     PiEnumerateDependentListEntry @ 0x140839E64 (PiEnumerateDependentListEntry.c)
- *     PiEnumerateProviderListEntry @ 0x140839E98 (PiEnumerateProviderListEntry.c)
- *     IoDuplicateDependency @ 0x140954220 (IoDuplicateDependency.c)
- *     PipDeleteAllDependencyRelations @ 0x1409544C0 (PipDeleteAllDependencyRelations.c)
- *     PipMergeDependencyEdgeList @ 0x1409547C8 (PipMergeDependencyEdgeList.c)
- *     PnpGetDeviceDependencyList @ 0x140954A18 (PnpGetDeviceDependencyList.c)
+ *     PipNotifyDeviceDependencyList @ 0x14074799C (PipNotifyDeviceDependencyList.c)
+ *     PipDeleteAllDependencyRelations @ 0x1407CD520 (PipDeleteAllDependencyRelations.c)
+ *     IoDuplicateDependency @ 0x14089D6C0 (IoDuplicateDependency.c)
+ *     PiEnumerateDependentListEntry @ 0x14089D948 (PiEnumerateDependentListEntry.c)
+ *     PiEnumerateProviderListEntry @ 0x14089D97C (PiEnumerateProviderListEntry.c)
+ *     PipCheckValidNewDependencyEdge @ 0x14089DB98 (PipCheckValidNewDependencyEdge.c)
+ *     PipMergeDependencyEdgeList @ 0x14089DDC0 (PipMergeDependencyEdgeList.c)
+ *     PnpGetDeviceDependencyList @ 0x14089E124 (PnpGetDeviceDependencyList.c)
  * Callees:
  *     <none>
  */

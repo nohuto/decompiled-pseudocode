@@ -1,75 +1,73 @@
 /*
- * XREFs of ?UpdateConfigurationIfDirty@CChainingHelper@@QEAAXXZ @ 0x18026644C
+ * XREFs of ?UpdateConfigurationIfDirty@CChainingHelper@@QEAAXXZ @ 0x180215410
  * Callers:
- *     ?NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ @ 0x18021B724 (-NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ.c)
- *     ?ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ @ 0x180264E58 (-ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ.c)
- *     ?ClearAllConfigurations@CChainingHelper@@QEAAXXZ @ 0x1802663BC (-ClearAllConfigurations@CChainingHelper@@QEAAXXZ.c)
+ *     ?NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ @ 0x1801CA268 (-NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ.c)
+ *     ?ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ @ 0x180213F40 (-ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ.c)
+ *     ?ClearAllConfigurations@CChainingHelper@@QEAAXXZ @ 0x180215380 (-ClearAllConfigurations@CChainingHelper@@QEAAXXZ.c)
  * Callees:
- *     CChainingHelper::RunForAllAxes__lambda_40b2a6404f1a20f79c4b9feef5831a62___ @ 0x180266020 (CChainingHelper--RunForAllAxes__lambda_40b2a6404f1a20f79c4b9feef5831a62___.c)
- *     CChainingHelper::RunForAllAxes__lambda_f3ac08a02e4a7ab098607de630a59e6d___ @ 0x180266090 (CChainingHelper--RunForAllAxes__lambda_f3ac08a02e4a7ab098607de630a59e6d___.c)
- *     CChainingHelper::RunForAllAxes__lambda_ff7ff6922ce62528cf9facebf3a4fb75___ @ 0x180266120 (CChainingHelper--RunForAllAxes__lambda_ff7ff6922ce62528cf9facebf3a4fb75___.c)
+ *     CChainingHelper::RunForAllAxes__lambda_40b2a6404f1a20f79c4b9feef5831a62___ @ 0x18021502C (CChainingHelper--RunForAllAxes__lambda_40b2a6404f1a20f79c4b9feef5831a62___.c)
+ *     CChainingHelper::RunForAllAxes__lambda_f3ac08a02e4a7ab098607de630a59e6d___ @ 0x180215090 (CChainingHelper--RunForAllAxes__lambda_f3ac08a02e4a7ab098607de630a59e6d___.c)
+ *     CChainingHelper::RunForAllAxes__lambda_ff7ff6922ce62528cf9facebf3a4fb75___ @ 0x1802151B4 (CChainingHelper--RunForAllAxes__lambda_ff7ff6922ce62528cf9facebf3a4fb75___.c)
  */
 
-void __fastcall CChainingHelper::UpdateConfigurationIfDirty(CChainingHelper *this)
+void __fastcall CChainingHelper::UpdateConfigurationIfDirty(CChainingHelper *this, __int64 a2, __int64 a3, __int64 a4)
 {
-  char v1; // al
-  CChainingHelper *v2; // rbx
-  int v3; // eax
-  char v4; // r8
-  char v5; // r9
-  CChainingHelper *v6; // rdx
-  __int64 v7; // r10
-  _QWORD v8[4]; // [rsp+20h] [rbp-20h] BYREF
-  CChainingHelper *v9; // [rsp+50h] [rbp+10h] BYREF
-  int v10; // [rsp+58h] [rbp+18h] BYREF
-  CChainingHelper *v11; // [rsp+60h] [rbp+20h] BYREF
+  char v4; // al
+  CChainingHelper *v5; // rbx
+  int v6; // eax
+  CChainingHelper *v7; // rdx
+  __int64 v8; // r10
+  _QWORD v9[4]; // [rsp+20h] [rbp-20h] BYREF
+  CChainingHelper *v10; // [rsp+50h] [rbp+10h] BYREF
+  int v11; // [rsp+58h] [rbp+18h] BYREF
+  CChainingHelper *v12; // [rsp+60h] [rbp+20h] BYREF
 
-  v1 = *((_BYTE *)this + 36);
-  v2 = this;
-  if ( (v1 & 1) != 0 )
+  v4 = *((_BYTE *)this + 36);
+  v5 = this;
+  if ( (v4 & 1) != 0 )
   {
-    v3 = 0;
-    v4 = 0;
-    v10 = 0;
-    v5 = 0;
-    LOBYTE(v9) = 0;
-    v6 = this;
-    v7 = 3LL;
+    v6 = 0;
+    LOBYTE(a3) = 0;
+    v11 = 0;
+    LOBYTE(a4) = 0;
+    LOBYTE(v10) = 0;
+    v7 = this;
+    v8 = 3LL;
     do
     {
-      LOBYTE(this) = *(_BYTE *)v6;
-      if ( (*(_BYTE *)v6 & 1) != 0 )
+      LOBYTE(this) = *(_BYTE *)v7;
+      if ( (*(_BYTE *)v7 & 1) != 0 )
       {
-        v3 |= *((_DWORD *)v6 + 1);
-        v5 = 1;
+        v6 |= *((_DWORD *)v7 + 1);
+        LOBYTE(a4) = 1;
         LOBYTE(this) = ((unsigned __int8)this & 2) != 0;
-        v4 |= (unsigned __int8)this;
+        LOBYTE(a3) = (unsigned __int8)this | a3;
       }
-      v6 = (CChainingHelper *)((char *)v6 + 12);
-      --v7;
+      v7 = (CChainingHelper *)((char *)v7 + 12);
+      --v8;
     }
-    while ( v7 );
-    v10 = v3;
-    LOBYTE(v9) = v4;
-    if ( v5 )
+    while ( v8 );
+    v11 = v6;
+    LOBYTE(v10) = a3;
+    if ( (_BYTE)a4 )
     {
-      v8[0] = v2;
-      v8[1] = &v9;
-      v8[2] = &v10;
-      CChainingHelper::RunForAllAxes__lambda_40b2a6404f1a20f79c4b9feef5831a62___((__int64)this, (__int64)v8);
+      v9[0] = v5;
+      v9[1] = &v10;
+      v9[2] = &v11;
+      CChainingHelper::RunForAllAxes__lambda_40b2a6404f1a20f79c4b9feef5831a62___((__int64)this, (__int64)v9);
     }
     else
     {
-      v11 = v2;
-      CChainingHelper::RunForAllAxes__lambda_ff7ff6922ce62528cf9facebf3a4fb75___((__int64)this, (__int64 *)&v11);
+      v12 = v5;
+      CChainingHelper::RunForAllAxes__lambda_ff7ff6922ce62528cf9facebf3a4fb75___((__int64)this, &v12, a3, a4);
     }
-    *((_BYTE *)v2 + 36) &= ~1u;
-    v1 = *((_BYTE *)v2 + 36);
+    *((_BYTE *)v5 + 36) &= ~1u;
+    v4 = *((_BYTE *)v5 + 36);
   }
-  if ( (v1 & 2) != 0 )
+  if ( (v4 & 2) != 0 )
   {
-    v9 = v2;
-    CChainingHelper::RunForAllAxes__lambda_f3ac08a02e4a7ab098607de630a59e6d___((__int64)this, (__int64 *)&v9);
-    *((_BYTE *)v2 + 36) &= ~2u;
+    v10 = v5;
+    CChainingHelper::RunForAllAxes__lambda_f3ac08a02e4a7ab098607de630a59e6d___((__int64)this, &v10, a3, a4);
+    *((_BYTE *)v5 + 36) &= ~2u;
   }
 }

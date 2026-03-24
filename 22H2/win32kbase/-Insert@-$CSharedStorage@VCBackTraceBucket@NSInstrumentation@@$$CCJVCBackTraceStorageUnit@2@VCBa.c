@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Insert@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAAPEAVCBackTraceStorageUnit@2@QEBVCBackTrace@2@@Z @ 0x1C016FD68
+ * XREFs of ?Insert@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAAPEAVCBackTraceStorageUnit@2@QEBVCBackTrace@2@@Z @ 0x1C014E220
  * Callers:
- *     ?AcquireBackTrace@CBackTraceStoreEx@NSInstrumentation@@QEAAPEAXPEAVCBackTrace@2@PEAI@Z @ 0x1C016FB04 (-AcquireBackTrace@CBackTraceStoreEx@NSInstrumentation@@QEAAPEAXPEAVCBackTrace@2@PEAI@Z.c)
+ *     ?ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAUSCircularBuffer@123@_N@Z @ 0x1C014DC64 (-ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAU.c)
  * Callees:
- *     ?ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ @ 0x1C00E0890 (-ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ.c)
- *     ?ComputeHash@CBackTrace@NSInstrumentation@@QEBA_KXZ @ 0x1C016FB6C (-ComputeHash@CBackTrace@NSInstrumentation@@QEBA_KXZ.c)
- *     ?Insert@CBackTraceBucket@NSInstrumentation@@QEAAPEAVCBackTraceStorageUnit@2@_KQEBVCBackTrace@2@@Z @ 0x1C016FEAC (-Insert@CBackTraceBucket@NSInstrumentation@@QEAAPEAVCBackTraceStorageUnit@2@_KQEBVCBackTrace@2@@.c)
+ *     ?ComputeHash@CBackTrace@NSInstrumentation@@QEBA_KXZ @ 0x1C014E028 (-ComputeHash@CBackTrace@NSInstrumentation@@QEBA_KXZ.c)
+ *     ?Insert@CBackTraceBucket@NSInstrumentation@@QEAAPEAVCBackTraceStorageUnit@2@_KQEBVCBackTrace@2@@Z @ 0x1C014E368 (-Insert@CBackTraceBucket@NSInstrumentation@@QEAAPEAVCBackTraceStorageUnit@2@_KQEBVCBackTrace@2@@.c)
+ *     ?ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ @ 0x1C014EC88 (-ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ.c)
  */
 
 struct NSInstrumentation::CBackTraceStorageUnit *__fastcall NSInstrumentation::CSharedStorage<NSInstrumentation::CBackTraceBucket,long volatile,NSInstrumentation::CBackTraceStorageUnit,NSInstrumentation::CBackTrace>::Insert(
@@ -16,7 +16,7 @@ struct NSInstrumentation::CBackTraceStorageUnit *__fastcall NSInstrumentation::C
   struct NSInstrumentation::CBackTraceStorageUnit *v5; // rdi
   unsigned __int64 v6; // r15
   unsigned __int64 v7; // rsi
-  NSInstrumentation::CBackTraceBucket *Pool2; // rax
+  NSInstrumentation::CBackTraceBucket *PoolWithTag; // rax
   __int64 v9; // rbp
 
   _InterlockedIncrement((volatile signed __int32 *)this + 6);
@@ -36,19 +36,22 @@ struct NSInstrumentation::CBackTraceStorageUnit *__fastcall NSInstrumentation::C
   v7 = *((_QWORD *)this + 6) + 16 * (v6 % *((unsigned int *)this + 8));
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx(v7, 0LL);
-  Pool2 = *(NSInstrumentation::CBackTraceBucket **)(v7 + 8);
-  if ( Pool2 )
+  PoolWithTag = *(NSInstrumentation::CBackTraceBucket **)(v7 + 8);
+  if ( PoolWithTag )
     goto LABEL_7;
   v9 = *((_QWORD *)this + 5);
-  Pool2 = (NSInstrumentation::CBackTraceBucket *)ExAllocatePool2(262LL, 16LL, 826897237LL);
-  if ( Pool2 )
+  PoolWithTag = (NSInstrumentation::CBackTraceBucket *)ExAllocatePoolWithTag(PagedPoolSession, 0x10uLL, 0x31497355u);
+  if ( PoolWithTag )
   {
+    *(_QWORD *)PoolWithTag = 0LL;
+    *((_QWORD *)PoolWithTag + 1) = v9;
     ++*((_DWORD *)this + 9);
-    *(_QWORD *)(v7 + 8) = Pool2;
-    *(_QWORD *)Pool2 = 0LL;
-    *((_QWORD *)Pool2 + 1) = v9;
+    *(_QWORD *)(v7 + 8) = PoolWithTag;
 LABEL_7:
-    v5 = NSInstrumentation::CBackTraceBucket::Insert(Pool2, v6, (const struct NSInstrumentation::CBackTrace *const)a2);
+    v5 = NSInstrumentation::CBackTraceBucket::Insert(
+           PoolWithTag,
+           v6,
+           (const struct NSInstrumentation::CBackTrace *const)a2);
   }
   ExReleasePushLockExclusiveEx(v7, 0LL);
   KeLeaveCriticalRegion();

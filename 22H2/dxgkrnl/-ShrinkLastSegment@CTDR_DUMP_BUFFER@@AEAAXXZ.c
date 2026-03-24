@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ShrinkLastSegment@CTDR_DUMP_BUFFER@@AEAAXXZ @ 0x1C030DDD0
+ * XREFs of ?ShrinkLastSegment@CTDR_DUMP_BUFFER@@AEAAXXZ @ 0x1C0264DAC
  * Callers:
- *     ??_GCTDR_DUMP_BUFFER@@QEAAPEAXI@Z @ 0x1C030D584 (--_GCTDR_DUMP_BUFFER@@QEAAPEAXI@Z.c)
- *     ?AddSegment@CTDR_DUMP_BUFFER@@QEAAPEAXKK@Z @ 0x1C030D658 (-AddSegment@CTDR_DUMP_BUFFER@@QEAAPEAXKK@Z.c)
- *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030E0D0 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
- *     ?TdrCollectDbgInfoStage2@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030EBC0 (-TdrCollectDbgInfoStage2@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ??_GCTDR_DUMP_BUFFER@@QEAAPEAXI@Z @ 0x1C02645E4 (--_GCTDR_DUMP_BUFFER@@QEAAPEAXI@Z.c)
+ *     ?AddSegment@CTDR_DUMP_BUFFER@@QEAAPEAXKK@Z @ 0x1C02646C8 (-AddSegment@CTDR_DUMP_BUFFER@@QEAAPEAXKK@Z.c)
+ *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0265110 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     ?TdrCollectDbgInfoStage2@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0265C60 (-TdrCollectDbgInfoStage2@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,40 +12,44 @@
 void __fastcall CTDR_DUMP_BUFFER::ShrinkLastSegment(CTDR_DUMP_BUFFER *this)
 {
   __int16 v1; // ax
-  __int64 v2; // rdx
-  unsigned int v3; // r10d
-  bool v4; // zf
-  __int64 v5; // r9
-  _DWORD *v6; // rdx
-  __int64 v7; // r8
-  int v8; // r8d
+  __int64 v3; // rdx
+  int v4; // r9d
+  unsigned int v5; // r10d
+  __int64 v6; // rcx
+  unsigned int v7; // edx
+  __int64 v8; // rdx
+  bool v9; // zf
+  int v10; // edx
 
   v1 = *((_WORD *)this + 10);
   if ( v1 )
   {
-    v2 = *((_QWORD *)this + 1);
-    v3 = *(_DWORD *)(v2 + 8LL * (unsigned __int16)(v1 - 1) + 8);
-    v4 = v2 + v3 == 0;
-    v5 = v2 + v3;
-    v6 = (_DWORD *)((char *)this + 24);
-    if ( v4 || *v6 == v3 )
-      goto LABEL_8;
-    v7 = *v6 - v3 - 1;
-    if ( *v6 - v3 != 1 )
+    v3 = *((_QWORD *)this + 1);
+    v4 = 1;
+    v5 = *(_DWORD *)(v3 + 8LL * (unsigned __int16)(v1 - 1) + 8);
+    v6 = v3 + v5;
+    if ( v6 && (v7 = *((_DWORD *)this + 6) - v5) != 0 )
     {
-      do
+      v8 = v7 - 1;
+      if ( (_DWORD)v8 )
       {
-        if ( *(_BYTE *)(v7 + v5) )
-          break;
-        v4 = (_DWORD)v7 == 1;
-        v7 = (unsigned int)(v7 - 1);
+        do
+        {
+          if ( *(_BYTE *)(v8 + v6) )
+            break;
+          v9 = (_DWORD)v8 == 1;
+          v8 = (unsigned int)(v8 - 1);
+        }
+        while ( !v9 );
       }
-      while ( !v4 );
+      v10 = *(_BYTE *)(v8 + v6) != 0 ? v8 + 1 : 0;
     }
-    v8 = *(_BYTE *)(v7 + v5) != 0 ? v7 + 1 : 0;
-    if ( !v8 )
-LABEL_8:
-      v8 = 1;
-    *v6 = v8 + v3;
+    else
+    {
+      v10 = 0;
+    }
+    if ( v10 )
+      v4 = v10;
+    *((_DWORD *)this + 6) = v4 + v5;
   }
 }

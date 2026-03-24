@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnloadApproved @ 0x1407623F0
+ * XREFs of MiUnloadApproved @ 0x140771F1C
  * Callers:
- *     MiDereferenceSingleImport @ 0x1407623BC (MiDereferenceSingleImport.c)
+ *     MiDereferenceImports @ 0x140771E90 (MiDereferenceImports.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     MiSessionLookupImage @ 0x1402DBF3C (MiSessionLookupImage.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     RtlFindExportedRoutineByName @ 0x140757F00 (RtlFindExportedRoutineByName.c)
+ *     MiSessionLookupImage @ 0x1402CF668 (MiSessionLookupImage.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     RtlFindExportedRoutineByName @ 0x140612560 (RtlFindExportedRoutineByName.c)
  */
 
 __int64 __fastcall MiUnloadApproved(ULONG_PTR BugCheckParameter2)
@@ -26,7 +26,7 @@ __int64 __fastcall MiUnloadApproved(ULONG_PTR BugCheckParameter2)
     v6 = v5;
     if ( !v5 )
     {
-      v9 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[25];
+      v9 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
       if ( (*(_DWORD *)(v9 + 4) & 2) == 0 )
         KeBugCheckEx(0x1Au, 0x2200uLL, BugCheckParameter2, v1, *(unsigned int *)(v9 + 8));
       return 0LL;

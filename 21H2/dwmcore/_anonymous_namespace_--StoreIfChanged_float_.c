@@ -1,7 +1,7 @@
 /*
- * XREFs of _anonymous_namespace_::StoreIfChanged_float_ @ 0x1801F32C8
+ * XREFs of _anonymous_namespace_::StoreIfChanged_float_ @ 0x1801D38C8
  * Callers:
- *     ?UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@PEAUIManipulationTelemetryData@InteractionLatencyTelemetry@@@Z @ 0x1801F4CB0 (-UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@PEAUIManipul.c)
+ *     ?UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@PEAUIManipulationTelemetryData@@@Z @ 0x1801D51E0 (-UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@PEAUIManipul.c)
  * Callees:
  *     <none>
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of DpiGetDbgInfoAdapters @ 0x1C005E66C
+ * XREFs of DpiGetDbgInfoAdapters @ 0x1C00514D8
  * Callers:
- *     ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N1@Z @ 0x1C004FCE8 (-TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N1@Z.c)
- *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030E0D0 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z @ 0x1C0044E4C (-TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z.c)
+ *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0265110 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ __int64 __fastcall DpiGetDbgInfoAdapters(__int64 a1)
   unsigned int v6; // ecx
 
   v1 = 0;
-  v3 = (_QWORD *)qword_1C01404C8;
+  v3 = (_QWORD *)qword_1C00B2B40;
   if ( (_QWORD *)*v3 != v3 )
   {
     do
@@ -33,10 +33,10 @@ __int64 __fastcall DpiGetDbgInfoAdapters(__int64 a1)
             if ( v1 >= 7 )
               break;
             v5 = 2LL * v1;
-            *(_DWORD *)(a1 + 8 * v5) = *(_DWORD *)(v4[489] + 2820);
+            *(_DWORD *)(a1 + 8 * v5) = *(_DWORD *)(v4[487] + 2596);
             *(_DWORD *)(a1 + 8 * v5 + 4) = *((_DWORD *)v4 + 281);
             *(_DWORD *)(a1 + 8 * v5 + 8) = *((_DWORD *)v4 + 282);
-            v6 = (*(_DWORD *)(v4[489] + 200) == 1) | *(_DWORD *)(a1 + 16LL * v1 + 12) & 0xFFFFFFFE;
+            v6 = (*(_DWORD *)(v4[487] + 200) == 1) | *(_DWORD *)(a1 + 16LL * v1 + 12) & 0xFFFFFFFE;
             *(_DWORD *)(a1 + 8 * v5 + 12) = v6;
             *(_DWORD *)(a1 + 8 * v5 + 12) = v6 ^ ((unsigned __int8)v6 ^ (unsigned __int8)(2 * *((_BYTE *)v4 + 1152))) & 2;
             ++v1;
@@ -47,7 +47,7 @@ __int64 __fastcall DpiGetDbgInfoAdapters(__int64 a1)
       }
       v3 = (_QWORD *)*v3;
     }
-    while ( *v3 != qword_1C01404C8 );
+    while ( *v3 != qword_1C00B2B40 );
   }
   return 0LL;
 }

@@ -1,297 +1,294 @@
 /*
- * XREFs of ?SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@@_KPEAPEAUIScalarForce@@@Z @ 0x18021C784
+ * XREFs of ?SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@@_KPEAPEAUIScalarForce@@@Z @ 0x1801CB230
  * Callers:
- *     ?SelectInertiaModifier@CScrollAnimation@@QEAAJXZ @ 0x180254770 (-SelectInertiaModifier@CScrollAnimation@@QEAAJXZ.c)
+ *     ?SelectInertiaModifier@CScrollAnimation@@QEAAJXZ @ 0x180203ED8 (-SelectInertiaModifier@CScrollAnimation@@QEAAJXZ.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EA9A4 (-InternalRelease@-$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetSampledConditionAnimation@CConditionalExpression@@QEBAXPEAPEAVCBaseExpression@@@Z @ 0x180210FE0 (-GetSampledConditionAnimation@CConditionalExpression@@QEBAXPEAPEAVCBaseExpression@@@Z.c)
- *     ?GetValue@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x180211050 (-GetValue@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
- *     ?IsAnyConditionSatisfied@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180211234 (-IsAnyConditionSatisfied@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?Reset@CConditionalExpression@@QEAAXXZ @ 0x1802117DC (-Reset@CConditionalExpression@@QEAAXXZ.c)
- *     ??$?4VCExpressionForce@@@?$ComPtr@UIScalarForce@@@WRL@Microsoft@@QEAAAEAV012@PEAVCExpressionForce@@@Z @ 0x18021842C (--$-4VCExpressionForce@@@-$ComPtr@UIScalarForce@@@WRL@Microsoft@@QEAAAEAV012@PEAVCExpressionForc.c)
- *     ??$?4VCScalarForce@@@?$ComPtr@UIScalarForce@@@WRL@Microsoft@@QEAAAEAV012@AEBV?$ComPtr@VCScalarForce@@@12@@Z @ 0x1802184CC (--$-4VCScalarForce@@@-$ComPtr@UIScalarForce@@@WRL@Microsoft@@QEAAAEAV012@AEBV-$ComPtr@VCScalarFo.c)
- *     ?GetAnimationForAxis@CInteractionTracker@@AEBAXW4ScrollAxis@@PEAPEAVCScrollAnimation@@@Z @ 0x18021A98C (-GetAnimationForAxis@CInteractionTracker@@AEBAXW4ScrollAxis@@PEAPEAVCScrollAnimation@@@Z.c)
- *     ?SetDebugTargetInfo@CConditionalExpression@@AEAAXUDebugTargetInfo@1@@Z @ 0x18021CF94 (-SetDebugTargetInfo@CConditionalExpression@@AEAAXUDebugTargetInfo@1@@Z.c)
- *     ?GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z @ 0x18022656C (-GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z.c)
- *     ?GetCurrentVelocity@CMotion@@QEBAMXZ @ 0x18025EFC4 (-GetCurrentVelocity@CMotion@@QEBAMXZ.c)
- *     ?IsInertiaEnabledForAxis@InteractionSourceManager@@QEBA_NW4ScrollAxis@@@Z @ 0x1802645A4 (-IsInertiaEnabledForAxis@InteractionSourceManager@@QEBA_NW4ScrollAxis@@@Z.c)
- *     ??0CScalarForce@@QEAA@PEAUIAccelerator@@@Z @ 0x180265AD4 (--0CScalarForce@@QEAA@PEAUIAccelerator@@@Z.c)
- *     ?Initialize@CScalarForce@@QEAAXW4ThresholdKind@ForceThreshold@@MMM@Z @ 0x180265CB4 (-Initialize@CScalarForce@@QEAAXW4ThresholdKind@ForceThreshold@@MMM@Z.c)
- *     ??0CExpressionForce@@QEAA@MMPEAVCConditionalExpression@@W4ScrollAxis@@@Z @ 0x180265E28 (--0CExpressionForce@@QEAA@MMPEAVCConditionalExpression@@W4ScrollAxis@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??B?$ComPtr@VCBaseExpression@@@WRL@Microsoft@@QEBAPEQBoolStruct@Details@12@HXZ @ 0x1800F00F4 (--B-$ComPtr@VCBaseExpression@@@WRL@Microsoft@@QEBAPEQBoolStruct@Details@12@HXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetSampledConditionAnimation@CConditionalExpression@@QEBAXPEAPEAVCBaseExpression@@@Z @ 0x1801BDC04 (-GetSampledConditionAnimation@CConditionalExpression@@QEBAXPEAPEAVCBaseExpression@@@Z.c)
+ *     ?GetValue@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x1801BDC74 (-GetValue@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
+ *     ?IsAnyConditionSatisfied@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801BDE44 (-IsAnyConditionSatisfied@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?Reset@CConditionalExpression@@QEAAXXZ @ 0x1801BE390 (-Reset@CConditionalExpression@@QEAAXXZ.c)
+ *     ??$?4VCExpressionForce@@@?$ComPtr@UIScalarForce@@@WRL@Microsoft@@QEAAAEAV012@PEAVCExpressionForce@@@Z @ 0x1801C7494 (--$-4VCExpressionForce@@@-$ComPtr@UIScalarForce@@@WRL@Microsoft@@QEAAAEAV012@PEAVCExpressionForc.c)
+ *     ??$?4VCScalarForce@@@?$ComPtr@UIScalarForce@@@WRL@Microsoft@@QEAAAEAV012@AEBV?$ComPtr@VCScalarForce@@@12@@Z @ 0x1801C7534 (--$-4VCScalarForce@@@-$ComPtr@UIScalarForce@@@WRL@Microsoft@@QEAAAEAV012@AEBV-$ComPtr@VCScalarFo.c)
+ *     ??1?$ComPtr@VCScalarForce@@@WRL@Microsoft@@QEAA@XZ @ 0x1801C791C (--1-$ComPtr@VCScalarForce@@@WRL@Microsoft@@QEAA@XZ.c)
+ *     ?GetAnimationForAxis@CInteractionTracker@@AEBAXW4ScrollAxis@@PEAPEAVCScrollAnimation@@@Z @ 0x1801C97E0 (-GetAnimationForAxis@CInteractionTracker@@AEBAXW4ScrollAxis@@PEAPEAVCScrollAnimation@@@Z.c)
+ *     ?SetDebugTargetInfo@CConditionalExpression@@AEAAXUDebugTargetInfo@1@@Z @ 0x1801CBFB8 (-SetDebugTargetInfo@CConditionalExpression@@AEAAXUDebugTargetInfo@1@@Z.c)
+ *     ?GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z @ 0x1801D7EDC (-GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z.c)
+ *     ?GetCurrentVelocity@CMotion@@QEBAMXZ @ 0x18020E720 (-GetCurrentVelocity@CMotion@@QEBAMXZ.c)
+ *     ?IsInertiaEnabledForAxis@InteractionSourceManager@@QEBA_NW4ScrollAxis@@@Z @ 0x1802136B8 (-IsInertiaEnabledForAxis@InteractionSourceManager@@QEBA_NW4ScrollAxis@@@Z.c)
+ *     ??0CScalarForce@@QEAA@PEAUIAccelerator@@@Z @ 0x180214B54 (--0CScalarForce@@QEAA@PEAUIAccelerator@@@Z.c)
+ *     ?Initialize@CScalarForce@@QEAAXW4ThresholdKind@ForceThreshold@@MMM@Z @ 0x180214CF8 (-Initialize@CScalarForce@@QEAAXW4ThresholdKind@ForceThreshold@@MMM@Z.c)
+ *     ??0CExpressionForce@@QEAA@MMPEAVCConditionalExpression@@W4ScrollAxis@@@Z @ 0x180214E40 (--0CExpressionForce@@QEAA@MMPEAVCConditionalExpression@@W4ScrollAxis@@@Z.c)
  */
 
 __int64 __fastcall CInteractionTracker::SelectInertiaModifierForAxis(
         __int64 a1,
         unsigned int a2,
         struct CExpressionValueStack *a3,
-        unsigned __int64 a4,
+        wchar_t *a4,
         _QWORD *a5)
 {
-  __int64 v5; // r13
-  __int64 (__fastcall ***v6)(_QWORD); // rsi
-  struct CExpressionValueStack *v9; // r14
-  __int64 v10; // rbx
-  int v11; // r12d
-  __int64 v12; // rax
+  __int64 v6; // r12
+  __int64 v9; // rbx
+  int v10; // r15d
+  __int64 v11; // rax
   int IsAnyConditionSatisfied; // eax
-  __int64 v14; // rcx
-  unsigned int v15; // r14d
-  int v16; // r14d
-  __int64 v17; // rcx
-  __int64 v18; // rdi
-  int v19; // r14d
-  int v20; // r14d
-  struct CBaseExpression *v21; // rbx
-  __int64 v22; // rax
+  __int64 v13; // rcx
+  int v14; // esi
+  int v15; // eax
+  __int64 v16; // rcx
+  int v17; // esi
+  __int64 v18; // rcx
+  __int64 v19; // rdi
+  int v20; // esi
+  int v21; // esi
+  struct CBaseExpression *v22; // rbx
   CMotion *v23; // rax
-  int v24; // eax
-  __int64 v25; // rcx
-  CMotion *v26; // rax
   int ForceForAxis; // eax
-  __int64 v28; // rcx
-  __int64 (__fastcall ***v29)(_QWORD); // rax
-  LPVOID v31; // r14
+  __int64 v25; // rcx
+  int v26; // eax
+  __int64 v27; // rcx
+  __int64 (__fastcall ***v28)(_QWORD); // rax
+  LPVOID v30; // rax
+  LPVOID v31; // rsi
   CMotion *v32; // rax
   __int64 v33; // rdx
   __int64 v34; // r8
   __int64 v35; // rax
   __int64 v36; // rcx
-  struct IAccelerator *v37; // rax
-  __int64 v38; // rcx
-  struct IAccelerator *v39; // r14
-  int v40; // xmm1_4
-  int v41; // xmm0_4
-  __int64 v42; // rax
-  CScalarForce *v43; // rax
-  struct CBaseExpression *v44; // rax
-  struct CBaseExpression *v45; // rbx
-  CMotion *v46; // rax
-  unsigned int v47; // [rsp+20h] [rbp-40h]
-  __int64 (__fastcall ***v48)(_QWORD); // [rsp+30h] [rbp-30h] BYREF
-  __int64 v49; // [rsp+38h] [rbp-28h] BYREF
-  _DWORD v50[4]; // [rsp+40h] [rbp-20h] BYREF
-  struct CBaseExpression *v51; // [rsp+A0h] [rbp+40h] BYREF
-  struct CExpressionValueStack *v52; // [rsp+B0h] [rbp+50h]
-  unsigned __int64 v53; // [rsp+B8h] [rbp+58h]
+  bool v37; // zf
+  int Value; // eax
+  __int64 v39; // rcx
+  struct IAccelerator *v40; // rax
+  __int64 v41; // rcx
+  struct IAccelerator *v42; // rbx
+  int v43; // xmm1_4
+  int v44; // xmm0_4
+  void (__fastcall **v45)(_QWORD); // rax
+  CScalarForce *v46; // rax
+  CScalarForce *v47; // rbx
+  CMotion *v48; // rax
+  bool v49; // [rsp+30h] [rbp-50h] BYREF
+  float v50; // [rsp+34h] [rbp-4Ch] BYREF
+  __int64 (__fastcall ***v51)(_QWORD); // [rsp+38h] [rbp-48h] BYREF
+  struct CBaseExpression *v52; // [rsp+40h] [rbp-40h] BYREF
+  __int64 v53; // [rsp+48h] [rbp-38h] BYREF
+  CScalarForce *v54; // [rsp+50h] [rbp-30h] BYREF
+  struct IAccelerator *v55; // [rsp+58h] [rbp-28h] BYREF
+  _DWORD v56[4]; // [rsp+60h] [rbp-20h] BYREF
+  bool v57; // [rsp+C0h] [rbp+40h] BYREF
+  struct CExpressionValueStack *v58; // [rsp+D0h] [rbp+50h]
 
-  v53 = a4;
-  v52 = a3;
-  v5 = (int)a2;
-  v6 = 0LL;
-  v48 = 0LL;
-  v49 = 0LL;
-  v9 = a3;
-  if ( !(unsigned __int8)InteractionSourceManager::IsInertiaEnabledForAxis(a1 + 200, a2) )
-    goto LABEL_33;
-  v10 = *(_QWORD *)(a1 + 8 * v5 + 384);
-  v11 = 0;
-  v12 = v5;
-  if ( v10 )
+  v58 = a3;
+  v51 = 0LL;
+  v53 = 0LL;
+  v6 = (int)a2;
+  if ( !(unsigned __int8)InteractionSourceManager::IsInertiaEnabledForAxis(a1 + 192, a2) )
+    goto LABEL_32;
+  v9 = *(_QWORD *)(a1 + 8 * v6 + 376);
+  v10 = 0;
+  v11 = v6;
+  if ( v9 )
   {
-    CConditionalExpression::Reset(*(CConditionalExpression **)(a1 + 8 * v5 + 384));
-    LOBYTE(v51) = 0;
+    CConditionalExpression::Reset(*(CConditionalExpression **)(a1 + 8 * v6 + 376));
+    v57 = 0;
     IsAnyConditionSatisfied = CConditionalExpression::IsAnyConditionSatisfied(
-                                (CConditionalExpression *)v10,
-                                v9,
-                                a4,
-                                (bool *)&v51);
-    v15 = IsAnyConditionSatisfied;
+                                (CConditionalExpression *)v9,
+                                a3,
+                                (__int64)a4,
+                                &v57);
+    v14 = IsAnyConditionSatisfied;
     if ( IsAnyConditionSatisfied < 0 )
     {
-      v47 = 3728;
-      goto LABEL_52;
-    }
-    v12 = v5;
-    v9 = v52;
-    v11 = (_BYTE)v51 != 0;
-  }
-  if ( (unsigned int)v5 > 1 )
-  {
-    if ( !v11 )
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, IsAnyConditionSatisfied, 0xE66u, 0LL);
       goto LABEL_33;
-  }
-  else if ( !v11 )
-  {
-    v10 = *(_QWORD *)(a1 + 408);
-    if ( v10 )
-    {
-      CConditionalExpression::Reset(*(CConditionalExpression **)(a1 + 408));
-      LOBYTE(v51) = 0;
-      IsAnyConditionSatisfied = CConditionalExpression::IsAnyConditionSatisfied(
-                                  (CConditionalExpression *)v10,
-                                  v9,
-                                  a4,
-                                  (bool *)&v51);
-      v15 = IsAnyConditionSatisfied;
-      if ( IsAnyConditionSatisfied < 0 )
-      {
-        v47 = 3751;
-        goto LABEL_52;
-      }
-      if ( (_BYTE)v51 )
-      {
-        v11 = 2;
-        v16 = 3;
-        goto LABEL_15;
-      }
     }
-LABEL_33:
-    v29 = v48;
-    v15 = 0;
-    v48 = 0LL;
-    v6 = v29;
-    goto LABEL_34;
+    v11 = v6;
+    v10 = v57;
   }
-  v16 = *(_DWORD *)(*(_QWORD *)(a1 + 8 * v12 + 416) + 4LL * *(int *)(v10 + 380));
-LABEL_15:
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v49);
-  CInteractionTracker::GetAnimationForAxis((__int64 *)a1, v5, &v49);
-  v18 = v49;
-  if ( (*(_BYTE *)(v10 + 232) & 4) != 0 )
+  if ( (unsigned int)v6 > 1 )
   {
-    v50[0] = *(_DWORD *)(v10 + 208);
-    v50[1] = *(_DWORD *)(v49 + 192);
-    v50[2] = v16;
-    CConditionalExpression::SetDebugTargetInfo(v10, v50);
+    if ( v10 )
+      goto LABEL_15;
+LABEL_32:
+    v28 = v51;
+    v51 = 0LL;
+    v14 = 0;
+    *a5 = v28;
+    goto LABEL_33;
   }
-  v19 = v16 - 1;
-  if ( !v19 )
+  if ( !v10 )
   {
-    IsAnyConditionSatisfied = CConditionalExpression::GetValue(
-                                (MatrixSubchannelMaskInfo **)v10,
-                                v52,
-                                (wchar_t *)v53,
-                                (float *)&v51);
-    v15 = IsAnyConditionSatisfied;
-    if ( IsAnyConditionSatisfied >= 0 )
+    v9 = *(_QWORD *)(a1 + 400);
+    if ( !v9 )
+      goto LABEL_32;
+    CConditionalExpression::Reset(*(CConditionalExpression **)(a1 + 400));
+    v49 = 0;
+    v15 = CConditionalExpression::IsAnyConditionSatisfied((CConditionalExpression *)v9, a3, (__int64)a4, &v49);
+    v14 = v15;
+    if ( v15 < 0 )
     {
-      v37 = (struct IAccelerator *)operator new(0x28uLL);
-      v39 = v37;
-      if ( !v37 )
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0xE7Du, 0LL);
+      goto LABEL_33;
+    }
+    if ( !v49 )
+      goto LABEL_32;
+    v17 = 3;
+    v10 = 2;
+    goto LABEL_16;
+  }
+LABEL_15:
+  v17 = *(_DWORD *)(*(_QWORD *)(a1 + 8 * v11 + 408) + 4LL * *(int *)(v9 + 356));
+LABEL_16:
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v53);
+  CInteractionTracker::GetAnimationForAxis((__int64 *)a1, v6, &v53);
+  v19 = v53;
+  if ( (*(_BYTE *)(v9 + 208) & 0x40) != 0 )
+  {
+    v56[0] = *(_DWORD *)(v9 + 200);
+    v56[1] = *(_DWORD *)(v53 + 184);
+    v56[2] = v17;
+    CConditionalExpression::SetDebugTargetInfo(v9, v56);
+  }
+  v20 = v17 - 1;
+  if ( v20 )
+  {
+    v21 = v20 - 1;
+    if ( v21 )
+    {
+      if ( v21 != 1 )
       {
-        v15 = -2147024882;
-        MilInstrumentationCheckHR_MaybeFailFast(v38, 0LL, 0LL, -2147024882, 0xED6u);
+        v14 = -2147467259;
+        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2147467259, 0xEFBu, 0LL);
         goto LABEL_34;
       }
-      *((_DWORD *)v37 + 2) = 0;
-      *(_QWORD *)v37 = &CSpringAccelerator::`vftable';
-      ((void (__fastcall *)(struct IAccelerator *))CSpringAccelerator::`vftable')(v37);
-      v40 = *(_DWORD *)(a1 + 560);
-      v41 = *(_DWORD *)(a1 + 556);
-      *((_DWORD *)v39 + 4) = *(_DWORD *)(a1 + 544);
-      v42 = *(_QWORD *)v39;
-      *((_DWORD *)v39 + 5) = v41;
-      *((_DWORD *)v39 + 6) = v40;
-      (*(void (__fastcall **)(struct IAccelerator *))(v42 + 32))(v39);
-      v43 = (CScalarForce *)operator new(0x70uLL);
-      if ( v43 )
+      v52 = 0LL;
+      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v52);
+      CConditionalExpression::GetSampledConditionAnimation((CConditionalExpression *)v9, &v52);
+      if ( (unsigned int)Microsoft::WRL::ComPtr<CBaseExpression>::operator int Microsoft::WRL::Details::BoolStruct::*(&v52) != -1 )
       {
-        v44 = CScalarForce::CScalarForce(v43, v39);
-        v51 = v44;
-        v45 = v44;
-        if ( v44 )
-          (**(void (__fastcall ***)(struct CBaseExpression *))v44)(v44);
+        v22 = v52;
+        if ( (*(unsigned __int8 (__fastcall **)(struct CBaseExpression *, __int64))(*(_QWORD *)v52 + 56LL))(v52, 110LL) )
+        {
+          (*(void (__fastcall **)(struct CBaseExpression *))(*(_QWORD *)v22 + 8LL))(v22);
+          Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v51);
+          v23 = (CMotion *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v19 + 328LL))(v19);
+          CMotion::GetCurrentVelocity(v23);
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v19 + 328LL))(v19);
+          if ( v10 == 1 )
+          {
+            ForceForAxis = CNaturalAnimation::GetForceForAxis(v22, 0LL);
+            v14 = ForceForAxis;
+            if ( ForceForAxis < 0 )
+            {
+              MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, ForceForAxis, 0xEE6u, 0LL);
+LABEL_28:
+              (*(void (__fastcall **)(struct CBaseExpression *))(*(_QWORD *)v22 + 16LL))(v22);
+              Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v52);
+              goto LABEL_33;
+            }
+          }
+          else
+          {
+            v26 = CNaturalAnimation::GetForceForAxis(v22, (unsigned int)v6);
+            v14 = v26;
+            if ( v26 < 0 )
+            {
+              MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0xEEFu, 0LL);
+              goto LABEL_28;
+            }
+          }
+          *(_DWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v19 + 328LL))(v19) + 144) = 1114636288;
+          (*(void (__fastcall **)(struct CBaseExpression *))(*(_QWORD *)v22 + 16LL))(v22);
+        }
       }
-      else
-      {
-        v45 = 0LL;
-        v51 = 0LL;
-      }
-      v46 = (CMotion *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v18 + 328LL))(v18);
-      CMotion::GetCurrentVelocity(v46);
-      (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v18 + 328LL))(v18);
-      CScalarForce::Initialize(v45, (_DWORD)v5 == 2);
-      *(_DWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v18 + 328LL))(v18) + 104) = 1114636288;
-      Microsoft::WRL::ComPtr<IScalarForce>::operator=<CScalarForce>(&v48, (__int64 (__fastcall ****)(_QWORD))&v51);
-      if ( v45 )
-        (*(void (__fastcall **)(struct CBaseExpression *))(*(_QWORD *)v45 + 8LL))(v45);
-      (*(void (__fastcall **)(struct IAccelerator *))(*(_QWORD *)v39 + 8LL))(v39);
-      goto LABEL_33;
-    }
-    v47 = 3792;
-LABEL_52:
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, IsAnyConditionSatisfied, v47);
-    goto LABEL_34;
-  }
-  v20 = v19 - 1;
-  if ( !v20 )
-  {
-    v31 = operator new(0x90uLL);
-    if ( v31 )
-    {
-      v32 = (CMotion *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v18 + 328LL))(v18);
-      CMotion::GetCurrentVelocity(v32);
-      (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v18 + 328LL))(v18);
-      v35 = CExpressionForce::CExpressionForce(v31, v33, v34, v10, v5);
+      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v52);
     }
     else
     {
-      v35 = 0LL;
+      v30 = operator new(0x98uLL);
+      v31 = v30;
+      if ( v30 )
+      {
+        v32 = (CMotion *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v19 + 328LL))(v19);
+        CMotion::GetCurrentVelocity(v32);
+        (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v19 + 328LL))(v19);
+        v30 = (LPVOID)CExpressionForce::CExpressionForce(v31, v33, v34, v9, v6);
+      }
+      Microsoft::WRL::ComPtr<IScalarForce>::operator=<CExpressionForce>(&v51, (__int64)v30);
+      v35 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v19 + 328LL))(v19);
+      v37 = v51 == 0LL;
+      *(_DWORD *)(v35 + 144) = 1101004800;
+      if ( v37 )
+      {
+        v14 = -2147024882;
+        MilInstrumentationCheckHR_MaybeFailFast(v36, 0LL, 0, -2147024882, 0xECFu, 0LL);
+        goto LABEL_34;
+      }
     }
-    Microsoft::WRL::ComPtr<IScalarForce>::operator=<CExpressionForce>(&v48, v35);
-    *(_DWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v18 + 328LL))(v18) + 104) = 1101004800;
-    if ( !v48 )
+    goto LABEL_32;
+  }
+  Value = CConditionalExpression::GetValue((MatrixSubchannelMaskInfo **)v9, v58, a4, &v50);
+  v14 = Value;
+  if ( Value >= 0 )
+  {
+    v40 = (struct IAccelerator *)operator new(0x30uLL);
+    v42 = v40;
+    if ( v40 )
     {
-      v15 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v36, 0LL, 0LL, -2147024882, 0xEF9u);
+      *((_DWORD *)v40 + 4) = 0;
+      *(_QWORD *)v40 = &CSpringAccelerator::`vftable'{for `IAccelerator'};
+      *((_QWORD *)v40 + 1) = &CSpringAccelerator::`vftable'{for `CMILRefCountBase'};
+    }
+    else
+    {
+      v42 = 0LL;
+    }
+    v55 = v42;
+    if ( !v42 )
+    {
+      v14 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v41, 0LL, 0, -2147024882, 0xEACu, 0LL);
+      Microsoft::WRL::ComPtr<CScalarForce>::~ComPtr<CScalarForce>(&v55);
       goto LABEL_34;
     }
-    goto LABEL_33;
+    (**(void (__fastcall ***)(struct IAccelerator *))v42)(v42);
+    v43 = *(_DWORD *)(a1 + 552);
+    v44 = *(_DWORD *)(a1 + 548);
+    *((_DWORD *)v42 + 6) = *(_DWORD *)(a1 + 536);
+    v45 = *(void (__fastcall ***)(_QWORD))v42;
+    *((_DWORD *)v42 + 8) = v43;
+    *((_DWORD *)v42 + 7) = v44;
+    ((void (__fastcall **)(struct IAccelerator *))v45)[4](v42);
+    v46 = (CScalarForce *)operator new(0x78uLL);
+    if ( v46 )
+      v47 = CScalarForce::CScalarForce(v46, v42);
+    else
+      v47 = 0LL;
+    v54 = v47;
+    if ( v47 )
+      (**(void (__fastcall ***)(CScalarForce *))v47)(v47);
+    v48 = (CMotion *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v19 + 328LL))(v19);
+    CMotion::GetCurrentVelocity(v48);
+    (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v19 + 328LL))(v19);
+    CScalarForce::Initialize(v47, (_DWORD)v6 == 2);
+    *(_DWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v19 + 328LL))(v19) + 144) = 1114636288;
+    Microsoft::WRL::ComPtr<IScalarForce>::operator=<CScalarForce>(&v51, (__int64 (__fastcall ****)(_QWORD))&v54);
+    Microsoft::WRL::ComPtr<CScalarForce>::~ComPtr<CScalarForce>(&v54);
+    Microsoft::WRL::ComPtr<CScalarForce>::~ComPtr<CScalarForce>(&v55);
+    goto LABEL_32;
   }
-  if ( v20 != 1 )
-  {
-    v15 = -2147467259;
-    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, -2147467259, 0xF1Fu);
-    goto LABEL_34;
-  }
-  v51 = 0LL;
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v51);
-  CConditionalExpression::GetSampledConditionAnimation((CConditionalExpression *)v10, &v51);
-  v21 = v51;
-  if ( v51 )
-    (*(void (__fastcall **)(struct CBaseExpression *))(*(_QWORD *)v51 + 8LL))(v51);
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v48);
-  v22 = *(_QWORD *)v18;
-  if ( v11 != 1 )
-  {
-    v26 = (CMotion *)(*(__int64 (__fastcall **)(__int64))(v22 + 328))(v18);
-    CMotion::GetCurrentVelocity(v26);
-    (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v18 + 328LL))(v18);
-    ForceForAxis = CNaturalAnimation::GetForceForAxis(v21, (unsigned int)v5);
-    v15 = ForceForAxis;
-    if ( ForceForAxis < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0LL, ForceForAxis, 0xF14u);
-      goto LABEL_26;
-    }
-    goto LABEL_30;
-  }
-  v23 = (CMotion *)(*(__int64 (__fastcall **)(__int64))(v22 + 328))(v18);
-  CMotion::GetCurrentVelocity(v23);
-  (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v18 + 328LL))(v18);
-  v24 = CNaturalAnimation::GetForceForAxis(v21, 0LL);
-  v15 = v24;
-  if ( v24 >= 0 )
-  {
-LABEL_30:
-    *(_DWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v18 + 328LL))(v18) + 104) = 1114636288;
-    if ( v21 )
-      (*(void (__fastcall **)(struct CBaseExpression *))(*(_QWORD *)v21 + 16LL))(v21);
-    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v51);
-    goto LABEL_33;
-  }
-  MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0LL, v24, 0xF0Bu);
-LABEL_26:
-  if ( v21 )
-    (*(void (__fastcall **)(struct CBaseExpression *))(*(_QWORD *)v21 + 16LL))(v21);
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v51);
+  MilInstrumentationCheckHR_MaybeFailFast(v39, 0LL, 0, Value, 0xEA6u, 0LL);
+LABEL_33:
+  if ( v14 < 0 )
 LABEL_34:
-  *a5 = v6;
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v49);
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v48);
-  return v15;
+    *a5 = 0LL;
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v53);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v51);
+  return (unsigned int)v14;
 }

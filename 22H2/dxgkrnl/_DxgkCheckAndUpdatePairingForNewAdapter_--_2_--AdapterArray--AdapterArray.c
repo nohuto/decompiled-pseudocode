@@ -1,10 +1,10 @@
 /*
- * XREFs of _DxgkCheckAndUpdatePairingForNewAdapter_::_2_::AdapterArray::AdapterArray @ 0x1C02CDB00
+ * XREFs of _DxgkCheckAndUpdatePairingForNewAdapter_::_2_::AdapterArray::AdapterArray @ 0x1C0221300
  * Callers:
- *     ?DxgkCheckAndUpdatePairingForNewAdapter@@YAXPEAVDXGADAPTER@@PEAE@Z @ 0x1C021AFBC (-DxgkCheckAndUpdatePairingForNewAdapter@@YAXPEAVDXGADAPTER@@PEAE@Z.c)
+ *     ?DxgkCheckAndUpdatePairingForNewAdapter@@YAXPEAVDXGADAPTER@@PEAE@Z @ 0x1C01960F0 (-DxgkCheckAndUpdatePairingForNewAdapter@@YAXPEAVDXGADAPTER@@PEAE@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0014F54 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0019DC8 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
  */
 
 __int64 __fastcall DxgkCheckAndUpdatePairingForNewAdapter_::_2_::AdapterArray::AdapterArray(
@@ -14,9 +14,9 @@ __int64 __fastcall DxgkCheckAndUpdatePairingForNewAdapter_::_2_::AdapterArray::A
   __int64 v3; // rbp
   __int64 v4; // rax
   bool v5; // cf
-  unsigned __int64 v6; // rax
-  __int64 v7; // rax
-  __int64 v8; // rbx
+  SIZE_T v6; // rax
+  char *v7; // rax
+  char *v8; // rbx
 
   *(_DWORD *)a1 = 0;
   *(_DWORD *)(a1 + 4) = 0;
@@ -29,23 +29,23 @@ __int64 __fastcall DxgkCheckAndUpdatePairingForNewAdapter_::_2_::AdapterArray::A
   v6 = v4 + 8;
   if ( v5 )
     v6 = -1LL;
-  v7 = operator new[](v6, 0x4B677844u, 256LL);
+  v7 = (char *)operator new[](v6, 0x4B677844u, PagedPool);
   if ( v7 )
   {
     v8 = v7 + 8;
     *(_QWORD *)v7 = v3;
     `vector constructor iterator'(
-      (char *)(v7 + 8),
+      v7 + 8,
       16LL,
       (unsigned int)v3,
-      (void (__fastcall *)(char *))wistd::unique_ptr<DxgMonitor::WmiMonitorDescriptor,wistd::default_delete<DxgMonitor::WmiMonitorDescriptor>>::unique_ptr<DxgMonitor::WmiMonitorDescriptor,wistd::default_delete<DxgMonitor::WmiMonitorDescriptor>>);
-    *(_QWORD *)(a1 + 8) = v8;
-    if ( v8 )
-      *(_DWORD *)(a1 + 4) = v3;
+      (void (__fastcall *)(char *))CAutoRefCountedBuffer::CAutoRefCountedBuffer);
   }
   else
   {
-    *(_QWORD *)(a1 + 8) = 0LL;
+    v8 = 0LL;
   }
+  *(_QWORD *)(a1 + 8) = v8;
+  if ( v8 )
+    *(_DWORD *)(a1 + 4) = v3;
   return a1;
 }

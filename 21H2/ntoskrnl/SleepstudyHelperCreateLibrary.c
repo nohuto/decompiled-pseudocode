@@ -1,50 +1,46 @@
 /*
- * XREFs of SleepstudyHelperCreateLibrary @ 0x140853600
+ * XREFs of SleepstudyHelperCreateLibrary @ 0x1407CCFD0
  * Callers:
- *     SleepstudyHelper_Initialize @ 0x1408535B0 (SleepstudyHelper_Initialize.c)
- *     PopPowerRequestStatsInitialize @ 0x140B24AB0 (PopPowerRequestStatsInitialize.c)
+ *     SleepstudyHelper_Initialize @ 0x1408FB410 (SleepstudyHelper_Initialize.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14036C0A0 (SSHSupportReleasePushLockExclusive.c)
- *     SSHSupportAllocateNonPaged @ 0x14036C1D4 (SSHSupportAllocateNonPaged.c)
- *     SSHSupportQueryIsLibraryEnabled @ 0x1403D6B2C (SSHSupportQueryIsLibraryEnabled.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402C98E8 (SSHSupportReleasePushLockExclusive.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall SleepstudyHelperCreateLibrary(int a1, _QWORD *a2)
+__int64 __fastcall SleepstudyHelperCreateLibrary(ULONG Tag, __int64 *a2)
 {
   unsigned int v2; // ebx
-  unsigned int v5; // ecx
-  __int64 NonPaged; // rax
-  _QWORD *v7; // rdi
-  _QWORD *v8; // rax
-  _QWORD *v9; // rax
+  PVOID NonPaged; // rax
+  __int64 v6; // rdi
+  __int64 *v7; // rax
 
   v2 = 0;
   if ( a2 )
   {
-    if ( SshpInitialized && SSHSupportQueryIsLibraryEnabled() )
+    if ( SshpInitialized )
     {
-      NonPaged = SSHSupportAllocateNonPaged(72LL, v5);
-      v7 = (_QWORD *)NonPaged;
+      NonPaged = SSHSupportAllocateNonPaged(0x48uLL, Tag);
+      v6 = (__int64)NonPaged;
       if ( NonPaged )
       {
-        *(_DWORD *)(NonPaged + 24) = a1;
-        *(_QWORD *)(NonPaged + 16) = 0LL;
-        v8 = (_QWORD *)(NonPaged + 40);
-        v8[1] = v8;
-        *v8 = v8;
-        v7[8] = v7 + 7;
-        v7[7] = v7 + 7;
+        memset(NonPaged, 0, 0x48uLL);
+        *(_DWORD *)(v6 + 24) = Tag;
+        *(_QWORD *)(v6 + 48) = v6 + 40;
+        *(_QWORD *)(v6 + 40) = v6 + 40;
+        *(_QWORD *)(v6 + 64) = v6 + 56;
+        *(_QWORD *)(v6 + 56) = v6 + 56;
         ExAcquirePushLockExclusiveEx((ULONG_PTR)&SshpLibraryListLock, 0LL);
-        v9 = (_QWORD *)qword_140C1C818;
-        if ( *(__int64 **)qword_140C1C818 != &SshpLibraryList )
+        v7 = (__int64 *)qword_140C1E338;
+        if ( *(__int64 **)qword_140C1E338 != &SshpLibraryList )
           __fastfail(3u);
-        *v7 = &SshpLibraryList;
-        v7[1] = v9;
-        *v9 = v7;
-        qword_140C1C818 = (__int64)v7;
+        *(_QWORD *)v6 = &SshpLibraryList;
+        *(_QWORD *)(v6 + 8) = v7;
+        *v7 = v6;
+        qword_140C1E338 = v6;
         SSHSupportReleasePushLockExclusive((ULONG_PTR)&SshpLibraryListLock);
-        *a2 = v7;
+        *a2 = v6;
       }
       else
       {

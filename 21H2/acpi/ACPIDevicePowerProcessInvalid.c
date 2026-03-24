@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIDevicePowerProcessInvalid @ 0x1C0050240
+ * XREFs of ACPIDevicePowerProcessInvalid @ 0x1C0050EC0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDeviceCompleteRequest @ 0x1C000AA40 (ACPIDeviceCompleteRequest.c)
+ *     ACPIDeviceCompleteRequest @ 0x1C001EAE8 (ACPIDeviceCompleteRequest.c)
  */
 
 __int64 __fastcall ACPIDevicePowerProcessInvalid(__int64 a1)

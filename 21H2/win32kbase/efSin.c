@@ -1,11 +1,11 @@
 /*
- * XREFs of efSin @ 0x1C009C140
+ * XREFs of efSin @ 0x1C00A3C10
  * Callers:
- *     efCos @ 0x1C009C110 (efCos.c)
- *     ?bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z @ 0x1C0169BF0 (-bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z.c)
+ *     efCos @ 0x1C00A3BE0 (efCos.c)
+ *     ?bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z @ 0x1C013C7B0 (-bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z.c)
  * Callees:
- *     bFToL @ 0x1C009B150 (bFToL.c)
- *     eFraction @ 0x1C00BB0CC (eFraction.c)
+ *     bFToL @ 0x1C0081930 (bFToL.c)
+ *     eFraction @ 0x1C00A9218 (eFraction.c)
  */
 
 __int64 __fastcall efSin(int a1)
@@ -46,10 +46,10 @@ __int64 __fastcall efSin(int a1)
   if ( ((v14 >> 5) & 1) != 0 )
   {
     v8 = 4LL * (v14 & 0x1F);
-    v9 = (__m128)*(unsigned int *)((char *)&unk_1C0294260 - v8);
+    v9 = (__m128)*(unsigned int *)((char *)&unk_1C024F4D0 - v8);
     v9.m128_f32[0] = (float)(v9.m128_f32[0] - gaefSin[32 - (int)v7 - 1]) * *(float *)&v4;
     v10 = _mm_xor_ps(v9, v5);
-    v10.m128_f32[0] = v10.m128_f32[0] + *(float *)((char *)&unk_1C0294260 - v8);
+    v10.m128_f32[0] = v10.m128_f32[0] + *(float *)((char *)&unk_1C024F4D0 - v8);
     v11 = v10;
   }
   else

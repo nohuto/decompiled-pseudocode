@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PEBUD2D_RECT_F@@PEA_N@Z @ 0x1C0038BB0
+ * XREFs of ?SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PEBUD2D_RECT_F@@PEA_N@Z @ 0x1C00235EC
  * Callers:
- *     ?SetBufferProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00ACBB0 (-SetBufferProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPE.c)
+ *     ?SetBufferProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0021A50 (-SetBufferProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPE.c)
  * Callees:
- *     ?UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C00656B0 (-UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z.c)
+ *     ?UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C0094868 (-UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CRectangleClipMarshaler::SetRectangleHelper(
@@ -14,14 +14,14 @@ void __fastcall DirectComposition::CRectangleClipMarshaler::SetRectangleHelper(
 {
   bool v4; // di
   float v8; // xmm1_4
-  char v9; // r10
+  char v9; // r9
   float v10; // xmm1_4
-  char v11; // r9
+  char v11; // r8
   float v12; // xmm1_4
-  char v13; // r8
+  char v13; // dl
   float v14; // xmm2_4
-  char v15; // dl
-  char v16; // cl
+  char v15; // cl
+  char v16; // al
   __m128 v17; // [rsp+20h] [rbp-18h]
 
   v4 = 0;
@@ -123,7 +123,7 @@ void __fastcall DirectComposition::CRectangleClipMarshaler::SetRectangleHelper(
   }
   v16 = 1;
 LABEL_18:
-  if ( *((_QWORD *)this + 5) )
+  if ( *((_QWORD *)this + 4) )
   {
     DirectComposition::CApplicationChannel::UnbindAllAnimations(a2, this);
     v16 = 1;
@@ -132,12 +132,8 @@ LABEL_18:
     v13 = 1;
     v15 = 1;
   }
-  else if ( !v9 )
-  {
-    goto LABEL_21;
-  }
-  *((_DWORD *)this + 4) &= ~0x2000u;
-LABEL_21:
+  if ( v9 )
+    *((_DWORD *)this + 4) &= ~0x2000u;
   if ( v11 )
     *((_DWORD *)this + 4) &= ~0x1000u;
   if ( v13 )

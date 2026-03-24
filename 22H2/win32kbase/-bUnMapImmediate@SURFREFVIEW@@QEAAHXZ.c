@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bUnMapImmediate@SURFREFVIEW@@QEAAHXZ @ 0x1C01586C0
+ * XREFs of ?bUnMapImmediate@SURFREFVIEW@@QEAAHXZ @ 0x1C007AAA0
  * Callers:
- *     bMigrateSurfaceForConversion @ 0x1C015A1C0 (bMigrateSurfaceForConversion.c)
+ *     bMigrateSurfaceForConversion @ 0x1C00BA100 (bMigrateSurfaceForConversion.c)
  * Callees:
- *     ?bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z @ 0x1C01585B0 (-bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z.c)
+ *     ?bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z @ 0x1C007AEC4 (-bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z.c)
  */
 
-__int64 __fastcall SURFREFVIEW::bUnMapImmediate(SURFACE **this, void *a2, struct _ERESOURCE *a3)
+__int64 __fastcall SURFREFVIEW::bUnMapImmediate(SURFACE **this, void *a2, struct DC *a3)
 {
   __int64 result; // rax
   SURFACE *v5; // rcx

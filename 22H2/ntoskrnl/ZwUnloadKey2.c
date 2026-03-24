@@ -1,12 +1,12 @@
 /*
- * XREFs of ZwUnloadKey2 @ 0x14041E1A0
+ * XREFs of ZwUnloadKey2 @ 0x1403FD360
  * Callers:
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x14077ACF8 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
- *     VrpUnloadDifferencingHive @ 0x14077C3DC (VrpUnloadDifferencingHive.c)
- *     PiDrvDbUnloadHive @ 0x1408676EC (PiDrvDbUnloadHive.c)
- *     PiDrvDbLoadHive @ 0x140867738 (PiDrvDbLoadHive.c)
- *     BiUnloadHiveByName @ 0x140A5D60C (BiUnloadHiveByName.c)
- *     PipUnloadEarlyLaunchDrivers @ 0x140B6C1F8 (PipUnloadEarlyLaunchDrivers.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1405D2FAC (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     VrpUnloadDifferencingHive @ 0x1405D6264 (VrpUnloadDifferencingHive.c)
+ *     PiDrvDbUnloadHive @ 0x140725F28 (PiDrvDbUnloadHive.c)
+ *     PiDrvDbLoadHive @ 0x140725F74 (PiDrvDbLoadHive.c)
+ *     BiUnloadHiveByName @ 0x140779304 (BiUnloadHiveByName.c)
+ *     PipUnloadEarlyLaunchDrivers @ 0x140A728A8 (PipUnloadEarlyLaunchDrivers.c)
  * Callees:
  *     <none>
  */

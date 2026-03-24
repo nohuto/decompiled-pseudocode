@@ -1,8 +1,8 @@
 /*
- * XREFs of ??E?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ @ 0x1800F1858
+ * XREFs of ??E?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ @ 0x1800D5D3C
  * Callers:
- *     _anonymous_namespace_::SendFramesReport @ 0x1800751DC (_anonymous_namespace_--SendFramesReport.c)
- *     ?EncodeStringsList@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$set@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@2@@Z @ 0x180075DD4 (-EncodeStringsList@@YA-AV-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@AEBV-$set@.c)
+ *     _anonymous_namespace_::SendFramesReport @ 0x18004B7F8 (_anonymous_namespace_--SendFramesReport.c)
+ *     ?EncodeStringsList@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$set@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@2@@Z @ 0x18004C444 (-EncodeStringsList@@YA-AV-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@AEBV-$set@.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 **__fastcall std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tr
 {
   __int64 *v1; // rax
   __int64 *i; // rdx
-  __int64 *v4; // r8
+  __int64 *v3; // r8
 
   v1 = *a1;
   i = (__int64 *)(*a1)[2];
@@ -26,15 +26,15 @@ __int64 **__fastcall std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tr
   }
   else
   {
-    v4 = (__int64 *)*i;
+    v3 = (__int64 *)*i;
     if ( !*(_BYTE *)(*i + 25) )
     {
       do
       {
-        i = v4;
-        v4 = (__int64 *)*v4;
+        i = v3;
+        v3 = (__int64 *)*v3;
       }
-      while ( !*((_BYTE *)v4 + 25) );
+      while ( !*((_BYTE *)v3 + 25) );
     }
   }
   *a1 = i;

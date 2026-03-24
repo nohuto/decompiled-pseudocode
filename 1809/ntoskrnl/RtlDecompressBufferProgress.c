@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlDecompressBufferProgress @ 0x1402F9E90
+ * XREFs of RtlDecompressBufferProgress @ 0x1402F9F90
  * Callers:
  *     PopDecompressHiberBlocks @ 0x140569E60 (PopDecompressHiberBlocks.c)
  * Callees:
- *     RtlDecompressBufferXpressHuffProgress @ 0x1402F9F50 (RtlDecompressBufferXpressHuffProgress.c)
- *     RtlDecompressBufferXpressLzProgress @ 0x1402FA524 (RtlDecompressBufferXpressLzProgress.c)
+ *     RtlDecompressBufferXpressHuffProgress @ 0x1402FA050 (RtlDecompressBufferXpressHuffProgress.c)
+ *     RtlDecompressBufferXpressLzProgress @ 0x1402FA624 (RtlDecompressBufferXpressLzProgress.c)
  */
 
 __int64 __fastcall RtlDecompressBufferProgress(

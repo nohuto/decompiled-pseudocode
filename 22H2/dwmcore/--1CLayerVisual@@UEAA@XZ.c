@@ -1,23 +1,21 @@
 /*
- * XREFs of ??1CLayerVisual@@UEAA@XZ @ 0x1800F4F74
+ * XREFs of ??1CLayerVisual@@UEAA@XZ @ 0x1800D58A4
  * Callers:
- *     ??_GCLayerVisual@@UEAAPEAXI@Z @ 0x1800F4F30 (--_GCLayerVisual@@UEAAPEAXI@Z.c)
+ *     ??_GCLayerVisual@@UEAAPEAXI@Z @ 0x1800D5860 (--_GCLayerVisual@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?ClearTreeEffect@CLayerVisual@@AEAAXXZ @ 0x1800F50E4 (-ClearTreeEffect@CLayerVisual@@AEAAXXZ.c)
+ *     ?ClearTreeEffect@CLayerVisual@@AEAAXXZ @ 0x18001F4D4 (-ClearTreeEffect@CLayerVisual@@AEAAXXZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
  */
 
 void __fastcall CLayerVisual::~CLayerVisual(CLayerVisual *this)
 {
   bool v1; // zf
 
-  v1 = *((_QWORD *)this + 89) == 0LL;
+  v1 = *((_QWORD *)this + 78) == 0LL;
   *(_QWORD *)this = &CLayerVisual::`vftable';
   if ( !v1 )
     CLayerVisual::ClearTreeEffect(this);
-  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 88));
-  *((_QWORD *)this + 88) = 0LL;
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 90);
+  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 77));
+  *((_QWORD *)this + 77) = 0LL;
   CVisual::~CVisual(this);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of SepInitializeSingletonAttributesStructures @ 0x140B57C90
+ * XREFs of SepInitializeSingletonAttributesStructures @ 0x140A47A00
  * Callers:
- *     SepInitializationPhase1 @ 0x140823D08 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x14079D7A8 (SepInitializationPhase1.c)
  * Callees:
- *     RtlpCreateHashTable @ 0x14036F050 (RtlpCreateHashTable.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlpCreateHashTable @ 0x140376250 (RtlpCreateHashTable.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 SepInitializeSingletonAttributesStructures()
@@ -14,12 +14,12 @@ __int64 SepInitializeSingletonAttributesStructures()
   PEX_SPIN_LOCK v0; // rax
   unsigned int v1; // ebx
   ULONG_PTR v2; // rax
-  _QWORD *Pool2; // rdi
-  void *v4; // rax
+  _QWORD *PoolWithTag; // rdi
+  PVOID v4; // rax
   void *v5; // rsi
   _QWORD *v6; // rax
   PEX_SPIN_LOCK v7; // rcx
-  ULONG_PTR v8; // rcx
+  ULONG_PTR v8; // rax
   void *v10; // rcx
 
   v0 = SepSingletonGlobal;
@@ -33,43 +33,35 @@ __int64 SepInitializeSingletonAttributesStructures()
   *(_QWORD *)(v2 + 8) = 0LL;
   if ( (SepTokenSingletonAttributesConfig & 3) == 3 )
   {
-    Pool2 = (_QWORD *)ExAllocatePool2(256LL, 8uLL, 0x74446553u);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8uLL, 0x74446553u);
+    if ( PoolWithTag )
     {
-      v4 = (void *)ExAllocatePool2(64LL, 0x600uLL, 0x74446553u);
+      v4 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x600uLL, 0x74446553u);
       v5 = v4;
       if ( v4 )
       {
         memset(v4, 0, 0x600uLL);
-        v6 = (_QWORD *)ExAllocatePool2(64LL, 8uLL, 0x74446553u);
+        v6 = ExAllocatePoolWithTag(NonPagedPoolNx, 8uLL, 0x74446553u);
         v7 = SepSingletonGlobal;
         *((_QWORD *)SepSingletonGlobal + 1) = v6;
         if ( v6 )
         {
           *v6 = v5;
           ++*((_DWORD *)v7 + 1);
-          if ( RtlpCreateHashTable((__int64 *)(SeLuidToIndexMapping + 8), 0x80u, 0, 0) )
+          if ( RtlpCreateHashTable((PVOID *)(SeLuidToIndexMapping + 8), 0x80u, 0, 0) )
           {
             v8 = SeLuidToIndexMapping;
             *(_DWORD *)(SeLuidToIndexMapping + 16) = 64;
-            *(_QWORD *)(v8 + 24) = Pool2;
-            *Pool2 = 0LL;
+            *(_QWORD *)(v8 + 24) = PoolWithTag;
+            *PoolWithTag = 0LL;
             return v1;
           }
         }
-        v1 = -1073741801;
         ExFreePoolWithTag(v5, 0x74446553u);
       }
-      else
-      {
-        v1 = -1073741801;
-      }
-      ExFreePoolWithTag(Pool2, 0x74446553u);
+      ExFreePoolWithTag(PoolWithTag, 0x74446553u);
     }
-    else
-    {
-      v1 = -1073741801;
-    }
+    v1 = -1073741801;
     v10 = (void *)*((_QWORD *)SepSingletonGlobal + 1);
     if ( v10 )
       ExFreePoolWithTag(v10, 0x74446553u);

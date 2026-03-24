@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ProcessCaptureBits@CLegacyVisualCaptureRenderTarget@@QEAAJPEAVCChannelContext@@PEBUtagMILCMD_LEGACYVISUALCAPTURERENDERTARGET_CAPTUREBITS@@@Z @ 0x1801F0D2C
+ * XREFs of ?ProcessCaptureBits@CLegacyVisualCaptureRenderTarget@@QEAAJPEAVCChannelContext@@PEBUtagMILCMD_LEGACYVISUALCAPTURERENDERTARGET_CAPTUREBITS@@@Z @ 0x18018D464
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ??0CaptureBitsResponse@@QEAA@PEAVCGlobalSurfaceManager@@PEAVCChannelContext@@PEAVCVisualTree@@MAEBUWICRect@@W4DXGI_FORMAT@@_K@Z @ 0x180020430 (--0CaptureBitsResponse@@QEAA@PEAVCGlobalSurfaceManager@@PEAVCChannelContext@@PEAVCVisualTree@@MA.c)
- *     ?GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z @ 0x18003A5F4 (-GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?AddCaptureBitsResponse@CLegacySurfaceManager@@QEAAJPEAVCaptureBitsResponse@@@Z @ 0x1801DFAF8 (-AddCaptureBitsResponse@CLegacySurfaceManager@@QEAAJPEAVCaptureBitsResponse@@@Z.c)
- *     ??2CaptureBitsResponse@@SAPEAX_K@Z @ 0x1801F0CFC (--2CaptureBitsResponse@@SAPEAX_K@Z.c)
+ *     ?GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z @ 0x18003DF38 (-GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z.c)
+ *     ??0CaptureBitsResponse@@QEAA@PEAVCGlobalSurfaceManager@@PEAVCChannelContext@@PEAVCVisualTree@@MAEBUWICRect@@W4DXGI_FORMAT@@_K@Z @ 0x180043B00 (--0CaptureBitsResponse@@QEAA@PEAVCGlobalSurfaceManager@@PEAVCChannelContext@@PEAVCVisualTree@@MA.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3484 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?AddCaptureBitsResponse@CLegacySurfaceManager@@QEAAJPEAVCaptureBitsResponse@@@Z @ 0x1801789D4 (-AddCaptureBitsResponse@CLegacySurfaceManager@@QEAAJPEAVCaptureBitsResponse@@@Z.c)
+ *     ??2CaptureBitsResponse@@SAPEAX_K@Z @ 0x18018D434 (--2CaptureBitsResponse@@SAPEAX_K@Z.c)
  */
 
 __int64 __fastcall CLegacyVisualCaptureRenderTarget::ProcessCaptureBits(
@@ -17,77 +17,76 @@ __int64 __fastcall CLegacyVisualCaptureRenderTarget::ProcessCaptureBits(
         struct CChannelContext *a2,
         const struct tagMILCMD_LEGACYVISUALCAPTURERENDERTARGET_CAPTUREBITS *a3)
 {
-  struct CVisualTree *v3; // rdi
+  struct CVisualTree *v3; // rsi
   unsigned int v5; // edx
+  struct CaptureBitsResponse *v6; // rdi
   CVisual *Resource; // rax
-  int VisualTree; // eax
   __int64 v9; // rcx
   unsigned int v10; // ebx
-  CaptureBitsResponse *v11; // rax
+  int VisualTree; // eax
   __int64 v12; // rcx
-  struct CaptureBitsResponse *v13; // rsi
-  int v14; // eax
-  __int64 v15; // rcx
-  unsigned int v17; // [rsp+20h] [rbp-38h]
-  struct WICRect v18; // [rsp+40h] [rbp-18h] BYREF
-  struct CVisualTree *v19; // [rsp+60h] [rbp+8h] BYREF
+  CaptureBitsResponse *v13; // rax
+  __int64 v14; // rcx
+  int v15; // eax
+  __int64 v16; // rcx
+  struct WICRect v18; // [rsp+40h] [rbp-28h] BYREF
+  struct CVisualTree *v19; // [rsp+70h] [rbp+8h] BYREF
 
   v19 = this;
   v3 = 0LL;
   v5 = *((_DWORD *)a3 + 2);
+  v6 = 0LL;
   v19 = 0LL;
   if ( !v5 || COERCE_FLOAT(*((_DWORD *)a3 + 3) & _xmm) < 0.0000011920929 )
   {
-    v17 = 28;
+    v10 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003303421, 0x1Cu, 0LL);
     goto LABEL_14;
   }
-  Resource = (CVisual *)CResourceTable::GetResource(*((_QWORD *)a2 + 4), v5, 0xC4u);
+  Resource = (CVisual *)CResourceTable::GetResource(*((_QWORD *)a2 + 3), v5, 0xC3u);
   if ( !Resource )
   {
-    v17 = 34;
-LABEL_14:
     v10 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003303421, v17, 0LL);
-    goto LABEL_15;
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2003303421, 0x22u, 0LL);
+    return v10;
   }
   VisualTree = CVisual::GetVisualTree(Resource, &v19);
   v10 = VisualTree;
-  if ( VisualTree < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, VisualTree, 0x25u, 0LL);
-    v3 = v19;
-  }
-  else
+  if ( VisualTree >= 0 )
   {
     v18 = (struct WICRect)*((_OWORD *)a3 + 1);
-    v11 = (CaptureBitsResponse *)CaptureBitsResponse::operator new();
+    v13 = (CaptureBitsResponse *)CaptureBitsResponse::operator new();
     v3 = v19;
-    if ( v11
-      && (v13 = CaptureBitsResponse::CaptureBitsResponse(
-                  v11,
-                  *((struct CGlobalSurfaceManager **)g_pComposition + 28),
-                  a2,
-                  v19,
-                  1.0 / *((float *)a3 + 3),
-                  &v18,
-                  (enum DXGI_FORMAT)*((_DWORD *)a3 + 10),
-                  *((_QWORD *)a3 + 4))) != 0LL )
-    {
-      v14 = CLegacySurfaceManager::AddCaptureBitsResponse(
-              (CLegacySurfaceManager *)(*((_QWORD *)g_pComposition + 28) + 152LL),
-              v13);
-      v10 = v14;
-      if ( v14 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x38u, 0LL);
-      (*(void (__fastcall **)(struct CaptureBitsResponse *))(*(_QWORD *)v13 + 40LL))(v13);
-    }
-    else
+    if ( v13 )
+      v6 = CaptureBitsResponse::CaptureBitsResponse(
+             v13,
+             *((struct CGlobalSurfaceManager **)g_pComposition + 12),
+             a2,
+             v19,
+             1.0 / *((float *)a3 + 3),
+             &v18,
+             (enum DXGI_FORMAT)*((_DWORD *)a3 + 10),
+             *((_QWORD *)a3 + 4));
+    if ( !v6 )
     {
       v10 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147024882, 0x32u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024882, 0x32u, 0LL);
+      goto LABEL_16;
     }
+    v15 = CLegacySurfaceManager::AddCaptureBitsResponse(
+            (CLegacySurfaceManager *)(*((_QWORD *)g_pComposition + 12) + 96LL),
+            v6);
+    v10 = v15;
+    if ( v15 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x38u, 0LL);
+LABEL_14:
+    if ( v6 )
+      (*(void (__fastcall **)(struct CaptureBitsResponse *))(*(_QWORD *)v6 + 32LL))(v6);
+    goto LABEL_16;
   }
-LABEL_15:
+  MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, VisualTree, 0x25u, 0LL);
+  v3 = v19;
+LABEL_16:
   if ( v3 )
     (*(void (__fastcall **)(struct CVisualTree *))(*(_QWORD *)v3 + 16LL))(v3);
   return v10;

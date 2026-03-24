@@ -1,11 +1,11 @@
 /*
- * XREFs of KiGetProcessorSignature @ 0x140A56A48
+ * XREFs of KiGetProcessorSignature @ 0x14099BEA8
  * Callers:
- *     KiSetFeatureBits @ 0x140A56CDC (KiSetFeatureBits.c)
- *     KiInitializeBootStructures @ 0x140A57680 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
+ *     KiSetFeatureBits @ 0x14099CB6C (KiSetFeatureBits.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiGetCpuVendor @ 0x140A56B08 (KiGetCpuVendor.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiGetCpuVendor @ 0x14099BF68 (KiGetCpuVendor.c)
  */
 
 __int64 __fastcall KiGetProcessorSignature(_BYTE *a1, int *a2, int *a3, _DWORD *a4)
@@ -15,7 +15,7 @@ __int64 __fastcall KiGetProcessorSignature(_BYTE *a1, int *a2, int *a3, _DWORD *
   int v14; // edx
   int v15; // ecx
 
-  CpuVendor = KiGetCpuVendor(a1);
+  CpuVendor = KiGetCpuVendor(a1, a2);
   _RAX = 1LL;
   __asm { cpuid }
   v14 = BYTE1(result) & 0xF;

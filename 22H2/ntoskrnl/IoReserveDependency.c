@@ -1,12 +1,12 @@
 /*
- * XREFs of IoReserveDependency @ 0x140839800
+ * XREFs of IoReserveDependency @ 0x14089D7F0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9A08 (PnpAcquireDependencyRelationsLock.c)
- *     PipSetDependency @ 0x140839894 (PipSetDependency.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406B29FC (PnpAcquireDependencyRelationsLock.c)
+ *     PipSetDependency @ 0x14089E044 (PipSetDependency.c)
  */
 
 __int64 __fastcall IoReserveDependency(__int64 a1, _WORD *a2, int a3)
@@ -14,21 +14,24 @@ __int64 __fastcall IoReserveDependency(__int64 a1, _WORD *a2, int a3)
   unsigned int v3; // ebx
   _DWORD v5[2]; // [rsp+20h] [rbp-38h] BYREF
   __int64 v6; // [rsp+28h] [rbp-30h]
-  _DWORD v7[2]; // [rsp+30h] [rbp-28h] BYREF
-  _WORD *v8; // [rsp+38h] [rbp-20h]
-  int v9; // [rsp+40h] [rbp-18h]
+  int v7; // [rsp+30h] [rbp-28h]
+  int v8; // [rsp+34h] [rbp-24h]
+  _WORD *v9; // [rsp+38h] [rbp-20h]
+  int v10; // [rsp+40h] [rbp-18h]
+  int v11; // [rsp+44h] [rbp-14h]
 
   v5[1] = 0;
-  v7[1] = 0;
+  v8 = 0;
+  v11 = 0;
   if ( a1 && a2 && *a2 && (a3 & 3) != 0 && (a3 & 0xFFFFFFFC) == 0 )
   {
-    v7[0] = 1;
-    v8 = a2;
-    v9 = a3;
+    v7 = 1;
+    v9 = a2;
+    v10 = a3;
     v5[0] = 0;
     v6 = a1;
     PnpAcquireDependencyRelationsLock(1);
-    v3 = PipSetDependency(v5, v7);
+    v3 = PipSetDependency(v5);
     ExReleaseResourceLite(&PiDependencyRelationsLock);
     PpDevNodeUnlockTree(0);
   }

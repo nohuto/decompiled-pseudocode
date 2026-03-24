@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSwapProcess @ 0x1402D0BA0
+ * XREFs of KiSwapProcess @ 0x140207230
  * Callers:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
  * Callees:
- *     KiSetAddressPolicy @ 0x140347550 (KiSetAddressPolicy.c)
- *     HvlSwitchVirtualAddressSpace @ 0x14054CAE0 (HvlSwitchVirtualAddressSpace.c)
+ *     KiSetAddressPolicy @ 0x1402079D0 (KiSetAddressPolicy.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x1404FAD60 (HvlSwitchVirtualAddressSpace.c)
  */
 
 unsigned __int64 __fastcall KiSwapProcess(__int64 a1, __int64 a2)
@@ -27,7 +27,7 @@ unsigned __int64 __fastcall KiSwapProcess(__int64 a1, __int64 a2)
     v7 = *(_QWORD *)(a1 + 40);
     if ( (v6 & 2) != 0 )
       v7 = v6 | 0x8000000000000000uLL;
-    __writegsqword(0xA000u, v7);
+    __writegsqword(0x9000u, v7);
     KiSetAddressPolicy(*(unsigned __int8 *)(a1 + 912));
   }
   result = (unsigned int)HvlEnlightenments;

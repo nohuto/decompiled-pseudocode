@@ -1,83 +1,72 @@
 /*
- * XREFs of DestroyThreadsMessages @ 0x1C00F6000
+ * XREFs of DestroyThreadsMessages @ 0x1C00C16B0
  * Callers:
  *     <none>
  * Callees:
- *     FreeQEntry @ 0x1C0002D54 (FreeQEntry.c)
- *     ?RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C0002FC8 (-RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z.c)
- *     DelQEntry @ 0x1C005BE3C (DelQEntry.c)
- *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C0078850 (WPP_RECORDER_AND_TRACE_SF_qq.c)
- *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C00F6110 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
+ *     ?RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C000779C (-RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C004F354 (WPP_RECORDER_SF_qq.c)
+ *     FreeQEntry @ 0x1C0065D58 (FreeQEntry.c)
+ *     DelQEntry @ 0x1C006684C (DelQEntry.c)
+ *     ??0?$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00C1800 (--0-$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z.c)
+ *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C010D880 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
  */
 
-_UNKNOWN **__fastcall DestroyThreadsMessages(_QWORD *a1, __int64 a2)
+__int64 __fastcall DestroyThreadsMessages(__int64 a1, __int64 a2)
 {
-  _UNKNOWN **result; // rax
-  struct tagMLIST *v3; // rsi
-  __int64 v4; // rbx
-  __int64 v5; // r14
+  __int64 result; // rax
+  struct tagMLIST *v5; // r14
+  struct tagQMSG *v6; // rbx
   __int64 v7; // rbx
-  __int64 v8; // rbp
-  char v9; // r8
+  struct tagQMSG *v8; // rsi
+  __int64 v9; // rcx
   __int64 v10; // rdi
-  _UNKNOWN *retaddr; // [rsp+68h] [rbp+0h] BYREF
+  __int64 v11; // [rsp+40h] [rbp-38h] BYREF
 
-  result = &retaddr;
-  v3 = (struct tagMLIST *)(a1 + 3);
-  v4 = a1[3];
-  v5 = a2;
-  if ( v4 )
+  result = CLockExclusiveAllowRecursion<DLT_QUEUE>::CLockExclusiveAllowRecursion<DLT_QUEUE>(&v11, a1);
+  v5 = (struct tagMLIST *)(a1 + 24);
+  v6 = *(struct tagQMSG **)(a1 + 24);
+  if ( v6 )
   {
     do
     {
-      v8 = *(_QWORD *)v4;
-      if ( *(_QWORD *)(v4 + 104) == v5 )
+      v8 = *(struct tagQMSG **)v6;
+      if ( *((_QWORD *)v6 + 13) == a2 )
       {
-        if ( a1[10] == v4 )
+        v9 = *(_QWORD *)(a1 + 80);
+        if ( (struct tagQMSG *)v9 == v6 )
         {
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) == 0
-            || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
+            && LOWORD(WPP_GLOBAL_Control->DeviceType) )
           {
-            LOBYTE(a2) = 0;
-          }
-          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-            || (v9 = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-          {
-            v9 = 0;
-          }
-          if ( (_BYTE)a2 || v9 )
-            WPP_RECORDER_AND_TRACE_SF_qq(
-              WPP_GLOBAL_Control->AttachedDevice,
-              a2,
+            WPP_RECORDER_SF_qq(
               v9,
-              WPP_MAIN_CB.Queue.ListEntry.Flink,
-              5,
-              18,
-              18,
-              (__int64)&WPP_d6b06c2d77c33863c5663f3e1e5963a9_Traceguids,
-              (char)a1,
-              a1[10]);
-          a1[10] = 0LL;
+              5u,
+              0x12u,
+              0x12u,
+              (__int64)&WPP_fae14e43e2df34d42d304f3db5b27b93_Traceguids,
+              a1,
+              *(_QWORD *)(a1 + 80));
+          }
+          *(_QWORD *)(a1 + 80) = 0LL;
         }
-        CleanEventMessage((struct tagQMSG *)v4);
-        result = (_UNKNOWN **)DelQEntry((__int64)v3, v4, 1);
+        CleanEventMessage(v6);
+        result = DelQEntry((unsigned int **)(a1 + 24), (unsigned int *)v6, 1);
       }
-      v4 = v8;
+      v6 = v8;
     }
     while ( v8 );
   }
-  v7 = a1[6];
+  v7 = *(_QWORD *)(a1 + 48);
   if ( v7 )
   {
     do
     {
       v10 = *(_QWORD *)(v7 + 8);
-      if ( *(_QWORD *)(v7 + 104) == v5 )
+      if ( *(_QWORD *)(v7 + 104) == a2 )
       {
-        RemoveQMsgFromDeferList(v3, (struct tagQMSG *)v7);
+        RemoveQMsgFromDeferList(v5, (struct tagQMSG *)v7);
         CleanEventMessage((struct tagQMSG *)v7);
-        result = (_UNKNOWN **)FreeQEntry((unsigned int *)v7);
+        result = FreeQEntry((unsigned int *)v7);
       }
       v7 = v10;
     }

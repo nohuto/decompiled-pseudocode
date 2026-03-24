@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlExtractBitMap @ 0x1402EDFF0
+ * XREFs of RtlExtractBitMap @ 0x1402EE0F0
  * Callers:
- *     RtlShiftLeftBitMap @ 0x1402EF490 (RtlShiftLeftBitMap.c)
+ *     RtlShiftLeftBitMap @ 0x1402EF590 (RtlShiftLeftBitMap.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 char __fastcall RtlExtractBitMap(__int64 a1, unsigned int *a2, unsigned int a3, unsigned int a4)

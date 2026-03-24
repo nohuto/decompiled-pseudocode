@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetPeakCommitment @ 0x14026A03C
+ * XREFs of MmGetPeakCommitment @ 0x14027B5C0
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x1406F2420 (ExpQuerySystemPerformanceInformation.c)
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140646800 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MmGetPeakCommitment(unsigned __int16 a1)
 {
-  return *(_QWORD *)(*(_QWORD *)(qword_140C51F48 + 8LL * a1) + 16000LL);
+  return *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8LL * a1) + 6208LL);
 }

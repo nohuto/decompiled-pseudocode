@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPerfApplyCapsAndFloors @ 0x140225BE0
+ * XREFs of PpmPerfApplyCapsAndFloors @ 0x1402A0BAC
  * Callers:
- *     PpmPerfApplyDomainState @ 0x14022560C (PpmPerfApplyDomainState.c)
+ *     PpmPerfApplyDomainState @ 0x1402A05F0 (PpmPerfApplyDomainState.c)
  * Callees:
  *     <none>
  */
@@ -18,13 +18,13 @@ char __fastcall PpmPerfApplyCapsAndFloors(unsigned int *a1, unsigned int *a2, un
   unsigned int v12; // ebp
   unsigned int v13; // eax
 
-  v4 = *(unsigned int *)(a4 + 296);
+  v4 = *(unsigned int *)(a4 + 200);
   v5 = 0;
   if ( (_DWORD)v4 )
   {
-    v7 = *(_BYTE *)(a4 + 482);
+    v7 = *(_BYTE *)(a4 + 354);
     v8 = *a3;
-    v9 = (unsigned int *)(*(_QWORD *)(a4 + 312) + 24LL);
+    v9 = (unsigned int *)(*(_QWORD *)(a4 + 216) + 24LL);
     v10 = *a2;
     do
     {

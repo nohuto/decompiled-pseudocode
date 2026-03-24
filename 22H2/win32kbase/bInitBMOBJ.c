@@ -1,40 +1,39 @@
 /*
- * XREFs of bInitBMOBJ @ 0x1C02DE010
+ * XREFs of bInitBMOBJ @ 0x1C0299888
  * Callers:
- *     InitializeGre @ 0x1C02DB800 (InitializeGre.c)
+ *     InitializeGre @ 0x1C02990FC (InitializeGre.c)
  * Callees:
- *     HmgSetOwner @ 0x1C003E5F0 (HmgSetOwner.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C003F8A0 (--1SURFREF@@QEAA@XZ.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C005E508 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     GreCreateBitmap @ 0x1C005EAE0 (GreCreateBitmap.c)
- *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C00609A0 (-bSetStockObject@@YAHPEAXHH@Z.c)
+ *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C0017240 (-bSetStockObject@@YAHPEAXHH@Z.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C001DA78 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     GreCreateBitmap @ 0x1C0028610 (GreCreateBitmap.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002CB94 (--1SURFREF@@QEAA@XZ.c)
+ *     HmgSetOwner @ 0x1C00368E0 (HmgSetOwner.c)
  */
 
-HSURF __fastcall bInitBMOBJ(__int64 a1)
+HSURF bInitBMOBJ()
 {
-  unsigned int v1; // ebx
+  unsigned int v0; // ebx
   HSURF result; // rax
-  unsigned __int64 v3; // rdi
-  _BYTE v4[32]; // [rsp+30h] [rbp-38h] BYREF
-  struct _LIST_ENTRY *v5; // [rsp+50h] [rbp-18h]
+  unsigned __int64 v2; // rdi
+  _BYTE v3[32]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 *v4; // [rsp+50h] [rbp-18h]
 
-  SGDGetSessionState(a1);
-  v1 = 0;
-  result = (HSURF)GreCreateBitmap(1, 1, 1, 1, 0LL);
-  v3 = (unsigned __int64)result;
+  v0 = 0;
+  result = (HSURF)GreCreateBitmap(1, 1, 1u, 1u, 0LL);
+  v2 = (unsigned __int64)result;
   if ( result )
   {
-    SURFREF::SURFREF((SURFREF *)v4, result);
-    if ( v5 )
+    SURFREF::SURFREF((SURFREF *)v3, result);
+    if ( v4 )
     {
-      HmgSetOwner((unsigned int)v5[2].Flink, 0, 5);
-      bSetStockObject(v3, 21, 0);
-      v1 = 1;
-      v5[2].Flink = (struct _LIST_ENTRY *)(v3 | 0x800000);
-      WPP_MAIN_CB.Queue.ListEntry.Blink = v5;
+      HmgSetOwner(v4[4], 0, 5);
+      bSetStockObject(v2, 21, 0);
+      v0 = 1;
+      v4[4] = v2 | 0x800000;
+      SURFACE::pdibDefault = (SURFACE *)v4;
     }
-    SURFREF::~SURFREF((SURFREF *)v4);
-    return (HSURF)v1;
+    SURFREF::~SURFREF((SURFREF *)v3);
+    return (HSURF)v0;
   }
   return result;
 }

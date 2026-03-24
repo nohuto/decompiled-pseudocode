@@ -1,14 +1,14 @@
 /*
- * XREFs of ??1FxDeviceBase@@MEAA@XZ @ 0x1C002BAE4
+ * XREFs of ??1FxDeviceBase@@MEAA@XZ @ 0x1C004D508
  * Callers:
- *     ??1FxDevice@@UEAA@XZ @ 0x1C002B720 (--1FxDevice@@UEAA@XZ.c)
- *     ??_GFxDeviceBase@@MEAAPEAXI@Z @ 0x1C0066E70 (--_GFxDeviceBase@@MEAAPEAXI@Z.c)
+ *     ??_GFxDeviceBase@@MEAAPEAXI@Z @ 0x1C004CDA0 (--_GFxDeviceBase@@MEAAPEAXI@Z.c)
+ *     ??1FxDevice@@UEAA@XZ @ 0x1C0051420 (--1FxDevice@@UEAA@XZ.c)
  * Callees:
- *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0006180 (--1FxNonPagedObject@@UEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0014230 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall FxDeviceBase::~FxDeviceBase(FxDeviceBase *this, unsigned int a2)
+void __fastcall FxDeviceBase::~FxDeviceBase(FxDeviceBase *this, unsigned int a2, unsigned int a3)
 {
   FxDisposeList *m_DisposeList; // rcx
   FxCallbackLock *m_CallbackLockPtr; // rcx
@@ -27,5 +27,5 @@ void __fastcall FxDeviceBase::~FxDeviceBase(FxDeviceBase *this, unsigned int a2)
     ((void (__fastcall *)(FxCallbackLock *, __int64))m_CallbackLockPtr->~FxCallbackLock)(m_CallbackLockPtr, 1LL);
     this->m_CallbackLockPtr = 0LL;
   }
-  FxNonPagedObject::~FxNonPagedObject(this, a2);
+  FxNonPagedObject::~FxNonPagedObject(this, a2, a3);
 }

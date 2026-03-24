@@ -1,22 +1,22 @@
 /*
- * XREFs of MiTradeActivePage @ 0x14012DF04
+ * XREFs of MiTradeActivePage @ 0x14012DF24
  * Callers:
  *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
- *     MiReplaceLockedPage @ 0x14018B014 (MiReplaceLockedPage.c)
- *     MiCompleteSecureProcessFault @ 0x1402BBB04 (MiCompleteSecureProcessFault.c)
+ *     MiReplaceLockedPage @ 0x14018B034 (MiReplaceLockedPage.c)
+ *     MiCompleteSecureProcessFault @ 0x1402BBC04 (MiCompleteSecureProcessFault.c)
  * Callees:
  *     MiFinalizePageAttribute @ 0x140029658 (MiFinalizePageAttribute.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiCopyPage @ 0x1400B1C30 (MiCopyPage.c)
- *     MiGetPagePrivilege @ 0x1400B2A50 (MiGetPagePrivilege.c)
- *     KeFlushSingleTb @ 0x1400ECDD4 (KeFlushSingleTb.c)
- *     MiWriteValidPteNewPage @ 0x1400EEB0C (MiWriteValidPteNewPage.c)
- *     MiCopyPfnEntryEx @ 0x14010DFE0 (MiCopyPfnEntryEx.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120EE4 (MiLockNestedPageAtDpcInline.c)
+ *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
+ *     MiGetPagePrivilege @ 0x1400B2A70 (MiGetPagePrivilege.c)
+ *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     MiWriteValidPteNewPage @ 0x1400EEB2C (MiWriteValidPteNewPage.c)
+ *     MiCopyPfnEntryEx @ 0x14010E000 (MiCopyPfnEntryEx.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
  */
 
 __int64 __fastcall MiTradeActivePage(

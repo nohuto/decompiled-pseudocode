@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpUnregisterPlugPlayNotification @ 0x14015FF44
+ * XREFs of PnpUnregisterPlugPlayNotification @ 0x14015FF64
  * Callers:
- *     IoUnregisterPlugPlayNotification @ 0x1406FF0E0 (IoUnregisterPlugPlayNotification.c)
- *     IoUnregisterPlugPlayNotificationEx @ 0x14071F0A0 (IoUnregisterPlugPlayNotificationEx.c)
- *     PopCleanCoolingExtension @ 0x14086751C (PopCleanCoolingExtension.c)
- *     SmKmFileInfoCleanup @ 0x1408AC964 (SmKmFileInfoCleanup.c)
+ *     IoUnregisterPlugPlayNotification @ 0x1406FF0C0 (IoUnregisterPlugPlayNotification.c)
+ *     IoUnregisterPlugPlayNotificationEx @ 0x14071F080 (IoUnregisterPlugPlayNotificationEx.c)
+ *     PopCleanCoolingExtension @ 0x1408674FC (PopCleanCoolingExtension.c)
+ *     SmKmFileInfoCleanup @ 0x1408AC944 (SmKmFileInfoCleanup.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PnpDereferenceNotify @ 0x1406FF0F8 (PnpDereferenceNotify.c)
+ *     PnpDereferenceNotify @ 0x1406FF0D8 (PnpDereferenceNotify.c)
  */
 
 __int64 __fastcall PnpUnregisterPlugPlayNotification(PVOID P, char a2)

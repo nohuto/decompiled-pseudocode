@@ -1,167 +1,202 @@
 /*
- * XREFs of DpiRequestDevicePowerState @ 0x1C001AE94
+ * XREFs of DpiRequestDevicePowerState @ 0x1C0051844
  * Callers:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0005C0C (DpiCheckForOutstandingD3Requests.c)
- *     DpiSuspendAdapterDpc @ 0x1C001ABF0 (DpiSuspendAdapterDpc.c)
- *     ?PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z @ 0x1C001AE30 (-PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z.c)
- *     ?WakeUpAdapter@DXGADAPTER@@QEAAXXZ @ 0x1C01F1580 (-WakeUpAdapter@DXGADAPTER@@QEAAXXZ.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001FC54 (DpiCheckForOutstandingD3Requests.c)
+ *     ?PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z @ 0x1C0038934 (-PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z.c)
+ *     DpiSuspendAdapterDpc @ 0x1C0051DE0 (DpiSuspendAdapterDpc.c)
+ *     ?WakeUpAdapter@DXGADAPTER@@QEAAXXZ @ 0x1C0210C10 (-WakeUpAdapter@DXGADAPTER@@QEAAXXZ.c)
  * Callees:
- *     DpiSetDevicePowerTransitionState @ 0x1C001B218 (DpiSetDevicePowerTransitionState.c)
- *     DpiCancelSuspendAdapterTimer @ 0x1C001B270 (DpiCancelSuspendAdapterTimer.c)
- *     ?DpiScheduleDelayedDevicePowerRequired@@YAXPEAU_FDO_CONTEXT@@@Z @ 0x1C001B304 (-DpiScheduleDelayedDevicePowerRequired@@YAXPEAU_FDO_CONTEXT@@@Z.c)
- *     DxgkReportDevicePoweredOn @ 0x1C001B374 (DxgkReportDevicePoweredOn.c)
- *     DpiRequestDevicePowerIrp @ 0x1C001B3A4 (DpiRequestDevicePowerIrp.c)
- *     DpiSendAsyncResumeAdapterRequest @ 0x1C001B4D0 (DpiSendAsyncResumeAdapterRequest.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C0040FDC (McTemplateK0pqq_EtwWriteTransfer.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     DpiCancelAsyncRequest @ 0x1C005E92C (DpiCancelAsyncRequest.c)
- *     DpiDisableD3Requests @ 0x1C0198AF8 (DpiDisableD3Requests.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C003A3F8 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     DxgkReportDevicePoweredOn @ 0x1C003C24C (DxgkReportDevicePoweredOn.c)
+ *     ?DpiScheduleDelayedDevicePowerRequired@@YAXPEAU_FDO_CONTEXT@@@Z @ 0x1C00512F0 (-DpiScheduleDelayedDevicePowerRequired@@YAXPEAU_FDO_CONTEXT@@@Z.c)
+ *     DpiCancelSuspendAdapterTimer @ 0x1C0051384 (DpiCancelSuspendAdapterTimer.c)
+ *     DpiRequestDevicePowerIrp @ 0x1C00515E8 (DpiRequestDevicePowerIrp.c)
+ *     DpiSetDevicePowerTransitionState @ 0x1C0051C70 (DpiSetDevicePowerTransitionState.c)
+ *     DpiCancelAsyncRequest @ 0x1C0052120 (DpiCancelAsyncRequest.c)
+ *     DpiSendAsyncResumeAdapterRequest @ 0x1C00521E4 (DpiSendAsyncResumeAdapterRequest.c)
+ *     DpiDisableD3Requests @ 0x1C016D7E4 (DpiDisableD3Requests.c)
  */
 
 void __fastcall DpiRequestDevicePowerState(__int64 a1, int a2, int a3)
 {
   __int64 v3; // rbx
-  int v6; // ecx
-  int v7; // r8d
-  int v8; // r8d
-  __int64 v9; // rdx
-  int v10; // eax
-  _QWORD *v11; // rax
-  _QWORD *v12; // r8
-  int v13; // edx
-  int v14; // ecx
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+60h] [rbp-28h] BYREF
+  __int64 v4; // rdi
+  __int64 v5; // rsi
+  _QWORD *v6; // rax
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  _QWORD *v9; // rax
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // rax
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rax
+  __int64 v18; // rax
+  _QWORD *v19; // rax
+  _QWORD *v20; // rax
+  __int64 v21; // rcx
+  int v22; // eax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  _QWORD *v25; // rdx
+  _QWORD *v26; // r8
+  __int64 v27; // [rsp+20h] [rbp-38h]
+  __int64 v28; // [rsp+28h] [rbp-30h]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
   v3 = *(_QWORD *)(a1 + 64);
-  WdLogSingleEntry3(9LL, a2, v3, a3);
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
-    McTemplateK0pqq_EtwWriteTransfer(
-      v6,
-      (unsigned int)&Dxgk_DpiRequestDevicePowerState,
-      v7,
-      *(_QWORD *)(v3 + 3912),
-      a2,
-      a3);
-  if ( a2 == 1 )
+  v4 = a3;
+  v5 = a2;
+  v6 = (_QWORD *)WdLogNewEntry5_WdPower();
+  v6[3] = v5;
+  v6[4] = v3;
+  v6[5] = v4;
+  WdLogEvent5_WdPower(v6);
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
+    McTemplateK0pqq_EtwWriteTransfer(v7, &Dxgk_DpiRequestDevicePowerState, v8, *(_QWORD *)(v3 + 3896), v5, v4);
+  if ( (_DWORD)v5 == 1 )
   {
-    if ( !a3 )
+    if ( !(_DWORD)v4 )
       DpiDisableD3Requests(*(_QWORD *)(v3 + 24));
-    memset(&LockHandle, 0, sizeof(LockHandle));
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v3 + 4096), &LockHandle);
-    WdLogSingleEntry3(9LL, *(int *)(v3 + 4160), *(int *)(v3 + 4164), 0LL);
-    if ( *(_DWORD *)(v3 + 4000) == 1 && *(_DWORD *)(v3 + 236) != 6 && !*(_DWORD *)(v3 + 4160) )
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v3 + 4072), &LockHandle);
+    v9 = (_QWORD *)WdLogNewEntry5_WdPower();
+    v9[3] = *(int *)(v3 + 4136);
+    v10 = *(int *)(v3 + 4140);
+    v9[5] = 0LL;
+    v9[4] = v10;
+    WdLogEvent5_WdPower(v9);
+    if ( *(_DWORD *)(v3 + 3976) == 1 && *(_DWORD *)(v3 + 236) != 6 && !*(_DWORD *)(v3 + 4136) )
     {
-      WdLogSingleEntry1(1LL, 4795LL);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v14,
-            v13,
-            v8,
-            0,
-            2,
-            -1,
-            (__int64)L"FdoContext->DeviceThreadState != StateSuspended || FdoContext->DevicePnpState == SurpriseRemoved ||"
-                      " FdoContext->DevicePowerTransitionState != DevicePoweredOn",
-            4795LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
+      v14 = WdLogNewEntry5_WdAssertion(v12, v11);
+      *(_QWORD *)(v14 + 24) = 4608LL;
+      WdLogEvent5_WdAssertion(v14);
     }
-    if ( a3 )
+    if ( (_DWORD)v4 )
     {
-      *(_DWORD *)(v3 + 4164) = 0;
+      *(_DWORD *)(v3 + 4140) = 0;
       DpiCancelSuspendAdapterTimer(v3);
     }
-    switch ( *(_DWORD *)(v3 + 4160) )
+    if ( *(_DWORD *)(v3 + 4136) == 1 )
     {
-      case 1:
-        DpiCancelAsyncRequest(v3);
-        v9 = 0LL;
-        break;
-      case 2:
-        if ( a3 != 2 )
-        {
-          DpiSetDevicePowerTransitionState(v3, 0LL);
-          goto LABEL_35;
-        }
-        WdLogSingleEntry3(9LL, v3, 0LL, 0LL);
-        goto LABEL_38;
-      case 3:
-        WdLogSingleEntry3(9LL, v3, 0LL, 0LL);
-        DpiSendAsyncResumeAdapterRequest(v3);
-        v9 = 7LL;
-        break;
-      default:
-        if ( *(_DWORD *)(v3 + 4160) != 4 )
-        {
-          if ( *(_DWORD *)(v3 + 4160) != 5 )
-            goto LABEL_21;
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x800000) != 0 )
-            McTemplateK0pqq_EtwWriteTransfer(
-              *(_DWORD *)(v3 + 4160) - 4,
-              (unsigned int)&EventPowerRequestDuringD3,
-              v8,
-              *(_QWORD *)(v3 + 3912),
-              1,
-              a3);
-        }
-        WdLogSingleEntry3(9LL, v3, 0LL, 0LL);
-        DpiRequestDevicePowerIrp(v3, 1LL);
-        v9 = 6LL;
-        break;
+      DpiCancelAsyncRequest(v3);
     }
-    DpiSetDevicePowerTransitionState(v3, v9);
-LABEL_21:
-    if ( a3 != 2 )
-      goto LABEL_35;
-LABEL_38:
-    if ( *(_DWORD *)(v3 + 4160) != 6 )
+    else
     {
-      WdLogSingleEntry3(9LL, v3, *(int *)(v3 + 4160), 2LL);
-      DxgkReportDevicePoweredOn(*(_QWORD *)(v3 + 3912));
+      if ( *(_DWORD *)(v3 + 4136) != 2 )
+      {
+        if ( *(_DWORD *)(v3 + 4136) == 3 )
+        {
+          v17 = WdLogNewEntry5_WdPower();
+          *(_QWORD *)(v17 + 24) = v3;
+          *(_OWORD *)(v17 + 32) = 0LL;
+          WdLogEvent5_WdPower(v17);
+          DpiSendAsyncResumeAdapterRequest(v3);
+          v16 = 7LL;
+        }
+        else
+        {
+          if ( *(_DWORD *)(v3 + 4136) != 4 )
+          {
+            if ( *(_DWORD *)(v3 + 4136) != 5 )
+              goto LABEL_27;
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200000) != 0 )
+            {
+              LODWORD(v28) = v4;
+              LODWORD(v27) = 1;
+              McTemplateK0pqq_EtwWriteTransfer(
+                (unsigned int)(*(_DWORD *)(v3 + 4136) - 4),
+                &EventPowerRequestDuringD3,
+                v13,
+                *(_QWORD *)(v3 + 3896),
+                v27,
+                v28);
+            }
+          }
+          v15 = WdLogNewEntry5_WdPower();
+          *(_QWORD *)(v15 + 24) = v3;
+          *(_OWORD *)(v15 + 32) = 0LL;
+          WdLogEvent5_WdPower(v15);
+          DpiRequestDevicePowerIrp(v3, 1);
+          v16 = 6LL;
+        }
+LABEL_26:
+        DpiSetDevicePowerTransitionState(v3, v16);
+LABEL_27:
+        if ( (_DWORD)v4 != 2 )
+          goto LABEL_45;
+        goto LABEL_28;
+      }
+      if ( (_DWORD)v4 == 2 )
+      {
+        v18 = WdLogNewEntry5_WdPower();
+        *(_QWORD *)(v18 + 24) = v3;
+        *(_OWORD *)(v18 + 32) = 0LL;
+        WdLogEvent5_WdPower(v18);
+LABEL_28:
+        if ( *(_DWORD *)(v3 + 4136) != 6 )
+        {
+          v19 = (_QWORD *)WdLogNewEntry5_WdPower();
+          v19[3] = v3;
+          v19[4] = *(int *)(v3 + 4136);
+          v19[5] = 2LL;
+          WdLogEvent5_WdPower(v19);
+          DxgkReportDevicePoweredOn(*(_QWORD *)(v3 + 3896));
+        }
+        goto LABEL_45;
+      }
     }
-    goto LABEL_35;
+    v16 = 0LL;
+    goto LABEL_26;
   }
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v3 + 4096), &LockHandle);
-  WdLogSingleEntry3(9LL, *(int *)(v3 + 4160), *(int *)(v3 + 4164), 0LL);
-  if ( a3 == 2 )
-    *(_DWORD *)(v3 + 4164) = 1;
-  if ( !*(_DWORD *)(v3 + 4104) && (a3 != 1 || *(_DWORD *)(v3 + 4164)) )
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v3 + 4072), &LockHandle);
+  v20 = (_QWORD *)WdLogNewEntry5_WdPower();
+  v20[3] = *(int *)(v3 + 4136);
+  v21 = *(int *)(v3 + 4140);
+  v20[5] = 0LL;
+  v20[4] = v21;
+  WdLogEvent5_WdPower(v20);
+  if ( (_DWORD)v4 == 2 )
+    *(_DWORD *)(v3 + 4140) = 1;
+  if ( !*(_DWORD *)(v3 + 4080) && ((_DWORD)v4 != 1 || *(_DWORD *)(v3 + 4140)) )
   {
-    v10 = *(_DWORD *)(v3 + 4160);
-    if ( v10 == 3 )
+    v22 = *(_DWORD *)(v3 + 4136);
+    if ( v22 == 3 )
     {
-      WdLogSingleEntry3(9LL, v3, 0LL, 0LL);
-      DpiRequestDevicePowerIrp(v3, 4LL);
+      v23 = WdLogNewEntry5_WdPower();
+      *(_QWORD *)(v23 + 24) = v3;
+      *(_OWORD *)(v23 + 32) = 0LL;
+      WdLogEvent5_WdPower(v23);
+      DpiRequestDevicePowerIrp(v3, 4);
       DpiSetDevicePowerTransitionState(v3, 4LL);
       DpiCancelSuspendAdapterTimer(v3);
     }
-    else if ( !v10 )
+    else if ( !v22 )
     {
-      WdLogSingleEntry3(9LL, v3, 0LL, 0LL);
+      v24 = WdLogNewEntry5_WdPower();
+      *(_QWORD *)(v24 + 24) = v3;
+      *(_OWORD *)(v24 + 32) = 0LL;
+      WdLogEvent5_WdPower(v24);
       DpiSetDevicePowerTransitionState(v3, 1LL);
-      v11 = (_QWORD *)(v3 + 4008);
-      if ( !*(_QWORD *)(v3 + 4008) )
+      v25 = (_QWORD *)(v3 + 3984);
+      if ( !*(_QWORD *)(v3 + 3984) )
       {
-        *(_DWORD *)(v3 + 4032) = 1;
-        v12 = *(_QWORD **)(v3 + 3992);
-        if ( *v12 != v3 + 3984 )
+        *(_DWORD *)(v3 + 4008) = 1;
+        v26 = *(_QWORD **)(v3 + 3968);
+        if ( *v26 != v3 + 3960 )
           __fastfail(3u);
-        *v11 = v3 + 3984;
-        *(_QWORD *)(v3 + 4016) = v12;
-        *v12 = v11;
-        *(_QWORD *)(v3 + 3992) = v11;
-        KeSetEvent((PRKEVENT)(v3 + 3952), 0, 0);
+        *(_QWORD *)(v3 + 3992) = v26;
+        *v25 = v3 + 3960;
+        *v26 = v25;
+        *(_QWORD *)(v3 + 3968) = v25;
+        KeSetEvent((PRKEVENT)(v3 + 3928), 0, 0);
       }
     }
   }
-  if ( (unsigned int)(*(_DWORD *)(v3 + 4160) - 4) > 1 && *(_DWORD *)(v3 + 236) != 6 )
+  if ( (unsigned int)(*(_DWORD *)(v3 + 4136) - 4) > 1 && *(_DWORD *)(v3 + 236) != 6 )
     DpiScheduleDelayedDevicePowerRequired((struct _FDO_CONTEXT *)v3);
-LABEL_35:
+LABEL_45:
   KeReleaseInStackQueuedSpinLock(&LockHandle);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of PopUpdateConsoleDisplayState @ 0x14071C278
+ * XREFs of PopUpdateConsoleDisplayState @ 0x14071C258
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
@@ -7,12 +7,12 @@
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  *     PopCheckResiliencyScenarios @ 0x140589E14 (PopCheckResiliencyScenarios.c)
  *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
- *     PopSpoilBatteryEstimate @ 0x14071C358 (PopSpoilBatteryEstimate.c)
- *     PopWriteBsdPowerTransition @ 0x14071C488 (PopWriteBsdPowerTransition.c)
- *     PopDiagTraceConsoleDisplayState @ 0x14071C54C (PopDiagTraceConsoleDisplayState.c)
+ *     PopSpoilBatteryEstimate @ 0x14071C338 (PopSpoilBatteryEstimate.c)
+ *     PopWriteBsdPowerTransition @ 0x14071C468 (PopWriteBsdPowerTransition.c)
+ *     PopDiagTraceConsoleDisplayState @ 0x14071C52C (PopDiagTraceConsoleDisplayState.c)
  */
 
 __int64 __fastcall PopUpdateConsoleDisplayState(int a1)

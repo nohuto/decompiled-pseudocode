@@ -1,24 +1,24 @@
 /*
- * XREFs of ?DoesRequireResizeLayoutSynchronization@@YAHPEAUtagWND@@@Z @ 0x1C01E93F4
+ * XREFs of ?DoesRequireResizeLayoutSynchronization@@YAHPEAUtagWND@@@Z @ 0x1C020A7D4
  * Callers:
- *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C01EC5FC (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ *     xxxDrawDragRectEx @ 0x1C0210F44 (xxxDrawDragRectEx.c)
  * Callees:
- *     _IsTopLevelWindow @ 0x1C0122310 (_IsTopLevelWindow.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
  */
 
 __int64 __fastcall DoesRequireResizeLayoutSynchronization(struct tagWND *a1)
 {
-  __int64 v1; // rcx
-  unsigned int v2; // r8d
+  unsigned int v1; // r9d
+  __int64 v2; // r10
   __int64 i; // rcx
 
-  if ( IsTopLevelWindow((__int64)a1) && *(char *)(*(_QWORD *)(v1 + 40) + 25LL) < (char)v2 )
+  if ( (unsigned int)IsTopLevelWindow((__int64)a1) && *(char *)(*(_QWORD *)(v2 + 40) + 25LL) < (char)v1 )
   {
-    for ( i = *(_QWORD *)(v1 + 112); i; i = *(_QWORD *)(i + 88) )
+    for ( i = *(_QWORD *)(v2 + 112); i; i = *(_QWORD *)(i + 88) )
     {
-      if ( *(char *)(*(_QWORD *)(i + 40) + 25LL) < (char)v2 )
+      if ( *(char *)(*(_QWORD *)(i + 40) + 25LL) < (char)v1 )
         return 1;
     }
   }
-  return v2;
+  return v1;
 }

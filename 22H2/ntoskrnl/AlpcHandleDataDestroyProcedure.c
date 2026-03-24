@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcHandleDataDestroyProcedure @ 0x1407CE190
+ * XREFs of AlpcHandleDataDestroyProcedure @ 0x1406F6C70
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObpDecrementHandleCount @ 0x140740464 (ObpDecrementHandleCount.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObpDecrementHandleCount @ 0x1406F6CE4 (ObpDecrementHandleCount.c)
  */
 
 __int64 __fastcall AlpcHandleDataDestroyProcedure(__int64 a1)
@@ -22,7 +22,7 @@ __int64 __fastcall AlpcHandleDataDestroyProcedure(__int64 a1)
     {
       if ( !*v3 )
         break;
-      ObpDecrementHandleCount((_KPROCESS *)*(v3 - 2), (__int64)*v3 - 48);
+      ObpDecrementHandleCount((ULONG_PTR)*(v3 - 2));
       ObfDereferenceObjectWithTag(*v3, 0x7544624Fu);
       ObfDereferenceObjectWithTag(*(v3 - 2), 0x7544624Fu);
       *v3 = 0LL;

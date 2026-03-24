@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetVadPageSize @ 0x14030EBF4
+ * XREFs of MiGetVadPageSize @ 0x14055BDB0
  * Callers:
- *     MiCheckSecuredVad @ 0x1407A4C90 (MiCheckSecuredVad.c)
- *     MmFreeVirtualMemory @ 0x1407B99C0 (MmFreeVirtualMemory.c)
- *     MmProtectVirtualMemory @ 0x1407B9FA0 (MmProtectVirtualMemory.c)
- *     MmQueryVirtualMemory @ 0x1407BA750 (MmQueryVirtualMemory.c)
- *     MiAllocateVirtualMemory @ 0x1407BE3C0 (MiAllocateVirtualMemory.c)
- *     MmSetGraphicsPtes @ 0x14096B560 (MmSetGraphicsPtes.c)
+ *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1405FA060 (MmProtectVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
+ *     MiCheckSecuredVad @ 0x1406623F8 (MiCheckSecuredVad.c)
+ *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
+ *     MmSetGraphicsPtes @ 0x1408C6EB0 (MmSetGraphicsPtes.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiGetVadPageSize(__int64 a1)
 {
-  return MiVadPageSizes[(*(_DWORD *)(a1 + 48) >> 19) & 3];
+  return MiVadPageSizes[(*(_DWORD *)(a1 + 48) >> 18) & 3];
 }

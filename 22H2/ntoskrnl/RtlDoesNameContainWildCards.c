@@ -1,26 +1,28 @@
 /*
- * XREFs of RtlDoesNameContainWildCards @ 0x14033F0A0
+ * XREFs of RtlDoesNameContainWildCards @ 0x14024F730
  * Callers:
- *     RtlpIsNameInExpressionPrivate @ 0x14030C470 (RtlpIsNameInExpressionPrivate.c)
+ *     RtlpIsNameInExpressionPrivate @ 0x14024F290 (RtlpIsNameInExpressionPrivate.c)
  * Callees:
  *     <none>
  */
 
 BOOLEAN __stdcall RtlDoesNameContainWildCards(PUNICODE_STRING Name)
 {
+  unsigned __int64 Length; // rax
   wchar_t *Buffer; // r8
-  wchar_t *i; // rdx
-  __int64 v3; // rax
+  wchar_t *i; // rax
+  __int64 v4; // rcx
 
-  if ( Name->Length )
+  Length = Name->Length;
+  if ( (_WORD)Length )
   {
     Buffer = Name->Buffer;
-    for ( i = &Buffer[((unsigned __int64)Name->Length >> 1) - 1]; i >= Buffer; --i )
+    for ( i = &Buffer[(Length >> 1) - 1]; i >= Buffer; --i )
     {
-      v3 = *i;
-      if ( (_DWORD)v3 == 92 )
+      v4 = *i;
+      if ( (_DWORD)v4 == 92 )
         break;
-      if ( (unsigned int)v3 < 0x40 && (*((_BYTE *)qword_1400173E0 + v3) & 8) != 0 )
+      if ( (unsigned int)v4 < 0x40 && (*((_BYTE *)qword_140011B10 + v4) & 8) != 0 )
         return 1;
     }
   }

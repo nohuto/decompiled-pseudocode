@@ -1,26 +1,26 @@
 /*
- * XREFs of TtmpWriteDisplayStateChangedEvent @ 0x1409ABF84
+ * XREFs of TtmpWriteDisplayStateChangedEvent @ 0x1408FE4C8
  * Callers:
- *     TtmiSessionTerminalListWorker @ 0x1409AB340 (TtmiSessionTerminalListWorker.c)
+ *     TtmiSessionTerminalListWorker @ 0x1408FD980 (TtmiSessionTerminalListWorker.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     TtmiWriteEventToAllQueues @ 0x1409A4F68 (TtmiWriteEventToAllQueues.c)
- *     TtmiLogTerminalDisplayStateChangedEvent @ 0x1409AA350 (TtmiLogTerminalDisplayStateChangedEvent.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     TtmiWriteEventToAllQueues @ 0x1408FF5C8 (TtmiWriteEventToAllQueues.c)
+ *     TtmiLogTerminalDisplayStateChangedEvent @ 0x1409048D4 (TtmiLogTerminalDisplayStateChangedEvent.c)
  */
 
-void __fastcall TtmpWriteDisplayStateChangedEvent(__int64 a1, _DWORD *a2)
+__int64 __fastcall TtmpWriteDisplayStateChangedEvent(__int64 a1, _DWORD *a2)
 {
-  int v4; // edx
-  int v5; // r8d
-  _DWORD v6[138]; // [rsp+20h] [rbp-228h] BYREF
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  _DWORD v7[138]; // [rsp+20h] [rbp-228h] BYREF
 
-  memset(v6, 0, 0x220uLL);
-  v4 = a2[69];
-  v5 = a2[70];
-  v6[2] = a2[7];
-  v6[3] = v4;
-  v6[4] = v5;
-  v6[0] = 2;
-  TtmiLogTerminalDisplayStateChangedEvent(v6[2], v4, v5);
-  TtmiWriteEventToAllQueues(a1, (__int64)v6);
+  memset(v7, 0, 0x220uLL);
+  v4 = (unsigned int)a2[69];
+  v5 = (unsigned int)a2[70];
+  v7[2] = a2[7];
+  v7[3] = v4;
+  v7[4] = v5;
+  v7[0] = 2;
+  TtmiLogTerminalDisplayStateChangedEvent(v7[2], v4, v5);
+  return TtmiWriteEventToAllQueues(a1, v7);
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of SeRmReferenceFindCapName @ 0x1405F5B98
+ * XREFs of SeRmReferenceFindCapName @ 0x140597CD4
  * Callers:
- *     AdtpBuildContextFromSecurityDescriptor @ 0x14064C418 (AdtpBuildContextFromSecurityDescriptor.c)
+ *     AdtpBuildContextFromSecurityDescriptor @ 0x1405C32C0 (AdtpBuildContextFromSecurityDescriptor.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     SepRmReferenceFindCap @ 0x1405F5D18 (SepRmReferenceFindCap.c)
- *     SepValidateCAPIDs @ 0x1405F5E3C (SepValidateCAPIDs.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SepRmReferenceFindCap @ 0x140597E54 (SepRmReferenceFindCap.c)
+ *     SepValidateCAPIDs @ 0x140597F84 (SepValidateCAPIDs.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SeRmReferenceFindCapName(PSID Sid1, _DWORD *a2, __int64 *a3)
+__int64 __fastcall SeRmReferenceFindCapName(PSID Sid1, _DWORD *a2, _QWORD *a3)
 {
   int v3; // edi
   __int64 v5; // rsi
   unsigned int v6; // r14d
-  __int64 Pool2; // r15
+  _QWORD *PoolWithTag; // r15
   int v9; // ebp
   int Cap; // eax
   __int64 v11; // rdx
@@ -29,7 +29,7 @@ __int64 __fastcall SeRmReferenceFindCapName(PSID Sid1, _DWORD *a2, __int64 *a3)
   __int64 result; // rax
   PSID v21; // [rsp+60h] [rbp+8h] BYREF
   __int64 v22; // [rsp+68h] [rbp+10h]
-  __int64 *v23; // [rsp+70h] [rbp+18h]
+  _QWORD *v23; // [rsp+70h] [rbp+18h]
 
   v23 = a3;
   v21 = Sid1;
@@ -37,7 +37,7 @@ __int64 __fastcall SeRmReferenceFindCapName(PSID Sid1, _DWORD *a2, __int64 *a3)
   v22 = 0LL;
   v5 = 0LL;
   v6 = 0;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   v9 = SepValidateCAPIDs(Sid1, &v21);
   if ( v9 >= 0 )
   {
@@ -62,21 +62,21 @@ __int64 __fastcall SeRmReferenceFindCapName(PSID Sid1, _DWORD *a2, __int64 *a3)
         }
         while ( v13 );
       }
-      Pool2 = ExAllocatePool2(256LL, v6 + 16 * v11, 1884513619LL);
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6 + 16 * v11, 0x70536553u);
+      if ( PoolWithTag )
       {
         v16 = 0;
-        for ( i = (char *)(Pool2 + 16LL * *(unsigned int *)(v5 + 60));
+        for ( i = (char *)&PoolWithTag[2 * *(unsigned int *)(v5 + 60)];
               v16 < *(_DWORD *)(v5 + 60);
-              i += 2 * ((unsigned __int64)*(unsigned __int16 *)(Pool2 + 8 * v18) >> 1) )
+              i += 2 * ((unsigned __int64)LOWORD(PoolWithTag[v18]) >> 1) )
         {
           v18 = 2LL * v16;
-          *(_QWORD *)(Pool2 + 16LL * v16 + 8) = i;
+          PoolWithTag[2 * v16 + 1] = i;
           v19 = **(_WORD **)(v5 + 8LL * v16 + 64);
           if ( v19 <= 2u )
             v19 = 0;
-          *(_WORD *)(Pool2 + 16LL * v16 + 2) = v19;
-          *(_WORD *)(Pool2 + 16LL * v16) = v19;
+          WORD1(PoolWithTag[2 * v16]) = v19;
+          LOWORD(PoolWithTag[2 * v16]) = v19;
           memmove(i, *(const void **)(*(_QWORD *)(v5 + 8LL * v16++ + 64) + 8LL), v19);
         }
       }
@@ -86,7 +86,7 @@ __int64 __fastcall SeRmReferenceFindCapName(PSID Sid1, _DWORD *a2, __int64 *a3)
       }
     }
   }
-  *v23 = Pool2;
+  *v23 = PoolWithTag;
   if ( v5 )
     v3 = *(_DWORD *)(v5 + 60);
   result = (unsigned int)v9;

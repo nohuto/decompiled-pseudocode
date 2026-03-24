@@ -1,11 +1,11 @@
 /*
- * XREFs of BgpDisplaySafeToPowerOffScreen @ 0x140328754
+ * XREFs of BgpDisplaySafeToPowerOffScreen @ 0x140328854
  * Callers:
- *     BgDisplaySafeToPowerOffScreen @ 0x1403275DC (BgDisplaySafeToPowerOffScreen.c)
+ *     BgDisplaySafeToPowerOffScreen @ 0x1403276DC (BgDisplaySafeToPowerOffScreen.c)
  * Callees:
- *     BgpClearScreen @ 0x140327614 (BgpClearScreen.c)
- *     BcpDisplayCriticalString @ 0x140327C54 (BcpDisplayCriticalString.c)
- *     BcpGetDisplayType @ 0x1403285B8 (BcpGetDisplayType.c)
+ *     BgpClearScreen @ 0x140327714 (BgpClearScreen.c)
+ *     BcpDisplayCriticalString @ 0x140327D54 (BcpDisplayCriticalString.c)
+ *     BcpGetDisplayType @ 0x1403286B8 (BcpGetDisplayType.c)
  */
 
 __int64 BgpDisplaySafeToPowerOffScreen()

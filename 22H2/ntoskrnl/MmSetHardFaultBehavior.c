@@ -1,46 +1,42 @@
 /*
- * XREFs of MmSetHardFaultBehavior @ 0x1403685A0
+ * XREFs of MmSetHardFaultBehavior @ 0x14032AAE8
  * Callers:
- *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140368400 (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14026782C (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
  * Callees:
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
+ *     MiChargeResident @ 0x140259EB8 (MiChargeResident.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
  */
 
-__int64 __fastcall MmSetHardFaultBehavior(__int64 a1, int a2)
+__int64 __fastcall MmSetHardFaultBehavior(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
-  bool v2; // zf
-  unsigned __int64 v4; // rdx
-  __int64 v5; // r10
+  bool v4; // zf
+  unsigned __int64 v6; // rdx
   struct _KPRCB *CurrentPrcb; // r9
   __int64 CachedResidentAvailable; // r8
-  signed __int32 v9; // eax
+  signed __int32 v10; // eax
 
-  v2 = a2 == 0;
-  v4 = 26LL;
-  v5 = *(_QWORD *)(qword_140C674C8 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 184) + 1838LL));
-  if ( v2 )
+  v4 = a2 == 0;
+  v6 = 26LL;
+  if ( v4 )
   {
-    if ( (_UNKNOWN *)v5 != &MiSystemPartition )
-      goto LABEL_21;
     CurrentPrcb = KeGetCurrentPrcb();
     CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
     if ( (_DWORD)CachedResidentAvailable == -1 )
-      goto LABEL_21;
+      goto LABEL_11;
     if ( (unsigned __int64)(CachedResidentAvailable + 26) <= 0x100 )
     {
       do
       {
-        v9 = _InterlockedCompareExchange(
-               (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-               CachedResidentAvailable + 26,
-               CachedResidentAvailable);
-        v2 = (_DWORD)CachedResidentAvailable == v9;
-        LODWORD(CachedResidentAvailable) = v9;
-        if ( v2 )
-          goto LABEL_9;
+        v10 = _InterlockedCompareExchange(
+                (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                CachedResidentAvailable + 26,
+                CachedResidentAvailable);
+        v4 = (_DWORD)CachedResidentAvailable == v10;
+        LODWORD(CachedResidentAvailable) = v10;
+        if ( v4 )
+          goto LABEL_8;
       }
-      while ( v9 != -1 && (unsigned __int64)(v9 + 26LL) <= 0x100 );
+      while ( v10 != -1 && (unsigned __int64)(v10 + 26LL) <= 0x100 );
     }
     if ( (int)CachedResidentAvailable > 192
       && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
@@ -48,22 +44,20 @@ __int64 __fastcall MmSetHardFaultBehavior(__int64 a1, int a2)
                                               192,
                                               CachedResidentAvailable) )
     {
-      v4 = (int)CachedResidentAvailable - 192 + 26LL;
+      v6 = (int)CachedResidentAvailable - 192 + 26LL;
     }
-    if ( v4 )
-LABEL_21:
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(v5 + 17280), v4);
-LABEL_9:
-    *(_BYTE *)(a1 + 1384) &= ~4u;
-    v2 = (*(_WORD *)(a1 + 486))++ == 0xFFFF;
-    if ( v2 && *(_QWORD *)(a1 + 152) != a1 + 152 )
-      KiCheckForKernelApcDelivery();
+    if ( v6 )
+LABEL_11:
+      _InterlockedExchangeAdd64(&qword_140C52980, v6);
+LABEL_8:
+    *(_BYTE *)(a1 + 1304) &= ~4u;
+    KiLeaveGuardedRegionUnsafe(a1);
     return 0LL;
   }
-  if ( (unsigned int)MiChargeResident((void *)v5, 0x1AuLL, 1024LL) )
+  if ( (unsigned int)MiChargeResident(&MiSystemPartition, 0x1AuLL, 1024LL, a4) )
   {
     --*(_WORD *)(a1 + 486);
-    *(_BYTE *)(a1 + 1384) |= 4u;
+    *(_BYTE *)(a1 + 1304) |= 4u;
     return 0LL;
   }
   return 3221225626LL;

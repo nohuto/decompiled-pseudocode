@@ -1,14 +1,14 @@
 /*
- * XREFs of SepUpdateLogonSessionTrack @ 0x1406C5B04
+ * XREFs of SepUpdateLogonSessionTrack @ 0x1406AF4C4
  * Callers:
- *     SepRmAddLogonSessionInfoWrkr @ 0x1406C5AE0 (SepRmAddLogonSessionInfoWrkr.c)
+ *     SepRmAddLogonSessionInfoWrkr @ 0x1406AF4A0 (SepRmAddLogonSessionInfoWrkr.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepUpdateLogonSessionTrack(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall SepUpdateLogonSessionTrack(__int64 a1)
   struct _ERESOURCE *v6; // rbp
   __int64 *v7; // rbx
   void *v8; // rcx
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   unsigned __int64 v10; // rcx
   unsigned __int64 v11; // rcx
 
@@ -47,15 +47,17 @@ __int64 __fastcall SepUpdateLogonSessionTrack(__int64 a1)
       v7[8] = 0LL;
       v7[10] = 0LL;
     }
-    Pool2 = (char *)ExAllocatePool2(
-                      256LL,
-                      ((*(unsigned __int16 *)(a1 + 8) + 9LL) & 0xFFFFFFF8LL) + *(unsigned __int16 *)(a1 + 24) + 2LL,
-                      1934386515LL);
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(
+                            PagedPool,
+                            *(unsigned __int16 *)(a1 + 24)
+                          + 2LL
+                          + ((*(unsigned __int16 *)(a1 + 8) + 9LL) & 0xFFFFFFF8LL),
+                            0x734C6553u);
+    if ( PoolWithTag )
     {
-      v7[8] = (__int64)Pool2;
-      v7[10] = (__int64)&Pool2[(*(unsigned __int16 *)(a1 + 8) + 9LL) & 0xFFFFFFFFFFFFFFF8uLL];
-      memmove(Pool2, (const void *)(a1 + 40), *(unsigned __int16 *)(a1 + 8));
+      v7[8] = (__int64)PoolWithTag;
+      v7[10] = (__int64)&PoolWithTag[(*(unsigned __int16 *)(a1 + 8) + 9LL) & 0xFFFFFFFFFFFFFFF8uLL];
+      memmove(PoolWithTag, (const void *)(a1 + 40), *(unsigned __int16 *)(a1 + 8));
       v10 = *(unsigned __int16 *)(a1 + 8);
       *((_WORD *)v7 + 28) = v10;
       *((_WORD *)v7 + 29) = v10 + 2;
@@ -80,6 +82,6 @@ LABEL_10:
     v1 = -1073741729;
   }
   ExReleaseResourceLite(v6);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v1;
 }

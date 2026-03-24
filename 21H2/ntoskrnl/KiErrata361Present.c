@@ -1,8 +1,8 @@
 /*
- * XREFs of KiErrata361Present @ 0x140AD2020
+ * XREFs of KiErrata361Present @ 0x140A10FA0
  * Callers:
- *     sub_1403ED150 @ 0x1403ED150 (sub_1403ED150.c)
- *     FsRtlMdlReadCompleteDevEx @ 0x140AB9010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_1403DDE50 @ 0x1403DDE50 (sub_1403DDE50.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x1409F8010 (FsRtlMdlReadCompleteDevEx.c)
  * Callees:
  *     <none>
  */

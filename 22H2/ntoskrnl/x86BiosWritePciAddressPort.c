@@ -1,7 +1,7 @@
 /*
- * XREFs of x86BiosWritePciAddressPort @ 0x1403AE7D0
+ * XREFs of x86BiosWritePciAddressPort @ 0x1403CB5B4
  * Callers:
- *     x86BiosWriteIoSpace @ 0x1403C2310 (x86BiosWriteIoSpace.c)
+ *     x86BiosWriteIoSpace @ 0x140398EA0 (x86BiosWriteIoSpace.c)
  * Callees:
  *     <none>
  */

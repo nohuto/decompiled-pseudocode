@@ -1,22 +1,22 @@
 /*
- * XREFs of PopPowerAggregatorWorker @ 0x140875F30
+ * XREFs of PopPowerAggregatorWorker @ 0x140875F10
  * Callers:
  *     <none>
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopDiagTracePowerAggregatorCompletionEvent @ 0x140873684 (PopDiagTracePowerAggregatorCompletionEvent.c)
- *     PopDiagTracePowerAggregatorSessionBegin @ 0x14087398C (PopDiagTracePowerAggregatorSessionBegin.c)
- *     PopDiagTracePowerAggregatorSessionEnd @ 0x140873AA0 (PopDiagTracePowerAggregatorSessionEnd.c)
- *     PopPowerAggregatorMapRequest @ 0x140875C98 (PopPowerAggregatorMapRequest.c)
- *     PopPowerAggregatorSelectRequest @ 0x140875CF4 (PopPowerAggregatorSelectRequest.c)
- *     PopPowerAggregatorValidateAction @ 0x140875E88 (PopPowerAggregatorValidateAction.c)
- *     PopNetCheckOpportunisticDs @ 0x140876BF4 (PopNetCheckOpportunisticDs.c)
+ *     PopDiagTracePowerAggregatorCompletionEvent @ 0x140873664 (PopDiagTracePowerAggregatorCompletionEvent.c)
+ *     PopDiagTracePowerAggregatorSessionBegin @ 0x14087396C (PopDiagTracePowerAggregatorSessionBegin.c)
+ *     PopDiagTracePowerAggregatorSessionEnd @ 0x140873A80 (PopDiagTracePowerAggregatorSessionEnd.c)
+ *     PopPowerAggregatorMapRequest @ 0x140875C78 (PopPowerAggregatorMapRequest.c)
+ *     PopPowerAggregatorSelectRequest @ 0x140875CD4 (PopPowerAggregatorSelectRequest.c)
+ *     PopPowerAggregatorValidateAction @ 0x140875E68 (PopPowerAggregatorValidateAction.c)
+ *     PopNetCheckOpportunisticDs @ 0x140876BD4 (PopNetCheckOpportunisticDs.c)
  */
 
 void PopPowerAggregatorWorker()
@@ -33,16 +33,16 @@ void PopPowerAggregatorWorker()
 
   v7 = 0;
   PopAcquirePolicyLock();
-  v6[0] = (unsigned __int8)byte_14041814D;
-  v6[1] = dword_14041815C;
-  if ( !dword_140418158 || (LOBYTE(v7) = 0, (unsigned __int8)PopNetCheckOpportunisticDs()) )
+  v6[0] = (unsigned __int8)byte_14041810D;
+  v6[1] = dword_14041811C;
+  if ( !dword_140418118 || (LOBYTE(v7) = 0, (unsigned __int8)PopNetCheckOpportunisticDs()) )
     LOBYTE(v7) = 1;
   PopReleasePolicyLock();
   PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
   v5 = PopPowerAggregatorWork;
   LODWORD(PopPowerAggregatorWork) = PopPowerAggregatorWork + 1;
   PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorRequestQueueLock);
-  if ( dword_140410888 )
+  if ( dword_140410848 )
   {
     PopPowerAggregatorSelectRequest((int *)&v5, (__int64)v8);
     PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorRequestQueueLock);
@@ -59,7 +59,7 @@ void PopPowerAggregatorWorker()
           if ( v4 )
           {
             v2 = 3LL * (int)v4;
-            dword_140410988 = v8[2];
+            dword_140410928 = v8[2];
             HIDWORD(PopPowerAggregatorWork) = v4;
             if ( (unsigned int)(v8[0] - 2) <= 1 )
             {
@@ -81,7 +81,7 @@ void PopPowerAggregatorWorker()
     PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorRequestQueueLock);
   }
   PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorRequestQueueLock);
-  if ( dword_140410888 )
+  if ( dword_140410848 )
     ExQueueWorkItem(&PopPowerAggregatorWorkItem, DelayedWorkQueue);
   else
     PopPowerAggregatorRequestQueue[0] = 0;

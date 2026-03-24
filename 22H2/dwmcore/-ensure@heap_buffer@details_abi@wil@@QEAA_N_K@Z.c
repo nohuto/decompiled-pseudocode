@@ -1,8 +1,8 @@
 /*
- * XREFs of ?ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800FA1B8
+ * XREFs of ?ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800AFB20
  * Callers:
- *     ?push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z @ 0x1800FA0F4 (-push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z.c)
- *     ?RecordUsage@RawUsageIndex@details_abi@wil@@QEAA_NPEAX_K01I@Z @ 0x180199B10 (-RecordUsage@RawUsageIndex@details_abi@wil@@QEAA_NPEAX_K01I@Z.c)
+ *     ?RecordUsage@RawUsageIndex@details_abi@wil@@QEAA_NPEAX_K01I@Z @ 0x1800AF29C (-RecordUsage@RawUsageIndex@details_abi@wil@@QEAA_NPEAX_K01I@Z.c)
+ *     ?push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z @ 0x1800AF664 (-push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z.c)
  * Callees:
  *     <none>
  */

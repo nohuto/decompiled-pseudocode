@@ -3,13 +3,13 @@
  * Callers:
  *     CmpQueryKeyData @ 0x1405D78B8 (CmpQueryKeyData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmEqualTrans @ 0x1405A94E8 (CmEqualTrans.c)
  *     CmGetVisibleSubkeyCount @ 0x1405AA548 (CmGetVisibleSubkeyCount.c)
  *     CmGetVisibleMaxValueNameLenAndDataLen @ 0x1405D7C2C (CmGetVisibleMaxValueNameLenAndDataLen.c)
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
- *     CmpIsKeyDeleted @ 0x140698140 (CmpIsKeyDeleted.c)
- *     CmListGetPrevElement @ 0x1406C060C (CmListGetPrevElement.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
+ *     CmpIsKeyDeleted @ 0x140698120 (CmpIsKeyDeleted.c)
+ *     CmListGetPrevElement @ 0x1406C05EC (CmListGetPrevElement.c)
  */
 
 __int64 __fastcall CmpQueryKeyDataFromCache(__int64 a1, int a2, __int64 a3, unsigned int a4, _DWORD *a5, __int64 a6)

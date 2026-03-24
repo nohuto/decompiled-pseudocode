@@ -1,12 +1,13 @@
 /*
- * XREFs of ?Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x1800838C0
+ * XREFs of ?Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x18009A4AC
  * Callers:
- *     ?Subtract@CRegion@@QEAAXAEBV1@@Z @ 0x1800823C8 (-Subtract@CRegion@@QEAAXAEBV1@@Z.c)
+ *     ?Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18003A848 (-Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ?NotifyRenderedRect@CLegacySwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180099D70 (-NotifyRenderedRect@CLegacySwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DR.c)
  * Callees:
- *     ?IsEqualToPrevious@CStripe@Internal@FastRegion@@QEBA_NXZ @ 0x180083254 (-IsEqualToPrevious@CStripe@Internal@FastRegion@@QEBA_NXZ.c)
- *     ?Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@@Z @ 0x18008376C (-Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@@Z.c)
- *     ?Subtract@CStripe@Internal@FastRegion@@QEAAXPEBV123@00@Z @ 0x18008407C (-Subtract@CStripe@Internal@FastRegion@@QEAAXPEBV123@00@Z.c)
- *     ?Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@0@Z @ 0x1800D794C (-Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@0@Z.c)
+ *     ?IsEqualToPrevious@CStripe@Internal@FastRegion@@QEBA_NXZ @ 0x180099BB0 (-IsEqualToPrevious@CStripe@Internal@FastRegion@@QEBA_NXZ.c)
+ *     ?Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@@Z @ 0x180099C14 (-Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@@Z.c)
+ *     ?Subtract@CStripe@Internal@FastRegion@@QEAAXPEBV123@00@Z @ 0x18009A888 (-Subtract@CStripe@Internal@FastRegion@@QEAAXPEBV123@00@Z.c)
+ *     ?Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@0@Z @ 0x18009C7AC (-Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@0@Z.c)
  */
 
 void __fastcall FastRegion::Internal::CRgnData::Subtract(
@@ -14,257 +15,283 @@ void __fastcall FastRegion::Internal::CRgnData::Subtract(
         const struct FastRegion::Internal::CRgnData *a2,
         const struct FastRegion::Internal::CRgnData *a3)
 {
-  __int64 v3; // r9
-  const struct FastRegion::Internal::CStripe *v4; // rsi
-  const struct FastRegion::Internal::CStripe *v5; // r14
-  __int64 v7; // r8
-  FastRegion::Internal::CStripe *v8; // rbp
-  _DWORD *v9; // rdi
-  const struct FastRegion::Internal::CStripe *v10; // r10
-  const struct FastRegion::Internal::CStripe *v11; // r12
-  FastRegion::Internal::CStripe *v12; // rbx
-  const struct FastRegion::Internal::CStripe *v13; // r13
-  const struct FastRegion::Internal::CStripe *v14; // rsi
+  __int64 v3; // r10
+  _DWORD *v4; // rdi
+  __int64 v5; // r9
+  const struct FastRegion::Internal::CStripe *v8; // r13
+  FastRegion::Internal::CStripe *v9; // rbp
+  FastRegion::Internal::CStripe *v10; // rbx
+  char *v11; // rcx
+  int v12; // eax
+  char *v13; // rsi
+  const struct FastRegion::Internal::CStripe *v14; // r14
   const struct FastRegion::Internal::CStripe *v15; // rdi
-  const struct FastRegion::Internal::CStripe *v16; // r14
+  const struct FastRegion::Internal::CStripe *v16; // r15
   int v17; // eax
   const struct FastRegion::Internal::CStripe *v18; // rdx
   int v19; // ecx
-  const struct FastRegion::Internal::CStripe *v20; // r8
-  __int64 v21; // rax
-  FastRegion::Internal::CStripe *v22; // rbx
-  _DWORD *v23; // rax
-  _DWORD *v24; // rdx
-  int v25; // ecx
+  __int64 v20; // rax
+  FastRegion::Internal::CStripe *v21; // rbx
+  _DWORD *v22; // rax
+  _DWORD *v23; // rdx
+  int v24; // ecx
+  const struct FastRegion::Internal::CStripe *v25; // r8
   char *v26; // rcx
   int v27; // eax
-  const struct FastRegion::Internal::CStripe *v28; // rdx
-  int v29; // eax
-  const struct FastRegion::Internal::CStripe *v30; // r8
-  const struct FastRegion::Internal::CStripe *v31; // rdx
-  FastRegion::Internal::CStripe *v32; // rcx
-  char *v33; // rcx
-  int v34; // eax
-  const struct FastRegion::Internal::CStripe *v35; // r9
-  char *v36; // rcx
-  int v37; // eax
+  int v28; // eax
+  int v29; // ecx
+  const struct FastRegion::Internal::CStripe *v30; // rdx
+  const struct FastRegion::Internal::CStripe *v31; // r9
+  int v32; // eax
+  const struct FastRegion::Internal::CStripe *v33; // r9
+  FastRegion::Internal::CStripe *v34; // rcx
+  char *v35; // rcx
+  int v36; // eax
+  const struct FastRegion::Internal::CStripe *v37; // rsi
+  bool v38; // zf
+  const struct FastRegion::Internal::CStripe *v39; // rdx
+  char *v40; // [rsp+50h] [rbp+8h]
 
   v3 = *(int *)a2;
-  v4 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 12);
-  v5 = (const struct FastRegion::Internal::CRgnData *)((char *)a3 + 12);
-  v7 = *(int *)a3;
-  v8 = (FastRegion::Internal::CRgnData *)((char *)this + 12);
-  v9 = (_DWORD *)((char *)a2 + 12);
-  v10 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 12);
-  v11 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 8 * v3 + 12);
-  v12 = (FastRegion::Internal::CRgnData *)((char *)this + 12);
-  v13 = (const struct FastRegion::Internal::CStripe *)((char *)v5 + 8 * v7);
-  *((_DWORD *)this + 4) = 8 * (v7 + v3);
-  if ( *((_DWORD *)a2 + 3) < *(_DWORD *)v5 )
+  v4 = (_DWORD *)((char *)a2 + 12);
+  v5 = *(int *)a3;
+  v8 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 8 * v3 + 12);
+  v9 = (FastRegion::Internal::CRgnData *)((char *)this + 12);
+  v10 = (FastRegion::Internal::CRgnData *)((char *)this + 12);
+  v11 = (char *)a3 + 8 * v5 + 12;
+  v40 = v11;
+  *((_DWORD *)this + 4) = 8 * (v5 + v3);
+  v12 = *((_DWORD *)a3 + 3);
+  if ( *((_DWORD *)a2 + 3) < v12 )
   {
     v15 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 20);
-    FastRegion::Internal::CStripe::Copy(
-      (FastRegion::Internal::CRgnData *)((char *)this + 12),
-      (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 12));
-    if ( v12 != v8 )
-      goto LABEL_58;
-    v26 = (char *)v8 + 8;
-    v27 = *((_DWORD *)v8 + 3) - (_DWORD)v12 - *((_DWORD *)v8 + 1);
-LABEL_31:
-    if ( (_DWORD)v26 + v27 )
-      v12 = (FastRegion::Internal::CStripe *)v26;
-    while ( 1 )
+    FastRegion::Internal::CStripe::Copy(v10, (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 12));
+    if ( v10 == v9 )
     {
-      v17 = *(_DWORD *)v15;
-      if ( *(_DWORD *)v15 >= *(_DWORD *)v5 )
-        break;
-      v15 = (const struct FastRegion::Internal::CStripe *)((char *)v15 + 8);
-      v4 = (const struct FastRegion::Internal::CStripe *)((char *)v4 + 8);
-      if ( v15 == v11 )
-      {
-        v17 = *(_DWORD *)v4;
-        goto LABEL_17;
-      }
-      FastRegion::Internal::CStripe::Copy(v12, v4);
-      if ( v12 == v8 )
-      {
-        v26 = (char *)v12 + 8;
-        v27 = *((_DWORD *)v12 + 3) - *((_DWORD *)v12 + 1) - (_DWORD)v12;
-        goto LABEL_31;
-      }
-LABEL_58:
-      if ( !FastRegion::Internal::CStripe::IsEqualToPrevious(v12) )
-        v12 = (FastRegion::Internal::CStripe *)((char *)v12 + 8);
+      if ( (_DWORD)v9 + 8 + *((_DWORD *)v9 + 3) - (_DWORD)v10 - *((_DWORD *)v9 + 1) )
+        v10 = (FastRegion::Internal::CStripe *)((char *)v9 + 8);
     }
-    v14 = (const struct FastRegion::Internal::CStripe *)((char *)v5 + 8);
-    v28 = v15;
-    if ( v17 > *(_DWORD *)v5 )
+    else if ( !FastRegion::Internal::CStripe::IsEqualToPrevious(v10) )
     {
-      v28 = (const struct FastRegion::Internal::CStripe *)((char *)v15 - 8);
+      v10 = (FastRegion::Internal::CStripe *)((char *)v10 + 8);
+    }
+    v28 = *(_DWORD *)v15;
+    v29 = *((_DWORD *)a3 + 3);
+    if ( *(_DWORD *)v15 < v29 )
+    {
+      v37 = (const struct FastRegion::Internal::CStripe *)((char *)v15 - 8);
+      do
+      {
+        v15 = (const struct FastRegion::Internal::CStripe *)((char *)v15 + 8);
+        v37 = (const struct FastRegion::Internal::CStripe *)((char *)v37 + 8);
+        if ( v15 == v8 )
+        {
+          v17 = *(_DWORD *)v37;
+          goto LABEL_9;
+        }
+        FastRegion::Internal::CStripe::Copy(v10, v37);
+        if ( v10 == v9 )
+        {
+          if ( *((_DWORD *)v10 + 3) - *((_DWORD *)v10 + 1) != -8 )
+            v10 = (FastRegion::Internal::CStripe *)((char *)v10 + 8);
+        }
+        else if ( !FastRegion::Internal::CStripe::IsEqualToPrevious(v10) )
+        {
+          v10 = (FastRegion::Internal::CStripe *)((char *)v10 + 8);
+        }
+        v28 = *(_DWORD *)v15;
+        v29 = *((_DWORD *)a3 + 3);
+      }
+      while ( *(_DWORD *)v15 < v29 );
+    }
+    v13 = (char *)a3 + 20;
+    if ( v28 <= v29 )
+    {
+      v15 = (const struct FastRegion::Internal::CStripe *)((char *)v15 + 8);
+      v30 = (const struct FastRegion::Internal::CStripe *)((char *)v15 - 8);
+      if ( v15 == v8 )
+      {
+        v17 = *(_DWORD *)v30;
+        goto LABEL_9;
+      }
     }
     else
     {
-      v15 = (const struct FastRegion::Internal::CStripe *)((char *)v15 + 8);
-      if ( v15 == v11 )
-        goto LABEL_17;
+      v30 = (const struct FastRegion::Internal::CStripe *)((char *)v15 - 8);
     }
-    FastRegion::Internal::CStripe::Subtract(v12, v28, v5, v5);
-    if ( v12 != v8 )
+    v14 = (const struct FastRegion::Internal::CRgnData *)((char *)a3 + 12);
+    FastRegion::Internal::CStripe::Subtract(
+      v10,
+      v30,
+      (const struct FastRegion::Internal::CStripe *)(v13 - 8),
+      (const struct FastRegion::Internal::CStripe *)(v13 - 8));
+    if ( v10 != v9 )
     {
-      if ( !FastRegion::Internal::CStripe::IsEqualToPrevious(v12) )
-        v12 = (FastRegion::Internal::CStripe *)((char *)v12 + 8);
+      if ( !FastRegion::Internal::CStripe::IsEqualToPrevious(v10) )
+        v10 = (FastRegion::Internal::CStripe *)((char *)v10 + 8);
       goto LABEL_5;
     }
-    v36 = (char *)v12 + 8;
-    v37 = *((_DWORD *)v12 + 3) - *((_DWORD *)v12 + 1) - (_DWORD)v12;
-    goto LABEL_62;
+    v35 = (char *)v10 + 8;
+    v36 = *((_DWORD *)v10 + 3) - *((_DWORD *)v10 + 1) - (_DWORD)v10;
+    goto LABEL_49;
   }
-  v14 = (const struct FastRegion::Internal::CStripe *)((char *)v5 + 8);
-  if ( *((_DWORD *)a2 + 3) > *(_DWORD *)v5 )
+  v13 = (char *)a3 + 20;
+  if ( *((_DWORD *)a2 + 3) > v12 )
   {
     while ( 1 )
     {
-      v29 = *(_DWORD *)v14;
-      if ( *v9 < *(_DWORD *)v14 )
+      v32 = *(_DWORD *)v13;
+      if ( *v4 < *(_DWORD *)v13 )
       {
         v15 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 20);
-        v30 = (const struct FastRegion::Internal::CStripe *)((char *)v14 - 8);
-        v31 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 12);
-        v32 = (FastRegion::Internal::CRgnData *)((char *)this + 12);
-        goto LABEL_61;
+        v33 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 12);
+        v34 = v10;
+        goto LABEL_48;
       }
-      v30 = v14;
-      v14 = (const struct FastRegion::Internal::CStripe *)((char *)v14 + 8);
-      if ( *v9 <= v29 )
+      v13 += 8;
+      if ( *v4 <= v32 )
         break;
-      if ( v14 == v13 )
+      if ( v13 == v11 )
       {
         v15 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 20);
-        v31 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 12);
-        v32 = (FastRegion::Internal::CRgnData *)((char *)this + 12);
-LABEL_43:
-        FastRegion::Internal::CStripe::Copy(v32, v31);
-        v33 = (char *)v8 + 8;
-        v34 = *((_DWORD *)v8 + 3) - (_DWORD)v12 - *((_DWORD *)v8 + 1);
-        goto LABEL_44;
+        v39 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 12);
+        v34 = v10;
+        goto LABEL_67;
       }
     }
     v15 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 20);
-    v31 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 12);
-    v32 = (FastRegion::Internal::CRgnData *)((char *)this + 12);
-    if ( v14 == v13 )
-      goto LABEL_43;
-LABEL_61:
-    FastRegion::Internal::CStripe::Subtract(v32, v31, v30, v10);
-    v36 = (char *)v8 + 8;
-    v37 = *((_DWORD *)v8 + 3) - (_DWORD)v12 - *((_DWORD *)v8 + 1);
-LABEL_62:
-    if ( (_DWORD)v36 + v37 )
-      v12 = (FastRegion::Internal::CStripe *)v36;
+    v38 = v13 == v11;
+    v34 = v10;
+    v33 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 12);
+    if ( v38 )
+    {
+      v39 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 12);
+LABEL_67:
+      FastRegion::Internal::CStripe::Copy(v34, v39);
+      v26 = (char *)v9 + 8;
+      v27 = *((_DWORD *)v9 + 3) - (_DWORD)v10 - *((_DWORD *)v9 + 1);
+      goto LABEL_26;
+    }
+LABEL_48:
+    v14 = (const struct FastRegion::Internal::CStripe *)(v13 - 8);
+    FastRegion::Internal::CStripe::Subtract(
+      v34,
+      (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 12),
+      (const struct FastRegion::Internal::CStripe *)(v13 - 8),
+      v33);
+    v35 = (char *)v9 + 8;
+    v36 = *((_DWORD *)v9 + 3) - (_DWORD)v10 - *((_DWORD *)v9 + 1);
+LABEL_49:
+    if ( (_DWORD)v35 + v36 )
+      v10 = (FastRegion::Internal::CStripe *)v35;
     goto LABEL_5;
   }
+  v14 = (const struct FastRegion::Internal::CRgnData *)((char *)a3 + 12);
   v15 = (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 20);
   FastRegion::Internal::CStripe::Subtract(
-    (FastRegion::Internal::CRgnData *)((char *)this + 12),
+    v10,
     (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 12),
-    v5,
+    (const struct FastRegion::Internal::CRgnData *)((char *)a3 + 12),
     (const struct FastRegion::Internal::CRgnData *)((char *)a2 + 12));
-  if ( (_DWORD)v8 + 8 + *((_DWORD *)v8 + 3) - (_DWORD)v12 - *((_DWORD *)v8 + 1) )
-    v12 = (FastRegion::Internal::CStripe *)((char *)v8 + 8);
+  if ( (_DWORD)v9 + 8 + *((_DWORD *)v9 + 3) - (_DWORD)v10 - *((_DWORD *)v9 + 1) )
+    v10 = (FastRegion::Internal::CStripe *)((char *)v9 + 8);
 LABEL_5:
   v16 = (const struct FastRegion::Internal::CStripe *)((char *)v15 - 8);
   while ( 1 )
   {
     v17 = *(_DWORD *)v15;
     v18 = v15;
-    v19 = *(_DWORD *)v14;
-    v20 = v14;
-    if ( *(_DWORD *)v15 < *(_DWORD *)v14 )
+    v19 = *(_DWORD *)v13;
+    if ( *(_DWORD *)v15 < *(_DWORD *)v13 )
     {
       v15 = (const struct FastRegion::Internal::CStripe *)((char *)v15 + 8);
       v16 = (const struct FastRegion::Internal::CStripe *)((char *)v16 + 8);
-      if ( v15 == v11 )
-        goto LABEL_17;
-      v20 = (const struct FastRegion::Internal::CStripe *)((char *)v14 - 8);
-      goto LABEL_52;
+      if ( v15 == v8 )
+        goto LABEL_9;
+      goto LABEL_40;
     }
-    v14 = (const struct FastRegion::Internal::CStripe *)((char *)v14 + 8);
+    v13 += 8;
     if ( v17 <= v19 )
       break;
+    v14 = (const struct FastRegion::Internal::CStripe *)(v13 - 8);
     v18 = v16;
-    if ( v14 == v13 )
-      goto LABEL_38;
-    v35 = v20;
-LABEL_53:
-    FastRegion::Internal::CStripe::Subtract(v12, v18, v20, v35);
-    if ( v12 == v8 )
+    v25 = (const struct FastRegion::Internal::CStripe *)(v13 - 8);
+    if ( v13 == v40 )
+      goto LABEL_22;
+    v31 = (const struct FastRegion::Internal::CStripe *)(v13 - 8);
+LABEL_41:
+    FastRegion::Internal::CStripe::Subtract(v10, v18, v25, v31);
+    if ( v10 == v9 )
     {
-      if ( *((_DWORD *)v12 + 3) - *((_DWORD *)v12 + 1) != -8 )
-        v12 = (FastRegion::Internal::CStripe *)((char *)v12 + 8);
+      if ( *((_DWORD *)v10 + 3) - *((_DWORD *)v10 + 1) != -8 )
+        v10 = (FastRegion::Internal::CStripe *)((char *)v10 + 8);
     }
-    else if ( !FastRegion::Internal::CStripe::IsEqualToPrevious(v12) )
+    else if ( !FastRegion::Internal::CStripe::IsEqualToPrevious(v10) )
     {
-      v12 = (FastRegion::Internal::CStripe *)((char *)v12 + 8);
+      v10 = (FastRegion::Internal::CStripe *)((char *)v10 + 8);
     }
   }
   v15 = (const struct FastRegion::Internal::CStripe *)((char *)v15 + 8);
   v16 = (const struct FastRegion::Internal::CStripe *)((char *)v16 + 8);
-  if ( v15 == v11 )
-    goto LABEL_17;
-  if ( v14 != v13 )
+  if ( v15 == v8 )
+    goto LABEL_9;
+  v14 = (const struct FastRegion::Internal::CStripe *)(v13 - 8);
+  if ( v13 != v40 )
   {
-LABEL_52:
-    v35 = v18;
-    goto LABEL_53;
+LABEL_40:
+    v31 = v18;
+    v25 = v14;
+    goto LABEL_41;
   }
-LABEL_38:
-  FastRegion::Internal::CStripe::Copy(v12, v18, v20);
+  v25 = (const struct FastRegion::Internal::CStripe *)(v13 - 8);
+LABEL_22:
+  FastRegion::Internal::CStripe::Copy(v10, v18, v25);
   while ( 1 )
   {
-    if ( v12 == v8 )
+    if ( v10 == v9 )
     {
-      v33 = (char *)v12 + 8;
-      v34 = *((_DWORD *)v12 + 3) - *((_DWORD *)v12 + 1) - (_DWORD)v12;
-LABEL_44:
-      if ( (_DWORD)v33 + v34 )
-        v12 = (FastRegion::Internal::CStripe *)v33;
+      v26 = (char *)v10 + 8;
+      v27 = *((_DWORD *)v10 + 3) - *((_DWORD *)v10 + 1) - (_DWORD)v10;
+LABEL_26:
+      if ( (_DWORD)v26 + v27 )
+        v10 = (FastRegion::Internal::CStripe *)v26;
     }
-    else if ( !FastRegion::Internal::CStripe::IsEqualToPrevious(v12) )
+    else if ( !FastRegion::Internal::CStripe::IsEqualToPrevious(v10) )
     {
-      v12 = (FastRegion::Internal::CStripe *)((char *)v12 + 8);
+      v10 = (FastRegion::Internal::CStripe *)((char *)v10 + 8);
     }
     v15 = (const struct FastRegion::Internal::CStripe *)((char *)v15 + 8);
-    if ( v15 == v11 )
+    if ( v15 == v8 )
       break;
-    FastRegion::Internal::CStripe::Copy(v12, (const struct FastRegion::Internal::CStripe *)((char *)v15 - 8));
+    FastRegion::Internal::CStripe::Copy(v10, (const struct FastRegion::Internal::CStripe *)((char *)v15 - 8));
   }
   v17 = *((_DWORD *)v15 - 2);
-LABEL_17:
-  *(_DWORD *)v12 = v17;
-  if ( v12 != v8 && (char *)v12 + *((int *)v12 + 1) != (char *)v12 + *((int *)v12 - 1) - 8 )
-    v12 = (FastRegion::Internal::CStripe *)((char *)v12 + 8);
-  v21 = (v12 - this - 12) >> 3;
-  *(_DWORD *)this = v21;
-  if ( (_DWORD)v21 )
+LABEL_9:
+  *(_DWORD *)v10 = v17;
+  if ( v10 != v9 && (char *)v10 + *((int *)v10 + 1) != (char *)v10 + *((int *)v10 - 1) - 8 )
+    v10 = (FastRegion::Internal::CStripe *)((char *)v10 + 8);
+  v20 = (v10 - this - 12) >> 3;
+  *(_DWORD *)this = v20;
+  if ( (_DWORD)v20 )
   {
-    v22 = (FastRegion::Internal::CStripe *)((char *)v12 - 8);
+    v21 = (FastRegion::Internal::CStripe *)((char *)v10 - 8);
     *((_DWORD *)this + 1) = 0x7FFFFFFF;
     *((_DWORD *)this + 2) = 0x80000000;
-    v23 = (_DWORD *)((char *)v22 + *((int *)v22 + 1));
+    v22 = (_DWORD *)((char *)v21 + *((int *)v21 + 1));
     while ( 1 )
     {
-      v22 = (FastRegion::Internal::CStripe *)((char *)v22 - 8);
-      if ( v22 < v8 )
+      v21 = (FastRegion::Internal::CStripe *)((char *)v21 - 8);
+      if ( v21 < v9 )
         break;
-      v24 = v23;
-      v23 = (_DWORD *)((char *)v22 + *((int *)v22 + 1));
-      if ( v23 != v24 )
+      v23 = v22;
+      v22 = (_DWORD *)((char *)v21 + *((int *)v21 + 1));
+      if ( v22 != v23 )
       {
-        if ( *((_DWORD *)this + 1) > *v23 )
-          *((_DWORD *)this + 1) = *v23;
-        v25 = *(v24 - 1);
-        if ( *((_DWORD *)this + 2) < v25 )
-          *((_DWORD *)this + 2) = v25;
+        if ( *((_DWORD *)this + 1) > *v22 )
+          *((_DWORD *)this + 1) = *v22;
+        v24 = *(v23 - 1);
+        if ( *((_DWORD *)this + 2) < v24 )
+          *((_DWORD *)this + 2) = v24;
       }
     }
   }

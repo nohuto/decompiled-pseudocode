@@ -1,14 +1,13 @@
 /*
- * XREFs of ?CreateHwQueue@DXGCONTEXT@@QEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAXPEAPEAVDXGHWQUEUE@@@Z @ 0x1C030DAEC
+ * XREFs of ?CreateHwQueue@DXGCONTEXT@@QEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAXPEAPEAVDXGHWQUEUE@@@Z @ 0x1C026C7CC
  * Callers:
- *     ?CreateCddDevice@SESSION_ADAPTER@@AEAAJPEAVDXGADAPTER@@PEAPEAVDXGDEVICE@@PEAPEAVDXGCONTEXT@@PEAPEAVDXGHWQUEUE@@@Z @ 0x1C01D00EC (-CreateCddDevice@SESSION_ADAPTER@@AEAAJPEAVDXGADAPTER@@PEAPEAVDXGDEVICE@@PEAPEAVDXGCONTEXT@@PEAP.c)
- *     DxgkCreateHwQueueInternal @ 0x1C0312760 (DxgkCreateHwQueueInternal.c)
+ *     ?CreateCddDevice@SESSION_ADAPTER@@AEAAJPEAVDXGADAPTER@@PEAPEAVDXGDEVICE@@PEAPEAVDXGCONTEXT@@PEAPEAVDXGHWQUEUE@@@Z @ 0x1C014F614 (-CreateCddDevice@SESSION_ADAPTER@@AEAAJPEAVDXGADAPTER@@PEAPEAVDXGDEVICE@@PEAPEAVDXGCONTEXT@@PEAP.c)
+ *     DxgkCreateHwQueueInternal @ 0x1C0271248 (DxgkCreateHwQueueInternal.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??_GDXGHWQUEUE@@IEAAPEAXI@Z @ 0x1C005417C (--_GDXGHWQUEUE@@IEAAPEAXI@Z.c)
- *     ?DestroyCoreState@DXGHWQUEUE@@IEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C030E1A0 (-DestroyCoreState@DXGHWQUEUE@@IEAAXPEAVCOREDEVICEACCESS@@@Z.c)
- *     ?Initialize@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z @ 0x1C030EDA0 (-Initialize@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??_GDXGHWQUEUE@@IEAAPEAXI@Z @ 0x1C0046E24 (--_GDXGHWQUEUE@@IEAAPEAXI@Z.c)
+ *     ?DestroyCoreState@DXGHWQUEUE@@IEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C026CD9C (-DestroyCoreState@DXGHWQUEUE@@IEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?Initialize@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z @ 0x1C026D82C (-Initialize@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z.c)
  */
 
 __int64 __fastcall DXGCONTEXT::CreateHwQueue(
@@ -18,96 +17,95 @@ __int64 __fastcall DXGCONTEXT::CreateHwQueue(
         struct DXGHWQUEUE **a4)
 {
   __int64 v5; // rcx
-  __int64 v9; // r9
-  __int64 Pool2; // rax
-  int v11; // esi
-  DXGHWQUEUE *v12; // rax
-  DXGHWQUEUE **v13; // rcx
-  __int64 v14; // rdx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  __int64 v15; // rax
+  _QWORD *PoolWithQuotaTag; // rax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // rax
+  int v21; // esi
+  DXGHWQUEUE *v23; // rax
+  DXGHWQUEUE **v24; // rcx
+  __int64 v25; // rdx
 
   v5 = *((_QWORD *)this + 2);
-  if ( !*(_BYTE *)(v5 + 72) && !ExIsResourceAcquiredExclusiveLite(*(PERESOURCE *)(v5 + 136)) )
+  if ( !*(_DWORD *)(v5 + 72) && !ExIsResourceAcquiredExclusiveLite(*(PERESOURCE *)(v5 + 136)) )
   {
-    WdLogSingleEntry1(1LL, 545LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetDevice()->IsDeviceLockExclusiveOwner()",
-      545LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdAssertion(v10, v9);
+    *(_QWORD *)(v11 + 24) = 458LL;
+    WdLogEvent5_WdAssertion(v11);
   }
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 546LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceSharedOwner()",
-      546LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v14 = WdLogNewEntry5_WdAssertion(v13, v12);
+    *(_QWORD *)(v14 + 24) = 459LL;
+    WdLogEvent5_WdAssertion(v14);
   }
   if ( !a4 )
   {
-    WdLogSingleEntry1(1LL, 547LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"HwQueue != NULL", 547LL, 0LL, 0LL, 0LL, 0LL);
+    v15 = WdLogNewEntry5_WdAssertion(v13, v12);
+    *(_QWORD *)(v15 + 24) = 460LL;
+    WdLogEvent5_WdAssertion(v15);
   }
-  Pool2 = ExAllocatePool2(65LL, 144LL, 1265072196LL, v9);
-  if ( Pool2 )
+  PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, 0x80uLL, 0x4B677844u);
+  if ( PoolWithQuotaTag )
   {
-    *(_QWORD *)(Pool2 + 16) = this;
-    *(_OWORD *)Pool2 = 0LL;
-    *(_QWORD *)(Pool2 + 24) = 0LL;
-    *(_QWORD *)(Pool2 + 32) = 0LL;
-    *(_QWORD *)(Pool2 + 40) = 0LL;
-    *(_QWORD *)(Pool2 + 48) = 0LL;
-    *(_QWORD *)(Pool2 + 56) = 0LL;
-    *(_QWORD *)(Pool2 + 64) = 0LL;
-    *(_QWORD *)(Pool2 + 72) = 0LL;
-    *(_QWORD *)(Pool2 + 80) = 0LL;
-    *(_QWORD *)(Pool2 + 88) = 0LL;
-    *(_QWORD *)(Pool2 + 96) = 0LL;
-    *(_QWORD *)(Pool2 + 104) = 1LL;
-    *(_BYTE *)(Pool2 + 112) = 0;
-    *(_QWORD *)(Pool2 + 120) = 0LL;
-    *(_QWORD *)(Pool2 + 128) = 0LL;
-    *(_DWORD *)(Pool2 + 136) = 0;
-    *a4 = (struct DXGHWQUEUE *)Pool2;
-    v11 = DXGHWQUEUE::Initialize((DXGHWQUEUE *)Pool2, a2, a3);
-    if ( v11 >= 0 )
-    {
-      v12 = *a4;
-      v13 = (DXGHWQUEUE **)((char *)this + 408);
-      v14 = *((_QWORD *)this + 51);
-      if ( *(DXGCONTEXT **)(v14 + 8) != (DXGCONTEXT *)((char *)this + 408) )
-        __fastfail(3u);
-      *(_QWORD *)v12 = v14;
-      *((_QWORD *)v12 + 1) = v13;
-      *(_QWORD *)(v14 + 8) = v12;
-      *v13 = v12;
-      _InterlockedIncrement64((volatile signed __int64 *)this + 4);
-      return 0LL;
-    }
+    PoolWithQuotaTag[2] = this;
+    *(_OWORD *)PoolWithQuotaTag = 0LL;
+    PoolWithQuotaTag[3] = 0LL;
+    PoolWithQuotaTag[4] = 0LL;
+    PoolWithQuotaTag[5] = 0LL;
+    PoolWithQuotaTag[6] = 0LL;
+    PoolWithQuotaTag[7] = 0LL;
+    PoolWithQuotaTag[8] = 0LL;
+    PoolWithQuotaTag[9] = 0LL;
+    PoolWithQuotaTag[10] = 0LL;
+    PoolWithQuotaTag[11] = 1LL;
+    *((_BYTE *)PoolWithQuotaTag + 96) = 0;
+    PoolWithQuotaTag[13] = 0LL;
+    PoolWithQuotaTag[14] = 0LL;
+    *((_DWORD *)PoolWithQuotaTag + 30) = 0;
   }
   else
   {
-    *a4 = 0LL;
-    v11 = -1073741801;
-    WdLogSingleEntry2(3LL, this, -1073741801LL);
+    PoolWithQuotaTag = 0LL;
   }
-  if ( *a4 )
+  *a4 = (struct DXGHWQUEUE *)PoolWithQuotaTag;
+  if ( !PoolWithQuotaTag )
   {
-    DXGHWQUEUE::DestroyCoreState(*a4, 0LL);
+    v20 = WdLogNewEntry5_WdWarning(v18, v17, v19);
+    v21 = -1073741801;
+    *(_QWORD *)(v20 + 24) = this;
+    *(_QWORD *)(v20 + 32) = -1073741801LL;
+    WdLogEvent5_WdWarning(v20);
+LABEL_14:
     if ( *a4 )
-      DXGHWQUEUE::`scalar deleting destructor'(*a4);
-    *a4 = 0LL;
+    {
+      DXGHWQUEUE::DestroyCoreState(*a4, 0LL);
+      if ( *a4 )
+        DXGHWQUEUE::`scalar deleting destructor'(*a4);
+      *a4 = 0LL;
+    }
+    return (unsigned int)v21;
   }
-  return (unsigned int)v11;
+  v21 = DXGHWQUEUE::Initialize((DXGHWQUEUE *)PoolWithQuotaTag, a2, a3);
+  if ( v21 < 0 )
+    goto LABEL_14;
+  v23 = *a4;
+  v24 = (DXGHWQUEUE **)((char *)this + 424);
+  v25 = *((_QWORD *)this + 53);
+  if ( *(DXGCONTEXT **)(v25 + 8) != (DXGCONTEXT *)((char *)this + 424) )
+    __fastfail(3u);
+  *(_QWORD *)v23 = v25;
+  *((_QWORD *)v23 + 1) = v24;
+  *(_QWORD *)(v25 + 8) = v23;
+  *v24 = v23;
+  _InterlockedIncrement64((volatile signed __int64 *)this + 4);
+  return 0LL;
 }

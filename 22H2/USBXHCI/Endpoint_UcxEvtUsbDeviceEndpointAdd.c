@@ -1,11 +1,11 @@
 /*
- * XREFs of Endpoint_UcxEvtUsbDeviceEndpointAdd @ 0x1C006D550
+ * XREFs of Endpoint_UcxEvtUsbDeviceEndpointAdd @ 0x1C006A420
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ddd @ 0x1C0018000 (WPP_RECORDER_SF_ddd.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Endpoint_Create @ 0x1C006D664 (Endpoint_Create.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Endpoint_Create @ 0x1C006A5F0 (Endpoint_Create.c)
  */
 
 __int64 __fastcall Endpoint_UcxEvtUsbDeviceEndpointAdd(
@@ -19,10 +19,10 @@ __int64 __fastcall Endpoint_UcxEvtUsbDeviceEndpointAdd(
   __int64 v9; // rdx
   int v10; // esi
   unsigned int v12; // edi
-  __int64 v13; // rbx
+  char v13; // bl
   __int64 v14; // rax
   int v15; // edx
-  char v16; // r10
+  int v16; // r10d
   _QWORD v17[10]; // [rsp+48h] [rbp-29h] BYREF
   __int128 v18; // [rsp+98h] [rbp+27h]
 
@@ -37,7 +37,7 @@ __int64 __fastcall Endpoint_UcxEvtUsbDeviceEndpointAdd(
   v17[8] = Endpoint_UcxEvtEndpointStaticStreamsDisable;
   v17[9] = Endpoint_UcxEvtEndpointEnableForwardProgress;
   v18 = 0LL;
-  ((void (__fastcall *)(__int64, __int64, _QWORD *))qword_1C0064848)(UcxDriverGlobals, a6, v17);
+  ((void (__fastcall *)(__int64, __int64, _QWORD *))qword_1C00617E8)(UcxDriverGlobals, a6, v17);
   v9 = 0LL;
   if ( a5 && (*(_BYTE *)(a3 + 3) & 3) == 1 && (a5[3] & 0x80u) != 0 )
     v9 = (__int64)&a5[*a5];
@@ -45,14 +45,15 @@ __int64 __fastcall Endpoint_UcxEvtUsbDeviceEndpointAdd(
   if ( v10 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     v12 = *(unsigned __int8 *)(a3 + 2);
-    v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
-            WdfDriverGlobals,
-            a2,
-            off_1C00632C0);
+    v13 = *(_BYTE *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+                       WdfDriverGlobals,
+                       a2,
+                       off_1C00602C0)
+                   + 135);
     v14 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
             WdfDriverGlobals,
             a1,
-            off_1C0063428);
+            off_1C0060428);
     v15 = *(_BYTE *)(a3 + 2) & 0x7F;
     v16 = (v12 >> 7) + 2 * v15;
     LOBYTE(v15) = 2;
@@ -61,8 +62,8 @@ __int64 __fastcall Endpoint_UcxEvtUsbDeviceEndpointAdd(
       v15,
       13,
       13,
-      (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
-      *(_BYTE *)(v13 + 135),
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+      v13,
       v16,
       v10);
   }

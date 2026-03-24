@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpAppendDllSection @ 0x140AF2C30
+ * XREFs of CmpAppendDllSection @ 0x140A38190
  * Callers:
  *     <none>
  * Callees:
@@ -57,6 +57,6 @@ __int64 __fastcall CmpAppendDllSection(_QWORD *a1, __int64 a2)
     }
     while ( v5 );
   }
-  v7 = ((__int64 (__fastcall *)(__int64))((char *)v4 + *((unsigned int *)v4 + 492)))(v5);
-  return (*(__int64 (__fastcall **)(__int64, __int64))(v7 + 256))(v7 + 1888, 1LL);
+  v7 = ((__int64 (__fastcall *)(__int64))((char *)v4 + *((unsigned int *)v4 + 506)))(v5);
+  return (*(__int64 (__fastcall **)(__int64, __int64))(v7 + 272))(v7 + 1944, 1LL);
 }

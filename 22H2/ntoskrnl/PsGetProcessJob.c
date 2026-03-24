@@ -1,8 +1,8 @@
 /*
- * XREFs of PsGetProcessJob @ 0x1403608E0
+ * XREFs of PsGetProcessJob @ 0x1403166D0
  * Callers:
- *     AlpcpDispatchConnectionRequest @ 0x1407160C8 (AlpcpDispatchConnectionRequest.c)
- *     AlpcpDispatchNewMessage @ 0x140739DE0 (AlpcpDispatchNewMessage.c)
+ *     AlpcpDispatchConnectionRequest @ 0x1405DF168 (AlpcpDispatchConnectionRequest.c)
+ *     AlpcpDispatchNewMessage @ 0x1405E5250 (AlpcpDispatchNewMessage.c)
  * Callees:
  *     <none>
  */

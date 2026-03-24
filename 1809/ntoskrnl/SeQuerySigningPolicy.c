@@ -2,10 +2,10 @@
  * XREFs of SeQuerySigningPolicy @ 0x14060D5D0
  * Callers:
  *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
- *     PspCreateProcess @ 0x14075DE30 (PspCreateProcess.c)
+ *     PspCreateProcess @ 0x14075DE10 (PspCreateProcess.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     SeQuerySigningPolicyWorker @ 0x14060A60C (SeQuerySigningPolicyWorker.c)
  *     SepIsMinTCB @ 0x14060D770 (SepIsMinTCB.c)
  *     RtlRunOnceExecuteOnce @ 0x14060D910 (RtlRunOnceExecuteOnce.c)
@@ -79,23 +79,23 @@ LABEL_9:
   v16 = 8;
   if ( (*a5 & 0xF) == 8 )
     return (unsigned int)IsMinTCB;
-  if ( !qword_14040DDC0 )
+  if ( !qword_14040DDA0 )
     return (unsigned int)IsMinTCB;
   LOBYTE(v14) = 8;
   LOBYTE(v15) = *a5;
-  if ( !(unsigned int)qword_14040DDC0(v15, v14)
+  if ( !(unsigned int)qword_14040DDA0(v15, v14)
     || (SeCiDebugOptions & 4) == 0
     && ((SeCiDebugOptions & 2) == 0 || !(_BYTE)KdDebuggerEnabled || (_BYTE)KdDebuggerNotPresent) )
   {
     return (unsigned int)IsMinTCB;
   }
-  if ( !qword_14040DDC0 || (LOBYTE(v17) = 8, LOBYTE(v18) = v7, !(unsigned int)qword_14040DDC0(v18, v17)) )
+  if ( !qword_14040DDA0 || (LOBYTE(v17) = 8, LOBYTE(v18) = v7, !(unsigned int)qword_14040DDA0(v18, v17)) )
   {
     if ( (*a7 & 7) != 0 )
     {
       *a5 = *a5 & 0x30 | 8;
-      v20 = (unsigned int (__fastcall *)(__int64, __int64))qword_14040DDC0;
-      if ( qword_14040DDC0 )
+      v20 = (unsigned int (__fastcall *)(__int64, __int64))qword_14040DDA0;
+      if ( qword_14040DDA0 )
       {
         LOBYTE(v18) = 8;
         goto LABEL_33;
@@ -107,8 +107,8 @@ LABEL_34:
   }
   v16 = v7 & 0xF;
   *a5 = v7 & 0xF | *a5 & 0x30;
-  v20 = (unsigned int (__fastcall *)(__int64, __int64))qword_14040DDC0;
-  if ( !qword_14040DDC0 )
+  v20 = (unsigned int (__fastcall *)(__int64, __int64))qword_14040DDA0;
+  if ( !qword_14040DDA0 )
     goto LABEL_34;
   LOBYTE(v18) = v7;
 LABEL_33:

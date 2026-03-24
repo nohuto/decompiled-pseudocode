@@ -1,13 +1,13 @@
 /*
- * XREFs of ?FxMdlAllocateDebug@@YAPEAU_MDL@@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@PEAXKEE2@Z @ 0x1C006EC9C
+ * XREFs of ?FxMdlAllocateDebug@@YAPEAU_MDL@@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@PEAXKEE2@Z @ 0x1C005BD1C
  * Callers:
- *     ?GetDeviceControlOutputMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z @ 0x1C00675D8 (-GetDeviceControlOutputMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z.c)
- *     ?GetMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z @ 0x1C0067904 (-GetMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z.c)
- *     ?ProbeAndLockForRead@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z @ 0x1C0067CC0 (-ProbeAndLockForRead@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z.c)
- *     ?ProbeAndLockForWrite@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z @ 0x1C0067F58 (-ProbeAndLockForWrite@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z.c)
- *     ?GetOrAllocateMdl@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAU_MDL@@1PEAEW4_LOCK_OPERATION@@EPEA_K@Z @ 0x1C0091820 (-GetOrAllocateMdl@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAU_MDL@@1PEAEW4_LOCK_OPERAT.c)
+ *     ?GetDeviceControlOutputMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z @ 0x1C004DC84 (-GetDeviceControlOutputMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z.c)
+ *     ?GetMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z @ 0x1C004DFB4 (-GetMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z.c)
+ *     ?ProbeAndLockForRead@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z @ 0x1C004E398 (-ProbeAndLockForRead@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z.c)
+ *     ?ProbeAndLockForWrite@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z @ 0x1C004E634 (-ProbeAndLockForWrite@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z.c)
+ *     ?GetOrAllocateMdl@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAU_MDL@@1PEAEW4_LOCK_OPERATION@@EPEA_K@Z @ 0x1C0091830 (-GetOrAllocateMdl@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAU_MDL@@1PEAEW4_LOCK_OPERAT.c)
  * Callees:
- *     <none>
+ *     memset @ 0x1C001D540 (memset.c)
  */
 
 PMDL __fastcall FxMdlAllocateDebug(
@@ -20,59 +20,64 @@ PMDL __fastcall FxMdlAllocateDebug(
         void *FxDriverGlobals_0)
 {
   FxDriverGlobalsDebugExtension *DebugExtension; // rax
-  unsigned __int64 *p_AllocatedMdlsLock; // rsi
-  __int64 *v13; // rdi
-  __int64 p_AllocatedMdls; // rbx
-  PMDL v15; // rbp
-  KIRQL v16; // r14
-  __int64 Pool2; // rax
-  __int64 v18; // rdi
-  _QWORD *v19; // rax
+  unsigned __int64 *p_AllocatedMdlsLock; // r12
+  FxAllocatedMdls **p_Next; // rsi
+  FxAllocatedMdls *p_AllocatedMdls; // rbx
+  PMDL v15; // rdi
+  KIRQL v16; // r13
+  FxAllocatedMdls *PoolWithTag; // rax
+  __int64 v18; // rsi
+  FxAllocatedMdls *v19; // rax
   PMDL Mdl; // rax
-  __int64 v21; // r8
+  __int64 v21; // rdx
 
   DebugExtension = FxDriverGlobals->DebugExtension;
   if ( !DebugExtension )
     return IoAllocateMdl(VirtualAddress, Length, 0, CallersAddress, 0LL);
   p_AllocatedMdlsLock = &DebugExtension->AllocatedMdlsLock;
-  v13 = 0LL;
-  p_AllocatedMdls = (__int64)&DebugExtension->AllocatedMdls;
+  p_Next = 0LL;
+  p_AllocatedMdls = &DebugExtension->AllocatedMdls;
   v15 = 0LL;
   v16 = KeAcquireSpinLockRaiseToDpc(&DebugExtension->AllocatedMdlsLock);
-  while ( p_AllocatedMdls )
+  if ( p_AllocatedMdls )
   {
-    if ( *(_DWORD *)(p_AllocatedMdls + 384) != 16 )
+    do
+    {
+      if ( p_AllocatedMdls->Count != 16 )
+        break;
+      p_Next = &p_AllocatedMdls->Next;
+      p_AllocatedMdls = p_AllocatedMdls->Next;
+    }
+    while ( p_AllocatedMdls );
+    if ( p_AllocatedMdls )
       goto LABEL_9;
-    v13 = (__int64 *)(p_AllocatedMdls + 392);
-    p_AllocatedMdls = *(_QWORD *)(p_AllocatedMdls + 392);
   }
-  Pool2 = ExAllocatePool2(64LL, 400LL, FxDriverGlobals->Tag);
-  p_AllocatedMdls = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (FxAllocatedMdls *)ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, 0x190uLL, FxDriverGlobals->Tag);
+  p_AllocatedMdls = PoolWithTag;
+  if ( PoolWithTag )
   {
-    KeReleaseSpinLock(p_AllocatedMdlsLock, v16);
-    return 0LL;
-  }
-  *v13 = Pool2;
+    memset(PoolWithTag, 0, sizeof(FxAllocatedMdls));
+    *p_Next = p_AllocatedMdls;
 LABEL_9:
-  v18 = 0LL;
-  v19 = (_QWORD *)p_AllocatedMdls;
-  while ( *v19 )
-  {
-    v18 = (unsigned int)(v18 + 1);
-    v19 += 3;
-    if ( (unsigned int)v18 >= 0x10 )
-      goto LABEL_15;
-  }
-  Mdl = IoAllocateMdl(VirtualAddress, Length, 0, CallersAddress, 0LL);
-  v15 = Mdl;
-  if ( Mdl )
-  {
-    v21 = 3 * v18;
-    *(_QWORD *)(p_AllocatedMdls + 8 * v21) = Mdl;
-    *(_QWORD *)(p_AllocatedMdls + 8 * v21 + 8) = Owner;
-    *(_QWORD *)(p_AllocatedMdls + 8 * v21 + 16) = FxDriverGlobals_0;
-    ++*(_DWORD *)(p_AllocatedMdls + 384);
+    v18 = 0LL;
+    v19 = p_AllocatedMdls;
+    while ( v19->Info[0].Mdl )
+    {
+      v18 = (unsigned int)(v18 + 1);
+      v19 = (FxAllocatedMdls *)((char *)v19 + 24);
+      if ( (unsigned int)v18 >= 0x10 )
+        goto LABEL_15;
+    }
+    Mdl = IoAllocateMdl(VirtualAddress, Length, 0, CallersAddress, 0LL);
+    v15 = Mdl;
+    if ( Mdl )
+    {
+      v21 = v18;
+      p_AllocatedMdls->Info[v21].Mdl = Mdl;
+      p_AllocatedMdls->Info[v21].Owner = Owner;
+      p_AllocatedMdls->Info[v21].Caller = FxDriverGlobals_0;
+      ++p_AllocatedMdls->Count;
+    }
   }
 LABEL_15:
   KeReleaseSpinLock(p_AllocatedMdlsLock, v16);

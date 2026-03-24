@@ -1,37 +1,26 @@
 /*
- * XREFs of ?vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C0112D10
+ * XREFs of ?vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C0013098
  * Callers:
- *     ?bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@PEAPEAV3@@Z @ 0x1C0084420 (-bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@P.c)
- *     GreTransferSpriteStateToDwmState @ 0x1C00ECC20 (GreTransferSpriteStateToDwmState.c)
+ *     ?bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@PEAPEAV3@@Z @ 0x1C0016788 (-bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@P.c)
+ *     GreTransferSpriteStateToDwmState @ 0x1C00EA5BC (GreTransferSpriteStateToDwmState.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall SURFACE::vAppContainerOwner(SURFACE *this, struct _EPROCESS *a2, __int64 a3, __int64 a4)
+void __fastcall SURFACE::vAppContainerOwner(SURFACE *this, unsigned __int64 a2)
 {
-  struct _EPROCESS *v4; // rbx
-  __int64 v6; // rax
-  __int64 v7; // rax
+  unsigned __int64 v2; // rbx
+  __int64 v4; // rax
 
-  v4 = a2;
-  if ( !a2 || (unsigned int)UserIsProcessImmersiveAppContainer(a2) )
-  {
-    GreAcquireHmgrSemaphore(this, a2, a3, a4);
-    if ( v4 )
-    {
-      v7 = HmgPentryFromPobj(this);
-      *(_BYTE *)(v7 + 15) |= 0x80u;
-      goto LABEL_6;
-    }
-  }
+  v2 = a2;
+  if ( a2 )
+    v2 = -(__int64)((unsigned int)UserIsProcessImmersiveAppContainer(a2) != 0) & a2;
+  GreAcquireHmgrSemaphore();
+  v4 = HmgPentryFromPobj(this);
+  if ( v2 )
+    *(_BYTE *)(v4 + 15) |= 0x80u;
   else
-  {
-    v4 = 0LL;
-    GreAcquireHmgrSemaphore(this, a2, a3, a4);
-  }
-  v6 = HmgPentryFromPobj(this);
-  *(_BYTE *)(v6 + 15) &= ~0x80u;
-LABEL_6:
-  *((_QWORD *)this + 80) = v4;
+    *(_BYTE *)(v4 + 15) &= ~0x80u;
+  *((_QWORD *)this + 80) = v2;
   GreReleaseHmgrSemaphore();
 }

@@ -1,65 +1,61 @@
 /*
- * XREFs of CcLockSystemCacheBuffer @ 0x140537810
+ * XREFs of CcLockSystemCacheBuffer @ 0x1404EA3E8
  * Callers:
- *     CcCopyBytesToUserBuffer @ 0x140262090 (CcCopyBytesToUserBuffer.c)
- *     CcMapAndCopyInToCache @ 0x1402CC8F0 (CcMapAndCopyInToCache.c)
+ *     CcCopyBytesToUserBuffer @ 0x1402A3B50 (CcCopyBytesToUserBuffer.c)
+ *     CcMapAndCopyInToCache @ 0x1402B2300 (CcMapAndCopyInToCache.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     IopAllocateMdl @ 0x1402FC0EC (IopAllocateMdl.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     FsRtlIsNtstatusExpected @ 0x140359700 (FsRtlIsNtstatusExpected.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     FsRtlIsNtstatusExpected @ 0x14031B530 (FsRtlIsNtstatusExpected.c)
+ *     IoAllocateMdl @ 0x14035A110 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
  */
 
-PVOID __fastcall CcLockSystemCacheBuffer(__int64 a1, __int64 *a2, unsigned int a3, __int64 a4, int *a5)
+PVOID __fastcall CcLockSystemCacheBuffer(void *a1, PMDL *a2, ULONG a3, int a4, int *a5)
 {
-  int v5; // r14d
-  PVOID v7; // rsi
-  __int64 Mdl; // rax
-  __int64 v9; // rbx
+  PVOID MappedSystemVa; // rsi
+  PMDL Mdl; // rax
+  PMDL v9; // rbx
   int v10; // ecx
 
-  v5 = a4;
-  v7 = 0LL;
+  MappedSystemVa = 0LL;
   *a5 = 0;
-  Mdl = IopAllocateMdl(a1, a3, 0, a4, 0LL, 0);
+  Mdl = IoAllocateMdl(a1, a3, 0, 0, 0LL);
   v9 = Mdl;
   if ( !Mdl )
-    goto LABEL_7;
-  MiProbeAndLockPages(Mdl, 0, v5 != 0);
-  v10 = *a5;
-  if ( *a5 >= 0 )
   {
-    if ( (*(_BYTE *)(v9 + 10) & 5) != 0 )
+    *a5 = -1073741670;
+LABEL_10:
+    if ( v9 )
     {
-      v7 = *(PVOID *)(v9 + 24);
+      MmUnlockPages(v9);
+      IoFreeMdl(v9);
+      v9 = 0LL;
     }
-    else
-    {
-      v7 = MmMapLockedPagesSpecifyCache((PMDL)v9, 0, MmCached, 0LL, 0, 0x40000000u);
-      v10 = *a5;
-    }
-    if ( v7 )
-    {
-LABEL_8:
-      if ( v10 >= 0 )
-        goto LABEL_11;
-      goto LABEL_9;
-    }
-LABEL_7:
+    goto LABEL_12;
+  }
+  MiProbeAndLockPages((__int64)Mdl, 0, a4 != 0);
+  v10 = *a5;
+  if ( *a5 < 0 )
+    goto LABEL_10;
+  if ( (v9->MdlFlags & 5) != 0 )
+  {
+    MappedSystemVa = v9->MappedSystemVa;
+  }
+  else
+  {
+    MappedSystemVa = MmMapLockedPagesSpecifyCache(v9, 0, MmCached, 0LL, 0, 0x40000000u);
+    v10 = *a5;
+  }
+  if ( !MappedSystemVa )
+  {
     v10 = -1073741670;
     *a5 = -1073741670;
-    goto LABEL_8;
   }
-LABEL_9:
-  if ( v9 )
-  {
-    MmUnlockPages((PMDL)v9);
-    IoFreeMdl((PMDL)v9);
-    v9 = 0LL;
-  }
-LABEL_11:
+  if ( v10 < 0 )
+    goto LABEL_10;
+LABEL_12:
   *a2 = v9;
-  return v7;
+  return MappedSystemVa;
 }

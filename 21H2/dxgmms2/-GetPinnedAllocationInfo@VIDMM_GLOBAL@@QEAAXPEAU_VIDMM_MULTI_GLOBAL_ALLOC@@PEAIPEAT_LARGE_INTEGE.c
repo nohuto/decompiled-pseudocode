@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetPinnedAllocationInfo@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAIPEAT_LARGE_INTEGER@@PEA_K@Z @ 0x1C00A9564
+ * XREFs of ?GetPinnedAllocationInfo@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAIPEAT_LARGE_INTEGER@@PEA_K@Z @ 0x1C00B0208
  * Callers:
- *     VidMmGetPinnedAllocationInfo @ 0x1C001A7D0 (VidMmGetPinnedAllocationInfo.c)
+ *     VidMmGetPinnedAllocationInfo @ 0x1C0022DE0 (VidMmGetPinnedAllocationInfo.c)
  * Callees:
- *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0002224 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
+ *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0001D90 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
  */
 
 void __fastcall VIDMM_GLOBAL::GetPinnedAllocationInfo(
@@ -13,10 +13,21 @@ void __fastcall VIDMM_GLOBAL::GetPinnedAllocationInfo(
         union _LARGE_INTEGER *a4,
         unsigned __int64 *a5)
 {
-  if ( !*(_DWORD *)(*((_QWORD *)a2 + 66) + 12LL) && (**((_DWORD **)a2 + 66) & 0x40000000) == 0 )
-    WdLogSingleEntry5(0LL, 270LL, 10LL, a2, 0LL, 0LL);
-  *a3 = VIDMM_SEGMENT::DriverId(*((VIDMM_SEGMENT **)a2 + 15));
-  a4->QuadPart = *((_QWORD *)a2 + 16) + *(_QWORD *)(*((_QWORD *)a2 + 15) + 24LL);
+  __int64 v8; // rcx
+  __int64 v9; // rax
+
+  v8 = *(unsigned int *)(*((_QWORD *)a2 + 64) + 12LL);
+  if ( !(_DWORD)v8 && (**((_DWORD **)a2 + 64) & 0x40000000) == 0 )
+  {
+    v9 = WdLogNewEntry5_WdCriticalError(v8, a2);
+    *(_QWORD *)(v9 + 24) = 270LL;
+    *(_QWORD *)(v9 + 32) = 10LL;
+    *(_QWORD *)(v9 + 40) = a2;
+    *(_OWORD *)(v9 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v9);
+  }
+  *a3 = VIDMM_SEGMENT::DriverId(*((VIDMM_SEGMENT **)a2 + 16));
+  a4->QuadPart = *((_QWORD *)a2 + 17) + *(_QWORD *)(*((_QWORD *)a2 + 16) + 24LL);
   if ( a5 )
-    *a5 = *((_QWORD *)a2 + 16);
+    *a5 = *((_QWORD *)a2 + 17);
 }

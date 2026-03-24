@@ -1,56 +1,46 @@
 /*
- * XREFs of CmpOpenFileWithExtremePrejudice @ 0x140919908
+ * XREFs of CmpOpenFileWithExtremePrejudice @ 0x140872FE8
  * Callers:
- *     CmpOpenHiveFile @ 0x140713F8C (CmpOpenHiveFile.c)
+ *     CmpOpenHiveFile @ 0x1406718C8 (CmpOpenHiveFile.c)
  * Callees:
- *     SetFailureLocation @ 0x14020A890 (SetFailureLocation.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwSetInformationFile @ 0x14041BC40 (ZwSetInformationFile.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     ZwQueryAttributesFile @ 0x14041BF00 (ZwQueryAttributesFile.c)
- *     ZwCreateFile @ 0x14041C200 (ZwCreateFile.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1403FA880 (ZwSetInformationFile.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     ZwQueryAttributesFile @ 0x1403FAB40 (ZwQueryAttributesFile.c)
+ *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
  */
 
-__int64 __fastcall CmpOpenFileWithExtremePrejudice(
+NTSTATUS __fastcall CmpOpenFileWithExtremePrejudice(
         PHANDLE FileHandle,
         POBJECT_ATTRIBUTES ObjectAttributes,
         PIO_STATUS_BLOCK IoStatusBlock,
         ULONG FileAttributes,
-        ULONG CreateOptions,
-        __int64 a6)
+        ULONG CreateOptions)
 {
-  signed int AttributesFile; // eax
-  unsigned int v11; // ebx
-  NTSTATUS v12; // eax
-  NTSTATUS v13; // eax
-  NTSTATUS File; // eax
-  HANDLE FileHandlea; // [rsp+60h] [rbp-39h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlocka; // [rsp+68h] [rbp-31h] BYREF
-  _OWORD FileInformation[2]; // [rsp+78h] [rbp-21h] BYREF
-  __int64 v19; // [rsp+98h] [rbp-1h]
+  NTSTATUS result; // eax
+  NTSTATUS v10; // ebx
+  HANDLE FileHandlea; // [rsp+60h] [rbp-31h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlocka; // [rsp+68h] [rbp-29h] BYREF
+  _OWORD FileInformation[2]; // [rsp+78h] [rbp-19h] BYREF
+  __int64 v14; // [rsp+98h] [rbp+7h]
 
-  *FileHandle = 0LL;
   FileHandlea = 0LL;
-  v19 = 0LL;
+  *FileHandle = 0LL;
+  v14 = 0LL;
   IoStatusBlocka = 0LL;
   memset(FileInformation, 0, sizeof(FileInformation));
-  AttributesFile = ZwQueryAttributesFile((__int64)ObjectAttributes, (__int64)FileInformation);
-  v11 = AttributesFile;
-  if ( AttributesFile >= 0 )
+  result = ZwQueryAttributesFile((__int64)ObjectAttributes, (__int64)FileInformation);
+  if ( result >= 0 )
   {
-    LODWORD(v19) = v19 & 0xFFFFFFFE;
-    v12 = ZwOpenFile(&FileHandlea, 0x100u, ObjectAttributes, &IoStatusBlocka, 7u, 0x4000u);
-    v11 = v12;
-    if ( v12 >= 0 )
+    LODWORD(v14) = v14 & 0xFFFFFFFE;
+    result = ZwOpenFile(&FileHandlea, 0x100u, ObjectAttributes, &IoStatusBlocka, 7u, 0x4000u);
+    if ( result >= 0 )
     {
-      v13 = ZwSetInformationFile(FileHandlea, &IoStatusBlocka, FileInformation, 0x28u, FileBasicInformation);
-      v11 = v13;
-      if ( v13 >= 0 )
-      {
-        ZwClose(FileHandlea);
-        FileHandlea = 0LL;
-        File = ZwCreateFile(
+      v10 = ZwSetInformationFile(FileHandlea, &IoStatusBlocka, FileInformation, 0x28u, FileBasicInformation);
+      ZwClose(FileHandlea);
+      if ( v10 >= 0 )
+        return ZwCreateFile(
                  FileHandle,
                  3u,
                  ObjectAttributes,
@@ -62,27 +52,9 @@ __int64 __fastcall CmpOpenFileWithExtremePrejudice(
                  CreateOptions,
                  0LL,
                  0);
-        v11 = File;
-        if ( File >= 0 )
-          v11 = 0;
-        else
-          SetFailureLocation(a6, 0, 36, File, 0x40u);
-      }
       else
-      {
-        SetFailureLocation(a6, 0, 36, v13, 0x30u);
-      }
-    }
-    else
-    {
-      SetFailureLocation(a6, 0, 36, v12, 0x20u);
+        return v10;
     }
   }
-  else
-  {
-    SetFailureLocation(a6, 0, 36, AttributesFile, 0x10u);
-  }
-  if ( FileHandlea )
-    ZwClose(FileHandlea);
-  return v11;
+  return result;
 }

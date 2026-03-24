@@ -1,32 +1,28 @@
 /*
- * XREFs of MonitorInitializeGlobal @ 0x1C020A038
+ * XREFs of MonitorInitializeGlobal @ 0x1C017E718
  * Callers:
- *     DriverEntry @ 0x1C03DEE7C (DriverEntry.c)
+ *     DriverEntry @ 0x1C03072C8 (DriverEntry.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?DxgkOpenRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z @ 0x1C000D700 (-DxgkOpenRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z.c)
- *     ?DxgkCreateRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z @ 0x1C001DA20 (-DxgkCreateRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??0USB4_HOSTROUTER_MGR@@QEAA@XZ @ 0x1C020AF00 (--0USB4_HOSTROUTER_MGR@@QEAA@XZ.c)
- *     ?InitializeGlobalCache@EDIDCACHE@DxgMonitor@@SAJXZ @ 0x1C020AF74 (-InitializeGlobalCache@EDIDCACHE@DxgMonitor@@SAJXZ.c)
- *     ?Initalize@USB4_HOSTROUTER_MGR@@QEAAJXZ @ 0x1C020B0D4 (-Initalize@USB4_HOSTROUTER_MGR@@QEAAJXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall MonitorInitializeGlobal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MonitorInitializeGlobal(__int64 a1, __int64 a2)
 {
+  __int128 v2; // xmm1
+  __int128 v3; // xmm0
   __int128 v4; // xmm1
   __int128 v5; // xmm0
   __int128 v6; // xmm1
   __int128 v7; // xmm0
   __int128 v8; // xmm1
   __int128 v9; // xmm0
-  __int128 v10; // xmm1
-  __int128 v11; // xmm0
-  int v12; // eax
-  NTSTATUS v13; // eax
-  USB4_HOSTROUTER_MGR *v14; // rax
-  USB4_HOSTROUTER_MGR *v15; // rcx
-  int v16; // ebx
+  int v10; // eax
+  NTSTATUS v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rbx
+  __int128 v15; // xmm1
+  __int128 v16; // xmm0
   __int128 v17; // xmm1
   __int128 v18; // xmm0
   __int128 v19; // xmm1
@@ -34,111 +30,109 @@ __int64 __fastcall MonitorInitializeGlobal(__int64 a1, __int64 a2, __int64 a3, _
   __int128 v21; // xmm1
   __int128 v22; // xmm0
   __int128 v23; // xmm1
-  __int128 v24; // xmm0
-  __int128 v25; // xmm1
+  __int64 v24; // rax
   __int64 v26; // rax
-  HANDLE v28; // [rsp+48h] [rbp-C0h] BYREF
-  HANDLE Handle; // [rsp+50h] [rbp-B8h] BYREF
-  struct _UNICODE_STRING v30; // [rsp+58h] [rbp-B0h] BYREF
-  struct _UNICODE_STRING v31; // [rsp+68h] [rbp-A0h] BYREF
-  GUID v32; // [rsp+78h] [rbp-90h] BYREF
-  _OWORD v33[10]; // [rsp+88h] [rbp-80h] BYREF
-  int v34; // [rsp+128h] [rbp+20h]
-  _OWORD v35[10]; // [rsp+138h] [rbp+30h] BYREF
-  __int64 v36; // [rsp+1D8h] [rbp+D0h]
+  ULONG Disposition[2]; // [rsp+48h] [rbp-C0h] BYREF
+  void *KeyHandle; // [rsp+50h] [rbp-B8h] BYREF
+  HANDLE Handle; // [rsp+58h] [rbp-B0h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A8h] BYREF
+  _QWORD v31[2]; // [rsp+90h] [rbp-78h] BYREF
+  _QWORD v32[2]; // [rsp+A0h] [rbp-68h] BYREF
+  GUID EventCategoryData; // [rsp+B0h] [rbp-58h] BYREF
+  _OWORD v34[10]; // [rsp+C8h] [rbp-40h] BYREF
+  int v35; // [rsp+168h] [rbp+60h]
+  _OWORD v36[10]; // [rsp+178h] [rbp+70h] BYREF
+  __int64 v37; // [rsp+218h] [rbp+110h]
 
-  WdLogNewEntry5_WdTrace(a1, a2, a3, a4);
-  v28 = 0LL;
-  *(_QWORD *)&v30.Length = 10748066LL;
-  byte_1C0140BC0 = 0;
-  v4 = *(_OWORD *)L"y\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\BreakOnBadEDID";
-  v33[0] = *(_OWORD *)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\BreakOnBadEDID";
-  v5 = *(_OWORD *)L"e\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\BreakOnBadEDID";
-  v33[1] = v4;
-  v6 = *(_OWORD *)L"\\CurrentControlSet\\Control\\GraphicsDrivers\\BreakOnBadEDID";
-  v33[2] = v5;
-  v7 = *(_OWORD *)L"ControlSet\\Control\\GraphicsDrivers\\BreakOnBadEDID";
-  v33[3] = v6;
-  v8 = *(_OWORD *)L"et\\Control\\GraphicsDrivers\\BreakOnBadEDID";
-  v33[4] = v7;
-  v9 = *(_OWORD *)L"ol\\GraphicsDrivers\\BreakOnBadEDID";
-  v33[5] = v8;
-  v10 = *(_OWORD *)L"rs\\BreakOnBadEDID";
-  v33[6] = v9;
-  v33[7] = *(_OWORD *)L"icsDrivers\\BreakOnBadEDID";
-  v11 = *(_OWORD *)L"OnBadEDID";
-  v12 = *(_DWORD *)L"D";
-  v33[8] = v10;
-  v33[9] = v11;
-  v34 = v12;
-  v30.Buffer = (wchar_t *)v33;
-  if ( DxgkOpenRegistrySubkey(&v28, 0x20019u, 0LL, &v30) >= 0 )
+  WdLogNewEntry5_WdTrace(a1, a2);
+  v31[0] = 10748066LL;
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+  KeyHandle = 0LL;
+  byte_1C00B3200 = 0;
+  v2 = *(_OWORD *)L"y\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\BreakOnBadEDID";
+  ObjectAttributes.RootDirectory = 0LL;
+  v34[0] = *(_OWORD *)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\BreakOnBadEDID";
+  v3 = *(_OWORD *)L"e\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\BreakOnBadEDID";
+  v34[1] = v2;
+  v4 = *(_OWORD *)L"\\CurrentControlSet\\Control\\GraphicsDrivers\\BreakOnBadEDID";
+  v34[2] = v3;
+  v5 = *(_OWORD *)L"ControlSet\\Control\\GraphicsDrivers\\BreakOnBadEDID";
+  v34[3] = v4;
+  v6 = *(_OWORD *)L"et\\Control\\GraphicsDrivers\\BreakOnBadEDID";
+  v34[4] = v5;
+  v7 = *(_OWORD *)L"ol\\GraphicsDrivers\\BreakOnBadEDID";
+  v34[5] = v6;
+  v8 = *(_OWORD *)L"rs\\BreakOnBadEDID";
+  v34[6] = v7;
+  v34[7] = *(_OWORD *)L"icsDrivers\\BreakOnBadEDID";
+  v9 = *(_OWORD *)L"OnBadEDID";
+  v10 = *(_DWORD *)L"D";
+  v34[8] = v8;
+  v34[9] = v9;
+  v35 = v10;
+  v31[1] = v34;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v31;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
-    byte_1C0140BC0 = 1;
-    ZwClose(v28);
+    byte_1C00B3200 = 1;
+    ZwClose(KeyHandle);
   }
   KeInitializeSpinLock(&MONITOR_MGR::_MonitorPendingEventTraceLock);
-  qword_1C0141C10 = (__int64)&MONITOR_MGR::_MonitorPendingEventTraceHead;
+  qword_1C00B3F60 = (__int64)&MONITOR_MGR::_MonitorPendingEventTraceHead;
   MONITOR_MGR::_MonitorPendingEventTraceHead.Flink = &MONITOR_MGR::_MonitorPendingEventTraceHead;
-  v32 = GUID_DEVINTERFACE_MONITOR_DRIVER;
-  v13 = IoRegisterPlugPlayNotification(
+  EventCategoryData = GUID_DEVINTERFACE_MONITOR_DRIVER;
+  v11 = IoRegisterPlugPlayNotification(
           EventCategoryDeviceInterfaceChange,
           1u,
-          &v32,
+          &EventCategoryData,
           g_pDriverObject,
           MONITOR_MGR::_HandleMonitorPnPNotification,
           0LL,
           &MONITOR_MGR::_pInterfaceNotificationHandle);
-  if ( v13 < 0 )
-    WdLogSingleEntry1(2LL, v13);
-  v14 = (USB4_HOSTROUTER_MGR *)operator new[](0x98uLL, 0x4D677844u, 64LL);
-  if ( v14 )
+  v14 = v11;
+  if ( v11 < 0 )
   {
-    MONITOR_MGR::_pUsb4Manager = USB4_HOSTROUTER_MGR::USB4_HOSTROUTER_MGR(v14);
-    if ( MONITOR_MGR::_pUsb4Manager )
-    {
-      v16 = USB4_HOSTROUTER_MGR::Initalize(v15);
-      goto LABEL_8;
-    }
+    v26 = WdLogNewEntry5_WdError(v13, v12);
+    *(_QWORD *)(v26 + 24) = v14;
+    WdLogEvent5_WdError(v26);
   }
-  else
-  {
-    MONITOR_MGR::_pUsb4Manager = 0LL;
-  }
-  WdLogSingleEntry0(2LL);
-  v16 = -1073741801;
-LABEL_8:
-  qword_1C01410C0 = 0LL;
+  qword_1C00B3FB8 = 0LL;
   KeInitializeGuardedMutex(&DXGMONITOR::_UniqueTableLock);
   Handle = 0LL;
-  *(_QWORD *)&v31.Length = 11010214LL;
-  qword_1C0141C60 = (__int64)&DXGMONITOR::_UniqueEntryList;
+  v32[0] = 11010214LL;
+  qword_1C00B3FB0 = (__int64)&DXGMONITOR::_UniqueEntryList;
   DXGMONITOR::_UniqueEntryList.Flink = &DXGMONITOR::_UniqueEntryList;
-  v17 = *(_OWORD *)(0x1C0000000LL + 591664);
-  v35[0] = *(_OWORD *)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\MonitorDataStore";
-  v18 = *(_OWORD *)(0x1C0000000LL + 591680);
-  v35[1] = v17;
-  v19 = *(_OWORD *)(0x1C0000000LL + 591696);
-  v35[2] = v18;
-  v20 = *(_OWORD *)(0x1C0000000LL + 591712);
-  v35[3] = v19;
-  v21 = *(_OWORD *)(0x1C0000000LL + 591728);
-  v35[4] = v20;
-  v22 = *(_OWORD *)(0x1C0000000LL + 591744);
-  v35[5] = v21;
-  v23 = *(_OWORD *)(0x1C0000000LL + 591760);
-  v35[6] = v22;
-  v24 = *(_OWORD *)(0x1C0000000LL + 591776);
-  v35[7] = v23;
-  v25 = *(_OWORD *)(0x1C0000000LL + 591792);
-  v26 = *(_QWORD *)(0x1C0000000LL + 591808);
-  v35[8] = v24;
-  v35[9] = v25;
-  v36 = v26;
-  v31.Buffer = (wchar_t *)v35;
-  if ( DxgkCreateRegistrySubkey(&Handle, 0xF003Fu, 0LL, &v31) >= 0 )
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+  v15 = *(_OWORD *)(0x1C0000000LL + 493312);
+  ObjectAttributes.RootDirectory = 0LL;
+  v36[0] = *(_OWORD *)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\MonitorDataStore";
+  Disposition[0] = 0;
+  v16 = *(_OWORD *)(0x1C0000000LL + 493328);
+  v36[1] = v15;
+  v17 = *(_OWORD *)(0x1C0000000LL + 493344);
+  v36[2] = v16;
+  v18 = *(_OWORD *)(0x1C0000000LL + 493360);
+  v36[3] = v17;
+  v19 = *(_OWORD *)(0x1C0000000LL + 493376);
+  v36[4] = v18;
+  v20 = *(_OWORD *)(0x1C0000000LL + 493392);
+  v36[5] = v19;
+  v21 = *(_OWORD *)(0x1C0000000LL + 493408);
+  v36[6] = v20;
+  v22 = *(_OWORD *)(0x1C0000000LL + 493424);
+  v36[7] = v21;
+  v23 = *(_OWORD *)(0x1C0000000LL + 493440);
+  v24 = *(_QWORD *)(0x1C0000000LL + 493456);
+  v36[8] = v22;
+  v36[9] = v23;
+  v37 = v24;
+  v32[1] = v36;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v32;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( ZwCreateKey(&Handle, 0xF003Fu, &ObjectAttributes, 0, 0LL, 0, Disposition) >= 0 )
     ZwClose(Handle);
-  if ( v16 >= 0 )
-    return (unsigned int)DxgMonitor::EDIDCACHE::InitializeGlobalCache();
-  return (unsigned int)v16;
+  return (unsigned int)v14;
 }

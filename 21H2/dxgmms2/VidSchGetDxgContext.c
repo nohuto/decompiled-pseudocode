@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchGetDxgContext @ 0x1C00F4640
+ * XREFs of VidSchGetDxgContext @ 0x1C00D1950
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
 
 __int64 __fastcall VidSchGetDxgContext(__int64 a1)
 {
-  if ( !a1 || *(_DWORD *)(a1 + 904) )
+  if ( !a1 || *(_DWORD *)(a1 + 896) )
     return 0LL;
   else
     return *(_QWORD *)(a1 + 56);

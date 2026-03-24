@@ -1,10 +1,10 @@
 /*
- * XREFs of DestroyDpiMetricsCache @ 0x1C008A110
+ * XREFs of DestroyDpiMetricsCache @ 0x1C00E1E00
  * Callers:
  *     <none>
  * Callees:
- *     InvalidateKMDpiMetricsCacheDPIMETRICS @ 0x1C0076194 (InvalidateKMDpiMetricsCacheDPIMETRICS.c)
- *     ?ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z @ 0x1C008A218 (-ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z.c)
+ *     ?ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z @ 0x1C00E1F08 (-ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z.c)
+ *     InvalidateKMDpiMetricsCacheDPIMETRICS @ 0x1C00E2648 (InvalidateKMDpiMetricsCacheDPIMETRICS.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!

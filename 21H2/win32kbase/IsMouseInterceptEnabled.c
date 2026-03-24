@@ -1,10 +1,10 @@
 /*
- * XREFs of IsMouseInterceptEnabled @ 0x1C01E8010
+ * XREFs of IsMouseInterceptEnabled @ 0x1C01AEAF0
  * Callers:
- *     ?OnEngineOutput@CPTPProcessor@@UEAAXPEBUPTPEngineOutput@@@Z @ 0x1C01DE5A0 (-OnEngineOutput@CPTPProcessor@@UEAAXPEBUPTPEngineOutput@@@Z.c)
+ *     ?OnEngineOutput@CPTPProcessor@@UEAAXPEBUPTPEngineOutput@@@Z @ 0x1C01A62A0 (-OnEngineOutput@CPTPProcessor@@UEAAXPEBUPTPEngineOutput@@@Z.c)
  * Callees:
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C003B2DC (_anonymous_namespace_--GetMouseProcessor.c)
- *     ?GetInterceptStateAndBehavior@MouseInterceptState@CMouseProcessor@@QEBA_NPEAW4_MOUSE_PREINTERCEPT_BEHAVIOR@@@Z @ 0x1C01FA8BC (-GetInterceptStateAndBehavior@MouseInterceptState@CMouseProcessor@@QEBA_NPEAW4_MOUSE_PREINTERCEP.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0042A1C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     ?GetInterceptStateAndBehavior@MouseInterceptState@CMouseProcessor@@QEBA_NPEAW4_MOUSE_PREINTERCEPT_BEHAVIOR@@@Z @ 0x1C01C0360 (-GetInterceptStateAndBehavior@MouseInterceptState@CMouseProcessor@@QEBA_NPEAW4_MOUSE_PREINTERCEP.c)
  */
 
 bool IsMouseInterceptEnabled()
@@ -16,7 +16,7 @@ bool IsMouseInterceptEnabled()
   result = 0;
   if ( MouseProcessor )
     return CMouseProcessor::MouseInterceptState::GetInterceptStateAndBehavior(
-             (CMouseProcessor::MouseInterceptState *)(MouseProcessor + 3704),
+             (CMouseProcessor::MouseInterceptState *)(MouseProcessor + 3696),
              0LL);
   return result;
 }

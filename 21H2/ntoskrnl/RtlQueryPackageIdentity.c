@@ -1,24 +1,27 @@
 /*
- * XREFs of RtlQueryPackageIdentity @ 0x140204280
+ * XREFs of RtlQueryPackageIdentity @ 0x14024F4D0
  * Callers:
- *     PopEtGetProcessSidAndPackageIdentity @ 0x1406745EC (PopEtGetProcessSidAndPackageIdentity.c)
- *     EtwpQueryTokenPackageInfo @ 0x14070B934 (EtwpQueryTokenPackageInfo.c)
- *     ExpGetProcessInformation @ 0x1407B6CA0 (ExpGetProcessInformation.c)
- *     PfSnCheckModernApp @ 0x1407DCA0C (PfSnCheckModernApp.c)
- *     EtwpApplyPackageIdFilter @ 0x1409F4DA0 (EtwpApplyPackageIdFilter.c)
+ *     EtwpQueryTokenPackageInfo @ 0x1406023FC (EtwpQueryTokenPackageInfo.c)
+ *     PopEtGetProcessSidAndPackageIdentity @ 0x140698894 (PopEtGetProcessSidAndPackageIdentity.c)
+ *     PfSnCheckModernApp @ 0x1406CB998 (PfSnCheckModernApp.c)
+ *     ExpGetProcessInformation @ 0x1406F1260 (ExpGetProcessInformation.c)
+ *     EtwpApplyPackageIdFilter @ 0x14094087C (EtwpApplyPackageIdFilter.c)
  * Callees:
- *     RtlQueryPackageIdentityEx @ 0x1402042D0 (RtlQueryPackageIdentityEx.c)
+ *     RtlQueryPackageIdentityEx @ 0x14024F470 (RtlQueryPackageIdentityEx.c)
  */
 
-__int64 __fastcall RtlQueryPackageIdentity(int a1, int a2, int a3, int a4, __int64 a5, _BYTE *a6)
+int __fastcall RtlQueryPackageIdentity(int a1, wchar_t *a2, size_t *a3, wchar_t *a4, size_t *a5, bool *a6)
 {
-  __int64 result; // rax
+  int result; // eax
+  __int64 v7; // [rsp+28h] [rbp-30h]
+  _QWORD v8[3]; // [rsp+40h] [rbp-18h] BYREF
 
-  result = RtlQueryPackageIdentityEx(a1, a2, a3, a4, a5);
-  if ( (int)result >= 0 )
+  v8[0] = 0LL;
+  result = RtlQueryPackageIdentityEx(a1, a2, a3, a4, a5, v7, v8);
+  if ( result >= 0 )
   {
     if ( a6 )
-      *a6 = 0;
+      *a6 = v8[0] != 0LL;
   }
   return result;
 }

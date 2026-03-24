@@ -1,14 +1,14 @@
 /*
- * XREFs of ??0CInteractionProcessor@@QEAA@XZ @ 0x1800E04DC
+ * XREFs of ??0CInteractionProcessor@@QEAA@XZ @ 0x1800E0D94
  * Callers:
- *     ??0CInteraction@@IEAA@PEAVCComposition@@@Z @ 0x1800E0380 (--0CInteraction@@IEAA@PEAVCComposition@@@Z.c)
- *     ?Initialize@CManipulationContext@@QEAAJ_NK@Z @ 0x180182CE0 (-Initialize@CManipulationContext@@QEAAJ_NK@Z.c)
+ *     ??0CInteraction@@IEAA@PEAVCComposition@@@Z @ 0x1800E0C2C (--0CInteraction@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?Initialize@CManipulationContext@@QEAAJ_NK@Z @ 0x180234740 (-Initialize@CManipulationContext@@QEAAJ_NK@Z.c)
  * Callees:
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18008ED70 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     InitializeInteractionStateInfo @ 0x1800E0698 (InitializeInteractionStateInfo.c)
- *     ??0?$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@QEAA@W4InputType@@@Z @ 0x1800E09A0 (--0-$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@W4Flags.c)
- *     ??0?$CInputTypeContext@UDwmPenInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypePenPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypePenPrimitiveType@@@@QEAA@W4InputType@@@Z @ 0x1800E0A34 (--0-$CInputTypeContext@UDwmPenInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@W4FlagsEnum@Dw.c)
- *     ??0?$CInputTypeContext@UDwmTouchpadInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@QEAA@W4InputType@@@Z @ 0x1800E0AC8 (--0-$CInputTypeContext@UDwmTouchpadInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@W4FlagsEn.c)
+ *     InitializeInteractionStateInfo @ 0x18004D590 (InitializeInteractionStateInfo.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1800949F0 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ??0?$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@QEAA@W4InputType@@@Z @ 0x1800E0F50 (--0-$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@W4Flags.c)
+ *     ??0?$CInputTypeContext@UDwmPenInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypePenPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypePenPrimitiveType@@@@QEAA@W4InputType@@@Z @ 0x1800E0FE4 (--0-$CInputTypeContext@UDwmPenInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@W4FlagsEnum@Dw.c)
+ *     ??0?$CInputTypeContext@UDwmTouchpadInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@QEAA@W4InputType@@@Z @ 0x1800E1078 (--0-$CInputTypeContext@UDwmTouchpadInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@W4FlagsEn.c)
  */
 
 CInteractionProcessor *__fastcall CInteractionProcessor::CInteractionProcessor(CInteractionProcessor *this)
@@ -16,10 +16,10 @@ CInteractionProcessor *__fastcall CInteractionProcessor::CInteractionProcessor(C
   __int64 v2; // r8
 
   *(_QWORD *)this = 0LL;
-  *(_OWORD *)((char *)this + 20) = xmmword_1803647B0;
-  *(_OWORD *)((char *)this + 36) = xmmword_1803647C0;
-  *(_OWORD *)((char *)this + 52) = xmmword_1803647D0;
-  *(_OWORD *)((char *)this + 68) = xmmword_1803647E0;
+  *(_OWORD *)((char *)this + 20) = xmmword_1802DFA20;
+  *(_OWORD *)((char *)this + 36) = xmmword_1802DFA30;
+  *(_OWORD *)((char *)this + 52) = xmmword_1802DFA40;
+  *(_OWORD *)((char *)this + 68) = xmmword_1802DFA50;
   *((_QWORD *)this + 11) = 0LL;
   *((_QWORD *)this + 12) = 0LL;
   *((_QWORD *)this + 13) = 0LL;
@@ -73,6 +73,6 @@ CInteractionProcessor *__fastcall CInteractionProcessor::CInteractionProcessor(C
     12LL,
     3LL,
     (void (__fastcall *)(char *))TemporaryConfiguration::TemporaryConfiguration);
-  InitializeInteractionStateInfo((char *)this + 784);
+  InitializeInteractionStateInfo((__int64)this + 784);
   return this;
 }

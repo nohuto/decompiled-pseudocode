@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateWaitablePort @ 0x1401B9A10
+ * XREFs of ZwCreateWaitablePort @ 0x1401B9A30
  * Callers:
  *     <none>
  * Callees:

@@ -1,55 +1,55 @@
 /*
- * XREFs of CmpCheckExeOwnerForPca @ 0x14069A314
+ * XREFs of CmpCheckExeOwnerForPca @ 0x14076F828
  * Callers:
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14020BB20 (PsGetCurrentThreadProcess.c)
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferenceProcessFilePointer @ 0x14069A0A0 (PsReferenceProcessFilePointer.c)
- *     ObQuerySecurityObject @ 0x14069C84C (ObQuerySecurityObject.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x14069E340 (RtlGetOwnerSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     PsGetCurrentThreadProcess @ 0x140316F60 (PsGetCurrentThreadProcess.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
+ *     ObQuerySecurityObject @ 0x140604B34 (ObQuerySecurityObject.c)
+ *     PsReferenceProcessFilePointer @ 0x140604BE0 (PsReferenceProcessFilePointer.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x14065D3B0 (RtlGetOwnerSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char CmpCheckExeOwnerForPca()
 {
   _KPROCESS *CurrentThreadProcess; // rax
-  __int64 Pool2; // rax
-  PVOID v2; // rcx
+  PVOID PoolWithTag; // rax
+  struct _DMA_ADAPTER *v2; // rcx
   void *v3; // rdi
-  int SecurityObject; // ebx
-  unsigned int OwnerDefaulted; // [rsp+40h] [rbp+8h] BYREF
-  PVOID Object; // [rsp+48h] [rbp+10h] BYREF
+  int v4; // ebx
+  SIZE_T NumberOfBytes; // [rsp+40h] [rbp+8h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp+10h] BYREF
   PSID Owner; // [rsp+50h] [rbp+18h] BYREF
 
-  Object = 0LL;
-  OwnerDefaulted = 0;
+  DmaAdapter = 0LL;
+  LODWORD(NumberOfBytes) = 0;
   Owner = 0LL;
   if ( !CmpTrustedInstallerSid )
     return 0;
   CurrentThreadProcess = PsGetCurrentThreadProcess();
-  if ( (int)PsReferenceProcessFilePointer((struct _EX_RUNDOWN_REF *)CurrentThreadProcess, (unsigned __int64 *)&Object) < 0 )
+  if ( (int)PsReferenceProcessFilePointer((struct _EX_RUNDOWN_REF *)CurrentThreadProcess, (ULONG_PTR *)&DmaAdapter) < 0 )
     return 0;
-  if ( (unsigned int)ObQuerySecurityObject((_DWORD)Object, 1, 0, 0, (__int64)&OwnerDefaulted) != -1073741789 )
+  if ( (unsigned int)ObQuerySecurityObject((__int64)DmaAdapter, 1, 0LL, 0, &NumberOfBytes) != -1073741789 )
   {
-    v2 = Object;
+    v2 = DmaAdapter;
     goto LABEL_12;
   }
-  Pool2 = ExAllocatePool2(256LL, OwnerDefaulted, 538987843LL);
-  v2 = Object;
-  v3 = (void *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x20204D43u);
+  v2 = DmaAdapter;
+  v3 = PoolWithTag;
+  if ( !PoolWithTag )
   {
 LABEL_12:
-    ObfDereferenceObject(v2);
+    HalPutDmaAdapter(v2);
     return 0;
   }
-  SecurityObject = ObQuerySecurityObject((_DWORD)Object, 1, Pool2, OwnerDefaulted, (__int64)&OwnerDefaulted);
-  ObfDereferenceObject(Object);
-  if ( SecurityObject < 0
-    || RtlGetOwnerSecurityDescriptor(v3, &Owner, (PBOOLEAN)&OwnerDefaulted) < 0
+  v4 = ObQuerySecurityObject((__int64)DmaAdapter, 1, (__int64)PoolWithTag, NumberOfBytes, &NumberOfBytes);
+  HalPutDmaAdapter(DmaAdapter);
+  if ( v4 < 0
+    || RtlGetOwnerSecurityDescriptor(v3, &Owner, (PBOOLEAN)&NumberOfBytes) < 0
     || Owner && RtlEqualSid(CmpTrustedInstallerSid, Owner) )
   {
     ExFreePoolWithTag(v3, 0);

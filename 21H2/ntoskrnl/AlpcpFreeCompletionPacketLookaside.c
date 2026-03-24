@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpFreeCompletionPacketLookaside @ 0x1402D3C34
+ * XREFs of AlpcpFreeCompletionPacketLookaside @ 0x140287988
  * Callers:
- *     AlpcpDeletePort @ 0x14074D800 (AlpcpDeletePort.c)
- *     AlpcpAssociateIoCompletionPort @ 0x1407D5884 (AlpcpAssociateIoCompletionPort.c)
- *     AlpcpInitializeCompletionList @ 0x1407F5914 (AlpcpInitializeCompletionList.c)
+ *     AlpcpDeletePort @ 0x1405E2D20 (AlpcpDeletePort.c)
+ *     AlpcpInitializeCompletionList @ 0x14067EC00 (AlpcpInitializeCompletionList.c)
+ *     AlpcpAssociateIoCompletionPort @ 0x1406D1FC4 (AlpcpAssociateIoCompletionPort.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x1402D56AC (AlpcpDeferredFreeCompletionPacketLookaside.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x140287B04 (AlpcpDeferredFreeCompletionPacketLookaside.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall AlpcpFreeCompletionPacketLookaside(KSPIN_LOCK *P)

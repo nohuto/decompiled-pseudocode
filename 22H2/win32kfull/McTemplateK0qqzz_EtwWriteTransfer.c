@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0qqzz_EtwWriteTransfer @ 0x1C01C0FE0
+ * XREFs of McTemplateK0qqzz_EtwWriteTransfer @ 0x1C01EAEF4
  * Callers:
- *     EtwTraceLayoutChangeStop @ 0x1C00C5D94 (EtwTraceLayoutChangeStop.c)
+ *     EtwTraceLayoutChangeStop @ 0x1C011C3A0 (EtwTraceLayoutChangeStop.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C01C0F74 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C01EAE88 (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqzz_EtwWriteTransfer(
@@ -16,12 +16,12 @@ NTSTATUS __fastcall McTemplateK0qqzz_EtwWriteTransfer(
         const char *a6,
         const char *a7)
 {
-  const char *v7; // r8
-  const char *v8; // rcx
-  __int64 v9; // rax
-  int v10; // r10d
-  __int64 v11; // rdx
-  __int64 v12; // r9
+  const char *v7; // rdx
+  __int64 v8; // rax
+  __int64 v9; // r9
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  const char *v12; // rcx
   bool v13; // zf
   struct _EVENT_DATA_DESCRIPTOR v15; // [rsp+30h] [rbp-21h] BYREF
   int *v16; // [rsp+40h] [rbp-11h]
@@ -38,26 +38,26 @@ NTSTATUS __fastcall McTemplateK0qqzz_EtwWriteTransfer(
 
   v26 = a4;
   v7 = a6;
-  v8 = a7;
   v16 = &v26;
-  v18 = &a5;
-  v9 = -1LL;
   v17 = 4LL;
+  v18 = &a5;
+  v8 = -1LL;
   v19 = 4LL;
-  v10 = 10;
+  v9 = 10LL;
   if ( a6 )
   {
-    v11 = -1LL;
+    v10 = -1LL;
     do
-      ++v11;
-    while ( *(_WORD *)&a6[2 * v11] );
-    v12 = (unsigned int)(2 * v11 + 2);
+      ++v10;
+    while ( *(_WORD *)&a6[2 * v10] );
+    v11 = (unsigned int)(2 * v10 + 2);
   }
   else
   {
-    v12 = 10LL;
+    v11 = 10LL;
   }
-  v21 = v12;
+  v12 = a7;
+  v21 = v11;
   v22 = 0;
   if ( !a6 )
     v7 = L"NULL";
@@ -66,15 +66,15 @@ NTSTATUS __fastcall McTemplateK0qqzz_EtwWriteTransfer(
   if ( a7 )
   {
     do
-      ++v9;
-    while ( *(_WORD *)&a7[2 * v9] );
-    v10 = 2 * v9 + 2;
+      ++v8;
+    while ( *(_WORD *)&a7[2 * v8] );
+    v9 = (unsigned int)(2 * v8 + 2);
     v13 = a7 == 0LL;
   }
   if ( v13 )
-    v8 = L"NULL";
-  v24 = v10;
-  v23 = v8;
+    v12 = L"NULL";
+  v24 = v9;
+  v23 = v12;
   v25 = 0;
-  return McGenEventWrite_EtwWriteTransfer((__int64)v8, (__int64)L"NULL", (__int64)v7, v12, &v15);
+  return McGenEventWrite_EtwWriteTransfer((__int64)v12, (__int64)v7, v11, v9, &v15);
 }

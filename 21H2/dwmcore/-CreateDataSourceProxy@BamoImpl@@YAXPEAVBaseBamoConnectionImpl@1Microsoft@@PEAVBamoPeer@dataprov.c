@@ -1,16 +1,15 @@
 /*
- * XREFs of ?CreateDataSourceProxy@BamoImpl@@YAXPEAVBaseBamoConnectionImpl@1Microsoft@@PEAVBamoPeer@dataprovider_AutoBamos@@PEAPEAVBamoProxy@Bamo@3@@Z @ 0x1801B9C40
+ * XREFs of ?CreateDataSourceProxy@BamoImpl@@YAXPEAVBaseBamoConnectionImpl@1Microsoft@@PEAVBamoPeer@dataprovider_AutoBamos@@PEAPEAVBamoProxy@Bamo@3@@Z @ 0x18017E1A0
  * Callers:
- *     ?Materialize_BamoDataSourceProxy@BamoPeerImpl@dataprovider_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x1801B9DF0 (-Materialize_BamoDataSourceProxy@BamoPeerImpl@dataprovider_AutoBamos@BamoImpl@@QEAAJI@Z.c)
+ *     ?Materialize_BamoDataSourceProxy@BamoPeerImpl@dataprovider_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x18017E370 (-Materialize_BamoDataSourceProxy@BamoPeerImpl@dataprovider_AutoBamos@BamoImpl@@QEAAJI@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??0?$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@PEAVCalloutWrapperObject@12@@Z @ 0x1800269A0 (--0-$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBase.c)
- *     ??1?$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800269E8 (--1-$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ.c)
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18004F61C (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180195110 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??0DataSourceProxy@@QEAA@XZ @ 0x1801DFC88 (--0DataSourceProxy@@QEAA@XZ.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F358 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??0DropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z @ 0x1800D737C (--0DropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18016479C (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??0DataSourceProxy@@QEAA@XZ @ 0x180193C14 (--0DataSourceProxy@@QEAA@XZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall BamoImpl::CreateDataSourceProxy(
@@ -21,41 +20,41 @@ void __fastcall BamoImpl::CreateDataSourceProxy(
 {
   DataSourceProxy *v5; // rax
   DataSourceProxy *v6; // rbx
-  __int64 v7; // rdx
-  DataSourceProxy *v8; // rbx
-  __int64 v9; // r8
-  const char *v10; // r9
-  int v11[10]; // [rsp+20h] [rbp-28h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+  DataSourceProxy *v7; // rdi
+  struct Microsoft::BamoImpl::BaseBamoConnectionImpl *v8; // rbx
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  struct Microsoft::BamoImpl::BaseBamoConnectionImpl *v10; // [rsp+38h] [rbp+10h] BYREF
 
+  v10 = a2;
   *(_QWORD *)a3 = 0LL;
-  Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
-    (__int64)v11,
+  Microsoft::BamoImpl::DropAndReacquireLock::DropAndReacquireLock(
+    (Microsoft::BamoImpl::DropAndReacquireLock *)&v10,
     this);
   v5 = (DataSourceProxy *)DefaultHeap::AllocClear(0xE0uLL);
   v6 = v5;
   if ( !v5 )
     ModuleFailFastForHRESULT(2147942414LL, retaddr);
   memset_0(v5, 0, 0xE0uLL);
-  v8 = DataSourceProxy::DataSourceProxy(v6);
-  if ( !v8 )
+  v7 = DataSourceProxy::DataSourceProxy(v6);
+  if ( !v7 )
   {
     wil::details::in1diag3::Return_Hr(
       retaddr,
       (void *)0x25,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\dataproviderfactory.cpp",
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\dataproviderfactory.cpp",
       (const char *)0x8007000ELL);
     wil::details::in1diag3::FailFast_Hr(
       retaddr,
-      7966LL,
-      (__int64)"onecoreuap\\Windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
-      (const char *)0x8007000ELL,
-      v11[0]);
+      (void *)0x1D0D,
+      (__int64)"onecoreuap\\windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
+      (const char *)0x8007000ELL);
+    __debugbreak();
   }
-  Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::~CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
-    (__int64)v11,
-    v7,
-    v9,
-    v10);
-  *(_QWORD *)a3 = v8;
+  v8 = v10;
+  if ( v10 )
+  {
+    EnterCriticalSection((LPCRITICAL_SECTION)((char *)v10 + 128));
+    *((_DWORD *)v8 + 42) = GetCurrentThreadId();
+  }
+  *(_QWORD *)a3 = v7;
 }

@@ -1,10 +1,9 @@
 /*
- * XREFs of VidSchResumeAdapter @ 0x1C00A72F0
+ * XREFs of VidSchResumeAdapter @ 0x1C0086250
  * Callers:
- *     VidSchiDeferredVisibilityThread @ 0x1C001C3A0 (VidSchiDeferredVisibilityThread.c)
- *     VidSchFlushAdapter @ 0x1C00F4140 (VidSchFlushAdapter.c)
+ *     VidSchFlushAdapter @ 0x1C00D1510 (VidSchFlushAdapter.c)
  * Callees:
- *     VidSchiSuspendResumeDevicesForPowerTransition @ 0x1C0013860 (VidSchiSuspendResumeDevicesForPowerTransition.c)
+ *     VidSchiSuspendResumeDevicesForPowerTransition @ 0x1C0012A38 (VidSchiSuspendResumeDevicesForPowerTransition.c)
  */
 
 __int64 __fastcall VidSchResumeAdapter(__int64 a1, char a2)

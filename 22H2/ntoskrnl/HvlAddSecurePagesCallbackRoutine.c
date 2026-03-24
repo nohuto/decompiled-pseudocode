@@ -1,57 +1,60 @@
 /*
- * XREFs of HvlAddSecurePagesCallbackRoutine @ 0x140547538
+ * XREFs of HvlAddSecurePagesCallbackRoutine @ 0x1404F8550
  * Callers:
- *     HvlAddSecureHvPagesCallbackRoutine @ 0x1405474E0 (HvlAddSecureHvPagesCallbackRoutine.c)
- *     HvlAddSecureSkPagesCallbackRoutine @ 0x140547760 (HvlAddSecureSkPagesCallbackRoutine.c)
+ *     HvlAddSecureHvPagesCallbackRoutine @ 0x1404F8530 (HvlAddSecureHvPagesCallbackRoutine.c)
+ *     HvlAddSecureSkPagesCallbackRoutine @ 0x1404F8780 (HvlAddSecureSkPagesCallbackRoutine.c)
  * Callees:
- *     HvlpAddCrashdumpAreaPages @ 0x140547CE8 (HvlpAddCrashdumpAreaPages.c)
- *     HvlpEndSecurePageListIteration @ 0x14054A1F8 (HvlpEndSecurePageListIteration.c)
- *     HvlpStartSecurePageListIteration @ 0x14054A4AC (HvlpStartSecurePageListIteration.c)
- *     VslGetSecurePageList @ 0x14054B2C8 (VslGetSecurePageList.c)
- *     IoIsPartialDumpRetry @ 0x140550880 (IoIsPartialDumpRetry.c)
+ *     HvlpAddCrashdumpAreaPages @ 0x1404F8CAC (HvlpAddCrashdumpAreaPages.c)
+ *     HvlpEndSecurePageListIteration @ 0x1404FB23C (HvlpEndSecurePageListIteration.c)
+ *     HvlpStartSecurePageListIteration @ 0x1404FB4F4 (HvlpStartSecurePageListIteration.c)
+ *     VslGetSecurePageList @ 0x1404FC350 (VslGetSecurePageList.c)
+ *     IoIsPartialDumpRetry @ 0x140502348 (IoIsPartialDumpRetry.c)
  */
 
-__int64 __fastcall HvlAddSecurePagesCallbackRoutine(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall HvlAddSecurePagesCallbackRoutine(int a1, int a2, __int64 a3, __int64 a4)
 {
   unsigned __int8 v4; // si
-  int v6; // ebx
   __int64 result; // rax
   __int64 v8; // rdx
-  char v9; // bp
-  _QWORD *v10; // r9
-  char v11; // dl
-  int v12; // ebx
-  int v13; // ebx
-  int v14; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v15; // [rsp+60h] [rbp+18h] BYREF
+  __int64 *v9; // r9
+  __int64 v10; // rcx
+  char v11; // bp
+  char v12; // dl
+  int v13; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v14; // [rsp+60h] [rbp+18h] BYREF
 
-  v14 = a2;
-  v15 = 0LL;
+  v13 = a2;
+  v14 = 0LL;
   v4 = a1 | 4;
   *(_QWORD *)(a4 + 24) = 0LL;
   *(_DWORD *)(a4 + 8) = 0;
-  v6 = a1;
-  result = IoIsPartialDumpRetry(a1, a2, a3, a4);
-  v9 = result;
-  if ( *v10 )
+  result = IoIsPartialDumpRetry();
+  v10 = *v9;
+  v11 = result;
+  if ( !*v9 )
+    goto LABEL_5;
+  if ( BYTE3(HvlpCrashdumpIterationState) != v4 )
   {
-    if ( BYTE3(HvlpCrashdumpIterationState) == v4 )
-      goto LABEL_6;
-    HvlpEndSecurePageListIteration(1LL, 0LL, 0LL);
+    result = HvlpEndSecurePageListIteration(1LL, 0LL, 0LL);
+    LOBYTE(HvlpCrashdumpIterationState) = 0;
+    v10 = 0LL;
     *(_QWORD *)a4 = 0LL;
   }
-  HvlpCrashdumpIterationState = 0LL;
-  xmmword_140C5F4B0 = 0LL;
-  xmmword_140C5F4C0 = 0LL;
-  result = HvlpStartSecurePageListIteration(1LL, v4, 0LL, 0LL, 0, &v15);
-  if ( (int)result < 0 )
-    return result;
-  *((_QWORD *)&xmmword_140C5F4C0 + 1) = v15;
-  result = (__int64)&HvlpCrashdumpIterationState;
-  BYTE3(HvlpCrashdumpIterationState) = v4;
-  LOBYTE(HvlpCrashdumpIterationState) = 1;
-  *(_QWORD *)a4 = &HvlpCrashdumpIterationState;
-LABEL_6:
+  if ( !v10 )
+  {
+LABEL_5:
+    HvlpCrashdumpIterationState = 0LL;
+    xmmword_140C47510 = 0LL;
+    xmmword_140C47520 = 0LL;
+    result = HvlpStartSecurePageListIteration(1LL, v4, 0LL, 0LL, 0, &v14);
+    if ( (int)result < 0 )
+      return result;
+    *((_QWORD *)&xmmword_140C47520 + 1) = v14;
+    result = (__int64)&HvlpCrashdumpIterationState;
+    BYTE3(HvlpCrashdumpIterationState) = v4;
+    LOBYTE(HvlpCrashdumpIterationState) = 1;
+    *(_QWORD *)a4 = &HvlpCrashdumpIterationState;
+  }
   if ( (_BYTE)HvlpCrashdumpIterationState )
   {
     if ( BYTE1(HvlpCrashdumpIterationState)
@@ -59,35 +62,34 @@ LABEL_6:
     {
       if ( BYTE2(HvlpCrashdumpIterationState) || (result = HvlpAddCrashdumpAreaPages(a4, 0LL), !(_BYTE)result) )
       {
-        if ( !v9 || v6 == 2 || v6 == 8 || (v6 == 1 || v6 == 16) && *(_DWORD *)(a4 + 12) == 395 )
+        if ( !v11 || a1 == 1 && *(_DWORD *)(a4 + 12) == 395 || a1 == 2 && *(_DWORD *)(a4 + 12) == 131073 )
         {
-          while ( (_DWORD)xmmword_140C5F4C0 )
+          while ( (_DWORD)xmmword_140C47520 )
           {
 LABEL_22:
-            *(_QWORD *)(a4 + 24) = (**((_QWORD **)&xmmword_140C5F4B0 + 1) >> 40) + 1LL;
+            *(_QWORD *)(a4 + 24) = (**((_QWORD **)&xmmword_140C47510 + 1) >> 40) + 1LL;
             result = 0xFFFFFFFFFFLL;
-            *(_QWORD *)(a4 + 16) = **((_QWORD **)&xmmword_140C5F4B0 + 1) & 0xFFFFFFFFFFLL;
-            *((_QWORD *)&xmmword_140C5F4B0 + 1) += 8LL;
-            LODWORD(xmmword_140C5F4C0) = xmmword_140C5F4C0 - 1;
+            *(_QWORD *)(a4 + 16) = **((_QWORD **)&xmmword_140C47510 + 1) & 0xFFFFFFFFFFLL;
+            *((_QWORD *)&xmmword_140C47510 + 1) += 8LL;
+            LODWORD(xmmword_140C47520) = xmmword_140C47520 - 1;
             if ( *(_QWORD *)(a4 + 24) )
             {
               *(_DWORD *)(a4 + 8) = -2147483646;
-              v12 = v6 - 1;
-              if ( v12 && ((v13 = v12 - 1) == 0 || v13 == 6) )
-                *(_DWORD *)(a4 + 8) = -2147483614;
-              else
+              if ( a1 == 1 )
                 *(_DWORD *)(a4 + 8) = -2147483630;
+              else
+                *(_DWORD *)(a4 + 8) = -2147483614;
               return result;
             }
           }
           while ( 1 )
           {
-            LOBYTE(v14) = 0;
-            if ( (int)VslGetSecurePageList(0LL, 0LL, 0LL, &v14) < 0 )
+            LOBYTE(v13) = 0;
+            if ( (int)VslGetSecurePageList(0LL, 0LL, 0LL, &v13) < 0 )
               break;
-            LODWORD(xmmword_140C5F4C0) = *(unsigned __int16 *)(*((_QWORD *)&xmmword_140C5F4C0 + 1) + 8LL);
-            *((_QWORD *)&xmmword_140C5F4B0 + 1) = *((_QWORD *)&xmmword_140C5F4C0 + 1) + 16LL;
-            if ( (_WORD)xmmword_140C5F4C0 )
+            LODWORD(xmmword_140C47520) = *(unsigned __int16 *)(*((_QWORD *)&xmmword_140C47520 + 1) + 8LL);
+            *((_QWORD *)&xmmword_140C47510 + 1) = *((_QWORD *)&xmmword_140C47520 + 1) + 16LL;
+            if ( (_DWORD)xmmword_140C47520 )
               goto LABEL_22;
           }
         }
@@ -101,7 +103,7 @@ LABEL_22:
     }
     else
     {
-      BYTE1(HvlpCrashdumpIterationState) = v11;
+      BYTE1(HvlpCrashdumpIterationState) = v12;
     }
   }
   return result;

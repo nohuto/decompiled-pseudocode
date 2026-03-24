@@ -1,63 +1,54 @@
 /*
- * XREFs of CmpKeyEnumStackAdvanceInternal @ 0x14065B994
+ * XREFs of CmpKeyEnumStackAdvanceInternal @ 0x140729BBC
  * Callers:
- *     CmpKeyEnumStackAdvance @ 0x14065B900 (CmpKeyEnumStackAdvance.c)
+ *     CmpKeyEnumStackAdvance @ 0x140729B28 (CmpKeyEnumStackAdvance.c)
  * Callees:
- *     CmpKeyEnumStackEntryAdvance @ 0x14065BB1C (CmpKeyEnumStackEntryAdvance.c)
- *     CmpCompareKeysByName @ 0x14065C51C (CmpCompareKeysByName.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x14069F130 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14069F1CC (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x140699C08 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140699C98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpCompareKeysByName @ 0x140875D54 (CmpCompareKeysByName.c)
+ *     CmpKeyEnumStackEntryAdvance @ 0x14087A918 (CmpKeyEnumStackEntryAdvance.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackAdvanceInternal(__int64 a1)
 {
-  unsigned int v1; // ebx
-  __int16 v3; // si
-  __int64 v4; // r14
-  __int16 v5; // bp
-  __int64 v6; // r15
-  __int64 v7; // rcx
+  unsigned int v1; // edi
+  __int16 v3; // bx
+  __int64 v4; // rbp
+  __int16 v5; // r14
+  unsigned __int64 v6; // rax
+  __int64 v7; // r15
   __int16 i; // bp
-  __int64 EntryAtLayerHeight; // rsi
-  __int64 v11; // rax
-  __int64 v12; // rcx
-  __int64 v13; // rdx
-  __int64 v14; // r15
-  __int64 v15; // rcx
-  __int64 v16; // rax
-  ULONG_PTR v17; // rcx
-  __int64 v18; // rsi
-  ULONG_PTR v19; // rdx
-  __int64 CellFlat; // rax
+  __int16 v10; // dx
+  _QWORD *EntryAtLayerHeight; // rbx
+  unsigned __int64 v12; // rax
+  unsigned __int64 v13; // r15
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  __int64 v17; // rdx
 
   v1 = 0;
   if ( *(_BYTE *)(a1 + 4) )
   {
     for ( i = 0; i <= *(__int16 *)a1; ++i )
     {
-      EntryAtLayerHeight = CmpKeyNodeStackGetEntryAtLayerHeight(a1 + 8);
-      if ( *(_QWORD *)(EntryAtLayerHeight + 16) )
+      EntryAtLayerHeight = (_QWORD *)CmpKeyNodeStackGetEntryAtLayerHeight(a1 + 8, i);
+      if ( EntryAtLayerHeight[2] )
       {
-        v11 = CmpKeyEnumStackGetEntryAtLayerHeight(a1);
-        CmpKeyEnumStackEntryAdvance(v11);
-        if ( *(_QWORD *)(EntryAtLayerHeight + 16) )
-        {
-          v12 = *(_QWORD *)EntryAtLayerHeight;
-          v13 = EntryAtLayerHeight + 24;
-          if ( (*(_BYTE *)(*(_QWORD *)EntryAtLayerHeight + 140LL) & 1) != 0 )
-            HvpReleaseCellFlat(v12, v13);
-          else
-            HvpReleaseCellPaged(v12, v13);
-        }
-        *(_OWORD *)EntryAtLayerHeight = 0LL;
-        *(_OWORD *)(EntryAtLayerHeight + 16) = 0LL;
-        *(_DWORD *)(EntryAtLayerHeight + 8) = -1;
-        HvpGetCellContextReinitialize(EntryAtLayerHeight + 24);
+        v12 = CmpKeyEnumStackGetEntryAtLayerHeight(a1, v10);
+        CmpKeyEnumStackEntryAdvance(v12);
+        if ( EntryAtLayerHeight[2] )
+          (*(void (__fastcall **)(_QWORD, _QWORD *))(*EntryAtLayerHeight + 16LL))(
+            *EntryAtLayerHeight,
+            EntryAtLayerHeight + 3);
+        *EntryAtLayerHeight = 0LL;
+        *(_QWORD *)((char *)EntryAtLayerHeight + 12) = 0LL;
+        *((_DWORD *)EntryAtLayerHeight + 5) = 0;
+        *((_DWORD *)EntryAtLayerHeight + 2) = -1;
+        EntryAtLayerHeight[3] = 0LL;
+        *((_DWORD *)EntryAtLayerHeight + 6) = -1;
+        *((_WORD *)EntryAtLayerHeight + 14) = 0;
       }
     }
   }
@@ -69,11 +60,11 @@ __int64 __fastcall CmpKeyEnumStackAdvanceInternal(__int64 a1)
     return (unsigned int)-2147483622;
   do
   {
-    v6 = CmpKeyEnumStackGetEntryAtLayerHeight(a1);
+    v6 = CmpKeyEnumStackGetEntryAtLayerHeight(a1, v3);
     v7 = *(_QWORD *)(v6 + 120);
-    if ( v7 && (!v4 || (int)CmpCompareKeysByName(v7, v4) < 0) )
+    if ( v7 && (!v4 || (int)CmpCompareKeysByName(*(_QWORD *)(v6 + 120), v4) < 0) )
     {
-      v4 = *(_QWORD *)(v6 + 120);
+      v4 = v7;
       v5 = v3;
     }
     --v3;
@@ -83,21 +74,16 @@ __int64 __fastcall CmpKeyEnumStackAdvanceInternal(__int64 a1)
   {
     for ( ; v5 >= 0; --v5 )
     {
-      v14 = CmpKeyEnumStackGetEntryAtLayerHeight(a1);
-      v15 = *(_QWORD *)(v14 + 120);
-      if ( v15 && (v15 == v4 || !(unsigned int)CmpCompareKeysByName(v15, v4)) )
+      v13 = CmpKeyEnumStackGetEntryAtLayerHeight(a1, v5);
+      v14 = *(_QWORD *)(v13 + 120);
+      if ( v14 && (v14 == v4 || !(unsigned int)CmpCompareKeysByName(v14, v4)) )
       {
-        v16 = CmpKeyNodeStackGetEntryAtLayerHeight(a1 + 8);
-        v17 = *(_QWORD *)v14;
-        v18 = v16;
-        v19 = *(unsigned int *)(v14 + 112);
-        *(_QWORD *)v16 = *(_QWORD *)v14;
-        *(_DWORD *)(v16 + 8) = v19;
-        if ( (*(_BYTE *)(v17 + 140) & 1) != 0 )
-          CellFlat = HvpGetCellFlat(v17, v19);
-        else
-          CellFlat = HvpGetCellPaged(v17);
-        *(_QWORD *)(v18 + 16) = CellFlat;
+        v15 = CmpKeyNodeStackGetEntryAtLayerHeight(a1 + 8, v5);
+        v16 = *(_QWORD *)v13;
+        v17 = *(unsigned int *)(v13 + 112);
+        *(_QWORD *)v15 = *(_QWORD *)v13;
+        *(_DWORD *)(v15 + 8) = v17;
+        *(_QWORD *)(v15 + 16) = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(v16 + 8))(v16, v17, v15 + 24);
       }
     }
   }

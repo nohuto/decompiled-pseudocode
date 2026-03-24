@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCovSampLookasideInitialize @ 0x1409F17A4
+ * XREFs of EtwpCovSampLookasideInitialize @ 0x1409451F4
  * Callers:
- *     EtwpCovSampCaptureContextStart @ 0x1409EEA80 (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1409422B8 (EtwpCovSampCaptureContextStart.c)
  * Callees:
- *     InitializeSListHead @ 0x1402A05A0 (InitializeSListHead.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall EtwpCovSampLookasideInitialize(__int64 a1, __int64 a2, _DWORD *a3)
@@ -15,7 +15,7 @@ __int64 __fastcall EtwpCovSampLookasideInitialize(__int64 a1, __int64 a2, _DWORD
   __int64 result; // rax
 
   memset((void *)a2, 0, 0x40uLL);
-  v6 = a1 + 688;
+  v6 = a1 + 576;
   v7 = (_QWORD *)(a2 + 16);
   v8 = *(_QWORD **)(v6 + 8);
   if ( *v8 != v6 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpRegisterSecondaryIcInterface @ 0x14051D9E4
+ * XREFs of HalpRegisterSecondaryIcInterface @ 0x1404D13F4
  * Callers:
- *     HaliSetSystemInformation @ 0x14090A644 (HaliSetSystemInformation.c)
+ *     HaliSetSystemInformation @ 0x140866424 (HaliSetSystemInformation.c)
  * Callees:
- *     HalpCreateSecondaryIcEntry @ 0x14051CFB0 (HalpCreateSecondaryIcEntry.c)
- *     HalpValidateInterface @ 0x14090985C (HalpValidateInterface.c)
+ *     HalpCreateSecondaryIcEntry @ 0x1404D09A0 (HalpCreateSecondaryIcEntry.c)
+ *     HalpValidateInterface @ 0x1408656CC (HalpValidateInterface.c)
  */
 
 __int64 HalpRegisterSecondaryIcInterface()

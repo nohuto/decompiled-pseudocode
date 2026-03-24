@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiSetUMPDSandboxState @ 0x1C0151D80
+ * XREFs of NtGdiSetUMPDSandboxState @ 0x1C0136040
  * Callers:
  *     <none>
  * Callees:

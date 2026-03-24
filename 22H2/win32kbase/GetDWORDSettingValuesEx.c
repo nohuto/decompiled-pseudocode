@@ -1,11 +1,13 @@
 /*
- * XREFs of GetDWORDSettingValuesEx @ 0x1C0095EE0
+ * XREFs of GetDWORDSettingValuesEx @ 0x1C000C4A0
  * Callers:
- *     TryUpdatePTPConfigFromRegistry @ 0x1C0095A38 (TryUpdatePTPConfigFromRegistry.c)
- *     GetDWORDSettingValues @ 0x1C0095EC0 (GetDWORDSettingValues.c)
+ *     ?LoadPointerDeviceTouchSettings@@YAHXZ @ 0x1C000C3FC (-LoadPointerDeviceTouchSettings@@YAHXZ.c)
+ *     GetDWORDSettingValues @ 0x1C000C480 (GetDWORDSettingValues.c)
+ *     TryUpdatePTPConfigFromRegistry @ 0x1C000CC04 (TryUpdatePTPConfigFromRegistry.c)
+ *     ReadPointerDeviceSettings @ 0x1C000D080 (ReadPointerDeviceSettings.c)
  * Callees:
- *     ApiSetEditionGetPointerDeviceConfigurationKey @ 0x1C0095F84 (ApiSetEditionGetPointerDeviceConfigurationKey.c)
- *     ReadPointerDeviceCfgDWORDSetting @ 0x1C0095FF0 (ReadPointerDeviceCfgDWORDSetting.c)
+ *     ApiSetEditionGetPointerDeviceConfigurationKey @ 0x1C000C540 (ApiSetEditionGetPointerDeviceConfigurationKey.c)
+ *     ReadPointerDeviceCfgDWORDSetting @ 0x1C000C600 (ReadPointerDeviceCfgDWORDSetting.c)
  */
 
 __int64 __fastcall GetDWORDSettingValuesEx(__int64 a1, __int64 a2, unsigned int a3, int a4)

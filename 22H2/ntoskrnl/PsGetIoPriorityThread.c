@@ -1,35 +1,35 @@
 /*
- * XREFs of PsGetIoPriorityThread @ 0x1402A8A90
+ * XREFs of PsGetIoPriorityThread @ 0x140242180
  * Callers:
- *     IoSynchronousPageWriteEx @ 0x140250E60 (IoSynchronousPageWriteEx.c)
- *     IopBuildDeviceIoControlRequest @ 0x1402510F0 (IopBuildDeviceIoControlRequest.c)
- *     MiFlushSectionInternal @ 0x140275630 (MiFlushSectionInternal.c)
- *     KiAbTryIncrementIoWaiterCounts @ 0x1402A8350 (KiAbTryIncrementIoWaiterCounts.c)
- *     ExpApplyPriorityBoost @ 0x1402A8420 (ExpApplyPriorityBoost.c)
- *     ExpWorkerThread @ 0x1402BEB60 (ExpWorkerThread.c)
- *     CcAsyncCopyRead @ 0x1402C1040 (CcAsyncCopyRead.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiFinishMdlForMappedFileFault @ 0x1402E1B40 (MiFinishMdlForMappedFileFault.c)
- *     MiIssueFlowThroughFault @ 0x1402EEEF0 (MiIssueFlowThroughFault.c)
- *     FsRtlpWaitForIoAtEof @ 0x140304990 (FsRtlpWaitForIoAtEof.c)
- *     KiAbSetMinimumThreadPriority @ 0x140318C48 (KiAbSetMinimumThreadPriority.c)
- *     PspNotifyProcessEffectiveIoLimitChanged @ 0x14031AF9C (PspNotifyProcessEffectiveIoLimitChanged.c)
- *     CcScheduleReadAheadNuma @ 0x140328DDC (CcScheduleReadAheadNuma.c)
- *     IoRetrievePriorityInfo @ 0x140332710 (IoRetrievePriorityInfo.c)
- *     PfSnCheckLoggingForThread @ 0x14035625C (PfSnCheckLoggingForThread.c)
- *     CcForceWriteThrough @ 0x140368ED0 (CcForceWriteThrough.c)
- *     CcBoostLowPriorityWorkerThread @ 0x14036D094 (CcBoostLowPriorityWorkerThread.c)
- *     IopBuildAsynchronousFsdRequest @ 0x1403715A0 (IopBuildAsynchronousFsdRequest.c)
- *     EtwpTraceThreadRundown @ 0x14038C22C (EtwpTraceThreadRundown.c)
- *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x1405C008C (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
- *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14063C334 (MiCopyFileOnlyGlobalSubsectionPage.c)
- *     MiResolvePageFileFault @ 0x14066B52C (MiResolvePageFileFault.c)
- *     MmPrefetchVirtualAddresses @ 0x1406819E0 (MmPrefetchVirtualAddresses.c)
- *     MiLogRelocationRva @ 0x1406ABDA0 (MiLogRelocationRva.c)
- *     EtwTraceThread @ 0x1406AD060 (EtwTraceThread.c)
- *     PfSnBeginScenario @ 0x1407508D0 (PfSnBeginScenario.c)
- *     NtQueryInformationThread @ 0x14079FBE0 (NtQueryInformationThread.c)
- *     NtSetInformationVirtualMemory @ 0x1407A4530 (NtSetInformationVirtualMemory.c)
+ *     MiFlushSectionInternal @ 0x140219D70 (MiFlushSectionInternal.c)
+ *     ExpWorkerThread @ 0x1402417F0 (ExpWorkerThread.c)
+ *     IoRetrievePriorityInfo @ 0x140256230 (IoRetrievePriorityInfo.c)
+ *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x1402670B0 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
+ *     KiAbSetMinimumThreadPriority @ 0x140272404 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbTryIncrementIoWaiterCounts @ 0x140272DB8 (KiAbTryIncrementIoWaiterCounts.c)
+ *     CcScheduleReadAheadEx @ 0x140279480 (CcScheduleReadAheadEx.c)
+ *     MiPfPutPagesInTransition @ 0x14027BCA0 (MiPfPutPagesInTransition.c)
+ *     MiCopyDataPageToImagePage @ 0x140284A68 (MiCopyDataPageToImagePage.c)
+ *     MiFinishMdlForMappedFileFault @ 0x14029AAFC (MiFinishMdlForMappedFileFault.c)
+ *     IoSynchronousPageWriteEx @ 0x14029C49C (IoSynchronousPageWriteEx.c)
+ *     IoPageReadEx @ 0x14029C7C0 (IoPageReadEx.c)
+ *     MiResolvePageFileFault @ 0x1402E0F08 (MiResolvePageFileFault.c)
+ *     MiIssueFlowThroughFault @ 0x1402E203C (MiIssueFlowThroughFault.c)
+ *     FsRtlpWaitForIoAtEof @ 0x1402EE2CC (FsRtlpWaitForIoAtEof.c)
+ *     PfSnCheckLoggingForThread @ 0x1402F3958 (PfSnCheckLoggingForThread.c)
+ *     ExpApplyPrewaitBoost @ 0x14030EAD0 (ExpApplyPrewaitBoost.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x1403116A8 (CcBoostLowPriorityWorkerThread.c)
+ *     CcForceWriteThrough @ 0x140325D4C (CcForceWriteThrough.c)
+ *     IopBuildAsynchronousFsdRequest @ 0x140358DF0 (IopBuildAsynchronousFsdRequest.c)
+ *     EtwpTraceThreadRundown @ 0x1403A9640 (EtwpTraceThreadRundown.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FCB8 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiCopyImageExtentContents @ 0x140540074 (MiCopyImageExtentContents.c)
+ *     EtwTraceThread @ 0x14062997C (EtwTraceThread.c)
+ *     PfSnBeginScenario @ 0x140630458 (PfSnBeginScenario.c)
+ *     MiLogRelocationRva @ 0x1406632A4 (MiLogRelocationRva.c)
+ *     PspBoostJobIoPriorityCallback @ 0x14068EC50 (PspBoostJobIoPriorityCallback.c)
+ *     NtSetInformationVirtualMemory @ 0x1406FA310 (NtSetInformationVirtualMemory.c)
+ *     MmPrefetchVirtualAddresses @ 0x1406FB400 (MmPrefetchVirtualAddresses.c)
  * Callees:
  *     <none>
  */
@@ -37,20 +37,13 @@
 __int64 __fastcall PsGetIoPriorityThread(__int64 a1)
 {
   __int64 result; // rax
-  __int64 v3; // rcx
-  int v4; // edx
 
-  result = (*(_DWORD *)(a1 + 1376) >> 9) & 7;
-  v3 = *(_QWORD *)(*(_QWORD *)(a1 + 544) + 1296LL);
-  if ( v3 )
+  result = (*(_DWORD *)(a1 + 1296) >> 9) & 7;
+  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 544) + 1124LL) & 0x100000) != 0 )
+    result = 0LL;
+  if ( (unsigned int)result < 2 && (struct _KTHREAD *)a1 == KeGetCurrentThread() )
   {
-    v4 = *(_DWORD *)(v3 + 1068);
-    if ( (int)result >= v4 )
-      result = (unsigned int)v4;
-  }
-  if ( (int)result < 2 && (struct _KTHREAD *)a1 == KeGetCurrentThread() )
-  {
-    if ( *(_DWORD *)(a1 + 1440) )
+    if ( *(_DWORD *)(a1 + 1360) )
       return 2LL;
   }
   return result;

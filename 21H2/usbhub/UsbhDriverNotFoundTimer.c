@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhDriverNotFoundTimer @ 0x1C0041F40
+ * XREFs of UsbhDriverNotFoundTimer @ 0x1C00431F0
  * Callers:
  *     <none>
  * Callees:
- *     UsbhUnlatchPdo @ 0x1C0002650 (UsbhUnlatchPdo.c)
- *     UsbhQueueWorkItemEx @ 0x1C0002868 (UsbhQueueWorkItemEx.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhLatchPdo @ 0x1C000F240 (UsbhLatchPdo.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhLatchPdo @ 0x1C0016B5C (UsbhLatchPdo.c)
+ *     UsbhUnlatchPdo @ 0x1C00171A0 (UsbhUnlatchPdo.c)
+ *     UsbhQueueWorkItemEx @ 0x1C0017B0C (UsbhQueueWorkItemEx.c)
  */
 
 __int64 __fastcall UsbhDriverNotFoundTimer(__int64 a1, __int64 a2, unsigned __int16 a3, __int64 a4)
@@ -27,7 +27,7 @@ __int64 __fastcall UsbhDriverNotFoundTimer(__int64 a1, __int64 a2, unsigned __in
                  (int)UsbhDriverNotFoundWorker,
                  a4,
                  *((unsigned __int16 *)v8 + 714),
-                 2001096260,
+                 0x77464E44u,
                  0LL) < 0) )
     {
       UsbhUnlatchPdo(a2, v7, 0LL, 0x444E4654u);

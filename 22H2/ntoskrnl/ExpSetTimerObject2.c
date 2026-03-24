@@ -1,19 +1,21 @@
 /*
- * XREFs of ExpSetTimerObject2 @ 0x140339684
+ * XREFs of ExpSetTimerObject2 @ 0x14034927C
  * Callers:
- *     NtCancelTimer @ 0x14032E090 (NtCancelTimer.c)
- *     ExpSetTimer @ 0x14032E588 (ExpSetTimer.c)
- *     ExpSetTimer2 @ 0x140339550 (ExpSetTimer2.c)
+ *     NtCancelTimer @ 0x140248470 (NtCancelTimer.c)
+ *     NtSetTimerEx @ 0x140248B10 (NtSetTimerEx.c)
+ *     ExpSetTimer2 @ 0x140349154 (ExpSetTimer2.c)
+ *     ExpSetTimer @ 0x140376560 (ExpSetTimer.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeSetTimer2 @ 0x140250130 (KeSetTimer2.c)
- *     KeCancelTimer2 @ 0x14031DD00 (KeCancelTimer2.c)
+ *     KeSetTimer2 @ 0x14022BEC0 (KeSetTimer2.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeCancelTimer2 @ 0x140348B50 (KeCancelTimer2.c)
+ *     ExpTimerSetParametersAreValid @ 0x140349318 (ExpTimerSetParametersAreValid.c)
  */
 
 __int64 __fastcall ExpSetTimerObject2(_QWORD *Object, __int64 *a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx
-  __int64 v6; // rdx
+  __int64 v6; // rax
   char v7; // cl
 
   v4 = 0;
@@ -21,7 +23,7 @@ __int64 __fastcall ExpSetTimerObject2(_QWORD *Object, __int64 *a2, __int64 a3, _
   {
     v4 = -1073741811;
   }
-  else if ( a4 && (*(_DWORD *)a4 || *(__int64 *)(a4 + 8) < -1) )
+  else if ( a4 && !(unsigned __int8)ExpTimerSetParametersAreValid(a4, a2, a3) )
   {
     v4 = -1073741583;
   }
@@ -42,7 +44,7 @@ __int64 __fastcall ExpSetTimerObject2(_QWORD *Object, __int64 *a2, __int64 a3, _
     if ( a4 )
       Object[19] = *(_QWORD *)(a4 + 8);
     if ( v7 )
-      KeSetTimer2((__int64)Object, v6, a3, a4);
+      KeSetTimer2((__int64)Object, Object[18], a3, a4);
     else
       KeCancelTimer2((__int64)Object);
   }

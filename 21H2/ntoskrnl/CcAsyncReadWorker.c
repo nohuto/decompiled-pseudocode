@@ -1,260 +1,223 @@
 /*
- * XREFs of CcAsyncReadWorker @ 0x1403C4AE0
+ * XREFs of CcAsyncReadWorker @ 0x1403B7950
  * Callers:
- *     CcAsyncReadWorkerThread @ 0x14053E700 (CcAsyncReadWorkerThread.c)
+ *     CcAsyncReadWorkerThread @ 0x1404EC5C0 (CcAsyncReadWorkerThread.c)
  * Callees:
- *     CcFindNextWorkQueueEntry @ 0x140275290 (CcFindNextWorkQueueEntry.c)
- *     CcFreeWorkQueueEntry @ 0x1402766A0 (CcFreeWorkQueueEntry.c)
- *     CcDereferencePartition @ 0x140276728 (CcDereferencePartition.c)
- *     MmWaitMultipleForCacheManagerPrefetch @ 0x14027DB4C (MmWaitMultipleForCacheManagerPrefetch.c)
- *     CcCompleteAsyncRead @ 0x14028F324 (CcCompleteAsyncRead.c)
- *     CcAsyncReadPrefetch @ 0x14029C970 (CcAsyncReadPrefetch.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExQueueWorkItemToPartition @ 0x1402EF060 (ExQueueWorkItemToPartition.c)
- *     KeWaitForMultipleObjects @ 0x1402F13C0 (KeWaitForMultipleObjects.c)
- *     CcPostWorkQueueAsyncRead @ 0x1402F5AEC (CcPostWorkQueueAsyncRead.c)
- *     CcShouldSpinAsyncReadWorkerThread @ 0x1402F5D4C (CcShouldSpinAsyncReadWorkerThread.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
+ *     CcFindNextWorkQueueEntry @ 0x1402F3AF8 (CcFindNextWorkQueueEntry.c)
+ *     CcFreeWorkQueueEntry @ 0x1402F6CBC (CcFreeWorkQueueEntry.c)
+ *     CcDereferencePartition @ 0x1402F6D2C (CcDereferencePartition.c)
+ *     CcCompleteAsyncRead @ 0x1402F7640 (CcCompleteAsyncRead.c)
+ *     ExQueueWorkItemToPartition @ 0x1402F78AC (ExQueueWorkItemToPartition.c)
+ *     CcPostWorkQueueAsyncRead @ 0x1402F8664 (CcPostWorkQueueAsyncRead.c)
+ *     CcShouldSpinAsyncReadWorkerThread @ 0x1402F8868 (CcShouldSpinAsyncReadWorkerThread.c)
+ *     MmWaitMultipleForCacheManagerPrefetch @ 0x1402F9980 (MmWaitMultipleForCacheManagerPrefetch.c)
+ *     CcAsyncReadPrefetch @ 0x1402F9B74 (CcAsyncReadPrefetch.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcAsyncReadWorker(_DWORD *StartContext)
 {
   unsigned int v1; // eax
-  __int64 v2; // rsi
-  __int64 v3; // rdi
-  __int64 v5; // rbx
-  __int64 v6; // r13
-  int v7; // r15d
-  __int64 v8; // rax
-  __int64 v9; // rdx
-  void *v10; // r14
-  bool v11; // zf
-  void *v12; // rax
-  NTSTATUS v13; // eax
-  ULONG_PTR v14; // rdi
-  __int64 v15; // rcx
-  __int64 v16; // r14
-  _QWORD *v17; // r8
+  __int64 v2; // rdi
+  __int64 v3; // rbx
+  __int64 *v5; // r13
+  int v6; // r15d
+  __int64 v7; // rax
+  __int64 v8; // r14
+  void *v9; // rdx
+  unsigned int v10; // ebx
+  __int64 v11; // r14
+  _QWORD *v12; // rdx
+  _QWORD *v13; // rcx
   struct _SLIST_ENTRY *NextWorkQueueEntry; // rbx
-  _SLIST_ENTRY *v19; // rcx
-  _SLIST_ENTRY *v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r14
-  _QWORD *v23; // rcx
-  unsigned int v24; // edi
-  __int64 v25; // r14
-  PSLIST_ENTRY v26; // rbx
+  _SLIST_ENTRY *v15; // rcx
+  __int64 v16; // r14
+  PSLIST_ENTRY v17; // rsi
   _SLIST_ENTRY *Next; // rcx
-  __int64 v28; // rcx
-  _SLIST_ENTRY *v29; // rax
-  signed __int64 v30; // rax
-  bool v31; // cc
-  signed __int64 v32; // rax
-  unsigned int v33; // [rsp+40h] [rbp-C0h]
-  unsigned __int64 v34; // [rsp+48h] [rbp-B8h]
-  __int64 v35; // [rsp+50h] [rbp-B0h]
-  __int64 v36; // [rsp+58h] [rbp-A8h]
-  unsigned int v37; // [rsp+60h] [rbp-A0h]
-  ULONG_PTR BugCheckParameter2; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v39; // [rsp+70h] [rbp-90h]
-  __int64 v40; // [rsp+78h] [rbp-88h]
-  __int64 v41; // [rsp+80h] [rbp-80h]
-  PVOID Object[3]; // [rsp+88h] [rbp-78h] BYREF
-  struct _KWAIT_BLOCK WaitBlockArray; // [rsp+A0h] [rbp-60h] BYREF
-  _QWORD v45[64]; // [rsp+100h] [rbp+0h] BYREF
-  PSLIST_ENTRY ListEntry[64]; // [rsp+300h] [rbp+200h] BYREF
+  NTSTATUS v19; // eax
+  _SLIST_ENTRY *v20; // rax
+  unsigned __int64 v21; // [rsp+40h] [rbp-C0h]
+  unsigned int v22; // [rsp+48h] [rbp-B8h]
+  unsigned int v23; // [rsp+4Ch] [rbp-B4h]
+  __int64 v24; // [rsp+50h] [rbp-B0h]
+  ULONG_PTR BugCheckParameter2; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v26; // [rsp+60h] [rbp-A0h]
+  __int64 v27; // [rsp+68h] [rbp-98h]
+  PVOID Object[2]; // [rsp+70h] [rbp-90h] BYREF
+  struct _KWAIT_BLOCK WaitBlockArray; // [rsp+80h] [rbp-80h] BYREF
+  _QWORD v31[64]; // [rsp+E0h] [rbp-20h] BYREF
+  PSLIST_ENTRY ListEntry[64]; // [rsp+2E0h] [rbp+1E0h] BYREF
 
-  if ( StartContext )
+  if ( !StartContext )
+    return;
+  v1 = StartContext[10];
+  v2 = 0LL;
+  v3 = (unsigned int)StartContext[9];
+  v5 = (__int64 *)*((_QWORD *)StartContext + 7);
+  BugCheckParameter2 = 0LL;
+  v22 = v1;
+  v23 = v3;
+  v6 = 3;
+  memset(v31, 0, sizeof(v31));
+  memset(ListEntry, 0, sizeof(ListEntry));
+  v7 = v5[110];
+  v27 = 3 * v3;
+  v8 = (unsigned int)v3;
+  v26 = v3;
+  v9 = (void *)(v7 + 24 * v3);
+  v21 = (unsigned __int64)v9;
+  v24 = v5[111] + 404 * v3;
+  Object[0] = v9;
+  Object[1] = v5 + 122;
+  while ( 1 )
   {
-    v1 = StartContext[10];
-    v2 = 0LL;
-    v3 = (unsigned int)StartContext[9];
-    v5 = *((_QWORD *)StartContext + 9);
-    v6 = *((_QWORD *)StartContext + 8);
-    BugCheckParameter2 = 0LL;
-    v7 = 3;
-    v33 = v1;
-    v37 = v3;
-    v36 = *((_QWORD *)StartContext + 7);
-    v35 = v5;
-    memset(v45, 0, sizeof(v45));
-    memset(ListEntry, 0, sizeof(ListEntry));
-    v8 = *(_QWORD *)(v5 + 272);
-    v41 = 3 * v3;
-    v9 = (unsigned int)v3;
-    v40 = (unsigned int)v3;
-    v10 = (void *)(v8 + 24 * v3);
-    v34 = (unsigned __int64)v10;
-    v11 = *(_DWORD *)(v5 + 4) == 1;
-    v39 = *(_QWORD *)(v5 + 280) + 404 * v3;
-    Object[0] = v10;
-    if ( v11 )
-      v12 = (void *)(v36 + 1240);
-    else
-      v12 = (void *)(v6 + 1176);
-    Object[1] = v12;
-    while ( 1 )
+    if ( (unsigned int)v2 >= 0x3F || *(_QWORD *)(v5[108] + 16 * v8) == v5[108] + 16 * v8 )
     {
-      if ( (unsigned int)v2 < 0x3F && *(_QWORD *)(*(_QWORD *)(v5 + 256) + 16 * v9) != *(_QWORD *)(v5 + 256) + 16 * v9 )
+      if ( (_DWORD)v2 )
       {
-LABEL_39:
-        v7 = 0;
-        goto LABEL_11;
-      }
-      if ( !(_DWORD)v2 )
-        break;
-      v24 = MmWaitMultipleForCacheManagerPrefetch((__int64)v45, v2, v10);
-      if ( v24 >= (unsigned int)v2 )
-        goto LABEL_39;
-      v7 = 1;
-      _mm_lfence();
-      v25 = v24;
-      v26 = ListEntry[v25];
-      if ( !v26 || (Next = v26[3].Next) == 0LL )
-      {
-        v5 = v35;
-        goto LABEL_21;
-      }
-      ExFreePoolWithTag(Next, 0x73416343u);
-      LOBYTE(v26[8].Next) = 6;
-      v26[3].Next = 0LL;
-      v45[v24] = 0LL;
-      ListEntry[v24] = 0LL;
-      if ( *((_DWORD *)&v26[1].Next[32].Next + 2) == 1 && *((_DWORD *)&v26[2].Next + 2) <= 0x20000u )
-      {
-        CcCompleteAsyncRead((__int64)v26);
-        CcFreeWorkQueueEntry(v26);
+        v10 = MmWaitMultipleForCacheManagerPrefetch((__int64)v31, v2, v9);
+        v6 = v10 < (unsigned int)v2;
       }
       else
       {
-        CcPostWorkQueueAsyncRead(v26, 0LL);
-      }
-      v2 = (unsigned int)(v2 - 1);
-      while ( v24 < (unsigned int)v2 )
-      {
-        v45[v25++] = v45[++v24];
-        v45[v25 + 63] = ListEntry[v24];
-      }
-      v28 = v39;
-      v10 = (void *)v34;
-      v5 = v35;
-      v45[v24] = 0LL;
-      ListEntry[v24] = 0LL;
-      _InterlockedDecrement((volatile signed __int32 *)(v28 + 4LL * v33));
-      if ( !v34 )
-      {
-        v10 = (void *)(*(_QWORD *)(v35 + 272) + 8 * v41);
-        v34 = (unsigned __int64)v10;
-      }
-LABEL_22:
-      v9 = v40;
-      if ( v33 && !(_DWORD)v2 )
-        return;
-    }
-    v13 = KeWaitForMultipleObjects(2u, Object, WaitAny, WrFreePage, 0, 0, 0LL, &WaitBlockArray);
-    if ( v13 )
-    {
-      if ( v13 == 1 )
-        v7 = 2;
-    }
-    else
-    {
-      v7 = 0;
-    }
-    if ( !v7 )
-    {
-LABEL_11:
-      v14 = v36 + 1160;
-      ExAcquirePushLockExclusiveEx(v36 + 1160, 0LL);
-      v16 = 16 * v40;
-      while ( 1 )
-      {
-        v17 = (_QWORD *)(v16 + *(_QWORD *)(v5 + 256));
-        if ( (_QWORD *)*v17 == v17 )
+        v19 = KeWaitForMultipleObjects(2u, Object, WaitAny, WrFreePage, 0, 0, 0LL, &WaitBlockArray);
+        v10 = v19;
+        if ( v19 )
         {
-          v22 = v36;
-          goto LABEL_19;
-        }
-        if ( (unsigned int)v2 >= 0x3F )
-        {
-          ExReleasePushLockEx(v14, 0LL);
-          v22 = v36;
-          CcShouldSpinAsyncReadWorkerThread(v36, (_QWORD *)v5, &BugCheckParameter2, v37);
-          ExAcquirePushLockExclusiveEx(v14, 0LL);
-LABEL_19:
-          ExReleasePushLockEx(v14, 0LL);
-          v23 = (_QWORD *)BugCheckParameter2;
-          if ( BugCheckParameter2 )
-          {
-            *(_DWORD *)(v39 + 4LL * *(unsigned int *)(BugCheckParameter2 + 40)) = 0;
-            *v23 = 0LL;
-            ExQueueWorkItemToPartition((ULONG_PTR)v23, 0, *(_DWORD *)(v5 + 24), *(_QWORD *)(v22 + 8));
-            BugCheckParameter2 = 0LL;
-          }
-LABEL_21:
-          v10 = (void *)v34;
-          goto LABEL_22;
-        }
-        NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry(v15, v5, v17);
-        ExReleasePushLockEx(v14, 0LL);
-        if ( !CcAsyncReadPrefetch((__int64)NextWorkQueueEntry) )
-          goto LABEL_42;
-        v19 = NextWorkQueueEntry[3].Next;
-        v20 = v19->Next;
-        if ( v19->Next )
-        {
-          v21 = v39;
-          v45[v2] = v20;
-          ListEntry[v2] = NextWorkQueueEntry;
-          v2 = (unsigned int)(v2 + 1);
-          _InterlockedIncrement((volatile signed __int32 *)(v21 + 4LL * v33));
-          v34 &= -(__int64)((unsigned int)v2 < 0x3F);
-          goto LABEL_17;
-        }
-        ExFreePoolWithTag(v19, 0x73416343u);
-        v29 = NextWorkQueueEntry[1].Next;
-        NextWorkQueueEntry[3].Next = 0LL;
-        LOBYTE(NextWorkQueueEntry[8].Next) = 6;
-        if ( *((_DWORD *)&v29[32].Next + 2) != 1 || *((_DWORD *)&NextWorkQueueEntry[2].Next + 2) > 0x20000u )
-        {
-          CcPostWorkQueueAsyncRead(NextWorkQueueEntry, 0LL);
+          if ( v19 == 1 )
+            v6 = 2;
         }
         else
         {
-LABEL_42:
-          CcCompleteAsyncRead((__int64)NextWorkQueueEntry);
-          CcFreeWorkQueueEntry(NextWorkQueueEntry);
+          v6 = 0;
         }
-LABEL_17:
-        ExAcquirePushLockExclusiveEx(v14, 0LL);
-        v5 = v35;
       }
+      v9 = (void *)v21;
     }
-    if ( v7 == 1 )
-      goto LABEL_22;
-    v34 = (unsigned __int64)v10;
-    if ( v7 != 2 )
-      goto LABEL_22;
-    if ( !v33 )
+    else
     {
-      ExFreePoolWithTag(StartContext, 0x71576343u);
-      CcDereferencePartition(v36);
-      if ( v6 )
+      v10 = v2 + 1;
+      v6 = 0;
+    }
+    if ( !v6 )
+      break;
+    if ( v6 != 1 )
+      goto LABEL_45;
+    if ( v10 < (unsigned int)v2 )
+    {
+      _mm_lfence();
+      v16 = v10;
+      v17 = ListEntry[v16];
+      if ( v17 )
       {
-        v30 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 8), 0xFFFFFFFFFFFFFFFFuLL);
-        v31 = v30 <= 1;
-        v32 = v30 - 1;
-        if ( v31 )
+        Next = v17[3].Next;
+        if ( Next )
         {
-          if ( v32 )
-            __fastfail(0xEu);
-          KeSetEvent((PRKEVENT)(v6 + 1200), 0, 0);
+          ExFreePoolWithTag(Next, 0x73416343u);
+          *((_BYTE *)&v17[7].Next + 8) = 6;
+          v17[3].Next = 0LL;
+          v31[v10] = 0LL;
+          ListEntry[v10] = 0LL;
+          if ( *((_DWORD *)&v17[1].Next[32].Next + 2) == 1 && *((_DWORD *)&v17[2].Next + 2) <= 0x20000u )
+          {
+            CcCompleteAsyncRead((__int64)v17);
+            CcFreeWorkQueueEntry(v17);
+          }
+          else
+          {
+            CcPostWorkQueueAsyncRead(v17, 0LL);
+          }
+          v2 = (unsigned int)(v2 - 1);
+          while ( v10 < (unsigned int)v2 )
+          {
+            v31[v16++] = v31[++v10];
+            v31[v16 + 63] = ListEntry[v10];
+          }
+          v9 = (void *)v21;
+          v31[v10] = 0LL;
+          ListEntry[v10] = 0LL;
+          _InterlockedDecrement((volatile signed __int32 *)(v24 + 4LL * v22));
+          if ( !v21 )
+          {
+            v9 = (void *)(v5[110] + 8 * v27);
+            v21 = (unsigned __int64)v9;
+          }
         }
       }
     }
+LABEL_13:
+    v8 = v26;
+    if ( v22 && !(_DWORD)v2 )
+      return;
+  }
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)(v5 + 112), 0LL);
+  v11 = 16 * v8;
+  while ( 1 )
+  {
+    v12 = (_QWORD *)(v11 + v5[108]);
+    if ( (_QWORD *)*v12 == v12 )
+      break;
+    if ( (unsigned int)v2 >= 0x3F )
+    {
+      ExReleasePushLockEx((ULONG_PTR)(v5 + 112), 0LL);
+      CcShouldSpinAsyncReadWorkerThread((__int64)v5, &BugCheckParameter2, v23);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)(v5 + 112), 0LL);
+      break;
+    }
+    NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry((__int64)v5, v12);
+    ExReleasePushLockEx((ULONG_PTR)(v5 + 112), 0LL);
+    if ( !CcAsyncReadPrefetch((__int64)NextWorkQueueEntry) )
+      goto LABEL_39;
+    v15 = NextWorkQueueEntry[3].Next;
+    if ( v15->Next )
+    {
+      v31[v2] = v15->Next;
+      ListEntry[v2] = NextWorkQueueEntry;
+      v2 = (unsigned int)(v2 + 1);
+      _InterlockedIncrement((volatile signed __int32 *)(v24 + 4LL * v22));
+      v21 &= -(__int64)((unsigned int)v2 < 0x3F);
+      goto LABEL_19;
+    }
+    ExFreePoolWithTag(v15, 0x73416343u);
+    v20 = NextWorkQueueEntry[1].Next;
+    NextWorkQueueEntry[3].Next = 0LL;
+    *((_BYTE *)&NextWorkQueueEntry[7].Next + 8) = 6;
+    if ( *((_DWORD *)&v20[32].Next + 2) != 1 || *((_DWORD *)&NextWorkQueueEntry[2].Next + 2) > 0x20000u )
+    {
+      CcPostWorkQueueAsyncRead(NextWorkQueueEntry, 0LL);
+    }
+    else
+    {
+LABEL_39:
+      CcCompleteAsyncRead((__int64)NextWorkQueueEntry);
+      CcFreeWorkQueueEntry(NextWorkQueueEntry);
+    }
+LABEL_19:
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)(v5 + 112), 0LL);
+  }
+  ExReleasePushLockEx((ULONG_PTR)(v5 + 112), 0LL);
+  v13 = (_QWORD *)BugCheckParameter2;
+  if ( !BugCheckParameter2 )
+    goto LABEL_12;
+  *(_DWORD *)(v24 + 4LL * *(unsigned int *)(BugCheckParameter2 + 40)) = 0;
+  *v13 = 0LL;
+  ExQueueWorkItemToPartition(v13, 0, 0xFFFFFFFF, v5[1]);
+  BugCheckParameter2 = 0LL;
+LABEL_45:
+  if ( v6 != 2 )
+  {
+LABEL_12:
+    v9 = (void *)v21;
+    goto LABEL_13;
+  }
+  if ( !v22 )
+  {
+    ExFreePoolWithTag(StartContext, 0x71576343u);
+    CcDereferencePartition((__int64)v5);
   }
 }

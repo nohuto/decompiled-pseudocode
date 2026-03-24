@@ -1,20 +1,20 @@
 /*
- * XREFs of UsbhFdoPower @ 0x1C001C7E0
+ * XREFs of UsbhFdoPower @ 0x1C001A410
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     Usbh_HubDeferIrpProcessing @ 0x1C003BF80 (Usbh_HubDeferIrpProcessing.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     Usbh_HubDeferIrpProcessing @ 0x1C003D238 (Usbh_HubDeferIrpProcessing.c)
  */
 
 __int64 __fastcall UsbhFdoPower(struct _DEVICE_OBJECT *a1, IRP *a2)
 {
   volatile signed __int32 *DeviceExtension; // rax
   _IO_STACK_LOCATION *CurrentStackLocation; // r9
-  char QuadPart; // r11
-  int MinorFunction; // r10d
+  char QuadPart; // bl
+  int MinorFunction; // r11d
   __int64 v8; // rcx
   void *v9; // rdx
   __int64 v10; // rcx
@@ -89,7 +89,7 @@ __int64 __fastcall UsbhFdoPower(struct _DEVICE_OBJECT *a1, IRP *a2)
     }
     else
     {
-      return (unsigned int)off_1C005D818[2 * v11](a1, a2);
+      return (unsigned int)off_1C005F128[2 * v11](a1, a2);
     }
   }
   return v12;

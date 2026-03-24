@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlFormatCurrentUserKeyPath @ 0x14065A5C0
+ * XREFs of RtlFormatCurrentUserKeyPath @ 0x14065A5A0
  * Callers:
  *     RtlpGetRegistryHandle @ 0x1405C7774 (RtlpGetRegistryHandle.c)
- *     RtlOpenCurrentUser @ 0x14071B0D0 (RtlOpenCurrentUser.c)
- *     AslRegistryBuildUserPath @ 0x1407235D0 (AslRegistryBuildUserPath.c)
- *     _RegRtlOpenPredefinedKey @ 0x14075D21C (_RegRtlOpenPredefinedKey.c)
+ *     RtlOpenCurrentUser @ 0x14071B0B0 (RtlOpenCurrentUser.c)
+ *     AslRegistryBuildUserPath @ 0x1407235B0 (AslRegistryBuildUserPath.c)
+ *     _RegRtlOpenPredefinedKey @ 0x14075D1FC (_RegRtlOpenPredefinedKey.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryInformationToken @ 0x1401B8590 (ZwQueryInformationToken.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryInformationToken @ 0x1401B85B0 (ZwQueryInformationToken.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlConvertSidToUnicodeString @ 0x14065A6D0 (RtlConvertSidToUnicodeString.c)
- *     RtlLengthSidAsUnicodeString @ 0x14065A9D4 (RtlLengthSidAsUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1406B2120 (ExpAllocateStringRoutine.c)
+ *     RtlConvertSidToUnicodeString @ 0x14065A6B0 (RtlConvertSidToUnicodeString.c)
+ *     RtlLengthSidAsUnicodeString @ 0x14065A9B4 (RtlLengthSidAsUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
  */
 
 NTSTATUS __stdcall RtlFormatCurrentUserKeyPath(PUNICODE_STRING KeyPath)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?FreeTableData@?$CGenericTableMap@PEAXULSEENTRY@CLogicalSurfaceHandleMap@@@@CAXPEAU_RTL_GENERIC_TABLE@@PEAX@Z @ 0x1800F4900
+ * XREFs of ?FreeTableData@?$CGenericTableMap@PEAXULSEENTRY@CLogicalSurfaceHandleMap@@@@CAXPEAU_RTL_GENERIC_TABLE@@PEAX@Z @ 0x1800D7C40
  * Callers:
  *     <none>
  * Callees:

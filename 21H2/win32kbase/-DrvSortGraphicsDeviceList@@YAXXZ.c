@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DrvSortGraphicsDeviceList@@YAXXZ @ 0x1C0069B28
+ * XREFs of ?DrvSortGraphicsDeviceList@@YAXXZ @ 0x1C00B3484
  * Callers:
- *     DrvUpdateGraphicsDeviceList @ 0x1C006ADB0 (DrvUpdateGraphicsDeviceList.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001DEE0 (DrvUpdateGraphicsDeviceList.c)
  * Callees:
- *     ?DrvMoveGraphicsDevice@@YAXPEAUtagGRAPHICS_DEVICE@@00@Z @ 0x1C0069BE0 (-DrvMoveGraphicsDevice@@YAXPEAUtagGRAPHICS_DEVICE@@00@Z.c)
+ *     ?DrvMoveGraphicsDevice@@YAXPEAUtagGRAPHICS_DEVICE@@00@Z @ 0x1C00B353C (-DrvMoveGraphicsDevice@@YAXPEAUtagGRAPHICS_DEVICE@@00@Z.c)
  */
 
 void DrvSortGraphicsDeviceList(void)

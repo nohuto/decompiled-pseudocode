@@ -1,12 +1,12 @@
 /*
- * XREFs of GreSetSolidBrush @ 0x1C0169310
+ * XREFs of GreSetSolidBrush @ 0x1C001C810
  * Callers:
  *     <none>
  * Callees:
- *     ?GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z @ 0x1C0062FA0 (-GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z.c)
+ *     ?GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z @ 0x1C001C830 (-GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z.c)
  */
 
-__int64 __fastcall GreSetSolidBrush(HBRUSH a1, int a2)
+__int64 __fastcall GreSetSolidBrush(HBRUSH a1, unsigned int a2)
 {
   return GreSetSolidBrushInternal(a1, a2, 0, 1);
 }

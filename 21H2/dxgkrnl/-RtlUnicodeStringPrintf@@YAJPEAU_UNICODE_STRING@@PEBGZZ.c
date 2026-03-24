@@ -1,7 +1,8 @@
 /*
- * XREFs of ?RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ @ 0x1C006B274
+ * XREFs of ?RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ @ 0x1C00474E0
  * Callers:
- *     ?OpenEdidRegistryForTarget@EDIDCACHE@DxgMonitor@@CAJIKAEAPEAXPEAK@Z @ 0x1C03B1954 (-OpenEdidRegistryForTarget@EDIDCACHE@DxgMonitor@@CAJIKAEAPEAXPEAK@Z.c)
+ *     ?OpenEdidRegistryForTarget@EDIDCACHE@@AEAAJIKAEAPEAXPEAK@Z @ 0x1C0276794 (-OpenEdidRegistryForTarget@EDIDCACHE@@AEAAJIKAEAPEAXPEAK@Z.c)
+ *     DpOpenSpbResource @ 0x1C02D6E10 (DpOpenSpbResource.c)
  * Callees:
  *     <none>
  */
@@ -9,38 +10,47 @@
 __int64 RtlUnicodeStringPrintf(struct _UNICODE_STRING *a1, const unsigned __int16 *a2, ...)
 {
   unsigned __int16 Length; // cx
+  wchar_t *Buffer; // r10
+  size_t v5; // rdi
+  int v6; // ebx
   unsigned __int64 MaximumLength; // rax
-  unsigned int v5; // ebx
-  unsigned __int64 v6; // rsi
-  int v7; // eax
-  va_list Args; // [rsp+60h] [rbp+18h] BYREF
+  int v8; // eax
+  va_list Args; // [rsp+70h] [rbp+18h] BYREF
 
   va_start(Args, a2);
   Length = a1->Length;
+  Buffer = 0LL;
+  v5 = 0LL;
+  v6 = 0;
   if ( (Length & 1) != 0 )
     return (unsigned int)-1073741811;
   MaximumLength = a1->MaximumLength;
-  if ( (MaximumLength & 1) != 0 )
-    return (unsigned int)-1073741811;
-  if ( Length > (unsigned __int16)MaximumLength )
-    return (unsigned int)-1073741811;
-  if ( (_WORD)MaximumLength == 0xFFFF )
-    return (unsigned int)-1073741811;
-  v5 = 0;
-  if ( !a1->Buffer && (Length || (_WORD)MaximumLength) )
+  if ( (MaximumLength & 1) != 0 || Length > (unsigned __int16)MaximumLength || (_WORD)MaximumLength == 0xFFFF )
   {
     return (unsigned int)-1073741811;
   }
   else
   {
-    v6 = MaximumLength >> 1;
-    v7 = _vsnwprintf(a1->Buffer, MaximumLength >> 1, a2, Args);
-    if ( v7 < 0 || v7 > v6 )
+    if ( !a1->Buffer && (Length || (_WORD)MaximumLength) )
     {
-      LOWORD(v7) = v6;
-      v5 = -2147483643;
+      v6 = -1073741811;
     }
-    a1->Length = 2 * v7;
+    else
+    {
+      Buffer = a1->Buffer;
+      v5 = MaximumLength >> 1;
+    }
+    if ( v6 >= 0 )
+    {
+      v6 = 0;
+      v8 = _vsnwprintf(Buffer, v5, a2, Args);
+      if ( v8 < 0 || v8 > v5 )
+      {
+        LOWORD(v8) = v5;
+        v6 = -2147483643;
+      }
+      a1->Length = 2 * v8;
+    }
   }
-  return v5;
+  return (unsigned int)v6;
 }

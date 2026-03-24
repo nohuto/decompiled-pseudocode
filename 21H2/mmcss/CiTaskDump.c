@@ -1,11 +1,11 @@
 /*
- * XREFs of CiTaskDump @ 0x1C000DBA0
+ * XREFs of CiTaskDump @ 0x1C000DC20
  * Callers:
- *     CiConfigInitializeFromRegistry @ 0x1C000D8D0 (CiConfigInitializeFromRegistry.c)
+ *     CiConfigInitializeFromRegistry @ 0x1C000D960 (CiConfigInitializeFromRegistry.c)
  * Callees:
- *     WPP_SF_d @ 0x1C00048F4 (WPP_SF_d.c)
- *     WPP_SF_P @ 0x1C0004A28 (WPP_SF_P.c)
- *     WPP_SF_S @ 0x1C0004A7C (WPP_SF_S.c)
+ *     WPP_SF_d @ 0x1C0004644 (WPP_SF_d.c)
+ *     WPP_SF_P @ 0x1C0004778 (WPP_SF_P.c)
+ *     WPP_SF_S @ 0x1C00047CC (WPP_SF_S.c)
  */
 
 __int64 __fastcall CiTaskDump(unsigned __int8 *a1, __int64 a2, __int64 a3)

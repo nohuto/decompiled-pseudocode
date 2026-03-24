@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmReferencePrimaryAllocationForSubmission @ 0x1C0016FC0
+ * XREFs of VidMmReferencePrimaryAllocationForSubmission @ 0x1C0014930
  * Callers:
  *     <none>
  * Callees:
- *     ?ReferencePrimaryAllocationForSubmission@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_MULTI_ALLOC@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00B1414 (-ReferencePrimaryAllocationForSubmission@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_MULTI_A.c)
+ *     ?ReferencePrimaryAllocationForSubmission@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_MULTI_ALLOC@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00866AC (-ReferencePrimaryAllocationForSubmission@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_MULTI_A.c)
  */
 
 __int64 __fastcall VidMmReferencePrimaryAllocationForSubmission(

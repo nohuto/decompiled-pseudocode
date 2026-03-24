@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SafeCopyUnicodeString@@YAXPEAU_UNICODE_STRING@@QEAU1@@Z @ 0x1C00CFA90
+ * XREFs of ?SafeCopyUnicodeString@@YAXPEAU_UNICODE_STRING@@QEAU1@@Z @ 0x1C000FE48
  * Callers:
- *     xxxResolveDesktop @ 0x1C00CF130 (xxxResolveDesktop.c)
- *     xxxResolveDesktopForWOW @ 0x1C01E43F8 (xxxResolveDesktopForWOW.c)
+ *     xxxResolveDesktop @ 0x1C000F4F0 (xxxResolveDesktop.c)
+ *     xxxResolveDesktopForWOW @ 0x1C01E9C64 (xxxResolveDesktopForWOW.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 void __fastcall SafeCopyUnicodeString(PUNICODE_STRING DestinationString, struct _UNICODE_STRING *const a2)

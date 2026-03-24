@@ -1,5 +1,5 @@
 /*
- * XREFs of ??0VIDMM_PHYSICAL_ADAPTER@@QEAA@XZ @ 0x1C00190B0
+ * XREFs of ??0VIDMM_PHYSICAL_ADAPTER@@QEAA@XZ @ 0x1C0016320
  * Callers:
  *     <none>
  * Callees:

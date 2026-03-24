@@ -1,98 +1,75 @@
 /*
- * XREFs of ?Cleanup@SESSION_ADAPTER@@QEAAXXZ @ 0x1C01DFB20
+ * XREFs of ?Cleanup@SESSION_ADAPTER@@QEAAXXZ @ 0x1C0164B9C
  * Callers:
- *     ?RemoveAdapterFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@@Z @ 0x1C01DFA38 (-RemoveAdapterFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@@Z.c)
- *     DxgkDestroyCsrssProcess @ 0x1C01E54B4 (DxgkDestroyCsrssProcess.c)
+ *     DxgkDestroyCsrssProcess @ 0x1C0161014 (DxgkDestroyCsrssProcess.c)
+ *     ?RemoveAdapterFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@@Z @ 0x1C01649D8 (-RemoveAdapterFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C00076A0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?DestroyCddDeviceAndContext@SESSION_ADAPTER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C01DFBA8 (-DestroyCddDeviceAndContext@SESSION_ADAPTER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?DestroyCddDeviceAndContext@SESSION_ADAPTER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C0164C10 (-DestroyCddDeviceAndContext@SESSION_ADAPTER@@QEAAXPEAVDXGDEVICE@@@Z.c)
  */
 
-void __fastcall SESSION_ADAPTER::Cleanup(SESSION_ADAPTER *this)
+void __fastcall SESSION_ADAPTER::Cleanup(DXGADAPTER **this, __int64 a2)
 {
-  unsigned int *v1; // rdi
-  int *v2; // rsi
-  SESSION_ADAPTER *v4; // rbp
-  DXGADAPTER *v5; // rcx
-  SESSION_ADAPTER *v6; // r12
-  SESSION_ADAPTER *v7; // r13
-  void *v8; // rax
-  _QWORD *v9; // r14
-  int v10; // ecx
-  SESSION_ADAPTER *v11; // rcx
-  SESSION_ADAPTER **v12; // rax
+  __int64 v3; // rdx
+  SESSION_ADAPTER *v4; // rcx
+  SESSION_ADAPTER *v5; // rdi
+  DXGADAPTER *v6; // rcx
+  _QWORD *v7; // rax
+  SESSION_ADAPTER *v8; // r14
+  SESSION_ADAPTER *v9; // rbp
+  _QWORD *v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  int v14; // ecx
+  SESSION_ADAPTER **v15; // rax
 
-  v1 = (unsigned int *)((char *)this + 8);
-  v2 = (int *)((char *)this + 12);
   if ( *((_DWORD *)this + 12) )
   {
-    WdLogSingleEntry3(2LL, *((unsigned int *)this + 12), *v2, *v1);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Detected multiple reference leakage (0x%I64x) on session adapter for adapter 0x%I64x%08I64x",
-      *((unsigned int *)this + 12),
-      *v2,
-      *v1,
-      0LL,
-      0LL);
+    v7 = (_QWORD *)WdLogNewEntry5_WdError(this, a2);
+    v7[3] = *((unsigned int *)this + 12);
+    v7[4] = *((int *)this + 3);
+    v7[5] = *((unsigned int *)this + 2);
+    WdLogEvent5_WdError(v7);
     *((_DWORD *)this + 12) = 0;
   }
-  SESSION_ADAPTER::DestroyCddDeviceAndContext(this, *((struct DXGDEVICE **)this + 7));
-  v4 = (SESSION_ADAPTER *)*((_QWORD *)this + 14);
-  while ( v4 != (SESSION_ADAPTER *)((char *)this + 112) )
+  SESSION_ADAPTER::DestroyCddDeviceAndContext((SESSION_ADAPTER *)this, this[7]);
+  v5 = this[14];
+  while ( v5 != (SESSION_ADAPTER *)(this + 14) )
   {
-    v6 = v4;
-    v7 = v4;
-    v4 = *(SESSION_ADAPTER **)v4;
-    WdLogSingleEntry4(2LL, *((unsigned int *)v7 + 10), *((unsigned int *)v7 - 4), *v2, *v1);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Detected multiple reference leakage (0x%I64x) on display source (0x%I64x) in session adapter for adapter 0x%I64x%08I64x",
-      *((unsigned int *)v7 + 10),
-      *((unsigned int *)v7 - 4),
-      *v2,
-      *v1,
-      0LL);
-    v8 = (char *)v7 + 56;
-    v9 = (_QWORD *)((char *)v7 + 568);
-    if ( *((_QWORD *)v7 + 7) || *v9 )
+    v8 = v5;
+    v9 = v5;
+    v5 = *(SESSION_ADAPTER **)v5;
+    v10 = (_QWORD *)WdLogNewEntry5_WdError(v4, v3);
+    v10[3] = *((unsigned int *)v9 + 10);
+    v10[4] = *((unsigned int *)v9 - 4);
+    v10[5] = *((int *)this + 3);
+    v10[6] = *((unsigned int *)this + 2);
+    WdLogEvent5_WdError(v10);
+    if ( *((_QWORD *)v9 + 7) || *((_QWORD *)v9 + 71) )
     {
-      WdLogSingleEntry1(1LL, 2872LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"(pDisplaySource->m_pCddPrimaryAllocation[0] == NULL) && (pDisplaySource->m_pCddShadowAllocation == NULL)",
-        2872LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      v8 = (char *)v7 + 56;
+      v13 = WdLogNewEntry5_WdAssertion(v12, v11);
+      *(_QWORD *)(v13 + 24) = 2801LL;
+      WdLogEvent5_WdAssertion(v13);
     }
-    memset(v8, 0, 0x200uLL);
-    *v9 = 0LL;
-    v10 = *((_DWORD *)v7 - 4);
-    *((_DWORD *)v7 + 10) = 0;
-    *((_DWORD *)this + 26) &= ~(1 << v10);
-    *((_QWORD *)v7 - 1) = 0LL;
-    v11 = *(SESSION_ADAPTER **)v6;
-    if ( *(SESSION_ADAPTER **)(*(_QWORD *)v6 + 8LL) != v6 || (v12 = (SESSION_ADAPTER **)*((_QWORD *)v6 + 1), *v12 != v6) )
+    memset((char *)v9 + 56, 0, 0x200uLL);
+    v14 = *((_DWORD *)v9 - 4);
+    *((_QWORD *)v9 + 71) = 0LL;
+    *((_DWORD *)v9 + 10) = 0;
+    *((_DWORD *)this + 26) &= ~(1 << v14);
+    *((_QWORD *)v9 - 1) = 0LL;
+    v4 = *(SESSION_ADAPTER **)v8;
+    if ( *(SESSION_ADAPTER **)(*(_QWORD *)v8 + 8LL) != v8 || (v15 = (SESSION_ADAPTER **)*((_QWORD *)v8 + 1), *v15 != v8) )
       __fastfail(3u);
-    *v12 = v11;
-    *((_QWORD *)v11 + 1) = v12;
+    *v15 = v4;
+    *((_QWORD *)v4 + 1) = v15;
     --*((_DWORD *)this + 27);
   }
-  v5 = (DXGADAPTER *)*((_QWORD *)this + 2);
-  if ( v5 )
+  v6 = this[2];
+  if ( v6 )
   {
-    DXGADAPTER::ReleaseReference(v5);
-    *((_QWORD *)this + 2) = 0LL;
+    DXGADAPTER::ReleaseReference(v6);
+    this[2] = 0LL;
   }
 }

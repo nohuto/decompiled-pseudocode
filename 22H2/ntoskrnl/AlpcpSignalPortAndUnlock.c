@@ -1,73 +1,78 @@
 /*
- * XREFs of AlpcpSignalPortAndUnlock @ 0x14077A1C0
+ * XREFs of AlpcpSignalPortAndUnlock @ 0x14067758C
  * Callers:
- *     AlpcpDisconnectPort @ 0x140718F30 (AlpcpDisconnectPort.c)
- *     AlpcpCancelMessage @ 0x14077971C (AlpcpCancelMessage.c)
+ *     AlpcpDisconnectPort @ 0x1405E26FC (AlpcpDisconnectPort.c)
+ *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeReleaseSemaphoreEx @ 0x1402B7170 (KeReleaseSemaphoreEx.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     AlpcpQueueIoCompletionPort @ 0x14031A580 (AlpcpQueueIoCompletionPort.c)
+ *     KeReleaseSemaphoreEx @ 0x140262770 (KeReleaseSemaphoreEx.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     AlpcpQueueIoCompletionPort @ 0x140304AE4 (AlpcpQueueIoCompletionPort.c)
  */
 
-signed __int32 __fastcall AlpcpSignalPortAndUnlock(__int64 a1)
+char __fastcall AlpcpSignalPortAndUnlock(__int64 a1)
 {
   ULONG_PTR v3; // rdi
-  __int64 v4; // rcx
-  _QWORD **v5; // rdi
-  volatile signed __int64 *v6; // rsi
-  _QWORD *v7; // rax
-  _QWORD *v8; // rdi
-  __int64 v9; // rdx
-  _QWORD *v10; // rcx
+  _DWORD *v4; // r9
+  _DWORD *v5; // r9
+  _QWORD *v6; // rdi
+  volatile signed __int64 *v7; // rsi
+  _QWORD *v8; // rax
+  _QWORD *v9; // rdi
+  __int64 v10; // rdx
+  _QWORD *v11; // rcx
 
   if ( *(_QWORD *)(a1 + 32) )
-    return AlpcpQueueIoCompletionPort((_QWORD *)a1, 0, 1, 0, 0);
+    return AlpcpQueueIoCompletionPort((__int64 *)a1, 0, 1, 0);
   if ( (*(_DWORD *)(a1 + 416) & 0x200) != 0 )
   {
     v3 = a1 + 352;
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 352), 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)(a1 + 352));
     KeAbPostRelease(v3);
-    v4 = *(_QWORD *)(a1 + 248);
-    return KeReleaseSemaphoreEx(v4, 1u, 1);
+    return KeReleaseSemaphoreEx(*(_QWORD *)(a1 + 248), 1LL, 1LL, v4, 0);
   }
-  v5 = (_QWORD **)(a1 + 232);
-  if ( *v5 != v5 )
+  else
   {
-    v6 = (volatile signed __int64 *)(a1 + 224);
+    v6 = (_QWORD *)(a1 + 232);
+    if ( (_QWORD *)*v6 == v6 )
+      goto LABEL_21;
+    v7 = (volatile signed __int64 *)(a1 + 224);
     ExAcquirePushLockExclusiveEx(a1 + 224, 0LL);
-    v7 = *v5;
-    if ( *v5 == v5 )
+    v8 = (_QWORD *)*v6;
+    if ( (_QWORD *)*v6 == v6 )
     {
-      v8 = 0LL;
+      v9 = 0LL;
     }
     else
     {
-      v8 = v7 - 177;
-      *(v7 - 1) = 0LL;
-      v9 = *v7;
-      if ( *(_QWORD **)(*v7 + 8LL) != v7 || (v10 = (_QWORD *)v7[1], (_QWORD *)*v10 != v7) )
+      v9 = v8 - 167;
+      *(v8 - 1) = 0LL;
+      v10 = *v8;
+      if ( *(_QWORD **)(*v8 + 8LL) != v8 || (v11 = (_QWORD *)v8[1], (_QWORD *)*v11 != v8) )
         __fastfail(3u);
-      *v10 = v9;
-      *(_QWORD *)(v9 + 8) = v10;
-      *v7 = 0LL;
+      *v11 = v10;
+      *(_QWORD *)(v10 + 8) = v11;
+      *v8 = 0LL;
     }
-    if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v6);
-    KeAbPostRelease((ULONG_PTR)v6);
-    if ( v8 )
+    if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v7);
+    KeAbPostRelease((ULONG_PTR)v7);
+    if ( !v9 )
+    {
+LABEL_21:
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 352), 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared((signed __int64 *)(a1 + 352));
+      return KeAbPostRelease(a1 + 352);
+    }
+    else
     {
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 352), 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)(a1 + 352));
       KeAbPostRelease(a1 + 352);
-      v4 = (__int64)(v8 + 155);
-      return KeReleaseSemaphoreEx(v4, 1u, 1);
+      return KeReleaseSemaphoreEx((__int64)(v9 + 145), 1LL, 1LL, v5, 2);
     }
   }
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 352), 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)(a1 + 352));
-  return KeAbPostRelease(a1 + 352);
 }

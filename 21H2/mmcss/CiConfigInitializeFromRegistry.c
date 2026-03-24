@@ -1,24 +1,24 @@
 /*
- * XREFs of CiConfigInitializeFromRegistry @ 0x1C000D8D0
+ * XREFs of CiConfigInitializeFromRegistry @ 0x1C000D960
  * Callers:
- *     CiConfigInitialize @ 0x1C000D4E0 (CiConfigInitialize.c)
+ *     CiConfigInitialize @ 0x1C000D490 (CiConfigInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0003170 (__security_check_cookie.c)
- *     memmove @ 0x1C0003400 (memmove.c)
- *     memset @ 0x1C00036C0 (memset.c)
- *     WPP_SF_Sd @ 0x1C00046D8 (WPP_SF_Sd.c)
- *     WPP_SF_d @ 0x1C00048F4 (WPP_SF_d.c)
- *     CiConfigTaskPolicy @ 0x1C000DB10 (CiConfigTaskPolicy.c)
- *     CiTaskDump @ 0x1C000DBA0 (CiTaskDump.c)
- *     CiTaskAllocate @ 0x1C000DC50 (CiTaskAllocate.c)
- *     CiConfigQueryTaskFromRegistry @ 0x1C000DD10 (CiConfigQueryTaskFromRegistry.c)
+ *     __security_check_cookie @ 0x1C0002FD0 (__security_check_cookie.c)
+ *     memmove @ 0x1C00031C0 (memmove.c)
+ *     memset @ 0x1C0003480 (memset.c)
+ *     WPP_SF_Sd @ 0x1C0004428 (WPP_SF_Sd.c)
+ *     WPP_SF_d @ 0x1C0004644 (WPP_SF_d.c)
+ *     CiConfigTaskPolicy @ 0x1C000DB90 (CiConfigTaskPolicy.c)
+ *     CiTaskDump @ 0x1C000DC20 (CiTaskDump.c)
+ *     CiTaskAllocate @ 0x1C000DCD0 (CiTaskAllocate.c)
+ *     CiConfigQueryTaskFromRegistry @ 0x1C000DD90 (CiConfigQueryTaskFromRegistry.c)
  */
 
 __int64 __fastcall CiConfigInitializeFromRegistry(HANDLE KeyHandle)
 {
   ULONG i; // esi
   NTSTATUS v3; // ebx
-  WCHAR *Pool2; // rax
+  WCHAR *PoolWithTag; // rax
   WCHAR *v5; // rbx
   NTSTATUS v6; // r9d
   int TaskFromRegistry; // edi
@@ -26,18 +26,18 @@ __int64 __fastcall CiConfigInitializeFromRegistry(HANDLE KeyHandle)
   ULONG Length[2]; // [rsp+28h] [rbp-E0h]
   ULONG ResultLength[2]; // [rsp+38h] [rbp-D0h] BYREF
   void *KeyHandlea; // [rsp+40h] [rbp-C8h] BYREF
-  __int64 ObjectAttributes; // [rsp+48h] [rbp-C0h]
-  struct _OBJECT_ATTRIBUTES ObjectAttributes_8; // [rsp+50h] [rbp-B8h] BYREF
-  struct _UNICODE_STRING DestinationString_8; // [rsp+80h] [rbp-88h] BYREF
+  __int64 DestinationString; // [rsp+48h] [rbp-C0h]
+  struct _UNICODE_STRING DestinationString_8; // [rsp+50h] [rbp-B8h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes_8; // [rsp+60h] [rbp-A8h] BYREF
   _QWORD v16[15]; // [rsp+90h] [rbp-78h] BYREF
   _BYTE KeyInformation[12]; // [rsp+108h] [rbp+0h] BYREF
   unsigned int Size; // [rsp+114h] [rbp+Ch]
   size_t Size_4; // [rsp+118h] [rbp+10h] BYREF
 
-  ObjectAttributes = 0LL;
+  DestinationString = 0LL;
   ResultLength[0] = 0;
   KeyHandlea = 0LL;
-  memset(&ObjectAttributes_8, 0, 44);
+  memset(&ObjectAttributes_8, 0, sizeof(ObjectAttributes_8));
   memset(v16, 0, 48);
   DestinationString_8 = 0LL;
   memset(&v16[7], 0, 0x40uLL);
@@ -48,11 +48,11 @@ __int64 __fastcall CiConfigInitializeFromRegistry(HANDLE KeyHandle)
       break;
     if ( Size < 0x80 )
     {
-      Pool2 = (WCHAR *)ExAllocatePool2(64LL, 2LL * (Size + 1), 1953658433LL);
-      v5 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (WCHAR *)ExAllocatePoolWithTag((POOL_TYPE)512, 2LL * (Size + 1), 0x74727641u);
+      v5 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memmove(Pool2, &Size_4, Size);
+        memmove(PoolWithTag, &Size_4, Size);
         v5[(unsigned __int64)Size >> 1] = 0;
         if ( RtlInitUnicodeStringEx(&DestinationString_8, v5) < 0 )
           goto LABEL_20;
@@ -95,7 +95,7 @@ LABEL_20:
         }
         else
         {
-          CiConfigTaskPolicy(ObjectAttributes);
+          CiConfigTaskPolicy(DestinationString);
           CiTaskDump();
         }
       }

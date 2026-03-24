@@ -1,120 +1,147 @@
 /*
- * XREFs of ?DxgkExtractRemoteBundleObject@@YAJIKPEAPEAXPEAU_EPROCESS@@@Z @ 0x1C033C4C4
+ * XREFs of ?DxgkExtractRemoteBundleObject@@YAJIKPEAPEAXPEAU_EPROCESS@@@Z @ 0x1C028A8A0
  * Callers:
- *     ?BindCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_BINDCOMPOSITIONSURFACE@@PEAU_DXGCOMPOSITIONMESSAGE_BINDCOMPOSITIONSURFACE_RETURN@@@Z @ 0x1C02DEB54 (-BindCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSA.c)
+ *     ?BindCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_BINDCOMPOSITIONSURFACE@@PEAU_DXGCOMPOSITIONMESSAGE_BINDCOMPOSITIONSURFACE_RETURN@@@Z @ 0x1C028C304 (-BindCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSA.c)
+ *     ?VailDRTProcessExtractWorker@@YAXPEAX@Z @ 0x1C02B5CF0 (-VailDRTProcessExtractWorker@@YAXPEAX@Z.c)
+ *     ?VailDRTTest@@YAJQEAVDXGADAPTER@@QEAU_D3DKMT_DRT_ESCAPE_HEAD@@@Z @ 0x1C02B5D80 (-VailDRTTest@@YAJQEAVDXGADAPTER@@QEAU_D3DKMT_DRT_ESCAPE_HEAD@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001EF50 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?ReferenceVailObject@DXGPROCESS@@QEAAPEAVDXGVAILOBJECT@@XZ @ 0x1C0336D84 (-ReferenceVailObject@DXGPROCESS@@QEAAPEAVDXGVAILOBJECT@@XZ.c)
- *     ?ReferenceVailObject@DXGVIRTUALMACHINE@@QEAAPEAVDXGVAILOBJECT@@XZ @ 0x1C0336E18 (-ReferenceVailObject@DXGVIRTUALMACHINE@@QEAAPEAVDXGVAILOBJECT@@XZ.c)
- *     ?ExtractBundleObject@DXG_HOST_REMOTEOBJECTCHANNEL@@QEAAJIKPEAPEAXPEAU_EPROCESS@@@Z @ 0x1C033C738 (-ExtractBundleObject@DXG_HOST_REMOTEOBJECTCHANNEL@@QEAAJIKPEAPEAXPEAU_EPROCESS@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001AAD0 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?ReferenceVailObject@DXGPROCESS@@QEAAPEAVDXGVAILOBJECT@@XZ @ 0x1C0285B6C (-ReferenceVailObject@DXGPROCESS@@QEAAPEAVDXGVAILOBJECT@@XZ.c)
+ *     ?ReferenceVailObject@DXGVIRTUALMACHINE@@QEAAPEAVDXGVAILOBJECT@@XZ @ 0x1C0285BD4 (-ReferenceVailObject@DXGVIRTUALMACHINE@@QEAAPEAVDXGVAILOBJECT@@XZ.c)
+ *     ?ExtractBundleObject@DXG_HOST_REMOTEOBJECTCHANNEL@@QEAAJIKPEAPEAXPEAU_EPROCESS@@@Z @ 0x1C028B010 (-ExtractBundleObject@DXG_HOST_REMOTEOBJECTCHANNEL@@QEAAJIKPEAPEAXPEAU_EPROCESS@@@Z.c)
  */
 
 __int64 __fastcall DxgkExtractRemoteBundleObject(__int64 a1, __int64 a2, void **a3, struct _EPROCESS *a4)
 {
-  __int64 v5; // rbp
-  unsigned int v7; // r12d
+  __int64 v5; // r14
+  unsigned int v7; // r13d
+  __int64 v8; // rdx
+  __int64 v9; // rcx
   struct DXGPROCESS *Current; // rdi
-  unsigned int v9; // ebx
-  int v10; // ecx
-  struct DXGVAILOBJECT *v11; // rsi
-  __int64 v12; // rax
-  struct _KTHREAD **v13; // rbx
+  __int64 v11; // rax
+  __int64 v12; // rbx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  char v16; // al
+  struct DXGVAILOBJECT *v17; // rsi
+  struct DXGPROCESS *v18; // rax
+  struct _KTHREAD **v19; // rbx
+  __int64 v20; // rdx
+  __int64 v21; // rax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
   int BundleObject; // eax
-  _BYTE v16[16]; // [rsp+50h] [rbp-48h] BYREF
-  _BYTE v17[8]; // [rsp+60h] [rbp-38h] BYREF
-  DXGPUSHLOCK *v18; // [rsp+68h] [rbp-30h]
-  int v19; // [rsp+70h] [rbp-28h]
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // r8
+  __int64 v32; // rax
+  __int64 v33; // rax
+  __int64 v34; // rax
+  _BYTE v36[16]; // [rsp+30h] [rbp-58h] BYREF
+  _BYTE v37[8]; // [rsp+40h] [rbp-48h] BYREF
+  DXGPUSHLOCK *v38; // [rsp+48h] [rbp-40h]
+  int v39; // [rsp+50h] [rbp-38h]
 
   v5 = (unsigned int)a1;
   v7 = a2;
-  Current = DXGPROCESS::GetCurrent(a1, a2, (__int64)a3, (__int64)a4);
+  Current = DXGPROCESS::GetCurrent(a1, a2);
   if ( Current )
   {
     KeEnterCriticalRegion();
-    v10 = *((_DWORD *)Current + 106);
-    v11 = 0LL;
-    if ( (v10 & 0x80) != 0 )
+    v16 = *((_BYTE *)Current + 347);
+    v17 = 0LL;
+    if ( (v16 & 0x10) != 0 )
     {
-      if ( (v10 & 0x100) != 0 )
-        v12 = *((_QWORD *)Current + 76);
+      if ( (v16 & 0x20) != 0 )
+        v18 = (struct DXGPROCESS *)*((_QWORD *)Current + 62);
       else
-        v12 = (unsigned __int64)Current & -(__int64)((v10 & 0x80) != 0);
-      v13 = *(struct _KTHREAD ***)(v12 + 608);
-      if ( !v13 )
+        v18 = Current;
+      v19 = (struct _KTHREAD **)*((_QWORD *)v18 + 62);
+      if ( !v19 )
         goto LABEL_14;
-      DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v17, v13 + 8, 0);
-      DXGPUSHLOCK::AcquireExclusive(v18);
-      v19 = 2;
-      v11 = DXGVIRTUALMACHINE::ReferenceVailObject(v13);
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v17);
+      DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v37, v19 + 8, 0);
+      DXGPUSHLOCK::AcquireExclusive(v38);
+      v39 = 2;
+      v17 = DXGVIRTUALMACHINE::ReferenceVailObject(v19, v20);
+      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v37);
     }
     else
     {
-      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v16, (struct DXGPROCESS *)((char *)Current + 104), 0);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v16);
-      if ( *((_QWORD *)Current + 74) )
-        v11 = DXGPROCESS::ReferenceVailObject((struct _KTHREAD **)Current);
-      if ( v16[8] )
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v16);
+      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v36, *((struct DXGFASTMUTEX *const *)Current + 13), 0);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v36);
+      if ( *((_QWORD *)Current + 60) )
+        v17 = DXGPROCESS::ReferenceVailObject((DxgkCompositionObject **)Current);
+      if ( v36[8] )
+        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v36, v13);
     }
-    if ( v11 )
+    if ( v17 )
     {
-      if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)v11 + 11) )
+      if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)v17 + 10) )
       {
-        if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(*((_QWORD *)v11 + 14) + 64LL)) )
+        if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(*((_QWORD *)v17 + 13) + 64LL)) )
         {
           BundleObject = DXG_HOST_REMOTEOBJECTCHANNEL::ExtractBundleObject(
-                           *((DXG_HOST_REMOTEOBJECTCHANNEL **)v11 + 15),
+                           *((DXG_HOST_REMOTEOBJECTCHANNEL **)v17 + 14),
                            v5,
                            v7,
                            a3,
                            a4);
-          v9 = BundleObject;
+          v12 = BundleObject;
           if ( BundleObject < 0 )
-            WdLogSingleEntry2(3LL, v5, BundleObject);
-          ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*((_QWORD *)v11 + 14) + 64LL));
+          {
+            v32 = WdLogNewEntry5_WdWarning(v30, v29, v31);
+            *(_QWORD *)(v32 + 24) = v5;
+            *(_QWORD *)(v32 + 32) = v12;
+            WdLogEvent5_WdWarning(v32);
+          }
+          ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*((_QWORD *)v17 + 13) + 64LL));
         }
         else
         {
-          v9 = -2147483611;
-          WdLogSingleEntry2(3LL, 2LL, -2147483611LL);
+          LODWORD(v12) = -2147483611;
+          v33 = WdLogNewEntry5_WdWarning(v26, v25, v27);
+          *(_QWORD *)(v33 + 24) = 2LL;
+          *(_QWORD *)(v33 + 32) = -2147483611LL;
+          WdLogEvent5_WdWarning(v33);
         }
-        ExReleaseRundownProtection((PEX_RUNDOWN_REF)v11 + 11);
+        ExReleaseRundownProtection((PEX_RUNDOWN_REF)v17 + 10);
       }
       else
       {
-        v9 = -2147483611;
-        WdLogSingleEntry2(3LL, 1LL, -2147483611LL);
+        LODWORD(v12) = -2147483611;
+        v34 = WdLogNewEntry5_WdWarning(v23, v22, v24);
+        *(_QWORD *)(v34 + 24) = 1LL;
+        *(_QWORD *)(v34 + 32) = -2147483611LL;
+        WdLogEvent5_WdWarning(v34);
       }
-      DxgkCompositionObject::Release(v11);
+      DxgkCompositionObject::Release(v17);
       goto LABEL_24;
     }
 LABEL_14:
-    v9 = -1073741811;
-    WdLogSingleEntry2(3LL, Current, -1073741811LL);
+    LODWORD(v12) = -1073741811;
+    v21 = WdLogNewEntry5_WdWarning(v14, v13, v15);
+    *(_QWORD *)(v21 + 24) = Current;
+    *(_QWORD *)(v21 + 32) = -1073741811LL;
+    WdLogEvent5_WdWarning(v21);
 LABEL_24:
     KeLeaveCriticalRegion();
-    return v9;
+    return (unsigned int)v12;
   }
-  v9 = -1073741811;
-  WdLogSingleEntry1(2LL, -1073741811LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Invalid process context. Returning 0x%I64x",
-    -1073741811LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  return v9;
+  v11 = WdLogNewEntry5_WdError(v9, v8);
+  LODWORD(v12) = -1073741811;
+  *(_QWORD *)(v11 + 24) = -1073741811LL;
+  WdLogEvent5_WdError(v11);
+  return (unsigned int)v12;
 }

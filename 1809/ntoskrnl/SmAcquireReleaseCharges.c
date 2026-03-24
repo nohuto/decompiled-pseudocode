@@ -1,19 +1,19 @@
 /*
- * XREFs of SmAcquireReleaseCharges @ 0x1400E3CE4
+ * XREFs of SmAcquireReleaseCharges @ 0x1400E3D04
  * Callers:
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1400E3648 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14011D184 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmFpCleanup @ 0x14011D680 (SmFpCleanup.c)
- *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x140145EE8 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
- *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1401476A8 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
- *     SmFpAllocate @ 0x14014BA54 (SmFpAllocate.c)
- *     SmFpFree @ 0x14014CA1C (SmFpFree.c)
- *     SmKmFreeMdlForLock @ 0x14015006C (SmKmFreeMdlForLock.c)
- *     SmKmAllocateMdlForLock @ 0x140173F94 (SmKmAllocateMdlForLock.c)
- *     SmFpPreAllocate @ 0x14018E5E8 (SmFpPreAllocate.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1400E3668 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14011D1A4 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmFpCleanup @ 0x14011D6A0 (SmFpCleanup.c)
+ *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x140145F08 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
+ *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1401476C8 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     SmFpAllocate @ 0x14014BA74 (SmFpAllocate.c)
+ *     SmFpFree @ 0x14014CA3C (SmFpFree.c)
+ *     SmKmFreeMdlForLock @ 0x14015008C (SmKmFreeMdlForLock.c)
+ *     SmKmAllocateMdlForLock @ 0x140173FB4 (SmKmAllocateMdlForLock.c)
+ *     SmFpPreAllocate @ 0x14018E608 (SmFpPreAllocate.c)
  * Callees:
- *     MmChargeResources @ 0x1400E3D2C (MmChargeResources.c)
- *     MmReleaseResourceCharge @ 0x1400E3DB8 (MmReleaseResourceCharge.c)
+ *     MmChargeResources @ 0x1400E3D4C (MmChargeResources.c)
+ *     MmReleaseResourceCharge @ 0x1400E3DD8 (MmReleaseResourceCharge.c)
  */
 
 __int64 __fastcall SmAcquireReleaseCharges(unsigned __int64 a1, char a2, int a3)

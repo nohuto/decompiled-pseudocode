@@ -1,32 +1,21 @@
 /*
- * XREFs of NtGdiGetPublicFontTableChangeCookie @ 0x1C00A6EF0
+ * XREFs of NtGdiGetPublicFontTableChangeCookie @ 0x1C0120250
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
  */
 
-__int64 __fastcall NtGdiGetPublicFontTableChangeCookie(Gre::Base *a1)
+__int64 NtGdiGetPublicFontTableChangeCookie()
 {
-  struct Gre::Base::SESSION_GLOBALS *v1; // rbx
-  __int64 v2; // rcx
-  __int64 v3; // rax
-  __int64 v4; // rcx
-  __int64 v5; // rbx
-  unsigned int v6; // ebx
-  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v0; // ebx
+  __int64 v2; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = Gre::Base::Globals(a1);
-  v3 = SGDGetSessionState(v2);
-  v4 = *((_QWORD *)v1 + 6);
-  if ( !v4 )
+  if ( !ghsemPublicPFT || !gpPFTPublic )
     return 0LL;
-  v5 = *(_QWORD *)(v3 + 32);
-  if ( !*(_QWORD *)(v5 + 20272) )
-    return 0LL;
-  v8 = v4;
-  GreAcquireSemaphore(v4);
-  v6 = *(_DWORD *)(*(_QWORD *)(v5 + 20272) + 32LL);
-  SEMOBJ::vUnlock((SEMOBJ *)&v8);
-  return v6;
+  v2 = ghsemPublicPFT;
+  GreAcquireSemaphore(ghsemPublicPFT);
+  v0 = *((_DWORD *)gpPFTPublic + 8);
+  SEMOBJ::vUnlock((SEMOBJ *)&v2);
+  return v0;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of _lambda_9a9771997357178f95a5eaf72b6b0000_::operator() @ 0x1801A38D4
+ * XREFs of _lambda_9a9771997357178f95a5eaf72b6b0000_::operator() @ 0x180233638
  * Callers:
- *     ?OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z @ 0x1801A52DC (-OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z.c)
+ *     ?OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z @ 0x180234E80 (-OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ void __fastcall lambda_9a9771997357178f95a5eaf72b6b0000_::operator()(_BYTE **a1,
   {
     if ( !a3 )
       goto LABEL_6;
-    v4 = *(_QWORD *)(*(_QWORD *)*a1 + 104LL);
+    v4 = *(_QWORD *)(*(_QWORD *)*a1 + 96LL);
     if ( v4 )
       v3 = *(_QWORD *)(v4 + 64);
     *a2 = v3;

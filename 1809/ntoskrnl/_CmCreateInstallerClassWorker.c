@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmCreateInstallerClassWorker @ 0x1408F6220
+ * XREFs of _CmCreateInstallerClassWorker @ 0x1408F6200
  * Callers:
- *     _CmCreateInstallerClass @ 0x1408F60A4 (_CmCreateInstallerClass.c)
+ *     _CmCreateInstallerClass @ 0x1408F6084 (_CmCreateInstallerClass.c)
  * Callees:
  *     _CmOpenInstallerClassRegKey @ 0x14059EB8C (_CmOpenInstallerClassRegKey.c)
- *     _CmRaiseCreateEvent @ 0x1406FD5C0 (_CmRaiseCreateEvent.c)
+ *     _CmRaiseCreateEvent @ 0x1406FD5A0 (_CmRaiseCreateEvent.c)
  */
 
 __int64 __fastcall CmCreateInstallerClassWorker(__int64 a1, __int64 a2, __int64 a3, __int64 *a4, bool *a5, __int16 a6)

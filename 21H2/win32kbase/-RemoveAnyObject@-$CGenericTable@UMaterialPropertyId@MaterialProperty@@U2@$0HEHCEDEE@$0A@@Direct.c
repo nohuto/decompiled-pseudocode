@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RemoveAnyObject@?$CGenericTable@UMaterialPropertyId@MaterialProperty@@U2@$0HEHCEDEE@$0A@@DirectComposition@@QEAAPEAUMaterialProperty@@XZ @ 0x1C00579B8
+ * XREFs of ?RemoveAnyObject@?$CGenericTable@UMaterialPropertyId@MaterialProperty@@U2@$0HEHCEDEE@$0A@@DirectComposition@@QEAAPEAUMaterialProperty@@XZ @ 0x1C00AB2CC
  * Callers:
- *     DCompositionSessionUninitialize @ 0x1C0059A70 (DCompositionSessionUninitialize.c)
+ *     DCompositionSessionUninitialize @ 0x1C00AB0BC (DCompositionSessionUninitialize.c)
  * Callees:
  *     <none>
  */

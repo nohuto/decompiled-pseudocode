@@ -2,10 +2,10 @@
  * XREFs of HvpViewMapMakeViewRangeCOWByCaller @ 0x1405A5A80
  * Callers:
  *     HvpViewMapCOWAndUnsealRange @ 0x1405A5A0C (HvpViewMapCOWAndUnsealRange.c)
- *     HvpViewMapMigrateCOWData @ 0x1407F6FB0 (HvpViewMapMigrateCOWData.c)
+ *     HvpViewMapMigrateCOWData @ 0x1407F6F90 (HvpViewMapMigrateCOWData.c)
  * Callees:
  *     CmSiProtectViewOfSection @ 0x14000F024 (CmSiProtectViewOfSection.c)
- *     CmSiUnlockViewOfSection @ 0x14016AC10 (CmSiUnlockViewOfSection.c)
+ *     CmSiUnlockViewOfSection @ 0x14016AC30 (CmSiUnlockViewOfSection.c)
  *     HvpViewMapTouchPages @ 0x1405A5B8C (HvpViewMapTouchPages.c)
  */
 

@@ -1,35 +1,32 @@
 /*
- * XREFs of MiPreserveBootDecisions @ 0x1403D3D5C
+ * XREFs of MiPreserveBootDecisions @ 0x1403B0D78
  * Callers:
- *     MiZeroNodePages @ 0x1403D3960 (MiZeroNodePages.c)
+ *     MiZeroNodePages @ 0x1403B0220 (MiZeroNodePages.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
-void __fastcall MiPreserveBootDecisions(__int64 a1, __int64 a2)
+_OWORD *__fastcall MiPreserveBootDecisions(__int64 a1, __int64 a2)
 {
-  _QWORD *Pool; // rax
-  _QWORD *v5; // rbx
+  _OWORD *result; // rax
+  _OWORD *v5; // rbx
   __int64 v6; // rcx
   _OWORD *v7; // r8
   _OWORD *v8; // rax
   __int128 v9; // xmm1
-  SIZE_T v10; // rdi
-  PVOID v11; // rax
-  void *v12; // r14
-  unsigned int *v13; // rbp
-  SIZE_T v14; // rsi
-  PVOID v15; // rax
-  PVOID v16; // rdi
+  SIZE_T v10; // rsi
+  _OWORD *v11; // rdi
+  unsigned int *v12; // rbp
+  SIZE_T v13; // rsi
+  _OWORD *v14; // rdi
 
-  Pool = MiAllocatePool(64, 0x138uLL, 0x20206D4Du);
-  v5 = Pool;
-  if ( Pool )
+  result = MiAllocatePool(64, 0x138uLL, 0x20206D4Du);
+  v5 = result;
+  if ( result )
   {
     v6 = 2LL;
-    v7 = Pool;
+    v7 = result;
     v8 = (_OWORD *)a2;
     do
     {
@@ -52,31 +49,26 @@ void __fastcall MiPreserveBootDecisions(__int64 a1, __int64 a2)
     v7[2] = v8[2];
     *((_QWORD *)v7 + 6) = *((_QWORD *)v8 + 6);
     v10 = 40LL * *(unsigned int *)(a2 + 156);
-    v11 = MiAllocatePool(64, v10, 0x20206D4Du);
-    v12 = v11;
-    if ( v11 )
+    result = MiAllocatePool(64, v10, 0x20206D4Du);
+    v11 = result;
+    if ( result )
+      result = memmove(result, *(const void **)(a2 + 144), v10);
+    *((_QWORD *)v5 + 18) = v11;
+    v12 = *(unsigned int **)(a2 + 304);
+    if ( v12 )
     {
-      memmove(v11, *(const void **)(a2 + 144), v10);
-      v5[18] = v12;
-      v13 = *(unsigned int **)(a2 + 304);
-      if ( !v13 )
-      {
-        v16 = 0LL;
-        goto LABEL_8;
-      }
-      v14 = 16LL * *v13;
-      v15 = MiAllocatePool(64, v14, 0x20206D4Du);
-      v16 = v15;
-      if ( v15 )
-      {
-        memmove(v15, v13, v14);
-LABEL_8:
-        v5[38] = v16;
-        *(_QWORD *)(a1 + 22912) = v5;
-        return;
-      }
-      ExFreePoolWithTag(v12, 0);
+      v13 = 16LL * *v12;
+      result = MiAllocatePool(64, v13, 0x20206D4Du);
+      v14 = result;
+      if ( result )
+        result = memmove(result, v12, v13);
     }
-    ExFreePoolWithTag(v5, 0);
+    else
+    {
+      v14 = 0LL;
+    }
+    *((_QWORD *)v5 + 38) = v14;
+    *(_QWORD *)(a1 + 4392) = v5;
   }
+  return result;
 }

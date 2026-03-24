@@ -1,7 +1,8 @@
 /*
- * XREFs of ?vSpFreeClipResources@@YAXPEAVSPRITE@@@Z @ 0x1C001C4F8
+ * XREFs of ?vSpFreeClipResources@@YAXPEAVSPRITE@@@Z @ 0x1C00ED808
  * Callers:
- *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C001C318 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ?vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z @ 0x1C0074C9C (-vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z.c)
+ *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00ED604 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,22 +1,22 @@
 /*
  * XREFs of PnprInitiateReplaceOperation @ 0x140579814
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1408337A0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x140833780 (PnpReplacePartitionUnit.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PnprCompleteWake @ 0x140289E6C (PnprCompleteWake.c)
- *     PnprQuiesce @ 0x14028A46C (PnprQuiesce.c)
- *     PnprSwap @ 0x14028A7D0 (PnprSwap.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PnprCompleteWake @ 0x140289F6C (PnprCompleteWake.c)
+ *     PnprQuiesce @ 0x14028A56C (PnprQuiesce.c)
+ *     PnprSwap @ 0x14028A8D0 (PnprSwap.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
  *     PnprWakeProcessors @ 0x14057AD5C (PnprWakeProcessors.c)
- *     PnprReplaceStart @ 0x140835BD8 (PnprReplaceStart.c)
+ *     PnprReplaceStart @ 0x140835BB8 (PnprReplaceStart.c)
  */
 
 __int64 PnprInitiateReplaceOperation()

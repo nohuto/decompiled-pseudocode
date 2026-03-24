@@ -1,10 +1,9 @@
 /*
- * XREFs of RtlUpcaseUnicodeToCustomCPN @ 0x1409B6890
+ * XREFs of RtlUpcaseUnicodeToCustomCPN @ 0x140910CF0
  * Callers:
  *     <none>
  * Callees:
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeToCustomCPN(
@@ -15,92 +14,86 @@ NTSTATUS __stdcall RtlUpcaseUnicodeToCustomCPN(
         PWCH UnicodeString,
         ULONG BytesInUnicodeString)
 {
+  ULONG v6; // r11d
   ULONG v8; // ebx
-  int v9; // edx
-  ULONG v10; // r8d
-  ULONG *v11; // r9
-  _BYTE *v12; // r10
-  ULONG v13; // r11d
-  __int64 v14; // r13
-  ULONG v15; // eax
-  _BYTE *v16; // rbp
-  PWCH v17; // rsi
-  __int64 v18; // r14
-  unsigned __int16 v19; // ax
-  _BYTE *v20; // r10
-  wchar_t *DBCSOffsets; // r14
-  int v22; // r15d
+  _BYTE *v9; // r10
+  ULONG v11; // eax
+  _BYTE *v12; // rbp
+  PWCH v13; // rsi
+  __int64 v14; // r14
+  unsigned __int16 v15; // ax
+  _BYTE *v16; // r10
+  PUSHORT DBCSOffsets; // r15
+  int v18; // r14d
   _WORD *WideCharTable; // r12
-  PWCH v24; // rbp
-  __int64 v25; // rax
-  unsigned __int16 v26; // dx
-  __int64 v27; // rcx
-  unsigned __int16 v28; // dx
-  __int16 v29; // r8
-  unsigned int v30; // eax
-  int v32; // [rsp+50h] [rbp+8h]
+  PWCH v20; // rbp
+  __int64 v21; // rax
+  unsigned __int16 v22; // dx
+  __int64 v23; // rcx
+  unsigned __int16 v24; // cx
+  __int16 v25; // dx
+  unsigned int v26; // eax
 
-  v8 = BytesInUnicodeString >> 1;
-  v14 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 154);
+  v6 = BytesInUnicodeString >> 1;
+  v8 = MaxBytesInCustomCPString;
+  LODWORD(v9) = (_DWORD)CustomCPString;
   if ( CustomCP->DBCSCodePage )
   {
     DBCSOffsets = CustomCP->DBCSOffsets;
-    v22 = v9;
+    v18 = (int)CustomCPString;
     WideCharTable = CustomCP->WideCharTable;
-    v32 = v9;
-    if ( v8 )
+    if ( v6 )
     {
-      v24 = UnicodeString;
+      v20 = UnicodeString;
       do
       {
-        if ( !v13 )
+        if ( !v8 )
           break;
-        v25 = *v24++;
-        v26 = WideCharTable[v25];
-        v27 = DBCSOffsets[(unsigned __int64)v26 >> 8];
-        if ( (_WORD)v27 )
-          v28 = DBCSOffsets[(unsigned __int8)v26 + v27];
+        v21 = *v20++;
+        v22 = WideCharTable[v21];
+        v23 = DBCSOffsets[(unsigned __int64)v22 >> 8];
+        if ( (_WORD)v23 )
+          v24 = DBCSOffsets[(unsigned __int8)v22 + v23];
         else
-          v28 = CustomCP->MultiByteTable[(unsigned __int8)v26];
-        v29 = WideCharTable[NLS_UPCASE(v14, v28)];
-        if ( HIBYTE(v29) )
+          v24 = CustomCP->MultiByteTable[(unsigned __int8)v22];
+        v25 = WideCharTable[NLS_UPCASE(v24)];
+        if ( HIBYTE(v25) )
         {
-          v30 = v13--;
-          if ( v30 < 2 )
+          v26 = v8--;
+          if ( v26 < 2 )
             break;
-          *v12++ = HIBYTE(v29);
+          *v9++ = HIBYTE(v25);
         }
-        *v12 = v29;
-        --v13;
-        LODWORD(v12) = (_DWORD)v12 + 1;
+        *v9 = v25;
         --v8;
+        LODWORD(v9) = (_DWORD)v9 + 1;
+        --v6;
       }
-      while ( v8 );
-      v22 = v32;
+      while ( v6 );
     }
     if ( BytesInCustomCPString )
-      *BytesInCustomCPString = (_DWORD)v12 - v22;
+      *BytesInCustomCPString = (_DWORD)v9 - v18;
   }
   else
   {
-    v15 = v10;
-    if ( v8 < v10 )
-      v15 = BytesInUnicodeString >> 1;
+    v11 = MaxBytesInCustomCPString;
+    if ( v6 < MaxBytesInCustomCPString )
+      v11 = BytesInUnicodeString >> 1;
+    if ( BytesInCustomCPString )
+      *BytesInCustomCPString = v11;
+    v12 = CustomCP->WideCharTable;
     if ( v11 )
-      *v11 = v15;
-    v16 = CustomCP->WideCharTable;
-    if ( v15 )
     {
-      v17 = UnicodeString;
-      v18 = v15;
+      v13 = UnicodeString;
+      v14 = v11;
       do
       {
-        v19 = NLS_UPCASE(v14, CustomCP->MultiByteTable[(unsigned __int8)v16[*v17++]]);
-        *v20 = v16[v19];
-        --v18;
+        v15 = NLS_UPCASE(CustomCP->MultiByteTable[(unsigned __int8)v12[*v13++]]);
+        *v16 = v12[v15];
+        --v14;
       }
-      while ( v18 );
+      while ( v14 );
     }
   }
-  return v13 < v8 ? 0x80000005 : 0;
+  return v8 < v6 ? 0x80000005 : 0;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPciMarkHiberPhase @ 0x140515700
+ * XREFs of HalpPciMarkHiberPhase @ 0x14038783C
  * Callers:
- *     HaliLocateHiberRanges @ 0x140A95D60 (HaliLocateHiberRanges.c)
+ *     HaliLocateHiberRanges @ 0x140996610 (HaliLocateHiberRanges.c)
  * Callees:
- *     PoSetHiberRange @ 0x14058E930 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x140387960 (PoSetHiberRange.c)
  */
 
 void __fastcall HalpPciMarkHiberPhase(void *a1)

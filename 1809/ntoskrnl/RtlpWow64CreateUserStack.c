@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpWow64CreateUserStack @ 0x1406BBC84
+ * XREFs of RtlpWow64CreateUserStack @ 0x1406BBC64
  * Callers:
- *     PspWow64SetupUserStack @ 0x1406BBBE8 (PspWow64SetupUserStack.c)
+ *     PspWow64SetupUserStack @ 0x1406BBBC8 (PspWow64SetupUserStack.c)
  * Callees:
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     ZwAllocateVirtualMemory @ 0x1401B8470 (ZwAllocateVirtualMemory.c)
- *     ZwSetInformationProcess @ 0x1401B84F0 (ZwSetInformationProcess.c)
- *     ZwFreeVirtualMemory @ 0x1401B8530 (ZwFreeVirtualMemory.c)
+ *     ZwAllocateVirtualMemory @ 0x1401B8490 (ZwAllocateVirtualMemory.c)
+ *     ZwSetInformationProcess @ 0x1401B8510 (ZwSetInformationProcess.c)
+ *     ZwFreeVirtualMemory @ 0x1401B8550 (ZwFreeVirtualMemory.c)
  */
 
 NTSTATUS __fastcall RtlpWow64CreateUserStack(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5)

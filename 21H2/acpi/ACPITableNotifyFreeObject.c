@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPITableNotifyFreeObject @ 0x1C00605B0
+ * XREFs of ACPITableNotifyFreeObject @ 0x1C005F7C0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildProcessDelayedDependencyExternalTrigger @ 0x1C0002C40 (ACPIBuildProcessDelayedDependencyExternalTrigger.c)
- *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C0007270 (ACPIInitDereferenceDeviceExtensionLocked.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C004A950 (ACPIBuildProcessNotifyPepDeleteDevice.c)
- *     WPP_RECORDER_SF_qqDD @ 0x1C0060A2C (WPP_RECORDER_SF_qqDD.c)
- *     AMLIFinalizeObject @ 0x1C00646F8 (AMLIFinalizeObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIBuildProcessDelayedDependencyExternalTrigger @ 0x1C00119AC (ACPIBuildProcessDelayedDependencyExternalTrigger.c)
+ *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C00198D8 (ACPIInitDereferenceDeviceExtensionLocked.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C002D1D0 (ACPIBuildProcessNotifyPepDeleteDevice.c)
+ *     WPP_RECORDER_SF_qqDD @ 0x1C005FC3C (WPP_RECORDER_SF_qqDD.c)
+ *     AMLIFinalizeObject @ 0x1C006344C (AMLIFinalizeObject.c)
  */
 
 __int64 __fastcall ACPITableNotifyFreeObject(int a1, KIRQL *a2, int a3, int a4)
@@ -17,7 +17,7 @@ __int64 __fastcall ACPITableNotifyFreeObject(int a1, KIRQL *a2, int a3, int a4)
   KIRQL *v5; // rbx
   int v7; // edi
   __int64 v8; // rdx
-  volatile signed __int32 *v9; // rcx
+  __int64 v9; // rcx
   ULONG_PTR v10; // rdi
   __int64 v11; // rax
   bool v12; // di
@@ -82,7 +82,7 @@ LABEL_10:
         v8 = *(_QWORD *)v5;
         if ( *(_BYTE *)(*(_QWORD *)(*(_QWORD *)v5 + 96LL) + 12LL) == 2 )
         {
-          v9 = *(volatile signed __int32 **)(v8 + 104);
+          v9 = *(_QWORD *)(v8 + 104);
           *(_QWORD *)(v8 + 104) = 0LL;
           AMLIDereferenceHandleEx(v9);
         }
@@ -94,7 +94,7 @@ LABEL_10:
         goto LABEL_10;
       }
       _InterlockedOr64((volatile signed __int64 *)(v10 + 8), 0x80000000000uLL);
-      v11 = *(_QWORD *)(v10 + 792);
+      v11 = *(_QWORD *)(v10 + 752);
       if ( v11 )
         _InterlockedOr64((volatile signed __int64 *)(v11 + 8), 0x40000000000uLL);
       ACPIBuildProcessDelayedDependencyExternalTrigger(v10);

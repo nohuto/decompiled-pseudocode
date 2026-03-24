@@ -21,7 +21,7 @@ ULONG_PTR __fastcall PopWriteChecksumPages(_QWORD *a1)
   {
     v3 = (unsigned __int64)(a1[47] + 4095LL) >> 12;
     result = (v3 + v2) << 12;
-    if ( result <= qword_140417A30 )
+    if ( result <= qword_140417830 )
     {
       v5 = __rdtsc();
       *(_QWORD *)(a1[25] + 128LL) = v1;

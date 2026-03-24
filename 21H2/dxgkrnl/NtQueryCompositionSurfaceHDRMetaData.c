@@ -1,74 +1,74 @@
 /*
- * XREFs of NtQueryCompositionSurfaceHDRMetaData @ 0x1C0003EC0
+ * XREFs of NtQueryCompositionSurfaceHDRMetaData @ 0x1C000E1C0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetHDRMetaDataType@CCompositionSurface@@QEBAJ_KPEAW4DXGI_HDR_METADATA_TYPE@@@Z @ 0x1C00041B8 (-GetHDRMetaDataType@CCompositionSurface@@QEBAJ_KPEAW4DXGI_HDR_METADATA_TYPE@@@Z.c)
- *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C00054E8 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
- *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C0005A8C (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
- *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C00070D4 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
- *     ?LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z @ 0x1C00072FC (-LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetHDRMetaDataType@CCompositionSurface@@QEBAJ_KPEAW4DXGI_HDR_METADATA_TYPE@@@Z @ 0x1C000E4B8 (-GetHDRMetaDataType@CCompositionSurface@@QEBAJ_KPEAW4DXGI_HDR_METADATA_TYPE@@@Z.c)
+ *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C000FC78 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
+ *     ?LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z @ 0x1C000FE74 (-LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z.c)
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C0010F60 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C00168A4 (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 __int64 __fastcall NtQueryCompositionSurfaceHDRMetaData(
         struct CCompositionBuffer *a1,
         unsigned __int64 *a2,
-        CCompositionSurface *a3,
+        struct CCompositionBuffer *a3,
         unsigned __int64 a4,
-        _OWORD *a5)
+        unsigned __int64 a5)
 {
   int HDRMetaDataType; // ebx
-  unsigned __int64 v9; // r15
+  unsigned __int64 v9; // r14
+  __int64 v10; // rdx
+  __int64 v11; // rcx
   struct DXGGLOBAL *Global; // rax
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  char v14; // r8
-  CCompositionSurface *v15; // r14
-  __m128i v16; // xmm1
-  int v18; // eax
-  __int64 v19; // [rsp+20h] [rbp-B8h] BYREF
-  struct CCompositionBuffer *v20; // [rsp+28h] [rbp-B0h] BYREF
-  PVOID Object; // [rsp+30h] [rbp-A8h] BYREF
-  CCompositionSurface *v22; // [rsp+38h] [rbp-A0h] BYREF
-  unsigned __int64 v23; // [rsp+40h] [rbp-98h]
-  _OWORD v24[5]; // [rsp+50h] [rbp-88h] BYREF
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  char v16; // r8
+  CCompositionSurface *v17; // r15
+  __m128i v18; // xmm1
+  int v20; // eax
+  int v21; // [rsp+24h] [rbp-B4h] BYREF
+  CCompositionSurface *v22; // [rsp+28h] [rbp-B0h] BYREF
+  struct CCompositionBuffer *v23; // [rsp+30h] [rbp-A8h] BYREF
+  struct CCompositionBuffer *v24; // [rsp+38h] [rbp-A0h] BYREF
+  PVOID Object; // [rsp+40h] [rbp-98h] BYREF
+  unsigned __int64 v26; // [rsp+48h] [rbp-90h]
+  _OWORD v27[5]; // [rsp+50h] [rbp-88h] BYREF
 
-  v20 = a1;
-  v22 = a3;
-  Object = a5;
+  v24 = a1;
+  v23 = a3;
+  v22 = (CCompositionSurface *)a5;
   HDRMetaDataType = 0;
-  v19 = 0LL;
   v9 = 0LL;
-  v23 = 0LL;
-  memset(v24, 0, 0x48uLL);
+  v26 = 0LL;
+  v21 = 0;
+  memset(v27, 0, 0x48uLL);
   if ( a2 )
   {
     if ( a2 + 1 < a2 || (unsigned __int64)(a2 + 1) > MmUserProbeAddress )
       a2 = (unsigned __int64 *)MmUserProbeAddress;
     v9 = *a2;
-    v23 = *a2;
+    v26 = *a2;
   }
   else
   {
     HDRMetaDataType = -1073741811;
-    LODWORD(v19) = -1073741811;
   }
   KeEnterCriticalRegion();
   if ( HDRMetaDataType >= 0 )
   {
-    Global = DXGGLOBAL_GetGlobal();
-    if ( !(*(unsigned int (__fastcall **)(_QWORD, __int64, __int64, __int64, __int64))(*((_QWORD *)Global + 38073)
-                                                                                     + 528LL))(
-            *((_QWORD *)Global + 38073),
-            v11,
-            v12,
+    Global = DXGGLOBAL::GetGlobal(v11, v10);
+    if ( !(*(unsigned int (__fastcall **)(_QWORD, __int64, __int64, __int64))(*((_QWORD *)Global + 38048) + 296LL))(
+            *((_QWORD *)Global + 38048),
             v13,
-            v19) )
+            v14,
+            v15) )
       HDRMetaDataType = -1073741790;
     if ( HDRMetaDataType >= 0 )
     {
@@ -76,51 +76,48 @@ __int64 __fastcall NtQueryCompositionSurfaceHDRMetaData(
       HDRMetaDataType = CompositionSurfaceObject::ResolveHandle(
                           a1,
                           1u,
-                          v14,
+                          v16,
                           (struct CompositionSurfaceObject **)&Object);
       if ( HDRMetaDataType >= 0 )
       {
         v22 = 0LL;
-        HDRMetaDataType = CompositionSurfaceObject::LockForRead((CompositionSurfaceObject *)Object, &v22);
+        HDRMetaDataType = CompositionSurfaceObject::LockForRead(Object, &v22);
         if ( HDRMetaDataType < 0 )
         {
 LABEL_15:
           ObfDereferenceObject(Object);
           goto LABEL_16;
         }
-        v15 = v22;
-        HDRMetaDataType = CCompositionSurface::GetHDRMetaDataType(
-                            v22,
-                            v9,
-                            (enum DXGI_HDR_METADATA_TYPE *)((char *)&v19 + 4));
-        if ( HDRMetaDataType < 0 || !HIDWORD(v19) )
+        v17 = v22;
+        HDRMetaDataType = CCompositionSurface::GetHDRMetaDataType(v22, v9, (enum DXGI_HDR_METADATA_TYPE *)&v21);
+        if ( HDRMetaDataType < 0 || !v21 )
         {
 LABEL_14:
-          CCompositionSurface::UnlockAndRelease(v15);
+          CCompositionSurface::UnlockAndRelease(v17);
           goto LABEL_15;
         }
-        if ( HIDWORD(v19) == 1 )
+        if ( v21 == 1 )
         {
-          v20 = 0LL;
-          HDRMetaDataType = CCompositionSurface::FindBuffer(v15, v9, &v20);
+          v24 = 0LL;
+          HDRMetaDataType = CCompositionSurface::FindBuffer(v17, v9, &v24);
           if ( HDRMetaDataType < 0 )
             goto LABEL_14;
-          v18 = (*(__int64 (__fastcall **)(struct CCompositionBuffer *, _OWORD *))(*(_QWORD *)v20 + 144LL))(v20, v24);
+          v20 = (*(__int64 (__fastcall **)(struct CCompositionBuffer *, _OWORD *))(*(_QWORD *)v24 + 144LL))(v24, v27);
         }
         else
         {
-          if ( HIDWORD(v19) != 2 )
+          if ( v21 != 2 )
           {
             HDRMetaDataType = -1073741811;
             goto LABEL_14;
           }
-          v20 = 0LL;
-          HDRMetaDataType = CCompositionSurface::FindBuffer(v15, v9, &v20);
+          v23 = 0LL;
+          HDRMetaDataType = CCompositionSurface::FindBuffer(v17, v9, &v23);
           if ( HDRMetaDataType < 0 )
             goto LABEL_14;
-          v18 = (*(__int64 (__fastcall **)(struct CCompositionBuffer *, _OWORD *))(*(_QWORD *)v20 + 152LL))(v20, v24);
+          v20 = (*(__int64 (__fastcall **)(struct CCompositionBuffer *, _OWORD *))(*(_QWORD *)v23 + 152LL))(v23, v27);
         }
-        HDRMetaDataType = v18;
+        HDRMetaDataType = v20;
         goto LABEL_14;
       }
     }
@@ -128,32 +125,32 @@ LABEL_14:
 LABEL_16:
   if ( a3 )
   {
-    if ( (CCompositionSurface *)((char *)a3 + 4) < a3 || (unsigned __int64)a3 + 4 > MmUserProbeAddress )
+    if ( (struct CCompositionBuffer *)((char *)a3 + 4) < a3 || (unsigned __int64)a3 + 4 > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    *(_DWORD *)a3 = HIDWORD(v19);
+    *(_DWORD *)a3 = v21;
   }
   else
   {
     HDRMetaDataType = -1073741811;
   }
-  if ( HDRMetaDataType >= 0 && a5 && HIDWORD(v19) )
+  if ( HDRMetaDataType >= 0 && a5 && v21 )
   {
-    if ( HIDWORD(v19) != 1 )
+    if ( v21 != 1 )
     {
-      if ( HIDWORD(v19) != 2 )
+      if ( v21 != 2 )
       {
         HDRMetaDataType = -1073741811;
         goto LABEL_39;
       }
       if ( a4 >= 0x48 )
       {
-        if ( (_OWORD *)((char *)a5 + 72) < a5 || (unsigned __int64)a5 + 72 > MmUserProbeAddress )
+        if ( a5 + 72 < a5 || a5 + 72 > MmUserProbeAddress )
           *(_BYTE *)MmUserProbeAddress = 0;
-        *a5 = v24[0];
-        a5[1] = v24[1];
-        a5[2] = v24[2];
-        a5[3] = v24[3];
-        *((_QWORD *)a5 + 8) = *(_QWORD *)&v24[4];
+        *(_OWORD *)a5 = v27[0];
+        *(_OWORD *)(a5 + 16) = v27[1];
+        *(_OWORD *)(a5 + 32) = v27[2];
+        *(_OWORD *)(a5 + 48) = v27[3];
+        *(_QWORD *)(a5 + 64) = *(_QWORD *)&v27[4];
         goto LABEL_39;
       }
 LABEL_38:
@@ -162,12 +159,12 @@ LABEL_38:
     }
     if ( a4 < 0x1C )
       goto LABEL_38;
-    if ( (_OWORD *)((char *)a5 + 28) < a5 || (unsigned __int64)a5 + 28 > MmUserProbeAddress )
+    if ( a5 + 28 < a5 || a5 + 28 > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    *a5 = v24[0];
-    v16 = (__m128i)v24[1];
-    *((_QWORD *)a5 + 2) = *(_QWORD *)&v24[1];
-    *((_DWORD *)a5 + 6) = _mm_cvtsi128_si32(_mm_srli_si128(v16, 8));
+    *(_OWORD *)a5 = v27[0];
+    v18 = (__m128i)v27[1];
+    *(_QWORD *)(a5 + 16) = *(_QWORD *)&v27[1];
+    *(_DWORD *)(a5 + 24) = _mm_cvtsi128_si32(_mm_srli_si128(v18, 8));
   }
 LABEL_39:
   KeLeaveCriticalRegion();

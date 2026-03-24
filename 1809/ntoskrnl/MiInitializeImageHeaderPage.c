@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeImageHeaderPage @ 0x140130688
+ * XREFs of MiInitializeImageHeaderPage @ 0x1401306A8
  * Callers:
  *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
  * Callees:
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiInitializeImageHeaderPage(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CTransformGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18019D44C
+ * XREFs of ??0CTransformGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18001B18C
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800BE0A8 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2008 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
- *     ??0CCyclicResourceListEntry@@IEAA@PEAVCResourceTable@@@Z @ 0x1800CF5B4 (--0CCyclicResourceListEntry@@IEAA@PEAVCResourceTable@@@Z.c)
+ *     ??0CCyclicResourceListEntry@@IEAA@PEAVCResourceTable@@@Z @ 0x18001B214 (--0CCyclicResourceListEntry@@IEAA@PEAVCResourceTable@@@Z.c)
  */
 
 CTransformGroup *__fastcall CTransformGroup::CTransformGroup(
@@ -20,15 +20,15 @@ CTransformGroup *__fastcall CTransformGroup::CTransformGroup(
   *((_QWORD *)this + 3) = 0LL;
   *((_QWORD *)this + 5) = 0LL;
   *((_DWORD *)this + 8) = 0;
-  *((_DWORD *)this + 36) = 0;
+  *((_DWORD *)this + 34) = 0;
   *((_DWORD *)this + 8) |= 1u;
-  *((_BYTE *)this + 156) = 0;
+  *((_BYTE *)this + 148) = 0;
   *(_QWORD *)this = &CTransform::`vftable';
+  *((_QWORD *)this + 19) = 0LL;
   *((_QWORD *)this + 20) = 0LL;
   *((_QWORD *)this + 21) = 0LL;
-  *((_QWORD *)this + 22) = 0LL;
-  CCyclicResourceListEntry::CCyclicResourceListEntry((CTransformGroup *)((char *)this + 184), a3[4]);
-  *v3 = &CTransform3DGroup::`vftable'{for `CCyclicResourceListEntry'};
+  CCyclicResourceListEntry::CCyclicResourceListEntry((CTransformGroup *)((char *)this + 176), a3[3]);
+  *v3 = &CTransformGroup::`vftable'{for `CCyclicResourceListEntry'};
   result = v4;
   *(_QWORD *)v4 = &CTransformGroup::`vftable'{for `CTransformGroupGeneratedT<CTransformGroup,CTransform>'};
   return result;

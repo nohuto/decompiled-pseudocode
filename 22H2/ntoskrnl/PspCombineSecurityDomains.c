@@ -1,72 +1,78 @@
 /*
- * XREFs of PspCombineSecurityDomains @ 0x1407C729C
+ * XREFs of PspCombineSecurityDomains @ 0x140685D04
  * Callers:
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
  * Callees:
- *     SepDeleteAccessState @ 0x140232250 (SepDeleteAccessState.c)
- *     KeSynchronizeSecurityDomain @ 0x140356384 (KeSynchronizeSecurityDomain.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeCreateAccessStateEx @ 0x1406C2F50 (SeCreateAccessStateEx.c)
- *     ObOpenObjectByPointer @ 0x1407379D0 (ObOpenObjectByPointer.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
+ *     KeSynchronizeSecurityDomain @ 0x1403154EC (KeSynchronizeSecurityDomain.c)
+ *     SepDeleteAccessState @ 0x140345670 (SepDeleteAccessState.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     ObOpenObjectByPointer @ 0x140653F10 (ObOpenObjectByPointer.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessStateEx @ 0x1406DA6C0 (SeCreateAccessStateEx.c)
  */
 
-__int64 __fastcall PspCombineSecurityDomains(PVOID Object, PVOID a2)
+__int64 __fastcall PspCombineSecurityDomains(PVOID Object, _DWORD *a2)
 {
-  __int64 v4; // rcx
-  __int64 v5; // rax
-  int v6; // ebx
+  __int64 v4; // rax
+  __int64 v5; // rcx
+  int AccessState; // ebx
   NTSTATUS v7; // eax
   signed __int64 v9; // rax
   signed __int32 v10[8]; // [rsp+0h] [rbp-100h] BYREF
   HANDLE v11; // [rsp+40h] [rbp-C0h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-B8h] BYREF
   struct _ACCESS_STATE PassedAccessState; // [rsp+50h] [rbp-B0h] BYREF
-  _QWORD v14[28]; // [rsp+F0h] [rbp-10h] BYREF
+  _BYTE v14[224]; // [rsp+F0h] [rbp-10h] BYREF
 
   memset(&PassedAccessState, 0, sizeof(PassedAccessState));
   memset(v14, 0, sizeof(v14));
-  if ( !_bittest((const signed __int32 *)Object + 543, 0x16u) || !_bittest((const signed __int32 *)a2 + 543, 0x16u) )
+  if ( (*((_DWORD *)Object + 543) & 0x400000) == 0 || (a2[543] & 0x400000) == 0 )
     return 3221225596LL;
   _InterlockedOr(v10, 0);
   v4 = *((_QWORD *)Object + 316);
   v5 = *((_QWORD *)a2 + 316);
   if ( v4 == v5 )
     return 0LL;
-  if ( !v4 || !v5 || *((int *)Object + 628) < 0 || *((int *)a2 + 628) < 0 )
+  if ( !v4 || !v5 || *((int *)Object + 628) < 0 || (int)a2[628] < 0 )
     return 3221226597LL;
   Handle = 0LL;
   v11 = 0LL;
-  v6 = SeCreateAccessStateEx(0LL, (struct _KPROCESS *)a2, &PassedAccessState, v14, 40, (_DWORD *)PsProcessType + 19);
-  if ( v6 >= 0 )
+  AccessState = SeCreateAccessStateEx(
+                  0,
+                  (_DWORD)a2,
+                  (unsigned int)&PassedAccessState,
+                  (unsigned int)v14,
+                  40,
+                  (__int64)PsProcessType + 76);
+  if ( AccessState >= 0 )
   {
     v7 = ObOpenObjectByPointer(Object, 0x600u, &PassedAccessState, 0, (POBJECT_TYPE)PsProcessType, 0, &Handle);
-    v6 = v7;
+    AccessState = v7;
     if ( v7 >= 0 )
     {
       SepDeleteAccessState((__int64)&PassedAccessState);
       SeReleaseSubjectContext(&PassedAccessState.SubjectSecurityContext);
-      v6 = SeCreateAccessStateEx(
-             0LL,
-             (struct _KPROCESS *)Object,
-             &PassedAccessState,
-             v14,
-             40,
-             (_DWORD *)PsProcessType + 19);
-      if ( v6 < 0 )
+      AccessState = SeCreateAccessStateEx(
+                      0,
+                      (_DWORD)Object,
+                      (unsigned int)&PassedAccessState,
+                      (unsigned int)v14,
+                      40,
+                      (__int64)PsProcessType + 76);
+      if ( AccessState < 0 )
         goto LABEL_14;
       v7 = ObOpenObjectByPointer(a2, 0x600u, &PassedAccessState, 0, (POBJECT_TYPE)PsProcessType, 0, &v11);
-      v6 = v7;
+      AccessState = v7;
       if ( v7 >= 0 )
       {
         _InterlockedOr((volatile signed __int32 *)Object + 543, 0x200000u);
         *((_QWORD *)Object + 316) = *((_QWORD *)a2 + 316);
-        if ( (*((_DWORD *)a2 + 628) | *((_DWORD *)Object + 628)) < 0 )
+        if ( (*((_DWORD *)Object + 628) | a2[628]) < 0 )
         {
           v9 = _InterlockedIncrement64(&PsNextSecurityDomain);
-          v6 = -1073740699;
+          AccessState = -1073740699;
           *((_QWORD *)Object + 316) = v9;
           *((_QWORD *)Object + 317) = v9;
         }
@@ -80,7 +86,7 @@ __int64 __fastcall PspCombineSecurityDomains(PVOID Object, PVOID a2)
       Handle = 0LL;
     }
     if ( v7 == -1073741790 )
-      v6 = -1073740699;
+      AccessState = -1073740699;
 LABEL_13:
     SepDeleteAccessState((__int64)&PassedAccessState);
     SeReleaseSubjectContext(&PassedAccessState.SubjectSecurityContext);
@@ -90,5 +96,5 @@ LABEL_14:
     ObCloseHandle(v11, 0);
   if ( Handle )
     ObCloseHandle(Handle, 0);
-  return (unsigned int)v6;
+  return (unsigned int)AccessState;
 }

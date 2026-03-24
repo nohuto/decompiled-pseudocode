@@ -1,11 +1,11 @@
 /*
- * XREFs of SeFilterToken @ 0x14080D380
+ * XREFs of SeFilterToken @ 0x140798D50
  * Callers:
- *     CmpCreateRegistryProcessToken @ 0x14080D218 (CmpCreateRegistryProcessToken.c)
+ *     CmpCreateRegistryProcessToken @ 0x140798BF0 (CmpCreateRegistryProcessToken.c)
  * Callees:
- *     SepFinalizeTokenAcls @ 0x14071DE50 (SepFinalizeTokenAcls.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     SepFilterToken @ 0x1407F2180 (SepFilterToken.c)
+ *     SepFinalizeTokenAcls @ 0x1405D00A0 (SepFinalizeTokenAcls.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
  */
 
 NTSTATUS __stdcall SeFilterToken(
@@ -19,16 +19,16 @@ NTSTATUS __stdcall SeFilterToken(
   PACCESS_TOKEN *v6; // rdi
   ULONG GroupCount; // ebx
   ULONG v8; // r10d
-  SID_AND_ATTRIBUTES *Groups; // r11
+  __int64 *Groups; // r11
   ULONG PrivilegeCount; // esi
   NTSTATUS inserted; // ebx
   ULONG v14; // ecx
   ULONG *p_Attributes; // rax
-  PVOID Object; // [rsp+90h] [rbp+18h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+90h] [rbp+18h] BYREF
 
   v6 = FilteredToken;
   GroupCount = 0;
-  Object = 0LL;
+  DmaAdapter = 0LL;
   v8 = 0;
   Groups = 0LL;
   PrivilegeCount = 0;
@@ -38,7 +38,7 @@ NTSTATUS __stdcall SeFilterToken(
   if ( PrivilegesToDelete )
     PrivilegeCount = PrivilegesToDelete->PrivilegeCount;
   if ( RestrictedSids
-    && (v8 = RestrictedSids->GroupCount, Groups = RestrictedSids->Groups, v14 = 0, RestrictedSids->GroupCount) )
+    && (v8 = RestrictedSids->GroupCount, Groups = (__int64 *)RestrictedSids->Groups, v14 = 0, RestrictedSids->GroupCount) )
   {
     p_Attributes = &RestrictedSids->Groups[0].Attributes;
     while ( !*p_Attributes )
@@ -60,18 +60,18 @@ LABEL_6:
                  GroupCount,
                  (unsigned __int64)SidsToDisable->Groups & -(__int64)(SidsToDisable != 0LL),
                  PrivilegeCount,
-                 (unsigned __int64)PrivilegesToDelete->Privileges & -(__int64)(PrivilegesToDelete != 0LL),
+                 (_DWORD *)((unsigned __int64)PrivilegesToDelete->Privileges & -(__int64)(PrivilegesToDelete != 0LL)),
                  v8,
                  Groups,
                  0,
-                 &Object);
+                 &DmaAdapter);
     if ( inserted >= 0 )
     {
-      inserted = ObInsertObjectEx((char *)Object, 0LL, 0, 0, 0, 0LL, 0LL);
+      inserted = ObInsertObjectEx(DmaAdapter, 0LL, 0, 0, 0, 0LL, 0LL);
       if ( inserted >= 0 )
       {
-        SepFinalizeTokenAcls(Object);
-        *v6 = Object;
+        SepFinalizeTokenAcls(DmaAdapter);
+        *v6 = DmaAdapter;
       }
     }
     return inserted;

@@ -1,10 +1,10 @@
 /*
- * XREFs of IopDeviceEjectComplete @ 0x1405648E0
+ * XREFs of IopDeviceEjectComplete @ 0x140510120
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
  */
 
 __int64 __fastcall IopDeviceEjectComplete(__int64 a1, IRP *a2, __int64 a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of DpiGetDriverVersion @ 0x1C0228E20
+ * XREFs of DpiGetDriverVersion @ 0x1C019EB70
  * Callers:
  *     <none>
  * Callees:

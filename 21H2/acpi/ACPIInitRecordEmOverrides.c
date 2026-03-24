@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIInitRecordEmOverrides @ 0x1C00BB9F0
+ * XREFs of ACPIInitRecordEmOverrides @ 0x1C00BB8B4
  * Callers:
- *     DriverEntry @ 0x1C00BBAC8 (DriverEntry.c)
+ *     DriverEntry @ 0x1C00BB98C (DriverEntry.c)
  * Callees:
- *     AcpiDiagOverrideAttribute @ 0x1C004782C (AcpiDiagOverrideAttribute.c)
+ *     AcpiDiagOverrideAttribute @ 0x1C0049518 (AcpiDiagOverrideAttribute.c)
  */
 
 int ACPIInitRecordEmOverrides()

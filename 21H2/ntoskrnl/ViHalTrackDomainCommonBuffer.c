@@ -1,11 +1,11 @@
 /*
- * XREFs of ViHalTrackDomainCommonBuffer @ 0x140A88A3C
+ * XREFs of ViHalTrackDomainCommonBuffer @ 0x1409CED54
  * Callers:
- *     VfAllocateDomainCommonBuffer @ 0x1405FE460 (VfAllocateDomainCommonBuffer.c)
+ *     VfAllocateDomainCommonBuffer @ 0x1405A0EB0 (VfAllocateDomainCommonBuffer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ViHalTrackDomainCommonBuffer(__int64 *a1)
@@ -17,7 +17,7 @@ __int64 __fastcall ViHalTrackDomainCommonBuffer(__int64 *a1)
   _DWORD *SchedulerAssist; // r9
   bool v7; // zf
 
-  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140D577C0);
+  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140D4A370);
   v3 = ViDomainCommonBufferList;
   if ( *(__int64 **)(ViDomainCommonBufferList + 8) != &ViDomainCommonBufferList )
     __fastfail(3u);
@@ -25,7 +25,7 @@ __int64 __fastcall ViHalTrackDomainCommonBuffer(__int64 *a1)
   *a1 = v3;
   *(_QWORD *)(v3 + 8) = a1;
   ViDomainCommonBufferList = (__int64)a1;
-  KxReleaseSpinLock(&qword_140D577C0);
+  KxReleaseSpinLock(&qword_140D4A370);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

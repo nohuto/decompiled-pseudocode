@@ -1,40 +1,41 @@
 /*
- * XREFs of NtGdiBRUSHOBJ_ulGetBrushColor @ 0x1C02C8280
+ * XREFs of NtGdiBRUSHOBJ_ulGetBrushColor @ 0x1C013BB50
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     BRUSHOBJ_ulGetBrushColor @ 0x1C02651A0 (BRUSHOBJ_ulGetBrushColor.c)
- *     ??$GetDDIOBJ@U_BRUSHOBJ@@@UMPDOBJ@@QEAAPEAU_BRUSHOBJ@@PEAU1@@Z @ 0x1C02C6C3C (--$GetDDIOBJ@U_BRUSHOBJ@@@UMPDOBJ@@QEAAPEAU_BRUSHOBJ@@PEAU1@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     BRUSHOBJ_ulGetBrushColor @ 0x1C013BC50 (BRUSHOBJ_ulGetBrushColor.c)
+ *     ??$GetDDIOBJ@U_BRUSHOBJ@@@UMPDOBJ@@QEAAPEAU_BRUSHOBJ@@PEAU1@@Z @ 0x1C013C0DC (--$GetDDIOBJ@U_BRUSHOBJ@@@UMPDOBJ@@QEAAPEAU_BRUSHOBJ@@PEAU1@@Z.c)
  */
 
 __int64 __fastcall NtGdiBRUSHOBJ_ulGetBrushColor(ULONG64 a1)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax
   struct UMPDOBJ *ThreadCurrentObj; // rax
-  _DWORD *v4; // rbx
-  BRUSHOBJ *v6; // r9
-  ULONG BrushColor; // r10d
-  ULONG64 v8; // rax
+  struct UMPDOBJ *v4; // rbx
+  ULONG BrushColor; // esi
+  BRUSHOBJ *v6; // r8
+  ULONG64 v7; // rax
 
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v4 = (_DWORD *)((char *)ThreadCurrentObj + 436);
+  v4 = ThreadCurrentObj;
   if ( !ThreadCurrentObj )
     return 0LL;
-  ++*v4;
-  v6 = (BRUSHOBJ *)UMPDOBJ::GetDDIOBJ<_BRUSHOBJ>((__int64)ThreadCurrentObj, a1);
+  ++*((_DWORD *)ThreadCurrentObj + 105);
+  BrushColor = 0;
+  v6 = (BRUSHOBJ *)UMPDOBJ::GetDDIOBJ<_BRUSHOBJ>(ThreadCurrentObj, a1);
   if ( v6 )
   {
-    v8 = a1;
+    v7 = a1;
     if ( a1 >= MmUserProbeAddress )
-      v8 = MmUserProbeAddress;
-    if ( (*(_QWORD *)(v8 + 16) & 8) != 0 && (v6[5].iSolidColor & 0x10) != 0 )
+      v7 = MmUserProbeAddress;
+    if ( (*(_QWORD *)(v7 + 16) & 8) != 0 && (v6[5].iSolidColor & 0x10) != 0 )
       v6->flColorType |= 8u;
     BrushColor = BRUSHOBJ_ulGetBrushColor(v6);
     *(_DWORD *)(a1 + 16) &= ~8u;
   }
-  --*v4;
+  --*((_DWORD *)v4 + 105);
   return BrushColor;
 }

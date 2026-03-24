@@ -1,29 +1,65 @@
 /*
- * XREFs of PnpProcessDependencyRelations @ 0x14086931C
+ * XREFs of PnpProcessDependencyRelations @ 0x140749770
  * Callers:
- *     PnpProcessRelation @ 0x140868F28 (PnpProcessRelation.c)
+ *     PnpProcessRelation @ 0x14074950C (PnpProcessRelation.c)
  * Callees:
- *     PipIsDevNodeDNStarted @ 0x14022B1A0 (PipIsDevNodeDNStarted.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9A08 (PnpAcquireDependencyRelationsLock.c)
- *     PiGetDependentList @ 0x14079C828 (PiGetDependentList.c)
- *     PiEnumerateDependentListEntry @ 0x140839E64 (PiEnumerateDependentListEntry.c)
- *     PnpProcessRelation @ 0x140868F28 (PnpProcessRelation.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     PipIsDevNodeDNStarted @ 0x14032E358 (PipIsDevNodeDNStarted.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406B29FC (PnpAcquireDependencyRelationsLock.c)
+ *     PiGetDependentList @ 0x140747814 (PiGetDependentList.c)
+ *     PnpProcessRelation @ 0x14074950C (PnpProcessRelation.c)
+ *     PiEnumerateDependentListEntry @ 0x14089D948 (PiEnumerateDependentListEntry.c)
  */
 
-__int64 __fastcall PnpProcessDependencyRelations(__int64 a1)
+__int64 __fastcall PnpProcessDependencyRelations(
+        __int64 a1,
+        unsigned int a2,
+        unsigned int a3,
+        __int64 a4,
+        ULONG_PTR a5)
 {
-  __int64 v1; // rbx
+  __int64 v5; // rbx
+  int v9; // edi
   __int64 *DependentList; // rsi
-  __int64 *i; // rbx
+  __int64 *v11; // rbx
+  ULONG_PTR BugCheckParameter3; // rbp
+  __int64 v14; // rcx
+  int v15; // eax
+  bool v16; // zf
+  __int64 v17; // [rsp+30h] [rbp-38h] BYREF
+  char v18; // [rsp+70h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 32);
+  v5 = *(_QWORD *)(a1 + 32);
+  v17 = 0LL;
+  v9 = 0;
   PnpAcquireDependencyRelationsLock(0);
-  DependentList = PiGetDependentList(v1);
-  for ( i = (__int64 *)*DependentList; i != DependentList; i = (__int64 *)*i )
-    PiEnumerateDependentListEntry((__int64)i);
+  DependentList = PiGetDependentList(v5);
+  v11 = (__int64 *)*DependentList;
+  if ( (__int64 *)*DependentList != DependentList )
+  {
+    BugCheckParameter3 = a5;
+    do
+    {
+      PiEnumerateDependentListEntry(v11, &v17, &v18);
+      v11 = (__int64 *)*v11;
+      if ( v17 )
+      {
+        v14 = *(_QWORD *)(*(_QWORD *)(v17 + 312) + 40LL);
+        v15 = *(_DWORD *)(v14 + 300);
+        if ( v15 < 782 || v15 > 783 )
+          v16 = !PipIsDevNodeDNStarted(v14);
+        else
+          v16 = ((*(_DWORD *)(v14 + 304) - 786) & 0xFFFFFFFD) == 0;
+        if ( !v16 )
+          v9 = PnpProcessRelation(v14, a2, a3, a4, BugCheckParameter3);
+        if ( v9 < 0 )
+          break;
+      }
+    }
+    while ( v11 != DependentList );
+  }
   ExReleaseResourceLite(&PiDependencyRelationsLock);
   PpDevNodeUnlockTree(0);
-  return 0LL;
+  return (unsigned int)v9;
 }

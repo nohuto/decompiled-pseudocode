@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDmEnumObjectsWithCallback @ 0x140779850
+ * XREFs of PiDmEnumObjectsWithCallback @ 0x1406350E8
  * Callers:
- *     PiDmGetObjectList @ 0x1406DD014 (PiDmGetObjectList.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407762E4 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDmListInit @ 0x1408449C8 (PiDmListInit.c)
- *     PpDevCfgInit @ 0x140B0ED44 (PpDevCfgInit.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14062E878 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDmGetObjectList @ 0x1406C0378 (PiDmGetObjectList.c)
+ *     PiDmListInit @ 0x1407A2DE4 (PiDmListInit.c)
+ *     PpDevCfgInit @ 0x140A52024 (PpDevCfgInit.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     RtlEnumerateGenericTableLikeADirectory @ 0x1402DEB90 (RtlEnumerateGenericTableLikeADirectory.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PiDmObjectIsEnumerable @ 0x140779800 (PiDmObjectIsEnumerable.c)
- *     PiDmGetObjectManagerForObjectType @ 0x14077B33C (PiDmGetObjectManagerForObjectType.c)
- *     PiDmObjectRelease @ 0x14077B394 (PiDmObjectRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlEnumerateGenericTableLikeADirectory @ 0x1402645A0 (RtlEnumerateGenericTableLikeADirectory.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x140636D90 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
+ *     PiDmObjectIsEnumerable @ 0x14063772C (PiDmObjectIsEnumerable.c)
  */
 
 __int64 __fastcall PiDmEnumObjectsWithCallback(
@@ -23,14 +23,14 @@ __int64 __fastcall PiDmEnumObjectsWithCallback(
         __int64 (__fastcall *a2)(void *, __int64, _BYTE *),
         __int64 a3)
 {
-  int v6; // esi
+  int v6; // edi
   __int64 ObjectManagerForObjectType; // rax
-  __int64 v8; // rdi
+  __int64 v8; // rsi
   const wchar_t *v9; // rax
   struct _KTHREAD *CurrentThread; // rax
   PVOID v11; // rax
   void *v12; // rbx
-  struct _KTHREAD *v13; // rax
+  struct _KTHREAD *v13; // rcx
   PVOID v14; // rax
   _BYTE v16[4]; // [rsp+40h] [rbp-79h] BYREF
   ULONG DeleteCount; // [rsp+44h] [rbp-75h] BYREF
@@ -50,7 +50,7 @@ __int64 __fastcall PiDmEnumObjectsWithCallback(
   HIDWORD(v20[3]) = a1;
   v9 = L"\\\\?\\";
   if ( a1 != 3 )
-    v9 = &word_140867F00;
+    v9 = &word_1407D7BA0;
   v20[2] = v9;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -66,10 +66,12 @@ __int64 __fastcall PiDmEnumObjectsWithCallback(
     v12 = 0LL;
   }
   ExReleaseResourceLite((PERESOURCE)v8);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   while ( v12 )
   {
-    if ( PiDmObjectIsEnumerable((ULONG_PTR)v12) && (v6 = a2(v12, a3, v16), v6 < 0) || v16[0] )
+    if ( (unsigned __int8)PiDmObjectIsEnumerable((ULONG_PTR)v12) )
+      v6 = a2(v12, a3, v16);
+    if ( v6 < 0 || v16[0] )
     {
       PiDmObjectRelease(v12);
       return (unsigned int)v6;
@@ -89,7 +91,7 @@ __int64 __fastcall PiDmEnumObjectsWithCallback(
       v12 = 0LL;
     }
     ExReleaseResourceLite((PERESOURCE)v8);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     PiDmObjectRelease(P);
   }
   return (unsigned int)v6;

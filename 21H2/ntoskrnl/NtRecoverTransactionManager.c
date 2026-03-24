@@ -1,5 +1,5 @@
 /*
- * XREFs of NtRecoverTransactionManager @ 0x1403DFD60
+ * XREFs of NtRecoverTransactionManager @ 0x1403D0A60
  * Callers:
  *     <none>
  * Callees:

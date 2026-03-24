@@ -1,15 +1,15 @@
 /*
- * XREFs of IoReportTargetDeviceChange @ 0x1408821E0
+ * XREFs of IoReportTargetDeviceChange @ 0x14076CEC0
  * Callers:
- *     FsRtlNotifyVolumeEventEx @ 0x1407949D0 (FsRtlNotifyVolumeEventEx.c)
- *     NtSetVolumeInformationFile @ 0x140881DA0 (NtSetVolumeInformationFile.c)
+ *     FsRtlNotifyVolumeEventEx @ 0x14071B7D0 (FsRtlNotifyVolumeEventEx.c)
+ *     NtSetVolumeInformationFile @ 0x14076C940 (NtSetVolumeInformationFile.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     PnpSetCustomTargetEvent @ 0x14079473C (PnpSetCustomTargetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     PnpSetCustomTargetEvent @ 0x14071A048 (PnpSetCustomTargetEvent.c)
  */
 
 NTSTATUS __stdcall IoReportTargetDeviceChange(PDEVICE_OBJECT PhysicalDeviceObject, PVOID NotificationStructure)
@@ -23,13 +23,15 @@ NTSTATUS __stdcall IoReportTargetDeviceChange(PDEVICE_OBJECT PhysicalDeviceObjec
   UNICODE_STRING *p_DriverName; // rcx
   char *v11; // rcx
   unsigned __int16 *v12; // rdi
-  _WORD *v13; // rcx
-  __int64 v14; // rax
+  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rdx
+  _WORD *v14; // rcx
   __int64 v15; // rcx
+  _WORD *v16; // rcx
+  __int64 v17; // rcx
   struct _KEVENT Event; // [rsp+30h] [rbp-38h] BYREF
-  NTSTATUS v17; // [rsp+70h] [rbp+8h] BYREF
+  NTSTATUS v19; // [rsp+70h] [rbp+8h] BYREF
 
-  v17 = 0;
+  v19 = 0;
   memset(&Event, 0, sizeof(Event));
   if ( !PhysicalDeviceObject )
     goto LABEL_29;
@@ -54,26 +56,32 @@ NTSTATUS __stdcall IoReportTargetDeviceChange(PDEVICE_OBJECT PhysicalDeviceObjec
     if ( v11 )
     {
       v12 = (unsigned __int16 *)(v11 + 40);
-      IoAddTriageDumpDataBlock((ULONG)v11, (PVOID)0x388);
+      IoAddTriageDumpDataBlock((ULONG)v11, (PVOID)0x310);
       if ( *v12 )
       {
         IoAddTriageDumpDataBlock((ULONG)v12, (PVOID)2);
         IoAddTriageDumpDataBlock(*((_QWORD *)v12 + 1), (PVOID)*v12);
       }
-      v13 = (char *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 56;
-      if ( *v13 )
+      DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
+      v14 = (char *)DeviceObjectExtension->DeviceNode + 56;
+      if ( *v14 )
       {
-        IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)2);
+        IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)2);
         IoAddTriageDumpDataBlock(
           *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 8),
           (PVOID)*((unsigned __int16 *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 28));
+        DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
       }
-      v14 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
-      if ( v14 && *(_WORD *)(v14 + 56) )
+      v15 = *((_QWORD *)DeviceObjectExtension->DeviceNode + 2);
+      if ( v15 )
       {
-        IoAddTriageDumpDataBlock(v14 + 56, (PVOID)2);
-        v15 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
-        IoAddTriageDumpDataBlock(*(_QWORD *)(v15 + 64), (PVOID)*(unsigned __int16 *)(v15 + 56));
+        v16 = (_WORD *)(v15 + 56);
+        if ( *v16 )
+        {
+          IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)2);
+          v17 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
+          IoAddTriageDumpDataBlock(*(_QWORD *)(v17 + 64), (PVOID)*(unsigned __int16 *)(v17 + 56));
+        }
       }
     }
 LABEL_29:
@@ -102,14 +110,14 @@ LABEL_29:
   result = PnpSetCustomTargetEvent(
              PhysicalDeviceObject,
              (__int64)&Event,
-             &v17,
+             &v19,
              0LL,
              0LL,
              (unsigned __int16 *)NotificationStructure);
   if ( result >= 0 )
   {
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-    return v17;
+    return v19;
   }
   return result;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of Is_GetTopLevelWindowSupported @ 0x1C000E2B0
+ * XREFs of Is_GetTopLevelWindowSupported @ 0x1C0071FD8
  * Callers:
- *     EtwTraceInputProcessDelay @ 0x1C0053680 (EtwTraceInputProcessDelay.c)
- *     TransformRectBetweenCoordinateSpaces @ 0x1C0062C80 (TransformRectBetweenCoordinateSpaces.c)
- *     EtwTraceMessageCheckDelay @ 0x1C0089570 (EtwTraceMessageCheckDelay.c)
+ *     TransformRectBetweenCoordinateSpaces @ 0x1C0070D00 (TransformRectBetweenCoordinateSpaces.c)
+ *     EtwTraceInputProcessDelay @ 0x1C0122640 (EtwTraceInputProcessDelay.c)
+ *     EtwTraceMessageCheckDelay @ 0x1C0122ED0 (EtwTraceMessageCheckDelay.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 Is_GetTopLevelWindowSupported()
 {
-  if ( qword_1C0295EA8 )
-    return qword_1C0295EA8();
+  if ( qword_1C0256A98 )
+    return qword_1C0256A98();
   else
     return 3221225659LL;
 }

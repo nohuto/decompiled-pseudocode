@@ -1,50 +1,59 @@
 /*
- * XREFs of ?MarkAllRangesWithNewOwner@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C00809B0
+ * XREFs of ?MarkAllRangesWithNewOwner@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C00896F4
  * Callers:
- *     ?SplitAt@VIDMM_RECYCLE_MULTIRANGE@@QEAAX_K@Z @ 0x1C007EB0C (-SplitAt@VIDMM_RECYCLE_MULTIRANGE@@QEAAX_K@Z.c)
- *     ?ResizeMultirangeToExcludeOverlap@VIDMM_RECYCLE_HEAP@@AEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@0@Z @ 0x1C007F900 (-ResizeMultirangeToExcludeOverlap@VIDMM_RECYCLE_HEAP@@AEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@0@Z.c)
- *     ?MergeWithNeighborsIfPossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAV1@XZ @ 0x1C00801C0 (-MergeWithNeighborsIfPossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAV1@XZ.c)
+ *     ?ResizeMultirangeToExcludeOverlap@VIDMM_RECYCLE_HEAP@@AEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@0@Z @ 0x1C007B74C (-ResizeMultirangeToExcludeOverlap@VIDMM_RECYCLE_HEAP@@AEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@0@Z.c)
+ *     ?Allocate@VIDMM_RECYCLE_HEAP@@QEAAJ_KIPEAPEAX11PEAEE@Z @ 0x1C007D130 (-Allocate@VIDMM_RECYCLE_HEAP@@QEAAJ_KIPEAPEAX11PEAEE@Z.c)
+ *     ?MergeWithNeighborsIfPossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAV1@XZ @ 0x1C007E5E0 (-MergeWithNeighborsIfPossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAV1@XZ.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall VIDMM_RECYCLE_MULTIRANGE::MarkAllRangesWithNewOwner(VIDMM_RECYCLE_MULTIRANGE *this)
+void __fastcall VIDMM_RECYCLE_MULTIRANGE::MarkAllRangesWithNewOwner(VIDMM_RECYCLE_MULTIRANGE *this, __int64 a2)
 {
-  _QWORD *v1; // rdi
-  int v3; // ecx
-  __int64 v4; // rdx
+  _QWORD *v2; // rdi
+  int v4; // ecx
   __int64 v5; // rcx
-  int v6; // ecx
+  __int64 v6; // rcx
+  __int64 v7; // rax
 
-  v1 = (_QWORD *)*((_QWORD *)this + 8);
+  v2 = (_QWORD *)*((_QWORD *)this + 8);
   while ( 1 )
   {
-    v3 = *((_DWORD *)this + 54);
-    if ( v3 )
+    v4 = *((_DWORD *)this + 54);
+    if ( v4 )
     {
-      v6 = v3 - 1;
-      if ( v6 )
+      v6 = (unsigned int)(v4 - 1);
+      if ( (_DWORD)v6 )
       {
-        if ( v6 == 1 )
-          v1[19] = this;
+        if ( (_DWORD)v6 == 1 )
+        {
+          v2[19] = this;
+        }
         else
-          WdLogSingleEntry5(0LL, 270LL, 52LL, 10LL, 0LL, 0LL);
+        {
+          v7 = WdLogNewEntry5_WdCriticalError(v6, a2);
+          *(_QWORD *)(v7 + 24) = 270LL;
+          *(_QWORD *)(v7 + 32) = 52LL;
+          *(_QWORD *)(v7 + 40) = 10LL;
+          *(_OWORD *)(v7 + 48) = 0LL;
+          WdLogEvent5_WdCriticalError(v7);
+        }
       }
       else
       {
-        v1[18] = this;
+        v2[18] = this;
       }
     }
     else
     {
-      v1[17] = this;
+      v2[17] = this;
     }
-    if ( v1 == *((_QWORD **)this + 9) )
+    if ( v2 == *((_QWORD **)this + 9) )
       break;
-    v4 = v1[15];
-    v5 = v1[9];
-    v1 = 0LL;
-    if ( v4 != v5 + 72 )
-      v1 = (_QWORD *)(v4 - 120);
+    a2 = v2[15];
+    v5 = v2[9];
+    v2 = 0LL;
+    if ( a2 != v5 + 72 )
+      v2 = (_QWORD *)(a2 - 120);
   }
 }

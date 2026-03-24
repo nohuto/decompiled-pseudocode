@@ -1,66 +1,84 @@
 /*
- * XREFs of ?ProcessSetCallbackId@CNotificationResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NOTIFICATIONRESOURCE_SETCALLBACKID@@@Z @ 0x1800BDBD8
+ * XREFs of ?ProcessSetCallbackId@CNotificationResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NOTIFICATIONRESOURCE_SETCALLBACKID@@@Z @ 0x1800A1A90
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetAttachedChannel@CComposition@@QEAAJIPEAPEAVCChannelContext@@@Z @ 0x1800BDCA4 (-GetAttachedChannel@CComposition@@QEAAJIPEAPEAVCChannelContext@@@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800D193C (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ?FlushCallbackId@CMessageConversationHost@@QEAAJII@Z @ 0x1800EB714 (-FlushCallbackId@CMessageConversationHost@@QEAAJII@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FlushCallbackId@CMessageConversationHost@@QEAAJII@Z @ 0x1800DA4E0 (-FlushCallbackId@CMessageConversationHost@@QEAAJII@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CNotificationResource::ProcessSetCallbackId(
-        CComposition **this,
+        CNotificationResource *this,
         struct CResourceTable *a2,
         const struct tagMILCMD_NOTIFICATIONRESOURCE_SETCALLBACKID *a3)
 {
-  unsigned int v3; // edx
-  int AttachedChannel; // eax
-  __int64 v7; // rcx
-  struct CChannelContext *v8; // rsi
-  unsigned int v9; // edi
-  unsigned int *v10; // rcx
-  unsigned int v11; // r8d
-  CComposition *v12; // rax
-  struct CChannelContext *v14; // [rsp+40h] [rbp+8h] BYREF
+  unsigned int v3; // eax
+  volatile signed __int32 *v4; // rbx
+  __int64 v6; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  unsigned int v11; // edi
+  int v12; // eax
+  int v13; // eax
+  unsigned int v14; // r8d
+  __int64 v15; // rax
+  unsigned int v17; // edx
+  __int64 v18; // rcx
 
   v3 = *((_DWORD *)a2 + 12);
-  v14 = 0LL;
-  AttachedChannel = CComposition::GetAttachedChannel(this[2], v3, &v14);
-  v8 = v14;
-  v9 = AttachedChannel;
-  if ( AttachedChannel < 0 )
+  v4 = 0LL;
+  v6 = *((_QWORD *)this + 2);
+  if ( v3 < 0x10000 && v3 < *(_DWORD *)(v6 + 320) && (v8 = v3, v9 = *(_QWORD *)(v6 + 296), *(_QWORD *)(v9 + 8 * v8)) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, AttachedChannel, 0x53u);
+    v4 = *(volatile signed __int32 **)(v9 + 8 * v8);
+    _InterlockedIncrement(v4 + 2);
+    v10 = *((_QWORD *)this + 6);
+    v11 = 0;
+    if ( v10 )
+      v12 = *(_DWORD *)(v10 + 68);
+    else
+      v12 = 0;
+    if ( v12 && v4 != (volatile signed __int32 *)v10 )
+    {
+      v11 = -2147024891;
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2147024891, 0x5Bu, 0LL);
+    }
+    else
+    {
+      if ( v10 )
+        v13 = *(_DWORD *)(v10 + 68);
+      else
+        v13 = 0;
+      if ( v13 )
+      {
+        v14 = *((_DWORD *)this + 14);
+        if ( v14 )
+        {
+          if ( v10 )
+            v17 = *(_DWORD *)(v10 + 68);
+          else
+            v17 = 0;
+          CMessageConversationHost::FlushCallbackId(
+            *(CMessageConversationHost **)(*((_QWORD *)this + 2) + 1080LL),
+            v17,
+            v14);
+        }
+      }
+      *((_DWORD *)this + 14) = *((_DWORD *)a3 + 2);
+      v15 = *(_QWORD *)this;
+      *((_QWORD *)this + 6) = v4;
+      (*(void (__fastcall **)(CNotificationResource *))(v15 + 200))(this);
+    }
   }
   else
   {
-    v10 = (unsigned int *)this[6];
-    if ( !v10 || !v10[19] )
-    {
-LABEL_8:
-      *((_DWORD *)this + 16) = *((_DWORD *)a3 + 2);
-      v12 = *this;
-      this[6] = v8;
-      (*((void (__fastcall **)(CComposition **))v12 + 23))(this);
-      goto LABEL_9;
-    }
-    if ( v14 == (struct CChannelContext *)v10 )
-    {
-      if ( v10[19] )
-      {
-        v11 = *((_DWORD *)this + 16);
-        if ( v11 )
-          CMessageConversationHost::FlushCallbackId(*((CMessageConversationHost **)this[2] + 155), v10[19], v11);
-      }
-      goto LABEL_8;
-    }
-    v9 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v10, 0LL, 0LL, -2003303421, 0x5Bu);
+    v11 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147024809, 0x76Cu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2147024809, 0x53u, 0LL);
   }
-LABEL_9:
-  if ( v8 )
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v8);
-  return v9;
+  if ( v4 && _InterlockedExchangeAdd(v4 + 2, 0xFFFFFFFF) == 1 )
+    (*(void (__fastcall **)(volatile signed __int32 *, __int64))(*(_QWORD *)v4 + 16LL))(v4, 1LL);
+  return v11;
 }

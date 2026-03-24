@@ -1,12 +1,12 @@
 /*
- * XREFs of VslAccessPciDevice @ 0x14054AA40
+ * XREFs of VslAccessPciDevice @ 0x1404FBA70
  * Callers:
- *     KiOpPciConfigSpaceAccessCommon @ 0x14057F63C (KiOpPciConfigSpaceAccessCommon.c)
+ *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall VslAccessPciDevice(
@@ -20,7 +20,7 @@ __int64 __fastcall VslAccessPciDevice(
         char *Src)
 {
   unsigned int v13; // ebx
-  int v14; // edi
+  NTSTATUS v14; // edi
   unsigned int v15; // eax
   _QWORD v17[14]; // [rsp+20h] [rbp-79h] BYREF
 

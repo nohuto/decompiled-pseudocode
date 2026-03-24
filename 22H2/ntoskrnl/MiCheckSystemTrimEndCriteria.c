@@ -1,143 +1,144 @@
 /*
- * XREFs of MiCheckSystemTrimEndCriteria @ 0x1406342DC
+ * XREFs of MiCheckSystemTrimEndCriteria @ 0x14053AC6C
  * Callers:
- *     MiProcessWorkingSets @ 0x14021FA30 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x140207B60 (MiProcessWorkingSets.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLogContinueTrim @ 0x140634E88 (MiLogContinueTrim.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLogContinueTrim @ 0x14053B368 (MiLogContinueTrim.c)
  */
 
-__int64 __fastcall MiCheckSystemTrimEndCriteria(_QWORD *a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiCheckSystemTrimEndCriteria(_QWORD *a1, __int64 a2, struct _KLOCK_QUEUE_HANDLE *a3)
 {
-  char v3; // al
-  __int64 v5; // rsi
-  unsigned __int64 v8; // rcx
-  __int64 v9; // r8
-  _QWORD *v10; // r10
-  unsigned int v11; // r9d
-  __int64 v12; // rdx
-  __int64 v13; // rax
-  __int64 v14; // rcx
-  unsigned __int64 v15; // r14
+  __int64 v4; // rsi
+  unsigned __int64 v7; // rcx
+  __int64 v8; // r8
+  _QWORD *v9; // r10
+  unsigned int v10; // r9d
+  __int64 v11; // rdx
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  unsigned __int64 OldIrql; // r14
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v19; // eax
-  bool v20; // zf
-  unsigned __int64 v21; // rax
-  unsigned __int64 v22; // rdx
-  unsigned __int64 v23; // rdx
-  unsigned __int64 v24; // r8
-  __int64 v25; // r9
-  _QWORD *v26; // rcx
-  __int64 v27; // r9
-  char v28; // cl
+  int v18; // eax
+  bool v19; // zf
+  unsigned __int64 v20; // rdx
+  unsigned __int64 v21; // rcx
+  unsigned __int64 v22; // rcx
+  unsigned __int64 v23; // r8
+  __int64 v24; // r9
+  _QWORD *v25; // rdx
+  __int64 v26; // r9
+  char v27; // cl
+  unsigned __int64 v29; // rdi
   unsigned __int64 v30; // rdi
-  unsigned __int64 v31; // rdi
 
-  v3 = *(_BYTE *)(a2 + 2);
-  v5 = a1[2115];
-  if ( v3 == 3 || v3 == 2 )
+  v4 = a1[856];
+  if ( (unsigned __int8)(*(_BYTE *)(a2 + 2) - 2) <= 1u )
   {
-    v30 = *(_QWORD *)(v5 + 2360);
-    if ( *(_QWORD *)(a2 + 96) < v30 )
-      v31 = v30 - *(_QWORD *)(a2 + 80);
+    v29 = *(_QWORD *)(v4 + 2360);
+    if ( *(_QWORD *)(a2 + 96) < v29 )
+      v30 = v29 - *(_QWORD *)(a2 + 80);
     else
-      v31 = 0LL;
-    *(_QWORD *)(v5 + 2360) = v31;
+      v30 = 0LL;
+    *(_QWORD *)(v4 + 2360) = v30;
     return 1LL;
   }
   if ( (*(_BYTE *)a2 & 0x7Fu) >= 4 )
     return 1LL;
-  v8 = a1[2152];
-  if ( v8 >= *(_QWORD *)(a2 + 72) )
+  v7 = a1[888];
+  if ( v7 >= *(_QWORD *)(a2 + 72) )
     return 1LL;
   if ( *(_QWORD *)(a2 + 96) >= *(_QWORD *)(a2 + 80) )
   {
-    if ( v8 < 0x420 )
+    if ( v7 < 0x420 )
     {
       *(_QWORD *)(a2 + 96) = 0LL;
-      goto LABEL_8;
+      goto LABEL_7;
     }
     return 1LL;
   }
-LABEL_8:
-  v9 = 0LL;
-  v10 = (_QWORD *)(v5 + 2416);
-  v11 = 0;
-  v12 = a2 - v5;
+LABEL_7:
+  v8 = 0LL;
+  v9 = (_QWORD *)(v4 + 2416);
+  v10 = 0;
+  v11 = a2 - v4;
   do
   {
-    v13 = *(_QWORD *)((char *)v10 + v12 - 2408);
-    *v10++ = v13;
-    v14 = v13 + v9;
-    if ( v11 < 6 )
-      v14 = v9;
-    ++v11;
-    v9 = v14;
+    v12 = *(_QWORD *)((char *)v9 + v11 - 2408);
+    *v9++ = v12;
+    v13 = v12 + v8;
+    if ( v10 < 6 )
+      v13 = v8;
+    ++v10;
+    v8 = v13;
   }
-  while ( v11 < 8 );
-  *(_QWORD *)(v5 + 2408) = v14;
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)a3);
-  v15 = *(unsigned __int8 *)(a3 + 16);
+  while ( v10 < 8 );
+  *(_QWORD *)(v4 + 2408) = v13;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(a3);
+  OldIrql = a3->OldIrql;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
-      v20 = (v19 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v19;
-      if ( v20 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)OldIrql + 1));
+        v19 = (v18 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v18;
+        if ( v19 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
-  __writecr8(v15);
-  if ( a1[2200] < 0x420uLL )
+  __writecr8(OldIrql);
+  if ( a1[936] < 0x420uLL )
   {
-    ++*(_DWORD *)(v5 + 2564);
+    ++*(_DWORD *)(v4 + 2564);
   }
   else
   {
-    ++*(_DWORD *)(v5 + 2560);
+    ++*(_DWORD *)(v4 + 2560);
     KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&MiShortTime);
   }
-  v21 = a1[2152];
-  v22 = *(_QWORD *)(a2 + 72);
-  if ( v21 >= v22 )
+  v20 = a1[888];
+  v21 = *(_QWORD *)(a2 + 72);
+  if ( v20 >= v21 )
   {
-    KeAcquireInStackQueuedSpinLock(&qword_140C698C0, (PKLOCK_QUEUE_HANDLE)a3);
+    KeAcquireInStackQueuedSpinLock(&SpinLock, a3);
     return 1LL;
   }
-  v23 = v22 - v21;
-  v24 = 0LL;
-  v25 = *((unsigned __int8 *)MiTrimPassToAge + (*(_BYTE *)a2 & 0x7F));
-  if ( (unsigned int)v25 < 8 )
+  v22 = v21 - v20;
+  v23 = 0LL;
+  v24 = *((unsigned __int8 *)MiTrimPassToAge + (*(_BYTE *)a2 & 0x7F));
+  if ( (unsigned int)v24 < 8 )
   {
-    v26 = (_QWORD *)(v5 + 2416 + 8 * v25);
-    v27 = (unsigned int)(8 - v25);
+    v25 = (_QWORD *)(v4 + 2416 + 8 * v24);
+    v26 = (unsigned int)(8 - v24);
     do
     {
-      v24 += *v26++;
-      --v27;
+      v23 += *v25++;
+      --v26;
     }
-    while ( v27 );
+    while ( v26 );
   }
   *(_OWORD *)(a2 + 8) = 0LL;
   *(_OWORD *)(a2 + 24) = 0LL;
   *(_OWORD *)(a2 + 40) = 0LL;
   *(_OWORD *)(a2 + 56) = 0LL;
-  if ( v24 < v23 + 256 || *(char *)a2 < 0 )
-    v28 = *(_BYTE *)a2 ^ (*(_BYTE *)a2 ^ (*(_BYTE *)a2 + 1)) & 0x7F;
+  if ( v23 < v22 + 256 || *(char *)a2 < 0 )
+    v27 = *(_BYTE *)a2 ^ (*(_BYTE *)a2 ^ (*(_BYTE *)a2 + 1)) & 0x7F;
   else
-    v28 = *(_BYTE *)a2 | 0x80;
-  *(_BYTE *)a2 = v28;
+    v27 = *(_BYTE *)a2 | 0x80;
+  *(_BYTE *)a2 = v27;
   MiLogContinueTrim(a1, a2);
-  KeAcquireInStackQueuedSpinLock(&qword_140C698C0, (PKLOCK_QUEUE_HANDLE)a3);
+  KeAcquireInStackQueuedSpinLock(&SpinLock, a3);
   return 0LL;
 }

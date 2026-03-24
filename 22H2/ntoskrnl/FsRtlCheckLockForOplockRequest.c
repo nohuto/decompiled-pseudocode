@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlCheckLockForOplockRequest @ 0x14053D2F0
+ * XREFs of FsRtlCheckLockForOplockRequest @ 0x14036C850
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall FsRtlCheckLockForOplockRequest(__int64 a1, _QWORD *a2)
@@ -14,7 +14,7 @@ char __fastcall FsRtlCheckLockForOplockRequest(__int64 a1, _QWORD *a2)
   char v4; // di
   unsigned __int64 v5; // rbx
   KIRQL v6; // al
-  volatile signed __int64 *v7; // rcx
+  KSPIN_LOCK *v7; // rcx
   unsigned __int64 v8; // rbp
   unsigned __int8 v9; // al
   struct _KPRCB *v10; // r10
@@ -34,23 +34,26 @@ char __fastcall FsRtlCheckLockForOplockRequest(__int64 a1, _QWORD *a2)
   v4 = 1;
   v5 = *a2 - 1LL;
   v6 = KeAcquireSpinLockRaiseToDpc(v2 + 3);
-  v7 = (volatile signed __int64 *)(v2 + 3);
+  v7 = v2 + 3;
   v8 = v6;
   if ( v5 >= *v2 )
   {
     KxReleaseSpinLock(v7);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-        v13 = (v17 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v17;
-        if ( v13 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+          v13 = (v17 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v17;
+          if ( v13 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     v4 = 0;
@@ -60,16 +63,19 @@ char __fastcall FsRtlCheckLockForOplockRequest(__int64 a1, _QWORD *a2)
     KxReleaseSpinLock(v7);
     if ( KiIrqlFlags )
     {
-      v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v9 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v10 = KeGetCurrentPrcb();
-        v11 = v10->SchedulerAssist;
-        v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-        v13 = (v12 & v11[5]) == 0;
-        v11[5] &= v12;
-        if ( v13 )
-          KiRemoveSystemWorkPriorityKick(v10);
+        v9 = KeGetCurrentIrql();
+        if ( v9 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v9 >= 2u )
+        {
+          v10 = KeGetCurrentPrcb();
+          v11 = v10->SchedulerAssist;
+          v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+          v13 = (v12 & v11[5]) == 0;
+          v11[5] &= v12;
+          if ( v13 )
+            KiRemoveSystemWorkPriorityKick(v10);
+        }
       }
     }
   }

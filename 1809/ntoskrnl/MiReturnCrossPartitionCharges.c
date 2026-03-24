@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReturnCrossPartitionCharges @ 0x1402D23BC
+ * XREFs of MiReturnCrossPartitionCharges @ 0x1402D24BC
  * Callers:
- *     MiGetSubsectionCharges @ 0x1402C4994 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4BB4 (MiReturnCrossPartitionSectionCharges.c)
- *     MiFreeLargePages @ 0x1402C54CC (MiFreeLargePages.c)
- *     MiReturnCrossPartitionCloneCharges @ 0x1402CAAB8 (MiReturnCrossPartitionCloneCharges.c)
- *     MiReturnCrossPartitionCombineCharges @ 0x1402CBFF0 (MiReturnCrossPartitionCombineCharges.c)
- *     MiMapUserLargePages @ 0x14085D578 (MiMapUserLargePages.c)
+ *     MiGetSubsectionCharges @ 0x1402C4A94 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiFreeLargePages @ 0x1402C55CC (MiFreeLargePages.c)
+ *     MiReturnCrossPartitionCloneCharges @ 0x1402CABB8 (MiReturnCrossPartitionCloneCharges.c)
+ *     MiReturnCrossPartitionCombineCharges @ 0x1402CC0F0 (MiReturnCrossPartitionCombineCharges.c)
+ *     MiMapUserLargePages @ 0x14085D558 (MiMapUserLargePages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG __fastcall MiReturnCrossPartitionCharges(__int64 a1, int a2, char a3, __int64 a4)

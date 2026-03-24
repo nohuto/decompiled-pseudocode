@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwGetProviderIdFromHandle @ 0x14017374C
+ * XREFs of EtwGetProviderIdFromHandle @ 0x14017376C
  * Callers:
- *     EtwWriteEndScenario @ 0x1407165C0 (EtwWriteEndScenario.c)
- *     EtwWriteStartScenario @ 0x140716670 (EtwWriteStartScenario.c)
- *     WdiDispatchControl @ 0x14071747C (WdiDispatchControl.c)
+ *     EtwWriteEndScenario @ 0x1407165A0 (EtwWriteEndScenario.c)
+ *     EtwWriteStartScenario @ 0x140716650 (EtwWriteStartScenario.c)
+ *     WdiDispatchControl @ 0x14071745C (WdiDispatchControl.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     EtwpUnreferenceGuidEntry @ 0x1405C4098 (EtwpUnreferenceGuidEntry.c)

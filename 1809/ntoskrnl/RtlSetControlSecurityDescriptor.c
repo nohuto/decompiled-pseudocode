@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlSetControlSecurityDescriptor @ 0x1406DC0F0
+ * XREFs of RtlSetControlSecurityDescriptor @ 0x1406DC0D0
  * Callers:
- *     RtlpSysVolCreateSecurityDescriptor @ 0x1406D64FC (RtlpSysVolCreateSecurityDescriptor.c)
+ *     RtlpSysVolCreateSecurityDescriptor @ 0x1406D64DC (RtlpSysVolCreateSecurityDescriptor.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,13 @@
 /*
- * XREFs of PsDereferencePrimaryToken @ 0x1406DADF0
+ * XREFs of PsDereferencePrimaryToken @ 0x1406B4570
  * Callers:
- *     DifIoDeleteControllerWrapper @ 0x14060E6A0 (DifIoDeleteControllerWrapper.c)
- *     AlpcpAcceptConnectPort @ 0x140665B68 (AlpcpAcceptConnectPort.c)
- *     LpcpCopyRequestData @ 0x140965C1C (LpcpCopyRequestData.c)
+ *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
+ *     LpcpCopyRequestData @ 0x1408C1C4C (LpcpCopyRequestData.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
  */
 
 void __stdcall PsDereferencePrimaryToken(PACCESS_TOKEN PrimaryToken)
 {
-  ObfDereferenceObject(PrimaryToken);
+  HalPutDmaAdapter((PADAPTER_OBJECT)PrimaryToken);
 }

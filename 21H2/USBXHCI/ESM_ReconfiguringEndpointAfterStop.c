@@ -1,9 +1,9 @@
 /*
- * XREFs of ESM_ReconfiguringEndpointAfterStop @ 0x1C004F8C0
+ * XREFs of ESM_ReconfiguringEndpointAfterStop @ 0x1C004EDA0
  * Callers:
  *     <none>
  * Callees:
- *     Endpoint_OnCancelEndpointConfigure @ 0x1C0038A28 (Endpoint_OnCancelEndpointConfigure.c)
+ *     Endpoint_OnCancelEndpointConfigure @ 0x1C00387A8 (Endpoint_OnCancelEndpointConfigure.c)
  */
 
 __int64 __fastcall ESM_ReconfiguringEndpointAfterStop(__int64 a1)

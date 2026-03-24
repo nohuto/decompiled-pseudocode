@@ -1,10 +1,10 @@
 /*
- * XREFs of XilCommand_AllocateResources @ 0x1C0015E4C
+ * XREFs of XilCommand_AllocateResources @ 0x1C0015AFC
  * Callers:
- *     Command_PrepareHardware @ 0x1C006EBBC (Command_PrepareHardware.c)
+ *     Command_PrepareHardware @ 0x1C006DB18 (Command_PrepareHardware.c)
  * Callees:
- *     XilCoreCommand_AllocateResources @ 0x1C0015E9C (XilCoreCommand_AllocateResources.c)
- *     XilCommand_AllocateSecureResources @ 0x1C002FA04 (XilCommand_AllocateSecureResources.c)
+ *     XilCoreCommand_AllocateResources @ 0x1C0015B4C (XilCoreCommand_AllocateResources.c)
+ *     XilCommand_AllocateSecureResources @ 0x1C002F720 (XilCommand_AllocateSecureResources.c)
  */
 
 __int64 __fastcall XilCommand_AllocateResources(__int64 a1)

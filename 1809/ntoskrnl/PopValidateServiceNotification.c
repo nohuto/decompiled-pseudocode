@@ -1,9 +1,9 @@
 /*
- * XREFs of PopValidateServiceNotification @ 0x1406E0EA4
+ * XREFs of PopValidateServiceNotification @ 0x1406E0E84
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14011CAA8 (RtlStringCbLengthW.c)
+ *     RtlStringCbLengthW @ 0x14011CAC8 (RtlStringCbLengthW.c)
  */
 
 NTSTATUS __fastcall PopValidateServiceNotification(__int64 a1, unsigned int a2)

@@ -1,15 +1,14 @@
 /*
- * XREFs of ExFlushTb @ 0x14063F75C
+ * XREFs of ExFlushTb @ 0x1405B7218
  * Callers:
- *     KeFlushSingleTb @ 0x1402EA644 (KeFlushSingleTb.c)
- *     KeFlushTb @ 0x1402F391C (KeFlushTb.c)
- *     KeFlushMultipleRangeTb @ 0x1402F3C40 (KeFlushMultipleRangeTb.c)
- *     MiFlushTbList @ 0x14032F1B0 (MiFlushTbList.c)
- *     KeFlushSingleCurrentTb @ 0x1403AD304 (KeFlushSingleCurrentTb.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x1403AD40C (KeFlushMultipleRangeCurrentTb.c)
- *     KeFlushEntireTb @ 0x1403C39C0 (KeFlushEntireTb.c)
+ *     KeFlushTb @ 0x140230120 (KeFlushTb.c)
+ *     KeFlushSingleTb @ 0x14026BA08 (KeFlushSingleTb.c)
+ *     KeFlushMultipleRangeTb @ 0x14033B620 (KeFlushMultipleRangeTb.c)
+ *     KeFlushSingleCurrentTb @ 0x140389ED8 (KeFlushSingleCurrentTb.c)
+ *     KeFlushEntireTb @ 0x1403B70F0 (KeFlushEntireTb.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x1403C951C (KeFlushMultipleRangeCurrentTb.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 struct _KTHREAD *__fastcall ExFlushTb(unsigned int a1, __int64 a2, int a3)

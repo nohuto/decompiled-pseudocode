@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RtlDllShutdownInProgress@details@wil@@YAEXZ @ 0x180029AB0
+ * XREFs of ?RtlDllShutdownInProgress@details@wil@@YAEXZ @ 0x1800DA640
  * Callers:
  *     <none>
  * Callees:
- *     ?wil_details_GetNtDllModuleHandle@@YAPEAUHINSTANCE__@@XZ @ 0x180029E50 (-wil_details_GetNtDllModuleHandle@@YAPEAUHINSTANCE__@@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?wil_details_GetNtDllModuleHandle@@YAPEAUHINSTANCE__@@XZ @ 0x1800DA714 (-wil_details_GetNtDllModuleHandle@@YAPEAUHINSTANCE__@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall wil::details::RtlDllShutdownInProgress(wil::details *this)

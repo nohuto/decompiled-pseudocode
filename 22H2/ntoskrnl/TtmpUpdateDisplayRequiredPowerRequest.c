@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpUpdateDisplayRequiredPowerRequest @ 0x1409A5DFC
+ * XREFs of TtmpUpdateDisplayRequiredPowerRequest @ 0x1409004A0
  * Callers:
- *     TtmNotifySessionDisplayRequiredChange @ 0x1409A4470 (TtmNotifySessionDisplayRequiredChange.c)
+ *     TtmNotifySessionDisplayRequiredChange @ 0x1408FEAD8 (TtmNotifySessionDisplayRequiredChange.c)
  * Callees:
- *     TtmpFindPowerRequestEntryById @ 0x1409A5348 (TtmpFindPowerRequestEntryById.c)
- *     TtmpSetDisplayRequestEnded @ 0x1409A5C10 (TtmpSetDisplayRequestEnded.c)
- *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x1409A5F90 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
- *     TtmiLogSessionDisplayRequiredPowerRequestUpdated @ 0x1409A95AC (TtmiLogSessionDisplayRequiredPowerRequestUpdated.c)
+ *     TtmpFindPowerRequestEntryById @ 0x1408FF9BC (TtmpFindPowerRequestEntryById.c)
+ *     TtmpSetDisplayRequestEnded @ 0x1409002B0 (TtmpSetDisplayRequestEnded.c)
+ *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x140900638 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
+ *     TtmiLogSessionDisplayRequiredPowerRequestUpdated @ 0x140903B2C (TtmiLogSessionDisplayRequiredPowerRequestUpdated.c)
  */
 
 __int64 __fastcall TtmpUpdateDisplayRequiredPowerRequest(unsigned int *a1, unsigned int a2, char a3)
@@ -31,7 +31,7 @@ __int64 __fastcall TtmpUpdateDisplayRequiredPowerRequest(unsigned int *a1, unsig
     {
       if ( v8 == -1 )
       {
-        v9 = 1088LL;
+        v9 = 1091LL;
         v10 = 3221225621LL;
 LABEL_5:
         TtmiLogError("TtmpUpdateDisplayRequiredPowerRequest", v9, v10, 0xFFFFFFFFLL);
@@ -40,13 +40,13 @@ LABEL_5:
       v11 = v8 + 1;
       *(_DWORD *)(v14 + 40) = v11;
       if ( v11 == 1 )
-        TtmpWriteDisplayRequiredPowerRequestUpdatedEvent(a1, 0LL, v7);
+        TtmpWriteDisplayRequiredPowerRequestUpdatedEvent(a1, 0LL);
     }
     else
     {
       if ( !v8 )
       {
-        v9 = 1113LL;
+        v9 = 1116LL;
         v10 = 3221225485LL;
         goto LABEL_5;
       }
@@ -54,7 +54,7 @@ LABEL_5:
       *(_DWORD *)(v14 + 40) = v12;
       if ( !v12 )
       {
-        TtmpWriteDisplayRequiredPowerRequestUpdatedEvent(a1, 0LL, v7);
+        TtmpWriteDisplayRequiredPowerRequestUpdatedEvent(a1, 0LL);
         TtmpSetDisplayRequestEnded((__int64)a1, a2);
       }
     }

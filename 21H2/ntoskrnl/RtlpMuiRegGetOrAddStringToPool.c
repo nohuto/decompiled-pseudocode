@@ -1,56 +1,59 @@
 /*
- * XREFs of RtlpMuiRegGetOrAddStringToPool @ 0x140830D94
+ * XREFs of RtlpMuiRegGetOrAddStringToPool @ 0x1407934B4
  * Callers:
- *     RtlpMuiRegGetOrAddString @ 0x140830CF4 (RtlpMuiRegGetOrAddString.c)
+ *     RtlpMuiRegGetOrAddString @ 0x140793414 (RtlpMuiRegGetOrAddString.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlpMuiRegGetStringIndexInPool @ 0x140830E88 (RtlpMuiRegGetStringIndexInPool.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlpMuiRegGetStringIndexInPool @ 0x1407935B8 (RtlpMuiRegGetStringIndexInPool.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetOrAddStringToPool(__int64 a1, _WORD *a2, char a3, _DWORD *a4)
 {
   int StringIndexInPool; // eax
   __int64 v9; // rbp
-  __int64 v10; // rbx
-  __int64 v11; // r15
-  unsigned __int64 v12; // rbx
-  unsigned __int16 v13; // cx
-  __int64 v14; // rax
+  unsigned int v10; // r10d
+  __int64 v11; // rdi
+  ULONGLONG v12; // rdi
+  __int16 v13; // r11
+  __int64 v14; // rbx
+  size_t v15; // r8
+  __int64 v16; // rax
+  ULONGLONG pullResult; // [rsp+68h] [rbp+20h] BYREF
 
+  pullResult = 0LL;
   StringIndexInPool = RtlpMuiRegGetStringIndexInPool();
   LODWORD(v9) = StringIndexInPool;
   if ( a4 )
     *a4 = 0;
   if ( StringIndexInPool >= 0 )
     return (unsigned int)v9;
+  v10 = -1;
   if ( a1 && a2 )
   {
-    v10 = -1LL;
+    v11 = -1LL;
     do
-      ++v10;
-    while ( a2[v10] );
-    v11 = *(unsigned __int16 *)(a1 + 10);
-    v12 = v10 + 1;
-    if ( v12 + v11 > *(unsigned __int16 *)(a1 + 8) )
+      ++v11;
+    while ( a2[v11] );
+    v12 = v11 + 1;
+    if ( v12 + *(unsigned __int16 *)(a1 + 10) > *(unsigned __int16 *)(a1 + 8) )
     {
       if ( a4 )
         *a4 = v12;
     }
-    else if ( a3 )
+    else if ( a3 && *(_WORD *)(a1 + 6) < *(_WORD *)(a1 + 4) && RtlULongLongMult(v12, 2uLL, &pullResult) >= 0 )
     {
-      v13 = *(_WORD *)(a1 + 6);
-      if ( v13 < *(_WORD *)(a1 + 4) && is_mul_ok(v12, 2uLL) )
-      {
-        v9 = *(unsigned __int16 *)(a1 + 6);
-        *(_WORD *)(a1 + 6) = v13 + 1;
-        *(_WORD *)(a1 + 10) = v11 + 1;
-        memmove((void *)(*(_QWORD *)(a1 + 24) + 2LL * (__int16)v11), a2, 2 * v12);
-        v14 = *(_QWORD *)(a1 + 16);
-        *(_WORD *)(a1 + 10) += v12;
-        *(_WORD *)(v14 + 2 * v9) = v11;
-        return (unsigned int)v9;
-      }
+      v14 = *(__int16 *)(a1 + 10);
+      v9 = *(unsigned __int16 *)(a1 + 6);
+      v15 = pullResult;
+      *(_WORD *)(a1 + 6) = v13 + v9;
+      *(_WORD *)(a1 + 10) = v13 + v14;
+      memmove((void *)(*(_QWORD *)(a1 + 24) + 2 * v14), a2, v15);
+      v16 = *(_QWORD *)(a1 + 16);
+      *(_WORD *)(a1 + 10) += v12;
+      *(_WORD *)(v16 + 2 * v9) = v14;
+      return (unsigned int)v9;
     }
   }
-  return 0xFFFFFFFFLL;
+  return v10;
 }

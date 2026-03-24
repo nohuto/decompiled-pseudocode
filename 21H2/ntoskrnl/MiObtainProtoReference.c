@@ -1,37 +1,39 @@
 /*
- * XREFs of MiObtainProtoReference @ 0x14027449C
+ * XREFs of MiObtainProtoReference @ 0x14031A00C
  * Callers:
- *     MiHandleCollidedFault @ 0x14023EB78 (MiHandleCollidedFault.c)
- *     MiTranslatePageForCopy @ 0x14026C808 (MiTranslatePageForCopy.c)
- *     MiCopyDataPageToImagePage @ 0x14026F180 (MiCopyDataPageToImagePage.c)
- *     MiPfPutPagesInTransition @ 0x1402715A0 (MiPfPutPagesInTransition.c)
- *     MiWalkEntireImage @ 0x140336B30 (MiWalkEntireImage.c)
- *     MiResolvePageFileFault @ 0x1403927C4 (MiResolvePageFileFault.c)
- *     MiFlushWaitForReadInProgress @ 0x140597FAC (MiFlushWaitForReadInProgress.c)
- *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14059DB28 (MiCopyFileOnlyGlobalSubsectionPage.c)
- *     MiIdealClusterPage @ 0x1405C3C6C (MiIdealClusterPage.c)
+ *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
+ *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
+ *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
+ *     MiHandleCollidedFault @ 0x14028BEFC (MiHandleCollidedFault.c)
+ *     MiTranslatePageForCopy @ 0x1402B4DE4 (MiTranslatePageForCopy.c)
+ *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
+ *     MiCopyDataPageToImagePage @ 0x1403043E8 (MiCopyDataPageToImagePage.c)
+ *     MiFinishMdlForMappedFileFault @ 0x14031A46C (MiFinishMdlForMappedFileFault.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FD78 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiCopyImageExtentContents @ 0x140540134 (MiCopyImageExtentContents.c)
+ *     MiIdealClusterPage @ 0x140555E14 (MiIdealClusterPage.c)
  * Callees:
- *     MiLockNestedPageAtDpcInline @ 0x140239060 (MiLockNestedPageAtDpcInline.c)
- *     MiAddLockedPageCharge @ 0x140274508 (MiAddLockedPageCharge.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14026AF90 (MiLockNestedPageAtDpcInline.c)
+ *     MiAddLockedPageCharge @ 0x14031A408 (MiAddLockedPageCharge.c)
  */
 
-__int64 __fastcall MiObtainProtoReference(__int64 a1, char a2)
+__int64 __fastcall MiObtainProtoReference(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax
-  int v4; // [rsp+38h] [rbp+10h] BYREF
+  int v6; // [rsp+38h] [rbp+10h] BYREF
 
   if ( (a2 & 1) != 0 )
   {
-    MiLockNestedPageAtDpcInline(a1);
+    MiLockNestedPageAtDpcInline(a1, a2, a3, a4);
   }
   else
   {
-    v4 = 0;
+    v6 = 0;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v4);
+        KeYieldProcessorEx(&v6, a2, a3, a4);
       while ( *(__int64 *)(a1 + 24) < 0 );
     }
   }

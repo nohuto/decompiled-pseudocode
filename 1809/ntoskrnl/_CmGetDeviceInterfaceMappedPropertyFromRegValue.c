@@ -2,9 +2,9 @@
  * XREFs of _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x14059EE90
  * Callers:
  *     _CmGetDeviceInterfaceMappedProperty @ 0x14059B38C (_CmGetDeviceInterfaceMappedProperty.c)
- *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1408FD7B0 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1408FD790 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     _CmOpenDeviceInterfaceRegKey @ 0x14059B4E8 (_CmOpenDeviceInterfaceRegKey.c)
  *     _CmIsDeviceInterfaceEnabled @ 0x1405C57EC (_CmIsDeviceInterfaceEnabled.c)
  *     _PnpCtxRegQueryValueIndirect @ 0x1405C6E94 (_PnpCtxRegQueryValueIndirect.c)
@@ -74,7 +74,7 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromRegValue(
   if ( v17 < 2 )
     return (unsigned int)-1073741264;
   v18 = 0;
-  v19 = &off_140908F18;
+  v19 = &off_140908EF8;
   while ( 1 )
   {
     v20 = *v19;

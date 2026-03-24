@@ -1,12 +1,13 @@
 /*
- * XREFs of GetLocalMachineRegistryDWORDValues @ 0x1C0042A00
+ * XREFs of GetLocalMachineRegistryDWORDValues @ 0x1C00E13D4
  * Callers:
- *     EditionOverrideUserTouchGestureSettings @ 0x1C00429B0 (EditionOverrideUserTouchGestureSettings.c)
- *     ?_ReadSettingsFromRegKey@PalmRejection@@YAXXZ @ 0x1C01E7488 (-_ReadSettingsFromRegKey@PalmRejection@@YAXXZ.c)
+ *     ?IsFlicksDisabledByGroupPolicy@@YAHXZ @ 0x1C00E1044 (-IsFlicksDisabledByGroupPolicy@@YAHXZ.c)
+ *     EditionOverrideUserTouchGestureSettings @ 0x1C00E1A40 (EditionOverrideUserTouchGestureSettings.c)
+ *     ?_ReadSettingsFromRegKey@PalmRejection@@YAXXZ @ 0x1C0206E9C (-_ReadSettingsFromRegKey@PalmRejection@@YAXXZ.c)
  * Callees:
- *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0043C68 (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
- *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0048318 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00E1514 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00E1678 (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall GetLocalMachineRegistryDWORDValues(__int64 a1, const unsigned __int16 *a2, __int128 *a3)

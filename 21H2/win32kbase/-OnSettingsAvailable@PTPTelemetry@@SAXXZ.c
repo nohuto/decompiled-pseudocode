@@ -1,5 +1,5 @@
 /*
- * XREFs of ?OnSettingsAvailable@PTPTelemetry@@SAXXZ @ 0x1C00DCD50
+ * XREFs of ?OnSettingsAvailable@PTPTelemetry@@SAXXZ @ 0x1C01A67D0
  * Callers:
  *     <none>
  * Callees:

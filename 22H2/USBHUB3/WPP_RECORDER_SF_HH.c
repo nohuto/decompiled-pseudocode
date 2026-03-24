@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_HH @ 0x1C002DEE8
+ * XREFs of WPP_RECORDER_SF_HH @ 0x1C002AE2C
  * Callers:
- *     HUBMISC_GenerateControllerSuffix @ 0x1C0034188 (HUBMISC_GenerateControllerSuffix.c)
+ *     HUBMISC_GenerateControllerSuffix @ 0x1C0031298 (HUBMISC_GenerateControllerSuffix.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_HH(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -15,16 +15,16 @@ __int64 WPP_RECORDER_SF_HH(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a
   va_start(va, a5);
   v8[0] = 4;
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x10) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u )
-    pfnWppTraceMessage(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, char *, __int64, __int16 *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_f96a94952a6932bc87af489d3d93d325_Traceguids,
-      124LL,
+      &WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
+      123LL,
       va,
       2LL,
       v8,
       2LL,
       0LL);
-  LOWORD(v7) = 124;
-  return WppAutoLogTrace(a1, 2LL, 5LL, &WPP_f96a94952a6932bc87af489d3d93d325_Traceguids, v7, va);
+  LOWORD(v7) = 123;
+  return WppAutoLogTrace(a1, 2LL, 5LL, &WPP_fa1f6120722133e233e88879adbd68f0_Traceguids, v7, va);
 }

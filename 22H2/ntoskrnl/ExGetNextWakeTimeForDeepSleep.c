@@ -1,32 +1,36 @@
 /*
- * XREFs of ExGetNextWakeTimeForDeepSleep @ 0x14060B620
+ * XREFs of ExGetNextWakeTimeForDeepSleep @ 0x1405B6014
  * Callers:
- *     KiGetNextTimerExpirationDueTime @ 0x14027DED0 (KiGetNextTimerExpirationDueTime.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x140225560 (KiGetNextTimerExpirationDueTime.c)
  * Callees:
- *     KeQueryTimerDueTime @ 0x140570E20 (KeQueryTimerDueTime.c)
+ *     KeQueryTimerDueTime @ 0x140515D48 (KeQueryTimerDueTime.c)
  */
 
-unsigned __int64 ExGetNextWakeTimeForDeepSleep()
+unsigned __int64 __fastcall ExGetNextWakeTimeForDeepSleep(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 *v0; // rdi
-  unsigned __int64 v1; // rbx
-  unsigned __int64 TimerDueTime; // rdx
-  __int64 v3; // rcx
+  unsigned __int64 v4; // rbx
+  unsigned __int64 result; // rax
+  __int64 *v6; // rdi
+  __int64 v7; // rcx
 
-  v0 = (__int64 *)ExpWakeTimerList;
-  v1 = -1LL;
-  TimerDueTime = -1LL;
-  while ( v0 != &ExpWakeTimerList )
+  v4 = -1LL;
+  result = -1LL;
+  if ( PoRtcWakeAllowed )
   {
-    v3 = (__int64)(v0 - 33);
-    v0 = (__int64 *)*v0;
-    if ( (*(_BYTE *)(v3 + 304) & 4) != 0 )
+    v6 = (__int64 *)ExpWakeTimerList;
+    while ( v6 != &ExpWakeTimerList )
     {
-      if ( *(_QWORD *)(v3 + 256) )
-        TimerDueTime = KeQueryTimerDueTime(v3);
-      if ( TimerDueTime && TimerDueTime < v1 )
-        v1 = TimerDueTime;
+      v7 = (__int64)(v6 - 33);
+      v6 = (__int64 *)*v6;
+      if ( *(_QWORD *)(v7 + 256) )
+        result = KeQueryTimerDueTime(v7, a2, a3, a4);
+      if ( result )
+      {
+        if ( result < v4 )
+          v4 = result;
+      }
     }
+    return v4;
   }
-  return v1;
+  return result;
 }

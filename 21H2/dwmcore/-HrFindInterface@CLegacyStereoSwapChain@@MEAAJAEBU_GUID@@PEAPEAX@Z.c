@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CLegacyStereoSwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180290A10
+ * XREFs of ?HrFindInterface@CLegacyStereoSwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18024DC60
  * Callers:
  *     <none>
  * Callees:
- *     ?HrFindInterface@CLegacySwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F6D20 (-HrFindInterface@CLegacySwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CLegacySwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006DF50 (-HrFindInterface@CLegacySwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CLegacyStereoSwapChain::HrFindInterface(
@@ -22,11 +22,11 @@ __int64 __fastcall CLegacyStereoSwapChain::HrFindInterface(
       v4 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_3bb55e96_3388_4bb0_8bed_debb9cf4a24b.Data4;
     if ( v4 )
     {
-      return CLegacySwapChain::HrFindInterface(this, a2, a3);
+      return CLegacySwapChain::HrFindInterface(this, a2, (CLegacySwapChain **)a3);
     }
     else
     {
-      *a3 = (void *)(((unsigned __int64)this + 328) & -(__int64)(this != 0LL));
+      *a3 = (void *)(((unsigned __int64)this + 280) & -(__int64)(this != 0LL));
       return 0LL;
     }
   }

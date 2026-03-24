@@ -1,281 +1,305 @@
 /*
- * XREFs of MiEmptyPageAccessLog @ 0x1402E1F40
+ * XREFs of MiEmptyPageAccessLog @ 0x14025B4D0
  * Callers:
- *     MiDrainSystemAccessLog @ 0x140286BB4 (MiDrainSystemAccessLog.c)
- *     MiDrainOldAccessBuffers @ 0x140286CAC (MiDrainOldAccessBuffers.c)
- *     MiAllocateAccessLog @ 0x1402E6400 (MiAllocateAccessLog.c)
- *     MmOutSwapProcess @ 0x14034C9F8 (MmOutSwapProcess.c)
- *     MmDeleteProcessAddressSpace @ 0x140705A98 (MmDeleteProcessAddressSpace.c)
+ *     MiTrimOrAgeWorkingSet @ 0x140208210 (MiTrimOrAgeWorkingSet.c)
+ *     MmOutSwapProcess @ 0x140249E04 (MmOutSwapProcess.c)
+ *     MiDrainSystemAccessLog @ 0x14025B3E0 (MiDrainSystemAccessLog.c)
+ *     MiAllocateAccessLog @ 0x14033DCF0 (MiAllocateAccessLog.c)
+ *     MmDeleteProcessAddressSpace @ 0x1406601A4 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     ObpIncrPointerCountEx @ 0x140224680 (ObpIncrPointerCountEx.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8BC0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3620 (ObReferenceObjectSafeWithTag.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     MiQueuePageAccessLog @ 0x1402F54F0 (MiQueuePageAccessLog.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ObpPushStackInfo @ 0x140582C68 (ObpPushStackInfo.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObFastReferenceObjectLocked @ 0x1402062F8 (ObFastReferenceObjectLocked.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     ObpTraceObjectDereferenceIfActive @ 0x140249AE0 (ObpTraceObjectDereferenceIfActive.c)
+ *     MiQueuePageAccessLog @ 0x14025B88C (MiQueuePageAccessLog.c)
+ *     MiGetSubsectionDriverProtos @ 0x14027D460 (MiGetSubsectionDriverProtos.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1402C3BD0 (ObDereferenceObjectDeferDelete.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C9130 (ObReferenceObjectSafeWithTag.c)
+ *     ObReferenceObjectExWithTag @ 0x1402F6460 (ObReferenceObjectExWithTag.c)
+ *     ObpDeferObjectDeletion @ 0x140315484 (ObpDeferObjectDeletion.c)
+ *     MiGetSharedProtos @ 0x1403A5B08 (MiGetSharedProtos.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiEmptyPageAccessLog(unsigned __int64 *a1)
+void __fastcall MiEmptyPageAccessLog(PVOID *P)
 {
-  unsigned __int64 v1; // r9
-  unsigned __int64 *v2; // rdx
-  unsigned int v3; // edi
-  unsigned int SessionId; // eax
-  unsigned int v5; // r10d
-  unsigned __int64 v6; // rbx
-  unsigned __int64 v7; // r12
-  unsigned __int64 *v8; // rsi
-  __int64 *v9; // r14
-  __int64 v10; // rcx
-  unsigned __int16 v11; // r8
-  __int64 v12; // rbp
-  unsigned __int64 v13; // rsi
+  unsigned __int64 v1; // r13
+  unsigned __int16 v2; // r8
+  PVOID *v3; // rdx
+  unsigned int v4; // edi
+  __int64 v5; // rax
+  unsigned int v6; // r10d
+  unsigned __int64 v7; // rbx
+  __int64 *v8; // r12
+  __int64 *v9; // rsi
+  unsigned __int64 v10; // r11
+  unsigned __int64 v11; // rcx
+  __int64 v12; // r14
+  unsigned __int64 v13; // rbp
   unsigned __int16 v14; // r15
-  __int64 v15; // rbp
-  __int64 v16; // rdx
-  int v17; // esi
-  unsigned __int64 v18; // r13
-  __int64 **v19; // r14
-  __int64 v20; // rsi
-  signed __int64 v21; // rdx
-  signed __int64 v22; // rax
-  signed __int64 v23; // rbp
-  unsigned int v24; // edx
-  unsigned __int64 v25; // rbp
-  __int64 *v26; // r15
+  __int64 v15; // r14
+  unsigned __int64 v16; // r12
+  __int64 **v17; // r14
+  unsigned __int64 v18; // r14
+  _QWORD *v19; // rbx
+  unsigned __int64 v20; // r8
+  unsigned __int64 v21; // rdx
+  unsigned __int64 v22; // rdx
+  unsigned __int64 v23; // rdx
+  __int64 v24; // rsi
+  volatile signed __int64 *v25; // r15
+  signed __int64 v26; // rdx
   signed __int64 v27; // rax
-  signed __int64 v28; // rtt
-  __int64 v29; // rbp
-  __int64 v30; // rcx
-  __int64 v31; // rax
+  signed __int64 v28; // rbp
+  unsigned int v29; // edx
+  ULONG_PTR v30; // rbp
+  __int64 *v31; // rsi
   signed __int64 v32; // rax
   signed __int64 v33; // rtt
-  unsigned __int64 v34; // r15
-  unsigned __int8 CurrentIrql; // al
+  __int64 v34; // rdx
+  signed __int64 v35; // rax
+  signed __int64 v36; // rtt
+  __int64 SharedProtos; // rax
+  signed __int64 BugCheckParameter4; // rax
+  unsigned __int64 v39; // r13
+  unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v38; // eax
-  bool v39; // zf
-  _QWORD *v40; // rbx
-  PVOID v41; // rcx
-  _DWORD v42[2]; // [rsp+20h] [rbp-58h]
-  PVOID v43; // [rsp+28h] [rbp-50h]
-  unsigned __int64 *P; // [rsp+80h] [rbp+8h]
-  unsigned int v45; // [rsp+88h] [rbp+10h]
-  unsigned __int64 v46; // [rsp+98h] [rbp+20h]
+  int v43; // eax
+  bool v44; // zf
+  PVOID *v45; // rbx
+  PVOID *i; // rcx
+  PVOID *v47; // [rsp+30h] [rbp-58h]
+  unsigned __int64 v48; // [rsp+38h] [rbp-50h]
+  PVOID *Pa; // [rsp+90h] [rbp+8h]
+  unsigned int v50; // [rsp+98h] [rbp+10h]
+  int v51; // [rsp+A0h] [rbp+18h]
+  int v52; // [rsp+A4h] [rbp+1Ch]
+  unsigned __int64 v53; // [rsp+A8h] [rbp+20h]
 
-  P = a1;
-  v1 = a1[7];
-  v42[0] = 0;
-  v2 = a1;
-  v42[1] = 3;
-  v3 = 0;
-  v46 = v1;
-  if ( v1 <= 1 || (*(_DWORD *)(v1 + 2172) & 0x1000) != 0 )
-  {
-    v5 = -1;
-  }
+  Pa = P;
+  v1 = (unsigned __int64)P[7];
+  v2 = 0;
+  v51 = 0;
+  v3 = P;
+  v52 = 3;
+  v4 = 0;
+  v48 = v1;
+  if ( v1 <= 1 || (*(_DWORD *)(v1 + 2172) & 0x1000) != 0 || (v5 = *(_QWORD *)(v1 + 1368)) == 0 )
+    v6 = -1;
   else
+    v6 = *(_DWORD *)(v5 + 8);
+  v50 = v6;
+  v7 = 0LL;
+  while ( 1 )
   {
-    SessionId = MmGetSessionIdEx(v1);
-    v1 = v46;
-    v5 = SessionId;
-    v2 = P;
-  }
-  v45 = v5;
-  v6 = 0LL;
-  while ( 2 )
-  {
-    v7 = (unsigned __int64)(v2 + 9);
-    v8 = (unsigned __int64 *)*v2;
-    v9 = (__int64 *)(v2[4] - 8);
-    v43 = (PVOID)*v2;
-    v10 = 0LL;
-    v11 = 0;
-    if ( v9 >= (__int64 *)v2 + 9 )
+    v8 = (__int64 *)(v3 + 9);
+    v9 = (__int64 *)((char *)v3[4] - 8);
+    v10 = 0xFFFFF68000000000uLL;
+    v47 = (PVOID *)*v3;
+    v11 = 0LL;
+    if ( v9 >= (__int64 *)v3 + 9 )
     {
-      while ( 1 )
+      do
       {
         v12 = *v9;
         v13 = (unsigned __int64)*v9 >> 9;
         v14 = *v9 & 0x1FF;
-        if ( !v14 )
-          break;
-        if ( v1 > 1 )
+        if ( v14 )
         {
-          v15 = v12 >> 16;
-          if ( v14 == v11 )
+          if ( v1 > 1 )
           {
-            v6 += (v15 - v10) >> 3 << 12 << v42[(v6 >> 10) & 1];
-            LODWORD(v16) = v6;
+            v18 = v12 >> 16;
+            if ( v14 == v2 )
+            {
+              v7 += (__int64)(v18 - v11) >> 3 << 12 << *(&v51 + ((v7 >> 10) & 1));
+            }
+            else
+            {
+              v19 = (_QWORD *)*((_QWORD *)v3[6] - (*v9 & 0x1FF));
+              v20 = v19[1];
+              v4 ^= ((unsigned __int16)v4 ^ (unsigned __int16)(32 * *(_DWORD *)(*v19 + 56LL))) & 0x400;
+              if ( (*(_DWORD *)(*v19 + 56LL) & 0x20) != 0 )
+              {
+                if ( v18 < v20 || v18 >= v20 + 8LL * *((unsigned int *)v19 + 11) )
+                {
+                  if ( (*((_BYTE *)v19 + 34) & 2) != 0 )
+                  {
+                    SharedProtos = MiGetSharedProtos(*v19, v6, *((_QWORD *)v3[6] - (*v9 & 0x1FF)));
+                    v6 = v50;
+                    v10 = 0xFFFFF68000000000uLL;
+                  }
+                  else
+                  {
+                    SharedProtos = MiGetSubsectionDriverProtos(*((_QWORD *)v3[6] - (*v9 & 0x1FF)), v3, v20, *v19);
+                  }
+                  v21 = (v18 << 9) - (*(_QWORD *)(SharedProtos + 72) << 9);
+                }
+                else
+                {
+                  v21 = (v18 << 9) - (v20 << 9);
+                }
+                v22 = ((unsigned __int64)*((unsigned int *)v19 + 9) << 9) + (v21 & 0xFFFFFFFFFFFFF000uLL);
+              }
+              else
+              {
+                if ( v20 )
+                  v34 = (__int64)(v18 - v20) >> 3 << 12;
+                else
+                  v34 = 0LL;
+                v22 = ((*((unsigned int *)v19 + 9) | ((unsigned __int64)((_WORD)v19[4] & 0xFFC0) << 26)) << 12) + v34;
+              }
+              v2 = v14;
+              v23 = v22 << *((_BYTE *)&v51 + 4 * ((v4 >> 10) & 1));
+              HIDWORD(v53) = HIDWORD(v23);
+              LODWORD(v53) = v14 | v4 & 0x400 | v23 & 0xFFFFFA00;
+              v7 = v53;
+            }
+            v3 = Pa;
+            v11 = v18;
+            *v9 = v7;
+            *(_DWORD *)v9 ^= ((unsigned __int16)v7 ^ (unsigned __int16)((_WORD)v13 << 9)) & 0x200;
           }
-          else
-          {
-            v30 = *(_QWORD *)(v2[6] - 8 * (*v9 & 0x1FF));
-            v3 ^= ((unsigned __int16)v3 ^ (unsigned __int16)(32 * *(_DWORD *)(*(_QWORD *)v30 + 56LL))) & 0x400;
-            v31 = MiStartingOffset(v30, v15, v5);
-            v1 = v46;
-            v11 = v14;
-            v16 = v31 << v42[(v3 >> 10) & 1];
-            LODWORD(v16) = v14 | v3 & 0x400 | v16 & 0xFFFFFA00;
-            v6 = v16;
-          }
-          v10 = v15;
-          *v9 = v6;
-          v17 = v16 ^ ((unsigned __int16)v16 ^ (unsigned __int16)((_WORD)v13 << 9)) & 0x200;
-          v2 = P;
-          goto LABEL_11;
         }
-LABEL_12:
-        v5 = v45;
-        if ( (unsigned __int64)--v9 < v7 )
+        else
         {
-          v8 = (unsigned __int64 *)v43;
-          goto LABEL_14;
+          v15 = (__int64)((v12 >> 16 << 25) - (v10 << 25)) >> 16;
+          *v9 = v15;
+          *(_DWORD *)v9 = v15 ^ ((unsigned __int16)v15 ^ (unsigned __int16)((_WORD)v13 << 9)) & 0x200;
         }
+        --v9;
       }
-      v29 = v12 >> 16 << 25 >> 16;
-      *v9 = v29;
-      v17 = v29 ^ ((unsigned __int16)v29 ^ (unsigned __int16)((_WORD)v13 << 9)) & 0x200;
-LABEL_11:
-      *(_DWORD *)v9 = v17;
-      goto LABEL_12;
+      while ( v9 >= v8 );
     }
+    if ( v1 > 1 )
+      break;
 LABEL_14:
-    if ( v1 <= 1 )
-      goto LABEL_30;
-    v18 = v2[6] - 8;
-    v19 = (__int64 **)(v2[5] + 8);
-    if ( (unsigned __int64)v19 > v18 )
-      goto LABEL_28;
-    do
+    MiQueuePageAccessLog(v3);
+    Pa = v47;
+    v3 = v47;
+    if ( !v47 )
+      return;
+    v6 = v50;
+    v2 = 0;
+  }
+  v16 = (unsigned __int64)v3[6] - 8;
+  v17 = (__int64 **)((char *)v3[5] + 8);
+  if ( (unsigned __int64)v17 > v16 )
+    goto LABEL_12;
+  do
+  {
+    v24 = **v17;
+    v25 = (volatile signed __int64 *)(v24 + 64);
+    _m_prefetchw((const void *)(v24 + 64));
+    v26 = *(_QWORD *)(v24 + 64);
+    if ( (v26 & 0xF) != 0 )
     {
-      v20 = **v19;
-      _m_prefetchw((const void *)(v20 + 64));
-      v21 = *(_QWORD *)(v20 + 64);
-      if ( (v21 & 0xF) != 0 )
+      do
       {
-        do
-        {
-          v22 = _InterlockedCompareExchange64((volatile signed __int64 *)(v20 + 64), v21 - 1, v21);
-          if ( v21 == v22 )
-            break;
-          v21 = v22;
-        }
-        while ( (v22 & 0xF) != 0 );
+        v27 = _InterlockedCompareExchange64(v25, v26 - 1, v26);
+        if ( v26 == v27 )
+          break;
+        v26 = v27;
       }
-      v23 = v21;
-      v24 = v21 & 0xF;
-      v25 = v23 & 0xFFFFFFFFFFFFFFF0uLL;
-      if ( v24 <= 1 )
-      {
-        if ( !v24 )
-          goto LABEL_47;
-        ObpIncrPointerCountEx((volatile signed __int64 *)(v25 - 48), 15);
-        _m_prefetchw((const void *)(v20 + 64));
-        v32 = *(_QWORD *)(v20 + 64);
-        while ( (v32 & 0xF) == 0 )
-        {
-          if ( v25 != (v32 & 0xFFFFFFFFFFFFFFF0uLL) )
-            break;
-          v33 = v32;
-          v32 = _InterlockedCompareExchange64((volatile signed __int64 *)(v20 + 64), v32 + 15, v32);
-          if ( v33 == v32 )
-            goto LABEL_19;
-        }
-        _InterlockedExchangeAdd64((volatile signed __int64 *)(v25 - 48), 0xFFFFFFFFFFFFFFF1uLL);
-      }
-LABEL_19:
-      if ( ObpTraceFlags )
-        ObpPushStackInfo(v25 - 48);
-      if ( !v25 )
-      {
-LABEL_47:
-        v34 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(v20 + 72));
-        v25 = *(_QWORD *)(v20 + 64) & 0xFFFFFFFFFFFFFFF0uLL;
-        if ( v25 )
-          ObfReferenceObjectWithTag((PVOID)(*(_QWORD *)(v20 + 64) & 0xFFFFFFFFFFFFFFF0uLL), 0x63536D4Du);
-        ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v20 + 72));
-        if ( KiIrqlFlags )
-        {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v34 <= 0xFu && CurrentIrql >= 2u )
-          {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v38 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v34 + 1));
-            v39 = (v38 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v38;
-            if ( v39 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-          }
-        }
-        __writecr8(v34);
-      }
-      v26 = *(__int64 **)(v25 + 24);
-      _m_prefetchw((const void *)(v20 + 64));
-      v27 = *(_QWORD *)(v20 + 64);
-      if ( (v25 ^ v27) >= 0xF )
-      {
-LABEL_40:
-        ObDereferenceObjectDeferDeleteWithTag((PVOID)v25, 0x63536D4Du);
-      }
-      else
-      {
-        while ( 1 )
-        {
-          v28 = v27;
-          v27 = _InterlockedCompareExchange64((volatile signed __int64 *)(v20 + 64), v27 + 1, v27);
-          if ( v28 == v27 )
-            break;
-          if ( (v25 ^ v27) >= 0xF )
-            goto LABEL_40;
-        }
-        if ( ObpTraceFlags )
-          ObpPushStackInfo(v25 - 48);
-      }
-      *v19++ = v26;
+      while ( (v27 & 0xF) != 0 );
     }
-    while ( (unsigned __int64)v19 <= v18 );
-    v1 = v46;
-LABEL_28:
-    if ( ObReferenceObjectSafeWithTag(v1) )
+    v28 = v26;
+    v29 = v26 & 0xF;
+    v30 = v28 & 0xFFFFFFFFFFFFFFF0uLL;
+    if ( v29 > 1 )
+      goto LABEL_29;
+    if ( v29 )
     {
-      v2 = P;
-      v8 = (unsigned __int64 *)v43;
-LABEL_30:
-      MiQueuePageAccessLog(v2);
-      v2 = v8;
-      P = v8;
-      if ( v8 )
+      ObReferenceObjectExWithTag(v30);
+      _m_prefetchw((const void *)v25);
+      v35 = *v25;
+      while ( (v35 & 0xF) == 0 )
       {
-        v1 = v46;
-        v5 = v45;
-        continue;
+        if ( v30 != (v35 & 0xFFFFFFFFFFFFFFF0uLL) )
+          break;
+        v36 = v35;
+        v35 = _InterlockedCompareExchange64(v25, v35 + 15, v35);
+        if ( v36 == v35 )
+          goto LABEL_29;
       }
+      ObpTraceObjectDereferenceIfActive(v30 - 48);
+      BugCheckParameter4 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v30 - 48), 0xFFFFFFFFFFFFFFF1uLL) - 15;
+      if ( BugCheckParameter4 <= 0 )
+      {
+        if ( *(_QWORD *)(v30 - 40) )
+          KeBugCheckEx(
+            0x18u,
+            ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v30 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(v30 - 48) >> 8)],
+            v30,
+            6uLL,
+            *(_QWORD *)(v30 - 40));
+        if ( BugCheckParameter4 < 0 )
+          KeBugCheckEx(0x18u, 0LL, v30, 5uLL, BugCheckParameter4);
+        ObpDeferObjectDeletion(v30 - 48);
+      }
+LABEL_29:
+      if ( v30 )
+        goto LABEL_30;
+    }
+    v39 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(v24 + 72));
+    v30 = ObFastReferenceObjectLocked((_QWORD *)(v24 + 64));
+    ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v24 + 72));
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v39 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v43 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v39 + 1));
+          v44 = (v43 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v43;
+          if ( v44 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
+      }
+    }
+    __writecr8(v39);
+LABEL_30:
+    v31 = *(__int64 **)(v30 + 24);
+    _m_prefetchw((const void *)v25);
+    v32 = *v25;
+    if ( (v30 ^ *v25) >= 0xF )
+    {
+LABEL_38:
+      ObDereferenceObjectDeferDelete((PVOID)v30);
     }
     else
     {
-      ExFreePoolWithTag(P, 0);
-      v40 = v43;
-      v41 = v43;
-      if ( v43 )
+      while ( 1 )
       {
-        do
-        {
-          v40 = (_QWORD *)*v40;
-          ExFreePoolWithTag(v41, 0);
-          v41 = v40;
-        }
-        while ( v40 );
+        v33 = v32;
+        v32 = _InterlockedCompareExchange64(v25, v32 + 1, v32);
+        if ( v33 == v32 )
+          break;
+        if ( (v30 ^ v32) >= 0xF )
+          goto LABEL_38;
       }
     }
-    break;
+    *v17++ = v31;
+  }
+  while ( (unsigned __int64)v17 <= v16 );
+  v1 = v48;
+LABEL_12:
+  if ( (unsigned __int8)ObReferenceObjectSafeWithTag(v1, 1953261124LL) )
+  {
+    v3 = Pa;
+    goto LABEL_14;
+  }
+  ExFreePoolWithTag(Pa, 0);
+  v45 = v47;
+  for ( i = v47; v45; i = v45 )
+  {
+    v45 = (PVOID *)*v45;
+    ExFreePoolWithTag(i, 0);
   }
 }

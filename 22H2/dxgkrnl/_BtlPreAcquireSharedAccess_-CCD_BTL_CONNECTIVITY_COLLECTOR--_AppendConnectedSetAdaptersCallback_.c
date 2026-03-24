@@ -1,87 +1,67 @@
 /*
- * XREFs of _BtlPreAcquireSharedAccess_&CCD_BTL_CONNECTIVITY_COLLECTOR::_AppendConnectedSetAdaptersCallback_0_1_ @ 0x1C01A1990
+ * XREFs of _BtlPreAcquireSharedAccess_&CCD_BTL_CONNECTIVITY_COLLECTOR::_AppendConnectedSetAdaptersCallback_0_1_ @ 0x1C0128A50
  * Callers:
  *     <none>
  * Callees:
- *     ?IsBddFallbackDriver@DXGADAPTER@@QEBAEXZ @ 0x1C0004F9C (-IsBddFallbackDriver@DXGADAPTER@@QEBAEXZ.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     DxgkIsMSBDDFallbackEnabled @ 0x1C005F0CC (DxgkIsMSBDDFallbackEnabled.c)
- *     ?DmmAppendCcdConnectedSetForAdapter@@YAJQEAXPEAU_UNICODE_STRING@@@Z @ 0x1C018330C (-DmmAppendCcdConnectedSetForAdapter@@YAJQEAXPEAU_UNICODE_STRING@@@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C0008E28 (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
+ *     ?IsBddFallbackDriver@DXGADAPTER@@QEBAEXZ @ 0x1C0009D98 (-IsBddFallbackDriver@DXGADAPTER@@QEBAEXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     DxgkIsMSBDDFallbackEnabled @ 0x1C0052924 (DxgkIsMSBDDFallbackEnabled.c)
+ *     ?DmmAppendCcdConnectedSetForAdapter@@YAJQEAXPEAU_UNICODE_STRING@@@Z @ 0x1C01306B0 (-DmmAppendCcdConnectedSetForAdapter@@YAJQEAXPEAU_UNICODE_STRING@@@Z.c)
  */
 
 __int64 __fastcall BtlPreAcquireSharedAccess__CCD_BTL_CONNECTIVITY_COLLECTOR::_AppendConnectedSetAdaptersCallback_0_1_(
         DXGADAPTER *this,
         __int64 a2)
 {
-  int v4; // eax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
+  struct DXGADAPTER *const v4; // rdx
+  int v5; // eax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
   unsigned int appended; // ebx
-  _QWORD *v10; // rax
-  DXGADAPTER *v12; // rcx
-  _BYTE v13[8]; // [rsp+20h] [rbp-79h] BYREF
-  DXGADAPTER *v14; // [rsp+28h] [rbp-71h]
-  char v15; // [rsp+30h] [rbp-69h]
-  _BYTE v16[16]; // [rsp+40h] [rbp-59h] BYREF
-  __int64 v17; // [rsp+50h] [rbp-49h]
-  DXGADAPTER *v18; // [rsp+58h] [rbp-41h]
-  char v19; // [rsp+60h] [rbp-39h]
-  __int64 v20; // [rsp+68h] [rbp-31h]
-  __int64 v21; // [rsp+90h] [rbp-9h]
-  DXGADAPTER *v22; // [rsp+98h] [rbp-1h]
-  char v23; // [rsp+A0h] [rbp+7h]
-  __int64 v24; // [rsp+A8h] [rbp+Fh]
+  _QWORD *v9; // rax
+  void *v11; // rcx
+  _BYTE v12[8]; // [rsp+20h] [rbp-C8h] BYREF
+  DXGADAPTER *v13; // [rsp+28h] [rbp-C0h]
+  char v14; // [rsp+30h] [rbp-B8h]
+  _BYTE v15[8]; // [rsp+40h] [rbp-A8h] BYREF
+  _BYTE v16[64]; // [rsp+48h] [rbp-A0h] BYREF
+  _BYTE v17[72]; // [rsp+88h] [rbp-60h] BYREF
 
-  v14 = this;
-  v15 = 0;
-  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v13);
-  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v13);
-  v20 = 0LL;
-  v16[1] = 0;
-  v18 = this;
-  v19 = 0;
-  if ( this )
+  v13 = this;
+  v14 = 0;
+  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v12);
+  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v12);
+  v15[1] = 0;
+  COREACCESS::COREACCESS((COREACCESS *)v16, this);
+  COREACCESS::COREACCESS((COREACCESS *)v17, v4);
+  v5 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v15, 0LL);
+  appended = v5;
+  if ( v5 < 0 )
   {
-    _InterlockedIncrement64((volatile signed __int64 *)this + 3);
-    v17 = -1LL;
+    if ( v5 != -1073741130 )
+      goto LABEL_5;
+    v9 = (_QWORD *)WdLogNewEntry5_WdTrace(v7, v6);
+    v9[3] = this;
+    v9[4] = *((int *)this + 80);
+    v9[5] = *((unsigned int *)this + 79);
+    v9[6] = a2;
+    goto LABEL_4;
   }
-  v24 = 0LL;
-  v22 = this;
-  v23 = 0;
-  if ( this )
+  if ( *((_BYTE *)this + 2609) || DXGADAPTER::IsBddFallbackDriver(this) && !DxgkIsMSBDDFallbackEnabled() )
   {
-    _InterlockedIncrement64((volatile signed __int64 *)this + 3);
-    v21 = -1LL;
-  }
-  v4 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v16, 0LL);
-  appended = v4;
-  if ( v4 < 0 )
-  {
-    if ( v4 != -1073741130 )
-      goto LABEL_9;
-    v10 = (_QWORD *)WdLogNewEntry5_WdTrace(v6, v5, v7, v8);
-    v10[3] = this;
-    v10[4] = *((int *)this + 102);
-    v10[5] = *((unsigned int *)this + 101);
-    v10[6] = a2;
-    goto LABEL_8;
-  }
-  if ( *((_BYTE *)this + 2833) || DXGADAPTER::IsBddFallbackDriver(this) && !DxgkIsMSBDDFallbackEnabled() )
-  {
-LABEL_8:
+LABEL_4:
     appended = 0;
-    goto LABEL_9;
+    goto LABEL_5;
   }
-  appended = DmmAppendCcdConnectedSetForAdapter(v12, (struct _UNICODE_STRING *)(a2 + 8));
-LABEL_9:
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v16);
-  if ( v15 )
-    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v13);
+  appended = DmmAppendCcdConnectedSetForAdapter(v11, (struct _UNICODE_STRING *)(a2 + 8));
+LABEL_5:
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v15, v6);
+  if ( v14 )
+    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v12);
   return appended;
 }

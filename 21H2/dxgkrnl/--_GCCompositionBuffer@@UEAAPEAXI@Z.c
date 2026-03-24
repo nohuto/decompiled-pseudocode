@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCCompositionBuffer@@UEAAPEAXI@Z @ 0x1C0078560
+ * XREFs of ??_GCCompositionBuffer@@UEAAPEAXI@Z @ 0x1C00666F0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CCompositionBuffer@@UEAA@XZ @ 0x1C0007EF8 (--1CCompositionBuffer@@UEAA@XZ.c)
+ *     ??1CCompositionBuffer@@UEAA@XZ @ 0x1C0011B6C (--1CCompositionBuffer@@UEAA@XZ.c)
  */
 
 CCompositionBuffer *__fastcall CCompositionBuffer::`scalar deleting destructor'(CCompositionBuffer *P, char a2)

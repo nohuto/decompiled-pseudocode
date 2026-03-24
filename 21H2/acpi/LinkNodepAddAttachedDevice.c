@@ -1,7 +1,7 @@
 /*
- * XREFs of LinkNodepAddAttachedDevice @ 0x1C00B6068
+ * XREFs of LinkNodepAddAttachedDevice @ 0x1C00B6A00
  * Callers:
- *     LinkNodeCrackPrt @ 0x1C00192F8 (LinkNodeCrackPrt.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of HUBHTX_PortControlTransferComplete @ 0x1C0003A20
+ * XREFs of HUBHTX_PortControlTransferComplete @ 0x1C0003860
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     McTemplateK0pqhh_EtwWriteTransfer @ 0x1C0001F34 (McTemplateK0pqhh_EtwWriteTransfer.c)
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0001FC8 (McTemplateK0pqqq_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_DD @ 0x1C0002204 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_ccccc @ 0x1C000242C (WPP_RECORDER_SF_ccccc.c)
- *     WPP_RECORDER_SF_cccccc @ 0x1C0002560 (WPP_RECORDER_SF_cccccc.c)
- *     WPP_RECORDER_SF_cccccccc @ 0x1C00026AC (WPP_RECORDER_SF_cccccccc.c)
- *     WPP_RECORDER_SF_chcccc @ 0x1C000291C (WPP_RECORDER_SF_chcccc.c)
- *     HUBMISC_VerifierDbgBreak @ 0x1C0030374 (HUBMISC_VerifierDbgBreak.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqhh_EtwWriteTransfer @ 0x1C0001D58 (McTemplateK0pqhh_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0001DEC (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     WPP_RECORDER_SF_ccccc @ 0x1C0002250 (WPP_RECORDER_SF_ccccc.c)
+ *     WPP_RECORDER_SF_cccccc @ 0x1C0002384 (WPP_RECORDER_SF_cccccc.c)
+ *     WPP_RECORDER_SF_cccccccc @ 0x1C00024D0 (WPP_RECORDER_SF_cccccccc.c)
+ *     WPP_RECORDER_SF_chcccc @ 0x1C0002740 (WPP_RECORDER_SF_chcccc.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C002FCD4 (HUBMISC_VerifierDbgBreak.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBHTX_PortControlTransferComplete(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -48,10 +48,10 @@ __int64 __fastcall HUBHTX_PortControlTransferComplete(__int64 a1, __int64 a2, __
   {
     if ( !*(_BYTE *)(a4 + 169) )
     {
-      v9 = *(_DWORD *)(a4 + 1336);
+      v9 = *(_DWORD *)(a4 + 1336) & 0x20;
       if ( v6 == 1 )
       {
-        if ( (v9 & 0x20) == 0
+        if ( !v9
           && (*(int (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD, _QWORD, int, const char *))(WdfFunctions_01015 + 3504))(
                WdfDriverGlobals,
                *(_QWORD *)(*(_QWORD *)a4 + 16LL),
@@ -63,7 +63,7 @@ __int64 __fastcall HUBHTX_PortControlTransferComplete(__int64 a1, __int64 a2, __
           _InterlockedOr((volatile signed __int32 *)(v5 + 1336), 0x20u);
         }
       }
-      else if ( (v9 & 0x20) != 0 )
+      else if ( v9 )
       {
         (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD, __int64, const char *))(WdfFunctions_01015 + 3512))(
           WdfDriverGlobals,
@@ -162,12 +162,12 @@ __int64 __fastcall HUBHTX_PortControlTransferComplete(__int64 a1, __int64 a2, __
   else
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_DD(
+      WPP_RECORDER_SF_dD(
         *(_QWORD *)(a4 + 1432),
         2u,
         4u,
         0x22u,
-        (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+        (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
         *(_DWORD *)(a3 + 8),
         *(_DWORD *)(a4 + 44));
     v8 = *(_QWORD *)v5;
@@ -206,14 +206,14 @@ __int64 __fastcall HUBHTX_PortControlTransferComplete(__int64 a1, __int64 a2, __
     v19 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
             WdfDriverGlobals,
             WdfDriverGlobals->Driver,
-            off_1C00671E8);
+            off_1C00661C0);
     LODWORD(v24) = v18;
     WPP_RECORDER_SF_d(
       *(_QWORD *)(v19 + 64),
       2u,
       2u,
       0x3Bu,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       v24);
   }
   return (*(__int64 (__fastcall **)(__int64, _QWORD))(v5 + 1240))(v5, ((v4 >> 31) & 0xFFFFFFFC) + 3012);

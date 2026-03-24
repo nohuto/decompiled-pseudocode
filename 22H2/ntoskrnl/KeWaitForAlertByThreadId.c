@@ -1,81 +1,75 @@
 /*
- * XREFs of KeWaitForAlertByThreadId @ 0x1402C1774
+ * XREFs of KeWaitForAlertByThreadId @ 0x140256B90
  * Callers:
- *     PsDispatchIumService @ 0x1405A4EF4 (PsDispatchIumService.c)
- *     NtWaitForAlertByThreadId @ 0x140742E20 (NtWaitForAlertByThreadId.c)
- *     RtlpRunOnceWaitForInit @ 0x140886338 (RtlpRunOnceWaitForInit.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
+ *     NtWaitForAlertByThreadId @ 0x14061A7A0 (NtWaitForAlertByThreadId.c)
+ *     RtlpRunOnceWaitForInit @ 0x140919748 (RtlpRunOnceWaitForInit.c)
  * Callees:
- *     KiCommitThreadWait @ 0x140241F00 (KiCommitThreadWait.c)
- *     KiFastExitThreadWait @ 0x1402BBBE0 (KiFastExitThreadWait.c)
- *     KiBeginThreadWait @ 0x1402C18E0 (KiBeginThreadWait.c)
- *     KiCheckDueTimeExpired @ 0x1402C1A60 (KiCheckDueTimeExpired.c)
- *     KiCheckWaitNext @ 0x1402C26F0 (KiCheckWaitNext.c)
+ *     KiBeginThreadWait @ 0x140241FA0 (KiBeginThreadWait.c)
+ *     KiCheckWaitNext @ 0x1402571D0 (KiCheckWaitNext.c)
+ *     KiCheckDueTimeExpired @ 0x1402572C0 (KiCheckDueTimeExpired.c)
+ *     KiCommitThreadWait @ 0x1402C6640 (KiCommitThreadWait.c)
+ *     KiFastExitThreadWait @ 0x140341258 (KiFastExitThreadWait.c)
  */
 
 __int64 __fastcall KeWaitForAlertByThreadId(char a1, _QWORD *a2, void *a3)
 {
-  struct _KTHREAD *CurrentThread; // rdi
-  __int64 CurrentIrql; // rdx
-  char v7; // bp
+  struct _KTHREAD *CurrentThread; // rbx
+  char v6; // si
   __int64 result; // rax
-  __int64 v9; // r8
-  ULONG_PTR v10; // rcx
-  __int64 v11; // r9
-  __int64 v12; // r8
-  unsigned int v13; // ebx
-  _DWORD *SchedulerAssist; // r10
-  __int64 v15; // r8
-  __int64 v16; // [rsp+30h] [rbp-38h] BYREF
-  unsigned int v17; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v8; // r8
+  int v9; // ecx
+  int v10; // r9d
+  unsigned int v11; // r8d
+  unsigned __int8 CurrentIrql; // r10
+  unsigned int v13; // edi
+  _DWORD *SchedulerAssist; // r9
+  __int64 v15; // [rsp+30h] [rbp-28h] BYREF
+  unsigned int v16; // [rsp+78h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v16 = 0LL;
-  v17 = 0;
+  v15 = 0LL;
+  v16 = 0;
   if ( _interlockedbittestandreset((volatile signed __int32 *)&CurrentThread->116 + 1, 4u) )
     return 257LL;
   if ( !a2 || *a2 )
   {
-    v7 = KiCheckWaitNext((_DWORD)CurrentThread, (_DWORD)a2, 0, (unsigned int)&v16, (__int64)&v17);
+    v6 = KiCheckWaitNext((_DWORD)CurrentThread, (_DWORD)a2, 0, (unsigned int)&v15, (__int64)&v16);
     while ( 1 )
     {
-      LOBYTE(CurrentIrql) = a1;
-      result = KiBeginThreadWait(CurrentThread, CurrentIrql, 37LL, 0LL);
+      result = KiBeginThreadWait((__int64)CurrentThread, a1, 37, 0);
       if ( (_DWORD)result )
         return result;
       if ( _interlockedbittestandreset((volatile signed __int32 *)&CurrentThread->116 + 1, 4u) )
         break;
-      if ( (unsigned int)KiCheckDueTimeExpired(CurrentThread, v17, v16) )
+      if ( (unsigned int)KiCheckDueTimeExpired(CurrentThread, v16, v15) )
       {
         v13 = 258;
-        goto LABEL_18;
+        goto LABEL_14;
       }
-      v12 = v17;
+      v11 = v16;
       CurrentThread->WaitBlock[0].Object = a3;
       CurrentThread->WaitBlockFill4[17] = 5;
       CurrentThread->WaitBlockCount = 1;
-      result = (__int64)KiCommitThreadWait(v10, (__int64 *)&CurrentThread->320, v12, v11, 0LL);
+      result = KiCommitThreadWait(v9, (int)CurrentThread + 320, v11, v10, 0LL);
       CurrentThread->WaitReason = 0;
       if ( (_DWORD)result != 256 )
         return result;
-      v7 = 0;
+      v6 = 0;
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-        if ( (_BYTE)CurrentIrql == 2 )
-          LODWORD(v15) = 4;
-        else
-          v15 = (-1LL << ((unsigned __int8)CurrentIrql + 1)) & 4;
-        SchedulerAssist[5] |= v15;
+        SchedulerAssist[5] |= ~((unsigned __int8)(1LL << (CurrentIrql + 1)) - 1) & 4;
       }
       CurrentThread->WaitIrql = CurrentIrql;
     }
     v13 = 257;
-LABEL_18:
+LABEL_14:
     CurrentThread->WaitReason = 0;
-    LOBYTE(v9) = v7;
-    KiFastExitThreadWait((__int64)KeGetCurrentPrcb(), (__int64)CurrentThread, v9);
+    LOBYTE(v8) = v6;
+    KiFastExitThreadWait(KeGetCurrentPrcb(), CurrentThread, v8);
     return v13;
   }
   return 258LL;

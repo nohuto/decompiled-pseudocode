@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpCheckMatchingRegistryEntry @ 0x140A4F98C
+ * XREFs of SdbpCheckMatchingRegistryEntry @ 0x1409646BC
  * Callers:
- *     SdbpCheckMatchingRegistry @ 0x140A4F860 (SdbpCheckMatchingRegistry.c)
+ *     SdbpCheckMatchingRegistry @ 0x140964590 (SdbpCheckMatchingRegistry.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQuerySystemInformation @ 0x14041AD60 (ZwQuerySystemInformation.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpCheckMatchingRegistryValue @ 0x140A4FB6C (SdbpCheckMatchingRegistryValue.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQuerySystemInformation @ 0x1403FA0E0 (ZwQuerySystemInformation.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x14096489C (SdbpCheckMatchingRegistryValue.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingRegistryEntry(

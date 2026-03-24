@@ -1,266 +1,361 @@
 /*
- * XREFs of TransformMessageBetweenCoordinateSpaces @ 0x1C005849C
+ * XREFs of TransformMessageBetweenCoordinateSpaces @ 0x1C005BAB0
  * Callers:
- *     xxxInterSendMsgEx @ 0x1C00517B0 (xxxInterSendMsgEx.c)
- *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0054A60 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0054A40 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     xxxInterSendMsgEx @ 0x1C005A2F0 (xxxInterSendMsgEx.c)
  * Callees:
- *     ?DoesMsgNeedDPITransform@@YA_NI_K_J@Z @ 0x1C005BCA8 (-DoesMsgNeedDPITransform@@YA_NI_K_J@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005BA00 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     CaptureAndValidateUserModeDpiAwarenessContext @ 0x1C005D0A0 (CaptureAndValidateUserModeDpiAwarenessContext.c)
+ *     IsPointerParentNotify @ 0x1C006B32C (IsPointerParentNotify.c)
+ *     DoesMsgNeedDPITransform @ 0x1C0109268 (DoesMsgNeedDPITransform.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall TransformMessageBetweenCoordinateSpaces(
         __int64 a1,
-        int a2,
-        __int64 *a3,
-        __int64 a4,
+        __int64 a2,
+        _QWORD *a3,
+        __int16 *a4,
         __int64 a5,
         __int64 a6)
 {
-  unsigned int v8; // ebx
-  unsigned int v9; // edi
+  __int16 *v6; // rbx
+  int v7; // r15d
+  unsigned int v8; // r12d
   unsigned int CurrentThreadDpiAwarenessContext; // esi
-  unsigned int v11; // eax
-  __int64 v13; // rsi
-  __int64 v14; // rdx
-  unsigned int v15; // eax
-  __int64 v16; // rbx
-  __int64 v17; // rsi
-  __int64 v18; // rcx
-  int v19; // eax
-  __int64 v20; // rcx
-  int v21; // edi
-  int v22; // edi
-  int v23; // eax
-  _DWORD *v24; // rbx
-  bool v26; // zf
-  __int64 v27; // rcx
-  __int64 v28; // [rsp+20h] [rbp-50h] BYREF
-  int v29; // [rsp+28h] [rbp-48h] BYREF
-  int v30; // [rsp+2Ch] [rbp-44h]
-  int v31; // [rsp+30h] [rbp-40h] BYREF
-  int v32; // [rsp+34h] [rbp-3Ch]
-  __int64 v33; // [rsp+38h] [rbp-38h] BYREF
-  __int128 v34; // [rsp+40h] [rbp-30h] BYREF
-  int v35; // [rsp+50h] [rbp-20h] BYREF
-  int v36; // [rsp+54h] [rbp-1Ch]
-  int v37; // [rsp+58h] [rbp-18h]
-  int v38; // [rsp+5Ch] [rbp-14h]
+  struct _KTHREAD *CurrentThread; // r15
+  unsigned int v11; // edi
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  _QWORD *ThreadWin32Thread; // rax
+  __int64 v16; // rcx
+  __int64 v17; // rbx
+  __int64 CurrentProcessWin32Process; // rax
+  int v19; // ecx
+  int v20; // eax
+  __int64 v22; // rdi
+  unsigned int v23; // esi
+  int v24; // eax
+  __int64 v25; // rbx
+  unsigned int v26; // eax
+  __int64 v27; // rbx
+  __int64 v28; // rdi
+  unsigned int v29; // esi
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v32; // rcx
+  __int64 CurrentThreadProcess; // rax
+  bool v34; // zf
+  int v35; // esi
+  int v36; // esi
+  int v37; // eax
+  __int64 v38; // rbx
+  _QWORD *v39; // r15
+  __int64 v40; // rcx
+  int v41; // eax
+  __int64 v42; // rcx
+  __int64 v43; // rcx
+  __int64 v44; // [rsp+28h] [rbp-51h] BYREF
+  __int64 v45; // [rsp+30h] [rbp-49h] BYREF
+  __int16 *v46; // [rsp+38h] [rbp-41h]
+  _QWORD *v47; // [rsp+40h] [rbp-39h]
+  int v48; // [rsp+48h] [rbp-31h] BYREF
+  int v49; // [rsp+4Ch] [rbp-2Dh]
+  int v50; // [rsp+50h] [rbp-29h]
+  __int64 v51; // [rsp+58h] [rbp-21h] BYREF
+  __int128 v52; // [rsp+60h] [rbp-19h] BYREF
+  __int128 v53; // [rsp+70h] [rbp-9h] BYREF
 
-  v31 = a2;
+  v6 = a4;
+  v7 = a2;
+  v46 = a4;
   v8 = a1;
-  v9 = 0;
+  v47 = a3;
+  v50 = a2;
   if ( a5 )
     CurrentThreadDpiAwarenessContext = *(_DWORD *)(*(_QWORD *)(a5 + 40) + 288LL);
   else
-    CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(a1, 0LL);
+    CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(a1);
   if ( a6 )
+  {
     v11 = *(_DWORD *)(*(_QWORD *)(a6 + 40) + 288LL);
+  }
   else
-    v11 = W32GetCurrentThreadDpiAwarenessContext(a1, 0LL);
-  if ( (((unsigned __int16)(CurrentThreadDpiAwarenessContext >> 8) ^ (unsigned __int16)(v11 >> 8)) & 0x1FF) == 0 )
-    return 0LL;
-  v13 = *(_QWORD *)a4;
-  if ( !DoesMsgNeedDPITransform(v8, 0LL, *(_QWORD *)a4) )
-    return 0LL;
-  v28 = v14;
-  v34 = 0LL;
-  if ( v31 == (_DWORD)v14 || v8 < 0x46 )
-    goto LABEL_17;
-  if ( v8 <= 0x47 )
   {
-    v35 = *(_DWORD *)(v13 + 16);
-    v36 = *(_DWORD *)(v13 + 20);
-    v37 = *(_DWORD *)(v13 + 24) + *(_DWORD *)(v13 + 16);
-    v38 = *(_DWORD *)(v13 + 28) + *(_DWORD *)(v13 + 20);
-    v9 = TransformRectBetweenCoordinateSpaces(&v34, &v35, a5, a6, v28);
-    *(_QWORD *)(v13 + 16) = v34;
-    *(_DWORD *)(v13 + 24) = DWORD2(v34) - v34;
-    *(_DWORD *)(v13 + 28) = HIDWORD(v34) - DWORD1(v34);
-    return v9;
-  }
-  switch ( v8 )
-  {
-    case 0x341u:
-LABEL_36:
-      v9 = 1;
-      break;
-    case 0x53u:
-      return (unsigned int)TransformPointBetweenCoordinateSpaces(v13 + 32, v13 + 32, a5, a6);
-    case 0x83u:
-      if ( *a3 != v14 )
-      {
-        v21 = TransformRectBetweenCoordinateSpaces(v13, v13, a5, a6, v28);
-        v22 = TransformRectBetweenCoordinateSpaces(v13 + 16, v13 + 16, a5, a6, v28) | v21;
-        v23 = TransformRectBetweenCoordinateSpaces(v13 + 32, v13 + 32, a5, a6, v28);
-        v24 = *(_DWORD **)(v13 + 48);
-        v35 = v24[4];
-        v36 = v24[5];
-        v37 = v24[6] + v24[4];
-        v38 = v24[7] + v24[5];
-        v9 = TransformRectBetweenCoordinateSpaces(&v34, &v35, a5, a6, v28) | v23 | v22;
-        *((_QWORD *)v24 + 2) = v34;
-        v24[6] = DWORD2(v34) - v34;
-        v24[7] = HIDWORD(v34) - DWORD1(v34);
-        return v9;
-      }
-      return (unsigned int)TransformRectBetweenCoordinateSpaces(v13, v13, a5, a6, v28);
-    case 0x220u:
-      v35 = *(_DWORD *)(v13 + 24);
-      v36 = *(_DWORD *)(v13 + 28);
-      v37 = *(_DWORD *)(v13 + 32) + *(_DWORD *)(v13 + 24);
-      v38 = *(_DWORD *)(v13 + 36) + *(_DWORD *)(v13 + 28);
-      v9 = TransformRectBetweenCoordinateSpaces(&v34, &v35, a5, a6, v28);
-      *(_QWORD *)(v13 + 24) = v34;
-      *(_DWORD *)(v13 + 32) = DWORD2(v34) - v34;
-      *(_DWORD *)(v13 + 36) = HIDWORD(v34) - DWORD1(v34);
-      return v9;
-    case 0x283u:
-      v18 = *a3;
-      if ( (unsigned __int64)(*a3 - 7) <= 1 )
-      {
-        v19 = TransformPointBetweenCoordinateSpaces(v13 + 8, v13 + 8, a5, a6);
-        v20 = v13 + 16;
-      }
-      else
-      {
-        if ( (unsigned __int64)(v18 - 11) > 1 )
-        {
-          if ( v18 == 16 )
-          {
-            v29 = (__int16)v13;
-            v30 = *(__int16 *)(a4 + 2);
-            v9 = TransformPointBetweenCoordinateSpaces(&v28, &v29, a5, a6);
-            *(_WORD *)a4 = v28;
-            *(_WORD *)(a4 + 2) = WORD2(v28);
-            return v9;
-          }
-          goto LABEL_71;
-        }
-        v19 = TransformPointBetweenCoordinateSpaces(v13 + 4, v13 + 4, a5, a6);
-        v20 = v13 + 12;
-      }
-      return (unsigned int)TransformRectBetweenCoordinateSpaces(v20, v20, a5, a6, v28) | v19;
-    case 0x342u:
-      goto LABEL_36;
-  }
-LABEL_17:
-  if ( v8 <= 0x210 )
-  {
-    if ( v8 == 528 )
+    CurrentThread = KeGetCurrentThread();
+    v11 = 18;
+    if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+      || (CurrentProcess = PsGetCurrentProcess(v13, v12, v14),
+          ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+          CurrentThreadProcess = PsGetCurrentThreadProcess(v32),
+          v34 = ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess),
+          v6 = v46,
+          v34) )
     {
-      v26 = *(_WORD *)a3 == 582;
+      ThreadWin32Thread = (_QWORD *)PsGetThreadWin32Thread(CurrentThread);
+      if ( ThreadWin32Thread )
+      {
+        v17 = *ThreadWin32Thread;
+        if ( !*ThreadWin32Thread )
+          goto LABEL_13;
+        if ( *(_QWORD *)(v17 + 360) )
+          CaptureAndValidateUserModeDpiAwarenessContext(*ThreadWin32Thread);
+        if ( *(_DWORD *)(v17 + 340) )
+        {
+          v11 = *(_DWORD *)(v17 + 340);
+        }
+        else
+        {
+          CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v16);
+          if ( CurrentProcessWin32Process )
+            v11 = *(_DWORD *)(CurrentProcessWin32Process + 280);
+        }
+        if ( (*(_DWORD *)(v17 + 328) & 4) != 0 && (v11 & 0xF) == 2 )
+        {
+          v6 = v46;
+          if ( (v11 & 0xF0) == 0x20 )
+            v11 |= 0x20000000u;
+        }
+        else
+        {
+LABEL_13:
+          v6 = v46;
+        }
+      }
+    }
+    v7 = v50;
+  }
+  if ( (((unsigned __int16)(CurrentThreadDpiAwarenessContext >> 8) ^ (unsigned __int16)(v11 >> 8)) & 0x1FF) == 0 )
+  {
+    v19 = (CurrentThreadDpiAwarenessContext & 0xF) == 2 && (CurrentThreadDpiAwarenessContext & 0x20000000) != 0;
+    v20 = (v11 & 0xF) == 2 && (v11 & 0x20000000) != 0;
+    if ( v19 == v20 )
+      return 0LL;
+  }
+  v22 = *(_QWORD *)v6;
+  if ( !(unsigned int)DoesMsgNeedDPITransform(v8, a2, *(_QWORD *)v6) )
+    return 0LL;
+  v44 = 0LL;
+  v45 = 0LL;
+  v53 = 0LL;
+  v52 = 0LL;
+  if ( !v7 || v8 < 0x220 && v8 >= 0x84 )
+    goto LABEL_30;
+  if ( v8 == 834 )
+    goto LABEL_37;
+  if ( v8 > 0x220 )
+  {
+    if ( v8 == 833 )
+    {
+LABEL_37:
+      v23 = 1;
+      goto LABEL_31;
+    }
+    if ( v8 != 643 )
+    {
+LABEL_30:
+      v23 = 0;
+      goto LABEL_31;
+    }
+    v39 = v47;
+    v40 = *v47;
+    if ( (unsigned __int64)(*v47 - 7LL) <= 1 )
+    {
+      v41 = TransformPointBetweenCoordinateSpaces(v22 + 8, v22 + 8, a5, a6);
+      v42 = v22 + 16;
     }
     else
     {
-      if ( v8 > 0x112 )
+      if ( (unsigned __int64)(v40 - 11) > 1 )
       {
-        if ( v8 < 0x200 )
-          return v9;
-        if ( v8 > 0x209 )
+        if ( v40 == 16 )
         {
-          if ( v8 == 522 )
-            goto LABEL_22;
-          if ( v8 > 0x20D )
-          {
-            if ( v8 != 526 )
-              return v9;
-            goto LABEL_22;
-          }
+          LODWORD(v44) = (__int16)v22;
+          HIDWORD(v44) = v6[1];
+          v23 = TransformPointBetweenCoordinateSpaces(&v45, &v44, a5, a6);
+          *v6 = v45;
+          v6[1] = WORD2(v45);
         }
-LABEL_74:
-        if ( !a5 )
-          return v9;
-        v27 = *(_QWORD *)(a5 + 40);
-        v33 = v14;
-        v29 = (__int16)v13;
-        v30 = SWORD1(v13);
-        v31 = *(_DWORD *)(v27 + 104);
-        v32 = *(_DWORD *)(v27 + 108);
-        TransformPointBetweenCoordinateSpaces(&v33, &v31, a6, a5);
-        v29 = v33 + (__int16)v13;
-        v30 = HIDWORD(v33) + SWORD1(v13);
-        v9 = TransformPointBetweenCoordinateSpaces(&v28, &v29, a5, a6);
-        LODWORD(v28) = v28 - v31;
-        HIDWORD(v28) -= v32;
-        goto LABEL_23;
+        else
+        {
+          v23 = 0;
+        }
+LABEL_70:
+        switch ( v8 )
+        {
+          case 0x20Au:
+          case 0x20Eu:
+          case 0x241u:
+          case 0x242u:
+          case 0x243u:
+          case 0x245u:
+          case 0x246u:
+          case 0x247u:
+          case 0x249u:
+          case 0x24Au:
+          case 0x24Eu:
+          case 0x24Fu:
+          case 0x251u:
+          case 0x252u:
+          case 0x2A0u:
+          case 0x2F2u:
+          case 0x2F3u:
+          case 0x2F4u:
+            goto LABEL_32;
+          case 0x20Bu:
+          case 0x20Cu:
+          case 0x20Du:
+          case 0x2A1u:
+            goto LABEL_95;
+          case 0x210u:
+            goto LABEL_89;
+          default:
+            return v23;
+        }
+        return v23;
       }
-      if ( v8 != 274 )
-      {
-        if ( v8 == 132 )
-        {
-LABEL_22:
-          v29 = (__int16)v13;
-          v30 = SWORD1(v13);
-          v9 = TransformPointBetweenCoordinateSpaces(&v28, &v29, a5, a6);
-LABEL_23:
-          *(_QWORD *)a4 = (WORD2(v28) << 16) | (unsigned __int16)v28;
-          return v9;
-        }
-        if ( v8 != 3 )
-        {
-          if ( v8 != 123 && (v8 <= 0x9F || v8 > 0xA9 && (v8 <= 0xAA || v8 > 0xAD)) )
-            return v9;
-          goto LABEL_22;
-        }
-        goto LABEL_74;
-      }
-      v26 = *(_WORD *)(a4 + 2) == (unsigned __int16)v14;
+      v41 = TransformPointBetweenCoordinateSpaces(v22 + 4, v22 + 4, a5, a6);
+      v42 = v22 + 12;
     }
-    if ( v26 )
-      return v9;
-    goto LABEL_22;
+    v23 = TransformRectBetweenCoordinateSpaces(v42, v42, a5, a6) | v41;
+    goto LABEL_70;
   }
-  if ( v8 <= 0x2A0 )
+  if ( v8 == 544 )
   {
-    if ( v8 == 672 )
-      goto LABEL_22;
-LABEL_71:
-    switch ( v8 )
-    {
-      case 0x241u:
-      case 0x242u:
-      case 0x243u:
-      case 0x245u:
-      case 0x246u:
-      case 0x247u:
-      case 0x249u:
-      case 0x24Au:
-      case 0x24Eu:
-      case 0x24Fu:
-      case 0x251u:
-      case 0x252u:
-        goto LABEL_22;
-      default:
-        return v9;
-    }
-    return v9;
+    *(_QWORD *)&v53 = *(_QWORD *)(v22 + 24);
+    DWORD2(v53) = *(_DWORD *)(v22 + 32) + *(_DWORD *)(v22 + 24);
+    HIDWORD(v53) = *(_DWORD *)(v22 + 36) + *(_DWORD *)(v22 + 28);
+    v23 = TransformRectBetweenCoordinateSpaces(&v52, &v53, a5, a6);
+    *(_QWORD *)(v22 + 24) = v52;
+    *(_DWORD *)(v22 + 32) = DWORD2(v52) - v52;
+    *(_DWORD *)(v22 + 36) = HIDWORD(v52) - DWORD1(v52);
+LABEL_69:
+    v39 = v47;
+    goto LABEL_70;
   }
-  if ( v8 == 673 )
-    goto LABEL_74;
-  if ( v8 > 0x2F1 )
+  if ( v8 < 0x46 )
+    goto LABEL_30;
+  if ( v8 > 0x47 )
   {
-    if ( v8 <= 0x2F4 )
-      goto LABEL_22;
-    if ( v8 != 787 )
+    if ( v8 == 83 )
+      return (unsigned int)TransformPointBetweenCoordinateSpaces(v22 + 32, v22 + 32, a5, a6);
+    if ( v8 == 131 )
     {
-      if ( v8 == 831 && a6 && v13 )
+      if ( *v47 )
       {
-        v15 = TransformRectBetweenCoordinateSpaces(v13 + 4, v13 + 4, a5, a6, v28);
-        v16 = v13 + 44;
-        v17 = 6LL;
-        v9 = v15;
-        do
-        {
-          v9 |= TransformRectBetweenCoordinateSpaces(v16, v16, a5, a6, v28);
-          v16 += 16LL;
-          --v17;
-        }
-        while ( v17 );
+        v35 = TransformRectBetweenCoordinateSpaces(v22, v22, a5, a6);
+        v36 = TransformRectBetweenCoordinateSpaces(v22 + 16, v22 + 16, a5, a6) | v35;
+        v37 = TransformRectBetweenCoordinateSpaces(v22 + 32, v22 + 32, a5, a6);
+        v38 = *(_QWORD *)(v22 + 48);
+        *(_QWORD *)&v53 = *(_QWORD *)(v38 + 16);
+        DWORD2(v53) = *(_DWORD *)(v38 + 24) + *(_DWORD *)(v38 + 16);
+        HIDWORD(v53) = *(_DWORD *)(v38 + 28) + *(_DWORD *)(v38 + 20);
+        v23 = TransformRectBetweenCoordinateSpaces(&v52, &v53, a5, a6) | v37 | v36;
+        *(_QWORD *)(v38 + 16) = v52;
+        *(_DWORD *)(v38 + 24) = DWORD2(v52) - v52;
+        *(_DWORD *)(v38 + 28) = HIDWORD(v52) - DWORD1(v52);
       }
-      return v9;
+      else
+      {
+        return (unsigned int)TransformRectBetweenCoordinateSpaces(v22, v22, a5, a6);
+      }
+      return v23;
     }
-    if ( v13 != 0xFFFFFFFFLL )
-      goto LABEL_22;
+    goto LABEL_30;
   }
-  return v9;
+  *(_QWORD *)&v53 = *(_QWORD *)(v22 + 16);
+  DWORD2(v53) = *(_DWORD *)(v22 + 24) + *(_DWORD *)(v22 + 16);
+  HIDWORD(v53) = *(_DWORD *)(v22 + 28) + *(_DWORD *)(v22 + 20);
+  v23 = TransformRectBetweenCoordinateSpaces(&v52, &v53, a5, a6);
+  *(_QWORD *)(v22 + 16) = v52;
+  *(_DWORD *)(v22 + 24) = DWORD2(v52) - v52;
+  *(_DWORD *)(v22 + 28) = HIDWORD(v52) - DWORD1(v52);
+LABEL_31:
+  if ( v8 == 132 )
+    goto LABEL_32;
+  if ( v8 > 0x33F )
+    return v23;
+  if ( v8 <= 0x209 )
+  {
+    if ( v8 < 0x200 )
+    {
+      if ( v8 > 0xA9 )
+      {
+        if ( v8 < 0xAB )
+          return v23;
+        if ( v8 > 0xAD )
+        {
+          if ( v8 != 274 || !v6[1] )
+            return v23;
+          v39 = v47;
+LABEL_89:
+          if ( (unsigned int)IsPointerParentNotify(v8, *v39) )
+            return v23;
+        }
+        goto LABEL_32;
+      }
+      if ( v8 >= 0xA0 )
+      {
+LABEL_32:
+        LODWORD(v44) = *v6;
+        HIDWORD(v44) = (__int16)HIWORD(*(_DWORD *)v6);
+        v23 = TransformPointBetweenCoordinateSpaces(&v45, &v44, a5, a6);
+        v24 = (WORD2(v45) << 16) | (unsigned __int16)v45;
+LABEL_33:
+        *(_QWORD *)v6 = v24;
+        return v23;
+      }
+      if ( v8 != 3 )
+      {
+        if ( v8 != 123 )
+          return v23;
+        goto LABEL_32;
+      }
+    }
+LABEL_95:
+    if ( !a5 )
+      return v23;
+    v43 = *(_QWORD *)(a5 + 40);
+    LODWORD(v44) = *v6;
+    HIDWORD(v44) = (__int16)HIWORD(*(_DWORD *)v6);
+    v51 = 0LL;
+    v48 = *(_DWORD *)(v43 + 104);
+    v49 = *(_DWORD *)(v43 + 108);
+    TransformPointBetweenCoordinateSpaces(&v51, &v48, a6, a5);
+    LODWORD(v44) = v51 + v44;
+    HIDWORD(v44) += HIDWORD(v51);
+    v23 = TransformPointBetweenCoordinateSpaces(&v45, &v44, a5, a6);
+    v24 = ((unsigned __int16)(WORD2(v45) - v49) << 16) | (unsigned __int16)(v45 - v48);
+    goto LABEL_33;
+  }
+  if ( v8 <= 0x313 )
+  {
+    if ( v8 == 787 )
+    {
+      if ( *(_QWORD *)v6 == 0xFFFFFFFFLL )
+        return v23;
+      goto LABEL_32;
+    }
+    goto LABEL_69;
+  }
+  if ( v8 != 831 )
+    return v23;
+  if ( !a6 )
+    return v23;
+  v25 = *(_QWORD *)v6;
+  if ( !v25 )
+    return v23;
+  v26 = TransformRectBetweenCoordinateSpaces(v25 + 4, v25 + 4, a5, a6);
+  v27 = v25 + 44;
+  v28 = 6LL;
+  v29 = v26;
+  do
+  {
+    v29 |= TransformRectBetweenCoordinateSpaces(v27, v27, a5, a6);
+    v27 += 16LL;
+    --v28;
+  }
+  while ( v28 );
+  return v29;
 }

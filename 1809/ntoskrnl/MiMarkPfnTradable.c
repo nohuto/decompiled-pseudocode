@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMarkPfnTradable @ 0x14013D924
+ * XREFs of MiMarkPfnTradable @ 0x14013D944
  * Callers:
- *     MmCreateKernelStack @ 0x1400C9EF0 (MmCreateKernelStack.c)
- *     KiInSwapProcesses @ 0x14010B320 (KiInSwapProcesses.c)
- *     MiSetPfnKernelStack @ 0x14013D8E0 (MiSetPfnKernelStack.c)
- *     MiAllocateProcessShadow @ 0x1406D1B0C (MiAllocateProcessShadow.c)
+ *     MmCreateKernelStack @ 0x1400C9F10 (MmCreateKernelStack.c)
+ *     KiInSwapProcesses @ 0x14010B340 (KiInSwapProcesses.c)
+ *     MiSetPfnKernelStack @ 0x14013D900 (MiSetPfnKernelStack.c)
+ *     MiAllocateProcessShadow @ 0x1406D1AEC (MiAllocateProcessShadow.c)
  *     MmFreeLoaderBlock @ 0x1409C5164 (MmFreeLoaderBlock.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiMarkPfnTradable(__int64 a1, int a2)

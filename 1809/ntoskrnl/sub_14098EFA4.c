@@ -1,17 +1,17 @@
 /*
  * XREFs of sub_14098EFA4 @ 0x14098EFA4
  * Callers:
- *     sub_1401A1720 @ 0x1401A1720 (sub_1401A1720.c)
+ *     sub_1401A1740 @ 0x1401A1740 (sub_1401A1740.c)
  *     FsRtlMdlReadCompleteDevEx @ 0x140332010 (FsRtlMdlReadCompleteDevEx.c)
  *     sub_140345BE8 @ 0x140345BE8 (sub_140345BE8.c)
  *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
  * Callees:
- *     sub_1401AD8DC @ 0x1401AD8DC (sub_1401AD8DC.c)
- *     sub_1401AD93C @ 0x1401AD93C (sub_1401AD93C.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     sub_1401AD8FC @ 0x1401AD8FC (sub_1401AD8FC.c)
+ *     sub_1401AD95C @ 0x1401AD95C (sub_1401AD95C.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     sub_1403485B4 @ 0x1403485B4 (sub_1403485B4.c)
  *     KeGuardDispatchICall @ 0x14034AB40 (KeGuardDispatchICall.c)
- *     MmImageSectionPagable @ 0x14065400C (MmImageSectionPagable.c)
+ *     MmImageSectionPagable @ 0x140653FEC (MmImageSectionPagable.c)
  */
 
 __int64 __fastcall sub_14098EFA4(__int64 a1, ULONG_PTR a2, char a3)
@@ -798,7 +798,7 @@ LABEL_150:
               while ( v122 < (unsigned int)v121 );
               v136 = v186;
               v137 = (__int64)v190;
-              sub_1401AD93C((__int64)v23, (__int64)v190, v121);
+              sub_1401AD95C((__int64)v23, (__int64)v190, v121);
               v138 = v206;
               v139 = (unsigned int)v121;
               v140 = (_DWORD *)(v136 + 16);
@@ -961,7 +961,7 @@ LABEL_212:
       if ( (*(_DWORD *)(v157 + 2416) & 0x40000000) != 0 )
       {
         if ( (_DWORD)v151 )
-          sub_1401AD8DC(v157, v41, v151, v166 + 28);
+          sub_1401AD8FC(v157, v41, v151, v166 + 28);
       }
       *(_DWORD *)(v166 + 24) = 1;
       *(_QWORD *)a1 = v157;

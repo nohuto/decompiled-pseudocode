@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0VIDMM_DMA_POOL@@QEAA@PEAVVIDMM_GLOBAL@@KPEAVVIDMM_DEVICE@@PEAVDXGCONTEXT@@KKKKKH@Z @ 0x1C00A9B7C
+ * XREFs of ??0VIDMM_DMA_POOL@@QEAA@PEAVVIDMM_GLOBAL@@KPEAVVIDMM_DEVICE@@PEAVDXGCONTEXT@@KKKKKH@Z @ 0x1C008EAF0
  * Callers:
- *     VidMmCreateDmaPool @ 0x1C001ACE0 (VidMmCreateDmaPool.c)
- *     ?InitDmaPools@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00B7F70 (-InitDmaPools@VIDMM_GLOBAL@@QEAAJXZ.c)
+ *     VidMmCreateDmaPool @ 0x1C0016860 (VidMmCreateDmaPool.c)
+ *     ?InitDmaPools@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00990FC (-InitDmaPools@VIDMM_GLOBAL@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -47,11 +47,11 @@ VIDMM_DMA_POOL *__fastcall VIDMM_DMA_POOL::VIDMM_DMA_POOL(
   *((_DWORD *)this + 34) = 0;
   v13 = v12 & 0xFFFFFFFC | (a11 != 0) | 0xC;
   *((_DWORD *)this + 8) = v13;
-  if ( !a5 || (v14 = 16, !*((_BYTE *)a5 + 438)) )
+  if ( !a5 || (v14 = 16, !*((_BYTE *)a5 + 454)) )
     v14 = 0;
   v15 = v14 | v13 & 0xFFFFFFEF;
   *((_DWORD *)this + 8) = v15;
-  if ( !a5 || (v16 = 32, !*((_BYTE *)a5 + 439)) )
+  if ( !a5 || (v16 = 32, !*((_BYTE *)a5 + 455)) )
     v16 = 0;
   *((_QWORD *)this + 14) = 0LL;
   *((_QWORD *)this + 15) = 0LL;

@@ -1,13 +1,13 @@
 /*
- * XREFs of NtUserSetWindowCompositionTransition @ 0x1C010EC60
+ * XREFs of NtUserSetWindowCompositionTransition @ 0x1C0123520
  * Callers:
  *     <none>
  * Callees:
- *     _IsTopLevelWindow @ 0x1C006D904 (_IsTopLevelWindow.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     DwmAsyncSetTransition @ 0x1C010EED8 (DwmAsyncSetTransition.c)
- *     UserSetLastStatus @ 0x1C011A880 (UserSetLastStatus.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     _IsTopLevelWindow @ 0x1C006FC88 (_IsTopLevelWindow.c)
+ *     UserSetLastStatus @ 0x1C00EC7BC (UserSetLastStatus.c)
+ *     DwmAsyncSetTransition @ 0x1C0123798 (DwmAsyncSetTransition.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 _BOOL8 __fastcall NtUserSetWindowCompositionTransition(
@@ -25,21 +25,22 @@ _BOOL8 __fastcall NtUserSetWindowCompositionTransition(
   __int64 v13; // rcx
   __int64 v14; // rbx
   NTSTATUS v15; // edi
-  void *v16; // rax
-  BOOL v17; // ebx
-  __int128 v19; // [rsp+98h] [rbp-80h] BYREF
-  __int128 v20; // [rsp+A8h] [rbp-70h] BYREF
-  __int128 v21; // [rsp+B8h] [rbp-60h] BYREF
-  __int128 v22; // [rsp+C8h] [rbp-50h] BYREF
+  __int64 v16; // rdx
+  void *v17; // rax
+  BOOL v18; // ebx
+  __int128 v20; // [rsp+98h] [rbp-80h] BYREF
+  __int128 v21; // [rsp+A8h] [rbp-70h] BYREF
+  __int128 v22; // [rsp+B8h] [rbp-60h] BYREF
+  __int128 v23; // [rsp+C8h] [rbp-50h] BYREF
 
   v10 = (__int128 *)a5;
   v11 = (__int128 *)a6;
   v12 = (__int128 *)a7;
-  v19 = 0LL;
   v20 = 0LL;
   v21 = 0LL;
   v22 = 0LL;
-  EnterCrit(0LL, 0LL);
+  v23 = 0LL;
+  EnterCrit(0LL, 1LL);
   v14 = ValidateHwnd(a1);
   if ( v14 )
   {
@@ -50,36 +51,36 @@ _BOOL8 __fastcall NtUserSetWindowCompositionTransition(
       {
         if ( (unsigned __int64)a4 >= MmUserProbeAddress )
           a4 = (__int128 *)MmUserProbeAddress;
-        v19 = *a4;
-        a4 = &v19;
+        v20 = *a4;
+        a4 = &v20;
       }
       if ( a5 )
       {
         if ( a5 >= MmUserProbeAddress )
           v10 = (__int128 *)MmUserProbeAddress;
-        v20 = *v10;
-        v10 = &v20;
+        v21 = *v10;
+        v10 = &v21;
       }
       if ( a6 )
       {
         if ( a6 >= MmUserProbeAddress )
           v11 = (__int128 *)MmUserProbeAddress;
-        v21 = *v11;
-        v11 = &v21;
+        v22 = *v11;
+        v11 = &v22;
       }
       if ( a7 )
       {
         if ( a7 >= MmUserProbeAddress )
           v12 = (__int128 *)MmUserProbeAddress;
-        v22 = *v12;
-        v12 = &v22;
+        v23 = *v12;
+        v12 = &v23;
       }
-      if ( IsTopLevelWindow(v14) )
+      if ( (unsigned int)IsTopLevelWindow(v14) )
       {
         if ( (unsigned int)IsWindowDesktopComposed(v14) )
         {
-          v16 = (void *)ReferenceDwmApiPort(v13);
-          v15 = DwmAsyncSetTransition(v16, (__int64)a4, (__int64)v10, (__int64)v11, (__int64)v12);
+          v17 = (void *)ReferenceDwmApiPort(v13, v16);
+          v15 = DwmAsyncSetTransition(v17, (__int64)a4, (__int64)v10, (__int64)v11, (__int64)v12);
         }
       }
       else
@@ -91,17 +92,17 @@ _BOOL8 __fastcall NtUserSetWindowCompositionTransition(
     {
       v15 = -1073741811;
     }
-    v17 = v15 >= 0;
+    v18 = v15 >= 0;
     if ( v15 < 0 )
     {
-      v17 = 0;
-      UserSetLastStatus(v15);
+      v18 = 0;
+      UserSetLastStatus(v15, 1);
     }
   }
   else
   {
-    v17 = 0;
+    v18 = 0;
   }
   UserSessionSwitchLeaveCrit(v13);
-  return v17;
+  return v18;
 }

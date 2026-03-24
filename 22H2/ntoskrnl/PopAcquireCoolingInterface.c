@@ -1,12 +1,12 @@
 /*
- * XREFs of PopAcquireCoolingInterface @ 0x14084F044
+ * XREFs of PopAcquireCoolingInterface @ 0x14079AE50
  * Callers:
- *     PopAssociateThermalRequest @ 0x14084EE80 (PopAssociateThermalRequest.c)
- *     PopCoolingExtensionPnpNotification @ 0x140982EA0 (PopCoolingExtensionPnpNotification.c)
+ *     PopAssociateThermalRequest @ 0x14079AC80 (PopAssociateThermalRequest.c)
+ *     PopCoolingExtensionPnpNotification @ 0x1408E2B60 (PopCoolingExtensionPnpNotification.c)
  * Callees:
- *     IoAllocateIrp @ 0x14022E630 (IoAllocateIrp.c)
- *     IoFreeIrp @ 0x1402AF1E0 (IoFreeIrp.c)
- *     IoSynchronousCallDriver @ 0x140354C60 (IoSynchronousCallDriver.c)
+ *     IoFreeIrp @ 0x1402D3CF0 (IoFreeIrp.c)
+ *     IoSynchronousCallDriver @ 0x140318390 (IoSynchronousCallDriver.c)
+ *     IoAllocateIrp @ 0x1403616C0 (IoAllocateIrp.c)
  */
 
 __int64 __fastcall PopAcquireCoolingInterface(__int64 a1)

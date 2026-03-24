@@ -1,5 +1,5 @@
 /*
- * XREFs of GetgpPublicObjectList @ 0x1C00B2340
+ * XREFs of GetgpPublicObjectList @ 0x1C0122120
  * Callers:
  *     <none>
  * Callees:

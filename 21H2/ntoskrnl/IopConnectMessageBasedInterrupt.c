@@ -1,16 +1,16 @@
 /*
- * XREFs of IopConnectMessageBasedInterrupt @ 0x140816C88
+ * XREFs of IopConnectMessageBasedInterrupt @ 0x140761E54
  * Callers:
- *     IoConnectInterruptEx @ 0x140816FD0 (IoConnectInterruptEx.c)
+ *     IoConnectInterruptEx @ 0x140761BD0 (IoConnectInterruptEx.c)
  * Callees:
- *     HalGetMessageRoutingInfo @ 0x1403AFF80 (HalGetMessageRoutingInfo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IoDisconnectInterrupt @ 0x140816AA0 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x140817258 (IopConnectInterrupt.c)
- *     IopGetInterruptConnectionData @ 0x140817A24 (IopGetInterruptConnectionData.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     HalGetMessageRoutingInfo @ 0x140377380 (HalGetMessageRoutingInfo.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IoDisconnectInterrupt @ 0x140761A10 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1407621CC (IopConnectInterrupt.c)
+ *     IopGetInterruptConnectionData @ 0x1407628FC (IopGetInterruptConnectionData.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopConnectMessageBasedInterrupt(
@@ -24,199 +24,197 @@ __int64 __fastcall IopConnectMessageBasedInterrupt(
 {
   unsigned int v7; // ebx
   int v11; // r14d
-  _DWORD *v12; // rsi
+  unsigned int *v12; // rsi
   char v13; // r15
   _DWORD *DeviceNode; // rcx
   int InterruptConnectionData; // edi
   unsigned int v16; // r8d
   __int64 v17; // rcx
   unsigned __int8 v18; // r9
-  char v19; // di
-  _BYTE *Pool2; // rax
-  __int64 v22; // rax
-  _QWORD *v23; // r14
-  char v24; // al
-  __int128 v25; // xmm1
-  int v26; // eax
+  unsigned int *PoolWithTag; // rax
+  __int64 v20; // rax
+  _QWORD *v21; // r14
+  char v22; // al
+  __int128 v23; // xmm1
+  unsigned int v24; // eax
+  __int128 v25; // xmm0
+  __int128 v26; // xmm1
   __int128 v27; // xmm0
-  __int128 v28; // xmm1
+  __int64 v28; // r12
   __int128 v29; // xmm0
-  __int64 v30; // r12
+  int v30; // eax
   __int128 v31; // xmm0
-  int v32; // eax
-  __int128 v33; // xmm0
-  int v34; // [rsp+38h] [rbp-C8h]
-  int v35; // [rsp+40h] [rbp-C0h]
-  char v36; // [rsp+60h] [rbp-A0h]
+  int v33; // [rsp+38h] [rbp-C8h]
+  int v34; // [rsp+40h] [rbp-C0h]
+  char v35; // [rsp+60h] [rbp-A0h]
   int P; // [rsp+68h] [rbp-98h]
-  __int64 v38; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v39; // [rsp+78h] [rbp-88h]
-  struct _DEVICE_OBJECT *v40; // [rsp+80h] [rbp-80h]
-  _QWORD *v41; // [rsp+88h] [rbp-78h]
-  __int128 v42; // [rsp+90h] [rbp-70h] BYREF
-  __int128 v43; // [rsp+A0h] [rbp-60h]
-  _OWORD v44[2]; // [rsp+B0h] [rbp-50h] BYREF
-  _QWORD v45[12]; // [rsp+D0h] [rbp-30h] BYREF
+  __int64 v37; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v38; // [rsp+78h] [rbp-88h]
+  struct _DEVICE_OBJECT *v39; // [rsp+80h] [rbp-80h]
+  _QWORD *v40; // [rsp+88h] [rbp-78h]
+  __int128 v41; // [rsp+90h] [rbp-70h] BYREF
+  __int128 v42; // [rsp+A0h] [rbp-60h]
+  _OWORD v43[2]; // [rsp+B0h] [rbp-50h] BYREF
+  _QWORD v44[12]; // [rsp+D0h] [rbp-30h] BYREF
 
   v7 = 0;
-  v41 = a3;
-  v40 = a2;
+  v40 = a3;
+  v39 = a2;
   *a3 = 0LL;
-  v39 = a4;
-  v38 = 0LL;
-  v36 = 0;
+  v38 = a4;
+  v37 = 0LL;
+  v35 = 0;
   v11 = 0;
-  v42 = 0LL;
+  v41 = 0LL;
   v12 = 0LL;
   v13 = 0;
-  v43 = 0LL;
-  memset(v44, 0, 20);
-  memset(v45, 0, sizeof(v45));
-  if ( !a2 || (DeviceNode = a2->DeviceObjectExtension->DeviceNode) == 0LL || (DeviceNode[99] & 0x20000) != 0 || !a4 )
-    return (unsigned int)-1073741811;
-  InterruptConnectionData = IopGetInterruptConnectionData(a2);
-  if ( InterruptConnectionData < 0 )
-    goto LABEL_13;
-  v16 = 0;
-  if ( !MEMORY[0] )
-    goto LABEL_12;
-  v17 = 16LL;
-  do
+  v42 = 0LL;
+  memset(v43, 0, 24);
+  memset(v44, 0, sizeof(v44));
+  if ( a2 && (DeviceNode = a2->DeviceObjectExtension->DeviceNode) != 0LL && (DeviceNode[99] & 0x20000) == 0 && a4 )
   {
-    v18 = v13;
-    if ( (unsigned int)(*(_DWORD *)(v17 - 8) - 1) > 2 )
-      goto LABEL_9;
-    ++v11;
-    if ( a1 == 5 )
+    InterruptConnectionData = IopGetInterruptConnectionData(a2);
+    if ( InterruptConnectionData >= 0 )
     {
-      v19 = 1;
-      v36 = 1;
-    }
-    else
-    {
-      if ( a1 != 3 )
-        goto LABEL_9;
-      if ( a7 )
+      v16 = 0;
+      if ( !MEMORY[0] )
+        goto LABEL_37;
+      v17 = 16LL;
+      do
       {
-        if ( a7 < *(_BYTE *)v17 )
-          goto LABEL_12;
-        v13 = a7;
-LABEL_9:
-        v19 = v36;
-        goto LABEL_10;
+        v18 = v13;
+        if ( (unsigned int)(*(_DWORD *)(v17 - 8) - 1) <= 2 )
+        {
+          ++v11;
+          if ( a1 == 5 )
+          {
+            v35 = 1;
+          }
+          else if ( a1 == 3 )
+          {
+            if ( a7 )
+            {
+              if ( a7 < *(_BYTE *)v17 )
+                goto LABEL_37;
+              v13 = a7;
+            }
+            else if ( a6 )
+            {
+              v13 = *(_BYTE *)v17;
+              if ( *(_BYTE *)v17 <= v18 )
+                v13 = v18;
+            }
+            else
+            {
+              v13 = 0;
+            }
+          }
+        }
+        ++v16;
+        v17 += 88LL;
       }
-      v19 = v36;
-      if ( a6 )
+      while ( v16 < MEMORY[0] );
+      if ( v11 )
       {
-        v13 = *(_BYTE *)v17;
-        if ( *(_BYTE *)v17 <= v18 )
-          v13 = v18;
+        PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(48 * v11 + 8), 0x6E696F49u);
+        v12 = PoolWithTag;
+        if ( PoolWithTag )
+        {
+          memset(PoolWithTag, 0, (unsigned int)(48 * v11 + 8));
+          v20 = 0LL;
+          *(_BYTE *)v12 = v13;
+          for ( P = 0; (unsigned int)v20 < MEMORY[0]; P = v20 )
+          {
+            v21 = (_QWORD *)(88 * v20 + 8);
+            if ( (unsigned int)(*(_DWORD *)(88 * v20 + 8) - 1) <= 2 )
+            {
+              if ( v35 )
+              {
+                v22 = 0;
+              }
+              else if ( v13 )
+              {
+                v22 = v13;
+              }
+              else
+              {
+                v22 = *(_BYTE *)(88 * v20 + 0x10);
+              }
+              v23 = *((_OWORD *)v21 + 1);
+              LOBYTE(v34) = 1;
+              LOBYTE(v33) = v22;
+              v24 = v12[1];
+              *(_OWORD *)&v44[1] = *(_OWORD *)v21;
+              v25 = *((_OWORD *)v21 + 2);
+              *(_OWORD *)&v44[3] = v23;
+              LODWORD(v44[0]) = 1;
+              v26 = *((_OWORD *)v21 + 3);
+              *(_OWORD *)&v44[5] = v25;
+              v27 = *((_OWORD *)v21 + 4);
+              *(_OWORD *)&v44[7] = v26;
+              *(_QWORD *)&v26 = v21[10];
+              *(_OWORD *)&v44[9] = v27;
+              v44[11] = v26;
+              InterruptConnectionData = IopConnectInterrupt(&v37, v39, 0LL, v38, a5, v24, a6, v33, v34);
+              if ( InterruptConnectionData < 0 )
+                goto LABEL_29;
+              v28 = 6LL * v12[1];
+              if ( *(_DWORD *)v21 == 3 )
+              {
+                v29 = *(_OWORD *)(v21 + 3);
+                DWORD2(v41) = *((_DWORD *)v21 + 1);
+                v30 = *((_DWORD *)v21 + 18);
+                v42 = v29;
+                LODWORD(v41) = 0;
+                v31 = *(_OWORD *)(v21 + 5);
+                LODWORD(v43[0]) = v30;
+                *(_OWORD *)((char *)v43 + 4) = v31;
+                InterruptConnectionData = HalGetMessageRoutingInfo((int *)&v41, v44);
+                if ( InterruptConnectionData < 0 )
+                  goto LABEL_29;
+                v21 = &v44[1];
+              }
+              *(_QWORD *)&v12[2 * v28 + 2] = v21[9];
+              v12[2 * v28 + 8] = *((_DWORD *)v21 + 20);
+              *(_QWORD *)&v12[2 * v28 + 4] = v21[3];
+              *(_QWORD *)&v12[2 * v28 + 6] = v37 + 112;
+              v12[2 * v28 + 9] = *((_DWORD *)v21 + 1);
+              LOBYTE(v12[2 * v28 + 10]) = *((_BYTE *)v21 + 8);
+              v12[2 * v28 + 11] = *((_DWORD *)v21 + 4);
+              v12[2 * v28 + 12] = *((_DWORD *)v21 + 3);
+              ++v12[1];
+            }
+            v20 = (unsigned int)(P + 1);
+          }
+          InterruptConnectionData = 0;
+          *v40 = v12;
+        }
+        else
+        {
+          InterruptConnectionData = -1073741670;
+        }
       }
       else
       {
-        v13 = 0;
+LABEL_37:
+        InterruptConnectionData = -1073741811;
       }
     }
-LABEL_10:
-    ++v16;
-    v17 += 88LL;
-  }
-  while ( v16 < MEMORY[0] );
-  if ( v11 )
-  {
-    Pool2 = (_BYTE *)ExAllocatePool2(64LL, (unsigned int)(48 * v11 + 8), 1852403529LL);
-    v12 = Pool2;
-    if ( Pool2 )
+LABEL_29:
+    if ( InterruptConnectionData < 0 && v12 )
     {
-      *Pool2 = v13;
-      v22 = 0LL;
-      for ( P = 0; (unsigned int)v22 < MEMORY[0]; P = v22 )
+      if ( v12[1] )
       {
-        v23 = (_QWORD *)(88 * v22 + 8);
-        if ( (unsigned int)(*(_DWORD *)(88 * v22 + 8) - 1) <= 2 )
-        {
-          if ( v19 )
-          {
-            v24 = 0;
-          }
-          else if ( v13 )
-          {
-            v24 = v13;
-          }
-          else
-          {
-            v24 = *(_BYTE *)(88 * v22 + 0x10);
-          }
-          v25 = *((_OWORD *)v23 + 1);
-          LOBYTE(v35) = 1;
-          LOBYTE(v34) = v24;
-          v26 = v12[1];
-          *(_OWORD *)&v45[1] = *(_OWORD *)v23;
-          v27 = *((_OWORD *)v23 + 2);
-          *(_OWORD *)&v45[3] = v25;
-          LODWORD(v45[0]) = 1;
-          v28 = *((_OWORD *)v23 + 3);
-          *(_OWORD *)&v45[5] = v27;
-          v29 = *((_OWORD *)v23 + 4);
-          *(_OWORD *)&v45[7] = v28;
-          *(_QWORD *)&v28 = v23[10];
-          *(_OWORD *)&v45[9] = v29;
-          v45[11] = v28;
-          InterruptConnectionData = IopConnectInterrupt(&v38, v40, 0LL, v39, a5, v26, a6, v34, v35);
-          if ( InterruptConnectionData < 0 )
-            goto LABEL_13;
-          v30 = 6LL * (unsigned int)v12[1];
-          if ( *(_DWORD *)v23 == 3 )
-          {
-            v31 = *(_OWORD *)(v23 + 3);
-            DWORD2(v42) = *((_DWORD *)v23 + 1);
-            v32 = *((_DWORD *)v23 + 18);
-            v43 = v31;
-            LODWORD(v42) = 0;
-            v33 = *(_OWORD *)(v23 + 5);
-            LODWORD(v44[0]) = v32;
-            *(_OWORD *)((char *)v44 + 4) = v33;
-            InterruptConnectionData = HalGetMessageRoutingInfo((int *)&v42, v45);
-            if ( InterruptConnectionData < 0 )
-              goto LABEL_13;
-            v23 = &v45[1];
-          }
-          *(_QWORD *)&v12[2 * v30 + 2] = v23[9];
-          v12[2 * v30 + 8] = *((_DWORD *)v23 + 20);
-          *(_QWORD *)&v12[2 * v30 + 4] = v23[3];
-          *(_QWORD *)&v12[2 * v30 + 6] = v38 + 112;
-          v12[2 * v30 + 9] = *((_DWORD *)v23 + 1);
-          LOBYTE(v12[2 * v30 + 10]) = *((_BYTE *)v23 + 8);
-          v12[2 * v30 + 11] = *((_DWORD *)v23 + 4);
-          v12[2 * v30 + 12] = *((_DWORD *)v23 + 3);
-          ++v12[1];
-        }
-        v19 = v36;
-        v22 = (unsigned int)(P + 1);
+        do
+          IoDisconnectInterrupt(*(PKINTERRUPT *)&v12[12 * v7++ + 6]);
+        while ( v7 < v12[1] );
       }
-      InterruptConnectionData = 0;
-      *v41 = v12;
-    }
-    else
-    {
-      InterruptConnectionData = -1073741670;
+      ExFreePoolWithTag(v12, 0);
     }
   }
   else
   {
-LABEL_12:
-    InterruptConnectionData = -1073741811;
-  }
-LABEL_13:
-  if ( InterruptConnectionData < 0 && v12 )
-  {
-    if ( v12[1] )
-    {
-      do
-        IoDisconnectInterrupt(*(PKINTERRUPT *)&v12[12 * v7++ + 6]);
-      while ( v7 < v12[1] );
-    }
-    ExFreePoolWithTag(v12, 0);
+    return (unsigned int)-1073741811;
   }
   return (unsigned int)InterruptConnectionData;
 }

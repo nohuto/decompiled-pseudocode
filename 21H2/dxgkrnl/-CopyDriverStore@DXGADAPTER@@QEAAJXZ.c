@@ -1,370 +1,343 @@
 /*
- * XREFs of ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C0301F98
+ * XREFs of ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C0261B50
  * Callers:
- *     ?InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z @ 0x1C02BBED4 (-InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z.c)
+ *     ?InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z @ 0x1C020D86C (-InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C000BD74 (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C001A56C (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C0044448 (-RtlStringCbCatW@@YAJPEAG_KPEBG@Z.c)
- *     ?TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z @ 0x1C02D01D0 (-TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z.c)
- *     ?DxgkpCreateFile@@YAJPEAGKKKKPEAPEAX@Z @ 0x1C0302BC4 (-DxgkpCreateFile@@YAJPEAGKKKKPEAPEAX@Z.c)
- *     ?DxgkpDeleteFile@@YAJPEBG@Z @ 0x1C0302D10 (-DxgkpDeleteFile@@YAJPEBG@Z.c)
- *     ?DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C0302ED8 (-DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z.c)
- *     ?VmBusSendGetDriverStoreFile@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJQEAGPEAKPEAEPEAU_FILE_BASIC_INFORMATION@@@Z @ 0x1C03781C0 (-VmBusSendGetDriverStoreFile@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJQEAGPEAKPEAEPEAU_FILE_BASIC_INFORM.c)
- *     ?VmBusSendGetNextHardLink@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJQEAG0PEAW4DXGKP_HARDLINKTYPE@@PEAW4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C0378764 (-VmBusSendGetNextHardLink@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJQEAG0PEAW4DXGKP_HARDLINKTYPE@@PEAW4DX.c)
- *     ?VmBusSendQueryAdapterInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYADAPTERINFO@@I@Z @ 0x1C037AF98 (-VmBusSendQueryAdapterInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYADA.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000B1D8 (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     Feature_CopyDriverStore__private_ReportDeviceUsage @ 0x1C00278D0 (Feature_CopyDriverStore__private_ReportDeviceUsage.c)
+ *     Feature_CopyDriverToSystem32__private_ReportDeviceUsage @ 0x1C0027934 (Feature_CopyDriverToSystem32__private_ReportDeviceUsage.c)
+ *     Feature_NonDXKryptonGpuSupport__private_ReportDeviceUsage @ 0x1C0027998 (Feature_NonDXKryptonGpuSupport__private_ReportDeviceUsage.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C0038DF4 (-RtlStringCbCatW@@YAJPEAG_KPEBG@Z.c)
+ *     ?TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z @ 0x1C02223A0 (-TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z.c)
+ *     ?DeleteGpadl@DXG_GUEST_GLOBAL_VMBUS@@QEAAXI@Z @ 0x1C02386AC (-DeleteGpadl@DXG_GUEST_GLOBAL_VMBUS@@QEAAXI@Z.c)
+ *     ?VmBusSendGetDriverStoreFile@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJQEAGPEAKPEAEPEAU_FILE_BASIC_INFORMATION@@@Z @ 0x1C02488D4 (-VmBusSendGetDriverStoreFile@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJQEAGPEAKPEAEPEAU_FILE_BASIC_INFORM.c)
+ *     ?VmBusSendGetNextHardLink@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJQEAG0PEAW4DXGKP_HARDLINKTYPE@@PEAW4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C0248C38 (-VmBusSendGetNextHardLink@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJQEAG0PEAW4DXGKP_HARDLINKTYPE@@PEAW4DX.c)
+ *     ?VmBusSendQueryAdapterInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYADAPTERINFO@@I@Z @ 0x1C024A634 (-VmBusSendQueryAdapterInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYADA.c)
+ *     ?DxgkpCreateFile@@YAJPEAGKKKKPEAPEAX@Z @ 0x1C026257C (-DxgkpCreateFile@@YAJPEAGKKKKPEAPEAX@Z.c)
+ *     ?DxgkpDeleteFile@@YAJPEBG@Z @ 0x1C02626D8 (-DxgkpDeleteFile@@YAJPEBG@Z.c)
+ *     ?DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C02628B8 (-DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z.c)
  */
 
-__int64 __fastcall DXGADAPTER::CopyDriverStore(DXGADAPTER *this)
+__int64 __fastcall DXGADAPTER::CopyDriverStore(DXGADAPTER *this, __int64 a2)
 {
-  __int64 v2; // r8
-  __int64 v3; // r9
-  __int64 v4; // rsi
-  unsigned __int16 *v5; // r14
-  __int64 v7; // r8
-  __int64 v8; // r9
-  DXG_GUEST_VIRTUALGPU_VMBUS *v9; // r15
-  unsigned int v10; // r9d
+  __int64 v3; // rsi
+  unsigned __int16 *v4; // r14
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  struct _KTHREAD **v7; // r12
+  __int64 v8; // rax
+  DXG_GUEST_VIRTUALGPU_VMBUS *v10; // r15
   int v11; // eax
-  __int64 v12; // rdi
-  const wchar_t *v13; // r9
-  int v14; // eax
-  __int64 v15; // r12
-  __int64 v16; // rdx
-  __int64 v17; // r9
-  unsigned __int16 *v18; // rax
-  unsigned int v19; // r9d
-  int v20; // eax
-  int v21; // eax
-  __int64 v22; // r8
-  __int64 v23; // r9
-  __int64 v24; // rdx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rbx
+  __int64 v15; // rax
+  int v16; // eax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // rdx
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  unsigned __int16 *v22; // rax
+  int v23; // eax
+  int v24; // eax
   __int64 v25; // rdx
-  WCHAR *v26; // rax
-  __int64 v27; // r8
-  WCHAR *v28; // rcx
-  __int64 v29; // rax
-  char *v30; // r8
-  WCHAR v31; // r9
-  WCHAR *v32; // rax
+  __int64 v26; // rcx
+  __int64 v27; // rdx
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  WCHAR *v30; // rax
+  __int64 v31; // rax
+  WCHAR *v32; // rcx
+  __int64 v33; // r8
+  char *v34; // r9
+  WCHAR v35; // ax
+  WCHAR *v36; // rax
   size_t *NtSystemRoot; // rax
-  __int64 v34; // rdx
-  unsigned __int16 *v35; // rax
-  __int64 v36; // rdx
-  __int64 v37; // r8
-  unsigned __int16 *v38; // rcx
-  __int64 v39; // rax
-  char *v40; // r8
-  unsigned __int16 v41; // r9
-  __int64 v42; // r8
-  __int64 v43; // rax
-  char *v44; // r8
-  unsigned __int16 v45; // r9
-  unsigned __int16 *v46; // rax
-  int v47; // eax
-  __int64 v48; // rbx
-  HANDLE Handle; // [rsp+58h] [rbp-B0h] BYREF
-  int v50; // [rsp+60h] [rbp-A8h] BYREF
-  struct _D3DKMT_QUERYADAPTERINFO v51; // [rsp+68h] [rbp-A0h] BYREF
-  _DWORD v52[138]; // [rsp+88h] [rbp-80h] BYREF
-  _BYTE v53[520]; // [rsp+2B0h] [rbp+1A8h] BYREF
-  size_t SourceString[66]; // [rsp+4B8h] [rbp+3B0h] BYREF
-  unsigned __int16 v55[264]; // [rsp+6C8h] [rbp+5C0h] BYREF
-  size_t v56[66]; // [rsp+8D8h] [rbp+7D0h] BYREF
-  size_t v57[66]; // [rsp+AE8h] [rbp+9E0h] BYREF
+  __int64 v38; // rdx
+  __int64 v39; // rdx
+  unsigned __int16 *v40; // rax
+  __int64 v41; // rcx
+  __int64 v42; // rax
+  unsigned __int16 *v43; // rcx
+  __int64 v44; // r8
+  char *v45; // r9
+  unsigned __int16 v46; // ax
+  __int64 v47; // rax
+  __int64 v48; // r8
+  char *v49; // r9
+  unsigned __int16 v50; // ax
+  unsigned __int16 *v51; // rax
+  int v52; // eax
+  __int64 v53; // rdx
+  __int64 v54; // rcx
+  __int64 v55; // rbx
+  __int64 v56; // rax
+  __int64 v57; // rax
+  __int64 v58; // rdx
+  __int64 v59; // rcx
+  __int64 v60; // rax
+  __int64 v61; // [rsp+38h] [rbp-D0h] BYREF
+  HANDLE Handle; // [rsp+40h] [rbp-C8h] BYREF
+  unsigned int v63; // [rsp+48h] [rbp-C0h]
+  struct _D3DKMT_QUERYADAPTERINFO v64; // [rsp+50h] [rbp-B8h] BYREF
+  _DWORD v65[268]; // [rsp+68h] [rbp-A0h] BYREF
+  size_t SourceString[66]; // [rsp+498h] [rbp+390h] BYREF
+  unsigned __int16 v67[264]; // [rsp+6A8h] [rbp+5A0h] BYREF
+  size_t v68[66]; // [rsp+8B8h] [rbp+7B0h] BYREF
+  size_t v69[66]; // [rsp+AC8h] [rbp+9C0h] BYREF
 
-  DXGGLOBAL_GetGlobal();
-  v4 = -1LL;
-  v5 = 0LL;
+  v3 = -1LL;
+  v4 = 0LL;
   Handle = (HANDLE)-1LL;
+  v7 = (struct _KTHREAD **)*((_QWORD *)DXGGLOBAL::GetGlobal((__int64)this, a2) + 197);
+  v63 = 0;
   if ( *((_BYTE *)this + 210) )
   {
-    WdLogSingleEntry1(4LL, 1695LL);
+    v8 = WdLogNewEntry5_WdEvent(v6, v5);
+    *(_QWORD *)(v8 + 24) = 1691LL;
+    WdLogEvent5_WdEvent(v8);
     return 0LL;
   }
-  wil_details_FeatureReporting_ReportUsageToService(
-    (__int64)&Feature_CopyDriverStore__private_reporting,
-    0x109AF96u,
-    v2,
-    v3,
-    (const struct FEATURE_LOGGED_TRAITS *)&Feature_ForceEnhancedMultiSessionRemoteVsyncEmulation_logged_traits,
-    0);
-  wil_details_FeatureReporting_ReportUsageToService(
-    (__int64)&Feature_CopyDriverToSystem32__private_reporting,
-    0x12BD589u,
-    v7,
-    v8,
-    (const struct FEATURE_LOGGED_TRAITS *)&Feature_SupportComputeOnlyAdapters_logged_traits,
-    1);
-  memset(&v52[1], 0, 0x224uLL);
-  memset(v53, 0, sizeof(v53));
-  v52[0] = 3;
-  v9 = (DXGADAPTER *)((char *)this + 4344);
-  v51.pPrivateDriverData = v52;
-  v51.hAdapter = 0;
-  *(_QWORD *)&v51.PrivateDriverDataSize = 1072LL;
-  v51.Type = KMTQAITYPE_QUERYREGISTRY;
-  v11 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendQueryAdapterInfo((DXGADAPTER *)((char *)this + 4344), 0LL, &v51, v10);
-  v12 = v11;
+  Feature_CopyDriverStore__private_ReportDeviceUsage();
+  Feature_CopyDriverToSystem32__private_ReportDeviceUsage();
+  memset(&v65[1], 0, 0x42CuLL);
+  v65[0] = 3;
+  v10 = (DXGADAPTER *)((char *)this + 4240);
+  v64.pPrivateDriverData = v65;
+  v64.hAdapter = 0;
+  *(_QWORD *)&v64.PrivateDriverDataSize = 1072LL;
+  v64.Type = KMTQAITYPE_QUERYREGISTRY;
+  v11 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendQueryAdapterInfo((DXGADAPTER *)((char *)this + 4240), 0LL, &v64, 0x430u);
+  v14 = v11;
   if ( v11 < 0 )
+    goto LABEL_4;
+  v16 = TranslateUmdFileNameToVm((size_t *)&v65[136], 0x104u, &v65[134]);
+  v14 = v16;
+  if ( v16 < 0 )
   {
-    WdLogSingleEntry1(2LL, v11);
-    v13 = L"D3DDDI_QUERYREGISTRY_DRIVERIMAGEPATH failed: 0x%I64x";
-LABEL_5:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v13, v12, 0LL, 0LL, 0LL, 0LL);
-    goto LABEL_57;
-  }
-  v14 = TranslateUmdFileNameToVm((size_t *)&v52[136], 0x104u, &v52[134]);
-  v12 = v14;
-  if ( v14 < 0 )
-  {
-    v15 = 1731LL;
-LABEL_8:
-    WdLogSingleEntry2(2LL, v12, v15);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"TranslateUmdFileNameToVm failed: 0x%I64x",
-      v12,
-      v15,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_57;
+    v15 = WdLogNewEntry5_WdError(v18, v17);
+    *(_QWORD *)(v15 + 32) = 1727LL;
+    goto LABEL_5;
   }
   RtlStringCbCopyW((unsigned __int16 *)SourceString, 0x208uLL, (size_t *)L"\\??\\");
-  RtlStringCbCatW((unsigned __int16 *)SourceString, v16, (size_t *)&v52[136]);
+  RtlStringCbCatW((unsigned __int16 *)SourceString, v19, (size_t *)&v65[136]);
   if ( (int)DxgkpCreateFile((unsigned __int16 *)SourceString, 1u, 0x80u, 0x20u, 1u, &Handle) >= 0 )
   {
     ZwClose(Handle);
-    v4 = -1LL;
-    if ( *((_DWORD *)this + 689) == 2 )
+    v3 = -1LL;
+    if ( *((_DWORD *)this + 665) == 2 )
       DxgkpDeleteFile((PCWSTR)SourceString);
-    v18 = (unsigned __int16 *)operator new[](0x208uLL, 0x4B677844u, 256LL, v17);
-    v5 = v18;
-    if ( !v18 )
+    v22 = (unsigned __int16 *)operator new[](0x208uLL, 0x4B677844u, PagedPool);
+    v4 = v22;
+    if ( !v22 )
     {
-      LODWORD(v12) = -1073741801;
-      goto LABEL_57;
+      LODWORD(v14) = -1073741801;
+      goto LABEL_64;
     }
-    RtlStringCbCopyW(v18, 0x208uLL, SourceString);
-    v52[0] = 2;
-    v51.pPrivateDriverData = v52;
-    v51.hAdapter = 0;
-    *(_QWORD *)&v51.PrivateDriverDataSize = 1072LL;
-    v51.Type = KMTQAITYPE_QUERYREGISTRY;
-    v20 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendQueryAdapterInfo(v9, 0LL, &v51, v19);
-    v12 = v20;
-    if ( v20 < 0 )
+    RtlStringCbCopyW(v22, 0x208uLL, SourceString);
+    v65[0] = 2;
+    v64.pPrivateDriverData = v65;
+    v64.hAdapter = 0;
+    *(_QWORD *)&v64.PrivateDriverDataSize = 1072LL;
+    v64.Type = KMTQAITYPE_QUERYREGISTRY;
+    v23 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendQueryAdapterInfo((DXGADAPTER *)((char *)this + 4240), 0LL, &v64, 0x430u);
+    v14 = v23;
+    if ( v23 < 0 )
     {
-      WdLogSingleEntry1(2LL, v20);
-      v13 = L"D3DDDI_QUERYREGISTRY_DRIVERSTOREPATH failed: 0x%I64x";
+LABEL_4:
+      v15 = WdLogNewEntry5_WdError(v13, v12);
+LABEL_5:
+      *(_QWORD *)(v15 + 24) = v14;
+      WdLogEvent5_WdError(v15);
+      goto LABEL_64;
+    }
+    v24 = TranslateUmdFileNameToVm((size_t *)&v65[136], 0x104u, &v65[134]);
+    v14 = v24;
+    if ( v24 < 0 )
+    {
+      v15 = WdLogNewEntry5_WdError(v26, v25);
+      *(_QWORD *)(v15 + 32) = 1789LL;
       goto LABEL_5;
     }
-    v21 = TranslateUmdFileNameToVm((size_t *)&v52[136], 0x104u, &v52[134]);
-    v12 = v21;
-    if ( v21 < 0 )
-    {
-      v15 = 1793LL;
-      goto LABEL_8;
-    }
-    wil_details_FeatureReporting_ReportUsageToService(
-      (__int64)&Feature_NonDXKryptonGpuSupport__private_reporting,
-      0x15B505Fu,
-      v22,
-      v23,
-      (const struct FEATURE_LOGGED_TRAITS *)&Feature_SupportComputeOnlyAdapters_logged_traits,
-      1);
-    v50 = 0;
+    Feature_NonDXKryptonGpuSupport__private_ReportDeviceUsage();
     LODWORD(Handle) = 0;
+    LODWORD(v61) = 0;
     while ( 1 )
     {
       if ( (int)DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetNextHardLink(
-                  v9,
-                  (unsigned __int16 *const)v56,
-                  (unsigned __int16 *const)v57,
-                  (enum DXGKP_HARDLINKTYPE *)&v50,
-                  (enum DXGKP_HARDLINKOVERWRITETYPE *)&Handle) < 0 )
+                  v10,
+                  (unsigned __int16 *const)v69,
+                  (unsigned __int16 *const)v68,
+                  (enum DXGKP_HARDLINKTYPE *)&Handle,
+                  (enum DXGKP_HARDLINKOVERWRITETYPE *)&v61) < 0 )
       {
-        LODWORD(v12) = 0;
-        goto LABEL_57;
+        LODWORD(v14) = 0;
+        goto LABEL_64;
       }
       RtlStringCbCopyW((unsigned __int16 *)SourceString, 0x208uLL, (size_t *)L"\\??\\");
-      RtlStringCbCatW((unsigned __int16 *)SourceString, v24, (size_t *)&v52[136]);
-      v25 = 260LL;
-      v26 = (WCHAR *)SourceString;
+      RtlStringCbCatW((unsigned __int16 *)SourceString, v27, (size_t *)&v65[136]);
+      v29 = 260LL;
+      v30 = (WCHAR *)SourceString;
       do
       {
-        if ( !*v26 )
+        if ( !*v30 )
           break;
-        ++v26;
-        --v25;
+        ++v30;
+        --v29;
       }
-      while ( v25 );
-      v27 = (260 - v25) & -(__int64)(v25 != 0);
-      if ( v25 )
+      while ( v29 );
+      if ( v29 )
+        v31 = 260 - v29;
+      else
+        v31 = 0LL;
+      if ( v29 )
       {
-        v28 = (WCHAR *)SourceString + v27;
-        v25 = 260 - v27;
-        if ( v27 != 260 )
+        v32 = (WCHAR *)SourceString + v31;
+        v28 = 260 - v31;
+        if ( v31 != 260 )
         {
-          v29 = 2147483646LL;
-          v30 = (char *)((char *)L"\\" - (char *)v28);
+          v33 = 2147483646LL;
+          v34 = (char *)((char *)L"\\" - (char *)v32);
           do
           {
-            if ( !v29 )
+            if ( !v33 )
               break;
-            v31 = *(WCHAR *)((char *)v28 + (_QWORD)v30);
-            if ( !v31 )
+            v35 = *(WCHAR *)((char *)v32 + (_QWORD)v34);
+            if ( !v35 )
               break;
-            *v28 = v31;
-            --v29;
-            ++v28;
-            --v25;
+            *v32 = v35;
+            --v33;
+            ++v32;
+            --v28;
           }
-          while ( v25 );
+          while ( v28 );
         }
-        v32 = v28 - 1;
-        if ( v25 )
-          v32 = v28;
-        *v32 = 0;
+        v36 = v32 - 1;
+        if ( v28 )
+          v36 = v32;
+        *v36 = 0;
       }
-      RtlStringCbCatW((unsigned __int16 *)SourceString, v25, v56);
-      RtlStringCbCopyW(v55, 0x208uLL, (size_t *)L"\\??\\");
+      RtlStringCbCatW((unsigned __int16 *)SourceString, v28, v69);
+      RtlStringCbCopyW(v67, 0x208uLL, (size_t *)L"\\??\\");
       NtSystemRoot = (size_t *)RtlGetNtSystemRoot();
-      RtlStringCbCatW(v55, v34, NtSystemRoot);
-      v35 = v55;
-      v36 = 260LL;
-      if ( v50 )
+      RtlStringCbCatW(v67, v38, NtSystemRoot);
+      v40 = v67;
+      v41 = 260LL;
+      if ( (_DWORD)Handle )
       {
         do
         {
-          if ( !*v35 )
+          if ( !*v40 )
             break;
-          ++v35;
-          --v36;
+          ++v40;
+          --v41;
         }
-        while ( v36 );
-        v42 = (260 - v36) & -(__int64)(v36 != 0);
-        if ( !v36 )
-          goto LABEL_53;
-        v38 = &v55[v42];
-        v36 = 260 - v42;
-        if ( v42 != 260 )
+        while ( v41 );
+        if ( v41 )
+          v47 = 260 - v41;
+        else
+          v47 = 0LL;
+        if ( !v41 )
+          goto LABEL_59;
+        v43 = &v67[v47];
+        v39 = 260 - v47;
+        if ( v47 != 260 )
         {
-          v43 = 2147483646LL;
-          v44 = (char *)((char *)L"\\Syswow64\\" - (char *)v38);
+          v48 = 2147483646LL;
+          v49 = (char *)((char *)L"\\Syswow64\\" - (char *)v43);
           do
           {
-            if ( !v43 )
+            if ( !v48 )
               break;
-            v45 = *(unsigned __int16 *)((char *)v38 + (_QWORD)v44);
-            if ( !v45 )
+            v50 = *(unsigned __int16 *)((char *)v43 + (_QWORD)v49);
+            if ( !v50 )
               break;
-            *v38 = v45;
-            --v43;
-            ++v38;
-            --v36;
+            *v43 = v50;
+            --v48;
+            ++v43;
+            --v39;
           }
-          while ( v36 );
+          while ( v39 );
         }
       }
       else
       {
         do
         {
-          if ( !*v35 )
+          if ( !*v40 )
             break;
-          ++v35;
-          --v36;
+          ++v40;
+          --v41;
         }
-        while ( v36 );
-        v37 = (260 - v36) & -(__int64)(v36 != 0);
-        if ( !v36 )
-          goto LABEL_53;
-        v38 = &v55[v37];
-        v36 = 260 - v37;
-        if ( v37 != 260 )
+        while ( v41 );
+        if ( v41 )
+          v42 = 260 - v41;
+        else
+          v42 = 0LL;
+        if ( !v41 )
+          goto LABEL_59;
+        v43 = &v67[v42];
+        v39 = 260 - v42;
+        if ( v42 != 260 )
         {
-          v39 = 2147483646LL;
-          v40 = (char *)((char *)L"\\System32\\" - (char *)v38);
+          v44 = 2147483646LL;
+          v45 = (char *)((char *)L"\\System32\\" - (char *)v43);
           do
           {
-            if ( !v39 )
+            if ( !v44 )
               break;
-            v41 = *(unsigned __int16 *)((char *)v38 + (_QWORD)v40);
-            if ( !v41 )
+            v46 = *(unsigned __int16 *)((char *)v43 + (_QWORD)v45);
+            if ( !v46 )
               break;
-            *v38 = v41;
+            *v43 = v46;
+            --v44;
+            ++v43;
             --v39;
-            ++v38;
-            --v36;
           }
-          while ( v36 );
+          while ( v39 );
         }
       }
-      v46 = v38 - 1;
-      if ( v36 )
-        v46 = v38;
-      *v46 = 0;
-LABEL_53:
-      RtlStringCbCatW(v55, v36, v57);
-      v47 = DxgkpPopulateFile(SourceString, v55, (unsigned int)Handle);
-      if ( v47 < 0 )
+      v51 = v43 - 1;
+      if ( v39 )
+        v51 = v43;
+      *v51 = 0;
+LABEL_59:
+      RtlStringCbCatW(v67, v39, v68);
+      v52 = DxgkpPopulateFile(SourceString, v67, (unsigned int)v61);
+      v55 = v52;
+      if ( v52 < 0 )
       {
-        v48 = v47;
-        WdLogSingleEntry2(2LL, v47, 2046LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Failed to populate file: 0x%I64x",
-          v48,
-          2046LL,
-          0LL,
-          0LL,
-          0LL);
+        v56 = WdLogNewEntry5_WdError(v54, v53);
+        *(_QWORD *)(v56 + 24) = v55;
+        *(_QWORD *)(v56 + 32) = 2042LL;
+        WdLogEvent5_WdError(v56);
       }
     }
   }
-  WdLogSingleEntry1(2LL, 1764LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Driver image does not exists in the VM",
-    1764LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  v4 = (__int64)Handle;
-  LODWORD(v12) = -1073741823;
-LABEL_57:
-  operator delete[](v5);
-  if ( v4 != -1 )
-    ZwClose((HANDLE)v4);
-  DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetDriverStoreFile(v9, (unsigned __int16 *const)SourceString, 0LL, 0LL, 0LL);
-  if ( (int)v12 < 0 )
+  v57 = WdLogNewEntry5_WdError(v21, v20);
+  *(_QWORD *)(v57 + 24) = 1760LL;
+  WdLogEvent5_WdError(v57);
+  v3 = (__int64)Handle;
+  LODWORD(v14) = -1073741823;
+LABEL_64:
+  operator delete[](v4);
+  if ( v3 != -1 )
+    ZwClose((HANDLE)v3);
+  if ( v63 )
+    DXG_GUEST_GLOBAL_VMBUS::DeleteGpadl(v7, v63);
+  DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetDriverStoreFile(v10, (unsigned __int16 *const)SourceString, 0LL, 0LL, 0LL);
+  if ( (int)v14 < 0 )
   {
-    WdLogSingleEntry2(2LL, (int)v12, 2102LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to copy driver store files: 0x%I64x",
-      (int)v12,
-      2102LL,
-      0LL,
-      0LL,
-      0LL);
+    v60 = WdLogNewEntry5_WdError(v59, v58);
+    *(_QWORD *)(v60 + 24) = (int)v14;
+    *(_QWORD *)(v60 + 32) = 2098LL;
+    WdLogEvent5_WdError(v60);
   }
-  return (unsigned int)v12;
+  return (unsigned int)v14;
 }

@@ -1,38 +1,31 @@
 /*
- * XREFs of RIMSignalAllPriorPnpWorkToCompleteWaiters @ 0x1C0049018
+ * XREFs of RIMSignalAllPriorPnpWorkToCompleteWaiters @ 0x1C0053260
  * Callers:
- *     RIMOnPnpNotification @ 0x1C0042B50 (RIMOnPnpNotification.c)
- *     RIMUnregisterForInput @ 0x1C0047ED0 (RIMUnregisterForInput.c)
+ *     RIMUnregisterForInput @ 0x1C0053610 (RIMUnregisterForInput.c)
+ *     RIMOnPnpNotification @ 0x1C00539C0 (RIMOnPnpNotification.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C0033A6C (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0047360 (WPP_RECORDER_SF_q.c)
  */
 
 int __fastcall RIMSignalAllPriorPnpWorkToCompleteWaiters(__int64 a1)
 {
-  bool v2; // dl
-  _UNKNOWN **v3; // rax
-  LONG v4; // r8d
+  _UNKNOWN **v2; // rax
+  LONG v3; // r8d
 
-  v2 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  v3 = &WPP_RECORDER_INITIALIZED;
-  if ( v2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    LODWORD(v3) = WPP_RECORDER_AND_TRACE_SF_q(
-                    WPP_GLOBAL_Control->AttachedDevice,
-                    v2,
-                    WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
+  v2 = &WPP_RECORDER_INITIALIZED;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    LODWORD(v2) = WPP_RECORDER_SF_q(
                     (_DWORD)gRimLog,
                     4,
                     1,
                     43,
-                    (__int64)&WPP_3100a0ce65ca3ababb0b99fd70935186_Traceguids,
+                    (__int64)&WPP_a75f261dfb463415346bb11edf387329_Traceguids,
                     a1);
-  v4 = *(_DWORD *)(a1 + 1104);
-  if ( v4 )
+  v3 = *(_DWORD *)(a1 + 880);
+  if ( v3 )
   {
-    LODWORD(v3) = KeReleaseSemaphore(*(PRKSEMAPHORE *)(a1 + 1096), 0, v4, 0);
-    *(_DWORD *)(a1 + 1104) = 0;
+    LODWORD(v2) = KeReleaseSemaphore(*(PRKSEMAPHORE *)(a1 + 872), 0, v3, 0);
+    *(_DWORD *)(a1 + 880) = 0;
   }
-  return (int)v3;
+  return (int)v2;
 }

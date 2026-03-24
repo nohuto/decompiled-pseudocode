@@ -1,24 +1,24 @@
 /*
- * XREFs of PspInheritMitigationAuditOptions @ 0x1406B4330
+ * XREFs of PspInheritMitigationAuditOptions @ 0x140706F9C
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall PspInheritMitigationAuditOptions(__int128 *a1, __int128 *a2, __int64 a3)
+unsigned __int64 __fastcall PspInheritMitigationAuditOptions(__int128 *a1, __int128 *a2, __int64 a3)
 {
   __int64 v3; // xmm1_8
-  int v5; // edi
+  int v5; // ebx
   __int128 v6; // xmm0
   __int64 v7; // xmm1_8
-  bool v8; // r8
-  char v9; // r11
-  unsigned __int64 v10; // rbx
-  unsigned __int8 v11; // dl
-  __int64 v12; // r10
-  __int64 result; // rax
-  __int64 v14; // xmm1_8
+  char v8; // r9
+  unsigned __int64 v9; // r11
+  unsigned __int8 v10; // dl
+  __int64 v11; // r8
+  unsigned __int64 result; // rax
+  __int64 v13; // xmm1_8
+  bool v14; // al
   __int128 v15; // [rsp+0h] [rbp-68h]
   __int64 v16; // [rsp+10h] [rbp-58h]
   __int128 v17; // [rsp+20h] [rbp-48h]
@@ -38,38 +38,37 @@ __int64 __fastcall PspInheritMitigationAuditOptions(__int128 *a1, __int128 *a2, 
   v16 = v7;
   do
   {
-    v8 = 1;
-    v9 = (4 * v5) & 0x3F;
-    v10 = (unsigned __int64)(unsigned int)(4 * v5) >> 6;
-    v11 = (*((_QWORD *)&v15 + v10) >> v9) & 3;
-    v12 = (*((_QWORD *)&v17 + v10) >> v9) & 3LL;
-    if ( ((*((_QWORD *)&v17 + v10) >> v9) & 3) == 0 )
+    v8 = (4 * v5) & 0x3F;
+    v9 = (unsigned __int64)(unsigned int)(4 * v5) >> 6;
+    v10 = (*((_QWORD *)&v15 + v9) >> v8) & 3;
+    v11 = (*((_QWORD *)&v17 + v9) >> v8) & 3LL;
+    if ( ((*((_QWORD *)&v17 + v9) >> v8) & 3) == 0 )
     {
 LABEL_3:
-      v8 = ((v11 - 1) & 0xFD) != 0;
-      goto LABEL_4;
+      if ( ((v10 - 1) & 0xFD) != 0 )
+        goto LABEL_4;
+      v14 = 0;
+      goto LABEL_11;
     }
-    switch ( (_DWORD)v12 )
+    if ( (_DWORD)v11 != 1 )
     {
-      case 1:
-        goto LABEL_11;
-      case 2:
+      if ( (_DWORD)v11 == 2 )
         goto LABEL_3;
-      case 3:
-LABEL_11:
-        v8 = v11 != 2;
-        break;
+      if ( (_DWORD)v11 != 3 )
+        goto LABEL_4;
     }
+    v14 = v10 != 2;
+LABEL_11:
+    if ( !v14 )
+      LODWORD(v11) = v10;
 LABEL_4:
-    if ( !v8 )
-      LODWORD(v12) = v11;
+    result = (unsigned __int64)(unsigned int)v11 << v8;
     ++v5;
-    result = *((_QWORD *)&v19 + v10) & ~(15LL << v9);
-    *((_QWORD *)&v19 + v10) = result | ((unsigned __int64)(unsigned int)v12 << v9);
+    *((_QWORD *)&v19 + v9) = result | *((_QWORD *)&v19 + v9) & ~(15LL << v8);
   }
-  while ( v5 < 40 );
-  v14 = v20;
+  while ( v5 < 39 );
+  v13 = v20;
   *(_OWORD *)a3 = v19;
-  *(_QWORD *)(a3 + 16) = v14;
+  *(_QWORD *)(a3 + 16) = v13;
   return result;
 }

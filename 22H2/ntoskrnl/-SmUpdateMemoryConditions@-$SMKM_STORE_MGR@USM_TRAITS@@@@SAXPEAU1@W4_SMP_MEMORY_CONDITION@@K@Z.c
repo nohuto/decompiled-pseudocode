@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x140344B84
+ * XREFs of ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x14026730C
  * Callers:
- *     MiStoreUpdateMemoryConditions @ 0x140222F90 (MiStoreUpdateMemoryConditions.c)
+ *     MiStoreUpdateMemoryConditions @ 0x14033A2F4 (MiStoreUpdateMemoryConditions.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9630 (KeSetActualBasePriorityThread.c)
- *     KeQueryPriorityThread @ 0x140304B70 (KeQueryPriorityThread.c)
- *     SmKmStoreReferenceEx @ 0x140344C68 (SmKmStoreReferenceEx.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140344CA4 (SmKmStoreRefFromStoreIndex.c)
- *     ?SmCompressContextUpdateMemoryCondition@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x140344CD0 (-SmCompressContextUpdateMemoryCondition@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTE.c)
- *     ?StDmLazyWorkItemQueue@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1405C666C (-StDmLazyWorkItemQueue@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     KeSetActualBasePriorityThread @ 0x14022FF20 (KeSetActualBasePriorityThread.c)
+ *     SmKmStoreReferenceEx @ 0x1402673EC (SmKmStoreReferenceEx.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140267428 (SmKmStoreRefFromStoreIndex.c)
+ *     KeQueryPriorityThread @ 0x1402682A0 (KeQueryPriorityThread.c)
+ *     ?StDmLazyWorkItemQueue@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14026D17C (-StDmLazyWorkItemQueue@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?SmCompressContextUpdateMemoryCondition@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x14032998C (-SmCompressContextUpdateMemoryCondition@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTE.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
  */
 
 void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmUpdateMemoryConditions(__int64 a1, int a2)
@@ -20,12 +20,11 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmUpdateMemoryConditions(__int64 a1, 
   int v7; // ecx
   __int64 v8; // rax
   int v9; // edi
+  struct _KTHREAD *v10; // r15
   KPRIORITY PriorityThread; // eax
-  __int64 v11; // r8
-  __int64 v12; // r9
-  struct _EX_RUNDOWN_REF *v13; // rax
+  struct _EX_RUNDOWN_REF *v12; // rax
 
-  if ( (*(_DWORD *)(a1 + 1856) & 0x20) != 0 )
+  if ( (*(_DWORD *)(a1 + 1840) & 0x20) != 0 )
     SMKM_STORE_MGR<SM_TRAITS>::SmCompressContextUpdateMemoryCondition((PEX_SPIN_LOCK)(a1 + 1264));
   for ( i = 0; i < 0x400; ++i )
   {
@@ -37,23 +36,24 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmUpdateMemoryConditions(__int64 a1, 
       v7 = *(unsigned __int8 *)(v5 + 6022);
       v8 = *(unsigned __int8 *)(v5 + 6022);
       if ( v7 == 4 )
-        v9 = *(_DWORD *)(v6 + 6736);
+        v9 = *(_DWORD *)(v6 + 6728);
       else
         v9 = *((_DWORD *)`SMKM_STORE<SM_TRAITS>::SmStGetPriorityByMemoryCondition'::`2'::PriorityByMemoryCondition + v8);
-      PriorityThread = KeQueryPriorityThread(*(PKTHREAD *)(v6 + 6200));
+      v10 = *(struct _KTHREAD **)(v6 + 6200);
+      PriorityThread = KeQueryPriorityThread(v10);
       if ( a2 < 4 )
       {
         if ( PriorityThread != v9 )
-          KeSetActualBasePriorityThread(*(_QWORD *)(v6 + 6200), v9);
+          KeSetActualBasePriorityThread((__int64)v10, v9);
         if ( a2 <= 0 )
           ST_STORE<SM_TRAITS>::StDmLazyWorkItemQueue(v6 + 80, v6 + 5976);
       }
       else if ( PriorityThread > v9 )
       {
-        KeSetActualBasePriorityThread(*(_QWORD *)(v6 + 6200), v9);
+        KeSetActualBasePriorityThread((__int64)v10, v9);
       }
-      v13 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(a1, *(_DWORD *)(v6 + 6016) & 0x3FF, v11, v12);
-      ExReleaseRundownProtection_0(v13 + 1);
+      v12 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(a1, *(_DWORD *)(v6 + 6016) & 0x3FF);
+      ExReleaseRundownProtection(v12 + 1);
     }
   }
 }

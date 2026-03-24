@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpSwitchBuffer @ 0x140227BF8
+ * XREFs of EtwpSwitchBuffer @ 0x14032EE9C
  * Callers:
- *     EtwpReserveTraceBuffer @ 0x1402340E0 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x1402D0E80 (EtwpReserveTraceBuffer.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x14020B9C0 (ObGetCurrentIrql.c)
- *     EtwpRequestFlushTimer @ 0x140227AE0 (EtwpRequestFlushTimer.c)
- *     EtwpPrepareDirtyBuffer @ 0x140227BA8 (EtwpPrepareDirtyBuffer.c)
- *     EtwpDequeueFreeBuffer @ 0x140227E10 (EtwpDequeueFreeBuffer.c)
- *     EtwpEnqueueAvailableBuffer @ 0x140227FC8 (EtwpEnqueueAvailableBuffer.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
- *     EtwpBuffersFlushRequired @ 0x140363E18 (EtwpBuffersFlushRequired.c)
- *     EtwpEnqueueOverflowBuffer @ 0x14036D178 (EtwpEnqueueOverflowBuffer.c)
- *     EtwpAllocateFreeBuffers @ 0x140370D88 (EtwpAllocateFreeBuffers.c)
+ *     KeInsertQueueDpc @ 0x14021FD00 (KeInsertQueueDpc.c)
+ *     ObGetCurrentIrql @ 0x14025EDF0 (ObGetCurrentIrql.c)
+ *     EtwpRequestFlushTimer @ 0x14025F43C (EtwpRequestFlushTimer.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     EtwpBuffersFlushRequired @ 0x140321044 (EtwpBuffersFlushRequired.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x14032B208 (EtwpEnqueueOverflowBuffer.c)
+ *     EtwpDequeueFreeBuffer @ 0x14032F080 (EtwpDequeueFreeBuffer.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x14032F238 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x14032F3E4 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpAllocateFreeBuffers @ 0x14035FD48 (EtwpAllocateFreeBuffers.c)
  */
 
 __int64 __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, signed __int64 *a3, __int16 a4, __int16 a5)
@@ -21,13 +21,13 @@ __int64 __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, signed __int64 *a3, 
   __int64 v10; // rdx
   signed __int64 i; // rbx
   signed __int64 v12; // rax
-  unsigned __int64 v13; // rbp
+  unsigned __int64 v14; // rbp
 
   v6 = *(_DWORD *)(a1 + 12) & 0x400;
   v10 = ((__int64 (*)(void))EtwpDequeueFreeBuffer)();
   if ( v10 )
   {
-LABEL_2:
+LABEL_7:
     if ( (*(_DWORD *)(a1 + 12) & 0x10000000) == 0 )
       *(_WORD *)(v10 + 40) = a4;
     _InterlockedExchangeAdd((volatile signed __int32 *)(v10 + 12), 0xFu);
@@ -42,59 +42,57 @@ LABEL_2:
         if ( i == v12 )
           break;
       }
-      v13 = i & 0xFFFFFFFFFFFFFFF0uLL;
+      v14 = i & 0xFFFFFFFFFFFFFFF0uLL;
       if ( (i & 0xFFFFFFFFFFFFFFF0uLL) == a2 )
+        break;
+      if ( v14 )
       {
-        if ( v13 )
-        {
-          EtwpPrepareDirtyBuffer(a1, (LARGE_INTEGER *)(i & 0xFFFFFFFFFFFFFFF0uLL));
-          _InterlockedExchangeAdd((volatile signed __int32 *)(v13 + 12), ~(i & 0xF));
-          if ( !v6 && (unsigned __int8)EtwpBuffersFlushRequired(a1) )
-          {
-            if ( (a5 & 0x600) != 0 || ObGetCurrentIrql() > 2u )
-            {
-              if ( !_interlockedbittestandset((volatile signed __int32 *)(a1 + 824), 8u) )
-                KiInsertQueueDpc(a1 + 568, 0);
-            }
-            else
-            {
-              KeSetEvent((PRKEVENT)(a1 + 480), 0, 0);
-            }
-          }
-        }
-        else if ( *(_DWORD *)(a1 + 208) )
-        {
-          EtwpRequestFlushTimer(a1, (a5 & 0x600) != 0);
-        }
+        if ( a2 )
+          _InterlockedDecrement((volatile signed __int32 *)(a2 + 12));
+        _InterlockedExchangeAdd((volatile signed __int32 *)(v10 + 12), 0xFFFFFFF1);
+        if ( v6 )
+          EtwpEnqueueOverflowBuffer(a1, v10);
+        else
+          EtwpEnqueueAvailableBuffer(a1, v10, 0LL);
         return 0LL;
       }
-      if ( v13 )
-        break;
       if ( a2 )
         _InterlockedDecrement((volatile signed __int32 *)(a2 + 12));
       a2 = 0LL;
     }
-    if ( a2 )
-      _InterlockedDecrement((volatile signed __int32 *)(a2 + 12));
-    _InterlockedExchangeAdd((volatile signed __int32 *)(v10 + 12), 0xFFFFFFF1);
-    if ( v6 )
-      EtwpEnqueueOverflowBuffer(a1);
-    else
-      EtwpEnqueueAvailableBuffer(a1, v10, 0LL);
+    if ( v14 )
+    {
+      EtwpPrepareDirtyBuffer(a1, i & 0xFFFFFFFFFFFFFFF0uLL);
+      _InterlockedExchangeAdd((volatile signed __int32 *)(v14 + 12), ~(i & 0xF));
+      if ( !v6 && EtwpBuffersFlushRequired((_DWORD *)a1) )
+      {
+        if ( (a5 & 0x600) != 0 || ObGetCurrentIrql() > 2u )
+        {
+          if ( !_interlockedbittestandset((volatile signed __int32 *)(a1 + 836), 8u) )
+            KeInsertQueueDpc((PRKDPC)(a1 + 584), 0LL, 0LL);
+        }
+        else
+        {
+          KeSetEvent((PRKEVENT)(a1 + 496), 0, 0);
+        }
+      }
+    }
+    else if ( *(_DWORD *)(a1 + 224) )
+    {
+      EtwpRequestFlushTimer(a1, (a5 & 0x600) != 0);
+    }
     return 0LL;
   }
   else
   {
-    if ( (a5 & 0x200) == 0 )
+    while ( (a5 & 0x200) == 0
+         && ObGetCurrentIrql() <= 2u
+         && (*(_DWORD *)(a1 + 12) & 0x40000) == 0
+         && (unsigned int)EtwpAllocateFreeBuffers(a1, 1LL) == 1 )
     {
-      while ( ObGetCurrentIrql() <= 2u
-           && (*(_DWORD *)(a1 + 12) & 0x40000) == 0
-           && (unsigned int)EtwpAllocateFreeBuffers(a1, 1LL) == 1 )
-      {
-        v10 = EtwpDequeueFreeBuffer(a1);
-        if ( v10 )
-          goto LABEL_2;
-      }
+      v10 = EtwpDequeueFreeBuffer(a1);
+      if ( v10 )
+        goto LABEL_7;
     }
     if ( a2 )
       _InterlockedDecrement((volatile signed __int32 *)(a2 + 12));

@@ -1,17 +1,17 @@
 /*
- * XREFs of Crashdump_Register_SaveStateForHybridSleep @ 0x1C004BCF0
+ * XREFs of Crashdump_Register_SaveStateForHybridSleep @ 0x1C004B278
  * Callers:
- *     Crashdump_Cleanup @ 0x1C0049CD0 (Crashdump_Cleanup.c)
+ *     Crashdump_Cleanup @ 0x1C0049210 (Crashdump_Cleanup.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall Crashdump_Register_SaveStateForHybridSleep(__int64 a1)
 {
-  _DWORD *v1; // rsi
+  _DWORD *v1; // rdi
   int v2; // eax
   unsigned int v3; // ebx
-  unsigned int i; // edi
+  int v4; // esi
   int v5; // eax
   signed __int32 v7[10]; // [rsp+0h] [rbp-28h] BYREF
 
@@ -30,7 +30,8 @@ __int64 __fastcall Crashdump_Register_SaveStateForHybridSleep(__int64 a1)
   *v1 |= 0x100u;
   v3 = 0;
   _InterlockedOr(v7, 0);
-  for ( i = 0; i < 0x14; ++i )
+  v4 = 0;
+  while ( 1 )
   {
     v5 = v1[1];
     if ( (v5 & 0x400) != 0 )
@@ -41,13 +42,14 @@ __int64 __fastcall Crashdump_Register_SaveStateForHybridSleep(__int64 a1)
       return (unsigned int)-1073741630;
     }
     if ( (v5 & 0x100) == 0 )
-    {
-      DbgPrintEx(0x93u, 3u, "XHCIDUMP: Controller State Save successful\n");
-      return v3;
-    }
+      break;
     KeStallExecutionProcessor(0xC8u);
+    if ( (unsigned int)++v4 >= 0x14 )
+      goto LABEL_10;
   }
-  if ( i == 20 )
+  DbgPrintEx(0x93u, 3u, "XHCIDUMP: Controller State Save successful\n");
+LABEL_10:
+  if ( v4 == 20 )
   {
     DbgPrintEx(0x93u, 1u, "XHCIDUMP: Controller State Save failed to complete\n");
     return (unsigned int)-1073741643;

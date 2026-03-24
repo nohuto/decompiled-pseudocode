@@ -1,173 +1,213 @@
 /*
- * XREFs of ?DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@I@Z @ 0x1C0171B1C
+ * XREFs of ?DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@I@Z @ 0x1C00EC44C
  * Callers:
- *     ?SetCopyProtection@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C0171AB0 (-SetCopyProtection@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     ?SetCopyProtection@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C00EC3E0 (-SetCopyProtection@ADAPTER_DISPLAY@@QEAAJI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?reset@?$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z @ 0x1C0005DCC (-reset@-$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z.c)
- *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C0006D74 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
- *     ?AcquireLastClientCommittedVidPnRef@VIDPN_MGR@@QEBAPEBVDMMVIDPN@@XZ @ 0x1C0007298 (-AcquireLastClientCommittedVidPnRef@VIDPN_MGR@@QEBAPEBVDMMVIDPN@@XZ.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00072BC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?SetCopyProtectionScheme@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@@Z @ 0x1C00237B8 (-SetCopyProtectionScheme@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_.c)
- *     ?IsCopyProtectionSchemeSupported@DMMVIDPNPRESENTPATH@@QEAAEW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@@Z @ 0x1C0023808 (-IsCopyProtectionSchemeSupported@DMMVIDPNPRESENTPATH@@QEAAEW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPRO.c)
- *     ?EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z @ 0x1C019A618 (-EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z.c)
- *     ?SetTargetAnalogCopyProtection@DMMVIDPNPRESENTPATH@@QEBAJXZ @ 0x1C03B9D9C (-SetTargetAnalogCopyProtection@DMMVIDPNPRESENTPATH@@QEBAJXZ.c)
- *     ?UpdateActiveVidPnPresentPath@DMMVIDPNPRESENTPATH@@QEBAJPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C03BA040 (-UpdateActiveVidPnPresentPath@DMMVIDPNPRESENTPATH@@QEBAJPEBUDXGK_GAMMA_RAMP@@@Z.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?reset@?$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z @ 0x1C0006764 (-reset@-$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z.c)
+ *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C00074F0 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C0009550 (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?SetCopyProtectionScheme@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@@Z @ 0x1C000E0C0 (-SetCopyProtectionScheme@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_.c)
+ *     ?IsCopyProtectionSchemeSupported@DMMVIDPNPRESENTPATH@@QEAAEW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@@Z @ 0x1C000E110 (-IsCopyProtectionSchemeSupported@DMMVIDPNPRESENTPATH@@QEAAEW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPRO.c)
+ *     ?EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z @ 0x1C012F520 (-EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z.c)
+ *     ?UpdateActiveVidPnPresentPath@DMMVIDPNPRESENTPATH@@QEBAJPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C0143F60 (-UpdateActiveVidPnPresentPath@DMMVIDPNPRESENTPATH@@QEBAJPEBUDXGK_GAMMA_RAMP@@@Z.c)
+ *     ?SetTargetAnalogCopyProtection@DMMVIDPNPRESENTPATH@@QEBAJXZ @ 0x1C02E9A60 (-SetTargetAnalogCopyProtection@DMMVIDPNPRESENTPATH@@QEBAJXZ.c)
  */
 
 __int64 __fastcall DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource(
         DXGADAPTER *a1,
-        unsigned int a2,
+        __int64 a2,
         enum _D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE a3,
         int a4)
 {
   unsigned int v4; // ebx
-  __int64 v5; // r15
-  __int64 v6; // r12
-  __int64 v8; // rax
-  VIDPN_MGR *v9; // rdi
-  const struct DMMVIDPN *ClientCommittedVidPnRef; // rax
-  DMMVIDPNTOPOLOGY *v11; // rbp
-  unsigned __int64 v12; // r13
-  int v13; // eax
+  __int64 v5; // r12
+  __int64 v6; // r13
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rdi
+  __int64 v11; // rdi
+  __int64 v12; // rax
+  __int64 v13; // rdx
   __int64 v14; // rdx
   __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v18; // rdi
+  DMMVIDPNTOPOLOGY *v16; // rbp
+  unsigned __int64 v17; // r15
+  int v18; // eax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rdi
+  __int64 v22; // rdx
+  __int64 v23; // rcx
   struct DMMVIDPNPRESENTPATH *Path; // rbp
-  __int64 v20; // rdi
-  int v22; // eax
+  __int64 v25; // rdi
+  __int64 v26; // rdx
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rax
+  __int64 v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rax
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  int v37; // eax
+  __int64 v38; // rdx
+  __int64 v39; // rcx
   int updated; // eax
-  _QWORD *v24; // rax
-  __int64 v25; // [rsp+50h] [rbp-48h] BYREF
-  DMMVIDPNTOPOLOGY *v26; // [rsp+58h] [rbp-40h]
-  __int64 v27; // [rsp+60h] [rbp-38h] BYREF
-  unsigned int v28; // [rsp+A0h] [rbp+8h] BYREF
-  int v29; // [rsp+B8h] [rbp+20h]
+  _QWORD *v41; // rax
+  _QWORD *v42; // rax
+  __int64 v43; // rax
+  _QWORD *v44; // rax
+  __int64 v45; // [rsp+20h] [rbp-48h] BYREF
+  DMMVIDPNTOPOLOGY *v46; // [rsp+28h] [rbp-40h]
+  __int64 v47; // [rsp+30h] [rbp-38h] BYREF
+  unsigned int v48; // [rsp+70h] [rbp+8h] BYREF
+  int v49; // [rsp+88h] [rbp+20h]
 
-  v29 = a4;
+  v49 = a4;
   v4 = 0;
   v5 = a3;
-  v6 = a2;
+  v6 = (unsigned int)a2;
   if ( !a1 )
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v28 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v28 + 24) = 0LL;
+LABEL_22:
+    WdLogEvent5_WdError(v28);
     return 3223191554LL;
   }
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(a1) )
-    WdLogSingleEntry0(1LL);
-  v8 = *((_QWORD *)a1 + 365);
-  if ( !v8 )
   {
-    WdLogSingleEntry1(2LL, a1);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter handle 0x%I64x is a render only adapter.",
-      (__int64)a1,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3223191554LL;
+    v29 = WdLogNewEntry5_WdAssertion(v9, v8);
+    WdLogEvent5_WdAssertion(v29);
   }
-  v9 = *(VIDPN_MGR **)(v8 + 104);
-  if ( v9 )
+  v10 = *((_QWORD *)a1 + 337);
+  if ( !v10 )
   {
-    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>((__int64)&v27, *(_QWORD *)(v8 + 104));
-    v25 = 0LL;
-    ClientCommittedVidPnRef = VIDPN_MGR::AcquireLastClientCommittedVidPnRef(v9);
-    auto_rc<DMMVIDPN const>::reset(&v25, (__int64)ClientCommittedVidPnRef);
-    if ( v25 )
+    v28 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v28 + 24) = a1;
+    goto LABEL_22;
+  }
+  v11 = *(_QWORD *)(v10 + 88);
+  if ( v11 )
+  {
+    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v47, v11);
+    v12 = *(_QWORD *)(v11 + 88);
+    v45 = 0LL;
+    if ( v12 )
     {
-      v11 = (DMMVIDPNTOPOLOGY *)(v25 + 96);
-      v12 = 0LL;
-      v26 = (DMMVIDPNTOPOLOGY *)(v25 + 96);
+      _InterlockedIncrement((volatile signed __int32 *)(v12 + 32));
+      v13 = *(_QWORD *)(v11 + 88);
+    }
+    else
+    {
+      v13 = 0LL;
+    }
+    auto_rc<DMMVIDPN const>::reset(&v45, v13);
+    if ( v45 )
+    {
+      v16 = (DMMVIDPNTOPOLOGY *)(v45 + 96);
+      v17 = 0LL;
+      v46 = (DMMVIDPNTOPOLOGY *)(v45 + 96);
       while ( 1 )
       {
-        v28 = -1;
-        v13 = DMMVIDPNTOPOLOGY::EnumPathTargetsFromSource(v11, v6, v12, &v28);
-        v18 = v13;
-        if ( v13 < 0 )
+        v48 = -1;
+        v18 = DMMVIDPNTOPOLOGY::EnumPathTargetsFromSource(v16, v6, v17, &v48);
+        v21 = v18;
+        if ( v18 < 0 )
         {
-          v24 = (_QWORD *)WdLogNewEntry5_WdTrace(v15, v14, v16, v17);
-          v24[3] = v12;
-          v24[4] = v6;
-          v24[5] = v11;
-          v24[6] = v18;
-          goto LABEL_37;
+          v44 = (_QWORD *)WdLogNewEntry5_WdTrace(v20, v19);
+          v44[3] = v17;
+          v44[4] = v6;
+          v44[5] = v16;
+          v44[6] = v21;
+          goto LABEL_42;
         }
-        if ( v28 == -1 )
-          goto LABEL_17;
-        Path = DMMVIDPNTOPOLOGY::FindPath(v11, v6, v28);
+        if ( v48 == -1 )
+          goto LABEL_19;
+        Path = DMMVIDPNTOPOLOGY::FindPath(v16, v6, v48);
         if ( !Path )
-          WdLogSingleEntry0(1LL);
-        v20 = *(_QWORD *)(*((_QWORD *)Path + 12) + 96LL);
-        if ( !v20 )
-          WdLogSingleEntry0(1LL);
+        {
+          v32 = WdLogNewEntry5_WdAssertion(v23, v22);
+          WdLogEvent5_WdAssertion(v32);
+        }
+        v25 = *(_QWORD *)(*((_QWORD *)Path + 12) + 96LL);
+        if ( !v25 )
+        {
+          v33 = WdLogNewEntry5_WdAssertion(v23, v22);
+          WdLogEvent5_WdAssertion(v33);
+        }
         if ( (_DWORD)v5 == 1 )
         {
           if ( *((_DWORD *)Path + 43) != 2 )
-            goto LABEL_16;
+            goto LABEL_18;
         }
         else if ( (_DWORD)v5 != 2
-               || !*(_BYTE *)(v20 + 108)
-               && !DMMVIDPNPRESENTPATH::IsCopyProtectionSchemeSupported(Path, D3DKMDT_VPPMT_MACROVISION_APSTRIGGER) )
+               || !*(_BYTE *)(v25 + 104) && !DMMVIDPNPRESENTPATH::IsCopyProtectionSchemeSupported(Path, 2LL) )
         {
-          goto LABEL_16;
+          goto LABEL_18;
         }
-        if ( !DMMVIDPNPRESENTPATH::IsCopyProtectionSchemeSupported(
-                Path,
-                (enum _D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE)v5) )
+        if ( !DMMVIDPNPRESENTPATH::IsCopyProtectionSchemeSupported(Path, (unsigned int)v5) )
         {
-          WdLogSingleEntry0(3LL);
-          goto LABEL_35;
+          v43 = WdLogNewEntry5_WdWarning(v35, v34, v36);
+          WdLogEvent5_WdWarning(v43);
+          goto LABEL_40;
         }
-        v22 = DMMVIDPNPRESENTPATH::SetCopyProtectionScheme(
-                Path,
-                (enum _D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE)v5);
-        LODWORD(v18) = v22;
-        if ( v22 == -1071774970 )
+        v37 = DMMVIDPNPRESENTPATH::SetCopyProtectionScheme(Path, (unsigned int)v5);
+        v21 = v37;
+        if ( v37 == -1071774970 )
         {
-          WdLogSingleEntry4(7LL, v5, v6, v28, a1);
-LABEL_35:
-          LODWORD(v18) = -1071774970;
-          goto LABEL_37;
+          v42 = (_QWORD *)WdLogNewEntry5_WdDmmEvent();
+          v42[3] = v5;
+          v42[4] = v6;
+          v42[5] = v48;
+          v42[6] = a1;
+          WdLogEvent5_WdDmmEvent(v42);
+LABEL_40:
+          LODWORD(v21) = -1071774970;
+          goto LABEL_42;
         }
-        if ( v22 < 0 )
+        if ( v37 < 0 )
         {
-          WdLogSingleEntry4(2LL, v5, v6, v28, v22);
-          goto LABEL_37;
+          v41 = (_QWORD *)WdLogNewEntry5_WdError(v39, v38);
+          v41[3] = v5;
+          v41[4] = v6;
+          v41[5] = v48;
+          v41[6] = v21;
+          WdLogEvent5_WdError(v41);
+          goto LABEL_42;
         }
-        *((_DWORD *)Path + 44) = v29;
+        *((_DWORD *)Path + 44) = v49;
         if ( *((_BYTE *)Path + 110) )
           updated = DMMVIDPNPRESENTPATH::SetTargetAnalogCopyProtection(Path);
         else
           updated = DMMVIDPNPRESENTPATH::UpdateActiveVidPnPresentPath(Path, 0LL);
-        LODWORD(v18) = updated;
+        LODWORD(v21) = updated;
         if ( updated < 0 )
-          goto LABEL_37;
-LABEL_16:
-        v11 = v26;
-        ++v12;
+          goto LABEL_42;
+LABEL_18:
+        v16 = v46;
+        ++v17;
       }
     }
-    WdLogSingleEntry1(2LL, a1);
-    LODWORD(v18) = -1071774884;
-LABEL_37:
-    v4 = v18;
-LABEL_17:
-    auto_rc<DMMVIDPN const>::reset(&v25, 0LL);
-    DXGFASTMUTEX::Release((struct _KTHREAD **)(v27 + 40));
+    v31 = WdLogNewEntry5_WdError(v15, v14);
+    *(_QWORD *)(v31 + 24) = a1;
+    WdLogEvent5_WdError(v31);
+    LODWORD(v21) = -1071774884;
+LABEL_42:
+    v4 = v21;
+LABEL_19:
+    auto_rc<DMMVIDPN const>::reset(&v45, 0LL);
+    DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v47 + 40), v26);
     return v4;
   }
   else
   {
-    WdLogSingleEntry1(2LL, a1);
+    v30 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v30 + 24) = a1;
+    WdLogEvent5_WdError(v30);
     return 3223192373LL;
   }
 }

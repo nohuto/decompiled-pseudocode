@@ -1,38 +1,38 @@
 /*
- * XREFs of ?Create@XamlExponentialInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@MPEAPEAVKeyframeInterpolation@@@Z @ 0x18001CB94
+ * XREFs of ?Create@XamlExponentialInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@MPEAPEAVKeyframeInterpolation@@@Z @ 0x18001DB78
  * Callers:
- *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x180055F08 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
+ *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x1800AAD18 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
  * Callees:
- *     ??2KeyframeInterpolation@@SAPEAX_K@Z @ 0x1800D8900 (--2KeyframeInterpolation@@SAPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??2KeyframeInterpolation@@SAPEAX_K@Z @ 0x1800AC800 (--2KeyframeInterpolation@@SAPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall XamlExponentialInterpolation::Create(int a1, unsigned int a2, float a3, float **a4)
 {
   float v4; // xmm6_4
-  char *v8; // rax
+  float *v8; // rax
   float *v9; // rbx
   __int64 result; // rax
 
   v4 = a3;
   if ( !_finite(a3) )
     v4 = 0.0;
-  v8 = (char *)KeyframeInterpolation::operator new(0x28uLL);
-  v9 = (float *)v8;
+  v8 = (float *)KeyframeInterpolation::operator new(0x28uLL);
+  v9 = v8;
   if ( v8 )
   {
-    *(_QWORD *)(v8 + 12) = 0LL;
-    *(_QWORD *)(v8 + 20) = 0LL;
-    *(_QWORD *)(v8 + 28) = 0LL;
-    *((_DWORD *)v8 + 9) = 0;
-    *((_DWORD *)v8 + 2) = 0;
+    *(_OWORD *)v8 = 0LL;
+    *((_OWORD *)v8 + 1) = 0LL;
+    *((_QWORD *)v8 + 4) = 0LL;
     *(_QWORD *)v8 = &XamlExponentialInterpolation::`vftable';
-    ((void (__fastcall *)(char *))XamlExponentialInterpolation::`vftable')(v8);
+    v8[2] = 0.0;
   }
   else
   {
     v9 = 0LL;
   }
+  if ( v9 )
+    (**(void (__fastcall ***)(float *))v9)(v9);
   v9[8] = v4;
   if ( a2 > 2 )
     a2 = 0;

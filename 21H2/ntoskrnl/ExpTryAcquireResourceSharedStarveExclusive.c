@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpTryAcquireResourceSharedStarveExclusive @ 0x1402464C0
+ * XREFs of ExpTryAcquireResourceSharedStarveExclusive @ 0x1402C1FFC
  * Callers:
- *     ExpAcquireSharedStarveExclusive @ 0x14032BD70 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x14039BA90 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x14031E750 (ExpAcquireSharedStarveExclusive.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x14038F0B0 (ExAcquireFastResourceSharedStarveExclusive.c)
  * Callees:
  *     <none>
  */

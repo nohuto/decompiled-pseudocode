@@ -4,8 +4,8 @@
  *     HdlspDispatch @ 0x14094BE50 (HdlspDispatch.c)
  *     HeadlessInit @ 0x1409DF5DC (HeadlessInit.c)
  * Callees:
- *     InbvPortInitialize @ 0x14032C1C0 (InbvPortInitialize.c)
- *     InbvPortTerminate @ 0x14032C3B4 (InbvPortTerminate.c)
+ *     InbvPortInitialize @ 0x14032C2C0 (InbvPortInitialize.c)
+ *     InbvPortTerminate @ 0x14032C4B4 (InbvPortTerminate.c)
  *     HdlspSendStringAtBaud @ 0x14094D228 (HdlspSendStringAtBaud.c)
  */
 

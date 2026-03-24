@@ -1,19 +1,19 @@
 /*
- * XREFs of KeSetIdealProcessorThreadEx @ 0x14015CE2C
+ * XREFs of KeSetIdealProcessorThreadEx @ 0x14015CE4C
  * Callers:
- *     MiZeroInParallelWorker @ 0x14013C6A0 (MiZeroInParallelWorker.c)
- *     KeSetIdealProcessorThreadByNumber @ 0x14015CDB0 (KeSetIdealProcessorThreadByNumber.c)
- *     MiZeroPageThread @ 0x1401791E0 (MiZeroPageThread.c)
- *     MiGetPagesToZero @ 0x140185240 (MiGetPagesToZero.c)
+ *     MiZeroInParallelWorker @ 0x14013C6C0 (MiZeroInParallelWorker.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x14015CDD0 (KeSetIdealProcessorThreadByNumber.c)
+ *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
+ *     MiGetPagesToZero @ 0x140185260 (MiGetPagesToZero.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiAcquireThreadStateLock @ 0x1400CFA30 (KiAcquireThreadStateLock.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15A4 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiPrcbInGroupAffinity @ 0x1400D5714 (KiPrcbInGroupAffinity.c)
- *     KiReleaseThreadStateLock @ 0x1400D8044 (KiReleaseThreadStateLock.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceIdealProcessor @ 0x14030FD0C (EtwTraceIdealProcessor.c)
+ *     KiAcquireThreadStateLock @ 0x1400CFA50 (KiAcquireThreadStateLock.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15C4 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiPrcbInGroupAffinity @ 0x1400D5734 (KiPrcbInGroupAffinity.c)
+ *     KiReleaseThreadStateLock @ 0x1400D8064 (KiReleaseThreadStateLock.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceIdealProcessor @ 0x14030FE0C (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KeSetIdealProcessorThreadEx(__int64 a1, __int64 a2, unsigned int *a3)

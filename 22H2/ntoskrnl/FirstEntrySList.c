@@ -1,9 +1,7 @@
 /*
- * XREFs of FirstEntrySList @ 0x1404287E0
+ * XREFs of FirstEntrySList @ 0x140406FA0
  * Callers:
- *     MmCreateKernelStack @ 0x140271580 (MmCreateKernelStack.c)
- *     MmCreateKernelShadowStack @ 0x14064519C (MmCreateKernelShadowStack.c)
- *     PopMarkComponentsBootPhase @ 0x140AA36CC (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x1409991E0 (PopMarkComponentsBootPhase.c)
  * Callees:
  *     <none>
  */

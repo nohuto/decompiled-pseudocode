@@ -1,42 +1,42 @@
 /*
- * XREFs of BcdEnumerateObjects @ 0x140A1CC78
+ * XREFs of BcdEnumerateObjects @ 0x14096ED0C
  * Callers:
- *     SepSecureBootCorrectBcd @ 0x1409CDCC8 (SepSecureBootCorrectBcd.c)
+ *     SepSecureBootCorrectBcd @ 0x1409241E8 (SepSecureBootCorrectBcd.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     BiIsOfflineHandle @ 0x1403A7864 (BiIsOfflineHandle.c)
- *     RtlGUIDFromString @ 0x1407814E0 (RtlGUIDFromString.c)
- *     BiGetObjectDescription @ 0x140800ADC (BiGetObjectDescription.c)
- *     BiEnumerateSubKeys @ 0x14081287C (BiEnumerateSubKeys.c)
- *     BiOpenKey @ 0x140813164 (BiOpenKey.c)
- *     BiCloseKey @ 0x1408132F0 (BiCloseKey.c)
- *     BiReleaseBcdSyncMutant @ 0x1408134D8 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x14081369C (BiAcquireBcdSyncMutant.c)
- *     BiIsEnumerateMatch @ 0x140A1D1E0 (BiIsEnumerateMatch.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     BiIsOfflineHandle @ 0x14039B59C (BiIsOfflineHandle.c)
+ *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
+ *     BiGetObjectDescription @ 0x140781FD8 (BiGetObjectDescription.c)
+ *     BiEnumerateSubKeys @ 0x140783528 (BiEnumerateSubKeys.c)
+ *     BiOpenKey @ 0x140784404 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14078458C (BiCloseKey.c)
+ *     BiReleaseBcdSyncMutant @ 0x140784774 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x140784938 (BiAcquireBcdSyncMutant.c)
+ *     BiIsEnumerateMatch @ 0x14096F274 (BiIsEnumerateMatch.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall BcdEnumerateObjects(__int64 a1, _DWORD *a2, GUID *a3, unsigned int *a4, unsigned int *a5)
+int __fastcall BcdEnumerateObjects(__int64 a1, _DWORD *a2, GUID *a3, unsigned int *a4, unsigned int *a5)
 {
-  unsigned int *v5; // r13
+  unsigned int *v5; // r12
   GUID *v6; // rsi
   char v8; // r15
-  NTSTATUS result; // eax
+  int result; // eax
   PCWSTR *v10; // rdi
   int v11; // eax
   void *v12; // r14
   int v13; // ebx
   int v14; // eax
   unsigned int v15; // r15d
-  __int64 v16; // r12
+  __int64 v16; // r13
   const WCHAR **v17; // rsi
   int ObjectDescription; // ebx
   unsigned __int64 v19; // rax
-  _QWORD *v20; // r12
+  _QWORD *v20; // r13
   unsigned __int64 v21; // rcx
   unsigned int v22; // esi
   unsigned int v23; // r14d
-  ULONG i; // r13d
+  ULONG i; // r12d
   int v25; // ebx
   __int64 v26; // rax
   char IsOfflineHandle; // [rsp+20h] [rbp-40h]

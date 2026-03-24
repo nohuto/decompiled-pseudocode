@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpLogCapabilityCheckLatency @ 0x14089A398
+ * XREFs of RtlpLogCapabilityCheckLatency @ 0x14089A378
  * Callers:
- *     RtlCapabilityCheck @ 0x1408938E0 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x1408938C0 (RtlCapabilityCheck.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     RtlRunOnceExecuteOnce @ 0x14060D910 (RtlRunOnceExecuteOnce.c)
  */
 
@@ -67,7 +67,7 @@ char __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3, c
       v27 = 1;
       v30 = 1;
       v33 = 1;
-      return TlgWrite(&stru_140401B10, &unk_140372AEC, 0LL, 0LL, 7u, &pData);
+      return TlgWrite(&stru_140401B10, &unk_140372BFC, 0LL, 0LL, 7u, &pData);
     }
   }
   return result;

@@ -1,20 +1,20 @@
 /*
- * XREFs of MmCreatePartition @ 0x140190950
+ * XREFs of MmCreatePartition @ 0x140190970
  * Callers:
- *     PspAllocatePartition @ 0x14075CA68 (PspAllocatePartition.c)
+ *     PspAllocatePartition @ 0x14075CA48 (PspAllocatePartition.c)
  * Callees:
- *     MiInitializeWorkingSetManagerParameters @ 0x140190DDC (MiInitializeWorkingSetManagerParameters.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiDeletePartition @ 0x1402B4440 (MiDeletePartition.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x140190DFC (MiInitializeWorkingSetManagerParameters.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiDeletePartition @ 0x1402B4540 (MiDeletePartition.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ExAllocateCacheAwareRundownProtection @ 0x1405A27E0 (ExAllocateCacheAwareRundownProtection.c)
- *     MiSizeMemoryListLocks @ 0x1406D0D40 (MiSizeMemoryListLocks.c)
- *     MiCreatePfnBitMaps @ 0x14072A8E0 (MiCreatePfnBitMaps.c)
- *     MiInitializePartition @ 0x14072AB48 (MiInitializePartition.c)
- *     MiInitializeMemoryEvents @ 0x14072B9BC (MiInitializeMemoryEvents.c)
- *     MiAllocatePartitionId @ 0x140851CB8 (MiAllocatePartitionId.c)
- *     MiInitializePartitionThreads @ 0x140851E70 (MiInitializePartitionThreads.c)
+ *     MiSizeMemoryListLocks @ 0x1406D0D20 (MiSizeMemoryListLocks.c)
+ *     MiCreatePfnBitMaps @ 0x14072A8C0 (MiCreatePfnBitMaps.c)
+ *     MiInitializePartition @ 0x14072AB28 (MiInitializePartition.c)
+ *     MiInitializeMemoryEvents @ 0x14072B99C (MiInitializeMemoryEvents.c)
+ *     MiAllocatePartitionId @ 0x140851C98 (MiAllocatePartitionId.c)
+ *     MiInitializePartitionThreads @ 0x140851E50 (MiInitializePartitionThreads.c)
  */
 
 __int64 __fastcall MmCreatePartition(_QWORD *a1, char a2)

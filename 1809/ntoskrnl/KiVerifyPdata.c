@@ -4,7 +4,7 @@
  *     KiVerifyScopesExecute @ 0x1409CF900 (KiVerifyScopesExecute.c)
  * Callees:
  *     RtlpxLookupFunctionTable @ 0x1400A18B0 (RtlpxLookupFunctionTable.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KiVerifyPdata(ULONG_PTR BugCheckParameter2)

@@ -1,7 +1,7 @@
 /*
  * XREFs of PopSetBootPhaseRange @ 0x14056BA20
  * Callers:
- *     PopSetRange @ 0x14014494C (PopSetRange.c)
+ *     PopSetRange @ 0x14014496C (PopSetRange.c)
  * Callees:
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
  */

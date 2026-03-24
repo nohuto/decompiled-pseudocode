@@ -1,26 +1,26 @@
 /*
- * XREFs of AlpcpCheckConnectionSecurity @ 0x140668294
+ * XREFs of AlpcpCheckConnectionSecurity @ 0x1405DEB24
  * Callers:
- *     AlpcpCreateClientPort @ 0x140667114 (AlpcpCreateClientPort.c)
+ *     AlpcpCreateClientPort @ 0x1405E054C (AlpcpCreateClientPort.c)
  * Callees:
- *     RtlEqualSid @ 0x1402A6DB0 (RtlEqualSid.c)
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SeQueryUserSidToken @ 0x14066A374 (SeQueryUserSidToken.c)
- *     RtlMapGenericMask @ 0x140728CB0 (RtlMapGenericMask.c)
- *     SeCaptureSubjectContextEx @ 0x14072A390 (SeCaptureSubjectContextEx.c)
- *     SeQueryInformationToken @ 0x14079F290 (SeQueryInformationToken.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
+ *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
+ *     SeCaptureSubjectContextEx @ 0x140657C60 (SeCaptureSubjectContextEx.c)
+ *     RtlMapGenericMask @ 0x140702EA0 (RtlMapGenericMask.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     SeQueryUserSidToken @ 0x140706E24 (SeQueryUserSidToken.c)
  */
 
 __int64 __fastcall AlpcpCheckConnectionSecurity(PEPROCESS Process, KPROCESSOR_MODE a2, void *a3, void *a4)
 {
   NTSTATUS v8; // eax
   unsigned int v9; // ebx
-  void *v11; // rbx
+  struct _DMA_ADAPTER *v11; // rbx
   int InformationToken; // eax
   NTSTATUS AccessStatus; // [rsp+50h] [rbp-69h] BYREF
   ACCESS_MASK AccessMask[2]; // [rsp+58h] [rbp-61h] BYREF
@@ -32,7 +32,7 @@ __int64 __fastcall AlpcpCheckConnectionSecurity(PEPROCESS Process, KPROCESSOR_MO
   {
     *(_QWORD *)AccessMask = 0LL;
     memset(Sid2, 0, 0x44uLL);
-    v11 = (void *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x746C6644u);
+    v11 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
     InformationToken = SeQueryInformationToken(v11, TokenIsAppContainer, (PVOID *)AccessMask);
     AccessStatus = InformationToken;
     if ( InformationToken >= 0 )
@@ -43,7 +43,7 @@ __int64 __fastcall AlpcpCheckConnectionSecurity(PEPROCESS Process, KPROCESSOR_MO
       if ( InformationToken >= 0 )
         SeQueryUserSidToken(v11, Sid2, 68LL);
     }
-    ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.StaticBitmap[5], (unsigned __int64)v11, 0x746C6644u);
+    ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5], v11);
     v9 = AccessStatus;
     if ( AccessStatus < 0 )
       return v9;

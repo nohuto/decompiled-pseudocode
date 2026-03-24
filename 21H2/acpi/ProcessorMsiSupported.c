@@ -1,7 +1,7 @@
 /*
- * XREFs of ProcessorMsiSupported @ 0x1C009D690
+ * XREFs of ProcessorMsiSupported @ 0x1C0091A34
  * Callers:
- *     IrqArbpFindSuitableRangeMsi @ 0x1C009D410 (IrqArbpFindSuitableRangeMsi.c)
+ *     IrqArbpFindSuitableRangeMsi @ 0x1C00917A4 (IrqArbpFindSuitableRangeMsi.c)
  * Callees:
  *     <none>
  */
@@ -26,10 +26,16 @@ __int64 __fastcall ProcessorMsiSupported(__int64 *a1, _BYTE *a2)
       v8.Number = v3;
       ProcNumber = v8;
       ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(&ProcNumber);
-      if ( ProcessorIndexFromNumber == -1
-        || ProcessorIndexFromNumber >= ProcessorInstanceCount
-        || (_mm_lfence(), (v6 = *((_QWORD *)ProcessorByNtNumber + ProcessorIndexFromNumber)) == 0)
-        || (*(_DWORD *)(v6 + 76) & 1) == 0 )
+      if ( ProcessorIndexFromNumber == -1 || ProcessorIndexFromNumber >= ProcessorInstanceCount )
+      {
+        v6 = 0LL;
+      }
+      else
+      {
+        _mm_lfence();
+        v6 = *((_QWORD *)ProcessorByNtNumber + ProcessorIndexFromNumber);
+      }
+      if ( !v6 || (*(_DWORD *)(v6 + 76) & 1) == 0 )
       {
         *a2 = 0;
         return 0LL;

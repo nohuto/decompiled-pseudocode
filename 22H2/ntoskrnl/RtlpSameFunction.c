@@ -1,43 +1,41 @@
 /*
- * XREFs of RtlpSameFunction @ 0x1405B1A50
+ * XREFs of RtlpSameFunction @ 0x140586480
  * Callers:
- *     RtlpxVirtualUnwind @ 0x1402A5960 (RtlpxVirtualUnwind.c)
- *     sub_140B1A730 @ 0x140B1A730 (sub_140B1A730.c)
+ *     RtlpxVirtualUnwind @ 0x14021E130 (RtlpxVirtualUnwind.c)
+ *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
  * Callees:
- *     RtlLookupFunctionEntry @ 0x1402A5370 (RtlLookupFunctionEntry.c)
- *     RtlpLookupFunctionEntryForStackWalks @ 0x1402A56D0 (RtlpLookupFunctionEntryForStackWalks.c)
- *     RtlpLookupPrimaryFunctionEntry @ 0x1403C4840 (RtlpLookupPrimaryFunctionEntry.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x14021DF20 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlLookupFunctionEntry @ 0x14033F110 (RtlLookupFunctionEntry.c)
+ *     RtlpLookupPrimaryFunctionEntry @ 0x1403CF220 (RtlpLookupPrimaryFunctionEntry.c)
  */
 
 _BYTE *__fastcall RtlpSameFunction(_BYTE *a1, __int64 a2, unsigned __int64 a3)
 {
-  __int64 v3; // rbx
-  _BYTE *v5; // rbp
-  _BYTE *v6; // rax
-  __int64 v7; // rdi
+  _BYTE *v4; // rdi
+  __int64 v5; // r9
+  unsigned int *v6; // rax
+  __int64 v7; // rdx
   __int128 v9; // [rsp+20h] [rbp-28h] BYREF
   __int64 v10; // [rsp+30h] [rbp-18h]
   __int64 v11; // [rsp+60h] [rbp+18h] BYREF
 
-  v3 = 0LL;
   v11 = 0LL;
-  v5 = RtlpLookupPrimaryFunctionEntry(a1, a2, a3);
+  v4 = RtlpLookupPrimaryFunctionEntry(a1, a2, a3);
   if ( a3 > 0x7FFFFFFEFFFFLL )
   {
-    v6 = RtlLookupFunctionEntry(a3, &v11, 0LL);
+    v6 = RtlLookupFunctionEntry(a3, &v11, 0LL, v5);
     v7 = v11;
-    if ( v6 )
-      goto LABEL_5;
-    return 0LL;
   }
-  v9 = 0LL;
-  v10 = 0LL;
-  v6 = RtlpLookupFunctionEntryForStackWalks(a3, (__int64)&v9);
-  if ( !v6 )
-    return 0LL;
-  v7 = *((_QWORD *)&v9 + 1);
-LABEL_5:
-  if ( *(_DWORD *)v5 == *(_DWORD *)RtlpLookupPrimaryFunctionEntry(v6, v7, a3) )
-    return v5;
-  return (_BYTE *)v3;
+  else
+  {
+    v9 = 0LL;
+    v10 = 0LL;
+    v6 = RtlpLookupFunctionEntryForStackWalks(a3, (__int64)&v9);
+    if ( !v6 )
+      return 0LL;
+    v7 = *((_QWORD *)&v9 + 1);
+  }
+  if ( v6 && *(_DWORD *)v4 == *(_DWORD *)RtlpLookupPrimaryFunctionEntry(v6, v7, a3) )
+    return v4;
+  return 0LL;
 }

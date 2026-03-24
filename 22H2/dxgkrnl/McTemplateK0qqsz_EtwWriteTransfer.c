@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0qqsz_EtwWriteTransfer @ 0x1C004D420
+ * XREFs of McTemplateK0qqsz_EtwWriteTransfer @ 0x1C004ED2C
  * Callers:
- *     ?AddProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0303924 (-AddProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@.c)
+ *     ?AddProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C02C01C4 (-AddProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqsz_EtwWriteTransfer(
@@ -16,12 +16,12 @@ NTSTATUS __fastcall McTemplateK0qqsz_EtwWriteTransfer(
         const char *a6,
         const wchar_t *a7)
 {
-  const char *v7; // rdx
-  const wchar_t *v8; // r8
-  __int64 v9; // rcx
-  __int64 v10; // rax
-  int v11; // eax
-  int v12; // eax
+  const char *v7; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rax
+  int v10; // eax
+  const wchar_t *v11; // rax
+  int v12; // ecx
   struct _EVENT_DATA_DESCRIPTOR v14; // [rsp+30h] [rbp-21h] BYREF
   int *v15; // [rsp+40h] [rbp-11h]
   __int64 v16; // [rsp+48h] [rbp-9h]
@@ -37,35 +37,35 @@ NTSTATUS __fastcall McTemplateK0qqsz_EtwWriteTransfer(
 
   v25 = a4;
   v7 = a6;
-  v8 = a7;
   v15 = &v25;
-  v9 = -1LL;
+  v8 = -1LL;
   v16 = 4LL;
-  v17 = &a5;
   v18 = 4LL;
+  v17 = &a5;
   if ( a6 )
   {
-    v10 = -1LL;
+    v9 = -1LL;
     do
-      ++v10;
-    while ( a6[v10] );
-    v11 = v10 + 1;
+      ++v9;
+    while ( a6[v9] );
+    v10 = v9 + 1;
   }
   else
   {
-    v11 = 5;
+    v10 = 5;
   }
-  v20 = v11;
-  v21 = 0;
+  v20 = v10;
+  v11 = a7;
   if ( !a6 )
     v7 = "NULL";
+  v21 = 0;
   v19 = v7;
   if ( a7 )
   {
     do
-      ++v9;
-    while ( a7[v9] );
-    v12 = 2 * v9 + 2;
+      ++v8;
+    while ( a7[v8] );
+    v12 = 2 * v8 + 2;
   }
   else
   {
@@ -74,12 +74,12 @@ NTSTATUS __fastcall McTemplateK0qqsz_EtwWriteTransfer(
   v23 = v12;
   v24 = 0;
   if ( !a7 )
-    v8 = L"NULL";
-  v22 = v8;
+    v11 = L"NULL";
+  v22 = v11;
   return McGenEventWrite_EtwWriteTransfer(
            (REGHANDLE *)&DxgkControlGuid_Context,
            &DripsBlockerTracking_AddProcessEntry,
-           (__int64)v8,
+           (__int64)"NULL",
            5u,
            &v14);
 }

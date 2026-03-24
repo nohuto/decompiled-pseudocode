@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RecordVSync@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0056F04
+ * XREFs of ?RecordVSync@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0047CEC
  * Callers:
- *     ?NotifyVSync@DXGADAPTER@@QEAAXI@Z @ 0x1C0016550 (-NotifyVSync@DXGADAPTER@@QEAAXI@Z.c)
+ *     ?NotifyVSync@DXGADAPTER@@QEAAXI@Z @ 0x1C0038024 (-NotifyVSync@DXGADAPTER@@QEAAXI@Z.c)
  * Callees:
- *     ?CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C0056978 (-CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z.c)
+ *     ?CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C004783C (-CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z.c)
  */
 
 void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::RecordVSync(KSPIN_LOCK *this)
@@ -16,7 +16,6 @@ void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::RecordVSync(KSPIN_LOCK *this
   __int64 v7; // r9
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(this + 3, &LockHandle);
   if ( *((_BYTE *)this + 88) != 1 )
   {
@@ -24,7 +23,7 @@ void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::RecordVSync(KSPIN_LOCK *this
     if ( v2 > (__int64)this[5] )
     {
       v3 = *(unsigned int *)(this[2] + 4LL * *((unsigned int *)this + 14) + 4);
-      v4 = **(_QWORD **)(*this + 4072);
+      v4 = **(_QWORD **)(*this + 3976);
       this[4] = v4;
       v5 = v4 - v2;
       v2 = v4;
@@ -33,7 +32,7 @@ void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::RecordVSync(KSPIN_LOCK *this
     LODWORD(v6) = 0;
     if ( v2 )
     {
-      v7 = **(_QWORD **)(*this + 4080);
+      v7 = **(_QWORD **)(*this + 3984);
       if ( v7 )
         v6 = (__int64)(1000 * this[9]) / *(unsigned int *)(this[2] + 4LL * *((unsigned int *)this + 14) + 4) / v7;
     }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmEventBiosCapChange @ 0x1405D9440
+ * XREFs of PpmEventBiosCapChange @ 0x140392CD0
  * Callers:
- *     PpmRegisterPerfCap @ 0x1405CF800 (PpmRegisterPerfCap.c)
+ *     PpmRegisterPerfCap @ 0x140392AF0 (PpmRegisterPerfCap.c)
  * Callees:
- *     PpmEventGetEventDescriptorAndProcessorId @ 0x14023BC00 (PpmEventGetEventDescriptorAndProcessorId.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     PpmEventGetEventDescriptorAndProcessorId @ 0x140398FCC (PpmEventGetEventDescriptorAndProcessorId.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-char __fastcall PpmEventBiosCapChange(__int64 a1, int a2)
+char __fastcall PpmEventBiosCapChange(int a1, int a2)
 {
   const EVENT_DESCRIPTOR *EventDescriptorAndProcessorId; // rax
   const EVENT_DESCRIPTOR *v3; // rdi
@@ -25,9 +25,9 @@ char __fastcall PpmEventBiosCapChange(__int64 a1, int a2)
   v6 = 0;
   EventDescriptorAndProcessorId = (const EVENT_DESCRIPTOR *)PpmEventGetEventDescriptorAndProcessorId(
                                                               a1,
-                                                              (__int64)PPM_ETW_BIOS_CAP_CHANGE,
-                                                              (__int64)PPM_ETW_BIOS_CAP_CHANGE_HV,
-                                                              (__int64)&v6,
+                                                              (unsigned int)PPM_ETW_BIOS_CAP_CHANGE,
+                                                              (unsigned int)PPM_ETW_BIOS_CAP_CHANGE_HV,
+                                                              (unsigned int)&v6,
                                                               (__int64)&UserData);
   v3 = EventDescriptorAndProcessorId;
   if ( PpmEtwRegistered )

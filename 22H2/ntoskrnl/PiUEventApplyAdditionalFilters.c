@@ -1,15 +1,15 @@
 /*
- * XREFs of PiUEventApplyAdditionalFilters @ 0x14077E9F0
+ * XREFs of PiUEventApplyAdditionalFilters @ 0x14071B414
  * Callers:
- *     PiUEventNotifyDeviceInstanceChange @ 0x14077E900 (PiUEventNotifyDeviceInstanceChange.c)
- *     PiUEventNotifyTargetDeviceChange @ 0x140783A54 (PiUEventNotifyTargetDeviceChange.c)
- *     PiUEventNotifyDeviceInterfaceChange @ 0x140791798 (PiUEventNotifyDeviceInterfaceChange.c)
- *     PiUEventNotifyDeviceInstancePropertyChange @ 0x140872830 (PiUEventNotifyDeviceInstancePropertyChange.c)
+ *     PiUEventNotifyTargetDeviceChange @ 0x14071AF20 (PiUEventNotifyTargetDeviceChange.c)
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x140745CD8 (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventNotifyDeviceInstanceChange @ 0x14076C16C (PiUEventNotifyDeviceInstanceChange.c)
+ *     PiUEventNotifyDeviceInstancePropertyChange @ 0x14077091C (PiUEventNotifyDeviceInstancePropertyChange.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x140741948 (PiPnpRtlApplyMandatoryFilters.c)
- *     SeQuerySessionIdTokenEx @ 0x1407422E0 (SeQuerySessionIdTokenEx.c)
- *     PiAuVerifyAccessToObject @ 0x14079ADDC (PiAuVerifyAccessToObject.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PiAuVerifyAccessToObject @ 0x140684DD8 (PiAuVerifyAccessToObject.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x1406AD0D8 (PiPnpRtlApplyMandatoryFilters.c)
+ *     SeQuerySessionIdTokenEx @ 0x1406AD220 (SeQuerySessionIdTokenEx.c)
  */
 
 BOOLEAN __fastcall PiUEventApplyAdditionalFilters(__int64 a1, __int64 a2)
@@ -19,9 +19,9 @@ BOOLEAN __fastcall PiUEventApplyAdditionalFilters(__int64 a1, __int64 a2)
   int v6; // r8d
   int v7; // r8d
   int v8; // r8d
-  struct _SECURITY_SUBJECT_CONTEXT *v9; // rsi
+  struct _SECURITY_SUBJECT_CONTEXT *v9; // rdi
   int v10; // r8d
-  __int64 v11; // rdx
+  const wchar_t *v11; // rdx
   int v12; // eax
   int v14; // r8d
   int v15; // r8d
@@ -40,7 +40,7 @@ BOOLEAN __fastcall PiUEventApplyAdditionalFilters(__int64 a1, __int64 a2)
 LABEL_4:
     v9 = (struct _SECURITY_SUBJECT_CONTEXT *)(a2 + 56);
     v10 = 1;
-    v11 = a1 + 120;
+    v11 = (const wchar_t *)(a1 + 120);
     goto LABEL_5;
   }
   v7 = v6 - 1;
@@ -64,7 +64,7 @@ LABEL_4:
   }
   v9 = (struct _SECURITY_SUBJECT_CONTEXT *)(a2 + 56);
   v10 = 3;
-  v11 = a1 + 136;
+  v11 = (const wchar_t *)(a1 + 136);
 LABEL_5:
   v12 = PiPnpRtlApplyMandatoryFilters(*(__int64 *)&PiPnpRtlCtx, v11, v10, 0LL, v9, IsServiceSession);
   if ( v12 >= 0 )
@@ -78,7 +78,7 @@ LABEL_5:
         GenericMapping.GenericExecute = 0x20000,
         GenericMapping.GenericRead = 131073,
         GenericMapping.GenericAll = 983041,
-        (int)PiAuVerifyAccessToObject(1u, v16, &GenericMapping, v9, (__int64)IsServiceSession) < 0)
+        (int)PiAuVerifyAccessToObject(1u, v16, &GenericMapping, v9, IsServiceSession) < 0)
     || (v3 = IsServiceSession[0]) != 0 )
   {
     if ( *(_DWORD *)(a1 + 60) != -1 )

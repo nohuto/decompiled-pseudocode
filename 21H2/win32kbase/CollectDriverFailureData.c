@@ -1,134 +1,147 @@
 /*
- * XREFs of CollectDriverFailureData @ 0x1C01732A4
+ * XREFs of CollectDriverFailureData @ 0x1C0146284
  * Callers:
- *     ?DrvDriverFailure@@YAJXZ @ 0x1C0152348 (-DrvDriverFailure@@YAJXZ.c)
+ *     ?DrvDriverFailure@@YAJXZ @ 0x1C0137564 (-DrvDriverFailure@@YAJXZ.c)
  * Callees:
- *     <none>
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 unsigned __int64 __fastcall CollectDriverFailureData(unsigned __int64 *a1, __int64 a2)
 {
   unsigned __int64 result; // rax
-  __int64 Pool2; // rax
-  __int64 v6; // rbx
-  unsigned __int64 v7; // r8
-  wchar_t *v8; // rdx
-  int v9; // r9d
-  __int64 v10; // r10
-  __int64 v11; // rdi
-  __int64 v12; // rcx
-  wchar_t *v13; // rax
-  __int64 v14; // r11
-  __int128 v15; // xmm0
-  __int16 *v16; // rcx
-  __int64 v17; // rsi
-  __int16 v18; // r11
+  unsigned __int64 v5; // rbx
+  int v6; // ecx
+  const wchar_t *v7; // r8
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v9; // rbx
+  unsigned __int64 v10; // rdi
+  wchar_t *v11; // rdx
+  int v12; // r8d
+  __int64 v13; // r11
+  __int64 v14; // r9
+  _QWORD *v15; // rcx
+  wchar_t *v16; // rax
+  __int64 v17; // r10
+  __int128 v18; // xmm0
+  __int16 *v19; // rcx
+  __int64 v20; // rsi
+  __int16 v21; // r10
 
-  result = ExAllocatePool2(64LL, 312LL);
+  result = (unsigned __int64)ExAllocatePoolWithTag((POOL_TYPE)512, 0x138uLL, 0x73726447u);
+  v5 = result;
   if ( result )
   {
-    *(_DWORD *)result = gbBaseVideo;
-    *(_DWORD *)(result + 12) = gbDeferredInvalidateDualView;
-    *(_WORD *)(result + 16) = gdmLogPixels;
-    *(_QWORD *)(result + 304) = a2;
-    *a1 = result;
-    *(_QWORD *)(result + 4) = 0LL;
-    *(_DWORD *)(result + 20) = gcNextGlobalDeviceNumber;
-    *(_DWORD *)(result + 24) = gcNextGlobalPhysicalOutputNumber;
-    *(_DWORD *)(result + 28) = gcNextGlobalVirtualOutputNumber;
-    *(_QWORD *)(result + 32) = gpGraphicsDeviceList;
-    *(_QWORD *)(result + 40) = gpGraphicsDeviceListLast;
-    *(_DWORD *)(result + 48) = gcFailedModeChanges;
-    *(_DWORD *)(result + 52) = gcRemoteNextGlobalDeviceNumber;
-    *(_DWORD *)(result + 56) = gcLocalNextGlobalDeviceNumber;
-    *(_QWORD *)(result + 64) = gpRemoteGraphicsDeviceList;
-    *(_QWORD *)(result + 72) = gpLocalGraphicsDeviceList;
-    *(_QWORD *)(result + 80) = gpRemoteGraphicsDeviceListLast;
-    *(_QWORD *)(result + 88) = gpLocalGraphicsDeviceListLast;
-    *(_QWORD *)(result + 96) = gpRemoteDiscGraphicsDevice;
-    *(_QWORD *)(result + 104) = gpRemoteMirrorGraphicsDevice;
-    *(_QWORD *)(result + 112) = gpLocalDiscGraphicsDevice;
-    *(_DWORD *)(result + 120) = gcLocalNextGlobalPhysicalOutputNumber;
-    *(_DWORD *)(result + 124) = gcLocalNextGlobalVirtualOutputNumber;
-    *(_DWORD *)(result + 128) = gcRemoteNextGlobalPhysicalOutputNumber;
-    *(_DWORD *)(result + 132) = gcRemoteNextGlobalVirtualOutputNumber;
-    *(_WORD *)(result + 136) = gProtocolType;
-    if ( qword_1C0297068 )
-      wcsncpy_s((wchar_t *)(result + 138), 0x50uLL, qword_1C0297068, 0xFFFFFFFFFFFFFFFFuLL);
-    Pool2 = ExAllocatePool2(64LL, 4096LL);
-    v6 = Pool2;
-    if ( Pool2 )
-      a1[1] = Pool2;
-    result = ExAllocatePool2(64LL, 4096LL);
-    v7 = result;
+    memset((void *)(result + 16), 0, 0x120uLL);
+    v6 = gbBaseVideo;
+    *(_DWORD *)(v5 + 12) = gbDeferredInvalidateDualView;
+    *(_DWORD *)v5 = v6;
+    *(_QWORD *)(v5 + 304) = a2;
+    *(_QWORD *)(v5 + 4) = 0LL;
+    *(_WORD *)(v5 + 16) = gdmLogPixels;
+    *(_DWORD *)(v5 + 20) = gcNextGlobalDeviceNumber;
+    *(_DWORD *)(v5 + 24) = gcNextGlobalPhysicalOutputNumber;
+    *(_DWORD *)(v5 + 28) = gcNextGlobalVirtualOutputNumber;
+    *(_QWORD *)(v5 + 32) = gpGraphicsDeviceList;
+    *(_QWORD *)(v5 + 40) = gpGraphicsDeviceListLast;
+    *(_DWORD *)(v5 + 48) = gcFailedModeChanges;
+    *(_DWORD *)(v5 + 52) = gcRemoteNextGlobalDeviceNumber;
+    *(_DWORD *)(v5 + 56) = gcLocalNextGlobalDeviceNumber;
+    *(_QWORD *)(v5 + 64) = gpRemoteGraphicsDeviceList;
+    *(_QWORD *)(v5 + 72) = gpLocalGraphicsDeviceList;
+    *(_QWORD *)(v5 + 80) = gpRemoteGraphicsDeviceListLast;
+    *(_QWORD *)(v5 + 88) = gpLocalGraphicsDeviceListLast;
+    *(_QWORD *)(v5 + 96) = gpRemoteDiscGraphicsDevice;
+    *(_QWORD *)(v5 + 104) = gpRemoteMirrorGraphicsDevice;
+    *(_QWORD *)(v5 + 112) = gpLocalDiscGraphicsDevice;
+    *(_DWORD *)(v5 + 120) = gcLocalNextGlobalPhysicalOutputNumber;
+    *(_DWORD *)(v5 + 124) = gcLocalNextGlobalVirtualOutputNumber;
+    *(_DWORD *)(v5 + 128) = gcRemoteNextGlobalPhysicalOutputNumber;
+    *(_DWORD *)(v5 + 132) = gcRemoteNextGlobalVirtualOutputNumber;
+    *(_WORD *)(v5 + 136) = gProtocolType;
+    v7 = qword_1C0252288;
+    *a1 = v5;
+    if ( v7 )
+      wcsncpy_s((wchar_t *)(v5 + 138), 0x50uLL, v7, 0xFFFFFFFFFFFFFFFFuLL);
+    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x1000uLL, 0x73726447u);
+    v9 = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      memset(PoolWithTag, 0, 0x1000uLL);
+      a1[1] = (unsigned __int64)v9;
+    }
+    result = (unsigned __int64)ExAllocatePoolWithTag((POOL_TYPE)512, 0x1000uLL, 0x73726447u);
+    v10 = result;
     if ( result )
-      a1[2] = result;
-    v8 = gpGraphicsDeviceList;
-    v9 = 0;
+    {
+      result = (unsigned __int64)memset((void *)result, 0, 0x1000uLL);
+      a1[2] = v10;
+    }
+    v11 = gpGraphicsDeviceList;
+    v12 = 0;
     if ( gpGraphicsDeviceList )
     {
-      v10 = 0LL;
-      v11 = 0LL;
+      v13 = 0LL;
+      v14 = 0LL;
       do
       {
-        if ( v10 >= 512 )
+        if ( v14 >= 512 )
           break;
-        v12 = v6;
-        v13 = v8;
-        v14 = 2LL;
+        v15 = v9;
+        v16 = v11;
+        v17 = 2LL;
         do
         {
-          v15 = *(_OWORD *)v13;
-          v13 += 64;
-          *(_OWORD *)v12 = v15;
-          v12 += 128LL;
-          *(_OWORD *)(v12 - 112) = *((_OWORD *)v13 - 7);
-          *(_OWORD *)(v12 - 96) = *((_OWORD *)v13 - 6);
-          *(_OWORD *)(v12 - 80) = *((_OWORD *)v13 - 5);
-          *(_OWORD *)(v12 - 64) = *((_OWORD *)v13 - 4);
-          *(_OWORD *)(v12 - 48) = *((_OWORD *)v13 - 3);
-          *(_OWORD *)(v12 - 32) = *((_OWORD *)v13 - 2);
-          *(_OWORD *)(v12 - 16) = *((_OWORD *)v13 - 1);
-          --v14;
+          v18 = *(_OWORD *)v16;
+          v16 += 64;
+          *(_OWORD *)v15 = v18;
+          v15 += 16;
+          *((_OWORD *)v15 - 7) = *((_OWORD *)v16 - 7);
+          *((_OWORD *)v15 - 6) = *((_OWORD *)v16 - 6);
+          *((_OWORD *)v15 - 5) = *((_OWORD *)v16 - 5);
+          *((_OWORD *)v15 - 4) = *((_OWORD *)v16 - 4);
+          *((_OWORD *)v15 - 3) = *((_OWORD *)v16 - 3);
+          *((_OWORD *)v15 - 2) = *((_OWORD *)v16 - 2);
+          *((_OWORD *)v15 - 1) = *((_OWORD *)v16 - 1);
+          --v17;
         }
-        while ( v14 );
-        *(_OWORD *)v12 = *(_OWORD *)v13;
-        *(_OWORD *)(v12 + 16) = *((_OWORD *)v13 + 1);
-        *(_OWORD *)(v12 + 32) = *((_OWORD *)v13 + 2);
-        result = *((_QWORD *)v13 + 6);
-        *(_QWORD *)(v12 + 48) = result;
-        if ( v7 )
+        while ( v17 );
+        *(_OWORD *)v15 = *(_OWORD *)v16;
+        *((_OWORD *)v15 + 1) = *((_OWORD *)v16 + 1);
+        *((_OWORD *)v15 + 2) = *((_OWORD *)v16 + 2);
+        result = *((_QWORD *)v16 + 6);
+        v15[6] = result;
+        if ( v10 )
         {
-          if ( v9 < 4096 )
+          if ( v12 < 4096 )
           {
-            v16 = (__int16 *)*((_QWORD *)v8 + 25);
-            if ( v16 )
+            v19 = (__int16 *)*((_QWORD *)v11 + 25);
+            if ( v19 )
             {
-              v17 = v9;
-              v18 = 32;
-              for ( result = v9 + 2LL; result < 0x1000; result = v9 + 2LL )
+              v20 = v12;
+              v21 = 32;
+              for ( result = v12 + 2LL; result < 0x1000; result = v12 + 2LL )
               {
-                v9 += 2;
-                *(_WORD *)(v11 + v7) = *v16;
-                v11 += 2LL;
-                result = (unsigned __int16)*v16;
-                if ( !(_WORD)result && !v18 )
+                v12 += 2;
+                *(_WORD *)(v13 + v10) = *v19;
+                v13 += 2LL;
+                result = (unsigned __int16)*v19;
+                if ( !(_WORD)result && !v21 )
                   break;
-                v18 = *v16++;
+                v21 = *v19++;
               }
-              if ( v16 != *((__int16 **)v8 + 25) )
+              if ( v19 != *((__int16 **)v11 + 25) )
               {
-                result = v7 + 2 * v17;
-                *(_QWORD *)(v6 + 200) = result;
+                result = v10 + 2 * v20;
+                v9[25] = result;
               }
             }
           }
         }
-        v8 = (wchar_t *)*((_QWORD *)v8 + 16);
-        ++v10;
-        v6 += 312LL;
+        v11 = (wchar_t *)*((_QWORD *)v11 + 16);
+        ++v14;
+        v9 += 39;
       }
-      while ( v8 );
+      while ( v11 );
     }
   }
   return result;

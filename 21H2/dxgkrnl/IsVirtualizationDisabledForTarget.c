@@ -1,74 +1,112 @@
 /*
- * XREFs of IsVirtualizationDisabledForTarget @ 0x1C01AFF60
+ * XREFs of IsVirtualizationDisabledForTarget @ 0x1C0129714
  * Callers:
- *     DxgkIsVirtualizationDisabledForTarget @ 0x1C01D7DA0 (DxgkIsVirtualizationDisabledForTarget.c)
+ *     ?SetRotationSupport@DMMVIDPNPRESENTPATH@@QEAAXPEBU_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT@@@Z @ 0x1C0005AF4 (-SetRotationSupport@DMMVIDPNPRESENTPATH@@QEAAXPEBU_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT@@.c)
+ *     DxgkIsVirtualizationDisabledForTarget @ 0x1C0149470 (DxgkIsVirtualizationDisabledForTarget.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z @ 0x1C000F304 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z.c)
- *     ??1?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@QEAA@XZ @ 0x1C002FA24 (--1-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@QEAA@XZ.c)
- *     ?_IsVirtualModeSupportDisabled@DXGMONITOR@@QEBA_NXZ @ 0x1C01A5490 (-_IsVirtualModeSupportDisabled@DXGMONITOR@@QEBA_NXZ.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0129B38 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_IsVirtualModeSuportDisabled@DXGMONITOR@@QEAA_NXZ @ 0x1C012A2E8 (-_IsVirtualModeSuportDisabled@DXGMONITOR@@QEAA_NXZ.c)
  */
 
-__int64 __fastcall IsVirtualizationDisabledForTarget(__int64 a1, unsigned int a2, bool *a3, bool *a4, char *a5)
+__int64 __fastcall IsVirtualizationDisabledForTarget(__int64 a1, __int64 a2, bool *a3, bool *a4)
 {
-  char v5; // si
+  __int64 v4; // r15
   __int64 v8; // rbp
-  DXGMONITOR *v9; // rbx
-  char IsVirtualModeSupportDisabled; // di
-  bool v11; // al
-  char *v12; // rcx
-  DXGMONITOR *v14; // [rsp+70h] [rbp+8h] BYREF
+  MONITOR_MGR *v9; // rcx
+  bool IsVirtualModeSuportDisabled; // r13
+  bool v11; // si
+  int MonitorInstance; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  int v15; // ebx
+  DXGMONITOR *v16; // rdi
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  DXGMONITOR *v24; // [rsp+50h] [rbp+8h] BYREF
 
-  v5 = 0;
-  if ( !a1 || a2 == -1 || !a3 || !a4 )
-    return 3221225485LL;
-  v8 = *(_QWORD *)(a1 + 2792);
-  if ( !v8 )
+  v4 = (unsigned int)a2;
+  if ( a1 && (_DWORD)a2 != -1 && a3 && a4 )
   {
-    WdLogSingleEntry1(2LL, 9372LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"The selected adapter is render-only",
-      9372LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225485LL;
-  }
-  MONITOR_MGR::AcquireMonitorShared(&v14, a1, a2);
-  v9 = v14;
-  if ( v14 )
-  {
-    if ( *((_DWORD *)v14 + 78) != 1 )
-      WdLogSingleEntry0(1LL);
-    IsVirtualModeSupportDisabled = DXGMONITOR::_IsVirtualModeSupportDisabled(v9);
-    ExReleaseResourceLite((PERESOURCE)((char *)v9 + 24));
-    KeLeaveCriticalRegion();
-    if ( IsVirtualModeSupportDisabled )
+    v8 = *(_QWORD *)(a1 + 2696);
+    if ( v8 )
     {
-      *a3 = 1;
+      v9 = *(MONITOR_MGR **)(v8 + 96);
+      IsVirtualModeSuportDisabled = 0;
+      if ( !v9 )
+      {
+        v20 = WdLogNewEntry5_WdError(0LL, a2);
+        *(_QWORD *)(v20 + 24) = a1;
+        WdLogEvent5_WdError(v20);
+        v15 = -1073741811;
+        goto LABEL_26;
+      }
+      v24 = 0LL;
       v11 = 1;
-      goto LABEL_11;
+      MonitorInstance = MONITOR_MGR::_GetMonitorInstance(v9, a2, 1u, &v24);
+      v15 = MonitorInstance;
+      if ( MonitorInstance == -1073741275 )
+      {
+        v18 = WdLogNewEntry5_WdDmmEvent(v14, v13);
+        *(_QWORD *)(v18 + 24) = v4;
+        *(_QWORD *)(v18 + 32) = a1;
+        WdLogEvent5_WdDmmEvent(v18);
+      }
+      else
+      {
+        if ( MonitorInstance >= 0 )
+        {
+          v16 = v24;
+          if ( !v24 || *((_DWORD *)v24 + 108) != 1 )
+          {
+            v22 = WdLogNewEntry5_WdAssertion(v14, v13);
+            WdLogEvent5_WdAssertion(v22);
+          }
+          if ( !v16 )
+          {
+            v23 = WdLogNewEntry5_WdAssertion(v14, v13);
+            WdLogEvent5_WdAssertion(v23);
+          }
+          KeEnterCriticalRegion();
+          ExAcquireResourceSharedLite((PERESOURCE)((char *)v16 + 296), 1u);
+          IsVirtualModeSuportDisabled = DXGMONITOR::_IsVirtualModeSuportDisabled(v16);
+          ExReleaseResourceLite((PERESOURCE)((char *)v16 + 296));
+          KeLeaveCriticalRegion();
+          v15 = 0;
+          goto LABEL_14;
+        }
+        if ( MonitorInstance != -1073741632 )
+          goto LABEL_20;
+      }
+      v15 = 0;
+LABEL_20:
+      if ( v15 >= 0 )
+      {
+LABEL_14:
+        if ( IsVirtualModeSuportDisabled )
+        {
+          *a3 = 1;
+        }
+        else
+        {
+          *a3 = *(_BYTE *)(v8 + 249) == 0;
+          v11 = *(_BYTE *)(v8 + 250) == 0;
+        }
+        *a4 = v11;
+        return (unsigned int)v15;
+      }
+LABEL_26:
+      v21 = WdLogNewEntry5_WdAssertion(v14, v13);
+      *(_QWORD *)(v21 + 24) = v15;
+      WdLogEvent5_WdAssertion(v21);
+      return (unsigned int)v15;
     }
+    v19 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v19 + 24) = 9262LL;
+    WdLogEvent5_WdError(v19);
   }
-  else
-  {
-    WdLogSingleEntry1(2LL, -1073741632LL);
-    RESOURCE_LOCK_ACCESSOR<DXGMONITOR>::~RESOURCE_LOCK_ACCESSOR<DXGMONITOR>((__int64 *)&v14);
-  }
-  *a3 = *(_BYTE *)(v8 + 289) == 0;
-  v11 = *(_BYTE *)(v8 + 290) == 0;
-LABEL_11:
-  v12 = a5;
-  *a4 = v11;
-  if ( v12 )
-  {
-    if ( *a3 || (*(_DWORD *)(v8 + 24) & 0x20) == 0 )
-      v5 = 1;
-    *v12 = v5;
-  }
-  return 0LL;
+  return 3221225485LL;
 }

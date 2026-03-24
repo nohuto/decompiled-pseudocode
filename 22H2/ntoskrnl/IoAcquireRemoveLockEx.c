@@ -1,32 +1,29 @@
 /*
- * XREFs of IoAcquireRemoveLockEx @ 0x140312310
+ * XREFs of IoAcquireRemoveLockEx @ 0x140260020
  * Callers:
- *     PopFxLockDevice @ 0x14028D064 (PopFxLockDevice.c)
- *     PopFxAllocatePowerIrp @ 0x14028ED0C (PopFxAllocatePowerIrp.c)
- *     PopFxAddRefDevice @ 0x1403122C4 (PopFxAddRefDevice.c)
- *     PopFxProcessWork @ 0x140312454 (PopFxProcessWork.c)
- *     PoFxPowerControl @ 0x140340EA0 (PoFxPowerControl.c)
- *     PopFxFindAcpiDeviceByUniqueId @ 0x1403955F0 (PopFxFindAcpiDeviceByUniqueId.c)
- *     PopFxFindAndReferenceAcpiDevice @ 0x14058A470 (PopFxFindAndReferenceAcpiDevice.c)
- *     PopFxPlatformIdleVeto @ 0x14058B2F0 (PopFxPlatformIdleVeto.c)
- *     PopFxProcessorIdleVeto @ 0x14058B4F0 (PopFxProcessorIdleVeto.c)
- *     PopFxUpdatePlatformIdleState @ 0x14058C490 (PopFxUpdatePlatformIdleState.c)
- *     PopFxUpdateProcessorIdleState @ 0x14058C5A0 (PopFxUpdateProcessorIdleState.c)
- *     PopPepPlatformStateRegistered @ 0x14059FA24 (PopPepPlatformStateRegistered.c)
- *     PopFxAcpiForwardNotification @ 0x1405A0C38 (PopFxAcpiForwardNotification.c)
- *     PopFxAcpiForwardPepWorkRequest @ 0x1405A0D78 (PopFxAcpiForwardPepWorkRequest.c)
- *     PopFxAcpiUnregisterDevice @ 0x1405A1060 (PopFxAcpiUnregisterDevice.c)
- *     DifIoAcquireRemoveLockExWrapper @ 0x1405DCDC0 (DifIoAcquireRemoveLockExWrapper.c)
- *     PoFxSetTargetDripsDevicePowerState @ 0x140984960 (PoFxSetTargetDripsDevicePowerState.c)
- *     ViFilterDispatchGeneric @ 0x140AE0520 (ViFilterDispatchGeneric.c)
- *     ViFilterDispatchPnp @ 0x140AE0600 (ViFilterDispatchPnp.c)
- *     ViFilterDispatchPower @ 0x140AE07D0 (ViFilterDispatchPower.c)
+ *     PopFxAddRefDevice @ 0x14025FFDC (PopFxAddRefDevice.c)
+ *     PopFxProcessWork @ 0x1402600A4 (PopFxProcessWork.c)
+ *     PopFxLockDevice @ 0x140370AE4 (PopFxLockDevice.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x14037E244 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     PoFxPowerControl @ 0x14038C670 (PoFxPowerControl.c)
+ *     PopFxAllocatePowerIrp @ 0x140399310 (PopFxAllocatePowerIrp.c)
+ *     PopFxFindAndReferenceAcpiDevice @ 0x14056AB20 (PopFxFindAndReferenceAcpiDevice.c)
+ *     PopFxPlatformIdleVeto @ 0x14056B8D0 (PopFxPlatformIdleVeto.c)
+ *     PopFxProcessorIdleVeto @ 0x14056BC80 (PopFxProcessorIdleVeto.c)
+ *     PopFxUpdatePlatformIdleState @ 0x14056D600 (PopFxUpdatePlatformIdleState.c)
+ *     PopFxUpdateProcessorIdleState @ 0x14056D710 (PopFxUpdateProcessorIdleState.c)
+ *     PopFxAcpiForwardNotification @ 0x14057DCAC (PopFxAcpiForwardNotification.c)
+ *     PopFxAcpiForwardPepWorkRequest @ 0x14057DDE4 (PopFxAcpiForwardPepWorkRequest.c)
+ *     PopFxAcpiUnregisterDevice @ 0x14057E0C8 (PopFxAcpiUnregisterDevice.c)
+ *     ViFilterDispatchGeneric @ 0x1409E5230 (ViFilterDispatchGeneric.c)
+ *     ViFilterDispatchPnp @ 0x1409E5310 (ViFilterDispatchPnp.c)
+ *     ViFilterDispatchPower @ 0x1409E54E0 (ViFilterDispatchPower.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoAcquireRemoveLockEx(
@@ -37,7 +34,7 @@ NTSTATUS __stdcall IoAcquireRemoveLockEx(
         ULONG RemlockSize)
 {
   NTSTATUS v9; // esi
-  __int64 Pool2; // rax
+  struct _LIST_ENTRY *PoolWithTag; // rax
   struct _LIST_ENTRY *v12; // r14
   unsigned __int64 v13; // rbp
   unsigned __int8 CurrentIrql; // al
@@ -56,30 +53,39 @@ NTSTATUS __stdcall IoAcquireRemoveLockEx(
   }
   else if ( RemlockSize == 120 )
   {
-    Pool2 = ExAllocatePool2(64LL, 40LL, LODWORD(RemoveLock[1].Common.RemoveEvent.Header.WaitListHead.Flink));
-    v12 = (struct _LIST_ENTRY *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(
+                                          NonPagedPoolNx,
+                                          0x28uLL,
+                                          (ULONG)RemoveLock[1].Common.RemoveEvent.Header.WaitListHead.Flink);
+    v12 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_QWORD *)(Pool2 + 8) = Tag;
-      *(_QWORD *)(Pool2 + 24) = File;
-      *(_DWORD *)(Pool2 + 32) = Line;
-      *(_QWORD *)(Pool2 + 16) = MEMORY[0xFFFFF78000000320];
+      PoolWithTag->Flink = 0LL;
+      PoolWithTag[1].Flink = 0LL;
+      HIDWORD(PoolWithTag[2].Flink) = 0;
+      PoolWithTag->Blink = (struct _LIST_ENTRY *)Tag;
+      PoolWithTag[1].Blink = (struct _LIST_ENTRY *)File;
+      LODWORD(PoolWithTag[2].Flink) = Line;
+      PoolWithTag[1].Flink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000320];
       v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&RemoveLock[2].Common.RemoveEvent);
       v12->Flink = RemoveLock[3].Common.RemoveEvent.Header.WaitListHead.Flink;
       RemoveLock[3].Common.RemoveEvent.Header.WaitListHead.Flink = v12;
-      KxReleaseSpinLock((volatile signed __int64 *)&RemoveLock[2].Common.RemoveEvent.Header.Lock);
+      KxReleaseSpinLock((PKSPIN_LOCK)&RemoveLock[2].Common.RemoveEvent);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
-          v18 = (v17 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v17;
-          if ( v18 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
+            v18 = (v17 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v17;
+            if ( v18 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       __writecr8(v13);

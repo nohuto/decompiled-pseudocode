@@ -1,36 +1,36 @@
 /*
- * XREFs of ??1CCompositionSkyBoxBrush@@UEAA@XZ @ 0x180225244
+ * XREFs of ??1CCompositionSkyBoxBrush@@UEAA@XZ @ 0x1801BB2A8
  * Callers:
- *     ??_GCCompositionSkyBoxBrush@@UEAAPEAXI@Z @ 0x180225330 (--_GCCompositionSkyBoxBrush@@UEAAPEAXI@Z.c)
+ *     ??_GCCompositionSkyBoxBrush@@UEAAPEAXI@Z @ 0x1801BB340 (--_GCCompositionSkyBoxBrush@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
  */
 
 void __fastcall CCompositionSkyBoxBrush::~CCompositionSkyBoxBrush(CCompositionSkyBoxBrush *this)
 {
-  __int64 v2; // rcx
+  __int64 v2; // rdx
   __int64 v3; // rcx
   struct CResource *v4; // rdx
   struct CResource *v5; // rdx
 
   *(_QWORD *)this = &CCompositionSkyBoxBrush::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 4LL) + 64) = &CCompositionSkyBoxBrush::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 8LL) + 64) = &CCompositionSkyBoxBrush::`vftable'{for `IContent'};
-  v2 = *(int *)(*((_QWORD *)this + 8) + 4LL);
-  *(_DWORD *)((char *)this + v2 + 60) = v2 - 72;
-  v3 = *(int *)(*((_QWORD *)this + 8) + 8LL);
-  *(_DWORD *)((char *)this + v3 + 60) = v3 - 88;
-  v4 = (struct CResource *)*((_QWORD *)this + 11);
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 4LL) + 56) = &CContainerVectorShape::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 8LL) + 56) = &CCompositionSkyBoxBrush::`vftable'{for `IContent'};
+  v2 = *(int *)(*((_QWORD *)this + 7) + 4LL);
+  *(_DWORD *)((char *)this + v2 + 52) = v2 - 72;
+  v3 = *(int *)(*((_QWORD *)this + 7) + 8LL);
+  *(_DWORD *)((char *)this + v3 + 52) = v3 - 88;
+  v4 = (struct CResource *)*((_QWORD *)this + 10);
   if ( v4 )
   {
     CResource::UnRegisterNotifierInternal(this, v4);
-    *((_QWORD *)this + 11) = 0LL;
+    *((_QWORD *)this + 10) = 0LL;
   }
-  v5 = (struct CResource *)*((_QWORD *)this + 12);
+  v5 = (struct CResource *)*((_QWORD *)this + 11);
   if ( v5 )
   {
     CResource::UnRegisterNotifierInternal(this, v5);
-    *((_QWORD *)this + 12) = 0LL;
+    *((_QWORD *)this + 11) = 0LL;
   }
   CBrush::~CBrush(this);
 }

@@ -6,8 +6,8 @@
  *     PopIsDataAccruedByPowerRequestStats @ 0x1405887D8 (PopIsDataAccruedByPowerRequestStats.c)
  *     PopAvlDeleteStatsForPowerRequest @ 0x14058883C (PopAvlDeleteStatsForPowerRequest.c)
  *     PopStatsMarkPowerRequestActive @ 0x140588904 (PopStatsMarkPowerRequestActive.c)
- *     PopStatsNotifyAudioState @ 0x1406DB6EC (PopStatsNotifyAudioState.c)
- *     PopPublishAndPurgePowerRequestStats @ 0x14087AE3C (PopPublishAndPurgePowerRequestStats.c)
+ *     PopStatsNotifyAudioState @ 0x1406DB6CC (PopStatsNotifyAudioState.c)
+ *     PopPublishAndPurgePowerRequestStats @ 0x14087AE1C (PopPublishAndPurgePowerRequestStats.c)
  * Callees:
  *     PoInitializeStopWatch @ 0x140001E48 (PoInitializeStopWatch.c)
  *     PoIsInitializedStopWatch @ 0x140001F70 (PoIsInitializedStopWatch.c)

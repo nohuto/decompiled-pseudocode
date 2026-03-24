@@ -1,10 +1,10 @@
 /*
- * XREFs of UserAddAtomEx @ 0x1C00931F0
+ * XREFs of UserAddAtomEx @ 0x1C0081870
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C003CCC0 (UserSetLastError.c)
- *     ?LkdForAtomAdditionFailure@@YAXPEAXJ@Z @ 0x1C01660B4 (-LkdForAtomAdditionFailure@@YAXPEAXJ@Z.c)
+ *     UserSetLastError @ 0x1C00388BC (UserSetLastError.c)
+ *     ?LkdForAtomAdditionFailure@@YAXPEAXJ@Z @ 0x1C0138B3C (-LkdForAtomAdditionFailure@@YAXPEAXJ@Z.c)
  */
 
 __int64 __fastcall UserAddAtomEx(__int64 a1, int a2)
@@ -14,26 +14,24 @@ __int64 __fastcall UserAddAtomEx(__int64 a1, int a2)
   __int64 result; // rax
   ULONG v6; // eax
   __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  RTL_ATOM v10; // [rsp+48h] [rbp+20h] BYREF
+  RTL_ATOM v8; // [rsp+48h] [rbp+20h] BYREF
 
   v2 = UserAtomTableHandle;
-  v10 = 0;
-  v4 = RtlAddAtomToAtomTableEx(UserAtomTableHandle, a1, &v10);
+  v8 = 0;
+  v4 = RtlAddAtomToAtomTableEx(UserAtomTableHandle, a1, &v8);
   if ( (int)(v4 + 0x80000000) >= 0 && v4 != -1073741773 )
   {
     LkdForAtomAdditionFailure(v2, v4);
     v6 = RtlNtStatusToDosError(v4);
-    UserSetLastError(v6, v7, v8, v9);
+    UserSetLastError(v6, v7);
   }
-  result = v10;
-  if ( v10 )
+  result = v8;
+  if ( v8 )
   {
     if ( a2 )
     {
-      RtlPinAtomInAtomTable(v2, v10);
-      return v10;
+      RtlPinAtomInAtomTable(v2, v8);
+      return v8;
     }
   }
   return result;

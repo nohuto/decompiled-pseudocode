@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CalcDeviceTransformDelta@CExternalLayer@@MEAAJPEAVCDrawingContext@@PEAVCMILMatrix@@@Z @ 0x1801F31B0
+ * XREFs of ?CalcDeviceTransformDelta@CExternalLayer@@MEAAJPEAVCDrawingContext@@PEAVCMILMatrix@@@Z @ 0x18018F900
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InferAffineMatrix@CMILMatrix@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0@Z @ 0x1800CAB34 (-InferAffineMatrix@CMILMatrix@@QEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPo_ea_1800CAB34.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z @ 0x1801D34FC (-ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z.c)
+ *     ?InferAffineMatrix@CMILMatrix@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0@Z @ 0x18002F258 (-InferAffineMatrix@CMILMatrix@@QEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z @ 0x180174770 (-ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z.c)
  */
 
 __int64 __fastcall CExternalLayer::CalcDeviceTransformDelta(
@@ -20,20 +20,17 @@ __int64 __fastcall CExternalLayer::CalcDeviceTransformDelta(
   __m128i v8; // xmm1
   __m128i v9; // xmm2
   int v10; // xmm0_4
-  __int128 v11; // xmm0
-  __int128 v12; // xmm1
-  int v13; // eax
-  __int128 v14; // xmm0
+  __int128 v11; // xmm1
+  int v12; // eax
+  __int128 v13; // xmm0
+  __int128 v14; // xmm1
   _OWORD v16[4]; // [rsp+30h] [rbp-39h] BYREF
   int v17; // [rsp+70h] [rbp+7h]
   unsigned int v18; // [rsp+80h] [rbp+17h] BYREF
   unsigned int v19; // [rsp+84h] [rbp+1Bh]
   int v20; // [rsp+88h] [rbp+1Fh]
   int v21; // [rsp+8Ch] [rbp+23h]
-  float v22; // [rsp+90h] [rbp+27h]
-  __int32 v23; // [rsp+94h] [rbp+2Bh]
-  float v24; // [rsp+98h] [rbp+2Fh]
-  float v25; // [rsp+9Ch] [rbp+33h]
+  float v22[4]; // [rsp+90h] [rbp+27h] BYREF
 
   v17 = 0;
   v5 = CDrawingContext::ComputeExternalLayerOffsetAndBounds(a2, (struct MilPointAndSizeL *)&v18);
@@ -48,25 +45,25 @@ __int64 __fastcall CExternalLayer::CalcDeviceTransformDelta(
     v9 = _mm_cvtsi32_si128(v19);
     v18 = 0;
     v19 = 0;
-    v22 = _mm_cvtepi32_ps(v8).m128_f32[0];
+    v22[0] = _mm_cvtepi32_ps(v8).m128_f32[0];
     *(float *)v9.m128i_i32 = _mm_cvtepi32_ps(v9).m128_f32[0];
-    v24 = (float)v20 + v22;
+    v22[2] = (float)v20 + v22[0];
     *(float *)&v10 = (float)*((int *)this + 7);
-    v25 = (float)v21 + *(float *)v9.m128i_i32;
+    v22[3] = (float)v21 + *(float *)v9.m128i_i32;
     *(float *)v8.m128i_i32 = (float)*((int *)this + 6);
-    v23 = v9.m128i_i32[0];
+    v22[1] = *(float *)v9.m128i_i32;
     v20 = v8.m128i_i32[0];
     v21 = v10;
-    CMILMatrix::InferAffineMatrix((CMILMatrix *)v16);
+    CMILMatrix::InferAffineMatrix((__int64)v16, v22, (float *)&v18);
     v11 = v16[1];
-    v12 = v16[2];
-    v13 = v17;
+    v12 = v17;
     *(_OWORD *)a3 = v16[0];
+    v13 = v16[2];
     *((_OWORD *)a3 + 1) = v11;
     v14 = v16[3];
-    *((_OWORD *)a3 + 2) = v12;
+    *((_OWORD *)a3 + 2) = v13;
     *((_OWORD *)a3 + 3) = v14;
-    *((_DWORD *)a3 + 16) = v13;
+    *((_DWORD *)a3 + 16) = v12;
   }
   return v7;
 }

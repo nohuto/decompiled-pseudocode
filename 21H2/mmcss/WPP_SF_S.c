@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_SF_S @ 0x1C0004A7C
+ * XREFs of WPP_SF_S @ 0x1C00047CC
  * Callers:
- *     CiTaskDump @ 0x1C000DBA0 (CiTaskDump.c)
+ *     CiTaskDump @ 0x1C000DC20 (CiTaskDump.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00033D0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00031A0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_SF_S(__int64 a1, __int64 a2, __int64 a3, const wchar_t *a4)

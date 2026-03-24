@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpValueEnumStackGetEntryAtLayerHeight @ 0x14069F434
+ * XREFs of CmpValueEnumStackGetEntryAtLayerHeight @ 0x140729F90
  * Callers:
- *     CmpValueEnumStackGetCurrentValueHive @ 0x14020004C (CmpValueEnumStackGetCurrentValueHive.c)
- *     CmpValueEnumStackStartFromKeyNodeStack @ 0x140200068 (CmpValueEnumStackStartFromKeyNodeStack.c)
- *     CmpValueEnumStackAdvance @ 0x14065AED8 (CmpValueEnumStackAdvance.c)
- *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x14065B030 (CmpValueEnumStackMatchingValueInUpperLayer.c)
- *     CmpValueEnumStackCleanup @ 0x14069F3D4 (CmpValueEnumStackCleanup.c)
+ *     CmpValueEnumStackStartFromKeyNodeStack @ 0x14036BD58 (CmpValueEnumStackStartFromKeyNodeStack.c)
+ *     CmpValueEnumStackGetCurrentValueHive @ 0x1404ED05C (CmpValueEnumStackGetCurrentValueHive.c)
+ *     CmpValueEnumStackAdvance @ 0x140729C54 (CmpValueEnumStackAdvance.c)
+ *     CmpValueEnumStackCleanup @ 0x140729F30 (CmpValueEnumStackCleanup.c)
+ *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x14087BAD4 (CmpValueEnumStackMatchingValueInUpperLayer.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@
 __int64 __fastcall CmpValueEnumStackGetEntryAtLayerHeight(__int64 a1, __int16 a2)
 {
   if ( a2 >= 2 )
-    return *(_QWORD *)(a1 + 80) + 32 * (a2 - 2LL);
+    return *(_QWORD *)(a1 + 80) + 32LL * (__int16)(a2 - 2);
   else
     return a1 + 32LL * a2 + 16;
 }

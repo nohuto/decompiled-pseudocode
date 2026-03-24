@@ -1,51 +1,55 @@
 /*
- * XREFs of HalpTimerFindIdealPerformanceCounterSource @ 0x14037B460
+ * XREFs of HalpTimerFindIdealPerformanceCounterSource @ 0x1403B12FC
  * Callers:
- *     HalpTimerSelectRoles @ 0x14037A8FC (HalpTimerSelectRoles.c)
+ *     HalpTimerSelectRoles @ 0x1403B0F2C (HalpTimerSelectRoles.c)
  * Callees:
- *     HalpIsHvPresent @ 0x1403785CC (HalpIsHvPresent.c)
- *     HalpFindTimer @ 0x14037B658 (HalpFindTimer.c)
+ *     HalpFindTimer @ 0x14039CD58 (HalpFindTimer.c)
+ *     HalpIsHvPresent @ 0x1403A18D8 (HalpIsHvPresent.c)
  */
 
-__int64 HalpTimerFindIdealPerformanceCounterSource()
+ULONG_PTR *HalpTimerFindIdealPerformanceCounterSource()
 {
   int v0; // ebx
-  __int64 result; // rax
+  ULONG_PTR *result; // rax
 
   if ( HalpTimerPlatformSourceForced )
     goto LABEL_9;
   if ( HalpIsHvPresent() )
-    goto LABEL_21;
+    goto LABEL_22;
   v0 = 0x2000;
   if ( (unsigned __int8)HalpTimerDeepestIdleState > 1u )
     v0 = 24576;
   result = HalpFindTimer(5, 3, v0, 0, 0);
   if ( !result )
   {
-    result = HalpFindTimer(9, 3, v0, 0, 0);
+    result = HalpFindTimer(10, 3, v0, 0, 0);
     if ( !result )
     {
-LABEL_21:
-      if ( !HalpHvCpuManager || qword_140C62588 || (result = HalpFindTimer(3, 2, 24576, 0, 0)) == 0 )
+LABEL_22:
+      if ( !HalpHvCpuManager || qword_140C4A208 || (result = HalpFindTimer(3, 2, 24576, 0, 0)) == 0LL )
       {
-        result = HalpFindTimer(7, 2, 0, 0, 0);
+        result = HalpFindTimer(8, 2, 0, 0, 0);
         if ( !result )
         {
 LABEL_9:
-          result = HalpFindTimer(10, 2, 24576, 0, 0);
+          result = HalpFindTimer(11, 2, 24576, 0, 0);
           if ( !result )
           {
             result = HalpFindTimer(3, 2, 24576, 0, 0);
             if ( !result )
             {
-              result = HalpFindTimer(1, 2, 24576, 0, 0);
+              result = HalpFindTimer(6, 2, 24576, 0, 0);
               if ( !result )
               {
-                if ( HalpIsHvPresent() )
-                  return 0LL;
-                result = HalpFindTimer(0, 2, 24576, 0, 0);
+                result = HalpFindTimer(1, 2, 24576, 0, 0);
                 if ( !result )
-                  return 0LL;
+                {
+                  if ( HalpIsHvPresent() )
+                    return 0LL;
+                  result = HalpFindTimer(0, 2, 24576, 0, 0);
+                  if ( !result )
+                    return 0LL;
+                }
               }
             }
           }

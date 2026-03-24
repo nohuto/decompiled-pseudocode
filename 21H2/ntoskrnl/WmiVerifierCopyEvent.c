@@ -1,10 +1,10 @@
 /*
- * XREFs of WmiVerifierCopyEvent @ 0x14062C8D8
+ * XREFs of WmiVerifierCopyEvent @ 0x1405A5870
  * Callers:
- *     VerifierIoWMIWriteEvent @ 0x140AA0FF0 (VerifierIoWMIWriteEvent.c)
+ *     VerifierIoWMIWriteEvent @ 0x1409E8050 (VerifierIoWMIWriteEvent.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall WmiVerifierCopyEvent(unsigned int *Src)

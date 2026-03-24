@@ -1,45 +1,40 @@
 /*
- * XREFs of ?FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C002693C
+ * XREFs of ?FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0050780
  * Callers:
- *     ?_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAV1@@Z @ 0x1C0023B1C (-_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     ?_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAV1@@Z @ 0x1C0052C94 (-_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@.c)
  * Callees:
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?_Create@FxPkgFdo@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@PEAPEAV1@@Z @ 0x1C0022C90 (-_Create@FxPkgFdo@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@PEAPEAV1@@Z.c)
- *     ?InstallPackage@FxDevice@@QEAAXPEAVFxPackage@@@Z @ 0x1C00240F0 (-InstallPackage@FxDevice@@QEAAXPEAVFxPackage@@@Z.c)
- *     ?MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z @ 0x1C0026218 (-MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z.c)
- *     ?SetFilter@FxDevice@@QEAAJE@Z @ 0x1C00263B8 (-SetFilter@FxDevice@@QEAAJE@Z.c)
- *     ?CreateDevice@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C002640C (-CreateDevice@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
- *     ?PostCreateDeviceInitialize@FxWmiIrpHandler@@QEAAJXZ @ 0x1C002680C (-PostCreateDeviceInitialize@FxWmiIrpHandler@@QEAAJXZ.c)
- *     ?PostCreateDeviceInitialize@FxPkgGeneral@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C002684C (-PostCreateDeviceInitialize@FxPkgGeneral@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
- *     ?PostCreateDeviceInitialize@FxPkgFdo@@QEAAJXZ @ 0x1C0026B98 (-PostCreateDeviceInitialize@FxPkgFdo@@QEAAJXZ.c)
- *     ?CreateDefaultDeviceList@FxPkgFdo@@QEAAJPEAU_WDF_CHILD_LIST_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0031E78 (-CreateDefaultDeviceList@FxPkgFdo@@QEAAJPEAU_WDF_CHILD_LIST_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@.c)
- *     ?SetFilterIoType@FxDevice@@AEAAXXZ @ 0x1C003420C (-SetFilterIoType@FxDevice@@AEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z @ 0x1C003BC4C (-MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z.c)
+ *     ?PostCreateDeviceInitialize@FxWmiIrpHandler@@QEAAJXZ @ 0x1C0040158 (-PostCreateDeviceInitialize@FxWmiIrpHandler@@QEAAJXZ.c)
+ *     ?CreateDevice@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0051960 (-CreateDevice@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ *     ?InstallPackage@FxDevice@@QEAAXPEAVFxPackage@@@Z @ 0x1C0052410 (-InstallPackage@FxDevice@@QEAAXPEAVFxPackage@@@Z.c)
+ *     ?SetFilter@FxDevice@@QEAAJE@Z @ 0x1C00525D8 (-SetFilter@FxDevice@@QEAAJE@Z.c)
+ *     ?SetFilterIoType@FxDevice@@AEAAXXZ @ 0x1C005265C (-SetFilterIoType@FxDevice@@AEAAXXZ.c)
+ *     ?CreateDefaultDeviceList@FxPkgFdo@@QEAAJPEAU_WDF_CHILD_LIST_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0084130 (-CreateDefaultDeviceList@FxPkgFdo@@QEAAJPEAU_WDF_CHILD_LIST_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@.c)
+ *     ?PostCreateDeviceInitialize@FxPkgFdo@@QEAAJXZ @ 0x1C0084638 (-PostCreateDeviceInitialize@FxPkgFdo@@QEAAJXZ.c)
+ *     ?_Create@FxPkgFdo@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@PEAPEAV1@@Z @ 0x1C008490C (-_Create@FxPkgFdo@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@PEAPEAV1@@Z.c)
+ *     ?PostCreateDeviceInitialize@FxPkgGeneral@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C008DFF0 (-PostCreateDeviceInitialize@FxPkgGeneral@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
  */
 
 int __fastcall FxDevice::FdoInitialize(FxDevice *this, WDFDEVICE_INIT *DeviceInit)
 {
+  int (__fastcall *EvtDeviceFilterAddResourceRequirements)(WDFDEVICE__ *, WDFIORESREQLIST__ *); // rax
   _FX_DRIVER_GLOBALS *m_Globals; // rsi
   int result; // eax
-  FxPkgFdo *v6; // rdx
-  _DEVICE_OBJECT *v7; // rax
+  FxPkgFdo *v7; // rdx
   _WDF_OBJECT_ATTRIBUTES *p_ListConfigAttributes; // r8
   FxPkgPnp *m_PkgPnp; // rcx
+  _DEVICE_OBJECT *v10; // rax
   FxPkgFdo *pkgFdo; // [rsp+40h] [rbp+8h] BYREF
 
+  EvtDeviceFilterAddResourceRequirements = DeviceInit->Fdo.EventCallbacks.EvtDeviceFilterAddResourceRequirements;
   m_Globals = this->m_Globals;
   pkgFdo = 0LL;
-  if ( DeviceInit->Fdo.EventCallbacks.EvtDeviceFilterAddResourceRequirements
-    && !DeviceInit->Fdo.EventCallbacks.EvtDeviceRemoveAddedResources )
+  if ( EvtDeviceFilterAddResourceRequirements && !DeviceInit->Fdo.EventCallbacks.EvtDeviceRemoveAddedResources )
   {
-    WPP_IFR_SF_q(
-      m_Globals,
-      2u,
-      0xCu,
-      0xAu,
-      WPP_FxDeviceKm_cpp_Traceguids,
-      DeviceInit->Fdo.EventCallbacks.EvtDeviceFilterAddResourceRequirements);
+    WPP_IFR_SF_q(m_Globals, 2u, 0xCu, 0xAu, WPP_FxDeviceKm_cpp_Traceguids, EvtDeviceFilterAddResourceRequirements);
     FxVerifierDbgBreakPoint(m_Globals);
     return -1073741436;
   }
@@ -49,9 +44,9 @@ int __fastcall FxDevice::FdoInitialize(FxDevice *this, WDFDEVICE_INIT *DeviceIni
   result = FxPkgFdo::_Create(m_Globals, this, &pkgFdo);
   if ( result >= 0 )
   {
-    v6 = pkgFdo;
+    v7 = pkgFdo;
     this->m_PkgPnp = pkgFdo;
-    FxDevice::InstallPackage(this, v6);
+    FxDevice::InstallPackage(this, v7);
     result = FxDevice::SetFilter(this, DeviceInit->Fdo.Filter);
     if ( result >= 0 )
     {
@@ -60,7 +55,7 @@ int __fastcall FxDevice::FdoInitialize(FxDevice *this, WDFDEVICE_INIT *DeviceIni
       {
         if ( !DeviceInit->Fdo.ListConfig.Size )
         {
-LABEL_6:
+LABEL_12:
           if ( DeviceInit->Fdo.EventCallbacks.Size )
           {
             m_PkgPnp = this->m_PkgPnp;
@@ -71,11 +66,11 @@ LABEL_6:
           result = FxDevice::CreateDevice(this, DeviceInit);
           if ( result >= 0 )
           {
-            v7 = IoAttachDeviceToDeviceStack(
-                   this->m_DeviceObject.m_DeviceObject,
-                   this->m_PhysicalDevice.FxDeviceBase::m_DeviceObject);
-            this->m_AttachedDevice.FxDeviceBase::m_DeviceObject = v7;
-            if ( v7 )
+            v10 = IoAttachDeviceToDeviceStack(
+                    this->m_DeviceObject.m_DeviceObject,
+                    this->m_PhysicalDevice.FxDeviceBase::m_DeviceObject);
+            this->m_AttachedDevice.FxDeviceBase::m_DeviceObject = v10;
+            if ( v10 )
             {
               if ( this->m_Filter )
               {
@@ -121,7 +116,7 @@ LABEL_6:
         if ( result >= 0 )
         {
           this->SetDeviceTelemetryInfoFlags(this, DeviceInfoHasDynamicChildren);
-          goto LABEL_6;
+          goto LABEL_12;
         }
       }
     }

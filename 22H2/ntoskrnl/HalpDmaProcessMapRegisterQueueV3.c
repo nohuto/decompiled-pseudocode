@@ -1,25 +1,26 @@
 /*
- * XREFs of HalpDmaProcessMapRegisterQueueV3 @ 0x14050FF38
+ * XREFs of HalpDmaProcessMapRegisterQueueV3 @ 0x1404C6298
  * Callers:
- *     HalpGrowMapBufferWorker @ 0x140501AA0 (HalpGrowMapBufferWorker.c)
- *     IoFreeMapRegistersV3 @ 0x140510390 (IoFreeMapRegistersV3.c)
+ *     IoFreeMapRegistersV3 @ 0x1403A25D4 (IoFreeMapRegistersV3.c)
+ *     HalpGrowMapBufferWorker @ 0x1404B8EB0 (HalpGrowMapBufferWorker.c)
  * Callees:
- *     HalpDmaDequeueAdapter @ 0x14045BD30 (HalpDmaDequeueAdapter.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140514F7C (HalpAllocateDmaResourcesInternal.c)
+ *     HalpDmaDequeueAdapter @ 0x1404C7338 (HalpDmaDequeueAdapter.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x1404CA51C (HalpAllocateDmaResourcesInternal.c)
  */
 
-__int64 *__fastcall HalpDmaProcessMapRegisterQueueV3(__int64 a1, char a2)
+struct _DMA_ADAPTER *__fastcall HalpDmaProcessMapRegisterQueueV3(__int64 a1, __int64 a2)
 {
-  __int64 *result; // rax
-  __int64 v5; // rdx
+  char v2; // bl
+  struct _DMA_ADAPTER *result; // rax
 
+  v2 = a2;
   do
   {
-    result = HalpDmaDequeueAdapter(a1, a2);
+    LOBYTE(a2) = v2;
+    result = (struct _DMA_ADAPTER *)HalpDmaDequeueAdapter(a1, a2);
     if ( !result )
       break;
-    LOBYTE(v5) = 1;
-    result = (__int64 *)HalpAllocateDmaResourcesInternal(result, v5, 0LL);
+    result = (struct _DMA_ADAPTER *)HalpAllocateDmaResourcesInternal(result);
   }
   while ( (_BYTE)result );
   return result;

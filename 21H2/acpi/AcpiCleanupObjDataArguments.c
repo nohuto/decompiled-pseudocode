@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiCleanupObjDataArguments @ 0x1C005B868
+ * XREFs of AcpiCleanupObjDataArguments @ 0x1C005A968
  * Callers:
- *     AcpiCleanupObjDataArguments @ 0x1C005B868 (AcpiCleanupObjDataArguments.c)
- *     AcpiConvertMethodArgumentsToObjData @ 0x1C005B8FC (AcpiConvertMethodArgumentsToObjData.c)
- *     AcpiNativeMethodEvalRequestHandler @ 0x1C005C220 (AcpiNativeMethodEvalRequestHandler.c)
+ *     AcpiCleanupObjDataArguments @ 0x1C005A968 (AcpiCleanupObjDataArguments.c)
+ *     AcpiConvertMethodArgumentsToObjData @ 0x1C005A9FC (AcpiConvertMethodArgumentsToObjData.c)
+ *     AcpiNativeMethodEvalRequestHandler @ 0x1C005B360 (AcpiNativeMethodEvalRequestHandler.c)
  * Callees:
- *     AcpiCleanupObjDataArguments @ 0x1C005B868 (AcpiCleanupObjDataArguments.c)
+ *     AcpiCleanupObjDataArguments @ 0x1C005A968 (AcpiCleanupObjDataArguments.c)
  */
 
 void __fastcall AcpiCleanupObjDataArguments(__int64 a1, unsigned int a2)

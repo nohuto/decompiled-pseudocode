@@ -1,14 +1,13 @@
 /*
- * XREFs of MiCompressTbFlushList @ 0x14022BAE0
+ * XREFs of MiCompressTbFlushList @ 0x1402A32E0
  * Callers:
- *     MiWsleFlush @ 0x1402C1F50 (MiWsleFlush.c)
- *     MiZeroPage @ 0x1402C4E50 (MiZeroPage.c)
- *     MiInsertTbFlushEntry @ 0x1402CF280 (MiInsertTbFlushEntry.c)
- *     MiTerminateWsleCluster @ 0x14032F750 (MiTerminateWsleCluster.c)
- *     MiDeleteVa @ 0x140330730 (MiDeleteVa.c)
- *     MiClearPteAccessed @ 0x140332A80 (MiClearPteAccessed.c)
- *     MmUnmapViewInSystemCache @ 0x140335870 (MmUnmapViewInSystemCache.c)
- *     MiFlushTbAsNeeded @ 0x140352EB0 (MiFlushTbAsNeeded.c)
+ *     MiZeroPage @ 0x140233310 (MiZeroPage.c)
+ *     MmUnmapViewInSystemCache @ 0x140313AE0 (MmUnmapViewInSystemCache.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140317490 (MiMoveDirtyBitsToPfns.c)
+ *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
+ *     MiDeleteVa @ 0x140337A80 (MiDeleteVa.c)
+ *     MiClearPteAccessed @ 0x140339E00 (MiClearPteAccessed.c)
+ *     MiTerminateWsleCluster @ 0x14033AD20 (MiTerminateWsleCluster.c)
  * Callees:
  *     <none>
  */

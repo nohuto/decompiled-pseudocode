@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetNodeStandbyPageCount @ 0x1402C02B0
+ * XREFs of MiGetNodeStandbyPageCount @ 0x1402C03B0
  * Callers:
- *     MiCheckZeroFreeRebalance @ 0x14010C520 (MiCheckZeroFreeRebalance.c)
- *     MiRebalanceZeroFreeLists @ 0x1402C0D70 (MiRebalanceZeroFreeLists.c)
- *     MiRebuildLargePage @ 0x1402CE2E4 (MiRebuildLargePage.c)
- *     MiRebuildLargePages @ 0x1402CE550 (MiRebuildLargePages.c)
+ *     MiCheckZeroFreeRebalance @ 0x14010C540 (MiCheckZeroFreeRebalance.c)
+ *     MiRebalanceZeroFreeLists @ 0x1402C0E70 (MiRebalanceZeroFreeLists.c)
+ *     MiRebuildLargePage @ 0x1402CE3E4 (MiRebuildLargePage.c)
+ *     MiRebuildLargePages @ 0x1402CE650 (MiRebuildLargePages.c)
  * Callees:
  *     <none>
  */

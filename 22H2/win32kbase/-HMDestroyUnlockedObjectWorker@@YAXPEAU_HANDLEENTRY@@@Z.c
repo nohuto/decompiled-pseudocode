@@ -1,43 +1,74 @@
 /*
- * XREFs of ?HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C004EC10
+ * XREFs of ?HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C0043ABC
  * Callers:
- *     ThreadUnlock1 @ 0x1C0045EE0 (ThreadUnlock1.c)
- *     ThreadUnlockWorker1 @ 0x1C0049E10 (ThreadUnlockWorker1.c)
- *     ?DestroyProcessesObjects@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C004F640 (-DestroyProcessesObjects@@YAXPEAUtagPROCESSINFO@@@Z.c)
- *     DestroyThreadsObjects @ 0x1C004F800 (DestroyThreadsObjects.c)
- *     HMUnlockObject @ 0x1C0056D70 (HMUnlockObject.c)
- *     HMUnlockObjectInternal @ 0x1C0056E30 (HMUnlockObjectInternal.c)
- *     HMDestroyUnlockedObject @ 0x1C012C9D0 (HMDestroyUnlockedObject.c)
+ *     ThreadUnlock1 @ 0x1C002F910 (ThreadUnlock1.c)
+ *     ?DestroyProcessesObjects@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C0034600 (-DestroyProcessesObjects@@YAXPEAUtagPROCESSINFO@@@Z.c)
+ *     DestroyThreadsObjects @ 0x1C00347E0 (DestroyThreadsObjects.c)
+ *     HMUnlockObjectInternal @ 0x1C0046AB0 (HMUnlockObjectInternal.c)
+ *     HMUnlockObjectWorker @ 0x1C0046BE0 (HMUnlockObjectWorker.c)
+ *     ThreadUnlockWorker1 @ 0x1C007F100 (ThreadUnlockWorker1.c)
+ *     HMDestroyUnlockedObject @ 0x1C00C0E40 (HMDestroyUnlockedObject.c)
  * Callees:
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C004C624 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     ?HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C004EC70 (-HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009CB48 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     HMRemoveHandleForObjectWorker @ 0x1C00098D8 (HMRemoveHandleForObjectWorker.c)
+ *     EtwTraceUserDestroyHandle @ 0x1C000998C (EtwTraceUserDestroyHandle.c)
+ *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C003492C (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0043DC4 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0043E10 (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     HMUnlockObjectWorker @ 0x1C0046BE0 (HMUnlockObjectWorker.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     HMCleanupGrantedHandle @ 0x1C0113F88 (HMCleanupGrantedHandle.c)
  */
 
 void __fastcall HMDestroyUnlockedObjectWorker(struct _HANDLEENTRY *a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  int v5; // [rsp+38h] [rbp+10h] BYREF
+  _QWORD **v2; // r14
+  __int64 v3; // rax
+  __int64 v4; // rdi
+  __int64 v5; // rcx
+  __int64 v6; // rsi
+  char EtwUserHandleType; // al
+  char v8; // al
+  void *v9; // rcx
+  char v10; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( gbInDestroyHandleTableObjects || !PsGetCurrentThreadWin32Thread() )
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v10);
+  v2 = (_QWORD **)gpKernelHandleTable;
+  v3 = a1 - qword_1C024FA38;
+  v4 = 0LL;
+  *((_BYTE *)a1 + 25) |= 2u;
+  v5 = *((unsigned __int8 *)a1 + 24);
+  v6 = 3LL * (unsigned int)(v3 >> 5);
+  if ( (_BYTE)v5 == 19 || (_BYTE)v5 == 22 )
   {
-    if ( PsGetCurrentThreadWin32Thread() )
+    EtwUserHandleType = GetEtwUserHandleType(v5);
+    EtwTraceUserDestroyHandle(*v2[v6], EtwUserHandleType, 0);
+    if ( (*((_BYTE *)a1 + 25) & 0x20) != 0 )
     {
-      if ( (gdwHydraHint & 0x80u) == 0 )
-      {
-        v5 = 0x20000;
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 3610LL);
-      }
+      HMCleanupGrantedHandle(*v2[v6]);
+      *((_BYTE *)a1 + 25) &= ~0x20u;
     }
-    HMDestroyUnlockedObjectWorkerAtomic(a1);
+    v8 = *((_BYTE *)a1 + 24);
+    if ( v8 == 19 )
+    {
+      v9 = (void *)v2[v6][4];
+    }
+    else
+    {
+      if ( v8 != 22 )
+      {
+LABEL_15:
+        HMRemoveHandleForObjectWorker((__int64)a1);
+        goto LABEL_4;
+      }
+      v4 = v2[v6][2];
+      v9 = *(void **)(v4 + 32);
+    }
+    ObfDereferenceObject(v9);
+    goto LABEL_15;
   }
-  else
-  {
-    AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v5, v2, v3, v4);
-    HMDestroyUnlockedObjectWorkerAtomic(a1);
-    AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v5);
-  }
+  (*(&gahti + 3 * v5))((ULONG_PTR)v2[3 * (unsigned int)(v3 >> 5)]);
+LABEL_4:
+  if ( !gbInDestroyHandleTableObjects && v4 )
+    HMUnlockObjectWorker(v4);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v10);
 }

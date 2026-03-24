@@ -1,8 +1,8 @@
 /*
- * XREFs of MiLockDriverMappings @ 0x1400F6188
+ * XREFs of MiLockDriverMappings @ 0x1400F61A8
  * Callers:
- *     MiReserveDriverPtes @ 0x1406838CC (MiReserveDriverPtes.c)
- *     MiReleaseDriverPtes @ 0x14070E05C (MiReleaseDriverPtes.c)
+ *     MiReserveDriverPtes @ 0x1406838AC (MiReserveDriverPtes.c)
+ *     MiReleaseDriverPtes @ 0x14070E03C (MiReleaseDriverPtes.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  */

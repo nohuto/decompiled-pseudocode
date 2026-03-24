@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CEllipseGeometry::sc_Radius__ @ 0x180002710
+ * XREFs of _dynamic_initializer_for__CEllipseGeometry::sc_Radius__ @ 0x1800021B0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CEllipseGeometry::sc_Radius__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E4938 = (unsigned __int64)CResource::SetAnimatedProperty;
-  qword_1803E4948 = v1;
+  xmmword_180346168 = (unsigned __int64)CResource::SetAnimatedProperty;
+  qword_180346178 = v1;
   return result;
 }

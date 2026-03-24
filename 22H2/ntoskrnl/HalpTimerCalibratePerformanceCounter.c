@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTimerCalibratePerformanceCounter @ 0x14037AC68
+ * XREFs of HalpTimerCalibratePerformanceCounter @ 0x1403A5564
  * Callers:
- *     HalpTimerInitialize @ 0x14037ABD0 (HalpTimerInitialize.c)
- *     HalCalibratePerformanceCounter @ 0x1404FE230 (HalCalibratePerformanceCounter.c)
- *     HalpTimerRestorePerformanceCounter @ 0x1404FE94C (HalpTimerRestorePerformanceCounter.c)
- *     HalpTimerPerformanceCounterPowerChange @ 0x140508CB0 (HalpTimerPerformanceCounterPowerChange.c)
+ *     HalCalibratePerformanceCounter @ 0x140384030 (HalCalibratePerformanceCounter.c)
+ *     HalpTimerRestorePerformanceCounter @ 0x1403865D8 (HalpTimerRestorePerformanceCounter.c)
+ *     HalpTimerInitialize @ 0x1403B11C4 (HalpTimerInitialize.c)
+ *     HalpTimerPerformanceCounterPowerChange @ 0x1404BFBE0 (HalpTimerPerformanceCounterPowerChange.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     HalpTimerPropagateQpcBiasUpdate @ 0x14037AD70 (HalpTimerPropagateQpcBiasUpdate.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     HalpTimerPropagateQpcBiasUpdate @ 0x1403A566C (HalpTimerPropagateQpcBiasUpdate.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpTimerCalibratePerformanceCounter(__int64 a1, __int64 a2)
@@ -18,15 +18,16 @@ __int64 __fastcall HalpTimerCalibratePerformanceCounter(__int64 a1, __int64 a2)
   __int64 v6; // rax
   unsigned __int64 v7; // r11
   signed __int64 v8; // rax
-  int v9; // r9d
+  int v9; // r10d
   unsigned __int64 v10; // rcx
   __int64 v11; // rdx
   signed __int64 v12; // rdx
   __int64 InternalData; // rax
   __int64 v15; // rax
-  __int64 v16; // r10
-  unsigned __int64 v17; // r10
-  signed __int32 v18[10]; // [rsp+0h] [rbp-28h] BYREF
+  __int64 v16; // r9
+  __int64 v17; // r8
+  unsigned __int64 v18; // r8
+  signed __int32 v19[10]; // [rsp+0h] [rbp-28h] BYREF
 
   if ( *(_DWORD *)(a1 + 220) == 64 )
   {
@@ -45,7 +46,7 @@ __int64 __fastcall HalpTimerCalibratePerformanceCounter(__int64 a1, __int64 a2)
         v5 = *(_QWORD *)(a1 + 200);
         v6 = HalpTimerGetInternalData(a1);
         v7 = (*(__int64 (__fastcall **)(__int64))(a1 + 112))(v6);
-        _InterlockedOr(v18, 0);
+        _InterlockedOr(v19, 0);
         v8 = *(_QWORD *)(a1 + 200);
       }
       while ( v5 != v8 );
@@ -55,13 +56,17 @@ __int64 __fastcall HalpTimerCalibratePerformanceCounter(__int64 a1, __int64 a2)
     v10 = v5 ^ v7;
     if ( _bittest64((const __int64 *)&v10, (unsigned __int8)(v9 - 1)) )
     {
-      v16 = -1LL;
+      v16 = 1LL;
+      if ( v9 == 64 )
+        v17 = -1LL;
+      else
+        v17 = (1LL << v9) - 1;
       if ( v9 != 64 )
-        v16 = (1LL << v9) - 1;
-      v17 = v5 & v16;
-      v12 = v7 | v5 ^ v17;
-      if ( v7 < v17 )
-        v12 += 1LL << v9;
+        v16 = 1LL << v9;
+      v18 = v5 & v17;
+      v12 = v7 | v5 ^ v18;
+      if ( v7 < v18 )
+        v12 += v16;
       _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 200), v12, v8);
     }
     else

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DxgkEngBltViaGDIApiExt@@YAHPEBU_D3DKMT_PRESENT@@PEAUHDC__@@PEBUtagRECT@@2QEAXIIIEEIP6AX22PEAU3@2II@ZP6AH4422@Z@Z @ 0x1C0168B80
+ * XREFs of ?DxgkEngBltViaGDIApiExt@@YAHPEBU_D3DKMT_PRESENT@@PEAUHDC__@@PEBUtagRECT@@2QEAXIIIEEIP6AX22PEAU3@2II@ZP6AH4422@Z@Z @ 0x1C0149E80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     DxgkEngBltViaGDI @ 0x1C0232494 (DxgkEngBltViaGDI.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     DxgkEngBltViaGDI @ 0x1C01FB9E4 (DxgkEngBltViaGDI.c)
  */
 
 __int64 __fastcall DxgkEngBltViaGDIApiExt(
@@ -27,13 +27,18 @@ __int64 __fastcall DxgkEngBltViaGDIApiExt(
   int v15; // esi
   int v16; // ebp
   int v17; // r14d
+  int v18; // eax
 
   v13 = 0;
   v14 = (int)a4;
   v15 = (int)a3;
   v16 = (int)a2;
   v17 = (int)a1;
-  if ( qword_1C0294510 && (int)qword_1C0294510() >= 0 )
+  if ( qword_1C0255100 )
+    v18 = qword_1C0255100();
+  else
+    v18 = -1073741637;
+  if ( v18 >= 0 )
     return (unsigned int)DxgkEngBltViaGDI(
                            v17,
                            v16,

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsXSaveFeatureAllowed @ 0x140A55F2C
+ * XREFs of KiIsXSaveFeatureAllowed @ 0x1409A0C90
  * Callers:
- *     KiIntersectFeaturesWithPolicy @ 0x140A55DCC (KiIntersectFeaturesWithPolicy.c)
+ *     KiIntersectFeaturesWithPolicy @ 0x1409A0B30 (KiIntersectFeaturesWithPolicy.c)
  * Callees:
  *     <none>
  */

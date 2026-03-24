@@ -1,5 +1,5 @@
 /*
- * XREFs of GreQuerySystemTime @ 0x1C00B8200
+ * XREFs of GreQuerySystemTime @ 0x1C00AEA10
  * Callers:
  *     <none>
  * Callees:

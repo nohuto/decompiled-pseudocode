@@ -1,89 +1,90 @@
 /*
- * XREFs of ?ResetUndo@VIDMM_RECYCLE_MULTIRANGE@@QEAAJXZ @ 0x1C00E7398
+ * XREFs of ?ResetUndo@VIDMM_RECYCLE_MULTIRANGE@@QEAAJXZ @ 0x1C00C1D68
  * Callers:
- *     ?ResetUndo@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAX@Z @ 0x1C00E7300 (-ResetUndo@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAX@Z.c)
+ *     ?ResetUndo@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAX@Z @ 0x1C00C1CD0 (-ResetUndo@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAX@Z.c)
  * Callees:
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C001E570 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?VidMmAllocateVirtualMemory@@YAJPEAPEAXPEA_KKK@Z @ 0x1C0081428 (-VidMmAllocateVirtualMemory@@YAJPEAPEAXPEA_KKK@Z.c)
- *     ?Map@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAX_K0H@Z @ 0x1C00E6938 (-Map@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAX_K0H@Z.c)
- *     ?Unmap@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C00E7558 (-Unmap@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024E10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?VidMmAllocateVirtualMemory@@YAJPEAPEAXPEA_KKK@Z @ 0x1C0064DFC (-VidMmAllocateVirtualMemory@@YAJPEAPEAXPEA_KKK@Z.c)
+ *     ?Map@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAX_K0H@Z @ 0x1C00C11C0 (-Map@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAX_K0H@Z.c)
+ *     ?Unmap@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C00C2728 (-Unmap@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
  */
 
-__int64 __fastcall VIDMM_RECYCLE_MULTIRANGE::ResetUndo(
-        VIDMM_RECYCLE_MULTIRANGE *this,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall VIDMM_RECYCLE_MULTIRANGE::ResetUndo(VIDMM_RECYCLE_MULTIRANGE *this)
 {
-  int v4; // ebp
-  unsigned __int64 v5; // r8
-  int v6; // edi
-  VIDMM_RECYCLE_MULTIRANGE *v7; // rbx
-  int v8; // esi
-  int v9; // edx
-  int v10; // eax
-  int v11; // eax
-  void *v13; // [rsp+40h] [rbp+8h] BYREF
-  unsigned __int64 v14; // [rsp+48h] [rbp+10h] BYREF
+  int v1; // ebp
+  ULONG_PTR v2; // r8
+  __int64 v3; // rdi
+  VIDMM_RECYCLE_MULTIRANGE *v4; // rbx
+  ULONG v5; // esi
+  int v6; // edx
+  int v7; // eax
+  NTSTATUS v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  PVOID BaseAddress; // [rsp+40h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = 0;
-  v5 = *((_QWORD *)this + 5) - *((_QWORD *)this + 6);
-  v6 = 0;
-  v13 = 0LL;
-  v7 = this;
-  v14 = v5;
+  v1 = 0;
+  v2 = *((_QWORD *)this + 5) - *((_QWORD *)this + 6);
+  LODWORD(v3) = 0;
+  v4 = this;
+  BaseAddress = 0LL;
+  RegionSize = v2;
   if ( g_IsInternalReleaseOrDbg )
   {
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2, v5, a4) + 24) = this;
-    v5 = v14;
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(this) + 24) = this;
+    v2 = RegionSize;
   }
-  if ( !*((_BYTE *)v7 + 153) )
+  if ( *((_BYTE *)v4 + 153) )
   {
-    v8 = 1028;
-    v9 = **(_DWORD **)(*((_QWORD *)v7 + 10) + 32LL);
-    if ( (unsigned int)(v9 - 3) > 3 )
+    LODWORD(v3) = -1071775472;
+LABEL_19:
+    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+      McTemplateK0q_EtwWriteTransfer((__int64)this, &EventPerformanceWarning, v2, 18);
+    goto LABEL_22;
+  }
+  v5 = 1028;
+  this = *(VIDMM_RECYCLE_MULTIRANGE **)(*((_QWORD *)v4 + 10) + 32LL);
+  v6 = *(_DWORD *)this;
+  if ( (unsigned int)(*(_DWORD *)this - 3) > 3 )
+  {
+    BaseAddress = (PVOID)*((_QWORD *)v4 + 6);
+    v7 = 4;
+    if ( v6 != 2 )
+      v7 = 1028;
+    v5 = v7;
+  }
+  else
+  {
+    if ( v6 != 3 )
+      v5 = 4;
+    VIDMM_RECYCLE_MULTIRANGE::Map(v4, 0LL, v2, 1u);
+    if ( *((_BYTE *)v4 + 152) && (this = (VIDMM_RECYCLE_MULTIRANGE *)*((_QWORD *)v4 + 20)) != 0LL )
     {
-      v13 = (void *)*((_QWORD *)v7 + 6);
-      v10 = 4;
-      if ( v9 != 2 )
-        v10 = 1028;
-      v8 = v10;
+      this = (VIDMM_RECYCLE_MULTIRANGE *)((char *)this + *((_QWORD *)v4 + 21));
+      v1 = 1;
+      BaseAddress = this;
     }
     else
     {
-      if ( v9 != 3 )
-        v8 = 4;
-      VIDMM_RECYCLE_MULTIRANGE::Map(v7, 0LL, v5, 1u);
-      if ( *((_BYTE *)v7 + 152) && (this = (VIDMM_RECYCLE_MULTIRANGE *)*((_QWORD *)v7 + 20)) != 0LL )
-      {
-        this = (VIDMM_RECYCLE_MULTIRANGE *)((char *)this + *((_QWORD *)v7 + 21));
-        v4 = 1;
-        v13 = this;
-      }
-      else
-      {
-        v6 = -1071775472;
-      }
-      if ( v6 < 0 )
-      {
-LABEL_19:
-        if ( v6 != -1071775472 )
-          goto LABEL_23;
-        goto LABEL_20;
-      }
+      LODWORD(v3) = -1071775472;
     }
-    v11 = VidMmAllocateVirtualMemory(&v13, &v14, 0x1000000, v8);
-    v6 = v11;
-    if ( v11 < 0 )
-      WdLogSingleEntry1(4LL, v11);
-    goto LABEL_19;
   }
-  v6 = -1071775472;
-LABEL_20:
-  if ( bTracingEnabled && (byte_1C006E941 & 1) != 0 )
-    McTemplateK0q_EtwWriteTransfer((__int64)this, (__int64)&EventPerformanceWarning, v5, 18);
-LABEL_23:
-  if ( v4 )
-    VIDMM_RECYCLE_MULTIRANGE::Unmap(v7);
-  return (unsigned int)v6;
+  if ( (int)v3 >= 0 )
+  {
+    v8 = VidMmAllocateVirtualMemory(&BaseAddress, &RegionSize, 0x1000000u, v5);
+    v3 = v8;
+    if ( v8 < 0 )
+    {
+      v10 = WdLogNewEntry5_WdEvent(this, v9);
+      *(_QWORD *)(v10 + 24) = v3;
+      WdLogEvent5_WdEvent(v10);
+    }
+  }
+  if ( (_DWORD)v3 == -1071775472 )
+    goto LABEL_19;
+LABEL_22:
+  if ( v1 )
+    VIDMM_RECYCLE_MULTIRANGE::Unmap(v4);
+  return (unsigned int)v3;
 }

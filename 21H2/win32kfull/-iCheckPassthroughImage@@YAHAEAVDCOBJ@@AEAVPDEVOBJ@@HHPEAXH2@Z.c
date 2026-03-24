@@ -1,144 +1,162 @@
 /*
- * XREFs of ?iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z @ 0x1C013DC80
+ * XREFs of ?iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z @ 0x1C0159EB4
  * Callers:
- *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z @ 0x1C013D690 (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z.c)
+ *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z @ 0x1C00A8FFC (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z.c)
  * Callees:
- *     ?pSurfobj@SURFACE@@QEAAPEAU_SURFOBJ@@XZ @ 0x1C00070F4 (-pSurfobj@SURFACE@@QEAAPEAU_SURFOBJ@@XZ.c)
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C002C6B0 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     ?CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C003BF70 (-CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     ?bSupportsJPEG@XDCOBJ@@QEAAHXZ @ 0x1C013DFAC (-bSupportsJPEG@XDCOBJ@@QEAAHXZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0087360 (-CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B59BC (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     ?bSupportsJPEG@XDCOBJ@@QEAAHXZ @ 0x1C015A224 (-bSupportsJPEG@XDCOBJ@@QEAAHXZ.c)
+ *     ??0SURFFAKEOBJ@@QEAA@PEAUHDEV__@@PEAUDHPDEV__@@@Z @ 0x1C016B364 (--0SURFFAKEOBJ@@QEAA@PEAUHDEV__@@PEAUDHPDEV__@@@Z.c)
+ *     ??1SURFFAKEOBJ@@QEAA@XZ @ 0x1C016B450 (--1SURFFAKEOBJ@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?bValid@SURFREF@@QEBAHXZ @ 0x1C026D1C4 (-bValid@SURFREF@@QEBAHXZ.c)
+ *     ?pSurfobj@SURFREF@@QEAAPEAU_SURFOBJ@@XZ @ 0x1C026D1F0 (-pSurfobj@SURFREF@@QEAAPEAU_SURFOBJ@@XZ.c)
  */
 
 __int64 __fastcall iCheckPassthroughImage(
-        struct DCOBJ *a1,
+        struct DCOBJ *this,
         struct PDEVOBJ *a2,
         int a3,
         int a4,
-        _DWORD *a5,
+        int *a5,
         unsigned int a6,
-        _DWORD *a7)
+        void *a7)
 {
-  int v7; // r9d
   int v10; // edi
-  unsigned int v11; // r14d
+  unsigned int v11; // esi
   unsigned int v12; // r10d
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // rax
-  __int64 v16; // rbx
-  _DWORD *XlateObject; // rax
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  void *v15; // r11
+  __int64 v16; // r8
+  __int64 v17; // rax
   __int64 v18; // rbx
-  struct _SURFOBJ *v19; // r10
-  _DWORD *v20; // rbx
-  __int64 v22; // [rsp+30h] [rbp-378h]
-  __int64 v23; // [rsp+38h] [rbp-370h]
-  __int64 v24; // [rsp+40h] [rbp-368h]
-  __int64 v27; // [rsp+58h] [rbp-350h]
-  _DWORD *v28; // [rsp+60h] [rbp-348h]
-  _DWORD *v29; // [rsp+68h] [rbp-340h] BYREF
-  __int64 v30; // [rsp+70h] [rbp-338h] BYREF
-  int v31; // [rsp+78h] [rbp-330h]
-  int v32; // [rsp+80h] [rbp-328h]
-  _DWORD *v33; // [rsp+88h] [rbp-320h]
-  _DWORD *v34; // [rsp+90h] [rbp-318h]
-  _BYTE v35[704]; // [rsp+A0h] [rbp-308h] BYREF
+  _DWORD *XlateObject; // rax
+  __int64 v20; // r10
+  struct _SURFOBJ *v21; // rax
+  _DWORD *v22; // rbx
+  unsigned int (__fastcall *v23)(struct _SURFOBJ *, _DWORD *, _QWORD); // r10
+  _DWORD *v25; // [rsp+50h] [rbp-B8h]
+  __int64 v26; // [rsp+58h] [rbp-B0h]
+  _DWORD *v27; // [rsp+60h] [rbp-A8h] BYREF
+  __int64 v28; // [rsp+68h] [rbp-A0h] BYREF
+  int v29; // [rsp+70h] [rbp-98h]
+  int v30; // [rsp+78h] [rbp-90h]
+  _BYTE v31[112]; // [rsp+80h] [rbp-88h] BYREF
 
-  v7 = a3;
-  v34 = a5;
-  v33 = a7;
   v10 = 0;
   v11 = 0;
   v12 = 8;
   if ( a3 == 8 )
   {
-    v32 = *a5;
-    if ( v32 == 4119 )
+    v30 = *a5;
+    if ( v30 == 4119 )
     {
-      if ( (unsigned int)XDCOBJ::bSupportsJPEG(a1) )
-        return *(_QWORD *)(*(_QWORD *)a2 + 3272LL) != 0LL;
+      if ( !(unsigned int)XDCOBJ::bSupportsJPEG(this) )
+        return v11;
+      v13 = *(_QWORD *)a2;
     }
     else
     {
-      v13 = *(_QWORD *)a1;
-      if ( (*(_DWORD *)(v13 + 76) & 8) != 0 && *(_DWORD *)(v13 + 32) != 1 )
-        return *(_QWORD *)(*(_QWORD *)a2 + 3272LL) != 0LL;
+      v14 = *(_QWORD *)this;
+      if ( (*(_DWORD *)(*(_QWORD *)this + 76LL) & 8) == 0 || *(_DWORD *)(v14 + 32) == 1 )
+        return v11;
+      v13 = *(_QWORD *)a2;
     }
-    return v11;
+    if ( *(_QWORD *)(v13 + 3296) )
+      return 1;
   }
-  if ( !*(_QWORD *)(*(_QWORD *)a2 + 3272LL) )
-    return v11;
-  if ( a6 < 4 || !a7 )
-    return (unsigned int)-1;
-  v14 = *(_QWORD *)a1;
-  v15 = *(_QWORD *)(*(_QWORD *)a1 + 496LL);
-  if ( v15 )
-    v27 = *(_QWORD *)(v15 + 128);
-  else
-    v27 = 0LL;
-  v16 = *(_QWORD *)(v14 + 88);
-  v31 = 0;
-  v30 = 0LL;
-  v28 = 0LL;
-  v29 = 0LL;
-  if ( (v7 != 4119 || !(unsigned int)XDCOBJ::bSupportsJPEG(a1))
-    && (v7 != 4120 || ((unsigned __int8)*(_DWORD *)(v14 + 76) & (unsigned __int8)v12) == 0 || *(_DWORD *)(v14 + 32) == 1)
-    || !PALMEMOBJ::bCreatePalette((PALMEMOBJ *)&v30, v12, 0, 0LL, 0, 0, 0, 0x200u, 1) )
+  else if ( *(_QWORD *)(*(_QWORD *)a2 + 3296LL) )
   {
-    goto LABEL_23;
-  }
-  LODWORD(v24) = 0xFFFFFF;
-  LODWORD(v23) = 0;
-  LODWORD(v22) = 0;
-  XlateObject = CreateXlateObject(
-                  *(void **)(*(_QWORD *)(*(_QWORD *)a1 + 976LL) + 248LL),
-                  *(_DWORD *)(*(_QWORD *)a1 + 120LL),
-                  v30,
-                  v27,
-                  v16,
-                  v16,
-                  v22,
-                  v23,
-                  v24,
-                  0);
-  v29 = XlateObject;
-  if ( !XlateObject )
-  {
-    v11 = -1;
-LABEL_23:
-    XlateObject = 0LL;
-    goto LABEL_24;
-  }
-  v28 = XlateObject;
-LABEL_24:
-  if ( XlateObject )
-  {
-    v18 = *(_QWORD *)a1;
-    v19 = SURFACE::pSurfobj(*(SURFACE **)(*(_QWORD *)a1 + 496LL));
-    if ( !v19 )
+    if ( a6 >= 4 && (v15 = a7) != 0LL )
     {
-      memset(v35, 0, 0x2B8uLL);
-      v19 = SURFACE::pSurfobj((SURFACE *)v35);
-      v19->dhpdev = *(DHPDEV *)(v18 + 24);
-      v19->hdev = *(HDEV *)(*(_QWORD *)a1 + 48LL);
-      v19->iType = 1;
+      v16 = *(_QWORD *)this;
+      v17 = *(_QWORD *)(*(_QWORD *)this + 496LL);
+      if ( v17 )
+        v26 = *(_QWORD *)(v17 + 128);
+      else
+        v26 = 0LL;
+      v18 = *(_QWORD *)(v16 + 88);
+      v29 = 0;
+      v28 = 0LL;
+      v25 = 0LL;
+      v27 = 0LL;
+      if ( a3 == 4119 && (unsigned int)XDCOBJ::bSupportsJPEG(this)
+        || a3 == 4120
+        && ((unsigned __int8)*(_DWORD *)(v16 + 76) & (unsigned __int8)v12) != 0
+        && *(_DWORD *)(v16 + 32) != 1 )
+      {
+        if ( PALMEMOBJ::bCreatePalette((PALMEMOBJ *)&v28, v12, 0, 0LL, 0, 0, 0, 0x200u, 1) )
+        {
+          XlateObject = CreateXlateObject(
+                          *(void **)(*(_QWORD *)(*(_QWORD *)this + 976LL) + 248LL),
+                          *(_DWORD *)(*(_QWORD *)this + 120LL),
+                          v28,
+                          v26,
+                          v18,
+                          v18,
+                          0,
+                          0,
+                          0xFFFFFFu,
+                          0);
+          v27 = XlateObject;
+          v15 = a7;
+          if ( XlateObject )
+            v25 = XlateObject;
+          else
+            v11 = -1;
+        }
+        else
+        {
+          v15 = a7;
+        }
+      }
+      if ( v25 )
+      {
+        v20 = (*(_QWORD *)(*(_QWORD *)this + 496LL) + 24LL) & -(__int64)(*(_QWORD *)(*(_QWORD *)this + 496LL) != 0LL);
+        if ( v20 )
+        {
+          LOBYTE(v10) = (*(unsigned int (__fastcall **)(__int64, _DWORD *, _QWORD, bool, int, int *, unsigned int, void *))(*(_QWORD *)a2 + 3296LL))(
+                          v20,
+                          v25,
+                          0LL,
+                          a3 != 4119,
+                          a4,
+                          a5,
+                          a6,
+                          v15) != 0;
+          v11 = 1;
+          v22 = a7;
+        }
+        else
+        {
+          SURFFAKEOBJ::SURFFAKEOBJ(
+            (SURFFAKEOBJ *)v31,
+            *(HDEV *)(*(_QWORD *)this + 48LL),
+            *(struct DHPDEV__ **)(*(_QWORD *)this + 24LL));
+          if ( (unsigned int)SURFREF::bValid((SURFREF *)v31) )
+          {
+            v21 = SURFREF::pSurfobj((SURFREF *)v31);
+            v22 = a7;
+            LOBYTE(v10) = v23(v21, v25, 0LL) != 0;
+            v11 = 1;
+          }
+          else
+          {
+            v11 = -1;
+            v22 = a7;
+          }
+          SURFFAKEOBJ::~SURFFAKEOBJ((SURFFAKEOBJ *)v31);
+        }
+        *v22 = v10;
+      }
+      EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v27, (__int64)a2);
+      PALMEMOBJ::~PALMEMOBJ((PALMEMOBJ *)&v28);
     }
-    v20 = v33;
-    LOBYTE(v10) = (*(unsigned int (__fastcall **)(struct _SURFOBJ *, _DWORD *, _QWORD, bool, int, _DWORD *, unsigned int, _DWORD *))(*(_QWORD *)a2 + 3272LL))(
-                    v19,
-                    v28,
-                    0LL,
-                    a3 != 4119,
-                    a4,
-                    v34,
-                    a6,
-                    v33) != 0;
-    v11 = 1;
-    *v20 = v10;
+    else
+    {
+      return (unsigned int)-1;
+    }
   }
-  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v29);
-  PALMEMOBJ::~PALMEMOBJ((PALMEMOBJ *)&v30);
   return v11;
 }

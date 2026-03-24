@@ -1,15 +1,15 @@
 /*
- * XREFs of NtGdiHLSurfSetInformation @ 0x1C0089CD0
+ * XREFs of NtGdiHLSurfSetInformation @ 0x1C0014D90
  * Callers:
  *     <none>
  * Callees:
- *     GreSfmCloseCompositorRef @ 0x1C0089AE4 (GreSfmCloseCompositorRef.c)
- *     GreSfmOpenCompositorRef @ 0x1C0089F6C (GreSfmOpenCompositorRef.c)
- *     GreSetRedirectionSurfaceSignaling @ 0x1C008AE7C (GreSetRedirectionSurfaceSignaling.c)
- *     GreSfmRegisterLogicalSurfaceForSignaling @ 0x1C0109CF0 (GreSfmRegisterLogicalSurfaceForSignaling.c)
- *     GreHLsurfSetPresentFlags @ 0x1C026D608 (GreHLsurfSetPresentFlags.c)
- *     GreHLsurfSetUpdateId @ 0x1C026D780 (GreHLsurfSetUpdateId.c)
- *     GreSfmGenerateMoveData @ 0x1C029FB4C (GreSfmGenerateMoveData.c)
+ *     GreSfmRegisterLogicalSurfaceForSignaling @ 0x1C00149D4 (GreSfmRegisterLogicalSurfaceForSignaling.c)
+ *     GreSfmOpenCompositorRef @ 0x1C001502C (GreSfmOpenCompositorRef.c)
+ *     GreSfmCloseCompositorRef @ 0x1C0015168 (GreSfmCloseCompositorRef.c)
+ *     GreSetRedirectionSurfaceSignaling @ 0x1C0017708 (GreSetRedirectionSurfaceSignaling.c)
+ *     GreHLsurfSetPresentFlags @ 0x1C026FA5C (GreHLsurfSetPresentFlags.c)
+ *     GreHLsurfSetUpdateId @ 0x1C026FBD0 (GreHLsurfSetUpdateId.c)
+ *     GreSfmGenerateMoveData @ 0x1C02A1044 (GreSfmGenerateMoveData.c)
  */
 
 __int64 __fastcall NtGdiHLSurfSetInformation(HLSURF a1, int a2, ULONG64 a3, unsigned int a4)

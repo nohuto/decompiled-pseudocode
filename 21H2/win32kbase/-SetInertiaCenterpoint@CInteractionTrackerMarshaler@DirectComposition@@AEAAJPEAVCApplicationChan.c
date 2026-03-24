@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetInertiaCenterpoint@CInteractionTrackerMarshaler@DirectComposition@@AEAAJPEAVCApplicationChannel@2@W4ScrollAxis@@PEAVCConditionalExpressionMarshaler@2@PEA_N@Z @ 0x1C0230A2C
+ * XREFs of ?SetInertiaCenterpoint@CInteractionTrackerMarshaler@DirectComposition@@AEAAJPEAVCApplicationChannel@2@W4ScrollAxis@@PEAVCConditionalExpressionMarshaler@2@PEA_N@Z @ 0x1C01F0E1C
  * Callers:
- *     ?SetReferenceProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0230C50 (-SetReferenceProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChann.c)
+ *     ?SetReferenceProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01F1040 (-SetReferenceProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChann.c)
  * Callees:
- *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C000B2B0 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
- *     ?GetWeakReferenceBase@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@PEAPEAVCWeakReferenceBase@2@@Z @ 0x1C009BA0C (-GetWeakReferenceBase@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@PEAPE.c)
+ *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C005FF10 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
+ *     ?GetWeakReferenceBase@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@PEAPEAVCWeakReferenceBase@2@@Z @ 0x1C01D4D04 (-GetWeakReferenceBase@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@PEAPE.c)
  */
 
 __int64 __fastcall DirectComposition::CInteractionTrackerMarshaler::SetInertiaCenterpoint(
@@ -23,7 +23,7 @@ __int64 __fastcall DirectComposition::CInteractionTrackerMarshaler::SetInertiaCe
 
   v5 = a3;
   WeakReferenceBase = 0;
-  v9 = *(_QWORD *)(a1 + 8LL * a3 + 336);
+  v9 = *(_QWORD *)(a1 + 8LL * a3 + 328);
   if ( v9 )
     v10 = *(struct DirectComposition::CResourceMarshaler **)(v9 + 16);
   else
@@ -34,8 +34,8 @@ __int64 __fastcall DirectComposition::CInteractionTrackerMarshaler::SetInertiaCe
     {
       DirectComposition::CApplicationChannel::ReleaseWeakReference(
         a2,
-        *(struct DirectComposition::CWeakReferenceBase **)(a1 + 8LL * a3 + 336));
-      *(_QWORD *)(a1 + 8 * v5 + 336) = 0LL;
+        *(struct DirectComposition::CWeakReferenceBase **)(a1 + 8LL * a3 + 328));
+      *(_QWORD *)(a1 + 8 * v5 + 328) = 0LL;
 LABEL_14:
       *(_DWORD *)(a1 + 16) &= (_DWORD)v5 != 0 ? -268435457 : -134217729;
       *a5 = 1;
@@ -52,7 +52,7 @@ LABEL_8:
         DirectComposition::CApplicationChannel::ReleaseWeakReference(
           a2,
           (struct DirectComposition::CWeakReferenceBase *)v9);
-      *(_QWORD *)(a1 + 8 * v5 + 336) = v11;
+      *(_QWORD *)(a1 + 8 * v5 + 328) = v11;
       goto LABEL_14;
     }
     WeakReferenceBase = DirectComposition::CApplicationChannel::GetWeakReferenceBase(a2, a4, &v13);

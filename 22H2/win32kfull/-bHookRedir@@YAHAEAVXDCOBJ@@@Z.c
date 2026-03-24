@@ -1,77 +1,78 @@
 /*
- * XREFs of ?bHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C009C6EC
+ * XREFs of ?bHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C00D5C08
  * Callers:
- *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C0002200 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
- *     ?bMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00A80B0 (-bMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ.c)
- *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C01026C0 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z.c)
+ *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C008C800 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z.c)
+ *     ?bMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00B80D0 (-bMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ.c)
+ *     ?bMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00D5B50 (-bMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ.c)
  * Callees:
- *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C0084804 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
- *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C0087BA8 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?bMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C02A6678 (-bMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
+ *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C009E430 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
+ *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C009F3D0 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ?bMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C029D5EC (-bMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
  */
 
 __int64 __fastcall bHookRedir(struct XDCOBJ *a1)
 {
-  Gre::Base *v2; // rcx
-  __int64 v3; // rsi
-  __int64 v4; // rdi
-  _DWORD *v5; // rdi
-  __int64 v7; // rbx
-  struct RFONT *v8; // rdx
-  signed __int32 v9; // ett
-  _QWORD *v10; // rax
-  void *v11; // [rsp+38h] [rbp+10h] BYREF
+  unsigned int v1; // esi
+  __int64 v3; // rdi
+  _DWORD *v4; // rdi
+  char *v6; // rbx
+  struct RFONT *v7; // rdx
+  signed __int32 v8; // ett
+  char *v9; // rax
+  char *v10; // [rsp+38h] [rbp+10h] BYREF
 
-  v3 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  if ( *(_DWORD *)(v3 + 23384) )
+  v1 = 0;
+  if ( gbNoHookRedir )
     return 0LL;
-  v4 = *(_QWORD *)a1;
+  v3 = *(_QWORD *)a1;
   if ( !*(_QWORD *)a1 )
     return 0LL;
-  if ( (*(_DWORD *)(v4 + 36) & 0x4000) == 0 )
+  if ( (*(_DWORD *)(v3 + 36) & 0x4000) == 0 )
     return 0LL;
-  v5 = *(_DWORD **)(v4 + 48);
-  if ( !v5 || (v5[10] & 0x20000000) == 0 )
+  v4 = *(_DWORD **)(v3 + 48);
+  if ( !v4 || (v4[10] & 0x20000000) == 0 )
     return 0LL;
-  Gre::Base::Globals(v2);
-  if ( !*(_QWORD *)(v3 + 23376) )
-    *(_QWORD *)(v3 + 23376) = PDEV::Allocate(0);
-  v7 = *(_QWORD *)(v3 + 23376);
-  if ( !v7 || *(_QWORD *)(*(_QWORD *)a1 + 48LL) == v7 )
-    return 0LL;
-  v11 = *(void **)(v3 + 23376);
-  memmove(v11, v5, 0xDA8uLL);
-  PDEVOBJ::prfntActive((PDEVOBJ *)&v11, 0LL);
-  PDEVOBJ::prfntInactive((PDEVOBJ *)&v11, v8);
-  if ( (*(_DWORD *)(v7 + 40) & 0x800000) != 0 )
-    *(_DWORD *)(*(_QWORD *)(v7 + 3496) + 1528LL) = 0;
-  else
-    *(_DWORD *)(v7 + 1528) = 0;
-  _m_prefetchw((const void *)(v7 + 40));
-  do
-    v9 = *(_DWORD *)(v7 + 40);
-  while ( v9 != _InterlockedCompareExchange((volatile signed __int32 *)(v7 + 40), v9 | 0x800000, v9) );
-  v10 = v11;
-  *((_QWORD *)v11 + 437) = v5;
-  v10[10] = v10;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 2848LL) = RedirTextOut;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 2776LL) = RedirStrokePath;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 2816LL) = RedirCopyBits;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 2808LL) = RedirBitBlt;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 2912LL) = RedirLineTo;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 2784LL) = RedirFillPath;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 2792LL) = RedirStrokeAndFillPath;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 2824LL) = RedirStretchBlt;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 3232LL) = RedirAlphaBlend;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 3256LL) = RedirTransparentBlt;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 3208LL) = RedirGradientFill;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 3384LL) = RedirDrawStream;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 3392LL) = RedirNineGrid;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 3224LL) = RedirPlgBlt;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 3216LL) = RedirStretchBltROP;
-  *(_QWORD *)(*(_QWORD *)(v3 + 23376) + 2864LL) = RedirDrawEscape;
-  bMakeOpaque(*(struct SURFACE **)(*(_QWORD *)a1 + 496LL));
-  *(_QWORD *)(*(_QWORD *)a1 + 48LL) = *(_QWORD *)(v3 + 23376);
-  return 1LL;
+  v6 = (char *)gpRedirDev;
+  if ( gpRedirDev || (gpRedirDev = PDEV::Allocate(0), (v6 = (char *)gpRedirDev) != 0LL) )
+  {
+    if ( *(char **)(*(_QWORD *)a1 + 48LL) != v6 )
+    {
+      v10 = v6;
+      memmove(v6, v4, 0xDC0uLL);
+      PDEVOBJ::prfntActive((PDEVOBJ *)&v10, 0LL);
+      PDEVOBJ::prfntInactive((PDEVOBJ *)&v10, v7);
+      if ( (*((_DWORD *)v6 + 10) & 0x800000) != 0 )
+        *(_DWORD *)(*((_QWORD *)v6 + 440) + 1536LL) = 0;
+      else
+        *((_DWORD *)v6 + 384) = 0;
+      _m_prefetchw(v6 + 40);
+      do
+        v8 = *((_DWORD *)v6 + 10);
+      while ( v8 != _InterlockedCompareExchange((volatile signed __int32 *)v6 + 10, v8 | 0x800000, v8) );
+      v9 = v10;
+      *((_QWORD *)v10 + 440) = v4;
+      *((_QWORD *)v9 + 11) = v9;
+      *((_QWORD *)gpRedirDev + 359) = RedirTextOut;
+      *((_QWORD *)gpRedirDev + 350) = RedirStrokePath;
+      *((_QWORD *)gpRedirDev + 355) = RedirCopyBits;
+      *((_QWORD *)gpRedirDev + 354) = RedirBitBlt;
+      *((_QWORD *)gpRedirDev + 367) = RedirLineTo;
+      *((_QWORD *)gpRedirDev + 351) = RedirFillPath;
+      *((_QWORD *)gpRedirDev + 352) = RedirStrokeAndFillPath;
+      *((_QWORD *)gpRedirDev + 356) = RedirStretchBlt;
+      *((_QWORD *)gpRedirDev + 407) = RedirAlphaBlend;
+      *((_QWORD *)gpRedirDev + 410) = RedirTransparentBlt;
+      *((_QWORD *)gpRedirDev + 404) = RedirGradientFill;
+      *((_QWORD *)gpRedirDev + 426) = RedirDrawStream;
+      *((_QWORD *)gpRedirDev + 427) = RedirNineGrid;
+      *((_QWORD *)gpRedirDev + 406) = RedirPlgBlt;
+      *((_QWORD *)gpRedirDev + 405) = RedirStretchBltROP;
+      *((_QWORD *)gpRedirDev + 361) = RedirDrawEscape;
+      bMakeOpaque(*(struct SURFACE **)(*(_QWORD *)a1 + 496LL));
+      v1 = 1;
+      *(_QWORD *)(*(_QWORD *)a1 + 48LL) = gpRedirDev;
+    }
+  }
+  return v1;
 }

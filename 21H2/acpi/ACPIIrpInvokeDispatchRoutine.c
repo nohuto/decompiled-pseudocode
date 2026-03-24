@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIIrpInvokeDispatchRoutine @ 0x1C009FC64
+ * XREFs of ACPIIrpInvokeDispatchRoutine @ 0x1C00A19F4
  * Callers:
- *     ACPIBusIrpQueryPnpDeviceState @ 0x1C009FC10 (ACPIBusIrpQueryPnpDeviceState.c)
- *     ACPIBusIrpQueryCapabilities @ 0x1C009FC40 (ACPIBusIrpQueryCapabilities.c)
- *     ACPIBusIrpEject @ 0x1C00AC920 (ACPIBusIrpEject.c)
- *     ACPIBusIrpSetLock @ 0x1C00ACBC0 (ACPIBusIrpSetLock.c)
+ *     ACPIBusIrpQueryPnpDeviceState @ 0x1C00A19A0 (ACPIBusIrpQueryPnpDeviceState.c)
+ *     ACPIBusIrpQueryCapabilities @ 0x1C00A19D0 (ACPIBusIrpQueryCapabilities.c)
+ *     ACPIBusIrpEject @ 0x1C00ADD60 (ACPIBusIrpEject.c)
+ *     ACPIBusIrpSetLock @ 0x1C00AE020 (ACPIBusIrpSetLock.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ACPIIrpInvokeDispatchRoutine(
@@ -45,11 +45,10 @@ LABEL_4:
     }
     else
     {
-      if ( v10 == -1073741637 )
-        return (unsigned int)IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 776), a2);
-      a2->IoStatus.Status = v10;
-      if ( (int)(v10 + 0x80000000) < 0 )
-        return (unsigned int)IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 776), a2);
+      if ( v10 != -1073741637 )
+        a2->IoStatus.Status = v10;
+      if ( (int)(v10 + 0x80000000) < 0 || v10 == -1073741637 )
+        return (unsigned int)IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 736), a2);
     }
     IofCompleteRequest(a2, 0);
   }

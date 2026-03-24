@@ -1,17 +1,63 @@
 /*
- * XREFs of ?UnmapSharedMemory@CSharedSectionBase@@IEBAXXZ @ 0x1800F6990
+ * XREFs of ?UnmapSharedMemory@CSharedSectionBase@@IEBAXXZ @ 0x1800D8B80
  * Callers:
- *     ??1CSharedSectionBase@@MEAA@XZ @ 0x1800F695C (--1CSharedSectionBase@@MEAA@XZ.c)
- *     ?OnChanged@CSharedSectionBase@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800F9170 (-OnChanged@CSharedSectionBase@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ??1CSharedSectionBase@@MEAA@XZ @ 0x1800D8B4C (--1CSharedSectionBase@@MEAA@XZ.c)
+ *     ?OnChanged@CSharedSectionBase@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800D9250 (-OnChanged@CSharedSectionBase@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
  * Callees:
- *     ?UnmapSharedSectionView@CComposition@@QEAAXPEAX@Z @ 0x1800F69E0 (-UnmapSharedSectionView@CComposition@@QEAAXPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CSharedSectionBase::UnmapSharedMemory(CSharedSectionBase *this)
 {
-  if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**(_QWORD **)(*((_QWORD *)this + 2) + 656LL) + 40LL))(*(_QWORD *)(*((_QWORD *)this + 2) + 656LL)) )
-    CComposition::UnmapSharedSectionView(*((CComposition **)this + 2), *((void **)this + 10));
+  char v2; // al
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  __int64 v5; // r10
+  unsigned int v6; // eax
+  unsigned int v7; // edx
+  LPCVOID v8; // rcx
+  int v9; // ebx
+  int v10; // eax
+  __int64 v11; // rcx
+  LPCVOID lpBaseAddress; // [rsp+40h] [rbp+8h] BYREF
+
+  v2 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*((_QWORD *)this + 2) + 504LL) + 104LL))(*(_QWORD *)(*((_QWORD *)this + 2) + 504LL));
+  v4 = *((_QWORD *)this + 9);
+  if ( !v2 )
+  {
+    v8 = (LPCVOID)*((_QWORD *)this + 9);
+LABEL_12:
+    UnmapViewOfFile(v8);
+    return;
+  }
+  v5 = *((_QWORD *)this + 2);
+  lpBaseAddress = (LPCVOID)*((_QWORD *)this + 9);
+  v6 = *(_DWORD *)(v5 + 680);
+  v7 = v6 + 1;
+  if ( v6 + 1 < v6 )
+  {
+    v9 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, -2147024362, 0xB5u, 0LL);
+  }
   else
-    UnmapViewOfFile(*((LPCVOID *)this + 10));
+  {
+    if ( v7 <= *(_DWORD *)(v5 + 676) )
+    {
+      *(_QWORD *)(*(_QWORD *)(v5 + 656) + 8LL * v6) = v4;
+      *(_DWORD *)(v5 + 680) = v7;
+      return;
+    }
+    v10 = DynArrayImpl<0>::AddMultipleAndSet(v5 + 656, 8, 1, &lpBaseAddress);
+    v9 = v10;
+    if ( v10 >= 0 )
+      return;
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xC0u, 0LL);
+  }
+  if ( v9 < 0 )
+  {
+    v8 = lpBaseAddress;
+    goto LABEL_12;
+  }
 }

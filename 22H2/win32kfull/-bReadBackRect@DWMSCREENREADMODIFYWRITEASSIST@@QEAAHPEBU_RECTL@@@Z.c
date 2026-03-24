@@ -1,20 +1,20 @@
 /*
- * XREFs of ?bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z @ 0x1C029A604
+ * XREFs of ?bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z @ 0x1C0147A10
  * Callers:
- *     NtGdiPolyPatBlt @ 0x1C002C310 (NtGdiPolyPatBlt.c)
- *     ?bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ @ 0x1C02A8980 (-bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ.c)
- *     NtGdiFillRgn @ 0x1C02A8FD0 (NtGdiFillRgn.c)
- *     NtGdiFrameRgn @ 0x1C02A9590 (NtGdiFrameRgn.c)
+ *     NtGdiPolyPatBlt @ 0x1C00B2E00 (NtGdiPolyPatBlt.c)
+ *     NtGdiFrameRgn @ 0x1C013E790 (NtGdiFrameRgn.c)
+ *     NtGdiFillRgn @ 0x1C01462A0 (NtGdiFillRgn.c)
+ *     ?bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ @ 0x1C029EC9C (-bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ.c)
  * Callees:
- *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C0101D80 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
+ *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C0087CC8 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
  */
 
-_BOOL8 __fastcall DWMSCREENREADMODIFYWRITEASSIST::bReadBackRect(
+__int64 __fastcall DWMSCREENREADMODIFYWRITEASSIST::bReadBackRect(
         DWMSCREENREADMODIFYWRITEASSIST *this,
         const struct _RECTL *a2)
 {
   struct XDCOBJ *v2; // rcx
-  _BOOL8 result; // rax
+  __int64 result; // rax
 
   v2 = (struct XDCOBJ *)*((_QWORD *)this + 3);
   result = 0LL;

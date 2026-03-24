@@ -1,26 +1,34 @@
 /*
- * XREFs of FreeObject @ 0x1C0088C60
+ * XREFs of FreeObject @ 0x1C002BC40
  * Callers:
- *     HmgAlloc @ 0x1C003DD30 (HmgAlloc.c)
- *     HmgFree @ 0x1C0088BA0 (HmgFree.c)
- *     ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C00BA604 (-GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z.c)
- *     ?bGarbageCollect@EPATHOBJGC@@QEAA_NXZ @ 0x1C00D1688 (-bGarbageCollect@EPATHOBJGC@@QEAA_NXZ.c)
- *     ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00D33D8 (-bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z.c)
- *     EngDeleteDriverObj @ 0x1C016B1A0 (EngDeleteDriverObj.c)
+ *     HmgAlloc @ 0x1C0001410 (HmgAlloc.c)
+ *     HmgFree @ 0x1C007C860 (HmgFree.c)
+ *     ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C00A06C4 (-GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z.c)
+ *     ?bGarbageCollect@EPATHOBJGC@@QEAA_NXZ @ 0x1C00C87BC (-bGarbageCollect@EPATHOBJGC@@QEAA_NXZ.c)
+ *     ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00CB468 (-bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z.c)
+ *     EngDeleteDriverObj @ 0x1C014C420 (EngDeleteDriverObj.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z @ 0x1C00946EC (-FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall FreeObject(void *a1, unsigned int a2)
+__int64 __fastcall FreeObject(__int64 a1, int a2)
 {
-  __int64 v2; // rdi
-  NSInstrumentation::CLeakTrackingAllocator *v4; // rcx
+  void * near *v3; // rdi
+  __int64 result; // rax
 
-  v2 = a2;
-  v4 = *(NSInstrumentation::CLeakTrackingAllocator **)(SGDGetSessionState(a1) + 24);
-  if ( *((__int16 *)a1 + 7) >= 0 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, a1);
+  if ( *(__int16 *)(a1 + 14) >= 0 )
+    return Win32FreePool(a1);
+  v3 = (&pHmgLookAsideList)[a2];
+  if ( qword_1C0256D60 )
+    result = qword_1C0256D60();
   else
-    NSInstrumentation::CLeakTrackingAllocator::FreeToPagedLookasideList(v4, *((void **)v4 + v2 + 244), a1);
+    result = 3221225659LL;
+  if ( (int)result >= 0 )
+  {
+    result = (__int64)qword_1C0256D68;
+    if ( qword_1C0256D68 )
+      return qword_1C0256D68(v3, a1);
+  }
+  return result;
 }

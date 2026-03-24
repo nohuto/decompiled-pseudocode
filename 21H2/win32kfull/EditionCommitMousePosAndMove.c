@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionCommitMousePosAndMove @ 0x1C009B1C0
+ * XREFs of EditionCommitMousePosAndMove @ 0x1C0030DA0
  * Callers:
  *     <none>
  * Callees:
- *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C009B280 (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
+ *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C003145C (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
  */
 
 __int64 __fastcall EditionCommitMousePosAndMove(
@@ -26,6 +26,6 @@ __int64 __fastcall EditionCommitMousePosAndMove(
     v14 = *(_QWORD *)(a4 + 8);
   else
     v14 = 0LL;
-  v15 = UpconvertTime(a5, a2, a3, a4);
+  v15 = UpconvertTime(a5);
   return xxxMoveEventAbsolute(*a1, a1[1], a2, v14, a3, v15, a6, a7, a8, a9, a11);
 }

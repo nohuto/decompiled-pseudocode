@@ -1,9 +1,10 @@
 /*
- * XREFs of ?GetEntry@CResourceTable@@IEAAPEAUHANDLE_ENTRY@1@I@Z @ 0x18006132C
+ * XREFs of ?GetEntry@CResourceTable@@IEAAPEAUHANDLE_ENTRY@1@I@Z @ 0x18005D4C0
  * Callers:
- *     ?DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z @ 0x1800611C4 (-DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z.c)
+ *     ?DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z @ 0x18005E6A0 (-DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z.c)
+ *     ?DeleteHandle@CResourceTable@@QEAAJI@Z @ 0x18005E9EC (-DeleteHandle@CResourceTable@@QEAAJI@Z.c)
  * Callees:
- *     ?ValidEntry@HANDLE_TABLE@@QEBAHI@Z @ 0x1800BE004 (-ValidEntry@HANDLE_TABLE@@QEBAHI@Z.c)
+ *     ?ValidEntry@HANDLE_TABLE@@QEBAHI@Z @ 0x18005DBD0 (-ValidEntry@HANDLE_TABLE@@QEBAHI@Z.c)
  */
 
 struct CResourceTable::HANDLE_ENTRY *__fastcall CResourceTable::GetEntry(CResourceTable *this, unsigned int a2)

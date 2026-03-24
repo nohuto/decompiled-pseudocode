@@ -1,18 +1,18 @@
 /*
- * XREFs of ?EmitUpdateCommands@CGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009E3B0
+ * XREFs of ?EmitUpdateCommands@CGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0063490
  * Callers:
- *     ?EmitUpdateCommands@CRectangleClipMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009E200 (-EmitUpdateCommands@CRectangleClipMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitUpdateCommands@CEllipseGeometryMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021F310 (-EmitUpdateCommands@CEllipseGeometryMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitUpdateCommands@CLineGeometryMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021F520 (-EmitUpdateCommands@CLineGeometryMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitUpdateCommands@CPathGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021F650 (-EmitUpdateCommands@CPathGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitUpdateCommands@CRegionGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0224DC0 (-EmitUpdateCommands@CRegionGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitUpdateCommands@CProxyGeometryClipMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0236EE0 (-EmitUpdateCommands@CProxyGeometryClipMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CRectangleClipMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0063530 (-EmitUpdateCommands@CRectangleClipMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CRegionGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB2B0 (-EmitUpdateCommands@CRegionGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CEllipseGeometryMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E8A90 (-EmitUpdateCommands@CEllipseGeometryMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CLineGeometryMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E8CA0 (-EmitUpdateCommands@CLineGeometryMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CPathGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E8DD0 (-EmitUpdateCommands@CPathGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CProxyGeometryClipMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F65B0 (-EmitUpdateCommands@CProxyGeometryClipMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_64908135f1c49a3973e646aa3bcc2672___ @ 0x1C0009660 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_64908135f1c49a3973e646aa3bcc267.c)
- *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010F54 (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_06ba42d09620fef85c2a15f679544b4c___ @ 0x1C021F030 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_06ba42d09620fef85c2a15f679544b4.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_09b4ae0d16a1760f70555ce71a600cac___ @ 0x1C021F0A4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_09b4ae0d16a1760f70555ce71a600ca.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_55a5365cf2dea5d0e237b7ba311a8cf2___ @ 0x1C021F118 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_55a5365cf2dea5d0e237b7ba311a8cf.c)
+ *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061DEC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_64908135f1c49a3973e646aa3bcc2672___ @ 0x1C0065FE8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_64908135f1c49a3973e646aa3bcc267.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_06ba42d09620fef85c2a15f679544b4c___ @ 0x1C01E87C0 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_06ba42d09620fef85c2a15f679544b4.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_09b4ae0d16a1760f70555ce71a600cac___ @ 0x1C01E8834 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_09b4ae0d16a1760f70555ce71a600ca.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_55a5365cf2dea5d0e237b7ba311a8cf2___ @ 0x1C01E88A8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_55a5365cf2dea5d0e237b7ba311a8cf.c)
  */
 
 char __fastcall DirectComposition::CGeometryMarshaler::EmitUpdateCommands(
@@ -30,10 +30,10 @@ char __fastcall DirectComposition::CGeometryMarshaler::EmitUpdateCommands(
     v7 = this;
     if ( (v5 & 0x80u) != 0 )
     {
-      if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_64908135f1c49a3973e646aa3bcc2672___(
-              (__int64)this,
-              a2,
-              (__int64)&v7) )
+      if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_64908135f1c49a3973e646aa3bcc2672___(
+                               this,
+                               a2,
+                               &v7) )
         return v4;
       *((_DWORD *)this + 4) &= ~0x80u;
       v5 = *((_DWORD *)this + 4);

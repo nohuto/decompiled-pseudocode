@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpOpenRealTimeConnectionObject @ 0x1406C2D20
+ * XREFs of EtwpOpenRealTimeConnectionObject @ 0x1406A6D50
  * Callers:
  *     <none>
  * Callees:

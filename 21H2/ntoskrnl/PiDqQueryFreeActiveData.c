@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDqQueryFreeActiveData @ 0x140776E5C
+ * XREFs of PiDqQueryFreeActiveData @ 0x14062E710
  * Callers:
- *     PiDqIrpQueryGetResult @ 0x1407735A0 (PiDqIrpQueryGetResult.c)
- *     PiDqQueryRelease @ 0x140775854 (PiDqQueryRelease.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x140775990 (PiDqObjectManagerServiceActionQueue.c)
- *     PiDqQueryApplyObjectEvent @ 0x140775D50 (PiDqQueryApplyObjectEvent.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407762E4 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDqIrpQueryCreate @ 0x1407768EC (PiDqIrpQueryCreate.c)
- *     PiDqQueryAppendActionEntry @ 0x140777CF0 (PiDqQueryAppendActionEntry.c)
+ *     PiDqIrpQueryGetResult @ 0x14062E070 (PiDqIrpQueryGetResult.c)
+ *     PiDqQueryRelease @ 0x14062E694 (PiDqQueryRelease.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14062E878 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqIrpQueryCreate @ 0x14062F0BC (PiDqIrpQueryCreate.c)
+ *     PiDqQueryAppendActionEntry @ 0x14062FC34 (PiDqQueryAppendActionEntry.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x140763120 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqQueryApplyObjectEvent @ 0x1407634C4 (PiDqQueryApplyObjectEvent.c)
  * Callees:
- *     RtlIsGenericTableEmptyAvl @ 0x1402DECE0 (RtlIsGenericTableEmptyAvl.c)
- *     PiDqQueryDeleteObjectFromResultSet @ 0x1407734A4 (PiDqQueryDeleteObjectFromResultSet.c)
- *     PiDqQueryActionQueueEntryFree @ 0x1407780BC (PiDqQueryActionQueueEntryFree.c)
- *     PiDqActionDataFree @ 0x140778370 (PiDqActionDataFree.c)
+ *     RtlIsGenericTableEmptyAvl @ 0x1402643F0 (RtlIsGenericTableEmptyAvl.c)
+ *     PiDqQueryDeleteObjectFromResultSet @ 0x14062E5EC (PiDqQueryDeleteObjectFromResultSet.c)
+ *     PiDqQueryActionQueueEntryFree @ 0x14062F968 (PiDqQueryActionQueueEntryFree.c)
+ *     PiDqActionDataFree @ 0x14062FB54 (PiDqActionDataFree.c)
  */
 
 BOOLEAN __fastcall PiDqQueryFreeActiveData(__int64 a1)

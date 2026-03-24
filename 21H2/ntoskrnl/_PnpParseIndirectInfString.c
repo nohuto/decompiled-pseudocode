@@ -1,18 +1,18 @@
 /*
- * XREFs of _PnpParseIndirectInfString @ 0x1406C47D8
+ * XREFs of _PnpParseIndirectInfString @ 0x1406B109C
  * Callers:
- *     _PnpRegQueryValueIndirect @ 0x1406B89A0 (_PnpRegQueryValueIndirect.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1406BD994 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x140785B98 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x14063EDF8 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _PnpRegQueryValueIndirect @ 0x140699930 (_PnpRegQueryValueIndirect.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F5AC (_CmGetInstallerClassMappedPropertyFromRegProp.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x1402DF9D0 (RtlUnalignedStringCchLengthW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x1402659E4 (RtlUnalignedStringCchLengthW.c)
  */
 
 char __fastcall PnpParseIndirectInfString(const wchar_t *a1)
 {
   _WORD *v1; // r11
-  __int16 v2; // ax
-  __int64 v3; // rcx
+  __int16 v3; // ax
+  __int64 v4; // rcx
   __int64 i; // rdx
   __int16 v6; // cx
   int v7; // ecx
@@ -25,16 +25,16 @@ char __fastcall PnpParseIndirectInfString(const wchar_t *a1)
   pcchLength = 0LL;
   if ( RtlUnalignedStringCchLengthW(a1, 0x7FFFuLL, &pcchLength) < 0 || pcchLength < 5 || *v1 != 64 )
     return 0;
-  v2 = v1[1];
-  LODWORD(v3) = 1;
-  while ( v2 && v2 != 44 )
+  v3 = v1[1];
+  LODWORD(v4) = 1;
+  while ( v3 && v3 != 44 )
   {
-    v3 = (unsigned int)(v3 + 1);
-    v2 = v1[v3];
+    v4 = (unsigned int)(v4 + 1);
+    v3 = v1[v4];
   }
-  if ( v1[(unsigned int)v3] != 44 || v1[(unsigned int)(v3 + 1)] != 37 )
+  if ( v1[(unsigned int)v4] != 44 || v1[(unsigned int)(v4 + 1)] != 37 )
     return 0;
-  for ( i = (unsigned int)(v3 + 2); ; i = (unsigned int)(i + 1) )
+  for ( i = (unsigned int)(v4 + 2); ; i = (unsigned int)(i + 1) )
   {
     v6 = v1[i];
     if ( !v6 || v6 == 59 )

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CScenePbrMaterialMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C021E3C0
+ * XREFs of ?SetIntegerProperty@CScenePbrMaterialMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01DD7B0
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ __int64 __fastcall DirectComposition::CScenePbrMaterialMarshaler::SetIntegerProp
         DirectComposition::CScenePbrMaterialMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
-        int a4,
+        __int64 a4,
         bool *a5)
 {
   unsigned int v5; // edx
@@ -22,10 +22,10 @@ __int64 __fastcall DirectComposition::CScenePbrMaterialMarshaler::SetIntegerProp
   {
     if ( v6 == 3 )
     {
-      if ( *((_BYTE *)this + 84) != (a4 != 0) )
+      if ( *((_BYTE *)this + 84) != ((_DWORD)a4 != 0) )
       {
         *((_DWORD *)this + 4) |= 0x200u;
-        *((_BYTE *)this + 84) = a4 != 0;
+        *((_BYTE *)this + 84) = (_DWORD)a4 != 0;
         *a5 = 1;
       }
     }

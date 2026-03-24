@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ShouldDeferToken@CSynchronizationManager@DirectComposition@@SA_N_K0@Z @ 0x1C009ACA8
+ * XREFs of ?ShouldDeferToken@CSynchronizationManager@DirectComposition@@SA_N_K0@Z @ 0x1C00850D8
  * Callers:
- *     DCompositionShouldDeferToken @ 0x1C009AC90 (DCompositionShouldDeferToken.c)
+ *     DCompositionShouldDeferToken @ 0x1C00850C0 (DCompositionShouldDeferToken.c)
  * Callees:
- *     ?FindObject@?$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectComposition@@QEAAPEAVCBatch@2@_K@Z @ 0x1C009AE0C (-FindObject@-$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectComposition@@QEAA.c)
+ *     ?FindObject@?$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectComposition@@QEAAPEAVCBatch@2@_K@Z @ 0x1C008523C (-FindObject@-$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectComposition@@QEAA.c)
  */
 
 char __fastcall DirectComposition::CSynchronizationManager::ShouldDeferToken(__int64 a1, __int64 a2)

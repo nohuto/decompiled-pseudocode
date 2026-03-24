@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetSurfaceUpdates@CGlobalSurfaceManager@@AEAAJPEAIPEAH@Z @ 0x1801B7568
+ * XREFs of ?GetSurfaceUpdates@CGlobalSurfaceManager@@AEAAJPEAIPEAH@Z @ 0x180164278
  * Callers:
- *     ?ProcessSurfaceUpdates@CGlobalSurfaceManager@@UEAAJXZ @ 0x180044FB0 (-ProcessSurfaceUpdates@CGlobalSurfaceManager@@UEAAJXZ.c)
+ *     ?ProcessSurfaceUpdates@CGlobalSurfaceManager@@UEAAJXZ @ 0x18009C570 (-ProcessSurfaceUpdates@CGlobalSurfaceManager@@UEAAJXZ.c)
  * Callees:
- *     ?GetCurrentFrameId@@YA_KXZ @ 0x1800895E0 (-GetCurrentFrameId@@YA_KXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x18008F604 (-GetCurrentFrameId@@YA_KXZ.c)
  */
 
 __int64 __fastcall CGlobalSurfaceManager::GetSurfaceUpdates(CGlobalSurfaceManager *this, unsigned int *a2, int *a3)
@@ -22,7 +22,7 @@ __int64 __fastcall CGlobalSurfaceManager::GetSurfaceUpdates(CGlobalSurfaceManage
   if ( FrameSurfaceUpdates < 0 )
   {
     v3 = FrameSurfaceUpdates | 0x10000000;
-    MilInstrumentationCheckHR_MaybeFailFast(v7, &dword_18033C2D0, 3u, FrameSurfaceUpdates | 0x10000000, 0x7Fu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, &dword_1802DB4D8, 3u, FrameSurfaceUpdates | 0x10000000, 0xA9u, 0LL);
   }
   return v3;
 }

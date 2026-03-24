@@ -1,14 +1,14 @@
 /*
- * XREFs of wcsncat_s @ 0x1403E7750
+ * XREFs of wcsncat_s @ 0x1403D8300
  * Callers:
- *     NtLockProductActivationKeys @ 0x14080D370 (NtLockProductActivationKeys.c)
- *     PnprGetPluginDriverImagePath @ 0x140952178 (PnprGetPluginDriverImagePath.c)
- *     SddlpUuidFromString @ 0x1409CFF00 (SddlpUuidFromString.c)
- *     ExpConvertArcName @ 0x1409FB95C (ExpConvertArcName.c)
- *     ExpFindArcName @ 0x1409FC2D0 (ExpFindArcName.c)
- *     ExpTranslateEfiPath @ 0x1409FE5F4 (ExpTranslateEfiPath.c)
+ *     NtLockProductActivationKeys @ 0x1407B40D0 (NtLockProductActivationKeys.c)
+ *     PnprGetPluginDriverImagePath @ 0x1408AD71C (PnprGetPluginDriverImagePath.c)
+ *     SddlpUuidFromString @ 0x140926A68 (SddlpUuidFromString.c)
+ *     ExpConvertArcName @ 0x14094F59C (ExpConvertArcName.c)
+ *     ExpFindArcName @ 0x14094FF14 (ExpFindArcName.c)
+ *     ExpTranslateEfiPath @ 0x14095223C (ExpTranslateEfiPath.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl wcsncat_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src, rsize_t MaxCount)
@@ -27,7 +27,7 @@ errno_t __cdecl wcsncat_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src,
   {
     if ( !Dst )
     {
-LABEL_28:
+LABEL_30:
       xHalTimerWatchdogStop();
       return 22;
     }
@@ -36,53 +36,56 @@ LABEL_28:
   {
     if ( !SizeInWords )
       return 0;
-    goto LABEL_28;
+    goto LABEL_30;
   }
   if ( !SizeInWords )
-    goto LABEL_28;
+    goto LABEL_30;
   if ( MaxCount && !Src )
+    goto LABEL_12;
+  do
   {
-LABEL_11:
-    v7 = 22;
+    if ( !*Dst )
+      break;
+    ++Dst;
+    --SizeInWords;
   }
-  else
+  while ( SizeInWords );
+  if ( SizeInWords )
   {
-    while ( *Dst )
-    {
-      ++Dst;
-      if ( !--SizeInWords )
-        goto LABEL_11;
-    }
     if ( MaxCount == -1LL )
     {
       v8 = (char *)Dst - (char *)Src;
-      while ( 1 )
+      do
       {
         v9 = *Src;
         *(const wchar_t *)((char *)Src + v8) = *Src;
         ++Src;
         if ( !v9 )
-          return 0;
-        if ( !--SizeInWords )
-          goto LABEL_23;
+          break;
+        --SizeInWords;
       }
+      while ( SizeInWords );
     }
-    if ( MaxCount )
+    else
     {
+      if ( !MaxCount )
+        goto LABEL_24;
       v10 = (char *)Src - (char *)Dst;
       do
       {
         v11 = *(wchar_t *)((char *)Dst + v10);
         *Dst++ = v11;
         if ( !v11 )
-          return 0;
+          break;
         if ( !--SizeInWords )
-          goto LABEL_23;
+          break;
+        --MaxCount;
       }
-      while ( --MaxCount );
+      while ( MaxCount );
+      if ( !MaxCount )
+LABEL_24:
+        *Dst = 0;
     }
-    *Dst = 0;
-LABEL_23:
     if ( SizeInWords )
       return 0;
     if ( MaxCount == -1LL )
@@ -91,6 +94,11 @@ LABEL_23:
       return 80;
     }
     v7 = 34;
+  }
+  else
+  {
+LABEL_12:
+    v7 = 22;
   }
   *v5 = 0;
   xHalTimerWatchdogStop();

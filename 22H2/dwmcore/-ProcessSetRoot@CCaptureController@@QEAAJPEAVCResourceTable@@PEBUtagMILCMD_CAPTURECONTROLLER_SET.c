@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessSetRoot@CCaptureController@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CAPTURECONTROLLER_SETROOT@@@Z @ 0x1802208E4
+ * XREFs of ?ProcessSetRoot@CCaptureController@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CAPTURECONTROLLER_SETROOT@@@Z @ 0x1801B6BB4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??4?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCVisual@@@Z @ 0x1800C7A54 (--4-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCVisual@@@Z.c)
- *     ?SetRootVisual@CRenderTarget@@QEAAJPEAVCVisual@@@Z @ 0x1801E6FBC (-SetRootVisual@CRenderTarget@@QEAAJPEAVCVisual@@@Z.c)
+ *     ??4?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorBrush@@@Z @ 0x180009404 (--4-$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorBrush@@@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3484 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?SetRootVisual@CCaptureRenderTarget@@QEAAJPEAVCVisual@@@Z @ 0x180187FD4 (-SetRootVisual@CCaptureRenderTarget@@QEAAJPEAVCVisual@@@Z.c)
  */
 
 __int64 __fastcall CCaptureController::ProcessSetRoot(
@@ -16,17 +16,17 @@ __int64 __fastcall CCaptureController::ProcessSetRoot(
   __int64 Resource; // rax
   unsigned int v5; // edx
   struct CVisual **v7; // rdi
-  CRenderTarget **v8; // rsi
-  CRenderTarget **i; // rbx
+  CCaptureRenderTarget **v8; // rsi
+  CCaptureRenderTarget **i; // rbx
 
   Resource = 0LL;
   v5 = *((_DWORD *)a3 + 2);
   if ( v5 )
-    Resource = CResourceTable::GetResource((__int64)a2, v5, 0xC4u);
-  v7 = (struct CVisual **)((char *)this + 88);
-  wil::com_ptr_t<CVisual,wil::err_returncode_policy>::operator=((__int64 *)this + 11, Resource);
-  v8 = (CRenderTarget **)*((_QWORD *)this + 9);
-  for ( i = (CRenderTarget **)*((_QWORD *)this + 8); i != v8; ++i )
-    CRenderTarget::SetRootVisual(*i, *v7);
+    Resource = CResourceTable::GetResource((__int64)a2, v5, 0xC3u);
+  v7 = (struct CVisual **)((char *)this + 80);
+  wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>::operator=((__int64 *)this + 10, Resource);
+  v8 = (CCaptureRenderTarget **)*((_QWORD *)this + 8);
+  for ( i = (CCaptureRenderTarget **)*((_QWORD *)this + 7); i != v8; ++i )
+    CCaptureRenderTarget::SetRootVisual(*i, *v7);
   return 0LL;
 }

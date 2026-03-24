@@ -1,13 +1,13 @@
 /*
- * XREFs of AslFileMappingCreateFromImageView @ 0x140842D98
+ * XREFs of AslFileMappingCreateFromImageView @ 0x1407B3798
  * Callers:
- *     SdbGetDatabaseMatch @ 0x14075E2D8 (SdbGetDatabaseMatch.c)
+ *     SdbGetDatabaseMatch @ 0x14077E648 (SdbGetDatabaseMatch.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslStringDuplicate @ 0x14075B1B8 (AslStringDuplicate.c)
- *     AslAlloc @ 0x14075B444 (AslAlloc.c)
- *     AslFileMappingDelete @ 0x14075E448 (AslFileMappingDelete.c)
- *     AslpFileMappingGetFileKind @ 0x140842E88 (AslpFileMappingGetFileKind.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslFileMappingDelete @ 0x140756368 (AslFileMappingDelete.c)
+ *     AslStringDuplicate @ 0x14075A8A4 (AslStringDuplicate.c)
+ *     AslAlloc @ 0x14075B098 (AslAlloc.c)
+ *     AslpFileMappingGetFileKind @ 0x1407B3894 (AslpFileMappingGetFileKind.c)
  */
 
 __int64 __fastcall AslFileMappingCreateFromImageView(wchar_t ***a1, const wchar_t *a2, wchar_t *a3, wchar_t *a4)
@@ -28,7 +28,6 @@ __int64 __fastcall AslFileMappingCreateFromImageView(wchar_t ***a1, const wchar_
     if ( v10 < 0 )
     {
       AslLogCallPrintf(1LL);
-      AslFileMappingDelete((PVOID *)v9);
     }
     else
     {
@@ -54,8 +53,11 @@ __int64 __fastcall AslFileMappingCreateFromImageView(wchar_t ***a1, const wchar_
         *v11 = 1;
       }
       *a1 = v9;
-      return 0;
+      v10 = 0;
+      v9 = 0LL;
     }
+    if ( v9 )
+      AslFileMappingDelete((PVOID *)v9);
   }
   else
   {

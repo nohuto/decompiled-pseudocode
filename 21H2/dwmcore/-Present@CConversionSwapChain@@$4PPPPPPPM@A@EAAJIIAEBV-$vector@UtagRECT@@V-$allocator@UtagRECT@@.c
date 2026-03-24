@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Present@CConversionSwapChain@@$4PPPPPPPM@A@EAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x18010A6F0
+ * XREFs of ?Present@CConversionSwapChain@@$4PPPPPPPM@A@EAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x1800F7EE0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CConversionSwapChain::Present(__int64 a1, int a2, int a3, int a4, int a5)
+__int64 __fastcall CConversionSwapChain::Present(__int64 a1, unsigned int a2, char a3, __int64 a4, unsigned int a5)
 {
-  return CConversionSwapChain::Present((int)a1 - *(_DWORD *)(a1 - 4), a2, a3, a4, a5);
+  return CConversionSwapChain::Present(a1 - *(int *)(a1 - 4), a2, a3, a4, a5);
 }

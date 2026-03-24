@@ -3,7 +3,7 @@
  * Callers:
  *     CmpCheckRegistry2 @ 0x1405D8EF0 (CmpCheckRegistry2.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     RtlCompareUnicodeString @ 0x1405BFF20 (RtlCompareUnicodeString.c)
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
  *     CmpCompareCompressedName @ 0x1405D5D90 (CmpCompareCompressedName.c)

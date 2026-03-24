@@ -1,41 +1,38 @@
 /*
- * XREFs of ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1800AC96C
+ * XREFs of ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1800B2AD8
  * Callers:
- *     ?Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBG_N@Z @ 0x1800ACD90 (-Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMs.c)
+ *     ?Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBG_N@Z @ 0x1800B376C (-Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMs.c)
  * Callees:
- *     StringCopyWorkerW @ 0x1800AB310 (StringCopyWorkerW.c)
+ *     StringCopyWorkerW @ 0x1800B2BA4 (StringCopyWorkerW.c)
  */
 
-__int64 __fastcall StringCchCatW(unsigned __int16 *a1, __int64 a2, const unsigned __int16 *a3)
+__int64 __fastcall StringCchCatW(unsigned __int16 *a1, __int64 a2, size_t *a3)
 {
-  __int64 v5; // r9
-  unsigned __int16 *v6; // rax
-  unsigned int v7; // edx
-  __int64 v8; // r8
-  size_t v10; // [rsp+20h] [rbp-18h]
+  signed int v3; // r9d
+  __int64 v5; // rcx
+  unsigned __int16 *i; // rax
+  __int64 v7; // rax
+  size_t v9; // [rsp+20h] [rbp-18h]
 
+  v3 = 0;
   if ( (unsigned __int64)(a2 - 1) > 0x7FFFFFFE )
+    v3 = -2147024809;
+  if ( v3 < 0 )
+    goto LABEL_12;
+  v5 = a2;
+  for ( i = a1; v5; --v5 )
   {
-    return (unsigned int)-2147024809;
+    if ( !*i )
+      break;
+    ++i;
   }
+  v3 = v5 == 0 ? 0x80070057 : 0;
+  if ( v5 )
+    v7 = a2 - v5;
   else
-  {
-    v5 = a2;
-    v6 = a1;
-    do
-    {
-      if ( !*v6 )
-        break;
-      ++v6;
-      --v5;
-    }
-    while ( v5 );
-    v7 = v5 == 0 ? 0x80070057 : 0;
-    if ( v5 )
-    {
-      v8 = (a2 - v5) & -(__int64)(v5 != 0);
-      return (unsigned int)StringCopyWorkerW(&a1[v8], a2 - v8, (size_t *)v8, a3, v10);
-    }
-  }
-  return v7;
+LABEL_12:
+    v7 = 0LL;
+  if ( v3 >= 0 )
+    return (unsigned int)StringCopyWorkerW(&a1[v7], a2 - v7, a3, (STRSAFE_PCNZWCH)a3, v9);
+  return (unsigned int)v3;
 }

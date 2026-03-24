@@ -1,22 +1,22 @@
 /*
- * XREFs of PnpGetDeviceResourcesFromRegistry @ 0x1407904EC
+ * XREFs of PnpGetDeviceResourcesFromRegistry @ 0x140750014
  * Callers:
- *     IopQueryDeviceResources @ 0x140790134 (IopQueryDeviceResources.c)
- *     IopPnPDispatch @ 0x1407EB5A0 (IopPnPDispatch.c)
- *     IopInitializeDeviceInstanceKey @ 0x140814744 (IopInitializeDeviceInstanceKey.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074E544 (IopInitializeDeviceInstanceKey.c)
+ *     IopPnPDispatch @ 0x14074EF40 (IopPnPDispatch.c)
+ *     IopQueryDeviceResources @ 0x14074FC5C (IopQueryDeviceResources.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     PnpReadDeviceConfiguration @ 0x140845368 (PnpReadDeviceConfiguration.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     PnpReadDeviceConfiguration @ 0x1407505C0 (PnpReadDeviceConfiguration.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetDeviceResourcesFromRegistry(__int64 a1, int a2, char a3, void **a4, _DWORD *a5)
 {
-  _DWORD *v5; // r12
+  _DWORD *v5; // r13
   int RegistryValue; // ebx
   HANDLE v10; // rcx
   __int64 v11; // rdx
@@ -29,16 +29,17 @@ __int64 __fastcall PnpGetDeviceResourcesFromRegistry(__int64 a1, int a2, char a3
   __int64 v18; // rdx
   unsigned int *v19; // rdi
   unsigned int v20; // eax
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
+  _DWORD *v22; // rax
   PVOID P[2]; // [rsp+40h] [rbp-10h] BYREF
-  HANDLE Handle; // [rsp+98h] [rbp+48h] BYREF
+  HANDLE Handle; // [rsp+88h] [rbp+38h] BYREF
 
   v5 = a5;
   *a4 = 0LL;
   Handle = 0LL;
-  P[0] = 0LL;
-  *v5 = 0;
   RegistryValue = 0;
+  *v5 = 0;
+  P[0] = 0LL;
   if ( a2 )
   {
     if ( a1 )
@@ -79,14 +80,18 @@ LABEL_26:
         v20 = *((_DWORD *)P[0] + 3);
         if ( v20 )
         {
-          Pool2 = ExAllocatePool2(256LL, v20, 1970499664LL);
-          *a4 = (void *)Pool2;
-          if ( Pool2 )
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, v20, 0x75737050u);
+          *a4 = PoolWithTag;
+          if ( PoolWithTag )
           {
             *v5 = v19[3];
             memmove(*a4, (char *)v19 + v19[2], v19[3]);
+            v22 = *a4;
             if ( *((_DWORD *)*a4 + 1) == -1 )
-              *(_QWORD *)((char *)*a4 + 4) = 1LL;
+            {
+              v22[2] = 0;
+              v22[1] = 1;
+            }
           }
           else
           {

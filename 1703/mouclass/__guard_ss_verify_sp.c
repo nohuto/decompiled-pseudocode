@@ -1,1 +1,13 @@
-/*\n * XREFs of __guard_ss_verify_sp @ 0x1C0002C40\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\n// attributes: thunk\n__int64 _guard_ss_verify_sp()\n{\n  return _guard_ss_verify_sp_fptr();\n}\n
+/*
+ * XREFs of __guard_ss_verify_sp @ 0x1C0002C40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 _guard_ss_verify_sp()
+{
+  return _guard_ss_verify_sp_fptr();
+}

@@ -1,17 +1,17 @@
 /*
- * XREFs of Register_BiosHandoff @ 0x1C0013F1C
+ * XREFs of Register_BiosHandoff @ 0x1C0013F74
  * Callers:
- *     Controller_WdfEvtDeviceD0Entry @ 0x1C0010230 (Controller_WdfEvtDeviceD0Entry.c)
- *     Register_PrepareHardware @ 0x1C0071244 (Register_PrepareHardware.c)
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014CE0 (Controller_WdfEvtDeviceD0Entry.c)
+ *     Register_PrepareHardware @ 0x1C006CD24 (Register_PrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     Register_ControllerStop @ 0x1C000D898 (Register_ControllerStop.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     XilRegister_ReadUlong @ 0x1C00139CC (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0013B7C (XilRegister_WriteUlong.c)
- *     XilRegister_ReadUchar @ 0x1C0014060 (XilRegister_ReadUchar.c)
- *     Register_WriteSecureMmio @ 0x1C003D41C (Register_WriteSecureMmio.c)
- *     Etw_StartDeviceFail @ 0x1C004885C (Etw_StartDeviceFail.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     Register_ControllerStop @ 0x1C000B014 (Register_ControllerStop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     XilRegister_ReadUchar @ 0x1C00140B8 (XilRegister_ReadUchar.c)
+ *     Register_WriteSecureMmio @ 0x1C003CEA0 (Register_WriteSecureMmio.c)
+ *     Etw_StartDeviceFail @ 0x1C0048624 (Etw_StartDeviceFail.c)
  */
 
 __int64 __fastcall Register_BiosHandoff(_QWORD *a1)
@@ -22,7 +22,7 @@ __int64 __fastcall Register_BiosHandoff(_QWORD *a1)
   char v5; // al
   int v6; // ebx
   int i; // r14d
-  __int64 v8; // rdx
+  unsigned __int64 v8; // rdx
   __int64 v9; // rcx
   int v10; // r9d
   int Ulong; // eax
@@ -40,7 +40,7 @@ __int64 __fastcall Register_BiosHandoff(_QWORD *a1)
   if ( v1 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(a1[1] + 72LL), 4, 6, 50, (__int64)&WPP_6d0f545b908f3ff5e03e6416fb6b60c9_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(a1[1] + 72LL), 4, 6, 50, (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids);
     Uchar = XilRegister_ReadUchar(a1, v1 + 3);
     v4 = a1[1];
     v5 = Uchar | 1;
@@ -84,7 +84,7 @@ __int64 __fastcall Register_BiosHandoff(_QWORD *a1)
           v8,
           6,
           53,
-          (__int64)&WPP_6d0f545b908f3ff5e03e6416fb6b60c9_Traceguids,
+          (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids,
           208);
         v9 = a1[1];
       }
@@ -102,13 +102,13 @@ LABEL_10:
         v8,
         6,
         v10,
-        (__int64)&WPP_6d0f545b908f3ff5e03e6416fb6b60c9_Traceguids,
+        (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids,
         v18);
     }
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    WPP_RECORDER_SF_(*(_QWORD *)(a1[1] + 72LL), 3, 6, 49, (__int64)&WPP_6d0f545b908f3ff5e03e6416fb6b60c9_Traceguids);
+    WPP_RECORDER_SF_(*(_QWORD *)(a1[1] + 72LL), 3, 6, 49, (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids);
   }
 LABEL_11:
   if ( (XilRegister_ReadUlong((__int64)a1, (unsigned int *)(a1[4] + 4LL)) & 1) != 0 )
@@ -122,11 +122,12 @@ LABEL_12:
     return 0;
   }
   v9 = a1[1];
-  if ( _bittest64((const signed __int64 *)(v9 + 336), 0x3Fu) )
+  v8 = 0x8000000000000000uLL;
+  if ( *(__int64 *)(v9 + 336) < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), 2, 6, 54, (__int64)&WPP_6d0f545b908f3ff5e03e6416fb6b60c9_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), 2, 6, 54, (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids);
       v9 = a1[1];
     }
     v14 = 2LL;
@@ -135,7 +136,7 @@ LABEL_28:
     return (unsigned int)-1073741823;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), 2, 6, 55, (__int64)&WPP_6d0f545b908f3ff5e03e6416fb6b60c9_Traceguids);
+    WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), 2, 6, 55, (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids);
   v15 = Register_ControllerStop((__int64)a1);
   v12 = v15;
   if ( v15 >= 0 )
@@ -148,7 +149,7 @@ LABEL_28:
       v16,
       6,
       56,
-      (__int64)&WPP_6d0f545b908f3ff5e03e6416fb6b60c9_Traceguids,
+      (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids,
       v15);
   }
   return v12;

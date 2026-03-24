@@ -1,9 +1,9 @@
 /*
- * XREFs of GreCreateSolidBrush @ 0x1C0061330
+ * XREFs of GreCreateSolidBrush @ 0x1C00B6D20
  * Callers:
- *     SetSysColor @ 0x1C005FA7C (SetSysColor.c)
+ *     <none>
  * Callees:
- *     hCreateSolidBrushInternal @ 0x1C0060550 (hCreateSolidBrushInternal.c)
+ *     hCreateSolidBrushInternal @ 0x1C001D000 (hCreateSolidBrushInternal.c)
  */
 
 HBRUSH __fastcall GreCreateSolidBrush(unsigned int a1)

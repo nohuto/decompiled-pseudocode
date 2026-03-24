@@ -1,15 +1,15 @@
 /*
- * XREFs of KiMonitorCacheErrata @ 0x140577D00
+ * XREFs of KiMonitorCacheErrata @ 0x140522290
  * Callers:
  *     <none>
  * Callees:
- *     KiTryToAcquireThreadLock @ 0x14020E67C (KiTryToAcquireThreadLock.c)
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     ObReferenceObjectSafeWithTag @ 0x140302BD0 (ObReferenceObjectSafeWithTag.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1403494F0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiTryToAcquirePrcbLock @ 0x14056AEA8 (KiTryToAcquirePrcbLock.c)
- *     MmReadProcessPageTables @ 0x1405A6AE4 (MmReadProcessPageTables.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiTryToAcquireThreadLock @ 0x1402AB270 (KiTryToAcquireThreadLock.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiTryToAcquirePrcbLock @ 0x140514E98 (KiTryToAcquirePrcbLock.c)
+ *     MmReadProcessPageTables @ 0x140547E00 (MmReadProcessPageTables.c)
  */
 
 __int64 KiMonitorCacheErrata()
@@ -40,13 +40,13 @@ __int64 KiMonitorCacheErrata()
   v1 = (_DWORD *)KiCacheErrataMonitor;
   v19 = 0;
   v20 = 0;
-  v2 = 16LL * CurrentPrcb->Number + KiCacheErrataMonitor + 360;
+  v2 = KiCacheErrataMonitor + 16 * (CurrentPrcb->Number + 16LL);
   _InterlockedExchange64((volatile __int64 *)v2, -1LL);
   *(_DWORD *)(v2 + 8) -= KiSanitizedProfileInterval;
   result = *(unsigned int *)(v2 + 8);
   if ( (int)result <= 0 )
   {
-    v4 = &v1[4 * *(unsigned int *)(v2 + 12) + 90];
+    v4 = &v1[4 * *(unsigned int *)(v2 + 12) + 64];
     if ( (volatile signed __int32 *)v2 != v4 && !_interlockedbittestandreset64(v4, CurrentPrcb->Number) )
     {
       v5 = 0LL;

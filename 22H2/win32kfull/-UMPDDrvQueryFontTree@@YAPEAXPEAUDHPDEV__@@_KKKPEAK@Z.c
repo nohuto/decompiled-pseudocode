@@ -1,143 +1,136 @@
 /*
- * XREFs of ?UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z @ 0x1C02BC7F0
+ * XREFs of ?UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z @ 0x1C02AB5D0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C0298EE8 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
- *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C0299658 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
- *     ?bSandboxedClient@UMPDOBJ@@QEAAHXZ @ 0x1C0299B54 (-bSandboxedClient@UMPDOBJ@@QEAAHXZ.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C02B7860 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C02B78D8 (--1XUMPDOBJ@@QEAA@XZ.c)
- *     ?ProbeAndReadFD_GLYPHSET@@YAPEAU_FD_GLYPHSET@@PEBU1@HK_K@Z @ 0x1C02B7C54 (-ProbeAndReadFD_GLYPHSET@@YAPEAU_FD_GLYPHSET@@PEBU1@HK_K@Z.c)
- *     ?ProbeAndReadFD_KERNINGPAIR@@YAPEAU_FD_KERNINGPAIR@@PEBU1@H_K@Z @ 0x1C02B7F08 (-ProbeAndReadFD_KERNINGPAIR@@YAPEAU_FD_KERNINGPAIR@@PEBU1@H_K@Z.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02B8264 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
- *     ?UMPDMyDrvFree@@YAXPEAVUMPDOBJ@@PEAUDHPDEV__@@PEAXK@Z @ 0x1C02BEBB0 (-UMPDMyDrvFree@@YAXPEAVUMPDOBJ@@PEAUDHPDEV__@@PEAXK@Z.c)
- *     ?bIsFreeHooked@@YAHPEAUDHPDEV__@@PEAVUMPDOBJ@@@Z @ 0x1C02BED74 (-bIsFreeHooked@@YAHPEAUDHPDEV__@@PEAVUMPDOBJ@@@Z.c)
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C001DE74 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F0E8 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A16C0 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C00A190C (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C00A1984 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?bSandboxedClient@UMPDOBJ@@QEAAHXZ @ 0x1C016B3FC (-bSandboxedClient@UMPDOBJ@@QEAAHXZ.c)
+ *     ?ProbeAndReadFD_GLYPHSET@@YAPEAU_FD_GLYPHSET@@PEBU1@HK_K@Z @ 0x1C016CBC8 (-ProbeAndReadFD_GLYPHSET@@YAPEAU_FD_GLYPHSET@@PEBU1@HK_K@Z.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?ProbeAndReadFD_KERNINGPAIR@@YAPEAU_FD_KERNINGPAIR@@PEBU1@H_K@Z @ 0x1C02A8B88 (-ProbeAndReadFD_KERNINGPAIR@@YAPEAU_FD_KERNINGPAIR@@PEBU1@H_K@Z.c)
+ *     ?UMPDMyDrvFree@@YAXPEAVUMPDOBJ@@PEAUDHPDEV__@@PEAXK@Z @ 0x1C02AC5A0 (-UMPDMyDrvFree@@YAXPEAVUMPDOBJ@@PEAUDHPDEV__@@PEAXK@Z.c)
+ *     ?bIsFreeHooked@@YAHPEAUDHPDEV__@@PEAVUMPDOBJ@@@Z @ 0x1C02AC700 (-bIsFreeHooked@@YAHPEAUDHPDEV__@@PEAVUMPDOBJ@@@Z.c)
  */
 
-struct _FD_GLYPHSET *__fastcall UMPDDrvQueryFontTree(struct DHPDEV__ *a1, __int64 a2, int a3, int a4, unsigned int *a5)
+struct _FD_GLYPHSET *__fastcall UMPDDrvQueryFontTree(
+        struct DHPDEV__ *a1,
+        __int64 a2,
+        unsigned int a3,
+        unsigned int a4,
+        unsigned int *a5)
 {
-  struct _FD_GLYPHSET *v5; // rdi
-  struct _FD_GLYPHSET *v6; // rsi
-  UMPDOBJ *v10; // rbx
-  __int64 v11; // rax
-  int v12; // r14d
-  unsigned __int64 v13; // r12
-  char *v14; // r13
+  struct _FD_GLYPHSET *v6; // rdi
+  struct _FD_GLYPHSET *v7; // rsi
+  UMPDOBJ *v11; // rbx
+  __int64 v12; // rax
+  int v13; // r14d
+  unsigned int v14; // r15d
+  WCRUN *v15; // r12
   char *KernelPtr; // rax
-  char *v16; // rdx
-  char *v17; // r15
-  __int64 v18; // r9
-  __int64 v19; // r9
+  char *v17; // rdx
+  char *v18; // rax
+  WCRUN *v19; // rsi
+  __int64 v20; // r9
+  __int64 v21; // r9
   struct _FD_GLYPHSET *FD_GLYPHSET; // rax
-  struct DHPDEV__ *v21; // r15
-  unsigned int *v22; // r14
-  size_t Size; // [rsp+20h] [rbp-B1h]
-  void *v26; // [rsp+38h] [rbp-99h] BYREF
-  struct DHPDEV__ *v27; // [rsp+40h] [rbp-91h]
-  unsigned int *v28; // [rsp+48h] [rbp-89h]
-  UMPDOBJ *v29; // [rsp+50h] [rbp-81h] BYREF
-  _OWORD v30[2]; // [rsp+58h] [rbp-79h] BYREF
-  _DWORD v31[4]; // [rsp+80h] [rbp-51h] BYREF
-  __int64 v32; // [rsp+90h] [rbp-41h]
-  struct DHPDEV__ *v33; // [rsp+98h] [rbp-39h]
-  __int64 v34; // [rsp+A0h] [rbp-31h]
-  int v35; // [rsp+A8h] [rbp-29h]
-  int v36; // [rsp+ACh] [rbp-25h]
-  void *v37; // [rsp+B0h] [rbp-21h]
-  unsigned int v38; // [rsp+B8h] [rbp-19h]
-  void *v39; // [rsp+C0h] [rbp-11h]
+  const struct _FD_KERNINGPAIR *v23; // rcx
+  struct DHPDEV__ *v24; // r14
+  size_t Size; // [rsp+20h] [rbp-A1h]
+  void *v27; // [rsp+38h] [rbp-89h] BYREF
+  UMPDOBJ *v28; // [rsp+40h] [rbp-81h] BYREF
+  struct DHPDEV__ *v29; // [rsp+48h] [rbp-79h]
+  _OWORD v30[2]; // [rsp+50h] [rbp-71h] BYREF
+  _QWORD v31[10]; // [rsp+70h] [rbp-51h] BYREF
 
-  v5 = 0LL;
-  v27 = a1;
+  v29 = a1;
   v6 = 0LL;
-  v28 = a5;
-  v26 = 0LL;
-  XUMPDOBJ::XUMPDOBJ((XUMPDOBJ *)&v29);
-  memset_0(v31, 0, 0x48uLL);
-  v10 = v29;
-  if ( !v29 )
+  v27 = 0LL;
+  v7 = 0LL;
+  XUMPDOBJ::XUMPDOBJ((XUMPDOBJ *)&v28);
+  memset(v31, 0, 0x48uLL);
+  v11 = v28;
+  if ( !v28 )
   {
-LABEL_31:
-    v5 = v6;
-    goto LABEL_32;
+LABEL_28:
+    v6 = v7;
+    goto LABEL_29;
   }
-  v31[0] = 72;
-  v31[1] = 27;
-  v11 = *(_QWORD *)v29;
-  v36 = a4;
-  v12 = 1;
-  v32 = v11;
-  v33 = v27;
-  v34 = a2;
-  v35 = a3;
-  v37 = UMPDOBJ::_AllocUserMem(v29, 4u, 1);
-  v38 = 0;
-  v39 = 0LL;
-  if ( v37 )
+  v31[0] = 0x1B00000048LL;
+  v12 = *(_QWORD *)v28;
+  v31[3] = a1;
+  v13 = 1;
+  v31[2] = v12;
+  v31[4] = a2;
+  v31[5] = __PAIR64__(a4, a3);
+  v31[6] = UMPDOBJ::_AllocUserMem(v28, 4u, 1);
+  LODWORD(v31[7]) = 0;
+  v31[8] = 0LL;
+  if ( v31[6] )
   {
     LODWORD(Size) = 8;
-    v13 = 0xFFFFFFFFLL;
-    if ( (unsigned int)UMPDOBJ::Thunk(v10, v31, 0x48u, &v26, Size) != -1 )
+    v14 = -1;
+    if ( (unsigned int)UMPDOBJ::Thunk(v11, v31, 0x48u, &v27, Size) != -1 )
     {
-      v14 = (char *)v26;
-      if ( v26 )
+      v15 = (WCRUN *)v27;
+      if ( v27 )
       {
-        KernelPtr = UMPDOBJ::GetKernelPtr((char **)v10, (char *)v37);
-        v16 = (char *)v39;
+        KernelPtr = UMPDOBJ::GetKernelPtr(v11, (char *)v31[6]);
+        v17 = (char *)v31[8];
         *a5 = *(_DWORD *)KernelPtr;
-        if ( !*((_DWORD *)v10 + 110) || !v16 || !v38 )
-          v12 = 0;
-        v17 = UMPDOBJ::GetKernelPtr((char **)v10, v16);
+        if ( !*((_DWORD *)v11 + 106) || !v17 || !LODWORD(v31[7]) )
+          v13 = 0;
+        v18 = UMPDOBJ::GetKernelPtr(v11, v17);
         if ( a4 == 3 )
         {
-          if ( (unsigned int)UMPDOBJ::bSandboxedClient(v10) && (v18 = *((_QWORD *)v10 + 51)) != 0 )
-            v19 = *(_QWORD *)(v18 + 48);
+          v19 = v15;
+          if ( v13 )
+          {
+            v14 = v31[7];
+            v19 = (WCRUN *)v18;
+          }
+          if ( (unsigned int)UMPDOBJ::bSandboxedClient(v11) && (v20 = *((_QWORD *)v11 + 49)) != 0 )
+            v21 = *(_QWORD *)(v20 + 40);
           else
-            v19 = 0LL;
-          if ( v12 )
-            LODWORD(v13) = v38;
-          else
-            v17 = v14;
-          FD_GLYPHSET = ProbeAndReadFD_GLYPHSET((WCRUN *)v17, v12, v13, v19);
+            v21 = 0LL;
+          FD_GLYPHSET = ProbeAndReadFD_GLYPHSET(v19, v13, v14, v21);
         }
         else
         {
           if ( a4 != 2 )
           {
-LABEL_24:
-            v21 = v27;
-            if ( (unsigned int)bIsFreeHooked(v27, v10) )
+LABEL_22:
+            v24 = v29;
+            if ( (unsigned int)bIsFreeHooked(v29, v11) )
             {
               memset(v30, 0, sizeof(v30));
-              if ( v6 )
-                PushThreadGuardedObject(v30, v6, Win32FreePool);
-              v22 = v28;
-              UMPDMyDrvFree(v10, v21, v14, *v28);
-              if ( v6 )
+              if ( v7 )
+                PushThreadGuardedObject(v30, v7, Win32FreePool);
+              UMPDMyDrvFree(v11, v24, v15, *a5);
+              if ( v7 )
                 PopThreadGuardedObject(v30);
             }
-            else
-            {
-              v22 = v28;
-            }
-            *v22 = (unsigned int)v6;
-            goto LABEL_31;
+            *a5 = (unsigned int)v7;
+            goto LABEL_28;
           }
-          if ( v12 )
-            v13 = v38;
-          else
-            v17 = v14;
-          FD_GLYPHSET = (struct _FD_GLYPHSET *)ProbeAndReadFD_KERNINGPAIR((const struct _FD_KERNINGPAIR *)v17, v12, v13);
+          v23 = (const struct _FD_KERNINGPAIR *)v15;
+          if ( v13 )
+          {
+            v14 = v31[7];
+            v23 = (const struct _FD_KERNINGPAIR *)v18;
+          }
+          FD_GLYPHSET = (struct _FD_GLYPHSET *)ProbeAndReadFD_KERNINGPAIR(v23, v13, v14);
         }
-        v6 = FD_GLYPHSET;
-        goto LABEL_24;
+        v7 = FD_GLYPHSET;
+        goto LABEL_22;
       }
     }
   }
-LABEL_32:
-  XUMPDOBJ::~XUMPDOBJ(&v29);
-  return v5;
+LABEL_29:
+  XUMPDOBJ::~XUMPDOBJ(&v28);
+  return v6;
 }

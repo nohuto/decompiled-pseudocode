@@ -1,16 +1,16 @@
 /*
- * XREFs of MiObtainDynamicVa @ 0x1400F696C
+ * XREFs of MiObtainDynamicVa @ 0x1400F698C
  * Callers:
  *     MmAllocatePoolMemory @ 0x140099140 (MmAllocatePoolMemory.c)
- *     MiObtainSystemVa @ 0x1400F6944 (MiObtainSystemVa.c)
+ *     MiObtainSystemVa @ 0x1400F6964 (MiObtainSystemVa.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     RtlSetBitsEx @ 0x14008AF20 (RtlSetBitsEx.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiReclaimSystemVa @ 0x1400F7258 (MiReclaimSystemVa.c)
- *     MiFindNextAlignedForwardRunClearEx @ 0x14018C3C0 (MiFindNextAlignedForwardRunClearEx.c)
- *     MiExtendDynamicBitMap @ 0x14018FA70 (MiExtendDynamicBitMap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiReclaimSystemVa @ 0x1400F7278 (MiReclaimSystemVa.c)
+ *     MiFindNextAlignedForwardRunClearEx @ 0x14018C3E0 (MiFindNextAlignedForwardRunClearEx.c)
+ *     MiExtendDynamicBitMap @ 0x14018FA90 (MiExtendDynamicBitMap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiObtainDynamicVa(__int64 *a1, unsigned int a2, unsigned int a3)

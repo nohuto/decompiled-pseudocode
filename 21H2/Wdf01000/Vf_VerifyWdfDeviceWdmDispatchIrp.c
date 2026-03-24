@@ -1,11 +1,11 @@
 /*
- * XREFs of Vf_VerifyWdfDeviceWdmDispatchIrp @ 0x1C00C6F74
+ * XREFs of Vf_VerifyWdfDeviceWdmDispatchIrp @ 0x1C00C5E70
  * Callers:
- *     imp_WdfDeviceWdmDispatchIrp @ 0x1C0063CC0 (imp_WdfDeviceWdmDispatchIrp.c)
+ *     imp_WdfDeviceWdmDispatchIrp @ 0x1C0049590 (imp_WdfDeviceWdmDispatchIrp.c)
  * Callees:
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 void __fastcall Vf_VerifyWdfDeviceWdmDispatchIrp(
@@ -24,21 +24,24 @@ void __fastcall Vf_VerifyWdfDeviceWdmDispatchIrp(
   v8 = FxDriverGlobals == &DispatchContext->m_PreprocessInfoListHead;
   while ( Flink != (FxDevice *)&DispatchContext->m_CxDeviceInfoListHead )
   {
-    if ( Flink->m_Globals == *(_FX_DRIVER_GLOBALS **)&device[-7].DriverName[8] )
-    {
-      if ( Flink )
-        goto LABEL_8;
-      break;
-    }
+    if ( Flink->m_Globals == *(_FX_DRIVER_GLOBALS **)&device[-7].DriverName[16] )
+      goto LABEL_6;
     Flink = (FxDevice *)Flink->FxDeviceBase::FxNonPagedObject::FxObject::__vftable;
   }
-  WPP_IFR_SF_d(DispatchContext->m_Globals, 2u, 0xDu, 0xCu, WPP_FxDeviceApiKm_cpp_Traceguids, -1073741808);
-  FxVerifierDbgBreakPoint(DispatchContext->m_Globals);
-LABEL_8:
+  Flink = 0LL;
+LABEL_6:
+  if ( !Flink )
+  {
+    WPP_IFR_SF_d(DispatchContext->m_Globals, 2u, 0xDu, 0xCu, WPP_FxDeviceApiKm_cpp_Traceguids, -1073741808);
+    FxVerifierDbgBreakPoint(DispatchContext->m_Globals);
+  }
   for ( i = p_m_PreprocessInfoListHead->Flink; i != p_m_PreprocessInfoListHead; i = i->Flink )
   {
     if ( FxDriverGlobals == i )
-      return;
+    {
+      v8 = 1;
+      break;
+    }
   }
   if ( !v8 )
   {

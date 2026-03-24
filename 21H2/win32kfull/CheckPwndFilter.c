@@ -1,12 +1,10 @@
 /*
- * XREFs of CheckPwndFilter @ 0x1C005C1A8
+ * XREFs of CheckPwndFilter @ 0x1C00C1850
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C0058FB0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     DoTimer @ 0x1C005BF94 (DoTimer.c)
- *     xxxDoPaint @ 0x1C005C838 (xxxDoPaint.c)
- *     xxxRetrievePointerInputMessage @ 0x1C01EB168 (xxxRetrievePointerInputMessage.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C2120 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     xxxRetrievePointerInputMessage @ 0x1C01F06C8 (xxxRetrievePointerInputMessage.c)
  * Callees:
- *     _IsChild @ 0x1C011631C (_IsChild.c)
+ *     _IsChild @ 0x1C012BB3C (_IsChild.c)
  */
 
 __int64 __fastcall CheckPwndFilter(__int64 a1, __int64 a2)

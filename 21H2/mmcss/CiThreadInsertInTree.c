@@ -1,49 +1,51 @@
 /*
- * XREFs of CiThreadInsertInTree @ 0x1C0002B10
+ * XREFs of CiThreadInsertInTree @ 0x1C00019E0
  * Callers:
- *     CiThreadCreate @ 0x1C000AED0 (CiThreadCreate.c)
+ *     CiThreadCreate @ 0x1C000AB70 (CiThreadCreate.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall CiThreadInsertInTree(__int64 a1)
+bool __fastcall CiThreadInsertInTree(__int64 a1)
 {
-  _QWORD *v2; // rdx
-  _QWORD *v3; // rax
-  unsigned __int64 v4; // r8
+  char v2; // bl
+  _QWORD *v3; // rdx
+  _QWORD *v4; // rax
+  unsigned __int64 v5; // r8
 
   KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc);
-  v2 = *(_QWORD **)&WPP_MAIN_CB.DeviceQueue.Type;
+  v2 = 0;
+  v3 = *(_QWORD **)&WPP_MAIN_CB.DeviceQueue.Type;
   *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement = KeGetCurrentThread();
-  LOBYTE(v3) = 0;
-  v4 = *(_QWORD *)(a1 + 96);
+  LOBYTE(v4) = 0;
+  v5 = *(_QWORD *)(a1 + 96);
   if ( !*(_QWORD *)&WPP_MAIN_CB.DeviceQueue.Type )
-    goto LABEL_10;
+    goto LABEL_11;
   while ( 1 )
   {
-    if ( v4 < v2[7] )
+    if ( v5 < v3[7] )
     {
-      v3 = (_QWORD *)*v2;
-      if ( !*v2 )
-        goto LABEL_10;
+      v4 = (_QWORD *)*v3;
+      if ( !*v3 )
+        goto LABEL_11;
       goto LABEL_5;
     }
-    if ( v4 <= v2[7] )
+    if ( v5 <= v3[7] )
     {
-      *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement = 0LL;
-      KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc, 0);
-      return 0;
+      v2 = 1;
+      goto LABEL_9;
     }
-    v3 = (_QWORD *)v2[1];
-    if ( !v3 )
+    v4 = (_QWORD *)v3[1];
+    if ( !v4 )
       break;
 LABEL_5:
-    v2 = v3;
+    v3 = v4;
   }
-  LOBYTE(v3) = 1;
-LABEL_10:
-  RtlRbInsertNodeEx(&WPP_MAIN_CB.DeviceQueue, v2, (unsigned __int8)v3, a1 + 40);
+  LOBYTE(v4) = 1;
+LABEL_11:
+  RtlRbInsertNodeEx(&WPP_MAIN_CB.DeviceQueue, v3, (unsigned __int8)v4, a1 + 40);
+LABEL_9:
   *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement = 0LL;
   KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc, 0);
-  return 1;
+  return v2 == 0;
 }

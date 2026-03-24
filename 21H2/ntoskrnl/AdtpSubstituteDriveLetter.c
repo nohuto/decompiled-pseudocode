@@ -1,10 +1,10 @@
 /*
- * XREFs of AdtpSubstituteDriveLetter @ 0x1408450D8
+ * XREFs of AdtpSubstituteDriveLetter @ 0x1407B8B54
  * Callers:
- *     AdtpPackageParameters @ 0x1403CC5E8 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403C06B4 (AdtpPackageParameters.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     AdtpLookupDriveLetter @ 0x140845150 (AdtpLookupDriveLetter.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     AdtpLookupDriveLetter @ 0x1407B8BCC (AdtpLookupDriveLetter.c)
  */
 
 void *__fastcall AdtpSubstituteDriveLetter(UNICODE_STRING *a1)

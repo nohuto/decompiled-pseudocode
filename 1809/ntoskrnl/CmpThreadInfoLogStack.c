@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpThreadInfoLogStack @ 0x1401B3034
+ * XREFs of CmpThreadInfoLogStack @ 0x1401B3054
  * Callers:
- *     CmpIsRegistryLockAcquired @ 0x1401B2F98 (CmpIsRegistryLockAcquired.c)
- *     CmpRecordRegistryLockAcquire @ 0x1401B2FD4 (CmpRecordRegistryLockAcquire.c)
- *     CmpRecordRegistryLockRelease @ 0x1401B3004 (CmpRecordRegistryLockRelease.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
+ *     CmpRecordRegistryLockAcquire @ 0x1401B2FF4 (CmpRecordRegistryLockAcquire.c)
+ *     CmpRecordRegistryLockRelease @ 0x1401B3024 (CmpRecordRegistryLockRelease.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWriteAgg @ 0x140012A30 (_TlgWriteAgg.c)
- *     RtlWalkFrameChain @ 0x1400CCBB0 (RtlWalkFrameChain.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlWalkFrameChain @ 0x1400CCBD0 (RtlWalkFrameChain.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 char CmpThreadInfoLogStack()
@@ -61,7 +61,7 @@ char CmpThreadInfoLogStack()
       v10 = 8LL;
       v12 = 80LL;
       v14 = 8LL;
-      LOBYTE(v2) = TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036BA59, v3, v4, 5u, &v8);
+      LOBYTE(v2) = TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036BB69, v3, v4, 5u, &v8);
     }
   }
   return (char)v2;

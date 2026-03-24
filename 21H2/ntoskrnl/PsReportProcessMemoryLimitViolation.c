@@ -1,11 +1,11 @@
 /*
- * XREFs of PsReportProcessMemoryLimitViolation @ 0x1409AFD2C
+ * XREFs of PsReportProcessMemoryLimitViolation @ 0x140908914
  * Callers:
- *     MiChargeProcessCommitment @ 0x14032A750 (MiChargeProcessCommitment.c)
+ *     MiChargeProcessCommitment @ 0x14021AD60 (MiChargeProcessCommitment.c)
  * Callees:
- *     PspSendJobNotification @ 0x14025863C (PspSendJobNotification.c)
- *     PspUnlockJobMemoryLimitsShared @ 0x140700158 (PspUnlockJobMemoryLimitsShared.c)
- *     PspLockJobMemoryLimitsShared @ 0x1407001C8 (PspLockJobMemoryLimitsShared.c)
+ *     PspSendJobNotification @ 0x1402C3DCC (PspSendJobNotification.c)
+ *     PspUnlockJobMemoryLimitsShared @ 0x14061893C (PspUnlockJobMemoryLimitsShared.c)
+ *     PspLockJobMemoryLimitsShared @ 0x1406189EC (PspLockJobMemoryLimitsShared.c)
  */
 
 char PsReportProcessMemoryLimitViolation()
@@ -17,12 +17,12 @@ char PsReportProcessMemoryLimitViolation()
 
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
-  v2 = Process[1].Affinity.StaticBitmap[16];
-  v3 = *(_QWORD *)(v2 + 1008);
+  v2 = Process[1].Affinity.Bitmap[16];
+  v3 = *(_QWORD *)(v2 + 816);
   if ( v3 && (*(_DWORD *)(v3 + 256) & 0x100) != 0 )
   {
-    PspLockJobMemoryLimitsShared(*(_QWORD *)(v2 + 1008), (__int64)CurrentThread);
-    if ( *(_QWORD *)(v3 + 552) && (*(_DWORD *)(v3 + 1068) & 0x200) != 0 && (Process[1].DirectoryTableBase & 0x24) == 4 )
+    PspLockJobMemoryLimitsShared(*(_QWORD *)(v2 + 816), (__int64)CurrentThread);
+    if ( *(_QWORD *)(v3 + 456) && (*(_DWORD *)(v3 + 876) & 0x200) != 0 && (Process[1].DirectoryTableBase & 0x24) == 4 )
     {
       _InterlockedOr((volatile signed __int32 *)&Process[1].DirectoryTableBase, 0x20u);
       PspSendJobNotification(v3, 9LL, (int)Process[1].Header.WaitListHead.Flink, 1);

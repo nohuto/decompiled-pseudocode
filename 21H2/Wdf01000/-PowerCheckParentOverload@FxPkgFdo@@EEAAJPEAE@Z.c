@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PowerCheckParentOverload@FxPkgFdo@@EEAAJPEAE@Z @ 0x1C000C0A0
+ * XREFs of ?PowerCheckParentOverload@FxPkgFdo@@EEAAJPEAE@Z @ 0x1C000E000
  * Callers:
  *     <none>
  * Callees:

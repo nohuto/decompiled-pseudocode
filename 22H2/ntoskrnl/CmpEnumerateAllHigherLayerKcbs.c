@@ -1,25 +1,20 @@
 /*
- * XREFs of CmpEnumerateAllHigherLayerKcbs @ 0x140A1FB6C
+ * XREFs of CmpEnumerateAllHigherLayerKcbs @ 0x140734DF4
  * Callers:
- *     CmDeleteKey @ 0x14071009C (CmDeleteKey.c)
- *     CmpCleanupDiscardReplaceContext @ 0x140710830 (CmpCleanupDiscardReplaceContext.c)
- *     CmpSaveBootControlSet @ 0x140A0A5C8 (CmpSaveBootControlSet.c)
- *     CmRestoreKey @ 0x140A0ACF4 (CmRestoreKey.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A1F944 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
- *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x140A1FCF8 (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
- *     CmpInvalidateAllHigherLayerKcbs @ 0x140A1FDE8 (CmpInvalidateAllHigherLayerKcbs.c)
- *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A20004 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
- *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x140A20130 (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x140A28218 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A29450 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpCleanupDiscardReplaceContext @ 0x1406E4EF0 (CmpCleanupDiscardReplaceContext.c)
+ *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x140734DA4 (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
+ *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140876004 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpInvalidateAllHigherLayerKcbs @ 0x1408762A8 (CmpInvalidateAllHigherLayerKcbs.c)
+ *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140876448 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x140876570 (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
+ *     CmRestoreKey @ 0x14087BF80 (CmRestoreKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     CmpLockKcbExclusive @ 0x1406D8518 (CmpLockKcbExclusive.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E9B8 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpReferenceKeyControlBlock @ 0x14076AC00 (CmpReferenceKeyControlBlock.c)
- *     CmpLockKcbShared @ 0x140AF6530 (CmpLockKcbShared.c)
- *     CmpUnlockKcb @ 0x140AF65A0 (CmpUnlockKcb.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpLockKcbExclusive @ 0x1405EC35C (CmpLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x140640260 (CmpUnlockKcb.c)
+ *     CmpReferenceKeyControlBlock @ 0x14066D0B0 (CmpReferenceKeyControlBlock.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1406778F0 (CmpDereferenceKeyControlBlockWithLock.c)
  */
 
 _UNKNOWN **__fastcall CmpEnumerateAllHigherLayerKcbs(
@@ -35,11 +30,10 @@ _UNKNOWN **__fastcall CmpEnumerateAllHigherLayerKcbs(
   _QWORD *v8; // rdi
   bool v9; // bp
   unsigned int (__fastcall *v11)(ULONG_PTR, __int64, __int64); // r9
-  char v13; // r8
-  _QWORD *v14; // rbx
+  _QWORD *v13; // rbx
+  char v14; // r10
   ULONG_PTR v15; // rsi
   _QWORD *v16; // r15
-  ULONG_PTR v17; // rcx
   _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h] BYREF
 
   result = &retaddr;
@@ -48,26 +42,26 @@ _UNKNOWN **__fastcall CmpEnumerateAllHigherLayerKcbs(
   v11 = a3;
   if ( v8 )
   {
+    v13 = (_QWORD *)v8[4];
     result = (_UNKNOWN **)(v8 + 4);
-    v13 = 0;
-    v14 = (_QWORD *)v8[4];
-    if ( v14 != v8 + 4 )
+    v14 = 0;
+    if ( v13 != v8 + 4 )
     {
-      while ( v14 == v8 + 4 )
+      while ( v13 == v8 + 4 )
       {
-        v14 = v8;
-        v13 = 1;
+        v13 = v8;
+        v14 = 1;
         v8 = (_QWORD *)v8[3];
-LABEL_18:
+LABEL_19:
         result = (_UNKNOWN **)(*(_QWORD *)(a1 + 192) + 32LL);
-        if ( v14 == result )
+        if ( v13 == result )
           return result;
       }
-      v15 = v14[2];
-      v16 = v14;
-      if ( v13 )
+      v15 = v13[2];
+      v16 = v13;
+      if ( v14 )
       {
-        v14 = (_QWORD *)*v14;
+        v13 = (_QWORD *)*v13;
         if ( !v9 )
           v9 = v11(v15, a4, a5) == 1;
         if ( a6 )
@@ -76,45 +70,45 @@ LABEL_18:
           CmpUnlockKcb(v15);
         if ( v9 )
         {
-          v14 = v8;
-          v13 = 1;
+          v13 = v8;
+          v14 = 1;
           v8 = (_QWORD *)v8[3];
-          goto LABEL_17;
+          goto LABEL_18;
         }
       }
       else
       {
-        v17 = v14[2];
         if ( a6 )
         {
-          CmpReferenceKeyControlBlock(v17);
+          CmpReferenceKeyControlBlock(v13[2]);
         }
         else if ( a7 )
         {
-          CmpLockKcbExclusive(v17);
+          CmpLockKcbExclusive(v13[2]);
         }
         else
         {
-          CmpLockKcbShared(v17);
+          ExAcquirePushLockSharedEx(v15 + 48, 0LL);
+          _InterlockedIncrement((volatile signed __int32 *)(v15 + 56));
         }
         if ( a2(v15, a5) == 1 )
         {
-          v14 = (_QWORD *)v14[4];
+          v13 = (_QWORD *)v13[4];
           v8 = v16;
         }
         else
         {
-          v14 = (_QWORD *)*v14;
+          v13 = (_QWORD *)*v13;
           if ( a6 )
             CmpDereferenceKeyControlBlockWithLock(v15, a4, 0);
           else
             CmpUnlockKcb(v15);
         }
       }
-      v13 = 0;
-LABEL_17:
+      v14 = 0;
+LABEL_18:
       v11 = a3;
-      goto LABEL_18;
+      goto LABEL_19;
     }
   }
   return result;

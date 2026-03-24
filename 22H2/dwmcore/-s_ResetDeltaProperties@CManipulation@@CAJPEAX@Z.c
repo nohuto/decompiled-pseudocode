@@ -1,11 +1,11 @@
 /*
- * XREFs of ?s_ResetDeltaProperties@CManipulation@@CAJPEAX@Z @ 0x18020F9E0
+ * XREFs of ?s_ResetDeltaProperties@CManipulation@@CAJPEAX@Z @ 0x1801D5CC0
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?attach@?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@QEAAXPEAVCManipulation@@@Z @ 0x18020F99C (-attach@-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@QEAAXPEAVCManipulation@@@Z.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?attach@?$com_ptr_t@UIDisplayTarget@Core@Display@Devices@Windows@@Uerr_returncode_policy@wil@@@wil@@QEAAXPEAUIDisplayTarget@Core@Display@Devices@Windows@@@Z @ 0x1801A5668 (-attach@-$com_ptr_t@UIDisplayTarget@Core@Display@Devices@Windows@@Uerr_returncode_policy@wil@@@w.c)
  */
 
 __int64 __fastcall CManipulation::s_ResetDeltaProperties(char *a1)
@@ -18,26 +18,26 @@ __int64 __fastcall CManipulation::s_ResetDeltaProperties(char *a1)
   if ( a1 )
   {
     v2 = 0;
-    wil::com_ptr_t<CManipulation,wil::err_returncode_policy>::attach(&v5, (__int64)a1);
-    v3 = a1[448];
+    wil::com_ptr_t<Windows::Devices::Display::Core::IDisplayTarget,wil::err_returncode_policy>::attach(&v5, (__int64)a1);
+    v3 = a1[440];
     if ( (v3 & 1) != 0 )
     {
       v3 &= ~1u;
-      *(_QWORD *)(a1 + 276) = _mm_unpacklo_ps((__m128)0LL, (__m128)0LL).m128_u64[0];
-      *((_DWORD *)a1 + 71) = 0;
-      a1[448] = v3;
+      *(_QWORD *)(a1 + 268) = _mm_unpacklo_ps((__m128)0LL, (__m128)0LL).m128_u64[0];
+      *((_DWORD *)a1 + 69) = 0;
+      a1[440] = v3;
     }
     if ( (v3 & 2) != 0 )
     {
-      *(_QWORD *)(a1 + 300) = _mm_unpacklo_ps((__m128)(unsigned int)FLOAT_1_0, (__m128)(unsigned int)FLOAT_1_0).m128_u64[0];
-      *((_DWORD *)a1 + 77) = 1065353216;
-      a1[448] = v3 & 0xFD;
+      *(_QWORD *)(a1 + 292) = _mm_unpacklo_ps((__m128)(unsigned int)FLOAT_1_0, (__m128)(unsigned int)FLOAT_1_0).m128_u64[0];
+      *((_DWORD *)a1 + 75) = 1065353216;
+      a1[440] = v3 & 0xFD;
     }
   }
   else
   {
     v2 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, -2147024809, 0x3D1u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, -2147024809, 0x3CBu, 0LL);
   }
   wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v5);
   return v2;

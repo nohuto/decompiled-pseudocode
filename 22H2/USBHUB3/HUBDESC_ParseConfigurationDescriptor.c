@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBDESC_ParseConfigurationDescriptor @ 0x1C003588C
+ * XREFs of HUBDESC_ParseConfigurationDescriptor @ 0x1C003281C
  * Callers:
- *     HUBPARENT_SetHubConfiguration @ 0x1C00073A8 (HUBPARENT_SetHubConfiguration.c)
- *     HUBUCX_UpdateHubInformationUsingUCXIoctl @ 0x1C00288A0 (HUBUCX_UpdateHubInformationUsingUCXIoctl.c)
- *     HUBDTX_ValidateAndCacheConfigDescriptor @ 0x1C002B87C (HUBDTX_ValidateAndCacheConfigDescriptor.c)
- *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration @ 0x1C002EAB0 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration.c)
- *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface @ 0x1C002F738 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface.c)
+ *     HUBPARENT_SetHubConfiguration @ 0x1C0006C64 (HUBPARENT_SetHubConfiguration.c)
+ *     HUBUCX_UpdateHubInformationUsingUCXIoctl @ 0x1C0025C94 (HUBUCX_UpdateHubInformationUsingUCXIoctl.c)
+ *     HUBDTX_ValidateAndCacheConfigDescriptor @ 0x1C0028C00 (HUBDTX_ValidateAndCacheConfigDescriptor.c)
+ *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration @ 0x1C002B9E0 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration.c)
+ *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface @ 0x1C002C690 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
  */
 
 unsigned __int8 *__fastcall HUBDESC_ParseConfigurationDescriptor(
@@ -21,17 +21,16 @@ unsigned __int8 *__fastcall HUBDESC_ParseConfigurationDescriptor(
         _BYTE *a8,
         __int64 a9)
 {
-  unsigned __int8 *v12; // rdi
-  unsigned __int8 *v13; // r12
-  unsigned int v14; // r15d
-  unsigned __int64 v15; // rdx
-  unsigned __int8 *v16; // rcx
-  unsigned __int8 *v17; // rbx
-  __int64 v18; // rax
-  unsigned __int16 v19; // r9
-  int v21; // [rsp+78h] [rbp+20h]
+  unsigned __int8 *v12; // rbx
+  unsigned __int8 *v13; // r15
+  unsigned int v14; // r14d
+  unsigned __int8 *v15; // rcx
+  unsigned __int64 v16; // rdx
+  unsigned __int8 *v17; // r12
+  __int64 v18; // r8
+  int v20; // [rsp+78h] [rbp+20h]
 
-  v21 = a4;
+  v20 = a4;
   v12 = 0LL;
   v13 = 0LL;
   v14 = 0;
@@ -41,72 +40,52 @@ unsigned __int8 *__fastcall HUBDESC_ParseConfigurationDescriptor(
   {
     while ( 1 )
     {
-      v15 = a1 + *(unsigned __int16 *)(a1 + 2);
-      v16 = a2;
+      v15 = a2;
+      v16 = a1 + *(unsigned __int16 *)(a1 + 2);
       v17 = 0LL;
-      if ( (unsigned __int64)a2 >= v15 )
+      if ( (unsigned __int64)a2 < v16 )
       {
-LABEL_13:
-        if ( v17 )
+        while ( 1 )
         {
-          if ( a1 + *(unsigned __int16 *)(a1 + 2) - (unsigned __int64)v17 >= 9 )
-          {
-            v12 = v17;
-            if ( a3 != -1 )
-            {
-              if ( v17[2] == a3 )
-                ++v14;
-              else
-                v12 = 0LL;
-            }
-            if ( a4 != -1 && v17[3] != a4 )
-              v12 = 0LL;
-            if ( a5 != -1 && v17[5] != a5 )
-              v12 = 0LL;
-            if ( a6 != -1 && v17[6] != a6 )
-              v12 = 0LL;
-            if ( a7 != -1 && v17[7] != a7 )
-              v12 = 0LL;
-            a2 = &v17[*v17];
-          }
-          else
-          {
-            v17 = 0LL;
-            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              WPP_RECORDER_SF_(a9, 2u, 5u, 0xCu, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids);
-          }
-        }
-      }
-      else
-      {
-        while ( v15 - (unsigned __int64)v16 >= 2 )
-        {
-          v18 = *v16;
+          v18 = *v15;
           if ( !(_BYTE)v18 )
+            break;
+          if ( v15[1] == 4 )
           {
-            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              goto LABEL_22;
-            v19 = 11;
-            goto LABEL_21;
+            v17 = v15;
+            if ( v15 )
+            {
+              v12 = v15;
+              if ( a3 != -1 )
+              {
+                if ( v15[2] == a3 )
+                  ++v14;
+                else
+                  v12 = 0LL;
+              }
+              if ( a4 != -1 && v15[3] != a4 )
+                v12 = 0LL;
+              if ( a5 != -1 && v15[5] != a5 )
+                v12 = 0LL;
+              if ( a6 != -1 && v15[6] != a6 )
+                v12 = 0LL;
+              if ( a7 != -1 && v15[7] != a7 )
+                v12 = 0LL;
+              a2 = &v15[v18];
+            }
+            goto LABEL_31;
           }
-          if ( v16[1] == 4 )
-          {
-            v17 = v16;
-            goto LABEL_13;
-          }
-          v16 += v18;
-          if ( (unsigned __int64)v16 >= v15 )
-            goto LABEL_40;
+          v15 += v18;
+          if ( (unsigned __int64)v15 >= v16 )
+            goto LABEL_31;
         }
-        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_22;
-        v19 = 10;
-LABEL_21:
-        WPP_RECORDER_SF_(a9, 2u, 5u, v19, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids);
-LABEL_22:
-        v17 = 0LL;
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          WPP_RECORDER_SF_(a9, 2u, 5u, 0xAu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
+          a4 = v20;
+        }
       }
-LABEL_40:
+LABEL_31:
       if ( v13 )
         break;
       if ( v12 )
@@ -115,14 +94,13 @@ LABEL_40:
         if ( !a8 )
           return v13;
         if ( v14 > 1 )
-          goto LABEL_48;
+          goto LABEL_39;
       }
       if ( !v17 )
         return v13;
-      a4 = v21;
     }
     if ( v14 > 1 && a8 )
-LABEL_48:
+LABEL_39:
       *a8 = 1;
   }
   return v13;

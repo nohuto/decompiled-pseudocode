@@ -1,12 +1,12 @@
 /*
- * XREFs of XmRorOp @ 0x140399200
+ * XREFs of XmRorOp @ 0x1404E5E30
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x1403B8FA8 (XmStoreResult.c)
+ *     XmStoreResult @ 0x1403966C0 (XmStoreResult.c)
  */
 
-__int64 __fastcall XmRorOp(_DWORD *a1)
+_WORD *__fastcall XmRorOp(_DWORD *a1)
 {
   int v2; // r10d
   int v3; // ecx
@@ -31,5 +31,5 @@ __int64 __fastcall XmRorOp(_DWORD *a1)
     while ( v5 );
     a1[4] = v6 | a1[4] & 0xFFFFFFFE;
   }
-  return XmStoreResult(a1, v4);
+  return XmStoreResult((__int64)a1, v4);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C0118BBC
+ * XREFs of ?KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C002B44C
  * Callers:
- *     ?SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z @ 0x1C0118B1C (-SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z.c)
- *     xxxResetTooltip @ 0x1C0118B6C (xxxResetTooltip.c)
+ *     ?SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z @ 0x1C0029168 (-SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z.c)
+ *     xxxResetTooltip @ 0x1C002B3FC (xxxResetTooltip.c)
  * Callees:
- *     FindTimer @ 0x1C01041A4 (FindTimer.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
  */
 
 void __fastcall KillTooltipTimer(struct tagTOOLTIPWND *a1)

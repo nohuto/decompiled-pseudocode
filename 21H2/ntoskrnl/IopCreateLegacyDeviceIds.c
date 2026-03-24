@@ -1,76 +1,81 @@
 /*
- * XREFs of IopCreateLegacyDeviceIds @ 0x140957F9C
+ * XREFs of IopCreateLegacyDeviceIds @ 0x1408B23EC
  * Callers:
- *     IoReportDetectedDevice @ 0x14081EB20 (IoReportDetectedDevice.c)
+ *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x1402DFBC4 (RtlStringCchPrintfExW.c)
- *     RtlStringCchPrintfW @ 0x1402E0198 (RtlStringCchPrintfW.c)
- *     _CmSetDeviceRegProp @ 0x14076FE20 (_CmSetDeviceRegProp.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _CmSetDeviceRegProp @ 0x140744010 (_CmSetDeviceRegProp.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopCreateLegacyDeviceIds(__int64 a1, unsigned __int16 *a2, __int64 a3)
 {
-  __int64 v4; // rdi
-  int v5; // ecx
-  __int64 v6; // r14
-  __int64 v7; // rcx
-  unsigned int v8; // r15d
-  wchar_t *Pool2; // rsi
-  int v10; // ebx
+  wchar_t *v4; // rdi
+  __int64 v5; // rsi
+  int v6; // ecx
+  __int64 v7; // r14
+  __int64 v8; // rcx
+  unsigned int v9; // r15d
+  wchar_t *PoolWithTag; // rax
+  int v11; // ebx
   NTSTRSAFE_PWSTR ppszDestEnd; // [rsp+90h] [rbp+8h] BYREF
   size_t pcchRemaining; // [rsp+A8h] [rbp+20h] BYREF
 
   ppszDestEnd = 0LL;
+  v4 = 0LL;
   pcchRemaining = 0LL;
-  if ( a1 && (v4 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL)) != 0 && *(_QWORD *)(v4 + 48) )
+  if ( a1 )
+    v5 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
+  else
+    v5 = 0LL;
+  if ( v5 && *(_QWORD *)(v5 + 48) )
   {
     if ( a3 )
     {
-      v5 = *(_DWORD *)(a3 + 4);
-      if ( (unsigned int)(v5 + 1) > 0x13 )
-        v5 = 18;
+      v6 = *(_DWORD *)(a3 + 4);
+      if ( (unsigned int)(v6 + 1) > 0x13 )
+        v6 = 18;
     }
     else
     {
-      v5 = 0;
+      v6 = 0;
     }
-    v6 = v5;
-    v7 = -1LL;
+    v7 = v6;
+    v8 = -1LL;
     do
-      ++v7;
-    while ( (&off_14000A668)[v6][v7] );
-    v8 = 2 * (*a2 + (_DWORD)v7) + 42;
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, v8, 1869181008LL);
-    if ( Pool2 )
-    {
-      v10 = RtlStringCchPrintfExW(
-              Pool2,
-              (unsigned __int64)v8 >> 1,
-              &ppszDestEnd,
-              &pcchRemaining,
-              0,
-              L"%ws%ws\\%wZ",
-              L"DETECTED",
-              (&off_14000A668)[v6],
-              a2);
-      if ( v10 >= 0 )
-      {
-        v10 = RtlStringCchPrintfW(ppszDestEnd + 1, pcchRemaining - 1, L"%ws\\%wZ", L"DETECTED", a2);
-        if ( v10 >= 0 )
-          v10 = CmSetDeviceRegProp(*(__int64 *)&PiPnpRtlCtx, *(_QWORD *)(v4 + 48), 0LL, 3u, 7u, (__int64)Pool2, v8, 0);
-      }
-      ExFreePoolWithTag(Pool2, 0);
-    }
-    else
-    {
+      ++v8;
+    while ( (&off_140009948)[v7][v8] );
+    v9 = 2 * (*a2 + (_DWORD)v8) + 42;
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v9, 0x6F697050u);
+    v4 = PoolWithTag;
+    if ( !PoolWithTag )
       return (unsigned int)-1073741670;
+    memset(PoolWithTag, 0, v9);
+    v11 = RtlStringCchPrintfExW(
+            v4,
+            (unsigned __int64)v9 >> 1,
+            &ppszDestEnd,
+            &pcchRemaining,
+            0,
+            L"%ws%ws\\%wZ",
+            L"DETECTED",
+            (&off_140009948)[v7],
+            a2);
+    if ( v11 >= 0 )
+    {
+      v11 = RtlStringCchPrintfW(ppszDestEnd + 1, pcchRemaining - 1, L"%ws\\%wZ", L"DETECTED", a2);
+      if ( v11 >= 0 )
+        v11 = CmSetDeviceRegProp(*(__int64 *)&PiPnpRtlCtx, *(_QWORD *)(v5 + 48), 0LL, 3u, 7u, (__int64)v4, v9, 0);
     }
   }
   else
   {
-    return (unsigned int)-1073741811;
+    v11 = -1073741811;
   }
-  return (unsigned int)v10;
+  if ( v4 )
+    ExFreePoolWithTag(v4, 0);
+  return (unsigned int)v11;
 }

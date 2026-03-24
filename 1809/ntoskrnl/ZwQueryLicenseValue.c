@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwQueryLicenseValue @ 0x1401BAAF0
+ * XREFs of ZwQueryLicenseValue @ 0x1401BAB10
  * Callers:
- *     RtlGetProductInfo @ 0x14018D600 (RtlGetProductInfo.c)
- *     ExpGenuinePolicyPostProcess @ 0x1406A77C0 (ExpGenuinePolicyPostProcess.c)
- *     ExpGetVMActivationStatus @ 0x140704088 (ExpGetVMActivationStatus.c)
- *     ExGetExpirationDate @ 0x14073541C (ExGetExpirationDate.c)
- *     RtlpGetWindowsPolicy @ 0x14073EFE4 (RtlpGetWindowsPolicy.c)
- *     MmCreateMirror @ 0x14084E490 (MmCreateMirror.c)
- *     RtlpGetPolicyValueForSystemCapability @ 0x140894BB0 (RtlpGetPolicyValueForSystemCapability.c)
- *     SepIsLockedDown @ 0x14089B6FC (SepIsLockedDown.c)
- *     KIsSideloadingEnabled @ 0x1408DDBB4 (KIsSideloadingEnabled.c)
+ *     RtlGetProductInfo @ 0x14018D620 (RtlGetProductInfo.c)
+ *     ExpGenuinePolicyPostProcess @ 0x1406A77A0 (ExpGenuinePolicyPostProcess.c)
+ *     ExpGetVMActivationStatus @ 0x140704068 (ExpGetVMActivationStatus.c)
+ *     ExGetExpirationDate @ 0x1407353FC (ExGetExpirationDate.c)
+ *     RtlpGetWindowsPolicy @ 0x14073EFC4 (RtlpGetWindowsPolicy.c)
+ *     MmCreateMirror @ 0x14084E470 (MmCreateMirror.c)
+ *     RtlpGetPolicyValueForSystemCapability @ 0x140894B90 (RtlpGetPolicyValueForSystemCapability.c)
+ *     SepIsLockedDown @ 0x14089B6DC (SepIsLockedDown.c)
+ *     KIsSideloadingEnabled @ 0x1408DDB94 (KIsSideloadingEnabled.c)
  *     WheapLoadPolicy @ 0x1409AEBE8 (WheapLoadPolicy.c)
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  *     PpmInitIdlePolicy @ 0x1409D82DC (PpmInitIdlePolicy.c)

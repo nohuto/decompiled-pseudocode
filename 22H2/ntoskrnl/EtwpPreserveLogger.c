@@ -1,116 +1,116 @@
 /*
- * XREFs of EtwpPreserveLogger @ 0x1409ED6CC
+ * XREFs of EtwpPreserveLogger @ 0x1409488AC
  * Callers:
- *     EtwpKsrCallback @ 0x1409ED590 (EtwpKsrCallback.c)
- *     EtwpSetSoftRestartInformation @ 0x1409EE1BC (EtwpSetSoftRestartInformation.c)
+ *     EtwpKsrCallback @ 0x140948770 (EtwpKsrCallback.c)
+ *     EtwpSetSoftRestartInformation @ 0x1409493A0 (EtwpSetSoftRestartInformation.c)
  * Callees:
- *     EtwpResetBufferHeader @ 0x140228180 (EtwpResetBufferHeader.c)
- *     EtwpFreeTraceBuffer @ 0x14031EE68 (EtwpFreeTraceBuffer.c)
- *     EtwpAllocateTraceBuffer @ 0x140370EEC (EtwpAllocateTraceBuffer.c)
- *     EtwpInitializeBufferHeader @ 0x140370F68 (EtwpInitializeBufferHeader.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     EtwpAddLogHeader @ 0x1407F7BE4 (EtwpAddLogHeader.c)
- *     EtwpBuildMdlForTraceBuffer @ 0x1409ED2C4 (EtwpBuildMdlForTraceBuffer.c)
- *     EtwpPreserveMdlList @ 0x1409ED900 (EtwpPreserveMdlList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwpFreeTraceBuffer @ 0x140321364 (EtwpFreeTraceBuffer.c)
+ *     EtwpResetBufferHeader @ 0x14032F37C (EtwpResetBufferHeader.c)
+ *     EtwpInitializeBufferHeader @ 0x14035FEAC (EtwpInitializeBufferHeader.c)
+ *     EtwpAllocateTraceBuffer @ 0x14035FF08 (EtwpAllocateTraceBuffer.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     EtwpAddLogHeader @ 0x140713C88 (EtwpAddLogHeader.c)
+ *     EtwpBuildMdlForTraceBuffer @ 0x1409484A4 (EtwpBuildMdlForTraceBuffer.c)
+ *     EtwpPreserveMdlList @ 0x140948AE8 (EtwpPreserveMdlList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpPreserveLogger(__int64 a1)
 {
-  __m128i *v1; // rbp
+  __int64 v1; // rbp
   __int64 v4; // r14
   PVOID v5; // r15
-  __m128i v6; // xmm7
-  unsigned __int16 v7; // ax
-  unsigned int v8; // edi
-  _DWORD *Pool2; // rsi
-  int v10; // edi
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v7; // rsi
+  int v8; // edi
   LARGE_INTEGER *TraceBuffer; // rax
-  LARGE_INTEGER *v12; // r13
-  __int128 v13; // xmm6
-  __int64 *v14; // r14
-  PVOID *v15; // rcx
-  unsigned int v16; // [rsp+90h] [rbp+8h]
-  PVOID P; // [rsp+98h] [rbp+10h] BYREF
-  PVOID *v18; // [rsp+A0h] [rbp+18h]
+  LARGE_INTEGER *v10; // r12
+  __int128 v11; // xmm6
+  __int64 v12; // r8
+  __int64 *v13; // r14
+  PVOID *v14; // rcx
+  void *Src[2]; // [rsp+20h] [rbp-58h]
+  PVOID P; // [rsp+88h] [rbp+10h] BYREF
+  PVOID *v17; // [rsp+90h] [rbp+18h]
 
-  v1 = *(__m128i **)(a1 + 1088);
+  v1 = *(_QWORD *)(a1 + 1072);
   P = 0LL;
-  if ( v1[2].m128i_i8[1] )
+  if ( *(_BYTE *)(v1 + 33) )
     return 0LL;
   v4 = *(unsigned int *)(a1 + 4);
   v5 = 0LL;
-  v6 = v1[1];
-  if ( ((v4 * (unsigned int)(*(_DWORD *)(a1 + 232) + 1)) & 0xFFFFFFFFFFFFF000uLL) > 0xFFFFFFFF000LL )
+  *(_OWORD *)Src = *(_OWORD *)(v1 + 16);
+  if ( ((v4 * (unsigned int)(*(_DWORD *)(a1 + 248) + 1)) & 0xFFFFFFFFFFFFF000uLL) > 0xFFFFFFFF000LL )
     return 3221225659LL;
-  v7 = _mm_cvtsi128_si32(v6);
-  v8 = v7 + 2;
-  v16 = v7 + 18;
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, v16, 1266119749LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)LOWORD(Src[0]) + 18, 0x4B777445u);
+  v7 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    Pool2[2] = *(_DWORD *)(a1 + 4);
-    Pool2[3] = 16;
-    memmove(Pool2 + 4, (const void *)_mm_srli_si128(v6, 8).m128i_i64[0], v8);
+    memset(PoolWithTag, 0, (unsigned int)LOWORD(Src[0]) + 18);
+    v7[2] = *(_DWORD *)(a1 + 4);
+    v7[3] = 16;
+    memmove(v7 + 4, Src[1], (unsigned int)LOWORD(Src[0]) + 2);
     TraceBuffer = (LARGE_INTEGER *)EtwpAllocateTraceBuffer(a1, v4);
-    v12 = TraceBuffer;
+    v10 = TraceBuffer;
     if ( !TraceBuffer )
     {
-      v10 = -1073741801;
-LABEL_22:
-      ExFreePoolWithTag(Pool2, 0);
-      return (unsigned int)v10;
+      v8 = -1073741801;
+LABEL_23:
+      ExFreePoolWithTag(v7, 0);
+      return (unsigned int)v8;
     }
     EtwpInitializeBufferHeader((__int16 *)a1, TraceBuffer);
-    EtwpResetBufferHeader((__int64)v12, 4);
-    v13 = *(_OWORD *)(a1 + 152);
-    *(__m128i *)(a1 + 152) = v6;
-    EtwpAddLogHeader(a1, v12);
-    v12[1].LowPart = v12[6].LowPart;
-    *(_OWORD *)(a1 + 152) = v13;
-    v10 = EtwpBuildMdlForTraceBuffer(a1, (char *)v12, (struct _MDL **)&P);
-    if ( v10 >= 0 )
+    EtwpResetBufferHeader((__int64)v10, 4);
+    v11 = *(_OWORD *)(a1 + 168);
+    *(_OWORD *)(a1 + 168) = *(_OWORD *)Src;
+    EtwpAddLogHeader(a1, v10);
+    *(_OWORD *)(a1 + 168) = v11;
+    v8 = EtwpBuildMdlForTraceBuffer(a1, (char *)v10, (struct _MDL **)&P);
+    if ( v8 >= 0 )
     {
-      ++Pool2[1];
-      v14 = *(__int64 **)(a1 + 80);
+      ++v7[1];
+      v13 = *(__int64 **)(a1 + 96);
       v5 = P;
-      if ( v14 == (__int64 *)(a1 + 80) || !v14 )
+      if ( v13 == (__int64 *)(a1 + 96) )
+        v13 = 0LL;
+      if ( v13 )
       {
-LABEL_17:
-        v10 = EtwpPreserveMdlList(v5, Pool2, v16, v1);
-        if ( v10 >= 0 )
+        v17 = (PVOID *)P;
+        while ( 1 )
         {
-          v1->m128i_i64[1] = (__int64)v12;
-          v1[2].m128i_i8[1] = 1;
-          goto LABEL_20;
+          v8 = EtwpBuildMdlForTraceBuffer(a1, (char *)v13[2], (struct _MDL **)&P);
+          if ( v8 < 0 )
+            break;
+          v14 = v17;
+          v17 = (PVOID *)P;
+          *v14 = P;
+          ++v7[1];
+          v13 = (__int64 *)*v13;
+          if ( v13 == (__int64 *)(a1 + 96) )
+            v13 = 0LL;
+          if ( !v13 )
+            goto LABEL_18;
         }
       }
       else
       {
-        v18 = (PVOID *)P;
-        while ( 1 )
+LABEL_18:
+        v8 = EtwpPreserveMdlList(v5, v7, (unsigned int)LOWORD(Src[0]) + 18, v1);
+        if ( v8 >= 0 )
         {
-          v10 = EtwpBuildMdlForTraceBuffer(a1, (char *)v14[2], (struct _MDL **)&P);
-          if ( v10 < 0 )
-            break;
-          v15 = v18;
-          v18 = (PVOID *)P;
-          *v15 = P;
-          ++Pool2[1];
-          v14 = (__int64 *)*v14;
-          if ( v14 == (__int64 *)(a1 + 80) )
-            v14 = 0LL;
-          if ( !v14 )
-            goto LABEL_17;
+          *(_QWORD *)(v1 + 8) = v10;
+          *(_BYTE *)(v1 + 33) = 1;
+          goto LABEL_21;
         }
       }
     }
-    EtwpFreeTraceBuffer(a1, (char *)v12);
-LABEL_20:
+    EtwpFreeTraceBuffer(a1, (char *)v10, v12);
+LABEL_21:
     if ( v5 )
       ExFreePoolWithTag(v5, 0);
-    goto LABEL_22;
+    goto LABEL_23;
   }
   return (unsigned int)-1073741670;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of Endpoint_SM_ResetEndpoint @ 0x1C003BA98
+ * XREFs of Endpoint_SM_ResetEndpoint @ 0x1C0039AA4
  * Callers:
- *     ESM_ResettingEndpoint @ 0x1C0051AA0 (ESM_ResettingEndpoint.c)
+ *     ESM_ResettingEndpoint @ 0x1C004EE30 (ESM_ResettingEndpoint.c)
  * Callees:
- *     Command_SendCommand @ 0x1C000A850 (Command_SendCommand.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 char __fastcall Endpoint_SM_ResetEndpoint(__int64 a1)
@@ -23,7 +23,7 @@ char __fastcall Endpoint_SM_ResetEndpoint(__int64 a1)
   _OWORD v12[2]; // [rsp+20h] [rbp-48h] BYREF
   __int64 v13; // [rsp+40h] [rbp-28h]
 
-  v1 = *(_QWORD *)(a1 + 280);
+  v1 = *(_QWORD *)(a1 + 272);
   memset(v12, 0, sizeof(v12));
   v13 = 0LL;
   LOWORD(v12[0]) = 40;
@@ -34,8 +34,8 @@ char __fastcall Endpoint_SM_ResetEndpoint(__int64 a1)
   v3 = *((_QWORD *)&v12[0] + 1);
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
-         *(_QWORD *)(a1 + 280),
-         off_1C0063090);
+         *(_QWORD *)(a1 + 272),
+         off_1C0060090);
   v5 = *(_QWORD *)(*(_QWORD *)a1 + 144LL);
   memset((void *)(v4 + 16), 0, 0x60uLL);
   v6 = *(_DWORD *)(v4 + 52);
@@ -51,7 +51,7 @@ char __fastcall Endpoint_SM_ResetEndpoint(__int64 a1)
   *(_QWORD *)(v4 + 96) = 0LL;
   v10 = v8 | 0x200;
   *(_QWORD *)(v4 + 104) = 0LL;
-  if ( (*(_BYTE *)(v3 + 32) & 1) == 0 )
+  if ( (*(_DWORD *)(v3 + 32) & 1) == 0 )
     v10 = v9;
   *(_DWORD *)(v4 + 52) = v10;
   return Command_SendCommand(v5, v4 + 16);

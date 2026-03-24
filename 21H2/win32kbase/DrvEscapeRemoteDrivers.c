@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvEscapeRemoteDrivers @ 0x1C00D4750
+ * XREFs of DrvEscapeRemoteDrivers @ 0x1C00C2B10
  * Callers:
- *     xxxRemoteConnect @ 0x1C007EDC0 (xxxRemoteConnect.c)
+ *     xxxRemoteConnect @ 0x1C01177E0 (xxxRemoteConnect.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     DrvGetDisplayDriverNames @ 0x1C007A970 (DrvGetDisplayDriverNames.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     HDXDrvEscape @ 0x1C00D4960 (HDXDrvEscape.c)
+ *     DrvGetDisplayDriverNames @ 0x1C0014250 (DrvGetDisplayDriverNames.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     HDXDrvEscape @ 0x1C00C2D00 (HDXDrvEscape.c)
  */
 
 __int64 __fastcall DrvEscapeRemoteDrivers(
@@ -19,99 +19,105 @@ __int64 __fastcall DrvEscapeRemoteDrivers(
         __int64 a5,
         unsigned int a6)
 {
-  __int64 v6; // rbp
-  __int64 v7; // r12
-  unsigned int v8; // r14d
-  int v11; // r8d
-  unsigned int v12; // r13d
+  __int64 v6; // r12
+  __int64 v7; // r15
+  unsigned int v8; // r13d
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  int v14; // r8d
+  unsigned int v15; // ebp
   unsigned int *DisplayDriverNames; // rax
-  char *v14; // rdi
-  int v15; // r15d
-  unsigned __int16 *v16; // rcx
-  __int64 v17; // r8
-  int v18; // edx
-  int v19; // eax
-  __int64 v20; // rcx
-  __int64 v22; // [rsp+20h] [rbp-38h]
-  __int64 v23; // [rsp+28h] [rbp-30h]
+  unsigned int *v17; // rdi
+  int v18; // r14d
+  unsigned __int16 *v19; // rax
+  __int64 v20; // r8
+  int v21; // edx
+  int v22; // ecx
+  __int64 v23; // rdx
+  HSEMAPHORE v24; // rcx
+  __int64 v25; // rcx
+  __int64 v26; // rax
+  __int64 v28; // rax
+  __int64 v29; // [rsp+20h] [rbp-48h]
+  __int64 v30; // [rsp+70h] [rbp+8h]
 
   v6 = 0LL;
   v7 = a4;
   v8 = 0;
-  WdLogSingleEntry1(4LL, a1);
+  v11 = WdLogNewEntry5_WdEvent(a1);
+  *(_QWORD *)(v11 + 24) = a1;
+  WdLogEvent5_WdEvent(v11);
   if ( gRemoteSessionUseWddm )
   {
-    WdLogSingleEntry1(5LL, v7);
+    v28 = WdLogNewEntry5_WdTrace(v13, v12);
+    *(_QWORD *)(v28 + 24) = v7;
+    WdLogEvent5_WdTrace(v28);
     return 1LL;
   }
-  else if ( (unsigned __int16)(gProtocolType - 1) <= 0xFFFDu && a3 )
-  {
-    EngAcquireSemaphore((HSEMAPHORE)ghsemDynamicModeChange);
-    EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemDynamicModeChange", (int)ghsemDynamicModeChange, 1);
-    v12 = 0;
-    if ( *(_DWORD *)(a1 + 20) )
-    {
-      do
-      {
-        v23 = 56LL * v12;
-        v22 = *(_QWORD *)(*(_QWORD *)(v23 + a1 + 40) + 2552LL);
-        DisplayDriverNames = DrvGetDisplayDriverNames(v22);
-        v14 = (char *)DisplayDriverNames;
-        if ( DisplayDriverNames )
-        {
-          v15 = 0;
-          if ( *DisplayDriverNames )
-          {
-            do
-            {
-              v16 = *(unsigned __int16 **)&v14[16 * v15 + 16];
-              v17 = a3 - (_QWORD)v16;
-              do
-              {
-                v18 = *(unsigned __int16 *)((char *)v16 + v17);
-                v19 = *v16 - v18;
-                if ( v19 )
-                  break;
-                ++v16;
-              }
-              while ( v18 );
-              if ( !v19 && (*(_DWORD *)(v22 + 160) & 0x4000000) != 0 )
-              {
-                v6 = *(_QWORD *)(v23 + a1 + 40);
-                v8 = HDXDrvEscape(v6, (unsigned int)v7, a5, a6);
-                if ( v8 != 1 )
-                  goto LABEL_22;
-              }
-            }
-            while ( (unsigned int)++v15 < *(_DWORD *)v14 );
-          }
-          NSInstrumentation::CLeakTrackingAllocator::Free(
-            (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-            v14);
-          v14 = 0LL;
-        }
-        ++v12;
-      }
-      while ( v12 < *(_DWORD *)(a1 + 20) );
-      if ( !v14 )
-        goto LABEL_17;
-LABEL_22:
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        v14);
-    }
-LABEL_17:
-    EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDynamicModeChange", (int)ghsemDynamicModeChange, v11);
-    if ( ghsemDynamicModeChange )
-    {
-      ExReleaseResourceAndLeaveCriticalRegion(ghsemDynamicModeChange);
-      PsLeavePriorityRegion(v20);
-    }
-    WdLogSingleEntry1(5LL, v6);
-    return v8;
-  }
-  else
-  {
+  if ( (unsigned __int16)(gProtocolType - 1) > 0xFFFDu || !a3 )
     return HDXDrvEscape(*(_QWORD *)(a1 + 40), (unsigned int)v7, a5, a6);
+  EngAcquireSemaphore(ghsemDynamicModeChange);
+  EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemDynamicModeChange", (int)ghsemDynamicModeChange, 1);
+  v15 = 0;
+  if ( !*(_DWORD *)(a1 + 20) )
+    goto LABEL_18;
+  while ( 1 )
+  {
+    v29 = 56LL * v15;
+    v30 = *(_QWORD *)(*(_QWORD *)(v29 + a1 + 40) + 2576LL);
+    DisplayDriverNames = DrvGetDisplayDriverNames(v30);
+    v17 = DisplayDriverNames;
+    if ( DisplayDriverNames )
+      break;
+LABEL_15:
+    if ( ++v15 >= *(_DWORD *)(a1 + 20) )
+      goto LABEL_16;
   }
+  v18 = 0;
+  if ( !*DisplayDriverNames )
+  {
+LABEL_14:
+    Win32FreePool((__int64)v17);
+    v17 = 0LL;
+    goto LABEL_15;
+  }
+  while ( 1 )
+  {
+    v19 = *(unsigned __int16 **)&v17[4 * v18 + 4];
+    v20 = a3 - (_QWORD)v19;
+    do
+    {
+      v21 = *(unsigned __int16 *)((char *)v19 + v20);
+      v22 = *v19 - v21;
+      if ( v22 )
+        break;
+      ++v19;
+    }
+    while ( v21 );
+    if ( !v22 && (*(_DWORD *)(v30 + 160) & 0x4000000) != 0 )
+    {
+      v6 = *(_QWORD *)(v29 + a1 + 40);
+      v8 = HDXDrvEscape(v6, (unsigned int)v7, a5, a6);
+      if ( v8 != 1 )
+        break;
+    }
+    if ( ++v18 >= *v17 )
+      goto LABEL_14;
+  }
+LABEL_16:
+  if ( v17 )
+    Win32FreePool((__int64)v17);
+LABEL_18:
+  EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDynamicModeChange", (int)ghsemDynamicModeChange, v14);
+  v24 = ghsemDynamicModeChange;
+  if ( ghsemDynamicModeChange )
+  {
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDynamicModeChange);
+    PsLeavePriorityRegion(v25);
+  }
+  v26 = WdLogNewEntry5_WdTrace(v24, v23);
+  *(_QWORD *)(v26 + 24) = v6;
+  WdLogEvent5_WdTrace(v26);
+  return v8;
 }

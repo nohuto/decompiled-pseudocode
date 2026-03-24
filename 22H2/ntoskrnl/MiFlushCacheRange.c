@@ -1,50 +1,47 @@
 /*
- * XREFs of MiFlushCacheRange @ 0x140660F6C
+ * XREFs of MiFlushCacheRange @ 0x140554454
  * Callers:
- *     MiHotRemoveHugeRange @ 0x140620144 (MiHotRemoveHugeRange.c)
- *     MiRemovePhysicalMemory @ 0x140A2CCBC (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5FDC (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiFlushCacheForAttributeChange @ 0x14021ABA4 (MiFlushCacheForAttributeChange.c)
- *     KeInvalidateAllCaches @ 0x14036D4F0 (KeInvalidateAllCaches.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFlushCacheForAttributeChange @ 0x140283EC8 (MiFlushCacheForAttributeChange.c)
+ *     KeInvalidateAllCaches @ 0x1403A4700 (KeInvalidateAllCaches.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiFlushCacheRange(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall MiFlushCacheRange(__int64 a1, unsigned __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
   unsigned __int8 CurrentIrql; // bl
-  _DWORD *SchedulerAssist; // r9
-  int v5; // eax
   unsigned __int8 v6; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *v8; // r8
   int v9; // eax
   bool v10; // zf
 
-  if ( a2 < (unsigned int)dword_140C65C0C )
+  if ( a2 < (unsigned int)dword_140C4DF0C )
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      v5 = 4;
-      if ( CurrentIrql != 2 )
-        v5 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v5;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
-    MiFlushCacheForAttributeChange(a1, a2, 3, 0LL);
+    MiFlushCacheForAttributeChange(a1, a2, 3LL, (__int64)SchedulerAssist);
     if ( KiIrqlFlags )
     {
-      v6 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v8 = CurrentPrcb->SchedulerAssist;
-        v9 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v10 = (v9 & v8[5]) == 0;
-        v8[5] &= v9;
-        if ( v10 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        v6 = KeGetCurrentIrql();
+        if ( v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v8 = CurrentPrcb->SchedulerAssist;
+          v9 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v10 = (v9 & v8[5]) == 0;
+          v8[5] &= v9;
+          if ( v10 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(CurrentIrql);
@@ -52,7 +49,7 @@ __int64 __fastcall MiFlushCacheRange(__int64 a1, unsigned __int64 a2)
   }
   else
   {
-    ++dword_140C65C04;
+    ++dword_140C4DF04;
     KeInvalidateAllCaches();
     return 1LL;
   }

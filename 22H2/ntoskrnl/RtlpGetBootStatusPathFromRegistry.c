@@ -1,24 +1,23 @@
 /*
- * XREFs of RtlpGetBootStatusPathFromRegistry @ 0x1403C5D10
+ * XREFs of RtlpGetBootStatusPathFromRegistry @ 0x140399170
  * Callers:
- *     RtlpGetBootStatusPath @ 0x1403C5CB4 (RtlpGetBootStatusPath.c)
+ *     RtlpGetBootStatusPath @ 0x140399114 (RtlpGetBootStatusPath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpGetBootStatusPathFromRegistry(_QWORD *a1)
 {
   NTSTATUS v2; // ebx
   NTSTATUS v3; // eax
-  unsigned int *Pool2; // rdi
-  void *v6; // rax
-  void *v7; // rsi
+  unsigned int *PoolWithTag; // rdi
+  PVOID v6; // rax
+  PVOID v7; // rsi
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
   ULONG ResultLength; // [rsp+A8h] [rbp+38h] BYREF
@@ -26,14 +25,15 @@ __int64 __fastcall RtlpGetBootStatusPathFromRegistry(_QWORD *a1)
   HANDLE KeyHandle; // [rsp+B8h] [rbp+48h] BYREF
 
   v11 = 0;
-  ResultLength = 0;
-  *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ResultLength = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\REGISTRY\\MACHINE\\SYSTEM\\CurrentControlSet\\Control");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v2 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
@@ -44,17 +44,17 @@ __int64 __fastcall RtlpGetBootStatusPathFromRegistry(_QWORD *a1)
     v2 = v3;
     if ( v3 == -1073741789 )
     {
-      Pool2 = (unsigned int *)ExAllocatePool2(256LL, ResultLength, 1717859170LL);
-      if ( Pool2 )
+      PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, ResultLength, 0x66647362u);
+      if ( PoolWithTag )
       {
-        v2 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, Pool2, ResultLength, &v11);
+        v2 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, PoolWithTag, ResultLength, &v11);
         if ( v2 >= 0 )
         {
-          v6 = (void *)ExAllocatePool2(256LL, Pool2[2], 1717859170LL);
+          v6 = ExAllocatePoolWithTag(PagedPool, PoolWithTag[2], 0x66647362u);
           v7 = v6;
           if ( v6 )
           {
-            memmove(v6, Pool2 + 3, Pool2[2]);
+            memmove(v6, PoolWithTag + 3, PoolWithTag[2]);
             *a1 = v7;
           }
           else
@@ -62,19 +62,17 @@ __int64 __fastcall RtlpGetBootStatusPathFromRegistry(_QWORD *a1)
             v2 = -1073741801;
           }
         }
-        ExFreePoolWithTag(Pool2, 0);
+        ExFreePoolWithTag(PoolWithTag, 0);
       }
       else
       {
-        v2 = -1073741801;
+        return (unsigned int)-1073741801;
       }
     }
     else if ( v3 >= 0 )
     {
-      v2 = -1073741823;
+      return (unsigned int)-1073741823;
     }
   }
-  if ( KeyHandle )
-    ZwClose(KeyHandle);
   return (unsigned int)v2;
 }

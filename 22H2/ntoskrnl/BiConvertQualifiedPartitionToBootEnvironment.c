@@ -1,28 +1,28 @@
 /*
- * XREFs of BiConvertQualifiedPartitionToBootEnvironment @ 0x140A5C8C4
+ * XREFs of BiConvertQualifiedPartitionToBootEnvironment @ 0x14096F4B8
  * Callers:
- *     BiConvertElementToRegistryData @ 0x140808860 (BiConvertElementToRegistryData.c)
+ *     BiConvertElementToRegistryData @ 0x140784A7C (BiConvertElementToRegistryData.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiConvertQualifiedPartitionToBootEnvironment(__int64 a1, unsigned int a2, _QWORD *a3)
 {
   unsigned int v5; // ebx
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v7; // rdi
   int v8; // eax
 
   if ( a2 >= 0x3C )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(258LL, 72LL, 1262764866LL);
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x48uLL, 0x4B444342u);
     v5 = 0;
-    v7 = Pool2;
-    if ( Pool2 )
+    v7 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memset(Pool2, 0, 0x48uLL);
+      memset(PoolWithTag, 0, 0x48uLL);
       *v7 = 6;
       v7[2] = 72;
       v8 = *(_DWORD *)(a1 + 20);

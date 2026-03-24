@@ -1,179 +1,185 @@
 /*
- * XREFs of ?bTryLockShadowR@MULTIPANSURFLOCK@@QEAAHPEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C029D36C
+ * XREFs of ?bTryLockShadowR@MULTIPANSURFLOCK@@QEAAHPEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C02962CC
  * Callers:
- *     ??0MULTIPANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@1PEAU_RECTL@@2PEAHPEAU_CLIPOBJ@@@Z @ 0x1C029B2EC (--0MULTIPANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@1PEAU_RECTL@@2PEAHPEAU_CLIPOBJ@@@Z.c)
+ *     ??0MULTIPANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@1PEAU_RECTL@@2PEAHPEAU_CLIPOBJ@@@Z @ 0x1C02941D4 (--0MULTIPANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@1PEAU_RECTL@@2PEAHPEAU_CLIPOBJ@@@Z.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00DC2A8 (-vOrder@ERECTL@@QEAAXXZ.c)
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00F3FD0 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z @ 0x1C029D1A4 (-ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z.c)
- *     ?vUnLockShadowR@MULTIPANSURFLOCK@@QEAAXXZ @ 0x1C029E208 (-vUnLockShadowR@MULTIPANSURFLOCK@@QEAAXXZ.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00B121C (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00B7698 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z @ 0x1C0296104 (-ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z.c)
+ *     ?vUnLockShadowR@MULTIPANSURFLOCK@@QEAAXXZ @ 0x1C0297128 (-vUnLockShadowR@MULTIPANSURFLOCK@@QEAAXXZ.c)
  */
 
 __int64 __fastcall MULTIPANSURFLOCK::bTryLockShadowR(MULTIPANSURFLOCK *this, struct _RECTL *a2, struct _CLIPOBJ *a3)
 {
-  __int64 v4; // rdi
-  __int64 v5; // rax
-  int v6; // edx
+  __int64 v4; // rsi
+  unsigned int v5; // edi
+  __int64 v6; // rdx
   __int64 v7; // rax
   __int64 v8; // rax
-  __int64 v9; // rcx
-  signed int v10; // eax
+  int v9; // ecx
+  __int64 v10; // rax
   __int64 v11; // rcx
-  __int64 v12; // r12
-  int v13; // eax
-  __int64 v14; // rcx
-  int v15; // esi
-  __int64 v16; // r15
-  int v17; // eax
-  int v18; // r14d
-  __int64 v19; // rcx
-  int v20; // esi
-  __int64 v21; // rdi
-  __int64 v22; // rcx
-  __int64 v23; // rax
-  __int64 v24; // r13
-  char *v25; // r15
-  __int64 v26; // r12
-  __int64 v27; // rax
-  __int64 v28; // rsi
-  __int64 v29; // r14
-  __int64 v30; // rcx
-  __int64 v31; // rcx
-  __int64 result; // rax
-  __int64 v33; // rsi
-  _BYTE *v34; // rdi
-  __int64 v35; // r14
-  __int64 v36; // rcx
-  struct _PANDEV *v37; // rcx
-  signed __int32 v38[8]; // [rsp+0h] [rbp-50h] BYREF
-  __int128 v39; // [rsp+30h] [rbp-20h] BYREF
-  int v40[4]; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v41; // [rsp+90h] [rbp+40h]
-  __int64 v42; // [rsp+A0h] [rbp+50h]
+  signed int v12; // eax
+  __int64 v13; // rcx
+  __int64 v14; // r13
+  int v15; // eax
+  __int64 v16; // rcx
+  int v17; // r14d
+  __int64 v18; // r12
+  int v19; // eax
+  int v20; // r15d
+  __int64 v21; // rcx
+  int v22; // r14d
+  __int64 v23; // rsi
+  __int64 v24; // rdx
+  __int64 v25; // rax
+  __int64 v26; // rcx
+  char *v27; // r12
+  __int64 v28; // r13
+  __int64 v29; // rax
+  __int64 v30; // r14
+  __int64 v31; // r15
+  __int64 v32; // rcx
+  __int64 v33; // rcx
+  __int64 i; // rsi
+  __int64 v36; // r14
+  char *v37; // r15
+  __int64 v38; // rax
+  struct _PANDEV *v39; // rcx
+  signed __int32 v40[8]; // [rsp+0h] [rbp-50h] BYREF
+  __int128 v41; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v42; // [rsp+40h] [rbp-10h] BYREF
+  int v43; // [rsp+48h] [rbp-8h]
+  int v44; // [rsp+4Ch] [rbp-4h]
+  __int64 v45; // [rsp+90h] [rbp+40h]
+  __int64 v46; // [rsp+A0h] [rbp+50h]
+  __int64 v47; // [rsp+A8h] [rbp+58h]
 
-  v39 = (__int128)*a2;
-  ERECTL::vOrder((ERECTL *)&v39);
+  v41 = (__int128)*a2;
+  ERECTL::vOrder((ERECTL *)&v41);
   v4 = *((_QWORD *)this + 4);
-  v5 = v4;
-  if ( !v4 )
-    v5 = *((_QWORD *)this + 5);
-  v6 = *(_DWORD *)(*(_QWORD *)(v5 + 64) + 36LL);
-  v7 = *((_QWORD *)this + 4);
-  if ( !v4 )
-    v7 = *((_QWORD *)this + 5);
+  v5 = 0;
+  v6 = v4;
+  if ( v4 )
+  {
+    v7 = *((_QWORD *)this + 4);
+  }
+  else
+  {
+    v6 = *((_QWORD *)this + 5);
+    v7 = v6;
+  }
   v8 = *(_QWORD *)(v7 + 64);
-  v40[0] = 0;
-  v40[1] = 0;
-  v40[3] = v6;
-  v40[2] = *(_DWORD *)(v8 + 32);
-  ERECTL::operator*=((int *)&v39, v40);
-  if ( ERECTL::bEmpty((ERECTL *)&v39) )
-    return 1LL;
-  v9 = v4;
-  if ( !v4 )
-    v9 = *((_QWORD *)this + 5);
-  v10 = (unsigned int)v39 / *(_DWORD *)(v9 + 768);
+  v42 = 0LL;
+  v9 = *(_DWORD *)(v8 + 32);
+  v10 = *(_QWORD *)(v6 + 64);
+  v43 = v9;
+  v44 = *(_DWORD *)(v10 + 36);
+  ERECTL::operator*=((int *)&v41, (int *)&v42);
+  if ( ERECTL::bEmpty((ERECTL *)&v41) )
+    return 1;
   v11 = v4;
-  v12 = v10;
   if ( !v4 )
     v11 = *((_QWORD *)this + 5);
-  v13 = DWORD2(v39) / *(_DWORD *)(v11 + 768);
-  v14 = v4;
-  v15 = v13;
+  v12 = (unsigned int)v41 / *(_DWORD *)(v11 + 768);
+  v13 = v4;
+  v14 = v12;
   if ( !v4 )
-    v14 = *((_QWORD *)this + 5);
-  v16 = DWORD1(v39) / *(_DWORD *)(v14 + 772);
+    v13 = *((_QWORD *)this + 5);
+  v15 = DWORD2(v41) / *(_DWORD *)(v13 + 768);
+  v16 = v4;
+  v17 = v15;
+  if ( !v4 )
+    v16 = *((_QWORD *)this + 5);
+  v18 = DWORD1(v41) / *(_DWORD *)(v16 + 772);
   if ( !v4 )
     v4 = *((_QWORD *)this + 5);
-  v17 = HIDWORD(v39) / *(_DWORD *)(v4 + 772);
+  v19 = HIDWORD(v41) / *(_DWORD *)(v4 + 772);
   *((_BYTE *)this + 48) = 1;
-  v18 = v17 + 1;
-  memset_0((char *)this + 50, 0, 0x51uLL);
-  v19 = *((_QWORD *)this + 4);
-  v20 = v15 + 1;
-  if ( !v19 )
-    v19 = *((_QWORD *)this + 5);
-  KeWaitForSingleObject((PVOID)(*(_QWORD *)(v19 + 784) + 32LL), UserRequest, 0, 0, 0LL);
-  v21 = v16;
-  v22 = v20;
-  v41 = v20;
-  v42 = v18;
-  if ( v16 >= v18 )
+  v20 = v19 + 1;
+  memset((char *)this + 50, 0, 0x51uLL);
+  v21 = *((_QWORD *)this + 4);
+  v22 = v17 + 1;
+  if ( !v21 )
+    v21 = *((_QWORD *)this + 5);
+  KeWaitForSingleObject((PVOID)(*(_QWORD *)(v21 + 784) + 32LL), UserRequest, 0, 0, 0LL);
+  v23 = v18;
+  v24 = v22;
+  v45 = v22;
+  v46 = v20;
+  if ( v18 >= v20 )
   {
-LABEL_26:
-    v31 = *((_QWORD *)this + 4);
-    if ( !v31 )
-      v31 = *((_QWORD *)this + 5);
-    KeReleaseMutex((PRKMUTEX)(*(_QWORD *)(v31 + 784) + 32LL), 0);
-    return 1LL;
+LABEL_24:
+    v33 = *((_QWORD *)this + 4);
+    if ( !v33 )
+      v33 = *((_QWORD *)this + 5);
+    KeReleaseMutex((PRKMUTEX)(*(_QWORD *)(v33 + 784) + 32LL), 0);
+    return 1;
   }
-  v23 = 9 * v16;
-  v24 = v12;
-  v25 = (char *)this + 9 * v16 + 50;
-  v26 = 8 * (v12 + v23) + 120;
-  v27 = v18;
+  v25 = 9 * v18;
+  v26 = v14;
+  v47 = v14;
+  v27 = (char *)this + 9 * v18 + 50;
+  v28 = 8 * (v14 + v25) + 120;
+  v29 = v20;
   while ( 1 )
   {
-    v28 = v24;
-    if ( v24 < v22 )
+    v30 = v26;
+    if ( v26 < v24 )
       break;
-LABEL_25:
-    ++v21;
-    v26 += 72LL;
-    v25 += 9;
-    if ( v21 >= v27 )
-      goto LABEL_26;
+LABEL_23:
+    ++v23;
+    v28 += 72LL;
+    v27 += 9;
+    if ( v23 >= v29 )
+      goto LABEL_24;
   }
-  v29 = v26;
+  v31 = v28;
   while ( 1 )
   {
-    v30 = *((_QWORD *)this + 4);
-    if ( !v30 )
-      v30 = *((_QWORD *)this + 5);
-    if ( (unsigned int)EngAcquireSemaphoreSharedNoWait(*(_QWORD *)(v29 + v30)) != 1 )
+    v32 = *((_QWORD *)this + 4);
+    if ( !v32 )
+      v32 = *((_QWORD *)this + 5);
+    if ( (unsigned int)EngAcquireSemaphoreSharedNoWait(*(_QWORD *)(v31 + v32)) != 1 )
       break;
-    v22 = v41;
-    v29 += 8LL;
-    v25[v28++] = 1;
-    if ( v28 >= v41 )
+    v24 = v45;
+    v31 += 8LL;
+    v27[v30++] = 1;
+    if ( v30 >= v45 )
     {
-      v27 = v42;
-      goto LABEL_25;
+      v26 = v47;
+      v29 = v46;
+      goto LABEL_23;
     }
   }
-  v33 = 760LL;
-  v34 = (char *)this + 211;
-  do
+  for ( i = 87LL; i >= 15; i -= 9LL )
   {
-    v35 = 9LL;
+    v36 = 8LL;
+    v37 = (char *)this + i;
     do
     {
-      if ( *v34 == 1 )
+      if ( v37[v36 + 116] == 1 )
       {
-        v36 = *((_QWORD *)this + 4);
-        if ( !v36 )
-          v36 = *((_QWORD *)this + 5);
-        EngReleaseSemaphore(*(HSEMAPHORE *)(v33 + v36));
-        *v34 = 0;
+        v38 = *((_QWORD *)this + 4);
+        if ( !v38 )
+          v38 = *((_QWORD *)this + 5);
+        EngReleaseSemaphore(*(HSEMAPHORE *)(v38 + 8 * (i + v36)));
+        v37[v36 + 116] = 0;
       }
-      v33 -= 8LL;
-      --v34;
-      --v35;
+      --v36;
     }
-    while ( v35 );
+    while ( v36 >= 0 );
   }
-  while ( v33 >= 184 );
-  memset_0((char *)this + 131, 0, 0x51uLL);
-  _InterlockedOr(v38, 0);
+  memset((char *)this + 131, 0, 0x51uLL);
+  _InterlockedOr(v40, 0);
   MULTIPANSURFLOCK::vUnLockShadowR(this);
-  v37 = (struct _PANDEV *)*((_QWORD *)this + 4);
-  if ( !v37 )
-    v37 = (struct _PANDEV *)*((_QWORD *)this + 5);
-  ShadowUnLockWait(v37);
-  memset_0((char *)this + 50, 0, 0x51uLL);
-  result = 0LL;
+  v39 = (struct _PANDEV *)*((_QWORD *)this + 4);
+  if ( !v39 )
+    v39 = (struct _PANDEV *)*((_QWORD *)this + 5);
+  ShadowUnLockWait(v39);
+  memset((char *)this + 50, 0, 0x51uLL);
   *((_BYTE *)this + 48) = 0;
-  return result;
+  return v5;
 }

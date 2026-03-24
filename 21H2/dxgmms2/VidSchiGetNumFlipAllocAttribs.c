@@ -1,9 +1,9 @@
 /*
- * XREFs of VidSchiGetNumFlipAllocAttribs @ 0x1C00F6FB0
+ * XREFs of VidSchiGetNumFlipAllocAttribs @ 0x1C00D4740
  * Callers:
- *     VidSchCollectDbgInfo @ 0x1C00F64B0 (VidSchCollectDbgInfo.c)
+ *     VidSchCollectDbgInfo @ 0x1C00D3C50 (VidSchCollectDbgInfo.c)
  * Callees:
- *     ?GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ @ 0x1C001AF04 (-GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ.c)
+ *     ?GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ @ 0x1C0029F94 (-GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ.c)
  */
 
 __int64 __fastcall VidSchiGetNumFlipAllocAttribs(__int64 a1, int a2)
@@ -26,19 +26,19 @@ __int64 __fastcall VidSchiGetNumFlipAllocAttribs(__int64 a1, int a2)
   while ( 1 )
   {
     v13 = v3;
-    if ( v3 == *(_DWORD *)(a1 + 152) )
+    if ( v3 == *(_DWORD *)(a1 + 144) )
       break;
     FlipQueue = VIDSCH_FLIP_QUEUE_ITERATOR::GetFlipQueue((VIDSCH_FLIP_QUEUE_ITERATOR *)&v11);
     if ( FlipQueue )
     {
-      v6 = (_DWORD **)((char *)FlipQueue + 1296);
+      v6 = (_DWORD **)((char *)FlipQueue + 1264);
       v7 = 64LL;
       do
       {
         v8 = *((_DWORD *)v6 - 31);
         if ( v8 > 0xC || (v9 = 4673, !_bittest(&v9, v8)) )
           v2 += RtlNumberOfSetBitsUlongPtr(**v6 & 0x3FF);
-        v6 += 172;
+        v6 += 168;
         --v7;
       }
       while ( v7 );

@@ -1,60 +1,57 @@
 /*
- * XREFs of MmInitializeProcessor @ 0x140A59E20
+ * XREFs of MmInitializeProcessor @ 0x14099F710
  * Callers:
- *     KiStartDynamicProcessor @ 0x14096029C (KiStartDynamicProcessor.c)
- *     MiInitNucleus @ 0x140AF47DC (MiInitNucleus.c)
- *     KeStartAllProcessors @ 0x140B03C68 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
+ *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     KeGetProcessorNodeNumber @ 0x14025E060 (KeGetProcessorNodeNumber.c)
- *     MiCreateUltraThreadContext @ 0x14026A574 (MiCreateUltraThreadContext.c)
- *     MiReservePtes @ 0x1403095B0 (MiReservePtes.c)
- *     ExAllocatePoolMm @ 0x14030B860 (ExAllocatePoolMm.c)
- *     MmDeleteProcessor @ 0x14057F9FC (MmDeleteProcessor.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiCreateUltraThreadContext @ 0x1402E30FC (MiCreateUltraThreadContext.c)
+ *     MmDeleteProcessor @ 0x14052DFD0 (MmDeleteProcessor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MmInitializeProcessor(__int64 a1)
+__int64 __fastcall MmInitializeProcessor(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
-  ULONG_PTR v2; // rax
-  __int64 ProcessorNodeNumber; // rbx
-  _QWORD *PoolMm; // rax
-  _QWORD *v5; // rsi
-  __int64 v6; // rcx
-  unsigned __int64 v7; // rax
-  __int64 result; // rax
+  ULONG_PTR v5; // rax
+  char *Pool; // rax
+  void *v7; // rdi
+  __int64 v8; // r8
+  __int64 v9; // rcx
+  unsigned __int64 v10; // rax
 
   if ( *(_DWORD *)(a1 + 36) )
-    *(_QWORD *)(a1 + 35248) = -1LL;
-  v2 = MiReservePtes((__int64)&qword_140C534C0, 0x40u);
-  if ( v2 )
+    *(_QWORD *)(a1 + 34224) = -1LL;
+  v5 = MiReservePtes((__int64)&qword_140C4EF40, 0x40u, a3, a4);
+  if ( v5 )
   {
-    *(_QWORD *)(a1 + 34176) = (__int64)(v2 << 25) >> 16;
-    *(_DWORD *)(a1 + 33372) = dword_140C50738;
-    ProcessorNodeNumber = (unsigned __int16)KeGetProcessorNodeNumber(a1);
-    PoolMm = ExAllocatePoolMm(64LL, 0x30D0uLL, 0x6D50694Du, (unsigned int)ProcessorNodeNumber | 0x80000000);
-    v5 = PoolMm;
-    if ( PoolMm )
+    *(_QWORD *)(a1 + 33280) = (__int64)(v5 << 25) >> 16;
+    *(_DWORD *)(a1 + 32540) = dword_140C4DEF8;
+    Pool = (char *)MiAllocatePool(64, 0x30C8uLL, 0x20206D4Du);
+    v7 = Pool;
+    if ( Pool )
     {
-      *((_DWORD *)PoolMm + 3120) = 0;
-      *PoolMm = PoolMm + 4;
-      *((_DWORD *)PoolMm + 6) = 512;
-      PoolMm[1] = PoolMm + 519;
-      PoolMm[2] = PoolMm + 1031;
-      v6 = qword_140C54F90 + 24512 * ProcessorNodeNumber;
-      *(_DWORD *)(a1 + 33364) = *(unsigned __int8 *)(v6 + 22716);
-      *(_DWORD *)(a1 + 33368) = *(_DWORD *)(v6 + 22712);
-      v7 = __rdtsc();
+      *((_DWORD *)Pool + 3120) = 0;
+      *(_QWORD *)Pool = Pool + 32;
+      *((_QWORD *)Pool + 1) = Pool + 4152;
+      *((_QWORD *)Pool + 2) = Pool + 8248;
+      *((_DWORD *)Pool + 6) = 512;
+      v8 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 192) + 146LL);
+      v9 = qword_140C50D90 + 4544 * v8;
+      *(_DWORD *)(a1 + 32532) = *(unsigned __int8 *)(v9 + 4212);
+      *(_DWORD *)(a1 + 32536) = *(_DWORD *)(v9 + 4208);
+      v10 = __rdtsc();
       if ( (unsigned int)MiCreateUltraThreadContext(
-                           (__int64)(v5 + 1544),
-                           ((_DWORD)ProcessorNodeNumber << byte_140C506CC) | (unsigned int)(v7 & (unsigned __int16)((1 << byte_140C506CD) - 1)),
+                           (__int64)v7 + 12352,
+                           ((_DWORD)v8 << byte_140C4DE8C) | (unsigned int)(v10 & (unsigned __int16)((1 << byte_140C4DE8D)
+                                                                                                  - 1)),
                            8) )
       {
-        result = 1LL;
-        v5[1561] = *(_QWORD *)(120LL * (unsigned int)ProcessorNodeNumber + qword_140C506E0 + 112);
-        *(_QWORD *)(a1 + 33592) = v5;
-        return result;
+        *(_QWORD *)(a1 + 32760) = v7;
+        return 1LL;
       }
-      ExFreePoolWithTag(v5, 0);
+      ExFreePoolWithTag(v7, 0);
     }
     MmDeleteProcessor(a1);
   }

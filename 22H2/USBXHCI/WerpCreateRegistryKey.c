@@ -1,7 +1,7 @@
 /*
- * XREFs of WerpCreateRegistryKey @ 0x1C00548D4
+ * XREFs of WerpCreateRegistryKey @ 0x1C0051B38
  * Callers:
- *     WerKernelCreateReport @ 0x1C0053D44 (WerKernelCreateReport.c)
+ *     WerKernelCreateReport @ 0x1C0050F80 (WerKernelCreateReport.c)
  * Callees:
  *     <none>
  */
@@ -21,9 +21,9 @@ __int64 __fastcall WerpCreateRegistryKey(
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   ULONG Disposition; // [rsp+A8h] [rbp+28h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   Disposition = 0;
-  *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
   if ( a2 && (v9 = KeyHandle) != 0LL )
   {

@@ -1,14 +1,14 @@
 /*
- * XREFs of BiExportBcdObjects @ 0x140A1F9F4
+ * XREFs of BiExportBcdObjects @ 0x140971A98
  * Callers:
- *     BiExportStoreAlterationsToEfi @ 0x140A1FE8C (BiExportStoreAlterationsToEfi.c)
+ *     BiExportStoreAlterationsToEfi @ 0x140971F30 (BiExportStoreAlterationsToEfi.c)
  * Callees:
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
- *     BiIsPortableWorkspaceBoot @ 0x140A1D808 (BiIsPortableWorkspaceBoot.c)
- *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x140A1E118 (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
- *     BiCreateEfiEntry @ 0x140A1F234 (BiCreateEfiEntry.c)
- *     BiDeleteBootEntry @ 0x140A1F760 (BiDeleteBootEntry.c)
- *     BiUpdateEfiEntry @ 0x140A210D4 (BiUpdateEfiEntry.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
+ *     BiIsPortableWorkspaceBoot @ 0x14096F8A8 (BiIsPortableWorkspaceBoot.c)
+ *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x1409701B0 (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
+ *     BiCreateEfiEntry @ 0x1409712D0 (BiCreateEfiEntry.c)
+ *     BiDeleteBootEntry @ 0x140971804 (BiDeleteBootEntry.c)
+ *     BiUpdateEfiEntry @ 0x14097316C (BiUpdateEfiEntry.c)
  */
 
 __int64 __fastcall BiExportBcdObjects(__int64 a1, __int64 *a2)
@@ -34,26 +34,26 @@ __int64 __fastcall BiExportBcdObjects(__int64 a1, __int64 *a2)
     v6 = *(_DWORD *)(v2 + 48);
     v7 = v6 & 5;
     if ( (v6 & 5) == 0 )
-      goto LABEL_23;
+      goto LABEL_24;
     if ( (v6 & 0x10) != 0 )
     {
       if ( (v6 & 1) == 0 )
-        goto LABEL_23;
+        goto LABEL_24;
       v8 = BiDeleteBootEntry(*(_DWORD *)(v2 + 32));
       if ( v8 >= 0 )
       {
         *(_DWORD *)(v2 + 48) &= ~1u;
-        goto LABEL_23;
+        goto LABEL_24;
       }
 LABEL_9:
       v3 = v8;
-      goto LABEL_23;
+      goto LABEL_24;
     }
     if ( v7 == 1 )
     {
       v8 = BiDeleteBootEntry(*(_DWORD *)(v2 + 32));
       if ( v8 >= 0 )
-        goto LABEL_23;
+        goto LABEL_24;
       goto LABEL_9;
     }
     if ( v7 == 4 )
@@ -68,15 +68,15 @@ LABEL_9:
         v11 = *(_DWORD *)(v2 + 48);
         v9 = EfiEntry;
       }
-      if ( (v11 & 8) != 0 || v12 )
+      if ( (v11 & 8) == 0 && !v12 )
       {
         if ( v9 < 0 )
-          v3 = -2143748095;
+          v9 = 0;
+        else
+          BiAddBootEntryToEfiBootManagerDisplayOrder(a1, v2);
       }
-      else if ( v9 >= 0 )
-      {
-        BiAddBootEntryToEfiBootManagerDisplayOrder(a1, v2);
-      }
+      if ( v9 < 0 )
+        v3 = -2143748095;
     }
     else
     {
@@ -88,7 +88,7 @@ LABEL_9:
           v3 = -2143748093;
       }
     }
-LABEL_23:
+LABEL_24:
     v2 = *(_QWORD *)v2;
   }
   while ( (__int64 *)v2 != a2 );

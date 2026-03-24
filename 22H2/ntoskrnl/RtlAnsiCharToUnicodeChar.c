@@ -1,151 +1,124 @@
 /*
- * XREFs of RtlAnsiCharToUnicodeChar @ 0x1406DA4B0
+ * XREFs of RtlAnsiCharToUnicodeChar @ 0x1405EE4B0
  * Callers:
- *     _safecrt_mbtowc @ 0x1403D9C50 (_safecrt_mbtowc.c)
- *     toupper @ 0x1403DB0D0 (toupper.c)
- *     _mbstrlen @ 0x1403DD114 (_mbstrlen.c)
+ *     _safecrt_mbtowc @ 0x1403D2250 (_safecrt_mbtowc.c)
+ *     toupper @ 0x1403D3630 (toupper.c)
+ *     _mbstrlen @ 0x1403D5648 (_mbstrlen.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1406DA5E0 (RtlpIsUtf8Process.c)
- *     RtlUTF8ToUnicodeN @ 0x1406DA680 (RtlUTF8ToUnicodeN.c)
+ *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
+ *     RtlUTF8ToUnicodeN @ 0x140699310 (RtlUTF8ToUnicodeN.c)
  */
 
 __int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
 {
-  int v2; // ebp
-  _QWORD *CurrentServerSiloGlobals; // rax
-  const CHAR *v4; // rbx
-  ULONG UTF8StringByteCount; // esi
-  char *v6; // rax
-  WCHAR *p_UnicodeStringDestination; // r8
-  ULONG v8; // r10d
-  const CHAR *v9; // r9
-  __int128 *v10; // rdx
-  __int64 v11; // r9
-  __int64 v12; // r8
-  WCHAR *v13; // rdx
-  __int64 v14; // rax
-  CHAR v16; // al
-  __int64 v17; // r11
-  __int64 v18; // rcx
-  signed __int32 v19[8]; // [rsp+0h] [rbp-48h] BYREF
-  WCHAR UnicodeStringDestination; // [rsp+50h] [rbp+8h] BYREF
-  ULONG UnicodeStringActualByteCount; // [rsp+58h] [rbp+10h] BYREF
+  char IsUtf8Process; // al
+  const CHAR *v3; // rdi
+  __int64 v4; // rcx
+  int v5; // ebp
+  ULONG UTF8StringByteCount; // ebx
+  WCHAR *p_UnicodeStringDestination; // r14
+  ULONG v8; // r15d
+  __int64 v9; // r9
+  WCHAR *v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  WCHAR UnicodeStringDestination; // [rsp+70h] [rbp+8h] BYREF
+  ULONG UnicodeStringActualByteCount; // [rsp+78h] [rbp+10h] BYREF
 
   UnicodeStringDestination = 32;
-  v2 = 1;
-  if ( (unsigned __int8)RtlpIsUtf8Process(0LL) )
+  IsUtf8Process = RtlpIsUtf8Process(0LL);
+  v3 = *a1;
+  v4 = *(unsigned __int8 *)*a1;
+  v5 = 1;
+  if ( IsUtf8Process )
   {
-    v4 = *a1;
-    v16 = **a1;
-    if ( (unsigned __int8)v16 < 0xC0u )
-      goto LABEL_3;
-    if ( (unsigned __int8)v16 >= 0xE0u )
+    if ( (unsigned __int8)v4 >= 0xC0u )
     {
-      if ( (unsigned __int8)v16 >= 0xF0u )
+      if ( (unsigned __int8)v4 >= 0xE0u )
       {
-        UTF8StringByteCount = 1;
-        if ( (unsigned __int8)v16 < 0xF8u )
-          UTF8StringByteCount = 4;
+        if ( (unsigned __int8)v4 >= 0xF0u )
+        {
+          UTF8StringByteCount = 1;
+          if ( (unsigned __int8)v4 < 0xF8u )
+            UTF8StringByteCount = 4;
+        }
+        else
+        {
+          UTF8StringByteCount = 3;
+        }
       }
       else
       {
-        UTF8StringByteCount = 3;
+        UTF8StringByteCount = 2;
       }
     }
     else
     {
-      UTF8StringByteCount = 2;
+      UTF8StringByteCount = 1;
     }
   }
   else
   {
-    _InterlockedOr(v19, 0);
-    CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    v4 = *a1;
-    if ( !*(_WORD *)(CurrentServerSiloGlobals[151] + 2LL * *(unsigned __int8 *)*a1) )
-    {
-LABEL_3:
-      UTF8StringByteCount = 1;
-      goto LABEL_4;
-    }
-    UTF8StringByteCount = 2;
+    UTF8StringByteCount = 1;
+    if ( NlsLeadByteInfoTable[v4] )
+      UTF8StringByteCount = 2;
   }
-LABEL_4:
+  p_UnicodeStringDestination = &UnicodeStringDestination;
+  v8 = UTF8StringByteCount;
   if ( (unsigned __int8)RtlpIsUtf8Process(0LL) )
   {
-    v10 = &Utf8TableInfo;
-    v8 = UTF8StringByteCount;
-    p_UnicodeStringDestination = &UnicodeStringDestination;
-    v9 = v4;
+    RtlUTF8ToUnicodeN(&UnicodeStringDestination, 2u, &UnicodeStringActualByteCount, v3, UTF8StringByteCount);
   }
-  else
+  else if ( (_BYTE)NlsMbCodePageTag )
   {
-    _InterlockedOr(v19, 0);
-    v6 = (char *)PsGetCurrentServerSiloGlobals();
-    p_UnicodeStringDestination = &UnicodeStringDestination;
-    v8 = UTF8StringByteCount;
-    v9 = v4;
-    v10 = (__int128 *)(v6 + 1064);
-    if ( v6 == (char *)-1064LL )
-    {
-LABEL_15:
-      RtlUTF8ToUnicodeN(&UnicodeStringDestination, 2u, &UnicodeStringActualByteCount, v4, UTF8StringByteCount);
-      goto LABEL_11;
-    }
-  }
-  if ( *(_WORD *)v10 == 0xFDE9 )
-    goto LABEL_15;
-  if ( *((_WORD *)v10 + 6) )
-  {
-    v17 = *((_QWORD *)v10 + 7);
+    v14 = NlsMbAnsiCodePageTables;
     while ( v8 )
     {
-      --v2;
+      --v5;
       --v8;
-      v18 = 2LL * *(unsigned __int8 *)v9;
-      if ( *(_WORD *)(v18 + v17) )
+      v15 = *(unsigned __int8 *)v3;
+      v16 = NlsLeadByteInfoTable[v15];
+      if ( (_WORD)v16 )
       {
         if ( !v8 )
         {
           *p_UnicodeStringDestination = 0;
           break;
         }
-        ++v9;
+        v17 = *(unsigned __int8 *)++v3;
+        *p_UnicodeStringDestination++ = *(_WORD *)(v14 + 2 * (v16 + v17));
         --v8;
-        *p_UnicodeStringDestination = *(_WORD *)(v17
-                                               + 2
-                                               * (*(unsigned __int8 *)v9
-                                                + (unsigned __int64)*(unsigned __int16 *)(v18 + v17)));
       }
       else
       {
-        *p_UnicodeStringDestination = *(_WORD *)(v18 + *((_QWORD *)v10 + 4));
+        *p_UnicodeStringDestination++ = *(_WORD *)(v15 * 2 + NlsAnsiToUnicodeData);
       }
-      ++p_UnicodeStringDestination;
-      ++v9;
-      if ( !v2 )
+      ++v3;
+      if ( !v5 )
         break;
     }
   }
   else
   {
-    v11 = *((_QWORD *)v10 + 4);
-    v12 = UTF8StringByteCount;
-    v13 = &UnicodeStringDestination;
+    v9 = NlsAnsiToUnicodeData;
+    v10 = &UnicodeStringDestination;
+    v11 = UTF8StringByteCount;
     if ( UTF8StringByteCount > 1 )
-      v12 = 1LL;
+      v11 = 1LL;
     do
     {
-      v14 = *(unsigned __int8 *)v4;
-      ++v13;
-      ++v4;
-      *(v13 - 1) = *(_WORD *)(v11 + 2 * v14);
-      --v12;
+      v12 = *(unsigned __int8 *)v3;
+      ++v10;
+      ++v3;
+      *(v10 - 1) = *(_WORD *)(v9 + 2 * v12);
+      --v11;
     }
-    while ( v12 );
+    while ( v11 );
   }
-LABEL_11:
   *a1 += UTF8StringByteCount;
   return UnicodeStringDestination;
 }

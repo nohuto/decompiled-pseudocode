@@ -1,140 +1,92 @@
 /*
- * XREFs of _CmGetDeviceSiblings @ 0x14083ACCC
+ * XREFs of _CmGetDeviceSiblings @ 0x14097A7D4
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA46C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406B558C (_CmGetDeviceMappedPropertyFromComposite.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     _PnpMultiSzGetLen @ 0x1406C944C (_PnpMultiSzGetLen.c)
- *     _CmGetDeviceParent @ 0x14079A844 (_CmGetDeviceParent.c)
- *     _CmGetDeviceChildren @ 0x14083AE90 (_CmGetDeviceChildren.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     _CmGetDeviceParent @ 0x140693B94 (_CmGetDeviceParent.c)
+ *     _PnpMultiSzGetLen @ 0x140695C7C (_PnpMultiSzGetLen.c)
+ *     _CmGetDeviceChildren @ 0x140979DEC (_CmGetDeviceChildren.c)
+ *     _PnpMultiSzDeleteString @ 0x14097C3C0 (_PnpMultiSzDeleteString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmGetDeviceSiblings(__int64 a1, const WCHAR *a2, _WORD *a3, unsigned int *a4)
+__int64 __fastcall CmGetDeviceSiblings(__int64 a1, WCHAR *a2, _WORD *a3, unsigned int *a4)
 {
-  void *v5; // r12
-  unsigned int v8; // r15d
+  void *v5; // r15
+  unsigned int v8; // esi
   int DeviceParent; // ebx
-  _WORD *v10; // rdi
-  __int64 Pool2; // rax
-  wchar_t *v12; // rsi
-  int v13; // eax
-  __int64 v14; // rcx
+  wchar_t *v10; // rdi
+  wchar_t *i; // r8
+  wchar_t *PoolWithTag; // rax
   unsigned int Len; // eax
-  wchar_t *v17; // rbp
-  unsigned int v18; // eax
-  unsigned int v19; // r13d
-  void *v20; // rax
-  void *v21; // r15
-  unsigned int v22; // [rsp+20h] [rbp-1F8h] BYREF
-  unsigned int v23; // [rsp+28h] [rbp-1F0h]
-  wchar_t v24[200]; // [rsp+30h] [rbp-1E8h] BYREF
+  unsigned int v15[4]; // [rsp+20h] [rbp-1F8h] BYREF
+  WCHAR v16[200]; // [rsp+30h] [rbp-1E8h] BYREF
 
   v5 = a3;
-  if ( a3 )
+  if ( !a3 )
+    goto LABEL_4;
+  if ( !*a4 )
   {
-    if ( *a4 )
-      *a3 = 0;
-    else
-      v5 = 0LL;
+    v5 = 0LL;
+LABEL_4:
+    v8 = 0;
+    goto LABEL_6;
   }
-  else
-  {
-    *a4 = 0;
-  }
+  *a3 = 0;
   v8 = *a4;
+LABEL_6:
   *a4 = 0;
-  v23 = v8;
-  v22 = 200;
-  DeviceParent = CmGetDeviceParent(a1, a2, v24, &v22);
+  v15[0] = 200;
+  DeviceParent = CmGetDeviceParent(a1, a2, v16, v15);
   if ( DeviceParent >= 0 )
   {
-    v22 = 0;
     v10 = 0LL;
-    DeviceParent = CmGetDeviceChildren(a1, v24, 0LL, &v22);
-    if ( !DeviceParent )
-      return (unsigned int)-1073741275;
-    while ( DeviceParent == -1073741789 )
+    v15[0] = 0;
+    for ( i = 0LL; ; i = PoolWithTag )
     {
+      DeviceParent = CmGetDeviceChildren(a1, v16, i, v15);
+      if ( DeviceParent != -1073741789 )
+        break;
       if ( v10 )
         ExFreePoolWithTag(v10, 0);
-      Pool2 = ExAllocatePool2(256LL, 2LL * v22, 1380994640LL);
-      v10 = (_WORD *)Pool2;
-      if ( !Pool2 )
-        return (unsigned int)-1073741801;
-      DeviceParent = CmGetDeviceChildren(a1, v24, Pool2, &v22);
-      if ( !DeviceParent )
-        goto LABEL_10;
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2LL * v15[0], 0x52504E50u);
+      v10 = PoolWithTag;
+      if ( !PoolWithTag )
+      {
+        DeviceParent = -1073741801;
+        break;
+      }
     }
-    if ( DeviceParent < 0 )
+    if ( DeviceParent >= 0 )
     {
       if ( !v10 )
-        return (unsigned int)DeviceParent;
-      goto LABEL_20;
-    }
-    if ( !v10 )
-      return (unsigned int)-1073741275;
-LABEL_10:
-    if ( a2 )
-    {
-      v12 = v10;
-      if ( !*v10 )
-        goto LABEL_16;
-      while ( 1 )
+        return (unsigned int)-1073741275;
+      if ( (unsigned __int8)PnpMultiSzDeleteString(v10, a2) )
       {
-        v13 = wcsicmp(v12, a2);
-        v14 = -1LL;
-        do
-          ++v14;
-        while ( v12[v14] );
-        if ( !v13 )
-          break;
-        v12 += v14 + 1;
-        if ( !*v12 )
-          goto LABEL_16;
-      }
-      v17 = &v12[v14];
-      if ( !v17[1] )
-      {
-        *(_DWORD *)v12 = 0;
-        goto LABEL_16;
-      }
-      v18 = 2 * PnpMultiSzGetLen(v17 + 1);
-      if ( v18 )
-      {
-        v19 = v18;
-        v20 = (void *)ExAllocatePool2(256LL, v18, 1380994640LL);
-        v21 = v20;
-        if ( v20 )
+        Len = PnpMultiSzGetLen(v10);
+        if ( Len > 1 )
         {
-          memmove(v20, v17 + 1, v19);
-          memmove(v12, v21, v19);
-          ExFreePoolWithTag(v21, 0);
-          v8 = v23;
-LABEL_16:
-          Len = PnpMultiSzGetLen(v10);
-          if ( Len <= 1 )
-          {
-            DeviceParent = -1073741275;
-          }
+          *a4 = Len;
+          if ( v8 >= Len )
+            memmove(v5, v10, 2LL * Len);
           else
-          {
-            *a4 = Len;
-            if ( v8 >= Len )
-              memmove(v5, v10, 2LL * Len);
-            else
-              DeviceParent = -1073741789;
-          }
-          goto LABEL_20;
+            DeviceParent = -1073741789;
+        }
+        else
+        {
+          DeviceParent = -1073741275;
         }
       }
+      else
+      {
+        DeviceParent = -1073741595;
+      }
     }
-    DeviceParent = -1073741595;
-LABEL_20:
-    ExFreePoolWithTag(v10, 0);
+    if ( v10 )
+      ExFreePoolWithTag(v10, 0);
   }
   return (unsigned int)DeviceParent;
 }

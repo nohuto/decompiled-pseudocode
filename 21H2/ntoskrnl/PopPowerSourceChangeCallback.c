@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPowerSourceChangeCallback @ 0x1403C10B0
+ * XREFs of PopPowerSourceChangeCallback @ 0x1403AE4C0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     TtmIsEnabled @ 0x1407F0F98 (TtmIsEnabled.c)
- *     PopBroadcastSessionInfo @ 0x140828EBC (PopBroadcastSessionInfo.c)
- *     PopGetSessionId @ 0x14082926C (PopGetSessionId.c)
- *     PopPowerAggregatorForceSessionSwitch @ 0x140995B08 (PopPowerAggregatorForceSessionSwitch.c)
- *     TtmNotifySessionDisplayBurst @ 0x1409A4584 (TtmNotifySessionDisplayBurst.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     TtmIsEnabled @ 0x14067BA04 (TtmIsEnabled.c)
+ *     PopGetSessionId @ 0x14067D590 (PopGetSessionId.c)
+ *     PopBroadcastSessionInfo @ 0x1407967A4 (PopBroadcastSessionInfo.c)
+ *     PopPowerAggregatorForceSessionSwitch @ 0x1408EE214 (PopPowerAggregatorForceSessionSwitch.c)
+ *     TtmNotifySessionDisplayBurst @ 0x1408FE9EC (TtmNotifySessionDisplayBurst.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopPowerSourceChangeCallback(__int64 *a1, int *a2, int a3)
@@ -22,33 +22,31 @@ __int64 __fastcall PopPowerSourceChangeCallback(__int64 *a1, int *a2, int a3)
   bool v9; // di
   __int64 v10; // r11
   __int64 v11; // rcx
-  GUID v12; // xmm0
-  unsigned int v13; // esi
-  unsigned int v14; // ebp
+  unsigned int v12; // esi
+  unsigned int v13; // ebp
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v17; // rdx
+  char v18; // al
   unsigned int SessionId; // eax
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  unsigned int v18; // r14d
   __int64 v20; // rdx
-  char v21; // al
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  GUID v24; // [rsp+20h] [rbp-38h] BYREF
-  int v25; // [rsp+30h] [rbp-28h]
+  __int64 v21; // rcx
+  GUID v22; // [rsp+20h] [rbp-38h] BYREF
+  int v23; // [rsp+30h] [rbp-28h]
 
-  v25 = 0;
+  v23 = 0;
   v3 = *a1;
-  v24 = 0LL;
+  v22 = 0LL;
   v6 = *(_QWORD *)&GUID_ACDC_POWER_SOURCE.Data1 - v3;
   if ( *(_QWORD *)&GUID_ACDC_POWER_SOURCE.Data1 == v3 )
     v6 = *(_QWORD *)GUID_ACDC_POWER_SOURCE.Data4 - a1[1];
   v7 = 0;
   if ( v6 )
   {
-    v20 = *(_QWORD *)&GUID_BATTERY_COUNT.Data1 - v3;
+    v17 = *(_QWORD *)&GUID_BATTERY_COUNT.Data1 - v3;
     if ( *(_QWORD *)&GUID_BATTERY_COUNT.Data1 == v3 )
-      v20 = *(_QWORD *)GUID_BATTERY_COUNT.Data4 - a1[1];
-    if ( v20 )
+      v17 = *(_QWORD *)GUID_BATTERY_COUNT.Data4 - a1[1];
+    if ( v17 )
       return (unsigned int)-1073741811;
   }
   if ( a3 != 4 || !a2 )
@@ -62,55 +60,52 @@ __int64 __fastcall PopPowerSourceChangeCallback(__int64 *a1, int *a2, int a3)
     v10 = *(_QWORD *)GUID_ACDC_POWER_SOURCE.Data4 - a1[1];
   if ( !v10 && PopPlatformAoAc )
   {
-    v21 = v9;
+    v18 = v9;
     if ( *a2 == 1 )
-      v21 = 1;
-    v9 = v21;
+      v18 = 1;
+    v9 = v18;
     if ( PopDisableDisplayBurstOnPowerSourceChange )
       v9 = 1;
   }
   v11 = *(_QWORD *)&GUID_BATTERY_COUNT.Data1 - *a1;
   if ( !v11 )
     v11 = *(_QWORD *)GUID_BATTERY_COUNT.Data4 - a1[1];
-  if ( v11 )
-  {
-    if ( v9 )
-    {
-      v12 = GUID_ACDC_DISPLAY_BURST_SUPPRESS;
-      v13 = 43;
-      v14 = 28;
-    }
-    else
-    {
-      v12 = GUID_ACDC_POWER_SOURCE;
-      v13 = 5;
-      v14 = 5;
-    }
-    v24 = v12;
-  }
-  else
+  if ( !v11 )
   {
     if ( !v9 )
-      v24 = GUID_BATTERY_COUNT;
-    v13 = v9 ? 46 : 16;
-    v14 = v9 ? 49 : 16;
-    if ( v9 )
-      goto LABEL_20;
+      v22 = GUID_BATTERY_COUNT;
+    LOBYTE(v8) = !v9;
+    v12 = v9 ? 46 : 16;
+    v13 = v9 ? 49 : 16;
+LABEL_17:
+    if ( !(_BYTE)v8 )
+      goto LABEL_19;
+    goto LABEL_18;
   }
-  v25 = *a2;
-  PopBroadcastSessionInfo(0LL, 20LL, &v24);
-LABEL_20:
-  SessionId = PopGetSessionId(v11, v8);
-  v18 = SessionId;
+  if ( !v9 )
+  {
+    v12 = 5;
+    v13 = 5;
+    v22 = GUID_ACDC_POWER_SOURCE;
+    goto LABEL_17;
+  }
+  v12 = 43;
+  v22 = GUID_ACDC_DISPLAY_BURST_SUPPRESS;
+  v13 = 28;
+LABEL_18:
+  v23 = *a2;
+  PopBroadcastSessionInfo(0LL, 20LL, &v22);
+LABEL_19:
   if ( v9 )
   {
-    PopAcquirePolicyLock(v17, v16);
-    PopPowerAggregatorForceSessionSwitch(v13);
-    PopReleasePolicyLock(v23, v22);
+    PopAcquirePolicyLock(v11, v8);
+    PopPowerAggregatorForceSessionSwitch(v12);
+    PopReleasePolicyLock(v21, v20);
   }
-  else if ( SessionId != -1 && (unsigned __int8)TtmIsEnabled(v17, v16) )
+  else if ( (unsigned __int8)TtmIsEnabled(v11) )
   {
-    TtmNotifySessionDisplayBurst(v18, v14);
+    SessionId = PopGetSessionId(v15, v14);
+    TtmNotifySessionDisplayBurst(SessionId, v13);
   }
   return v7;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of VslProvisionDumpEncryption @ 0x14054EE08
+ * XREFs of VslProvisionDumpEncryption @ 0x1404FD054
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 VslProvisionDumpEncryption()
+NTSTATUS VslProvisionDumpEncryption()
 {
   _BYTE v1[112]; // [rsp+20h] [rbp-88h] BYREF
 
   memset(v1, 0, 0x68uLL);
-  return VslpEnterIumSecureMode(2u, 75, 0, (__int64)v1);
+  return VslpEnterIumSecureMode(2u, 73, 0, (__int64)v1);
 }

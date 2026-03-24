@@ -1,12 +1,12 @@
 /*
- * XREFs of ?AddUnBindToken@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z @ 0x1C0020840
+ * XREFs of ?AddUnBindToken@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z @ 0x1C001BD80
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C0008920 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
- *     ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C00208C0 (-AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z.c)
- *     ?CreateUnBindToken@CToken@@SAJPEAVCompositionSurfaceObject@@PEAPEAV1@@Z @ 0x1C0020A60 (-CreateUnBindToken@CToken@@SAJPEAVCompositionSurfaceObject@@PEAPEAV1@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C0012260 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
+ *     ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C001BE00 (-AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z.c)
+ *     ?CreateUnBindToken@CToken@@SAJPEAVCompositionSurfaceObject@@PEAPEAV1@@Z @ 0x1C001BFA4 (-CreateUnBindToken@CToken@@SAJPEAVCompositionSurfaceObject@@PEAPEAV1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CTokenManager::AddUnBindToken(CTokenManager *this, struct CompositionSurfaceObject *a2)
@@ -24,8 +24,8 @@ __int64 __fastcall CTokenManager::AddUnBindToken(CTokenManager *this, struct Com
     v3 = CTokenManager::AddTokenToQueue(this, v6);
     if ( v3 < 0 && v4 )
       (**(void (__fastcall ***)(struct CToken *, __int64))v4)(v4, 1LL);
-    *((_QWORD *)this + 13) = 0LL;
-    ExReleasePushLockExclusiveEx((char *)this + 96, 0LL);
+    *((_QWORD *)this + 12) = 0LL;
+    ExReleasePushLockExclusiveEx((char *)this + 88, 0LL);
   }
   return (unsigned int)v3;
 }

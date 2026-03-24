@@ -1,16 +1,16 @@
 /*
- * XREFs of ParseObjName @ 0x1C005BC24
+ * XREFs of ParseObjName @ 0x1C0021FB4
  * Callers:
- *     ParsePackage @ 0x1C0058180 (ParsePackage.c)
- *     ParseArg @ 0x1C005A48C (ParseArg.c)
+ *     ParseArg @ 0x1C0022094 (ParseArg.c)
+ *     ParsePackage @ 0x1C0022100 (ParsePackage.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
- *     ParseName @ 0x1C005B880 (ParseName.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     ParseName @ 0x1C00214C4 (ParseName.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ParseObjName(__int64 a1, char **a2, __int64 a3, char a4)
@@ -19,52 +19,48 @@ __int64 __fastcall ParseObjName(__int64 a1, char **a2, __int64 a3, char a4)
   unsigned int v8; // ebx
   __int64 v9; // rax
   void *v10; // rax
-  char *v11; // r8
-  unsigned __int64 v12; // rdx
-  int v13; // ecx
+  char *v12; // r8
+  char *v13; // rdx
+  int v14; // ecx
   char Src[256]; // [rsp+30h] [rbp-128h] BYREF
 
   v7 = (__int64)*(&OpcodeTable + (unsigned __int8)**a2);
-  if ( v7 && (*(_DWORD *)(v7 + 28) & 0x20) != 0 )
-  {
-    v8 = ParseName(a1, a2, Src);
-    if ( !v8 )
-    {
-      *(_WORD *)(a3 + 2) = 2;
-      v9 = -1LL;
-      do
-        ++v9;
-      while ( Src[v9] );
-      *(_DWORD *)(a3 + 24) = v9 + 1;
-      v10 = (void *)HeapAlloc(gpheapGlobal, 1381258056, (int)v9 + 1);
-      *(_QWORD *)(a3 + 32) = v10;
-      if ( !v10 )
-      {
-        v8 = -1073741670;
-        LogError(-1073741670);
-        AcpiDiagTraceAmlError(a1, -1073741670);
-        v11 = 0LL;
-        v12 = (unsigned __int64)Src;
-        v13 = 131;
-LABEL_11:
-        PrintDebugMessage(v13, (const void *)v12, v11, 0LL, 0LL);
-        return v8;
-      }
-      memmove(v10, Src, *(unsigned int *)(a3 + 24));
-    }
-  }
-  else
+  if ( !v7 || (*(_DWORD *)(v7 + 28) & 0x20) == 0 )
   {
     v8 = -1072431103;
-    if ( !a4 )
+    if ( a4 )
+      return v8;
+    LogError(3222536193LL);
+    AcpiDiagTraceAmlError(a1, 3222536193LL);
+    v12 = *a2;
+    v14 = 132;
+    LODWORD(v13) = (unsigned __int8)**a2;
+    goto LABEL_12;
+  }
+  v8 = ParseName(a1, a2, Src);
+  if ( !v8 )
+  {
+    *(_WORD *)(a3 + 2) = 2;
+    v9 = -1LL;
+    do
+      ++v9;
+    while ( Src[v9] );
+    *(_DWORD *)(a3 + 24) = v9 + 1;
+    v10 = (void *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, (int)v9 + 1);
+    *(_QWORD *)(a3 + 32) = v10;
+    if ( v10 )
     {
-      LogError(-1072431103);
-      AcpiDiagTraceAmlError(a1, -1072431103);
-      v11 = *a2;
-      v13 = 132;
-      v12 = (unsigned __int8)**a2;
-      goto LABEL_11;
+      memmove(v10, Src, *(unsigned int *)(a3 + 24));
+      return v8;
     }
+    v8 = -1073741670;
+    LogError(3221225626LL);
+    AcpiDiagTraceAmlError(a1, 3221225626LL);
+    LODWORD(v12) = 0;
+    v13 = Src;
+    v14 = 131;
+LABEL_12:
+    PrintDebugMessage(v14, (_DWORD)v13, (_DWORD)v12, 0, 0LL);
   }
   return v8;
 }

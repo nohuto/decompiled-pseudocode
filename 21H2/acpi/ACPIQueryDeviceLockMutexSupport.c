@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIQueryDeviceLockMutexSupport @ 0x1C0020370
+ * XREFs of ACPIQueryDeviceLockMutexSupport @ 0x1C0026A30
  * Callers:
- *     ACPITableLoad @ 0x1C001F8F0 (ACPITableLoad.c)
+ *     ACPITableLoad @ 0x1C00258B0 (ACPITableLoad.c)
  * Callees:
  *     <none>
  */

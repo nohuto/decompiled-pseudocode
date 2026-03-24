@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CContainerShapeMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C0215AB0
+ * XREFs of ?SetRemarshalingFlags@CContainerShapeMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01E84F0
  * Callers:
  *     <none>
  * Callees:

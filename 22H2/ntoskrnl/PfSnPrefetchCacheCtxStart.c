@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnPrefetchCacheCtxStart @ 0x140854284
+ * XREFs of PfSnPrefetchCacheCtxStart @ 0x1407C8540
  * Callers:
- *     PfSnPrefetchCacheEntryGet @ 0x14074E814 (PfSnPrefetchCacheEntryGet.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x1406320EC (PfSnPrefetchCacheEntryGet.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnPrefetchCacheCtxStart(__int64 a1)
 {
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   unsigned int v3; // r9d
   char *v4; // r8
   unsigned int v5; // r10d
@@ -21,13 +21,13 @@ __int64 __fastcall PfSnPrefetchCacheCtxStart(__int64 a1)
   __int64 v13; // rdi
   __int64 v14; // [rsp+48h] [rbp+10h]
 
-  Pool2 = (char *)ExAllocatePool2(64LL, 4096LL, 1716544323LL);
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x1000uLL, 0x66506343u);
   v3 = 0;
-  v4 = Pool2;
-  if ( Pool2 )
+  v4 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    if ( (Pool2 + 256 >= Pool2 ? 0x20 : 0) != 0 )
-      memset64(Pool2, a1 | 1, Pool2 + 256 >= Pool2 ? 0x20 : 0);
+    if ( (PoolWithTag + 256 >= PoolWithTag ? 0x20 : 0) != 0 )
+      memset64(PoolWithTag, a1 | 1, PoolWithTag + 256 >= PoolWithTag ? 0x20 : 0);
     v5 = 0;
     v6 = -1LL << (*(_BYTE *)(a1 + 4) & 0x1F);
     if ( (*(_DWORD *)(a1 + 4) & 0xFFFFFFE0) != 0 )
@@ -48,8 +48,8 @@ __int64 __fastcall PfSnPrefetchCacheCtxStart(__int64 a1)
                + 5 * (BYTE6(v14) - 3 * BYTE3(v14) + 3)
                - 7 * BYTE5(v14)
                - 11 * BYTE2(v14)) & 0x1F;
-          *v12 = *(_QWORD *)&Pool2[8 * v13];
-          *(_QWORD *)&Pool2[8 * v13] = v12;
+          *v12 = *(_QWORD *)&PoolWithTag[8 * v13];
+          *(_QWORD *)&PoolWithTag[8 * v13] = v12;
         }
         ++v5;
       }

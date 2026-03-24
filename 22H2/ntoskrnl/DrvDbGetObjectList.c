@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbGetObjectList @ 0x140A6C3A0
+ * XREFs of DrvDbGetObjectList @ 0x14097DF6C
  * Callers:
- *     DrvDbDispatchDriverInfFile @ 0x1408764F0 (DrvDbDispatchDriverInfFile.c)
- *     DrvDbDispatchDeviceId @ 0x140876770 (DrvDbDispatchDeviceId.c)
- *     DrvDbDispatchDriverPackage @ 0x140876870 (DrvDbDispatchDriverPackage.c)
- *     DrvDbDispatchDriverFile @ 0x140A6DED0 (DrvDbDispatchDriverFile.c)
+ *     DrvDbDispatchDriverInfFile @ 0x1406B4510 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDriverPackage @ 0x1406B4DB0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbDispatchDeviceId @ 0x1406F95E0 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDriverFile @ 0x14097EDD0 (DrvDbDispatchDriverFile.c)
  * Callees:
- *     DrvDbReleaseDatabaseNodeBaseKey @ 0x14087728C (DrvDbReleaseDatabaseNodeBaseKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x140877328 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     DrvDbGetObjectSubKeyList @ 0x140A6C8C0 (DrvDbGetObjectSubKeyList.c)
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x1406B93DC (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1406B9478 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     DrvDbGetObjectSubKeyList @ 0x14097E490 (DrvDbGetObjectSubKeyList.c)
  */
 
 __int64 __fastcall DrvDbGetObjectList(
@@ -18,10 +18,10 @@ __int64 __fastcall DrvDbGetObjectList(
         __int64 a4,
         __int64 a5,
         unsigned int a6,
-        _DWORD *a7,
+        unsigned int *a7,
         int a8)
 {
-  _DWORD *v8; // rsi
+  unsigned int *v8; // rsi
   int v9; // r14d
   int v10; // r15d
   int ObjectSubKeyList; // ebx
@@ -34,7 +34,7 @@ __int64 __fastcall DrvDbGetObjectList(
   int v19; // eax
   __int64 v20; // r8
   int v21; // ecx
-  __int64 v22; // rcx
+  unsigned int v22; // eax
   void *v24[3]; // [rsp+40h] [rbp-18h] BYREF
   int v25; // [rsp+A0h] [rbp+48h] BYREF
   int v26; // [rsp+A8h] [rbp+50h]
@@ -53,9 +53,9 @@ __int64 __fastcall DrvDbGetObjectList(
   *a7 = 0;
   v13 = 0LL;
   v14 = 0;
-  if ( a1[6] )
+  if ( a1[5] )
   {
-    v13 = a1[6];
+    v13 = a1[5];
     v15 = DrvDbAcquireDatabaseNodeBaseKey(a1, v13, a2, v24);
     ObjectSubKeyList = v15;
     if ( v15 >= 0 )
@@ -101,12 +101,12 @@ __int64 __fastcall DrvDbGetObjectList(
       v17 = a1 + 2;
       a2 = v26;
     }
-    v22 = (unsigned int)*v8;
-    *v8 = v22 + 1;
+    v22 = *v8 + 1;
+    *v8 = v22;
     if ( ObjectSubKeyList >= 0 )
     {
-      if ( v16 && (int)v22 + 1 <= a6 )
-        *(_WORD *)(v16 + 2 * v22) = 0;
+      if ( v16 && v22 <= a6 )
+        *(_WORD *)(v16 + 2LL * (v22 - 1)) = 0;
       else
         ObjectSubKeyList = -1073741789;
     }

@@ -8,13 +8,13 @@
  *     PspThreadDelete @ 0x1405FB0B0 (PspThreadDelete.c)
  *     ExMapHandleToPointerEx @ 0x1405FC384 (ExMapHandleToPointerEx.c)
  *     PspProcessDelete @ 0x140607590 (PspProcessDelete.c)
- *     ObSetHandleAttributes @ 0x14068D8F0 (ObSetHandleAttributes.c)
- *     ObQueryObjectAuditingByHandle @ 0x1406979A0 (ObQueryObjectAuditingByHandle.c)
- *     RtlpFreeHandleForAtom @ 0x1406AD4C0 (RtlpFreeHandleForAtom.c)
- *     RtlpInsertStringAtom @ 0x1406B741C (RtlpInsertStringAtom.c)
+ *     ObSetHandleAttributes @ 0x14068D8D0 (ObSetHandleAttributes.c)
+ *     ObQueryObjectAuditingByHandle @ 0x140697980 (ObQueryObjectAuditingByHandle.c)
+ *     RtlpFreeHandleForAtom @ 0x1406AD4A0 (RtlpFreeHandleForAtom.c)
+ *     RtlpInsertStringAtom @ 0x1406B73FC (RtlpInsertStringAtom.c)
  * Callees:
  *     ExpLookupHandleTableEntry @ 0x1405E8990 (ExpLookupHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x140697884 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140697864 (ExpBlockOnLockedHandleEntry.c)
  */
 
 signed __int64 *__fastcall ExMapHandleToPointer(unsigned int *a1, __int64 a2)

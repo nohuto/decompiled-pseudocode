@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_WaitingForTimerAfterSetAddress @ 0x1C001FF90
+ * XREFs of HUBDSM_WaitingForTimerAfterSetAddress @ 0x1C001FB80
  * Callers:
  *     <none>
  * Callees:

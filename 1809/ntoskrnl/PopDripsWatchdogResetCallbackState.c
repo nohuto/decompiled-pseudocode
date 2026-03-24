@@ -1,8 +1,8 @@
 /*
- * XREFs of PopDripsWatchdogResetCallbackState @ 0x14086E734
+ * XREFs of PopDripsWatchdogResetCallbackState @ 0x14086E714
  * Callers:
- *     PopDripsWatchdogCallbackWorker @ 0x14086E010 (PopDripsWatchdogCallbackWorker.c)
- *     PopDripsWatchdogStartWatchdog @ 0x14086E94C (PopDripsWatchdogStartWatchdog.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x14086DFF0 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogStartWatchdog @ 0x14086E92C (PopDripsWatchdogStartWatchdog.c)
  * Callees:
  *     <none>
  */

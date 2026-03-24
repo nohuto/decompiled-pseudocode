@@ -1,26 +1,27 @@
 /*
- * XREFs of AMLIApplyNamespaceOverride @ 0x1C004A6D0
+ * XREFs of AMLIApplyNamespaceOverride @ 0x1C0023700
  * Callers:
- *     ParseLoad @ 0x1C005B620 (ParseLoad.c)
- *     ParseUnload @ 0x1C005CB40 (ParseUnload.c)
+ *     ParseLoad @ 0x1C0023470 (ParseLoad.c)
+ *     ParseUnload @ 0x1C006BE10 (ParseUnload.c)
  * Callees:
- *     AMLIApplyNextNamespaceOverride @ 0x1C004A73C (AMLIApplyNextNamespaceOverride.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
- *     GetNameSpaceObject @ 0x1C004F748 (GetNameSpaceObject.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     GetNameSpaceObject @ 0x1C002183C (GetNameSpaceObject.c)
+ *     AMLIApplyNextNamespaceOverride @ 0x1C0064B00 (AMLIApplyNextNamespaceOverride.c)
  */
 
 __int64 AMLIApplyNamespaceOverride()
 {
   int NameSpaceObject; // ebx
-  __int64 v1; // rdx
+  unsigned __int64 v2; // [rsp+30h] [rbp+8h] BYREF
 
+  v2 = 0LL;
   if ( (gOverrideFlags & 0x20) != 0 && gpnsNameSpaceOverrideRoot )
   {
-    NameSpaceObject = GetNameSpaceObject((void *)"\\");
+    NameSpaceObject = GetNameSpaceObject("\\", 0LL, (__int64 *)&v2, 0);
     if ( NameSpaceObject >= 0 )
     {
-      NameSpaceObject = AMLIApplyNextNamespaceOverride(gpnsNameSpaceOverrideRoot, 0LL);
-      DereferenceObjectEx(0LL, v1);
+      NameSpaceObject = AMLIApplyNextNamespaceOverride(gpnsNameSpaceOverrideRoot, v2);
+      DereferenceObjectEx(v2);
     }
   }
   else

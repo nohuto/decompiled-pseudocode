@@ -1,14 +1,14 @@
 /*
- * XREFs of ExQuerySystemLockInformation @ 0x140AAAE28
+ * XREFs of ExQuerySystemLockInformation @ 0x1409B2DA4
  * Callers:
- *     ExpGetLockInformation @ 0x1409F6664 (ExpGetLockInformation.c)
+ *     ExpGetLockInformation @ 0x14094A4D4 (ExpGetLockInformation.c)
  * Callees:
- *     MmUnlockPagableImageSection @ 0x14025A320 (MmUnlockPagableImageSection.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExpOwnerEntryToThread @ 0x1402A8A68 (ExpOwnerEntryToThread.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MmLockPagableSectionByHandle @ 0x1406F5800 (MmLockPagableSectionByHandle.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     ExpOwnerEntryToThread @ 0x140278108 (ExpOwnerEntryToThread.c)
+ *     MmUnlockPagableImageSection @ 0x14029B0A0 (MmUnlockPagableImageSection.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmLockPagableSectionByHandle @ 0x14063C7E0 (MmLockPagableSectionByHandle.c)
  */
 
 __int64 __fastcall ExQuerySystemLockInformation(_DWORD *a1, unsigned int a2, unsigned int *a3)
@@ -54,7 +54,7 @@ __int64 __fastcall ExQuerySystemLockInformation(_DWORD *a1, unsigned int a2, uns
         v8[2] = 1;
         v13 = ExpOwnerEntryToThread((__int64 *)(v10 + 48));
         if ( v13 )
-          v14 = *(_QWORD *)(v13 + 1232);
+          v14 = *(_QWORD *)(v13 + 1152);
         else
           v14 = 0LL;
         *((_QWORD *)v8 + 2) = v14;
@@ -73,16 +73,19 @@ __int64 __fastcall ExQuerySystemLockInformation(_DWORD *a1, unsigned int a2, uns
     ExReleaseSpinLockSharedFromDpcLevel(&ExpResourceSpinLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
-        v19 = (v18 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v18;
-        if ( v19 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+          v19 = (v18 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v18;
+          if ( v19 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v12);

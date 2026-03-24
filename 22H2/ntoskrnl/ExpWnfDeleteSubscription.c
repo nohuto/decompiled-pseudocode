@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpWnfDeleteSubscription @ 0x14076CF0C
+ * XREFs of ExpWnfDeleteSubscription @ 0x140613588
  * Callers:
- *     NtUnsubscribeWnfStateChange @ 0x14076CD70 (NtUnsubscribeWnfStateChange.c)
- *     ExpWnfDeleteProcessContext @ 0x1407CCBB8 (ExpWnfDeleteProcessContext.c)
- *     ExUnsubscribeWnfStateChange @ 0x1407E1610 (ExUnsubscribeWnfStateChange.c)
+ *     NtUnsubscribeWnfStateChange @ 0x140611A40 (NtUnsubscribeWnfStateChange.c)
+ *     ExpWnfDeleteProcessContext @ 0x140613348 (ExpWnfDeleteProcessContext.c)
+ *     ExUnsubscribeWnfStateChange @ 0x140695B10 (ExUnsubscribeWnfStateChange.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A210 (ExWaitForRundownProtectionRelease.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1407144D8 (ExpWnfNotifyNameSubscribers.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x140273310 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1403427F0 (ExWaitForRundownProtectionRelease.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x140610CEC (ExpWnfNotifyNameSubscribers.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, PEPROCESS a2)
@@ -23,92 +23,88 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, PEPROCESS a2
   __int64 v5; // rax
   __int64 v6; // rbp
   __int64 Count; // rbp
-  __int64 v8; // rax
-  __int64 v9; // r13
-  struct _EX_RUNDOWN_REF **v10; // rdx
-  PVOID *v11; // rcx
+  int v8; // r13d
+  __int64 v9; // rax
+  __int64 v10; // r14
+  struct _EX_RUNDOWN_REF **v11; // rdx
+  PVOID *v12; // rcx
   int Ptr_high; // eax
-  struct _EX_RUNDOWN_REF **v13; // rdx
-  PVOID *v14; // rcx
-  __int64 v15; // rax
-  __int64 v16; // r13
-  int v17; // ecx
-  BOOL v18; // r13d
+  struct _EX_RUNDOWN_REF **v14; // rdx
+  PVOID *v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // r12
+  int v18; // ecx
   int v19; // r12d
   struct _EX_RUNDOWN_REF **v20; // rdx
   PVOID *v21; // rcx
-  BOOL v23; // [rsp+78h] [rbp+20h]
+  BOOL v23; // [rsp+70h] [rbp+18h]
 
-  v2 = a2[1].EndPadding[0];
+  v2 = a2[1].EndPadding[7];
   v4 = 1;
   if ( v2 )
   {
-    v5 = KeAbPreAcquire(v2 + 80, 0LL);
+    v5 = KeAbPreAcquire(v2 + 80, 0LL, 0LL);
     v6 = v5;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 80), 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 80), v5, v2 + 80);
     if ( v6 )
-      *(_BYTE *)(v6 + 18) = 1;
+      *(_BYTE *)(v6 + 26) |= 1u;
   }
   if ( !P[5].Count )
   {
     v4 = 0;
-    goto LABEL_43;
+    goto LABEL_42;
   }
-  v23 = 0;
   Count = P[6].Count;
+  v8 = 0;
+  v23 = 0;
   if ( Count )
   {
-    v8 = KeAbPreAcquire(Count + 112, 0LL);
-    v9 = v8;
+    v9 = KeAbPreAcquire(Count + 112, 0LL, 0LL);
+    v10 = v9;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(Count + 112), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(Count + 112), v8, Count + 112);
-    if ( v9 )
-      *(_BYTE *)(v9 + 18) = 1;
-    v10 = (struct _EX_RUNDOWN_REF **)P[8].Count;
-    if ( v10[1] != &P[8] )
-      goto LABEL_61;
-    v11 = (PVOID *)P[9].Count;
-    if ( *v11 != &P[8] )
-      goto LABEL_61;
-    *v11 = v10;
-    v10[1] = (struct _EX_RUNDOWN_REF *)v11;
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(Count + 112), v9, Count + 112);
+    if ( v10 )
+      *(_BYTE *)(v10 + 26) |= 1u;
+    v11 = (struct _EX_RUNDOWN_REF **)P[8].Count;
+    if ( v11[1] != &P[8] )
+      goto LABEL_60;
+    v12 = (PVOID *)P[9].Count;
+    if ( *v12 != &P[8] )
+      goto LABEL_60;
+    *v12 = v11;
+    v11[1] = (struct _EX_RUNDOWN_REF *)v12;
     Ptr_high = HIDWORD(P[12].Ptr);
     P[6].Count = 0LL;
     if ( (Ptr_high & 1) != 0 )
       v23 = _InterlockedExchangeAdd((volatile signed __int32 *)(Count + 160), 0xFFFFFFFF) == 1;
   }
-  v13 = (struct _EX_RUNDOWN_REF **)P[3].Count;
-  if ( v13[1] != &P[3] )
-    goto LABEL_61;
-  v14 = (PVOID *)P[4].Count;
-  if ( *v14 != &P[3] )
-    goto LABEL_61;
-  *v14 = v13;
-  v13[1] = (struct _EX_RUNDOWN_REF *)v14;
-  v15 = KeAbPreAcquire(v2 + 104, 0LL);
-  v16 = v15;
+  v14 = (struct _EX_RUNDOWN_REF **)P[3].Count;
+  if ( v14[1] != &P[3] )
+    goto LABEL_60;
+  v15 = (PVOID *)P[4].Count;
+  if ( *v15 != &P[3] )
+    goto LABEL_60;
+  *v15 = v14;
+  v14[1] = (struct _EX_RUNDOWN_REF *)v15;
+  v16 = KeAbPreAcquire(v2 + 104, 0LL, 0LL);
+  v17 = v16;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 104), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 104), v15, v2 + 104);
-  if ( v16 )
-    *(_BYTE *)(v16 + 18) = 1;
-  v17 = P[15].Count;
-  if ( v17 != 1 && ((PEPROCESS)P[5].Count == PsInitialSystemProcess || !v17) )
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 104), v16, v2 + 104);
+  if ( v17 )
+    *(_BYTE *)(v17 + 26) |= 1u;
+  v18 = P[15].Count;
+  if ( v18 != 1 && ((PEPROCESS)P[5].Count == PsInitialSystemProcess || !v18) )
     goto LABEL_25;
   v20 = (struct _EX_RUNDOWN_REF **)P[13].Count;
   if ( v20[1] != &P[13] || (v21 = (PVOID *)P[14].Count, *v21 != &P[13]) )
-LABEL_61:
+LABEL_60:
     __fastfail(3u);
   *v21 = v20;
   v20[1] = (struct _EX_RUNDOWN_REF *)v21;
   if ( Count && (BYTE4(P[12].Ptr) & 1) != 0 && ((BYTE4(P[15].Ptr) & 1) != 0 || (P[16].Count & 1) != 0) )
-  {
-    v18 = _InterlockedExchangeAdd((volatile signed __int32 *)(Count + 164), 0xFFFFFFFF) == 1;
-    goto LABEL_26;
-  }
+    LOBYTE(v8) = _InterlockedExchangeAdd((volatile signed __int32 *)(Count + 164), 0xFFFFFFFF) == 1;
 LABEL_25:
-  v18 = 0;
-LABEL_26:
   P[5].Count = 0LL;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v2 + 104), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)(v2 + 104));
@@ -116,16 +112,16 @@ LABEL_26:
   if ( Count )
   {
     v19 = 0;
-    if ( v23 || v18 )
+    if ( v23 || v8 )
     {
-      if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(Count + 8)) )
+      if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(Count + 8)) )
       {
         v19 = 1;
       }
       else
       {
         v23 = 0;
-        v18 = 0;
+        v8 = 0;
       }
     }
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(Count + 112), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -138,21 +134,21 @@ LABEL_26:
       KeAbPostRelease(v2 + 80);
       v2 = 0LL;
     }
-    if ( v18 )
+    if ( v8 )
       ExpWnfNotifyNameSubscribers(Count, 8u, 1, a2 != PsInitialSystemProcess);
     if ( v23 )
       ExpWnfNotifyNameSubscribers(Count, 4u, 1, a2 != PsInitialSystemProcess);
     if ( v19 )
-      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(Count + 8));
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(Count + 8));
   }
-LABEL_43:
+LABEL_42:
   if ( v2 )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v2 + 80), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)(v2 + 80));
     KeAbPostRelease(v2 + 80);
   }
-  ExReleaseRundownProtection_0(P + 1);
+  ExReleaseRundownProtection(P + 1);
   if ( v4 )
   {
     ExWaitForRundownProtectionRelease(P + 1);

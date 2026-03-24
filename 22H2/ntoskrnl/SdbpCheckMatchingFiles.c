@@ -1,154 +1,154 @@
 /*
- * XREFs of SdbpCheckMatchingFiles @ 0x140756E10
+ * XREFs of SdbpCheckMatchingFiles @ 0x140753CB0
  * Callers:
  *     <none>
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslFileMappingDelete @ 0x1407574C8 (AslFileMappingDelete.c)
- *     SdbGetStringTagPtr @ 0x140757878 (SdbGetStringTagPtr.c)
- *     SdbpCheckAllAttributes @ 0x140757C04 (SdbpCheckAllAttributes.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
- *     AslFileMappingCreate @ 0x14075844C (AslFileMappingCreate.c)
- *     AslFileNotFound @ 0x1407596FC (AslFileNotFound.c)
- *     SdbpInitializeSearchDBContext @ 0x140A51430 (SdbpInitializeSearchDBContext.c)
- *     SdbpResolveMatchingFile @ 0x140A517D0 (SdbpResolveMatchingFile.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F8D3C (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
+ *     SdbpInitializeSearchDBContext @ 0x140752FF8 (SdbpInitializeSearchDBContext.c)
+ *     SdbpResolveMatchingFile @ 0x1407531CC (SdbpResolveMatchingFile.c)
+ *     AslFree @ 0x140753F6C (AslFree.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslFileNotFound @ 0x140755B2C (AslFileNotFound.c)
+ *     AslFileMappingDelete @ 0x140755B58 (AslFileMappingDelete.c)
+ *     SdbGetStringTagPtr @ 0x140755D70 (SdbGetStringTagPtr.c)
+ *     AslFileMappingCreate @ 0x1407581E8 (AslFileMappingCreate.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
+ *     SdbpCheckAllAttributes @ 0x1407B243C (SdbpCheckAllAttributes.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingFiles(int *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, _QWORD *a6)
 {
-  int v7; // r15d
-  int *v8; // rsi
-  unsigned int v9; // r14d
-  PVOID v10; // rdi
-  PVOID v11; // r12
+  unsigned int v6; // ebx
+  __int64 v8; // r14
+  int v9; // r15d
+  int IsEnabledDeviceUsage; // eax
+  _QWORD *v11; // rsi
   unsigned int FirstTag; // eax
-  _WORD *StringTagPtr; // r13
-  _QWORD *v14; // rsi
-  unsigned int v15; // eax
-  int v16; // ecx
-  __int64 result; // rax
-  __int64 v18; // rdx
-  int v19; // eax
-  int *v20; // r8
-  int v21; // r15d
-  unsigned __int64 v22; // rax
-  __int64 v23; // rcx
-  int v24; // [rsp+30h] [rbp-20h] BYREF
-  PVOID P; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v26; // [rsp+40h] [rbp-10h]
-  int *v27; // [rsp+48h] [rbp-8h]
-  int v30; // [rsp+A0h] [rbp+50h]
+  unsigned __int16 *StringTagPtr; // r12
+  const char *v14; // r9
+  int v15; // r8d
+  unsigned int v16; // eax
+  int v17; // ecx
+  __int64 v18; // r13
+  int *v19; // rdx
+  int v20; // r15d
+  __int64 v21; // rcx
+  __int64 v22; // rcx
+  unsigned __int64 v23; // rax
+  __int64 v24; // rcx
+  __int64 v25; // rcx
+  int v27; // [rsp+30h] [rbp-20h] BYREF
+  PVOID P; // [rsp+38h] [rbp-18h]
+  __int64 v29; // [rsp+40h] [rbp-10h] BYREF
+  int *v30; // [rsp+48h] [rbp-8h]
+  int v33; // [rsp+A0h] [rbp+50h]
 
-  v30 = a3;
-  v7 = a2;
-  v24 = 0;
-  v8 = a1;
+  v33 = a3;
+  v6 = 0;
+  v27 = 0;
+  v8 = 0LL;
+  v29 = 0LL;
+  v9 = a2;
   P = 0LL;
-  v9 = 0;
-  v10 = 0LL;
-  v11 = 0LL;
+  IsEnabledDeviceUsage = Feature_CompatBuildInVb__private_IsEnabledDeviceUsage();
+  v11 = a6;
+  if ( !IsEnabledDeviceUsage && a6[11] )
+    goto LABEL_3;
   FirstTag = SdbFindFirstTag(a3, a5, 24577LL);
-  if ( FirstTag )
+  if ( !FirstTag )
+    goto LABEL_31;
+  StringTagPtr = (unsigned __int16 *)SdbGetStringTagPtr(a3, FirstTag);
+  if ( !StringTagPtr )
   {
-    StringTagPtr = (_WORD *)SdbGetStringTagPtr(a3, FirstTag);
-    if ( StringTagPtr )
+    v14 = "Failed to get the string from the database";
+    v15 = 2943;
+LABEL_7:
+    AslLogCallPrintf(1, (unsigned int)"SdbpCheckMatchingFiles", v15, (_DWORD)v14);
+    goto LABEL_31;
+  }
+  if ( *StringTagPtr == 42 )
+  {
+    if ( v11[1] )
     {
-      v14 = a6;
-      if ( *StringTagPtr != 42 )
-      {
-        v18 = -1LL;
-        do
-          ++v18;
-        while ( StringTagPtr[v18] );
-        v19 = *(_DWORD *)a6;
-        v26 = v18;
-        if ( (v19 & 1) == 0 )
-        {
-          if ( !(unsigned int)SdbpInitializeSearchDBContext(a6) )
-          {
-            AslLogCallPrintf(1LL);
-            goto LABEL_8;
-          }
-          LODWORD(v18) = v26;
-        }
-        v20 = (int *)v14[9];
-        v21 = 0;
-        v27 = v20;
-        if ( *v20 <= 0 )
-          goto LABEL_32;
-        while ( 1 )
-        {
-          if ( !(unsigned int)SdbpResolveMatchingFile(a2, v14, StringTagPtr, (unsigned int)v18, &v20[12 * v21 + 2], &P) )
-          {
-            AslLogCallPrintf(1LL);
-            v10 = P;
-            goto LABEL_8;
-          }
-          v10 = P;
-          a6 = 0LL;
-          if ( (int)AslFileMappingCreate((unsigned int)&a6, (_DWORD)P, 0, 0, 0LL) >= 0 )
-          {
-            v11 = a6;
-            if ( (int)SdbpCheckAllAttributes((unsigned int)&v24, a2, v30, a5, (__int64)a6) >= 0 )
-            {
-              if ( v21 > 0 )
-                *((_DWORD *)v14 + 20) = 1;
-LABEL_32:
-              v22 = (unsigned __int16)*StringTagPtr;
-              LOWORD(v22) = v22 - 37;
-              if ( (unsigned __int16)v22 <= 0x37u )
-              {
-                v23 = 0x80000000000201LL;
-                if ( _bittest64(&v23, v22) )
-                  *((_DWORD *)v14 + 20) = 1;
-              }
-LABEL_35:
-              v9 = 1;
-              goto LABEL_8;
-            }
-            AslFileMappingDelete(v11);
-            v11 = 0LL;
-            if ( v10 )
-              ExFreePoolWithTag(v10, 0x74705041u);
-          }
-          else
-          {
-            if ( v10 )
-              ExFreePoolWithTag(v10, 0x74705041u);
-            v11 = a6;
-          }
-          v20 = v27;
-          ++v21;
-          LODWORD(v18) = v26;
-          v10 = 0LL;
-          P = 0LL;
-          if ( v21 >= *v27 )
-            goto LABEL_32;
-        }
-      }
-      if ( !a6[1] )
-      {
-        v24 = 1;
-        goto LABEL_35;
-      }
-      v15 = SdbpCheckAllAttributes((unsigned int)&v24, v7, a3, a5, a6[1]);
-      if ( (unsigned int)AslFileNotFound(v15) || v16 >= 0 )
-        v9 = 1;
+      v16 = SdbpCheckAllAttributes((unsigned int)&v27, v9, a3, a5, v11[1]);
+      if ( (unsigned int)AslFileNotFound(v16) || v17 >= 0 )
+        v6 = 1;
       else
-        AslLogCallPrintf(1LL);
-LABEL_8:
-      v8 = a1;
+        AslLogCallPrintf(
+          1,
+          (unsigned int)"SdbpCheckMatchingFiles",
+          2968,
+          (unsigned int)"Failed to check file attributes [%x]");
+      goto LABEL_31;
     }
-    else
+    if ( (unsigned int)Feature_CompatBuildInVb__private_IsEnabledDeviceUsage() )
     {
-      AslLogCallPrintf(1LL);
+LABEL_3:
+      v27 = 1;
+      goto LABEL_30;
     }
   }
-  AslFileMappingDelete(v11);
-  if ( v10 )
-    ExFreePoolWithTag(v10, 0x74705041u);
-  result = v9;
-  *v8 = v24;
-  return result;
+  v18 = -1LL;
+  do
+    ++v18;
+  while ( StringTagPtr[v18] );
+  if ( (*(_DWORD *)v11 & 1) == 0 && !(unsigned int)SdbpInitializeSearchDBContext((__int64)v11) )
+  {
+    v14 = "Failed to initialize SEARCHDBCONTEXT";
+    v15 = 3006;
+    goto LABEL_7;
+  }
+  v19 = (int *)v11[9];
+  v20 = 0;
+  v30 = v19;
+  if ( *v19 <= 0 )
+    goto LABEL_27;
+  while ( 1 )
+  {
+    if ( !(unsigned int)SdbpResolveMatchingFile(a2, (__int64)v11, StringTagPtr, v18, (__int64)&v19[12 * v20 + 2], &v29) )
+    {
+      AslLogCallPrintf(1, (unsigned int)"SdbpCheckMatchingFiles", 3030, (unsigned int)"Failed to resolve matching file");
+      v8 = v29;
+      goto LABEL_31;
+    }
+    v8 = v29;
+    a6 = 0LL;
+    if ( (int)AslFileMappingCreate((unsigned int)&a6, v29, 0, 0, 0LL) >= 0 )
+      break;
+    AslFree(v21, v8);
+    P = a6;
+LABEL_26:
+    v19 = v30;
+    ++v20;
+    v8 = 0LL;
+    v29 = 0LL;
+    if ( v20 >= *v30 )
+      goto LABEL_27;
+  }
+  P = a6;
+  if ( (int)SdbpCheckAllAttributes((unsigned int)&v27, a2, v33, a5, (__int64)a6) < 0 )
+  {
+    AslFileMappingDelete(P);
+    P = 0LL;
+    AslFree(v22, v8);
+    goto LABEL_26;
+  }
+  if ( v20 > 0 )
+    *((_DWORD *)v11 + 20) = 1;
+LABEL_27:
+  v23 = *StringTagPtr;
+  LOWORD(v23) = v23 - 37;
+  if ( (unsigned __int16)v23 <= 0x37u )
+  {
+    v24 = 0x80000000000201LL;
+    if ( _bittest64(&v24, v23) )
+      *((_DWORD *)v11 + 20) = 1;
+  }
+LABEL_30:
+  v6 = 1;
+LABEL_31:
+  AslFileMappingDelete(P);
+  AslFree(v25, v8);
+  *a1 = v27;
+  return v6;
 }

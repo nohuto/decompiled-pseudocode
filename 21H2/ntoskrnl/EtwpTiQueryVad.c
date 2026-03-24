@@ -1,16 +1,14 @@
 /*
- * XREFs of EtwpTiQueryVad @ 0x1406D98F8
+ * XREFs of EtwpTiQueryVad @ 0x1406BAEFC
  * Callers:
- *     EtwpTiVadQueryEventWriteCallback @ 0x1406D97E0 (EtwpTiVadQueryEventWriteCallback.c)
- *     EtwTiLogReadWriteVm @ 0x14079EC58 (EtwTiLogReadWriteVm.c)
- *     EtwTiLogProtectExecVm @ 0x1408833DA (EtwTiLogProtectExecVm.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x1406BAE00 (EtwpTiVadQueryEventWriteCallback.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x14041BBC0 (ZwQueryVirtualMemory.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1403FA800 (ZwQueryVirtualMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, _DWORD *a4, char a5)
@@ -22,7 +20,7 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, _DWORD *
   PVOID *v11; // rbx
   char *v12; // r15
   NTSTATUS VirtualMemory; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   _OWORD v16[3]; // [rsp+30h] [rbp-78h] BYREF
 
   v5 = (unsigned int)a4;
@@ -57,14 +55,14 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, _DWORD *
         v9 |= 1 << v10;
         if ( a5 )
         {
-          Pool2 = (void *)ExAllocatePool2(256LL, 512LL, 1853049172LL);
-          *v11 = Pool2;
-          if ( !Pool2
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x6E734954u);
+          *v11 = PoolWithTag;
+          if ( !PoolWithTag
             || ZwQueryVirtualMemory(
                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                  *a3,
                  (MEMORY_INFORMATION_CLASS)2,
-                 Pool2,
+                 PoolWithTag,
                  0x200uLL,
                  0LL) >= 0 )
           {
@@ -83,6 +81,6 @@ LABEL_9:
     while ( v10 < v5 );
   }
   if ( v8 )
-    KiUnstackDetachProcess((__int64)v16, 0LL);
+    KiUnstackDetachProcess((__int64)v16, 0);
   return v9;
 }

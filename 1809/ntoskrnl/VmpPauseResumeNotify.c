@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpPauseResumeNotify @ 0x1408B0798
+ * XREFs of VmpPauseResumeNotify @ 0x1408B0778
  * Callers:
- *     VmPauseResumeNotify @ 0x1408B0420 (VmPauseResumeNotify.c)
+ *     VmPauseResumeNotify @ 0x1408B0400 (VmPauseResumeNotify.c)
  * Callees:
  *     SmStoreExistsForProcess @ 0x140011FA4 (SmStoreExistsForProcess.c)
  *     MiGetProcessPartition @ 0x14004D19C (MiGetProcessPartition.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     MmProcessWorkingSetControl @ 0x14085EDA0 (MmProcessWorkingSetControl.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     MmProcessWorkingSetControl @ 0x14085ED80 (MmProcessWorkingSetControl.c)
  */
 
 __int64 __fastcall VmpPauseResumeNotify(__int64 a1, int a2)

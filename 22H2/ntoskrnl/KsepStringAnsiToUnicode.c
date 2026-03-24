@@ -1,10 +1,10 @@
 /*
- * XREFs of KsepStringAnsiToUnicode @ 0x140846420
+ * XREFs of KsepStringAnsiToUnicode @ 0x1407BF240
  * Callers:
- *     KsepMatchInitCpuInfo @ 0x140B64FBC (KsepMatchInitCpuInfo.c)
- *     KsepMatchInitAcpiOemInfo @ 0x140B6504C (KsepMatchInitAcpiOemInfo.c)
+ *     KsepMatchInitCpuInfo @ 0x140A6A58C (KsepMatchInitCpuInfo.c)
+ *     KsepMatchInitAcpiOemInfo @ 0x140A6A61C (KsepMatchInitAcpiOemInfo.c)
  * Callees:
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
  */
 
 NTSTATUS __fastcall KsepStringAnsiToUnicode(wchar_t *a1, unsigned __int16 a2, char *a3, unsigned __int16 a4)

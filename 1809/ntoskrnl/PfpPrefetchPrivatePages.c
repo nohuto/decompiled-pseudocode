@@ -1,17 +1,17 @@
 /*
- * XREFs of PfpPrefetchPrivatePages @ 0x1408643AC
+ * XREFs of PfpPrefetchPrivatePages @ 0x14086438C
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x14065B9BC (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x14065B99C (PfpPrefetchRequestPerform.c)
  * Callees:
- *     MmQueryMemoryListInformation @ 0x1400A89B0 (MmQueryMemoryListInformation.c)
- *     PfpCheckPrefetchAbort @ 0x1400DE680 (PfpCheckPrefetchAbort.c)
+ *     MmQueryMemoryListInformation @ 0x1400A89D0 (MmQueryMemoryListInformation.c)
+ *     PfpCheckPrefetchAbort @ 0x1400DE6A0 (PfpCheckPrefetchAbort.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     PfpUpdateRepurposedByPrefetch @ 0x14066231C (PfpUpdateRepurposedByPrefetch.c)
- *     PfpGetPageListCount @ 0x140662420 (PfpGetPageListCount.c)
- *     MmPrefetchVirtualMemory @ 0x14066BDC8 (MmPrefetchVirtualMemory.c)
- *     PfpSourceBuildVaArray @ 0x140864DA4 (PfpSourceBuildVaArray.c)
- *     PfpSourceGetPrefetchSupport @ 0x140864E80 (PfpSourceGetPrefetchSupport.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x1406622FC (PfpUpdateRepurposedByPrefetch.c)
+ *     PfpGetPageListCount @ 0x140662400 (PfpGetPageListCount.c)
+ *     MmPrefetchVirtualMemory @ 0x14066BDA8 (MmPrefetchVirtualMemory.c)
+ *     PfpSourceBuildVaArray @ 0x140864D84 (PfpSourceBuildVaArray.c)
+ *     PfpSourceGetPrefetchSupport @ 0x140864E60 (PfpSourceGetPrefetchSupport.c)
  */
 
 __int64 __fastcall PfpPrefetchPrivatePages(__int64 *a1)

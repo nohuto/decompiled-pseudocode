@@ -1,599 +1,539 @@
 /*
- * XREFs of ?Render@CDrawListEntryBatch@@UEAAJXZ @ 0x18008F820
+ * XREFs of ?Render@CDrawListEntryBatch@@UEAAJXZ @ 0x180066590
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@VClipPlaneInfoRef@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18000DB6C (--1-$com_ptr_t@VClipPlaneInfoRef@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?SetRenderingEffectState@CD3DBatchExecutionContext@@QEAAJPEBVCRenderingEffect@@@Z @ 0x180090048 (-SetRenderingEffectState@CD3DBatchExecutionContext@@QEAAJPEBVCRenderingEffect@@@Z.c)
- *     ?EndAppend@CD3DDynamicAppendBuffer@@QEAAXXZ @ 0x180090294 (-EndAppend@CD3DDynamicAppendBuffer@@QEAAXXZ.c)
- *     ?ReplaceMegaRectsWithClippedRects@CMegaRectCollection@@QEAAJXZ @ 0x1800902DC (-ReplaceMegaRectsWithClippedRects@CMegaRectCollection@@QEAAJXZ.c)
- *     ?StartExecution@CD3DBatchExecutionContext@@QEAAXAEBUWorldToClipSpace@@PEBVClipPlaneInfoRef@@@Z @ 0x180090454 (-StartExecution@CD3DBatchExecutionContext@@QEAAXAEBUWorldToClipSpace@@PEBVClipPlaneInfoRef@@@Z.c)
- *     ?ApplyRenderState@CRenderingBatchCommand@@QEBA_NPEAUIDrawListStateSink@@@Z @ 0x1800905BC (-ApplyRenderState@CRenderingBatchCommand@@QEBA_NPEAUIDrawListStateSink@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArray@PEAVCBatchCommand@@$0A@@@QEAAJPEFBQEAVCBatchCommand@@I@Z @ 0x1800C429C (-AddMultipleAndSet@-$DynArray@PEAVCBatchCommand@@$0A@@@QEAAJPEFBQEAVCBatchCommand@@I@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     ?_Tidy@?$deque@VCMegaRect@@V?$allocator@VCMegaRect@@@std@@@std@@AEAAXXZ @ 0x1800DA234 (-_Tidy@-$deque@VCMegaRect@@V-$allocator@VCMegaRect@@@std@@@std@@AEAAXXZ.c)
- *     ??R?$default_delete@VCDrawListPrimitive@@@std@@QEBAXPEAVCDrawListPrimitive@@@Z @ 0x1800EBF10 (--R-$default_delete@VCDrawListPrimitive@@@std@@QEBAXPEAVCDrawListPrimitive@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$RenderLoop@$0A@@CDrawListEntryBatch@@AEAAJAEAVCD3DBatchExecutionContext@@@Z @ 0x18020A5F0 (--$RenderLoop@$0A@@CDrawListEntryBatch@@AEAAJAEAVCD3DBatchExecutionContext@@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
- *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18027C748 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ *     ??R?$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z @ 0x180007454 (--R-$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z.c)
+ *     ?_Tidy@?$deque@VCMegaRect@@V?$allocator@VCMegaRect@@@std@@@std@@AEAAXXZ @ 0x18002B2E0 (-_Tidy@-$deque@VCMegaRect@@V-$allocator@VCMegaRect@@@std@@@std@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z @ 0x180066ECC (-Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z.c)
+ *     ?ReplaceMegaRectsWithClippedRects@CMegaRectCollection@@QEAAJXZ @ 0x180066F8C (-ReplaceMegaRectsWithClippedRects@CMegaRectCollection@@QEAAJXZ.c)
+ *     ?ReplacePrimitive@CHWDrawListEntry@@QEAA?AV?$unique_ptr@VCDrawListPrimitive@@U?$default_delete@VCDrawListPrimitive@@@std@@@std@@$$QEAV23@AEBVCMILMatrix@@@Z @ 0x180067490 (-ReplacePrimitive@CHWDrawListEntry@@QEAA-AV-$unique_ptr@VCDrawListPrimitive@@U-$default_delete@V.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     memcmp_0 @ 0x1800F3FFF (memcmp_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?EndAppend@CD3DDynamicAppendBuffer@@QEAAXXZ @ 0x1801AA3AC (-EndAppend@CD3DDynamicAppendBuffer@@QEAAXXZ.c)
+ *     ??$RenderLoop@$0A@@CDrawListEntryBatch@@AEAAJAEAVCD3DBatchExecutionContext@@@Z @ 0x1801AA480 (--$RenderLoop@$0A@@CDrawListEntryBatch@@AEAAJAEAVCD3DBatchExecutionContext@@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CDrawListEntryBatch::Render(CDrawListEntryBatch *this)
 {
   __int64 v1; // rax
   __int64 v3; // rcx
-  unsigned int v4; // eax
+  int v4; // eax
   int v5; // eax
-  unsigned int v6; // ecx
-  int v7; // r12d
-  __int64 v8; // rcx
-  __int64 v9; // rcx
-  const struct CRenderingEffect *v10; // rbx
-  CRenderingBatchCommand **v11; // r14
-  CRenderingBatchCommand **v12; // r13
-  CRenderingBatchCommand *v13; // rdi
-  __int64 v14; // rsi
-  bool v15; // al
-  _QWORD *v16; // rsi
-  const struct CRenderingEffect *v17; // rdi
-  const struct CRenderingEffect *v18; // rsi
-  int v19; // eax
-  __int64 v20; // rsi
-  CD3DDynamicAppendBuffer *v21; // rbx
-  __int64 v22; // rcx
-  int v23; // ecx
-  int v24; // eax
-  unsigned int v25; // ecx
-  __int64 v26; // rsi
-  unsigned int v27; // eax
-  unsigned int v28; // edx
+  __int64 v6; // rcx
+  int v7; // r15d
+  _DWORD *v8; // rdi
+  __int64 v9; // r14
+  __int64 v10; // rbx
+  char v11; // al
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+  void (__fastcall ***v15)(_QWORD); // rbx
+  __int64 v16; // rax
+  _QWORD *v17; // r12
+  _QWORD *v18; // r13
+  __int64 v19; // rdi
+  __int64 v20; // r14
+  void (__fastcall ***v21)(_QWORD); // r14
+  void (__fastcall ***v22)(_QWORD); // rax
+  int v23; // eax
+  __int64 v24; // rcx
+  int v25; // r14d
+  __int64 v26; // rdi
+  __int64 v27; // rcx
+  unsigned __int8 v28; // dl
   unsigned int v29; // r14d
-  unsigned int v30; // ebx
-  int *v31; // rdi
-  int v32; // ecx
+  __int64 v30; // rdi
+  int v31; // eax
+  _QWORD *v32; // rax
   __int64 v33; // rcx
-  int v34; // eax
-  __int64 result; // rax
-  int v37; // ecx
-  int v38; // ecx
-  __int64 v39; // rcx
-  __int64 v40; // rdx
-  int v41; // ecx
-  int v42; // ecx
-  __int64 v43; // rdi
-  int v44; // eax
-  __int64 v45; // rax
-  unsigned int v46; // eax
-  unsigned int v47; // ecx
+  int v34; // ecx
+  int v35; // eax
+  __int64 v36; // rbx
+  __int64 v37; // r14
+  __int64 v38; // rcx
+  __int64 v39; // rdi
+  unsigned int v40; // eax
+  unsigned int v41; // edx
+  __int64 v42; // rdx
+  unsigned int v43; // ecx
+  __int64 v44; // rbx
+  __int64 v45; // r14
+  unsigned int v47; // eax
   unsigned int v48; // ecx
-  int v49; // eax
+  unsigned int v49; // ecx
   unsigned int v50; // ecx
-  unsigned int v51; // ebx
-  unsigned int v52; // ecx
-  int v53; // eax
-  int v54; // ebx
-  BOOL v55; // eax
-  char v56; // cl
-  HANDLE CurrentProcess; // rax
-  HANDLE CurrentThread; // rax
-  unsigned int v59; // [rsp+28h] [rbp-E0h]
-  unsigned int v60; // [rsp+28h] [rbp-E0h]
-  _QWORD v61[2]; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v62; // [rsp+78h] [rbp-90h]
-  __int64 v63; // [rsp+80h] [rbp-88h]
-  _QWORD *v64; // [rsp+88h] [rbp-80h]
-  int v65; // [rsp+90h] [rbp-78h]
-  __int128 v66; // [rsp+98h] [rbp-70h]
-  int v67; // [rsp+A8h] [rbp-60h]
-  unsigned int v68; // [rsp+ACh] [rbp-5Ch]
-  int *v69; // [rsp+B0h] [rbp-58h]
-  __int16 v70; // [rsp+B8h] [rbp-50h]
-  char v71; // [rsp+BAh] [rbp-4Eh]
-  __int64 v72; // [rsp+BCh] [rbp-4Ch]
-  __int128 v73; // [rsp+C4h] [rbp-44h]
-  char *v74; // [rsp+D8h] [rbp-30h]
-  __int64 v75; // [rsp+E0h] [rbp-28h]
-  void *retaddr; // [rsp+120h] [rbp+18h]
-  int *Response; // [rsp+128h] [rbp+20h] BYREF
-  CDrawListEntryBatch *v78; // [rsp+130h] [rbp+28h] BYREF
+  __int64 result; // rax
+  __int64 v52; // r8
+  __int64 v53; // r9
+  _QWORD *v54; // rcx
+  int v55; // eax
+  __int64 v56; // rax
+  __int64 v57; // rcx
+  int v58; // eax
+  __int64 v59; // rcx
+  _OWORD *v60; // r14
+  _OWORD *v61; // r15
+  __int64 v62; // rbx
+  _DWORD *v63; // rdx
+  unsigned int v64; // [rsp+28h] [rbp-E0h]
+  void **v65; // [rsp+48h] [rbp-C0h] BYREF
+  _QWORD *v66; // [rsp+50h] [rbp-B8h]
+  __int64 v67; // [rsp+58h] [rbp-B0h]
+  __int64 v68; // [rsp+60h] [rbp-A8h]
+  __int64 v69; // [rsp+68h] [rbp-A0h]
+  _QWORD v70[3]; // [rsp+70h] [rbp-98h]
+  int v71; // [rsp+88h] [rbp-80h]
+  int v72; // [rsp+8Ch] [rbp-7Ch] BYREF
+  unsigned __int64 v73; // [rsp+90h] [rbp-78h]
+  __int16 v74; // [rsp+98h] [rbp-70h]
+  char v75; // [rsp+9Ah] [rbp-6Eh]
+  __int64 v76; // [rsp+9Ch] [rbp-6Ch]
+  __int128 v77; // [rsp+A4h] [rbp-64h]
+  int v78; // [rsp+B4h] [rbp-54h]
+  int v79; // [rsp+B8h] [rbp-50h]
+  void (__fastcall ***v80)(_QWORD); // [rsp+C8h] [rbp-40h]
+  __int64 v81; // [rsp+D0h] [rbp-38h] BYREF
+  __int64 v82; // [rsp+D8h] [rbp-30h] BYREF
+  __int64 (__fastcall ***v83)(_QWORD, __int64); // [rsp+E0h] [rbp-28h] BYREF
+  void *retaddr; // [rsp+130h] [rbp+28h]
+  unsigned __int64 v85; // [rsp+138h] [rbp+30h] BYREF
+  unsigned __int64 v86; // [rsp+140h] [rbp+38h]
+  __int64 v87; // [rsp+148h] [rbp+40h] BYREF
+  __int64 v88; // [rsp+150h] [rbp+48h] BYREF
 
   v1 = *((_QWORD *)this + 3);
-  if ( *(_QWORD *)(v1 + 168) )
+  if ( *(_QWORD *)(v1 + 208) )
     ModuleFailFastForHRESULT(2147549183LL, retaddr);
-  *(_QWORD *)(v1 + 168) = this;
-  v3 = *((_QWORD *)this + 3);
-  v61[0] = &CD3DBatchExecutionContext::`vftable';
-  v61[1] = v3;
-  v62 = *(_QWORD *)(v3 + 560);
-  v63 = *(_QWORD *)(v3 + 568);
-  v64 = (_QWORD *)*((_QWORD *)this + 13);
-  LOWORD(Response) = 0;
-  HIDWORD(Response) = -1;
-  v69 = Response;
-  v74 = (char *)this + 72;
-  v4 = *((_DWORD *)this + 24);
-  ++dword_1803E59C8;
-  v65 = 0;
-  v66 = 0LL;
-  v67 = 24;
-  v68 = 0x80000000;
-  v70 = 0;
-  v71 = 3;
-  v72 = 0LL;
-  v73 = 0uLL;
-  v75 = v4;
+  *(_QWORD *)(v1 + 208) = this;
+  v66 = (_QWORD *)*((_QWORD *)this + 3);
+  v65 = &CD3DBatchExecutionContext::`vftable';
+  v3 = v66[75];
+  v67 = v3;
+  v68 = v66[76];
+  v69 = *((_QWORD *)this + 10);
+  LOWORD(v85) = 0;
+  HIDWORD(v85) = -1;
+  v73 = v85;
+  v4 = *((_DWORD *)this + 18);
+  ++dword_180347258;
+  LODWORD(v70[0]) = 0;
+  *(_OWORD *)&v70[1] = 0LL;
+  v71 = 24;
+  v72 = 0x80000000;
+  v74 = 0;
+  v75 = 3;
+  v76 = 0LL;
+  v77 = 0uLL;
+  v78 = v4;
+  v79 = 0;
   if ( CCommonRegistryData::EnableMegaRects )
   {
-    v5 = CMegaRectCollection::ReplaceMegaRectsWithClippedRects((CDrawListEntryBatch *)((char *)this + 112));
+    v5 = CMegaRectCollection::ReplaceMegaRectsWithClippedRects((CDrawListEntryBatch *)((char *)this + 88));
     v7 = v5;
     if ( v5 < 0 )
     {
-      v59 = 242;
-LABEL_108:
-      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, v59, 0LL);
-      goto LABEL_39;
+      v64 = 243;
+LABEL_130:
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, v64, 0LL);
+      goto LABEL_47;
     }
+    v3 = v67;
   }
-  CD3DBatchExecutionContext::StartExecution(
-    (CD3DBatchExecutionContext *)v61,
-    (CDrawListEntryBatch *)((char *)this + 56),
-    *((const struct ClipPlaneInfoRef **)this + 4));
-  v8 = *((_QWORD *)this + 3);
-  if ( !*(_QWORD *)(v8 + 160) )
+  v8 = 0LL;
+  if ( *((_DWORD *)this + 18) == 1 )
+    v8 = (_DWORD *)((char *)this + 76);
+  v9 = *((_QWORD *)this + 4);
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v3 + 192LL))(v3, 4LL);
+  (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v67 + 344LL))(v67, v66[274]);
+  (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)v67 + 288LL))(v67, v66[275], 0LL);
+  (*(void (__fastcall **)(__int64, _QWORD, __int64))(*(_QWORD *)v67 + 152LL))(v67, *(_QWORD *)(v69 + 72), 57LL);
+  v10 = v69;
+  if ( v9 && (v60 = (_OWORD *)(v9 + 16)) != 0LL )
   {
-    v5 = CDrawListEntryBatch::RenderLoop<0>(this, v61);
+    v61 = (_OWORD *)(v69 + 288);
+    if ( memcmp_0(v60, (const void *)(v69 + 288), 0x50uLL) )
+    {
+      *(_BYTE *)(v69 + 168) = 1;
+      *v61 = *v60;
+      *(_OWORD *)(v10 + 304) = v60[1];
+      *(_OWORD *)(v10 + 320) = v60[2];
+      *(_OWORD *)(v10 + 336) = v60[3];
+      *(_OWORD *)(v10 + 352) = v60[4];
+    }
+    v11 = 1;
+  }
+  else
+  {
+    v11 = 0;
+  }
+  *(_BYTE *)(v10 + 368) = v11;
+  v12 = *(_QWORD *)(v10 + 176) - *((_QWORD *)this + 7);
+  if ( !v12 )
+    v12 = *(_QWORD *)(v10 + 184) - *((_QWORD *)this + 8);
+  if ( v12 )
+  {
+    *(_BYTE *)(v10 + 168) = 1;
+    *(_OWORD *)(v10 + 176) = *(_OWORD *)((char *)this + 56);
+  }
+  v87 = *(_QWORD *)(v10 + 160);
+  (*(void (__fastcall **)(__int64, _QWORD, __int64, __int64 *))(*(_QWORD *)v67 + 56LL))(v67, 0LL, 1LL, &v87);
+  if ( v8 )
+  {
+    v62 = v69;
+    v63 = (_DWORD *)(v69 + 400);
+    if ( *v8 == *(_DWORD *)(v69 + 400) )
+    {
+      if ( !*(_BYTE *)(v69 + 392) )
+        goto LABEL_115;
+    }
+    else
+    {
+      *v63 = *v8;
+      *(_BYTE *)(v62 + 392) = 1;
+    }
+    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD *, _DWORD, _DWORD))(*(_QWORD *)v66[75] + 384LL))(
+      v66[75],
+      *(_QWORD *)(v62 + 384),
+      0LL,
+      0LL,
+      v63,
+      0,
+      0);
+    *(_BYTE *)(v62 + 392) = 0;
+LABEL_115:
+    v88 = *(_QWORD *)(v62 + 384);
+    (*(void (__fastcall **)(__int64, __int64, __int64, __int64 *))(*(_QWORD *)v67 + 128LL))(v67, 2LL, 1LL, &v88);
+  }
+  v13 = *((_QWORD *)this + 3);
+  if ( !*(_QWORD *)(v13 + 200) )
+  {
+    v5 = CDrawListEntryBatch::RenderLoop<0>(this, &v65);
     v7 = v5;
     if ( v5 >= 0 )
-      goto LABEL_35;
-    v59 = 253;
-    goto LABEL_108;
+      goto LABEL_46;
+    v64 = 260;
+    goto LABEL_130;
   }
-  v9 = *(_QWORD *)(v8 + 24);
+  v14 = *(_QWORD *)(v13 + 24);
+  v15 = 0LL;
+  v16 = *((unsigned int *)this + 12);
   v7 = 0;
-  v10 = 0LL;
-  v11 = (CRenderingBatchCommand **)(v9 + 8LL * *((unsigned int *)this + 12));
-  v12 = (CRenderingBatchCommand **)(v9 + 8LL * *((unsigned int *)this + 13));
-  if ( v11 == v12 )
-    goto LABEL_34;
+  v80 = 0LL;
+  v17 = (_QWORD *)(v14 + 8 * v16);
+  v18 = (_QWORD *)(v14 + 8LL * *((unsigned int *)this + 13));
+  if ( v17 == v18 )
+    goto LABEL_45;
   while ( 1 )
   {
-    v13 = *v11;
-    LODWORD(v9) = *(_DWORD *)*v11;
-    if ( (_DWORD)v9 == 1 )
+    v19 = *v17;
+    if ( (*(unsigned __int8 (__fastcall **)(_QWORD, void ***))(*(_QWORD *)*v17 + 32LL))(*v17, &v65) )
+      break;
+LABEL_42:
+    if ( ++v17 == v18 )
+      goto LABEL_43;
+  }
+  v20 = v69;
+  LODWORD(v70[0]) |= 0x80000000;
+  if ( *(_QWORD *)(v69 + 40) )
+  {
+    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(v69 + 16) + 600LL) + 120LL))(
+      *(_QWORD *)(*(_QWORD *)(v69 + 16) + 600LL),
+      *(_QWORD *)(v69 + 24),
+      0LL);
+    *(_QWORD *)(v20 + 40) = 0LL;
+    *(_DWORD *)(v20 + 48) = 0;
+    if ( v75 )
     {
-      if ( *((_BYTE *)v13 + 92) )
+      if ( v75 == 2 )
       {
-        v15 = 1;
+        CD3DDynamicAppendBuffer::EndAppend((CD3DDynamicAppendBuffer *)(v69 + 112));
+        CD3DDynamicAppendBuffer::EndAppend((CD3DDynamicAppendBuffer *)(v20 + 64));
+        (*(void (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD, _DWORD, _DWORD))(*(_QWORD *)v67 + 160LL))(
+          v67,
+          DWORD2(v77),
+          HIDWORD(v77),
+          HIDWORD(v76),
+          0,
+          v77);
       }
       else
       {
-        v14 = *(_QWORD *)(*((_QWORD *)v13 + 1) + 64LL);
-        if ( *(float *)(v14 + 84) <= *(float *)(v14 + 76) || *(float *)(v14 + 88) <= *(float *)(v14 + 80) )
+        (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)v67 + 104LL))(v67, DWORD1(v77), (unsigned int)v76);
+      }
+    }
+    else
+    {
+      (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(v20 + 64) + 600LL) + 120LL))(
+        *(_QWORD *)(*(_QWORD *)(v20 + 64) + 600LL),
+        *(_QWORD *)(v20 + 72),
+        0LL);
+      *(_QWORD *)(v20 + 88) = 0LL;
+      *(_DWORD *)(v20 + 96) = 0;
+      (*(void (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD))(*(_QWORD *)v67 + 96LL))(
+        v67,
+        DWORD2(v77),
+        HIDWORD(v76),
+        0LL);
+    }
+    ++v79;
+    *(_QWORD *)((char *)&v77 + 4) = 0LL;
+    HIDWORD(v77) = 0;
+  }
+  v21 = v15;
+  v22 = (void (__fastcall ***)(_QWORD))(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v19 + 40LL))(v19);
+  v80 = v22;
+  v15 = v22;
+  if ( v22 )
+    (**v22)(v22);
+  if ( v21 )
+    (*v21)[1](v21);
+  if ( v70[1] && !(_BYTE)v74 )
+  {
+    v81 = *(_QWORD *)(v69 + 416);
+    (*(void (__fastcall **)(__int64, __int64, __int64, __int64 *))(*(_QWORD *)v67 + 56LL))(v67, 2LL, 1LL, &v81);
+    v82 = *(_QWORD *)(v69 + 704);
+    (*(void (__fastcall **)(__int64, __int64, __int64, __int64 *))(*(_QWORD *)v67 + 128LL))(v67, 1LL, 1LL, &v82);
+    LOBYTE(v74) = 1;
+  }
+  v23 = ((__int64 (__fastcall *)(void (__fastcall ***)(_QWORD), void ***, int *))(*v15)[5])(v15, &v65, &v72);
+  v25 = v23;
+  if ( v23 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0x1BFu, 0LL);
+  }
+  else
+  {
+    v26 = v69;
+    if ( *(_BYTE *)(v69 + 168) )
+    {
+      (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, __int64, _DWORD, _DWORD))(*(_QWORD *)v66[75] + 384LL))(
+        v66[75],
+        *(_QWORD *)(v69 + 160),
+        0LL,
+        0LL,
+        v69 + 176,
+        0,
+        0);
+      *(_BYTE *)(v26 + 168) = 0;
+    }
+    v27 = (unsigned int)v72;
+    if ( v72 >= 0 )
+    {
+      v28 = (v72 & 4) != 0;
+      v85 = v28;
+      BYTE1(v85) = (v72 & 8) != 0;
+      BYTE2(v85) = (v72 & 2) != 0;
+      HIDWORD(v85) = (v72 & 1) != 0 ? 4 : 2;
+      BYTE3(v85) = (v72 & 0x10) != 0;
+      LOBYTE(v86) = (v72 & 4) != 0;
+      v27 = HIDWORD(v85);
+      HIDWORD(v86) = HIDWORD(v85);
+      BYTE1(v86) = BYTE3(v85);
+      if ( HIDWORD(v85) != HIDWORD(v73) || v28 != (_BYTE)v73 || BYTE3(v85) != BYTE1(v73) )
+      {
+        v52 = 190LL;
+        if ( BYTE3(v85) )
+          v52 = 194LL;
+        if ( HIDWORD(v85) == 2 )
         {
-          v15 = 0;
+          v53 = 0LL;
+          if ( v28 )
+            v53 = 2LL;
+        }
+        else if ( HIDWORD(v85) == 4 )
+        {
+          if ( v28 )
+            v53 = 3LL;
+          else
+            v53 = 1LL;
         }
         else
         {
-          (*(void (__fastcall **)(_QWORD *, _QWORD))(v61[0] + 8LL))(v61, *((unsigned int *)v13 + 21));
-          (*(void (__fastcall **)(_QWORD *, _QWORD))(v61[0] + 24LL))(v61, *(unsigned __int8 *)(v14 + 72));
-          v15 = 1;
+          v53 = 4LL;
         }
+        (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v67 + 136LL))(v67, v66[v53 + v52]);
+        v73 = v86;
+        HIBYTE(v74) = 1;
       }
-      goto LABEL_11;
     }
-    v41 = v9 - 2;
-    if ( !v41 )
-    {
-      (*(void (__fastcall **)(_QWORD *, _QWORD))v61[0])(v61, *((_QWORD *)v13 + 1));
-      goto LABEL_31;
-    }
-    v42 = v41 - 1;
-    if ( !v42 )
-      break;
-    if ( (unsigned int)(v42 - 1) > 1 )
-      ModuleFailFastForHRESULT(2147549183LL, retaddr);
-    v15 = CRenderingBatchCommand::ApplyRenderState(*v11, (struct IDrawListStateSink *)v61);
-LABEL_11:
-    if ( v15 )
-      goto LABEL_12;
-LABEL_31:
-    if ( ++v11 == v12 )
-      goto LABEL_32;
   }
-  if ( *((_DWORD *)v13 + 4) != 24 )
-    (*(void (__fastcall **)(_QWORD *))(v61[0] + 8LL))(v61);
-  if ( *((_BYTE *)v13 + 20) != 3 )
-    (*(void (__fastcall **)(_QWORD *))(v61[0] + 24LL))(v61);
-  (*(void (__fastcall **)(_QWORD *, CRenderingBatchCommand *))(v61[0] + 16LL))(v61, v13);
-LABEL_12:
-  v16 = v64;
-  v65 |= 0x80000000;
-  if ( v64[5] )
+  if ( v25 < 0 )
   {
-    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(v64[2] + 560LL) + 120LL))(
-      *(_QWORD *)(v64[2] + 560LL),
-      v64[3],
-      0LL);
-    v16[5] = 0LL;
-    *((_DWORD *)v16 + 12) = 0;
-    if ( !v71 )
-    {
-      (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(v16[8] + 560LL) + 120LL))(
-        *(_QWORD *)(v16[8] + 560LL),
-        v16[9],
-        0LL);
-      v16[11] = 0LL;
-      *((_DWORD *)v16 + 24) = 0;
-      (*(void (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD))(*(_QWORD *)v62 + 96LL))(
-        v62,
-        DWORD2(v73),
-        HIDWORD(v72),
-        0LL);
-      goto LABEL_15;
-    }
-    if ( v71 == 2 )
-    {
-      CD3DDynamicAppendBuffer::EndAppend((CD3DDynamicAppendBuffer *)(v64 + 14));
-      CD3DDynamicAppendBuffer::EndAppend((CD3DDynamicAppendBuffer *)(v16 + 8));
-      v7 = 0;
-      (*(void (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD, _DWORD, _DWORD))(*(_QWORD *)v62 + 160LL))(
-        v62,
-        DWORD2(v73),
-        HIDWORD(v73),
-        HIDWORD(v72),
-        0,
-        v73);
-    }
-    else
-    {
-      (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)v62 + 104LL))(v62, DWORD1(v73), (unsigned int)v72);
-LABEL_15:
-      v7 = 0;
-    }
-    ++HIDWORD(v75);
-    *(_QWORD *)((char *)&v73 + 4) = 0LL;
-    HIDWORD(v73) = 0;
+    MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v25, 0x13Bu, 0LL);
+    v29 = 0;
+    v14 = 0LL;
   }
   else
   {
-    v7 = 0;
+    v14 = (__int64)v15;
+    v29 = 0;
   }
-  switch ( *(_DWORD *)v13 )
+  v7 = 0;
+  if ( v14 )
   {
-    case 1:
-LABEL_18:
-      v17 = (const struct CRenderingEffect *)(*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)v13 + 1) + 40LL))(*((_QWORD *)v13 + 1));
-      goto LABEL_19;
-    case 2:
-      v18 = v10;
-      v17 = 0LL;
-      v10 = 0LL;
-      break;
-    case 3:
-      v17 = (const struct CRenderingEffect *)*((_QWORD *)v13 + 1);
-LABEL_19:
-      v18 = v10;
-      v10 = v17;
-      if ( v17 )
-        (**(void (__fastcall ***)(const struct CRenderingEffect *))v17)(v17);
-      break;
-    default:
-      if ( (unsigned int)(*(_DWORD *)v13 - 4) > 1 )
-        ModuleFailFastForHRESULT(2147549183LL, retaddr);
-      goto LABEL_18;
-  }
-  if ( v18 )
-    (*(void (__fastcall **)(const struct CRenderingEffect *))(*(_QWORD *)v18 + 8LL))(v18);
-  v19 = CD3DBatchExecutionContext::SetRenderingEffectState((CD3DBatchExecutionContext *)v61, v17);
-  if ( v19 < 0 )
-  {
-    v60 = 313;
-    goto LABEL_119;
-  }
-  if ( !v17 )
-    goto LABEL_27;
-  v20 = *((_QWORD *)&v66 + 1);
-  if ( *((_QWORD *)&v66 + 1) )
-  {
-    v43 = 0LL;
-    if ( *(_DWORD *)(*((_QWORD *)&v66 + 1) + 24LL) )
+    v30 = v70[2];
+    if ( v70[2] )
     {
-      while ( 1 )
+      if ( *(_DWORD *)(v70[2] + 48LL) )
       {
-        v44 = (*(__int64 (__fastcall **)(_QWORD, _QWORD *, CRenderingBatchCommand *))(**(_QWORD **)(v20 + 8) + 40LL))(
-                *(_QWORD *)(v20 + 8),
-                v61,
-                v11[v43 + 1]);
-        v7 = v44;
-        if ( v44 < 0 )
-          break;
-        v43 = (unsigned int)(v43 + 1);
-        if ( (unsigned int)v43 >= *(_DWORD *)(v20 + 24) )
-          goto LABEL_27;
+        while ( 1 )
+        {
+          v55 = (*(__int64 (__fastcall **)(_QWORD, void ***, _QWORD))(**(_QWORD **)(v30 + 32) + 48LL))(
+                  *(_QWORD *)(v30 + 32),
+                  &v65,
+                  v17[v29 + 1]);
+          v7 = v55;
+          if ( v55 < 0 )
+            break;
+          if ( ++v29 >= *(_DWORD *)(v30 + 48) )
+            goto LABEL_94;
+        }
+        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v55, 0x4Fu, 0LL);
       }
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v44, 0x53u, 0LL);
-      MilInstrumentationCheckHR_MaybeFailFast(v52, 0LL, 0, v7, 0x1EEu, 0LL);
+LABEL_94:
+      if ( v7 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v7, 0x1EAu, 0LL);
     }
     else
     {
-      v7 = 0;
+      v31 = (*(__int64 (__fastcall **)(__int64, void ***, _QWORD))(*(_QWORD *)v14 + 48LL))(v14, &v65, *v17);
+      v7 = v31;
+      if ( v31 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v31, 0x1EFu, 0LL);
     }
   }
-  else
+  if ( v70[2] )
   {
-    v19 = (*(__int64 (__fastcall **)(const struct CRenderingEffect *, _QWORD *, CRenderingBatchCommand *))(*(_QWORD *)v17 + 40LL))(
-            v17,
-            v61,
-            *v11);
-    v7 = v19;
-    if ( v19 >= 0 )
-      goto LABEL_27;
-    v60 = 499;
-LABEL_119:
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v19, v60, 0LL);
-  }
-LABEL_27:
-  if ( *((_QWORD *)&v66 + 1) )
-  {
-    v45 = *(unsigned int *)(*((_QWORD *)&v66 + 1) + 24LL);
-    ++dword_1803E59D0;
-    dword_1803E59D4 += v45;
-    *((_QWORD *)&v66 + 1) = 0LL;
-    v11 += v45;
+    v56 = *(unsigned int *)(v70[2] + 48LL);
+    ++dword_180347260;
+    dword_180347264 += v56;
+    v70[2] = 0LL;
+    v17 += v56;
   }
   if ( v7 >= 0 )
   {
-    v65 = 0;
-    goto LABEL_31;
+    LODWORD(v70[0]) = 0;
+    goto LABEL_42;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v7, 0x169u, 0LL);
-LABEL_32:
-  if ( v10 )
-    (*(void (__fastcall **)(const struct CRenderingEffect *))(*(_QWORD *)v10 + 8LL))(v10);
-LABEL_34:
+  MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v7, 0x16Bu, 0LL);
+LABEL_43:
+  if ( v15 )
+    (*v15)[1](v15);
+LABEL_45:
   if ( v7 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v7, 0x100u, 0LL);
+  else
+LABEL_46:
+    CD3DBatchExecutionContext::Flush(&v65, 0x2000LL);
+LABEL_47:
+  if ( v79 )
+    dword_180347370 += v79;
+  v32 = (_QWORD *)v69;
+  if ( *(_QWORD *)(v69 + 40) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v7, 0xF9u, 0LL);
+    CD3DDynamicAppendBuffer::EndAppend((CD3DDynamicAppendBuffer *)(v69 + 16));
+    v32 = (_QWORD *)v69;
+  }
+  if ( v32[11] )
+  {
+    CD3DDynamicAppendBuffer::EndAppend((CD3DDynamicAppendBuffer *)(v32 + 8));
+    v32 = (_QWORD *)v69;
+  }
+  if ( v32[17] )
+    CD3DDynamicAppendBuffer::EndAppend((CD3DDynamicAppendBuffer *)(v32 + 14));
+  v33 = *((_QWORD *)this + 4);
+  if ( v33 )
+  {
+    *((_QWORD *)this + 4) = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v33 + 8LL))(v33);
+  }
+  v34 = *((_DWORD *)this + 12);
+  v35 = *((_DWORD *)this + 13);
+  if ( v34 != v35 )
+    dword_18034725C += v35 - v34;
+  dword_18034737C += *((_DWORD *)this + 30);
+  v36 = *((_QWORD *)this + 14);
+  v37 = v36 + *((_QWORD *)this + 15);
+  while ( v36 != v37 )
+  {
+    v54 = *(_QWORD **)(*((_QWORD *)this + 12) + 8 * (v36 & (*((_QWORD *)this + 13) - 1LL)));
+    if ( v54[4] )
+    {
+      CHWDrawListEntry::ReplacePrimitive(*v54, &v83, v54 + 4, v54 + 5);
+      if ( v83 )
+        std::default_delete<CShape>::operator()(v57, v83);
+    }
+    ++v36;
+  }
+  std::deque<CMegaRect>::_Tidy((_QWORD *)this + 11);
+  v39 = *((_QWORD *)this + 3);
+  if ( *(CDrawListEntryBatch **)(v39 + 208) != this )
+    ModuleFailFastForHRESULT(2147549183LL, retaddr);
+  v85 = (unsigned __int64)this;
+  *(_QWORD *)(v39 + 208) = 0LL;
+  v40 = *(_DWORD *)(v39 + 168);
+  v41 = v40 + 1;
+  if ( v40 + 1 < v40 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v38, 0LL, 0, -2147024362, 0xB5u, 0LL);
   }
   else
   {
-LABEL_35:
-    v65 |= 0x2000u;
-    if ( v64[5] )
+    if ( v41 <= *(_DWORD *)(v39 + 164) )
     {
-      v21 = (CD3DDynamicAppendBuffer *)(v64 + 8);
-      CD3DDynamicAppendBuffer::EndAppend((CD3DDynamicAppendBuffer *)(v64 + 2));
-      if ( v71 )
-      {
-        if ( v71 == 2 )
-        {
-          CD3DDynamicAppendBuffer::EndAppend((CD3DDynamicAppendBuffer *)(v64 + 14));
-          CD3DDynamicAppendBuffer::EndAppend(v21);
-          (*(void (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD, _DWORD, _DWORD))(*(_QWORD *)v62 + 160LL))(
-            v62,
-            DWORD2(v73),
-            HIDWORD(v73),
-            HIDWORD(v72),
-            0,
-            v73);
-        }
-        else
-        {
-          (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)v62 + 104LL))(
-            v62,
-            DWORD1(v73),
-            (unsigned int)v72);
-        }
-      }
-      else
-      {
-        CD3DDynamicAppendBuffer::EndAppend(v21);
-        (*(void (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD))(*(_QWORD *)v62 + 96LL))(
-          v62,
-          DWORD2(v73),
-          HIDWORD(v72),
-          0LL);
-      }
-      ++HIDWORD(v75);
-      *(_QWORD *)((char *)&v73 + 4) = 0LL;
-      HIDWORD(v73) = 0;
+      *(_QWORD *)(*(_QWORD *)(v39 + 144) + 8LL * v40) = this;
+      *(_DWORD *)(v39 + 168) = v41;
+      goto LABEL_65;
     }
+    v58 = DynArrayImpl<0>::AddMultipleAndSet(v39 + 144, 8LL, 1LL, &v85);
+    if ( v58 >= 0 )
+LABEL_65:
+      _InterlockedIncrement((volatile signed __int32 *)(v85 + 16));
+    else
+      MilInstrumentationCheckHR_MaybeFailFast(v59, 0LL, 0, v58, 0xC0u, 0LL);
   }
-LABEL_39:
-  if ( HIDWORD(v75) )
-    dword_1803E5AE0 += HIDWORD(v75);
-  if ( v64[5] )
-    CD3DDynamicAppendBuffer::EndAppend((CD3DDynamicAppendBuffer *)(v64 + 2));
-  if ( v64[11] )
-    CD3DDynamicAppendBuffer::EndAppend((CD3DDynamicAppendBuffer *)(v64 + 8));
-  if ( v64[17] )
-    CD3DDynamicAppendBuffer::EndAppend((CD3DDynamicAppendBuffer *)(v64 + 14));
-  v22 = *((_QWORD *)this + 4);
-  if ( v22 )
+  v42 = *((unsigned int *)this + 12);
+  v43 = *((_DWORD *)this + 13);
+  if ( (unsigned int)v42 < v43 )
   {
-    *((_QWORD *)this + 4) = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v22 + 8LL))(v22);
-  }
-  v23 = *((_DWORD *)this + 12);
-  v24 = *((_DWORD *)this + 13);
-  if ( v23 != v24 )
-    dword_1803E59CC += v24 - v23;
-  dword_1803E5AEC += *((_DWORD *)this + 36);
-  std::deque<CMegaRect>::_Tidy((char *)this + 112);
-  v26 = *((_QWORD *)this + 3);
-  if ( *(CDrawListEntryBatch **)(v26 + 168) != this )
-    ModuleFailFastForHRESULT(2147549183LL, retaddr);
-  *(_QWORD *)(v26 + 168) = 0LL;
-  v27 = *(_DWORD *)(v26 + 128);
-  v78 = this;
-  v28 = v27 + 1;
-  if ( v27 + 1 < v27 )
-  {
-    v51 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, -2147024362, 0xB5u, 0LL);
-    goto LABEL_146;
-  }
-  if ( v28 > *(_DWORD *)(v26 + 124) )
-  {
-    v49 = DynArrayImpl<0>::AddMultipleAndSet(v26 + 104, 8LL, 1LL, &v78);
-    v51 = v49;
-    if ( v49 >= 0 )
-      goto LABEL_55;
-    MilInstrumentationCheckHR_MaybeFailFast(v50, 0LL, 0, v49, 0xC0u, 0LL);
-LABEL_146:
-    ModuleFailFastForHRESULT(v51, retaddr);
-  }
-  *(_QWORD *)(*(_QWORD *)(v26 + 104) + 8LL * v27) = this;
-  *(_DWORD *)(v26 + 128) = v28;
-LABEL_55:
-  if ( *((int *)this + 4) < 0 && (IsDebuggerPresent() || (unsigned int)IsKernelDebuggerPresent()) )
-  {
-    while ( 1 )
+    v44 = 8 * v42;
+    v45 = v43 - (unsigned int)v42;
+    do
     {
-      v53 = IsKernelDebuggerPresent();
-      LOWORD(Response) = 63;
-      v54 = v53;
-      if ( !v53 )
-      {
-        v55 = IsDebuggerPresent();
-        v56 = (char)Response;
-        if ( v55 )
-          v56 = 103;
-        LOBYTE(Response) = v56;
-      }
-      DbgPrintEx(
-        0x65u,
-        0,
-        "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
-        L"Tried to AddRef an object which has previously been freed (refcount went to 0).",
-        word_18033C310,
-        word_18033C310,
-        "Function: ",
-        L"CMILRefCountImpl::AddReference",
-        ", ",
-        L"onecoreuap\\windows\\dwm\\common\\shared\\refcountbase.cpp",
-        23);
-      if ( v54 )
-      {
-        DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", (PCH)&Response, 2u);
-      }
-      else
-      {
-        DbgPrintEx(
-          0x65u,
-          0,
-          "(No kernel debugger is present.) Respond with:\n"
-          "  g                    -- Go (continue)\n"
-          "  eb 0x%p 'p';g  -- terminate Process\n"
-          "  eb 0x%p 't';g  -- terminate Thread\n"
-          " or regular debugging.\n",
-          &Response,
-          &Response);
-        __debugbreak();
-      }
-      switch ( (char)Response )
-      {
-        case 'B':
-        case 'b':
-          __debugbreak();
-          goto LABEL_56;
-        case 'G':
-        case 'g':
-          goto LABEL_56;
-        case 'I':
-        case 'i':
-          DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
-          continue;
-        case 'P':
-        case 'p':
-          CurrentProcess = GetCurrentProcess();
-          TerminateProcess(CurrentProcess, 0xC0000001);
-          goto LABEL_142;
-        case 'T':
-        case 't':
-          CurrentThread = GetCurrentThread();
-          TerminateThread(CurrentThread, 0xC0000001);
-          goto LABEL_142;
-        default:
-LABEL_142:
-          DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
-          break;
-      }
+      (*(void (__fastcall **)(_QWORD, CDrawListEntryBatch *))(**(_QWORD **)(v44 + *(_QWORD *)(v39 + 24)) + 48LL))(
+        *(_QWORD *)(v44 + *(_QWORD *)(v39 + 24)),
+        this);
+      (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(v44 + *(_QWORD *)(v39 + 24)) + 8LL))(*(_QWORD *)(v44 + *(_QWORD *)(v39 + 24)));
+      v44 += 8LL;
+      --v45;
     }
+    while ( v45 );
   }
-LABEL_56:
-  _InterlockedIncrement((volatile signed __int32 *)this + 4);
-  v29 = *((_DWORD *)this + 13);
-  v30 = *((_DWORD *)this + 12);
-  if ( v30 < v29 )
+  if ( (*(_DWORD *)(v39 + 216))-- == 1 )
   {
-    while ( 2 )
-    {
-      v31 = *(int **)(*(_QWORD *)(v26 + 24) + 8LL * v30);
-      v32 = *v31;
-      if ( *v31 == 1 )
-      {
-        v33 = *((_QWORD *)v31 + 1);
-        if ( v33 )
-          goto LABEL_59;
-        goto LABEL_60;
-      }
-      if ( !v32 )
-        goto LABEL_60;
-      v37 = v32 - 2;
-      if ( v37 )
-      {
-        v38 = v37 - 1;
-        if ( !v38 )
-          goto LABEL_70;
-        v39 = (unsigned int)(v38 - 1);
-        if ( !(_DWORD)v39 )
-        {
-          v40 = *((_QWORD *)v31 + 12);
-          if ( v40 )
-            std::default_delete<CDrawListPrimitive>::operator()(v39, v40);
-LABEL_70:
-          v33 = *((_QWORD *)v31 + 1);
-          if ( v33 )
-LABEL_59:
-            (*(void (__fastcall **)(__int64))(*(_QWORD *)v33 + 8LL))(v33);
-LABEL_60:
-          *v31 = 0;
-          Response = v31;
-          v34 = DynArray<CBatchCommand *,0>::AddMultipleAndSet(v26 + 64, &Response, 1LL);
-          if ( v34 < 0 )
-            ModuleFailFastForHRESULT((unsigned int)v34, retaddr);
-          if ( ++v30 >= v29 )
-            goto LABEL_62;
-          continue;
-        }
-        if ( (_DWORD)v39 != 1 )
-          ModuleFailFastForHRESULT(2147549183LL, retaddr);
-      }
-      break;
-    }
-    wil::com_ptr_t<ClipPlaneInfoRef,wil::err_returncode_policy>::~com_ptr_t<ClipPlaneInfoRef,wil::err_returncode_policy>((__int64 *)v31 + 1);
-    goto LABEL_60;
-  }
-LABEL_62:
-  if ( (*(_DWORD *)(v26 + 176))-- == 1 )
-  {
-    v46 = *(_DWORD *)(v26 + 60);
-    if ( v46 <= *(_DWORD *)(v26 + 48) - *(_DWORD *)(v26 + 56) )
-      v46 = *(_DWORD *)(v26 + 48) - *(_DWORD *)(v26 + 56);
-    *(_DWORD *)(v26 + 60) = v46;
-    v47 = *(_DWORD *)(v26 + 100);
-    if ( v47 <= *(_DWORD *)(v26 + 88) - *(_DWORD *)(v26 + 96) )
-      v47 = *(_DWORD *)(v26 + 88) - *(_DWORD *)(v26 + 96);
-    *(_DWORD *)(v26 + 100) = v47;
-    v48 = *(_DWORD *)(v26 + 140);
-    if ( v48 <= *(_DWORD *)(v26 + 128) - *(_DWORD *)(v26 + 136) )
-      v48 = *(_DWORD *)(v26 + 128) - *(_DWORD *)(v26 + 136);
-    *(_DWORD *)(v26 + 140) = v48;
-    *(_DWORD *)(v26 + 48) = 0;
-    *(_DWORD *)(v26 + 56) = 0;
+    v47 = *(_DWORD *)(v39 + 60);
+    if ( v47 <= *(_DWORD *)(v39 + 48) - *(_DWORD *)(v39 + 56) )
+      v47 = *(_DWORD *)(v39 + 48) - *(_DWORD *)(v39 + 56);
+    *(_DWORD *)(v39 + 60) = v47;
+    v48 = *(_DWORD *)(v39 + 100);
+    if ( v48 <= *(_DWORD *)(v39 + 88) - *(_DWORD *)(v39 + 96) )
+      v48 = *(_DWORD *)(v39 + 88) - *(_DWORD *)(v39 + 96);
+    *(_DWORD *)(v39 + 100) = v48;
+    v49 = *(_DWORD *)(v39 + 140);
+    if ( v49 <= *(_DWORD *)(v39 + 128) - *(_DWORD *)(v39 + 136) )
+      v49 = *(_DWORD *)(v39 + 128) - *(_DWORD *)(v39 + 136);
+    *(_DWORD *)(v39 + 140) = v49;
+    v50 = *(_DWORD *)(v39 + 180);
+    if ( v50 <= *(_DWORD *)(v39 + 168) - *(_DWORD *)(v39 + 176) )
+      v50 = *(_DWORD *)(v39 + 168) - *(_DWORD *)(v39 + 176);
+    *(_DWORD *)(v39 + 180) = v50;
+    *(_DWORD *)(v39 + 48) = 0;
+    *(_DWORD *)(v39 + 56) = 0;
   }
   result = (unsigned int)v7;
   *((_QWORD *)this + 6) = -1LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgkpOpenHandles @ 0x140927AE4
+ * XREFs of DbgkpOpenHandles @ 0x140884C34
  * Callers:
- *     NtWaitForDebugEvent @ 0x140929380 (NtWaitForDebugEvent.c)
+ *     NtWaitForDebugEvent @ 0x140886450 (NtWaitForDebugEvent.c)
  * Callees:
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     ObDuplicateObject @ 0x1407A1F80 (ObDuplicateObject.c)
+ *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
  */
 
 void __fastcall DbgkpOpenHandles(__int64 a1, void *a2, void *a3)
@@ -33,7 +33,7 @@ void __fastcall DbgkpOpenHandles(__int64 a1, void *a2, void *a3)
       if ( v5 )
       {
         Process = KeGetCurrentThread()->ApcState.Process;
-        if ( (int)ObDuplicateObject((ULONG_PTR)Process, v5, Process, (unsigned __int64 *)(a1 + 48), 0, 0, 2, 0) < 0 )
+        if ( (int)ObDuplicateObject(Process, v5, Process, (__int64 *)(a1 + 48), 0, 0, 2, 0) < 0 )
           *(_QWORD *)(a1 + 48) = 0LL;
         goto LABEL_14;
       }
@@ -43,7 +43,7 @@ void __fastcall DbgkpOpenHandles(__int64 a1, void *a2, void *a3)
       if ( v5 )
       {
         v6 = KeGetCurrentThread()->ApcState.Process;
-        if ( (int)ObDuplicateObject((ULONG_PTR)v6, v5, v6, (unsigned __int64 *)(a1 + 24), 0, 0, 2, 0) < 0 )
+        if ( (int)ObDuplicateObject(v6, v5, v6, (__int64 *)(a1 + 24), 0, 0, 2, 0) < 0 )
           *(_QWORD *)(a1 + 24) = 0LL;
 LABEL_14:
         ObCloseHandle(v5, 0);

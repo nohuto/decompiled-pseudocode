@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpInitializePrivateSessionDemuxObject @ 0x1408636E8
+ * XREFs of EtwpInitializePrivateSessionDemuxObject @ 0x1407D379C
  * Callers:
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObCreateObjectTypeEx @ 0x140824B30 (ObCreateObjectTypeEx.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCreateObjectTypeEx @ 0x1407958F0 (ObCreateObjectTypeEx.c)
  */
 
 __int64 EtwpInitializePrivateSessionDemuxObject()
@@ -23,5 +23,5 @@ __int64 EtwpInitializePrivateSessionDemuxObject()
   *(GENERIC_MAPPING *)((char *)v2 + 12) = EtwpGenericMapping;
   *(_QWORD *)((char *)&v2[2] + 4) = 0x2000000001LL;
   RtlInitUnicodeString(&DestinationString, L"EtwSessionDemuxEntry");
-  return ObCreateObjectTypeEx(&DestinationString, v2, 0LL, 0LL, &EtwpSessionDemuxObjectType);
+  return ObCreateObjectTypeEx(&DestinationString, v2, 0LL, 0LL, (__int64 *)&EtwpSessionDemuxObjectType);
 }

@@ -1,18 +1,19 @@
 /*
- * XREFs of DbgkPostModuleMessage @ 0x14053BACC
+ * XREFs of DbgkPostModuleMessage @ 0x1404EDEAC
  * Callers:
- *     DbgkPostEnclaveModuleMessages @ 0x14053BA50 (DbgkPostEnclaveModuleMessages.c)
- *     PsDispatchIumService @ 0x1405A4EF4 (PsDispatchIumService.c)
- *     DbgkpPostModuleMessages @ 0x140937C58 (DbgkpPostModuleMessages.c)
+ *     DbgkPostEnclaveModuleMessages @ 0x1404EDE30 (DbgkPostEnclaveModuleMessages.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
+ *     DbgkpPostModuleMessages @ 0x1408852F0 (DbgkpPostModuleMessages.c)
+ *     MmPostHotPatchDbgModuleMessages @ 0x1408CEA50 (MmPostHotPatchDbgModuleMessages.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     MmGetFileNameForAddress @ 0x1408AC1EE (MmGetFileNameForAddress.c)
- *     DbgkpQueueMessage @ 0x140937EFC (DbgkpQueueMessage.c)
- *     DbgkpSendApiMessage @ 0x14093A100 (DbgkpSendApiMessage.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     DbgkpQueueMessage @ 0x140885568 (DbgkpQueueMessage.c)
+ *     DbgkpSendApiMessage @ 0x1408871A4 (DbgkpSendApiMessage.c)
+ *     MmGetFileNameForAddress @ 0x1408C4094 (MmGetFileNameForAddress.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall DbgkPostModuleMessage(
@@ -33,7 +34,7 @@ NTSTATUS __fastcall DbgkPostModuleMessage(
 
   IoStatusBlock = 0LL;
   *(_OWORD *)P = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   memset(v16, 0, sizeof(v16));
   LODWORD(v16[5]) = 5;
   v16[7] = a3;
@@ -55,14 +56,16 @@ NTSTATUS __fastcall DbgkPostModuleMessage(
   if ( a6 )
   {
     result = DbgkpQueueMessage(Object, a2, a6);
-    if ( result >= 0 )
-      return result;
   }
   else
   {
-    result = DbgkpSendApiMessage(Object);
+    DbgkpSendApiMessage((ULONG_PTR)Object);
+    result = -1073741823;
   }
-  if ( v16[6] )
-    return ObCloseHandle(v16[6], 0);
+  if ( result < 0 )
+  {
+    if ( v16[6] )
+      return ObCloseHandle(v16[6], 0);
+  }
   return result;
 }

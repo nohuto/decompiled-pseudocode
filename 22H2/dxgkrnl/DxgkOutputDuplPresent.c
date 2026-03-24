@@ -1,198 +1,172 @@
 /*
- * XREFs of DxgkOutputDuplPresent @ 0x1C0341710
+ * XREFs of DxgkOutputDuplPresent @ 0x1C0283390
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     OutputDuplPresent @ 0x1C0330B8C (OutputDuplPresent.c)
- *     ?TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z @ 0x1C0340E0C (-TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z @ 0x1C0283154 (-TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z.c)
+ *     OutputDuplPresent @ 0x1C029E558 (OutputDuplPresent.c)
  */
 
-__int64 __fastcall DxgkOutputDuplPresent(_OWORD *a1)
+__int64 __fastcall DxgkOutputDuplPresent(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v2; // rcx
+  _OWORD *v4; // rdi
   struct DXGPROCESS *Current; // rax
-  __int64 v4; // rcx
-  struct DXGPROCESS *v5; // r15
-  __int64 CurrentProcess; // rax
-  unsigned int v7; // edi
-  __int64 v8; // rcx
-  __int64 v9; // rax
-  _D3DKMT_OUTPUTDUPLPRESENT *v11; // rcx
-  __int64 v12; // rax
-  unsigned __int64 v13; // rcx
-  __int64 v14; // r12
-  unsigned __int64 v15; // rcx
-  UINT v16; // r14d
-  UINT v17; // ecx
-  unsigned int v18; // edx
-  RECT *v19; // rdi
-  RECT *v20; // rax
-  D3DKMT_MOVE_RECT *v21; // rsi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  struct DXGPROCESS *v9; // r13
+  __int64 v10; // rbx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  __int64 v15; // rcx
+  __int64 v17; // rax
+  _D3DKMT_OUTPUTDUPLPRESENT *v18; // rcx
+  __int64 v19; // rax
+  unsigned __int64 v20; // r14
+  unsigned __int64 v21; // rsi
+  unsigned int v22; // eax
+  RECT *v23; // rdi
+  RECT *v24; // rax
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  __int64 v28; // r9
+  __int64 v29; // rax
+  D3DKMT_MOVE_RECT *v30; // r15
   const RECT *pDirtyRects; // rdx
+  const RECT *v32; // rcx
   UINT MoveRectCount; // ecx
-  const D3DKMT_MOVE_RECT *v24; // r9
-  unsigned int v25; // esi
-  _D3DKMT_OUTPUTDUPLPRESENT v26; // [rsp+60h] [rbp-168h] BYREF
+  const D3DKMT_MOVE_RECT *v34; // r8
+  unsigned int v35; // esi
+  __int64 v36; // rax
+  _D3DKMT_OUTPUTDUPLPRESENT v37; // [rsp+40h] [rbp-168h] BYREF
 
-  memset(&v26, 0, sizeof(v26));
-  Current = DXGPROCESS::GetCurrent(v2);
-  v5 = Current;
+  v4 = (_OWORD *)a1;
+  Current = DXGPROCESS::GetCurrent(a1, a2, a3, a4);
+  v9 = Current;
   if ( !Current )
   {
-    CurrentProcess = PsGetCurrentProcess(v4);
-    v7 = -1073741811;
-    WdLogSingleEntry2(2LL, -1073741811LL, CurrentProcess);
-    v9 = PsGetCurrentProcess(v8);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Presenting from unexpected process 0x%I64x 0x%I64x",
-      -1073741811LL,
-      v9,
-      0LL,
-      0LL,
-      0LL);
-    return v7;
+    v10 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v10 + 24) = -1073741811LL;
+    *(_QWORD *)(v10 + 32) = PsGetCurrentProcess(v12, v11, v13, v14);
+    v15 = v10;
+LABEL_3:
+    WdLogEvent5_WdError(v15);
+    return 3221225485LL;
   }
-  if ( (*((_DWORD *)Current + 106) & 4) == 0 )
+  if ( !*((_BYTE *)Current + 346) )
   {
-    WdLogSingleEntry1(2LL, 11703LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Function can only be called from DWM process",
-      11703LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return -1073741811LL;
+    v17 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v17 + 24) = 11469LL;
+    v15 = v17;
+    goto LABEL_3;
   }
-  if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-    a1 = (_OWORD *)MmUserProbeAddress;
-  v11 = &v26;
-  v12 = 2LL;
+  if ( (unsigned __int64)v4 >= MmUserProbeAddress )
+    v4 = (_OWORD *)MmUserProbeAddress;
+  v18 = &v37;
+  v19 = 2LL;
   do
   {
-    *(_OWORD *)&v11->hContext = *a1;
-    *(_OWORD *)v11->BroadcastContext = a1[1];
-    *(_OWORD *)&v11->BroadcastContext[4] = a1[2];
-    *(_OWORD *)&v11->BroadcastContext[8] = a1[3];
-    *(_OWORD *)&v11->BroadcastContext[12] = a1[4];
-    *(_OWORD *)&v11->BroadcastContext[16] = a1[5];
-    *(_OWORD *)&v11->BroadcastContext[20] = a1[6];
-    v11 = (_D3DKMT_OUTPUTDUPLPRESENT *)((char *)v11 + 128);
-    *(_OWORD *)&v11[-1].PresentRegions.pMoveRects = a1[7];
-    a1 += 8;
-    --v12;
+    *(_OWORD *)&v18->hContext = *v4;
+    *(_OWORD *)v18->BroadcastContext = v4[1];
+    *(_OWORD *)&v18->BroadcastContext[4] = v4[2];
+    *(_OWORD *)&v18->BroadcastContext[8] = v4[3];
+    *(_OWORD *)&v18->BroadcastContext[12] = v4[4];
+    *(_OWORD *)&v18->BroadcastContext[16] = v4[5];
+    *(_OWORD *)&v18->BroadcastContext[20] = v4[6];
+    v18 = (_D3DKMT_OUTPUTDUPLPRESENT *)((char *)v18 + 128);
+    *(_OWORD *)&v18[-1].PresentRegions.pMoveRects = v4[7];
+    v4 += 8;
+    --v19;
   }
-  while ( v12 );
-  *(_OWORD *)&v11->hContext = *a1;
-  *(_OWORD *)v11->BroadcastContext = a1[1];
-  *(_OWORD *)&v11->BroadcastContext[4] = a1[2];
-  *(_QWORD *)&v11->BroadcastContext[8] = *((_QWORD *)a1 + 6);
-  v13 = 16LL * v26.PresentRegions.DirtyRectCount;
-  v14 = 0xFFFFFFFFLL;
-  if ( v13 <= 0xFFFFFFFF )
-    v14 = (unsigned int)v13;
-  v7 = v13 > 0xFFFFFFFF ? 0xC0000095 : 0;
-  if ( v13 > 0xFFFFFFFF )
+  while ( v19 );
+  *(_OWORD *)&v18->hContext = *v4;
+  *(_OWORD *)v18->BroadcastContext = v4[1];
+  *(_OWORD *)&v18->BroadcastContext[4] = v4[2];
+  *(_QWORD *)&v18->BroadcastContext[8] = *((_QWORD *)v4 + 6);
+  v20 = 16LL * v37.PresentRegions.DirtyRectCount;
+  if ( v20 > 0xFFFFFFFF )
   {
-    WdLogSingleEntry1(3LL, 11722LL);
-    return v7;
+    v36 = WdLogNewEntry5_WdWarning(0xFFFFFFFFLL, 128LL, v8);
+    *(_QWORD *)(v36 + 24) = 11488LL;
+    goto LABEL_36;
   }
-  v15 = 24LL * v26.PresentRegions.MoveRectCount;
-  v16 = -1;
-  if ( v15 <= 0xFFFFFFFF )
-    v16 = 24 * v26.PresentRegions.MoveRectCount;
-  v7 = v15 > 0xFFFFFFFF ? 0xC0000095 : 0;
-  if ( v15 > 0xFFFFFFFF )
+  v21 = 24LL * v37.PresentRegions.MoveRectCount;
+  if ( v21 > 0xFFFFFFFF )
   {
-    WdLogSingleEntry1(3LL, 11729LL);
-    return v7;
+    v36 = WdLogNewEntry5_WdWarning(0xFFFFFFFFLL, 128LL, v8);
+    *(_QWORD *)(v36 + 24) = 11495LL;
+    goto LABEL_36;
   }
-  v17 = v16 + v14;
-  v18 = -1;
-  if ( v16 + (unsigned int)v14 >= v16 )
-    v18 = v16 + v14;
-  v7 = v17 < v16 ? 0xC0000095 : 0;
-  if ( v17 < v16 )
+  v22 = v21 + v20;
+  if ( (int)v21 + (int)v20 < (unsigned int)v21 )
   {
-    WdLogSingleEntry1(3LL, 11736LL);
-    return v7;
+    v36 = WdLogNewEntry5_WdWarning(0xFFFFFFFFLL, 128LL, v8);
+    *(_QWORD *)(v36 + 24) = 11502LL;
+LABEL_36:
+    WdLogEvent5_WdWarning(v36);
+    return 3221225621LL;
   }
-  v19 = 0LL;
-  if ( v18 )
+  v23 = 0LL;
+  if ( v22 )
   {
-    v20 = (RECT *)operator new[](v18, 0x4B677844u, 256LL);
-    v19 = v20;
-    if ( !v20 )
+    v24 = (RECT *)operator new[](v22, 0x4B677844u, PagedPool);
+    v23 = v24;
+    if ( !v24 )
     {
-      WdLogSingleEntry1(6LL, 11747LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to alloc buffer for kernel copy of meta data.",
-        11747LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v29 = WdLogNewEntry5_WdLowResource(v26, v25, v27, v28);
+      *(_QWORD *)(v29 + 24) = 11513LL;
+      WdLogEvent5_WdLowResource(v29);
       return 3221225495LL;
     }
-    v21 = (D3DKMT_MOVE_RECT *)&v20[v26.PresentRegions.DirtyRectCount];
-    if ( v26.PresentRegions.DirtyRectCount )
+    v30 = (D3DKMT_MOVE_RECT *)&v24[v37.PresentRegions.DirtyRectCount];
+    if ( v37.PresentRegions.DirtyRectCount )
     {
-      pDirtyRects = v26.PresentRegions.pDirtyRects;
-      if ( (const RECT *)((unsigned __int64)v26.PresentRegions.pDirtyRects + v14) < v26.PresentRegions.pDirtyRects
-        || (const RECT *)((char *)v26.PresentRegions.pDirtyRects + v14) > (const RECT *)MmUserProbeAddress )
-      {
+      pDirtyRects = v37.PresentRegions.pDirtyRects;
+      v32 = (const RECT *)((char *)v37.PresentRegions.pDirtyRects + (unsigned int)v20);
+      if ( v32 < v37.PresentRegions.pDirtyRects || (unsigned __int64)v32 > MmUserProbeAddress )
         *(_BYTE *)MmUserProbeAddress = 0;
-      }
-      memmove(v20, pDirtyRects, (unsigned int)v14);
-      v26.PresentRegions.pDirtyRects = v19;
+      memmove(v24, pDirtyRects, (unsigned int)v20);
+      v37.PresentRegions.pDirtyRects = v23;
     }
     else
     {
-      v26.PresentRegions.pDirtyRects = 0LL;
+      v37.PresentRegions.pDirtyRects = 0LL;
     }
-    MoveRectCount = v26.PresentRegions.MoveRectCount;
-    if ( v26.PresentRegions.MoveRectCount )
+    MoveRectCount = v37.PresentRegions.MoveRectCount;
+    if ( v37.PresentRegions.MoveRectCount )
     {
-      if ( v16 )
+      if ( (_DWORD)v21 )
       {
-        v24 = (const D3DKMT_MOVE_RECT *)((char *)v26.PresentRegions.pMoveRects + v16);
-        if ( (unsigned __int64)v24 > MmUserProbeAddress || v24 < v26.PresentRegions.pMoveRects )
+        v34 = (const D3DKMT_MOVE_RECT *)((char *)v37.PresentRegions.pMoveRects + (unsigned int)v21);
+        if ( (unsigned __int64)v34 > MmUserProbeAddress || v34 < v37.PresentRegions.pMoveRects )
         {
           *(_BYTE *)MmUserProbeAddress = 0;
-          MoveRectCount = v26.PresentRegions.MoveRectCount;
+          MoveRectCount = v37.PresentRegions.MoveRectCount;
         }
       }
-      TranslateAndCopyDWMMoveRegionToDDAMoveRegions(MoveRectCount, v26.PresentRegions.pMoveRects, v21);
-      v26.PresentRegions.pMoveRects = v21;
+      TranslateAndCopyDWMMoveRegionToDDAMoveRegions(MoveRectCount, v37.PresentRegions.pMoveRects, v30);
+      v37.PresentRegions.pMoveRects = v30;
     }
     else
     {
-      v26.PresentRegions.pMoveRects = 0LL;
+      v37.PresentRegions.pMoveRects = 0LL;
     }
   }
   else
   {
-    v26.PresentRegions.pDirtyRects = 0LL;
-    v26.PresentRegions.pMoveRects = 0LL;
+    v37.PresentRegions.pDirtyRects = 0LL;
+    v37.PresentRegions.pMoveRects = 0LL;
   }
-  v25 = OutputDuplPresent(&v26, v5);
-  if ( v19 )
-    operator delete(v19);
-  return v25;
+  v35 = OutputDuplPresent(&v37, v9);
+  if ( v23 )
+    operator delete[](v23);
+  return v35;
 }

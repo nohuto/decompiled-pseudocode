@@ -1,25 +1,25 @@
 /*
- * XREFs of ACPIThermalLoopEx @ 0x1C0041110
+ * XREFs of ACPIThermalLoopEx @ 0x1C0012A28
  * Callers:
- *     ACPIThermalDeviceControl @ 0x1C0040430 (ACPIThermalDeviceControl.c)
- *     ACPIThermalEvent @ 0x1C0040A70 (ACPIThermalEvent.c)
- *     ACPIThermalLoop @ 0x1C00410F8 (ACPIThermalLoop.c)
- *     ACPIThermalReadTemperatureComplete @ 0x1C00419C0 (ACPIThermalReadTemperatureComplete.c)
- *     ACPIThermalRereadTemperature @ 0x1C0041E54 (ACPIThermalRereadTemperature.c)
- *     ACPIThermalStopZone @ 0x1C0041F74 (ACPIThermalStopZone.c)
- *     ACPIThermalStopZoneWorker @ 0x1C0041FBC (ACPIThermalStopZoneWorker.c)
- *     ACPIThermalStartDevice @ 0x1C0095DE0 (ACPIThermalStartDevice.c)
+ *     ACPIThermalDeviceControl @ 0x1C0012510 (ACPIThermalDeviceControl.c)
+ *     ACPIThermalLoop @ 0x1C0012A10 (ACPIThermalLoop.c)
+ *     ACPIThermalEvent @ 0x1C005FF20 (ACPIThermalEvent.c)
+ *     ACPIThermalReadTemperatureComplete @ 0x1C0060090 (ACPIThermalReadTemperatureComplete.c)
+ *     ACPIThermalRereadTemperature @ 0x1C0060164 (ACPIThermalRereadTemperature.c)
+ *     ACPIThermalStopZone @ 0x1C0060294 (ACPIThermalStopZone.c)
+ *     ACPIThermalStopZoneWorker @ 0x1C00602DC (ACPIThermalStopZoneWorker.c)
+ *     ACPIThermalStartDevice @ 0x1C009A540 (ACPIThermalStartDevice.c)
  * Callees:
- *     AcpiDiagTraceTemperatureChange @ 0x1C0008890 (AcpiDiagTraceTemperatureChange.c)
- *     AcpiDiagTraceTemperatureTelemetry @ 0x1C00089D4 (AcpiDiagTraceTemperatureTelemetry.c)
- *     AcpiDiagTraceThermalNotification @ 0x1C0008B38 (AcpiDiagTraceThermalNotification.c)
- *     ACPIDeviceHasFirmwareDependencies @ 0x1C00144D4 (ACPIDeviceHasFirmwareDependencies.c)
- *     ACPIGet @ 0x1C00293A4 (ACPIGet.c)
- *     ACPIThermalCompletePendingIrps @ 0x1C00400D0 (ACPIThermalCompletePendingIrps.c)
- *     ACPIThermalLoop @ 0x1C00410F8 (ACPIThermalLoop.c)
- *     ACPIThermalTMPCallback @ 0x1C00421E0 (ACPIThermalTMPCallback.c)
- *     ACPISetDeviceWorker @ 0x1C00474F4 (ACPISetDeviceWorker.c)
- *     AMLIAsyncEvalObject @ 0x1C0047908 (AMLIAsyncEvalObject.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     AcpiDiagTraceTemperatureChange @ 0x1C0011CA0 (AcpiDiagTraceTemperatureChange.c)
+ *     AcpiDiagTraceTemperatureTelemetry @ 0x1C0011D50 (AcpiDiagTraceTemperatureTelemetry.c)
+ *     AcpiDiagTraceThermalNotification @ 0x1C0011E00 (AcpiDiagTraceThermalNotification.c)
+ *     ACPIThermalTMPCallback @ 0x1C00124B0 (ACPIThermalTMPCallback.c)
+ *     ACPIThermalLoop @ 0x1C0012A10 (ACPIThermalLoop.c)
+ *     ACPIThermalCompletePendingIrps @ 0x1C0012E74 (ACPIThermalCompletePendingIrps.c)
+ *     ACPISetDeviceWorker @ 0x1C0013470 (ACPISetDeviceWorker.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     ACPIDeviceHasFirmwareDependencies @ 0x1C00147FC (ACPIDeviceHasFirmwareDependencies.c)
  */
 
 void __fastcall ACPIThermalLoopEx(__int64 a1, int a2, int a3)
@@ -30,39 +30,40 @@ void __fastcall ACPIThermalLoopEx(__int64 a1, int a2, int a3)
   int v9; // ebp
   KIRQL v10; // r15
   char v11; // r12
-  int v12; // ecx
-  unsigned int v13; // edx
-  __int64 v14; // r9
-  unsigned int v15; // edx
-  unsigned int v16; // ecx
-  unsigned int v17; // r8d
-  unsigned int v18; // eax
-  unsigned int v19; // r9d
-  unsigned int v20; // ecx
-  unsigned int v21; // eax
-  unsigned int v22; // r9d
-  unsigned int v23; // edx
-  unsigned int v24; // ecx
-  unsigned int v25; // r9d
-  unsigned int v26; // edx
-  unsigned int v27; // eax
-  unsigned int v28; // r9d
-  unsigned int v29; // ecx
+  unsigned int v12; // eax
+  __int64 v13; // rdx
+  bool v14; // cl
+  unsigned int v15; // ecx
+  int v16; // eax
+  int v17; // eax
+  __int64 v18; // rdx
+  __int64 v19; // r9
+  int v20; // edx
+  KIRQL v21; // al
+  _QWORD *v22; // rcx
+  _QWORD *v23; // rax
+  unsigned int v24; // r8d
+  unsigned int v25; // eax
+  unsigned int v26; // r10d
+  unsigned int v27; // r9d
+  unsigned int v28; // ecx
+  unsigned int v29; // eax
   unsigned int v30; // r8d
-  unsigned int i; // edx
-  unsigned int v32; // ecx
-  unsigned int v33; // r8d
-  char v34; // dl
-  int v35; // eax
-  unsigned int v36; // eax
-  int v37; // eax
-  int v38; // eax
-  int v39; // eax
-  int v40; // eax
-  KIRQL v41; // al
-  _QWORD *v42; // rdx
-  _QWORD *v43; // rcx
-  __int64 v44; // rdx
+  bool v31; // cc
+  unsigned int v32; // edx
+  unsigned int v33; // ecx
+  unsigned int v34; // r8d
+  bool v35; // cc
+  unsigned int v36; // edx
+  unsigned int v37; // eax
+  unsigned int v38; // r8d
+  bool v39; // cc
+  unsigned int v40; // edx
+  unsigned int v41; // r8d
+  bool v42; // cc
+  unsigned int v43; // ecx
+  unsigned int v44; // eax
+  bool v45; // cc
 
   v3 = *(_QWORD *)(a1 + 200);
   v4 = (KSPIN_LOCK *)(a1 + 184);
@@ -76,237 +77,305 @@ void __fastcall ACPIThermalLoopEx(__int64 a1, int a2, int a3)
     *(_DWORD *)(a1 + 192) = v9 | 0x80000000;
     while ( 1 )
     {
-LABEL_3:
-      if ( !v11 )
-        goto LABEL_82;
       while ( 1 )
       {
+        if ( !v11 )
+        {
+          v10 = KeAcquireSpinLockRaiseToDpc(v4);
+          v11 = 1;
+        }
         v12 = *(_DWORD *)(a1 + 192);
         if ( (v12 & 0x40000000) != 0 )
-          goto LABEL_89;
-        if ( (v12 & 0x10000000) == 0 )
+          goto LABEL_21;
+        v13 = v12;
+        if ( (v12 & 0x10000000) != 0 )
         {
-          *(_DWORD *)(a1 + 192) = v12 | 0x8000000;
-          if ( (v12 & 0x8000000) == 0 )
-            ACPISetDeviceWorker(a1, 0x2000LL);
+          v14 = 0;
         }
-        v13 = *(_DWORD *)(a1 + 192);
+        else
+        {
+          LODWORD(v13) = v12 | 0x8000000;
+          *(_DWORD *)(a1 + 192) = v12 | 0x8000000;
+          v14 = (v12 & 0x8000000) == 0;
+        }
+        if ( v14 )
+        {
+          ACPISetDeviceWorker(a1, 0x2000LL);
+          v13 = *(unsigned int *)(a1 + 192);
+        }
         if ( (v13 & 0x8000000) != 0 )
         {
-LABEL_89:
+LABEL_21:
           *(_DWORD *)(a1 + 192) &= ~0x80000000;
-          goto LABEL_90;
+          goto LABEL_22;
         }
         if ( (v13 & 0x10) == 0 )
         {
           *(_DWORD *)(a1 + 192) = v13 | 0x40000010;
-          v44 = 17LL;
-          goto LABEL_95;
+          v18 = 17LL;
+          goto LABEL_42;
         }
-        if ( (v13 & 8) == 0 )
-        {
-          *(_DWORD *)(a1 + 192) = v13 | 0x40000008;
-          KeReleaseSpinLock(v4, v10);
-          v14 = *(unsigned int *)(v3 + 100);
-          v15 = 1346589535;
-          goto LABEL_12;
-        }
-        v16 = *(_DWORD *)(a1 + 192);
-        if ( (v13 & 2) != 0 && *(_QWORD *)(v3 + 120) )
-        {
-          v17 = *(_DWORD *)(v3 + 104);
-          if ( v17 )
-          {
-            v18 = *(_DWORD *)(v3 + 108);
-            if ( v18 > v17 && *(_DWORD *)(v3 + 16) <= v18 - v17 )
-            {
-              v16 = v13 & 0xFFFFFBFF;
-              *(_DWORD *)(a1 + 192) = v13 & 0xFFFFFBFF;
-            }
-            v13 = v16;
-            v19 = *(_DWORD *)(v3 + 104);
-            if ( ~*(_DWORD *)(v3 + 108) > v19 && *(_DWORD *)(v3 + 16) >= *(_DWORD *)(v3 + 108) + v19 )
-            {
-              v13 = v16 & 0xFFFFFBFF;
-              *(_DWORD *)(a1 + 192) = v16 & 0xFFFFFBFF;
-            }
-          }
-          v20 = *(_DWORD *)(v3 + 20);
-          v21 = v13;
-          if ( v20 )
-          {
-            if ( (v22 = *(_DWORD *)(v3 + 108), v22 < v20) && *(_DWORD *)(v3 + 16) >= v20
-              || v22 > v20 && *(_DWORD *)(v3 + 16) <= v20 )
-            {
-              v21 = v13 & 0xFFFFFBFF;
-              *(_DWORD *)(a1 + 192) = v13 & 0xFFFFFBFF;
-            }
-          }
-          v23 = *(_DWORD *)(v3 + 28);
-          v24 = v21;
-          if ( v23 )
-          {
-            if ( (v25 = *(_DWORD *)(v3 + 108), v25 < v23) && *(_DWORD *)(v3 + 16) >= v23
-              || v25 > v23 && *(_DWORD *)(v3 + 16) <= v23 )
-            {
-              v24 = v21 & 0xFFFFFBFF;
-              *(_DWORD *)(a1 + 192) = v21 & 0xFFFFFBFF;
-            }
-          }
-          v26 = *(_DWORD *)(v3 + 76);
-          v27 = v24;
-          if ( v26 )
-          {
-            if ( (v28 = *(_DWORD *)(v3 + 108), v28 < v26) && *(_DWORD *)(v3 + 16) >= v26
-              || v28 > v26 && *(_DWORD *)(v3 + 16) <= v26 )
-            {
-              v27 = v24 & 0xFFFFFBFF;
-              *(_DWORD *)(a1 + 192) = v24 & 0xFFFFFBFF;
-            }
-          }
-          v29 = *(_DWORD *)(v3 + 24);
-          if ( v29 )
-          {
-            if ( (v30 = *(_DWORD *)(v3 + 108), v30 < v29) && *(_DWORD *)(v3 + 16) >= v29
-              || v30 > v29 && *(_DWORD *)(v3 + 16) <= v29 )
-            {
-              *(_DWORD *)(a1 + 192) = v27 & 0xFFFFFBFF;
-            }
-          }
-          for ( i = 0; i < *(unsigned __int8 *)(v3 + 32); ++i )
-          {
-            v32 = *(_DWORD *)(v3 + 4LL * i + 36);
-            if ( v32 )
-            {
-              if ( (v33 = *(_DWORD *)(v3 + 108), v33 < v32) && *(_DWORD *)(v3 + 16) >= v32
-                || v33 > v32 && *(_DWORD *)(v3 + 16) <= v32 )
-              {
-                *(_DWORD *)(a1 + 192) &= ~0x400u;
-              }
-            }
-          }
-          v16 = *(_DWORD *)(a1 + 192);
-          if ( (v16 & 0x400) == 0 )
-          {
-            *(_DWORD *)(a1 + 192) = v16 & 0xBFFFF9FF | 0x40000400;
-            *(_DWORD *)(v3 + 108) = *(_DWORD *)(v3 + 16);
-            KeReleaseSpinLock(v4, v10);
-            v14 = *(unsigned int *)(v3 + 108);
-            v15 = 1230259295;
-LABEL_12:
-            if ( (unsigned int)ACPIGet(a1, v15, 546308096, v14, 4, (__int64)ACPIThermalComplete, a1, 0LL, 0LL) != 259 )
-              ACPIThermalLoop(a1, 0x40000000LL);
-            goto LABEL_82;
-          }
-        }
-        if ( (v16 & 4) == 0 )
-        {
-          v44 = 4LL;
-          *(_DWORD *)(a1 + 192) = v16 | 0x40000004;
-          goto LABEL_95;
-        }
-        if ( (v16 & 1) == 0 )
-        {
-          v44 = 1LL;
-          *(_DWORD *)(a1 + 192) = v16 | 0x40000001;
-          goto LABEL_95;
-        }
-        if ( (v16 & 0x100) == 0 )
-        {
-          v44 = 256LL;
-          *(_DWORD *)(a1 + 192) = v16 | 0x40000100;
-          goto LABEL_95;
-        }
-        v34 = *(_BYTE *)(*(_QWORD *)(a1 + 200) + 274LL);
-        if ( (v16 & 0x202) == 2 && v34 )
-        {
-          v44 = 512LL;
-          *(_DWORD *)(a1 + 192) = v16 | 0x44000200;
-          goto LABEL_95;
-        }
-        if ( (v16 & 0x20000002) == 0x20000002 )
-          goto LABEL_89;
-        if ( !*(_BYTE *)(v3 + 273) && (v16 & 2) == 0 )
+        if ( (v13 & 8) != 0 )
           break;
-        if ( (v16 & 0x40) == 0 )
-        {
-          *(_DWORD *)(a1 + 192) = v16 | 0x40;
-          AcpiDiagTraceThermalNotification((_DWORD *)v3, a1, 128);
-        }
-        v37 = *(_DWORD *)(a1 + 192);
-        if ( (v37 & 0x80u) == 0 )
-        {
-          *(_DWORD *)(a1 + 192) = v37 | 0x80;
-          AcpiDiagTraceThermalNotification((_DWORD *)v3, a1, 129);
-        }
-        v38 = *(_DWORD *)(a1 + 192);
-        if ( (v38 & 0x800) == 0 )
-        {
-          *(_DWORD *)(a1 + 192) = v38 | 0x800;
-          AcpiDiagTraceTemperatureChange(v3, a1);
-        }
-        v39 = *(_DWORD *)(a1 + 192);
-        if ( (v39 & 0x4000) == 0 )
-        {
-          *(_DWORD *)(a1 + 192) = v39 | 0x4000;
-          AcpiDiagTraceTemperatureTelemetry(a1);
-        }
-        v40 = *(_DWORD *)(a1 + 192);
-        if ( (v40 & 0x1000) != 0 )
-        {
-          if ( !ACPIThermalCompletePendingIrps(a1) )
-            goto LABEL_89;
-          goto LABEL_3;
-        }
-        *(_DWORD *)(a1 + 192) = v40 | 0x1000;
+        *(_DWORD *)(a1 + 192) = v13 | 0x40000008;
         KeReleaseSpinLock(v4, v10);
-        v41 = KeAcquireSpinLockRaiseToDpc(&AcpiThermalConstraintLock);
-        v42 = (_QWORD *)qword_1C006EAA8;
-        v43 = (_QWORD *)(a1 + 208);
-        if ( *(__int64 **)qword_1C006EAA8 != &AcpiThermalZoneList )
-          __fastfail(3u);
-        *(_QWORD *)(a1 + 216) = qword_1C006EAA8;
-        *v43 = &AcpiThermalZoneList;
-        *v42 = v43;
-        qword_1C006EAA8 = a1 + 208;
-        KeReleaseSpinLock(&AcpiThermalConstraintLock, v41);
-LABEL_82:
-        v10 = KeAcquireSpinLockRaiseToDpc(v4);
-        v11 = 1;
+        v19 = *(unsigned int *)(v3 + 100);
+        v20 = 1346589535;
+LABEL_44:
+        v11 = 0;
+        if ( (unsigned int)ACPIGet((__int64 *)a1, v20, 546308096, v19, 4, (__int64)ACPIThermalComplete, a1, 0LL, 0LL) != 259 )
+          ACPIThermalLoop(a1, 0x40000000LL);
       }
-      ++*(_DWORD *)v3;
-      v35 = *(_DWORD *)(a1 + 192) | 2;
-      *(_DWORD *)(a1 + 192) = v35;
-      if ( v34 )
+      v15 = v13;
+      if ( (v13 & 2) == 0 || !*(_QWORD *)(v3 + 120) )
+        goto LABEL_15;
+      v24 = *(_DWORD *)(v3 + 104);
+      if ( v24 )
       {
-        v44 = 514LL;
-        *(_DWORD *)(a1 + 192) = v35 | 0x44000200;
+        v25 = *(_DWORD *)(v3 + 108);
+        v26 = *(_DWORD *)(v3 + 104);
+        v27 = v25;
+        if ( v25 > v24 && *(_DWORD *)(v3 + 16) <= v25 - v24 )
+        {
+          v15 = v13 & 0xFFFFFBFF;
+          *(_DWORD *)(a1 + 192) = v13 & 0xFFFFFBFF;
+          v27 = *(_DWORD *)(v3 + 108);
+          v26 = *(_DWORD *)(v3 + 104);
+        }
+        LODWORD(v13) = v15;
+        if ( ~v27 > v26 && *(_DWORD *)(v3 + 16) >= v26 + v27 )
+        {
+          LODWORD(v13) = v15 & 0xFFFFFBFF;
+          *(_DWORD *)(a1 + 192) = v15 & 0xFFFFFBFF;
+        }
+      }
+      v28 = *(_DWORD *)(v3 + 20);
+      v29 = v13;
+      if ( v28 )
+      {
+        v30 = *(_DWORD *)(v3 + 108);
+        v31 = v30 <= v28;
+        if ( v30 < v28 )
+        {
+          if ( *(_DWORD *)(v3 + 16) >= v28 )
+            goto LABEL_65;
+          v31 = v30 <= v28;
+        }
+        if ( !v31 && *(_DWORD *)(v3 + 16) <= v28 )
+        {
+LABEL_65:
+          v29 = v13 & 0xFFFFFBFF;
+          *(_DWORD *)(a1 + 192) = v13 & 0xFFFFFBFF;
+        }
+      }
+      v32 = *(_DWORD *)(v3 + 28);
+      v33 = v29;
+      if ( !v32 )
+        goto LABEL_73;
+      v34 = *(_DWORD *)(v3 + 108);
+      v35 = v34 <= v32;
+      if ( v34 < v32 )
+      {
+        if ( *(_DWORD *)(v3 + 16) >= v32 )
+          goto LABEL_72;
+        v35 = v34 <= v32;
+      }
+      if ( !v35 && *(_DWORD *)(v3 + 16) <= v32 )
+      {
+LABEL_72:
+        v33 = v29 & 0xFFFFFBFF;
+        *(_DWORD *)(a1 + 192) = v29 & 0xFFFFFBFF;
+      }
+LABEL_73:
+      v36 = *(_DWORD *)(v3 + 76);
+      v37 = v33;
+      if ( !v36 )
+        goto LABEL_80;
+      v38 = *(_DWORD *)(v3 + 108);
+      v39 = v38 <= v36;
+      if ( v38 < v36 )
+      {
+        if ( *(_DWORD *)(v3 + 16) >= v36 )
+          goto LABEL_79;
+        v39 = v38 <= v36;
+      }
+      if ( !v39 && *(_DWORD *)(v3 + 16) <= v36 )
+      {
+LABEL_79:
+        v37 = v33 & 0xFFFFFBFF;
+        *(_DWORD *)(a1 + 192) = v33 & 0xFFFFFBFF;
+      }
+LABEL_80:
+      v40 = *(_DWORD *)(v3 + 24);
+      v15 = v37;
+      if ( !v40 )
+        goto LABEL_87;
+      v41 = *(_DWORD *)(v3 + 108);
+      v42 = v41 <= v40;
+      if ( v41 < v40 )
+      {
+        if ( *(_DWORD *)(v3 + 16) >= v40 )
+          goto LABEL_86;
+        v42 = v41 <= v40;
+      }
+      if ( !v42 && *(_DWORD *)(v3 + 16) <= v40 )
+      {
+LABEL_86:
+        v15 = v37 & 0xFFFFFBFF;
+        *(_DWORD *)(a1 + 192) = v37 & 0xFFFFFBFF;
+      }
+LABEL_87:
+      v13 = 0LL;
+      if ( !*(_BYTE *)(v3 + 32) )
+        goto LABEL_97;
+      do
+      {
+        v43 = *(_DWORD *)(v3 + 4 * v13 + 36);
+        if ( !v43 )
+          goto LABEL_95;
+        v44 = *(_DWORD *)(v3 + 108);
+        v45 = v44 <= v43;
+        if ( v44 < v43 )
+        {
+          if ( *(_DWORD *)(v3 + 16) >= v43 )
+            goto LABEL_94;
+          v45 = v44 <= v43;
+        }
+        if ( !v45 && *(_DWORD *)(v3 + 16) <= v43 )
+LABEL_94:
+          *(_DWORD *)(a1 + 192) &= ~0x400u;
 LABEL_95:
-        ACPISetDeviceWorker(a1, v44);
-        continue;
+        v13 = (unsigned int)(v13 + 1);
       }
-      if ( !*(_QWORD *)(v3 + 112) )
+      while ( (unsigned int)v13 < *(unsigned __int8 *)(v3 + 32) );
+      v15 = *(_DWORD *)(a1 + 192);
+LABEL_97:
+      if ( (v15 & 0x400) == 0 )
       {
-        *(_DWORD *)(a1 + 192) = v35 & 0xEFFFFFFF;
-        continue;
+        *(_DWORD *)(a1 + 192) = v15 & 0xBFFFF9FF | 0x40000400;
+        *(_DWORD *)(v3 + 108) = *(_DWORD *)(v3 + 16);
+        KeReleaseSpinLock(v4, v10);
+        v19 = *(unsigned int *)(v3 + 108);
+        v20 = 1230259295;
+        goto LABEL_44;
       }
-      *(_DWORD *)(a1 + 192) = v35 | 0x40000000;
-      KeReleaseSpinLock(v4, v10);
-      *(_OWORD *)(v3 + 136) = 0LL;
-      *(_OWORD *)(v3 + 152) = 0LL;
-      *(_QWORD *)(v3 + 168) = 0LL;
-      v11 = 0;
-      if ( !ACPIDeviceHasFirmwareDependencies(a1) || *(_DWORD *)(a1 + 548) == 1 )
-        break;
-      v36 = -1073741661;
-LABEL_85:
-      ACPIThermalTMPCallback(*(_QWORD *)(v3 + 112), v36, v3 + 136, a1);
+LABEL_15:
+      if ( (v15 & 4) == 0 )
+      {
+        v18 = 4LL;
+        *(_DWORD *)(a1 + 192) = v15 | 0x40000004;
+        goto LABEL_42;
+      }
+      if ( (v15 & 1) == 0 )
+      {
+        v18 = 1LL;
+        *(_DWORD *)(a1 + 192) = v15 | 0x40000001;
+        goto LABEL_42;
+      }
+      if ( (v15 & 0x100) == 0 )
+      {
+        v18 = 256LL;
+        *(_DWORD *)(a1 + 192) = v15 | 0x40000100;
+        goto LABEL_42;
+      }
+      LOBYTE(v13) = *(_BYTE *)(*(_QWORD *)(a1 + 200) + 274LL);
+      if ( (v15 & 0x202) == 2 && (_BYTE)v13 )
+      {
+        v18 = 512LL;
+        *(_DWORD *)(a1 + 192) = v15 | 0x44000200;
+        goto LABEL_42;
+      }
+      if ( (v15 & 0x20000002) == 0x20000002 )
+        goto LABEL_21;
+      if ( *(_BYTE *)(v3 + 273) || (v15 & 2) != 0 )
+      {
+        if ( (v15 & 0x40) == 0 )
+        {
+          *(_DWORD *)(a1 + 192) = v15 | 0x40;
+          AcpiDiagTraceThermalNotification((_DWORD *)v3, a1, 128);
+          v15 = *(_DWORD *)(a1 + 192);
+        }
+        if ( (v15 & 0x80u) == 0 )
+        {
+          *(_DWORD *)(a1 + 192) = v15 | 0x80;
+          AcpiDiagTraceThermalNotification((_DWORD *)v3, a1, 129);
+          v15 = *(_DWORD *)(a1 + 192);
+        }
+        if ( (v15 & 0x800) == 0 )
+        {
+          *(_DWORD *)(a1 + 192) = v15 | 0x800;
+          AcpiDiagTraceTemperatureChange(v3, a1);
+          v15 = *(_DWORD *)(a1 + 192);
+        }
+        if ( (v15 & 0x4000) == 0 )
+        {
+          *(_DWORD *)(a1 + 192) = v15 | 0x4000;
+          AcpiDiagTraceTemperatureTelemetry(a1);
+          v15 = *(_DWORD *)(a1 + 192);
+        }
+        if ( (v15 & 0x1000) != 0 )
+        {
+          if ( !(unsigned __int8)ACPIThermalCompletePendingIrps(a1, v13) )
+            goto LABEL_21;
+        }
+        else
+        {
+          *(_DWORD *)(a1 + 192) = v15 | 0x1000;
+          KeReleaseSpinLock(v4, v10);
+          v11 = 0;
+          v21 = KeAcquireSpinLockRaiseToDpc(&AcpiThermalConstraintLock);
+          v22 = (_QWORD *)qword_1C0081A08;
+          v10 = v21;
+          v23 = (_QWORD *)(a1 + 208);
+          if ( *(__int64 **)qword_1C0081A08 != &AcpiThermalZoneList )
+            __fastfail(3u);
+          *(_QWORD *)(a1 + 216) = qword_1C0081A08;
+          *v23 = &AcpiThermalZoneList;
+          *v22 = v23;
+          qword_1C0081A08 = a1 + 208;
+          KeReleaseSpinLock(&AcpiThermalConstraintLock, v10);
+        }
+      }
+      else
+      {
+        ++*(_DWORD *)v3;
+        v16 = *(_DWORD *)(a1 + 192) | 2;
+        *(_DWORD *)(a1 + 192) = v16;
+        if ( (_BYTE)v13 )
+        {
+          v18 = 514LL;
+          *(_DWORD *)(a1 + 192) = v16 | 0x44000200;
+LABEL_42:
+          ACPISetDeviceWorker(a1, v18);
+        }
+        else if ( *(_QWORD *)(v3 + 112) )
+        {
+          *(_DWORD *)(a1 + 192) = v16 | 0x40000000;
+          KeReleaseSpinLock(v4, v10);
+          *(_OWORD *)(v3 + 136) = 0LL;
+          *(_OWORD *)(v3 + 152) = 0LL;
+          *(_QWORD *)(v3 + 168) = 0LL;
+          v11 = 0;
+          if ( !(unsigned __int8)ACPIDeviceHasFirmwareDependencies(a1) || *(_DWORD *)(a1 + 508) == 1 )
+          {
+            v17 = AMLIAsyncEvalObject(*(_QWORD *)(v3 + 112), (int)v3 + 136, 0, 0, (__int64)ACPIThermalTMPCallback, a1);
+            if ( v17 != 259 )
+              goto LABEL_40;
+          }
+          else
+          {
+            v17 = -1073741661;
+LABEL_40:
+            ACPIThermalTMPCallback(*(_QWORD *)(v3 + 112), v17, v3 + 136, a1);
+          }
+        }
+        else
+        {
+          *(_DWORD *)(a1 + 192) = v16 & 0xEFFFFFFF;
+        }
+      }
     }
-    v36 = AMLIAsyncEvalObject(*(_QWORD *)(v3 + 112), (int)v3 + 136, 0, 0, (__int64)ACPIThermalTMPCallback, a1);
-    if ( v36 != 259 )
-      goto LABEL_85;
-    goto LABEL_82;
   }
-LABEL_90:
+LABEL_22:
   KeReleaseSpinLock(v4, v10);
 }

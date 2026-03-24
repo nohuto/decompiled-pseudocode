@@ -1,18 +1,17 @@
 /*
- * XREFs of BiDeleteRegistryValue @ 0x1408097F4
+ * XREFs of BiDeleteRegistryValue @ 0x1407820E4
  * Callers:
- *     BiSetFirmwareModified @ 0x140374368 (BiSetFirmwareModified.c)
- *     BiMarkTreatAsSystemStore @ 0x1408047D4 (BiMarkTreatAsSystemStore.c)
- *     BcdOpenStore @ 0x14080561C (BcdOpenStore.c)
+ *     BiSetFirmwareModified @ 0x14039AD98 (BiSetFirmwareModified.c)
+ *     BiMarkTreatAsSystemStore @ 0x140781E20 (BiMarkTreatAsSystemStore.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     BiSanitizeHandle @ 0x14036937C (BiSanitizeHandle.c)
- *     CmSiCloseSection @ 0x140374450 (CmSiCloseSection.c)
- *     BiZwDeleteValueKey @ 0x140374614 (BiZwDeleteValueKey.c)
- *     BiOpenKey @ 0x140807650 (BiOpenKey.c)
+ *     CmSiCloseSection @ 0x140321658 (CmSiCloseSection.c)
+ *     BiSanitizeHandle @ 0x14032C5AC (BiSanitizeHandle.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     BiZwDeleteValueKey @ 0x14039AF48 (BiZwDeleteValueKey.c)
+ *     BiOpenKey @ 0x140784304 (BiOpenKey.c)
  */
 
-__int64 __fastcall BiDeleteRegistryValue(__int64 a1, const WCHAR *a2, const WCHAR *a3)
+__int64 __fastcall BiDeleteRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3)
 {
   unsigned __int64 v5; // rax
   void *v6; // rsi
@@ -32,7 +31,7 @@ __int64 __fastcall BiDeleteRegistryValue(__int64 a1, const WCHAR *a2, const WCHA
     v8 = (void *)v5;
     goto LABEL_3;
   }
-  v7 = BiOpenKey(v5, a3, 0x2001Fu, &v12);
+  v7 = BiOpenKey(v5, a3, 131103LL, &v12);
   v8 = v12;
   v9 = v7;
   if ( v7 >= 0 )

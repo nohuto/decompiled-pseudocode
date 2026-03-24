@@ -1,5 +1,5 @@
 /*
- * XREFs of MiGetSharedProtos @ 0x140177154
+ * XREFs of MiGetSharedProtos @ 0x140177174
  * Callers:
  *     MiComputeImagePteIndex @ 0x14001B70C (MiComputeImagePteIndex.c)
  *     MiResolveMappedFileFault @ 0x14002BE50 (MiResolveMappedFileFault.c)
@@ -9,14 +9,14 @@
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
  *     MiEmptyPageAccessLog @ 0x140088580 (MiEmptyPageAccessLog.c)
- *     MiIdentifyPfn @ 0x1400A7EC0 (MiIdentifyPfn.c)
- *     MiGetImageProtoProtection @ 0x14011F8E0 (MiGetImageProtoProtection.c)
+ *     MiIdentifyPfn @ 0x1400A7EE0 (MiIdentifyPfn.c)
+ *     MiGetImageProtoProtection @ 0x14011F900 (MiGetImageProtoProtection.c)
  *     MiAddMappedPtes @ 0x1405DF500 (MiAddMappedPtes.c)
  *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
- *     MiPfAllocateMdls @ 0x1406982C0 (MiPfAllocateMdls.c)
+ *     MiPfAllocateMdls @ 0x1406982A0 (MiPfAllocateMdls.c)
  * Callees:
- *     MiGetSharedProtosAtDpcLevel @ 0x1401771BC (MiGetSharedProtosAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSharedProtosAtDpcLevel @ 0x1401771DC (MiGetSharedProtosAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetSharedProtos(__int64 a1, __int64 a2, __int64 a3)

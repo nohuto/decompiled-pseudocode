@@ -1,10 +1,11 @@
 /*
- * XREFs of ?UnregisterExpressionWorker@CExpressionManager@@AEAAXPEAVCBaseExpression@@PEAV?$CWeakReference@VCResource@@@@IPEAVSubchannelMaskInfo@@_N@Z @ 0x180099620
+ * XREFs of ?UnregisterExpressionWorker@CExpressionManager@@AEAAXPEAVCBaseExpression@@PEAV?$CWeakReference@VCResource@@@@IPEAVSubchannelMaskInfo@@_N@Z @ 0x180064A3C
  * Callers:
- *     ?EnsureExpressionIsUnregistered@CBaseExpression@@QEAAXXZ @ 0x18009B0F0 (-EnsureExpressionIsUnregistered@CBaseExpression@@QEAAXXZ.c)
+ *     ?EnsureExpressionIsUnregistered@CBaseExpression@@QEAAXXZ @ 0x180064EAC (-EnsureExpressionIsUnregistered@CBaseExpression@@QEAAXXZ.c)
  * Callees:
- *     ?RemoveElement@?$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@QEAAXPEAVCTargetMapEntry@@@Z @ 0x180097428 (-RemoveElement@-$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@QEAAXPEAVCTarget.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ?RemoveElement@?$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@QEAAXPEAVCTargetMapEntry@@@Z @ 0x18006397C (-RemoveElement@-$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@QEAAXPEAVCTarget.c)
+ *     ?FindElement@?$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@QEAAPEAVCTargetMapEntry@@UObjectPropertyReference@@@Z @ 0x180065290 (-FindElement@-$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@QEAAPEAVCTargetMap.c)
  */
 
 void __fastcall CExpressionManager::UnregisterExpressionWorker(
@@ -15,132 +16,120 @@ void __fastcall CExpressionManager::UnregisterExpressionWorker(
         int a5,
         char a6)
 {
-  CTargetMapEntry *v8; // rax
-  void *v9; // rbp
+  struct _RTL_GENERIC_TABLE *v6; // rbp
+  __int64 Element; // rax
   CTargetMapEntry *v10; // rdi
-  _QWORD *v11; // rax
-  _QWORD *v12; // rcx
-  _QWORD *v13; // r8
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  unsigned int v17; // edx
-  _QWORD *v18; // rax
-  unsigned int v19; // edx
-  __int64 v20; // rax
-  _QWORD *v21; // rcx
-  void *v22; // rcx
-  __int64 v23; // rcx
-  __int64 v24; // rdx
-  unsigned int v25; // r9d
-  _QWORD *v26; // rax
-  __int128 v27; // [rsp+20h] [rbp-48h]
-  __int128 v28; // [rsp+30h] [rbp-38h] BYREF
-  void *v29; // [rsp+40h] [rbp-28h]
+  _QWORD *v11; // rcx
+  _QWORD *v12; // rdx
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  __int64 v15; // rdx
+  unsigned int v16; // r8d
+  _QWORD *v17; // rax
+  unsigned int v18; // edx
+  __int64 v19; // rax
+  _QWORD *v20; // rcx
+  __int64 v21; // rcx
+  __int64 v22; // rdx
+  unsigned int v23; // r9d
+  _QWORD *v24; // rax
+  __int64 v25; // [rsp+20h] [rbp-18h] BYREF
+  int v26; // [rsp+28h] [rbp-10h]
 
-  *(_QWORD *)&v27 = a3;
-  DWORD2(v27) = a4;
-  v29 = 0LL;
-  v28 = v27;
-  v8 = (CTargetMapEntry *)RtlLookupElementGenericTable((PRTL_GENERIC_TABLE)(a1 + 328), &v28);
-  v9 = v29;
-  v10 = v8;
-  while ( v9 )
+  v6 = (struct _RTL_GENERIC_TABLE *)(a1 + 328);
+  v25 = a3;
+  v26 = a4;
+  Element = CGenericTableMap<ObjectPropertyReference,CTargetMapEntry>::FindElement(a1 + 328, &v25);
+  v10 = (CTargetMapEntry *)Element;
+  if ( Element )
   {
-    v22 = v9;
-    v9 = (void *)*((_QWORD *)v9 + 2);
-    operator delete(v22, 0x18uLL);
-  }
-  if ( v10 )
-  {
-    v11 = (_QWORD *)*((_QWORD *)v10 + 2);
+    v11 = *(_QWORD **)(Element + 16);
     v12 = v11;
-    v13 = v11;
     if ( v11 )
     {
       while ( 1 )
       {
-        v14 = v12[2];
-        if ( v12[1] == a2 )
+        v13 = v11[2];
+        if ( v11[1] == a2 )
           break;
-        v13 = v12;
-        v12 = (_QWORD *)v12[2];
-        if ( !v14 )
-          goto LABEL_8;
+        v12 = v11;
+        v11 = (_QWORD *)v11[2];
+        if ( !v13 )
+          goto LABEL_7;
       }
-      if ( v12 == v11 )
-        *((_QWORD *)v10 + 2) = v14;
+      if ( v11 == *((_QWORD **)v10 + 2) )
+        *((_QWORD *)v10 + 2) = v13;
       else
-        v13[2] = v14;
-      operator delete(v12, 0x18uLL);
+        v12[2] = v13;
+      operator delete(v11);
     }
-LABEL_8:
+LABEL_7:
     if ( !*((_QWORD *)v10 + 2) )
-      CGenericTableMap<ObjectPropertyReference,CTargetMapEntry>::RemoveElement((PRTL_GENERIC_TABLE)(a1 + 328), v10);
+      CGenericTableMap<ObjectPropertyReference,CTargetMapEntry>::RemoveElement(v6, v10);
   }
   else
   {
-    *(_BYTE *)(a2 + 216) &= ~2u;
+    *(_BYTE *)(a2 + 208) &= ~2u;
   }
   if ( !a6 )
   {
-    v15 = 0LL;
-    v16 = 32LL * *(int *)(a1 + 164);
-    v17 = *(_DWORD *)(v16 + a1 + 192);
-    v18 = *(_QWORD **)(v16 + a1 + 168);
-    if ( v17 )
+    v14 = 0LL;
+    v15 = 32LL * *(int *)(a1 + 164);
+    v16 = *(_DWORD *)(v15 + a1 + 192);
+    v17 = *(_QWORD **)(v15 + a1 + 168);
+    if ( v16 )
     {
       do
       {
-        if ( a2 == *v18 )
+        if ( a2 == *v17 )
           break;
-        v15 = (unsigned int)(v15 + 1);
-        ++v18;
+        v14 = (unsigned int)(v14 + 1);
+        ++v17;
       }
-      while ( (unsigned int)v15 < v17 );
+      while ( (unsigned int)v14 < v16 );
     }
-    if ( (unsigned int)v15 >= *(_DWORD *)(32 * (*(int *)(a1 + 164) + 6LL) + a1) )
+    if ( (unsigned int)v14 >= *(_DWORD *)(32 * (*(int *)(a1 + 164) + 6LL) + a1) )
     {
-      v19 = *(_DWORD *)(a1 + 320);
-      v20 = 0LL;
-      if ( v19 )
+      v18 = *(_DWORD *)(a1 + 320);
+      v19 = 0LL;
+      if ( v18 )
       {
-        v21 = *(_QWORD **)(a1 + 296);
+        v20 = *(_QWORD **)(a1 + 296);
         do
         {
-          if ( a2 == *v21 )
+          if ( a2 == *v20 )
             break;
-          v20 = (unsigned int)(v20 + 1);
-          ++v21;
+          v19 = (unsigned int)(v19 + 1);
+          ++v20;
         }
-        while ( (unsigned int)v20 < v19 );
+        while ( (unsigned int)v19 < v18 );
       }
-      if ( (unsigned int)v20 < v19 )
-        *(_QWORD *)(*(_QWORD *)(a1 + 296) + 8 * v20) = 0LL;
+      if ( (unsigned int)v19 < v18 )
+        *(_QWORD *)(*(_QWORD *)(a1 + 296) + 8 * v19) = 0LL;
     }
     else
     {
-      *(_QWORD *)(*(_QWORD *)(v16 + a1 + 168) + 8 * v15) = 0LL;
+      *(_QWORD *)(*(_QWORD *)(v15 + a1 + 168) + 8 * v14) = 0LL;
     }
-    if ( (*(_BYTE *)(a1 + 448) & 1) != 0 )
+    if ( (*(_BYTE *)(a1 + 416) & 1) != 0 )
     {
-      v23 = 0LL;
-      v24 = 32LL * (1 - *(_DWORD *)(a1 + 164));
-      v25 = *(_DWORD *)(v24 + a1 + 192);
-      v26 = *(_QWORD **)(v24 + a1 + 168);
-      if ( v25 )
+      v21 = 0LL;
+      v22 = 32LL * (1 - *(_DWORD *)(a1 + 164));
+      v23 = *(_DWORD *)(v22 + a1 + 192);
+      v24 = *(_QWORD **)(v22 + a1 + 168);
+      if ( v23 )
       {
         do
         {
-          if ( a2 == *v26 )
+          if ( a2 == *v24 )
             break;
-          v23 = (unsigned int)(v23 + 1);
-          ++v26;
+          v21 = (unsigned int)(v21 + 1);
+          ++v24;
         }
-        while ( (unsigned int)v23 < v25 );
+        while ( (unsigned int)v21 < v23 );
       }
-      if ( (unsigned int)v23 < *(_DWORD *)(32 * (1 - *(_DWORD *)(a1 + 164) + 6LL) + a1) )
-        *(_QWORD *)(*(_QWORD *)(v24 + a1 + 168) + 8 * v23) = 0LL;
+      if ( (unsigned int)v21 < *(_DWORD *)(32 * (1 - *(_DWORD *)(a1 + 164) + 6LL) + a1) )
+        *(_QWORD *)(*(_QWORD *)(v22 + a1 + 168) + 8 * v21) = 0LL;
     }
   }
 }

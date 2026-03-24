@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsReadyToDraw@CBackdropBrush@@UEBA_NPEAVCDrawingContext@@PEA_N@Z @ 0x1800FB310
+ * XREFs of ?IsReadyToDraw@CBackdropBrush@@UEBA_NPEAVCDrawingContext@@PEA_N@Z @ 0x1800E2980
  * Callers:
  *     <none>
  * Callees:

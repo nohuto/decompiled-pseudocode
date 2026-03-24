@@ -1,40 +1,55 @@
 /*
- * XREFs of PopPowerAggregatorHandleModernStandbyIntent @ 0x140993A10
+ * XREFs of PopPowerAggregatorHandleModernStandbyIntent @ 0x1408EE3B0
  * Callers:
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407A9984 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140776874 (PopPowerAggregatorHandleIntentUnsafe.c)
  * Callees:
- *     PopPowerAggregatorAllowModernStandbyPromotion @ 0x14099354C (PopPowerAggregatorAllowModernStandbyPromotion.c)
+ *     PopPowerAggregatorAllowModernStandbyPromotion @ 0x1408EDFCC (PopPowerAggregatorAllowModernStandbyPromotion.c)
+ *     PopPowerAggregatorGetModernStandbySessionType @ 0x1408EE2A8 (PopPowerAggregatorGetModernStandbySessionType.c)
  */
 
 __int64 __fastcall PopPowerAggregatorHandleModernStandbyIntent(__int64 a1, __int64 a2, int a3)
 {
-  unsigned int v3; // r9d
-  __int64 v4; // rdx
-  __int64 v5; // r10
+  __int64 v3; // xmm0_8
+  int v4; // r10d
+  int ModernStandbySessionType; // eax
+  __int64 v7; // r9
+  int v8; // r10d
+  _DWORD *v9; // r11
+  unsigned int v10; // r10d
+  _OWORD *v11; // r9
+  _OWORD *v12; // r11
+  __int64 v14; // [rsp+20h] [rbp-18h] BYREF
+  int v15; // [rsp+28h] [rbp-10h]
 
-  if ( *(_DWORD *)(a1 + 16) <= 2u )
+  v3 = *(_QWORD *)(a1 + 8);
+  v4 = *(_DWORD *)(a1 + 16);
+  v14 = v3;
+  v15 = v4;
+  ModernStandbySessionType = PopPowerAggregatorGetModernStandbySessionType(&v14, a3 == 2);
+  if ( *v9 <= 2u )
   {
-    *(_DWORD *)a2 = 1;
-    if ( a3 == 2 )
-      *(_BYTE *)(a2 + 24) = 1;
-    if ( *(_DWORD *)(a1 + 16) == 1 )
+    *(_QWORD *)(v7 + 28) = v3;
+    *(_DWORD *)(v7 + 36) = v8;
+    *(_DWORD *)v7 = 1;
+    *(_DWORD *)(v7 + 24) = ModernStandbySessionType;
+    if ( *v9 == 1 )
     {
-      *(_BYTE *)(a2 + 25) = *(_BYTE *)(a1 + 41);
+      *(_BYTE *)(v7 + 40) = *(_BYTE *)(a1 + 64);
     }
     else if ( PopPowerAggregatorOneWayEntry )
     {
-      *(_BYTE *)(a2 + 25) = 1;
+      *(_BYTE *)(v7 + 40) = 1;
     }
-    if ( !PopPowerAggregatorAllowModernStandbyPromotion(a1, a2) )
+    if ( !PopPowerAggregatorAllowModernStandbyPromotion(v9, (_DWORD *)v7) )
     {
-      *(_OWORD *)v4 = *(_OWORD *)(v5 + 16);
-      *(_OWORD *)(v4 + 16) = *(_OWORD *)(v5 + 32);
-      *(_QWORD *)(v4 + 32) = *(_QWORD *)(v5 + 48);
+      *v11 = *v12;
+      v11[1] = v12[1];
+      v11[2] = v12[2];
     }
   }
   else
   {
     return (unsigned int)-1073700861;
   }
-  return v3;
+  return v10;
 }

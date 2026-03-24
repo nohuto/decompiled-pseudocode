@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CEllipseGeometry::sc_CenterPoint__ @ 0x1800026C0
+ * XREFs of _dynamic_initializer_for__CEllipseGeometry::sc_CenterPoint__ @ 0x180002170
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CEllipseGeometry::sc_CenterPoint__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E4900 = (unsigned __int64)CResource::SetAnimatedProperty;
-  qword_1803E4910 = v1;
+  xmmword_180346130 = (unsigned __int64)CResource::SetAnimatedProperty;
+  qword_180346140 = v1;
   return result;
 }

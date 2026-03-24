@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpInitializeAutoLoggers @ 0x14074187C
+ * XREFs of EtwpInitializeAutoLoggers @ 0x14074185C
  * Callers:
- *     EtwInitializeSiloState @ 0x140741454 (EtwInitializeSiloState.c)
+ *     EtwInitializeSiloState @ 0x140741434 (EtwInitializeSiloState.c)
  * Callees:
  *     RtlInitializeGenericTableAvl @ 0x140006820 (RtlInitializeGenericTableAvl.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlGetPersistedStateLocation @ 0x140612450 (RtlGetPersistedStateLocation.c)
- *     EtwpEnumerateAutologgerPath @ 0x140741C48 (EtwpEnumerateAutologgerPath.c)
- *     EtwStartAutoLogger @ 0x140741E88 (EtwStartAutoLogger.c)
- *     EtwpFreeKeyNameList @ 0x140742AAC (EtwpFreeKeyNameList.c)
+ *     EtwpEnumerateAutologgerPath @ 0x140741C28 (EtwpEnumerateAutologgerPath.c)
+ *     EtwStartAutoLogger @ 0x140741E68 (EtwStartAutoLogger.c)
+ *     EtwpFreeKeyNameList @ 0x140742A8C (EtwpFreeKeyNameList.c)
  */
 
 __int64 EtwpInitializeAutoLoggers()

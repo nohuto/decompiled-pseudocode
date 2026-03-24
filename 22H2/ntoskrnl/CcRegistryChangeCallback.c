@@ -1,29 +1,30 @@
 /*
- * XREFs of CcRegistryChangeCallback @ 0x1403C6E10
+ * XREFs of CcRegistryChangeCallback @ 0x14039A5D0
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     CcOpenRegistryPath @ 0x1403B1CB0 (CcOpenRegistryPath.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwNotifyChangeKey @ 0x14041CAC0 (ZwNotifyChangeKey.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     CcOpenRegistryPath @ 0x1403CC8DC (CcOpenRegistryPath.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwNotifyChangeKey @ 0x1403FBD60 (ZwNotifyChangeKey.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-char *__fastcall CcRegistryChangeCallback(char *P)
+void __fastcall CcRegistryChangeCallback(char *P)
 {
-  UNICODE_STRING *v1; // rsi
+  char *v1; // rsi
+  char *v2; // rdi
   __int64 v3; // rbx
   __int64 v4; // rbp
-  char *result; // rax
-  void *v6; // rcx
-  NTSTATUS v7; // ebx
-  NTSTATUS v8; // eax
+  void *v5; // rcx
+  NTSTATUS v6; // esi
+  int v7; // eax
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-18h] BYREF
 
-  v1 = (UNICODE_STRING *)(P + 56);
+  v1 = P + 56;
   IoStatusBlock = 0LL;
+  v2 = P;
   v3 = MEMORY[0xFFFFF78000000320];
   v4 = MEMORY[0xFFFFF78000000320] - *((_QWORD *)P + 6);
   DbgPrintEx(
@@ -32,53 +33,51 @@ char *__fastcall CcRegistryChangeCallback(char *P)
     "CcRegistryChangeCallback: Something of interest changed (callback:%c), under:\"%wZ\"\n",
     P[72] != 0 ? 70 : 84,
     P + 56);
-  if ( !P[72] )
+  if ( !v2[72] )
   {
-    (*((void (__fastcall **)(char *))P + 5))(P);
-    *((_QWORD *)P + 6) = v3;
+    (*((void (__fastcall **)(char *))v2 + 5))(v2);
+    *((_QWORD *)v2 + 6) = v3;
     DbgPrintEx(0x7Fu, 2u, "CcRegistryChangeCallback: Processed \"%wZ\", TickDiff=%I64d\n", v1, v4);
   }
-  P[72] = 0;
-  if ( *((_QWORD *)P + 4) || (v8 = CcOpenRegistryPath(v1, (HANDLE *)P + 4), v8 >= 0) )
+  v2[72] = 0;
+  if ( !*((_QWORD *)v2 + 4) )
   {
-    result = P;
-    if ( P )
+    v7 = CcOpenRegistryPath(v1);
+    if ( v7 < 0 )
     {
-      v6 = (void *)*((_QWORD *)P + 4);
-      if ( v6 )
+      DbgPrintEx(0x7Fu, 0, "CcRegistryChangeCallback: Failed to open Key, status=0x%08x \"%wZ\n", (unsigned int)v7, v1);
+      ExFreePoolWithTag(v2, 0x52576343u);
+      v2 = 0LL;
+    }
+  }
+  if ( v2 )
+  {
+    v5 = (void *)*((_QWORD *)v2 + 4);
+    if ( v5 )
+    {
+      v6 = ZwNotifyChangeKey(v5, 0LL, (PIO_APC_ROUTINE)v2, (PVOID)1, &IoStatusBlock, 5u, 1u, 0LL, 0, 1u);
+      if ( v6 == 259 )
       {
-        v7 = ZwNotifyChangeKey(v6, 0LL, (PIO_APC_ROUTINE)P, (PVOID)1, &IoStatusBlock, 5u, 1u, 0LL, 0, 1u);
-        if ( v7 == 259 )
-        {
-          DbgPrintEx(0x7Fu, 2u, "CcRegistryChangeCallback: Watch queued \"%wZ\"\n", P + 56);
-        }
-        else if ( v7 >= 0 )
-        {
-          DbgPrintEx(0x7Fu, 2u, "CcRegistryChangeCallback: Watch queued \"%wZ\" (for Immediate Processing)\n", P + 56);
-        }
-        else
-        {
-          ZwClose(*((HANDLE *)P + 4));
-          *((_QWORD *)P + 4) = 0LL;
-          P[72] = 1;
-          DbgPrintEx(
-            0x7Fu,
-            0,
-            "CcRegistryChangeCallback: Failed Watch request, status=0x%08x \"%wZ\"\n",
-            (unsigned int)v7,
-            P + 56);
-        }
-        result = P;
+        DbgPrintEx(0x7Fu, 2u, "CcRegistryChangeCallback: Watch queued \"%wZ\"\n", v2 + 56);
+      }
+      else if ( v6 >= 0 )
+      {
+        DbgPrintEx(0x7Fu, 2u, "CcRegistryChangeCallback: Watch queued \"%wZ\" (for Immediate Processing)\n", v2 + 56);
+      }
+      else
+      {
+        ZwClose(*((HANDLE *)v2 + 4));
+        *((_QWORD *)v2 + 4) = 0LL;
+        v2[72] = 1;
+        DbgPrintEx(
+          0x7Fu,
+          0,
+          "CcRegistryChangeCallback: Failed Watch request, status=0x%08x \"%wZ\"\n",
+          (unsigned int)v6,
+          v2 + 56);
       }
     }
   }
-  else
-  {
-    DbgPrintEx(0x7Fu, 0, "CcRegistryChangeCallback: Failed to open Key, status=0x%08x \"%wZ\n", (unsigned int)v8, v1);
-    ExFreePoolWithTag(P, 0x52576343u);
-    result = 0LL;
-  }
-  if ( !CcRegistryWatchInitComplete && result && !result[72] )
+  if ( !CcRegistryWatchInitComplete && v2 && !v2[72] )
     CcRegistryWatchInitComplete = 1;
-  return result;
 }

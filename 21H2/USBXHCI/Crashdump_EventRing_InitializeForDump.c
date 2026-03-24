@@ -1,15 +1,15 @@
 /*
- * XREFs of Crashdump_EventRing_InitializeForDump @ 0x1C004C318
+ * XREFs of Crashdump_EventRing_InitializeForDump @ 0x1C004B898
  * Callers:
- *     Crashdump_UcxEvtGetDumpData @ 0x1C004B0C0 (Crashdump_UcxEvtGetDumpData.c)
+ *     Crashdump_UcxEvtGetDumpData @ 0x1C004A630 (Crashdump_UcxEvtGetDumpData.c)
  * Callees:
- *     Crashdump_CommonBufferAcquire @ 0x1C0049F6C (Crashdump_CommonBufferAcquire.c)
+ *     Crashdump_CommonBufferAcquire @ 0x1C00494AC (Crashdump_CommonBufferAcquire.c)
  */
 
 __int64 __fastcall Crashdump_EventRing_InitializeForDump(__int64 *a1, __int64 a2)
 {
   int v3; // ebx
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
 
   *a1 = a2;
   a1[1] = a2;
@@ -20,9 +20,9 @@ __int64 __fastcall Crashdump_EventRing_InitializeForDump(__int64 *a1, __int64 a2
     v3 = Crashdump_CommonBufferAcquire(*a1, 16, (__int64)(a1 + 3));
     if ( v3 >= 0 )
     {
-      Pool2 = ExAllocatePool2(64LL, 88LL, 1128482904LL);
-      a1[13] = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState, 0x58uLL, 0x43434858u);
+      a1[13] = (__int64)PoolWithTag;
+      if ( !PoolWithTag )
         return (unsigned int)-1073741670;
     }
   }

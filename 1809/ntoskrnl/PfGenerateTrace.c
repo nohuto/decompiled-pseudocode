@@ -1,10 +1,10 @@
 /*
- * XREFs of PfGenerateTrace @ 0x14071BDE4
+ * XREFs of PfGenerateTrace @ 0x14071BDC4
  * Callers:
  *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
- *     PfSetSuperfetchInformation @ 0x140665898 (PfSetSuperfetchInformation.c)
- *     PfpLogEventRequest @ 0x1406E1AB4 (PfpLogEventRequest.c)
- *     PfpLogScenarioEvent @ 0x14071BCD4 (PfpLogScenarioEvent.c)
+ *     PfSetSuperfetchInformation @ 0x140665878 (PfSetSuperfetchInformation.c)
+ *     PfpLogEventRequest @ 0x1406E1A94 (PfpLogEventRequest.c)
+ *     PfpLogScenarioEvent @ 0x14071BCB4 (PfpLogScenarioEvent.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
@@ -13,8 +13,8 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  */
 
 __int64 __fastcall PfGenerateTrace(__int64 a1, int a2)

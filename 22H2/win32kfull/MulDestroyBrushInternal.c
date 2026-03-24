@@ -1,10 +1,10 @@
 /*
- * XREFs of MulDestroyBrushInternal @ 0x1C02B32B0
+ * XREFs of MulDestroyBrushInternal @ 0x1C02A6D70
  * Callers:
  *     <none>
  * Callees:
- *     ??0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z @ 0x1C015AF18 (--0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z.c)
- *     ?DestroyTable@MULTIBRUSH@@QEAAXXZ @ 0x1C02AE4D4 (-DestroyTable@MULTIBRUSH@@QEAAXXZ.c)
+ *     ??0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z @ 0x1C02A0AA0 (--0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z.c)
+ *     ?DestroyTable@MULTIBRUSH@@QEAAXXZ @ 0x1C02A0D90 (-DestroyTable@MULTIBRUSH@@QEAAXXZ.c)
  */
 
 void __fastcall MulDestroyBrushInternal(void *a1)

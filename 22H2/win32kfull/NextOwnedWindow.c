@@ -1,8 +1,10 @@
 /*
- * XREFs of NextOwnedWindow @ 0x1C00952AC
+ * XREFs of NextOwnedWindow @ 0x1C00370AC
  * Callers:
- *     ?SetTopmost@@YAXPEAUtagWND@@HH@Z @ 0x1C0095224 (-SetTopmost@@YAXPEAUtagWND@@HH@Z.c)
- *     ?zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z @ 0x1C00F1010 (-zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z.c)
+ *     ?ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z @ 0x1C0036760 (-ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z.c)
+ *     ?AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z @ 0x1C0036B5C (-AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z.c)
+ *     zzzSetWindowCompositionCloak @ 0x1C0036CF0 (zzzSetWindowCompositionCloak.c)
+ *     ?SetTopmost@@YAXPEAUtagWND@@HH@Z @ 0x1C00391D8 (-SetTopmost@@YAXPEAUtagWND@@HH@Z.c)
  * Callees:
  *     <none>
  */

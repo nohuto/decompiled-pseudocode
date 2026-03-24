@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpInitializeBootProcessor @ 0x140271FB0
+ * XREFs of HvlpInitializeBootProcessor @ 0x1402720B0
  * Callers:
- *     HvlPhase0Initialize @ 0x1407259E8 (HvlPhase0Initialize.c)
+ *     HvlPhase0Initialize @ 0x1407259C8 (HvlPhase0Initialize.c)
  * Callees:
- *     HvlEnlightenProcessor @ 0x140178660 (HvlEnlightenProcessor.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     HvlpMapStatisticsPage @ 0x140272140 (HvlpMapStatisticsPage.c)
+ *     HvlEnlightenProcessor @ 0x140178680 (HvlEnlightenProcessor.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     HvlpMapStatisticsPage @ 0x140272240 (HvlpMapStatisticsPage.c)
  */
 
 __int64 __fastcall HvlpInitializeBootProcessor(__int64 a1)

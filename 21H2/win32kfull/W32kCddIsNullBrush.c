@@ -1,5 +1,5 @@
 /*
- * XREFs of W32kCddIsNullBrush @ 0x1C0100E10
+ * XREFs of W32kCddIsNullBrush @ 0x1C0114E20
  * Callers:
  *     <none>
  * Callees:

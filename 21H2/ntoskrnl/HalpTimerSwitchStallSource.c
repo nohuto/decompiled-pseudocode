@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerSwitchStallSource @ 0x140391998
+ * XREFs of HalpTimerSwitchStallSource @ 0x140386C80
  * Callers:
- *     HalpAcpiPostSleep @ 0x140A50388 (HalpAcpiPostSleep.c)
- *     HalpAcpiPreSleep @ 0x140A5072C (HalpAcpiPreSleep.c)
+ *     HalpAcpiPostSleep @ 0x140995B2C (HalpAcpiPostSleep.c)
+ *     HalpAcpiPreSleep @ 0x140995EFC (HalpAcpiPreSleep.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpTimerSwitchStallSource(char a1)

@@ -1,21 +1,21 @@
 /*
- * XREFs of UsbhSignalDriverResetEvent @ 0x1C001DF64
+ * XREFs of UsbhSignalDriverResetEvent @ 0x1C0017FEC
  * Callers:
- *     UsbhHubDispatchPortEvent @ 0x1C0016AF0 (UsbhHubDispatchPortEvent.c)
- *     UsbhDriverResetPort @ 0x1C001AF40 (UsbhDriverResetPort.c)
- *     Usbh_PCE_psPAUSED_Action @ 0x1C001BF60 (Usbh_PCE_psPAUSED_Action.c)
- *     UsbhBusConnectPdo @ 0x1C001DE04 (UsbhBusConnectPdo.c)
- *     Usbh_PCE_wChangeERROR_Action @ 0x1C00359FC (Usbh_PCE_wChangeERROR_Action.c)
- *     UsbhDeregisterPdo @ 0x1C0036B38 (UsbhDeregisterPdo.c)
- *     UsbhSoftDisconnectPdo @ 0x1C003975C (UsbhSoftDisconnectPdo.c)
- *     Usbh_BusPause_PdoEvent @ 0x1C0039DEC (Usbh_BusPause_PdoEvent.c)
- *     UsbhDropDevice @ 0x1C004C208 (UsbhDropDevice.c)
- *     UsbhFailDriverResetPort @ 0x1C004C300 (UsbhFailDriverResetPort.c)
- *     UsbhReset1Debounce @ 0x1C004D320 (UsbhReset1Debounce.c)
- *     UsbhSetEnumerationFailed @ 0x1C004E0C8 (UsbhSetEnumerationFailed.c)
+ *     UsbhDriverResetPort @ 0x1C00017D0 (UsbhDriverResetPort.c)
+ *     UsbhHubDispatchPortEvent @ 0x1C0008BD0 (UsbhHubDispatchPortEvent.c)
+ *     UsbhBusConnectPdo @ 0x1C0017E8C (UsbhBusConnectPdo.c)
+ *     Usbh_PCE_psPAUSED_Action @ 0x1C00195F0 (Usbh_PCE_psPAUSED_Action.c)
+ *     Usbh_PCE_wChangeERROR_Action @ 0x1C0036CB8 (Usbh_PCE_wChangeERROR_Action.c)
+ *     UsbhDeregisterPdo @ 0x1C0037DEC (UsbhDeregisterPdo.c)
+ *     UsbhSoftDisconnectPdo @ 0x1C003AA6C (UsbhSoftDisconnectPdo.c)
+ *     Usbh_BusPause_PdoEvent @ 0x1C003B0FC (Usbh_BusPause_PdoEvent.c)
+ *     UsbhDropDevice @ 0x1C004D614 (UsbhDropDevice.c)
+ *     UsbhFailDriverResetPort @ 0x1C004D710 (UsbhFailDriverResetPort.c)
+ *     UsbhReset1Debounce @ 0x1C004E730 (UsbhReset1Debounce.c)
+ *     UsbhSetEnumerationFailed @ 0x1C004F4D8 (UsbhSetEnumerationFailed.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhLogSignalDriverResetEvent @ 0x1C001E030 (UsbhLogSignalDriverResetEvent.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhLogSignalDriverResetEvent @ 0x1C00180B8 (UsbhLogSignalDriverResetEvent.c)
  */
 
 void __fastcall UsbhSignalDriverResetEvent(__int64 a1, __int64 a2)

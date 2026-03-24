@@ -1,45 +1,45 @@
 /*
- * XREFs of PopPepCancelActivityRange @ 0x1403136B8
+ * XREFs of PopPepCancelActivityRange @ 0x140381B90
  * Callers:
- *     PopPepUpdateConstraints @ 0x14028D114 (PopPepUpdateConstraints.c)
- *     PopPepCancelActivities @ 0x140313FF8 (PopPepCancelActivities.c)
+ *     PopPepCancelActivities @ 0x140261B44 (PopPepCancelActivities.c)
+ *     PopPepUpdateConstraints @ 0x14039FE6C (PopPepUpdateConstraints.c)
  * Callees:
  *     <none>
  */
 
-__int64 *__fastcall PopPepCancelActivityRange(__int64 a1, int a2, int a3, int a4, volatile signed __int32 *a5)
+void __fastcall PopPepCancelActivityRange(__int64 a1, int a2, int a3, int a4, volatile signed __int32 *a5)
 {
-  __int64 **v5; // r11
-  __int64 *result; // rax
-  _DWORD *v7; // rdx
-  __int64 v8; // r10
-  int v9; // r8d
+  int **v5; // r11
+  _DWORD *v6; // rdx
+  __int64 v7; // r8
+  int *v8; // rax
+  int v9; // r9d
 
   if ( a3 <= a4 )
   {
-    v5 = (__int64 **)(a1 + 8LL * a3);
-    result = qword_140001B18;
-    v7 = (_DWORD *)&qword_140001B18[17 * a2] + a3;
-    v8 = (unsigned int)(a4 - a3 + 1);
+    v5 = (int **)(a1 + 8LL * a3);
+    v6 = (_DWORD *)&qword_1400011B8[17 * a2] + a3;
+    v7 = (unsigned int)(a4 - a3 + 1);
     do
     {
-      if ( *v7 )
+      if ( *v6 )
       {
-        result = *v5;
-        v9 = *(_DWORD *)*v5;
-        if ( (*v7 & v9) != 0 )
+        v8 = *v5;
+        v9 = **v5;
+        if ( (*v6 & v9) != 0 )
         {
           if ( (v9 & 2) != 0 )
+          {
             _InterlockedDecrement(a5);
-          result = *v5;
-          *(_DWORD *)*v5 &= 0xFFFFFFFC;
+            v8 = *v5;
+          }
+          *v8 &= 0xFFFFFFFC;
         }
       }
-      ++v7;
+      ++v6;
       ++v5;
-      --v8;
+      --v7;
     }
-    while ( v8 );
+    while ( v7 );
   }
-  return result;
 }

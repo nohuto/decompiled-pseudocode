@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmSetSimulatedIdle @ 0x1405C8BDC
+ * XREFs of PpmSetSimulatedIdle @ 0x1405677A4
  * Callers:
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PpmSetSimulatedIdle(__int64 a1)
@@ -36,7 +36,7 @@ __int64 __fastcall PpmSetSimulatedIdle(__int64 a1)
   *(_DWORD *)Affinity.Reserved = 0;
   Affinity.Reserved[2] = 0;
   v4 = KiProcessorIndexToNumberMappingTable[ProcessorIndexFromNumber] & 0x3F;
-  Affinity.Group = KiProcessorIndexToNumberMappingTable[ProcessorIndexFromNumber] >> 6;
+  Affinity.Group = (unsigned int)KiProcessorIndexToNumberMappingTable[ProcessorIndexFromNumber] >> 6;
   Affinity.Mask = 1LL << v4;
   KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
   CurrentPrcb = KeGetCurrentPrcb();

@@ -1,170 +1,205 @@
 /*
- * XREFs of ?_CreateBootPersistentMonitors@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0223BF0
+ * XREFs of ?_CreateBootPersistentMonitors@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01843AC
  * Callers:
- *     ?_OnAdapterInitializationDone@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0223B78 (-_OnAdapterInitializationDone@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?_OnAdapterInitializationDone@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0184334 (-_OnAdapterInitializationDone@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C01DD878 (-_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_.c)
- *     ?DmmIsTargetForceable@@YAJQEAXIPEAEW4_DMM_VIDPN_MONITOR_TYPE@@@Z @ 0x1C0207338 (-DmmIsTargetForceable@@YAJQEAXIPEAEW4_DMM_VIDPN_MONITOR_TYPE@@@Z.c)
- *     ?_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z @ 0x1C0223C84 (-_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z.c)
- *     ?_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03C7C9C (-_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEA.c)
- *     ?_PersistencyRegNameFromTargetID@MONITOR_MGR@@AEBAJIQEAG@Z @ 0x1C03C8760 (-_PersistencyRegNameFromTargetID@MONITOR_MGR@@AEBAJIQEAG@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C0148D38 (-_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_.c)
+ *     ?_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z @ 0x1C01844B4 (-_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z.c)
+ *     ?DmmIsTargetForceable@@YAJQEAXIPEAEW4_DMM_VIDPN_MONITOR_TYPE@@@Z @ 0x1C02DE508 (-DmmIsTargetForceable@@YAJQEAXIPEAEW4_DMM_VIDPN_MONITOR_TYPE@@@Z.c)
+ *     ?_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F27C8 (-_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEA.c)
+ *     ?_PersistencyRegNameFromTargetID@MONITOR_MGR@@AEBAJIQEAG@Z @ 0x1C02F3388 (-_PersistencyRegNameFromTargetID@MONITOR_MGR@@AEBAJIQEAG@Z.c)
  */
 
 __int64 __fastcall MONITOR_MGR::_CreateBootPersistentMonitors(
         MONITOR_MGR *this,
-        struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a2,
-        __int64 a3,
-        __int64 a4)
+        struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a2)
 {
-  _QWORD *v5; // rsi
-  ULONG v7; // ebx
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v6; // rax
+  ULONG v7; // esi
   _DWORD *v8; // rdi
-  _DWORD *v9; // r12
-  const WCHAR *v10; // r15
-  NTSTATUS v11; // eax
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  unsigned int v16; // eax
-  __int64 v17; // r8
-  NTSTATUS v18; // eax
-  __int64 v19; // r14
+  WCHAR *v9; // rbx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  __int64 v14; // rax
+  _DWORD *v15; // r15
+  NTSTATUS v16; // eax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
   __int64 v20; // r14
+  __int64 v21; // rax
+  NTSTATUS v22; // eax
+  __int64 v23; // rax
+  __int64 v24; // r14
   int IsTargetForceable; // eax
-  __int64 v22; // rax
-  struct _DXGK_DISPLAY_SCENARIO_CONTEXT *v23; // r14
-  _QWORD *v24; // rbx
-  __int64 v25; // rdx
-  int v26; // edi
-  NTSTATUS v27; // eax
-  bool v28; // [rsp+30h] [rbp-89h] BYREF
+  __int64 v26; // rdx
+  __int64 v27; // r8
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // rax
+  WCHAR *v32; // rdi
+  __int64 v33; // rdx
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  int SimulatedMonitor; // esi
+  __int64 v37; // rax
+  NTSTATUS v38; // eax
+  __int64 v39; // rdx
+  __int64 v40; // rcx
+  __int64 v41; // rsi
+  __int64 v42; // rax
+  char v43[8]; // [rsp+30h] [rbp-89h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-81h] BYREF
   ULONG ResultLength; // [rsp+40h] [rbp-79h] BYREF
-  struct _DXGK_DISPLAY_SCENARIO_CONTEXT *v31; // [rsp+48h] [rbp-71h] BYREF
+  __int64 v46; // [rsp+48h] [rbp-71h]
   UNICODE_STRING String2; // [rsp+50h] [rbp-69h] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-59h] BYREF
   char KeyValueInformation[12]; // [rsp+70h] [rbp-49h] BYREF
-  unsigned int v35; // [rsp+7Ch] [rbp-3Dh]
+  unsigned int v50; // [rsp+7Ch] [rbp-3Dh]
   WCHAR SourceString[32]; // [rsp+90h] [rbp-29h] BYREF
 
-  v31 = a2;
-  v5 = 0LL;
-  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2, a3, a4) + 24) = this;
+  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2) + 24) = this;
   KeyHandle = 0LL;
-  if ( MONITOR_MGR::_OpenPersistencyRegistry(this, 0x20019u, &KeyHandle) < 0 )
-    return 0LL;
-  if ( !KeyHandle )
-    WdLogSingleEntry0(1LL);
-  v7 = -1;
-  ResultLength = 0;
-  v8 = 0LL;
-LABEL_6:
-  ++v7;
-  if ( !v8 )
-    goto LABEL_25;
-  do
+  if ( MONITOR_MGR::_OpenPersistencyRegistry(this, 0x20019u, &KeyHandle) >= 0 )
   {
-    v9 = v8 + 2;
-    v8[2] = -1;
-    v10 = (const WCHAR *)(v8 + 3);
-    v11 = ZwEnumerateValueKey(KeyHandle, v7, KeyValueBasicInformation, v8 + 3, 0x4Eu, &ResultLength);
-    if ( v11 == -2147483622 )
+    if ( !KeyHandle )
     {
-      v22 = WdLogNewEntry5_WdTrace(v13, v12, v14, v15);
-      *(_QWORD *)(v22 + 24) = v7;
-      *(_QWORD *)(v22 + 32) = this;
-      operator delete(v8);
-      if ( v5 )
+      v6 = WdLogNewEntry5_WdAssertion(v4, v3);
+      WdLogEvent5_WdAssertion(v6);
+    }
+    v7 = -1;
+    ResultLength = 0;
+    v8 = 0LL;
+    v9 = 0LL;
+    while ( 1 )
+    {
+      ++v7;
+      if ( !v8 )
       {
-        v23 = v31;
-        do
+        v8 = operator new[](0x60uLL, 0x4D677844u, PagedPool);
+        if ( !v8 )
         {
-          v24 = v5;
-          v5 = (_QWORD *)*v5;
-          v25 = *((unsigned int *)v24 + 2);
-          if ( (_DWORD)v25 == -1 )
+          v14 = WdLogNewEntry5_WdLowResource(v11, v10, v12, v13);
+          WdLogEvent5_WdLowResource(v14);
+          return 3221225495LL;
+        }
+      }
+      v8[2] = -1;
+      v15 = v8 + 3;
+      v16 = ZwEnumerateValueKey(KeyHandle, v7, KeyValueBasicInformation, v8 + 3, 0x4Eu, &ResultLength);
+      v20 = v16;
+      if ( v16 == -2147483622 )
+      {
+        v31 = WdLogNewEntry5_WdTrace(v18, v17);
+        *(_QWORD *)(v31 + 24) = v7;
+        *(_QWORD *)(v31 + 32) = this;
+        operator delete[](v8);
+        while ( v9 )
+        {
+          v32 = v9;
+          v9 = *(WCHAR **)v9;
+          v33 = *((unsigned int *)v32 + 2);
+          if ( (_DWORD)v33 == -1 )
           {
-            v27 = RtlDeleteRegistryValue(0x40000000u, (PCWSTR)KeyHandle, (PCWSTR)v24 + 12);
-            if ( v27 < 0 )
-              WdLogSingleEntry1(2LL, v27);
+            v38 = RtlDeleteRegistryValue(0x40000000u, (PCWSTR)KeyHandle, v32 + 12);
+            v41 = v38;
+            if ( v38 < 0 )
+            {
+              v42 = WdLogNewEntry5_WdError(v40, v39);
+              *(_QWORD *)(v42 + 24) = v41;
+              WdLogEvent5_WdError(v42);
+            }
           }
           else
           {
-            v31 = 0LL;
-            v26 = MONITOR_MGR::_HandleCreateSimulatedMonitor(this, v25, 2LL, 0LL, &v31, v23);
-            if ( v26 >= 0 && !v31 )
-              WdLogSingleEntry0(1LL);
-            MONITOR_MGR::_LogMonitorPresentEvent((__int64)this, 1073741825, *((_DWORD *)v24 + 2), v26, 0LL);
+            v46 = 0LL;
+            SimulatedMonitor = MONITOR_MGR::_HandleCreateSimulatedMonitor(this, v33, 2LL);
+            if ( SimulatedMonitor >= 0 && !v46 )
+            {
+              v37 = WdLogNewEntry5_WdAssertion(v35, v34);
+              WdLogEvent5_WdAssertion(v37);
+            }
+            MONITOR_MGR::_LogMonitorPresentEvent(
+              (__int64)this,
+              1073741825LL,
+              *((_DWORD *)v32 + 2),
+              SimulatedMonitor,
+              0LL);
           }
-          operator delete(v24);
+          operator delete[](v32);
         }
-        while ( v5 );
+        ZwClose(KeyHandle);
+        return 0LL;
       }
-      ZwClose(KeyHandle);
-      return 0LL;
-    }
-    if ( v11 < 0 )
-    {
-      WdLogSingleEntry2(3LL, v7, v11);
-      goto LABEL_6;
-    }
-    *((_WORD *)v8 + ((unsigned __int64)(unsigned int)v8[5] >> 1) + 12) = 0;
-    *(_QWORD *)v8 = v5;
-    v5 = v8;
-    v16 = v8[4];
-    v8 = 0LL;
-    if ( v16 != 4 )
-    {
-      v17 = v16;
-      goto LABEL_13;
-    }
-    v18 = ZwEnumerateValueKey(KeyHandle, v7, KeyValuePartialInformation, KeyValueInformation, 0x13u, &ResultLength);
-    v19 = v18;
-    if ( v18 == -2147483622 )
-    {
-      WdLogSingleEntry0(1LL);
-LABEL_12:
-      v17 = v19;
+      if ( v16 < 0 )
+        goto LABEL_13;
+      *((_WORD *)v15 + ((unsigned __int64)(unsigned int)v8[5] >> 1) + 6) = 0;
+      *(_QWORD *)v8 = v9;
+      v9 = (WCHAR *)v8;
+      v8 = 0LL;
+      if ( v15[1] != 4 )
+      {
+        v21 = WdLogNewEntry5_WdWarning(v18, v17, v19);
+        *(_QWORD *)(v21 + 24) = v7;
+        *(_QWORD *)(v21 + 32) = (unsigned int)v15[1];
+        goto LABEL_15;
+      }
+      v22 = ZwEnumerateValueKey(KeyHandle, v7, KeyValuePartialInformation, KeyValueInformation, 0x13u, &ResultLength);
+      v20 = v22;
+      if ( v22 == -2147483622 )
+      {
+        v23 = WdLogNewEntry5_WdAssertion(v18, v17);
+        WdLogEvent5_WdAssertion(v23);
+      }
+      if ( (int)v20 < 0 )
+      {
 LABEL_13:
-      WdLogSingleEntry2(3LL, v7, v17);
-      goto LABEL_24;
-    }
-    if ( v18 < 0 )
-      goto LABEL_12;
-    v20 = v35;
-    v28 = 0;
-    IsTargetForceable = DmmIsTargetForceable(*(DXGADAPTER **)(*((_QWORD *)this + 3) + 16LL), v35, &v28, 0);
-    if ( IsTargetForceable < 0 )
-    {
-      if ( IsTargetForceable == -1071774971 )
-LABEL_23:
-        WdLogSingleEntry1(3LL, v20);
-    }
-    else
-    {
-      if ( !v28 )
-        goto LABEL_23;
-      if ( MONITOR_MGR::_PersistencyRegNameFromTargetID(0LL, v20, SourceString) < 0 )
-        goto LABEL_6;
-      DestinationString = 0LL;
-      String2 = 0LL;
-      RtlInitUnicodeString(&DestinationString, v10 + 6);
-      RtlInitUnicodeString(&String2, SourceString);
-      if ( RtlCompareUnicodeString(&DestinationString, &String2, 0) )
-        WdLogSingleEntry0(3LL);
+        v21 = WdLogNewEntry5_WdWarning(v18, v17, v19);
+        *(_QWORD *)(v21 + 24) = v7;
+        *(_QWORD *)(v21 + 32) = v20;
+        goto LABEL_15;
+      }
+      v24 = v50;
+      v43[0] = 0;
+      IsTargetForceable = DmmIsTargetForceable(*(_QWORD *)(*((_QWORD *)this + 1) + 16LL), v50, v43, 0LL);
+      if ( IsTargetForceable < 0 )
+      {
+        if ( IsTargetForceable == -1071774971 )
+          goto LABEL_25;
+      }
+      else if ( v43[0] )
+      {
+        if ( MONITOR_MGR::_PersistencyRegNameFromTargetID(0LL, v24, SourceString) >= 0 )
+        {
+          DestinationString = 0LL;
+          String2 = 0LL;
+          RtlInitUnicodeString(&DestinationString, (PCWSTR)v15 + 6);
+          RtlInitUnicodeString(&String2, SourceString);
+          if ( RtlCompareUnicodeString(&DestinationString, &String2, 0) )
+          {
+            v21 = WdLogNewEntry5_WdWarning(v29, v28, v30);
+            goto LABEL_15;
+          }
+          *((_DWORD *)v9 + 2) = v24;
+        }
+      }
       else
-        *v9 = v20;
-    }
-LABEL_24:
-    ++v7;
+      {
 LABEL_25:
-    v8 = (_DWORD *)operator new[](0x60uLL, 0x4D677844u, 256LL);
+        v21 = WdLogNewEntry5_WdWarning(0LL, v26, v27);
+        *(_QWORD *)(v21 + 24) = v24;
+LABEL_15:
+        WdLogEvent5_WdWarning(v21);
+      }
+    }
   }
-  while ( v8 );
-  WdLogSingleEntry0(6LL);
-  return 3221225495LL;
+  return 0LL;
 }

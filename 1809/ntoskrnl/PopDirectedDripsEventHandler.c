@@ -1,5 +1,5 @@
 /*
- * XREFs of PopDirectedDripsEventHandler @ 0x14013E3A0
+ * XREFs of PopDirectedDripsEventHandler @ 0x14013E3C0
  * Callers:
  *     <none>
  * Callees:

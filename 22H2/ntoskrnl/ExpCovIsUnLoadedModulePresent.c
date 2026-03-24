@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpCovIsUnLoadedModulePresent @ 0x140A065C4
+ * XREFs of ExpCovIsUnLoadedModulePresent @ 0x14095758C
  * Callers:
- *     ExpCovQueryInformation @ 0x140A0685C (ExpCovQueryInformation.c)
- *     ExpCovResetInformation @ 0x140A07104 (ExpCovResetInformation.c)
+ *     ExpCovQueryInformation @ 0x14095782C (ExpCovQueryInformation.c)
+ *     ExpCovResetInformation @ 0x1409580B4 (ExpCovResetInformation.c)
  * Callees:
- *     ExpCovIsModulePresent @ 0x140A0651C (ExpCovIsModulePresent.c)
+ *     ExpCovIsModulePresent @ 0x1409574E4 (ExpCovIsModulePresent.c)
  */
 
 bool __fastcall ExpCovIsUnLoadedModulePresent(__int64 a1, int a2, const UNICODE_STRING *a3, void *a4)

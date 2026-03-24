@@ -1,18 +1,18 @@
 /*
- * XREFs of HUBDESC_InternalValidateLastEndpoint @ 0x1C0036114
+ * XREFs of HUBDESC_InternalValidateLastEndpoint @ 0x1C0033038
  * Callers:
- *     HUBDESC_InternalValidateLastInterface @ 0x1C0036228 (HUBDESC_InternalValidateLastInterface.c)
- *     HUBDESC_InternalValidateEndpointDescriptor @ 0x1C0036374 (HUBDESC_InternalValidateEndpointDescriptor.c)
+ *     HUBDESC_InternalValidateLastInterface @ 0x1C0033158 (HUBDESC_InternalValidateLastInterface.c)
+ *     HUBDESC_InternalValidateEndpointDescriptor @ 0x1C00332A4 (HUBDESC_InternalValidateEndpointDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall HUBDESC_InternalValidateLastEndpoint(__int64 a1, int *a2, __int64 a3)
 {
   int *v4; // rdi
   int v6; // eax
-  int v7; // eax
+  int v7; // ecx
   int v9; // [rsp+50h] [rbp+8h] BYREF
 
   v9 = 0;
@@ -31,27 +31,30 @@ bool __fastcall HUBDESC_InternalValidateLastEndpoint(__int64 a1, int *a2, __int6
   {
     if ( *(_DWORD *)(a1 + 4) == 3 )
     {
+      v7 = *(_DWORD *)(a1 + 256);
       if ( (v6 & 0x10) == 0 )
       {
         *v4 = 2;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_(a3, 2u, 5u, 0x1Bu, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids);
+          WPP_RECORDER_SF_(a3, 2u, 5u, 0x19u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
         (*(void (__fastcall **)(_QWORD, __int64))(a1 + 24))(*(_QWORD *)(a1 + 40), 59LL);
+        v7 = *(_DWORD *)(a1 + 256);
       }
-      v7 = *(_DWORD *)(a1 + 256);
+      v6 = v7;
       if ( (v7 & 8) != 0 && (v7 & 0x20) == 0 )
       {
-        *v4 = 0;
+        *v4 = 2;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_(a3, 2u, 5u, 0x1Cu, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids);
+          WPP_RECORDER_SF_(a3, 2u, 5u, 0x1Au, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
         (*(void (__fastcall **)(_QWORD, __int64))(a1 + 24))(*(_QWORD *)(a1 + 40), 212LL);
+        v6 = *(_DWORD *)(a1 + 256);
       }
     }
   }
   else
   {
-    *(_DWORD *)(a1 + 256) = v6 | 2;
+    v6 |= 2u;
   }
-  *(_DWORD *)(a1 + 256) &= 0xFFFFFFC3;
+  *(_DWORD *)(a1 + 256) = v6 & 0xFFFFFFC3;
   return *v4 == 0;
 }

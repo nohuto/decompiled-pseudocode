@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiAngleArc @ 0x1C02AC950
+ * XREFs of NtGdiAngleArc @ 0x1C02AE1E0
  * Callers:
  *     <none>
  * Callees:
- *     GreAngleArc @ 0x1C029E684 (GreAngleArc.c)
+ *     GreAngleArc @ 0x1C029FD70 (GreAngleArc.c)
  */
 
 __int64 __fastcall NtGdiAngleArc(HDC a1, int a2, int a3, int a4, unsigned int a5, unsigned int a6)
@@ -16,6 +16,6 @@ __int64 __fastcall NtGdiAngleArc(HDC a1, int a2, int a3, int a4, unsigned int a5
   v12 = 0;
   v10 = 0;
   if ( bConvertDwordToFloat(a5, v13) && bConvertDwordToFloat(a6, (float *)&v12) )
-    return (unsigned int)GreAngleArc(a1, a2, a3, a4, LODWORD(v13[0]), *(float *)&v12);
+    return (unsigned int)GreAngleArc(a1, a2, a3, a4, LODWORD(v13[0]), v12);
   return v10;
 }

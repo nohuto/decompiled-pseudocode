@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiSTROBJ_bEnum @ 0x1C02CD880
+ * XREFs of NtGdiSTROBJ_bEnum @ 0x1C02B4F40
  * Callers:
  *     <none>
  * Callees:
- *     ?NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z @ 0x1C02C7270 (-NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z.c)
+ *     ?NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z @ 0x1C02B1370 (-NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z.c)
  */
 
 __int64 __fastcall NtGdiSTROBJ_bEnum(struct _STROBJ *a1, unsigned int *a2, struct _GLYPHPOS **a3)

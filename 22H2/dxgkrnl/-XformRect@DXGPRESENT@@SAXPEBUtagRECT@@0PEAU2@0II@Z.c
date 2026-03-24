@@ -1,7 +1,7 @@
 /*
- * XREFs of ?XformRect@DXGPRESENT@@SAXPEBUtagRECT@@0PEAU2@0II@Z @ 0x1C0341390
+ * XREFs of ?XformRect@DXGPRESENT@@SAXPEBUtagRECT@@0PEAU2@0II@Z @ 0x1C0283290
  * Callers:
- *     ?CombineRectList@DXGPRESENT@@QEAAJPEBU_D3DKMT_PRESENT@@QEAUHDC__@@PEBVDXGDEVICE@@II@Z @ 0x1C033D920 (-CombineRectList@DXGPRESENT@@QEAAJPEBU_D3DKMT_PRESENT@@QEAUHDC__@@PEBVDXGDEVICE@@II@Z.c)
+ *     ?CombineRectList@DXGPRESENT@@QEAAJPEBU_D3DKMT_PRESENT@@QEAUHDC__@@PEBVDXGDEVICE@@II@Z @ 0x1C016E920 (-CombineRectList@DXGPRESENT@@QEAAJPEBU_D3DKMT_PRESENT@@QEAUHDC__@@PEBVDXGDEVICE@@II@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,14 +14,14 @@ void __fastcall DXGPRESENT::XformRect(
         unsigned int a5,
         unsigned int a6)
 {
-  LONG v8; // r11d
+  LONG v8; // ecx
   LONG v9; // r10d
   LONG v10; // r8d
-  LONG v11; // ecx
-  LONG v12; // r11d
-  LONG v13; // eax
+  LONG v11; // edx
+  LONG v12; // edi
+  LONG v13; // r9d
   LONG v14; // r8d
-  LONG v15; // ecx
+  LONG v15; // edx
 
   v8 = a5 * (a4->left - a2->left);
   a3->left = v8;

@@ -1,7 +1,7 @@
 /*
- * XREFs of _tlgCreate1Sz_char @ 0x1C0082904
+ * XREFs of _tlgCreate1Sz_char @ 0x1C006FB58
  * Callers:
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00823E0 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C006F64C (MicrosoftTelemetryAssertTriggeredWorker.c)
  * Callees:
  *     <none>
  */

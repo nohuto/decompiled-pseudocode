@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HitTestInputPanelRegion@DelayZoneTelemetry@@AEAA_NUtagPOINT@@@Z @ 0x1C01FBE6C
+ * XREFs of ?HitTestInputPanelRegion@DelayZoneTelemetry@@AEAA_NUtagPOINT@@@Z @ 0x1C01BD3C4
  * Callers:
- *     ?UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDelayZonePanelTelemetryData@@PEBUtagPOINTER_INFO@@K@Z @ 0x1C01FC0F8 (-UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDela.c)
+ *     ?UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDelayZonePanelTelemetryData@@PEBUtagPOINTER_INFO@@K@Z @ 0x1C01BD654 (-UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDela.c)
  * Callees:
- *     PtInRect @ 0x1C0063154 (PtInRect.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     PtInRect @ 0x1C00707BC (PtInRect.c)
  */
 
 char __fastcall DelayZoneTelemetry::HitTestInputPanelRegion(DelayZoneTelemetry *this, struct tagPOINT a2)
@@ -14,8 +14,8 @@ char __fastcall DelayZoneTelemetry::HitTestInputPanelRegion(DelayZoneTelemetry *
   char *v4; // rdi
   bool v7; // zf
   __int64 v8; // r8
-  _QWORD *v9; // rax
-  __int64 v10; // rcx
+  char *v9; // rax
+  char **v10; // rdx
 
   v2 = (char *)this + 12288;
   v3 = 0;
@@ -25,16 +25,15 @@ char __fastcall DelayZoneTelemetry::HitTestInputPanelRegion(DelayZoneTelemetry *
   do
   {
     v7 = !PtInRect((_DWORD *)v4 + 4, *(_QWORD *)&a2);
-    v9 = *(_QWORD **)(v8 + 8);
+    v9 = *(char **)v4;
     if ( !v7 )
       v3 = 1;
-    v10 = *(_QWORD *)v4;
-    v4 = (char *)v10;
-    if ( *(_QWORD *)(v10 + 8) != v8 || *v9 != v8 )
+    v4 = *(char **)v4;
+    if ( *((_QWORD *)v9 + 1) != v8 || (v10 = *(char ***)(v8 + 8), *v10 != (char *)v8) )
       __fastfail(3u);
-    *v9 = v10;
-    *(_QWORD *)(v10 + 8) = v9;
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)v8);
+    *v10 = v9;
+    *((_QWORD *)v9 + 1) = v10;
+    Win32FreePool(v8);
   }
   while ( v4 != v2 );
   return v3;

@@ -1,23 +1,23 @@
 /*
- * XREFs of SepLocateTokenTrustLevel @ 0x140232910
+ * XREFs of SepLocateTokenTrustLevel @ 0x1402AAB88
  * Callers:
- *     SeAccessCheckWithHint @ 0x1402F9CF0 (SeAccessCheckWithHint.c)
- *     SepCommonAccessCheckEx @ 0x140383ABC (SepCommonAccessCheckEx.c)
- *     SepAdjustAccessStateForConstraints @ 0x1406B539C (SepAdjustAccessStateForConstraints.c)
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
- *     RtlpSetSecurityObject @ 0x140726700 (RtlpSetSecurityObject.c)
- *     SeShouldCheckForAccessRightsFromParent @ 0x1407B3CD0 (SeShouldCheckForAccessRightsFromParent.c)
- *     SeAdjustAccessStateForAccessConstraints @ 0x1407B4BA0 (SeAdjustAccessStateForAccessConstraints.c)
- *     RtlpNewSecurityObject @ 0x1407CE760 (RtlpNewSecurityObject.c)
- *     SepGetDefaultsSubjectContext @ 0x1409CA928 (SepGetDefaultsSubjectContext.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x14034DCE0 (SeAccessCheckWithHintWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     SeShouldCheckForAccessRightsFromParent @ 0x14065C780 (SeShouldCheckForAccessRightsFromParent.c)
+ *     RtlpSetSecurityObject @ 0x14065E3C0 (RtlpSetSecurityObject.c)
+ *     SeAdjustAccessStateForAccessConstraints @ 0x14065EFE0 (SeAdjustAccessStateForAccessConstraints.c)
+ *     RtlpNewSecurityObject @ 0x1406FF5F0 (RtlpNewSecurityObject.c)
+ *     SepAdjustAccessStateForConstraints @ 0x14076EFC0 (SepAdjustAccessStateForConstraints.c)
+ *     SepGetDefaultsSubjectContext @ 0x140921010 (SepGetDefaultsSubjectContext.c)
  * Callees:
- *     RtlSidDominatesForTrust @ 0x1402F8A20 (RtlSidDominatesForTrust.c)
+ *     RtlSidDominatesForTrust @ 0x14027DDE0 (RtlSidDominatesForTrust.c)
  */
 
 __int64 __fastcall SepLocateTokenTrustLevel(__int64 *a1)
 {
-  __int64 v1; // rdi
-  __int64 v2; // rbx
+  __int64 v1; // rbx
+  __int64 v2; // r11
   char v4; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *a1;

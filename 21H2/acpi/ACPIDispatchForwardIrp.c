@@ -1,16 +1,16 @@
 /*
- * XREFs of ACPIDispatchForwardIrp @ 0x1C0001660
+ * XREFs of ACPIDispatchForwardIrp @ 0x1C0001E60
  * Callers:
- *     ACPIIrpDispatchDeviceControl @ 0x1C0001410 (ACPIIrpDispatchDeviceControl.c)
- *     ACPIDispatchWmiLog @ 0x1C002D7E0 (ACPIDispatchWmiLog.c)
- *     ACPIDispatchForwardIrpWithExceptions @ 0x1C0052330 (ACPIDispatchForwardIrpWithExceptions.c)
- *     ACPIRootIrpQueryInterface @ 0x1C0091E90 (ACPIRootIrpQueryInterface.c)
- *     ACPIFilterIrpQueryInterface @ 0x1C00920A0 (ACPIFilterIrpQueryInterface.c)
- *     ACPIBusIrpDeviceEnumerated @ 0x1C00937D0 (ACPIBusIrpDeviceEnumerated.c)
- *     ACPIFilterIrpQueryResourceRequirements @ 0x1C0097840 (ACPIFilterIrpQueryResourceRequirements.c)
- *     ACPIFilterIrpQueryId @ 0x1C00A0E10 (ACPIFilterIrpQueryId.c)
- *     ACPIThermalWmi @ 0x1C00A1B80 (ACPIThermalWmi.c)
- *     ACPIEcOtherIrpDispatch @ 0x1C00AD3A0 (ACPIEcOtherIrpDispatch.c)
+ *     ACPIIrpDispatchDeviceControl @ 0x1C000B8A0 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIDispatchWmiLog @ 0x1C0030A90 (ACPIDispatchWmiLog.c)
+ *     ACPIDispatchForwardIrpWithExceptions @ 0x1C0052DB0 (ACPIDispatchForwardIrpWithExceptions.c)
+ *     ACPIRootIrpQueryInterface @ 0x1C0098F50 (ACPIRootIrpQueryInterface.c)
+ *     ACPIFilterIrpQueryInterface @ 0x1C0099170 (ACPIFilterIrpQueryInterface.c)
+ *     ACPIBusIrpDeviceEnumerated @ 0x1C0099770 (ACPIBusIrpDeviceEnumerated.c)
+ *     ACPIFilterIrpQueryResourceRequirements @ 0x1C009C430 (ACPIFilterIrpQueryResourceRequirements.c)
+ *     ACPIFilterIrpQueryId @ 0x1C00A26D0 (ACPIFilterIrpQueryId.c)
+ *     ACPIThermalWmi @ 0x1C00A35B0 (ACPIThermalWmi.c)
+ *     ACPIEcOtherIrpDispatch @ 0x1C00AE720 (ACPIEcOtherIrpDispatch.c)
  * Callees:
  *     <none>
  */
@@ -26,11 +26,11 @@ __int64 __fastcall ACPIDispatchForwardIrp(ULONG_PTR BugCheckParameter3, PIRP Irp
   if ( v5 && *(_DWORD *)(v5 + 16) != 1599293264 )
     KeBugCheckEx(0xA3u, 2uLL, 0x901A5uLL, BugCheckParameter3, *(_QWORD *)(BugCheckParameter3 + 64));
   KeReleaseSpinLock(&AcpiDeviceTreeLock, v4);
-  if ( *(_QWORD *)(v5 + 776) )
+  if ( *(_QWORD *)(v5 + 736) )
   {
     ++Irp->CurrentLocation;
     ++Irp->Tail.Overlay.CurrentStackLocation;
-    return (unsigned int)IofCallDriver(*(PDEVICE_OBJECT *)(v5 + 776), Irp);
+    return (unsigned int)IofCallDriver(*(PDEVICE_OBJECT *)(v5 + 736), Irp);
   }
   else
   {

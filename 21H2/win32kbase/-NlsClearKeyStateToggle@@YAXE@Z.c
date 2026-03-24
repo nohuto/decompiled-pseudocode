@@ -1,12 +1,12 @@
 /*
- * XREFs of ?NlsClearKeyStateToggle@@YAXE@Z @ 0x1C01EAFB8
+ * XREFs of ?NlsClearKeyStateToggle@@YAXE@Z @ 0x1C01AB5B8
  * Callers:
- *     ?NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EAEA0 (-NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsCodeInputToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB020 (-NlsCodeInputToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB260 (-NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB450 (-NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsRomanToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB6C0 (-NlsRomanToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsSbcsDbcsToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB7E0 (-NlsSbcsDbcsToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB4A0 (-NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsCodeInputToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB620 (-NlsCodeInputToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB860 (-NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01ABA50 (-NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsRomanToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01ABCC0 (-NlsRomanToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsSbcsDbcsToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01ABDE0 (-NlsSbcsDbcsToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
  * Callees:
  *     <none>
  */

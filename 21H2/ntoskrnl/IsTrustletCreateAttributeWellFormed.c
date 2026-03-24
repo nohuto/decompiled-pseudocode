@@ -1,7 +1,7 @@
 /*
- * XREFs of IsTrustletCreateAttributeWellFormed @ 0x1405E09B4
+ * XREFs of IsTrustletCreateAttributeWellFormed @ 0x140582A2C
  * Callers:
- *     PspBuildCreateProcessContext @ 0x140670488 (PspBuildCreateProcessContext.c)
+ *     PspBuildCreateProcessContext @ 0x140608C44 (PspBuildCreateProcessContext.c)
  * Callees:
  *     <none>
  */
@@ -12,8 +12,8 @@ char __fastcall IsTrustletCreateAttributeWellFormed(_QWORD *a1, __int64 a2)
   unsigned int v3; // r8d
   unsigned int v4; // r11d
   unsigned int v5; // eax
-  __int64 **v6; // rbx
-  unsigned int v7; // r10d
+  __int64 *v6; // rbx
+  unsigned int i; // edx
 
   if ( a2 != 8 )
   {
@@ -29,19 +29,15 @@ char __fastcall IsTrustletCreateAttributeWellFormed(_QWORD *a1, __int64 a2)
         v5 = HIDWORD(a1[v2 + 1]);
         if ( (_BYTE)v5 || v5 >= 0x100 || (a1[v2 + 1] & 0xF0000000LL) != 0 )
           return 0;
-        v6 = &`IsTrustletCreateAttributeWellFormed'::`2'::KnownAttributeTypes;
-        v7 = 0;
-        while ( LODWORD(a1[v2 + 1]) != *(_DWORD *)*v6 )
+        v6 = `IsTrustletCreateAttributeWellFormed'::`2'::KnownAttributeTypes;
+        for ( i = 0; i < 4; ++i )
         {
-          ++v7;
-          ++v6;
-          if ( v7 >= 4 )
-          {
-            if ( v7 == 4 )
-              return 0;
+          if ( LODWORD(a1[v2 + 1]) == *(_DWORD *)*v6 )
             break;
-          }
+          ++v6;
         }
+        if ( i == 4 )
+          return 0;
         ++v4;
         v2 = (unsigned int)BYTE1(a1[v2 + 1]) + (_DWORD)v2 + 1;
         if ( (unsigned int)v2 >= v3 )

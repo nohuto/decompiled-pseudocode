@@ -1,1 +1,32 @@
-/*\n * XREFs of WppCleanupKm @ 0x1C000CEC4\n * Callers:\n *     DriverEntry @ 0x1C000E080 (DriverEntry.c)\n * Callees:\n *     _guard_dispatch_icall_nop @ 0x1C00017D0 (_guard_dispatch_icall_nop.c)\n */\n\nvoid __fastcall WppCleanupKm(__int64 a1)\n{\n  PDEVICE_OBJECT v1; // rbx\n\n  v1 = WPP_GLOBAL_Control;\n  if ( WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control )\n  {\n    if ( WPPTraceSuite == 4 )\n    {\n      while ( v1 )\n      {\n        if ( v1->Vpb )\n          ((void (*)(void))pfnEtwUnregister)();\n        v1 = v1->NextDevice;\n      }\n    }\n    else if ( WPPTraceSuite == 2 )\n    {\n      IoWMIRegistrationControl(WPP_GLOBAL_Control, 0x80000002);\n    }\n    WppAutoLogStop(WPP_GLOBAL_Control, a1);\n    WPP_GLOBAL_Control = (PDEVICE_OBJECT)&WPP_GLOBAL_Control;\n  }\n}\n
+/*
+ * XREFs of WppCleanupKm @ 0x1C000CEC4
+ * Callers:
+ *     DriverEntry @ 0x1C000E080 (DriverEntry.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00017D0 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall WppCleanupKm(__int64 a1)
+{
+  PDEVICE_OBJECT v1; // rbx
+
+  v1 = WPP_GLOBAL_Control;
+  if ( WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control )
+  {
+    if ( WPPTraceSuite == 4 )
+    {
+      while ( v1 )
+      {
+        if ( v1->Vpb )
+          ((void (*)(void))pfnEtwUnregister)();
+        v1 = v1->NextDevice;
+      }
+    }
+    else if ( WPPTraceSuite == 2 )
+    {
+      IoWMIRegistrationControl(WPP_GLOBAL_Control, 0x80000002);
+    }
+    WppAutoLogStop(WPP_GLOBAL_Control, a1);
+    WPP_GLOBAL_Control = (PDEVICE_OBJECT)&WPP_GLOBAL_Control;
+  }
+}

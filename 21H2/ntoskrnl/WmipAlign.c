@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipAlign @ 0x1402E09E0
+ * XREFs of WmipAlign @ 0x140264F60
  * Callers:
- *     WmipInsertStaticNames @ 0x14078CB04 (WmipInsertStaticNames.c)
- *     WmipQueryAllData @ 0x14078CD70 (WmipQueryAllData.c)
- *     WmipAllocateSingleInstanceWnode @ 0x1409DC140 (WmipAllocateSingleInstanceWnode.c)
- *     WmipDereferenceEvent @ 0x1409DCFD4 (WmipDereferenceEvent.c)
- *     WmipIncludeStaticNames @ 0x1409DD3C4 (WmipIncludeStaticNames.c)
+ *     WmipInsertStaticNames @ 0x140638E70 (WmipInsertStaticNames.c)
+ *     WmipQueryAllData @ 0x1406390D4 (WmipQueryAllData.c)
+ *     WmipAllocateSingleInstanceWnode @ 0x140931710 (WmipAllocateSingleInstanceWnode.c)
+ *     WmipDereferenceEvent @ 0x1409323EC (WmipDereferenceEvent.c)
+ *     WmipIncludeStaticNames @ 0x1409327DC (WmipIncludeStaticNames.c)
  * Callees:
  *     <none>
  */

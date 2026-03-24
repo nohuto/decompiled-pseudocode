@@ -1,34 +1,42 @@
 /*
- * XREFs of UserAssociateHwnd @ 0x1C01E318C
+ * XREFs of UserAssociateHwnd @ 0x1C01E8ABC
  * Callers:
- *     EngCreateWnd @ 0x1C0283EE0 (EngCreateWnd.c)
- *     EngDeleteWnd @ 0x1C02843D0 (EngDeleteWnd.c)
+ *     EngCreateWnd @ 0x1C0287330 (EngCreateWnd.c)
+ *     EngDeleteWnd @ 0x1C0287810 (EngDeleteWnd.c)
  * Callees:
- *     InternalRemoveProp @ 0x1C0069510 (InternalRemoveProp.c)
- *     InternalSetProp @ 0x1C0083110 (InternalSetProp.c)
+ *     InternalSetProp @ 0x1C00384A8 (InternalSetProp.c)
  */
 
 __int64 __fastcall UserAssociateHwnd(__int64 a1, __int64 a2)
 {
-  unsigned int v3; // edi
+  unsigned int v3; // ebx
   __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
 
   v3 = 0;
   v4 = ValidateHwnd(a1);
   if ( v4 )
   {
+    v5 = (unsigned __int16)atomWndObj;
     if ( a2 )
     {
       if ( (unsigned int)InternalSetProp(v4, (unsigned __int16)atomWndObj, a2, 5u) )
       {
-        ++*((_DWORD *)&WPP_MAIN_CB.DeviceQueue.1 + 1);
+        ++*(&WPP_MAIN_CB.AlignmentRequirement + 1);
         return 1;
       }
     }
-    else if ( InternalRemoveProp(v4, (unsigned __int16)atomWndObj, 1u) )
+    else
     {
-      --*((_DWORD *)&WPP_MAIN_CB.DeviceQueue.1 + 1);
-      return 1;
+      v6 = *(_QWORD *)(v4 + 144);
+      if ( atomWndObj == word_1C033AF44 )
+        *(_QWORD *)(*(_QWORD *)(v4 + 40) + 312LL) = 0LL;
+      if ( RealInternalRemoveProp(v6, v5, 1LL) )
+      {
+        --*(&WPP_MAIN_CB.AlignmentRequirement + 1);
+        return 1;
+      }
     }
   }
   return v3;

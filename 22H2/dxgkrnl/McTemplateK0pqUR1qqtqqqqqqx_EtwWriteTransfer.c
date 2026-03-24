@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pqUR1qqtqqqqqqx_EtwWriteTransfer @ 0x1C005E7E0
+ * XREFs of McTemplateK0pqUR1qqtqqqqqqx_EtwWriteTransfer @ 0x1C0051E50
  * Callers:
- *     DpiReportAdapter @ 0x1C021A0B4 (DpiReportAdapter.c)
+ *     DpiReportAdapter @ 0x1C0195528 (DpiReportAdapter.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqUR1qqtqqqqqqx_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

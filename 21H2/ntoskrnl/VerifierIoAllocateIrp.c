@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierIoAllocateIrp @ 0x140A8A3D0
+ * XREFs of VerifierIoAllocateIrp @ 0x1409C9350
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
- *     VfFaultsInjectResourceFailure @ 0x140A96B0C (VfFaultsInjectResourceFailure.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC82C (VfFaultsInjectResourceFailure.c)
  */
 
 __int64 __fastcall VerifierIoAllocateIrp(char a1, char a2)
@@ -21,11 +21,8 @@ __int64 __fastcall VerifierIoAllocateIrp(char a1, char a2)
     if ( (KeGetPcr()->Prcb.DpcRequestSummary & 1) != 0 )
       VerifierBugCheckIfAppropriate(0xC4u, 0x10BuLL, 0LL, 0LL, 0LL);
   }
-  if ( (unsigned int)VfFaultsInjectResourceFailure(0LL)
-    || (VfRuleClasses & 0x40000) != 0 && ViFnAutoFailInject && (unsigned __int8)ViFnAutoFailInject("IoAllocateIrp") )
-  {
+  if ( (unsigned int)VfFaultsInjectResourceFailure(0LL) )
     return 0LL;
-  }
   LOBYTE(v5) = a2;
   LOBYTE(v4) = a1;
   return pXdvIoAllocateIrp(0, v4, v5, (int)retaddr, (__int64)IovAllocateIrp);

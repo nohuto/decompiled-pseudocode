@@ -1,21 +1,21 @@
 /*
- * XREFs of ?HandleCompletedTasks@CEffectCompilationService@@AEAAJXZ @ 0x18004024C
+ * XREFs of ?HandleCompletedTasks@CEffectCompilationService@@AEAAJXZ @ 0x1800A9278
  * Callers:
- *     _lambda_85e973520dc2ca0a0fec8750a81f8fb9_::_lambda_invoker_cdecl_ @ 0x1800F6C10 (_lambda_85e973520dc2ca0a0fec8750a81f8fb9_--_lambda_invoker_cdecl_.c)
+ *     _lambda_85e973520dc2ca0a0fec8750a81f8fb9_::_lambda_invoker_cdecl_ @ 0x1800DF4B0 (_lambda_85e973520dc2ca0a0fec8750a81f8fb9_--_lambda_invoker_cdecl_.c)
  * Callees:
- *     ?RemoveAt@?$DynArray@PEAVCScratchRenderTargetBitmap@@$0A@@@QEAAJI@Z @ 0x1800402F0 (-RemoveAt@-$DynArray@PEAVCScratchRenderTargetBitmap@@$0A@@@QEAAJI@Z.c)
- *     ?OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ @ 0x1800418D4 (-OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D0F68 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?RemoveAt@?$DynArray@PEAVCEffectCompilationTask@@$0A@@@QEAAJI@Z @ 0x1800A931C (-RemoveAt@-$DynArray@PEAVCEffectCompilationTask@@$0A@@@QEAAJI@Z.c)
+ *     ?OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ @ 0x1800A937C (-OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800C0048 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
  */
 
 __int64 __fastcall CEffectCompilationService::HandleCompletedTasks(CEffectCompilationService *this)
 {
   __int64 v2; // rsi
   __int64 v3; // rdi
-  char *v6; // [rsp+30h] [rbp+8h] BYREF
+  struct _RTL_CRITICAL_SECTION *v6; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = (char *)this + 32;
+  v6 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 32);
   EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 32));
   if ( *((_DWORD *)this + 19) )
   {
@@ -35,7 +35,7 @@ __int64 __fastcall CEffectCompilationService::HandleCompletedTasks(CEffectCompil
       }
       *(_DWORD *)(v3 + 40) = 0;
       DynArrayImpl<0>::ShrinkToSize(v3 + 16, 8LL);
-      DynArray<CScratchRenderTargetBitmap *,0>::RemoveAt((char *)this + 80, 0LL);
+      DynArray<CEffectCompilationTask *,0>::RemoveAt((char *)this + 80, 0LL);
     }
     while ( (*((_DWORD *)this + 19))-- != 1 );
   }

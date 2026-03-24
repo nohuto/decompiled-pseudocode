@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpGetProcessorBrandString @ 0x140852A2C
+ * XREFs of HalpGetProcessorBrandString @ 0x1407C7C70
  * Callers:
- *     HaliQuerySystemInformation @ 0x140A88510 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x14098F9D0 (HaliQuerySystemInformation.c)
  * Callees:
- *     HalpCpuID @ 0x14036D9D0 (HalpCpuID.c)
+ *     HalpCpuID @ 0x14032CB30 (HalpCpuID.c)
  */
 
-__int64 __fastcall HalpGetProcessorBrandString(unsigned int a1, __int64 a2, _DWORD *a3)
+__int64 __fastcall HalpGetProcessorBrandString(unsigned int a1, __int64 a2, unsigned int *a3)
 {
   unsigned int v6; // ebx
   unsigned int v7; // ebp
   unsigned int v8; // esi
-  __int64 v9; // r14
+  unsigned int v9; // r14d
   _DWORD *v11; // rdi
   unsigned int v12[14]; // [rsp+30h] [rbp-38h] BYREF
   int v13; // [rsp+88h] [rbp+20h] BYREF
@@ -30,9 +30,9 @@ __int64 __fastcall HalpGetProcessorBrandString(unsigned int a1, __int64 a2, _DWO
   {
     if ( v12[0] > 0x80000004 )
       v7 = -2147483644;
-    v9 = 16 * (v7 + 0x7FFFFFFF);
-    *a3 = v9 + 1;
-    if ( a1 >= (int)v9 + 1 )
+    v9 = 16 * (v7 + 0x7FFFFFFF) + 1;
+    *a3 = v9;
+    if ( a1 >= v9 )
     {
       if ( v7 >= 0x80000002 )
       {
@@ -45,7 +45,7 @@ __int64 __fastcall HalpGetProcessorBrandString(unsigned int a1, __int64 a2, _DWO
         }
         while ( v8 <= v7 );
       }
-      *(_BYTE *)(v9 + a2) = 0;
+      *(_BYTE *)(16 * (v7 + 0x7FFFFFFF) + a2) = 0;
     }
     else
     {

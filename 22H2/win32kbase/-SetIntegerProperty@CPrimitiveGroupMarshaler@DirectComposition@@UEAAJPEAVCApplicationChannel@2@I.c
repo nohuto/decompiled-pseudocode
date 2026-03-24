@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CPrimitiveGroupMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00A9D10
+ * XREFs of ?SetIntegerProperty@CPrimitiveGroupMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0095F10
  * Callers:
  *     <none>
  * Callees:

@@ -1,78 +1,57 @@
 /*
- * XREFs of MiCheckVirtualAddress @ 0x1403536F0
+ * XREFs of MiCheckVirtualAddress @ 0x14028D510
  * Callers:
- *     MiTranslatePageForCopy @ 0x14026C808 (MiTranslatePageForCopy.c)
- *     MiSystemFault @ 0x140279590 (MiSystemFault.c)
- *     MiCheckProtoAccess @ 0x140280308 (MiCheckProtoAccess.c)
- *     MiIsFaultPteIntact @ 0x1402803FC (MiIsFaultPteIntact.c)
- *     MiFindActualFaultingPte @ 0x1402804F0 (MiFindActualFaultingPte.c)
- *     MiResolveDemandZeroFault @ 0x14031FD60 (MiResolveDemandZeroFault.c)
- *     MiInPagePageTable @ 0x140353230 (MiInPagePageTable.c)
+ *     MiResolveDemandZeroFault @ 0x14020FB50 (MiResolveDemandZeroFault.c)
+ *     MiCheckProtoAccess @ 0x14028D180 (MiCheckProtoAccess.c)
+ *     MiIsFaultPteIntact @ 0x14028D274 (MiIsFaultPteIntact.c)
+ *     MiFindActualFaultingPte @ 0x14028D344 (MiFindActualFaultingPte.c)
+ *     MiTranslatePageForCopy @ 0x1402B4DE4 (MiTranslatePageForCopy.c)
+ *     MiSystemFault @ 0x140311400 (MiSystemFault.c)
  * Callees:
- *     MiLocateAddress @ 0x1403126F0 (MiLocateAddress.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1403127E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiCheckUserVirtualAddress @ 0x140353858 (MiCheckUserVirtualAddress.c)
+ *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
+ *     MiCheckUserVirtualAddress @ 0x14032EA00 (MiCheckUserVirtualAddress.c)
  */
 
 __int64 __fastcall MiCheckVirtualAddress(unsigned __int64 a1, _DWORD *a2, __int64 ***a3)
 {
-  __int64 v6; // rax
+  _DWORD *v4; // r11
+  __int64 v5; // rax
   __int64 **Address; // rax
-  __int64 v8; // r8
-  __int64 **v9; // rsi
+  __int64 v7; // r10
   __int64 result; // rax
 
   *a3 = 0LL;
-  if ( a1 > 0x7FFFFFFEFFFFLL )
+  v4 = a2;
+  if ( a1 <= 0x7FFFFFFEFFFFLL )
   {
-    if ( a1 < 0xFFFFF68000000000uLL || a1 > 0xFFFFF6FFFFFFFFFFuLL )
+    if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 1) == 0 )
     {
-      *a2 = 24;
-      return 0LL;
-    }
-    else
-    {
-      *a2 = 4;
-      return 0LL;
-    }
-  }
-  else
-  {
-    if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 1) != 0 )
-      goto LABEL_5;
-    v6 = a1 & 0x7FFFFFFFF000LL;
-    if ( (a1 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
-    {
-      result = qword_140C50668;
-      *a2 = 1;
-      return result;
-    }
-    if ( v6 == qword_140C50678 && v6 )
-    {
-      result = qword_140C50670;
-      *a2 = 1;
-    }
-    else
-    {
-LABEL_5:
-      ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28]
-                                                      + 284));
-      Address = MiLocateAddress(a1);
-      v9 = Address;
-      if ( Address )
+      v5 = a1 & 0x7FFFFFFFF000LL;
+      if ( (a1 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
       {
-        result = MiCheckUserVirtualAddress(a1, Address, v8, a2);
-        *a3 = v9;
+        result = qword_140C4DE38;
+LABEL_10:
+        *a2 = 1;
+        return result;
       }
-      else
+      if ( v5 == qword_140C4DE48 && v5 )
       {
-        ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28]
-                                                          + 284));
-        result = 0LL;
-        *a2 = 24;
+        result = qword_140C4DE40;
+        goto LABEL_10;
       }
     }
+    Address = MiLocateAddress(a1);
+    *a3 = Address;
+    if ( Address )
+      return MiCheckUserVirtualAddress(v7, v4);
+    goto LABEL_14;
   }
-  return result;
+  if ( a1 < 0xFFFFF68000000000uLL || a1 > 0xFFFFF6FFFFFFFFFFuLL )
+  {
+LABEL_14:
+    *v4 = 24;
+    return 0LL;
+  }
+  *a2 = 4;
+  return 0LL;
 }

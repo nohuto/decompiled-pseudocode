@@ -1,11 +1,11 @@
 /*
- * XREFs of PspLockRootJobShared @ 0x1406A3C6C
+ * XREFs of PspLockRootJobShared @ 0x140618CD4
  * Callers:
- *     PspQueryJobHierarchyAccountingInformation @ 0x1406A2AC0 (PspQueryJobHierarchyAccountingInformation.c)
- *     PspChargeJobWakeCounter @ 0x1406A3A44 (PspChargeJobWakeCounter.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x140617BCC (PspQueryJobHierarchyAccountingInformation.c)
+ *     PspChargeJobWakeCounter @ 0x140618278 (PspChargeJobWakeCounter.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
  */
 
 __int64 __fastcall PspLockRootJobShared(__int64 a1, __int64 a2, _QWORD *a3)
@@ -16,11 +16,11 @@ __int64 __fastcall PspLockRootJobShared(__int64 a1, __int64 a2, _QWORD *a3)
 
   if ( a2 )
     --*(_WORD *)(a2 + 486);
-  for ( i = *(_QWORD *)(a1 + 1296); ; i = *(_QWORD *)(a1 + 1296) )
+  for ( i = *(_QWORD *)(a1 + 1080); ; i = *(_QWORD *)(a1 + 1080) )
   {
     v7 = i;
     ExAcquireResourceSharedLite((PERESOURCE)(i + 56), 1u);
-    if ( v7 == *(_QWORD *)(a1 + 1296) )
+    if ( v7 == *(_QWORD *)(a1 + 1080) )
       break;
     ExReleaseResourceLite((PERESOURCE)(v7 + 56));
   }

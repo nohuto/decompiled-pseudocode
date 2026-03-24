@@ -1,16 +1,15 @@
 /*
- * XREFs of ?VmBusSubmitSignalToHwQueueHelper@@YAJPEAVDXGPROCESS@@_NIIPEBI2PEB_KPEAI4PEA_K@Z @ 0x1C039436C
+ * XREFs of ?VmBusSubmitSignalToHwQueueHelper@@YAJPEAVDXGPROCESS@@_NIIPEBI2PEB_KPEAI4PEA_K@Z @ 0x1C0250888
  * Callers:
- *     ?VmBusSendSignalSyncObject@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@IPEBIU_D3DDDICB_SIGNALFLAGS@@K1PEB_K_KPEBQEAX_N6PEAVDXGDEVICE@@@Z @ 0x1C038E46C (-VmBusSendSignalSyncObject@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@IPEBIU_D3DDDICB_SIGN.c)
+ *     ?VmBusSendSignalSyncObject@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@IPEBIU_D3DDDICB_SIGNALFLAGS@@K1PEB_K_KPEBQEAX_N6PEAVDXGDEVICE@@@Z @ 0x1C024C724 (-VmBusSendSignalSyncObject@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@IPEBIU_D3DDDICB_SIGN.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetHostHandle@DXGSYNCOBJECT@@QEAAIIE@Z @ 0x1C034FF4C (-GetHostHandle@DXGSYNCOBJECT@@QEAAIIE@Z.c)
+ *     ?GetHostHandle@DXGSYNCOBJECT@@QEAAIIE@Z @ 0x1C02912E8 (-GetHostHandle@DXGSYNCOBJECT@@QEAAIIE@Z.c)
  */
 
 __int64 __fastcall VmBusSubmitSignalToHwQueueHelper(
         struct DXGPROCESS *a1,
-        char a2,
-        unsigned int a3,
+        __int64 a2,
+        __int64 a3,
         unsigned int a4,
         const unsigned int *a5,
         const unsigned int *a6,
@@ -19,155 +18,146 @@ __int64 __fastcall VmBusSubmitSignalToHwQueueHelper(
         unsigned int *a9,
         unsigned __int64 *a10)
 {
-  unsigned int v11; // edi
-  unsigned int v12; // eax
-  __int64 v13; // r9
-  int v14; // ecx
-  __int64 v15; // rax
-  __int64 v16; // rdi
-  unsigned int v17; // r8d
-  unsigned int v18; // eax
-  unsigned int v19; // r11d
-  __int64 v20; // r10
-  unsigned int v21; // ecx
-  DXGSYNCOBJECT *v22; // rcx
+  struct DXGPROCESS *v11; // r13
+  __int64 i; // rbx
+  __int64 v13; // rdx
+  __int64 v14; // rax
+  __int64 v15; // r9
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rcx
+  __int64 j; // rdi
+  __int64 v21; // rdx
+  unsigned int v22; // r11d
+  unsigned int v23; // esi
+  __int64 v24; // r9
+  unsigned int v25; // ecx
+  DXGSYNCOBJECT *v26; // rcx
   unsigned int HostHandle; // eax
-  unsigned int v24; // eax
-  unsigned int v25; // r8d
-  __int64 v26; // r9
-  unsigned int v27; // ecx
-  int v28; // ecx
+  __int64 v28; // rax
   __int64 v29; // rax
   unsigned __int64 *v30; // rdx
-  struct DXGPROCESS *v32; // [rsp+80h] [rbp+8h]
+  char v32; // [rsp+78h] [rbp+10h]
+  unsigned int v33; // [rsp+80h] [rbp+18h]
 
-  v32 = a1;
-  v11 = 0;
-  if ( !a7 || !a6 )
+  v33 = a3;
+  v32 = a2;
+  v11 = a1;
+  if ( a7 && a6 )
   {
-    WdLogSingleEntry1(2LL, 8948LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"MonitoredFenceValueArray or ObjectHandleArray not specified for submit signal to HwQueue",
-      8948LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225485LL;
-  }
-  while ( 1 )
-  {
-    if ( v11 >= a4 )
+    for ( i = 0LL; ; i = (unsigned int)(i + 1) )
     {
-      v16 = 0LL;
-      while ( 1 )
+      if ( (unsigned int)i >= a4 )
       {
-        if ( (unsigned int)v16 >= a3 )
-          return 0LL;
-        v17 = a6[v16];
-        v18 = (v17 >> 6) & 0xFFFFFF;
-        v19 = *((_DWORD *)a1 + 74);
-        if ( v18 < v19
-          && (v20 = *((_QWORD *)a1 + 35), v21 = *(_DWORD *)(v20 + 16LL * v18 + 8), a6[v16] >> 30 == ((v21 >> 5) & 3))
-          && (v21 & 0x2000) == 0
-          && (v21 & 0x1F) == 8 )
+        for ( j = 0LL; (unsigned int)j < v33; j = (unsigned int)(j + 1) )
         {
-          v22 = *(DXGSYNCOBJECT **)(v20 + 16LL * v18);
+          v21 = (a6[j] >> 6) & 0xFFFFFF;
+          v22 = a6[j] >> 30;
+          v23 = *((_DWORD *)v11 + 64);
+          if ( (unsigned int)v21 < v23
+            && (LOBYTE(a3) = a6[j] >> 6,
+                v24 = *((_QWORD *)v11 + 30),
+                v25 = *(_DWORD *)(v24 + 16LL * (unsigned int)v21 + 8),
+                v22 == ((v25 >> 5) & 3))
+            && (v25 & 0x2000) == 0
+            && (v25 & 0x1F) != 0
+            && (LOBYTE(a3) = 2 * (a6[j] >> 6), (v25 & 0x1F) == 8) )
+          {
+            v26 = *(DXGSYNCOBJECT **)(v24 + 16LL * (unsigned int)v21);
+          }
+          else
+          {
+            v26 = 0LL;
+          }
+          if ( v26 )
+          {
+            HostHandle = DXGSYNCOBJECT::GetHostHandle(v26, a6[j], a3);
+          }
+          else
+          {
+            if ( (unsigned int)v21 >= v23 )
+              goto LABEL_34;
+            a3 = *((_QWORD *)v11 + 30);
+            v26 = (DXGSYNCOBJECT *)*(unsigned int *)(a3 + 16 * v21 + 8);
+            if ( v22 != ((*(_DWORD *)(a3 + 16 * v21 + 8) >> 5) & 3)
+              || ((unsigned __int16)v26 & 0x2000) != 0
+              || ((unsigned __int8)v26 & 0x1F) == 0 )
+            {
+              goto LABEL_34;
+            }
+            v21 *= 2LL;
+            v26 = (DXGSYNCOBJECT *)((unsigned __int8)v26 & 0x1F);
+            if ( (_BYTE)v26 != 11 )
+            {
+              v28 = WdLogNewEntry5_WdError(v26, v21);
+              *(_QWORD *)(v28 + 24) = 316LL;
+              WdLogEvent5_WdError(v28);
+LABEL_34:
+              v18 = WdLogNewEntry5_WdError(v26, v21);
+              v19 = a6[j];
+              goto LABEL_16;
+            }
+            v29 = *(_QWORD *)(a3 + 8 * v21);
+            if ( !v29 )
+              goto LABEL_34;
+            HostHandle = *(_DWORD *)(v29 + 44);
+          }
+          a9[j] = HostHandle;
+          if ( v32 )
+          {
+            v30 = (unsigned __int64 *)&a7[j];
+            if ( (unsigned __int64)v30 >= MmUserProbeAddress )
+              v30 = (unsigned __int64 *)MmUserProbeAddress;
+            a10[j] = *v30;
+          }
+          else
+          {
+            a10[j] = a7[j];
+          }
         }
-        else
-        {
-          v22 = 0LL;
-        }
-        if ( v22 )
-        {
-          HostHandle = DXGSYNCOBJECT::GetHostHandle(v22, v17);
-          goto LABEL_35;
-        }
-        v24 = (v17 >> 6) & 0xFFFFFF;
-        v25 = v17 >> 30;
-        if ( v24 >= v19 )
-          goto LABEL_32;
-        v26 = *((_QWORD *)v32 + 35);
-        v27 = *(_DWORD *)(v26 + 16LL * v24 + 8);
-        if ( v25 != ((v27 >> 5) & 3) )
-          goto LABEL_32;
-        if ( (v27 & 0x2000) != 0 )
-          goto LABEL_32;
-        v28 = v27 & 0x1F;
-        if ( !v28 )
-          goto LABEL_32;
-        if ( v28 != 11 )
-          break;
-        v29 = *(_QWORD *)(v26 + 16LL * v24);
-LABEL_33:
-        if ( !v29 )
-        {
-          WdLogSingleEntry1(2LL, a6[v16]);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Invalid sync object handle 0x%I64x",
-            a6[v16],
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          return 3221225485LL;
-        }
-        HostHandle = *(_DWORD *)(v29 + 44);
-LABEL_35:
-        a9[v16] = HostHandle;
-        if ( a2 )
-        {
-          v30 = (unsigned __int64 *)&a7[v16];
-          if ( (unsigned __int64)v30 >= MmUserProbeAddress )
-            v30 = (unsigned __int64 *)MmUserProbeAddress;
-          a10[v16] = *v30;
-        }
-        else
-        {
-          a10[v16] = a7[v16];
-        }
-        v16 = (unsigned int)(v16 + 1);
-        a1 = v32;
+        return 0LL;
       }
-      WdLogSingleEntry1(2LL, 316LL);
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
-LABEL_32:
-      v29 = 0LL;
-      goto LABEL_33;
+      v13 = a5[i];
+      v14 = (a5[i] >> 6) & 0xFFFFFF;
+      if ( (unsigned int)v14 >= *((_DWORD *)v11 + 64) )
+        goto LABEL_11;
+      LOBYTE(a3) = a5[i] >> 6;
+      v15 = *((_QWORD *)v11 + 30);
+      a1 = (struct DXGPROCESS *)*(unsigned int *)(v15 + 16 * v14 + 8);
+      v13 = ((unsigned int)v13 >> 25) & 0x60;
+      if ( (_BYTE)v13 != (*(_BYTE *)(v15 + 16 * v14 + 8) & 0x60)
+        || ((unsigned __int16)a1 & 0x2000) != 0
+        || ((unsigned __int8)a1 & 0x1F) == 0 )
+      {
+        goto LABEL_11;
+      }
+      LOBYTE(a3) = 2 * (a5[i] >> 6);
+      a1 = (struct DXGPROCESS *)((unsigned __int8)a1 & 0x1F);
+      if ( (_BYTE)a1 != 15 )
+        break;
+      v17 = *(_QWORD *)(v15 + 16LL * (unsigned int)v14);
+LABEL_12:
+      if ( !v17 )
+      {
+        v18 = WdLogNewEntry5_WdError(a1, v13);
+        v19 = a5[i];
+LABEL_16:
+        *(_QWORD *)(v18 + 24) = v19;
+        goto LABEL_45;
+      }
+      a8[i] = *(_DWORD *)(v17 + 28);
     }
-    v12 = (a5[v11] >> 6) & 0xFFFFFF;
-    if ( v12 >= *((_DWORD *)a1 + 74) )
-      goto LABEL_10;
-    v13 = *((_QWORD *)a1 + 35);
-    if ( ((a5[v11] >> 25) & 0x60) != (*(_BYTE *)(v13 + 16LL * v12 + 8) & 0x60) )
-      goto LABEL_10;
-    if ( (*(_DWORD *)(v13 + 16LL * v12 + 8) & 0x2000) != 0 )
-      goto LABEL_10;
-    v14 = *(_DWORD *)(v13 + 16LL * v12 + 8) & 0x1F;
-    if ( !v14 )
-      goto LABEL_10;
-    if ( v14 != 15 )
-    {
-      WdLogSingleEntry1(2LL, 316LL);
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
-LABEL_10:
-      v15 = 0LL;
-      goto LABEL_11;
-    }
-    v15 = *(_QWORD *)(v13 + 16LL * v12);
+    v16 = WdLogNewEntry5_WdError(a1, v13);
+    *(_QWORD *)(v16 + 24) = 316LL;
+    WdLogEvent5_WdError(v16);
 LABEL_11:
-    if ( !v15 )
-      break;
-    a8[v11++] = *(_DWORD *)(v15 + 28);
-    a1 = v32;
+    v17 = 0LL;
+    goto LABEL_12;
   }
-  WdLogSingleEntry1(2LL, a5[v11]);
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Invalid HwQueue handle: 0x%I64x", a5[v11], 0LL, 0LL, 0LL, 0LL);
+  v18 = WdLogNewEntry5_WdError(a1, a2);
+  *(_QWORD *)(v18 + 24) = 7504LL;
+LABEL_45:
+  WdLogEvent5_WdError(v18);
   return 3221225485LL;
 }

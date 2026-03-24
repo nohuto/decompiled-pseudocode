@@ -1,20 +1,19 @@
 /*
- * XREFs of ?Allocate@?$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C00D1960
+ * XREFs of ?Allocate@?$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C00C8A28
  * Callers:
- *     ?Allocate@?$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C00D1A34 (-Allocate@-$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ *     ?Allocate@?$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C00C8AFC (-Allocate@-$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@IEAAPEAXXZ.c)
  * Callees:
- *     GreEnterCriticalRegionAndAcquirePushLockExclusive @ 0x1C0044300 (GreEnterCriticalRegionAndAcquirePushLockExclusive.c)
- *     GreLeaveCriticalRegionAndReleasePushLockExclusive @ 0x1C00443B0 (GreLeaveCriticalRegionAndReleasePushLockExclusive.c)
- *     ?CommitSlot@?$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@AEAA_NI@Z @ 0x1C00D1BF4 (-CommitSlot@-$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@AEAA_NI@Z.c)
+ *     GreLeaveCriticalRegionAndReleasePushLockExclusive @ 0x1C00309D0 (GreLeaveCriticalRegionAndReleasePushLockExclusive.c)
+ *     GreEnterCriticalRegionAndAcquirePushLockExclusive @ 0x1C0031430 (GreEnterCriticalRegionAndAcquirePushLockExclusive.c)
+ *     ?CommitSlot@?$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@AEAA_NI@Z @ 0x1C00C8CC0 (-CommitSlot@-$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@AEAA_NI@Z.c)
  */
 
 __int64 __fastcall NSInstrumentation::CSectionBitmapAllocator<917504,3584>::Allocate(__int64 a1)
 {
   __int64 v1; // rbx
   ULONG ClearBits; // eax
-  __int64 v4; // rsi
+  __int64 v4; // rdi
   ULONG v5; // ebp
-  __int64 v6; // rsi
 
   v1 = *(_QWORD *)a1;
   GreEnterCriticalRegionAndAcquirePushLockExclusive(*(_QWORD *)a1);
@@ -27,12 +26,11 @@ __int64 __fastcall NSInstrumentation::CSectionBitmapAllocator<917504,3584>::Allo
   if ( ClearBits != -1
     && (unsigned __int8)NSInstrumentation::CSectionBitmapAllocator<917504,3584>::CommitSlot(a1, ClearBits) )
   {
-    RtlTestBit((PRTL_BITMAP)(*(_QWORD *)(a1 + 24) ^ *(_QWORD *)(a1 + 16)), v5);
-    RtlSetBit((PRTL_BITMAP)(*(_QWORD *)(a1 + 24) ^ *(_QWORD *)(a1 + 16)), v5);
-    ++*(_DWORD *)(a1 + 32);
-    v6 = *(_QWORD *)(a1 + 16) ^ *(_QWORD *)(a1 + 8);
-    *(_DWORD *)(a1 + 32) &= -(*(_DWORD *)(a1 + 32) < 0xE0u);
-    v4 = (v5 << 12) + v6;
+    RtlTestBit((PRTL_BITMAP)(*(_QWORD *)(a1 + 16) ^ *(_QWORD *)(a1 + 24)), v5);
+    RtlSetBit((PRTL_BITMAP)(*(_QWORD *)(a1 + 16) ^ *(_QWORD *)(a1 + 24)), v5);
+    if ( ++*(_DWORD *)(a1 + 32) >= 0xE0u )
+      *(_DWORD *)(a1 + 32) = 0;
+    v4 = (v5 << 12) + (*(_QWORD *)(a1 + 16) ^ *(_QWORD *)(a1 + 8));
   }
   GreLeaveCriticalRegionAndReleasePushLockExclusive(v1);
   return v4;

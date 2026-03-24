@@ -1,11 +1,11 @@
 /*
- * XREFs of SeCreateClientSecurityFromSubjectContext @ 0x1406CB670
+ * XREFs of SeCreateClientSecurityFromSubjectContext @ 0x1406CB650
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     RtlSidDominatesForTrust @ 0x1400AD180 (RtlSidDominatesForTrust.c)
+ *     RtlSidDominatesForTrust @ 0x1400AD1A0 (RtlSidDominatesForTrust.c)
  *     SepCreateClientSecurityEx @ 0x140631EC0 (SepCreateClientSecurityEx.c)
  */
 

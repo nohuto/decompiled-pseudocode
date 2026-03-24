@@ -1,5 +1,5 @@
 /*
- * XREFs of CmListGetNextElement @ 0x1406948E0
+ * XREFs of CmListGetNextElement @ 0x1406948C0
  * Callers:
  *     CmpCheckOpenAccessOnKeyBody @ 0x140596210 (CmpCheckOpenAccessOnKeyBody.c)
  *     CmGetVisibleSubkeyCount @ 0x1405AA548 (CmGetVisibleSubkeyCount.c)
@@ -7,23 +7,23 @@
  *     CmpWalkOneLevel @ 0x1405D4560 (CmpWalkOneLevel.c)
  *     CmpIsKeyDeletedForKeyBody @ 0x1405D7310 (CmpIsKeyDeletedForKeyBody.c)
  *     CmpQueryKeyDataFromCache @ 0x1405D79A0 (CmpQueryKeyDataFromCache.c)
- *     CmpIsKeyStackDeleted @ 0x140644670 (CmpIsKeyStackDeleted.c)
- *     CmQueryValueKey @ 0x1406451B0 (CmQueryValueKey.c)
- *     CmpCommitPreparedLightWeightTransaction @ 0x140693690 (CmpCommitPreparedLightWeightTransaction.c)
- *     CmpPrepareLightWeightTransaction @ 0x14069377C (CmpPrepareLightWeightTransaction.c)
- *     CmpCleanupLightWeightPrepare @ 0x140693858 (CmpCleanupLightWeightPrepare.c)
- *     CmpLightWeightUpdateSharedSetValueData @ 0x140693898 (CmpLightWeightUpdateSharedSetValueData.c)
- *     CmpTransMgrRollback @ 0x140694214 (CmpTransMgrRollback.c)
- *     CmSnapshotRMTxArray @ 0x140694788 (CmSnapshotRMTxArray.c)
- *     CmpIsCmRm @ 0x140694840 (CmpIsCmRm.c)
- *     CmGetVisibleMaxNameLenAndClassLen @ 0x1406BD528 (CmGetVisibleMaxNameLenAndClassLen.c)
- *     CmpSearchForTrans @ 0x1406FA908 (CmpSearchForTrans.c)
- *     CmpTransMgrPrepare @ 0x1406FCDFC (CmpTransMgrPrepare.c)
- *     CmpLogCheckpoint @ 0x140701D98 (CmpLogCheckpoint.c)
- *     CmUnRegisterCallback @ 0x1407EB030 (CmUnRegisterCallback.c)
- *     CmpRmAnalysisPhase @ 0x1407F8FDC (CmpRmAnalysisPhase.c)
- *     CmpRmUnDoPhase @ 0x1407F93C0 (CmpRmUnDoPhase.c)
- *     CmpLightWeightUpdateModificationActions @ 0x140804D3C (CmpLightWeightUpdateModificationActions.c)
+ *     CmpIsKeyStackDeleted @ 0x140644650 (CmpIsKeyStackDeleted.c)
+ *     CmQueryValueKey @ 0x140645190 (CmQueryValueKey.c)
+ *     CmpCommitPreparedLightWeightTransaction @ 0x140693670 (CmpCommitPreparedLightWeightTransaction.c)
+ *     CmpPrepareLightWeightTransaction @ 0x14069375C (CmpPrepareLightWeightTransaction.c)
+ *     CmpCleanupLightWeightPrepare @ 0x140693838 (CmpCleanupLightWeightPrepare.c)
+ *     CmpLightWeightUpdateSharedSetValueData @ 0x140693878 (CmpLightWeightUpdateSharedSetValueData.c)
+ *     CmpTransMgrRollback @ 0x1406941F4 (CmpTransMgrRollback.c)
+ *     CmSnapshotRMTxArray @ 0x140694768 (CmSnapshotRMTxArray.c)
+ *     CmpIsCmRm @ 0x140694820 (CmpIsCmRm.c)
+ *     CmGetVisibleMaxNameLenAndClassLen @ 0x1406BD508 (CmGetVisibleMaxNameLenAndClassLen.c)
+ *     CmpSearchForTrans @ 0x1406FA8E8 (CmpSearchForTrans.c)
+ *     CmpTransMgrPrepare @ 0x1406FCDDC (CmpTransMgrPrepare.c)
+ *     CmpLogCheckpoint @ 0x140701D78 (CmpLogCheckpoint.c)
+ *     CmUnRegisterCallback @ 0x1407EB010 (CmUnRegisterCallback.c)
+ *     CmpRmAnalysisPhase @ 0x1407F8FBC (CmpRmAnalysisPhase.c)
+ *     CmpRmUnDoPhase @ 0x1407F93A0 (CmpRmUnDoPhase.c)
+ *     CmpLightWeightUpdateModificationActions @ 0x140804D1C (CmpLightWeightUpdateModificationActions.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of NtGdiEudcLoadUnloadLink @ 0x1C02A0D00
+ * XREFs of NtGdiEudcLoadUnloadLink @ 0x1C02987E0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x1C0138470 (__report_rangecheckfailure.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     GreEudcLoadLinkW @ 0x1C029E958 (GreEudcLoadLinkW.c)
- *     GreEudcUnloadLinkW @ 0x1C029EC80 (GreEudcUnloadLinkW.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C01655E0 (__report_rangecheckfailure.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     GreEudcLoadLinkW @ 0x1C0297780 (GreEudcLoadLinkW.c)
+ *     GreEudcUnloadLinkW @ 0x1C0297A90 (GreEudcUnloadLinkW.c)
  */
 
 __int64 __fastcall NtGdiEudcLoadUnloadLink(
-        unsigned __int16 *a1,
+        char *Src,
         unsigned int a2,
         char *a3,
         unsigned int a4,
@@ -27,9 +27,7 @@ __int64 __fastcall NtGdiEudcLoadUnloadLink(
   __int64 v14; // rdx
   unsigned int v15; // r9d
   unsigned int LinkW; // eax
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  _WORD v20[40]; // [rsp+50h] [rbp-98h] BYREF
+  _WORD v18[40]; // [rsp+50h] [rbp-98h] BYREF
 
   v7 = a4;
   v9 = a2;
@@ -39,21 +37,21 @@ __int64 __fastcall NtGdiEudcLoadUnloadLink(
     v12 = (void *)AllocFreeTmpBuffer(2 * a4 + 2);
     if ( v12 )
     {
-      if ( a1 )
+      if ( Src )
       {
         if ( (_DWORD)v9 )
         {
-          if ( ((unsigned __int8)a1 & 1) != 0 )
+          if ( ((unsigned __int8)Src & 1) != 0 )
             ExRaiseDatatypeMisalignment();
-          if ( (unsigned __int64)a1 + v9 > MmUserProbeAddress || (unsigned __int16 *)((char *)a1 + v9) < a1 )
+          if ( (unsigned __int64)&Src[v9] > MmUserProbeAddress || &Src[v9] < Src )
             *(_BYTE *)MmUserProbeAddress = 0;
         }
         v13 = v9;
-        memmove(v20, a1, v13 * 2);
+        memmove(v18, Src, v13 * 2);
         if ( v13 >= 33 )
           _report_rangecheckfailure();
-        v20[v13] = 0;
-        a1 = v20;
+        v18[v13] = 0;
+        Src = (char *)v18;
       }
       if ( ((unsigned __int8)a3 & 1) != 0 )
         ExRaiseDatatypeMisalignment();
@@ -62,11 +60,11 @@ __int64 __fastcall NtGdiEudcLoadUnloadLink(
       memmove(v12, a3, 2 * v7);
       *((_WORD *)v12 + v7) = 0;
       if ( a7 )
-        LinkW = GreEudcLoadLinkW(a1, v14, (size_t *)v12, v15, a5, a6);
+        LinkW = GreEudcLoadLinkW((wchar_t *)Src, v14, (char *)v12, v15, a5, a6);
       else
-        LinkW = GreEudcUnloadLinkW(a1, v14, (unsigned __int16 *)v12);
+        LinkW = GreEudcUnloadLinkW((wchar_t *)Src, v14, (unsigned __int16 *)v12);
       v11 = LinkW;
-      FreeTmpBuffer(v12, v17, v18);
+      FreeTmpBuffer(v12);
     }
     return v11;
   }

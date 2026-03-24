@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPepArmIdleTimer @ 0x1405D4A94
+ * XREFs of PopPepArmIdleTimer @ 0x140573FD4
  * Callers:
- *     PopPepUpdateIdleState @ 0x140354B48 (PopPepUpdateIdleState.c)
- *     PopPepIdleTimeoutDpcRoutine @ 0x14045E5B0 (PopPepIdleTimeoutDpcRoutine.c)
- *     PopPepIdleTimeoutRoutine @ 0x1405D5360 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepGetComponentPreferedIdleState @ 0x140262598 (PopPepGetComponentPreferedIdleState.c)
+ *     PopPepIdleTimeoutDpcRoutine @ 0x1405749C0 (PopPepIdleTimeoutDpcRoutine.c)
+ *     PopPepIdleTimeoutRoutine @ 0x1405749F0 (PopPepIdleTimeoutRoutine.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x1402E2C60 (KeSetCoalescableTimer.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     KeSetCoalescableTimer @ 0x14025FC70 (KeSetCoalescableTimer.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall PopPepArmIdleTimer(char a1)

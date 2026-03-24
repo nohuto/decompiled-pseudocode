@@ -1,33 +1,32 @@
 /*
- * XREFs of AlpcAddHandleTableEntry @ 0x14071EA9C
+ * XREFs of AlpcAddHandleTableEntry @ 0x1406DB5B8
  * Callers:
- *     AlpcpCreateSecurityContext @ 0x14071CA38 (AlpcpCreateSecurityContext.c)
- *     AlpcpCreateSection @ 0x14076C8D8 (AlpcpCreateSection.c)
- *     AlpcpCreateReserve @ 0x1407D03D4 (AlpcpCreateReserve.c)
+ *     AlpcpCreateReserve @ 0x140693ED4 (AlpcpCreateReserve.c)
+ *     AlpcpCreateSecurityContext @ 0x1406D93AC (AlpcpCreateSecurityContext.c)
+ *     AlpcpCreateSection @ 0x140701CAC (AlpcpCreateSection.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     AlpcpReleasePushLockExclusive @ 0x1408C1C10 (AlpcpReleasePushLockExclusive.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AlpcAddHandleTableEntry(__int64 a1, _QWORD *a2)
 {
-  volatile signed __int64 *v2; // rdi
-  unsigned __int64 v5; // rax
-  unsigned __int64 v6; // rbp
+  ULONG_PTR v2; // rbp
+  unsigned __int64 v5; // rsi
+  unsigned __int64 v6; // rbx
   _QWORD *v7; // rcx
-  __int64 v8; // r14
-  void *Pool2; // rax
-  void *v10; // r15
-  __int64 v11; // rbp
-  __int64 v12; // rbp
+  unsigned __int64 v8; // rsi
+  __int64 v9; // rbx
+  PVOID PoolWithTag; // rax
+  void *v12; // r14
+  __int64 v13; // rbx
 
-  v2 = (volatile signed __int64 *)(a1 + 8);
+  v2 = a1 + 8;
   ExAcquirePushLockExclusiveEx(a1 + 8, 0LL);
   v5 = *(_QWORD *)(a1 + 16);
   v6 = 0LL;
@@ -42,45 +41,38 @@ __int64 __fastcall AlpcAddHandleTableEntry(__int64 a1, _QWORD *a2)
         goto LABEL_5;
     }
     *v7 = *a2;
-    if ( (_InterlockedExchangeAdd64(v2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v2);
-    KeAbPostRelease((ULONG_PTR)v2);
+    AlpcpReleasePushLockExclusive(v2);
     return v6 + 16;
   }
   else
   {
 LABEL_5:
     v8 = 2 * v5;
-    if ( 2 * v5 >= 0x1FFFFFFFFFFFFFFFLL )
+    if ( v8 < 0x1FFFFFFFFFFFFFFFLL )
     {
-      if ( (_InterlockedExchangeAdd64(v2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(v2);
-      KeAbPostRelease((ULONG_PTR)v2);
-      return -1LL;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8 * v8, 0x61486C41u);
+      v9 = -1LL;
+      v12 = PoolWithTag;
+      if ( PoolWithTag )
+      {
+        memset(PoolWithTag, 0, 8 * v8);
+        memmove(v12, *(const void **)a1, 8LL * *(_QWORD *)(a1 + 16));
+        v13 = *(_QWORD *)(a1 + 16);
+        *((_QWORD *)v12 + v13) = *a2;
+        if ( *(_QWORD *)(a1 + 16) == 16LL )
+          ExFreeToNPagedLookasideList(&stru_140CEC000, *(PVOID *)a1);
+        else
+          ExFreePoolWithTag(*(PVOID *)a1, 0x61486C41u);
+        *(_QWORD *)a1 = v12;
+        v9 = v13 + 16;
+        *(_QWORD *)(a1 + 16) = v8;
+      }
     }
     else
     {
-      Pool2 = (void *)ExAllocatePool2(256LL, 16 * v5, 1632136257LL);
-      v10 = Pool2;
-      v11 = -1LL;
-      if ( Pool2 )
-      {
-        memset(Pool2, 0, 8 * v8);
-        memmove(v10, *(const void **)a1, 8LL * *(_QWORD *)(a1 + 16));
-        v12 = *(_QWORD *)(a1 + 16);
-        *((_QWORD *)v10 + v12) = *a2;
-        if ( *(_QWORD *)(a1 + 16) == 16LL )
-          ExFreeToNPagedLookasideList(&stru_140D0BF80, *(PVOID *)a1);
-        else
-          ExFreePoolWithTag(*(PVOID *)a1, 0x61486C41u);
-        *(_QWORD *)a1 = v10;
-        v11 = v12 + 16;
-        *(_QWORD *)(a1 + 16) = v8;
-      }
-      if ( (_InterlockedExchangeAdd64(v2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(v2);
-      KeAbPostRelease((ULONG_PTR)v2);
-      return v11;
+      v9 = -1LL;
     }
+    AlpcpReleasePushLockExclusive(v2);
+    return v9;
   }
 }

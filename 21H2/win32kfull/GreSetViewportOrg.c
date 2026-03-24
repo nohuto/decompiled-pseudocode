@@ -1,15 +1,15 @@
 /*
- * XREFs of GreSetViewportOrg @ 0x1C00BD02C
+ * XREFs of GreSetViewportOrg @ 0x1C010C7B8
  * Callers:
- *     xxxMenuDraw @ 0x1C00BD4E0 (xxxMenuDraw.c)
- *     xxxDrawMenuBarUnderlines @ 0x1C011CE5C (xxxDrawMenuBarUnderlines.c)
- *     xxxMNInvertItem @ 0x1C0248188 (xxxMNInvertItem.c)
- *     xxxDrawState @ 0x1C024DD1C (xxxDrawState.c)
+ *     xxxMenuDraw @ 0x1C0043708 (xxxMenuDraw.c)
+ *     xxxDrawMenuBarUnderlines @ 0x1C00E1F30 (xxxDrawMenuBarUnderlines.c)
+ *     xxxMNInvertItem @ 0x1C024CD80 (xxxMNInvertItem.c)
+ *     xxxDrawState @ 0x1C0250D44 (xxxDrawState.c)
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreSetViewportOrg(HDC a1, int a2, int a3)
@@ -36,7 +36,7 @@ __int64 __fastcall GreSetViewportOrg(HDC a1, int a2, int a3)
     {
       if ( (*(_DWORD *)(v7 + 152) & 0x100) != 0 )
       {
-        EXFORMOBJ::vQuickInit((EXFORMOBJ *)v10, (struct XDCOBJ *)v12, 0x402u);
+        EXFORMOBJ::vQuickInit((EXFORMOBJ *)v10, (struct XDCOBJ *)v12, 1026);
         if ( v10[0] )
           EXFORMOBJ::bXform(
             (EXFORMOBJ *)v10,
@@ -47,7 +47,7 @@ __int64 __fastcall GreSetViewportOrg(HDC a1, int a2, int a3)
         v5 = v12[0];
       }
       *(_DWORD *)(*(_QWORD *)(v5 + 976) + 152LL) |= 0x200u;
-      EXFORMOBJ::vQuickInit((EXFORMOBJ *)v11, (struct XDCOBJ *)v12, 0x80000204);
+      EXFORMOBJ::vQuickInit((EXFORMOBJ *)v11, (struct XDCOBJ *)v12, -2147483132);
       *(_DWORD *)(*(_QWORD *)(v12[0] + 976LL) + 340LL) |= 0x2010u;
       *(_DWORD *)(*(_QWORD *)(v12[0] + 976LL) + 324LL) = v8;
       *(_DWORD *)(*(_QWORD *)(v12[0] + 976LL) + 328LL) = a3;

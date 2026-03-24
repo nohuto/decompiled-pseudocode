@@ -1,1 +1,12 @@
-/*\n * XREFs of __guard_ss_verify_failure_r8 @ 0x1C0002BD6\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\nvoid _guard_ss_verify_failure_r8()\n{\n  JUMPOUT(0x1C0002BC3LL);\n}\n
+/*
+ * XREFs of __guard_ss_verify_failure_r8 @ 0x1C0002BD6
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void _guard_ss_verify_failure_r8()
+{
+  JUMPOUT(0x1C0002BC3LL);
+}

@@ -1,53 +1,76 @@
 /*
- * XREFs of WPP_RECORDER_SF_qd @ 0x140019E0C
+ * XREFs of WPP_RECORDER_SF_qD @ 0x14002B6C0
  * Callers:
- *     XilCoreDeviceSlot_ClearDeviceContext @ 0x1400020C0 (XilCoreDeviceSlot_ClearDeviceContext.c)
- *     DeviceSlot_D0EntryCleanupState @ 0x140018EEC (DeviceSlot_D0EntryCleanupState.c)
- *     Command_D0Entry @ 0x140019D14 (Command_D0Entry.c)
- *     DeviceSlot_D0Entry @ 0x140019D70 (DeviceSlot_D0Entry.c)
- *     Interrupter_DeferredWorkProcessor @ 0x140025820 (Interrupter_DeferredWorkProcessor.c)
- *     ControllerPreInterruptsDisableAcpiCallout @ 0x14002F4DC (ControllerPreInterruptsDisableAcpiCallout.c)
- *     Controller_EvtDeviceFileClose @ 0x140031250 (Controller_EvtDeviceFileClose.c)
- *     Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled @ 0x140037740 (Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled.c)
- *     Command_WdfEvtWatchdogTimerFunction @ 0x14003D690 (Command_WdfEvtWatchdogTimerFunction.c)
- *     Controller_AcquireWdfPowerReferenceForDebugger @ 0x14003F760 (Controller_AcquireWdfPowerReferenceForDebugger.c)
- *     Controller_UcxEvtStopTrackingForTimeSync @ 0x1400433E0 (Controller_UcxEvtStopTrackingForTimeSync.c)
- *     Device_QueryCapabilities @ 0x1400439E8 (Device_QueryCapabilities.c)
- *     Interrupter_CreateInterrupter @ 0x14007BA04 (Interrupter_CreateInterrupter.c)
- *     Register_PrepareHardware @ 0x14007DABC (Register_PrepareHardware.c)
+ *     RootHub_DumpPortData @ 0x14000CF98 (RootHub_DumpPortData.c)
+ *     IoControl_WdfEvtIoDeviceControl @ 0x14002BA00 (IoControl_WdfEvtIoDeviceControl.c)
+ *     Register_ParseCapabilityRegister @ 0x14007D158 (Register_ParseCapabilityRegister.c)
  * Callees:
  *     _guard_dispatch_icall @ 0x140058B00 (_guard_dispatch_icall.c)
  */
 
-__int64 WPP_RECORDER_SF_qd(__int64 a1, unsigned __int8 a2, unsigned int a3, unsigned __int16 a4, __int64 a5, ...)
-{
-  unsigned __int64 v7; // rdi
-  unsigned int v8; // esi
-  int v10; // eax
-  int v12; // [rsp+20h] [rbp-48h]
-  __int64 v13; // [rsp+50h] [rbp-18h]
-  __int64 v14; // [rsp+58h] [rbp-10h]
-  __int64 v15; // [rsp+98h] [rbp+30h] BYREF
-  va_list va; // [rsp+98h] [rbp+30h]
-  va_list va1; // [rsp+A0h] [rbp+38h] BYREF
-
-  va_start(va1, a5);
-  va_start(va, a5);
-  v15 = va_arg(va1, _QWORD);
-  v7 = (unsigned __int64)a3 >> 16;
-  v8 = a2;
-  v10 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v7 + (((a3 - 1) >> 5) & 0x7FF) + 1);
-  if ( _bittest(&v10, ((_BYTE)a3 - 1) & 0x1F) && *((_BYTE *)&WPP_GLOBAL_Control->Timer + 80 * v7 + 1) >= a2 )
-    ((void (__fastcall *)(_QWORD, __int64, __int64, _QWORD, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
-      *((_QWORD *)&WPP_GLOBAL_Control->AttachedDevice + 10 * v7),
-      43LL,
-      a5,
-      a4,
-      (__int64 *)va,
-      8LL,
-      va1,
-      4LL,
-      0LL);
-  LOWORD(v12) = a4;
-  return WppAutoLogTrace(a1, v8, a3, a5, v12, (__int64 *)va, 8LL, va1, 4LL, 0LL, v13, v14);
-}
+/*
+ * Hex-Rays decompilation failed for WPP_RECORDER_SF_qD @ 0x14002B6C0
+ * Reason: Hex-Rays returned no pseudocode for 0x14002B6C0
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 000000014002B6C0: mov     [rsp+arg_0], rbx
+ * 000000014002B6C5: mov     [rsp+arg_8], rbp
+ * 000000014002B6CA: mov     [rsp+arg_10], rsi
+ * 000000014002B6CF: push    rdi
+ * 000000014002B6D0: sub     rsp, 50h
+ * 000000014002B6D4: mov     esi, r8d
+ * 000000014002B6D7: mov     rbp, rcx
+ * 000000014002B6DA: mov     ebx, r8d
+ * 000000014002B6DD: shr     rbx, 10h
+ * 000000014002B6E1: movzx   edi, r9w
+ * 000000014002B6E5: lea     r11d, [rsi-1]
+ * 000000014002B6E9: mov     edx, r11d
+ * 000000014002B6EC: and     r11d, 1Fh
+ * 000000014002B6F0: shr     rdx, 5
+ * 000000014002B6F4: lea     rax, [rbx+rbx*4]
+ * 000000014002B6F8: and     edx, 7FFh
+ * 000000014002B6FE: lea     r10, [rdx+rax*4]
+ * 000000014002B702: mov     edx, r11d
+ * 000000014002B705: mov     r11, cs:WPP_GLOBAL_Control
+ * 000000014002B70C: mov     eax, [r11+r10*4+2Ch]
+ * 000000014002B711: bt      eax, edx
+ * 000000014002B714: jb      short loc_14002B782
+ * 000000014002B716: and     [rsp+58h+var_10], 0
+ * 000000014002B71C: lea     rax, [rsp+58h+arg_30]
+ * 000000014002B724: mov     r9, [rsp+58h+arg_20]
+ * 000000014002B72C: mov     r8d, esi
+ * 000000014002B72F: mov     [rsp+58h+var_18], 4
+ * 000000014002B738: mov     edx, 4
+ * 000000014002B73D: mov     [rsp+58h+var_20], rax
+ * 000000014002B742: mov     rcx, rbp
+ * 000000014002B745: lea     rax, [rsp+58h+arg_28]
+ * 000000014002B74D: mov     [rsp+58h+var_28], 8
+ * 000000014002B756: mov     [rsp+58h+var_30], rax
+ * 000000014002B75B: mov     word ptr [rsp+58h+var_38], di
+ * 000000014002B760: call    cs:__imp_WppAutoLogTrace
+ * 000000014002B767: nop     dword ptr [rax+rax+00h]
+ * 000000014002B76C: mov     rbx, [rsp+58h+arg_0]
+ * 000000014002B771: mov     rbp, [rsp+58h+arg_8]
+ * 000000014002B776: mov     rsi, [rsp+58h+arg_10]
+ * 000000014002B77B: add     rsp, 50h
+ * 000000014002B77F: pop     rdi
+ * 000000014002B780: retn
+ * 000000014002B782: lea     rcx, [rbx+rbx*4]
+ * 000000014002B786: add     rcx, rcx
+ * 000000014002B789: cmp     byte ptr [r11+rcx*8+29h], 4
+ * 000000014002B78F: jb      short loc_14002B716
+ * 000000014002B791: and     [rsp+58h+var_18], 0
+ * 000000014002B797: lea     rdx, [rsp+58h+arg_30]
+ * 000000014002B79F: mov     rax, cs:pfnWppTraceMessage
+ * 000000014002B7A6: mov     r9d, edi
+ * 000000014002B7A9: mov     r8, [rsp+58h+arg_20]
+ * 000000014002B7B1: mov     rcx, [r11+rcx*8+18h]
+ * 000000014002B7B6: mov     [rsp+58h+var_20], 4
+ * 000000014002B7BF: mov     [rsp+58h+var_28], rdx
+ * 000000014002B7C4: lea     rdx, [rsp+58h+arg_28]
+ * 000000014002B7CC: mov     [rsp+58h+var_30], 8
+ * 000000014002B7D5: mov     [rsp+58h+var_38], rdx
+ * 000000014002B7DA: mov     edx, 2Bh ; '+'
+ * 000000014002B7DF: call    _guard_dispatch_icall
+ * 000000014002B7E4: jmp     loc_14002B716
+ */

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?TdrIsDodPresentTimeoutForcedFlip@@YA_NXZ @ 0x1C0306504
+ * XREFs of ?TdrIsDodPresentTimeoutForcedFlip@@YA_NXZ @ 0x1C0265BF4
  * Callers:
- *     ?PresentDisplayOnly@BLTQUEUE@@QEAAJPEAU_DXGKARG_PRESENT_DISPLAYONLY@@IW4BltQueuePresentDisplayOnlySource@1@@Z @ 0x1C03BDC58 (-PresentDisplayOnly@BLTQUEUE@@QEAAJPEAU_DXGKARG_PRESENT_DISPLAYONLY@@IW4BltQueuePresentDisplayOn.c)
+ *     ?PresentDisplayOnly@BLTQUEUE@@QEAAJPEAU_DXGKARG_PRESENT_DISPLAYONLY@@@Z @ 0x1C02FEDB0 (-PresentDisplayOnly@BLTQUEUE@@QEAAJPEAU_DXGKARG_PRESENT_DISPLAYONLY@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,91 +1,90 @@
 /*
- * XREFs of MmAllocateNonCachedMemory @ 0x140A2D980
+ * XREFs of MmAllocateNonCachedMemory @ 0x1408C6740
  * Callers:
- *     DifMmAllocateNonCachedMemoryWrapper @ 0x1405E6BC0 (DifMmAllocateNonCachedMemoryWrapper.c)
+ *     <none>
  * Callees:
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiReservePtes @ 0x14027D070 (MiReservePtes.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MmFreePagesFromMdl @ 0x1402EBFB0 (MmFreePagesFromMdl.c)
- *     MiAllocatePagesForMdl @ 0x1402F8CDC (MiAllocatePagesForMdl.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     KeGetIdealNodeNumberThread @ 0x140570800 (KeGetIdealNodeNumberThread.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiReservePtes @ 0x140226570 (MiReservePtes.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     MmFreePagesFromMdl @ 0x1403294B0 (MmFreePagesFromMdl.c)
+ *     MiAllocatePagesForMdl @ 0x140354954 (MiAllocatePagesForMdl.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 PVOID __stdcall MmAllocateNonCachedMemory(SIZE_T NumberOfBytes)
 {
   SIZE_T v1; // rbp
-  unsigned __int16 IdealNodeNumberThread; // ax
-  __int64 v3; // r8
   struct _MDL *PagesForMdl; // rbx
-  ULONG_PTR v5; // r14
-  unsigned __int64 ValidPte; // rsi
-  char *v8; // r13
-  int v9; // r12d
-  unsigned __int64 v10; // rbx
-  __int64 v11; // r8
-  bool v12; // zf
-  __int64 v13; // [rsp+80h] [rbp+8h]
+  __int64 v3; // r8
+  unsigned __int64 v4; // r9
+  ULONG_PTR v5; // rsi
+  __int64 v6; // r9
+  __int64 v8; // r14
+  unsigned __int64 ValidPte; // rdi
+  char *v10; // r12
+  int v11; // r15d
+  unsigned __int64 v12; // rbx
+  __int64 v13; // r8
+  bool v14; // zf
 
-  if ( NumberOfBytes > 0xFFFFFFFF )
+  if ( NumberOfBytes >= 0x100000000LL )
     return 0LL;
   v1 = (NumberOfBytes >> 12) + ((NumberOfBytes & 0xFFF) != 0);
-  IdealNodeNumberThread = KeGetIdealNodeNumberThread((__int64)KeGetCurrentThread());
   PagesForMdl = (struct _MDL *)MiAllocatePagesForMdl(
-                                 (int)MiSystemPartition,
+                                 (int)&MiSystemPartition,
                                  0LL,
                                  -1LL,
                                  0LL,
-                                 v3,
+                                 NumberOfBytes,
                                  0,
-                                 IdealNodeNumberThread,
-                                 4,
-                                 (__int64)KeGetCurrentThread()->ApcState.Process,
-                                 0LL);
+                                 *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor]
+                                                                 + 192)
+                                                     + 146LL),
+                                 4);
   if ( !PagesForMdl )
     return 0LL;
-  v5 = MiReservePtes((__int64)&qword_140C69A40, v1);
+  v5 = MiReservePtes((__int64)&qword_140C4EF40, v1, v3, v4);
   if ( !v5 )
   {
     MmFreePagesFromMdl(PagesForMdl);
     ExFreePoolWithTag(PagesForMdl, 0);
     return 0LL;
   }
-  *(_QWORD *)(48 * (__int64)PagesForMdl[1].Next - 0x21FFFFFFFFF0LL) = PagesForMdl;
-  v13 = (__int64)(v5 << 25) >> 16;
-  ValidPte = MiMakeValidPte(v5, 0LL, 2684354572LL);
-  v8 = (char *)&PagesForMdl[1] - v5;
+  *(_QWORD *)(48 * (__int64)PagesForMdl[1].Next - 0x57FFFFFFFF0LL) = PagesForMdl;
+  v8 = (__int64)(v5 << 25) >> 16;
+  ValidPte = MiMakeValidPte(v5, 0LL, 2684354572LL, v6);
+  v10 = (char *)&PagesForMdl[1] - v5;
   do
   {
-    v9 = 0;
-    ValidPte ^= (ValidPte ^ (*(_QWORD *)&v8[v5] << 12)) & 0xFFFFFFFFFF000LL;
-    v10 = ValidPte;
+    v11 = 0;
+    ValidPte ^= (ValidPte ^ (*(_QWORD *)&v10[v5] << 12)) & 0xFFFFFFFFF000LL;
+    v12 = ValidPte;
     if ( !MiPteInShadowRange(v5) )
       goto LABEL_15;
-    if ( MiPteHasShadow() )
+    if ( (unsigned int)MiPteHasShadow() )
     {
-      v9 = 1;
-      if ( HIBYTE(word_140C66DFC) )
+      v11 = 1;
+      if ( HIBYTE(word_140C4E008) )
         goto LABEL_15;
-      v12 = (ValidPte & 1) == 0;
+      v14 = (ValidPte & 1) == 0;
     }
     else
     {
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
         goto LABEL_15;
-      v12 = (ValidPte & 1) == 0;
+      v14 = (ValidPte & 1) == 0;
     }
-    if ( !v12 )
-      v10 = ValidPte | 0x8000000000000000uLL;
+    if ( !v14 )
+      v12 = ValidPte | 0x8000000000000000uLL;
 LABEL_15:
-    *(_QWORD *)v5 = v10;
-    if ( v9 )
-      MiWritePteShadow(v5, v10, v11);
+    *(_QWORD *)v5 = v12;
+    if ( v11 )
+      MiWritePteShadow(v5, v12, v13);
     v5 += 8LL;
     --v1;
   }
   while ( v1 );
-  return (PVOID)v13;
+  return (PVOID)v8;
 }

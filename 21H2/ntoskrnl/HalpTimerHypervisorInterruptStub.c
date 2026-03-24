@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerHypervisorInterruptStub @ 0x140521C60
+ * XREFs of HalpTimerHypervisorInterruptStub @ 0x1404D4940
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 char HalpTimerHypervisorInterruptStub()

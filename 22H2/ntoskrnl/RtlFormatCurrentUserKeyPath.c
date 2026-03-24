@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlFormatCurrentUserKeyPath @ 0x1407FB180
+ * XREFs of RtlFormatCurrentUserKeyPath @ 0x1406EFAC0
  * Callers:
- *     RtlpGetRegistryHandle @ 0x1406C6270 (RtlpGetRegistryHandle.c)
- *     RtlOpenCurrentUser @ 0x1407FC860 (RtlOpenCurrentUser.c)
- *     AslRegistryBuildUserPath @ 0x14084F51C (AslRegistryBuildUserPath.c)
- *     _RegRtlOpenPredefinedKey @ 0x14085C760 (_RegRtlOpenPredefinedKey.c)
+ *     RtlpGetRegistryHandle @ 0x1406BB240 (RtlpGetRegistryHandle.c)
+ *     RtlOpenCurrentUser @ 0x14078C480 (RtlOpenCurrentUser.c)
+ *     AslRegistryBuildUserPath @ 0x1407C26D4 (AslRegistryBuildUserPath.c)
+ *     _RegRtlOpenPredefinedKey @ 0x1407CD9B4 (_RegRtlOpenPredefinedKey.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryInformationToken @ 0x14041AAC0 (ZwQueryInformationToken.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1407C7520 (ExpAllocateStringRoutine.c)
- *     RtlLengthSidAsUnicodeString @ 0x1407FB288 (RtlLengthSidAsUnicodeString.c)
- *     RtlConvertSidToUnicodeString @ 0x1407FB3F0 (RtlConvertSidToUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryInformationToken @ 0x1403F9E40 (ZwQueryInformationToken.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
+ *     RtlConvertSidToUnicodeString @ 0x1406ED390 (RtlConvertSidToUnicodeString.c)
+ *     RtlLengthSidAsUnicodeString @ 0x1406EFBC8 (RtlLengthSidAsUnicodeString.c)
  */
 
 NTSTATUS __fastcall RtlFormatCurrentUserKeyPath(PUNICODE_STRING UnicodeString)
 {
   NTSTATUS result; // eax
   unsigned __int16 v3; // di
-  __int64 v4; // rcx
+  SIZE_T v4; // rcx
   wchar_t *StringRoutine; // rax
   wchar_t *Buffer; // rax
   unsigned __int64 v7; // rdx
@@ -54,7 +54,7 @@ NTSTATUS __fastcall RtlFormatCurrentUserKeyPath(PUNICODE_STRING UnicodeString)
         UnicodeStringa.Buffer = &Buffer[v7];
         v8 = RtlConvertSidToUnicodeString(&UnicodeStringa, TokenInformation[0], 0);
         if ( v8 < 0 )
-          RtlFreeUnicodeString(UnicodeString);
+          RtlFreeAnsiString(UnicodeString);
         else
           UnicodeString->Length += UnicodeStringa.Length;
         return v8;

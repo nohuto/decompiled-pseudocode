@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0230230
+ * XREFs of ?SetIntegerProperty@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F7BA0
  * Callers:
  *     <none>
  * Callees:

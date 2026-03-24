@@ -1,108 +1,92 @@
 /*
- * XREFs of MiBeginPageAccessor @ 0x140268520
+ * XREFs of MiBeginPageAccessor @ 0x140314E48
  * Callers:
- *     MiGetHugeRangeFromNode @ 0x14025C1B4 (MiGetHugeRangeFromNode.c)
- *     MiUnlinkNodeLargePages @ 0x1402CA5E0 (MiUnlinkNodeLargePages.c)
+ *     MiGetSinglePageToZero @ 0x140365884 (MiGetSinglePageToZero.c)
+ *     MiUnlinkNodeLargePages @ 0x1403F70E8 (MiUnlinkNodeLargePages.c)
  * Callees:
- *     MiIsFreeZeroPfnCold @ 0x140268620 (MiIsFreeZeroPfnCold.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
-__int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2)
 {
-  __int64 v4; // r9
-  struct _KTHREAD *CurrentThread; // rdi
-  bool v6; // zf
-  volatile LONG *v7; // rsi
-  __int64 v8; // r8
-  _QWORD *v9; // rdx
-  _QWORD *v10; // rax
-  __int64 *v11; // rcx
-  __int64 v13; // rax
-  _QWORD *v14; // rax
+  volatile LONG *v4; // rbp
+  struct _KTHREAD *CurrentThread; // rsi
+  char v6; // bl
+  char v7; // al
+  bool v8; // zf
+  __int64 v9; // r8
+  _QWORD *v10; // rdx
+  _QWORD *v11; // rax
+  __int64 *v12; // rcx
+  _QWORD *v13; // rax
 
-  *(_BYTE *)(a1 + 72) = 0;
-  if ( !(_DWORD)a3 )
-  {
-    if ( (*(_BYTE *)(a2 + 34) & 8) == 0 )
-    {
-      *(_QWORD *)(a1 + 24) = a2;
-      *(_BYTE *)(a2 + 34) |= 8u;
-      if ( (unsigned int)MiIsFreeZeroPfnCold(a2, a2, a3, a2) )
-        *(_BYTE *)(a1 + 72) = 1;
-      *(_QWORD *)(v4 + 16) = a1;
-      goto LABEL_6;
-    }
+  if ( (*(_BYTE *)(a2 + 34) & 8) != 0 )
     return 0LL;
-  }
-  if ( (*(_QWORD *)a2 & 0x800000000000LL) != 0 )
-    return 0LL;
-  v13 = *(_QWORD *)a2 | 0x800000000000LL;
-  *(_BYTE *)(a1 + 68) = 1;
   *(_QWORD *)(a1 + 24) = a2;
-  *(_QWORD *)a2 = v13;
-LABEL_6:
+  v4 = &dword_140C4E570;
   CurrentThread = KeGetCurrentThread();
-  v6 = *(_BYTE *)(a1 + 73) == 0;
+  v6 = 0;
   *(_QWORD *)(a1 + 56) = CurrentThread;
+  v7 = *(_BYTE *)(a2 + 34);
+  *(_QWORD *)(a2 + 16) = a1;
+  *(_BYTE *)(a2 + 34) = v7 | 8;
+  v8 = *(_BYTE *)(a1 + 71) == 0;
   *(_QWORD *)(a1 + 32) = 0LL;
-  *(_WORD *)(a1 + 70) = 0;
-  if ( v6 )
-    v7 = &dword_140C51DF0;
-  else
-    v7 = &dword_140C51DE0;
-  ExAcquireSpinLockExclusiveAtDpcLevel(v7);
-  LOBYTE(v8) = 0;
-  if ( *(_BYTE *)(a1 + 73) )
+  *(_WORD *)(a1 + 69) = 0;
+  if ( !v8 )
+    v4 = &dword_140C4E560;
+  ExAcquireSpinLockExclusiveAtDpcLevel(v4);
+  if ( *(_BYTE *)(a1 + 71) )
   {
-    v9 = (_QWORD *)qword_140C51DE8;
-    if ( qword_140C51DE8 )
+    v10 = (_QWORD *)qword_140C4E568;
+    if ( qword_140C4E568 )
     {
       while ( 1 )
       {
-        if ( (unsigned __int64)CurrentThread >= v9[7] )
+        if ( (unsigned __int64)CurrentThread >= v10[7] )
         {
-          v14 = (_QWORD *)v9[1];
-          if ( !v14 )
+          v13 = (_QWORD *)v10[1];
+          if ( !v13 )
           {
-            LOBYTE(v8) = 1;
+            v6 = 1;
             break;
           }
         }
         else
         {
-          v14 = (_QWORD *)*v9;
-          if ( !*v9 )
+          v13 = (_QWORD *)*v10;
+          if ( !*v10 )
             break;
         }
-        v9 = v14;
+        v10 = v13;
       }
     }
-    v11 = &qword_140C51DE8;
-    goto LABEL_17;
+    v12 = &qword_140C4E568;
+    goto LABEL_14;
   }
-  v9 = (_QWORD *)qword_140C51DF8;
-  if ( !qword_140C51DF8 )
-    goto LABEL_16;
-  while ( a1 < (unsigned __int64)v9 )
+  v10 = (_QWORD *)qword_140C4E578;
+  if ( !qword_140C4E578 )
+    goto LABEL_13;
+  while ( a1 < (unsigned __int64)v10 )
   {
-    v10 = (_QWORD *)*v9;
-    if ( !*v9 )
-      goto LABEL_16;
-LABEL_12:
-    v9 = v10;
+    v11 = (_QWORD *)*v10;
+    if ( !*v10 )
+      goto LABEL_13;
+LABEL_9:
+    v10 = v11;
   }
-  v10 = (_QWORD *)v9[1];
-  if ( v10 )
-    goto LABEL_12;
-  LOBYTE(v8) = 1;
-LABEL_16:
-  v11 = &qword_140C51DF8;
-LABEL_17:
-  RtlAvlInsertNodeEx(v11, v9, v8, a1);
-  *(_BYTE *)(a1 + 69) = 1;
-  ExReleaseSpinLockExclusiveFromDpcLevel(v7);
+  v11 = (_QWORD *)v10[1];
+  if ( v11 )
+    goto LABEL_9;
+  v6 = 1;
+LABEL_13:
+  v12 = &qword_140C4E578;
+LABEL_14:
+  LOBYTE(v9) = v6;
+  RtlAvlInsertNodeEx(v12, v10, v9, a1);
+  *(_BYTE *)(a1 + 68) = 1;
+  ExReleaseSpinLockExclusiveFromDpcLevel(v4);
   return 1LL;
 }

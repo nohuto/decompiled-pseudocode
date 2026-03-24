@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@CSharedSectionWrapperMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C0214B90
+ * XREFs of ?IsOfType@CSharedSectionWrapperMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C01D4F10
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CResourceMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C008B860 (-IsOfType@CResourceMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CResourceMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C007F370 (-IsOfType@CResourceMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall DirectComposition::CSharedSectionWrapperMarshaler::IsOfType(__int64 a1, int a2)
@@ -11,7 +11,7 @@ char __fastcall DirectComposition::CSharedSectionWrapperMarshaler::IsOfType(__in
   char v2; // al
   char v3; // cl
 
-  if ( a2 == 170 )
+  if ( a2 == 171 )
     return 1;
   v2 = DirectComposition::CResourceMarshaler::IsOfType(a1, a2);
   v3 = 0;

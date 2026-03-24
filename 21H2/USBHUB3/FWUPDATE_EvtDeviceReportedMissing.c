@@ -1,11 +1,11 @@
 /*
- * XREFs of FWUPDATE_EvtDeviceReportedMissing @ 0x1C0086D20
+ * XREFs of FWUPDATE_EvtDeviceReportedMissing @ 0x1C00850E0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     FWUPDATE_CreateFirmwareUpdateDevice @ 0x1C00871F8 (FWUPDATE_CreateFirmwareUpdateDevice.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     FWUPDATE_CreateFirmwareUpdateDevice @ 0x1C00855B8 (FWUPDATE_CreateFirmwareUpdateDevice.c)
  */
 
 _BYTE *__fastcall FWUPDATE_EvtDeviceReportedMissing(__int64 a1)
@@ -17,7 +17,7 @@ _BYTE *__fastcall FWUPDATE_EvtDeviceReportedMissing(__int64 a1)
   result = (_BYTE *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                       WdfDriverGlobals,
                       a1,
-                      off_1C0067170);
+                      off_1C0066148);
   v3 = *(_QWORD *)result;
   if ( *(_QWORD *)(*(_QWORD *)result + 2656LL) == a1 && result[24] == 1 )
   {
@@ -31,7 +31,7 @@ _BYTE *__fastcall FWUPDATE_EvtDeviceReportedMissing(__int64 a1)
                         2u,
                         2u,
                         0xAu,
-                        (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids,
+                        (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids,
                         v4);
     }
   }

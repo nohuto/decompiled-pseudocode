@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpWorkerFactoryWantsToCreate @ 0x140247074
+ * XREFs of ExpWorkerFactoryWantsToCreate @ 0x1402C0A00
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x1402BA130 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x140203150 (NtWaitForWorkViaWorkerFactory.c)
  * Callees:
  *     <none>
  */
@@ -13,10 +13,10 @@ bool __fastcall ExpWorkerFactoryWantsToCreate(__int64 a1, int a2)
   bool result; // al
 
   result = 0;
-  if ( !*(_DWORD *)(a1 + 400) )
+  if ( !*(_DWORD *)(a1 + 304) )
   {
     v2 = a2 == 1;
-    if ( *(_DWORD *)(a1 + 384) < (unsigned int)(v2 + *(_DWORD *)(a1 + 380)) )
+    if ( *(_DWORD *)(a1 + 288) < (unsigned int)(v2 + *(_DWORD *)(a1 + 284)) )
     {
       v3 = *(_QWORD *)(a1 + 16);
       if ( *(_DWORD *)(v3 + 28) <= (unsigned int)v2 && (*(_DWORD *)(*(_QWORD *)(v3 + 8) + 4LL) || *(_DWORD *)(v3 + 24)) )

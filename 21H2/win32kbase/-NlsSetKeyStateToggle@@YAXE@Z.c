@@ -1,7 +1,7 @@
 /*
- * XREFs of ?NlsSetKeyStateToggle@@YAXE@Z @ 0x1C00BF750
+ * XREFs of ?NlsSetKeyStateToggle@@YAXE@Z @ 0x1C00B21D0
  * Callers:
- *     NlsKbdInitializePerSystem @ 0x1C00BF520 (NlsKbdInitializePerSystem.c)
+ *     NlsKbdInitializePerSystem @ 0x1C00B1FA0 (NlsKbdInitializePerSystem.c)
  * Callees:
  *     <none>
  */

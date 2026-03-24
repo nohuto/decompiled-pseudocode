@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerCreateReferencePage @ 0x1403BBC5C
+ * XREFs of HalpTimerCreateReferencePage @ 0x1403A97D4
  * Callers:
- *     HalpInitializeTimers @ 0x1403BBAC8 (HalpInitializeTimers.c)
+ *     HalpInitializeTimers @ 0x1403A9638 (HalpInitializeTimers.c)
  * Callees:
- *     RtlUdiv128 @ 0x1403BBCE0 (RtlUdiv128.c)
- *     HalpMmAllocateMemoryInternal @ 0x1403BF104 (HalpMmAllocateMemoryInternal.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlUdiv128 @ 0x1403A9860 (RtlUdiv128.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 HalpTimerCreateReferencePage()

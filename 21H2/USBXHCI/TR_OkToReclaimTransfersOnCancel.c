@@ -1,10 +1,10 @@
 /*
- * XREFs of TR_OkToReclaimTransfersOnCancel @ 0x1C003FD60
+ * XREFs of TR_OkToReclaimTransfersOnCancel @ 0x1C003F54C
  * Callers:
- *     ESM_NotifyingTransferRingsOkToReclaimTransfersOnCancel @ 0x1C004F610 (ESM_NotifyingTransferRingsOkToReclaimTransfersOnCancel.c)
- *     ESM_ReclaimingCanceledTransfersAfterControllerSurpriseRemoval @ 0x1C004F7C0 (ESM_ReclaimingCanceledTransfersAfterControllerSurpriseRemoval.c)
+ *     ESM_NotifyingTransferRingsOkToReclaimTransfersOnCancel @ 0x1C004EAF0 (ESM_NotifyingTransferRingsOkToReclaimTransfersOnCancel.c)
+ *     ESM_ReclaimingCanceledTransfersAfterControllerSurpriseRemoval @ 0x1C004ECA0 (ESM_ReclaimingCanceledTransfersAfterControllerSurpriseRemoval.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall TR_OkToReclaimTransfersOnCancel(__int64 a1)

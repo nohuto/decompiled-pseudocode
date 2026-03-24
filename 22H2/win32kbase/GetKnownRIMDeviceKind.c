@@ -1,16 +1,18 @@
 /*
- * XREFs of GetKnownRIMDeviceKind @ 0x1C006D78C
+ * XREFs of GetKnownRIMDeviceKind @ 0x1C008A8A8
  * Callers:
- *     ?HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z @ 0x1C006DC70 (-HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z.c)
- *     ?PerformPnpNotification@CBaseInput@@AEAAXPEBU_DevicePnpNotification@@@Z @ 0x1C00761A4 (-PerformPnpNotification@CBaseInput@@AEAAXPEBU_DevicePnpNotification@@@Z.c)
+ *     ?PerformPnpNotification@CBaseInput@@AEAAXPEBU_DevicePnpNotification@@@Z @ 0x1C005324C (-PerformPnpNotification@CBaseInput@@AEAAXPEBU_DevicePnpNotification@@@Z.c)
+ *     ?HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z @ 0x1C008A4D4 (-HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z.c)
+ *     ?SendNewIdentityCreated@CDeviceIdentity@@AEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C008A810 (-SendNewIdentityCreated@CDeviceIdentity@@AEAAXPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall GetKnownRIMDeviceKind(__int64 a1)
 {
-  unsigned int v1; // r8d
+  unsigned int v1; // edx
   __int64 v3; // rcx
+  int v4; // ecx
 
   v1 = 0;
   if ( *(_BYTE *)(a1 + 48) )
@@ -22,20 +24,23 @@ __int64 __fastcall GetKnownRIMDeviceKind(__int64 a1)
     else if ( *(_BYTE *)(a1 + 48) == 2 )
     {
       v3 = *(_QWORD *)(a1 + 32);
-      if ( (*(_DWORD *)(v3 + 272) & 0x80u) != 0 )
+      if ( (*(_DWORD *)(v3 + 288) & 0x80u) != 0 )
       {
-        switch ( *(_DWORD *)(*(_QWORD *)(v3 + 544) + 24LL) )
+        v4 = *(_DWORD *)(*(_QWORD *)(v3 + 568) + 24LL);
+        if ( v4 > 0 )
         {
-          case 1:
-          case 2:
-          case 3:
-          case 4:
+          if ( v4 <= 4 )
+          {
             return 3;
-          case 5:
-          case 6:
+          }
+          else if ( v4 <= 6 )
+          {
             return 5;
-          case 7:
+          }
+          else if ( v4 == 7 )
+          {
             return 4;
+          }
         }
       }
     }

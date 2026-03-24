@@ -1,32 +1,32 @@
 /*
- * XREFs of SmProcessListRequest @ 0x1409D3EC0
+ * XREFs of SmProcessListRequest @ 0x140929B84
  * Callers:
- *     SmQueryStoreInformation @ 0x1407FA644 (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x1406C2DB8 (SmQueryStoreInformation.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     SmAlloc @ 0x140260C2C (SmAlloc.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     SmProcessListRequestExtended @ 0x1409D4090 (SmProcessListRequestExtended.c)
- *     SmKmGetStoreList @ 0x1409D5ADC (SmKmGetStoreList.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     SmProcessListRequestExtended @ 0x140929D54 (SmProcessListRequestExtended.c)
+ *     SmKmGetStoreList @ 0x14092B598 (SmKmGetStoreList.c)
  */
 
 __int64 __fastcall SmProcessListRequest(__int64 a1, unsigned __int64 a2, unsigned int a3, unsigned int *a4, char a5)
 {
   unsigned int v9; // esi
-  struct _PRIVILEGE_SET *v10; // rax
+  struct _PRIVILEGE_SET *NonPaged; // rax
   struct _PRIVILEGE_SET *v11; // rdi
   int StoreList; // ebx
   __int64 v13; // rcx
 
   v9 = 4228;
-  v10 = (struct _PRIVILEGE_SET *)SmAlloc(0x1084uLL, 0x524C6D73u);
-  v11 = v10;
-  if ( v10 )
+  NonPaged = (struct _PRIVILEGE_SET *)SSHSupportAllocateNonPaged(0x1084uLL, 0x524C6D73u);
+  v11 = NonPaged;
+  if ( NonPaged )
   {
-    memset(v10, 0, 0x1084uLL);
+    memset(NonPaged, 0, 0x1084uLL);
     if ( a3 < 0x84 )
       goto LABEL_4;
     if ( a5 )

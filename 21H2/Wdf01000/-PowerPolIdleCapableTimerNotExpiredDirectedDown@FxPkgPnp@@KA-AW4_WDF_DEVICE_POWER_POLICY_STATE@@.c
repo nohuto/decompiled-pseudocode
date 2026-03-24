@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PowerPolIdleCapableTimerNotExpiredDirectedDown@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C008ACB0
+ * XREFs of ?PowerPolIdleCapableTimerNotExpiredDirectedDown@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0086B90
  * Callers:
  *     <none>
  * Callees:
- *     ?DeclareComponentIdle@FxPoxInterface@@QEAAEXZ @ 0x1C0017CC0 (-DeclareComponentIdle@FxPoxInterface@@QEAAEXZ.c)
+ *     ?DeclareComponentIdle@FxPoxInterface@@QEAAEXZ @ 0x1C000E710 (-DeclareComponentIdle@FxPoxInterface@@QEAAEXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerPolIdleCapableTimerNotExpiredDirectedDown(FxPkgPnp *This)

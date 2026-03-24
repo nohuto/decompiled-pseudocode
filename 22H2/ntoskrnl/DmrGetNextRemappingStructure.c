@@ -1,12 +1,11 @@
 /*
- * XREFs of DmrGetNextRemappingStructure @ 0x14037F99C
+ * XREFs of DmrGetNextRemappingStructure @ 0x1404E855C
  * Callers:
- *     HalpIvtProcessDmarTable @ 0x14037F558 (HalpIvtProcessDmarTable.c)
- *     DmrEnumerateSatcDevices @ 0x14037F5F0 (DmrEnumerateSatcDevices.c)
- *     DmrFindDrhdForDeviceScope @ 0x14037F670 (DmrFindDrhdForDeviceScope.c)
- *     DmrEnumerateRmrrDomains @ 0x14037F720 (DmrEnumerateRmrrDomains.c)
- *     DmrValidateDeviceScope @ 0x14037F87C (DmrValidateDeviceScope.c)
- *     IvtCheckForReservedRegion @ 0x140820A40 (IvtCheckForReservedRegion.c)
+ *     HalpIvtProcessDmarTable @ 0x1404E72A0 (HalpIvtProcessDmarTable.c)
+ *     DmrFindDrhdForDeviceScope @ 0x1404E82BC (DmrFindDrhdForDeviceScope.c)
+ *     DmrValidateDeviceScope @ 0x1404E85B0 (DmrValidateDeviceScope.c)
+ *     DmrEnumerateRmrrDomains @ 0x1404E86B0 (DmrEnumerateRmrrDomains.c)
+ *     IvtCheckForReservedRegion @ 0x140867050 (IvtCheckForReservedRegion.c)
  * Callees:
  *     <none>
  */
@@ -15,22 +14,22 @@ unsigned __int64 __fastcall DmrGetNextRemappingStructure(unsigned __int64 a1, __
 {
   __int64 v2; // r8
   unsigned __int64 v3; // r9
-  unsigned __int64 v4; // rax
-  unsigned __int64 v5; // rdx
+  unsigned __int64 v5; // rax
+  unsigned __int64 v6; // rdx
 
   v2 = 0LL;
   v3 = a1 + *(unsigned int *)(a1 + 4);
   if ( v3 <= a1 )
     return 0LL;
   if ( a2 )
-    v4 = a2 + *(unsigned __int16 *)(a2 + 2);
+    v5 = a2 + *(unsigned __int16 *)(a2 + 2);
   else
-    v4 = a1 + 48;
-  if ( v4 + 4 <= v3 && v4 + 4 > v4 )
+    v5 = a1 + 48;
+  if ( v5 + 4 >= v5 && v5 + 4 <= v3 )
   {
-    v5 = v4 + *(unsigned __int16 *)(v4 + 2);
-    if ( v5 > v4 && v5 <= v3 )
-      return v4;
+    v6 = v5 + *(unsigned __int16 *)(v5 + 2);
+    if ( v6 > v5 && v6 <= v3 )
+      return v5;
   }
   return v2;
 }

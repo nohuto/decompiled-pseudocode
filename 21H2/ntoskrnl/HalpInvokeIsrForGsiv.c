@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInvokeIsrForGsiv @ 0x14051D820
+ * XREFs of HalpInvokeIsrForGsiv @ 0x1404D1230
  * Callers:
  *     <none>
  * Callees:
- *     KeDispatchSecondaryInterrupt @ 0x14056EBB0 (KeDispatchSecondaryInterrupt.c)
+ *     KeDispatchSecondaryInterrupt @ 0x140518EB0 (KeDispatchSecondaryInterrupt.c)
  */
 
 char __fastcall HalpInvokeIsrForGsiv(unsigned int a1, __int64 a2, _DWORD *a3)

@@ -1,14 +1,13 @@
 /*
- * XREFs of ?CreatePeriodicFrameNotification@DXGSYNCOBJECT@@QEAAJPEAVDXGADAPTER@@00_KI@Z @ 0x1C033EFBC
+ * XREFs of ?CreatePeriodicFrameNotification@DXGSYNCOBJECT@@QEAAJPEAVDXGADAPTER@@00_KI@Z @ 0x1C02901A4
  * Callers:
- *     ?CreatePeriodicMonitoredFenceNotificationInternal@@YAJPEAVDXGADAPTER@@0PEAVDXGSYNCOBJECT@@PEBU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@_N@Z @ 0x1C033F130 (-CreatePeriodicMonitoredFenceNotificationInternal@@YAJPEAVDXGADAPTER@@0PEAVDXGSYNCOBJECT@@PEBU_D.c)
+ *     ?CreatePeriodicMonitoredFenceNotificationInternal@@YAJPEAVDXGADAPTER@@0PEAVDXGSYNCOBJECT@@PEBU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@_N@Z @ 0x1C02902F0 (-CreatePeriodicMonitoredFenceNotificationInternal@@YAJPEAVDXGADAPTER@@0PEAVDXGSYNCOBJECT@@PEBU_D.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E350 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z @ 0x1C016A93C (-GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z.c)
- *     ?CreatePeriodicFrameNotification@DXGDODPRESENT@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_KIPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@PEA_K@Z @ 0x1C03BBAAC (-CreatePeriodicFrameNotification@DXGDODPRESENT@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_K.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002A00 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z @ 0x1C01165B0 (-GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z.c)
+ *     ?CreatePeriodicFrameNotification@DXGDODPRESENT@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_KIPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@PEA_K@Z @ 0x1C02FCFC0 (-CreatePeriodicFrameNotification@DXGDODPRESENT@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_K.c)
  */
 
 __int64 __fastcall DXGSYNCOBJECT::CreatePeriodicFrameNotification(
@@ -19,45 +18,53 @@ __int64 __fastcall DXGSYNCOBJECT::CreatePeriodicFrameNotification(
         unsigned __int64 a5,
         unsigned int a6)
 {
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
   struct _VIDSCH_SYNC_OBJECT *VidSchSyncObject; // rax
-  DXGDODPRESENT *v11; // r9
+  unsigned __int64 *v14; // r9
+  struct _D3DDDI_SYNCHRONIZATIONOBJECTINFO2 *v15; // r10
+  DXGDODPRESENT *v16; // r11
   unsigned int PeriodicFrameNotification; // eax
-  struct _VIDSCH_SYNC_OBJECT *v13; // rax
-  __int64 v14; // rdx
-  unsigned int v15; // esi
+  __int64 v18; // rdx
+  struct _VIDSCH_SYNC_OBJECT *v19; // rax
+  __int64 v20; // r9
+  __int64 v21; // r11
+  unsigned int v22; // esi
 
   DXGFASTMUTEX::Acquire((DXGSYNCOBJECT *)((char *)this + 32));
-  if ( (*((_DWORD *)a4 + 109) & 0x100) != 0 )
+  if ( (*((_DWORD *)a4 + 87) & 0x100) != 0 )
   {
     if ( !a2 )
     {
-      WdLogSingleEntry1(1LL, 1939LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pSyncAdapter != nullptr", 1939LL, 0LL, 0LL, 0LL, 0LL);
+      v12 = WdLogNewEntry5_WdAssertion(v11, v10);
+      *(_QWORD *)(v12 + 24) = 1910LL;
+      WdLogEvent5_WdAssertion(v12);
     }
-    VidSchSyncObject = DXGSYNCOBJECT::GetVidSchSyncObject(this, a2[350]);
+    VidSchSyncObject = DXGSYNCOBJECT::GetVidSchSyncObject(this, a2[338]);
     PeriodicFrameNotification = DXGDODPRESENT::CreatePeriodicFrameNotification(
-                                  v11,
+                                  v16,
                                   (struct DXGADAPTER *)a2,
                                   VidSchSyncObject,
-                                  (unsigned __int64)v11,
+                                  (unsigned __int64)v14,
                                   a6,
-                                  (struct _D3DDDI_SYNCHRONIZATIONOBJECTINFO2 *)((char *)this + 200),
-                                  (unsigned __int64 *)this + 23);
-    *((_DWORD *)this + 48) = a6;
-    *((_QWORD *)this + 22) = a4;
+                                  v15,
+                                  v14);
+    *((_DWORD *)this + 46) = a6;
+    *((_QWORD *)this + 21) = a4;
   }
   else
   {
-    v13 = DXGSYNCOBJECT::GetVidSchSyncObject(this, a3[350]);
-    PeriodicFrameNotification = (*(__int64 (__fastcall **)(_QWORD, struct _VIDSCH_SYNC_OBJECT *, unsigned __int64, _QWORD, char *, char *))(*(_QWORD *)(*(_QWORD *)(v14 + 624) + 8LL) + 936LL))(
-                                  *(_QWORD *)(v14 + 632),
-                                  v13,
+    v19 = DXGSYNCOBJECT::GetVidSchSyncObject(this, a3[338]);
+    PeriodicFrameNotification = (*(__int64 (__fastcall **)(__int64, struct _VIDSCH_SYNC_OBJECT *, unsigned __int64, _QWORD, char *, char *))(*(_QWORD *)(v20 + 8) + 936LL))(
+                                  v21,
+                                  v19,
                                   a5,
                                   a6,
-                                  (char *)this + 200,
-                                  (char *)this + 168);
+                                  (char *)this + 192,
+                                  (char *)this + 160);
   }
-  v15 = PeriodicFrameNotification;
-  DXGFASTMUTEX::Release((struct _KTHREAD **)this + 4);
-  return v15;
+  v22 = PeriodicFrameNotification;
+  DXGFASTMUTEX::Release((struct _KTHREAD **)this + 4, v18);
+  return v22;
 }

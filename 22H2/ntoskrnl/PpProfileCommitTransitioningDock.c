@@ -1,17 +1,17 @@
 /*
- * XREFs of PpProfileCommitTransitioningDock @ 0x140963C74
+ * XREFs of PpProfileCommitTransitioningDock @ 0x1408AB52C
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1403B6A4C (PnpRemoveLockedDeviceNode.c)
- *     PipProcessStartPhase2 @ 0x1407913A8 (PipProcessStartPhase2.c)
+ *     PnpRemoveLockedDeviceNode @ 0x140370078 (PnpRemoveLockedDeviceNode.c)
+ *     PipProcessStartPhase2 @ 0x14073A19C (PipProcessStartPhase2.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeReleaseSemaphore @ 0x140321250 (KeReleaseSemaphore.c)
- *     PnpIrpQueryID @ 0x1407986DC (PnpIrpQueryID.c)
- *     PnpRequestHwProfileChangeNotification @ 0x140956AC8 (PnpRequestHwProfileChangeNotification.c)
- *     PiProfileUpdateDeviceTree @ 0x1409637A4 (PiProfileUpdateDeviceTree.c)
- *     PnpProfileUpdateHardwareProfile @ 0x14096390C (PnpProfileUpdateHardwareProfile.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     KeReleaseSemaphore @ 0x1402F19A0 (KeReleaseSemaphore.c)
+ *     PnpIrpQueryID @ 0x1407436F0 (PnpIrpQueryID.c)
+ *     PnpRequestHwProfileChangeNotification @ 0x14089FDE8 (PnpRequestHwProfileChangeNotification.c)
+ *     PiProfileUpdateDeviceTree @ 0x1408AB080 (PiProfileUpdateDeviceTree.c)
+ *     PnpProfileUpdateHardwareProfile @ 0x1408AB1CC (PnpProfileUpdateHardwareProfile.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall PpProfileCommitTransitioningDock(__int64 a1, int a2)
@@ -43,11 +43,11 @@ LONG __fastcall PpProfileCommitTransitioningDock(__int64 a1, int a2)
     *(_QWORD *)(a1 + 584) = a1 + 576;
     *v5 = v5;
     --PiProfileDeviceCount;
-    ExReleaseFastMutex(&PiProfileDeviceListLock);
+    KeReleaseGuardedMutex(&PiProfileDeviceListLock);
   }
   else if ( !v3 )
   {
-    PnpIrpQueryID(*(_QWORD **)(a1 + 32), 4, &v10);
+    PnpIrpQueryID(*(struct _DEVICE_OBJECT **)(a1 + 32), 4, &v10);
     *(_QWORD *)(a1 + 592) = v10;
   }
   *(_DWORD *)(a1 + 568) = 1;

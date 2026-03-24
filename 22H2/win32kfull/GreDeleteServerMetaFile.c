@@ -1,13 +1,13 @@
 /*
- * XREFs of GreDeleteServerMetaFile @ 0x1C02D2D08
+ * XREFs of GreDeleteServerMetaFile @ 0x1C02B8054
  * Callers:
- *     vCleanupMetaType @ 0x1C00BCAA0 (vCleanupMetaType.c)
- *     FreeDdeXact @ 0x1C01FAFB0 (FreeDdeXact.c)
- *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C01FC714 (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
+ *     vCleanupMetaType @ 0x1C0134AA0 (vCleanupMetaType.c)
+ *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C015C768 (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
+ *     FreeDdeXact @ 0x1C021C4B0 (FreeDdeXact.c)
  * Callees:
- *     ??B?$HmgLockResultBase@VMETA@@@@QEBA_NXZ @ 0x1C0138BF0 (--B-$HmgLockResultBase@VMETA@@@@QEBA_NXZ.c)
- *     ??0?$HmgLockResult@VMETA@@@@QEAA@PEAU_BASEOBJECT@@@Z @ 0x1C01406D8 (--0-$HmgLockResult@VMETA@@@@QEAA@PEAU_BASEOBJECT@@@Z.c)
- *     ??1?$HmgLockResult@VMETA@@@@QEAA@XZ @ 0x1C0140724 (--1-$HmgLockResult@VMETA@@@@QEAA@XZ.c)
+ *     ??0?$HmgLockResult@VMETA@@@@QEAA@PEAU_BASEOBJECT@@@Z @ 0x1C016D23C (--0-$HmgLockResult@VMETA@@@@QEAA@PEAU_BASEOBJECT@@@Z.c)
+ *     ??1?$HmgLockResult@VMETA@@@@QEAA@XZ @ 0x1C016D288 (--1-$HmgLockResult@VMETA@@@@QEAA@XZ.c)
+ *     ??B?$HmgLockResultBase@VMETA@@@@QEBA_NXZ @ 0x1C016D2B8 (--B-$HmgLockResultBase@VMETA@@@@QEBA_NXZ.c)
  */
 
 __int64 __fastcall GreDeleteServerMetaFile(__int64 a1, __int64 a2)

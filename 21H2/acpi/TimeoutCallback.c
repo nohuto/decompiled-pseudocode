@@ -1,9 +1,9 @@
 /*
- * XREFs of TimeoutCallback @ 0x1C0069B70
+ * XREFs of TimeoutCallback @ 0x1C0068800
  * Callers:
  *     <none>
  * Callees:
- *     RestartContext @ 0x1C000DCC0 (RestartContext.c)
+ *     RestartContext @ 0x1C0023DF0 (RestartContext.c)
  */
 
 void __fastcall TimeoutCallback(
@@ -19,7 +19,7 @@ void __fastcall TimeoutCallback(
   _QWORD *v9; // rdx
 
   v5 = KeAcquireSpinLockRaiseToDpc(&SpinLock);
-  NewIrql = v5;
+  byte_1C00827B0 = v5;
   v6 = DeferredContext[16];
   if ( (v6 & 1) != 0 )
   {
@@ -41,8 +41,8 @@ void __fastcall TimeoutCallback(
   {
     DeferredContext[16] = v6 & 0xFFFFFFFD;
 LABEL_8:
-    KeReleaseSpinLock(&SpinLock, NewIrql);
-    RestartContext((__int64)DeferredContext);
+    KeReleaseSpinLock(&SpinLock, byte_1C00827B0);
+    RestartContext((__int64)DeferredContext, (DeferredContext[16] & 0x100) == 0);
     return;
   }
   KeReleaseSpinLock(&SpinLock, v5);

@@ -1,28 +1,28 @@
 /*
- * XREFs of CmpPromoteKey @ 0x140805600
+ * XREFs of CmpPromoteKey @ 0x1408055E0
  * Callers:
- *     CmDeleteLayeredKey @ 0x14026CBCC (CmDeleteLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x14026CCCC (CmDeleteLayeredKey.c)
  *     CmDeleteValueKey @ 0x1405B6634 (CmDeleteValueKey.c)
  *     CmpSetKeySecurity @ 0x1405B8548 (CmpSetKeySecurity.c)
  *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
- *     CmSetLastWriteTimeKey @ 0x1407EF8CC (CmSetLastWriteTimeKey.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmSetLastWriteTimeKey @ 0x1407EF8AC (CmSetLastWriteTimeKey.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpLockKcbStackTopExclusiveRestShared @ 0x1405CF478 (CmpLockKcbStackTopExclusiveRestShared.c)
  *     CmpGetKcbAtLayerHeight @ 0x1405D8AC0 (CmpGetKcbAtLayerHeight.c)
- *     CmpStartKcbStack @ 0x140643FF0 (CmpStartKcbStack.c)
- *     CmpPopulateKcbStack @ 0x1406440B0 (CmpPopulateKcbStack.c)
- *     CmpUnlockKcbStack @ 0x1406440E0 (CmpUnlockKcbStack.c)
- *     CmpIsKeyStackDeleted @ 0x140644670 (CmpIsKeyStackDeleted.c)
- *     CmpFullPromoteHiveRootFromKcbStack @ 0x140804DE4 (CmpFullPromoteHiveRootFromKcbStack.c)
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x1408058E0 (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpStartKcbStack @ 0x140643FD0 (CmpStartKcbStack.c)
+ *     CmpPopulateKcbStack @ 0x140644090 (CmpPopulateKcbStack.c)
+ *     CmpUnlockKcbStack @ 0x1406440C0 (CmpUnlockKcbStack.c)
+ *     CmpIsKeyStackDeleted @ 0x140644650 (CmpIsKeyStackDeleted.c)
+ *     CmpFullPromoteHiveRootFromKcbStack @ 0x140804DC4 (CmpFullPromoteHiveRootFromKcbStack.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x1408058C0 (CmpPromoteSingleKeyFromKcbStacks.c)
  */
 
 __int64 __fastcall CmpPromoteKey(__int64 a1, char a2, char a3)

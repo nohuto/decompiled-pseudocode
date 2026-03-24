@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetDefaultWallpaperName@@YAXPEAGI@Z @ 0x1C021CAD8
+ * XREFs of ?GetDefaultWallpaperName@@YAXPEAGI@Z @ 0x1C02230E8
  * Callers:
- *     LoadWallpaperFilenameFromRegistry @ 0x1C011A528 (LoadWallpaperFilenameFromRegistry.c)
+ *     LoadWallpaperFilenameFromRegistry @ 0x1C012EEF8 (LoadWallpaperFilenameFromRegistry.c)
  * Callees:
  *     <none>
  */
@@ -15,22 +15,23 @@ void __fastcall GetDefaultWallpaperName(char *a1, unsigned int a2)
   __int16 v7; // ax
   __int16 v8; // ax
   char *v9; // rax
-  __int64 v10; // rcx
-  char *v11; // rax
-  __int64 v12; // rax
-  unsigned __int16 *v13; // rcx
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  char *v16; // r9
-  unsigned __int16 v17; // ax
-  unsigned __int16 *v18; // rax
-  int v19; // [rsp+40h] [rbp+18h] BYREF
+  signed int v10; // ecx
+  __int64 v11; // r9
+  char *v12; // rax
+  __int64 v13; // rdx
+  unsigned __int16 *v14; // rcx
+  __int64 v15; // r9
+  __int64 v16; // r8
+  char *v17; // rdx
+  unsigned __int16 v18; // ax
+  unsigned __int16 *v19; // rax
+  int v20; // [rsp+40h] [rbp+18h] BYREF
 
   v3 = a2;
-  v19 = 0;
-  RtlGetNtProductType((PNT_PRODUCT_TYPE)&v19);
+  v20 = 0;
+  RtlGetNtProductType((PNT_PRODUCT_TYPE)&v20);
   v4 = v3 - 1;
-  if ( v19 == 1 )
+  if ( v20 == 1 )
   {
     if ( v4 <= 0x7FFFFFFE )
     {
@@ -77,46 +78,58 @@ LABEL_13:
   if ( (_DWORD)v3 )
     *(_WORD *)a1 = 0;
 LABEL_18:
-  if ( *(unsigned __int8 *)(gpsi + 7002LL) * (unsigned int)*(unsigned __int8 *)(gpsi + 7003LL) > 4
-    && (unsigned __int64)(v3 - 1) <= 0x7FFFFFFE )
+  if ( *(unsigned __int8 *)(gpsi + 7002LL) * (unsigned int)*(unsigned __int8 *)(gpsi + 7003LL) > 4 )
   {
-    v10 = v3;
-    v11 = a1;
-    do
+    v10 = 0;
+    if ( (unsigned __int64)(v3 - 1) > 0x7FFFFFFE )
+      v10 = -1073741811;
+    if ( v10 < 0 )
+      goto LABEL_27;
+    v11 = v3;
+    v12 = a1;
+    if ( (_DWORD)v3 )
     {
-      if ( !*(_WORD *)v11 )
-        break;
-      v11 += 2;
-      --v10;
-    }
-    while ( v10 );
-    v12 = v10 ? v3 - v10 : 0LL;
-    if ( v10 )
-    {
-      v13 = (unsigned __int16 *)&a1[2 * v12];
-      v14 = v3 - v12;
-      if ( v3 != v12 )
+      do
       {
-        v15 = 2147483646LL;
-        v16 = (char *)((char *)L"256" - (char *)v13);
+        if ( !*(_WORD *)v12 )
+          break;
+        v12 += 2;
+        --v11;
+      }
+      while ( v11 );
+    }
+    v10 = v11 == 0 ? 0xC000000D : 0;
+    if ( v11 )
+      v13 = v3 - v11;
+    else
+LABEL_27:
+      v13 = 0LL;
+    if ( v10 >= 0 )
+    {
+      v14 = (unsigned __int16 *)&a1[2 * v13];
+      v15 = v3 - v13;
+      if ( v3 != v13 )
+      {
+        v16 = 2147483646LL;
+        v17 = (char *)((char *)L"256" - (char *)v14);
         do
         {
-          if ( !v15 )
+          if ( !v16 )
             break;
-          v17 = *(unsigned __int16 *)((char *)v13 + (_QWORD)v16);
-          if ( !v17 )
+          v18 = *(unsigned __int16 *)((char *)v14 + (_QWORD)v17);
+          if ( !v18 )
             break;
-          *v13 = v17;
+          *v14 = v18;
+          --v16;
+          ++v14;
           --v15;
-          ++v13;
-          --v14;
         }
-        while ( v14 );
+        while ( v15 );
       }
-      v18 = v13 - 1;
-      if ( v14 )
-        v18 = v13;
-      *v18 = 0;
+      v19 = v14 - 1;
+      if ( v15 )
+        v19 = v14;
+      *v19 = 0;
     }
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vDisableTimers@@YAXK@Z @ 0x1C0113640
+ * XREFs of ?vDisableTimers@@YAXK@Z @ 0x1C0127FB0
  * Callers:
- *     vDisableSynchronize @ 0x1C0113580 (vDisableSynchronize.c)
- *     ?vDisableSynchronizeNKAPC@@YAXPEAX00@Z @ 0x1C029D590 (-vDisableSynchronizeNKAPC@@YAXPEAX00@Z.c)
+ *     vDisableSynchronize @ 0x1C0127EF0 (vDisableSynchronize.c)
+ *     ?vDisableSynchronizeNKAPC@@YAXPEAX00@Z @ 0x1C029ECB0 (-vDisableSynchronizeNKAPC@@YAXPEAX00@Z.c)
  * Callees:
- *     UserKillTimer @ 0x1C0243A90 (UserKillTimer.c)
+ *     UserKillTimer @ 0x1C0248204 (UserKillTimer.c)
  */
 
 void __fastcall vDisableTimers(char a1)

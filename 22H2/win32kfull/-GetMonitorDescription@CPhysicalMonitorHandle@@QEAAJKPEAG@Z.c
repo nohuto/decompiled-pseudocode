@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetMonitorDescription@CPhysicalMonitorHandle@@QEAAJKPEAG@Z @ 0x1C0269F5C
+ * XREFs of ?GetMonitorDescription@CPhysicalMonitorHandle@@QEAAJKPEAG@Z @ 0x1C02718E8
  * Callers:
- *     ?GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z @ 0x1C0269ECC (-GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z.c)
+ *     ?GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z @ 0x1C0271850 (-GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z.c)
  * Callees:
  *     <none>
  */

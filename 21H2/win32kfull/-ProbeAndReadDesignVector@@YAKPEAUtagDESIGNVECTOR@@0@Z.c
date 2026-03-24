@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z @ 0x1C02AC728
+ * XREFs of ?ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z @ 0x1C02ADFBC
  * Callers:
- *     NtGdiAddFontResourceW @ 0x1C00F9360 (NtGdiAddFontResourceW.c)
- *     NtGdiRemoveFontResourceW @ 0x1C02AE430 (NtGdiRemoveFontResourceW.c)
+ *     NtGdiAddFontResourceW @ 0x1C010E740 (NtGdiAddFontResourceW.c)
+ *     NtGdiRemoveFontResourceW @ 0x1C02AFD40 (NtGdiRemoveFontResourceW.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall ProbeAndReadDesignVector(struct tagDESIGNVECTOR *a1, struct tagDESIGNVECTOR *a2)

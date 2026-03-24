@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetFloatProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C009CB30
+ * XREFs of ?SetFloatProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0021C60
  * Callers:
  *     <none>
  * Callees:
- *     ?SetFloatProperty@CGeometryMarshaler@DirectComposition@@MEAAJIMPEA_N@Z @ 0x1C021F190 (-SetFloatProperty@CGeometryMarshaler@DirectComposition@@MEAAJIMPEA_N@Z.c)
+ *     ?SetFloatProperty@CGeometryMarshaler@DirectComposition@@MEAAJIMPEA_N@Z @ 0x1C01E8920 (-SetFloatProperty@CGeometryMarshaler@DirectComposition@@MEAAJIMPEA_N@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CRectangleClipMarshaler::SetFloatProperty(
@@ -12,37 +12,37 @@ __int64 __fastcall DirectComposition::CRectangleClipMarshaler::SetFloatProperty(
         float a3,
         bool *a4)
 {
-  char v4; // bl
-  float v7; // xmm0_4
-  int v8; // eax
-  __int64 v9; // rcx
-  float *v10; // rdx
-  unsigned int v11; // ecx
-  float v12; // xmm1_4
-  bool v13; // dl
+  char v4; // di
+  float v8; // xmm0_4
+  int v9; // eax
+  __int64 v10; // rcx
+  float *v11; // r9
+  unsigned int v12; // edx
+  float v13; // xmm1_4
+  bool v14; // cl
 
-  v4 = *((_BYTE *)this + 153);
-  v7 = 0.0;
+  v4 = *((_BYTE *)this + 145);
+  v8 = 0.0;
   if ( a2 > 0xA )
   {
     switch ( a2 )
     {
       case 0xBu:
-        v9 = 132LL;
+        v10 = 124LL;
         goto LABEL_32;
       case 0xCu:
-        v9 = 136LL;
+        v10 = 128LL;
         goto LABEL_32;
       case 0xDu:
-        v9 = 140LL;
+        v10 = 132LL;
         goto LABEL_32;
       case 0xEu:
-        v9 = 144LL;
+        v10 = 136LL;
 LABEL_32:
-        v8 = -2049;
-        goto LABEL_8;
+        v9 = -2049;
+        goto LABEL_9;
       case 0xFu:
-        v9 = 148LL;
+        v10 = 140LL;
         goto LABEL_32;
     }
     return (unsigned int)DirectComposition::CGeometryMarshaler::SetFloatProperty(this, a2, a3, a4);
@@ -50,68 +50,66 @@ LABEL_32:
   switch ( a2 )
   {
     case 0xAu:
-      v9 = 128LL;
+      v10 = 120LL;
       goto LABEL_32;
     case 4u:
-      v7 = FLOAT_N2097152_0;
-      v8 = -4097;
-      v9 = 104LL;
-      goto LABEL_8;
+      v8 = FLOAT_N2097152_0;
+      v9 = -4097;
+      v10 = 96LL;
+      goto LABEL_9;
     case 5u:
-      v7 = FLOAT_N2097152_0;
-      v8 = -8193;
-      v9 = 108LL;
-      goto LABEL_8;
+      v8 = FLOAT_N2097152_0;
+      v9 = -8193;
+      v10 = 100LL;
+      goto LABEL_9;
     case 6u:
-      v7 = FLOAT_N2097152_0;
-      v8 = -16385;
-      v9 = 112LL;
-      goto LABEL_8;
+      v8 = FLOAT_N2097152_0;
+      v9 = -16385;
+      v10 = 104LL;
+      goto LABEL_9;
   }
   if ( a2 != 7 )
   {
     if ( a2 == 8 )
     {
-      v9 = 120LL;
+      v10 = 112LL;
       goto LABEL_32;
     }
     if ( a2 == 9 )
     {
-      v9 = 124LL;
+      v10 = 116LL;
       goto LABEL_32;
     }
     return (unsigned int)DirectComposition::CGeometryMarshaler::SetFloatProperty(this, a2, a3, a4);
   }
-  v7 = FLOAT_N2097152_0;
-  v8 = -32769;
-  v9 = 116LL;
-LABEL_8:
-  v10 = (float *)((char *)this + v9);
-  v11 = v4 != 0 ? 0xC000000D : 0;
-  if ( v10 && !v4 )
+  v8 = FLOAT_N2097152_0;
+  v9 = -32769;
+  v10 = 108LL;
+LABEL_9:
+  v11 = (float *)((char *)this + v10);
+  v12 = v4 != 0 ? 0xC000000D : 0;
+  if ( (DirectComposition::CRectangleClipMarshaler *)((char *)this + v10) && !v4 )
   {
-    v12 = FLOAT_2097152_0;
+    v13 = FLOAT_2097152_0;
     if ( a3 <= 2097152.0 )
-      v12 = fmaxf(a3, v7);
-    if ( *v10 == v12 )
+      v13 = fmaxf(a3, v8);
+    if ( *v11 == v13 )
     {
-      v13 = 0;
+      v14 = 0;
     }
     else
     {
-      *v10 = v12;
-      v13 = 1;
+      *v11 = v13;
+      v14 = 1;
     }
-    *a4 = v13;
+    *a4 = v14;
     if ( a2 <= 7 && a2 >= 4 )
     {
       *a4 = 1;
-LABEL_18:
-      *((_DWORD *)this + 4) &= v8;
-      return v4 != 0 ? 0xC000000D : 0;
+      v14 = 1;
     }
-    if ( v13 )
-      goto LABEL_18;
+    if ( v14 )
+      *((_DWORD *)this + 4) &= v9;
   }
-  return v11;
+  return v12;
 }

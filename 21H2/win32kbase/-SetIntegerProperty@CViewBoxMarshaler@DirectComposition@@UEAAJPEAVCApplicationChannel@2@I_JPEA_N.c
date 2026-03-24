@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CViewBoxMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C021DD60
+ * XREFs of ?SetIntegerProperty@CViewBoxMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E7630
  * Callers:
  *     <none>
  * Callees:
@@ -19,10 +19,10 @@ __int64 __fastcall DirectComposition::CViewBoxMarshaler::SetIntegerProperty(
   *a5 = 0;
   if ( a3 == 2 )
   {
-    if ( *((_DWORD *)this + 22) != a4 )
+    if ( *((_DWORD *)this + 20) != a4 )
     {
       *((_DWORD *)this + 4) |= 0x200u;
-      *((_DWORD *)this + 22) = a4;
+      *((_DWORD *)this + 20) = a4;
       *a5 = 1;
     }
   }

@@ -1,22 +1,22 @@
 /*
- * XREFs of ?HideVisuals@COffScreenRenderTarget@@MEAAXXZ @ 0x1801C1610
+ * XREFs of ?HideVisuals@COffScreenRenderTarget@@MEAAXXZ @ 0x180185C40
  * Callers:
- *     ?HideVisuals@CMagnifierRenderTarget@@MEAAXXZ @ 0x1801C7A40 (-HideVisuals@CMagnifierRenderTarget@@MEAAXXZ.c)
+ *     ?HideVisuals@CMagnifierRenderTarget@@MEAAXXZ @ 0x18018B630 (-HideVisuals@CMagnifierRenderTarget@@MEAAXXZ.c)
  * Callees:
- *     ?ShowHideCursors@CComposition@@IEAAX_N@Z @ 0x1800F7F34 (-ShowHideCursors@CComposition@@IEAAX_N@Z.c)
+ *     ?ShowHideCursors@CComposition@@IEAAX_N@Z @ 0x1800DF22C (-ShowHideCursors@CComposition@@IEAAX_N@Z.c)
  */
 
 void __fastcall COffScreenRenderTarget::HideVisuals(COffScreenRenderTarget *this)
 {
   char v1; // dl
 
-  if ( *((_DWORD *)this + 438) == 1 )
+  if ( *((_DWORD *)this + 442) == 1 )
   {
     v1 = 1;
   }
   else
   {
-    if ( *((_DWORD *)this + 438) != 2 )
+    if ( *((_DWORD *)this + 442) != 2 )
       return;
     v1 = 0;
   }

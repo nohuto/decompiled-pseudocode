@@ -1,19 +1,19 @@
 /*
- * XREFs of IopReplaceCompletionPort @ 0x140557F30
+ * XREFs of IopReplaceCompletionPort @ 0x14038CA2C
  * Callers:
- *     NtSetInformationFile @ 0x1402A6AD0 (NtSetInformationFile.c)
+ *     NtSetInformationFile @ 0x1402D2A20 (NtSetInformationFile.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopReplaceCompletionPort(__int64 a1, void *a2, __int64 a3)
 {
-  volatile signed __int64 *v3; // r14
+  KSPIN_LOCK *v3; // r14
   unsigned int v7; // esi
   KIRQL v8; // al
   __int64 v9; // rcx
@@ -24,7 +24,7 @@ __int64 __fastcall IopReplaceCompletionPort(__int64 a1, void *a2, __int64 a3)
   int v14; // edx
   bool v15; // zf
 
-  v3 = (volatile signed __int64 *)(a1 + 184);
+  v3 = (KSPIN_LOCK *)(a1 + 184);
   v7 = -1073741823;
   v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 184));
   v9 = *(_QWORD *)(a1 + 176);
@@ -43,22 +43,26 @@ __int64 __fastcall IopReplaceCompletionPort(__int64 a1, void *a2, __int64 a3)
     {
       ExFreePoolWithTag(*(PVOID *)(a1 + 176), 0);
       *(_QWORD *)(a1 + 176) = 0LL;
+      *(_DWORD *)(a1 + 80) |= 0x400u;
     }
     v7 = 0;
   }
   KxReleaseSpinLock(v3);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-      v15 = (v14 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v14;
-      if ( v15 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+        v15 = (v14 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v14;
+        if ( v15 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v10);

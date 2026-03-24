@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpCoverageSamplerUnloadImage @ 0x1408C90E4
+ * XREFs of EtwpCoverageSamplerUnloadImage @ 0x1408C90C4
  * Callers:
  *     EtwpTraceImageUnload @ 0x140089324 (EtwpTraceImageUnload.c)
  * Callees:
@@ -8,8 +8,8 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     EtwpCovSampAcquireSamplerRundown @ 0x1408C398C (EtwpCovSampAcquireSamplerRundown.c)
- *     EtwpCovSampProcessRemoveModule @ 0x1408C748C (EtwpCovSampProcessRemoveModule.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x1408C396C (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampProcessRemoveModule @ 0x1408C746C (EtwpCovSampProcessRemoveModule.c)
  */
 
 void __fastcall EtwpCoverageSamplerUnloadImage(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -29,7 +29,7 @@ void __fastcall EtwpCoverageSamplerUnloadImage(__int64 a1, unsigned __int64 a2, 
   }
   else
   {
-    v6 = qword_140409E18 + 752;
+    v6 = qword_140409DD8 + 752;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -44,7 +44,7 @@ void __fastcall EtwpCoverageSamplerUnloadImage(__int64 a1, unsigned __int64 a2, 
 LABEL_8:
   if ( v8 )
   {
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_140409E20);
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_140409DE0);
     KeLeaveCriticalRegion();
   }
 }

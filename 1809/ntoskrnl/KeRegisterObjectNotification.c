@@ -1,20 +1,20 @@
 /*
- * XREFs of KeRegisterObjectNotification @ 0x1400FD2A0
+ * XREFs of KeRegisterObjectNotification @ 0x1400FD2C0
  * Callers:
  *     NtWaitForWorkViaWorkerFactory @ 0x140059B50 (NtWaitForWorkViaWorkerFactory.c)
- *     ExpTryEnterWorkerFactoryAwayMode @ 0x140106D68 (ExpTryEnterWorkerFactoryAwayMode.c)
- *     ExpWorkerFactoryManagerThread @ 0x14017FE80 (ExpWorkerFactoryManagerThread.c)
- *     NtCreateWorkerFactory @ 0x14068A210 (NtCreateWorkerFactory.c)
+ *     ExpTryEnterWorkerFactoryAwayMode @ 0x140106D88 (ExpTryEnterWorkerFactoryAwayMode.c)
+ *     ExpWorkerFactoryManagerThread @ 0x14017FEA0 (ExpWorkerFactoryManagerThread.c)
+ *     NtCreateWorkerFactory @ 0x14068A1F0 (NtCreateWorkerFactory.c)
  *     ExpWorkerFactoryInitialization @ 0x1409DD794 (ExpWorkerFactoryInitialization.c)
  * Callees:
- *     KiWakeQueueWaiter @ 0x1400AC9F0 (KiWakeQueueWaiter.c)
- *     KiExitDispatcher @ 0x1400C2F50 (KiExitDispatcher.c)
- *     KiWakeOtherQueueWaiters @ 0x1400CDC40 (KiWakeOtherQueueWaiters.c)
- *     KiWaitSatisfyOther @ 0x1400FA7D4 (KiWaitSatisfyOther.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBDF0 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeIsThreadRunning @ 0x14028DCA8 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x14030FC8C (EtwTraceEnqueueWork.c)
+ *     KiWakeQueueWaiter @ 0x1400ACA10 (KiWakeQueueWaiter.c)
+ *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400CDC60 (KiWakeOtherQueueWaiters.c)
+ *     KiWaitSatisfyOther @ 0x1400FA7F4 (KiWaitSatisfyOther.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeIsThreadRunning @ 0x14028DDA8 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x14030FD8C (EtwTraceEnqueueWork.c)
  */
 
 char __fastcall KeRegisterObjectNotification(__int64 a1, __int64 a2, __int64 a3)

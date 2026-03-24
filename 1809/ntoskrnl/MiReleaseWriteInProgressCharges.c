@@ -4,7 +4,7 @@
  *     MiWriteComplete @ 0x140021DE0 (MiWriteComplete.c)
  *     MiFreeModWriterEntry @ 0x140022C88 (MiFreeModWriterEntry.c)
  *     MiBuildMappedCluster @ 0x14007FF80 (MiBuildMappedCluster.c)
- *     MiGatherPagefilePages @ 0x14014EFC0 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)

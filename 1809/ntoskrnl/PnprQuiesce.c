@@ -1,13 +1,13 @@
 /*
- * XREFs of PnprQuiesce @ 0x14028A46C
+ * XREFs of PnprQuiesce @ 0x14028A56C
  * Callers:
  *     PnprEndMirroring @ 0x140579740 (PnprEndMirroring.c)
  *     PnprInitiateReplaceOperation @ 0x140579814 (PnprInitiateReplaceOperation.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  *     PnprQuiesceProcessors @ 0x14057A720 (PnprQuiesceProcessors.c)
- *     PnprLockPagesForReplace @ 0x140835460 (PnprLockPagesForReplace.c)
+ *     PnprLockPagesForReplace @ 0x140835440 (PnprLockPagesForReplace.c)
  */
 
 __int64 PnprQuiesce()

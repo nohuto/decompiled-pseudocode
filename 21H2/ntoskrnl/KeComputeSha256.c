@@ -1,9 +1,9 @@
 /*
- * XREFs of KeComputeSha256 @ 0x1403A55A0
+ * XREFs of KeComputeSha256 @ 0x140399790
  * Callers:
- *     ExpKdPullRemoteFileForUser @ 0x1408536D4 (ExpKdPullRemoteFileForUser.c)
+ *     ExpKdPullRemoteFileForUser @ 0x14095B9CC (ExpKdPullRemoteFileForUser.c)
  * Callees:
- *     SymCryptSha256 @ 0x1403FB308 (SymCryptSha256.c)
+ *     SymCryptSha256 @ 0x1403EC158 (SymCryptSha256.c)
  */
 
 __int64 __fastcall KeComputeSha256(__int64 a1, __int64 a2, __int64 a3)

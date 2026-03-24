@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CleanupPowerWatchdog@@YAXPEAPEAX@Z @ 0x1C009E444
+ * XREFs of ?CleanupPowerWatchdog@@YAXPEAPEAX@Z @ 0x1C0077A4C
  * Callers:
- *     CleanupPowerRequestList @ 0x1C009E380 (CleanupPowerRequestList.c)
+ *     CleanupPowerRequestList @ 0x1C00779E0 (CleanupPowerRequestList.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 void __fastcall CleanupPowerWatchdog(void **a1)
@@ -21,6 +21,6 @@ void __fastcall CleanupPowerWatchdog(void **a1)
     InputBuffer[1] = v1;
     *a1 = 0LL;
     if ( ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x60u, 0LL, 0) < 0 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 616LL);
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 679LL);
   }
 }

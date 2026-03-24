@@ -1,17 +1,17 @@
 /*
- * XREFs of PopUpdatePowerActionWatchdogTimeouts @ 0x14098AB78
+ * XREFs of PopUpdatePowerActionWatchdogTimeouts @ 0x140776190
  * Callers:
- *     PopSetPowerActionWatchdogState @ 0x14058F588 (PopSetPowerActionWatchdogState.c)
+ *     PopSetPowerActionWatchdogState @ 0x140382C90 (PopSetPowerActionWatchdogState.c)
  * Callees:
- *     PopIsDetailedSleepReliabilityDiagEnabled @ 0x140996FE0 (PopIsDetailedSleepReliabilityDiagEnabled.c)
+ *     Feature_SleepReliabilityDetailedDiagnostics__private_IsEnabledDeviceUsage @ 0x1403F7A28 (Feature_SleepReliabilityDetailedDiagnostics__private_IsEnabledDeviceUsage.c)
  */
 
 __int64 PopUpdatePowerActionWatchdogTimeouts()
 {
   __int64 result; // rax
 
-  result = PopIsDetailedSleepReliabilityDiagEnabled();
-  if ( (_BYTE)result )
+  result = Feature_SleepReliabilityDetailedDiagnostics__private_IsEnabledDeviceUsage();
+  if ( (_DWORD)result )
   {
     PopPowerActionTransitioningWatchdogTimeout = 330;
     PopPowerActionResumingWatchdogTimeout = 150;

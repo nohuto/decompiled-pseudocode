@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpandDIB_CY_ExpCX @ 0x1C0265E70
+ * XREFs of ExpandDIB_CY_ExpCX @ 0x1C02688D0
  * Callers:
  *     <none>
  * Callees:
- *     GetFixupScan @ 0x1C0005AE0 (GetFixupScan.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     AlphaBlendBGRF @ 0x1C02640B0 (AlphaBlendBGRF.c)
- *     ExpYDIB_ExpCX @ 0x1C0264F20 (ExpYDIB_ExpCX.c)
- *     MappingBGRF @ 0x1C0269064 (MappingBGRF.c)
- *     SharpenInput @ 0x1C0269120 (SharpenInput.c)
+ *     GetFixupScan @ 0x1C00C79F0 (GetFixupScan.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     AlphaBlendBGRF @ 0x1C0266B00 (AlphaBlendBGRF.c)
+ *     ExpYDIB_ExpCX @ 0x1C0267970 (ExpYDIB_ExpCX.c)
+ *     MappingBGRF @ 0x1C026BC84 (MappingBGRF.c)
+ *     SharpenInput @ 0x1C026BD40 (SharpenInput.c)
  */
 
 __int64 __fastcall ExpandDIB_CY_ExpCX(__int64 a1)
@@ -248,9 +248,9 @@ __int64 __fastcall ExpandDIB_CY_ExpCX(__int64 a1)
     while ( v37 )
     {
       v86 = v37 - 1;
+      v38 = *v36;
       v77 = *v36;
       v91 = v36 + 1;
-      v38 = *v36;
       if ( (v38 & 0x8000u) != 0 )
       {
         v39 = (int)v80;

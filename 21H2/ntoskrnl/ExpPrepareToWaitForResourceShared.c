@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPrepareToWaitForResourceShared @ 0x1402597A8
+ * XREFs of ExpPrepareToWaitForResourceShared @ 0x1402D0DCC
  * Callers:
- *     ExpAcquireSharedStarveExclusive @ 0x14032BD70 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireSharedWaitForExclusive @ 0x14039B280 (ExAcquireSharedWaitForExclusive.c)
- *     ExAcquireFastResourceShared @ 0x14039B6B0 (ExAcquireFastResourceShared.c)
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x14039BA90 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x14031E750 (ExpAcquireSharedStarveExclusive.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x14038F0B0 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExAcquireFastResourceShared @ 0x14038F380 (ExAcquireFastResourceShared.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1405B4D70 (ExAcquireSharedWaitForExclusive.c)
  * Callees:
- *     RtlInsertHeadCircularList @ 0x1402334A0 (RtlInsertHeadCircularList.c)
+ *     RtlInsertHeadCircularList @ 0x1402CC5A4 (RtlInsertHeadCircularList.c)
  */
 
 __int64 __fastcall ExpPrepareToWaitForResourceShared(__int64 a1, __int64 a2, __int64 a3)

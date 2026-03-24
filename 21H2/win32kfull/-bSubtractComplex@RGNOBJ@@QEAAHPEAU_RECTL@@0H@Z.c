@@ -1,12 +1,13 @@
 /*
- * XREFs of ?bSubtractComplex@RGNOBJ@@QEAAHPEAU_RECTL@@0H@Z @ 0x1C008E130
+ * XREFs of ?bSubtractComplex@RGNOBJ@@QEAAHPEAU_RECTL@@0H@Z @ 0x1C00B9894
  * Callers:
- *     ?bSubtract@RGNOBJAPI@@QEAAHPEAU_RECTL@@0H@Z @ 0x1C008BEE0 (-bSubtract@RGNOBJAPI@@QEAAHPEAU_RECTL@@0H@Z.c)
+ *     ?bSubtract@RGNOBJAPI@@QEAAHPEAU_RECTL@@0H@Z @ 0x1C00B9174 (-bSubtract@RGNOBJAPI@@QEAAHPEAU_RECTL@@0H@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memcmp @ 0x1C0159400 (memcmp.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memcmp @ 0x1C0165DD0 (memcmp.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall RGNOBJ::bSubtractComplex(RGNOBJ *this, struct _RECTL *a2, struct _RECTL *a3, int a4)
@@ -15,10 +16,10 @@ __int64 __fastcall RGNOBJ::bSubtractComplex(RGNOBJ *this, struct _RECTL *a2, str
   struct _RECTL *v6; // r12
   RGNOBJ *v7; // rdi
   _BYTE *v8; // rbx
-  unsigned int v9; // r9d
-  __int64 v10; // rcx
+  int v9; // r9d
+  __int64 v10; // rdx
   LONG *p_top; // r8
-  __int64 i; // rdx
+  __int64 i; // rcx
   __int64 v13; // r11
   __int64 v14; // rax
   int v15; // r9d
@@ -420,13 +421,10 @@ LABEL_38:
   v56 = 8LL * (unsigned int)(v4 + 1);
   if ( v56 <= 0xFFFFFFFF )
   {
-    if ( (_DWORD)v56 )
-    {
-      v70 = (_BYTE *)Win32AllocPool((unsigned int)v56, 1852273223LL);
-      v8 = v70;
-      if ( v70 )
-        goto LABEL_3;
-    }
+    v70 = PALLOCMEM2((unsigned int)v56, 1852273223LL, 0);
+    v8 = v70;
+    if ( v70 )
+      goto LABEL_3;
   }
   return 0LL;
 }

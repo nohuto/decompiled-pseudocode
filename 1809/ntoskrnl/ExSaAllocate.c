@@ -1,12 +1,12 @@
 /*
- * XREFs of ExSaAllocate @ 0x140167774
+ * XREFs of ExSaAllocate @ 0x140167794
  * Callers:
- *     ExpAllocateFannedOutPushLock @ 0x1401676C8 (ExpAllocateFannedOutPushLock.c)
- *     EtwpCovSampCaptureContextStart @ 0x1408C3DA0 (EtwpCovSampCaptureContextStart.c)
+ *     ExpAllocateFannedOutPushLock @ 0x1401676E8 (ExpAllocateFannedOutPushLock.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1408C3D80 (EtwpCovSampCaptureContextStart.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExpSaAllocatorAllocate @ 0x1401677E8 (ExpSaAllocatorAllocate.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ExpSaAllocatorAllocate @ 0x140167808 (ExpSaAllocatorAllocate.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExSaAllocate(unsigned int a1, unsigned int a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpRecoverEnlistment @ 0x14091BA74
+ * XREFs of CmpRecoverEnlistment @ 0x140874E8C
  * Callers:
- *     CmKtmNotification @ 0x140741CF0 (CmKtmNotification.c)
+ *     CmKtmNotification @ 0x1406A36F0 (CmKtmNotification.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenEnlistment @ 0x14041DBC0 (ZwOpenEnlistment.c)
- *     ZwRecoverEnlistment @ 0x14041E5C0 (ZwRecoverEnlistment.c)
- *     CmpTransSearchAddTransFromRm @ 0x14067F2D4 (CmpTransSearchAddTransFromRm.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlStringFromGUIDEx @ 0x1407454A8 (RtlStringFromGUIDEx.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenEnlistment @ 0x1403FC740 (ZwOpenEnlistment.c)
+ *     ZwRecoverEnlistment @ 0x1403FD100 (ZwRecoverEnlistment.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
+ *     CmpTransSearchAddTransFromRm @ 0x140766DB4 (CmpTransSearchAddTransFromRm.c)
  */
 
 __int64 __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, GUID *a3)
@@ -26,7 +26,7 @@ __int64 __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, GUID *a3)
   EnlistmentHandle = 0LL;
   v8 = 0LL;
   UnicodeString = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   result = RtlStringFromGUIDEx(&a3->Data1, (__int64)&v8, 1);
   if ( (int)result >= 0 )
   {
@@ -46,8 +46,8 @@ __int64 __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, GUID *a3)
         ZwClose(EnlistmentHandle);
       }
     }
-    RtlFreeUnicodeString(&UnicodeString);
-    RtlFreeUnicodeString(&v8);
+    RtlFreeAnsiString(&UnicodeString);
+    RtlFreeAnsiString(&v8);
     return (unsigned int)v6;
   }
   return result;

@@ -1,19 +1,19 @@
 /*
- * XREFs of TdrBugcheckOnTimeout @ 0x1C030FD40
+ * XREFs of TdrBugcheckOnTimeout @ 0x1C0266E00
  * Callers:
- *     ?PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02B8D38 (-PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02C1C28 (-Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z @ 0x1C030DED0 (-TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z.c)
- *     ?TdrDereferenceRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030F0D0 (-TdrDereferenceRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
- *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030F310 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?TdrResetFromTimeout@@YAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030F580 (-TdrResetFromTimeout@@YAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?TdrResetFromTimeoutAsync@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030F660 (-TdrResetFromTimeoutAsync@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ @ 0x1C030FA80 (-Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ.c)
- *     ?TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z @ 0x1C03D4A60 (-TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z.c)
+ *     ?PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C020EDE8 (-PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0217300 (-Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z @ 0x1C0264F30 (-TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z.c)
+ *     ?TdrDereferenceRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0266184 (-TdrDereferenceRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02663B0 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrResetFromTimeout@@YAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0266610 (-TdrResetFromTimeout@@YAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrResetFromTimeoutAsync@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02666F0 (-TdrResetFromTimeoutAsync@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ @ 0x1C0266B50 (-Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ.c)
+ *     ?TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z @ 0x1C03005F4 (-TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z.c)
  * Callees:
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ?TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030F19C (-TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?TdrUpdateDbgBuffer@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030F7EC (-TdrUpdateDbgBuffer@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0266244 (-TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrUpdateDbgBuffer@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02668B8 (-TdrUpdateDbgBuffer@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
  */
 
 void __fastcall __noreturn TdrBugcheckOnTimeout(ULONG_PTR BugCheckParameter1, int a2, int a3)
@@ -22,7 +22,7 @@ void __fastcall __noreturn TdrBugcheckOnTimeout(ULONG_PTR BugCheckParameter1, in
   ULONG_PTR v5; // rbp
   struct _TDR_RECOVERY_CONTEXT *v6; // rcx
   unsigned int v7; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int64 v9; // rdi
   int v10; // ecx
   void *retaddr; // [rsp+38h] [rbp+0h]
@@ -36,27 +36,27 @@ void __fastcall __noreturn TdrBugcheckOnTimeout(ULONG_PTR BugCheckParameter1, in
   if ( BugCheckParameter1 )
   {
     TdrUpdateDbgBuffer(v6);
-    if ( *(_QWORD *)(BugCheckParameter1 + 2848) )
+    if ( *(_QWORD *)(BugCheckParameter1 + 2840) )
     {
-      if ( *(_QWORD *)(BugCheckParameter1 + 2856) )
+      if ( *(_QWORD *)(BugCheckParameter1 + 2848) )
       {
-        v7 = *(_DWORD *)(BugCheckParameter1 + 2856);
+        v7 = *(_DWORD *)(BugCheckParameter1 + 2848);
         if ( v7 )
         {
           if ( v7 < 0x1000 )
             v7 = 4096;
-          Pool2 = (void *)ExAllocatePool2(64LL, v7, 1380209782LL);
-          v9 = (__int64)Pool2;
-          if ( Pool2 )
+          PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, v7, 0x52445476u);
+          v9 = (__int64)PoolWithTag;
+          if ( PoolWithTag )
           {
-            memmove(Pool2, *(const void **)(BugCheckParameter1 + 2848), *(_QWORD *)(BugCheckParameter1 + 2856));
-            v10 = *(_DWORD *)(BugCheckParameter1 + 2856);
+            memmove(PoolWithTag, *(const void **)(BugCheckParameter1 + 2840), *(_QWORD *)(BugCheckParameter1 + 2848));
+            v10 = *(_DWORD *)(BugCheckParameter1 + 2848);
             if ( v10 )
             {
-              qword_1C0142330 = v9;
-              dword_1C014232C = v10;
+              qword_1C00B4708 = v9;
+              dword_1C00B4704 = v10;
             }
-            WdDbgReportCancel(*(_QWORD *)(BugCheckParameter1 + 2840));
+            WdDbgReportCancel(*(_QWORD *)(BugCheckParameter1 + 2832));
           }
         }
       }

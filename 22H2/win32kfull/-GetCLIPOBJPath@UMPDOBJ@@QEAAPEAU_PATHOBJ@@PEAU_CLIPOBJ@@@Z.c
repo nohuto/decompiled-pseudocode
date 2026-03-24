@@ -1,33 +1,31 @@
 /*
- * XREFs of ?GetCLIPOBJPath@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z @ 0x1C015AA68
+ * XREFs of ?GetCLIPOBJPath@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z @ 0x1C0293530
  * Callers:
- *     NtGdiCLIPOBJ_ppoGetPath @ 0x1C015D080 (NtGdiCLIPOBJ_ppoGetPath.c)
+ *     NtGdiCLIPOBJ_ppoGetPath @ 0x1C02B1E00 (NtGdiCLIPOBJ_ppoGetPath.c)
  * Callees:
- *     EngDeletePath @ 0x1C015A800 (EngDeletePath.c)
- *     ?ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ @ 0x1C0265308 (-ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ.c)
- *     ??$GetDDIOBJ@U_CLIPOBJ@@@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU1@@Z @ 0x1C0298AD0 (--$GetDDIOBJ@U_CLIPOBJ@@@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU1@@Z.c)
- *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C0299418 (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
+ *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C001F008 (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
+ *     ?ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ @ 0x1C026CE5C (-ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ.c)
+ *     EngDeletePath @ 0x1C0286470 (EngDeletePath.c)
+ *     ??$GetDDIOBJ@U_CLIPOBJ@@@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU1@@Z @ 0x1C02932D0 (--$GetDDIOBJ@U_CLIPOBJ@@@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU1@@Z.c)
  */
 
 struct _PATHOBJ *__fastcall UMPDOBJ::GetCLIPOBJPath(UMPDOBJ *this, struct _CLIPOBJ *a2)
 {
   XCLIPOBJ *v3; // rax
-  PATHOBJ *v4; // rdi
-  void *Path; // [rsp+40h] [rbp+8h] BYREF
+  struct _PATHOBJ *v4; // rbx
+  void *v6; // [rsp+40h] [rbp+8h] BYREF
 
   if ( *((_QWORD *)this + 31) )
     return 0LL;
-  v3 = (XCLIPOBJ *)UMPDOBJ::GetDDIOBJ<_CLIPOBJ>(this, a2);
-  if ( !v3 )
+  v3 = (XCLIPOBJ *)UMPDOBJ::GetDDIOBJ<_CLIPOBJ>((__int64)this, (__int64)a2);
+  v4 = v3 ? XCLIPOBJ::ppoGetPath(v3) : 0LL;
+  v6 = v4;
+  if ( !v4 )
     return 0LL;
-  Path = XCLIPOBJ::ppoGetPath(v3);
-  v4 = (PATHOBJ *)Path;
-  if ( !Path )
-    return 0LL;
-  if ( !(unsigned int)UMPDOBJ::ThunkDDIOBJ(this, (UMPDOBJ *)((char *)this + 240), &Path, 8u, 0LL) )
+  if ( !(unsigned int)UMPDOBJ::ThunkDDIOBJ(this, (UMPDOBJ *)((char *)this + 240), (const void **)&v6, 8u, 0LL) )
   {
     EngDeletePath(v4);
     return 0LL;
   }
-  return (struct _PATHOBJ *)Path;
+  return (struct _PATHOBJ *)v6;
 }

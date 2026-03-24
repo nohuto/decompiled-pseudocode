@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnIsHostingApplication @ 0x140667D0C
+ * XREFs of PfSnIsHostingApplication @ 0x140667CEC
  * Callers:
- *     PfSnBeginAppLaunch @ 0x140666C14 (PfSnBeginAppLaunch.c)
+ *     PfSnBeginAppLaunch @ 0x140666BF4 (PfSnBeginAppLaunch.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     wcsstr @ 0x140197930 (wcsstr.c)
+ *     wcsstr @ 0x140197950 (wcsstr.c)
  */
 
 char __fastcall PfSnIsHostingApplication(wchar_t *SubStr)

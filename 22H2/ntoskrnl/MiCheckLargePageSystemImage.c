@@ -1,67 +1,78 @@
 /*
- * XREFs of MiCheckLargePageSystemImage @ 0x140B64A90
+ * XREFs of MiCheckLargePageSystemImage @ 0x140A67DE0
  * Callers:
- *     MiCheckLargePageOk @ 0x140B47240 (MiCheckLargePageOk.c)
+ *     MiCheckLargePageOk @ 0x140A67C78 (MiCheckLargePageOk.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiCheckLargePageSystemImage(ULONG_PTR BugCheckParameter2, __int64 a2)
+ULONG_PTR __fastcall MiCheckLargePageSystemImage(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
-  __int64 result; // rax
-  unsigned __int64 v4; // rbx
-  unsigned __int64 v5; // rsi
+  ULONG_PTR result; // rax
+  unsigned __int64 v4; // rdi
+  unsigned __int64 v5; // rbp
+  __int64 ***v6; // r14
   ULONG_PTR BugCheckParameter4; // rax
-  unsigned __int64 v7; // rax
-  ULONG_PTR v8; // rdx
-  ULONG_PTR v9; // r9
-  ULONG_PTR v10; // r10
+  ULONG_PTR v8; // rbx
+  __int64 **v9; // rdx
+  ULONG_PTR v10; // rbx
   ULONG_PTR v11; // rcx
-  ULONG_PTR v12; // rax
-  ULONG_PTR v13; // [rsp+48h] [rbp+10h] BYREF
+  struct _LIST_ENTRY *Flink; // rdx
+  ULONG_PTR v13; // [rsp+58h] [rbp+10h] BYREF
 
   result = 0xFFFFF6FB40000000uLL;
   v4 = ((*(_QWORD *)(a2 + 48) >> 18) & 0x3FFFFFF8LL) - 0x904C0000000LL;
   v5 = (((*(_QWORD *)(a2 + 48) + (unsigned __int64)*(unsigned int *)(a2 + 64) - 1) >> 18) & 0x3FFFFFF8)
      - 0x904C0000000LL;
-  while ( v4 <= v5 )
+  if ( v4 <= v5 )
   {
-    BugCheckParameter4 = MI_READ_PTE_LOCK_FREE(v4);
-    v13 = BugCheckParameter4;
-    if ( (BugCheckParameter4 & 0x80u) == 0LL )
-      KeBugCheckEx(0x1Au, 0x3030200uLL, BugCheckParameter2, v4, BugCheckParameter4);
-    v7 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v13);
-    v8 = *(_QWORD *)(BugCheckParameter2 + 352);
-    v9 = (v7 >> 12) & 0xFFFFFFFFFFLL;
-    if ( (*(_BYTE *)(BugCheckParameter2 + 360) & 1) != 0 && v8 )
-      v8 ^= BugCheckParameter2 + 352;
-    v10 = 0LL;
-    while ( v8 )
+    v6 = (__int64 ***)(BugCheckParameter2 + 32);
+    do
     {
-      v11 = *(_QWORD *)(v8 + 32);
-      if ( v9 < v11 )
-        goto LABEL_16;
-      if ( v9 < *(_QWORD *)(v8 + 40) + v11 )
+      BugCheckParameter4 = MI_READ_PTE_LOCK_FREE(v4);
+      v13 = BugCheckParameter4;
+      v8 = BugCheckParameter4;
+      if ( (BugCheckParameter4 & 0x80u) == 0LL )
+        KeBugCheckEx(0x1Au, 0x3030200uLL, BugCheckParameter2, v4, BugCheckParameter4);
+      if ( MiPteInShadowRange((unsigned __int64)&v13)
+        && (MiFlags & 0xC00000) != 0
+        && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+        && (v8 & 1) != 0
+        && ((v8 & 0x20) == 0 || (v8 & 0x42) == 0) )
       {
-        v10 = v8;
-LABEL_16:
-        v12 = *(_QWORD *)v8;
-        goto LABEL_17;
+        Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        if ( Flink )
+        {
+          if ( ((__int64)*(&Flink->Flink + (((unsigned __int64)&v13 >> 3) & 0x1FF)) & 0x20) != 0 )
+            v8 |= 0x20uLL;
+        }
       }
-      v12 = *(_QWORD *)(v8 + 8);
-LABEL_17:
-      if ( (*(_BYTE *)(BugCheckParameter2 + 360) & 1) != 0 && v12 )
-        v8 ^= v12;
-      else
-        v8 = v12;
+      v9 = *v6;
+      result = 0xFFFFFFFFFLL;
+      v10 = (v8 >> 12) & 0xFFFFFFFFFLL;
+      while ( v9 != (__int64 **)v6 )
+      {
+        v11 = (ULONG_PTR)v9[3];
+        if ( v11 <= v10 )
+        {
+          result = v10 + 512;
+          if ( (unsigned __int64)v9[4] + v11 >= v10 + 512 )
+          {
+            result = *((int *)v9 + 4);
+            if ( (_DWORD)result != 9 )
+              KeBugCheckEx(0x1Au, 0x3030208uLL, BugCheckParameter2, v10, *((int *)v9 + 4));
+            break;
+          }
+        }
+        v9 = (__int64 **)*v9;
+      }
+      if ( v9 == (__int64 **)v6 )
+        KeBugCheckEx(0x1Au, 0x3030202uLL, BugCheckParameter2, v10, 0LL);
+      v4 += 8LL;
     }
-    if ( *(_QWORD *)(v10 + 32) + *(_QWORD *)(v10 + 40) < v9 + 512 )
-      KeBugCheckEx(0x1Au, 0x3030202uLL, BugCheckParameter2, v9, 0LL);
-    result = *(int *)(v10 + 24);
-    if ( (_DWORD)result != 9 )
-      KeBugCheckEx(0x1Au, 0x3030208uLL, BugCheckParameter2, v9, *(int *)(v10 + 24));
-    v4 += 8LL;
+    while ( v4 <= v5 );
   }
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpProfileInterrupt @ 0x14062F380
+ * XREFs of EtwpProfileInterrupt @ 0x1405A91B0
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x140281380 (EtwTraceSiloKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwTraceSiloKernelEvent @ 0x14025A84C (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpProfileInterrupt(__int64 a1)
@@ -65,20 +65,18 @@ LABEL_9:
   if ( SchedulingGroup )
   {
     v11 = (char *)SchedulingGroup + CurrentPrcb->ScbOffset;
-    while ( *((_DWORD *)v11 + 29) <= 0xFFu )
+    do
     {
-      LOBYTE(SchedulingGroup) = v11[116];
-      if ( !(_BYTE)SchedulingGroup )
-      {
-        v11 = (char *)*((_QWORD *)v11 + 51);
-        if ( v11 )
-          continue;
-      }
-      goto LABEL_16;
+      if ( *((_DWORD *)v11 + 29) > 0xFFu )
+        LOBYTE(SchedulingGroup) = -1;
+      else
+        LOBYTE(SchedulingGroup) = v11[116];
+      if ( (_BYTE)SchedulingGroup )
+        break;
+      v11 = (char *)*((_QWORD *)v11 + 51);
     }
-    LOBYTE(SchedulingGroup) = -1;
+    while ( v11 );
   }
-LABEL_16:
   v20 = 0;
   v18 = &v13;
   v17 = (char)SchedulingGroup;

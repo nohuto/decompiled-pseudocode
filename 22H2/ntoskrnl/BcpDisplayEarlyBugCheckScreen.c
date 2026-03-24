@@ -1,11 +1,11 @@
 /*
- * XREFs of BcpDisplayEarlyBugCheckScreen @ 0x140B9E7AC
+ * XREFs of BcpDisplayEarlyBugCheckScreen @ 0x140A974F0
  * Callers:
- *     BgpFwDisplayBugCheckScreen @ 0x140673134 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x1405C5644 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     BgConsoleGetInterface @ 0x140AEF5AC (BgConsoleGetInterface.c)
- *     BgConsoleDestroyInterface @ 0x140AF0254 (BgConsoleDestroyInterface.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     BgConsoleGetInterface @ 0x1409F1664 (BgConsoleGetInterface.c)
+ *     BgConsoleDestroyInterface @ 0x1409F3F5C (BgConsoleDestroyInterface.c)
  */
 
 __int64 __fastcall BcpDisplayEarlyBugCheckScreen(unsigned int a1, _QWORD *a2, __int64 a3)
@@ -13,17 +13,17 @@ __int64 __fastcall BcpDisplayEarlyBugCheckScreen(unsigned int a1, _QWORD *a2, __
   __int64 (__fastcall **Interface)(); // rax
   __int64 (__fastcall **v7)(); // rbx
   __int64 v8; // r8
-  int v9; // r10d
+  int v9; // r9d
   unsigned __int8 v10; // dl
-  _WORD *v11; // r9
+  _WORD *v11; // r10
   __int16 v12; // ax
   _QWORD *v13; // rdi
   __int64 v14; // rbp
-  __int64 v15; // r8
-  int v16; // r9d
-  unsigned __int8 v17; // dl
-  _WORD *v18; // r10
-  __int16 v19; // ax
+  __int64 v15; // rdx
+  int v16; // r8d
+  unsigned __int8 v17; // al
+  __int64 v18; // r9
+  __int16 v19; // cx
 
   Interface = BgConsoleGetInterface();
   v7 = Interface;
@@ -74,13 +74,13 @@ __int64 __fastcall BcpDisplayEarlyBugCheckScreen(unsigned int a1, _QWORD *a2, __
           do
           {
             v17 = (*a2 >> v16) & 0xF;
-            v18 = (_WORD *)(*v13 + 2LL * (unsigned int)v15);
+            v18 = (unsigned int)v15;
             if ( v17 >= 0xAu )
               v19 = (unsigned __int8)(v17 - 10) + 65;
             else
               v19 = v17 + 48;
             v15 = (unsigned int)(v15 + 1);
-            *v18 = v19;
+            *(_WORD *)(*v13 + 2 * v18) = v19;
             v16 -= 4;
           }
           while ( v16 >= 0 );

@@ -1,5 +1,5 @@
 /*
- * XREFs of CmRmIsKCBVisible @ 0x140699950
+ * XREFs of CmRmIsKCBVisible @ 0x140699930
  * Callers:
  *     CmRmIsKcbStackVisible @ 0x1405812B8 (CmRmIsKcbStackVisible.c)
  *     CmpCheckOpenAccessOnKeyBody @ 0x140596210 (CmpCheckOpenAccessOnKeyBody.c)

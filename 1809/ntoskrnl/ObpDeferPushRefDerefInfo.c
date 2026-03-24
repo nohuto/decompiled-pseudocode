@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpDeferPushRefDerefInfo @ 0x1402D2E68
+ * XREFs of ObpDeferPushRefDerefInfo @ 0x1402D2F68
  * Callers:
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
  */
 
 void __fastcall ObpDeferPushRefDerefInfo(__int64 a1, char a2, __int16 a3, int a4, struct _SLIST_ENTRY *a5, int a6)

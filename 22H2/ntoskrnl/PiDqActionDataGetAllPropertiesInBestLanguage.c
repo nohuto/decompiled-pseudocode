@@ -1,102 +1,99 @@
 /*
- * XREFs of PiDqActionDataGetAllPropertiesInBestLanguage @ 0x14095BF40
+ * XREFs of PiDqActionDataGetAllPropertiesInBestLanguage @ 0x1408A4530
  * Callers:
- *     PiDqActionDataCreate @ 0x1407F9F04 (PiDqActionDataCreate.c)
+ *     PiDqActionDataCreate @ 0x1406A878C (PiDqActionDataCreate.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1406C9AF4 (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PiDqOpenObjectRegKey @ 0x1407FAB08 (PiDqOpenObjectRegKey.c)
- *     PiDqGrowPropertyArray @ 0x14083C158 (PiDqGrowPropertyArray.c)
- *     PiDqPnPGetObjectPropertyKeys @ 0x14083C1CC (PiDqPnPGetObjectPropertyKeys.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     PiDqOpenObjectRegKey @ 0x14068C7E8 (PiDqOpenObjectRegKey.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1406B1B74 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiDqGrowPropertyArray @ 0x140771134 (PiDqGrowPropertyArray.c)
+ *     PiDqPnPGetObjectPropertyKeys @ 0x1408A4968 (PiDqPnPGetObjectPropertyKeys.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqActionDataGetAllPropertiesInBestLanguage(
         __int64 a1,
         int a2,
-        unsigned int a3,
+        int a3,
         __int64 a4,
-        const wchar_t *a5,
+        NTSTRSAFE_PCWSTR a5,
         const void **a6,
         unsigned int *a7,
         unsigned int *a8)
 {
-  PVOID v8; // rbx
-  int v9; // esi
-  int v10; // r12d
-  int v11; // edi
-  __int64 v12; // r9
-  unsigned int *v13; // r14
-  unsigned int v14; // eax
-  const void **v15; // r15
-  unsigned int v16; // edx
-  unsigned int v17; // r8d
-  unsigned int v18; // esi
-  const wchar_t *v19; // r13
+  unsigned int v8; // r14d
+  void *v10; // rbx
+  unsigned int v11; // r15d
+  int v12; // edi
+  int v13; // r9d
+  unsigned int *v14; // rsi
+  unsigned int v15; // eax
+  const void **v16; // r12
+  unsigned int v17; // edx
+  unsigned int v18; // r8d
+  __int64 v19; // rax
   HANDLE Handle; // [rsp+50h] [rbp-10h] BYREF
-  PVOID v22; // [rsp+58h] [rbp-8h] BYREF
+  void *v22; // [rsp+58h] [rbp-8h] BYREF
   unsigned int v24; // [rsp+B0h] [rbp+50h] BYREF
-  __int64 v25; // [rsp+B8h] [rbp+58h]
 
-  v25 = a4;
+  v8 = 0;
   Handle = 0LL;
-  v8 = 0LL;
   v24 = 0;
-  v9 = a4;
+  v10 = 0LL;
+  v11 = 0;
   v22 = 0LL;
-  v10 = 0;
   if ( a2 != 1 )
-    v10 = a3;
-  v11 = PiDqOpenObjectRegKey(a2, a4, a3, 1, 0, a1, &Handle);
-  if ( v11 >= 0 )
+    v11 = a3;
+  v12 = PiDqOpenObjectRegKey(a2, a4, a3, 1, 0, a1, &Handle);
+  if ( v12 >= 0 )
   {
-    v11 = PiDqPnPGetObjectPropertyKeys(v9, v10, (__int64)Handle, v12, &v22, &v24);
-    if ( v11 >= 0 )
+    v12 = PiDqPnPGetObjectPropertyKeys(a4, v11, (_DWORD)Handle, v13, (__int64)&v22, (__int64)&v24);
+    if ( v12 >= 0 )
     {
-      v13 = a7;
-      v14 = v24;
-      v15 = a6;
-      v16 = *a7;
-      v17 = *a7 + v24;
-      if ( *a8 < v17 )
+      v14 = a7;
+      v15 = v24;
+      v16 = a6;
+      v17 = *a7;
+      v18 = *a7 + v24;
+      if ( *a8 < v18 )
       {
-        *a8 = v17;
-        v11 = PiDqGrowPropertyArray(v15, v16, v17);
-        if ( v11 < 0 )
+        *a8 = v18;
+        v12 = PiDqGrowPropertyArray(v16, v17, v18);
+        if ( v12 < 0 )
           goto LABEL_13;
-        v14 = v24;
+        v15 = v24;
       }
-      v18 = 0;
-      if ( v14 )
+      if ( v15 )
       {
-        v19 = a5;
-        v8 = v22;
+        v19 = *v14;
+        v10 = v22;
         do
         {
-          v11 = PiDqPnPGetObjectPropertyInBestLocale(
-                  v25,
-                  v10,
-                  (int)Handle,
-                  (unsigned int)v8 + 20 * v18,
+          v12 = PiDqPnPGetObjectPropertyInBestLocale(
+                  a4,
+                  v11,
+                  (__int64)Handle,
+                  (__int64)v10 + 20 * v8,
                   a2,
-                  v19,
-                  (_OWORD *)*v15 + 3 * *v13);
-          if ( v11 < 0 )
+                  a5,
+                  (_OWORD *)*v16 + 3 * v19);
+          if ( v12 < 0 )
             break;
-          ++*v13;
-          ++v18;
+          ++*v14;
+          ++v8;
+          v19 = *v14;
         }
-        while ( v18 < v24 );
+        while ( v8 < v24 );
         goto LABEL_14;
       }
     }
 LABEL_13:
-    v8 = v22;
+    v10 = v22;
   }
 LABEL_14:
   if ( Handle )
     ZwClose(Handle);
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0x58706E50u);
-  return (unsigned int)v11;
+  if ( v10 )
+    ExFreePoolWithTag(v10, 0x58706E50u);
+  return (unsigned int)v12;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of _purecall_0 @ 0x1C002B220
+ * XREFs of _purecall_0 @ 0x1C00249C0
  * Callers:
  *     <none>
  * Callees:

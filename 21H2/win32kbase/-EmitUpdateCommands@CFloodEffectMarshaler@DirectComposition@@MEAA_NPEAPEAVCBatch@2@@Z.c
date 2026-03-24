@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdateCommands@CFloodEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02175D0
+ * XREFs of ?EmitUpdateCommands@CFloodEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E1400
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitUpdateCommands@CEffectInputSet@DirectComposition@@QEAA_NW4MILCMD@@IPEAPEAVCBatch@2@@Z @ 0x1C0215F34 (-EmitUpdateCommands@CEffectInputSet@DirectComposition@@QEAA_NW4MILCMD@@IPEAPEAVCBatch@2@@Z.c)
- *     ?EmitData@CFloodEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0217548 (-EmitData@CFloodEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CEffectInputSet@DirectComposition@@QEAA_NW4MILCMD@@IPEAPEAVCBatch@2@@Z @ 0x1C01E00A4 (-EmitUpdateCommands@CEffectInputSet@DirectComposition@@QEAA_NW4MILCMD@@IPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitData@CFloodEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E1380 (-EmitData@CFloodEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CFloodEffectMarshaler::EmitUpdateCommands(
@@ -15,9 +15,9 @@ char __fastcall DirectComposition::CFloodEffectMarshaler::EmitUpdateCommands(
 
   v4 = 0;
   if ( DirectComposition::CEffectInputSet::EmitUpdateCommands(
-         (__int64)this + 80,
+         (__int64)this + 72,
          (__int64)a2,
-         *((_DWORD *)this + 8),
+         *((_DWORD *)this + 6),
          a2) )
   {
     return DirectComposition::CFloodEffectMarshaler::EmitData(this, a2) != 0;

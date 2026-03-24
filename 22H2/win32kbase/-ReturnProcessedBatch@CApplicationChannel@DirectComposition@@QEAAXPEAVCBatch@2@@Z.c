@@ -1,53 +1,62 @@
 /*
- * XREFs of ?ReturnProcessedBatch@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z @ 0x1C006688C
+ * XREFs of ?ReturnProcessedBatch@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z @ 0x1C0057C80
  * Callers:
- *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C00667F8 (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
+ *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C00578CC (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
+ *     NtDCompositionConfirmFrame @ 0x1C0057920 (NtDCompositionConfirmFrame.c)
  * Callees:
- *     ?SetSynchronizationObject@CBatch@DirectComposition@@QEAAXPEBUSynchronizationObject@2@@Z @ 0x1C00669E4 (-SetSynchronizationObject@CBatch@DirectComposition@@QEAAXPEBUSynchronizationObject@2@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?ReleaseHandle@CLinearObjectTableBase@DirectComposition@@QEAAXI@Z @ 0x1C00B4258 (-ReleaseHandle@CLinearObjectTableBase@DirectComposition@@QEAAXI@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?ReleaseHandle@CLinearObjectTableBase@DirectComposition@@QEAAXI@Z @ 0x1C0060C8C (-ReleaseHandle@CLinearObjectTableBase@DirectComposition@@QEAAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DirectComposition::CApplicationChannel::ReturnProcessedBatch(
         union _SLIST_HEADER *this,
-        struct DirectComposition::CBatch *a2)
+        struct _SLIST_ENTRY *a2)
 {
-  ULONGLONG v4; // rcx
+  struct _SLIST_ENTRY *Next; // rcx
+  bool v5; // zf
+  ULONGLONG v6; // rcx
   ULONGLONG Region; // rsi
-  unsigned int v6; // edi
-  struct _ERESOURCE *v7; // rbx
-  struct _SLIST_HEADER::$81D0B81343CD6A575F52E6033C50E59F v8; // [rsp+20h] [rbp-18h]
+  unsigned int v8; // edi
+  struct _ERESOURCE *v9; // rbx
+  LARGE_INTEGER *Alignment; // rbx
 
-  DirectComposition::CBatch::SetSynchronizationObject(a2, 0LL);
-  if ( *((_DWORD *)a2 + 5) == 6 )
+  Next = a2[6].Next;
+  if ( Next )
+    ObfDereferenceObject(Next);
+  LOBYTE(a2[2].Next) &= ~0x10u;
+  v5 = HIDWORD(a2[1].Next) == 6;
+  a2[6].Next = 0LL;
+  if ( v5 )
   {
     Region = this[2].Region;
-    v6 = *((_DWORD *)&this[1].HeaderX64 + 3);
-    v7 = *(struct _ERESOURCE **)(Region + 72);
+    v8 = *((_DWORD *)&this[1].HeaderX64 + 3);
+    v9 = *(struct _ERESOURCE **)(Region + 72);
     KeEnterCriticalRegion();
-    ExAcquireResourceExclusiveLite(v7, 1u);
+    ExAcquireResourceExclusiveLite(v9, 1u);
     DirectComposition::CLinearObjectTableBase::ReleaseHandle(
       (DirectComposition::CLinearObjectTableBase *)(Region + 16),
-      v6);
+      v8);
     ExReleaseResourceLite(*(PERESOURCE *)(Region + 72));
     KeLeaveCriticalRegion();
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, a2);
+    Win32FreePool((__int64)a2);
     (*(void (__fastcall **)(union _SLIST_HEADER *, __int64))(this->Alignment + 32))(this, 1LL);
   }
   else
   {
-    *((_DWORD *)&this[24].HeaderX64 + 1) = *((_DWORD *)a2 + 4);
-    *(_QWORD *)&v8 = *((unsigned int *)a2 + 4);
-    *((_QWORD *)&v8 + 1) = *((_QWORD *)a2 + 7);
-    *(struct _SLIST_HEADER::$81D0B81343CD6A575F52E6033C50E59F *)((char *)&this[(*((_DWORD *)a2 + 4) & 0x7F) + 33].HeaderX64
-                                                               + 8) = v8;
-    v4 = this[22].Region;
-    if ( v4 && !this[23].Alignment )
-      KeSetEvent(*(PRKEVENT *)(v4 + 8), 1, 0);
-    if ( (*((_BYTE *)a2 + 32) & 8) != 0 )
+    v6 = this[22].Region;
+    *((_DWORD *)&this[23].HeaderX64 + 3) = a2[1].Next;
+    if ( v6 && !this[23].Alignment )
+      KeSetEvent(*(PRKEVENT *)(v6 + 8), 1, 0);
+    if ( ((__int64)a2[2].Next & 8) != 0 )
       *((_BYTE *)&this[15].Header8 + 2) = 0;
-    ExpInterlockedPushEntrySList(this + 12, (PSLIST_ENTRY)a2);
+    if ( (this[15].Alignment & 0x400) != 0 )
+    {
+      Alignment = (LARGE_INTEGER *)this[45].Alignment;
+      Alignment[8].LowPart = (DWORD)a2[1].Next;
+      Alignment[7] = KeQueryPerformanceCounter(0LL);
+    }
+    ExpInterlockedPushEntrySList(this + 12, a2);
     KeSetEvent(*(PRKEVENT *)(this[13].Region + 8), 1, 0);
   }
 }

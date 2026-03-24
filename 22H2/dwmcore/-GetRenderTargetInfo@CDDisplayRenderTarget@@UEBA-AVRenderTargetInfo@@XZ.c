@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetRenderTargetInfo@CDDisplayRenderTarget@@UEBA?AVRenderTargetInfo@@XZ @ 0x180105E2C
+ * XREFs of ?GetRenderTargetInfo@CDDisplayRenderTarget@@UEBA?AVRenderTargetInfo@@XZ @ 0x1800E1FE0
  * Callers:
- *     ?GetRenderTargetInfo@CDDisplayRenderTarget@@$4PPPPPPPM@A@EBA?AVRenderTargetInfo@@XZ @ 0x18011C6C0 (-GetRenderTargetInfo@CDDisplayRenderTarget@@$4PPPPPPPM@A@EBA-AVRenderTargetInfo@@XZ.c)
+ *     <none>
  * Callees:
  *     <none>
  */
@@ -12,8 +12,8 @@ __int64 __fastcall CDDisplayRenderTarget::GetRenderTargetInfo(__int64 a1, __int6
   __int64 v3; // xmm1_8
 
   result = a2;
-  v3 = *(_QWORD *)(a1 - 260);
-  *(_OWORD *)a2 = *(_OWORD *)(a1 - 276);
+  v3 = *(_QWORD *)(a1 + 18468);
+  *(_OWORD *)a2 = *(_OWORD *)(a1 + 18452);
   *(_QWORD *)(a2 + 16) = v3;
   return result;
 }

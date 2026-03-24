@@ -1,5 +1,5 @@
 /*
- * XREFs of EditionHandleMoveSizeDataOnDestroyMonitor @ 0x1C0121E80
+ * XREFs of EditionHandleMoveSizeDataOnDestroyMonitor @ 0x1C0136870
  * Callers:
  *     <none>
  * Callees:

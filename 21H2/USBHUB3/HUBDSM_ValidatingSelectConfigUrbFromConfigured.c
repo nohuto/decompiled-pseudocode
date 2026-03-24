@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_ValidatingSelectConfigUrbFromConfigured @ 0x1C001E0C0
+ * XREFs of HUBDSM_ValidatingSelectConfigUrbFromConfigured @ 0x1C001DB80
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_ValidateSelectConfigUrb @ 0x1C0015808 (HUBPDO_ValidateSelectConfigUrb.c)
+ *     HUBPDO_ValidateSelectConfigUrb @ 0x1C0015334 (HUBPDO_ValidateSelectConfigUrb.c)
  */
 
 __int64 __fastcall HUBDSM_ValidatingSelectConfigUrbFromConfigured(__int64 a1)

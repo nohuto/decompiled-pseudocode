@@ -1,19 +1,20 @@
 /*
- * XREFs of ACPIGetConvertToStringWide @ 0x1C002A994
+ * XREFs of ACPIGetConvertToStringWide @ 0x1C0055C48
  * Callers:
- *     ACPIGetConvertToSerialIDWide @ 0x1C002A854 (ACPIGetConvertToSerialIDWide.c)
- *     ACPIGetConvertToString @ 0x1C002A928 (ACPIGetConvertToString.c)
- *     ACPIGetWorkerForString @ 0x1C002B880 (ACPIGetWorkerForString.c)
+ *     ACPIGetWorkerForString @ 0x1C000C4F0 (ACPIGetWorkerForString.c)
+ *     ACPIGetConvertToSerialIDWide @ 0x1C0055B10 (ACPIGetConvertToSerialIDWide.c)
+ *     ACPIGetConvertToString @ 0x1C0055BDC (ACPIGetConvertToString.c)
  * Callees:
- *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
- *     ACPIAnsiStringToWideHelper @ 0x1C004390C (ACPIAnsiStringToWideHelper.c)
+ *     RtlStringCchPrintfA @ 0x1C000C948 (RtlStringCchPrintfA.c)
+ *     ACPIAnsiStringToWideHelper @ 0x1C000C9C4 (ACPIAnsiStringToWideHelper.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall ACPIGetConvertToStringWide(__int64 a1, int a2, __int64 a3, int a4, char **a5, _DWORD *a6)
 {
   __int64 v8; // rbx
   __int64 v9; // rbx
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   char *v11; // rsi
 
   if ( a2 < 0 )
@@ -25,14 +26,15 @@ __int64 __fastcall ACPIGetConvertToStringWide(__int64 a1, int a2, __int64 a3, in
     ++v8;
   while ( *(_BYTE *)(*(_QWORD *)(a3 + 32) + v8) );
   v9 = (unsigned int)(v8 + 1);
-  Pool2 = (char *)ExAllocatePool2(
-                    (-(__int64)((a4 & 0x8000000) != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256,
-                    2 * v9,
-                    1399874369LL);
-  v11 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(
+                          (POOL_TYPE)((a4 & 0x8000000) != 0 ? NonPagedPoolNx : PagedPool),
+                          2 * v9,
+                          0x53706341u);
+  v11 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  RtlStringCchPrintfA(Pool2, (unsigned int)v9, "%s", *(const char **)(a3 + 32));
+  memset(PoolWithTag, 0, 2 * v9);
+  RtlStringCchPrintfA(v11, (unsigned int)v9, "%s", *(const char **)(a3 + 32));
   ACPIAnsiStringToWideHelper(v11, 2 * v9);
   *a5 = v11;
   if ( a6 )

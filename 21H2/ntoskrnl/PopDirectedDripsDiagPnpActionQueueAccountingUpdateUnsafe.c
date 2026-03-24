@@ -1,8 +1,8 @@
 /*
- * XREFs of PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x1405DD718
+ * XREFs of PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x14057C8B0
  * Callers:
- *     PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x140396E7C (PopDirectedDripsDiagQueryAndResetPnpAccounting.c)
- *     PopDirectedDripsDiagPnpActionQueueAccountingUpdate @ 0x1405DD674 (PopDirectedDripsDiagPnpActionQueueAccountingUpdate.c)
+ *     PopDirectedDripsDiagPnpActionQueueAccountingUpdate @ 0x14057C80C (PopDirectedDripsDiagPnpActionQueueAccountingUpdate.c)
+ *     PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x14057C974 (PopDirectedDripsDiagQueryAndResetPnpAccounting.c)
  * Callees:
  *     <none>
  */
@@ -16,17 +16,17 @@ __int64 __fastcall PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe(__in
   __int128 *v6; // rcx
 
   v2 = MEMORY[0xFFFFF78000000008];
-  v3 = 28LL;
+  v3 = 26LL;
   if ( a2 )
   {
-    if ( dword_140C1CB9C != 28 )
-      qword_140C1CC28 = MEMORY[0xFFFFF78000000008];
-    if ( dword_140C1CB98 )
-      qword_140C1CC20 = MEMORY[0xFFFFF78000000008];
-    v6 = &xmmword_140C1CD10;
+    if ( dword_140C1EBBC != 26 )
+      qword_140C1EC40 = MEMORY[0xFFFFF78000000008];
+    if ( dword_140C1EBB8 )
+      qword_140C1EC38 = MEMORY[0xFFFFF78000000008];
+    v6 = &xmmword_140C1ED18;
     do
     {
-      result = *((unsigned int *)v6 - 92);
+      result = *((unsigned int *)v6 - 86);
       *(_DWORD *)v6 += result;
       v6 = (__int128 *)((char *)v6 + 4);
       --v3;
@@ -35,26 +35,26 @@ __int64 __fastcall PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe(__in
   }
   else
   {
-    if ( dword_140C1CB9C != 28 )
+    if ( dword_140C1EBBC != 26 )
     {
-      *((_QWORD *)xmmword_140C1CC30 + (unsigned int)dword_140C1CB9C) += MEMORY[0xFFFFF78000000008] - qword_140C1CC28;
-      qword_140C1CC28 = 0LL;
+      qword_140C1EC48[dword_140C1EBBC] += MEMORY[0xFFFFF78000000008] - qword_140C1EC40;
+      qword_140C1EC40 = 0LL;
     }
-    if ( dword_140C1CB98 )
+    if ( dword_140C1EBB8 )
     {
-      qword_140C1CC18 += v2 - qword_140C1CC20;
-      qword_140C1CC20 = 0LL;
+      qword_140C1EC30 += v2 - qword_140C1EC38;
+      qword_140C1EC38 = 0LL;
     }
-    v4 = &xmmword_140C1CD10;
+    v4 = &xmmword_140C1ED18;
     do
     {
-      result = *((unsigned int *)v4 - 92);
+      result = *((unsigned int *)v4 - 86);
       *(_DWORD *)v4 -= result;
       v4 = (__int128 *)((char *)v4 + 4);
       --v3;
     }
     while ( v3 );
   }
-  byte_140C1CC10 = a2;
+  byte_140C1EC28 = a2;
   return result;
 }

@@ -1,25 +1,24 @@
 /*
- * XREFs of PiDqPnPGetObjectPropertyKeys @ 0x14083C1CC
+ * XREFs of PiDqPnPGetObjectPropertyKeys @ 0x1408A4968
  * Callers:
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14083B7B8 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
- *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x14095BF40 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x1408A42A0 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x1408A4530 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
  * Callees:
- *     _PnpGetObjectPropertyKeys @ 0x14083C2BC (_PnpGetObjectPropertyKeys.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140876094 (_PnpGetGenericStorePropertyKeys.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1407675A0 (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpGetObjectPropertyKeys @ 0x140976978 (_PnpGetObjectPropertyKeys.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiDqPnPGetObjectPropertyKeys(int a1, int a2, __int64 a3, __int64 a4, PVOID *a5, _DWORD *a6)
+__int64 __fastcall PiDqPnPGetObjectPropertyKeys(int a1, int a2, __int64 a3, __int64 a4, PVOID *a5, unsigned int *a6)
 {
-  unsigned __int64 v9; // rbx
-  __int64 Pool2; // rax
-  __int64 v11; // r9
-  unsigned __int64 v12; // rdx
-  int ObjectPropertyKeys; // eax
-  unsigned int v14; // ebx
-  __int64 v16; // rcx
-  int v17; // [rsp+20h] [rbp-48h]
+  SIZE_T v9; // rbx
+  PVOID PoolWithTag; // rax
+  unsigned __int64 v11; // rdx
+  signed int ObjectPropertyKeys; // eax
+  int v13; // ebx
+  __int64 v14; // rcx
+  int v16; // [rsp+20h] [rbp-48h]
 
   v9 = 6000LL;
   *a5 = 0LL;
@@ -27,44 +26,54 @@ __int64 __fastcall PiDqPnPGetObjectPropertyKeys(int a1, int a2, __int64 a3, __in
   {
     if ( *a5 )
       ExFreePoolWithTag(*a5, 0x58706E50u);
-    Pool2 = ExAllocatePool2(256LL, v9, 1483763280LL);
-    *a5 = (PVOID)Pool2;
-    if ( !Pool2 )
-    {
-      v14 = -1073741670;
-      goto LABEL_11;
-    }
-    *a6 = 0;
-    v12 = v9 / 0x14;
-    if ( a2 )
-    {
-      ObjectPropertyKeys = PnpGetObjectPropertyKeys(PiPnpRtlCtx, a1, a2, a3, v17, 1, Pool2, v12, (__int64)a6);
-    }
-    else
-    {
-      LOBYTE(v11) = 1;
-      ObjectPropertyKeys = PnpGetGenericStorePropertyKeys(*(_QWORD *)&PiPnpRtlCtx, a3, 0LL, v11, Pool2, v12, a6);
-    }
-    v14 = ObjectPropertyKeys;
-    if ( ObjectPropertyKeys != -1073741789 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x58706E50u);
+    *a5 = PoolWithTag;
+    if ( !PoolWithTag )
       break;
-    v16 = (unsigned int)*a6;
-    if ( (unsigned __int64)(20 * v16) > 0xFFFFFFFF )
+    *a6 = 0;
+    v11 = v9 / 0x14;
+    if ( a2 )
+      ObjectPropertyKeys = PnpGetObjectPropertyKeys(
+                             PiPnpRtlCtx,
+                             a1,
+                             a2,
+                             a3,
+                             v16,
+                             1,
+                             (__int64)PoolWithTag,
+                             v11,
+                             (__int64)a6);
+    else
+      ObjectPropertyKeys = PnpGetGenericStorePropertyKeys(
+                             *(__int64 *)&PiPnpRtlCtx,
+                             a3,
+                             0LL,
+                             1,
+                             (__int64)PoolWithTag,
+                             v11,
+                             a6);
+    v13 = ObjectPropertyKeys;
+    if ( ObjectPropertyKeys != -1073741789 )
+      goto LABEL_13;
+    v14 = *a6;
+    if ( (unsigned __int64)(20 * v14) > 0xFFFFFFFF )
     {
-      v14 = -1073741675;
-      goto LABEL_11;
+      v13 = -1073741675;
+      goto LABEL_14;
     }
-    v9 = (unsigned int)(20 * v16);
+    v9 = (unsigned int)(20 * v14);
   }
-  if ( ObjectPropertyKeys >= 0 )
-    goto LABEL_9;
-LABEL_11:
+  v13 = -1073741670;
+LABEL_13:
+  if ( v13 >= 0 )
+    goto LABEL_15;
+LABEL_14:
   *a6 = 0;
-LABEL_9:
+LABEL_15:
   if ( !*a6 && *a5 )
   {
     ExFreePoolWithTag(*a5, 0x58706E50u);
     *a5 = 0LL;
   }
-  return v14;
+  return (unsigned int)v13;
 }

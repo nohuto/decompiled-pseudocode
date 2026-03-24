@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIEvaluateOscWheaMethodOnRootBus @ 0x1C008F648
+ * XREFs of ACPIEvaluateOscWheaMethodOnRootBus @ 0x1C0098640
  * Callers:
- *     ACPIRootInitialize @ 0x1C008F8C0 (ACPIRootInitialize.c)
+ *     ACPIRootInitialize @ 0x1C0097FAC (ACPIRootInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     ACPIAmliEvaluateOsc @ 0x1C008F740 (ACPIAmliEvaluateOsc.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ACPIAmliEvaluateOsc @ 0x1C009A3A0 (ACPIAmliEvaluateOsc.c)
  */
 
 __int64 __fastcall ACPIEvaluateOscWheaMethodOnRootBus(__int64 a1, __int64 a2, int a3, __int64 a4, int *a5)
@@ -18,7 +18,7 @@ __int64 __fastcall ACPIEvaluateOscWheaMethodOnRootBus(__int64 a1, __int64 a2, in
   v8[0] = 0;
   v8[1] = AcpiRootWheaFeaturesSupported;
   v9 = AcpiRootWheaFeaturesControl;
-  v5 = *(_QWORD *)(RootDeviceExtension + 760);
+  v5 = *(_QWORD *)(RootDeviceExtension + 720);
   *(_OWORD *)v7 = SB_OSC_WHEA_UUID;
   result = ACPIAmliEvaluateOsc(v5, (int)v7, a3, 3, v8);
   if ( (int)result >= 0 )

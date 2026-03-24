@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CClipGroupMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C021FA50
+ * XREFs of ?SetRemarshalingFlags@CClipGroupMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E91E0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C021F1F0 (-SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E8970 (-SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CClipGroupMarshaler::SetRemarshalingFlags(
@@ -12,9 +12,9 @@ char __fastcall DirectComposition::CClipGroupMarshaler::SetRemarshalingFlags(
   char result; // al
 
   result = DirectComposition::CGeometryMarshaler::SetRemarshalingFlags(this);
-  if ( *((_DWORD *)this + 28) )
+  if ( *((_DWORD *)this + 26) )
   {
-    *((_DWORD *)this + 29) = 0;
+    *((_DWORD *)this + 27) = 0;
     return 1;
   }
   return result;

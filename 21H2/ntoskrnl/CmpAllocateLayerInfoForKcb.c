@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpAllocateLayerInfoForKcb @ 0x1406CAEB4
+ * XREFs of CmpAllocateLayerInfoForKcb @ 0x1405D8404
  * Callers:
- *     CmpCreateLayerLink @ 0x1406CAE28 (CmpCreateLayerLink.c)
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
+ *     CmpCreateLayerLink @ 0x1405D8378 (CmpCreateLayerLink.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpAllocateLayerInfoForKcb(__int64 a1)

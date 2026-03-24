@@ -4,8 +4,8 @@
  *     CmpAddDriverToList @ 0x1409CD9F8 (CmpAddDriverToList.c)
  *     CmpIsLoadType @ 0x1409CE6B4 (CmpIsLoadType.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     CmpCopyCompressedName @ 0x1405AF298 (CmpCopyCompressedName.c)
  */
 

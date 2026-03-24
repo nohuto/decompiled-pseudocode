@@ -1,11 +1,11 @@
 /*
- * XREFs of WppTraceCallback @ 0x1C00722E0
+ * XREFs of WppTraceCallback @ 0x1C0075780
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C001F540 (memmove.c)
- *     memset @ 0x1C001F800 (memset.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C001DEC0 (memmove.c)
+ *     memset @ 0x1C001E180 (memset.c)
  */
 
 __int64 __fastcall WppTraceCallback(
@@ -136,24 +136,24 @@ __int64 __fastcall WppTraceCallback(
   }
   else
   {
-    v21 = WPPTraceSuite == 2;
+    v21 = LODWORD(WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Blink) == 2;
     v23 = *((_QWORD *)a4 + 1);
     *(_QWORD *)(v19 + 24) = v23;
     if ( v21 )
     {
-      if ( !(unsigned int)((__int64 (__fastcall *)(__int64, int *, __int64, unsigned int **, unsigned int *))pfnWppQueryTraceInformation)(
-                            3LL,
-                            &v24,
-                            4LL,
-                            &a6,
-                            a4) )
+      if ( !((unsigned int (__fastcall *)(__int64, int *, __int64, unsigned int **, unsigned int *))WPP_MAIN_CB.DeviceObjectExtension)(
+              3LL,
+              &v24,
+              4LL,
+              &a6,
+              a4) )
         *(_BYTE *)(v19 + 41) = v24;
-      return (unsigned int)((__int64 (__fastcall *)(__int64, __int64, __int64, unsigned int **, unsigned int *))pfnWppQueryTraceInformation)(
-                             2LL,
-                             v19 + 44,
-                             4LL,
-                             &a6,
-                             a4);
+      return ((unsigned int (__fastcall *)(__int64, __int64, __int64, unsigned int **, unsigned int *))WPP_MAIN_CB.DeviceObjectExtension)(
+               2LL,
+               v19 + 44,
+               4LL,
+               &a6,
+               a4);
     }
     else
     {

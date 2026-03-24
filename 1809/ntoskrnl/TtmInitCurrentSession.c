@@ -1,5 +1,5 @@
 /*
- * XREFs of TtmInitCurrentSession @ 0x14087F8A8
+ * XREFs of TtmInitCurrentSession @ 0x14087F888
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
@@ -7,16 +7,16 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PoRegisterPowerSettingCallback @ 0x140589EE0 (PoRegisterPowerSettingCallback.c)
- *     TtmiLogError @ 0x1407616FC (TtmiLogError.c)
- *     TtmiCreateTerminal @ 0x14087E82C (TtmiCreateTerminal.c)
- *     TtmiUpdateActiveTerminalCount @ 0x14088058C (TtmiUpdateActiveTerminalCount.c)
- *     TtmiLogInitCurrentSessionStart @ 0x140884030 (TtmiLogInitCurrentSessionStart.c)
- *     TtmiLogInitCurrentSessionStop @ 0x1408840D4 (TtmiLogInitCurrentSessionStop.c)
- *     TtmiLogSessionDeviceAssignmentPolicySet @ 0x140884C24 (TtmiLogSessionDeviceAssignmentPolicySet.c)
+ *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
+ *     TtmiCreateTerminal @ 0x14087E80C (TtmiCreateTerminal.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x14088056C (TtmiUpdateActiveTerminalCount.c)
+ *     TtmiLogInitCurrentSessionStart @ 0x140884010 (TtmiLogInitCurrentSessionStart.c)
+ *     TtmiLogInitCurrentSessionStop @ 0x1408840B4 (TtmiLogInitCurrentSessionStop.c)
+ *     TtmiLogSessionDeviceAssignmentPolicySet @ 0x140884C04 (TtmiLogSessionDeviceAssignmentPolicySet.c)
  */
 
 __int64 TtmInitCurrentSession()

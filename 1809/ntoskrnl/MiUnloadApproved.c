@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnloadApproved @ 0x14070DF94
+ * XREFs of MiUnloadApproved @ 0x14070DF74
  * Callers:
- *     MiDereferenceImports @ 0x14070DF0C (MiDereferenceImports.c)
+ *     MiDereferenceImports @ 0x14070DEEC (MiDereferenceImports.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiSessionLookupImage @ 0x14009DBC8 (MiSessionLookupImage.c)
- *     RtlFindExportedRoutineByName @ 0x140678EE0 (RtlFindExportedRoutineByName.c)
+ *     RtlFindExportedRoutineByName @ 0x140678EC0 (RtlFindExportedRoutineByName.c)
  */
 
 __int64 __fastcall MiUnloadApproved(__int64 a1)

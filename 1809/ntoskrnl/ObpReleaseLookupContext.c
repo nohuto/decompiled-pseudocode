@@ -6,8 +6,8 @@
  *     ObReferenceObjectByName @ 0x1405C8DA0 (ObReferenceObjectByName.c)
  *     ObCloseHandleTableEntry @ 0x1405E6360 (ObCloseHandleTableEntry.c)
  *     ObReferenceObjectByNameEx @ 0x14061145C (ObReferenceObjectByNameEx.c)
- *     ObpCreateSymbolicLinkName @ 0x1406C4460 (ObpCreateSymbolicLinkName.c)
- *     ObCreateObjectTypeEx @ 0x1407289FC (ObCreateObjectTypeEx.c)
+ *     ObpCreateSymbolicLinkName @ 0x1406C4440 (ObpCreateSymbolicLinkName.c)
+ *     ObCreateObjectTypeEx @ 0x1407289DC (ObCreateObjectTypeEx.c)
  *     ObInitSystem @ 0x1409B1964 (ObInitSystem.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)

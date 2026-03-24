@@ -1,12 +1,12 @@
 /*
- * XREFs of PopRunMaximumIrpWorkers @ 0x140598B64
+ * XREFs of PopRunMaximumIrpWorkers @ 0x14038BCE0
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     PopCreateDynamicIrpWorker @ 0x1403418B8 (PopCreateDynamicIrpWorker.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PopCreateDynamicIrpWorker @ 0x1403A4AD0 (PopCreateDynamicIrpWorker.c)
  */
 
 int PopRunMaximumIrpWorkers()
@@ -29,7 +29,7 @@ int PopRunMaximumIrpWorkers()
   PopCreateIrpWorkerAllowed = 0;
   v0 = (unsigned int)(15 - PopIrpWorkerPendingCount - PopIrpWorkerCount);
   PopIrpWorkerPendingCount += v0;
-  ExReleaseFastMutex(&PopIrpWorkerMutex);
+  KeReleaseGuardedMutex(&PopIrpWorkerMutex);
   v7 = 0;
   v8[1] = v8;
   v1 = 0;
@@ -42,7 +42,7 @@ int PopRunMaximumIrpWorkers()
   {
     do
     {
-      v3 = (int)PopCreateDynamicIrpWorker((__int64)Object) < 0;
+      v3 = (int)PopCreateDynamicIrpWorker(Object) < 0;
       LODWORD(v2) = v1 + 1;
       if ( v3 )
         LODWORD(v2) = v1;

@@ -1,15 +1,15 @@
 /*
  * XREFs of PnprMirrorMarkedPages @ 0x140579FFC
  * Callers:
- *     PnprSwap @ 0x14028A7D0 (PnprSwap.c)
+ *     PnprSwap @ 0x14028A8D0 (PnprSwap.c)
  *     PnprQuiesceProcessorDpc @ 0x14057A350 (PnprQuiesceProcessorDpc.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140021AC0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     RtlFindNextForwardRunClear @ 0x140028C00 (RtlFindNextForwardRunClear.c)
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
  *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14007EE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     RtlFindFirstRunClear @ 0x1402EE650 (RtlFindFirstRunClear.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     RtlFindFirstRunClear @ 0x1402EE750 (RtlFindFirstRunClear.c)
  */
 
 __int64 __fastcall PnprMirrorMarkedPages()

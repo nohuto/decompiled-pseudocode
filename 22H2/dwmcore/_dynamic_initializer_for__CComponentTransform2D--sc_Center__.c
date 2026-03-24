@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CComponentTransform2D::sc_Center__ @ 0x180001890
+ * XREFs of _dynamic_initializer_for__CComponentTransform2D::sc_Center__ @ 0x180001610
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CComponentTransform2D::sc_Center__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E3558 = (unsigned __int64)CPropertyChangeResource::SetAnimatedProperty;
-  qword_1803E3568 = v1;
+  xmmword_1803442B8 = (unsigned __int64)CPropertyChangeResource::SetAnimatedProperty;
+  qword_1803442C8 = v1;
   return result;
 }

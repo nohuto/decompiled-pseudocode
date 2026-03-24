@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetCombineDomain @ 0x140217428
+ * XREFs of MiGetCombineDomain @ 0x1403697BC
  * Callers:
- *     MiCapturePfnVm @ 0x140215CFC (MiCapturePfnVm.c)
- *     MiSharePages @ 0x1402161D0 (MiSharePages.c)
+ *     MiCapturePfnVm @ 0x140367A50 (MiCapturePfnVm.c)
+ *     MiSharePages @ 0x140367CB0 (MiSharePages.c)
  * Callees:
  *     <none>
  */

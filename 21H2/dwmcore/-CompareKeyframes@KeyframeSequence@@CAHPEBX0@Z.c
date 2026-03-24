@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CompareKeyframes@KeyframeSequence@@CAHPEBX0@Z @ 0x1800DD220
+ * XREFs of ?CompareKeyframes@KeyframeSequence@@CAHPEBX0@Z @ 0x1800D03C0
  * Callers:
  *     <none>
  * Callees:

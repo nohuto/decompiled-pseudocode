@@ -1,99 +1,99 @@
 /*
- * XREFs of PsQueryProcessExceptionFlags @ 0x1409AE2D0
+ * XREFs of PsQueryProcessExceptionFlags @ 0x140907510
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall PsQueryProcessExceptionFlags(ULONG_PTR BugCheckParameter1, int a2, int *a3)
+__int64 __fastcall PsQueryProcessExceptionFlags(ULONG_PTR BugCheckParameter1, int a2, int *a3, _DWORD *a4)
 {
-  int v4; // edi
-  int v6; // r15d
+  int v5; // edi
+  int v7; // r15d
   struct _KTHREAD *CurrentThread; // r14
-  unsigned int v8; // ebx
-  int v9; // edx
-  __int64 *v10; // rax
-  __int64 v11; // rax
-  __int64 v12; // rcx
-  int *v13; // rax
-  int v14; // r12d
-  $115DCDF994C6370D29323EAB0E0C9502 v16; // [rsp+58h] [rbp-60h] BYREF
+  unsigned int v9; // ebx
+  int v10; // edx
+  __int64 *v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  int *v14; // rax
+  int v15; // r12d
+  _OWORD v17[3]; // [rsp+58h] [rbp-60h] BYREF
 
-  memset(&v16, 0, sizeof(v16));
-  v4 = 0;
+  memset(v17, 0, sizeof(v17));
+  v5 = 0;
   if ( (a2 & 0xFFFFFFFE) != 0 )
     return 3221225712LL;
   if ( !*(_QWORD *)(BugCheckParameter1 + 1360) )
     return 3221225711LL;
-  v6 = a2 & 1;
+  v7 = a2 & 1;
   if ( (a2 & 1) != 0 && !*(_QWORD *)(BugCheckParameter1 + 1408) )
     return 3221225711LL;
   CurrentThread = KeGetCurrentThread();
   if ( CurrentThread->ApcState.Process == (_KPROCESS *)BugCheckParameter1 )
   {
-    v8 = 0;
+    v9 = 0;
     if ( CurrentThread->Process != (_KPROCESS *)BugCheckParameter1 )
-      v8 = 2;
+      v9 = 2;
+    if ( v9 < 2 )
+      goto LABEL_13;
   }
   else
   {
-    v8 = 3;
+    v9 = 3;
   }
-  if ( v8 >= 2 )
+  --CurrentThread->KernelApcDisable;
+  if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
   {
-    --CurrentThread->KernelApcDisable;
-    if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    return 3221225738LL;
+  }
+LABEL_13:
+  v10 = v9 & 1;
+  if ( (v9 & 1) != 0 )
+  {
+    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v17, a4);
+    v10 = v9 & 1;
+  }
+  if ( v7 )
+  {
+    v11 = *(__int64 **)(BugCheckParameter1 + 1408);
+    if ( !v11 || *((_WORD *)v11 + 4) != 0x8664 )
     {
-      KeLeaveCriticalRegionThread((__int64)CurrentThread);
-      return 3221225738LL;
-    }
-  }
-  v9 = v8 & 1;
-  if ( (v8 & 1) != 0 )
-  {
-    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v16);
-    v9 = v8 & 1;
-  }
-  if ( v6 )
-  {
-    v10 = *(__int64 **)(BugCheckParameter1 + 1408);
-    if ( !v10 || *(_WORD *)(BugCheckParameter1 + 2412) != 0x8664 )
-    {
-      v12 = 0LL;
-      if ( v10 )
-        v12 = *v10;
-      v13 = (int *)(v12 + 40);
+      v13 = 0LL;
+      if ( v11 )
+        v13 = *v11;
+      v14 = (int *)(v13 + 40);
       goto LABEL_24;
     }
-    v11 = *v10;
+    v12 = *v11;
   }
   else
   {
-    v11 = *(_QWORD *)(BugCheckParameter1 + 1360);
+    v12 = *(_QWORD *)(BugCheckParameter1 + 1360);
   }
-  v13 = (int *)(v11 + 80);
+  v14 = (int *)(v12 + 80);
 LABEL_24:
-  v14 = *v13;
-  if ( v9 )
-    KiUnstackDetachProcess(&v16);
-  if ( v8 >= 2 )
+  v15 = *v14;
+  if ( v10 )
+    KiUnstackDetachProcess((__int64)v17, 0);
+  if ( v9 >= 2 )
   {
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
     KeLeaveCriticalRegionThread((__int64)CurrentThread);
   }
   *a3 = 0;
-  if ( (v14 & 4) != 0 )
+  if ( (v15 & 4) != 0 )
   {
     *a3 = 1;
-    v4 = 1;
+    v5 = 1;
   }
-  if ( (v14 & 8) != 0 )
-    *a3 = v4 | 2;
+  if ( (v15 & 8) != 0 )
+    *a3 = v5 | 2;
   return 0LL;
 }

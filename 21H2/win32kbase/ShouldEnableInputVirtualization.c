@@ -1,178 +1,108 @@
 /*
- * XREFs of ShouldEnableInputVirtualization @ 0x1C0053D88
+ * XREFs of ShouldEnableInputVirtualization @ 0x1C008A018
  * Callers:
- *     InputInitialize @ 0x1C0052DC4 (InputInitialize.c)
+ *     InputInitialize @ 0x1C008A25C (InputInitialize.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C00384DC (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
- *     RIMRegQueryDWord @ 0x1C00D5034 (RIMRegQueryDWord.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     WPP_RECORDER_AND_TRACE_SF_ccccc @ 0x1C01F0E1C (WPP_RECORDER_AND_TRACE_SF_ccccc.c)
- *     HviGetHypervisorFeatures @ 0x1C0241904 (HviGetHypervisorFeatures.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     RIMIsRunningOnDesktop @ 0x1C004157C (RIMIsRunningOnDesktop.c)
+ *     RIMRegQueryDWord @ 0x1C006C598 (RIMRegQueryDWord.c)
+ *     RIMRegOpenKey @ 0x1C006C610 (RIMRegOpenKey.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     Feature_InputVirtualizationDesktopSpecific__private_ReportDeviceUsage @ 0x1C00CD378 (Feature_InputVirtualizationDesktopSpecific__private_ReportDeviceUsage.c)
+ *     Feature_InputVirtualization__private_ReportDeviceUsage @ 0x1C00CD3DC (Feature_InputVirtualization__private_ReportDeviceUsage.c)
+ *     WPP_RECORDER_SF_ccccc @ 0x1C01BA7C4 (WPP_RECORDER_SF_ccccc.c)
  */
 
 char ShouldEnableInputVirtualization()
 {
-  char v0; // bl
-  PDEVICE_OBJECT v1; // rcx
-  bool v2; // r8
-  __int16 v3; // ax
-  void *v4; // rdx
-  int v6; // eax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  bool v9; // r10
-  void *v10; // rdx
-  char v11; // [rsp+20h] [rbp-78h]
-  __int16 v12; // [rsp+30h] [rbp-68h]
-  int v13; // [rsp+70h] [rbp-28h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+78h] [rbp-20h] BYREF
+  int v0; // edx
+  int v1; // r9d
+  void *v2; // rax
+  int v3; // edx
+  int v4; // eax
+  int v6; // [rsp+50h] [rbp-30h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-28h] BYREF
+  __int128 v8; // [rsp+68h] [rbp-18h] BYREF
 
-  v0 = 1;
-  if ( dword_1C028F6FC == 3 )
+  if ( RIMIsRunningOnDesktop() )
   {
     if ( gSessionId != 1 )
     {
-      v1 = WPP_GLOBAL_Control;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x800) == 0
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v0 = 0;
+        v1 = 14;
+        goto LABEL_19;
       }
-      v2 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( !v0 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        return 0;
-      v3 = 14;
-      goto LABEL_9;
+      return 0;
     }
+    Feature_InputVirtualizationDesktopSpecific__private_ReportDeviceUsage();
     DestinationString = 0LL;
     RtlInitUnicodeString(
       &DestinationString,
       L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows");
-    v13 = 0;
-    v6 = RIMRegQueryDWord(&DestinationString, L"IsVailContainer", 0LL, &v13);
-    if ( (v13 & 0x1F) == 0 )
+    v6 = 0;
+    v4 = RIMRegQueryDWord((__int64)&DestinationString, (__int64)L"IsVailContainer", 0, &v6);
+    if ( (v6 & 0x1F) == 0 )
     {
-      if ( v6 )
+      if ( v4 )
       {
-        v1 = WPP_GLOBAL_Control;
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x800) == 0
-          || BYTE1(WPP_GLOBAL_Control->Timer) < 3u )
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          v0 = 0;
-        }
-        v2 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        if ( !v0 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          v1 = 16;
+          LOBYTE(v0) = 3;
+LABEL_20:
+          WPP_RECORDER_SF_((_DWORD)gBaseLog, v0, 12, v1, (__int64)&WPP_2ccd359dbff93ea23c150f58e4d81fa3_Traceguids);
           return 0;
-        v4 = &WPP_4c82548882e434c25d4dd8d26e311b60_Traceguids;
-        v12 = 15;
-        v11 = 3;
-        goto LABEL_11;
+        }
       }
-      v1 = WPP_GLOBAL_Control;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x800) == 0
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
+      else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v0 = 0;
+        v1 = 17;
+        goto LABEL_19;
       }
-      v2 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( !v0 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        return 0;
-      v3 = 16;
-      goto LABEL_9;
+      return 0;
     }
-    byte_1C02A0544 = v13 & 1;
-    byte_1C02A0542 = (v13 & 2) != 0;
-    byte_1C02A0543 = (v13 & 4) != 0;
-    byte_1C02A0540 = (v13 & 8) != 0;
-    byte_1C02A0541 = (v13 & 0x10) != 0;
-    LOBYTE(v7) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x800) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v7 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v8) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_ccccc(WPP_GLOBAL_Control->AttachedDevice, v7, v8);
-    }
+    byte_1C02595D0 = v6 & 1;
+    byte_1C02595D1 = (v6 & 2) != 0;
+    byte_1C02595C0 = (v6 & 4) != 0;
+    byte_1C02595C1 = (v6 & 8) != 0;
+    byte_1C02595C2 = (v6 & 0x10) != 0;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_ccccc();
   }
   else
   {
-    wil_details_FeatureReporting_ReportUsageToService(
-      (__int64)&Feature_InputVirtualization__private_reporting,
-      16291462LL,
-      0LL,
-      0LL,
-      (const struct FEATURE_LOGGED_TRAITS *)&Feature_KeyboardInputVirtualization_logged_traits,
-      1,
-      3);
-    DestinationString = 0LL;
-    HviGetHypervisorFeatures(&DestinationString);
-    if ( (*(_QWORD *)&DestinationString.Length & 0x100000000000LL) == 0 )
+    Feature_InputVirtualization__private_ReportDeviceUsage();
+    v8 = 0LL;
+    HviGetHypervisorFeatures(&v8);
+    if ( (v8 & 0x100000000000LL) == 0 )
     {
-      v1 = WPP_GLOBAL_Control;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x800) == 0
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v0 = 0;
+        v1 = 11;
+LABEL_19:
+        LOBYTE(v0) = 4;
+        goto LABEL_20;
       }
-      v2 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( !v0 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        return 0;
-      v3 = 11;
-LABEL_9:
-      v4 = &WPP_4c82548882e434c25d4dd8d26e311b60_Traceguids;
-      v12 = v3;
-LABEL_10:
-      v11 = 4;
-LABEL_11:
-      LOBYTE(v4) = v0;
-      WPP_RECORDER_AND_TRACE_SF_(
-        v1->AttachedDevice,
-        (_DWORD)v4,
-        v2,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        v11,
-        12,
-        v12,
-        (__int64)&WPP_4c82548882e434c25d4dd8d26e311b60_Traceguids);
       return 0;
     }
-    if ( (int)RtlIsApiSetImplemented("SchemaExt-Composable-Vail") < 0 )
+    DestinationString = 0LL;
+    RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\CmService");
+    v2 = RIMRegOpenKey(&DestinationString);
+    if ( !v2 )
     {
-      v1 = WPP_GLOBAL_Control;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x800) == 0
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v0 = 0;
+        v1 = 12;
+        goto LABEL_19;
       }
-      v2 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( !v0 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        return 0;
-      v4 = &WPP_4c82548882e434c25d4dd8d26e311b60_Traceguids;
-      v12 = 12;
-      goto LABEL_10;
+      return 0;
     }
-    v9 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x800) != 0
-      && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    ZwClose(v2);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v10 = &WPP_4c82548882e434c25d4dd8d26e311b60_Traceguids;
-      LOBYTE(v10) = v9;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        (_DWORD)v10,
-        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        4,
-        12,
-        13,
-        (__int64)&WPP_4c82548882e434c25d4dd8d26e311b60_Traceguids);
+      LOBYTE(v3) = 4;
+      WPP_RECORDER_SF_((_DWORD)gBaseLog, v3, 12, 13, (__int64)&WPP_2ccd359dbff93ea23c150f58e4d81fa3_Traceguids);
     }
   }
   return 1;

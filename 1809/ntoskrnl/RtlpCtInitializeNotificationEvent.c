@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpCtInitializeNotificationEvent @ 0x14089988C
+ * XREFs of RtlpCtInitializeNotificationEvent @ 0x14089986C
  * Callers:
- *     RtlpCtContextInit @ 0x1408997A8 (RtlpCtContextInit.c)
+ *     RtlpCtContextInit @ 0x140899788 (RtlpCtContextInit.c)
  * Callees:
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiReflectNativeObject @ 0x1C0037DA0
+ * XREFs of AcpiReflectNativeObject @ 0x1C005B8A0
  * Callers:
  *     <none>
  * Callees:
- *     AcpiPauseInterpreterForNamespaceUpdates @ 0x1C0037CFC (AcpiPauseInterpreterForNamespaceUpdates.c)
- *     AMLIResumeInterpreter @ 0x1C0048D4C (AMLIResumeInterpreter.c)
- *     AMLICreateNativeNamespaceObject @ 0x1C0049A18 (AMLICreateNativeNamespaceObject.c)
+ *     AcpiPauseInterpreterForNamespaceUpdates @ 0x1C005B800 (AcpiPauseInterpreterForNamespaceUpdates.c)
+ *     AMLIResumeInterpreter @ 0x1C0063690 (AMLIResumeInterpreter.c)
+ *     AMLICreateNativeNamespaceObject @ 0x1C0064348 (AMLICreateNativeNamespaceObject.c)
  */
 
 __int64 __fastcall AcpiReflectNativeObject(__int64 a1)

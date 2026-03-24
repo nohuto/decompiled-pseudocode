@@ -1,25 +1,25 @@
 /*
- * XREFs of MiSegmentDelete @ 0x1406B0954
+ * XREFs of MiSegmentDelete @ 0x140635830
  * Callers:
- *     MiDestroySection @ 0x14020184C (MiDestroySection.c)
- *     MiCheckControlArea @ 0x14029FAA0 (MiCheckControlArea.c)
- *     MiProcessDereferenceList @ 0x140625124 (MiProcessDereferenceList.c)
+ *     MiCheckControlArea @ 0x140295130 (MiCheckControlArea.c)
+ *     MiDestroySection @ 0x14037EADC (MiDestroySection.c)
+ *     MiProcessDereferenceList @ 0x14038746C (MiProcessDereferenceList.c)
  * Callees:
- *     DbgUnLoadImageSymbolsUnicode @ 0x14020B834 (DbgUnLoadImageSymbolsUnicode.c)
- *     IoDiskIoAttributionDereference @ 0x14020C898 (IoDiskIoAttributionDereference.c)
- *     MiDeleteSegmentPages @ 0x140219690 (MiDeleteSegmentPages.c)
- *     MiPrepareSegmentForDeletion @ 0x14021980C (MiPrepareSegmentForDeletion.c)
- *     MiDereferenceControlAreaProbe @ 0x1402198B4 (MiDereferenceControlAreaProbe.c)
- *     MiUpdateSystemProtoPtesTree @ 0x14021BF50 (MiUpdateSystemProtoPtesTree.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MiGetControlAreaPartition @ 0x140275590 (MiGetControlAreaPartition.c)
- *     ObFastReplaceObject @ 0x14029A458 (ObFastReplaceObject.c)
- *     MiReleaseControlAreaCharges @ 0x1402A0CF4 (MiReleaseControlAreaCharges.c)
- *     MiReleaseControlAreaWaiters @ 0x1402E3F2C (MiReleaseControlAreaWaiters.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B424 (MiReturnCrossPartitionSectionCharges.c)
- *     MiDeletePageFileSectionNodes @ 0x1407CE050 (MiDeletePageFileSectionNodes.c)
- *     MiLogSectionCreate @ 0x140A2F6B0 (MiLogSectionCreate.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiGetControlAreaPartition @ 0x14025AC04 (MiGetControlAreaPartition.c)
+ *     ObFastReplaceObject @ 0x140277500 (ObFastReplaceObject.c)
+ *     MiDereferenceControlAreaProbe @ 0x140278130 (MiDereferenceControlAreaProbe.c)
+ *     MiDeleteSegmentPages @ 0x14027828C (MiDeleteSegmentPages.c)
+ *     MiPrepareSegmentForDeletion @ 0x140278384 (MiPrepareSegmentForDeletion.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x1402788E0 (MiUpdateSystemProtoPtesTree.c)
+ *     MiReleaseControlAreaCharges @ 0x140294C48 (MiReleaseControlAreaCharges.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     MiReleaseControlAreaWaiters @ 0x1402D7A34 (MiReleaseControlAreaWaiters.c)
+ *     IoDiskIoAttributionDereference @ 0x1402E06F4 (IoDiskIoAttributionDereference.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x14037312C (DbgUnLoadImageSymbolsUnicode.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055502C (MiReturnCrossPartitionSectionCharges.c)
+ *     MiDeletePageFileSectionNodes @ 0x1406359B8 (MiDeletePageFileSectionNodes.c)
+ *     MiLogSectionCreate @ 0x1408C78A0 (MiLogSectionCreate.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiSegmentDelete(__int64 a1)
@@ -30,12 +30,12 @@ __int64 __fastcall MiSegmentDelete(__int64 a1)
   int v5; // edi
   ULONG_PTR v6; // rdx
   _QWORD *v7; // r14
-  __int64 v8; // r12
-  void *v9; // rdi
+  __int64 v8; // r13
+  struct _DMA_ADAPTER *v9; // rdi
   unsigned __int64 v10; // r14
   __int64 v11; // rbx
   __int64 ControlAreaPartition; // rax
-  BOOL v14; // [rsp+50h] [rbp+8h]
+  unsigned int v14; // [rsp+50h] [rbp+8h]
 
   v1 = *(_QWORD *)a1;
   v2 = (volatile __int64 *)(a1 + 64);
@@ -63,12 +63,12 @@ __int64 __fastcall MiSegmentDelete(__int64 a1)
   v9 = 0LL;
   v10 = MiReleaseControlAreaCharges(a1, 0LL);
   if ( (v3 & 0x82) == 0x80 )
-    v9 = (void *)ObFastReplaceObject(v2, 0LL);
+    v9 = (struct _DMA_ADAPTER *)ObFastReplaceObject(v2, 0LL);
   if ( (v3 & 0x80) != 0 )
   {
     if ( (v3 & 0x20) != 0 )
     {
-      MiUpdateSystemProtoPtesTree(*(_QWORD *)(a1 + 96), 0);
+      MiUpdateSystemProtoPtesTree(*(unsigned __int64 **)(a1 + 96), 0);
       ExFreePoolWithTag(*(PVOID *)(v1 + 64), 0);
     }
   }
@@ -87,7 +87,7 @@ __int64 __fastcall MiSegmentDelete(__int64 a1)
     v11 = 0LL;
   MiDereferenceControlAreaProbe((volatile signed __int64 *)a1, 0);
   if ( v9 )
-    ObfDereferenceObject(v9);
+    HalPutDmaAdapter(v9);
   if ( v11 )
     IoDiskIoAttributionDereference(v11);
   ExFreePoolWithTag((PVOID)v1, 0);

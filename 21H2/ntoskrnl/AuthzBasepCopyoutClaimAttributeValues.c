@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepCopyoutClaimAttributeValues @ 0x140A1A6D0
+ * XREFs of AuthzBasepCopyoutClaimAttributeValues @ 0x14096C7DC
  * Callers:
- *     AuthzBasepCopyoutClaimAttributes @ 0x140A1A928 (AuthzBasepCopyoutClaimAttributes.c)
+ *     AuthzBasepCopyoutClaimAttributes @ 0x14096CA4C (AuthzBasepCopyoutClaimAttributes.c)
  * Callees:
- *     RtlStringCbCopyNW @ 0x140248A04 (RtlStringCbCopyNW.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     RtlStringCbCopyNW @ 0x14027F1B8 (RtlStringCbCopyNW.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall AuthzBasepCopyoutClaimAttributeValues(
@@ -29,29 +29,26 @@ __int64 __fastcall AuthzBasepCopyoutClaimAttributeValues(
   __int64 v19; // rax
   __int64 v20; // rdx
   unsigned __int64 v21; // r10
-  __int64 v22; // r14
-  __int64 v23; // r11
-  unsigned __int64 v24; // r12
-  unsigned int v25; // r15d
-  size_t v26; // r9
+  __int64 *v22; // r15
+  __int64 *v23; // r14
+  unsigned __int64 v24; // r13
+  unsigned int v25; // r12d
+  size_t v26; // rdx
   wchar_t *v27; // rbp
   __int64 v28; // rcx
-  __int64 *v29; // r11
-  __int64 v30; // rdx
-  unsigned __int64 v31; // r10
-  __int64 v32; // r14
-  __int64 v33; // r11
-  unsigned __int64 v34; // r12
-  unsigned int v35; // r15d
-  size_t v36; // r9
-  wchar_t *v37; // rbp
-  __int64 *v38; // r11
-  __int64 v39; // r8
-  unsigned __int64 v40; // r10
-  _QWORD *v41; // r11
-  _QWORD *v42; // rdx
-  unsigned int v43; // r9d
-  __int64 v44; // rcx
+  __int64 v29; // rdx
+  unsigned __int64 v30; // r10
+  __int64 *v31; // r15
+  __int64 *v32; // r14
+  unsigned int v33; // r12d
+  size_t v34; // rdx
+  wchar_t *v35; // rbp
+  __int64 v36; // r8
+  unsigned __int64 v37; // r10
+  _QWORD *v38; // r11
+  _QWORD *v39; // rdx
+  unsigned int v40; // r9d
+  __int64 v41; // rcx
 
   v5 = 0;
   v6 = a3 + a4;
@@ -66,27 +63,26 @@ __int64 __fastcall AuthzBasepCopyoutClaimAttributeValues(
     switch ( v9 )
     {
       case 3u:
-        v30 = 8LL * *(unsigned int *)(a1 + 60);
-        v31 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-        if ( v31 + v30 <= v6 )
+        v29 = 8LL * *(unsigned int *)(a1 + 60);
+        v30 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+        if ( v30 + v29 <= v6 )
         {
-          *(_QWORD *)(a2 + 24) = v31;
-          v32 = a1 + 72;
-          v33 = *(_QWORD *)(a1 + 72);
-          v34 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-          v15 = (wchar_t *)(v30 + v31);
-          v35 = 0;
-          while ( v33 != v32 )
+          *(_QWORD *)(a2 + 24) = v30;
+          v31 = (__int64 *)(a1 + 72);
+          v32 = *(__int64 **)(a1 + 72);
+          v15 = (wchar_t *)(v29 + v30);
+          v33 = 0;
+          while ( v32 != v31 )
           {
-            v36 = *(unsigned __int16 *)(v33 + 40);
-            v37 = (wchar_t *)((char *)v15 + v36 + 2);
-            if ( (unsigned __int64)v37 > v6 )
+            v34 = *((unsigned __int16 *)v32 + 20) + 2LL;
+            v35 = (wchar_t *)((char *)v15 + v34);
+            if ( (unsigned __int64)v15 + v34 > v6 )
               return (unsigned int)-2147483643;
-            *(_QWORD *)(v34 + 8LL * v35) = v15;
-            RtlStringCbCopyNW(v15, v36 + 2, *(STRSAFE_PCNZWCH *)(v33 + 48), v36);
-            v33 = *v38;
-            v15 = v37;
-            ++v35;
+            *(_QWORD *)(((a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) + 8LL * v33) = v15;
+            RtlStringCbCopyNW(v15, v34, (STRSAFE_PCNZWCH)v32[6], v34 - 2);
+            v32 = (__int64 *)*v32;
+            v15 = v35;
+            ++v33;
           }
           goto LABEL_33;
         }
@@ -97,22 +93,22 @@ __int64 __fastcall AuthzBasepCopyoutClaimAttributeValues(
         if ( v21 + v20 <= v6 )
         {
           *(_QWORD *)(a2 + 24) = v21;
-          v22 = a1 + 72;
-          v23 = *(_QWORD *)(a1 + 72);
+          v22 = (__int64 *)(a1 + 72);
+          v23 = *(__int64 **)(a1 + 72);
           v24 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
           v15 = (wchar_t *)(v20 + v21);
           v25 = 0;
           while ( v23 != v22 )
           {
-            v26 = *(unsigned __int16 *)(v23 + 48);
-            v27 = (wchar_t *)((char *)v15 + v26 + 2);
-            if ( (unsigned __int64)v27 > v6 )
+            v26 = *((unsigned __int16 *)v23 + 24) + 2LL;
+            v27 = (wchar_t *)((char *)v15 + v26);
+            if ( (unsigned __int64)v15 + v26 > v6 )
               return (unsigned int)-2147483643;
             v28 = 2LL * v25;
-            *(_QWORD *)(v24 + 8 * v28) = *(_QWORD *)(v23 + 40);
+            *(_QWORD *)(v24 + 8 * v28) = v23[5];
             *(_QWORD *)(v24 + 8 * v28 + 8) = v15;
-            RtlStringCbCopyNW(v15, v26 + 2, *(STRSAFE_PCNZWCH *)(v23 + 56), v26);
-            v23 = *v29;
+            RtlStringCbCopyNW(v15, v26, (STRSAFE_PCNZWCH)v23[7], v26 - 2);
+            v23 = (__int64 *)*v23;
             v15 = v27;
             ++v25;
           }
@@ -158,21 +154,21 @@ LABEL_10:
       return (unsigned int)-1073741811;
     }
   }
-  v39 = 8LL * *(unsigned int *)(a1 + 60);
-  v40 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-  if ( v40 + v39 <= v6 )
+  v36 = 8LL * *(unsigned int *)(a1 + 60);
+  v37 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+  if ( v37 + v36 <= v6 )
   {
-    v41 = (_QWORD *)(a1 + 72);
-    *(_QWORD *)(a2 + 24) = v40;
-    v42 = *(_QWORD **)(a1 + 72);
-    v43 = 0;
-    while ( v42 != v41 )
+    v38 = (_QWORD *)(a1 + 72);
+    *(_QWORD *)(a2 + 24) = v37;
+    v39 = *(_QWORD **)(a1 + 72);
+    v40 = 0;
+    while ( v39 != v38 )
     {
-      v44 = v43++;
-      *(_QWORD *)(v40 + 8 * v44) = v42[5];
-      v42 = (_QWORD *)*v42;
+      v41 = v40++;
+      *(_QWORD *)(v37 + 8 * v41) = v39[5];
+      v39 = (_QWORD *)*v39;
     }
-    v15 = (wchar_t *)(v39 + v40);
+    v15 = (wchar_t *)(v36 + v37);
 LABEL_33:
     *a5 = (char *)v15 - a3;
     return v5;

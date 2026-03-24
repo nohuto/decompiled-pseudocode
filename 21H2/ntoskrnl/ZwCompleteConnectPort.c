@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCompleteConnectPort @ 0x14041CB60
+ * XREFs of ZwCompleteConnectPort @ 0x1403FB760
  * Callers:
- *     SepRmLsaConnectRequest @ 0x14083B480 (SepRmLsaConnectRequest.c)
+ *     SepRmLsaConnectRequest @ 0x1407AD3B0 (SepRmLsaConnectRequest.c)
  * Callees:
  *     <none>
  */

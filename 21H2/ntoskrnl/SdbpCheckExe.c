@@ -1,16 +1,25 @@
 /*
- * XREFs of SdbpCheckExe @ 0x140843098
+ * XREFs of SdbpCheckExe @ 0x1407D220C
  * Callers:
- *     SdbpSearchDB @ 0x14075BB10 (SdbpSearchDB.c)
+ *     SdbpSearchDB @ 0x14077E7B4 (SdbpSearchDB.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbpCheckForMatch @ 0x1408433DC (SdbpCheckForMatch.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SdbpCheckForMatch @ 0x1407547A4 (SdbpCheckForMatch.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
  */
 
-__int64 __fastcall SdbpCheckExe(int a1, int a2, int a3, unsigned int *a4, __int64 a5, int a6, int *a7, void *a8)
+__int64 __fastcall SdbpCheckExe(
+        int a1,
+        __int64 a2,
+        __int64 a3,
+        unsigned int *a4,
+        __int64 a5,
+        int a6,
+        int *a7,
+        void *a8)
 {
   unsigned int v9; // esi
+  int v10; // ebp
   int v11; // ebx
   unsigned int v12; // edx
   int v13; // eax
@@ -20,7 +29,8 @@ __int64 __fastcall SdbpCheckExe(int a1, int a2, int a3, unsigned int *a4, __int6
   v15 = 2;
   v9 = 0;
   v16[0] = 0;
-  if ( (unsigned int)SdbpCheckForMatch(a1, a2, a3, a5, (__int64)&v15, (__int64)v16) )
+  v10 = a3;
+  if ( (unsigned int)SdbpCheckForMatch(a1, a2, a3, a5, &v15, (__int64)v16) )
   {
     v11 = v15;
     if ( (a6 != 1 || v15 == 2) && (a6 != 2 || v15 != 2) )
@@ -41,7 +51,7 @@ __int64 __fastcall SdbpCheckExe(int a1, int a2, int a3, unsigned int *a4, __int6
         }
       }
       v13 = v16[0];
-      *((_DWORD *)a8 + 2 * v12) = a3;
+      *((_DWORD *)a8 + 2 * v12) = v10;
       *((_DWORD *)a8 + 2 * v12 + 1) = v13;
       *a4 = v12 + 1;
       v9 = 1;

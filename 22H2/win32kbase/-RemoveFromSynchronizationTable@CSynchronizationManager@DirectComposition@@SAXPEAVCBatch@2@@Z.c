@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RemoveFromSynchronizationTable@CSynchronizationManager@DirectComposition@@SAXPEAVCBatch@2@@Z @ 0x1C0026840
+ * XREFs of ?RemoveFromSynchronizationTable@CSynchronizationManager@DirectComposition@@SAXPEAVCBatch@2@@Z @ 0x1C0060200
  * Callers:
- *     ?Clear@CBatch@DirectComposition@@QEAAXXZ @ 0x1C0028840 (-Clear@CBatch@DirectComposition@@QEAAXXZ.c)
+ *     ?Clear@CBatch@DirectComposition@@QEAAXXZ @ 0x1C005FAC8 (-Clear@CBatch@DirectComposition@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

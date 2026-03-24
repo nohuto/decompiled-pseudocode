@@ -1,5 +1,5 @@
 /*
- * XREFs of PfSnTraceTimerRoutine @ 0x14012BD30
+ * XREFs of PfSnTraceTimerRoutine @ 0x14012BD50
  * Callers:
  *     <none>
  * Callees:
@@ -8,8 +8,8 @@
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     PfSnTraceGetLogEntry @ 0x1400D51A0 (PfSnTraceGetLogEntry.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     PfSnTraceGetLogEntry @ 0x1400D51C0 (PfSnTraceGetLogEntry.c)
  */
 
 void __fastcall PfSnTraceTimerRoutine(

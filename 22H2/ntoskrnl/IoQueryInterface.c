@@ -1,27 +1,26 @@
 /*
- * XREFs of IoQueryInterface @ 0x14082A2D0
+ * XREFs of IoQueryInterface @ 0x140764BB0
  * Callers:
- *     HalpIommuGetDeviceId @ 0x14038F10C (HalpIommuGetDeviceId.c)
- *     HalpDmaGetIommuInterface @ 0x1404FFED4 (HalpDmaGetIommuInterface.c)
- *     ExInitializeDeviceAts @ 0x14060C2E0 (ExInitializeDeviceAts.c)
- *     ExpShareAddressSpaceWithDevice @ 0x14060DC10 (ExpShareAddressSpaceWithDevice.c)
- *     HalpGetCacheCoherency @ 0x140829AF4 (HalpGetCacheCoherency.c)
+ *     HalpIommuGetDeviceId @ 0x1403794A4 (HalpIommuGetDeviceId.c)
+ *     HalpDmaGetIommuInterface @ 0x1404B78D4 (HalpDmaGetIommuInterface.c)
+ *     ExShareAddressSpaceWithDevice @ 0x1405B71C0 (ExShareAddressSpaceWithDevice.c)
+ *     HalpGetCacheCoherency @ 0x14076431C (HalpGetCacheCoherency.c)
  * Callees:
- *     PnpQueryInterface @ 0x1407FD8F0 (PnpQueryInterface.c)
- *     IopQueryInterfaceRecurseUp @ 0x14082A320 (IopQueryInterfaceRecurseUp.c)
+ *     IopQueryInterfaceRecurseUp @ 0x1407649A8 (IopQueryInterfaceRecurseUp.c)
+ *     PnpQueryInterface @ 0x1407653A4 (PnpQueryInterface.c)
  */
 
 __int64 __fastcall IoQueryInterface(
-        _QWORD *a1,
+        struct _DEVICE_OBJECT *a1,
         char a2,
-        ULONG_PTR a3,
-        USHORT a4,
-        USHORT a5,
-        struct _NAMED_PIPE_CREATE_PARAMETERS *a6,
+        __int64 a3,
+        unsigned __int16 a4,
+        unsigned __int16 a5,
+        __int64 a6,
         void *a7)
 {
   if ( (a2 & 1) != 0 )
-    return IopQueryInterfaceRecurseUp((int)a1, a3, a4, a5, (__int64)a6, a7);
+    return IopQueryInterfaceRecurseUp((__int64)a1, a3, a4, a5, a6, a7);
   else
-    return PnpQueryInterface(a1, a3, a5, a4, a6, (USHORT *)a7);
+    return PnpQueryInterface(a1, a6, a7);
 }

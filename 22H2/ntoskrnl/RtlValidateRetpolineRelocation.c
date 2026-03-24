@@ -1,65 +1,62 @@
 /*
- * XREFs of RtlValidateRetpolineRelocation @ 0x14020CA94
+ * XREFs of RtlValidateRetpolineRelocation @ 0x1402F39B8
  * Callers:
- *     MiCaptureRetpolineRelocationTables @ 0x1406A723C (MiCaptureRetpolineRelocationTables.c)
+ *     MiCaptureRetpolineRelocationTables @ 0x140662620 (MiCaptureRetpolineRelocationTables.c)
  * Callees:
- *     RtlSizeOfRetpolineRelocationEntry @ 0x14020CEDC (RtlSizeOfRetpolineRelocationEntry.c)
+ *     RtlSizeOfRetpolineRelocationEntry @ 0x1402F3DB8 (RtlSizeOfRetpolineRelocationEntry.c)
  */
 
-__int64 __fastcall RtlValidateRetpolineRelocation(__int64 a1, unsigned int a2, unsigned int a3, unsigned int *a4)
+__int64 __fastcall RtlValidateRetpolineRelocation(_QWORD *a1, unsigned int a2, _DWORD *a3)
 {
-  char v8; // bp
-  unsigned int v9; // ebx
-  unsigned int v10; // r10d
-  unsigned int v11; // r11d
-  unsigned __int64 v12; // r13
-  unsigned __int64 v13; // r9
-  unsigned int v14; // edi
-  unsigned __int64 v15; // rdx
-  __int64 v16; // rdx
-  unsigned int v17; // r8d
-  unsigned __int64 v18; // rax
+  unsigned int v6; // eax
+  unsigned int v7; // r10d
+  unsigned int v8; // r11d
+  unsigned int v9; // r9d
+  unsigned __int64 v10; // r15
+  unsigned __int64 v11; // rsi
+  int v12; // edi
+  unsigned __int64 v13; // r8
+  __int64 v14; // r8
+  unsigned int v15; // ecx
+  unsigned __int64 v16; // rax
 
-  v8 = 0;
-  v9 = *(_DWORD *)(a1 + 8) + 12;
-  v12 = (unsigned int)RtlSizeOfRetpolineRelocationEntry(*(_QWORD *)a1);
-  v13 = v10;
-  v14 = v10;
-  if ( v9 <= v11 )
+  v6 = RtlSizeOfRetpolineRelocationEntry(*a1);
+  v9 = 0;
+  v10 = v6;
+  v11 = 0LL;
+  v12 = 0;
+  if ( v8 <= v7 )
   {
-LABEL_14:
-    *a4 = v14;
+LABEL_12:
+    *a3 = v12;
   }
   else
   {
     while ( 1 )
     {
-      v15 = v11 + 8LL;
-      if ( v15 < v11 )
+      v13 = v7 + 8LL;
+      if ( v13 < v7 )
         break;
-      if ( v15 > v9 )
+      if ( v13 > v8 )
         break;
-      v16 = *(unsigned int *)(v11 + a1 + 4);
-      if ( (unsigned int)v16 < 8 )
+      v14 = *(unsigned int *)((char *)a1 + v7 + 4);
+      if ( (unsigned int)v14 < 8 )
         break;
-      v17 = v16 + v11;
-      if ( (unsigned int)v16 + v11 < v11 )
+      v15 = v14 + v7;
+      if ( (unsigned int)v14 + v7 < v7 )
         break;
-      if ( v17 > v9 )
+      if ( v15 > v8 )
         break;
-      v18 = *(unsigned int *)(v11 + a1);
-      if ( (unsigned int)v18 >= a2 || (unsigned int)v18 < a3 || (v18 & 0xFFF) != 0 || v8 && v18 <= v13 )
+      v16 = *(unsigned int *)((char *)a1 + v7);
+      if ( (unsigned int)v16 >= a2 || (v16 & 0xFFF) != 0 || v16 <= v11 || (v14 - 8) % v10 )
         break;
-      if ( (v16 - 8) % v12 )
-        break;
-      v8 = 1;
-      v13 = (unsigned int)v18;
-      v11 += v16;
-      v14 += (v16 - 8) / v12;
-      if ( v17 >= v9 )
-        goto LABEL_14;
+      v11 = (unsigned int)v16;
+      v7 += v14;
+      v12 += (v14 - 8) / v10;
+      if ( v15 >= v8 )
+        goto LABEL_12;
     }
     return (unsigned int)-1073741701;
   }
-  return v10;
+  return v9;
 }

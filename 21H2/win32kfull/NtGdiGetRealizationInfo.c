@@ -1,12 +1,12 @@
 /*
- * XREFs of NtGdiGetRealizationInfo @ 0x1C0034580
+ * XREFs of NtGdiGetRealizationInfo @ 0x1C00939E0
  * Callers:
  *     <none>
  * Callees:
- *     GreGetRealizationInfo @ 0x1C0123E74 (GreGetRealizationInfo.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     GreGetRealizationInfo @ 0x1C0137D04 (GreGetRealizationInfo.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall NtGdiGetRealizationInfo(HDC a1, unsigned int *a2)

@@ -1,84 +1,88 @@
 /*
- * XREFs of RaspLoadBearings @ 0x140385CCC
+ * XREFs of RaspLoadBearings @ 0x1403ADE2C
  * Callers:
- *     RaspGetUnscaledGlyphData @ 0x140385358 (RaspGetUnscaledGlyphData.c)
+ *     RaspGetUnscaledGlyphData @ 0x1403AD344 (RaspGetUnscaledGlyphData.c)
  * Callees:
- *     FioFwReadUshortAtOffset @ 0x140385FE8 (FioFwReadUshortAtOffset.c)
- *     FioFwReadBytesAtOffset @ 0x1403863C8 (FioFwReadBytesAtOffset.c)
+ *     FioFwReadUshortAtOffset @ 0x1403AE01C (FioFwReadUshortAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x1403AE41C (FioFwReadBytesAtOffset.c)
  */
 
 __int64 __fastcall RaspLoadBearings(__int64 a1, unsigned int a2, __int64 a3, int *a4)
 {
   unsigned int v4; // ebp
-  int v5; // eax
-  __int64 v7; // rcx
+  __int64 v5; // rax
+  int v7; // edx
   __int64 v11; // rcx
   __int64 result; // rax
   unsigned __int16 v13; // ax
   int v14; // esi
   __int16 v15; // bx
-  int v16; // r8d
+  int v16; // eax
   __int64 v17; // rdx
   __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // rdx
-  int v21; // r14d
-  int v22; // [rsp+60h] [rbp+8h] BYREF
-  __int16 v23; // [rsp+68h] [rbp+10h] BYREF
+  int v19; // r9d
+  int v20; // eax
+  __int64 v21; // r8
+  __int64 v22; // rdx
+  int v23; // r14d
+  int v24; // [rsp+60h] [rbp+8h] BYREF
+  __int16 v25; // [rsp+68h] [rbp+10h] BYREF
 
   v4 = *(unsigned __int16 *)(a1 + 88);
-  v5 = *(_DWORD *)(a1 + 68);
-  v7 = *(_QWORD *)(a1 + 16);
-  v22 = 0;
-  v23 = 0;
-  v11 = *(_QWORD *)(v7 + 16);
+  v5 = *(_QWORD *)(a1 + 16);
+  v7 = *(_DWORD *)(a1 + 68);
+  v24 = 0;
+  v25 = 0;
+  v11 = *(_QWORD *)(v5 + 16);
   if ( a2 >= v4 )
   {
-    v21 = v5 + 4 * v4;
-    result = FioFwReadBytesAtOffset(v11, (unsigned int)(v21 - 4), 4LL, &v22);
+    v23 = v7 + 4 * v4;
+    result = FioFwReadBytesAtOffset(v11, (unsigned int)(v23 - 4), 4LL, &v24);
     if ( (int)result < 0 )
       return result;
-    v14 = (unsigned __int16)__ROR2__(v22, 8);
-    result = FioFwReadUshortAtOffset(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL), v21 + 2 * (a2 - v4), &v23);
+    v14 = (unsigned __int16)__ROR2__(v24, 8);
+    result = FioFwReadUshortAtOffset(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL), v23 + 2 * (a2 - v4), &v25);
     if ( (int)result < 0 )
       return result;
-    v15 = v23;
+    v15 = v25;
   }
   else
   {
-    result = FioFwReadBytesAtOffset(v11, v5 + 4 * a2, 4LL, &v22);
+    result = FioFwReadBytesAtOffset(v11, v7 + 4 * a2, 4LL, &v24);
     if ( (int)result < 0 )
       return result;
-    v13 = __ROR2__(v22, 8);
+    v13 = __ROR2__(v24, 8);
     v14 = v13;
-    v15 = __ROR2__(HIWORD(v22), 8);
+    v15 = __ROR2__(HIWORD(v24), 8);
     if ( !v13 )
     {
       result = FioFwReadBytesAtOffset(
                  *(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL),
                  *(_DWORD *)(a1 + 68) - 4 + 4 * v4,
                  4LL,
-                 &v22);
+                 &v24);
       if ( (int)result < 0 )
         return result;
-      v14 = (unsigned __int16)__ROR2__(v22, 8);
+      v14 = (unsigned __int16)__ROR2__(v24, 8);
     }
   }
   if ( v15 < 0 )
     v15 = 0;
   v16 = *(_DWORD *)(a3 + 18);
   v17 = *(unsigned __int16 *)(a3 + 24);
-  if ( v14 < v15 + *(_DWORD *)(a3 + 10) - v16 )
-    v14 = v15 + *(_DWORD *)(a3 + 10) - v16;
   v18 = *(_QWORD *)(a3 + 50);
-  *a4 = v14;
+  v19 = v15 + *(_DWORD *)(a3 + 10) - v16;
+  if ( v14 >= v19 )
+    v19 = v14;
   *(_DWORD *)(v18 + 4 * v17) = v16 - v15;
-  *(_DWORD *)(v18 + 4 * v17 + 4) = v14 + *(_DWORD *)(a3 + 18) - v15;
-  v19 = *(unsigned __int16 *)(a3 + 24);
-  v20 = *(_QWORD *)(a3 + 58);
-  *(_DWORD *)(v20 + 4 * v19) = *(__int16 *)(a1 + 82) + *(__int16 *)(a1 + 84);
+  v20 = *(_DWORD *)(a3 + 18) - v15;
+  *a4 = v19;
+  *(_DWORD *)(v18 + 4 * v17 + 4) = v19 + v20;
+  v21 = *(unsigned __int16 *)(a3 + 24);
+  v22 = *(_QWORD *)(a3 + 58);
+  *(_DWORD *)(v22 + 4 * v21) = *(__int16 *)(a1 + 82) + *(__int16 *)(a1 + 84);
   result = 0LL;
-  *(_DWORD *)(v20 + 4 * v19 + 4) = *(__int16 *)(a1 + 84) + *(__int16 *)(a1 + 82);
+  *(_DWORD *)(v22 + 4 * v21 + 4) = *(__int16 *)(a1 + 82) + *(__int16 *)(a1 + 84);
   *(_WORD *)(a3 + 24) += 2;
   return result;
 }

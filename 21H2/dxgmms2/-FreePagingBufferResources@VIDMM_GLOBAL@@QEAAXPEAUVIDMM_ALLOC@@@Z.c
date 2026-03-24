@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FreePagingBufferResources@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00D7364
+ * XREFs of ?FreePagingBufferResources@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00B0078
  * Callers:
- *     ?RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C00A9738 (-RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z.c)
+ *     ?RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C008CA80 (-RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z.c)
  * Callees:
- *     memset @ 0x1C001DC40 (memset.c)
- *     ?QueueSystemCleanupCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C009BAE4 (-QueueSystemCleanupCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     ?QueueSystemCleanupCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0066B28 (-QueueSystemCleanupCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::FreePagingBufferResources(VIDMM_GLOBAL *this, struct VIDMM_ALLOC *a2)
@@ -16,6 +16,6 @@ void __fastcall VIDMM_GLOBAL::FreePagingBufferResources(VIDMM_GLOBAL *this, stru
   v4 = *(_QWORD *)a2;
   LODWORD(v5[0]) = 105;
   v5[2] = a2;
-  HIDWORD(v5[0]) = *(_DWORD *)(*(_QWORD *)v4 + 68LL) & 0x3F;
+  HIDWORD(v5[0]) = *(_DWORD *)(*(_QWORD *)v4 + 76LL) & 0x3F;
   VIDMM_GLOBAL::QueueSystemCleanupCommandAndWait(this, (struct _VIDMM_SYSTEM_COMMAND *)v5);
 }

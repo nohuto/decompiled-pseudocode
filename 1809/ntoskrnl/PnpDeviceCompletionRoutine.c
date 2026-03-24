@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpDeviceCompletionRoutine @ 0x140159BA0
+ * XREFs of PnpDeviceCompletionRoutine @ 0x140159BC0
  * Callers:
  *     <none>
  * Callees:
- *     IoFreeIrp @ 0x1400B9650 (IoFreeIrp.c)
- *     PnpDiagnosticTraceObject @ 0x1400F5268 (PnpDiagnosticTraceObject.c)
- *     PnpDeviceCompletionRequestDestroy @ 0x140159C60 (PnpDeviceCompletionRequestDestroy.c)
- *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140159D00 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
- *     PnpTraceStartDevice @ 0x140160068 (PnpTraceStartDevice.c)
- *     IoFindDeviceThatFailedIrp @ 0x14016C178 (IoFindDeviceThatFailedIrp.c)
+ *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
+ *     PnpDiagnosticTraceObject @ 0x1400F5288 (PnpDiagnosticTraceObject.c)
+ *     PnpDeviceCompletionRequestDestroy @ 0x140159C80 (PnpDeviceCompletionRequestDestroy.c)
+ *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140159D20 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
+ *     PnpTraceStartDevice @ 0x140160088 (PnpTraceStartDevice.c)
+ *     IoFindDeviceThatFailedIrp @ 0x14016C198 (IoFindDeviceThatFailedIrp.c)
  */
 
 __int64 __fastcall PnpDeviceCompletionRoutine(__int64 a1, IRP *a2, __int64 a3)

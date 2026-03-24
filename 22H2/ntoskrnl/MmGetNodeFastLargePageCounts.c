@@ -1,20 +1,20 @@
 /*
- * XREFs of MmGetNodeFastLargePageCounts @ 0x140617974
+ * XREFs of MmGetNodeFastLargePageCounts @ 0x140547C40
  * Callers:
- *     VmpAccessFaultBatchResolve @ 0x1409DCDE8 (VmpAccessFaultBatchResolve.c)
+ *     VmpAccessFaultBatchResolve @ 0x14092F318 (VmpAccessFaultBatchResolve.c)
  * Callees:
- *     MiPartitionObjectToPartition @ 0x1402F8AA4 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
+ *     PsDereferencePartition @ 0x140303F4C (PsDereferencePartition.c)
+ *     MiPartitionObjectToPartition @ 0x1403574E0 (MiPartitionObjectToPartition.c)
  */
 
 unsigned __int64 __fastcall MmGetNodeFastLargePageCounts(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rdi
   __int64 v3; // rbx
-  __int64 *v4; // rcx
-  void ***v5; // rax
-  __int64 *v6; // r11
-  void **v7; // r9
+  __int64 *v4; // rax
+  ULONG_PTR *v5; // rax
+  _QWORD *v6; // r9
+  __int64 *v7; // r8
   unsigned __int64 i; // rdi
   char v10; // [rsp+38h] [rbp+10h] BYREF
 
@@ -22,7 +22,7 @@ unsigned __int64 __fastcall MmGetNodeFastLargePageCounts(__int64 a1, unsigned in
   v10 = 0;
   if ( a2 >= (unsigned __int16)KeNumberNodes )
     return 0LL;
-  v3 = !_bittest64(&KeFeatureBits, 0x25u);
+  v3 = (KeFeatureBits & 0x2000000000LL) == 0;
   v4 = &MiLargePageSizes[v3];
   do
   {
@@ -34,17 +34,17 @@ unsigned __int64 __fastcall MmGetNodeFastLargePageCounts(__int64 a1, unsigned in
   while ( (unsigned int)v3 < 3 );
   if ( (_DWORD)v3 == 3 )
     return 0LL;
-  v5 = MiPartitionObjectToPartition((void **)0xFFFFFFFFFFFFFFFFLL, 0, &v10);
+  v5 = MiPartitionObjectToPartition((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, 0, &v10);
   if ( !v5 )
     return 0LL;
-  v6 = &MiLargePageSizes[v3];
-  v7 = &v5[2][3176 * v2] + 134 * (unsigned int)v3;
-  for ( i = ((unsigned __int64)*v6 >> 9) * ((unsigned __int64)v7[1] + (_QWORD)*v7); (_DWORD)v3; LODWORD(v3) = v3 - 1 )
+  v6 = (_QWORD *)(v5[2] + 4544 * v2 + 1072LL * (unsigned int)v3);
+  v7 = &MiLargePageSizes[v3];
+  for ( i = ((unsigned __int64)*v7 >> 9) * (*v6 + v6[1]); (_DWORD)v3; LODWORD(v3) = v3 - 1 )
   {
-    v7 -= 134;
-    i += ((unsigned __int64)*--v6 >> 9) * ((unsigned __int64)v7[1] + (_QWORD)*v7);
+    v6 -= 134;
+    i += ((unsigned __int64)*--v7 >> 9) * (*v6 + v6[1]);
   }
   if ( v10 )
-    PsDereferencePartition((__int64)v5[25]);
+    PsDereferencePartition(v5[22]);
   return i;
 }

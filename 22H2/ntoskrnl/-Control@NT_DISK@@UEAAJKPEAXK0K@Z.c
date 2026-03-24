@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Control@NT_DISK@@UEAAJKPEAXK0K@Z @ 0x1409403E0
+ * XREFs of ?Control@NT_DISK@@UEAAJKPEAXK0K@Z @ 0x14088D850
  * Callers:
  *     <none>
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x140251430 (IoBuildDeviceIoControlRequest.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14022BAA0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
  */
 
 int __fastcall NT_DISK::Control(
@@ -25,10 +25,10 @@ int __fastcall NT_DISK::Control(
   memset(&Event, 0, sizeof(Event));
   IoStatusBlock = 0LL;
   KeInitializeEvent(&Event, NotificationEvent, 0);
-  v10 = IoBuildDeviceIoControlRequest(a2, this[49], a3, a4, OutputBuffer, OutputBufferLength, 0, &Event, &IoStatusBlock);
+  v10 = IoBuildDeviceIoControlRequest(a2, this[44], a3, a4, OutputBuffer, OutputBufferLength, 0, &Event, &IoStatusBlock);
   if ( !v10 )
     return -1073741670;
-  result = IofCallDriver(this[49], v10);
+  result = IofCallDriver(this[44], v10);
   if ( result == 259 )
   {
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);

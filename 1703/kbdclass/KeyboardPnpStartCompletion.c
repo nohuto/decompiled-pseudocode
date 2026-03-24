@@ -1,1 +1,13 @@
-/*\n * XREFs of KeyboardPnpStartCompletion @ 0x1C0002980\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\n__int64 __fastcall KeyboardPnpStartCompletion(__int64 a1, __int64 a2, PIO_WORKITEM *a3)\n{\n  IoQueueWorkItem(*a3, (PIO_WORKITEM_ROUTINE)KeyboardStartWorker, DelayedWorkQueue, a3);\n  return 3221225494LL;\n}\n
+/*
+ * XREFs of KeyboardPnpStartCompletion @ 0x1C0002980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall KeyboardPnpStartCompletion(__int64 a1, __int64 a2, PIO_WORKITEM *a3)
+{
+  IoQueueWorkItem(*a3, (PIO_WORKITEM_ROUTINE)KeyboardStartWorker, DelayedWorkQueue, a3);
+  return 3221225494LL;
+}

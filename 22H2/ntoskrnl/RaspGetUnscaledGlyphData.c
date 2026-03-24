@@ -1,20 +1,20 @@
 /*
- * XREFs of RaspGetUnscaledGlyphData @ 0x140385358
+ * XREFs of RaspGetUnscaledGlyphData @ 0x1403AD344
  * Callers:
- *     RaspRasterize @ 0x1403850C0 (RaspRasterize.c)
+ *     RaspRasterize @ 0x1403AD15C (RaspRasterize.c)
  * Callees:
- *     RaspFreeMemory @ 0x140385284 (RaspFreeMemory.c)
- *     RaspLoadBearings @ 0x140385CCC (RaspLoadBearings.c)
- *     RaspMapGlyphIndexToLocation @ 0x140385F4C (RaspMapGlyphIndexToLocation.c)
- *     RaspLoadGlyphData @ 0x1403869FC (RaspLoadGlyphData.c)
- *     RaspConvertDeltas @ 0x140386A94 (RaspConvertDeltas.c)
- *     RaspMapCharacterCodeToGlyphIndex @ 0x140386B38 (RaspMapCharacterCodeToGlyphIndex.c)
+ *     RaspFreeMemory @ 0x1403AD328 (RaspFreeMemory.c)
+ *     RaspLoadBearings @ 0x1403ADE2C (RaspLoadBearings.c)
+ *     RaspMapGlyphIndexToLocation @ 0x1403ADF80 (RaspMapGlyphIndexToLocation.c)
+ *     RaspConvertDeltas @ 0x1403AE888 (RaspConvertDeltas.c)
+ *     RaspLoadGlyphData @ 0x1403AE92C (RaspLoadGlyphData.c)
+ *     RaspMapCharacterCodeToGlyphIndex @ 0x1403AE9C4 (RaspMapCharacterCodeToGlyphIndex.c)
  */
 
 __int64 __fastcall RaspGetUnscaledGlyphData(__int64 a1, __int64 a2, __int64 *a3, __int64 a4, _QWORD *a5)
 {
-  __int64 v6; // rcx
-  __int64 v7; // rbx
+  __int64 v7; // rcx
+  __int64 v8; // rbx
   unsigned __int16 v10; // si
   int v11; // eax
   _QWORD *v12; // r15
@@ -24,13 +24,13 @@ __int64 __fastcall RaspGetUnscaledGlyphData(__int64 a1, __int64 a2, __int64 *a3,
   unsigned __int16 v17; // [rsp+80h] [rbp+40h] BYREF
   int v18; // [rsp+90h] [rbp+50h] BYREF
 
-  v6 = *(_QWORD *)(a1 + 24);
-  v7 = 0LL;
-  v16 = 0LL;
   v17 = 0;
+  v7 = *(_QWORD *)(a1 + 24);
+  v8 = 0LL;
   v18 = 0;
+  v16 = 0LL;
   v10 = 0;
-  if ( (int)RaspMapCharacterCodeToGlyphIndex(v6, a2, &v17) >= 0 )
+  if ( (int)RaspMapCharacterCodeToGlyphIndex(v7, a2, &v17) >= 0 )
     v10 = v17;
   v11 = RaspMapGlyphIndexToLocation(a1, v10, &v18);
   v12 = a5;
@@ -38,21 +38,21 @@ __int64 __fastcall RaspGetUnscaledGlyphData(__int64 a1, __int64 a2, __int64 *a3,
   {
     v17 = v10;
     GlyphData = RaspLoadGlyphData(a1, v18, (unsigned int)&v17, (unsigned int)&v16, (__int64)v12);
-    v7 = v16;
+    v8 = v16;
     Bearings = GlyphData;
     if ( GlyphData >= 0 )
     {
       Bearings = RaspConvertDeltas(v16);
       if ( Bearings >= 0 )
-        Bearings = RaspLoadBearings(a1, v17, v7, a4);
+        Bearings = RaspLoadBearings(a1, v17, v8, a4);
     }
   }
   if ( a3 )
   {
-    *a3 = v7;
-    v7 = 0LL;
+    *a3 = v8;
+    v8 = 0LL;
   }
-  if ( v7 )
-    RaspFreeMemory(v7, v12);
+  if ( v8 )
+    RaspFreeMemory(v8, v12);
   return (unsigned int)Bearings;
 }

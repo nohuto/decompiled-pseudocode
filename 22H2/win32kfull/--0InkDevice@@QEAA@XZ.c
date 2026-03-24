@@ -1,21 +1,21 @@
 /*
- * XREFs of ??0InkDevice@@QEAA@XZ @ 0x1C0243040
+ * XREFs of ??0InkDevice@@QEAA@XZ @ 0x1C025455C
  * Callers:
- *     ?OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C023E04C (-OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C024ECFC (-OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
  *     <none>
  */
 
 InkDevice *__fastcall InkDevice::InkDevice(InkDevice *this)
 {
-  __int64 v2; // rcx
+  signed __int32 v1; // eax
   InkDevice *result; // rax
 
   *(_QWORD *)this = &Rim::RimBackedDeviceBase::`vftable';
-  v2 = (unsigned int)_InterlockedIncrement((volatile signed __int32 *)(SGDGetUserSessionState(this) + 16832));
-  if ( !(_DWORD)v2 )
-    LODWORD(v2) = _InterlockedIncrement((volatile signed __int32 *)(SGDGetUserSessionState(v2) + 16832));
-  *((_DWORD *)this + 2) = v2;
+  v1 = _InterlockedIncrement(&dword_1C0340984);
+  if ( !v1 )
+    v1 = _InterlockedIncrement(&dword_1C0340984);
+  *((_DWORD *)this + 2) = v1;
   *((_BYTE *)this + 12) = 0;
   *((_QWORD *)this + 2) = 0LL;
   *((_QWORD *)this + 3) = 0LL;

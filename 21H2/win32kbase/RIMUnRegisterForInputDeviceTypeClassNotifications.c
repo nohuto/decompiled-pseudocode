@@ -1,12 +1,12 @@
 /*
- * XREFs of RIMUnRegisterForInputDeviceTypeClassNotifications @ 0x1C0044CE0
+ * XREFs of RIMUnRegisterForInputDeviceTypeClassNotifications @ 0x1C005441C
  * Callers:
- *     RIMUnregisterForInput @ 0x1C0047ED0 (RIMUnregisterForInput.c)
- *     RIMDirectStopDeviceClassNotifications @ 0x1C0048450 (RIMDirectStopDeviceClassNotifications.c)
- *     RIMRemoveInputOfType @ 0x1C00B6F70 (RIMRemoveInputOfType.c)
- *     _lambda_5c36fc9d148e2df7cc7307bbce248cb9_::operator() @ 0x1C00DBEA8 (_lambda_5c36fc9d148e2df7cc7307bbce248cb9_--operator().c)
+ *     _lambda_472f4db53ddf5878963a84144a71a26c_::_lambda_invoker_cdecl_ @ 0x1C0052B50 (_lambda_472f4db53ddf5878963a84144a71a26c_--_lambda_invoker_cdecl_.c)
+ *     RIMDirectStopDeviceClassNotifications @ 0x1C0052BE0 (RIMDirectStopDeviceClassNotifications.c)
+ *     RIMUnregisterForInput @ 0x1C0053610 (RIMUnregisterForInput.c)
+ *     RIMRemoveInputOfType @ 0x1C00A6300 (RIMRemoveInputOfType.c)
  * Callees:
- *     DeviceTypeToRimInputType @ 0x1C0044E70 (DeviceTypeToRimInputType.c)
+ *     DeviceTypeToRimInputType @ 0x1C0054500 (DeviceTypeToRimInputType.c)
  */
 
 __int64 __fastcall RIMUnRegisterForInputDeviceTypeClassNotifications(__int64 a1, unsigned int a2)

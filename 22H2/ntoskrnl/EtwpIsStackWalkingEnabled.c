@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpIsStackWalkingEnabled @ 0x140827F38
+ * XREFs of EtwpIsStackWalkingEnabled @ 0x140792DF4
  * Callers:
- *     EtwpProcessThreadImageRundown @ 0x140827860 (EtwpProcessThreadImageRundown.c)
+ *     EtwpProcessThreadImageRundown @ 0x1407924B8 (EtwpProcessThreadImageRundown.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall EtwpIsStackWalkingEnabled(__int64 a1, __int16 a2)
+unsigned __int8 __fastcall EtwpIsStackWalkingEnabled(__int64 a1, __int16 a2)
 {
   char v2; // r8
 
   v2 = 0;
-  if ( (*(_DWORD *)(a1 + 816) & 0x80u) != 0 )
-    return (*(char *)(((unsigned __int64)(a2 & 0x1FFF) >> 3) + *(_QWORD *)(a1 + 1000)) >> (a2 & 7)) & 1;
+  if ( (*(_DWORD *)(a1 + 832) & 0x80u) != 0 )
+    return _bittest(*(const signed __int32 **)(a1 + 984), a2 & 0x1FFF);
   return v2;
 }

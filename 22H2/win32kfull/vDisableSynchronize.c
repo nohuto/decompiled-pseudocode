@@ -1,36 +1,33 @@
 /*
- * XREFs of vDisableSynchronize @ 0x1C00B96B0
+ * XREFs of vDisableSynchronize @ 0x1C0127B70
  * Callers:
  *     <none>
  * Callees:
- *     ?vDisableTimers@@YAXK@Z @ 0x1C00B9780 (-vDisableTimers@@YAXK@Z.c)
+ *     ?vDisableTimers@@YAXK@Z @ 0x1C0127C30 (-vDisableTimers@@YAXK@Z.c)
  */
 
 __int64 __fastcall vDisableSynchronize(__int64 a1)
 {
   int v2; // esi
-  Gre::Base *v3; // rcx
-  int v4; // edi
+  int v3; // edi
   __int64 result; // rax
-  signed __int32 v6; // ett
-  struct Gre::Base::SESSION_GLOBALS *v7; // rax
+  signed __int32 v5; // ett
 
   v2 = 0;
   if ( (unsigned int)UserIsUserCritSecIn() )
   {
-    v4 = 0;
+    v3 = 0;
     result = UserIsUserCritSecInShared();
     v2 = result;
   }
   else
   {
-    v4 = 1;
-    v7 = Gre::Base::Globals(v3);
-    result = GreIsSemaphoreOwnedOrSharedByCurrentThread(*((_QWORD *)v7 + 10));
+    v3 = 1;
+    result = GreIsSemaphoreOwnedOrSharedByCurrentThread(ghsemDynamicModeChange);
     if ( (_DWORD)result )
     {
       v2 = 1;
-      v4 = 0;
+      v3 = 0;
     }
     else
     {
@@ -45,18 +42,18 @@ __int64 __fastcall vDisableSynchronize(__int64 a1)
         vDisableSynchronizeNKAPCBegin,
         vDisableSynchronizeNKAPCBegin,
         vDisableSynchronizeNKAPC,
-        *(unsigned int *)(a1 + 2096));
+        *(unsigned int *)(a1 + 2128));
     else
-      vDisableTimers(*(_DWORD *)(a1 + 2096));
+      vDisableTimers(*(_DWORD *)(a1 + 2128));
     _m_prefetchw((const void *)(a1 + 40));
     do
     {
-      v6 = *(_DWORD *)(a1 + 40);
-      result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 40), v6 & 0xFFFFF7FF, v6);
+      v5 = *(_DWORD *)(a1 + 40);
+      result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 40), v5 & 0xFFFFF7FF, v5);
     }
-    while ( v6 != (_DWORD)result );
+    while ( v5 != (_DWORD)result );
   }
-  if ( v4 )
+  if ( v3 )
     return UserLeaveUserCritSec();
   return result;
 }

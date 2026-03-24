@@ -1,33 +1,34 @@
 /*
- * XREFs of W32pThreadCallout @ 0x1C00C5260
+ * XREFs of W32pThreadCallout @ 0x1C00E4020
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     FreeW32Thread @ 0x1C00C4EBC (FreeW32Thread.c)
- *     ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00C5360 (-IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
- *     AllocateW32Thread @ 0x1C00C53CC (AllocateW32Thread.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     FreeW32Thread @ 0x1C00E3CA8 (FreeW32Thread.c)
+ *     ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00E411C (-IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     AllocateW32Thread @ 0x1C00E427C (AllocateW32Thread.c)
  */
 
 __int64 __fastcall W32pThreadCallout(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rdx
   int v5; // edi
+  __int64 v6; // r8
   int W32Thread; // ebp
-  int v8; // eax
+  int v9; // eax
 
   if ( UmfdHostLifeTimeManager::IsCurrentProcessUmfdHost() )
   {
     W32Thread = 0;
     if ( !a2 )
       W32Thread = AllocateW32Thread(a1);
-    v8 = GdiThreadCallout(a1, a2);
-    v5 = v8;
+    v9 = GdiThreadCallout(a1, a2);
+    v5 = v9;
     if ( a2 )
       goto LABEL_18;
     if ( W32Thread < 0 )
       return (unsigned int)v5;
-    if ( v8 >= 0 )
+    if ( v9 >= 0 )
     {
 LABEL_18:
       if ( a2 != 1 )
@@ -40,7 +41,7 @@ LABEL_18:
     v5 = AllocateW32Thread(a1);
     if ( v5 < 0 )
     {
-      UserSetLastError(8LL, v4);
+      UserSetLastError(8LL, v4, v6);
       return (unsigned int)v5;
     }
   }
@@ -62,13 +63,11 @@ LABEL_18:
         if ( v5 >= 0 )
           return (unsigned int)v5;
         GdiThreadCalloutCleanup(a1);
-LABEL_12:
-        FreeW32Thread(a1);
-        return (unsigned int)v5;
       }
     }
   }
   if ( a2 == 1 || v5 < 0 )
-    goto LABEL_12;
+LABEL_12:
+    FreeW32Thread(a1);
   return (unsigned int)v5;
 }

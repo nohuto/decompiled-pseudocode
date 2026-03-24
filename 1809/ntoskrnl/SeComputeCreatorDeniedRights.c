@@ -7,8 +7,8 @@
  *     SepTokenIsOwner @ 0x1400131F0 (SepTokenIsOwner.c)
  *     RtlpOwnerAcesPresent @ 0x1400133C0 (RtlpOwnerAcesPresent.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     SepGetScopedPolicySid @ 0x1402FE9B4 (SepGetScopedPolicySid.c)
- *     SepRmReferenceFindCap @ 0x140300A60 (SepRmReferenceFindCap.c)
+ *     SepGetScopedPolicySid @ 0x1402FEAB4 (SepGetScopedPolicySid.c)
+ *     SepRmReferenceFindCap @ 0x140300B60 (SepRmReferenceFindCap.c)
  */
 
 __int64 __fastcall SeComputeCreatorDeniedRights(

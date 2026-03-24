@@ -1,18 +1,18 @@
 /*
- * XREFs of NtTranslateFilePath @ 0x140A01A20
+ * XREFs of NtTranslateFilePath @ 0x140955910
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     ExpTranslateArcPath @ 0x1409FE350 (ExpTranslateArcPath.c)
- *     ExpTranslateEfiPath @ 0x1409FE5F4 (ExpTranslateEfiPath.c)
- *     ExpTranslateNtPath @ 0x1409FEC6C (ExpTranslateNtPath.c)
- *     ExpVerifyFilePath @ 0x1409FF178 (ExpVerifyFilePath.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExpTranslateArcPath @ 0x140951F98 (ExpTranslateArcPath.c)
+ *     ExpTranslateEfiPath @ 0x14095223C (ExpTranslateEfiPath.c)
+ *     ExpTranslateNtPath @ 0x1409528B4 (ExpTranslateNtPath.c)
+ *     ExpVerifyFilePath @ 0x140952DC8 (ExpVerifyFilePath.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall NtTranslateFilePath(char *Src, unsigned int a2, volatile void *a3, unsigned int *a4)
@@ -39,7 +39,7 @@ __int64 __fastcall NtTranslateFilePath(char *Src, unsigned int a2, volatile void
   v21 = 0;
   P = 0LL;
   *(_QWORD *)&NumberOfBytes[1] = 0LL;
-  if ( dword_140C15C70 != 2 )
+  if ( dword_140C19850 != 2 )
     return 3221225474LL;
   if ( a2 - 1 <= 4 )
   {

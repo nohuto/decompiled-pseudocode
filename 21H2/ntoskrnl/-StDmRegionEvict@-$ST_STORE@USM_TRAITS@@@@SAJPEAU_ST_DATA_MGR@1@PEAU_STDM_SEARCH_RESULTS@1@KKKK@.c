@@ -1,14 +1,14 @@
 /*
- * XREFs of ?StDmRegionEvict@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_SEARCH_RESULTS@1@KKKK@Z @ 0x1405F9C9C
+ * XREFs of ?StDmRegionEvict@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_SEARCH_RESULTS@1@KKKK@Z @ 0x14059C0A8
  * Callers:
- *     ?StDmRegionRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAK@Z @ 0x1405FA010 (-StDmRegionRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAK@Z.c)
+ *     ?StDmRegionRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAK@Z @ 0x14059C420 (-StDmRegionRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAK@Z.c)
  * Callees:
- *     SmEtwEnabled @ 0x140261818 (SmEtwEnabled.c)
- *     ?StDmPageRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14037EEA8 (-StDmPageRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     qsort @ 0x1403E1E70 (qsort.c)
- *     ?StDmRegionGetKeys@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_SEARCH_RESULTS@1@KKKPEAT_SM_PAGE_KEY@@PEAK@Z @ 0x1405F9E38 (-StDmRegionGetKeys@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_SEARCH_RESULTS@1@KKK.c)
- *     SmEtwLogRegionOp @ 0x1405FB2F0 (SmEtwLogRegionOp.c)
+ *     SmEtwEnabled @ 0x1402DAE08 (SmEtwEnabled.c)
+ *     ?StDmPageRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1402DC80C (-StDmPageRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     qsort @ 0x1403D2AC0 (qsort.c)
+ *     ?StDmRegionGetKeys@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_SEARCH_RESULTS@1@KKKPEAT_SM_PAGE_KEY@@PEAK@Z @ 0x14059C248 (-StDmRegionGetKeys@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_SEARCH_RESULTS@1@KKK.c)
+ *     SmEtwLogRegionOp @ 0x14059D8F0 (SmEtwLogRegionOp.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmRegionEvict(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5)
@@ -51,45 +51,45 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmRegionEvict(__int64 a1, __int64 a2, 
     v8 = v23;
   }
   v12 = alloca(1024LL);
-LABEL_7:
-  LODWORD(NumOfElements) = 256;
-  Keys = ST_STORE<SM_TRAITS>::StDmRegionGetKeys(a1, v8, v5, v9, a5, (__int64)Base, (__int64)&NumOfElements);
-  if ( Keys < 0 || !(_DWORD)NumOfElements )
-    return (unsigned int)Keys;
-  v14 = (unsigned int)NumOfElements;
-  qsort(Base, (unsigned int)NumOfElements, 4uLL, ST_STORE<SM_TRAITS>::StpKeyCompare);
-  v15 = Base[0];
-  v16 = &Base[v14];
-  DWORD2(v24) = Base[0];
-  v17 = Base[0];
-  v18 = Base;
-  v19 = 0;
-LABEL_10:
-  if ( v15 == v17 )
-    goto LABEL_13;
-  while ( 1 )
+  do
   {
-    HIDWORD(v24) = v19;
-    Keys = ST_STORE<SM_TRAITS>::StDmPageRemove(a1, (__int64)&v24);
-    if ( Keys < 0 )
-      return (unsigned int)Keys;
-    v15 = *v18;
+    LODWORD(NumOfElements) = 256;
+    Keys = ST_STORE<SM_TRAITS>::StDmRegionGetKeys(a1, v8, v5, v9, a5, (__int64)Base, (__int64)&NumOfElements);
+    if ( Keys < 0 || !(_DWORD)NumOfElements )
+      break;
+    v14 = (unsigned int)NumOfElements;
+    qsort(Base, (unsigned int)NumOfElements, 4uLL, ST_STORE<SM_TRAITS>::StpKeyCompare);
+    v15 = Base[0];
+    v16 = &Base[v14];
+    DWORD2(v24) = Base[0];
+    v17 = Base[0];
+    v18 = Base;
     v19 = 0;
-    DWORD2(v24) = *v18;
+LABEL_10:
+    if ( v15 != v17 )
+      goto LABEL_13;
+    while ( 1 )
+    {
+      ++v19;
+      if ( ++v18 < v16 )
+      {
+        v17 = *v18;
+        ++v15;
+        goto LABEL_10;
+      }
+      if ( v18 != v16 )
+        break;
 LABEL_13:
-    ++v19;
-    if ( ++v18 < v16 )
-    {
-      v17 = *v18;
-      ++v15;
-      goto LABEL_10;
-    }
-    if ( v18 != v16 )
-    {
-      v8 = v23;
-      if ( (unsigned int)NumOfElements < 0x100 )
+      HIDWORD(v24) = v19;
+      Keys = ST_STORE<SM_TRAITS>::StDmPageRemove(a1, (__int64)&v24);
+      if ( Keys < 0 )
         return (unsigned int)Keys;
-      goto LABEL_7;
+      v15 = *v18;
+      v19 = 0;
+      DWORD2(v24) = *v18;
     }
+    v8 = v23;
   }
+  while ( (unsigned int)NumOfElements >= 0x100 );
+  return (unsigned int)Keys;
 }

@@ -1,42 +1,52 @@
 /*
- * XREFs of ?DpiIndirectStartAdapter@@YAJPEAU_UNICODE_STRING@@PEBXK@Z @ 0x1C0392574
+ * XREFs of ?DpiIndirectStartAdapter@@YAJPEAU_UNICODE_STRING@@PEBXK@Z @ 0x1C02D52D0
  * Callers:
- *     DxgkHandleIndirectEscape @ 0x1C0392C44 (DxgkHandleIndirectEscape.c)
+ *     DxgkHandleIndirectEscape @ 0x1C02D5A00 (DxgkHandleIndirectEscape.c)
  * Callees:
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000EFE8 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?Free@?$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ @ 0x1C00604C4 (-Free@-$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0009F18 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?Free@?$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ @ 0x1C0052B08 (-Free@-$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ.c)
  */
 
 __int64 __fastcall DpiIndirectStartAdapter(struct _UNICODE_STRING *a1, const void *a2, unsigned int a3)
 {
   size_t v4; // rsi
   unsigned __int16 *StartContext; // rbx
-  __int64 v7; // rbx
-  NTSTATUS v8; // eax
-  NTSTATUS v9; // edi
-  NTSTATUS v10; // eax
-  void *v12; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rbx
+  int v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rdi
+  __int64 v15; // rax
+  NTSTATUS v16; // eax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  void *v20; // [rsp+40h] [rbp-18h] BYREF
   void *ThreadHandle; // [rsp+48h] [rbp-10h] BYREF
-  unsigned __int16 *v14; // [rsp+78h] [rbp+20h] BYREF
+  unsigned __int16 *v22; // [rsp+78h] [rbp+20h] BYREF
 
-  v14 = 0LL;
+  v22 = 0LL;
   v4 = a3;
   StartContext = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, 0x610uLL, 0x74727044u);
-  AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free((void **)&v14);
-  v12 = 0LL;
-  v14 = StartContext;
-  AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free(&v12);
+  AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free((void **)&v22);
+  v20 = 0LL;
+  v22 = StartContext;
+  AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free(&v20);
   if ( !StartContext )
   {
-    v7 = -1073741801LL;
-LABEL_8:
-    WdLogSingleEntry1(2LL, v7);
-    goto LABEL_10;
+    v9 = WdLogNewEntry5_WdError(v8, v7);
+    v10 = -1073741801LL;
+LABEL_9:
+    *(_QWORD *)(v9 + 24) = v10;
+    WdLogEvent5_WdError(v9);
+    goto LABEL_11;
   }
-  v8 = RtlStringCchCopyW(StartContext + 2, 0x104uLL, a1->Buffer);
-  v9 = v8;
-  if ( v8 >= 0 )
+  v11 = RtlStringCchCopyW(StartContext + 2, 0x104uLL, a1->Buffer);
+  v14 = v11;
+  if ( v11 >= 0 )
   {
     if ( (unsigned int)v4 <= 0x400 )
     {
@@ -44,7 +54,7 @@ LABEL_8:
       *((_DWORD *)StartContext + 131) = v4;
       *(_DWORD *)StartContext = 4;
       ThreadHandle = 0LL;
-      v10 = PsCreateSystemThread(
+      v16 = PsCreateSystemThread(
               &ThreadHandle,
               0x1FFFFFu,
               0LL,
@@ -52,22 +62,25 @@ LABEL_8:
               0LL,
               (PKSTART_ROUTINE)DpiFdoStartAdapterThread,
               StartContext);
-      v7 = v10;
-      if ( v10 >= 0 )
+      v10 = v16;
+      if ( v16 >= 0 )
       {
-        v14 = 0LL;
-        goto LABEL_10;
+        v22 = 0LL;
+        goto LABEL_11;
       }
-      goto LABEL_8;
+      v9 = WdLogNewEntry5_WdError(v18, v17);
+      goto LABEL_9;
     }
-    LODWORD(v7) = -1073741811;
+    LODWORD(v10) = -1073741811;
   }
   else
   {
-    WdLogSingleEntry1(2LL, v8);
-    LODWORD(v7) = v9;
+    v15 = WdLogNewEntry5_WdError(v13, v12);
+    *(_QWORD *)(v15 + 24) = v14;
+    WdLogEvent5_WdError(v15);
+    LODWORD(v10) = v14;
   }
-LABEL_10:
-  AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free((void **)&v14);
-  return (unsigned int)v7;
+LABEL_11:
+  AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free((void **)&v22);
+  return (unsigned int)v10;
 }

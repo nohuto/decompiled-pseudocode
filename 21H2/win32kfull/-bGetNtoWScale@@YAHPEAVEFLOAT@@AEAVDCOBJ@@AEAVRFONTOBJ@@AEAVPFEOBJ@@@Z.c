@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bGetNtoWScale@@YAHPEAVEFLOAT@@AEAVDCOBJ@@AEAVRFONTOBJ@@AEAVPFEOBJ@@@Z @ 0x1C0130408
+ * XREFs of ?bGetNtoWScale@@YAHPEAVEFLOAT@@AEAVDCOBJ@@AEAVRFONTOBJ@@AEAVPFEOBJ@@@Z @ 0x1C0140208
  * Callers:
- *     GreGetKerningPairs @ 0x1C01301E4 (GreGetKerningPairs.c)
+ *     GreGetKerningPairs @ 0x1C013FFE4 (GreGetKerningPairs.c)
  * Callees:
- *     ?pptlBaseline@IFIOBJ@@QEAAPEAU_POINTL@@XZ @ 0x1C0015908 (-pptlBaseline@IFIOBJ@@QEAAPEAU_POINTL@@XZ.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     ??0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z @ 0x1C013067C (--0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ?pptlBaseline@IFIOBJ@@QEAAPEAU_POINTL@@XZ @ 0x1C01151E0 (-pptlBaseline@IFIOBJ@@QEAAPEAU_POINTL@@XZ.c)
+ *     ??0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z @ 0x1C014047C (--0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall bGetNtoWScale(struct EFLOAT *a1, struct DCOBJ *a2, struct RFONTOBJ *a3, struct PFEOBJ *a4)

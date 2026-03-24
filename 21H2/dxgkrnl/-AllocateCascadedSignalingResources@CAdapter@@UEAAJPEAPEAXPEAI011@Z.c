@@ -1,13 +1,13 @@
 /*
- * XREFs of ?AllocateCascadedSignalingResources@CAdapter@@UEAAJPEAPEAXPEAI011@Z @ 0x1C0076780
+ * XREFs of ?AllocateCascadedSignalingResources@CAdapter@@UEAAJPEAPEAXPEAI011@Z @ 0x1C0064840
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?CreateSyncObject@CAdapter@@AEAAJU_VIDSCH_SYNC_OBJECT_CLIENTHINT@@PEAI@Z @ 0x1C0076A10 (-CreateSyncObject@CAdapter@@AEAAJU_VIDSCH_SYNC_OBJECT_CLIENTHINT@@PEAI@Z.c)
- *     DxgkGetSharedSyncObjectType @ 0x1C0161E20 (DxgkGetSharedSyncObjectType.c)
- *     DxgkShareObjectsInternal @ 0x1C01A5DA0 (DxgkShareObjectsInternal.c)
- *     DxgkCreateContextVirtualInternal @ 0x1C01E9F6C (DxgkCreateContextVirtualInternal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?CreateSyncObject@CAdapter@@AEAAJU_VIDSCH_SYNC_OBJECT_CLIENTHINT@@PEAI@Z @ 0x1C0064AD0 (-CreateSyncObject@CAdapter@@AEAAJU_VIDSCH_SYNC_OBJECT_CLIENTHINT@@PEAI@Z.c)
+ *     DxgkShareObjectsInternal @ 0x1C011DD10 (DxgkShareObjectsInternal.c)
+ *     DxgkGetSharedSyncObjectType @ 0x1C0154590 (DxgkGetSharedSyncObjectType.c)
+ *     DxgkCreateContextVirtualInternal @ 0x1C0154E60 (DxgkCreateContextVirtualInternal.c)
  */
 
 __int64 __fastcall CAdapter::AllocateCascadedSignalingResources(
@@ -33,22 +33,24 @@ __int64 __fastcall CAdapter::AllocateCascadedSignalingResources(
   struct _OBJECT_TYPE *v19; // rax
   NTSTATUS v20; // eax
   int v21; // eax
-  PVOID Src; // [rsp+58h] [rbp-69h] BYREF
-  PVOID Object; // [rsp+60h] [rbp-61h] BYREF
+  PVOID Object; // [rsp+58h] [rbp-69h] BYREF
+  unsigned int Src; // [rsp+60h] [rbp-61h] BYREF
+  int v25; // [rsp+64h] [rbp-5Dh] BYREF
   HANDLE Handle[2]; // [rsp+68h] [rbp-59h] BYREF
-  _OWORD v26[2]; // [rsp+78h] [rbp-49h] BYREF
-  __int64 v27; // [rsp+98h] [rbp-29h]
-  __int64 v28[4]; // [rsp+A0h] [rbp-21h] BYREF
-  __int128 v29; // [rsp+C0h] [rbp-1h]
+  PVOID v27; // [rsp+78h] [rbp-49h] BYREF
+  _OWORD v28[2]; // [rsp+80h] [rbp-41h] BYREF
+  __int64 v29; // [rsp+A0h] [rbp-21h]
+  __int64 v30[4]; // [rsp+A8h] [rbp-19h] BYREF
+  __int128 v31; // [rsp+C8h] [rbp+7h]
 
   v6 = 0;
-  LODWORD(Src) = 0;
+  Src = 0;
   v8 = 0LL;
   LODWORD(Object) = 0;
   v9 = 0LL;
   v10 = 0;
   v11 = CAdapter::CreateSyncObject(this, 18LL, &Src);
-  v12 = (unsigned int)Src;
+  v12 = Src;
   ContextVirtualInternal = v11;
   if ( v11 < 0 )
     goto LABEL_14;
@@ -57,13 +59,14 @@ __int64 __fastcall CAdapter::AllocateCascadedSignalingResources(
   ContextVirtualInternal = v14;
   if ( v14 < 0 )
     goto LABEL_14;
-  Src = (PVOID)__PAIR64__((unsigned int)Object, v12);
+  Src = v12;
   *(_OWORD *)Handle = 0LL;
-  v29 = 0LL;
-  v28[0] = 48LL;
-  v28[3] = 512LL;
-  v28[1] = 0LL;
-  v28[2] = 0LL;
+  v25 = (int)Object;
+  v31 = 0LL;
+  v30[0] = 48LL;
+  v30[3] = 512LL;
+  v30[1] = 0LL;
+  v30[2] = 0LL;
   CurrentProcess = PsGetCurrentProcess();
   ContextVirtualInternal = DxgkShareObjectsInternal(
                              0,
@@ -71,7 +74,7 @@ __int64 __fastcall CAdapter::AllocateCascadedSignalingResources(
                              CurrentProcess,
                              1,
                              &Src,
-                             (__int64)v28,
+                             (__int64)v30,
                              0x10000000u,
                              (__int64)Handle,
                              0LL);
@@ -90,17 +93,17 @@ __int64 __fastcall CAdapter::AllocateCascadedSignalingResources(
                                  0,
                                  v18,
                                  1,
-                                 (char *)&Src + 4,
-                                 (__int64)v28,
+                                 &v25,
+                                 (__int64)v30,
                                  0x10000000u,
                                  (__int64)&Handle[1],
                                  0LL);
       if ( ContextVirtualInternal >= 0 )
       {
         v19 = (struct _OBJECT_TYPE *)DxgkGetSharedSyncObjectType();
-        Src = 0LL;
-        v20 = ObReferenceObjectByHandle(Handle[1], 0x1F0000u, v19, 0, &Src, 0LL);
-        v9 = Src;
+        v27 = 0LL;
+        v20 = ObReferenceObjectByHandle(Handle[1], 0x1F0000u, v19, 0, &v27, 0LL);
+        v9 = v27;
         ContextVirtualInternal = v20;
       }
     }
@@ -110,12 +113,12 @@ __int64 __fastcall CAdapter::AllocateCascadedSignalingResources(
   if ( Handle[1] )
     ObCloseHandle(Handle[1], 0);
   if ( ContextVirtualInternal < 0
-    || (v27 = 0LL,
-        v21 = *((_DWORD *)this + 11),
-        memset(v26, 0, sizeof(v26)),
-        HIDWORD(v26[0]) = 8,
-        LODWORD(v26[0]) = v21,
-        ContextVirtualInternal = DxgkCreateContextVirtualInternal(v26),
+    || (v29 = 0LL,
+        v21 = *((_DWORD *)this + 9),
+        memset(v28, 0, sizeof(v28)),
+        HIDWORD(v28[0]) = 8,
+        LODWORD(v28[0]) = v21,
+        ContextVirtualInternal = DxgkCreateContextVirtualInternal(v28),
         ContextVirtualInternal < 0) )
   {
 LABEL_14:
@@ -133,7 +136,7 @@ LABEL_14:
   }
   else
   {
-    v6 = v27;
+    v6 = v29;
     *a2 = v8;
     *a3 = v12;
     *a4 = v9;

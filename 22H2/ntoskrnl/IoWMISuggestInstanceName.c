@@ -1,15 +1,15 @@
 /*
- * XREFs of IoWMISuggestInstanceName @ 0x1409DF2B0
+ * XREFs of IoWMISuggestInstanceName @ 0x1409314A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     IoGetDeviceProperty @ 0x140792EB0 (IoGetDeviceProperty.c)
- *     IoOpenDeviceInterfaceRegistryKey @ 0x140849F50 (IoOpenDeviceInterfaceRegistryKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     IoGetDeviceProperty @ 0x1406B8A70 (IoGetDeviceProperty.c)
+ *     IoOpenDeviceInterfaceRegistryKey @ 0x1407CCD30 (IoOpenDeviceInterfaceRegistryKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWMISuggestInstanceName(
@@ -21,9 +21,9 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
   int DeviceProperty; // ebx
   NTSTATUS result; // eax
   unsigned __int16 v10; // cx
-  void *Pool2; // rdi
+  PVOID PoolWithTag; // rdi
   NTSTATUS v12; // eax
-  __int64 v13; // r14
+  unsigned __int16 *v13; // r14
   const WCHAR *v14; // r15
   ULONG v15; // r12d
   wchar_t *v16; // rax
@@ -40,7 +40,7 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
   if ( !WmipServiceDeviceObject )
     return -1073741823;
   v10 = 0;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   BufferLength = 0;
   if ( PhysicalDeviceObject )
   {
@@ -48,14 +48,14 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
     DeviceProperty = result;
     if ( result == -1073741789 )
     {
-      Pool2 = (void *)ExAllocatePool2(256LL, BufferLength, 1885957463LL);
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, BufferLength, 0x70696D57u);
+      if ( !PoolWithTag )
         return -1073741670;
       DeviceProperty = IoGetDeviceProperty(
                          PhysicalDeviceObject,
                          DevicePropertyDeviceDescription,
                          BufferLength,
-                         Pool2,
+                         PoolWithTag,
                          &BufferLength);
       if ( DeviceProperty < 0 )
         goto LABEL_35;
@@ -68,9 +68,9 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
   }
   if ( !SymbolicLinkName )
   {
-    if ( Pool2 )
+    if ( PoolWithTag )
     {
-      SuggestedInstanceName->Buffer = (wchar_t *)Pool2;
+      SuggestedInstanceName->Buffer = (wchar_t *)PoolWithTag;
       SuggestedInstanceName->Length = v10 - 2;
       SuggestedInstanceName->MaximumLength = v10;
     }
@@ -88,30 +88,30 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
     DeviceProperty = v12;
     if ( v12 == -2147483643 || v12 == -1073741789 )
     {
-      v13 = ExAllocatePool2(256LL, Length, 1885957463LL);
+      v13 = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, Length, 0x70696D57u);
       if ( v13 )
       {
         DeviceProperty = ZwQueryValueKey(
                            DeviceInterfaceRegKey,
                            &ValueName,
                            KeyValueFullInformation,
-                           (PVOID)v13,
+                           v13,
                            Length,
                            &Length);
         if ( DeviceProperty >= 0 )
         {
-          v14 = (const WCHAR *)(v13 + *(unsigned int *)(v13 + 8));
+          v14 = (unsigned __int16 *)((char *)v13 + *((unsigned int *)v13 + 2));
           if ( CombineNames )
           {
-            v15 = *(_DWORD *)(v13 + 12) + BufferLength + 2;
-            v16 = (wchar_t *)ExAllocatePool2(256LL, v15, 1885957463LL);
+            v15 = *((_DWORD *)v13 + 3) + BufferLength + 2;
+            v16 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v15, 0x70696D57u);
             if ( v16 )
             {
               SuggestedInstanceName->Buffer = v16;
               SuggestedInstanceName->Length = 0;
               SuggestedInstanceName->MaximumLength = v15;
-              if ( Pool2 )
-                RtlAppendUnicodeToString(SuggestedInstanceName, (PCWSTR)Pool2);
+              if ( PoolWithTag )
+                RtlAppendUnicodeToString(SuggestedInstanceName, (PCWSTR)PoolWithTag);
               RtlAppendUnicodeToString(SuggestedInstanceName, L"_");
               RtlAppendUnicodeToString(SuggestedInstanceName, v14);
             }
@@ -119,25 +119,25 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
             {
               DeviceProperty = -1073741670;
             }
-            if ( Pool2 )
+            if ( PoolWithTag )
             {
-              ExFreePoolWithTag(Pool2, 0);
-              Pool2 = 0LL;
+              ExFreePoolWithTag(PoolWithTag, 0);
+              PoolWithTag = 0LL;
             }
           }
           else
           {
-            if ( Pool2 )
+            if ( PoolWithTag )
             {
-              ExFreePoolWithTag(Pool2, 0);
-              Pool2 = 0LL;
+              ExFreePoolWithTag(PoolWithTag, 0);
+              PoolWithTag = 0LL;
             }
-            v17 = (wchar_t *)ExAllocatePool2(256LL, *(unsigned int *)(v13 + 12), 1885957463LL);
+            v17 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, *((unsigned int *)v13 + 3), 0x70696D57u);
             if ( v17 )
             {
               SuggestedInstanceName->Buffer = v17;
               SuggestedInstanceName->Length = 0;
-              SuggestedInstanceName->MaximumLength = *(_WORD *)(v13 + 12);
+              SuggestedInstanceName->MaximumLength = v13[6];
               RtlAppendUnicodeToString(SuggestedInstanceName, v14);
             }
             else
@@ -146,7 +146,7 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
             }
           }
         }
-        ExFreePoolWithTag((PVOID)v13, 0);
+        ExFreePoolWithTag(v13, 0);
       }
       else
       {
@@ -155,9 +155,9 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
     }
     ZwClose(DeviceInterfaceRegKey);
   }
-  if ( !Pool2 || DeviceProperty >= 0 )
+  if ( !PoolWithTag || DeviceProperty >= 0 )
     return DeviceProperty;
 LABEL_35:
-  ExFreePoolWithTag(Pool2, 0);
+  ExFreePoolWithTag(PoolWithTag, 0);
   return DeviceProperty;
 }

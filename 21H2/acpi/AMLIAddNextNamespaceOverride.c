@@ -1,18 +1,18 @@
 /*
- * XREFs of AMLIAddNextNamespaceOverride @ 0x1C0065AA0
+ * XREFs of AMLIAddNextNamespaceOverride @ 0x1C0064824
  * Callers:
- *     AMLIAddNextNamespaceOverride @ 0x1C0065AA0 (AMLIAddNextNamespaceOverride.c)
- *     AMLIInitialize @ 0x1C00BCDB8 (AMLIInitialize.c)
+ *     AMLIAddNextNamespaceOverride @ 0x1C0064824 (AMLIAddNextNamespaceOverride.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
  * Callees:
- *     CreateNameSpaceObject @ 0x1C0013250 (CreateNameSpaceObject.c)
- *     DereferenceObjectEx @ 0x1C00189F4 (DereferenceObjectEx.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     AMLIAddNextNamespaceOverride @ 0x1C0065AA0 (AMLIAddNextNamespaceOverride.c)
- *     AMLIAddNextNamespaceOverrideObject @ 0x1C0065C08 (AMLIAddNextNamespaceOverrideObject.c)
- *     AMLIGetValidNamespaceName @ 0x1C0066210 (AMLIGetValidNamespaceName.c)
- *     OSCloseHandle @ 0x1C00954DC (OSCloseHandle.c)
- *     OSOpenNextSubkey @ 0x1C00B254C (OSOpenNextSubkey.c)
- *     OSReadNextRegValue @ 0x1C00B2790 (OSReadNextRegValue.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     AMLIAddNextNamespaceOverride @ 0x1C0064824 (AMLIAddNextNamespaceOverride.c)
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C006498C (AMLIAddNextNamespaceOverrideObject.c)
+ *     AMLIGetValidNamespaceName @ 0x1C0064F8C (AMLIGetValidNamespaceName.c)
+ *     OSCloseHandle @ 0x1C0096D0C (OSCloseHandle.c)
+ *     OSOpenNextSubkey @ 0x1C00B2C68 (OSOpenNextSubkey.c)
+ *     OSReadNextRegValue @ 0x1C00B2EAC (OSReadNextRegValue.c)
  */
 
 __int64 __fastcall AMLIAddNextNamespaceOverride(void *a1, __int64 a2)
@@ -51,13 +51,7 @@ __int64 __fastcall AMLIAddNextNamespaceOverride(void *a1, __int64 a2)
           RegValue = AMLIGetValidNamespaceName(v13, 0LL);
           if ( RegValue < 0 )
             goto LABEL_20;
-          Subkey = CreateNameSpaceObject(
-                     gpheapGlobal,
-                     v13,
-                     a2,
-                     *(struct _EX_RUNDOWN_REF **)(a2 + 48),
-                     (__int64 *)&v12,
-                     v8 & v10);
+          Subkey = CreateNameSpaceObject(gpheapGlobal, v13, a2, *(struct _EX_RUNDOWN_REF **)(a2 + 48), &v12, v8 & v10);
           if ( Subkey >= 0 )
           {
             Subkey = AMLIAddNextNamespaceOverride(KeyHandle, v12);

@@ -1,24 +1,24 @@
 /*
- * XREFs of ??1FxDevice@@UEAA@XZ @ 0x1C002B720
+ * XREFs of ??1FxDevice@@UEAA@XZ @ 0x1C0051420
  * Callers:
- *     ??_GFxDevice@@UEAAPEAXI@Z @ 0x1C002B690 (--_GFxDevice@@UEAAPEAXI@Z.c)
+ *     ??_GFxDevice@@UEAAPEAXI@Z @ 0x1C00516E0 (--_GFxDevice@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     ??1FxTransactionedList@@QEAA@XZ @ 0x1C002BAA0 (--1FxTransactionedList@@QEAA@XZ.c)
- *     ??1FxDeviceBase@@MEAA@XZ @ 0x1C002BAE4 (--1FxDeviceBase@@MEAA@XZ.c)
- *     ?DeleteSymbolicLink@FxDevice@@QEAAXXZ @ 0x1C002BB4C (-DeleteSymbolicLink@FxDevice@@QEAAXXZ.c)
- *     ?IsDisposed@FxObject@@QEAAEXZ @ 0x1C002BB80 (-IsDisposed@FxObject@@QEAAEXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ??_GFxIrpPreprocessInfo@@QEAAPEAXI@Z @ 0x1C0068E84 (--_GFxIrpPreprocessInfo@@QEAAPEAXI@Z.c)
- *     ??1FxCxDeviceInfo@@QEAA@XZ @ 0x1C0069498 (--1FxCxDeviceInfo@@QEAA@XZ.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ??1FxDeviceBase@@MEAA@XZ @ 0x1C004D508 (--1FxDeviceBase@@MEAA@XZ.c)
+ *     ??_GFxIrpPreprocessInfo@@QEAAPEAXI@Z @ 0x1C004FC84 (--_GFxIrpPreprocessInfo@@QEAAPEAXI@Z.c)
+ *     ?DeleteSymbolicLink@FxDevice@@QEAAXXZ @ 0x1C0050620 (-DeleteSymbolicLink@FxDevice@@QEAAXXZ.c)
+ *     ?IsDisposed@FxObject@@QEAAEXZ @ 0x1C0052450 (-IsDisposed@FxObject@@QEAAEXZ.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ??1FxTransactionedList@@QEAA@XZ @ 0x1C0061DB0 (--1FxTransactionedList@@QEAA@XZ.c)
  */
 
 void __fastcall FxDevice::~FxDevice(FxDevice *this)
 {
-  unsigned int v2; // edx
+  const void *_a2; // rax
+  unsigned __int64 ObjectHandleUnchecked; // rax
   FxPkgIo *m_PkgIo; // rcx
   FxPkgPnp *m_PkgPnp; // rcx
   FxPkgGeneral *m_PkgGeneral; // rcx
@@ -26,15 +26,17 @@ void __fastcall FxDevice::~FxDevice(FxDevice *this)
   FxDefaultIrpHandler *m_PkgDefault; // rcx
   _LIST_ENTRY *p_m_PreprocessInfoListHead; // rdi
   FxIrpPreprocessInfo *Flink; // rcx
+  _LIST_ENTRY *v11; // rax
   _LIST_ENTRY *p_m_CxDeviceInfoListHead; // rsi
-  FxCxDeviceInfo *v11; // rdi
+  FX_POOL_TRACKER *v13; // rdi
+  _LIST_ENTRY *v14; // rax
+  FX_POOL_TRACKER **p_Size; // r14
+  __int64 v16; // rbp
   wchar_t *Buffer; // rcx
-  wchar_t *v13; // rcx
+  wchar_t *v18; // rcx
   FxDevice *m_ParentDevice; // rcx
-  const void *_a2; // rax
-  unsigned __int64 ObjectHandleUnchecked; // rax
-  _LIST_ENTRY *v17; // rax
-  _LIST_ENTRY *v18; // rax
+  unsigned int v20; // edx
+  unsigned int v21; // r8d
 
   this->FxDeviceBase::FxNonPagedObject::FxObject::__vftable = (FxDevice_vtbl *)FxDevice::`vftable'{for `FxNonPagedObject'};
   this->FxDeviceBase::IFxHasCallbacks::__vftable = (IFxHasCallbacks_vtbl *)FxDevice::`vftable'{for `IFxHasCallbacks'};
@@ -82,34 +84,43 @@ void __fastcall FxDevice::~FxDevice(FxDevice *this)
     if ( p_m_PreprocessInfoListHead->Flink == p_m_PreprocessInfoListHead )
       break;
     if ( Flink->ListEntry.Blink != p_m_PreprocessInfoListHead
-      || (v17 = Flink->ListEntry.Flink, (FxIrpPreprocessInfo *)Flink->ListEntry.Flink->Blink != Flink) )
+      || (v11 = Flink->ListEntry.Flink, (FxIrpPreprocessInfo *)Flink->ListEntry.Flink->Blink != Flink) )
     {
-LABEL_32:
+LABEL_27:
       __fastfail(3u);
     }
-    p_m_PreprocessInfoListHead->Flink = v17;
-    v17->Blink = p_m_PreprocessInfoListHead;
+    p_m_PreprocessInfoListHead->Flink = v11;
+    v11->Blink = p_m_PreprocessInfoListHead;
     Flink->ListEntry.Blink = (_LIST_ENTRY *)Flink;
     Flink->ListEntry.Flink = (_LIST_ENTRY *)Flink;
-    FxIrpPreprocessInfo::`scalar deleting destructor'(Flink, v2);
+    FxIrpPreprocessInfo::`scalar deleting destructor'(Flink);
   }
   p_m_CxDeviceInfoListHead = &this->m_CxDeviceInfoListHead;
   while ( 1 )
   {
-    v11 = (FxCxDeviceInfo *)p_m_CxDeviceInfoListHead->Flink;
+    v13 = (FX_POOL_TRACKER *)p_m_CxDeviceInfoListHead->Flink;
     if ( p_m_CxDeviceInfoListHead->Flink == p_m_CxDeviceInfoListHead )
       break;
-    if ( v11->ListEntry.Blink != p_m_CxDeviceInfoListHead )
-      goto LABEL_32;
-    v18 = v11->ListEntry.Flink;
-    if ( (FxCxDeviceInfo *)v11->ListEntry.Flink->Blink != v11 )
-      goto LABEL_32;
-    p_m_CxDeviceInfoListHead->Flink = v18;
-    v18->Blink = p_m_CxDeviceInfoListHead;
-    v11->ListEntry.Blink = (_LIST_ENTRY *)v11;
-    v11->ListEntry.Flink = (_LIST_ENTRY *)v11;
-    FxCxDeviceInfo::~FxCxDeviceInfo(v11);
-    FxPoolFree((FX_POOL_TRACKER *)v11);
+    if ( v13->Link.Blink != p_m_CxDeviceInfoListHead )
+      goto LABEL_27;
+    v14 = v13->Link.Flink;
+    if ( (FX_POOL_TRACKER *)v13->Link.Flink->Blink != v13 )
+      goto LABEL_27;
+    p_m_CxDeviceInfoListHead->Flink = v14;
+    p_Size = (FX_POOL_TRACKER **)&v13[1].Size;
+    v14->Blink = p_m_CxDeviceInfoListHead;
+    v16 = 21LL;
+    v13->Link.Blink = &v13->Link;
+    v13->Link.Flink = &v13->Link;
+    do
+    {
+      if ( *p_Size )
+        FxPoolFree(*p_Size);
+      ++p_Size;
+      --v16;
+    }
+    while ( v16 );
+    FxPoolFree(v13);
   }
   Buffer = this->m_DeviceName.Buffer;
   if ( Buffer )
@@ -118,10 +129,10 @@ LABEL_32:
     this->m_DeviceName = 0LL;
   }
   FxDevice::DeleteSymbolicLink(this);
-  v13 = this->m_MofResourceName.Buffer;
-  if ( v13 )
+  v18 = this->m_MofResourceName.Buffer;
+  if ( v18 )
   {
-    FxPoolFree((FX_POOL_TRACKER *)v13);
+    FxPoolFree((FX_POOL_TRACKER *)v18);
     this->m_MofResourceName = 0LL;
   }
   if ( this->m_RequestLookasideListElementSize )
@@ -134,5 +145,5 @@ LABEL_32:
     m_ParentDevice->Release(m_ParentDevice, this, 360, "minkernel\\wdf\\framework\\shared\\core\\fxdevice.cpp");
   this->m_IoTargetsList.m_ListLock.m_DbgFlagIsInitialized = 0;
   FxTransactionedList::~FxTransactionedList(&this->m_IoTargetsList);
-  FxDeviceBase::~FxDeviceBase(this);
+  FxDeviceBase::~FxDeviceBase(this, v20, v21);
 }

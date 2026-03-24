@@ -1,48 +1,50 @@
 /*
- * XREFs of EtwpTraceOpticalIoInit @ 0x14062FF60
+ * XREFs of EtwpTraceOpticalIoInit @ 0x1405A9ED0
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwpGetScsiPassThroughCdb @ 0x14062EE14 (EtwpGetScsiPassThroughCdb.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpGetScsiPassThroughCdb @ 0x1405A8AF4 (EtwpGetScsiPassThroughCdb.c)
  */
 
-void __fastcall EtwpTraceOpticalIoInit(__int64 a1)
+__int64 __fastcall EtwpTraceOpticalIoInit(IRP *a1)
 {
-  char v2; // dl
-  ULONG_PTR *ScsiPassThroughCdb; // rax
-  char v4; // cl
-  unsigned __int16 v5; // ax
-  __int64 v6; // rcx
-  int v7; // edx
-  __int64 v8; // [rsp+30h] [rbp-38h] BYREF
+  __int64 result; // rax
+  char v3; // dl
+  int v4; // ecx
+  __int16 v5; // ax
+  PETHREAD Thread; // rcx
+  int CurrentRunTime; // edx
+  IRP *v8; // [rsp+30h] [rbp-38h] BYREF
   int v9; // [rsp+38h] [rbp-30h]
   int v10; // [rsp+3Ch] [rbp-2Ch]
-  __int64 *v11; // [rsp+40h] [rbp-28h] BYREF
+  IRP **v11; // [rsp+40h] [rbp-28h] BYREF
   int v12; // [rsp+48h] [rbp-20h]
   int v13; // [rsp+4Ch] [rbp-1Ch]
 
   v10 = 0;
-  v2 = **(_BYTE **)(a1 + 184);
-  if ( v2 == 3 )
+  result = (__int64)a1->Tail.Overlay.CurrentStackLocation;
+  v3 = *(_BYTE *)result;
+  if ( *(_BYTE *)result == 3 )
     goto LABEL_11;
-  if ( v2 == 4 )
+  if ( v3 == 4 )
     goto LABEL_10;
-  if ( v2 != 9 )
+  if ( v3 != 9 )
   {
-    if ( v2 != 14 )
-      return;
-    ScsiPassThroughCdb = EtwpGetScsiPassThroughCdb((IRP *)a1);
-    if ( !ScsiPassThroughCdb )
-      return;
-    v4 = *(_BYTE *)ScsiPassThroughCdb;
-    if ( ((*(_BYTE *)ScsiPassThroughCdb - 40) & 0x7F) != 0 )
+    if ( v3 != 14 )
+      return result;
+    result = (__int64)EtwpGetScsiPassThroughCdb(a1);
+    if ( !result )
+      return result;
+    LOBYTE(v4) = *(_BYTE *)result;
+    if ( ((*(_BYTE *)result - 40) & 0x7F) != 0 )
     {
-      if ( ((v4 - 42) & 0x7F) != 0 )
+      result = (unsigned int)(v4 - 42);
+      if ( (((_BYTE)v4 - 42) & 0x7F) != 0 )
       {
-        if ( v4 != 53 )
-          return;
+        if ( (_BYTE)v4 != 53 )
+          return result;
         goto LABEL_9;
       }
 LABEL_10:
@@ -56,15 +58,15 @@ LABEL_11:
 LABEL_9:
   v5 = 316;
 LABEL_12:
-  v6 = *(_QWORD *)(a1 + 152);
+  Thread = a1->Tail.Overlay.Thread;
   v8 = a1;
-  if ( v6 )
-    v7 = *(_DWORD *)(v6 + 1232);
+  if ( Thread )
+    CurrentRunTime = Thread[1].CurrentRunTime;
   else
-    v7 = -1;
+    CurrentRunTime = -1;
   v13 = 0;
   v11 = &v8;
-  v9 = v7;
+  v9 = CurrentRunTime;
   v12 = 12;
-  EtwTraceKernelEvent((__int64)&v11, 1u, 0x80000002, v5, 0x501903u);
+  return EtwTraceKernelEvent((int)&v11, 1, 0x80000002, v5, 5249283);
 }

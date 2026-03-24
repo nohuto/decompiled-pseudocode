@@ -1,34 +1,35 @@
 /*
- * XREFs of IopAllocateFoExtensionsOnCreate @ 0x140767E50
+ * XREFs of IopAllocateFoExtensionsOnCreate @ 0x14071F81C
  * Callers:
- *     IopAllocRealFileObject @ 0x14072F370 (IopAllocRealFileObject.c)
+ *     IopAllocRealFileObject @ 0x140650820 (IopAllocRealFileObject.c)
  * Callees:
- *     PsIsServerSilo @ 0x14020C040 (PsIsServerSilo.c)
- *     ObReferenceObjectByPointer @ 0x14022A9A0 (ObReferenceObjectByPointer.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsIsHostSilo @ 0x1402AF8D0 (PsIsHostSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     IopGetSetSpecificExtension @ 0x140301568 (IopGetSetSpecificExtension.c)
- *     IopSetFileObjectExtensionFlag @ 0x140302B0C (IopSetFileObjectExtensionFlag.c)
- *     IoGetSilo @ 0x140302B50 (IoGetSilo.c)
- *     PsReleaseSiloHardReference @ 0x140353F50 (PsReleaseSiloHardReference.c)
- *     PsAcquireSiloHardReference @ 0x140365D00 (PsAcquireSiloHardReference.c)
- *     IopCheckStackForTransactionSupport @ 0x1403D5F80 (IopCheckStackForTransactionSupport.c)
+ *     PsReleaseSiloHardReference @ 0x140200960 (PsReleaseSiloHardReference.c)
+ *     PsAcquireSiloHardReference @ 0x140200A10 (PsAcquireSiloHardReference.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     PsIsHostSilo @ 0x1402D5230 (PsIsHostSilo.c)
+ *     IopGetSetSpecificExtension @ 0x1402D7298 (IopGetSetSpecificExtension.c)
+ *     ObReferenceObjectByPointer @ 0x14035F490 (ObReferenceObjectByPointer.c)
+ *     IopSetFileObjectExtensionFlag @ 0x1403618B0 (IopSetFileObjectExtensionFlag.c)
+ *     IoGetSilo @ 0x1403618F0 (IoGetSilo.c)
+ *     PsIsServerSilo @ 0x140361920 (PsIsServerSilo.c)
+ *     IopCheckStackForTransactionSupport @ 0x140394634 (IopCheckStackForTransactionSupport.c)
  */
 
 int __fastcall IopAllocateFoExtensionsOnCreate(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   int SetSpecificExtension; // ebx
   int result; // eax
-  __int64 v11; // rcx
+  int v11; // eax
+  __int64 v12; // rdx
+  _DWORD *v13; // rdi
+  __int64 v14; // rcx
   __int64 Silo; // rax
-  __int64 v13; // rdx
-  _DWORD *v14; // rdi
-  _QWORD *v15; // rax
   __int64 v16; // rdx
-  __int64 v17; // rsi
-  void *v18; // rsi
-  _QWORD *v19; // [rsp+60h] [rbp+18h] BYREF
+  _QWORD *v17; // rax
+  __int64 v18; // rax
+  struct _DMA_ADAPTER *v19; // rsi
+  _QWORD *v20; // [rsp+60h] [rbp+18h] BYREF
 
   SetSpecificExtension = -1073741811;
   if ( (*(_DWORD *)(a3 + 152) & 2) != 0 )
@@ -38,75 +39,78 @@ int __fastcall IopAllocateFoExtensionsOnCreate(__int64 a1, __int64 a2, __int64 a
     if ( result < 0 )
       return result;
   }
-  if ( (*(_DWORD *)(a3 + 152) & 1) != 0 )
+  v11 = *(_DWORD *)(a3 + 152);
+  if ( (v11 & 1) != 0 )
   {
-    v19 = 0LL;
-    result = IopGetSetSpecificExtension(a1, 1u, 0x20u, 1, &v19, 0LL);
+    v20 = 0LL;
+    result = IopGetSetSpecificExtension(a1, 1u, 0x20u, 1, &v20, 0LL);
     SetSpecificExtension = result;
     if ( result < 0 )
       return result;
-    *v19 = *(_QWORD *)(a3 + 176);
+    *v20 = *(_QWORD *)(a3 + 176);
+    v11 = *(_DWORD *)(a3 + 152);
   }
-  if ( (*(_DWORD *)(a3 + 152) & 4) != 0 )
+  if ( (v11 & 4) != 0 )
   {
-    v19 = 0LL;
+    v20 = 0LL;
     if ( !IopCheckStackForTransactionSupport(a2)
       && (*(_DWORD *)(a3 + 88) != 1 || (*(_BYTE *)(a3 + 70) & 6) != 0 || (a5 & 0xFEEDFF56) != 0)
       && !*(_BYTE *)(a3 + 137) )
     {
       return -1072103361;
     }
-    v17 = *(_QWORD *)(a3 + 184);
-    if ( !v17 )
-      return -1073741811;
-    if ( *(_WORD *)v17 != 16 )
-      return -1073741811;
-    v18 = *(void **)(v17 + 8);
+    v18 = *(_QWORD *)(a3 + 184);
     if ( !v18 )
       return -1073741811;
-    result = ObReferenceObjectByPointer(v18, 0x120037u, (POBJECT_TYPE)TmTransactionObjectType, 0);
+    if ( *(_WORD *)v18 != 16 )
+      return -1073741811;
+    v19 = *(struct _DMA_ADAPTER **)(v18 + 8);
+    if ( !v19 )
+      return -1073741811;
+    result = ObReferenceObjectByPointer(*(PVOID *)(v18 + 8), 0x120037u, (POBJECT_TYPE)TmTransactionObjectType, 0);
     if ( result < 0 )
       return result;
-    SetSpecificExtension = IopGetSetSpecificExtension(a1, 0, 0x10u, 1, &v19, 0LL);
+    SetSpecificExtension = IopGetSetSpecificExtension(a1, 0, 0x10u, 1, &v20, 0LL);
     if ( SetSpecificExtension < 0 )
     {
-      ObfDereferenceObject(v18);
+      HalPutDmaAdapter(v19);
       return SetSpecificExtension;
     }
-    *(_OWORD *)v19 = *(_OWORD *)*(_QWORD *)(a3 + 184);
+    *(_OWORD *)v20 = *(_OWORD *)*(_QWORD *)(a3 + 184);
+    v11 = *(_DWORD *)(a3 + 152);
   }
-  if ( (*(_DWORD *)(a3 + 152) & 0x40) == 0 && PsIsHostSilo(*(_QWORD *)(a4 + 8)) )
+  if ( (v11 & 0x40) == 0 && PsIsHostSilo(*(_QWORD *)(a4 + 8)) )
   {
-    v11 = *(_QWORD *)(a3 + 40);
-    if ( !v11 )
+    v14 = *(_QWORD *)(a3 + 40);
+    if ( !v14 )
       return SetSpecificExtension;
-    Silo = IoGetSilo(v11);
+    Silo = IoGetSilo(v14);
     if ( PsIsHostSilo(Silo) )
       return SetSpecificExtension;
   }
-  v13 = *(_QWORD *)(a3 + 40);
+  v12 = *(_QWORD *)(a3 + 40);
   SetSpecificExtension = 0;
-  v14 = *(_DWORD **)(a4 + 8);
-  if ( v13 && PsIsServerSilo(*(_QWORD *)(a4 + 8)) )
-    v14 = (_DWORD *)IoGetSilo(v16);
-  if ( PsIsHostSilo((__int64)v14) )
+  v13 = *(_DWORD **)(a4 + 8);
+  if ( v12 && PsIsServerSilo(*(_QWORD *)(a4 + 8)) )
+    v13 = (_DWORD *)IoGetSilo(v16);
+  if ( PsIsHostSilo((__int64)v13) )
     return SetSpecificExtension;
-  v19 = 0LL;
-  result = PsAcquireSiloHardReference(v14);
+  v20 = 0LL;
+  result = PsAcquireSiloHardReference(v13);
   if ( result >= 0 )
   {
-    SetSpecificExtension = IopGetSetSpecificExtension(a1, 7u, 0x10u, 1, &v19, 0LL);
+    SetSpecificExtension = IopGetSetSpecificExtension(a1, 7u, 0x10u, 1, &v20, 0LL);
     if ( SetSpecificExtension < 0 )
     {
-      PsReleaseSiloHardReference(v14);
+      PsReleaseSiloHardReference(v13);
     }
     else
     {
-      v15 = v19;
-      *(_DWORD *)v19 = 16;
-      v15[1] = v14;
-      *((_DWORD *)v15 + 1) |= 1u;
-      ObfReferenceObjectWithTag(v14, 0x70536F49u);
+      v17 = v20;
+      *(_DWORD *)v20 = 16;
+      v17[1] = v13;
+      *((_DWORD *)v17 + 1) |= 1u;
+      ObfReferenceObjectWithTag(v13, 0x70536F49u);
     }
     return SetSpecificExtension;
   }

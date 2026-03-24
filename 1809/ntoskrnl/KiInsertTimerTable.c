@@ -5,13 +5,13 @@
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
  *     KeSetTimerEx @ 0x14001DF70 (KeSetTimerEx.c)
  *     KiCommitThreadWait @ 0x140055AD0 (KiCommitThreadWait.c)
- *     KiTimerWaitTest @ 0x1400C7B50 (KiTimerWaitTest.c)
- *     KiResumeThread @ 0x1400F1C40 (KiResumeThread.c)
- *     KiAdjustTimerDueTimes @ 0x14016FBCC (KiAdjustTimerDueTimes.c)
+ *     KiTimerWaitTest @ 0x1400C7B70 (KiTimerWaitTest.c)
+ *     KiResumeThread @ 0x1400F1C60 (KiResumeThread.c)
+ *     KiAdjustTimerDueTimes @ 0x14016FBEC (KiAdjustTimerDueTimes.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveEntryTimer @ 0x1401318AC (KiRemoveEntryTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveEntryTimer @ 0x1401318CC (KiRemoveEntryTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _BOOL8 __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char *a5)

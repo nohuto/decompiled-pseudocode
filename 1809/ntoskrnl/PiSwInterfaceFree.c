@@ -1,9 +1,9 @@
 /*
- * XREFs of PiSwInterfaceFree @ 0x140835D80
+ * XREFs of PiSwInterfaceFree @ 0x140835D60
  * Callers:
- *     PiSwFreeInterfaceList @ 0x1406D8328 (PiSwFreeInterfaceList.c)
- *     PiSwIrpInterfaceRegister @ 0x140753FCC (PiSwIrpInterfaceRegister.c)
- *     PiSwInterfaceCreate @ 0x14075440C (PiSwInterfaceCreate.c)
+ *     PiSwFreeInterfaceList @ 0x1406D8308 (PiSwFreeInterfaceList.c)
+ *     PiSwIrpInterfaceRegister @ 0x140753FAC (PiSwIrpInterfaceRegister.c)
+ *     PiSwInterfaceCreate @ 0x1407543EC (PiSwInterfaceCreate.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PnpFreeDevPropertyArray @ 0x140595490 (PnpFreeDevPropertyArray.c)

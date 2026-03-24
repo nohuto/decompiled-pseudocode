@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@?$ValueReference@I@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18011F1C0
+ * XREFs of ?QueryInterface@?$ValueReference@I@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F6A40
  * Callers:
  *     <none>
  * Callees:

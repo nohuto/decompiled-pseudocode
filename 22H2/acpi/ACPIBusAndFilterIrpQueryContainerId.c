@@ -1,23 +1,23 @@
 /*
- * XREFs of ACPIBusAndFilterIrpQueryContainerId @ 0x1C0016120
+ * XREFs of ACPIBusAndFilterIrpQueryContainerId @ 0x1C002E158
  * Callers:
- *     ACPIBusIrpQueryId @ 0x1C0080340 (ACPIBusIrpQueryId.c)
- *     ACPIFilterIrpQueryIdCompletion @ 0x1C0085F50 (ACPIFilterIrpQueryIdCompletion.c)
+ *     ACPIBusIrpQueryId @ 0x1C008FF00 (ACPIBusIrpQueryId.c)
+ *     ACPIFilterIrpQueryIdCompletion @ 0x1C00AF8D0 (ACPIFilterIrpQueryIdCompletion.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     ACPIFreePhysicalDeviceLocationDescriptors @ 0x1C0097E04 (ACPIFreePhysicalDeviceLocationDescriptors.c)
- *     ACPIProcessPhysicalDeviceLocation @ 0x1C0098144 (ACPIProcessPhysicalDeviceLocation.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIFreePhysicalDeviceLocationDescriptors @ 0x1C009A1C8 (ACPIFreePhysicalDeviceLocationDescriptors.c)
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C009E538 (ACPIProcessPhysicalDeviceLocation.c)
  */
 
-__int64 __fastcall ACPIBusAndFilterIrpQueryContainerId(_QWORD *a1, __int64 *a2, __int64 a3)
+__int64 __fastcall ACPIBusAndFilterIrpQueryContainerId(_QWORD *a1, SIZE_T *a2, __int64 a3)
 {
   NTSTATUS v6; // ebx
-  __int64 v7; // rax
-  __int64 v8; // rdx
-  _WORD *Pool2; // rax
-  _WORD *v10; // rdi
+  __int64 v8; // rax
+  SIZE_T v9; // rdx
+  _WORD *PoolWithTag; // rax
+  _WORD *v11; // rdi
   struct _UNICODE_STRING GuidString; // [rsp+20h] [rbp-39h] BYREF
   _QWORD v13[10]; // [rsp+30h] [rbp-29h] BYREF
 
@@ -26,23 +26,23 @@ __int64 __fastcall ACPIBusAndFilterIrpQueryContainerId(_QWORD *a1, __int64 *a2, 
   v6 = ACPIProcessPhysicalDeviceLocation(a3, 0LL, v13);
   if ( v6 >= 0 )
   {
-    v7 = v13[7] - *(_QWORD *)&GUID_NULL.Data1;
+    v8 = v13[7] - *(_QWORD *)&GUID_NULL.Data1;
     if ( v13[7] == *(_QWORD *)&GUID_NULL.Data1 )
-      v7 = v13[8] - *(_QWORD *)GUID_NULL.Data4;
-    if ( v7 )
+      v8 = v13[8] - *(_QWORD *)GUID_NULL.Data4;
+    if ( v8 )
     {
       v6 = RtlStringFromGUID((const GUID *const)&v13[7], &GuidString);
       if ( v6 >= 0 )
       {
-        v8 = GuidString.Length + 2LL;
-        *a2 = v8;
-        Pool2 = (_WORD *)ExAllocatePool2(256LL, v8, 1399874369LL);
-        v10 = Pool2;
-        if ( Pool2 )
+        v9 = GuidString.Length + 2LL;
+        *a2 = v9;
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x53706341u);
+        v11 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          memmove(Pool2, GuidString.Buffer, GuidString.Length);
-          v10[(unsigned __int64)GuidString.Length >> 1] = 0;
-          *a1 = v10;
+          memmove(PoolWithTag, GuidString.Buffer, GuidString.Length);
+          v11[(unsigned __int64)GuidString.Length >> 1] = 0;
+          *a1 = v11;
         }
         else
         {

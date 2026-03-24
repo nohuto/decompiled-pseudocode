@@ -1,10 +1,11 @@
 /*
- * XREFs of ZwQueryWnfStateData @ 0x14041E4C0
+ * XREFs of ZwQueryWnfStateData @ 0x1403FD020
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1405EDBA0 (RtlRaiseCustomSystemEventTrigger.c)
- *     PopBatteryWorker @ 0x1407EDFC0 (PopBatteryWorker.c)
- *     CmFcpManagerPublishChangeNotifications @ 0x140923614 (CmFcpManagerPublishChangeNotifications.c)
- *     RtlpFcNotifyFeatureUsageTarget @ 0x1409BEEA8 (RtlpFcNotifyFeatureUsageTarget.c)
+ *     wil_details_StagingConfig_Load @ 0x14038C688 (wil_details_StagingConfig_Load.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x14058E5E0 (RtlRaiseCustomSystemEventTrigger.c)
+ *     PopBatteryWorker @ 0x14077F810 (PopBatteryWorker.c)
+ *     CmFcpManagerPublishChangeNotifications @ 0x14087E7C4 (CmFcpManagerPublishChangeNotifications.c)
+ *     RtlpFcNotifyFeatureUsageTarget @ 0x140919988 (RtlpFcNotifyFeatureUsageTarget.c)
  * Callees:
  *     <none>
  */

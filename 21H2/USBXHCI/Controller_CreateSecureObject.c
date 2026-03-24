@@ -1,43 +1,41 @@
 /*
- * XREFs of Controller_CreateSecureObject @ 0x1C0075C90
+ * XREFs of Controller_CreateSecureObject @ 0x1C007471C
  * Callers:
- *     Controller_Create @ 0x1C00702D4 (Controller_Create.c)
+ *     Controller_Create @ 0x1C006B314 (Controller_Create.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0050250 (SecureChannel_SendRequestSynchronously.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall Controller_CreateSecureObject(__int64 a1)
 {
-  __int64 v2; // rcx
-  int v3; // ecx
-  __int128 v5; // [rsp+30h] [rbp-9h] BYREF
-  int v6; // [rsp+40h] [rbp+7h]
-  __int64 v7; // [rsp+48h] [rbp+Fh] BYREF
-  __int128 v8; // [rsp+50h] [rbp+17h]
-  __int64 v9; // [rsp+60h] [rbp+27h]
-  int v10; // [rsp+68h] [rbp+2Fh]
-  int v11; // [rsp+6Ch] [rbp+33h]
-  __int128 v12; // [rsp+70h] [rbp+37h]
+  __int128 v2; // xmm0
+  __int64 v3; // rcx
+  int v4; // ecx
+  __int128 v6; // [rsp+30h] [rbp-19h] BYREF
+  __int64 v7; // [rsp+40h] [rbp-9h]
+  GUID v8[4]; // [rsp+50h] [rbp+7h] BYREF
 
-  v10 = 1;
   v7 = 0LL;
-  v11 = 0;
-  v9 = 0LL;
-  v6 = 0;
-  v2 = *(_QWORD *)(a1 + 112);
-  v5 = 0LL;
-  v8 = 0LL;
-  v12 = *(_OWORD *)(a1 + 336);
-  v3 = SecureChannel_SendRequestSynchronously(v2, (GUID *)&v7, 56, (__int64)&v5, 24);
-  if ( v3 >= 0 )
+  v6 = 0LL;
+  memset(v8, 0, sizeof(v8));
+  v2 = *(_OWORD *)(a1 + 336);
+  v3 = *(_QWORD *)(a1 + 112);
+  *(_QWORD *)v8[1].Data4 = 0LL;
+  v8[2].Data1 = 1;
+  *(_OWORD *)v8[2].Data4 = v2;
+  *(_WORD *)(a1 + 586) = 257;
+  *(_WORD *)v8[3].Data4 = 257;
+  v4 = SecureChannel_SendRequestSynchronously(v3, v8, 64, (__int64)&v6, 24);
+  if ( v4 >= 0 )
   {
-    v3 = v5;
-    if ( (int)v5 >= 0 )
+    v4 = v6;
+    if ( (int)v6 >= 0 )
     {
-      *(_QWORD *)(a1 + 568) = *((_QWORD *)&v5 + 1);
-      *(_DWORD *)(a1 + 560) = v6;
+      *(_QWORD *)(a1 + 568) = *((_QWORD *)&v6 + 1);
+      *(_DWORD *)(a1 + 560) = v7;
     }
   }
-  return (unsigned int)v3;
+  return (unsigned int)v4;
 }

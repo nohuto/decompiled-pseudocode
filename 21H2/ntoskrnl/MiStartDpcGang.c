@@ -1,20 +1,20 @@
 /*
- * XREFs of MiStartDpcGang @ 0x1405C0634
+ * XREFs of MiStartDpcGang @ 0x1405606AC
  * Callers:
- *     MiInitializeDynamicPfns @ 0x140582D7C (MiInitializeDynamicPfns.c)
- *     MiHugePageOperation @ 0x140586E78 (MiHugePageOperation.c)
- *     MiAllocateFastLargePagesForMdl @ 0x140589518 (MiAllocateFastLargePagesForMdl.c)
+ *     MiInitializeDynamicPfns @ 0x14052E5A0 (MiInitializeDynamicPfns.c)
+ *     MiHugePageOperation @ 0x140532F78 (MiHugePageOperation.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x140533CE4 (MiAllocateFastLargePagesForMdl.c)
  * Callees:
- *     KeGenericCallDpc @ 0x140217420 (KeGenericCallDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiDoGangAssignment @ 0x1405C00C0 (MiDoGangAssignment.c)
- *     MiGetGangAssignment @ 0x1405C0478 (MiGetGangAssignment.c)
+ *     KeGenericCallDpc @ 0x1402ECF00 (KeGenericCallDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDoGangAssignment @ 0x140560170 (MiDoGangAssignment.c)
+ *     MiGetGangAssignment @ 0x1405604F4 (MiGetGangAssignment.c)
  */
 
-__int64 __fastcall MiStartDpcGang(__int64 a1)
+char __fastcall MiStartDpcGang(__int64 a1)
 {
   unsigned __int64 v2; // rcx
-  __int64 result; // rax
+  int v3; // eax
   BOOL v4; // ebp
   unsigned __int64 v5; // r10
   __int64 v6; // rdi
@@ -29,16 +29,16 @@ __int64 __fastcall MiStartDpcGang(__int64 a1)
   _DWORD *v15; // r9
   int v16; // eax
   bool v17; // zf
-  __int128 v18; // [rsp+20h] [rbp-38h]
-  ULONG_PTR *v19; // [rsp+60h] [rbp+8h] BYREF
+  __int128 v19; // [rsp+20h] [rbp-38h]
+  ULONG_PTR *v20; // [rsp+60h] [rbp+8h] BYREF
 
   v2 = *(unsigned int *)(a1 + 188);
-  v19 = 0LL;
-  result = *(unsigned int *)(a1 + 184);
+  v20 = 0LL;
+  v3 = *(_DWORD *)(a1 + 184);
   *(_DWORD *)(a1 + 196) = 0;
   v4 = 1;
   *(_DWORD *)(a1 + 176) = 0;
-  if ( (result & 1) != 0 )
+  if ( (v3 & 1) != 0 )
   {
     v5 = *(_QWORD *)(a1 + 8);
     v6 = *(_QWORD *)a1;
@@ -60,21 +60,21 @@ __int64 __fastcall MiStartDpcGang(__int64 a1)
   {
     v10 = *(_WORD *)(a1 + 154);
     if ( !v10 )
-      return result;
+      return v3;
     if ( v10 == 1 )
-      v4 = (result & 2) != 0;
+      v4 = (v3 & 2) != 0;
   }
   while ( 1 )
   {
     *(_DWORD *)(a1 + 176) = 0;
-    v18 = *(_OWORD *)(a1 + 200);
+    v19 = *(_OWORD *)(a1 + 200);
     if ( v4 )
     {
-      result = KeGenericCallDpc((__int64)MiDpcGangTarget, a1);
+      LOBYTE(v3) = KeGenericCallDpc((__int64)MiDpcGangTarget, a1);
     }
     else
     {
-      MiGetGangAssignment(a1, &v19);
+      MiGetGangAssignment(a1, &v20);
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -82,7 +82,7 @@ __int64 __fastcall MiStartDpcGang(__int64 a1)
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
       }
-      MiDoGangAssignment(a1, &v19);
+      MiDoGangAssignment(a1, &v20);
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
@@ -100,13 +100,13 @@ __int64 __fastcall MiStartDpcGang(__int64 a1)
           }
         }
       }
-      result = CurrentIrql;
+      LOBYTE(v3) = CurrentIrql;
       __writecr8(CurrentIrql);
     }
-    *(_OWORD *)(a1 + 200) = v18;
+    *(_OWORD *)(a1 + 200) = v19;
     if ( !*(_DWORD *)(a1 + 196) )
       break;
     *(_DWORD *)(a1 + 196) = 0;
   }
-  return result;
+  return v3;
 }

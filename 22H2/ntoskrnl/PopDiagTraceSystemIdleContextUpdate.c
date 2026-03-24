@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSystemIdleContextUpdate @ 0x140825ACC
+ * XREFs of PopDiagTraceSystemIdleContextUpdate @ 0x1408EB91C
  * Callers:
- *     PopUpdateSystemIdleContext @ 0x1408258D8 (PopUpdateSystemIdleContext.c)
+ *     PopUpdateSystemIdleContext @ 0x1408F12F4 (PopUpdateSystemIdleContext.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceSystemIdleContextUpdate(int a1, int a2, int a3, int a4, char a5)

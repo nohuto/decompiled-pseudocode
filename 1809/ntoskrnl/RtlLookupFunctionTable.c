@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlLookupFunctionTable @ 0x1401375C0
+ * XREFs of RtlLookupFunctionTable @ 0x1401375E0
  * Callers:
- *     KiLockExtendedServiceTable @ 0x14019F848 (KiLockExtendedServiceTable.c)
+ *     KiLockExtendedServiceTable @ 0x14019F868 (KiLockExtendedServiceTable.c)
  *     CcInitializeBcbProfiler @ 0x14098E324 (CcInitializeBcbProfiler.c)
  *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
  * Callees:

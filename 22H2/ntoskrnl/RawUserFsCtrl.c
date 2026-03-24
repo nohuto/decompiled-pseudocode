@@ -1,15 +1,15 @@
 /*
- * XREFs of RawUserFsCtrl @ 0x140882664
+ * XREFs of RawUserFsCtrl @ 0x14076D5C8
  * Callers:
- *     RawFileSystemControl @ 0x1407924B8 (RawFileSystemControl.c)
+ *     RawFileSystemControl @ 0x140718FC0 (RawFileSystemControl.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     RawBeginOperation @ 0x140321BDC (RawBeginOperation.c)
- *     RawEndOperation @ 0x140321F9C (RawEndOperation.c)
- *     ExWaitForRundownProtectionReleaseCacheAware @ 0x140321FD0 (ExWaitForRundownProtectionReleaseCacheAware.c)
- *     FsRtlNotifyVolumeEvent @ 0x140875160 (FsRtlNotifyVolumeEvent.c)
- *     RawQueryFileSystemInformation @ 0x1409B8924 (RawQueryFileSystemInformation.c)
+ *     RawBeginOperation @ 0x14026D924 (RawBeginOperation.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     RawEndOperation @ 0x1402DEA38 (RawEndOperation.c)
+ *     ExWaitForRundownProtectionReleaseCacheAware @ 0x140360810 (ExWaitForRundownProtectionReleaseCacheAware.c)
+ *     FsRtlNotifyVolumeEvent @ 0x14076D7C0 (FsRtlNotifyVolumeEvent.c)
+ *     RawQueryFileSystemInformation @ 0x14090F928 (RawQueryFileSystemInformation.c)
  */
 
 __int64 __fastcall RawUserFsCtrl(__int64 a1, __int64 a2, __int64 a3)
@@ -17,16 +17,16 @@ __int64 __fastcall RawUserFsCtrl(__int64 a1, __int64 a2, __int64 a3)
   int v3; // ebp
   unsigned int FileSystemInformation; // ebx
   struct _FILE_OBJECT *v5; // rsi
-  char v6; // r15
+  char v6; // r12
   int v10; // ebp
   struct _FAST_MUTEX *v12; // r14
   int v13; // eax
-  int v14; // eax
+  ULONG v14; // edx
   ULONG v15; // edx
-  BOOLEAN v16; // al
-  int v17; // ecx
-  BOOLEAN v18; // r14
-  int v19; // ecx
+  int v16; // eax
+  BOOLEAN v17; // r14
+  int v18; // eax
+  int v19; // eax
 
   v3 = *(_DWORD *)(a2 + 24);
   FileSystemInformation = 0;
@@ -34,124 +34,124 @@ __int64 __fastcall RawUserFsCtrl(__int64 a1, __int64 a2, __int64 a3)
   v6 = 0;
   if ( v3 == 589848 )
   {
-    FsRtlNotifyVolumeEvent(v5, 3u);
-    goto LABEL_28;
-  }
-  if ( *(_DWORD *)(a2 + 24) != 589856 )
-  {
-    if ( v3 == 589824 || v3 == 589828 || v3 == 589836 || v3 == 589844 )
-    {
-      if ( !RawBeginOperation(a3, *(_QWORD *)(a2 + 48)) )
-      {
-        FileSystemInformation = -1073741202;
-        goto LABEL_12;
-      }
-      FileSystemInformation = -1073741822;
-      goto LABEL_34;
-    }
-    if ( v3 != 589848 )
-    {
-      if ( v3 == 589852 )
-      {
-        v12 = (struct _FAST_MUTEX *)(a3 + 232);
-        ExAcquireFastMutex((PFAST_MUTEX)(a3 + 232));
-        v14 = *(_DWORD *)(a3 + 112);
-        if ( (v14 & 1) != 0 )
-        {
-          *(_QWORD *)(a3 + 216) = 0LL;
-          *(_DWORD *)(a3 + 112) = v14 & 0xFFFFFFFE;
-        }
-        else
-        {
-          FileSystemInformation = -1073741782;
-        }
-        goto LABEL_22;
-      }
-      if ( v3 != 589856 )
-      {
-        if ( v3 != 590412 )
-        {
-          FileSystemInformation = -1073741811;
-          goto LABEL_12;
-        }
-        if ( !RawBeginOperation(a3, *(_QWORD *)(a2 + 48)) )
-          return (unsigned int)-1073741202;
-        FileSystemInformation = RawQueryFileSystemInformation(a1, a2, a3);
-        goto LABEL_34;
-      }
-      goto LABEL_16;
-    }
-LABEL_28:
-    v16 = RawBeginOperation(a3, (__int64)v5);
-    v17 = 0;
-    v18 = v16;
-    if ( !v16 )
-      v17 = -1073741202;
-    FileSystemInformation = v17;
-    ExAcquireFastMutex((PFAST_MUTEX)(a3 + 232));
-    v19 = *(_DWORD *)(a3 + 112);
-    if ( (v19 & 1) != 0 || *(_DWORD *)(a3 + 116) != 1 )
-    {
-      FileSystemInformation = -1073741790;
-    }
-    else
-    {
-      *(_QWORD *)(a3 + 216) = v5;
-      *(_DWORD *)(a3 + 112) = v19 | 1;
-    }
-    ExReleaseFastMutex((PFAST_MUTEX)(a3 + 232));
-    if ( v18 )
-    {
-LABEL_34:
-      RawEndOperation(a3, (__int64)v5);
-      goto LABEL_23;
-    }
+    v15 = 3;
     goto LABEL_23;
   }
-  FsRtlNotifyVolumeEvent(v5, 1u);
-LABEL_16:
-  v12 = (struct _FAST_MUTEX *)(a3 + 232);
-  ExAcquireFastMutex((PFAST_MUTEX)(a3 + 232));
-  v13 = *(_DWORD *)(a3 + 112);
-  if ( (v13 & 2) != 0 )
+  if ( *(_DWORD *)(a2 + 24) == 589856 )
+  {
+    v15 = 1;
+LABEL_23:
+    FsRtlNotifyVolumeEvent(v5, v15);
+  }
+  switch ( v3 )
+  {
+    case 589824:
+    case 589828:
+    case 589836:
+    case 589844:
+      v17 = RawBeginOperation(a3, (__int64)v5);
+      if ( v17 )
+      {
+        FileSystemInformation = -1073741822;
+LABEL_35:
+        if ( v17 )
+          RawEndOperation(a3, (__int64)v5);
+        goto LABEL_18;
+      }
+LABEL_40:
+      FileSystemInformation = -1073741202;
+      goto LABEL_12;
+    case 589848:
+      v17 = RawBeginOperation(a3, (__int64)v5);
+      v18 = 0;
+      if ( !v17 )
+        v18 = -1073741202;
+      FileSystemInformation = v18;
+      ExAcquireFastMutex((PFAST_MUTEX)(a3 + 224));
+      v19 = *(_DWORD *)(a3 + 104);
+      if ( (v19 & 1) != 0 || *(_DWORD *)(a3 + 108) != 1 )
+      {
+        FileSystemInformation = -1073741790;
+      }
+      else
+      {
+        *(_QWORD *)(a3 + 208) = v5;
+        *(_DWORD *)(a3 + 104) = v19 | 1;
+      }
+      KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a3 + 224));
+      goto LABEL_35;
+    case 589852:
+      v12 = (struct _FAST_MUTEX *)(a3 + 224);
+      ExAcquireFastMutex((PFAST_MUTEX)(a3 + 224));
+      v13 = *(_DWORD *)(a3 + 104);
+      if ( (v13 & 1) != 0 )
+      {
+        *(_QWORD *)(a3 + 208) = 0LL;
+        *(_DWORD *)(a3 + 104) = v13 & 0xFFFFFFFE;
+      }
+      else
+      {
+        FileSystemInformation = -1073741782;
+      }
+      goto LABEL_17;
+  }
+  if ( v3 != 589856 )
+  {
+    if ( v3 != 590412 )
+    {
+      FileSystemInformation = -1073741811;
+      goto LABEL_12;
+    }
+    v17 = RawBeginOperation(a3, (__int64)v5);
+    if ( v17 )
+    {
+      FileSystemInformation = RawQueryFileSystemInformation(a1, a2, a3);
+      goto LABEL_35;
+    }
+    goto LABEL_40;
+  }
+  v12 = (struct _FAST_MUTEX *)(a3 + 224);
+  ExAcquireFastMutex((PFAST_MUTEX)(a3 + 224));
+  v16 = *(_DWORD *)(a3 + 104);
+  if ( (v16 & 2) != 0 )
   {
     FileSystemInformation = -1073741202;
   }
   else
   {
     v6 = 1;
-    *(_DWORD *)(a3 + 112) = v13 | 2;
+    *(_DWORD *)(a3 + 104) = v16 | 2;
   }
-  ExReleaseFastMutex((PFAST_MUTEX)(a3 + 232));
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a3 + 224));
   if ( v6 )
   {
-    ExWaitForRundownProtectionReleaseCacheAware(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(a3 + 224));
-    ExAcquireFastMutex((PFAST_MUTEX)(a3 + 232));
-    *(_QWORD *)(a3 + 208) = v5;
-LABEL_22:
-    ExReleaseFastMutex(v12);
+    ExWaitForRundownProtectionReleaseCacheAware(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(a3 + 216));
+    ExAcquireFastMutex((PFAST_MUTEX)(a3 + 224));
+    *(_QWORD *)(a3 + 200) = v5;
+LABEL_17:
+    KeReleaseGuardedMutex(v12);
   }
-LABEL_23:
+LABEL_18:
   if ( (FileSystemInformation & 0x80000000) == 0 )
   {
     if ( v3 != 589852 )
       return FileSystemInformation;
-    v15 = 5;
-LABEL_26:
-    FsRtlNotifyVolumeEvent(v5, v15);
+    v14 = 5;
+LABEL_21:
+    FsRtlNotifyVolumeEvent(v5, v14);
     return FileSystemInformation;
   }
 LABEL_12:
   v10 = v3 - 589848;
   if ( !v10 )
   {
-    v15 = 4;
-    goto LABEL_26;
+    v14 = 4;
+    goto LABEL_21;
   }
   if ( v10 == 8 )
   {
-    v15 = 2;
-    goto LABEL_26;
+    v14 = 2;
+    goto LABEL_21;
   }
   return FileSystemInformation;
 }

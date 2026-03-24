@@ -1,14 +1,14 @@
 /*
- * XREFs of ExFreeAutoExpandPushLock @ 0x1403CF4A0
+ * XREFs of ExFreeAutoExpandPushLock @ 0x140391E00
  * Callers:
  *     <none>
  * Callees:
- *     ExpCleanupAutoExpandPushLock @ 0x1403CF4C8 (ExpCleanupAutoExpandPushLock.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     ExCleanupAutoExpandPushLock @ 0x1402E9ED0 (ExCleanupAutoExpandPushLock.c)
  */
 
-void __fastcall ExFreeAutoExpandPushLock(PVOID P)
+PSLIST_ENTRY __fastcall ExFreeAutoExpandPushLock(ULONG_PTR BugCheckParameter2)
 {
-  ExpCleanupAutoExpandPushLock();
-  ExFreePoolWithTag(P, 0);
+  ExCleanupAutoExpandPushLock(BugCheckParameter2);
+  return ExFreeHeapPool(BugCheckParameter2);
 }

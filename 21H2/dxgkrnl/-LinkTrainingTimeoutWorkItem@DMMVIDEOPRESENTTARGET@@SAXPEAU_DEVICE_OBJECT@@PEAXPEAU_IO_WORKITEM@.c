@@ -1,20 +1,20 @@
 /*
- * XREFs of ?LinkTrainingTimeoutWorkItem@DMMVIDEOPRESENTTARGET@@SAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C03A0060
+ * XREFs of ?LinkTrainingTimeoutWorkItem@DMMVIDEOPRESENTTARGET@@SAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C02E5FC0
  * Callers:
  *     <none>
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ @ 0x1C000A6A4 (-ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ.c)
- *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C000A6FC (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C000F13C (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     DpiPollSingleDisplayChild @ 0x1C0387820 (DpiPollSingleDisplayChild.c)
- *     ?StartLinkTrainingTimer@DMMVIDEOPRESENTTARGET@@QEAAXE@Z @ 0x1C03A07E8 (-StartLinkTrainingTimer@DMMVIDEOPRESENTTARGET@@QEAAXE@Z.c)
- *     ?HandleLinkTrainingTimeout@VIDPN_MGR@@QEAAXIEPEAE0@Z @ 0x1C03A4B10 (-HandleLinkTrainingTimeout@VIDPN_MGR@@QEAAXIEPEAE0@Z.c)
+ *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C00024D8 (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ @ 0x1C0007634 (-ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00081AC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DpiPollSingleDisplayChild @ 0x1C02C6DC4 (DpiPollSingleDisplayChild.c)
+ *     ?HandleLinkTrainingTimeout@VIDPN_MGR@@QEAAXIEPEAE0@Z @ 0x1C02E48C8 (-HandleLinkTrainingTimeout@VIDPN_MGR@@QEAAXIEPEAE0@Z.c)
+ *     ?StartLinkTrainingTimer@DMMVIDEOPRESENTTARGET@@QEAAXE@Z @ 0x1C02E68AC (-StartLinkTrainingTimer@DMMVIDEOPRESENTTARGET@@QEAAXE@Z.c)
  */
 
 void __fastcall DMMVIDEOPRESENTTARGET::LinkTrainingTimeoutWorkItem(
@@ -22,106 +22,134 @@ void __fastcall DMMVIDEOPRESENTTARGET::LinkTrainingTimeoutWorkItem(
         volatile signed __int32 *Context,
         PIO_WORKITEM IoWorkItem)
 {
-  unsigned int v4; // r15d
+  unsigned int v4; // r12d
   void *v5; // rbx
   signed __int32 v6; // eax
-  __int64 v7; // r14
-  __int64 v8; // rdx
-  signed __int32 v9; // eax
-  signed __int32 v10; // esi
-  __int64 v11; // r8
-  __int64 v12; // rcx
-  VIDPN_MGR *v13; // rbx
-  __int64 v14; // rax
-  struct _IO_WORKITEM *v15; // rcx
-  unsigned __int8 v16; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned __int8 v17[7]; // [rsp+31h] [rbp-CFh] BYREF
-  __int64 v18; // [rsp+38h] [rbp-C8h] BYREF
-  _QWORD v19[10]; // [rsp+40h] [rbp-C0h] BYREF
-  _BYTE v20[144]; // [rsp+90h] [rbp-70h] BYREF
+  __int64 v7; // rdi
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  struct DXGADAPTER *v10; // r14
+  int v11; // r8d
+  __int64 v12; // rdx
+  __int64 v13; // r15
+  signed __int32 v14; // eax
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rax
+  VIDPN_MGR *v18; // rbx
+  __int64 v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rdx
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  struct _IO_WORKITEM *v28; // rcx
+  unsigned __int8 v29[8]; // [rsp+38h] [rbp-D0h] BYREF
+  __int64 v30; // [rsp+40h] [rbp-C8h] BYREF
+  _QWORD v31[10]; // [rsp+48h] [rbp-C0h] BYREF
+  _BYTE v32[144]; // [rsp+98h] [rbp-70h] BYREF
 
   v4 = 0;
-  v16 = 0;
+  v29[0] = 0;
   v5 = 0LL;
   v6 = _InterlockedCompareExchange(Context + 38, 0, 5);
-  if ( ((v6 - 2) & 0xFFFFFFFD) != 0 )
+  v7 = v6;
+  v8 = (unsigned int)(v6 - 2);
+  if ( (v8 & 0xFFFFFFFD) == 0 )
   {
-    if ( v6 != -1 )
+    v10 = *(struct DXGADAPTER **)Context;
+    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v32, *(struct DXGADAPTER *const *)Context, 0LL);
+    v13 = (int)COREADAPTERACCESS::AcquireExclusive((__int64)v32, (unsigned int)(v11 + 2));
+    v14 = _InterlockedCompareExchange(Context + 38, 0, 5);
+    v7 = v14;
+    v15 = (unsigned int)(v14 - 2);
+    if ( (v15 & 0xFFFFFFFD) != 0 )
     {
-      if ( v6 != 5 )
-        WdLogSingleEntry2(7LL, *(_QWORD *)Context, v6);
-      return;
+      if ( v14 != -1 && v14 != 5 )
+      {
+        v16 = WdLogNewEntry5_WdDmmEvent(v15, v12);
+        *(_QWORD *)(v16 + 24) = v10;
+        *(_QWORD *)(v16 + 32) = v7;
+        WdLogEvent5_WdDmmEvent(v16);
+      }
     }
-    goto LABEL_25;
-  }
-  v7 = *(_QWORD *)Context;
-  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v20, *(struct DXGADAPTER *const *)Context, 0LL);
-  v8 = (int)COREADAPTERACCESS::AcquireExclusive((__int64)v20);
-  v9 = _InterlockedCompareExchange(Context + 38, 0, 5);
-  v10 = v9;
-  if ( ((v9 - 2) & 0xFFFFFFFD) != 0 )
-  {
-    if ( v9 != -1 && v9 != 5 )
+    else if ( (int)v13 >= 0 )
     {
-      v11 = v9;
-      v12 = 7LL;
-LABEL_9:
-      WdLogSingleEntry2(v12, v7, v11);
-    }
-  }
-  else
-  {
-    if ( (int)v8 < 0 )
-    {
-      v11 = v8;
-      v12 = 2LL;
-      goto LABEL_9;
-    }
-    v13 = *(VIDPN_MGR **)(*(_QWORD *)(v7 + 2792) + 104LL);
-    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v18, (__int64)v13);
-    v14 = *((_QWORD *)Context + 1);
-    v17[0] = 0;
-    v4 = *(_DWORD *)(v14 + 24);
-    VIDPN_MGR::HandleLinkTrainingTimeout(v13, v4, v10 == 2, v17, &v16);
-    if ( v17[0] )
-    {
-      if ( v10 != 2 )
-        WdLogSingleEntry0(1LL);
-      DMMVIDEOPRESENTTARGET::StartLinkTrainingTimer(*((DMMVIDEOPRESENTTARGET **)Context + 1), 0);
-    }
-    v5 = *(void **)(v7 + 216);
-    if ( v5 )
-    {
-      ObfReferenceObject(*(PVOID *)(v7 + 216));
+      v18 = *(VIDPN_MGR **)(*((_QWORD *)v10 + 337) + 88LL);
+      EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v30, (__int64)v18);
+      v19 = *((_QWORD *)Context + 1);
+      v29[1] = 0;
+      v4 = *(_DWORD *)(v19 + 24);
+      VIDPN_MGR::HandleLinkTrainingTimeout(v18, v4, (_DWORD)v7 == 2, &v29[1], v29);
+      if ( v29[1] )
+      {
+        if ( (_DWORD)v7 != 2 )
+        {
+          v22 = WdLogNewEntry5_WdAssertion(v21, v20);
+          WdLogEvent5_WdAssertion(v22);
+        }
+        DMMVIDEOPRESENTTARGET::StartLinkTrainingTimer(*((DMMVIDEOPRESENTTARGET **)Context + 1), 0);
+      }
+      v5 = (void *)*((_QWORD *)v10 + 27);
+      if ( v5 )
+      {
+        ObfReferenceObject(*((PVOID *)v10 + 27));
+      }
+      else
+      {
+        v23 = WdLogNewEntry5_WdAssertion(v21, v20);
+        WdLogEvent5_WdAssertion(v23);
+        v29[0] = 0;
+      }
+      DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v30 + 40), v24);
     }
     else
     {
-      WdLogSingleEntry0(1LL);
-      v16 = 0;
+      v17 = WdLogNewEntry5_WdError(v15, v12);
+      *(_QWORD *)(v17 + 24) = v10;
+      *(_QWORD *)(v17 + 32) = v13;
+      WdLogEvent5_WdError(v17);
     }
-    DXGFASTMUTEX::Release((struct _KTHREAD **)(v18 + 40));
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v32, v12);
+    if ( v29[0] )
+    {
+      memset(v31, 0, 0x48uLL);
+      EtwActivityIdControl(3u, (LPGUID)&v31[1]);
+      v31[8] = MEMORY[0xFFFFF78000000014];
+      LODWORD(v31[3]) = 64;
+      LOBYTE(v31[6]) = -1;
+      v27 = WdLogNewEntry5_WdDmmEvent(v26, v25);
+      *(_QWORD *)(v27 + 24) = v4;
+      *(_QWORD *)(v27 + 32) = *(_QWORD *)Context;
+      WdLogEvent5_WdDmmEvent(v27);
+      DpiPollSingleDisplayChild((__int64)v5, v4, (__int64)v31);
+    }
+    if ( v5 )
+      ObfDereferenceObject(v5);
+LABEL_23:
+    if ( (_DWORD)v7 != -1 )
+      return;
+    goto LABEL_24;
   }
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v20);
-  if ( v16 )
+  if ( v6 != -1 )
   {
-    memset(v19, 0, 0x48uLL);
-    EtwActivityIdControl(3u, (LPGUID)&v19[1]);
-    v19[8] = MEMORY[0xFFFFF78000000014];
-    LODWORD(v19[3]) = 64;
-    LOBYTE(v19[6]) = -1;
-    WdLogSingleEntry2(7LL, v4, *(_QWORD *)Context);
-    DpiPollSingleDisplayChild((__int64)v5, v4, (__int64)v19);
+    if ( v6 != 5 )
+    {
+      v9 = WdLogNewEntry5_WdDmmEvent(v8, Context);
+      *(_QWORD *)(v9 + 24) = *(_QWORD *)Context;
+      *(_QWORD *)(v9 + 32) = v7;
+      WdLogEvent5_WdDmmEvent(v9);
+    }
+    goto LABEL_23;
   }
-  if ( v5 )
-    ObfDereferenceObject(v5);
-  if ( v10 == -1 )
-  {
-LABEL_25:
-    if ( *(_QWORD *)Context )
-      DXGADAPTER::ReleaseReferenceNoTracking(*(DXGADAPTER **)Context);
-    v15 = (struct _IO_WORKITEM *)*((_QWORD *)Context + 18);
-    if ( v15 )
-      IoFreeWorkItem(v15);
-    operator delete((void *)Context);
-  }
+LABEL_24:
+  if ( *(_QWORD *)Context )
+    DXGADAPTER::ReleaseReferenceNoTracking(*(DXGADAPTER **)Context);
+  v28 = (struct _IO_WORKITEM *)*((_QWORD *)Context + 18);
+  if ( v28 )
+    IoFreeWorkItem(v28);
+  operator delete((void *)Context);
 }

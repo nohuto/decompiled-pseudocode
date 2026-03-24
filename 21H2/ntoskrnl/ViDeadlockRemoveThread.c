@@ -1,14 +1,14 @@
 /*
- * XREFs of ViDeadlockRemoveThread @ 0x140A99E14
+ * XREFs of ViDeadlockRemoveThread @ 0x1409DFBE8
  * Callers:
- *     ViDeadlockRemoveMemoryRangeThreads @ 0x140601734 (ViDeadlockRemoveMemoryRangeThreads.c)
- *     VfDeadlockAcquireResource @ 0x140A97900 (VfDeadlockAcquireResource.c)
- *     VfDeadlockReleaseResource @ 0x140A985B4 (VfDeadlockReleaseResource.c)
- *     ViDeadlockEmptyDatabase @ 0x140A9952C (ViDeadlockEmptyDatabase.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x1405A2388 (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockReleaseResource @ 0x1409DE338 (VfDeadlockReleaseResource.c)
+ *     ViDeadlockEmptyDatabase @ 0x1409DF314 (ViDeadlockEmptyDatabase.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x1405FFA20 (VfReportIssueWithOptions.c)
- *     VfUtilAddressRangeRemove @ 0x140A81ABC (VfUtilAddressRangeRemove.c)
- *     ViDeadlockPreprocessOptions @ 0x140A99A38 (ViDeadlockPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x1405A1DF4 (VfReportIssueWithOptions.c)
+ *     VfUtilAddressRangeRemove @ 0x1409C6384 (VfUtilAddressRangeRemove.c)
+ *     ViDeadlockPreprocessOptions @ 0x1409DF818 (ViDeadlockPreprocessOptions.c)
  */
 
 __int64 __fastcall ViDeadlockRemoveThread(ULONG_PTR a1, int a2)
@@ -21,13 +21,12 @@ __int64 __fastcall ViDeadlockRemoveThread(ULONG_PTR a1, int a2)
   unsigned __int64 v8; // rcx
   unsigned __int64 v9; // r8
 
-  if ( !*((_DWORD *)ViDeadlockGlobals + 8196)
-    && *((int *)ViDeadlockGlobals + 8282) <= 1024
-    && !a2
-    && *(_DWORD *)(a1 + 40) )
+  if ( *((_DWORD *)ViDeadlockGlobals + 8196) || *((int *)ViDeadlockGlobals + 8282) > 1024 )
+    a2 = 1;
+  if ( !a2 && *(_DWORD *)(a1 + 40) )
   {
-    ViDeadlockPreprocessOptions(byte_140C0D9CC, "Terminated thread 0x%p owns lock.", 4106LL, *(_QWORD *)a1, a1, 0LL);
-    VfReportIssueWithOptions(0xC4u, 0x100AuLL, *(_QWORD *)a1, a1, 0LL, byte_140C0D9CC);
+    ViDeadlockPreprocessOptions(byte_140C12F60, "Terminated thread 0x%p owns lock.", 4106LL, *(_QWORD *)a1, a1, 0LL);
+    VfReportIssueWithOptions(0xC4u, 0x100AuLL, *(_QWORD *)a1, a1, 0LL, byte_140C12F60);
   }
   v3 = ViDeadlockGlobals;
   --*((_QWORD *)ViDeadlockGlobals + 2051);
@@ -41,7 +40,7 @@ __int64 __fastcall ViDeadlockRemoveThread(ULONG_PTR a1, int a2)
   v8 = 16 * (v6 % 0x3FF);
   v9 = 2 * (v6 % 0x3FF + 1026);
   if ( *(_QWORD *)(v8 + v3[2050]) != v8 + v3[2050] )
-    return VfUtilAddressRangeRemove(&v3[v9], *(_QWORD *)a1, 2288LL);
+    return VfUtilAddressRangeRemove(&v3[v9], *(_QWORD *)a1, 2200LL);
   v3[v9] = 0LL;
   v3[v9 + 1] = 0LL;
   return result;

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDiagIdleWakeSourceAccountingToDiagnostic @ 0x14086FDDC
+ * XREFs of PopDiagIdleWakeSourceAccountingToDiagnostic @ 0x14086FDBC
  * Callers:
- *     PopDiagIdleWakeAccountingStop @ 0x14086FCE8 (PopDiagIdleWakeAccountingStop.c)
+ *     PopDiagIdleWakeAccountingStop @ 0x14086FCC8 (PopDiagIdleWakeAccountingStop.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14011CAA8 (RtlStringCbLengthW.c)
- *     RtlUnicodeStringCat @ 0x14012B4AC (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringPrintf @ 0x14015D6FC (RtlUnicodeStringPrintf.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x14015D770 (RtlUnicodeStringValidateDestWorker.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PpmConvertTimeTo @ 0x1402E30A4 (PpmConvertTimeTo.c)
+ *     RtlStringCbLengthW @ 0x14011CAC8 (RtlStringCbLengthW.c)
+ *     RtlUnicodeStringCat @ 0x14012B4CC (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringPrintf @ 0x14015D71C (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x14015D790 (RtlUnicodeStringValidateDestWorker.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PpmConvertTimeTo @ 0x1402E31A4 (PpmConvertTimeTo.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     MmEnumerateSystemImages @ 0x140726B8C (MmEnumerateSystemImages.c)
+ *     MmEnumerateSystemImages @ 0x140726B6C (MmEnumerateSystemImages.c)
  */
 
 int __fastcall PopDiagIdleWakeSourceAccountingToDiagnostic(int *a1, _DWORD *a2)

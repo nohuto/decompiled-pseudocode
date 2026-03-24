@@ -1,17 +1,17 @@
 /*
  * XREFs of HdlspDispatch @ 0x14094BE50
  * Callers:
- *     HeadlessDispatch @ 0x1401860F0 (HeadlessDispatch.c)
+ *     HeadlessDispatch @ 0x140186110 (HeadlessDispatch.c)
  *     HdlspKernelAddLogEntry @ 0x14094C904 (HdlspKernelAddLogEntry.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     strcmp @ 0x140196EE0 (strcmp.c)
- *     sprintf_s @ 0x14019B620 (sprintf_s.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     InbvPortGetByte @ 0x14032C15C (InbvPortGetByte.c)
- *     InbvPortPollOnly @ 0x14032C308 (InbvPortPollOnly.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     strcmp @ 0x140196F00 (strcmp.c)
+ *     sprintf_s @ 0x14019B640 (sprintf_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     InbvPortGetByte @ 0x14032C25C (InbvPortGetByte.c)
+ *     InbvPortPollOnly @ 0x14032C408 (InbvPortPollOnly.c)
  *     HdlspAddLogEntry @ 0x14094BAE0 (HdlspAddLogEntry.c)
  *     HdlspBugCheckProcessing @ 0x14094BD1C (HdlspBugCheckProcessing.c)
  *     HdlspEnableTerminal @ 0x14094C4BC (HdlspEnableTerminal.c)

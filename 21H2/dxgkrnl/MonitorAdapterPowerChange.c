@@ -1,29 +1,38 @@
 /*
- * XREFs of MonitorAdapterPowerChange @ 0x1C01F2BB8
+ * XREFs of MonitorAdapterPowerChange @ 0x1C0178F30
  * Callers:
- *     DpiPowerArbiterThread @ 0x1C0217840 (DpiPowerArbiterThread.c)
+ *     DpiPowerArbiterThread @ 0x1C019D6B0 (DpiPowerArbiterThread.c)
  * Callees:
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?_DestroyAllSameTypeSimulatedMonitor@MONITOR_MGR@@QEAAJW4_DMM_VIDPN_MONITOR_TYPE@@EPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01B4D88 (-_DestroyAllSameTypeSimulatedMonitor@MONITOR_MGR@@QEAAJW4_DMM_VIDPN_MONITOR_TYPE@@EPEAU_DXGK_DIS.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?_DestroyAllSameTypeSimulatedMonitor@MONITOR_MGR@@QEAAJW4_DMM_VIDPN_MONITOR_TYPE@@EPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C013F93C (-_DestroyAllSameTypeSimulatedMonitor@MONITOR_MGR@@QEAAJW4_DMM_VIDPN_MONITOR_TYPE@@EPEAU_DXGK_DIS.c)
  */
 
-__int64 __fastcall MonitorAdapterPowerChange(PERESOURCE *this, __int64 a2, __int64 a3)
+__int64 __fastcall MonitorAdapterPowerChange(PERESOURCE *this, __int64 a2, __int64 a3, __int64 a4)
 {
+  __int64 v6; // rdx
+  __int64 v7; // rcx
   __int64 result; // rax
-  __int64 v6; // rcx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rax
 
-  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2) + 24) = this;
+  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2, a3, a4) + 24) = this;
   if ( !this )
     return 3221225485LL;
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this) )
-    WdLogSingleEntry0(1LL);
-  result = (__int64)this[349];
+  {
+    v11 = WdLogNewEntry5_WdAssertion(v7, v6);
+    WdLogEvent5_WdAssertion(v11);
+  }
+  result = (__int64)this[337];
   if ( result )
   {
-    v6 = *(_QWORD *)(result + 112);
-    if ( v6 )
-      return MONITOR_MGR::_DestroyAllSameTypeSimulatedMonitor(v6, 3, 1, a3);
-    WdLogSingleEntry1(2LL, this);
+    v9 = *(_QWORD *)(result + 96);
+    if ( v9 )
+      return MONITOR_MGR::_DestroyAllSameTypeSimulatedMonitor(v9, 3LL, 1, a3);
+    v10 = WdLogNewEntry5_WdError(0LL, v6);
+    *(_QWORD *)(v10 + 24) = this;
+    WdLogEvent5_WdError(v10);
     return 3221225485LL;
   }
   return result;

@@ -1,15 +1,15 @@
 /*
- * XREFs of ??1CPoolBufferResource@@UEAA@XZ @ 0x1C007EDFC
+ * XREFs of ??1CPoolBufferResource@@UEAA@XZ @ 0x1C006DA84
  * Callers:
- *     ??_ECPoolBufferResource@@UEAAPEAXI@Z @ 0x1C007EF10 (--_ECPoolBufferResource@@UEAAPEAXI@Z.c)
+ *     ??_ECPoolBufferResource@@UEAAPEAXI@Z @ 0x1C006DB20 (--_ECPoolBufferResource@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1CFlipResource@@MEAA@XZ @ 0x1C007ED60 (--1CFlipResource@@MEAA@XZ.c)
+ *     ??1CFlipResource@@MEAA@XZ @ 0x1C006DA30 (--1CFlipResource@@MEAA@XZ.c)
  */
 
 void __fastcall CPoolBufferResource::~CPoolBufferResource(PVOID *this)
 {
   *this = &CPoolBufferResource::`vftable';
+  ObfDereferenceObject(this[6]);
   ObfDereferenceObject(this[7]);
-  ObfDereferenceObject(this[8]);
   CFlipResource::~CFlipResource((CFlipResource *)this);
 }

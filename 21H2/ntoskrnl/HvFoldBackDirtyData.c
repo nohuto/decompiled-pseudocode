@@ -1,13 +1,13 @@
 /*
- * XREFs of HvFoldBackDirtyData @ 0x14091D3F0
+ * XREFs of HvFoldBackDirtyData @ 0x140876964
  * Callers:
- *     CmpFlushHive @ 0x1406885A4 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
  * Callees:
- *     HvMarkDirtyForFlush @ 0x14020AEB4 (HvMarkDirtyForFlush.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     HvFreeDirtyData @ 0x140689A8C (HvFreeDirtyData.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     HvpMarkDirty @ 0x140708560 (HvpMarkDirty.c)
+ *     HvFreeDirtyData @ 0x14071C81C (HvFreeDirtyData.c)
  */
 
 void __fastcall HvFoldBackDirtyData(ULONG_PTR a1)
@@ -18,9 +18,9 @@ void __fastcall HvFoldBackDirtyData(ULONG_PTR a1)
   int v5; // ebp
 
   v1 = 0LL;
-  if ( *(_QWORD *)(a1 + 1696) )
+  if ( *(_QWORD *)(a1 + 1688) )
   {
-    v3 = *(unsigned int *)(a1 + 1688);
+    v3 = *(unsigned int *)(a1 + 1680);
     v4 = (volatile signed __int64 *)(a1 + 80);
     ExAcquirePushLockExclusiveEx(a1 + 80, 0LL);
     if ( (_DWORD)v3 )
@@ -28,8 +28,8 @@ void __fastcall HvFoldBackDirtyData(ULONG_PTR a1)
       v5 = 8;
       do
       {
-        if ( _bittest64(*(const signed __int64 **)(a1 + 1696), v1) == 1 )
-          HvMarkDirtyForFlush(a1);
+        if ( _bittest64(*(const signed __int64 **)(a1 + 1688), v1) == 1 )
+          HvpMarkDirty(a1, v5, 1u, 0);
         ++v1;
         v5 += 512;
         --v3;

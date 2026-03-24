@@ -1,15 +1,17 @@
 /*
- * XREFs of UNLOCK_TRANSACTION_LIST @ 0x1407684B8
+ * XREFs of UNLOCK_TRANSACTION_LIST @ 0x14071CCC4
  * Callers:
- *     CmpTransEnlistUowInCmTrans @ 0x140302D98 (CmpTransEnlistUowInCmTrans.c)
- *     CmpRundownUnitOfWork @ 0x1407692E8 (CmpRundownUnitOfWork.c)
+ *     CmpTransEnlistUowInCmTrans @ 0x1403613FC (CmpTransEnlistUowInCmTrans.c)
+ *     CmpPrepareLightWeightTransaction @ 0x14066E294 (CmpPrepareLightWeightTransaction.c)
+ *     CmpRundownUnitOfWork @ 0x14071CBAC (CmpRundownUnitOfWork.c)
+ *     CmpTransMgrPrepare @ 0x140768324 (CmpTransMgrPrepare.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
  */
 
-void UNLOCK_TRANSACTION_LIST()
+_QWORD *UNLOCK_TRANSACTION_LIST()
 {
   ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-  KeLeaveCriticalRegion();
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

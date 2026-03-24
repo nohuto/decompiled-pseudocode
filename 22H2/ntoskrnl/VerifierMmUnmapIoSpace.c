@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierMmUnmapIoSpace @ 0x140AE47C0
+ * XREFs of VerifierMmUnmapIoSpace @ 0x1409E7150
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViTargetAddToCounter @ 0x140ACC994 (ViTargetAddToCounter.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x1409D72C0 (ViTargetAddToCounter.c)
  */
 
 __int64 __fastcall VerifierMmUnmapIoSpace(ULONG_PTR BugCheckParameter3, __int64 a2)
@@ -17,6 +17,6 @@ __int64 __fastcall VerifierMmUnmapIoSpace(ULONG_PTR BugCheckParameter3, __int64 
   if ( CurrentIrql > 2u && (MmVerifierData & 1) != 0 )
     VerifierBugCheckIfAppropriate(0xC4u, 0x7BuLL, CurrentIrql, BugCheckParameter3, a2);
   if ( (MmVerifierData & 0x1000) != 0 )
-    ViTargetAddToCounter(retaddr, 216LL, 0xE0u, -a2);
+    ViTargetAddToCounter(retaddr, 208LL, 0xD8u, -a2);
   return ((__int64 (__fastcall *)(ULONG_PTR, __int64))pXdvMmUnmapIoSpace)(BugCheckParameter3, a2);
 }

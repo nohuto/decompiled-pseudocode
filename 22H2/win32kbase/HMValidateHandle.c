@@ -1,118 +1,81 @@
 /*
- * XREFs of HMValidateHandle @ 0x1C0052938
+ * XREFs of HMValidateHandle @ 0x1C0043940
  * Callers:
- *     NtMITSynthesizeKeyboardInput @ 0x1C0009460 (NtMITSynthesizeKeyboardInput.c)
- *     ValidateHmenu @ 0x1C00528F0 (ValidateHmenu.c)
- *     NtUserGetExtendedPointerDeviceProperty @ 0x1C0144650 (NtUserGetExtendedPointerDeviceProperty.c)
- *     ?DoContactVisualization@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAXH@Z @ 0x1C01C1D10 (-DoContactVisualization@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAXH@Z.c)
+ *     ValidateHmenu @ 0x1C00438F0 (ValidateHmenu.c)
+ *     NtMITSynthesizeKeyboardInput @ 0x1C012BDD0 (NtMITSynthesizeKeyboardInput.c)
+ *     NtUserGetExtendedPointerDeviceProperty @ 0x1C012ECF0 (NtUserGetExtendedPointerDeviceProperty.c)
+ *     ?DoContactVisualization@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAXH@Z @ 0x1C018DAA0 (-DoContactVisualization@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAXH@Z.c)
  * Callees:
- *     ValidateHandleSecure @ 0x1C004F140 (ValidateHandleSecure.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0033100 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     ValidateHandleSecure @ 0x1C0044200 (ValidateHandleSecure.c)
  */
 
-__int64 __fastcall HMValidateHandle(unsigned __int64 a1, unsigned __int8 a2)
+__int64 __fastcall HMValidateHandle(__int64 a1, unsigned __int8 a2)
 {
-  int v3; // r12d
+  int v3; // ebp
   __int64 v4; // rbx
-  _QWORD *v5; // r15
-  char *v6; // rdi
+  char *v5; // rdi
+  _QWORD *v6; // r15
   __int64 v7; // r14
-  __int16 v8; // ax
-  __int64 v9; // rbp
-  __int64 *ThreadWin32Thread; // rax
-  __int64 v11; // r8
-  __int64 v12; // rcx
-  _QWORD *CurrentProcessWin32Process; // rax
-  _QWORD *v15; // r8
-  __int16 v16; // ax
-  _QWORD *v17; // rax
-  __int64 v18; // rax
-  __int64 v19; // rcx
+  __int64 v8; // rdx
+  __int64 v10; // rcx
+  _BYTE v11[40]; // [rsp+20h] [rbp-28h] BYREF
 
   v3 = a2;
   v4 = 0LL;
-  PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( (unsigned __int64)(unsigned __int16)a1 >= *((_QWORD *)gpsi + 1) )
-    goto LABEL_28;
-  v5 = gpKernelHandleTable;
-  v6 = (char *)qword_1C028FE68 + dword_1C028FE70 * (unsigned int)(unsigned __int16)a1;
-  v7 = 3 * ((__int64)(dword_1C028FE70 * (unsigned int)(unsigned __int16)a1) >> 5);
-  v8 = WORD1(a1) & 0x7FFF;
-  if ( (WORD1(a1) & 0x7FFF) != *((_WORD *)v6 + 13) && v8 != 0x7FFF && (v8 || !PsGetCurrentProcessWow64Process()) )
-    goto LABEL_28;
-  if ( (v6[25] & 1) == 0 && v6[24] == (_BYTE)v3 )
-    v4 = v5[v7];
-  v9 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v9 = *ThreadWin32Thread;
-  if ( (*(_DWORD *)(v9 + 488) & 0x20000000) != 0 )
+  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  if ( (unsigned __int64)(unsigned __int16)a1 < *((_QWORD *)gpsi + 1) )
   {
-    if ( !(unsigned int)ValidateHandleSecure(a1, 3LL, v11) )
+    v5 = (char *)qword_1C024FA38 + (unsigned int)(unsigned __int16)a1 * dword_1C024FA40;
+    CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>((__int64)v11);
+    v6 = gpKernelHandleTable;
+    v7 = 3LL * (unsigned int)((v5 - (char *)qword_1C024FA38) >> 5);
+    if ( (WORD1(a1) == *((_WORD *)v5 + 13)
+       || WORD1(a1) == 0xFFFF
+       || !WORD1(a1) && PsGetCurrentProcessWow64Process(0xFFFFLL))
+      && (v5[25] & 1) == 0
+      && v5[24] == (_BYTE)v3 )
+    {
+      v4 = v6[v7];
+    }
+  }
+  if ( (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 488) & 0x20000000) != 0 )
+  {
+    if ( !(unsigned int)ValidateHandleSecure(a1, 3LL) )
       v4 = 0LL;
   }
   else
   {
-    v12 = -(__int64)((unsigned int)ValidateHandleSecure(a1, 2LL, v11) != 0);
-    v4 &= v12;
+    v4 &= -(__int64)((unsigned int)ValidateHandleSecure(a1, 2LL) != 0);
   }
-  if ( v6[25] < 0 )
-  {
-    CurrentProcessWin32Process = (_QWORD *)PsGetCurrentProcessWin32Process(v12);
-    v15 = CurrentProcessWin32Process;
-    if ( CurrentProcessWin32Process )
-    {
-      if ( *CurrentProcessWin32Process )
-      {
-        v16 = *((_WORD *)&unk_1C024292C + 12 * (unsigned __int8)v6[24]);
-        if ( (v16 & 2) != 0 )
-        {
-          v17 = (_QWORD *)v5[v7 + 1];
-LABEL_26:
-          if ( v17 && v17 != v15 )
-            goto LABEL_28;
-          goto LABEL_11;
-        }
-        if ( (v16 & 1) != 0 )
-        {
-          v18 = v5[v7 + 1];
-          if ( v18 )
-          {
-            v17 = *(_QWORD **)(v18 + 424);
-            goto LABEL_26;
-          }
-        }
-      }
-    }
-  }
-LABEL_11:
   if ( v4 )
     return v4;
-LABEL_28:
   switch ( v3 )
   {
     case 1:
-      v19 = 1400LL;
+      v10 = 1400LL;
       break;
     case 2:
-      v19 = 1401LL;
+      v10 = 1401LL;
       break;
     case 3:
-      v19 = 1402LL;
+      v10 = 1402LL;
       break;
     case 4:
-      v19 = 1405LL;
+      v10 = 1405LL;
       break;
     case 5:
-      v19 = 1404LL;
+      v10 = 1404LL;
       break;
     case 8:
-      v19 = 1403LL;
+      v10 = 1403LL;
       break;
     default:
-      v19 = 6LL;
+      v10 = 6LL;
       break;
   }
-  UserSetLastError(v19);
+  UserSetLastError(v10, v8);
   return 0LL;
 }

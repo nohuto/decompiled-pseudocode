@@ -1,16 +1,16 @@
 /*
- * XREFs of ?bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ @ 0x1C029DBD0
+ * XREFs of ?bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ @ 0x1C029F2CC
  * Callers:
- *     GrePolyPolyline @ 0x1C01363F0 (GrePolyPolyline.c)
- *     NtGdiRectangle @ 0x1C0136B50 (NtGdiRectangle.c)
- *     GrePolyPolygon @ 0x1C0137950 (GrePolyPolygon.c)
- *     NtGdiLineTo @ 0x1C0137EE0 (NtGdiLineTo.c)
- *     NtGdiInvertRgn @ 0x1C0138CF0 (NtGdiInvertRgn.c)
- *     GrePolyBezier @ 0x1C029ED10 (GrePolyBezier.c)
+ *     GrePolyPolyline @ 0x1C0142AB0 (GrePolyPolyline.c)
+ *     NtGdiRectangle @ 0x1C0143FC0 (NtGdiRectangle.c)
+ *     GrePolyPolygon @ 0x1C0144E20 (GrePolyPolygon.c)
+ *     NtGdiLineTo @ 0x1C01453C0 (NtGdiLineTo.c)
+ *     NtGdiInvertRgn @ 0x1C0149310 (NtGdiInvertRgn.c)
+ *     GrePolyBezier @ 0x1C02A0430 (GrePolyBezier.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z @ 0x1C013202C (-bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z @ 0x1C0147FC0 (-bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DWMSCREENREADMODIFYWRITEASSIST::bReadFromAccumulatedBounds(DWMSCREENREADMODIFYWRITEASSIST *this)

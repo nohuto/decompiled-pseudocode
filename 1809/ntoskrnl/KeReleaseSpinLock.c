@@ -4,14 +4,14 @@
  *     NtAssociateWaitCompletionPacket @ 0x140062B00 (NtAssociateWaitCompletionPacket.c)
  *     FsRtlPrivateLock @ 0x14008C8F0 (FsRtlPrivateLock.c)
  *     NtCancelWaitCompletionPacket @ 0x14008DC40 (NtCancelWaitCompletionPacket.c)
- *     PnpDeviceActionWorker @ 0x14015F2E0 (PnpDeviceActionWorker.c)
- *     IopDecrementCompletionContextUsageCount @ 0x1401B3F6C (IopDecrementCompletionContextUsageCount.c)
- *     IopIncrementCompletionContextUsageCountAndReadData @ 0x1401B3FE4 (IopIncrementCompletionContextUsageCountAndReadData.c)
+ *     PnpDeviceActionWorker @ 0x14015F300 (PnpDeviceActionWorker.c)
+ *     IopDecrementCompletionContextUsageCount @ 0x1401B3F8C (IopDecrementCompletionContextUsageCount.c)
+ *     IopIncrementCompletionContextUsageCountAndReadData @ 0x1401B4004 (IopIncrementCompletionContextUsageCountAndReadData.c)
  *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseSpinLockInstrumented @ 0x140290E38 (KiReleaseSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140290F38 (KiReleaseSpinLockInstrumented.c)
  */
 
 void __stdcall KeReleaseSpinLock(PKSPIN_LOCK SpinLock, KIRQL NewIrql)

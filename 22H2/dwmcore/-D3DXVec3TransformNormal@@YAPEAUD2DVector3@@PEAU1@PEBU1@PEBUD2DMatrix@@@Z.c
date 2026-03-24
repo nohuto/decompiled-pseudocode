@@ -1,9 +1,9 @@
 /*
- * XREFs of ?D3DXVec3TransformNormal@@YAPEAUD2DVector3@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z @ 0x18027EF00
+ * XREFs of ?D3DXVec3TransformNormal@@YAPEAUD2DVector3@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z @ 0x18021E040
  * Callers:
- *     ?InitializeForces@CNaturalAnimation@@AEAAXXZ @ 0x18023CFD8 (-InitializeForces@CNaturalAnimation@@AEAAXXZ.c)
- *     ?Vector3TransformNormal@CExpressionValueStack@@QEAAJXZ @ 0x180262BAC (-Vector3TransformNormal@CExpressionValueStack@@QEAAJXZ.c)
- *     _lambda_c2661e01401ae061a9dc9ee442c48f39_::operator() @ 0x180277044 (_lambda_c2661e01401ae061a9dc9ee442c48f39_--operator().c)
+ *     ?InitializeForces@CNaturalAnimation@@AEAAXXZ @ 0x1801D7EFC (-InitializeForces@CNaturalAnimation@@AEAAXXZ.c)
+ *     ?Vector3TransformNormal@CExpressionValueStack@@QEAAJXZ @ 0x18020234C (-Vector3TransformNormal@CExpressionValueStack@@QEAAJXZ.c)
+ *     _lambda_c2661e01401ae061a9dc9ee442c48f39_::operator() @ 0x1802159BC (_lambda_c2661e01401ae061a9dc9ee442c48f39_--operator().c)
  * Callees:
  *     <none>
  */

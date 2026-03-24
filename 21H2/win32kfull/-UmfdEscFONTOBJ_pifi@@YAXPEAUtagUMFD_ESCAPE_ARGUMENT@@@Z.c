@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UmfdEscFONTOBJ_pifi@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C029D48C
+ * XREFs of ?UmfdEscFONTOBJ_pifi@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C029EBAC
  * Callers:
- *     UmfdDispatchEscape @ 0x1C0010B54 (UmfdDispatchEscape.c)
+ *     UmfdDispatchEscape @ 0x1C00A7800 (UmfdDispatchEscape.c)
  * Callees:
- *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C0011710 (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
- *     FONTOBJ_pifi @ 0x1C012ADB0 (FONTOBJ_pifi.c)
+ *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C00A8E80 (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
+ *     FONTOBJ_pifi @ 0x1C013CF30 (FONTOBJ_pifi.c)
  */
 
 void __fastcall UmfdEscFONTOBJ_pifi(struct tagUMFD_ESCAPE_ARGUMENT *a1)

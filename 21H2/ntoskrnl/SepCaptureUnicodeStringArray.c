@@ -1,16 +1,16 @@
 /*
- * XREFs of SepCaptureUnicodeStringArray @ 0x1406A0BF0
+ * XREFs of SepCaptureUnicodeStringArray @ 0x140601510
  * Callers:
- *     NtQuerySecurityPolicy @ 0x1406A0770 (NtQuerySecurityPolicy.c)
- *     NtQuerySecurityAttributesToken @ 0x1406A09D0 (NtQuerySecurityAttributesToken.c)
- *     NtSetCachedSigningLevel2 @ 0x1406E88A0 (NtSetCachedSigningLevel2.c)
- *     SepCaptureTokenSecurityAttributesInformation @ 0x140754108 (SepCaptureTokenSecurityAttributesInformation.c)
+ *     NtQuerySecurityAttributesToken @ 0x1406011C0 (NtQuerySecurityAttributesToken.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x140675E78 (SepCaptureTokenSecurityAttributesInformation.c)
+ *     NtSetCachedSigningLevel2 @ 0x14072A630 (NtSetCachedSigningLevel2.c)
+ *     NtQuerySecurityPolicy @ 0x14091BB40 (NtQuerySecurityPolicy.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     SeCaptureUnicodeStringStructures @ 0x1406A0E10 (SeCaptureUnicodeStringStructures.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SeCaptureUnicodeStringStructures @ 0x140601730 (SeCaptureUnicodeStringStructures.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepCaptureUnicodeStringArray(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)
@@ -20,22 +20,20 @@ __int64 __fastcall SepCaptureUnicodeStringArray(__int64 a1, unsigned int a2, __i
   unsigned int v6; // edi
   __int64 result; // rax
   __int64 v8; // rsi
-  __int64 v9; // rdx
+  SIZE_T v9; // rdx
   unsigned int v10; // ecx
   unsigned __int16 *v11; // r15
   unsigned int v12; // r8d
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v14; // r14
   char *v15; // rsi
   __int64 v16; // rcx
   unsigned __int64 v17; // rdx
   void *v18; // rcx
-  void *Src; // [rsp+80h] [rbp+8h] BYREF
-  char v20; // [rsp+90h] [rbp+18h]
-  _QWORD *v21; // [rsp+98h] [rbp+20h]
+  void *Src; // [rsp+28h] [rbp-50h] BYREF
+  char *v20; // [rsp+30h] [rbp-48h]
+  PVOID P; // [rsp+38h] [rbp-40h]
 
-  v21 = a4;
-  v20 = a3;
   v4 = a3;
   v5 = a2;
   v6 = 0;
@@ -77,12 +75,14 @@ __int64 __fastcall SepCaptureUnicodeStringArray(__int64 a1, unsigned int a2, __i
         {
           if ( v10 >= (unsigned int)v5 )
           {
-            Pool2 = (_QWORD *)ExAllocatePool2(256LL, v9, 1950442835LL);
-            v14 = Pool2;
-            if ( Pool2 )
+            PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x74416553u);
+            v14 = PoolWithTag;
+            P = PoolWithTag;
+            if ( PoolWithTag )
             {
-              memmove(Pool2, v11, 16 * v5);
+              memmove(PoolWithTag, v11, 16 * v5);
               v15 = (char *)(((unsigned __int64)&v14[(unsigned __int64)v8 / 8] + 1) & 0xFFFFFFFFFFFFFFFEuLL);
+              v20 = v15;
               while ( v6 < (unsigned int)v5 )
               {
                 v16 = v11[8 * v6];
@@ -100,11 +100,13 @@ __int64 __fastcall SepCaptureUnicodeStringArray(__int64 a1, unsigned int a2, __i
                 memmove(v15, *(const void **)&v11[8 * v6 + 4], (unsigned __int16)v16);
                 v14[2 * v6 + 1] = v15;
                 WORD1(v14[2 * v6]) = v14[2 * v6];
-                v15 += v11[8 * v6++];
+                v15 += v11[8 * v6];
+                v20 = v15;
+                ++v6;
               }
               if ( v4 == 1 && v11 )
                 ExFreePoolWithTag(v11, 0);
-              *v21 = v14;
+              *a4 = v14;
               return 0LL;
             }
             else

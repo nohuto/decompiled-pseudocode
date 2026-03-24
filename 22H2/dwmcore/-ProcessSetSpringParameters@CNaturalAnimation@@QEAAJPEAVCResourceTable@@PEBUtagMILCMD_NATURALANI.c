@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessSetSpringParameters@CNaturalAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NATURALANIMATION_SETSPRINGPARAMETERS@@@Z @ 0x18023D9B4
+ * XREFs of ?ProcessSetSpringParameters@CNaturalAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NATURALANIMATION_SETSPRINGPARAMETERS@@@Z @ 0x1801D88A8
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$?4VCSpringAccelerator@@@?$ComPtr@UIAccelerator@@@WRL@Microsoft@@QEAAAEAV012@AEBV?$ComPtr@VCSpringAccelerator@@@12@@Z @ 0x18023B974 (--$-4VCSpringAccelerator@@@-$ComPtr@UIAccelerator@@@WRL@Microsoft@@QEAAAEAV012@AEBV-$ComPtr@VCSp.c)
- *     ?EnsureAccelerator@CNaturalAnimation@@AEAAXW4Enum@NaturalMotionAnimationType@@@Z @ 0x18023C6D0 (-EnsureAccelerator@CNaturalAnimation@@AEAAXW4Enum@NaturalMotionAnimationType@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$?4VCSpringAccelerator@@@?$ComPtr@UIAccelerator@@@WRL@Microsoft@@QEAAAEAV012@AEBV?$ComPtr@VCSpringAccelerator@@@12@@Z @ 0x1801D6A48 (--$-4VCSpringAccelerator@@@-$ComPtr@UIAccelerator@@@WRL@Microsoft@@QEAAAEAV012@AEBV-$ComPtr@VCSp.c)
+ *     ?EnsureAccelerator@CNaturalAnimation@@AEAAXW4Enum@NaturalMotionAnimationType@@@Z @ 0x1801D7684 (-EnsureAccelerator@CNaturalAnimation@@AEAAXW4Enum@NaturalMotionAnimationType@@@Z.c)
  */
 
 __int64 __fastcall CNaturalAnimation::ProcessSetSpringParameters(
@@ -20,17 +20,17 @@ __int64 __fastcall CNaturalAnimation::ProcessSetSpringParameters(
 
   v9 = (__int64 (__fastcall ***)(_QWORD))a2;
   CNaturalAnimation::EnsureAccelerator((__int64)this, 2);
-  v5 = *((_QWORD *)this + 56);
+  v5 = *((_QWORD *)this + 53);
   v9 = (__int64 (__fastcall ***)(_QWORD))v5;
   if ( v5 )
     (**(void (__fastcall ***)(__int64))v5)(v5);
   v6 = 1.0 / *((float *)a3 + 3);
   v7 = *((float *)a3 + 2);
-  *(float *)(v5 + 28) = v7;
-  *(float *)(v5 + 32) = v6;
-  *(float *)(v5 + 20) = v6 * v6;
-  *(float *)(v5 + 24) = (float)(v7 + v7) * v6;
-  Microsoft::WRL::ComPtr<IAccelerator>::operator=<CSpringAccelerator>((__int64 *)this + 56, &v9);
+  *(float *)(v5 + 36) = v7;
+  *(float *)(v5 + 40) = v6;
+  *(float *)(v5 + 28) = v6 * v6;
+  *(float *)(v5 + 32) = (float)(v7 + v7) * v6;
+  Microsoft::WRL::ComPtr<IAccelerator>::operator=<CSpringAccelerator>((__int64 *)this + 53, &v9);
   if ( v5 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 8LL))(v5);
   return 0LL;

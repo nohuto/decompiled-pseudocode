@@ -1,19 +1,18 @@
 /*
- * XREFs of PiDmListEnumObjectsWithCallback @ 0x14077A8E0
+ * XREFs of PiDmListEnumObjectsWithCallback @ 0x1406357D0
  * Callers:
- *     PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1406E5780 (PiPnpRtlApplyMandatoryDeviceContainerFilters.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407762E4 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDmGetObjectConstraintList @ 0x14077747C (PiDmGetObjectConstraintList.c)
- *     PiPnpRtlCmActionCallback @ 0x140779F10 (PiPnpRtlCmActionCallback.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14062E878 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
+ *     PiDmGetObjectConstraintList @ 0x140639EEC (PiDmGetObjectConstraintList.c)
+ *     PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1406BF788 (PiPnpRtlApplyMandatoryDeviceContainerFilters.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PiDmObjectRelease @ 0x14077B394 (PiDmObjectRelease.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDmListEnumObjectsWithCallback(
@@ -22,36 +21,25 @@ __int64 __fastcall PiDmListEnumObjectsWithCallback(
         __int64 (__fastcall *a3)(_QWORD, __int64, char *),
         __int64 a4)
 {
-  __int64 v4; // rdi
-  int v5; // ebp
-  _QWORD *Pool2; // r14
-  int v7; // r12d
-  bool v8; // si
-  __int64 v10; // r13
+  _QWORD *v4; // rbx
+  int v5; // r14d
+  __int64 v6; // rdi
+  __int64 v10; // rbp
   struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR v12; // rbx
+  ULONG_PTR v12; // rsi
   unsigned int v13; // eax
-  _QWORD *v14; // rdx
-  volatile signed __int32 *v15; // rcx
-  unsigned int v16; // ebx
-  __int64 v17; // r15
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v15; // rdx
+  volatile signed __int32 *v16; // rcx
+  unsigned int v17; // ebp
   _QWORD *v18; // rsi
-  __int64 (__fastcall *v19)(_QWORD, __int64, char *); // r12
-  PVOID *v20; // rbx
-  struct _KTHREAD *v22; // rax
-  _QWORD *v23; // rax
-  char v24; // [rsp+60h] [rbp+8h] BYREF
-  __int64 (__fastcall *v25)(_QWORD, __int64, char *); // [rsp+70h] [rbp+18h]
-  __int64 v26; // [rsp+78h] [rbp+20h]
+  PVOID *v19; // rsi
+  char v21; // [rsp+50h] [rbp+8h] BYREF
 
-  v26 = a4;
-  v25 = a3;
   v4 = 0LL;
-  v24 = 0;
+  v21 = 0;
   v5 = 0;
-  Pool2 = 0LL;
-  v7 = 0;
-  v8 = 0;
+  v6 = 0LL;
   v10 = 5LL * a1;
   CurrentThread = KeGetCurrentThread();
   v12 = a2 + PiDmListDefs[5 * a1 + 1];
@@ -60,85 +48,60 @@ __int64 __fastcall PiDmListEnumObjectsWithCallback(
   v13 = *(_DWORD *)(v12 + 16);
   if ( v13 )
   {
-    Pool2 = (_QWORD *)ExAllocatePool2(256LL, 8LL * v13, 1517317712LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8LL * v13, 0x5A706E50u);
+    v4 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v14 = *(_QWORD **)v12;
+      v15 = *(_QWORD **)v12;
       if ( *(_QWORD *)v12 != v12 )
       {
-        while ( (unsigned int)v4 < *(_DWORD *)(v12 + 16) )
+        do
         {
-          v15 = (volatile signed __int32 *)((char *)v14 - PiDmListDefs[v10 + 3]);
-          Pool2[v4] = v15;
-          _InterlockedAdd(v15 + 2, 1u);
-          v14 = (_QWORD *)*v14;
-          v4 = (unsigned int)(v4 + 1);
-          if ( v14 == (_QWORD *)v12 )
-            goto LABEL_6;
+          v16 = (volatile signed __int32 *)((char *)v15 - PiDmListDefs[v10 + 3]);
+          PoolWithTag[v6] = v16;
+          _InterlockedIncrement(v16 + 2);
+          v15 = (_QWORD *)*v15;
+          v6 = (unsigned int)(v6 + 1);
         }
-        v8 = 1;
+        while ( v15 != (_QWORD *)v12 );
       }
-LABEL_6:
-      if ( (unsigned int)v4 < *(_DWORD *)(v12 + 16) )
-        v8 = 1;
     }
     else
     {
       v5 = -1073741670;
     }
   }
-  else
-  {
-    v8 = *(_QWORD *)v12 != v12;
-  }
   ExReleasePushLockEx(a2, 0LL);
-  KeLeaveCriticalRegion();
-  if ( v8 )
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  v17 = 0;
+  if ( (_DWORD)v6 )
   {
-    v22 = KeGetCurrentThread();
-    --v22->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx(a2, 0LL);
-    v23 = *(_QWORD **)v12;
-    while ( v23 != (_QWORD *)v12 )
-    {
-      v23 = (_QWORD *)*v23;
-      ++v7;
-    }
-    *(_DWORD *)(v12 + 16) = v7;
-    ExReleasePushLockEx(a2, 0LL);
-    KeLeaveCriticalRegion();
-  }
-  v16 = 0;
-  if ( (_DWORD)v4 )
-  {
-    v17 = v26;
-    v18 = Pool2;
-    v19 = v25;
+    v18 = v4;
     do
     {
-      v5 = v19(*v18, v17, &v24);
+      v5 = a3(*v18, a4, &v21);
       if ( v5 < 0 )
         break;
-      if ( v24 )
+      if ( v21 )
         break;
-      ++v16;
+      ++v17;
       ++v18;
     }
-    while ( v16 < (unsigned int)v4 );
+    while ( v17 < (unsigned int)v6 );
   }
-  if ( Pool2 )
+  if ( v4 )
   {
-    if ( (_DWORD)v4 )
+    if ( (_DWORD)v6 )
     {
-      v20 = (PVOID *)Pool2;
+      v19 = (PVOID *)v4;
       do
       {
-        PiDmObjectRelease(*v20++);
-        --v4;
+        PiDmObjectRelease(*v19++);
+        --v6;
       }
-      while ( v4 );
+      while ( v6 );
     }
-    ExFreePoolWithTag(Pool2, 0x5A706E50u);
+    ExFreePoolWithTag(v4, 0x5A706E50u);
   }
   return (unsigned int)v5;
 }

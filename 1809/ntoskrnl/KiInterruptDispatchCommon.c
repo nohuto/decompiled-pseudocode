@@ -1,20 +1,20 @@
 /*
- * XREFs of KiInterruptDispatchCommon @ 0x140299764
+ * XREFs of KiInterruptDispatchCommon @ 0x140299864
  * Callers:
- *     IopPassiveInterruptWorker @ 0x1402886D0 (IopPassiveInterruptWorker.c)
- *     KeDispatchSecondaryInterrupt @ 0x1402931F0 (KeDispatchSecondaryInterrupt.c)
+ *     IopPassiveInterruptWorker @ 0x1402887D0 (IopPassiveInterruptWorker.c)
+ *     KeDispatchSecondaryInterrupt @ 0x1402932F0 (KeDispatchSecondaryInterrupt.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E70 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D81F0 (KeRevertToUserGroupAffinityThread.c)
- *     KeGetCurrentProcessorNumberEx @ 0x1400FE8A0 (KeGetCurrentProcessorNumberEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     IoProcessPassiveInterrupts @ 0x14028829C (IoProcessPassiveInterrupts.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x14029326C (KiAcquireSecondaryInterruptConnectLock.c)
- *     KiInvokeInterruptServiceRoutine @ 0x140299C04 (KiInvokeInterruptServiceRoutine.c)
- *     KiProcessDisconnectList @ 0x140299F08 (KiProcessDisconnectList.c)
- *     KiProcessPendingDisconnect @ 0x140299F60 (KiProcessPendingDisconnect.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x1400FE8C0 (KeGetCurrentProcessorNumberEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     IoProcessPassiveInterrupts @ 0x14028839C (IoProcessPassiveInterrupts.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x14029336C (KiAcquireSecondaryInterruptConnectLock.c)
+ *     KiInvokeInterruptServiceRoutine @ 0x140299D04 (KiInvokeInterruptServiceRoutine.c)
+ *     KiProcessDisconnectList @ 0x14029A008 (KiProcessDisconnectList.c)
+ *     KiProcessPendingDisconnect @ 0x14029A060 (KiProcessPendingDisconnect.c)
  */
 
 char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char a3, char *a4, int *a5)

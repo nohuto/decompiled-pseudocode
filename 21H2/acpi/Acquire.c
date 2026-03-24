@@ -1,29 +1,29 @@
 /*
- * XREFs of Acquire @ 0x1C001C290
+ * XREFs of Acquire @ 0x1C0022CF0
  * Callers:
  *     <none>
  * Callees:
- *     ValidateArgTypes @ 0x1C00162B0 (ValidateArgTypes.c)
- *     PushFrame @ 0x1C0018660 (PushFrame.c)
- *     GetObjectPath @ 0x1C00282F8 (GetObjectPath.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     GetObjectTypeName @ 0x1C0066810 (GetObjectTypeName.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     PushFrame @ 0x1C0022DD8 (PushFrame.c)
+ *     GetObjectPath @ 0x1C0023A98 (GetObjectPath.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
  */
 
-__int64 __fastcall Acquire(struct _SLIST_ENTRY *a1, _QWORD *a2)
+__int64 __fastcall Acquire(__int64 a1, _QWORD *a2)
 {
   unsigned int v4; // edi
   __int64 v5; // rax
   __int64 v6; // rcx
-  _SLIST_ENTRY *v7; // rdx
+  __int64 v7; // rdx
   void *ObjectPath; // rsi
   int ObjectTypeName; // eax
   int v11; // r11d
-  _SLIST_ENTRY *v12; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v12; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = ValidateArgTypes((__int64)a1, a2[10], 0, "OI");
+  v4 = ValidateArgTypes(a1, a2[10], 0, "OI");
   if ( !v4 )
   {
     v5 = a2[10];
@@ -38,15 +38,15 @@ __int64 __fastcall Acquire(struct _SLIST_ENTRY *a1, _QWORD *a2)
     }
     if ( *(_WORD *)(v6 + 66) == 9 )
     {
-      v4 = PushFrame(a1, 1179730753, 0x40u, (__int64)ParseAcquire, &v12);
+      v4 = PushFrame(a1, 1179730753, 64, (unsigned int)ParseAcquire, (__int64)&v12);
       if ( !v4 )
       {
         v7 = v12;
-        v12[2].Next = *(_SLIST_ENTRY **)(a2[8] + 96LL);
-        LODWORD(v7[1].Next) = (*(_WORD *)(a2[8] + 64LL) & 2 | 8) << 15;
-        *((_WORD *)&v7[2].Next + 4) = *(_WORD *)(a2[10] + 56LL);
-        v7[3].Next = (_SLIST_ENTRY *)a2[11];
-        *((_QWORD *)&v7[3].Next + 1) = *(_QWORD *)(a2[8] + 16LL);
+        *(_QWORD *)(v12 + 32) = *(_QWORD *)(a2[8] + 96LL);
+        *(_DWORD *)(v7 + 16) = (*(_WORD *)(a2[8] + 64LL) & 2 | 8) << 15;
+        *(_WORD *)(v7 + 40) = *(_WORD *)(a2[10] + 56LL);
+        *(_QWORD *)(v7 + 48) = a2[11];
+        *(_QWORD *)(v7 + 56) = *(_QWORD *)(a2[8] + 16LL);
       }
     }
     else

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpCreatePredefined @ 0x140732EE4
+ * XREFs of CmpCreatePredefined @ 0x140732EC4
  * Callers:
- *     CmpCreatePerfKeys @ 0x140732E2C (CmpCreatePerfKeys.c)
+ *     CmpCreatePerfKeys @ 0x140732E0C (CmpCreatePerfKeys.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpCleanupParseContext @ 0x1405B5FC4 (CmpCleanupParseContext.c)
  *     ObOpenObjectByName @ 0x1405B9290 (ObOpenObjectByName.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)

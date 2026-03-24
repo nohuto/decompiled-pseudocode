@@ -1,9 +1,9 @@
 /*
- * XREFs of BgAcquireSpinLock @ 0x140AF2180
+ * XREFs of BgAcquireSpinLock @ 0x1409F4B40
  * Callers:
- *     BgkSetVirtualFrameBuffer @ 0x1403B5FA0 (BgkSetVirtualFrameBuffer.c)
+ *     BgkSetVirtualFrameBuffer @ 0x1403CC600 (BgkSetVirtualFrameBuffer.c)
  * Callees:
- *     BgpFwAcquireLock @ 0x1403848B0 (BgpFwAcquireLock.c)
+ *     BgpFwAcquireLock @ 0x14039BBF8 (BgpFwAcquireLock.c)
  */
 
 void BgAcquireSpinLock()

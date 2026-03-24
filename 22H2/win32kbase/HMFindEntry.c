@@ -1,9 +1,10 @@
 /*
- * XREFs of HMFindEntry @ 0x1C012CA30
+ * XREFs of HMFindEntry @ 0x1C0114000
  * Callers:
- *     <none>
+ *     LookForMatchingBaseWindowPHE @ 0x1C01390B0 (LookForMatchingBaseWindowPHE.c)
+ *     UserDeleteBaseWindowHandle @ 0x1C0139390 (UserDeleteBaseWindowHandle.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 char *__fastcall HMFindEntry(__int64 a1, unsigned int (__fastcall *a2)(__int64, char *))
@@ -14,10 +15,10 @@ char *__fastcall HMFindEntry(__int64 a1, unsigned int (__fastcall *a2)(__int64, 
   v4 = 0;
   while ( 1 )
   {
-    v5 = (char *)qword_1C028FE68 + 32 * v4;
+    v5 = (char *)qword_1C024FA38 + 32 * v4;
     if ( v5[24] )
     {
-      if ( a2(a1, (char *)qword_1C028FE68 + 32 * v4) )
+      if ( a2(a1, (char *)qword_1C024FA38 + 32 * v4) )
         break;
     }
     if ( ++v4 > giheLast )

@@ -1,11 +1,11 @@
 /*
- * XREFs of MmEnableProcessSvm @ 0x1402A5400
+ * XREFs of MmEnableProcessSvm @ 0x1402A5500
  * Callers:
- *     ExShareAddressSpaceWithDevice @ 0x14031D260 (ExShareAddressSpaceWithDevice.c)
+ *     ExShareAddressSpaceWithDevice @ 0x14031D360 (ExShareAddressSpaceWithDevice.c)
  * Callees:
  *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
  */
 
 void MmEnableProcessSvm()

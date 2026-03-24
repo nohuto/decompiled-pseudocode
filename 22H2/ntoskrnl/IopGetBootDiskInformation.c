@@ -1,24 +1,24 @@
 /*
- * XREFs of IopGetBootDiskInformation @ 0x140B94A0C
+ * XREFs of IopGetBootDiskInformation @ 0x140A8F9DC
  * Callers:
- *     IoGetBootDiskInformation @ 0x140947460 (IoGetBootDiskInformation.c)
+ *     IoGetBootDiskInformation @ 0x140893C10 (IoGetBootDiskInformation.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IopBuildDeviceIoControlRequest @ 0x1402510F0 (IopBuildDeviceIoControlRequest.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     RtlEqualString @ 0x14034BF90 (RtlEqualString.c)
- *     RtlStringCchPrintfA @ 0x14037507C (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IoGetDeviceObjectPointer @ 0x14075B770 (IoGetDeviceObjectPointer.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     IopVerifyDiskSignature @ 0x140864DC0 (IopVerifyDiskSignature.c)
- *     IoGetConfigurationInformation @ 0x140875CF0 (IoGetConfigurationInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IopBuildDeviceIoControlRequest @ 0x14022B300 (IopBuildDeviceIoControlRequest.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     RtlEqualString @ 0x1403069D0 (RtlEqualString.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     RtlStringCchPrintfA @ 0x1403B7F0C (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     IoGetDeviceObjectPointer @ 0x140621240 (IoGetDeviceObjectPointer.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     IoGetConfigurationInformation @ 0x140781A10 (IoGetConfigurationInformation.c)
+ *     IopVerifyDiskSignature @ 0x1407D4658 (IopVerifyDiskSignature.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
@@ -34,11 +34,11 @@ __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
   struct _DEVICE_OBJECT *v13; // r15
   IRP *v14; // rax
   NTSTATUS Status; // eax
-  ULONG_PTR v16; // rdx
-  unsigned int i; // r14d
+  unsigned int v16; // r14d
+  SIZE_T i; // rdx
   IRP *v18; // rdi
   NTSTATUS v19; // edi
-  _DWORD *Pool2; // rbx
+  _DWORD *PoolWithTag; // rbx
   int v21; // eax
   _QWORD *j; // r14
   char v23; // al
@@ -63,6 +63,7 @@ __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
   __int64 v42; // [rsp+118h] [rbp+10h]
   char pszDest[128]; // [rsp+128h] [rbp+20h] BYREF
   char v44[128]; // [rsp+1A8h] [rbp+A0h] BYREF
+  __int64 retaddr; // [rsp+260h] [rbp+158h]
 
   v34 = a1;
   v42 = 0LL;
@@ -100,13 +101,23 @@ __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
     RtlStringCchPrintfA(pszDest, 0x80uLL, "\\Device\\Harddisk%d\\Partition0", v11);
     RtlInitAnsiString(&SourceString, pszDest);
     if ( RtlAnsiStringToUnicodeString(&ObjectName, &SourceString, 1u) < 0 )
-      goto LABEL_55;
+      goto LABEL_26;
     DeviceObjectPointer = IoGetDeviceObjectPointer(&ObjectName, 0x80u, &FileObject, &DeviceObject);
-    RtlFreeUnicodeString(&ObjectName);
+    RtlFreeAnsiString(&ObjectName);
     if ( DeviceObjectPointer < 0 )
-      goto LABEL_55;
+      goto LABEL_26;
     v13 = DeviceObject;
-    v14 = IopBuildDeviceIoControlRequest(458752, (__int64)DeviceObject, 0LL, 0, &v41, 0x18u, 0, &FileObject_8, &v32);
+    v14 = IopBuildDeviceIoControlRequest(
+            458752,
+            (__int64)DeviceObject,
+            0LL,
+            0,
+            &v41,
+            0x18u,
+            0,
+            &FileObject_8,
+            &v32,
+            retaddr);
     if ( !v14 )
       goto LABEL_11;
     LOWORD(FileObject_8.Header.Lock) = 0;
@@ -122,13 +133,23 @@ __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
     }
     if ( Status >= 0 )
     {
-      v16 = 4096LL;
-      for ( i = 4096; ; v16 = i )
+      v16 = 4096;
+      for ( i = 4096LL; ; i = v16 )
       {
-        Pool2 = (_DWORD *)ExAllocatePool2(64LL, v16, 0x6F426F49u);
-        if ( !Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, i, 0x6F426F49u);
+        if ( !PoolWithTag )
           break;
-        v18 = IopBuildDeviceIoControlRequest(458832, (__int64)v13, 0LL, 0, Pool2, i, 0, &FileObject_8, &v32);
+        v18 = IopBuildDeviceIoControlRequest(
+                458832,
+                (__int64)v13,
+                0LL,
+                0,
+                PoolWithTag,
+                v16,
+                0,
+                &FileObject_8,
+                &v32,
+                retaddr);
         if ( !v18 )
           break;
         KeResetEvent(&FileObject_8);
@@ -140,8 +161,8 @@ __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
         }
         if ( v19 != -1073741789 )
           goto LABEL_23;
-        ExFreePoolWithTag(Pool2, 0);
-        i *= 2;
+        ExFreePoolWithTag(PoolWithTag, 0);
+        v16 *= 2;
       }
       v19 = -1073741670;
 LABEL_23:
@@ -154,35 +175,35 @@ LABEL_23:
         HIDWORD(v42) = v21;
         for ( j = *v9; j != v9; j = (_QWORD *)*j )
         {
-          if ( v33 != v9 || DiskCount != 1 || *Pool2 )
+          if ( v33 != v9 || DiskCount != 1 || *PoolWithTag )
           {
-            v23 = IopVerifyDiskSignature((__int64)Pool2, (__int64)j, &v26);
+            v23 = IopVerifyDiskSignature((__int64)PoolWithTag, (__int64)j, &v26);
             v4 = v26;
             if ( !v23 )
               continue;
           }
           v24 = 0LL;
-          if ( Pool2[1] )
+          if ( PoolWithTag[1] )
           {
             v25 = v34;
             do
             {
-              if ( !v4 && !*Pool2 )
-                v4 = Pool2[2];
-              if ( Pool2[36 * v24 + 18] )
+              if ( !v4 && !*PoolWithTag )
+                v4 = PoolWithTag[2];
+              if ( PoolWithTag[36 * v24 + 18] )
               {
-                RtlStringCchPrintfA(v44, 0x80uLL, "%spartition(%d)", (const char *)j[3], Pool2[36 * v24 + 18]);
+                RtlStringCchPrintfA(v44, 0x80uLL, "%spartition(%d)", (const char *)j[3], PoolWithTag[36 * v24 + 18]);
                 RtlInitAnsiString(&String1, v44);
                 if ( RtlEqualString(&String1, &DestinationString, 1u) )
                 {
                   *(_DWORD *)(v25 + 16) = v4;
-                  *(_QWORD *)v25 = *(_QWORD *)&Pool2[36 * v24 + 14];
+                  *(_QWORD *)v25 = *(_QWORD *)&PoolWithTag[36 * v24 + 14];
                   if ( v8 )
                   {
-                    if ( *Pool2 == 1 )
+                    if ( *PoolWithTag == 1 )
                     {
                       *(_BYTE *)(v8 + 56) = 1;
-                      *(_OWORD *)(v8 + 24) = *(_OWORD *)(Pool2 + 2);
+                      *(_OWORD *)(v8 + 24) = *(_OWORD *)(PoolWithTag + 2);
                     }
                     else
                     {
@@ -193,13 +214,13 @@ LABEL_23:
                 if ( RtlEqualString(&String1, &String2, 1u) )
                 {
                   *(_DWORD *)(v25 + 20) = v4;
-                  *(_QWORD *)(v25 + 8) = *(_QWORD *)&Pool2[36 * v24 + 14];
-                  if ( *Pool2 == 1 )
+                  *(_QWORD *)(v25 + 8) = *(_QWORD *)&PoolWithTag[36 * v24 + 14];
+                  if ( *PoolWithTag == 1 )
                   {
                     if ( v8 )
                     {
                       *(_BYTE *)(v8 + 57) = 1;
-                      *(_OWORD *)(v8 + 40) = *(_OWORD *)(Pool2 + 2);
+                      *(_OWORD *)(v8 + 40) = *(_OWORD *)(PoolWithTag + 2);
                     }
                   }
                   else if ( v8 )
@@ -210,24 +231,24 @@ LABEL_23:
               }
               v24 = (unsigned int)(v24 + 1);
             }
-            while ( (unsigned int)v24 < Pool2[1] );
+            while ( (unsigned int)v24 < PoolWithTag[1] );
             v9 = v35;
             v26 = v4;
           }
         }
-LABEL_54:
-        ExFreePoolWithTag(Pool2, 0);
-        goto LABEL_55;
+LABEL_25:
+        ExFreePoolWithTag(PoolWithTag, 0);
+        goto LABEL_26;
       }
-      if ( Pool2 )
-        goto LABEL_54;
+      if ( PoolWithTag )
+        goto LABEL_25;
     }
     else
     {
 LABEL_11:
       ObfDereferenceObjectWithTag(FileObject, 0x746C6644u);
     }
-LABEL_55:
+LABEL_26:
     v11 = v28 + 1;
   }
   return 0LL;

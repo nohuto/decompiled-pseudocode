@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlUninitializeOplock @ 0x14011B480
+ * XREFs of FsRtlUninitializeOplock @ 0x14011B4A0
  * Callers:
  *     <none>
  * Callees:
@@ -8,12 +8,12 @@
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     FsRtlpModifyThreadPriorities @ 0x140107D80 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpClearOwner @ 0x14012171C (FsRtlpClearOwner.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3914 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140107DA0 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpClearOwner @ 0x14012173C (FsRtlpClearOwner.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3934 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

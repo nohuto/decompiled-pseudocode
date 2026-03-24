@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpPsProvProcessEnumCallback @ 0x1408BF8A0
+ * XREFs of EtwpPsProvProcessEnumCallback @ 0x1408BF880
  * Callers:
- *     EtwpPsProvCaptureState @ 0x1408BF820 (EtwpPsProvCaptureState.c)
+ *     EtwpPsProvCaptureState @ 0x1408BF800 (EtwpPsProvCaptureState.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PsSetProcessTelemetryAppState @ 0x1405B1974 (PsSetProcessTelemetryAppState.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     EtwpPsProvTraceProcess @ 0x14066C070 (EtwpPsProvTraceProcess.c)
- *     EtwpQueryProcessOtherInfo @ 0x14066CA0C (EtwpQueryProcessOtherInfo.c)
- *     EtwpQueryTokenPackageInfo @ 0x14066CD6C (EtwpQueryTokenPackageInfo.c)
- *     EtwpIsProcessZombie @ 0x140726828 (EtwpIsProcessZombie.c)
+ *     EtwpPsProvTraceProcess @ 0x14066C050 (EtwpPsProvTraceProcess.c)
+ *     EtwpQueryProcessOtherInfo @ 0x14066C9EC (EtwpQueryProcessOtherInfo.c)
+ *     EtwpQueryTokenPackageInfo @ 0x14066CD4C (EtwpQueryTokenPackageInfo.c)
+ *     EtwpIsProcessZombie @ 0x140726808 (EtwpIsProcessZombie.c)
  */
 
 __int64 __fastcall EtwpPsProvProcessEnumCallback(PEPROCESS Process, _BYTE *a2)

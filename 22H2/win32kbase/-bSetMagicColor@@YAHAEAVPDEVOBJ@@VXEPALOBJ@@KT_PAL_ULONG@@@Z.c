@@ -1,47 +1,46 @@
 /*
- * XREFs of ?bSetMagicColor@@YAHAEAVPDEVOBJ@@VXEPALOBJ@@KT_PAL_ULONG@@@Z @ 0x1C016C628
+ * XREFs of ?bSetMagicColor@@YAHAEAVPDEVOBJ@@VXEPALOBJ@@KT_PAL_ULONG@@@Z @ 0x1C01496A4
  * Callers:
- *     GreSetMagicColors @ 0x1C016C76C (GreSetMagicColors.c)
+ *     GreSetMagicColors @ 0x1C0149888 (GreSetMagicColors.c)
  * Callees:
- *     ?vUpdateTime@XEPALOBJ@@QEAAXXZ @ 0x1C015803C (-vUpdateTime@XEPALOBJ@@QEAAXXZ.c)
+ *     <none>
  */
 
-__int64 __fastcall bSetMagicColor(__int64 a1, __int64 a2, unsigned int a3, int a4)
+__int64 __fastcall bSetMagicColor(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
-  __int64 v4; // rsi
-  unsigned int v7; // edi
-  __int64 v8; // r14
-  __int64 v9; // rax
-  int v10; // ebx
-  __int64 v11; // rax
-  __int64 v12; // r8
-  int v13; // eax
-  __int64 v15; // [rsp+58h] [rbp+10h] BYREF
-  int v16; // [rsp+68h] [rbp+20h]
+  unsigned int v5; // r9d
+  int v6; // eax
+  signed __int32 v7; // ecx
+  __int64 v8; // r10
+  signed __int32 v9; // ecx
+  __int64 v10; // rcx
+  unsigned int v11; // eax
 
-  v16 = a4;
-  v15 = a2;
-  v4 = a3;
-  v7 = 0;
-  v8 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  if ( *(_DWORD *)(a2 + 60) == 20 && (*(_DWORD *)(a2 + 24) & 0x11000) == 0 )
+  v5 = 0;
+  if ( *(_DWORD *)(a2 + 60) == 20 )
   {
-    v9 = *(_QWORD *)(a2 + 112);
-    HIBYTE(v16) = 48;
-    v10 = v16;
-    *(_DWORD *)(v9 + 4 * v4) = v16;
-    XEPALOBJ::vUpdateTime((XEPALOBJ *)&v15);
-    v11 = *(_QWORD *)(*(_QWORD *)a1 + 1784LL);
-    if ( v11 )
-      *(_DWORD *)(*(_QWORD *)(v11 + 112) + 4 * v4) = v10;
-    v12 = (unsigned int)(v4 - 236);
-    HIBYTE(v16) = 0;
-    v13 = v16;
-    v7 = 1;
-    if ( (unsigned int)v4 <= 0xA )
-      v12 = (unsigned int)v4;
-    *(_DWORD *)(v8 + 4 * v12 + 3856) = v16;
-    *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v8 + 6000) + 112LL) + 4 * v12) = v13;
+    v6 = *(_DWORD *)(a2 + 24);
+    if ( (v6 & 0x1000) == 0 && (v6 & 0x10000) == 0 )
+    {
+      HIBYTE(a4) = 48;
+      *(_DWORD *)(*(_QWORD *)(a2 + 112) + 4LL * a3) = a4;
+      v7 = _InterlockedExchangeAdd((volatile signed __int32 *)&ulXlatePalUnique, 1u);
+      v8 = *(_QWORD *)(a2 + 120);
+      v9 = v7 + 1;
+      *(_DWORD *)(a2 + 32) = v9;
+      if ( v8 != a2 )
+        *(_DWORD *)(v8 + 32) = v9;
+      v10 = *(_QWORD *)(*(_QWORD *)a1 + 1816LL);
+      if ( v10 )
+        *(_DWORD *)(*(_QWORD *)(v10 + 112) + 4LL * a3) = a4;
+      HIBYTE(a4) = 0;
+      v11 = a3 - 236;
+      v5 = 1;
+      if ( a3 <= 0xA )
+        v11 = a3;
+      dword_1C024B384[v11] = a4;
+      *(_DWORD *)(*((_QWORD *)ppalDefault + 14) + 4LL * v11) = a4;
+    }
   }
-  return v7;
+  return v5;
 }

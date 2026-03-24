@@ -1,8 +1,8 @@
 /*
- * XREFs of ExReferenceHandleDebugInfo @ 0x1408CE078
+ * XREFs of ExReferenceHandleDebugInfo @ 0x1408CE058
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
- *     ExpUpdateDebugInfo @ 0x1408CE408 (ExpUpdateDebugInfo.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     ExpUpdateDebugInfo @ 0x1408CE3E8 (ExpUpdateDebugInfo.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

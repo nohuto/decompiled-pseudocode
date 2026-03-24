@@ -1,47 +1,51 @@
 /*
- * XREFs of RawInitiateDeleteVolume @ 0x1402D2BD8
+ * XREFs of RawInitiateDeleteVolume @ 0x140360A2C
  * Callers:
- *     RawCompletionRoutine @ 0x1402D2AD0 (RawCompletionRoutine.c)
- *     RawVerifyVolume @ 0x1405E364C (RawVerifyVolume.c)
- *     RawReadWriteDeviceControl @ 0x14074BBC4 (RawReadWriteDeviceControl.c)
- *     RawCreate @ 0x14074BC84 (RawCreate.c)
- *     RawClose @ 0x14074BE1C (RawClose.c)
- *     RawCleanup @ 0x14074BE9C (RawCleanup.c)
+ *     RawCompletionRoutine @ 0x1403606A0 (RawCompletionRoutine.c)
+ *     RawVerifyVolume @ 0x140584E44 (RawVerifyVolume.c)
+ *     RawReadWriteDeviceControl @ 0x14071AD48 (RawReadWriteDeviceControl.c)
+ *     RawCreate @ 0x14071AE04 (RawCreate.c)
+ *     RawClose @ 0x14071AF9C (RawClose.c)
+ *     RawCleanup @ 0x14071B01C (RawCleanup.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RawCleanupVcb @ 0x14074B878 (RawCleanupVcb.c)
- *     RawDeleteVcb @ 0x14074D308 (RawDeleteVcb.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     IoReleaseVpbSpinLock @ 0x140360CB0 (IoReleaseVpbSpinLock.c)
+ *     IoAcquireVpbSpinLock @ 0x140360CD0 (IoAcquireVpbSpinLock.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RawCleanupVcb @ 0x14071A630 (RawCleanupVcb.c)
+ *     RawDeleteVcb @ 0x14071B46C (RawDeleteVcb.c)
  */
 
 char __fastcall RawInitiateDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader, int a2, int a3)
 {
   char v3; // si
-  KIRQL v7; // r14
-  KIRQL v8; // dl
+  KIRQL v7; // cl
   void **FileContextSupportPointer; // rcx
   char *p_FilterContexts; // rdi
+  KIRQL v11; // cl
   struct _LIST_ENTRY *v12; // rcx
   struct _LIST_ENTRY *v13; // rax
   void **v14; // rax
-  struct _LIST_ENTRY *v15; // rcx
-  struct _LIST_ENTRY *v16; // rax
+  KIRQL v15; // cl
+  struct _LIST_ENTRY *v16; // rcx
   struct _LIST_ENTRY *v17; // rax
+  struct _LIST_ENTRY *v18; // rax
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *Blink; // rcx
+  KIRQL Irql; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 0;
+  Irql = 0;
   if ( (*(_DWORD *)&AdvancedHeader[1].NodeTypeCode & 4) != 0 )
   {
     if ( LODWORD(AdvancedHeader[1].Resource) )
       return v3;
-    v8 = KeAcquireQueuedSpinLock(9uLL);
+    IoAcquireVpbSpinLock(&Irql);
+    v7 = Irql;
     if ( *((_DWORD *)AdvancedHeader[1].FileContextSupportPointer + 7) )
       goto LABEL_5;
-    KeReleaseQueuedSpinLock(9uLL, v8);
+    IoReleaseVpbSpinLock(Irql);
     ExAcquireFastMutex(&RawGlobalLock);
     Flink = AdvancedHeader[1].FilterContexts.Flink;
     if ( Flink->Blink == &AdvancedHeader[1].FilterContexts )
@@ -58,7 +62,7 @@ char __fastcall RawInitiateDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeade
 LABEL_21:
     __fastfail(3u);
   }
-  v7 = KeAcquireQueuedSpinLock(9uLL);
+  IoAcquireVpbSpinLock(&Irql);
   if ( a2 || *(_DWORD *)&AdvancedHeader[1].Flags + *((_DWORD *)AdvancedHeader[1].FileContextSupportPointer + 7) == a3 )
   {
     FileContextSupportPointer = AdvancedHeader[1].FileContextSupportPointer;
@@ -73,27 +77,28 @@ LABEL_21:
       *((_WORD *)AdvancedHeader[1].Oplock + 2) = *((_WORD *)AdvancedHeader[1].FileContextSupportPointer + 2) & 8;
       *(_QWORD *)(*((_QWORD *)AdvancedHeader[1].FileContextSupportPointer + 2) + 56LL) = AdvancedHeader[1].Oplock;
       v14 = AdvancedHeader[1].FileContextSupportPointer;
+      v15 = Irql;
       AdvancedHeader[1].Oplock = 0LL;
       *((_WORD *)v14 + 2) |= 4u;
       *(_DWORD *)&AdvancedHeader[1].NodeTypeCode |= 8u;
-      KeReleaseQueuedSpinLock(9uLL, v7);
+      IoReleaseVpbSpinLock(v15);
       ExAcquireFastMutex(&RawGlobalLock);
-      v15 = *(struct _LIST_ENTRY **)p_FilterContexts;
+      v16 = *(struct _LIST_ENTRY **)p_FilterContexts;
       if ( *(char **)(*(_QWORD *)p_FilterContexts + 8LL) == p_FilterContexts )
       {
-        v16 = AdvancedHeader[1].FilterContexts.Blink;
-        if ( (char *)v16->Flink == p_FilterContexts )
+        v17 = AdvancedHeader[1].FilterContexts.Blink;
+        if ( (char *)v17->Flink == p_FilterContexts )
         {
-          v16->Flink = v15;
-          v15->Blink = v16;
+          v17->Flink = v16;
+          v16->Blink = v17;
           *(_DWORD *)&AdvancedHeader[1].NodeTypeCode |= 6u;
-          v17 = (struct _LIST_ENTRY *)qword_140C1BCB8;
-          if ( *(__int64 **)qword_140C1BCB8 == &RawDismountedQueue )
+          v18 = (struct _LIST_ENTRY *)qword_140C1DF28;
+          if ( *(__int64 **)qword_140C1DF28 == &RawDismountedQueue )
           {
             *(_QWORD *)p_FilterContexts = &RawDismountedQueue;
-            AdvancedHeader[1].FilterContexts.Blink = v17;
-            v17->Flink = (struct _LIST_ENTRY *)p_FilterContexts;
-            qword_140C1BCB8 = (__int64)&AdvancedHeader[1].FilterContexts;
+            AdvancedHeader[1].FilterContexts.Blink = v18;
+            v18->Flink = (struct _LIST_ENTRY *)p_FilterContexts;
+            qword_140C1DF28 = (__int64)&AdvancedHeader[1].FilterContexts;
             KeReleaseGuardedMutex(&RawGlobalLock);
             return v3;
           }
@@ -103,8 +108,9 @@ LABEL_21:
     else
     {
       *((_WORD *)FileContextSupportPointer + 2) &= ~1u;
+      v11 = Irql;
       *((_QWORD *)AdvancedHeader[1].FileContextSupportPointer + 1) = 0LL;
-      KeReleaseQueuedSpinLock(9uLL, v7);
+      IoReleaseVpbSpinLock(v11);
       ExAcquireFastMutex(&RawGlobalLock);
       v12 = *(struct _LIST_ENTRY **)p_FilterContexts;
       if ( *(char **)(*(_QWORD *)p_FilterContexts + 8LL) == p_FilterContexts )
@@ -117,7 +123,7 @@ LABEL_21:
           KeReleaseGuardedMutex(&RawGlobalLock);
           *(_DWORD *)&AdvancedHeader[1].NodeTypeCode |= 2u;
 LABEL_11:
-          KeReleaseGuardedMutex((PKGUARDED_MUTEX)&AdvancedHeader[2].Resource);
+          KeReleaseGuardedMutex((PKGUARDED_MUTEX)&AdvancedHeader[2].PagingIoResource);
           RawCleanupVcb(AdvancedHeader);
           RawDeleteVcb(AdvancedHeader);
           return 1;
@@ -126,8 +132,8 @@ LABEL_11:
     }
     goto LABEL_21;
   }
-  v8 = v7;
+  v7 = Irql;
 LABEL_5:
-  KeReleaseQueuedSpinLock(9uLL, v8);
+  IoReleaseVpbSpinLock(v7);
   return v3;
 }

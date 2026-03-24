@@ -1,70 +1,76 @@
 /*
- * XREFs of ExpSvmServicePageFault @ 0x14060EA10
+ * XREFs of ExpSvmServicePageFault @ 0x1405B93A0
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     MmAccessFault @ 0x140235350 (MmAccessFault.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MmAccessFault @ 0x14020D050 (MmAccessFault.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpSvmServicePageFault(char a1, signed __int64 a2, unsigned int a3)
 {
-  __int64 v3; // rbx
-  _KPROCESS *Process; // rbp
-  _KPROCESS *v8; // rsi
+  _KPROCESS *Process; // r14
+  _KPROCESS *v7; // rbp
+  _DWORD *SchedulerAssist; // r9
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v13; // eax
-  bool v14; // zf
-  char v15; // bl
+  int v12; // eax
+  bool v13; // zf
+  char v14; // si
+  unsigned int v15; // ebx
   ULONG_PTR v16; // rcx
-  unsigned int v17; // edi
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-68h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v19; // [rsp+38h] [rbp-50h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-78h] BYREF
+  _OWORD v19[3]; // [rsp+38h] [rbp-60h] BYREF
 
-  v3 = a3;
-  memset(&v19, 0, sizeof(v19));
+  memset(v19, 0, sizeof(v19));
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( (a1 & 8) != 0 )
-    return 3221225477LL;
   Process = KeGetCurrentThread()->ApcState.Process;
-  KeAcquireInStackQueuedSpinLock(&qword_140C2D3D8, &LockHandle);
-  v8 = (_KPROCESS *)*((_QWORD *)qword_140C2D3D0 + 2 * v3);
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140C16958, &LockHandle);
+  v7 = (_KPROCESS *)*((_QWORD *)qword_140C16950 + 2 * a3);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v13 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v14 = (v13 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v13;
-      if ( v14 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v12 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v13 = (v12 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v12;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);
-  v15 = 0;
-  if ( Process != v8 )
+  v14 = 0;
+  if ( Process != v7 )
   {
-    KiStackAttachProcess(v8, 0, (__int64)&v19);
-    v15 = 1;
+    KiStackAttachProcess(v7, 0LL, (__int64)v19, SchedulerAssist);
+    v14 = 1;
   }
-  v16 = a1 & 2 | 0x10LL;
-  if ( (a1 & 4) == 0 )
-    v16 = a1 & 2;
-  v17 = MmAccessFault(v16, a2, 1, 0LL);
-  if ( v15 )
-    KiUnstackDetachProcess(&v19);
-  return v17;
+  if ( (a1 & 8) != 0 )
+  {
+    v15 = -1073741819;
+  }
+  else
+  {
+    v16 = a1 & 2 | 0x10LL;
+    if ( (a1 & 4) == 0 )
+      v16 = a1 & 2;
+    v15 = MmAccessFault(v16, a2, 1, 0LL);
+  }
+  if ( v14 )
+    KiUnstackDetachProcess((__int64)v19, 0);
+  return v15;
 }

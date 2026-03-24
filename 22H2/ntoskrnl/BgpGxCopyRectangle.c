@@ -1,47 +1,51 @@
 /*
- * XREFs of BgpGxCopyRectangle @ 0x140AF3654
+ * XREFs of BgpGxCopyRectangle @ 0x1409F763C
  * Callers:
- *     BgpRasPrintGlyph @ 0x140384924 (BgpRasPrintGlyph.c)
+ *     BgpRasPrintGlyph @ 0x1403AC968 (BgpRasPrintGlyph.c)
  * Callees:
- *     BgpGxMarkClean @ 0x14036EB7C (BgpGxMarkClean.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     BgpGxMarkClean @ 0x14032D28C (BgpGxMarkClean.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 void __fastcall BgpGxCopyRectangle(__int64 a1, unsigned int *a2, _DWORD *a3, _DWORD *a4)
 {
-  unsigned int v5; // r10d
-  unsigned int v7; // r11d
-  unsigned int v8; // ebx
-  int v9; // ebp
-  unsigned int v10; // eax
-  unsigned int v11; // eax
-  char *v12; // rdi
-  char *v13; // rsi
-  size_t v14; // r15
+  unsigned int v4; // eax
+  unsigned int v6; // r11d
+  unsigned int v8; // ebp
+  unsigned int v9; // r10d
+  unsigned int v10; // ecx
+  unsigned int v11; // ebx
+  unsigned int v12; // ebp
+  unsigned int v13; // ecx
+  char *v14; // rdi
+  char *v15; // rsi
+  size_t v16; // r15
 
-  v5 = a2[1];
-  v7 = *(_DWORD *)(a1 + 4);
-  v8 = *a2;
-  v9 = *(_DWORD *)(a1 + 8) >> 3;
-  if ( *a2 >= *(_DWORD *)a1 )
-    v8 = *(_DWORD *)a1;
-  v10 = a2[1];
-  if ( v5 >= v7 )
-    v10 = *(_DWORD *)(a1 + 4);
-  v11 = v9 * v10;
-  v12 = (char *)(*((_QWORD *)a2 + 3) + v9 * (*a4 + a4[1] * v5));
-  v13 = (char *)(*(_QWORD *)(a1 + 24) + v9 * (*a3 + a3[1] * v7));
-  if ( v8 )
+  v4 = *(_DWORD *)a1;
+  v6 = *(_DWORD *)(a1 + 4);
+  v8 = *(_DWORD *)(a1 + 8);
+  v9 = a2[1];
+  v10 = v9;
+  v11 = *a2;
+  v12 = v8 >> 3;
+  if ( *a2 >= v4 )
+    v11 = v4;
+  if ( v9 >= v6 )
+    v10 = v6;
+  v13 = v12 * v10;
+  v14 = (char *)(*((_QWORD *)a2 + 3) + v12 * (*a4 + v9 * a4[1]));
+  v15 = (char *)(*(_QWORD *)(a1 + 24) + v12 * (*a3 + v6 * a3[1]));
+  if ( v11 )
   {
-    v14 = v11;
+    v16 = v13;
     do
     {
-      memmove(v13, v12, v14);
-      v12 += a2[1] * v9;
-      v13 += (unsigned int)(*(_DWORD *)(a1 + 4) * v9);
-      --v8;
+      memmove(v15, v14, v16);
+      v14 += v12 * a2[1];
+      v15 += *(_DWORD *)(a1 + 4) * v12;
+      --v11;
     }
-    while ( v8 );
+    while ( v11 );
   }
   BgpGxMarkClean(a1);
 }

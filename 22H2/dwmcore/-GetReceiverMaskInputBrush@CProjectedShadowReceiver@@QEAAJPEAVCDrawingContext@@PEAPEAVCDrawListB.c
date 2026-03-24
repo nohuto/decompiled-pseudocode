@@ -1,21 +1,21 @@
 /*
- * XREFs of ?GetReceiverMaskInputBrush@CProjectedShadowReceiver@@QEAAJPEAVCDrawingContext@@PEAPEAVCDrawListBrush@@@Z @ 0x18024B8AC
+ * XREFs of ?GetReceiverMaskInputBrush@CProjectedShadowReceiver@@QEAAJPEAVCDrawingContext@@PEAPEAVCDrawListBrush@@@Z @ 0x180006330
  * Callers:
- *     ?GenerateDrawList@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18024A2B0 (-GenerateDrawList@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache.c)
+ *     ?GenerateDrawList@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180006A50 (-GenerateDrawList@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache.c)
  * Callees:
- *     ?GetEffectiveMaskBrush@CProjectedShadowReceiver@@QEBAPEAVCBrush@@XZ @ 0x1800055AC (-GetEffectiveMaskBrush@CProjectedShadowReceiver@@QEBAPEAVCBrush@@XZ.c)
- *     ??0CDrawListBitmap@@QEAA@PEAVIBitmapRealization@@@Z @ 0x180033954 (--0CDrawListBitmap@@QEAA@PEAVIBitmapRealization@@@Z.c)
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ @ 0x180049450 (-GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ.c)
- *     ?CreateWithContentRect@CSurfaceDrawListBrush@@SAJAEBVCDrawListBitmap@@USamplerMode@@AEBUD2D_RECT_F@@PEAPEAV1@@Z @ 0x18007EE80 (-CreateWithContentRect@CSurfaceDrawListBrush@@SAJAEBVCDrawListBitmap@@USamplerMode@@AEBUD2D_RECT.c)
- *     ??1CBrushDrawListGenerator@@QEAA@XZ @ 0x1800946F8 (--1CBrushDrawListGenerator@@QEAA@XZ.c)
- *     ??0CBrushDrawListGenerator@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x1800947E4 (--0CBrushDrawListGenerator@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??_ECSurfaceDrawListBrush@@UEAAPEAXI@Z @ 0x1800D8440 (--_ECSurfaceDrawListBrush@@UEAAPEAXI@Z.c)
- *     ?InternalRelease@?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@IEAAKXZ @ 0x1800FF334 (-InternalRelease@-$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GenerateMaskIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCBrush@@PEBVCShape@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x1802B7FF4 (-GenerateMaskIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_.c)
+ *     ?GenerateMaskIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCBrush@@PEBVCShape@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x18000F3D4 (-GenerateMaskIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_.c)
+ *     ?InternalRelease@?$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ @ 0x18001B570 (-InternalRelease@-$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?Initialize@CDrawListBitmap@@QEAAJPEAVIBitmapRealization@@PEBVCDrawingContext@@@Z @ 0x180040814 (-Initialize@CDrawListBitmap@@QEAAJPEAVIBitmapRealization@@PEBVCDrawingContext@@@Z.c)
+ *     ??_ECSurfaceDrawListBrush@@UEAAPEAXI@Z @ 0x180054720 (--_ECSurfaceDrawListBrush@@UEAAPEAXI@Z.c)
+ *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180056574 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?CreateWithContentRect@CSurfaceDrawListBrush@@SAJAEBVCDrawListBitmap@@USamplerMode@@AEBUD2D_RECT_F@@PEAPEAV1@@Z @ 0x180057C44 (-CreateWithContentRect@CSurfaceDrawListBrush@@SAJAEBVCDrawListBitmap@@USamplerMode@@AEBUD2D_RECT.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1CBrushDrawListGenerator@@QEAA@XZ @ 0x180094C7C (--1CBrushDrawListGenerator@@QEAA@XZ.c)
+ *     ??0CBrushDrawListGenerator@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x180094CBC (--0CBrushDrawListGenerator@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
+ *     ?GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ @ 0x1800C1578 (-GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CProjectedShadowReceiver::GetReceiverMaskInputBrush(
@@ -23,129 +23,152 @@ __int64 __fastcall CProjectedShadowReceiver::GetReceiverMaskInputBrush(
         struct CDrawingContext *a2,
         struct CDrawListBrush **a3)
 {
-  int v4; // ebx
-  CBrush *EffectiveMaskBrush; // r15
+  CBrush *v5; // rsi
+  unsigned int v7; // ebx
   __int64 v8; // rdx
-  char *v9; // rdi
-  int v10; // eax
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  int v13; // eax
-  __int64 v14; // rcx
-  void (__fastcall ***v15)(_QWORD, __int128 *); // rcx
-  struct IBitmapRealization *v16; // rdx
-  CSurfaceDrawListBrush *v17; // rcx
-  __int16 v19; // [rsp+40h] [rbp-C0h] BYREF
-  char v20; // [rsp+42h] [rbp-BEh]
-  CSurfaceDrawListBrush *v21; // [rsp+50h] [rbp-B0h] BYREF
-  const char *v22; // [rsp+58h] [rbp-A8h] BYREF
-  int v23; // [rsp+60h] [rbp-A0h]
-  float v24; // [rsp+64h] [rbp-9Ch]
-  CSurfaceDrawListBrush **v25; // [rsp+68h] [rbp-98h]
-  CSurfaceDrawListBrush *v26; // [rsp+70h] [rbp-90h] BYREF
-  char v27; // [rsp+78h] [rbp-88h]
-  _BYTE v28[8]; // [rsp+80h] [rbp-80h] BYREF
-  _BYTE v29[16]; // [rsp+88h] [rbp-78h] BYREF
-  __int128 v30; // [rsp+98h] [rbp-68h] BYREF
-  _BYTE v31[40]; // [rsp+B0h] [rbp-50h] BYREF
-  struct CDrawListBrush *v32; // [rsp+D8h] [rbp-28h]
-  __int64 v33; // [rsp+E0h] [rbp-20h]
+  int v9; // eax
+  unsigned int v10; // ecx
+  int v11; // eax
+  unsigned int v12; // ecx
+  __int64 v14; // r8
+  int v15; // eax
+  unsigned int v16; // ecx
+  void (__fastcall ***v17)(_QWORD, __int128 *); // rcx
+  __int64 v18; // rdx
+  struct IBitmapRealization *v19; // rdx
+  int v20; // eax
+  unsigned int v21; // ecx
+  CSurfaceDrawListBrush *v22; // rcx
+  __int16 v23; // [rsp+40h] [rbp-89h] BYREF
+  char v24; // [rsp+42h] [rbp-87h]
+  CSurfaceDrawListBrush *v25; // [rsp+50h] [rbp-79h] BYREF
+  const char *v26; // [rsp+58h] [rbp-71h] BYREF
+  int v27; // [rsp+60h] [rbp-69h]
+  float v28; // [rsp+64h] [rbp-65h]
+  CSurfaceDrawListBrush **v29; // [rsp+68h] [rbp-61h]
+  CSurfaceDrawListBrush *v30; // [rsp+70h] [rbp-59h] BYREF
+  char v31; // [rsp+78h] [rbp-51h]
+  __int128 v32; // [rsp+80h] [rbp-49h] BYREF
+  __int128 v33; // [rsp+90h] [rbp-39h] BYREF
+  __int64 v34; // [rsp+A0h] [rbp-29h]
+  int v35; // [rsp+A8h] [rbp-21h]
+  __int64 v36; // [rsp+ACh] [rbp-1Dh]
+  int v37; // [rsp+B4h] [rbp-15h]
+  struct CDrawListBrush *v38; // [rsp+B8h] [rbp-11h]
+  __int64 v39; // [rsp+C0h] [rbp-9h]
 
-  v4 = 0;
   *a3 = 0LL;
-  EffectiveMaskBrush = CProjectedShadowReceiver::GetEffectiveMaskBrush(this);
-  if ( !CBrush::GetBrushGraph(EffectiveMaskBrush, v8) )
+  v5 = (CBrush *)*((_QWORD *)this + 12);
+  v7 = 0;
+  if ( !v5 )
+    v5 = *(CBrush **)(*((_QWORD *)this + 2) + 168LL);
+  if ( !CBrush::GetBrushGraph(v5) )
   {
-    v9 = (char *)this + 112;
-    if ( !*((_QWORD *)this + 14) )
+    v8 = *((_QWORD *)this + 13);
+    if ( v8 )
     {
-      CBrushDrawListGenerator::CBrushDrawListGenerator(
-        (CBrushDrawListGenerator *)v31,
-        a2,
-        (const struct D2D_SIZE_F *)(*((_QWORD *)this + 8) + 140LL));
-      v10 = (*(__int64 (__fastcall **)(CBrush *, _BYTE *))(*(_QWORD *)EffectiveMaskBrush + 312LL))(
-              EffectiveMaskBrush,
-              v31);
-      v4 = v10;
-      if ( v10 < 0 )
+LABEL_16:
+      v17 = (void (__fastcall ***)(_QWORD, __int128 *))(v8 + 8 + *(int *)(*(_QWORD *)(v8 + 8) + 16LL));
+      (**v17)(v17, &v32);
+      v18 = *((_QWORD *)this + 13);
+      v36 = 0LL;
+      v37 = 0;
+      v34 = 0LL;
+      v35 = 0;
+      LOBYTE(v38) = 0;
+      v33 = 0LL;
+      if ( v18 )
+        v19 = (struct IBitmapRealization *)(*(int *)(*(_QWORD *)(v18 + 8) + 16LL) + v18 + 8);
+      else
+        v19 = 0LL;
+      v20 = CDrawListBitmap::Initialize((CDrawListBitmap *)&v33, v19, a2);
+      v7 = v20;
+      if ( v20 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xC2u, 0LL);
-        goto LABEL_13;
+        MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0xE3u, 0LL);
       }
-      if ( v33 )
+      else
       {
-        Microsoft::WRL::ComPtr<IRenderTargetBitmap>::InternalRelease((__int64 *)this + 14);
-        v12 = *((_QWORD *)this + 8);
-        v22 = "DWM ProjectedShadow Mask";
-        v23 = 24;
-        v30 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
-        v13 = ShadowHelpers::GenerateMaskIntermediate(
-                &v22,
-                a2,
-                v12 + 140,
-                EffectiveMaskBrush,
-                0LL,
-                0,
-                &v30,
-                (char *)this + 112);
-        v4 = v13;
-        if ( v13 < 0 )
+        v26 = 0LL;
+        v25 = 0LL;
+        v30 = 0LL;
+        v31 = 1;
+        v29 = &v25;
+        v23 = SamplerMode::k_ClampClampLinear;
+        *(float *)&v27 = (float)(int)v32;
+        v28 = (float)SDWORD1(v32);
+        v24 = 1;
+        v7 = CSurfaceDrawListBrush::CreateWithContentRect(&v33, &v23, &v26, &v30);
+        if ( v31 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0xD1u, 0LL);
-LABEL_13:
-          CBrushDrawListGenerator::~CBrushDrawListGenerator((CBrushDrawListGenerator *)v31);
-          return (unsigned int)v4;
+          v22 = *v29;
+          *v29 = v30;
+          if ( v22 )
+            CSurfaceDrawListBrush::`vector deleting destructor'(v22, 1u);
+        }
+        if ( (v7 & 0x80000000) != 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v22, 0LL, 0, v7, 0xECu, 0LL);
+          if ( v25 )
+            CSurfaceDrawListBrush::`vector deleting destructor'(v25, 1u);
+        }
+        else
+        {
+          *a3 = v25;
+          v25 = 0LL;
         }
       }
-      else
-      {
-        *a3 = v32;
-        v32 = 0LL;
-      }
-      CBrushDrawListGenerator::~CBrushDrawListGenerator((CBrushDrawListGenerator *)v31);
+      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((char *)&v33 + 8);
+      wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>(&v33);
+      return v7;
     }
-    if ( *(_QWORD *)v9 )
+    v9 = (*(__int64 (__fastcall **)(CBrush *, struct CDrawingContext *, __int64))(*(_QWORD *)v5 + 320LL))(
+           v5,
+           a2,
+           *((_QWORD *)this + 7) + 132LL);
+    v7 = v9;
+    if ( v9 < 0 )
     {
-      v15 = (void (__fastcall ***)(_QWORD, __int128 *))(*(_QWORD *)v9
-                                                      + 8LL
-                                                      + *(int *)(*(_QWORD *)(*(_QWORD *)v9 + 8LL) + 16LL));
-      (**v15)(v15, &v30);
-      if ( *(_QWORD *)v9 )
-        v16 = (struct IBitmapRealization *)(*(int *)(*(_QWORD *)(*(_QWORD *)v9 + 8LL) + 16LL) + *(_QWORD *)v9 + 8LL);
-      else
-        v16 = 0LL;
-      CDrawListBitmap::CDrawListBitmap((CDrawListBitmap *)v28, v16);
-      v22 = 0LL;
-      v21 = 0LL;
-      v26 = 0LL;
-      v27 = 1;
-      v25 = &v21;
-      v19 = SamplerMode::k_ClampClampLinear;
-      *(float *)&v23 = (float)(int)v30;
-      v24 = (float)SDWORD1(v30);
-      v20 = 1;
-      v4 = CSurfaceDrawListBrush::CreateWithContentRect((CDrawListBitmap *)v28, &v19, (float *)&v22, (__int64 *)&v26);
-      if ( v27 )
-      {
-        v17 = *v25;
-        *v25 = v26;
-        if ( v17 )
-          CSurfaceDrawListBrush::`vector deleting destructor'(v17, 1);
-      }
-      if ( v4 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast((__int64)v17, 0LL, 0, v4, 0xE8u, 0LL);
-        if ( v21 )
-          CSurfaceDrawListBrush::`vector deleting destructor'(v21, 1);
-      }
-      else
-      {
-        *a3 = v21;
-        v21 = 0LL;
-      }
-      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)v29);
-      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)v28);
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xC0u, 0LL);
+      return v7;
     }
+    CBrushDrawListGenerator::CBrushDrawListGenerator(
+      (CBrushDrawListGenerator *)&v33,
+      a2,
+      (const struct D2D_SIZE_F *)(*((_QWORD *)this + 7) + 132LL));
+    v11 = (*(__int64 (__fastcall **)(CBrush *, __int128 *))(*(_QWORD *)v5 + 328LL))(v5, &v33);
+    v7 = v11;
+    if ( v11 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0xC4u, 0LL);
+    }
+    else
+    {
+      if ( !v39 )
+      {
+        *a3 = v38;
+        v38 = 0LL;
+        goto LABEL_9;
+      }
+      Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease((char *)this + 104);
+      v14 = *((_QWORD *)this + 7);
+      v26 = "DWM ProjectedShadow Mask";
+      v27 = 24;
+      v32 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
+      v15 = ShadowHelpers::GenerateMaskIntermediate(&v26, a2, v14 + 132, v5, 0LL, 0, &v32, (char *)this + 104);
+      v7 = v15;
+      if ( v15 >= 0 )
+      {
+LABEL_9:
+        CBrushDrawListGenerator::~CBrushDrawListGenerator((CBrushDrawListGenerator *)&v33);
+        v8 = *((_QWORD *)this + 13);
+        if ( !v8 )
+          return v7;
+        goto LABEL_16;
+      }
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0xD3u, 0LL);
+    }
+    CBrushDrawListGenerator::~CBrushDrawListGenerator((CBrushDrawListGenerator *)&v33);
   }
-  return (unsigned int)v4;
+  return v7;
 }

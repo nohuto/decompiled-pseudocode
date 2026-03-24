@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetType@COffScreenRenderingLayer@@UEBA?AW4LayerType@CLayer@@XZ @ 0x180106BA0
+ * XREFs of ?GetType@COffScreenRenderingLayer@@UEBA?AW4LayerType@CLayer@@XZ @ 0x1800E2370
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 COffScreenRenderingLayer::GetType()
 {
-  return 6LL;
+  return 7LL;
 }

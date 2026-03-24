@@ -1,22 +1,23 @@
 /*
- * XREFs of RtlpHpSegFreeRangeInsert @ 0x140353A00
+ * XREFs of RtlpHpSegFreeRangeInsert @ 0x14030A960
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x140350070 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegContextCompact @ 0x14036DD30 (RtlpHpSegContextCompact.c)
- *     RtlpHpSegContextReserve @ 0x14036FAB0 (RtlpHpSegContextReserve.c)
- *     RtlpHpSegLargeRangeAllocate @ 0x1403A5774 (RtlpHpSegLargeRangeAllocate.c)
+ *     RtlpHpSegContextCompact @ 0x1403067D0 (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x1403099F0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeShrink @ 0x1403299F0 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegContextReserve @ 0x14037B380 (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x14037E1BC (RtlpHpSegLargeRangeAllocate.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x14034E6B0 (RtlRbInsertNodeEx.c)
- *     RtlpHpSegPageRangeComputeLargePageCost @ 0x140351450 (RtlpHpSegPageRangeComputeLargePageCost.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x14030AA60 (RtlpHpSegPageRangeComputeLargePageCost.c)
+ *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
  */
 
-unsigned __int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, __int64 a2, int a3)
 {
   char v5; // al
-  unsigned __int64 v6; // rdx
-  bool v7; // cl
-  unsigned __int64 result; // rax
-  unsigned __int64 v9; // rcx
+  __int64 v6; // rdx
+  unsigned __int8 v7; // cl
+  __int64 v8; // rcx
+  __int64 result; // rax
 
   if ( !a3 && (*(_BYTE *)(a1 + 13) & 0x10) != 0 && *(unsigned __int8 *)(a2 + 31) == 256 - *(unsigned __int8 *)(a1 + 10) )
   {
@@ -27,8 +28,8 @@ unsigned __int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, unsigned __int6
   {
     if ( (*(_BYTE *)(a1 + 13) & 7) != 0 )
       v5 = RtlpHpSegPageRangeComputeLargePageCost(
-             (_QWORD *)a1,
-             (a2 & *(_QWORD *)a1) + ((__int64)(a2 - (a2 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8)),
+             a1,
+             (a2 & *(_QWORD *)a1) + ((a2 - (a2 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8)),
              *(unsigned __int8 *)(a2 + 31) << *(_BYTE *)(a1 + 8));
     else
       v5 = 4;
@@ -36,52 +37,50 @@ unsigned __int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, unsigned __int6
     v6 = *(_QWORD *)(a1 + 96);
     if ( (*(_QWORD *)(a1 + 104) & 1) != 0 )
     {
-      if ( !v6 )
-      {
-LABEL_8:
-        v7 = 0;
-        goto LABEL_9;
-      }
-      v6 ^= a1 + 96;
+      if ( v6 )
+        v6 ^= a1 + 96;
     }
     v7 = 0;
     if ( v6 )
     {
       while ( 1 )
       {
-        if ( *(_DWORD *)(a2 + 28) >= *(_DWORD *)(v6 + 28) )
+        if ( *(_DWORD *)(a2 + 28) < *(_DWORD *)(v6 + 28) )
         {
-          v9 = *(_QWORD *)(v6 + 8);
+          v8 = *(_QWORD *)v6;
           if ( (*(_QWORD *)(a1 + 104) & 1) != 0 )
           {
-            if ( !v9 )
-              goto LABEL_22;
-            v9 ^= v6;
+            if ( !v8 )
+              goto LABEL_19;
+            v8 ^= v6;
           }
-          if ( !v9 )
+          if ( !v8 )
           {
-LABEL_22:
-            v7 = 1;
+LABEL_19:
+            v7 = 0;
             break;
           }
         }
         else
         {
-          v9 = *(_QWORD *)v6;
+          v8 = *(_QWORD *)(v6 + 8);
           if ( (*(_QWORD *)(a1 + 104) & 1) != 0 )
           {
-            if ( !v9 )
-              goto LABEL_8;
-            v9 ^= v6;
+            if ( !v8 )
+              goto LABEL_20;
+            v8 ^= v6;
           }
-          if ( !v9 )
-            goto LABEL_8;
+          if ( !v8 )
+          {
+LABEL_20:
+            v7 = 1;
+            break;
+          }
         }
-        v6 = v9;
+        v6 = v8;
       }
     }
-LABEL_9:
-    RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 96), v6, v7, a2);
+    RtlRbInsertNodeEx(a1 + 96, v6, v7, a2);
     _InterlockedExchangeAdd64(
       (volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 16),
       (unsigned __int16)~*(_WORD *)(a2 + 28));

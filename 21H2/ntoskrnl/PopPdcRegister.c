@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPdcRegister @ 0x140861088
+ * XREFs of PopPdcRegister @ 0x1407D12F0
  * Callers:
- *     PopPdcInvocation @ 0x1407FCAFC (PopPdcInvocation.c)
+ *     PopPdcInvocation @ 0x140773834 (PopPdcInvocation.c)
  * Callees:
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopPdcRegister(__int64 a1, _QWORD *a2)
@@ -27,8 +27,6 @@ __int64 __fastcall PopPdcRegister(__int64 a1, _QWORD *a2)
     *((_OWORD *)&PoPdcCallbacks + 8) = *(_OWORD *)(a1 + 136);
     *((_OWORD *)&PoPdcCallbacks + 9) = *(_OWORD *)(a1 + 152);
     *((_OWORD *)&PoPdcCallbacks + 10) = *(_OWORD *)(a1 + 168);
-    *((_OWORD *)&PoPdcCallbacks + 11) = *(_OWORD *)(a1 + 184);
-    *((_OWORD *)&PoPdcCallbacks + 12) = *(_OWORD *)(a1 + 200);
     *a2 = PdcPoResiliencyClient;
     a2[1] = PdcPoLowPower;
     a2[2] = PdcPoSetPowerAction;
@@ -48,7 +46,7 @@ __int64 __fastcall PopPdcRegister(__int64 a1, _QWORD *a2)
     a2[16] = PdcPoNetworkResiliency;
     a2[17] = PpmQueryDripsResidency;
     a2[18] = PdcPoSleepStudyHelperSetPhaseActive;
-    a2[19] = PdcPoLidReliabilityUpdateCallback;
+    a2[19] = PdcPoPowerRequestBlockingCallback;
     PopReleasePolicyLock(&PoPdcCallbacks + 16, 128LL);
   }
   else

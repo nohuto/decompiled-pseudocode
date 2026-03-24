@@ -1,53 +1,42 @@
 /*
- * XREFs of NtLockRegistryKey @ 0x140848FA0
+ * XREFs of NtLockRegistryKey @ 0x1407C3710
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     CmLockKeyForWrite @ 0x14084905C (CmLockKeyForWrite.c)
- *     CmpAcquireShutdownRundown @ 0x140AF6380 (CmpAcquireShutdownRundown.c)
- *     CmObReferenceObjectByHandle @ 0x140AF63D0 (CmObReferenceObjectByHandle.c)
- *     CmpReleaseShutdownRundown @ 0x140AF6470 (CmpReleaseShutdownRundown.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     CmpReleaseShutdownRundown @ 0x1406CE440 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x1406CF870 (CmpAcquireShutdownRundown.c)
+ *     CmObReferenceObjectByHandle @ 0x1406DD40C (CmObReferenceObjectByHandle.c)
+ *     CmLockKeyForWrite @ 0x1407C37B0 (CmLockKeyForWrite.c)
  */
 
-__int64 __fastcall NtLockRegistryKey(int a1)
+__int64 __fastcall NtLockRegistryKey(void *a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  int v5; // r8d
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  int v8; // ebx
-  __int64 v10[3]; // [rsp+30h] [rbp-18h] BYREF
-  PVOID Object; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v2; // r8
+  int v3; // ebx
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp+10h] BYREF
 
-  *(_OWORD *)v10 = 0LL;
-  CmpInitializeThreadInfo((__int64)v10);
-  Object = 0LL;
+  DmaAdapter = 0LL;
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    v8 = -1073741727;
+    return (unsigned int)-1073741727;
   }
-  else if ( (unsigned __int8)CmpAcquireShutdownRundown(v3, v2, v4) )
+  else if ( CmpAcquireShutdownRundown() )
   {
-    v8 = CmObReferenceObjectByHandle(a1, 131078, v5, 0, (__int64)&Object, 0LL);
-    if ( v8 >= 0 )
+    v3 = CmObReferenceObjectByHandle(a1, 0x20006u, v2, 0, &DmaAdapter, 0LL);
+    if ( v3 >= 0 )
     {
-      v8 = CmLockKeyForWrite(Object);
-      if ( v8 >= 0 )
-        v8 = 0;
+      v3 = CmLockKeyForWrite(DmaAdapter);
+      if ( v3 >= 0 )
+        v3 = 0;
     }
-    if ( Object )
-      ObfDereferenceObject(Object);
-    CmpReleaseShutdownRundown(v7, v6);
+    if ( DmaAdapter )
+      HalPutDmaAdapter(DmaAdapter);
+    CmpReleaseShutdownRundown();
   }
   else
   {
-    v8 = -1073741431;
+    return (unsigned int)-1073741431;
   }
-  CmCleanupThreadInfo(v10);
-  return (unsigned int)v8;
+  return (unsigned int)v3;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceCr3Tripped @ 0x140595410
+ * XREFs of PopTraceCr3Tripped @ 0x140573558
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x140373610 (PopCheckAndHandleThermalConditions.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1403C4D58 (PopCheckAndHandleThermalConditions.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void PopTraceCr3Tripped()
@@ -17,17 +17,17 @@ void PopTraceCr3Tripped()
   int v4; // [rsp+60h] [rbp-18h]
   int v5; // [rsp+64h] [rbp-14h]
 
-  if ( (unsigned int)dword_140C03950 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
     {
       v5 = 0;
       v3 = &v1;
       v1 = v0;
       v4 = 4;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03950,
-        (unsigned __int8 *)&dword_14002F224,
+        (__int64)&dword_140C02228,
+        (unsigned __int8 *)&byte_140028A6F,
         0LL,
         0LL,
         3u,

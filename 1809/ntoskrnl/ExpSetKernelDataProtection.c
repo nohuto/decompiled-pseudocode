@@ -5,10 +5,10 @@
  *     ExpLoadAndSortLicensingCacheDescriptors @ 0x1405A0888 (ExpLoadAndSortLicensingCacheDescriptors.c)
  *     ExUpdateLicenseDataInternal @ 0x1405A0AD0 (ExUpdateLicenseDataInternal.c)
  *     ExpGenuinePolicyCacheProvider @ 0x1405A1820 (ExpGenuinePolicyCacheProvider.c)
- *     ExGetLicenseTamperState @ 0x1408CE960 (ExGetLicenseTamperState.c)
- *     ExSetLicenseTamperState @ 0x1408CEB70 (ExSetLicenseTamperState.c)
- *     sub_1408CF4C0 @ 0x1408CF4C0 (sub_1408CF4C0.c)
- *     sub_1408CF630 @ 0x1408CF630 (sub_1408CF630.c)
+ *     ExGetLicenseTamperState @ 0x1408CE940 (ExGetLicenseTamperState.c)
+ *     ExSetLicenseTamperState @ 0x1408CEB50 (ExSetLicenseTamperState.c)
+ *     sub_1408CF4A0 @ 0x1408CF4A0 (sub_1408CF4A0.c)
+ *     sub_1408CF610 @ 0x1408CF610 (sub_1408CF610.c)
  *     ExInitLicenseData @ 0x1409C43A0 (ExInitLicenseData.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -17,7 +17,7 @@
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     sub_1405A1BD4 @ 0x1405A1BD4 (sub_1405A1BD4.c)
- *     sub_140758068 @ 0x140758068 (sub_140758068.c)
+ *     sub_140758048 @ 0x140758048 (sub_140758048.c)
  */
 
 __int64 __fastcall ExpSetKernelDataProtection(__int64 a1, char a2, char a3)
@@ -85,7 +85,7 @@ LABEL_7:
       *((_QWORD *)PoolWithTag + 3) = 0LL;
       *((_QWORD *)PoolWithTag + 4) = 0LL;
       *((_BYTE *)PoolWithTag + 40) = 1;
-      v13 = sub_140758068(v8);
+      v13 = sub_140758048(v8);
       if ( v13 >= 0 )
       {
         qword_14096E620 = v9;

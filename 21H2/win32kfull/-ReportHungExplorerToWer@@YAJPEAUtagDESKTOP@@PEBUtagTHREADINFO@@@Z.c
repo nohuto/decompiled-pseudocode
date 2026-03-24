@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ReportHungExplorerToWer@@YAJPEAUtagDESKTOP@@PEBUtagTHREADINFO@@@Z @ 0x1C023A8EC
+ * XREFs of ?ReportHungExplorerToWer@@YAJPEAUtagDESKTOP@@PEBUtagTHREADINFO@@@Z @ 0x1C0241170
  * Callers:
- *     DoExplorerHangDetection @ 0x1C0004E74 (DoExplorerHangDetection.c)
+ *     DoExplorerHangDetection @ 0x1C00089F0 (DoExplorerHangDetection.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall ReportHungExplorerToWer(struct tagDESKTOP *a1, PETHREAD *a2)
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   ThreadHandle = 0LL;
-  StartContext = (_DWORD *)Win32AllocPoolNonPagedZInit(12LL, 1163359061LL);
+  StartContext = (_DWORD *)Win32AllocPoolNonPaged(12LL, 1163359061LL);
   if ( !StartContext )
     return 3221225495LL;
   *StartContext = (unsigned int)PsGetProcessId(**(PEPROCESS **)(*((_QWORD *)a1 + 1) + 176LL));

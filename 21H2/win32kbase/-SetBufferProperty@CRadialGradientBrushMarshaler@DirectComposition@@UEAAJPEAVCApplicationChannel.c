@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CRadialGradientBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C021D770
+ * XREFs of ?SetBufferProperty@CRadialGradientBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E6FF0
  * Callers:
  *     <none>
  * Callees:
@@ -33,7 +33,7 @@ __int64 __fastcall DirectComposition::CRadialGradientBrushMarshaler::SetBufferPr
       {
         v9 = *a4;
         *((_DWORD *)this + 4) |= 0x1000u;
-        *((_QWORD *)this + 17) = v9;
+        *((_QWORD *)this + 16) = v9;
 LABEL_13:
         *a6 = 1;
         return result;
@@ -43,7 +43,7 @@ LABEL_13:
     {
       v10 = *a4;
       *((_DWORD *)this + 4) |= 0x800u;
-      *((_QWORD *)this + 16) = v10;
+      *((_QWORD *)this + 15) = v10;
       goto LABEL_13;
     }
   }
@@ -51,7 +51,7 @@ LABEL_13:
   {
     v11 = *a4;
     *((_DWORD *)this + 4) |= 0x400u;
-    *((_QWORD *)this + 15) = v11;
+    *((_QWORD *)this + 14) = v11;
     goto LABEL_13;
   }
   return 3221225485LL;

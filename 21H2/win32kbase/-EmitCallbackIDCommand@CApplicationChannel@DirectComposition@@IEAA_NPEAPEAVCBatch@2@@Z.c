@@ -1,23 +1,24 @@
 /*
- * XREFs of ?EmitCallbackIDCommand@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00138E8
+ * XREFs of ?EmitCallbackIDCommand@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C005F0C4
  * Callers:
- *     ?BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z @ 0x1C0012700 (-BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z.c)
+ *     ?BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z @ 0x1C005DE20 (-BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z.c)
  * Callees:
- *     ?EmitCallbackIDCommand@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@_N@Z @ 0x1C00B518C (-EmitCallbackIDCommand@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@_N@Z.c)
+ *     ?EmitCallbackIDCommand@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@_N@Z @ 0x1C006606C (-EmitCallbackIDCommand@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@_N@Z.c)
  */
 
-char __fastcall DirectComposition::CApplicationChannel::EmitCallbackIDCommand(
+bool __fastcall DirectComposition::CApplicationChannel::EmitCallbackIDCommand(
         DirectComposition::CApplicationChannel *this,
         struct DirectComposition::CBatch **a2)
 {
-  char v4; // di
-
-  if ( *((char *)this + 240) < 0 && DirectComposition::CApplicationChannel::EmitCallbackIDCommand(this, a2, 0) )
-    *((_BYTE *)this + 240) &= ~0x80u;
-  v4 = 1;
-  if ( (*((_BYTE *)this + 241) & 1) != 0 && DirectComposition::CApplicationChannel::EmitCallbackIDCommand(this, a2, 1) )
-    *((_BYTE *)this + 241) &= ~1u;
-  if ( *((char *)this + 240) < 0 || (*((_BYTE *)this + 241) & 1) != 0 )
-    return 0;
-  return v4;
+  if ( (*((_BYTE *)this + 240) & 0x20) != 0
+    && DirectComposition::CApplicationChannel::EmitCallbackIDCommand(this, a2, 0) )
+  {
+    *((_BYTE *)this + 240) &= ~0x20u;
+  }
+  if ( (*((_BYTE *)this + 240) & 0x40) != 0
+    && DirectComposition::CApplicationChannel::EmitCallbackIDCommand(this, a2, 1) )
+  {
+    *((_BYTE *)this + 240) &= ~0x40u;
+  }
+  return (*((_BYTE *)this + 240) & 0x60) == 0;
 }

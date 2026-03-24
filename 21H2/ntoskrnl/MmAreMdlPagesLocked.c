@@ -1,13 +1,13 @@
 /*
- * XREFs of MmAreMdlPagesLocked @ 0x140A8142C
+ * XREFs of MmAreMdlPagesLocked @ 0x1409C5CD0
  * Callers:
- *     VERIFY_BUFFER_LOCKED @ 0x140A83C18 (VERIFY_BUFFER_LOCKED.c)
- *     VfMiscMmBuildMdlForNonPagedPool_Exit @ 0x140AA44E0 (VfMiscMmBuildMdlForNonPagedPool_Exit.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x1409CA060 (VERIFY_BUFFER_LOCKED.c)
+ *     VerifierMmBuildMdlForNonPagedPool @ 0x1409E6620 (VerifierMmBuildMdlForNonPagedPool.c)
  * Callees:
- *     MiIsPfnLocked @ 0x14025C930 (MiIsPfnLocked.c)
- *     MiIsPfn @ 0x1402B2E00 (MiIsPfn.c)
- *     MiLockPage @ 0x14045C6C8 (MiLockPage.c)
- *     MiUnlockPage @ 0x14045C6DE (MiUnlockPage.c)
+ *     MiUnlockPage @ 0x1402AF34C (MiUnlockPage.c)
+ *     MiIsPfn @ 0x140349150 (MiIsPfn.c)
+ *     MiIsPfnLocked @ 0x1403812A8 (MiIsPfnLocked.c)
+ *     MiLockPage @ 0x14054F904 (MiLockPage.c)
  */
 
 __int64 __fastcall MmAreMdlPagesLocked(_DWORD *a1)
@@ -15,8 +15,11 @@ __int64 __fastcall MmAreMdlPagesLocked(_DWORD *a1)
   unsigned __int64 *v1; // r14
   unsigned __int64 v2; // rsi
   unsigned __int64 v3; // rbx
-  __int64 v4; // rbx
-  unsigned __int8 v5; // di
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  _DWORD *v6; // r9
+  __int64 v7; // rbx
+  unsigned __int8 v8; // di
   int IsPfnLocked; // ebp
 
   v1 = (unsigned __int64 *)(a1 + 12);
@@ -26,11 +29,11 @@ __int64 __fastcall MmAreMdlPagesLocked(_DWORD *a1)
     v3 = *v1;
     if ( (unsigned int)MiIsPfn(*v1) )
     {
-      v4 = 48 * v3 - 0x220000000000LL;
-      v5 = dword_140C529CC == 2 ? 17 : MiLockPage(v4);
-      IsPfnLocked = MiIsPfnLocked(v4);
-      if ( v5 != 17 )
-        MiUnlockPage(v4, v5);
+      v7 = 48 * v3 - 0x58000000000LL;
+      v8 = dword_140C4E6CC == 2 ? 17 : MiLockPage(v7, v4, v5, v6);
+      IsPfnLocked = MiIsPfnLocked(v7);
+      if ( v8 != 17 )
+        MiUnlockPage(v7, v8);
       if ( !IsPfnLocked )
         break;
     }

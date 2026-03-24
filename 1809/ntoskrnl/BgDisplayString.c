@@ -3,9 +3,9 @@
  * Callers:
  *     BgkDrawText @ 0x1409532CC (BgkDrawText.c)
  * Callees:
- *     KeGetCurrentIrql @ 0x1400BC820 (KeGetCurrentIrql.c)
- *     BgpFwReleaseLock @ 0x14016F1E8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F238 (BgpFwAcquireLock.c)
+ *     KeGetCurrentIrql @ 0x1400BC840 (KeGetCurrentIrql.c)
+ *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
  *     BgpTxtDisplayString @ 0x1409545A0 (BgpTxtDisplayString.c)
  */
 

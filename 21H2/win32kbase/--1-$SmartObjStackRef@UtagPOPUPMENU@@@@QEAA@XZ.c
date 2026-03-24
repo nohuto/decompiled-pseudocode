@@ -1,12 +1,22 @@
 /*
- * XREFs of ??1?$SmartObjStackRef@UtagPOPUPMENU@@@@QEAA@XZ @ 0x1C01418D4
+ * XREFs of ??1?$SmartObjStackRef@UtagPOPUPMENU@@@@QEAA@XZ @ 0x1C011C26C
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C00C64AC (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C003EFB0 (xxxDestroyThreadInfo.c)
  * Callees:
- *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C01418EC (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAXXZ @ 0x1C011C384 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAXXZ.c)
  */
 
-__int64 SmartObjStackRef<tagPOPUPMENU>::~SmartObjStackRef<tagPOPUPMENU>()
+__int64 __fastcall SmartObjStackRef<tagPOPUPMENU>::~SmartObjStackRef<tagPOPUPMENU>(__int64 a1)
 {
-  return SmartObjStackRefBase<tagPOPUPMENU>::~SmartObjStackRefBase<tagPOPUPMENU>();
+  __int64 ThreadWin32Thread; // rdi
+  __int64 result; // rax
+  _QWORD *v4; // rcx
+
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  result = SmartObjStackRefBase<tagPOPUPMENU>::DecrementCountAndTryFree(a1);
+  v4 = *(_QWORD **)(ThreadWin32Thread + 1472);
+  if ( v4 )
+    *(_QWORD *)(ThreadWin32Thread + 1472) = *v4;
+  return result;
 }

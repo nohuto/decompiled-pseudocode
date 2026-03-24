@@ -1,89 +1,92 @@
 /*
- * XREFs of ?UnregisterSharedPowerDriver@DXGGLOBAL@@QEAAJQEAX0@Z @ 0x1C0315CAC
+ * XREFs of ?UnregisterSharedPowerDriver@DXGGLOBAL@@QEAAJQEAX0@Z @ 0x1C026C5F0
  * Callers:
- *     DxgUnregisterSharedPowerDriverCB @ 0x1C02E5DB0 (DxgUnregisterSharedPowerDriverCB.c)
+ *     DxgUnregisterSharedPowerDriverCB @ 0x1C02522F0 (DxgUnregisterSharedPowerDriverCB.c)
  * Callees:
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?SetPowerComponentIdleCB@DXGADAPTER@@QEAAXI@Z @ 0x1C001CE08 (-SetPowerComponentIdleCB@DXGADAPTER@@QEAAXI@Z.c)
- *     ??_G?$DXGNODELIST@VDXGGLOBAL@@VDXGSHAREDPOWERINUSELISTOBJECT@@@@AEAAPEAXI@Z @ 0x1C0051B40 (--_G-$DXGNODELIST@VDXGGLOBAL@@VDXGSHAREDPOWERINUSELISTOBJECT@@@@AEAAPEAXI@Z.c)
- *     ??_GDXGSHAREDPOWERREGISTRATIONOBJECT@@IEAAPEAXI@Z @ 0x1C0051C24 (--_GDXGSHAREDPOWERREGISTRATIONOBJECT@@IEAAPEAXI@Z.c)
- *     ?RemoveThreadToDxgThreadList@DXGGLOBAL@@QEAAXPEAUDXGTHREADPROCESS@@@Z @ 0x1C00524B8 (-RemoveThreadToDxgThreadList@DXGGLOBAL@@QEAAXPEAUDXGTHREADPROCESS@@@Z.c)
- *     ?ValidateAdapterValidAndInRunningState@DXGGLOBAL@@QEAAEPEAVDXGADAPTER@@@Z @ 0x1C0315E08 (-ValidateAdapterValidAndInRunningState@DXGGLOBAL@@QEAAEPEAVDXGADAPTER@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003700 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?SetPowerComponentIdleCB@DXGADAPTER@@QEAAXI@Z @ 0x1C003982C (-SetPowerComponentIdleCB@DXGADAPTER@@QEAAXI@Z.c)
+ *     ??_G?$DXGNODELIST@VDXGGLOBAL@@VDXGSHAREDPOWERINUSELISTOBJECT@@@@AEAAPEAXI@Z @ 0x1C0046404 (--_G-$DXGNODELIST@VDXGGLOBAL@@VDXGSHAREDPOWERINUSELISTOBJECT@@@@AEAAPEAXI@Z.c)
+ *     ?RemoveListObjectFromSharedPowerList@DXGGLOBAL@@QEAAXPEAVDXGSHAREDPOWERREGISTRATIONOBJECT@@@Z @ 0x1C0046C74 (-RemoveListObjectFromSharedPowerList@DXGGLOBAL@@QEAAXPEAVDXGSHAREDPOWERREGISTRATIONOBJECT@@@Z.c)
+ *     ??1DXGSHAREDPOWERINUSELISTOBJECT@@IEAA@XZ @ 0x1C0268F68 (--1DXGSHAREDPOWERINUSELISTOBJECT@@IEAA@XZ.c)
+ *     ?ValidateAdapterValidAndInRunningState@DXGGLOBAL@@QEAAEPEAVDXGADAPTER@@@Z @ 0x1C026C758 (-ValidateAdapterValidAndInRunningState@DXGGLOBAL@@QEAAEPEAVDXGADAPTER@@@Z.c)
  */
 
-__int64 __fastcall DXGGLOBAL::UnregisterSharedPowerDriver(
-        DXGGLOBAL *this,
-        DXGADAPTER *a2,
-        struct DXGTHREADPROCESS **a3)
+__int64 __fastcall DXGGLOBAL::UnregisterSharedPowerDriver(DXGGLOBAL *this, DXGADAPTER *a2, __int64 *a3)
 {
-  struct _KTHREAD **v3; // r13
-  unsigned int v7; // esi
-  struct DXGTHREADPROCESS ***v8; // rbx
-  unsigned int **v9; // r14
-  unsigned int *v10; // rdi
+  unsigned int v6; // esi
+  __int64 **v7; // rdi
+  struct DXGSHAREDPOWERREGISTRATIONOBJECT ***v8; // rbx
+  DXGSHAREDPOWERINUSELISTOBJECT **v9; // r14
+  DXGSHAREDPOWERINUSELISTOBJECT *v10; // rdi
   DXGSHAREDPOWERINUSELISTOBJECT *v11; // rcx
-  __int64 v12; // rax
-  unsigned int v13; // r13d
-  DXGSHAREDPOWERINUSELISTOBJECT **v14; // r8
-  struct DXGTHREADPROCESS **v15; // rcx
-  struct _KTHREAD **v17; // [rsp+50h] [rbp+8h]
+  DXGSHAREDPOWERINUSELISTOBJECT *v12; // r8
+  unsigned int v13; // r12d
+  DXGSHAREDPOWERINUSELISTOBJECT **v14; // rax
+  void *v15; // rcx
+  __int64 v16; // rdx
+  PVOID *v17; // rcx
+  void *v18; // rcx
+  __int64 v19; // rdx
+  struct _KTHREAD **v21; // [rsp+50h] [rbp+8h]
 
-  v3 = (struct _KTHREAD **)((char *)this + 672);
-  v17 = (struct _KTHREAD **)((char *)this + 672);
-  v7 = 0;
-  DXGFASTMUTEX::Acquire((DXGGLOBAL *)((char *)this + 672));
-  DXGPUSHLOCK::AcquireExclusive((DXGGLOBAL *)((char *)this + 1792));
-  v8 = (struct DXGTHREADPROCESS ***)*((_QWORD *)this + 228);
+  v21 = (struct _KTHREAD **)((char *)this + 584);
+  v6 = 0;
+  DXGFASTMUTEX::Acquire((DXGGLOBAL *)((char *)this + 584));
+  DXGPUSHLOCK::AcquireExclusive((DXGGLOBAL *)((char *)this + 1656));
+  v7 = (__int64 **)*((_QWORD *)this + 211);
   if ( DXGGLOBAL::ValidateAdapterValidAndInRunningState(this, a2) )
   {
     while ( 1 )
     {
-      if ( v8 == (struct DXGTHREADPROCESS ***)((char *)this + 1824) || !v8 )
+      v8 = (struct DXGSHAREDPOWERREGISTRATIONOBJECT ***)v7;
+      if ( v7 == (__int64 **)((char *)this + 1688) || !v7 )
       {
-        v7 = -1073741811;
+        v6 = -1073741811;
         goto LABEL_19;
       }
-      if ( v8[4] == (struct DXGTHREADPROCESS **)a2 && v8[3] == a3 )
+      if ( v7[4] == (__int64 *)a2 && v7[3] == a3 )
         break;
-      v8 = (struct DXGTHREADPROCESS ***)*v8;
+      v7 = (__int64 **)*v7;
     }
-    v9 = (unsigned int **)v8[8];
+    v9 = (DXGSHAREDPOWERINUSELISTOBJECT **)v7[8];
     v10 = *v9;
-    while ( v10 != (unsigned int *)v9 )
+    while ( 1 )
     {
-      v11 = (DXGSHAREDPOWERINUSELISTOBJECT *)v10;
-      if ( !v10 )
+      v11 = v10;
+      if ( v10 == (DXGSHAREDPOWERINUSELISTOBJECT *)v9 || !v10 )
         break;
-      v12 = *(_QWORD *)v10;
-      v13 = v10[6];
-      v10 = (unsigned int *)v12;
-      if ( *(DXGSHAREDPOWERINUSELISTOBJECT **)(v12 + 8) != v11
+      v12 = *(DXGSHAREDPOWERINUSELISTOBJECT **)v10;
+      v13 = *((_DWORD *)v10 + 6);
+      v10 = *(DXGSHAREDPOWERINUSELISTOBJECT **)v10;
+      if ( *(DXGSHAREDPOWERINUSELISTOBJECT **)(*(_QWORD *)v11 + 8LL) != v11
         || (v14 = (DXGSHAREDPOWERINUSELISTOBJECT **)*((_QWORD *)v11 + 1), *v14 != v11) )
       {
         __fastfail(3u);
       }
-      *v14 = (DXGSHAREDPOWERINUSELISTOBJECT *)v12;
-      *(_QWORD *)(v12 + 8) = v14;
-      DXGSHAREDPOWERREGISTRATIONOBJECT::`scalar deleting destructor'(v11);
+      *v14 = v12;
+      *((_QWORD *)v12 + 1) = v14;
+      DXGSHAREDPOWERINUSELISTOBJECT::~DXGSHAREDPOWERINUSELISTOBJECT(v11);
+      operator delete(v15);
       DXGADAPTER::SetPowerComponentIdleCB(a2, v13);
     }
-    DXGGLOBAL::RemoveThreadToDxgThreadList((KSPIN_LOCK *)this, v8);
-    v15 = v8[8];
-    if ( v15 )
-      DXGNODELIST<DXGGLOBAL,DXGSHAREDPOWERINUSELISTOBJECT>::`scalar deleting destructor'(v15);
-    DXGSHAREDPOWERREGISTRATIONOBJECT::`scalar deleting destructor'((DXGSHAREDPOWERINUSELISTOBJECT *)v8);
-    v3 = v17;
+    DXGGLOBAL::RemoveListObjectFromSharedPowerList((KSPIN_LOCK *)this, v8);
+    v17 = (PVOID *)v8[8];
+    if ( v17 )
+      DXGNODELIST<DXGGLOBAL,DXGSHAREDPOWERINUSELISTOBJECT>::`scalar deleting destructor'(v17, v16);
+    DXGSHAREDPOWERINUSELISTOBJECT::~DXGSHAREDPOWERINUSELISTOBJECT((DXGSHAREDPOWERINUSELISTOBJECT *)v8);
+    operator delete(v18);
   }
   else
   {
-    v7 = -1073741130;
+    v6 = -1073741130;
   }
 LABEL_19:
-  *((_QWORD *)this + 225) = 0LL;
-  ExReleasePushLockExclusiveEx((char *)this + 1792, 0LL);
+  *((_QWORD *)this + 208) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)this + 1656, 0LL);
   KeLeaveCriticalRegion();
-  DXGFASTMUTEX::Release(v3);
-  return v7;
+  DXGFASTMUTEX::Release(v21, v19);
+  return v6;
 }

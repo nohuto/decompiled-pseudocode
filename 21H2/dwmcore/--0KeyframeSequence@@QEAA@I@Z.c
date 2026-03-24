@@ -1,22 +1,22 @@
 /*
- * XREFs of ??0KeyframeSequence@@QEAA@I@Z @ 0x18004F9D0
+ * XREFs of ??0KeyframeSequence@@QEAA@I@Z @ 0x1800AC704
  * Callers:
- *     ?SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionColorSpace@@PEAUKeyframeData@@@Z @ 0x18004D7F8 (-SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionC.c)
+ *     ?SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionColorSpace@@PEAUKeyframeData@@@Z @ 0x1800AA738 (-SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionC.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18008ED70 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1800949F0 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 KeyframeSequence *__fastcall KeyframeSequence::KeyframeSequence(KeyframeSequence *this, unsigned int a2)
 {
   unsigned __int64 v2; // rsi
-  _QWORD *v4; // rdi
+  char *v4; // rdi
   __int64 v5; // rax
   bool v6; // cf
   SIZE_T v7; // rax
-  unsigned __int64 *v8; // rax
+  char *v8; // rax
   KeyframeSequence *result; // rax
   void *retaddr; // [rsp+28h] [rbp+0h]
 
@@ -38,16 +38,16 @@ KeyframeSequence *__fastcall KeyframeSequence::KeyframeSequence(KeyframeSequence
   v7 = v5 + 8;
   if ( v6 )
     v7 = -1LL;
-  v8 = (unsigned __int64 *)operator new(v7);
+  v8 = (char *)operator new(v7);
   if ( v8 )
   {
-    v4 = v8 + 1;
-    *v8 = v2;
+    v4 = v8 + 8;
+    *(_QWORD *)v8 = v2;
     `vector constructor iterator'(
-      v8 + 1,
-      0x18uLL,
+      v8 + 8,
+      24LL,
       (unsigned int)v2,
-      (void *(*)(void *))KeyframeSequence::Keyframe::Keyframe);
+      (void (__fastcall *)(char *))KeyframeSequence::Keyframe::Keyframe);
   }
   result = this;
   *((_QWORD *)this + 13) = v4;

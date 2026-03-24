@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InitializeDisplayUserModeDriverNames@ADAPTER_RENDER@@AEAAJPEAU_UNICODE_STRING@@0@Z @ 0x1C0213470
+ * XREFs of ?InitializeDisplayUserModeDriverNames@ADAPTER_RENDER@@AEAAJPEAU_UNICODE_STRING@@0@Z @ 0x1C0187310
  * Callers:
- *     ?Initialize@ADAPTER_RENDER@@QEAAJXZ @ 0x1C0211D70 (-Initialize@ADAPTER_RENDER@@QEAAJXZ.c)
+ *     ?Initialize@ADAPTER_RENDER@@QEAAJXZ @ 0x1C01869A8 (-Initialize@ADAPTER_RENDER@@QEAAJXZ.c)
  * Callees:
- *     ?RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C001FB80 (-RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z.c)
+ *     ?RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C00229EC (-RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z.c)
  */
 
 __int64 __fastcall ADAPTER_RENDER::InitializeDisplayUserModeDriverNames(
@@ -12,48 +12,56 @@ __int64 __fastcall ADAPTER_RENDER::InitializeDisplayUserModeDriverNames(
         struct _UNICODE_STRING *a3)
 {
   __int128 v3; // xmm0
-  unsigned __int64 v4; // rax
   unsigned __int64 Length; // r11
-  unsigned int v8; // edx
-  const unsigned __int16 *v9; // rsi
-  unsigned int v10; // ebx
+  unsigned __int64 v5; // rax
+  __int64 v6; // rbx
+  const unsigned __int16 *v7; // r14
+  unsigned int v10; // edi
   int v12; // eax
-  unsigned __int64 v13; // r11
-  struct _UNICODE_STRING v14; // [rsp+20h] [rbp-18h]
-  unsigned __int64 v15; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  unsigned __int64 v16; // r11
+  _QWORD *v17; // rax
+  struct _UNICODE_STRING v18; // [rsp+20h] [rbp-28h]
+  unsigned __int64 v19; // [rsp+58h] [rbp+10h] BYREF
 
   v3 = (__int128)*a2;
-  v4 = 0LL;
-  v15 = 0LL;
   Length = a2->Length;
-  v8 = 0;
-  *(_DWORD *)(&v14.MaximumLength + 1) = DWORD1(v3);
-  v9 = (const unsigned __int16 *)*((_QWORD *)&v3 + 1);
+  v5 = 0LL;
+  LODWORD(v6) = 0;
+  v19 = 0LL;
+  *(_DWORD *)(&v18.MaximumLength + 1) = DWORD1(v3);
+  v7 = (const unsigned __int16 *)*((_QWORD *)&v3 + 1);
   v10 = 0;
   while ( 1 )
   {
     if ( !Length )
-      return v8;
-    v9 += v4 >> 1;
-    v14.Buffer = (wchar_t *)v9;
-    v12 = RtlStringCbLengthW(v9, Length, &v15);
-    v8 = v12;
+      return (unsigned int)v6;
+    v7 += v5 >> 1;
+    v18.Buffer = (wchar_t *)v7;
+    v12 = RtlStringCbLengthW(v7, Length, &v19);
+    v6 = v12;
     if ( v12 < 0 )
       break;
-    v4 = v15;
-    v14.Length = v15;
-    if ( v13 > v15 )
+    v5 = v19;
+    v18.Length = v19;
+    if ( v16 > v19 )
     {
-      v4 = v15 + 2;
-      v15 += 2LL;
+      v5 = v19 + 2;
+      v19 += 2LL;
     }
-    v14.MaximumLength = v4;
+    v18.MaximumLength = v5;
     ++v10;
-    Length = v13 - (unsigned __int16)v4;
-    *a3++ = v14;
+    Length = v16 - (unsigned __int16)v5;
+    *a3++ = v18;
     if ( v10 )
-      return v8;
+      return (unsigned int)v6;
   }
-  WdLogSingleEntry3(3LL, v10, *((_QWORD *)this + 2), v12);
+  v17 = (_QWORD *)WdLogNewEntry5_WdWarning(v14, v13, v15);
+  v17[3] = v10;
+  v17[4] = *((_QWORD *)this + 2);
+  v17[5] = v6;
+  WdLogEvent5_WdWarning(v17);
   return 0LL;
 }

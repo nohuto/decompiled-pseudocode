@@ -1,18 +1,18 @@
 /*
- * XREFs of UsbDualRoleFeaturesQueryLocalMachine @ 0x1C00435BC
+ * XREFs of UsbDualRoleFeaturesQueryLocalMachine @ 0x1C0041090
  * Callers:
- *     HUBDTX_ValidateAndCacheBOSDescriptor @ 0x1C002AD60 (HUBDTX_ValidateAndCacheBOSDescriptor.c)
+ *     HUBDTX_ValidateAndCacheBOSDescriptor @ 0x1C00280E0 (HUBDTX_ValidateAndCacheBOSDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_Sd @ 0x1C0042BC0 (WPP_RECORDER_SF_Sd.c)
- *     GetPersistedKeyPath @ 0x1C0042D10 (GetPersistedKeyPath.c)
- *     ReadManifestAssignedValue @ 0x1C0042EBC (ReadManifestAssignedValue.c)
- *     CheckUSBFnIncludeDefaultCfg @ 0x1C0042FB8 (CheckUSBFnIncludeDefaultCfg.c)
- *     CheckUSBFnConfiguration @ 0x1C004318C (CheckUSBFnConfiguration.c)
- *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C004342C (ReadUSBFnFeaturesFromCurrentConfiguration.c)
- *     MyRegOpenKeyForRead @ 0x1C004392C (MyRegOpenKeyForRead.c)
- *     MyRegQueryUlong @ 0x1C0043B78 (MyRegQueryUlong.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_Sd @ 0x1C00406B0 (WPP_RECORDER_SF_Sd.c)
+ *     GetPersistedKeyPath @ 0x1C0040800 (GetPersistedKeyPath.c)
+ *     ReadManifestAssignedValue @ 0x1C0040990 (ReadManifestAssignedValue.c)
+ *     CheckUSBFnIncludeDefaultCfg @ 0x1C0040A8C (CheckUSBFnIncludeDefaultCfg.c)
+ *     CheckUSBFnConfiguration @ 0x1C0040C60 (CheckUSBFnConfiguration.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C0040F00 (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ *     MyRegOpenKeyForRead @ 0x1C0041400 (MyRegOpenKeyForRead.c)
+ *     MyRegQueryUlong @ 0x1C0041640 (MyRegQueryUlong.c)
  */
 
 void __fastcall UsbDualRoleFeaturesQueryLocalMachine(int *a1)

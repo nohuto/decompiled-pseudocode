@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetMouseCoord@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEAUtagPOINT@@PEAU_SUBPIXELS@@@Z @ 0x1C00B2384
+ * XREFs of ?GetMouseCoord@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEAUtagPOINT@@PEAU_SUBPIXELS@@@Z @ 0x1C006EFE4
  * Callers:
- *     ?ProcessMouseInputData@CMouseProcessor@@AEAA?AUtagPOINT@@PEAVMouseInputDataEx@1@U2@AEAU_MousePacketPerf@@PEBU_MOUSE_INPUT_DATA@@PEBUtagUIPI_INFO_INT@@@Z @ 0x1C0035C74 (-ProcessMouseInputData@CMouseProcessor@@AEAA-AUtagPOINT@@PEAVMouseInputDataEx@1@U2@AEAU_MousePac.c)
+ *     ?ProcessMouseInputData@CMouseProcessor@@AEAA?AUtagPOINT@@PEAVMouseInputDataEx@1@U2@AEAU_MousePacketPerf@@PEBU_MOUSE_INPUT_DATA@@PEBUtagUIPI_INFO_INT@@@Z @ 0x1C00405A4 (-ProcessMouseInputData@CMouseProcessor@@AEAA-AUtagPOINT@@PEAVMouseInputDataEx@1@U2@AEAU_MousePac.c)
  * Callees:
- *     ?GetMouseCoordinateAbsolute@CMouseProcessor@@AEAAXJJKPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouseCoordinateOptions@@@Z @ 0x1C0005C50 (-GetMouseCoordinateAbsolute@CMouseProcessor@@AEAAXJJKPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouse.c)
- *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C002EA80 (W32GetCurrentThreadDpiAwarenessContext.c)
- *     ?TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@@@Z @ 0x1C00363B4 (-TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@.c)
- *     ?GetMouseCoordinateRelative@CMouseProcessor@@AEAAXJJPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouseCoordinateOptions@@@Z @ 0x1C00B2468 (-GetMouseCoordinateRelative@CMouseProcessor@@AEAAXJJPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouseC.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C002AA84 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     ?TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@@@Z @ 0x1C0040C3C (-TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@.c)
+ *     ?GetMouseCoordinateRelative@CMouseProcessor@@AEAAXJJPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouseCoordinateOptions@@@Z @ 0x1C006EED0 (-GetMouseCoordinateRelative@CMouseProcessor@@AEAAXJJPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouseC.c)
+ *     ?GetMouseCoordinateAbsolute@CMouseProcessor@@AEAAXJJKPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouseCoordinateOptions@@@Z @ 0x1C006F0C8 (-GetMouseCoordinateAbsolute@CMouseProcessor@@AEAAXJJKPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouse.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CMouseProcessor::GetMouseCoord(
@@ -16,32 +16,28 @@ void __fastcall CMouseProcessor::GetMouseCoord(
         struct tagPOINT *a3,
         struct _SUBPIXELS *a4)
 {
-  __int16 v6; // bp
+  unsigned int v6; // ebp
   BOOL v9; // r10d
   int v10; // edi
   __int64 v11; // rax
   __int64 v12; // r8
   __int64 v13; // rdx
   __int64 v14; // rcx
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
 
-  *(_DWORD *)a4 = 0;
-  *((_DWORD *)a4 + 1) = 0;
-  v6 = *((_WORD *)a2 + 1);
-  v9 = CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)a2, 16LL, (__int64)a3);
+  *(_QWORD *)a4 = 0LL;
+  v6 = *((unsigned __int16 *)a2 + 1);
+  v9 = CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)a2, 16);
   v10 = v9 | 2;
-  if ( (v6 & 0x80) == 0 )
+  if ( (v6 & 0x80u) == 0 )
     v10 = v9;
   if ( (v10 & 1) == 0 && (W32GetCurrentThreadDpiAwarenessContext() & 0xF) != 2 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v16, v15, v17);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2590LL);
   v11 = *((_QWORD *)a2 + 6);
   v12 = *((unsigned int *)a2 + 4);
   v13 = *((unsigned int *)a2 + 3);
   v14 = *((unsigned int *)a2 + 5);
   if ( (v6 & 1) != 0 )
-    CMouseProcessor::GetMouseCoordinateAbsolute((__int64)this, v13, v12, v6, a3, a4, v11, v14, v10);
+    CMouseProcessor::GetMouseCoordinateAbsolute(this, v13, v12, v6, a3, a4, v11, v14, v10);
   else
     CMouseProcessor::GetMouseCoordinateRelative(this, v13, v12, a3, a4, v11, v14, v10);
 }

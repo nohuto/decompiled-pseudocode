@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CSurfaceBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00AF8E0
+ * XREFs of ?SetIntegerProperty@CSurfaceBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C009C150
  * Callers:
  *     <none>
  * Callees:
@@ -23,16 +23,16 @@ __int64 __fastcall DirectComposition::CSurfaceBrushMarshaler::SetIntegerProperty
   {
     if ( v6 != 1 )
       return (unsigned int)-1073741811;
-    if ( *((_DWORD *)this + 31) == a4 )
+    if ( *((_DWORD *)this + 29) == a4 )
       return v5;
     *((_DWORD *)this + 4) |= 0x400u;
-    *((_DWORD *)this + 31) = a4;
+    *((_DWORD *)this + 29) = a4;
     goto LABEL_4;
   }
-  if ( *((_DWORD *)this + 30) != a4 )
+  if ( *((_DWORD *)this + 28) != a4 )
   {
     *((_DWORD *)this + 4) |= 0x200u;
-    *((_DWORD *)this + 30) = a4;
+    *((_DWORD *)this + 28) = a4;
 LABEL_4:
     *a5 = 1;
   }

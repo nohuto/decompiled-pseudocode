@@ -1,12 +1,13 @@
 /*
- * XREFs of OSGetRegistryValue @ 0x1C009B014
+ * XREFs of OSGetRegistryValue @ 0x1C0094F04
  * Callers:
- *     IrqPolicyGetDevicePolicy @ 0x1C009AB50 (IrqPolicyGetDevicePolicy.c)
- *     PcisuppGetRoutingInfo @ 0x1C009AE80 (PcisuppGetRoutingInfo.c)
- *     OSReadAcpiConfigurationData @ 0x1C00BC964 (OSReadAcpiConfigurationData.c)
- *     ACPIInitGetPlatformOverrides @ 0x1C00BCB2C (ACPIInitGetPlatformOverrides.c)
- *     IrqPolicyConfigure @ 0x1C00BDD74 (IrqPolicyConfigure.c)
- *     IrqPolicyGetDistributionDisposition @ 0x1C00BDE8C (IrqPolicyGetDistributionDisposition.c)
+ *     IrqPolicyGetDevicePolicy @ 0x1C0094A38 (IrqPolicyGetDevicePolicy.c)
+ *     PcisuppGetRoutingInfo @ 0x1C0094D70 (PcisuppGetRoutingInfo.c)
+ *     IsHypervisorCpcCapable @ 0x1C00B54B0 (IsHypervisorCpcCapable.c)
+ *     OSReadAcpiConfigurationData @ 0x1C00BC3BC (OSReadAcpiConfigurationData.c)
+ *     IrqPolicyConfigure @ 0x1C00BC884 (IrqPolicyConfigure.c)
+ *     ACPIInitGetPlatformOverrides @ 0x1C00BC920 (ACPIInitGetPlatformOverrides.c)
+ *     IrqPolicyGetDistributionDisposition @ 0x1C00BCAA0 (IrqPolicyGetDistributionDisposition.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +15,7 @@
 NTSTATUS __fastcall OSGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, _QWORD *a3)
 {
   NTSTATUS result; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v7; // rbx
   NTSTATUS v8; // edi
   struct _UNICODE_STRING ValueName; // [rsp+30h] [rbp-18h] BYREF
@@ -28,11 +29,17 @@ NTSTATUS __fastcall OSGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, _QWORD
     return -1073741823;
   if ( result == -1073741789 || result == -2147483643 )
   {
-    Pool2 = (void *)ExAllocatePool2(64LL, ResultLength, 1399874369LL);
-    v7 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, ResultLength, 0x53706341u);
+    v7 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v8 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformationAlign64, Pool2, ResultLength, &ResultLength);
+      v8 = ZwQueryValueKey(
+             KeyHandle,
+             &ValueName,
+             KeyValuePartialInformationAlign64,
+             PoolWithTag,
+             ResultLength,
+             &ResultLength);
       if ( v8 < 0 )
       {
         ExFreePoolWithTag(v7, 0);

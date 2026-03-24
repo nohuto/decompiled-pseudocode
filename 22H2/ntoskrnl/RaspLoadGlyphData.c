@@ -1,13 +1,13 @@
 /*
- * XREFs of RaspLoadGlyphData @ 0x1403869FC
+ * XREFs of RaspLoadGlyphData @ 0x1403AE92C
  * Callers:
- *     RaspGetUnscaledGlyphData @ 0x140385358 (RaspGetUnscaledGlyphData.c)
- *     RaspGetCompositeGlyphList @ 0x14067351C (RaspGetCompositeGlyphList.c)
+ *     RaspGetUnscaledGlyphData @ 0x1403AD344 (RaspGetUnscaledGlyphData.c)
+ *     RaspGetCompositeGlyphList @ 0x1405C5A1C (RaspGetCompositeGlyphList.c)
  * Callees:
- *     RaspLoadEmptyGlyph @ 0x140384114 (RaspLoadEmptyGlyph.c)
- *     FioFwReadUshortAtOffset @ 0x140385FE8 (FioFwReadUshortAtOffset.c)
- *     RaspInitializeGlyphData @ 0x14038601C (RaspInitializeGlyphData.c)
- *     RaspLoadCompositeGlyphData @ 0x140673BB0 (RaspLoadCompositeGlyphData.c)
+ *     RaspLoadEmptyGlyph @ 0x1403AC64C (RaspLoadEmptyGlyph.c)
+ *     FioFwReadUshortAtOffset @ 0x1403AE01C (FioFwReadUshortAtOffset.c)
+ *     RaspInitializeGlyphData @ 0x1403AE050 (RaspInitializeGlyphData.c)
+ *     RaspLoadCompositeGlyphData @ 0x1405C60D0 (RaspLoadCompositeGlyphData.c)
  */
 
 __int64 __fastcall RaspLoadGlyphData(__int64 a1, int a2, int a3, __int64 *a4, _QWORD *a5)

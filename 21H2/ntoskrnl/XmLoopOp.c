@@ -1,19 +1,21 @@
 /*
- * XREFs of XmLoopOp @ 0x1403CC080
+ * XREFs of XmLoopOp @ 0x1403C0550
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x1403A2E60 (XmStoreResult.c)
+ *     XmStoreResult @ 0x140396DC0 (XmStoreResult.c)
  */
 
-unsigned __int64 __fastcall XmLoopOp(__int64 a1)
+__int64 __fastcall XmLoopOp(__int64 a1)
 {
   int v1; // r9d
   int v2; // r9d
   char v3; // dl
-  unsigned __int64 result; // rax
-  __int64 v5; // rcx
-  int v6; // r9d
+  __int64 v4; // rcx
+  int v5; // r9d
+  unsigned int v6; // r10d
+  __int64 result; // rax
+  unsigned int v8; // eax
 
   v1 = *(_DWORD *)(a1 + 28);
   *(_QWORD *)(a1 + 88) = a1 + 28;
@@ -22,25 +24,29 @@ unsigned __int64 __fastcall XmLoopOp(__int64 a1)
   if ( !v3 )
     v2 = (unsigned __int16)v2;
   *(_DWORD *)(a1 + 120) = v3 != 0 ? 3 : 1;
-  result = (unsigned __int64)XmStoreResult(a1, v2);
-  if ( (*(_DWORD *)(v5 + 112) & 3) == 0 )
+  XmStoreResult(a1, v2);
+  if ( (*(_DWORD *)(v4 + 112) & 3) != 0 )
   {
-    result = (unsigned int)~(*(_DWORD *)(v5 + 16) >> 6);
-LABEL_8:
-    if ( (result & 1) == 0 )
-      return result;
-    goto LABEL_5;
+    if ( (*(_DWORD *)(v4 + 112) & 3) != v6 )
+    {
+      result = v6;
+      goto LABEL_6;
+    }
+    v8 = *(_DWORD *)(v4 + 16) >> 6;
   }
-  if ( (*(_DWORD *)(v5 + 112) & 3) == 1 )
+  else
   {
-    result = *(_DWORD *)(v5 + 16) >> 6;
-    goto LABEL_8;
+    v8 = ~(*(_DWORD *)(v4 + 16) >> 6);
   }
-LABEL_5:
-  if ( v6 )
+  result = v6 & v8;
+LABEL_6:
+  if ( (_DWORD)result )
   {
-    result = *(unsigned __int16 *)(v5 + 104);
-    *(_DWORD *)(v5 + 20) = result;
+    if ( v5 )
+    {
+      result = *(unsigned __int16 *)(v4 + 104);
+      *(_DWORD *)(v4 + 20) = result;
+    }
   }
   return result;
 }

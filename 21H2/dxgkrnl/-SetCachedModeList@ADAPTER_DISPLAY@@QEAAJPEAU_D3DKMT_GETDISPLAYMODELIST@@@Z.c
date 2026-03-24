@@ -1,73 +1,69 @@
 /*
- * XREFs of ?SetCachedModeList@ADAPTER_DISPLAY@@QEAAJPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z @ 0x1C01D2E58
+ * XREFs of ?SetCachedModeList@ADAPTER_DISPLAY@@QEAAJPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z @ 0x1C015D7B8
  * Callers:
- *     ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAPEBU_D3DKMT_DISPLAYMODE@@PEAE@Z @ 0x1C01D2768 (-DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODEL.c)
+ *     ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAE@Z @ 0x1C015D25C (-DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODEL.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::SetCachedModeList(PERESOURCE **this, struct _D3DKMT_GETDISPLAYMODELIST *a2)
 {
-  NTSTATUS v4; // eax
-  __int64 v5; // rbp
-  struct _LUID Luid; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  NTSTATUS v6; // eax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // rsi
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // rax
+  __int64 v16; // rax
+  struct _LUID Luid; // [rsp+30h] [rbp+8h] BYREF
 
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 6355LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceExclusiveOwner()", 6355LL, 0LL, 0LL, 0LL, 0LL);
+    v13 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v13 + 24) = 6109LL;
+    WdLogEvent5_WdAssertion(v13);
   }
   if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 6357LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pInputDisplayModeList != NULL", 6357LL, 0LL, 0LL, 0LL, 0LL);
+    v14 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v14 + 24) = 6111LL;
+    WdLogEvent5_WdAssertion(v14);
   }
-  if ( a2->VidPnSourceId >= *((_DWORD *)this + 24) )
+  if ( a2->VidPnSourceId >= *((_DWORD *)this + 20) )
   {
-    WdLogSingleEntry2(2LL, a2->VidPnSourceId, *((unsigned int *)this + 24));
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified invalid VidPN source ID 0x%I64x (only %I64d are supported)",
-      a2->VidPnSourceId,
-      *((unsigned int *)this + 24),
-      0LL,
-      0LL,
-      0LL);
+    v15 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v15 + 24) = a2->VidPnSourceId;
+    *(_QWORD *)(v15 + 32) = *((unsigned int *)this + 20);
+    WdLogEvent5_WdError(v15);
     return 3221225485LL;
   }
-  else if ( *((_BYTE *)this + 292) )
+  else if ( *((_BYTE *)this + 252) )
   {
     Luid = 0LL;
-    v4 = ZwAllocateLocallyUniqueId(&Luid);
-    v5 = v4;
-    if ( v4 < 0 )
+    v6 = ZwAllocateLocallyUniqueId(&Luid);
+    v11 = v6;
+    if ( v6 < 0 )
     {
-      WdLogSingleEntry1(6LL, v4);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to allocate LUID for mode cache, returning 0x%I64x",
-        v5,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      BYTE4(this[16][500 * a2->VidPnSourceId + 139]) = 0;
+      v16 = WdLogNewEntry5_WdLowResource(v8, v7, v9, v10);
+      *(_QWORD *)(v16 + 24) = v11;
+      WdLogEvent5_WdLowResource(v16);
+      BYTE4(this[14][496 * a2->VidPnSourceId + 136]) = 0;
     }
     else
     {
-      operator delete[](this[16][500 * a2->VidPnSourceId + 138]);
-      this[16][500 * a2->VidPnSourceId + 138] = (PERESOURCE)a2->pModeList;
-      LODWORD(this[16][500 * a2->VidPnSourceId + 139]) = a2->ModeCount;
-      BYTE4(this[16][500 * a2->VidPnSourceId + 139]) = 1;
-      *(PERESOURCE *)((char *)&this[16][500 * a2->VidPnSourceId + 140] + 4) = (PERESOURCE)Luid;
+      operator delete[](this[14][496 * a2->VidPnSourceId + 135]);
+      this[14][496 * a2->VidPnSourceId + 135] = (PERESOURCE)a2->pModeList;
+      LODWORD(this[14][496 * a2->VidPnSourceId + 136]) = a2->ModeCount;
+      BYTE4(this[14][496 * a2->VidPnSourceId + 136]) = 1;
+      this[14][496 * a2->VidPnSourceId + 137] = (PERESOURCE)Luid;
     }
-    return (unsigned int)v5;
+    return (unsigned int)v11;
   }
   else
   {

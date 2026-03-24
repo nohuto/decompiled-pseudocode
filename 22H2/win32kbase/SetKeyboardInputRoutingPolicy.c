@@ -1,38 +1,40 @@
 /*
- * XREFs of SetKeyboardInputRoutingPolicy @ 0x1C006C724
+ * XREFs of SetKeyboardInputRoutingPolicy @ 0x1C00B6390
  * Callers:
- *     NtMITSetKeyboardInputRoutingPolicy @ 0x1C006C820 (NtMITSetKeyboardInputRoutingPolicy.c)
+ *     NtMITSetKeyboardInputRoutingPolicy @ 0x1C00B62C0 (NtMITSetKeyboardInputRoutingPolicy.c)
  * Callees:
- *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C0057EC8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
- *     _anonymous_namespace_::GetKeyboardProcessor @ 0x1C006B304 (_anonymous_namespace_--GetKeyboardProcessor.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?_CalledOnInputThread@CInputThread@@AEBA_NXZ @ 0x1C0043670 (-_CalledOnInputThread@CInputThread@@AEBA_NXZ.c)
+ *     _anonymous_namespace_::GetKeyboardProcessor @ 0x1C004DC74 (_anonymous_namespace_--GetKeyboardProcessor.c)
+ *     ?SetKeyboardInputRoutingPolicy@CKeyboardProcessor@@QEAAXW4INPUT_DESTINATION_ROUTING_MODE@@@Z @ 0x1C00B6474 (-SetKeyboardInputRoutingPolicy@CKeyboardProcessor@@QEAAXW4INPUT_DESTINATION_ROUTING_MODE@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall SetKeyboardInputRoutingPolicy(__int32 a1)
+__int64 __fastcall SetKeyboardInputRoutingPolicy(unsigned int a1)
 {
-  PKDPC BufferChainingDpc; // rdi
-  SINGLE_LIST_ENTRY *p_DpcListEntry; // rbx
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  __int64 KeyboardProcessor; // rbx
+  CInputThread *v1; // rdi
+  bool v3; // bl
+  CInputThread *v4; // rdi
+  int v5; // ebx
+  __int64 KeyboardProcessor; // rax
 
-  if ( !CInputThreadBase::IsInputThread((CInputThreadBase *)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc)
-    || (BufferChainingDpc = WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc,
-        p_DpcListEntry = &WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc->DpcListEntry,
+  v1 = gpInputThread;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v1, 0LL);
+  v3 = CInputThread::_CalledOnInputThread(v1);
+  ExReleasePushLockSharedEx(v1, 0LL);
+  KeLeaveCriticalRegion();
+  if ( !v3
+    || (v4 = gpInputThread,
         KeEnterCriticalRegion(),
-        ExAcquirePushLockSharedEx(p_DpcListEntry, 0LL),
-        LODWORD(BufferChainingDpc) = BufferChainingDpc->DeferredRoutine,
-        ExReleasePushLockSharedEx(p_DpcListEntry, 0LL),
+        ExAcquirePushLockSharedEx(v4, 0LL),
+        v5 = *((_DWORD *)v4 + 4),
+        ExReleasePushLockSharedEx(v4, 0LL),
         KeLeaveCriticalRegion(),
-        (_DWORD)BufferChainingDpc != 2) )
+        v5 != 2) )
   {
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2115LL);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1763LL);
   }
-  KeyboardProcessor = anonymous_namespace_::GetKeyboardProcessor(v5, v4, v6, v7);
-  if ( !CInputThreadBase::IsInputThread((CInputThreadBase *)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 495LL);
-  _InterlockedExchange((volatile __int32 *)(KeyboardProcessor + 16), a1);
+  KeyboardProcessor = anonymous_namespace_::GetKeyboardProcessor();
+  CKeyboardProcessor::SetKeyboardInputRoutingPolicy(KeyboardProcessor, a1);
   return 0LL;
 }

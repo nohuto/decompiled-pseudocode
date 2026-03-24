@@ -1,7 +1,7 @@
 /*
- * XREFs of SdbpFindMatcher @ 0x1407230CC
+ * XREFs of SdbpFindMatcher @ 0x1407230AC
  * Callers:
- *     SdbpMatchList @ 0x140722FD4 (SdbpMatchList.c)
+ *     SdbpMatchList @ 0x140722FB4 (SdbpMatchList.c)
  * Callees:
  *     SdbGetTagFromTagID @ 0x1405C82BC (SdbGetTagFromTagID.c)
  */

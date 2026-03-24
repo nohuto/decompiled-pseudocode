@@ -1,9 +1,9 @@
 /*
- * XREFs of GreMarkUndeletableBrush @ 0x1C00620E0
+ * XREFs of GreMarkUndeletableBrush @ 0x1C00B79D0
  * Callers:
- *     SetSysColor @ 0x1C005FA7C (SetSysColor.c)
+ *     <none>
  * Callees:
- *     HmgMarkUndeletable @ 0x1C0060900 (HmgMarkUndeletable.c)
+ *     HmgMarkUndeletable @ 0x1C001CDB0 (HmgMarkUndeletable.c)
  */
 
 __int64 __fastcall GreMarkUndeletableBrush(__int64 a1)

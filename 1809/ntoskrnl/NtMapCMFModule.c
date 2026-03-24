@@ -1,5 +1,5 @@
 /*
- * XREFs of NtMapCMFModule @ 0x1407067C0
+ * XREFs of NtMapCMFModule @ 0x1407067A0
  * Callers:
  *     <none>
  * Callees:
@@ -7,23 +7,23 @@
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     ExConvertExclusiveToSharedLite @ 0x140120F30 (ExConvertExclusiveToSharedLite.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     ExConvertExclusiveToSharedLite @ 0x140120F50 (ExConvertExclusiveToSharedLite.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MmMapViewInSystemSpace @ 0x1405A23A0 (MmMapViewInSystemSpace.c)
  *     MmUnmapViewInSystemSpace @ 0x1405DF390 (MmUnmapViewInSystemSpace.c)
  *     MiUnmapViewOfSection @ 0x1406171B0 (MiUnmapViewOfSection.c)
- *     PsCreateSystemThreadEx @ 0x14066AAE0 (PsCreateSystemThreadEx.c)
- *     MmMapViewOfSection @ 0x140678B80 (MmMapViewOfSection.c)
- *     MUIInitializeResourceLock @ 0x14070F47C (MUIInitializeResourceLock.c)
- *     CMFCheckAccess @ 0x1408D8404 (CMFCheckAccess.c)
- *     CMFFlushHitsFile @ 0x1408D8C08 (CMFFlushHitsFile.c)
- *     CMFRegisterEventTime @ 0x1408D92A8 (CMFRegisterEventTime.c)
- *     CMFUnmapModules @ 0x1408D9B14 (CMFUnmapModules.c)
+ *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
+ *     MmMapViewOfSection @ 0x140678B60 (MmMapViewOfSection.c)
+ *     MUIInitializeResourceLock @ 0x14070F45C (MUIInitializeResourceLock.c)
+ *     CMFCheckAccess @ 0x1408D83E4 (CMFCheckAccess.c)
+ *     CMFFlushHitsFile @ 0x1408D8BE8 (CMFFlushHitsFile.c)
+ *     CMFRegisterEventTime @ 0x1408D9288 (CMFRegisterEventTime.c)
+ *     CMFUnmapModules @ 0x1408D9AF4 (CMFUnmapModules.c)
  */
 
 __int64 __fastcall NtMapCMFModule(int a1, unsigned int a2, int *a3, unsigned int *a4, _DWORD *a5, PVOID *a6)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DT_AdjustBreakForSurrogatesAndVariationSelectors@@YAHPEBGHH@Z @ 0x1C025B02C
+ * XREFs of ?DT_AdjustBreakForSurrogatesAndVariationSelectors@@YAHPEBGHH@Z @ 0x1C025E428
  * Callers:
- *     ?NeedsEndEllipsis@@YAHPEAUHDC__@@PEBGPEAHPEAUDRAWTEXTDATA@@I3H@Z @ 0x1C025B688 (-NeedsEndEllipsis@@YAHPEAUHDC__@@PEBGPEAHPEAUDRAWTEXTDATA@@I3H@Z.c)
+ *     ?NeedsEndEllipsis@@YAHPEAUHDC__@@PEBGPEAHPEAUDRAWTEXTDATA@@I3H@Z @ 0x1C025EA6C (-NeedsEndEllipsis@@YAHPEAUHDC__@@PEBGPEAHPEAUDRAWTEXTDATA@@I3H@Z.c)
  * Callees:
- *     ?DT_GetLongChar@@YAKPEBGHH@Z @ 0x1C025B418 (-DT_GetLongChar@@YAKPEBGHH@Z.c)
+ *     ?DT_GetLongChar@@YAKPEBGHH@Z @ 0x1C025E814 (-DT_GetLongChar@@YAKPEBGHH@Z.c)
  */
 
 __int64 __fastcall DT_AdjustBreakForSurrogatesAndVariationSelectors(

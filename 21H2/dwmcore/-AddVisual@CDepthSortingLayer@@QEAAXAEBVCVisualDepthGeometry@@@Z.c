@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AddVisual@CDepthSortingLayer@@QEAAXAEBVCVisualDepthGeometry@@@Z @ 0x18025D200
+ * XREFs of ?AddVisual@CDepthSortingLayer@@QEAAXAEBVCVisualDepthGeometry@@@Z @ 0x18020D78C
  * Callers:
- *     ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x1802475EC (-AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z.c)
+ *     ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x1801FAF50 (-AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z.c)
  * Callees:
- *     ??$_Emplace_reallocate@I@?$vector@IV?$allocator@I@std@@@std@@QEAAPEAIQEAI$$QEAI@Z @ 0x18025CF1C (--$_Emplace_reallocate@I@-$vector@IV-$allocator@I@std@@@std@@QEAAPEAIQEAI$$QEAI@Z.c)
+ *     ??$_Emplace_reallocate@AEBM@?$vector@MV?$allocator@M@std@@@std@@QEAAPEAMQEAMAEBM@Z @ 0x1801DC9D0 (--$_Emplace_reallocate@AEBM@-$vector@MV-$allocator@M@std@@@std@@QEAAPEAMQEAMAEBM@Z.c)
  */
 
 void __fastcall CDepthSortingLayer::AddVisual(CDepthSortingLayer *this, const struct CVisualDepthGeometry *a2)
@@ -16,9 +16,9 @@ void __fastcall CDepthSortingLayer::AddVisual(CDepthSortingLayer *this, const st
   v2 = *((_DWORD *)a2 + 8);
   v4 = (_BYTE *)*((_QWORD *)this + 1);
   v7 = v2;
-  if ( v4 == *((_BYTE **)this + 2) )
+  if ( *((_BYTE **)this + 2) == v4 )
   {
-    std::vector<unsigned int>::_Emplace_reallocate<unsigned int>(this, v4, &v7);
+    std::vector<float>::_Emplace_reallocate<float const &>((const void **)this, v4, &v7);
   }
   else
   {

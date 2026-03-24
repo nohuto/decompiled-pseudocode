@@ -1,11 +1,11 @@
 /*
- * XREFs of GetPointerDeviceKey @ 0x1C01D10E0
+ * XREFs of GetPointerDeviceKey @ 0x1C01D5620
  * Callers:
- *     RetrieveCalibrationData @ 0x1C01CBF40 (RetrieveCalibrationData.c)
- *     _SetCalibrationData @ 0x1C01D1854 (_SetCalibrationData.c)
+ *     RetrieveCalibrationData @ 0x1C01CF620 (RetrieveCalibrationData.c)
+ *     _SetCalibrationData @ 0x1C01D5DA8 (_SetCalibrationData.c)
  * Callees:
- *     GetDeviceObjectPointer @ 0x1C01161F0 (GetDeviceObjectPointer.c)
- *     GetPointerDevicePDO @ 0x1C011AB14 (GetPointerDevicePDO.c)
+ *     GetPointerDevicePDO @ 0x1C0121CD0 (GetPointerDevicePDO.c)
+ *     GetDeviceObjectPointer @ 0x1C0121DAC (GetDeviceObjectPointer.c)
  */
 
 _BOOL8 __fastcall GetPointerDeviceKey(struct _UNICODE_STRING *a1, void **a2, __int64 a3)

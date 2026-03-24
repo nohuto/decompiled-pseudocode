@@ -1,10 +1,10 @@
 /*
- * XREFs of MiRelinkStandbyPage @ 0x1400F0A18
+ * XREFs of MiRelinkStandbyPage @ 0x1400F0A38
  * Callers:
  *     MiUpdatePfnPriorityByPte @ 0x14003DA70 (MiUpdatePfnPriorityByPte.c)
  *     MiUpdatePfnPriority @ 0x140082AB8 (MiUpdatePfnPriority.c)
- *     MiEmptyDecayClusterTimers @ 0x1400F07D0 (MiEmptyDecayClusterTimers.c)
- *     MmSetPfnListInfo @ 0x14013FC70 (MmSetPfnListInfo.c)
+ *     MiEmptyDecayClusterTimers @ 0x1400F07F0 (MiEmptyDecayClusterTimers.c)
+ *     MmSetPfnListInfo @ 0x14013FC90 (MmSetPfnListInfo.c)
  * Callees:
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)

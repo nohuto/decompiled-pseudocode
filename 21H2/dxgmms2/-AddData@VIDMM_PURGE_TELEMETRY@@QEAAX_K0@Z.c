@@ -1,19 +1,19 @@
 /*
- * XREFs of ?AddData@VIDMM_PURGE_TELEMETRY@@QEAAX_K0@Z @ 0x1C00E4B0C
+ * XREFs of ?AddData@VIDMM_PURGE_TELEMETRY@@QEAAX_K0@Z @ 0x1C00BF84C
  * Callers:
- *     ?PurgeAllSegments@VIDMM_GLOBAL@@QEAAXU_VIDMM_PURGE_FLAGS@@PEAVVIDMM_PROCESS@@@Z @ 0x1C00AA370 (-PurgeAllSegments@VIDMM_GLOBAL@@QEAAXU_VIDMM_PURGE_FLAGS@@PEAVVIDMM_PROCESS@@@Z.c)
+ *     ?PurgeAllSegments@VIDMM_GLOBAL@@QEAAXU_VIDMM_PURGE_FLAGS@@PEAVVIDMM_PROCESS@@@Z @ 0x1C00B24D8 (-PurgeAllSegments@VIDMM_GLOBAL@@QEAAXU_VIDMM_PURGE_FLAGS@@PEAVVIDMM_PROCESS@@@Z.c)
  * Callees:
- *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x1C00149D0 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ @ 0x1C0018008 (-Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ.c)
+ *     <none>
  */
 
 void __fastcall VIDMM_PURGE_TELEMETRY::AddData(VIDMM_PURGE_TELEMETRY *this, unsigned __int64 a2, unsigned __int64 a3)
 {
-  char *v5; // rbx
+  char *v5; // rdi
   unsigned __int64 v6; // rcx
-  char *v7; // rbx
-  unsigned __int64 v8; // rax
-  _BYTE v9[24]; // [rsp+20h] [rbp-18h] BYREF
+  char *v7; // rdi
+  unsigned __int64 v8; // rdx
+  unsigned __int64 v9; // rax
+  unsigned __int64 v10; // rax
 
   if ( a2 < 0x40000000 )
   {
@@ -36,14 +36,21 @@ LABEL_7:
   }
   v5 = (char *)this + 3080;
 LABEL_9:
-  DXGAUTOPUSHLOCKFASTEXCLUSIVE::DXGAUTOPUSHLOCKFASTEXCLUSIVE(
-    (DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v9,
-    (VIDMM_PURGE_TELEMETRY *)((char *)this + 3112));
-  v8 = *((_QWORD *)v5 + 1);
+  KeEnterCriticalRegion();
+  ExAcquirePushLockExclusiveEx((char *)this + 3112, 0LL);
+  *((_QWORD *)this + 390) = KeGetCurrentThread();
+  v8 = a3;
+  v9 = *((_QWORD *)v5 + 1);
   *(_QWORD *)v5 += a3;
   ++*((_DWORD *)v5 + 6);
-  if ( v8 > a3 )
-    a3 = v8;
-  *((_QWORD *)v5 + 1) = a3;
-  DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v9);
+  if ( v9 > a3 )
+    v8 = v9;
+  v10 = *((_QWORD *)v5 + 2);
+  *((_QWORD *)v5 + 1) = v8;
+  if ( v10 < a3 )
+    a3 = v10;
+  *((_QWORD *)v5 + 2) = a3;
+  *((_QWORD *)this + 390) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)this + 3112, 0LL);
+  KeLeaveCriticalRegion();
 }

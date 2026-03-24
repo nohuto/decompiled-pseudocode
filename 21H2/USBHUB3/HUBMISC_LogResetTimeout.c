@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBMISC_LogResetTimeout @ 0x1C003136C
+ * XREFs of HUBMISC_LogResetTimeout @ 0x1C0030C98
  * Callers:
- *     HUBDSM_LoggingResetTimeoutInResettingFor30 @ 0x1C001E7E0 (HUBDSM_LoggingResetTimeoutInResettingFor30.c)
+ *     HUBDSM_LoggingResetTimeoutInResettingFor30 @ 0x1C001E2A0 (HUBDSM_LoggingResetTimeoutInResettingFor30.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006D20 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBMISC_VerifierDbgBreak @ 0x1C0030374 (HUBMISC_VerifierDbgBreak.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C002FCD4 (HUBMISC_VerifierDbgBreak.c)
  */
 
 char __fastcall HUBMISC_LogResetTimeout(__int64 a1)
@@ -25,8 +25,8 @@ char __fastcall HUBMISC_LogResetTimeout(__int64 a1)
                    *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
                    2u,
                    5u,
-                   0x77u,
-                   (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids);
+                   0x76u,
+                   (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
   v3 = *(_BYTE **)(a1 + 8);
   *(_DWORD *)(a1 + 2432) = 1073807362;
   if ( (v3[184] & 1) != 0 )

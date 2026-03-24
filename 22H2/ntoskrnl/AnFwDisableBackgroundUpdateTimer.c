@@ -1,23 +1,23 @@
 /*
- * XREFs of AnFwDisableBackgroundUpdateTimer @ 0x140AF06E8
+ * XREFs of AnFwDisableBackgroundUpdateTimer @ 0x1409F34CC
  * Callers:
- *     AnFwDisplayBackgroundUpdate @ 0x140AED07C (AnFwDisplayBackgroundUpdate.c)
- *     BgpFwLibraryDisable @ 0x140AED1B0 (BgpFwLibraryDisable.c)
- *     AnFwDisplayFade @ 0x140AED9AC (AnFwDisplayFade.c)
- *     ResFwFreeContext @ 0x140AF2ED4 (ResFwFreeContext.c)
- *     AnFwpBackgroundUpdateTimer @ 0x140AF31E0 (AnFwpBackgroundUpdateTimer.c)
+ *     ResFwFreeContext @ 0x1409F107C (ResFwFreeContext.c)
+ *     AnFwDisplayFade @ 0x1409F1C00 (AnFwDisplayFade.c)
+ *     BgpFwLibraryDisable @ 0x1409F3FE8 (BgpFwLibraryDisable.c)
+ *     AnFwDisplayBackgroundUpdate @ 0x1409F4784 (AnFwDisplayBackgroundUpdate.c)
+ *     AnFwpBackgroundUpdateTimer @ 0x1409F71B0 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
- *     KeCancelTimer @ 0x140252980 (KeCancelTimer.c)
+ *     KeCancelTimer @ 0x14025FAA0 (KeCancelTimer.c)
  */
 
 BOOLEAN AnFwDisableBackgroundUpdateTimer()
 {
   BOOLEAN result; // al
 
-  if ( byte_140D18108 )
+  if ( byte_140CF5330 )
   {
-    result = KeCancelTimer(&stru_140D1B1A0);
-    byte_140D18108 = 0;
+    result = KeCancelTimer(&stru_140CF99E0);
+    byte_140CF5330 = 0;
   }
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SkipReadComplete@RIM@InputTraceLogging@@SAXPEBURawInputManagerObject@@PEBURIMDEV@@@Z @ 0x1C0006750
+ * XREFs of ?SkipReadComplete@RIM@InputTraceLogging@@SAXPEBURawInputManagerObject@@PEBURIMDEV@@@Z @ 0x1C0173E3C
  * Callers:
- *     rimSignalReadComplete @ 0x1C0005120 (rimSignalReadComplete.c)
+ *     rimSignalReadComplete @ 0x1C0175E58 (rimSignalReadComplete.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0079EA8 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?PointerDeviceTypeToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C00E08DE (-PointerDeviceTypeToString@InputTraceLogging@@CAPEBDK@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U1@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@33AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@5@Z @ 0x1C01A3B28 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U1@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U3@@-$_tlgWrit.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U1@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@33AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C01A3BFC (--$Write@U-$_tlgWrapperByVal@$07@@U1@U1@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJP.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?PointerDeviceTypeToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C0151364 (-PointerDeviceTypeToString@InputTraceLogging@@CAPEBDK@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U1@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@33AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@5@Z @ 0x1C017315C (--$Write@U-$_tlgWrapperByVal@$07@@U1@U1@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U3@@-$_tlgWrit.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U1@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@33AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C0173330 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U1@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJP.c)
  */
 
 void __fastcall InputTraceLogging::RIM::SkipReadComplete(
@@ -18,25 +18,28 @@ void __fastcall InputTraceLogging::RIM::SkipReadComplete(
   char v2; // al
   __int64 v3; // r8
   __int64 *v4; // rax
-  const int *v5; // rdx
+  unsigned __int8 *v5; // rdx
   __int64 v6; // r8
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
+  __int64 v7; // rax
+  int v8; // ecx
+  __int64 v9; // rax
   __int64 v10; // r8
   __int64 v11; // r9
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // [rsp+50h] [rbp-19h] BYREF
-  __int64 v15; // [rsp+58h] [rbp-11h] BYREF
-  __int64 v16; // [rsp+60h] [rbp-9h] BYREF
-  __int64 v17; // [rsp+68h] [rbp-1h] BYREF
-  __int64 v18; // [rsp+70h] [rbp+7h] BYREF
-  __int64 v19; // [rsp+78h] [rbp+Fh] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v20; // [rsp+80h] [rbp+17h] BYREF
-  __int64 *v21; // [rsp+A0h] [rbp+37h]
-  int v22; // [rsp+A8h] [rbp+3Fh]
-  int v23; // [rsp+ACh] [rbp+43h]
+  __int64 v12; // r8
+  __int64 v13; // r9
+  __int64 v14; // rax
+  int v15; // ecx
+  __int64 v16; // r8
+  __int64 v17; // [rsp+50h] [rbp-19h] BYREF
+  __int64 v18; // [rsp+58h] [rbp-11h] BYREF
+  __int64 v19; // [rsp+60h] [rbp-9h] BYREF
+  __int64 v20; // [rsp+68h] [rbp-1h] BYREF
+  __int64 v21; // [rsp+70h] [rbp+7h] BYREF
+  __int64 v22; // [rsp+78h] [rbp+Fh] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v23; // [rsp+80h] [rbp+17h] BYREF
+  __int64 *v24; // [rsp+A0h] [rbp+37h]
+  int v25; // [rsp+A8h] [rbp+3Fh]
+  int v26; // [rsp+ACh] [rbp+43h]
 
   v2 = *((_BYTE *)a2 + 48);
   if ( v2 )
@@ -45,62 +48,68 @@ void __fastcall InputTraceLogging::RIM::SkipReadComplete(
     {
       if ( (*((_DWORD *)a2 + 50) & 0x80u) == 0 )
       {
-        if ( (unsigned int)dword_1C0289810 > 4 && (unsigned __int8)tlgKeywordOn(&dword_1C0289810, 256LL) )
+        if ( (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 256LL) )
         {
-          v12 = *(_QWORD *)(v10 + 464);
-          LODWORD(v15) = *(unsigned __int16 *)(v12 + 18);
-          LODWORD(v14) = *(unsigned __int16 *)(v12 + 16);
-          v16 = *(_QWORD *)(v10 + 16);
-          v18 = v11;
-          v17 = v10;
+          v14 = *(_QWORD *)(v12 + 472);
+          v15 = *(unsigned __int16 *)(v14 + 16);
+          LODWORD(v18) = *(unsigned __int16 *)(v14 + 18);
+          v19 = *(_QWORD *)(v12 + 16);
+          LODWORD(v17) = v15;
+          v21 = v13;
+          v20 = v12;
           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-            (unsigned int)&dword_1C0289810,
-            (unsigned int)&unk_1C025A035,
-            v10,
-            v11,
+            (__int64)&dword_1C024AA90,
+            byte_1C021BF0E,
+            v12,
+            v13,
+            (__int64)&v20,
+            (__int64)&v21,
+            (__int64)&v19,
             (__int64)&v17,
-            (__int64)&v18,
-            (__int64)&v16,
-            (__int64)&v14,
-            (__int64)&v15);
+            (__int64)&v18);
         }
       }
-      else if ( (unsigned int)dword_1C0289810 > 4 && (unsigned __int8)tlgKeywordOn(&dword_1C0289810, 256LL) )
+      else if ( (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 256LL) )
       {
-        v7 = *(_QWORD *)(v6 + 464);
-        LODWORD(v14) = *(unsigned __int16 *)(v7 + 18);
-        LODWORD(v15) = *(unsigned __int16 *)(v7 + 16);
-        v19 = (__int64)InputTraceLogging::PointerDeviceTypeToString(*(_DWORD *)(*(_QWORD *)(v6 + 472) + 24LL));
-        v17 = *(_QWORD *)(v8 + 16);
-        v18 = v9;
-        v16 = v8;
+        v7 = *(_QWORD *)(v6 + 472);
+        v8 = *(unsigned __int16 *)(v7 + 16);
+        LODWORD(v17) = *(unsigned __int16 *)(v7 + 18);
+        v9 = *(_QWORD *)(v6 + 480);
+        LODWORD(v18) = v8;
+        v22 = (__int64)InputTraceLogging::PointerDeviceTypeToString(*(_DWORD *)(v9 + 24));
+        v20 = *(_QWORD *)(v10 + 16);
+        v21 = v11;
+        v19 = v10;
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-          (int)&dword_1C0289810,
-          (__int64)&v16,
-          (__int64)&v18,
-          (__int64)&v17,
+          (__int64)&dword_1C024AA90,
+          byte_1C021BFD0,
+          v10,
+          v11,
           (__int64)&v19,
-          (__int64)&v15,
-          (__int64)&v14);
+          (__int64)&v21,
+          (__int64)&v20,
+          (void **)&v22,
+          (__int64)&v18,
+          (__int64)&v17);
       }
     }
-    else if ( (unsigned int)dword_1C0289810 > 4 && v2 == 1 && (unsigned __int8)tlgKeywordOn(&dword_1C0289810, 256LL) )
+    else if ( v2 == 1 && (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 256LL) )
     {
-      v16 = v13;
-      v4 = &v16;
-      v5 = &dword_1C0259FFF;
-      goto LABEL_18;
+      v19 = v16;
+      v4 = &v19;
+      v5 = (unsigned __int8 *)&dword_1C021BF67;
+      goto LABEL_17;
     }
   }
-  else if ( (unsigned int)dword_1C0289810 > 4 && (unsigned __int8)tlgKeywordOn(&dword_1C0289810, 256LL) )
+  else if ( (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 256LL) )
   {
-    v15 = v3;
-    v4 = &v15;
-    v5 = (const int *)&unk_1C0259FCC;
-LABEL_18:
-    v23 = 0;
-    v21 = v4;
-    v22 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C0289810, (int)v5, 0, 0, 3u, &v20);
+    v18 = v3;
+    v4 = &v18;
+    v5 = (unsigned __int8 *)&unk_1C021BF9D;
+LABEL_17:
+    v26 = 0;
+    v24 = v4;
+    v25 = 8;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C024AA90, v5, 0LL, 0LL, 3u, &v23);
   }
 }

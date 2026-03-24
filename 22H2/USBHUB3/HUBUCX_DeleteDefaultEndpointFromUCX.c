@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBUCX_DeleteDefaultEndpointFromUCX @ 0x1C0028760
+ * XREFs of HUBUCX_DeleteDefaultEndpointFromUCX @ 0x1C0025B60
  * Callers:
- *     HUBDSM_DeletingDefaultEndpointAndDeviceOnPostAddressFailureInEnum @ 0x1C001F510 (HUBDSM_DeletingDefaultEndpointAndDeviceOnPostAddressFailureInEnum.c)
- *     HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff @ 0x1C001F540 (HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff.c)
- *     HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupAfterDetach @ 0x1C001F5A0 (HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupAfterDetach.c)
- *     HUBDSM_DeletingEndpointsAndDeviceOnOnCleanup @ 0x1C001F5F0 (HUBDSM_DeletingEndpointsAndDeviceOnOnCleanup.c)
- *     HUBDSM_DeletingUCXDefaultEndpointOnOperationFailureFor30 @ 0x1C0020A80 (HUBDSM_DeletingUCXDefaultEndpointOnOperationFailureFor30.c)
+ *     HUBDSM_DeletingDefaultEndpointAndDeviceOnPostAddressFailureInEnum @ 0x1C001CB00 (HUBDSM_DeletingDefaultEndpointAndDeviceOnPostAddressFailureInEnum.c)
+ *     HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff @ 0x1C001CB30 (HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff.c)
+ *     HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupAfterDetach @ 0x1C001CB90 (HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupAfterDetach.c)
+ *     HUBDSM_DeletingEndpointsAndDeviceOnOnCleanup @ 0x1C001CBE0 (HUBDSM_DeletingEndpointsAndDeviceOnOnCleanup.c)
+ *     HUBDSM_DeletingUCXDefaultEndpointOnOperationFailureFor30 @ 0x1C001E1E0 (HUBDSM_DeletingUCXDefaultEndpointOnOperationFailureFor30.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_DeleteDefaultEndpointFromUCX(_QWORD *a1)

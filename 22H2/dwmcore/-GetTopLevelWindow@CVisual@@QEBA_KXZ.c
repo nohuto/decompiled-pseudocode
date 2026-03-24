@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetTopLevelWindow@CVisual@@QEBA_KXZ @ 0x1800FE0B0
+ * XREFs of ?GetTopLevelWindow@CVisual@@QEBA_KXZ @ 0x18001B634
  * Callers:
- *     ?PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006E9F0 (-PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?GetHwnd@CVisual@@MEBAPEAUHWND__@@XZ @ 0x1800F4610 (-GetHwnd@CVisual@@MEBAPEAUHWND__@@XZ.c)
+ *     ?PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180088E00 (-PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?GetHwnd@CVisual@@MEBAPEAUHWND__@@XZ @ 0x1800CF040 (-GetHwnd@CVisual@@MEBAPEAUHWND__@@XZ.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ unsigned __int64 __fastcall CVisual::GetTopLevelWindow(CVisual *this)
   __int64 v1; // rcx
   __int64 i; // rcx
 
-  v1 = *((_QWORD *)this + 28);
+  v1 = *((_QWORD *)this + 27);
   if ( *(int *)(v1 + 4) >= 0 )
     return 0LL;
   for ( i = v1 + 12; (*(_DWORD *)i & 0x7F000000) != 0x1000000; i += (*(_DWORD *)i & 0xFFFFFF) + 4LL )

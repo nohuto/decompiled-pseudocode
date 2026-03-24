@@ -1,147 +1,115 @@
 /*
- * XREFs of FirmwareDownload @ 0x1C0011984
+ * XREFs of FirmwareDownload @ 0x1C00119E4
  * Callers:
- *     IoctlFirmwareProcess @ 0x1C0013818 (IoctlFirmwareProcess.c)
+ *     IoctlFirmwareProcess @ 0x1C0002278 (IoctlFirmwareProcess.c)
  * Callees:
- *     SrbAssignQueueId @ 0x1C0001E60 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     GetControllerMaxTransferSize @ 0x1C0007BB0 (GetControllerMaxTransferSize.c)
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     FillClippedSGL @ 0x1C0011660 (FillClippedSGL.c)
- *     GetFirmwareGranularity @ 0x1C0012ACC (GetFirmwareGranularity.c)
- *     NVMeQueueWorkItem @ 0x1C0016BF8 (NVMeQueueWorkItem.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     GetControllerMaxTransferSize @ 0x1C0005CE0 (GetControllerMaxTransferSize.c)
+ *     GetFirmwareGranularity @ 0x1C0005D14 (GetFirmwareGranularity.c)
+ *     FillClippedSGL @ 0x1C00116F0 (FillClippedSGL.c)
+ *     NVMeQueueWorkItem @ 0x1C001522C (NVMeQueueWorkItem.c)
  */
 
-__int64 __fastcall FirmwareDownload(__int64 a1, __int64 a2)
+__int64 __fastcall FirmwareDownload(_DWORD *a1, __int64 a2)
 {
   unsigned int v3; // ebx
-  __int64 SrbExtension; // rsi
-  __int64 SrbDataBuffer; // rax
-  __int64 v7; // rdi
-  __int64 v8; // r15
-  __int64 v9; // r13
+  __int64 v5; // rdx
+  __int64 SrbExtension; // r14
+  _DWORD *v7; // rdi
+  char *v8; // rbp
+  char *v9; // r13
   unsigned __int64 v10; // rax
   __int64 v11; // rdx
   unsigned __int64 v12; // rcx
   char v13; // r9
-  unsigned __int64 ControllerMaxTransferSize; // r8
+  unsigned int ControllerMaxTransferSize; // eax
   unsigned __int64 v16; // r9
   unsigned int FirmwareGranularity; // eax
   unsigned int v18; // r12d
-  unsigned int *ScatterGatherList; // rax
-  int v20; // r9d
-  unsigned int v21; // r9d
+  int v19; // eax
+  int v20; // eax
+  unsigned __int64 v21; // rcx
   int v22; // eax
-  int v23; // eax
-  unsigned __int64 v24; // rcx
-  int v25; // eax
-  __int64 v26; // [rsp+120h] [rbp+18h] BYREF
-  void *v27; // [rsp+128h] [rbp+20h]
 
   v3 = 0;
-  v27 = 0LL;
   SrbExtension = GetSrbExtension(a2);
-  SrbDataBuffer = GetSrbDataBuffer(a2, &v26);
-  v7 = SrbDataBuffer;
-  v8 = SrbDataBuffer + *(unsigned int *)(SrbDataBuffer + 44);
-  if ( *(_DWORD *)v8 == 2 && *(_DWORD *)(v8 + 4) >= 0x20u )
-    v9 = SrbDataBuffer + *(unsigned int *)(SrbDataBuffer + 44);
+  if ( *(_BYTE *)(v5 + 2) == 40 )
+    v7 = *(_DWORD **)(v5 + 64);
+  else
+    v7 = *(_DWORD **)(v5 + 24);
+  v8 = (char *)v7 + (unsigned int)v7[11];
+  if ( *(_DWORD *)v8 == 2 && *((_DWORD *)v8 + 1) >= 0x20u )
+    v9 = (char *)v7 + (unsigned int)v7[11];
   else
     v9 = 0LL;
-  v10 = *(unsigned int *)(SrbDataBuffer + 48);
+  v10 = (unsigned int)v7[12];
   if ( v9 )
   {
     if ( (unsigned int)v10 < 0x20 )
-      goto LABEL_10;
-    v11 = *(_QWORD *)(v9 + 16);
+      goto LABEL_13;
+    v11 = *((_QWORD *)v9 + 2);
     v12 = v11 + 32;
   }
   else
   {
     if ( (unsigned int)v10 < 0x18 )
-      goto LABEL_10;
-    v11 = *(_QWORD *)(v8 + 16);
+      goto LABEL_13;
+    v11 = *((_QWORD *)v8 + 2);
     v12 = v11 + 24;
   }
-  if ( v10 < v12 || !v11 || (*(_BYTE *)(v8 + 8) & 3) != 0 || (*(_QWORD *)(v8 + 16) & 3) != 0 )
-    goto LABEL_10;
-  ControllerMaxTransferSize = (unsigned int)GetControllerMaxTransferSize((_DWORD *)a1);
+  if ( v10 < v12 || !v11 || (v8[8] & 3) != 0 || (*((_QWORD *)v8 + 2) & 3) != 0 )
+    goto LABEL_13;
+  ControllerMaxTransferSize = GetControllerMaxTransferSize(a1);
   if ( v16 > ControllerMaxTransferSize )
   {
-    *(_DWORD *)(v7 + 20) = 4;
-    goto LABEL_11;
+    v7[5] = 4;
+    goto LABEL_14;
   }
-  if ( (*(_DWORD *)(a1 + 32) & 0x800) == 0 )
+  if ( (a1[6] & 0x800) == 0 )
   {
     NVMeQueueWorkItem(a1, NVMeControllerValidateFirmwareActivateCapability);
-    *(_DWORD *)(a1 + 32) |= 0x800u;
+    a1[6] |= 0x800u;
   }
-  FirmwareGranularity = GetFirmwareGranularity(a1);
+  FirmwareGranularity = GetFirmwareGranularity((__int64)a1);
   if ( FirmwareGranularity )
   {
-    if ( *(_QWORD *)(v8 + 16) % (unsigned __int64)FirmwareGranularity )
+    if ( *((_QWORD *)v8 + 2) % (unsigned __int64)FirmwareGranularity )
     {
-LABEL_10:
-      *(_DWORD *)(v7 + 20) = 3;
-LABEL_11:
-      v3 = -1056964602;
-LABEL_12:
-      v13 = 21;
-      goto LABEL_13;
-    }
-  }
-  if ( (*(_DWORD *)(a1 + 64) & 8) != 0 )
-  {
-    v22 = *(_DWORD *)(v7 + 44);
-    if ( v9 )
-      v23 = v22 + 32;
-    else
-      v23 = v22 + 24;
-    *(_DWORD *)(SrbExtension + 4216) = v23;
-    goto LABEL_41;
-  }
-  LODWORD(v26) = (((unsigned int)GetControllerMaxTransferSize((_DWORD *)a1) - 1) >> 12) + 2;
-  v18 = 24 * v26 + 16;
-  StorPortExtendedFunction(0LL, a1, v18);
-  if ( v27 )
-  {
-    NVMeZeroMemory(v27, v18);
-    ScatterGatherList = (unsigned int *)StorPortGetScatterGatherList(a1, a2);
-    v20 = *(_DWORD *)(v7 + 44);
-    if ( v9 )
-      v21 = v20 + 32;
-    else
-      v21 = v20 + 24;
-    if ( !FillClippedSGL(ScatterGatherList, (unsigned int *)v27, v26, v21) )
-    {
-      if ( v27 )
-      {
-        StorPortExtendedFunction(1LL, a1, v27);
-        v27 = 0LL;
-      }
-      v3 = -1056964607;
-      *(_DWORD *)(v7 + 20) = 4;
-      goto LABEL_12;
-    }
-    *(_QWORD *)(SrbExtension + 4216) = v27;
-LABEL_41:
-    *(_BYTE *)(SrbExtension + 4253) |= 3u;
-    SrbAssignQueueId(a1, a2);
-    v24 = *(_QWORD *)(v8 + 8);
-    v25 = (*(_QWORD *)(v8 + 16) >> 2) - 1;
-    *(_BYTE *)(SrbExtension + 4096) = 17;
-    *(_DWORD *)(SrbExtension + 4136) = v25;
-    *(_QWORD *)(SrbExtension + 4224) = NVMeFirmwareDownloadCompletion;
-    *(_DWORD *)(SrbExtension + 4140) = v24 >> 2;
-    return v3;
-  }
-  v13 = 4;
-  *(_DWORD *)(v7 + 20) = 1;
-  v3 = -1056964605;
 LABEL_13:
-  *(_BYTE *)(a2 + 3) = v13;
-  if ( *(_BYTE *)(a1 + 22) )
-    StorPortExtendedFunction(87LL, a1, 0LL);
+      v7[5] = 3;
+LABEL_14:
+      v3 = -1056964602;
+      v13 = 21;
+LABEL_15:
+      *(_BYTE *)(a2 + 3) = v13;
+      StorPortExtendedFunction(87LL, a1, 0LL, 1LL);
+      return v3;
+    }
+  }
+  if ( (a1[14] & 8) == 0 )
+  {
+    v18 = (((unsigned int)GetControllerMaxTransferSize(a1) - 1) >> 12) + 2;
+    StorPortExtendedFunction(0LL, a1, 24 * v18 + 16, 1701672526LL);
+    v7[5] = 1;
+    v13 = 4;
+    v3 = -1056964605;
+    goto LABEL_15;
+  }
+  v19 = v7[11];
+  if ( v9 )
+    v20 = v19 + 32;
+  else
+    v20 = v19 + 24;
+  *(_DWORD *)(SrbExtension + 4216) = v20;
+  *(_BYTE *)(SrbExtension + 4253) |= 3u;
+  SrbAssignQueueId((__int64)a1, a2);
+  v21 = *((_QWORD *)v8 + 1);
+  v22 = (*((_QWORD *)v8 + 2) >> 2) - 1;
+  *(_BYTE *)(SrbExtension + 4096) = 17;
+  *(_DWORD *)(SrbExtension + 4136) = v22;
+  *(_QWORD *)(SrbExtension + 4224) = NVMeFirmwareDownloadCompletion;
+  *(_DWORD *)(SrbExtension + 4140) = v21 >> 2;
   return v3;
 }

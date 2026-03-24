@@ -1,55 +1,60 @@
 /*
- * XREFs of PopPowerAggregatorDisengageModernStandby @ 0x140995888
+ * XREFs of PopPowerAggregatorDisengageModernStandby @ 0x1408EE04C
  * Callers:
- *     PopPowerAggregatorModernStandbyEnterStateHandler @ 0x140995CC0 (PopPowerAggregatorModernStandbyEnterStateHandler.c)
- *     PopPowerAggregatorModernStandbyExitStateHandler @ 0x140995D10 (PopPowerAggregatorModernStandbyExitStateHandler.c)
+ *     PopPowerAggregatorModernStandbyEnterStateHandler @ 0x1408EE530 (PopPowerAggregatorModernStandbyEnterStateHandler.c)
+ *     PopPowerAggregatorModernStandbyExitStateHandler @ 0x1408EE580 (PopPowerAggregatorModernStandbyExitStateHandler.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopGetMonitorReasonFromPowerEventId @ 0x14039ADE8 (PopGetMonitorReasonFromPowerEventId.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x1408091FC (PopPowerAggregatorEnterScreenOff.c)
- *     PopSleepstudyStartNextSession @ 0x140809838 (PopSleepstudyStartNextSession.c)
- *     PopDirectedDripsNotify @ 0x140811764 (PopDirectedDripsNotify.c)
- *     PopSleepstudySnapModernStandbySessionData @ 0x140997DE0 (PopSleepstudySnapModernStandbySessionData.c)
- *     PopNetClearConnectivityConstraint @ 0x14099858C (PopNetClearConnectivityConstraint.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopSleepstudyStartNextSession @ 0x140774CD8 (PopSleepstudyStartNextSession.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140776048 (PopPowerAggregatorSetCurrentState.c)
+ *     PopDirectedDripsNotify @ 0x14078DB18 (PopDirectedDripsNotify.c)
+ *     PopPowerAggregatorLockAcquire @ 0x1408EE4F4 (PopPowerAggregatorLockAcquire.c)
+ *     PopPowerAggregatorLockRelease @ 0x1408EE510 (PopPowerAggregatorLockRelease.c)
+ *     PopNetClearConnectivityConstraint @ 0x1408F1C74 (PopNetClearConnectivityConstraint.c)
+ *     PopSleepstudySnapModernStandbySessionData @ 0x1408FA3EC (PopSleepstudySnapModernStandbySessionData.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
-struct _KTHREAD *__fastcall PopPowerAggregatorDisengageModernStandby(__int64 a1)
+__int64 __fastcall PopPowerAggregatorDisengageModernStandby(__int64 a1)
 {
+  int v1; // ebx
   unsigned int v2; // esi
-  __int64 v3; // rbx
-  int v4; // eax
-  int v5; // ecx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v9; // [rsp+30h] [rbp+8h] BYREF
+  int v3; // edi
+  int v4; // ecx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  int v8; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v9; // [rsp+24h] [rbp-24h]
+  int v10; // [rsp+2Ch] [rbp-1Ch]
+  int v11; // [rsp+30h] [rbp-18h]
+  int v12; // [rsp+34h] [rbp-14h]
+  __int64 v13; // [rsp+38h] [rbp-10h]
+  __int64 v14; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = *(_DWORD *)(a1 + 76);
-  if ( *(_QWORD *)(a1 + 32) == *(_QWORD *)(a1 + 64) )
-  {
-    if ( *(_BYTE *)(a1 + 83) != 1 || (LODWORD(v3) = *(_DWORD *)(a1 + 80), (v3 & 0xFFFFFF) == 0) )
-      LODWORD(v3) = 50;
-  }
-  else
-  {
-    v3 = PopGetMonitorReasonFromPowerEventId(*(_DWORD *)(a1 + 24)) & 0xFFFFFF;
-  }
-  PopPowerAggregatorEnterScreenOff(a1);
-  PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
-  PopSleepstudySnapModernStandbySessionData();
-  v4 = *(_DWORD *)(a1 + 16);
-  if ( (v4 & 0xFFFFFFFC) != 0 || v4 == 1 )
-    PopSleepstudyStartNextSession(1, v3);
+  v1 = 47;
+  v2 = *(_DWORD *)(a1 + 100);
+  v3 = *(_DWORD *)(a1 + 24);
+  if ( *(_QWORD *)(a1 + 40) != *(_QWORD *)(a1 + 80) )
+    v1 = *(_DWORD *)(a1 + 32);
   v9 = 0LL;
-  PopDirectedDripsNotify(7, &v9);
-  PopAcquirePolicyLock(v5);
+  v10 = 0;
+  v13 = 0LL;
+  v8 = 4;
+  v11 = 4;
+  v12 = *(_DWORD *)(a1 + 92);
+  PopPowerAggregatorSetCurrentState(a1, (__int64)&v8);
+  PopPowerAggregatorLockRelease();
+  PopSleepstudySnapModernStandbySessionData();
+  if ( v3 == 1 )
+    PopSleepstudyStartNextSession(1, v1);
+  v14 = 0LL;
+  PopDirectedDripsNotify(7, (char *)&v14);
+  PopAcquirePolicyLock(v4);
   PopNetClearConnectivityConstraint(1LL);
   PopNetClearConnectivityConstraint(7LL);
   PopAggressiveStandbyAppliedActions = 0;
-  PopReleasePolicyLock(v7, v6);
-  ((void (__fastcall *)(_QWORD))qword_140C5ADD8)(v2);
-  return PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
+  PopReleasePolicyLock(v6, v5);
+  ((void (__fastcall *)(_QWORD))qword_140C54448)(v2);
+  return PopPowerAggregatorLockAcquire();
 }

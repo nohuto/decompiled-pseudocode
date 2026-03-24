@@ -1,10 +1,10 @@
 /*
- * XREFs of ?cptAddRound@WIDEPENOBJ@@QEAAKAEAVWIDENER@@AEAVLINEDATA@@1HHH@Z @ 0x1C02CDA84
+ * XREFs of ?cptAddRound@WIDEPENOBJ@@QEAAKAEAVWIDENER@@AEAVLINEDATA@@1HHH@Z @ 0x1C02CF250
  * Callers:
- *     ?vAddRoundJoin@WIDENER@@IEAAXH@Z @ 0x1C02CDE10 (-vAddRoundJoin@WIDENER@@IEAAXH@Z.c)
+ *     ?vAddRoundJoin@WIDENER@@IEAAXH@Z @ 0x1C02CF87C (-vAddRoundJoin@WIDENER@@IEAAXH@Z.c)
  * Callees:
- *     ?vAddNice@@YAXAEAVWIDEPATHOBJ@@PEAU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C0170528 (-vAddNice@@YAXAEAVWIDEPATHOBJ@@PEAU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
- *     ?vAddLeftNice@WIDENER@@IEAAXPEAVEVECTORFX@@H@Z @ 0x1C02CDDDC (-vAddLeftNice@WIDENER@@IEAAXPEAVEVECTORFX@@H@Z.c)
+ *     ?vAddLeftNice@WIDENER@@IEAAXPEAVEVECTORFX@@H@Z @ 0x1C02CF674 (-vAddLeftNice@WIDENER@@IEAAXPEAVEVECTORFX@@H@Z.c)
+ *     ?vAddNice@@YAXAEAVWIDEPATHOBJ@@PEAU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C02CF6A8 (-vAddNice@@YAXAEAVWIDEPATHOBJ@@PEAU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
  */
 
 __int64 __fastcall WIDEPENOBJ::cptAddRound(
@@ -18,20 +18,16 @@ __int64 __fastcall WIDEPENOBJ::cptAddRound(
 {
   struct EVECTORFX *v7; // rbx
   unsigned int v8; // r12d
-  struct LINEDATA *v9; // rsi
+  struct LINEDATA *v9; // rdi
   struct LINEDATA *v10; // r14
-  __int64 *v14; // rdi
+  __int64 *v14; // rsi
   int v15; // ebp
   struct EVECTORFX *i; // rbx
   unsigned __int64 v17; // rcx
   unsigned __int64 v18; // r13
-  struct EVECTORFX *v19; // r8
-  struct EVECTORFX *v20; // r8
   struct EVECTORFX *j; // rbx
-  unsigned __int64 v22; // rcx
-  unsigned __int64 v23; // r14
-  struct EVECTORFX *v24; // rdx
-  struct EVECTORFX *v25; // rdx
+  unsigned __int64 v20; // rcx
+  unsigned __int64 v21; // r14
 
   v7 = (struct EVECTORFX *)*((_QWORD *)a3 + 2);
   v8 = 0;
@@ -63,9 +59,8 @@ __int64 __fastcall WIDEPENOBJ::cptAddRound(
         v8 += ((v18 - (unsigned __int64)i - 1) >> 3) + 1;
         do
         {
-          v19 = i;
+          vAddNice((struct WIDENER *)((char *)a2 + 1136), (struct _POINTFIX *)((char *)a2 + 692), i, v15);
           i = (struct EVECTORFX *)((char *)i + 8);
-          vAddNice((struct WIDENER *)((char *)a2 + 1136), (struct _POINTFIX *)((char *)a2 + 692), v19, v15);
         }
         while ( (unsigned __int64)i < v18 );
         v9 = a4;
@@ -82,9 +77,8 @@ __int64 __fastcall WIDEPENOBJ::cptAddRound(
     {
       do
       {
-        v20 = i;
+        vAddNice((struct WIDENER *)((char *)a2 + 1136), (struct _POINTFIX *)((char *)a2 + 692), i, v15);
         i = (struct EVECTORFX *)((char *)i + 8);
-        vAddNice((struct WIDENER *)((char *)a2 + 1136), (struct _POINTFIX *)((char *)a2 + 692), v20, v15);
         ++v8;
       }
       while ( (unsigned __int64)i < *((_QWORD *)v9 + 2) );
@@ -102,21 +96,20 @@ __int64 __fastcall WIDEPENOBJ::cptAddRound(
     {
       if ( v14 == *((__int64 **)v9 + 1) )
       {
-        v22 = *((_QWORD *)v9 + 2);
-        if ( (unsigned __int64)j >= v22 && v15 == (*(_DWORD *)v9 & 1) )
+        v20 = *((_QWORD *)v9 + 2);
+        if ( (unsigned __int64)j >= v20 && v15 == (*(_DWORD *)v9 & 1) )
           break;
       }
-      v23 = (unsigned __int64)(v14 + 4);
+      v21 = (unsigned __int64)(v14 + 4);
       if ( j > (struct EVECTORFX *)(v14 + 4) )
       {
-        v8 += (((unsigned __int64)j - v23 - 1) >> 3) + 1;
+        v8 += (((unsigned __int64)j - v21 - 1) >> 3) + 1;
         do
         {
-          v24 = j;
+          WIDENER::vAddLeftNice(a2, j, v15);
           j = (struct EVECTORFX *)((char *)j - 8);
-          WIDENER::vAddLeftNice(a2, v24, v15);
         }
-        while ( (unsigned __int64)j > v23 );
+        while ( (unsigned __int64)j > v21 );
       }
       v14 = (__int64 *)v14[1];
       if ( !v14 )
@@ -125,13 +118,12 @@ __int64 __fastcall WIDEPENOBJ::cptAddRound(
         v15 = v15 == 0;
       }
     }
-    if ( (unsigned __int64)j > v22 )
+    if ( (unsigned __int64)j > v20 )
     {
       do
       {
-        v25 = j;
+        WIDENER::vAddLeftNice(a2, j, v15);
         j = (struct EVECTORFX *)((char *)j - 8);
-        WIDENER::vAddLeftNice(a2, v25, v15);
         ++v8;
       }
       while ( (unsigned __int64)j > *((_QWORD *)v9 + 2) );

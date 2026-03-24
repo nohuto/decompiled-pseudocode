@@ -1,65 +1,58 @@
 /*
- * XREFs of ACPILoadProcessRSDT @ 0x1C00BD9F8
+ * XREFs of ACPILoadProcessRSDT @ 0x1C00BE744
  * Callers:
- *     ACPIInitialize @ 0x1C00BE48C (ACPIInitialize.c)
+ *     ACPIInitialize @ 0x1C00BED6C (ACPIInitialize.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_q @ 0x1C0023BB0 (WPP_RECORDER_SF_q.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     ACPIRegReadAMLRegistryEntry @ 0x1C008E978 (ACPIRegReadAMLRegistryEntry.c)
- *     ACPIPccInitialize @ 0x1C00AFC38 (ACPIPccInitialize.c)
- *     ACPIRegDumpAcpiTables @ 0x1C00BC660 (ACPIRegDumpAcpiTables.c)
- *     ACPILoadAddDynamicDataBlockTable @ 0x1C00BDCC8 (ACPILoadAddDynamicDataBlockTable.c)
- *     ACPILoadProcessFADT @ 0x1C00BEF88 (ACPILoadProcessFADT.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_q @ 0x1C000F770 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ACPIRegReadAMLRegistryEntry @ 0x1C008FCF0 (ACPIRegReadAMLRegistryEntry.c)
+ *     ACPIPccInitialize @ 0x1C00B0788 (ACPIPccInitialize.c)
+ *     ACPIRegDumpAcpiTables @ 0x1C00BC580 (ACPIRegDumpAcpiTables.c)
+ *     ACPILoadAddDynamicDataBlockTable @ 0x1C00BEA74 (ACPILoadAddDynamicDataBlockTable.c)
+ *     ACPILoadProcessFADT @ 0x1C00BECCC (ACPILoadProcessFADT.c)
  */
 
 __int64 ACPILoadProcessRSDT()
 {
-  char v0; // r12
-  char v1; // r13
-  int v2; // ebx
-  _DWORD *v3; // rax
-  _DWORD *v4; // rsi
-  unsigned int v5; // ebp
-  unsigned int v6; // r15d
-  int **v7; // r14
-  int *v8; // rsi
-  int v9; // eax
-  _DWORD *v10; // rax
-  _OWORD *Pool2; // rax
-  int v13; // eax
-  unsigned __int16 v14; // r9
-  PVOID v15; // rsi
-  __int64 v16; // [rsp+28h] [rbp-40h]
-  PVOID P; // [rsp+70h] [rbp+8h] BYREF
-  PVOID v18; // [rsp+78h] [rbp+10h] BYREF
+  int v0; // ebx
+  _DWORD *v1; // rax
+  _DWORD *v2; // rsi
+  unsigned int v3; // r15d
+  unsigned int v4; // r13d
+  int **v5; // r12
+  int *v6; // rsi
+  int v7; // eax
+  _OWORD *PoolWithTag; // rax
+  int v10; // eax
+  unsigned __int16 v11; // r9
+  _OWORD *v12; // rax
+  PVOID v13; // rsi
+  __int64 v14; // [rsp+28h] [rbp-50h]
+  char v15; // [rsp+80h] [rbp+8h]
+  PVOID v16; // [rsp+88h] [rbp+10h] BYREF
+  char v17; // [rsp+90h] [rbp+18h]
+  PVOID P; // [rsp+98h] [rbp+20h] BYREF
 
   v0 = 0;
-  v1 = 0;
-  LOBYTE(P) = 0;
-  v2 = 0;
-  v3 = (_DWORD *)(*(__int64 (**)(void))(PmHalDispatchTable + 112))();
-  v4 = v3;
-  if ( !v3 || (v5 = *v3) == 0 )
+  v15 = 0;
+  v17 = 0;
+  LOBYTE(v16) = 0;
+  v1 = (_DWORD *)(*(__int64 (**)(void))(PmHalDispatchTable + 112))();
+  v2 = v1;
+  if ( !v1 || (v3 = *v1) == 0 )
   {
-    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      return (unsigned int)-1072431079;
-    WPP_RECORDER_SF_(
-      (__int64)WPP_GLOBAL_Control->DeviceExtension,
-      2u,
-      6u,
-      0x12u,
-      (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids);
-LABEL_59:
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         2u,
         6u,
-        0x1Au,
-        (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids);
-    return (unsigned int)-1072431079;
+        0x12u,
+        (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids);
+    v0 = -1072431079;
+    goto LABEL_19;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     WPP_RECORDER_SF_D(
@@ -67,15 +60,15 @@ LABEL_59:
       4u,
       6u,
       0x13u,
-      (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids,
-      *v3);
-  v6 = 0;
-  v7 = (int **)(v4 + 2);
+      (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids,
+      *v1);
+  v4 = 0;
+  v5 = (int **)(v2 + 2);
   do
   {
-    v8 = *v7;
-    v9 = **v7;
-    if ( v9 == 1414742611 )
+    v6 = *v5;
+    v7 = **v5;
+    if ( v7 == 1414742611 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_q(
@@ -83,141 +76,152 @@ LABEL_59:
           4u,
           6u,
           0x14u,
-          (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids,
-          *v7);
-      goto LABEL_14;
+          (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids,
+          *v5);
+      goto LABEL_15;
     }
-    if ( v9 != 1413763923 && v9 != 1346584902 && v9 != 1128878145 && v9 != 1413763920 && v9 != 1413694288 )
+    if ( v7 != 1413763923 && v7 != 1346584902 && v7 != 1128878145 && v7 != 1413763920 && v7 != 1413694288 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LODWORD(v16) = **v7;
-        WPP_RECORDER_SF_D(
+        LODWORD(v14) = **v5;
+        WPP_RECORDER_SF_L(
           (__int64)WPP_GLOBAL_Control->DeviceExtension,
           4u,
           6u,
           0x15u,
-          (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids,
-          v16);
+          (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids,
+          v14);
       }
-      goto LABEL_14;
+      goto LABEL_15;
     }
-    Pool2 = (_OWORD *)ExAllocatePool2(64LL, 36LL, 1953522497LL);
-    v18 = Pool2;
-    if ( !Pool2 )
-      goto LABEL_50;
-    *Pool2 = *(_OWORD *)v8;
-    Pool2[1] = *((_OWORD *)v8 + 1);
-    *((_DWORD *)Pool2 + 8) = v8[8];
-    *((_DWORD *)Pool2 + 1) = 36;
-    if ( ACPIRegReadAMLRegistryEntry((__int64 *)&v18) )
-      v8 = (int *)v18;
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x24uLL, 0x74706341u);
+    P = PoolWithTag;
+    if ( !PoolWithTag )
+      goto LABEL_49;
+    *PoolWithTag = *(_OWORD *)v6;
+    PoolWithTag[1] = *((_OWORD *)v6 + 1);
+    *((_DWORD *)PoolWithTag + 8) = v6[8];
+    *((_DWORD *)PoolWithTag + 1) = 36;
+    if ( ACPIRegReadAMLRegistryEntry((__int64 *)&P) )
+      v6 = (int *)P;
     else
-      ExFreePoolWithTag(v18, 0);
-    switch ( *v8 )
+      ExFreePoolWithTag(P, 0);
+    switch ( *v6 )
     {
       case 1128878145:
-        if ( !v1 )
+        if ( !v17 )
         {
-          v1 = 1;
-          *((_QWORD *)AcpiInformation + 4) = v8;
+          v17 = 1;
+          *((_QWORD *)AcpiInformation + 4) = v6;
           break;
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          v14 = 23;
-          goto LABEL_49;
+          v11 = 23;
+          goto LABEL_48;
         }
         break;
       case 1346584902:
-        if ( !v0 )
+        if ( !v15 )
         {
-          v0 = 1;
-          *((_QWORD *)AcpiInformation + 1) = v8;
-          v13 = ACPILoadProcessFADT();
-          goto LABEL_31;
+          v15 = 1;
+          *((_QWORD *)AcpiInformation + 1) = v6;
+          v10 = ACPILoadProcessFADT();
+          goto LABEL_30;
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          v14 = 22;
-          goto LABEL_49;
+          v11 = 22;
+          goto LABEL_48;
         }
         break;
       case 1413694288:
-        if ( !(_BYTE)P )
+        if ( !(_BYTE)v16 )
         {
-          LOBYTE(P) = 1;
-          v13 = ACPIPccInitialize((__int64)v8);
-          goto LABEL_31;
+          LOBYTE(v16) = 1;
+          v10 = ACPIPccInitialize((__int64)v6);
+          goto LABEL_30;
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          v14 = 24;
-LABEL_49:
+          v11 = 24;
+LABEL_48:
           WPP_RECORDER_SF_(
             (__int64)WPP_GLOBAL_Control->DeviceExtension,
             4u,
             6u,
-            v14,
-            (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids);
+            v11,
+            (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids);
         }
         break;
       case 1413763920:
       case 1413763923:
-        v13 = ACPILoadAddDynamicDataBlockTable(v8, 0LL);
-LABEL_31:
-        v2 = v13;
+        v10 = ACPILoadAddDynamicDataBlockTable(v6, 0LL);
+LABEL_30:
+        v0 = v10;
         break;
     }
-    if ( v2 < 0 )
-      goto LABEL_20;
-LABEL_14:
-    ++v6;
-    ++v7;
+    if ( v0 < 0 )
+      goto LABEL_19;
+LABEL_15:
+    ++v4;
+    ++v5;
   }
-  while ( v6 < v5 );
-  if ( !AcpiLoadSimulatorTable && !g_SimulatorCallbackObject )
-    goto LABEL_19;
-  v10 = (_DWORD *)ExAllocatePool2(64LL, 36LL, 1953522497LL);
-  P = v10;
-  if ( v10 )
+  while ( v4 < v3 );
+  if ( !g_SimulatorCallbackObject && !AcpiLoadSimulatorTable )
+    goto LABEL_18;
+  v12 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x24uLL, 0x74706341u);
+  v16 = v12;
+  if ( v12 )
   {
-    *v10 = 1413763923;
-    v10[1] = 36;
-    *((_WORD *)v10 + 4) = 1;
-    v10[6] = 1;
-    v10[8] = 1;
-    *(_DWORD *)((char *)v10 + 10) = 1413894989;
-    *((_QWORD *)v10 + 2) = 0x7274616C756D6973LL;
-    v10[7] = 1413894989;
-    if ( !ACPIRegReadAMLRegistryEntry((__int64 *)&P) )
+    *v12 = 0LL;
+    v12[1] = 0LL;
+    *(_DWORD *)v12 = 1413763923;
+    *((_DWORD *)v12 + 1) = 36;
+    *((_WORD *)v12 + 4) = 1;
+    *((_DWORD *)v12 + 6) = 1;
+    *((_DWORD *)v12 + 8) = 1;
+    *(_DWORD *)((char *)v12 + 10) = 1413894989;
+    *((_QWORD *)v12 + 2) = 0x7274616C756D6973LL;
+    *((_DWORD *)v12 + 7) = 1413894989;
+    if ( !ACPIRegReadAMLRegistryEntry((__int64 *)&v16) )
     {
-      ExFreePoolWithTag(P, 0);
-LABEL_19:
+      ExFreePoolWithTag(v16, 0);
+LABEL_18:
       ACPIRegDumpAcpiTables();
-      goto LABEL_20;
+      goto LABEL_19;
     }
-    v15 = P;
+    v13 = v16;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_q(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         4u,
         6u,
         0x19u,
-        (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids,
-        P);
-    v2 = ACPILoadAddDynamicDataBlockTable(v15, 0LL);
-    if ( v2 >= 0 )
-      goto LABEL_19;
-    ExFreePoolWithTag(v15, 0);
+        (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids,
+        v16);
+    v0 = ACPILoadAddDynamicDataBlockTable(v13, 0LL);
+    if ( v0 >= 0 )
+      goto LABEL_18;
+    ExFreePoolWithTag(v13, 0);
   }
   else
   {
-LABEL_50:
-    v2 = -1073741670;
+LABEL_49:
+    v0 = -1073741670;
   }
-LABEL_20:
-  if ( !v0 )
-    goto LABEL_59;
-  return (unsigned int)v2;
+LABEL_19:
+  if ( !v15 )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        6u,
+        0x1Au,
+        (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids);
+    return (unsigned int)-1072431079;
+  }
+  return (unsigned int)v0;
 }

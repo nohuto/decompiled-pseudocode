@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpWheaInitDiscard @ 0x140AF9508
+ * XREFs of HalpWheaInitDiscard @ 0x140A63B9C
  * Callers:
- *     HalpWheaInitSystem @ 0x140A5B290 (HalpWheaInitSystem.c)
+ *     HalpWheaInitSystem @ 0x1409A01E0 (HalpWheaInitSystem.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     WheaConfigureErrorSource @ 0x140A55520 (WheaConfigureErrorSource.c)
- *     HalpReserveHalPtes @ 0x140AF9C84 (HalpReserveHalPtes.c)
- *     KeHwPolicyLocateResource @ 0x140AFAC30 (KeHwPolicyLocateResource.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     WheaConfigureErrorSource @ 0x1409A0440 (WheaConfigureErrorSource.c)
+ *     HalpReserveHalPtes @ 0x140A64880 (HalpReserveHalPtes.c)
+ *     KeHwPolicyLocateResource @ 0x140A65230 (KeHwPolicyLocateResource.c)
  */
 
 __int64 __fastcall HalpWheaInitDiscard(int a1)
@@ -59,7 +59,7 @@ __int64 __fastcall HalpWheaInitDiscard(int a1)
   HalpWheaMappingMceLock = 0LL;
   HalpWheaMappingNmiLock = 0LL;
   HalpWheaMappingLock = 0LL;
-  off_140C01D08[0] = (__int64 (__fastcall *)())HalpWheaInitProcessorGenericSection;
+  off_140C006B8[0] = (__int64 (__fastcall *)())HalpWheaInitProcessorGenericSection;
   WheaConfigureErrorSource(0, (__int64)&HalpMachineCheckConfiguration);
   WheaConfigureErrorSource(1, (__int64)&HalpMachineCheckConfiguration);
   WheaConfigureErrorSource(3, (__int64)&HalpNmiConfiguration);

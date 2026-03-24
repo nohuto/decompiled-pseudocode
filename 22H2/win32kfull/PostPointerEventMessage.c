@@ -1,97 +1,149 @@
 /*
- * XREFs of PostPointerEventMessage @ 0x1C01C32E0
+ * XREFs of PostPointerEventMessage @ 0x1C01EE3D0
  * Callers:
- *     PostDeviceNotification @ 0x1C009FAD0 (PostDeviceNotification.c)
- *     PostPointerDeviceInRangeMessage @ 0x1C0152E70 (PostPointerDeviceInRangeMessage.c)
- *     PostPointerDeviceOutOfRangeMessage @ 0x1C0152E90 (PostPointerDeviceOutOfRangeMessage.c)
+ *     PostDeviceNotification @ 0x1C0108720 (PostDeviceNotification.c)
+ *     PostPointerDeviceInRangeMessage @ 0x1C01EE390 (PostPointerDeviceInRangeMessage.c)
+ *     PostPointerDeviceOutOfRangeMessage @ 0x1C01EE3B0 (PostPointerDeviceOutOfRangeMessage.c)
  * Callees:
- *     AdjustPwndPtiPqForDelegation @ 0x1C0060D1C (AdjustPwndPtiPqForDelegation.c)
- *     _PostMessage @ 0x1C00B6CD0 (_PostMessage.c)
- *     PostInputMessage @ 0x1C0117268 (PostInputMessage.c)
- *     PHIDTtoPT @ 0x1C01C328C (PHIDTtoPT.c)
+ *     _PostMessage @ 0x1C002DBA0 (_PostMessage.c)
+ *     AdjustPwndPtiPqForDelegation @ 0x1C004F480 (AdjustPwndPtiPqForDelegation.c)
+ *     PostInputMessage @ 0x1C00507E0 (PostInputMessage.c)
+ *     PHIDTtoPT @ 0x1C01EE34C (PHIDTtoPT.c)
  */
 
-__int64 __fastcall PostPointerEventMessage(__int64 a1, unsigned int a2, unsigned __int64 a3, int a4)
+void __fastcall PostPointerEventMessage(__int64 a1, unsigned int a2, unsigned __int64 a3, int a4)
 {
-  __int64 result; // rax
-  _QWORD *v9; // rdi
-  _QWORD *v10; // rbx
-  struct tagWND *v11; // rcx
-  __int64 v12; // rsi
-  bool v13; // zf
-  __int64 *v14; // rax
-  unsigned int v15; // [rsp+88h] [rbp+17h] BYREF
-  __int64 v16; // [rsp+90h] [rbp+1Fh] BYREF
-  struct tagWND *v17; // [rsp+98h] [rbp+27h] BYREF
-  struct tagQ *v18; // [rsp+A0h] [rbp+2Fh] BYREF
-  unsigned __int64 v19; // [rsp+F0h] [rbp+7Fh] BYREF
+  struct _LIST_ENTRY *Flink; // rbx
+  struct _LIST_ENTRY *v9; // r10
+  struct _LIST_ENTRY *v10; // r8
+  BOOL v11; // ecx
+  BOOL v12; // r8d
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int128 *v15; // r10
+  __int64 v16; // rax
+  __int128 *v17; // r9
+  __int64 v18; // rax
+  __int128 *v19; // r8
+  __int64 v20; // xmm1_8
+  __int128 v21; // xmm0
+  __int64 v22; // xmm1_8
+  __int128 v23; // xmm0
+  __int64 v24; // xmm1_8
+  __int64 v25; // rax
+  __int128 v26; // xmm0
+  __int64 v27; // xmm1_8
+  __int128 v28; // xmm0
+  __int64 v29; // xmm1_8
+  __int128 v30; // xmm0
+  __int64 v31; // xmm1_8
+  __int128 v32; // xmm0
+  __int64 v33; // xmm1_8
+  struct tagQ *v34; // [rsp+70h] [rbp-90h] BYREF
+  struct tagWND *v35; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v36; // [rsp+80h] [rbp-80h] BYREF
+  __int128 v37; // [rsp+88h] [rbp-78h]
+  __int64 v38; // [rsp+98h] [rbp-68h]
+  __int128 v39; // [rsp+A0h] [rbp-60h]
+  __int64 v40; // [rsp+B0h] [rbp-50h]
+  __int128 v41; // [rsp+B8h] [rbp-48h]
+  __int64 v42; // [rsp+C8h] [rbp-38h]
+  __int128 v43; // [rsp+D0h] [rbp-30h]
+  __int64 v44; // [rsp+E0h] [rbp-20h]
+  __int128 v45; // [rsp+E8h] [rbp-18h]
+  __int64 v46; // [rsp+F8h] [rbp-8h]
+  __int128 v47; // [rsp+100h] [rbp+0h]
+  __int64 v48; // [rsp+110h] [rbp+10h]
+  __int128 v49; // [rsp+118h] [rbp+18h]
+  __int64 v50; // [rsp+128h] [rbp+28h]
+  unsigned int v51; // [rsp+178h] [rbp+78h] BYREF
 
-  result = SGDGetUserSessionState(a1);
-  v9 = (_QWORD *)(result + 16352);
-  v10 = *(_QWORD **)(result + 16352);
+  Flink = gPointerDeviceClients.Flink;
   if ( !a4 )
+    a3 = (int)PHIDTtoPT(a1);
+  for ( ; Flink != &gPointerDeviceClients; Flink = Flink->Flink )
   {
-    result = PHIDTtoPT(a1);
-    a3 = (int)result;
-  }
-  while ( v10 != v9 )
-  {
-    v11 = (struct tagWND *)*(v10 - 2);
-    v12 = *((_QWORD *)v11 + 2);
-    if ( a4 )
+    v9 = Flink[-1].Flink;
+    v10 = v9[1].Flink;
+    if ( !a4 )
     {
-      if ( a2 == 568 && a3 - 1 <= 1 )
+      if ( LODWORD(Flink[-1].Blink) && v10[28].Blink == (struct _LIST_ENTRY *)grpdeskRitInput )
+        PostMessage((int)Flink[-1].Flink, a2, a3, *(_QWORD *)(a1 + 736));
+      continue;
+    }
+    v11 = 0;
+    if ( a2 == 568 )
+      v11 = a3 - 1 <= 1;
+    if ( v11 )
+    {
+      v12 = v10[28].Blink[2].Blink->Flink == (struct _LIST_ENTRY *)gSessionId;
+    }
+    else
+    {
+      if ( v10[28].Blink == (struct _LIST_ENTRY *)grpdeskRitInput )
+        goto LABEL_12;
+      v12 = 0;
+    }
+    if ( v12 )
+    {
+LABEL_12:
+      v13 = (__int64)v9[1].Flink;
+      v51 = 0;
+      v36 = v13;
+      v35 = (struct tagWND *)v9;
+      v34 = *(struct tagQ **)(v13 + 432);
+      if ( (unsigned int)AdjustPwndPtiPqForDelegation(
+                           (__int64 *)&v34,
+                           (__int64 *)&v35,
+                           (struct tagTHREADINFO **)&v36,
+                           a2,
+                           0LL,
+                           &v51) )
       {
-        result = *(unsigned int *)SGDGetUserSessionState(v11);
-        v13 = **(_DWORD **)(*(_QWORD *)(v12 + 456) + 40LL) == (_DWORD)result;
-      }
-      else
-      {
-        result = grpdeskRitInput;
-        v13 = *(_QWORD *)(v12 + 456) == grpdeskRitInput;
-      }
-      if ( v13 )
-      {
-        v14 = (__int64 *)*(v10 - 2);
-        v15 = 0;
-        LODWORD(v19) = 0;
-        v17 = (struct tagWND *)v14;
-        v16 = v14[2];
-        v18 = *(struct tagQ **)(v16 + 432);
-        result = AdjustPwndPtiPqForDelegation(
-                   (__int64 *)&v18,
-                   (__int64 *)&v17,
-                   (struct tagTHREADINFO **)&v16,
-                   a2,
-                   0LL,
-                   &v15,
-                   (int *)&v19);
-        if ( (_DWORD)result )
-          result = PostInputMessage(
-                     v18,
-                     v17,
-                     a2,
-                     a3,
-                     *(_QWORD *)(a1 + 784),
-                     0,
-                     0LL,
-                     0LL,
-                     0,
-                     0LL,
-                     0LL,
-                     0LL,
-                     v15,
-                     v19,
-                     v16);
+        v14 = *((_QWORD *)v34 + 15);
+        if ( v14 )
+          v14 = *(_QWORD *)(v14 + 16);
+        v15 = (__int128 *)gObjDummyLock;
+        if ( v14 )
+          v15 = (__int128 *)(v14 + 392);
+        v16 = *((_QWORD *)v34 + 11);
+        v17 = (__int128 *)gObjDummyLock;
+        if ( v16 )
+          v17 = (__int128 *)(v16 + 392);
+        v18 = *((_QWORD *)v34 + 12);
+        v19 = (__int128 *)gObjDummyLock;
+        if ( v18 )
+          v19 = (__int128 *)(v18 + 392);
+        v20 = *((_QWORD *)&gpsiLock + 2);
+        v37 = gpsiLock;
+        v21 = *(_OWORD *)((char *)v35 + 56);
+        v38 = v20;
+        v22 = *((_QWORD *)v35 + 9);
+        v39 = v21;
+        v23 = *(_OWORD *)(v36 + 392);
+        v40 = v22;
+        v24 = *(_QWORD *)(v36 + 408);
+        v25 = *(_QWORD *)(a1 + 736);
+        v41 = v23;
+        v26 = *(_OWORD *)v34;
+        v42 = v24;
+        v27 = *((_QWORD *)v34 + 2);
+        v43 = v26;
+        v28 = *v19;
+        v44 = v27;
+        v29 = *((_QWORD *)v19 + 2);
+        v45 = v28;
+        v30 = *v17;
+        v46 = v29;
+        v31 = *((_QWORD *)v17 + 2);
+        v47 = v30;
+        v32 = *v15;
+        v48 = v31;
+        v33 = *((_QWORD *)v15 + 2);
+        v49 = v32;
+        v50 = v33;
+        PostInputMessage(v34, v35, a2, a3, v25, 0, 0LL, 0LL, 0, 0LL, 0LL, 0LL, v51, v36);
       }
     }
-    else if ( *((_DWORD *)v10 - 2) )
-    {
-      result = grpdeskRitInput;
-      if ( *(_QWORD *)(v12 + 456) == grpdeskRitInput )
-        result = PostMessage(v11, a2, a3, *(_QWORD *)(a1 + 784));
-    }
-    v10 = (_QWORD *)*v10;
   }
-  return result;
 }

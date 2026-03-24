@@ -1,26 +1,33 @@
 /*
- * XREFs of MiCheckContiguityTradeEligible @ 0x1405A5F5C
+ * XREFs of MiCheckContiguityTradeEligible @ 0x140546BC4
  * Callers:
- *     MiQueryVaPhysicalContiguity @ 0x1405A645C (MiQueryVaPhysicalContiguity.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x1405B4BA8 (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiQueryVaPhysicalContiguity @ 0x140547254 (MiQueryVaPhysicalContiguity.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x140551F74 (MiMakeVaRangePhysicallyContiguous.c)
  * Callees:
- *     MiIsPfnFromSlabAllocation @ 0x140277C50 (MiIsPfnFromSlabAllocation.c)
- *     MiActivePageClaimCandidate @ 0x140278960 (MiActivePageClaimCandidate.c)
+ *     MiActivePageClaimCandidate @ 0x140302700 (MiActivePageClaimCandidate.c)
+ *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
 __int64 __fastcall MiCheckContiguityTradeEligible(__int64 a1)
 {
-  __int64 v2; // rcx
+  __int64 v1; // rcx
+  __int64 v2; // r9
 
-  v2 = *(_QWORD *)(a1 + 40);
-  if ( v2 < 0 || *(char *)(a1 + 35) < 0 )
+  if ( MI_PFN_IS_PROTO(a1) || MiIsPfnFromSlabAllocation(v1) || *(char *)(v2 + 35) < 0 )
     return 0LL;
-  if ( (*(_BYTE *)(a1 + 34) & 7) == 6 )
+  if ( (*(_BYTE *)(v2 + 34) & 7) == 6 )
   {
-    if ( MiActivePageClaimCandidate(*(_QWORD *)(qword_140C51F48 + 8 * (((unsigned __int64)v2 >> 43) & 0x3FF)), a1, 0, 0) )
+    if ( MiActivePageClaimCandidate(
+           *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v2 + 40) >> 39) & 0x3FFLL)),
+           v2,
+           0LL,
+           v2) )
+    {
       return 0LL;
+    }
   }
-  else if ( *(_WORD *)(a1 + 32) || MiIsPfnFromSlabAllocation(a1) )
+  else if ( *(_WORD *)(v2 + 32) )
   {
     return 0LL;
   }

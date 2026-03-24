@@ -1,14 +1,14 @@
 /*
- * XREFs of ??1FxUsbDevice@@MEAA@XZ @ 0x1C007BD80
+ * XREFs of ??1FxUsbDevice@@MEAA@XZ @ 0x1C006F5A0
  * Callers:
- *     ??_EFxUsbDevice@@MEAAPEAXI@Z @ 0x1C007BE90 (--_EFxUsbDevice@@MEAAPEAXI@Z.c)
+ *     ??_EFxUsbDevice@@MEAAPEAXI@Z @ 0x1C006F690 (--_EFxUsbDevice@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0006180 (--1FxNonPagedObject@@UEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0014230 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall FxUsbDevice::~FxUsbDevice(FxUsbDevice *this, unsigned int a2)
+void __fastcall FxUsbDevice::~FxUsbDevice(FxUsbDevice *this, unsigned int a2, unsigned int a3)
 {
   void (__fastcall *m_BusInterfaceDereference)(void *); // rax
   _USB_CONFIGURATION_DESCRIPTOR *m_ConfigDescriptor; // rcx
@@ -35,5 +35,5 @@ void __fastcall FxUsbDevice::~FxUsbDevice(FxUsbDevice *this, unsigned int a2)
   }
   this->m_NumInterfaces = 0;
   this->__vftable = (FxUsbDevice_vtbl *)FxIoTarget::`vftable';
-  FxNonPagedObject::~FxNonPagedObject(this, a2);
+  FxNonPagedObject::~FxNonPagedObject(this, a2, a3);
 }

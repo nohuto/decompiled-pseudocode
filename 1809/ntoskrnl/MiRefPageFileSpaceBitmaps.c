@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRefPageFileSpaceBitmaps @ 0x14014F8DC
+ * XREFs of MiRefPageFileSpaceBitmaps @ 0x14014F8FC
  * Callers:
- *     MiStoreEvictPageFile @ 0x140137E48 (MiStoreEvictPageFile.c)
- *     MiStoreWriteModifiedPages @ 0x14014CB80 (MiStoreWriteModifiedPages.c)
- *     MiBuildReservationCluster @ 0x14015009C (MiBuildReservationCluster.c)
- *     MiFindPageFileWriteCluster @ 0x140150C60 (MiFindPageFileWriteCluster.c)
+ *     MiStoreEvictPageFile @ 0x140137E68 (MiStoreEvictPageFile.c)
+ *     MiStoreWriteModifiedPages @ 0x14014CBA0 (MiStoreWriteModifiedPages.c)
+ *     MiBuildReservationCluster @ 0x1401500BC (MiBuildReservationCluster.c)
+ *     MiFindPageFileWriteCluster @ 0x140150C80 (MiFindPageFileWriteCluster.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiRefPageFileSpaceBitmaps(KSPIN_LOCK *a1, __int64 a2)

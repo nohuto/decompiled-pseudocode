@@ -1,11 +1,11 @@
 /*
- * XREFs of Control_Transfer_ValidateBuffer @ 0x1C0009C1C
+ * XREFs of Control_Transfer_ValidateBuffer @ 0x1C000508C
  * Callers:
- *     Control_MapTransfer @ 0x1C000605C (Control_MapTransfer.c)
+ *     Control_MapTransfer @ 0x1C0003FBC (Control_MapTransfer.c)
  * Callees:
- *     WPP_RECORDER_SF_DDi @ 0x1C00401BC (WPP_RECORDER_SF_DDi.c)
- *     WPP_RECORDER_SF_DDqD @ 0x1C004196C (WPP_RECORDER_SF_DDqD.c)
- *     WPP_RECORDER_SF_DDqDD @ 0x1C0041A90 (WPP_RECORDER_SF_DDqDD.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C003FA6C (WPP_RECORDER_SF_DDi.c)
+ *     WPP_RECORDER_SF_DDqD @ 0x1C0040A1C (WPP_RECORDER_SF_DDqD.c)
+ *     WPP_RECORDER_SF_DDqDD @ 0x1C0040B40 (WPP_RECORDER_SF_DDqDD.c)
  */
 
 __int64 __fastcall Control_Transfer_ValidateBuffer(__int64 a1)

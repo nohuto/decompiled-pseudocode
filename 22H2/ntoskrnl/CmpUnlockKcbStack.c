@@ -1,38 +1,39 @@
 /*
- * XREFs of CmpUnlockKcbStack @ 0x1406D5418
+ * XREFs of CmpUnlockKcbStack @ 0x140648B60
  * Callers:
- *     CmQueryLayeredKey @ 0x14035D634 (CmQueryLayeredKey.c)
- *     CmDeleteLayeredKey @ 0x14061695C (CmDeleteLayeredKey.c)
- *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     CmCallbackGetKeyObjectIDEx @ 0x1406D4B90 (CmCallbackGetKeyObjectIDEx.c)
- *     CmpQueryKeySecurity @ 0x1406D5C50 (CmpQueryKeySecurity.c)
- *     CmQueryValueKey @ 0x1406E0370 (CmQueryValueKey.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
- *     CmpSetKeySecurity @ 0x14070C46C (CmpSetKeySecurity.c)
- *     CmDeleteValueKey @ 0x14070EFD4 (CmDeleteValueKey.c)
- *     CmDeleteKey @ 0x14071009C (CmDeleteKey.c)
- *     CmpStartSiloRegistryNamespace @ 0x14077D410 (CmpStartSiloRegistryNamespace.c)
- *     CmpAssignKeySecurity @ 0x1408593F0 (CmpAssignKeySecurity.c)
- *     CmCallbackGetKeyObjectID @ 0x1408ABBD0 (CmCallbackGetKeyObjectID.c)
- *     CmSaveKey @ 0x140A0BA40 (CmSaveKey.c)
- *     CmOpenKeyForBugCheckRecovery @ 0x140A0D150 (CmOpenKeyForBugCheckRecovery.c)
- *     CmEnumerateValueFromLayeredKey @ 0x140A13C14 (CmEnumerateValueFromLayeredKey.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x140A13F50 (CmQueryMultipleValueForLayeredKey.c)
- *     CmSetKeyFlags @ 0x140A15A64 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140A15F98 (CmSetLastWriteTimeKey.c)
- *     CmpEnumerateLayeredKey @ 0x140A164C4 (CmpEnumerateLayeredKey.c)
- *     CmpDoBuildVirtualStack @ 0x140A1916C (CmpDoBuildVirtualStack.c)
- *     CmpPromoteKey @ 0x140A2665C (CmpPromoteKey.c)
+ *     CmQueryLayeredKey @ 0x140200A78 (CmQueryLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x1404ECFB8 (CmDeleteLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
+ *     CmpStartSiloRegistryNamespace @ 0x1406A630C (CmpStartSiloRegistryNamespace.c)
+ *     CmSetValueKey @ 0x1406DD4B0 (CmSetValueKey.c)
+ *     CmpQueryKeySecurity @ 0x1406DE150 (CmpQueryKeySecurity.c)
+ *     CmCallbackGetKeyObjectIDEx @ 0x1406DE9E0 (CmCallbackGetKeyObjectIDEx.c)
+ *     CmDeleteValueKey @ 0x1406DF334 (CmDeleteValueKey.c)
+ *     CmDeleteKey @ 0x1406E47E4 (CmDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x1406E6CFC (CmpSetKeySecurity.c)
+ *     CmSaveKey @ 0x140729A8C (CmSaveKey.c)
+ *     CmpAssignKeySecurity @ 0x1407D0370 (CmpAssignKeySecurity.c)
+ *     CmCallbackGetKeyObjectID @ 0x140869AC0 (CmCallbackGetKeyObjectID.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x14086C2B0 (CmEnumerateValueFromLayeredKey.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x14086C598 (CmQueryMultipleValueForLayeredKey.c)
+ *     CmSetKeyFlags @ 0x14086DCC8 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x14086E18C (CmSetLastWriteTimeKey.c)
+ *     CmpDoBuildVirtualStack @ 0x14086FFEC (CmpDoBuildVirtualStack.c)
+ *     CmpPromoteKey @ 0x140880318 (CmpPromoteKey.c)
  * Callees:
- *     CmpUnlockKcb @ 0x140AF65A0 (CmpUnlockKcb.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     CmpFreeKeyControlBlock @ 0x14066D340 (CmpFreeKeyControlBlock.c)
  */
 
-__int64 __fastcall CmpUnlockKcbStack(__int64 a1)
+char __fastcall CmpUnlockKcbStack(__int64 a1)
 {
   __int16 i; // bx
-  __int64 v3; // rcx
-  __int64 result; // rax
+  ULONG_PTR v3; // rdi
+  bool v4; // bp
+  char result; // al
 
   for ( i = 0; i <= *(__int16 *)(a1 + 2); ++i )
   {
@@ -40,7 +41,14 @@ __int64 __fastcall CmpUnlockKcbStack(__int64 a1)
       v3 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL * i - 16);
     else
       v3 = *(_QWORD *)(a1 + 8LL * i + 8);
-    result = CmpUnlockKcb(v3);
+    v4 = (*(_DWORD *)(v3 + 8) & 0x80000) != 0;
+    if ( *(struct _KTHREAD **)(v3 + 56) == KeGetCurrentThread() )
+      *(_QWORD *)(v3 + 56) = 0LL;
+    else
+      _InterlockedDecrement((volatile signed __int32 *)(v3 + 56));
+    result = ExReleasePushLockEx(v3 + 48, 0LL);
+    if ( v4 && (*(_DWORD *)(v3 + 8) & 0x80000) != 0 )
+      result = CmpFreeKeyControlBlock(v3);
   }
   return result;
 }

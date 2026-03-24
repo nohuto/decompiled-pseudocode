@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CManipulationTransformMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C021AE20
+ * XREFs of ?SetIntegerProperty@CManipulationTransformMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E4970
  * Callers:
  *     <none>
  * Callees:
@@ -19,7 +19,7 @@ __int64 __fastcall DirectComposition::CManipulationTransformMarshaler::SetIntege
   *a5 = 0;
   if ( a3 != 5 )
     return 3221225485LL;
-  *((_DWORD *)this + 32) = a4;
+  *((_DWORD *)this + 30) = a4;
   *a5 = 1;
   *((_DWORD *)this + 4) &= ~0x100u;
   return result;

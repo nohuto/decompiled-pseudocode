@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFlushControlArea @ 0x1402A217C
+ * XREFs of MiFlushControlArea @ 0x1402A227C
  * Callers:
- *     MiDeleteCachedSegment @ 0x1402A1764 (MiDeleteCachedSegment.c)
- *     MiProcessDeleteOnClose @ 0x1402A2880 (MiProcessDeleteOnClose.c)
+ *     MiDeleteCachedSegment @ 0x1402A1864 (MiDeleteCachedSegment.c)
+ *     MiProcessDeleteOnClose @ 0x1402A2980 (MiProcessDeleteOnClose.c)
  * Callees:
  *     MiDecrementModifiedWriteCount @ 0x140022DA0 (MiDecrementModifiedWriteCount.c)
  *     MmIsWriteErrorFatal @ 0x140022E5C (MmIsWriteErrorFatal.c)
@@ -11,13 +11,13 @@
  *     MiInsertUnusedSegment @ 0x14007B5A0 (MiInsertUnusedSegment.c)
  *     ObFastReferenceObjectLocked @ 0x14007DFF4 (ObFastReferenceObjectLocked.c)
  *     MiDeleteControlArea @ 0x140094D1C (MiDeleteControlArea.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPreventControlAreaDelete @ 0x1402A2844 (MiPreventControlAreaDelete.c)
- *     MiRemoveWakeListEntry @ 0x1402A3110 (MiRemoveWakeListEntry.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4BB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPreventControlAreaDelete @ 0x1402A2944 (MiPreventControlAreaDelete.c)
+ *     MiRemoveWakeListEntry @ 0x1402A3210 (MiRemoveWakeListEntry.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     FsRtlReleaseFileForCcFlush @ 0x1405DCE70 (FsRtlReleaseFileForCcFlush.c)

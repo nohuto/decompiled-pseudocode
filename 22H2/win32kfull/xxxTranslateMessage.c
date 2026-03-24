@@ -1,126 +1,134 @@
 /*
- * XREFs of xxxTranslateMessage @ 0x1C00ACC1C
+ * XREFs of xxxTranslateMessage @ 0x1C0110450
  * Callers:
- *     NtUserTranslateMessage @ 0x1C00ACB70 (NtUserTranslateMessage.c)
- *     xxxOldNextWindow @ 0x1C01CACD8 (xxxOldNextWindow.c)
- *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01EFC00 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
- *     xxxHandleMenuMessages @ 0x1C0213DC8 (xxxHandleMenuMessages.c)
- *     xxxMNLoop @ 0x1C02146AC (xxxMNLoop.c)
- *     ?xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z @ 0x1C022992C (-xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z.c)
- *     xxxHelpLoop @ 0x1C0239514 (xxxHelpLoop.c)
+ *     NtUserTranslateMessage @ 0x1C01103A0 (NtUserTranslateMessage.c)
+ *     xxxOldNextWindow @ 0x1C01F43B0 (xxxOldNextWindow.c)
+ *     xxxMoveSize @ 0x1C02122B4 (xxxMoveSize.c)
+ *     xxxHandleMenuMessages @ 0x1C02339B8 (xxxHandleMenuMessages.c)
+ *     xxxMNLoop @ 0x1C0234488 (xxxMNLoop.c)
+ *     ?xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z @ 0x1C0244A64 (-xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z.c)
+ *     xxxHelpLoop @ 0x1C024FBDC (xxxHelpLoop.c)
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C011E780 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1CEtwTraceTranslateMessage@@QEAA@XZ @ 0x1C0152430 (--1CEtwTraceTranslateMessage@@QEAA@XZ.c)
+ *     _PostMessageExtended @ 0x1C0054290 (_PostMessageExtended.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ??1CEtwTraceTranslateMessage@@QEAA@XZ @ 0x1C011065C (--1CEtwTraceTranslateMessage@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall xxxTranslateMessage(__int64 a1, int a2)
+_BOOL8 __fastcall xxxTranslateMessage(__int64 a1, int a2)
 {
-  unsigned int v2; // ebx
-  int v5; // r12d
-  unsigned int v6; // esi
-  __int64 v7; // rcx
-  __int64 v8; // rax
-  unsigned int v9; // ebp
-  unsigned __int64 v10; // r14
-  int v11; // edi
-  __int64 v12; // r14
-  int v14; // r12d
+  unsigned int v3; // ecx
+  int v5; // ebp
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  unsigned int v8; // edi
+  __int64 v9; // rbx
+  int v10; // eax
+  int v11; // esi
+  BOOL v12; // edi
+  int v14; // ebp
   int v15; // eax
-  unsigned int v16; // r12d
-  __int64 v17; // r14
-  __int64 v18; // rax
-  struct tagWND *v19; // rbp
-  _WORD *v20; // r15
-  __int64 v21; // rcx
-  __int64 *v22; // rax
-  __int64 v23; // rax
-  int v24; // [rsp+40h] [rbp-68h] BYREF
-  unsigned int v25; // [rsp+44h] [rbp-64h] BYREF
-  _BYTE v26[32]; // [rsp+48h] [rbp-60h] BYREF
+  unsigned int v16; // ebp
+  __int64 v17; // rax
+  __int64 v18; // r15
+  struct tagWND *v19; // rdi
+  _WORD *v20; // rbx
+  __int64 v21; // r9
+  struct tagQMSG *v22; // rax
+  struct tagQMSG *v23; // rdx
+  int v24; // eax
+  __int64 *v25; // rax
+  __int64 v26; // rax
+  int v27; // [rsp+40h] [rbp-68h] BYREF
+  unsigned int v28; // [rsp+44h] [rbp-64h] BYREF
+  _BYTE v29[32]; // [rsp+48h] [rbp-60h] BYREF
 
-  v2 = *(_DWORD *)(a1 + 8);
-  v24 = 0;
+  v3 = *(_DWORD *)(a1 + 8);
+  v27 = 0;
   v5 = 0;
-  v6 = 1;
-  switch ( v2 )
+  if ( v3 < 0x100 )
+    return 0LL;
+  if ( v3 > 0x101 && v3 != 261 )
   {
-    case 0x100u:
-    case 0x101u:
-      goto LABEL_3;
-    case 0x104u:
+    if ( v3 == 260 )
+    {
       v5 = 1;
       goto LABEL_3;
-    case 0x105u:
-LABEL_3:
-      v25 = v2;
-      LOBYTE(v7) = *((_BYTE *)PtiCurrentShared() + 1296);
-      EtwTraceBeginTranslateMessage(v7, v2);
-      v8 = *(_QWORD *)(gptiCurrent + 608LL);
-      if ( v8 && ((v22 = *(__int64 **)(*(_QWORD *)v8 + 16LL)) != 0LL ? (v23 = *v22) : (v23 = 0LL), v23 == *(_QWORD *)a1) )
-        v9 = a2 | 1;
-      else
-        v9 = a2 & 0xFFFFFFFE;
-      v10 = *(_QWORD *)(a1 + 24);
-      v11 = xxxInternalToUnicode(
-              *(unsigned __int16 *)(a1 + 16),
-              WORD1(v10),
-              *(_QWORD *)(gptiCurrent + 432LL) + 236LL,
-              v26,
-              16,
-              v9,
-              &v24,
-              0LL);
-      v12 = v24 & 0x4000000 | v10;
-      if ( v11 )
-      {
-        v14 = 4 * v5;
-        if ( v11 <= 0 )
-        {
-          v11 = -v11;
-          v15 = 259;
-        }
-        else
-        {
-          v15 = 258;
-        }
-        v16 = v15 + v14;
-        v18 = v12;
-        v17 = v12 | 0x80000000LL;
-        LODWORD(v18) = v18 & 0x7FFFFFFF;
-        if ( (v24 & 0x8000) == 0 )
-          v17 = v18;
-        v19 = (struct tagWND *)ValidateHwnd(*(_QWORD *)a1);
-        if ( v19 )
-        {
-          v20 = v26;
-          while ( v11 > 0 )
-          {
-            _PostTransformableMessageExtended(
-              v19,
-              v16,
-              (unsigned __int16)*v20,
-              v17 | ((unsigned int)v11 > 1 ? 0x2000000 : 0),
-              0LL,
-              1);
-            *v20 = 0;
-            --v11;
-            ++v20;
-          }
-          LOBYTE(v21) = *((_BYTE *)PtiCurrentShared() + 1296);
-          EtwTraceEndTranslateMessage(v21, v2);
-          return v6;
-        }
-      }
-      else if ( (v9 & 2) == 0 )
-      {
-LABEL_7:
-        CEtwTraceTranslateMessage::~CEtwTraceTranslateMessage((CEtwTraceTranslateMessage *)&v25);
-        return v6;
-      }
-      v6 = 0;
-      goto LABEL_7;
+    }
+    return 0LL;
   }
-  return 0LL;
+LABEL_3:
+  v28 = v3;
+  LOBYTE(v6) = *(_BYTE *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1248);
+  EtwTraceBeginTranslateMessage(v6, v28);
+  v7 = *(_QWORD *)(gptiCurrent + 608LL);
+  if ( v7 && ((v25 = *(__int64 **)(*(_QWORD *)v7 + 16LL)) != 0LL ? (v26 = *v25) : (v26 = 0LL), v26 == *(_QWORD *)a1) )
+    v8 = a2 | 1;
+  else
+    v8 = a2 & 0xFFFFFFFE;
+  v9 = *(_QWORD *)(a1 + 24);
+  v10 = xxxInternalToUnicode(
+          *(unsigned __int16 *)(a1 + 16),
+          WORD1(v9),
+          *(_QWORD *)(gptiCurrent + 432LL) + 228LL,
+          v29,
+          16,
+          v8,
+          &v27,
+          0LL);
+  v11 = v10;
+  if ( v10 )
+  {
+    v14 = 4 * v5;
+    if ( v10 <= 0 )
+    {
+      v11 = -v10;
+      v15 = 259;
+    }
+    else
+    {
+      v15 = 258;
+    }
+    v16 = v15 + v14;
+    HIDWORD(v17) = HIDWORD(v9);
+    v18 = v9 | v27 & 0x4000000 | 0x80000000LL;
+    if ( (v27 & 0x8000) == 0 )
+    {
+      LODWORD(v17) = v9 & 0x7FFFFFFF | v27 & 0x4000000;
+      v18 = v17;
+    }
+    v19 = (struct tagWND *)ValidateHwnd(*(_QWORD *)a1);
+    if ( v19 )
+    {
+      v20 = v29;
+      while ( v11 > 0 )
+      {
+        v21 = 0x2000000LL;
+        if ( v11 <= 1 )
+          v21 = 0LL;
+        v22 = PostMessageExtended(v19, v16, (unsigned __int16)*v20, v18 | v21, 0LL);
+        v23 = v22;
+        *v20++ = 0;
+        if ( v22 >= MmSystemRangeStart && *((_DWORD *)v22 + 6) == 258 && (*(_DWORD *)(gptiCurrent + 1344LL) & 1) != 0 )
+        {
+          v24 = *((_DWORD *)v22 + 25) | 0x4000;
+          *((_DWORD *)v23 + 25) = v24;
+          if ( (v27 & 0x8000000) != 0 )
+            *((_DWORD *)v23 + 25) = v24 | 0x8000;
+        }
+        --v11;
+      }
+      v12 = 1;
+    }
+    else
+    {
+      v12 = 0;
+    }
+  }
+  else
+  {
+    v12 = (v8 & 2) == 0;
+  }
+  CEtwTraceTranslateMessage::~CEtwTraceTranslateMessage((CEtwTraceTranslateMessage *)&v28);
+  return v12;
 }

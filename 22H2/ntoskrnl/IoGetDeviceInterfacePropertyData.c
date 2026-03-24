@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetDeviceInterfacePropertyData @ 0x1407DC3C0
+ * XREFs of IoGetDeviceInterfacePropertyData @ 0x14089E400
  * Callers:
  *     <none>
  * Callees:
- *     PnpGetDeviceInterfacePropertyData @ 0x1407DC404 (PnpGetDeviceInterfacePropertyData.c)
+ *     PnpGetDeviceInterfacePropertyData @ 0x1408A29B0 (PnpGetDeviceInterfacePropertyData.c)
  */
 
 __int64 __fastcall IoGetDeviceInterfacePropertyData(

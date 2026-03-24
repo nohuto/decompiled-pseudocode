@@ -1,15 +1,14 @@
 /*
- * XREFs of ?Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z @ 0x1802BFCEC
+ * XREFs of ?Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z @ 0x18026D038
  * Callers:
- *     ?Initialize@CDxHandleYUVBitmapRealization@@IEAAJPEAVIYUVSwapChainRealization@@@Z @ 0x1802B44E0 (-Initialize@CDxHandleYUVBitmapRealization@@IEAAJPEAVIYUVSwapChainRealization@@@Z.c)
- *     ?OpenSharedTexture@CD3DVidMemOnlyTexture@@SAJPEAUD3D11_TEXTURE2D_DESC@@PEAVCD3DDevice@@PEAX_NIPEAPEAV1@@Z @ 0x1802BFDE4 (-OpenSharedTexture@CD3DVidMemOnlyTexture@@SAJPEAUD3D11_TEXTURE2D_DESC@@PEAVCD3DDevice@@PEAX_NIPE.c)
+ *     ?Initialize@CDxHandleYUVBitmapRealization@@IEAAJPEAVIYUVSwapChainRealization@@@Z @ 0x180266000 (-Initialize@CDxHandleYUVBitmapRealization@@IEAAJPEAVIYUVSwapChainRealization@@@Z.c)
+ *     ?OpenSharedTexture@CD3DVidMemOnlyTexture@@SAJPEAUD3D11_TEXTURE2D_DESC@@PEAVCD3DDevice@@PEAX_NIPEAPEAV1@@Z @ 0x18026D130 (-OpenSharedTexture@CD3DVidMemOnlyTexture@@SAJPEAUD3D11_TEXTURE2D_DESC@@PEAVCD3DDevice@@PEAX_NIPE.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@VIDeviceResource@@@@IEAAKXZ @ 0x1800F1A94 (-InternalRelease@-$CMILRefCountBaseT@VIDeviceResource@@@@IEAAKXZ.c)
- *     ?Init@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@I@Z @ 0x1802BF8D0 (-Init@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@I@Z.c)
- *     ??0CD3DVidMemOnlyTexture@@IEAA@_N@Z @ 0x1802BFC08 (--0CD3DVidMemOnlyTexture@@IEAA@_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ?Release@CMILPoolResource@@UEAAKXZ @ 0x1800D50D0 (-Release@CMILPoolResource@@UEAAKXZ.c)
+ *     ??0CD3DVidMemOnlyTexture@@IEAA@_N@Z @ 0x18026CF48 (--0CD3DVidMemOnlyTexture@@IEAA@_N@Z.c)
+ *     ?Init@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@I@Z @ 0x18026D4B0 (-Init@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@I@Z.c)
  */
 
 __int64 __fastcall CD3DVidMemOnlyTexture::Create(
@@ -20,36 +19,40 @@ __int64 __fastcall CD3DVidMemOnlyTexture::Create(
         struct CD3DVidMemOnlyTexture **a5)
 {
   CD3DVidMemOnlyTexture *v8; // rax
-  __int64 v9; // rcx
-  CD3DVidMemOnlyTexture *v10; // rax
-  CD3DTexture *v11; // rdi
-  int v12; // eax
-  __int64 v13; // rcx
-  unsigned int v14; // ebx
-  __int64 v15; // rcx
+  bool v9; // dl
+  __int64 v10; // rcx
+  volatile signed __int32 *v11; // rdi
+  int v12; // ebx
+  int v13; // eax
+  __int64 v14; // rcx
 
   *a5 = 0LL;
-  v8 = (CD3DVidMemOnlyTexture *)operator new(0xF0uLL);
-  if ( v8 && (v10 = CD3DVidMemOnlyTexture::CD3DVidMemOnlyTexture(v8), (v11 = v10) != 0LL) )
+  v8 = (CD3DVidMemOnlyTexture *)operator new(0x100uLL);
+  if ( v8 )
+    v11 = (volatile signed __int32 *)CD3DVidMemOnlyTexture::CD3DVidMemOnlyTexture(v8, v9);
+  else
+    v11 = 0LL;
+  if ( v11 )
   {
-    CMILRefCountImpl::AddReference((CD3DVidMemOnlyTexture *)((char *)v10 + 16));
-    v12 = CD3DTexture::Init(v11, (struct CD3DDevice *)((char *)a4 + 1104), a1, a2);
-    v14 = v12;
-    if ( v12 >= 0 )
+    _InterlockedIncrement(v11 + 2);
+    v13 = CD3DTexture::Init((CD3DTexture *)v11, (struct CD3DDevice *)((char *)a4 + 1136), a1, a2);
+    v12 = v13;
+    if ( v13 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x10Bu, 0LL);
+    if ( v12 < 0 )
     {
-      *a5 = v11;
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v12, 0xCBu, 0LL);
+      CMILPoolResource::Release((CMILPoolResource *)v11);
     }
     else
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x10Bu, 0LL);
-      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0xCBu, 0LL);
-      CMILRefCountBaseT<IDeviceResource>::InternalRelease((volatile signed __int32 *)v11);
+      *a5 = (struct CD3DVidMemOnlyTexture *)v11;
     }
   }
   else
   {
-    v14 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024882, 0xC3u, 0LL);
+    v12 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2147024882, 0xC3u, 0LL);
   }
-  return v14;
+  return (unsigned int)v12;
 }

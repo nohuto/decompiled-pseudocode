@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhInitCallbackWorker @ 0x1C0043010
+ * XREFs of UsbhInitCallbackWorker @ 0x1C00442C0
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDisableTimerObject @ 0x1C000B4D0 (UsbhDisableTimerObject.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     Usbh_FDO_Pnp_State @ 0x1C0043A98 (Usbh_FDO_Pnp_State.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhDisableTimerObject @ 0x1C0011260 (UsbhDisableTimerObject.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     Usbh_FDO_Pnp_State @ 0x1C0044D48 (Usbh_FDO_Pnp_State.c)
  */
 
 __int64 __fastcall UsbhInitCallbackWorker(__int64 a1, unsigned int a2, __int64 a3)
@@ -23,7 +23,7 @@ __int64 __fastcall UsbhInitCallbackWorker(__int64 a1, unsigned int a2, __int64 a
       0,
       1u,
       0xDu,
-      (__int64)&WPP_70750b4e52e537afa0d3aa3795e637f0_Traceguids);
+      (__int64)&WPP_bd192adfbaab37968b6512a601d84f30_Traceguids);
   Log(a1, 2, 1766015607, a1, v4);
   UsbhDisableTimerObject(a1, *((_QWORD *)v6 + 346));
   return Usbh_FDO_Pnp_State(a3, 8LL);

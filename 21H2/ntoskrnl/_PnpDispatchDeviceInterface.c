@@ -1,26 +1,26 @@
 /*
- * XREFs of _PnpDispatchDeviceInterface @ 0x140785470
+ * XREFs of _PnpDispatchDeviceInterface @ 0x14063C280
  * Callers:
  *     <none>
  * Callees:
- *     _PnpMapCmStatusToDispatchStatus @ 0x1402E02F0 (_PnpMapCmStatusToDispatchStatus.c)
- *     _CmSetDeviceInterfaceMappedProperty @ 0x1406CE8B8 (_CmSetDeviceInterfaceMappedProperty.c)
- *     _CmCreateDeviceInterface @ 0x14076A680 (_CmCreateDeviceInterface.c)
- *     _CmValidateDeviceInterfaceName @ 0x14077F150 (_CmValidateDeviceInterfaceName.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x140784B14 (_CmOpenDeviceInterfaceRegKey.c)
- *     _CmGetDeviceInterfaceMappedProperty @ 0x140785A3C (_CmGetDeviceInterfaceMappedProperty.c)
- *     _CmGetMatchingDeviceInterfaceList @ 0x140861A78 (_CmGetMatchingDeviceInterfaceList.c)
- *     _CmDeleteDeviceInterface @ 0x140A237D0 (_CmDeleteDeviceInterface.c)
- *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x140A2B08C (_CmGetDeviceInterfaceMappedPropertyKeys.c)
- *     _CmGetDeviceInterfaceMappedPropertyLocales @ 0x140A2B2B8 (_CmGetDeviceInterfaceMappedPropertyLocales.c)
+ *     _PnpMapCmStatusToDispatchStatus @ 0x1402653E0 (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmGetDeviceInterfaceMappedProperty @ 0x14063D6E8 (_CmGetDeviceInterfaceMappedProperty.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x14063D844 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1406419CC (_CmValidateDeviceInterfaceName.c)
+ *     _CmDeleteDeviceInterface @ 0x14072B9C4 (_CmDeleteDeviceInterface.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x14072D860 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     _CmCreateDeviceInterface @ 0x14074B82C (_CmCreateDeviceInterface.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x1407661D4 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmGetMatchingDeviceInterfaceList @ 0x1407D1A7C (_CmGetMatchingDeviceInterfaceList.c)
+ *     _CmGetDeviceInterfaceMappedPropertyLocales @ 0x14097A5A0 (_CmGetDeviceInterfaceMappedPropertyLocales.c)
  */
 
-__int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, __int64 a5)
+__int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, _DWORD *a5)
 {
-  const wchar_t *v5; // r10
+  __int64 (__fastcall *v5)(); // r10
   __int128 *v6; // r8
   int v7; // r9d
-  __int64 v8; // r9
+  int v8; // r9d
   int v9; // r9d
   int v10; // r9d
   int v11; // r9d
@@ -30,15 +30,15 @@ __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a
   unsigned int DeviceInterfaceMappedProperty; // eax
   __int128 v17; // [rsp+50h] [rbp-18h] BYREF
 
-  v5 = (const wchar_t *)a2;
+  v5 = a2;
   LODWORD(a2) = 0;
   LODWORD(v6) = 0;
   v17 = 0LL;
   v7 = a4 - 1;
   if ( v7 )
   {
-    v8 = (unsigned int)(v7 - 1);
-    if ( (_DWORD)v8 )
+    v8 = v7 - 1;
+    if ( v8 )
     {
       v9 = v8 - 1;
       if ( v9 )
@@ -61,13 +61,11 @@ __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a
                   if ( v14 == 1 )
                     DeviceInterfaceMappedProperty = CmSetDeviceInterfaceMappedProperty(
                                                       a1,
-                                                      (__int64)v5,
-                                                      *(_QWORD *)a5,
-                                                      *(_QWORD *)(a5 + 8),
-                                                      *(_QWORD *)(a5 + 16),
-                                                      *(_DWORD *)(a5 + 24),
-                                                      *(_QWORD *)(a5 + 32),
-                                                      *(_DWORD *)(a5 + 40));
+                                                      (_DWORD)v5,
+                                                      *((_QWORD *)a5 + 2),
+                                                      a5[6],
+                                                      *((_QWORD *)a5 + 4),
+                                                      a5[10]);
                   else
                     DeviceInterfaceMappedProperty = -1073741811;
                 }
@@ -77,12 +75,12 @@ __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a
                                                     a1,
                                                     (_DWORD)v5,
                                                     *(_QWORD *)a5,
-                                                    *(_QWORD *)(a5 + 8),
-                                                    *(_QWORD *)(a5 + 16),
-                                                    *(_QWORD *)(a5 + 24),
-                                                    *(_QWORD *)(a5 + 32),
-                                                    *(_DWORD *)(a5 + 40),
-                                                    *(_QWORD *)(a5 + 48));
+                                                    *((_QWORD *)a5 + 1),
+                                                    *((_QWORD *)a5 + 2),
+                                                    *((_QWORD *)a5 + 3),
+                                                    *((_QWORD *)a5 + 4),
+                                                    a5[10],
+                                                    *((_QWORD *)a5 + 6));
                 }
               }
               else
@@ -91,10 +89,10 @@ __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a
                                                   a1,
                                                   0,
                                                   0,
-                                                  *(_QWORD *)(a5 + 8),
-                                                  *(_QWORD *)(a5 + 16),
-                                                  *(_DWORD *)(a5 + 24),
-                                                  *(_QWORD *)(a5 + 32));
+                                                  *((_QWORD *)a5 + 1),
+                                                  *((_QWORD *)a5 + 2),
+                                                  a5[6],
+                                                  *((_QWORD *)a5 + 4));
               }
             }
             else
@@ -104,9 +102,9 @@ __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a
                                                 (_DWORD)v5,
                                                 *(_QWORD *)a5,
                                                 0,
-                                                *(_QWORD *)(a5 + 24),
-                                                *(_DWORD *)(a5 + 32),
-                                                *(_QWORD *)(a5 + 40));
+                                                *((_QWORD *)a5 + 3),
+                                                a5[8],
+                                                *((_QWORD *)a5 + 5));
             }
           }
           else
@@ -116,50 +114,50 @@ __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a
               *(_QWORD *)&v17 = *(_QWORD *)a5;
               a2 = PnpCmMatchCallbackRoutine;
               v6 = &v17;
-              *((_QWORD *)&v17 + 1) = *(_QWORD *)(a5 + 8);
+              *((_QWORD *)&v17 + 1) = *((_QWORD *)a5 + 1);
             }
             DeviceInterfaceMappedProperty = CmGetMatchingDeviceInterfaceList(
                                               a1,
                                               (_DWORD)a2,
                                               (_DWORD)v6,
-                                              *(_QWORD *)(a5 + 16),
-                                              *(_DWORD *)(a5 + 24),
-                                              *(_QWORD *)(a5 + 32),
-                                              *(_DWORD *)(a5 + 40) & 0xFFFF0000);
+                                              *((_QWORD *)a5 + 2),
+                                              a5[6],
+                                              *((_QWORD *)a5 + 4),
+                                              a5[10] & 0xFFFF0000);
           }
         }
         else
         {
-          DeviceInterfaceMappedProperty = CmDeleteDeviceInterface(a1, v5, *(_DWORD *)a5 & 0xFFFF0000);
+          DeviceInterfaceMappedProperty = CmDeleteDeviceInterface(a1, v5, *a5 & 0xFFFF0000);
         }
       }
       else
       {
         DeviceInterfaceMappedProperty = CmCreateDeviceInterface(
                                           a1,
-                                          (__int64)v5,
-                                          *(_DWORD *)a5,
-                                          (HANDLE *)(a5 + 8),
-                                          (_BYTE *)(a5 + 16),
-                                          *(_DWORD *)(a5 + 20) & 0xFFFF0000);
+                                          (_DWORD)v5,
+                                          *a5,
+                                          (int)a5 + 8,
+                                          (__int64)(a5 + 4),
+                                          a5[5] & 0xFFFF0000);
       }
     }
     else
     {
       DeviceInterfaceMappedProperty = CmOpenDeviceInterfaceRegKey(
                                         a1,
-                                        v5,
-                                        0x30u,
-                                        v8,
-                                        *(_DWORD *)a5,
-                                        *(_BYTE *)(a5 + 4),
-                                        *(_QWORD *)(a5 + 8),
-                                        (_DWORD *)(a5 + 16));
+                                        (_DWORD)v5,
+                                        48,
+                                        0,
+                                        *a5,
+                                        *((_BYTE *)a5 + 4),
+                                        *((_QWORD *)a5 + 1),
+                                        (__int64)(a5 + 4));
     }
   }
   else
   {
-    DeviceInterfaceMappedProperty = CmValidateDeviceInterfaceName(a1, (__int64)v5);
+    DeviceInterfaceMappedProperty = CmValidateDeviceInterfaceName(a1, v5, 0LL);
   }
   return PnpMapCmStatusToDispatchStatus(DeviceInterfaceMappedProperty);
 }

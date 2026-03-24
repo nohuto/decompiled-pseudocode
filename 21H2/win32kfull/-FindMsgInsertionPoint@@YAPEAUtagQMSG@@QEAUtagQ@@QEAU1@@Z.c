@@ -1,14 +1,14 @@
 /*
- * XREFs of ?FindMsgInsertionPoint@@YAPEAUtagQMSG@@QEAUtagQ@@QEAU1@@Z @ 0x1C016AB2E
+ * XREFs of ?FindMsgInsertionPoint@@YAPEAUtagQMSG@@QEAUtagQ@@QEAU1@@Z @ 0x1C01E0444
  * Callers:
- *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01DBF48 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
+ *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01E0D20 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
  * Callees:
- *     IsPointerInputClientMessage @ 0x1C00AC3CC (IsPointerInputClientMessage.c)
+ *     IsPointerInputClientMessage @ 0x1C006B3A0 (IsPointerInputClientMessage.c)
  */
 
 struct tagQMSG *__fastcall FindMsgInsertionPoint(struct tagQ *const a1, struct tagQMSG *const a2)
 {
-  __int64 *i; // rsi
+  __int64 *i; // rdi
   int v4; // edx
   int v5; // ecx
   unsigned int FrameIdFromPointerMsgId; // ebx
@@ -22,8 +22,8 @@ struct tagQMSG *__fastcall FindMsgInsertionPoint(struct tagQ *const a1, struct t
       && v4 != 595
       && v5 != 595 )
     {
-      FrameIdFromPointerMsgId = CTouchProcessor::GetFrameIdFromPointerMsgId(gpTouchProcessor, *((_QWORD *)a2 + 5));
-      if ( CTouchProcessor::GetFrameIdFromPointerMsgId(gpTouchProcessor, i[5]) > FrameIdFromPointerMsgId )
+      FrameIdFromPointerMsgId = CTouchProcessor::GetFrameIdFromPointerMsgId(gpTouchProcessor, i[5]);
+      if ( FrameIdFromPointerMsgId > CTouchProcessor::GetFrameIdFromPointerMsgId(gpTouchProcessor, *((_QWORD *)a2 + 5)) )
         break;
     }
   }

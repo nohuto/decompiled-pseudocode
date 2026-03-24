@@ -1,5 +1,5 @@
 /*
- * XREFs of MiCompressTbFlushList @ 0x140113A80
+ * XREFs of MiCompressTbFlushList @ 0x140113AA0
  * Callers:
  *     MiZeroPage @ 0x140036A00 (MiZeroPage.c)
  *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
@@ -10,7 +10,7 @@
  *     MiMoveDirtyBitsToPfns @ 0x140074A40 (MiMoveDirtyBitsToPfns.c)
  *     MmUnmapViewInSystemCache @ 0x140078710 (MmUnmapViewInSystemCache.c)
  *     MiFlushTbAsNeeded @ 0x140097FD0 (MiFlushTbAsNeeded.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
  * Callees:
  *     <none>
  */

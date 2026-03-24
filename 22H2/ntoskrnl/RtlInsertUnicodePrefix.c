@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlInsertUnicodePrefix @ 0x14079EDE0
+ * XREFs of RtlInsertUnicodePrefix @ 0x140677BB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x140327CF0 (RtlSplay.c)
- *     CompareUnicodeStrings @ 0x14079F030 (CompareUnicodeStrings.c)
- *     ComputeUnicodeNameLength @ 0x14079F198 (ComputeUnicodeNameLength.c)
+ *     RtlSplay @ 0x1402D9F50 (RtlSplay.c)
+ *     CompareUnicodeStrings @ 0x140677E28 (CompareUnicodeStrings.c)
+ *     ComputeUnicodeNameLength @ 0x140677F68 (ComputeUnicodeNameLength.c)
  */
 
 BOOLEAN __stdcall RtlInsertUnicodePrefix(
@@ -20,7 +20,7 @@ BOOLEAN __stdcall RtlInsertUnicodePrefix(
   UNICODE_PREFIX_TABLE *j; // rdi
   int v11; // eax
   PUNICODE_PREFIX_TABLE_ENTRY NextPrefixTree; // rax
-  RTL_SPLAY_LINKS *v13; // rcx
+  _RTL_SPLAY_LINKS *v13; // rax
   struct _UNICODE_PREFIX_TABLE_ENTRY *v14; // rbx
   UNICODE_PREFIX_TABLE_ENTRY *v15; // rax
   UNICODE_PREFIX_TABLE *v17; // rbp
@@ -51,11 +51,13 @@ BOOLEAN __stdcall RtlInsertUnicodePrefix(
         if ( !NextPrefixTree )
         {
           PrefixTableEntry->NextPrefixTree = 0LL;
+          v13 = (_RTL_SPLAY_LINKS *)&j[1];
           PrefixTableEntry->NodeTypeCode = 2050;
-          v13 = (RTL_SPLAY_LINKS *)&j[1];
           PrefixTableEntry->CaseMatch = PrefixTableEntry;
           j[1].NextPrefixTree = (PUNICODE_PREFIX_TABLE_ENTRY)p_Links;
-          goto LABEL_12;
+LABEL_12:
+          p_Links->Parent = v13;
+          goto LABEL_13;
         }
       }
       else
@@ -64,39 +66,34 @@ BOOLEAN __stdcall RtlInsertUnicodePrefix(
         if ( !NextPrefixTree )
         {
           PrefixTableEntry->NextPrefixTree = 0LL;
+          v13 = (_RTL_SPLAY_LINKS *)&j[1];
           PrefixTableEntry->NodeTypeCode = 2050;
-          v13 = (RTL_SPLAY_LINKS *)&j[1];
           PrefixTableEntry->CaseMatch = PrefixTableEntry;
           j[1].LastNextEntry = (PUNICODE_PREFIX_TABLE_ENTRY)p_Links;
-LABEL_12:
-          p_Links->Parent = v13;
-LABEL_13:
-          v14 = i->NextPrefixTree;
-          i->NextPrefixTree = 0LL;
-          i->NodeTypeCode = 2050;
-          v15 = (UNICODE_PREFIX_TABLE_ENTRY *)&RtlSplay(v13)[-1];
-          v15->NodeTypeCode = 2049;
-          PrefixTable->NextPrefixTree = v15;
-          v15->NextPrefixTree = v14;
-          return 1;
+          goto LABEL_12;
         }
       }
     }
     v17 = j;
-    while ( (unsigned int)CompareUnicodeStrings(*(_QWORD *)&v17[2].NodeTypeCode, Prefix, 0xFFFFFFFFLL) != 2 )
+    do
     {
+      if ( (unsigned int)CompareUnicodeStrings(*(_QWORD *)&v17[2].NodeTypeCode, Prefix, 0xFFFFFFFFLL) == 2 )
+        return 0;
       v17 = (UNICODE_PREFIX_TABLE *)v17->LastNextEntry;
-      if ( v17 == j )
-      {
-        PrefixTableEntry->NextPrefixTree = 0LL;
-        v13 = (RTL_SPLAY_LINKS *)&j[1];
-        PrefixTableEntry->NodeTypeCode = 2051;
-        PrefixTableEntry->CaseMatch = j->LastNextEntry;
-        j->LastNextEntry = PrefixTableEntry;
-        goto LABEL_13;
-      }
     }
-    return 0;
+    while ( v17 != j );
+    PrefixTableEntry->NextPrefixTree = 0LL;
+    PrefixTableEntry->NodeTypeCode = 2051;
+    PrefixTableEntry->CaseMatch = j->LastNextEntry;
+    j->LastNextEntry = PrefixTableEntry;
+LABEL_13:
+    v14 = i->NextPrefixTree;
+    i->NextPrefixTree = 0LL;
+    i->NodeTypeCode = 2050;
+    v15 = (UNICODE_PREFIX_TABLE_ENTRY *)&RtlSplay((PRTL_SPLAY_LINKS)&j[1])[-1];
+    v15->NodeTypeCode = 2049;
+    PrefixTable->NextPrefixTree = v15;
+    v15->NextPrefixTree = v14;
   }
   else
   {
@@ -104,6 +101,6 @@ LABEL_13:
     PrefixTableEntry->NodeTypeCode = 2049;
     PrefixTableEntry->NextPrefixTree = (struct _UNICODE_PREFIX_TABLE_ENTRY *)i;
     PrefixTableEntry->CaseMatch = PrefixTableEntry;
-    return 1;
   }
+  return 1;
 }

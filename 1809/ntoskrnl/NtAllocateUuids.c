@@ -1,5 +1,5 @@
 /*
- * XREFs of NtAllocateUuids @ 0x1406C5EE0
+ * XREFs of NtAllocateUuids @ 0x1406C5EC0
  * Callers:
  *     <none>
  * Callees:
@@ -7,10 +7,10 @@
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpUuidSaveSequenceNumberIf @ 0x1406C608C (ExpUuidSaveSequenceNumberIf.c)
- *     ExpAllocateUuids @ 0x1406C60B8 (ExpAllocateUuids.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExpUuidSaveSequenceNumberIf @ 0x1406C606C (ExpUuidSaveSequenceNumberIf.c)
+ *     ExpAllocateUuids @ 0x1406C6098 (ExpAllocateUuids.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Sequence, PUCHAR Seed)

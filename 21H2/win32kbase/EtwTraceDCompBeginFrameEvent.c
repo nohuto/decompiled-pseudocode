@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceDCompBeginFrameEvent @ 0x1C014CA40
+ * XREFs of EtwTraceDCompBeginFrameEvent @ 0x1C0121C70
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C015051C (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0125EE0 (McTemplateK0pq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceDCompBeginFrameEvent(__int64 a1, int a2, __int64 a3)

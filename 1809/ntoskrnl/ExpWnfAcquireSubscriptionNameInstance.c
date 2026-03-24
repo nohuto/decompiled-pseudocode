@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpWnfAcquireSubscriptionNameInstance @ 0x1406C8344
+ * XREFs of ExpWnfAcquireSubscriptionNameInstance @ 0x1406C8324
  * Callers:
- *     ExQueryWnfStateData @ 0x1406C82A0 (ExQueryWnfStateData.c)
+ *     ExQueryWnfStateData @ 0x1406C8280 (ExQueryWnfStateData.c)
  * Callees:
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)

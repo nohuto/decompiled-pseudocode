@@ -1,9 +1,9 @@
 /*
- * XREFs of RFONTOBJ_vConstructPRFONTWrap @ 0x1C000A800
+ * XREFs of RFONTOBJ_vConstructPRFONTWrap @ 0x1C009CFA0
  * Callers:
  *     <none>
  * Callees:
- *     ?vMakeInactive@RFONTOBJ@@QEAAXXZ @ 0x1C000A82C (-vMakeInactive@RFONTOBJ@@QEAAXXZ.c)
+ *     ?vMakeInactive@RFONTOBJ@@QEAAXXZ @ 0x1C009CFCC (-vMakeInactive@RFONTOBJ@@QEAAXXZ.c)
  */
 
 void __fastcall RFONTOBJ_vConstructPRFONTWrap(RFONTOBJ *a1, __int64 a2)

@@ -1,22 +1,22 @@
 /*
- * XREFs of UsbhRegQueryGlobalKey @ 0x1C0046040
+ * XREFs of UsbhRegQueryGlobalKey @ 0x1C00473B0
  * Callers:
- *     UsbhRegDriverEntry @ 0x1C0045CB0 (UsbhRegDriverEntry.c)
- *     UsbhRegQueryGlobalLegacyDeviceKeys @ 0x1C00461CC (UsbhRegQueryGlobalLegacyDeviceKeys.c)
+ *     UsbhRegDriverEntry @ 0x1C0047010 (UsbhRegDriverEntry.c)
+ *     UsbhRegQueryGlobalLegacyDeviceKeys @ 0x1C004753C (UsbhRegQueryGlobalLegacyDeviceKeys.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_S @ 0x1C003ADD0 (WPP_RECORDER_SF_S.c)
- *     WPP_RECORDER_SF_SD @ 0x1C0047D34 (WPP_RECORDER_SF_SD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003C0E0 (WPP_RECORDER_SF_S.c)
+ *     WPP_RECORDER_SF_SD @ 0x1C00490B4 (WPP_RECORDER_SF_SD.c)
  */
 
-__int64 __fastcall UsbhRegQueryGlobalKey(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
+__int64 __fastcall UsbhRegQueryGlobalKey(unsigned int a1, const wchar_t *a2, __int64 a3, __int64 a4, unsigned int a5)
 {
   PVOID SystemRoutineAddress; // rax
-  int v9; // edx
+  __int64 v9; // rdx
   unsigned int v10; // esi
-  int v11; // r8d
+  __int64 v11; // r8
   int v12; // r9d
   __int64 v14; // rbx
   int v16; // [rsp+20h] [rbp-48h]
@@ -35,7 +35,7 @@ __int64 __fastcall UsbhRegQueryGlobalKey(unsigned int a1, __int64 a2, __int64 a3
   v16 = 0;
   if ( !SystemRoutineAddress )
     SystemRoutineAddress = RtlQueryRegistryValues;
-  v10 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, _QWORD))SystemRoutineAddress)(a1, a2, a4, 0LL);
+  v10 = ((__int64 (__fastcall *)(_QWORD, const wchar_t *, __int64, _QWORD))SystemRoutineAddress)(a1, a2, a4, 0LL);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
@@ -47,10 +47,10 @@ __int64 __fastcall UsbhRegQueryGlobalKey(unsigned int a1, __int64 a2, __int64 a3
         (__int64)&WPP_290dcc7ac903398322657943f635c8d9_Traceguids);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
       WPP_RECORDER_SF_S(
-        WPP_GLOBAL_Control->DeviceExtension,
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
         v9,
         v11,
-        63,
+        0x3Fu,
         (__int64)&WPP_290dcc7ac903398322657943f635c8d9_Traceguids,
         a2);
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of BgDisplaySafeToPowerOffScreen @ 0x14064D474
+ * XREFs of BgDisplaySafeToPowerOffScreen @ 0x1405C423C
  * Callers:
- *     PopShutdownHandler @ 0x140A6BDD0 (PopShutdownHandler.c)
+ *     PopShutdownHandler @ 0x1409B25F0 (PopShutdownHandler.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x1403A7BF0 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403A7C40 (BgpFwAcquireLock.c)
- *     BgpDisplaySafeToPowerOffScreen @ 0x14064E738 (BgpDisplaySafeToPowerOffScreen.c)
+ *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
+ *     BgpDisplaySafeToPowerOffScreen @ 0x1405C547C (BgpDisplaySafeToPowerOffScreen.c)
  */
 
 __int64 BgDisplaySafeToPowerOffScreen()
@@ -13,7 +13,7 @@ __int64 BgDisplaySafeToPowerOffScreen()
   unsigned int v0; // ebx
 
   BgpFwAcquireLock();
-  if ( (dword_140C0DF90 & 2) != 0 )
+  if ( (dword_140C134F0 & 2) != 0 )
     v0 = BgpDisplaySafeToPowerOffScreen();
   else
     v0 = -1073741823;

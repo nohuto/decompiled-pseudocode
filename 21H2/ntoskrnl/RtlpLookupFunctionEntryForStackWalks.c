@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpLookupFunctionEntryForStackWalks @ 0x140296DC0
+ * XREFs of RtlpLookupFunctionEntryForStackWalks @ 0x14021DF60
  * Callers:
- *     RtlpWalkFrameChain @ 0x140296110 (RtlpWalkFrameChain.c)
- *     RtlpSameFunction @ 0x1405EE570 (RtlpSameFunction.c)
- *     PspGetSetContextInternal @ 0x1407035C0 (PspGetSetContextInternal.c)
+ *     RtlpWalkFrameChain @ 0x14021D250 (RtlpWalkFrameChain.c)
+ *     RtlpSameFunction @ 0x140586540 (RtlpSameFunction.c)
+ *     PspGetSetContextInternal @ 0x1406498B0 (PspGetSetContextInternal.c)
  * Callees:
- *     RtlpLookupUserFunctionTable @ 0x14024BAD4 (RtlpLookupUserFunctionTable.c)
- *     RtlpxLookupFunctionTable @ 0x140297AE0 (RtlpxLookupFunctionTable.c)
- *     HvlQueryConnection @ 0x1403AC4C0 (HvlQueryConnection.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpxLookupFunctionTable @ 0x14021EBB0 (RtlpxLookupFunctionTable.c)
+ *     RtlpLookupUserFunctionTable @ 0x14029A894 (RtlpLookupUserFunctionTable.c)
+ *     HvlQueryConnection @ 0x1403AF460 (HvlQueryConnection.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-unsigned int *__fastcall RtlpLookupFunctionEntryForStackWalks(unsigned __int64 a1, __int64 a2)
+unsigned int *__fastcall RtlpLookupFunctionEntryForStackWalks(ULONG_PTR a1, __int64 a2)
 {
-  unsigned __int64 v4; // rcx
+  ULONG_PTR v4; // rcx
   __int64 v5; // r11
   unsigned int v6; // r9d
   unsigned int *v7; // r10
@@ -24,24 +24,23 @@ unsigned int *__fastcall RtlpLookupFunctionEntryForStackWalks(unsigned __int64 a
   int v12; // eax
   unsigned __int64 v13; // rcx
   __int64 v14; // rax
-  unsigned __int64 v16; // rax
+  ULONG_PTR v16; // rax
 
   v4 = *(_QWORD *)(a2 + 8);
   if ( a1 < v4 || a1 >= v4 + *(unsigned int *)(a2 + 16) )
   {
     if ( a1 <= 0x7FFFFFFEFFFFLL )
     {
-      v5 = RtlpLookupUserFunctionTable(a1, a2);
+      v5 = RtlpLookupUserFunctionTable(a1);
     }
-    else if ( a1 < *((_QWORD *)&xmmword_140E00030 + 1)
-           || a1 >= *((_QWORD *)&xmmword_140E00030 + 1) + (unsigned __int64)(unsigned int)qword_140E00040 )
+    else if ( a1 < *(&xmmword_140E00020 + 1) || a1 >= *(&xmmword_140E00020 + 1) + (unsigned int)qword_140E00030 )
     {
       v5 = RtlpxLookupFunctionTable(a1);
     }
     else
     {
-      *(_OWORD *)a2 = xmmword_140E00030;
-      *(_QWORD *)(a2 + 16) = qword_140E00040;
+      *(_OWORD *)a2 = *(_OWORD *)&xmmword_140E00020;
+      *(_QWORD *)(a2 + 16) = qword_140E00030;
       v5 = *(_QWORD *)a2;
     }
   }
@@ -65,15 +64,15 @@ unsigned int *__fastcall RtlpLookupFunctionEntryForStackWalks(unsigned __int64 a
         {
           v12 = (v10 + v11) >> 1;
           v9 = (unsigned int *)(v5 + 12LL * v12);
-          if ( v8 < *v9 )
-          {
-            v11 = v12 - 1;
-          }
-          else
+          if ( v8 >= *v9 )
           {
             if ( v8 < v9[3] )
               break;
             v10 = v12 + 1;
+          }
+          else
+          {
+            v11 = v12 - 1;
           }
         }
       }

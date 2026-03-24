@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBPDO_SignalPnpPowerFailureEvent @ 0x1C00197A8
+ * XREFs of HUBPDO_SignalPnpPowerFailureEvent @ 0x1C0018160
  * Callers:
- *     HUBDSM_FlushingPnpEventsWithPortOff @ 0x1C0023CA0 (HUBDSM_FlushingPnpEventsWithPortOff.c)
+ *     HUBDSM_FlushingPnpEventsWithPortOff @ 0x1C00214C0 (HUBDSM_FlushingPnpEventsWithPortOff.c)
  * Callees:
  *     <none>
  */

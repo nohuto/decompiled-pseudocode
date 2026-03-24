@@ -1,174 +1,186 @@
 /*
- * XREFs of ?Open@DXGKEYEDMUTEX@@QEAAJPEAIPEAXI_N@Z @ 0x1C03402D4
+ * XREFs of ?Open@DXGKEYEDMUTEX@@QEAAJPEAIPEAXI_N@Z @ 0x1C029126C
  * Callers:
- *     DxgkOpenResourceFromNtHandleInternal @ 0x1C01EA090 (DxgkOpenResourceFromNtHandleInternal.c)
- *     ?OpenLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAJW4_OUTPUTDUPL_MUTEX_TYPE@@@Z @ 0x1C0224964 (-OpenLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAJW4_OUTPUTDUPL_MUTEX_TYPE@@@Z.c)
- *     ?CreateAndOpenKeyedMutex@DXGGLOBAL@@QEAAJ_KPEAPEAVDXGKEYEDMUTEX@@PEAIPEAXIU_D3DKMT_CREATEKEYEDMUTEX2_FLAGS@@@Z @ 0x1C033ECC4 (-CreateAndOpenKeyedMutex@DXGGLOBAL@@QEAAJ_KPEAPEAVDXGKEYEDMUTEX@@PEAIPEAXIU_D3DKMT_CREATEKEYEDMU.c)
- *     ?OpenKeyedMutex@DXGGLOBAL@@QEAAJIPEAPEAVDXGKEYEDMUTEX@@PEAIPEAXI@Z @ 0x1C03406F4 (-OpenKeyedMutex@DXGGLOBAL@@QEAAJIPEAPEAVDXGKEYEDMUTEX@@PEAIPEAXI@Z.c)
- *     ?OpenKeyedMutexFromNtHandle@DXGGLOBAL@@QEAAJPEAXPEAPEAVDXGKEYEDMUTEX@@PEAI0I@Z @ 0x1C03408B4 (-OpenKeyedMutexFromNtHandle@DXGGLOBAL@@QEAAJPEAXPEAPEAVDXGKEYEDMUTEX@@PEAI0I@Z.c)
- *     ?VmBusOpenKeyedMutex@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0370F90 (-VmBusOpenKeyedMutex@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     DxgkOpenResourceFromNtHandle @ 0x1C011B2E0 (DxgkOpenResourceFromNtHandle.c)
+ *     ?VmBusOpenKeyedMutex@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0243DC0 (-VmBusOpenKeyedMutex@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?CreateAndOpenKeyedMutex@DXGGLOBAL@@QEAAJ_KPEAPEAVDXGKEYEDMUTEX@@PEAIPEAXIU_D3DKMT_CREATEKEYEDMUTEX2_FLAGS@@@Z @ 0x1C028FF24 (-CreateAndOpenKeyedMutex@DXGGLOBAL@@QEAAJ_KPEAPEAVDXGKEYEDMUTEX@@PEAIPEAXIU_D3DKMT_CREATEKEYEDMU.c)
+ *     ?OpenKeyedMutex@DXGGLOBAL@@QEAAJIPEAPEAVDXGKEYEDMUTEX@@PEAIPEAXI@Z @ 0x1C0291600 (-OpenKeyedMutex@DXGGLOBAL@@QEAAJIPEAPEAVDXGKEYEDMUTEX@@PEAIPEAXI@Z.c)
+ *     ?OpenKeyedMutexFromNtHandle@DXGGLOBAL@@QEAAJPEAXPEAPEAVDXGKEYEDMUTEX@@PEAI0I@Z @ 0x1C0291780 (-OpenKeyedMutexFromNtHandle@DXGGLOBAL@@QEAAJPEAXPEAPEAVDXGKEYEDMUTEX@@PEAI0I@Z.c)
+ *     ?OpenLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAJW4_OUTPUTDUPL_MUTEX_TYPE@@@Z @ 0x1C029B2A4 (-OpenLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAJW4_OUTPUTDUPL_MUTEX_TYPE@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?FreeHandleSafe@DXGPROCESS@@QEAAXI@Z @ 0x1C000ED3C (-FreeHandleSafe@DXGPROCESS@@QEAAXI@Z.c)
- *     ??0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C000EDA8 (--0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C002B250 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
- *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x1C002B26C (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
- *     ??0DXGKEYEDMUTEXLOCK@@QEAA@PEAVDXGKEYEDMUTEX@@@Z @ 0x1C002C8B8 (--0DXGKEYEDMUTEXLOCK@@QEAA@PEAVDXGKEYEDMUTEX@@@Z.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C005583C (-AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
- *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C005591C (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?AllocHandle@HMGRTABLE@@QEAAIPEAXW4_HMGRENTRY_TYPE@@IH@Z @ 0x1C0195A00 (-AllocHandle@HMGRTABLE@@QEAAIPEAXW4_HMGRENTRY_TYPE@@IH@Z.c)
- *     ?VmBusSendOpenKeyedMutex@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGKEYEDMUTEX@@I@Z @ 0x1C037A664 (-VmBusSendOpenKeyedMutex@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGKEYEDMUTEX@@I@Z.c)
+ *     ??0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0002630 (--0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C0002BD4 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x1C0004488 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ?FreeResourceHandleNoRefSafe@DXGPROCESS@@QEAAXI@Z @ 0x1C0006860 (-FreeResourceHandleNoRefSafe@DXGPROCESS@@QEAAXI@Z.c)
+ *     ??0DXGKEYEDMUTEXLOCK@@QEAA@PEAVDXGKEYEDMUTEX@@@Z @ 0x1C0027E08 (--0DXGKEYEDMUTEXLOCK@@QEAA@PEAVDXGKEYEDMUTEX@@@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0040BB4 (-AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0040ED0 (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?AllocHandle@HMGRTABLE@@QEAAIPEAXW4_HMGRENTRY_TYPE@@IH@Z @ 0x1C010C9A0 (-AllocHandle@HMGRTABLE@@QEAAIPEAXW4_HMGRENTRY_TYPE@@IH@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?VmBusSendOpenKeyedMutex@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGKEYEDMUTEX@@I@Z @ 0x1C024A01C (-VmBusSendOpenKeyedMutex@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGKEYEDMUTEX@@I@Z.c)
  */
 
-__int64 __fastcall DXGKEYEDMUTEX::Open(DXGKEYEDMUTEX *this, unsigned int *a2, char *a3, __int64 a4, bool a5)
+__int64 __fastcall DXGKEYEDMUTEX::Open(DXGKEYEDMUTEX *this, unsigned int *a2, char *a3, unsigned int a4, bool a5)
 {
-  unsigned __int64 v5; // rdi
+  SIZE_T v5; // rsi
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // r8
-  __int64 v12; // r9
-  unsigned int *Current; // r15
-  __int64 CurrentProcess; // rax
-  __int64 v16; // r9
-  int v17; // eax
-  __int64 v18; // r14
-  void *v19; // r9
-  unsigned int v20; // edi
-  _QWORD *v21; // rsi
-  unsigned int v22; // edi
+  struct DXGPROCESS *Current; // r15
+  __int64 v13; // rbx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  int v20; // eax
+  __int64 v21; // rax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  PVOID v25; // r9
+  _QWORD *v26; // rax
+  unsigned int v27; // edi
+  _QWORD *v28; // rax
+  __int64 v29; // rdx
+  _QWORD *v30; // rsi
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  unsigned int v33; // edi
+  __int64 v34; // r8
+  __int64 v35; // r9
+  __int64 v36; // rax
+  __int64 v37; // rdx
+  __int64 v38; // rax
   struct DXGGLOBAL *Global; // rax
-  int v24; // ebx
-  __int64 v25; // rax
-  int v26; // edx
-  _BYTE v27[16]; // [rsp+50h] [rbp-58h] BYREF
-  _BYTE v28[32]; // [rsp+60h] [rbp-48h] BYREF
+  int v40; // ebx
+  __int64 v41; // rax
+  int v42; // edx
+  _BYTE v43[16]; // [rsp+30h] [rbp-48h] BYREF
+  _BYTE v44[32]; // [rsp+40h] [rbp-38h] BYREF
 
-  v5 = (unsigned int)a4;
-  Current = (unsigned int *)DXGPROCESS::GetCurrent((__int64)this, (__int64)a2, (__int64)a3, a4);
+  v5 = a4;
+  Current = DXGPROCESS::GetCurrent((__int64)this, (__int64)a2);
   if ( !Current )
   {
-    CurrentProcess = PsGetCurrentProcess(v10, v9, v11, v12);
-    WdLogSingleEntry2(3LL, a2, CurrentProcess);
+    v13 = WdLogNewEntry5_WdWarning(v10, v9, v11);
+    *(_QWORD *)(v13 + 24) = a2;
+    *(_QWORD *)(v13 + 32) = PsGetCurrentProcess(v15, v14);
+    WdLogEvent5_WdWarning(v13);
     return 3221225485LL;
   }
   if ( !a2 )
     return 3221225485LL;
-  DXGKEYEDMUTEXLOCK::DXGKEYEDMUTEXLOCK((DXGKEYEDMUTEXLOCK *)v27, this);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v27);
+  DXGKEYEDMUTEXLOCK::DXGKEYEDMUTEXLOCK((DXGKEYEDMUTEXLOCK *)v43, this);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v43);
   if ( !(_DWORD)v5 )
   {
     if ( !a3 )
       goto LABEL_22;
     goto LABEL_17;
   }
-  v17 = *((_DWORD *)this + 42);
-  if ( v17 )
+  v20 = *((_DWORD *)this + 40);
+  if ( v20 )
   {
-    if ( v17 == (_DWORD)v5 )
+    if ( v20 == (_DWORD)v5 )
       goto LABEL_22;
-    WdLogSingleEntry4(3LL, this, v5, *((unsigned int *)this + 42), -1073741811LL);
+    v28 = (_QWORD *)WdLogNewEntry5_WdWarning(v18, v17, v19);
+    v28[3] = this;
+    v28[4] = v5;
+    v28[5] = *((unsigned int *)this + 40);
+    v28[6] = -1073741811LL;
 LABEL_18:
-    DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v27);
+    WdLogEvent5_WdWarning(v28);
+    DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v43);
     return 3221225485LL;
   }
   if ( !a3 )
   {
 LABEL_17:
-    WdLogSingleEntry2(3LL, this, -1073741811LL);
+    v28 = (_QWORD *)WdLogNewEntry5_WdWarning(v18, v17, v19);
+    v28[3] = this;
+    v28[4] = -1073741811LL;
     goto LABEL_18;
   }
-  if ( *((_QWORD *)this + 20) )
+  if ( *((_QWORD *)this + 19) )
   {
-    WdLogSingleEntry1(1LL, 3805LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_pPrivateRuntimeData == NULL", 3805LL, 0LL, 0LL, 0LL, 0LL);
+    v21 = WdLogNewEntry5_WdAssertion(v18, v17);
+    *(_QWORD *)(v21 + 24) = 3828LL;
+    WdLogEvent5_WdAssertion(v21);
   }
-  v18 = v5;
-  v19 = (void *)operator new[](v5, 0x4B677844u, 256LL, v16);
-  *((_QWORD *)this + 20) = v19;
-  if ( !v19 )
+  v25 = operator new[](v5, 0x4B677844u, PagedPool);
+  *((_QWORD *)this + 19) = v25;
+  if ( !v25 )
   {
-    v20 = -1073741801;
-    WdLogSingleEntry3(6LL, this, v18, -1073741801LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"KeyedMutex 0x%I64x: Out of memory allocating m_PrivateRuntimeData of size 0x%I64x, returning 0x%I64x",
-      (__int64)this,
-      v18,
-      -1073741801LL,
-      0LL,
-      0LL);
-    DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v27);
-    return v20;
+    v26 = (_QWORD *)WdLogNewEntry5_WdLowResource(v23, v22, v24, 0LL);
+    v26[3] = this;
+    v26[4] = v5;
+    v27 = -1073741801;
+    v26[5] = -1073741801LL;
+    WdLogEvent5_WdLowResource(v26);
+    DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v43);
+    return v27;
   }
-  *((_DWORD *)this + 42) = v5;
+  *((_DWORD *)this + 40) = v5;
   if ( &a3[v5] < a3 || (unsigned __int64)&a3[v5] > MmUserProbeAddress )
     *(_BYTE *)MmUserProbeAddress = 0;
-  memmove(v19, a3, v5);
+  memmove(v25, a3, v5);
 LABEL_22:
-  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v27);
-  DXGKEYEDMUTEX::AcquireReference(this);
+  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v43);
+  DXGKEYEDMUTEX::AcquireReference(this, v29);
   DXGHANDLETABLELOCKEXCLUSIVE::DXGHANDLETABLELOCKEXCLUSIVE(
-    (DXGHANDLETABLELOCKEXCLUSIVE *)v28,
-    (struct DXGPROCESS *)Current);
-  v21 = Current + 70;
-  v22 = HMGRTABLE::AllocHandle(Current + 70, (__int64)this, 9, 0, 0);
-  if ( !v22 )
+    (DXGHANDLETABLELOCKEXCLUSIVE *)v44,
+    (struct _KTHREAD **)Current);
+  v30 = (_QWORD *)((char *)Current + 240);
+  v33 = HMGRTABLE::AllocHandle((unsigned int *)Current + 60, (__int64)this, 9, 0, 0);
+  if ( !v33 )
   {
-    v20 = -1073741801;
-    WdLogSingleEntry2(6LL, this, -1073741801LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"pKeyedMutex 0x%I64x: Fail to allocate per process handle, returning 0x%I64x",
-      (__int64)this,
-      -1073741801LL,
-      0LL,
-      0LL,
-      0LL);
-    DXGKEYEDMUTEX::ReleaseReference(this);
+    v36 = WdLogNewEntry5_WdLowResource(v32, v31, v34, v35);
+    *(_QWORD *)(v36 + 24) = this;
+    v27 = -1073741801;
+    *(_QWORD *)(v36 + 32) = -1073741801LL;
+    WdLogEvent5_WdLowResource(v36);
+    DXGKEYEDMUTEX::ReleaseReference(this, v37);
 LABEL_29:
-    DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v28);
-    return v20;
+    DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v44);
+    return v27;
   }
-  if ( *((_BYTE *)this + 176) )
+  if ( *((_BYTE *)this + 168) )
   {
     if ( !a5 )
     {
-      WdLogSingleEntry1(1LL, 3882LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"OpenForUserMode == true", 3882LL, 0LL, 0LL, 0LL, 0LL);
+      v38 = WdLogNewEntry5_WdAssertion(v32, v31);
+      *(_QWORD *)(v38 + 24) = 3905LL;
+      WdLogEvent5_WdAssertion(v38);
     }
-    Global = DXGGLOBAL_GetGlobal();
-    v24 = DXG_GUEST_GLOBAL_VMBUS::VmBusSendOpenKeyedMutex(
-            *((DXG_GUEST_GLOBAL_VMBUS **)Global + 218),
-            (struct DXGPROCESS *)Current,
+    Global = DXGGLOBAL::GetGlobal(v32, v31);
+    v40 = DXG_GUEST_GLOBAL_VMBUS::VmBusSendOpenKeyedMutex(
+            *((DXG_GUEST_GLOBAL_VMBUS **)Global + 197),
+            Current,
             this,
-            v22);
-    if ( v24 < 0 )
+            v33);
+    if ( v40 < 0 )
     {
-      DXGPROCESS::FreeHandleSafe((DXGPROCESS *)Current, v22);
-      v20 = v24;
+      DXGPROCESS::FreeResourceHandleNoRefSafe(Current, v33);
+      v27 = v40;
       goto LABEL_29;
     }
   }
   if ( a5 )
   {
-    v25 = (v22 >> 6) & 0xFFFFFF;
-    if ( (unsigned int)v25 < Current[74] )
+    v41 = (v33 >> 6) & 0xFFFFFF;
+    if ( (unsigned int)v41 < *((_DWORD *)Current + 64) )
     {
-      v26 = *(_DWORD *)(*v21 + 16 * v25 + 8);
-      if ( ((v22 >> 25) & 0x60) == (*(_BYTE *)(*v21 + 16 * v25 + 8) & 0x60) && (v26 & 0x2000) == 0 && (v26 & 0x1F) != 0 )
-        *(_DWORD *)(*v21 + 16 * (((unsigned __int64)v22 >> 6) & 0xFFFFFF) + 8) |= 0x2000u;
+      v42 = *(_DWORD *)(*v30 + 16 * v41 + 8);
+      if ( ((v33 >> 25) & 0x60) == (*(_BYTE *)(*v30 + 16 * v41 + 8) & 0x60) && (v42 & 0x2000) == 0 && (v42 & 0x1F) != 0 )
+        *(_DWORD *)(*v30 + 16 * (((unsigned __int64)v33 >> 6) & 0xFFFFFF) + 8) |= 0x2000u;
     }
   }
-  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v28);
-  *a2 = v22;
+  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v44);
+  *a2 = v33;
   return 0LL;
 }

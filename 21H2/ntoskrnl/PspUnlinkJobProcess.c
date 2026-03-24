@@ -1,8 +1,8 @@
 /*
- * XREFs of PspUnlinkJobProcess @ 0x140683ED4
+ * XREFs of PspUnlinkJobProcess @ 0x1406B40E8
  * Callers:
- *     PspEstablishJobHierarchy @ 0x1406822EC (PspEstablishJobHierarchy.c)
- *     PspRemoveProcessFromJobChain @ 0x140684158 (PspRemoveProcessFromJobChain.c)
+ *     PspRemoveProcessFromJobChain @ 0x140616398 (PspRemoveProcessFromJobChain.c)
+ *     PspEstablishJobHierarchy @ 0x14071FA0C (PspEstablishJobHierarchy.c)
  * Callees:
  *     <none>
  */
@@ -15,8 +15,8 @@ __int64 __fastcall PspUnlinkJobProcess(__int64 a1, __int64 a2)
   __int64 v5; // rdx
   _QWORD *v6; // rcx
 
-  v2 = (_QWORD *)(a1 + 1280);
-  for ( i = *(_QWORD **)(a1 + 1280); i != v2; i = (_QWORD *)*i )
+  v2 = (_QWORD *)(a1 + 1088);
+  for ( i = *(_QWORD **)(a1 + 1088); i != v2; i = (_QWORD *)*i )
   {
     if ( i[2] == a2 + 1480 )
       i[2] = *(_QWORD *)(a2 + 1488);

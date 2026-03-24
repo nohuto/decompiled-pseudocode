@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDevCfgConvertPropertyFromValue @ 0x1406618A4
+ * XREFs of PiDevCfgConvertPropertyFromValue @ 0x1407347EC
  * Callers:
- *     PiDevCfgCopyDeviceKey @ 0x140679BEC (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140769E0C (PiDevCfgCopyDeviceKey.c)
  * Callees:
- *     RtlGUIDFromString @ 0x1407814E0 (RtlGUIDFromString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgConvertPropertyFromValue(
@@ -28,7 +28,7 @@ __int64 __fastcall PiDevCfgConvertPropertyFromValue(
   __int64 v17; // rbp
   _QWORD *v18; // rax
   bool v19; // zf
-  GUID *Pool2; // rax
+  GUID *PoolWithTag; // rax
   UNICODE_STRING GuidString; // [rsp+20h] [rbp-18h] BYREF
 
   v6 = 0;
@@ -91,13 +91,13 @@ LABEL_56:
           if ( a2 != 78 )
             goto LABEL_8;
           v8 = 16;
-          Pool2 = (GUID *)ExAllocatePool2(256LL, 16LL, 1667526736LL);
-          v9 = Pool2;
-          if ( Pool2 )
+          PoolWithTag = (GUID *)ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x63647050u);
+          v9 = PoolWithTag;
+          if ( PoolWithTag )
           {
             GuidString.Buffer = a3;
             *(_DWORD *)&GuidString.Length = 5111884;
-            if ( RtlGUIDFromString(&GuidString, Pool2) < 0 )
+            if ( RtlGUIDFromString(&GuidString, PoolWithTag) < 0 )
             {
               ExFreePoolWithTag(v9, 0);
               v9 = 0LL;
@@ -138,7 +138,7 @@ LABEL_35:
         if ( *(_DWORD *)a3 > 0xFFu )
           goto LABEL_8;
         v8 = 1;
-        v15 = (_BYTE *)ExAllocatePool2(256LL, 1LL, 1667526736LL);
+        v15 = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x63647050u);
         v9 = v15;
         if ( v15 )
         {
@@ -155,7 +155,7 @@ LABEL_35:
         if ( *(_DWORD *)a3 > 0xFFFFu )
           goto LABEL_8;
         v8 = 2;
-        v13 = (_WORD *)ExAllocatePool2(256LL, 2LL, 1667526736LL);
+        v13 = ExAllocatePoolWithTag(PagedPool, 2uLL, 0x63647050u);
         v9 = v13;
         if ( v13 )
         {
@@ -170,7 +170,7 @@ LABEL_35:
     {
       v17 = *(unsigned int *)a3;
       v8 = 8;
-      v18 = (_QWORD *)ExAllocatePool2(256LL, 8LL, 1667526736LL);
+      v18 = ExAllocatePoolWithTag(PagedPool, 8uLL, 0x63647050u);
       v9 = v18;
       if ( v18 )
       {
@@ -186,7 +186,7 @@ LABEL_35:
   {
     v10 = *(_DWORD *)a3;
     v8 = 1;
-    v9 = (_BYTE *)ExAllocatePool2(256LL, 1LL, 1667526736LL);
+    v9 = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x63647050u);
     if ( v9 )
     {
       *v9 = -(v10 != 0);

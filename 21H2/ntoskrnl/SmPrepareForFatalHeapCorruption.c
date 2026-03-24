@@ -1,13 +1,13 @@
 /*
- * XREFs of SmPrepareForFatalHeapCorruption @ 0x1405FD49C
+ * XREFs of SmPrepareForFatalHeapCorruption @ 0x14059FCA0
  * Callers:
- *     SmHpBufferProtectEx @ 0x1403813C0 (SmHpBufferProtectEx.c)
+ *     SmHpBufferProtectEx @ 0x140253F00 (SmHpBufferProtectEx.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x14024AE50 (KeRegisterBugCheckReasonCallback.c)
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14039E660 (KeRegisterBugCheckReasonCallback.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SmPrepareForFatalHeapCorruption(
@@ -18,10 +18,10 @@ __int64 __fastcall SmPrepareForFatalHeapCorruption(
         LONGLONG *a5)
 {
   __int64 v5; // rbp
-  __int64 v7; // r15
+  __int64 v7; // r14
   struct _KBUGCHECK_REASON_CALLBACK_RECORD *PoolWithTag; // rax
-  unsigned int v9; // ebx
-  struct _KBUGCHECK_REASON_CALLBACK_RECORD *v10; // rdi
+  struct _KBUGCHECK_REASON_CALLBACK_RECORD *v9; // rdi
+  unsigned int v10; // ebx
   _QWORD *v11; // rcx
 
   v5 = a4;
@@ -31,8 +31,7 @@ __int64 __fastcall SmPrepareForFatalHeapCorruption(
                                                               NonPagedPoolNx,
                                                               0x1060uLL,
                                                               0x50626D73u);
-  v9 = 0;
-  v10 = PoolWithTag;
+  v9 = PoolWithTag;
   if ( PoolWithTag )
   {
     PoolWithTag->State = 0;
@@ -45,19 +44,25 @@ __int64 __fastcall SmPrepareForFatalHeapCorruption(
     v11[4] = v5;
     v11[3] = v7;
     memmove(v11 + 6, Src, 0x1000uLL);
-    if ( !KeRegisterBugCheckReasonCallback(
-            v10,
-            (PKBUGCHECK_REASON_CALLBACK_ROUTINE)SmFatalHeapCorruptionDumpCallback,
-            KbCallbackSecondaryDumpData,
-            (PUCHAR)"nt!store memory compression") )
+    if ( KeRegisterBugCheckReasonCallback(
+           v9,
+           (PKBUGCHECK_REASON_CALLBACK_ROUTINE)SmFatalHeapCorruptionDumpCallback,
+           KbCallbackSecondaryDumpData,
+           (PUCHAR)"nt!store memory compression") )
     {
-      v9 = -1073741670;
-      ExFreePoolWithTag(v10, 0);
+      v9 = 0LL;
+      v10 = 0;
     }
+    else
+    {
+      v10 = -1073741670;
+    }
+    if ( v9 )
+      ExFreePoolWithTag(v9, 0);
   }
   else
   {
     return (unsigned int)-1073741670;
   }
-  return v9;
+  return v10;
 }

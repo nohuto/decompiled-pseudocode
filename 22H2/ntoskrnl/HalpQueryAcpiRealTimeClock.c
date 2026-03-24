@@ -1,42 +1,44 @@
 /*
- * XREFs of HalpQueryAcpiRealTimeClock @ 0x140932EB8
+ * XREFs of HalpQueryAcpiRealTimeClock @ 0x140863F3C
  * Callers:
- *     HalQueryRealTimeClock @ 0x14033AF30 (HalQueryRealTimeClock.c)
- *     HalpUtcTimeToAcpiRealTime @ 0x1409330C8 (HalpUtcTimeToAcpiRealTime.c)
+ *     HalQueryRealTimeClock @ 0x14030CCC0 (HalQueryRealTimeClock.c)
+ *     HalpUtcTimeToAcpiRealTime @ 0x140864104 (HalpUtcTimeToAcpiRealTime.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x140251430 (IoBuildDeviceIoControlRequest.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     HalpGetDynamicDevicePointer @ 0x140933974 (HalpGetDynamicDevicePointer.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14022BAA0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     HalpGetDynamicDevicePointer @ 0x140778DD4 (HalpGetDynamicDevicePointer.c)
  */
 
 __int64 __fastcall HalpQueryAcpiRealTimeClock(PLARGE_INTEGER Timeout)
 {
-  int DynamicDevicePointer; // eax
+  struct _DEVICE_OBJECT *DynamicDevicePointer; // rdi
   unsigned int Status; // ebx
   IRP *v4; // rax
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-38h] BYREF
   struct _KEVENT Event; // [rsp+60h] [rbp-28h] BYREF
-  PDEVICE_OBJECT DeviceObject; // [rsp+98h] [rbp+10h] BYREF
 
-  DeviceObject = 0LL;
   memset(&Event, 0, sizeof(Event));
   IoStatusBlock = 0LL;
-  DynamicDevicePointer = HalpGetDynamicDevicePointer(Timeout, &DeviceObject);
-  Status = DynamicDevicePointer;
-  if ( DynamicDevicePointer == -1073741275 )
-  {
-    Status = -1073741822;
-  }
-  else if ( DynamicDevicePointer >= 0 )
+  DynamicDevicePointer = (struct _DEVICE_OBJECT *)HalpGetDynamicDevicePointer();
+  if ( DynamicDevicePointer )
   {
     KeInitializeEvent(&Event, NotificationEvent, 0);
-    v4 = IoBuildDeviceIoControlRequest(0x294210u, DeviceObject, 0LL, 0, Timeout, 0x10u, 0, &Event, &IoStatusBlock);
+    v4 = IoBuildDeviceIoControlRequest(
+           0x294210u,
+           DynamicDevicePointer,
+           0LL,
+           0,
+           Timeout,
+           0x10u,
+           0,
+           &Event,
+           &IoStatusBlock);
     if ( v4 )
     {
-      Status = IofCallDriver(DeviceObject, v4);
+      Status = IofCallDriver(DynamicDevicePointer, v4);
       if ( Status == 259 )
       {
         KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
@@ -47,8 +49,11 @@ __int64 __fastcall HalpQueryAcpiRealTimeClock(PLARGE_INTEGER Timeout)
     {
       Status = -1073741670;
     }
+    HalPutDmaAdapter((PADAPTER_OBJECT)DynamicDevicePointer);
   }
-  if ( DeviceObject )
-    ObfDereferenceObject(DeviceObject);
+  else
+  {
+    return (unsigned int)-1073741822;
+  }
   return Status;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CCompositionAmbientLightMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C02320D0
+ * XREFs of ?SetBufferProperty@CCompositionAmbientLightMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00B0CC0
  * Callers:
  *     <none>
  * Callees:
@@ -23,7 +23,7 @@ __int64 __fastcall DirectComposition::CCompositionAmbientLightMarshaler::SetBuff
     return 3221225485LL;
   v7 = *a4;
   *((_DWORD *)this + 4) |= 0x100u;
-  *(_OWORD *)((char *)this + 104) = v7;
+  *((_OWORD *)this + 6) = v7;
   *a6 = 1;
   return result;
 }

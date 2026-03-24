@@ -1,25 +1,25 @@
 /*
- * XREFs of PopThermalStandbyEndTracking @ 0x140142794
+ * XREFs of PopThermalStandbyEndTracking @ 0x1401427B4
  * Callers:
- *     PopThermalSxEntry @ 0x140142514 (PopThermalSxEntry.c)
- *     PopCheckAndHandleThermalConditions @ 0x14018BED4 (PopCheckAndHandleThermalConditions.c)
- *     PopThermalCsEntry @ 0x1402DC234 (PopThermalCsEntry.c)
- *     PopThermalCsExit @ 0x1402DC284 (PopThermalCsExit.c)
+ *     PopThermalSxEntry @ 0x140142534 (PopThermalSxEntry.c)
+ *     PopCheckAndHandleThermalConditions @ 0x14018BEF4 (PopCheckAndHandleThermalConditions.c)
+ *     PopThermalCsEntry @ 0x1402DC334 (PopThermalCsEntry.c)
+ *     PopThermalCsExit @ 0x1402DC384 (PopThermalCsExit.c)
  * Callees:
- *     PopTraceThermalStandbyComplete @ 0x1402E2898 (PopTraceThermalStandbyComplete.c)
+ *     PopTraceThermalStandbyComplete @ 0x1402E2998 (PopTraceThermalStandbyComplete.c)
  */
 
 __int64 __fastcall PopThermalStandbyEndTracking(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax
 
-  LOBYTE(a3) = byte_14041714C;
+  LOBYTE(a3) = byte_14041724C;
   result = 0LL;
-  byte_14041714C = 0;
-  if ( byte_14041714D )
+  byte_14041724C = 0;
+  if ( byte_14041724D )
   {
-    byte_14041714D = 0;
-    return PopTraceThermalStandbyComplete(a1, (MEMORY[0xFFFFF78000000008] - qword_140417150) / 0x989680uLL, a3);
+    byte_14041724D = 0;
+    return PopTraceThermalStandbyComplete(a1, (MEMORY[0xFFFFF78000000008] - qword_140417250) / 0x989680uLL, a3);
   }
   return result;
 }

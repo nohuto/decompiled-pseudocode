@@ -1,74 +1,67 @@
 /*
- * XREFs of NtUserGetExtendedPointerDeviceProperty @ 0x1C01592E0
+ * XREFs of NtUserGetExtendedPointerDeviceProperty @ 0x1C012EA20
  * Callers:
  *     <none>
  * Callees:
- *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C0029AC4 (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C0029D70 (UserSessionSwitchLeaveCrit.c)
- *     HMValidateHandle @ 0x1C0030A98 (HMValidateHandle.c)
- *     UserSetLastError @ 0x1C003CCC0 (UserSetLastError.c)
- *     RIMGetExtendedPointerDeviceProperty @ 0x1C01A0464 (RIMGetExtendedPointerDeviceProperty.c)
+ *     EnterSharedCrit @ 0x1C0035E30 (EnterSharedCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0036190 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C00388BC (UserSetLastError.c)
+ *     HMValidateHandle @ 0x1C00424D0 (HMValidateHandle.c)
+ *     RIMGetExtendedPointerDeviceProperty @ 0x1C016BD30 (RIMGetExtendedPointerDeviceProperty.c)
  */
 
 __int64 __fastcall NtUserGetExtendedPointerDeviceProperty(__int64 a1, ULONG64 a2)
 {
   __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  int v7; // ebx
-  __int64 v8; // rcx
-  __int64 v9; // rdx
-  ULONG64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rax
-  ULONG64 v14; // r8
-  NTSTATUS v15; // eax
-  __int128 v17; // [rsp+30h] [rbp-58h] BYREF
-  int v18; // [rsp+40h] [rbp-48h]
-  __int128 v19; // [rsp+60h] [rbp-28h]
-  int v20; // [rsp+70h] [rbp-18h]
+  int v5; // ebx
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  ULONG64 v8; // rdx
+  NTSTATUS v9; // eax
+  __int128 v11; // [rsp+30h] [rbp-58h] BYREF
+  int v12; // [rsp+40h] [rbp-48h]
+  __int128 v13; // [rsp+60h] [rbp-28h]
+  int v14; // [rsp+70h] [rbp-18h]
 
-  PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal();
-  v17 = 0LL;
-  v18 = 0;
-  v7 = 0;
+  EnterSharedCrit(0, 1);
+  v11 = 0LL;
+  v12 = 0;
+  v5 = 0;
   if ( !a2 )
     goto LABEL_2;
-  v13 = HMValidateHandle(a1, 0x13u);
-  if ( !v13 )
+  v7 = HMValidateHandle(a1, 0x13u);
+  if ( !v7 )
   {
-    v8 = 6LL;
+    v6 = 6LL;
     goto LABEL_3;
   }
-  if ( (*(_DWORD *)(v13 + 200) & 0x80u) == 0 )
+  if ( (*(_DWORD *)(v7 + 200) & 0x80u) == 0 )
   {
 LABEL_2:
-    v8 = 87LL;
+    v6 = 87LL;
 LABEL_3:
-    UserSetLastError(v8, v4, v5, v6);
+    UserSetLastError(v6, v4);
     goto LABEL_15;
   }
-  v14 = a2;
+  v8 = a2;
   if ( a2 + 20 < a2 || a2 + 20 > MmUserProbeAddress )
-    v14 = MmUserProbeAddress;
-  v19 = *(_OWORD *)v14;
-  v20 = *(_DWORD *)(v14 + 16);
-  v17 = v19;
-  v18 = v20;
-  v15 = RIMGetExtendedPointerDeviceProperty(*(_QWORD *)(v13 + 472), &v17);
-  if ( v15 < 0 )
+    v8 = MmUserProbeAddress;
+  v13 = *(_OWORD *)v8;
+  v14 = *(_DWORD *)(v8 + 16);
+  v11 = v13;
+  v12 = v14;
+  v9 = RIMGetExtendedPointerDeviceProperty(*(_QWORD *)(v7 + 480), &v11);
+  if ( v9 < 0 )
   {
-    v8 = RtlNtStatusToDosError(v15);
+    v6 = RtlNtStatusToDosError(v9);
     goto LABEL_3;
   }
-  v10 = MmUserProbeAddress;
   if ( a2 >= MmUserProbeAddress )
     a2 = MmUserProbeAddress;
-  *(_OWORD *)a2 = v17;
-  *(_DWORD *)(a2 + 16) = v18;
-  v7 = 1;
+  *(_OWORD *)a2 = v11;
+  *(_DWORD *)(a2 + 16) = v12;
+  v5 = 1;
 LABEL_15:
-  UserSessionSwitchLeaveCrit(v10, v9, v11, v12);
-  return v7;
+  UserSessionSwitchLeaveCrit();
+  return v5;
 }

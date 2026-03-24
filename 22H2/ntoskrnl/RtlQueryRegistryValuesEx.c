@@ -1,27 +1,21 @@
 /*
- * XREFs of RtlQueryRegistryValuesEx @ 0x1406C7B10
+ * XREFs of RtlQueryRegistryValuesEx @ 0x14069EF80
  * Callers:
- *     RtlCheckPortableOperatingSystem @ 0x140368A40 (RtlCheckPortableOperatingSystem.c)
- *     EtwpQueryPartitionRegistryInformation @ 0x140398B74 (EtwpQueryPartitionRegistryInformation.c)
- *     EtwpQuerySiloRegistrySettings @ 0x140398DDC (EtwpQuerySiloRegistrySettings.c)
- *     RtlpFindRegTziForCurrentYear @ 0x140399AAC (RtlpFindRegTziForCurrentYear.c)
- *     EtwpGetCurrentSiloMaxLoggers @ 0x1403B392C (EtwpGetCurrentSiloMaxLoggers.c)
- *     RtlpEtcGetDwordFromRegistry @ 0x1404111D4 (RtlpEtcGetDwordFromRegistry.c)
- *     CarReadRegistry @ 0x1405D57DC (CarReadRegistry.c)
- *     DifRtlQueryRegistryValuesExWrapper @ 0x1405EBAA0 (DifRtlQueryRegistryValuesExWrapper.c)
- *     DifRtlQueryRegistryValuesWrapper @ 0x1405EBBF0 (DifRtlQueryRegistryValuesWrapper.c)
- *     sub_140609258 @ 0x140609258 (sub_140609258.c)
- *     FsRtlOpenFileSystemRegistryKeyFromFsGuid @ 0x14067E670 (FsRtlOpenFileSystemRegistryKeyFromFsGuid.c)
- *     VhdAutoAttachVirtualDisks @ 0x140B35A9C (VhdAutoAttachVirtualDisks.c)
- *     SmGlobalsStart @ 0x140B54524 (SmGlobalsStart.c)
- *     CmIsLastKnownGoodBoot @ 0x140B6F668 (CmIsLastKnownGoodBoot.c)
- *     IopInitCrashDumpDuringSysInit @ 0x140B726E0 (IopInitCrashDumpDuringSysInit.c)
- *     EtwpReadConfigParameters @ 0x140B73A8C (EtwpReadConfigParameters.c)
+ *     RtlCheckPortableOperatingSystem @ 0x140326640 (RtlCheckPortableOperatingSystem.c)
+ *     EtwpQueryPartitionRegistryInformation @ 0x1403AA65C (EtwpQueryPartitionRegistryInformation.c)
+ *     EtwpReadPerSiloConfigParameters @ 0x1403AA8C4 (EtwpReadPerSiloConfigParameters.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x1403B7864 (RtlpFindRegTziForCurrentYear.c)
+ *     sub_1405B2D88 @ 0x1405B2D88 (sub_1405B2D88.c)
+ *     ExpReadTimeZoneInformation @ 0x1405D1A44 (ExpReadTimeZoneInformation.c)
+ *     SmQueryRegistry @ 0x140A4B4A4 (SmQueryRegistry.c)
+ *     IopInitCrashDumpDuringSysInit @ 0x140A6CE38 (IopInitCrashDumpDuringSysInit.c)
+ *     CmIsLastKnownGoodBoot @ 0x140A6F1BC (CmIsLastKnownGoodBoot.c)
+ *     EtwpReadConfigParameters @ 0x140A70DB4 (EtwpReadConfigParameters.c)
  * Callees:
- *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x1406B9848 (RtlpQueryRegistryValues.c)
  */
 
-__int64 __fastcall RtlQueryRegistryValuesEx(__int64 a1, const WCHAR *a2, _QWORD *a3, __int64 a4)
+__int64 __fastcall RtlQueryRegistryValuesEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   return RtlpQueryRegistryValues(a1, a2, a3, a4);
 }

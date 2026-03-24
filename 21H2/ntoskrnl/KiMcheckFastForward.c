@@ -1,26 +1,26 @@
 /*
- * XREFs of KiMcheckFastForward @ 0x14024EDB0
+ * XREFs of KiMcheckFastForward @ 0x1405266C0
  * Callers:
- *     KiNmiInterruptStart @ 0x14042CF40 (KiNmiInterruptStart.c)
- *     KiMcheckAbort @ 0x140430F00 (KiMcheckAbort.c)
+ *     KiNmiInterruptStart @ 0x14040AE40 (KiNmiInterruptStart.c)
+ *     KiMcheckAbort @ 0x14040EBC0 (KiMcheckAbort.c)
  * Callees:
- *     KiRspInIstStack @ 0x14024EF40 (KiRspInIstStack.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KiRspInIstStack @ 0x140518BF8 (KiRspInIstStack.c)
  */
 
-__int64 __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, char a2)
+unsigned __int64 __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, char a2)
 {
   ULONG_PTR v3; // r11
   unsigned int v4; // r10d
-  __int64 v5; // rdx
+  unsigned __int64 v5; // rdx
   unsigned __int64 v6; // rax
-  struct _KPRCB *CurrentPrcb; // r9
-  __int64 result; // rax
+  struct _KPRCB *CurrentPrcb; // rdx
+  unsigned __int64 result; // rax
   int v9; // ecx
-  unsigned __int64 v10; // r8
-  __int64 v11; // r8
-  _MACHINE_CHECK_CONTEXT *McheckContext; // rdx
-  unsigned __int64 GsBase; // rax
+  __int64 v10; // r9
+  unsigned __int64 v11; // r9
+  __int64 v12; // r8
+  __int64 v13; // rax
   unsigned __int64 v14; // rcx
   unsigned __int64 v15; // rax
 
@@ -28,23 +28,23 @@ __int64 __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, char a2)
   v4 = 0;
   if ( (*(_BYTE *)(BugCheckParameter4 + 368) & 1) == 0 )
   {
-    if ( (unsigned int)KiRspInIstStack(3LL, *(_QWORD *)(BugCheckParameter4 + 384)) )
+    if ( KiRspInIstStack(3u, *(_QWORD *)(BugCheckParameter4 + 384)) )
       _InterlockedAdd(&KiMcheckRecursive, 1u);
-    if ( (unsigned int)KiRspInIstStack(2LL, v5) )
+    if ( KiRspInIstStack(2u, v5) )
     {
       v4 |= 2u;
-      _InterlockedAdd(&dword_140C2A704, 1u);
+      _InterlockedAdd(&dword_140C2AFA4, 1u);
     }
     v6 = *(_QWORD *)(v3 + 360);
     if ( v6 >= (unsigned __int64)&KiMcheckExitMceTailMceBegin && v6 < (unsigned __int64)&KiMcheckExitMceTailMceEnd )
     {
       v4 |= 4u;
-      _InterlockedAdd(&dword_140C2A708, 1u);
+      _InterlockedAdd(&dword_140C2AFA8, 1u);
     }
     if ( v6 >= (unsigned __int64)&KiMcheckExitMceTailNmiBegin && v6 < (unsigned __int64)KiMcheckExitMceTailNmiEnd )
     {
       v4 |= 4u;
-      _InterlockedAdd(&dword_140C2A708, 1u);
+      _InterlockedAdd(&dword_140C2AFA8, 1u);
     }
     if ( KiKvaShadow )
     {
@@ -52,14 +52,14 @@ __int64 __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, char a2)
         && v6 < (unsigned __int64)&KiKernelIstMceExitMceTailMceEnd )
       {
         v4 |= 4u;
-        _InterlockedAdd(&dword_140C2A70C, 1u);
+        _InterlockedAdd(&dword_140C2AFAC, 1u);
       }
       if ( KiKvaShadow
         && v6 >= (unsigned __int64)&KiKernelIstMceExitMceTailNmiBegin
         && v6 < (unsigned __int64)&KiKernelIstMceExitMceTailNmiEnd )
       {
         v4 |= 4u;
-        _InterlockedAdd(&dword_140C2A70C, 1u);
+        _InterlockedAdd(&dword_140C2AFAC, 1u);
       }
     }
   }
@@ -67,52 +67,52 @@ __int64 __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, char a2)
   result = v4 & 1;
   if ( a2 || (v4 & 1) != 0 )
   {
-    _InterlockedAdd(&dword_140C2A718, 1u);
+    _InterlockedAdd(&dword_140C2AFB8, 1u);
     if ( (v4 & 1) != 0 )
-      _InterlockedAdd(&dword_140C2A720, 1u);
+      _InterlockedAdd(&dword_140C2AFC0, 1u);
     v9 = 1;
   }
   else
   {
-    _InterlockedAdd(&dword_140C2A71C, 1u);
+    _InterlockedAdd(&dword_140C2AFBC, 1u);
     v9 = 0;
   }
+  v10 = 0LL;
   if ( KiKvaShadow )
   {
-    v10 = CurrentPrcb[-1].PrcbPad141[473];
-    if ( a2 )
+    v11 = CurrentPrcb[-1].PrcbPad141[473];
+    if ( !a2 )
     {
-      v11 = *(_QWORD *)(v10 + 52);
-      goto LABEL_19;
+      v10 = *(_QWORD *)(v11 + 44);
+      goto LABEL_29;
     }
-    v11 = *(_QWORD *)(v10 + 44);
+    v10 = *(_QWORD *)(v11 + 52);
   }
-  else
+  if ( !a2 )
   {
-    v11 = 0LL;
-    if ( a2 )
-    {
-LABEL_19:
-      if ( (v4 & 1) != 0 )
-        KeBugCheckEx(0x111u, v4, *(_QWORD *)(v3 + 384), *(_QWORD *)(v3 + 360), v3);
-      goto LABEL_20;
-    }
+LABEL_29:
+    v12 = 36048LL;
+    if ( v9 )
+      goto LABEL_31;
+    goto LABEL_30;
   }
-  McheckContext = &CurrentPrcb->McheckContext[1];
-  if ( !v9 )
-LABEL_20:
-    McheckContext = CurrentPrcb->McheckContext;
+  if ( (v4 & 1) != 0 )
+    KeBugCheckEx(0x111u, v4, *(_QWORD *)(v3 + 384), *(_QWORD *)(v3 + 360), v3);
+LABEL_30:
+  v12 = 35968LL;
+LABEL_31:
   if ( (v4 & 4) != 0 )
   {
-    _InterlockedAdd(&dword_140C2A724, 1u);
-    GsBase = McheckContext->GsBase;
+    _InterlockedAdd(&dword_140C2AFC4, 1u);
+    v13 = *(_QWORD *)(&CurrentPrcb->CpuType + v12);
     if ( KiKvaShadow )
     {
-      *(_QWORD *)(v11 + 16) = GsBase;
-      *(_QWORD *)(v11 + 24) = McheckContext->Cr3;
-      if ( (McheckContext->Cr3 & 3) != 0 && CurrentPrcb->CurrentThread->Process->AddressPolicy != 1 )
+      *(_QWORD *)(v10 + 16) = v13;
+      *(_QWORD *)(v10 + 24) = CurrentPrcb->HalReserved[(unsigned __int64)v12 / 8];
+      if ( (CurrentPrcb->HalReserved[(unsigned __int64)v12 / 8] & 3) != 0
+        && CurrentPrcb->CurrentThread->Process->AddressPolicy != 1 )
       {
-        _InterlockedAdd(&dword_140C2A728, 1u);
+        _InterlockedAdd(&dword_140C2AFC8, 1u);
         _interlockedbittestandreset((volatile signed __int32 *)&CurrentPrcb->ShadowFlags, 0);
         v14 = __readcr4();
         if ( (v14 & 0x20080) != 0 )
@@ -129,34 +129,34 @@ LABEL_20:
     }
     else
     {
-      *(_QWORD *)(v3 + 104) = GsBase;
+      *(_QWORD *)(v3 + 104) = v13;
     }
-    *(_OWORD *)(v3 + 360) = *(_OWORD *)&McheckContext->MachineFrame.Rip;
-    *(_OWORD *)(v3 + 376) = *(_OWORD *)&McheckContext->MachineFrame.EFlags;
-    *(_QWORD *)(v3 + 392) = *(_QWORD *)&McheckContext->MachineFrame.SegSs;
-    *(_QWORD *)(v3 + 48) = McheckContext->Rax;
-    *(_QWORD *)(v3 + 56) = McheckContext->Rcx;
-    result = McheckContext->Rdx;
+    *(_OWORD *)(v3 + 360) = *(_OWORD *)((char *)&CurrentPrcb->MxCsr + v12);
+    *(_OWORD *)(v3 + 376) = *(_OWORD *)((char *)&CurrentPrcb->NextThread + v12);
+    *(_QWORD *)(v3 + 392) = *(_QWORD *)(&CurrentPrcb->NestingLevel + v12);
+    *(_QWORD *)(v3 + 48) = *(unsigned __int64 *)((char *)&CurrentPrcb->RspBase + v12);
+    *(_QWORD *)(v3 + 56) = *(unsigned __int64 *)((char *)&CurrentPrcb->PrcbLock + v12);
+    result = *(unsigned __int64 *)((char *)&CurrentPrcb->PriorityState + v12);
     *(_QWORD *)(v3 + 64) = result;
-    _InterlockedAdd(&dword_140C2A714, 1u);
-    McheckContext->MachineFrame.SegCs = 0;
+    _InterlockedAdd(&dword_140C2AFB4, 1u);
+    *(_WORD *)((char *)&CurrentPrcb->CurrentThread + v12) = 0;
   }
   if ( !a2 )
   {
-    _InterlockedAdd(&dword_140C2A710, 1u);
-    *(_OWORD *)&McheckContext->MachineFrame.Rip = *(_OWORD *)(v3 + 360);
-    *(_OWORD *)&McheckContext->MachineFrame.EFlags = *(_OWORD *)(v3 + 376);
-    *(_QWORD *)&McheckContext->MachineFrame.SegSs = *(_QWORD *)(v3 + 392);
-    McheckContext->Rax = *(_QWORD *)(v3 + 48);
-    McheckContext->Rcx = *(_QWORD *)(v3 + 56);
-    McheckContext->Rdx = *(_QWORD *)(v3 + 64);
+    _InterlockedAdd(&dword_140C2AFB0, 1u);
+    *(_OWORD *)((char *)&CurrentPrcb->MxCsr + v12) = *(_OWORD *)(v3 + 360);
+    *(_OWORD *)((char *)&CurrentPrcb->NextThread + v12) = *(_OWORD *)(v3 + 376);
+    *(_QWORD *)(&CurrentPrcb->NestingLevel + v12) = *(_QWORD *)(v3 + 392);
+    *(unsigned __int64 *)((char *)&CurrentPrcb->RspBase + v12) = *(_QWORD *)(v3 + 48);
+    *(unsigned __int64 *)((char *)&CurrentPrcb->PrcbLock + v12) = *(_QWORD *)(v3 + 56);
+    *(char **)((char *)&CurrentPrcb->PriorityState + v12) = *(char **)(v3 + 64);
     result = *(_QWORD *)(v3 + 104);
-    McheckContext->GsBase = result;
+    *(_QWORD *)(&CurrentPrcb->CpuType + v12) = result;
     if ( KiKvaShadow )
     {
-      McheckContext->GsBase = *(_QWORD *)(v11 + 16);
-      result = *(_QWORD *)(v11 + 24);
-      McheckContext->Cr3 = result;
+      *(_QWORD *)(&CurrentPrcb->CpuType + v12) = *(_QWORD *)(v10 + 16);
+      result = *(_QWORD *)(v10 + 24);
+      CurrentPrcb->HalReserved[(unsigned __int64)v12 / 8] = result;
     }
   }
   return result;

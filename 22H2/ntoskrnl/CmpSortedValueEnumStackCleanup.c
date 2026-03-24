@@ -1,45 +1,45 @@
 /*
- * XREFs of CmpSortedValueEnumStackCleanup @ 0x140A25190
+ * XREFs of CmpSortedValueEnumStackCleanup @ 0x14087B6BC
  * Callers:
- *     CmpGetValueCountForKeyNodeStack @ 0x140616604 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x1404ECDC8 (CmpGetValueCountForKeyNodeStack.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x140A253D0 (CmpValueEnumStackGetEntryAtLayerHeight.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpSortedValueEnumStackGetEntryAtLayerHeight @ 0x14087B8E4 (CmpSortedValueEnumStackGetEntryAtLayerHeight.c)
  */
 
 void __fastcall CmpSortedValueEnumStackCleanup(__int64 a1)
 {
   unsigned __int16 i; // di
-  __int64 EntryAtLayerHeight; // rbx
+  _QWORD *EntryAtLayerHeight; // rbx
   struct _PRIVILEGE_SET *v4; // rcx
-  unsigned int j; // ebp
-  unsigned int *v6; // rdx
-  __int64 v7; // rcx
-  struct _PRIVILEGE_SET *v8; // rcx
+  struct _PRIVILEGE_SET *v5; // rcx
+  unsigned int v6; // ebp
+  struct _PRIVILEGE_SET *v7; // rcx
 
   for ( i = 0; i <= *(_WORD *)(a1 + 8); ++i )
   {
-    EntryAtLayerHeight = CmpValueEnumStackGetEntryAtLayerHeight(a1, i);
-    v4 = *(struct _PRIVILEGE_SET **)(EntryAtLayerHeight + 8);
+    EntryAtLayerHeight = (_QWORD *)CmpSortedValueEnumStackGetEntryAtLayerHeight(a1, i);
+    v4 = (struct _PRIVILEGE_SET *)EntryAtLayerHeight[1];
     if ( v4 )
       CmSiFreeMemory(v4);
-    if ( *(_QWORD *)(EntryAtLayerHeight + 16) )
+    v5 = (struct _PRIVILEGE_SET *)EntryAtLayerHeight[2];
+    if ( v5 )
     {
-      for ( j = 0; j < *(_DWORD *)(EntryAtLayerHeight + 24); ++j )
+      v6 = 0;
+      if ( *((_DWORD *)EntryAtLayerHeight + 6) )
       {
-        v6 = (unsigned int *)(*(_QWORD *)(EntryAtLayerHeight + 16) + 8LL * j);
-        v7 = *(_QWORD *)EntryAtLayerHeight;
-        if ( (*(_BYTE *)(*(_QWORD *)EntryAtLayerHeight + 140LL) & 1) != 0 )
-          HvpReleaseCellFlat(v7, v6);
-        else
-          HvpReleaseCellPaged(v7, v6);
+        do
+          (*(void (__fastcall **)(_QWORD, __int64))(*EntryAtLayerHeight + 16LL))(
+            *EntryAtLayerHeight,
+            EntryAtLayerHeight[2] + 8LL * v6++);
+        while ( v6 < *((_DWORD *)EntryAtLayerHeight + 6) );
+        v5 = (struct _PRIVILEGE_SET *)EntryAtLayerHeight[2];
       }
-      CmSiFreeMemory(*(PPRIVILEGE_SET *)(EntryAtLayerHeight + 16));
+      CmSiFreeMemory(v5);
     }
   }
-  v8 = *(struct _PRIVILEGE_SET **)(a1 + 80);
-  if ( v8 )
-    CmSiFreeMemory(v8);
+  v7 = *(struct _PRIVILEGE_SET **)(a1 + 80);
+  if ( v7 )
+    CmSiFreeMemory(v7);
 }

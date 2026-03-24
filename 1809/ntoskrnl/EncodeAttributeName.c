@@ -1,11 +1,11 @@
 /*
- * XREFs of EncodeAttributeName @ 0x1408A722C
+ * XREFs of EncodeAttributeName @ 0x1408A720C
  * Callers:
- *     GetPrintableAttributeName @ 0x1408A8028 (GetPrintableAttributeName.c)
- *     LocalGetStringForRelativeAttribute @ 0x1408A9FF4 (LocalGetStringForRelativeAttribute.c)
+ *     GetPrintableAttributeName @ 0x1408A8008 (GetPrintableAttributeName.c)
+ *     LocalGetStringForRelativeAttribute @ 0x1408A9FD4 (LocalGetStringForRelativeAttribute.c)
  * Callees:
- *     SddlpAlloc @ 0x1406B0594 (SddlpAlloc.c)
- *     IsEncodedAttributeChar @ 0x1408A8B44 (IsEncodedAttributeChar.c)
+ *     SddlpAlloc @ 0x1406B0574 (SddlpAlloc.c)
+ *     IsEncodedAttributeChar @ 0x1408A8B24 (IsEncodedAttributeChar.c)
  */
 
 __int64 __fastcall EncodeAttributeName(unsigned __int16 *a1, unsigned int a2, __int64 *a3)

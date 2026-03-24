@@ -3,13 +3,13 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     IopInitializeOfflineCrashDump @ 0x140180C60 (IopInitializeOfflineCrashDump.c)
- *     SecureDump_Init @ 0x140180D20 (SecureDump_Init.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     __report_rangecheckfailure @ 0x140268CCC (__report_rangecheckfailure.c)
- *     RtlQueryRegistryValuesEx @ 0x1406C7660 (RtlQueryRegistryValuesEx.c)
- *     IoInitializeCrashDump @ 0x14074CFC0 (IoInitializeCrashDump.c)
+ *     IopInitializeOfflineCrashDump @ 0x140180C80 (IopInitializeOfflineCrashDump.c)
+ *     SecureDump_Init @ 0x140180D40 (SecureDump_Init.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     __report_rangecheckfailure @ 0x140268DCC (__report_rangecheckfailure.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406C7640 (RtlQueryRegistryValuesEx.c)
+ *     IoInitializeCrashDump @ 0x14074CFA0 (IoInitializeCrashDump.c)
  *     MmInitializeMemoryLimits @ 0x1409C101C (MmInitializeMemoryLimits.c)
  */
 

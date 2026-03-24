@@ -1,46 +1,38 @@
 /*
- * XREFs of HasLighting @ 0x180027FE8
+ * XREFs of HasLighting @ 0x180046160
  * Callers:
- *     GetExpectedVertexShaderDesc @ 0x180027F2C (GetExpectedVertexShaderDesc.c)
+ *     GetExpectedVertexShaderDesc @ 0x1800462C8 (GetExpectedVertexShaderDesc.c)
  * Callees:
- *     ??$find@V?$span_iterator@$$CBW4ShaderLinkingArgument@@@details@gsl@@W4ShaderLinkingArgument@@@std@@YA?AV?$span_iterator@$$CBW4ShaderLinkingArgument@@@details@gsl@@V123@V123@AEBW4ShaderLinkingArgument@@@Z @ 0x1800280FC (--$find@V-$span_iterator@$$CBW4ShaderLinkingArgument@@@details@gsl@@W4ShaderLinkingArgument@@@st.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
+ *     ??9details@gsl@@YA_NV?$span_iterator@V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@$0A@@01@0@Z @ 0x180046C1C (--9details@gsl@@YA_NV-$span_iterator@V-$span@$$CBW4ShaderLinkingArgument@@$0-0@gsl@@$0A@@01@0@Z.c)
+ *     ??$find@V?$span_iterator@V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@$0A@@details@gsl@@W4ShaderLinkingArgument@@@std@@YA?AV?$span_iterator@V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@$0A@@details@gsl@@V123@V123@AEBW4ShaderLinkingArgument@@@Z @ 0x180046C5C (--$find@V-$span_iterator@V-$span@$$CBW4ShaderLinkingArgument@@$0-0@gsl@@$0A@@details@gsl@@W4Shad.c)
  */
 
-bool __fastcall HasLighting(__int64 a1)
+char __fastcall HasLighting(__int64 *a1)
 {
-  gsl::details *v2; // rax
-  _QWORD *v3; // rax
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v7; // [rsp+20h] [rbp-68h] BYREF
-  __int64 v8; // [rsp+28h] [rbp-60h]
-  __int64 v9; // [rsp+30h] [rbp-58h]
-  _QWORD v10[4]; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v11; // [rsp+60h] [rbp-28h] BYREF
-  __int16 v12; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v1; // rax
+  char v2; // bl
+  _QWORD v4[2]; // [rsp+20h] [rbp-40h] BYREF
+  __int128 v5; // [rsp+30h] [rbp-30h] BYREF
+  _QWORD v6[2]; // [rsp+40h] [rbp-20h] BYREF
+  _BYTE v7[16]; // [rsp+50h] [rbp-10h] BYREF
+  __int16 v8; // [rsp+70h] [rbp+10h] BYREF
 
-  if ( *(_WORD *)(a1 + 52) == 11 )
+  if ( *((_WORD *)a1 + 26) == 11 )
     return 1;
-  v7 = *(_QWORD *)(a1 + 8);
-  v12 = 2;
-  v2 = *(gsl::details **)a1;
-  v10[0] = v7;
-  v10[2] = v7;
-  v8 = v7 + 2LL * (_QWORD)v2;
-  v9 = v8;
-  v10[1] = v8;
-  v3 = (_QWORD *)((__int64 (__fastcall *)(__int64 *, _QWORD *, __int64 *, __int16 *))std::find<gsl::details::span_iterator<enum ShaderLinkingArgument const>,enum ShaderLinkingArgument>)(
-                   &v11,
-                   v10,
-                   &v7,
-                   &v12);
-  v4 = *(_QWORD *)(a1 + 8);
-  v5 = v4 + 2LL * *(_QWORD *)a1;
-  if ( *v3 != v4 || v3[1] != v5 )
-  {
-    gsl::details::terminate(*(gsl::details **)a1);
-    __debugbreak();
-  }
-  return v3[2] != v5;
+  v1 = *a1;
+  v6[0] = a1;
+  v8 = 2;
+  v4[0] = a1;
+  v5 = (unsigned __int64)a1;
+  v2 = 0;
+  v6[1] = v1;
+  v4[1] = v1;
+  v5 = *(_OWORD *)((__int64 (__fastcall *)(_BYTE *, __int128 *, _QWORD *, __int16 *))std::find<gsl::details::span_iterator<gsl::span<enum ShaderLinkingArgument const,-1>,0>,enum ShaderLinkingArgument>)(
+                    v7,
+                    &v5,
+                    v4,
+                    &v8);
+  if ( (unsigned __int8)gsl::details::operator!=(&v5, v6) )
+    return 1;
+  return v2;
 }

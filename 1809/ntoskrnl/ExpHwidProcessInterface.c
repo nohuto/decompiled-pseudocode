@@ -4,8 +4,8 @@
  *     sub_140585FE0 @ 0x140585FE0 (sub_140585FE0.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ExpHwidAuthenticateHardwareId @ 0x140586410 (ExpHwidAuthenticateHardwareId.c)
  *     ExpHwidGetDeviceProperties @ 0x1405865BC (ExpHwidGetDeviceProperties.c)
@@ -13,7 +13,7 @@
  *     sub_140586D3C @ 0x140586D3C (sub_140586D3C.c)
  *     IopGetDeviceInterfaces @ 0x14059E6C4 (IopGetDeviceInterfaces.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     sub_1408DB21C @ 0x1408DB21C (sub_1408DB21C.c)
+ *     sub_1408DB1FC @ 0x1408DB1FC (sub_1408DB1FC.c)
  */
 
 __int64 __fastcall ExpHwidProcessInterface(
@@ -115,7 +115,7 @@ LABEL_11:
           goto LABEL_13;
         }
       }
-      if ( (int)sub_1408DB21C(&DestinationString, a5) >= 0 && v7 < 0x14 && a3(a6, 0LL, a5) >= 0 )
+      if ( (int)sub_1408DB1FC(&DestinationString, a5) >= 0 && v7 < 0x14 && a3(a6, 0LL, a5) >= 0 )
         ++v7;
 LABEL_29:
       Length = DestinationString.Length;

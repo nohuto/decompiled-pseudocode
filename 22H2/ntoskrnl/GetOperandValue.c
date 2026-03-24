@@ -1,25 +1,25 @@
 /*
- * XREFs of GetOperandValue @ 0x1409D367C
+ * XREFs of GetOperandValue @ 0x140927554
  * Callers:
- *     GetOperandValue @ 0x1409D367C (GetOperandValue.c)
- *     LocalGetConditionForString @ 0x1409D49C4 (LocalGetConditionForString.c)
+ *     GetOperandValue @ 0x140927554 (GetOperandValue.c)
+ *     LocalGetConditionForString @ 0x140927F44 (LocalGetConditionForString.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A60 (RtlLengthSid.c)
- *     _wcsnicmp @ 0x1403D9530 (_wcsnicmp.c)
- *     wcstoxq @ 0x1403DBA5C (wcstoxq.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
- *     LocalGetSidForString @ 0x14069E1D0 (LocalGetSidForString.c)
- *     SddlpReAlloc @ 0x1409D2A90 (SddlpReAlloc.c)
- *     FreeOperandValue @ 0x1409D3168 (FreeOperandValue.c)
- *     GetAttributeName @ 0x1409D31A4 (GetAttributeName.c)
- *     GetBinaryOperandLen @ 0x1409D33FC (GetBinaryOperandLen.c)
- *     GetDigitFromChar @ 0x1409D34E8 (GetDigitFromChar.c)
- *     GetNextNoneWhiteSpace @ 0x1409D3600 (GetNextNoneWhiteSpace.c)
- *     GetOperandValue @ 0x1409D367C (GetOperandValue.c)
- *     GetStringOperandValue @ 0x1409D46D8 (GetStringOperandValue.c)
- *     IsValueSizeFixed @ 0x1409D4974 (IsValueSizeFixed.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x140347A80 (RtlLengthSid.c)
+ *     _wcsnicmp @ 0x1403D1B10 (_wcsnicmp.c)
+ *     wcstoxq @ 0x1403D3FCC (wcstoxq.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SddlpAlloc @ 0x1406ED338 (SddlpAlloc.c)
+ *     LocalGetSidForString @ 0x140787D40 (LocalGetSidForString.c)
+ *     SddlpReAlloc @ 0x140926A3C (SddlpReAlloc.c)
+ *     FreeOperandValue @ 0x140927044 (FreeOperandValue.c)
+ *     GetAttributeName @ 0x140927080 (GetAttributeName.c)
+ *     GetBinaryOperandLen @ 0x1409272D8 (GetBinaryOperandLen.c)
+ *     GetDigitFromChar @ 0x1409273C4 (GetDigitFromChar.c)
+ *     GetNextNoneWhiteSpace @ 0x1409274D8 (GetNextNoneWhiteSpace.c)
+ *     GetOperandValue @ 0x140927554 (GetOperandValue.c)
+ *     GetStringOperandValue @ 0x140927CC0 (GetStringOperandValue.c)
+ *     IsValueSizeFixed @ 0x140927F14 (IsValueSizeFixed.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall GetOperandValue(
@@ -41,20 +41,20 @@ __int64 __fastcall GetOperandValue(
   __int64 v18; // rax
   wchar_t *v19; // rcx
   __int64 v20; // rcx
-  __int64 v21; // r9
-  char v22; // r12
-  unsigned int v23; // edx
-  void *v24; // r8
-  unsigned int v25; // r10d
-  unsigned int v26; // eax
-  unsigned int v27; // r14d
-  void *v28; // rax
-  __int64 v29; // rsi
-  __int64 v30; // r8
-  wchar_t v31; // dx
-  char v32; // r14
-  __int64 v33; // r14
-  bool v34; // zf
+  char v21; // al
+  __int64 v22; // r9
+  __int64 v23; // rsi
+  char v24; // r12
+  void *v25; // r8
+  unsigned int v26; // edx
+  unsigned int v27; // r10d
+  unsigned int v28; // eax
+  unsigned int v29; // r14d
+  void *v30; // rax
+  __int64 v31; // r8
+  bool v32; // zf
+  char v33; // r14
+  __int64 v34; // r14
   __int64 v35; // rdi
   PSID v36; // rcx
   unsigned int v37; // r13d
@@ -79,7 +79,7 @@ __int64 __fastcall GetOperandValue(
   PVOID v56; // [rsp+58h] [rbp-28h] BYREF
   PSID Sid; // [rsp+60h] [rbp-20h] BYREF
   wint_t *v58; // [rsp+68h] [rbp-18h] BYREF
-  wchar_t *v59; // [rsp+70h] [rbp-10h] BYREF
+  __int64 v59; // [rsp+70h] [rbp-10h] BYREF
   char v61; // [rsp+D8h] [rbp+58h] BYREF
 
   v9 = a5;
@@ -139,57 +139,57 @@ LABEL_80:
           v14 = *((_BYTE *)v56 + 1);
         }
         LOBYTE(v20) = *((_BYTE *)v56 + 1);
-        v22 = IsValueSizeFixed(v20);
-        v23 = v22 != 0 ? 1 : 5;
-        v24 = *(void **)(*a4 + 8);
-        if ( v24 )
+        v21 = IsValueSizeFixed(v20);
+        v23 = *a4;
+        v24 = v21;
+        v25 = *(void **)(*a4 + 8);
+        v26 = v21 != 0 ? 1 : 5;
+        if ( v25 )
         {
-          v25 = *(_DWORD *)(*a4 + 4);
-          v26 = v25 + *(_DWORD *)(v21 + 4);
-          if ( v26 < v25 || (v27 = v23 + v26, v23 + v26 < v26) )
+          v27 = *(_DWORD *)(v23 + 4);
+          v28 = v27 + *(_DWORD *)(v22 + 4);
+          if ( v28 < v27 || (v29 = v26 + v28, v26 + v28 < v28) )
           {
 LABEL_38:
             AttributeName = 534;
             goto LABEL_81;
           }
-          v28 = SddlpReAlloc(v25, v27, v24);
-          v29 = *a4;
-          *(_QWORD *)(*a4 + 8) = v28;
-          if ( !v28 )
+          v30 = SddlpReAlloc(v27, v29, v25);
+          *(_QWORD *)(v23 + 8) = v30;
+          if ( !v30 )
             goto LABEL_2;
         }
         else
         {
-          v27 = v23 + *(_DWORD *)(v21 + 4);
-          if ( v27 < v23 )
+          v29 = v26 + *(_DWORD *)(v22 + 4);
+          if ( v29 < v26 )
             goto LABEL_38;
-          v29 = *a4;
-          *(_QWORD *)(v29 + 8) = SddlpAlloc(v27);
+          *(_QWORD *)(v23 + 8) = SddlpAlloc(v29);
         }
-        v30 = *(_QWORD *)(v29 + 8);
-        if ( !v30 )
+        v31 = *(_QWORD *)(v23 + 8);
+        if ( !v31 )
           goto LABEL_2;
-        *(_BYTE *)(*(unsigned int *)(v29 + 4) + v30) = *((_BYTE *)v56 + 1);
-        if ( !v22 )
-          *(_DWORD *)(*(unsigned int *)(v29 + 4) + *(_QWORD *)(v29 + 8) + 1LL) = *((_DWORD *)v56 + 1);
+        *(_BYTE *)(*(unsigned int *)(v23 + 4) + v31) = *((_BYTE *)v56 + 1);
+        if ( !v24 )
+          *(_DWORD *)(*(unsigned int *)(v23 + 4) + *(_QWORD *)(v23 + 8) + 1LL) = *((_DWORD *)v56 + 1);
         memmove(
-          (void *)(*(_QWORD *)(v29 + 8) + *(unsigned int *)(v29 + 4)
-                                        + (-(__int64)(v22 != 0) & 0xFFFFFFFFFFFFFFFCuLL)
+          (void *)(*(_QWORD *)(v23 + 8) + *(unsigned int *)(v23 + 4)
+                                        + (-(__int64)(v24 != 0) & 0xFFFFFFFFFFFFFFFCuLL)
                                         + 5),
           *((const void **)v56 + 1),
           *((unsigned int *)v56 + 1));
-        *(_DWORD *)(v29 + 4) = v27;
+        *(_DWORD *)(v23 + 4) = v29;
         FreeOperandValue(v56);
         v56 = 0LL;
         a7 += *v9;
         AttributeName = GetNextNoneWhiteSpace((__int64)a1, &a7);
         if ( AttributeName )
           goto LABEL_81;
-        v31 = a1[a7];
-        if ( v31 != 44 )
+        if ( a1[a7] != 44 )
         {
+          v32 = a1[a7] == 125;
           v16 = 0LL;
-          if ( v31 != 125 )
+          if ( !v32 )
             goto LABEL_41;
           *v9 = a7 + 1;
           goto LABEL_8;
@@ -200,7 +200,7 @@ LABEL_38:
     }
     goto LABEL_7;
   }
-  v32 = 3;
+  v33 = 3;
   if ( !wcsnicmp(a1, L"SID", 3uLL) )
   {
     a7 = 3;
@@ -209,27 +209,29 @@ LABEL_38:
       goto LABEL_81;
     if ( a1[a7] == 40 )
     {
-      v33 = a7 + 1;
-      AttributeName = LocalGetSidForString(&a1[v33], (__int64 *)&Sid, &v59, &a9);
-      if ( AttributeName || (a7 = v33 + &v59[-v33] - a1, (AttributeName = GetNextNoneWhiteSpace((__int64)a1, &a7)) != 0) )
+      v34 = a7 + 1;
+      AttributeName = LocalGetSidForString(&a1[v34], &Sid, &v59, &a9);
+      if ( AttributeName
+        || (a7 = v34 + ((v59 - 2 * v34 - (__int64)a1) >> 1),
+            (AttributeName = GetNextNoneWhiteSpace((__int64)a1, &a7)) != 0) )
       {
         v16 = Sid;
       }
       else
       {
-        v34 = a1[a7] == 41;
+        v32 = a1[a7] == 41;
         v16 = Sid;
-        if ( v34 )
+        if ( v32 )
         {
           v35 = *a4;
           v36 = Sid;
           *v9 = a7 + 1;
           *(_BYTE *)(v35 + 1) = 81;
           *(_DWORD *)(v35 + 4) = RtlLengthSid(v36);
-          v34 = a9 == 0;
+          v32 = a9 == 0;
           *(_QWORD *)(v35 + 8) = v16;
           v16 = 0LL;
-          *(_BYTE *)v35 = v34;
+          *(_BYTE *)v35 = v32;
           goto LABEL_8;
         }
 LABEL_41:
@@ -312,11 +314,11 @@ LABEL_37:
   {
     v52 = a1 + 1;
     if ( v52 >= v47 || ((*v52 - 88) & 0xFFDF) != 0 )
-      v32 = 1;
+      v33 = 1;
   }
   else
   {
-    v32 = 2;
+    v33 = 2;
   }
   v53 = *a4;
   *(_BYTE *)(v53 + 1) = 4;
@@ -329,7 +331,7 @@ LABEL_37:
   {
     *v54 = v48;
     *(_WORD *)(*(_QWORD *)(v55 + 8) + 8LL) = v51;
-    *(_BYTE *)(*(_QWORD *)(v55 + 8) + 9LL) = v32;
+    *(_BYTE *)(*(_QWORD *)(v55 + 8) + 9LL) = v33;
     goto LABEL_8;
   }
   AttributeName = 8;

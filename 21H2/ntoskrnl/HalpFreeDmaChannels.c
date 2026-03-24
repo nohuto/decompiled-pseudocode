@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpFreeDmaChannels @ 0x140519E90
+ * XREFs of HalpFreeDmaChannels @ 0x1404CF200
  * Callers:
- *     IoFreeAdapterChannelV3Internal @ 0x14051295C (IoFreeAdapterChannelV3Internal.c)
+ *     IoFreeAdapterChannelV3Internal @ 0x1404C6540 (IoFreeAdapterChannelV3Internal.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140517830 (HalpAllocateDmaResourcesInternal.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpAllocateDmaResources @ 0x1404CA5C0 (HalpAllocateDmaResources.c)
  */
 
-char __fastcall HalpFreeDmaChannels(__int64 a1)
+__int64 __fastcall HalpFreeDmaChannels(__int64 a1)
 {
   __int64 v1; // r14
   __int64 v2; // rdi
@@ -22,11 +22,11 @@ char __fastcall HalpFreeDmaChannels(__int64 a1)
   __int64 v9; // r8
   struct _DMA_ADAPTER *v10; // rbp
   unsigned __int8 v11; // al
-  struct _KPRCB *v12; // r10
-  _DWORD *v13; // r9
+  struct _KPRCB *v12; // r9
+  _DWORD *v13; // r8
   int v14; // eax
   bool v15; // zf
-  char result; // al
+  __int64 result; // rax
   unsigned __int8 v17; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *v19; // r8
@@ -102,7 +102,7 @@ char __fastcall HalpFreeDmaChannels(__int64 a1)
       }
     }
     __writecr8(CurrentIrql);
-    return HalpAllocateDmaResourcesInternal(v10, 1, 0LL);
+    return HalpAllocateDmaResources(v10);
   }
   return result;
 }

@@ -1,82 +1,82 @@
 /*
- * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x1402B2E40
+ * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x140346CA0
  * Callers:
- *     SepReferenceTokenByHandle @ 0x1402B0290 (SepReferenceTokenByHandle.c)
- *     SeAccessCheckByType @ 0x1402B3A90 (SeAccessCheckByType.c)
+ *     SepReferenceTokenByHandle @ 0x140345A30 (SepReferenceTokenByHandle.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329A0 (PsReferencePrimaryTokenWithTag.c)
- *     SepSidFromProcessProtection @ 0x1402B3340 (SepSidFromProcessProtection.c)
- *     RtlSidDominatesForTrust @ 0x1402B33C0 (RtlSidDominatesForTrust.c)
- *     PsReferenceEffectiveToken @ 0x14071D75C (PsReferenceEffectiveToken.c)
- *     PsReferenceImpersonationTokenEx @ 0x14071D810 (PsReferenceImpersonationTokenEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlSidDominatesForTrust @ 0x140346DF0 (RtlSidDominatesForTrust.c)
+ *     SepSidFromProcessProtection @ 0x140346EF0 (SepSidFromProcessProtection.c)
+ *     PsReferencePrimaryToken @ 0x140654390 (PsReferencePrimaryToken.c)
+ *     PsReferenceImpersonationTokenEx @ 0x1406CF720 (PsReferenceImpersonationTokenEx.c)
+ *     PsReferenceEffectiveToken @ 0x1406D5B10 (PsReferenceEffectiveToken.c)
  */
 
-__int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, int a2, ULONG_PTR *a3, _BYTE *a4, __int64 *a5)
+__int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN *a2, _BYTE *a3, __int64 *a4)
 {
-  __int64 *v5; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  void *v9; // rax
-  __int64 v10; // rbp
-  __int64 v11; // r9
-  ULONG_PTR v12; // r11
-  void *v14; // rax
-  int v15; // [rsp+60h] [rbp+8h] BYREF
-  int v16; // [rsp+68h] [rbp+10h] BYREF
-  int v17; // [rsp+70h] [rbp+18h] BYREF
+  struct _DMA_ADAPTER *v8; // rax
+  __int64 v9; // rbp
+  __int64 v10; // r9
+  void *v11; // r11
+  int v13; // [rsp+30h] [rbp-38h] BYREF
+  int v14; // [rsp+34h] [rbp-34h] BYREF
+  char v15; // [rsp+70h] [rbp+8h] BYREF
+  char v16; // [rsp+78h] [rbp+10h] BYREF
+  char v17; // [rsp+80h] [rbp+18h] BYREF
+  char v18; // [rsp+88h] [rbp+20h] BYREF
 
-  v16 = a2;
-  v5 = a5;
-  *a3 = 0LL;
-  *a4 = 0;
-  v17 = 0;
-  *v5 = 0LL;
+  v16 = 0;
+  *a2 = 0LL;
+  *a3 = 0;
+  *a4 = 0LL;
   CurrentThread = KeGetCurrentThread();
+  v13 = 0;
+  v14 = 0;
   v15 = 0;
-  LOBYTE(v16) = 0;
   if ( a1 == -4 )
   {
-    v12 = PsReferencePrimaryTokenWithTag((__int64)CurrentThread->ApcState.Process, 0x74726853u);
-LABEL_6:
-    *a3 = v12;
+    *a2 = PsReferencePrimaryToken(CurrentThread->ApcState.Process);
     return 0LL;
   }
-  if ( a1 != -5 )
+  if ( a1 == -5 )
   {
-    v9 = (void *)PsReferenceEffectiveToken(
-                   (_DWORD)CurrentThread,
-                   1953654867,
-                   (unsigned int)&v15,
-                   (unsigned int)&a5,
-                   (__int64)&v17,
-                   (__int64)&v16);
-    if ( v15 == 2 && !v17 )
-    {
-      ObfDereferenceObjectWithTag(v9, 0x74726853u);
-      return 3221225638LL;
-    }
-    goto LABEL_4;
+    v8 = (struct _DMA_ADAPTER *)PsReferenceImpersonationTokenEx(
+                                  (_DWORD)CurrentThread,
+                                  0,
+                                  (unsigned int)&v18,
+                                  (unsigned int)&v16,
+                                  (__int64)&v13,
+                                  (__int64)&v15);
+    if ( !v8 )
+      return 3221225596LL;
   }
-  v14 = (void *)PsReferenceImpersonationTokenEx(CurrentThread, 0LL, 1953654867LL, &v15, &a5, &v17, &v16);
-  if ( v14 )
+  else
   {
-    if ( !v17 )
-    {
-      ObfDereferenceObjectWithTag(v14, 0x746C6644u);
-      return 3221225638LL;
-    }
-LABEL_4:
-    *a4 = 0;
-    *v5 = 0LL;
-    LOBYTE(a5) = 0;
-    v10 = SepSidFromProcessProtection(&v16);
-    RtlSidDominatesForTrust(v10, v11, &a5, v11);
-    if ( !(_BYTE)a5 )
-    {
-      *a4 = 1;
-      *v5 = v10;
-    }
-    goto LABEL_6;
+    v8 = (struct _DMA_ADAPTER *)PsReferenceEffectiveToken(
+                                  (_DWORD)CurrentThread,
+                                  (unsigned int)&v14,
+                                  (unsigned int)&v16,
+                                  (unsigned int)&v13,
+                                  (__int64)&v15);
+    if ( v14 != 2 )
+      goto LABEL_7;
   }
-  return 3221225596LL;
+  if ( !v13 )
+  {
+    HalPutDmaAdapter(v8);
+    return 3221225638LL;
+  }
+LABEL_7:
+  *a3 = 0;
+  *a4 = 0LL;
+  v17 = 0;
+  v9 = SepSidFromProcessProtection(&v15);
+  RtlSidDominatesForTrust(v9, v10, &v17);
+  if ( !v17 )
+  {
+    *a3 = 1;
+    *a4 = v9;
+  }
+  *a2 = v11;
+  return 0LL;
 }

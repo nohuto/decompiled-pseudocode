@@ -1,13 +1,13 @@
 /*
- * XREFs of DeviceSlot_ControllerResetPostReset @ 0x1C0037AD0
+ * XREFs of DeviceSlot_ControllerResetPostReset @ 0x1C0036010
  * Callers:
- *     Controller_InternalReset @ 0x1C0033C04 (Controller_InternalReset.c)
+ *     Controller_InternalReset @ 0x1C00322D8 (Controller_InternalReset.c)
  * Callees:
- *     DeviceSlot_DisableAllDeviceSlots @ 0x1C000FD28 (DeviceSlot_DisableAllDeviceSlots.c)
- *     DeviceSlot_Initialize @ 0x1C00148D8 (DeviceSlot_Initialize.c)
- *     memset @ 0x1C0020600 (memset.c)
- *     XilDeviceSlot_InitializeSecureScratchpadBuffers @ 0x1C0038294 (XilDeviceSlot_InitializeSecureScratchpadBuffers.c)
- *     UsbDevice_ControllerResetPostReset @ 0x1C00483EC (UsbDevice_ControllerResetPostReset.c)
+ *     DeviceSlot_DisableAllDeviceSlots @ 0x1C000A95C (DeviceSlot_DisableAllDeviceSlots.c)
+ *     DeviceSlot_Initialize @ 0x1C00144D8 (DeviceSlot_Initialize.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     XilDeviceSlot_InitializeSecureScratchpadBuffers @ 0x1C00367D4 (XilDeviceSlot_InitializeSecureScratchpadBuffers.c)
+ *     UsbDevice_ControllerResetPostReset @ 0x1C0045A7C (UsbDevice_ControllerResetPostReset.c)
  */
 
 __int64 __fastcall DeviceSlot_ControllerResetPostReset(__int64 a1)

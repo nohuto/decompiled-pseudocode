@@ -1,16 +1,18 @@
 /*
- * XREFs of ?CheckHostComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUVailSuperWetStroke@1@PEA_N@Z @ 0x1801CB99C
+ * XREFs of ?CheckHostComputeScribbleSupport@CSuperWetInkManager@@AEAAJAEBUVailSuperWetStroke@1@PEA_N@Z @ 0x180194ACC
  * Callers:
- *     ?RegisterStrokeOnHost@CSuperWetInkManager@@AEAAJPEAUVailSuperWetStroke@1@PEA_N@Z @ 0x1801CC3A0 (-RegisterStrokeOnHost@CSuperWetInkManager@@AEAAJPEAUVailSuperWetStroke@1@PEA_N@Z.c)
+ *     ?RegisterStrokeOnHost@CSuperWetInkManager@@AEAAJPEAUVailSuperWetStroke@1@PEA_N@Z @ 0x180195544 (-RegisterStrokeOnHost@CSuperWetInkManager@@AEAAJPEAUVailSuperWetStroke@1@PEA_N@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180100300 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0q_EventWriteTransfer @ 0x18012DEC4 (McTemplateU0q_EventWriteTransfer.c)
- *     ?CheckCommonComputeScribbleSupport@CSuperWetInkManager@@AEAAJPEA_N@Z @ 0x1801CB954 (-CheckCommonComputeScribbleSupport@CSuperWetInkManager@@AEAAJPEA_N@Z.c)
- *     ?GetHighPriorityComputeCommandQueueNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12CommandQueue@@@Z @ 0x18028DF18 (-GetHighPriorityComputeCommandQueueNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12CommandQueue@@@Z.c)
- *     ?TryGetD3D12Device@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z @ 0x18028E848 (-TryGetD3D12Device@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FFF0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180060020 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5D20 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152674 (McTemplateU0q_EventWriteTransfer.c)
+ *     ?CheckCommonComputeScribbleSupport@CSuperWetInkManager@@AEAAJPEA_N@Z @ 0x180194A78 (-CheckCommonComputeScribbleSupport@CSuperWetInkManager@@AEAAJPEA_N@Z.c)
+ *     ?GetHighPriorityComputeCommandQueueNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12CommandQueue@@@Z @ 0x18023F65C (-GetHighPriorityComputeCommandQueueNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12CommandQueue@@@Z.c)
+ *     ?TryGetD3D12Device@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z @ 0x180240454 (-TryGetD3D12Device@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z.c)
  */
 
 __int64 __fastcall CSuperWetInkManager::CheckHostComputeScribbleSupport(
@@ -20,78 +22,95 @@ __int64 __fastcall CSuperWetInkManager::CheckHostComputeScribbleSupport(
 {
   int v5; // eax
   unsigned int v6; // ebx
-  CD3DDevice *v8; // rbx
+  __int64 v8; // rdi
+  __int64 (__fastcall *v9)(__int64, CD3DDevice **); // rbx
+  int v10; // eax
+  CD3DDevice *v11; // rbx
   int D3D12Device; // eax
-  __int64 v10; // rdx
-  __int64 v11; // r9
-  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
-  struct ID3D12Device *v13; // [rsp+40h] [rbp+8h] BYREF
-  struct ID3D12CommandQueue *v14; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v13; // rcx
+  __int64 v14; // rdx
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+28h]
+  struct ID3D12Device *v16; // [rsp+50h] [rbp+30h] BYREF
+  CD3DDevice *v17; // [rsp+60h] [rbp+40h] BYREF
+  struct ID3D12CommandQueue *v18; // [rsp+68h] [rbp+48h] BYREF
 
-  v13 = this;
+  v16 = this;
   *a3 = 0;
-  LOBYTE(v13) = 0;
-  v5 = CSuperWetInkManager::CheckCommonComputeScribbleSupport((CSuperWetInkManager *)this, (bool *)&v13);
+  LOBYTE(v16) = 0;
+  v5 = CSuperWetInkManager::CheckCommonComputeScribbleSupport((CSuperWetInkManager *)this, (bool *)&v16);
   v6 = v5;
   if ( v5 >= 0 )
   {
-    if ( !(_BYTE)v13 )
+    if ( !(_BYTE)v16 )
       return 0LL;
-    v13 = 0LL;
-    v8 = (CD3DDevice *)*((_QWORD *)a2 + 2);
-    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v13);
-    D3D12Device = CD3DDevice::TryGetD3D12Device(v8, &v13);
-    v6 = D3D12Device;
-    if ( D3D12Device < 0 )
+    v8 = *((_QWORD *)a2 + 1);
+    v17 = 0LL;
+    v9 = *(__int64 (__fastcall **)(__int64, CD3DDevice **))(*(_QWORD *)v8 + 8LL);
+    wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(&v17);
+    v10 = v9(v8, &v17);
+    v6 = v10;
+    if ( v10 < 0 )
     {
-      v10 = 736LL;
-LABEL_10:
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)v10,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\globalsuperwetinkmanager.cpp",
-        (const char *)(unsigned int)D3D12Device);
-LABEL_17:
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v13);
-      return v6;
+        (void *)0x1E8,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\superwetinkmanager.cpp",
+        (const char *)(unsigned int)v10);
+      goto LABEL_20;
     }
-    if ( !v13 )
-      goto LABEL_12;
-    D3D12Device = CD3DDevice::GetHighPriorityComputeCommandQueueNoRef(*((CD3DDevice **)a2 + 2), &v14);
+    v16 = 0LL;
+    v11 = v17;
+    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v16);
+    D3D12Device = CD3DDevice::TryGetD3D12Device(v11, &v16);
     v6 = D3D12Device;
     if ( D3D12Device < 0 )
     {
-      v10 = 747LL;
-      goto LABEL_10;
+      v14 = 492LL;
+LABEL_14:
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)v14,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\superwetinkmanager.cpp",
+        (const char *)(unsigned int)D3D12Device);
+LABEL_19:
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v16);
+LABEL_20:
+      if ( v17 )
+        CD3DDevice::Release(v17);
+      return v6;
     }
-    if ( v14 )
+    if ( !v16 )
+      goto LABEL_10;
+    D3D12Device = CD3DDevice::GetHighPriorityComputeCommandQueueNoRef(v17, &v18);
+    v6 = D3D12Device;
+    if ( D3D12Device < 0 )
     {
-      LOBYTE(v11) = 1;
-      if ( (*(unsigned __int8 (__fastcall **)(_QWORD, _QWORD, char *, __int64))(**(_QWORD **)a2 + 288LL))(
+      v14 = 503LL;
+      goto LABEL_14;
+    }
+    if ( v18 )
+    {
+      if ( (*(unsigned __int8 (__fastcall **)(_QWORD, CD3DDevice *, char *))(**(_QWORD **)a2 + 8LL))(
              *(_QWORD *)a2,
-             *((_QWORD *)a2 + 2),
-             (char *)a2 + 32,
-             v11) )
+             v17,
+             (char *)a2 + 24) )
       {
         *a3 = 1;
       }
     }
     else
     {
-LABEL_12:
-      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x100000) != 0 )
-        McTemplateU0q_EventWriteTransfer(
-          (__int64)&Microsoft_Windows_Dwm_Core_Provider_Context,
-          (__int64)&EVTDESC_COMPUTESCRIBBLE_INCOMPATIBLE,
-          0LL);
+LABEL_10:
+      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x40000) != 0 )
+        McTemplateU0q_EventWriteTransfer(v13, &EVTDESC_COMPUTESCRIBBLE_INCOMPATIBLE, 0LL);
     }
     v6 = 0;
-    goto LABEL_17;
+    goto LABEL_19;
   }
   wil::details::in1diag3::Return_Hr(
     retaddr,
-    (void *)0x2D5,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\globalsuperwetinkmanager.cpp",
+    (void *)0x1DE,
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\superwetinkmanager.cpp",
     (const char *)(unsigned int)v5);
   return v6;
 }

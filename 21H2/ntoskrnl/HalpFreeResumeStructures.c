@@ -1,16 +1,42 @@
 /*
- * XREFs of HalpFreeResumeStructures @ 0x140A5228C
+ * XREFs of HalpFreeResumeStructures @ 0x1409982DC
  * Callers:
- *     HalpDispatchSystemStateTransition @ 0x14039693C (HalpDispatchSystemStateTransition.c)
+ *     HalpDispatchSystemStateTransition @ 0x14038BBF0 (HalpDispatchSystemStateTransition.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     HalpMmFreeTiledMemoryMap @ 0x14099A150 (HalpMmFreeTiledMemoryMap.c)
  */
 
-void __fastcall HalpFreeResumeStructures(__int64 a1)
+unsigned int __fastcall HalpFreeResumeStructures(__int64 a1)
 {
+  unsigned int result; // eax
+  __int64 v2; // rcx
+  __int64 v3; // rbx
+  __int64 v4; // rdi
+
   if ( HalpHiberProcState )
   {
     HalpMmAllocCtxFree(a1, HalpHiberProcState);
     HalpHiberProcState = 0LL;
   }
+  result = KeQueryActiveProcessorCountEx(0xFFFFu);
+  if ( HalpTiledCr3Addresses )
+  {
+    if ( result )
+    {
+      v3 = 0LL;
+      v4 = result;
+      do
+      {
+        HalpMmFreeTiledMemoryMap(v3 + HalpTiledCr3Addresses);
+        v3 += 8LL;
+        --v4;
+      }
+      while ( v4 );
+    }
+    result = HalpMmAllocCtxFree(v2, HalpTiledCr3Addresses);
+    HalpTiledCr3Addresses = 0LL;
+  }
+  return result;
 }

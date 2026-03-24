@@ -1,9 +1,9 @@
 /*
- * XREFs of ExReinitializeFastResource @ 0x140169C50
+ * XREFs of ExReinitializeFastResource @ 0x140169C70
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExReinitializeFastResource(ULONG_PTR BugCheckParameter2)

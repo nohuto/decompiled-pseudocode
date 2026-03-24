@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitApplyScaleImpulse@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0228390
+ * XREFs of ?EmitApplyScaleImpulse@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EF4C4
  * Callers:
- *     ?EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0228D90 (-EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@.c)
+ *     ?EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EFEDC (-EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitApplyScaleImpulse(
@@ -24,8 +24,8 @@ char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitApplyScaleI
       *(_DWORD *)v6 = 28;
       *(_OWORD *)(v4 + 4) = 0LL;
       *(_QWORD *)(v4 + 20) = 0LL;
-      *((_DWORD *)v4 + 1) = 200;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v4 + 1) = 209;
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
       *((_DWORD *)v4 + 3) = *((_DWORD *)this + 22);
       *((_DWORD *)v4 + 4) = *((_DWORD *)this + 23);
       *((_DWORD *)v4 + 5) = *((_DWORD *)this + 24);

@@ -1,12 +1,12 @@
 /*
- * XREFs of Command_D0EntryPostInterruptsEnabled @ 0x1C0014DE4
+ * XREFs of Command_D0EntryPostInterruptsEnabled @ 0x1C0014C14
  * Callers:
- *     Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled @ 0x1C00149A0 (Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled.c)
+ *     Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled @ 0x1C00147B0 (Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     Command_SendInternalCommandSynchronously @ 0x1C002E8E8 (Command_SendInternalCommandSynchronously.c)
- *     Etw_ControllerFirmareVersionUpdate @ 0x1C0048204 (Etw_ControllerFirmareVersionUpdate.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Command_SendInternalCommandSynchronously @ 0x1C002E748 (Command_SendInternalCommandSynchronously.c)
+ *     Etw_ControllerFirmareVersionUpdate @ 0x1C0047F70 (Etw_ControllerFirmareVersionUpdate.c)
  */
 
 __int64 __fastcall Command_D0EntryPostInterruptsEnabled(__int64 a1, int a2)
@@ -16,37 +16,40 @@ __int64 __fastcall Command_D0EntryPostInterruptsEnabled(__int64 a1, int a2)
   __int64 v5; // rbp
   __int64 v6; // rcx
   __int16 v7; // ax
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   int v10; // edx
   int v11; // r9d
   unsigned int v12; // eax
-  __int16 v13; // cx
-  bool v14; // zf
-  void *v15; // rcx
-  __int64 (__fastcall *v16)(); // rcx
-  unsigned int v17; // eax
+  __int16 v13; // dx
+  void *v14; // rcx
+  __int64 (__fastcall *v15)(); // rcx
+  unsigned int v16; // eax
 
   v2 = *(_QWORD *)(a1 + 8);
   v3 = 0LL;
-  v5 = *(_QWORD *)(v2 + 88);
   if ( a2 != 5 )
     return 0LL;
-  if ( (*(_DWORD *)(v5 + 104) & 0x100) != 0 )
+  v5 = *(_QWORD *)(v2 + 88);
+  if ( (*(_DWORD *)(v5 + 108) & 0x100) != 0 )
   {
-    Pool2 = ExAllocatePool2(64LL, 128LL, 1229146200LL);
-    v3 = (char *)Pool2;
-    if ( !Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(
+                            (POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState,
+                            0x80uLL,
+                            0x49434858u);
+    v3 = PoolWithTag;
+    if ( !PoolWithTag )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return 0LL;
       v11 = 27;
       LOBYTE(v10) = 2;
 LABEL_13:
-      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 16), v10, 7, v11, (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 16), v10, 7, v11, (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids);
       return 0LL;
     }
-    *(_QWORD *)Pool2 = a1;
-    KeInitializeEvent((PRKEVENT)(Pool2 + 104), SynchronizationEvent, 0);
+    memset(PoolWithTag + 8, 0, 0x78uLL);
+    *(_QWORD *)v3 = a1;
+    KeInitializeEvent((PRKEVENT)(v3 + 104), SynchronizationEvent, 0);
     *((_QWORD *)v3 + 10) = 0LL;
     *((_DWORD *)v3 + 22) = 0;
     *((_DWORD *)v3 + 23) = 0;
@@ -56,7 +59,7 @@ LABEL_13:
     *((_QWORD *)v3 + 7) = v3;
     *((_DWORD *)v3 + 11) = v12 | 0x6000;
     Command_SendInternalCommandSynchronously(a1, v3);
-    if ( (*(_BYTE *)(v5 + 108) & 1) != 0 )
+    if ( (*(_BYTE *)(v5 + 112) & 1) != 0 )
       *(_DWORD *)(v2 + 588) = 2;
   }
   v6 = *(_QWORD *)(a1 + 8);
@@ -66,7 +69,7 @@ LABEL_13:
     *(_QWORD *)(*(_QWORD *)(a1 + 8) + 328LL) = -1LL;
     if ( !v3 )
     {
-      v3 = (char *)ExAllocatePool2(64LL, 128LL, 1229146200LL);
+      v3 = (char *)ExAllocatePoolWithTag((POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState, 0x80uLL, 0x49434858u);
       if ( !v3 )
       {
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -82,15 +85,14 @@ LABEL_13:
       memset(v3 + 8, 0, 0x78uLL);
       *(_QWORD *)v3 = a1;
       KeInitializeEvent((PRKEVENT)(v3 + 104), SynchronizationEvent, 0);
-      v16 = Command_RenesasGetFirmwareVersionCommandCompletion;
+      v15 = Command_RenesasGetFirmwareVersionCommandCompletion;
     }
     else
     {
-      v14 = v13 == 6945;
-      v15 = v3 + 8;
-      if ( v14 )
+      v14 = v3 + 8;
+      if ( v13 == 6945 )
       {
-        memset(v15, 0, 0x78uLL);
+        memset(v14, 0, 0x78uLL);
         *(_QWORD *)v3 = a1;
         KeInitializeEvent((PRKEVENT)(v3 + 104), SynchronizationEvent, 0);
         *((_QWORD *)v3 + 7) = v3;
@@ -102,23 +104,23 @@ LABEL_13:
         memset(v3 + 8, 0, 0x78uLL);
         *(_QWORD *)v3 = a1;
         KeInitializeEvent((PRKEVENT)(v3 + 104), SynchronizationEvent, 0);
-        v16 = Command_ASMediaGetFirmwareVersionHighCommandCompletion;
-        v17 = *((_DWORD *)v3 + 11) & 0xFFFF03FF | 0xCC00;
+        v15 = Command_ASMediaGetFirmwareVersionHighCommandCompletion;
+        v16 = *((_DWORD *)v3 + 11) & 0xFFFF03FF | 0xCC00;
 LABEL_28:
         *((_QWORD *)v3 + 7) = v3;
-        *((_QWORD *)v3 + 6) = v16;
-        *((_DWORD *)v3 + 11) = v17;
+        *((_QWORD *)v3 + 6) = v15;
+        *((_DWORD *)v3 + 11) = v16;
         Command_SendInternalCommandSynchronously(a1, v3);
         if ( *(_QWORD *)(*(_QWORD *)(a1 + 8) + 328LL) != -1LL )
           Etw_ControllerFirmareVersionUpdate();
         goto LABEL_7;
       }
-      memset(v15, 0, 0x78uLL);
+      memset(v14, 0, 0x78uLL);
       *(_QWORD *)v3 = a1;
       KeInitializeEvent((PRKEVENT)(v3 + 104), SynchronizationEvent, 0);
-      v16 = Command_NvidiaGetFirmwareVersionCommandCompletion;
+      v15 = Command_NvidiaGetFirmwareVersionCommandCompletion;
     }
-    v17 = *((_DWORD *)v3 + 11) & 0xFFFF03FF | 0xC400;
+    v16 = *((_DWORD *)v3 + 11) & 0xFFFF03FF | 0xC400;
     goto LABEL_28;
   }
 LABEL_7:

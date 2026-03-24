@@ -1,63 +1,60 @@
 /*
- * XREFs of DwmAsyncMagnSetWindowSharedTextures @ 0x1C027269C
+ * XREFs of DwmAsyncMagnSetWindowSharedTextures @ 0x1C0274D14
  * Callers:
- *     MagpComposeDesktop @ 0x1C0120198 (MagpComposeDesktop.c)
- *     MagSetLensContextInformation @ 0x1C01CA01C (MagSetLensContextInformation.c)
+ *     zzzComposeDesktop @ 0x1C00EC878 (zzzComposeDesktop.c)
+ *     MagSetLensContextInformation @ 0x1C01CD254 (MagSetLensContextInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncMagnSetWindowSharedTextures(PVOID Object, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v8; // ebx
-  unsigned int v9; // ecx
-  _QWORD *v10; // r8
-  __int64 *v11; // r9
-  __int64 v12; // r10
-  __int64 v13; // rax
-  _QWORD v15[34]; // [rsp+20h] [rbp-E0h] BYREF
+  _QWORD *v9; // r8
+  __int64 *v10; // r9
+  unsigned int v11; // ecx
+  unsigned int v12; // edx
+  __int64 v13; // r10
+  __int64 v14; // rax
+  _QWORD v16[34]; // [rsp+20h] [rbp-E0h] BYREF
 
   v8 = -1073741823;
   if ( Object )
   {
-    memset(v15, 0, sizeof(v15));
-    v9 = *(_DWORD *)a4;
-    WORD2(v15[0]) = 0x8000;
-    HIDWORD(v15[7]) = *(_DWORD *)(a4 + 4);
-    v15[8] = *(_QWORD *)(a4 + 8);
-    LODWORD(v15[0]) = 17826024;
-    LODWORD(v15[5]) = 1073741927;
-    v15[6] = a2;
-    v15[33] = a3;
-    LODWORD(v15[7]) = v9;
-    if ( v9 >= 6 )
+    memset(v16, 0, sizeof(v16));
+    v11 = *(_DWORD *)a4;
+    WORD2(v16[0]) = 0x8000;
+    v12 = 6;
+    HIDWORD(v16[7]) = *(_DWORD *)(a4 + 4);
+    if ( v11 < 6 )
+      v12 = v11;
+    v16[8] = *(_QWORD *)(a4 + 8);
+    LODWORD(v16[0]) = 17826024;
+    LODWORD(v16[5]) = 1073741923;
+    v16[6] = a2;
+    v16[33] = a3;
+    LODWORD(v16[7]) = v11;
+    if ( v12 )
     {
-      v9 = 6;
+      v9 = &v16[10];
+      v10 = (__int64 *)(*(_QWORD *)(a4 + 16) + 8LL);
+      v13 = v12;
+      do
+      {
+        *(v9 - 1) = v10[1];
+        *v9 = *(v10 - 1);
+        v9 += 4;
+        v14 = *v10;
+        v10 += 3;
+        *(v9 - 3) = v14;
+        --v13;
+      }
+      while ( v13 );
     }
-    else if ( !v9 )
-    {
-LABEL_8:
-      EtwUpdateEvent(0LL);
-      v8 = LpcRequestPort(Object, v15);
-      ObfDereferenceObject(Object);
-      return v8;
-    }
-    v10 = &v15[10];
-    v11 = (__int64 *)(*(_QWORD *)(a4 + 16) + 8LL);
-    v12 = v9;
-    do
-    {
-      *(v10 - 1) = v11[1];
-      *v10 = *(v11 - 1);
-      v10 += 4;
-      v13 = *v11;
-      v11 += 3;
-      *(v10 - 3) = v13;
-      --v12;
-    }
-    while ( v12 );
-    goto LABEL_8;
+    EtwUpdateEvent(0LL, 1073741923LL, v9, v10);
+    v8 = LpcRequestPort(Object, v16);
+    ObfDereferenceObject(Object);
   }
   return v8;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBHSM_ReportingErrorToPnp @ 0x1C0008990
+ * XREFs of HUBHSM_ReportingErrorToPnp @ 0x1C0008680
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     HUBMISC_ReportPnPFailureProblem @ 0x1C007E198 (HUBMISC_ReportPnPFailureProblem.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBMISC_ReportPnPFailureProblem @ 0x1C007CBB8 (HUBMISC_ReportPnPFailureProblem.c)
  */
 
 __int64 __fastcall HUBHSM_ReportingErrorToPnp(__int64 a1)

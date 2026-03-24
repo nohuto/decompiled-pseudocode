@@ -1,74 +1,96 @@
 /*
- * XREFs of PopRequestCompletion @ 0x14028DFA0
+ * XREFs of PopRequestCompletion @ 0x14037A370
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     PopPepDeviceWaitWake @ 0x14028CE64 (PopPepDeviceWaitWake.c)
- *     PopFxNotifyPreDIrpCompletion @ 0x14028DE9C (PopFxNotifyPreDIrpCompletion.c)
- *     PopHandleDevicePowerIrpCompletion @ 0x14028E080 (PopHandleDevicePowerIrpCompletion.c)
- *     PopFreeIrp @ 0x14028E178 (PopFreeIrp.c)
- *     PopDiagTraceIrpFinish @ 0x14028E3F4 (PopDiagTraceIrpFinish.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PopDirectedDripsStartDisengageTimer @ 0x1405870BC (PopDirectedDripsStartDisengageTimer.c)
- *     PopUpdateWakeSource @ 0x14058E7A8 (PopUpdateWakeSource.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     PopFreeIrp @ 0x14037A4EC (PopFreeIrp.c)
+ *     PopDiagTraceIrpFinish @ 0x14037A5E4 (PopDiagTraceIrpFinish.c)
+ *     PopDequeueQuerySetIrp @ 0x140397A4C (PopDequeueQuerySetIrp.c)
+ *     PopDiagTraceFxDevicePowerState @ 0x14039F6EC (PopDiagTraceFxDevicePowerState.c)
+ *     PopPepDeviceDState @ 0x14039FB20 (PopPepDeviceDState.c)
+ *     PopFxNotifyPreDIrpCompletion @ 0x1403A5504 (PopFxNotifyPreDIrpCompletion.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PopDirectedDripsStartDisengageTimer @ 0x140568A8C (PopDirectedDripsStartDisengageTimer.c)
+ *     PopUpdateWakeSource @ 0x14056EF9C (PopUpdateWakeSource.c)
+ *     PopPepDeviceWaitWake @ 0x1405744B0 (PopPepDeviceWaitWake.c)
  */
 
-__int64 __fastcall PopRequestCompletion(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall PopRequestCompletion(__int64 a1, IRP *a2, __int64 a3)
 {
   ULONG_PTR v3; // rdi
-  char v5; // r14
+  char v5; // bp
   IRP *v6; // rsi
-  void (__fastcall *v7)(_QWORD, __int64, _QWORD, _QWORD, IO_STATUS_BLOCK *); // rax
-  int *v8; // rbp
-  __int64 v10; // r8
-  __int64 v11; // rax
-  __int64 v12; // rcx
+  char v7; // r14
+  void (__fastcall *v8)(_QWORD, IRP *, _QWORD, _QWORD, IO_STATUS_BLOCK *); // rax
+  __int64 v9; // r8
+  __int64 v11; // rdx
+  int Status; // eax
+  __int64 v13; // rax
+  __int64 v14; // rcx
 
   v3 = *(_QWORD *)(a3 + 200);
-  v5 = *(_BYTE *)(a3 + 184);
-  v6 = (IRP *)a2;
-  if ( v3 && v5 == 2 )
-    PopFxNotifyPreDIrpCompletion(v3, a2, *(_DWORD *)(a2 + 48));
-  v7 = *(void (__fastcall **)(_QWORD, __int64, _QWORD, _QWORD, IO_STATUS_BLOCK *))(a3 + 216);
-  v8 = (int *)&v6->IoStatus.0;
+  v5 = *(_BYTE *)(a3 + 209);
+  v6 = a2;
+  v7 = *(_BYTE *)(a3 + 184);
+  if ( v3 && v7 == 2 )
+    PopFxNotifyPreDIrpCompletion(v3);
+  v8 = *(void (__fastcall **)(_QWORD, IRP *, _QWORD, _QWORD, IO_STATUS_BLOCK *))(a3 + 216);
+  if ( v8 )
+  {
+    LOBYTE(a2) = v7;
+    v8(*(_QWORD *)(a3 + 232), a2, *(unsigned int *)(a3 + 192), *(_QWORD *)(a3 + 224), &v6->IoStatus);
+  }
   if ( v7 )
   {
-    LOBYTE(a2) = v5;
-    v7(*(_QWORD *)(a3 + 232), a2, *(unsigned int *)(a3 + 192), *(_QWORD *)(a3 + 224), &v6->IoStatus);
-  }
-  if ( v5 )
-  {
-    PopHandleDevicePowerIrpCompletion(a3);
+    PopDequeueQuerySetIrp(v6);
+    if ( v3 && *(_BYTE *)(a3 + 184) == 2 && *(_DWORD *)(a3 + 188) == 1 && v5 )
+    {
+      if ( *(_DWORD *)(a3 + 192) == 1 )
+      {
+        _m_prefetchw((const void *)(v3 + 32));
+        if ( (_InterlockedAnd((volatile signed __int32 *)(v3 + 32), 0xFFFFFFFD) & 2) != 0 )
+        {
+LABEL_16:
+          LOBYTE(v9) = 1;
+          PopPepDeviceDState(*(_QWORD *)(v3 + 56), *(unsigned int *)(a3 + 192), v9, *(unsigned int *)(a3 + 248));
+          PopDiagTraceFxDevicePowerState(*(_QWORD *)(v3 + 48), *(unsigned int *)(a3 + 192));
+          goto LABEL_6;
+        }
+        v5 = 0;
+      }
+      if ( v5 )
+        goto LABEL_16;
+    }
   }
   else
   {
     PopDiagTraceIrpFinish(v6);
-    if ( *v8 >= 0 )
+    Status = v6->IoStatus.Status;
+    if ( Status >= 0 )
     {
       if ( *(_BYTE *)(a3 + 240) )
-        PopUpdateWakeSource(*(PVOID *)(a3 + 24));
-      if ( *v8 >= 0 )
       {
-        v11 = *(_QWORD *)(a3 + 24);
-        if ( v11 )
-        {
-          v12 = *(_QWORD *)(*(_QWORD *)(v11 + 312) + 40LL);
-          if ( v12 )
-          {
-            if ( (*(_DWORD *)(v12 + 760) & 0x30000) != 0 )
-              PopDirectedDripsStartDisengageTimer(0LL);
-          }
-        }
+        PopUpdateWakeSource(*(PVOID *)(a3 + 24));
+        Status = v6->IoStatus.Status;
+      }
+      if ( Status >= 0 )
+      {
+        v13 = *(_QWORD *)(a3 + 24);
+        v14 = v13 ? *(_QWORD *)(*(_QWORD *)(v13 + 312) + 40LL) : 0LL;
+        if ( v14 && (*(_DWORD *)(v14 + 760) & 0x30000) != 0 )
+          PopDirectedDripsStartDisengageTimer(0LL);
       }
     }
     if ( v3 )
     {
-      PopPepDeviceWaitWake(*(_QWORD *)(v3 + 56), 1, v10);
+      LOBYTE(v11) = 1;
+      PopPepDeviceWaitWake(*(_QWORD *)(v3 + 56), v11);
       if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v3 + 244), 0xFFFFFFFF) == 1 )
         KeSetEvent((PRKEVENT)(v3 + 248), 0, 0);
     }
-    PopFreeIrp(v6);
   }
+LABEL_6:
+  PopFreeIrp(v6);
   return 3221225494LL;
 }

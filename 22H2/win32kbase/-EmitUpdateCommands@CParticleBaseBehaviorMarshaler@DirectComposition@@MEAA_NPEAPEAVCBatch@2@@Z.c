@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdateCommands@CParticleBaseBehaviorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021BAF0
+ * XREFs of ?EmitUpdateCommands@CParticleBaseBehaviorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DAD50
  * Callers:
  *     <none>
  * Callees:
- *     ?Marshal@CMarshaledArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2_K@Z @ 0x1C0213EC8 (-Marshal@CMarshaledArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2_K@Z.c)
- *     ?EmitSetInputSourceCommand@CParticleBaseBehaviorMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0217EFC (-EmitSetInputSourceCommand@CParticleBaseBehaviorMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch.c)
+ *     ?EmitSetBindingsCommand@CParticleBaseBehaviorMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D6818 (-EmitSetBindingsCommand@CParticleBaseBehaviorMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@.c)
+ *     ?EmitSetInputSourceCommand@CParticleBaseBehaviorMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D7EB4 (-EmitSetInputSourceCommand@CParticleBaseBehaviorMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch.c)
  */
 
 char __fastcall DirectComposition::CParticleBaseBehaviorMarshaler::EmitUpdateCommands(
@@ -14,17 +14,7 @@ char __fastcall DirectComposition::CParticleBaseBehaviorMarshaler::EmitUpdateCom
   char v4; // bl
 
   v4 = 0;
-  if ( DirectComposition::CMarshaledArrayBase::Marshal(
-         (_QWORD *)this + 7,
-         a2,
-         *((_DWORD *)this + 8),
-         (_DWORD *)this + 4,
-         32,
-         551,
-         552,
-         0x18uLL) )
-  {
+  if ( DirectComposition::CParticleBaseBehaviorMarshaler::EmitSetBindingsCommand(this, a2) )
     return DirectComposition::CParticleBaseBehaviorMarshaler::EmitSetInputSourceCommand(this, a2) != 0;
-  }
   return v4;
 }

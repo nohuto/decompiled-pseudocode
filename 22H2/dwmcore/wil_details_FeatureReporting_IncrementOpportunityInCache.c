@@ -1,7 +1,7 @@
 /*
- * XREFs of wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x180117F68
+ * XREFs of wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x1800EB338
  * Callers:
- *     wil_details_FeatureReporting_RecordUsageInCache @ 0x180118158 (wil_details_FeatureReporting_RecordUsageInCache.c)
+ *     wil_details_FeatureReporting_RecordUsageInCache @ 0x1800EB50C (wil_details_FeatureReporting_RecordUsageInCache.c)
  * Callees:
  *     <none>
  */
@@ -12,52 +12,51 @@ __int64 __fastcall wil_details_FeatureReporting_IncrementOpportunityInCache(
         __int64 a3,
         _DWORD *a4)
 {
+  signed __int32 v4; // r8d
+  BOOL v7; // ebx
+  unsigned int v8; // ecx
+  int v9; // eax
+  int v10; // edx
+  int v11; // r10d
+  unsigned __int64 v12; // rdx
   __int64 result; // rax
-  BOOL v8; // edi
-  unsigned int v9; // ecx
-  char v10; // r9
-  int v11; // edx
-  int v12; // r8d
-  int v13; // r11d
-  unsigned __int64 v14; // r8
-  int v15; // ett
 
-  LODWORD(result) = *a1;
-  v8 = a2 == 5;
-  do
+  v4 = *a1;
+  v7 = a2 == 5;
+  while ( 1 )
   {
     a4[1] = 0;
-    v9 = result | 1;
-    v10 = result;
-    if ( ((((unsigned int)result | 1) >> 22) & 1) != v8 )
+    v8 = v4 | 1;
+    if ( (((v4 | 1u) >> 22) & 1) != v7 )
     {
-      if ( ((v9 >> 15) & 0x7F) != 0 )
+      if ( ((v8 >> 15) & 0x7F) != 0 )
       {
-        a4[1] = (v9 >> 15) & 0x7F;
-        v11 = 5;
+        a4[1] = (v8 >> 15) & 0x7F;
+        v9 = 5;
         if ( a2 != 1 )
-          v11 = 1;
-        v9 = result & 0xFFC07FFE | 1;
-        a4[2] = v11;
+          v9 = 1;
+        v8 = v4 & 0xFFC07FFE | 1;
+        a4[2] = v9;
       }
-      v12 = 0;
+      v10 = 0;
       if ( a2 == 5 )
-        v12 = 0x400000;
-      v9 = v9 & 0xFFBFFFFF | v12;
+        v10 = 0x400000;
+      v8 = v8 & 0xFFBFFFFF | v10;
     }
-    v13 = (v9 >> 15) & 0x7F;
-    v14 = (unsigned int)(v13 + 1);
-    if ( v14 > 0x7F || v14 < ((v9 >> 15) & 0x7F) )
+    v11 = (v8 >> 15) & 0x7F;
+    v12 = (unsigned int)(v11 + 1);
+    if ( v12 > 0x7F || v12 < ((v8 >> 15) & 0x7F) )
     {
-      LODWORD(v14) = 1;
+      LODWORD(v12) = 1;
       a4[2] = a2;
-      a4[1] = v13;
+      a4[1] = v11;
     }
-    v15 = result;
-    result = (unsigned int)_InterlockedCompareExchange(a1, (v9 ^ ((_DWORD)v14 << 15)) & 0x3F8000 ^ v9, result);
+    result = (unsigned int)_InterlockedCompareExchange(a1, (v8 ^ ((_DWORD)v12 << 15)) & 0x3F8000 ^ v8, v4);
+    if ( v4 == (_DWORD)result )
+      break;
+    v4 = result;
   }
-  while ( v15 != (_DWORD)result );
   a4[4] = 0;
-  *a4 = (v10 & 1) == 0;
+  *a4 = (v4 & 1) == 0;
   return result;
 }

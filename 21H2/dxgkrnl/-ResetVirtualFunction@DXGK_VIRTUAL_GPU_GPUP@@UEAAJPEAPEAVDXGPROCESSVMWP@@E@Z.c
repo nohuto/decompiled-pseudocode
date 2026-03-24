@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ResetVirtualFunction@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAPEAVDXGPROCESSVMWP@@E@Z @ 0x1C0360B20
+ * XREFs of ?ResetVirtualFunction@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAPEAVDXGPROCESSVMWP@@E@Z @ 0x1C02373B0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C000C1D8 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
- *     ?ResetVirtualGpu@DXGVIRTUALMACHINE@@QEAAEXZ @ 0x1C005C52C (-ResetVirtualGpu@DXGVIRTUALMACHINE@@QEAAEXZ.c)
- *     ?DdiResetVirtualFunction@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_RESETVIRTUALFUNCTION@@@Z @ 0x1C035CBFC (-DdiResetVirtualFunction@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_RESETVIRTUALFUNCTION@@@Z.c)
+ *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C00069B4 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ?ResetVirtualGpu@DXGVIRTUALMACHINE@@QEAAEXZ @ 0x1C004052C (-ResetVirtualGpu@DXGVIRTUALMACHINE@@QEAAEXZ.c)
+ *     ?DdiResetVirtualFunction@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_RESETVIRTUALFUNCTION@@@Z @ 0x1C023417C (-DdiResetVirtualFunction@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_RESETVIRTUALFUNCTION@@@Z.c)
  */
 
 __int64 __fastcall DXGK_VIRTUAL_GPU_GPUP::ResetVirtualFunction(
@@ -31,7 +31,7 @@ __int64 __fastcall DXGK_VIRTUAL_GPU_GPUP::ResetVirtualFunction(
     v6 = (DXGPROCESS *)*((_QWORD *)this + 12);
     if ( v6 )
     {
-      DXGPROCESS::ReleaseReference(v6);
+      DXGPROCESS::ReleaseReference(v6, (__int64)a2);
       *((_QWORD *)this + 12) = 0LL;
       *((_QWORD *)this + 13) = 0LL;
     }

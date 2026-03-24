@@ -1,52 +1,53 @@
 /*
- * XREFs of HUBPDO_GetUSBDErrorFromNTStatus @ 0x1C00154E8
+ * XREFs of HUBPDO_GetUSBDErrorFromNTStatus @ 0x1C001402C
  * Callers:
- *     HUBPDO_SyncCompletionRoutine @ 0x1C0017520 (HUBPDO_SyncCompletionRoutine.c)
- *     HUBUCX_UCXIoctlComplete @ 0x1C0025990 (HUBUCX_UCXIoctlComplete.c)
- *     HUBUCX_SubmitUcxIoctl @ 0x1C00262CC (HUBUCX_SubmitUcxIoctl.c)
- *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration @ 0x1C002EAB0 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration.c)
- *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface @ 0x1C002F738 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface.c)
+ *     HUBPDO_CompleteClientSerialRequestWithStatusFailed @ 0x1C00142F0 (HUBPDO_CompleteClientSerialRequestWithStatusFailed.c)
+ *     HUBPDO_SyncCompletionRoutine @ 0x1C0016000 (HUBPDO_SyncCompletionRoutine.c)
+ *     HUBUCX_UCXIoctlComplete @ 0x1C0023080 (HUBUCX_UCXIoctlComplete.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C0023950 (HUBUCX_SubmitUcxIoctl.c)
+ *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration @ 0x1C002B9E0 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration.c)
+ *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface @ 0x1C002C690 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_GetUSBDErrorFromNTStatus(int a1)
 {
-  __int64 result; // rax
+  unsigned int v2; // edi
   __int64 v3; // rax
 
   switch ( a1 )
   {
-    case -1073741667:
     case -1073741810:
-      return 3221254144LL;
+      return (unsigned int)-1073713152;
     case -1073741670:
-      return 3221229568LL;
+      return (unsigned int)-1073737728;
     case -1073741637:
-      return 3221229056LL;
+      return (unsigned int)-1073738240;
     case -1073741536:
-      return 3221291008LL;
+      return (unsigned int)-1073676288;
+    default:
+      v2 = 0;
+      if ( a1 )
+      {
+        v2 = -2147482880;
+        if ( a1 != -1073741811 && a1 != -1073741823 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
+                 WdfDriverGlobals,
+                 WdfDriverGlobals->Driver,
+                 off_1C00661C0);
+          WPP_RECORDER_SF_d(
+            *(_QWORD *)(v3 + 64),
+            2u,
+            2u,
+            0xAu,
+            (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
+            a1);
+        }
+      }
+      break;
   }
-  result = 0LL;
-  if ( a1 )
-  {
-    result = 2147484416LL;
-    if ( a1 != -1073741811 && a1 != -1073741823 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
-             WdfDriverGlobals,
-             WdfDriverGlobals->Driver,
-             off_1C00691E8);
-      WPP_RECORDER_SF_d(
-        *(_QWORD *)(v3 + 64),
-        2u,
-        2u,
-        0xAu,
-        (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
-        a1);
-      return 2147484416LL;
-    }
-  }
-  return result;
+  return v2;
 }

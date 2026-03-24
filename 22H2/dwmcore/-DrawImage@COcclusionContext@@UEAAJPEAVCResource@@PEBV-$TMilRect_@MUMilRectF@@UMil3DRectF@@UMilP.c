@@ -1,36 +1,40 @@
 /*
- * XREFs of ?DrawImage@COcclusionContext@@UEAAJPEAVCResource@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180019DD0
+ * XREFs of ?DrawImage@COcclusionContext@@UEAAJPEAVCResource@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV?$TValueResource@UMilRectF@@UtagMILCMD_RECTRESOURCE@@$0IM@@@@Z @ 0x1800D0A50
  * Callers:
  *     <none>
  * Callees:
- *     ?DrawImage@COcclusionContext@@QEAAJPEAVCResource@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x180019E94 (-DrawImage@COcclusionContext@@QEAAJPEAVCResource@@PEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilP.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?DrawImage@COcclusionContext@@QEAAJPEAVCResource@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x1800D0B0C (-DrawImage@COcclusionContext@@QEAAJPEAVCResource@@PEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilP.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall COcclusionContext::DrawImage(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall COcclusionContext::DrawImage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v6; // rcx
-  int v7; // eax
-  unsigned int v8; // ecx
-  unsigned int v9; // ebx
-  _QWORD v11[2]; // [rsp+30h] [rbp-48h] BYREF
-  __int128 v12; // [rsp+40h] [rbp-38h]
-  char v13; // [rsp+50h] [rbp-28h]
+  unsigned int v6; // ebx
+  int v9; // eax
+  __int64 v10; // rcx
+  __int64 v12; // rcx
+  _QWORD v13[2]; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v14; // [rsp+40h] [rbp-48h]
+  char v15; // [rsp+50h] [rbp-38h]
 
-  if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)a2 + 56LL))(a2, 18LL) )
+  v6 = 0;
+  if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)a2 + 56LL))(a2, 15LL) )
   {
-    v6 = *(_QWORD *)(a1 + 8);
-    v11[0] = *(_QWORD *)(a1 + 1192);
-    v12 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
-    v11[1] = a2;
-    v13 = 0;
-    (*(void (__fastcall **)(__int64, _QWORD *))(*(_QWORD *)v6 + 208LL))(v6, v11);
+    v12 = *(_QWORD *)(a1 + 8);
+    v13[0] = *(_QWORD *)(a1 + 1232);
+    v14 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
+    v13[1] = a2;
+    v15 = 0;
+    (*(void (__fastcall **)(__int64, _QWORD *))(*(_QWORD *)v12 + 224LL))(v12, v13);
   }
-  v7 = COcclusionContext::DrawImage(a1, a2, a3, 0LL);
-  v9 = v7;
-  if ( v7 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x3B4u, 0LL);
-  return v9;
+  if ( !a4 )
+  {
+    v9 = COcclusionContext::DrawImage(a1, a2, a3, 0LL);
+    v6 = v9;
+    if ( v9 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x3F1u, 0LL);
+  }
+  return v6;
 }

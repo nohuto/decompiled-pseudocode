@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpCovSampStackHashTableAlloc @ 0x1409F2E2C
+ * XREFs of EtwpCovSampStackHashTableAlloc @ 0x140946014
  * Callers:
- *     EtwpCovSampCaptureContextStart @ 0x1409F0AAC (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCovSampCaptureContextStart @ 0x140942308 (EtwpCovSampCaptureContextStart.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCovSampStackHashTableAlloc(void **a1, int a2)
 {
   unsigned int v3; // ebx
   void *v4; // rcx
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v7; // rsi
 
   v3 = 0;
@@ -22,11 +22,11 @@ __int64 __fastcall EtwpCovSampStackHashTableAlloc(void **a1, int a2)
     ExFreePoolWithTag(v4, 0x56777445u);
     *a1 = 0LL;
   }
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, (unsigned int)(4 * a2 + 8), 1450669125LL);
-  v7 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(4 * a2 + 8), 0x56777445u);
+  v7 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(Pool2, 0, (unsigned int)(4 * a2 + 8));
+    memset(PoolWithTag, 0, (unsigned int)(4 * a2 + 8));
     v7[1] = a2;
     *a1 = v7;
   }

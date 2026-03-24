@@ -1,107 +1,86 @@
 /*
- * XREFs of CmpValueEnumStackAdvance @ 0x140A25604
+ * XREFs of CmpValueEnumStackAdvance @ 0x14072AB14
  * Callers:
- *     CmpGetValueCountForKeyNodeStack @ 0x140616604 (CmpGetValueCountForKeyNodeStack.c)
- *     CmEnumerateValueFromLayeredKey @ 0x140A13C14 (CmEnumerateValueFromLayeredKey.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A25E84 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x1404ECDC8 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x14072A170 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x14086C2B0 (CmEnumerateValueFromLayeredKey.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E034C (HvpGetCellContextReinitialize.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     CmpIsValueTombstone @ 0x1407E010C (CmpIsValueTombstone.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x140A253D0 (CmpValueEnumStackGetEntryAtLayerHeight.c)
- *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x140A25834 (CmpValueEnumStackMatchingValueInUpperLayer.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpIsValueTombstone @ 0x140695E60 (CmpIsValueTombstone.c)
+ *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x14072AE50 (CmpValueEnumStackGetEntryAtLayerHeight.c)
+ *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x14087BB24 (CmpValueEnumStackMatchingValueInUpperLayer.c)
  */
 
 __int64 __fastcall CmpValueEnumStackAdvance(__int64 a1)
 {
-  char v2; // al
-  __int16 v3; // cx
-  ULONG_PTR *EntryAtLayerHeight; // rsi
-  unsigned int v5; // r9d
-  ULONG_PTR v6; // rdx
-  ULONG_PTR v7; // rcx
-  __int64 CellFlat; // rax
+  __int16 v2; // cx
+  unsigned int v3; // r8d
+  __int64 *EntryAtLayerHeight; // r14
+  __int16 v5; // ax
+  int v6; // edi
+  __int64 v8; // rax
   __int64 v9; // rdx
   __int64 v10; // rcx
   int v11; // eax
-  __int64 v12; // rcx
-  int v13; // edi
-  int v14; // eax
-  __int16 v15; // ax
-  char v17; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v18; // [rsp+48h] [rbp+10h] BYREF
+  char v12; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v13; // [rsp+48h] [rbp+10h] BYREF
 
-  v18 = 0LL;
-  v17 = 0;
-  HvpGetCellContextReinitialize(&v18);
-  v2 = *(_BYTE *)(a1 + 4);
-  if ( !v2 || *(_DWORD *)a1 != -1 )
+  v13 = 0xFFFFFFFFLL;
+  v12 = 0;
+  if ( *(_BYTE *)(a1 + 4) )
   {
-    if ( v2 )
+    if ( *(_DWORD *)a1 == -1 )
+      return (unsigned int)-2147483622;
+    ++*(_DWORD *)(a1 + 8);
+    v2 = *(_WORD *)(a1 + 6);
+  }
+  else
+  {
+    *(_DWORD *)(a1 + 8) = 0;
+    *(_BYTE *)(a1 + 4) = 1;
+    v2 = *(_WORD *)(a1 + 12);
+    *(_WORD *)(a1 + 6) = v2;
+  }
+  *(_DWORD *)a1 = -1;
+  if ( v2 >= 0 )
+  {
+    do
     {
-      ++*(_DWORD *)(a1 + 8);
-    }
-    else
-    {
-      *(_WORD *)(a1 + 6) = *(_WORD *)(a1 + 12);
-      *(_BYTE *)(a1 + 4) = 1;
-      *(_DWORD *)(a1 + 8) = 0;
-    }
-    *(_DWORD *)a1 = -1;
-    v3 = *(_WORD *)(a1 + 6);
-    if ( v3 >= 0 )
-    {
-      do
+      EntryAtLayerHeight = (__int64 *)CmpValueEnumStackGetEntryAtLayerHeight(a1, (unsigned __int16)v2);
+      while ( v3 < *((_DWORD *)EntryAtLayerHeight + 6) )
       {
-        EntryAtLayerHeight = (ULONG_PTR *)CmpValueEnumStackGetEntryAtLayerHeight(a1, v3);
-        while ( v5 < *((_DWORD *)EntryAtLayerHeight + 6) )
+        v8 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64 *))(*EntryAtLayerHeight + 8))(
+               *EntryAtLayerHeight,
+               *(unsigned int *)(EntryAtLayerHeight[1] + 4LL * v3),
+               &v13);
+        if ( CmpIsValueTombstone(*EntryAtLayerHeight, v8) )
         {
-          v6 = *(unsigned int *)(EntryAtLayerHeight[1] + 4LL * v5);
-          v7 = *EntryAtLayerHeight;
-          if ( (*(_BYTE *)(*EntryAtLayerHeight + 140) & 1) != 0 )
-            CellFlat = HvpGetCellFlat(v7, v6, &v18);
-          else
-            CellFlat = HvpGetCellPaged(v7, v6, (unsigned int *)&v18);
-          if ( CmpIsValueTombstone(*EntryAtLayerHeight, CellFlat) )
-          {
-            if ( (*(_BYTE *)(v10 + 140) & 1) != 0 )
-              HvpReleaseCellFlat(v10, &v18);
-            else
-              HvpReleaseCellPaged(v10, (unsigned int *)&v18);
-            v5 = ++*(_DWORD *)(a1 + 8);
-          }
-          else
-          {
-            v11 = CmpValueEnumStackMatchingValueInUpperLayer(a1, *(unsigned __int16 *)(a1 + 6), v9, &v17);
-            v12 = *EntryAtLayerHeight;
-            v13 = v11;
-            if ( (*(_BYTE *)(*EntryAtLayerHeight + 140) & 1) != 0 )
-              HvpReleaseCellFlat(v12, &v18);
-            else
-              HvpReleaseCellPaged(v12, (unsigned int *)&v18);
-            if ( v13 < 0 )
-              return (unsigned int)v13;
-            v14 = *(_DWORD *)(a1 + 8);
-            if ( !v17 )
-            {
-              v13 = 0;
-              *(_DWORD *)a1 = *(_DWORD *)(EntryAtLayerHeight[1] + 4LL * *(unsigned int *)(a1 + 8));
-              return (unsigned int)v13;
-            }
-            v5 = v14 + 1;
-            *(_DWORD *)(a1 + 8) = v14 + 1;
-          }
+          (*(void (__fastcall **)(__int64, __int64 *))(v10 + 16))(v10, &v13);
+          v3 = ++*(_DWORD *)(a1 + 8);
         }
-        v15 = *(_WORD *)(a1 + 6) - 1;
-        *(_DWORD *)(a1 + 8) = 0;
-        v3 = v15;
-        *(_WORD *)(a1 + 6) = v15;
+        else
+        {
+          v6 = CmpValueEnumStackMatchingValueInUpperLayer(a1, *(unsigned __int16 *)(a1 + 6), v9, &v12);
+          (*(void (__fastcall **)(__int64, __int64 *))(*EntryAtLayerHeight + 16))(*EntryAtLayerHeight, &v13);
+          if ( v6 < 0 )
+            return (unsigned int)v6;
+          v11 = *(_DWORD *)(a1 + 8);
+          if ( !v12 )
+          {
+            v6 = 0;
+            *(_DWORD *)a1 = *(_DWORD *)(EntryAtLayerHeight[1] + 4LL * *(unsigned int *)(a1 + 8));
+            return (unsigned int)v6;
+          }
+          v3 = v11 + 1;
+          *(_DWORD *)(a1 + 8) = v11 + 1;
+        }
       }
-      while ( v15 >= 0 );
+      v5 = *(_WORD *)(a1 + 6) - 1;
+      *(_DWORD *)(a1 + 8) = 0;
+      v2 = v5;
+      *(_WORD *)(a1 + 6) = v5;
     }
+    while ( v5 >= 0 );
   }
   return (unsigned int)-2147483622;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vComputeCallTables@XEPALOBJ@@QEAAXXZ @ 0x1C0157FB0
+ * XREFs of ?vComputeCallTables@XEPALOBJ@@QEAAXXZ @ 0x1C00821C0
  * Callers:
- *     <none>
+ *     ?bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z @ 0x1C00C95E0 (-bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z.c)
  * Callees:
  *     <none>
  */
@@ -9,50 +9,45 @@
 void __fastcall XEPALOBJ::vComputeCallTables(XEPALOBJ *this)
 {
   __int64 v1; // r8
-  int v3; // edx
+  int v2; // edx
+  int v3; // eax
   int v4; // eax
-  int v5; // eax
-  _DWORD *v6; // rax
-  int v7; // ecx
+  _DWORD *v5; // rax
 
   v1 = *(_QWORD *)this;
-  v3 = 2;
-  if ( !*(_DWORD *)(*(_QWORD *)this + 28LL) )
+  v2 = 2;
+  if ( *(_DWORD *)(*(_QWORD *)this + 28LL) )
   {
-    v5 = *(_DWORD *)(v1 + 24);
-    if ( (v5 & 2) == 0 )
-    {
-      if ( (v5 & 8) != 0 )
-        v4 = 6;
-      else
-        v4 = 8 - ((v5 & 0x10) != 0);
-      goto LABEL_15;
-    }
-    v6 = *(_DWORD **)(v1 + 112);
-    if ( v6[2] == 31 )
-    {
-      v7 = v6[1];
-      if ( v7 == 2016 )
-      {
-        if ( *v6 == 63488 )
-        {
-          v4 = 3;
-LABEL_15:
-          v3 = v4;
-          goto LABEL_16;
-        }
-      }
-      else if ( v7 == 992 && *v6 == 31744 )
-      {
-        v4 = 4;
-        goto LABEL_15;
-      }
-    }
-    v4 = 5;
-    goto LABEL_15;
+    v4 = 1;
+    goto LABEL_6;
   }
-  v4 = 1;
-LABEL_16:
+  v3 = *(_DWORD *)(v1 + 24);
+  if ( (v3 & 2) == 0 )
+  {
+    if ( (v3 & 8) != 0 )
+      v4 = 6;
+    else
+      v4 = 8 - ((v3 & 0x10) != 0);
+    goto LABEL_5;
+  }
+  v5 = *(_DWORD **)(v1 + 112);
+  if ( v5[2] == 31 )
+  {
+    if ( v5[1] == 2016 && *v5 == 63488 )
+    {
+      v4 = 3;
+      goto LABEL_5;
+    }
+    if ( v5[1] == 992 && *v5 == 31744 )
+    {
+      v4 = 4;
+      goto LABEL_5;
+    }
+  }
+  v4 = 5;
+LABEL_5:
+  v2 = v4;
+LABEL_6:
   *(_DWORD *)(v1 + 100) = v4;
-  *(_DWORD *)(*(_QWORD *)this + 96LL) = v3;
+  *(_DWORD *)(*(_QWORD *)this + 96LL) = v2;
 }

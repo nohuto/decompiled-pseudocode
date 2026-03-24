@@ -1,12 +1,10 @@
 /*
- * XREFs of ?VmBusSendQueryVideoMemoryInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIPEAU_D3DKMT_QUERYVIDEOMEMORYINFO@@@Z @ 0x1C038D174
+ * XREFs of ?VmBusSendQueryVideoMemoryInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIPEAU_D3DKMT_QUERYVIDEOMEMORYINFO@@@Z @ 0x1C024BA0C
  * Callers:
- *     DxgkQueryVideoMemoryInfo @ 0x1C02DB0A0 (DxgkQueryVideoMemoryInfo.c)
+ *     DxgkQueryVideoMemoryInfo @ 0x1C00DF030 (DxgkQueryVideoMemoryInfo.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z @ 0x1C038FC20 (-VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024DA2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendQueryVideoMemoryInfo(
@@ -15,47 +13,46 @@ __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendQueryVideoMemoryInfo(
         int a3,
         struct _D3DKMT_QUERYVIDEOMEMORYINFO *a4)
 {
-  __int64 v8; // rcx
-  int v9; // ebx
-  unsigned int v11[4]; // [rsp+30h] [rbp-D0h] BYREF
-  __int128 v12; // [rsp+40h] [rbp-C0h] BYREF
-  int v13; // [rsp+50h] [rbp-B0h]
-  _QWORD v14[4]; // [rsp+160h] [rbp+60h] BYREF
+  D3DKMT_MEMORY_SEGMENT_GROUP MemorySegmentGroup; // eax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  int v8; // ebx
+  __int64 v9; // r8
+  __int64 v10; // rax
+  struct _MDL *v12; // [rsp+28h] [rbp-21h]
+  unsigned int v13; // [rsp+30h] [rbp-19h] BYREF
+  __int64 v14; // [rsp+38h] [rbp-11h] BYREF
+  int v15; // [rsp+40h] [rbp-9h]
+  int v16; // [rsp+44h] [rbp-5h]
+  int v17; // [rsp+48h] [rbp-1h]
+  int v18; // [rsp+50h] [rbp+7h]
+  D3DKMT_MEMORY_SEGMENT_GROUP v19; // [rsp+54h] [rbp+Bh]
+  UINT PhysicalAdapterIndex; // [rsp+58h] [rbp+Fh]
+  _QWORD v21[4]; // [rsp+60h] [rbp+17h] BYREF
 
-  v13 = 0;
-  v12 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)&v12, this, 0x28u, 0LL, 0LL, 0LL);
-  v8 = v12;
-  if ( (_QWORD)v12 )
+  MemorySegmentGroup = a4->MemorySegmentGroup;
+  v14 = 0LL;
+  v16 = 0;
+  v19 = MemorySegmentGroup;
+  PhysicalAdapterIndex = a4->PhysicalAdapterIndex;
+  v15 = a2;
+  v18 = a3;
+  v17 = 21;
+  v13 = 32;
+  v8 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(this, (struct DXGKVMB_COMMAND_BASE *)&v14, 0x28u, v21, &v13, v12);
+  if ( v8 < 0 || (v8 = -1073741823, v13 < 0x20) )
   {
-    *(_QWORD *)v12 = 0LL;
-    *(_DWORD *)(v8 + 20) = 0;
-    *(_BYTE *)(v8 + 12) = 0;
-    *(_DWORD *)(v8 + 12) &= 0x1FFu;
-    *(_DWORD *)(v8 + 8) = a2;
-    *(_DWORD *)(v8 + 16) = 21;
-    *(_DWORD *)(v8 + 24) = a3;
-    *(_DWORD *)(v8 + 28) = a4->MemorySegmentGroup;
-    *(_DWORD *)(v8 + 32) = a4->PhysicalAdapterIndex;
-    v11[0] = 32;
-    v9 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSyncMessage(this, (struct DXGVMBUSMESSAGE *)&v12, v14, v11);
-    if ( v9 < 0 || (v9 = -1073741823, v11[0] < 0x20) )
-    {
-      WdLogSingleEntry1(3LL, v9);
-    }
-    else
-    {
-      v9 = 0;
-      a4->Budget = v14[0];
-      a4->AvailableForReservation = v14[3];
-      a4->CurrentReservation = v14[2];
-      a4->CurrentUsage = v14[1];
-    }
+    v10 = WdLogNewEntry5_WdWarning(v7, v6, v9);
+    *(_QWORD *)(v10 + 24) = v8;
+    WdLogEvent5_WdWarning(v10);
   }
   else
   {
-    v9 = -1073741801;
+    v8 = 0;
+    a4->Budget = v21[0];
+    a4->AvailableForReservation = v21[3];
+    a4->CurrentReservation = v21[2];
+    a4->CurrentUsage = v21[1];
   }
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)&v12);
-  return (unsigned int)v9;
+  return (unsigned int)v8;
 }

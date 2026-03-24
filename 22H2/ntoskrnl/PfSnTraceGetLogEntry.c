@@ -1,27 +1,27 @@
 /*
- * XREFs of PfSnTraceGetLogEntry @ 0x1403147FC
+ * XREFs of PfSnTraceGetLogEntry @ 0x14029AF20
  * Callers:
- *     MiCompleteProtoPteFault @ 0x140268AC0 (MiCompleteProtoPteFault.c)
- *     PfSnLogPageFaultCommon @ 0x140313118 (PfSnLogPageFaultCommon.c)
- *     PfSnCheckLogSequenceNumber @ 0x140314500 (PfSnCheckLogSequenceNumber.c)
- *     PfSnTraceTimerRoutine @ 0x14035B320 (PfSnTraceTimerRoutine.c)
- *     PfSnLogIdentifier @ 0x14074E130 (PfSnLogIdentifier.c)
- *     PfSnLogHelper @ 0x140773DD8 (PfSnLogHelper.c)
- *     PfSnLogStreamDelete @ 0x1407C3814 (PfSnLogStreamDelete.c)
+ *     MiCompleteProtoPteFault @ 0x140213D50 (MiCompleteProtoPteFault.c)
+ *     PfSnLogPageFaultCommon @ 0x14029B6DC (PfSnLogPageFaultCommon.c)
+ *     PfSnCheckLogSequenceNumber @ 0x14029B804 (PfSnCheckLogSequenceNumber.c)
+ *     PfSnTraceTimerRoutine @ 0x14031A120 (PfSnTraceTimerRoutine.c)
+ *     PfSnLogIdentifier @ 0x14062D76C (PfSnLogIdentifier.c)
+ *     PfSnLogHelper @ 0x14062F03C (PfSnLogHelper.c)
+ *     PfSnLogStreamDelete @ 0x14067D04C (PfSnLogStreamDelete.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     PfSnTraceBufferAllocate @ 0x1402F5D0C (PfSnTraceBufferAllocate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     PfSnTraceBufferAllocate @ 0x14026DCA4 (PfSnTraceBufferAllocate.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnTraceGetLogEntry(__int64 a1, unsigned int a2, _QWORD *a3)
 {
-  __int64 v6; // rbp
+  __int64 v6; // rsi
   int v7; // eax
-  unsigned int v8; // esi
+  unsigned int v8; // ebp
   _QWORD *v10; // r15
   unsigned __int64 v11; // r14
   _QWORD *v12; // rcx
@@ -73,38 +73,44 @@ __int64 __fastcall PfSnTraceGetLogEntry(__int64 a1, unsigned int a2, _QWORD *a3)
         *(_QWORD *)(a1 + 112) = v10;
         ++*(_DWORD *)(a1 + 120);
         *(_QWORD *)(a1 + 96) = v10;
-        KxReleaseSpinLock((volatile signed __int64 *)(a1 + 128));
+        KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 128));
         if ( KiIrqlFlags )
         {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-            v17 = (v21 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v21;
-            if ( v17 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            CurrentIrql = KeGetCurrentIrql();
+            if ( CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
+              v17 = (v21 & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= v21;
+              if ( v17 )
+                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            }
           }
         }
         __writecr8(v11);
       }
       else
       {
-        KxReleaseSpinLock((volatile signed __int64 *)(a1 + 128));
+        KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 128));
         if ( KiIrqlFlags )
         {
-          v13 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v13 >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            v14 = KeGetCurrentPrcb();
-            v15 = v14->SchedulerAssist;
-            v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-            v17 = (v16 & v15[5]) == 0;
-            v15[5] &= v16;
-            if ( v17 )
-              KiRemoveSystemWorkPriorityKick(v14);
+            v13 = KeGetCurrentIrql();
+            if ( v13 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v13 >= 2u )
+            {
+              v14 = KeGetCurrentPrcb();
+              v15 = v14->SchedulerAssist;
+              v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
+              v17 = (v16 & v15[5]) == 0;
+              v15[5] &= v16;
+              if ( v17 )
+                KiRemoveSystemWorkPriorityKick(v14);
+            }
           }
         }
         __writecr8(v11);

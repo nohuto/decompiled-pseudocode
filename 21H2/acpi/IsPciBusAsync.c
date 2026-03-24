@@ -1,20 +1,20 @@
 /*
- * XREFs of IsPciBusAsync @ 0x1C001B660
+ * XREFs of IsPciBusAsync @ 0x1C0017610
  * Callers:
- *     IsPciDeviceWorker @ 0x1C0007A10 (IsPciDeviceWorker.c)
- *     IsPciBusAsyncWorker @ 0x1C000B380 (IsPciBusAsyncWorker.c)
- *     ACPIBuildProcessRunMethodPhaseCheckBridge @ 0x1C0025240 (ACPIBuildProcessRunMethodPhaseCheckBridge.c)
- *     IsNsobjPciBus @ 0x1C0094D74 (IsNsobjPciBus.c)
+ *     IsPciDeviceWorker @ 0x1C00166E0 (IsPciDeviceWorker.c)
+ *     IsPciBusAsyncWorker @ 0x1C0017710 (IsPciBusAsyncWorker.c)
+ *     ACPIBuildProcessRunMethodPhaseCheckBridge @ 0x1C0028BD0 (ACPIBuildProcessRunMethodPhaseCheckBridge.c)
+ *     IsNsobjPciBus @ 0x1C009DA40 (IsNsobjPciBus.c)
  * Callees:
- *     IsPciBusAsyncWorker @ 0x1C000B380 (IsPciBusAsyncWorker.c)
- *     memset @ 0x1C0030080 (memset.c)
+ *     IsPciBusAsyncWorker @ 0x1C0017710 (IsPciBusAsyncWorker.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall IsPciBusAsync(volatile signed __int32 *a1, KSPIN_LOCK a2, KSPIN_LOCK a3, _BYTE *a4)
+__int64 __fastcall IsPciBusAsync(volatile signed __int32 *a1, __int64 a2, __int64 a3, _BYTE *a4)
 {
   __int64 v8; // rax
   __int64 v9; // rax
-  KSPIN_LOCK *Pool2; // rbx
+  char *PoolWithTag; // rbx
   char v11; // al
   KIRQL v13; // al
   __int64 v14; // rcx
@@ -32,12 +32,12 @@ __int64 __fastcall IsPciBusAsync(volatile signed __int32 *a1, KSPIN_LOCK a2, KSP
   }
   if ( (v9 & 0x100000000LL) != 0 )
     return 0LL;
-  Pool2 = (KSPIN_LOCK *)ExAllocatePool2(64LL, 136LL, 1181770561LL);
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x88uLL, 0x46706341u);
+  if ( PoolWithTag )
     goto LABEL_5;
   v13 = KeAcquireSpinLockRaiseToDpc(&gPreAllocPciPoolSpinLock);
   v14 = 0LL;
-  v15 = &unk_1C0080EA8;
+  v15 = &unk_1C0081CC8;
   while ( *v15 )
   {
     v14 = (unsigned int)(v14 + 1);
@@ -45,23 +45,23 @@ __int64 __fastcall IsPciBusAsync(volatile signed __int32 *a1, KSPIN_LOCK a2, KSP
     if ( (unsigned int)v14 >= 4 )
       goto LABEL_15;
   }
-  LOBYTE(gPreAllocPciPool[18 * v14 + 17]) = 1;
-  Pool2 = &gPreAllocPciPool[18 * v14];
+  *((_BYTE *)&gPreAllocPciPool + 144 * v14 + 136) = 1;
+  PoolWithTag = (char *)&gPreAllocPciPool + 144 * v14;
 LABEL_15:
   KeReleaseSpinLock(&gPreAllocPciPoolSpinLock, v13);
-  if ( !Pool2 )
+  if ( !PoolWithTag )
     return 3221225626LL;
 LABEL_5:
-  memset(Pool2 + 1, 0, 0x80uLL);
+  memset(PoolWithTag + 8, 0, 0x80uLL);
   v11 = gdwfAMLI;
-  *Pool2 = (KSPIN_LOCK)a1;
-  dword_1C0081AC8 = 0;
-  byte_1C0081ACC = 0;
+  *(_QWORD *)PoolWithTag = a1;
+  dword_1C0082908 = 0;
+  pszDest = 0;
   if ( (v11 & 4) != 0 )
     _InterlockedIncrement(a1 + 2);
-  *((_DWORD *)Pool2 + 10) = -1;
-  Pool2[6] = a2;
-  Pool2[7] = a3;
-  Pool2[8] = (KSPIN_LOCK)a4;
-  return IsPciBusAsyncWorker((__int64)a1, 0, 0, Pool2);
+  *((_DWORD *)PoolWithTag + 10) = -1;
+  *((_QWORD *)PoolWithTag + 6) = a2;
+  *((_QWORD *)PoolWithTag + 7) = a3;
+  *((_QWORD *)PoolWithTag + 8) = a4;
+  return IsPciBusAsyncWorker(a1, 0LL, 0LL, PoolWithTag);
 }

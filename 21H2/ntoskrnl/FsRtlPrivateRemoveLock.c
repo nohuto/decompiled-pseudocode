@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlPrivateRemoveLock @ 0x140542018
+ * XREFs of FsRtlPrivateRemoveLock @ 0x1404EFF40
  * Callers:
- *     FsRtlPrivateLock @ 0x14021E2B0 (FsRtlPrivateLock.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x14021F280 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x14029FDB4 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlPrivateLock @ 0x140358360 (FsRtlPrivateLock.c)
  * Callees:
- *     FsRtlFastUnlockSingleExclusive @ 0x14021DEB4 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlFastUnlockSingleShared @ 0x14021E048 (FsRtlFastUnlockSingleShared.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x140358CEC (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlFastUnlockSingleShared @ 0x140359208 (FsRtlFastUnlockSingleShared.c)
  */
 
 __int64 __fastcall FsRtlPrivateRemoveLock(__int64 a1, __int64 a2, char a3)
@@ -22,7 +22,7 @@ __int64 __fastcall FsRtlPrivateRemoveLock(__int64 a1, __int64 a2, char a3)
   v7 = *(_BYTE *)(a2 + 16) == 0;
   v8 = *(_RTL_SPLAY_LINKS **)(a2 + 24);
   if ( v7 )
-    return FsRtlFastUnlockSingleShared(a1, (__int64)v8, (unsigned __int64 *)a2, v4, (__int64)v5, v3, 0LL, 1, a3);
+    return FsRtlFastUnlockSingleShared(a1, v8, (_RTL_SPLAY_LINKS **)a2, v4, v5, v3, 0LL, 1, a3);
   else
     return FsRtlFastUnlockSingleExclusive(a1, v8, (unsigned __int64 *)a2, v4, v5, v3, 0LL, 1, a3);
 }

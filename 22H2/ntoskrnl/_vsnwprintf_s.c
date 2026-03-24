@@ -1,10 +1,10 @@
 /*
- * XREFs of _vsnwprintf_s @ 0x1403DE6F0
+ * XREFs of _vsnwprintf_s @ 0x1403D6B30
  * Callers:
- *     _snwprintf_s @ 0x1403DE6C0 (_snwprintf_s.c)
+ *     _snwprintf_s @ 0x1403D6B00 (_snwprintf_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
- *     _swoutput_s @ 0x1403E0518 (_swoutput_s.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
+ *     _swoutput_s @ 0x1403D89A4 (_swoutput_s.c)
  */
 
 int __cdecl vsnwprintf_s(wchar_t *DstBuf, size_t SizeInWords, size_t MaxCount, const wchar_t *Format, va_list ArgList)
@@ -30,25 +30,26 @@ LABEL_12:
   }
   if ( !SizeInWords )
     goto LABEL_12;
-  if ( SizeInWords <= MaxCount )
-  {
-    result = swoutput_s(DstBuf, SizeInWords, Format, ArgList);
-    if ( result == -2 )
-    {
-      if ( MaxCount == -1LL )
-        return -1;
-      *DstBuf = 0;
-      goto LABEL_12;
-    }
-  }
-  else
+  if ( SizeInWords > MaxCount )
   {
     result = swoutput_s(DstBuf, MaxCount + 1, Format, ArgList);
     if ( result == -2 )
       return -1;
+    goto LABEL_10;
   }
-  if ( result >= 0 )
-    return result;
+  result = swoutput_s(DstBuf, SizeInWords, Format, ArgList);
+  if ( result != -2 )
+  {
+LABEL_10:
+    if ( result >= 0 )
+      return result;
+    goto LABEL_11;
+  }
+  if ( MaxCount == -1LL )
+    return -1;
+LABEL_11:
   *DstBuf = 0;
+  if ( result == -2 )
+    goto LABEL_12;
   return -1;
 }

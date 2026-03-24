@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializeNewUltraHugeContext @ 0x14018589C
+ * XREFs of MiInitializeNewUltraHugeContext @ 0x1401858BC
  * Callers:
- *     MiGetHugePageToZero @ 0x140185444 (MiGetHugePageToZero.c)
+ *     MiGetHugePageToZero @ 0x140185464 (MiGetHugePageToZero.c)
  * Callees:
  *     MiGetUltraMapping @ 0x14003A740 (MiGetUltraMapping.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MmGetPageFileInformation @ 0x1407FC0D0
+ * XREFs of MmGetPageFileInformation @ 0x1406BE834
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     MiPartitionObjectToPartition @ 0x140264ED0 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x1403606C4 (PsDereferencePartition.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
+ *     MiPartitionObjectToPartition @ 0x1402E5F80 (MiPartitionObjectToPartition.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall MmGetPageFileInformation(__int64 a1, __int64 a2, unsigned int a3, int a4, unsigned int *a5)
@@ -44,11 +44,11 @@ __int64 __fastcall MmGetPageFileInformation(__int64 a1, __int64 a2, unsigned int
   v6 = a4 != 0 ? 40 : 32;
   v7 = a5;
   *a5 = 0;
-  v8 = MiPartitionObjectToPartition((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, 0LL, &v29);
+  v8 = MiPartitionObjectToPartition((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, 0, &v29);
   v9 = v8;
   if ( !v8 )
     return 3221226656LL;
-  v10 = *((_DWORD *)v8 + 4182);
+  v10 = *((_DWORD *)v8 + 1734);
   v26 = v10;
   *(_DWORD *)(a2 + 4) = 0;
   v11 = 0;
@@ -56,7 +56,7 @@ __int64 __fastcall MmGetPageFileInformation(__int64 a1, __int64 a2, unsigned int
   v13 = a2;
   while ( v11 < v10 )
   {
-    v14 = v9[v11 + 2092];
+    v14 = v9[v11 + 868];
     if ( (*(_BYTE *)(v14 + 204) & 0x50) == 0 )
     {
       v13 = v30 + v12;
@@ -83,7 +83,7 @@ __int64 __fastcall MmGetPageFileInformation(__int64 a1, __int64 a2, unsigned int
         *(_DWORD *)(v13 + 36) = v20;
       }
       WORD3(v28) = 0;
-      v21 = *(unsigned __int16 *)(v9[v11 + 2092] + 96);
+      v21 = *(unsigned __int16 *)(v9[v11 + 868] + 96);
       LOWORD(v28) = v21;
       *(_DWORD *)((char *)&v28 + 2) = (unsigned __int16)(v21 + 2);
       *((_QWORD *)&v28 + 1) = v13 + v6;
@@ -97,7 +97,7 @@ __int64 __fastcall MmGetPageFileInformation(__int64 a1, __int64 a2, unsigned int
         goto LABEL_18;
       }
       v22 = v21;
-      memmove((void *)(v13 + v6), *(const void **)(v9[v11 + 2092] + 104), v21);
+      memmove((void *)(v13 + v6), *(const void **)(v9[v11 + 868] + 104), v21);
       *(_WORD *)(*((_QWORD *)&v28 + 1) + 2 * (v22 >> 1)) = 0;
       *(_DWORD *)v13 = v6 + v25;
       v7 = a5;

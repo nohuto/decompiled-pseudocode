@@ -1,9 +1,9 @@
 /*
  * XREFs of ResFwFindMessage @ 0x1409516DC
  * Callers:
- *     BcpFindMessage @ 0x1409FB7F8 (BcpFindMessage.c)
+ *     BcpFindMessage @ 0x1409FB808 (BcpFindMessage.c)
  * Callees:
- *     RtlFindMessage @ 0x14067BDF0 (RtlFindMessage.c)
+ *     RtlFindMessage @ 0x14067BDD0 (RtlFindMessage.c)
  */
 
 BYTE *__fastcall ResFwFindMessage(ULONG MessageId)

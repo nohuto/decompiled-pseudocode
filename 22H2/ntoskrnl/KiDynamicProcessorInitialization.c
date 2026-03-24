@@ -1,32 +1,70 @@
 /*
- * XREFs of KiDynamicProcessorInitialization @ 0x14056BD08
+ * XREFs of KiDynamicProcessorInitialization @ 0x14051237C
  * Callers:
- *     KiStartDynamicProcessor @ 0x1409738B8 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x1408BA6C8 (KiStartDynamicProcessor.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305CD0 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306B20 (KeSetSystemGroupAffinityThread.c)
- *     KeOptimizeSpecCtrlSettings @ 0x14039A8C4 (KeOptimizeSpecCtrlSettings.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeWriteProtectProcessorState @ 0x140A918B0 (KeWriteProtectProcessorState.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
+ *     KeIpiGenericCall @ 0x1403A4420 (KeIpiGenericCall.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWriteProtectProcessorState @ 0x14099ED90 (KeWriteProtectProcessorState.c)
  */
 
 void __fastcall KiDynamicProcessorInitialization(__int64 a1)
 {
-  __int64 v1; // rax
-  unsigned int v3; // ecx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v1; // rdx
+  char v3; // cl
+  unsigned __int8 CurrentIrql; // bl
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int8 v6; // al
+  struct _KPRCB *CurrentPrcb; // r9
+  _DWORD *v8; // r8
+  int v9; // eax
+  bool v10; // zf
+  ULONG Context; // [rsp+20h] [rbp-30h] BYREF
+  ULONG Context_4; // [rsp+24h] [rbp-2Ch]
+  struct _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
+  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
 
   v1 = *(unsigned int *)(a1 + 36);
   Affinity = 0LL;
-  v3 = KiProcessorIndexToNumberMappingTable[v1];
-  Affinity.Reserved[1] = 0;
+  v3 = KiProcessorIndexToNumberMappingTable[v1] & 0x3F;
+  Affinity.Group = (unsigned int)KiProcessorIndexToNumberMappingTable[v1] >> 6;
+  *(_DWORD *)Affinity.Reserved = 0;
   Affinity.Reserved[2] = 0;
-  *(_DWORD *)&Affinity.Group = (unsigned __int16)(v3 >> 6);
-  Affinity.Mask = 1LL << (v3 & 0x3F);
+  Affinity.Mask = 1LL << v3;
   PreviousAffinity = 0LL;
   KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
   KeWriteProtectProcessorState(a1 - 384);
-  KeOptimizeSpecCtrlSettings();
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(0xCuLL);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  {
+    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x1FFC;
+  }
+  Context_4 = KeQueryActiveProcessorCountEx(0xFFFFu);
+  Context = Context_4;
+  KeIpiGenericCall((PKIPI_BROADCAST_WORKER)KeOptimizeSpecCtrlSettings, (ULONG_PTR)&Context);
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      v6 = KeGetCurrentIrql();
+      if ( v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v8 = CurrentPrcb->SchedulerAssist;
+        v9 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v10 = (v9 & v8[5]) == 0;
+        v8[5] &= v9;
+        if ( v10 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
+  }
+  __writecr8(CurrentIrql);
   KeRevertToUserGroupAffinityThread(&PreviousAffinity);
 }

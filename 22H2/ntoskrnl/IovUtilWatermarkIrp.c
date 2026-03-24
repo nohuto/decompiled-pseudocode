@@ -1,20 +1,21 @@
 /*
- * XREFs of IovUtilWatermarkIrp @ 0x140302C64
+ * XREFs of IovUtilWatermarkIrp @ 0x1403615A4
  * Callers:
- *     IopSynchronousCall @ 0x1407688B4 (IopSynchronousCall.c)
- *     IopFilterResourceRequirementsCall @ 0x140790740 (IopFilterResourceRequirementsCall.c)
- *     PnpAsynchronousCall @ 0x1407954A4 (PnpAsynchronousCall.c)
- *     IopEjectDevice @ 0x14096CDC8 (IopEjectDevice.c)
- *     VfIrpSendSynchronousIrp @ 0x140ACEAA8 (VfIrpSendSynchronousIrp.c)
+ *     PopAllocateIrp @ 0x1403707A0 (PopAllocateIrp.c)
+ *     IopSynchronousCall @ 0x14071D3C0 (IopSynchronousCall.c)
+ *     IopFilterResourceRequirementsCall @ 0x140750270 (IopFilterResourceRequirementsCall.c)
+ *     PnpAsynchronousCall @ 0x14076872C (PnpAsynchronousCall.c)
+ *     IopEjectDevice @ 0x1408B2A10 (IopEjectDevice.c)
+ *     VfIrpSendSynchronousIrp @ 0x1409D1520 (VfIrpSendSynchronousIrp.c)
  * Callees:
- *     VfIrpWatermark @ 0x140ACEC28 (VfIrpWatermark.c)
+ *     VfIrpWatermark @ 0x1409D16AC (VfIrpWatermark.c)
  */
 
-__int64 __fastcall IovUtilWatermarkIrp(__int64 a1, __int64 a2)
+__int64 IovUtilWatermarkIrp()
 {
   __int64 result; // rax
 
   if ( IovUtilVerifierEnabled )
-    return VfIrpWatermark(a1, a2);
+    return VfIrpWatermark();
   return result;
 }

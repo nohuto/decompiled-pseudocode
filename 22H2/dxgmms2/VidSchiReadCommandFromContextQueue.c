@@ -1,11 +1,11 @@
 /*
- * XREFs of VidSchiReadCommandFromContextQueue @ 0x1C003B38C
+ * XREFs of VidSchiReadCommandFromContextQueue @ 0x1C0030744
  * Callers:
- *     VidSchiDrainContextFromWorkerThread @ 0x1C003A6F0 (VidSchiDrainContextFromWorkerThread.c)
+ *     VidSchiDrainContextFromWorkerThread @ 0x1C002F4D4 (VidSchiDrainContextFromWorkerThread.c)
  * Callees:
- *     VidSchiProfilePerformanceTick @ 0x1C000AA30 (VidSchiProfilePerformanceTick.c)
- *     VidSchiUpdateContextStatus @ 0x1C000BE10 (VidSchiUpdateContextStatus.c)
- *     VidSchiSetNextRunPacket @ 0x1C0014620 (VidSchiSetNextRunPacket.c)
+ *     VidSchiUpdateContextStatus @ 0x1C0007130 (VidSchiUpdateContextStatus.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C000B6D0 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiSetNextRunPacket @ 0x1C0013EB4 (VidSchiSetNextRunPacket.c)
  */
 
 __int64 __fastcall VidSchiReadCommandFromContextQueue(__int64 a1, int a2, _BYTE *a3)
@@ -17,22 +17,21 @@ __int64 __fastcall VidSchiReadCommandFromContextQueue(__int64 a1, int a2, _BYTE 
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-28h] BYREF
 
   v3 = *(_QWORD *)(a1 + 96);
-  memset(&LockHandle, 0, sizeof(LockHandle));
   v7 = *(_QWORD *)(v3 + 24);
   if ( !a2 )
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v7 + 1728), &LockHandle);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v7 + 1712), &LockHandle);
   *a3 = *(_DWORD *)(a1 + 184) & 1;
   v8 = *(_QWORD *)(a1 + 648);
   if ( v8 )
   {
     --*(_DWORD *)(a1 + 780);
-    --*(_DWORD *)(v3 + 2880);
-    --*(_DWORD *)(v7 + 720);
+    --*(_DWORD *)(v3 + 2872);
+    --*(_DWORD *)(v7 + 712);
     v9 = *(_QWORD *)(v8 + 32);
     if ( v9 == a1 + 664 )
     {
       VidSchiSetNextRunPacket(a1, 0LL);
-      VidSchiUpdateContextStatus(a1, 1LL, 18640);
+      VidSchiUpdateContextStatus(a1, 1uLL, 17614LL);
     }
     else
     {

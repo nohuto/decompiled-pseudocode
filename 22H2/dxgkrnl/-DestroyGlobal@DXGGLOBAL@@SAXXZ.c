@@ -1,18 +1,38 @@
 /*
- * XREFs of ?DestroyGlobal@DXGGLOBAL@@SAXXZ @ 0x1C0312694
+ * XREFs of ?DestroyGlobal@DXGGLOBAL@@SAXXZ @ 0x1C0269654
  * Callers:
- *     ?CreateGlobal@DXGGLOBAL@@SAJXZ @ 0x1C02142D4 (-CreateGlobal@DXGGLOBAL@@SAJXZ.c)
- *     DxgkUnload @ 0x1C030A890 (DxgkUnload.c)
- *     DriverEntry @ 0x1C03DEE7C (DriverEntry.c)
+ *     ?CreateGlobal@DXGGLOBAL@@SAJXZ @ 0x1C017AC54 (-CreateGlobal@DXGGLOBAL@@SAJXZ.c)
+ *     DxgkUnload @ 0x1C0261ED0 (DxgkUnload.c)
+ *     DriverEntry @ 0x1C03072C8 (DriverEntry.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ??1DXGGLOBAL@@AEAA@XZ @ 0x1C0268910 (--1DXGGLOBAL@@AEAA@XZ.c)
  */
 
-void DXGGLOBAL::DestroyGlobal(void)
+void __fastcall DXGGLOBAL::DestroyGlobal(__int64 a1, __int64 a2)
 {
-  if ( *(_QWORD *)&DXGGLOBAL::m_pGlobal )
+  unsigned int v2; // ebx
+  __int64 v3; // rdi
+  __int64 v4; // rax
+  PVOID v5; // rbx
+
+  v2 = 0;
+  v3 = 216LL;
+  do
   {
-    (***(void (__fastcall ****)(_QWORD, __int64))&DXGGLOBAL::m_pGlobal)(*(_QWORD *)&DXGGLOBAL::m_pGlobal, 1LL);
-    *(_QWORD *)&DXGGLOBAL::m_pGlobal = 0LL;
+    v4 = *(_QWORD *)((char *)DXGGLOBAL::GetGlobal(a1, a2) + v3);
+    (*(void (**)(void))(*(_QWORD *)(v4 + 8) + 16LL))();
+    ++v2;
+    v3 += 8LL;
+  }
+  while ( v2 < 2 );
+  v5 = DXGGLOBAL::m_pGlobal;
+  if ( DXGGLOBAL::m_pGlobal )
+  {
+    DXGGLOBAL::~DXGGLOBAL((DXGGLOBAL *)DXGGLOBAL::m_pGlobal, a2);
+    operator delete(v5);
+    DXGGLOBAL::m_pGlobal = 0LL;
   }
 }

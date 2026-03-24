@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_InkProcessor__private_ReportDeviceUsage @ 0x1C013DDD8
+ * XREFs of Feature_InkProcessor__private_ReportDeviceUsage @ 0x1C0169828
  * Callers:
- *     ??0InkProcessor@@AEAA@XZ @ 0x1C003DD20 (--0InkProcessor@@AEAA@XZ.c)
+ *     ??0InkProcessor@@AEAA@XZ @ 0x1C0133A64 (--0InkProcessor@@AEAA@XZ.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C01390CC (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0139344 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C00D3450 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0165E18 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_InkProcessor__private_ReportDeviceUsage()
@@ -15,7 +15,7 @@ void Feature_InkProcessor__private_ReportDeviceUsage()
   if ( (Feature_InkProcessor__private_featureState & 0x10) == 0 )
   {
     LODWORD(v0) = Feature_InkProcessor__private_featureState | 1;
-    wil_details_FeatureReporting_ReportUsageToService((__int64)&Feature_InkProcessor__private_descriptor, v0, 3LL);
+    wil_details_FeatureReporting_ReportUsageToService((__int64)&Feature_InkProcessor__private_descriptor, v0, 3);
     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath(
       v0,
       3,

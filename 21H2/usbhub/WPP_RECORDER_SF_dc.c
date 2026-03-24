@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_RECORDER_SF_dc @ 0x1C0035C4C
+ * XREFs of WPP_RECORDER_SF_dc @ 0x1C0036F08
  * Callers:
- *     Usbh_PCE_QueueDriverReset_Action @ 0x1C000CF9C (Usbh_PCE_QueueDriverReset_Action.c)
- *     Usbh_PCE_QueueChange_Action @ 0x1C0012D50 (Usbh_PCE_QueueChange_Action.c)
+ *     Usbh_PCE_QueueChange_Action @ 0x1C000B0E0 (Usbh_PCE_QueueChange_Action.c)
+ *     Usbh_PCE_QueueDriverReset_Action @ 0x1C00131B0 (Usbh_PCE_QueueDriverReset_Action.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_dc(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, int a5, ...)
@@ -18,7 +18,7 @@ __int64 WPP_RECORDER_SF_dc(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 
   va_start(va, a5);
   v9 = va_arg(va1, _QWORD);
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 )
-    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, _QWORD, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, _QWORD, __int64 *, __int64, char *, __int64, _QWORD))WPP_MAIN_CB.SecurityDescriptor)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
       &WPP_ccf2d5d86ecd3ff97d61dec65be5cc3f_Traceguids,

@@ -1,11 +1,11 @@
 /*
- * XREFs of PoReenableSleepStates @ 0x140984120
+ * XREFs of PoReenableSleepStates @ 0x1408E3D30
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PoReenableSleepStates(_QWORD *P)
@@ -19,6 +19,6 @@ void __fastcall PoReenableSleepStates(_QWORD *P)
     __fastfail(3u);
   *v3 = v2;
   v2[1] = v3;
-  ExReleaseFastMutex(&PopDisableSleepMutex);
+  KeReleaseGuardedMutex(&PopDisableSleepMutex);
   ExFreePoolWithTag(P, 0x64536F50u);
 }

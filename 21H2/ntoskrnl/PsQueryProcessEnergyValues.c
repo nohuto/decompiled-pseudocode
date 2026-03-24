@@ -1,48 +1,48 @@
 /*
- * XREFs of PsQueryProcessEnergyValues @ 0x1407A8280
+ * XREFs of PsQueryProcessEnergyValues @ 0x1405E92D0
  * Callers:
- *     PopEtEnergyContextProcessStateUpdate @ 0x14068191C (PopEtEnergyContextProcessStateUpdate.c)
- *     PspFoldProcessAccountingIntoJob @ 0x140683FE0 (PspFoldProcessAccountingIntoJob.c)
- *     PspQueryProcessAccountingInformationCallback @ 0x1406BED60 (PspQueryProcessAccountingInformationCallback.c)
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
- *     PopEtProcessEnumSnapshotCallback @ 0x1407A5B90 (PopEtProcessEnumSnapshotCallback.c)
- *     ExpGetProcessInformation @ 0x1407B6CA0 (ExpGetProcessInformation.c)
+ *     PspQueryProcessAccountingInformationCallback @ 0x140616780 (PspQueryProcessAccountingInformationCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x140618FC0 (PopEtProcessEnumSnapshotCallback.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     PopEtEnergyContextProcessStateUpdate @ 0x1406A742C (PopEtEnergyContextProcessStateUpdate.c)
+ *     PspFoldProcessAccountingIntoJob @ 0x1406AD32C (PspFoldProcessAccountingIntoJob.c)
+ *     ExpGetProcessInformation @ 0x1406F1260 (ExpGetProcessInformation.c)
  * Callees:
- *     RtlTimelineBitmapUpdateRange @ 0x140238BF8 (RtlTimelineBitmapUpdateRange.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeQueryTimelineBitmapTime @ 0x1402F614C (KeQueryTimelineBitmapTime.c)
- *     PoEnergyEstimationEnabled @ 0x1402F6160 (PoEnergyEstimationEnabled.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     PoEnergyEstimationEnabled @ 0x140205710 (PoEnergyEstimationEnabled.c)
+ *     KeQueryTimelineBitmapTime @ 0x140205720 (KeQueryTimelineBitmapTime.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlTimelineBitmapUpdateRange @ 0x1402ADF84 (RtlTimelineBitmapUpdateRange.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-_QWORD *__fastcall PsQueryProcessEnergyValues(_QWORD *a1, _OWORD *a2)
+char __fastcall PsQueryProcessEnergyValues(_QWORD *a1, _OWORD *a2)
 {
-  _QWORD *result; // rax
-  __int64 v5; // r15
+  char result; // al
+  __int64 v5; // r14
   unsigned __int64 v6; // r12
   unsigned int TimelineBitmapTime; // eax
   _QWORD *v8; // rdx
-  __int64 v9; // rbx
+  __int64 v9; // rdi
   unsigned int v10; // r13d
   __int64 v11; // r8
   char *v12; // r11
-  __int64 v13; // rdi
+  __int64 v13; // rsi
   unsigned __int64 v14; // rcx
   unsigned int v15; // r8d
   unsigned __int64 v16; // rcx
   __int64 v17; // rax
-  __int64 v18; // rdi
+  __int64 v18; // rsi
   _OWORD *v19; // r11
   unsigned __int64 v20; // rcx
   unsigned int v21; // r8d
   unsigned __int64 v22; // rcx
   __int64 v23; // rax
-  struct _KTHREAD *CurrentThread; // rdi
-  signed __int64 *v25; // rbx
-  _QWORD *v26; // r14
+  struct _KTHREAD *CurrentThread; // rsi
+  signed __int64 *v25; // rdi
+  _QWORD *v26; // r15
   _QWORD *i; // r10
   __int64 v28; // r8
   __int64 v29; // rax
@@ -61,8 +61,8 @@ _QWORD *__fastcall PsQueryProcessEnergyValues(_QWORD *a1, _OWORD *a2)
   int v42; // eax
 
   memset(a2, 0, 0x1B0uLL);
-  result = (_QWORD *)PoEnergyEstimationEnabled();
-  if ( !(_BYTE)result || a1 == PsIdleProcess )
+  result = PoEnergyEstimationEnabled();
+  if ( !result || a1 == PsIdleProcess )
     return result;
   v5 = a1[285];
   *((_QWORD *)a2 + 8) = *(_QWORD *)(v5 + 64);
@@ -236,5 +236,5 @@ LABEL_25:
   if ( _InterlockedCompareExchange64(v25, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v25);
   KeAbPostRelease((ULONG_PTR)v25);
-  return KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  return (unsigned __int8)KeLeaveCriticalRegionThread((__int64)CurrentThread);
 }

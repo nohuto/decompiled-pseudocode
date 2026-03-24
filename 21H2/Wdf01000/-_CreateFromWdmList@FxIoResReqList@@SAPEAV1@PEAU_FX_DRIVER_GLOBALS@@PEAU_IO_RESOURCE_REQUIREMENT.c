@@ -1,76 +1,95 @@
 /*
- * XREFs of ?_CreateFromWdmList@FxIoResReqList@@SAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAU_IO_RESOURCE_REQUIREMENTS_LIST@@E@Z @ 0x1C001DCEC
+ * XREFs of ?_CreateFromWdmList@FxIoResReqList@@SAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAU_IO_RESOURCE_REQUIREMENTS_LIST@@E@Z @ 0x1C006175C
  * Callers:
- *     ?PnpFilterResourceRequirements@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C001D298 (-PnpFilterResourceRequirements@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z.c)
+ *     ?PnpFilterResourceRequirements@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C008BFF8 (-PnpFilterResourceRequirements@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z.c)
  * Callees:
- *     ?AssignParentObject@FxObject@@QEAAJPEAV1@@Z @ 0x1C00065CC (-AssignParentObject@FxObject@@QEAAJPEAV1@@Z.c)
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ?BuildFromWdmList@FxIoResList@@QEAAJPEAPEAU_IO_RESOURCE_LIST@@@Z @ 0x1C001DE54 (-BuildFromWdmList@FxIoResList@@QEAAJPEAPEAU_IO_RESOURCE_LIST@@@Z.c)
- *     ??0FxIoResList@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxIoResReqList@@@Z @ 0x1C001DFC0 (--0FxIoResList@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxIoResReqList@@@Z.c)
- *     ??0FxIoResReqList@@IEAA@PEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C0020940 (--0FxIoResReqList@@IEAA@PEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?AssignParentObject@FxObject@@QEAAJPEAV1@@Z @ 0x1C0059DF0 (-AssignParentObject@FxObject@@QEAAJPEAV1@@Z.c)
+ *     ??0FxIoResList@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxIoResReqList@@@Z @ 0x1C005C06C (--0FxIoResList@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxIoResReqList@@@Z.c)
+ *     ??0FxIoResReqList@@IEAA@PEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C0061044 (--0FxIoResReqList@@IEAA@PEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     ?BuildFromWdmList@FxIoResList@@QEAAJPEAPEAU_IO_RESOURCE_LIST@@@Z @ 0x1C0061304 (-BuildFromWdmList@FxIoResList@@QEAAJPEAPEAU_IO_RESOURCE_LIST@@@Z.c)
  */
 
-void __fastcall FxIoResReqList::_CreateFromWdmList(
+FxIoResReqList *__fastcall FxIoResReqList::_CreateFromWdmList(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         _IO_RESOURCE_REQUIREMENTS_LIST *WdmRequirementsList,
         unsigned __int8 a3)
 {
   FxIoResReqList *v5; // rax
-  unsigned __int8 v6; // r8
-  __int64 v7; // rax
-  FxIoResReqList *v8; // rbx
-  int v9; // esi
+  __int64 v6; // rax
+  __int64 v7; // rbx
+  int v8; // ebp
+  FxIoResList *v9; // rax
   FxIoResList *v10; // rax
-  FxObject *v11; // rax
-  FxIoResList *v12; // r14
-  FxPoolTypeOrPoolFlags v13; // [rsp+40h] [rbp-10h] BYREF
-  _IO_RESOURCE_LIST *pWdmResourceList; // [rsp+98h] [rbp+48h] BYREF
+  FxIoResList *v11; // rsi
+  int v12; // eax
+  _IO_RESOURCE_LIST *pWdmResourceList; // [rsp+78h] [rbp+20h] BYREF
 
-  *(_QWORD *)&v13.UsePoolType = 0LL;
-  v13.u.PoolFlags = 64LL;
-  v5 = (FxIoResReqList *)FxObjectHandleAllocCommon(FxDriverGlobals, &v13, 0xA0uLL, 0, 0LL, 0, FxObjectTypeExternal);
+  v5 = (FxIoResReqList *)FxObjectHandleAlloc(
+                           FxDriverGlobals,
+                           ExDefaultNonPagedPoolType,
+                           0xA0uLL,
+                           0,
+                           0LL,
+                           0,
+                           FxObjectTypeExternal);
   if ( v5 )
   {
-    FxIoResReqList::FxIoResReqList(v5, FxDriverGlobals, v6);
-    v8 = (FxIoResReqList *)v7;
-    if ( v7 )
+    FxIoResReqList::FxIoResReqList(v5, FxDriverGlobals);
+    v7 = v6;
+  }
+  else
+  {
+    v7 = 0LL;
+  }
+  if ( v7 )
+  {
+    if ( WdmRequirementsList )
     {
-      if ( WdmRequirementsList )
+      v8 = 0;
+      pWdmResourceList = WdmRequirementsList->List;
+      *(_DWORD *)(v7 + 156) = WdmRequirementsList->InterfaceType;
+      *(_DWORD *)(v7 + 152) = WdmRequirementsList->SlotNumber;
+      if ( WdmRequirementsList->AlternativeLists )
       {
-        v9 = 0;
-        pWdmResourceList = WdmRequirementsList->List;
-        *(_DWORD *)(v7 + 156) = WdmRequirementsList->InterfaceType;
-        *(_DWORD *)(v7 + 152) = WdmRequirementsList->SlotNumber;
-        if ( WdmRequirementsList->AlternativeLists )
+        while ( 1 )
         {
-          while ( 1 )
+          v9 = (FxIoResList *)FxObjectHandleAlloc(
+                                FxDriverGlobals,
+                                ExDefaultNonPagedPoolType,
+                                0xA0uLL,
+                                0,
+                                0LL,
+                                0,
+                                FxObjectTypeExternal);
+          if ( v9 )
           {
-            *(_QWORD *)&v13.UsePoolType = 0LL;
-            v13.u.PoolFlags = 64LL;
-            v10 = (FxIoResList *)FxObjectHandleAllocCommon(
-                                   FxDriverGlobals,
-                                   &v13,
-                                   0xA0uLL,
-                                   0,
-                                   0LL,
-                                   0,
-                                   FxObjectTypeExternal);
-            if ( !v10 )
-              break;
-            FxIoResList::FxIoResList(v10, FxDriverGlobals, v8);
-            v12 = (FxIoResList *)v11;
-            if ( !v11 )
-              break;
-            FxObject::AssignParentObject(v11, v8);
-            if ( FxIoResList::BuildFromWdmList(v12, &pWdmResourceList) < 0 )
-              break;
-            if ( ++v9 >= WdmRequirementsList->AlternativeLists )
-              return;
+            FxIoResList::FxIoResList(v9, FxDriverGlobals, (FxIoResReqList *)v7);
+            v11 = v10;
           }
-          v8->DeleteObject(v8);
+          else
+          {
+            v11 = 0LL;
+          }
+          if ( v11 )
+          {
+            FxObject::AssignParentObject(v11, (FxObject *)v7);
+            v12 = FxIoResList::BuildFromWdmList(v11, (_IO_RESOURCE_DESCRIPTOR **)&pWdmResourceList);
+          }
+          else
+          {
+            v12 = -1073741670;
+          }
+          if ( v12 < 0 )
+            break;
+          if ( ++v8 >= WdmRequirementsList->AlternativeLists )
+            return (FxIoResReqList *)v7;
         }
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 48LL))(v7);
+        return 0LL;
       }
     }
   }
+  return (FxIoResReqList *)v7;
 }

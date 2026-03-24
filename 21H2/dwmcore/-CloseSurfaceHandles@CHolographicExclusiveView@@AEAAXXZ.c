@@ -1,8 +1,8 @@
 /*
- * XREFs of ?CloseSurfaceHandles@CHolographicExclusiveView@@AEAAXXZ @ 0x180298EB4
+ * XREFs of ?CloseSurfaceHandles@CHolographicExclusiveView@@AEAAXXZ @ 0x180256F68
  * Callers:
- *     ?DeactivateSwapChain@CHolographicExclusiveView@@AEAAXXZ @ 0x180298F20 (-DeactivateSwapChain@CHolographicExclusiveView@@AEAAXXZ.c)
- *     ?ProcessExclusiveSurfaceUpdate@CHolographicExclusiveView@@AEAA_NIPEAUEXCLUSIVE_SURFACE_UPDATE@@@Z @ 0x1802992E8 (-ProcessExclusiveSurfaceUpdate@CHolographicExclusiveView@@AEAA_NIPEAUEXCLUSIVE_SURFACE_UPDATE@@@.c)
+ *     ?DeactivateSwapChain@CHolographicExclusiveView@@AEAAXXZ @ 0x180256FD4 (-DeactivateSwapChain@CHolographicExclusiveView@@AEAAXXZ.c)
+ *     ?ProcessExclusiveSurfaceUpdate@CHolographicExclusiveView@@AEAA_NIPEAUEXCLUSIVE_SURFACE_UPDATE@@@Z @ 0x180257328 (-ProcessExclusiveSurfaceUpdate@CHolographicExclusiveView@@AEAA_NIPEAUEXCLUSIVE_SURFACE_UPDATE@@@.c)
  * Callees:
  *     <none>
  */
@@ -11,14 +11,14 @@ void __fastcall CHolographicExclusiveView::CloseSurfaceHandles(HANDLE *this)
 {
   __int64 i; // rsi
 
-  if ( *((_BYTE *)this + 81) )
+  if ( *((_BYTE *)this + 73) )
   {
-    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 38); i = (unsigned int)(i + 1) )
+    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 36); i = (unsigned int)(i + 1) )
     {
-      CloseHandle(this[i + 20]);
-      this[i + 20] = 0LL;
+      CloseHandle(this[i + 19]);
+      this[i + 19] = 0LL;
     }
-    *((_DWORD *)this + 38) = 0;
-    *((_BYTE *)this + 81) = 0;
+    *((_DWORD *)this + 36) = 0;
+    *((_BYTE *)this + 73) = 0;
   }
 }

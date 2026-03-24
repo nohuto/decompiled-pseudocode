@@ -1,24 +1,20 @@
 /*
- * XREFs of Win32UAFMAllocPoolZInit @ 0x1C014FB30
+ * XREFs of Win32UAFMAllocPoolZInit @ 0x1C013A120
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ?AllocatePool@?$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@SAPEAX_K0IPEAI@Z @ 0x1C014FCAC (-AllocatePool@-$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@SAPEAX.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     Win32UAFMAllocPool @ 0x1C0139ED0 (Win32UAFMAllocPool.c)
  */
 
 void *__fastcall Win32UAFMAllocPoolZInit(size_t Size, unsigned int a2, __int64 a3)
 {
-  void *Pool; // rax
+  void *v4; // rax
   void *v5; // rbx
 
-  Pool = (void *)NSInstrumentation::UAFMitigationAllocator<Win32UAFMAllocatorCollection>::AllocatePool(
-                   260LL,
-                   Size,
-                   a2,
-                   a3);
-  v5 = Pool;
-  if ( Pool )
-    memset(Pool, 0, Size);
+  v4 = (void *)Win32UAFMAllocPool(Size, a2, a3);
+  v5 = v4;
+  if ( v4 )
+    memset(v4, 0, Size);
   return v5;
 }

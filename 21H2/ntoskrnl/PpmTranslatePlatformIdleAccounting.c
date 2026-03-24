@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmTranslatePlatformIdleAccounting @ 0x1405D7630
+ * XREFs of PpmTranslatePlatformIdleAccounting @ 0x1405774C0
  * Callers:
- *     PpmEventTracePlatformIdleAccounting @ 0x14099AB34 (PpmEventTracePlatformIdleAccounting.c)
+ *     PpmEventTracePlatformIdleAccounting @ 0x1408F32A0 (PpmEventTracePlatformIdleAccounting.c)
  * Callees:
- *     PpmConvertTime @ 0x14029394C (PpmConvertTime.c)
+ *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
  */
 
 __int64 __fastcall PpmTranslatePlatformIdleAccounting(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall PpmTranslatePlatformIdleAccounting(__int64 a1, __int64 a2)
   __int64 v7; // r14
   __int64 v8; // rdi
   unsigned int v9; // ecx
-  unsigned __int64 v10; // r13
+  __int64 v10; // r13
   _DWORD *v11; // r15
   __int64 v12; // r12
   __int64 v13; // rbx

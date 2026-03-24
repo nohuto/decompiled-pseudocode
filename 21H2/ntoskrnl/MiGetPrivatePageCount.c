@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPrivatePageCount @ 0x140378C5C
+ * XREFs of MiGetPrivatePageCount @ 0x14036BB64
  * Callers:
- *     MiAllocateCrcList @ 0x1407F95AC (MiAllocateCrcList.c)
+ *     MiAllocateCrcList @ 0x1407278B8 (MiAllocateCrcList.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiGetPrivatePageCount(__int64 a1)
@@ -28,11 +28,11 @@ unsigned __int64 __fastcall MiGetPrivatePageCount(__int64 a1)
   v2 = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  v3 = (_QWORD *)(a1 + 16608);
+  v3 = (_QWORD *)(a1 + 6856);
   v4 = (_QWORD *)*v3;
   while ( v4 != v3 )
   {
-    v5 = v4[14];
+    v5 = v4[13];
     v6 = v2;
     v4 = (_QWORD *)*v4;
     v7 = v2 + v5;

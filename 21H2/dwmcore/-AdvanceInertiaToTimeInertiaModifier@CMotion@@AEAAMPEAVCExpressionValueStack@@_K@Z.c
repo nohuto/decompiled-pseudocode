@@ -1,13 +1,12 @@
 /*
- * XREFs of ?AdvanceInertiaToTimeInertiaModifier@CMotion@@AEAAMPEAVCExpressionValueStack@@_K@Z @ 0x18025EDB8
+ * XREFs of ?AdvanceInertiaToTimeInertiaModifier@CMotion@@AEAAMPEAVCExpressionValueStack@@_K@Z @ 0x18020E540
  * Callers:
- *     ?AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z @ 0x18025EB80 (-AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z.c)
+ *     ?AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z @ 0x18020E320 (-AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z @ 0x180254738 (-ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@G@@U?$_tlgWrapperByVal@$03@@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@G@@AEBU?$_tlgWrapperByVal@$03@@555@Z @ 0x18025E874 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@G@@U-$_tlgWrapperByVal@$03@@U3@U3@U3@@-$_tlgWrit.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z @ 0x180203EA0 (-ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@G@@U?$_tlgWrapperByVal@$03@@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@G@@AEBU?$_tlgWrapperByVal@$03@@555@Z @ 0x18020E074 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@G@@U-$_tlgWrapperByVal@$03@@U3@U3@U3@@-$_tlgWrit.c)
  */
 
 float __fastcall CMotion::AdvanceInertiaToTimeInertiaModifier(
@@ -35,27 +34,27 @@ float __fastcall CMotion::AdvanceInertiaToTimeInertiaModifier(
   if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)this + 10) + 24LL))(*((_QWORD *)this + 10)) )
   {
     if ( *((_DWORD *)this + 18) )
-      (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 11) + 32LL))(*((_QWORD *)this + 11));
-    if ( *((float *)this + 6) > *(float *)(*((_QWORD *)this + 10) + 96LL) )
+      (*(void (__fastcall **)(char *))(*((_QWORD *)this + 11) + 32LL))((char *)this + 88);
+    if ( *((float *)this + 6) > *(float *)(*((_QWORD *)this + 10) + 104LL) )
     {
       v8 = (*(float (__fastcall **)(CMotion *))(*(_QWORD *)this + 8LL))(this);
       if ( v8 != 0.0 )
-        *(float *)(*((_QWORD *)this + 10) + 32LL) = v8 + *(float *)(*((_QWORD *)this + 10) + 32LL);
+        *(float *)(*((_QWORD *)this + 10) + 40LL) = v8 + *(float *)(*((_QWORD *)this + 10) + 40LL);
     }
   }
-  v9 = (*(double (__fastcall **)(_QWORD, __int64, struct CExpressionValueStack *, __int64))(**((_QWORD **)this + 12)
+  v9 = (*(double (__fastcall **)(_QWORD, __int64, struct CExpressionValueStack *, __int64))(**((_QWORD **)this + 17)
                                                                                           + 16LL))(
-         *((_QWORD *)this + 12),
+         *((_QWORD *)this + 17),
          v6,
          a2,
          a3);
   LODWORD(v16) = LODWORD(v9);
-  if ( (unsigned int)dword_1803D0EF0 > 4 && tlgKeywordOn((__int64)&dword_1803D0EF0, 2LL) )
+  if ( (unsigned int)dword_180344EF0 > 4 && (qword_180344F00 & 2) != 0 && (qword_180344F08 & 2) == qword_180344F08 )
   {
-    v17 = *(_DWORD *)(*(__int64 (__fastcall **)(_QWORD, _BYTE *))(**((_QWORD **)this + 12) + 32LL))(
-                       *((_QWORD *)this + 12),
+    v17 = *(_DWORD *)(*(__int64 (__fastcall **)(_QWORD, _BYTE *))(**((_QWORD **)this + 17) + 32LL))(
+                       *((_QWORD *)this + 17),
                        v22);
-    v10 = (*(__int64 (__fastcall **)(_QWORD, _BYTE *))(**((_QWORD **)this + 12) + 32LL))(*((_QWORD *)this + 12), v23);
+    v10 = (*(__int64 (__fastcall **)(_QWORD, _BYTE *))(**((_QWORD **)this + 17) + 32LL))(*((_QWORD *)this + 17), v23);
     v11 = *((_DWORD *)this + 3);
     v18 = *(_DWORD *)(v10 + 8);
     v19 = *((_DWORD *)this + 6);
@@ -64,7 +63,7 @@ float __fastcall CMotion::AdvanceInertiaToTimeInertiaModifier(
     v21 = this;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
       v12,
-      byte_180372577,
+      byte_1802E9F46,
       v13,
       v14,
       (__int64)&v21,

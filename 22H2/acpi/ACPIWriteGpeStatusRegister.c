@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIWriteGpeStatusRegister @ 0x1C0038BA4
+ * XREFs of ACPIWriteGpeStatusRegister @ 0x1C0026890
  * Callers:
- *     ACPIInterruptDispatchEventDpc @ 0x1C0003670 (ACPIInterruptDispatchEventDpc.c)
- *     ACPIInterruptDispatchEvents @ 0x1C0003AE8 (ACPIInterruptDispatchEvents.c)
- *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
- *     ACPIGpeClearRegisters @ 0x1C002C260 (ACPIGpeClearRegisters.c)
- *     ACPIVectorClear @ 0x1C0043E00 (ACPIVectorClear.c)
+ *     ACPIInterruptDispatchEventDpc @ 0x1C0026060 (ACPIInterruptDispatchEventDpc.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398 (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     ACPIInterruptDispatchEvents @ 0x1C00266A8 (ACPIInterruptDispatchEvents.c)
+ *     ACPIGpeClearRegisters @ 0x1C0026834 (ACPIGpeClearRegisters.c)
+ *     ACPIVectorClear @ 0x1C0060AC0 (ACPIVectorClear.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ACPIWriteGpeStatusRegister(unsigned int a1, char a2)
@@ -21,25 +21,30 @@ __int64 __fastcall ACPIWriteGpeStatusRegister(unsigned int a1, char a2)
   v6 = a2;
   v2 = a1;
   v3 = *(__int64 (__fastcall **)(__int64))(PmHalDispatchTable + 120);
-  if ( a1 >= *((unsigned __int16 *)AcpiInformation + 43) )
-  {
-    result = v3(7LL);
-    if ( (int)result < 0 )
-      return result;
-    v5 = 7LL;
-    v2 -= *((unsigned __int16 *)AcpiInformation + 43);
-  }
-  else
+  if ( a1 < *((unsigned __int16 *)AcpiInformation + 43) )
   {
     result = v3(6LL);
     if ( (int)result < 0 )
       return result;
     v5 = 6LL;
+    return (*(__int64 (__fastcall **)(__int64, _QWORD, char *, __int64, _QWORD))(PmHalDispatchTable + 136))(
+             v5,
+             v2,
+             &v6,
+             1LL,
+             0LL);
   }
-  return (*(__int64 (__fastcall **)(__int64, _QWORD, char *, __int64, _QWORD))(PmHalDispatchTable + 136))(
-           v5,
-           v2,
-           &v6,
-           1LL,
-           0LL);
+  result = v3(7LL);
+  if ( (int)result >= 0 )
+  {
+    v5 = 7LL;
+    v2 -= *((unsigned __int16 *)AcpiInformation + 43);
+    return (*(__int64 (__fastcall **)(__int64, _QWORD, char *, __int64, _QWORD))(PmHalDispatchTable + 136))(
+             v5,
+             v2,
+             &v6,
+             1LL,
+             0LL);
+  }
+  return result;
 }

@@ -1,148 +1,100 @@
 /*
- * XREFs of MapDesktop @ 0x1C0077E30
+ * XREFs of MapDesktop @ 0x1C004EE50
  * Callers:
- *     NtUserBuildHwndList @ 0x1C0070A10 (NtUserBuildHwndList.c)
- *     xxxSetThreadDesktop @ 0x1C00A9A4C (xxxSetThreadDesktop.c)
- *     zzzComposeDesktop @ 0x1C00B2FD8 (zzzComposeDesktop.c)
- *     xxxResolveDesktop @ 0x1C00CF130 (xxxResolveDesktop.c)
- *     xxxCreateDesktopEx @ 0x1C00CFDF4 (xxxCreateDesktopEx.c)
- *     UserCommitDesktopMemory @ 0x1C0107DE0 (UserCommitDesktopMemory.c)
+ *     xxxResolveDesktop @ 0x1C000F4F0 (xxxResolveDesktop.c)
+ *     xxxCreateDesktopEx @ 0x1C00101D4 (xxxCreateDesktopEx.c)
+ *     NtUserBuildHwndList @ 0x1C006CD20 (NtUserBuildHwndList.c)
+ *     xxxSetThreadDesktop @ 0x1C00D95C0 (xxxSetThreadDesktop.c)
+ *     zzzComposeDesktop @ 0x1C00EC878 (zzzComposeDesktop.c)
+ *     UserCommitDesktopMemory @ 0x1C011FCF0 (UserCommitDesktopMemory.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     GetDesktopView @ 0x1C0078100 (GetDesktopView.c)
- *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z @ 0x1C00783CC (-LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z.c)
- *     ??0?$ObjectLock@$$V@?$DomainExclusive@VDLT_DESKTOP@@@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@XZ @ 0x1C0078424 (--0-$ObjectLock@$$V@-$DomainExclusive@VDLT_DESKTOP@@@-$DomainShared@$$V@SharedUserCritOnly@@QEAA.c)
- *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C0078850 (WPP_RECORDER_AND_TRACE_SF_qq.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ??0?$CLockDomainExclusiveLeaf@VDLT_DESKTOP@@@@QEAA@XZ @ 0x1C004E9E4 (--0-$CLockDomainExclusiveLeaf@VDLT_DESKTOP@@@@QEAA@XZ.c)
+ *     GetDesktopView @ 0x1C004F040 (GetDesktopView.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C004F094 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C004F354 (WPP_RECORDER_SF_qq.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall MapDesktop(__int64 a1)
 {
-  __int64 v1; // r15
-  NTSTATUS v2; // ebx
-  char v4; // r12
-  char v5; // dl
-  tagDomLock *v6; // rcx
-  __int64 ProcessWin32Process; // r14
-  __int64 v8; // rcx
-  __int64 v9; // r13
-  _QWORD *v11; // rdi
-  __int64 v12; // rdx
-  ULONG v13; // eax
-  __int64 v14; // rdx
-  __int64 v15; // [rsp+58h] [rbp-29h] BYREF
-  __int64 v16; // [rsp+60h] [rbp-21h] BYREF
-  __int64 v17; // [rsp+68h] [rbp-19h] BYREF
-  __int64 v18; // [rsp+70h] [rbp-11h] BYREF
-  tagDomLock *v19; // [rsp+78h] [rbp-9h] BYREF
-  char v20; // [rsp+80h] [rbp-1h]
-  char v21; // [rsp+A0h] [rbp+1Fh]
-  char v22; // [rsp+A8h] [rbp+27h]
+  __int64 v2; // r14
+  NTSTATUS v3; // ebx
+  __int64 v4; // rcx
+  __int64 ProcessWin32Process; // r15
+  __int64 v6; // rcx
+  __int64 v7; // r12
+  _QWORD *v9; // rsi
+  __int64 v10; // rdx
+  ULONG v11; // eax
+  __int64 v12; // [rsp+50h] [rbp-10h] BYREF
+  __int64 v13; // [rsp+58h] [rbp-8h] BYREF
+  int v14; // [rsp+A0h] [rbp+40h] BYREF
+  __int64 v15; // [rsp+A8h] [rbp+48h] BYREF
+  __int64 v16; // [rsp+B0h] [rbp+50h] BYREF
+  __int64 v17; // [rsp+B8h] [rbp+58h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 16);
-  v18 = 0LL;
-  v2 = 0;
+  v12 = 0LL;
   v15 = 0LL;
   v17 = 0LL;
   v16 = 0LL;
-  v4 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-    || (v5 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    v5 = 0;
-  }
-  if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_qq(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v5,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      6,
-      24,
-      (__int64)&WPP_d78c2f93cefb39adad771009d44421f9_Traceguids,
-      v1,
-      *(_QWORD *)(a1 + 8),
-      v15);
-  if ( ExIsResourceAcquiredSharedLite(gpresUser) )
-    v4 = 0;
-  else
-    EnterCrit(1LL, 0LL);
+  v2 = *(_QWORD *)(a1 + 16);
+  v3 = 0;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qq(a1, 4, 6, 24, (__int64)&WPP_4cc55f0eccd63a8558931143e45fab5e_Traceguids, v2, *(_QWORD *)(a1 + 8));
+  ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)&v14);
   if ( *(_DWORD *)a1 != 3 )
   {
     ProcessWin32Process = PsGetProcessWin32Process(*(_QWORD *)(a1 + 8));
     if ( ProcessWin32Process )
     {
-      v8 = *(_QWORD *)(a1 + 8);
-      if ( (v8 == gpepCSRSS
-         || (unsigned int)IsProcessDwm(v8)
-         || (unsigned __int8)ObFindHandleForObject(*(_QWORD *)(a1 + 8), v1, ExDesktopObjectType, 0LL, &v17))
-        && (v9 = *(_QWORD *)(v1 + 120), (unsigned int)PsGetProcessSessionId(*(_QWORD *)(a1 + 8)) == *(_DWORD *)v1) )
+      v6 = *(_QWORD *)(a1 + 8);
+      if ( (v6 == gpepCSRSS
+         || (unsigned int)IsProcessDwm(v6)
+         || (unsigned __int8)ObFindHandleForObject(*(_QWORD *)(a1 + 8), v2, ExDesktopObjectType, 0LL, &v17))
+        && (v7 = *(_QWORD *)(v2 + 120), (unsigned int)PsGetProcessSessionId(*(_QWORD *)(a1 + 8)) == *(_DWORD *)v2) )
       {
-        SharedUserCritOnly::DomainShared<>::DomainExclusive<DLT_DESKTOP>::ObjectLock<>::ObjectLock<>(&v19);
-        LockRefactorStagingAssertOwned(gDomainDesktopLock);
-        if ( GetDesktopView(ProcessWin32Process, v1) )
+        if ( GetDesktopView(ProcessWin32Process, v2) )
+          goto LABEL_10;
+        v9 = (_QWORD *)Win32AllocPoolWithQuota(24LL, 1768977237LL);
+        if ( v9 )
         {
-LABEL_16:
-          if ( v22 )
-          {
-            if ( v21 )
-            {
-              v6 = v19;
-              if ( v19 )
-              {
-                if ( v20 )
-                  tagDomLock::UnLockExclusive(v19);
-                else
-                  tagDomLock::UnLockShared(v19);
-              }
-            }
-          }
-          goto LABEL_17;
-        }
-        v11 = (_QWORD *)Win32AllocPoolWithQuotaZInit(24LL, 1768977237LL);
-        if ( v11 )
-        {
-          v12 = *(_QWORD *)(a1 + 8);
+          v10 = *(_QWORD *)(a1 + 8);
           v15 = 4096LL;
-          v2 = MmMapViewOfSection(v9, v12, &v16, 0LL, 0LL, &v15, &v18, 2, 0x400000, 2);
-          if ( v2 >= 0 )
+          v3 = MmMapViewOfSection(v7, v10, &v16, 0LL, 0LL, &v15, &v12, 2, 0x400000, 2);
+          if ( v3 < 0 )
           {
-            v11[1] = v1;
-            v11[2] = v16;
-            *v11 = *(_QWORD *)(ProcessWin32Process + 704);
-            *(_QWORD *)(ProcessWin32Process + 704) = v11;
-            goto LABEL_16;
+            Win32FreePool(v9);
           }
-          Win32FreePool(v11);
+          else
+          {
+            v9[1] = v2;
+            v9[2] = v16;
+            CLockDomainExclusiveLeaf<DLT_DESKTOP>::CLockDomainExclusiveLeaf<DLT_DESKTOP>(&v13);
+            *v9 = *(_QWORD *)(ProcessWin32Process + 704);
+            *(_QWORD *)(ProcessWin32Process + 704) = v9;
+          }
+          if ( v3 >= 0 )
+            goto LABEL_10;
         }
         else
         {
-          v2 = -1073741801;
-        }
-        if ( v22 && v21 && v19 )
-        {
-          if ( v20 )
-            tagDomLock::UnLockExclusive(v19);
-          else
-            tagDomLock::UnLockShared(v19);
+          v3 = -1073741801;
         }
       }
       else
       {
-        v2 = -1073741790;
+        v3 = -1073741790;
       }
     }
     else
     {
-      v2 = -1073741811;
+      v3 = -1073741811;
     }
-    v13 = RtlNtStatusToDosError(v2);
-    UserSetLastError(v13, v14);
+    v11 = RtlNtStatusToDosError(v3);
+    UserSetLastError(v11);
   }
-LABEL_17:
-  if ( v4 )
-    UserSessionSwitchLeaveCrit(v6);
-  return (unsigned int)v2;
+LABEL_10:
+  if ( !v14 )
+    UserSessionSwitchLeaveCrit(v4);
+  return (unsigned int)v3;
 }

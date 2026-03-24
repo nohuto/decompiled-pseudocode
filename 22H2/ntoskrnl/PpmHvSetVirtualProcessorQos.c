@@ -1,10 +1,9 @@
 /*
- * XREFs of PpmHvSetVirtualProcessorQos @ 0x1405A0144
+ * XREFs of PpmHvSetVirtualProcessorQos @ 0x14057C3D4
  * Callers:
- *     PoSetProcessorQoS @ 0x140462800 (PoSetProcessorQoS.c)
+ *     PoSetProcessorQoS @ 0x14056E49C (PoSetProcessorQoS.c)
  * Callees:
- *     HvlpSetRegister64 @ 0x140548ED0 (HvlpSetRegister64.c)
- *     PpmEventVpQosChange @ 0x14059C4E8 (PpmEventVpQosChange.c)
+ *     PpmEventVpQosChange @ 0x14057B178 (PpmEventVpQosChange.c)
  */
 
 BOOLEAN __fastcall PpmHvSetVirtualProcessorQos(__int64 a1)
@@ -12,14 +11,14 @@ BOOLEAN __fastcall PpmHvSetVirtualProcessorQos(__int64 a1)
   int v2; // ecx
   __int64 v3; // rax
 
-  v2 = *(_DWORD *)(a1 + 34112);
-  v3 = *(_QWORD *)(a1 + 35000);
-  *(_DWORD *)(a1 + 34116) = v2;
+  v2 = *(_DWORD *)(a1 + 33264);
+  v3 = *(_QWORD *)(a1 + 33976);
+  *(_DWORD *)(a1 + 33268) = v2;
   if ( v3 )
   {
     *(_DWORD *)(v3 + 4) = v2;
     *(_DWORD *)(v3 + 12) = 1;
-    HvlpSetRegister64(589851LL, 4294967294LL);
+    __writemsr(0x400000C2u, 0xFFFFFFFEuLL);
   }
   return PpmEventVpQosChange(a1);
 }

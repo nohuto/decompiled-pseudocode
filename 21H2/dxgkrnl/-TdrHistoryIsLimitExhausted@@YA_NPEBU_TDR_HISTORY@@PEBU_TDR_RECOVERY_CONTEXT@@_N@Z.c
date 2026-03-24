@@ -1,7 +1,7 @@
 /*
- * XREFs of ?TdrHistoryIsLimitExhausted@@YA_NPEBU_TDR_HISTORY@@PEBU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0306410
+ * XREFs of ?TdrHistoryIsLimitExhausted@@YA_NPEBU_TDR_HISTORY@@PEBU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0265B00
  * Callers:
- *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0306540 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0265C30 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -23,16 +23,16 @@ bool __fastcall TdrHistoryIsLimitExhausted(
     v5 = *((_QWORD *)a1 + 5 * v4 + 3);
     if ( !v5 )
       break;
-    if ( (unsigned __int64)*((unsigned int *)a1 + 4) * (*((_QWORD *)a2 + 15) - v5) > 10000000
-                                                                                   * (unsigned __int64)(unsigned int)dword_1C0130C14 )
+    if ( (unsigned __int64)*((unsigned int *)a1 + 4) * (*((_QWORD *)a2 + 14) - v5) > 10000000
+                                                                                   * (unsigned __int64)(unsigned int)dword_1C00B317C )
       break;
     ++v3;
     v4 = ((_BYTE)v4 - 1) & 0x3F;
   }
   while ( v4 != (*((_DWORD *)a1 + 5) & 0x3F) );
   if ( a3 )
-    v6 = v3 + 1 < dword_1C0130C10;
+    v6 = v3 + 1 < dword_1C00B3178;
   else
-    v6 = v3 < dword_1C0130C10;
+    v6 = v3 < dword_1C00B3178;
   return !v6;
 }

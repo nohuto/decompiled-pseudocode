@@ -1,14 +1,14 @@
 /*
- * XREFs of KseShimDatabaseBootInitialize @ 0x140B01670
+ * XREFs of KseShimDatabaseBootInitialize @ 0x140A72134
  * Callers:
- *     KseInitialize @ 0x140AFFF64 (KseInitialize.c)
+ *     KseInitialize @ 0x140A3C89C (KseInitialize.c)
  * Callees:
- *     KsepLogError @ 0x140368C88 (KsepLogError.c)
- *     memset @ 0x140435E00 (memset.c)
- *     KsepDebugPrint @ 0x14057D738 (KsepDebugPrint.c)
- *     RtlAssert @ 0x1405E6EA0 (RtlAssert.c)
- *     KsepSdbBootInitialize @ 0x1408277FC (KsepSdbBootInitialize.c)
- *     KsepSdbBootRelease @ 0x14084DC30 (KsepSdbBootRelease.c)
+ *     KsepLogError @ 0x140371F74 (KsepLogError.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x140588810 (RtlAssert.c)
+ *     KsepSdbBootRelease @ 0x1407BCD08 (KsepSdbBootRelease.c)
+ *     KsepSdbBootInitialize @ 0x1407D1ED8 (KsepSdbBootInitialize.c)
  */
 
 __int64 __fastcall KseShimDatabaseBootInitialize(void *Src, size_t Size, void *a3, unsigned int a4)
@@ -39,31 +39,31 @@ __int64 __fastcall KseShimDatabaseBootInitialize(void *Src, size_t Size, void *a
   KsepShimDbLock = 0LL;
   KsepShimDbHandle = 0LL;
   KsepShimDbDuringBoot = 1;
-  memset(&KsepShimDb, 0, 0x70uLL);
+  memset(KsepShimDb, 0, 0x70uLL);
   if ( Src && v6 )
   {
-    v8 = KsepSdbBootInitialize(Src, v6, (__int64)&KsepShimDb);
+    v8 = KsepSdbBootInitialize(Src, v6, (__int64)KsepShimDb);
     if ( v8 >= 0 )
     {
       if ( a3 && a4 )
       {
-        if ( (int)KsepSdbBootInitialize(a3, a4, (__int64)&unk_140C2A698) < 0 )
+        if ( (int)KsepSdbBootInitialize(a3, a4, (__int64)qword_140C2AEF8) < 0 )
         {
           v12 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
           KsepHistoryErrors[2 * v12 + 1] = v8;
           KsepHistoryErrors[2 * v12] = 590110;
           if ( (KsepDebugFlag & 2) != 0 )
             KsepDebugPrint(1LL, "KSE: KsepSdbBootInitialize failed for patch SDB!\n");
-          KsepLogError(1LL, (__int64)"KSE: KsepSdbBootInitialize failed for patch SDB!\n");
+          KsepLogError(1, "KSE: KsepSdbBootInitialize failed for patch SDB!\n");
         }
-        else if ( dword_140C2A690 >= (unsigned int)dword_140C2A6C8 )
+        else if ( dword_140C2AEF0 >= (unsigned int)dword_140C2AF28 )
         {
-          KsepSdbBootRelease((__int64)&unk_140C2A698);
+          KsepSdbBootRelease(qword_140C2AEF8);
         }
       }
       ++KsepShimDbRefCount;
       v8 = 0;
-      KsepShimDbHandle = (__int64)&KsepShimDb;
+      KsepShimDbHandle = (__int64)KsepShimDb;
     }
   }
   else

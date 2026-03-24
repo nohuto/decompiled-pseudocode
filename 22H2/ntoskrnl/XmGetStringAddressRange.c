@@ -1,28 +1,27 @@
 /*
- * XREFs of XmGetStringAddressRange @ 0x140399074
+ * XREFs of XmGetStringAddressRange @ 0x1403C0AD0
  * Callers:
- *     XmStosOp @ 0x140398F10 (XmStosOp.c)
+ *     XmStosOp @ 0x1403C0970 (XmStosOp.c)
  * Callees:
- *     x86BiosTranslateAddress @ 0x1403BE960 (x86BiosTranslateAddress.c)
- *     longjmp @ 0x1403D7880 (longjmp.c)
+ *     x86BiosTranslateAddress @ 0x140397450 (x86BiosTranslateAddress.c)
+ *     longjmp @ 0x1403CFF70 (longjmp.c)
  */
 
-__int64 __fastcall XmGetStringAddressRange(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
+int *__fastcall XmGetStringAddressRange(__int64 a1, __int64 a2, __int64 a3, int *a4)
 {
-  int v6; // esi
+  int v6; // r14d
   unsigned __int16 v7; // r10
   int v8; // r8d
   unsigned int v9; // ecx
   unsigned int v10; // r9d
   unsigned int v11; // eax
-  __int64 v12; // r15
-  int v13; // eax
-  int v14; // edx
-  int v15; // edi
-  int v16; // r8d
-  int v17; // edx
-  int v18; // r9d
-  unsigned int v19; // eax
+  int *v12; // r15
+  int v13; // edi
+  int v14; // eax
+  int v15; // ecx
+  int v16; // eax
+  unsigned int v17; // edx
+  bool v18; // cc
 
   if ( *(_BYTE *)(a1 + 137) )
     v6 = *(_DWORD *)(a1 + 52);
@@ -38,29 +37,34 @@ __int64 __fastcall XmGetStringAddressRange(__int64 a1, __int64 a2, __int64 a3, u
     v11 = (v8 - v9 + 4096) / v10;
   if ( *a4 > v11 )
     *a4 = v11;
-  v12 = x86BiosTranslateAddress(v7, (unsigned __int16)v6);
-  v13 = *(_DWORD *)(a1 + 120);
-  v14 = *a4 - 1;
-  v15 = v14 * (v13 + 1);
+  v12 = x86BiosTranslateAddress(v7, v6);
+  v13 = (*(_DWORD *)(a1 + 120) + 1) * (*a4 - 1);
   if ( (*(_DWORD *)(a1 + 16) & 0x400) != 0 )
-    v15 = v14 * ~v13;
-  if ( (unsigned int)x86BiosTranslateAddress(*(unsigned __int16 *)(a1 + 56), v15 + (unsigned int)(unsigned __int16)v6)
-     - (_DWORD)v12 != v15 )
+    v13 = -v13;
+  if ( (unsigned int)x86BiosTranslateAddress(*(_WORD *)(a1 + 56), (unsigned __int16)v13 + (unsigned __int16)v6)
+     - (_DWORD)v12 == v13 )
+  {
+    v14 = *a4;
+  }
+  else
+  {
     *a4 = 1;
-  v16 = *(_DWORD *)(a1 + 120);
-  v17 = *a4 * (v16 + 1);
-  v18 = *(_DWORD *)(a1 + 16) & 0x400;
-  if ( v18 )
-    v17 = *a4 * ~v16;
+    v14 = 1;
+  }
+  v15 = v14 * (*(_DWORD *)(a1 + 120) + 1);
+  v16 = *(_DWORD *)(a1 + 16);
+  if ( (v16 & 0x400) != 0 )
+    v15 = -v15;
   if ( *(_BYTE *)(a1 + 137) )
-    *(_DWORD *)(a1 + 52) += v17;
+    *(_DWORD *)(a1 + 52) += v15;
   else
-    *(_WORD *)(a1 + 52) += v17;
-  if ( v18 )
-    v19 = v16 + v6;
+    *(_WORD *)(a1 + 52) += v15;
+  v17 = *(unsigned __int16 *)(a1 + 68);
+  if ( (v16 & 0x400) != 0 )
+    v18 = v6 + *(_DWORD *)(a1 + 120) <= v17;
   else
-    v19 = v6 + v17 - 1;
-  if ( v19 > *(unsigned __int16 *)(a1 + 68) )
+    v18 = v6 + v15 - 1 <= v17;
+  if ( !v18 )
     longjmp((_JBTYPE *)(a1 + 160), 14);
   return v12;
 }

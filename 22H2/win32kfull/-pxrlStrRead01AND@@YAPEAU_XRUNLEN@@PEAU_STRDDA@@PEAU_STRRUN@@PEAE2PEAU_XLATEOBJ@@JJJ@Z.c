@@ -1,5 +1,5 @@
 /*
- * XREFs of ?pxrlStrRead01AND@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C008DD30
+ * XREFs of ?pxrlStrRead01AND@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C00F7320
  * Callers:
  *     <none>
  * Callees:
@@ -15,108 +15,116 @@ struct _XRUNLEN *__fastcall pxrlStrRead01AND(
         int a6,
         int a7)
 {
-  int v7; // esi
-  _DWORD *v8; // rbx
-  int v9; // r14d
-  unsigned __int8 *v11; // r15
-  ULONG v12; // r8d
-  int v13; // r9d
+  int v7; // r10d
+  int v9; // ebx
+  unsigned __int8 *v10; // r15
+  ULONG v11; // edi
+  int v12; // esi
+  int v13; // ecx
+  int v14; // r14d
+  int v15; // r11d
+  int v16; // r12d
+  unsigned int *v17; // r13
+  __int64 v18; // r8
+  __int64 v19; // rbp
+  struct _XLATEOBJ *v20; // rax
+  __int64 v21; // rcx
+  _DWORD *v22; // r9
+  int v23; // r9d
+  __int64 v24; // r14
+  unsigned __int8 *v25; // rax
+  _DWORD *v26; // r9
   ULONG *pulXlate; // rax
-  int v15; // ecx
-  int v16; // ebp
-  __int64 v17; // r11
-  int v18; // r12d
-  unsigned int *v19; // r13
-  __int64 v20; // rdi
-  __int64 v21; // rax
-  _DWORD *v22; // rdx
-  _DWORD *v23; // rdx
-  int v24; // edx
-  __int64 v25; // r10
-  unsigned __int8 *v26; // rax
+  struct _XLATEOBJ *v29; // [rsp+48h] [rbp+28h]
+  int v30; // [rsp+50h] [rbp+30h]
 
   v7 = a6;
-  v8 = (_DWORD *)((char *)a2 + 8);
   v9 = a6 & 0x1F;
-  v11 = &a3[4 * ((__int64)a6 >> 5)];
+  v10 = &a3[4 * ((__int64)a6 >> 5)];
   if ( a5 )
   {
     pulXlate = a5->pulXlate;
-    v12 = *pulXlate;
-    v13 = pulXlate[1];
+    v11 = *pulXlate;
+    v12 = pulXlate[1];
   }
   else
   {
-    v12 = 0;
-    v13 = 1;
+    v11 = 0;
+    v12 = 1;
   }
-  v15 = *(_DWORD *)a1;
-  v16 = 0;
-  *v8 = v15;
-  *((_DWORD *)a2 + 3) = *((_DWORD *)a1 + 2) - v15;
+  v13 = *(_DWORD *)a1;
+  v14 = 0;
+  *((_DWORD *)a2 + 2) = v13;
+  v15 = 0;
+  *((_DWORD *)a2 + 3) = *((_DWORD *)a1 + 2) - v13;
   if ( a6 < a7 )
   {
-    v17 = 0LL;
-    v18 = *(_DWORD *)v11;
-    v19 = (unsigned int *)((char *)a1 + 32);
-    v20 = a6 & 0x1F;
+    v16 = *(_DWORD *)v10;
+    v17 = (unsigned int *)((char *)a1 + 32);
+    v18 = 0LL;
+    v19 = a6 & 0x1F;
+    v20 = 0LL;
     while ( 1 )
     {
-      v21 = *v19;
-      if ( (v18 & dword_1C0319790[v20]) != 0 )
+      v21 = *v17;
+      v30 = v14 + 1;
+      v29 = (struct _XLATEOBJ *)((char *)&v20->iUniq + 1);
+      if ( (dword_1C02EFA80[v19] & v16) != 0 )
       {
         if ( (_DWORD)v21 )
         {
-          v16 += v21;
-          v23 = &v8[v17 + 2];
-          v17 += v21;
+          v15 += v21;
+          v26 = (_DWORD *)((char *)a2 + 4 * v18 + 16);
+          v18 += v21;
           do
           {
-            *v23++ &= v13;
+            *v26++ &= v12;
             LODWORD(v21) = v21 - 1;
           }
           while ( (_DWORD)v21 );
         }
         else
         {
-          v8[v17 + 2] &= v13;
+          *((_DWORD *)a2 + v18 + 4) &= v12;
         }
       }
       else if ( (_DWORD)v21 )
       {
-        v16 += v21;
-        v22 = &v8[v17 + 2];
-        v17 += v21;
+        v15 += v21;
+        v22 = (_DWORD *)((char *)a2 + 4 * v18 + 16);
+        v18 += v21;
         do
         {
-          *v22++ &= v12;
+          *v22++ &= v11;
           LODWORD(v21) = v21 - 1;
         }
         while ( (_DWORD)v21 );
       }
       else
       {
-        v8[v17 + 2] &= v12;
+        *((_DWORD *)a2 + v18 + 4) &= v11;
       }
       ++v7;
-      v24 = v9 + 1;
-      v25 = v20 + 1;
+      v23 = v9 + 1;
+      v24 = v19 + 1;
       if ( v7 >= a7 )
         break;
-      v26 = v11 + 4;
-      if ( (v24 & 0x20) != 0 )
-        v18 = *(_DWORD *)v26;
-      ++v19;
-      if ( (v24 & 0x20) == 0 )
-        v26 = v11;
+      if ( (v23 & 0x20) != 0 )
+        v16 = *((_DWORD *)v10 + 1);
+      ++v17;
+      v25 = v10 + 4;
+      if ( (v23 & 0x20) == 0 )
+        v25 = v10;
       v9 = 0;
-      v11 = v26;
-      if ( (v24 & 0x20) == 0 )
-        v9 = v24;
-      v20 = 0LL;
-      if ( (v24 & 0x20) == 0 )
-        v20 = v25;
+      v10 = v25;
+      v20 = v29;
+      if ( (v23 & 0x20) == 0 )
+        v9 = v23;
+      v19 = 0LL;
+      if ( (v23 & 0x20) == 0 )
+        v19 = v24;
+      v14 = v30;
     }
   }
-  return (struct _XRUNLEN *)&v8[v16 + 2];
+  return (struct _STRRUN *)((char *)a2 + 4 * v15 + 16);
 }

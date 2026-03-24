@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerUpdateApiConsumers @ 0x14051F9E4
+ * XREFs of HalpTimerUpdateApiConsumers @ 0x1404D55F8
  * Callers:
- *     HalpPrepareForBugcheck @ 0x14050B520 (HalpPrepareForBugcheck.c)
- *     HalpRestoreHvEnlightenment @ 0x14050BF10 (HalpRestoreHvEnlightenment.c)
- *     HalpSaveAndDisableEnlightenment @ 0x14050C2B0 (HalpSaveAndDisableEnlightenment.c)
+ *     HalpPrepareForBugcheck @ 0x1404C23B0 (HalpPrepareForBugcheck.c)
+ *     HalpRestoreHvEnlightenment @ 0x1404C2D20 (HalpRestoreHvEnlightenment.c)
+ *     HalpSaveAndDisableEnlightenment @ 0x1404C3090 (HalpSaveAndDisableEnlightenment.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpTimerUpdateApiConsumers()

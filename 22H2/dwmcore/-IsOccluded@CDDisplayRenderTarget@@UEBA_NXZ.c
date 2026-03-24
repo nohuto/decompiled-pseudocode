@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOccluded@CDDisplayRenderTarget@@UEBA_NXZ @ 0x1801061B0
+ * XREFs of ?IsOccluded@CDDisplayRenderTarget@@UEBA_NXZ @ 0x1800E2180
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CDDisplayRenderTarget::IsOccluded(CDDisplayRenderTarget *this)
 {
-  return *((_BYTE *)this + 18522);
+  return *((_BYTE *)this + 18488);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPIReleaseGlobalLock @ 0x1C00239A4
+ * XREFs of ACPIReleaseGlobalLock @ 0x1C000F4A4
  * Callers:
- *     GlobalLockEventHandler @ 0x1C0023960 (GlobalLockEventHandler.c)
- *     ACPIIoctlReleaseGlobalLock @ 0x1C0058CE0 (ACPIIoctlReleaseGlobalLock.c)
+ *     GlobalLockEventHandler @ 0x1C000F460 (GlobalLockEventHandler.c)
+ *     ACPIIoctlReleaseGlobalLock @ 0x1C00582E0 (ACPIIoctlReleaseGlobalLock.c)
  * Callees:
- *     WPP_RECORDER_SF_q @ 0x1C0023BB0 (WPP_RECORDER_SF_q.c)
- *     WRITE_PM1_CONTROL @ 0x1C00245D4 (WRITE_PM1_CONTROL.c)
- *     WPP_RECORDER_SF_qd @ 0x1C0051AC8 (WPP_RECORDER_SF_qd.c)
- *     WPP_RECORDER_SF_qq @ 0x1C0052650 (WPP_RECORDER_SF_qq.c)
- *     ACPIAcquireHardwareGlobalLock @ 0x1C005D4C4 (ACPIAcquireHardwareGlobalLock.c)
- *     ACPIStartNextGlobalLockRequest @ 0x1C005D54C (ACPIStartNextGlobalLockRequest.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C000EA0C (WPP_RECORDER_SF_qq.c)
+ *     ACPIStartNextGlobalLockRequest @ 0x1C000EAE0 (ACPIStartNextGlobalLockRequest.c)
+ *     WPP_RECORDER_SF_q @ 0x1C000F770 (WPP_RECORDER_SF_q.c)
+ *     ACPIAcquireHardwareGlobalLock @ 0x1C000FC24 (ACPIAcquireHardwareGlobalLock.c)
+ *     WRITE_PM1_CONTROL @ 0x1C000FDF0 (WRITE_PM1_CONTROL.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00525D8 (WPP_RECORDER_SF_qd.c)
  */
 
 __int64 __fastcall ACPIReleaseGlobalLock(__int64 a1)
@@ -77,17 +77,14 @@ __int64 __fastcall ACPIReleaseGlobalLock(__int64 a1)
   else
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v2) = 4;
       WPP_RECORDER_SF_qq(
-        WPP_GLOBAL_Control->DeviceExtension,
-        v2,
-        3,
-        15,
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        4u,
+        3u,
+        0xFu,
         (__int64)&WPP_46fdfefd1e063d3591824ef1bcf3110e_Traceguids,
-        *((_QWORD *)AcpiInformation + 9),
+        v2,
         a1);
-    }
     return 3222536215LL;
   }
 }

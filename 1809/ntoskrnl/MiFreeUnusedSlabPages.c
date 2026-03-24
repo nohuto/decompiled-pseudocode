@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFreeUnusedSlabPages @ 0x1402C2534
+ * XREFs of MiFreeUnusedSlabPages @ 0x1402C2634
  * Callers:
- *     MiWorkingSetManager @ 0x1400EF594 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
  * Callees:
- *     MiFreeSlabEntries @ 0x1402C20D8 (MiFreeSlabEntries.c)
+ *     MiFreeSlabEntries @ 0x1402C21D8 (MiFreeSlabEntries.c)
  */
 
 unsigned __int64 __fastcall MiFreeUnusedSlabPages(__int64 a1)

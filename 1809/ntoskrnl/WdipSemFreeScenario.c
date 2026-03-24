@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemFreeScenario @ 0x140744824
+ * XREFs of WdipSemFreeScenario @ 0x140744804
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x140743DD8 (WdipSemLoadScenarioTable.c)
- *     WdipSemAddScenarioToTable @ 0x140744C08 (WdipSemAddScenarioToTable.c)
+ *     WdipSemLoadScenarioTable @ 0x140743DB8 (WdipSemLoadScenarioTable.c)
+ *     WdipSemAddScenarioToTable @ 0x140744BE8 (WdipSemAddScenarioToTable.c)
  * Callees:
- *     WdipSemFastFree @ 0x140716B50 (WdipSemFastFree.c)
+ *     WdipSemFastFree @ 0x140716B30 (WdipSemFastFree.c)
  */
 
 PSLIST_ENTRY __fastcall WdipSemFreeScenario(__int64 a1)

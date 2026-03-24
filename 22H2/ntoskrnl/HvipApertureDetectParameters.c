@@ -1,12 +1,12 @@
 /*
- * XREFs of HvipApertureDetectParameters @ 0x1405B5DA0
+ * XREFs of HvipApertureDetectParameters @ 0x1405946C4
  * Callers:
- *     HviEnterKernelAperture @ 0x1405B5CF4 (HviEnterKernelAperture.c)
+ *     HviEnterKernelAperture @ 0x14059461C (HviEnterKernelAperture.c)
  * Callees:
- *     HviIsHypervisorVendorMicrosoft @ 0x140373BE0 (HviIsHypervisorVendorMicrosoft.c)
- *     HviGetHypervisorFeatures @ 0x140383390 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HviGetHardwareFeatures @ 0x140615410 (HviGetHardwareFeatures.c)
+ *     HviGetHypervisorFeatures @ 0x1403A9020 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x1403AA5F0 (HviIsHypervisorVendorMicrosoft.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HviGetHardwareFeatures @ 0x1405BEEB0 (HviGetHardwareFeatures.c)
  */
 
 char HvipApertureDetectParameters()
@@ -48,9 +48,9 @@ char HvipApertureDetectParameters()
   {
     v12 = 1;
   }
-  byte_140D1BF2C = v6;
-  byte_140C0DC50 = v12;
-  byte_140D1BF2E = v5;
-  byte_140D1BF2D = 1;
+  byte_140CFA34C = v6;
+  byte_140C12D02 = v12;
+  byte_140CFA34E = v5;
+  byte_140CFA34D = 1;
   return _RAX;
 }

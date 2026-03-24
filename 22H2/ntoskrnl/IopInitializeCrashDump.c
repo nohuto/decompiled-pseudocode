@@ -1,93 +1,85 @@
 /*
- * XREFs of IopInitializeCrashDump @ 0x1408347D8
+ * XREFs of IopInitializeCrashDump @ 0x1407B7FA8
  * Callers:
- *     IoConfigureCrashDump @ 0x14054FA04 (IoConfigureCrashDump.c)
- *     IoInitializeCrashDump @ 0x1408360EC (IoInitializeCrashDump.c)
- *     IopInitCrashDumpRegCallback @ 0x140B60590 (IopInitCrashDumpRegCallback.c)
+ *     IoConfigureCrashDump @ 0x1403BFA60 (IoConfigureCrashDump.c)
+ *     IoInitializeCrashDump @ 0x1407B7F14 (IoInitializeCrashDump.c)
+ *     IopInitCrashDumpRegCallback @ 0x140A67640 (IopInitCrashDumpRegCallback.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IopReadDumpRegistry @ 0x140393E84 (IopReadDumpRegistry.c)
- *     SecureDump_GetSecureDumpSettings @ 0x140393FC4 (SecureDump_GetSecureDumpSettings.c)
- *     IopLoadCrashdumpDriver @ 0x1403946F0 (IopLoadCrashdumpDriver.c)
- *     IopInitializeRemovePagesArray @ 0x140394AB0 (IopInitializeRemovePagesArray.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     IopDumpTraceInitializeCrashDumpFailure @ 0x140552D18 (IopDumpTraceInitializeCrashDumpFailure.c)
- *     IopDumpTraceLoadCrashDumpDriverFailure @ 0x140552F38 (IopDumpTraceLoadCrashDumpDriverFailure.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x140835AC8 (FsRtlIssueFileNotificationFsctl.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     IopLoadCrashdumpDriver @ 0x1403A6D88 (IopLoadCrashdumpDriver.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x1403BFB80 (SecureDump_GetSecureDumpSettings.c)
+ *     IopReadDumpRegistry @ 0x1403BFBD0 (IopReadDumpRegistry.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x14078D5B4 (FsRtlIssueFileNotificationFsctl.c)
  */
 
-char __fastcall IopInitializeCrashDump(__int64 a1, __int128 *a2)
+char __fastcall IopInitializeCrashDump(__int64 Handle, __int128 *a2)
 {
-  int CrashdumpDriver; // eax
-  int v6; // eax
-  void *v7; // rcx
-  __int128 v8; // [rsp+30h] [rbp-40h] BYREF
-  _QWORD v9[4]; // [rsp+40h] [rbp-30h] BYREF
-  char v10; // [rsp+60h] [rbp-10h]
-  __int16 v11; // [rsp+61h] [rbp-Fh]
-  char v12; // [rsp+63h] [rbp-Dh]
+  HANDLE v4; // rcx
+  __int64 v5; // rdx
+  __int128 v7; // [rsp+30h] [rbp-40h] BYREF
+  _QWORD v8[4]; // [rsp+40h] [rbp-30h] BYREF
+  char v9; // [rsp+60h] [rbp-10h]
+  int v10; // [rsp+61h] [rbp-Fh]
+  __int16 v11; // [rsp+65h] [rbp-Bh]
+  char v12; // [rsp+67h] [rbp-9h]
   PVOID Object; // [rsp+90h] [rbp+20h] BYREF
 
   LODWORD(Object) = 0;
-  *(_QWORD *)&v8 = 0LL;
-  DWORD2(v8) = 0;
-  if ( !ForceDumpDisabled && AllowCrashDump )
+  *(_QWORD *)&v7 = 0LL;
+  DWORD2(v7) = 0;
+  if ( !ForceDumpDisabled )
   {
-    IopReadDumpRegistry(a1, &Object);
+    IopReadDumpRegistry(Handle, &Object);
     if ( CrashdmpImageEntry && CrashdmpDumpBlock && CrashdmpInitialized || !(_DWORD)Object )
       return 1;
-    if ( CrashdmpImageEntry || (CrashdumpDriver = IopLoadCrashdumpDriver(), CrashdumpDriver >= 0) )
+    if ( (CrashdmpImageEntry || (int)IopLoadCrashdumpDriver() >= 0)
+      && (int)SecureDump_GetSecureDumpSettings((__int64)&v7) >= 0 )
     {
-      if ( (int)SecureDump_GetSecureDumpSettings((__int64)&v8) >= 0 )
+      if ( !(_BYTE)v7 )
+        goto LABEL_9;
+      if ( qword_140C50CE8 )
       {
-        if ( !(_BYTE)v8
-          || qword_140C6AD88
-          && (v9[3] = *(_QWORD *)((char *)&v8 + 4),
-              v10 = BYTE1(v8),
-              v9[1] = SecureDump_Get_SecureDumpHeader,
-              v9[2] = SecureDump_Encrypt_DmpData,
-              v9[0] = 40LL,
-              v11 = 0,
-              v12 = 0,
-              (int)qword_140C6AD88(v9) >= 0) )
+        v8[3] = *(_QWORD *)((char *)&v7 + 4);
+        v9 = BYTE1(v7);
+        v8[1] = SecureDump_Get_SecureDumpHeader;
+        v8[2] = SecureDump_Encrypt_DmpData;
+        v8[0] = 40LL;
+        v10 = 0;
+        v11 = 0;
+        v12 = 0;
+        if ( (int)qword_140C50CE8(v8) >= 0 )
         {
-          v8 = *a2;
-          v6 = ((__int64 (__fastcall *)(__int64, __int64 *, __int128 *))qword_140C6AD28)(a1, &CrashdmpDumpBlock, &v8);
-          if ( v6 >= 0 )
+LABEL_9:
+          v7 = *a2;
+          if ( (int)((__int64 (__fastcall *)(__int64, __int64 *, __int128 *))qword_140C50C88)(
+                      Handle,
+                      &CrashdmpDumpBlock,
+                      &v7) >= 0 )
           {
             CrashdmpInitialized = 1;
-            v7 = *(void **)(CrashdmpDumpBlock + 1352);
-            if ( !v7 )
+            v4 = *(HANDLE *)(CrashdmpDumpBlock + 1352);
+            if ( !v4 )
             {
-              if ( !a1 )
-              {
-LABEL_16:
-                if ( *(_DWORD *)(CrashdmpDumpBlock + 1336) == 6 && *(_QWORD *)(CrashdmpDumpBlock + 8) )
-                {
-                  if ( UseRemovePagesArray )
-                    IopInitializeRemovePagesArray();
-                }
+              if ( !Handle )
                 return 1;
-              }
-              v7 = (void *)a1;
+              v4 = (HANDLE)Handle;
             }
             Object = 0LL;
-            if ( ObReferenceObjectByHandle(v7, 0, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL) >= 0 )
+            if ( ObReferenceObjectByHandle(v4, 0, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL) >= 0 )
             {
-              FsRtlIssueFileNotificationFsctl((PFILE_OBJECT)Object);
-              ObfDereferenceObject(Object);
+              FsRtlIssueFileNotificationFsctl(
+                (PFILE_OBJECT)Object,
+                v5,
+                (__int128 *)&FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE);
+              HalPutDmaAdapter((PADAPTER_OBJECT)Object);
             }
-            goto LABEL_16;
+            return 1;
           }
           CrashdmpDumpBlock = 0LL;
-          IopDumpTraceInitializeCrashDumpFailure(v6);
         }
       }
-    }
-    else
-    {
-      IopDumpTraceLoadCrashDumpDriverFailure(CrashdumpDriver);
     }
   }
   return 0;

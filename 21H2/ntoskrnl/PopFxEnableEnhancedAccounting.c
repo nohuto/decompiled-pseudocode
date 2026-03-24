@@ -1,7 +1,7 @@
 /*
- * XREFs of PopFxEnableEnhancedAccounting @ 0x1405D4A54
+ * XREFs of PopFxEnableEnhancedAccounting @ 0x140573F94
  * Callers:
- *     PopPepInitializeVetoMasks @ 0x1405D5704 (PopPepInitializeVetoMasks.c)
+ *     PopPepInitializeVetoMasks @ 0x140574D9C (PopPepInitializeVetoMasks.c)
  * Callees:
  *     <none>
  */

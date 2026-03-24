@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetTransferInfo@FxDmaTransactionBase@@QEAAXPEAK0@Z @ 0x1C00595A8
+ * XREFs of ?GetTransferInfo@FxDmaTransactionBase@@QEAAXPEAK0@Z @ 0x1C003692C
  * Callers:
- *     imp_WdfDmaTransactionGetTransferInfo @ 0x1C00544C0 (imp_WdfDmaTransactionGetTransferInfo.c)
+ *     imp_WdfDmaTransactionGetTransferInfo @ 0x1C0030540 (imp_WdfDmaTransactionGetTransferInfo.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002DC98 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_ql @ 0x1C0053CE8 (WPP_IFR_SF_ql.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002F470 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
+ *     WPP_IFR_SF_ql @ 0x1C002FAEC (WPP_IFR_SF_ql.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
  */
 
 void __fastcall FxDmaTransactionBase::GetTransferInfo(
@@ -27,7 +27,6 @@ void __fastcall FxDmaTransactionBase::GetTransferInfo(
   _MDL *m_StartMdl; // rdx
   unsigned __int64 ByteCount; // r9
   unsigned __int64 v17; // r9
-  unsigned __int64 v18; // rax
   _DMA_TRANSFER_INFO info; // [rsp+40h] [rbp-28h] BYREF
 
   if ( this->m_State != FxDmaTransactionStateInitialized )
@@ -64,13 +63,12 @@ void __fastcall FxDmaTransactionBase::GetTransferInfo(
       if ( ByteCount > m_StartOffset )
       {
         v17 = ByteCount - m_StartOffset;
-        v18 = v17;
-        if ( v17 >= m_TransactionLength )
-          v18 = m_TransactionLength;
-        v12 += ((((_DWORD)m_StartOffset + LODWORD(m_StartMdl->StartVa) + m_StartMdl->ByteOffset) & 0xFFF) + v18 + 4095) >> 12;
-        info.V1.MapRegisterCount = v12;
         if ( v17 >= m_TransactionLength )
           v17 = m_TransactionLength;
+        v12 += ((((_WORD)m_StartOffset + LOWORD(m_StartMdl->StartVa) + (unsigned __int16)m_StartMdl->ByteOffset) & 0xFFF)
+              + v17
+              + 4095) >> 12;
+        info.V1.MapRegisterCount = v12;
         m_TransactionLength -= v17;
       }
       else

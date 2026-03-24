@@ -1,7 +1,7 @@
 /*
- * XREFs of bFntCacheCreateHLink @ 0x1C0285D0C
+ * XREFs of bFntCacheCreateHLink @ 0x1C0288DD8
  * Callers:
- *     SearchFntCacheNewLink @ 0x1C0285C74 (SearchFntCacheNewLink.c)
+ *     SearchFntCacheNewLink @ 0x1C0288D40 (SearchFntCacheNewLink.c)
  * Callees:
  *     <none>
  */
@@ -14,12 +14,12 @@ __int64 __fastcall bFntCacheCreateHLink(unsigned int a1)
   unsigned int v4; // edx
   __int64 v6; // rcx
 
-  v1 = *(_QWORD *)qword_1C0335DA8;
+  v1 = *(_QWORD *)qword_1C033ABE8;
   v2 = a1 % 0x3D;
-  v3 = *(unsigned int *)(*(_QWORD *)qword_1C0335DA8 + 4 * v2 + 72);
+  v3 = *(unsigned int *)(*(_QWORD *)qword_1C033ABE8 + 4 * v2 + 72);
   if ( (_DWORD)v3 == -1 )
   {
-    *(_DWORD *)(v1 + 4 * v2 + 72) = *(_DWORD *)(qword_1C0335DA8 + 8);
+    *(_DWORD *)(v1 + 4 * v2 + 72) = *(_DWORD *)(qword_1C033ABE8 + 8);
     return 1LL;
   }
   else
@@ -33,12 +33,12 @@ __int64 __fastcall bFntCacheCreateHLink(unsigned int a1)
         v3 = *(unsigned int *)(v6 + 8);
         if ( (_DWORD)v3 == -1 )
         {
-          *(_DWORD *)(v6 + 8) = *(_DWORD *)(qword_1C0335DA8 + 8);
+          *(_DWORD *)(v6 + 8) = *(_DWORD *)(qword_1C033ABE8 + 8);
           return 1LL;
         }
       }
       while ( (unsigned int)v3 <= v4 );
-      *(_DWORD *)(qword_1C0335DA8 + 16) |= 2u;
+      *(_DWORD *)(qword_1C033ABE8 + 16) |= 2u;
     }
     return 0LL;
   }

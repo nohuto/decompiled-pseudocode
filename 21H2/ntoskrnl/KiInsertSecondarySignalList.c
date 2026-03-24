@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInsertSecondarySignalList @ 0x14056F060
+ * XREFs of KiInsertSecondarySignalList @ 0x1405193D8
  * Callers:
- *     KeDispatchSecondaryInterrupt @ 0x14056EBB0 (KeDispatchSecondaryInterrupt.c)
+ *     KeDispatchSecondaryInterrupt @ 0x140518EB0 (KeDispatchSecondaryInterrupt.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiInsertQueueDpc @ 0x140345190 (KiInsertQueueDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSecondarySignalListLock @ 0x14056EC64 (KiAcquireSecondarySignalListLock.c)
+ *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSecondarySignalListLock @ 0x140518FDC (KiAcquireSecondarySignalListLock.c)
  */
 
 void __fastcall KiInsertSecondarySignalList(_QWORD **a1)
@@ -24,16 +24,16 @@ void __fastcall KiInsertSecondarySignalList(_QWORD **a1)
   if ( *a1 != a1 )
   {
     KiAcquireSecondarySignalListLock(&v9);
-    v2 = qword_140C2B0C8;
+    v2 = qword_140C2B478;
     if ( *(__int64 **)(KiSecondarySignalList + 8) != &KiSecondarySignalList
-      || *(__int64 **)qword_140C2B0C8 != &KiSecondarySignalList
+      || *(__int64 **)qword_140C2B478 != &KiSecondarySignalList
       || (_QWORD **)(*a1)[1] != a1
       || (_QWORD **)*a1[1] != a1 )
     {
       __fastfail(3u);
     }
-    *(_QWORD *)qword_140C2B0C8 = a1;
-    qword_140C2B0C8 = (__int64)a1[1];
+    *(_QWORD *)qword_140C2B478 = a1;
+    qword_140C2B478 = (__int64)a1[1];
     *a1[1] = &KiSecondarySignalList;
     v3 = KiSecondarySignalDpcRunning == 0;
     a1[1] = (_QWORD *)v2;

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiDeleteSystemPageTable @ 0x14011F030
+ * XREFs of MiDeleteSystemPageTable @ 0x14011F050
  * Callers:
  *     <none>
  * Callees:
@@ -8,15 +8,15 @@
  *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     MiEvictPageTableLock @ 0x1400983A0 (MiEvictPageTableLock.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiAddSystemPageTableToList @ 0x14011F208 (MiAddSystemPageTableToList.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiInsertLargeTbFlushEntry @ 0x140121464 (MiInsertLargeTbFlushEntry.c)
- *     MiReplicatePteChange @ 0x140174EF4 (MiReplicatePteChange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlCompareMemoryUlong @ 0x1401C5C30 (RtlCompareMemoryUlong.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiAddSystemPageTableToList @ 0x14011F228 (MiAddSystemPageTableToList.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140121484 (MiInsertLargeTbFlushEntry.c)
+ *     MiReplicatePteChange @ 0x140174F14 (MiReplicatePteChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlCompareMemoryUlong @ 0x1401C5C50 (RtlCompareMemoryUlong.c)
  */
 
 __int64 __fastcall MiDeleteSystemPageTable(__int64 a1, unsigned __int64 a2, int a3)

@@ -1,25 +1,25 @@
 /*
- * XREFs of ?vIFIMetricsToTextMetricWStrict@@YAXAEAVRFONTOBJ@@AEAVDCOBJ@@PEAUtagTEXTMETRICW@@PEAU_IFIMETRICS@@@Z @ 0x1C0016300
+ * XREFs of ?vIFIMetricsToTextMetricWStrict@@YAXAEAVRFONTOBJ@@AEAVDCOBJ@@PEAUtagTEXTMETRICW@@PEAU_IFIMETRICS@@@Z @ 0x1C0063708
  * Callers:
- *     cjIFIMetricsToOTMW @ 0x1C0013FC0 (cjIFIMetricsToOTMW.c)
- *     ?vIFIMetricsToTextMetricW@@YAXAEAVRFONTOBJ@@AEAVDCOBJ@@PEAU_TMW_INTERNAL@@PEAU_IFIMETRICS@@@Z @ 0x1C00C771C (-vIFIMetricsToTextMetricW@@YAXAEAVRFONTOBJ@@AEAVDCOBJ@@PEAU_TMW_INTERNAL@@PEAU_IFIMETRICS@@@Z.c)
+ *     cjIFIMetricsToOTMW @ 0x1C0064510 (cjIFIMetricsToOTMW.c)
+ *     ?vIFIMetricsToTextMetricW@@YAXAEAVRFONTOBJ@@AEAVDCOBJ@@PEAU_TMW_INTERNAL@@PEAU_IFIMETRICS@@@Z @ 0x1C009FD70 (-vIFIMetricsToTextMetricW@@YAXAEAVRFONTOBJ@@AEAVDCOBJ@@PEAU_TMW_INTERNAL@@PEAU_IFIMETRICS@@@Z.c)
  * Callees:
- *     ??0IFIOBJR@@QEAA@PEBU_IFIMETRICS@@AEAVRFONTOBJ@@AEAVDCOBJ@@@Z @ 0x1C001713C (--0IFIOBJR@@QEAA@PEBU_IFIMETRICS@@AEAVRFONTOBJ@@AEAVDCOBJ@@@Z.c)
- *     ?lOverhang@RFONTOBJ@@QEAAJXZ @ 0x1C001A064 (-lOverhang@RFONTOBJ@@QEAAJXZ.c)
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
- *     GetAppCompatFlags @ 0x1C01027E0 (GetAppCompatFlags.c)
+ *     ?lOverhang@RFONTOBJ@@QEAAJXZ @ 0x1C006407C (-lOverhang@RFONTOBJ@@QEAAJXZ.c)
+ *     ??0IFIOBJR@@QEAA@PEBU_IFIMETRICS@@AEAVRFONTOBJ@@AEAVDCOBJ@@@Z @ 0x1C009C038 (--0IFIOBJR@@QEAA@PEBU_IFIMETRICS@@AEAVRFONTOBJ@@AEAVDCOBJ@@@Z.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
+ *     GetAppCompatFlags @ 0x1C0110F40 (GetAppCompatFlags.c)
  */
 
 void __fastcall vIFIMetricsToTextMetricWStrict(
-        struct RFONTOBJ *this,
+        struct RFONTOBJ *a1,
         struct DCOBJ *a2,
         struct tagTEXTMETRICW *a3,
         struct _IFIMETRICS *a4)
 {
-  char v8; // di
-  __int64 v9; // rcx
-  char v10; // r15
-  __int64 v11; // r14
+  char v8; // si
+  char v9; // r15
+  __int64 v10; // rcx
+  __int64 v11; // rbx
   __int64 v12; // rax
   __int64 v13; // rcx
   __int64 v14; // rcx
@@ -33,9 +33,9 @@ void __fastcall vIFIMetricsToTextMetricWStrict(
   char v22; // al
   __int64 v23; // rax
   BYTE v24; // r8
-  __int64 v25; // rcx
+  int v25; // r14d
   __int64 v26; // rcx
-  int v27; // esi
+  __int64 v27; // rcx
   __int64 v28; // rcx
   __int64 v29; // rcx
   __int64 v30; // rcx
@@ -51,34 +51,33 @@ void __fastcall vIFIMetricsToTextMetricWStrict(
   LONG v40; // [rsp+A8h] [rbp+48h] BYREF
   int v41; // [rsp+B0h] [rbp+50h]
 
-  IFIOBJR::IFIOBJR((IFIOBJR *)&v31, a4, this, a2);
+  IFIOBJR::IFIOBJR((IFIOBJR *)&v31, a4, a1, a2);
   v8 = 0;
-  v9 = *(_QWORD *)this;
-  v10 = 8;
+  v9 = 8;
+  v10 = *(unsigned int *)(*(_QWORD *)a1 + 324LL);
   if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 976LL) + 340LL) & 0x802) == 0x802 )
   {
-    a3->tmHeight = (*(_DWORD *)(v9 + 324) + 8) >> 4;
-    a3->tmAscent = (*(_DWORD *)(*(_QWORD *)this + 316LL) + 8) >> 4;
-    a3->tmOverhang = RFONTOBJ::lOverhang(this);
+    a3->tmHeight = ((int)v10 + 8) >> 4;
+    a3->tmAscent = (*(_DWORD *)(*(_QWORD *)a1 + 316LL) + 8) >> 4;
+    a3->tmOverhang = RFONTOBJ::lOverhang(a1);
   }
   else
   {
     v40 = 0;
-    bFToL(v9, &v40, 0LL);
+    bFToL(v10, &v40, 0LL);
     a3->tmHeight = v40;
     v40 = 0;
-    bFToL(v25, &v40, 0LL);
-    a3->tmAscent = v40;
-    RFONTOBJ::lOverhang(this);
-    v26 = *(_QWORD *)this;
-    v40 = 0;
     bFToL(v26, &v40, 0LL);
+    a3->tmAscent = v40;
+    RFONTOBJ::lOverhang(a1);
+    v40 = 0;
+    bFToL(v27, &v40, 0LL);
     a3->tmOverhang = v40;
   }
   v11 = v31;
   if ( (*(_DWORD *)(v31 + 48) & 0x3000010) != 0 )
   {
-    v12 = *(_QWORD *)this;
+    v12 = *(_QWORD *)a1;
     v40 = 0;
     v13 = *(unsigned int *)(v12 + 380);
     if ( (_DWORD)v13 == 0x80000000 )
@@ -93,7 +92,7 @@ void __fastcall vIFIMetricsToTextMetricWStrict(
       v15 = v40;
     }
     a3->tmInternalLeading = v15;
-    v16 = *(_QWORD *)this;
+    v16 = *(_QWORD *)a1;
     v40 = 0;
     if ( *(_DWORD *)(v16 + 376) == 0x80000000 )
     {
@@ -105,14 +104,14 @@ void __fastcall vIFIMetricsToTextMetricWStrict(
     }
     bFToL(v14, &v40, 0LL);
     a3->tmExternalLeading = v40;
-    v17 = *(_QWORD *)this;
+    v17 = *(_QWORD *)a1;
     v40 = 0;
     v18 = *(unsigned int *)(v17 + 384);
     if ( (_DWORD)v18 == 0x80000000 )
       v41 = *(_DWORD *)(v17 + 212);
     bFToL(v18, &v40, 0LL);
     a3->tmMaxCharWidth = v40;
-    v19 = *(_QWORD *)this;
+    v19 = *(_QWORD *)a1;
     v40 = 0;
     v20 = *(unsigned int *)(v19 + 388);
     if ( (_DWORD)v20 == 0x80000000 )
@@ -149,8 +148,8 @@ void __fastcall vIFIMetricsToTextMetricWStrict(
   a3->tmItalic = -(v22 != 0);
   a3->tmUnderlined = *(_BYTE *)(v11 + 52) & 2;
   a3->tmStruckOut = *(_BYTE *)(v11 + 52) & 0x10;
-  LOBYTE(v21) = *(_DWORD *)(*(_QWORD *)a2 + 1752LL) & 0x80;
-  a3->tmUnderlined = -((*(_DWORD *)(*(_QWORD *)a2 + 1752LL) & 0x20) != 0);
+  LOBYTE(v21) = *(_DWORD *)(*(_QWORD *)a2 + 1760LL) & 0x80;
+  a3->tmUnderlined = -((*(_DWORD *)(*(_QWORD *)a2 + 1760LL) & 0x20) != 0);
   a3->tmStruckOut = -((_BYTE)v21 != 0);
   a3->tmFirstChar = *(_WORD *)(v11 + 112);
   a3->tmLastChar = *(_WORD *)(v11 + 114);
@@ -161,22 +160,20 @@ void __fastcall vIFIMetricsToTextMetricWStrict(
   {
     v23 = *(_QWORD *)(*(_QWORD *)a2 + 48LL);
     if ( (*(_DWORD *)(v23 + 40) & 1) != 0
-      || (*(_DWORD *)(v23 + 2152) & 0x2000) != 0
+      || (*(_DWORD *)(v23 + 2184) & 0x2000) != 0
       || *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 976LL) + 208LL) != 1
       || gbDBCSCodePage && (int)GetAppCompatFlags(0LL) < 0 )
     {
-      v10 = 0;
+      v9 = 0;
     }
-    v24 = v10 | *(_BYTE *)(v11 + 45) & 0xF0 | (*(_DWORD *)(v11 + 48) >> 1) & 2 | ((*(_DWORD *)(v11 + 48) & 1) != 0
-                                                                                ? 6
-                                                                                : 0) | ((*(_DWORD *)(v11 + 48) & 0x401000) == 0);
+    v24 = v9 | *(_BYTE *)(v11 + 45) & 0xF0 | (*(_DWORD *)(v11 + 48) >> 1) & 2 | ((*(_DWORD *)(v11 + 48) & 1) != 0 ? 6 : 0) | ((*(_DWORD *)(v11 + 48) & 0x401000) == 0);
   }
   else
   {
-    v27 = *(_DWORD *)(*(_QWORD *)this + 92LL);
+    v25 = *(_DWORD *)(*(_QWORD *)a1 + 92LL);
     if ( (a4->flInfo & 8) != 0 && (!gbDBCSCodePage || (int)GetAppCompatFlags(0LL) >= 0) )
       v8 = 10;
-    v24 = v8 | *(_BYTE *)(v11 + 45) & 0xF0 | (v27 != 0 ? 8 : 0) | (*(_DWORD *)(v11 + 48) >> 1) & 2 | ((*(_DWORD *)(v11 + 48) & 1) != 0 ? 6 : 0) | ((*(_DWORD *)(v11 + 48) & 0x401000) == 0);
+    v24 = v8 | *(_BYTE *)(v11 + 45) & 0xF0 | (v25 != 0 ? 8 : 0) | (*(_DWORD *)(v11 + 48) >> 1) & 2 | ((*(_DWORD *)(v11 + 48) & 1) != 0 ? 6 : 0) | ((*(_DWORD *)(v11 + 48) & 0x401000) == 0);
   }
   a3->tmPitchAndFamily = v24;
   a3->tmDigitizedAspectX = v38;

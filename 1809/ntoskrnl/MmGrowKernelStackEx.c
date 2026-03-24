@@ -1,15 +1,15 @@
 /*
- * XREFs of MmGrowKernelStackEx @ 0x140132EB0
+ * XREFs of MmGrowKernelStackEx @ 0x140132ED0
  * Callers:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1400C9AC0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     KxSwitchKernelStackCallout @ 0x1401C02E0 (KxSwitchKernelStackCallout.c)
- *     MmGrowKernelStack @ 0x1402AB5A0 (MmGrowKernelStack.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1400C9AE0 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KxSwitchKernelStackCallout @ 0x1401C0300 (KxSwitchKernelStackCallout.c)
+ *     MmGrowKernelStack @ 0x1402AB6A0 (MmGrowKernelStack.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiAllocateKernelStackPages @ 0x1400B5640 (MiAllocateKernelStackPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAllocateKernelStackPages @ 0x1400B5660 (MiAllocateKernelStackPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)

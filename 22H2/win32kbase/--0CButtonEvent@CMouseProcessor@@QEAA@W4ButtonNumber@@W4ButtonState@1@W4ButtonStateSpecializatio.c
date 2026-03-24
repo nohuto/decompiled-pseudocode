@@ -1,17 +1,16 @@
 /*
- * XREFs of ??0CButtonEvent@CMouseProcessor@@QEAA@W4ButtonNumber@@W4ButtonState@1@W4ButtonStateSpecialization@1@PEBVCMouseEvent@1@@Z @ 0x1C01F49B8
+ * XREFs of ??0CButtonEvent@CMouseProcessor@@QEAA@W4ButtonNumber@@W4ButtonState@1@W4ButtonStateSpecialization@1@PEBVCMouseEvent@1@@Z @ 0x1C009CDA0
  * Callers:
- *     ?ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z @ 0x1C01F5920 (-ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z.c)
+ *     ?ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z @ 0x1C009CC80 (-ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _anonymous_namespace_::IsMouseButtonSwapped @ 0x1C01F892C (_anonymous_namespace_--IsMouseButtonSwapped.c)
+ *     _anonymous_namespace_::IsMouseButtonSwapped @ 0x1C009CE78 (_anonymous_namespace_--IsMouseButtonSwapped.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall CMouseProcessor::CButtonEvent::CButtonEvent(__int64 a1, __int64 a2, int a3, int a4, __int64 a5)
 {
   __int64 v6; // r10
-  int v7; // eax
-  void *v8; // rax
+  void *v7; // rax
 
   v6 = *(_QWORD *)(a5 + 8);
   *(_QWORD *)a1 = &CMouseProcessor::CButtonEvent::`vftable';
@@ -23,12 +22,14 @@ __int64 __fastcall CMouseProcessor::CButtonEvent::CButtonEvent(__int64 a1, __int
   *(_QWORD *)(a1 + 40) = 0LL;
   *(_DWORD *)(a1 + 16) = 2;
   if ( !(_DWORD)a2 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 7279);
-  if ( ((*(_DWORD *)(a1 + 24) - 1) & *(_DWORD *)(a1 + 24)) != 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 7282);
-  v7 = *(_DWORD *)(a1 + 32);
-  if ( v7 != 2 && v7 != 1 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 7284);
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 6985LL);
+    a2 = *(unsigned int *)(a1 + 24);
+  }
+  if ( (((_DWORD)a2 - 1) & (unsigned int)a2) != 0 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 6988LL);
+  if ( (unsigned int)(*(_DWORD *)(a1 + 32) - 1) > 1 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 6990LL);
   if ( (*(_DWORD *)(*(_QWORD *)(a1 + 8) + 112LL) & 0x400) == 0 )
   {
     LOBYTE(a2) = *(_DWORD *)(a1 + 32) == 2;
@@ -36,27 +37,28 @@ __int64 __fastcall CMouseProcessor::CButtonEvent::CButtonEvent(__int64 a1, __int
       *(_DWORD *)(a1 + 24) ^= 3u;
   }
   if ( *(_QWORD *)(a1 + 40) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 7291);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 6997LL);
   switch ( *(_DWORD *)(a1 + 24) )
   {
     case 1:
-      v8 = &CMouseProcessor::CButtonEvent::_dependentInfo;
-      goto LABEL_24;
+      v7 = &CMouseProcessor::CButtonEvent::_dependentInfo;
+      break;
     case 2:
-      v8 = &unk_1C0266BD8;
-      goto LABEL_24;
+      v7 = &unk_1C020EA48;
+      break;
     case 4:
-      v8 = &unk_1C0266BF0;
-      goto LABEL_24;
+      v7 = &unk_1C020EA60;
+      break;
     case 8:
-      v8 = &unk_1C0266C08;
-      goto LABEL_24;
+      v7 = &unk_1C020EA78;
+      break;
     case 0x10:
-      v8 = &unk_1C0266C20;
-LABEL_24:
-      *(_QWORD *)(a1 + 40) = v8;
+      v7 = &unk_1C020EA90;
+      break;
+    default:
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 7027LL);
       return a1;
   }
-  MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 7321);
+  *(_QWORD *)(a1 + 40) = v7;
   return a1;
 }

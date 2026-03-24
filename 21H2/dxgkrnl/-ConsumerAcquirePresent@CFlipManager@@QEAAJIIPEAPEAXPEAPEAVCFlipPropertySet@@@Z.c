@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ConsumerAcquirePresent@CFlipManager@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z @ 0x1C007C6D0
+ * XREFs of ?ConsumerAcquirePresent@CFlipManager@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z @ 0x1C006AC80
  * Callers:
- *     ?ConsumerAcquirePresent@FlipManagerObject@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z @ 0x1C0079B8C (-ConsumerAcquirePresent@FlipManagerObject@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z.c)
+ *     ?ConsumerAcquirePresent@FlipManagerObject@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z @ 0x1C00684DC (-ConsumerAcquirePresent@FlipManagerObject@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 __fastcall CFlipManager::ConsumerAcquirePresent(
   __int64 v9; // rcx
   struct CFlipPropertySet *v10; // rcx
 
-  v5 = *((_QWORD *)this + 35);
+  v5 = *((_QWORD *)this + 25);
   v6 = 0;
   v8 = 0;
   if ( v5 )
@@ -30,7 +30,7 @@ __int64 __fastcall CFlipManager::ConsumerAcquirePresent(
     if ( *(_DWORD *)(v5 + 40) == a2 && v8 == a3 )
     {
       *a4 = *(void **)(v5 + 48);
-      v10 = *(struct CFlipPropertySet **)(*((_QWORD *)this + 35) + 56LL);
+      v10 = *(struct CFlipPropertySet **)(*((_QWORD *)this + 25) + 56LL);
       *a5 = v10;
       if ( v10 )
         ++*((_DWORD *)v10 + 2);

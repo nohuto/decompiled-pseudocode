@@ -1,104 +1,92 @@
 /*
- * XREFs of MiCheckSecuredVad @ 0x1407A4C90
+ * XREFs of MiCheckSecuredVad @ 0x1406623F8
  * Callers:
- *     MiResetVirtualMemory @ 0x14024DB60 (MiResetVirtualMemory.c)
- *     MiFindPlaceholderVadToReplace @ 0x1405B2088 (MiFindPlaceholderVadToReplace.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x1406E2C14 (MiUnmapLockedPagesInUserSpace.c)
- *     MiUnmapViewOfSection @ 0x1406F8D30 (MiUnmapViewOfSection.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x1407A4A8C (MmSecureVirtualMemoryAgainstWrites.c)
- *     MmFreeVirtualMemory @ 0x1407B99C0 (MmFreeVirtualMemory.c)
- *     MmProtectVirtualMemory @ 0x1407B9FA0 (MmProtectVirtualMemory.c)
- *     MiAllocateVirtualMemory @ 0x1407BE3C0 (MiAllocateVirtualMemory.c)
- *     MiCoalescePlaceholderAllocations @ 0x14096D8A8 (MiCoalescePlaceholderAllocations.c)
+ *     MiResetVirtualMemory @ 0x1402C538C (MiResetVirtualMemory.c)
+ *     MiFindPlaceholderVadToReplace @ 0x1405551F4 (MiFindPlaceholderVadToReplace.c)
+ *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1405FA060 (MmProtectVirtualMemory.c)
+ *     MiUnmapViewOfSection @ 0x14061E0F0 (MiUnmapViewOfSection.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x1406621F8 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x14076DC9C (MiUnmapLockedPagesInUserSpace.c)
+ *     MiCoalescePlaceholderAllocations @ 0x1408C87A4 (MiCoalescePlaceholderAllocations.c)
  * Callees:
- *     MiComparePteProtections @ 0x14022A470 (MiComparePteProtections.c)
- *     MiGetVadPageSize @ 0x14030EBF4 (MiGetVadPageSize.c)
+ *     MiComparePteProtections @ 0x14025BA58 (MiComparePteProtections.c)
+ *     MiGetVadPageSize @ 0x14055BDB0 (MiGetVadPageSize.c)
  */
 
 __int64 __fastcall MiCheckSecuredVad(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, char a5)
 {
-  __int64 v8; // r10
-  unsigned __int64 v9; // r13
+  __int64 *v8; // rdi
+  unsigned __int64 v9; // r14
   unsigned int v10; // r9d
-  unsigned __int64 v11; // r15
-  unsigned __int64 v12; // rbp
-  unsigned int v13; // r12d
-  unsigned __int64 i; // rdi
-  int v15; // ecx
-  char v16; // dl
-  bool v17; // cc
+  unsigned int v11; // r15d
+  int v12; // ecx
+  char v13; // dl
+  bool v14; // cc
   __int64 result; // rax
-  unsigned __int64 v19; // rcx
+  unsigned __int64 v16; // rcx
 
-  v8 = 4096LL;
-  if ( (*(_DWORD *)(a1 + 48) & 0xA00000) == 0xA00000 )
-    v8 = MiGetVadPageSize(a1) << 12;
+  if ( (*(_DWORD *)(a1 + 48) & 0x500000) == 0x500000 && (unsigned __int64)MiGetVadPageSize(a1) >= 0x200 )
+    return 0LL;
+  v8 = *(__int64 **)(a1 + 56);
   v9 = a2 + a3 - 1;
   v10 = 0;
-  v11 = a2 & ~(v8 - 1);
-  v12 = (~(v8 - 1) & (v8 + v9)) - 1;
-  if ( v11 < (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) << 12
-    || v12 > (((*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32)) << 12) | 0xFFF) )
+  v11 = a4 < 0x55 ? a4 : 0;
+  while ( 1 )
   {
-    return 3221225541LL;
-  }
-  v13 = a4 < 0x55 ? a4 : 0;
-  for ( i = *(_QWORD *)(a1 + 56) & 0xFFFFFFFFFFFFFFF0uLL; i; i = *(_QWORD *)i )
-  {
-    if ( *(_DWORD *)(i + 64) == 2 )
+    if ( !v8 )
+      return v10;
+    if ( *((_DWORD *)v8 + 16) != 2 )
+      goto LABEL_14;
+    v12 = *((_DWORD *)v8 + 2);
+    if ( (v12 & 0x40) != 0 && a5 != 1 )
+      goto LABEL_14;
+    if ( a2 > v8[2] || v9 < (v8[1] & 0xFFFFFFFFFFFFF000uLL) )
+      goto LABEL_14;
+    if ( a4 >= 0x55 && (v12 & 8) != 0 )
+      return 3221225541LL;
+    if ( (v12 & 0x100) != 0 && (*(_DWORD *)(a1 + 48) & 0x5100000) == 0x4100000 )
     {
-      v15 = *(_DWORD *)(i + 8);
-      if ( ((v15 & 0x40) == 0 || a5 == 1)
-        && v11 <= *(_QWORD *)(i + 16)
-        && v12 >= (*(_QWORD *)(i + 8) & 0xFFFFFFFFFFFFF000uLL) )
+      if ( (a4 | 0x10) != 0x11
+        || (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) == a2 >> 12
+        || (*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32)) == v9 >> 12 )
       {
-        if ( a4 >= 0x55 && (v15 & 8) != 0 )
-          return 3221225541LL;
-        if ( (v15 & 0x100) != 0 && (*(_DWORD *)(a1 + 48) & 0xA200000) == 0x8200000 )
-        {
-          if ( (a4 | 0x10) != 0x11
-            || (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) == a2 >> 12
-            || (*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32)) == v9 >> 12 )
-          {
-            return 3221225541LL;
-          }
-        }
-        else if ( (v15 & 4) != 0 )
-        {
-          if ( a4 < 0x55 )
-          {
-            v19 = (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) << 12;
-            if ( (v19 == 2147352576 || v19 == qword_140C50678 && qword_140C50678)
-              && (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 1) == 0 )
-            {
-              return 3221225541LL;
-            }
-            result = MiComparePteProtections(a1, a2, v9, a4, 1);
-            v10 = result;
-            if ( (int)result < 0 )
-              return result;
-          }
-        }
-        else
-        {
-          if ( (v13 & 0xFFFFFFF8) == 0x10 )
-            return 3221225541LL;
-          v16 = *((_BYTE *)MiReadWrite + (v13 & 7));
-          if ( (v15 & 1) != 0 )
-          {
-            v17 = v16 < 10;
-            goto LABEL_16;
-          }
-          if ( (v15 & 2) != 0 )
-          {
-            v17 = v16 < 11;
-LABEL_16:
-            if ( v17 )
-              return 3221225541LL;
-          }
-        }
+        return 3221225541LL;
       }
+      goto LABEL_14;
     }
+    if ( (v12 & 4) != 0 )
+      break;
+    if ( (v11 & 0xFFFFFFF8) == 0x10 )
+      return 3221225541LL;
+    v13 = *((_BYTE *)&MiReadWrite + (v11 & 7));
+    if ( (v12 & 1) != 0 )
+    {
+      v14 = v13 < 10;
+    }
+    else
+    {
+      if ( (v12 & 2) == 0 )
+        goto LABEL_14;
+      v14 = v13 < 11;
+    }
+    if ( v14 )
+      return 3221225541LL;
+LABEL_14:
+    v8 = (__int64 *)*v8;
   }
-  return v10;
+  if ( a4 >= 0x55 )
+    goto LABEL_14;
+  v16 = (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) << 12;
+  if ( v16 != 2147352576 && (v16 != qword_140C4DE48 || !qword_140C4DE48)
+    || (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 1) != 0 )
+  {
+    result = MiComparePteProtections(a1, a2, v9, (_DWORD *)a4, 1);
+    v10 = result;
+    if ( (int)result < 0 )
+      return result;
+    goto LABEL_14;
+  }
+  return 3221225541LL;
 }

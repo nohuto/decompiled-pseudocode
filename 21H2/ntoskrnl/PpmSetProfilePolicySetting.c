@@ -1,25 +1,25 @@
 /*
- * XREFs of PpmSetProfilePolicySetting @ 0x1407FCE7C
+ * XREFs of PpmSetProfilePolicySetting @ 0x14067A000
  * Callers:
- *     PopSetNewPolicyValue @ 0x1407FD344 (PopSetNewPolicyValue.c)
- *     PpmProcessSettingsFromQueryTable @ 0x14099D934 (PpmProcessSettingsFromQueryTable.c)
+ *     PopSetNewPolicyValue @ 0x14067A6B0 (PopSetNewPolicyValue.c)
+ *     PpmProcessSettingsFromQueryTable @ 0x1408F5ED8 (PpmProcessSettingsFromQueryTable.c)
  * Callees:
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PpmInfoAdjustSetting @ 0x1407FD448 (PpmInfoAdjustSetting.c)
- *     PpmInfoReleaseLocks @ 0x1407FD604 (PpmInfoReleaseLocks.c)
- *     PpmReapplyPerfPolicy @ 0x140849940 (PpmReapplyPerfPolicy.c)
- *     PpmEventTraceProfileSetting @ 0x14085490C (PpmEventTraceProfileSetting.c)
- *     PpmGetPolicyAction @ 0x140854A90 (PpmGetPolicyAction.c)
- *     PpmReapplyIdlePolicy @ 0x14098B1A8 (PpmReapplyIdlePolicy.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PpmInfoAdjustSetting @ 0x14067AF64 (PpmInfoAdjustSetting.c)
+ *     PpmInfoReleaseLocks @ 0x14067B118 (PpmInfoReleaseLocks.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BA700 (PpmReapplyPerfPolicy.c)
+ *     PpmGetPolicyAction @ 0x1407C4E80 (PpmGetPolicyAction.c)
+ *     PpmEventTraceProfileSetting @ 0x1407C5394 (PpmEventTraceProfileSetting.c)
+ *     PpmReapplyIdlePolicy @ 0x1408E28EC (PpmReapplyIdlePolicy.c)
  */
 
 __int64 __fastcall PpmSetProfilePolicySetting(_QWORD *a1, _QWORD *a2, int a3, __int64 a4, int a5)
 {
   unsigned int v5; // edi
-  __int64 v6; // r13
+  __int64 v6; // r12
   __int64 v9; // rax
   unsigned int v10; // r9d
   GUID **v11; // rdx
@@ -29,42 +29,41 @@ __int64 __fastcall PpmSetProfilePolicySetting(_QWORD *a1, _QWORD *a2, int a3, __
   unsigned __int8 v15; // r10
   __int64 v16; // rcx
   __int64 v17; // rbx
-  int v18; // r12d
+  int v18; // r13d
   __int64 v19; // rax
   __int64 *v20; // rbp
   __int64 v21; // r15
   char v22; // al
-  _QWORD *v23; // rdx
+  __int64 v23; // rdx
   int v24; // r9d
   unsigned int v25; // ecx
-  char v26; // al
-  unsigned int i; // ebp
-  __int64 v29; // r15
-  __int64 v30; // rdx
-  __int64 v31; // rbp
-  __int64 v32; // rcx
-  __int64 v33; // r15
-  bool v34; // zf
-  char v35; // al
-  int v36; // ecx
-  int v37; // r9d
-  char v38; // al
-  char v39; // [rsp+40h] [rbp-78h]
-  bool v40; // [rsp+44h] [rbp-74h]
-  unsigned int v41; // [rsp+48h] [rbp-70h] BYREF
-  int v42; // [rsp+4Ch] [rbp-6Ch]
-  int v43; // [rsp+50h] [rbp-68h]
-  __int64 v44; // [rsp+58h] [rbp-60h]
-  __int64 *v45; // [rsp+60h] [rbp-58h]
-  __int64 v46; // [rsp+68h] [rbp-50h]
-  GUID v47; // [rsp+70h] [rbp-48h] BYREF
+  bool v26; // al
+  bool v28; // r15
+  __int64 v29; // r12
+  _QWORD *v30; // rbp
+  __int64 v31; // r8
+  __int64 v32; // rdx
+  __int64 v33; // rbp
+  __int64 v34; // rcx
+  __int64 v35; // r15
+  bool v36; // zf
+  char v37; // al
+  int v38; // ecx
+  int v39; // r9d
+  char v40; // [rsp+40h] [rbp-78h]
+  bool v41; // [rsp+44h] [rbp-74h]
+  __int64 v42; // [rsp+50h] [rbp-68h] BYREF
+  __int64 v43; // [rsp+58h] [rbp-60h]
+  __int64 v44; // [rsp+60h] [rbp-58h] BYREF
+  __int64 v45; // [rsp+68h] [rbp-50h]
+  __int64 v46; // [rsp+70h] [rbp-48h]
+  GUID v47; // [rsp+78h] [rbp-40h]
 
   v5 = 0;
   v6 = a3;
-  v44 = a4;
-  v39 = 0;
+  v46 = a4;
   v40 = 0;
-  LOBYTE(v42) = 0;
+  v41 = 0;
   if ( !a5 || !a4 )
     return (unsigned int)-1073741811;
   if ( a3 )
@@ -76,7 +75,7 @@ __int64 __fastcall PpmSetProfilePolicySetting(_QWORD *a1, _QWORD *a2, int a3, __
   {
 LABEL_7:
     v10 = 0;
-    v11 = &off_140D05FC8;
+    v11 = &off_140CFBB48;
 LABEL_8:
     v12 = v11 - 1;
     v13 = 0;
@@ -97,7 +96,7 @@ LABEL_8:
       {
         ++v10;
         v11 += 5;
-        if ( v10 < 0x36 )
+        if ( v10 < 0x35 )
           goto LABEL_8;
         return (unsigned int)-1073741275;
       }
@@ -108,128 +107,135 @@ LABEL_8:
       PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
     else
       PopAcquireRwLockExclusive((ULONG_PTR)&PpmIdlePolicyLock);
-    v45 = PpmCurrentProfile;
-    v41 = dword_140C232CC;
+    *(_QWORD *)&v47.Data1 = PpmCurrentProfile;
+    LODWORD(v42) = dword_140C23E8C;
     v19 = *a1 - *(_QWORD *)&NullGuid.Data1;
     if ( *a1 == *(_QWORD *)&NullGuid.Data1 )
       v19 = a1[1] - *(_QWORD *)NullGuid.Data4;
     if ( v19 )
     {
-      v30 = 0LL;
+      v32 = 0LL;
       if ( !PpmProfileCount )
       {
-LABEL_76:
-        PpmInfoReleaseLocks(v12, v30);
+LABEL_58:
+        PpmInfoReleaseLocks(v12, v32);
         return (unsigned int)-1073741275;
       }
       while ( 1 )
       {
-        v31 = PpmProfiles + 8624LL * (unsigned int)v30;
-        v32 = *(_QWORD *)(v31 + 12) - *a1;
-        if ( !v32 )
-          v32 = *(_QWORD *)(v31 + 20) - a1[1];
-        if ( !v32 )
+        v33 = PpmProfiles + 5552LL * (unsigned int)v32;
+        v34 = *(_QWORD *)(v33 + 12) - *a1;
+        if ( !v34 )
+          v34 = *(_QWORD *)(v33 + 20) - a1[1];
+        if ( !v34 )
           break;
-        v30 = (unsigned int)(v30 + 1);
-        if ( (unsigned int)v30 >= (unsigned __int8)PpmProfileCount )
-          goto LABEL_76;
+        v32 = (unsigned int)(v32 + 1);
+        if ( (unsigned int)v32 >= (unsigned __int8)PpmProfileCount )
+          goto LABEL_58;
       }
-      v43 = *((_DWORD *)v12 + 8);
-      v33 = v31 + 4272 * v6 + 40;
-      v34 = (*((_BYTE *)v12 + 37) & 4) == 0;
-      *(_QWORD *)&v47.Data1 = (char *)v12[3] + v13 * v43 + v33;
-      if ( !v34 && !v13 && (v17 & *(_QWORD *)(v33 + 8)) == 0 )
+      LODWORD(v43) = *((_DWORD *)v12 + 8);
+      v35 = v33 + 2736 * v6 + 40;
+      v36 = (*((_BYTE *)v12 + 37) & 4) == 0;
+      v44 = (__int64)v12[3] + v13 * (unsigned int)v43 + v35;
+      if ( !v36 && !v13 && (v17 & *(_QWORD *)(v35 + 8)) == 0 )
         v18 = 1;
-      v35 = PpmInfoAdjustSetting((_DWORD)v12, (int)v31 + 4272 * (int)v6 + 40, v13, v18, v44, a5);
-      *(_QWORD *)(v33 + 8LL * v13) |= v17;
-      if ( v35 )
+      v37 = PpmInfoAdjustSetting((_DWORD)v12, (int)v33 + 2736 * (int)v6 + 40, v13, v18, v46, a5);
+      *(_QWORD *)(v35 + 8LL * v13) |= v17;
+      if ( v37 )
       {
-        LOBYTE(v37) = v13;
-        LOBYTE(v36) = *(_BYTE *)(v31 + 8);
-        PpmEventTraceProfileSetting(
-          v36,
-          (unsigned int)*v12,
-          (unsigned int)v12[1],
-          v37,
-          *(__int64 *)&v47.Data1,
-          v43,
-          v6,
-          0);
-        v23 = (_QWORD *)v41;
-        if ( v45 == (__int64 *)v31 )
-          v40 = v41 == (_DWORD)v6;
-        if ( PpmBackgroundProfile == v31 || PpmMultimediaQosProfile == v31 || PpmEntryLevelPerfProfile == v31 )
+        LOBYTE(v39) = v13;
+        LOBYTE(v38) = *(_BYTE *)(v33 + 8);
+        PpmEventTraceProfileSetting(v38, (unsigned int)*v12, (unsigned int)v12[1], v39, v44, v43, v6, 0);
+        if ( *(_QWORD *)&v47.Data1 == v33 )
         {
-          v26 = v42;
-          if ( v41 == (_DWORD)v6 )
-            v26 = 1;
+          v23 = 1LL;
+          v41 = (_DWORD)v42 == (_DWORD)v6;
+        }
+        if ( PpmBackgroundProfile == v33 || PpmMultimediaQosProfile == v33 || PpmEntryLevelPerfProfile == v33 )
+        {
+          v26 = (_DWORD)v42 == (_DWORD)v6;
           goto LABEL_23;
         }
       }
     }
     else
     {
-      *(_QWORD *)&v47.Data1 = v6;
-      v46 = 4272 * v6;
-      v20 = &PpmDefaultProfile[534 * v6 + 5];
-      v43 = *((_DWORD *)v12 + 8);
-      v21 = (__int64)v12[3] + v13 * v43 + (_QWORD)v20;
+      v44 = v6;
+      v45 = 2736 * v6;
+      v20 = &PpmDefaultProfile[342 * v6 + 5];
+      LODWORD(v43) = *((_DWORD *)v12 + 8);
+      v21 = (__int64)v12[3] + v13 * (unsigned int)v43 + (_QWORD)v20;
       if ( (*((_BYTE *)v12 + 37) & 4) != 0 && !v13 && (v17 & v20[1]) == 0 )
       {
-        v39 = 1;
+        v40 = 1;
         v18 = 1;
       }
-      v22 = PpmInfoAdjustSetting((_DWORD)v12, 4272 * v6 + (unsigned int)&PpmDefaultProfile[5], v13, v18, v44, a5);
+      v22 = PpmInfoAdjustSetting((_DWORD)v12, 2736 * v6 + (unsigned int)&PpmDefaultProfile[5], v13, v18, v46, a5);
       v25 = v13;
       v20[v13] |= v17;
       if ( v22 )
       {
         LOBYTE(v24) = v13;
-        LOBYTE(v25) = byte_140C1D068;
+        LOBYTE(v25) = byte_140C1EE88;
         PpmEventTraceProfileSetting(v25, (unsigned int)*v12, (unsigned int)v12[1], v24, v21, v43, v6, 0);
-        v23 = (_QWORD *)v41;
-        if ( v45 == PpmDefaultProfile )
-          v40 = v41 == (_DWORD)v6;
-        for ( i = 0; i < (unsigned __int8)PpmProfileCount; ++i )
+        v28 = 0;
+        if ( *(__int64 **)&v47.Data1 == PpmDefaultProfile )
         {
-          v29 = PpmProfiles + 8624LL * i;
-          v23 = (_QWORD *)(v29 + v46 + 40);
-          if ( (v23[v13] & v17) == 0 && (!v13 || (v17 & *v23) == 0) )
+          v28 = (_DWORD)v42 == (_DWORD)v6;
+          v41 = (_DWORD)v42 == (_DWORD)v6;
+        }
+        if ( PpmProfileCount )
+        {
+          v29 = (unsigned __int8)PpmProfileCount;
+          v42 = (int)v42;
+          v23 = v45 + 40;
+          v30 = (_QWORD *)(v45 + 40 + PpmProfiles);
+          v43 = v45 + 40;
+          v31 = -40LL;
+          v45 = -40LL;
+          do
           {
-            if ( (*((_BYTE *)v12 + 37) & 4) != 0 && !v13 )
+            if ( (*(_QWORD *)((char *)&v30[v13 + 5] + v31) & v17) == 0 && (!v13 || (v17 & *v30) == 0) )
             {
-              if ( v39 )
+              if ( (*((_BYTE *)v12 + 37) & 4) != 0 && !v13 )
               {
-                if ( (v17 & v23[1]) == 0 )
-                  v18 = 1;
+                if ( v40 )
+                {
+                  if ( (v17 & *(_QWORD *)((char *)v30 + v31 + 48)) == 0 )
+                    v18 = 1;
+                }
+                else
+                {
+                  v18 = 0;
+                }
               }
-              else
+              PpmInfoAdjustSetting((_DWORD)v12, (_DWORD)v30, v13, v18, v46, a5);
+              v31 = v45;
+              if ( *(_QWORD **)&v47.Data1 == (_QWORD *)((char *)v30 - v43) )
               {
-                v18 = 0;
+                v23 = 1LL;
+                if ( v42 == v44 )
+                  v28 = 1;
               }
             }
-            PpmInfoAdjustSetting((_DWORD)v12, (_DWORD)v23, v13, v18, v44, a5);
-            if ( v45 == (__int64 *)v29 )
-            {
-              v38 = v40;
-              if ( v41 == *(_QWORD *)&v47.Data1 )
-                v38 = 1;
-              v40 = v38;
-            }
+            v30 += 694;
+            --v29;
           }
+          while ( v29 );
+          v41 = v28;
         }
       }
     }
-    v26 = v42;
+    v26 = 0;
 LABEL_23:
-    v41 = 0;
-    if ( v40 || PopHeteroSystem && PpmPerfSchedulerDirectedPerfStatesSupported && v26 )
+    LODWORD(v42) = 0;
+    if ( v41 || PopHeteroSystem && PpmPerfSchedulerDirectedPerfStatesSupported && v26 )
     {
-      *(_QWORD *)&v47.Data1 = 1LL << *((_BYTE *)v12 + 36);
-      PpmGetPolicyAction(&v47, &v41);
+      v44 = 1LL << *((_BYTE *)v12 + 36);
+      PpmGetPolicyAction(&v44, &v42);
       if ( (*((_BYTE *)v12 + 37) & 1) != 0 )
       {
-        PpmReapplyPerfPolicy(&v41);
+        PpmReapplyPerfPolicy(&v42);
       }
       else
       {

@@ -1,73 +1,107 @@
 /*
- * XREFs of DpiQuerySystemFirmwareTables @ 0x1C0218040
+ * XREFs of DpiQuerySystemFirmwareTables @ 0x1C019D1E8
  * Callers:
- *     DpiReadSystemFirmwareTable @ 0x1C0217FD0 (DpiReadSystemFirmwareTable.c)
- *     DpiEnumSystemFirmwareTables @ 0x1C03888E0 (DpiEnumSystemFirmwareTables.c)
+ *     DpiReadSystemFirmwareTable @ 0x1C019D170 (DpiReadSystemFirmwareTable.c)
+ *     DpiEnumSystemFirmwareTables @ 0x1C02C80D0 (DpiEnumSystemFirmwareTables.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
  */
 
-__int64 __fastcall DpiQuerySystemFirmwareTables(int a1, int a2, int a3, unsigned int a4, void *a5, unsigned int *a6)
+__int64 __fastcall DpiQuerySystemFirmwareTables(
+        __int64 a1,
+        __int64 a2,
+        int a3,
+        unsigned int a4,
+        void *a5,
+        unsigned int *a6)
 {
-  _DWORD *PoolWithTag; // rdi
-  ULONG v11; // ebx
-  NTSTATUS v12; // eax
-  __int64 v13; // rbx
-  unsigned int v15; // eax
-  __int64 v16; // rcx
+  _DWORD *PoolWithTag; // rbx
+  unsigned int v7; // esi
+  int v9; // r12d
+  int v10; // r13d
+  ULONG v11; // edi
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  NTSTATUS v16; // eax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // rdi
+  unsigned int v20; // edx
+  _QWORD *v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
   ULONG ReturnLength[4]; // [rsp+20h] [rbp-C8h] BYREF
   _BYTE SystemInformation[128]; // [rsp+30h] [rbp-B8h] BYREF
 
   PoolWithTag = SystemInformation;
+  v7 = a4;
   ReturnLength[0] = 0;
+  v9 = a2;
+  v10 = a1;
   if ( KeGetCurrentIrql() )
   {
-    LODWORD(v13) = -1073741811;
-    WdLogSingleEntry3(0LL, 275LL, 21LL, -1073741811LL);
-    return (unsigned int)v13;
+    LODWORD(v19) = -1073741811;
+    v22 = (_QWORD *)WdLogNewEntry5_WdCriticalError(a1, a2);
+    v22[3] = 275LL;
+    v22[4] = 21LL;
+    v22[5] = -1073741811LL;
+    WdLogEvent5_WdCriticalError(v22);
   }
-  if ( !a5 && a4 || !a6 )
+  else if ( (a5 || !a4) && a6 )
   {
-    LODWORD(v13) = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    return (unsigned int)v13;
-  }
-  v11 = a4 + 16;
-  if ( a4 + 16 <= 0x80 || (PoolWithTag = ExAllocatePoolWithTag(PagedPool, v11, 0x74727044u)) != 0LL )
-  {
-    PoolWithTag[1] = a1;
-    *PoolWithTag = a2;
-    PoolWithTag[2] = a3;
-    PoolWithTag[3] = a4;
-    v12 = ZwQuerySystemInformation(SystemFirmwareTableInformation, PoolWithTag, v11, ReturnLength);
-    v13 = v12;
-    if ( v12 >= 0 )
+    v11 = a4 + 16;
+    if ( a4 + 16 <= 0x80 || (PoolWithTag = ExAllocatePoolWithTag(PagedPool, v11, 0x74727044u)) != 0LL )
     {
-      v15 = PoolWithTag[3];
-      *a6 = v15;
-      if ( v15 <= a4 )
-        a4 = v15;
-      if ( a5 )
-        memmove(a5, PoolWithTag + 4, a4);
-      goto LABEL_11;
+      PoolWithTag[1] = v10;
+      *PoolWithTag = v9;
+      PoolWithTag[2] = a3;
+      PoolWithTag[3] = v7;
+      v16 = ZwQuerySystemInformation(SystemFirmwareTableInformation, PoolWithTag, v11, ReturnLength);
+      v19 = v16;
+      if ( v16 < 0 )
+      {
+        if ( v16 == -1073741789 && ReturnLength[0] >= 0x10 )
+        {
+          *a6 = PoolWithTag[3];
+        }
+        else
+        {
+          *a6 = 0;
+          v25 = WdLogNewEntry5_WdError(v18, v17);
+          *(_QWORD *)(v25 + 24) = v19;
+          WdLogEvent5_WdError(v25);
+        }
+      }
+      else
+      {
+        v20 = PoolWithTag[3];
+        *a6 = v20;
+        if ( v20 <= v7 )
+          v7 = v20;
+        if ( a5 )
+          memmove(a5, PoolWithTag + 4, v7);
+      }
     }
-    if ( v12 == -1073741789 && ReturnLength[0] >= 0x10 )
+    else
     {
-      *a6 = PoolWithTag[3];
-      goto LABEL_11;
+      LODWORD(v19) = -1073741801;
+      v24 = WdLogNewEntry5_WdLowResource(v13, v12, v14, v15);
+      *(_QWORD *)(v24 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v24);
     }
-    *a6 = 0;
-    v16 = 2LL;
+    if ( PoolWithTag != (_DWORD *)SystemInformation )
+      ExFreePoolWithTag(PoolWithTag, 0x74727044u);
   }
   else
   {
-    v13 = -1073741801LL;
-    v16 = 6LL;
+    LODWORD(v19) = -1073741811;
+    v23 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v23 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v23);
   }
-  WdLogSingleEntry1(v16, v13);
-LABEL_11:
-  if ( PoolWithTag != (_DWORD *)SystemInformation )
-    ExFreePoolWithTag(PoolWithTag, 0x74727044u);
-  return (unsigned int)v13;
+  return (unsigned int)v19;
 }

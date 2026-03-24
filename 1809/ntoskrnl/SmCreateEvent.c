@@ -1,11 +1,11 @@
 /*
- * XREFs of SmCreateEvent @ 0x1407611A4
+ * XREFs of SmCreateEvent @ 0x140761184
  * Callers:
- *     SmRegistrationCtxStart @ 0x14076114C (SmRegistrationCtxStart.c)
+ *     SmRegistrationCtxStart @ 0x14076112C (SmRegistrationCtxStart.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateEvent @ 0x1401B8A70 (ZwCreateEvent.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1401B8A90 (ZwCreateEvent.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */
 

@@ -1,43 +1,42 @@
 /*
- * XREFs of PnprAddMemoryResources @ 0x140965684
+ * XREFs of PnprAddMemoryResources @ 0x1408ACEB4
  * Callers:
- *     PnprAddDeviceResources @ 0x140965600 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x1408ACE30 (PnprAddDeviceResources.c)
  * Callees:
- *     RtlCmDecodeMemIoResource @ 0x140375970 (RtlCmDecodeMemIoResource.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlCmDecodeMemIoResource @ 0x14032A800 (RtlCmDecodeMemIoResource.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PnprAddMemoryResources(__int64 a1, _DWORD **a2)
+__int64 __fastcall PnprAddMemoryResources(__int64 a1, void **a2)
 {
-  _DWORD *v3; // rbx
-  _DWORD *v4; // r14
+  unsigned int *v3; // rbx
+  unsigned int *v4; // r14
   __int64 v5; // rbp
   unsigned int *v6; // rbp
   __int64 v7; // rcx
-  unsigned int v8; // edi
+  int v8; // eax
   int v9; // eax
-  int v10; // eax
-  unsigned int v11; // r12d
-  _DWORD *i; // rsi
-  __int64 j; // rdi
-  int v14; // eax
-  _DWORD *Pool2; // rax
-  _DWORD *v16; // r13
-  ULONGLONG v17; // rax
-  void *v18; // rcx
-  __int64 v20; // rcx
+  unsigned int v10; // edi
+  unsigned int v12; // r15d
+  _DWORD *v13; // rsi
+  __int64 v14; // rdi
+  unsigned int v15; // r13d
+  unsigned int *PoolWithTag; // rax
+  unsigned int *v17; // r13
+  ULONGLONG v18; // rax
+  __int64 v19; // rcx
+  int v20; // eax
   int v21; // eax
-  int v22; // eax
-  int v23; // [rsp+70h] [rbp+8h]
-  int v24; // [rsp+78h] [rbp+10h]
-  ULONGLONG Start; // [rsp+80h] [rbp+18h] BYREF
+  unsigned int v22; // [rsp+70h] [rbp+8h]
+  ULONGLONG Start; // [rsp+78h] [rbp+10h] BYREF
+  unsigned int *v24; // [rsp+80h] [rbp+18h]
   PCM_PARTIAL_RESOURCE_DESCRIPTOR Descriptor; // [rsp+88h] [rbp+20h]
 
   Start = 0LL;
-  v3 = *a2;
-  v4 = *a2;
+  v3 = (unsigned int *)*a2;
+  v4 = (unsigned int *)*a2;
   if ( a1 )
     v5 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
   else
@@ -46,75 +45,83 @@ __int64 __fastcall PnprAddMemoryResources(__int64 a1, _DWORD **a2)
   if ( !v6 )
   {
     v7 = PnprContext;
-    v8 = 0;
-    v9 = *(_DWORD *)(PnprContext + 33272);
+    v8 = *(_DWORD *)(PnprContext + 20984);
+    if ( !v8 )
+      v8 = 632;
+    *(_DWORD *)(PnprContext + 20984) = v8;
+    v9 = *(_DWORD *)(v7 + 20988);
     if ( !v9 )
-      v9 = 631;
-    *(_DWORD *)(PnprContext + 33272) = v9;
-    v10 = *(_DWORD *)(v7 + 33276);
-    if ( !v10 )
-      v10 = 6;
-    *(_DWORD *)(v7 + 33276) = v10;
+      v9 = 6;
+    *(_DWORD *)(v7 + 20988) = v9;
+    goto LABEL_10;
+  }
+  v12 = 0;
+  v13 = v6 + 1;
+  if ( !*v6 )
+  {
+LABEL_10:
     *a2 = v3;
-    return v8;
+    if ( v3 != v4 )
+      ExFreePoolWithTag(v4, 0x51706E50u);
+    return 0;
   }
-  v11 = 0;
-  for ( i = v6 + 1; v11 < *v6; i = (_DWORD *)((char *)i + (unsigned int)(j + 36)) )
+  while ( 1 )
   {
-    for ( j = 0LL; (unsigned int)j < i[3]; j = (unsigned int)(j + 1) )
-    {
-      Descriptor = (PCM_PARTIAL_RESOURCE_DESCRIPTOR)&i[4 * j + 4 + j];
-      if ( ((Descriptor->Type - 3) & 0xFB) == 0 )
-      {
-        v14 = v3[1];
-        v23 = v14;
-        if ( v14 == *v3 )
-        {
-          v24 = v14 + 4;
-          Pool2 = (_DWORD *)ExAllocatePool2(64LL, (unsigned int)(16 * (v14 + 5)), 1366322768LL);
-          v16 = Pool2;
-          if ( !Pool2 )
-          {
-            v20 = PnprContext;
-            v8 = -1073741670;
-            v21 = *(_DWORD *)(PnprContext + 33272);
-            if ( !v21 )
-              v21 = 671;
-            *(_DWORD *)(PnprContext + 33272) = v21;
-            v22 = *(_DWORD *)(v20 + 33276);
-            if ( !v22 )
-              v22 = 10;
-            *(_DWORD *)(v20 + 33276) = v22;
-            *a2 = v4;
-            if ( v3 != v4 )
-            {
-              v18 = v3;
+    v14 = 0LL;
+    if ( v13[3] )
+      break;
+LABEL_24:
+    ++v12;
+    v13 = (_DWORD *)((char *)v13 + (unsigned int)(v14 + 36));
+    if ( v12 >= *v6 )
+      goto LABEL_10;
+  }
+  while ( 1 )
+  {
+    Descriptor = (PCM_PARTIAL_RESOURCE_DESCRIPTOR)&v13[4 * v14 + 4 + v14];
+    if ( ((Descriptor->Type - 3) & 0xFB) == 0 )
+      break;
 LABEL_23:
-              ExFreePoolWithTag(v18, 0x51706E50u);
-            }
-            return v8;
-          }
-          memmove(Pool2, v3, (unsigned int)(16 * (v23 + 1)));
-          *v16 = v24;
-          if ( v3 != v4 )
-            ExFreePoolWithTag(v3, 0x51706E50u);
-          v3 = v16;
-        }
-        v17 = RtlCmDecodeMemIoResource(Descriptor, &Start);
-        *(_QWORD *)&v3[4 * v3[1] + 4] = Start;
-        *(_QWORD *)&v3[4 * v3[1] + 6] = v17;
-        *((_QWORD *)v3 + 1) += v17;
-        ++v3[1];
-      }
-    }
-    ++v11;
+    v14 = (unsigned int)(v14 + 1);
+    if ( (unsigned int)v14 >= v13[3] )
+      goto LABEL_24;
   }
-  v8 = 0;
-  *a2 = v3;
-  if ( v3 != v4 )
+  v15 = v3[1];
+  if ( v15 != *v3 )
   {
-    v18 = v4;
+LABEL_22:
+    v18 = RtlCmDecodeMemIoResource(Descriptor, &Start);
+    *(_QWORD *)&v3[4 * v3[1] + 4] = Start;
+    *(_QWORD *)&v3[4 * v3[1] + 6] = v18;
+    *((_QWORD *)v3 + 1) += v18;
+    ++v3[1];
     goto LABEL_23;
   }
-  return v8;
+  v22 = v15 + 4;
+  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(NonPagedPoolNx, 16 * (v15 + 5), 0x51706E50u);
+  v24 = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    memmove(PoolWithTag, v3, 16 * (v15 + 1));
+    v17 = v24;
+    *v24 = v22;
+    if ( v3 != v4 )
+      ExFreePoolWithTag(v3, 0x51706E50u);
+    v3 = v17;
+    goto LABEL_22;
+  }
+  v19 = PnprContext;
+  v10 = -1073741670;
+  v20 = *(_DWORD *)(PnprContext + 20984);
+  if ( !v20 )
+    v20 = 672;
+  *(_DWORD *)(PnprContext + 20984) = v20;
+  v21 = *(_DWORD *)(v19 + 20988);
+  if ( !v21 )
+    v21 = 10;
+  *(_DWORD *)(v19 + 20988) = v21;
+  *a2 = v4;
+  if ( v3 != v4 )
+    ExFreePoolWithTag(v3, 0x51706E50u);
+  return v10;
 }

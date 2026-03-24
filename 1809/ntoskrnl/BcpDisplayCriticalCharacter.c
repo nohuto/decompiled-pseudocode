@@ -1,10 +1,10 @@
 /*
- * XREFs of BcpDisplayCriticalCharacter @ 0x140327B8C
+ * XREFs of BcpDisplayCriticalCharacter @ 0x140327C8C
  * Callers:
- *     BcpDisplayErrorInformation @ 0x140327FB0 (BcpDisplayErrorInformation.c)
- *     BgpFwDisplayBugCheckScreen @ 0x140328A0C (BgpFwDisplayBugCheckScreen.c)
+ *     BcpDisplayErrorInformation @ 0x1403280B0 (BcpDisplayErrorInformation.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140328B0C (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140327774 (BgpDisplayCharacterEx.c)
+ *     BgpDisplayCharacterEx @ 0x140327874 (BgpDisplayCharacterEx.c)
  */
 
 __int64 __fastcall BcpDisplayCriticalCharacter(__int16 a1, int a2)

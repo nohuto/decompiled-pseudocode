@@ -1,13 +1,13 @@
 /*
- * XREFs of PipAddDependentsToRebuildPowerRelationsQueue @ 0x140739E08
+ * XREFs of PipAddDependentsToRebuildPowerRelationsQueue @ 0x140739DE8
  * Callers:
- *     IoResolveDependency @ 0x140181BB0 (IoResolveDependency.c)
+ *     IoResolveDependency @ 0x140181BD0 (IoResolveDependency.c)
  *     PnpDeleteAllDependencyRelations @ 0x14059F218 (PnpDeleteAllDependencyRelations.c)
- *     IoDuplicateDependency @ 0x1408238E0 (IoDuplicateDependency.c)
+ *     IoDuplicateDependency @ 0x1408238C0 (IoDuplicateDependency.c)
  * Callees:
- *     PiGetDependentList @ 0x1406EB644 (PiGetDependentList.c)
- *     PipAddtoRebuildPowerRelationsQueue @ 0x1406EB940 (PipAddtoRebuildPowerRelationsQueue.c)
- *     PiEnumerateDependentListEntry @ 0x140823B38 (PiEnumerateDependentListEntry.c)
+ *     PiGetDependentList @ 0x1406EB624 (PiGetDependentList.c)
+ *     PipAddtoRebuildPowerRelationsQueue @ 0x1406EB920 (PipAddtoRebuildPowerRelationsQueue.c)
+ *     PiEnumerateDependentListEntry @ 0x140823B18 (PiEnumerateDependentListEntry.c)
  */
 
 __int64 *__fastcall PipAddDependentsToRebuildPowerRelationsQueue(__int64 a1)

@@ -4,8 +4,8 @@
  *     MiUnlockMdlWritePages @ 0x14001E4F0 (MiUnlockMdlWritePages.c)
  *     MiWriteComplete @ 0x140021DE0 (MiWriteComplete.c)
  *     MiBuildMappedCluster @ 0x14007FF80 (MiBuildMappedCluster.c)
- *     MiGatherPagefilePages @ 0x14014EFC0 (MiGatherPagefilePages.c)
- *     MiUnlockStoreLockedPages @ 0x1401541A0 (MiUnlockStoreLockedPages.c)
+ *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
+ *     MiUnlockStoreLockedPages @ 0x1401541C0 (MiUnlockStoreLockedPages.c)
  * Callees:
  *     MiIsPfnCommitNotCharged @ 0x140030DB0 (MiIsPfnCommitNotCharged.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
@@ -14,9 +14,9 @@
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     MiRestoreTransitionPte @ 0x140081010 (MiRestoreTransitionPte.c)
  *     MiReleasePageFileSpace @ 0x1400823A4 (MiReleasePageFileSpace.c)
- *     MiCapturePageFileInfoInline @ 0x140119DB0 (MiCapturePageFileInfoInline.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14011B994 (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14011B9B4 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiWriteCompletePfn(ULONG_PTR BugCheckParameter2, char a2)

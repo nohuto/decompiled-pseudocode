@@ -1,11 +1,12 @@
 /*
- * XREFs of CmpAllocateKeyControlBlock @ 0x1409157D0
+ * XREFs of CmpAllocateKeyControlBlock @ 0x1405EFFAC
  * Callers:
- *     CmpCloneToUnbackedKcb @ 0x140914D00 (CmpCloneToUnbackedKcb.c)
+ *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
+ *     CmpCloneToUnbackedKcb @ 0x14086EADC (CmpCloneToUnbackedKcb.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 PSLIST_ENTRY CmpAllocateKeyControlBlock()
@@ -13,17 +14,17 @@ PSLIST_ENTRY CmpAllocateKeyControlBlock()
   PSLIST_ENTRY v0; // rbx
 
   _InterlockedIncrement64(&CmPerfCounters);
-  ++dword_140CE1C54;
+  ++dword_140CDB4D4;
   v0 = RtlpInterlockedPopEntrySList(&CmpKcbLookaside);
   if ( v0
-    || (++dword_140CE1C58,
-        (v0 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, union _SLIST_HEADER *))qword_140CE1C70)(
-                              (unsigned int)dword_140CE1C64,
-                              (unsigned int)dword_140CE1C6C,
-                              (unsigned int)dword_140CE1C68,
+    || (++dword_140CDB4D8,
+        (v0 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, union _SLIST_HEADER *))qword_140CDB4F0)(
+                              (unsigned int)dword_140CDB4E4,
+                              (unsigned int)dword_140CDB4EC,
+                              (unsigned int)dword_140CDB4E8,
                               &CmpKcbLookaside)) != 0LL) )
   {
-    _InterlockedIncrement64(qword_140D3D2E0);
+    _InterlockedIncrement64(qword_140D2EFA0);
     memset(v0, 0, 0x138uLL);
   }
   return v0;

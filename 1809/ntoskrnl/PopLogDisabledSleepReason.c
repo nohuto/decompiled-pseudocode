@@ -8,7 +8,7 @@
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PopRemoveReasonRecordByReasonCode @ 0x1405B0AE4 (PopRemoveReasonRecordByReasonCode.c)
- *     PopLogSleepDisabled @ 0x14070AA54 (PopLogSleepDisabled.c)
+ *     PopLogSleepDisabled @ 0x14070AA34 (PopLogSleepDisabled.c)
  */
 
 __int64 PopLogDisabledSleepReason()

@@ -1,12 +1,12 @@
 /*
- * XREFs of CcCrossPartitionDrainSectionDeletion @ 0x140538B34
+ * XREFs of CcCrossPartitionDrainSectionDeletion @ 0x1404E986C
  * Callers:
- *     CcErrorCallbackRoutine @ 0x14053A0B0 (CcErrorCallbackRoutine.c)
+ *     CcErrorCallbackRoutine @ 0x1404EA2A0 (CcErrorCallbackRoutine.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 CcCrossPartitionDrainSectionDeletion()

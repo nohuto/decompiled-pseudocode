@@ -1,12 +1,23 @@
 /*
- * XREFs of ?InFrame@CFlipContentToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z @ 0x1C0082D80
+ * XREFs of ?InFrame@CFlipContentToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z @ 0x1C006FDB0
  * Callers:
  *     <none>
  * Callees:
- *     ?InFrame@CFlipContentToken@@QEAAJPEA_N@Z @ 0x1C0082D24 (-InFrame@CFlipContentToken@@QEAAJPEA_N@Z.c)
+ *     ?NotifyTokenInFrame@CompositionSurfaceObject@@QEAAJAEBVCToken@@PEA_N@Z @ 0x1C001CA94 (-NotifyTokenInFrame@CompositionSurfaceObject@@QEAAJAEBVCToken@@PEA_N@Z.c)
  */
 
 __int64 __fastcall CFlipContentToken::InFrame(CFlipContentToken *this, struct CCompositionFrame *a2, bool *a3)
 {
-  return CFlipContentToken::InFrame(this, a3);
+  __int64 result; // rax
+  bool v6; // [rsp+30h] [rbp+8h] BYREF
+
+  *((_DWORD *)this + 6) = 3;
+  v6 = 0;
+  result = CompositionSurfaceObject::NotifyTokenInFrame(*((CompositionSurfaceObject **)this + 4), this, &v6);
+  if ( (int)result >= 0 )
+  {
+    *((_BYTE *)this + 224) ^= (*((_BYTE *)this + 224) ^ (8 * v6)) & 8;
+    *a3 = 1;
+  }
+  return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0EXFORMOBJ@@QEAA@KK@Z @ 0x1C00CDC30
+ * XREFs of ??0EXFORMOBJ@@QEAA@KK@Z @ 0x1C00BD9D0
  * Callers:
- *     GreCreatePolyPolygonRgnInternal @ 0x1C00CDB30 (GreCreatePolyPolygonRgnInternal.c)
+ *     GreCreatePolyPolygonRgnInternal @ 0x1C00BD804 (GreCreatePolyPolygonRgnInternal.c)
  * Callees:
  *     <none>
  */

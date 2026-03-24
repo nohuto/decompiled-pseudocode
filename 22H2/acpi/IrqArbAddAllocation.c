@@ -1,509 +1,504 @@
 /*
- * XREFs of IrqArbAddAllocation @ 0x1C009C4C0
+ * XREFs of IrqArbAddAllocation @ 0x1C0092810
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     AcpiIrqTranslateSecondaryInterruptToNtResources @ 0x1C000AB60 (AcpiIrqTranslateSecondaryInterruptToNtResources.c)
- *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
- *     ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C002E8E4 (ACPIInternalInterruptPolarityCacheGetPolarity.c)
- *     LinkNodeCrackPrt @ 0x1C005CEBC (LinkNodeCrackPrt.c)
- *     ProcessorDeleteDeviceIdtAssignment @ 0x1C005E010 (ProcessorDeleteDeviceIdtAssignment.c)
- *     WPP_RECORDER_SF_DDDssDssqq @ 0x1C005E604 (WPP_RECORDER_SF_DDDssDssqq.c)
- *     WPP_RECORDER_SF_Dq @ 0x1C005EA78 (WPP_RECORDER_SF_Dq.c)
- *     LinkNodeGetPossibleGsiv @ 0x1C00994A4 (LinkNodeGetPossibleGsiv.c)
- *     LinkNodeGetPossibleResources @ 0x1C00994C8 (LinkNodeGetPossibleResources.c)
- *     PcisuppIsPciDevice @ 0x1C0099F78 (PcisuppIsPciDevice.c)
- *     ProcessorGetDestinationMode @ 0x1C009ABC8 (ProcessorGetDestinationMode.c)
- *     IrqArbGetDeviceIrql @ 0x1C009D314 (IrqArbGetDeviceIrql.c)
- *     IrqArbGsivFromIrq @ 0x1C009D6AC (IrqArbGsivFromIrq.c)
- *     IrqArbpLookupIsaOverrideByGsiv @ 0x1C009E4B4 (IrqArbpLookupIsaOverrideByGsiv.c)
- *     IcAddPossibleReference @ 0x1C009EB84 (IcAddPossibleReference.c)
- *     IcGetPossibleInput @ 0x1C009F324 (IcGetPossibleInput.c)
- *     IcIsInterruptTypeSecondary @ 0x1C009F46C (IcIsInterruptTypeSecondary.c)
- *     IcRemovePossibleReference @ 0x1C009F670 (IcRemovePossibleReference.c)
- *     IcSetPossibleInput @ 0x1C009F6C4 (IcSetPossibleInput.c)
- *     MsiGetTargetInfo @ 0x1C00A06A8 (MsiGetTargetInfo.c)
+ *     ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C000E31C (ACPIInternalInterruptPolarityCacheGetPolarity.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
+ *     WPP_RECORDER_SF_Dq @ 0x1C000F3CC (WPP_RECORDER_SF_Dq.c)
+ *     WPP_RECORDER_SF_DDDssDssqq @ 0x1C000F8D8 (WPP_RECORDER_SF_DDDssDssqq.c)
+ *     ProcessorDeleteDeviceIdtAssignment @ 0x1C000FC64 (ProcessorDeleteDeviceIdtAssignment.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     AcpiIrqTranslateSecondaryInterruptToNtResources @ 0x1C004AEB4 (AcpiIrqTranslateSecondaryInterruptToNtResources.c)
+ *     WPP_RECORDER_SF_d @ 0x1C005DB8C (WPP_RECORDER_SF_d.c)
+ *     IcGetPossibleInput @ 0x1C0091E28 (IcGetPossibleInput.c)
+ *     IcAddPossibleReference @ 0x1C0091EB4 (IcAddPossibleReference.c)
+ *     IcIsInterruptTypeSecondary @ 0x1C00934D8 (IcIsInterruptTypeSecondary.c)
+ *     IrqArbGsivFromIrq @ 0x1C00938DC (IrqArbGsivFromIrq.c)
+ *     PcisuppIsPciDevice @ 0x1C0093BD0 (PcisuppIsPciDevice.c)
+ *     IrqArbGetDeviceIrql @ 0x1C0095178 (IrqArbGetDeviceIrql.c)
+ *     IrqArbpLookupIsaOverrideByGsiv @ 0x1C00951E8 (IrqArbpLookupIsaOverrideByGsiv.c)
+ *     MsiGetTargetInfo @ 0x1C0095864 (MsiGetTargetInfo.c)
+ *     ProcessorGetDestinationMode @ 0x1C0095974 (ProcessorGetDestinationMode.c)
+ *     IcSetPossibleInput @ 0x1C0096628 (IcSetPossibleInput.c)
+ *     IcRemovePossibleReference @ 0x1C0096A68 (IcRemovePossibleReference.c)
+ *     LinkNodeGetPossibleGsiv @ 0x1C00B68E4 (LinkNodeGetPossibleGsiv.c)
+ *     LinkNodeGetPossibleResources @ 0x1C00B6908 (LinkNodeGetPossibleResources.c)
  */
 
-void __fastcall IrqArbAddAllocation(__int64 a1, ULONGLONG *a2, int a3)
+void __fastcall IrqArbAddAllocation(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // edi
   char v4; // bl
-  ULONGLONG *v6; // r13
+  unsigned int v6; // r13d
   unsigned int v7; // eax
-  unsigned int v8; // eax
-  int v9; // r11d
-  ULONGLONG v10; // rcx
-  __int64 v11; // rsi
-  unsigned int v12; // r12d
-  __int64 v13; // rdx
-  int IsPciDevice; // r14d
-  int PossibleInput; // eax
-  unsigned __int8 v16; // di
-  __int64 v17; // rcx
-  __int16 v18; // di
-  bool v19; // zf
-  ULONGLONG v20; // rax
-  BOOL v21; // ecx
-  __int64 v22; // rdx
-  unsigned int v23; // r13d
-  void *v24; // r8
-  int v25; // r9d
-  __int64 v26; // r8
-  __int64 v27; // r9
+  int v8; // r11d
+  __int64 v9; // rcx
+  char *v10; // r14
+  unsigned int v11; // r12d
+  __int64 v12; // rdx
+  int IsPciDevice; // r15d
+  __int16 v14; // di
+  unsigned __int8 v15; // di
+  bool v16; // zf
+  __int64 v17; // rax
+  BOOL v18; // ecx
+  __int64 v19; // rdx
+  __int16 v20; // r8
+  unsigned int v21; // r13d
+  int v22; // r9d
+  __int64 v23; // r8
+  __int64 v24; // r8
+  __int64 v25; // r9
+  POOL_TYPE v26; // r10d
+  char *PoolWithTag; // rax
   int v28; // edx
-  __int64 Pool2; // rax
-  int v30; // edx
-  int v31; // ecx
-  unsigned int v32; // edi
-  __int64 v33; // rbx
-  int v34; // eax
-  __int128 v35; // xmm0
-  unsigned int v36; // ecx
-  BOOL v37; // eax
-  char v38; // di
-  int v39; // eax
-  int v40; // r9d
-  int v41; // ebx
-  UCHAR v42; // di
-  const char *v43; // r9
-  const char *v44; // rdx
-  const char *v45; // r8
-  NTSTATUS v46; // eax
+  int v29; // ecx
+  __int64 v30; // r9
+  unsigned int v31; // edi
+  char *v32; // rbx
+  int v33; // eax
+  __int128 v34; // xmm0
+  int v35; // ecx
+  int v36; // ebx
+  UCHAR v37; // di
+  const char *v38; // r9
+  const char *v39; // rdx
+  const char *v40; // r8
+  NTSTATUS v41; // eax
+  int PossibleInput; // eax
+  int v43; // edx
+  BOOL v44; // eax
+  char v45; // di
+  int v46; // eax
+  __int64 v47; // rcx
   int Flags; // [rsp+20h] [rbp-E0h]
+  int Flagsa; // [rsp+20h] [rbp-E0h]
   PVOID UserData; // [rsp+28h] [rbp-D8h]
   PVOID Owner; // [rsp+30h] [rbp-D0h]
-  char v50; // [rsp+80h] [rbp-80h] BYREF
-  char v51; // [rsp+81h] [rbp-7Fh] BYREF
-  unsigned __int8 v52; // [rsp+82h] [rbp-7Eh] BYREF
-  char v53; // [rsp+83h] [rbp-7Dh]
-  char v54; // [rsp+84h] [rbp-7Ch]
-  char v55; // [rsp+85h] [rbp-7Bh]
-  int v56; // [rsp+88h] [rbp-78h]
-  int v57; // [rsp+8Ch] [rbp-74h]
-  int v58; // [rsp+90h] [rbp-70h] BYREF
-  ULONGLONG *v59; // [rsp+98h] [rbp-68h]
-  __int64 v60; // [rsp+A0h] [rbp-60h] BYREF
-  unsigned int v61; // [rsp+A8h] [rbp-58h] BYREF
-  int v62; // [rsp+ACh] [rbp-54h]
-  int v63; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v64; // [rsp+B8h] [rbp-48h] BYREF
-  PVOID P; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v66; // [rsp+C8h] [rbp-38h]
-  __int128 v67; // [rsp+D0h] [rbp-30h] BYREF
-  __int128 v68; // [rsp+E0h] [rbp-20h]
-  __int128 v69; // [rsp+F0h] [rbp-10h]
-  __int128 v70; // [rsp+100h] [rbp+0h]
+  char v52; // [rsp+80h] [rbp-80h] BYREF
+  char v53; // [rsp+81h] [rbp-7Fh] BYREF
+  unsigned __int8 v54; // [rsp+82h] [rbp-7Eh] BYREF
+  char v55; // [rsp+83h] [rbp-7Dh]
+  char v56; // [rsp+84h] [rbp-7Ch]
+  char v57; // [rsp+85h] [rbp-7Bh]
+  int v58; // [rsp+88h] [rbp-78h]
+  int v59; // [rsp+8Ch] [rbp-74h]
+  int v60; // [rsp+90h] [rbp-70h] BYREF
+  unsigned int v61; // [rsp+94h] [rbp-6Ch] BYREF
+  __int64 v62; // [rsp+98h] [rbp-68h] BYREF
+  unsigned int v63; // [rsp+A0h] [rbp-60h] BYREF
+  int v64; // [rsp+A4h] [rbp-5Ch] BYREF
+  PVOID P; // [rsp+A8h] [rbp-58h] BYREF
+  __int64 v66; // [rsp+B0h] [rbp-50h]
+  __int64 v67; // [rsp+B8h] [rbp-48h]
+  __int128 v68; // [rsp+C0h] [rbp-40h] BYREF
+  __int128 v69; // [rsp+D0h] [rbp-30h]
+  __int128 v70; // [rsp+E0h] [rbp-20h]
+  __int128 v71; // [rsp+F0h] [rbp-10h]
 
   P = 0LL;
-  v63 = 0;
+  v64 = 0;
   v4 = 0;
-  v61 = 0;
-  v58 = 0;
-  v67 = 0LL;
-  v50 = 0;
+  v63 = 0;
+  v60 = 0;
   v68 = 0LL;
-  v66 = a1;
+  v52 = 0;
   v69 = 0LL;
-  v51 = 0;
+  v67 = a1;
   v70 = 0LL;
-  v6 = a2 + 4;
-  v59 = a2 + 4;
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    v59 = a2 + 4;
-  }
-  else
-  {
-    Owner = *(PVOID *)(*v6 + 32);
-    WPP_RECORDER_SF_Dq(WPP_GLOBAL_Control->DeviceExtension, (_DWORD)a2, a3, 13);
-  }
-  v7 = *(_DWORD *)a2;
-  v60 = 0LL;
-  v54 = 0;
-  v55 = 0;
-  v62 = v7;
-  v8 = IrqArbGsivFromIrq(v7);
-  v10 = a2[5];
-  v11 = 0LL;
-  LODWORD(v64) = 0;
-  LOBYTE(v3) = 0;
-  v12 = v8;
-  v56 = v3;
   v53 = 0;
-  v13 = *(_QWORD *)(v10 + 40);
-  if ( (*(_BYTE *)(v13 + 4) & 0x20) == 0 )
+  v71 = 0LL;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    IsPciDevice = PcisuppIsPciDevice(*(_QWORD *)(*v6 + 32), (bool *)&v50);
-    if ( IsPciDevice < 0 )
-    {
-LABEL_108:
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LODWORD(UserData) = IsPciDevice;
-        LOBYTE(v13) = 4;
-        WPP_RECORDER_SF_d(
-          WPP_GLOBAL_Control->DeviceExtension,
-          v13,
-          20,
-          17,
-          (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids,
-          UserData);
-      }
-      if ( DWORD1(v68) )
-        ProcessorDeleteDeviceIdtAssignment(*(void **)(*v6 + 32), v12, DWORD1(v68), 1);
-      if ( v54 )
-        --*(_DWORD *)(v60 + 28);
-      if ( v55 )
-      {
-        LOBYTE(v13) = (a2[8] & 2) != 0;
-        IcRemovePossibleReference(v12, v13);
-      }
-      if ( v11 && !(_BYTE)v3 )
-        ExFreePoolWithTag((PVOID)v11, 0);
-      return;
-    }
-    v4 = v50;
+    Owner = *(PVOID *)(*(_QWORD *)(a2 + 32) + 32LL);
+    WPP_RECORDER_SF_Dq((__int64)WPP_GLOBAL_Control->DeviceExtension, a2, a3, 0xDu, Flags);
   }
-  if ( (a2[8] & 2) != 0 && v4 )
+  v6 = *(_DWORD *)a2;
+  v62 = 0LL;
+  v56 = 0;
+  v57 = 0;
+  v7 = IrqArbGsivFromIrq(v6);
+  v9 = *(_QWORD *)(a2 + 40);
+  v10 = 0LL;
+  v61 = 0;
+  LOBYTE(v3) = 0;
+  v11 = v7;
+  v58 = v3;
+  v55 = 0;
+  v12 = *(_QWORD *)(v9 + 40);
+  if ( (*(_BYTE *)(v12 + 4) & 0x20) == 0 )
+  {
+    IsPciDevice = PcisuppIsPciDevice(*(_QWORD *)(*(_QWORD *)(a2 + 32) + 32LL), &v52);
+    if ( IsPciDevice < 0 )
+      goto LABEL_111;
+    v4 = v52;
+  }
+  if ( (*(_BYTE *)(a2 + 64) & 2) != 0 && v4 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v13) = 4;
       WPP_RECORDER_SF_(
-        WPP_GLOBAL_Control->DeviceExtension,
-        v13,
-        20,
-        14,
-        (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids);
-    }
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        4u,
+        0x14u,
+        0xEu,
+        (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids);
     return;
   }
-  LOBYTE(v9) = 0;
-  v52 = 0;
-  v57 = v9;
-  if ( v12 < 0xFFF00000 )
+  LOBYTE(v8) = 0;
+  v54 = 0;
+  v59 = v8;
+  if ( v11 < 0xFFF00000 )
   {
-    PossibleInput = IcGetPossibleInput(v12, v13, &v52);
+    PossibleInput = IcGetPossibleInput(v11, v12, &v54);
     if ( PossibleInput >= 0 )
     {
-      v9 = (unsigned __int8)v9;
+      v8 = (unsigned __int8)v8;
       if ( PossibleInput != 263 )
-        v9 = 1;
-      v57 = v9;
+        v8 = 1;
+      v59 = v8;
     }
   }
-  if ( !v4 || (*(_BYTE *)(*(_QWORD *)(a2[5] + 40) + 4LL) & 2) != 0 )
+  if ( v4 && (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a2 + 40) + 40LL) + 4LL) & 2) == 0 )
   {
-    if ( !(unsigned __int8)IrqArbpLookupIsaOverrideByGsiv(v12, &v64)
-      || (v16 = byte_1C006E524[8 * (unsigned int)v64], v16 == 0xFF) )
+    v15 = 3;
+    if ( (*(_BYTE *)(a2 + 64) & 2) != 0 )
+      goto LABEL_16;
+    IsPciDevice = LinkNodeCrackPrt(*(_QWORD *)(*(_QWORD *)(a2 + 32) + 32LL), &v62, &v63, 1);
+    if ( IsPciDevice < 0 )
+      goto LABEL_86;
+    if ( v62 )
     {
-      v18 = *(_WORD *)(*(_QWORD *)(a2[5] + 40) + 4LL);
-      if ( (unsigned __int8)IcIsInterruptTypeSecondary(v12) )
+      IsPciDevice = LinkNodeGetPossibleResources(v62, &P, &v53);
+      if ( IsPciDevice < 0 )
+        goto LABEL_86;
+      ExFreePoolWithTag(P, 0);
+      v15 = v53 & 2 | 1;
+      if ( (int)LinkNodeGetPossibleGsiv(v62, &v63) < 0 )
       {
-        v53 = 1;
-        IsPciDevice = AcpiIrqTranslateSecondaryInterruptToNtResources();
-        if ( IsPciDevice >= 0 )
+        if ( *(_DWORD *)(v47 + 28) )
         {
-          v16 = v70 | ((v18 & 1) == 0);
-          goto LABEL_22;
+          IsPciDevice = -1073741823;
+          goto LABEL_86;
         }
-        goto LABEL_107;
+        *(_DWORD *)(v62 + 36) = v11;
       }
-      if ( (*(_BYTE *)(*(_QWORD *)(a2[5] + 40) + 4LL) & 2) != 0
-        || !ACPIInternalInterruptPolarityCacheGetPolarity(*(_QWORD *)(*v6 + 32), v62, &v58) )
-      {
-        v16 = (v18 & 1) == 0 ? 3 : 0;
-      }
-      else
-      {
-        v16 = v58 | ((v18 & 1) == 0);
-      }
-      LOBYTE(v9) = v57;
-      if ( (*(_BYTE *)(*(_QWORD *)(a2[5] + 40) + 4LL) & 2) != 0 )
-        v16 |= 4u;
+      v56 = 1;
+      ++*(_DWORD *)(v62 + 28);
     }
+    else
+    {
+      v11 = v63;
+    }
+LABEL_82:
+    LOBYTE(v8) = v59;
+    goto LABEL_16;
+  }
+  if ( (unsigned __int8)IrqArbpLookupIsaOverrideByGsiv(v11, &v61) )
+  {
+    v15 = byte_1C0081374[8 * v61];
+    if ( v15 != 0xFF )
+      goto LABEL_16;
+  }
+  v14 = *(_WORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 40) + 40LL) + 4LL);
+  if ( (unsigned __int8)IcIsInterruptTypeSecondary(v11) )
+  {
+    v55 = 1;
+    IsPciDevice = AcpiIrqTranslateSecondaryInterruptToNtResources();
+    if ( IsPciDevice < 0 )
+      goto LABEL_86;
+    v15 = v71 | ((v14 & 1) == 0);
+    goto LABEL_82;
+  }
+  if ( (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a2 + 40) + 40LL) + 4LL) & 2) != 0
+    || !ACPIInternalInterruptPolarityCacheGetPolarity(*(_QWORD *)(*(_QWORD *)(a2 + 32) + 32LL), v6, &v60) )
+  {
+    v15 = (v14 & 1) == 0 ? 3 : 0;
   }
   else
   {
-    v16 = 3;
-    if ( (a2[8] & 2) == 0 )
-    {
-      IsPciDevice = LinkNodeCrackPrt(*(_QWORD *)(*v6 + 32), &v60, &v61, 1);
-      if ( IsPciDevice >= 0 )
-      {
-        if ( !v60 )
-        {
-          v12 = v61;
-LABEL_22:
-          LOBYTE(v9) = v57;
-          goto LABEL_40;
-        }
-        IsPciDevice = LinkNodeGetPossibleResources(v60, &P, &v51);
-        if ( IsPciDevice >= 0 )
-        {
-          ExFreePoolWithTag(P, 0);
-          v16 = v51 & 2 | 1;
-          if ( (int)LinkNodeGetPossibleGsiv(v60, &v61) < 0 )
-          {
-            if ( *(_DWORD *)(v17 + 28) )
-            {
-              IsPciDevice = -1073741823;
-              goto LABEL_107;
-            }
-            *(_DWORD *)(v60 + 36) = v12;
-          }
-          v54 = 1;
-          ++*(_DWORD *)(v60 + 28);
-          goto LABEL_22;
-        }
-      }
-LABEL_107:
-      LOBYTE(v3) = v56;
-      goto LABEL_108;
-    }
+    v15 = v60 | ((v14 & 1) == 0);
   }
-LABEL_40:
-  v19 = (a2[8] & 2) == 0;
-  v50 = 0;
-  if ( !v19 )
+  LOBYTE(v8) = v59;
+  if ( (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a2 + 40) + 40LL) + 4LL) & 2) != 0 )
+    v15 |= 4u;
+LABEL_16:
+  v16 = (*(_BYTE *)(a2 + 64) & 2) == 0;
+  v52 = 0;
+  if ( !v16 )
   {
-    v50 = 1;
-    if ( (_BYTE)v9 )
+    v52 = 1;
+    if ( (_BYTE)v8 )
     {
-      if ( ((v16 ^ v52) & 0xFFFFFFFB) != 0 )
+      if ( ((v15 ^ v54) & 0xFFFFFFFB) != 0 )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v13) = 4;
           WPP_RECORDER_SF_(
-            WPP_GLOBAL_Control->DeviceExtension,
-            v13,
-            20,
-            15,
-            (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids);
-        }
-        LOBYTE(v3) = v56;
+            (__int64)WPP_GLOBAL_Control->DeviceExtension,
+            4u,
+            0x14u,
+            0xFu,
+            (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids);
+        LOBYTE(v3) = v58;
         IsPciDevice = -1073741823;
-        goto LABEL_108;
+        goto LABEL_111;
       }
     }
   }
-  v20 = a2[5];
-  v21 = 0;
-  v22 = *(_QWORD *)(v20 + 40);
-  v64 = v22;
-  if ( (*(_WORD *)(v22 + 4) & 2) != 0 )
+  v17 = *(_QWORD *)(a2 + 40);
+  v18 = 0;
+  v19 = *(_QWORD *)(v17 + 40);
+  v66 = v19;
+  v20 = *(_WORD *)(v19 + 4);
+  if ( (v20 & 2) != 0 )
   {
-    v23 = *(_DWORD *)(v22 + 12) - *(_DWORD *)(v22 + 8) + 1;
+    v21 = *(_DWORD *)(v19 + 12) - *(_DWORD *)(v19 + 8) + 1;
   }
   else
   {
-    v23 = 1;
-    v21 = (*(_BYTE *)(v20 + 36) & 1) != 0;
+    v21 = 1;
+    v18 = (*(_BYTE *)(v17 + 36) & 1) != 0;
   }
-  v24 = (void *)a2[9];
-  v25 = v21 | 2;
-  P = v24;
-  if ( (*(_BYTE *)(v22 + 4) & 8) == 0 )
-    v25 = v21;
-  v62 = v25;
-  v52 = v16 & 8;
-  v51 = v16 & 1;
-  LODWORD(Owner) = v25;
-  v58 = !(v16 & 1) | ((v16 & 8) != 0 ? 2 : 0);
-  IsPciDevice = ((__int64 (__fastcall *)(_QWORD, __int64, _QWORD, void *, unsigned int, int, PVOID, int, __int128 *))ProcessorReserveIdtEntries)(
-                  *(_QWORD *)(*v59 + 32),
-                  v22,
-                  v12,
-                  v24,
+  v22 = v18 | 2;
+  v16 = (v20 & 8) == 0;
+  v23 = *(_QWORD *)(a2 + 72);
+  if ( v16 )
+    v22 = v18;
+  P = *(PVOID *)(a2 + 72);
+  v54 = v15 & 8;
+  v53 = v15 & 1;
+  v61 = v22;
+  LODWORD(Owner) = v22;
+  v60 = !(v15 & 1) | ((v15 & 8) != 0 ? 2 : 0);
+  IsPciDevice = ((__int64 (__fastcall *)(_QWORD, __int64, _QWORD, __int64, unsigned int, int, PVOID, int, __int128 *))ProcessorReserveIdtEntries)(
+                  *(_QWORD *)(*(_QWORD *)(a2 + 32) + 32LL),
+                  v19,
+                  v11,
                   v23,
-                  v58,
+                  v21,
+                  v60,
                   Owner,
                   1,
-                  &v67);
-  if ( IsPciDevice >= 0
-    || v23 > 1
-    && (IsPciDevice = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, PVOID, int, int, int, int, __int128 *))ProcessorReserveIdtEntries)(
-                        *(_QWORD *)(*v59 + 32),
-                        *(_QWORD *)(a2[5] + 40),
-                        v12,
-                        P,
-                        1,
-                        !(v16 & 1) | (unsigned __int8)((v16 & 8) != 0 ? 2 : 0),
-                        v62,
-                        1,
-                        &v67),
-        v23 = 1,
-        IsPciDevice >= 0) )
+                  &v68);
+  if ( IsPciDevice >= 0 )
+    goto LABEL_22;
+  v25 = 1LL;
+  if ( v21 > 1 )
   {
-    if ( (*(_BYTE *)(*(_QWORD *)(a2[5] + 40) + 4LL) & 2) == 0 )
+    v21 = 1;
+    IsPciDevice = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, PVOID, int, int, unsigned int, int, __int128 *))ProcessorReserveIdtEntries)(
+                    *(_QWORD *)(*(_QWORD *)(a2 + 32) + 32LL),
+                    *(_QWORD *)(*(_QWORD *)(a2 + 40) + 40LL),
+                    v11,
+                    P,
+                    1,
+                    !(v15 & 1) | (unsigned __int8)((v15 & 8) != 0 ? 2 : 0),
+                    v61,
+                    1,
+                    &v68);
+  }
+  if ( IsPciDevice >= 0 )
+  {
+LABEL_22:
+    if ( (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a2 + 40) + 40LL) + 4LL) & 2) != 0 )
     {
-      if ( !(_BYTE)v57 )
+      v26 = PagedPool;
+    }
+    else
+    {
+      if ( !(_BYTE)v59 )
       {
-        LOBYTE(v26) = v16;
-        LOBYTE(v27) = (*(_BYTE *)(v64 + 4) & 8) != 0;
-        IsPciDevice = IcSetPossibleInput(v12, &v67, v26, v27);
+        LOBYTE(v24) = v15;
+        LOBYTE(v25) = (*(_BYTE *)(v66 + 4) & 8) != 0;
+        IsPciDevice = IcSetPossibleInput(v11, &v68, v24, v25);
         if ( IsPciDevice < 0 )
-          goto LABEL_106;
+          goto LABEL_86;
       }
-      LOBYTE(v13) = (a2[8] & 2) != 0;
-      IcAddPossibleReference(v12, v13);
-      v55 = 1;
+      IcAddPossibleReference(v11, (*(_BYTE *)(a2 + 64) & 2) != 0);
+      v57 = v26;
     }
-    v57 = 0;
-    if ( (v16 & 4) == 0 )
+    v59 = 0;
+    if ( (v15 & 4) == 0 )
     {
-      v28 = 1;
-      if ( (*(_BYTE *)(a2[5] + 36) & 1) != 0 )
-        v28 = 3;
-      v57 = v28;
+      v43 = v26;
+      if ( ((unsigned __int8)v26 & *(_BYTE *)(*(_QWORD *)(a2 + 40) + 36LL)) != 0 )
+        v43 = 3;
+      v59 = v43;
     }
-    Pool2 = ExAllocatePool2(256LL, 88LL * (v23 - 1) + 120, 1232102209LL);
-    v11 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(v26, 88LL * (v21 - 1) + 120, 0x49706341u);
+    v10 = PoolWithTag;
+    if ( !PoolWithTag )
+      goto LABEL_86;
+    memset(PoolWithTag + 8, 0, 0x70uLL);
+    *(_DWORD *)v10 = 1;
+    *((_DWORD *)v10 + 1) = 4;
+    v28 = 4;
+    v29 = *(_DWORD *)(*(_QWORD *)(a2 + 32) + 40LL);
+    if ( v29 && v29 != 2 )
     {
-      *(_DWORD *)(Pool2 + 4) = 4;
-      *(_DWORD *)Pool2 = 1;
-      v30 = 4;
-      v31 = *(_DWORD *)(*v59 + 40);
-      if ( v31 && v31 != 2 )
+      v28 = 5;
+      *((_DWORD *)v10 + 1) = 5;
+    }
+    v30 = *(_QWORD *)(a2 + 40);
+    if ( (*(_DWORD *)(v30 + 36) & 4) != 0 )
+    {
+      v28 |= 2u;
+      *((_DWORD *)v10 + 1) = v28;
+      v30 = *(_QWORD *)(a2 + 40);
+    }
+    if ( (*(_BYTE *)(*(_QWORD *)(v30 + 40) + 4LL) & 0x20) != 0 )
+    {
+      *((_DWORD *)v10 + 1) = v28 | 0x10;
+      v30 = *(_QWORD *)(a2 + 40);
+    }
+    if ( (*(_BYTE *)(*(_QWORD *)(v30 + 40) + 4LL) & 2) != 0 )
+    {
+      *((_DWORD *)v10 + 2) = 3;
+      IsPciDevice = MsiGetTargetInfo(&v68, DWORD1(v69), v10 + 16);
+      if ( IsPciDevice >= 0 )
       {
-        v30 = 5;
-        *(_DWORD *)(Pool2 + 4) = 5;
-      }
-      if ( (*(_DWORD *)(a2[5] + 36) & 4) != 0 )
-      {
-        v30 |= 2u;
-        *(_DWORD *)(Pool2 + 4) = v30;
-      }
-      if ( (*(_BYTE *)(*(_QWORD *)(a2[5] + 40) + 4LL) & 0x20) != 0 )
-        *(_DWORD *)(Pool2 + 4) = v30 | 0x10;
-      if ( (*(_BYTE *)(*(_QWORD *)(a2[5] + 40) + 4LL) & 2) != 0 )
-      {
-        *(_DWORD *)(Pool2 + 8) = 3;
-        IsPciDevice = MsiGetTargetInfo(&v67, DWORD1(v68), Pool2 + 16);
-        if ( IsPciDevice >= 0 )
+        v10[26] = BYTE8(v69);
+        ProcessorGetDestinationMode(&v68, &v64);
+        v31 = 0;
+        if ( v21 )
         {
-          *(_BYTE *)(v11 + 26) = BYTE8(v68);
-          ProcessorGetDestinationMode((__int64)&v67, &v63);
-          v32 = 0;
-          if ( v23 )
+          v32 = v10 + 56;
+          while ( 1 )
           {
-            v33 = v11 + 56;
-            while ( 1 )
-            {
-              v34 = v63;
-              *(_DWORD *)(v33 - 24) = 3;
-              v35 = v67;
-              *(_DWORD *)(v33 - 12) = 0;
-              *(_DWORD *)(v33 - 8) = 1;
-              *(_OWORD *)v33 = v35;
-              v36 = v32 + DWORD1(v68);
-              *(_DWORD *)(v33 + 48) = v34;
-              *(_DWORD *)(v33 - 20) = v36;
-              *(_DWORD *)(v33 + 32) = v32 + v12;
-              IsPciDevice = IrqArbGetDeviceIrql(v11 + 88LL * v32 + 32, 88LL * v32 + v11 + 40);
-              if ( IsPciDevice < 0 )
-                goto LABEL_106;
-              v33 += 88LL;
-              if ( ++v32 >= v23 )
-                goto LABEL_93;
-            }
+            v33 = v64;
+            *((_DWORD *)v32 - 6) = 3;
+            v34 = v68;
+            *((_DWORD *)v32 - 3) = 0;
+            *((_DWORD *)v32 - 2) = 1;
+            *(_OWORD *)v32 = v34;
+            v35 = v31 + DWORD1(v69);
+            *((_DWORD *)v32 + 12) = v33;
+            *((_DWORD *)v32 - 5) = v35;
+            *((_DWORD *)v32 + 8) = v31 + v11;
+            IsPciDevice = IrqArbGetDeviceIrql(&v10[88 * v31 + 32], &v10[88 * v31 + 40]);
+            if ( IsPciDevice < 0 )
+              goto LABEL_86;
+            ++v31;
+            v32 += 88;
+            if ( v31 >= v21 )
+              goto LABEL_39;
           }
-          goto LABEL_93;
         }
+        goto LABEL_39;
+      }
+LABEL_86:
+      LOBYTE(v3) = v58;
+      goto LABEL_111;
+    }
+    if ( v62 )
+    {
+      *((_DWORD *)v10 + 2) = 2;
+      *((_QWORD *)v10 + 2) = v62;
+    }
+    else
+    {
+      *((_DWORD *)v10 + 2) = 1;
+    }
+    *((_DWORD *)v10 + 8) = 0;
+    v16 = v55 == 0;
+    *((_DWORD *)v10 + 9) = DWORD1(v69);
+    *(_OWORD *)(v10 + 56) = v68;
+    v44 = (!v16 || v54) && !v53;
+    v45 = v15 & 0xA;
+    *((_DWORD *)v10 + 12) = v44;
+    switch ( v45 )
+    {
+      case 10:
+        v46 = 3;
+        break;
+      case 8:
+        v46 = 4;
+        break;
+      case 2:
+        v46 = 2;
+        break;
+      default:
+        v46 = v45 == 0;
+        break;
+    }
+    *((_DWORD *)v10 + 11) = v46;
+    *((_DWORD *)v10 + 22) = IrqArbGsivFromIrq(*(_QWORD *)a2);
+    *((_DWORD *)v10 + 23) ^= (*((_DWORD *)v10 + 23) ^ (*((_DWORD *)v10 + 1) >> 4)) & 1;
+    IsPciDevice = IrqArbGetDeviceIrql(v10 + 32, v10 + 40);
+    if ( IsPciDevice >= 0 )
+    {
+LABEL_39:
+      v36 = v59;
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v37 = v52;
       }
       else
       {
-        if ( v60 )
-        {
-          *(_DWORD *)(Pool2 + 8) = 2;
-          *(_QWORD *)(Pool2 + 16) = v60;
-        }
-        else
-        {
-          *(_DWORD *)(Pool2 + 8) = 1;
-        }
-        *(_DWORD *)(Pool2 + 32) = 0;
-        v19 = v53 == 0;
-        *(_DWORD *)(Pool2 + 36) = DWORD1(v68);
-        *(_OWORD *)(Pool2 + 56) = v67;
-        v37 = (!v19 || v52) && !v51;
-        v38 = v16 & 0xA;
-        *(_DWORD *)(v11 + 48) = v37;
-        switch ( v38 )
-        {
-          case 10:
-            v39 = 3;
-            break;
-          case 8:
-            v39 = 4;
-            break;
-          case 2:
-            v39 = 2;
-            break;
-          default:
-            v39 = v38 == 0;
-            break;
-        }
-        *(_DWORD *)(v11 + 44) = v39;
-        *(_DWORD *)(v11 + 88) = IrqArbGsivFromIrq(*a2);
-        *(_DWORD *)(v11 + 92) ^= v40 & (*(_DWORD *)(v11 + 92) ^ (*(_DWORD *)(v11 + 4) >> 4));
-        IsPciDevice = IrqArbGetDeviceIrql(v11 + 32, v11 + 40);
-        if ( IsPciDevice >= 0 )
-        {
-LABEL_93:
-          v6 = v59;
-          v41 = v57;
-          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            v42 = v50;
-          }
-          else
-          {
-            v42 = v50;
-            v43 = "RTL_RANGE_LIST_ADD_SHARED";
-            v44 = "RTL_RANGE_LIST_ADD_IF_CONFLICT";
-            v45 = "ARBITER_RANGE_BOOT_ALLOCATED";
-            if ( (v57 & 2) == 0 )
-              v43 = " ";
-            if ( (v57 & 1) == 0 )
-              v44 = " ";
-            if ( !v50 )
-              v45 = " ";
-            WPP_RECORDER_SF_DDDssDssqq(
-              (__int64)WPP_GLOBAL_Control->DeviceExtension,
-              (__int64)v44,
-              (__int64)v45,
-              (__int64)v43,
-              Flags);
-          }
-          v46 = RtlAddRange(
-                  *(PRTL_RANGE_LIST *)(v66 + 48),
-                  *a2,
-                  a2[1],
-                  v42,
-                  v41 | 0x10,
-                  (PVOID)v11,
-                  *(PVOID *)(*v6 + 32));
-          IsPciDevice = v46;
-          if ( v46 < 0 )
-          {
-            LOBYTE(v3) = v56;
-            if ( v46 != -1073741823 )
-              LOBYTE(v3) = 1;
-            goto LABEL_108;
-          }
-          return;
-        }
+        v37 = v52;
+        v38 = "RTL_RANGE_LIST_ADD_SHARED";
+        v39 = "RTL_RANGE_LIST_ADD_IF_CONFLICT";
+        v40 = "ARBITER_RANGE_BOOT_ALLOCATED";
+        if ( (v59 & 2) == 0 )
+          v38 = " ";
+        if ( (v59 & 1) == 0 )
+          v39 = " ";
+        if ( !v52 )
+          v40 = " ";
+        WPP_RECORDER_SF_DDDssDssqq(
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          (__int64)v39,
+          (__int64)v40,
+          (__int64)v38,
+          Flagsa);
       }
+      v41 = RtlAddRange(
+              *(PRTL_RANGE_LIST *)(v67 + 48),
+              *(_QWORD *)a2,
+              *(_QWORD *)(a2 + 8),
+              v37,
+              v36 | 0x10,
+              v10,
+              *(PVOID *)(*(_QWORD *)(a2 + 32) + 32LL));
+      IsPciDevice = v41;
+      if ( v41 < 0 )
+      {
+        LOBYTE(v3) = v58;
+        if ( v41 != -1073741823 )
+          LOBYTE(v3) = 1;
+        goto LABEL_111;
+      }
+      return;
     }
-LABEL_106:
-    v6 = v59;
-    goto LABEL_107;
+    LOBYTE(v3) = v58;
+LABEL_111:
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LODWORD(UserData) = IsPciDevice;
+      WPP_RECORDER_SF_d(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        4u,
+        0x14u,
+        0x11u,
+        (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids,
+        UserData);
+    }
+    if ( DWORD1(v69) )
+      ProcessorDeleteDeviceIdtAssignment(*(void **)(*(_QWORD *)(a2 + 32) + 32LL), v11, DWORD1(v69), 1);
+    if ( v56 )
+      --*(_DWORD *)(v62 + 28);
+    if ( v57 )
+    {
+      LOBYTE(v12) = (*(_BYTE *)(a2 + 64) & 2) != 0;
+      IcRemovePossibleReference(v11, v12);
+    }
+    if ( v10 )
+    {
+      if ( !(_BYTE)v3 )
+        ExFreePoolWithTag(v10, 0);
+    }
   }
 }

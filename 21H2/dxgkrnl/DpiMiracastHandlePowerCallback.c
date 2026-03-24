@@ -1,25 +1,33 @@
 /*
- * XREFs of DpiMiracastHandlePowerCallback @ 0x1C038D350
+ * XREFs of DpiMiracastHandlePowerCallback @ 0x1C02CE290
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01B32DC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     DxgkMiracastStopAllMiracastSessions @ 0x1C01DAC40 (DxgkMiracastStopAllMiracastSessions.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C013AB0C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DxgkMiracastStopAllMiracastSessions @ 0x1C015EE30 (DxgkMiracastStopAllMiracastSessions.c)
  */
 
 __int64 __fastcall DpiMiracastHandlePowerCallback(LPCGUID SettingGuid, _DWORD *Value, ULONG ValueLength, PVOID Context)
 {
   __int64 v4; // rax
   __int64 v5; // rax
-  union _LARGE_INTEGER v7[2]; // [rsp+20h] [rbp-60h] BYREF
-  int v8; // [rsp+30h] [rbp-50h] BYREF
-  int v9; // [rsp+34h] [rbp-4Ch]
-  __int128 v10; // [rsp+38h] [rbp-48h]
-  __int64 v11; // [rsp+48h] [rbp-38h]
-  __int64 v12; // [rsp+50h] [rbp-30h]
-  __int64 v13; // [rsp+58h] [rbp-28h]
-  __int128 v14; // [rsp+60h] [rbp-20h]
+  union _LARGE_INTEGER v7[2]; // [rsp+20h] [rbp-49h] BYREF
+  _DWORD v8[2]; // [rsp+30h] [rbp-39h] BYREF
+  __int128 v9; // [rsp+38h] [rbp-31h]
+  __int64 v10; // [rsp+48h] [rbp-21h]
+  __int64 v11; // [rsp+50h] [rbp-19h]
+  __int64 v12; // [rsp+58h] [rbp-11h]
+  __int64 v13; // [rsp+60h] [rbp-9h]
+  __int64 v14; // [rsp+68h] [rbp-1h]
+  _DWORD v15[2]; // [rsp+70h] [rbp+7h] BYREF
+  __int128 v16; // [rsp+78h] [rbp+Fh]
+  __int64 v17; // [rsp+88h] [rbp+1Fh]
+  __int64 v18; // [rsp+90h] [rbp+27h]
+  __int64 v19; // [rsp+98h] [rbp+2Fh]
+  int v20; // [rsp+A0h] [rbp+37h]
+  __int64 v21; // [rsp+A4h] [rbp+3Bh]
+  int v22; // [rsp+ACh] [rbp+43h]
 
   v4 = *(_QWORD *)&SettingGuid->Data1 - *(_QWORD *)&GUID_LOW_POWER_EPOCH.Data1;
   if ( *(_QWORD *)&SettingGuid->Data1 == *(_QWORD *)&GUID_LOW_POWER_EPOCH.Data1 )
@@ -33,37 +41,38 @@ __int64 __fastcall DpiMiracastHandlePowerCallback(LPCGUID SettingGuid, _DWORD *V
     {
       if ( *Value )
       {
-        if ( byte_1C0130499 && KeCancelTimer(&Timer) )
+        if ( byte_1C00B2B1A && KeCancelTimer(&Timer) )
         {
-          _InterlockedIncrement(&dword_1C01308D8);
-          v13 = 0LL;
-          v8 = 6;
-          v11 = 0LL;
-          v10 = 0LL;
-          v9 = 64;
-          v12 = 0LL;
-          LODWORD(v14) = 73;
-          *(_QWORD *)((char *)&v14 + 4) = 2LL;
-          HIDWORD(v14) = 0;
-          DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)&v8, 0x200000000LL);
+          _InterlockedIncrement(&dword_1C00B2F50);
+          v19 = 0LL;
+          v15[0] = 6;
+          v17 = 0LL;
+          v16 = 0LL;
+          v15[1] = 64;
+          v18 = 0LL;
+          v20 = 73;
+          v21 = 2LL;
+          v22 = 0;
+          DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v15, 0x200000000LL);
         }
-        byte_1C0130499 = 0;
+        byte_1C00B2B1A = 0;
       }
       else
       {
-        byte_1C0130499 = 1;
-        if ( byte_1C0130497 && dword_1C01308C0 )
+        byte_1C00B2B1A = 1;
+        if ( byte_1C00B2B18 && dword_1C00B2F38 )
         {
           v7[0].QuadPart = -300000000LL;
           KeSetTimer(&Timer, (LARGE_INTEGER)-300000000LL, &Dpc);
-          v13 = 0LL;
-          v8 = 6;
-          v11 = 0LL;
-          v10 = 0LL;
-          v9 = 64;
           v12 = 0LL;
-          v14 = 0x49uLL;
-          DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)&v8, 0x200000000LL);
+          v8[0] = 6;
+          v10 = 0LL;
+          v9 = 0LL;
+          v8[1] = 64;
+          v11 = 0LL;
+          v13 = 73LL;
+          v14 = 0LL;
+          DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v8, 0x200000000LL);
         }
       }
     }

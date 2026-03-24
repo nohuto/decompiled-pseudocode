@@ -1,16 +1,16 @@
 /*
- * XREFs of VslQueryVirtualMemory @ 0x14054EF74
+ * XREFs of VslQueryVirtualMemory @ 0x1404FD1C0
  * Callers:
- *     MmQueryVirtualMemory @ 0x1407BA750 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslQueryVirtualMemory(__int64 a1, __int64 a2, _OWORD *a3)
+NTSTATUS __fastcall VslQueryVirtualMemory(__int64 a1, __int64 a2, _OWORD *a3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int128 v7; // xmm1
   __int128 v8; // xmm0
   _OWORD v9[7]; // [rsp+20h] [rbp-98h] BYREF
@@ -18,8 +18,8 @@ __int64 __fastcall VslQueryVirtualMemory(__int64 a1, __int64 a2, _OWORD *a3)
   memset(v9, 0, 0x68uLL);
   *((_QWORD *)&v9[0] + 1) = *(_QWORD *)(a1 + 992);
   *(_QWORD *)&v9[1] = a2;
-  result = VslpEnterIumSecureMode(2u, 41, 0, (__int64)v9);
-  if ( (int)result >= 0 )
+  result = VslpEnterIumSecureMode(2u, 40, 0, (__int64)v9);
+  if ( result >= 0 )
   {
     v7 = v9[2];
     *a3 = v9[1];

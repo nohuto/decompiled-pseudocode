@@ -1,7 +1,7 @@
 /*
- * XREFs of MiReleasePageHash @ 0x1402CC3BC
+ * XREFs of MiReleasePageHash @ 0x1402CC4BC
  * Callers:
- *     MiDeletePagefile @ 0x140853110 (MiDeletePagefile.c)
+ *     MiDeletePagefile @ 0x1408530F0 (MiDeletePagefile.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  */

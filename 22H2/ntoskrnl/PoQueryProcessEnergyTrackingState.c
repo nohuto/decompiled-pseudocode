@@ -1,12 +1,12 @@
 /*
- * XREFs of PoQueryProcessEnergyTrackingState @ 0x140998658
+ * XREFs of PoQueryProcessEnergyTrackingState @ 0x1408F2938
  * Callers:
- *     NtQueryInformationProcess @ 0x1406FCB40 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406216C0 (NtQueryInformationProcess.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     RtlStringCchCopyNW @ 0x1402F7ECC (RtlStringCchCopyNW.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     memset @ 0x140435400 (memset.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     RtlStringCchCopyNW @ 0x140371D50 (RtlStringCchCopyNW.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 void __fastcall PoQueryProcessEnergyTrackingState(__int64 a1, __int64 a2)
@@ -31,6 +31,6 @@ void __fastcall PoQueryProcessEnergyTrackingState(__int64 a1, __int64 a2)
         0x40uLL,
         (STRSAFE_PCNZWCH)(v6 + 32),
         (*(_QWORD *)(v6 + 24) >> 17) & 0x1FFFFFFFLL);
-    PopReleaseRwLock((__int64 *)(v4 + 432));
+    PopReleaseRwLock(v4 + 432);
   }
 }

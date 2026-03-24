@@ -1,12 +1,12 @@
 /*
- * XREFs of NtAlpcCreateResourceReserve @ 0x1406A3EF0
+ * XREFs of NtAlpcCreateResourceReserve @ 0x1406A3ED0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     AlpcpCreateReserve @ 0x1406A3FD8 (AlpcpCreateReserve.c)
+ *     AlpcpCreateReserve @ 0x1406A3FB8 (AlpcpCreateReserve.c)
  */
 
 __int64 __fastcall NtAlpcCreateResourceReserve(HANDLE Handle, int a2, __int64 a3, unsigned int *a4)

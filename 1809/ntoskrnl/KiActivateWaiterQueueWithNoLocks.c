@@ -1,20 +1,20 @@
 /*
- * XREFs of KiActivateWaiterQueueWithNoLocks @ 0x140112468
+ * XREFs of KiActivateWaiterQueueWithNoLocks @ 0x140112488
  * Callers:
  *     KiCommitThreadWait @ 0x140055AD0 (KiCommitThreadWait.c)
  *     KeTerminateThread @ 0x140089A20 (KeTerminateThread.c)
- *     KiPriQueueThreadPriorityChanged @ 0x140112310 (KiPriQueueThreadPriorityChanged.c)
- *     KiSwitchQueue @ 0x1401123E8 (KiSwitchQueue.c)
- *     KiSwitchPriQueue @ 0x140135F54 (KiSwitchPriQueue.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x140112330 (KiPriQueueThreadPriorityChanged.c)
+ *     KiSwitchQueue @ 0x140112408 (KiSwitchQueue.c)
+ *     KiSwitchPriQueue @ 0x140135F74 (KiSwitchPriQueue.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D150 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBDF0 (KiAcquireKobjectLockSafe.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiActivateWaiterKQueue @ 0x14011259C (KiActivateWaiterKQueue.c)
- *     KiActivateWaiterPriQueue @ 0x140112630 (KiActivateWaiterPriQueue.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiActivateWaiterKQueue @ 0x1401125BC (KiActivateWaiterKQueue.c)
+ *     KiActivateWaiterPriQueue @ 0x140112650 (KiActivateWaiterPriQueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KiActivateWaiterQueueWithNoLocks(__int64 a1, unsigned __int64 a2, _QWORD *a3)

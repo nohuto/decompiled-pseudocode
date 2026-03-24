@@ -1,9 +1,9 @@
 /*
- * XREFs of RIMAllocUserMem @ 0x1C017E640
+ * XREFs of RIMAllocUserMem @ 0x1C015AB70
  * Callers:
  *     <none>
  * Callees:
- *     rimAllocUserMemInternal @ 0x1C017E714 (rimAllocUserMemInternal.c)
+ *     rimAllocUserMemInternal @ 0x1C015AC44 (rimAllocUserMemInternal.c)
  */
 
 __int64 __fastcall RIMAllocUserMem(__int64 a1, __int64 a2)

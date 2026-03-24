@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxCreateDeviceCommon @ 0x140179938
+ * XREFs of PopFxCreateDeviceCommon @ 0x140179958
  * Callers:
- *     PopFxAcpiRegisterDevice @ 0x1402E85B8 (PopFxAcpiRegisterDevice.c)
- *     PopFxRegisterDeviceWorker @ 0x1407249D8 (PopFxRegisterDeviceWorker.c)
+ *     PopFxAcpiRegisterDevice @ 0x1402E86B8 (PopFxAcpiRegisterDevice.c)
+ *     PopFxRegisterDeviceWorker @ 0x1407249B8 (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     IoInitializeRemoveLockEx @ 0x14016C750 (IoInitializeRemoveLockEx.c)
- *     PopFxDuplicateUniqueId @ 0x140179AEC (PopFxDuplicateUniqueId.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     IoInitializeRemoveLockEx @ 0x14016C770 (IoInitializeRemoveLockEx.c)
+ *     PopFxDuplicateUniqueId @ 0x140179B0C (PopFxDuplicateUniqueId.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

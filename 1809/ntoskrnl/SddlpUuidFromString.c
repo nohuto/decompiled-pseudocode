@@ -1,12 +1,12 @@
 /*
- * XREFs of SddlpUuidFromString @ 0x1408A6D10
+ * XREFs of SddlpUuidFromString @ 0x1408A6CF0
  * Callers:
- *     LocalGetAclForString @ 0x1406AFCAC (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1406AFC8C (LocalGetAclForString.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcsncat_s @ 0x14019BD30 (wcsncat_s.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcsncat_s @ 0x14019BD50 (wcsncat_s.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
  */
 

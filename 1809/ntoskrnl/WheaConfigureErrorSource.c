@@ -9,7 +9,7 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     WheapInitializeDeferredErrorSources @ 0x14031F954 (WheapInitializeDeferredErrorSources.c)
+ *     WheapInitializeDeferredErrorSources @ 0x14031FA54 (WheapInitializeDeferredErrorSources.c)
  */
 
 __int64 __fastcall WheaConfigureErrorSource(unsigned int a1, __int64 a2)

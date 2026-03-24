@@ -1,12 +1,12 @@
 /*
- * XREFs of CiProcessNotification @ 0x1C0002BE0
+ * XREFs of CiProcessNotification @ 0x1C0001AB0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00033D0 (_guard_dispatch_icall_nop.c)
- *     CiProcessSuspend @ 0x1C0004B64 (CiProcessSuspend.c)
- *     CiProcessDereference @ 0x1C000A830 (CiProcessDereference.c)
- *     CiProcessLocate @ 0x1C000B2C0 (CiProcessLocate.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00031A0 (_guard_dispatch_icall_nop.c)
+ *     CiProcessSuspend @ 0x1C00048B4 (CiProcessSuspend.c)
+ *     CiProcessLocate @ 0x1C000AF50 (CiProcessLocate.c)
+ *     CiProcessDereference @ 0x1C000BA90 (CiProcessDereference.c)
  */
 
 __int64 __fastcall CiProcessNotification(__int64 a1)

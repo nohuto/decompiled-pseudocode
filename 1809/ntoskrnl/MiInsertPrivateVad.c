@@ -2,13 +2,13 @@
  * XREFs of MiInsertPrivateVad @ 0x1400767F0
  * Callers:
  *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x140695EC0 (MiAllocateNewSubAllocatedRegion.c)
- *     MiAllocateEnclaveVad @ 0x140859178 (MiAllocateEnclaveVad.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140695EA0 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiAllocateEnclaveVad @ 0x140859158 (MiAllocateEnclaveVad.c)
  * Callees:
  *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
  *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     MiAweViewInserter @ 0x14084F654 (MiAweViewInserter.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     MiAweViewInserter @ 0x14084F634 (MiAweViewInserter.c)
  */
 
 __int64 __fastcall MiInsertPrivateVad(__int64 a1, __int64 a2, __int64 a3)

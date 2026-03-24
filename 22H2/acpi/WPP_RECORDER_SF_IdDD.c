@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_IdDD @ 0x1C00472F8
+ * XREFs of WPP_RECORDER_SF_IdDD @ 0x1C00631B8
  * Callers:
- *     ACPIWmiEnableLog @ 0x1C00470C0 (ACPIWmiEnableLog.c)
+ *     ACPIWmiEnableLog @ 0x1C00630C0 (ACPIWmiEnableLog.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_IdDD(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __int64 a5, __int64 a6, ...)
@@ -39,19 +39,5 @@ __int64 WPP_RECORDER_SF_IdDD(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __int6
       4LL,
       0LL);
   LOWORD(v8) = 12;
-  return WppAutoLogTrace(
-           a1,
-           4LL,
-           1LL,
-           &WPP_3ad0379a4aff33c3a6e5470e3717ea43_Traceguids,
-           v8,
-           v9,
-           8LL,
-           (__int64 *)va,
-           4LL,
-           (__int64 *)va1,
-           4LL,
-           va2,
-           4LL,
-           0LL);
+  return WppAutoLogTrace(a1, 4LL, 1LL, &WPP_3ad0379a4aff33c3a6e5470e3717ea43_Traceguids, v8, v9);
 }

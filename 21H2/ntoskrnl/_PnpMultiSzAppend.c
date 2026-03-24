@@ -1,79 +1,84 @@
 /*
- * XREFs of _PnpMultiSzAppend @ 0x1406D0858
+ * XREFs of _PnpMultiSzAppend @ 0x14097C1EC
  * Callers:
- *     _CmGetDeviceChildren @ 0x1406D068C (_CmGetDeviceChildren.c)
- *     _CmAppendDeclarativeDefaultFilters @ 0x140A29C1C (_CmAppendDeclarativeDefaultFilters.c)
- *     _CmAppendDeclarativeFilterLevel @ 0x140A29D04 (_CmAppendDeclarativeFilterLevel.c)
- *     _CmMergeFilterLists @ 0x140A2C08C (_CmMergeFilterLists.c)
+ *     _CmAppendDeclarativeDefaultFilters @ 0x140979458 (_CmAppendDeclarativeDefaultFilters.c)
+ *     _CmAppendDeclarativeFilterLevel @ 0x140979540 (_CmAppendDeclarativeFilterLevel.c)
+ *     _CmGetDeviceChildren @ 0x140979D9C (_CmGetDeviceChildren.c)
+ *     _CmMergeFilterLists @ 0x14097B76C (_CmMergeFilterLists.c)
  * Callees:
- *     RtlStringCbCopyExW @ 0x1402E04F4 (RtlStringCbCopyExW.c)
+ *     RtlStringCbCopyExW @ 0x1402C2960 (RtlStringCbCopyExW.c)
  */
 
 char __fastcall PnpMultiSzAppend(NTSTRSAFE_PWSTR pszDest, unsigned int *a2, const wchar_t *a3, wchar_t **a4)
 {
-  unsigned __int64 v4; // r10
-  NTSTRSAFE_PWSTR v9; // rdi
+  wchar_t v4; // r10
+  unsigned __int64 v5; // r11
   __int64 v10; // rbx
-  size_t v11; // rdx
-  __int64 v12; // rcx
-  wchar_t *v13; // rcx
+  __int64 v11; // rax
+  unsigned int v12; // edi
+  wchar_t *v13; // rax
+  NTSTRSAFE_PWSTR v14; // rdi
   __int64 v15; // rbx
-  __int64 v16; // rax
-  unsigned int v17; // edi
-  wchar_t *v18; // rax
+  size_t v16; // rdx
+  __int64 v17; // rcx
+  wchar_t *v18; // rcx
 
-  v4 = *a2;
+  v4 = *pszDest;
+  v5 = *a2;
   if ( *pszDest )
   {
-    v9 = pszDest;
-    if ( (_DWORD)v4 )
+    v14 = pszDest;
+    if ( (_DWORD)v5 )
     {
       do
       {
-        do
-          ++v9;
-        while ( *v9 );
-        ++v9;
+        if ( v4 )
+        {
+          do
+            ++v14;
+          while ( *v14 );
+        }
+        v4 = *++v14;
       }
-      while ( *v9 && 2 * (unsigned __int64)(unsigned int)(v9 - pszDest) < v4 );
+      while ( *v14 && 2 * (unsigned __int64)(unsigned int)(v14 - pszDest) < v5 );
     }
-    v10 = -1LL;
-    v11 = *a2;
-    v12 = -1LL;
+    v15 = -1LL;
+    v16 = *a2;
+    v17 = -1LL;
     do
-      ++v12;
-    while ( a3[v12] );
-    if ( 2 * (v9 - pszDest + v12) + 4 <= v4 && RtlStringCbCopyExW(v9, v11, a3, 0LL, 0LL, 0x900u) >= 0 )
+      ++v17;
+    while ( a3[v17] );
+    if ( 2 * (v14 - pszDest + v17) + 4 <= v5 && RtlStringCbCopyExW(v14, v16, a3, 0LL, 0LL, 0x900u) >= 0 )
     {
       do
-        ++v10;
-      while ( a3[v10] );
-      v13 = &v9[v10 + 1];
-      *v13 = 0;
-      *a2 = 2 * (v13 - pszDest) + 2;
+        ++v15;
+      while ( a3[v15] );
+      v18 = &v14[v15 + 1];
+      *v18 = 0;
+      *a2 = 2 * (v18 - pszDest) + 2;
       if ( a4 )
-        *a4 = v13;
+        *a4 = v18;
       return 1;
     }
   }
   else
   {
-    v15 = -1LL;
-    v16 = -1LL;
+    v10 = -1LL;
+    v11 = -1LL;
     do
-      ++v16;
-    while ( a3[v16] );
-    v17 = 2 * v16 + 4;
-    if ( v17 <= (unsigned int)v4 && RtlStringCbCopyExW(pszDest, *a2, a3, 0LL, 0LL, 0x900u) >= 0 )
+      ++v11;
+    while ( a3[v11] );
+    v12 = 2 * v11 + 4;
+    if ( v12 <= (unsigned int)v5 && RtlStringCbCopyExW(pszDest, *a2, a3, 0LL, 0LL, 0x900u) >= 0 )
     {
       do
-        ++v15;
-      while ( pszDest[v15] );
-      *a2 = v17;
-      v18 = &pszDest[v15 + 1];
-      *v18 = 0;
+        ++v10;
+      while ( pszDest[v10] );
+      *a2 = v12;
+      v13 = &pszDest[v10 + 1];
+      *v13 = 0;
       if ( a4 )
-        *a4 = v18;
+        *a4 = v13;
       return 1;
     }
   }

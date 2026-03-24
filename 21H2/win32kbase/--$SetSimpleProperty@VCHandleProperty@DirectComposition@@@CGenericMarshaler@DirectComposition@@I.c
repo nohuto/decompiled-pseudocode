@@ -1,12 +1,12 @@
 /*
- * XREFs of ??$SetSimpleProperty@VCHandleProperty@DirectComposition@@@CGenericMarshaler@DirectComposition@@IEAAJIPEAXPEA_N@Z @ 0x1C0213984
+ * XREFs of ??$SetSimpleProperty@VCHandleProperty@DirectComposition@@@CGenericMarshaler@DirectComposition@@IEAAJIPEAXPEA_N@Z @ 0x1C01D3C4C
  * Callers:
- *     ?SetHandleProperty@CGenericMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C0214D10 (-SetHandleProperty@CGenericMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z.c)
+ *     ?SetHandleProperty@CGenericMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C01D51D0 (-SetHandleProperty@CGenericMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z.c)
  * Callees:
- *     DirectComposition::Memory::AllocateAndClear @ 0x1C005FAB0 (DirectComposition--Memory--AllocateAndClear.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?push_back@CGenericPropertyList@DirectComposition@@QEAA_NPEAVCGenericProperty@2@@Z @ 0x1C0215290 (-push_back@CGenericPropertyList@DirectComposition@@QEAA_NPEAVCGenericProperty@2@@Z.c)
- *     ?FindProperty@CGenericMarshaler@DirectComposition@@IEAA?AVCPropertyIterator@2@I@Z @ 0x1C021FE40 (-FindProperty@CGenericMarshaler@DirectComposition@@IEAA-AVCPropertyIterator@2@I@Z.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C0029550 (Win32AllocPoolWithQuotaZInit.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?push_back@CGenericPropertyList@DirectComposition@@QEAA_NPEAVCGenericProperty@2@@Z @ 0x1C01D573C (-push_back@CGenericPropertyList@DirectComposition@@QEAA_NPEAVCGenericProperty@2@@Z.c)
+ *     ?FindProperty@CGenericMarshaler@DirectComposition@@IEAA?AVCPropertyIterator@2@I@Z @ 0x1C01F6B70 (-FindProperty@CGenericMarshaler@DirectComposition@@IEAA-AVCPropertyIterator@2@I@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CGenericMarshaler::SetSimpleProperty<DirectComposition::CHandleProperty>(
@@ -15,7 +15,7 @@ __int64 __fastcall DirectComposition::CGenericMarshaler::SetSimpleProperty<Direc
         __int64 a3,
         _BYTE *a4)
 {
-  __int64 v8; // rax
+  _WORD *v8; // rax
   __int64 v9; // rbx
   __int64 result; // rax
   __int64 *v11; // [rsp+40h] [rbp+8h] BYREF
@@ -23,19 +23,24 @@ __int64 __fastcall DirectComposition::CGenericMarshaler::SetSimpleProperty<Direc
   DirectComposition::CGenericMarshaler::FindProperty(a1, &v11, a2);
   if ( v11 == (__int64 *)(*(_QWORD *)(a1 + 64) + 8LL * *(_QWORD *)(a1 + 72)) )
   {
-    v8 = DirectComposition::Memory::AllocateAndClear(0x10uLL, 1885815620, 1);
-    v9 = v8;
-    if ( !v8 )
+    v8 = Win32AllocPoolWithQuotaZInit(0x10uLL, 0x70674344u);
+    v9 = (__int64)v8;
+    if ( v8 )
+    {
+      *(_DWORD *)v8 = a2;
+      v8[2] = 3;
+    }
+    else
+    {
+      v9 = 0LL;
+    }
+    if ( !v9 )
       return 3221225495LL;
-    *(_DWORD *)v8 = a2;
-    *(_WORD *)(v8 + 4) = 3;
     if ( !DirectComposition::CGenericPropertyList::push_back(
             (DirectComposition::CGenericPropertyList *)(a1 + 64),
-            (struct DirectComposition::CGenericProperty *)v8) )
+            (struct DirectComposition::CGenericProperty *)v9) )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        (char *)v9);
+      Win32FreePool(v9);
       return 3221225495LL;
     }
   }

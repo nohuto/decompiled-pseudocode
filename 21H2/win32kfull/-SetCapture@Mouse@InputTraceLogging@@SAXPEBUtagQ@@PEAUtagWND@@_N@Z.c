@@ -1,13 +1,12 @@
 /*
- * XREFs of ?SetCapture@Mouse@InputTraceLogging@@SAXPEBUtagQ@@PEAUtagWND@@_N@Z @ 0x1C00AAB18
+ * XREFs of ?SetCapture@Mouse@InputTraceLogging@@SAXPEBUtagQ@@PEAUtagWND@@_N@Z @ 0x1C00C0A84
  * Callers:
- *     xxxCapture @ 0x1C00AA7F8 (xxxCapture.c)
- *     LockCaptureWindow @ 0x1C00AAA80 (LockCaptureWindow.c)
+ *     xxxCapture @ 0x1C00C062C (xxxCapture.c)
+ *     LockCaptureWindow @ 0x1C00C09C4 (LockCaptureWindow.c)
  * Callees:
- *     ?Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z @ 0x1C0064908 (-Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z.c)
- *     _tlgKeywordOn @ 0x1C00CD6B0 (_tlgKeywordOn.c)
- *     ?GetWindowDetails@InputTraceLogging@@SA?AUWindowDetails@1@PEBUtagWND@@PEBUtagBWND@@@Z @ 0x1C016AEDA (-GetWindowDetails@InputTraceLogging@@SA-AUWindowDetails@1@PEBUtagWND@@PEBUtagBWND@@@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@G@@U2@U2@U2@U2@U3@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@G@@44445AEBU?$_tlgWrapSz@D@@@Z @ 0x1C021F6BC (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@G@@U2@U_ea_1C021F6BC.c)
+ *     ?Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z @ 0x1C00C1518 (-Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z.c)
+ *     ?GetWindowDetails@InputTraceLogging@@CA?AUWindowDetails@1@PEAUtagWND@@PEAUtagBWND@@@Z @ 0x1C01E0820 (-GetWindowDetails@InputTraceLogging@@CA-AUWindowDetails@1@PEAUtagWND@@PEAUtagBWND@@@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@G@@U2@U2@U2@U2@U3@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@G@@44445AEBU?$_tlgWrapSz@D@@@Z @ 0x1C0225E1C (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@G@@U2@U_ea_1C0225E1C.c)
  */
 
 void __fastcall InputTraceLogging::Mouse::SetCapture(const struct tagQ *a1, struct tagWND *a2, unsigned __int8 a3)
@@ -32,42 +31,41 @@ void __fastcall InputTraceLogging::Mouse::SetCapture(const struct tagQ *a1, stru
 
   v4 = a3;
   v6 = 0LL;
-  if ( InputTraceLogging::Enabled(0) )
+  if ( (unsigned __int8)InputTraceLogging::Enabled(0LL) )
   {
     WindowDetails = InputTraceLogging::GetWindowDetails(v20, a2);
     v8 = *(_OWORD *)(WindowDetails + 16);
     v17 = *(_OWORD *)WindowDetails;
     v19 = *(_QWORD *)(WindowDetails + 32);
     v18 = v8;
-    if ( (unsigned int)dword_1C032BE20 > 4 )
+    if ( (unsigned int)dword_1C0330B20 > 4
+      && (qword_1C0330B30 & 0x40) != 0
+      && (qword_1C0330B38 & 0x40) == qword_1C0330B38 )
     {
-      if ( (unsigned __int8)tlgKeywordOn(&dword_1C032BE20, 64LL) )
-      {
-        v13 = v17;
-        LODWORD(v21) = HIDWORD(v19);
-        v9 = v19;
-        v10 = HIDWORD(v18);
-        v11 = DWORD2(v18);
-        v14 = v18;
-        if ( a2 )
-          v6 = *(_QWORD *)a2;
-        v15 = v6;
-        v12 = v4;
-        v16 = (__int64)a1;
-        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapSz<char>>(
-          (int)&dword_1C032BE20,
-          (int)&dword_1C02F0E77,
-          (__int64)&v16,
-          (__int64)&v12,
-          (__int64)&v15,
-          (__int64)&v14,
-          (__int64)&v11,
-          (__int64)&v10,
-          (__int64)&v9,
-          (__int64)&v21,
-          (__int64)&v13 + 8,
-          (__int64)&v13);
-      }
+      if ( a2 )
+        v6 = *(_QWORD *)a2;
+      v13 = v17;
+      LODWORD(v21) = HIDWORD(v19);
+      v9 = v19;
+      v10 = HIDWORD(v18);
+      v11 = DWORD2(v18);
+      v14 = v18;
+      v15 = v6;
+      v12 = v4;
+      v16 = (__int64)a1;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapSz<char>>(
+        (int)&dword_1C0330B20,
+        (int)&dword_1C02F3D7A,
+        (__int64)&v16,
+        (__int64)&v12,
+        (__int64)&v15,
+        (__int64)&v14,
+        (__int64)&v11,
+        (__int64)&v10,
+        (__int64)&v9,
+        (__int64)&v21,
+        (__int64)&v13 + 8,
+        (__int64)&v13);
     }
   }
 }

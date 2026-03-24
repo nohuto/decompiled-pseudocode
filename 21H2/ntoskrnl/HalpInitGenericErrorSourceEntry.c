@@ -1,117 +1,122 @@
 /*
- * XREFs of HalpInitGenericErrorSourceEntry @ 0x140A5AEB0
+ * XREFs of HalpInitGenericErrorSourceEntry @ 0x1409A76E0
  * Callers:
- *     HalpInitializeGenericErrorSource @ 0x140A5AC18 (HalpInitializeGenericErrorSource.c)
+ *     HalpInitializeGenericErrorSource @ 0x1409A7D34 (HalpInitializeGenericErrorSource.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140215340 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140215660 (MmUnmapIoSpace.c)
- *     RtlStringCchCopyA @ 0x14024F6E4 (RtlStringCchCopyA.c)
- *     WheaLogInternalEvent @ 0x1403D2A90 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
+ *     RtlStringCchCopyA @ 0x1402C8734 (RtlStringCchCopyA.c)
+ *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall HalpInitGenericErrorSourceEntry(__int64 a1, __int64 *a2)
+__int64 __fastcall HalpInitGenericErrorSourceEntry(__int64 a1, _QWORD *a2)
 {
   unsigned int v4; // esi
-  __int64 Pool2; // rdi
-  unsigned int v6; // r14d
-  _DWORD *v7; // rax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int128 v10; // xmm1
-  void *v12; // rcx
-  void *v13; // rcx
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v6; // rdi
+  unsigned int v7; // r14d
+  PVOID v8; // rax
+  void *v9; // rcx
+  void *v10; // rcx
+  char *v11; // rdx
+  __int64 v12; // r8
+  __int128 v13; // xmm1
   _DWORD Src[2]; // [rsp+20h] [rbp-60h] BYREF
-  __int64 v15; // [rsp+28h] [rbp-58h]
-  int v16; // [rsp+30h] [rbp-50h]
-  int v17; // [rsp+34h] [rbp-4Ch]
-  int v18; // [rsp+38h] [rbp-48h]
-  int v19; // [rsp+3Ch] [rbp-44h]
+  __int64 v16; // [rsp+28h] [rbp-58h]
+  int v17; // [rsp+30h] [rbp-50h]
+  int v18; // [rsp+34h] [rbp-4Ch]
+  int v19; // [rsp+38h] [rbp-48h]
+  int v20; // [rsp+3Ch] [rbp-44h]
   char pszDest[16]; // [rsp+40h] [rbp-40h] BYREF
-  __int128 v21; // [rsp+50h] [rbp-30h]
-  __int64 v22; // [rsp+60h] [rbp-20h]
-  __int64 v23; // [rsp+68h] [rbp-18h]
+  __int128 v22; // [rsp+50h] [rbp-30h]
+  __int64 v23; // [rsp+60h] [rbp-20h]
+  __int64 v24; // [rsp+68h] [rbp-18h]
 
   v4 = 0;
-  Pool2 = ExAllocatePool2(64LL, 1064LL, 1466720584LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x428uLL, 0x206C6148u);
+  v6 = PoolWithTag;
+  if ( !PoolWithTag )
   {
-LABEL_13:
+LABEL_2:
     v4 = -1073741670;
-    goto LABEL_7;
-  }
-  *(_DWORD *)(Pool2 + 48) = *(_DWORD *)(a1 + 44);
-  *(_QWORD *)(Pool2 + 40) = MmMapIoSpaceEx(*(_QWORD *)(a1 + 56), 8LL, 0x204u);
-  v22 = *(_QWORD *)(a1 + 56);
-  v23 = *(unsigned int *)(a1 + 44);
-  *(_OWORD *)pszDest = 0LL;
-  v21 = 0LL;
-  Src[0] = 1733060695;
-  Src[1] = 1;
-  v15 = 80LL;
-  v17 = -2147483615;
-  v16 = 1280201291;
-  v18 = 2;
-  v19 = 48;
-  RtlStringCchCopyA(pszDest, 0x20uLL, "Error_Status_block_register");
-  WheaLogInternalEvent(Src);
-  if ( !*(_QWORD *)(Pool2 + 40) )
-  {
-LABEL_10:
-    v13 = *(void **)(Pool2 + 24);
-    if ( v13 )
-      ExFreePoolWithTag(v13, 0x576C6148u);
-    ExFreePoolWithTag((PVOID)Pool2, 0x576C6148u);
-    Pool2 = 0LL;
     goto LABEL_13;
   }
-  v6 = *(_DWORD *)(a1 + 16) + 80 + *(_DWORD *)(Pool2 + 48);
-  v7 = (_DWORD *)ExAllocatePool2(64LL, v6, 1466720584LL);
-  *(_QWORD *)(Pool2 + 24) = v7;
-  if ( !v7 )
+  memset(PoolWithTag, 0, 0x428uLL);
+  v6[12] = *(_DWORD *)(a1 + 44);
+  *((_QWORD *)v6 + 5) = MmMapIoSpaceEx(*(_QWORD *)(a1 + 56), 8LL, 0x204u);
+  v23 = *(_QWORD *)(a1 + 56);
+  v24 = *(unsigned int *)(a1 + 44);
+  *(_OWORD *)pszDest = 0LL;
+  v22 = 0LL;
+  Src[0] = 1733060695;
+  Src[1] = 1;
+  v16 = 80LL;
+  v18 = -2147483615;
+  v17 = 1280201291;
+  v19 = 2;
+  v20 = 48;
+  RtlStringCchCopyA(pszDest, 0x20uLL, "Error_Status_block_register");
+  WheaLogInternalEvent(Src);
+  if ( !*((_QWORD *)v6 + 5) )
   {
-    v12 = *(void **)(Pool2 + 40);
-    if ( v12 )
-      MmUnmapIoSpace(v12, 8uLL);
-    goto LABEL_10;
+LABEL_7:
+    v10 = (void *)*((_QWORD *)v6 + 3);
+    if ( v10 )
+      ExFreePoolWithTag(v10, 0x206C6148u);
+    ExFreePoolWithTag(v6, 0x206C6148u);
+    v6 = 0LL;
+    goto LABEL_2;
   }
-  *v7 = 1095059543;
-  v8 = 7LL;
-  *(_DWORD *)(*(_QWORD *)(Pool2 + 24) + 4LL) = 3;
-  *(_DWORD *)(*(_QWORD *)(Pool2 + 24) + 8LL) = v6;
-  *(_DWORD *)(*(_QWORD *)(Pool2 + 24) + 16LL) = 6;
-  *(_DWORD *)(*(_QWORD *)(Pool2 + 24) + 24LL) = *(_DWORD *)(a1 + 28);
-  *(_DWORD *)(*(_QWORD *)(Pool2 + 24) + 28LL) = 5;
-  *(GUID *)(*(_QWORD *)(Pool2 + 24) + 32LL) = GENERIC_NOTIFY_TYPE_GUID;
-  *(_DWORD *)(*(_QWORD *)(Pool2 + 24) + 56LL) = 7;
-  *(_DWORD *)(*(_QWORD *)(Pool2 + 24) + 64LL) = 80;
-  *(_DWORD *)(*(_QWORD *)(Pool2 + 24) + 68LL) = *(_DWORD *)(Pool2 + 48);
-  v9 = Pool2 + 88;
+  v7 = *(_DWORD *)(a1 + 16) + 80 + v6[12];
+  v8 = ExAllocatePoolWithTag(NonPagedPoolNx, v7, 0x206C6148u);
+  *((_QWORD *)v6 + 3) = v8;
+  if ( !v8 )
+  {
+    v9 = (void *)*((_QWORD *)v6 + 5);
+    if ( v9 )
+      MmUnmapIoSpace(v9, 8uLL);
+    goto LABEL_7;
+  }
+  memset(v8, 0, v7);
+  v11 = (char *)(v6 + 22);
+  v12 = 7LL;
+  **((_DWORD **)v6 + 3) = 1095059543;
+  *(_DWORD *)(*((_QWORD *)v6 + 3) + 4LL) = 3;
+  *(_DWORD *)(*((_QWORD *)v6 + 3) + 8LL) = v7;
+  *(_DWORD *)(*((_QWORD *)v6 + 3) + 16LL) = 6;
+  *(_DWORD *)(*((_QWORD *)v6 + 3) + 24LL) = *(_DWORD *)(a1 + 28);
+  *(_DWORD *)(*((_QWORD *)v6 + 3) + 28LL) = 5;
+  *(GUID *)(*((_QWORD *)v6 + 3) + 32LL) = GENERIC_NOTIFY_TYPE_GUID;
+  *(_DWORD *)(*((_QWORD *)v6 + 3) + 56LL) = 7;
+  *(_DWORD *)(*((_QWORD *)v6 + 3) + 64LL) = 80;
+  *(_DWORD *)(*((_QWORD *)v6 + 3) + 68LL) = v6[12];
   do
   {
-    *(_OWORD *)v9 = *(_OWORD *)a1;
-    *(_OWORD *)(v9 + 16) = *(_OWORD *)(a1 + 16);
-    *(_OWORD *)(v9 + 32) = *(_OWORD *)(a1 + 32);
-    *(_OWORD *)(v9 + 48) = *(_OWORD *)(a1 + 48);
-    *(_OWORD *)(v9 + 64) = *(_OWORD *)(a1 + 64);
-    *(_OWORD *)(v9 + 80) = *(_OWORD *)(a1 + 80);
-    *(_OWORD *)(v9 + 96) = *(_OWORD *)(a1 + 96);
-    v9 += 128LL;
-    v10 = *(_OWORD *)(a1 + 112);
+    *(_OWORD *)v11 = *(_OWORD *)a1;
+    *((_OWORD *)v11 + 1) = *(_OWORD *)(a1 + 16);
+    *((_OWORD *)v11 + 2) = *(_OWORD *)(a1 + 32);
+    *((_OWORD *)v11 + 3) = *(_OWORD *)(a1 + 48);
+    *((_OWORD *)v11 + 4) = *(_OWORD *)(a1 + 64);
+    *((_OWORD *)v11 + 5) = *(_OWORD *)(a1 + 80);
+    *((_OWORD *)v11 + 6) = *(_OWORD *)(a1 + 96);
+    v11 += 128;
+    v13 = *(_OWORD *)(a1 + 112);
     a1 += 128LL;
-    *(_OWORD *)(v9 - 16) = v10;
-    --v8;
+    *((_OWORD *)v11 - 1) = v13;
+    --v12;
   }
-  while ( v8 );
-  *(_OWORD *)v9 = *(_OWORD *)a1;
-  *(_OWORD *)(v9 + 16) = *(_OWORD *)(a1 + 16);
-  *(_OWORD *)(v9 + 32) = *(_OWORD *)(a1 + 32);
-  *(_OWORD *)(v9 + 48) = *(_OWORD *)(a1 + 48);
-  *(_QWORD *)(v9 + 64) = *(_QWORD *)(a1 + 64);
-  *(_DWORD *)(v9 + 72) = *(_DWORD *)(a1 + 72);
-LABEL_7:
-  *a2 = Pool2;
+  while ( v12 );
+  *(_OWORD *)v11 = *(_OWORD *)a1;
+  *((_OWORD *)v11 + 1) = *(_OWORD *)(a1 + 16);
+  *((_OWORD *)v11 + 2) = *(_OWORD *)(a1 + 32);
+  *((_OWORD *)v11 + 3) = *(_OWORD *)(a1 + 48);
+  *((_QWORD *)v11 + 8) = *(_QWORD *)(a1 + 64);
+  *((_DWORD *)v11 + 18) = *(_DWORD *)(a1 + 72);
+LABEL_13:
+  *a2 = v6;
   return v4;
 }

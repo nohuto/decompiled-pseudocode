@@ -1,16 +1,16 @@
 /*
- * XREFs of FeedbackClearWindowSetting @ 0x1C01D5470
+ * XREFs of FeedbackClearWindowSetting @ 0x1C01DB070
  * Callers:
- *     NtUserSetWindowFeedbackSetting @ 0x1C00809B0 (NtUserSetWindowFeedbackSetting.c)
+ *     NtUserSetWindowFeedbackSetting @ 0x1C00382E0 (NtUserSetWindowFeedbackSetting.c)
  * Callees:
- *     ?GetStore@Feedback@@YA?AUtagSTORE@1@PEAUtagWND@@W4tagFEEDBACK_TYPE@@@Z @ 0x1C0080AF8 (-GetStore@Feedback@@YA-AUtagSTORE@1@PEAUtagWND@@W4tagFEEDBACK_TYPE@@@Z.c)
- *     InternalSetProp @ 0x1C0083110 (InternalSetProp.c)
+ *     InternalSetProp @ 0x1C00384A8 (InternalSetProp.c)
+ *     ?GetStore@Feedback@@YA?AUtagSTORE@1@PEAUtagWND@@W4tagFEEDBACK_TYPE@@@Z @ 0x1C00385A0 (-GetStore@Feedback@@YA-AUtagSTORE@1@PEAUtagWND@@W4tagFEEDBACK_TYPE@@@Z.c)
  */
 
 __int64 __fastcall FeedbackClearWindowSetting(__int64 a1, char a2)
 {
   __m128i *Store; // rax
-  __int64 v5[3]; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD v5[3]; // [rsp+20h] [rbp-18h] BYREF
 
   Store = (__m128i *)Feedback::GetStore(v5, a1);
   InternalSetProp(

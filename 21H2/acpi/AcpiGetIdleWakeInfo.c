@@ -1,72 +1,67 @@
 /*
- * XREFs of AcpiGetIdleWakeInfo @ 0x1C00952D0
+ * XREFs of AcpiGetIdleWakeInfo @ 0x1C009CB40
  * Callers:
- *     ACPISystemPowerUpdateWakeCapabilitiesForFilters @ 0x1C001E928 (ACPISystemPowerUpdateWakeCapabilitiesForFilters.c)
- *     ACPISystemPowerUpdateWakeCapabilitiesForPDOs @ 0x1C001EF50 (ACPISystemPowerUpdateWakeCapabilitiesForPDOs.c)
- *     AcpiGetD3ColdCapability @ 0x1C0095480 (AcpiGetD3ColdCapability.c)
+ *     ACPISystemPowerUpdateWakeCapabilitiesForFilters @ 0x1C0016C4C (ACPISystemPowerUpdateWakeCapabilitiesForFilters.c)
+ *     ACPISystemPowerUpdateWakeCapabilitiesForPDOs @ 0x1C0017FC0 (ACPISystemPowerUpdateWakeCapabilitiesForPDOs.c)
+ *     AcpiGetD3ColdCapability @ 0x1C009BF30 (AcpiGetD3ColdCapability.c)
  * Callees:
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIEvalNameSpaceObject @ 0x1C000B894 (AMLIEvalNameSpaceObject.c)
- *     AMLIFreeDataBuffs @ 0x1C001C758 (AMLIFreeDataBuffs.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
  */
 
 __int64 __fastcall AcpiGetIdleWakeInfo(__int64 a1, int a2, int *a3)
 {
-  __int64 *v6; // rax
-  volatile signed __int32 *v7; // rbp
-  int v8; // ebx
-  int v9; // ecx
-  __int128 v10; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v11; // [rsp+30h] [rbp-28h]
-  __int64 v12; // [rsp+40h] [rbp-18h]
+  __int64 result; // rax
+  int v6; // ebx
+  __int64 v7; // rbp
+  int v8; // edi
+  __int128 v9; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v10; // [rsp+30h] [rbp-38h]
+  __int64 v11; // [rsp+40h] [rbp-28h]
 
+  v9 = 0LL;
   v10 = 0LL;
   v11 = 0LL;
-  v12 = 0LL;
   if ( (unsigned int)(a2 - 1) > 4 )
     return 3221225712LL;
   if ( (*(_DWORD *)(a1 + 8) & 0x10000) == 0 )
     return 3221226021LL;
-  v6 = AMLIGetNamedChild(*(__int64 **)(a1 + 760), *(_DWORD *)&aS0wS1wS2wS3wS4[4 * a2 - 4]);
-  v7 = (volatile signed __int32 *)v6;
-  if ( v6 )
+  result = (__int64)AMLIGetNamedChild(*(__int64 **)(a1 + 720), *(_DWORD *)&aS0wS1wS2wS3wS4[4 * a2 - 4]);
+  v6 = 0;
+  v7 = result;
+  if ( result )
   {
-    v8 = AMLIEvalNameSpaceObject(v6, (__int64)&v10, 0, 0LL);
+    v8 = AMLIEvalNameSpaceObject((unsigned __int64 *)result, (__int64)&v9, 0, 0LL);
     AMLIDereferenceHandleEx(v7);
     if ( v8 >= 0 )
     {
-      if ( WORD1(v10) == 1 )
+      if ( WORD1(v9) == 1 )
       {
-        if ( (unsigned int)v11 >= 5 )
+        if ( (unsigned int)v10 < 5 )
+          v6 = v10 + 1;
+        *a3 = v6;
+        if ( v6 == 5 )
         {
-          *a3 = 0;
-        }
-        else
-        {
-          v9 = v11 + 1;
-          *a3 = v11 + 1;
-          if ( v9 == 5 )
-          {
-            if ( (*(_DWORD *)(a1 + 1000) & 0x800LL) == 0 )
-              v9 = 4;
-            *a3 = v9;
-          }
+          if ( (*(_DWORD *)(a1 + 960) & 0x800LL) == 0 )
+            v6 = 4;
+          *a3 = v6;
         }
       }
       else
       {
         v8 = -1073741436;
       }
-      AMLIFreeDataBuffs((__int64)&v10);
+      AMLIFreeDataBuffs((__int64)&v9);
     }
     return (unsigned int)v8;
   }
   else
   {
-    if ( !_bittest64((const signed __int64 *)(a1 + 1000), 0x20u) )
+    if ( (*(_QWORD *)(a1 + 960) & 0x100000000LL) == 0 )
       return 3221226021LL;
     *a3 = 4;
-    return 0LL;
   }
+  return result;
 }

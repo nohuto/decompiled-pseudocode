@@ -1,27 +1,25 @@
 /*
- * XREFs of ESM_NotifyingTransferRingsFSEReceived @ 0x1C000F8C0
+ * XREFs of ESM_NotifyingTransferRingsFSEReceived @ 0x1C000EEF0
  * Callers:
  *     <none>
  * Callees:
- *     TR_FSEReceived @ 0x1C000FD04 (TR_FSEReceived.c)
- *     XilEndpoint_FetchStreamContextArray @ 0x1C0038FE8 (XilEndpoint_FetchStreamContextArray.c)
+ *     TR_FSEReceived @ 0x1C000F514 (TR_FSEReceived.c)
+ *     XilEndpoint_FetchStreamContextArray @ 0x1C003754C (XilEndpoint_FetchStreamContextArray.c)
  */
 
 __int64 __fastcall ESM_NotifyingTransferRingsFSEReceived(__int64 a1)
 {
-  __int64 v1; // rdi
-  __int64 *v2; // rbx
-  __int64 v4; // rdi
-  unsigned int i; // esi
+  __int64 v1; // rbx
+  __int64 v3; // rdi
+  unsigned int v4; // esi
 
   v1 = *(_QWORD *)(a1 + 960);
-  v2 = (__int64 *)(v1 + 136);
-  if ( *(_BYTE *)(v1 + 37) && (XilEndpoint_FetchStreamContextArray(*v2), *(_BYTE *)(v1 + 37)) )
+  if ( *(_BYTE *)(v1 + 37) && (XilEndpoint_FetchStreamContextArray(*(_QWORD *)(v1 + 136)), *(_BYTE *)(v1 + 37)) )
   {
-    v4 = *v2;
-    *(_DWORD *)(v4 + 20) = 0;
-    for ( i = 1; i <= *(_DWORD *)(v4 + 8); ++i )
-      TR_FSEReceived(*(_QWORD *)(104LL * (i - 1) + *v2 + 48));
+    v3 = *(_QWORD *)(v1 + 136);
+    v4 = 1;
+    for ( *(_DWORD *)(v3 + 20) = 0; v4 <= *(_DWORD *)(v3 + 8); ++v4 )
+      TR_FSEReceived(*(_QWORD *)(104LL * (v4 - 1) + *(_QWORD *)(v1 + 136) + 48));
   }
   else
   {

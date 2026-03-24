@@ -2,17 +2,17 @@
  * XREFs of TraceLoggingProviderEnabled @ 0x1400129D8
  * Callers:
  *     MiAllocatePagesForMdl @ 0x140011048 (MiAllocatePagesForMdl.c)
- *     MiAllocateContiguousMemory @ 0x1400E64FC (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x1400E651C (MiAllocateContiguousMemory.c)
  *     PopDiagTraceControlCallback @ 0x140587FE0 (PopDiagTraceControlCallback.c)
  *     EtwpWriteAppStateChangeSummary @ 0x1405B2694 (EtwpWriteAppStateChangeSummary.c)
  *     EtwTraceAppStateChange @ 0x1405B2C80 (EtwTraceAppStateChange.c)
- *     EtwTraceProcess @ 0x14066C548 (EtwTraceProcess.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1406CF688 (CmpLogTransactionAbortedWithChildName.c)
- *     EtwpCoverageProvEnableCallback @ 0x1406D0600 (EtwpCoverageProvEnableCallback.c)
- *     PopNotifyTelemetryOsState @ 0x1406DE818 (PopNotifyTelemetryOsState.c)
- *     PopTransitionTelemetryOsState @ 0x1407454E8 (PopTransitionTelemetryOsState.c)
- *     PnpTraceDeviceRemovalForResetComplete @ 0x140839798 (PnpTraceDeviceRemovalForResetComplete.c)
- *     PnpTraceRebalanceResult @ 0x140839D28 (PnpTraceRebalanceResult.c)
+ *     EtwTraceProcess @ 0x14066C528 (EtwTraceProcess.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406CF668 (CmpLogTransactionAbortedWithChildName.c)
+ *     EtwpCoverageProvEnableCallback @ 0x1406D05E0 (EtwpCoverageProvEnableCallback.c)
+ *     PopNotifyTelemetryOsState @ 0x1406DE7F8 (PopNotifyTelemetryOsState.c)
+ *     PopTransitionTelemetryOsState @ 0x1407454C8 (PopTransitionTelemetryOsState.c)
+ *     PnpTraceDeviceRemovalForResetComplete @ 0x140839778 (PnpTraceDeviceRemovalForResetComplete.c)
+ *     PnpTraceRebalanceResult @ 0x140839D08 (PnpTraceRebalanceResult.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  */

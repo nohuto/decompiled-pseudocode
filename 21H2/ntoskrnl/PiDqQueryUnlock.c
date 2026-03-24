@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDqQueryUnlock @ 0x14094A6E4
+ * XREFs of PiDqQueryUnlock @ 0x1408A4B9C
  * Callers:
- *     PiDqIrpCancel @ 0x1405616A0 (PiDqIrpCancel.c)
+ *     PiDqIrpCancel @ 0x14050DEC0 (PiDqIrpCancel.c)
  * Callees:
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
-char __fastcall PiDqQueryUnlock(__int64 a1)
+_QWORD *__fastcall PiDqQueryUnlock(__int64 a1)
 {
   ExReleasePushLockEx(a1 + 64, 0LL);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

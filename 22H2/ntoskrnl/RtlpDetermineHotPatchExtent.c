@@ -1,49 +1,37 @@
 /*
- * XREFs of RtlpDetermineHotPatchExtent @ 0x140AADD44
+ * XREFs of RtlpDetermineHotPatchExtent @ 0x14091B36C
  * Callers:
- *     RtlDetermineHotPatchExtent @ 0x140A763B4 (RtlDetermineHotPatchExtent.c)
- *     RtlApplyHotPatch @ 0x140AAD830 (RtlApplyHotPatch.c)
+ *     RtlDetermineHotPatchExtent @ 0x14091AE3C (RtlDetermineHotPatchExtent.c)
+ *     RtlApplyHotPatch @ 0x1409B2884 (RtlApplyHotPatch.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlpDetermineHotPatchExtent(int a1, __int16 a2, _DWORD *a3, int *a4)
+char __fastcall RtlpDetermineHotPatchExtent(int a1, _DWORD *a2, _DWORD *a3)
 {
-  int v4; // eax
-  int v6; // r9d
-  int v7; // ecx
+  int v3; // ecx
 
-  v4 = 4;
-  if ( a2 == -31132 || a2 == -21916 )
+  v3 = a1 & 0xFC000;
+  if ( v3 == 114688 )
   {
-    v6 = 8;
+    *a2 = -6;
+    goto LABEL_10;
   }
-  else
+  if ( v3 == 180224 )
   {
-    if ( a2 != 332 )
+LABEL_8:
+    *a2 = 0;
+LABEL_10:
+    *a3 = 8;
+    return 1;
+  }
+  if ( v3 != 245760 )
+  {
+    if ( v3 != 376832 && v3 != 491520 )
       return 0;
-    v6 = 4;
+    goto LABEL_8;
   }
-  v7 = a1 & 0xFC000;
-  if ( v7 == 114688 )
-  {
-    *a3 = a2 != -21916 ? 0xFFFFFFFA : 0;
-    v4 = 8;
-    goto LABEL_16;
-  }
-  if ( v7 == 180224 )
-    goto LABEL_14;
-  if ( v7 != 245760 )
-  {
-    if ( v7 != 278528 && v7 != 376832 && v7 != 491520 )
-      return 0;
-LABEL_14:
-    *a3 = 0;
-    v4 = v6;
-    goto LABEL_16;
-  }
-  *a3 = 0;
-LABEL_16:
-  *a4 = v4;
+  *a2 = 0;
+  *a3 = 4;
   return 1;
 }

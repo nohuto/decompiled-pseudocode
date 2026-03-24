@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DesiresTearing@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x18010C430
+ * XREFs of ?DesiresTearing@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F9110
  * Callers:
  *     <none>
  * Callees:

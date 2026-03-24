@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ApplyColorKeyToBuffer@CColorKeyBitmap@@IEBAJAEBUWICRect@@IIPEAE@Z @ 0x1802A82CC
+ * XREFs of ?ApplyColorKeyToBuffer@CColorKeyBitmap@@IEBAJAEBUWICRect@@IIPEAE@Z @ 0x180267894
  * Callers:
- *     ?LockForRead@CColorKeyBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x1802A9240 (-LockForRead@CColorKeyBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUnique.c)
+ *     ?LockForRead@CColorKeyBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x1802686B0 (-LockForRead@CColorKeyBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUnique.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$ApplyRangeColorKey@TGpCC@@@@YAXAEBUWICRect@@IIPEAEAEATGpCC@@2PEBT1@@Z @ 0x1802A7D6C (--$ApplyRangeColorKey@TGpCC@@@@YAXAEBUWICRect@@IIPEAEAEATGpCC@@2PEBT1@@Z.c)
- *     ??$ApplyRangeColorKey@TGpCCR@@@@YAXAEBUWICRect@@IIPEAEAEATGpCCR@@2PEBT1@@Z @ 0x1802A7E18 (--$ApplyRangeColorKey@TGpCCR@@@@YAXAEBUWICRect@@IIPEAEAEATGpCCR@@2PEBT1@@Z.c)
- *     ??$ApplyRangeColorKey@UGpCCRf16@@@@YAXAEBUWICRect@@IIPEAEAEAUGpCCRf16@@2PEBU1@@Z @ 0x1802A7EC8 (--$ApplyRangeColorKey@UGpCCRf16@@@@YAXAEBUWICRect@@IIPEAEAEAUGpCCRf16@@2PEBU1@@Z.c)
- *     ??$ApplyRangeColorKey@U_D3DCOLORVALUE@@@@YAXAEBUWICRect@@IIPEAEAEAU_D3DCOLORVALUE@@2PEBU1@@Z @ 0x1802A8038 (--$ApplyRangeColorKey@U_D3DCOLORVALUE@@@@YAXAEBUWICRect@@IIPEAEAEAU_D3DCOLORVALUE@@2PEBU1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??$ApplyRangeColorKey@TGpCC@@@@YAXAEBUWICRect@@IIPEAEAEATGpCC@@2PEBT1@@Z @ 0x1802673A8 (--$ApplyRangeColorKey@TGpCC@@@@YAXAEBUWICRect@@IIPEAEAEATGpCC@@2PEBT1@@Z.c)
+ *     ??$ApplyRangeColorKey@TGpCCR@@@@YAXAEBUWICRect@@IIPEAEAEATGpCCR@@2PEBT1@@Z @ 0x180267454 (--$ApplyRangeColorKey@TGpCCR@@@@YAXAEBUWICRect@@IIPEAEAEATGpCCR@@2PEBT1@@Z.c)
+ *     ??$ApplyRangeColorKey@UGpCCRf16@@@@YAXAEBUWICRect@@IIPEAEAEAUGpCCRf16@@2PEBU1@@Z @ 0x180267504 (--$ApplyRangeColorKey@UGpCCRf16@@@@YAXAEBUWICRect@@IIPEAEAEAUGpCCRf16@@2PEBU1@@Z.c)
+ *     ??$ApplyRangeColorKey@U_D3DCOLORVALUE@@@@YAXAEBUWICRect@@IIPEAEAEAU_D3DCOLORVALUE@@2PEBU1@@Z @ 0x180267674 (--$ApplyRangeColorKey@U_D3DCOLORVALUE@@@@YAXAEBUWICRect@@IIPEAEAEAU_D3DCOLORVALUE@@2PEBU1@@Z.c)
  */
 
 __int64 __fastcall CColorKeyBitmap::ApplyColorKeyToBuffer(
@@ -31,20 +31,26 @@ __int64 __fastcall CColorKeyBitmap::ApplyColorKeyToBuffer(
   _BYTE v18[16]; // [rsp+48h] [rbp-40h] BYREF
 
   v8 = 0;
-  v9 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*(int *)(*(_QWORD *)(*((_QWORD *)this + 4) + 8LL) + 8LL)
-                                                 + *((_QWORD *)this + 4)
+  v9 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*(int *)(*(_QWORD *)(*((_QWORD *)this + 5) + 8LL) + 8LL)
+                                                 + *((_QWORD *)this + 5)
                                                  + 8LL);
   v10 = *(_DWORD *)(**v9)(v9, v18);
   switch ( v10 )
   {
     case 2:
-      ApplyRangeColorKey<_D3DCOLORVALUE>((__int64)a2, a3, v12, (__int64)a5, (float *)this + 25, (float *)this + 33);
+      ApplyRangeColorKey<_D3DCOLORVALUE>((__int64)a2, a3, v12, (__int64)a5, (float *)this + 27, (float *)this + 35);
       break;
     case 10:
-      ApplyRangeColorKey<GpCCRf16>((__int64)a2, a3, v12, (__int64)a5, (__int64)this + 92, (__int64)this + 124);
+      ApplyRangeColorKey<GpCCRf16>(
+        (__int64)a2,
+        a3,
+        v12,
+        (__int64)a5,
+        (unsigned __int16 *)this + 50,
+        (unsigned __int16 *)this + 66);
       break;
     case 28:
-      v13 = *((_BYTE *)this + 80) == 0;
+      v13 = *((_BYTE *)this + 88) == 0;
       v17 = -16777216;
       v15 = &v17;
       if ( !v13 )
@@ -54,19 +60,19 @@ __int64 __fastcall CColorKeyBitmap::ApplyColorKeyToBuffer(
         a3,
         v12,
         (__int64)a5,
-        (unsigned __int8 *)this + 88,
-        (unsigned __int8 *)this + 120,
+        (unsigned __int8 *)this + 96,
+        (unsigned __int8 *)this + 128,
         (__int64)v15);
       break;
     default:
       if ( (unsigned int)(v10 - 87) > 1 )
       {
         v8 = -2003292288;
-        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, -2003292288, 0x19Bu);
+        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, -2003292288, 0x19Bu, 0LL);
       }
       else
       {
-        v13 = *((_BYTE *)this + 80) == 0;
+        v13 = *((_BYTE *)this + 88) == 0;
         v17 = -16777216;
         v14 = &v17;
         if ( !v13 )
@@ -74,10 +80,10 @@ __int64 __fastcall CColorKeyBitmap::ApplyColorKeyToBuffer(
         ApplyRangeColorKey<GpCC>(
           (__int64)a2,
           a3,
-          (__int64)this + 84,
+          (__int64)this + 92,
           (__int64)a5,
-          (unsigned __int8 *)this + 84,
-          (unsigned __int8 *)this + 116,
+          (unsigned __int8 *)this + 92,
+          (unsigned __int8 *)this + 124,
           (__int64)v14);
       }
       break;

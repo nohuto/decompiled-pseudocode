@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pqdqpp_EtwWriteTransfer @ 0x1C005973C
+ * XREFs of McTemplateK0pqdqpp_EtwWriteTransfer @ 0x1C004C280
  * Callers:
- *     DxgkOpenSwapChain @ 0x1C035C340 (DxgkOpenSwapChain.c)
+ *     DxgkOpenSwapChain @ 0x1C02AEA40 (DxgkOpenSwapChain.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqdqpp_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

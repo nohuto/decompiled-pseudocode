@@ -1,26 +1,26 @@
 /*
- * XREFs of ?CreateRenderTask@CShapeDrawingContext@@QEAAJPEAPEAVCShapeRenderTask@@@Z @ 0x18011613C
+ * XREFs of ?CreateRenderTask@CShapeDrawingContext@@QEAAJPEAPEAVCShapeRenderTask@@@Z @ 0x180261424
  * Callers:
- *     ?CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z @ 0x1800972E8 (-CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z.c)
+ *     ?CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z @ 0x1801ED164 (-CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z.c)
  * Callees:
- *     ??$_Emplace_reallocate@$$V@?$vector@VCShapeRenderTask@@V?$allocator@VCShapeRenderTask@@@std@@@std@@QEAAPEAVCShapeRenderTask@@QEAV2@@Z @ 0x180094E98 (--$_Emplace_reallocate@$$V@-$vector@VCShapeRenderTask@@V-$allocator@VCShapeRenderTask@@@std@@@st.c)
+ *     ??$_Emplace_reallocate@$$V@?$vector@VCShapeRenderTask@@V?$allocator@VCShapeRenderTask@@@std@@@std@@QEAAPEAVCShapeRenderTask@@QEAV2@@Z @ 0x180260F58 (--$_Emplace_reallocate@$$V@-$vector@VCShapeRenderTask@@V-$allocator@VCShapeRenderTask@@@std@@@st.c)
  */
 
 __int64 __fastcall CShapeDrawingContext::CreateRenderTask(CShapeDrawingContext *this, struct CShapeRenderTask **a2)
 {
-  char *v4; // rcx
-  _BYTE *v5; // rdx
+  __int64 *v4; // rcx
+  _DWORD *v5; // rdx
 
-  v4 = (char *)this + 504;
-  v5 = (_BYTE *)*((_QWORD *)v4 + 1);
-  if ( v5 == *((_BYTE **)v4 + 2) )
+  v4 = (__int64 *)((char *)this + 504);
+  v5 = (_DWORD *)v4[1];
+  if ( (_DWORD *)v4[2] == v5 )
   {
-    std::vector<CShapeRenderTask>::_Emplace_reallocate<>((void **)v4, v5);
+    std::vector<CShapeRenderTask>::_Emplace_reallocate<>(v4, (__int64)v5);
   }
   else
   {
-    *(_DWORD *)v5 = 0;
-    *((_QWORD *)v4 + 1) += 56LL;
+    *v5 = 0;
+    v4[1] += 56LL;
   }
   *a2 = (struct CShapeRenderTask *)(*((_QWORD *)this + 64) - 56LL);
   return 0LL;

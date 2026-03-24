@@ -1,90 +1,108 @@
 /*
- * XREFs of GetImageName @ 0x1C0026FBC
+ * XREFs of GetImageName @ 0x1C005FDD8
  * Callers:
- *     imp_WdfDriverCreate @ 0x1C0027650 (imp_WdfDriverCreate.c)
+ *     imp_WdfDriverCreate @ 0x1C004BEB0 (imp_WdfDriverCreate.c)
  * Callees:
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     RtlUnicodeStringCopy @ 0x1C00270F0 (RtlUnicodeStringCopy.c)
- *     ?RtlUShortAdd@@YAJGGPEAG@Z @ 0x1C00274C0 (-RtlUShortAdd@@YAJGGPEAG@Z.c)
- *     GetNameFromPath @ 0x1C00275B8 (GetNameFromPath.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     WPP_IFR_SF_D @ 0x1C005B340 (WPP_IFR_SF_D.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     WPP_IFR_SF_D @ 0x1C0039220 (WPP_IFR_SF_D.c)
+ *     ?RtlUShortAdd@@YAJGGPEAG@Z @ 0x1C0043284 (-RtlUShortAdd@@YAJGGPEAG@Z.c)
+ *     QueryAndAllocString @ 0x1C0060438 (QueryAndAllocString.c)
+ *     RtlUnicodeStringCopy @ 0x1C0060AB4 (RtlUnicodeStringCopy.c)
+ *     GetNameFromPath @ 0x1C0060C30 (GetNameFromPath.c)
  */
 
 __int64 __fastcall GetImageName(_FX_DRIVER_GLOBALS *DriverGlobals, _UNICODE_STRING *ImageName)
 {
-  _DRIVER_OBJECT *m_DriverObject; // rcx
-  int _a1; // eax
-  unsigned int v6; // edi
-  wchar_t *Buffer; // r14
-  unsigned __int8 v8; // dl
-  signed int v9; // eax
-  unsigned __int8 v10; // dl
-  unsigned __int16 v11; // di
-  ULONG Tag; // ecx
-  void *v13; // rax
-  FX_POOL **v14; // rax
-  unsigned __int8 v15; // dl
-  _UNICODE_STRING imagePath; // [rsp+30h] [rbp-30h] BYREF
-  _UNICODE_STRING Name; // [rsp+40h] [rbp-20h] BYREF
-  __m128i v19; // [rsp+50h] [rbp-10h] BYREF
-  void *retaddr; // [rsp+78h] [rbp+18h]
-  unsigned __int16 size; // [rsp+80h] [rbp+20h] BYREF
+  _UNICODE_STRING *p_m_RegistryPath; // rax
+  NTSTATUS _a1; // ebx
+  unsigned __int16 v6; // cx
+  unsigned __int8 v7; // dl
+  signed int v8; // eax
+  unsigned __int8 v9; // dl
+  size_t v10; // rbx
+  FX_POOL **v11; // rax
+  unsigned __int8 v12; // dl
+  unsigned __int16 size; // [rsp+30h] [rbp-69h] BYREF
+  wchar_t *stringBuffer; // [rsp+38h] [rbp-61h] BYREF
+  FxAutoRegKey hKey; // [rsp+40h] [rbp-59h] BYREF
+  _UNICODE_STRING valueName; // [rsp+48h] [rbp-51h] BYREF
+  _UNICODE_STRING Name; // [rsp+58h] [rbp-41h] BYREF
+  _UNICODE_STRING imagePath; // [rsp+68h] [rbp-31h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-21h] BYREF
+  wchar_t valueName_buffer[12]; // [rsp+A8h] [rbp+Fh] BYREF
+  void *retaddr; // [rsp+F8h] [rbp+5Fh]
 
+  wcscpy(valueName_buffer, L"ImagePath");
+  hKey.m_Key = 0LL;
+  valueName.Buffer = valueName_buffer;
   *ImageName = 0LL;
-  m_DriverObject = DriverGlobals->DriverObject.m_DriverObject;
-  imagePath = 0LL;
+  p_m_RegistryPath = &DriverGlobals->Driver->m_RegistryPath;
+  *(_QWORD *)&valueName.Length = 1310738LL;
+  ObjectAttributes.ObjectName = p_m_RegistryPath;
+  stringBuffer = 0LL;
   size = 0;
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  imagePath = 0LL;
+  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
   Name = 0LL;
-  _a1 = IoQueryFullDriverPath(m_DriverObject, &imagePath);
-  v6 = _a1;
+  ObjectAttributes.RootDirectory = 0LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  _a1 = ZwOpenKey(&hKey.m_Key, 0x20019u, &ObjectAttributes);
   if ( _a1 < 0 )
   {
-    WPP_IFR_SF_d(DriverGlobals, 2u, 0x11u, 0x14u, WPP_FxTelemetryKm_cpp_Traceguids, _a1);
+    v6 = 21;
+LABEL_5:
+    WPP_IFR_SF_d(DriverGlobals, 2u, 0x11u, v6, WPP_FxTelemetryKm_cpp_Traceguids, _a1);
+    goto LABEL_16;
   }
-  else
+  _a1 = QueryAndAllocString(hKey.m_Key, DriverGlobals, &valueName, &stringBuffer);
+  if ( _a1 < 0 )
   {
-    Buffer = imagePath.Buffer;
-    GetNameFromPath(&imagePath, &Name);
-    if ( Name.Length )
+    v6 = 22;
+    goto LABEL_5;
+  }
+  RtlInitUnicodeString(&imagePath, stringBuffer);
+  GetNameFromPath(&imagePath, &Name);
+  if ( Name.Length )
+  {
+    v8 = RtlUShortAdd(Name.Length, 2u, &size);
+    _a1 = v8;
+    if ( v8 >= 0 )
     {
-      v9 = RtlUShortAdd(Name.Length, 2u, &size);
-      v6 = v9;
-      if ( v9 < 0 )
+      v10 = size;
+      v11 = FxPoolAllocator(DriverGlobals, &DriverGlobals->FxPoolFrameworks, 1u, size, DriverGlobals->Tag, retaddr);
+      ImageName->Buffer = (wchar_t *)v11;
+      if ( v11 )
       {
-        WPP_IFR_SF_D(DriverGlobals, v10, 0x11u, 0x16u, WPP_FxTelemetryKm_cpp_Traceguids, v9);
+        memset(v11, 0, v10);
+        ImageName->Length = 0;
+        ImageName->MaximumLength = v10;
+        _a1 = RtlUnicodeStringCopy(ImageName, &Name);
       }
       else
       {
-        v11 = size;
-        Tag = DriverGlobals->Tag;
-        v13 = retaddr;
-        v19.m128i_i64[0] = 0LL;
-        v19.m128i_i64[1] = 256LL;
-        if ( !DriverGlobals->FxPoolTrackingOn )
-          v13 = 0LL;
-        v14 = FxPoolAllocator(DriverGlobals, &DriverGlobals->FxPoolFrameworks, &v19, size, Tag, v13);
-        ImageName->Buffer = (wchar_t *)v14;
-        if ( v14 )
-        {
-          ImageName->Length = 0;
-          ImageName->MaximumLength = v11;
-          v6 = RtlUnicodeStringCopy(ImageName, &Name);
-        }
-        else
-        {
-          v6 = -1073741670;
-          WPP_IFR_SF_D(DriverGlobals, v15, 0x11u, 0x17u, WPP_FxTelemetryKm_cpp_Traceguids, 0xC000009A);
-        }
+        _a1 = -1073741670;
+        WPP_IFR_SF_D(DriverGlobals, v12, 0x11u, 0x19u, WPP_FxTelemetryKm_cpp_Traceguids, 0xC000009A);
       }
     }
     else
     {
-      v6 = -1073741811;
-      WPP_IFR_SF_D(DriverGlobals, v8, 0x11u, 0x15u, WPP_FxTelemetryKm_cpp_Traceguids, 0xC000000D);
+      WPP_IFR_SF_D(DriverGlobals, v9, 0x11u, 0x18u, WPP_FxTelemetryKm_cpp_Traceguids, v8);
     }
-    if ( Buffer )
-      ExFreePoolWithTag(Buffer, 0);
   }
-  return v6;
+  else
+  {
+    _a1 = -1073741811;
+    WPP_IFR_SF_D(DriverGlobals, v7, 0x11u, 0x17u, WPP_FxTelemetryKm_cpp_Traceguids, 0xC000000D);
+  }
+  if ( stringBuffer )
+    FxPoolFree((FX_POOL_TRACKER *)stringBuffer);
+LABEL_16:
+  if ( hKey.m_Key )
+    ZwClose(hKey.m_Key);
+  return (unsigned int)_a1;
 }

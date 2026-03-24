@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfIgnoreHWSerNumIsSet @ 0x1C00215B0
+ * XREFs of HUBDSM_CheckingIfIgnoreHWSerNumIsSet @ 0x1C001ED10
  * Callers:
  *     <none>
  * Callees:

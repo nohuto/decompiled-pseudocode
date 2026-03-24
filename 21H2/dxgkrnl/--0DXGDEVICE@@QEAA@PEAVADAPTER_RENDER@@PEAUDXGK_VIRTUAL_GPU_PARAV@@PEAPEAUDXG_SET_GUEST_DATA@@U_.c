@@ -1,12 +1,11 @@
 /*
- * XREFs of ??0DXGDEVICE@@QEAA@PEAVADAPTER_RENDER@@PEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_GUEST_DATA@@U_D3DKMT_CREATEDEVICEFLAGS@@PEAVDXGPROCESS@@W4DXGDEVICECLIENT_TYPE@@PEAVDXGADAPTER@@EE@Z @ 0x1C01681E4
+ * XREFs of ??0DXGDEVICE@@QEAA@PEAVADAPTER_RENDER@@PEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_GUEST_DATA@@U_D3DKMT_CREATEDEVICEFLAGS@@PEAVDXGPROCESS@@W4DXGDEVICECLIENT_TYPE@@PEAVDXGADAPTER@@E@Z @ 0x1C012EB98
  * Callers:
- *     ?CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIENT_TYPE@@PEAVDXGADAPTER@@EEEPEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_GUEST_DATA@@E@Z @ 0x1C0168698 (-CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIE.c)
+ *     ?CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIENT_TYPE@@PEAVDXGADAPTER@@EEEPEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_GUEST_DATA@@@Z @ 0x1C012E9A0 (-CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIE.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?InsertDxgDevice@DXGK_VIRTUAL_GPU_PARAV@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C004C314 (-InsertDxgDevice@DXGK_VIRTUAL_GPU_PARAV@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?InsertDxgDevice@DXGK_VIRTUAL_GPU_PARAV@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C004354C (-InsertDxgDevice@DXGK_VIRTUAL_GPU_PARAV@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
  */
 
 __int64 __fastcall DXGDEVICE::DXGDEVICE(
@@ -18,15 +17,19 @@ __int64 __fastcall DXGDEVICE::DXGDEVICE(
         __int64 a6,
         int a7,
         __int64 a8,
-        char a9,
-        char a10)
+        char a9)
 {
-  int v13; // eax
+  int v11; // eax
+  char v13; // cl
   char v14; // dl
-  char v15; // al
+  __int64 v15; // rdx
   DXGADAPTER *v16; // rcx
-  __int64 v17; // rax
-  DXGK_VIRTUAL_GPU_PARAV *v18; // rcx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // rax
+  DXGK_VIRTUAL_GPU_PARAV *v20; // rcx
+  __int64 v22; // rax
+  __int64 v23; // rax
 
   *(_QWORD *)(a1 + 16) = a2;
   *(_OWORD *)a1 = 0LL;
@@ -34,13 +37,13 @@ __int64 __fastcall DXGDEVICE::DXGDEVICE(
   *(_OWORD *)(a1 + 24) = 0LL;
   *(_QWORD *)(a1 + 48) = 0LL;
   *(_QWORD *)(a1 + 56) = 0LL;
-  v13 = 45;
+  v11 = 36;
   *(_QWORD *)(a1 + 64) = 1LL;
-  *(_BYTE *)(a1 + 72) = 0;
+  *(_DWORD *)(a1 + 72) = 0;
   *(_QWORD *)(a1 + 80) = 0LL;
   *(_QWORD *)(a1 + 88) = 0LL;
   *(_DWORD *)(a1 + 96) = 0;
-  *(_DWORD *)(a1 + 100) = 16;
+  *(_DWORD *)(a1 + 100) = 10;
   *(_DWORD *)(a1 + 104) = -1;
   *(_QWORD *)(a1 + 112) = a3;
   *(_QWORD *)(a1 + 136) = 0LL;
@@ -49,8 +52,8 @@ __int64 __fastcall DXGDEVICE::DXGDEVICE(
   *(_DWORD *)(a1 + 160) = 0;
   *(_DWORD *)(a1 + 168) = 56;
   if ( a7 != 2 )
-    v13 = 51;
-  *(_DWORD *)(a1 + 164) = v13;
+    v11 = 41;
+  *(_DWORD *)(a1 + 164) = v11;
   *(_QWORD *)(a1 + 176) = 0LL;
   *(_QWORD *)(a1 + 184) = 0LL;
   *(_DWORD *)(a1 + 192) = 0;
@@ -59,17 +62,17 @@ __int64 __fastcall DXGDEVICE::DXGDEVICE(
   *(_QWORD *)(a1 + 208) = 0LL;
   *(_QWORD *)(a1 + 216) = 0LL;
   *(_DWORD *)(a1 + 224) = 0;
-  *(_DWORD *)(a1 + 228) = 64;
+  *(_DWORD *)(a1 + 228) = 53;
   *(_DWORD *)(a1 + 232) = 41;
   *(_QWORD *)(a1 + 240) = 0LL;
   *(_QWORD *)(a1 + 248) = 0LL;
   *(_DWORD *)(a1 + 256) = 0;
-  *(_DWORD *)(a1 + 260) = 64;
+  *(_DWORD *)(a1 + 260) = 53;
   *(_DWORD *)(a1 + 264) = 55;
   *(_QWORD *)(a1 + 272) = 0LL;
   *(_QWORD *)(a1 + 280) = 0LL;
   *(_DWORD *)(a1 + 288) = 0;
-  *(_DWORD *)(a1 + 292) = 11;
+  *(_DWORD *)(a1 + 292) = 6;
   *(_DWORD *)(a1 + 296) = -1;
   *(_QWORD *)(a1 + 304) = 0LL;
   *(_QWORD *)(a1 + 312) = 0LL;
@@ -114,22 +117,22 @@ __int64 __fastcall DXGDEVICE::DXGDEVICE(
   *(_QWORD *)(a1 + 584) = 0LL;
   *(_QWORD *)(a1 + 760) = 0LL;
   *(_QWORD *)(a1 + 768) = 0LL;
-  *(_DWORD *)(a1 + 796) = 64;
   *(_QWORD *)(a1 + 776) = 0LL;
   *(_QWORD *)(a1 + 784) = 0LL;
+  *(_DWORD *)(a1 + 796) = 53;
   *(_DWORD *)(a1 + 792) = 0;
   *(_DWORD *)(a1 + 800) = -1;
   *(_QWORD *)(a1 + 1848) = a8;
   *(_QWORD *)(a1 + 1856) = 0LL;
   *(_DWORD *)(a1 + 1864) = 0x1000000;
   *(_BYTE *)(a1 + 1869) ^= (*(_BYTE *)(a1 + 1869) ^ *(_BYTE *)(*(_QWORD *)(a2 + 16) + 209LL)) & 1;
-  v14 = *(_BYTE *)(a1 + 1869) & 0xE1;
-  v15 = BYTE1(*(_DWORD *)(a6 + 424)) & 1;
+  v13 = *(_BYTE *)(a1 + 1869) & 0xF1;
+  v14 = (8 * (a9 & 1)) | (*(_BYTE *)(a6 + 347) >> 4) & 2;
   *(_WORD *)(a1 + 1870) = 0;
   *(_DWORD *)(a1 + 1872) = 0;
+  *(_BYTE *)(a1 + 1869) = v13 | v14;
   *(_QWORD *)(a1 + 1880) = 0LL;
   *(_QWORD *)(a1 + 1888) = 0LL;
-  *(_BYTE *)(a1 + 1869) = v14 | (2 * (v15 | (4 * (a9 & 1 | (2 * (a10 & 1))))));
   *(_QWORD *)(a1 + 1896) = 1LL;
   *(_WORD *)(a1 + 1904) = 0;
   *(_BYTE *)(a1 + 1906) = 0;
@@ -150,49 +153,33 @@ __int64 __fastcall DXGDEVICE::DXGDEVICE(
   *(_QWORD *)(a1 + 816) = a1 + 808;
   *(_QWORD *)(a1 + 808) = a1 + 808;
   v16 = *(DXGADAPTER **)(a1 + 1848);
-  if ( v16 || (v16 = *(DXGADAPTER **)(a2 + 16), *((_QWORD *)v16 + 349)) && (*(_QWORD *)(a1 + 1848) = v16) != 0LL )
+  if ( v16 || (v16 = *(DXGADAPTER **)(a2 + 16), *((_QWORD *)v16 + 337)) && (*(_QWORD *)(a1 + 1848) = v16) != 0LL )
   {
-    if ( !*((_QWORD *)v16 + 349) )
+    if ( !*((_QWORD *)v16 + 337) )
     {
-      WdLogSingleEntry1(1LL, 645LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"m_pDisplayAdapter->IsDisplayAdapter()",
-        645LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v22 = WdLogNewEntry5_WdAssertion(v16, v15);
+      *(_QWORD *)(v22 + 24) = 695LL;
+      WdLogEvent5_WdAssertion(v22);
       v16 = *(DXGADAPTER **)(a1 + 1848);
     }
     if ( !DXGADAPTER::IsCoreResourceSharedOwner(v16) )
     {
-      WdLogSingleEntry1(1LL, 646LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"m_pDisplayAdapter->IsCoreResourceSharedOwner()",
-        646LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v23 = WdLogNewEntry5_WdAssertion(v18, v17);
+      *(_QWORD *)(v23 + 24) = 696LL;
+      WdLogEvent5_WdAssertion(v23);
     }
     _InterlockedAdd64((volatile signed __int64 *)(*(_QWORD *)(a1 + 1848) + 24LL), 1uLL);
-    *(_DWORD *)(a1 + 1856) = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 1848) + 2792LL) + 96LL);
+    *(_DWORD *)(a1 + 1856) = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 1848) + 2696LL) + 80LL);
   }
-  *(_BYTE *)(a1 + 1868) = (*(_DWORD *)(a6 + 424) & 4) != 0;
-  if ( *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL) + 2732LL) )
+  *(_BYTE *)(a1 + 1868) = *(_BYTE *)(a6 + 346) != 0;
+  if ( *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL) + 2636LL) )
   {
-    v17 = *(_QWORD *)(a1 + 40);
+    v19 = *(_QWORD *)(a1 + 40);
     *(_BYTE *)(a1 + 1871) = 1;
-    *(_BYTE *)(v17 + 337) = 1;
+    *(_BYTE *)(v19 + 297) = 1;
   }
-  v18 = *(DXGK_VIRTUAL_GPU_PARAV **)(a1 + 112);
-  if ( v18 )
-    DXGK_VIRTUAL_GPU_PARAV::InsertDxgDevice(v18, (struct _LIST_ENTRY *)(a1 + 120));
+  v20 = *(DXGK_VIRTUAL_GPU_PARAV **)(a1 + 112);
+  if ( v20 )
+    DXGK_VIRTUAL_GPU_PARAV::InsertDxgDevice(v20, (struct _LIST_ENTRY *)(a1 + 120));
   return a1;
 }

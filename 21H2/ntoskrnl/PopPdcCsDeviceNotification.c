@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPdcCsDeviceNotification @ 0x140996FDC
+ * XREFs of PopPdcCsDeviceNotification @ 0x1408EFE24
  * Callers:
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
- *     PopPdcCsCheckSystemVolumeDevice @ 0x140B3116C (PopPdcCsCheckSystemVolumeDevice.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     PopPdcCsCheckSystemVolumeDevice @ 0x140A73F08 (PopPdcCsCheckSystemVolumeDevice.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     PopNetUpdateCsConsumptionFlags @ 0x14085CF58 (PopNetUpdateCsConsumptionFlags.c)
- *     PopPdcUpdateDeviceCompliance @ 0x1409972C8 (PopPdcUpdateDeviceCompliance.c)
- *     PopNetCompliantNicUpdate @ 0x1409985E0 (PopNetCompliantNicUpdate.c)
- *     PopNetNonCompliantDeviceUpdate @ 0x1409987A0 (PopNetNonCompliantDeviceUpdate.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     PopNetUpdateCsConsumptionFlags @ 0x1407CD548 (PopNetUpdateCsConsumptionFlags.c)
+ *     PopPdcUpdateDeviceCompliance @ 0x1408F017C (PopPdcUpdateDeviceCompliance.c)
+ *     PopNetCompliantNicUpdate @ 0x1408F1CD0 (PopNetCompliantNicUpdate.c)
+ *     PopNetNonCompliantDeviceUpdate @ 0x1408F1F0C (PopNetNonCompliantDeviceUpdate.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopPdcCsDeviceNotification(__int64 a1)
@@ -25,9 +25,9 @@ __int64 __fastcall PopPdcCsDeviceNotification(__int64 a1)
   _DWORD *v4; // rcx
   _DWORD *v5; // r8
   char v6; // al
-  __int64 Pool2; // rax
-  __int64 v8; // rcx
-  __int64 *v9; // rax
+  _OWORD *PoolWithTag; // rax
+  _OWORD *v8; // rcx
+  _QWORD *v9; // rax
   _QWORD *v10; // rax
   void **v11; // rdx
   int v12; // ecx
@@ -68,21 +68,24 @@ LABEL_8:
     }
     else
     {
-      Pool2 = ExAllocatePool2(256LL, 40LL, 1866683203LL);
-      v8 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x6F435343u);
+      v8 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        *(_QWORD *)(Pool2 + 16) = *(_QWORD *)a1;
-        *(_DWORD *)(Pool2 + 24) = *(_DWORD *)(a1 + 8);
-        *(_BYTE *)(Pool2 + 32) = *(_BYTE *)(a1 + 13);
-        *(_DWORD *)(Pool2 + 28) = 1;
-        v9 = (__int64 *)off_140C08FB0;
-        if ( *off_140C08FB0 == (_UNKNOWN *)&PopPdcDeviceList )
+        *PoolWithTag = 0LL;
+        PoolWithTag[1] = 0LL;
+        *((_QWORD *)PoolWithTag + 4) = 0LL;
+        *((_QWORD *)PoolWithTag + 2) = *(_QWORD *)a1;
+        *((_DWORD *)PoolWithTag + 6) = *(_DWORD *)(a1 + 8);
+        *((_BYTE *)PoolWithTag + 32) = *(_BYTE *)(a1 + 13);
+        *((_DWORD *)PoolWithTag + 7) = 1;
+        v9 = off_140C0EE30;
+        if ( *off_140C0EE30 == (_UNKNOWN *)&PopPdcDeviceList )
         {
           *(_QWORD *)v8 = &PopPdcDeviceList;
-          *(_QWORD *)(v8 + 8) = v9;
+          *((_QWORD *)v8 + 1) = v9;
           *v9 = v8;
-          off_140C08FB0 = (_UNKNOWN **)v8;
+          off_140C0EE30 = (_UNKNOWN **)v8;
           goto LABEL_20;
         }
         goto LABEL_28;
@@ -141,6 +144,6 @@ LABEL_30:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopPdcDeviceListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(&PopPdcDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopPdcDeviceListLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v1;
 }

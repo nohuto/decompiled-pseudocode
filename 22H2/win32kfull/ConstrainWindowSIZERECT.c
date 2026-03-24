@@ -1,11 +1,10 @@
 /*
- * XREFs of ConstrainWindowSIZERECT @ 0x1C0138CBC
+ * XREFs of ConstrainWindowSIZERECT @ 0x1C01D04F0
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     xxxSBWndProc @ 0x1C022AA50 (xxxSBWndProc.c)
+ *     xxxSBWndProc @ 0x1C0245BA0 (xxxSBWndProc.c)
  * Callees:
- *     ConstrainWindowSize @ 0x1C00B03C8 (ConstrainWindowSize.c)
- *     ConstrainWindowPos @ 0x1C0138C80 (ConstrainWindowPos.c)
+ *     ConstrainWindowPos @ 0x1C00669F0 (ConstrainWindowPos.c)
+ *     ConstrainWindowSize @ 0x1C006A18C (ConstrainWindowSize.c)
  */
 
 __int64 __fastcall ConstrainWindowSIZERECT(int *a1)

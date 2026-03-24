@@ -1,10 +1,10 @@
 /*
- * XREFs of ?pjTable@RFONTOBJ@@QEAAPEAEKPEAK@Z @ 0x1C02A700C
+ * XREFs of ?pjTable@RFONTOBJ@@QEAAPEAEKPEAK@Z @ 0x1C02A8878
  * Callers:
- *     FONTOBJ_pjOpenTypeTablePointer @ 0x1C0291230 (FONTOBJ_pjOpenTypeTablePointer.c)
+ *     FONTOBJ_pjOpenTypeTablePointer @ 0x1C02936D0 (FONTOBJ_pjOpenTypeTablePointer.c)
  * Callees:
- *     ?QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z @ 0x1C0018854 (-QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z.c)
- *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02A6D40 (-pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z.c)
+ *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02A85AC (-pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z.c)
+ *     ?QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z @ 0x1C02C2B90 (-QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z.c)
  */
 
 char *__fastcall RFONTOBJ::pjTable(RFONTOBJ *this, unsigned int a2, unsigned int *a3)
@@ -12,7 +12,7 @@ char *__fastcall RFONTOBJ::pjTable(RFONTOBJ *this, unsigned int a2, unsigned int
   __int64 v3; // rax
   char *v4; // r9
   __int64 v8; // r8
-  __int64 v9; // rdx
+  unsigned __int64 v9; // rdx
   unsigned int v10; // eax
   _QWORD v12[3]; // [rsp+50h] [rbp-18h] BYREF
   unsigned int v13; // [rsp+70h] [rbp+8h] BYREF

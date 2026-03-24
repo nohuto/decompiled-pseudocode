@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRealizationIndex@CDxHandleBitmapRealization@@UEBAIXZ @ 0x180108CE0
+ * XREFs of ?GetRealizationIndex@CDxHandleBitmapRealization@@UEBAIXZ @ 0x1800E3810
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CDxHandleBitmapRealization::GetRealizationIndex(CDxHandleBitmapRealization *this)
 {
-  return *((unsigned int *)this - 29);
+  return *((unsigned int *)this - 27);
 }

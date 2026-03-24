@@ -1,8 +1,8 @@
 /*
- * XREFs of StringCopyWorkerW_0 @ 0x140306B68
+ * XREFs of StringCopyWorkerW_0 @ 0x140306C68
  * Callers:
- *     StringCbCatW @ 0x140306A74 (StringCbCatW.c)
- *     StringCbCopyNW @ 0x140306B0C (StringCbCopyNW.c)
+ *     StringCbCatW @ 0x140306B74 (StringCbCatW.c)
+ *     StringCbCopyNW @ 0x140306C0C (StringCbCopyNW.c)
  * Callees:
  *     <none>
  */

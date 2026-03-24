@@ -1,27 +1,23 @@
 /*
- * XREFs of NtFlushVirtualMemory @ 0x1407F0310
+ * XREFs of NtFlushVirtualMemory @ 0x140688FD0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
- *     MmFlushVirtualMemory @ 0x1407F0478 (MmFlushVirtualMemory.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     MmFlushVirtualMemory @ 0x140689134 (MmFlushVirtualMemory.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtFlushVirtualMemory(
-        ULONG_PTR BugCheckParameter1,
-        unsigned __int64 *a2,
-        unsigned __int64 *a3,
-        _OWORD *a4)
+NTSTATUS __fastcall NtFlushVirtualMemory(HANDLE Handle, unsigned __int64 *a2, unsigned __int64 *a3, _OWORD *a4)
 {
-  char PreviousMode; // r9
+  KPROCESSOR_MODE PreviousMode; // r9
   __int64 v9; // rcx
   __int64 v10; // rcx
   __int64 v11; // rcx
   unsigned __int64 v12; // rax
   unsigned __int64 v13; // rcx
-  __int64 result; // rax
-  unsigned int v15; // [rsp+40h] [rbp-38h]
+  NTSTATUS result; // eax
+  int v15; // [rsp+40h] [rbp-38h]
   unsigned __int64 v16; // [rsp+48h] [rbp-30h] BYREF
   unsigned __int64 v17; // [rsp+50h] [rbp-28h] BYREF
   PVOID Object; // [rsp+58h] [rbp-20h] BYREF
@@ -59,19 +55,18 @@ __int64 __fastcall NtFlushVirtualMemory(
     v16 = *a3;
   }
   if ( v12 > 0x7FFFFFFEFFFFLL )
-    return 3221225712LL;
+    return -1073741584;
   if ( 0x7FFFFFFF0000LL - v12 < v13 )
-    return 3221225713LL;
-  result = ObpReferenceObjectByHandleWithTag(
-             BugCheckParameter1,
-             8,
-             (__int64)PsProcessType,
+    return -1073741583;
+  result = ObReferenceObjectByHandleWithTag(
+             Handle,
+             8u,
+             (POBJECT_TYPE)PsProcessType,
              PreviousMode,
              0x6C466D4Du,
              &Object,
-             0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v15 = MmFlushVirtualMemory(Object, &v17, &v16, &v19);
     ObfDereferenceObjectWithTag(Object, 0x6C466D4Du);

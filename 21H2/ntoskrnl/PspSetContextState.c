@@ -1,12 +1,12 @@
 /*
- * XREFs of PspSetContextState @ 0x1409B4D94
+ * XREFs of PspSetContextState @ 0x14090F1A4
  * Callers:
- *     PspGetSetContextInternal @ 0x1407035C0 (PspGetSetContextInternal.c)
+ *     PspGetSetContextInternal @ 0x1406498B0 (PspGetSetContextInternal.c)
  * Callees:
- *     RtlInitializeExtendedContext @ 0x140295100 (RtlInitializeExtendedContext.c)
- *     RtlGetExtendedContextLength @ 0x140295190 (RtlGetExtendedContextLength.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlCopyContext @ 0x140702F70 (RtlCopyContext.c)
+ *     RtlGetExtendedContextLength @ 0x140276470 (RtlGetExtendedContextLength.c)
+ *     RtlInitializeExtendedContext @ 0x1402764F0 (RtlInitializeExtendedContext.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlCopyContext @ 0x1406480E8 (RtlCopyContext.c)
  */
 
 __int64 __fastcall PspSetContextState(__int64 a1, __int64 a2)
@@ -15,16 +15,17 @@ __int64 __fastcall PspSetContextState(__int64 a1, __int64 a2)
   int v5; // ebx
   int v6; // edx
   __int64 result; // rax
-  size_t Size; // [rsp+30h] [rbp+8h] BYREF
+  size_t Size; // [rsp+40h] [rbp+8h] BYREF
+  char v9; // [rsp+48h] [rbp+10h] BYREF
 
   LODWORD(Size) = 0;
-  v4 = *(_DWORD **)(a1 + 1640);
+  v4 = *(_DWORD **)(a1 + 1560);
   if ( (*(_BYTE *)(a1 + 3) & 8) == 0 )
   {
     v5 = MEMORY[0xFFFFF780000003D8] != 0LL ? 0x40 : 0;
     RtlGetExtendedContextLength((unsigned int)(v5 + 0x100000), (__int64)&Size);
     memset(v4, 0, (unsigned int)Size);
-    RtlInitializeExtendedContext((__int64)v4, v5 + 0x100000, (__int64)&Size);
+    RtlInitializeExtendedContext((__int64)v4, v5 + 0x100000, (__int64)&v9);
     v4[12] = 0x100000;
     _interlockedbittestandset((volatile signed __int32 *)a1, 0x1Bu);
   }

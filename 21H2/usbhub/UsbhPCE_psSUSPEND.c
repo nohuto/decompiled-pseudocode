@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhPCE_psSUSPEND @ 0x1C001E580
+ * XREFs of UsbhPCE_psSUSPEND @ 0x1C001C160
  * Callers:
- *     UsbhHubRunPortChangeQueue @ 0x1C0015150 (UsbhHubRunPortChangeQueue.c)
+ *     UsbhHubRunPortChangeQueue @ 0x1C00071D0 (UsbhHubRunPortChangeQueue.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
- *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002F39C (WPP_RECORDER_SF_dq.c)
  */
 
-int *__fastcall UsbhPCE_psSUSPEND(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall UsbhPCE_psSUSPEND(__int64 a1, __int64 a2, __int64 a3)
 {
   int v6; // edx
   int v7; // r8d
@@ -25,5 +25,5 @@ int *__fastcall UsbhPCE_psSUSPEND(__int64 a1, __int64 a2, __int64 a3)
       *(_WORD *)(a2 + 4),
       a3);
   Log(a1, 512, 1346711864, 0LL, *(unsigned __int16 *)(a2 + 4));
-  return UsbhDispatch_PortChangeQueueEventEx(a1, a2, 18LL, a3, 0LL, 0, 0LL, 0LL);
+  return UsbhDispatch_PortChangeQueueEventEx(a1, a2, 18, a3, 0LL, 0, 0LL, 0LL);
 }

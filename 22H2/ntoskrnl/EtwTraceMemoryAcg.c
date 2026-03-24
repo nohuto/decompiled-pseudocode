@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceMemoryAcg @ 0x140304138
+ * XREFs of EtwTraceMemoryAcg @ 0x14025F048
  * Callers:
- *     MiArbitraryCodeBlocked @ 0x14076C284 (MiArbitraryCodeBlocked.c)
+ *     MiArbitraryCodeBlocked @ 0x140629784 (MiArbitraryCodeBlocked.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwProviderEnabled @ 0x140304190 (EtwProviderEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     EtwProviderEnabled @ 0x14025F0A0 (EtwProviderEnabled.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTraceMemoryAcg(int a1)

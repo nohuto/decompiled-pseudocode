@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCopyUchToStagingArea @ 0x140846ED4
+ * XREFs of KiCopyUchToStagingArea @ 0x140846EB4
  * Callers:
- *     KeSynchronizeUmsThread @ 0x1408454F8 (KeSynchronizeUmsThread.c)
+ *     KeSynchronizeUmsThread @ 0x1408454D8 (KeSynchronizeUmsThread.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     KiCopyXStateArea @ 0x140294200 (KiCopyXStateArea.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     KiCopyXStateArea @ 0x140294300 (KiCopyXStateArea.c)
  */
 
 __int64 __fastcall KiCopyUchToStagingArea(__int64 a1, __int64 *a2)

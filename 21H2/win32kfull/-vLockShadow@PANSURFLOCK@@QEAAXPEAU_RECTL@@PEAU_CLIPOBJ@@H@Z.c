@@ -1,14 +1,14 @@
 /*
- * XREFs of ?vLockShadow@PANSURFLOCK@@QEAAXPEAU_RECTL@@PEAU_CLIPOBJ@@H@Z @ 0x1C02948D8
+ * XREFs of ?vLockShadow@PANSURFLOCK@@QEAAXPEAU_RECTL@@PEAU_CLIPOBJ@@H@Z @ 0x1C0296EAC
  * Callers:
- *     ??0PANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@PEAU_RECTL@@PEAHPEAU_CLIPOBJ@@@Z @ 0x1C029240C (--0PANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@PEAU_RECTL@@PEAHPEAU_CLIPOBJ@@@Z.c)
- *     ?PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C0293B40 (-PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z.c)
+ *     ??0PANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@PEAU_RECTL@@PEAHPEAU_CLIPOBJ@@@Z @ 0x1C02949FC (--0PANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@PEAU_RECTL@@PEAHPEAU_CLIPOBJ@@@Z.c)
+ *     ?PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C0296120 (-PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C002F5C4 (-vOrder@ERECTL@@QEAAXXZ.c)
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0031090 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z @ 0x1C0294164 (-ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00B157C (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00B79F8 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z @ 0x1C0296734 (-ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z.c)
  */
 
 void __fastcall PANSURFLOCK::vLockShadow(PANSURFLOCK *this, struct _RECTL *a2, struct _CLIPOBJ *a3, int a4)
@@ -25,135 +25,126 @@ void __fastcall PANSURFLOCK::vLockShadow(PANSURFLOCK *this, struct _RECTL *a2, s
   __int64 v14; // rcx
   unsigned int v15; // r9d
   unsigned int v16; // r8d
-  __int64 v17; // rdi
-  __int64 v18; // rsi
+  __int64 v17; // rsi
+  __int64 v18; // rdi
   char *v19; // r15
   __int64 v20; // r12
   __int64 v21; // rax
-  __int64 v22; // r14
-  __int64 v23; // rcx
+  __int64 i; // r14
+  __int64 v23; // rdi
   __int64 v24; // rsi
-  __int64 v25; // rdi
-  HSEMAPHORE v26; // rcx
-  int v27; // eax
+  HSEMAPHORE v25; // rcx
+  int v26; // eax
+  __int64 j; // rdi
   __int64 v28; // rsi
-  _BYTE *v29; // rdi
-  __int64 v30; // r14
-  __int64 v31; // [rsp+30h] [rbp-30h]
-  __int64 v32; // [rsp+38h] [rbp-28h]
-  char *v33; // [rsp+40h] [rbp-20h] BYREF
-  int v34; // [rsp+48h] [rbp-18h]
-  int v35; // [rsp+4Ch] [rbp-14h]
-  __int128 v36; // [rsp+50h] [rbp-10h] BYREF
-  __int64 v37; // [rsp+A0h] [rbp+40h]
-  __int64 v38; // [rsp+B0h] [rbp+50h]
+  char *v29; // r14
+  __int64 v30; // [rsp+30h] [rbp-30h]
+  __int64 v31; // [rsp+38h] [rbp-28h]
+  char *v32; // [rsp+40h] [rbp-20h] BYREF
+  int v33; // [rsp+48h] [rbp-18h]
+  int v34; // [rsp+4Ch] [rbp-14h]
+  __int128 v35; // [rsp+50h] [rbp-10h] BYREF
+  __int64 v36; // [rsp+A0h] [rbp+40h]
+  __int64 v37; // [rsp+B0h] [rbp+50h]
 
-  v36 = 0LL;
+  v35 = 0LL;
   if ( a3 && a3->iDComplexity )
   {
     top = a3->rclBounds.top;
     left = a2->left;
     if ( a3->rclBounds.left > a2->left )
       left = a3->rclBounds.left;
-    LODWORD(v36) = left;
+    LODWORD(v35) = left;
     v7 = a2->top;
     if ( top > v7 )
       v7 = top;
     right = a3->rclBounds.right;
-    DWORD1(v36) = v7;
+    DWORD1(v35) = v7;
     v9 = a2->right;
     if ( right < v9 )
       v9 = right;
     bottom = a3->rclBounds.bottom;
-    DWORD2(v36) = v9;
+    DWORD2(v35) = v9;
     v11 = a2->bottom;
     if ( bottom < v11 )
       v11 = bottom;
-    HIDWORD(v36) = v11;
+    HIDWORD(v35) = v11;
   }
   else
   {
-    v36 = (__int128)*a2;
+    v35 = (__int128)*a2;
   }
-  ERECTL::vOrder((ERECTL *)&v36);
+  ERECTL::vOrder((ERECTL *)&v35);
   v12 = *((_QWORD *)this + 2);
-  v33 = 0LL;
+  v32 = 0LL;
   v13 = *(_QWORD *)(v12 + 64);
-  v34 = *(_DWORD *)(v13 + 32);
-  v35 = *(_DWORD *)(v13 + 36);
-  ERECTL::operator*=((int *)&v36, (int *)&v33);
+  v33 = *(_DWORD *)(v13 + 32);
+  v34 = *(_DWORD *)(v13 + 36);
+  ERECTL::operator*=((int *)&v35, (int *)&v32);
   memset((char *)this + 24, 0, 0x51uLL);
-  if ( !ERECTL::bEmpty((ERECTL *)&v36) )
+  if ( !ERECTL::bEmpty((ERECTL *)&v35) )
   {
     v14 = *((_QWORD *)this + 2);
     v15 = *(_DWORD *)(v14 + 768);
     v16 = *(_DWORD *)(v14 + 772);
-    v17 = (int)((unsigned int)v36 / v15);
-    v31 = v17;
-    v18 = (int)(DWORD1(v36) / v16);
-    v32 = v18;
-    v38 = (int)(HIDWORD(v36) / v16 + 1);
-    v37 = (int)(DWORD2(v36) / v15 + 1);
+    v17 = (int)((unsigned int)v35 / v15);
+    v30 = v17;
+    v18 = (int)(DWORD1(v35) / v16);
+    v31 = v18;
+    v37 = (int)(HIDWORD(v35) / v16 + 1);
+    v36 = (int)(DWORD2(v35) / v15 + 1);
     v19 = (char *)this + 9 * v18 + 24;
-    v33 = v19;
+    v32 = v19;
     v20 = 8 * (v17 + 9 * v18) + 120;
-    *(_QWORD *)&v36 = v20;
+    *(_QWORD *)&v35 = v20;
 LABEL_15:
     KeWaitForSingleObject((PVOID)(*(_QWORD *)(*((_QWORD *)this + 2) + 784LL) + 32LL), UserRequest, 0, 0, 0LL);
     v21 = v37;
-    v22 = v18;
-    v23 = v38;
-    while ( v22 < v23 )
+    for ( i = v18; i < v21; ++i )
     {
-      v24 = v17;
-      if ( v17 < v21 )
+      v23 = v17;
+      if ( v17 < v36 )
       {
-        v25 = v20;
+        v24 = v20;
         while ( 1 )
         {
-          v26 = *(HSEMAPHORE *)(v25 + *((_QWORD *)this + 2));
-          v27 = a4 ? EngAcquireSemaphoreSharedNoWait(v26) : EngAcquireSemaphoreNoWait(v26);
-          if ( v27 != 1 )
+          v25 = *(HSEMAPHORE *)(v24 + *((_QWORD *)this + 2));
+          v26 = a4 ? EngAcquireSemaphoreSharedNoWait(v25) : EngAcquireSemaphoreNoWait(v25);
+          if ( v26 != 1 )
             break;
-          v19[v24] = 1;
-          v25 += 8LL;
-          v21 = v37;
-          if ( ++v24 >= v37 )
+          v19[v23] = 1;
+          v24 += 8LL;
+          if ( ++v23 >= v36 )
           {
-            v17 = v31;
-            v23 = v38;
+            v17 = v30;
+            v21 = v37;
             goto LABEL_25;
           }
         }
-        v28 = 760LL;
-        v29 = (char *)this + 104;
-        do
+        for ( j = 87LL; j >= 15; j -= 9LL )
         {
-          v30 = 9LL;
+          v28 = 8LL;
+          v29 = (char *)this + j;
           do
           {
-            if ( *v29 == 1 )
+            if ( v29[v28 + 9] == 1 )
             {
-              EngReleaseSemaphore(*(HSEMAPHORE *)(v28 + *((_QWORD *)this + 2)));
-              *v29 = 0;
+              EngReleaseSemaphore(*(HSEMAPHORE *)(*((_QWORD *)this + 2) + 8 * (j + v28)));
+              v29[v28 + 9] = 0;
             }
-            v28 -= 8LL;
-            --v29;
-            --v30;
+            --v28;
           }
-          while ( v30 );
+          while ( v28 >= 0 );
         }
-        while ( v28 >= 184 );
         ShadowUnLockWait(*((struct _PANDEV **)this + 2));
         memset((char *)this + 24, 0, 0x51uLL);
-        v17 = v31;
-        v18 = v32;
-        v19 = v33;
-        v20 = v36;
+        v17 = v30;
+        v18 = v31;
+        v19 = v32;
+        v20 = v35;
         goto LABEL_15;
       }
 LABEL_25:
-      ++v22;
       v20 += 72LL;
       v19 += 9;
     }

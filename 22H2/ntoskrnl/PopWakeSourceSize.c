@@ -1,41 +1,33 @@
 /*
- * XREFs of PopWakeSourceSize @ 0x140987D3C
+ * XREFs of PopWakeSourceSize @ 0x1408E6EF0
  * Callers:
- *     PopCopyWakeSource @ 0x140987284 (PopCopyWakeSource.c)
- *     PopGetWakeSource @ 0x140987418 (PopGetWakeSource.c)
+ *     PopGetWakeSource @ 0x1407786B8 (PopGetWakeSource.c)
+ *     PopCopyWakeSource @ 0x1408E69F0 (PopCopyWakeSource.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall PopWakeSourceSize(__int64 a1)
 {
-  int v1; // r8d
-  __int64 v2; // rdx
-  int v3; // r8d
-  int v4; // r8d
-  int v5; // r8d
-  _QWORD *v6; // rax
+  unsigned int v1; // edx
+  __int64 result; // rax
+  _QWORD *v3; // rdx
 
   v1 = *(_DWORD *)(a1 + 16);
-  v2 = 0LL;
+  result = 0LL;
   if ( !v1 )
     return *(unsigned __int16 *)(a1 + 24) + 10LL;
-  v3 = v1 - 1;
-  if ( !v3 )
+  if ( v1 == 1 )
     return 12LL;
-  v4 = v3 - 1;
-  if ( v4 && (v5 = v4 - 1) != 0 )
+  if ( v1 > 3 )
   {
-    if ( v5 == 1 )
-      return 12LL;
+    if ( v1 != 4 )
+      return result;
+    return 12LL;
   }
+  v3 = *(_QWORD **)(a1 + 24);
+  if ( v3 )
+    return *v3 + 8LL;
   else
-  {
-    v6 = *(_QWORD **)(a1 + 24);
-    if ( v6 )
-      return *v6 + 8LL;
-    else
-      return 48LL;
-  }
-  return v2;
+    return 48LL;
 }

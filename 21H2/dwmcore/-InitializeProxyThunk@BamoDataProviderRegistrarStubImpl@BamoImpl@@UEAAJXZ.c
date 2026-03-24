@@ -1,5 +1,5 @@
 /*
- * XREFs of ?InitializeProxyThunk@BamoDataProviderRegistrarStubImpl@BamoImpl@@UEAAJXZ @ 0x1800F8CE0
+ * XREFs of ?InitializeProxyThunk@BamoDataProviderRegistrarStubImpl@BamoImpl@@UEAAJXZ @ 0x1800E0590
  * Callers:
  *     <none>
  * Callees:

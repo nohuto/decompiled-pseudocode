@@ -1,10 +1,11 @@
 /*
- * XREFs of wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x140502C58
+ * XREFs of wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x1403F095C
  * Callers:
- *     wil_details_FeatureStateCache_GetCachedFeatureEnabledState @ 0x1403DF3B0 (wil_details_FeatureStateCache_GetCachedFeatureEnabledState.c)
+ *     wil_details_FeatureStateCache_GetCachedFeatureEnabledState @ 0x1402D3374 (wil_details_FeatureStateCache_GetCachedFeatureEnabledState.c)
+ *     wil_details_IsEnabledFallback @ 0x1403F0AB0 (wil_details_IsEnabledFallback.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     wil_details_GetCurrentFeatureEnabledState @ 0x140502D50 (wil_details_GetCurrentFeatureEnabledState.c)
+ *     wil_details_GetCurrentFeatureEnabledState @ 0x1402D33C4 (wil_details_GetCurrentFeatureEnabledState.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState(
@@ -12,13 +13,13 @@ __int64 __fastcall wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledS
         __int64 a2,
         __int64 a3)
 {
-  unsigned int v3; // ebp
+  unsigned int v3; // r14d
   signed __int32 v5; // edi
   unsigned __int16 CurrentFeatureEnabledState; // bx
   signed __int32 v8; // esi
   signed __int32 v9; // eax
-  int v11; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+58h] [rbp+10h]
+  int v11; // [rsp+50h] [rbp+30h] BYREF
+  __int64 v12; // [rsp+58h] [rbp+38h]
 
   v3 = 0;
   v11 = 0;
@@ -27,20 +28,20 @@ __int64 __fastcall wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledS
   if ( g_wil_details_ensureSubscribedToFeatureConfigurationChanges )
     v3 = g_wil_details_ensureSubscribedToFeatureConfigurationChanges();
   CurrentFeatureEnabledState = wil_details_GetCurrentFeatureEnabledState(a3, &v11);
-  if ( !*(_BYTE *)(a3 + 20) )
+  if ( !*(_BYTE *)(a3 + 28) )
     v11 = v3 != 0 ? v11 : 0;
   while ( 1 )
   {
     v8 = v5;
     LODWORD(v12) = v5;
-    if ( v11 && (v5 & 1) == 0 )
+    if ( v11 && (v5 & 2) == 0 )
     {
-      v8 = v5 ^ (CurrentFeatureEnabledState ^ (unsigned __int16)v5) & 0x278 | 1;
+      v8 = v5 ^ (CurrentFeatureEnabledState ^ (unsigned __int16)v5) & 0x9C1 | 2;
       LODWORD(v12) = v8;
     }
-    if ( (v5 & 2) == 0 )
+    if ( (v5 & 4) == 0 )
     {
-      v8 = ((unsigned __int16)v8 ^ CurrentFeatureEnabledState) & 0x100 ^ v8 | 2;
+      v8 = ((unsigned __int16)v8 ^ CurrentFeatureEnabledState) & 0x400 ^ v8 | 4;
       LODWORD(v12) = v8;
     }
     v9 = _InterlockedCompareExchange(a1, v8, v5);
@@ -48,9 +49,9 @@ __int64 __fastcall wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledS
       break;
     v5 = v9;
   }
-  if ( (v5 & 2) == 0 && g_wil_details_subscribeFeatureStateCacheToConfigurationChanges )
-    g_wil_details_subscribeFeatureStateCacheToConfigurationChanges(a1, *(unsigned __int8 *)(a3 + 20), v3);
+  if ( (v5 & 4) == 0 && g_wil_details_subscribeFeatureStateCacheToConfigurationChanges )
+    g_wil_details_subscribeFeatureStateCacheToConfigurationChanges(a1, *(unsigned __int8 *)(a3 + 28), v3);
   if ( !v11 )
-    LODWORD(v12) = ((unsigned __int16)v8 ^ CurrentFeatureEnabledState) & 0x278 ^ v8;
+    LODWORD(v12) = ((unsigned __int16)v8 ^ CurrentFeatureEnabledState) & 0x9C1 ^ v8;
   return v12;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of _GetDeviceRects @ 0x1C01E9490
+ * XREFs of _GetDeviceRects @ 0x1C01AF5B0
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00590FC (HMValidateHandleNoSecure.c)
+ *     HMValidateHandleNoSecure @ 0x1C0046930 (HMValidateHandleNoSecure.c)
  */
 
 __int64 __fastcall GetDeviceRects(__int64 a1, _OWORD *a2, _OWORD *a3)
 {
-  __int64 v3; // rcx
+  unsigned __int64 v3; // rcx
   unsigned int v4; // ebx
   __int64 v7; // rax
 
@@ -20,8 +20,8 @@ __int64 __fastcall GetDeviceRects(__int64 a1, _OWORD *a2, _OWORD *a3)
     if ( v7 )
     {
       v4 = 1;
-      *a2 = *(_OWORD *)(*(_QWORD *)(v7 + 472) + 160LL);
-      *a3 = *(_OWORD *)(*(_QWORD *)(v7 + 472) + 176LL);
+      *a2 = *(_OWORD *)(*(_QWORD *)(v7 + 480) + 160LL);
+      *a3 = *(_OWORD *)(*(_QWORD *)(v7 + 480) + 176LL);
     }
   }
   return v4;

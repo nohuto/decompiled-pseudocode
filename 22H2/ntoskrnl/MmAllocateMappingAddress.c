@@ -1,13 +1,13 @@
 /*
- * XREFs of MmAllocateMappingAddress @ 0x14086C930
+ * XREFs of MmAllocateMappingAddress @ 0x140691430
  * Callers:
- *     SmFpPreAllocate @ 0x1403A6478 (SmFpPreAllocate.c)
- *     HvlpInitializeHvCrashdump @ 0x140548094 (HvlpInitializeHvCrashdump.c)
- *     PspInitPhase0 @ 0x140B4DF94 (PspInitPhase0.c)
- *     HalpDmaAllocateEmergencyResources @ 0x140B64468 (HalpDmaAllocateEmergencyResources.c)
- *     HalpDmaAllocateReservedMapping @ 0x140B64660 (HalpDmaAllocateReservedMapping.c)
+ *     SmFpPreAllocate @ 0x1403C8964 (SmFpPreAllocate.c)
+ *     HvlpInitializeHvCrashdump @ 0x1404F901C (HvlpInitializeHvCrashdump.c)
+ *     PspInitPhase0 @ 0x140A3D098 (PspInitPhase0.c)
+ *     HalpDmaAllocateReservedMapping @ 0x140A65ECC (HalpDmaAllocateReservedMapping.c)
+ *     HalpDmaAllocateEmergencyResources @ 0x140A65F28 (HalpDmaAllocateEmergencyResources.c)
  * Callees:
- *     MmAllocateMappingAddressEx @ 0x14086C950 (MmAllocateMappingAddressEx.c)
+ *     MmAllocateMappingAddressEx @ 0x140691450 (MmAllocateMappingAddressEx.c)
  */
 
 PVOID __stdcall MmAllocateMappingAddress(SIZE_T NumberOfBytes, ULONG PoolTag)

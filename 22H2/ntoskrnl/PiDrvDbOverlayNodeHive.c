@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDrvDbOverlayNodeHive @ 0x1409707D8
+ * XREFs of PiDrvDbOverlayNodeHive @ 0x1408B6708
  * Callers:
- *     PiDrvDbSetupNodeHive @ 0x140813EF8 (PiDrvDbSetupNodeHive.c)
+ *     PiDrvDbSetupNodeHive @ 0x1408B7EB4 (PiDrvDbSetupNodeHive.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memset @ 0x140435400 (memset.c)
- *     _RegRtlQueryValue @ 0x1406CE918 (_RegRtlQueryValue.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegCreateKey @ 0x1407983D0 (_PnpCtxRegCreateKey.c)
- *     _RegRtlEnumKey @ 0x14086B97C (_RegRtlEnumKey.c)
- *     PiDrvDbOverlayCopyKeys @ 0x140970238 (PiDrvDbOverlayCopyKeys.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _PnpCtxRegCreateKey @ 0x1406B4340 (_PnpCtxRegCreateKey.c)
+ *     _RegRtlQueryValue @ 0x1406BB0F8 (_RegRtlQueryValue.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     _RegRtlEnumKey @ 0x14076619C (_RegRtlEnumKey.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x1408B6168 (PiDrvDbOverlayCopyKeys.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDrvDbOverlayNodeHive(__int64 a1, const wchar_t *a2, __int64 a3)
@@ -29,7 +29,7 @@ __int64 __fastcall PiDrvDbOverlayNodeHive(__int64 a1, const wchar_t *a2, __int64
   unsigned int v14; // edi
   int v15; // eax
   int v16; // eax
-  char *Pool2; // r14
+  unsigned int *PoolWithTag; // r14
   ULONG i; // r15d
   int v19; // eax
   int v20; // edi
@@ -44,7 +44,7 @@ __int64 __fastcall PiDrvDbOverlayNodeHive(__int64 a1, const wchar_t *a2, __int64
   HANDLE Handle; // [rsp+58h] [rbp-51h] BYREF
   HANDLE v31; // [rsp+60h] [rbp-49h] BYREF
   HANDLE v32; // [rsp+68h] [rbp-41h] BYREF
-  HANDLE v33; // [rsp+70h] [rbp-39h]
+  HANDLE v33; // [rsp+70h] [rbp-39h] BYREF
   HANDLE v34; // [rsp+78h] [rbp-31h] BYREF
   _QWORD v35[8]; // [rsp+80h] [rbp-29h] BYREF
 
@@ -73,7 +73,7 @@ LABEL_3:
       Key = 0;
       goto LABEL_48;
     }
-    v9 = off_140A78B60;
+    v9 = off_140984468;
     do
     {
       v10 = (__int64)*v9++;
@@ -136,8 +136,8 @@ LABEL_3:
     {
       if ( KeyHandle )
       {
-        Pool2 = (char *)ExAllocatePool2(256LL, 520LL, 1650749520LL);
-        if ( !Pool2 )
+        PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, 0x208uLL, 0x62647050u);
+        if ( !PoolWithTag )
         {
           Key = -1073741670;
           goto LABEL_48;
@@ -145,15 +145,15 @@ LABEL_3:
         for ( i = 0; ; ++i )
         {
           LODWORD(v26) = 260;
-          v19 = RegRtlEnumKey(KeyHandle, i, Pool2, (unsigned int *)&v26);
+          v19 = RegRtlEnumKey(KeyHandle, i, PoolWithTag, (unsigned int *)&v26);
           if ( v19 == -2147483622 )
           {
 LABEL_47:
-            ExFreePoolWithTag(Pool2, 0);
+            ExFreePoolWithTag(PoolWithTag, 0);
             goto LABEL_48;
           }
           if ( v19 < 0
-            || (int)SysCtxRegOpenKey(0LL, (__int64)KeyHandle, (__int64)Pool2, 0, 0x20019u, (__int64)&Handle) < 0 )
+            || (int)SysCtxRegOpenKey(0LL, (__int64)KeyHandle, (__int64)PoolWithTag, 0, 0x20019u, (__int64)&Handle) < 0 )
           {
             continue;
           }
@@ -191,17 +191,24 @@ LABEL_36:
           v22 = v33;
           if ( !v33 )
           {
-            v25 = 131103;
-            Key = PnpCtxRegCreateKey(0LL, (__int64)v34);
+            Key = PnpCtxRegCreateKey(
+                    0LL,
+                    (__int64)v34,
+                    (__int64)L"ControlSet001\\Services",
+                    0,
+                    0x2001Fu,
+                    0LL,
+                    (__int64)&v33,
+                    0LL);
             if ( Key < 0 )
               goto LABEL_47;
             v22 = v33;
           }
           Key = PiDrvDbOverlayCopyKeys(
                   (__int64)KeyHandle,
-                  (__int64)Pool2,
+                  (__int64)PoolWithTag,
                   (__int64)v22,
-                  (__int64)Pool2,
+                  (__int64)PoolWithTag,
                   v25,
                   0LL,
                   0,

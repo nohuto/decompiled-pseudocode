@@ -2,7 +2,7 @@
  * XREFs of sub_140624D6C @ 0x140624D6C
  * Callers:
  *     WbGetHeapExecutedBlock @ 0x14062490C (WbGetHeapExecutedBlock.c)
- *     WbAddHeapExecutedBlockToCache @ 0x14069158C (WbAddHeapExecutedBlockToCache.c)
+ *     WbAddHeapExecutedBlockToCache @ 0x14069156C (WbAddHeapExecutedBlockToCache.c)
  * Callees:
  *     sub_1406245B4 @ 0x1406245B4 (sub_1406245B4.c)
  *     sub_140625298 @ 0x140625298 (sub_140625298.c)

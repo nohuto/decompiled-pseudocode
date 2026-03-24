@@ -1,7 +1,7 @@
 /*
- * XREFs of SignExtendLong @ 0x1C019728C
+ * XREFs of SignExtendLong @ 0x1C0160D14
  * Callers:
- *     RIMExtractPointerPropertyValues @ 0x1C01918C0 (RIMExtractPointerPropertyValues.c)
+ *     RIMExtractPointerPropertyValues @ 0x1C015D2D0 (RIMExtractPointerPropertyValues.c)
  * Callees:
  *     <none>
  */

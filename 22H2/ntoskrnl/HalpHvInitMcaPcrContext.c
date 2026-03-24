@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpHvInitMcaPcrContext @ 0x140380934
+ * XREFs of HalpHvInitMcaPcrContext @ 0x1403C5150
  * Callers:
- *     HalpMceInit @ 0x140A8B178 (HalpMceInit.c)
+ *     HalpMceInit @ 0x1409A0B8C (HalpMceInit.c)
  * Callees:
- *     KeGetCurrentProcessorNumberEx @ 0x1403262D0 (KeGetCurrentProcessorNumberEx.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033ADA0 (KeQueryMaximumProcessorCountEx.c)
- *     KeSetTargetProcessorDpcEx @ 0x14036B680 (KeSetTargetProcessorDpcEx.c)
- *     HalpGetMcaPcrContext @ 0x140380984 (HalpGetMcaPcrContext.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x1402605D0 (KeGetCurrentProcessorNumberEx.c)
+ *     KeSetTargetProcessorDpcEx @ 0x14032A950 (KeSetTargetProcessorDpcEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140344740 (KeQueryMaximumProcessorCountEx.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     HalpGetMcaPcrContext @ 0x1403A04C8 (HalpGetMcaPcrContext.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void HalpHvInitMcaPcrContext()
@@ -21,97 +21,100 @@ void HalpHvInitMcaPcrContext()
   ULONG CurrentProcessorNumber; // r15d
   size_t v2; // rbx
   void *v3; // rax
-  _DWORD *Pool2; // r14
+  _DWORD *PoolWithTag; // rsi
   int v5; // eax
   unsigned int v6; // ebx
-  unsigned int v7; // esi
-  unsigned __int64 v8; // rbx
-  __int64 McaPcrContext; // rbp
-  unsigned int i; // edi
-  unsigned __int64 v11; // rbx
-  __int64 v12; // rax
-  int v13; // esi
-  int v14; // r15d
-  __int64 v15; // rax
+  int v7; // r12d
+  __int64 v8; // rbx
+  __int64 McaPcrContext; // r14
+  int v10; // edi
+  unsigned int i; // r13d
+  __int64 v12; // rbx
+  __int64 v13; // rax
+  int v14; // edi
+  int v15; // r15d
+  __int64 v16; // rax
   __int64 j; // rbx
-  unsigned int v17; // [rsp+70h] [rbp+8h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+78h] [rbp+10h] BYREF
-  unsigned __int64 v19; // [rsp+80h] [rbp+18h]
+  unsigned int v18; // [rsp+70h] [rbp+40h] BYREF
+  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+78h] [rbp+48h] BYREF
+  __int64 v20; // [rsp+80h] [rbp+50h]
 
-  v17 = 0;
+  v18 = 0;
   Pcr = KeGetPcr();
-  v19 = 0LL;
   ProcNumber = 0;
   if ( HalpHvWheaEnlightenedCpuManager )
   {
     CurrentProcessorNumber = KeGetCurrentProcessorNumberEx(&ProcNumber);
     if ( !CurrentProcessorNumber && !HalpHvVpMcaPcrContextData )
     {
-      v2 = 192 * KeQueryMaximumProcessorCountEx(0xFFFFu);
+      v2 = 184 * KeQueryMaximumProcessorCountEx(0xFFFFu);
       v3 = (void *)HalpMmAllocCtxAlloc(v2, v2);
       HalpHvVpMcaPcrContextData = (__int64)v3;
       if ( !v3 )
-        KeBugCheckEx(0xACu, (unsigned int)v2, 0LL, (ULONG_PTR)"minkernel\\hals\\lib\\hv\\hvintel.c", 0x4CAuLL);
+        KeBugCheckEx(0xACu, (unsigned int)v2, 0LL, (ULONG_PTR)"minkernel\\hals\\lib\\hv\\hvintel.c", 0x49FuLL);
       memset(v3, 0, v2);
     }
     if ( !*(_QWORD *)&Pcr->HalReserved[6] )
     {
-      Pool2 = 0LL;
-      if ( !qword_140C625D0 )
-        goto LABEL_21;
-      v5 = qword_140C625D0(4294967294LL, &v17, 0LL);
+      PoolWithTag = 0LL;
+      if ( qword_140C4A250 )
+        v5 = qword_140C4A250(4294967294LL, &v18, 0LL);
+      else
+        v5 = -1073741823;
       if ( v5 == -1073741789 )
       {
-        v6 = 8 * v17;
-        Pool2 = (_DWORD *)ExAllocatePool2(64LL, 8 * v17, 1215062344LL);
-        if ( !Pool2 )
-          KeBugCheckEx(0xACu, v6, 0LL, (ULONG_PTR)"minkernel\\hals\\lib\\hv\\hvintel.c", 0x4E5uLL);
-        if ( qword_140C625D0 )
-          v5 = qword_140C625D0(4294967294LL, &v17, Pool2);
+        v6 = 8 * v18;
+        PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 8 * v18, 0x206C6148u);
+        if ( !PoolWithTag )
+          KeBugCheckEx(0xACu, v6, 0LL, (ULONG_PTR)"minkernel\\hals\\lib\\hv\\hvintel.c", 0x4BAuLL);
+        if ( qword_140C4A250 )
+          v5 = qword_140C4A250(4294967294LL, &v18, PoolWithTag);
         else
           v5 = -1073741823;
       }
-      if ( v5 < 0 || !v17 )
-LABEL_21:
-        KeBugCheckEx(0x5Cu, 0x8200uLL, 0LL, (ULONG_PTR)"minkernel\\hals\\lib\\hv\\hvintel.c", 0x4F1uLL);
+      if ( v5 < 0 || !v18 )
+        KeBugCheckEx(0x5Cu, 0x8200uLL, 0LL, (ULONG_PTR)"minkernel\\hals\\lib\\hv\\hvintel.c", 0x4C6uLL);
       v7 = 0;
-      v19 = *Pool2 & 0x7FFFFFFF;
-      v8 = v19;
-      McaPcrContext = HalpGetMcaPcrContext(v19);
-      *(_QWORD *)(McaPcrContext + 172) = v8;
-      *(_QWORD *)(McaPcrContext + 184) = 0LL;
+      v20 = *PoolWithTag & 0x7FFFFFFF;
+      v8 = v20;
+      McaPcrContext = HalpGetMcaPcrContext(v20);
+      *(_QWORD *)(McaPcrContext + 176) = 0LL;
+      *(_QWORD *)(McaPcrContext + 164) = v8;
       *(_QWORD *)&Pcr->HalReserved[6] = McaPcrContext;
-      for ( i = 1; i < v17; McaPcrContext = v12 )
+      v10 = 0;
+      for ( i = 1; i < v18; McaPcrContext = v13 )
       {
         v7 &= ~1u;
-        v19 = __PAIR64__(v7, Pool2[i] & 0x7FFFFFFF);
-        v11 = v19;
-        v12 = HalpGetMcaPcrContext(v19);
+        HIDWORD(v20) = v7;
+        v10 = v7;
+        LODWORD(v20) = PoolWithTag[i] & 0x7FFFFFFF;
+        v12 = v20;
+        v13 = HalpGetMcaPcrContext(v20);
         ++i;
-        *(_QWORD *)(v12 + 184) = 0LL;
-        *(_QWORD *)(v12 + 172) = v11;
-        *(_QWORD *)(McaPcrContext + 184) = v12;
+        *(_QWORD *)(v13 + 176) = 0LL;
+        *(_QWORD *)(v13 + 164) = v12;
+        *(_QWORD *)(McaPcrContext + 176) = v13;
       }
-      v13 = v7 | 1;
-      v14 = CurrentProcessorNumber & 0x7FFFFFFF;
-      v19 = __PAIR64__(v13, v14);
-      v15 = HalpGetMcaPcrContext(__PAIR64__(v13, v14));
-      *(_QWORD *)(v15 + 184) = 0LL;
-      *(_QWORD *)(v15 + 172) = __PAIR64__(v13, v14);
-      *(_QWORD *)(McaPcrContext + 184) = v15;
-      ExFreePoolWithTag(Pool2, 0x486C6148u);
+      v14 = v10 | 1;
+      v15 = CurrentProcessorNumber & 0x7FFFFFFF;
+      v20 = __PAIR64__(v14, v15);
+      v16 = HalpGetMcaPcrContext(__SPAIR64__(v14, v15));
+      *(_QWORD *)(v16 + 176) = 0LL;
+      *(_QWORD *)(v16 + 164) = __PAIR64__(v14, v15);
+      *(_QWORD *)(McaPcrContext + 176) = v16;
+      ExFreePoolWithTag(PoolWithTag, 0x206C6148u);
     }
-    for ( j = *(_QWORD *)&KeGetPcr()->HalReserved[6]; j; j = *(_QWORD *)(j + 184) )
+    for ( j = *(_QWORD *)&KeGetPcr()->HalReserved[6]; j; j = *(_QWORD *)(j + 176) )
     {
-      if ( !*(_BYTE *)(j + 160) )
+      if ( !*(_BYTE *)(j + 152) )
       {
-        *(_DWORD *)(j + 48) = 275;
-        *(_QWORD *)(j + 72) = HalpCmciDeferredRoutine;
-        *(_QWORD *)(j + 80) = j;
-        *(_QWORD *)(j + 104) = 0LL;
-        *(_QWORD *)(j + 64) = 0LL;
-        KeSetTargetProcessorDpcEx((PKDPC)(j + 48), &ProcNumber);
-        *(_BYTE *)(j + 160) = 1;
+        *(_DWORD *)(j + 40) = 275;
+        *(_QWORD *)(j + 64) = HalpCmciDeferredRoutine;
+        *(_QWORD *)(j + 72) = j;
+        *(_QWORD *)(j + 96) = 0LL;
+        *(_QWORD *)(j + 56) = 0LL;
+        KeSetTargetProcessorDpcEx((PKDPC)(j + 40), &ProcNumber);
+        *(_BYTE *)(j + 152) = 1;
       }
     }
   }

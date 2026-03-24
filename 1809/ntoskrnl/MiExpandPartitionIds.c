@@ -1,15 +1,15 @@
 /*
- * XREFs of MiExpandPartitionIds @ 0x140860188
+ * XREFs of MiExpandPartitionIds @ 0x140860168
  * Callers:
- *     MiAllocatePartitionId @ 0x140851CB8 (MiAllocatePartitionId.c)
+ *     MiAllocatePartitionId @ 0x140851C98 (MiAllocatePartitionId.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
  *     MiMakeZeroedPageTables @ 0x140026644 (MiMakeZeroedPageTables.c)
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

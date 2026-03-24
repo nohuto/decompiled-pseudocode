@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBPDO_MakePdoName @ 0x1C007A860
+ * XREFs of HUBPDO_MakePdoName @ 0x1C0079360
  * Callers:
- *     HUBPDO_CreatePdoInternal @ 0x1C007ABD4 (HUBPDO_CreatePdoInternal.c)
+ *     HUBPDO_CreatePdoInternal @ 0x1C00796D4 (HUBPDO_CreatePdoInternal.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     RtlUnicodeStringPrintf @ 0x1C000BFF4 (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000BBF4 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_MakePdoName(__int64 a1, __int64 a2)
@@ -45,7 +45,7 @@ LABEL_7:
       2u,
       5u,
       v6,
-      (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
       v8);
   }
   return v5;

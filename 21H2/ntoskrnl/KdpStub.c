@@ -1,18 +1,17 @@
 /*
- * XREFs of KdpStub @ 0x140299E04
+ * XREFs of KdpStub @ 0x1402738B4
  * Callers:
- *     KdTrap @ 0x140299A2C (KdTrap.c)
+ *     KdTrap @ 0x14027387C (KdTrap.c)
  * Callees:
- *     KdEnableDebugger @ 0x140565580 (KdEnableDebugger.c)
- *     KdpTrap @ 0x140A6F1FC (KdpTrap.c)
+ *     KdEnableDebugger @ 0x140510D40 (KdEnableDebugger.c)
+ *     KdpTrap @ 0x1409BAA20 (KdpTrap.c)
  */
 
 char __fastcall KdpStub(int a1, int a2, __int64 a3, __int64 a4, char a5, char a6)
 {
-  int v6; // ebx
-  int v7; // edi
+  int v6; // edi
+  int v7; // ebx
   __int64 v11; // r8
-  int v12; // ecx
 
   v6 = a4;
   v7 = a3;
@@ -20,10 +19,7 @@ char __fastcall KdpStub(int a1, int a2, __int64 a3, __int64 a4, char a5, char a6
     && *(_DWORD *)(a3 + 24)
     && ((v11 = *(_QWORD *)(a3 + 32), (unsigned __int64)(v11 - 3) <= 2) || v11 == 1) )
   {
-    v12 = *(_DWORD *)(a4 + 48);
     ++*(_QWORD *)(a4 + 248);
-    if ( (v12 & 0x100080) == 0x100080 )
-      ++*(_QWORD *)(*(int *)(a4 + 1256) + a4 + 1240);
     return 1;
   }
   else if ( !KdPitchDebugger

@@ -1,36 +1,50 @@
 /*
- * XREFs of ?bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C002F5F0
+ * XREFs of ?bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C0156F1C
  * Callers:
- *     GreSetDIBitsToDeviceInternal @ 0x1C002E3F0 (GreSetDIBitsToDeviceInternal.c)
- *     NtGdiSetPixel @ 0x1C012EFA0 (NtGdiSetPixel.c)
- *     NtGdiTransparentBlt @ 0x1C0148400 (NtGdiTransparentBlt.c)
- *     NtGdiExtFloodFill @ 0x1C02B8670 (NtGdiExtFloodFill.c)
+ *     ?iSelect@DC@@QEAAHPEAVREGION@@H@Z @ 0x1C00B2D00 (-iSelect@DC@@QEAAHPEAVREGION@@H@Z.c)
+ *     ?iSelectTightenRao@DC@@QEAAHPEAVREGION@@H@Z @ 0x1C00B6048 (-iSelectTightenRao@DC@@QEAAHPEAVREGION@@H@Z.c)
+ *     NtGdiSetPixel @ 0x1C0155DE0 (NtGdiSetPixel.c)
+ *     NtGdiTransparentBlt @ 0x1C0156210 (NtGdiTransparentBlt.c)
+ *     ?bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETTE@@KK4@Z @ 0x1C0165548 (-bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETT.c)
+ *     ?InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z @ 0x1C0276384 (-InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z.c)
+ *     DxgkEngBltViaGDI @ 0x1C0276D30 (DxgkEngBltViaGDI.c)
+ *     ?vSpAdjustSpriteDirtyAccum@@YAXPEAVSPRITE@@PEAU_RECTL@@1PEAU_POINTL@@2@Z @ 0x1C0282798 (-vSpAdjustSpriteDirtyAccum@@YAXPEAVSPRITE@@PEAU_RECTL@@1PEAU_POINTL@@2@Z.c)
+ *     ?vForceClientRgnUpdate@@YAXXZ @ 0x1C0286C34 (-vForceClientRgnUpdate@@YAXXZ.c)
+ *     ?vOffset@EWNDOBJ@@QEAAXJJ@Z @ 0x1C0287038 (-vOffset@EWNDOBJ@@QEAAXJJ@Z.c)
+ *     GreSetClientRgn @ 0x1C0287AFC (GreSetClientRgn.c)
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C028B878 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@AEAVSURFMEM@@1KK@Z @ 0x1C028BF90 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@AEAVSURFMEM@@1KK@Z.c)
+ *     EngPlgBlt @ 0x1C028C5F0 (EngPlgBlt.c)
+ *     NtGdiExtFloodFill @ 0x1C02BA3E0 (NtGdiExtFloodFill.c)
  * Callees:
- *     <none>
+ *     LongLongToLong @ 0x1C0158BB0 (LongLongToLong.c)
  */
 
 __int64 __fastcall ERECTL::bOffsetAdd(ERECTL *this, const struct _POINTL *a2, int a3)
 {
-  __int64 x; // r8
-  __int64 y; // r8
+  const struct _POINTL *v3; // r10
+  ERECTL *v4; // r9
+  __int64 v5; // r9
+  __int64 v6; // r11
+  __int64 v7; // r9
+  __int64 v8; // r10
+  __int64 v9; // r9
+  __int64 v10; // r11
+  LONG plResult; // [rsp+40h] [rbp+18h] BYREF
 
-  if ( a3 )
+  v3 = a2;
+  v4 = this;
+  if ( a3
+    && (LongLongToLong(a2->x + (__int64)*(int *)this, &plResult) < 0
+     || LongLongToLong(v6 + *(int *)(v5 + 8), &plResult) < 0
+     || LongLongToLong(*(int *)(v8 + 4) + (__int64)*(int *)(v7 + 4), &plResult) < 0
+     || LongLongToLong(v10 + *(int *)(v9 + 12), &plResult) < 0) )
   {
-    x = a2->x;
-    if ( (unsigned __int64)(x + *(int *)this + 0x80000000LL) > 0xFFFFFFFF )
-      return 0LL;
-    if ( (unsigned __int64)(x + *((int *)this + 2) + 0x80000000LL) > 0xFFFFFFFF )
-      return 0LL;
-    y = a2->y;
-    if ( (unsigned __int64)(y + *((int *)this + 1) + 0x80000000LL) > 0xFFFFFFFF
-      || (unsigned __int64)(y + *((int *)this + 3) + 0x80000000LL) > 0xFFFFFFFF )
-    {
-      return 0LL;
-    }
+    return 0LL;
   }
-  *(_DWORD *)this += a2->x;
-  *((_DWORD *)this + 2) += a2->x;
-  *((_DWORD *)this + 1) += a2->y;
-  *((_DWORD *)this + 3) += a2->y;
+  *(_DWORD *)v4 += v3->x;
+  *((_DWORD *)v4 + 2) += v3->x;
+  *((_DWORD *)v4 + 1) += v3->y;
+  *((_DWORD *)v4 + 3) += v3->y;
   return 1LL;
 }

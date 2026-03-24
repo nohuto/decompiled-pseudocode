@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIdleWakeInitialize @ 0x140855C88
+ * XREFs of PopIdleWakeInitialize @ 0x1407C6F38
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     PpmConvertTimeFrom @ 0x1403D81D0 (PpmConvertTimeFrom.c)
- *     PopIdleWakeConvertIntervalBucketsFrom @ 0x140855D7C (PopIdleWakeConvertIntervalBucketsFrom.c)
+ *     PpmConvertTimeFrom @ 0x1403C94E4 (PpmConvertTimeFrom.c)
+ *     PopIdleWakeConvertIntervalBucketsFrom @ 0x1407C702C (PopIdleWakeConvertIntervalBucketsFrom.c)
  */
 
 __int64 PopIdleWakeInitialize()
@@ -12,7 +12,7 @@ __int64 PopIdleWakeInitialize()
   __int64 result; // rax
 
   PopIdleWakeContextLock = 0LL;
-  PopIdleWakeSourceSpuriousThresholdQpc = PpmConvertTimeFrom(0x2FAF080uLL, 0x989680uLL);
+  PopIdleWakeSourceSpuriousThresholdQpc = PpmConvertTimeFrom(0x2FAF080uLL, 10000000LL);
   PopIdleWakeConvertIntervalBucketsFrom(
     6LL,
     PopIdleSpuriousWakeBucketLimitsQpc,
@@ -20,18 +20,18 @@ __int64 PopIdleWakeInitialize()
     10000000LL);
   PopIdleWakeConvertIntervalBucketsFrom(
     5LL,
-    &PopIdleWakeSourceActiveBucketLimitsQpc,
-    &PopIdleWakeSourceActiveBucketLimitsQpc,
+    PopIdleWakeSourceActiveBucketLimitsQpc,
+    PopIdleWakeSourceActiveBucketLimitsQpc,
     10000000LL);
   PopIdleWakeConvertIntervalBucketsFrom(
     5LL,
-    &PopIdleWakeSourceActivatorBucketLimitsQpc,
-    &PopIdleWakeSourceActivatorBucketLimitsQpc,
+    PopIdleWakeSourceActivatorBucketLimitsQpc,
+    PopIdleWakeSourceActivatorBucketLimitsQpc,
     10000000LL);
   PopIdleWakeConvertIntervalBucketsFrom(
     5LL,
-    &PopIdleWakeSourceDeviceBucketLimitsQpc,
-    &PopIdleWakeSourceDeviceBucketLimitsQpc,
+    PopIdleWakeSourceDeviceBucketLimitsQpc,
+    PopIdleWakeSourceDeviceBucketLimitsQpc,
     10000000LL);
   PopIdleWakeConvertIntervalBucketsFrom(
     3LL,
@@ -41,14 +41,14 @@ __int64 PopIdleWakeInitialize()
   PopIdleWakeConvertIntervalBucketsFrom(
     9LL,
     &PopIdleWakeIdleAccountingBucketLimitsMs,
-    &PopIdleWakeIdleAccountingBucketLimitsQpc,
+    PopIdleWakeIdleAccountingBucketLimitsQpc,
     1000LL);
-  qword_140C1F508 = -1LL;
+  qword_140C20748 = -1LL;
   result = PopIdleWakeConvertIntervalBucketsFrom(
              11LL,
              &PopIdleWakePeriodAccountingBucketLimitsMs,
-             &PopIdleWakePeriodAccountingBucketLimitsQpc,
+             PopIdleWakePeriodAccountingBucketLimitsQpc,
              1000LL);
-  qword_140C1F578 = -1LL;
+  qword_140C206D8 = -1LL;
   return result;
 }

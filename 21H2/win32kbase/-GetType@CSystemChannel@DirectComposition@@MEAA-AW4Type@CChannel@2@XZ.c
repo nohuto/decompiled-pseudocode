@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetType@CSystemChannel@DirectComposition@@MEAA?AW4Type@CChannel@2@XZ @ 0x1C00CB100
+ * XREFs of ?GetType@CSystemChannel@DirectComposition@@MEAA?AW4Type@CChannel@2@XZ @ 0x1C00BBF20
  * Callers:
  *     <none>
  * Callees:

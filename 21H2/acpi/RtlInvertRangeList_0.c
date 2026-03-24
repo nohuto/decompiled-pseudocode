@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInvertRangeList_0 @ 0x1C002F1C5
+ * XREFs of RtlInvertRangeList_0 @ 0x1C0031D05
  * Callers:
- *     ArbInitializeRangeList @ 0x1C00B7970 (ArbInitializeRangeList.c)
+ *     ArbInitializeRangeList @ 0x1C00B7CE0 (ArbInitializeRangeList.c)
  * Callees:
  *     <none>
  */

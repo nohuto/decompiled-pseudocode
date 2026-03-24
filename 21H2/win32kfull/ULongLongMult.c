@@ -1,7 +1,7 @@
 /*
- * XREFs of ULongLongMult @ 0x1C012D58C
+ * XREFs of ULongLongMult @ 0x1C013A330
  * Callers:
- *     NtGdiStartDoc @ 0x1C012CFA0 (NtGdiStartDoc.c)
+ *     NtGdiStartDoc @ 0x1C0139D50 (NtGdiStartDoc.c)
  * Callees:
  *     <none>
  */

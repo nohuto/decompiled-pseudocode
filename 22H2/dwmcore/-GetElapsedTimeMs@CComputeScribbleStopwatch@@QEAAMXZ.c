@@ -1,10 +1,11 @@
 /*
- * XREFs of ?GetElapsedTimeMs@CComputeScribbleStopwatch@@QEAAMXZ @ 0x180209BC0
+ * XREFs of ?GetElapsedTimeMs@CComputeScribbleStopwatch@@QEAAMXZ @ 0x1801A9F28
  * Callers:
- *     ?DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbleStopwatch@@_KPEAUIDCompositionDirectInkSuperWetRenderer@@PEAUIUnknown@@PEAUComputeScribbleLatencyData@@@Z @ 0x180204D4C (-DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbl.c)
+ *     ?DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbleStopwatch@@_KPEAUIUnknown@@AEAV?$vector@UComputeScribbleLatencyData@@V?$allocator@UComputeScribbleLatencyData@@@std@@@std@@@Z @ 0x1800EF4C0 (-DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbl.c)
+ *     ?ProcessScribbleFrame@CComputeScribbleScheduler@@AEAAJXZ @ 0x1801A4AD0 (-ProcessScribbleFrame@CComputeScribbleScheduler@@AEAAJXZ.c)
  * Callees:
- *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B5B34 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?ResolveDelayedResources@CComputeScribbleStopwatch@@AEAAJXZ @ 0x180209E98 (-ResolveDelayedResources@CComputeScribbleStopwatch@@AEAAJXZ.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180184EF4 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?ResolveDelayedResources@CComputeScribbleStopwatch@@AEAAJXZ @ 0x1801AA1C8 (-ResolveDelayedResources@CComputeScribbleStopwatch@@AEAAJXZ.c)
  */
 
 float __fastcall CComputeScribbleStopwatch::GetElapsedTimeMs(CComputeScribbleStopwatch *this)
@@ -21,8 +22,8 @@ float __fastcall CComputeScribbleStopwatch::GetElapsedTimeMs(CComputeScribbleSto
   if ( v2 < 0 )
     wil::details::in1diag3::_Log_Hr(
       retaddr,
-      120LL,
-      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblestopwatch.cpp",
+      (void *)0x78,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblestopwatch.cpp",
       (const char *)(unsigned int)v2);
   v3 = *((_QWORD *)this + 3) - *((_QWORD *)this + 6);
   if ( 1000 * v3 < 0 )

@@ -1,19 +1,19 @@
 /*
- * XREFs of ?GetDeviceControlOutputMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z @ 0x1C00675D8
+ * XREFs of ?GetDeviceControlOutputMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z @ 0x1C004DC84
  * Callers:
- *     imp_WdfDmaTransactionInitializeUsingRequest @ 0x1C0054730 (imp_WdfDmaTransactionInitializeUsingRequest.c)
- *     imp_WdfRequestRetrieveOutputWdmMdl @ 0x1C0064DD0 (imp_WdfRequestRetrieveOutputWdmMdl.c)
+ *     imp_WdfDmaTransactionInitializeUsingRequest @ 0x1C00307F0 (imp_WdfDmaTransactionInitializeUsingRequest.c)
+ *     imp_WdfRequestRetrieveOutputWdmMdl @ 0x1C004ABC0 (imp_WdfRequestRetrieveOutputWdmMdl.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     WPP_IFR_SF_qDd @ 0x1C0053924 (WPP_IFR_SF_qDd.c)
- *     WPP_IFR_SF_qqdd @ 0x1C0053E0C (WPP_IFR_SF_qqdd.c)
- *     WPP_IFR_SF_Dqqd @ 0x1C00681F0 (WPP_IFR_SF_Dqqd.c)
- *     ?FxMdlAllocateDebug@@YAPEAU_MDL@@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@PEAXKEE2@Z @ 0x1C006EC9C (-FxMdlAllocateDebug@@YAPEAU_MDL@@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@PEAXKEE2@Z.c)
- *     ?Vf_VerifyRequestIsNotCompleted@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C7B00 (-Vf_VerifyRequestIsNotCompleted@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     WPP_IFR_SF_qDd @ 0x1C002F728 (WPP_IFR_SF_qDd.c)
+ *     WPP_IFR_SF_qqDd @ 0x1C002FC10 (WPP_IFR_SF_qqDd.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     WPP_IFR_SF_Dqqd @ 0x1C004E8D0 (WPP_IFR_SF_Dqqd.c)
+ *     ?FxMdlAllocateDebug@@YAPEAU_MDL@@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@PEAXKEE2@Z @ 0x1C005BD1C (-FxMdlAllocateDebug@@YAPEAU_MDL@@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@PEAXKEE2@Z.c)
+ *     ?Vf_VerifyRequestIsNotCompleted@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C6A10 (-Vf_VerifyRequestIsNotCompleted@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 __int64 __fastcall FxRequest::GetDeviceControlOutputMdl(FxRequest *this, _MDL **pMdl, unsigned __int8 a3)
@@ -21,8 +21,8 @@ __int64 __fastcall FxRequest::GetDeviceControlOutputMdl(FxRequest *this, _MDL **
   _FX_DRIVER_GLOBALS *m_Globals; // rsi
   unsigned int Length; // ebp
   void *MasterIrp; // r15
-  unsigned int IsNotCompleted; // ebx
   unsigned int LowPart; // r8d
+  unsigned int v9; // edi
   _IRP *m_Irp; // rcx
   _IO_STACK_LOCATION *CurrentStackLocation; // rdx
   const void *_a2; // rax
@@ -37,7 +37,7 @@ __int64 __fastcall FxRequest::GetDeviceControlOutputMdl(FxRequest *this, _MDL **
   _MDL *MdlAddress; // rax
   _MDL *m_AllocatedMdl; // rax
   _MDL *Debug; // rax
-  _MDL *v24; // rbx
+  _MDL *v24; // rdi
   const void *v25; // rax
   unsigned __int8 v26; // dl
   unsigned __int8 v27; // r8
@@ -56,12 +56,9 @@ __int64 __fastcall FxRequest::GetDeviceControlOutputMdl(FxRequest *this, _MDL **
   FxNonPagedObject::Lock(this, &irql, a3);
   if ( m_Globals->FxVerifierIO )
   {
-    if ( m_Globals->FxVerifierOn )
-    {
-      IsNotCompleted = FxRequest::Vf_VerifyRequestIsNotCompleted(this, m_Globals);
-      if ( (IsNotCompleted & 0x80000000) != 0 )
-        goto LABEL_26;
-    }
+    v9 = m_Globals->FxVerifierOn ? FxRequest::Vf_VerifyRequestIsNotCompleted(this, m_Globals) : 0;
+    if ( (v9 & 0x80000000) != 0 )
+      goto LABEL_28;
   }
   m_Irp = this->m_Irp.m_Irp;
   CurrentStackLocation = m_Irp->Tail.Overlay.CurrentStackLocation;
@@ -77,10 +74,10 @@ __int64 __fastcall FxRequest::GetDeviceControlOutputMdl(FxRequest *this, _MDL **
           *pMdl = MdlAddress;
           if ( !MdlAddress )
           {
-            IsNotCompleted = -1073741789;
+            v9 = -1073741789;
             ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this);
             v20 = 21;
-            goto LABEL_13;
+            goto LABEL_15;
           }
           break;
         case 2u:
@@ -88,12 +85,12 @@ __int64 __fastcall FxRequest::GetDeviceControlOutputMdl(FxRequest *this, _MDL **
           *pMdl = v18;
           if ( !v18 )
           {
-            IsNotCompleted = -1073741789;
+            v9 = -1073741789;
             ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this);
             v20 = 22;
-LABEL_13:
+LABEL_15:
             WPP_IFR_SF_qL(m_Globals, 2u, 0x10u, v20, WPP_FxRequestKm_cpp_Traceguids, ObjectHandleUnchecked, 0xC0000023);
-            goto LABEL_26;
+            goto LABEL_28;
           }
           break;
         case 3u:
@@ -111,18 +108,18 @@ LABEL_13:
             _a4);
           WPP_IFR_SF_(m_Globals, 2u, 0x10u, 0x18u, WPP_FxRequestKm_cpp_Traceguids);
           *pMdl = 0LL;
-          IsNotCompleted = -1073741808;
-          goto LABEL_26;
+          v9 = -1073741808;
+          goto LABEL_28;
         default:
-LABEL_28:
+LABEL_30:
           v29 = irql;
           *pMdl = 0LL;
           FxNonPagedObject::Unlock(this, v29, LowPart);
-          IsNotCompleted = -1073741789;
+          v9 = -1073741789;
           if ( MasterIrp )
           {
             if ( Length )
-              return IsNotCompleted;
+              return v9;
             v30 = (const void *)FxObject::GetObjectHandleUnchecked(this);
             v31 = 26;
           }
@@ -132,7 +129,7 @@ LABEL_28:
             v31 = 25;
           }
           WPP_IFR_SF_qL(m_Globals, 2u, 0x10u, v31, WPP_FxRequestKm_cpp_Traceguids, v30, 0xC0000023);
-          return IsNotCompleted;
+          return v9;
       }
     }
     else
@@ -140,7 +137,7 @@ LABEL_28:
       MasterIrp = m_Irp->AssociatedIrp.MasterIrp;
       Length = CurrentStackLocation->Parameters.Read.Length;
       if ( !MasterIrp || !Length )
-        goto LABEL_28;
+        goto LABEL_30;
       m_AllocatedMdl = this->m_AllocatedMdl;
       if ( !m_AllocatedMdl )
       {
@@ -159,8 +156,8 @@ LABEL_28:
           return 0LL;
         }
         v25 = (const void *)FxObject::GetObjectHandleUnchecked(this);
-        IsNotCompleted = -1073741670;
-        WPP_IFR_SF_qqdd(
+        v9 = -1073741670;
+        WPP_IFR_SF_qqDd(
           m_Globals,
           2u,
           0x10u,
@@ -171,18 +168,18 @@ LABEL_28:
           Length,
           -1073741670);
         *pMdl = 0LL;
-        goto LABEL_26;
+        goto LABEL_28;
       }
       *pMdl = m_AllocatedMdl;
     }
-    IsNotCompleted = 0;
-    goto LABEL_26;
+    v9 = 0;
+    goto LABEL_28;
   }
   _a2 = (const void *)FxObject::GetObjectHandleUnchecked(this);
-  IsNotCompleted = -1073741808;
+  v9 = -1073741808;
   WPP_IFR_SF_qDd(m_Globals, v13, 0x10u, 0x14u, WPP_FxRequestKm_cpp_Traceguids, _a2, _a3, 0xC0000010);
   *pMdl = 0LL;
-LABEL_26:
+LABEL_28:
   FxNonPagedObject::Unlock(this, irql, LowPart);
-  return IsNotCompleted;
+  return v9;
 }

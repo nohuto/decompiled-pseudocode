@@ -1,9 +1,9 @@
 /*
- * XREFs of CiLogSetBufferingMode @ 0x1C00040F0
+ * XREFs of CiLogSetBufferingMode @ 0x1C0003E40
  * Callers:
- *     CiSchedulerSetBufferingMode @ 0x1C0002640 (CiSchedulerSetBufferingMode.c)
+ *     CiSchedulerSetBufferingMode @ 0x1C00015B0 (CiSchedulerSetBufferingMode.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0003170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0002FD0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CiLogSetBufferingMode(__int64 a1, int a2)

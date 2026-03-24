@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogReorganizeEvent @ 0x1407EC7AC
+ * XREFs of CmpLogReorganizeEvent @ 0x1407EC78C
  * Callers:
  *     CmpReorganizeHive @ 0x1405A6F70 (CmpReorganizeHive.c)
  * Callees:
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CmpLogReorganizeEvent(unsigned __int16 *a1, int a2, int a3)

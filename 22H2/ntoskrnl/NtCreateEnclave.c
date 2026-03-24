@@ -1,20 +1,20 @@
 /*
- * XREFs of NtCreateEnclave @ 0x140A3EB20
+ * XREFs of NtCreateEnclave @ 0x1408D3D70
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     MiValidateZeroBits @ 0x140721120 (MiValidateZeroBits.c)
- *     RtlIsEnclaveFeaturePresent @ 0x1409BF398 (RtlIsEnclaveFeaturePresent.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     MiCreateEnclave @ 0x140A3D6DC (MiCreateEnclave.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     MiValidateZeroBits @ 0x1406388BC (MiValidateZeroBits.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14063E320 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExSystemExceptionFilter @ 0x1407D4E30 (ExSystemExceptionFilter.c)
+ *     MiCreateEnclave @ 0x1408D282C (MiCreateEnclave.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtCreateEnclave(
@@ -28,136 +28,130 @@ __int64 __fastcall NtCreateEnclave(
         unsigned int a8,
         _DWORD *a9)
 {
-  PVOID Pool; // rsi
+  PVOID Pool; // r14
   char PreviousMode; // al
-  __int64 v12; // rcx
-  unsigned __int64 v13; // r12
+  __int64 v11; // rcx
+  unsigned __int64 v12; // r12
   int Enclave; // ebx
-  int v15; // ebx
-  char v16; // dl
-  __int64 v17; // rcx
+  int v14; // ebx
+  char v15; // r9
+  __int64 v16; // rcx
   void *Process; // rdi
-  char v20; // [rsp+50h] [rbp-E8h]
-  size_t Size; // [rsp+64h] [rbp-D4h] BYREF
-  ULONG_PTR BugCheckParameter1; // [rsp+70h] [rbp-C8h] BYREF
-  PVOID v24; // [rsp+78h] [rbp-C0h]
-  unsigned __int64 v25[2]; // [rsp+80h] [rbp-B8h] BYREF
-  unsigned __int64 v26; // [rsp+90h] [rbp-A8h]
-  ULONGLONG v27[6]; // [rsp+98h] [rbp-A0h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v28; // [rsp+C8h] [rbp-70h] BYREF
+  _DWORD *v18; // r9
+  char v20; // [rsp+50h] [rbp-C8h]
+  _DWORD Size_4[3]; // [rsp+6Ch] [rbp-ACh] BYREF
+  unsigned __int64 v24[2]; // [rsp+78h] [rbp-A0h] BYREF
+  ULONG_PTR BugCheckParameter1; // [rsp+88h] [rbp-90h] BYREF
+  unsigned __int64 v26; // [rsp+90h] [rbp-88h]
+  ULONGLONG v27[2]; // [rsp+98h] [rbp-80h] BYREF
+  _BYTE v28[48]; // [rsp+A8h] [rbp-70h] BYREF
 
   v26 = a4;
   v27[1] = (ULONGLONG)a2;
   v27[0] = a3;
-  Size = a8;
-  v25[1] = (unsigned __int64)a9;
+  v24[1] = (unsigned __int64)a9;
   BugCheckParameter1 = 0LL;
-  memset(&v28, 0, sizeof(v28));
-  v25[0] = 0LL;
+  memset(v28, 0, sizeof(v28));
+  v24[0] = 0LL;
   Pool = 0LL;
-  v24 = 0LL;
+  memset(Size_4, 0, sizeof(Size_4));
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v20 = PreviousMode;
   if ( a9 && PreviousMode == 1 )
   {
-    v12 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a9 < 0x7FFFFFFF0000LL )
-      v12 = (__int64)a9;
-    *(_DWORD *)v12 = *(_DWORD *)v12;
+    v11 = (__int64)a9;
+    if ( (unsigned __int64)a9 >= 0x7FFFFFFF0000LL )
+      v11 = 0x7FFFFFFF0000LL;
+    *(_DWORD *)v11 = *(_DWORD *)v11;
   }
   if ( a6 == 1 )
   {
-LABEL_17:
-    if ( qword_140C69988 )
-    {
-      v15 = 4096;
-      v13 = a5;
-      goto LABEL_19;
-    }
 LABEL_16:
+    if ( qword_140C4EE80 )
+    {
+      v14 = 4096;
+      v12 = a5;
+      goto LABEL_18;
+    }
+LABEL_14:
     Enclave = -1073741637;
-    goto LABEL_49;
+    goto LABEL_47;
   }
   if ( a6 == 2 )
   {
-    if ( !RtlIsEnclaveFeaturePresent(2u) )
-      goto LABEL_16;
-    goto LABEL_17;
-  }
-  if ( (unsigned int)(a6 - 16) > 1 || !RtlIsEnclaveFeaturePresent(8u) )
+    if ( (MEMORY[0x7FFE036C] & 4) == 0 )
+      goto LABEL_14;
     goto LABEL_16;
-  v13 = a5;
+  }
+  if ( (unsigned int)(a6 - 16) > 1 )
+    goto LABEL_14;
+  v12 = a5;
   if ( a5 )
   {
-LABEL_11:
+LABEL_10:
     Enclave = -1073741581;
-    goto LABEL_49;
+    goto LABEL_47;
   }
   if ( a8 > 0x24 )
-    goto LABEL_13;
-  v15 = 0;
-LABEL_19:
-  if ( (MiValidateZeroBits(v27) & 0x80000000) != 0LL )
+    goto LABEL_12;
+  v14 = 0;
+LABEL_18:
+  if ( (int)MiValidateZeroBits(v27) < 0 )
   {
     Enclave = -1073741583;
-    goto LABEL_49;
+    goto LABEL_47;
   }
   if ( !v26 )
   {
     Enclave = -1073741582;
-    goto LABEL_49;
+    goto LABEL_47;
   }
-  if ( v13 > v26 )
-    goto LABEL_11;
-  v16 = v20;
+  if ( v12 > v26 )
+    goto LABEL_10;
+  v15 = v20;
   if ( v20 == 1 )
   {
-    v17 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v17 = (__int64)a2;
-    *(_QWORD *)v17 = *(_QWORD *)v17;
+    v16 = (__int64)a2;
+    if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+      v16 = 0x7FFFFFFF0000LL;
+    *(_QWORD *)v16 = *(_QWORD *)v16;
   }
-  v25[0] = *a2;
-  if ( (_DWORD)Size )
+  v24[0] = *a2;
+  if ( a8 )
   {
-    if ( v15 && (_DWORD)Size != v15 )
+    if ( v14 && a8 != v14 )
     {
-LABEL_13:
+LABEL_12:
       Enclave = -1073741820;
-      goto LABEL_49;
+      goto LABEL_47;
     }
-    Pool = MiAllocatePool(256, ((unsigned int)Size + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x44456D4Du);
-    v24 = Pool;
+    Pool = MiAllocatePool(256, (a8 + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x44456D4Du);
+    *(_QWORD *)&Size_4[1] = Pool;
     if ( !Pool )
     {
       Enclave = -1073741670;
-      goto LABEL_49;
+      goto LABEL_47;
     }
-    if ( v20 != 1 )
-      goto LABEL_42;
-    if ( (unsigned int)Size >= 0x10000uLL )
+    if ( v20 == 1 )
     {
-      if ( ((unsigned __int8)Src & 3) == 0 )
+      if ( (unsigned __int64)a8 - 1 > 0xFFFE )
       {
-        if ( (unsigned __int64)&Src[(unsigned int)Size] > 0x7FFFFFFF0000LL || &Src[(unsigned int)Size] < Src )
+        if ( ((unsigned __int8)Src & 3) != 0 )
+          ExRaiseDatatypeMisalignment();
+        if ( (unsigned __int64)&Src[a8] > 0x7FFFFFFF0000LL || &Src[a8] < Src )
           MEMORY[0x7FFFFFFF0000] = 0;
-        goto LABEL_42;
+      }
+      else if ( ((unsigned __int8)Src & 3) != 0 )
+      {
+        ExRaiseDatatypeMisalignment();
       }
     }
-    else if ( ((unsigned __int8)Src & 3) == 0 )
-    {
-LABEL_42:
-      memmove(Pool, Src, (unsigned int)Size);
-      v16 = v20;
-      goto LABEL_43;
-    }
-    ExRaiseDatatypeMisalignment();
+    memmove(Pool, Src, a8);
+    v15 = v20;
   }
-LABEL_43:
   if ( a1 == -1LL )
   {
     Process = KeGetCurrentThread()->ApcState.Process;
-    BugCheckParameter1 = (ULONG_PTR)Process;
   }
   else
   {
@@ -165,28 +159,28 @@ LABEL_43:
                 a1,
                 8,
                 (__int64)PsProcessType,
-                v16,
+                v15,
                 0x6D566D4Du,
                 &BugCheckParameter1,
                 0LL,
                 0LL);
     if ( Enclave < 0 )
-      goto LABEL_49;
+      goto LABEL_47;
     Process = (void *)BugCheckParameter1;
-    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v28);
+    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v28, v18);
   }
-  Enclave = MiCreateEnclave((int)Process, v25, v27[0], v26, v13, a6, (__int64)Pool, Size, (__int64)&Size + 4);
+  Enclave = MiCreateEnclave((int)Process, v24, v27[0], v26, v12, a6, (__int64)Pool, a8, (__int64)Size_4);
   if ( a1 != -1LL )
   {
-    KiUnstackDetachProcess(&v28);
+    KiUnstackDetachProcess((__int64)v28, 0);
     ObfDereferenceObjectWithTag(Process, 0x6D566D4Du);
   }
-LABEL_49:
+LABEL_47:
   if ( Pool )
     ExFreePoolWithTag(Pool, 0);
   if ( Enclave >= 0 )
-    *a2 = v25[0];
+    *a2 = v24[0];
   if ( a9 )
-    *a9 = HIDWORD(Size);
+    *a9 = Size_4[0];
   return (unsigned int)Enclave;
 }

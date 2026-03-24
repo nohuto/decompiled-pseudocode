@@ -1,55 +1,56 @@
 /*
- * XREFs of VidSchSuspendResumeDevice @ 0x1C0013A10
+ * XREFs of VidSchSuspendResumeDevice @ 0x1C0012580
  * Callers:
- *     VidSchiSuspendResumeDevicesForPowerTransition @ 0x1C0013860 (VidSchiSuspendResumeDevicesForPowerTransition.c)
- *     VidSchFlushDevice @ 0x1C009A0D0 (VidSchFlushDevice.c)
- *     ?SuspendSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00A2E24 (-SuspendSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ.c)
- *     ?ResumeSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00A2EA0 (-ResumeSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ.c)
- *     ?TransferOwnershipToProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU2@1@Z @ 0x1C00A50CC (-TransferOwnershipToProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@P.c)
- *     ?BeginVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00D5188 (-BeginVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?EndVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00D64B4 (-EndVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?SuspendResumeProcessGpuMmuContexts@VIDMM_PROCESS@@QEAAXI_N@Z @ 0x1C00E02F8 (-SuspendResumeProcessGpuMmuContexts@VIDMM_PROCESS@@QEAAXI_N@Z.c)
+ *     VidSchiSuspendResumeDevicesForPowerTransition @ 0x1C0012A38 (VidSchiSuspendResumeDevicesForPowerTransition.c)
+ *     ?TransferOwnershipToProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU2@1@Z @ 0x1C0061B80 (-TransferOwnershipToProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@P.c)
+ *     VidSchFlushDevice @ 0x1C0081F00 (VidSchFlushDevice.c)
+ *     ?SuspendSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00849F0 (-SuspendSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ.c)
+ *     ?ResumeSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ @ 0x1C0084D48 (-ResumeSchedulerDevice@VIDMM_DEVICE@@QEAAXXZ.c)
+ *     ?BeginVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00ADEBC (-BeginVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?EndVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00AF368 (-EndVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?SuspendResumeProcessGpuMmuContexts@VIDMM_PROCESS@@QEAAXI_N@Z @ 0x1C00BA8B8 (-SuspendResumeProcessGpuMmuContexts@VIDMM_PROCESS@@QEAAXI_N@Z.c)
  * Callees:
- *     VidSchWaitForEvents @ 0x1C0002F70 (VidSchWaitForEvents.c)
- *     VidSchiUpdateContextStatus @ 0x1C000D200 (VidSchiUpdateContextStatus.c)
- *     VidSchiUnwaitContext @ 0x1C000E938 (VidSchiUnwaitContext.c)
- *     ?VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z @ 0x1C0013D94 (-VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z.c)
- *     memset @ 0x1C001DC40 (memset.c)
- *     VidSchSubmitGlobalCommand @ 0x1C00A6478 (VidSchSubmitGlobalCommand.c)
+ *     VidSchiUpdateContextStatus @ 0x1C00070D0 (VidSchiUpdateContextStatus.c)
+ *     VidSchiUnwaitContext @ 0x1C0010FC8 (VidSchiUnwaitContext.c)
+ *     VidSchWaitForEvents @ 0x1C0011AA4 (VidSchWaitForEvents.c)
+ *     ?VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z @ 0x1C00128B8 (-VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     VidSchSubmitGlobalCommand @ 0x1C008DD04 (VidSchSubmitGlobalCommand.c)
  */
 
-void __fastcall VidSchSuspendResumeDevice(_KEVENT *a1, bool a2, char a3, int a4)
+void __fastcall VidSchSuspendResumeDevice(struct _VIDSCH_DEVICE *a1, bool a2, char a3, int a4)
 {
-  struct _LIST_ENTRY *Flink; // rsi
+  __int64 v4; // rsi
   struct _VIDSCH_DEVICE *v6; // rbx
   char v8; // di
-  _QWORD *v9; // r13
-  char v10; // cl
-  _QWORD *v11; // r14
-  int v12; // ebx
-  _QWORD *v13; // rdi
-  int v14; // eax
-  unsigned int v15; // eax
+  char v9; // cl
+  _QWORD *v10; // r14
+  _QWORD *v11; // rdi
+  int v12; // eax
+  unsigned int v13; // ecx
+  __int64 v14; // rcx
+  __int64 v15; // rdx
   __int64 v16; // rcx
   int v17; // eax
-  unsigned int v18; // eax
-  char v19; // [rsp+38h] [rbp-69h]
-  char v20; // [rsp+39h] [rbp-68h]
-  _KEVENT Event; // [rsp+40h] [rbp-61h] BYREF
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+58h] [rbp-49h] BYREF
-  _QWORD v23[16]; // [rsp+78h] [rbp-29h] BYREF
-  _KEVENT *p_Event; // [rsp+108h] [rbp+67h] BYREF
-  char v25; // [rsp+110h] [rbp+6Fh]
-  int v26; // [rsp+120h] [rbp+7Fh]
+  __int64 v18; // rax
+  unsigned int v19; // ecx
+  char v20; // cl
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  char v23; // [rsp+38h] [rbp-A9h]
+  char v24; // [rsp+39h] [rbp-A8h]
+  _KEVENT *p_Event; // [rsp+40h] [rbp-A1h] BYREF
+  _KEVENT Event; // [rsp+48h] [rbp-99h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+60h] [rbp-81h] BYREF
+  _QWORD v28[24]; // [rsp+78h] [rbp-69h] BYREF
+  char v30; // [rsp+150h] [rbp+6Fh]
 
-  v26 = a4;
-  p_Event = a1;
-  Flink = a1[1].Header.WaitListHead.Flink;
-  v25 = 0;
-  v6 = (struct _VIDSCH_DEVICE *)a1;
-  v20 = 0;
+  v4 = *((_QWORD *)a1 + 4);
+  v30 = 0;
+  v6 = a1;
+  v24 = 0;
   v8 = 0;
-  ExAcquireResourceExclusiveLite((PERESOURCE)&Flink[180], 1u);
+  ExAcquireResourceExclusiveLite((PERESOURCE)(v4 + 2784), 1u);
   if ( a2 )
   {
     ++*((_DWORD *)v6 + 350);
@@ -58,118 +59,125 @@ void __fastcall VidSchSuspendResumeDevice(_KEVENT *a1, bool a2, char a3, int a4)
     goto LABEL_5;
   }
   if ( !a3 )
-    goto LABEL_37;
+    goto LABEL_33;
   if ( *((_BYTE *)v6 + 1404) )
   {
     *((_BYTE *)v6 + 1404) = 0;
-LABEL_37:
+LABEL_33:
     v17 = *((_DWORD *)v6 + 350);
     if ( v17 )
       *((_DWORD *)v6 + 350) = v17 - 1;
     goto LABEL_5;
   }
-  v20 = 1;
+  v24 = 1;
 LABEL_5:
   *((_BYTE *)v6 + 8 * *((unsigned int *)v6 + 360) + 1412) = a2;
   *((_DWORD *)v6 + 2 * *((unsigned int *)v6 + 360) + 352) = *((_DWORD *)v6 + 350);
   *((_DWORD *)v6 + 360) = ((unsigned __int8)*((_DWORD *)v6 + 360) + 1) & 3;
-  if ( *((_DWORD *)v6 + 424) )
-    goto LABEL_23;
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&Flink[108], &LockHandle);
-  v9 = (_QWORD *)((char *)v6 + 72);
-  v10 = 0;
-  v11 = (_QWORD *)*((_QWORD *)v6 + 9);
-  v19 = 0;
-  if ( v11 == (_QWORD *)((char *)v6 + 72) )
-    goto LABEL_17;
-  v12 = v26;
+  if ( *((_DWORD *)v6 + 422) )
+    goto LABEL_21;
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v4 + 1712), &LockHandle);
+  v9 = 0;
+  v10 = (_QWORD *)*((_QWORD *)v6 + 9);
+  v23 = 0;
+  if ( v10 == (_QWORD *)((char *)v6 + 72) )
+    goto LABEL_15;
   do
   {
-    v13 = v11 - 3;
-    v14 = *((_DWORD *)v11 + 40);
+    v11 = v10 - 3;
+    v12 = *((_DWORD *)v10 + 40);
     if ( !a2 )
     {
-      if ( (v14 & 0x100) != 0 && (!a3 || (v13[23] & 0x800) != 0) )
+      if ( (v12 & 0x100) != 0 && (!a3 || (v11[23] & 0x800) != 0) )
       {
-        *((_DWORD *)v13 + 46) &= ~0x100u;
-        *((_DWORD *)v13 + 46) &= ~0x800u;
-        v10 = VidSchiUnwaitContext((__int64)(v11 - 3), 0x101Cu) | v19;
-        v19 = v10;
+        *((_DWORD *)v11 + 46) &= ~0x100u;
+        *((_DWORD *)v11 + 46) &= ~0x800u;
+        v9 = VidSchiUnwaitContext((__int64)(v10 - 3), 0xFFCu) | v23;
+        v23 = v9;
       }
-      goto LABEL_13;
+      goto LABEL_11;
     }
-    if ( (v14 & 0x100) != 0 )
-      goto LABEL_13;
-    v15 = *((_DWORD *)v13 + 28);
-    if ( (v15 & 0x10) == 0 )
-      goto LABEL_13;
-    if ( v12 == 1 )
+    if ( (v12 & 0x100) != 0 )
+      goto LABEL_11;
+    v13 = *((_DWORD *)v11 + 28);
+    if ( (v13 & 0x10) != 0 )
     {
-      v18 = v15 >> 7;
+      if ( a4 == 1 )
+      {
+        v19 = v13 >> 7;
+      }
+      else
+      {
+        if ( a4 != 2 )
+          goto LABEL_26;
+        v19 = *(_DWORD *)(v11[12] + 12LL) >> 2;
+      }
+      v20 = v19 & 1;
     }
     else
     {
-      if ( v12 != 2 )
-        goto LABEL_28;
-      v18 = *(_DWORD *)(v13[12] + 12LL) >> 2;
+      v20 = 0;
     }
-    if ( (v18 & 1) == 0 )
-      goto LABEL_13;
-LABEL_28:
+    if ( !v20 )
+      goto LABEL_30;
+LABEL_26:
     if ( a3 )
-      *((_DWORD *)v13 + 46) |= 0x800u;
-    v16 = (__int64)(v11 - 3);
-    if ( (((unsigned __int8)(*((_DWORD *)v13 + 46) >> 9) | *((_BYTE *)v13 + 184)) & 2) != 0 )
+      *((_DWORD *)v11 + 46) |= 0x800u;
+    v14 = (__int64)(v10 - 3);
+    if ( (((unsigned __int8)(*((_DWORD *)v11 + 46) >> 9) | *((_BYTE *)v11 + 184)) & 2) != 0 )
     {
-      VidSchiUpdateContextStatus(v16, 9LL, 4075LL);
-      WdLogSingleEntry2(4LL, v11 - 3, *((unsigned int *)v13 + 46));
+      VidSchiUpdateContextStatus(v14, 9uLL, 4043LL);
+      v18 = WdLogNewEntry5_WdEvent(v22, v21);
+      *(_QWORD *)(v18 + 24) = v11;
+      *(_QWORD *)(v18 + 32) = *((unsigned int *)v11 + 46);
     }
     else
     {
-      VidSchiUpdateContextStatus(v16, 10LL, 4084LL);
-      if ( !BYTE4(Flink[3].Flink) || v13 != *(_QWORD **)(v13[12] + 224LL) )
+      VidSchiUpdateContextStatus(v14, 0xAuLL, 4052LL);
+      if ( !*(_BYTE *)(v4 + 52) || v11 != *(_QWORD **)(v11[12] + 224LL) )
       {
-        v10 = v19;
-LABEL_13:
-        v8 = v25;
-        goto LABEL_14;
+LABEL_30:
+        v9 = v23;
+LABEL_11:
+        v8 = v30;
+        goto LABEL_12;
       }
-      WdLogSingleEntry1(4LL, v11 - 3);
+      v18 = WdLogNewEntry5_WdEvent(v16, v15);
+      *(_QWORD *)(v18 + 24) = v11;
     }
-    v10 = v19;
+    WdLogEvent5_WdEvent(v18);
+    v9 = v23;
     v8 = 1;
-    v25 = 1;
-LABEL_14:
-    v11 = (_QWORD *)*v11;
+    v30 = 1;
+LABEL_12:
+    v10 = (_QWORD *)*v10;
   }
-  while ( v11 != v9 );
-  v6 = (struct _VIDSCH_DEVICE *)p_Event;
-  if ( v10 )
+  while ( v10 != (_QWORD *)((char *)v6 + 72) );
+  v6 = a1;
+  if ( v9 )
   {
-    Flink[76].Blink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000320];
-    KeSetEvent((PRKEVENT)&Flink[74].Blink, 0, 0);
+    *(_QWORD *)(v4 + 1208) = MEMORY[0xFFFFF78000000320];
+    KeSetEvent((PRKEVENT)(v4 + 1176), 0, 0);
   }
-LABEL_17:
+LABEL_15:
   if ( !a2 )
     *((_BYTE *)v6 + 1392) = 0;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   if ( v8 )
   {
-    memset(&Event, 0, sizeof(Event));
     KeInitializeEvent(&Event, SynchronizationEvent, 0);
-    memset(v23, 0, 0x50uLL);
-    LODWORD(v23[0]) = 0;
-    v23[3] = VidSchiSwitchFromSuspendedDevices;
-    LODWORD(v23[5]) = 7;
-    v23[4] = &Event;
-    v23[6] = Flink;
-    VidSchSubmitGlobalCommand(Flink, v23);
+    memset(v28, 0, 0x88uLL);
+    LODWORD(v28[5]) = 7;
+    v28[3] = VidSchiSwitchFromSuspendedDevices;
+    LODWORD(v28[0]) = 0;
+    v28[4] = &Event;
+    v28[6] = v4;
+    VidSchSubmitGlobalCommand(v4, v28);
     p_Event = &Event;
-    VidSchWaitForEvents((struct _VIDSCH_GLOBAL *)Flink, 1u, (PVOID *)&p_Event, 0LL, 0);
+    VidSchWaitForEvents(v4, 1u, (PVOID *)&p_Event, 0LL, 0);
   }
-  if ( !v20 )
+  if ( !v24 )
     VidSchiSuspendResumeHwContexts(v6, a2);
-LABEL_23:
-  ExReleaseResourceLite((PERESOURCE)&Flink[180]);
+LABEL_21:
+  ExReleaseResourceLite((PERESOURCE)(v4 + 2784));
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsRefreshDisengageState @ 0x140868640
+ * XREFs of PopDirectedDripsRefreshDisengageState @ 0x140868620
  * Callers:
- *     PopDirectedDripsProcessWork @ 0x140868458 (PopDirectedDripsProcessWork.c)
+ *     PopDirectedDripsProcessWork @ 0x140868438 (PopDirectedDripsProcessWork.c)
  * Callees:
- *     PopDirectedDripsNotifyDrivers @ 0x140868178 (PopDirectedDripsNotifyDrivers.c)
- *     PopDirectedDripsDiagTraceDisengageReasonChange @ 0x14087BDEC (PopDirectedDripsDiagTraceDisengageReasonChange.c)
+ *     PopDirectedDripsNotifyDrivers @ 0x140868158 (PopDirectedDripsNotifyDrivers.c)
+ *     PopDirectedDripsDiagTraceDisengageReasonChange @ 0x14087BDCC (PopDirectedDripsDiagTraceDisengageReasonChange.c)
  */
 
 void __fastcall PopDirectedDripsRefreshDisengageState(__int64 a1)

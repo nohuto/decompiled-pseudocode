@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PnpEventQueryStopStaticCheck@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C0084650
+ * XREFs of ?PnpEventQueryStopStaticCheck@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007AE60
  * Callers:
  *     <none>
  * Callees:
- *     ?IsInSpecialUse@FxPkgPnp@@IEAAEXZ @ 0x1C0010C50 (-IsInSpecialUse@FxPkgPnp@@IEAAEXZ.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     WPP_IFR_SF_ddddd @ 0x1C008545C (WPP_IFR_SF_ddddd.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?IsInSpecialUse@FxPkgPnp@@IEAAEXZ @ 0x1C0079EE4 (-IsInSpecialUse@FxPkgPnp@@IEAAEXZ.c)
+ *     WPP_IFR_SF_ddddd @ 0x1C007C640 (WPP_IFR_SF_ddddd.c)
  */
 
 __int64 __fastcall FxPkgPnp::PnpEventQueryStopStaticCheck(FxPkgPnp *This)

@@ -7,7 +7,7 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     PspSetContextThreadInternal @ 0x140620A30 (PspSetContextThreadInternal.c)
  *     PspGetContextThreadInternal @ 0x140620C00 (PspGetContextThreadInternal.c)
- *     WbSetWowTrapFrame @ 0x1408E554C (WbSetWowTrapFrame.c)
+ *     WbSetWowTrapFrame @ 0x1408E552C (WbSetWowTrapFrame.c)
  */
 
 __int64 __fastcall WbSetTrapFrame(__int64 a1, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of CiThreadReferenceTaskIndex @ 0x1C0002ED0
+ * XREFs of CiThreadReferenceTaskIndex @ 0x1C0001D30
  * Callers:
- *     CiCreateTaskIndexClientFromThread @ 0x1C000A380 (CiCreateTaskIndexClientFromThread.c)
+ *     CiCreateTaskIndexClientFromThread @ 0x1C000B600 (CiCreateTaskIndexClientFromThread.c)
  * Callees:
- *     CiReleaseProcessLock @ 0x1C000BA10 (CiReleaseProcessLock.c)
- *     CiAcquireProcessLock @ 0x1C000BA40 (CiAcquireProcessLock.c)
+ *     CiReleaseProcessLock @ 0x1C000BC90 (CiReleaseProcessLock.c)
+ *     CiAcquireProcessLock @ 0x1C000BCC0 (CiAcquireProcessLock.c)
  */
 
 __int64 __fastcall CiThreadReferenceTaskIndex(__int64 a1)

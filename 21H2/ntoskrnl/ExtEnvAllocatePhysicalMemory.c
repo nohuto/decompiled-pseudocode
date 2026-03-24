@@ -1,20 +1,18 @@
 /*
- * XREFs of ExtEnvAllocatePhysicalMemory @ 0x140522410
+ * XREFs of ExtEnvAllocatePhysicalMemory @ 0x1404D5140
  * Callers:
- *     IvtAllocateContextTable @ 0x14052D9E0 (IvtAllocateContextTable.c)
- *     IvtAllocateScalableModePasidTables @ 0x14052DC38 (IvtAllocateScalableModePasidTables.c)
- *     IvtExtendScalableModePasidTables @ 0x14052E468 (IvtExtendScalableModePasidTables.c)
- *     HsaAllocateRemappingTableEntry @ 0x140530DE0 (HsaAllocateRemappingTableEntry.c)
+ *     IvtAllocateContextTable @ 0x1404DF350 (IvtAllocateContextTable.c)
+ *     HsaAllocateRemappingTableEntry @ 0x1404E20C0 (HsaAllocateRemappingTableEntry.c)
  * Callees:
- *     MmFreeContiguousMemory @ 0x140213DA0 (MmFreeContiguousMemory.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     HalMapIoSpace @ 0x1403BE7F0 (HalMapIoSpace.c)
- *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x1403DE8E0 (MmAllocateContiguousMemorySpecifyCacheNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpAllocPhysicalMemory @ 0x140AF9E94 (HalpAllocPhysicalMemory.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     MmFreeContiguousMemory @ 0x140295F20 (MmFreeContiguousMemory.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     HalMapIoSpace @ 0x1403AC2D0 (HalMapIoSpace.c)
+ *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x1403CF7A0 (MmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpAllocPhysicalMemory @ 0x140A64AC0 (HalpAllocPhysicalMemory.c)
  */
 
 __int64 __fastcall ExtEnvAllocatePhysicalMemory(
@@ -71,7 +69,7 @@ __int64 __fastcall ExtEnvAllocatePhysicalMemory(
   if ( !HalpExtEnvAllocationPhase )
   {
     a6 = -1LL;
-    v18.QuadPart = HalpAllocPhysicalMemory(HalpExtEnvLoaderBlock, &a6, (unsigned int)(v9 + 4095) >> 12, v8.LowPart);
+    v18.QuadPart = HalpAllocPhysicalMemory(HalpExtEnvLoaderBlock, &a6, (unsigned int)(v9 + 4095) >> 12, 0LL);
     *a5 = v18;
     if ( v18.QuadPart )
     {
@@ -109,13 +107,13 @@ LABEL_13:
   *(_QWORD *)(v22 + 40) = v17;
   *(_DWORD *)(v22 + 48) = CacheType;
   v23 = KeAcquireSpinLockRaiseToDpc(&ExtEnvAllocationLock);
-  v24 = (__int64 *)qword_140C4A248;
-  if ( *(__int64 **)qword_140C4A248 != &ExtEnvAllocationList )
+  v24 = (__int64 *)qword_140C48E28;
+  if ( *(__int64 **)qword_140C48E28 != &ExtEnvAllocationList )
     __fastfail(3u);
   *(_QWORD *)v22 = &ExtEnvAllocationList;
   *(_QWORD *)(v22 + 8) = v24;
   *v24 = v22;
-  qword_140C4A248 = v22;
+  qword_140C48E28 = v22;
   KxReleaseSpinLock(&ExtEnvAllocationLock);
   if ( KiIrqlFlags )
   {

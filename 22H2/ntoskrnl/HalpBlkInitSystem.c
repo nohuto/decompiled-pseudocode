@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpBlkInitSystem @ 0x140B4C628
+ * XREFs of HalpBlkInitSystem @ 0x140A44A4C
  * Callers:
- *     HalpProcInitSystem @ 0x140A8AEE0 (HalpProcInitSystem.c)
+ *     HalpProcInitSystem @ 0x14099E630 (HalpProcInitSystem.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250130 (KeSetTimer2.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HalpBlkInitializeVirtualAddressSpace @ 0x140B92ECC (HalpBlkInitializeVirtualAddressSpace.c)
- *     HalpBlkWdInitialize @ 0x140B93E18 (HalpBlkWdInitialize.c)
+ *     KeSetTimer2 @ 0x14022BEC0 (KeSetTimer2.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140A8DF74 (HalpBlkInitializeVirtualAddressSpace.c)
+ *     HalpBlkWdInitialize @ 0x140A8E3E8 (HalpBlkWdInitialize.c)
  */
 
 void __fastcall HalpBlkInitSystem(int a1)
@@ -16,11 +16,11 @@ void __fastcall HalpBlkInitSystem(int a1)
 
   if ( a1 == 12 )
   {
-    qword_140C01E18 = (__int64)HalpBlkPoGetPowerInterface;
-    qword_140C01E20 = (__int64)HalpBlkPoGetPackageId;
-    qword_140C01E28 = (__int64)HalpBlkPoGetProcessorCount;
-    qword_140C01E30 = (__int64)HalpBlkPoGetApicIdByIndex;
-    qword_140C01E38 = (__int64)HalpBlkPoRegisterIdleState;
+    qword_140C00A08 = (__int64)HalpBlkPoGetPowerInterface;
+    qword_140C00A10 = (__int64)HalpBlkPoGetPackageId;
+    qword_140C00A18 = (__int64)HalpBlkPoGetProcessorCount;
+    qword_140C00A20 = (__int64)HalpBlkPoGetApicIdByIndex;
+    qword_140C00A28 = (__int64)HalpBlkPoRegisterIdleState;
     if ( HalpInterruptBlockedProcessors && HalpInterruptStartHyperthreadSiblings )
     {
       v1 = HalpBlkInitializeVirtualAddressSpace();

@@ -1,20 +1,20 @@
 /*
- * XREFs of _PnpCtxRegEnumValue @ 0x140877E74
+ * XREFs of _PnpCtxRegEnumValue @ 0x1406F9CD4
  * Callers:
- *     PipUpdateDeviceProducts @ 0x140375490 (PipUpdateDeviceProducts.c)
- *     PiDrvDbResolveFilePathKeyValues @ 0x140815520 (PiDrvDbResolveFilePathKeyValues.c)
- *     _PnpGetGenericStorePropertyLocales @ 0x14083BD54 (_PnpGetGenericStorePropertyLocales.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140876094 (_PnpGetGenericStorePropertyKeys.c)
- *     DrvDbGetDeviceIdDriverInfMatches @ 0x140877C68 (DrvDbGetDeviceIdDriverInfMatches.c)
- *     PiDrvDbOverlayCopyKeys @ 0x140970238 (PiDrvDbOverlayCopyKeys.c)
- *     _CmEnumDevicesInContainerWithCallbackWorker @ 0x140A63EA4 (_CmEnumDevicesInContainerWithCallbackWorker.c)
- *     _CmGetDevicesInBaseContainerList @ 0x140A64334 (_CmGetDevicesInBaseContainerList.c)
- *     _CmAppendDeclarativeFilterLevel @ 0x140A670AC (_CmAppendDeclarativeFilterLevel.c)
- *     DrvDbDeleteObjectSubKey @ 0x140A6B02C (DrvDbDeleteObjectSubKey.c)
- *     DrvDbSetDeviceIdDriverInfMatches @ 0x140A6CA68 (DrvDbSetDeviceIdDriverInfMatches.c)
- *     PipResetDevices @ 0x140B436DC (PipResetDevices.c)
+ *     PipUpdateDeviceProducts @ 0x1403C6D30 (PipUpdateDeviceProducts.c)
+ *     DrvDbGetDeviceIdDriverInfMatches @ 0x1406F9A80 (DrvDbGetDeviceIdDriverInfMatches.c)
+ *     DrvDbSetDeviceIdDriverInfMatches @ 0x1407285CC (DrvDbSetDeviceIdDriverInfMatches.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1407675A0 (_PnpGetGenericStorePropertyKeys.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x1408B6168 (PiDrvDbOverlayCopyKeys.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x1408B7208 (PiDrvDbResolveFilePathKeyValues.c)
+ *     _CmEnumDevicesInContainerWithCallbackWorker @ 0x140975E90 (_CmEnumDevicesInContainerWithCallbackWorker.c)
+ *     _CmGetDevicesInBaseContainerList @ 0x140976298 (_CmGetDevicesInBaseContainerList.c)
+ *     _PnpGetGenericStorePropertyLocales @ 0x140979294 (_PnpGetGenericStorePropertyLocales.c)
+ *     _CmAppendDeclarativeFilterLevel @ 0x140979590 (_CmAppendDeclarativeFilterLevel.c)
+ *     DrvDbDeleteObjectSubKey @ 0x14097CDFC (DrvDbDeleteObjectSubKey.c)
+ *     PipResetDevices @ 0x140A53B50 (PipResetDevices.c)
  * Callees:
- *     _RegRtlEnumValue @ 0x14086EAA0 (_RegRtlEnumValue.c)
+ *     _RegRtlEnumValue @ 0x140694A64 (_RegRtlEnumValue.c)
  */
 
 __int64 __fastcall PnpCtxRegEnumValue(

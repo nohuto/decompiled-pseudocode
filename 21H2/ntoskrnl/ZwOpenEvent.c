@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwOpenEvent @ 0x14041BF60
+ * XREFs of ZwOpenEvent @ 0x1403FABA0
  * Callers:
- *     DifZwOpenEventWrapper @ 0x140621900 (DifZwOpenEventWrapper.c)
- *     PspShutdownCsrProcess @ 0x1409AC388 (PspShutdownCsrProcess.c)
+ *     PspShutdownCsrProcess @ 0x140906650 (PspShutdownCsrProcess.c)
  * Callees:
  *     <none>
  */

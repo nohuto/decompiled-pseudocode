@@ -1,14 +1,14 @@
 /*
- * XREFs of ??$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z @ 0x1C02B03D8
+ * XREFs of ??$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z @ 0x1C02B183C
  * Callers:
- *     NtGdiEngFillPath @ 0x1C02B16C0 (NtGdiEngFillPath.c)
- *     NtGdiEngStrokeAndFillPath @ 0x1C02B2510 (NtGdiEngStrokeAndFillPath.c)
- *     NtGdiEngStrokePath @ 0x1C02B2830 (NtGdiEngStrokePath.c)
- *     NtGdiPATHOBJ_bEnum @ 0x1C02B3680 (NtGdiPATHOBJ_bEnum.c)
- *     NtGdiPATHOBJ_bEnumClipLines @ 0x1C02B37F0 (NtGdiPATHOBJ_bEnumClipLines.c)
- *     NtGdiPATHOBJ_vEnumStart @ 0x1C02B39D0 (NtGdiPATHOBJ_vEnumStart.c)
- *     NtGdiPATHOBJ_vEnumStartClipLines @ 0x1C02B3A90 (NtGdiPATHOBJ_vEnumStartClipLines.c)
- *     NtGdiPATHOBJ_vGetBounds @ 0x1C02B3C40 (NtGdiPATHOBJ_vGetBounds.c)
+ *     NtGdiEngFillPath @ 0x1C02B2E40 (NtGdiEngFillPath.c)
+ *     NtGdiEngStrokeAndFillPath @ 0x1C02B3E30 (NtGdiEngStrokeAndFillPath.c)
+ *     NtGdiEngStrokePath @ 0x1C02B4290 (NtGdiEngStrokePath.c)
+ *     NtGdiPATHOBJ_bEnum @ 0x1C02B5280 (NtGdiPATHOBJ_bEnum.c)
+ *     NtGdiPATHOBJ_bEnumClipLines @ 0x1C02B5410 (NtGdiPATHOBJ_bEnumClipLines.c)
+ *     NtGdiPATHOBJ_vEnumStart @ 0x1C02B5600 (NtGdiPATHOBJ_vEnumStart.c)
+ *     NtGdiPATHOBJ_vEnumStartClipLines @ 0x1C02B56D0 (NtGdiPATHOBJ_vEnumStartClipLines.c)
+ *     NtGdiPATHOBJ_vGetBounds @ 0x1C02B5890 (NtGdiPATHOBJ_vGetBounds.c)
  * Callees:
  *     <none>
  */
@@ -40,16 +40,16 @@ unsigned __int64 __fastcall UMPDOBJ::GetDDIOBJ<_PATHOBJ>(__int64 a1, __int64 a2)
       ++gdwUMPDUnmatchedUMPointers;
       if ( gfUMPDDebug )
         DbgPrint(
-          "onecoreuap\\restricted\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unmatched usermode pointer.\n",
-          771);
+          "onecoreuap\\internal\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unmatched usermode pointer.\n",
+          795);
     }
   }
   if ( (*(_DWORD *)(a1 + 412) & 0x100) != 0 && v3 && v3 < (unsigned __int64)MmSystemRangeStart )
   {
     if ( gfUMPDDebug )
       DbgPrint(
-        "onecoreuap\\restricted\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unexpected usermode pointer.\n",
-        776);
+        "onecoreuap\\internal\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unexpected usermode pointer.\n",
+        800);
     return 0LL;
   }
   return v3;

@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDrvDbInit @ 0x14073A700
+ * XREFs of PiDrvDbInit @ 0x14073A6E0
  * Callers:
- *     PiPnpRtlInit @ 0x14073A540 (PiPnpRtlInit.c)
+ *     PiPnpRtlInit @ 0x14073A520 (PiPnpRtlInit.c)
  * Callees:
- *     PiDrvDbSetupNodes @ 0x14073A7E4 (PiDrvDbSetupNodes.c)
- *     PiDrvDbSuspendNodes @ 0x14073A974 (PiDrvDbSuspendNodes.c)
- *     PiDrvDbRegisterNode @ 0x14073AA70 (PiDrvDbRegisterNode.c)
- *     DrvDbOpenContext @ 0x14073B1B8 (DrvDbOpenContext.c)
- *     PiDrvDbEnumDriverStoreNodes @ 0x14073B598 (PiDrvDbEnumDriverStoreNodes.c)
+ *     PiDrvDbSetupNodes @ 0x14073A7C4 (PiDrvDbSetupNodes.c)
+ *     PiDrvDbSuspendNodes @ 0x14073A954 (PiDrvDbSuspendNodes.c)
+ *     PiDrvDbRegisterNode @ 0x14073AA50 (PiDrvDbRegisterNode.c)
+ *     DrvDbOpenContext @ 0x14073B198 (DrvDbOpenContext.c)
+ *     PiDrvDbEnumDriverStoreNodes @ 0x14073B578 (PiDrvDbEnumDriverStoreNodes.c)
  */
 
 __int64 __fastcall PiDrvDbInit(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of DxgkEngDetectGDIPath @ 0x1C0274F70
+ * XREFs of DxgkEngDetectGDIPath @ 0x1C0277720
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z @ 0x1C0273C9C (-InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z.c)
- *     ?OverlapCheck@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z @ 0x1C027404C (-OverlapCheck@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z.c)
- *     ?StateFlags@PDEVOBJ@@QEBAKXZ @ 0x1C0274120 (-StateFlags@PDEVOBJ@@QEBAKXZ.c)
+ *     ?InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z @ 0x1C0276384 (-InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z.c)
+ *     ?OverlapCheck@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z @ 0x1C027673C (-OverlapCheck@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z.c)
+ *     ?StateFlags@PDEVOBJ@@QEBAKXZ @ 0x1C0276814 (-StateFlags@PDEVOBJ@@QEBAKXZ.c)
  */
 
 __int64 __fastcall DxgkEngDetectGDIPath(__int64 a1, HDEV a2, HWND a3, HRGN a4)
@@ -41,7 +41,7 @@ __int64 __fastcall DxgkEngDetectGDIPath(__int64 a1, HDEV a2, HWND a3, HRGN a4)
             }
             else
             {
-              if ( *(_QWORD *)(*((_QWORD *)i + 319) + 240LL) == a1 && *((_DWORD *)i + 532) > 8u )
+              if ( *(_QWORD *)(*((_QWORD *)i + 322) + 240LL) == a1 && *((_DWORD *)i + 540) > 8u )
                 v13 = InternalSpritesCollision(i, a3, a4);
               else
                 v13 = OverlapCheck(i, a4);
@@ -51,7 +51,7 @@ __int64 __fastcall DxgkEngDetectGDIPath(__int64 a1, HDEV a2, HWND a3, HRGN a4)
         }
       }
     }
-    else if ( *(_QWORD *)(*((_QWORD *)a2 + 319) + 240LL) == a1 && *((_DWORD *)a2 + 532) > 8u )
+    else if ( *(_QWORD *)(*((_QWORD *)a2 + 322) + 240LL) == a1 && *((_DWORD *)a2 + 540) > 8u )
     {
       return (unsigned int)InternalSpritesCollision(a2, a3, a4);
     }

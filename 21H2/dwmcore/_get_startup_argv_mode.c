@@ -1,7 +1,7 @@
 /*
- * XREFs of _get_startup_argv_mode @ 0x180101454
+ * XREFs of _get_startup_argv_mode @ 0x1800E7E38
  * Callers:
- *     __scrt_dllmain_after_initialize_c @ 0x180100850 (__scrt_dllmain_after_initialize_c.c)
+ *     __scrt_dllmain_after_initialize_c @ 0x1800E7020 (__scrt_dllmain_after_initialize_c.c)
  * Callees:
  *     <none>
  */

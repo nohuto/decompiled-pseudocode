@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlMdlRead @ 0x1406E4C90
+ * XREFs of FsRtlMdlRead @ 0x1406C05D0
  * Callers:
- *     FsRtlMdlReadEx @ 0x1406E4C10 (FsRtlMdlReadEx.c)
+ *     FsRtlMdlReadEx @ 0x1406C0550 (FsRtlMdlReadEx.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall FsRtlMdlRead(

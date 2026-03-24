@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMcaProcessorBankConfigAmd @ 0x140509E04
+ * XREFs of HalpMcaProcessorBankConfigAmd @ 0x1404BD31C
  * Callers:
- *     HalpMcaProcessorBankConfig @ 0x1403AADCC (HalpMcaProcessorBankConfig.c)
+ *     HalpMcaProcessorBankConfig @ 0x1403A0EB8 (HalpMcaProcessorBankConfig.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpMcaProcessorBankConfigAmd(__int64 a1, int a2)

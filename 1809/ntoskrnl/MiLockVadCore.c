@@ -2,8 +2,8 @@
  * XREFs of MiLockVadCore @ 0x140087AD0
  * Callers:
  *     MiSetVadFlags @ 0x1400879E0 (MiSetVadFlags.c)
- *     MiWsleFlush @ 0x1400B32F0 (MiWsleFlush.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1401256BC (MiCaptureWriteWatchDirtyBit.c)
+ *     MiWsleFlush @ 0x1400B3310 (MiWsleFlush.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x1401256DC (MiCaptureWriteWatchDirtyBit.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  */

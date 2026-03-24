@@ -1,45 +1,38 @@
 /*
- * XREFs of ?ProtectWindowBitmap@@YAHPEAUtagWND@@K@Z @ 0x1C022CD44
+ * XREFs of ?ProtectWindowBitmap@@YAHPEAUtagWND@@K@Z @ 0x1C0247A74
  * Callers:
- *     ?ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z @ 0x1C022CB18 (-ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z.c)
+ *     ?ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z @ 0x1C0247850 (-ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z.c)
  * Callees:
- *     ChangeWindowBitmapOwner @ 0x1C01BCC34 (ChangeWindowBitmapOwner.c)
- *     GreProtectSpriteContent @ 0x1C0267E68 (GreProtectSpriteContent.c)
+ *     ChangeRedirectionBitmapOwner @ 0x1C01E76F4 (ChangeRedirectionBitmapOwner.c)
+ *     GreProtectSpriteContent @ 0x1C026F888 (GreProtectSpriteContent.c)
  */
 
-__int64 __fastcall ProtectWindowBitmap(struct tagWND *a1, unsigned int a2, __int64 a3, __int64 a4)
+__int64 __fastcall ProtectWindowBitmap(struct tagWND *a1, unsigned int a2)
 {
-  int v6; // esi
-  __int64 v7; // rdx
-  unsigned int v8; // edi
-  unsigned int v9; // eax
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
+  int v4; // esi
+  int v5; // edx
+  unsigned int v6; // edi
+  unsigned int v7; // eax
+  __int64 v8; // rcx
 
-  v6 = a2 & 1;
+  v4 = a2 & 1;
   if ( (a2 & 1) != 0 )
-  {
-    a3 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL);
-    v7 = *(unsigned int *)(a3 + 56);
-  }
+    v5 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 56LL);
   else
-  {
-    v7 = 0LL;
-  }
-  v8 = ChangeWindowBitmapOwner((__int64)a1, v7, a3, a4);
-  if ( v8 )
+    v5 = 0;
+  v6 = ChangeRedirectionBitmapOwner((__int64)a1, v5);
+  if ( v6 )
   {
     if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 26LL) & 8) != 0 )
     {
-      v9 = IsWindowDesktopComposed(a1);
-      v8 = GreProtectSpriteContent(v10, *(_QWORD *)a1, v9, a2);
-      if ( !v8 )
+      v7 = IsWindowDesktopComposed(a1);
+      v6 = GreProtectSpriteContent(v8, *(_QWORD *)a1, v7, a2);
+      if ( !v6 )
       {
-        if ( v6 )
-          ChangeWindowBitmapOwner((__int64)a1, 0LL, v11, v12);
+        if ( v4 )
+          ChangeRedirectionBitmapOwner((__int64)a1, 0);
       }
     }
   }
-  return v8;
+  return v6;
 }

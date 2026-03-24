@@ -1,18 +1,18 @@
 /*
- * XREFs of GdiMultiUserFontCleanup @ 0x1C00EE660
+ * XREFs of GdiMultiUserFontCleanup @ 0x1C00E63D0
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00EF2F4 (-vCleanUpFntCacheInternal@@YAXXZ.c)
- *     ?bCleanupFontTable@@YAHPEAPEAVPFT@@@Z @ 0x1C00EF5FC (-bCleanupFontTable@@YAHPEAPEAVPFT@@@Z.c)
- *     ?CleanUpEUDC@@YAXXZ @ 0x1C00EF758 (-CleanUpEUDC@@YAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00E6588 (-vCleanUpFntCacheInternal@@YAXXZ.c)
+ *     ?bCleanupFontTable@@YAHPEAPEAVPFT@@@Z @ 0x1C00E674C (-bCleanupFontTable@@YAHPEAPEAVPFT@@@Z.c)
+ *     ?CleanUpEUDC@@YAXXZ @ 0x1C00E68B0 (-CleanUpEUDC@@YAXXZ.c)
  */
 
 void GdiMultiUserFontCleanup()
 {
   __int64 v0; // rbx
-  __int64 v1; // rcx
+  void *v1; // rcx
   __int64 v2; // [rsp+30h] [rbp+8h] BYREF
 
   CleanUpEUDC();
@@ -27,7 +27,7 @@ void GdiMultiUserFontCleanup()
   {
     do
     {
-      v1 = v0;
+      v1 = (void *)v0;
       v0 = *(_QWORD *)(v0 + 32);
       Win32FreePool(v1);
     }

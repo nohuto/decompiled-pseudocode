@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UpdateBounds@CParticleEmitterVisual@@IEAAXAEBUD2D_SIZE_F@@@Z @ 0x180246C98
+ * XREFs of ?UpdateBounds@CParticleEmitterVisual@@IEAAXAEBUD2D_SIZE_F@@@Z @ 0x1801E1624
  * Callers:
- *     ?UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z @ 0x180246E0C (-UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z.c)
+ *     ?UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z @ 0x1801E1798 (-UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z.c)
  * Callees:
- *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x18004B124 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     ?Inflate@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z @ 0x180075B5C (-Inflate@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z.c)
- *     ?IsEmptyDrawing@CParticleEmitterVisual@@IEBA_NXZ @ 0x180241A90 (-IsEmptyDrawing@CParticleEmitterVisual@@IEBA_NXZ.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180058560 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?Inflate@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z @ 0x18006AEEC (-Inflate@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z.c)
+ *     ?IsEmptyDrawing@CParticleEmitterVisual@@IEBA_NXZ @ 0x1801DC4F0 (-IsEmptyDrawing@CParticleEmitterVisual@@IEBA_NXZ.c)
  */
 
 void __fastcall CParticleEmitterVisual::UpdateBounds(CParticleEmitterVisual *this, const struct D2D_SIZE_F *a2)
@@ -32,42 +32,42 @@ void __fastcall CParticleEmitterVisual::UpdateBounds(CParticleEmitterVisual *thi
   float v23; // xmm2_4
   float *v24; // rcx
 
-  v2 = (float *)((char *)this + 6428);
-  *((_DWORD *)this + 1610) = 0;
-  *((_DWORD *)this + 1609) = 0;
-  *((_DWORD *)this + 1608) = 0;
-  *((_DWORD *)this + 1607) = 0;
+  v2 = (float *)((char *)this + 6340);
+  *((_DWORD *)this + 1588) = 0;
+  *((_DWORD *)this + 1587) = 0;
+  *((_DWORD *)this + 1586) = 0;
+  *((_DWORD *)this + 1585) = 0;
   if ( !CParticleEmitterVisual::IsEmptyDrawing(this) )
   {
     width = a2->width;
-    *((_DWORD *)this + 1609) = LODWORD(a2->width);
+    *((_DWORD *)this + 1587) = LODWORD(a2->width);
     height = a2->height;
-    *((float *)this + 1610) = height;
-    v7 = (float *)*((_QWORD *)this + 110);
-    v8 = (float *)*((_QWORD *)this + 109);
+    *((float *)this + 1588) = height;
+    v7 = (float *)*((_QWORD *)this + 99);
+    v8 = (float *)*((_QWORD *)this + 98);
     if ( v8 != v7 )
     {
       v9 = *v2;
-      v10 = *((float *)this + 1608);
+      v10 = *((float *)this + 1586);
       do
       {
         v9 = fminf(v9, *v8);
         *v2 = v9;
         v10 = fminf(v10, v8[1]);
-        *((float *)this + 1608) = v10;
+        *((float *)this + 1586) = v10;
         width = fmaxf(width, *v8);
-        *((float *)this + 1609) = width;
+        *((float *)this + 1587) = width;
         height = fmaxf(height, v8[1]);
         v8 += 3;
-        *((float *)this + 1610) = height;
+        *((float *)this + 1588) = height;
       }
       while ( v8 != v7 );
     }
     v11 = 0.0;
-    v12 = (float *)*((_QWORD *)this + 127);
+    v12 = (float *)*((_QWORD *)this + 116);
     v13 = 0.0;
     v14 = 0.0;
-    while ( v12 != *((float **)this + 128) )
+    while ( v12 != *((float **)this + 117) )
     {
       v15 = fmaxf(*v12, v13);
       v16 = fmaxf(v12[1], v14);
@@ -76,15 +76,15 @@ void __fastcall CParticleEmitterVisual::UpdateBounds(CParticleEmitterVisual *thi
       v14 = v16;
     }
     v17 = 0.0;
-    for ( i = (float *)*((_QWORD *)this + 130); i != *((float **)this + 131); i += 2 )
+    for ( i = (float *)*((_QWORD *)this + 119); i != *((float **)this + 120); i += 2 )
     {
       v19 = fmaxf(*i, v11);
       v20 = fmaxf(i[1], v17);
       v11 = v19;
       v17 = v20;
     }
-    v21 = (float)((float)(v14 * *((float *)this + 1604)) * v17) * *((float *)this + 1606);
-    v22 = (float)((float)(v13 * *((float *)this + 1603)) * v11) * *((float *)this + 1605);
+    v21 = (float)((float)(v14 * *((float *)this + 1582)) * v17) * *((float *)this + 1584);
+    v22 = (float)((float)(v13 * *((float *)this + 1581)) * v11) * *((float *)this + 1583);
     v23 = (float)(v21 * v21) + (float)(v22 * v22);
     if ( !TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty(v2) )
       TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::Inflate(v24, v23, v23);

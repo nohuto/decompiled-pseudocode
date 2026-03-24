@@ -1,18 +1,20 @@
 /*
- * XREFs of MmQuitNextSession @ 0x1407FCA70
+ * XREFs of MmQuitNextSession @ 0x1406C3770
  * Callers:
- *     MiTrimSharedPageFromViews @ 0x14027B820 (MiTrimSharedPageFromViews.c)
- *     PopWatchdogWorker @ 0x1403A0B60 (PopWatchdogWorker.c)
- *     PsQueryCpuQuotaInformation @ 0x1403DF48C (PsQueryCpuQuotaInformation.c)
- *     ObpProcessRemoveObjectQueue @ 0x1406A1000 (ObpProcessRemoveObjectQueue.c)
- *     VfThunkApplyPristineToAllSession @ 0x140A93644 (VfThunkApplyPristineToAllSession.c)
- *     VfThunkApplyWdmThunkToAllSession @ 0x140A937C4 (VfThunkApplyWdmThunkToAllSession.c)
+ *     MiTrimSharedPageFromViews @ 0x1402EFC44 (MiTrimSharedPageFromViews.c)
+ *     PsQueryCpuQuotaInformation @ 0x1403CFFB4 (PsQueryCpuQuotaInformation.c)
+ *     PopWatchdogWorker @ 0x140578E70 (PopWatchdogWorker.c)
+ *     ObpProcessRemoveObjectQueue @ 0x140684B90 (ObpProcessRemoveObjectQueue.c)
+ *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
+ *     CmFcpChangeSubscriptionWrapper @ 0x14087E3C0 (CmFcpChangeSubscriptionWrapper.c)
+ *     VfThunkApplyMandatoryThunks @ 0x1409D8B6C (VfThunkApplyMandatoryThunks.c)
+ *     VfThunkApplyThunks @ 0x1409D8C54 (VfThunkApplyThunks.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
  */
 
-__int64 __fastcall MmQuitNextSession(void *a1)
+__int64 __fastcall MmQuitNextSession(struct _DMA_ADAPTER *a1)
 {
-  ObfDereferenceObject(a1);
+  HalPutDmaAdapter(a1);
   return 0LL;
 }

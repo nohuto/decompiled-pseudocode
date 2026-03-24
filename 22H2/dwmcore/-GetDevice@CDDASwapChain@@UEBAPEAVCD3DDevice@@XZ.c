@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetDevice@CDDASwapChain@@UEBAPEAVCD3DDevice@@XZ @ 0x1802A3348
+ * XREFs of ?GetDevice@CDDASwapChain@@UEBAPEAVCD3DDevice@@XZ @ 0x180250284
  * Callers:
- *     ?GetDevice@CDDASwapChain@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x1801214A0 (-GetDevice@CDDASwapChain@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ.c)
+ *     ?GetDevice@CDDASwapChain@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x1800F7870 (-GetDevice@CDDASwapChain@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ.c)
  * Callees:
  *     <none>
  */

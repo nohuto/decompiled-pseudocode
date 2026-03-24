@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlTraceDatabaseValidate @ 0x1405EE1C0
+ * XREFs of RtlTraceDatabaseValidate @ 0x14058EC00
  * Callers:
  *     <none>
  * Callees:
- *     RtlpTraceDatabaseAcquireLock @ 0x1405EE200 (RtlpTraceDatabaseAcquireLock.c)
- *     RtlpTraceDatabaseReleaseLock @ 0x1405EE4E0 (RtlpTraceDatabaseReleaseLock.c)
+ *     RtlpTraceDatabaseAcquireLock @ 0x14058EC40 (RtlpTraceDatabaseAcquireLock.c)
+ *     RtlpTraceDatabaseReleaseLock @ 0x14058EF18 (RtlpTraceDatabaseReleaseLock.c)
  */
 
 char __fastcall RtlTraceDatabaseValidate(__int64 a1)

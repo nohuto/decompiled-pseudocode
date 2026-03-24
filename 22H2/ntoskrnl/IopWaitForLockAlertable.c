@@ -1,10 +1,10 @@
 /*
- * XREFs of IopWaitForLockAlertable @ 0x1402FCCD4
+ * XREFs of IopWaitForLockAlertable @ 0x140271220
  * Callers:
- *     IopMountVolume @ 0x140701598 (IopMountVolume.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140765710 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406352D8 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopMountVolume @ 0x14065E0D0 (IopMountVolume.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
  */
 
 NTSTATUS __fastcall IopWaitForLockAlertable(PVOID Object, char a2, char a3)
@@ -15,15 +15,9 @@ NTSTATUS __fastcall IopWaitForLockAlertable(PVOID Object, char a2, char a3)
   int v9; // eax
 
   v6 = a3 != 0 ? a2 : 0;
-  if ( a3 )
-    goto LABEL_3;
   while ( 1 )
   {
-    if ( a2 == 1 )
-LABEL_3:
-      v7 = 1;
-    else
-      v7 = 0;
+    v7 = a3 || a2 == 1;
     result = KeWaitForSingleObject(Object, Executive, v6, v7, 0LL);
     if ( result != 257 )
       break;

@@ -1,7 +1,7 @@
 /*
  * XREFs of IovCancelIrp @ 0x140923F90
  * Callers:
- *     IoCancelIrp @ 0x140121E10 (IoCancelIrp.c)
+ *     IoCancelIrp @ 0x140121E30 (IoCancelIrp.c)
  * Callees:
  *     IovpLogStackTrace @ 0x140924998 (IovpLogStackTrace.c)
  *     VfIrpDatabaseEntryFindAndLock @ 0x14093E224 (VfIrpDatabaseEntryFindAndLock.c)

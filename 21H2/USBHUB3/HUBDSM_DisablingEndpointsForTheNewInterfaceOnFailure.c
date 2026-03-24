@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDSM_DisablingEndpointsForTheNewInterfaceOnFailure @ 0x1C0021FF0
+ * XREFs of HUBDSM_DisablingEndpointsForTheNewInterfaceOnFailure @ 0x1C0021BA0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     HUBUCX_EnableDisableEndpointsUsingUCXIoctl @ 0x1C0024278 (HUBUCX_EnableDisableEndpointsUsingUCXIoctl.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBUCX_EnableDisableEndpointsUsingUCXIoctl @ 0x1C0023E38 (HUBUCX_EnableDisableEndpointsUsingUCXIoctl.c)
  */
 
 __int64 __fastcall HUBDSM_DisablingEndpointsForTheNewInterfaceOnFailure(__int64 a1)
@@ -56,7 +56,7 @@ __int64 __fastcall HUBDSM_DisablingEndpointsForTheNewInterfaceOnFailure(__int64 
         4u,
         5u,
         0x38u,
-        (__int64)&WPP_a5663512bb0f384af60f2cebe8e2cf44_Traceguids);
+        (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids);
     }
   }
   HUBSM_AddEvent(v1 + 504, 4028);

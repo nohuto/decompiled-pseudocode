@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CTransformedGeometryHelper@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801B3230
+ * XREFs of ?HrFindInterface@CTransformedGeometryHelper@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180260270
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CTransformedGeometryHelper::HrFindInterface(
@@ -20,11 +20,11 @@ __int64 __fastcall CTransformedGeometryHelper::HrFindInterface(
   if ( v3 )
   {
     v4 = -2147467262;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147467262, 0xE6u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147467262, 0xCAu, 0LL);
   }
   else
   {
-    *a3 = this;
+    *a3 = (void *)(((unsigned __int64)this + 16) & -(__int64)(this != 0LL));
     return 0;
   }
   return v4;

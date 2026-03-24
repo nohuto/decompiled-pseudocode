@@ -1,30 +1,30 @@
 /*
- * XREFs of PerfLogExecutiveResourceAcquire @ 0x1406325F8
+ * XREFs of PerfLogExecutiveResourceAcquire @ 0x1405AAD8C
  * Callers:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExpAcquireResourceExclusiveLite @ 0x1402AE9D0 (ExpAcquireResourceExclusiveLite.c)
- *     ExpAcquireResourceSharedLite @ 0x1402B1170 (ExpAcquireResourceSharedLite.c)
- *     ExpAcquireSharedStarveExclusive @ 0x14032BD70 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireSharedWaitForExclusive @ 0x14039B280 (ExAcquireSharedWaitForExclusive.c)
- *     ExpTryToAcquireResourceExclusiveLite @ 0x14063D728 (ExpTryToAcquireResourceExclusiveLite.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x14031E750 (ExpAcquireSharedStarveExclusive.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ExpAcquireResourceSharedLite @ 0x14034C060 (ExpAcquireResourceSharedLite.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x14034C9B0 (ExpAcquireResourceExclusiveLite.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1405B4D70 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpTryToAcquireResourceExclusiveLite @ 0x1405B58FC (ExpTryToAcquireResourceExclusiveLite.c)
  * Callees:
- *     EtwpGetTrackingLockSlotForThread @ 0x1406324DC (EtwpGetTrackingLockSlotForThread.c)
+ *     EtwpGetTrackingLockSlotForThread @ 0x1405AAC54 (EtwpGetTrackingLockSlotForThread.c)
  */
 
 signed __int64 __fastcall PerfLogExecutiveResourceAcquire(int a1, __int64 a2, unsigned int a3, int a4)
 {
   struct _KPRCB *CurrentPrcb; // rsi
-  unsigned __int64 v8; // rdi
-  __int16 Group; // r15
-  unsigned __int8 GroupIndex; // r12
+  __int16 Group; // r12
+  unsigned __int64 v9; // rdi
+  unsigned __int8 GroupIndex; // r15
   signed __int64 result; // rax
   signed __int64 v12; // rdx
   bool v13; // zf
   unsigned int v14; // [rsp+50h] [rbp+8h]
 
   CurrentPrcb = KeGetCurrentPrcb();
-  v8 = __rdtsc();
   Group = CurrentPrcb->Group;
+  v9 = __rdtsc();
   GroupIndex = CurrentPrcb->GroupIndex;
   ++CurrentPrcb->SynchCounters.ExEtwSynchTrackingNotificationsCount;
   LOWORD(v14) = Group;
@@ -56,7 +56,7 @@ LABEL_15:
     else
     {
       v13 = *(_DWORD *)(v12 + 32) == 4;
-      *(_QWORD *)(v12 + 8) = v8;
+      *(_QWORD *)(v12 + 8) = v9;
       if ( !v13 )
       {
         *(_QWORD *)v12 = 0LL;
@@ -64,7 +64,7 @@ LABEL_15:
       }
       if ( *(_WORD *)(v12 + 24) == Group && *(_BYTE *)(v12 + 26) == GroupIndex )
       {
-        *(_QWORD *)v12 = v8 - *(_QWORD *)v12;
+        *(_QWORD *)v12 = v9 - *(_QWORD *)v12;
         goto LABEL_14;
       }
     }

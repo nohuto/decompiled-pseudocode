@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepRegistryCreateKey @ 0x140848F74
+ * XREFs of KsepRegistryCreateKey @ 0x140848F54
  * Callers:
- *     KseSetDeviceFlags @ 0x1408475F0 (KseSetDeviceFlags.c)
+ *     KseSetDeviceFlags @ 0x1408475D0 (KseSetDeviceFlags.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
- *     RtlAssert @ 0x1402EF760 (RtlAssert.c)
- *     KsepStringFree @ 0x14067E16C (KsepStringFree.c)
- *     KsepStringDuplicate @ 0x14070CDB8 (KsepStringDuplicate.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
+ *     RtlAssert @ 0x1402EF860 (RtlAssert.c)
+ *     KsepStringFree @ 0x14067E14C (KsepStringFree.c)
+ *     KsepStringDuplicate @ 0x14070CD98 (KsepStringDuplicate.c)
  */
 
 __int64 __fastcall KsepRegistryCreateKey(_WORD *a1, _WORD *a2, HANDLE *a3)

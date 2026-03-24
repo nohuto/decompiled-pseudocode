@@ -1,15 +1,15 @@
 /*
- * XREFs of NtQueryInformationWorkerFactory @ 0x140641BD0
+ * XREFs of NtQueryInformationWorkerFactory @ 0x1405B97F0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExSystemExceptionFilter @ 0x1409F8660 (ExSystemExceptionFilter.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExSystemExceptionFilter @ 0x1407D4F10 (ExSystemExceptionFilter.c)
  */
 
 NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, unsigned __int64 a3, int a4, _DWORD *a5)
@@ -77,24 +77,24 @@ NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, unsig
     v22 = 0LL;
     *(_QWORD *)&v23 = *((_QWORD *)v12 + 14);
     WORD4(v23) = 0;
-    BYTE10(v23) = (v12[408] & 8) != 0;
+    BYTE10(v23) = (v12[312] & 8) != 0;
     v13 = *((_QWORD *)v12 + 2);
     v14 = *(_DWORD *)(v13 + 28);
     BYTE11(v23) = v14 == 0;
-    BYTE12(v23) = *((_DWORD *)v12 + 100) != 0;
+    BYTE12(v23) = *((_DWORD *)v12 + 76) != 0;
     *(_WORD *)((char *)&v23 + 13) = *(_WORD *)(v13 + 32);
-    LODWORD(v24) = *((_DWORD *)v12 + 101);
-    *(_QWORD *)((char *)&v24 + 4) = *((_QWORD *)v12 + 47);
-    HIDWORD(v24) = *((_DWORD *)v12 + 98);
+    LODWORD(v24) = *((_DWORD *)v12 + 77);
+    *(_QWORD *)((char *)&v24 + 4) = *((_QWORD *)v12 + 35);
+    HIDWORD(v24) = *((_DWORD *)v12 + 74);
     LODWORD(v25) = v14;
-    DWORD1(v25) = *((_DWORD *)v12 + 97);
+    DWORD1(v25) = *((_DWORD *)v12 + 73);
     DWORD2(v25) = *(_DWORD *)(v13 + 24);
     *(_QWORD *)&v26 = 0LL;
     *((_QWORD *)&v26 + 1) = *((_QWORD *)v12 + 3);
     *(_QWORD *)&v27 = *((_QWORD *)v12 + 4);
     *((_QWORD *)&v27 + 1) = *(_QWORD *)(*((_QWORD *)v12 + 6) + 1088LL);
     v28 = *(_OWORD *)(v12 + 56);
-    LODWORD(v29) = *((_DWORD *)v12 + 104);
+    LODWORD(v29) = *((_DWORD *)v12 + 80);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )

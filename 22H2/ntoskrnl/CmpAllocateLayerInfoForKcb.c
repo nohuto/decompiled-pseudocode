@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpAllocateLayerInfoForKcb @ 0x1407DABA8
+ * XREFs of CmpAllocateLayerInfoForKcb @ 0x1405D8404
  * Callers:
- *     CmpCreateLayerLink @ 0x1407DAB1C (CmpCreateLayerLink.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
+ *     CmpCreateLayerLink @ 0x1405D8378 (CmpCreateLayerLink.c)
+ *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpAllocateLayerInfoForKcb(__int64 a1)
 {
   unsigned int v1; // ebx
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v4; // rdi
 
   v1 = 0;
   if ( !*(_QWORD *)(a1 + 192) )
   {
-    Pool2 = (_QWORD *)ExAllocatePool2(256LL, 64LL, 1768705347LL);
-    v4 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x40uLL, 0x696C4D43u);
+    v4 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memset(Pool2, 0, 0x40uLL);
+      memset(PoolWithTag, 0, 0x40uLL);
       v4[2] = a1;
       v4[5] = v4 + 4;
       v4[4] = v4 + 4;

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?NotifyInterrupt@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@PEAU_DXGKARGCB_NOTIFY_INTERRUPT_DATA@@@Z @ 0x1C006CD98
+ * XREFs of ?NotifyInterrupt@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@PEAU_DXGKARGCB_NOTIFY_INTERRUPT_DATA@@@Z @ 0x1C005EF78
  * Callers:
- *     DxgNotifyInterruptCB @ 0x1C0015280 (DxgNotifyInterruptCB.c)
+ *     DxgNotifyInterruptCB @ 0x1C000D8A0 (DxgNotifyInterruptCB.c)
  * Callees:
- *     ?MapVidPnTargetToVidPnSource@ADAPTER_DISPLAY@@QEAAII@Z @ 0x1C001DAD4 (-MapVidPnTargetToVidPnSource@ADAPTER_DISPLAY@@QEAAII@Z.c)
+ *     ?MapVidPnTargetToVidPnSource@ADAPTER_DISPLAY@@QEAAII@Z @ 0x1C0019758 (-MapVidPnTargetToVidPnSource@ADAPTER_DISPLAY@@QEAAII@Z.c)
  */
 
 void __fastcall DXGDODPRESENT::NotifyInterrupt(
@@ -11,20 +11,19 @@ void __fastcall DXGDODPRESENT::NotifyInterrupt(
         ADAPTER_DISPLAY **a2,
         struct _DXGKARGCB_NOTIFY_INTERRUPT_DATA *a3)
 {
-  __int64 InterruptType; // rax
   unsigned int v5; // eax
-  __int64 v6; // r11
   UINT SubmissionFenceId; // ecx
   UINT NodeOrdinal; // eax
+  _QWORD *v8; // rax
+  __int64 InterruptType; // rcx
 
-  InterruptType = a3->InterruptType;
-  if ( (_DWORD)InterruptType == 5 )
+  if ( a3->InterruptType == DXGK_INTERRUPT_DISPLAYONLY_VSYNC )
   {
-    v5 = ADAPTER_DISPLAY::MapVidPnTargetToVidPnSource(a2[349], a3->DmaCompleted.SubmissionFenceId);
+    v5 = ADAPTER_DISPLAY::MapVidPnTargetToVidPnSource(a2[337], a3->DmaCompleted.SubmissionFenceId);
     if ( v5 != -1 )
-      _InterlockedAdd((volatile signed __int32 *)(v6 + 4LL * v5 + 16), 1u);
+      _InterlockedAdd((volatile signed __int32 *)this + v5 + 4, 1u);
   }
-  else if ( (_DWORD)InterruptType == 6 )
+  else if ( a3->InterruptType == DXGK_INTERRUPT_DISPLAYONLY_PRESENT_PROGRESS )
   {
     SubmissionFenceId = a3->DmaCompleted.SubmissionFenceId;
     if ( SubmissionFenceId < *(_DWORD *)this )
@@ -43,6 +42,13 @@ void __fastcall DXGDODPRESENT::NotifyInterrupt(
   }
   else
   {
-    WdLogSingleEntry5(0LL, 275LL, 24LL, *((_QWORD *)this + 11), InterruptType, 0LL);
+    v8 = (_QWORD *)WdLogNewEntry5_WdCriticalError(this, a2);
+    v8[3] = 275LL;
+    v8[4] = 24LL;
+    v8[5] = *((_QWORD *)this + 11);
+    InterruptType = a3->InterruptType;
+    v8[7] = 0LL;
+    v8[6] = InterruptType;
+    WdLogEvent5_WdCriticalError(v8);
   }
 }

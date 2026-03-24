@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReportState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C00DDC0C
+ * XREFs of ?ReportState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C00B85AC
  * Callers:
- *     ?ReportState@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00DDB14 (-ReportState@VIDMM_DEVICE@@QEAAXXZ.c)
+ *     ?ReportState@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00B84B4 (-ReportState@VIDMM_DEVICE@@QEAAXXZ.c)
  * Callees:
- *     memset @ 0x1C001DC40 (memset.c)
- *     McTemplateK0ppqqpx_EtwWriteTransfer @ 0x1C002E810 (McTemplateK0ppqqpx_EtwWriteTransfer.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     McTemplateK0ppqqpx_EtwWriteTransfer @ 0x1C00246CC (McTemplateK0ppqqpx_EtwWriteTransfer.c)
  */
 
 void __fastcall VIDMM_DEVICE_PAGING_QUEUE::ReportState(VIDMM_DEVICE_PAGING_QUEUE *this)
@@ -20,7 +20,7 @@ void __fastcall VIDMM_DEVICE_PAGING_QUEUE::ReportState(VIDMM_DEVICE_PAGING_QUEUE
     memset(v5, 0, sizeof(v5));
     if ( bTracingEnabled )
     {
-      if ( (byte_1C006E941 & 1) != 0 )
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       {
         v4 = HIDWORD(v5[0]);
         v3 = 4;

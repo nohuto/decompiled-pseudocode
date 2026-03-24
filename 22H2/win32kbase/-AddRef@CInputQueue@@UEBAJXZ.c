@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@CInputQueue@@UEBAJXZ @ 0x1C00CA020
+ * XREFs of ?AddRef@CInputQueue@@UEBAJXZ @ 0x1C00BC640
  * Callers:
  *     <none>
  * Callees:

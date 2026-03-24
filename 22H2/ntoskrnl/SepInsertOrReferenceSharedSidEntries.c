@@ -1,48 +1,46 @@
 /*
- * XREFs of SepInsertOrReferenceSharedSidEntries @ 0x1409D189C
+ * XREFs of SepInsertOrReferenceSharedSidEntries @ 0x1409254B4
  * Callers:
- *     SepSetTokenCapabilities @ 0x1406BD618 (SepSetTokenCapabilities.c)
+ *     SepSetTokenCapabilities @ 0x1405DD33C (SepSetTokenCapabilities.c)
  * Callees:
- *     RtlInsertEntryHashTable @ 0x1402266A0 (RtlInsertEntryHashTable.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     RtlRemoveEntryHashTable @ 0x14036F630 (RtlRemoveEntryHashTable.c)
- *     RtlCopySid @ 0x140715020 (RtlCopySid.c)
- *     SepFindSharedSidEntry @ 0x1409D17FC (SepFindSharedSidEntry.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInsertEntryHashTable @ 0x140250E50 (RtlInsertEntryHashTable.c)
+ *     RtlRemoveEntryHashTable @ 0x140251520 (RtlRemoveEntryHashTable.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     RtlCopySid @ 0x140654560 (RtlCopySid.c)
+ *     SepFindSharedSidEntry @ 0x140925414 (SepFindSharedSidEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepInsertOrReferenceSharedSidEntries(unsigned int **a1, unsigned int **a2, unsigned int a3)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v6; // r15d
-  unsigned int v7; // ebp
-  __int64 v8; // rsi
+  unsigned int v4; // esi
+  __int64 v8; // rbp
   signed __int64 v9; // r12
-  signed __int64 v10; // r13
+  signed __int64 v10; // rsi
   PRTL_DYNAMIC_HASH_TABLE_ENTRY SharedSidEntry; // rax
   unsigned int *Blink; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *Pool2; // rax
+  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *PoolWithTag; // rax
   struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v14; // r15
   __int64 v15; // rax
-  __int64 v16; // rdx
-  ULONG_PTR v17; // r8
-  PRTL_DYNAMIC_HASH_TABLE_ENTRY v18; // rdi
-  __int64 v19; // rax
-  volatile signed __int64 *v20; // rdi
-  unsigned int v23; // [rsp+78h] [rbp+20h]
+  ULONG_PTR v16; // r8
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY v17; // rdi
+  __int64 v18; // rax
+  volatile signed __int64 *v19; // rdi
+  unsigned int v21; // [rsp+60h] [rbp+18h]
+  int v22; // [rsp+60h] [rbp+18h]
 
   CurrentThread = KeGetCurrentThread();
-  v6 = a3;
-  v7 = 0;
+  v4 = 0;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx(g_SepSidMapping, 0LL);
   v8 = 0LL;
-  if ( !v6 )
-    goto LABEL_23;
+  if ( !a3 )
+    goto LABEL_24;
   v9 = (char *)a1 - (char *)a2;
   v10 = (char *)a2 - (char *)a1;
   while ( 1 )
@@ -56,59 +54,63 @@ __int64 __fastcall SepInsertOrReferenceSharedSidEntries(unsigned int **a1, unsig
       Blink = (unsigned int *)SharedSidEntry[1].Linkage.Blink;
       goto LABEL_12;
     }
-    v23 = 8 * *((unsigned __int8 *)*a1 + 1) + 96;
-    Pool2 = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePool2(256LL, v23, 1934845267LL);
-    v14 = Pool2;
-    if ( !Pool2 )
+    v21 = 8 * *((unsigned __int8 *)*a1 + 1) + 96;
+    PoolWithTag = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePoolWithTag(PagedPool, v21, 0x73536553u);
+    v14 = PoolWithTag;
+    if ( !PoolWithTag )
       break;
-    Pool2[1].Linkage.Blink = (struct _LIST_ENTRY *)&Pool2[1].Signature;
-    Pool2[1].Linkage.Flink = (struct _LIST_ENTRY *)1;
-    RtlCopySid(v23 - 40, &Pool2[1].Signature, *a1);
+    PoolWithTag[1].Linkage.Blink = (struct _LIST_ENTRY *)&PoolWithTag[1].Signature;
+    PoolWithTag[1].Linkage.Flink = (struct _LIST_ENTRY *)1;
+    RtlCopySid(v21 - 40, &PoolWithTag[1].Signature, *a1);
     v15 = (unsigned int)*((unsigned __int8 *)*a1 + 1) - 1;
     v16 = (*a1)[v15 + 2];
-    v17 = v16 + 1;
-    if ( (_DWORD)v16 )
-      v17 = (*a1)[v15 + 2];
-    if ( !RtlInsertEntryHashTable(*(PRTL_DYNAMIC_HASH_TABLE *)(g_SepSidMapping + 8), v14, v17, 0LL) )
+    if ( !(*a1)[v15 + 2] )
+      v16 = 1LL;
+    if ( !RtlInsertEntryHashTable(*(PRTL_DYNAMIC_HASH_TABLE *)(g_SepSidMapping + 8), v14, v16, 0LL) )
     {
-      v7 = -1073741823;
+      v4 = -1073741823;
+      v22 = -1073741823;
       ExFreePoolWithTag(v14, 0x73536553u);
       goto LABEL_16;
     }
     Blink = (unsigned int *)v14[1].Linkage.Blink;
-    v6 = a3;
 LABEL_12:
     *(unsigned int **)((char *)a1 + v10) = Blink;
     v8 = (unsigned int)(v8 + 1);
     a1 += 2;
-    if ( (unsigned int)v8 >= v6 )
-      goto LABEL_23;
+    if ( (unsigned int)v8 >= a3 )
+    {
+      v4 = 0;
+      goto LABEL_24;
+    }
   }
-  v7 = -1073741801;
+  v4 = -1073741801;
+  v22 = -1073741801;
 LABEL_16:
   if ( (_DWORD)v8 )
   {
     do
     {
-      v18 = SepFindSharedSidEntry(*a2);
-      v19 = _InterlockedDecrement64((volatile signed __int64 *)&v18[1]);
-      if ( v19 <= 0 )
+      v17 = SepFindSharedSidEntry(*a2);
+      v18 = _InterlockedDecrement64((volatile signed __int64 *)&v17[1]);
+      if ( v18 <= 0 )
       {
-        if ( v19 )
+        if ( v18 )
           __fastfail(0xEu);
-        if ( RtlRemoveEntryHashTable(*(PRTL_DYNAMIC_HASH_TABLE *)(g_SepSidMapping + 8), v18, 0LL) )
-          ExFreePoolWithTag(v18, 0);
+        if ( RtlRemoveEntryHashTable(*(PRTL_DYNAMIC_HASH_TABLE *)(g_SepSidMapping + 8), v17, 0LL) )
+          ExFreePoolWithTag(v17, 0);
       }
       a2 += 2;
       --v8;
     }
     while ( v8 );
+    v4 = v22;
   }
-LABEL_23:
-  v20 = (volatile signed __int64 *)g_SepSidMapping;
+LABEL_24:
+  v19 = (volatile signed __int64 *)g_SepSidMapping;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)g_SepSidMapping, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v20);
-  KeAbPostRelease((ULONG_PTR)v20);
+    ExfTryToWakePushLock(v19);
+  KeAbPostRelease((ULONG_PTR)v19);
   KeLeaveCriticalRegion();
-  return v7;
+  return v4;
 }

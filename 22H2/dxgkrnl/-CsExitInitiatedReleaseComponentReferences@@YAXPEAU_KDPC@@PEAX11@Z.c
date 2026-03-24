@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CsExitInitiatedReleaseComponentReferences@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C001BFC0
+ * XREFs of ?CsExitInitiatedReleaseComponentReferences@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C0046560
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,9 @@
 
 void __fastcall CsExitInitiatedReleaseComponentReferences(
         struct _KDPC *Dpc,
-        char *DeferredContext,
+        struct _WORK_QUEUE_ITEM *DeferredContext,
         PVOID SystemArgument1,
         PVOID SystemArgument2)
 {
-  ExQueueWorkItem((PWORK_QUEUE_ITEM)(DeferredContext + 2064), CriticalWorkQueue);
+  ExQueueWorkItem(DeferredContext + 60, CriticalWorkQueue);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ @ 0x1C028C0F8
+ * XREFs of ?bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ @ 0x1C00199D0
  * Callers:
- *     PDEVOBJ_bCreateHalftoneBrushesWrap @ 0x1C028C370 (PDEVOBJ_bCreateHalftoneBrushesWrap.c)
+ *     PDEVOBJ_bCreateHalftoneBrushesWrap @ 0x1C01363C0 (PDEVOBJ_bCreateHalftoneBrushesWrap.c)
  * Callees:
- *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C0055590 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
- *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C005640C (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
- *     ?SETFLAG@@YAXHAECKK@Z @ 0x1C00B5658 (-SETFLAG@@YAXHAECKK@Z.c)
- *     HT_CreateStandardMonoPattern @ 0x1C024FF24 (HT_CreateStandardMonoPattern.c)
+ *     HT_CreateStandardMonoPattern @ 0x1C00195BC (HT_CreateStandardMonoPattern.c)
+ *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C001A850 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
+ *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C0111F38 (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
+ *     ?SETFLAG@@YAXHAECKK@Z @ 0x1C01250E8 (-SETFLAG@@YAXHAECKK@Z.c)
  */
 
 __int64 __fastcall PDEVOBJ::bCreateHalftoneBrushes(PDEVOBJ *this)
@@ -15,10 +15,10 @@ __int64 __fastcall PDEVOBJ::bCreateHalftoneBrushes(PDEVOBJ *this)
   __int64 v3; // r14
   __int64 v4; // rsi
   int v5; // eax
-  int StandardMonoPattern; // r15d
+  int v6; // r15d
   __int64 v7; // r8
   int v8; // eax
-  __int64 v9; // rsi
+  __int64 v10; // rsi
   __int64 v11; // [rsp+68h] [rbp-19h] BYREF
   char v12; // [rsp+70h] [rbp-11h]
   int v13; // [rsp+74h] [rbp-Dh]
@@ -35,68 +35,69 @@ __int64 __fastcall PDEVOBJ::bCreateHalftoneBrushes(PDEVOBJ *this)
 
   v18 = 0LL;
   v19 = 0;
-  if ( !PDEVOBJ::pDevHTInfo(this) && !(unsigned int)PDEVOBJ::bEnableHalftone(this, 0LL) )
-    return 0LL;
-  LODWORD(v2) = 0;
-  v3 = 0LL;
-  v4 = 1448LL;
-  do
+  if ( PDEVOBJ::pDevHTInfo(this) || (unsigned int)PDEVOBJ::bEnableHalftone(this, 0LL) )
   {
-    v14 = 1;
-    v16 = HTStdPatIndex[v3];
-    v15 = 4;
-    v17 = 3848;
-    v20 = 0LL;
-    v5 = (unsigned int)PDEVOBJ::pDevHTInfo(this);
-    StandardMonoPattern = HT_CreateStandardMonoPattern(v5, (__int64)&v14);
-    if ( StandardMonoPattern <= 0 )
-      break;
-    v21[1] = WORD1(v18);
-    v21[2] = WORD2(v18);
-    v21[3] = 0;
-    v23 = 1LL;
-    v21[0] = 1;
-    v22 = 0LL;
-    v11 = 0LL;
-    v12 = 0;
-    v13 = 0;
-    SURFMEM::bCreateDIB((SURFMEM *)&v11, (struct _DEVBITMAPINFO *)v21, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0);
-    if ( !v11 )
-      goto LABEL_9;
-    v12 |= 1u;
-    LOBYTE(v7) = 5;
-    HmgSetOwner(*(_QWORD *)(v11 + 32), 0LL, v7);
-    LODWORD(v2) = v2 + 1;
-    ++v3;
-    *(_QWORD *)(v4 + *(_QWORD *)this) = *(_QWORD *)(v11 + 32);
-    v4 += 8LL;
-    v20 = *(_QWORD *)(v11 + 72);
-    v8 = (unsigned int)PDEVOBJ::pDevHTInfo(this);
-    if ( (unsigned int)HT_CreateStandardMonoPattern(v8, (__int64)&v14) != StandardMonoPattern )
+    LODWORD(v2) = 0;
+    v3 = 0LL;
+    v4 = 1456LL;
+    do
     {
-LABEL_9:
+      v14 = 1;
+      v16 = byte_1C02EEDD0[v3];
+      v15 = 4;
+      v17 = 3848;
+      v20 = 0LL;
+      v5 = (unsigned int)PDEVOBJ::pDevHTInfo(this);
+      v6 = HT_CreateStandardMonoPattern(v5, &v14);
+      if ( v6 <= 0 )
+        break;
+      v21[1] = WORD1(v18);
+      v21[2] = WORD2(v18);
+      v21[3] = 0;
+      v23 = 1LL;
+      v21[0] = 1;
+      v22 = 0LL;
+      v11 = 0LL;
+      v12 = 0;
+      v13 = 0;
+      SURFMEM::bCreateDIB((SURFMEM *)&v11, (struct _DEVBITMAPINFO *)v21, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0);
+      if ( !v11 )
+        goto LABEL_11;
+      v12 |= 1u;
+      LOBYTE(v7) = 5;
+      HmgSetOwner(*(_QWORD *)(v11 + 32), 0LL, v7);
+      LODWORD(v2) = v2 + 1;
+      ++v3;
+      *(_QWORD *)(v4 + *(_QWORD *)this) = *(_QWORD *)(v11 + 32);
+      v4 += 8LL;
+      v20 = *(_QWORD *)(v11 + 72);
+      v8 = (unsigned int)PDEVOBJ::pDevHTInfo(this);
+      if ( (unsigned int)HT_CreateStandardMonoPattern(v8, &v14) != v6 )
+      {
+LABEL_11:
+        SURFMEM::~SURFMEM((SURFMEM *)&v11);
+        break;
+      }
       SURFMEM::~SURFMEM((SURFMEM *)&v11);
-      break;
     }
-    SURFMEM::~SURFMEM((SURFMEM *)&v11);
-  }
-  while ( v4 < 1496 );
-  if ( (int)v2 < 6 )
-  {
+    while ( v4 < 1504 );
+    if ( (int)v2 >= 6 )
+    {
+      SETFLAG(1, (volatile unsigned int *)(*(_QWORD *)this + 40LL), 0x100u);
+      return 1LL;
+    }
     v2 = (int)v2;
     if ( (int)v2 > 0 )
     {
-      v9 = 8LL * (int)v2 + 1448;
+      v10 = 8LL * (int)v2 + 1456;
       do
       {
-        v9 -= 8LL;
+        v10 -= 8LL;
         --v2;
-        bDeleteSurface(*(_QWORD *)(v9 + *(_QWORD *)this));
+        bDeleteSurface(*(_QWORD *)(v10 + *(_QWORD *)this));
       }
       while ( v2 > 0 );
     }
-    return 0LL;
   }
-  SETFLAG(1, (volatile unsigned int *)(*(_QWORD *)this + 40LL), 256);
-  return 1LL;
+  return 0LL;
 }

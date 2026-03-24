@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetProperty@CNineGridBrush@@UEAAJIPEAVCExpressionValue@@@Z @ 0x180229550
+ * XREFs of ?GetProperty@CNineGridBrush@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1801DA9B0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?TryGetInsetFieldPointer@CNineGridBrush@@AEAAPEAMK@Z @ 0x1800E2DA4 (-TryGetInsetFieldPointer@CNineGridBrush@@AEAAPEAMK@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TryGetInsetFieldPointer@CNineGridBrush@@AEAAPEAMK@Z @ 0x1800CB62C (-TryGetInsetFieldPointer@CNineGridBrush@@AEAAPEAMK@Z.c)
  */
 
 __int64 __fastcall CNineGridBrush::GetProperty(CNineGridBrush *this, int a2, struct CExpressionValue *a3)
@@ -25,7 +25,7 @@ __int64 __fastcall CNineGridBrush::GetProperty(CNineGridBrush *this, int a2, str
   else
   {
     v3 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, -2147024809, 0xD1u);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147024809, 0xD1u, 0LL);
   }
   return v3;
 }

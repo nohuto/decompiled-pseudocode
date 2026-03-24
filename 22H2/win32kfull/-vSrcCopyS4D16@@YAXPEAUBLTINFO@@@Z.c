@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vSrcCopyS4D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02EC770
+ * XREFs of ?vSrcCopyS4D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02CADE0
  * Callers:
  *     <none>
  * Callees:
@@ -9,38 +9,38 @@
 void __fastcall vSrcCopyS4D16(struct BLTINFO *a1)
 {
   unsigned int v1; // edi
-  int v2; // edx
-  int v3; // r14d
-  int v4; // r10d
-  _WORD *v5; // rsi
-  unsigned __int8 *v6; // r8
-  __int64 v7; // r15
-  _WORD *v8; // rbx
-  char v9; // r11
-  unsigned __int8 *v10; // r9
+  int v2; // r14d
+  int v3; // r11d
+  _WORD *v4; // r9
+  unsigned __int8 *v5; // rdx
+  __int64 v6; // r15
+  int v7; // r8d
+  _WORD *v8; // rsi
+  char v9; // bl
+  unsigned __int8 *v10; // r10
   unsigned __int64 v11; // rax
 
   LOBYTE(v1) = 0;
-  v2 = *((_DWORD *)a1 + 12);
-  v3 = *((_DWORD *)a1 + 8);
-  v4 = *((_DWORD *)a1 + 13);
-  v5 = (_WORD *)(*((_QWORD *)a1 + 2) + 2 * *((_DWORD *)a1 + 14));
-  v6 = (unsigned __int8 *)(*((_QWORD *)a1 + 1) + ((__int64)v2 >> 1));
-  v7 = *(_QWORD *)(*(_QWORD *)a1 + 16LL);
+  v2 = *((_DWORD *)a1 + 8);
+  v3 = *((_DWORD *)a1 + 13);
+  v4 = (_WORD *)(*((_QWORD *)a1 + 2) + 2 * *((_DWORD *)a1 + 14));
+  v5 = (unsigned __int8 *)(*((_QWORD *)a1 + 1) + ((__int64)*((int *)a1 + 12) >> 1));
+  v6 = *(_QWORD *)(*(_QWORD *)a1 + 16LL);
   while ( 1 )
   {
-    v8 = v5;
-    if ( (v2 & 1) != 0 )
-      LOBYTE(v1) = *v6;
-    if ( v2 != v4 )
+    v7 = *((_DWORD *)a1 + 12);
+    v8 = v4;
+    if ( (v7 & 1) != 0 )
+      LOBYTE(v1) = *v5;
+    if ( v7 != v3 )
     {
       v9 = v1;
-      v10 = v6 + 1;
-      if ( (v2 & 1) == 0 )
-        v10 = v6;
+      v10 = v5 + 1;
+      if ( (*((_DWORD *)a1 + 12) & 1) == 0 )
+        v10 = v5;
       do
       {
-        if ( (v2 & 1) != 0 )
+        if ( (v7 & 1) != 0 )
         {
           v11 = v9 & 0xF;
         }
@@ -50,16 +50,15 @@ void __fastcall vSrcCopyS4D16(struct BLTINFO *a1)
           v9 = v1;
           v11 = (unsigned __int64)v1 >> 4;
         }
-        ++v2;
-        *v8++ = *(_WORD *)(v7 + 4 * v11);
-        v4 = *((_DWORD *)a1 + 13);
+        ++v7;
+        *v8++ = *(_WORD *)(v6 + 4 * v11);
+        v3 = *((_DWORD *)a1 + 13);
       }
-      while ( v2 != v4 );
-      v2 = *((_DWORD *)a1 + 12);
+      while ( v7 != v3 );
     }
-    if ( !--v3 )
+    if ( !--v2 )
       break;
-    v6 += *((int *)a1 + 10);
-    v5 = (_WORD *)((char *)v5 + *((int *)a1 + 11));
+    v5 += *((int *)a1 + 10);
+    v4 = (_WORD *)((char *)v4 + *((int *)a1 + 11));
   }
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of ArbBootAllocation @ 0x140817710
+ * XREFs of ArbBootAllocation @ 0x1407B42B0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlCopyRangeList @ 0x140817400 (RtlCopyRangeList.c)
- *     ArbpBuildAlternative @ 0x1408178A0 (ArbpBuildAlternative.c)
- *     RtlFreeRangeList @ 0x140817B80 (RtlFreeRangeList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlCopyRangeList @ 0x140760820 (RtlCopyRangeList.c)
+ *     RtlFreeRangeList @ 0x140760BB0 (RtlFreeRangeList.c)
+ *     ArbpBuildAlternative @ 0x1407B4440 (ArbpBuildAlternative.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ArbBootAllocation(__int64 a1, _QWORD **a2)
@@ -37,7 +37,7 @@ __int64 __fastcall ArbBootAllocation(__int64 a1, _QWORD **a2)
   if ( *a2 == v6 )
   {
 LABEL_11:
-    RtlFreeRangeList(*(_QWORD *)(a1 + 40));
+    RtlFreeRangeList(*(_QWORD **)(a1 + 40));
     v8 = *(_QWORD *)(a1 + 40);
     *(_QWORD *)(a1 + 40) = *(_QWORD *)(a1 + 48);
     result = 0LL;
@@ -69,6 +69,6 @@ LABEL_10:
     if ( *a2 == v6 )
       goto LABEL_11;
   }
-  RtlFreeRangeList(*(_QWORD *)(a1 + 48));
+  RtlFreeRangeList(*(_QWORD **)(a1 + 48));
   return (unsigned int)v7;
 }

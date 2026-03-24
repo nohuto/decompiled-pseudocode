@@ -1,16 +1,16 @@
 /*
- * XREFs of PspReadUserQuotaLimits @ 0x1406C89B8
+ * XREFs of PspReadUserQuotaLimits @ 0x1406ADBCC
  * Callers:
- *     PspAssignProcessQuotaBlock @ 0x1406C86A0 (PspAssignProcessQuotaBlock.c)
+ *     PspAssignProcessQuotaBlock @ 0x1406AD8B4 (PspAssignProcessQuotaBlock.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     RtlConvertSidToUnicodeString @ 0x140669DD0 (RtlConvertSidToUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     PspSanitizeResourceLimits @ 0x14082CD48 (PspSanitizeResourceLimits.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlConvertSidToUnicodeString @ 0x1406745A0 (RtlConvertSidToUnicodeString.c)
+ *     PspSanitizeResourceLimits @ 0x1407C6A5C (PspSanitizeResourceLimits.c)
  */
 
 __int64 __fastcall PspReadUserQuotaLimits(PSID Sid, _DWORD *a2, _DWORD *a3)
@@ -39,12 +39,10 @@ __int64 __fastcall PspReadUserQuotaLimits(PSID Sid, _DWORD *a2, _DWORD *a3)
   KeyValueInformation = 0LL;
   v21 = 0;
   *(_OWORD *)&ObjectAttributes.Length = 0LL;
-  ObjectAttributes.SecurityDescriptor = 0LL;
   *a2 = 1;
   v6 = (HANDLE)PspQuotaDatabaseKey;
-  LODWORD(ObjectAttributes.SecurityQualityOfService) = 0;
   Handle = (HANDLE)PspQuotaDatabaseKey;
-  *(_OWORD *)&ObjectAttributes.ObjectName = 0LL;
+  memset(&ObjectAttributes.ObjectName, 0, 32);
   UnicodeString = 0LL;
   if ( !PspQuotaDatabaseKey )
   {
@@ -81,7 +79,7 @@ __int64 __fastcall PspReadUserQuotaLimits(PSID Sid, _DWORD *a2, _DWORD *a3)
     ObjectAttributes.Attributes = 704;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v7 = ZwOpenKey(&KeyHandle, 1u, &ObjectAttributes);
-    RtlFreeUnicodeString(&UnicodeString);
+    RtlFreeAnsiString(&UnicodeString);
     if ( v7 >= 0 )
     {
       v11 = 0;

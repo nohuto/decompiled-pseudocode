@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDcHandleObjectEvent @ 0x140788574
+ * XREFs of PiDcHandleObjectEvent @ 0x140757EC4
  * Callers:
- *     PiPnpRtlObjectEventDispatch @ 0x140788E10 (PiPnpRtlObjectEventDispatch.c)
+ *     PiPnpRtlObjectEventDispatch @ 0x1406ACC70 (PiPnpRtlObjectEventDispatch.c)
  * Callees:
- *     PiDcHandleDeviceEvent @ 0x140787830 (PiDcHandleDeviceEvent.c)
- *     PiDcHandleContainerEvent @ 0x1407AA7E4 (PiDcHandleContainerEvent.c)
- *     PiDcHandleInterfaceEvent @ 0x1407DB864 (PiDcHandleInterfaceEvent.c)
+ *     PiDcHandleDeviceEvent @ 0x140757F14 (PiDcHandleDeviceEvent.c)
+ *     PiDcHandleInterfaceEvent @ 0x1407580F4 (PiDcHandleInterfaceEvent.c)
+ *     PiDcHandleContainerEvent @ 0x14075B204 (PiDcHandleContainerEvent.c)
  */
 
 __int64 __fastcall PiDcHandleObjectEvent(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall PiDcHandleObjectEvent(__int64 a1)
     v2 = *(_QWORD *)(a1 + 8);
     if ( *(_DWORD *)(v2 + 28) == 1 )
     {
-      return (unsigned int)PiDcHandleDeviceEvent(a1);
+      return (unsigned int)PiDcHandleDeviceEvent(a1, v2, (unsigned int)(*(_DWORD *)(v2 + 28) - 1), 0LL);
     }
     else
     {

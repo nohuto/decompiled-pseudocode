@@ -1,52 +1,49 @@
 /*
- * XREFs of PpmResetPerfTimes @ 0x1403A6910
+ * XREFs of PpmResetPerfTimes @ 0x1403C1F50
  * Callers:
- *     PpmCheckProcessorInit @ 0x1403819D0 (PpmCheckProcessorInit.c)
- *     PpmCheckResetProcessors @ 0x1403916DC (PpmCheckResetProcessors.c)
- *     PpmCheckReset @ 0x1403A68F0 (PpmCheckReset.c)
- *     PpmResetPerfEngineForProcessor @ 0x14058D6A8 (PpmResetPerfEngineForProcessor.c)
+ *     PpmCheckResetProcessors @ 0x1403C1CC4 (PpmCheckResetProcessors.c)
+ *     PpmCheckReset @ 0x1403C1F30 (PpmCheckReset.c)
+ *     PpmCheckProcessorInit @ 0x1403CE590 (PpmCheckProcessorInit.c)
+ *     PpmResetPerfEngineForProcessorEx @ 0x1403F7884 (PpmResetPerfEngineForProcessorEx.c)
  * Callees:
- *     PpmSnapPerformanceAccumulation @ 0x1402561B0 (PpmSnapPerformanceAccumulation.c)
- *     PpmResetPerformanceAccumulation @ 0x1403A69EC (PpmResetPerformanceAccumulation.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PpmHvSnapPerformanceAccumulation @ 0x1405A0194 (PpmHvSnapPerformanceAccumulation.c)
+ *     PpmSnapPerformanceAccumulation @ 0x140221150 (PpmSnapPerformanceAccumulation.c)
+ *     PpmResetPerformanceAccumulation @ 0x1403C2014 (PpmResetPerformanceAccumulation.c)
+ *     PpmHvSnapPerformanceAccumulation @ 0x14057C420 (PpmHvSnapPerformanceAccumulation.c)
  */
 
-__int64 __fastcall PpmResetPerfTimes(__int64 a1)
+__int64 __fastcall PpmResetPerfTimes(__int64 a1, __int64 a2)
 {
-  __int64 v1; // rdi
-  _OWORD *v2; // rsi
-  LARGE_INTEGER *v3; // rbp
+  __int64 v2; // rdi
+  _OWORD *v3; // rsi
   __int64 v4; // rbx
-  void *v5; // rcx
   __int64 result; // rax
 
-  v1 = *(_QWORD *)(a1 + 16);
-  if ( v1 )
+  v2 = *(_QWORD *)(a1 + 16);
+  if ( v2 )
   {
-    v2 = (_OWORD *)(v1 + 32);
-    v3 = *(LARGE_INTEGER **)(v1 + 88);
-    if ( *(_BYTE *)(a1 + 68) )
+    v3 = (_OWORD *)(v2 + 32);
+    if ( *(_BYTE *)(a1 + 60) )
     {
-      v4 = a1 - 33968;
-      PpmResetPerformanceAccumulation(a1 - 33968);
-      PpmSnapPerformanceAccumulation(v4, 1u, 0, 0, v1 + 32, v3);
+      v4 = a1 - 33128;
+      PpmResetPerformanceAccumulation(a1 - 33128);
+      PpmSnapPerformanceAccumulation(v4, 1u, 0, 0, (unsigned __int64 *)(v2 + 32));
     }
     else
     {
-      PpmHvSnapPerformanceAccumulation(a1, 1, 0, v1 + 32, *(_QWORD *)(v1 + 88));
+      LOBYTE(a2) = 1;
+      PpmHvSnapPerformanceAccumulation(a1, a2, 0LL, v2 + 32);
     }
-    v5 = *(void **)(v1 + 216);
-    *(_OWORD *)(v1 + 160) = *v2;
-    *(_OWORD *)(v1 + 176) = *(_OWORD *)(v1 + 48);
-    *(_OWORD *)(v1 + 192) = *(_OWORD *)(v1 + 64);
-    *(_QWORD *)(v1 + 208) = *(_QWORD *)(v1 + 80);
-    memmove(v5, v3, 112 * v3[6].LowPart + 56);
-    *(_QWORD *)(v1 + 8) = *(_QWORD *)v2;
-    *(_QWORD *)v1 = *(_QWORD *)(v1 + 40);
-    *(_QWORD *)(v1 + 16) = *(_QWORD *)(v1 + 48);
-    result = *(unsigned int *)(v1 + 80);
-    *(_DWORD *)(v1 + 24) = result;
+    *(_OWORD *)(v2 + 224) = *v3;
+    *(_OWORD *)(v2 + 240) = *(_OWORD *)(v2 + 48);
+    *(_OWORD *)(v2 + 256) = *(_OWORD *)(v2 + 64);
+    *(_OWORD *)(v2 + 272) = *(_OWORD *)(v2 + 80);
+    *(_OWORD *)(v2 + 288) = *(_OWORD *)(v2 + 96);
+    *(_OWORD *)(v2 + 304) = *(_OWORD *)(v2 + 112);
+    *(_QWORD *)(v2 + 8) = *(_QWORD *)v3;
+    *(_QWORD *)v2 = *(_QWORD *)(v2 + 40);
+    *(_QWORD *)(v2 + 16) = *(_QWORD *)(v2 + 48);
+    result = *(unsigned int *)(v2 + 120);
+    *(_DWORD *)(v2 + 24) = result;
   }
   return result;
 }

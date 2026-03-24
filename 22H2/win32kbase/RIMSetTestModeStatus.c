@@ -1,23 +1,18 @@
 /*
- * XREFs of RIMSetTestModeStatus @ 0x1C0173DA0
+ * XREFs of RIMSetTestModeStatus @ 0x1C01521A0
  * Callers:
- *     NtRIMSetTestModeStatus @ 0x1C0175650 (NtRIMSetTestModeStatus.c)
+ *     NtRIMSetTestModeStatus @ 0x1C0154160 (NtRIMSetTestModeStatus.c)
  * Callees:
- *     RIMSyncWalkRimObjList @ 0x1C00711B0 (RIMSyncWalkRimObjList.c)
+ *     RIMSyncWalkRimObjList @ 0x1C00A4E7C (RIMSyncWalkRimObjList.c)
  */
 
-__int64 __fastcall RIMSetTestModeStatus(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall RIMSetTestModeStatus(int a1)
 {
-  int v4; // edi
-  __int64 v5; // r9
-
-  v4 = a1;
-  *(_BYTE *)(SGDGetUserSessionState(a1, a2, a3, a4) + 353) = (_DWORD)a1 != 0;
-  if ( !v4 )
+  gbTestModeOn = a1;
+  if ( !a1 )
     RIMSyncWalkRimObjList(
-      1LL,
+      1,
       0LL,
-      (void (__fastcall *)(_QWORD *, __int64))lambda_7defdb4f8a89d43cd844866b7ff54225_::_lambda_invoker_cdecl_,
-      v5);
+      (void (__fastcall *)(_QWORD *, __int64))lambda_853903f4a8935f92af3ddbe6242dc426_::_lambda_invoker_cdecl_);
   return 0LL;
 }

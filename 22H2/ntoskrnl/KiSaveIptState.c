@@ -1,23 +1,22 @@
 /*
- * XREFs of KiSaveIptState @ 0x140572DB0
+ * XREFs of KiSaveIptState @ 0x14051A418
  * Callers:
- *     KeSaveSupervisorState @ 0x14020E4AC (KeSaveSupervisorState.c)
- *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x140572738 (KeSaveIptStateBeforeProcessorGoesOffline.c)
- *     KiSaveThreadIptState @ 0x140572EB0 (KiSaveThreadIptState.c)
+ *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x140383D38 (KeSaveIptStateBeforeProcessorGoesOffline.c)
+ *     KeSaveSupervisorState @ 0x140519E38 (KeSaveSupervisorState.c)
+ *     KiSaveThreadIptState @ 0x14051A520 (KiSaveThreadIptState.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall KiSaveIptState(unsigned __int64 *a1)
 {
-  char v1; // r9
+  int v1; // r9d
   unsigned __int64 v2; // rax
   unsigned __int64 *v3; // r8
   unsigned __int64 v4; // rax
   _QWORD *v5; // r8
   unsigned int i; // r10d
-  int v7; // eax
-  unsigned __int64 v8; // rax
+  unsigned __int64 v7; // rax
 
   v1 = 0;
   if ( KiXSaveAreaLength )
@@ -41,13 +40,12 @@ void __fastcall KiSaveIptState(unsigned __int64 *a1)
       *v5++ = __readmsr(0x572u);
     for ( i = 1409; i < 0x589; i += 2 )
     {
-      v7 = KiIptMsrMask;
-      if ( !_bittest(&v7, (unsigned __int8)(v1 + 5)) )
+      if ( !_bittest((const signed __int32 *)&KiIptMsrMask, v1 + 5) )
         break;
       *v5 = __readmsr(i - 1);
-      v8 = __readmsr(i);
+      v7 = __readmsr(i);
       ++v1;
-      v5[1] = v8;
+      v5[1] = v7;
       v5 += 2;
     }
   }

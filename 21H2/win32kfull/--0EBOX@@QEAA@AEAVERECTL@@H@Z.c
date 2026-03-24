@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0EBOX@@QEAA@AEAVERECTL@@H@Z @ 0x1C00FBD00
+ * XREFs of ??0EBOX@@QEAA@AEAVERECTL@@H@Z @ 0x1C00A3378
  * Callers:
- *     NtGdiCreateRoundRectRgn @ 0x1C00FBB60 (NtGdiCreateRoundRectRgn.c)
- *     NtGdiCreateEllipticRgn @ 0x1C029DFA0 (NtGdiCreateEllipticRgn.c)
+ *     NtGdiCreateRoundRectRgn @ 0x1C00A31D0 (NtGdiCreateRoundRectRgn.c)
+ *     NtGdiCreateEllipticRgn @ 0x1C029F6D0 (NtGdiCreateEllipticRgn.c)
  * Callees:
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C002F5C4 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00B79F8 (-vOrder@ERECTL@@QEAAXXZ.c)
  */
 
 EBOX *__fastcall EBOX::EBOX(EBOX *this, struct ERECTL *a2)
@@ -18,6 +18,7 @@ EBOX *__fastcall EBOX::EBOX(EBOX *this, struct ERECTL *a2)
   int v8; // eax
   int v9; // eax
   int v10; // r8d
+  int v11; // edx
   EBOX *result; // rax
 
   ERECTL::vOrder(a2);
@@ -46,12 +47,13 @@ EBOX *__fastcall EBOX::EBOX(EBOX *this, struct ERECTL *a2)
   *(_DWORD *)(v4 + 28) = v9;
   *(_DWORD *)(v4 + 36) = v9;
   *(_DWORD *)(v4 + 48) = v10;
-  *(_DWORD *)(v4 + 60) = (v6 - v9 + 1) >> 1;
+  v11 = (v6 - v9 + 1) >> 1;
+  *(_DWORD *)(v4 + 60) = v11;
   *(_QWORD *)(v4 + 40) = *(_QWORD *)(v4 + 24);
-  LODWORD(v2) = *(_DWORD *)(v4 + 44);
-  *(_DWORD *)(v4 + 44) = (_DWORD)v2;
-  *(_DWORD *)(v4 + 40) += v10 + *(_DWORD *)(v4 + 56);
   result = (EBOX *)v4;
-  *(_DWORD *)(v4 + 44) = *(_DWORD *)(v4 + 60) + (_DWORD)v2;
+  *(_DWORD *)(v4 + 40) += v10;
+  *(_DWORD *)(v4 + 40) = *(_DWORD *)(v4 + 40);
+  *(_DWORD *)(v4 + 44) = *(_DWORD *)(v4 + 44);
+  *(_DWORD *)(v4 + 44) += v11;
   return result;
 }

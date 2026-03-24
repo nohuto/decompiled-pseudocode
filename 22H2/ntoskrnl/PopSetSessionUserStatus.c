@@ -1,51 +1,44 @@
 /*
- * XREFs of PopSetSessionUserStatus @ 0x1407A62CC
+ * XREFs of PopSetSessionUserStatus @ 0x1407255E4
  * Callers:
- *     PopSessionDisconnected @ 0x140683338 (PopSessionDisconnected.c)
- *     PopAdaptiveGetConsoleSessionState @ 0x1407A65C8 (PopAdaptiveGetConsoleSessionState.c)
- *     PopAdaptiveGetRemoteSessionState @ 0x140860B70 (PopAdaptiveGetRemoteSessionState.c)
+ *     PopConsoleSessionPassiveInput @ 0x140725018 (PopConsoleSessionPassiveInput.c)
+ *     PopSessionInputChange @ 0x140725094 (PopSessionInputChange.c)
+ *     PopRemoteSessionActiveInput @ 0x140772B48 (PopRemoteSessionActiveInput.c)
+ *     PopSessionDisconnected @ 0x1407799D8 (PopSessionDisconnected.c)
+ *     PopCheckConsoleTimeouts @ 0x1408F5014 (PopCheckConsoleTimeouts.c)
+ *     PopInputDisabled @ 0x1408F515C (PopInputDisabled.c)
  * Callees:
- *     PopPrintEx @ 0x14032A4CC (PopPrintEx.c)
- *     PopSetPowerSettingValue @ 0x140782F08 (PopSetPowerSettingValue.c)
- *     PopPrintUserActivityPresence @ 0x1407A63C0 (PopPrintUserActivityPresence.c)
- *     PopDiagTraceSessionState @ 0x1407A63F8 (PopDiagTraceSessionState.c)
- *     PopEvaluateGlobalUserStatus @ 0x1407A6464 (PopEvaluateGlobalUserStatus.c)
- *     PopExtendConnectionState @ 0x1408623E4 (PopExtendConnectionState.c)
+ *     PopPrintEx @ 0x140364318 (PopPrintEx.c)
+ *     PopSetPowerSettingValue @ 0x1406F36C8 (PopSetPowerSettingValue.c)
+ *     PopDiagTraceSessionStates @ 0x140725380 (PopDiagTraceSessionStates.c)
+ *     PopEvaluateGlobalUserStatus @ 0x1407256C8 (PopEvaluateGlobalUserStatus.c)
+ *     PopPrintUserActivityPresence @ 0x1407257F8 (PopPrintUserActivityPresence.c)
+ *     PopExtendConnectionState @ 0x1407D2414 (PopExtendConnectionState.c)
  */
 
 __int64 __fastcall PopSetSessionUserStatus(unsigned int a1, unsigned int a2)
 {
-  unsigned __int64 v3; // rbx
   const wchar_t *v4; // rax
-  unsigned __int64 v5; // rdx
-  char v6; // bl
-  int v7; // eax
-  int v8; // eax
-  unsigned int v10; // [rsp+40h] [rbp+8h] BYREF
+  unsigned int Src; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = a1;
-  if ( dword_140C39CD8 == a1 && a1 != -1 )
-    dword_140C39CDC = a2;
-  v10 = a2;
+  if ( (_DWORD)PopConsoleContext == a1 && a1 != -1 )
+    LODWORD(qword_140C20580) = a2;
+  Src = a2;
   v4 = (const wchar_t *)PopPrintUserActivityPresence(a2);
-  PopPrintEx(3LL, (__int64)"PopAdaptive: Session %u user presence/activity state: %S\n", v3, v4);
-  PopDiagTraceSessionState(&POP_ETW_ADPM_SESSION_INPUT_STATE);
-  PopSetPowerSettingValue(&GUID_SESSION_USER_PRESENCE, v3, 0, 4u, &v10);
-  PopSetPowerSettingValue(&GUID_SESSION_USER_PRESENCE, v3, 1, 4u, &v10);
+  PopPrintEx(3LL, (__int64)"PopAdaptive: Session %u user presence/activity state: %S\n", a1, v4);
+  PopDiagTraceSessionStates(&POP_ETW_ADPM_SESSION_INPUT_STATE, a1, a2);
+  PopSetPowerSettingValue(&GUID_SESSION_USER_PRESENCE, a1, 0, 4u, &Src);
+  PopSetPowerSettingValue(&GUID_SESSION_USER_PRESENCE, a1, 1, 4u, &Src);
   if ( PopMaximumConnectionSessions )
   {
-    if ( (unsigned int)v3 >= PopMaximumConnectionSessions )
-      PopExtendConnectionState((unsigned int)v3);
+    if ( a1 >= PopMaximumConnectionSessions )
+      PopExtendConnectionState(a1);
     if ( PopMaximumConnectionSessions )
     {
-      v5 = v3 >> 3;
-      v6 = v3 & 7;
-      v7 = *((char *)PopConnectionBitmap.Buffer + v5);
       if ( a2 )
-        v8 = v7 & ~(1 << v6);
+        _bittestandreset((signed __int32 *)PopConnectionBitmap.Buffer, a1);
       else
-        v8 = v7 | (1 << v6);
-      *((_BYTE *)PopConnectionBitmap.Buffer + v5) = v8;
+        _bittestandset((signed __int32 *)PopConnectionBitmap.Buffer, a1);
     }
   }
   return PopEvaluateGlobalUserStatus();

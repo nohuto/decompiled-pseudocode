@@ -1,238 +1,214 @@
 /*
- * XREFs of PopIrpWorker @ 0x1403B1270
+ * XREFs of PopIrpWorker @ 0x14039FE70
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseSemaphoreEx @ 0x14035AD70 (KeReleaseSemaphoreEx.c)
- *     PoDeviceAcquireIrp @ 0x1403A39B8 (PoDeviceAcquireIrp.c)
- *     PopPepDeviceDState @ 0x1403B1624 (PopPepDeviceDState.c)
- *     PopFxGetDeviceDStateReason @ 0x1403B1794 (PopFxGetDeviceDStateReason.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PsTerminateSystemThread @ 0x1406E5A70 (PsTerminateSystemThread.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022D600 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     KeReleaseSemaphore @ 0x14029AC70 (KeReleaseSemaphore.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PoDeviceAcquireIrp @ 0x14037C864 (PoDeviceAcquireIrp.c)
+ *     PopPepDeviceDState @ 0x1403A0220 (PopPepDeviceDState.c)
+ *     PopFxGetDeviceDStateReason @ 0x1403A0514 (PopFxGetDeviceDStateReason.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopAcquireIrpWorkerLock @ 0x140577BD0 (PopAcquireIrpWorkerLock.c)
+ *     PopReleaseIrpWorkerLock @ 0x140577BEC (PopReleaseIrpWorkerLock.c)
+ *     PsTerminateSystemThread @ 0x1406C0930 (PsTerminateSystemThread.c)
  */
 
-NTSTATUS __fastcall PopIrpWorker(volatile signed __int32 **Entry, __int64 a2, __int64 a3, _DWORD *a4)
+NTSTATUS __fastcall PopIrpWorker(struct _KSEMAPHORE **Entry)
 {
-  unsigned __int8 v4; // r15
-  volatile signed __int32 *v6; // rcx
+  unsigned __int8 CurrentIrql; // r15
+  struct _KSEMAPHORE *v3; // rcx
   LARGE_INTEGER *Timeout; // r12
-  __int64 v8; // rdi
+  __int64 v5; // rdi
+  __int64 v6; // rax
+  int v7; // ecx
+  ULONG_PTR v8; // rsi
   __int64 v9; // rax
-  unsigned __int64 OldIrql; // rsi
-  int v11; // ecx
-  ULONG_PTR v12; // r14
-  __int64 v13; // rax
-  __int64 v14; // rcx
-  __int64 v15; // rdi
-  __int64 v16; // r10
-  char v17; // si
-  __int64 v18; // rax
-  __int64 v19; // r11
-  __int64 v20; // rcx
-  int v21; // esi
+  __int64 v10; // rcx
+  __int64 v11; // rdi
+  __int64 v12; // r10
+  char v13; // r14
+  __int64 v14; // rax
+  __int64 v15; // r11
+  __int64 v16; // rcx
+  int v17; // r14d
   int DeviceDStateReason; // eax
-  __int64 v23; // r10
-  __int64 v24; // r11
-  __int64 v25; // rdx
-  int v26; // edx
-  __int128 v27; // kr00_16
-  char v28; // di
-  unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r10
+  __int64 v19; // r10
+  __int64 v20; // r11
+  __int64 v21; // rdx
+  int v22; // edx
+  __int128 v23; // kr00_16
+  char v24; // di
   _DWORD *SchedulerAssist; // r9
-  int v33; // eax
-  bool v34; // zf
-  _DWORD *v35; // r9
-  unsigned __int8 v36; // al
-  struct _KPRCB *v37; // r10
-  _DWORD *v38; // r9
-  int v39; // eax
+  unsigned __int8 v27; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *v29; // r9
+  int v30; // eax
+  bool v31; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-50h] BYREF
-  __int128 v41; // [rsp+48h] [rbp-38h] BYREF
-  __m256i v42; // [rsp+58h] [rbp-28h]
-  LARGE_INTEGER v43; // [rsp+A0h] [rbp+20h] BYREF
+  __int128 v33; // [rsp+48h] [rbp-38h] BYREF
+  __m256i v34; // [rsp+58h] [rbp-28h]
+  LARGE_INTEGER v35; // [rsp+A0h] [rbp+20h] BYREF
 
-  v43.QuadPart = 0LL;
-  v4 = 0;
+  v35.QuadPart = 0LL;
+  CurrentIrql = 0;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v41 = 0LL;
-  *(_OWORD *)&v42.m256i_u64[2] = 0LL;
-  *(_OWORD *)v42.m256i_i8 = (unsigned __int64)KeGetCurrentThread();
+  v33 = 0LL;
+  *(_OWORD *)&v34.m256i_u64[2] = 0LL;
+  *(_OWORD *)v34.m256i_i8 = (unsigned __int64)KeGetCurrentThread();
   if ( Entry )
   {
-    v6 = *Entry;
-    if ( v6 )
-      KeReleaseSemaphoreEx(v6, 0LL, 1LL, a4, 0);
+    v3 = *Entry;
+    if ( v3 )
+      KeReleaseSemaphore(v3, 0, 1, 0);
     ExFreeToNPagedLookasideList(&PopDynamicIrpWorkerLookaside, Entry);
-    v43.QuadPart = -100000000LL;
-    Timeout = &v43;
-    v42.m256i_i8[24] = 0;
+    v35.QuadPart = -100000000LL;
+    Timeout = &v35;
+    v34.m256i_i8[24] = 0;
   }
   else
   {
     Timeout = 0LL;
-    v42.m256i_i8[24] = 1;
+    v34.m256i_i8[24] = 1;
   }
-  ExAcquireFastMutex(&PopIrpWorkerMutex);
+  PopAcquireIrpWorkerLock();
   --PopIrpWorkerPendingCount;
   ++PopIrpWorkerCount;
-  if ( *(__int64 **)qword_140C1FB58 != &PopIrpThreadList )
-LABEL_43:
+  if ( *(__int64 **)qword_140C20BE8 != &PopIrpThreadList )
+LABEL_61:
     __fastfail(3u);
-  *(_QWORD *)&v41 = &PopIrpThreadList;
-  *((_QWORD *)&v41 + 1) = qword_140C1FB58;
-  *(_QWORD *)qword_140C1FB58 = &v41;
-  qword_140C1FB58 = (__int64)&v41;
+  *(_QWORD *)&v33 = &PopIrpThreadList;
+  *((_QWORD *)&v33 + 1) = qword_140C20BE8;
+  *(_QWORD *)qword_140C20BE8 = &v33;
+  qword_140C20BE8 = (__int64)&v33;
 LABEL_7:
-  KeReleaseGuardedMutex(&PopIrpWorkerMutex);
+  PopReleaseIrpWorkerLock();
   do
   {
     if ( KeWaitForSingleObject(&PopIrpWorkerSemaphore, Executive, 0, 0, Timeout) != 258 )
     {
       KeAcquireInStackQueuedSpinLock(&PopIrpLock, &LockHandle);
-      v8 = PopIrpWorkerList;
-      v9 = *(_QWORD *)PopIrpWorkerList;
-      if ( *(__int64 **)(PopIrpWorkerList + 8) != &PopIrpWorkerList || *(_QWORD *)(v9 + 8) != PopIrpWorkerList )
-        goto LABEL_43;
+      v5 = PopIrpWorkerList;
+      v6 = *(_QWORD *)PopIrpWorkerList;
+      if ( *(__int64 **)(PopIrpWorkerList + 8) != &PopIrpWorkerList || *(_QWORD *)(v6 + 8) != PopIrpWorkerList )
+        goto LABEL_61;
       PopIrpWorkerList = *(_QWORD *)PopIrpWorkerList;
-      *(_QWORD *)(v9 + 8) = &PopIrpWorkerList;
-      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-      OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
-      {
-        if ( (KiIrqlFlags & 1) != 0 )
-        {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
-          {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v33 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-            v34 = (v33 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v33;
-            if ( v34 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-          }
-        }
-      }
-      __writecr8(OldIrql);
-      ExAcquireFastMutex(&PopIrpWorkerMutex);
-      v11 = ++PopIrpWorkerInFlightCount;
+      *(_QWORD *)(v6 + 8) = &PopIrpWorkerList;
+      KeReleaseInStackQueuedSpinLock(&LockHandle);
+      PopAcquireIrpWorkerLock();
+      v7 = ++PopIrpWorkerInFlightCount;
       if ( PopCreateIrpWorkerAllowed
-        && v11 == PopIrpWorkerCount
-        && (unsigned int)PopIrpWorkerCount < 0xF
+        && v7 == PopIrpWorkerCount
         && !PopIrpWorkerPendingCount
+        && (unsigned int)PopIrpWorkerCount < 0xF
         && !PopIrpWorkerRequested )
       {
         PopIrpWorkerRequested = 1;
         KeSetEvent(&PopIrpWorkerControlEvent, 0, 0);
       }
-      KeReleaseGuardedMutex(&PopIrpWorkerMutex);
-      v12 = v8 - 168;
-      v13 = *(_QWORD *)(v8 - 168 + 184);
-      v14 = v8 - 168;
-      v15 = *(_QWORD *)(v13 + 40);
-      PoDeviceAcquireIrp(v14, *(_BYTE *)(v13 + 1), v15);
-      v16 = *(_QWORD *)(v12 + 72LL * *(char *)(v12 + 66) + 200);
-      if ( *(_BYTE *)(v16 + 184) == 2 && *(_DWORD *)(v16 + 188) == 1 && *(_QWORD *)(v16 + 32) == v15 )
+      PopReleaseIrpWorkerLock();
+      v8 = v5 - 168;
+      v9 = *(_QWORD *)(v5 - 168 + 184);
+      v10 = v5 - 168;
+      v11 = *(_QWORD *)(v9 + 40);
+      PoDeviceAcquireIrp(v10, *(_BYTE *)(v9 + 1), v11);
+      v12 = *(_QWORD *)(v8 + 72LL * *(char *)(v8 + 66) + 200);
+      if ( *(_BYTE *)(v12 + 184) == 2 && *(_DWORD *)(v12 + 188) == 1 && *(_QWORD *)(v12 + 32) == v11 )
       {
-        v18 = *(_QWORD *)(v16 + 24);
-        v19 = *(_QWORD *)(v16 + 200);
-        v20 = v18 ? *(_QWORD *)(*(_QWORD *)(v18 + 312) + 40LL) : 0LL;
-        v21 = *(_DWORD *)(v20 + 156);
-        *(_DWORD *)(v20 + 156) = *(_DWORD *)(v16 + 192);
-        if ( v19 )
+        v14 = *(_QWORD *)(v12 + 24);
+        v15 = *(_QWORD *)(v12 + 200);
+        v16 = v14 ? *(_QWORD *)(*(_QWORD *)(v14 + 312) + 40LL) : 0LL;
+        v17 = *(_DWORD *)(v16 + 156);
+        *(_DWORD *)(v16 + 156) = *(_DWORD *)(v12 + 192);
+        if ( v15 )
         {
-          DeviceDStateReason = PopFxGetDeviceDStateReason(v19);
-          *(_DWORD *)(v23 + 280) = DeviceDStateReason;
-          *(_BYTE *)(v23 + 208) = 0;
+          DeviceDStateReason = PopFxGetDeviceDStateReason(v15);
+          *(_DWORD *)(v19 + 248) = DeviceDStateReason;
+          *(_BYTE *)(v19 + 208) = 0;
           if ( DeviceDStateReason == 1 )
-            *(_BYTE *)(v23 + 208) = 1;
-          v25 = *(unsigned int *)(v23 + 192);
-          *(_BYTE *)(v23 + 209) = (_DWORD)v25 != v21;
-          if ( (_DWORD)v25 != v21 )
+            *(_BYTE *)(v19 + 208) = 1;
+          v21 = *(unsigned int *)(v19 + 192);
+          *(_BYTE *)(v19 + 209) = (_DWORD)v21 != v17;
+          if ( (_DWORD)v21 != v17 )
           {
-            if ( (_DWORD)v25 == 1 )
+            if ( (_DWORD)v21 == 1 )
             {
-              _InterlockedOr((volatile signed __int32 *)(v24 + 32), 2u);
-              v25 = *(unsigned int *)(v23 + 192);
+              _InterlockedOr((volatile signed __int32 *)(v20 + 32), 2u);
+              v21 = *(unsigned int *)(v19 + 192);
             }
-            PopPepDeviceDState(*(_QWORD *)(v24 + 56), v25, 0LL, *(unsigned int *)(v23 + 280));
+            PopPepDeviceDState(*(_QWORD *)(v20 + 56), v21, 0LL, *(unsigned int *)(v19 + 248));
           }
         }
       }
-      v17 = 0;
-      v42.m256i_i64[1] = v12;
-      v42.m256i_i64[2] = v15;
-      if ( (*(_DWORD *)(v15 + 48) & 0x2000) == 0 && v12 == PopInrushIrp )
+      v13 = 0;
+      v34.m256i_i64[1] = v8;
+      v34.m256i_i64[2] = v11;
+      if ( (*(_DWORD *)(v11 + 48) & 0x2000) == 0 && v8 == PopInrushIrp )
       {
-        v4 = KeGetCurrentIrql();
+        CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v4 <= 0xFu )
+        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
-          v35 = KeGetCurrentPrcb()->SchedulerAssist;
-          v35[5] |= (-1 << (v4 + 1)) & 4;
+          SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+          SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
         }
-        v17 = 1;
+        v13 = 1;
       }
-      (*(void (__fastcall **)(__int64, ULONG_PTR))(*(_QWORD *)(v15 + 8) + 288LL))(v15, v12);
-      if ( v17 )
+      (*(void (__fastcall **)(__int64, ULONG_PTR))(*(_QWORD *)(v11 + 8) + 288LL))(v11, v8);
+      if ( v13 )
       {
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )
           {
-            v36 = KeGetCurrentIrql();
-            if ( v36 <= 0xFu && v4 <= 0xFu && v36 >= 2u )
+            v27 = KeGetCurrentIrql();
+            if ( v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
             {
-              v37 = KeGetCurrentPrcb();
-              v38 = v37->SchedulerAssist;
-              v39 = ~(unsigned __int16)(-1LL << (v4 + 1));
-              v34 = (v39 & v38[5]) == 0;
-              v38[5] &= v39;
-              if ( v34 )
-                KiRemoveSystemWorkPriorityKick(v37);
+              CurrentPrcb = KeGetCurrentPrcb();
+              v29 = CurrentPrcb->SchedulerAssist;
+              v30 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+              v31 = (v30 & v29[5]) == 0;
+              v29[5] &= v30;
+              if ( v31 )
+                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
         }
-        __writecr8(v4);
+        __writecr8(CurrentIrql);
       }
       if ( KeGetCurrentThread()->WaitBlock[3].SpareLong )
-        KeBugCheckEx(0xA0u, 0x901uLL, v15, v12, KeGetCurrentThread()->CombinedApcDisable);
-      *(_OWORD *)&v42.m256i_u64[1] = 0LL;
-      ObfDereferenceObjectWithTag((PVOID)v15, 0x72496F50u);
-      ExAcquireFastMutex(&PopIrpWorkerMutex);
+        KeBugCheckEx(0xA0u, 0x901uLL, v11, v8, KeGetCurrentThread()->CombinedApcDisable);
+      *(_OWORD *)&v34.m256i_u64[1] = 0LL;
+      ObfDereferenceObjectWithTag((PVOID)v11, 0x72496F50u);
+      PopAcquireIrpWorkerLock();
       --PopIrpWorkerInFlightCount;
       goto LABEL_7;
     }
-    ExAcquireFastMutex(&PopIrpWorkerMutex);
+    PopAcquireIrpWorkerLock();
     if ( PopCreateIrpWorkerAllowed
-      && ((v26 = PopIrpWorkerCount - 1, PopIrpWorkerInFlightCount != PopIrpWorkerCount - 1) || PopIrpWorkerPendingCount) )
+      && ((v22 = PopIrpWorkerCount - 1, PopIrpWorkerInFlightCount != PopIrpWorkerCount - 1) || PopIrpWorkerPendingCount) )
     {
-      v27 = v41;
-      v28 = 0;
-      if ( *(__int128 **)(v41 + 8) != &v41 || **((__int128 ***)&v41 + 1) != &v41 )
-        goto LABEL_43;
-      **((_QWORD **)&v41 + 1) = v41;
-      *(_QWORD *)(v27 + 8) = *((_QWORD *)&v27 + 1);
-      PopIrpWorkerCount = v26;
+      v23 = v33;
+      v24 = 0;
+      if ( *(__int128 **)(v33 + 8) != &v33 || **((__int128 ***)&v33 + 1) != &v33 )
+        goto LABEL_61;
+      **((_QWORD **)&v33 + 1) = v33;
+      *(_QWORD *)(v23 + 8) = *((_QWORD *)&v23 + 1);
+      PopIrpWorkerCount = v22;
     }
     else
     {
-      v28 = 1;
+      v24 = 1;
     }
-    KeReleaseGuardedMutex(&PopIrpWorkerMutex);
+    PopReleaseIrpWorkerLock();
   }
-  while ( v28 );
+  while ( v24 );
   return PsTerminateSystemThread(0);
 }

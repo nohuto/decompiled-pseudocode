@@ -1,54 +1,62 @@
 /*
- * XREFs of PopPowerAggregatorNotifyPdcSleepTransition @ 0x140993CB8
+ * XREFs of PopPowerAggregatorNotifyPdcSleepTransition @ 0x1408EE6C8
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x140599840 (PdcPoCurrentPdcPhase.c)
+ *     PdcPoCurrentPdcPhase @ 0x140576300 (PdcPoCurrentPdcPhase.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorScheduleWorker @ 0x140875FC0 (PopPowerAggregatorScheduleWorker.c)
- *     PopPowerAggregatorDiagTracePdcSleepTransition @ 0x1409A1014 (PopPowerAggregatorDiagTracePdcSleepTransition.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorScheduleWorker @ 0x140776DF0 (PopPowerAggregatorScheduleWorker.c)
+ *     PopPowerAggregatorDiagTracePdcSleepTransition @ 0x1408FA4C8 (PopPowerAggregatorDiagTracePdcSleepTransition.c)
  */
 
-__int64 __fastcall PopPowerAggregatorNotifyPdcSleepTransition(char a1, int a2, int a3)
+__int64 __fastcall PopPowerAggregatorNotifyPdcSleepTransition(char a1, int a2)
 {
-  int v6; // ecx
-  unsigned int v7; // edi
+  int v4; // ecx
+  unsigned int v5; // ebx
 
   PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
-  if ( (_DWORD)xmmword_140C3AAD8 == 1 )
+  if ( (_DWORD)xmmword_140C21828 == 1 )
   {
-    v7 = 0;
+    v5 = 0;
     if ( a1 )
-      goto LABEL_5;
-    goto LABEL_7;
-  }
-  if ( (_DWORD)xmmword_140C3AAD8 == 4 )
-  {
-    v7 = 0;
-    if ( !a1 )
     {
-LABEL_5:
-      LOBYTE(xmmword_140C3AAE8) = 0;
-      *(_QWORD *)((char *)&xmmword_140C3AAE8 + 4) = 0LL;
-      goto LABEL_8;
+      BYTE8(xmmword_140C21838) = 0;
+      HIDWORD(xmmword_140C21838) = 0;
+      goto LABEL_13;
     }
-LABEL_7:
-    DWORD2(xmmword_140C3AAE8) = a3;
-    v7 = 259;
-    DWORD1(xmmword_140C3AAE8) = a2;
-    LOBYTE(xmmword_140C3AAE8) = 1;
-    PopPowerAggregatorScheduleWorker((__int64)&PopPowerAggregatorContext);
-    goto LABEL_8;
+    BYTE8(xmmword_140C21838) = 1;
+    v5 = 259;
+    HIDWORD(xmmword_140C21838) = a2;
   }
-  v7 = -1073741811;
-LABEL_8:
-  LOBYTE(v6) = a1;
+  else
+  {
+    if ( (_DWORD)xmmword_140C21828 != 4 )
+    {
+      v5 = -1073741811;
+      goto LABEL_13;
+    }
+    if ( a1 )
+    {
+      BYTE8(xmmword_140C21838) = 1;
+      HIDWORD(xmmword_140C21838) = a2;
+    }
+    else
+    {
+      BYTE8(xmmword_140C21838) = 0;
+      HIDWORD(xmmword_140C21838) = 0;
+    }
+    v5 = a1 != 0 ? 0x103 : 0;
+  }
+  if ( v5 == 259 )
+    PopPowerAggregatorScheduleWorker((__int64)&PopPowerAggregatorContext);
+LABEL_13:
+  LOBYTE(v4) = a1;
   PopPowerAggregatorDiagTracePdcSleepTransition(
-    v6,
+    v4,
     a2,
-    (unsigned int)&xmmword_140C3AAB0,
-    (unsigned int)&xmmword_140C3AAD8,
-    v7);
-  PopReleaseRwLock(&PopPowerAggregatorLock);
-  return v7;
+    (unsigned int)&xmmword_140C217F8,
+    (unsigned int)&xmmword_140C21828,
+    v5);
+  PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
+  return v5;
 }

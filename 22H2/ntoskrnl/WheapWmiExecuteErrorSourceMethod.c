@@ -1,16 +1,16 @@
 /*
- * XREFs of WheapWmiExecuteErrorSourceMethod @ 0x140613BB8
+ * XREFs of WheapWmiExecuteErrorSourceMethod @ 0x1405BD8D8
  * Callers:
- *     WheapWmiExecuteMethod @ 0x140613FD0 (WheapWmiExecuteMethod.c)
+ *     WheapWmiExecuteMethod @ 0x1405BDCF0 (WheapWmiExecuteMethod.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     WheapGetErrorSource @ 0x140610F08 (WheapGetErrorSource.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     WheapGetErrorSource @ 0x1405BBA0C (WheapGetErrorSource.c)
  */
 
 __int64 __fastcall WheapWmiExecuteErrorSourceMethod(
         int a1,
         unsigned int a2,
-        unsigned int *a3,
+        int *a3,
         unsigned int a4,
         unsigned int *a5)
 {
@@ -19,11 +19,11 @@ __int64 __fastcall WheapWmiExecuteErrorSourceMethod(
   int v8; // ecx
   int v9; // ecx
   unsigned int v10; // edi
-  unsigned int v11; // r11d
+  unsigned int v11; // r10d
   __int64 *ErrorSource; // rax
   unsigned int v13; // eax
   __int64 *v14; // rax
-  unsigned int *v15; // rcx
+  int *v15; // rcx
   __int64 v16; // r8
   _BYTE *v17; // rdx
   __int128 v18; // xmm1
@@ -40,13 +40,13 @@ __int64 __fastcall WheapWmiExecuteErrorSourceMethod(
   __int64 *v29; // rax
   __int64 *v30; // rcx
   __int64 v31; // r8
-  unsigned int *v32; // rbx
+  int *v32; // rbx
   __int128 v33; // xmm1
-  __int64 *v34; // r10
-  unsigned int *v35; // rbx
-  unsigned int v36; // ebp
+  __int64 *v34; // r11
+  int *v35; // rbx
+  int v36; // ebp
   unsigned int i; // esi
-  unsigned int *v38; // rcx
+  int *v38; // rcx
   __int64 *v39; // rdx
   __int64 v40; // rax
   __int128 v41; // xmm1
@@ -177,7 +177,7 @@ LABEL_28:
     else
     {
       v10 = 0;
-      if ( !dword_140CF7B1C )
+      if ( !dword_140CDB11C )
         goto LABEL_35;
       if ( a4 < 4 )
         goto LABEL_28;
@@ -220,18 +220,18 @@ LABEL_28:
   {
     v11 = 0;
     v10 = 0;
-    if ( !dword_140CF7B1C )
+    if ( !dword_140CDB11C )
       goto LABEL_35;
-    v10 = 972 * dword_140CF7B1C + 12;
+    v10 = 972 * dword_140CDB11C + 12;
     if ( v10 > a2 )
       goto LABEL_37;
     *a3 = 0;
-    v34 = (__int64 *)qword_140CF7B28;
+    v34 = (__int64 *)qword_140CDB128;
     v35 = a3 + 3;
     v36 = 0;
-    for ( i = 0; v34 != &qword_140CF7B28; v34 = (__int64 *)*v34 )
+    for ( i = 0; v34 != &qword_140CDB128; v34 = (__int64 *)*v34 )
     {
-      if ( i >= dword_140CF7B1C )
+      if ( i >= dword_140CDB11C )
         break;
       v38 = v35;
       v39 = v34 + 12;

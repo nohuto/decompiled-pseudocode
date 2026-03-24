@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetFastLargePage @ 0x14085D44C
+ * XREFs of MiGetFastLargePage @ 0x14085D42C
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x14085C900 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
  * Callees:
  *     MiUpdateLargePageBitMap @ 0x140027BE8 (MiUpdateLargePageBitMap.c)
  *     MiGetLargePageDemoteAsNeeded @ 0x140028AD4 (MiGetLargePageDemoteAsNeeded.c)
@@ -9,7 +9,7 @@
  *     MiPfnZeroingNeeded @ 0x14002BDB0 (MiPfnZeroingNeeded.c)
  *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
  *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     MiSetPfnOriginalPte @ 0x1402BFCF4 (MiSetPfnOriginalPte.c)
+ *     MiSetPfnOriginalPte @ 0x1402BFDF4 (MiSetPfnOriginalPte.c)
  */
 
 __int64 __fastcall MiGetFastLargePage(

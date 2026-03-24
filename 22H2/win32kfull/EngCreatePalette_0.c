@@ -1,5 +1,5 @@
 /*
- * XREFs of EngCreatePalette_0 @ 0x1C0138AD0
+ * XREFs of EngCreatePalette_0 @ 0x1C0165C00
  * Callers:
  *     <none>
  * Callees:

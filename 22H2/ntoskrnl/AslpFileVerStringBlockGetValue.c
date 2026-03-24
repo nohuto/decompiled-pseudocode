@@ -1,23 +1,24 @@
 /*
- * XREFs of AslpFileVerStringBlockGetValue @ 0x1407BE9C4
+ * XREFs of AslpFileVerStringBlockGetValue @ 0x1407B31F4
  * Callers:
- *     AslpFileQueryVersionString @ 0x1406D4614 (AslpFileQueryVersionString.c)
+ *     AslpFileQueryVersionString @ 0x1407B329C (AslpFileQueryVersionString.c)
  * Callees:
- *     AslpFileVerBlockGetValueOffset @ 0x14022BE8C (AslpFileVerBlockGetValueOffset.c)
- *     RtlStringCbLengthW @ 0x14022BF00 (RtlStringCbLengthW.c)
+ *     RtlStringCbLengthW @ 0x1403224DC (RtlStringCbLengthW.c)
+ *     AslpFileVerBlockGetValueOffset @ 0x1403BD1F8 (AslpFileVerBlockGetValueOffset.c)
  */
 
 NTSTATUS __fastcall AslpFileVerStringBlockGetValue(__int64 *a1, size_t *a2, __int64 a3, unsigned __int64 a4)
 {
+  size_t v7; // rbx
   NTSTATUS result; // eax
-  size_t v9; // r11
-  size_t v10; // rbx
-  __int64 v11; // r10
-  unsigned __int64 v12; // [rsp+40h] [rbp+8h] BYREF
-  size_t pcbLength; // [rsp+48h] [rbp+10h] BYREF
+  size_t v10; // rdi
+  __int64 v11; // r11
+  unsigned __int64 v12; // [rsp+50h] [rbp+8h] BYREF
+  size_t pcbLength; // [rsp+58h] [rbp+10h] BYREF
 
   *a1 = 0LL;
   *a2 = 0LL;
+  v7 = 0LL;
   v12 = 0LL;
   pcbLength = 0LL;
   result = AslpFileVerBlockGetValueOffset(&v12, a3, a4);
@@ -38,16 +39,16 @@ NTSTATUS __fastcall AslpFileVerStringBlockGetValue(__int64 *a1, size_t *a2, __in
         v10 = a4 - v12;
         if ( RtlStringCbLengthW((STRSAFE_PCNZWCH)(v12 + a3), v10, &pcbLength) < 0 )
         {
-          v9 = v10 - 2;
+          v7 = v10 - 2;
           *(_WORD *)(v11 + 2 * ((v10 - 2) >> 1)) = 0;
         }
         else
         {
-          v9 = pcbLength;
+          v7 = pcbLength;
         }
       }
       result = 0;
-      *a2 = v9 >> 1;
+      *a2 = v7 >> 1;
       *a1 = v11;
     }
   }

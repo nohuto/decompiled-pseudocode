@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiMiracastIoCompleteWork @ 0x1C039F8A0
+ * XREFs of DpiMiracastIoCompleteWork @ 0x1C02CEEF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0028340 (memmove.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
  */
 
 void __fastcall DpiMiracastIoCompleteWork(PVOID IoObject, PVOID *Context, PIO_WORKITEM IoWorkItem)

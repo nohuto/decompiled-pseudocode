@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ClearSynchronizationEvents@CCompiledEffectTemplateMarshaler@DirectComposition@@AEAAXXZ @ 0x1C00BBF58
+ * XREFs of ?ClearSynchronizationEvents@CCompiledEffectTemplateMarshaler@DirectComposition@@AEAAXXZ @ 0x1C00A99E8
  * Callers:
- *     ?ReleaseAllReferences@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00BBF20 (-ReleaseAllReferences@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAAXPEAVCApplicationC.c)
- *     ?SetRemarshalingFlags@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C022EC30 (-SetRemarshalingFlags@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAA_NXZ.c)
+ *     ?ReleaseAllReferences@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00A99B0 (-ReleaseAllReferences@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAAXPEAVCApplicationC.c)
+ *     ?SetRemarshalingFlags@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01EF230 (-SetRemarshalingFlags@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAA_NXZ.c)
  * Callees:
- *     ??_GCEvent@DirectComposition@@QEAAPEAXI@Z @ 0x1C000C9A4 (--_GCEvent@DirectComposition@@QEAAPEAXI@Z.c)
+ *     ??_GCEvent@DirectComposition@@QEAAPEAXI@Z @ 0x1C0059D60 (--_GCEvent@DirectComposition@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall DirectComposition::CCompiledEffectTemplateMarshaler::ClearSynchronizationEvents(
@@ -14,19 +14,19 @@ void __fastcall DirectComposition::CCompiledEffectTemplateMarshaler::ClearSynchr
   __int64 v3; // rcx
   DirectComposition::CEvent *v4; // rcx
 
-  v2 = (DirectComposition::CEvent *)*((_QWORD *)this + 13);
+  v2 = (DirectComposition::CEvent *)*((_QWORD *)this + 12);
   if ( v2 )
   {
     DirectComposition::CEvent::`scalar deleting destructor'(v2);
-    *((_QWORD *)this + 13) = 0LL;
+    *((_QWORD *)this + 12) = 0LL;
   }
-  v3 = *((_QWORD *)this + 12);
+  v3 = *((_QWORD *)this + 11);
   if ( v3 )
   {
     KeSetEvent(*(PRKEVENT *)(v3 + 8), 1, 0);
-    v4 = (DirectComposition::CEvent *)*((_QWORD *)this + 12);
+    v4 = (DirectComposition::CEvent *)*((_QWORD *)this + 11);
     if ( v4 )
       DirectComposition::CEvent::`scalar deleting destructor'(v4);
-    *((_QWORD *)this + 12) = 0LL;
+    *((_QWORD *)this + 11) = 0LL;
   }
 }

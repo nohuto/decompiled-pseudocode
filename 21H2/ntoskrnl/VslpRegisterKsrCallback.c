@@ -1,5 +1,5 @@
 /*
- * XREFs of VslpRegisterKsrCallback @ 0x140AF32C0
+ * XREFs of VslpRegisterKsrCallback @ 0x140A390F0
  * Callers:
  *     <none>
  * Callees:

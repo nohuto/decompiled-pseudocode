@@ -1,89 +1,108 @@
 /*
- * XREFs of ?ReportState@DXGCONTEXT@@QEAAXXZ @ 0x1C02E48D4
+ * XREFs of ?ReportState@DXGCONTEXT@@QEAAXXZ @ 0x1C022F520
  * Callers:
- *     ?ReportState@DXGDEVICE@@QEAAXXZ @ 0x1C02ED05C (-ReportState@DXGDEVICE@@QEAAXXZ.c)
+ *     ?ReportState@DXGDEVICE@@QEAAXXZ @ 0x1C0256DF0 (-ReportState@DXGDEVICE@@QEAAXXZ.c)
  * Callees:
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pppp_EtwWriteTransfer @ 0x1C0048824 (McTemplateK0pppp_EtwWriteTransfer.c)
- *     McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C00488C4 (McTemplateK0pqqqqqqqqppp_EtwWriteTransfer.c)
- *     ?ReportState@DXGHWQUEUE@@IEAAXXZ @ 0x1C031B630 (-ReportState@DXGHWQUEUE@@IEAAXXZ.c)
- *     ?ReportState@DXGDEVICESYNCOBJECT@@QEAAXXZ @ 0x1C0354838 (-ReportState@DXGDEVICESYNCOBJECT@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pppp_EtwWriteTransfer @ 0x1C003FD3C (McTemplateK0pppp_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C003FDDC (McTemplateK0pqqqqqqqqppp_EtwWriteTransfer.c)
+ *     McTemplateK0ppp_EtwWriteTransfer @ 0x1C0047124 (McTemplateK0ppp_EtwWriteTransfer.c)
+ *     ?ReportState@DXGDEVICESYNCOBJECT@@QEAAXXZ @ 0x1C0294F80 (-ReportState@DXGDEVICESYNCOBJECT@@QEAAXXZ.c)
  */
 
 void __fastcall DXGCONTEXT::ReportState(DXGCONTEXT *this, __int64 a2, __int64 a3)
 {
   __int128 v4; // xmm0
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  DXGHWQUEUE *i; // rbx
-  DXGDEVICESYNCOBJECT *v8; // rcx
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
+  __int64 v5; // r9
+  __int128 v6; // xmm1
+  __int64 v7; // rcx
+  __int64 v8; // rcx
+  __int64 *i; // rbx
+  DXGDEVICESYNCOBJECT *v10; // rcx
+  DXGDEVICESYNCOBJECT *v11; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
 
   if ( bTracingEnabled )
   {
     v4 = *(_OWORD *)((char *)this + 200);
-    v5 = *((unsigned int *)this + 6);
-    a2 = *((unsigned int *)this + 99);
-    a3 = *((unsigned int *)this + 98);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
+    v5 = *((_QWORD *)this + 2);
+    v6 = *(_OWORD *)((char *)this + 216);
+    v7 = *((unsigned int *)this + 6);
+    a2 = *((unsigned int *)this + 103);
+    a3 = *((unsigned int *)this + 102);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
       McTemplateK0pqqqqqqqqppp_EtwWriteTransfer(
-        v5,
+        v7,
         &EventReportContext,
         a3,
-        *((_QWORD *)this + 2),
-        a3,
-        a2,
+        v5,
+        *((_DWORD *)this + 102),
+        *((_DWORD *)this + 103),
         (_DWORD)v4,
         DWORD1(v4),
         DWORD2(v4),
         HIDWORD(v4),
-        (unsigned int)*(_OWORD *)((char *)this + 216),
+        (_DWORD)v6,
         0,
         this,
-        v5,
+        v7,
         0LL);
   }
   if ( *((_QWORD *)this + 29) )
-    (*(void (**)(void))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 760LL) + 8LL) + 456LL))();
-  if ( (*((_DWORD *)this + 101) & 0x10) != 0 )
+    (*(void (**)(void))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 640LL) + 8LL) + 464LL))();
+  if ( (*((_DWORD *)this + 105) & 0x10) != 0 )
   {
-    v6 = *((_QWORD *)this + 35);
-    if ( v6 && (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
-      McTemplateK0pppp_EtwWriteTransfer(v6, a2, a3, this, v6, *((_QWORD *)this + 23), *((_QWORD *)this + 24));
-    if ( *((_QWORD *)this + 36) )
-      (*(void (**)(void))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 736LL) + 8LL) + 288LL))();
-    for ( i = (DXGHWQUEUE *)*((_QWORD *)this + 51); i != (DXGCONTEXT *)((char *)this + 408) && i; i = *(DXGHWQUEUE **)i )
-      DXGHWQUEUE::ReportState(i);
-    v8 = (DXGDEVICESYNCOBJECT *)*((_QWORD *)this + 30);
-    if ( v8 )
-      DXGDEVICESYNCOBJECT::ReportState(v8);
+    v8 = *((_QWORD *)this + 37);
+    if ( v8 && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+      McTemplateK0pppp_EtwWriteTransfer(v8, a2, a3, this, v8, *((_QWORD *)this + 23), *((_QWORD *)this + 24));
+    if ( *((_QWORD *)this + 38) )
+      (*(void (**)(void))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 616LL) + 8LL) + 288LL))();
+    for ( i = (__int64 *)*((_QWORD *)this + 53); i != (__int64 *)((char *)this + 424) && i; i = (__int64 *)*i )
+    {
+      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+        McTemplateK0ppp_EtwWriteTransfer(
+          *((unsigned int *)i + 6),
+          &EventReportHwQueue,
+          a3,
+          i[2],
+          *((unsigned int *)i + 6),
+          i);
+      if ( i[5] )
+        (*(void (**)(void))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(i[2] + 16) + 16LL) + 616LL) + 8LL) + 288LL))();
+    }
+    v10 = (DXGDEVICESYNCOBJECT *)*((_QWORD *)this + 30);
+    if ( v10 )
+      DXGDEVICESYNCOBJECT::ReportState(v10);
+    v11 = (DXGDEVICESYNCOBJECT *)*((_QWORD *)this + 32);
+    if ( v11 )
+      DXGDEVICESYNCOBJECT::ReportState(v11);
   }
-  else if ( *((_QWORD *)this + 32) )
+  else if ( *((_QWORD *)this + 34) )
   {
-    (*(void (**)(void))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 736LL) + 8LL) + 280LL))();
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
+    (*(void (**)(void))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 616LL) + 8LL) + 280LL))();
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
       McTemplateK0pppp_EtwWriteTransfer(
-        v10,
-        v9,
-        v11,
+        v13,
+        v12,
+        v14,
         this,
-        *((_QWORD *)this + 32),
+        *((_QWORD *)this + 34),
         *((_QWORD *)this + 23),
         *((_QWORD *)this + 24));
   }
-  if ( !*((_BYTE *)this + 442) )
+  if ( !*((_BYTE *)this + 457) )
   {
-    DXGPUSHLOCK::AcquireExclusive((DXGCONTEXT *)((char *)this + 304));
-    (*(void (__fastcall **)(_QWORD, char *))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 760LL)
+    DXGPUSHLOCK::AcquireExclusive((DXGCONTEXT *)((char *)this + 320));
+    (*(void (__fastcall **)(_QWORD, char *))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 640LL)
                                                        + 8LL)
-                                           + 712LL))(
+                                           + 720LL))(
       *((_QWORD *)this + 2),
-      (char *)this + 336);
-    *((_QWORD *)this + 39) = 0LL;
-    ExReleasePushLockExclusiveEx((char *)this + 304, 0LL);
+      (char *)this + 352);
+    *((_QWORD *)this + 41) = 0LL;
+    ExReleasePushLockExclusiveEx((char *)this + 320, 0LL);
     KeLeaveCriticalRegion();
   }
 }

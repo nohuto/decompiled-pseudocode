@@ -1,11 +1,10 @@
 /*
- * XREFs of ?Pop@CLightStack@@QEAAJXZ @ 0x180014384
+ * XREFs of ?Pop@CLightStack@@QEAAJXZ @ 0x1800159D8
  * Callers:
- *     ?PopLight@CDrawingContext@@AEAAJXZ @ 0x180014344 (-PopLight@CDrawingContext@@AEAAJXZ.c)
- *     ?PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180090300 (-PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?PostSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18009CC10 (-PostSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PostSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180083DB0 (-PostSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?Pop@CDrawingContext@@UEAAJXZ @ 0x1800CDF90 (-Pop@CDrawingContext@@UEAAJXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CLightStack::Pop(CLightStack *this)

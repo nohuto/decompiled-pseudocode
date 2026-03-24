@@ -1,12 +1,12 @@
 /*
- * XREFs of CitDisplayPowerChange @ 0x1C00D0B04
+ * XREFs of CitDisplayPowerChange @ 0x1C00B6FBC
  * Callers:
- *     ?UpdateDisplayState@@YAXW4_MONITOR_DISPLAY_STATE@@W4POWER_MONITOR_REQUEST_REASON@@HH@Z @ 0x1C00D0788 (-UpdateDisplayState@@YAXW4_MONITOR_DISPLAY_STATE@@W4POWER_MONITOR_REQUEST_REASON@@HH@Z.c)
- *     ?UpdateSessionPowerState@@YAXHW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C014747C (-UpdateSessionPowerState@@YAXHW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
+ *     ?UpdateDisplayState@@YAXW4_MONITOR_DISPLAY_STATE@@W4POWER_MONITOR_REQUEST_REASON@@HH@Z @ 0x1C0078BE4 (-UpdateDisplayState@@YAXW4_MONITOR_DISPLAY_STATE@@W4POWER_MONITOR_REQUEST_REASON@@HH@Z.c)
+ *     ?UpdateSessionPowerState@@YAXHW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C0118FDC (-UpdateSessionPowerState@@YAXHW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
  * Callees:
- *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C004CD04 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
- *     ?CitpAllowForegroundProcess@@YAHPEBU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C004D904 (-CitpAllowForegroundProcess@@YAHPEBU_CIT_IMPACT_CONTEXT@@@Z.c)
- *     ?CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C00A6204 (-CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
+ *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C0049BD4 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
+ *     ?CitpAllowForegroundProcess@@YAHPEBU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C004B69C (-CitpAllowForegroundProcess@@YAHPEBU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C008FDFC (-CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
  */
 
 void __fastcall CitDisplayPowerChange(__int64 a1)
@@ -18,13 +18,13 @@ void __fastcall CitDisplayPowerChange(__int64 a1)
   struct _CIT_IMPACT_CONTEXT *v6; // rcx
   struct tagPROCESSINFO *v7; // r8
 
-  v1 = xmmword_1C029A230;
-  if ( xmmword_1C029A230 )
+  v1 = xmmword_1C0255560;
+  if ( xmmword_1C0255560 )
   {
     v3 = *(_DWORD *)(a1 + 64);
-    if ( (*((_DWORD *)xmmword_1C029A230 + 50) == 0) == (v3 == 0) )
+    if ( (*((_DWORD *)xmmword_1C0255560 + 50) == 0) == (v3 == 0) )
     {
-      *((_DWORD *)xmmword_1C029A230 + 50) = v3;
+      *((_DWORD *)xmmword_1C0255560 + 50) = v3;
     }
     else
     {
@@ -32,7 +32,7 @@ void __fastcall CitDisplayPowerChange(__int64 a1)
       v5 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
       if ( !v4 )
       {
-        CitpSetForegroundProcess(xmmword_1C029A230, v5, 0LL, 0LL, 0LL);
+        CitpSetForegroundProcess(xmmword_1C0255560, v5, 0LL, 0LL, 0LL);
         CitpContextFlush(v1, v5);
         v4 = *(_DWORD *)(a1 + 64);
       }

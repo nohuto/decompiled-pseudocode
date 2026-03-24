@@ -1,32 +1,32 @@
 /*
- * XREFs of XmSubOperands @ 0x1403B8818
+ * XREFs of XmSubOperands @ 0x1403964A8
  * Callers:
- *     XmSubOp @ 0x1403AF820 (XmSubOp.c)
- *     XmDecOp @ 0x1403B82A0 (XmDecOp.c)
- *     XmCmpxchgOp @ 0x140533370 (XmCmpxchgOp.c)
- *     XmNegOp @ 0x1405333E0 (XmNegOp.c)
- *     XmSbbOp @ 0x140533410 (XmSbbOp.c)
+ *     XmDecOp @ 0x140395E50 (XmDecOp.c)
+ *     XmSubOp @ 0x140396490 (XmSubOp.c)
+ *     XmCmpxchgOp @ 0x1404E5950 (XmCmpxchgOp.c)
+ *     XmNegOp @ 0x1404E59C0 (XmNegOp.c)
+ *     XmSbbOp @ 0x1404E59F0 (XmSbbOp.c)
  * Callees:
- *     XmStoreResult @ 0x1403B8FA8 (XmStoreResult.c)
+ *     XmStoreResult @ 0x1403966C0 (XmStoreResult.c)
  */
 
 __int64 __fastcall XmSubOperands(_DWORD *a1, unsigned int a2)
 {
   int v2; // eax
   int v3; // r8d
-  char v4; // r11
+  char v4; // bl
   _DWORD *v5; // r9
-  int v6; // r10d
+  int v6; // r11d
   int v7; // eax
-  char v8; // bl
+  char v8; // si
   unsigned __int8 v9; // cl
-  int v10; // r10d
+  int v10; // r11d
   __int64 v11; // rdx
   int v12; // eax
   int v13; // edi
-  char v14; // al
-  unsigned int v15; // r8d
+  unsigned int v14; // r8d
   __int64 result; // rax
+  unsigned int v16; // r10d
   unsigned __int16 v17; // ax
   unsigned __int16 v18; // cx
   unsigned int v19; // eax
@@ -46,8 +46,8 @@ __int64 __fastcall XmSubOperands(_DWORD *a1, unsigned int a2)
       v19 = a1[26];
       v8 = 31;
       v20 = a1[27];
-      LOBYTE(v6) = v19 < a2;
-      LOBYTE(v3) = v19 - a2 < v20;
+      LOBYTE(v6) = v19 - a2 < v20;
+      LOBYTE(v3) = v19 < a2;
       v10 = v3 | v6;
       v11 = v19 - a2 - v20;
       goto LABEL_4;
@@ -73,23 +73,26 @@ __int64 __fastcall XmSubOperands(_DWORD *a1, unsigned int a2)
   v11 = v21;
 LABEL_4:
   v12 = v5[31];
+  v13 = v12;
   if ( v12 != 13 && v12 != 87 )
+  {
     XmStoreResult(v5, v11);
-  v13 = v5[31];
+    v13 = v5[31];
+  }
+  v14 = v5[4];
   if ( v13 != 31 )
-    v5[4] = v10 | v5[4] & 0xFFFFFFFE;
-  v14 = v5[27] & 0xF;
-  v5[4] ^= (v5[4] ^ (4
-                   * ~(*((unsigned __int8 *)XmBitCount + (v11 & 0xF))
-                     + *((unsigned __int8 *)XmBitCount + ((unsigned __int8)v11 >> 4))))) & 4;
-  v15 = v5[4] ^ ((unsigned __int8)v5[4] ^ (unsigned __int8)((v5[26] & 0xF) - v14 - v4)) & 0x10;
-  v5[4] = v15;
+    v14 = v10 | v14 & 0xFFFFFFFE;
+  result = v5[27] & 0xF;
+  v16 = v14 & 0xFFFFFFEB | ((v5[26] & 0xF) - (_BYTE)result - v4) & 0x10 | (4
+                                                                         * (((*((_BYTE *)XmBitCount + (v11 & 0xF))
+                                                                            + *((_BYTE *)XmBitCount
+                                                                              + ((unsigned __int8)v11 >> 4))) & 1) == 0));
   if ( v13 != 87 )
   {
-    v15 = ((_DWORD)v11 == 0 ? 0x40 : 0) | v15 & 0xFFFFFFBF;
-    v5[4] = v15;
+    result = (unsigned int)-(int)v11;
+    v16 = ((_DWORD)v11 == 0 ? 0x40 : 0) | v16 & 0xFFFFFFBF;
   }
-  result = v15 ^ ((unsigned __int8)v15 ^ (unsigned __int8)((unsigned __int8)((unsigned int)v11 >> v8) << 7)) & 0x80;
-  v5[4] = result ^ ((unsigned __int16)result ^ (unsigned __int16)(((unsigned __int16)v10 ^ (unsigned __int16)((v5[27] ^ v5[26] ^ (unsigned int)v11) >> v8)) << 11)) & 0x800;
+  v5[4] = v16 & 0xFFFFF77F | ((((unsigned int)v11 >> v8) & 1 | (16
+                                                              * (((unsigned __int8)v10 ^ (unsigned __int8)(((unsigned int)v11 ^ v5[26] ^ v5[27]) >> v8)) & 1))) << 7);
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of _handle_error @ 0x1C00DE008
+ * XREFs of _handle_error @ 0x1C00CF0C4
  * Callers:
- *     exp @ 0x1C00DD7F8 (exp.c)
- *     log @ 0x1C00DDBE8 (log.c)
+ *     exp @ 0x1C00CE8C8 (exp.c)
+ *     log @ 0x1C00CECB0 (log.c)
  * Callees:
- *     ?MarkInvalid@CIgnoreInputQueue@@EEAAXXZ @ 0x1C0019C10 (-MarkInvalid@CIgnoreInputQueue@@EEAAXXZ.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _call_matherr @ 0x1C00DDEC8 (_call_matherr.c)
- *     _exception_enabled @ 0x1C00DDF44 (_exception_enabled.c)
- *     _raise_exc @ 0x1C00DE210 (_raise_exc.c)
- *     _ctrlfp @ 0x1C00DE4F4 (_ctrlfp.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _call_matherr @ 0x1C00CEF90 (_call_matherr.c)
+ *     _exception_enabled @ 0x1C00CF000 (_exception_enabled.c)
+ *     _raise_exc @ 0x1C00CF2C0 (_raise_exc.c)
+ *     _set_errno_from_matherr @ 0x1C00CF580 (_set_errno_from_matherr.c)
+ *     _ctrlfp @ 0x1C00CF5D0 (_ctrlfp.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 double __fastcall handle_error(
@@ -27,13 +27,14 @@ double __fastcall handle_error(
   BOOL v13; // eax
   __int64 v14; // r9
   __int64 v15; // xmm6_8
-  __int64 v17; // [rsp+48h] [rbp-91h] BYREF
-  __int64 v18; // [rsp+50h] [rbp-89h] BYREF
-  _QWORD v19[14]; // [rsp+58h] [rbp-81h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-A1h] BYREF
+  double v18[2]; // [rsp+50h] [rbp-99h] BYREF
+  _QWORD v19[14]; // [rsp+68h] [rbp-81h] BYREF
 
-  v18 = ctrlfp(8064LL, 65472LL);
-  v17 = a3;
-  v13 = exception_enabled(a5, v18);
+  v17 = ctrlfp(8064LL, 65472LL);
+  *(_QWORD *)&v18[1] = a3;
+  *(_QWORD *)&v18[0] = a3;
+  v13 = exception_enabled(a5, v17);
   v15 = a8;
   if ( !v13 )
   {
@@ -43,11 +44,11 @@ double __fastcall handle_error(
       v19[6] = a8;
       LODWORD(v19[8]) = 3;
     }
-    raise_exc((unsigned int)v19, (unsigned int)&v18, a5, a2, (__int64)&a7, (__int64)&v17);
+    raise_exc((unsigned int)v19, (unsigned int)&v17, a5, a2, (__int64)&a7, (__int64)v18);
   }
   if ( !matherr_flag && a4 )
-    return call_matherr((CIgnoreInputQueue *)a4, a6, a1, v14, v15, v17, v18);
-  CIgnoreInputQueue::MarkInvalid((CIgnoreInputQueue *)a4);
-  ctrlfp(v18, 65472LL);
-  return *(double *)&v17;
+    return call_matherr(a4, a6, a1, v14, v15, v18[0], v17);
+  set_errno_from_matherr(a4);
+  ctrlfp(v17, 65472LL);
+  return v18[0];
 }

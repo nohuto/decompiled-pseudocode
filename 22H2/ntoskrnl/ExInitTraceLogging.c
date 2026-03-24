@@ -1,12 +1,12 @@
 /*
- * XREFs of ExInitTraceLogging @ 0x140B98E74
+ * XREFs of ExInitTraceLogging @ 0x140A94604
  * Callers:
- *     Phase1InitializationIoReady @ 0x140B532AC (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
  * Callees:
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408034B4 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078CF94 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 __int64 ExInitTraceLogging()
 {
-  return TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C06790, 0LL, 0LL);
+  return TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((ULONGLONG *)&dword_140C02C60, 0LL, 0LL);
 }

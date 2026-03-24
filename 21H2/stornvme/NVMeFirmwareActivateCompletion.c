@@ -1,14 +1,14 @@
 /*
- * XREFs of NVMeFirmwareActivateCompletion @ 0x1C001CB60
+ * XREFs of NVMeFirmwareActivateCompletion @ 0x1C0014340
  * Callers:
  *     <none>
  * Callees:
- *     ProcessCommand @ 0x1C00039C8 (ProcessCommand.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     NVMeControllerAsyncReset @ 0x1C001892C (NVMeControllerAsyncReset.c)
- *     FirmwareActivate @ 0x1C001A838 (FirmwareActivate.c)
- *     IsFirmwareActivateWithoutResetEnabled @ 0x1C001C698 (IsFirmwareActivateWithoutResetEnabled.c)
- *     NVMeQueueWorkItem @ 0x1C001DF70 (NVMeQueueWorkItem.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeControllerAsyncReset @ 0x1C000D560 (NVMeControllerAsyncReset.c)
+ *     FirmwareActivate @ 0x1C00117D0 (FirmwareActivate.c)
+ *     IsFirmwareActivateWithoutResetEnabled @ 0x1C0013E0C (IsFirmwareActivateWithoutResetEnabled.c)
+ *     NVMeQueueWorkItem @ 0x1C001522C (NVMeQueueWorkItem.c)
  */
 
 char __fastcall NVMeFirmwareActivateCompletion(__int64 a1, __int64 a2)
@@ -44,16 +44,16 @@ char __fastcall NVMeFirmwareActivateCompletion(__int64 a1, __int64 a2)
   v10 = *(unsigned __int16 *)(v6 + 14);
   if ( (v10 & 0x1FE) == 0 && (v10 & 0xE00) == 0 )
   {
-    if ( IsFirmwareActivateWithoutResetEnabled(a1) && !_bittest((const signed __int32 *)(a1 + 32), 0xAu) )
+    if ( IsFirmwareActivateWithoutResetEnabled(a1) && (*(_DWORD *)(a1 + 24) & 0x400) == 0 )
     {
       *(_DWORD *)(v9 + 20) = 0;
       *(_BYTE *)(a2 + 3) = 1;
       if ( (unsigned int)NVMeQueueWorkItem(a1, NVMeControllerIdentifyWorkItem) )
-        *(_DWORD *)(a1 + 32) |= 0x20u;
+        *(_DWORD *)(a1 + 24) |= 0x20u;
       goto LABEL_29;
     }
     v11 = a1;
-    *(_DWORD *)(a1 + 32) = *(_DWORD *)(a1 + 32) & 0xFFFFFBDF | 0x20;
+    *(_DWORD *)(a1 + 24) = *(_DWORD *)(a1 + 24) & 0xFFFFFBDF | 0x20;
     v12 = 0;
 LABEL_12:
     if ( NVMeControllerAsyncReset(v11, v12, (__int64)NVMeFirmwareActivateCompletionAfterReset, a2) )
@@ -82,16 +82,16 @@ LABEL_25:
       v11 = a1;
       if ( (unsigned int)(v13 - 16) <= 1 )
       {
-        *(_DWORD *)(a1 + 32) |= 0x20u;
+        *(_DWORD *)(a1 + 24) |= 0x20u;
         v12 = (v10 & 0x1FE) == 32;
         goto LABEL_12;
       }
       if ( IsFirmwareActivateWithoutResetEnabled(a1) )
       {
-        v15 = *(_DWORD *)(a1 + 32);
+        v15 = *(_DWORD *)(a1 + 24);
         if ( (v15 & 0x400) == 0 )
         {
-          *(_DWORD *)(a1 + 32) = v15 | 0x400;
+          *(_DWORD *)(a1 + 24) = v15 | 0x400;
           v8 = 0;
           FirmwareActivate(a1, a2);
           ProcessCommand(a1, a2);
@@ -113,9 +113,9 @@ LABEL_29:
   LOBYTE(SrbExtension) = 8 * v8;
   *(_BYTE *)(v7 + 4253) = (8 * v8) | *(_BYTE *)(v7 + 4253) & 0xF7;
   if ( v8 )
-    *(_DWORD *)(a1 + 32) &= ~0x800u;
+    *(_DWORD *)(a1 + 24) &= ~0x800u;
 LABEL_31:
-  if ( *(_BYTE *)(a2 + 3) != 1 && *(_BYTE *)(a1 + 22) )
+  if ( *(_BYTE *)(a2 + 3) != 1 )
     LOBYTE(SrbExtension) = StorPortExtendedFunction(85LL, a1, 0LL, 1LL);
   return SrbExtension;
 }

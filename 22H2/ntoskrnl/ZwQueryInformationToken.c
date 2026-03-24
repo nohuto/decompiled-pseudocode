@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwQueryInformationToken @ 0x14041AAC0
+ * XREFs of ZwQueryInformationToken @ 0x1403F9E40
  * Callers:
- *     RtlCheckTokenCapability @ 0x14036FFE0 (RtlCheckTokenCapability.c)
- *     DifZwQueryInformationTokenWrapper @ 0x1405F4C80 (DifZwQueryInformationTokenWrapper.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14060FAB0 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     RtlFormatCurrentUserKeyPath @ 0x1407FB180 (RtlFormatCurrentUserKeyPath.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1409FC894 (ExpFirmwareAccessAppContainerCheck.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A6A42C (_SysCtxRegOpenCurrentUserKey.c)
+ *     RtlCheckTokenCapability @ 0x140586670 (RtlCheckTokenCapability.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x1405BA840 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x1406EFAC0 (RtlFormatCurrentUserKeyPath.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x14072E318 (_SysCtxRegOpenCurrentUserKey.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x140950450 (ExpFirmwareAccessAppContainerCheck.c)
  * Callees:
  *     <none>
  */

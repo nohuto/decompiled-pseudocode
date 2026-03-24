@@ -1,28 +1,28 @@
 /*
- * XREFs of _GetDC @ 0x1C000EB00
+ * XREFs of _GetDC @ 0x1C00A3250
  * Callers:
- *     NtUserGetDC @ 0x1C004D400 (NtUserGetDC.c)
+ *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00462A0 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     _GetDCEx @ 0x1C004A820 (_GetDCEx.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     _GetDCEx @ 0x1C0038070 (_GetDCEx.c)
  */
 
-__int64 __fastcall GetDC(__int64 a1)
+__int64 __fastcall GetDC(_QWORD *a1)
 {
-  __int64 v1; // r8
-  __int64 v3; // rcx
+  unsigned int v1; // r8d
+  __int64 result; // rax
 
   if ( a1 )
   {
-    v1 = 0x10000LL;
+    v1 = 0x10000;
     return GetDCEx(a1, 0LL, v1);
   }
-  v3 = *((_QWORD *)PtiCurrentShared() + 57);
-  if ( v3 )
+  result = *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456);
+  if ( result )
   {
-    v1 = 3LL;
-    a1 = *(_QWORD *)(*(_QWORD *)(v3 + 8) + 24LL);
+    v1 = 3;
+    a1 = *(_QWORD **)(*(_QWORD *)(result + 8) + 24LL);
     return GetDCEx(a1, 0LL, v1);
   }
-  return 0LL;
+  return result;
 }

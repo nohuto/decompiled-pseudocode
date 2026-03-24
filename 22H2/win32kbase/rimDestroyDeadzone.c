@@ -1,53 +1,27 @@
 /*
- * XREFs of rimDestroyDeadzone @ 0x1C0185CAC
+ * XREFs of rimDestroyDeadzone @ 0x1C015B52C
  * Callers:
- *     RIMInitializeDeadzone @ 0x1C018A6C4 (RIMInitializeDeadzone.c)
- *     RIMReleasePointerDeviceInfo @ 0x1C018B398 (RIMReleasePointerDeviceInfo.c)
+ *     RIMInitializeDeadzone @ 0x1C015EB10 (RIMInitializeDeadzone.c)
+ *     RIMReleasePointerDeviceInfo @ 0x1C015F348 (RIMReleasePointerDeviceInfo.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?Release@RIMDeadzone@@QEAAXXZ @ 0x1C019BD24 (-Release@RIMDeadzone@@QEAAXXZ.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     ?Release@RIMDeadzone@@QEAAXXZ @ 0x1C016E63C (-Release@RIMDeadzone@@QEAAXXZ.c)
  */
 
-void __fastcall rimDestroyDeadzone(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void rimDestroyDeadzone()
 {
-  __int64 v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  char *v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // r9
-  __int64 v22; // rax
-
-  v4 = SGDGetUserSessionState(a1, a2, a3, a4);
-  RIMLockExclusive(v4 + 224);
-  if ( *(_QWORD *)(SGDGetUserSessionState(v6, v5, v7, v8) + 448) )
+  RIMLockExclusive((__int64)&gDeadzoneLock);
+  if ( RIMDeadzone::s_pRimDeadzoneInstance )
   {
-    v13 = SGDGetUserSessionState(v10, v9, v11, v12);
-    RIMDeadzone::Release(*(RIMDeadzone **)(v13 + 448));
-    v10 = *(_QWORD *)(SGDGetUserSessionState(v15, v14, v16, v17) + 448);
-    if ( !*(_DWORD *)(v10 + 4) )
+    RIMDeadzone::Release(RIMDeadzone::s_pRimDeadzoneInstance);
+    if ( !*((_DWORD *)RIMDeadzone::s_pRimDeadzoneInstance + 1) )
     {
-      v18 = *(char **)(SGDGetUserSessionState(v10, v9, v11, v12) + 448);
-      if ( v18 )
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v18);
-      *(_QWORD *)(SGDGetUserSessionState(v19, v18, v20, v21) + 448) = 0LL;
+      Win32FreePool((__int64)RIMDeadzone::s_pRimDeadzoneInstance);
+      RIMDeadzone::s_pRimDeadzoneInstance = 0LL;
     }
   }
-  v22 = SGDGetUserSessionState(v10, v9, v11, v12);
-  *(_QWORD *)(v22 + 232) = 0LL;
-  ExReleasePushLockExclusiveEx(v22 + 224, 0LL);
+  qword_1C02544E8 = 0LL;
+  ExReleasePushLockExclusiveEx(&gDeadzoneLock, 0LL);
   KeLeaveCriticalRegion();
 }

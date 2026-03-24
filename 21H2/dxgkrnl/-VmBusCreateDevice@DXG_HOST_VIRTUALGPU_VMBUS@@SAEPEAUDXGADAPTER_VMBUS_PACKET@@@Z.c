@@ -1,210 +1,196 @@
 /*
- * XREFs of ?VmBusCreateDevice@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0369690
+ * XREFs of ?VmBusCreateDevice@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C023DF90
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?SetVirtualGpu@DXGDEVICE@@QEAAXPEAUDXGK_VIRTUAL_GPU_PARAV@@@Z @ 0x1C005C578 (-SetVirtualGpu@DXGDEVICE@@QEAAXPEAUDXGK_VIRTUAL_GPU_PARAV@@@Z.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEDEVICE@@@@YAPEAUDXGKVMB_COMMAND_CREATEDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005C6C4 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEDEVICE@@@@YAPEAUDXGKVMB_COMMAND_CREATEDEVICE@@PEAUD.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005DE78 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     ?DxgkCreateDeviceImpl@@YAJPEAU_D3DKMT_CREATEDEVICE@@PEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_GUEST_DATA@@E@Z @ 0x1C0167C20 (-DxgkCreateDeviceImpl@@YAJPEAU_D3DKMT_CREATEDEVICE@@PEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_G.c)
- *     ?CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIENT_TYPE@@PEAVDXGADAPTER@@EEEPEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_GUEST_DATA@@E@Z @ 0x1C0168698 (-CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIE.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x1C0004488 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C00046F8 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage @ 0x1C0026138 (Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ??1DXGADAPTERDEVICECREATIONLOCKCDD@@QEAA@XZ @ 0x1C003BBBC (--1DXGADAPTERDEVICECREATIONLOCKCDD@@QEAA@XZ.c)
+ *     ??1DXGPROCESSDEVICECREATIONLOCK@@QEAA@XZ @ 0x1C003BBF4 (--1DXGPROCESSDEVICECREATIONLOCK@@QEAA@XZ.c)
+ *     ?SetVirtualGpu@DXGDEVICE@@QEAAXPEAUDXGK_VIRTUAL_GPU_PARAV@@@Z @ 0x1C0040578 (-SetVirtualGpu@DXGDEVICE@@QEAAXPEAUDXGK_VIRTUAL_GPU_PARAV@@@Z.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEDEVICE@@@@YAPEAUDXGKVMB_COMMAND_CREATEDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C004064C (--$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEDEVICE@@@@YAPEAUDXGKVMB_COMMAND_CREATEDEVICE@@PEAUD.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C0041850 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     ?CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIENT_TYPE@@PEAVDXGADAPTER@@EEEPEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_GUEST_DATA@@@Z @ 0x1C012E9A0 (-CreateDevice@ADAPTER_RENDER@@QEAAJPEAPEAVDXGDEVICE@@U_D3DKMT_CREATEDEVICEFLAGS@@W4DXGDEVICECLIE.c)
+ *     ?DxgkCreateDeviceImpl@@YAJPEAU_D3DKMT_CREATEDEVICE@@PEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_GUEST_DATA@@E@Z @ 0x1C012F02C (-DxgkCreateDeviceImpl@@YAJPEAU_D3DKMT_CREATEDEVICE@@PEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_G.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusCreateDevice(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // si
-  __int64 v4; // rbx
-  const wchar_t *v5; // r9
-  __int64 v6; // rbx
-  __int64 v7; // r9
-  __int64 v8; // rax
-  __int64 v9; // r14
-  __int64 v10; // rcx
-  __int64 v11; // rdx
-  __int64 v12; // r15
-  __int64 v13; // rbx
-  __int64 v14; // r14
-  int v15; // eax
-  DXGDEVICE *v16; // rbx
-  struct VMBPACKETCOMPLETION__ *v17; // rcx
-  __int64 v18; // rbx
-  struct DXGADAPTER **v19; // rdx
-  int v20; // eax
-  struct VMBPACKETCOMPLETION__ *v21; // rcx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  char v5; // si
+  __int64 v6; // rax
+  __int64 v7; // rbx
+  __int64 v8; // r14
+  struct DXG_SET_GUEST_DATA *v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rdx
+  char v13; // al
+  __int64 v14; // rax
+  __int64 v15; // rax
+  __int64 v16; // rbx
+  __int64 v17; // r14
+  __int64 v18; // rdx
+  int Device; // eax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
   __int64 v22; // rbx
-  __int64 v24; // [rsp+40h] [rbp-C0h]
-  D3DKMT_HANDLE hDevice; // [rsp+60h] [rbp-A0h] BYREF
-  struct DXG_SET_GUEST_DATA *v26; // [rsp+68h] [rbp-98h] BYREF
-  DXGDEVICE *v27; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v28[8]; // [rsp+78h] [rbp-88h] BYREF
-  DXGPUSHLOCK *v29; // [rsp+80h] [rbp-80h]
-  int v30; // [rsp+88h] [rbp-78h]
-  _D3DKMT_CREATEDEVICE v31; // [rsp+90h] [rbp-70h] BYREF
-  _BYTE v32[144]; // [rsp+D0h] [rbp-30h] BYREF
+  DXGDEVICE *v23; // rbx
+  struct VMBPACKETCOMPLETION__ *v24; // rcx
+  __int64 v25; // rdx
+  __int64 v26; // rax
+  struct DXGADAPTER **v27; // rdx
+  int v28; // eax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // rbx
+  struct VMBPACKETCOMPLETION__ *v32; // rcx
+  D3DKMT_HANDLE hDevice; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v35; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v36; // [rsp+60h] [rbp-A0h] BYREF
+  struct DXG_SET_GUEST_DATA *v37; // [rsp+68h] [rbp-98h] BYREF
+  DXGDEVICE *v38; // [rsp+70h] [rbp-90h] BYREF
+  char v39[8]; // [rsp+78h] [rbp-88h] BYREF
+  DXGPUSHLOCK *v40; // [rsp+80h] [rbp-80h]
+  int v41; // [rsp+88h] [rbp-78h]
+  _D3DKMT_CREATEDEVICE v42; // [rsp+90h] [rbp-70h] BYREF
+  _BYTE v43[144]; // [rsp+D0h] [rbp-30h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v28, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v29);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 1;
-  v30 = 1;
-  if ( !*(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v39, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v40);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 1;
+  v41 = 1;
+  if ( !*(_BYTE *)(v4 + 165) )
   {
-    v4 = 1018LL;
-    WdLogSingleEntry1(2LL, 1018LL);
-    v5 = L"The adapter is already closed by the guest";
-LABEL_21:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v5, v4, 0LL, 0LL, 0LL, 0LL);
-    goto LABEL_22;
+    v6 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v6 + 24) = 716LL;
+LABEL_3:
+    WdLogEvent5_WdError(v6);
+LABEL_26:
+    v5 = 0;
+    goto LABEL_27;
   }
-  v6 = CastToVmBusCommand<DXGKVMB_COMMAND_CREATEDEVICE>((__int64)a1);
-  if ( !v6 )
-  {
-LABEL_22:
-    v3 = 0;
-    goto LABEL_23;
-  }
-  v8 = *((_QWORD *)a1 + 10);
+  v7 = CastToVmBusCommand<DXGKVMB_COMMAND_CREATEDEVICE>((__int64)a1);
+  if ( !v7 )
+    goto LABEL_26;
   hDevice = 0;
-  v9 = *(_QWORD *)(v8 + 104) + 160LL;
-  v10 = operator new[](0x10uLL, 0x4B677844u, 64LL, v7);
-  if ( !v10 )
+  v8 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 5) + 104LL) + 128LL);
+  v9 = (struct DXG_SET_GUEST_DATA *)operator new(0x10uLL, 0x4B677844u, 0, (POOL_TYPE)512);
+  if ( v9 )
   {
-    v4 = 1030LL;
-    WdLogSingleEntry1(2LL, 1030LL);
-    v5 = L"Failed to allocate DXG_SET_GUEST_DATA";
-    goto LABEL_21;
+    v11 = *(_QWORD *)(v7 + 32);
+    *((_QWORD *)v9 + 1) = v11;
+    *(_QWORD *)v9 = v8;
   }
-  *(_QWORD *)(v10 + 8) = *(_QWORD *)(v6 + 32);
-  *(_QWORD *)v10 = v9;
-  v11 = *((_QWORD *)a1 + 11);
-  v26 = (struct DXG_SET_GUEST_DATA *)v10;
-  if ( *(_BYTE *)(v6 + 28) )
+  v37 = v9;
+  if ( !v9 )
   {
-    if ( (*(_BYTE *)(v11 + 424) & 1) == 0 )
+    v6 = WdLogNewEntry5_WdError(v11, v10);
+    *(_QWORD *)(v6 + 24) = 728LL;
+    goto LABEL_3;
+  }
+  v12 = *((_QWORD *)a1 + 6);
+  v13 = *(_BYTE *)(v12 + 344);
+  if ( *(_BYTE *)(v7 + 28) )
+  {
+    if ( !v13 )
     {
-      WdLogSingleEntry1(2LL, 1038LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"CDD device must be created in CSRSS process context",
-        1038LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-LABEL_19:
-      operator delete(v26);
-      goto LABEL_22;
+      v14 = WdLogNewEntry5_WdError(v11, v12);
+      *(_QWORD *)(v14 + 24) = 736LL;
+LABEL_24:
+      WdLogEvent5_WdError(v14);
+      goto LABEL_25;
     }
-    v12 = v11 + 216;
-    v13 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 16LL) + 2800LL);
+    v15 = *((_QWORD *)a1 + 5);
+    v16 = v12 + 176;
+    v36 = *((_QWORD *)a1 + 6);
+    v17 = *(_QWORD *)(*(_QWORD *)(v15 + 16) + 2704LL);
     KeEnterCriticalRegion();
-    ExAcquirePushLockExclusiveEx(v12, 0LL);
-    v14 = v13 + 48;
-    *(_QWORD *)(v12 + 8) = KeGetCurrentThread();
+    ExAcquirePushLockExclusiveEx(v16, 0LL);
+    *(_QWORD *)(v16 + 8) = KeGetCurrentThread();
+    v35 = v17;
     KeEnterCriticalRegion();
-    ExAcquirePushLockExclusiveEx(v13 + 48, 0LL);
-    *(_QWORD *)(v13 + 56) = KeGetCurrentThread();
+    ExAcquirePushLockExclusiveEx(v17 + 48, 0LL);
+    *(_QWORD *)(v17 + 56) = KeGetCurrentThread();
     COREADAPTERACCESS::COREADAPTERACCESS(
-      (COREADAPTERACCESS *)v32,
-      *(struct DXGADAPTER *const *)(*((_QWORD *)a1 + 10) + 16LL),
+      (COREADAPTERACCESS *)v43,
+      *(struct DXGADAPTER *const *)(*((_QWORD *)a1 + 5) + 16LL),
       0LL);
-    if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v32, 0LL) >= 0
-      && (*(_DWORD *)(*((_QWORD *)a1 + 12) + 424LL) & 0x800) == 0 )
+    if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v43, 0LL) >= 0
+      && (!(unsigned int)Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage()
+       || *(char *)(*((_QWORD *)a1 + 7) + 347LL) >= 0) )
     {
-      v24 = *((_QWORD *)a1 + 10);
-      v27 = 0LL;
-      v15 = ADAPTER_RENDER::CreateDevice(v13, &v27, 0, 2, 0LL, 0, 0, 1, v24, &v26, 0);
-      if ( v15 >= 0 )
+      v38 = 0LL;
+      Device = ADAPTER_RENDER::CreateDevice(
+                 (DXGADAPTER **)v17,
+                 (__int64 *)&v38,
+                 0,
+                 2,
+                 0LL,
+                 0,
+                 0,
+                 1,
+                 *((_QWORD *)a1 + 5),
+                 (__int64)&v37);
+      v22 = Device;
+      if ( Device >= 0 )
       {
-        v16 = v27;
-        DXGDEVICE::SetVirtualGpu(v27, *((struct DXGK_VIRTUAL_GPU_PARAV **)a1 + 10));
-        v17 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 16);
-        hDevice = *((_DWORD *)v16 + 109);
-        VmBusCompletePacket(v17, &hDevice, 4u);
-        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v32);
-        *(_QWORD *)(v14 + 8) = 0LL;
-        ExReleasePushLockExclusiveEx(v14, 0LL);
-        KeLeaveCriticalRegion();
-        *(_QWORD *)(v12 + 8) = 0LL;
-        ExReleasePushLockExclusiveEx(v12, 0LL);
-        KeLeaveCriticalRegion();
-        goto LABEL_23;
+        v23 = v38;
+        DXGDEVICE::SetVirtualGpu(v38, *((struct DXGK_VIRTUAL_GPU_PARAV **)a1 + 5));
+        v24 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 9);
+        hDevice = *((_DWORD *)v23 + 109);
+        VmBusCompletePacket(v24, &hDevice, 4u);
+        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v43, v25);
+        DXGADAPTERDEVICECREATIONLOCKCDD::~DXGADAPTERDEVICECREATIONLOCKCDD((DXGADAPTERDEVICECREATIONLOCKCDD *)&v35);
+        DXGPROCESSDEVICECREATIONLOCK::~DXGPROCESSDEVICECREATIONLOCK((DXGPROCESSDEVICECREATIONLOCK *)&v36);
+        goto LABEL_27;
       }
-      v18 = v15;
-      WdLogSingleEntry2(2LL, v15, 1077LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to create CDD device: 0x%I64x",
-        v18,
-        1077LL,
-        0LL,
-        0LL,
-        0LL);
+      v26 = WdLogNewEntry5_WdError(v21, v20);
+      *(_QWORD *)(v26 + 24) = v22;
+      *(_QWORD *)(v26 + 32) = 778LL;
+      WdLogEvent5_WdError(v26);
     }
-    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v32);
-    *(_QWORD *)(v14 + 8) = 0LL;
-    ExReleasePushLockExclusiveEx(v14, 0LL);
-    KeLeaveCriticalRegion();
-    *(_QWORD *)(v12 + 8) = 0LL;
-    ExReleasePushLockExclusiveEx(v12, 0LL);
-    KeLeaveCriticalRegion();
-    goto LABEL_19;
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v43, v18);
+    DXGADAPTERDEVICECREATIONLOCKCDD::~DXGADAPTERDEVICECREATIONLOCKCDD((DXGADAPTERDEVICECREATIONLOCKCDD *)&v35);
+    DXGPROCESSDEVICECREATIONLOCK::~DXGPROCESSDEVICECREATIONLOCK((DXGPROCESSDEVICECREATIONLOCK *)&v36);
+LABEL_25:
+    operator delete(v37);
+    goto LABEL_26;
   }
-  if ( (*(_BYTE *)(v11 + 424) & 1) != 0 )
+  if ( v13 )
   {
-    WdLogSingleEntry1(2LL, 1083LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"CSRSS process context can only create CDD devices",
-      1083LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_19;
+    v14 = WdLogNewEntry5_WdError(v11, v12);
+    *(_QWORD *)(v14 + 24) = 784LL;
+    goto LABEL_24;
   }
-  memset(&v31, 0, sizeof(v31));
-  v19 = (struct DXGADAPTER **)*((_QWORD *)a1 + 10);
-  v31.Flags = *(D3DKMT_CREATEDEVICEFLAGS *)(v6 + 24);
-  v20 = DxgkCreateDeviceImpl(&v31, v19, &v26, 0);
-  if ( v20 < 0 )
+  memset(&v42, 0, sizeof(v42));
+  v27 = (struct DXGADAPTER **)*((_QWORD *)a1 + 5);
+  v42.Flags = *(D3DKMT_CREATEDEVICEFLAGS *)(v7 + 24);
+  v28 = DxgkCreateDeviceImpl(&v42, v27, &v37, 0);
+  v31 = v28;
+  if ( v28 < 0 )
   {
-    v22 = v20;
-    WdLogSingleEntry2(2LL, v20, 1099LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to create device: 0x%I64x",
-      v22,
-      1099LL,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_19;
+    v14 = WdLogNewEntry5_WdError(v30, v29);
+    *(_QWORD *)(v14 + 24) = v31;
+    *(_QWORD *)(v14 + 32) = 800LL;
+    goto LABEL_24;
   }
-  v21 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 16);
-  hDevice = v31.hDevice;
-  VmBusCompletePacket(v21, &hDevice, 4u);
-LABEL_23:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v28);
-  return v3;
+  v32 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 9);
+  hDevice = v42.hDevice;
+  VmBusCompletePacket(v32, &hDevice, 4u);
+LABEL_27:
+  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v39);
+  return v5;
 }

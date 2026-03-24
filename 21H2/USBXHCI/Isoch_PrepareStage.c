@@ -1,21 +1,21 @@
 /*
- * XREFs of Isoch_PrepareStage @ 0x1C0008870
+ * XREFs of Isoch_PrepareStage @ 0x1C00038C0
  * Callers:
- *     Isoch_ProcessTransferEventWithED1 @ 0x1C0006DF0 (Isoch_ProcessTransferEventWithED1.c)
- *     Isoch_WdfEvtIoQueueReadyNotification @ 0x1C00079C0 (Isoch_WdfEvtIoQueueReadyNotification.c)
- *     Isoch_MappingLoop @ 0x1C000A6A0 (Isoch_MappingLoop.c)
+ *     Isoch_MappingLoop @ 0x1C0001D7C (Isoch_MappingLoop.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001F10 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_WdfEvtIoQueueReadyNotification @ 0x1C0002AE0 (Isoch_WdfEvtIoQueueReadyNotification.c)
  * Callees:
- *     WPP_RECORDER_SF_DDqq @ 0x1C00084E0 (WPP_RECORDER_SF_DDqq.c)
- *     WPP_RECORDER_SF_DDqqD @ 0x1C0008C60 (WPP_RECORDER_SF_DDqqD.c)
- *     TR_EnsureSegments @ 0x1C0008D50 (TR_EnsureSegments.c)
- *     StageQueue_Release @ 0x1C000E344 (StageQueue_Release.c)
- *     TR_ReleaseSegments @ 0x1C000E380 (TR_ReleaseSegments.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     TR_EnsureInputBufferForTrbs @ 0x1C003FA50 (TR_EnsureInputBufferForTrbs.c)
- *     Isoch_GetPacketLength @ 0x1C0042748 (Isoch_GetPacketLength.c)
- *     Isoch_Transfer_CompleteCancelable @ 0x1C004320C (Isoch_Transfer_CompleteCancelable.c)
- *     WPP_RECORDER_SF_DDqDDD @ 0x1C004401C (WPP_RECORDER_SF_DDqDDD.c)
- *     WPP_RECORDER_SF_DDqqDD @ 0x1C0044174 (WPP_RECORDER_SF_DDqqDD.c)
+ *     WPP_RECORDER_SF_DDqqD @ 0x1C0003CC0 (WPP_RECORDER_SF_DDqqD.c)
+ *     WPP_RECORDER_SF_DDqq @ 0x1C0004F80 (WPP_RECORDER_SF_DDqq.c)
+ *     TR_EnsureSegments @ 0x1C00098D0 (TR_EnsureSegments.c)
+ *     StageQueue_Release @ 0x1C000C574 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C000C5AC (TR_ReleaseSegments.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     TR_EnsureInputBufferForTrbs @ 0x1C003F23C (TR_EnsureInputBufferForTrbs.c)
+ *     Isoch_GetPacketLength @ 0x1C0041848 (Isoch_GetPacketLength.c)
+ *     Isoch_Transfer_CompleteCancelable @ 0x1C0042800 (Isoch_Transfer_CompleteCancelable.c)
+ *     WPP_RECORDER_SF_DDqDDD @ 0x1C0043880 (WPP_RECORDER_SF_DDqDDD.c)
+ *     WPP_RECORDER_SF_DDqqDD @ 0x1C00439D8 (WPP_RECORDER_SF_DDqqDD.c)
  */
 
 __int64 __fastcall Isoch_PrepareStage(__int64 a1)
@@ -24,65 +24,67 @@ __int64 __fastcall Isoch_PrepareStage(__int64 a1)
   __int64 v3; // rdi
   int v4; // edx
   __int64 v5; // r9
-  __int64 v6; // r8
+  int v6; // r8d
   unsigned int v7; // r10d
   __int64 v8; // rcx
   int v9; // ecx
   int v10; // r9d
-  unsigned __int64 v11; // r9
-  struct _MDL *v12; // rsi
-  unsigned int v13; // ecx
-  __int64 v14; // rbp
+  struct _MDL *v11; // rsi
+  unsigned int v12; // ecx
+  __int64 v13; // rbp
   unsigned int i; // eax
-  unsigned int v16; // esi
-  unsigned int v17; // ebp
-  unsigned int v18; // r13d
-  __int64 v19; // r10
-  int v20; // r10d
-  __int64 v21; // r15
-  __int64 v22; // rbp
-  int v23; // edx
-  unsigned int v24; // r10d
-  unsigned int v25; // r8d
-  unsigned int v26; // ecx
-  unsigned int v27; // r9d
-  unsigned int v28; // edx
-  unsigned int v29; // ecx
-  unsigned int v30; // edx
-  unsigned int v31; // ecx
-  unsigned int v32; // esi
-  __int64 *v33; // r15
-  int v34; // eax
-  int v35; // r8d
-  int v36; // ebp
-  KIRQL v37; // al
-  unsigned int v38; // r8d
-  __int64 v39; // rcx
-  _QWORD *v40; // rax
+  unsigned int v15; // esi
+  unsigned int v16; // ebp
+  unsigned int v17; // r13d
+  __int64 v18; // r10
+  int v19; // r10d
+  __int64 v20; // r15
+  __int64 v21; // rbp
+  int v22; // edx
+  unsigned int v23; // r10d
+  unsigned int v24; // r8d
+  unsigned int v25; // ecx
+  unsigned int v26; // r9d
+  unsigned int v27; // edx
+  unsigned int v28; // ecx
+  unsigned int v29; // edx
+  unsigned int v30; // ecx
+  unsigned int v31; // esi
+  __int64 *v32; // r15
+  int v33; // eax
+  int v34; // r8d
+  int v35; // ebp
+  KIRQL v36; // al
+  unsigned int v37; // r8d
+  __int64 v38; // rcx
+  _QWORD *v39; // rax
+  __int64 v40; // rdx
   __int64 v41; // rdx
-  __int64 v42; // rdx
-  __int64 v44; // r8
-  __int64 v45; // rsi
-  ULONG v46; // r12d
-  char *v47; // r15
+  __int64 v43; // r8
+  __int64 v44; // rsi
+  ULONG v45; // r12d
+  char *v46; // r15
   struct _MDL *Mdl; // rax
-  __int64 v49; // r8
+  int v48; // r8d
+  int v49; // edx
   __int64 v50; // r8
   __int64 v51; // rbp
-  unsigned int v52; // r11d
+  unsigned int v52; // r10d
   unsigned int v53; // r12d
-  int j; // r10d
-  int v55; // r15d
-  __int64 v56; // r11
-  __int64 v57; // rax
-  __int64 v58; // rax
-  __int64 v59; // rbp
-  __int64 *v60; // rdx
-  int v61; // edx
-  int v62; // edx
-  __int64 v63; // rsi
+  int j; // r15d
+  int v55; // r11d
+  int PacketLength; // eax
+  int v57; // r11d
+  __int64 v58; // r10
+  __int64 v59; // rax
+  __int64 v60; // rax
+  __int64 v61; // rbp
+  __int64 *v62; // rdx
+  int v63; // edx
+  int v64; // edx
+  __int64 v65; // rsi
   int Irp; // [rsp+20h] [rbp-98h]
-  unsigned int v65; // [rsp+C0h] [rbp+8h]
+  unsigned int v67; // [rsp+C0h] [rbp+8h]
 
   v1 = *(__int64 **)(a1 + 368);
   v3 = *v1;
@@ -92,7 +94,7 @@ __int64 __fastcall Isoch_PrepareStage(__int64 a1)
   v6 = *(unsigned __int16 *)(v5 + 2);
   v7 = (unsigned int)(v4 + *(_DWORD *)(a1 + 356) - 1) / *(_DWORD *)(a1 + 356) + *(_DWORD *)(v5 + 128);
   v8 = *(_QWORD *)(*(_QWORD *)(a1 + 40) + 88LL);
-  if ( (*(_QWORD *)(*(_QWORD *)(v8 + 8) + 336LL) & 0x800000000000000LL) != 0 || (*(_DWORD *)(v8 + 100) & 0x800) == 0 )
+  if ( (*(_QWORD *)(*(_QWORD *)(v8 + 8) + 336LL) & 0x800000000000000LL) != 0 || (*(_DWORD *)(v8 + 104) & 0x800) == 0 )
   {
     v9 = *(_DWORD *)(a1 + 328);
     if ( (v9 & 0x20) != 0 )
@@ -107,26 +109,25 @@ __int64 __fastcall Isoch_PrepareStage(__int64 a1)
             v6,
             v10);
         *(_BYTE *)(a1 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
-        v45 = *v1;
+        v44 = *v1;
         if ( *((_BYTE *)v1 + 56) )
         {
           IoFreeMdl((PMDL)v1[8]);
           v1[8] = 0LL;
           *((_BYTE *)v1 + 56) = 0;
         }
-        LOBYTE(v44) = 1;
-        TR_ReleaseSegments(a1, v1 + 1, v44);
+        LOBYTE(v43) = 1;
+        TR_ReleaseSegments(a1, v1 + 1, v43);
         TR_ReleaseSegments(a1, v1 + 3, 0LL);
-        StageQueue_Release(v45 + 128, v1);
+        StageQueue_Release(v44 + 128, v1);
         KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 96), *(_BYTE *)(a1 + 104));
         return 2;
       }
     }
   }
-  v11 = 0x1C0000000uLL;
-  if ( (_DWORD)v6 != 10 )
+  if ( v6 != 10 )
   {
-    switch ( (int)v6 )
+    switch ( v6 )
     {
       case '9':
       case ':':
@@ -135,33 +136,37 @@ __int64 __fastcall Isoch_PrepareStage(__int64 a1)
         break;
     }
   }
-  v12 = *(struct _MDL **)(v3 + 72);
-  v13 = *(_DWORD *)(v3 + 88) + *(_DWORD *)(v3 + 92);
-  v14 = *(_QWORD *)(v3 + 56);
-  for ( i = v12->ByteCount; v13 >= i; i = v12->ByteCount )
+  v11 = *(struct _MDL **)(v3 + 72);
+  v12 = *(_DWORD *)(v3 + 88) + *(_DWORD *)(v3 + 92);
+  v13 = *(_QWORD *)(v3 + 56);
+  for ( i = v11->ByteCount; v12 >= i; i = v11->ByteCount )
   {
-    v12 = v12->Next;
-    v13 -= i;
+    v11 = v11->Next;
+    v12 -= i;
   }
-  if ( v13 )
+  if ( v12 )
   {
-    v46 = v12->ByteCount - v13;
-    v47 = (char *)v12->StartVa + v12->ByteOffset + v13;
-    Mdl = IoAllocateMdl(v47, v46, 0, 0, 0LL);
+    v45 = v11->ByteCount - v12;
+    v46 = (char *)v11->StartVa + v11->ByteOffset + v12;
+    Mdl = IoAllocateMdl(v46, v45, 0, 0, 0LL);
     v1[8] = (__int64)Mdl;
     if ( !Mdl )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v49 = *(unsigned __int8 *)(*(_QWORD *)(v13 + 48) + 135LL);
+        LOBYTE(v49) = 2;
         WPP_RECORDER_SF_DDqq(
-          *(_QWORD *)(*(_QWORD *)(v14 + 56) + 80LL),
-          2u,
+          *(_QWORD *)(*(_QWORD *)(v13 + 56) + 80LL),
           v49,
-          0x2Du,
+          v48,
+          45,
           (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
-          *(unsigned __int8 *)(*(_QWORD *)(v14 + 48) + 135LL),
-          *(_DWORD *)(*(_QWORD *)(v14 + 56) + 144LL),
+          *(_BYTE *)(*(_QWORD *)(v13 + 48) + 135LL),
+          *(_DWORD *)(*(_QWORD *)(v13 + 56) + 144LL),
           *(_QWORD *)(v3 + 24),
-          v1);
+          (char)v1);
+      }
       *(_BYTE *)(a1 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
       v51 = *v1;
       if ( *((_BYTE *)v1 + 56) )
@@ -177,79 +182,81 @@ __int64 __fastcall Isoch_PrepareStage(__int64 a1)
       if ( *(_DWORD *)(v3 + 112) == *(_DWORD *)(v3 + 116) )
       {
         Isoch_Transfer_CompleteCancelable(a1, v3, -1, -1073737728, 0, 0);
-        v18 = 1;
+        v17 = 1;
 LABEL_64:
         KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 96), *(_BYTE *)(a1 + 104));
-        return v18;
+        return v17;
       }
 LABEL_63:
-      v18 = 4;
+      v17 = 4;
       *(_DWORD *)(v3 + 108) = *(_DWORD *)(v3 + 96) - *(_DWORD *)(v3 + 104);
       goto LABEL_64;
     }
     *((_BYTE *)v1 + 56) = 1;
-    IoBuildPartialMdl(v12, Mdl, v47, v46);
-    v11 = 0x1C0000000uLL;
-    *(_QWORD *)v1[8] = v12->Next;
+    IoBuildPartialMdl(v11, Mdl, v46, v45);
+    *(_QWORD *)v1[8] = v11->Next;
   }
   else
   {
-    v1[8] = (__int64)v12;
+    v1[8] = (__int64)v11;
   }
 LABEL_9:
-  v16 = *(_DWORD *)(v3 + 80) - *(_DWORD *)(v3 + 92) - *(_DWORD *)(v3 + 88);
-  v17 = *(_DWORD *)(a1 + 4);
-  v18 = 1;
+  v15 = *(_DWORD *)(v3 + 80) - *(_DWORD *)(v3 + 92) - *(_DWORD *)(v3 + 88);
+  v16 = *(_DWORD *)(a1 + 4);
+  v17 = 1;
   if ( !*(_BYTE *)(a1 + 280) )
   {
     LOBYTE(Irp) = (*(_DWORD *)(*(_QWORD *)(v3 + 48) + 32LL) & 1) == 0;
-    v19 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 40) + 96LL) + 24LL);
-    (*(void (__fastcall **)(__int64, __int64, _QWORD, _QWORD))(*(_QWORD *)(v19 + 8) + 136LL))(v19, v1[8], 0LL, v16);
-    v11 = 0x1C0000000uLL;
+    v18 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 40) + 96LL) + 24LL);
+    (*(void (__fastcall **)(__int64, __int64, _QWORD, _QWORD))(*(_QWORD *)(v18 + 8) + 136LL))(v18, v1[8], 0LL, v15);
   }
-  if ( v16 > v17 )
+  if ( v15 > v16 )
   {
     v52 = *(_DWORD *)(a1 + 356);
-    v16 = 0;
+    v15 = 0;
     v53 = *((_DWORD *)v1 + 10);
-    v65 = v52;
+    v67 = v52;
     for ( j = v53 / v52; ; ++j )
     {
       v55 = 0;
       if ( v52 )
       {
         do
-          v55 += Isoch_GetPacketLength(v3, v53++, v6, v11);
-        while ( v56 != 1 );
-        v52 = v65;
+        {
+          PacketLength = Isoch_GetPacketLength(v3, v53);
+          v55 = PacketLength + v57;
+          ++v53;
+        }
+        while ( v58 != 1 );
+        v52 = v67;
       }
-      if ( v16 + v55 > v17 )
+      if ( v15 + v55 > v16 )
         break;
-      v16 += v55;
+      v15 += v55;
     }
-    v20 = v52 * j;
+    v19 = j * v52;
   }
   else
   {
-    v20 = *(_DWORD *)(v3 + 96);
+    v19 = *(_DWORD *)(v3 + 96);
   }
-  *((_DWORD *)v1 + 11) = v20 - 1;
-  *((_DWORD *)v1 + 13) = v16;
-  v21 = *(_QWORD *)(a1 + 56);
-  v22 = *(_QWORD *)(a1 + 40);
-  v23 = (((unsigned __int64)*(unsigned int *)(v21 + 152) + 8190) >> 12) + 1;
-  if ( !_bittest64((const signed __int64 *)(v22 + 336), 0x2Fu)
-    || (v57 = *(_QWORD *)(a1 + 48), *(_DWORD *)(v57 + 20) != 1)
-    || !*(_DWORD *)(v57 + 40) )
+  *((_DWORD *)v1 + 11) = v19 - 1;
+  *((_DWORD *)v1 + 13) = v15;
+  v20 = *(_QWORD *)(a1 + 56);
+  v21 = *(_QWORD *)(a1 + 40);
+  v22 = (((unsigned __int64)*(unsigned int *)(v20 + 152) + 8190) >> 12) + 1;
+  if ( (*(_QWORD *)(v21 + 336) & 0x800000000000LL) == 0
+    || (v59 = *(_QWORD *)(a1 + 48), *(_DWORD *)(v59 + 20) != 1)
+    || !*(_DWORD *)(v59 + 40) )
   {
-    v23 = ((unsigned __int64)*(unsigned int *)(v21 + 152) + 8190) >> 12;
+    v22 = ((unsigned __int64)*(unsigned int *)(v20 + 152) + 8190) >> 12;
   }
-  v24 = v23 + 1;
+  v23 = v22 + 1;
   if ( *(_WORD *)(*(_QWORD *)(*v1 + 48) + 2LL) == 10 )
   {
 LABEL_16:
-    if ( *(_DWORD *)(v1[8] + 40) < v16 )
-      v24 = v23 + 3;
+    if ( *(_DWORD *)(v1[8] + 40) < v15 )
+      v23 = v22 + 3;
   }
   else
   {
@@ -262,53 +269,53 @@ LABEL_16:
         goto LABEL_16;
     }
   }
-  v25 = *(_DWORD *)(a1 + 196);
-  v26 = v25 - *(_DWORD *)(a1 + 192);
-  *(_DWORD *)(a1 + 432) = v24;
-  v27 = v24 * (*((_DWORD *)v1 + 11) - *((_DWORD *)v1 + 10) + 1);
-  if ( v24 == 3 )
-    v28 = v26 % 3;
+  v24 = *(_DWORD *)(a1 + 196);
+  v25 = v24 - *(_DWORD *)(a1 + 192);
+  *(_DWORD *)(a1 + 432) = v23;
+  v26 = v23 * (*((_DWORD *)v1 + 11) - *((_DWORD *)v1 + 10) + 1);
+  if ( v23 == 3 )
+    v27 = v25 % 3;
   else
-    v28 = v26 % v24;
-  v29 = v26 - v28;
-  if ( v27 <= v29 )
+    v27 = v25 % v23;
+  v28 = v25 - v27;
+  if ( v26 <= v28 )
   {
-    v32 = 0;
+    v31 = 0;
   }
   else
   {
-    if ( v24 == 3 )
-      v30 = v25 % 3;
+    if ( v23 == 3 )
+      v29 = v24 % 3;
     else
-      v30 = v25 % v24;
-    v25 -= v30;
-    v31 = v25 - v29 + v27 - 1;
-    if ( v25 == 30 )
-      v32 = v31 / 0x1E;
+      v29 = v24 % v23;
+    v24 -= v29;
+    v30 = v24 - v28 + v26 - 1;
+    if ( v24 == 30 )
+      v31 = v30 / 0x1E;
     else
-      v32 = v31 / v25;
+      v31 = v30 / v24;
   }
-  if ( _bittest64((const signed __int64 *)(v22 + 336), 0x2Fu) )
+  if ( (*(_QWORD *)(v21 + 336) & 0x800000000000LL) != 0 )
   {
-    v58 = *(_QWORD *)(a1 + 48);
-    if ( *(_DWORD *)(v58 + 20) == 1 )
+    v60 = *(_QWORD *)(a1 + 48);
+    if ( *(_DWORD *)(v60 + 20) == 1 )
     {
-      if ( *(_DWORD *)(v58 + 40) )
-        ++v32;
+      if ( *(_DWORD *)(v60 + 40) )
+        ++v31;
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     WPP_RECORDER_SF_DDqDDD(
-      *(_QWORD *)(v21 + 80),
+      *(_QWORD *)(v20 + 80),
       *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL),
-      v25,
-      v27,
+      v24,
+      v26,
       Irp,
       *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
-      *(_DWORD *)(v21 + 144),
+      *(_DWORD *)(v20 + 144),
       (char)v1,
-      v32,
-      v24,
+      v31,
+      v23,
       *((_BYTE *)v1 + 44) - *((_BYTE *)v1 + 40) + 1);
   if ( *(_BYTE *)(a1 + 280)
     && (int)TR_EnsureInputBufferForTrbs(
@@ -316,78 +323,78 @@ LABEL_16:
               (unsigned int)(*(_DWORD *)(a1 + 432) * (*((_DWORD *)v1 + 11) - *((_DWORD *)v1 + 10) + 3))) < 0 )
   {
     *(_BYTE *)(a1 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
-    v59 = *v1;
+    v61 = *v1;
     if ( *((_BYTE *)v1 + 56) )
     {
       IoFreeMdl((PMDL)v1[8]);
       v1[8] = 0LL;
       *((_BYTE *)v1 + 56) = 0;
     }
-    v60 = v1 + 1;
+    v62 = v1 + 1;
     goto LABEL_85;
   }
-  if ( !v32 )
+  if ( !v31 )
     return 0;
-  v33 = v1 + 1;
-  v34 = TR_EnsureSegments(a1);
-  v36 = v34;
-  if ( v34 != 259 )
+  v32 = v1 + 1;
+  v33 = TR_EnsureSegments(a1);
+  v35 = v33;
+  if ( v33 != 259 )
   {
-    if ( v34 < 0 )
+    if ( v33 < 0 )
       goto LABEL_88;
-    v37 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
-    v38 = 0;
-    *(_BYTE *)(a1 + 104) = v37;
-    v39 = a1 + 208;
+    v36 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
+    v37 = 0;
+    *(_BYTE *)(a1 + 104) = v36;
+    v38 = a1 + 208;
     do
     {
-      v40 = *(_QWORD **)v39;
-      if ( *(_QWORD *)(*(_QWORD *)v39 + 8LL) != v39
-        || (v41 = *v40, *(_QWORD **)(*v40 + 8LL) != v40)
-        || (*(_QWORD *)v39 = v41, *(_QWORD *)(v41 + 8) = v39, v42 = *v33, *(__int64 **)(*v33 + 8) != v33) )
+      v39 = *(_QWORD **)v38;
+      if ( *(_QWORD *)(*(_QWORD *)v38 + 8LL) != v38
+        || (v40 = *v39, *(_QWORD **)(*v39 + 8LL) != v39)
+        || (*(_QWORD *)v38 = v40, *(_QWORD *)(v40 + 8) = v38, v41 = *v32, *(__int64 **)(*v32 + 8) != v32) )
       {
         __fastfail(3u);
       }
-      *v40 = v42;
-      ++v38;
-      v40[1] = v33;
-      *(_QWORD *)(v42 + 8) = v40;
-      *v33 = (__int64)v40;
+      *v39 = v41;
+      ++v37;
+      v39[1] = v32;
+      *(_QWORD *)(v41 + 8) = v39;
+      *v32 = (__int64)v39;
     }
-    while ( v38 < v32 );
+    while ( v37 < v31 );
     KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 96), *(_BYTE *)(a1 + 104));
-    if ( v36 < 0 )
+    if ( v35 < 0 )
     {
 LABEL_88:
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v61 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
-        LOBYTE(v61) = 2;
+        v63 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
+        LOBYTE(v63) = 2;
         WPP_RECORDER_SF_DDqqD(
           *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
-          v61,
-          v35,
+          v63,
+          v34,
           49,
           Irp,
           *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
           *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
           *(_QWORD *)(v3 + 24),
           (char)v1,
-          v32);
+          v31);
       }
       *(_BYTE *)(a1 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
-      v59 = *v1;
+      v61 = *v1;
       if ( *((_BYTE *)v1 + 56) )
       {
         IoFreeMdl((PMDL)v1[8]);
         v1[8] = 0LL;
         *((_BYTE *)v1 + 56) = 0;
       }
-      v60 = v1 + 1;
+      v62 = v1 + 1;
 LABEL_85:
-      TR_ReleaseSegments(a1, v60, 1LL);
+      TR_ReleaseSegments(a1, v62, 1LL);
       TR_ReleaseSegments(a1, v1 + 3, 0LL);
-      StageQueue_Release(v59 + 128, v1);
+      StageQueue_Release(v61 + 128, v1);
       if ( *(_DWORD *)(v3 + 112) == *(_DWORD *)(v3 + 116) )
       {
         Isoch_Transfer_CompleteCancelable(a1, v3, -1, -1073737728, 0, 0);
@@ -400,22 +407,22 @@ LABEL_85:
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v62 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
-    LOBYTE(v62) = 4;
+    v64 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
+    LOBYTE(v64) = 4;
     WPP_RECORDER_SF_DDqqD(
       *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
-      v62,
-      v35,
+      v64,
+      v34,
       48,
       Irp,
       *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
       *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
       *(_QWORD *)(v3 + 24),
       (char)v1,
-      v32);
+      v31);
   }
   *(_BYTE *)(a1 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
-  v63 = *v1;
+  v65 = *v1;
   if ( *((_BYTE *)v1 + 56) )
   {
     IoFreeMdl((PMDL)v1[8]);
@@ -424,7 +431,7 @@ LABEL_85:
   }
   TR_ReleaseSegments(a1, v1 + 1, 1LL);
   TR_ReleaseSegments(a1, v1 + 3, 0LL);
-  StageQueue_Release(v63 + 128, v1);
+  StageQueue_Release(v65 + 128, v1);
   KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 96), *(_BYTE *)(a1 + 104));
   return 3;
 }

@@ -1,115 +1,147 @@
 /*
- * XREFs of PopRequestPowerIrp @ 0x1403A3C90
+ * XREFs of PopRequestPowerIrp @ 0x14036DD20
  * Callers:
- *     PoRequestPowerIrp @ 0x1403A3C60 (PoRequestPowerIrp.c)
- *     PopFxReleasePowerIrp @ 0x1403B4E2C (PopFxReleasePowerIrp.c)
- *     DifPoRequestPowerIrpWrapper @ 0x14061A090 (DifPoRequestPowerIrpWrapper.c)
+ *     PopScanIdleList @ 0x140280878 (PopScanIdleList.c)
+ *     PoRequestPowerIrp @ 0x14036DCF0 (PoRequestPowerIrp.c)
+ *     PopFxReleasePowerIrp @ 0x1403A4D14 (PopFxReleasePowerIrp.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     PopMapInternalActionToIrpAction @ 0x14038BF18 (PopMapInternalActionToIrpAction.c)
- *     PopAllocateIrp @ 0x1403A3F0C (PopAllocateIrp.c)
- *     PopQueueQuerySetIrp @ 0x1403A4264 (PopQueueQuerySetIrp.c)
- *     PopDiagTraceIrpStart @ 0x1403A4500 (PopDiagTraceIrpStart.c)
- *     PopPepDeviceWaitWake @ 0x1403B1230 (PopPepDeviceWaitWake.c)
- *     PopFxGetDeviceDStateReason @ 0x1403B1794 (PopFxGetDeviceDStateReason.c)
- *     IofCallDriverSpecifyReturn @ 0x1403B51A0 (IofCallDriverSpecifyReturn.c)
- *     PopFxNotifyPreDIrpIssue @ 0x1403B5A24 (PopFxNotifyPreDIrpIssue.c)
- *     PopLogNotifyDevice @ 0x1405D6E84 (PopLogNotifyDevice.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopAllocateIrp @ 0x14036DF40 (PopAllocateIrp.c)
+ *     IofCallDriverSpecifyReturn @ 0x14036E360 (IofCallDriverSpecifyReturn.c)
+ *     PopDiagTraceIrpStart @ 0x14036E3E4 (PopDiagTraceIrpStart.c)
+ *     PopMapInternalActionToIrpAction @ 0x1403833EC (PopMapInternalActionToIrpAction.c)
+ *     PopQueueQuerySetIrp @ 0x140398344 (PopQueueQuerySetIrp.c)
+ *     PopFxGetDeviceDStateReason @ 0x1403A0514 (PopFxGetDeviceDStateReason.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPepDeviceWaitWake @ 0x140574570 (PopPepDeviceWaitWake.c)
+ *     PopLogNotifyDevice @ 0x140576ACC (PopLogNotifyDevice.c)
  */
 
-__int64 __fastcall PopRequestPowerIrp(__int64 a1, char a2, ULONG a3, int a4, __int64 a5, char a6, PIRP Irp)
+__int64 __fastcall PopRequestPowerIrp(__int64 a1, char a2, int a3, int a4, __int64 a5, char a6, PIRP Irp)
 {
-  volatile __int64 *p_Type; // rbp
-  ULONG v8; // ebx
+  volatile __int64 *p_Type; // r14
+  char v11; // cl
   __int64 result; // rax
-  char v12; // cl
-  IRP *v13; // rdi
-  union _IRP::$::$::$665C8370128C04AB892B069E6FB086E8::$8B5CD6CDFBAAB114E6B0B83ED2C2A4E9 **v14; // rsi
+  __int64 v13; // r8
+  IRP *v14; // rdi
+  __int64 v15; // rsi
   union _IRP::$::$::$665C8370128C04AB892B069E6FB086E8::$8B5CD6CDFBAAB114E6B0B83ED2C2A4E9 *p_CurrentStackLocation; // rcx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  struct _IO_STACK_LOCATION *v17; // rbp
-  union _IRP::$::$::$665C8370128C04AB892B069E6FB086E8::$8B5CD6CDFBAAB114E6B0B83ED2C2A4E9 *v18; // rdx
-  signed __int32 PacketType; // eax
-  signed __int32 v20; // ett
-  __int64 v21; // rcx
-  char v22; // al
-  union _IRP::$::$::$665C8370128C04AB892B069E6FB086E8::$8B5CD6CDFBAAB114E6B0B83ED2C2A4E9 *v23; // rcx
-  __int64 v24; // [rsp+60h] [rbp-28h] BYREF
-  void *retaddr; // [rsp+88h] [rbp+0h]
+  struct _IO_STACK_LOCATION *v18; // r14
+  __int64 v19; // rsi
+  __int64 v20; // rdx
+  char v21; // al
+  __int64 v22; // rcx
+  KIRQL v23; // al
+  unsigned __int64 v24; // rdi
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r8
+  int v28; // eax
+  bool v29; // zf
+  __int64 v30; // [rsp+60h] [rbp-10h] BYREF
+  void *retaddr; // [rsp+98h] [rbp+28h]
 
-  v24 = 0LL;
   p_Type = (volatile __int64 *)&Irp->Type;
-  v8 = a3;
+  v30 = 0LL;
   if ( Irp )
     _InterlockedExchange64((volatile __int64 *)&Irp->Type, 0LL);
   Irp = 0LL;
   if ( !a2 )
-    goto LABEL_8;
+    goto LABEL_21;
   if ( (unsigned __int8)(a2 - 2) > 1u )
     return 3221225712LL;
-  if ( (_BYTE)PopCurrentBroadcast )
-    v12 = 1;
-  else
-LABEL_8:
-    v12 = 0;
-  LOBYTE(a3) = a2;
-  result = PopAllocateIrp(a1, a2, a3, a2 != 0, v8, v12, a6, a4, a5, (__int64)&Irp, (__int64)&v24);
+  v11 = 1;
+  if ( !(_BYTE)PopCurrentBroadcast )
+LABEL_21:
+    v11 = 0;
+  result = PopAllocateIrp(a1, a3, v11, a6, a4, a5, (__int64)&Irp, (__int64)&v30);
   if ( (int)result >= 0 && (_DWORD)result != 259 )
   {
-    v13 = Irp;
+    v14 = Irp;
     if ( Irp )
     {
-      v14 = (union _IRP::$::$::$665C8370128C04AB892B069E6FB086E8::$8B5CD6CDFBAAB114E6B0B83ED2C2A4E9 **)v24;
+      v15 = v30;
       p_CurrentStackLocation = (union _IRP::$::$::$665C8370128C04AB892B069E6FB086E8::$8B5CD6CDFBAAB114E6B0B83ED2C2A4E9 *)&Irp->Tail.Overlay.CurrentStackLocation;
       CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
       CurrentStackLocation[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)&PopRequestCompletion;
-      CurrentStackLocation[-1].Context = v14;
+      CurrentStackLocation[-1].Context = (PVOID)v15;
       CurrentStackLocation[-1].Control = -32;
       if ( p_Type )
       {
-        _InterlockedExchange64(p_Type, (__int64)v13);
-        v13 = Irp;
-        v14 = (union _IRP::$::$::$665C8370128C04AB892B069E6FB086E8::$8B5CD6CDFBAAB114E6B0B83ED2C2A4E9 **)v24;
+        _InterlockedExchange64(p_Type, (__int64)v14);
+        v14 = Irp;
+        v15 = v30;
       }
-      v17 = p_CurrentStackLocation->CurrentStackLocation;
+      v18 = p_CurrentStackLocation->CurrentStackLocation;
       if ( a2 )
       {
-        v17[-1].Parameters.Create.Options = 1;
-        v17[-1].Parameters.Read.ByteOffset.LowPart = v8;
-        if ( (_BYTE)PopCurrentBroadcast && (!v14[25] || (unsigned int)PopFxGetDeviceDStateReason() == 1) )
+        v18[-1].Parameters.Create.Options = 1;
+        v18[-1].Parameters.Read.ByteOffset.LowPart = a3;
+        if ( (_BYTE)PopCurrentBroadcast && (!*(_QWORD *)(v15 + 200) || (unsigned int)PopFxGetDeviceDStateReason() == 1) )
         {
-          v17[-1].Parameters.Create.EaLength = PopMapInternalActionToIrpAction(
+          LOBYTE(v13) = 1;
+          v18[-1].Parameters.Create.EaLength = PopMapInternalActionToIrpAction(
                                                  DWORD2(PopCurrentBroadcast),
                                                  WORD2(PopCurrentBroadcast) >> 12,
-                                                 1);
-          v17[-1].Parameters.Read.Length = DWORD1(PopCurrentBroadcast);
+                                                 v13);
+          v18[-1].Parameters.Read.Length = DWORD1(PopCurrentBroadcast);
         }
-        if ( (xmmword_140D06910 & 0x8000) != 0 )
-          PopLogNotifyDevice(a1, 0LL, v13);
-        v23 = v14[25];
-        if ( !v23 || a2 != 2 || (unsigned __int8)PopFxNotifyPreDIrpIssue(v23, v13) )
-          PopQueueQuerySetIrp(v13);
+        v19 = *(_QWORD *)(v15 + 200);
+        if ( v19 && a2 == 2 )
+        {
+          if ( (_InterlockedCompareExchange((volatile signed __int32 *)(v19 + 824), 0, 0) & 0x20) != 0 )
+          {
+            _m_prefetchw((const void *)(v19 + 32));
+            if ( (_InterlockedOr((volatile signed __int32 *)(v19 + 32), 0) & 0x2000) != 0 )
+            {
+              v23 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v19 + 1152));
+              *(_DWORD *)(v19 + 1180) |= 1u;
+              v24 = v23;
+              _InterlockedIncrement((volatile signed __int32 *)(v19 + 1160));
+              KxReleaseSpinLock((PKSPIN_LOCK)(v19 + 1152));
+              if ( KiIrqlFlags )
+              {
+                if ( (KiIrqlFlags & 1) != 0 )
+                {
+                  CurrentIrql = KeGetCurrentIrql();
+                  if ( CurrentIrql <= 0xFu && (unsigned __int8)v24 <= 0xFu && CurrentIrql >= 2u )
+                  {
+                    CurrentPrcb = KeGetCurrentPrcb();
+                    SchedulerAssist = CurrentPrcb->SchedulerAssist;
+                    v28 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v24 + 1));
+                    v29 = (v28 & SchedulerAssist[5]) == 0;
+                    SchedulerAssist[5] &= v28;
+                    if ( v29 )
+                      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                  }
+                }
+              }
+              __writecr8(v24);
+            }
+          }
+          v14 = Irp;
+        }
+        if ( (xmmword_140CFC490 & 0x8000) != 0 )
+          PopLogNotifyDevice(a1, 0LL, v14);
+        PopQueueQuerySetIrp(v14);
       }
       else
       {
-        v18 = v14[25];
-        if ( v18 )
+        v20 = *(_QWORD *)(v15 + 200);
+        if ( v20 )
         {
-          _m_prefetchw(&v18[4]);
-          PacketType = v18[4].PacketType;
-          do
-          {
-            v20 = PacketType;
-            PacketType = _InterlockedCompareExchange((volatile signed __int32 *)&v18[4], PacketType, PacketType);
-          }
-          while ( v20 != PacketType );
-          v21 = v24;
-          v22 = PacketType & 1;
-          *(_BYTE *)(v24 + 208) = v22;
-          v22 ^= 1u;
-          *(_BYTE *)(v21 + 209) = v22;
-          p_CurrentStackLocation = v14[25];
-          if ( v22 )
+          _m_prefetchw((const void *)(v20 + 32));
+          v21 = _InterlockedOr((volatile signed __int32 *)(v20 + 32), 0);
+          v22 = v30;
+          v21 &= 1u;
+          *(_BYTE *)(v30 + 208) = v21;
+          v21 ^= 1u;
+          *(_BYTE *)(v22 + 209) = v21;
+          p_CurrentStackLocation = *(union _IRP::$::$::$665C8370128C04AB892B069E6FB086E8::$8B5CD6CDFBAAB114E6B0B83ED2C2A4E9 **)(v15 + 200);
+          if ( v21 )
           {
             PopPepDeviceWaitWake(p_CurrentStackLocation[7].CurrentStackLocation, 0LL);
           }
@@ -117,13 +149,13 @@ LABEL_8:
           {
             if ( _InterlockedExchangeAdd((volatile signed __int32 *)&p_CurrentStackLocation[30] + 1, 0xFFFFFFFF) == 1 )
               KeSetEvent((PRKEVENT)&p_CurrentStackLocation[31], 0, 0);
-            v14[25] = 0LL;
+            *(_QWORD *)(v15 + 200) = 0LL;
           }
-          v13 = Irp;
+          v14 = Irp;
         }
-        v17[-1].Parameters.Read.Length = v8;
-        PopDiagTraceIrpStart(p_CurrentStackLocation, v13);
-        IofCallDriverSpecifyReturn(v17[-1].DeviceObject, v13, retaddr);
+        v18[-1].Parameters.Read.Length = a3;
+        PopDiagTraceIrpStart(p_CurrentStackLocation, v14);
+        IofCallDriverSpecifyReturn(v18[-1].DeviceObject, v14, retaddr);
       }
       return 259LL;
     }

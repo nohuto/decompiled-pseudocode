@@ -1,26 +1,25 @@
 /*
- * XREFs of TtmiResetTerminalTimeouts @ 0x1409A33CC
+ * XREFs of TtmiResetTerminalTimeouts @ 0x1408FD8E8
  * Callers:
- *     TtmNotifyDeviceInput @ 0x1409A1A20 (TtmNotifyDeviceInput.c)
- *     TtmNotifyConsoleUserPresent @ 0x1409A447C (TtmNotifyConsoleUserPresent.c)
- *     TtmNotifySessionDisplayBurst @ 0x1409A4584 (TtmNotifySessionDisplayBurst.c)
- *     TtmNotifySessionTerminalInput @ 0x1409A4A48 (TtmNotifySessionTerminalInput.c)
+ *     TtmNotifyDeviceInput @ 0x1408FBFC0 (TtmNotifyDeviceInput.c)
+ *     TtmNotifyConsoleUserPresent @ 0x1408FE8E4 (TtmNotifyConsoleUserPresent.c)
+ *     TtmNotifySessionDisplayBurst @ 0x1408FE9EC (TtmNotifySessionDisplayBurst.c)
+ *     TtmNotifySessionTerminalInput @ 0x1408FEE7C (TtmNotifySessionTerminalInput.c)
  * Callees:
- *     TtmiResetInactivityTimer @ 0x1409A332C (TtmiResetInactivityTimer.c)
- *     TtmiSetPendingOnOffRequest @ 0x1409A3648 (TtmiSetPendingOnOffRequest.c)
+ *     TtmiSetPendingOnOffRequest @ 0x1408FDB28 (TtmiSetPendingOnOffRequest.c)
  */
 
-char __fastcall TtmiResetTerminalTimeouts(int a1, __int64 a2, unsigned int a3, int a4, char a5)
+char __fastcall TtmiResetTerminalTimeouts(int a1, __int64 a2, int a3, int a4, char a5)
 {
-  int v9; // r8d
-  int v10; // eax
+  int v5; // eax
+  int v6; // r9d
 
   *(_QWORD *)(a2 + 80) = MEMORY[0xFFFFF78000000008];
-  TtmiResetInactivityTimer(a3);
-  v10 = *(_DWORD *)(a2 + 40);
-  if ( v10 == 3 || !a5 && v10 != 2 )
+  v5 = *(_DWORD *)(a2 + 40);
+  if ( (v5 == 3 || !a5) && v5 != 2 )
     return 0;
-  LOBYTE(v9) = 1;
-  TtmiSetPendingOnOffRequest(a1, a2, v9, a3, a4);
+  v6 = a3;
+  LOBYTE(a3) = 1;
+  TtmiSetPendingOnOffRequest(a1, a2, a3, v6, a4);
   return 1;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpAddUoWToRollbackPacket @ 0x14091B7D8
+ * XREFs of CmpAddUoWToRollbackPacket @ 0x140874BD0
  * Callers:
- *     CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x14091BD30 (CmpSnapshotTxOwnerArrayToRollbackPacket.c)
+ *     CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x14087514C (CmpSnapshotTxOwnerArrayToRollbackPacket.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     CmpAddPointerToRollbackPacket @ 0x14091B784 (CmpAddPointerToRollbackPacket.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     CmpAddPointerToRollbackPacket @ 0x140874B7C (CmpAddPointerToRollbackPacket.c)
  */
 
 __int64 __fastcall CmpAddUoWToRollbackPacket(unsigned int *a1, __int64 a2)
 {
-  __int64 v2; // rdi
-  __int64 v5; // rdi
+  __int64 v2; // rbx
+  __int64 v5; // rbx
   void *v6; // rcx
   int v7; // eax
-  unsigned int v8; // ebx
+  unsigned int v8; // edi
   __int64 v9; // rcx
-  void *v10; // rcx
+  struct _DMA_ADAPTER *v10; // rcx
 
   v2 = *(_QWORD *)(a2 + 56);
   if ( (*(_DWORD *)(v2 + 48) & 0x80u) == 0 )
@@ -32,22 +32,22 @@ __int64 __fastcall CmpAddUoWToRollbackPacket(unsigned int *a1, __int64 a2)
   ObfReferenceObject(v6);
   v7 = CmpAddPointerToRollbackPacket(a1, v5);
   v8 = v7;
-  if ( v7 == -1073740008 )
+  if ( v7 != -1073740008 )
   {
-    v8 = 0;
+    if ( v7 < 0 )
+      goto LABEL_8;
+    v5 = 0LL;
   }
-  else if ( v7 >= 0 )
-  {
-    return 0;
-  }
+  v8 = 0;
+LABEL_8:
   if ( v5 )
   {
     v9 = *(_QWORD *)(a2 + 56);
     if ( (*(_DWORD *)(v9 + 48) & 0x80u) == 0 )
-      v10 = *(void **)(v9 + 72);
+      v10 = *(struct _DMA_ADAPTER **)(v9 + 72);
     else
-      v10 = (void *)(*(_QWORD *)(v9 + 56) & 0xFFFFFFFFFFFFFFFEuLL);
-    ObfDereferenceObject(v10);
+      v10 = (struct _DMA_ADAPTER *)(*(_QWORD *)(v9 + 56) & 0xFFFFFFFFFFFFFFFEuLL);
+    HalPutDmaAdapter(v10);
   }
   return v8;
 }

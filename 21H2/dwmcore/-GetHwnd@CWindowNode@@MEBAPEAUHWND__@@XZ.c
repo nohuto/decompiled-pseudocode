@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetHwnd@CWindowNode@@MEBAPEAUHWND__@@XZ @ 0x1800FBA00
+ * XREFs of ?GetHwnd@CWindowNode@@MEBAPEAUHWND__@@XZ @ 0x1800E2FA0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 HWND __fastcall CWindowNode::GetHwnd(CWindowNode *this)
 {
-  return (HWND)*((_QWORD *)this + 91);
+  return (HWND)*((_QWORD *)this + 77);
 }

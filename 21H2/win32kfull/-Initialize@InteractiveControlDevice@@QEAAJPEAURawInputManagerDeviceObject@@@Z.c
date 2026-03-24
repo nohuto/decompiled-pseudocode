@@ -1,20 +1,20 @@
 /*
- * XREFs of ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0254100
+ * XREFs of ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0257390
  * Callers:
- *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C024F594 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C02525A8 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C010C048 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C024E6A0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
- *     ??_GSimpleHapticsController@@QEAAPEAXI@Z @ 0x1C0253800 (--_GSimpleHapticsController@@QEAAPEAXI@Z.c)
- *     ?CreateDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C02538D4 (-CreateDeadzone@InteractiveControlDevice@@QEAAJXZ.c)
- *     ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0253B4C (-Deinitialize@InteractiveControlDevice@@QEAAXXZ.c)
- *     ?InitializeWaveformOrdinalForDevice@InteractiveControlDevice@@QEAAJXZ @ 0x1C02544D0 (-InitializeWaveformOrdinalForDevice@InteractiveControlDevice@@QEAAJXZ.c)
- *     ?DeInitialize@SimpleHapticsController@@QEAAJXZ @ 0x1C02569EC (-DeInitialize@SimpleHapticsController@@QEAAJXZ.c)
- *     ?Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0256D5C (-Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
- *     ?SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z @ 0x1C025798C (-SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z.c)
- *     ?SetDevicePropertyData@SimpleHapticsController@@QEAAJPEBU_DEVPROPKEY@@KKKKPEAX@Z @ 0x1C02582B4 (-SetDevicePropertyData@SimpleHapticsController@@QEAAJPEBU_DEVPROPKEY@@KKKKPEAX@Z.c)
- *     ?BuildDeviceCapabilities@InteractiveControlParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEAVInteractiveControlDevice@@@Z @ 0x1C0258A94 (-BuildDeviceCapabilities@InteractiveControlParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEAVInteractiveC.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5E60 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C02516B4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ??_GSimpleHapticsController@@QEAAPEAXI@Z @ 0x1C0256A88 (--_GSimpleHapticsController@@QEAAPEAXI@Z.c)
+ *     ?CreateDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C0256B5C (-CreateDeadzone@InteractiveControlDevice@@QEAAJXZ.c)
+ *     ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0256DD4 (-Deinitialize@InteractiveControlDevice@@QEAAXXZ.c)
+ *     ?InitializeWaveformOrdinalForDevice@InteractiveControlDevice@@QEAAJXZ @ 0x1C025779C (-InitializeWaveformOrdinalForDevice@InteractiveControlDevice@@QEAAJXZ.c)
+ *     ?DeInitialize@SimpleHapticsController@@QEAAJXZ @ 0x1C0259C68 (-DeInitialize@SimpleHapticsController@@QEAAJXZ.c)
+ *     ?Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0259FDC (-Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z @ 0x1C025AC1C (-SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z.c)
+ *     ?SetDevicePropertyData@SimpleHapticsController@@QEAAJPEBU_DEVPROPKEY@@KKKKPEAX@Z @ 0x1C025B52C (-SetDevicePropertyData@SimpleHapticsController@@QEAAJPEBU_DEVPROPKEY@@KKKKPEAX@Z.c)
+ *     ?BuildDeviceCapabilities@InteractiveControlParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEAVInteractiveControlDevice@@@Z @ 0x1C025BD0C (-BuildDeviceCapabilities@InteractiveControlParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEAVInteractiveC.c)
  */
 
 __int64 __fastcall InteractiveControlDevice::Initialize(InteractiveControlDevice *this, char *Object)
@@ -58,10 +58,10 @@ __int64 __fastcall InteractiveControlDevice::Initialize(InteractiveControlDevice
   v5 = RawInputManagerDeviceObjectReference(Object);
   if ( v5 >= 0 )
   {
-    v6 = dword_1C032F75C;
-    *((_DWORD *)this + 2) = dword_1C032F75C;
+    v6 = dword_1C033440C;
+    *((_DWORD *)this + 2) = dword_1C033440C;
     *(_QWORD *)this = Object;
-    dword_1C032F75C = v6 + 1;
+    dword_1C033440C = v6 + 1;
     v5 = ObOpenObjectByPointer(
            Object,
            0,
@@ -75,7 +75,7 @@ __int64 __fastcall InteractiveControlDevice::Initialize(InteractiveControlDevice
       v5 = RIMGetDevicePreparsedDataLockfree(Handle, 0LL, &Size, 0LL);
       if ( v5 >= 0 )
       {
-        v7 = (void *)Win32AllocPoolZInit((unsigned int)Size, 1819440195LL);
+        v7 = (void *)Win32AllocPool((unsigned int)Size, 1819440195LL);
         *((_QWORD *)this + 32) = v7;
         if ( !v7 )
         {
@@ -116,13 +116,13 @@ LABEL_5:
                   (struct _UNICODE_STRING *)(Object + 296));
           if ( v10 < 0 )
           {
-            if ( (unsigned int)dword_1C03262C0 > 4 )
+            if ( (unsigned int)dword_1C032B2F8 > 4 )
             {
               LODWORD(v34) = v10;
               v33[0] = (__int64)"SimpleHapticsController->Initialize failed with.";
               _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-                (__int64)&dword_1C03262C0,
-                byte_1C02F1582,
+                (__int64)&dword_1C032B2F8,
+                byte_1C02F411D,
                 v11,
                 v12,
                 (void **)v33,
@@ -153,11 +153,17 @@ LABEL_21:
           if ( *((_DWORD *)InteractiveControlManager::Instance() + 21) )
           {
             LODWORD(v34) = 235930369;
+            if ( gdwInAtomicOperation )
+            {
+              v19 = gdwExtraInstrumentations;
+              if ( (gdwExtraInstrumentations & 1) != 0 )
+                KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+            }
             UserSessionSwitchLeaveCrit(v19);
             v20 = (SimpleHapticsController *)*((_QWORD *)this + 48);
             if ( v20 )
               SimpleHapticsController::SendDeviceIOControl(v20, 0xB0191u, &v34, 4u, 0LL, 0, 0LL);
-            EnterCrit(1LL, 0LL);
+            EnterCrit(0LL, 1LL);
           }
           RIMLockExclusive(v9);
           if ( (*(_DWORD *)(*(_QWORD *)this + 272LL) & 0x2000) == 0 && *((_DWORD *)this + 18) == 1 )
@@ -173,13 +179,13 @@ LABEL_21:
                       ObjectType,
                       AccessMode,
                       (char *)this + 72);
-              if ( v25 < 0 && (unsigned int)dword_1C03262C0 > 2 )
+              if ( v25 < 0 && (unsigned int)dword_1C032B2F8 > 2 )
               {
                 LODWORD(v34) = v25;
                 v33[0] = (__int64)"Function failed.";
                 _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-                  (__int64)&dword_1C03262C0,
-                  byte_1C02F15F5,
+                  (__int64)&dword_1C032B2F8,
+                  byte_1C02F4190,
                   v26,
                   v27,
                   (void **)v33,
@@ -189,13 +195,13 @@ LABEL_21:
           }
           v28 = InteractiveControlDevice::InitializeWaveformOrdinalForDevice(this);
           v5 = v28;
-          if ( v28 < 0 && (unsigned int)dword_1C03262C0 > 2 )
+          if ( v28 < 0 && (unsigned int)dword_1C032B2F8 > 2 )
           {
             LODWORD(v34) = v28;
             v33[0] = (__int64)"Function failed.";
             _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-              (__int64)&dword_1C03262C0,
-              byte_1C02F15F5,
+              (__int64)&dword_1C032B2F8,
+              byte_1C02F4190,
               v29,
               v30,
               (void **)v33,

@@ -1,58 +1,52 @@
 /*
- * XREFs of SetTimerCoalescingTolerance @ 0x1C00FEF70
+ * XREFs of SetTimerCoalescingTolerance @ 0x1C0112180
  * Callers:
- *     xxxSwitchDesktop @ 0x1C00B0E54 (xxxSwitchDesktop.c)
- *     ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C00FEE30 (-KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
- *     InitTimerCoalescing @ 0x1C0120E80 (InitTimerCoalescing.c)
- *     StartScreenSaver @ 0x1C021D230 (StartScreenSaver.c)
+ *     xxxSwitchDesktop @ 0x1C0029904 (xxxSwitchDesktop.c)
+ *     ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C0112020 (-KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
+ *     InitTimerCoalescing @ 0x1C0135620 (InitTimerCoalescing.c)
+ *     StartScreenSaver @ 0x1C0223C10 (StartScreenSaver.c)
  * Callees:
- *     ?ConfigureRITDelayableTimers@@YAXW4RitTimerRate@@@Z @ 0x1C00FF018 (-ConfigureRITDelayableTimers@@YAXW4RitTimerRate@@@Z.c)
+ *     ?AdjustRITDelayableTimers@@YAXH@Z @ 0x1C0112224 (-AdjustRITDelayableTimers@@YAXH@Z.c)
  */
 
-__int64 __fastcall SetTimerCoalescingTolerance(int a1)
+void __fastcall SetTimerCoalescingTolerance(int a1)
 {
-  unsigned __int64 v1; // rdx
-  __int64 result; // rax
-  __int64 v3; // rcx
-  unsigned int v4; // edx
-  int v5; // ecx
+  int v1; // edx
+  int v2; // ecx
+  int v3; // ecx
 
   gTimerCoalCurrentState = a1;
-  v1 = a1 + (unsigned __int64)(gServiceSessionId != gSessionId ? 4 : 0);
-  result = *((unsigned int *)&gTimerCoalescingSpec + v1);
-  gCurrentTimerCoalescingTolerance = *((_DWORD *)&gTimerCoalescingSpec + v1);
+  gCurrentTimerCoalescingTolerance = *((_DWORD *)&gTimerCoalescingSpec
+                                     + a1
+                                     + (unsigned __int64)(gServiceSessionId != gSessionId ? 4 : 0));
   if ( gSessionId != gServiceSessionId )
   {
+    v1 = 0;
     if ( !a1 )
     {
-      gdwRITdaemonLockState = 0;
-      v3 = 1LL;
-      return ConfigureRITDelayableTimers(v3);
+      gdwRITdemonLockState = 0;
+      v2 = 1;
+LABEL_4:
+      AdjustRITDelayableTimers(v2);
+      return;
     }
-    v4 = 2;
-    v5 = a1 - 2;
-    if ( !v5 )
+    v3 = a1 - 2;
+    if ( !v3 )
     {
-      gdwRITdaemonLockState |= 1u;
-      if ( (gdwRITdaemonLockState & 2) == 0
-        && giScreenSaveTimeOutMs > 0
-        && (gbLockConsoleActive || (*gpsi & 0x200) != 0) )
-      {
-        v4 = 1;
-      }
-      goto LABEL_11;
+      gdwRITdemonLockState |= 1u;
+      if ( (gdwRITdemonLockState & 2) == 0 && giScreenSaveTimeOutMs > 0 && (gbLockConsoleActive || (*gpsi & 0x200) != 0) )
+        v1 = 1;
+      v2 = v1;
+      goto LABEL_4;
     }
-    if ( v5 == 1 )
+    if ( v3 == 1 )
     {
-      result = gdwRITdaemonLockState | 2u;
-      gdwRITdaemonLockState = result;
-      if ( (result & 1) != 0 )
+      gdwRITdemonLockState |= 2u;
+      if ( (gdwRITdemonLockState & 1) != 0 )
       {
-LABEL_11:
-        v3 = v4;
-        return ConfigureRITDelayableTimers(v3);
+        v2 = 0;
+        goto LABEL_4;
       }
     }
   }
-  return result;
 }

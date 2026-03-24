@@ -1,76 +1,96 @@
 /*
- * XREFs of ?DxgkCancelSwapChainBinding@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C00770AC
+ * XREFs of ?DxgkCancelSwapChainBinding@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C0065074
  * Callers:
- *     ?SubmitPresentHistoryTokenPreparation@@YAJPEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTER@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAX_N@Z @ 0x1C0195D50 (-SubmitPresentHistoryTokenPreparation@@YAJPEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCOREDEVICEACCES.c)
- *     ??1TOKEN_BINDING_GUARD@@QEAA@XZ @ 0x1C01DBB68 (--1TOKEN_BINDING_GUARD@@QEAA@XZ.c)
- *     ?VmBusSubmitVailPresentHistoryToken@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0382810 (-VmBusSubmitVailPresentHistoryToken@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@.c)
+ *     ?SubmitPresentHistoryTokenPreparation@@YAJPEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTER@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAX_N@Z @ 0x1C0157A30 (-SubmitPresentHistoryTokenPreparation@@YAJPEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCOREDEVICEACCES.c)
+ *     ??1TOKEN_BINDING_GUARD@@QEAA@XZ @ 0x1C015C994 (--1TOKEN_BINDING_GUARD@@QEAA@XZ.c)
+ *     ?VmBusSubmitVailPresentHistoryToken@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0250060 (-VmBusSubmitVailPresentHistoryToken@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@.c)
  * Callees:
- *     ?ResolveHandle@DxgkCompositionObject@@SAJPEAXKDW4DxgkCompositionObjectType@@PEAPEAV1@@Z @ 0x1C0005B0C (-ResolveHandle@DxgkCompositionObject@@SAJPEAXKDW4DxgkCompositionObjectType@@PEAPEAV1@@Z.c)
- *     ?IsTokenManagerReady@@YAHXZ @ 0x1C0007288 (-IsTokenManagerReady@@YAHXZ.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?IsTokenManagerReady@@YAHXZ @ 0x1C000164C (-IsTokenManagerReady@@YAHXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?ResolveHandle@DxgkCompositionObject@@SAJPEAXKDW4DxgkCompositionObjectType@@PEAPEAV1@@Z @ 0x1C000FBC4 (-ResolveHandle@DxgkCompositionObject@@SAJPEAXKDW4DxgkCompositionObjectType@@PEAPEAV1@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DxgkCancelSwapChainBinding(struct _D3DKMT_PRESENTHISTORYTOKEN *a1)
+__int64 __fastcall DxgkCancelSwapChainBinding(struct _D3DKMT_PRESENTHISTORYTOKEN *a1, __int64 a2)
 {
-  int v2; // ebx
+  int v3; // ebx
   struct DXGGLOBAL *Global; // rax
-  struct DXGGLOBAL *v4; // rax
-  struct DXGGLOBAL *v5; // rax
-  struct DXGGLOBAL *v6; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
   struct DXGGLOBAL *v7; // rax
-  struct DXGGLOBAL *v8; // rax
-  struct _KPROCESS *v9; // rax
-  struct _KPROCESS *v10; // rbp
-  void *FenceValue; // rsi
-  _QWORD *v12; // rbx
-  struct DXGGLOBAL *v13; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  struct DXGGLOBAL *v10; // rax
+  struct DXGGLOBAL *v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  struct DXGGLOBAL *v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  struct DXGGLOBAL *v17; // rax
+  struct _KPROCESS *v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  struct _KPROCESS *v21; // r14
+  void *FenceValue; // rbp
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  _QWORD *v25; // rsi
+  __int64 v26; // rbx
+  struct DXGGLOBAL *v27; // rax
   void *hCompSurf; // rcx
-  struct DXGGLOBAL *v15; // rax
-  struct DXGGLOBAL *v16; // rax
-  PVOID Object; // [rsp+30h] [rbp-48h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+38h] [rbp-40h] BYREF
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  struct DXGGLOBAL *v31; // rax
+  struct DXGGLOBAL *v32; // rax
+  PVOID Object; // [rsp+30h] [rbp-58h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+38h] [rbp-50h] BYREF
 
   memset(&ApcState, 0, sizeof(ApcState));
-  v2 = 0;
-  Global = DXGGLOBAL_GetGlobal();
-  (*(void (**)(void))(*((_QWORD *)Global + 38073) + 440LL))();
-  v4 = DXGGLOBAL_GetGlobal();
-  if ( (*(unsigned int (**)(void))(*((_QWORD *)v4 + 38073) + 472LL))()
+  v3 = 0;
+  Global = DXGGLOBAL::GetGlobal((__int64)a1, a2);
+  (*(void (**)(void))(*((_QWORD *)Global + 38048) + 208LL))();
+  v7 = DXGGLOBAL::GetGlobal(v6, v5);
+  if ( (*(unsigned int (**)(void))(*((_QWORD *)v7 + 38048) + 240LL))()
     || !(unsigned int)IsTokenManagerReady()
-    || (v5 = DXGGLOBAL_GetGlobal(), !(*(unsigned int (**)(void))(*((_QWORD *)v5 + 38073) + 456LL))()) )
+    || (v10 = DXGGLOBAL::GetGlobal(v9, v8), !(*(unsigned int (**)(void))(*((_QWORD *)v10 + 38048) + 224LL))()) )
   {
-    v2 = -1071775730;
+    v3 = -1071775730;
   }
-  v6 = DXGGLOBAL_GetGlobal();
-  (*(void (**)(void))(*((_QWORD *)v6 + 38073) + 488LL))();
-  if ( v2 >= 0 )
+  v11 = DXGGLOBAL::GetGlobal(v9, v8);
+  (*(void (**)(void))(*((_QWORD *)v11 + 38048) + 256LL))();
+  if ( v3 >= 0 )
   {
-    v7 = DXGGLOBAL_GetGlobal();
-    (*(void (**)(void))(*((_QWORD *)v7 + 38073) + 376LL))();
-    v8 = DXGGLOBAL_GetGlobal();
-    v9 = (struct _KPROCESS *)(*(__int64 (**)(void))(*((_QWORD *)v8 + 38073) + 504LL))();
-    v10 = v9;
-    if ( v9 )
+    v14 = DXGGLOBAL::GetGlobal(v13, v12);
+    (*(void (**)(void))(*((_QWORD *)v14 + 38048) + 144LL))();
+    v17 = DXGGLOBAL::GetGlobal(v16, v15);
+    v18 = (struct _KPROCESS *)(*(__int64 (**)(void))(*((_QWORD *)v17 + 38048) + 272LL))();
+    v21 = v18;
+    if ( v18 )
     {
-      KeStackAttachProcess(v9, &ApcState);
+      KeStackAttachProcess(v18, &ApcState);
       if ( a1->Model == D3DKMT_PM_REDIRECTED_COMPOSITION )
       {
         FenceValue = (void *)a1->Token.Flip.FenceValue;
         if ( FenceValue )
         {
           Object = 0LL;
-          v2 = DxgkCompositionObject::ResolveHandle(FenceValue, 2u, 1, 2, &Object);
-          if ( v2 >= 0 )
+          v3 = DxgkCompositionObject::ResolveHandle(FenceValue, 2u, 1, 2, &Object);
+          if ( v3 >= 0 )
           {
-            v12 = Object;
-            v13 = DXGGLOBAL_GetGlobal();
-            (*(void (__fastcall **)(_QWORD, __int64))(*((_QWORD *)v13 + 38073) + 32LL))(v12[13], 1LL);
-            (*(void (__fastcall **)(_QWORD *))(v12[5] + 56LL))(v12 + 5);
-            ObfDereferenceObject(v12);
-            v2 = ObCloseHandle(FenceValue, 1);
-            if ( v2 >= 0 )
+            v25 = Object;
+            v26 = *((_QWORD *)Object + 15);
+            *((_QWORD *)Object + 15) = 0LL;
+            if ( v26 )
+            {
+              v27 = DXGGLOBAL::GetGlobal(v24, v23);
+              (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)v27 + 38048) + 32LL))(v26, 1LL);
+            }
+            (*(void (__fastcall **)(_QWORD *))(v25[5] + 56LL))(v25 + 5);
+            ObfDereferenceObject(v25);
+            v3 = ObCloseHandle(FenceValue, 1);
+            if ( v3 >= 0 )
               a1->Token.Flip.FenceValue = 0LL;
           }
         }
@@ -80,17 +100,17 @@ __int64 __fastcall DxgkCancelSwapChainBinding(struct _D3DKMT_PRESENTHISTORYTOKEN
         hCompSurf = (void *)a1->Token.Flip.hCompSurf;
         if ( hCompSurf )
         {
-          v2 = ObCloseHandle(hCompSurf, 1);
-          if ( v2 >= 0 )
+          v3 = ObCloseHandle(hCompSurf, 1);
+          if ( v3 >= 0 )
             a1->Token.Flip.hCompSurf = 0LL;
         }
       }
       KeUnstackDetachProcess(&ApcState);
-      v15 = DXGGLOBAL_GetGlobal();
-      (*(void (__fastcall **)(struct _KPROCESS *))(*((_QWORD *)v15 + 38073) + 432LL))(v10);
+      v31 = DXGGLOBAL::GetGlobal(v30, v29);
+      (*(void (__fastcall **)(struct _KPROCESS *))(*((_QWORD *)v31 + 38048) + 200LL))(v21);
     }
-    v16 = DXGGLOBAL_GetGlobal();
-    (*(void (**)(void))(*((_QWORD *)v16 + 38073) + 416LL))();
+    v32 = DXGGLOBAL::GetGlobal(v20, v19);
+    (*(void (**)(void))(*((_QWORD *)v32 + 38048) + 184LL))();
   }
-  return (unsigned int)v2;
+  return (unsigned int)v3;
 }

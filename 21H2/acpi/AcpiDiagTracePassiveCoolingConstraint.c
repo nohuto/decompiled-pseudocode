@@ -1,14 +1,14 @@
 /*
- * XREFs of AcpiDiagTracePassiveCoolingConstraint @ 0x1C004899C
+ * XREFs of AcpiDiagTracePassiveCoolingConstraint @ 0x1C0049FBC
  * Callers:
- *     ACPIThermalAssocaiteConstraint @ 0x1C0003E44 (ACPIThermalAssocaiteConstraint.c)
- *     ACPIThermalUpdateConstraints @ 0x1C0021984 (ACPIThermalUpdateConstraints.c)
- *     ACPIThermalReleaseCoolingInterfaces @ 0x1C002EF8C (ACPIThermalReleaseCoolingInterfaces.c)
- *     AcpiDiagTraceThermalZoneRundown @ 0x1C0048B0C (AcpiDiagTraceThermalZoneRundown.c)
- *     AcpiThermalDestroyContraints @ 0x1C00612B0 (AcpiThermalDestroyContraints.c)
+ *     ACPIThermalAssocaiteConstraint @ 0x1C000E118 (ACPIThermalAssocaiteConstraint.c)
+ *     ACPIThermalUpdateConstraints @ 0x1C0014B28 (ACPIThermalUpdateConstraints.c)
+ *     ACPIThermalReleaseCoolingInterfaces @ 0x1C0031680 (ACPIThermalReleaseCoolingInterfaces.c)
+ *     AcpiDiagTraceThermalZoneRundown @ 0x1C004A12C (AcpiDiagTraceThermalZoneRundown.c)
+ *     AcpiThermalDestroyContraints @ 0x1C00604F0 (AcpiThermalDestroyContraints.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     AcpiDiagTraceConstraintEvent @ 0x1C0048028 (AcpiDiagTraceConstraintEvent.c)
+ *     AcpiDiagTraceConstraintEvent @ 0x1C00304D8 (AcpiDiagTraceConstraintEvent.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 void __fastcall AcpiDiagTracePassiveCoolingConstraint(__int64 a1, __int64 a2, char a3, char a4)

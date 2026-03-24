@@ -1,7 +1,7 @@
 /*
  * XREFs of VeAllocatePoolWithTagPriority @ 0x140924F50
  * Callers:
- *     ExAllocateHeapPool @ 0x1400BA150 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x1400BA170 (ExAllocateHeapPool.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     IovAllocateMdl @ 0x140923960 (IovAllocateMdl.c)
  *     IovAllocateWorkItem @ 0x140923A60 (IovAllocateWorkItem.c)
@@ -10,10 +10,10 @@
  *     ViRtlReplaceStringBuffer @ 0x140943C5C (ViRtlReplaceStringBuffer.c)
  * Callees:
  *     ExIsSpecialPoolAddress @ 0x14000E140 (ExIsSpecialPoolAddress.c)
- *     ExAllocatePoolWithTagPriority @ 0x1400FD810 (ExAllocatePoolWithTagPriority.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  *     ViGrowPoolAllocation @ 0x140925A34 (ViGrowPoolAllocation.c)
  *     ViPostPoolAllocation @ 0x140925ADC (ViPostPoolAllocation.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)

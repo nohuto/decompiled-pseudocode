@@ -1,45 +1,41 @@
 /*
- * XREFs of XmGetStringAddress @ 0x140398FFC
+ * XREFs of XmGetStringAddress @ 0x1403C0A5C
  * Callers:
- *     XmStosOp @ 0x140398F10 (XmStosOp.c)
- *     XmInsOp @ 0x140533C00 (XmInsOp.c)
- *     XmOutsOp @ 0x140533C90 (XmOutsOp.c)
- *     XmCmpsOp @ 0x140533EF0 (XmCmpsOp.c)
- *     XmLodsOp @ 0x140534110 (XmLodsOp.c)
- *     XmMovsOp @ 0x140534190 (XmMovsOp.c)
- *     XmScasOp @ 0x140534220 (XmScasOp.c)
+ *     XmStosOp @ 0x1403C0970 (XmStosOp.c)
+ *     XmInsOp @ 0x1404E6260 (XmInsOp.c)
+ *     XmOutsOp @ 0x1404E62F0 (XmOutsOp.c)
+ *     XmCmpsOp @ 0x1404E6550 (XmCmpsOp.c)
+ *     XmLodsOp @ 0x1404E6770 (XmLodsOp.c)
+ *     XmMovsOp @ 0x1404E67F0 (XmMovsOp.c)
+ *     XmScasOp @ 0x1404E6880 (XmScasOp.c)
  * Callees:
- *     x86BiosTranslateAddress @ 0x1403BE960 (x86BiosTranslateAddress.c)
- *     longjmp @ 0x1403D7880 (longjmp.c)
+ *     x86BiosTranslateAddress @ 0x140397450 (x86BiosTranslateAddress.c)
+ *     longjmp @ 0x1403CFF70 (longjmp.c)
  */
 
-__int64 __fastcall XmGetStringAddress(__int64 a1, unsigned int a2, unsigned int a3)
+int *__fastcall XmGetStringAddress(__int64 a1, unsigned int a2, unsigned int a3)
 {
-  int v3; // r10d
-  __int64 v4; // r11
-  int v5; // eax
-  int v6; // r10d
-  __int64 v7; // rdx
-  unsigned int v8; // r8d
+  __int64 v4; // r10
+  int v5; // ecx
+  unsigned int v6; // edx
+  unsigned int v7; // r8d
 
-  v3 = *(_DWORD *)(a1 + 120);
   v4 = a2;
-  v5 = v3 + 1;
-  v6 = ~v3;
-  if ( (*(_DWORD *)(a1 + 16) & 0x400) == 0 )
-    v6 = v5;
+  v5 = *(_DWORD *)(a1 + 120) + 1;
+  if ( (*(_DWORD *)(a1 + 16) & 0x400) != 0 )
+    v5 = -v5;
   if ( *(_BYTE *)(a1 + 137) )
   {
-    v7 = *(unsigned int *)(a1 + 4LL * a3 + 24);
-    *(_DWORD *)(a1 + 4LL * a3 + 24) = v7 + v6;
+    v6 = *(_DWORD *)(a1 + 4LL * a3 + 24);
+    *(_DWORD *)(a1 + 4LL * a3 + 24) = v6 + v5;
   }
   else
   {
-    v7 = *(unsigned __int16 *)(a1 + 4LL * a3 + 24);
-    *(_WORD *)(a1 + 4LL * a3 + 24) = v6 + v7;
+    v6 = *(unsigned __int16 *)(a1 + 4LL * a3 + 24);
+    *(_WORD *)(a1 + 4LL * a3 + 24) = v5 + v6;
   }
-  v8 = *(unsigned __int16 *)(a1 + 2 * v4 + 68);
-  if ( (unsigned int)v7 > v8 || (int)v7 + *(_DWORD *)(a1 + 120) > v8 )
+  v7 = *(unsigned __int16 *)(a1 + 2 * v4 + 68);
+  if ( v6 > v7 || v6 + *(_DWORD *)(a1 + 120) > v7 )
     longjmp((_JBTYPE *)(a1 + 160), 14);
-  return x86BiosTranslateAddress(*(unsigned __int16 *)(a1 + 2 * v4 + 56), v7);
+  return x86BiosTranslateAddress(*(_WORD *)(a1 + 2 * v4 + 56), v6);
 }

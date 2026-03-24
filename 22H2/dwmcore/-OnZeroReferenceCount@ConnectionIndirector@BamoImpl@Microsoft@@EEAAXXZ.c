@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OnZeroReferenceCount@ConnectionIndirector@BamoImpl@Microsoft@@EEAAXXZ @ 0x1801BA880
+ * XREFs of ?OnZeroReferenceCount@ConnectionIndirector@BamoImpl@Microsoft@@EEAAXXZ @ 0x180166730
  * Callers:
  *     <none>
  * Callees:
- *     ??_GConnectionIndirector@BamoImpl@Microsoft@@MEAAPEAXI@Z @ 0x1801B9090 (--_GConnectionIndirector@BamoImpl@Microsoft@@MEAAPEAXI@Z.c)
+ *     ??_GConnectionIndirector@BamoImpl@Microsoft@@MEAAPEAXI@Z @ 0x1801659D0 (--_GConnectionIndirector@BamoImpl@Microsoft@@MEAAPEAXI@Z.c)
  */
 
 void __fastcall Microsoft::BamoImpl::ConnectionIndirector::OnZeroReferenceCount(

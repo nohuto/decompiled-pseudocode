@@ -1,28 +1,23 @@
 /*
- * XREFs of ?Free@VIDMM_PROCESS_HEAP@@UEAAXPEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C0104170
+ * XREFs of ?Free@VIDMM_PROCESS_HEAP@@UEAAXPEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C00CB460
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0019964 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pxqqt_EtwWriteTransfer @ 0x1C00321E4 (McTemplateK0pxqqt_EtwWriteTransfer.c)
- *     McTemplateK0qxxx_EtwWriteTransfer @ 0x1C003228C (McTemplateK0qxxx_EtwWriteTransfer.c)
- *     ?VidMmDereferenceObjectAsync@@YAXPEAX@Z @ 0x1C009DC74 (-VidMmDereferenceObjectAsync@@YAXPEAX@Z.c)
- *     ?FreeSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C0104544 (-FreeSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@@Z.c)
+ *     ExFreeToPagedLookasideList @ 0x1C0026078 (ExFreeToPagedLookasideList.c)
+ *     McTemplateK0pxqqt_EtwWriteTransfer @ 0x1C0027F6C (McTemplateK0pxqqt_EtwWriteTransfer.c)
+ *     McTemplateK0qpxp_EtwWriteTransfer @ 0x1C0028014 (McTemplateK0qpxp_EtwWriteTransfer.c)
+ *     ?VidMmDereferenceObjectAsync@@YAXPEAX@Z @ 0x1C00873E8 (-VidMmDereferenceObjectAsync@@YAXPEAX@Z.c)
+ *     ?FreeSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C00CB834 (-FreeSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@@Z.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
-void __fastcall VIDMM_PROCESS_HEAP::Free(
-        VIDMM_PROCESS_HEAP *this,
-        struct _VIDMM_LOCAL_ALLOC *a2,
-        __int64 a3,
-        __int64 a4)
+void __fastcall VIDMM_PROCESS_HEAP::Free(VIDMM_PROCESS_HEAP *this, struct _VIDMM_LOCAL_ALLOC *a2, __int64 a3)
 {
-  _DWORD *v4; // rbx
-  int v7; // ecx
-  __int64 v8; // r8
-  __int64 *v9; // rsi
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
+  _DWORD *v4; // rdi
+  __int64 v6; // rbx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  _QWORD *v9; // rax
+  int v10; // ecx
   int v11; // eax
   _QWORD *v12; // rcx
   bool v13; // zf
@@ -34,56 +29,55 @@ void __fastcall VIDMM_PROCESS_HEAP::Free(
   __int64 v19; // [rsp+30h] [rbp-18h]
 
   v4 = (_DWORD *)*((_QWORD *)a2 + 3);
-  if ( PsGetCurrentProcess(this, a2, a3, a4) != **((_QWORD **)this + 1) )
+  v6 = **((_QWORD **)this + 1);
+  if ( PsGetCurrentProcess(this, a2, a3) != v6 )
   {
-    g_DxgMmsBugcheckExportIndex = 1;
-    WdLogSingleEntry5(0LL, 270LL, 30LL, 0LL, 0LL, 0LL);
+    v9 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v8, v7);
+    v9[5] = 0LL;
+    v9[6] = 0LL;
+    v9[7] = 0LL;
+    v9[3] = 270LL;
+    v9[4] = 30LL;
+    WdLogEvent5_WdCriticalError(v9);
   }
   if ( (*v4 & 1) != 0 )
   {
-    v7 = v4[6];
-    if ( (unsigned int)(v7 - 3) > 3 )
+    v10 = v4[6];
+    if ( (unsigned int)(v10 - 3) > 3 )
     {
       MmUnsecureVirtualMemory(*((HANDLE *)v4 + 6));
-      VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-      v9 = (__int64 *)(v4 + 14);
-      (*((void (__fastcall **)(__int64, _DWORD *, _DWORD *, __int64))VirtualMemoryInterface + 2))(
-        -1LL,
-        v4 + 2,
-        v4 + 14,
-        0x8000LL);
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)v4 + 1, (PSIZE_T)v4 + 7, 0x8000u);
     }
     else
     {
-      if ( (unsigned int)(v7 - 5) <= 1 )
+      if ( (unsigned int)(v10 - 5) <= 1 )
         MmUnmapViewInSystemSpace(*((PVOID *)v4 + 1));
       ObCloseHandle(*((HANDLE *)v4 + 5), (*((_QWORD *)v4 + 5) & 0xFFFFFFFF80000000uLL) == 0);
-      VidMmDereferenceObjectAsync(*((PVOID *)v4 + 4));
-      v9 = (__int64 *)(v4 + 14);
+      VidMmDereferenceObjectAsync(*((struct _LIST_ENTRY **)v4 + 4));
     }
-    *(_QWORD *)(*((_QWORD *)this + 1) + 144LL) -= *v9;
-    *(_QWORD *)(*((_QWORD *)this + 1) + 136LL) -= *v9;
+    *(_QWORD *)(*((_QWORD *)this + 1) + 144LL) -= *((_QWORD *)v4 + 7);
+    *(_QWORD *)(*((_QWORD *)this + 1) + 136LL) -= *((_QWORD *)v4 + 7);
     --*(_DWORD *)(*((_QWORD *)this + 1) + 156LL);
     v11 = v4[6];
     v12 = (_QWORD *)*((_QWORD *)this + 1);
     if ( v11 == 1 )
     {
-      v12[20] -= *v9;
-      *(_QWORD *)(*((_QWORD *)this + 1) + 168LL) -= *v9;
+      v12[20] -= *((_QWORD *)v4 + 7);
+      *(_QWORD *)(*((_QWORD *)this + 1) + 168LL) -= *((_QWORD *)v4 + 7);
     }
     else
     {
       v13 = v11 == 2;
-      v14 = *v9;
+      v14 = *((_QWORD *)v4 + 7);
       if ( v13 )
       {
         v12[22] -= v14;
-        *(_QWORD *)(*((_QWORD *)this + 1) + 184LL) -= *v9;
+        *(_QWORD *)(*((_QWORD *)this + 1) + 184LL) -= *((_QWORD *)v4 + 7);
       }
       else
       {
         v12[24] -= v14;
-        *(_QWORD *)(*((_QWORD *)this + 1) + 200LL) -= *v9;
+        *(_QWORD *)(*((_QWORD *)this + 1) + 200LL) -= *((_QWORD *)v4 + 7);
       }
     }
     if ( bTracingEnabled )
@@ -92,14 +86,14 @@ void __fastcall VIDMM_PROCESS_HEAP::Free(
         v15 = *((_QWORD *)v4 + 1);
       else
         v15 = *((_QWORD *)v4 + 4);
-      if ( (byte_1C0076981 & 8) != 0 )
-        McTemplateK0qxxx_EtwWriteTransfer(
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+        McTemplateK0qpxp_EtwWriteTransfer(
           v15,
           &EventDestroyProcessAllocationDetails,
-          v8,
-          *(_DWORD *)(*((_QWORD *)this + 1) + 8LL),
+          *((_QWORD *)v4 + 7),
+          *(_QWORD *)(*((_QWORD *)this + 1) + 8LL),
           (char)v4,
-          *v9,
+          *((_QWORD *)v4 + 7),
           v15);
       if ( bTracingEnabled )
       {
@@ -108,11 +102,19 @@ void __fastcall VIDMM_PROCESS_HEAP::Free(
           v17 = *((_QWORD *)v4 + 1);
         else
           v17 = *((_QWORD *)v4 + 4);
-        if ( (byte_1C0076982 & 2) != 0 )
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
         {
-          LODWORD(v19) = *(_DWORD *)(*((_QWORD *)this + 1) + 8LL);
+          LODWORD(v19) = *(_QWORD *)(*((_QWORD *)this + 1) + 8LL);
           LODWORD(v18) = v4[6];
-          McTemplateK0pxqqt_EtwWriteTransfer(v16, &EventDestroyProcessAllocation, *v9, v17, *v9, v18, v19, 0);
+          McTemplateK0pxqqt_EtwWriteTransfer(
+            v16,
+            &EventDestroyProcessAllocation,
+            *((_QWORD *)v4 + 7),
+            v17,
+            *((_QWORD *)v4 + 7),
+            v18,
+            v19,
+            0);
         }
       }
     }

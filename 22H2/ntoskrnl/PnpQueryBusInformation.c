@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpQueryBusInformation @ 0x1407DBE94
+ * XREFs of PnpQueryBusInformation @ 0x14076C254
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     IopSynchronousCall @ 0x1407688B4 (IopSynchronousCall.c)
- *     PnpBusTypeGuidGetIndex @ 0x1407DBF6C (PnpBusTypeGuidGetIndex.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopSynchronousCall @ 0x14071D3C0 (IopSynchronousCall.c)
+ *     PnpBusTypeGuidGetIndex @ 0x14076C32C (PnpBusTypeGuidGetIndex.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpQueryBusInformation(__int64 a1)
 {
-  _QWORD *v2; // rcx
+  struct _DEVICE_OBJECT *v2; // rcx
   int v3; // eax
   _DWORD *v4; // rbx
   unsigned int v5; // esi
@@ -20,7 +20,7 @@ __int64 __fastcall PnpQueryBusInformation(__int64 a1)
 
   v8 = 0LL;
   memset(v7, 0, 0x48uLL);
-  v2 = *(_QWORD **)(a1 + 32);
+  v2 = *(struct _DEVICE_OBJECT **)(a1 + 32);
   v7[0] = 5403;
   v3 = IopSynchronousCall(v2, (__int64)v7, -1073741637, 0LL, &v8);
   v4 = v8;

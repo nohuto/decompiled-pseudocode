@@ -1,17 +1,17 @@
 /*
- * XREFs of IoReportTargetDeviceChangeAsynchronous @ 0x14031D550
+ * XREFs of IoReportTargetDeviceChangeAsynchronous @ 0x140360A10
  * Callers:
- *     PnpDeviceActionWorker @ 0x140358E30 (PnpDeviceActionWorker.c)
- *     FsRtlNotifyVolumeEventEx @ 0x1407949D0 (FsRtlNotifyVolumeEventEx.c)
+ *     PnpDeviceActionWorker @ 0x14036F9F0 (PnpDeviceActionWorker.c)
+ *     FsRtlNotifyVolumeEventEx @ 0x14071B7D0 (FsRtlNotifyVolumeEventEx.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PnpSetCustomTargetEvent @ 0x14079473C (PnpSetCustomTargetEvent.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PnpSetCustomTargetEvent @ 0x14071A048 (PnpSetCustomTargetEvent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoReportTargetDeviceChangeAsynchronous(
@@ -22,16 +22,18 @@ NTSTATUS __stdcall IoReportTargetDeviceChangeAsynchronous(
 {
   _DWORD *DeviceNode; // rcx
   GUID *v9; // rdi
-  int v10; // ecx
+  __int64 v10; // rcx
   int v11; // edx
-  struct _WORK_QUEUE_ITEM *Pool2; // rdi
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rdi
   struct _DRIVER_OBJECT *DriverObject; // rcx
   UNICODE_STRING *p_DriverName; // rcx
   char *v16; // rcx
   unsigned __int16 *v17; // rsi
-  _WORD *v18; // rcx
-  __int64 v19; // rax
+  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rdx
+  _WORD *v19; // rcx
   __int64 v20; // rcx
+  _WORD *v21; // rcx
+  __int64 v22; // rcx
 
   if ( !PhysicalDeviceObject )
     goto LABEL_31;
@@ -56,26 +58,32 @@ NTSTATUS __stdcall IoReportTargetDeviceChangeAsynchronous(
     if ( v16 )
     {
       v17 = (unsigned __int16 *)(v16 + 40);
-      IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)0x388);
+      IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)0x310);
       if ( *v17 )
       {
         IoAddTriageDumpDataBlock((ULONG)v17, (PVOID)2);
         IoAddTriageDumpDataBlock(*((_QWORD *)v17 + 1), (PVOID)*v17);
       }
-      v18 = (char *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 56;
-      if ( *v18 )
+      DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
+      v19 = (char *)DeviceObjectExtension->DeviceNode + 56;
+      if ( *v19 )
       {
-        IoAddTriageDumpDataBlock((ULONG)v18, (PVOID)2);
+        IoAddTriageDumpDataBlock((ULONG)v19, (PVOID)2);
         IoAddTriageDumpDataBlock(
           *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 8),
           (PVOID)*((unsigned __int16 *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 28));
+        DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
       }
-      v19 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
-      if ( v19 && *(_WORD *)(v19 + 56) )
+      v20 = *((_QWORD *)DeviceObjectExtension->DeviceNode + 2);
+      if ( v20 )
       {
-        IoAddTriageDumpDataBlock(v19 + 56, (PVOID)2);
-        v20 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
-        IoAddTriageDumpDataBlock(*(_QWORD *)(v20 + 64), (PVOID)*(unsigned __int16 *)(v20 + 56));
+        v21 = (_WORD *)(v20 + 56);
+        if ( *v21 )
+        {
+          IoAddTriageDumpDataBlock((ULONG)v21, (PVOID)2);
+          v22 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
+          IoAddTriageDumpDataBlock(*(_QWORD *)(v22 + 64), (PVOID)*(unsigned __int16 *)(v22 + 56));
+        }
       }
     }
 LABEL_31:
@@ -98,25 +106,22 @@ LABEL_31:
   if ( (unsigned __int16)v10 < 0x24u )
     return -1073741808;
   v11 = *((_DWORD *)NotificationStructure + 8);
-  if ( v11 != -1 && v11 > v10 - 36 )
+  if ( v11 != -1 && v11 > (int)v10 - 36 )
     return -1073741808;
   if ( KeGetCurrentIrql() != 2 )
     return PnpSetCustomTargetEvent(PhysicalDeviceObject, (__int64)Context, NotificationStructure);
-  Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(
-                                       64LL,
-                                       *((unsigned __int16 *)NotificationStructure + 1) + 64LL,
-                                       946892368LL);
-  if ( !Pool2 )
+  PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, v10 + 64, 0x38706E50u);
+  if ( !PoolWithTag )
     return -1073741670;
   ObfReferenceObjectWithTag(PhysicalDeviceObject, 0x4E706E50u);
-  Pool2[1].List.Flink = (struct _LIST_ENTRY *)PhysicalDeviceObject;
-  Pool2[1].Parameter = &Pool2[2];
-  memmove(&Pool2[2], NotificationStructure, *((unsigned __int16 *)NotificationStructure + 1));
-  Pool2[1].List.Blink = (struct _LIST_ENTRY *)Callback;
-  Pool2[1].WorkerRoutine = (void (__fastcall *)(void *))Context;
-  Pool2->WorkerRoutine = (void (__fastcall *)(void *))PnpReportTargetDeviceChangeAsyncWorker;
-  Pool2->Parameter = Pool2;
-  Pool2->List.Flink = 0LL;
-  ExQueueWorkItem(Pool2, DelayedWorkQueue);
+  PoolWithTag[1].List.Flink = (struct _LIST_ENTRY *)PhysicalDeviceObject;
+  PoolWithTag[1].Parameter = &PoolWithTag[2];
+  memmove(&PoolWithTag[2], NotificationStructure, *((unsigned __int16 *)NotificationStructure + 1));
+  PoolWithTag[1].List.Blink = (struct _LIST_ENTRY *)Callback;
+  PoolWithTag[1].WorkerRoutine = (void (__fastcall *)(void *))Context;
+  PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))PnpReportTargetDeviceChangeAsyncWorker;
+  PoolWithTag->Parameter = PoolWithTag;
+  PoolWithTag->List.Flink = 0LL;
+  ExQueueWorkItem(PoolWithTag, DelayedWorkQueue);
   return 259;
 }

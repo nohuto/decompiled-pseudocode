@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitStartPointUpdate@CInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02188BC
+ * XREFs of ?EmitStartPointUpdate@CInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E2638
  * Callers:
- *     ?EmitUpdateCommands@CInkMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0218940 (-EmitUpdateCommands@CInkMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CInkMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E26C0 (-EmitUpdateCommands@CInkMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CInkMarshaler::EmitStartPointUpdate(
@@ -22,11 +22,11 @@ char __fastcall DirectComposition::CInkMarshaler::EmitStartPointUpdate(
     *(_DWORD *)v5 = 24;
     *(_OWORD *)(v3 + 4) = 0LL;
     *((_DWORD *)v3 + 5) = 0;
-    *((_DWORD *)v3 + 1) = 186;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-    *((_DWORD *)v3 + 3) = *((_DWORD *)this + 27);
-    *((_DWORD *)v3 + 4) = *((_DWORD *)this + 28);
-    *((_DWORD *)v3 + 5) = *((_DWORD *)this + 29);
+    *((_DWORD *)v3 + 1) = 196;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+    *((_DWORD *)v3 + 3) = *((_DWORD *)this + 25);
+    *((_DWORD *)v3 + 4) = *((_DWORD *)this + 26);
+    *((_DWORD *)v3 + 5) = *((_DWORD *)this + 27);
     *((_DWORD *)this + 4) |= 0x40u;
     return 1;
   }

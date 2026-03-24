@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTracPowerOnMonitoreBegin @ 0x1C00C42B0
+ * XREFs of EtwTracPowerOnMonitoreBegin @ 0x1C0079308
  * Callers:
- *     ?PowerOnSession@@YAXW4POWER_MONITOR_REQUEST_REASON@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@W4_POWERON_LOC@@@Z @ 0x1C01328E0 (-PowerOnSession@@YAXW4POWER_MONITOR_REQUEST_REASON@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@W4_POWER.c)
- *     PowerOnMonitor @ 0x1C0133F80 (PowerOnMonitor.c)
+ *     PowerOnMonitor @ 0x1C0078C80 (PowerOnMonitor.c)
+ *     ?PowerOnSession@@YAXW4POWER_MONITOR_REQUEST_REASON@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@W4_POWERON_LOC@@@Z @ 0x1C01189B4 (-PowerOnSession@@YAXW4POWER_MONITOR_REQUEST_REASON@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@W4_POWER.c)
  * Callees:
- *     McTemplateK0d_EtwWriteTransfer @ 0x1C013C2EC (McTemplateK0d_EtwWriteTransfer.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x1C0125340 (McTemplateK0d_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTracPowerOnMonitoreBegin(__int64 a1, __int64 a2, __int64 a3)

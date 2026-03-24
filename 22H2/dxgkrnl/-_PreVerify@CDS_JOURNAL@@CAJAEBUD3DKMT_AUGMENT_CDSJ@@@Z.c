@@ -1,44 +1,70 @@
 /*
- * XREFs of ?_PreVerify@CDS_JOURNAL@@CAJAEBUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03C0258
+ * XREFs of ?_PreVerify@CDS_JOURNAL@@CAJAEBUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C01504E0
  * Callers:
- *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03BEA24 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C0150390 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
  * Callees:
- *     ??$_GetPixelFormatFromDevMode@U_devicemodeW@@@CDS_JOURNAL@@CAJAEBU_devicemodeW@@PEAW4_D3DDDIFORMAT@@@Z @ 0x1C006B808 (--$_GetPixelFormatFromDevMode@U_devicemodeW@@@CDS_JOURNAL@@CAJAEBU_devicemodeW@@PEAW4_D3DDDIFORM.c)
- *     ??$_GetRotationFromDevMode@U_devicemodeW@@@CDS_JOURNAL@@CAJAEBU_devicemodeW@@PEAW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@@Z @ 0x1C006B910 (--$_GetRotationFromDevMode@U_devicemodeW@@@CDS_JOURNAL@@CAJAEBU_devicemodeW@@PEAW4_D3DKMDT_VIDPN.c)
- *     ConvertGdiScalingToDMMScaling @ 0x1C0301650 (ConvertGdiScalingToDMMScaling.c)
+ *     ConvertGdiScalingToDMMScaling @ 0x1C0150558 (ConvertGdiScalingToDMMScaling.c)
  */
 
-__int64 __fastcall CDS_JOURNAL::_PreVerify(const struct D3DKMT_AUGMENT_CDSJ *a1)
+__int64 __fastcall CDS_JOURNAL::_PreVerify(unsigned __int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned int v1; // edx
-  __int64 result; // rax
-  __int64 v4; // rcx
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  int v7; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 v3; // rdi
+  unsigned int *v4; // rbx
+  __int64 v5; // rdx
+  unsigned int v6; // eax
+  _QWORD *v8; // rax
+  __int64 v9; // rcx
+  char v10; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = 0;
+  v3 = a1;
   if ( (*(_DWORD *)a1 & 2) != 0 )
     return 0LL;
-  v4 = *((_QWORD *)a1 + 4);
-  if ( (*(_DWORD *)(v4 + 72) & 0x80u) == 0
-    || (v7 = 0, result = CDS_JOURNAL::_GetRotationFromDevMode<_devicemodeW>(v4, &v7), v1 = result, (int)result >= 0) )
+  v4 = *(unsigned int **)(a1 + 32);
+  v5 = v4[18];
+  if ( (v5 & 0x80u) != 0LL )
   {
-    v5 = *((_QWORD *)a1 + 4);
-    if ( (*(_DWORD *)(v5 + 72) & 0x20000000) != 0 )
+    a1 = v4[21];
+    if ( (_DWORD)a1 )
     {
-      if ( !(unsigned int)ConvertGdiScalingToDMMScaling(*(_DWORD *)(v5 + 88), &v7) )
-        return 3221225485LL;
-      v1 = 0;
+      a1 = (unsigned int)(a1 - 1);
+      if ( (_DWORD)a1 )
+      {
+        a1 = (unsigned int)(a1 - 1);
+        if ( (unsigned int)a1 >= 2 )
+        {
+          v8 = (_QWORD *)WdLogNewEntry5_WdWarning(a1, v5, a3);
+          v8[3] = v4;
+          v8[4] = v4[18];
+          v9 = v4[21];
+LABEL_18:
+          v8[5] = v9;
+          WdLogEvent5_WdWarning(v8);
+          return 3221225485LL;
+        }
+      }
     }
-    v6 = *((_QWORD *)a1 + 4);
-    if ( (*(_DWORD *)(v6 + 72) & 0x40000) == 0 )
-      return v1;
-    v7 = 0;
-    result = CDS_JOURNAL::_GetPixelFormatFromDevMode<_devicemodeW>(v6, &v7);
-    v1 = result;
-    if ( (int)result >= 0 )
-      return v1;
   }
-  return result;
+  if ( (v5 & 0x20000000) == 0 )
+  {
+LABEL_7:
+    if ( (v4[18] & 0x40000) != 0 )
+    {
+      v6 = v4[42];
+      if ( v6 != 32 && v6 != 8 && v6 != 16 && v6 != 24 )
+      {
+        v8 = (_QWORD *)WdLogNewEntry5_WdWarning(a1, v5, a3);
+        v8[3] = v4;
+        v8[4] = v4[18];
+        v9 = v4[42];
+        goto LABEL_18;
+      }
+    }
+    return 0LL;
+  }
+  if ( (unsigned int)ConvertGdiScalingToDMMScaling(v4[22], &v10) )
+  {
+    v4 = *(unsigned int **)(v3 + 32);
+    goto LABEL_7;
+  }
+  return 3221225485LL;
 }

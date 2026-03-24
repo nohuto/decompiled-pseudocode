@@ -1,10 +1,10 @@
 /*
- * XREFs of CcFindBitmapRangeToDirty @ 0x14029DFF0
+ * XREFs of CcFindBitmapRangeToDirty @ 0x140336BE8
  * Callers:
- *     CcSetDirtyInMask @ 0x14029D860 (CcSetDirtyInMask.c)
+ *     CcSetDirtyInMask @ 0x140336470 (CcSetDirtyInMask.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall CcFindBitmapRangeToDirty(__int64 a1, __int64 a2, void **a3)
@@ -58,10 +58,13 @@ FatalListEntryError_35:
   }
   else
   {
-    result = ExAllocatePoolWithTag((POOL_TYPE)1536, 0x30uLL, 0x72426343u);
+    result = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x72426343u);
     v4 = result;
     if ( !result )
       return result;
+    *(_OWORD *)result = 0LL;
+    *((_OWORD *)result + 1) = 0LL;
+    *((_OWORD *)result + 2) = 0LL;
   }
   v13 = *v8;
   if ( *(_QWORD **)(*v8 + 8LL) != v8 )

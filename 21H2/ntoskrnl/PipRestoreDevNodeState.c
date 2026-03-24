@@ -1,25 +1,25 @@
 /*
- * XREFs of PipRestoreDevNodeState @ 0x14025B96C
+ * XREFs of PipRestoreDevNodeState @ 0x14036D7A0
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1402DDAE4 (PnpRemoveLockedDeviceNode.c)
- *     PnpRequestDeviceRemovalWorker @ 0x140765370 (PnpRequestDeviceRemovalWorker.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x14081059C (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PnpCancelRemoveLockedDeviceNode @ 0x1409473F0 (PnpCancelRemoveLockedDeviceNode.c)
- *     PnpCancelStopDeviceNode @ 0x140959B60 (PnpCancelStopDeviceNode.c)
+ *     PnpRemoveLockedDeviceNode @ 0x14036E5C8 (PnpRemoveLockedDeviceNode.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x140736198 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x1407365C8 (PnpRequestDeviceRemovalWorker.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140738574 (PnpDeleteLockedDeviceNode.c)
+ *     PnpCancelStopDeviceNode @ 0x1408B82E4 (PnpCancelStopDeviceNode.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     PipIsDevNodeDNStarted @ 0x1402DEAB0 (PipIsDevNodeDNStarted.c)
- *     PipAreDriversLoadedWorker @ 0x1402DEB00 (PipAreDriversLoadedWorker.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140772044 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     PipIsDevNodeDNStarted @ 0x1402651F8 (PipIsDevNodeDNStarted.c)
+ *     PipAreDriversLoadedWorker @ 0x140265248 (PipAreDriversLoadedWorker.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140746040 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
  */
 
 __int64 __fastcall PipRestoreDevNodeState(__int64 a1)
 {
   unsigned __int64 v2; // rdi
-  int v3; // ebp
-  int IsDevNodeDNStarted; // eax
+  BOOL v3; // ebp
+  BOOL IsDevNodeDNStarted; // eax
   __int64 v5; // rcx
   int v6; // esi
   int v7; // r8d
@@ -33,7 +33,7 @@ __int64 __fastcall PipRestoreDevNodeState(__int64 a1)
   bool v15; // zf
 
   v2 = KeAcquireSpinLockRaiseToDpc(&PnpSpinLock);
-  v3 = PipAreDriversLoadedWorker(*(unsigned int *)(a1 + 300), *(unsigned int *)(a1 + 304));
+  v3 = PipAreDriversLoadedWorker(*(_DWORD *)(a1 + 300), *(_DWORD *)(a1 + 304));
   IsDevNodeDNStarted = PipIsDevNodeDNStarted(a1);
   v5 = *(unsigned int *)(a1 + 388);
   v6 = IsDevNodeDNStarted;
@@ -62,7 +62,7 @@ __int64 __fastcall PipRestoreDevNodeState(__int64 a1)
   __writecr8(v2);
   if ( *(_QWORD *)(a1 + 48) )
   {
-    if ( (unsigned int)PipAreDriversLoadedWorker(*(unsigned int *)(a1 + 300), *(unsigned int *)(a1 + 304)) != v3
+    if ( PipAreDriversLoadedWorker(*(_DWORD *)(a1 + 300), *(_DWORD *)(a1 + 304)) != v3
       || (result = PipIsDevNodeDNStarted(a1), (_DWORD)result != v6) )
     {
       PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v10, v11, 11LL);

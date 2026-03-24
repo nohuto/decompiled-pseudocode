@@ -1,10 +1,10 @@
 /*
- * XREFs of DxgkDdiWriteVirtualFunctionConfig @ 0x1C035A638
+ * XREFs of DxgkDdiWriteVirtualFunctionConfig @ 0x1C0231C2C
  * Callers:
- *     ?DpiDdiWriteVirtualFunctionConfig@@YAJPEAXPEBXGKK@Z @ 0x1C0065BB0 (-DpiDdiWriteVirtualFunctionConfig@@YAJPEAXPEBXGKK@Z.c)
+ *     ?DpiDdiWriteVirtualFunctionConfig@@YAJPEAXPEBXGKK@Z @ 0x1C0058F30 (-DpiDdiWriteVirtualFunctionConfig@@YAJPEAXPEBXGKK@Z.c)
  * Callees:
- *     ?VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ @ 0x1C0358FC8 (-VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ.c)
- *     ?WriteVirtualFunctionConfig@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_WRITEVIRTUALFUNCTIONCONFIG@@@Z @ 0x1C0359098 (-WriteVirtualFunctionConfig@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_WRITEVIRTU.c)
+ *     ?VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ @ 0x1C0230C38 (-VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?WriteVirtualFunctionConfig@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_WRITEVIRTUALFUNCTIONCONFIG@@@Z @ 0x1C0230D08 (-WriteVirtualFunctionConfig@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_WRITEVIRTU.c)
  */
 
 __int64 __fastcall DxgkDdiWriteVirtualFunctionConfig(
@@ -25,7 +25,7 @@ __int64 __fastcall DxgkDdiWriteVirtualFunctionConfig(
   int v17; // [rsp+50h] [rbp-18h]
   int v18; // [rsp+54h] [rbp-14h]
 
-  v7 = a1[350];
+  v7 = a1[338];
   v18 = 0;
   v14 = a3;
   v8 = a4;

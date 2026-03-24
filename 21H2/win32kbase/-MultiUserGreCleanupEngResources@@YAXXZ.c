@@ -1,12 +1,12 @@
 /*
- * XREFs of ?MultiUserGreCleanupEngResources@@YAXXZ @ 0x1C00485E0
+ * XREFs of ?MultiUserGreCleanupEngResources@@YAXXZ @ 0x1C007CA1C
  * Callers:
- *     MultiUserNtGreCleanup @ 0x1C008F7E4 (MultiUserNtGreCleanup.c)
+ *     MultiUserNtGreCleanup @ 0x1C007BDB8 (MultiUserNtGreCleanup.c)
  * Callees:
- *     GreDeleteSemaphore @ 0x1C0044F30 (GreDeleteSemaphore.c)
- *     EngFreeMem @ 0x1C00486B0 (EngFreeMem.c)
- *     GreDeleteSemaphoreNonTracked @ 0x1C00C58B0 (GreDeleteSemaphoreNonTracked.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     GreDeleteSemaphore @ 0x1C005B290 (GreDeleteSemaphore.c)
+ *     EngFreeMem @ 0x1C007CAF0 (EngFreeMem.c)
+ *     GreDeleteSemaphoreNonTracked @ 0x1C007CBD0 (GreDeleteSemaphoreNonTracked.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void MultiUserGreCleanupEngResources(void)
@@ -15,6 +15,8 @@ void MultiUserGreCleanupEngResources(void)
   struct _LIST_ENTRY *v1; // rbx
   int Flink; // edx
   int v3; // edx
+  int v4; // eax
+  int v5; // eax
 
   if ( MultiUserEngAllocListLock )
   {
@@ -39,10 +41,17 @@ void MultiUserGreCleanupEngResources(void)
           if ( v3 == 2 )
             goto LABEL_4;
         }
-        else if ( qword_1C029B280 && (int)qword_1C029B280() >= 0 )
+        else
         {
-          if ( qword_1C029B288 )
-            qword_1C029B288(v1);
+          if ( qword_1C0256500 )
+            v4 = qword_1C0256500();
+          else
+            v4 = -1073741637;
+          if ( v4 >= 0 )
+          {
+            if ( qword_1C0256508 )
+              qword_1C0256508(v1);
+          }
         }
       }
       else
@@ -58,8 +67,12 @@ LABEL_11:
     while ( GreEngLoadModuleAllocList.Flink != &GreEngLoadModuleAllocList )
     {
       LODWORD(GreEngLoadModuleAllocList.Flink[1].Flink) = 1;
-      if ( qword_1C029B290 && (int)qword_1C029B290() >= 0 && qword_1C029B298 )
-        qword_1C029B298(&GreEngLoadModuleAllocList.Flink[1].Blink);
+      if ( qword_1C0256510 )
+        v5 = qword_1C0256510();
+      else
+        v5 = -1073741637;
+      if ( v5 >= 0 && qword_1C0256518 )
+        qword_1C0256518(&GreEngLoadModuleAllocList.Flink[1].Blink);
     }
   }
   GreDeleteSemaphoreNonTracked(MultiUserEngAllocListLock);

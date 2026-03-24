@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlQueryInformationFile @ 0x140815710
+ * XREFs of FsRtlQueryInformationFile @ 0x1408156F0
  * Callers:
  *     <none>
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B70 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1400B8DD0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     IoAllocateIrpEx @ 0x1400B9250 (IoAllocateIrpEx.c)
- *     IoFreeIrp @ 0x1400B9650 (IoFreeIrp.c)
- *     IoCancelIrp @ 0x140121E10 (IoCancelIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     IoAllocateIrpEx @ 0x1400B9270 (IoAllocateIrpEx.c)
+ *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
+ *     IoCancelIrp @ 0x140121E30 (IoCancelIrp.c)
  *     FsRtlCancellableWaitForMultipleObjects @ 0x1405A1E10 (FsRtlCancellableWaitForMultipleObjects.c)
- *     FsRtlpFreeMdlChain @ 0x1408158E4 (FsRtlpFreeMdlChain.c)
+ *     FsRtlpFreeMdlChain @ 0x1408158C4 (FsRtlpFreeMdlChain.c)
  */
 
 NTSTATUS __stdcall FsRtlQueryInformationFile(

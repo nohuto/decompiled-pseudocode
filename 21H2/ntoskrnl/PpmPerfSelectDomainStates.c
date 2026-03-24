@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmPerfSelectDomainStates @ 0x14022DEE0
+ * XREFs of PpmPerfSelectDomainStates @ 0x14029DEF0
  * Callers:
  *     <none>
  * Callees:
@@ -19,14 +19,14 @@ char PpmPerfSelectDomainStates()
 
   for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
   {
-    v2 = *(_DWORD *)(i + 296);
+    v2 = *(_DWORD *)(i + 200);
     v3 = 0;
     v4 = 0;
     v5 = 1;
     if ( v2 )
     {
       v6 = v2;
-      v7 = *(_QWORD *)(i + 312) + 56LL;
+      v7 = *(_QWORD *)(i + 216) + 56LL;
       do
       {
         if ( *(_DWORD *)(v7 - 40) != 2 )
@@ -43,12 +43,12 @@ char PpmPerfSelectDomainStates()
       }
       while ( v6 );
     }
-    if ( *(_DWORD *)(i + 508) != v5 || *(_BYTE *)(i + 516) != v4 )
+    if ( *(_DWORD *)(i + 364) != v5 || *(_BYTE *)(i + 372) != v4 )
       v3 = 1;
-    *(_DWORD *)(i + 508) = v5;
-    *(_BYTE *)(i + 516) = v4;
+    *(_DWORD *)(i + 364) = v5;
+    *(_BYTE *)(i + 372) = v4;
     if ( v3 )
-      *(_BYTE *)(i + 989) = 1;
+      *(_BYTE *)(i + 765) = 1;
   }
   return 1;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CheckOnTop@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@I@Z @ 0x1C01B5410
+ * XREFs of ?CheckOnTop@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@I@Z @ 0x1C01DFDAC
  * Callers:
- *     ?xxxMouseActivate@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@PEBUtagQMSG@@H@Z @ 0x1C0041F3C (-xxxMouseActivate@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@PEBUtagQMSG@@H@Z.c)
+ *     ?xxxMouseActivate@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@PEBUtagQMSG@@H@Z @ 0x1C00C07B8 (-xxxMouseActivate@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@PEBUtagQMSG@@H@Z.c)
  * Callees:
- *     xxxSetWindowPos @ 0x1C0028898 (xxxSetWindowPos.c)
- *     CalcForegroundInsertAfter @ 0x1C00EC140 (CalcForegroundInsertAfter.c)
+ *     CalcForegroundInsertAfter @ 0x1C0038ADC (CalcForegroundInsertAfter.c)
+ *     xxxSetWindowPos @ 0x1C006BBB4 (xxxSetWindowPos.c)
  */
 
 __int64 __fastcall CheckOnTop(struct tagTHREADINFO *a1, struct tagWND *a2, int a3)
@@ -15,7 +15,7 @@ __int64 __fastcall CheckOnTop(struct tagTHREADINFO *a1, struct tagWND *a2, int a
   __int64 v8; // rcx
   struct tagWND *v9; // rdi
 
-  if ( a2 != *(struct tagWND **)(*((_QWORD *)a1 + 54) + 128LL) )
+  if ( a2 != *(struct tagWND **)(*((_QWORD *)a1 + 54) + 120LL) )
     return 0LL;
   v5 = a3 - 513;
   if ( v5 )
@@ -34,7 +34,7 @@ __int64 __fastcall CheckOnTop(struct tagTHREADINFO *a1, struct tagWND *a2, int a
   v8 = *((_QWORD *)a2 + 5);
   if ( (*(_BYTE *)(v8 + 24) & 8) == 0
     && ((*(_WORD *)(v8 + 42) & 0x2FFF) != 0x29D ? (v9 = (struct tagWND *)*((_QWORD *)a2 + 12)) : (v9 = 0LL),
-        v9 == CalcForegroundInsertAfter(a2)) )
+        v9 == CalcForegroundInsertAfter((__int64)a2)) )
   {
     return 0LL;
   }

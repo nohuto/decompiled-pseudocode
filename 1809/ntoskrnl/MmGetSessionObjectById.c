@@ -2,19 +2,19 @@
  * XREFs of MmGetSessionObjectById @ 0x14007F244
  * Callers:
  *     SeSetSessionIdToken @ 0x1405BC45C (SeSetSessionIdToken.c)
- *     SepDuplicateToken @ 0x1406494A0 (SepDuplicateToken.c)
- *     SepSetTokenSessionById @ 0x14064FD9C (SepSetTokenSessionById.c)
- *     NtSetInformationObject @ 0x14068D6D0 (NtSetInformationObject.c)
- *     IoGetContainerInformation @ 0x14071DE20 (IoGetContainerInformation.c)
- *     SeExchangePrimaryToken @ 0x140748BB8 (SeExchangePrimaryToken.c)
- *     IoRegisterContainerNotification @ 0x140760000 (IoRegisterContainerNotification.c)
+ *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
+ *     SepSetTokenSessionById @ 0x14064FD7C (SepSetTokenSessionById.c)
+ *     NtSetInformationObject @ 0x14068D6B0 (NtSetInformationObject.c)
+ *     IoGetContainerInformation @ 0x14071DE00 (IoGetContainerInformation.c)
+ *     SeExchangePrimaryToken @ 0x140748B98 (SeExchangePrimaryToken.c)
+ *     IoRegisterContainerNotification @ 0x14075FFE0 (IoRegisterContainerNotification.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void *__fastcall MmGetSessionObjectById(unsigned int a1)

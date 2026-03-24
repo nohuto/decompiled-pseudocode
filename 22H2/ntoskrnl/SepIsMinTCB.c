@@ -1,81 +1,77 @@
 /*
- * XREFs of SepIsMinTCB @ 0x1406B9B9C
+ * XREFs of SepIsMinTCB @ 0x14060D584
  * Callers:
- *     SeQuerySigningPolicy @ 0x1406B97BC (SeQuerySigningPolicy.c)
+ *     SeQuerySigningPolicy @ 0x14060D450 (SeQuerySigningPolicy.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
- *     SepIsImageInMinTcbList @ 0x1406B9D88 (SepIsImageInMinTcbList.c)
- *     RtlPrefixUnicodeString @ 0x1406D9ED0 (RtlPrefixUnicodeString.c)
- *     SepSetSystemPaths @ 0x140856C00 (SepSetSystemPaths.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     PsGetCurrentServerSilo @ 0x14025C220 (PsGetCurrentServerSilo.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     SepIsImageInMinTcbList @ 0x140602224 (SepIsImageInMinTcbList.c)
+ *     SepSetSystemPaths @ 0x1407C9158 (SepSetSystemPaths.c)
  */
 
 __int64 __fastcall SepIsMinTCB(
         PCUNICODE_STRING String2,
-        unsigned int a2,
-        char a3,
+        __int64 a2,
+        unsigned __int8 a3,
         char a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7)
+        _BYTE *a5,
+        _BYTE *a6,
+        unsigned __int8 *a7)
 {
+  char v9; // r13
   __int64 CurrentServerSilo; // rax
-  volatile signed __int64 *ServerSiloGlobals; // rax
-  PCUNICODE_STRING *v13; // rsi
-  __int16 v14; // bp
-  unsigned int Length; // ecx
-  __int64 v16; // rcx
-  wchar_t *Buffer; // rax
-  unsigned __int64 v18; // rdx
+  volatile signed __int64 *ServerSiloGlobals; // rsi
+  const UNICODE_STRING *v13; // r14
+  unsigned int v14; // eax
+  __int16 Length; // si
+  __int64 v16; // rbp
+  wchar_t *Buffer; // r15
   int IsImageInMinTcbList; // ecx
-  int v21; // [rsp+20h] [rbp-58h]
-  int v22; // [rsp+28h] [rbp-50h]
-  __int128 v23; // [rsp+50h] [rbp-28h] BYREF
+  UNICODE_STRING v20; // [rsp+50h] [rbp-38h] BYREF
 
-  v23 = 0LL;
-  CurrentServerSilo = PsGetCurrentServerSilo();
+  v20 = 0LL;
+  v9 = a2;
+  CurrentServerSilo = PsGetCurrentServerSilo((__int64)String2, a2);
   ServerSiloGlobals = (volatile signed __int64 *)PsGetServerSiloGlobals(CurrentServerSilo);
-  v13 = (PCUNICODE_STRING *)(ServerSiloGlobals + 92);
   if ( !_InterlockedCompareExchange64(ServerSiloGlobals + 96, 0LL, 0LL) )
   {
-    IsImageInMinTcbList = SepSetSystemPaths(v13);
+    IsImageInMinTcbList = SepSetSystemPaths(ServerSiloGlobals + 92);
     if ( IsImageInMinTcbList < 0 )
       return (unsigned int)IsImageInMinTcbList;
   }
   if ( !String2 )
     return (unsigned int)-1073741275;
+  v13 = (const UNICODE_STRING *)*((_QWORD *)ServerSiloGlobals + 96);
   v14 = 42;
-  Length = v13[4]->Length;
-  if ( (unsigned __int16)Length >= 0x2Au )
-    Length = 42;
-  if ( String2->Length <= Length )
+  Length = v13->Length;
+  if ( v13->Length < 0x2Au )
+    v14 = v13->Length;
+  v16 = String2->Length;
+  if ( (unsigned int)v16 <= v14 )
     return (unsigned int)-1073741275;
-  if ( String2->Buffer[1] == 63 )
-  {
-    if ( !RtlPrefixUnicodeString(v13[4], String2, 1u) && !RtlPrefixUnicodeString(v13[4] + 1, String2, 1u) )
-      return (unsigned int)-1073741275;
-    v14 = v13[4]->Length;
-  }
-  else if ( !RtlPrefixUnicodeString(&stru_140001338, String2, 1u)
-         && !RtlPrefixUnicodeString(&stru_14000AC38, String2, 1u) )
-  {
-    return (unsigned int)-1073741275;
-  }
-  v16 = (unsigned __int16)(String2->Length - v14);
   Buffer = String2->Buffer;
-  v18 = String2->Length - v16;
-  LOWORD(v23) = String2->Length - v14;
-  WORD1(v23) = v16;
-  *((_QWORD *)&v23 + 1) = &Buffer[v18 >> 1];
-  IsImageInMinTcbList = SepIsImageInMinTcbList(&SeMsMinTCBList, 17LL, &v23, a2, a3, a4, a5, a6, a7);
+  if ( Buffer[1] == 63 )
+  {
+    if ( !RtlPrefixUnicodeString(v13, String2, 1u) && !RtlPrefixUnicodeString(v13 + 1, String2, 1u) )
+      return (unsigned int)-1073741275;
+  }
+  else
+  {
+    if ( !RtlPrefixUnicodeString(&stru_1400010C8, String2, 1u) && !RtlPrefixUnicodeString(&stru_140009B30, String2, 1u) )
+      return (unsigned int)-1073741275;
+    Length = 42;
+  }
+  v20.Length = v16 - Length;
+  v20.MaximumLength = v16 - Length;
+  v20.Buffer = &Buffer[(v16 - (unsigned __int64)(unsigned __int16)(v16 - Length)) >> 1];
+  IsImageInMinTcbList = SepIsImageInMinTcbList((__int64)&SeMsMinTCBList, 0x10u, &v20, v9, a3, a4, a5, a6, a7);
   if ( IsImageInMinTcbList < 0
     && (SeCiDebugOptions & 1) == 0
     && (_BYTE)KdDebuggerEnabled
     && !(_BYTE)KdDebuggerNotPresent )
   {
-    LOBYTE(v22) = a4;
-    LOBYTE(v21) = a3;
-    return (unsigned int)SepIsImageInMinTcbList(L" \"", 9LL, &v23, a2, v21, v22, a5, a6, a7);
+    return (unsigned int)SepIsImageInMinTcbList((__int64)L" \"", 9u, &v20, v9, a3, a4, a5, a6, a7);
   }
   return (unsigned int)IsImageInMinTcbList;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpExtInitExtensions @ 0x140B6F1A8
+ * XREFs of HalpExtInitExtensions @ 0x140A6EE38
  * Callers:
- *     HalpHalExtInitSystem @ 0x140A91860 (HalpHalExtInitSystem.c)
+ *     HalpHalExtInitSystem @ 0x1409A1340 (HalpHalExtInitSystem.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     HalpAcpiGetTable @ 0x140336E50 (HalpAcpiGetTable.c)
- *     HalpMmAllocateMemoryInternal @ 0x14037E158 (HalpMmAllocateMemoryInternal.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalpAcpiGetTable @ 0x1402E77D0 (HalpAcpiGetTable.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BAC58 (HalpMmAllocateMemoryInternal.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall HalpExtInitExtensions(__int64 a1)
@@ -20,12 +20,12 @@ __int64 __fastcall HalpExtInitExtensions(__int64 a1)
   void *MemoryInternal; // rax
   __int64 Table; // r13
   unsigned int v10; // r14d
-  _QWORD *v11; // rax
-  _QWORD *v12; // rdi
+  __int64 **v11; // rax
+  __int64 *v12; // rdi
   __int64 v13; // r15
   int (__fastcall *v14)(_QWORD, __int64 *, _UNKNOWN **); // rax
   unsigned __int64 v15; // rsi
-  __int64 **i; // r15
+  __int64 *i; // r15
   __int64 v17; // [rsp+60h] [rbp+8h] BYREF
 
   v1 = 0;
@@ -44,24 +44,21 @@ __int64 __fastcall HalpExtInitExtensions(__int64 a1)
     }
     while ( v5 != v4 );
     HalpExtHandleCount = v3;
-  }
-  if ( v3 )
-  {
-    v7 = v3 << 6;
-    MemoryInternal = (void *)HalpMmAllocateMemoryInternal(v7, 1u);
-    HalpExtHandleArray = (__int64)MemoryInternal;
-    if ( MemoryInternal )
+    if ( v3 )
     {
-      memset(MemoryInternal, 0, v7);
-      Table = HalpAcpiGetTable(a1, 1414681411, 0, 0);
-      if ( Table )
+      v7 = v3 << 6;
+      MemoryInternal = (void *)HalpMmAllocateMemoryInternal(v7, 1u);
+      HalpExtHandleArray = (__int64)MemoryInternal;
+      if ( MemoryInternal )
       {
-        v10 = 0;
-        v11 = (_QWORD *)(*(_QWORD *)(a1 + 240) + 2584LL);
-        v12 = (_QWORD *)*v11;
-        if ( (_QWORD *)*v11 != v11 )
+        memset(MemoryInternal, 0, v7);
+        Table = HalpAcpiGetTable(a1, 1414681411, 0, 0);
+        if ( Table )
         {
-          do
+          v10 = 0;
+          v11 = (__int64 **)(*(_QWORD *)(a1 + 240) + 2584LL);
+          v12 = *v11;
+          while ( v12 != (__int64 *)v11 )
           {
             if ( *((int *)v12 + 10) >= 0 )
             {
@@ -79,7 +76,7 @@ __int64 __fastcall HalpExtInitExtensions(__int64 a1)
                 *(_BYTE *)v15 = 1;
                 *(_QWORD *)(v15 + 40) = v15 + 32;
                 *(_QWORD *)(v15 + 32) = v15 + 32;
-                for ( i = (__int64 **)v12[3]; i != v12 + 3; i = (__int64 **)*i )
+                for ( i = (__int64 *)v12[3]; i != v12 + 3; i = (__int64 *)*i )
                   (**(void (__fastcall ***)(_QWORD, __int64))(v15 + 16))(v10, Table + *((unsigned int *)i + 4));
                 *(_BYTE *)v15 = 0;
               }
@@ -94,15 +91,15 @@ __int64 __fastcall HalpExtInitExtensions(__int64 a1)
                 *((_DWORD *)v12 + 10));
             }
             ++v10;
-            v12 = (_QWORD *)*v12;
+            v12 = (__int64 *)*v12;
+            v11 = (__int64 **)(*(_QWORD *)(a1 + 240) + 2584LL);
           }
-          while ( v12 != (_QWORD *)(*(_QWORD *)(a1 + 240) + 2584LL) );
         }
       }
-    }
-    else
-    {
-      return (unsigned int)-1073741801;
+      else
+      {
+        return (unsigned int)-1073741801;
+      }
     }
   }
   return v1;

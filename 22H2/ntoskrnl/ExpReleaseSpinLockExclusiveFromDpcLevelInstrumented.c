@@ -1,41 +1,35 @@
 /*
- * XREFs of ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B12C
+ * XREFs of ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5CCC
  * Callers:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     MiIdentifyPfn @ 0x14023E4A0 (MiIdentifyPfn.c)
- *     RtlpHpVsChunkSplit @ 0x14024A460 (RtlpHpVsChunkSplit.c)
- *     RtlpHpSegPageRangeAllocate @ 0x14024DCD0 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegPageRangeShrink @ 0x14024E6A0 (RtlpHpSegPageRangeShrink.c)
- *     PsImpersonateContainerOfThread @ 0x140259DC0 (PsImpersonateContainerOfThread.c)
- *     MiEmptyDecayClusterTimers @ 0x14025AE00 (MiEmptyDecayClusterTimers.c)
- *     MiReferenceControlAreaPfn @ 0x14025B200 (MiReferenceControlAreaPfn.c)
- *     MiComputeAgingAmount @ 0x14025BA00 (MiComputeAgingAmount.c)
- *     MiAgePte @ 0x14027BC40 (MiAgePte.c)
- *     MiLogPageAccess @ 0x14027CA90 (MiLogPageAccess.c)
- *     MmDoesFileHaveUserWritableReferences @ 0x1402877C0 (MmDoesFileHaveUserWritableReferences.c)
- *     MiAddViewsForSection @ 0x140288650 (MiAddViewsForSection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x140289AC0 (RtlpHpReleaseQueuedLockExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
- *     MiCheckControlArea @ 0x14029FAA0 (MiCheckControlArea.c)
- *     ExDeleteResourceLite @ 0x1402A8CA0 (ExDeleteResourceLite.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A9090 (NtWaitForWorkViaWorkerFactory.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402D1E90 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiGetLargePage @ 0x1402D7A80 (MiGetLargePage.c)
- *     MiReleaseLargePageAllocationLocks @ 0x1402D8200 (MiReleaseLargePageAllocationLocks.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     RtlpHpVsSubsegmentCommitPages @ 0x140337120 (RtlpHpVsSubsegmentCommitPages.c)
- *     ExReleaseSpinLockExclusive @ 0x140337EC0 (ExReleaseSpinLockExclusive.c)
- *     MiDereferenceControlAreaPfnList @ 0x1403399D0 (MiDereferenceControlAreaPfnList.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     PspRevertContainerImpersonation @ 0x14021FAA0 (PspRevertContainerImpersonation.c)
+ *     MiReferencePageRuns @ 0x14022F500 (MiReferencePageRuns.c)
+ *     MiZeroLargePages @ 0x140231E90 (MiZeroLargePages.c)
+ *     MiZeroPage @ 0x140232C80 (MiZeroPage.c)
+ *     CcUnpinFileDataEx @ 0x140274CB0 (CcUnpinFileDataEx.c)
+ *     ExDeleteResourceLite @ 0x140275720 (ExDeleteResourceLite.c)
+ *     CcSetDirtyPinnedData @ 0x140279990 (CcSetDirtyPinnedData.c)
+ *     MiPfPutPagesInTransition @ 0x14027BCA0 (MiPfPutPagesInTransition.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14028A070 (RtlpHpSegPageRangeAllocate.c)
+ *     CcGetPartition @ 0x140293E80 (CcGetPartition.c)
+ *     MiCheckControlArea @ 0x140295130 (MiCheckControlArea.c)
+ *     MiAddViewsForSection @ 0x140295C70 (MiAddViewsForSection.c)
+ *     CcGetVirtualAddress @ 0x1402A15A0 (CcGetVirtualAddress.c)
+ *     MiMakePageAvoidRead @ 0x1402A4700 (MiMakePageAvoidRead.c)
+ *     MmGetControlAreaPartition @ 0x1402B31A0 (MmGetControlAreaPartition.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402BC380 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpVsChunkSplit @ 0x1402BF820 (RtlpHpVsChunkSplit.c)
+ *     MiIdentifyPfn @ 0x1402C9940 (MiIdentifyPfn.c)
+ *     MiDereferenceControlAreaPfnList @ 0x1402F4E60 (MiDereferenceControlAreaPfnList.c)
+ *     MiZeroLargePageThread @ 0x1403AEB30 (MiZeroLargePageThread.c)
  * Callees:
- *     PerfLogSpinLockRelease @ 0x140600DE8 (PerfLogSpinLockRelease.c)
+ *     PerfLogSpinLockRelease @ 0x1405AB388 (PerfLogSpinLockRelease.c)
  */
 
-__int64 __fastcall ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(_DWORD *a1, __int64 a2)
+void __fastcall ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(_DWORD *a1, __int64 a2)
 {
   *a1 = 0;
-  return PerfLogSpinLockRelease((__int64)a1, a2, __rdtsc());
+  PerfLogSpinLockRelease((__int64)a1, a2, __rdtsc());
 }

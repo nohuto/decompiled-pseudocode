@@ -1,16 +1,16 @@
 /*
- * XREFs of ?EmitUpdateCommands@CEffectBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AC9C0
+ * XREFs of ?EmitUpdateCommands@CEffectBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0066350
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitSetInputs@CEffectBrushMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00ACA48 (-EmitSetInputs@CEffectBrushMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_f678eeb0d1545915315cd98f9c103f50___ @ 0x1C00ACAE4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_f678eeb0d1545915315cd98f9c103f5.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_35529fb37e3d051452ca63a425a17044___ @ 0x1C00ACB80 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_35529fb37e3d051452ca63a425a1704.c)
+ *     ?EmitSetInputs@CEffectBrushMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C006615C (-EmitSetInputs@CEffectBrushMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_7d3559bef4d6fae1842b5ded287e2d56___ @ 0x1C00663D8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_7d3559bef4d6fae1842b5ded287e2d5.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_394ec4563cb9f209d8bec2a755d1dbfa___ @ 0x1C0066478 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_394ec4563cb9f209d8bec2a755d1dbf.c)
  */
 
 char __fastcall DirectComposition::CEffectBrushMarshaler::EmitUpdateCommands(
         DirectComposition::CEffectBrushMarshaler *this,
-        struct DirectComposition::CBatch **a2)
+        struct DirectComposition::CBatch ***a2)
 {
   int v2; // eax
   char v3; // di
@@ -21,7 +21,7 @@ char __fastcall DirectComposition::CEffectBrushMarshaler::EmitUpdateCommands(
   v7 = this;
   if ( (v2 & 0x20) != 0 )
   {
-    if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_f678eeb0d1545915315cd98f9c103f50___(
+    if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_7d3559bef4d6fae1842b5ded287e2d56___(
                              this,
                              a2,
                              &v7) )
@@ -32,7 +32,7 @@ char __fastcall DirectComposition::CEffectBrushMarshaler::EmitUpdateCommands(
   v7 = this;
   if ( (v2 & 0x40) != 0 )
   {
-    if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_35529fb37e3d051452ca63a425a17044___(
+    if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_394ec4563cb9f209d8bec2a755d1dbfa___(
                              this,
                              a2,
                              &v7) )

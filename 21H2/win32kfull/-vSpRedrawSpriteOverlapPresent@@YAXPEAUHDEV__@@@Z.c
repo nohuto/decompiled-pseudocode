@@ -1,40 +1,40 @@
 /*
- * XREFs of ?vSpRedrawSpriteOverlapPresent@@YAXPEAUHDEV__@@@Z @ 0x1C0085DF4
+ * XREFs of ?vSpRedrawSpriteOverlapPresent@@YAXPEAUHDEV__@@@Z @ 0x1C006A504
  * Callers:
- *     GreRedrawSpriteOverlapPresent @ 0x1C0085D2C (GreRedrawSpriteOverlapPresent.c)
+ *     GreRedrawSpriteOverlapPresent @ 0x1C006A43C (GreRedrawSpriteOverlapPresent.c)
  * Callees:
- *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C0008914 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C0009024 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ??0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C0085EEC (--0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
- *     ??1SPRITEDDIACCESS@@QEAA@XZ @ 0x1C0085FE0 (--1SPRITEDDIACCESS@@QEAA@XZ.c)
- *     ?vUnlock@PIDLOCKSPRITEAREA@@QEAAXXZ @ 0x1C0086C90 (-vUnlock@PIDLOCKSPRITEAREA@@QEAAXXZ.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C008E0D4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00B68CC (-vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z.c)
- *     ?vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z @ 0x1C0155D28 (-vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z.c)
- *     ?vLock@PIDLOCKSPRITEAREA@@QEAAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z @ 0x1C0157480 (-vLock@PIDLOCKSPRITEAREA@@QEAAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ??1SPRITEDDIACCESS@@QEAA@XZ @ 0x1C008BED0 (--1SPRITEDDIACCESS@@QEAA@XZ.c)
+ *     ??0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C008C4D8 (--0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B9858 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C00CE750 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEEF0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     ?vUnlock@PIDLOCKSPRITEAREA@@QEAAXXZ @ 0x1C00F01FC (-vUnlock@PIDLOCKSPRITEAREA@@QEAAXXZ.c)
+ *     ?vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00F06FC (-vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z @ 0x1C0164404 (-vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z.c)
+ *     ?vLock@PIDLOCKSPRITEAREA@@QEAAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z @ 0x1C0165A5C (-vLock@PIDLOCKSPRITEAREA@@QEAAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void __fastcall vSpRedrawSpriteOverlapPresent(HDEV a1)
 {
   HDEV v1; // rbx
   struct REGION *v2; // rdx
-  struct REGION *v3; // rdi
-  int v4; // eax
-  int v5; // edx
-  int v6; // esi
-  int v7; // r14d
-  unsigned int v8; // edi
-  int v9; // r15d
-  int v10; // eax
+  unsigned int v3; // esi
+  struct REGION *v4; // rdi
+  int v5; // r15d
+  int v6; // r12d
+  int v7; // eax
+  int v8; // edx
+  int v9; // r14d
+  unsigned int v10; // edi
   int v11; // eax
-  int v12; // edx
-  REGION *v13; // r14
-  int v14; // edi
-  __int128 v15; // xmm0
-  unsigned int i; // esi
+  int v12; // eax
+  int v13; // edx
+  REGION *v14; // r14
+  int v15; // edi
+  __int128 v16; // xmm0
   struct REGION *v17[2]; // [rsp+38h] [rbp-D0h] BYREF
   _QWORD v18[2]; // [rsp+48h] [rbp-C0h] BYREF
   HDEV v19; // [rsp+58h] [rbp-B0h] BYREF
@@ -57,92 +57,101 @@ void __fastcall vSpRedrawSpriteOverlapPresent(HDEV a1)
   int v36; // [rsp+240h] [rbp+138h]
   int v37; // [rsp+268h] [rbp+160h]
   __int64 v38; // [rsp+278h] [rbp+170h]
-  int v39; // [rsp+288h] [rbp+180h] BYREF
+  unsigned int v39; // [rsp+288h] [rbp+180h] BYREF
   _OWORD v40[20]; // [rsp+28Ch] [rbp+184h] BYREF
   _DWORD v41[84]; // [rsp+3D8h] [rbp+2D0h] BYREF
 
   v19 = a1;
-  v1 = a1 + 20;
+  v1 = a1 + 22;
   SPRITEDDIACCESS::SPRITEDDIACCESS((SPRITEDDIACCESS *)v21, (struct PDEVOBJ *)&v19);
   GreAcquireSemaphore(*((_QWORD *)v1 + 15));
   EtwTraceGreLockAcquireSemaphoreExclusive(L"hsem", *((_QWORD *)v1 + 15), 8LL);
   v2 = (struct REGION *)*((_QWORD *)v1 + 130);
+  v3 = 0;
   if ( !v2 )
     goto LABEL_2;
-  v3 = (struct REGION *)*((_QWORD *)v1 + 131);
-  if ( !v3 )
+  v4 = (struct REGION *)*((_QWORD *)v1 + 131);
+  if ( !v4 )
     goto LABEL_2;
+  v5 = 1;
   v27 = 0LL;
   v28 = 0;
   v29 = 1;
   v30 = 0LL;
   v26 = 0LL;
+  v6 = 1;
   v35 = 0LL;
   v36 = 0;
   v37 = 1;
   v38 = 0LL;
   v34 = 0LL;
   XCLIPOBJ::vSetup((XCLIPOBJ *)v23, v2, (struct ERECTL *)(v1 + 10), 0);
-  XCLIPOBJ::vSetup((XCLIPOBJ *)v31, v3, (struct ERECTL *)(v1 + 10), 0);
+  XCLIPOBJ::vSetup((XCLIPOBJ *)v31, v4, (struct ERECTL *)(v1 + 10), 0);
   ERECTL::bEmpty((ERECTL *)v24);
-  v4 = ERECTL::bEmpty((ERECTL *)v32);
-  if ( v5 == v4 )
+  v7 = ERECTL::bEmpty((ERECTL *)v32);
+  if ( v8 == v7 )
   {
-    if ( !v25 && !v33 )
+    if ( v25 || v33 )
     {
-LABEL_22:
-      REGION::vDeleteREGION(*((REGION **)v1 + 131));
-      *((_QWORD *)v1 + 131) = 0LL;
-      goto LABEL_2;
-    }
-    if ( v25 == v33 )
-    {
+      if ( v25 != v33 )
+        goto LABEL_28;
       memset(&v41[1], 0, 0x140uLL);
       memset(v40, 0, sizeof(v40));
       XCLIPOBJ::cEnumStart((XCLIPOBJ *)v23, 0, 0, 4u, 0x64u);
       XCLIPOBJ::cEnumStart((XCLIPOBJ *)v31, 0, 0, 4u, 0x64u);
-      v6 = 1;
-      v7 = 1;
+      v9 = 1;
       while ( 1 )
       {
         v41[0] = 0;
-        v8 = 0;
+        v10 = 0;
         v39 = 0;
-        v9 = 0;
-        if ( v7 )
+        if ( v9 )
         {
-          v10 = XCLIPOBJ::bEnum((XCLIPOBJ *)v23, 0x144u, (char *)v41, 0LL);
-          v8 = v41[0];
-          v7 = v10;
+          v11 = XCLIPOBJ::bEnum((XCLIPOBJ *)v23, 0x144u, v41, 0LL);
+          v10 = v41[0];
+          v9 = v11;
         }
-        if ( v6 )
+        if ( v5 )
         {
-          v11 = XCLIPOBJ::bEnum((XCLIPOBJ *)v31, 0x144u, (char *)&v39, 0LL);
-          v9 = v39;
-          v6 = v11;
+          v12 = XCLIPOBJ::bEnum((XCLIPOBJ *)v31, 0x144u, &v39, 0LL);
+          v3 = v39;
+          v5 = v12;
         }
-        if ( v8 != v9 )
+        if ( v10 != v3 )
           break;
-        v12 = 0;
-        if ( v8 )
+        v3 = 0;
+        v13 = 0;
+        if ( v10 )
         {
-          while ( LODWORD(v40[v12]) == v41[4 * v12 + 1]
-               && DWORD1(v40[v12]) == v41[4 * v12 + 2]
-               && DWORD2(v40[v12]) == v41[4 * v12 + 3]
-               && HIDWORD(v40[v12]) == v41[4 * v12 + 4] )
+          while ( LODWORD(v40[v13]) == v41[4 * v13 + 1]
+               && DWORD1(v40[v13]) == v41[4 * v13 + 2]
+               && DWORD2(v40[v13]) == v41[4 * v13 + 3]
+               && HIDWORD(v40[v13]) == v41[4 * v13 + 4] )
           {
-            if ( ++v12 >= v8 )
-              goto LABEL_20;
+            if ( ++v13 >= v10 )
+              goto LABEL_22;
           }
-          break;
+          v6 = 0;
+          v9 = 0;
+          v5 = 0;
         }
-LABEL_20:
-        if ( !v7 && !v6 )
-          goto LABEL_22;
+LABEL_22:
+        if ( !v9 && !v5 )
+          goto LABEL_26;
       }
+      v3 = 0;
+      v6 = 0;
+    }
+LABEL_26:
+    if ( v6 )
+    {
+      REGION::vDeleteREGION(*((REGION **)v1 + 131));
+      *((_QWORD *)v1 + 131) = 0LL;
+      goto LABEL_2;
     }
   }
-  v13 = (REGION *)*((_QWORD *)v1 + 130);
+LABEL_28:
+  v14 = (REGION *)*((_QWORD *)v1 + 130);
   *((_QWORD *)v1 + 130) = *((_QWORD *)v1 + 131);
   vSpComputeUnlockedRegion((struct _SPRITESTATE *)v1);
   RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v18);
@@ -150,13 +159,13 @@ LABEL_20:
   RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v17);
   RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v17);
   if ( !v18[0] )
-    goto LABEL_40;
+    goto LABEL_45;
   if ( !v17[0] )
-    goto LABEL_40;
+    goto LABEL_45;
   RGNOBJ::vSet((RGNOBJ *)v18, (struct _RECTL *)(v1 + 10));
-  v20 = v13;
+  v20 = v14;
   if ( !RGNOBJ::bMerge((RGNOBJ *)v17, (struct RGNOBJ *)v18, (struct RGNOBJ *)&v20, 4u) )
-    goto LABEL_40;
+    goto LABEL_45;
   *(_QWORD *)((char *)&v40[4] + 12) = 0LL;
   DWORD1(v40[5]) = 0;
   HIDWORD(v40[7]) = 1;
@@ -166,42 +175,51 @@ LABEL_20:
   memset(v41, 0, 0x144uLL);
   if ( !LOBYTE(v40[1]) )
   {
-    v15 = *(_OWORD *)(v1 + 10);
-    goto LABEL_32;
+    v16 = *(_OWORD *)(v1 + 10);
+    goto LABEL_37;
   }
   if ( LOBYTE(v40[1]) == 1 )
   {
-    v15 = v40[0];
-LABEL_32:
-    *(_OWORD *)&v41[1] = v15;
+    v16 = v40[0];
+LABEL_37:
+    *(_OWORD *)&v41[1] = v16;
     v41[0] = 1;
-    v14 = 0;
-    goto LABEL_33;
+    v15 = 0;
+    goto LABEL_38;
   }
   if ( LOBYTE(v40[1]) == 3 )
   {
-    v14 = 1;
+    v15 = 1;
     XCLIPOBJ::cEnumStart((XCLIPOBJ *)&v39, 0, 0, 4u, 0x14u);
-LABEL_33:
-    if ( !v14 )
-      goto LABEL_35;
+LABEL_38:
+    if ( !v15 )
+      goto LABEL_40;
     do
     {
-      v14 = XCLIPOBJ::bEnum((XCLIPOBJ *)&v39, 0x144u, (char *)v41, 0LL);
-LABEL_35:
-      for ( i = 0; i < v41[0]; ++i )
-      {
-        PIDLOCKSPRITEAREA::vLock((PIDLOCKSPRITEAREA *)v22, (struct _SPRITESTATE *)v1, (struct _RECTL *)&v41[4 * i + 1]);
-        if ( v22[0] )
-          vSpRedrawArea((struct _SPRITESTATE *)v1, (struct _RECTL *)&v41[4 * i + 1], 0);
-        PIDLOCKSPRITEAREA::vUnlock((PIDLOCKSPRITEAREA *)v22);
-      }
-    }
-    while ( v14 );
-  }
+      v15 = XCLIPOBJ::bEnum((XCLIPOBJ *)&v39, 0x144u, v41, 0LL);
 LABEL_40:
-  if ( v13 )
-    REGION::vDeleteREGION(v13);
+      if ( v41[0] )
+      {
+        do
+        {
+          PIDLOCKSPRITEAREA::vLock(
+            (PIDLOCKSPRITEAREA *)v22,
+            (struct _SPRITESTATE *)v1,
+            (struct _RECTL *)&v41[4 * v3 + 1]);
+          if ( v22[0] )
+            vSpRedrawArea((struct _SPRITESTATE *)v1, (struct _RECTL *)&v41[4 * v3 + 1], 0);
+          PIDLOCKSPRITEAREA::vUnlock((PIDLOCKSPRITEAREA *)v22);
+          ++v3;
+        }
+        while ( v3 < v41[0] );
+      }
+      v3 = 0;
+    }
+    while ( v15 );
+  }
+LABEL_45:
+  if ( v14 )
+    REGION::vDeleteREGION(v14);
   *((_QWORD *)v1 + 131) = 0LL;
   RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v17);
   RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v18);

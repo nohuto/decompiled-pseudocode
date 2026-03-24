@@ -1,17 +1,17 @@
 /*
- * XREFs of PsReferenceEffectiveToken @ 0x1406492D0
+ * XREFs of PsReferenceEffectiveToken @ 0x1406492B0
  * Callers:
- *     SepReferenceTokenUsingPseudoHandle @ 0x1400A8DF0 (SepReferenceTokenUsingPseudoHandle.c)
- *     RtlpQueryLowBoxId @ 0x1400CCD10 (RtlpQueryLowBoxId.c)
- *     SeLogAccessFailure @ 0x140118EE0 (SeLogAccessFailure.c)
- *     SeCaptureAtomTableCallout @ 0x140125558 (SeCaptureAtomTableCallout.c)
- *     RtlpAllowsLowBoxAccess @ 0x1401330A0 (RtlpAllowsLowBoxAccess.c)
- *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x1402FED10 (SepVerifyDesktopAppPolicyOverrideCaller.c)
+ *     SepReferenceTokenUsingPseudoHandle @ 0x1400A8E10 (SepReferenceTokenUsingPseudoHandle.c)
+ *     RtlpQueryLowBoxId @ 0x1400CCD30 (RtlpQueryLowBoxId.c)
+ *     SeLogAccessFailure @ 0x140118F00 (SeLogAccessFailure.c)
+ *     SeCaptureAtomTableCallout @ 0x140125578 (SeCaptureAtomTableCallout.c)
+ *     RtlpAllowsLowBoxAccess @ 0x1401330C0 (RtlpAllowsLowBoxAccess.c)
+ *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x1402FEE10 (SepVerifyDesktopAppPolicyOverrideCaller.c)
  *     ExpWnfQueryCurrentUserSID @ 0x1406101D0 (ExpWnfQueryCurrentUserSID.c)
- *     EtwpGetSidExtendedHeaderItem @ 0x140649050 (EtwpGetSidExtendedHeaderItem.c)
- *     SeCreateClientSecurity @ 0x1406491F0 (SeCreateClientSecurity.c)
- *     SeSubProcessToken @ 0x14064EA6C (SeSubProcessToken.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB24 (PspAllocateAndQueryNotificationChannel.c)
+ *     EtwpGetSidExtendedHeaderItem @ 0x140649030 (EtwpGetSidExtendedHeaderItem.c)
+ *     SeCreateClientSecurity @ 0x1406491D0 (SeCreateClientSecurity.c)
+ *     SeSubProcessToken @ 0x14064EA4C (SeSubProcessToken.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB04 (PspAllocateAndQueryNotificationChannel.c)
  * Callees:
  *     ObFastReferenceObject @ 0x14004D840 (ObFastReferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)

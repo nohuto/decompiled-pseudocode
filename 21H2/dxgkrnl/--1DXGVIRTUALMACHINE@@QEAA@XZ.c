@@ -1,31 +1,31 @@
 /*
- * XREFs of ??1DXGVIRTUALMACHINE@@QEAA@XZ @ 0x1C0334C20
+ * XREFs of ??1DXGVIRTUALMACHINE@@QEAA@XZ @ 0x1C0283EE8
  * Callers:
- *     ??_GDXGVIRTUALMACHINE@@QEAAPEAXI@Z @ 0x1C0057884 (--_GDXGVIRTUALMACHINE@@QEAAPEAXI@Z.c)
+ *     ??_GDXGVIRTUALMACHINE@@QEAAPEAXI@Z @ 0x1C0048A64 (--_GDXGVIRTUALMACHINE@@QEAAPEAXI@Z.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
  */
 
-void __fastcall DXGVIRTUALMACHINE::~DXGVIRTUALMACHINE(DXGVIRTUALMACHINE *this)
+void __fastcall DXGVIRTUALMACHINE::~DXGVIRTUALMACHINE(void **this, __int64 a2)
 {
+  _QWORD *v3; // rbx
   struct DXGGLOBAL *Global; // rdi
-  char *v3; // rbx
-  __int64 v4; // rax
-  char **v5; // rdx
+  __int64 v5; // rax
+  _QWORD *v6; // rdx
 
-  Global = DXGGLOBAL_GetGlobal();
-  v3 = (char *)this + 8;
-  DXGPUSHLOCK::AcquireExclusive((struct DXGGLOBAL *)((char *)Global + 488));
-  v4 = *((_QWORD *)this + 1);
-  if ( *(char **)(*(_QWORD *)v3 + 8LL) != v3 || (v5 = (char **)*((_QWORD *)this + 2), *v5 != v3) )
+  v3 = this + 1;
+  Global = DXGGLOBAL::GetGlobal((__int64)this, a2);
+  DXGPUSHLOCK::AcquireExclusive((struct DXGGLOBAL *)((char *)Global + 432));
+  v5 = *v3;
+  if ( *(_QWORD **)(*v3 + 8LL) != v3 || (v6 = (_QWORD *)v3[1], (_QWORD *)*v6 != v3) )
     __fastfail(3u);
-  *v5 = (char *)v4;
-  *(_QWORD *)(v4 + 8) = v5;
-  --*((_DWORD *)Global + 442);
-  *((_QWORD *)Global + 62) = 0LL;
-  ExReleasePushLockExclusiveEx((char *)Global + 488, 0LL);
+  *v6 = v5;
+  *(_QWORD *)(v5 + 8) = v6;
+  --*((_DWORD *)Global + 400);
+  *((_QWORD *)Global + 55) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)Global + 432, 0LL);
   KeLeaveCriticalRegion();
-  operator delete(*((void **)this + 27));
+  operator delete(this[22]);
 }

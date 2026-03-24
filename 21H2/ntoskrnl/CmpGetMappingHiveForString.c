@@ -1,22 +1,24 @@
 /*
- * XREFs of CmpGetMappingHiveForString @ 0x140717660
+ * XREFs of CmpGetMappingHiveForString @ 0x140672808
  * Callers:
- *     CmpGetCmHiveFromVirtualPath @ 0x140717624 (CmpGetCmHiveFromVirtualPath.c)
- *     CmpGetVirtualStoreRoot @ 0x140917348 (CmpGetVirtualStoreRoot.c)
+ *     CmpGetCmHiveFromVirtualPath @ 0x1406727CC (CmpGetCmHiveFromVirtualPath.c)
+ *     CmpGetVirtualStoreRoot @ 0x14087090C (CmpGetVirtualStoreRoot.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     CmpCompareUnicodeString @ 0x140717780 (CmpCompareUnicodeString.c)
- *     CmpHashUnicodeComponent @ 0x140718B68 (CmpHashUnicodeComponent.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     CmpHashUnicodeComponent @ 0x14066A224 (CmpHashUnicodeComponent.c)
+ *     CmpCompareUnicodeString @ 0x140672920 (CmpCompareUnicodeString.c)
  */
 
-__int64 __fastcall CmpGetMappingHiveForString(_WORD *a1, _QWORD *a2)
+__int64 __fastcall CmpGetMappingHiveForString(__m128i *a1, _QWORD *a2)
 {
   unsigned int v4; // edi
   int v5; // ebx
-  char *v6; // rcx
-  unsigned int v8; // esi
-  char *v9; // rcx
+  char *v6; // rsi
+  unsigned int v8; // r15d
+  unsigned int v9; // esi
+  _QWORD *v10; // r12
+  char *v11; // rcx
 
   v4 = 0;
   v5 = CmpHashUnicodeComponent(a1);
@@ -24,26 +26,32 @@ __int64 __fastcall CmpGetMappingHiveForString(_WORD *a1, _QWORD *a2)
   if ( CmSIDMappingCacheHit >= 0
     && CmSIDMappingCacheHit < CmpSIDToHiveMappingCount
     && (v6 = (char *)CmpSIDToHiveMapping + 32 * CmSIDMappingCacheHit, *((_DWORD *)v6 + 4) == v5)
-    && *(_WORD *)v6 == *a1
+    && *(_WORD *)v6 == a1->m128i_i16[0]
     && !(unsigned int)CmpCompareUnicodeString(v6, a1, 0LL) )
   {
-    *a2 = *((_QWORD *)CmpSIDToHiveMapping + 4 * CmSIDMappingCacheHit + 3);
+    *a2 = *((_QWORD *)v6 + 3);
   }
   else
   {
-    v8 = 0;
+    v8 = CmpSIDToHiveMappingCount;
+    v9 = 0;
     if ( CmpSIDToHiveMappingCount )
     {
       while ( 1 )
       {
-        v9 = (char *)CmpSIDToHiveMapping + 32 * v8;
-        if ( *((_DWORD *)v9 + 4) == v5 && *(_WORD *)v9 == *a1 && !(unsigned int)CmpCompareUnicodeString(v9, a1, 0LL) )
+        v10 = CmpSIDToHiveMapping;
+        v11 = (char *)CmpSIDToHiveMapping + 32 * v9;
+        if ( *((_DWORD *)v11 + 4) == v5
+          && *(_WORD *)v11 == a1->m128i_i16[0]
+          && !(unsigned int)CmpCompareUnicodeString(v11, a1, 0LL) )
+        {
           break;
-        if ( ++v8 >= CmpSIDToHiveMappingCount )
+        }
+        if ( ++v9 >= v8 )
           goto LABEL_14;
       }
-      CmSIDMappingCacheHit = v8;
-      *a2 = *((_QWORD *)CmpSIDToHiveMapping + 4 * v8 + 3);
+      CmSIDMappingCacheHit = v9;
+      *a2 = v10[4 * v9 + 3];
     }
     else
     {

@@ -1,10 +1,10 @@
 /*
- * XREFs of MNInitUAHMenu @ 0x1C00BE950
+ * XREFs of MNInitUAHMenu @ 0x1C0044D20
  * Callers:
- *     xxxSendUAHMenuMessage @ 0x1C00BD2C0 (xxxSendUAHMenuMessage.c)
- *     xxxSendUAHInitMenuMessage @ 0x1C00BD464 (xxxSendUAHInitMenuMessage.c)
- *     ?xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPEAUtagWND@@@Z @ 0x1C00BE738 (-xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPE.c)
- *     ?xxxMNGetBitmapSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@@Z @ 0x1C00BF2D8 (-xxxMNGetBitmapSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@.c)
+ *     xxxSendUAHInitMenuMessage @ 0x1C0043500 (xxxSendUAHInitMenuMessage.c)
+ *     ?xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPEAUtagWND@@@Z @ 0x1C0044B0C (-xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPE.c)
+ *     ?xxxMNGetBitmapSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@@Z @ 0x1C004C0B8 (-xxxMNGetBitmapSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@.c)
+ *     xxxSendUAHMenuMessage @ 0x1C0102320 (xxxSendUAHMenuMessage.c)
  * Callees:
  *     <none>
  */

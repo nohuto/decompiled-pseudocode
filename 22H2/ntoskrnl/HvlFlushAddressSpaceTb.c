@@ -1,14 +1,15 @@
 /*
- * XREFs of HvlFlushAddressSpaceTb @ 0x1403CB938
+ * XREFs of HvlFlushAddressSpaceTb @ 0x14038FCEC
  * Callers:
- *     KeFlushCurrentTbOnly @ 0x14038A330 (KeFlushCurrentTbOnly.c)
- *     KiFlushAddressSpaceTb @ 0x1403CB9F0 (KiFlushAddressSpaceTb.c)
+ *     KeFlushProcessTb @ 0x1402EA3D4 (KeFlushProcessTb.c)
+ *     KiFlushAddressSpaceTb @ 0x14038FAAC (KiFlushAddressSpaceTb.c)
+ *     KeFlushCurrentTbOnly @ 0x1403B6E38 (KeFlushCurrentTbOnly.c)
  * Callees:
- *     HvlpFastFlushAddressSpaceTb @ 0x1403CB978 (HvlpFastFlushAddressSpaceTb.c)
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x1403CBD20 (HvlpUseExtendedProcessorSetHypercalls.c)
- *     HvlpFastFlushAddressSpaceTbEx @ 0x140549964 (HvlpFastFlushAddressSpaceTbEx.c)
- *     HvlpSlowFlushAddressSpaceTb @ 0x140549C54 (HvlpSlowFlushAddressSpaceTb.c)
- *     HvlpSlowFlushAddressSpaceTbEx @ 0x140549CFC (HvlpSlowFlushAddressSpaceTbEx.c)
+ *     HvlpFastFlushAddressSpaceTb @ 0x14038FB90 (HvlpFastFlushAddressSpaceTb.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x14038FD8C (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvlpFastFlushAddressSpaceTbEx @ 0x1404FAA14 (HvlpFastFlushAddressSpaceTbEx.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x1404FACE4 (HvlpSlowFlushAddressSpaceTb.c)
+ *     HvlpSlowFlushAddressSpaceTbEx @ 0x1404FAD88 (HvlpSlowFlushAddressSpaceTbEx.c)
  */
 
 __int64 __fastcall HvlFlushAddressSpaceTb(__int64 a1, __int64 a2, __int64 a3)
@@ -25,10 +26,10 @@ __int64 __fastcall HvlFlushAddressSpaceTb(__int64 a1, __int64 a2, __int64 a3)
   }
   else if ( (HvlEnlightenments & 0x80u) == 0 )
   {
-    return HvlpSlowFlushAddressSpaceTb(v3);
+    return HvlpSlowFlushAddressSpaceTb(v3, a2, a3);
   }
   else
   {
-    return HvlpFastFlushAddressSpaceTb(v3);
+    return HvlpFastFlushAddressSpaceTb(v3, a2, a3, v3);
   }
 }

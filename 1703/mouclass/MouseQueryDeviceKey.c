@@ -1,1 +1,45 @@
-/*\n * XREFs of MouseQueryDeviceKey @ 0x1C000CFE0\n * Callers:\n *     MouseClassGetWaitWakeEnableState @ 0x1C000CE80 (MouseClassGetWaitWakeEnableState.c)\n * Callees:\n *     memmove @ 0x1C0002C80 (memmove.c)\n */\n\n__int64 __fastcall MouseQueryDeviceKey(HANDLE KeyHandle, __int64 a2, void *a3, ULONG a4)\n{\n  SIZE_T v6; // rdx\n  unsigned int *PoolWithTag; // rax\n  unsigned int *v8; // rbx\n  NTSTATUS v9; // edi\n  unsigned int v11; // eax\n  struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF\n  ULONG Length; // [rsp+68h] [rbp+20h] BYREF\n\n  Length = a4;\n  RtlInitUnicodeString(&DestinationString, L"WaitWakeEnabled");\n  v6 = (unsigned int)DestinationString.MaximumLength + 28;\n  if ( (unsigned int)v6 < (unsigned int)DestinationString.MaximumLength + 24 )\n    return 3221225621LL;\n  Length = DestinationString.MaximumLength + 28;\n  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, v6, 0x43756F4Du);\n  v8 = PoolWithTag;\n  if ( PoolWithTag )\n  {\n    v9 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValueFullInformation, PoolWithTag, Length, &Length);\n    if ( v9 >= 0 )\n    {\n      v11 = v8[3];\n      if ( v11 > 4 )\n        v9 = -1073741789;\n      else\n        memmove(a3, (char *)v8 + v8[2], v11);\n    }\n    ExFreePoolWithTag(v8, 0);\n  }\n  else\n  {\n    return (unsigned int)-1073741801;\n  }\n  return (unsigned int)v9;\n}\n
+/*
+ * XREFs of MouseQueryDeviceKey @ 0x1C000CFE0
+ * Callers:
+ *     MouseClassGetWaitWakeEnableState @ 0x1C000CE80 (MouseClassGetWaitWakeEnableState.c)
+ * Callees:
+ *     memmove @ 0x1C0002C80 (memmove.c)
+ */
+
+__int64 __fastcall MouseQueryDeviceKey(HANDLE KeyHandle, __int64 a2, void *a3, ULONG a4)
+{
+  SIZE_T v6; // rdx
+  unsigned int *PoolWithTag; // rax
+  unsigned int *v8; // rbx
+  NTSTATUS v9; // edi
+  unsigned int v11; // eax
+  struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  ULONG Length; // [rsp+68h] [rbp+20h] BYREF
+
+  Length = a4;
+  RtlInitUnicodeString(&DestinationString, L"WaitWakeEnabled");
+  v6 = (unsigned int)DestinationString.MaximumLength + 28;
+  if ( (unsigned int)v6 < (unsigned int)DestinationString.MaximumLength + 24 )
+    return 3221225621LL;
+  Length = DestinationString.MaximumLength + 28;
+  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, v6, 0x43756F4Du);
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    v9 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValueFullInformation, PoolWithTag, Length, &Length);
+    if ( v9 >= 0 )
+    {
+      v11 = v8[3];
+      if ( v11 > 4 )
+        v9 = -1073741789;
+      else
+        memmove(a3, (char *)v8 + v8[2], v11);
+    }
+    ExFreePoolWithTag(v8, 0);
+  }
+  else
+  {
+    return (unsigned int)-1073741801;
+  }
+  return (unsigned int)v9;
+}

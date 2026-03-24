@@ -1,20 +1,20 @@
 /*
- * XREFs of ?CalculateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@AEAA?AUInertiaCallbackValues@@PEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x180237FCC
+ * XREFs of ?CalculateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@AEAA?AUInertiaCallbackValues@@PEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x1801CEE84
  * Callers:
- *     ?TryUpdateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@@Z @ 0x180238FC4 (-TryUpdateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@QEAAXPEAVCInterac.c)
+ *     ?TryUpdateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@@Z @ 0x1801D0124 (-TryUpdateBoundTrackerInertiaCallbackValues@CInteractionTrackerBindingManager@@QEAAXPEAVCInterac.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x1801329B2 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
- *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x180231608 (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
- *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x180232888 (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
- *     ?HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ @ 0x180232F38 (-HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x1801C7FE0 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x1801C820C (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
+ *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1801C94D0 (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ @ 0x1801C9B60 (-HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ.c)
  */
 
 __int64 __fastcall CInteractionTrackerBindingManager::CalculateBoundTrackerInertiaCallbackValues(
         __int64 a1,
         __int64 a2,
         CInteractionTracker *a3,
-        float *a4,
+        _DWORD *a4,
         char a5)
 {
   CInteractionTracker *v8; // rcx
@@ -28,14 +28,14 @@ __int64 __fastcall CInteractionTrackerBindingManager::CalculateBoundTrackerInert
   float v16; // xmm6_4
   float v17; // xmm10_4
   __m128 v18; // xmm7
-  float v19; // xmm2_4
+  float v19; // xmm1_4
   int v20; // xmm0_4
   int v21; // xmm0_4
-  float v22; // xmm1_4
-  float v23; // xmm9_4
-  float v24; // xmm10_4
-  float v25; // xmm8_4
-  float v26; // xmm7_4
+  float v22; // xmm9_4
+  float v23; // xmm10_4
+  float v24; // xmm8_4
+  float v25; // xmm7_4
+  float v26; // xmm1_4
   __int64 result; // rax
   __m128 v28; // [rsp+28h] [rbp-A1h]
   unsigned __int64 v29; // [rsp+58h] [rbp-71h]
@@ -49,11 +49,11 @@ __int64 __fastcall CInteractionTrackerBindingManager::CalculateBoundTrackerInert
   else
   {
     v10 = (__m128 *)v30;
-    v11 = *(_OWORD *)(v9 + 596);
-    v30[0] = *(_OWORD *)(v9 + 580);
-    v12 = *(_OWORD *)(v9 + 612);
+    v11 = *(_OWORD *)(v9 + 588);
+    v30[0] = *(_OWORD *)(v9 + 572);
+    v12 = *(_OWORD *)(v9 + 604);
     v30[1] = v11;
-    *(_QWORD *)&v11 = *(_QWORD *)(v9 + 628);
+    *(_QWORD *)&v11 = *(_QWORD *)(v9 + 620);
     v30[2] = v12;
     v31 = v11;
   }
@@ -67,40 +67,45 @@ __int64 __fastcall CInteractionTrackerBindingManager::CalculateBoundTrackerInert
   v17 = v18.m128_f32[0] - CInteractionTracker::GetCurrentValue((__int64)a3, 0);
   v18.m128_f32[0] = _mm_shuffle_ps(v18, v18, 85).m128_f32[0] - CInteractionTracker::GetCurrentValue((__int64)a3, 1);
   v19 = *(float *)&v29 / CInteractionTracker::GetCurrentValue((__int64)a3, 2);
-  v20 = *((_DWORD *)a4 + 21);
-  *(float *)(a2 + 16) = a4[20];
+  v20 = a4[19];
+  *(_DWORD *)(a2 + 16) = a4[18];
   *(_DWORD *)(a2 + 20) = v20;
   *(_DWORD *)(a2 + 24) = 0;
-  *(float *)(a2 + 28) = a4[34];
-  v21 = *((_DWORD *)a4 + 21);
-  *(float *)(a2 + 32) = a4[20];
+  *(_DWORD *)(a2 + 28) = a4[32];
+  v21 = a4[19];
+  *(_DWORD *)(a2 + 32) = a4[18];
   *(_DWORD *)(a2 + 36) = v21;
   *(_DWORD *)(a2 + 40) = 0;
-  v22 = a4[34];
-  *(float *)(a2 + 48) = v22;
+  *(_DWORD *)(a2 + 48) = a4[32];
   *(_QWORD *)a2 = 0LL;
   *(_QWORD *)(a2 + 8) = 0LL;
   if ( (a5 & 1) != 0 )
   {
-    v23 = v14 + *(float *)(a2 + 16);
-    v24 = v17 + *(float *)(a2 + 32);
+    v22 = v14 + *(float *)(a2 + 16);
+    v23 = v17 + *(float *)(a2 + 32);
     *(_DWORD *)a2 = v28.m128_i32[0];
-    *(float *)(a2 + 16) = v23;
-    *(float *)(a2 + 32) = v24;
+    *(float *)(a2 + 16) = v22;
+    *(float *)(a2 + 32) = v23;
+  }
+  else if ( (a5 & 2) == 0 )
+  {
+    goto LABEL_11;
   }
   if ( (a5 & 2) != 0 )
   {
-    v25 = v15 + *(float *)(a2 + 20);
-    v26 = v18.m128_f32[0] + *(float *)(a2 + 36);
+    v24 = v15 + *(float *)(a2 + 20);
+    v25 = v18.m128_f32[0] + *(float *)(a2 + 36);
     *(_DWORD *)(a2 + 4) = v28.m128_i32[1];
-    *(float *)(a2 + 20) = v25;
-    *(float *)(a2 + 36) = v26;
+    *(float *)(a2 + 20) = v24;
+    *(float *)(a2 + 36) = v25;
   }
+LABEL_11:
   if ( (a5 & 4) != 0 )
   {
+    v26 = v19 * *(float *)(a2 + 48);
     *(float *)(a2 + 28) = v16 * *(float *)(a2 + 28);
+    *(float *)(a2 + 48) = v26;
     *(_DWORD *)(a2 + 12) = v28.m128_i32[3];
-    *(float *)(a2 + 48) = v22 * v19;
   }
   result = a2;
   *(_BYTE *)(a2 + 44) = v18.m128_i8[12];

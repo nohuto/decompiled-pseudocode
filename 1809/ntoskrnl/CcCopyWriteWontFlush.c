@@ -1,7 +1,7 @@
 /*
- * XREFs of CcCopyWriteWontFlush @ 0x14010F4F0
+ * XREFs of CcCopyWriteWontFlush @ 0x14010F510
  * Callers:
- *     FsRtlCopyWrite @ 0x1408140F0 (FsRtlCopyWrite.c)
+ *     FsRtlCopyWrite @ 0x1408140D0 (FsRtlCopyWrite.c)
  * Callees:
  *     CcCanIWriteStream @ 0x1400213FC (CcCanIWriteStream.c)
  */

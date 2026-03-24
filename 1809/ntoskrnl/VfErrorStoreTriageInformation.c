@@ -1,7 +1,7 @@
 /*
  * XREFs of VfErrorStoreTriageInformation @ 0x1409360D8
  * Callers:
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     ViErrorFinishReport @ 0x140936178 (ViErrorFinishReport.c)
  *     ViShutdownWatchdogExecuteDpc @ 0x1409392B0 (ViShutdownWatchdogExecuteDpc.c)
  *     ViWdIrpTimedOut @ 0x14093E9B8 (ViWdIrpTimedOut.c)

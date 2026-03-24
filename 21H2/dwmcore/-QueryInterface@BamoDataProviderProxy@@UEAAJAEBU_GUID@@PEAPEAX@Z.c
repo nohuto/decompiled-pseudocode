@@ -1,9 +1,9 @@
 /*
- * XREFs of ?QueryInterface@BamoDataProviderProxy@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801BE340
+ * XREFs of ?QueryInterface@BamoDataProviderProxy@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180181DC0
  * Callers:
- *     ?QueryInterface@BamoDataProviderProxy@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180106DB0 (-QueryInterface@BamoDataProviderProxy@@W7EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?QueryInterface@BamoDataProviderProxy@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F5890 (-QueryInterface@BamoDataProviderProxy@@W7EAAJAEBU_GUID@@PEAPEAX@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall BamoDataProviderProxy::QueryInterface(
@@ -14,7 +14,7 @@ __int64 __fastcall BamoDataProviderProxy::QueryInterface(
   __int64 v3; // rax
   unsigned int v4; // ebx
   __int64 v5; // rax
-  void *v6; // rdx
+  void *v6; // rax
 
   v3 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data1;
   if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data1 )
@@ -26,19 +26,14 @@ __int64 __fastcall BamoDataProviderProxy::QueryInterface(
   if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_5fab3cd2_be24_d2f2_cb50_e04535b9eabe.Data1 )
     v5 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_5fab3cd2_be24_d2f2_cb50_e04535b9eabe.Data4;
   if ( v5 )
-  {
-    *a3 = 0LL;
-  }
+    v6 = 0LL;
   else
-  {
 LABEL_8:
-    v6 = (void *)(((unsigned __int64)this + 8) & ((unsigned __int128)-(__int128)(unsigned __int64)this >> 64));
-    *a3 = v6;
-    if ( v6 )
-    {
-      (**(void (__fastcall ***)(BamoDataProviderProxy *))this)(this);
-      return v4;
-    }
-  }
-  return (unsigned int)-2147467262;
+    v6 = (void *)(((unsigned __int64)this + 8) & -(__int64)(this != 0LL));
+  *a3 = v6;
+  if ( v6 )
+    (**(void (__fastcall ***)(BamoDataProviderProxy *))this)(this);
+  else
+    return (unsigned int)-2147467262;
+  return v4;
 }

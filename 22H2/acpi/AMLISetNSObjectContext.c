@@ -1,7 +1,7 @@
 /*
- * XREFs of AMLISetNSObjectContext @ 0x1C0048EAC
+ * XREFs of AMLISetNSObjectContext @ 0x1C0002778
  * Callers:
- *     ACPIRootInitialize @ 0x1C0093778 (ACPIRootInitialize.c)
+ *     ACPIRootInitialize @ 0x1C0097FAC (ACPIRootInitialize.c)
  * Callees:
  *     <none>
  */

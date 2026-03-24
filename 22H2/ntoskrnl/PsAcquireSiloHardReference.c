@@ -1,10 +1,10 @@
 /*
- * XREFs of PsAcquireSiloHardReference @ 0x140365D00
+ * XREFs of PsAcquireSiloHardReference @ 0x140200A10
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
- *     IopAllocateFoExtensionsOnCreate @ 0x140767E50 (IopAllocateFoExtensionsOnCreate.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x14071F81C (IopAllocateFoExtensionsOnCreate.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall PsAcquireSiloHardReference(_DWORD *Object)
@@ -15,14 +15,14 @@ __int64 __fastcall PsAcquireSiloHardReference(_DWORD *Object)
 
   if ( !Object )
     return 0LL;
-  if ( (Object[384] & 0x40000000) == 0 )
+  if ( (Object[330] & 0x40000000) == 0 )
     __int2c();
-  _m_prefetchw(Object + 434);
-  v2 = *((_QWORD *)Object + 217);
+  _m_prefetchw(Object + 380);
+  v2 = *((_QWORD *)Object + 190);
   for ( i = v2 + 1; i > 1; i = v2 + 1 )
   {
     v4 = v2;
-    v2 = _InterlockedCompareExchange64((volatile signed __int64 *)Object + 217, i, v2);
+    v2 = _InterlockedCompareExchange64((volatile signed __int64 *)Object + 190, i, v2);
     if ( v4 == v2 )
     {
       ObfReferenceObjectWithTag(Object, 0x486C6953u);

@@ -1,53 +1,56 @@
 /*
- * XREFs of MonitorEnableDisableAdvancedColor @ 0x1C03C40A4
+ * XREFs of MonitorEnableDisableAdvancedColor @ 0x1C02F3DBC
  * Callers:
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01AD190 (DxgkDisplayConfigDeviceInfo.c)
- *     DxgkIddHandleSetDisplayConfig2 @ 0x1C02F5670 (DxgkIddHandleSetDisplayConfig2.c)
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C0135B50 (DxgkDisplayConfigDeviceInfo.c)
  * Callees:
- *     ?AcquireMonitorExclusive@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0014E7C (-AcquireMonitorExclusive@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAUHDXGMONIT.c)
- *     ?IsAdvancedColorEnabled@MonitorColorState@DxgMonitor@@QEBA_NXZ @ 0x1C01E62E0 (-IsAdvancedColorEnabled@MonitorColorState@DxgMonitor@@QEBA_NXZ.c)
- *     ?SetAdvancedColorEnabled@MonitorColorState@DxgMonitor@@QEAAJ_N@Z @ 0x1C03CDEB8 (-SetAdvancedColorEnabled@MonitorColorState@DxgMonitor@@QEAAJ_N@Z.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009DB4 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0182398 (-_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SC.c)
+ *     ?_SaveAdvancedColorEnabledToMonitorStore@DXGMONITOR@@AEAAJ_N@Z @ 0x1C02F6724 (-_SaveAdvancedColorEnabledToMonitorStore@DXGMONITOR@@AEAAJ_N@Z.c)
  */
 
 __int64 __fastcall MonitorEnableDisableAdvancedColor(struct HDXGMONITOR__ *a1, char a2)
 {
-  __int64 v4; // rbx
-  unsigned int v5; // edi
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  __int64 result; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  struct DXGMONITOR *v6; // rbx
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  bool v11; // zf
+  unsigned int v12; // edi
+  struct DXGMONITOR *v13; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( a1 )
+  if ( !a1 )
+    return 3221225485LL;
+  v13 = 0LL;
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, &v13);
+  if ( (int)result >= 0 )
   {
-    MONITOR_MGR::AcquireMonitorExclusive(&v6, a1);
-    v4 = v6;
-    if ( v6 )
+    v6 = v13;
+    if ( !v13 )
     {
-      if ( (DxgMonitor::MonitorColorState::IsAdvancedColorEnabled(*(DxgMonitor::MonitorColorState **)(v6 + 224)) || !a2)
-        && (!DxgMonitor::MonitorColorState::IsAdvancedColorEnabled(*(DxgMonitor::MonitorColorState **)(v4 + 224)) || a2) )
-      {
-        v5 = 255;
-      }
-      else
-      {
-        v5 = DxgMonitor::MonitorColorState::SetAdvancedColorEnabled(
-               *(DxgMonitor::MonitorColorState **)(v4 + 224),
-               a2 != 0);
-      }
+      v7 = WdLogNewEntry5_WdAssertion(v5, v4);
+      WdLogEvent5_WdAssertion(v7);
+      v10 = WdLogNewEntry5_WdAssertion(v9, v8);
+      WdLogEvent5_WdAssertion(v10);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceExclusiveLite((PERESOURCE)((char *)v6 + 296), 1u);
+    if ( ((*((_DWORD *)v6 + 10) & 0x800) != 0 || (v11 = a2 == 0, !a2))
+      && ((*((_DWORD *)v6 + 10) & 0x800) == 0 || (v11 = a2 == 0, a2)) )
+    {
+      v12 = 255;
     }
     else
     {
-      v5 = -1073741275;
-      WdLogSingleEntry1(2LL, -1073741275LL);
+      v12 = DXGMONITOR::_SaveAdvancedColorEnabledToMonitorStore(v6, !v11);
+      DXGMONITOR::_MonitorTelemetry((__int64)v6, 3LL, 0LL);
     }
-    if ( v4 )
-    {
-      ExReleaseResourceLite((PERESOURCE)(v4 + 24));
-      KeLeaveCriticalRegion();
-    }
-    return v5;
+    ExReleaseResourceLite((PERESOURCE)((char *)v6 + 296));
+    KeLeaveCriticalRegion();
+    return v12;
   }
-  else
-  {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    return 3221225485LL;
-  }
+  return result;
 }

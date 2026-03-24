@@ -1,22 +1,23 @@
 /*
- * XREFs of ?_SxWakeSetItem@FxPkgPnp@@KAJPEAVFxDevice@@PEAVFxWmiInstanceInternal@@KKPEAX@Z @ 0x1C0088F80
+ * XREFs of ?_SxWakeSetItem@FxPkgPnp@@KAJPEAVFxDevice@@PEAVFxWmiInstanceInternal@@KKPEAX@Z @ 0x1C0083480
  * Callers:
  *     <none>
  * Callees:
- *     ?PowerPolicySetSxWakeState@FxPkgPnp@@QEAAXE@Z @ 0x1C0020750 (-PowerPolicySetSxWakeState@FxPkgPnp@@QEAAXE@Z.c)
+ *     ?PowerPolicySetSxWakeState@FxPkgPnp@@QEAAXE@Z @ 0x1C0082130 (-PowerPolicySetSxWakeState@FxPkgPnp@@QEAAXE@Z.c)
  */
 
 __int64 __fastcall FxPkgPnp::_SxWakeSetItem(
         FxDevice *Device,
-        FxWmiInstanceInternal *__formal,
+        _FX_DRIVER_GLOBALS *__formal,
         unsigned int DataItemId,
         unsigned int InBufferSize,
-        unsigned __int8 *InBuffer)
+        _BYTE *InBuffer)
 {
   if ( DataItemId )
     return 3221225488LL;
   if ( !InBufferSize )
     return 3221225507LL;
-  FxPkgPnp::PowerPolicySetSxWakeState(Device->m_PkgPnp, *InBuffer);
+  LOBYTE(__formal) = *InBuffer;
+  FxPkgPnp::PowerPolicySetSxWakeState(Device->m_PkgPnp, __formal);
   return 0LL;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpInterruptInitSystem @ 0x140A54BA0
+ * XREFs of HalpInterruptInitSystem @ 0x14099B890
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptInitializeGlobals @ 0x14025E898 (HalpInterruptInitializeGlobals.c)
- *     HalpInterruptModel @ 0x14036FA84 (HalpInterruptModel.c)
- *     HalpInterruptEnableNmi @ 0x1403B043C (HalpInterruptEnableNmi.c)
- *     HalpInterruptEnablePerformanceEvents @ 0x1403B0670 (HalpInterruptEnablePerformanceEvents.c)
- *     HalpInitializeInterruptsPn @ 0x1403B8BF8 (HalpInitializeInterruptsPn.c)
- *     HalpInterruptBuildGlobalStartupStub @ 0x1403B8E60 (HalpInterruptBuildGlobalStartupStub.c)
- *     HalpInitializeInterruptsBspLate @ 0x1403B91D4 (HalpInitializeInterruptsBspLate.c)
- *     HalpInterruptInitPowerManagement @ 0x1403B97E8 (HalpInterruptInitPowerManagement.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     HalpInterruptInitDiscard @ 0x140AF819C (HalpInterruptInitDiscard.c)
- *     HalpPreAllocateKInterrupts @ 0x140AF866C (HalpPreAllocateKInterrupts.c)
+ *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
+ *     HalpInterruptInitializeGlobals @ 0x1402D3F78 (HalpInterruptInitializeGlobals.c)
+ *     HalpInterruptModel @ 0x14037B354 (HalpInterruptModel.c)
+ *     HalpInterruptEnableNmi @ 0x1403A376C (HalpInterruptEnableNmi.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x1403A39A0 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpInitializeInterruptsPn @ 0x1403A91B8 (HalpInitializeInterruptsPn.c)
+ *     HalpInterruptInitPowerManagement @ 0x1403BE5E4 (HalpInterruptInitPowerManagement.c)
+ *     HalpInitializeInterruptsBspLate @ 0x1403CDB2C (HalpInitializeInterruptsBspLate.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     HalpInterruptInitDiscard @ 0x140A72AD4 (HalpInterruptInitDiscard.c)
+ *     HalpPreAllocateKInterrupts @ 0x140A739EC (HalpPreAllocateKInterrupts.c)
  */
 
 __int64 __fastcall HalpInterruptInitSystem(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -48,13 +48,13 @@ __int64 __fastcall HalpInterruptInitSystem(__int64 a1, __int64 a2, __int64 a3, _
     }
     else
     {
-      off_140C01DE0[0] = (__int64 (__fastcall *)())HaliAddInterruptRemapping;
-      off_140C01DE8[0] = (__int64 (__fastcall *)())HaliRemoveInterruptRemapping;
-      off_140C01E18[0] = (__int64 (__fastcall *)())HalpInterruptGetIdentifiers;
-      off_140C01E58[0] = (__int64 (__fastcall *)())xHalQueryProcessorRestartEntryPoint;
-      off_140C01EB8[0] = (__int64 (__fastcall *)())HalpInterruptSetDestination;
-      off_140C01F88[0] = (__int64 (__fastcall *)())HalpConnectThermalInterrupt;
-      off_140C01FC8[0] = (__int64 (__fastcall *)())HalpPreprocessNmi;
+      off_140C00790[0] = (__int64 (__fastcall *)())HaliAddInterruptRemapping;
+      off_140C00798[0] = (__int64 (__fastcall *)())HaliRemoveInterruptRemapping;
+      off_140C007C8[0] = (__int64 (__fastcall *)())HalpInterruptGetIdentifiers;
+      off_140C00808[0] = (__int64 (__fastcall *)())xHalQueryProcessorRestartEntryPoint;
+      off_140C00868[0] = (__int64 (__fastcall *)())HalpInterruptSetDestination;
+      off_140C00938[0] = (__int64 (__fastcall *)())HalpConnectThermalInterrupt;
+      off_140C00978[0] = (__int64 (__fastcall *)())HalpPreprocessNmi;
     }
     return v4;
   }
@@ -68,7 +68,7 @@ __int64 __fastcall HalpInterruptInitSystem(__int64 a1, __int64 a2, __int64 a3, _
         KeBugCheckEx(
           0x5Cu,
           0x203uLL,
-          *(int *)(HalpInterruptController + 224),
+          *(int *)(HalpInterruptController + 216),
           HalpInterruptController,
           HalpInterruptLastProblem);
     }
@@ -80,7 +80,7 @@ __int64 __fastcall HalpInterruptInitSystem(__int64 a1, __int64 a2, __int64 a3, _
   }
   HalpPreAllocateKInterrupts();
   HalpInitializeInterruptsBspLate();
-  result = HalpInterruptBuildGlobalStartupStub();
+  result = HalSystemVectorDispatchEntry();
   v4 = result;
   if ( (int)result >= 0 )
   {

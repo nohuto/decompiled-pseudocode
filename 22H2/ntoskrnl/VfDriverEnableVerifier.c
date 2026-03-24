@@ -1,92 +1,91 @@
 /*
- * XREFs of VfDriverEnableVerifier @ 0x140ACB498
+ * XREFs of VfDriverEnableVerifier @ 0x1409C8630
  * Callers:
- *     VfDriverEnableVerifierForAll @ 0x140ACB618 (VfDriverEnableVerifierForAll.c)
- *     MmEnableOrDisableVerifierForDriver @ 0x140AE903C (MmEnableOrDisableVerifierForDriver.c)
+ *     MmEnableVerifierForDriver @ 0x1409C5BC4 (MmEnableVerifierForDriver.c)
+ *     VfDriverEnableVerifierForAll @ 0x1409C87C8 (VfDriverEnableVerifierForAll.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     MmIsVerifierApplicableToImage @ 0x14061C0BC (MmIsVerifierApplicableToImage.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     VfUtilIsProtectedDriver @ 0x140AC37CC (VfUtilIsProtectedDriver.c)
- *     VfDriverLock @ 0x140ACB73C (VfDriverLock.c)
- *     VfSuspectApplyDifVolatileVerification @ 0x140ADB288 (VfSuspectApplyDifVolatileVerification.c)
- *     VfSuspectDriversLookupName @ 0x140ADB9F4 (VfSuspectDriversLookupName.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     MmRemoveImportOptimizationForDriverVerifier @ 0x14054446C (MmRemoveImportOptimizationForDriverVerifier.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     VfDriverLoadImage @ 0x1409C20A0 (VfDriverLoadImage.c)
+ *     ViSuspectDriversLookupEntry @ 0x1409C2584 (ViSuspectDriversLookupEntry.c)
+ *     VfDriverLock @ 0x1409C25C8 (VfDriverLock.c)
+ *     VfUtilIsProtectedDriver @ 0x1409C689C (VfUtilIsProtectedDriver.c)
  */
 
-__int64 __fastcall VfDriverEnableVerifier(__int64 a1, PVOID *a2, _DWORD *a3)
+__int64 __fastcall VfDriverEnableVerifier(__int64 a1, __int64 a2, _DWORD *a3)
 {
+  __int64 v4; // r14
+  int v5; // r12d
   int v6; // r15d
-  int v7; // ebp
-  unsigned int v8; // esi
-  int IsVerifierApplicableToImage; // edi
-  int IsProtectedDriver; // eax
-  __int64 *v11; // rax
+  unsigned int v7; // ebp
+  int v8; // ebx
+  PVOID *v9; // rsi
+  __int64 *v10; // rax
 
   *a3 = 0;
+  v4 = a1;
+  v5 = 0;
   v6 = 0;
   v7 = 0;
   v8 = 0;
-  IsVerifierApplicableToImage = 0;
   VfDriverLock();
-  if ( (unsigned int)VfSuspectDriversLookupName(a1 + 24) )
-    goto LABEL_24;
-  if ( a2 )
-    goto LABEL_9;
-  ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
-  a2 = (PVOID *)PsLoadedModuleList;
-  v7 = 1;
-  while ( 1 )
-  {
-    if ( a2 == &PsLoadedModuleList )
-    {
-      a2 = 0LL;
-      goto LABEL_17;
-    }
-    if ( RtlEqualUnicodeString((PCUNICODE_STRING)(a1 + 24), (PCUNICODE_STRING)(a2 + 11), 1u) )
-      break;
-    a2 = (PVOID *)*a2;
-    ++v8;
-  }
-  if ( a2 )
-  {
-LABEL_9:
-    if ( (~VerifierModifyableOptions & MmVerifierData) != 0 )
-    {
-      IsVerifierApplicableToImage = -1073738740;
-      goto LABEL_22;
-    }
-    IsProtectedDriver = VfUtilIsProtectedDriver();
-    if ( v7 && (v8 <= 1 || IsProtectedDriver) )
-    {
-      IsVerifierApplicableToImage = -1073738739;
-LABEL_23:
-      ExReleaseResourceLite(&PsLoadedModuleResource);
-      goto LABEL_24;
-    }
-    IsVerifierApplicableToImage = MmIsVerifierApplicableToImage((__int64)a2);
-    if ( IsVerifierApplicableToImage < 0 )
-      goto LABEL_22;
-    v6 = 1;
-  }
-LABEL_17:
-  v11 = (__int64 *)qword_140C373B8;
-  if ( *(__int64 **)qword_140C373B8 != &VfSuspectDriversList )
-    __fastfail(3u);
-  *(_QWORD *)a1 = &VfSuspectDriversList;
-  *(_QWORD *)(a1 + 8) = v11;
-  *v11 = a1;
-  qword_140C373B8 = a1;
-  *a3 = 1;
-  if ( v6 )
-    VfSuspectApplyDifVolatileVerification(a2, a1);
-  ++dword_140C139E0;
-LABEL_22:
-  if ( v7 )
+  if ( ViSuspectDriversLookupEntry((PCUNICODE_STRING)(v4 + 24)) )
     goto LABEL_23;
-LABEL_24:
+  if ( !a2 )
+  {
+    ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
+    v9 = (PVOID *)PsLoadedModuleList;
+    v6 = 1;
+    if ( PsLoadedModuleList == &PsLoadedModuleList )
+      goto LABEL_7;
+    do
+    {
+      a2 = (__int64)v9;
+      if ( RtlEqualUnicodeString((PCUNICODE_STRING)(v4 + 24), (PCUNICODE_STRING)(v9 + 11), 1u) )
+        break;
+      v9 = (PVOID *)*v9;
+      ++v7;
+    }
+    while ( v9 != &PsLoadedModuleList );
+    v4 = a1;
+    if ( v9 == &PsLoadedModuleList )
+LABEL_7:
+      a2 = 0LL;
+    if ( !a2 )
+      goto LABEL_16;
+  }
+  if ( (~VerifierModifyableOptions & MmVerifierData) != 0
+    || v6 && (v7 <= 1 || (unsigned int)VfUtilIsProtectedDriver((PCUNICODE_STRING)(a2 + 88))) )
+  {
+    v8 = -1073741554;
+  }
+  else
+  {
+    v8 = MmRemoveImportOptimizationForDriverVerifier(a2);
+    if ( v8 >= 0 )
+    {
+      v5 = 1;
+LABEL_16:
+      v10 = (__int64 *)qword_140C1D108;
+      if ( *(__int64 **)qword_140C1D108 != &VfSuspectDriversList )
+        __fastfail(3u);
+      *(_QWORD *)(v4 + 8) = qword_140C1D108;
+      *(_QWORD *)v4 = &VfSuspectDriversList;
+      *v10 = v4;
+      qword_140C1D108 = v4;
+      *a3 = 1;
+      if ( v5 )
+        VfDriverLoadImage(a2, v4, 0, 1u);
+      ++dword_140C2A958;
+    }
+  }
+  if ( v6 )
+    ExReleaseResourceLite(&PsLoadedModuleResource);
+LABEL_23:
   ViDriversLoadLockOwner = 0LL;
-  KeReleaseMutex(&ViDriversLoadLock, 0);
-  return (unsigned int)IsVerifierApplicableToImage;
+  KeReleaseMutex((PRKMUTEX)&ViDriversLoadLock, 0);
+  return (unsigned int)v8;
 }

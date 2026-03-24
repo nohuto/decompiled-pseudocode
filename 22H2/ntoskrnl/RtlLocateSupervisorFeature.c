@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlLocateSupervisorFeature @ 0x1405AFAE0
+ * XREFs of RtlLocateSupervisorFeature @ 0x14058CF00
  * Callers:
- *     KiInitializeContextThread @ 0x1402BE71C (KiInitializeContextThread.c)
- *     KiGetSavedIptState @ 0x140572A80 (KiGetSavedIptState.c)
+ *     KiInitializeContextThread @ 0x140341B1C (KiInitializeContextThread.c)
+ *     KiGetSavedIptState @ 0x14051A110 (KiGetSavedIptState.c)
  * Callees:
  *     <none>
  */

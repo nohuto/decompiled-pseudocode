@@ -1,89 +1,84 @@
 /*
- * XREFs of MiAllocateDriverPage @ 0x14079D08C
+ * XREFs of MiAllocateDriverPage @ 0x1406D1A78
  * Callers:
- *     MiPrivateFixup @ 0x14024076C (MiPrivateFixup.c)
- *     MiLockCode @ 0x140312BB0 (MiLockCode.c)
- *     MiMakeDriverPagesPrivate @ 0x14033F41C (MiMakeDriverPagesPrivate.c)
- *     MiFillPerSessionProtos @ 0x140983680 (MiFillPerSessionProtos.c)
- *     MiHandleBootImage @ 0x140B050A8 (MiHandleBootImage.c)
+ *     MiPrivateFixup @ 0x14028CA28 (MiPrivateFixup.c)
+ *     MiMakeDriverPagesPrivate @ 0x1402E6EF4 (MiMakeDriverPagesPrivate.c)
+ *     MiLockCode @ 0x1403235B0 (MiLockCode.c)
+ *     MiFillPerSessionProtos @ 0x1408D7FE0 (MiFillPerSessionProtos.c)
+ *     MiHandleBootImage @ 0x140A4FB14 (MiHandleBootImage.c)
  * Callees:
- *     MiPreInitializeSystemImagePage @ 0x140248208 (MiPreInitializeSystemImagePage.c)
- *     MiFindContiguousPagesEx @ 0x140277D10 (MiFindContiguousPagesEx.c)
- *     MiUseSlabAllocatorForDriverPage @ 0x1402EB398 (MiUseSlabAllocatorForDriverPage.c)
- *     MiGetNextPageColor @ 0x1402EB3DC (MiGetNextPageColor.c)
- *     MiGetSlabPage @ 0x1402EB440 (MiGetSlabPage.c)
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
- *     MiInitializePageColorBase @ 0x140339C20 (MiInitializePageColorBase.c)
- *     MiAllocateDriverPageFromRange @ 0x1403C9C90 (MiAllocateDriverPageFromRange.c)
- *     MiWaitForFreePage @ 0x1405B8348 (MiWaitForFreePage.c)
+ *     MiGetPage @ 0x140213610 (MiGetPage.c)
+ *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
+ *     MiGetNextPageColor @ 0x1402E5C08 (MiGetNextPageColor.c)
+ *     MiPreInitializeSystemImagePage @ 0x1402E7A98 (MiPreInitializeSystemImagePage.c)
+ *     MiUseSlabAllocatorForDriverPage @ 0x1402E7D54 (MiUseSlabAllocatorForDriverPage.c)
+ *     MiGetSlabPage @ 0x1402E803C (MiGetSlabPage.c)
+ *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
+ *     MiWaitForFreePage @ 0x14055C1FC (MiWaitForFreePage.c)
  */
 
-__int64 __fastcall MiAllocateDriverPage(ULONG_PTR *a1, __int64 a2, char a3)
+__int64 __fastcall MiAllocateDriverPage(ULONG_PTR *a1, int a2, char a3)
 {
-  unsigned int v5; // r10d
-  unsigned int NextPageColor; // edi
-  __int16 v7; // ax
+  unsigned int v5; // edx
+  __int64 v6; // rcx
   __int64 result; // rax
-  __int64 v9; // [rsp+70h] [rbp+27h] BYREF
-  __int128 v10; // [rsp+78h] [rbp+2Fh] BYREF
+  __int64 v8; // r8
+  __int16 v9; // ax
+  unsigned int NextPageColor; // edi
+  unsigned int i; // edx
+  __int64 v12; // [rsp+60h] [rbp-20h] BYREF
+  __int128 v13; // [rsp+68h] [rbp-18h] BYREF
+  unsigned int v14; // [rsp+A8h] [rbp+28h] BYREF
 
-  v10 = 0LL;
-  MiInitializePageColorBase(0LL, 0, (__int64)&v10);
-  v9 = -1LL;
-  NextPageColor = MiGetNextPageColor((__int64)&v10);
-  if ( !(unsigned int)MiUseSlabAllocatorForDriverPage((__int64)a1, v5)
-    || (result = MiGetSlabPage((__int64)a1, 0, NextPageColor, 2, (_QWORD *)0xFFFFFFFFFFFFFFFFLL, 0),
-        v9 = result,
-        result == -1) )
+  v14 = 0;
+  v13 = 0LL;
+  v12 = -1LL;
+  if ( !(unsigned int)MiUseSlabAllocatorForDriverPage((__int64)a1, a2, &v14)
+    || (result = MiGetSlabPage(v6, v5, v14, (__int64 *)0xFFFFFFFFFFFFFFFFLL, 0), v12 = result, result == -1) )
   {
     if ( (a3 & 1) != 0 )
     {
       return -1LL;
     }
-    else if ( !dword_140C4F514
-           || a1 != &MiSystemPartition
-           || (result = MiAllocateDriverPageFromRange(&dword_140C4F510, (__int64)a1), v9 = result, result == -1) )
+    else if ( (int)MiFindContiguousPages(
+                     (__int64)a1,
+                     0LL,
+                     qword_140C4CCF0,
+                     0LL,
+                     1uLL,
+                     1u,
+                     0x80000000,
+                     0x80000000,
+                     0x20000000,
+                     0LL,
+                     &v12) < 0 )
     {
-      if ( (int)MiFindContiguousPagesEx(
-                  (__int64)a1,
-                  0LL,
-                  qword_140C4F5D0,
-                  0LL,
-                  0,
-                  1uLL,
-                  1u,
-                  0x80000000,
-                  0x80000000,
-                  1610612737,
-                  0,
-                  0LL,
-                  &v9) < 0 )
+      qword_140C4CCF0 = -1LL;
+      MiInitializePageColorBase(0LL, 0, (__int64)&v13);
+      NextPageColor = MiGetNextPageColor((__int64)&v13);
+      for ( i = NextPageColor; ; i = NextPageColor )
       {
-        qword_140C4F5D0 = -1LL;
-        while ( 1 )
-        {
-          result = MiGetPage((__int64)a1, NextPageColor, 0);
-          v9 = result;
-          if ( result != -1 )
-            break;
-          if ( KeGetCurrentIrql() == 2 || (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
-            return -1LL;
-          MiWaitForFreePage(a1);
-        }
+        result = MiGetPage((__int64)a1, i, 0LL);
+        v12 = result;
+        if ( result != -1 )
+          break;
+        if ( KeGetCurrentIrql() == 2 )
+          return -1LL;
+        MiWaitForFreePage(a1);
       }
-      else
+    }
+    else
+    {
+      v9 = ++qword_140C4CD40;
+      if ( a1 == &MiSystemPartition )
       {
-        v7 = ++qword_140C4F5C8;
-        if ( a1 == &MiSystemPartition )
-        {
-          if ( (v7 & 0x1FF) != 0 )
-            qword_140C4F5D0 = v9 - 1;
-          else
-            qword_140C4F5D0 = -1LL;
-        }
-        MiPreInitializeSystemImagePage(48 * v9 - 0x220000000000LL, 0);
-        return v9;
+        if ( (v9 & 0x1FF) != 0 )
+          qword_140C4CCF0 = v12 - 1;
+        else
+          qword_140C4CCF0 = -1LL;
       }
+      MiPreInitializeSystemImagePage(48 * v12 - 0x58000000000LL, (__int64)&MiSystemPartition, v8);
+      return v12;
     }
   }
   return result;

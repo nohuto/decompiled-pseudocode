@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CGenericInk@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180215D70
+ * XREFs of ?HrFindInterface@CGenericInk@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801C3130
  * Callers:
  *     <none>
  * Callees:
- *     ?HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800E8150 (-HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006C8B0 (-HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CGenericInk::HrFindInterface(CGenericInk *this, const struct _GUID *a2, void **a3)
@@ -19,11 +19,11 @@ __int64 __fastcall CGenericInk::HrFindInterface(CGenericInk *this, const struct 
       v4 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_c155b649_2c5b_416a_b836_bbda56b2ec27.Data4;
     if ( v4 )
     {
-      return CContent::HrFindInterface(this, a2, a3);
+      return CContent::HrFindInterface(this, a2, (CContent **)a3);
     }
     else
     {
-      *a3 = (void *)(((unsigned __int64)this + 144) & -(__int64)(this != 0LL));
+      *a3 = (void *)(((unsigned __int64)this + 64) & -(__int64)(this != 0LL));
       return 0LL;
     }
   }

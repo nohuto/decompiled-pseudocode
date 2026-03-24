@@ -1,17 +1,16 @@
 /*
- * XREFs of vUnmapFile @ 0x1C0089FC8
+ * XREFs of vUnmapFile @ 0x1C00E632C
  * Callers:
- *     vUnmapFontCacheFile @ 0x1C0089F40 (vUnmapFontCacheFile.c)
- *     ?EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z @ 0x1C028A5D8 (-EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z.c)
- *     EngFreeModule @ 0x1C028B460 (EngFreeModule.c)
- *     EngUnmapFontFile @ 0x1C028B710 (EngUnmapFontFile.c)
+ *     vUnmapFontCacheFile @ 0x1C00E62CC (vUnmapFontCacheFile.c)
+ *     ?EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z @ 0x1C0288CC0 (-EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z.c)
+ *     EngFreeModule @ 0x1C0289AE0 (EngFreeModule.c)
+ *     EngUnmapFontFile @ 0x1C0289D70 (EngUnmapFontFile.c)
  * Callees:
- *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C007C504 (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
+ *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C00A8BAC (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
  */
 
 void __fastcall vUnmapFile(PVOID *a1)
 {
-  Gre::Base::Globals((Gre::Base *)a1);
   MmUnmapViewInSessionSpace(a1[1]);
   if ( !a1[2] )
     vUnreferenceFileviewSection((struct _FILEVIEW *)a1);

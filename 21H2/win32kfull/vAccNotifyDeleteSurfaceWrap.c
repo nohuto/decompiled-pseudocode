@@ -1,30 +1,29 @@
 /*
- * XREFs of vAccNotifyDeleteSurfaceWrap @ 0x1C00EDE70
+ * XREFs of vAccNotifyDeleteSurfaceWrap @ 0x1C0101AB0
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C002CEF0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C003FD30 (--1DEVLOCKOBJ@@QEAA@XZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003FD70 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C0041980 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ?vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z @ 0x1C0090A60 (-vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ?bStockSurface@SURFACE@@QEAAHXZ @ 0x1C0299B70 (-bStockSurface@SURFACE@@QEAAHXZ.c)
+ *     ?vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z @ 0x1C0018F78 (-vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C008E970 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E9B0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00ACCE0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2C64 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?bStockSurface@SURFACE@@QEAAHXZ @ 0x1C029B294 (-bStockSurface@SURFACE@@QEAAHXZ.c)
  */
 
 void __fastcall vAccNotifyDeleteSurfaceWrap(__int64 a1)
 {
   __int64 v2; // rbx
   int v3; // ecx
-  __int64 v4; // rcx
-  int v5; // eax
-  __int128 v6; // [rsp+20h] [rbp-19h] BYREF
-  __int64 v7; // [rsp+30h] [rbp-9h]
-  int v8; // [rsp+38h] [rbp-1h]
-  _QWORD v9[2]; // [rsp+40h] [rbp+7h] BYREF
-  _BYTE v10[40]; // [rsp+50h] [rbp+17h] BYREF
-  __int64 v11; // [rsp+78h] [rbp+3Fh]
-  __int64 v12; // [rsp+80h] [rbp+47h]
+  int v4; // eax
+  __int128 v5; // [rsp+20h] [rbp-19h] BYREF
+  __int64 v6; // [rsp+30h] [rbp-9h]
+  int v7; // [rsp+38h] [rbp-1h]
+  _QWORD v8[2]; // [rsp+40h] [rbp+7h] BYREF
+  _BYTE v9[40]; // [rsp+50h] [rbp+17h] BYREF
+  __int64 v10; // [rsp+78h] [rbp+3Fh]
+  __int64 v11; // [rsp+80h] [rbp+47h]
 
   if ( !gpBmpDev && !gpRedirDev )
     return;
@@ -35,46 +34,46 @@ void __fastcall vAccNotifyDeleteSurfaceWrap(__int64 a1)
       return;
     if ( (unsigned int)SURFACE::bStockSurface((SURFACE *)a1) )
       return;
-    v5 = *(_DWORD *)(v4 + 112);
-    if ( (v5 & 0x40000) != 0 || (v5 & 0x4000000) == 0 )
+    v4 = *(_DWORD *)(a1 + 112);
+    if ( (v4 & 0x40000) != 0 || (v4 & 0x4000000) == 0 )
       return;
 LABEL_23:
     vAccNotify((struct _SURFOBJ *)(a1 + 24), 8u, 0LL);
     return;
   }
-  DLODCOBJ::DLODCOBJ((DLODCOBJ *)v9);
-  v12 = 0LL;
+  DLODCOBJ::DLODCOBJ((DLODCOBJ *)v8);
   v11 = 0LL;
-  v9[0] = 0LL;
+  v10 = 0LL;
+  v8[0] = 0LL;
   v3 = *(_DWORD *)(v2 + 40);
-  v6 = 0LL;
-  v8 = 1;
+  v5 = 0LL;
+  v7 = 1;
   if ( (v3 & 1) != 0 )
   {
-    *(_QWORD *)&v6 = *(_QWORD *)(v2 + 48);
-    v7 = v2;
-    GreAcquireSemaphore(v6);
-    EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v6, 11LL);
+    *(_QWORD *)&v5 = *(_QWORD *)(v2 + 48);
+    v6 = v2;
+    GreAcquireSemaphore(v5);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v5, 11LL);
     v3 = *(_DWORD *)(v2 + 40);
   }
-  if ( (v3 & 0x20000000) == 0 && !_bittest((const signed __int32 *)(v2 + 2096), 0xFu) )
+  if ( (v3 & 0x20000000) == 0 && (*(_DWORD *)(v2 + 2128) & 0x8000) == 0 )
   {
-    DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)&v6);
+    DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)&v5);
     return;
   }
   if ( (v3 & 0x20000) != 0
-    || !_bittest((const signed __int32 *)(v2 + 2096), 0xFu)
+    || (*(_DWORD *)(v2 + 2128) & 0x8000) == 0
     || (*(_DWORD *)(a1 + 112) & 0x400000) == 0
     || !*(_QWORD *)(a1 + 24) )
   {
-    DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v6);
-    if ( v9[0] )
-      DLODCOBJ::vUnlock((DLODCOBJ *)v9);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v10);
+    DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v5);
+    if ( v8[0] )
+      DLODCOBJ::vUnlock((DLODCOBJ *)v8);
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v9);
     goto LABEL_23;
   }
-  DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v6);
-  if ( v9[0] )
-    DLODCOBJ::vUnlock((DLODCOBJ *)v9);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v10);
+  DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v5);
+  if ( v8[0] )
+    DLODCOBJ::vUnlock((DLODCOBJ *)v8);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v9);
 }

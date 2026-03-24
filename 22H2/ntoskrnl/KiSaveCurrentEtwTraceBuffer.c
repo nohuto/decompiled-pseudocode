@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSaveCurrentEtwTraceBuffer @ 0x14056AB04
+ * XREFs of KiSaveCurrentEtwTraceBuffer @ 0x140518880
  * Callers:
- *     KiCollectTriageDumpDataBlocks @ 0x140569D34 (KiCollectTriageDumpDataBlocks.c)
+ *     KeBugCheck2 @ 0x140516A10 (KeBugCheck2.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     EtwGetProcessorBuffer @ 0x1405FBEE0 (EtwGetProcessorBuffer.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     EtwGetProcessorBuffer @ 0x1405AA4D8 (EtwGetProcessorBuffer.c)
  */
 
 char KiSaveCurrentEtwTraceBuffer()

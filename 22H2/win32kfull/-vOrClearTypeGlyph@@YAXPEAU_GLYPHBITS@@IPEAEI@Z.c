@@ -1,82 +1,83 @@
 /*
- * XREFs of ?vOrClearTypeGlyph@@YAXPEAU_GLYPHBITS@@IPEAEI@Z @ 0x1C0271694
+ * XREFs of ?vOrClearTypeGlyph@@YAXPEAU_GLYPHBITS@@IPEAEI@Z @ 0x1C02786C0
  * Callers:
- *     ?draw_clrt_f_ntb_o_to_temp_start@@YAXPEAU_GLYPHPOS@@KPEAEKKKK@Z @ 0x1C0270CB0 (-draw_clrt_f_ntb_o_to_temp_start@@YAXPEAU_GLYPHPOS@@KPEAEKKKK@Z.c)
+ *     draw_clrt_f_ntb_o_to_temp_start @ 0x1C0278A00 (draw_clrt_f_ntb_o_to_temp_start.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall vOrClearTypeGlyph(struct _GLYPHBITS *a1, unsigned int a2, unsigned __int8 *a3, unsigned int a4)
 {
-  BYTE *aj; // rbp
-  unsigned int cx; // r8d
-  unsigned __int8 *v7; // rsi
-  __int64 v8; // rax
-  __int64 v9; // r12
-  __int64 v10; // r13
-  unsigned __int8 *v11; // r15
-  unsigned __int8 *v12; // rdi
-  __int64 v13; // r14
-  unsigned __int8 v14; // al
-  __int64 v15; // rax
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  __int64 v18; // rcx
-  unsigned int v19; // r11d
-  int v20; // r9d
-  unsigned int v21; // r10d
-  unsigned int v22; // r9d
-  __int64 v23; // [rsp+50h] [rbp+8h]
+  BYTE *aj; // rdi
+  unsigned __int8 *v5; // r11
+  unsigned __int8 *v6; // rbp
+  __int64 v7; // r12
+  unsigned __int64 cx; // r15
+  unsigned __int64 v9; // r14
+  unsigned __int8 *v10; // rbx
+  unsigned __int8 *v11; // rbp
+  signed __int64 v12; // rsi
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  unsigned int v15; // r10d
+  unsigned int v16; // r9d
+  unsigned int v17; // r8d
+  unsigned __int8 *v18; // [rsp+38h] [rbp+8h]
+  __int64 v19; // [rsp+48h] [rbp+18h]
 
   aj = a1->aj;
-  cx = a1->sizlBitmap.cx;
-  v7 = &a3[a1->sizlBitmap.cy * a4];
-  if ( a3 >= v7 )
-    return;
-  v8 = cx;
-  v9 = a4;
-  v23 = cx;
-  v10 = a2;
-  do
+  v5 = a3;
+  v6 = &a3[a4 * a1->sizlBitmap.cy];
+  v18 = v6;
+  if ( a3 < v6 )
   {
-    v11 = &a3[v8];
-    v12 = a3;
-    if ( a3 >= &a3[v8] )
-      goto LABEL_17;
-    v13 = aj - a3;
-    do
+    v7 = a4;
+    cx = (unsigned int)a1->sizlBitmap.cx;
+    v19 = a4;
+    while ( 1 )
     {
-      v14 = v12[v13];
-      if ( *v12 )
-      {
-        if ( !v14 )
-          goto LABEL_15;
-        v15 = SGDGetSessionState(a1);
-        v16 = v12[v13];
-        v17 = *(_QWORD *)(*(_QWORD *)(v15 + 32) + 8592LL);
-        v18 = *v12;
-        v19 = *(unsigned __int8 *)(v17 + 4 * v16) + *(unsigned __int8 *)(v17 + 4 * v18);
-        v20 = *(unsigned __int8 *)(v17 + 4 * v18 + 2);
-        v21 = *(unsigned __int8 *)(v17 + 4 * v16 + 1) + *(unsigned __int8 *)(v17 + 4 * v18 + 1);
-        a1 = (struct _GLYPHBITS *)byte_1C0317050;
-        v22 = *(unsigned __int8 *)(v17 + 4 * v16 + 2) + v20;
-        if ( v19 > 6 )
-          v19 = 6;
-        if ( v21 > 6 )
-          v21 = 6;
-        if ( v22 > 6 )
-          v22 = 6;
-        v14 = byte_1C0317050[49 * v19 + 7 * v21 + v22];
-      }
-      *v12 = v14;
-LABEL_15:
-      ++v12;
+      v9 = cx;
+      v10 = v5;
+      if ( v5 > &v5[cx] )
+        v9 = 0LL;
+      if ( v9 )
+        break;
+LABEL_19:
+      v5 += v7;
+      aj += a2;
+      if ( v5 >= v6 )
+        return;
     }
-    while ( v12 < v11 );
-    v8 = v23;
+    v11 = (unsigned __int8 *)off_1C032A0D0;
+    v12 = aj - v5;
+    while ( 1 )
+    {
+      v13 = *v10;
+      v14 = v10[v12];
+      if ( !(_BYTE)v13 )
+        goto LABEL_16;
+      if ( (_BYTE)v14 )
+        break;
 LABEL_17:
-    a3 += v9;
-    aj += v10;
+      if ( ++v10 - v5 >= v9 )
+      {
+        v6 = v18;
+        v7 = v19;
+        goto LABEL_19;
+      }
+    }
+    v15 = v11[4 * v14] + v11[4 * v13];
+    v16 = v11[4 * v13 + 1] + v11[4 * v10[v12] + 1];
+    v17 = v11[4 * v13 + 2] + v11[4 * v10[v12] + 2];
+    if ( v15 > 6 )
+      v15 = 6;
+    if ( v16 > 6 )
+      v16 = 6;
+    if ( v17 > 6 )
+      v17 = 6;
+    LOBYTE(v14) = gajStorage1[49 * v15 + 7 * v16 + v17];
+LABEL_16:
+    *v10 = v14;
+    goto LABEL_17;
   }
-  while ( a3 < v7 );
 }

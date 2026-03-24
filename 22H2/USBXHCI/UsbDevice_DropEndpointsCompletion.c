@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbDevice_DropEndpointsCompletion @ 0x1C0048AA0
+ * XREFs of UsbDevice_DropEndpointsCompletion @ 0x1C0046120
  * Callers:
  *     <none>
  * Callees:
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008988 (UsbDevice_QueueConfigureEndpointEvent.c)
- *     WPP_RECORDER_SF_dq @ 0x1C0019380 (WPP_RECORDER_SF_dq.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0010CB0 (WPP_RECORDER_SF_dq.c)
  */
 
 __int64 __fastcall UsbDevice_DropEndpointsCompletion(__int64 a1, int a2)
@@ -12,7 +12,7 @@ __int64 __fastcall UsbDevice_DropEndpointsCompletion(__int64 a1, int a2)
   __int64 v2; // rbx
   int v3; // edx
   int v4; // r9d
-  int v5; // edi
+  unsigned int v5; // edi
   int v6; // edx
   char v8; // [rsp+28h] [rbp-20h]
 
@@ -31,7 +31,7 @@ LABEL_9:
         v3,
         12,
         v4,
-        (__int64)&WPP_a3acd40f84823909f7fc3b79b04bc30f_Traceguids,
+        (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
         v8,
         *(_QWORD *)v2);
       goto LABEL_10;
@@ -62,7 +62,7 @@ LABEL_10:
       v6,
       12,
       74,
-      (__int64)&WPP_a3acd40f84823909f7fc3b79b04bc30f_Traceguids,
+      (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
       *(_BYTE *)(a1 + 61),
       *(_QWORD *)v2);
   }

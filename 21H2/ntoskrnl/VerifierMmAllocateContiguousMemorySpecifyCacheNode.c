@@ -1,13 +1,14 @@
 /*
- * XREFs of VerifierMmAllocateContiguousMemorySpecifyCacheNode @ 0x140A9F580
+ * XREFs of VerifierMmAllocateContiguousMemorySpecifyCacheNode @ 0x1409E5FF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ViTargetTrackContiguousMemory @ 0x140A8B450 (ViTargetTrackContiguousMemory.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
- *     VfFaultsInjectResourceFailure @ 0x140A96B0C (VfFaultsInjectResourceFailure.c)
- *     VfFillAllocatedMemory @ 0x140A9A1DC (VfFillAllocatedMemory.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetTrackContiguousMemory @ 0x1409D76B0 (ViTargetTrackContiguousMemory.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC82C (VfFaultsInjectResourceFailure.c)
+ *     VfAllocPoolNotification @ 0x1409DFFB4 (VfAllocPoolNotification.c)
+ *     VfFillAllocatedMemory @ 0x1409DFFF4 (VfFillAllocatedMemory.c)
  */
 
 _SLIST_ENTRY *__fastcall VerifierMmAllocateContiguousMemorySpecifyCacheNode(
@@ -19,8 +20,7 @@ _SLIST_ENTRY *__fastcall VerifierMmAllocateContiguousMemorySpecifyCacheNode(
         int a6)
 {
   int v11; // ebp
-  _SLIST_ENTRY *v12; // rax
-  _SLIST_ENTRY *v13; // rbx
+  _SLIST_ENTRY *v12; // rbx
   unsigned __int64 retaddr; // [rsp+48h] [rbp+0h]
 
   if ( (unsigned int)VfFaultsInjectResourceFailure(0) )
@@ -44,12 +44,12 @@ _SLIST_ENTRY *__fastcall VerifierMmAllocateContiguousMemorySpecifyCacheNode(
                           a4,
                           v11,
                           a6);
-  v13 = v12;
+  VfAllocPoolNotification();
   if ( v12 )
   {
     VfFillAllocatedMemory(v12, BugCheckParameter3);
     if ( (MmVerifierData & 8) != 0 )
-      ViTargetTrackContiguousMemory(retaddr, v13, BugCheckParameter3);
+      ViTargetTrackContiguousMemory(retaddr, v12, BugCheckParameter3);
   }
-  return v13;
+  return v12;
 }

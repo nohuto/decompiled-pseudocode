@@ -1,11 +1,13 @@
 /*
- * XREFs of ?CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z @ 0x1C0010FFC
+ * XREFs of ?CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z @ 0x1C0049E98
  * Callers:
- *     ?OnDisplayRequiredChange@CIT_USER_ACTIVE_TRACKER@@QEAAXII@Z @ 0x1C0010CA0 (-OnDisplayRequiredChange@CIT_USER_ACTIVE_TRACKER@@QEAAXII@Z.c)
- *     ?OnUserActiveEvent@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z @ 0x1C0010F80 (-OnUserActiveEvent@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z.c)
- *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C00A3D44 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
+ *     ?OnUserActiveEvent@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z @ 0x1C0049E1C (-OnUserActiveEvent@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z.c)
+ *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C004B234 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
+ *     ?CitpPostUpdateUseInfoLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008D970 (-CitpPostUpdateUseInfoLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpPostUpdateUseInfoCalculate@@YAXPEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_POST_UPDATE_USE_INFO@@@Z @ 0x1C008E880 (-CitpPostUpdateUseInfoCalculate@@YAXPEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_POST_UPDATE_USE_INFO@@@Z.c)
+ *     ?OnDisplayRequiredChange@CIT_USER_ACTIVE_TRACKER@@QEAAXII@Z @ 0x1C00B27D0 (-OnDisplayRequiredChange@CIT_USER_ACTIVE_TRACKER@@QEAAXII@Z.c)
  * Callees:
- *     ?SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z @ 0x1C0010FB8 (-SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z.c)
+ *     ?SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z @ 0x1C0049E54 (-SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z.c)
  */
 
 void __fastcall CIT_USER_ACTIVE_TRACKER::CalculateUpToTime(CIT_USER_ACTIVE_TRACKER *this, unsigned int a2)
@@ -18,21 +20,20 @@ void __fastcall CIT_USER_ACTIVE_TRACKER::CalculateUpToTime(CIT_USER_ACTIVE_TRACK
   int v7; // r8d
   unsigned int v8; // edx
   unsigned int v9; // ebx
-  _DWORD *v10; // rcx
+  unsigned int v10; // eax
   unsigned int v11; // eax
-  unsigned int v12; // eax
 
   LODWORD(v2) = a2;
   v3 = this;
-  if ( (dword_1C0291C88 & 1) != 0 )
+  if ( (dword_1C0251118 & 1) != 0 )
   {
-    v4 = dword_1C0291C8C;
+    v4 = dword_1C025111C;
   }
   else
   {
-    v4 = *(&xmmword_1C0293D14 + 1);
-    dword_1C0291C88 |= 1u;
-    dword_1C0291C8C = *(&xmmword_1C0293D14 + 1);
+    v4 = *(&xmmword_1C0254564 + 1);
+    dword_1C0251118 |= 1u;
+    dword_1C025111C = *(&xmmword_1C0254564 + 1);
   }
   v5 = *((_DWORD *)this + 2);
   v6 = a2 - v5;
@@ -40,28 +41,28 @@ void __fastcall CIT_USER_ACTIVE_TRACKER::CalculateUpToTime(CIT_USER_ACTIVE_TRACK
   {
     if ( a2 < v5 )
     {
-      v11 = *((_DWORD *)v3 + 2);
+      v10 = *((_DWORD *)v3 + 2);
       v2 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-      v6 = v2 - v11;
-      if ( (unsigned int)v2 < v11 )
+      v6 = v2 - v10;
+      if ( (unsigned int)v2 < v10 )
       {
-        v12 = -1;
+        v11 = -1;
         if ( (unsigned __int64)(((((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
                                 * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64)
-                              - xmmword_1C0293D50) <= 0xFFFFFFFF )
-          v12 = ((((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
+                              - xmmword_1C02545B0) <= 0xFFFFFFFF )
+          v11 = ((((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
                 * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64)
-              - xmmword_1C0293D50;
-        if ( v6 > v12 || v6 > 0x240C8400 )
+              - xmmword_1C02545B0;
+        if ( v6 > v11 || v6 > 0x240C8400 )
         {
           ++*((_DWORD *)v3 + 3);
           *((_DWORD *)v3 + 2) = v2;
-          *((_DWORD *)v3 + 1) = v2 - dword_1C0291C8C;
+          *((_DWORD *)v3 + 1) = v2 - dword_1C025111C;
           CIT_USER_ACTIVITY_STAT::SetActive((CIT_USER_ACTIVE_TRACKER *)((char *)v3 + 16), 0);
           return;
         }
       }
-      v4 = dword_1C0291C8C;
+      v4 = dword_1C025111C;
     }
     if ( *(_DWORD *)v3 )
     {
@@ -81,9 +82,8 @@ void __fastcall CIT_USER_ACTIVE_TRACKER::CalculateUpToTime(CIT_USER_ACTIVE_TRACK
         else
         {
           v9 = v6;
-          v10 = (_DWORD *)((char *)v3 + 16);
         }
-        *v10 += v9;
+        *((_DWORD *)v3 + 4) += v9;
       }
     }
     *((_DWORD *)v3 + 2) = v2;

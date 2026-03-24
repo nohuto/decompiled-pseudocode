@@ -1,11 +1,11 @@
 /*
- * XREFs of RIMIDEIsCompatibleDevice @ 0x1C0197018
+ * XREFs of RIMIDEIsCompatibleDevice @ 0x1C0169AC8
  * Callers:
- *     RIMIDEAdoptOrphanedRimDevs @ 0x1C0075EB8 (RIMIDEAdoptOrphanedRimDevs.c)
+ *     RIMIDEAdoptOrphanedRimDevs @ 0x1C00AC470 (RIMIDEAdoptOrphanedRimDevs.c)
  * Callees:
- *     rimIsExplicitRimUsagesMatchingUsages @ 0x1C007FE10 (rimIsExplicitRimUsagesMatchingUsages.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     rimInputTypeFromRimDev @ 0x1C0174280 (rimInputTypeFromRimDev.c)
+ *     rimIsExplicitRimUsagesMatchingUsages @ 0x1C0058A7C (rimIsExplicitRimUsagesMatchingUsages.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimInputTypeFromRimDev @ 0x1C015291C (rimInputTypeFromRimDev.c)
  */
 
 __int64 __fastcall RIMIDEIsCompatibleDevice(_DWORD *a1, __int64 a2)
@@ -15,12 +15,12 @@ __int64 __fastcall RIMIDEIsCompatibleDevice(_DWORD *a1, __int64 a2)
   v4 = rimInputTypeFromRimDev(a2);
   if ( (v4 & a1[21]) == 0 )
     return 0LL;
-  if ( v4 != 32 || a1[264] )
+  if ( v4 != 32 || a1[216] )
     return 1LL;
   if ( !a1[22] )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 2119);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2118);
   return rimIsExplicitRimUsagesMatchingUsages(
            (__int64)a1,
-           *(_WORD *)(*(_QWORD *)(a2 + 464) + 16LL),
-           *(_WORD *)(*(_QWORD *)(a2 + 464) + 18LL));
+           *(_WORD *)(*(_QWORD *)(a2 + 472) + 16LL),
+           *(_WORD *)(*(_QWORD *)(a2 + 472) + 18LL));
 }

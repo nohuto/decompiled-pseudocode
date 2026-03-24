@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeStringCchCopyN @ 0x14028B354
+ * XREFs of RtlUnicodeStringCchCopyN @ 0x14028B454
  * Callers:
- *     PiDrvDbResolveSystemFilePath @ 0x14083EE88 (PiDrvDbResolveSystemFilePath.c)
+ *     PiDrvDbResolveSystemFilePath @ 0x14083EE68 (PiDrvDbResolveSystemFilePath.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker_1 @ 0x14028B45C (RtlUnicodeStringValidateWorker_1.c)
+ *     RtlUnicodeStringValidateWorker_1 @ 0x14028B55C (RtlUnicodeStringValidateWorker_1.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringCchCopyN(

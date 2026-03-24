@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PowerPolTimerExpiredNoWake@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C000C130
+ * XREFs of ?PowerPolTimerExpiredNoWake@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C000E120
  * Callers:
  *     <none>
  * Callees:
- *     ?PowerPolicyCanIdlePowerDown@FxPkgPnp@@AEAAEW4_DEVICE_POWER_STATE@@@Z @ 0x1C000C184 (-PowerPolicyCanIdlePowerDown@FxPkgPnp@@AEAAEW4_DEVICE_POWER_STATE@@@Z.c)
- *     ?NotifyDevicePowerDown@FxPoxInterface@@QEAAJXZ @ 0x1C000CE74 (-NotifyDevicePowerDown@FxPoxInterface@@QEAAJXZ.c)
+ *     ?PowerPolicyCanIdlePowerDown@FxPkgPnp@@AEAAEW4_DEVICE_POWER_STATE@@@Z @ 0x1C000E174 (-PowerPolicyCanIdlePowerDown@FxPkgPnp@@AEAAEW4_DEVICE_POWER_STATE@@@Z.c)
+ *     ?NotifyDevicePowerDown@FxPoxInterface@@QEAAJXZ @ 0x1C00103FC (-NotifyDevicePowerDown@FxPoxInterface@@QEAAJXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerPolTimerExpiredNoWake(FxPkgPnp *This)

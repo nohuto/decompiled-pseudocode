@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_ReturningDeviceRenumerationOnHubResume @ 0x1C00234B0
+ * XREFs of HUBDSM_ReturningDeviceRenumerationOnHubResume @ 0x1C0020EB0
  * Callers:
  *     <none>
  * Callees:

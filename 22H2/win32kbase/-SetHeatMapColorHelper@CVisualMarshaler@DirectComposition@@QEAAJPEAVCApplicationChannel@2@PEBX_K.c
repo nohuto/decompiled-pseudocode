@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetHeatMapColorHelper@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEBX_KPEA_N@Z @ 0x1C02142B8
+ * XREFs of ?SetHeatMapColorHelper@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEBX_KPEA_N@Z @ 0x1C01E4FD0
  * Callers:
- *     ?SetBufferProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0098E10 (-SetBufferProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA.c)
+ *     ?SetBufferProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00A5130 (-SetBufferProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA.c)
  * Callees:
  *     <none>
  */
@@ -22,14 +22,14 @@ __int64 __fastcall DirectComposition::CVisualMarshaler::SetHeatMapColorHelper(
   v7 = 0;
   if ( a4 == 16 )
   {
-    v8 = *((_QWORD *)this + 36) - *a3;
+    v8 = *((_QWORD *)this + 33) - *a3;
     if ( !v8 )
-      v8 = *((_QWORD *)this + 37) - a3[1];
+      v8 = *((_QWORD *)this + 34) - a3[1];
     if ( v8 )
     {
       *((_DWORD *)this + 4) |= 0x40000u;
       v7 = 1;
-      *((_OWORD *)this + 18) = *(_OWORD *)a3;
+      *(_OWORD *)((char *)this + 264) = *(_OWORD *)a3;
     }
   }
   else

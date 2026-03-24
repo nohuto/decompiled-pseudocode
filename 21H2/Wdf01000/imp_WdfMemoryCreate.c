@@ -1,18 +1,19 @@
 /*
- * XREFs of imp_WdfMemoryCreate @ 0x1C0005910
+ * XREFs of imp_WdfMemoryCreate @ 0x1C000CE10
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxValidateObjectAttributesForParentHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C0005890 (-FxValidateObjectAttributesForParentHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTE.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C0005B30 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
- *     ?_Create@FxMemoryObject@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@W4_POOL_TYPE@@K_KPEAPEAV1@@Z @ 0x1C0005FF8 (-_Create@FxMemoryObject@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@W4_POOL_TYPE@@K_.c)
- *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C00062C0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxIsPagedPoolType@@YAEW4_POOL_TYPE@@@Z @ 0x1C0004E28 (-FxIsPagedPoolType@@YAEW4_POOL_TYPE@@@Z.c)
+ *     ?_Create@FxMemoryObject@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@W4_POOL_TYPE@@K_KPEAPEAV1@@Z @ 0x1C0004E44 (-_Create@FxMemoryObject@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@W4_POOL_TYPE@@K_.c)
+ *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000A0E0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C000B520 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     ?FxValidateObjectAttributesForParentHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000CFA4 (-FxValidateObjectAttributesForParentHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTE.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
  */
 
 int __fastcall imp_WdfMemoryCreate(
@@ -24,9 +25,9 @@ int __fastcall imp_WdfMemoryCreate(
         WDFMEMORY__ **Memory,
         void **Buffer)
 {
-  _FX_DRIVER_GLOBALS *m_Globals; // rbx
+  _FX_DRIVER_GLOBALS *DriverName; // rbx
   WDFMEMORY__ **v11; // rdi
-  unsigned __int8 v12; // dl
+  bool IsPagedPoolType; // al
   int result; // eax
   unsigned __int64 v14; // r14
   FxMemoryObject *v15; // rbx
@@ -38,38 +39,37 @@ int __fastcall imp_WdfMemoryCreate(
   FxObject *pParent; // [rsp+60h] [rbp+8h] BYREF
 
   pBuffer = 0LL;
-  m_Globals = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
   hMemory = 0LL;
-  if ( (int)FxValidateObjectAttributesForParentHandle((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], Attributes, 0) >= 0 )
+  if ( FxValidateObjectAttributesForParentHandle((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, Attributes, 0) >= 0 )
   {
     pParent = 0LL;
-    FxObjectHandleGetPtr(m_Globals, (unsigned __int64)Attributes->ParentObject, 0x1000u, (void **)&pParent);
-    m_Globals = pParent->m_Globals;
+    FxObjectHandleGetPtr(DriverName, (unsigned __int64)Attributes->ParentObject, 0x1000u, (void **)&pParent);
+    DriverName = pParent->m_Globals;
   }
   v11 = Memory;
   if ( !Memory )
-    FxVerifierNullBugCheck(m_Globals, retaddr);
-  if ( (PoolType & 0xFFFFFEFF) == 1 || (v12 = 2, (PoolType & 0xFFFFFEFF) == 5) )
-    v12 = 1;
-  result = FxVerifierCheckIrqlLevel(m_Globals, v12);
+    FxVerifierNullBugCheck(DriverName, retaddr);
+  IsPagedPoolType = FxIsPagedPoolType(PoolType);
+  result = FxVerifierCheckIrqlLevel(DriverName, 2 - IsPagedPoolType);
   if ( result >= 0 )
   {
     v14 = BufferSize;
     if ( BufferSize )
     {
       *v11 = 0LL;
-      result = FxValidateObjectAttributes(m_Globals, Attributes, 0);
+      result = FxValidateObjectAttributes(DriverName, Attributes, 0);
       if ( result >= 0 )
       {
         if ( !PoolTag )
-          PoolTag = m_Globals->Tag;
-        if ( m_Globals->FxVerifierOn && FxLibraryGlobals.VfCheckNxPoolType )
+          PoolTag = DriverName->Tag;
+        if ( DriverName->FxVerifierOn && FxLibraryGlobals.VfCheckNxPoolType )
           FxLibraryGlobals.VfCheckNxPoolType(PoolType, retaddr, PoolTag);
-        result = FxMemoryObject::_Create(m_Globals, Attributes, PoolType, PoolTag, v14, &pBuffer);
+        result = FxMemoryObject::_Create(DriverName, Attributes, PoolType, PoolTag, v14, &pBuffer);
         if ( result >= 0 )
         {
           v15 = pBuffer;
-          v16 = FxObject::Commit(pBuffer, Attributes, (void **)&hMemory, 0LL, 1u);
+          v16 = FxObject::Commit(pBuffer, (_FX_DRIVER_GLOBALS *)Attributes, (void **)&hMemory, 0LL, 1u);
           if ( v16 < 0 )
           {
             FxObject::ClearEvtCallbacks(v15);
@@ -88,7 +88,7 @@ int __fastcall imp_WdfMemoryCreate(
     }
     else
     {
-      WPP_IFR_SF_d(m_Globals, 2u, 0x12u, 0xAu, WPP_FxMemoryBufferApi_cpp_Traceguids, -1073741811);
+      WPP_IFR_SF_d(DriverName, 2u, 0x12u, 0xAu, WPP_FxMemoryBufferApi_cpp_Traceguids, -1073741811);
       return -1073741811;
     }
   }

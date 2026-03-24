@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbDevice_HandleAssignPinsForEndpointsToOffloadState @ 0x1C0048F8C
+ * XREFs of UsbDevice_HandleAssignPinsForEndpointsToOffloadState @ 0x1C0046610
  * Callers:
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008988 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     UsbDevice_SetResourceAssignment @ 0x1C00499BC (UsbDevice_SetResourceAssignment.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     UsbDevice_SetResourceAssignment @ 0x1C0047040 (UsbDevice_SetResourceAssignment.c)
  */
 
 char __fastcall UsbDevice_HandleAssignPinsForEndpointsToOffloadState(__int64 a1, __int64 a2, int a3, int a4)
 {
-  unsigned int v4; // ebp
-  int v5; // r14d
+  unsigned int v4; // r14d
+  int v5; // ebp
   unsigned int v6; // eax
   unsigned int *v8; // rdi
   __int64 v10; // rsi
@@ -37,12 +37,12 @@ char __fastcall UsbDevice_HandleAssignPinsForEndpointsToOffloadState(__int64 a1,
           v11 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
                   WdfDriverGlobals,
                   *(_QWORD *)(*(_QWORD *)(a2 + 32) + 8 * v10),
-                  off_1C00631A8);
+                  off_1C00601A8);
           v12 = v11;
           if ( *(unsigned __int8 *)(v11 + 98) == *((_WORD *)v8 + 2) )
           {
             ++v5;
-            if ( *(_DWORD *)(v11 + 1360) )
+            if ( *(_DWORD *)(v11 + 1352) )
             {
               if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
                 WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, a2, a3, a4);
@@ -51,7 +51,7 @@ char __fastcall UsbDevice_HandleAssignPinsForEndpointsToOffloadState(__int64 a1,
             }
             else
             {
-              *(_DWORD *)(v11 + 1360) = 1;
+              *(_DWORD *)(v11 + 1352) = 1;
             }
             UsbDevice_SetResourceAssignment(a1, v12, *(unsigned int *)((char *)v8 + 6));
           }

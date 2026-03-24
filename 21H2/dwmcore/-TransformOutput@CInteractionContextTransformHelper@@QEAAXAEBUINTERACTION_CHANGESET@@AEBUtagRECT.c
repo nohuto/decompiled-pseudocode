@@ -1,10 +1,10 @@
 /*
- * XREFs of ?TransformOutput@CInteractionContextTransformHelper@@QEAAXAEBUINTERACTION_CHANGESET@@AEBUtagRECT@@1K_NPEAU2@@Z @ 0x1802AE42C
+ * XREFs of ?TransformOutput@CInteractionContextTransformHelper@@QEAAXAEBUINTERACTION_CHANGESET@@AEBUtagRECT@@1K_NPEAU2@@Z @ 0x18026B69C
  * Callers:
- *     ?TransformOutput@CInteractionContextTransformHelper@@QEAAXAEBUInteractionOutput@@AEBUtagRECT@@1K_NPEAU2@@Z @ 0x1802AE6F4 (-TransformOutput@CInteractionContextTransformHelper@@QEAAXAEBUInteractionOutput@@AEBUtagRECT@@1K.c)
+ *     ?TransformOutput@CInteractionContextTransformHelper@@QEAAXAEBUInteractionOutput@@AEBUtagRECT@@1K_NPEAU2@@Z @ 0x18026B964 (-TransformOutput@CInteractionContextTransformHelper@@QEAAXAEBUInteractionOutput@@AEBUtagRECT@@1K.c)
  * Callees:
- *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x1800AEBA8 (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
- *     ?HimetricToScreen@CInteractionContextTransformHelper@@SAXAEBUtagRECT@@0PEAUINTERACTION_UPDATE@@PEAUINTERACTION_VELOCITY@@1121@Z @ 0x1802ADF30 (-HimetricToScreen@CInteractionContextTransformHelper@@SAXAEBUtagRECT@@0PEAUINTERACTION_UPDATE@@P.c)
+ *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x1800072B8 (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
+ *     ?HimetricToScreen@CInteractionContextTransformHelper@@SAXAEBUtagRECT@@0PEAUINTERACTION_UPDATE@@PEAUINTERACTION_VELOCITY@@1121@Z @ 0x18026B1A0 (-HimetricToScreen@CInteractionContextTransformHelper@@SAXAEBUtagRECT@@0PEAUINTERACTION_UPDATE@@P.c)
  */
 
 void __fastcall CInteractionContextTransformHelper::TransformOutput(
@@ -30,13 +30,14 @@ void __fastcall CInteractionContextTransformHelper::TransformOutput(
   const struct tagRECT *v19; // r10
   const struct tagRECT *v20; // r11
   float *v21; // rax
-  float v22; // xmm0_4
-  float v23; // xmm1_4
-  float v24; // xmm3_4
+  float v22; // xmm1_4
+  float v23; // xmm3_4
+  float v24; // xmm1_4
   float v25; // xmm3_4
   float v26; // xmm3_4
   float v27; // xmm3_4
-  float v28; // xmm1_4
+  float v28; // xmm3_4
+  float v29; // xmm1_4
 
   v7 = (*((_BYTE *)a2 + 84) & 1) == 0;
   v9 = *((_OWORD *)a2 + 1);
@@ -64,25 +65,24 @@ void __fastcall CInteractionContextTransformHelper::TransformOutput(
       if ( v15 )
       {
         v22 = *(float *)(v15 + 4);
-        v23 = (float)((float)(*(float *)v15 * *((float *)this + 24)) + (float)(v22 * *((float *)this + 26)))
+        v23 = v22 * *((float *)this + 27);
+        v24 = (float)((float)(v22 * *((float *)this + 26)) + (float)(*(float *)v15 * *((float *)this + 24)))
             + *((float *)this + 28);
-        *(float *)(v15 + 4) = (float)((float)(v22 * *((float *)this + 27))
-                                    + (float)(*(float *)v15 * *((float *)this + 25)))
-                            + *((float *)this + 29);
-        *(float *)v15 = v23;
-        v24 = (float)((float)(*(float *)(v16 + 4) * *((float *)this + 27))
-                    + (float)(*(float *)v16 * *((float *)this + 25)))
+        *(float *)(v15 + 4) = (float)(v23 + (float)(*(float *)v15 * *((float *)this + 25))) + *((float *)this + 29);
+        *(float *)v15 = v24;
+        v25 = (float)((float)(*(float *)v16 * *((float *)this + 25))
+                    + (float)(*(float *)(v16 + 4) * *((float *)this + 27)))
             + *((float *)this + 29);
         *(float *)v16 = (float)((float)(*(float *)v16 * *((float *)this + 24))
                               + (float)(*(float *)(v16 + 4) * *((float *)this + 26)))
                       + *((float *)this + 28);
-        *(float *)(v16 + 4) = v24;
+        *(float *)(v16 + 4) = v25;
         if ( a5 != 5 )
         {
-          v25 = (float)((float)(*(float *)(v15 + 20) * v21[3]) + (float)(*(float *)(v15 + 16) * v21[1])) + v21[5];
+          v26 = (float)((float)(*(float *)(v15 + 20) * v21[3]) + (float)(*(float *)(v15 + 16) * v21[1])) + v21[5];
           *(float *)(v15 + 16) = (float)((float)(*(float *)(v15 + 20) * v21[2]) + (float)(*(float *)(v15 + 16) * *v21))
                                + v21[4];
-          *(float *)(v15 + 20) = v25;
+          *(float *)(v15 + 20) = v26;
         }
       }
     }
@@ -90,19 +90,19 @@ void __fastcall CInteractionContextTransformHelper::TransformOutput(
     {
       if ( v17 )
       {
-        v26 = (float)((float)(*(float *)(v17 + 4) * *((float *)this + 27))
+        v27 = (float)((float)(*(float *)(v17 + 4) * *((float *)this + 27))
                     + (float)(*(float *)v17 * *((float *)this + 25)))
             + *((float *)this + 29);
         *(float *)v17 = (float)((float)(*(float *)(v17 + 4) * *((float *)this + 26))
                               + (float)(*(float *)v17 * *((float *)this + 24)))
                       + *((float *)this + 28);
-        *(float *)(v17 + 4) = v26;
+        *(float *)(v17 + 4) = v27;
         if ( a5 != 5 )
         {
-          v27 = (float)((float)(*(float *)(v17 + 20) * v21[3]) + (float)(*(float *)(v17 + 16) * v21[1])) + v21[5];
+          v28 = (float)((float)(*(float *)(v17 + 20) * v21[3]) + (float)(*(float *)(v17 + 16) * v21[1])) + v21[5];
           *(float *)(v17 + 16) = (float)((float)(*(float *)(v17 + 20) * v21[2]) + (float)(*(float *)(v17 + 16) * *v21))
                                + v21[4];
-          *(float *)(v17 + 20) = v27;
+          *(float *)(v17 + 20) = v28;
         }
       }
     }
@@ -118,9 +118,9 @@ void __fastcall CInteractionContextTransformHelper::TransformOutput(
     (struct INTERACTION_UPDATE *)v17);
   if ( (*((_BYTE *)a7 + 84) & 2) != 0 && v15 )
   {
-    v28 = *(float *)(v15 + 28);
-    if ( v28 != 0.0 )
-      *((double *)this + 21) = (float)((float)(*(float *)(v15 + 24) - 1.0) / v28);
+    v29 = *(float *)(v15 + 28);
+    if ( v29 != 0.0 )
+      *((double *)this + 21) = (float)((float)(*(float *)(v15 + 24) - 1.0) / v29);
     if ( v16 )
       *(float *)(v16 + 8) = *(float *)(v16 + 12) * *((double *)this + 21);
   }

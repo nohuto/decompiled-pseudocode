@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPISystemPowerUpdateWakeCapabilities @ 0x1C00955B4
+ * XREFs of ACPISystemPowerUpdateWakeCapabilities @ 0x1C009DC14
  * Callers:
- *     ACPISystemPowerUpdateDeviceCapabilities @ 0x1C003E134 (ACPISystemPowerUpdateDeviceCapabilities.c)
+ *     ACPISystemPowerUpdateDeviceCapabilities @ 0x1C0019C4C (ACPISystemPowerUpdateDeviceCapabilities.c)
  * Callees:
- *     ACPISystemPowerUpdateWakeCapabilitiesForFilters @ 0x1C003E7E8 (ACPISystemPowerUpdateWakeCapabilitiesForFilters.c)
- *     ACPISystemPowerUpdateWakeCapabilitiesForPDOs @ 0x1C003EB00 (ACPISystemPowerUpdateWakeCapabilitiesForPDOs.c)
+ *     ACPISystemPowerUpdateWakeCapabilitiesForFilters @ 0x1C0016C4C (ACPISystemPowerUpdateWakeCapabilitiesForFilters.c)
+ *     ACPISystemPowerUpdateWakeCapabilitiesForPDOs @ 0x1C0017FC0 (ACPISystemPowerUpdateWakeCapabilitiesForPDOs.c)
  */
 
 __int64 __fastcall ACPISystemPowerUpdateWakeCapabilities(
@@ -13,13 +13,25 @@ __int64 __fastcall ACPISystemPowerUpdateWakeCapabilities(
         _DWORD *a3,
         __int64 a4,
         int *a5,
-        _DWORD *a6,
+        signed int *a6,
         signed int *a7,
         signed int *a8)
 {
-  if ( (*(_BYTE *)(a1 + 8) & 0x60) == 0x40 && !_bittest64((const signed __int64 *)(a1 + 1008), 0x20u) )
-    return ACPISystemPowerUpdateWakeCapabilitiesForFilters(a1, a2, a3, a4, a5, a6, a7, a8);
+  if ( (*(_BYTE *)(a1 + 8) & 0x60) == 0x40 )
+  {
+    a2 = 0x100000000LL;
+    if ( (*(_QWORD *)(a1 + 960) & 0x100000000LL) == 0 )
+      return ACPISystemPowerUpdateWakeCapabilitiesForFilters(a1, 0x100000000LL, a3, a4, a5, a6, a7, a8);
+  }
   if ( a8 )
     *a8 = 0;
-  return ACPISystemPowerUpdateWakeCapabilitiesForPDOs(a1, a2, (__int64)a3, a4, a5, (__int64)a6, a7, a8);
+  return ACPISystemPowerUpdateWakeCapabilitiesForPDOs(
+           a1,
+           a2,
+           (__int64)a3,
+           a4,
+           a5,
+           (unsigned __int64)a6,
+           (unsigned __int64)a7,
+           a8);
 }

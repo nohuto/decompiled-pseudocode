@@ -1,14 +1,14 @@
 /*
- * XREFs of NVMeControllerStartFailureEventLog @ 0x1C0017B68
+ * XREFs of NVMeControllerStartFailureEventLog @ 0x1C000A6FC
  * Callers:
- *     NVMeHwPassiveInitialize @ 0x1C0005F00 (NVMeHwPassiveInitialize.c)
- *     NVMeControllerInitPart3 @ 0x1C0005FFC (NVMeControllerInitPart3.c)
- *     NVMeHwFindAdapter @ 0x1C000ACD0 (NVMeHwFindAdapter.c)
- *     NVMeControllerPowerUp @ 0x1C0018D60 (NVMeControllerPowerUp.c)
- *     NVMeControllerReset @ 0x1C001906C (NVMeControllerReset.c)
- *     NVMeControllerPanicResetActionWorkItem @ 0x1C0021E00 (NVMeControllerPanicResetActionWorkItem.c)
+ *     NVMeHwFindAdapter @ 0x1C000A790 (NVMeHwFindAdapter.c)
+ *     NVMeHwPassiveInitialize @ 0x1C000AE40 (NVMeHwPassiveInitialize.c)
+ *     NVMeControllerInitPart3 @ 0x1C000E014 (NVMeControllerInitPart3.c)
+ *     NVMeControllerPowerUp @ 0x1C000E398 (NVMeControllerPowerUp.c)
+ *     NVMeControllerReset @ 0x1C000E684 (NVMeControllerReset.c)
+ *     NVMeControllerPanicResetActionWorkItem @ 0x1C0018290 (NVMeControllerPanicResetActionWorkItem.c)
  * Callees:
- *     memset @ 0x1C00109C0 (memset.c)
+ *     memset @ 0x1C0008040 (memset.c)
  */
 
 __int64 __fastcall NVMeControllerStartFailureEventLog(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall NVMeControllerStartFailureEventLog(__int64 a1)
 
   memset(v3, 0, 0x48uLL);
   HIDWORD(v3[1]) = 0;
-  v3[6] = a1 + 36;
+  v3[6] = a1 + 28;
   v4 = 72;
   v3[0] = 0x4800000100LL;
   BYTE4(v3[3]) = 1;

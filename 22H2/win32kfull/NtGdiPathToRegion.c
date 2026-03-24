@@ -1,75 +1,80 @@
 /*
- * XREFs of NtGdiPathToRegion @ 0x1C02C1330
+ * XREFs of NtGdiPathToRegion @ 0x1C02AD3B0
  * Callers:
  *     <none>
  * Callees:
- *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C007E760 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C015A6C4 (--1XEPATHOBJ@@QEAA@XZ.c)
- *     ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C0284C7C (--0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z.c)
- *     ?bInactive@DC@@QEBAHXZ @ 0x1C02C0988 (-bInactive@DC@@QEBAHXZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C00BCBC4 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
+ *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C014475C (--1XEPATHOBJ@@QEAA@XZ.c)
+ *     ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C01447BC (--0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z.c)
+ *     ?bInactive@DC@@QEBAHXZ @ 0x1C01457E4 (-bInactive@DC@@QEBAHXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 struct HOBJ__ *__fastcall NtGdiPathToRegion(HDC a1)
 {
-  ULONG v1; // ecx
+  struct HOBJ__ *v1; // rbx
+  ULONG v2; // ecx
   DC *v3; // rcx
   unsigned int v4; // r8d
-  struct HOBJ__ *v5; // rbx
+  struct HOBJ__ *v5; // rdi
   DC *v6; // rcx
-  DC *v7[2]; // [rsp+20h] [rbp-59h] BYREF
-  _BYTE v8[32]; // [rsp+30h] [rbp-49h] BYREF
-  _BYTE v9[8]; // [rsp+50h] [rbp-29h] BYREF
-  __int64 v10; // [rsp+58h] [rbp-21h]
-  struct OBJECT *v11; // [rsp+E8h] [rbp+6Fh] BYREF
+  struct OBJECT *v8; // [rsp+20h] [rbp-69h] BYREF
+  int v9; // [rsp+28h] [rbp-61h]
+  DC *v10[2]; // [rsp+30h] [rbp-59h] BYREF
+  char v11[32]; // [rsp+40h] [rbp-49h] BYREF
+  char v12[8]; // [rsp+60h] [rbp-29h] BYREF
+  __int64 v13; // [rsp+68h] [rbp-21h]
 
-  DCOBJ::DCOBJ((DCOBJ *)v7, a1);
-  if ( !v7[0] )
+  DCOBJ::DCOBJ((DCOBJ *)v10, a1);
+  v1 = 0LL;
+  if ( !v10[0] )
   {
-    v1 = 87;
-LABEL_3:
-    EngSetLastError(v1);
-LABEL_4:
-    DCOBJ::~DCOBJ((DCOBJ *)v7);
-    return 0LL;
+    v2 = 87;
+LABEL_5:
+    EngSetLastError(v2);
+    goto LABEL_15;
   }
-  if ( !(unsigned int)DC::bInactive(v7[0]) )
+  if ( !(unsigned int)DC::bInactive(v10[0]) )
   {
-    v1 = 1003;
-    goto LABEL_3;
+    v2 = 1003;
+    goto LABEL_5;
   }
-  XEPATHOBJ::XEPATHOBJ((XEPATHOBJ *)v9, v7);
-  if ( !v10 )
+  XEPATHOBJ::XEPATHOBJ((XEPATHOBJ *)v12, v10);
+  if ( v13 )
   {
-    EngSetLastError(8u);
-    v3 = v7[0];
-    *((_DWORD *)v7[0] + 62) &= ~1u;
-    DC::hpath(v3, 0LL);
-    XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v9);
-    goto LABEL_4;
-  }
-  v4 = *(unsigned __int8 *)(*((_QWORD *)v7[0] + 122) + 214LL);
-  v11 = 0LL;
-  RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v11, (struct EPATHOBJ *)v9, v4, 0LL);
-  if ( v11 )
-  {
-    v5 = RGNOBJ::hrgnAssociate(&v11);
-    if ( !v5 )
-      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v11);
+    v4 = *(unsigned __int8 *)(*((_QWORD *)v10[0] + 122) + 214LL);
+    v8 = 0LL;
+    v9 = 0;
+    RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v8, (struct EPATHOBJ *)v12, v4, 0LL);
+    if ( v8 )
+    {
+      v5 = RGNOBJ::hrgnAssociate(&v8);
+      if ( !v5 )
+        RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v8);
+    }
+    else
+    {
+      v5 = 0LL;
+    }
+    v6 = v10[0];
+    *((_DWORD *)v10[0] + 62) &= ~1u;
+    DC::hpath(v6, 0LL);
+    v1 = v5;
+    if ( v9 == 1 )
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v8);
   }
   else
   {
-    v5 = 0LL;
+    EngSetLastError(8u);
+    v3 = v10[0];
+    *((_DWORD *)v10[0] + 62) &= ~1u;
+    DC::hpath(v3, 0LL);
   }
-  v6 = v7[0];
-  *((_DWORD *)v7[0] + 62) &= ~1u;
-  DC::hpath(v6, 0LL);
-  XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v9);
-  if ( v7[0] )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v7);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v8);
-  return v5;
+  XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v12);
+LABEL_15:
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v10);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v11);
+  return v1;
 }

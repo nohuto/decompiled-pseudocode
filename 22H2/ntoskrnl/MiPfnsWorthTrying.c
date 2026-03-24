@@ -1,418 +1,238 @@
 /*
- * XREFs of MiPfnsWorthTrying @ 0x1403BB034
+ * XREFs of MiPfnsWorthTrying @ 0x1402827B0
  * Callers:
- *     MiFindContiguousPagesEx @ 0x1403BA9B8 (MiFindContiguousPagesEx.c)
- *     MiFindRebuildCandidate @ 0x14046E012 (MiFindRebuildCandidate.c)
- *     MmIdentifyPhysicalMemory @ 0x140A2ED78 (MmIdentifyPhysicalMemory.c)
- *     MmRelocatePfnList @ 0x140A3C9F8 (MmRelocatePfnList.c)
- *     MiScrubNode @ 0x140A466E0 (MiScrubNode.c)
+ *     MiFindContiguousPages @ 0x140281D60 (MiFindContiguousPages.c)
+ *     MiFindRebuildCandidate @ 0x140551D4C (MiFindRebuildCandidate.c)
+ *     MiScrubNode @ 0x140563F8C (MiScrubNode.c)
+ *     MmRelocatePfnList @ 0x1408D1B2C (MmRelocatePfnList.c)
  * Callees:
- *     MiIsPageOnBadList @ 0x1402186E0 (MiIsPageOnBadList.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E90A0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiCheckSlabPfnBitmap @ 0x140324550 (MiCheckSlabPfnBitmap.c)
- *     MiGetLeafPfnBuddy @ 0x140389ACC (MiGetLeafPfnBuddy.c)
- *     MiFindNextLowerLargePageCandidate @ 0x1403A5838 (MiFindNextLowerLargePageCandidate.c)
- *     MiActivePageClaimCandidate @ 0x1403BB598 (MiActivePageClaimCandidate.c)
- *     MiPfnLargeBitSet @ 0x1403BBA08 (MiPfnLargeBitSet.c)
- *     MiRequestIoPageMdlCacheRelease @ 0x1403D698C (MiRequestIoPageMdlCacheRelease.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiClusterVadFull @ 0x14046F3C0 (MiClusterVadFull.c)
+ *     MiPfnLargeBitSet @ 0x140282D20 (MiPfnLargeBitSet.c)
+ *     MiActivePageClaimCandidate @ 0x140282D80 (MiActivePageClaimCandidate.c)
+ *     MiIsPageOnBadList @ 0x140283BEC (MiIsPageOnBadList.c)
+ *     MiGetLeafPfnBuddy @ 0x1403801FC (MiGetLeafPfnBuddy.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F3F48 (MI_PFN_IS_PROTO.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1403F6188 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiClusterVadFull @ 0x1405557A8 (MiClusterVadFull.c)
  */
 
-__int64 __fastcall MiPfnsWorthTrying(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, _DWORD *a5)
+__int64 __fastcall MiPfnsWorthTrying(__int16 *a1, unsigned __int64 a2, __int64 a3, int a4, _DWORD *a5)
 {
-  unsigned __int16 *v8; // rbp
-  _DWORD *v9; // r12
-  unsigned __int64 v10; // r11
-  __int64 v11; // rdx
-  unsigned __int64 v12; // rbx
-  unsigned __int64 v13; // r10
-  unsigned __int64 v14; // r9
-  unsigned __int64 v15; // rcx
-  __int64 v16; // r15
-  int v17; // r14d
-  __int64 v18; // rsi
-  char v19; // cl
-  int v20; // r15d
-  int v21; // r8d
-  unsigned __int64 v22; // rbp
-  int v23; // eax
-  __int64 v24; // rcx
-  unsigned __int64 v25; // r14
-  unsigned __int64 active; // rax
-  unsigned __int64 v27; // rsi
-  unsigned __int64 v28; // rbx
-  __int64 v31; // r9
-  int v32; // eax
-  __int64 *v33; // rax
-  unsigned __int64 v34; // rsi
-  unsigned int v35; // ecx
-  __int64 v36; // rbx
-  unsigned __int64 LeafPfnBuddy; // rax
-  unsigned __int64 v38; // rcx
-  unsigned __int64 v39; // rsi
-  bool v40; // zf
-  unsigned __int64 v41; // rcx
-  int v42; // eax
-  __int64 v43; // rdx
-  __int64 v44; // r8
-  __int64 v45; // rax
+  __int16 v6; // dx
+  unsigned __int64 v7; // r15
+  __int64 v9; // r9
+  unsigned __int64 v11; // rcx
+  __int64 v12; // r8
+  int v13; // edi
   unsigned int PfnPageSizeIndexUnsynchronized; // eax
-  unsigned __int64 v47; // r8
-  unsigned __int64 v48; // rbp
-  unsigned __int64 v49; // rbx
-  unsigned __int64 v50; // rax
-  __int64 v51; // rbx
-  int v52; // eax
-  signed __int64 v53; // rbx
-  unsigned __int64 v54; // rax
-  unsigned __int64 v55; // rdi
-  __int64 v56; // rbx
-  int v57; // eax
-  unsigned __int64 v58; // r8
-  unsigned __int64 NextLowerLargePageCandidate; // rax
-  int v60; // [rsp+30h] [rbp-58h] BYREF
-  unsigned __int64 v61; // [rsp+38h] [rbp-50h]
-  unsigned __int64 v62; // [rsp+40h] [rbp-48h]
-  unsigned __int16 v64; // [rsp+98h] [rbp+10h]
+  signed __int64 v15; // r14
+  __int64 v16; // rdx
+  PVOID *v17; // rax
+  unsigned int v18; // ecx
+  unsigned int v19; // ecx
+  _QWORD *v20; // rax
+  __int64 v21; // rdx
+  unsigned __int64 v22; // r8
+  bool v23; // zf
+  unsigned __int64 v24; // r8
+  char v25; // cl
+  int v26; // ebp
+  bool v27; // zf
+  __int64 v28; // rax
+  __int64 v29; // rdx
+  __int64 v30; // rsi
+  int v31; // eax
+  __int64 LeafPfnBuddy; // rax
+  __int64 active; // rax
+  __int64 v34; // r15
+  int v36; // eax
+  unsigned __int64 v37; // [rsp+20h] [rbp-48h]
+  __int16 v38; // [rsp+70h] [rbp+8h]
+  int v39; // [rsp+78h] [rbp+10h] BYREF
+  int v40; // [rsp+80h] [rbp+18h] BYREF
 
-  v8 = (unsigned __int16 *)a1;
-  if ( (MiZeroCont & 2) != 0 )
-    memset(&MiCont, 0, 0x2E0uLL);
-  v9 = a5;
-  v62 = -1LL;
-  v10 = 0LL;
-  v11 = *v8;
-  v12 = a2 + 48 * a3;
-  v64 = *v8;
+  v6 = *a1;
+  v7 = a2 + 48 * a3;
+  v38 = *a1;
   *a5 = 0;
-  v61 = 0LL;
-  if ( a2 >= v12 )
+  v9 = -1LL;
+  v37 = -1LL;
+  if ( a2 >= v7 )
     return 0LL;
-  v13 = 0xAAAAAAAAAAAAAAABuLL;
-  v14 = 1LL;
   while ( 1 )
   {
-    v15 = *(_QWORD *)(a2 + 40);
-    if ( ((v15 >> 43) & 0x3FF) != (_WORD)v11 )
+    v11 = *(_QWORD *)(a2 + 40);
+    if ( ((v11 >> 39) & 0x3FF) != v6 )
     {
-      v55 = v13 * ((__int64)(a2 + 0x220000000000LL) >> 4);
-      v56 = v13 * ((__int64)(v12 + 0x220000000000LL) >> 4);
-      v57 = MiPfnLargeBitSet(&MiSystemPartition, v55);
-      if ( v57 != -1 )
-      {
-        v58 = MiLargePageSizes[v57];
-        v55 &= ~(v58 - 1);
-        NextLowerLargePageCandidate = MiFindNextLowerLargePageCandidate((__int64)&MiSystemPartition, v55, v58);
-        if ( NextLowerLargePageCandidate >= v55 )
-        {
-          ++dword_140C13860;
-        }
-        else
-        {
-          ++dword_140C13864;
-          v55 = NextLowerLargePageCandidate;
-        }
-      }
-      ++dword_140C1383C;
-      return v56 - v55;
+      v36 = MiPfnLargeBitSet(&MiSystemPartition, (__int64)(a2 + 0x58000000000LL) / 48, 1023LL, v9);
+      if ( v36 != -1 )
+        a2 = 48 * (((__int64)(a2 + 0x58000000000LL) / 48) & -MiLargePageSizes[v36]) - 0x58000000000LL;
+      goto LABEL_73;
     }
-    v16 = 0xFFFFFFFFLL;
-    v17 = *(_BYTE *)(a2 + 34) & 7;
-    LODWORD(a5) = v17;
-    if ( (v15 & 0x10000000000LL) != 0 )
+    v12 = 0xFFFFFFFFLL;
+    v13 = *(_BYTE *)(a2 + 34) & 7;
+    v39 = v13;
+    if ( (v11 & 0x1000000000LL) != 0 )
     {
-      v60 = v10;
-      PfnPageSizeIndexUnsynchronized = MiGetPfnPageSizeIndexUnsynchronized(a2, (int *)&a5, &v60);
-      v16 = PfnPageSizeIndexUnsynchronized;
+      v40 = 0;
+      PfnPageSizeIndexUnsynchronized = MiGetPfnPageSizeIndexUnsynchronized(a2, &v39, &v40);
+      v12 = PfnPageSizeIndexUnsynchronized;
       if ( PfnPageSizeIndexUnsynchronized == -1 )
+        goto LABEL_65;
+      v13 = v39;
+      v15 = a2 + 0x58000000000LL;
+      if ( v39 == 6 )
       {
-        v14 = 1LL;
-        v13 = 0xAAAAAAAAAAAAAAABuLL;
-        v10 = 0LL;
-        goto LABEL_28;
+        v34 = v7
+            - 48 * (((__int64)(a2 + 0x58000000000LL) / 48) & -MiLargePageSizes[PfnPageSizeIndexUnsynchronized])
+            + 0x58000000000LL;
+        return v34 / 48;
       }
-      v47 = MiLargePageSizes[PfnPageSizeIndexUnsynchronized];
-      v17 = (int)a5;
-      v18 = a2 + 0x220000000000LL;
-      if ( (_DWORD)a5 == 6 )
-      {
-        v48 = ~(v47 - 1) & (0xAAAAAAAAAAAAAAABuLL * (v18 >> 4));
-        v49 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v12 + 0x220000000000LL) >> 4);
-        v50 = MiFindNextLowerLargePageCandidate(a1, v48, v47);
-        if ( v50 >= v48 )
-        {
-          ++dword_140C13840;
-        }
-        else
-        {
-          ++dword_140C13844;
-          v48 = v50;
-        }
-        return v49 - v48;
-      }
-      v8 = (unsigned __int16 *)a1;
-      v14 = 1LL;
-      v10 = 0LL;
+      v9 = v37;
     }
     else
     {
-      v18 = a2 + 0x220000000000LL;
+      v15 = a2 + 0x58000000000LL;
     }
-    if ( v17 == 5 )
-    {
-      if ( MiIsPageOnBadList(a2) )
-      {
-        dword_140C13850 += v31;
-        goto LABEL_42;
-      }
-      if ( *(_QWORD *)(a2 + 8) == -8LL )
-      {
-        dword_140C13854 += v31;
-        goto LABEL_42;
-      }
-      v32 = MiCheckSlabPfnBitmap(a2, v31, 0);
-      v10 = 0LL;
-      if ( v32 )
-      {
-        ++dword_140C138CC;
-        goto LABEL_116;
-      }
-      v14 = 1LL;
-      if ( (_DWORD)v16 == -1 )
-      {
-        v13 = 0xAAAAAAAAAAAAAAABuLL;
-        if ( (*(_BYTE *)a2 & 1) == 0 )
-        {
-          v33 = &qword_140C69838;
-          v34 = 0xAAAAAAAAAAAAAAABuLL * (v18 >> 4);
-          v35 = 0;
-          while ( v34 != v33[4] && v34 != *v33 )
-          {
-            ++v35;
-            ++v33;
-            if ( v35 >= 4 )
-              goto LABEL_28;
-          }
-          ++dword_140C138FC;
-          goto LABEL_42;
-        }
-        goto LABEL_28;
-      }
-      v17 = 1;
-    }
-    if ( v17 > (int)v14 )
+    if ( v13 == 5 )
       break;
-    v13 = 0xAAAAAAAAAAAAAAABuLL;
-    if ( (_DWORD)v16 == -1 )
-      goto LABEL_28;
-    v38 = MiLargePageSizes[v16];
-    v39 = 0xAAAAAAAAAAAAAAABuLL * (v18 >> 4);
-    if ( v38 >= 0x200 )
-      v40 = (a4 & 0x2000000) == 0;
-    else
-      v40 = (a4 & 0x1000000) == 0;
-    if ( !v40 )
+    if ( v13 <= 1 )
     {
-      dword_140C138E0 += v14;
-      v36 = v12 - 48 * (v39 & -(__int64)v38) + 0x220000000000LL;
-      return v13 * (v36 >> 4);
+      if ( (_DWORD)v12 == -1 )
+        goto LABEL_65;
+      goto LABEL_21;
     }
-    v41 = v38 - (v39 & (v38 - 1));
-    if ( v41 > 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v12 - a2) >> 4) )
-      v41 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v12 - a2) >> 4);
-    a2 += 48 * v41 - 48;
-LABEL_28:
-    a2 += 48LL;
-    if ( a2 >= v12 )
-      return 0LL;
-    v11 = v64;
-  }
-  v19 = *(_BYTE *)(a2 + 35);
-  v20 = v10;
-  v21 = v10;
-  if ( v19 < 0 )
-  {
-    if ( v17 != 2 && v17 != 7 )
+    v25 = *(_BYTE *)(a2 + 35);
+    v26 = 0;
+    if ( v25 < 0 )
     {
-      if ( v17 != 6
+      if ( v13 == 2 )
+      {
+        v27 = *(_WORD *)(a2 + 32) == 0;
+LABEL_31:
+        if ( !v27 )
+          goto LABEL_73;
+        goto LABEL_65;
+      }
+      if ( v13 != 6
         || (*(_BYTE *)(a2 + 34) & 0x10) != 0
-        || *(_WORD *)(a2 + 32) != (_WORD)v14
+        || *(_WORD *)(a2 + 32) != 1
         || ((*(_QWORD *)(a2 + 40) >> 60) & 7) == 2
-        || (v19 & 8) != 0
-        || ((unsigned __int8)v14 & *(_BYTE *)a2) == 0 )
+        || (v25 & 8) != 0
+        || (*(_BYTE *)a2 & 1) == 0 )
       {
-        dword_140C138DC += v14;
-        goto LABEL_71;
+        goto LABEL_73;
       }
-      v25 = v61;
-      goto LABEL_20;
+LABEL_61:
+      active = MiActivePageClaimCandidate(a1, a2, 0LL);
+      if ( active )
+        return (__int64)(v7 + 0x58000000000LL) / 48 - (~(active - 1) & (v15 / 48));
+      if ( (a4 & 8) != 0 || v26 == 1 && (unsigned int)MiClusterVadFull(a2, 0LL) == 1 )
+        goto LABEL_73;
+      goto LABEL_65;
     }
-    if ( *(_WORD *)(a2 + 32) == (_WORD)v10 )
-      goto LABEL_27;
-    MiRequestIoPageMdlCacheRelease(0xAAAAAAAAAAAAAAABuLL * (v18 >> 4), v11, (unsigned int)v10);
-    v10 = 0LL;
+    if ( v13 > 4 )
+    {
+      v29 = (unsigned __int128)(v15 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
+      v30 = v15 / 48;
+      if ( ((v15 / 48) & 0xFFFFFFFFFFFFFE00uLL) != v9 )
+      {
+        v37 = v30 & 0xFFFFFFFFFFFFFE00uLL;
+        v31 = MiPfnLargeBitSet(a1, v30, v12, v9);
+        if ( v31 != -1 )
+        {
+          v34 = v7 - 48 * (v30 & -MiLargePageSizes[v31]) + 0x58000000000LL;
+          return v34 / 48;
+        }
+      }
+      if ( v13 != 6 )
+        goto LABEL_73;
+      if ( ((*(_QWORD *)(a2 + 40) >> 60) & 7) == 2 )
+      {
+        if ( (a4 & 8) != 0 )
+          goto LABEL_73;
+        LeafPfnBuddy = MiGetLeafPfnBuddy(a2, v29, v12);
+        if ( LeafPfnBuddy == -32 )
+          goto LABEL_73;
+        if ( !LeafPfnBuddy )
+          *a5 = 1;
+        goto LABEL_65;
+      }
+      if ( (a4 & 0x800000) != 0 )
+      {
+        if ( (unsigned int)MI_PFN_IS_PROTO(a2) )
+        {
+          if ( (*(_QWORD *)(a2 + 24) & 0x3FFFFFFFFFFFFFFFuLL) > 1 )
+            goto LABEL_73;
+        }
+        else if ( v30 == (v30 & 0xFFFFFFFFFFFFFFF0uLL) && (__int64)(v7 - a2) >= 768 )
+        {
+          v26 = 1;
+        }
+      }
+      goto LABEL_61;
+    }
     if ( *(_WORD *)(a2 + 32) )
+      goto LABEL_73;
+    if ( (a4 & 0x4000000) == 0 && (*(_QWORD *)(a2 + 40) & 0x1000000000LL) == 0 )
     {
-      ++dword_140C138DC;
-      v53 = v12 - a2;
-      return 0xAAAAAAAAAAAAAAABuLL * (v53 >> 4);
+      v28 = *(_QWORD *)(a2 + 8);
+      v27 = v28 == 0;
+      if ( v28 >= 0 )
+        goto LABEL_31;
     }
-    v14 = 1LL;
-    v13 = 0xAAAAAAAAAAAAAAABuLL;
-    goto LABEL_28;
+LABEL_65:
+    a2 += 48LL;
+    if ( a2 >= v7 )
+      return 0LL;
+    v9 = v37;
+    v6 = v38;
   }
-  v13 = 0xAAAAAAAAAAAAAAABuLL;
-  v22 = 0xAAAAAAAAAAAAAAABuLL * (v18 >> 4);
-  if ( v17 <= 4 )
+  if ( (unsigned int)MiIsPageOnBadList(a2) )
+    goto LABEL_73;
+  if ( (_DWORD)v12 != -1 )
   {
-    v42 = MiCheckSlabPfnBitmap(a2, v14, 0);
-    v10 = 0LL;
-    if ( !v42 )
+LABEL_21:
+    v21 = v15 / 48;
+    v22 = MiLargePageSizes[(unsigned int)v12];
+    if ( v22 < 0x200 )
+      v23 = (a4 & 0x1000000) == 0;
+    else
+      v23 = (a4 & 0x2000000) == 0;
+    if ( !v23 )
     {
-      if ( *(_WORD *)(a2 + 32)
-        && (MiRequestIoPageMdlCacheRelease(0xAAAAAAAAAAAAAAABuLL * (v18 >> 4), v43, v44), v10 = 0LL, *(_WORD *)(a2 + 32))
-        || (a4 & 0x4000000) == 0
-        && !_bittest64((const signed __int64 *)(a2 + 40), 0x28u)
-        && (v45 = *(_QWORD *)(a2 + 8), v45 >= 0)
-        && v45 )
+      v34 = v7 - 48 * (v21 & -(__int64)v22) + 0x58000000000LL;
+      return v34 / 48;
+    }
+    v24 = v22 - (v21 & (v22 - 1));
+    if ( v24 > (__int64)(v7 - a2) / 48 )
+      v24 = (__int64)(v7 - a2) / 48;
+    a2 += 48 * v24 - 48;
+    goto LABEL_65;
+  }
+  if ( (*(_BYTE *)a2 & 1) != 0 )
+    goto LABEL_65;
+  v16 = v15 / 48;
+  v17 = &qword_140C4EDC8;
+  v18 = 0;
+  while ( (PVOID)v16 != *v17 )
+  {
+    ++v18;
+    ++v17;
+    if ( v18 >= 4 )
+    {
+      v19 = 0;
+      v20 = &unk_140C4EDA8;
+      while ( v16 != *v20 )
       {
-        ++dword_140C13858;
-        goto LABEL_71;
+        ++v19;
+        ++v20;
+        if ( v19 >= 4 )
+          goto LABEL_65;
       }
-      v8 = (unsigned __int16 *)a1;
-LABEL_26:
-      v14 = 1LL;
-LABEL_27:
-      v13 = 0xAAAAAAAAAAAAAAABuLL;
-      goto LABEL_28;
+      break;
     }
-    ++dword_140C138D0;
-LABEL_116:
-    v53 = v12 - 48 * ((0xAAAAAAAAAAAAAAABuLL * (v18 >> 4)) & 0xFFFFFFFFFFFFFE00uLL) + 0x220000000000LL;
-    return 0xAAAAAAAAAAAAAAABuLL * (v53 >> 4);
   }
-  if ( (v22 & 0xFFFFFFFFFFFFFE00uLL) != v62 )
-  {
-    v62 = v22 & 0xFFFFFFFFFFFFFE00uLL;
-    v23 = MiPfnLargeBitSet(a1, 0xAAAAAAAAAAAAAAABuLL * (v18 >> 4));
-    if ( v23 != -1 )
-    {
-      ++dword_140C13860;
-      v51 = v12 - 48 * (v22 & -MiLargePageSizes[v23]) + 0x220000000000LL;
-      return 0xAAAAAAAAAAAAAAABuLL * (v51 >> 4);
-    }
-    v14 = 1LL;
-    v13 = 0xAAAAAAAAAAAAAAABuLL;
-    v10 = 0LL;
-  }
-  v21 = 2;
-  if ( v17 != 6 )
-  {
-    dword_140C1385C += v14;
-LABEL_42:
-    v36 = v12 - a2;
-    return v13 * (v36 >> 4);
-  }
-  v24 = *(_QWORD *)(a2 + 40);
-  if ( (((unsigned __int64)v24 >> 60) & 7) == 2 )
-  {
-    if ( (a4 & 8) != 0 )
-    {
-      dword_140C1386C += v14;
-      goto LABEL_42;
-    }
-    LeafPfnBuddy = MiGetLeafPfnBuddy((_QWORD *)a2);
-    if ( LeafPfnBuddy == -32LL )
-    {
-      dword_140C13868 += v14;
-      goto LABEL_42;
-    }
-    v8 = (unsigned __int16 *)a1;
-    if ( !LeafPfnBuddy )
-      *v9 |= v14;
-    goto LABEL_28;
-  }
-  if ( (a4 & 0x800000) == 0 )
-    goto LABEL_18;
-  if ( v24 < 0 )
-  {
-    if ( (v24 & 0x10000000000LL) == 0 && *(__int64 *)(a2 + 8) > 0 )
-    {
-      *v9 |= 2u;
-      dword_140C138C0 += v14;
-      goto LABEL_42;
-    }
-    if ( (*(_QWORD *)(a2 + 24) & 0x3FFFFFFFFFFFFFFFuLL) > v14 && (a4 & 0x8000000) == 0 )
-    {
-      dword_140C13870 += v14;
-      goto LABEL_42;
-    }
-LABEL_18:
-    v25 = v61;
-    goto LABEL_19;
-  }
-  if ( (a4 & 0x8000000) == 0 || a3 == 16 )
-  {
-    v25 = 16LL;
-LABEL_97:
-    v61 = v25;
-    if ( v22 != (v22 & ~(v25 - 1)) )
-      goto LABEL_19;
-    v8 = (unsigned __int16 *)a1;
-    if ( 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v12 - a2) >> 4) >= v25 )
-      v20 = v14;
-  }
-  else
-  {
-    if ( a3 == 512 )
-    {
-      v25 = 512LL;
-      goto LABEL_97;
-    }
-    v25 = v10;
-    v61 = v10;
-LABEL_19:
-    v8 = (unsigned __int16 *)a1;
-  }
-LABEL_20:
-  active = MiActivePageClaimCandidate((_DWORD)v8, a2, v21, 0, (__int64)v9);
-  v10 = 0LL;
-  if ( active )
-  {
-    v27 = ~(active - 1) & (0xAAAAAAAAAAAAAAABuLL * (v18 >> 4));
-    v28 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v12 + 0x220000000000LL) >> 4);
-    if ( active >= 0x200 )
-    {
-      v54 = MiFindNextLowerLargePageCandidate((__int64)v8, v27, active);
-      if ( v54 >= v27 )
-      {
-        ++dword_140C1384C;
-      }
-      else
-      {
-        ++dword_140C13848;
-        v27 = v54;
-      }
-    }
-    return v28 - v27;
-  }
-  if ( (a4 & 8) == 0 )
-  {
-    if ( v20 )
-    {
-      v52 = MiClusterVadFull(a2, v25, 0LL);
-      v10 = 0LL;
-      if ( v52 )
-      {
-        ++dword_140C13910;
-        goto LABEL_71;
-      }
-    }
-    goto LABEL_26;
-  }
-  ++dword_140C1386C;
-LABEL_71:
-  v51 = v12 - a2;
-  return 0xAAAAAAAAAAAAAAABuLL * (v51 >> 4);
+LABEL_73:
+  v34 = v7 - a2;
+  return v34 / 48;
 }

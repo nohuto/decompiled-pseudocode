@@ -1,9 +1,9 @@
 /*
- * XREFs of PopUserShutdownDelayWorkerCallback @ 0x14086C280
+ * XREFs of PopUserShutdownDelayWorkerCallback @ 0x14086C260
  * Callers:
  *     <none>
  * Callees:
- *     PopUserShutdownCancelled @ 0x1406E2290 (PopUserShutdownCancelled.c)
+ *     PopUserShutdownCancelled @ 0x1406E2270 (PopUserShutdownCancelled.c)
  */
 
 __int64 (__fastcall *PopUserShutdownDelayWorkerCallback())(_QWORD)

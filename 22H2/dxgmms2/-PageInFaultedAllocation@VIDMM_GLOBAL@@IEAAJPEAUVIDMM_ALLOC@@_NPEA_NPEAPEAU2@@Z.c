@@ -1,10 +1,11 @@
 /*
- * XREFs of ?PageInFaultedAllocation@VIDMM_GLOBAL@@IEAAJPEAUVIDMM_ALLOC@@_NPEA_NPEAPEAU2@@Z @ 0x1C0085854
+ * XREFs of ?PageInFaultedAllocation@VIDMM_GLOBAL@@IEAAJPEAUVIDMM_ALLOC@@_NPEA_NPEAPEAU2@@Z @ 0x1C0060864
  * Callers:
- *     ?PageInDeviceInternal@VIDMM_GLOBAL@@IEAAJPEAVVIDMM_DEVICE@@_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00889A0 (-PageInDeviceInternal@VIDMM_GLOBAL@@IEAAJPEAVVIDMM_DEVICE@@_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?PageInDeviceInternal@VIDMM_GLOBAL@@IEAAJPEAVVIDMM_DEVICE@@_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0060678 (-PageInDeviceInternal@VIDMM_GLOBAL@@IEAAJPEAVVIDMM_DEVICE@@_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z.c)
  * Callees:
- *     ?InitContextAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@EPEA_NPEAPEAU2@@Z @ 0x1C0092484 (-InitContextAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@EPEA_NPEAPEAU2@@Z.c)
- *     ?PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NPEAPEAU2@I_K@Z @ 0x1C0093270 (-PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_N.c)
+ *     ?ReferenceAllocationForSubmission@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@E@Z @ 0x1C006096C (-ReferenceAllocationForSubmission@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@E@Z.c)
+ *     ?PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NPEAPEAU2@I_K@Z @ 0x1C006E840 (-PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_N.c)
+ *     ?InitContextAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@EPEA_NPEAPEAU2@@Z @ 0x1C008ADEC (-InitContextAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@EPEA_NPEAPEAU2@@Z.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::PageInFaultedAllocation(
@@ -15,14 +16,15 @@ __int64 __fastcall VIDMM_GLOBAL::PageInFaultedAllocation(
         struct VIDMM_ALLOC **a5)
 {
   int v6; // ebx
-  bool *v7; // r15
-  __int64 v9; // rbp
+  bool *v7; // rbp
+  __int64 v9; // rsi
   __int64 *v10; // rax
   __int64 *v11; // rdx
   __int64 **v12; // rcx
-  __int64 *v13; // rax
-  __int64 v14; // rdx
+  __int64 v13; // rcx
+  __int64 *v14; // rax
   int inited; // eax
+  __int64 v17; // rax
 
   v6 = 0;
   v7 = a4;
@@ -35,13 +37,14 @@ __int64 __fastcall VIDMM_GLOBAL::PageInFaultedAllocation(
     __fastfail(3u);
   *v12 = v11;
   v11[1] = (__int64)v12;
+  v13 = 3LL;
   *v10 = 0LL;
-  v13 = a2[12];
+  v14 = a2[12];
   *((_DWORD *)a2 + 7) &= 0xFFFFFFFC;
   a2[8] = 0LL;
-  if ( *((_WORD *)v13 + 2) < 3u )
+  if ( *((_WORD *)v14 + 2) < 3u )
   {
-    if ( (*(_DWORD *)(v9 + 68) & 0x200000) != 0 )
+    if ( (*(_DWORD *)(v9 + 76) & 0x100000) != 0 )
     {
       v6 = -1071775466;
     }
@@ -50,7 +53,7 @@ __int64 __fastcall VIDMM_GLOBAL::PageInFaultedAllocation(
       v6 = VIDMM_GLOBAL::PageInOneAllocation(
              this,
              a2,
-             (**(_DWORD **)(v9 + 536) & 0x20000) != 0 ? 5 : 0,
+             (**(_DWORD **)(v9 + 496) & 0x20000) != 0 ? 5 : 0,
              a4,
              v7,
              a5,
@@ -59,22 +62,25 @@ __int64 __fastcall VIDMM_GLOBAL::PageInFaultedAllocation(
       if ( v6 != -1071775466 )
         goto LABEL_6;
     }
-    if ( (*(_DWORD *)(v9 + 68) & 0x10000000) == 0 )
-      goto LABEL_14;
+    if ( (*(_DWORD *)(v9 + 76) & 0x8000000) == 0 )
+      goto LABEL_12;
     inited = VIDMM_GLOBAL::InitContextAllocation(this, (struct VIDMM_ALLOC *)a2, 0, v7, a5);
-    *(_DWORD *)(v9 + 68) &= ~0x200000u;
+    *(_DWORD *)(v9 + 76) &= ~0x100000u;
     v6 = inited;
 LABEL_6:
     if ( v6 >= 0 )
     {
-      v14 = **a2;
-      *(_BYTE *)(v14 + 82) = 1;
-      if ( (*(_DWORD *)(v14 + 68) & 0x10000000) == 0 && (*(_DWORD *)(*(_QWORD *)(v14 + 120) + 80LL) & 0x1001) == 0 )
-        *(_BYTE *)(v14 + 83) = 1;
+      VIDMM_GLOBAL::ReferenceAllocationForSubmission(
+        (VIDMM_GLOBAL *)**a2,
+        (struct VIDMM_ALLOC *)a2,
+        (*(_DWORD *)(**a2 + 76) & 0x8000000) != 0);
       return (unsigned int)v6;
     }
-LABEL_14:
-    WdLogSingleEntry2(3LL, a2, v6);
+LABEL_12:
+    v17 = WdLogNewEntry5_WdWarning(v13, v11);
+    *(_QWORD *)(v17 + 32) = v6;
+    *(_QWORD *)(v17 + 24) = a2;
+    WdLogEvent5_WdWarning(v17);
   }
   return (unsigned int)v6;
 }

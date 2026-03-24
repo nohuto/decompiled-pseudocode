@@ -1,16 +1,16 @@
 /*
- * XREFs of ?SetProperty@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180246220
+ * XREFs of ?SetProperty@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801E0C50
  * Callers:
  *     <none>
  * Callees:
- *     ?SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180098630 (-SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?OnEmitterTimeChanged@CParticleEmitterVisual@@QEAAXXZ @ 0x1801C5B9C (-OnEmitterTimeChanged@CParticleEmitterVisual@@QEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800D0C40 (-SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?OnEmitterTimeChanged@CParticleEmitterVisual@@QEAAXXZ @ 0x18016F9E0 (-OnEmitterTimeChanged@CParticleEmitterVisual@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CParticleEmitterVisualGeneratedT<CParticleEmitterVisual,CVisual>::SetProperty(
-        __int64 *a1,
+        __int64 a1,
         unsigned int a2,
         int a3,
         __int64 a4)
@@ -22,7 +22,6 @@ __int64 __fastcall CParticleEmitterVisualGeneratedT<CParticleEmitterVisual,CVisu
   __int64 v8; // rcx
   int v9; // eax
   __int64 v10; // rcx
-  __int64 v11; // rax
 
   if ( a3 != 18 )
   {
@@ -31,104 +30,119 @@ __int64 __fastcall CParticleEmitterVisualGeneratedT<CParticleEmitterVisual,CVisu
       v4 = CVisual::SetProperty((float *)a1, a2, a3, (float *)a4);
       v6 = v4;
       if ( v4 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x26BAu, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x1EDAu, 0LL);
       return v6;
     }
     switch ( a2 )
     {
-      case 'C':
-        *(__int64 *)((char *)a1 + 748) = *(_QWORD *)a4;
-        *((_DWORD *)a1 + 189) = *(_DWORD *)(a4 + 8);
+      case 'B':
+        *(_QWORD *)(a1 + 660) = *(_QWORD *)a4;
+        *(_DWORD *)(a1 + 668) = *(_DWORD *)(a4 + 8);
         break;
-      case 'F':
-        a1[96] = *(_QWORD *)a4;
-        *((_DWORD *)a1 + 194) = *(_DWORD *)(a4 + 8);
+      case 'E':
+        *(_QWORD *)(a1 + 680) = *(_QWORD *)a4;
+        *(_DWORD *)(a1 + 688) = *(_DWORD *)(a4 + 8);
         break;
-      case 'H':
-        a1[98] = *(_QWORD *)a4;
-        *((_DWORD *)a1 + 198) = *(_DWORD *)(a4 + 8);
+      case 'G':
+        *(_QWORD *)(a1 + 696) = *(_QWORD *)a4;
+        *(_DWORD *)(a1 + 704) = *(_DWORD *)(a4 + 8);
         break;
       default:
         v7 = CVisual::SetProperty((float *)a1, a2, 52, (float *)a4);
         v6 = v7;
         if ( v7 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x26B5u, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x1ED5u, 0LL);
         return v6;
     }
-    goto LABEL_11;
+    goto LABEL_47;
   }
-  if ( a2 > 0x3F )
+  if ( a2 > 0x3E )
   {
     switch ( a2 )
     {
-      case '@':
-        if ( *(float *)a4 != *((float *)a1 + 184) )
+      case '?':
+        if ( *(float *)a4 != *(float *)(a1 + 648) )
         {
-          v11 = *a1;
-          *((_DWORD *)a1 + 184) = *(_DWORD *)a4;
-          (*(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(v11 + 72))(a1, 0LL, 0LL);
+          *(_DWORD *)(a1 + 648) = *(_DWORD *)a4;
+          goto LABEL_47;
         }
         return 0;
-      case 'A':
-        if ( *(float *)a4 == *((float *)a1 + 185) )
-          return 0;
-        *((_DWORD *)a1 + 185) = *(_DWORD *)a4;
-        goto LABEL_11;
+      case '@':
+        if ( *(float *)a4 != *(float *)(a1 + 652) )
+        {
+          *(_DWORD *)(a1 + 652) = *(_DWORD *)a4;
+          goto LABEL_47;
+        }
+        return 0;
+      case 'C':
+        if ( *(float *)a4 != *(float *)(a1 + 672) )
+        {
+          *(_DWORD *)(a1 + 672) = *(_DWORD *)a4;
+          goto LABEL_47;
+        }
+        return 0;
       case 'D':
-        if ( *(float *)a4 == *((float *)a1 + 190) )
-          return 0;
-        *((_DWORD *)a1 + 190) = *(_DWORD *)a4;
-        goto LABEL_11;
-      case 'E':
-        if ( *(float *)a4 == *((float *)a1 + 191) )
-          return 0;
-        *((_DWORD *)a1 + 191) = *(_DWORD *)a4;
-        goto LABEL_11;
+        if ( *(float *)a4 != *(float *)(a1 + 676) )
+        {
+          *(_DWORD *)(a1 + 676) = *(_DWORD *)a4;
+          goto LABEL_47;
+        }
+        return 0;
     }
   }
   else
   {
     switch ( a2 )
     {
-      case '?':
-        if ( *(float *)a4 == *((float *)a1 + 183) )
-          return 0;
-        *((_DWORD *)a1 + 183) = *(_DWORD *)a4;
-        goto LABEL_11;
-      case '5':
-        if ( *(float *)a4 != *((float *)a1 + 176) )
+      case '>':
+        if ( *(float *)a4 != *(float *)(a1 + 644) )
         {
-          *((_DWORD *)a1 + 176) = *(_DWORD *)a4;
+          *(_DWORD *)(a1 + 644) = *(_DWORD *)a4;
+          goto LABEL_47;
+        }
+        return 0;
+      case '4':
+        if ( *(float *)a4 != *(float *)(a1 + 616) )
+        {
+          *(_DWORD *)(a1 + 616) = *(_DWORD *)a4;
           CParticleEmitterVisual::OnEmitterTimeChanged((CParticleEmitterVisual *)a1);
         }
         return 0;
+      case '5':
+        if ( *(float *)a4 != *(float *)(a1 + 620) )
+        {
+          *(_DWORD *)(a1 + 620) = *(_DWORD *)a4;
+          goto LABEL_47;
+        }
+        return 0;
       case '6':
-        if ( *(float *)a4 == *((float *)a1 + 177) )
+        if ( *(float *)a4 != *(float *)(a1 + 624) )
+        {
+          *(_DWORD *)(a1 + 624) = *(_DWORD *)a4;
+          goto LABEL_47;
+        }
+        return 0;
+      case ';':
+        if ( *(float *)a4 != *(float *)(a1 + 636) )
+        {
+          *(_DWORD *)(a1 + 636) = *(_DWORD *)a4;
+          goto LABEL_47;
+        }
+        return 0;
+      case '=':
+        if ( *(float *)a4 != *(float *)(a1 + 640) )
+        {
+          *(_DWORD *)(a1 + 640) = *(_DWORD *)a4;
+LABEL_47:
+          (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)a1 + 72LL))(a1, 0LL, 0LL);
           return 0;
-        *((_DWORD *)a1 + 177) = *(_DWORD *)a4;
-        goto LABEL_11;
-      case '7':
-        if ( *(float *)a4 == *((float *)a1 + 178) )
-          return 0;
-        *((_DWORD *)a1 + 178) = *(_DWORD *)a4;
-        goto LABEL_11;
-      case '<':
-        if ( *(float *)a4 == *((float *)a1 + 181) )
-          return 0;
-        *((_DWORD *)a1 + 181) = *(_DWORD *)a4;
-        goto LABEL_11;
-      case '>':
-        if ( *(float *)a4 == *((float *)a1 + 182) )
-          return 0;
-        *((_DWORD *)a1 + 182) = *(_DWORD *)a4;
-LABEL_11:
-        (*(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(*a1 + 72))(a1, 0LL, 0LL);
+        }
         return 0;
     }
   }
   v9 = CVisual::SetProperty((float *)a1, a2, 18, (float *)a4);
   v6 = v9;
   if ( v9 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x26A3u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x1EC3u, 0LL);
   return v6;
 }

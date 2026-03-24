@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ForceHidePenCursor@Feedback@@YAXH@Z @ 0x1C01D4DDC
+ * XREFs of ?ForceHidePenCursor@Feedback@@YAXH@Z @ 0x1C01DA87C
  * Callers:
- *     ?DoHideInkCursorStart@HideInkCursorProvider@@AEAAJPEBUIFC_HIDE_INK_CURSOR_START_DATA@@@Z @ 0x1C02509CC (-DoHideInkCursorStart@HideInkCursorProvider@@AEAAJPEBUIFC_HIDE_INK_CURSOR_START_DATA@@@Z.c)
- *     ?DoHideInkCursorStop@HideInkCursorProvider@@AEAAJPEBUIFC_HIDE_INK_CURSOR_STOP_DATA@@@Z @ 0x1C0250A78 (-DoHideInkCursorStop@HideInkCursorProvider@@AEAAJPEBUIFC_HIDE_INK_CURSOR_STOP_DATA@@@Z.c)
+ *     ?DoHideInkCursorStart@HideInkCursorProvider@@AEAAJPEBUIFC_HIDE_INK_CURSOR_START_DATA@@@Z @ 0x1C0253ACC (-DoHideInkCursorStart@HideInkCursorProvider@@AEAAJPEBUIFC_HIDE_INK_CURSOR_START_DATA@@@Z.c)
+ *     ?DoHideInkCursorStop@HideInkCursorProvider@@AEAAJPEBUIFC_HIDE_INK_CURSOR_STOP_DATA@@@Z @ 0x1C0253B78 (-DoHideInkCursorStop@HideInkCursorProvider@@AEAAJPEBUIFC_HIDE_INK_CURSOR_STOP_DATA@@@Z.c)
  * Callees:
- *     ?SwitchMouseCursors@@YAXK_N@Z @ 0x1C01D51F8 (-SwitchMouseCursors@@YAXK_N@Z.c)
+ *     ?SwitchMouseCursors@@YAXK_N@Z @ 0x1C01DADDC (-SwitchMouseCursors@@YAXK_N@Z.c)
  */
 
 void __fastcall Feedback::ForceHidePenCursor(Feedback *this)

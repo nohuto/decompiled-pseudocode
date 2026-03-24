@@ -1,33 +1,31 @@
 /*
- * XREFs of TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C021F138
+ * XREFs of TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C017A8B4
  * Callers:
- *     ?DxgkInitializeTelemetry@@YAXXZ @ 0x1C0021904 (-DxgkInitializeTelemetry@@YAXXZ.c)
- *     InitializeTelemetryAssertsKMWorkerInternal @ 0x1C0022C1C (InitializeTelemetryAssertsKMWorkerInternal.c)
- *     TlgRegisterAggregateProviderEx @ 0x1C021EFFC (TlgRegisterAggregateProviderEx.c)
+ *     ?DxgkInitializeTelemetry@@YAXXZ @ 0x1C0021644 (-DxgkInitializeTelemetry@@YAXXZ.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1C017A778 (TlgRegisterAggregateProviderEx.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(char *CallbackContext, __int64 a2, __int64 a3)
+__int64 __fastcall TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(
+        ULONGLONG *CallbackContext,
+        unsigned __int16 *a2,
+        unsigned __int16 *a3)
 {
-  ULONGLONG *v3; // rsi
-  bool v4; // zf
-  unsigned int v6; // edi
+  GUID v4; // xmm0
+  unsigned int v5; // edi
   GUID ProviderId; // [rsp+20h] [rbp-28h] BYREF
 
-  v3 = (ULONGLONG *)(CallbackContext + 32);
-  v4 = *((_QWORD *)CallbackContext + 4) == 0LL;
-  ProviderId = *(GUID *)(*((_QWORD *)CallbackContext + 1) - 16LL);
-  if ( !v4 )
-    __fastfail(5u);
-  *((_QWORD *)CallbackContext + 5) = a2;
-  *((_QWORD *)CallbackContext + 6) = a3;
-  v6 = EtwRegister(&ProviderId, tlgEnableCallback, CallbackContext, v3);
-  if ( !v6 )
+  v4 = *(GUID *)(CallbackContext[1] - 16);
+  CallbackContext[6] = (ULONGLONG)a3;
+  CallbackContext[5] = (ULONGLONG)a2;
+  ProviderId = v4;
+  v5 = EtwRegister(&ProviderId, tlgEnableCallback, CallbackContext, CallbackContext + 4);
+  if ( !v5 )
     EtwSetInformation(
-      *v3,
+      CallbackContext[4],
       EventProviderSetTraits,
-      *((PVOID *)CallbackContext + 1),
-      **((unsigned __int16 **)CallbackContext + 1));
-  return v6;
+      (PVOID)CallbackContext[1],
+      *(unsigned __int16 *)CallbackContext[1]);
+  return v5;
 }

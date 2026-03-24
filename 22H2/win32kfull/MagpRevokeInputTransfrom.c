@@ -1,10 +1,10 @@
 /*
- * XREFs of MagpRevokeInputTransfrom @ 0x1C005AE00
+ * XREFs of MagpRevokeInputTransfrom @ 0x1C00EB300
  * Callers:
- *     MagpDecomposeDesktop @ 0x1C005AD84 (MagpDecomposeDesktop.c)
- *     MagSetLensContextInformation @ 0x1C01A3870 (MagSetLensContextInformation.c)
+ *     MagpDecomposeDesktop @ 0x1C00EB284 (MagpDecomposeDesktop.c)
+ *     MagSetLensContextInformation @ 0x1C01CCC94 (MagSetLensContextInformation.c)
  * Callees:
- *     _SetMagnificationInputTransform @ 0x1C005AE40 (_SetMagnificationInputTransform.c)
+ *     _SetMagnificationInputTransform @ 0x1C00EB340 (_SetMagnificationInputTransform.c)
  */
 
 __int64 MagpRevokeInputTransfrom()

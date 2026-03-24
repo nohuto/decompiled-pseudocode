@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpFindNamespaceNode @ 0x14068D8C0
+ * XREFs of VrpFindNamespaceNode @ 0x1405D4CE4
  * Callers:
- *     VrpTranslatePath @ 0x14068D49C (VrpTranslatePath.c)
- *     VrpFindExactNamespaceNode @ 0x14077BD04 (VrpFindExactNamespaceNode.c)
- *     VrpFindBestMatchNamespaceNode @ 0x14077BF88 (VrpFindBestMatchNamespaceNode.c)
+ *     VrpFindBestMatchNamespaceNode @ 0x1405D29C8 (VrpFindBestMatchNamespaceNode.c)
+ *     VrpFindExactNamespaceNode @ 0x1405D371C (VrpFindExactNamespaceNode.c)
+ *     VrpTranslatePath @ 0x1405D4E34 (VrpTranslatePath.c)
  * Callees:
- *     VrpComparePath @ 0x14068D9A4 (VrpComparePath.c)
+ *     VrpComparePath @ 0x1405D520C (VrpComparePath.c)
  */
 
 __int64 __fastcall VrpFindNamespaceNode(
@@ -20,9 +20,9 @@ __int64 __fastcall VrpFindNamespaceNode(
   unsigned __int64 v7; // rdi
   __int64 v8; // rbp
   _QWORD *v13; // rcx
-  __int64 v14; // rsi
-  int v15; // eax
-  unsigned __int64 v16; // rax
+  unsigned __int64 v14; // rax
+  __int64 v15; // rsi
+  int v16; // eax
   unsigned __int64 v18; // [rsp+60h] [rbp+8h] BYREF
   __int64 v19; // [rsp+78h] [rbp+20h]
 
@@ -39,30 +39,30 @@ __int64 __fastcall VrpFindNamespaceNode(
       if ( v6 < v5 )
       {
         v19 = 0LL;
-        if ( !is_mul_ok(a1[5], v6) || (v16 = a1[9], v13 = (_QWORD *)(v16 + a1[5] * v6), (unsigned __int64)v13 < v16) )
+        if ( !is_mul_ok(a1[5], v6) || (v14 = a1[9], v13 = (_QWORD *)(v14 + a1[5] * v6), (unsigned __int64)v13 < v14) )
           v13 = 0LL;
       }
-      v14 = *v13;
-      v15 = VrpComparePath(a2, *v13, &v18);
-      if ( !v15 )
+      v15 = *v13;
+      v16 = VrpComparePath(a2, *v13, &v18);
+      if ( !v16 )
         break;
       if ( v18 > v7 && a3 == 1 )
       {
         v7 = v18;
-        v8 = v14;
+        v8 = v15;
       }
-      if ( v15 >= 0 )
+      if ( v16 >= 0 )
       {
         v5 = a1[6];
         if ( ++v6 < v5 )
           continue;
       }
-      goto LABEL_15;
+      goto LABEL_13;
     }
     v7 = v18;
-    v8 = v14;
+    v8 = v15;
   }
-LABEL_15:
+LABEL_13:
   if ( a5 )
     *a5 = v7;
   if ( a4 )

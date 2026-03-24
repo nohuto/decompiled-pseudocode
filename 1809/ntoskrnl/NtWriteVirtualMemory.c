@@ -1,9 +1,9 @@
 /*
- * XREFs of NtWriteVirtualMemory @ 0x1406769D0
+ * XREFs of NtWriteVirtualMemory @ 0x1406769B0
  * Callers:
  *     <none>
  * Callees:
- *     MiReadWriteVirtualMemory @ 0x140676A30 (MiReadWriteVirtualMemory.c)
+ *     MiReadWriteVirtualMemory @ 0x140676A10 (MiReadWriteVirtualMemory.c)
  */
 
 NTSTATUS __stdcall NtWriteVirtualMemory(

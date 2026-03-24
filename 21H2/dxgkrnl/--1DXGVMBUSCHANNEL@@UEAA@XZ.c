@@ -1,24 +1,30 @@
 /*
- * XREFs of ??1DXGVMBUSCHANNEL@@UEAA@XZ @ 0x1C03550A0
+ * XREFs of ??1DXGVMBUSCHANNEL@@UEAA@XZ @ 0x1C02B2834
  * Callers:
- *     ??_GDXGVMBUSCHANNEL@@UEAAPEAXI@Z @ 0x1C0355180 (--_GDXGVMBUSCHANNEL@@UEAAPEAXI@Z.c)
+ *     ??_GDXGVMBUSCHANNEL@@UEAAPEAXI@Z @ 0x1C02B28E0 (--_GDXGVMBUSCHANNEL@@UEAAPEAXI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C000E608 (--1DXGFASTMUTEX@@QEAA@XZ.c)
- *     ?Cleanup@DXGVMBUSCHANNEL@@QEAAXXZ @ 0x1C0350720 (-Cleanup@DXGVMBUSCHANNEL@@QEAAXXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00066E0 (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ?Cleanup@DXGVMBUSCHANNEL@@QEAAXXZ @ 0x1C02B2B98 (-Cleanup@DXGVMBUSCHANNEL@@QEAAXXZ.c)
  */
 
 void __fastcall DXGVMBUSCHANNEL::~DXGVMBUSCHANNEL(void **this)
 {
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rdx
+
   *this = &DXGVMBUSCHANNEL::`vftable';
   DXGVMBUSCHANNEL::Cleanup((DXGVMBUSCHANNEL *)this);
   if ( this[6] != this + 6 )
   {
-    WdLogSingleEntry1(1LL, 166LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsListEmpty(&m_SubscriberList)", 166LL, 0LL, 0LL, 0LL, 0LL);
+    v4 = WdLogNewEntry5_WdAssertion(v3, v2);
+    *(_QWORD *)(v4 + 24) = 166LL;
+    WdLogEvent5_WdAssertion(v4);
   }
   operator delete(this[4]);
-  DXGFASTMUTEX::~DXGFASTMUTEX((DXGFASTMUTEX *)(this + 15));
-  DXGFASTMUTEX::~DXGFASTMUTEX((DXGFASTMUTEX *)(this + 9));
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGFASTMUTEX *)(this + 14), v5);
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGFASTMUTEX *)(this + 9), v6);
 }

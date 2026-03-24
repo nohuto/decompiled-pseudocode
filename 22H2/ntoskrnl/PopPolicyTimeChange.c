@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPolicyTimeChange @ 0x1409945F0
+ * XREFs of PopPolicyTimeChange @ 0x14077A1F0
  * Callers:
- *     PopPolicyWorkerThread @ 0x140361740 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x14031E2A0 (PopPolicyWorkerThread.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PopEventCalloutDispatch @ 0x1403B5F0C (PopEventCalloutDispatch.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     ExAcquireTimeRefreshLock @ 0x14075FE64 (ExAcquireTimeRefreshLock.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     PopEventCalloutDispatch @ 0x1403A707C (PopEventCalloutDispatch.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     ExAcquireTimeRefreshLock @ 0x1407095E4 (ExAcquireTimeRefreshLock.c)
  */
 
 __int64 PopPolicyTimeChange()

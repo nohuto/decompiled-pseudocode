@@ -1,36 +1,34 @@
 /*
- * XREFs of MiUnlockStealVm @ 0x1402EA5E4
+ * XREFs of MiUnlockStealVm @ 0x14026D310
  * Callers:
- *     MiLockStealSystemVm @ 0x140230F28 (MiLockStealSystemVm.c)
- *     MiStealPage @ 0x1402E97D4 (MiStealPage.c)
- *     MiLockStealUserVm @ 0x1402EACBC (MiLockStealUserVm.c)
+ *     MiLockStealUserVm @ 0x14026AFD4 (MiLockStealUserVm.c)
+ *     MiStealPage @ 0x14026BCA4 (MiStealPage.c)
+ *     MiLockStealSystemVm @ 0x140298704 (MiLockStealSystemVm.c)
  * Callees:
- *     MmDetachSession @ 0x140231240 (MmDetachSession.c)
- *     KeForceDetachProcess @ 0x140241980 (KeForceDetachProcess.c)
- *     MiUnlockSystemVa @ 0x14027A168 (MiUnlockSystemVa.c)
- *     MiAttachThreadDone @ 0x14027D8DC (MiAttachThreadDone.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
+ *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
+ *     KeForceDetachProcess @ 0x1402BA388 (KeForceDetachProcess.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     MiAttachThreadDone @ 0x1402EF448 (MiAttachThreadDone.c)
+ *     MiUnlockSystemVa @ 0x1403120FC (MiUnlockSystemVa.c)
  */
 
-LONG_PTR __fastcall MiUnlockStealVm(__int64 a1)
+void __fastcall MiUnlockStealVm(__int64 a1)
 {
-  LONG_PTR result; // rax
-  void *v3; // rdi
+  struct _DMA_ADAPTER *v2; // rdi
 
-  result = MiUnlockSystemVa(a1);
+  MiUnlockSystemVa(a1);
   if ( *(_QWORD *)(a1 + 64) )
   {
-    KeForceDetachProcess((_OWORD *)(a1 + 72), 0);
-    return MiAttachThreadDone(*(_QWORD *)(a1 + 64));
+    KeForceDetachProcess(a1 + 72, 0LL);
+    MiAttachThreadDone(*(_QWORD *)(a1 + 64));
   }
   else
   {
-    v3 = *(void **)(a1 + 56);
-    if ( v3 )
+    v2 = *(struct _DMA_ADAPTER **)(a1 + 56);
+    if ( v2 )
     {
       MmDetachSession(*(_QWORD *)(a1 + 56), a1 + 72);
-      return ObfDereferenceObject(v3);
+      HalPutDmaAdapter(v2);
     }
   }
-  return result;
 }

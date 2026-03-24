@@ -1,37 +1,38 @@
 /*
- * XREFs of ?CombinedGeometryUpdate@CChannel@@UEAAJIW4Enum@MilCombineMode@@II@Z @ 0x18001F110
+ * XREFs of ?CombinedGeometryUpdate@CChannel@@UEAAJIW4Enum@MilCombineMode@@II@Z @ 0x18014F8E0
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180044038 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044610 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005E108 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E530 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005EA34 (-CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CChannel::CombinedGeometryUpdate(
-        struct CChannel *a1,
+        __int64 a1,
         unsigned int a2,
         int a3,
         unsigned int a4,
         unsigned int a5)
 {
   unsigned int v9; // ebx
-  _BYTE v11[16]; // [rsp+20h] [rbp-38h] BYREF
-  _DWORD v12[10]; // [rsp+30h] [rbp-28h] BYREF
+  unsigned int v10; // ebx
+  _DWORD v12[14]; // [rsp+20h] [rbp-38h] BYREF
+  struct _RTL_CRITICAL_SECTION *v13; // [rsp+60h] [rbp+8h] BYREF
 
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v11, a1);
-  CChannel::CheckHandle(a1, a2, 27LL);
-  if ( a4 )
-    CChannel::CheckHandle(a1, a4, 67LL);
-  if ( a5 )
-    CChannel::CheckHandle(a1, a5, 67LL);
-  v12[0] = 459;
+  v13 = (struct _RTL_CRITICAL_SECTION *)(a1 + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 168));
+  CChannel::CheckHandle(a1, a2, 25);
+  CChannel::CheckOptionalHandle(a1, a4, 65);
+  v9 = a5;
+  CChannel::CheckOptionalHandle(a1, a5, 65);
+  v12[0] = 478;
   v12[1] = a2;
   v12[2] = a3;
   v12[3] = a4;
-  v12[4] = a5;
-  v9 = CChannel::SendCommand(a1, v12, 0x14u);
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v11);
-  return v9;
+  v12[4] = v9;
+  v10 = CChannel::SendCommand((CChannel *)a1, v12, 0x14u);
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v13);
+  return v10;
 }

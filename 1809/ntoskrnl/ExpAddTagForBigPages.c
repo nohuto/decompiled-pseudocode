@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpAddTagForBigPages @ 0x1400E70F0
+ * XREFs of ExpAddTagForBigPages @ 0x1400E7110
  * Callers:
- *     ExAllocateHeapPool @ 0x1400BA150 (ExAllocateHeapPool.c)
- *     ExpAllocateBigPool @ 0x1400E69D0 (ExpAllocateBigPool.c)
- *     ExAllocateContiguousHeapPool @ 0x1400E73F8 (ExAllocateContiguousHeapPool.c)
+ *     ExAllocateHeapPool @ 0x1400BA170 (ExAllocateHeapPool.c)
+ *     ExpAllocateBigPool @ 0x1400E69F0 (ExpAllocateBigPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x1400E7418 (ExAllocateContiguousHeapPool.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7780 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExTryConvertSharedSpinLockExclusive @ 0x140119240 (ExTryConvertSharedSpinLockExclusive.c)
- *     ExpResizeBigPageTable @ 0x14015C450 (ExpResizeBigPageTable.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C064 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C1A4 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExTryConvertSharedSpinLockExclusive @ 0x140119260 (ExTryConvertSharedSpinLockExclusive.c)
+ *     ExpResizeBigPageTable @ 0x14015C470 (ExpResizeBigPageTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C2A4 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

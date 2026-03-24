@@ -1,12 +1,12 @@
 /*
- * XREFs of ?xxxWrapSendMessage@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C0123FB0
+ * XREFs of ?xxxWrapSendMessage@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C00598C0
  * Callers:
  *     <none>
  * Callees:
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
  */
 
-__int64 __fastcall xxxWrapSendMessage(struct tagWND *a1)
+__int64 __fastcall xxxWrapSendMessage(struct tagWND *a1, int a2, int a3, int a4)
 {
-  return xxxSendTransformableMessageTimeout((ULONG_PTR)a1, 0, 0, 0LL, 0, 1);
+  return xxxSendTransformableMessageTimeout((int)a1, a2, a3, a4, 0, 0, 0LL, 0, 1);
 }

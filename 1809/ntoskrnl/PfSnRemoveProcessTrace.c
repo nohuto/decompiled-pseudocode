@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnRemoveProcessTrace @ 0x1400E255C
+ * XREFs of PfSnRemoveProcessTrace @ 0x1400E257C
  * Callers:
- *     PfSnDeactivateTrace @ 0x1400E23E4 (PfSnDeactivateTrace.c)
+ *     PfSnDeactivateTrace @ 0x1400E2404 (PfSnDeactivateTrace.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall PfSnRemoveProcessTrace(__int64 a1)

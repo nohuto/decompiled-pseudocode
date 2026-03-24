@@ -1,126 +1,101 @@
 /*
- * XREFs of ObpGetObjectSecurity @ 0x1407248C0
+ * XREFs of ObpGetObjectSecurity @ 0x14065F800
  * Callers:
- *     ObpInsertOrLocateNamedObject @ 0x14066915C (ObpInsertOrLocateNamedObject.c)
- *     ObCheckObjectAccess @ 0x1406698A0 (ObCheckObjectAccess.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x140678C4C (PspAllocateAndQueryNotificationChannel.c)
- *     ObCheckCreateObjectAccess @ 0x1406B6C50 (ObCheckCreateObjectAccess.c)
- *     ObpCheckTraverseAccess @ 0x1406CDC5C (ObpCheckTraverseAccess.c)
- *     PopBootStatAccessCheck @ 0x1406D6C24 (PopBootStatAccessCheck.c)
- *     ObGetObjectSecurity @ 0x1406E5110 (ObGetObjectSecurity.c)
- *     MiAllowImageMap @ 0x1406F884C (MiAllowImageMap.c)
- *     ObpCheckObjectReference @ 0x14072266C (ObpCheckObjectReference.c)
- *     SepAppendAceToTokenObjectAcl @ 0x140724550 (SepAppendAceToTokenObjectAcl.c)
- *     PspCheckJobAccessState @ 0x1409B0030 (PspCheckJobAccessState.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x1409EB814 (EtwpCheckCurrentUserProcessAccess.c)
+ *     ObCheckObjectAccess @ 0x1405D9860 (ObCheckObjectAccess.c)
+ *     MiAllowImageMap @ 0x14061D9F0 (MiAllowImageMap.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x14065F440 (SepAppendAceToTokenObjectAcl.c)
+ *     ObpCheckObjectReference @ 0x140660F3C (ObpCheckObjectReference.c)
+ *     ObpInsertOrLocateNamedObject @ 0x140662900 (ObpInsertOrLocateNamedObject.c)
+ *     ObCheckCreateObjectAccess @ 0x140662E90 (ObCheckCreateObjectAccess.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x14067F620 (PspAllocateAndQueryNotificationChannel.c)
+ *     ObGetObjectSecurity @ 0x1406C0710 (ObGetObjectSecurity.c)
+ *     PopBootStatAccessCheck @ 0x1407C141C (PopBootStatAccessCheck.c)
+ *     ObpCheckTraverseAccess @ 0x1408DD130 (ObpCheckTraverseAccess.c)
+ *     PspCheckJobAccessState @ 0x140908BEC (PspCheckJobAccessState.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x1409414D8 (EtwpCheckCurrentUserProcessAccess.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ObpReferenceSecurityDescriptorSlow @ 0x14080BF48 (ObpReferenceSecurityDescriptorSlow.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ObpReferenceSecurityDescriptor @ 0x14065F9D0 (ObpReferenceSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObpGetObjectSecurity(__int64 a1, PVOID *a2, _BYTE *a3, char a4)
 {
   ULONG_PTR v8; // r14
-  signed __int64 v9; // rdx
-  signed __int64 v10; // rax
-  signed __int64 v11; // rax
-  signed __int64 v12; // rdx
-  unsigned __int64 v13; // rax
-  __int64 Pool2; // rax
-  int v16; // r12d
-  int v17; // eax
-  __int64 v18; // rdx
-  __int64 v19; // rax
-  int v20; // [rsp+40h] [rbp-48h]
-  _DWORD v21[4]; // [rsp+50h] [rbp-38h] BYREF
-  unsigned int v22; // [rsp+90h] [rbp+8h] BYREF
+  PVOID PoolWithTag; // rax
+  int v11; // r12d
+  int v12; // eax
+  SIZE_T v13; // rdx
+  PVOID v14; // rax
+  int v15; // [rsp+40h] [rbp-48h]
+  _DWORD v16[4]; // [rsp+50h] [rbp-38h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+90h] [rbp+8h] BYREF
 
   v8 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8)];
-  if ( *(_UNKNOWN **)(v8 + 152) != &SeDefaultObjectMethod )
+  if ( *(_UNKNOWN **)(v8 + 152) == &SeDefaultObjectMethod )
   {
-    v21[0] = 447;
-    v22 = ObpDefaultSecurityDescriptorLength;
-    Pool2 = ExAllocatePool2(256LL, (unsigned int)ObpDefaultSecurityDescriptorLength, 1901290063LL);
-    *a2 = (PVOID)Pool2;
-    if ( Pool2 )
+    *a2 = (PVOID)ObpReferenceSecurityDescriptor(a1 - 48);
+    *a3 = 0;
+    if ( *a2 || (*(_BYTE *)(v8 + 66) & 8) == 0 && (*(_BYTE *)(a1 - 22) & 2) == 0 )
+      return 0LL;
+LABEL_17:
+    KeBugCheckEx(0x189u, a1 - 48, v8, 1uLL, 0LL);
+  }
+  v16[0] = 447;
+  LODWORD(NumberOfBytes) = ObpDefaultSecurityDescriptorLength;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)ObpDefaultSecurityDescriptorLength, 0x7153624Fu);
+  *a2 = PoolWithTag;
+  if ( !PoolWithTag )
+    return 3221225626LL;
+  *a3 = 1;
+  v11 = (*(__int64 (__fastcall **)(__int64, __int64, _DWORD *, PVOID, SIZE_T *, __int64, _DWORD, ULONG_PTR, char))(v8 + 152))(
+          a1,
+          1LL,
+          v16,
+          *a2,
+          &NumberOfBytes,
+          a1 - 8,
+          *(_DWORD *)(v8 + 100),
+          v8 + 76,
+          a4);
+  if ( v11 == -1073741789 )
+  {
+    ExFreePoolWithTag(*a2, 0);
+    v12 = NumberOfBytes;
+    v13 = (unsigned int)NumberOfBytes;
+    *a3 = 0;
+    LODWORD(ObpDefaultSecurityDescriptorLength) = v12;
+    v14 = ExAllocatePoolWithTag(PagedPool, v13, 0x7153624Fu);
+    *a2 = v14;
+    if ( v14 )
     {
       *a3 = 1;
-      v16 = (*(__int64 (__fastcall **)(__int64, __int64, _DWORD *, PVOID, unsigned int *, __int64, _DWORD, ULONG_PTR, char))(v8 + 152))(
+      LOBYTE(v15) = a4;
+      v11 = (*(__int64 (__fastcall **)(__int64, __int64, _DWORD *, PVOID, SIZE_T *, __int64, _DWORD, ULONG_PTR, int))(v8 + 152))(
               a1,
               1LL,
-              v21,
+              v16,
               *a2,
-              &v22,
+              &NumberOfBytes,
               a1 - 8,
               *(_DWORD *)(v8 + 100),
               v8 + 76,
-              a4);
-      if ( v16 != -1073741789 )
-      {
-LABEL_9:
-        if ( v16 < 0 )
-        {
-          ExFreePoolWithTag(*a2, 0);
-          *a2 = 0LL;
-          *a3 = 0;
-        }
-        else if ( !*a2 && ((*(_BYTE *)(v8 + 66) & 8) != 0 || (*(_BYTE *)(a1 - 22) & 2) != 0) )
-        {
-          goto LABEL_24;
-        }
-        return (unsigned int)v16;
-      }
-      ExFreePoolWithTag(*a2, 0);
-      v17 = v22;
-      v18 = v22;
-      *a3 = 0;
-      ObpDefaultSecurityDescriptorLength = v17;
-      v19 = ExAllocatePool2(256LL, v18, 1901290063LL);
-      *a2 = (PVOID)v19;
-      if ( v19 )
-      {
-        *a3 = 1;
-        LOBYTE(v20) = a4;
-        v16 = (*(__int64 (__fastcall **)(__int64, __int64, _DWORD *, PVOID, unsigned int *, __int64, _DWORD, ULONG_PTR, int))(v8 + 152))(
-                a1,
-                1LL,
-                v21,
-                *a2,
-                &v22,
-                a1 - 8,
-                *(_DWORD *)(v8 + 100),
-                v8 + 76,
-                v20);
-        goto LABEL_9;
-      }
+              v15);
+      goto LABEL_6;
     }
     return 3221225626LL;
   }
-  _m_prefetchw((const void *)(a1 - 8));
-  v9 = *(_QWORD *)(a1 - 8);
-  if ( (v9 & 0xF) != 0 )
+LABEL_6:
+  if ( v11 < 0 )
   {
-    do
-    {
-      v10 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 - 8), v9 - 1, v9);
-      if ( v9 == v10 )
-        break;
-      v9 = v10;
-    }
-    while ( (v10 & 0xF) != 0 );
+    ExFreePoolWithTag(*a2, 0);
+    *a3 = 0;
   }
-  v11 = v9;
-  v12 = v9 & 0xF;
-  v13 = v11 & 0xFFFFFFFFFFFFFFF0uLL;
-  if ( (unsigned int)v12 <= 1 && v13 )
-    v13 = ObpReferenceSecurityDescriptorSlow(a1 - 48, v12, v13);
-  *a2 = (PVOID)v13;
-  *a3 = 0;
-  if ( !*a2 && ((*(_BYTE *)(v8 + 66) & 8) != 0 || (*(_BYTE *)(a1 - 22) & 2) != 0) )
-LABEL_24:
-    KeBugCheckEx(0x189u, a1 - 48, v8, 1uLL, 0LL);
-  return 0LL;
+  else if ( !*a2 && ((*(_BYTE *)(v8 + 66) & 8) != 0 || (*(_BYTE *)(a1 - 22) & 2) != 0) )
+  {
+    goto LABEL_17;
+  }
+  return (unsigned int)v11;
 }

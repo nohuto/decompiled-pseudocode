@@ -1,27 +1,25 @@
 /*
- * XREFs of GreDwmEnableSoftwareCursorRendering @ 0x1C005AFF4
+ * XREFs of GreDwmEnableSoftwareCursorRendering @ 0x1C002ABA0
  * Callers:
- *     zzzEnableDwmPointerSupport @ 0x1C005B13C (zzzEnableDwmPointerSupport.c)
+ *     zzzEnableDwmPointerSupport @ 0x1C00296FC (zzzEnableDwmPointerSupport.c)
  * Callees:
- *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00CD064 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
- *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00D544C (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00BD784 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00BE140 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
  */
 
-void __fastcall GreDwmEnableSoftwareCursorRendering(Gre::Base *a1, int a2)
+void __fastcall GreDwmEnableSoftwareCursorRendering(__int64 a1, struct PDEVOBJ *a2)
 {
-  struct Gre::Base::SESSION_GLOBALS *v3; // rbx
-  struct PDEVOBJ *v4; // rdx
-  Gre::Base *v5; // [rsp+30h] [rbp+8h] BYREF
+  int v2; // ebx
+  __int64 v3; // [rsp+30h] [rbp+8h] BYREF
 
-  v5 = a1;
-  v3 = Gre::Base::Globals(a1);
-  DWMSPRITELOCK::DWMSPRITELOCK((DWMSPRITELOCK *)&v5, v4, 0, 0);
-  GreAcquireSemaphore(*((_QWORD *)v3 + 9));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v3 + 9), 7LL);
-  if ( (unsigned int)IsDwmActive() )
-    *(_DWORD *)(*((_QWORD *)v3 + 38) + 100LL) = a2;
-  EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
-  GreReleaseSemaphoreInternal(*((_QWORD *)v3 + 9));
-  DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)&v5);
+  v3 = a1;
+  v2 = (int)a2;
+  DWMSPRITELOCK::DWMSPRITELOCK((DWMSPRITELOCK *)&v3, a2, 0, 0);
+  GreAcquireSemaphore(ghsemDwmState);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDwmState", ghsemDwmState, 7LL);
+  if ( g_pDwmState )
+    *((_DWORD *)g_pDwmState + 25) = v2;
+  EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
+  GreReleaseSemaphoreInternal(ghsemDwmState);
+  DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)&v3);
 }

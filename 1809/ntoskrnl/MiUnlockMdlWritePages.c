@@ -2,12 +2,12 @@
  * XREFs of MiUnlockMdlWritePages @ 0x14001E4F0
  * Callers:
  *     MiUnlockFlushMdl @ 0x14001E3D8 (MiUnlockFlushMdl.c)
- *     MiFlushComplete @ 0x1402B4850 (MiFlushComplete.c)
+ *     MiFlushComplete @ 0x1402B4950 (MiFlushComplete.c)
  * Callees:
  *     MiWriteCompletePfn @ 0x14001E770 (MiWriteCompletePfn.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiSyncCommitSignals @ 0x140187FCC (MiSyncCommitSignals.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSyncCommitSignals @ 0x140187FEC (MiSyncCommitSignals.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiUnlockMdlWritePages(_QWORD *a1, unsigned __int64 a2)

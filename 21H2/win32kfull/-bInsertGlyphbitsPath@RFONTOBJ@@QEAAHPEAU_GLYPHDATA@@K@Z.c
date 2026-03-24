@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bInsertGlyphbitsPath@RFONTOBJ@@QEAAHPEAU_GLYPHDATA@@K@Z @ 0x1C02D47E4
+ * XREFs of ?bInsertGlyphbitsPath@RFONTOBJ@@QEAAHPEAU_GLYPHDATA@@K@Z @ 0x1C02D5D14
  * Callers:
- *     xInsertGlyphbitsRFONTOBJ @ 0x1C0018B7C (xInsertGlyphbitsRFONTOBJ.c)
+ *     xInsertGlyphbitsRFONTOBJ @ 0x1C009D88C (xInsertGlyphbitsRFONTOBJ.c)
  * Callees:
- *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C0018C7C (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
- *     ?pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z @ 0x1C001B588 (-pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z.c)
- *     ?vInit@EPATHFONTOBJ@@QEAAXK@Z @ 0x1C014145C (-vInit@EPATHFONTOBJ@@QEAAXK@Z.c)
- *     ?vFlushCache@RFONTOBJ@@QEAAXXZ @ 0x1C02D4A70 (-vFlushCache@RFONTOBJ@@QEAAXXZ.c)
+ *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C009A2D8 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
+ *     ?pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z @ 0x1C009B028 (-pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z.c)
+ *     ?vInit@EPATHFONTOBJ@@QEAAXK@Z @ 0x1C0152D10 (-vInit@EPATHFONTOBJ@@QEAAXK@Z.c)
+ *     ?vFlushCache@RFONTOBJ@@QEAAXXZ @ 0x1C02D5FA8 (-vFlushCache@RFONTOBJ@@QEAAXXZ.c)
  */
 
 __int64 __fastcall RFONTOBJ::bInsertGlyphbitsPath(struct _FONTOBJ **this, struct _GLYPHDATA *a2, int a3)
@@ -17,7 +17,7 @@ __int64 __fastcall RFONTOBJ::bInsertGlyphbitsPath(struct _FONTOBJ **this, struct
   struct DHPDEV__ *pvConsumer; // rdx
   unsigned int v10; // edi
   EPATHFONTOBJ *v11; // rax
-  GLYPHDEF v12; // rsi
+  GLYPHDEF v12; // rbp
   EPATHOBJ *v13; // rcx
   __int64 v15; // [rsp+40h] [rbp-B8h] BYREF
   _BYTE v16[8]; // [rsp+50h] [rbp-A8h] BYREF

@@ -1,27 +1,27 @@
 /*
- * XREFs of KeIsTraceCallbackAllowed @ 0x14057D7F0
+ * XREFs of KeIsTraceCallbackAllowed @ 0x140523D8C
  * Callers:
- *     EtwpInvokeEventCallback @ 0x140601008 (EtwpInvokeEventCallback.c)
- *     KiTrackSystemCallEntry @ 0x140975C40 (KiTrackSystemCallEntry.c)
+ *     EtwpInvokeEventCallback @ 0x1405AB5B8 (EtwpInvokeEventCallback.c)
+ *     KiTrackSystemCallEntry @ 0x1408BD140 (KiTrackSystemCallEntry.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall KeIsTraceCallbackAllowed(char a1)
+_BOOL8 __fastcall KeIsTraceCallbackAllowed(char a1)
 {
-  unsigned int v1; // r8d
+  _BOOL8 result; // rax
   unsigned __int64 SecureHandle; // rax
 
-  v1 = 0;
-  if ( (KiDynamicTraceEnabled & 2) != 0 )
-    return 1LL;
-  if ( (KiDynamicTraceEnabled & 1) == 0 )
-    return 0LL;
-  if ( !a1 )
-    return 0LL;
-  SecureHandle = KeGetCurrentThread()->Process->SecureState.SecureHandle;
-  if ( (SecureHandle & 1) != 0 )
-    return 0LL;
-  LOBYTE(v1) = SecureHandle == 0;
-  return v1;
+  result = 1;
+  if ( (KiDynamicTraceEnabled & 2) == 0 )
+  {
+    if ( (KiDynamicTraceEnabled & 1) == 0 )
+      return 0;
+    if ( !a1 )
+      return 0;
+    SecureHandle = KeGetCurrentThread()->Process->SecureState.SecureHandle;
+    if ( (SecureHandle & 1) != 0 || SecureHandle )
+      return 0;
+  }
+  return result;
 }

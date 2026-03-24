@@ -1,16 +1,23 @@
 /*
- * XREFs of ??_GCRenderingTechnique@@QEAAPEAXI@Z @ 0x180035778
+ * XREFs of ??_GCRenderingTechnique@@QEAAPEAXI@Z @ 0x180049DEC
  * Callers:
- *     ??1CBrushRenderingGraph@@MEAA@XZ @ 0x1800356EC (--1CBrushRenderingGraph@@MEAA@XZ.c)
- *     ?CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@PEAI@Z @ 0x18003740C (-CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV-$unique_ptr@VCRenderingTech.c)
+ *     ??1CBrushRenderingGraph@@EEAA@XZ @ 0x180049D60 (--1CBrushRenderingGraph@@EEAA@XZ.c)
+ *     ?CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@PEAI@Z @ 0x18004B1EC (-CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV-$unique_ptr@VCRenderingTech.c)
  * Callees:
- *     ??1CRenderingTechnique@@QEAA@XZ @ 0x1800357CC (--1CRenderingTechnique@@QEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??_GCRenderingTechniqueFragment@@QEAAPEAXI@Z @ 0x180049E2C (--_GCRenderingTechniqueFragment@@QEAAPEAXI@Z.c)
+ *     ??1?$CDeviceResourceTable@VCD3DConstantBuffer@@VCRenderingTechnique@@@@UEAA@XZ @ 0x180049F50 (--1-$CDeviceResourceTable@VCD3DConstantBuffer@@VCRenderingTechnique@@@@UEAA@XZ.c)
  */
 
 CRenderingTechnique *__fastcall CRenderingTechnique::`scalar deleting destructor'(CRenderingTechnique *this)
 {
-  CRenderingTechnique::~CRenderingTechnique(this);
-  operator delete(this, 0x110uLL);
+  unsigned int v2; // edx
+  CRenderingTechniqueFragment *v3; // rcx
+
+  CDeviceResourceTable<CD3DConstantBuffer,CRenderingTechnique>::~CDeviceResourceTable<CD3DConstantBuffer,CRenderingTechnique>((char *)this + 16);
+  v3 = (CRenderingTechniqueFragment *)*((_QWORD *)this + 1);
+  if ( v3 )
+    CRenderingTechniqueFragment::`scalar deleting destructor'(v3, v2);
+  operator delete(this);
   return this;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CalculateDefaultInContactDelta@CInteractionTrackerScaleAnimation@@MEAAMMMMM@Z @ 0x1802565C0
+ * XREFs of ?CalculateDefaultInContactDelta@CInteractionTrackerScaleAnimation@@MEAAMMMMM@Z @ 0x180205D70
  * Callers:
  *     <none>
  * Callees:
@@ -16,8 +16,7 @@ float __fastcall CInteractionTrackerScaleAnimation::CalculateDefaultInContactDel
   if ( (a4 <= a2 || a3 > 1.0) && (a2 <= a5 || a3 < 1.0) )
     return a3;
   else
-    return (float)((float)((float)(1.0 - (float)(*(float *)(*((_QWORD *)this + 68) + 16LL) * 0.0099999998))
-                         * (float)((float)(a2 * a3) - a2))
+    return (float)((float)((float)(1.0 - (float)(*((float *)this + 136) * 0.0099999998)) * (float)((float)(a2 * a3) - a2))
                  + a2)
          / a2;
 }

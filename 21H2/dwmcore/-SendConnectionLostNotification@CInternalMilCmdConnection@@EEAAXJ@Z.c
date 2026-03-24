@@ -1,31 +1,31 @@
 /*
- * XREFs of ?SendConnectionLostNotification@CInternalMilCmdConnection@@EEAAXJ@Z @ 0x180193B70
+ * XREFs of ?SendConnectionLostNotification@CInternalMilCmdConnection@@EEAAXJ@Z @ 0x18014F1C0
  * Callers:
  *     <none>
  * Callees:
- *     ?TryGetMasterTableEntry@CChannelTable@@QEAAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@I@Z @ 0x1800E716C (-TryGetMasterTableEntry@CChannelTable@@QEAAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@I@Z.c)
+ *     ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x180028320 (-GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?ValidEntry@HANDLE_TABLE@@QEBAHI@Z @ 0x18005DBD0 (-ValidEntry@HANDLE_TABLE@@QEBAHI@Z.c)
  */
 
-void __fastcall CInternalMilCmdConnection::SendConnectionLostNotification(RTL_SRWLOCK *this)
+void __fastcall CInternalMilCmdConnection::SendConnectionLostNotification(CInternalMilCmdConnection *this)
 {
-  RTL_SRWLOCK *v1; // rdi
-  unsigned int v3; // ebx
-  struct CLIENT_CHANNEL_HANDLE_ENTRY *MasterTableEntry; // rax
-  struct CLIENT_CHANNEL_HANDLE_ENTRY *v5; // rbp
+  unsigned int i; // edi
+  struct CLIENT_CHANNEL_HANDLE_ENTRY *v3; // rbx
+  struct CLIENT_CHANNEL_HANDLE_ENTRY *v4; // [rsp+40h] [rbp+8h] BYREF
+  struct _RTL_CRITICAL_SECTION *v5; // [rsp+50h] [rbp+18h] BYREF
 
-  v1 = this + 17;
-  AcquireSRWLockExclusive(this + 17);
-  v3 = 1;
-  for ( LODWORD(v1[1].Ptr) = GetCurrentThreadId(); v3 < HIDWORD(this[8].Ptr); ++v3 )
+  v5 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 144);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 144));
+  for ( i = 1; i < *((_DWORD *)this + 19); ++i )
   {
-    MasterTableEntry = CChannelTable::TryGetMasterTableEntry((CChannelTable *)&this[7], v3);
-    v5 = MasterTableEntry;
-    if ( MasterTableEntry )
+    if ( HANDLE_TABLE::ValidEntry((CInternalMilCmdConnection *)((char *)this + 64), i)
+      && (int)CChannelTable::GetMasterTableEntry((CInternalMilCmdConnection *)((char *)this + 64), i, &v4) >= 0 )
     {
-      SetEvent(*(HANDLE *)(*((_QWORD *)MasterTableEntry + 1) + 80LL));
-      SetEvent(*((HANDLE *)v5 + 2));
+      v3 = v4;
+      SetEvent(*(HANDLE *)(*((_QWORD *)v4 + 1) + 80LL));
+      SetEvent(*((HANDLE *)v3 + 2));
     }
   }
-  LODWORD(v1[1].Ptr) = 0;
-  ReleaseSRWLockExclusive(v1);
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v5);
 }

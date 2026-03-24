@@ -4,11 +4,11 @@
  *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
  * Callees:
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     LdrRelocateImage @ 0x14072A764 (LdrRelocateImage.c)
- *     VslReserveProtectedPages @ 0x140818D7C (VslReserveProtectedPages.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     LdrRelocateImage @ 0x14072A744 (LdrRelocateImage.c)
+ *     VslReserveProtectedPages @ 0x140818D5C (VslReserveProtectedPages.c)
  *     MiFreeBootDriverPage @ 0x1409B83FC (MiFreeBootDriverPage.c)
  *     MiUpdateThunks @ 0x1409B853C (MiUpdateThunks.c)
  */

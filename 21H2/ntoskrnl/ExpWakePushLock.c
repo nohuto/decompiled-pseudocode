@@ -1,132 +1,130 @@
 /*
- * XREFs of ExpWakePushLock @ 0x140359F70
+ * XREFs of ExpWakePushLock @ 0x1402F15A0
  * Callers:
- *     ExfReleasePushLockSharedEx @ 0x14021C64C (ExfReleasePushLockSharedEx.c)
- *     ExpOptimizePushLockList @ 0x14029F640 (ExpOptimizePushLockList.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfReleasePushLockExclusive @ 0x140359EF0 (ExfReleasePushLockExclusive.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     ExfReleasePushLockSharedEx @ 0x1402904F0 (ExfReleasePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLockExclusive @ 0x1402F1520 (ExfReleasePushLockExclusive.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExpOptimizePushLockList @ 0x1402F3184 (ExpOptimizePushLockList.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiAbApplyWakeupBoost @ 0x1403597CC (KiAbApplyWakeupBoost.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAbApplyWakeupBoost @ 0x1402F197C (KiAbApplyWakeupBoost.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall ExpWakePushLock(volatile signed __int64 *a1, signed __int64 a2)
+int __fastcall ExpWakePushLock(volatile signed __int64 *a1, signed __int64 a2)
 {
-  _DWORD *SchedulerAssist; // r9
-  int v3; // r10d
-  _QWORD *v4; // r8
-  struct _KEVENT *v5; // rbx
-  struct _LIST_ENTRY *Blink; // rax
-  bool v7; // zf
-  signed __int64 v8; // rax
+  int v2; // r10d
+  _QWORD *v3; // r8
+  struct _KEVENT *v4; // rbx
+  signed __int64 Blink; // rax
+  bool v6; // zf
   unsigned __int8 CurrentIrql; // di
-  struct _LIST_ENTRY *v10; // rsi
-  __int64 Flink; // rdx
-  signed __int64 v12; // rax
-  _QWORD *v13; // rax
-  unsigned __int8 v14; // al
+  struct _KEVENT *v8; // rsi
+  struct _LIST_ENTRY *Flink; // rdx
+  _QWORD *v10; // rax
+  unsigned __int8 v11; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v16; // r8
-  int v17; // eax
+  _DWORD *SchedulerAssist; // r8
+  int v14; // eax
 
-  SchedulerAssist = a1;
-  v3 = 1;
+  v2 = 1;
   while ( (a2 & 1) == 0 )
   {
 LABEL_3:
-    v4 = (_QWORD *)(a2 & 0xFFFFFFFFFFFFFFF0uLL);
-    v5 = *(struct _KEVENT **)((a2 & 0xFFFFFFFFFFFFFFF0uLL) + 0x20);
-    if ( !v5 )
+    v3 = (_QWORD *)(a2 & 0xFFFFFFFFFFFFFFF0uLL);
+    v4 = *(struct _KEVENT **)((a2 & 0xFFFFFFFFFFFFFFF0uLL) + 0x20);
+    if ( !v4 )
     {
       do
       {
-        v13 = v4;
-        v4 = (_QWORD *)v4[3];
-        v4[5] = v13;
-        v5 = (struct _KEVENT *)v4[4];
+        v10 = v3;
+        v3 = (_QWORD *)v3[3];
+        v3[5] = v10;
+        v4 = (struct _KEVENT *)v3[4];
       }
-      while ( !v5 );
-      if ( v4 != (_QWORD *)(a2 & 0xFFFFFFFFFFFFFFF0uLL) )
-        *(_QWORD *)((a2 & 0xFFFFFFFFFFFFFFF0uLL) + 0x20) = v5;
+      while ( !v4 );
+      if ( v3 != (_QWORD *)(a2 & 0xFFFFFFFFFFFFFFF0uLL) )
+        *(_QWORD *)((a2 & 0xFFFFFFFFFFFFFFF0uLL) + 0x20) = v4;
     }
-    if ( (v5[2].Header.SignalState & 1) != 0 )
+    if ( (v4[2].Header.SignalState & 1) != 0 )
     {
-      Blink = v5[1].Header.WaitListHead.Blink;
+      Blink = (signed __int64)v4[1].Header.WaitListHead.Blink;
       if ( Blink )
       {
         *(_QWORD *)((a2 & 0xFFFFFFFFFFFFFFF0uLL) + 0x20) = Blink;
-        v5[1].Header.WaitListHead.Blink = 0LL;
+        v4[1].Header.WaitListHead.Blink = 0LL;
         _InterlockedAnd64(a1, 0xFFFFFFFFFFFFFFFBuLL);
-        v3 = 0;
+        v2 = 0;
 LABEL_7:
         CurrentIrql = 2;
-        if ( v5[1].Header.WaitListHead.Blink )
+        if ( v4[1].Header.WaitListHead.Blink )
         {
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(2uLL);
+          LODWORD(Blink) = KiIrqlFlags;
           if ( KiIrqlFlags )
           {
             if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
-              SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-              SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+              Blink = (signed __int64)KeGetCurrentPrcb();
+              *(_DWORD *)(*(_QWORD *)(Blink + 33976) + 20LL) |= (-1 << (CurrentIrql + 1)) & 4;
             }
           }
         }
-        if ( !v3 )
+        if ( !v2 )
         {
-          Flink = (__int64)v5[2].Header.WaitListHead.Flink;
+          Flink = v4[2].Header.WaitListHead.Flink;
           if ( Flink )
-            KiAbApplyWakeupBoost(KeGetCurrentThread()->Priority, Flink, 0LL, SchedulerAssist);
+            LODWORD(Blink) = KiAbApplyWakeupBoost((unsigned int)KeGetCurrentThread()->Priority, Flink, 0LL);
         }
         do
         {
-          v10 = v5[1].Header.WaitListHead.Blink;
-          if ( !_interlockedbittestandreset(&v5[2].Header.SignalState, 1u) )
-            KeSetEvent(v5, 0, 0);
-          v5 = (struct _KEVENT *)v10;
+          v8 = (struct _KEVENT *)v4[1].Header.WaitListHead.Blink;
+          if ( !_interlockedbittestandreset(&v4[2].Header.SignalState, 1u) )
+            LODWORD(Blink) = KeSetEvent(v4, 0, 0);
+          v4 = v8;
         }
-        while ( v10 );
+        while ( v8 );
         if ( CurrentIrql != 2 )
         {
           if ( KiIrqlFlags )
           {
             if ( (KiIrqlFlags & 1) != 0 )
             {
-              v14 = KeGetCurrentIrql();
-              if ( v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+              v11 = KeGetCurrentIrql();
+              if ( v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
-                v16 = CurrentPrcb->SchedulerAssist;
-                v17 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                v7 = (v17 & v16[5]) == 0;
-                v16[5] &= v17;
-                if ( v7 )
+                SchedulerAssist = CurrentPrcb->SchedulerAssist;
+                v14 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                v6 = (v14 & SchedulerAssist[5]) == 0;
+                SchedulerAssist[5] &= v14;
+                if ( v6 )
                   KiRemoveSystemWorkPriorityKick(CurrentPrcb);
               }
             }
           }
+          LODWORD(Blink) = CurrentIrql;
           __writecr8(CurrentIrql);
         }
-        return;
+        return Blink;
       }
     }
-    v8 = _InterlockedCompareExchange64(a1, 0LL, a2);
-    v7 = a2 == v8;
-    a2 = v8;
-    if ( v7 )
+    Blink = _InterlockedCompareExchange64(a1, 0LL, a2);
+    v6 = a2 == Blink;
+    a2 = Blink;
+    if ( v6 )
       goto LABEL_7;
   }
   while ( 1 )
   {
-    v12 = _InterlockedCompareExchange64(a1, a2 - 4, a2);
-    v7 = a2 == v12;
-    a2 = v12;
-    if ( v7 )
-      break;
-    if ( (v12 & 1) == 0 )
+    Blink = _InterlockedCompareExchange64(a1, a2 - 4, a2);
+    v6 = a2 == Blink;
+    a2 = Blink;
+    if ( v6 )
+      return Blink;
+    if ( (Blink & 1) == 0 )
       goto LABEL_3;
   }
 }

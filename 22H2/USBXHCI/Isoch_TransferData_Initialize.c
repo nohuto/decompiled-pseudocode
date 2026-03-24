@@ -1,13 +1,13 @@
 /*
- * XREFs of Isoch_TransferData_Initialize @ 0x1C0004970
+ * XREFs of Isoch_TransferData_Initialize @ 0x1C00035F0
  * Callers:
- *     Isoch_RetrieveNextStage @ 0x1C0003800 (Isoch_RetrieveNextStage.c)
+ *     Isoch_RetrieveNextStage @ 0x1C0002D30 (Isoch_RetrieveNextStage.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
- *     McTemplateK0uqqq_EtwWriteTransfer @ 0x1C0022596 (McTemplateK0uqqq_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_DDi @ 0x1C0041F7C (WPP_RECORDER_SF_DDi.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C003FA6C (WPP_RECORDER_SF_DDi.c)
+ *     McTemplateK0uqqq_EtwWriteTransfer @ 0x1C0040708 (McTemplateK0uqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Isoch_TransferData_Initialize(__int64 a1, __int64 a2, __int64 *a3)
@@ -53,7 +53,7 @@ LABEL_2:
   v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a2,
-         off_1C0063090);
+         off_1C0060090);
   *(_DWORD *)(v9 + 17) = 0;
   *(_WORD *)(v9 + 21) = 0;
   *(_BYTE *)(v9 + 23) = 0;
@@ -101,12 +101,12 @@ LABEL_2:
   {
     MmBuildMdlForNonPagedPool(Mdl);
 LABEL_6:
-    if ( (WPP_MAIN_CB.AlignmentRequirement & 0x200) != 0 )
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) & 2) != 0 )
     {
       v15 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 2280))(WdfDriverGlobals, a2);
       if ( (int)IoGetActivityIdIrp(v15, v9 + 32) < 0 )
         EtwActivityIdControl(3u, (LPGUID)(v9 + 32));
-      if ( (WPP_MAIN_CB.AlignmentRequirement & 0x200) != 0 )
+      if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) & 2) != 0 )
         McTemplateK0uqqq_EtwWriteTransfer(
           *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
           *(_QWORD *)(a1 + 56),
@@ -129,7 +129,7 @@ LABEL_6:
       v13,
       *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL),
       15,
-      (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+      (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
       *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
       v14,
       a2);

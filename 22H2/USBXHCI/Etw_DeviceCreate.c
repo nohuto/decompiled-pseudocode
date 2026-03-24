@@ -1,17 +1,17 @@
 /*
- * XREFs of Etw_DeviceCreate @ 0x1C001E618
+ * XREFs of Etw_DeviceCreate @ 0x1C0019BE8
  * Callers:
- *     UsbDevice_UcxEvtDeviceAdd @ 0x1C0071010 (UsbDevice_UcxEvtDeviceAdd.c)
+ *     UsbDevice_UcxEvtDeviceAdd @ 0x1C006F110 (UsbDevice_UcxEvtDeviceAdd.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C004AFB8 (McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C0048A00 (McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Etw_DeviceCreate(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
 
-  if ( (WPP_MAIN_CB.AlignmentRequirement & 2) != 0 )
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc & 2) != 0 )
     return McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer(
              *(unsigned __int8 *)(a2 + 658),
              (unsigned int)&USBXHCI_ETW_EVENT_DEVICE_CREATE_V3,

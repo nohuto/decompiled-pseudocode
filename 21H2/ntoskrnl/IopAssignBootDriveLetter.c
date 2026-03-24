@@ -1,14 +1,14 @@
 /*
- * XREFs of IopAssignBootDriveLetter @ 0x140B0EB5C
+ * XREFs of IopAssignBootDriveLetter @ 0x140A61AA8
  * Callers:
- *     IopMarkBootPartition @ 0x140B0E670 (IopMarkBootPartition.c)
+ *     IopMarkBootPartition @ 0x140A61890 (IopMarkBootPartition.c)
  * Callees:
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     IopBuildDeviceIoControlRequest @ 0x1403428E0 (IopBuildDeviceIoControlRequest.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     IoGetDeviceObjectPointer @ 0x140710E60 (IoGetDeviceObjectPointer.c)
+ *     IopBuildDeviceIoControlRequest @ 0x14022B990 (IopBuildDeviceIoControlRequest.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     IoGetDeviceObjectPointer @ 0x140620E20 (IoGetDeviceObjectPointer.c)
  */
 
 NTSTATUS IopAssignBootDriveLetter()
@@ -19,6 +19,7 @@ NTSTATUS IopAssignBootDriveLetter()
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp+17h] BYREF
   struct _IO_STATUS_BLOCK v4; // [rsp+60h] [rbp+27h] BYREF
   struct _KEVENT Object; // [rsp+70h] [rbp+37h] BYREF
+  __int64 retaddr; // [rsp+98h] [rbp+5Fh]
   PDEVICE_OBJECT DeviceObject; // [rsp+A0h] [rbp+67h] BYREF
   PFILE_OBJECT FileObject; // [rsp+A8h] [rbp+6Fh] BYREF
 
@@ -36,7 +37,7 @@ NTSTATUS IopAssignBootDriveLetter()
     Object.Header.WaitListHead.Blink = &Object.Header.WaitListHead;
     Object.Header.Size = 6;
     Object.Header.WaitListHead.Flink = &Object.Header.WaitListHead;
-    v1 = IopBuildDeviceIoControlRequest(7192644, (__int64)DeviceObject, 0LL, 0, 0LL, 0, 0, &Object, &v4);
+    v1 = IopBuildDeviceIoControlRequest(7192644, (__int64)DeviceObject, 0LL, 0, 0LL, 0, 0, &Object, &v4, retaddr);
     if ( v1 )
     {
       Status = IofCallDriver(DeviceObject, v1);

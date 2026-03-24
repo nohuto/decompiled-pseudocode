@@ -1,208 +1,183 @@
 /*
- * XREFs of KeQueryTotalCycleTimeThread @ 0x140329BD0
+ * XREFs of KeQueryTotalCycleTimeThread @ 0x14022E860
  * Callers:
- *     NtQueryInformationThread @ 0x14079FBE0 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246750 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
- *     KeFlushProcessWriteBuffers @ 0x1402C000C (KeFlushProcessWriteBuffers.c)
- *     KiIpiStallOnPacketTargetsPrcb @ 0x1402C02C0 (KiIpiStallOnPacketTargetsPrcb.c)
- *     KiIpiSendPacket @ 0x1402C0300 (KiIpiSendPacket.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140307790 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KeUpdateTotalCyclesCurrentThread @ 0x140329C68 (KeUpdateTotalCyclesCurrentThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAddProcessorAffinityEx @ 0x140229340 (KeAddProcessorAffinityEx.c)
+ *     KiAcquireThreadStateLock @ 0x1402308B0 (KiAcquireThreadStateLock.c)
+ *     KiStartThreadCycleAccumulation @ 0x140230BD0 (KiStartThreadCycleAccumulation.c)
+ *     KiEndThreadAccountingPeriod @ 0x140230CF0 (KiEndThreadAccountingPeriod.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiReleaseThreadLockSafe @ 0x1402F1590 (KiReleaseThreadLockSafe.c)
+ *     KeFlushProcessWriteBuffers @ 0x140343D14 (KeFlushProcessWriteBuffers.c)
+ *     KiIpiSendPacket @ 0x140343E58 (KiIpiSendPacket.c)
+ *     KiReleaseThreadStateLock @ 0x14035B9E0 (KiReleaseThreadStateLock.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 ULONG64 __stdcall KeQueryTotalCycleTimeThread(PKTHREAD Thread, PULONG64 CycleTimeStamp)
 {
-  unsigned __int8 CurrentIrql; // r15
+  struct _KPRCB *CurrentPrcb; // rdi
+  unsigned __int64 v5; // rbp
+  unsigned __int64 v6; // r8
+  unsigned __int64 v7; // r14
+  unsigned __int64 v8; // rax
+  bool v9; // zf
+  unsigned __int8 CurrentIrql; // bp
   _DWORD *SchedulerAssist; // r9
-  int v7; // eax
-  char v8; // r11
-  volatile unsigned __int8 State; // r12
-  __int64 v10; // rsi
-  volatile signed __int32 *v11; // rdi
-  char v12; // al
-  __int64 v13; // rax
-  __int64 v14; // r14
-  __int64 NextProcessor; // r14
-  __int64 v16; // rax
-  volatile unsigned int v17; // r14d
-  unsigned __int8 v18; // cl
-  _DWORD *v19; // r9
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  volatile unsigned __int64 CycleTime; // r14
-  unsigned __int8 v23; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v25; // r9
-  int v26; // edx
-  bool v27; // zf
-  __int64 v28; // [rsp+30h] [rbp-D0h] BYREF
-  int v29; // [rsp+38h] [rbp-C8h] BYREF
-  int v30; // [rsp+3Ch] [rbp-C4h] BYREF
-  PULONG64 v31; // [rsp+40h] [rbp-C0h]
-  _DWORD v32[68]; // [rsp+50h] [rbp-B0h] BYREF
+  struct _KPRCB *v13; // rdi
+  _DWORD *v14; // rcx
+  int v15; // eax
+  _DWORD *v16; // rcx
+  int v17; // eax
+  _DWORD *v18; // rcx
+  int v19; // eax
+  __int64 v20; // rcx
+  volatile unsigned int NextProcessor; // edi
+  unsigned __int8 v22; // cl
+  _DWORD *v23; // r9
+  struct _KPRCB *v24; // rcx
+  volatile unsigned __int64 CycleTime; // rdi
+  unsigned __int8 v26; // al
+  struct _KPRCB *v27; // rax
+  _DWORD *v28; // r9
+  int v29; // edx
+  int v30; // [rsp+30h] [rbp-108h] BYREF
+  __int64 v31; // [rsp+38h] [rbp-100h] BYREF
+  __int64 v32; // [rsp+40h] [rbp-F8h] BYREF
+  _DWORD v33[44]; // [rsp+50h] [rbp-E8h] BYREF
 
-  v31 = CycleTimeStamp;
-  memset(v32, 0, 0x108uLL);
-  v28 = 0LL;
+  memset(v33, 0, 0xA8uLL);
+  v32 = 0LL;
+  v31 = 0LL;
   if ( Thread == KeGetCurrentThread() )
-    return KeUpdateTotalCyclesCurrentThread(Thread, CycleTimeStamp);
-  CurrentIrql = KeGetCurrentIrql();
-  __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
-    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    v7 = 4;
-    if ( CurrentIrql != 2 )
-      v7 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v7;
-  }
-  v29 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)&Thread->ThreadLock, 0LL) )
-  {
-    do
-      KeYieldProcessorEx(&v29);
-    while ( Thread->ThreadLock );
-  }
-  while ( 2 )
-  {
-    v8 = 1;
-    do
-    {
-      while ( 1 )
-      {
-        while ( 1 )
-        {
-          State = Thread->State;
-          v10 = 0LL;
-          v11 = 0LL;
-          if ( State != 1 )
-            break;
-          NextProcessor = Thread->NextProcessor;
-          if ( (int)NextProcessor >= 0 )
-          {
-            v10 = KiProcessorBlock[NextProcessor];
-            KiAcquirePrcbLocksForIsolationUnit(v10, 0, &v28);
-            v8 = 1;
-            if ( Thread->WaitBlockFill6[68] == 1 && Thread->NextProcessor == (_DWORD)NextProcessor )
-              goto LABEL_41;
-            KiReleasePrcbLocksForIsolationUnit(&v28);
-          }
-          else
-          {
-            v16 = (unsigned int)NextProcessor;
-            LODWORD(v16) = NextProcessor & 0x7FFFFFFF;
-            v30 = 0;
-            v11 = *(volatile signed __int32 **)(KiProcessorBlock[v16] + 34888);
-            while ( _interlockedbittestandset64(v11, 0LL) )
-            {
-              do
-                KeYieldProcessorEx(&v30);
-              while ( *(_QWORD *)v11 );
-            }
-            v8 = 1;
-            if ( Thread->WaitBlockFill6[68] == 1 && Thread->NextProcessor == (_DWORD)NextProcessor )
-              goto LABEL_41;
-            _InterlockedAnd64((volatile signed __int64 *)v11, 0LL);
-          }
-        }
-        if ( Thread->WaitBlockFill6[68] == 2 )
-          goto LABEL_21;
-        if ( Thread->WaitBlockFill6[68] == 3 )
-          break;
-        if ( Thread->WaitBlockFill6[68] != 5 )
-          goto LABEL_41;
-        v12 = Thread->WaitRegister.Flags & 7;
-        if ( v12 == v8 || (unsigned __int8)(v12 - 3) <= 3u )
-          goto LABEL_41;
-        State = 2;
-LABEL_21:
-        v13 = Thread->NextProcessor;
-        if ( (int)v13 >= 0 )
-        {
-          v10 = KiProcessorBlock[v13];
-          KiAcquirePrcbLocksForIsolationUnit(v10, 0, &v28);
-          if ( Thread == *(PKTHREAD *)(v10 + 8) )
-            goto LABEL_40;
-          goto LABEL_23;
-        }
-      }
-      v14 = Thread->NextProcessor;
-    }
-    while ( (int)v14 < 0 );
-    v10 = KiProcessorBlock[v14];
-    KiAcquirePrcbLocksForIsolationUnit(v10, 0, &v28);
-    if ( Thread != *(PKTHREAD *)(v10 + 16) )
-    {
-      if ( Thread->WaitBlockFill6[68] == 3 && Thread->NextProcessor == (_DWORD)v14 )
-        __fastfail(0x1Eu);
-LABEL_23:
-      KiReleasePrcbLocksForIsolationUnit(&v28);
-      continue;
-    }
-    break;
-  }
-LABEL_40:
-  v8 = 1;
-LABEL_41:
-  if ( State == 2 )
-  {
-    v17 = Thread->NextProcessor;
-    if ( v10 )
-      KiReleasePrcbLocksForIsolationUnit(&v28);
-    if ( v11 )
-      _InterlockedAnd64((volatile signed __int64 *)v11, 0LL);
-    Thread->ThreadLock = 0LL;
-    v32[0] = 2097153;
-    memset(&v32[1], 0, 0x104uLL);
-    KeAddProcessorAffinityEx((unsigned __int16 *)v32, v17);
-    v18 = KeGetCurrentIrql();
-    __writecr8(0xCuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v18 <= 0xFu )
-    {
-      v19 = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( v18 == 12 )
-        LODWORD(v20) = 4096;
-      else
-        v20 = (-1LL << (v18 + 1)) & 0x1FFC;
-      v19[5] |= v20;
-    }
-    KiIpiSendPacket(0, (int)v32, (__int64)xHalTimerWatchdogStop, 0LL, 0LL, 0LL);
-    KiIpiStallOnPacketTargetsPrcb(v21, (__int64)KeGetCurrentPrcb());
-    *v31 = __rdtsc();
-    CycleTime = Thread->CycleTime;
+    _disable();
+    CurrentPrcb = KeGetCurrentPrcb();
+    CurrentPrcb->NestingLevel = 1;
+    v5 = __rdtsc();
+    v6 = v5 - CurrentPrcb->StartCycles;
+    v7 = v6 + Thread->CycleTime;
+    v8 = v6 + Thread->CurrentRunTime;
+    Thread->CycleTime = v7;
+    if ( v8 > 0xFFFFFFFF )
+      LODWORD(v8) = -1;
+    CurrentPrcb->StartCycles = v5;
+    v9 = (Thread->Header.Size & 0x3E) == 0;
+    Thread->CurrentRunTime = v8;
+    if ( !v9 )
+      KiEndThreadAccountingPeriod(CurrentPrcb, Thread);
+    if ( CycleTimeStamp )
+      *CycleTimeStamp = v5;
+    KiStartThreadCycleAccumulation(CurrentPrcb, Thread, 0LL);
+    _enable();
+    return v7;
   }
   else
   {
-    if ( Thread->Running )
-      KeFlushProcessWriteBuffers(v8);
-    *v31 = __rdtsc();
-    CycleTime = Thread->CycleTime;
-    if ( v10 )
-      KiReleasePrcbLocksForIsolationUnit(&v28);
-    if ( v11 )
-      _InterlockedAnd64((volatile signed __int64 *)v11, 0LL);
-    Thread->ThreadLock = 0LL;
-  }
-  if ( KiIrqlFlags )
-  {
-    v23 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
+    CurrentIrql = KeGetCurrentIrql();
+    __writecr8(2uLL);
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v25 = CurrentPrcb->SchedulerAssist;
-      v26 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v27 = (v26 & v25[5]) == 0;
-      v25[5] &= v26;
-      if ( v27 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
+    v13 = KeGetCurrentPrcb();
+    v30 = 0;
+    v14 = v13->SchedulerAssist;
+    if ( v14 )
+    {
+      if ( v13->NestingLevel <= 1u )
+      {
+        v15 = v14[6];
+        v14[6] = v15 + 1;
+        if ( v15 == -1 )
+LABEL_16:
+          KiRemoveSystemWorkPriorityKick(v13);
+      }
+    }
+    while ( _interlockedbittestandset64((volatile signed __int32 *)&Thread->ThreadLock, 0LL) )
+    {
+      v16 = v13->SchedulerAssist;
+      if ( v16 )
+      {
+        if ( v13->NestingLevel <= 1u )
+        {
+          v17 = v16[6] - 1;
+          v16[6] = v17;
+          if ( !v17 )
+            KiRemoveSystemWorkPriorityKick(v13);
+        }
+      }
+      do
+        KeYieldProcessorEx(&v30);
+      while ( Thread->ThreadLock );
+      v18 = v13->SchedulerAssist;
+      if ( v18 )
+      {
+        if ( v13->NestingLevel <= 1u )
+        {
+          v19 = v18[6];
+          v18[6] = v19 + 1;
+          if ( v19 == -1 )
+            goto LABEL_16;
+        }
+      }
+    }
+    if ( (unsigned __int8)KiAcquireThreadStateLock(Thread, &v32, &v31) == 2 )
+    {
+      NextProcessor = Thread->NextProcessor;
+      KiReleaseThreadStateLock(v20, v32, v31);
+      KiReleaseThreadLockSafe(Thread);
+      v33[0] = 1310721;
+      memset(&v33[1], 0, 0xA4uLL);
+      KeAddProcessorAffinityEx(v33, NextProcessor);
+      v22 = KeGetCurrentIrql();
+      __writecr8(0xCuLL);
+      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v22 <= 0xFu )
+      {
+        v23 = KeGetCurrentPrcb()->SchedulerAssist;
+        v23[5] |= (-1 << (v22 + 1)) & 0x1FFC;
+      }
+      KiIpiSendPacket(0, (unsigned int)v33, (unsigned int)xHalTimerWatchdogStop, 0, 0LL, 0LL);
+      v24 = KeGetCurrentPrcb();
+      while ( v24->PacketBarrier )
+        _mm_pause();
+      *CycleTimeStamp = __rdtsc();
+      CycleTime = Thread->CycleTime;
+    }
+    else
+    {
+      if ( Thread->Running )
+      {
+        LOBYTE(v20) = 1;
+        KeFlushProcessWriteBuffers(v20);
+      }
+      *CycleTimeStamp = __rdtsc();
+      CycleTime = Thread->CycleTime;
+      KiReleaseThreadStateLock(v20, v32, v31);
+      KiReleaseThreadLockSafe(Thread);
+    }
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        v26 = KeGetCurrentIrql();
+        if ( v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
+        {
+          v27 = KeGetCurrentPrcb();
+          v28 = v27->SchedulerAssist;
+          v29 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v9 = (v29 & v28[5]) == 0;
+          v28[5] &= v29;
+          if ( v9 )
+            KiRemoveSystemWorkPriorityKick(v27);
+        }
+      }
+    }
+    __writecr8(CurrentIrql);
+    return CycleTime;
   }
-  __writecr8(CurrentIrql);
-  return CycleTime;
 }

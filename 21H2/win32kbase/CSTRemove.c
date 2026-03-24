@@ -1,7 +1,7 @@
 /*
- * XREFs of CSTRemove @ 0x1C0148F70
+ * XREFs of CSTRemove @ 0x1C011D7E0
  * Callers:
- *     VideoPortCallout @ 0x1C00D4DF0 (VideoPortCallout.c)
+ *     VideoPortCallout @ 0x1C011A290 (VideoPortCallout.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall CSTRemove(int a1, __int64 a2)
   __int64 v5; // rdx
 
   v2 = 0LL;
-  for ( i = &unk_1C0299500; *((_QWORD *)i - 2) != a2 || *i != a1; i += 6 )
+  for ( i = &unk_1C0254760; *((_QWORD *)i - 2) != a2 || *i != a1; i += 6 )
   {
     v2 = (unsigned int)(v2 + 1);
     if ( (unsigned int)v2 >= 0x1E )

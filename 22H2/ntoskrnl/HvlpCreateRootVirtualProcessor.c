@@ -1,51 +1,51 @@
 /*
- * XREFs of HvlpCreateRootVirtualProcessor @ 0x140941354
+ * XREFs of HvlpCreateRootVirtualProcessor @ 0x14088E7BC
  * Callers:
- *     HvlpEnableRootVirtualProcessor @ 0x140941488 (HvlpEnableRootVirtualProcessor.c)
+ *     HvlpEnableRootVirtualProcessor @ 0x14088E8E8 (HvlpEnableRootVirtualProcessor.c)
  * Callees:
- *     HvcallInitInputControl @ 0x1403725A0 (HvcallInitInputControl.c)
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpDepositPages @ 0x140540C44 (HvlpDepositPages.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitInputControl @ 0x1403656C0 (HvcallInitInputControl.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpDepositPages @ 0x1404F2884 (HvlpDepositPages.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
  */
 
-__int64 __fastcall HvlpCreateRootVirtualProcessor(__int64 a1, ULONG a2)
+__int64 __fastcall HvlpCreateRootVirtualProcessor(__int64 a1, int a2)
 {
   __int64 v4; // rdi
-  ULONG v5; // r14d
+  int v5; // r14d
   __int64 v6; // rdx
   __int64 result; // rax
-  PHYSICAL_ADDRESS *v8; // rax
-  __int16 v9; // bx
-  __int128 v10; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v11; // [rsp+30h] [rbp-28h]
-  __int64 v12; // [rsp+38h] [rbp-20h]
-  __int64 v13; // [rsp+60h] [rbp+8h] BYREF
+  _QWORD *v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // r9
+  __int16 v11; // bx
+  __int128 v12; // [rsp+20h] [rbp-38h] BYREF
+  __int128 v13; // [rsp+30h] [rbp-28h]
+  __int64 v14; // [rsp+60h] [rbp+8h] BYREF
 
+  v14 = 0LL;
+  v12 = 0LL;
   v13 = 0LL;
-  v10 = 0LL;
-  v11 = 0LL;
-  LODWORD(v12) = 0;
-  v4 = *(unsigned __int16 *)(KeNodeBlock[*(unsigned __int16 *)(a1 + 12)] + 2);
-  v5 = *(_DWORD *)(KeNodeBlock[v4] + 4);
-  HvcallInitInputControl(78, &v13);
+  v4 = *(unsigned __int16 *)(KeNodeBlock[*(unsigned __int16 *)(a1 + 12)] + 148);
+  v5 = *(_DWORD *)(KeNodeBlock[v4] + 168);
+  HvcallInitInputControl(78, &v14);
   while ( 1 )
   {
-    result = HvlpDepositPages(v4, v6, 0, 0);
+    result = HvlpDepositPages(v4, v6, 0);
     if ( (_DWORD)result )
       break;
-    v8 = HvlpAcquireHypercallPage((__int64)&v10, 1, 0LL, 40LL);
-    v8->QuadPart = HvlPartitionId;
-    v8[1].LowPart = a2;
-    HIBYTE(v8[1].QuadPart) = 0;
-    v8[3].LowPart = v5;
-    v8[3].HighPart = -2147483647;
-    v8[4].QuadPart = *(unsigned int *)(a1 + 4);
-    v9 = HvcallInitiateHypercall(v13);
-    HvlpReleaseHypercallPage((__int64)&v10);
-    if ( v9 != 11 )
-      return v9 != 0 ? 0xC0000001 : 0;
+    v8 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v12, 1, 0LL, 32LL);
+    v9 = *((_QWORD *)&v13 + 1);
+    *v8 = HvlPartitionId;
+    *((_DWORD *)v8 + 2) = a2;
+    *((_DWORD *)v8 + 4) = v5;
+    *((_DWORD *)v8 + 5) = -2147483647;
+    v8[3] = *(unsigned int *)(a1 + 4);
+    v11 = HvcallInitiateHypercall(v14, v9, 0LL, v10);
+    HvlpReleaseHypercallPage((__int64)&v12);
+    if ( v11 != 11 )
+      return v11 != 0 ? 0xC0000001 : 0;
   }
   return result;
 }

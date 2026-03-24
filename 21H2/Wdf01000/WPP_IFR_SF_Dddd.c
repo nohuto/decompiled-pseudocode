@@ -1,12 +1,12 @@
 /*
- * XREFs of WPP_IFR_SF_dddd @ 0x1C00660B4
+ * XREFs of WPP_IFR_SF_dddd @ 0x1C004BA18
  * Callers:
- *     imp_WdfDriverCreate @ 0x1C0027650 (imp_WdfDriverCreate.c)
- *     imp_WdfDriverIsVersionAvailable @ 0x1C0066740 (imp_WdfDriverIsVersionAvailable.c)
- *     ?CreateSettings@FxUsbInterface@@QEAAJXZ @ 0x1C007E4DC (-CreateSettings@FxUsbInterface@@QEAAJXZ.c)
+ *     imp_WdfDriverCreate @ 0x1C004BEB0 (imp_WdfDriverCreate.c)
+ *     imp_WdfDriverIsVersionAvailable @ 0x1C004C500 (imp_WdfDriverIsVersionAvailable.c)
+ *     ?CreateSettings@FxUsbInterface@@QEAAJXZ @ 0x1C0071DA0 (-CreateSettings@FxUsbInterface@@QEAAJXZ.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_dddd(

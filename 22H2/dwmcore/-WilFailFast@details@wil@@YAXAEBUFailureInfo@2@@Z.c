@@ -1,14 +1,12 @@
 /*
- * XREFs of ?WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z @ 0x18019AAB8
+ * XREFs of ?WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z @ 0x18014E82C
  * Callers:
- *     ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x1800ADEE8 (-DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z.c)
- *     ??$ReportFailure_Return@$00@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailureOptions@01@@Z @ 0x1800FC8BC (--$ReportFailure_Return@$00@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailureO.c)
- *     ??$ReportFailure_NoReturn@$02@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailureOptions@01@@Z @ 0x18019774C (--$ReportFailure_NoReturn@$02@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailur.c)
- *     ??$ReportFailure_Return@$01@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailureOptions@01@@Z @ 0x180197A34 (--$ReportFailure_Return@$01@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailureO.c)
+ *     ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x1800B2DFC (-DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z.c)
+ *     ?ReportFailure@details@wil@@YAXPEAXIPEBD110W4FailureType@2@JPEBGW4ReportFailureOptions@12@@Z @ 0x18014E0D0 (-ReportFailure@details@wil@@YAXPEAXIPEBD110W4FailureType@2@JPEBGW4ReportFailureOptions@12@@Z.c)
  * Callees:
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?WilRaiseFailFastException@details@wil@@YAXPEAU_EXCEPTION_RECORD@@PEAU_CONTEXT@@K@Z @ 0x18019AB7C (-WilRaiseFailFastException@details@wil@@YAXPEAU_EXCEPTION_RECORD@@PEAU_CONTEXT@@K@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?WilRaiseFailFastException@details@wil@@YAXPEAU_EXCEPTION_RECORD@@PEAU_CONTEXT@@K@Z @ 0x18014E8C8 (-WilRaiseFailFastException@details@wil@@YAXPEAU_EXCEPTION_RECORD@@PEAU_CONTEXT@@K@Z.c)
  */
 
 void __fastcall __noreturn wil::details::WilFailFast(wil::details *this, const struct wil::FailureInfo *a2)
@@ -25,19 +23,17 @@ void __fastcall __noreturn wil::details::WilFailFast(wil::details *this, const s
   __int64 v12; // [rsp+50h] [rbp-78h]
 
   if ( wil::g_pfnWilFailFast )
-    wil::g_pfnWilFailFast(this, a2);
-  if ( wil::details::g_pfnFailfastWithContextCallback )
-    wil::details::g_pfnFailfastWithContextCallback(this, a2);
+    wil::g_pfnWilFailFast(this);
   memset_0(v7, 0, 0x98uLL);
-  v5 = *((_QWORD *)this + 17);
+  v5 = *((_QWORD *)this + 16);
   v9 = 1;
   v7[0] = -1073740791;
   v7[1] = 1;
   v10 = 7LL;
   if ( !v5 )
     wil::details::WilRaiseFailFastException((wil::details *)v7, v3, (struct _CONTEXT *)1, v4);
-  v11 = *((int *)this + 2);
-  v6 = *((unsigned int *)this + 16);
+  v11 = *((int *)this + 1);
+  v6 = *((unsigned int *)this + 14);
   v8 = v5;
   v12 = v6;
   v9 = 3;

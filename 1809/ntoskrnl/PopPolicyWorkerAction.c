@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPolicyWorkerAction @ 0x1406DE6F0
+ * XREFs of PopPolicyWorkerAction @ 0x1406DE6D0
  * Callers:
- *     PopPolicyWorkerThread @ 0x140130580 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x1401305A0 (PopPolicyWorkerThread.c)
  * Callees:
  *     PopGetPolicyWorker @ 0x1400106A8 (PopGetPolicyWorker.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     PopSetPowerActionState @ 0x140143404 (PopSetPowerActionState.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     PopSetPowerActionState @ 0x140143424 (PopSetPowerActionState.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopCompleteAction @ 0x1406DD028 (PopCompleteAction.c)
- *     PopIssueActionRequest @ 0x1406DE870 (PopIssueActionRequest.c)
+ *     PopCompleteAction @ 0x1406DD008 (PopCompleteAction.c)
+ *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
  */
 
 __int64 PopPolicyWorkerAction()

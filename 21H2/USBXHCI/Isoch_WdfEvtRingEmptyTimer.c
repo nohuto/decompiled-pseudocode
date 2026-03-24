@@ -1,10 +1,10 @@
 /*
- * XREFs of Isoch_WdfEvtRingEmptyTimer @ 0x1C0043AF0
+ * XREFs of Isoch_WdfEvtRingEmptyTimer @ 0x1C00430F0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall Isoch_WdfEvtRingEmptyTimer(__int64 a1)
@@ -18,7 +18,7 @@ char __fastcall Isoch_WdfEvtRingEmptyTimer(__int64 a1)
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          v1,
-         off_1C0061388);
+         off_1C0060388);
   v4 = &WPP_RECORDER_INITIALIZED;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {

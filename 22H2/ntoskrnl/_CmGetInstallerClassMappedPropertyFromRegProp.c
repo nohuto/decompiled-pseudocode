@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14069B554
+ * XREFs of _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073BA4C
  * Callers:
- *     _CmGetInstallerClassMappedProperty @ 0x14069AF98 (_CmGetInstallerClassMappedProperty.c)
- *     _CmGetInstallerClassCompoundFilters @ 0x14069B3FC (_CmGetInstallerClassCompoundFilters.c)
- *     _CmGetInstallerClassCompoundFiltersWorker @ 0x140A68754 (_CmGetInstallerClassCompoundFiltersWorker.c)
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x140A68D1C (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x14073B410 (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetInstallerClassCompoundFilters @ 0x14073B8BC (_CmGetInstallerClassCompoundFilters.c)
+ *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14097A940 (_CmGetInstallerClassCompoundFiltersWorker.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x14097AEF0 (_CmGetInstallerClassMappedPropertyKeys.c)
  * Callees:
- *     _CmGetInstallerClassRegProp @ 0x14069B694 (_CmGetInstallerClassRegProp.c)
- *     _PnpParseIndirectResourceString @ 0x14079E934 (_PnpParseIndirectResourceString.c)
- *     _PnpParseIndirectInfString @ 0x1407CB7F4 (_PnpParseIndirectInfString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _PnpParseIndirectResourceString @ 0x140663774 (_PnpParseIndirectResourceString.c)
+ *     _PnpParseIndirectInfString @ 0x14069425C (_PnpParseIndirectInfString.c)
+ *     _CmGetInstallerClassRegProp @ 0x14073BC38 (_CmGetInstallerClassRegProp.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegProp(
@@ -19,44 +19,42 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegProp(
         int a3,
         __int64 a4,
         _DWORD *a5,
-        __int64 a6,
+        wchar_t *a6,
         unsigned int a7,
         unsigned int *a8)
 {
-  _DWORD *v8; // r13
-  unsigned int *v9; // r15
-  __int64 v11; // rsi
-  unsigned int v13; // r14d
+  unsigned int *v8; // r15
+  wchar_t *v10; // rdi
+  PVOID PoolWithTag; // rsi
+  unsigned int v13; // r12d
   int v14; // r11d
   DEVPROPKEY **v15; // rdx
   unsigned int i; // r8d
   DEVPROPKEY *v17; // r9
-  DEVPROPKEY **v18; // rdi
+  DEVPROPKEY **v18; // r14
   __int64 v19; // rcx
-  int v20; // r12d
+  int v20; // r13d
   unsigned int v21; // eax
   unsigned int InstallerClassRegProp; // ebx
-  __int64 v23; // rdx
-  int v25; // eax
-  __int64 v26; // rax
-  void *Pool2; // rdi
-  int v28; // eax
-  int v29; // [rsp+40h] [rbp-10h] BYREF
-  int v30; // [rsp+44h] [rbp-Ch] BYREF
-  int v31; // [rsp+48h] [rbp-8h] BYREF
+  int v24; // eax
+  unsigned int v25; // eax
+  int v26; // eax
+  int v27; // [rsp+40h] [rbp-10h] BYREF
+  int v28; // [rsp+44h] [rbp-Ch] BYREF
+  int v29; // [rsp+48h] [rbp-8h] BYREF
 
-  v8 = a5;
-  v9 = a8;
-  v11 = a6;
-  v29 = 0;
+  v8 = a8;
+  v10 = a6;
+  v27 = 0;
+  PoolWithTag = 0LL;
   *a5 = 0;
-  *v9 = 0;
-  v31 = 0;
-  v30 = 0;
-  if ( v11 )
+  *v8 = 0;
+  v29 = 0;
+  v28 = 0;
+  if ( a6 )
   {
     v13 = a7;
-    v11 &= -(__int64)(a7 != 0);
+    v10 = (wchar_t *)(-(__int64)(a7 != 0) & (unsigned __int64)a6);
   }
   else
   {
@@ -86,69 +84,62 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegProp(
     return (unsigned int)-1073741637;
   if ( v20 == 27 )
   {
-    LODWORD(a5) = 4;
-    InstallerClassRegProp = CmGetInstallerClassRegProp(a1, a2, a3, 27, (__int64)&v29, (__int64)&v30, (__int64)&a5);
-    if ( (InstallerClassRegProp & 0x80000000) != 0 )
-      return InstallerClassRegProp;
-    if ( v29 == *((_DWORD *)v18 + 4) )
+    LODWORD(a8) = 4;
+    InstallerClassRegProp = CmGetInstallerClassRegProp(a1, a2, a3, 27, (__int64)&v27, (__int64)&v28, (__int64)&a8);
+    if ( (InstallerClassRegProp & 0x80000000) == 0 )
     {
-      *v9 = 1;
-      *v8 = *((_DWORD *)v18 + 2);
-      if ( v13 >= *v9 )
-        *(_BYTE *)v11 = -(v30 != 0);
-      else
-        return (unsigned int)-1073741789;
-      return InstallerClassRegProp;
-    }
-    return (unsigned int)-1073741811;
-  }
-  *v9 = v13;
-  v21 = CmGetInstallerClassRegProp(a1, a2, a3, v20, (__int64)&v29, v11, (__int64)v9);
-  InstallerClassRegProp = v21;
-  v23 = 3221225507LL;
-  if ( v21 && v21 != -1073741789 )
-    return InstallerClassRegProp;
-  if ( v29 != *((_DWORD *)v18 + 4) )
-    return (unsigned int)-1073741811;
-  v25 = *((_DWORD *)v18 + 2);
-  *v8 = v25;
-  if ( v25 != 18 )
-    return InstallerClassRegProp;
-  v26 = *v9;
-  LODWORD(a5) = *v9;
-  if ( InstallerClassRegProp )
-  {
-    if ( InstallerClassRegProp != -1073741789 )
-      return InstallerClassRegProp;
-    Pool2 = (void *)ExAllocatePool2(256LL, v26, 1380994640LL);
-    if ( !Pool2 )
-      return (unsigned int)-1073741801;
-    v28 = CmGetInstallerClassRegProp(a1, a2, a3, v20, (__int64)&v31, (__int64)Pool2, (__int64)&a5);
-    if ( v28 >= 0 )
-    {
-      if ( (unsigned int)a5 >= 2 )
+      if ( v27 == *((_DWORD *)v18 + 4) )
       {
-        v11 = (__int64)Pool2;
-        goto LABEL_33;
+        *v8 = 1;
+        *a5 = *((_DWORD *)v18 + 2);
+        if ( v13 >= *v8 )
+          *(_BYTE *)v10 = -(v28 != 0);
+        else
+          return (unsigned int)-1073741789;
+      }
+      else
+      {
+        return (unsigned int)-1073741811;
       }
     }
-    else
-    {
-      InstallerClassRegProp = v28;
-    }
-LABEL_37:
-    ExFreePoolWithTag(Pool2, 0);
-    return InstallerClassRegProp;
   }
-  if ( v13 < 2 )
-    return InstallerClassRegProp;
-  Pool2 = 0LL;
-  if ( !v11 )
-    return InstallerClassRegProp;
-LABEL_33:
-  if ( (unsigned __int8)PnpParseIndirectInfString(v11, v23) || (unsigned __int8)PnpParseIndirectResourceString(v11) )
-    *v8 = 25;
-  if ( Pool2 )
-    goto LABEL_37;
+  else
+  {
+    *v8 = v13;
+    v21 = CmGetInstallerClassRegProp(a1, a2, a3, v20, (__int64)&v27, (__int64)v10, (__int64)v8);
+    InstallerClassRegProp = v21;
+    if ( !v21 || v21 == -1073741789 )
+    {
+      v24 = *((_DWORD *)v18 + 2);
+      *a5 = v24;
+      if ( v24 == 18 )
+      {
+        v25 = *v8;
+        LODWORD(a8) = *v8;
+        if ( InstallerClassRegProp )
+        {
+          if ( InstallerClassRegProp != -1073741789 )
+            return InstallerClassRegProp;
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, v25, 0x52504E50u);
+          if ( !PoolWithTag )
+            return (unsigned int)-1073741801;
+          v26 = CmGetInstallerClassRegProp(a1, a2, a3, v20, (__int64)&v29, (__int64)PoolWithTag, (__int64)&a8);
+          if ( v26 < 0 )
+          {
+            InstallerClassRegProp = v26;
+LABEL_27:
+            ExFreePoolWithTag(PoolWithTag, 0);
+            return InstallerClassRegProp;
+          }
+          v25 = (unsigned int)a8;
+          v10 = (wchar_t *)PoolWithTag;
+        }
+        if ( v10 && v25 >= 2 && (PnpParseIndirectInfString(v10) || PnpParseIndirectResourceString((__int64)v10)) )
+          *a5 = 25;
+        if ( PoolWithTag )
+          goto LABEL_27;
+      }
+    }
+  }
   return InstallerClassRegProp;
 }

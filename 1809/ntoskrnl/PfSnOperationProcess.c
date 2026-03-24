@@ -1,17 +1,17 @@
 /*
- * XREFs of PfSnOperationProcess @ 0x1406CF884
+ * XREFs of PfSnOperationProcess @ 0x1406CF864
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x140665EB8 (PfSnSetPrefetcherInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x140665E98 (PfSnSetPrefetcherInformation.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PfSnEndProcessTrace @ 0x140606950 (PfSnEndProcessTrace.c)
- *     PfSnCheckScenario @ 0x140666E10 (PfSnCheckScenario.c)
- *     PfCalculateProcessHash @ 0x140666FC0 (PfCalculateProcessHash.c)
- *     PfSnBeginScenario @ 0x1406672A4 (PfSnBeginScenario.c)
- *     PfSnFindImageFileName @ 0x140667E10 (PfSnFindImageFileName.c)
+ *     PfSnCheckScenario @ 0x140666DF0 (PfSnCheckScenario.c)
+ *     PfCalculateProcessHash @ 0x140666FA0 (PfCalculateProcessHash.c)
+ *     PfSnBeginScenario @ 0x140667284 (PfSnBeginScenario.c)
+ *     PfSnFindImageFileName @ 0x140667DF0 (PfSnFindImageFileName.c)
  */
 
 __int64 __fastcall PfSnOperationProcess(__int64 a1)

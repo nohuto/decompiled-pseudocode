@@ -1,78 +1,73 @@
 /*
- * XREFs of ?GetTextureMemoryLayoutData@CClipBrush@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x180221450
+ * XREFs of ?GetTextureMemoryLayoutData@CClipBrush@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x1801B7BF0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$insert@V?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@ULayoutData@CContent@@@std@@@std@@@std@@$0A@@?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@ULayoutData@CContent@@@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@ULayoutData@CContent@@@std@@@std@@@1@V21@1@Z @ 0x180220DE0 (--$insert@V-$_Vector_iterator@V-$_Vector_val@U-$_Simple_types@ULayoutData@CContent@@@std@@@std@@.c)
- *     ?_Clear_and_reserve_geometric@?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@AEAAX_K@Z @ 0x180221950 (-_Clear_and_reserve_geometric@-$vector@ULayoutData@CContent@@V-$allocator@ULayoutData@CContent@@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$_Assign_range@PEAULayoutData@CContent@@@?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@AEAAXPEAULayoutData@CContent@@0Uforward_iterator_tag@1@@Z @ 0x1801B723C (--$_Assign_range@PEAULayoutData@CContent@@@-$vector@ULayoutData@CContent@@V-$allocator@ULayoutDa.c)
+ *     ??$insert@V?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@ULayoutData@CContent@@@std@@@std@@@std@@X@?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@ULayoutData@CContent@@@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@ULayoutData@CContent@@@std@@@std@@@1@V21@1@Z @ 0x1801B74F0 (--$insert@V-$_Vector_iterator@V-$_Vector_val@U-$_Simple_types@ULayoutData@CContent@@@std@@@std@@.c)
  */
 
-__int64 __fastcall CClipBrush::GetTextureMemoryLayoutData(__int64 a1, __int64 a2, void **a3)
+__int64 __fastcall CClipBrush::GetTextureMemoryLayoutData(__int64 a1, __int64 a2, __int64 a3)
 {
   char *v3; // rax
-  void *v4; // rdi
-  unsigned int v5; // r15d
-  __int64 v7; // rcx
-  int v8; // eax
-  __int64 v9; // rcx
-  size_t v10; // r14
-  char *v11; // rbx
+  unsigned int v4; // esi
+  __int64 v6; // rcx
+  int v7; // eax
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  void *v10; // rcx
+  unsigned __int64 v11; // rdx
   __int128 v13; // [rsp+30h] [rbp-30h] BYREF
   __int64 v14; // [rsp+40h] [rbp-20h]
-  void *v15; // [rsp+48h] [rbp-18h] BYREF
-  __int64 v16; // [rsp+50h] [rbp-10h]
-  __int64 v17; // [rsp+58h] [rbp-8h]
-  __int64 v18; // [rsp+90h] [rbp+30h] BYREF
+  __int128 v15; // [rsp+48h] [rbp-18h] BYREF
+  __int64 v16; // [rsp+58h] [rbp-8h]
+  __int64 v17; // [rsp+70h] [rbp+10h] BYREF
 
-  v3 = (char *)*a3;
-  v4 = 0LL;
-  v16 = 0LL;
-  v5 = 0;
-  v17 = 0LL;
-  a3[1] = v3;
-  v7 = *(_QWORD *)(a1 + 88);
-  v15 = 0LL;
-  if ( !v7 )
-  {
-LABEL_6:
-    if ( a3 != &v15 )
-    {
-      v10 = v16 - (_QWORD)v4;
-      if ( 0xCCCCCCCCCCCCCCCDuLL * ((v16 - (__int64)v4) >> 3) > 0xCCCCCCCCCCCCCCCDuLL
-                                                              * (((_BYTE *)a3[2] - (_BYTE *)*a3) >> 3) )
-        std::vector<CContent::LayoutData>::_Clear_and_reserve_geometric(a3);
-      v11 = (char *)*a3;
-      memmove_0(*a3, v4, v10);
-      a3[1] = &v11[v10];
-    }
-    goto LABEL_10;
-  }
+  v3 = *(char **)a3;
+  v4 = 0;
   v14 = 0LL;
+  *(_QWORD *)(a3 + 8) = v3;
+  v6 = *(_QWORD *)(a1 + 80);
   v13 = 0LL;
-  v8 = (*(__int64 (__fastcall **)(__int64, __int64, __int128 *))(*(_QWORD *)v7 + 272LL))(v7, a2, &v13);
-  v5 = v8;
-  if ( v8 >= 0 )
+  if ( v6 )
   {
-    std::vector<CContent::LayoutData>::insert<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<CContent::LayoutData>>>,0>(
-      &v15,
-      &v18,
+    v16 = 0LL;
+    v15 = 0LL;
+    v7 = (*(__int64 (__fastcall **)(__int64, __int64, __int128 *))(*(_QWORD *)v6 + 280LL))(v6, a2, &v15);
+    v4 = v7;
+    if ( v7 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x4Eu, 0LL);
+      v10 = (void *)v15;
+      if ( !(_QWORD)v15 )
+        return v4;
+      v9 = v16 - v15;
+      goto LABEL_9;
+    }
+    std::vector<CContent::LayoutData>::insert<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<CContent::LayoutData>>>,void>(
+      &v13,
+      &v17,
       0LL,
+      (const void *)v15,
+      *((__int64 *)&v15 + 1));
+    if ( (_QWORD)v15 )
+      std::_Deallocate<16,0>((void *)v15, 40 * ((v16 - (__int64)v15) / 40));
+  }
+  if ( (__int128 *)a3 != &v13 )
+    std::vector<CContent::LayoutData>::_Assign_range<CContent::LayoutData *>(
+      (char **)a3,
       (const void *)v13,
       *((__int64 *)&v13 + 1));
-    if ( (_QWORD)v13 )
-      std::_Deallocate<16,0>((void *)v13, 8 * ((v14 - (__int64)v13) >> 3));
-    v4 = v15;
-    goto LABEL_6;
-  }
-  MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x4Eu, 0LL);
   if ( (_QWORD)v13 )
-    std::_Deallocate<16,0>((void *)v13, 8 * ((v14 - (__int64)v13) >> 3));
-LABEL_10:
-  if ( v4 )
-    std::_Deallocate<16,0>(v4, 8 * ((v17 - (__int64)v4) >> 3));
-  return v5;
+  {
+    v9 = v14 - v13;
+    v10 = (void *)v13;
+LABEL_9:
+    v11 = (__int64)((unsigned __int128)(v9 * (__int128)0x6666666666666667LL) >> 64) >> 4;
+    std::_Deallocate<16,0>(v10, 40 * ((v11 >> 63) + v11));
+  }
+  return v4;
 }

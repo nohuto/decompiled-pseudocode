@@ -1,16 +1,16 @@
 /*
- * XREFs of GrayExpandDIB_CY_ExpCX @ 0x1C0261B60
+ * XREFs of GrayExpandDIB_CY_ExpCX @ 0x1C026A330
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     GetFixupScan @ 0x1C0158C70 (GetFixupScan.c)
- *     AlphaBlendBGRF @ 0x1C025DB34 (AlphaBlendBGRF.c)
- *     GrayExpYDIB_ExpCX @ 0x1C0261094 (GrayExpYDIB_ExpCX.c)
- *     GraySharpenInput @ 0x1C0262570 (GraySharpenInput.c)
- *     MappingBGRF @ 0x1C0262D64 (MappingBGRF.c)
+ *     GetFixupScan @ 0x1C00C7690 (GetFixupScan.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     AlphaBlendBGRF @ 0x1C0266540 (AlphaBlendBGRF.c)
+ *     GrayExpYDIB_ExpCX @ 0x1C0269824 (GrayExpYDIB_ExpCX.c)
+ *     GraySharpenInput @ 0x1C026AD40 (GraySharpenInput.c)
+ *     MappingBGRF @ 0x1C026B6C4 (MappingBGRF.c)
  */
 
 __int64 __fastcall GrayExpandDIB_CY_ExpCX(__int64 a1)
@@ -30,116 +30,109 @@ __int64 __fastcall GrayExpandDIB_CY_ExpCX(__int64 a1)
   __int128 v13; // xmm1
   __int128 v14; // xmm0
   __int64 v15; // rax
-  size_t v16; // r12
-  __int64 v17; // r14
-  unsigned __int16 v18; // di
+  int v16; // r13d
+  __int64 v17; // r15
+  size_t v18; // r12
   unsigned __int64 v19; // rsi
-  char *v20; // r13
-  char *v21; // rbx
+  char *v20; // rbx
+  char *v21; // r14
   unsigned int v22; // ebx
   int v23; // eax
   int v24; // ebx
-  int v25; // r15d
-  __int64 v26; // rax
-  char *v27; // rdi
-  char *v28; // rsi
-  char v29; // r14
-  _BYTE *v30; // r13
-  int v31; // eax
-  __int64 *v32; // rcx
-  int v33; // eax
-  unsigned __int16 v34; // bx
-  char *v35; // rdx
-  int v36; // edi
+  int v25; // r14d
+  int v26; // r15d
+  void *v27; // rdi
+  const void *v28; // rcx
+  _BYTE *v29; // r13
+  int v30; // eax
+  __int64 *v31; // rcx
+  int v32; // eax
+  unsigned __int16 v33; // di
+  int v34; // r14d
+  void *v35; // rdx
+  int v36; // ebx
   _BYTE *v37; // r8
   unsigned __int64 v38; // r11
-  __int64 v39; // rdx
-  _WORD *v40; // r9
-  int v41; // edi
-  int v42; // ecx
-  int v43; // r14d
-  unsigned __int8 *v44; // r10
+  _WORD *v39; // r9
+  int v40; // ebx
+  __int64 v41; // rdx
+  int v42; // r14d
+  unsigned __int8 *v43; // r10
+  int v44; // ecx
   unsigned __int8 *v45; // r8
-  int v46; // r13d
-  int *v47; // r11
-  int v48; // ebx
-  __int64 v49; // r10
-  unsigned __int64 v50; // r11
-  unsigned __int64 v51; // rbx
-  int v52; // edx
-  __int64 v53; // rax
-  int *v54; // r11
-  int v55; // ebx
-  __int64 v56; // r10
-  unsigned __int64 v57; // r11
-  __int64 v58; // rcx
-  int v59; // edx
+  _DWORD *v46; // r11
+  __int64 v47; // r10
+  unsigned __int64 v48; // r11
+  unsigned __int64 v49; // rbx
+  int v50; // edx
+  __int64 v51; // rax
+  _DWORD *v52; // r11
+  __int64 v53; // r10
+  unsigned __int64 v54; // r11
+  __int64 v55; // rcx
+  int v56; // edx
+  __int64 v57; // rax
+  int *v58; // r11
+  __int64 v59; // r10
   __int64 v60; // rax
-  int *v61; // r11
-  int v62; // ebx
-  __int64 v63; // r10
+  __int64 v61; // rcx
+  __int64 v62; // rax
+  __int16 v63; // ax
   __int64 v64; // rax
   __int64 v65; // rcx
-  int v66; // eax
-  __int64 v67; // rax
-  __int16 v68; // ax
-  __int64 v69; // rax
-  __int64 v70; // rcx
-  __int64 v72; // [rsp+28h] [rbp-E0h]
-  char v73; // [rsp+58h] [rbp-B0h]
-  char *v74; // [rsp+60h] [rbp-A8h]
-  unsigned __int64 v75; // [rsp+68h] [rbp-A0h]
-  __int64 v76; // [rsp+68h] [rbp-A0h]
-  int v77; // [rsp+70h] [rbp-98h]
-  char *v78; // [rsp+78h] [rbp-90h]
-  char *Src; // [rsp+80h] [rbp-88h]
-  __int64 v80; // [rsp+88h] [rbp-80h]
-  __int16 v81; // [rsp+90h] [rbp-78h]
-  __int64 v82; // [rsp+90h] [rbp-78h]
-  __int64 v83; // [rsp+A0h] [rbp-68h]
-  int v84; // [rsp+A0h] [rbp-68h]
-  __int64 v85; // [rsp+A8h] [rbp-60h]
-  unsigned __int64 *v86; // [rsp+B0h] [rbp-58h]
-  unsigned __int64 v87; // [rsp+B8h] [rbp-50h]
-  __int64 *v88; // [rsp+C0h] [rbp-48h]
-  int v89[14]; // [rsp+C8h] [rbp-40h] BYREF
-  int v90; // [rsp+100h] [rbp-8h]
-  __int64 v91; // [rsp+150h] [rbp+48h]
-  int v92; // [rsp+158h] [rbp+50h]
-  unsigned int v93; // [rsp+15Ch] [rbp+54h]
-  int v94; // [rsp+164h] [rbp+5Ch]
-  void (__fastcall *v95)(int *, __int64, unsigned __int8 *); // [rsp+188h] [rbp+80h]
-  void (__fastcall *v96)(int *, __int64, __int64, __int64, __int64, __int64, __int64, int, __int64); // [rsp+1D8h] [rbp+D0h]
-  __int64 v97; // [rsp+1E0h] [rbp+D8h]
-  __int64 v98; // [rsp+1F8h] [rbp+F0h]
-  __int64 v99; // [rsp+200h] [rbp+F8h]
-  __int64 v100; // [rsp+248h] [rbp+140h]
-  __int64 v101; // [rsp+250h] [rbp+148h]
-  __int64 v102; // [rsp+260h] [rbp+158h]
-  __int64 v103; // [rsp+268h] [rbp+160h]
-  __int64 v104; // [rsp+270h] [rbp+168h]
-  int v105; // [rsp+278h] [rbp+170h]
-  int v106; // [rsp+27Ch] [rbp+174h]
-  int v107; // [rsp+280h] [rbp+178h]
-  __int64 v108; // [rsp+288h] [rbp+180h]
-  __int64 v109; // [rsp+290h] [rbp+188h]
-  __int64 v110; // [rsp+298h] [rbp+190h]
-  int v111; // [rsp+2A0h] [rbp+198h]
-  __int64 v112; // [rsp+2E0h] [rbp+1D8h]
-  __int64 v113; // [rsp+2E8h] [rbp+1E0h]
-  __int64 v114; // [rsp+2F0h] [rbp+1E8h]
-  __int64 v115; // [rsp+2F8h] [rbp+1F0h]
-  __int64 v116; // [rsp+300h] [rbp+1F8h]
-  _WORD *v117; // [rsp+308h] [rbp+200h]
-  _WORD *v118; // [rsp+310h] [rbp+208h]
-  int v119; // [rsp+318h] [rbp+210h]
-  unsigned __int64 v120; // [rsp+328h] [rbp+220h]
-  __int64 v121; // [rsp+330h] [rbp+228h]
-  __int64 v122; // [rsp+338h] [rbp+230h]
-  __int64 v123; // [rsp+340h] [rbp+238h]
+  __int64 v67; // [rsp+28h] [rbp-E0h]
+  int v68; // [rsp+58h] [rbp-B0h]
+  __int64 v69; // [rsp+60h] [rbp-A8h]
+  int v70; // [rsp+68h] [rbp-A0h]
+  void *v71; // [rsp+70h] [rbp-98h]
+  void *v72; // [rsp+78h] [rbp-90h]
+  void *Src; // [rsp+80h] [rbp-88h]
+  __int64 v74; // [rsp+88h] [rbp-80h]
+  int v75; // [rsp+90h] [rbp-78h]
+  __int64 v76; // [rsp+98h] [rbp-70h]
+  int v77; // [rsp+A0h] [rbp-68h]
+  __int64 v78; // [rsp+A8h] [rbp-60h]
+  unsigned __int64 *v79; // [rsp+B0h] [rbp-58h]
+  __int16 v80; // [rsp+B8h] [rbp-50h]
+  __int64 *v81; // [rsp+C8h] [rbp-40h]
+  int v82[14]; // [rsp+D8h] [rbp-30h] BYREF
+  int v83; // [rsp+110h] [rbp+8h]
+  __int64 v84; // [rsp+160h] [rbp+58h]
+  int v85; // [rsp+168h] [rbp+60h]
+  unsigned int v86; // [rsp+16Ch] [rbp+64h]
+  int v87; // [rsp+174h] [rbp+6Ch]
+  void (__fastcall *v88)(int *, __int64, unsigned __int8 *); // [rsp+198h] [rbp+90h]
+  void (__fastcall *v89)(int *, __int64, __int64, __int64, __int64, __int64, __int64, int, __int64); // [rsp+1E8h] [rbp+E0h]
+  __int64 v90; // [rsp+1F0h] [rbp+E8h]
+  __int64 v91; // [rsp+208h] [rbp+100h]
+  __int64 v92; // [rsp+210h] [rbp+108h]
+  __int64 v93; // [rsp+258h] [rbp+150h]
+  __int64 v94; // [rsp+260h] [rbp+158h]
+  __int64 v95; // [rsp+270h] [rbp+168h]
+  __int64 v96; // [rsp+278h] [rbp+170h]
+  __int64 v97; // [rsp+280h] [rbp+178h]
+  int v98; // [rsp+288h] [rbp+180h]
+  int v99; // [rsp+28Ch] [rbp+184h]
+  int v100; // [rsp+290h] [rbp+188h]
+  __int64 v101; // [rsp+298h] [rbp+190h]
+  __int64 v102; // [rsp+2A0h] [rbp+198h]
+  __int64 v103; // [rsp+2A8h] [rbp+1A0h]
+  int v104; // [rsp+2B0h] [rbp+1A8h]
+  __int64 v105; // [rsp+2F0h] [rbp+1E8h]
+  __int64 v106; // [rsp+2F8h] [rbp+1F0h]
+  __int64 v107; // [rsp+300h] [rbp+1F8h]
+  __int64 v108; // [rsp+308h] [rbp+200h]
+  __int64 v109; // [rsp+310h] [rbp+208h]
+  _WORD *v110; // [rsp+318h] [rbp+210h]
+  _WORD *v111; // [rsp+320h] [rbp+218h]
+  int v112; // [rsp+328h] [rbp+220h]
+  unsigned __int64 v113; // [rsp+338h] [rbp+230h]
+  __int64 v114; // [rsp+340h] [rbp+238h]
+  __int64 v115; // [rsp+348h] [rbp+240h]
+  __int64 v116; // [rsp+350h] [rbp+248h]
 
   v1 = 4LL;
-  v2 = v89;
+  v2 = v82;
   v3 = (_OWORD *)a1;
   do
   {
@@ -176,229 +169,225 @@ __int64 __fastcall GrayExpandDIB_CY_ExpCX(__int64 a1)
   *((_QWORD *)v2 + 10) = v15;
   if ( *(_QWORD *)(a1 + 536) )
   {
-    v16 = v90;
-    v17 = v99;
-    v73 = -1;
-    v85 = v92;
-    v18 = *(_WORD *)(v98 + 8) & 1;
-    v19 = *(_QWORD *)(v99 + 32);
-    v86 = *(unsigned __int64 **)(v98 + 40);
-    v81 = *(_WORD *)(v98 + 12);
-    v83 = v99;
-    v75 = v19;
-    v87 = v19 + 1024;
-    v120 = v19 + 4096;
-    v121 = v92 + v19 + 4096;
-    v77 = v90;
-    v122 = v121 + v92;
-    v123 = v122 + v92;
-    v20 = (char *)(v92 + 3LL + v123 + v90 + 6LL);
-    v74 = (char *)(v92 + 3LL + v123);
-    v21 = &v20[v90 + 6];
-    v78 = v20;
-    LODWORD(v80) = v112 + 3;
+    v16 = -1;
+    v17 = v92;
+    v18 = v83;
+    v78 = v85;
+    v19 = *(_QWORD *)(v92 + 32);
+    v80 = *(_WORD *)(v91 + 12);
+    v75 = *(_WORD *)(v91 + 8) & 1;
+    v79 = *(unsigned __int64 **)(v91 + 40);
+    v113 = v19 + 4096;
+    v114 = v85 + v19 + 4096;
+    v76 = v92;
+    v70 = v83;
+    v115 = v114 + v85;
+    v116 = v115 + v85;
+    v68 = -1;
+    v20 = (char *)(v85 + 3LL + v116 + v83 + 6LL);
+    v71 = (void *)(v85 + 3LL + v116);
+    v21 = &v20[v83 + 6];
+    v72 = v20;
+    LODWORD(v74) = v105 + 3;
     Src = v21;
-    GetFixupScan((__int64)v89, v20);
+    GetFixupScan((__int64)v82, v20);
     if ( (*(_BYTE *)(v17 + 8) & 1) != 0 )
-      GetFixupScan((__int64)v89, v21);
+      GetFixupScan((__int64)v82, v21);
     else
-      memmove(v21, v20, v16);
+      memmove(v21, v20, v18);
     v22 = *(unsigned __int16 *)(v17 + 12);
     v23 = v22 & 0xF;
     v24 = v22 >> 4;
     v25 = v23 + v24;
-    v26 = v18;
-    v27 = v74;
-    v82 = v26 + (v81 & 0xF);
-    if ( v25 )
+    if ( v23 + v24 )
     {
-      v28 = v20;
-      v29 = -1;
+      v26 = -1;
+      v27 = v71;
       do
       {
-        ++v29;
-        v74 = v28;
+        ++v26;
         v28 = Src;
-        Src = v27;
         --v25;
-        v30 = (_BYTE *)*(&v120 + (v29 & 3));
-        v31 = v24--;
-        if ( v31 <= 0 )
-          GetFixupScan((__int64)v89, v27);
+        v71 = v72;
+        v72 = Src;
+        Src = v27;
+        v29 = (_BYTE *)*(&v113 + (v26 & 3));
+        v30 = v24--;
+        if ( v30 <= 0 )
+          GetFixupScan((__int64)v82, v27);
         else
-          memmove(v27, v28, v16);
-        v72 = (__int64)v27;
-        v27 = v74;
-        v80 = GraySharpenInput(v89[0], v80, (int)v74, (int)v28, v72, v16);
-        GrayExpYDIB_ExpCX(v86, (unsigned __int8 *)(v80 + v82 - 1), v30, &v30[v85]);
+          memmove(v27, v28, v18);
+        v67 = (__int64)v27;
+        v27 = v71;
+        v74 = GraySharpenInput(v82[0], v74, (int)v71, (int)v72, v67, v18);
+        GrayExpYDIB_ExpCX(v79, (unsigned __int8 *)(v74 + v75 + (v80 & 0xFu) - 1LL), v29, &v29[v78]);
       }
       while ( v25 );
-      v78 = v28;
-      v20 = v28;
-      v19 = v75;
-      v73 = v29;
-      v17 = v83;
+      v68 = v26;
+      v16 = v26;
+      v17 = v76;
     }
-    v32 = *(__int64 **)(v17 + 40);
-    v33 = *(_DWORD *)(v17 + 16);
-    while ( v33 )
+    v31 = *(__int64 **)(v17 + 40);
+    v32 = *(_DWORD *)(v17 + 16);
+    while ( v32 )
     {
-      v84 = v33 - 1;
-      v76 = *v32;
-      v88 = v32 + 1;
-      v34 = *v32;
-      if ( (v34 & 0x8000u) != 0 )
+      v77 = v32 - 1;
+      v33 = *v31;
+      v69 = *v31;
+      v81 = v31 + 1;
+      if ( (v33 & 0x8000u) != 0 )
       {
-        v35 = v27;
-        v74 = v20;
+        v34 = (int)v72;
+        v35 = v71;
         v36 = (int)Src;
-        v78 = Src;
-        Src = (char *)GetFixupScan((__int64)v89, v35);
-        v80 = GraySharpenInput(v89[0], v80, (int)v20, v36, (__int64)Src, v77);
-        v37 = (_BYTE *)*(&v120 + (++v73 & 3));
-        GrayExpYDIB_ExpCX(v86, (unsigned __int8 *)(v82 - 1 + v80), v37, &v37[v85]);
-        v34 &= 0x3FFFu;
+        v71 = v72;
+        v72 = Src;
+        Src = GetFixupScan((__int64)v82, v35);
+        v74 = GraySharpenInput(v82[0], v74, v34, v36, (__int64)Src, v70);
+        v68 = v16 + 1;
+        v37 = (_BYTE *)*(&v113 + (((_BYTE)v16 + 1) & 3));
+        GrayExpYDIB_ExpCX(v79, (unsigned __int8 *)((unsigned __int16)v75 - 1LL + v74 + (v80 & 0xF)), v37, &v37[v78]);
+        v33 &= 0x3FFFu;
       }
       v38 = v19;
-      v39 = HIWORD(v76);
-      v40 = v117;
-      v41 = -WORD1(v76);
-      v42 = -WORD2(v76);
-      v43 = -v34;
-      v44 = (unsigned __int8 *)*(&v120 + (v73 & 3));
-      v45 = (unsigned __int8 *)*(&v120 + ((v73 - 1) & 3));
-      if ( v34 )
+      v39 = v110;
+      v40 = -WORD1(v69);
+      v41 = (unsigned int)-WORD2(v69);
+      v42 = -v33;
+      v43 = (unsigned __int8 *)*(&v113 + (v68 & 3));
+      v44 = 256 - HIWORD(v69);
+      v45 = (unsigned __int8 *)*(&v113 + (((_BYTE)v68 - 1) & 3));
+      if ( v33 )
       {
-        v46 = v34;
-        v47 = (int *)(v19 + 2048);
-        v48 = 256 - HIWORD(v76);
+        v46 = (_DWORD *)(v19 + 2048);
         do
         {
-          v43 += v46;
-          v41 += WORD1(v76);
-          v42 += WORD2(v76);
-          *(v47 - 512) = v43;
-          v48 += HIWORD(v76);
-          *(v47 - 256) = v41;
-          *v47 = v42;
-          v47[256] = v48;
-          ++v47;
+          v42 += v33;
+          v40 += WORD1(v69);
+          LODWORD(v41) = WORD2(v69) + (_DWORD)v41;
+          *(v46 - 512) = v42;
+          v44 += HIWORD(v69);
+          *(v46 - 256) = v40;
+          *v46 = v41;
+          v46[256] = v44;
+          ++v46;
         }
-        while ( (unsigned __int64)(v47 - 512) < v87 );
-        v49 = v44 - v45;
-        v50 = *(&v120 + ((v73 - 2) & 3)) - (_QWORD)v45;
-        v51 = *(&v120 + ((v73 + 1) & 3)) - (_QWORD)v45;
+        while ( (unsigned __int64)(v46 - 512) < v19 + 1024 );
+        v16 = v68;
+        v47 = v43 - v45;
+        v48 = *(&v113 + (((_BYTE)v68 - 2) & 3)) - (_QWORD)v45;
+        v49 = *(&v113 + (((_BYTE)v68 + 1) & 3)) - (_QWORD)v45;
         do
         {
-          v52 = *(_DWORD *)(v19 + 4LL * v45[v51])
-              + *(_DWORD *)(v19 + 4LL * v45[v50] + 1024)
-              + *(_DWORD *)(v19 + 4LL * v45[v49] + 3072);
-          v53 = *v45++;
-          v39 = (unsigned int)((*(_DWORD *)(v19 + 4 * v53 + 2048) + v52) >> 5);
-          *v40 = v39;
-          v40 = (_WORD *)((char *)v40 + v119);
+          v50 = *(_DWORD *)(v19 + 4LL * v45[v49])
+              + *(_DWORD *)(v19 + 4LL * v45[v48] + 1024)
+              + *(_DWORD *)(v19 + 4LL * v45[v47] + 3072);
+          v51 = *v45++;
+          v41 = (unsigned int)((*(_DWORD *)(v19 + 4 * v51 + 2048) + v50) >> 5);
+          *v39 = v41;
+          v39 = (_WORD *)((char *)v39 + v112);
         }
-        while ( v40 != v118 );
+        while ( v39 != v111 );
       }
-      else if ( WORD1(v76) )
+      else if ( WORD1(v69) )
       {
-        v54 = (int *)(v19 + 2048);
-        v55 = 256 - HIWORD(v76);
+        v52 = (_DWORD *)(v19 + 2048);
         do
         {
-          v41 += WORD1(v76);
-          v42 += WORD2(v76);
-          v55 += HIWORD(v76);
-          *(v54 - 256) = v41;
-          *v54 = v42;
-          v54[256] = v55;
-          ++v54;
+          v40 += WORD1(v69);
+          LODWORD(v41) = WORD2(v69) + (_DWORD)v41;
+          v44 += HIWORD(v69);
+          *(v52 - 256) = v40;
+          *v52 = v41;
+          v52[256] = v44;
+          ++v52;
         }
-        while ( (unsigned __int64)(v54 - 512) < v19 + 1024 );
-        v56 = v44 - v45;
-        v57 = *(&v120 + ((v73 - 2) & 3)) - (_QWORD)v45;
+        while ( (unsigned __int64)(v52 - 512) < v19 + 1024 );
+        v16 = v68;
+        v53 = v43 - v45;
+        v54 = *(&v113 + (((_BYTE)v68 - 2) & 3)) - (_QWORD)v45;
         do
         {
-          v58 = v45[v57];
-          v59 = *(_DWORD *)(v19 + 4LL * v45[v56] + 3072);
-          v60 = *v45++;
-          v39 = (unsigned int)((*(_DWORD *)(v19 + 4 * v60 + 2048) + *(_DWORD *)(v19 + 4 * v58 + 1024) + v59) >> 5);
-          *v40 = v39;
-          v40 = (_WORD *)((char *)v40 + v119);
+          v55 = v45[v54];
+          v56 = *(_DWORD *)(v19 + 4LL * v45[v53] + 3072);
+          v57 = *v45++;
+          v41 = (unsigned int)((*(_DWORD *)(v19 + 4 * v57 + 2048) + *(_DWORD *)(v19 + 4 * v55 + 1024) + v56) >> 5);
+          *v39 = v41;
+          v39 = (_WORD *)((char *)v39 + v112);
         }
-        while ( v40 != v118 );
-      }
-      else if ( WORD2(v76) )
-      {
-        v61 = (int *)(v19 + 3072);
-        v62 = 256 - HIWORD(v76);
-        do
-        {
-          v42 += WORD2(v76);
-          v62 += HIWORD(v76);
-          *(v61 - 256) = v42;
-          *v61++ = v62;
-        }
-        while ( (unsigned __int64)(v61 - 768) < v19 + 1024 );
-        v63 = v44 - v45;
-        do
-        {
-          v64 = v45[v63];
-          v65 = *v45++;
-          v39 = (unsigned int)((*(_DWORD *)(v19 + 4 * v65 + 2048) + *(_DWORD *)(v19 + 4 * v64 + 3072)) >> 5);
-          *v40 = v39;
-          v40 = (_WORD *)((char *)v40 + v119);
-        }
-        while ( v40 != v118 );
+        while ( v39 != v111 );
       }
       else
       {
-        v66 = 256 - HIWORD(v76);
-        do
+        if ( WORD2(v69) )
         {
-          v66 += HIWORD(v76);
-          *(_DWORD *)(v38 + 3072) = v66;
-          v38 += 4LL;
+          v58 = (int *)(v19 + 3072);
+          do
+          {
+            LODWORD(v41) = WORD2(v69) + (_DWORD)v41;
+            v44 += HIWORD(v69);
+            *(v58 - 256) = v41;
+            *v58++ = v44;
+          }
+          while ( (unsigned __int64)(v58 - 768) < v19 + 1024 );
+          v59 = v43 - v45;
+          do
+          {
+            v60 = v45[v59];
+            v61 = *v45++;
+            v41 = (unsigned int)((*(_DWORD *)(v19 + 4 * v61 + 2048) + *(_DWORD *)(v19 + 4 * v60 + 3072)) >> 5);
+            *v39 = v41;
+            v39 = (_WORD *)((char *)v39 + v112);
+          }
+          while ( v39 != v111 );
         }
-        while ( v38 < v19 + 1024 );
-        do
+        else
         {
-          v67 = *v44++;
-          *v40 = *(int *)(v19 + 4 * v67 + 3072) >> 5;
-          v40 = (_WORD *)((char *)v40 + v119);
+          do
+          {
+            v44 += HIWORD(v69);
+            *(_DWORD *)(v38 + 3072) = v44;
+            v38 += 4LL;
+          }
+          while ( v38 < v19 + 1024 );
+          do
+          {
+            v62 = *v43++;
+            *v39 = *(int *)(v19 + 4 * v62 + 3072) >> 5;
+            v39 = (_WORD *)((char *)v39 + v112);
+          }
+          while ( v39 != v111 );
         }
-        while ( v40 != v118 );
+        v16 = v68;
       }
-      v68 = v89[0];
-      if ( SLOBYTE(v89[0]) < 0 )
+      v63 = v82[0];
+      if ( SLOBYTE(v82[0]) < 0 )
       {
-        v95(v89, v39, v45);
-        v68 = v89[0];
+        v88(v82, v41, v45);
+        v63 = v82[0];
       }
-      if ( (v68 & 0x800) != 0 )
+      if ( (v63 & 0x800) != 0 )
       {
-        AlphaBlendBGRF(v89);
-        LOBYTE(v68) = v89[0];
+        AlphaBlendBGRF(v82);
+        LOBYTE(v63) = v82[0];
       }
-      if ( (v68 & 0x10) != 0 )
+      if ( (v63 & 0x10) != 0 )
       {
-        MappingBGRF(v113, v114, v101, v108);
-        v69 = v111 + v108;
-        if ( v69 == v109 )
-          v69 = v110;
-        v108 = v69;
+        MappingBGRF(v106, v107, v94, v101);
+        v64 = v104 + v101;
+        if ( v64 == v102 )
+          v64 = v103;
+        v101 = v64;
       }
-      v96(v89, v115, v116, v91, v100, v102, v102 + v106, v107, v97);
-      v20 = v78;
-      v70 = v105 + v102;
-      if ( v70 == v103 )
-        v70 = v104;
-      v91 += v94;
-      v33 = v84;
-      v27 = v74;
-      v102 = v70;
-      v32 = v88;
+      v89(v82, v108, v109, v84, v93, v95, v95 + v99, v100, v90);
+      v65 = v98 + v95;
+      if ( v65 == v96 )
+        v65 = v97;
+      v84 += v87;
+      v32 = v77;
+      v95 = v65;
+      v31 = v81;
     }
   }
-  return v93;
+  return v86;
 }

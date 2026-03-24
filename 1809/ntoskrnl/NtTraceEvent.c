@@ -1,5 +1,5 @@
 /*
- * XREFs of NtTraceEvent @ 0x1400CB490
+ * XREFs of NtTraceEvent @ 0x1400CB4B0
  * Callers:
  *     <none>
  * Callees:
@@ -7,24 +7,24 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeEnterCriticalRegion @ 0x1400B9BE0 (KeEnterCriticalRegion.c)
- *     EtwpGetEventHeaderType @ 0x1400CC1C0 (EtwpGetEventHeaderType.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpTraceMessageVa @ 0x140113220 (EtwpTraceMessageVa.c)
- *     EtwpOpenLogger @ 0x140113790 (EtwpOpenLogger.c)
- *     EtwpCloseLogger @ 0x14011383C (EtwpCloseLogger.c)
- *     EtwpLogSystemEventUnsafe @ 0x14017C6D8 (EtwpLogSystemEventUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     EtwTraceEvent @ 0x14030E6DC (EtwTraceEvent.c)
- *     EtwTraceRaw @ 0x14030EB10 (EtwTraceRaw.c)
+ *     KeEnterCriticalRegion @ 0x1400B9C00 (KeEnterCriticalRegion.c)
+ *     EtwpGetEventHeaderType @ 0x1400CC1E0 (EtwpGetEventHeaderType.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpTraceMessageVa @ 0x140113240 (EtwpTraceMessageVa.c)
+ *     EtwpOpenLogger @ 0x1401137B0 (EtwpOpenLogger.c)
+ *     EtwpCloseLogger @ 0x14011385C (EtwpCloseLogger.c)
+ *     EtwpLogSystemEventUnsafe @ 0x14017C6F8 (EtwpLogSystemEventUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwTraceEvent @ 0x14030E7DC (EtwTraceEvent.c)
+ *     EtwTraceRaw @ 0x14030EC10 (EtwTraceRaw.c)
  *     EtwpUpdateEnableMask @ 0x1405C209C (EtwpUpdateEnableMask.c)
  *     EtwpUnreferenceGuidEntry @ 0x1405C4098 (EtwpUnreferenceGuidEntry.c)
  *     EtwpFindGuidEntryByGuid @ 0x1405C4190 (EtwpFindGuidEntryByGuid.c)
  *     EtwpAccessCheck @ 0x1405C5280 (EtwpAccessCheck.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     EtwpWriteUserEvent @ 0x1406473F0 (EtwpWriteUserEvent.c)
- *     EtwpSetMark @ 0x1408B89AC (EtwpSetMark.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     EtwpWriteUserEvent @ 0x1406473D0 (EtwpWriteUserEvent.c)
+ *     EtwpSetMark @ 0x1408B898C (EtwpSetMark.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

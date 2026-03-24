@@ -1,5 +1,5 @@
 /*
- * XREFs of KeGetPcr @ 0x1403BF900
+ * XREFs of KeGetPcr @ 0x1403AD930
  * Callers:
  *     <none>
  * Callees:

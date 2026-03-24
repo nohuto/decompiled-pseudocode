@@ -1,28 +1,31 @@
 /*
- * XREFs of ??1CHMRefHwndByHandle@@QEAA@XZ @ 0x1C0089240
+ * XREFs of ??1CHMRefHwndByHandle@@QEAA@XZ @ 0x1C002CE00
  * Callers:
  *     <none>
  * Callees:
- *     HMUnlockObject @ 0x1C0038FB0 (HMUnlockObject.c)
- *     HMUnlockObjectInternal @ 0x1C0039070 (HMUnlockObjectInternal.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C00300B0 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     HMUnlockObjectInternal @ 0x1C0045640 (HMUnlockObjectInternal.c)
+ *     HMUnlockObjectWorker @ 0x1C0045770 (HMUnlockObjectWorker.c)
  */
 
 void __fastcall CHMRefHwndByHandle::~CHMRefHwndByHandle(CHMRefHwndByHandle *this)
 {
-  __int64 v2; // rcx
-  __int64 v3; // rcx
+  __int64 v1; // rdi
+  __int64 v3; // rdi
 
-  v2 = *(_QWORD *)this;
-  if ( v2 )
+  v1 = *(_QWORD *)this;
+  if ( *(_QWORD *)this )
   {
-    HMUnlockObject(v2);
+    GetDomainLockRef(14LL);
+    HMUnlockObjectWorker(v1);
     *(_QWORD *)this = 0LL;
   }
   v3 = *((_QWORD *)this + 1);
   if ( v3 )
   {
+    GetDomainLockRef(14LL);
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v3 + 8), 0xFFFFFFFF) == 1 )
-      HMUnlockObjectInternal((_DWORD *)v3);
+      HMUnlockObjectInternal(v3);
     *((_QWORD *)this + 1) = 0LL;
   }
 }

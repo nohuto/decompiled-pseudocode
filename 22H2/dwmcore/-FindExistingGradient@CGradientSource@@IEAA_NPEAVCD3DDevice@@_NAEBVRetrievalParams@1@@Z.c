@@ -1,13 +1,15 @@
 /*
- * XREFs of ?FindExistingGradient@CGradientSource@@IEAA_NPEAVCD3DDevice@@_NAEBVRetrievalParams@1@@Z @ 0x1800B6F60
+ * XREFs of ?FindExistingGradient@CGradientSource@@IEAA_NPEAVCD3DDevice@@_NAEBVRetrievalParams@1@@Z @ 0x180209B28
  * Callers:
- *     ?GetCurrentSurface@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAVIBitmapResource@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800B6B7C (-GetCurrentSurface@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAVIBitmapResource@@PEAV-$TMilR.c)
- *     ?GetD2DBrush@CLinearGradientBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@PEAPEAUID2D1Brush@@@Z @ 0x1800B6D40 (-GetD2DBrush@CLinearGradientBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@PEAPEAUID2D1Brush@@.c)
- *     ?GetCurrentD2DRadialGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1RadialGradientBrush@@@Z @ 0x18024D634 (-GetCurrentD2DRadialGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1RadialGr.c)
+ *     ?GetCurrentD2DLinearGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1LinearGradientBrush@@@Z @ 0x1801E6BBC (-GetCurrentD2DLinearGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1LinearGr.c)
+ *     ?GetCurrentD2DRadialGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1RadialGradientBrush@@@Z @ 0x1801E6C88 (-GetCurrentD2DRadialGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1RadialGr.c)
+ *     ?GetCurrentSurface@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAVIBitmapResource@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801E6D54 (-GetCurrentSurface@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAVIBitmapResource@@PEAV-$TMilR.c)
  * Callees:
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E9DB4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?clear_region@?$vector_facade@V?$com_ptr_t@VCD2DBrush@@Uerr_returncode_policy@wil@@@wil@@V?$buffer_impl@V?$com_ptr_t@VCD2DBrush@@Uerr_returncode_policy@wil@@@wil@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800F127C (-clear_region@-$vector_facade@V-$com_ptr_t@VCD2DBrush@@Uerr_returncode_policy@wil@@@wil@@V-$buff.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??E?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBIV?$ComPtr@UICompObjectDiagnosticsRootProxy@@@WRL@Microsoft@@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ @ 0x1801657E0 (--E-$_Tree_unchecked_const_iterator@V-$_Tree_val@U-$_Tree_simple_types@U-$pair@$$CBIV-$ComPtr@UI.c)
+ *     ?find@?$_Tree@V?$_Tset_traits@PEAVCInteractionTracker@@U?$less@PEAVCInteractionTracker@@@std@@V?$allocator@PEAVCInteractionTracker@@@3@$0A@@std@@@std@@QEAA?AV?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@PEAVCInteractionTracker@@@std@@@std@@@2@AEBQEAVCInteractionTracker@@@Z @ 0x18018A2CC (-find@-$_Tree@V-$_Tset_traits@PEAVCInteractionTracker@@U-$less@PEAVCInteractionTracker@@@std@@V-.c)
+ *     ??$emplace@AEAPEAVCD3DDevice@@UCache@CGradientSource@@@?$_Tree@V?$_Tmap_traits@PEBVCD3DDevice@@UCache@CGradientSource@@U?$less@PEBVCD3DDevice@@@std@@V?$allocator@U?$pair@QEBVCD3DDevice@@UCache@CGradientSource@@@std@@@5@$0A@@std@@@std@@QEAA?AU?$pair@V?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEBVCD3DDevice@@UCache@CGradientSource@@@std@@@std@@@std@@@std@@_N@1@AEAPEAVCD3DDevice@@$$QEAUCache@CGradientSource@@@Z @ 0x180209A0C (--$emplace@AEAPEAVCD3DDevice@@UCache@CGradientSource@@@-$_Tree@V-$_Tmap_traits@PEBVCD3DDevice@@U.c)
  */
 
 char __fastcall CGradientSource::FindExistingGradient(
@@ -16,50 +18,70 @@ char __fastcall CGradientSource::FindExistingGradient(
         char a3,
         const struct CGradientSource::RetrievalParams *a4)
 {
-  char v7; // bp
-  __int64 v8; // rbx
-  __int64 v9; // rdi
-  __int64 v10; // rcx
-  __int64 v11; // rbx
-  __int64 v13; // rdx
-  char *v14; // rcx
+  char v7; // si
+  __int64 *v8; // rdi
+  __int64 v9; // rbx
+  __int64 v10; // rax
+  __int64 *v11; // r11
+  __int64 *v12; // rdi
+  _BYTE *v13; // rbx
+  _QWORD *v14; // rax
   __int64 v15; // rbx
-  __int64 v16; // r15
-  __int64 v17; // rcx
-  __int64 v18; // rcx
+  __int64 *v16; // rax
+  __int128 v18; // [rsp+20h] [rbp-20h] BYREF
+  __int64 *v19; // [rsp+30h] [rbp-10h] BYREF
+  struct CD3DDevice *v20; // [rsp+80h] [rbp+40h] BYREF
+  struct CD3DDevice *v21; // [rsp+88h] [rbp+48h] BYREF
+  __int64 *v22; // [rsp+98h] [rbp+58h] BYREF
 
+  v21 = a2;
   v7 = 1;
   if ( a3 )
   {
-    v14 = (char *)this + 16;
-    if ( *(_QWORD *)v14 )
+    v8 = (__int64 *)*((_QWORD *)this + 1);
+    v9 = *v8;
+    v20 = (struct CD3DDevice *)*v8;
+    while ( (__int64 *)v9 != v8 )
     {
-      *(_QWORD *)(*(_QWORD *)v14 + 48LL) = 0LL;
-      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(v14);
+      v10 = *(_QWORD *)(v9 + 40);
+      if ( v10 )
+      {
+        *(_QWORD *)(v10 + 56) = 0LL;
+        Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)(v9 + 40));
+      }
+      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)(v9 + 48));
+      std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned int const,Microsoft::WRL::ComPtr<ICompObjectDiagnosticsRootProxy>>>>,std::_Iterator_base0>::operator++((__int64 *)&v20);
+      v9 = (__int64)v20;
     }
-    v15 = *((_QWORD *)this + 3);
-    v16 = *((_QWORD *)this + 4);
-    while ( v15 != v16 )
-    {
-      v18 = *(_QWORD *)v15 + 16LL + *(int *)(*(_QWORD *)(*(_QWORD *)v15 + 16LL) + 8LL);
-      (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v18 + 48LL))(
-        v18,
-        ((unsigned __int64)this + 8) & ((unsigned __int128)-(__int128)(unsigned __int64)this >> 64));
-      v15 += 8LL;
-    }
-    if ( (__int64)(*((_QWORD *)this + 4) - *((_QWORD *)this + 3)) >> 3 )
-      detail::vector_facade<wil::com_ptr_t<CD2DBrush,wil::err_returncode_policy>,detail::buffer_impl<wil::com_ptr_t<CD2DBrush,wil::err_returncode_policy>,2,1,detail::liberal_expansion_policy>>::clear_region(
-        (char *)this + 24,
-        0LL);
+  }
+  v20 = a2;
+  std::_Tree<std::_Tset_traits<CInteractionTracker *,std::less<CInteractionTracker *>,std::allocator<CInteractionTracker *>,0>>::find(
+    (__int64 **)this + 1,
+    &v22,
+    &v20);
+  v12 = v22;
+  if ( v22 == (__int64 *)*v11 )
+  {
+    v18 = 0LL;
+    std::_Tree<std::_Tmap_traits<CD3DDevice const *,CGradientSource::Cache,std::less<CD3DDevice const *>,std::allocator<std::pair<CD3DDevice const * const,CGradientSource::Cache>>,0>>::emplace<CD3DDevice * &,CGradientSource::Cache>(
+      v11,
+      (__int64)&v19,
+      &v21,
+      &v18);
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v18 + 1);
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v18);
+    v12 = v19;
   }
   if ( *(_QWORD *)a4 )
   {
-    v13 = *((_QWORD *)this + 2);
-    if ( v13 )
+    v13 = (_BYTE *)v12[5];
+    if ( v13 && v13[73] )
     {
-      v17 = v13 + 8 + *(int *)(*(_QWORD *)(v13 + 8) + 4LL);
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v17 + 8LL))(v17);
-      **(_QWORD **)a4 = *((_QWORD *)this + 2);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v13 + 8LL))(v12[5]);
+      v14 = *(_QWORD **)a4;
+      v21 = 0LL;
+      *v14 = v13;
+      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v21);
     }
     else
     {
@@ -68,21 +90,19 @@ char __fastcall CGradientSource::FindExistingGradient(
   }
   if ( *((_QWORD *)a4 + 1) )
   {
-    v8 = *((_QWORD *)this + 3);
-    v9 = *((_QWORD *)this + 4);
-    while ( v8 != v9 )
+    v15 = v12[6];
+    if ( v15 )
     {
-      v10 = *(_QWORD *)v8 + 16LL + *(int *)(*(_QWORD *)(*(_QWORD *)v8 + 16LL) + 8LL);
-      if ( (struct CD3DDevice *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v10 + 8LL))(v10) == a2 )
-      {
-        v11 = *(_QWORD *)(*(_QWORD *)v8 + 80LL);
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 8LL))(v11);
-        **((_QWORD **)a4 + 1) = v11;
-        return v7;
-      }
-      v8 += 8LL;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v15 + 8LL))(v12[6]);
+      v16 = (__int64 *)*((_QWORD *)a4 + 1);
+      v21 = 0LL;
+      *v16 = v15;
+      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v21);
     }
-    return 0;
+    else
+    {
+      return 0;
+    }
   }
   return v7;
 }

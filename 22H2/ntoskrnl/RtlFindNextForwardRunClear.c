@@ -1,93 +1,81 @@
 /*
- * XREFs of RtlFindNextForwardRunClear @ 0x140293710
+ * XREFs of RtlFindNextForwardRunClear @ 0x140330B80
  * Callers:
- *     MiFindDriverNonPagedSections @ 0x140705D68 (MiFindDriverNonPagedSections.c)
- *     HvpGenerateLogMetadata @ 0x140707130 (HvpGenerateLogMetadata.c)
- *     HvpCountSetRangesInVector @ 0x1407071F4 (HvpCountSetRangesInVector.c)
- *     HalpIrtAllocateIndex @ 0x140820818 (HalpIrtAllocateIndex.c)
- *     MiPrepareToHotPatchImage @ 0x140A3A978 (MiPrepareToHotPatchImage.c)
- *     PnprMirrorMarkedPages @ 0x140A9D1EC (PnprMirrorMarkedPages.c)
- *     PopGetRemainingHibernateRangeDataSize @ 0x140AA2E7C (PopGetRemainingHibernateRangeDataSize.c)
- *     ViThunkSnapSharedExports @ 0x140ABE0E4 (ViThunkSnapSharedExports.c)
+ *     HvpCountSetRangesInVector @ 0x1406BF180 (HvpCountSetRangesInVector.c)
+ *     HvpGenerateLogMetadata @ 0x1406BF274 (HvpGenerateLogMetadata.c)
+ *     MiFindDriverNonPagedSections @ 0x14075C274 (MiFindDriverNonPagedSections.c)
+ *     HalpIrtAllocateIndex @ 0x1408659D4 (HalpIrtAllocateIndex.c)
+ *     MiPrepareToHotPatchImage @ 0x1408CD688 (MiPrepareToHotPatchImage.c)
+ *     PnprMirrorMarkedPages @ 0x1409AE16C (PnprMirrorMarkedPages.c)
+ *     PopGetRemainingHibernateRangeDataSize @ 0x1409B13D4 (PopGetRemainingHibernateRangeDataSize.c)
+ *     ViThunkSnapSharedExports @ 0x1409C22AC (ViThunkSnapSharedExports.c)
  * Callees:
  *     <none>
  */
 
 ULONG __stdcall RtlFindNextForwardRunClear(PRTL_BITMAP BitMapHeader, ULONG FromIndex, PULONG StartingRunIndex)
 {
-  unsigned int SizeOfBitMap; // edi
-  ULONG v4; // r10d
-  unsigned int *Buffer; // rsi
-  unsigned __int64 v7; // rax
-  unsigned int v8; // r8d
-  unsigned int *v9; // rax
-  unsigned __int64 v10; // r9
-  unsigned __int64 v11; // rcx
-  int v12; // r8d
-  unsigned int v13; // r8d
-  __int64 v14; // rdx
-  ULONG v15; // ebx
-  unsigned int v16; // r8d
-  __int64 v17; // rcx
-  unsigned int v18; // r10d
-  unsigned int v19; // ecx
+  unsigned int SizeOfBitMap; // r10d
+  ULONG v5; // r9d
+  unsigned int *Buffer; // rdx
+  unsigned int *v8; // rbx
+  unsigned int *v9; // r8
+  ULONG v10; // edx
+  int v11; // edi
+  unsigned int v12; // ecx
+  unsigned int i; // eax
+  unsigned int *v16; // r8
 
   SizeOfBitMap = BitMapHeader->SizeOfBitMap;
-  v4 = 0;
+  v5 = FromIndex;
   if ( BitMapHeader->SizeOfBitMap <= FromIndex )
   {
     *StartingRunIndex = FromIndex;
+    return 0;
   }
-  else
+  Buffer = BitMapHeader->Buffer;
+  v8 = &Buffer[(unsigned __int64)(SizeOfBitMap - 1) >> 5];
+  v9 = &Buffer[(unsigned __int64)v5 >> 5];
+  if ( v9 != v8 && (*v9 | *((_DWORD *)qword_1400127A0 + (v5 & 0x1F))) == 0xFFFFFFFF )
   {
-    Buffer = BitMapHeader->Buffer;
-    v7 = (unsigned __int64)FromIndex >> 5;
-    v8 = Buffer[v7];
-    v9 = &Buffer[v7];
-    v10 = (unsigned __int64)&Buffer[(unsigned __int64)(SizeOfBitMap - 1) >> 5];
-    v11 = (unsigned __int64)(v9 + 1);
-    v12 = ((1 << (FromIndex & 0x1F)) - 1) | v8;
-    while ( 1 )
-    {
-      v13 = ~v12;
-      if ( v13 )
-        break;
-      if ( v11 > v10 )
-        goto LABEL_18;
-      v12 = v9[1];
-      ++v9;
-      v11 += 4LL;
-    }
-    _BitScanForward64((unsigned __int64 *)&v14, v13);
-    v15 = v14 + 32 * (v9 - Buffer);
-    if ( v15 > SizeOfBitMap )
-    {
-LABEL_18:
-      v15 = SizeOfBitMap;
-      goto LABEL_13;
-    }
-    v16 = ~(((1 << v14) - 1) | v13);
-    while ( 1 )
-    {
-      if ( v16 )
-      {
-        _BitScanForward64((unsigned __int64 *)&v17, v16);
-        goto LABEL_10;
-      }
-      if ( (unsigned __int64)(v9 + 1) > v10 )
-        break;
-      v16 = v9[1];
-      ++v9;
-    }
-    LODWORD(v17) = 32;
-LABEL_10:
-    v18 = SizeOfBitMap;
-    v19 = 32 * (v9 - Buffer) + v17;
-    if ( v19 <= SizeOfBitMap )
-      v18 = v19;
-    v4 = v18 - v15;
-LABEL_13:
-    *StartingRunIndex = v15;
+    v5 = v5 - (v5 & 0x1F) + 32;
+    for ( ++v9; v9 < v8 && *v9 == -1; ++v9 )
+      v5 += 32;
   }
-  return v4;
+  for ( ; v5 < SizeOfBitMap; ++v5 )
+  {
+    if ( !_bittest((const signed __int32 *)BitMapHeader->Buffer, v5) )
+      break;
+  }
+  v10 = 0;
+  if ( v9 == v8 )
+    goto LABEL_13;
+  v11 = v5 & 0x1F;
+  if ( (*v9 & ~*((_DWORD *)qword_1400127A0 + (v5 & 0x1F))) != 0 )
+    goto LABEL_13;
+  v10 = 32 - v11;
+  if ( v11 != 33 )
+  {
+    v16 = v9 + 1;
+    while ( v16 < v8 && !*v16 )
+    {
+      ++v16;
+      v10 += 32;
+      if ( v10 == -1 )
+        goto LABEL_17;
+    }
+LABEL_13:
+    v12 = BitMapHeader->SizeOfBitMap;
+    for ( i = v10 + v5; i < v12; ++v10 )
+    {
+      if ( _bittest((const signed __int32 *)BitMapHeader->Buffer, i) )
+        break;
+      if ( v10 == -1 )
+        break;
+      ++i;
+    }
+  }
+LABEL_17:
+  *StartingRunIndex = v5;
+  return v10;
 }

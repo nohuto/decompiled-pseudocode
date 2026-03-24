@@ -1,37 +1,38 @@
 /*
- * XREFs of MiLockHotPatchPages @ 0x1409745FC
+ * XREFs of MiLockHotPatchPages @ 0x1408CB184
  * Callers:
- *     MiPrepareDriverForHotPatch @ 0x140976790 (MiPrepareDriverForHotPatch.c)
+ *     MiPrepareDriverForHotPatch @ 0x1408CD548 (MiPrepareDriverForHotPatch.c)
  * Callees:
- *     MiLockDriverPageRange @ 0x140581D58 (MiLockDriverPageRange.c)
- *     RtlDetermineHotPatchExtent @ 0x1409C03F8 (RtlDetermineHotPatchExtent.c)
+ *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
+ *     MiLockDriverPageRange @ 0x14052DA04 (MiLockDriverPageRange.c)
+ *     RtlDetermineHotPatchExtent @ 0x14091ADEC (RtlDetermineHotPatchExtent.c)
  */
 
-__int64 __fastcall MiLockHotPatchPages(__int64 a1, __int64 a2, int a3, unsigned int a4, int a5, unsigned int a6)
+__int64 __fastcall MiLockHotPatchPages(__int64 *a1, __int64 a2, int a3, __int64 a4, unsigned int a5, unsigned int a6)
 {
-  int v6; // ebx
-  __int64 v8; // rsi
-  __int64 v10; // rbp
-  __int64 result; // rax
-  unsigned int v12; // [rsp+30h] [rbp-28h] BYREF
-  unsigned int v13; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int v9; // r9d
+  char *AnyMultiplexedVm; // r15
+  int v11; // r8d
+  __int64 v12; // rbp
+  __int64 v13; // rbx
+  unsigned int v15[10]; // [rsp+30h] [rbp-28h] BYREF
+  unsigned int v16; // [rsp+70h] [rbp+18h] BYREF
 
-  v12 = 0;
-  v6 = a3;
-  v13 = 0;
-  v8 = a4;
-  if ( !a3 )
-    return 0LL;
-  v10 = a6;
-  while ( 1 )
+  v15[0] = 0;
+  v16 = 0;
+  AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
+  if ( v11 )
   {
-    RtlDetermineHotPatchExtent(a5, *(_DWORD *)(a2 + 4 * v10), 34404, (unsigned int)&v12, (__int64)&v13);
-    result = MiLockDriverPageRange(a1, v12, v13, 1, 0LL);
-    if ( (int)result < 0 )
-      break;
-    a2 += 4 * v8;
-    if ( !--v6 )
-      return 0LL;
+    v12 = a6;
+    v13 = 4LL * v9;
+    do
+    {
+      RtlDetermineHotPatchExtent(a5, *(unsigned int *)(a2 + 4 * v12), v15, &v16);
+      MiLockDriverPageRange(a1, (__int64)AnyMultiplexedVm, v15[0], v16, 1, 0LL);
+      a2 += v13;
+      --a3;
+    }
+    while ( a3 );
   }
-  return result;
+  return 0LL;
 }

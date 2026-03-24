@@ -1,50 +1,58 @@
 /*
- * XREFs of ?DpiMiracastCbReportChunkInfo@@YAJPEAXPEAUDXGK_MIRACAST_CHUNK_INFO@@0I@Z @ 0x1C0060C60
+ * XREFs of ?DpiMiracastCbReportChunkInfo@@YAJPEAXPEAUDXGK_MIRACAST_CHUNK_INFO@@0I@Z @ 0x1C0052FC0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0xqqqqqq_EtwWriteTransfer @ 0x1C0064800 (McTemplateK0xqqqqqq_EtwWriteTransfer.c)
+ *     McTemplateK0xqqqqqq_EtwWriteTransfer @ 0x1C0056C10 (McTemplateK0xqqqqqq_EtwWriteTransfer.c)
  */
 
-__int64 __fastcall DpiMiracastCbReportChunkInfo(_QWORD *a1, struct DXGK_MIRACAST_CHUNK_INFO *a2, void *a3, int a4)
+__int64 __fastcall DpiMiracastCbReportChunkInfo(_DWORD *a1, struct DXGK_MIRACAST_CHUNK_INFO *a2, void *a3, int a4)
 {
-  if ( a2 )
+  __int64 v5; // rax
+  __int64 v6; // rbx
+
+  if ( !a2 )
   {
-    if ( a3 )
-    {
-      WdLogSingleEntry2(2LL, a1, -1073741583LL);
-      return 3221225713LL;
-    }
-    else if ( a4 )
-    {
-      WdLogSingleEntry2(2LL, a1, -1073741582LL);
-      return 3221225714LL;
-    }
-    else if ( a1 && *((_DWORD *)a1 + 4) == 1953656900 && *((_DWORD *)a1 + 5) == 14 && a1[54] )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200000000LL) != 0 )
-        McTemplateK0xqqqqqq_EtwWriteTransfer(
-          a2->ChunkId.Value >> 40,
-          (_DWORD)a1,
-          0,
-          a1[12],
-          a2->ChunkType,
-          *(_DWORD *)&a2->ChunkId.0,
-          (unsigned __int16)WORD2(a2->ChunkId.Value) >> 8,
-          a2->ProcessingTime,
-          a2->EncodeRate,
-          0);
-      return 0LL;
-    }
-    else
-    {
-      WdLogSingleEntry2(2LL, a1, -1073741585LL);
-      return 3221225711LL;
-    }
+    v5 = WdLogNewEntry5_WdError(a1, 0LL);
+    *(_QWORD *)(v5 + 24) = a1;
+    v6 = -1073741584LL;
+LABEL_15:
+    *(_QWORD *)(v5 + 32) = v6;
+    WdLogEvent5_WdError(v5);
+    return (unsigned int)v6;
   }
-  else
+  if ( a3 )
   {
-    WdLogSingleEntry2(2LL, a1, -1073741584LL);
-    return 3221225712LL;
+    v5 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v5 + 24) = a1;
+    v6 = -1073741583LL;
+    goto LABEL_15;
   }
+  if ( a4 )
+  {
+    v5 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v5 + 24) = a1;
+    v6 = -1073741582LL;
+    goto LABEL_15;
+  }
+  if ( !a1 || a1[4] != 1953656900 || a1[5] != 14 || !*((_QWORD *)a1 + 54) )
+  {
+    v5 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v5 + 24) = a1;
+    v6 = -1073741585LL;
+    goto LABEL_15;
+  }
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x20000000) != 0 )
+    McTemplateK0xqqqqqq_EtwWriteTransfer(
+      a2->ChunkId.Value >> 40,
+      (_DWORD)a2,
+      0,
+      *((_QWORD *)a1 + 12),
+      a2->ChunkType,
+      *(_DWORD *)&a2->ChunkId.0,
+      (unsigned __int16)WORD2(a2->ChunkId.Value) >> 8,
+      a2->ProcessingTime,
+      a2->EncodeRate,
+      0);
+  return 0LL;
 }

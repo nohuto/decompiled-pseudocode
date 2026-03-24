@@ -1,5 +1,5 @@
 /*
- * XREFs of DxgkEngGetAdapterUniquenessPointer @ 0x1C00CA3D0
+ * XREFs of DxgkEngGetAdapterUniquenessPointer @ 0x1C00BB850
  * Callers:
  *     <none>
  * Callees:

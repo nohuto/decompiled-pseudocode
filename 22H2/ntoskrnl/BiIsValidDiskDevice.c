@@ -1,48 +1,38 @@
 /*
- * XREFs of BiIsValidDiskDevice @ 0x140809CE4
+ * XREFs of BiIsValidDiskDevice @ 0x140782A28
  * Callers:
- *     BcdEnumerateDisks @ 0x140680EC0 (BcdEnumerateDisks.c)
- *     BiGetNtPartitionPath @ 0x140809890 (BiGetNtPartitionPath.c)
+ *     BiGetNtPartitionPath @ 0x140782648 (BiGetNtPartitionPath.c)
  * Callees:
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     _wcsnicmp @ 0x1403D9530 (_wcsnicmp.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x1403D1B10 (_wcsnicmp.c)
  */
 
-char __fastcall BiIsValidDiskDevice(wchar_t *Str1, wchar_t *a2, int *a3)
+bool __fastcall BiIsValidDiskDevice(wchar_t *Str1, wchar_t *a2)
 {
-  wchar_t *v6; // r8
-  wchar_t v7; // cx
-  int v8; // edx
-  __int16 v10; // r9
+  wchar_t *v5; // rcx
+  wchar_t v6; // ax
+  __int16 v7; // dx
 
   if ( wcsicmp(a2, L"Directory") && wcsicmp(a2, L"SymbolicLink") )
     return 0;
   if ( wcsnicmp(Str1, L"Harddisk", 8uLL) )
     return 0;
-  v6 = Str1 + 8;
-  v7 = Str1[8];
-  if ( !v7 )
+  v5 = Str1 + 8;
+  v6 = Str1[8];
+  if ( !v6 )
     return 0;
-  v8 = 0;
-  if ( v7 != 48 )
+  if ( v6 != 48 )
   {
-    v10 = 0;
-    while ( (unsigned __int16)(v7 - 48) <= 9u )
+    v7 = 0;
+    while ( (unsigned __int16)(v6 - 48) <= 9u )
     {
-      if ( (unsigned __int16)++v10 > 0xAu )
+      if ( (unsigned __int16)++v7 > 0xAu )
         break;
-      ++v6;
-      v8 = v7 + 2 * (5 * v8 - 24);
-      v7 = *v6;
-      if ( !*v6 )
-        goto LABEL_12;
+      v6 = *++v5;
+      if ( !*v5 )
+        return 1;
     }
     return 0;
   }
-  if ( Str1[9] )
-    return 0;
-LABEL_12:
-  if ( a3 )
-    *a3 = v8;
-  return 1;
+  return !Str1[9];
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpComputeCyclesPerYield @ 0x140B24BE4
+ * XREFs of ExpComputeCyclesPerYield @ 0x140A6B1A0
  * Callers:
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
  * Callees:
  *     <none>
  */

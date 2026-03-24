@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlAreNamesEqual @ 0x140212760
+ * XREFs of RtlAreNamesEqual @ 0x14028ACA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpUpcaseUnicodeStringPrivate @ 0x14021A3A0 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     memcmp @ 0x1403E1D90 (memcmp.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x1402069B0 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 BOOLEAN __stdcall RtlAreNamesEqual(
@@ -17,7 +17,7 @@ BOOLEAN __stdcall RtlAreNamesEqual(
 {
   unsigned int Length; // eax
   char v5; // di
-  PCUNICODE_STRING v6; // rbx
+  UNICODE_STRING *v6; // rbx
   unsigned int v7; // r10d
   __int64 v8; // rax
   int v10; // eax
@@ -29,7 +29,7 @@ BOOLEAN __stdcall RtlAreNamesEqual(
 
   Length = ConstantNameA->Length;
   v5 = 0;
-  v6 = ConstantNameB;
+  v6 = (UNICODE_STRING *)ConstantNameB;
   UnicodeString = 0LL;
   v15 = 0LL;
   if ( (_WORD)Length != ConstantNameB->Length )
@@ -50,15 +50,15 @@ BOOLEAN __stdcall RtlAreNamesEqual(
       }
       return 0;
     }
-    v10 = RtlpUpcaseUnicodeStringPrivate(&UnicodeString, ConstantNameA);
+    v10 = RtlpUpcaseUnicodeStringPrivate((__int64)&UnicodeString, &ConstantNameA->Length);
     if ( v10 < 0 )
       RtlRaiseStatus((unsigned int)v10);
-    v11 = RtlpUpcaseUnicodeStringPrivate(&v15, v6);
+    v11 = RtlpUpcaseUnicodeStringPrivate((__int64)&v15, &v6->Length);
     ConstantNameA = &UnicodeString;
     v12 = v11;
     if ( v11 < 0 )
     {
-      RtlFreeUnicodeString(&UnicodeString);
+      RtlFreeAnsiString(&UnicodeString);
       RtlRaiseStatus(v12);
     }
     LOWORD(Length) = UnicodeString.Length;
@@ -68,8 +68,8 @@ BOOLEAN __stdcall RtlAreNamesEqual(
   v13 = memcmp(ConstantNameA->Buffer, v6->Buffer, (unsigned __int16)Length) == 0;
   if ( v5 )
   {
-    RtlFreeUnicodeString(&UnicodeString);
-    RtlFreeUnicodeString(&v15);
+    RtlFreeAnsiString(&UnicodeString);
+    RtlFreeAnsiString(&v15);
   }
   return v13;
 }

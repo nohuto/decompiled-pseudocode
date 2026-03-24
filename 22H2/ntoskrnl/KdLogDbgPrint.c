@@ -1,39 +1,40 @@
 /*
- * XREFs of KdLogDbgPrint @ 0x140AB5FF0
+ * XREFs of KdLogDbgPrint @ 0x1409B9380
  * Callers:
- *     KdpPrint @ 0x140AB6358 (KdpPrint.c)
- *     KdpPrompt @ 0x140AB64D8 (KdpPrompt.c)
+ *     KdpPrint @ 0x1409B96C8 (KdpPrint.c)
+ *     KdpPrompt @ 0x1409B9848 (KdpPrompt.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KdpCopyMemoryChunks @ 0x140AB12A4 (KdpCopyMemoryChunks.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KdpCopyMemoryChunks @ 0x1409B9B9C (KdpCopyMemoryChunks.c)
  */
 
-struct _KPRCB *__fastcall KdLogDbgPrint(char **a1)
+struct _KPRCB *__fastcall KdLogDbgPrint(unsigned __int16 *a1)
 {
   struct _KPRCB *result; // rax
-  unsigned __int8 CurrentIrql; // si
+  unsigned __int8 CurrentIrql; // bp
   _DWORD *SchedulerAssist; // r9
-  __int64 v5; // rdx
-  unsigned int v6; // ebx
-  unsigned int v7; // eax
-  signed __int64 v8; // rax
-  unsigned __int64 v9; // r9
+  unsigned int v5; // eax
+  unsigned int v6; // ecx
+  bool v7; // cc
+  __int64 v8; // rbx
+  signed __int64 v9; // rax
   unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // rbp
-  unsigned int v12; // ebx
-  char *v13; // rcx
-  unsigned int v14; // edi
-  unsigned __int8 v15; // al
+  unsigned __int64 v11; // rsi
+  void *v12; // rcx
+  unsigned int v13; // ebx
+  char *v14; // rcx
+  unsigned int v15; // edi
+  unsigned __int8 v16; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v17; // r8
-  int v18; // eax
-  bool v19; // zf
-  unsigned int v20; // [rsp+68h] [rbp+10h] BYREF
+  _DWORD *v18; // r8
+  int v19; // eax
+  bool v20; // zf
+  __int64 v21; // [rsp+68h] [rbp+10h] BYREF
 
   result = KeGetCurrentPrcb();
-  v20 = 0;
-  if ( (struct _KPRCB *)qword_140D18558 == result )
+  LODWORD(v21) = 0;
+  if ( (struct _KPRCB *)qword_140CFA278 == result )
   {
     _InterlockedIncrement(&KdPrintSkippedCount);
     return result;
@@ -46,80 +47,83 @@ struct _KPRCB *__fastcall KdLogDbgPrint(char **a1)
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 15 )
-      LODWORD(v5) = 0x8000;
-    else
-      v5 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-    SchedulerAssist[5] |= v5;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
   if ( KdPrintCircularBuffer )
   {
-    v6 = *(unsigned __int16 *)a1;
-    v7 = (unsigned int)KdPrintBufferSize >> 3;
+    v5 = (unsigned int)KdPrintBufferSize >> 3;
     if ( (unsigned int)KdPrintBufferSize >> 3 > 0x200 )
-      v7 = 512;
-    if ( v6 > v7 )
+      v5 = 512;
+    v6 = *a1;
+    v7 = v6 <= v5;
+    if ( v6 > v5 )
     {
-      v6 = v7;
       _InterlockedIncrement(&KdPrintTruncatedCount);
+      v7 = v6 <= v5;
     }
-    v8 = _InterlockedCompareExchange64((volatile signed __int64 *)&KdPrintWritePointer, 0LL, 0LL);
+    if ( v7 )
+      v5 = v6;
+    v8 = v5;
+    v9 = _InterlockedCompareExchange64((volatile signed __int64 *)&KdPrintWritePointer, 0LL, 0LL);
     do
     {
-      v9 = v6 + v8;
-      v10 = v9 - (unsigned int)KdPrintBufferSize;
-      v11 = v8;
-      if ( v9 < (unsigned __int64)KdPrintCircularBuffer + (unsigned int)KdPrintBufferSize )
-        v10 = v6 + v8;
-      v8 = _InterlockedCompareExchange64((volatile signed __int64 *)&KdPrintWritePointer, v10, v8);
+      v10 = v8 + v9 - (unsigned int)KdPrintBufferSize;
+      v11 = v9;
+      if ( v8 + v9 < (unsigned __int64)KdPrintCircularBuffer + (unsigned int)KdPrintBufferSize )
+        v10 = v8 + v9;
+      v9 = _InterlockedCompareExchange64((volatile signed __int64 *)&KdPrintWritePointer, v10, v9);
     }
-    while ( v8 != v11 );
+    while ( v9 != v11 );
     if ( v10 < v11 )
-      _InterlockedIncrement((_DWORD *)&KdDebuggerEnabled + 1);
-    if ( v9 > (unsigned __int64)KdPrintCircularBuffer + (unsigned int)KdPrintBufferSize )
+      _InterlockedIncrement(&KdPrintRolloverCount);
+    v12 = (void *)*((_QWORD *)a1 + 1);
+    if ( v8 + v11 > (unsigned __int64)KdPrintCircularBuffer + (unsigned int)KdPrintBufferSize )
     {
-      v14 = KdPrintBufferSize + (_DWORD)KdPrintCircularBuffer - v11;
-      KdpCopyMemoryChunks(a1[1], v11, v14, 0, 4, &v20);
-      if ( v20 < v14 )
-        memset((void *)(v11 + v20), 0, v14 - v20);
-      v12 = v6 - v14;
-      if ( v20 == v14 )
+      v15 = KdPrintBufferSize + (_DWORD)KdPrintCircularBuffer - v11;
+      KdpCopyMemoryChunks(v12, 4, (__int64)&v21);
+      if ( (unsigned int)v21 < v15 )
+        memset((void *)(v11 + (unsigned int)v21), 0, v15 - (unsigned int)v21);
+      v13 = v8 - v15;
+      if ( (_DWORD)v21 == v15 )
       {
-        KdpCopyMemoryChunks(&a1[1][v14], (__int64)KdPrintCircularBuffer, v12, 0, 4, &v20);
-        if ( v20 >= v12 )
-          goto LABEL_34;
-        v12 -= v20;
-        v13 = (char *)KdPrintCircularBuffer + v20;
+        KdpCopyMemoryChunks((PVOID)(*((_QWORD *)a1 + 1) + v15), 4, (__int64)&v21);
+        if ( (unsigned int)v21 >= v13 )
+          goto LABEL_33;
+        v13 -= v21;
+        v14 = (char *)KdPrintCircularBuffer + (unsigned int)v21;
       }
       else
       {
-        v13 = (char *)KdPrintCircularBuffer;
+        v14 = (char *)KdPrintCircularBuffer;
       }
     }
     else
     {
-      KdpCopyMemoryChunks(a1[1], v11, v6, 0, 4, &v20);
-      if ( v20 >= v6 )
-        goto LABEL_34;
-      v12 = v6 - v20;
-      v13 = (char *)(v20 + v11);
+      KdpCopyMemoryChunks(v12, 4, (__int64)&v21);
+      if ( (unsigned int)v21 >= (unsigned int)v8 )
+        goto LABEL_33;
+      v13 = v8 - v21;
+      v14 = (char *)(v11 + (unsigned int)v21);
     }
-    memset(v13, 0, v12);
+    memset(v14, 0, v13);
   }
-LABEL_34:
+LABEL_33:
   _InterlockedAdd((_DWORD *)&KdpPrintSpinLock + 1, 0xFFFFFFFF);
   if ( KiIrqlFlags )
   {
-    v15 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v17 = CurrentPrcb->SchedulerAssist;
-      v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v19 = (v18 & v17[5]) == 0;
-      v17[5] &= v18;
-      if ( v19 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v16 = KeGetCurrentIrql();
+      if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v18 = CurrentPrcb->SchedulerAssist;
+        v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v20 = (v19 & v18[5]) == 0;
+        v18[5] &= v19;
+        if ( v20 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   result = (struct _KPRCB *)CurrentIrql;

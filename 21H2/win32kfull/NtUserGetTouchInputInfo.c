@@ -1,64 +1,65 @@
 /*
- * XREFs of NtUserGetTouchInputInfo @ 0x1C01F6A40
+ * XREFs of NtUserGetTouchInputInfo @ 0x1C01FC170
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandle @ 0x1C0024F44 (HMValidateHandle.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     _FreeTouchInputInfo @ 0x1C01D7140 (_FreeTouchInputInfo.c)
+ *     HMValidateHandle @ 0x1C00670E0 (HMValidateHandle.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     _FreeTouchInputInfo @ 0x1C01DCB40 (_FreeTouchInputInfo.c)
  */
 
-__int64 __fastcall NtUserGetTouchInputInfo(__int64 a1, unsigned int a2, volatile void *a3, int a4)
+__int64 __fastcall NtUserGetTouchInputInfo(unsigned __int64 a1, unsigned int a2, volatile void *a3, int a4)
 {
   __int64 v6; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // rax
-  __int64 v10; // rcx
-  __int64 v11; // rdi
-  int v12; // ebx
-  __int64 v13; // rcx
-  unsigned int v14; // eax
+  int v8; // edi
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // rax
+  unsigned __int64 v12; // rcx
+  __int64 v13; // rsi
+  __int64 v14; // rcx
+  unsigned int v15; // eax
   __int64 CurrentProcessWow64Process; // rax
-  SIZE_T v16; // rbx
+  SIZE_T v17; // rbx
 
   v6 = a2;
-  EnterCrit(0LL, 0LL);
+  v8 = 1;
+  EnterCrit(0LL, 1LL);
   if ( !a3 || a4 != 48 )
   {
-    v13 = 87LL;
+    v14 = 87LL;
     goto LABEL_12;
   }
-  v9 = HMValidateHandle(a1, 0x14u);
-  v11 = v9;
-  if ( !v9 )
+  v11 = HMValidateHandle(a1, 0x14u);
+  v13 = v11;
+  if ( !v11 )
   {
-    v12 = 0;
+    v8 = 0;
     goto LABEL_13;
   }
-  if ( *(_QWORD *)(v9 + 16) != gptiCurrent )
+  if ( *(_QWORD *)(v11 + 16) != gptiCurrent )
   {
-    v13 = 5LL;
+    v14 = 5LL;
 LABEL_12:
-    v12 = 0;
-    UserSetLastError(v13, v8);
+    v8 = 0;
+    UserSetLastError(v14, v9, v10);
     goto LABEL_13;
   }
-  v14 = *(_DWORD *)(v9 + 24);
-  if ( v14 < (unsigned int)v6 )
-    v6 = v14;
-  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v10);
-  v16 = 48 * v6;
-  ProbeForWrite(a3, v16, CurrentProcessWow64Process != 0 ? 1 : 4);
-  memmove((void *)a3, (const void *)(v11 + 32), v16);
-  v12 = 1;
-  v10 = *(_QWORD *)(gptiCurrent + 1096LL);
-  if ( v10 == a1 )
+  v15 = *(_DWORD *)(v11 + 24);
+  if ( v15 < (unsigned int)v6 )
+    v6 = v15;
+  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v12);
+  v17 = 48 * v6;
+  ProbeForWrite(a3, v17, CurrentProcessWow64Process != 0 ? 1 : 4);
+  memmove((void *)a3, (const void *)(v13 + 32), v17);
+  v12 = *(_QWORD *)(gptiCurrent + 1072LL);
+  if ( v12 == a1 )
   {
-    FreeTouchInputInfo(v10);
-    *(_QWORD *)(gptiCurrent + 1096LL) = 0LL;
+    FreeTouchInputInfo(v12);
+    *(_QWORD *)(gptiCurrent + 1072LL) = 0LL;
   }
 LABEL_13:
-  UserSessionSwitchLeaveCrit(v10);
-  return v12;
+  UserSessionSwitchLeaveCrit(v12);
+  return v8;
 }

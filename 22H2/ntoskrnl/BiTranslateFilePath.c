@@ -1,35 +1,35 @@
 /*
- * XREFs of BiTranslateFilePath @ 0x140808558
+ * XREFs of BiTranslateFilePath @ 0x140972D78
  * Callers:
- *     BiGetDeviceFromEfiPath @ 0x1408083D4 (BiGetDeviceFromEfiPath.c)
- *     BiCreateBootEntry @ 0x140A5DA9C (BiCreateBootEntry.c)
- *     BiCreateMergedBootEntry @ 0x140A5E03C (BiCreateMergedBootEntry.c)
+ *     BiCreateBootEntry @ 0x140970F70 (BiCreateBootEntry.c)
+ *     BiCreateMergedBootEntry @ 0x140971504 (BiCreateMergedBootEntry.c)
+ *     BiGetDeviceFromEfiPath @ 0x1409720A4 (BiGetDeviceFromEfiPath.c)
  * Callees:
- *     ZwTranslateFilePath @ 0x14041E120 (ZwTranslateFilePath.c)
- *     BiAcquirePrivilege @ 0x140808628 (BiAcquirePrivilege.c)
- *     BiReleasePrivilege @ 0x1408086B4 (BiReleasePrivilege.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwTranslateFilePath @ 0x1403FD2E0 (ZwTranslateFilePath.c)
+ *     BiReleasePrivilege @ 0x140785B38 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140785B90 (BiAcquirePrivilege.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiTranslateFilePath(__int64 a1, unsigned int a2, _QWORD *a3)
 {
-  void *Pool2; // rdi
+  PVOID PoolWithTag; // rdi
   int v7; // ebx
   int v8; // eax
-  _QWORD v10[5]; // [rsp+20h] [rbp-28h] BYREF
+  unsigned int v10[10]; // [rsp+20h] [rbp-28h] BYREF
 
-  v10[0] = 0LL;
-  Pool2 = 0LL;
-  v7 = BiAcquirePrivilege(22LL, v10);
+  *(_QWORD *)v10 = 0LL;
+  PoolWithTag = 0LL;
+  v7 = BiAcquirePrivilege(0x16u, (__int64)v10);
   if ( v7 >= 0 )
   {
     v8 = ZwTranslateFilePath(a1, a2);
     v7 = v8;
     if ( v8 == -1073741789 )
     {
-      Pool2 = (void *)ExAllocatePool2(258LL, 0LL, 1262764866LL);
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0LL, 0x4B444342u);
+      if ( PoolWithTag )
         v7 = ZwTranslateFilePath(a1, a2);
       else
         v7 = -1073741670;
@@ -39,13 +39,14 @@ __int64 __fastcall BiTranslateFilePath(__int64 a1, unsigned int a2, _QWORD *a3)
       v7 = -1073741811;
     }
     BiReleasePrivilege(v10);
-    if ( v7 >= 0 )
+    if ( v7 < 0 )
     {
-      *a3 = Pool2;
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0x4B444342u);
     }
-    else if ( Pool2 )
+    else
     {
-      ExFreePoolWithTag(Pool2, 0x4B444342u);
+      *a3 = PoolWithTag;
     }
   }
   return (unsigned int)v7;

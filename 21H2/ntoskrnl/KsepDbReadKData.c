@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepDbReadKData @ 0x140963CD0
+ * XREFs of KsepDbReadKData @ 0x1408BFC50
  * Callers:
- *     KsepDbCacheReadDeviceInternal @ 0x1407ED53C (KsepDbCacheReadDeviceInternal.c)
+ *     KsepDbCacheReadDeviceInternal @ 0x140755D74 (KsepDbCacheReadDeviceInternal.c)
  * Callees:
- *     SdbpGetMappedTagData @ 0x14075B988 (SdbpGetMappedTagData.c)
- *     SdbFindFirstTag @ 0x140792CCC (SdbFindFirstTag.c)
- *     SdbGetTagDataSize @ 0x14079422C (SdbGetTagDataSize.c)
- *     SdbReadDWORDTag @ 0x1407ECF5C (SdbReadDWORDTag.c)
- *     SdbReadQWORDTag @ 0x140842904 (SdbReadQWORDTag.c)
- *     SdbGetStringTagPtr @ 0x140842A24 (SdbGetStringTagPtr.c)
+ *     SdbGetStringTagPtr @ 0x140756580 (SdbGetStringTagPtr.c)
+ *     SdbReadDWORDTag @ 0x140759D94 (SdbReadDWORDTag.c)
+ *     SdbpGetMappedTagData @ 0x140759E04 (SdbpGetMappedTagData.c)
+ *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
+ *     SdbGetTagDataSize @ 0x14075A340 (SdbGetTagDataSize.c)
+ *     SdbReadQWORDTag @ 0x1407B3A20 (SdbReadQWORDTag.c)
  */
 
 __int64 __fastcall KsepDbReadKData(__int64 a1, __int64 a2, __int64 a3)
@@ -16,17 +16,25 @@ __int64 __fastcall KsepDbReadKData(__int64 a1, __int64 a2, __int64 a3)
   unsigned int v4; // ebp
   unsigned int v6; // ebx
   unsigned int FirstTag; // eax
+  __int64 v8; // r8
+  __int64 v9; // r9
   __int64 StringTagPtr; // r14
-  unsigned int v9; // eax
-  int DWORDTag; // eax
   unsigned int v11; // eax
-  __int64 v12; // rcx
-  __int64 v13; // rax
+  __int64 v12; // r9
+  int DWORDTag; // eax
+  unsigned int v14; // eax
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v17; // rcx
+  __int64 v18; // rax
   int TagDataSize; // eax
-  unsigned int v15; // eax
-  __int64 v16; // rbx
-  unsigned int v17; // eax
-  unsigned int v18; // ebp
+  unsigned int v20; // eax
+  __int64 v21; // rbx
+  __int64 v22; // r9
+  unsigned int v23; // eax
+  unsigned int v24; // ebp
+  __int64 v25; // r8
+  __int64 v26; // r9
   __int64 MappedTagData; // r15
 
   v4 = a2;
@@ -36,59 +44,59 @@ __int64 __fastcall KsepDbReadKData(__int64 a1, __int64 a2, __int64 a3)
   FirstTag = SdbFindFirstTag(a1, a2, 24577);
   if ( !FirstTag )
     return v6;
-  StringTagPtr = SdbGetStringTagPtr(a1, FirstTag);
+  StringTagPtr = SdbGetStringTagPtr(a1, FirstTag, v8, v9);
   if ( !StringTagPtr )
     return v6;
-  v9 = SdbFindFirstTag(a1, v4, 16408);
-  if ( !v9 )
+  v11 = SdbFindFirstTag(a1, v4, 16408);
+  if ( !v11 )
     return v6;
-  DWORDTag = SdbReadDWORDTag(a1, v9, 0);
+  DWORDTag = SdbReadDWORDTag(a1, v11, 0LL, v12);
   switch ( DWORDTag )
   {
     case 1:
-      v11 = SdbFindFirstTag(a1, v4, 24606);
-      v12 = SdbGetStringTagPtr(a1, v11);
-      if ( v12 )
+      v14 = SdbFindFirstTag(a1, v4, 24606);
+      v17 = SdbGetStringTagPtr(a1, v14, v15, v16);
+      if ( v17 )
       {
         *(_QWORD *)a3 = StringTagPtr;
-        v13 = -1LL;
+        v18 = -1LL;
         *(_DWORD *)(a3 + 8) = 1;
         do
-          ++v13;
-        while ( *(_WORD *)(v12 + 2 * v13) );
-        TagDataSize = 2 * v13 + 2;
-        *(_QWORD *)(a3 + 16) = v12;
+          ++v18;
+        while ( *(_WORD *)(v17 + 2 * v18) );
+        TagDataSize = 2 * v18 + 2;
+        *(_QWORD *)(a3 + 16) = v17;
         goto LABEL_18;
       }
       return v6;
     case 4:
-      v15 = SdbFindFirstTag(a1, v4, 16409);
+      v20 = SdbFindFirstTag(a1, v4, 16409);
       *(_QWORD *)a3 = StringTagPtr;
       *(_DWORD *)(a3 + 8) = 4;
       *(_DWORD *)(a3 + 12) = 4;
-      v16 = a3 + 24;
-      *(_DWORD *)(a3 + 24) = SdbReadDWORDTag(a1, v15, 0);
+      v21 = a3 + 24;
+      *(_DWORD *)(a3 + 24) = SdbReadDWORDTag(a1, v20, 0LL, v22);
 LABEL_14:
-      *(_QWORD *)(a3 + 16) = v16;
+      *(_QWORD *)(a3 + 16) = v21;
       return 0;
     case 11:
-      v17 = SdbFindFirstTag(a1, v4, 20487);
+      v23 = SdbFindFirstTag(a1, v4, 20487);
       *(_QWORD *)a3 = StringTagPtr;
       *(_DWORD *)(a3 + 8) = 11;
       *(_DWORD *)(a3 + 12) = 8;
-      v16 = a3 + 32;
-      *(_QWORD *)(a3 + 32) = SdbReadQWORDTag(a1, v17, 0LL);
+      v21 = a3 + 32;
+      *(_QWORD *)(a3 + 32) = SdbReadQWORDTag(a1, v23, 0LL);
       goto LABEL_14;
   }
   if ( DWORDTag != 3 )
     return (unsigned int)-1073741811;
-  v18 = SdbFindFirstTag(a1, v4, 36869);
-  MappedTagData = SdbpGetMappedTagData(a1, v18);
+  v24 = SdbFindFirstTag(a1, v4, 36869);
+  MappedTagData = SdbpGetMappedTagData(a1, v24);
   if ( MappedTagData )
   {
     *(_QWORD *)a3 = StringTagPtr;
     *(_DWORD *)(a3 + 8) = 3;
-    TagDataSize = SdbGetTagDataSize(a1, v18);
+    TagDataSize = SdbGetTagDataSize(a1, v24, v25, v26);
     *(_QWORD *)(a3 + 16) = MappedTagData;
 LABEL_18:
     *(_DWORD *)(a3 + 12) = TagDataSize;

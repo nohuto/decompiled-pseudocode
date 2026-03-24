@@ -1,122 +1,107 @@
 /*
- * XREFs of DbgkpWerCleanupContext @ 0x140883C94
+ * XREFs of DbgkpWerCleanupContext @ 0x1408890F0
  * Callers:
- *     DbgkWerCaptureLiveKernelDump2 @ 0x140883A30 (DbgkWerCaptureLiveKernelDump2.c)
- *     DbgkpWerDeferredWriteRoutine @ 0x14093BAA0 (DbgkpWerDeferredWriteRoutine.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140888B80 (DbgkWerCaptureLiveKernelDump.c)
+ *     DbgkpWerDeferredWriteRoutine @ 0x1408892D0 (DbgkpWerDeferredWriteRoutine.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     IoDiscardDeferredLiveDumpData @ 0x14094C328 (IoDiscardDeferredLiveDumpData.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x140509728 (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpTraceInterfaceStart @ 0x1405097D0 (IopLiveDumpTraceInterfaceStart.c)
+ *     IopLiveDumpReleaseResources @ 0x14089873C (IopLiveDumpReleaseResources.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall DbgkpWerCleanupContext(__int64 a1)
 {
-  void *v2; // rcx
-  void *v3; // rcx
-  __int64 v4; // rax
-  void *v5; // rcx
-  _QWORD *v6; // rdi
-  int v7; // eax
-  void *v8; // rcx
+  void *v2; // rdi
+  __int64 v3; // rcx
+  void *v4; // rcx
+  _QWORD *v5; // rax
+  struct _DMA_ADAPTER *v6; // rcx
+  void *v7; // rcx
+  _QWORD *v8; // rdi
   void *v9; // rcx
-  __int64 v10; // rax
-  _QWORD *v11; // rdi
+  _QWORD *v10; // rsi
+  void *v11; // rcx
   void *v12; // rcx
-  _QWORD *v13; // rsi
-  void *v14; // rcx
-  void *v15; // rcx
-  _QWORD *v16; // rsi
-  int v17; // eax
-  int v18; // eax
+  int v13; // eax
+  int v14; // eax
 
   DbgPrintEx(5u, 3u, "DBGK: DbgkpWerCleanupContext: Context 0x%p\n", (const void *)a1);
   if ( a1 )
   {
-    v2 = *(void **)(a1 + 128);
+    v2 = *(void **)(a1 + 136);
     if ( v2 )
     {
-      v7 = IoDiscardDeferredLiveDumpData(v2);
-      if ( v7 < 0 )
-        DbgPrintEx(5u, 0, "DBGK: IoDiscardDeferredLiveDumpData failed, status 0x%X\n", v7);
-      *(_QWORD *)(a1 + 128) = 0LL;
+      IopLiveDumpTraceInterfaceStart();
+      IopLiveDumpTraceInterfaceEnd(v3, 2LL, 0);
+      IopLiveDumpReleaseResources(v2);
+      ExFreePoolWithTag(v2, 0x706D644Cu);
+      *(_QWORD *)(a1 + 136) = 0LL;
     }
-    v3 = *(void **)(a1 + 112);
-    if ( v3 )
-    {
-      ExFreePoolWithTag(v3, 0x57676244u);
-      *(_QWORD *)(a1 + 112) = 0LL;
-    }
-    v4 = *(_QWORD *)(a1 + 120);
+    v4 = *(void **)(a1 + 120);
     if ( v4 )
     {
-      v8 = *(void **)(v4 + 16);
+      ExFreePoolWithTag(v4, 0x57676244u);
+      *(_QWORD *)(a1 + 120) = 0LL;
+    }
+    v5 = *(_QWORD **)(a1 + 128);
+    if ( v5 )
+    {
+      v6 = (struct _DMA_ADAPTER *)v5[2];
+      if ( v6 )
+      {
+        HalPutDmaAdapter(v6);
+        *(_QWORD *)(*(_QWORD *)(a1 + 128) + 16LL) = 0LL;
+        v5 = *(_QWORD **)(a1 + 128);
+      }
+      v7 = (void *)v5[1];
+      if ( v7 )
+      {
+        ZwClose(v7);
+        *(_QWORD *)(*(_QWORD *)(a1 + 128) + 8LL) = 0LL;
+        v5 = *(_QWORD **)(a1 + 128);
+      }
+      v8 = (_QWORD *)v5[5];
+      v5[5] = 0LL;
       if ( v8 )
-      {
-        ObfDereferenceObject(v8);
-        *(_QWORD *)(*(_QWORD *)(a1 + 120) + 16LL) = 0LL;
-      }
-      v9 = *(void **)(*(_QWORD *)(a1 + 120) + 8LL);
-      if ( v9 )
-      {
-        ZwClose(v9);
-        *(_QWORD *)(*(_QWORD *)(a1 + 120) + 8LL) = 0LL;
-      }
-      v10 = *(_QWORD *)(a1 + 120);
-      v11 = *(_QWORD **)(v10 + 40);
-      *(_QWORD *)(v10 + 40) = 0LL;
-      if ( v11 )
       {
         do
         {
-          v12 = (void *)v11[2];
-          v13 = (_QWORD *)v11[4];
-          if ( v12 )
-            ExFreePoolWithTag(v12, 0x57676244u);
-          ExFreePoolWithTag(v11, 0x57676244u);
-          v11 = v13;
+          v9 = (void *)v8[2];
+          v10 = (_QWORD *)v8[4];
+          if ( v9 )
+            ExFreePoolWithTag(v9, 0x57676244u);
+          ExFreePoolWithTag(v8, 0x57676244u);
+          v8 = v10;
         }
-        while ( v13 );
+        while ( v10 );
       }
-      v14 = *(void **)(a1 + 120);
-      if ( v14 )
-        ExFreePoolWithTag(v14, 0x57676244u);
-      *(_QWORD *)(a1 + 120) = 0LL;
+      v11 = *(void **)(a1 + 128);
+      if ( v11 )
+        ExFreePoolWithTag(v11, 0x57676244u);
+      *(_QWORD *)(a1 + 128) = 0LL;
     }
-    v5 = *(void **)(a1 + 136);
-    if ( v5 )
+    v12 = *(void **)(a1 + 144);
+    if ( v12 )
     {
-      ExFreePoolWithTag(v5, 0x57676244u);
-      *(_QWORD *)(a1 + 136) = 0LL;
+      ExFreePoolWithTag(v12, 0x57676244u);
+      *(_QWORD *)(a1 + 144) = 0LL;
     }
-    v6 = *(_QWORD **)(a1 + 160);
-    if ( v6 )
+    if ( *(_QWORD *)(a1 + 104) )
     {
-      *(_QWORD *)(a1 + 160) = 0LL;
-      do
+      if ( (*(_DWORD *)(a1 + 112) & 1) == 0 )
       {
-        v15 = (void *)v6[2];
-        v16 = (_QWORD *)v6[4];
-        if ( v15 )
-          ExFreePoolWithTag(v15, 0x57676244u);
-        ExFreePoolWithTag(v6, 0x57676244u);
-        v6 = v16;
+        v13 = WerLiveKernelCancelReport();
+        if ( v13 < 0 )
+          DbgPrintEx(5u, 1u, "DBGK: DbgkpWerCleanupContext: WerLiveKernelCancelReport failed, 0x%X\n", v13);
       }
-      while ( v16 );
-    }
-    if ( *(_QWORD *)(a1 + 96) )
-    {
-      if ( (*(_DWORD *)(a1 + 104) & 1) == 0 )
-      {
-        v17 = WerLiveKernelCancelReport();
-        if ( v17 < 0 )
-          DbgPrintEx(5u, 1u, "DBGK: DbgkpWerCleanupContext: WerLiveKernelCancelReport failed, 0x%X\n", v17);
-      }
-      v18 = WerLiveKernelCloseHandle(*(_QWORD *)(a1 + 96));
-      if ( v18 < 0 )
-        DbgPrintEx(5u, 1u, "DBGK: DbgkpWerCleanupContext: WerLiveKernelCloseHandle failed, 0x%X\n", v18);
-      *(_QWORD *)(a1 + 96) = 0LL;
+      v14 = WerLiveKernelCloseHandle(*(_QWORD *)(a1 + 104));
+      if ( v14 < 0 )
+        DbgPrintEx(5u, 1u, "DBGK: DbgkpWerCleanupContext: WerLiveKernelCloseHandle failed, 0x%X\n", v14);
+      *(_QWORD *)(a1 + 104) = 0LL;
     }
   }
 }

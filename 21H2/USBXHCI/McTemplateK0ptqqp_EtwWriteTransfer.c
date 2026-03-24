@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0ptqqp_EtwWriteTransfer @ 0x1C003570C
+ * XREFs of McTemplateK0ptqqp_EtwWriteTransfer @ 0x1C003546C
  * Callers:
- *     Controller_UcxEvtStartTrackingForTimeSync @ 0x1C0034160 (Controller_UcxEvtStartTrackingForTimeSync.c)
+ *     Controller_UcxEvtStartTrackingForTimeSync @ 0x1C0034050 (Controller_UcxEvtStartTrackingForTimeSync.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C00351EC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0ptqqp_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

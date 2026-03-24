@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_GettingMatchingPipeHandleOnClientResetPipe @ 0x1C001D340
+ * XREFs of HUBDSM_GettingMatchingPipeHandleOnClientResetPipe @ 0x1C001CE00
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_FindAndStoreMatchingInternalPipeHandle @ 0x1C0016174 (HUBPDO_FindAndStoreMatchingInternalPipeHandle.c)
+ *     HUBPDO_FindAndStoreMatchingInternalPipeHandle @ 0x1C0015CAC (HUBPDO_FindAndStoreMatchingInternalPipeHandle.c)
  */
 
 __int64 __fastcall HUBDSM_GettingMatchingPipeHandleOnClientResetPipe(__int64 a1)

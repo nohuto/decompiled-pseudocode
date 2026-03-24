@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbDevice_RemoveEndpointFromDeviceEndpointList @ 0x1C0001C20
+ * XREFs of UsbDevice_RemoveEndpointFromDeviceEndpointList @ 0x1C0046EA8
  * Callers:
- *     Endpoint_EvtEndpointCleanupCallback @ 0x1C0001A30 (Endpoint_EvtEndpointCleanupCallback.c)
+ *     Endpoint_EvtEndpointCleanupCallback @ 0x1C0038520 (Endpoint_EvtEndpointCleanupCallback.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall UsbDevice_RemoveEndpointFromDeviceEndpointList(__int64 a1, __int64 a2, _QWORD *a3)
@@ -20,16 +20,16 @@ __int64 __fastcall UsbDevice_RemoveEndpointFromDeviceEndpointList(__int64 a1, __
   *(_QWORD *)(v7 + 8) = v8;
   --*(_DWORD *)(a1 + 112);
   KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 88), v6);
-  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64 (__fastcall *)(), __int64, const char *))(WdfFunctions_01023 + 1648))(
+  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void (__fastcall *)(__int64, __int64, _QWORD *), __int64, const char *))(WdfFunctions_01023 + 1648))(
     WdfDriverGlobals,
     a2,
     UsbDevice_AddEndpointToDeviceEndpointList,
-    6999LL,
+    7007LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\usbdevice.c");
-  return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64 (__fastcall *)(), __int64, const char *))(WdfFunctions_01023 + 1648))(
+  return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void (__fastcall *)(__int64, __int64, _QWORD *), __int64, const char *))(WdfFunctions_01023 + 1648))(
            WdfDriverGlobals,
            *(_QWORD *)a1,
            UsbDevice_AddEndpointToDeviceEndpointList,
-           7007LL,
+           7015LL,
            "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\usbdevice.c");
 }

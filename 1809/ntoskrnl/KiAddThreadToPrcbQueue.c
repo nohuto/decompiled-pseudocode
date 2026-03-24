@@ -1,16 +1,16 @@
 /*
- * XREFs of KiAddThreadToPrcbQueue @ 0x14011754C
+ * XREFs of KiAddThreadToPrcbQueue @ 0x14011756C
  * Callers:
- *     KiGroupSchedulingQuantumEnd @ 0x1400D0F24 (KiGroupSchedulingQuantumEnd.c)
- *     KiDeferGroupSchedulingPreemption @ 0x1400D2C80 (KiDeferGroupSchedulingPreemption.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1400D308C (KiGroupSchedulingGenerationEnd.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x1400D3260 (KiTransitionSchedulingGroupGeneration.c)
- *     KiRemoveThreadFromSchedulingGroup @ 0x1400F4698 (KiRemoveThreadFromSchedulingGroup.c)
- *     KiMoveScbThreadsToNewReadylist @ 0x140117350 (KiMoveScbThreadsToNewReadylist.c)
- *     KiAddThreadToReadyQueue @ 0x140297F84 (KiAddThreadToReadyQueue.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400D0F44 (KiGroupSchedulingQuantumEnd.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1400D2CA0 (KiDeferGroupSchedulingPreemption.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1400D30AC (KiGroupSchedulingGenerationEnd.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x1400D3280 (KiTransitionSchedulingGroupGeneration.c)
+ *     KiRemoveThreadFromSchedulingGroup @ 0x1400F46B8 (KiRemoveThreadFromSchedulingGroup.c)
+ *     KiMoveScbThreadsToNewReadylist @ 0x140117370 (KiMoveScbThreadsToNewReadylist.c)
+ *     KiAddThreadToReadyQueue @ 0x140298084 (KiAddThreadToReadyQueue.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiAddThreadToPrcbQueue(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)

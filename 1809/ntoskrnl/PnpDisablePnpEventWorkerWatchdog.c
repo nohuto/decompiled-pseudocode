@@ -2,7 +2,7 @@
  * XREFs of PnpDisablePnpEventWorkerWatchdog @ 0x140005B14
  * Callers:
  *     PnpDeviceEventWorker @ 0x14058BBC0 (PnpDeviceEventWorker.c)
- *     PnpProcessCompletedEject @ 0x1408282A0 (PnpProcessCompletedEject.c)
+ *     PnpProcessCompletedEject @ 0x140828280 (PnpProcessCompletedEject.c)
  * Callees:
  *     PnpDisableWatchdog @ 0x140005B60 (PnpDisableWatchdog.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)

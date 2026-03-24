@@ -1,17 +1,17 @@
 /*
- * XREFs of HUBUCX_EnableDisableEndpointsUsingUCXIoctl @ 0x1C00267C8
+ * XREFs of HUBUCX_EnableDisableEndpointsUsingUCXIoctl @ 0x1C0023E38
  * Callers:
- *     HUBDSM_DeconfiguringEndpointsInControllerForDeviceConfiguration @ 0x1C0023B50 (HUBDSM_DeconfiguringEndpointsInControllerForDeviceConfiguration.c)
- *     HUBDSM_ProgrammingEndpointsInControllerAfterDecreasingExitLatency @ 0x1C0023C40 (HUBDSM_ProgrammingEndpointsInControllerAfterDecreasingExitLatency.c)
- *     HUBDSM_DisablingEndpointsForTheNewInterfaceOnFailure @ 0x1C0024380 (HUBDSM_DisablingEndpointsForTheNewInterfaceOnFailure.c)
- *     HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl @ 0x1C00284C0 (HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl.c)
+ *     HUBDSM_DeconfiguringEndpointsInControllerForDeviceConfiguration @ 0x1C0021370 (HUBDSM_DeconfiguringEndpointsInControllerForDeviceConfiguration.c)
+ *     HUBDSM_ProgrammingEndpointsInControllerAfterDecreasingExitLatency @ 0x1C0021460 (HUBDSM_ProgrammingEndpointsInControllerAfterDecreasingExitLatency.c)
+ *     HUBDSM_DisablingEndpointsForTheNewInterfaceOnFailure @ 0x1C0021BA0 (HUBDSM_DisablingEndpointsForTheNewInterfaceOnFailure.c)
+ *     HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl @ 0x1C00258C8 (HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBUCX_SubmitUcxIoctl @ 0x1C00262CC (HUBUCX_SubmitUcxIoctl.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0044EC0 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C0023950 (HUBUCX_SubmitUcxIoctl.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 _UNKNOWN **__fastcall HUBUCX_EnableDisableEndpointsUsingUCXIoctl(__int64 *a1)
@@ -37,7 +37,7 @@ _UNKNOWN **__fastcall HUBUCX_EnableDisableEndpointsUsingUCXIoctl(__int64 *a1)
           4u,
           5u,
           0x18u,
-          (__int64)&WPP_e357673766b030573709eddce5304229_Traceguids);
+          (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids);
       (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01015 + 2560))(
         WdfDriverGlobals,
         a1[302],
@@ -67,7 +67,7 @@ _UNKNOWN **__fastcall HUBUCX_EnableDisableEndpointsUsingUCXIoctl(__int64 *a1)
           4u,
           5u,
           0x19u,
-          (__int64)&WPP_e357673766b030573709eddce5304229_Traceguids);
+          (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids);
       v2 = 4020;
       return (_UNKNOWN **)HUBSM_AddEvent((__int64)(a1 + 63), v2);
     }
@@ -115,7 +115,7 @@ _UNKNOWN **__fastcall HUBUCX_EnableDisableEndpointsUsingUCXIoctl(__int64 *a1)
                             2u,
                             5u,
                             0x1Au,
-                            (__int64)&WPP_e357673766b030573709eddce5304229_Traceguids,
+                            (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
                             v11);
     }
   }

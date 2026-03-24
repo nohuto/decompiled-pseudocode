@@ -1,42 +1,61 @@
 /*
- * XREFs of ?InitializeDiagnosticBuffers@OUTPUTDUPL_MGR@@AEAAXXZ @ 0x1C032C7AC
+ * XREFs of ?InitializeDiagnosticBuffers@OUTPUTDUPL_MGR@@AEAAXXZ @ 0x1C029ABC4
  * Callers:
- *     ?CreateOutputDuplication@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_FLAGS@@@Z @ 0x1C032AEA0 (-CreateOutputDuplication@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_.c)
+ *     ?CreateOutputDuplication@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_FLAGS@@@Z @ 0x1C02995EC (-CreateOutputDuplication@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??0DXGDIAGNOSTICS@@QEAA@IIW4DXGK_POOL_FLAGS@@I@Z @ 0x1C001FE34 (--0DXGDIAGNOSTICS@@QEAA@IIW4DXGK_POOL_FLAGS@@I@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??0DXGDIAGNOSTICS@@QEAA@IIW4_POOL_TYPE@@I@Z @ 0x1C0021758 (--0DXGDIAGNOSTICS@@QEAA@IIW4_POOL_TYPE@@I@Z.c)
+ *     ?GetDiagnosticBufferSize@OUTPUTDUPL_MGR@@AEBAIH@Z @ 0x1C029A63C (-GetDiagnosticBufferSize@OUTPUTDUPL_MGR@@AEBAIH@Z.c)
  */
 
 void __fastcall OUTPUTDUPL_MGR::InitializeDiagnosticBuffers(OUTPUTDUPL_MGR *this)
 {
-  __int64 v2; // rax
-  __int64 v3; // rax
+  unsigned int DiagnosticBufferSize; // edi
+  DXGDIAGNOSTICS *v3; // rax
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  __int64 v7; // rax
+  unsigned int v8; // edi
+  DXGDIAGNOSTICS *v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  __int64 v14; // rax
 
-  if ( !*((_QWORD *)this + 10) && g_IsInternalReleaseOrDbg )
+  if ( !*((_QWORD *)this + 7) )
   {
-    v2 = operator new[](0x70uLL, 0x674D444Fu, 256LL);
-    if ( v2 )
+    DiagnosticBufferSize = OUTPUTDUPL_MGR::GetDiagnosticBufferSize(this, 1);
+    if ( DiagnosticBufferSize )
     {
-      v3 = DXGDIAGNOSTICS::DXGDIAGNOSTICS(v2, 0x80000u, 1, 256LL, 0x12Cu);
-      *((_QWORD *)this + 10) = v3;
+      v3 = (DXGDIAGNOSTICS *)operator new[](0x40uLL, 0x674D444Fu, PagedPool);
       if ( v3 )
-        return;
+        v3 = DXGDIAGNOSTICS::DXGDIAGNOSTICS(v3, DiagnosticBufferSize, 1, PagedPool, 0x12Cu);
+      *((_QWORD *)this + 7) = v3;
+      if ( !v3 )
+      {
+        v7 = WdLogNewEntry5_WdLowResource(this, v4, v5, v6);
+        *(_QWORD *)(v7 + 24) = 967LL;
+        WdLogEvent5_WdLowResource(v7);
+      }
     }
-    else
+  }
+  if ( !*((_QWORD *)this + 8) )
+  {
+    v8 = OUTPUTDUPL_MGR::GetDiagnosticBufferSize(this, 0);
+    if ( v8 )
     {
-      *((_QWORD *)this + 10) = 0LL;
+      v9 = (DXGDIAGNOSTICS *)operator new[](0x40uLL, 0x674D444Fu, PagedPool);
+      if ( v9 )
+        v9 = DXGDIAGNOSTICS::DXGDIAGNOSTICS(v9, v8, 1, PagedPool, 0x12Cu);
+      *((_QWORD *)this + 8) = v9;
+      if ( !v9 )
+      {
+        v14 = WdLogNewEntry5_WdLowResource(v11, v10, v12, v13);
+        *(_QWORD *)(v14 + 24) = 980LL;
+        WdLogEvent5_WdLowResource(v14);
+      }
     }
-    WdLogSingleEntry1(6LL, 948LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Failed to create high frequency diagnostic buffer.",
-      948LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
   }
 }

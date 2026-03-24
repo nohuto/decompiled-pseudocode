@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsReadyForEvaluation@CKeyframeAnimation@@UEBA_NXZ @ 0x1800E0A70
+ * XREFs of ?IsReadyForEvaluation@CKeyframeAnimation@@UEBA_NXZ @ 0x1800CB4E0
  * Callers:
  *     <none>
  * Callees:
@@ -8,12 +8,10 @@
 
 bool __fastcall CKeyframeAnimation::IsReadyForEvaluation(CKeyframeAnimation *this)
 {
-  bool result; // al
+  char v1; // dl
 
-  if ( (*((_BYTE *)this + 216) & 2) == 0 )
-    return 0;
-  result = 1;
-  if ( (*((_BYTE *)this + 232) & 1) != 0 || !*((_QWORD *)this + 49) )
-    return 0;
-  return result;
+  v1 = 0;
+  if ( (*((_BYTE *)this + 208) & 0x12) == 2 )
+    return *((_QWORD *)this + 45) != 0LL;
+  return v1;
 }

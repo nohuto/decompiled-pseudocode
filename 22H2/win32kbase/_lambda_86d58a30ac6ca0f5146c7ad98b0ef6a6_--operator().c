@@ -1,57 +1,50 @@
 /*
- * XREFs of _lambda_86d58a30ac6ca0f5146c7ad98b0ef6a6_::operator() @ 0x1C012F398
+ * XREFs of _lambda_86d58a30ac6ca0f5146c7ad98b0ef6a6_::operator() @ 0x1C0115F64
  * Callers:
- *     ?xxxDispBrokerChangeDisplaySettings@@YAJPEBU_UNICODE_STRING@@PEAU_devicemodeW@@I_N@Z @ 0x1C012F5E0 (-xxxDispBrokerChangeDisplaySettings@@YAJPEBU_UNICODE_STRING@@PEAU_devicemodeW@@I_N@Z.c)
+ *     ?xxxDispBrokerChangeDisplaySettings@@YAJPEBU_UNICODE_STRING@@PEAU_devicemodeW@@I_N@Z @ 0x1C01161A8 (-xxxDispBrokerChangeDisplaySettings@@YAJPEBU_UNICODE_STRING@@PEAU_devicemodeW@@I_N@Z.c)
  * Callees:
- *     ?RtlStringCchCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C012F4E8 (-RtlStringCchCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
+ *     ?RtlStringCchCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C01160B8 (-RtlStringCchCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
  */
 
-__int64 __fastcall lambda_86d58a30ac6ca0f5146c7ad98b0ef6a6_::operator()(__int64 a1, __int64 a2)
+int __fastcall lambda_86d58a30ac6ca0f5146c7ad98b0ef6a6_::operator()(__int64 a1, unsigned __int64 a2)
 {
-  unsigned __int16 *v2; // r9
-  unsigned int v3; // ebx
-  int *v4; // rax
-  int v5; // r8d
-  _OWORD **v6; // rax
-  _OWORD *v7; // r8
-  __int128 v8; // xmm0
-  _OWORD *v9; // r8
-  const struct _UNICODE_STRING **v10; // rdx
-  int v11; // eax
+  unsigned __int64 v2; // r9
+  _OWORD *v3; // r8
+  __int128 v4; // xmm0
+  _OWORD *v5; // r8
+  const struct _UNICODE_STRING *v6; // r8
+  int result; // eax
 
-  v2 = (unsigned __int16 *)(a2 + 72);
-  v3 = 0;
-  v4 = *(int **)(a1 + 8);
+  v2 = a2 + 72;
   *(_DWORD *)(a2 + 68) = **(_BYTE **)a1 != 0;
-  v5 = *v4;
-  v6 = *(_OWORD ***)(a1 + 16);
-  *(_DWORD *)(a2 + 64) = v5;
-  v7 = *v6;
-  if ( *v6 )
+  *(_DWORD *)(a2 + 64) = **(_DWORD **)(a1 + 8);
+  v3 = **(_OWORD ***)(a1 + 16);
+  if ( v3 )
   {
-    *(_OWORD *)v2 = *v7;
-    *(_OWORD *)(a2 + 88) = v7[1];
-    *(_OWORD *)(a2 + 104) = v7[2];
-    *(_OWORD *)(a2 + 120) = v7[3];
-    *(_OWORD *)(a2 + 136) = v7[4];
-    *(_OWORD *)(a2 + 152) = v7[5];
-    *(_OWORD *)(a2 + 168) = v7[6];
-    v8 = v7[7];
-    v9 = v7 + 8;
-    *(_OWORD *)(a2 + 184) = v8;
-    *(_OWORD *)(a2 + 200) = *v9;
-    *(_OWORD *)(a2 + 216) = v9[1];
-    *(_OWORD *)(a2 + 232) = v9[2];
-    *(_OWORD *)(a2 + 248) = v9[3];
-    *(_OWORD *)(a2 + 264) = v9[4];
-    *(_QWORD *)(a2 + 280) = *((_QWORD *)v9 + 10);
-    *(_DWORD *)(a2 + 288) = *((_DWORD *)v9 + 22);
+    *(_OWORD *)v2 = *v3;
+    a2 += 200LL;
+    *(_OWORD *)(v2 + 16) = v3[1];
+    *(_OWORD *)(v2 + 32) = v3[2];
+    *(_OWORD *)(v2 + 48) = v3[3];
+    *(_OWORD *)(v2 + 64) = v3[4];
+    *(_OWORD *)(v2 + 80) = v3[5];
+    *(_OWORD *)(v2 + 96) = v3[6];
+    v4 = v3[7];
+    v5 = v3 + 8;
+    *(_OWORD *)(v2 + 112) = v4;
+    *(_OWORD *)(v2 + 128) = *v5;
+    *(_OWORD *)(v2 + 144) = v5[1];
+    *(_OWORD *)(v2 + 160) = v5[2];
+    *(_OWORD *)(v2 + 176) = v5[3];
+    *(_OWORD *)(v2 + 192) = v5[4];
+    *(_QWORD *)(v2 + 208) = *((_QWORD *)v5 + 10);
+    *(_DWORD *)(v2 + 216) = *((_DWORD *)v5 + 22);
   }
-  v10 = *(const struct _UNICODE_STRING ***)(a1 + 24);
-  if ( !*v10 )
-    return 0LL;
-  v11 = RtlStringCchCopyUnicodeString(v2, (unsigned __int64)v10, *v10);
-  if ( v11 < 0 )
-    return (unsigned int)v11;
-  return v3;
+  v6 = **(const struct _UNICODE_STRING ***)(a1 + 24);
+  if ( !v6 )
+    return 0;
+  result = RtlStringCchCopyUnicodeString((unsigned __int16 *)v2, a2, v6);
+  if ( result >= 0 )
+    return 0;
+  return result;
 }

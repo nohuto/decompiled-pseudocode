@@ -1,95 +1,87 @@
 /*
- * XREFs of PspAssignPrimaryToken @ 0x140841EB8
+ * XREFs of PspAssignPrimaryToken @ 0x1407BC200
  * Callers:
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     PspLockUnlockProcessExclusive @ 0x1403613D8 (PspLockUnlockProcessExclusive.c)
- *     SeIsTokenAssignableToProcess @ 0x1406BA488 (SeIsTokenAssignableToProcess.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     ObClearProcessDeviceMap @ 0x1407B0338 (ObClearProcessDeviceMap.c)
- *     SeCheckPrivilegedObject @ 0x1407E05E4 (SeCheckPrivilegedObject.c)
- *     SeExchangePrimaryToken @ 0x140842088 (SeExchangePrimaryToken.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PspLockUnlockProcessExclusive @ 0x14031C374 (PspLockUnlockProcessExclusive.c)
+ *     PspLockProcessSecurityShared @ 0x140399750 (PspLockProcessSecurityShared.c)
+ *     PspUnlockProcessSecurityShared @ 0x140581D08 (PspUnlockProcessSecurityShared.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ObDereferenceDeviceMap @ 0x140693AD4 (ObDereferenceDeviceMap.c)
+ *     SeIsTokenAssignableToProcess @ 0x14070DAF4 (SeIsTokenAssignableToProcess.c)
+ *     SeCheckPrivilegedObject @ 0x14078DD60 (SeCheckPrivilegedObject.c)
+ *     SeExchangePrimaryToken @ 0x1407BC404 (SeExchangePrimaryToken.c)
  */
 
-NTSTATUS __fastcall PspAssignPrimaryToken(__int64 a1, KPROCESSOR_MODE a2, ULONG_PTR a3, void *a4)
+NTSTATUS __fastcall PspAssignPrimaryToken(__int64 a1, KPROCESSOR_MODE a2, void *a3, void *a4)
 {
   NTSTATUS result; // eax
-  PVOID v8; // rsi
+  struct _DMA_ADAPTER *v8; // rsi
   int IsTokenAssignableToProcess; // ebx
-  PVOID v10; // rdi
+  _QWORD *v10; // rdi
   signed __int64 v11; // rax
-  char v12[8]; // [rsp+40h] [rbp-30h] BYREF
-  PVOID v13; // [rsp+48h] [rbp-28h] BYREF
-  PVOID v14; // [rsp+50h] [rbp-20h] BYREF
-  PVOID Object[3]; // [rsp+58h] [rbp-18h] BYREF
+  char v12[8]; // [rsp+40h] [rbp-20h] BYREF
+  PVOID Object; // [rsp+48h] [rbp-18h] BYREF
+  PADAPTER_OBJECT v14; // [rsp+50h] [rbp-10h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp-8h] BYREF
 
-  v12[0] = 0;
-  v13 = 0LL;
+  Object = 0LL;
   v14 = 0LL;
-  result = ObReferenceObjectByHandle(a4, 1u, (POBJECT_TYPE)SeTokenObjectType, a2, &v14, 0LL);
+  v12[0] = 0;
+  result = ObReferenceObjectByHandle(a4, 1u, (POBJECT_TYPE)SeTokenObjectType, a2, (PVOID *)&v14, 0LL);
   if ( result >= 0 )
   {
     v8 = v14;
     IsTokenAssignableToProcess = SeIsTokenAssignableToProcess((__int64)v14, v12);
     if ( IsTokenAssignableToProcess >= 0 )
     {
-      if ( v12[0] || SeCheckPrivilegedObject(SeAssignPrimaryTokenPrivilege, a3, 512, a2) )
+      if ( v12[0] || SeCheckPrivilegedObject(SeAssignPrimaryTokenPrivilege, (int)a3, 512, a2) )
       {
-        IsTokenAssignableToProcess = ObpReferenceObjectByHandleWithTag(
+        IsTokenAssignableToProcess = ObReferenceObjectByHandleWithTag(
                                        a3,
-                                       512,
-                                       (__int64)PsProcessType,
+                                       0x200u,
+                                       (POBJECT_TYPE)PsProcessType,
                                        a2,
                                        0x65537350u,
-                                       &v13,
-                                       0LL,
+                                       &Object,
                                        0LL);
         if ( IsTokenAssignableToProcess >= 0 )
         {
-          v10 = v13;
-          Object[0] = 0LL;
-          if ( _bittest((const signed __int32 *)v13 + 280, 0xFu) )
+          v10 = Object;
+          DmaAdapter = 0LL;
+          if ( (*((_DWORD *)Object + 280) & 0x8000) != 0 )
           {
             IsTokenAssignableToProcess = -1073741637;
           }
           else
           {
-            --*(_WORD *)(a1 + 484);
-            ExAcquirePushLockSharedEx((ULONG_PTR)v10 + 1080, 0LL);
-            if ( _bittest((const signed __int32 *)v10 + 280, 0xFu) )
+            PspLockProcessSecurityShared((__int64)Object, a1);
+            if ( (v10[140] & 0x8000) != 0 )
             {
               IsTokenAssignableToProcess = -1073741637;
             }
             else
             {
-              IsTokenAssignableToProcess = SeExchangePrimaryToken(v10, v8, Object);
+              IsTokenAssignableToProcess = SeExchangePrimaryToken(v10, v8, &DmaAdapter);
               if ( IsTokenAssignableToProcess >= 0 )
               {
-                v10 = v13;
+                v10 = Object;
                 v11 = _InterlockedIncrement64(&PsNextSecurityDomain);
-                *((_QWORD *)v13 + 316) = v11;
-                *((_QWORD *)v10 + 317) = v11;
+                v8 = v14;
+                *((_QWORD *)Object + 316) = v11;
+                v10[317] = v11;
               }
             }
-            if ( _InterlockedCompareExchange64((volatile signed __int64 *)v10 + 135, 0LL, 17LL) != 17 )
-              ExfReleasePushLockShared((signed __int64 *)v10 + 135);
-            KeAbPostRelease((ULONG_PTR)v10 + 1080);
-            KeLeaveCriticalRegionThread(a1);
-            v10 = v13;
-            if ( IsTokenAssignableToProcess >= 0 )
-            {
-              PspLockUnlockProcessExclusive((__int64)v13, a1);
-              ObfDereferenceObject(Object[0]);
-              ObClearProcessDeviceMap((__int64)v10);
-            }
-            v8 = v14;
+            PspUnlockProcessSecurityShared((__int64)v10, a1);
+          }
+          if ( IsTokenAssignableToProcess >= 0 )
+          {
+            PspLockUnlockProcessExclusive((__int64)v10, a1);
+            HalPutDmaAdapter(DmaAdapter);
+            ObDereferenceDeviceMap((__int64)v10);
           }
           ObfDereferenceObjectWithTag(v10, 0x65537350u);
         }
@@ -99,7 +91,7 @@ NTSTATUS __fastcall PspAssignPrimaryToken(__int64 a1, KPROCESSOR_MODE a2, ULONG_
         IsTokenAssignableToProcess = -1073741727;
       }
     }
-    ObfDereferenceObject(v8);
+    HalPutDmaAdapter(v8);
     return IsTokenAssignableToProcess;
   }
   return result;

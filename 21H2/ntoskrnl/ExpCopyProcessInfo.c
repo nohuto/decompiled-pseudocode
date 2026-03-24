@@ -1,27 +1,26 @@
 /*
- * XREFs of ExpCopyProcessInfo @ 0x1407B6430
+ * XREFs of ExpCopyProcessInfo @ 0x140618A20
  * Callers:
- *     ExpGetProcessInformation @ 0x1407B6CA0 (ExpGetProcessInformation.c)
- *     ExProcessCounterSetCallback @ 0x1409F5F90 (ExProcessCounterSetCallback.c)
+ *     ExpGetProcessInformation @ 0x1406F1260 (ExpGetProcessInformation.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     ExHandleTableQuery @ 0x1407B6370 (ExHandleTableQuery.c)
- *     PsQueryStatisticsProcess @ 0x1407B81B0 (PsQueryStatisticsProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     PsQueryStatisticsProcess @ 0x140618CC0 (PsQueryStatisticsProcess.c)
+ *     ExHandleTableQuery @ 0x140618ED0 (ExHandleTableQuery.c)
  */
 
 __int64 __fastcall ExpCopyProcessInfo(__int64 a1, __int64 a2, char a3, _QWORD *a4)
 {
-  unsigned int *v8; // rbx
+  __int64 v8; // rbx
   int v9; // eax
-  unsigned __int64 v10; // rdx
-  unsigned __int64 v11; // rcx
+  unsigned __int64 v10; // rcx
+  unsigned __int64 v11; // rax
   int v13; // [rsp+24h] [rbp-54h] BYREF
   __int64 v14; // [rsp+28h] [rbp-50h]
   __int64 v15; // [rsp+30h] [rbp-48h]
-  unsigned int *v16; // [rsp+38h] [rbp-40h]
-  unsigned __int64 v17; // [rsp+40h] [rbp-38h]
-  __int64 v18; // [rsp+48h] [rbp-30h]
+  __int64 v16; // [rsp+38h] [rbp-40h]
+  __int64 v17; // [rsp+40h] [rbp-38h]
+  unsigned __int64 v18; // [rsp+50h] [rbp-28h]
   unsigned __int64 v19; // [rsp+58h] [rbp-20h]
 
   v15 = 0LL;
@@ -29,18 +28,18 @@ __int64 __fastcall ExpCopyProcessInfo(__int64 a1, __int64 a2, char a3, _QWORD *a
   PsQueryStatisticsProcess(a2, a4);
   v13 = 0;
   v16 = 0LL;
-  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112)) )
+  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a2 + 1112)) )
   {
-    v8 = *(unsigned int **)(a2 + 1392);
+    v8 = *(_QWORD *)(a2 + 1392);
     v16 = v8;
     if ( v8 )
     {
       ExHandleTableQuery(v8, &v13, 0LL);
-      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112));
+      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a2 + 1112));
       v9 = v13;
       goto LABEL_4;
     }
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112));
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a2 + 1112));
   }
   v9 = 0;
   v13 = 0;
@@ -56,9 +55,9 @@ LABEL_4:
   *(_DWORD *)(a1 + 128) = *(_DWORD *)(a2 + 1668);
   *(_DWORD *)(a1 + 16) = *(_DWORD *)(a2 + 1832);
   *(_QWORD *)(a1 + 136) = *(_QWORD *)(a2 + 1824) << 12;
-  v10 = *(_QWORD *)(a2 + 1792) << 12;
-  v17 = v10;
-  v19 = *(_QWORD *)(a2 + 1800) << 12;
+  v10 = *(_QWORD *)(a2 + 1784) << 12;
+  v18 = v10;
+  v19 = *(_QWORD *)(a2 + 1792) << 12;
   v11 = v19;
   *(_QWORD *)(a1 + 144) = v10;
   if ( v11 >= v10 )
@@ -72,10 +71,10 @@ LABEL_4:
   v15 = *(_QWORD *)(a2 + 1152);
   *(_QWORD *)(a1 + 176) = v14;
   *(_QWORD *)(a1 + 168) = v15;
-  v18 = *(_QWORD *)(a2 + 1608) << 12;
-  *(_QWORD *)(a1 + 184) = v18;
+  v17 = *(_QWORD *)(a2 + 1608) << 12;
+  *(_QWORD *)(a1 + 184) = v17;
   *(_QWORD *)(a1 + 192) = *(_QWORD *)(a2 + 1616) << 12;
-  *(_QWORD *)(a1 + 200) = v18;
+  *(_QWORD *)(a1 + 200) = v17;
   *(_QWORD *)(a1 + 24) = a4[3];
   *(_QWORD *)(a1 + 40) = a4[1];
   *(_QWORD *)(a1 + 48) = *a4;

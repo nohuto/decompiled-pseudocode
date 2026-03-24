@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipRemoveDS @ 0x140882AD8
+ * XREFs of WmipRemoveDS @ 0x140754A8C
  * Callers:
- *     WmipDeregisterRegEntry @ 0x1403D4480 (WmipDeregisterRegEntry.c)
+ *     WmipDeregisterRegEntry @ 0x140371974 (WmipDeregisterRegEntry.c)
  * Callees:
- *     WmipUnreferenceEntry @ 0x1406C7090 (WmipUnreferenceEntry.c)
- *     WmipGenerateRegistrationNotification @ 0x14086AF18 (WmipGenerateRegistrationNotification.c)
+ *     WmipUnreferenceEntry @ 0x1406B23F8 (WmipUnreferenceEntry.c)
+ *     WmipGenerateRegistrationNotification @ 0x140757110 (WmipGenerateRegistrationNotification.c)
  */
 
 __int64 __fastcall WmipRemoveDS(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall WmipRemoveDS(__int64 a1)
   v1 = *(_QWORD *)(a1 + 32);
   if ( v1 )
   {
-    WmipGenerateRegistrationNotification(*(_QWORD *)(a1 + 32), 2u);
+    WmipGenerateRegistrationNotification(*(_QWORD *)(a1 + 32), 2LL);
     *(_DWORD *)(v1 + 16) |= 1u;
     return WmipUnreferenceEntry((__int64)&WmipDSChunkInfo, (volatile signed __int64 *)v1);
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiExpandFlushMdl @ 0x140354B08
+ * XREFs of MiExpandFlushMdl @ 0x140313AE0
  * Callers:
- *     MiFlushSectionInternal @ 0x140275630 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x140219D70 (MiFlushSectionInternal.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall MiExpandFlushMdl(unsigned int *Src, unsigned int a2)
@@ -16,10 +16,10 @@ __int64 __fastcall MiExpandFlushMdl(unsigned int *Src, unsigned int a2)
   __int64 result; // rax
 
   v2 = Src[10];
-  if ( (_DWORD)v2 == 0xFFFFF )
+  if ( (_DWORD)v2 == 1048574 )
     return 0LL;
   v4 = (unsigned int)(2 * v2);
-  if ( (unsigned int)v4 <= (unsigned int)v2 || (unsigned int)v4 > 0xFFFFF )
+  if ( (unsigned int)v4 <= (unsigned int)v2 || (unsigned int)v4 > 0xFFFFE )
     return 0LL;
   if ( (unsigned int)v4 > a2 )
     v4 = a2;

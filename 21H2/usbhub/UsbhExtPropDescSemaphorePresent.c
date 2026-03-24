@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhExtPropDescSemaphorePresent @ 0x1C0031FBC
+ * XREFs of UsbhExtPropDescSemaphorePresent @ 0x1C00332AC
  * Callers:
- *     UsbhInstallMsOs20RegistryProperties @ 0x1C0032D88 (UsbhInstallMsOs20RegistryProperties.c)
- *     UsbhInstallMsOsExtendedProperties @ 0x1C0032E68 (UsbhInstallMsOsExtendedProperties.c)
+ *     UsbhInstallMsOs20RegistryProperties @ 0x1C00340C8 (UsbhInstallMsOs20RegistryProperties.c)
+ *     UsbhInstallMsOsExtendedProperties @ 0x1C00341A8 (UsbhInstallMsOsExtendedProperties.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhGetPdoRegistryParameter @ 0x1C0044750 (UsbhGetPdoRegistryParameter.c)
- *     UsbhSetPdoRegistryParameter @ 0x1C0046494 (UsbhSetPdoRegistryParameter.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhGetPdoRegistryParameter @ 0x1C0045A10 (UsbhGetPdoRegistryParameter.c)
+ *     UsbhSetPdoRegistryParameter @ 0x1C0047814 (UsbhSetPdoRegistryParameter.c)
  */
 
 bool __fastcall UsbhExtPropDescSemaphorePresent(PDEVICE_OBJECT DeviceObject)

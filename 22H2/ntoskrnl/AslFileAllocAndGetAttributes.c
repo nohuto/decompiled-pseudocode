@@ -1,254 +1,226 @@
 /*
- * XREFs of AslFileAllocAndGetAttributes @ 0x1407592F8
+ * XREFs of AslFileAllocAndGetAttributes @ 0x1407B2904
  * Callers:
- *     SdbpCheckAllAttributes @ 0x140757C04 (SdbpCheckAllAttributes.c)
+ *     SdbpCheckAllAttributes @ 0x1407B243C (SdbpCheckAllAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslFileMappingEnsure @ 0x140759400 (AslFileMappingEnsure.c)
- *     AslpFileGetVersionAttributes @ 0x140759728 (AslpFileGetVersionAttributes.c)
- *     AslpFileGetChecksumAttributes @ 0x140A57E4C (AslpFileGetChecksumAttributes.c)
- *     AslpFileGetClrVersionAttribute @ 0x140A581C8 (AslpFileGetClrVersionAttribute.c)
- *     AslpFileGetFileKindDetailAttribute @ 0x140A58660 (AslpFileGetFileKindDetailAttribute.c)
- *     AslpFileGetHeaderAttributesNE @ 0x140A586E4 (AslpFileGetHeaderAttributesNE.c)
- *     AslpFileGetHeaderAttributesPE @ 0x140A58888 (AslpFileGetHeaderAttributesPE.c)
- *     AslpFileGetPeExportNameExeWrapper @ 0x140A58D50 (AslpFileGetPeExportNameExeWrapper.c)
- *     AslpFileLargeEnsureLargeFileMapping @ 0x140A59538 (AslpFileLargeEnsureLargeFileMapping.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslFileMappingEnsure @ 0x1407B2D08 (AslFileMappingEnsure.c)
+ *     AslpFileGetVersionAttributes @ 0x1407B2D98 (AslpFileGetVersionAttributes.c)
+ *     AslFileResourceNotFound @ 0x140967CE4 (AslFileResourceNotFound.c)
+ *     AslpFileGetChecksumAttributes @ 0x14096AA44 (AslpFileGetChecksumAttributes.c)
+ *     AslpFileGetClrVersionAttribute @ 0x14096ADD0 (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetFileKindDetailAttribute @ 0x14096B260 (AslpFileGetFileKindDetailAttribute.c)
+ *     AslpFileGetHeaderAttributesNE @ 0x14096B2E4 (AslpFileGetHeaderAttributesNE.c)
+ *     AslpFileGetHeaderAttributesPE @ 0x14096B484 (AslpFileGetHeaderAttributesPE.c)
+ *     AslpFileGetModuleType @ 0x14096B790 (AslpFileGetModuleType.c)
+ *     AslpFileGetPeExportNameExeWrapper @ 0x14096B930 (AslpFileGetPeExportNameExeWrapper.c)
+ *     AslpFileLargeEnsureLargeFileMapping @ 0x14096BF44 (AslpFileLargeEnsureLargeFileMapping.c)
  */
 
-__int64 __fastcall AslFileAllocAndGetAttributes(__int64 a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall AslFileAllocAndGetAttributes(__int64 a1, _DWORD *a2, unsigned __int64 a3)
 {
-  int v5; // eax
-  int HeaderAttributesNE; // ebx
-  int v7; // esi
+  _DWORD *v3; // rbp
+  int PeExportNameExeWrapper; // ebx
+  int v6; // edx
+  int *i; // rcx
+  int v8; // eax
+  int v9; // eax
+  int v10; // ecx
+  int v11; // eax
+  int v12; // esi
   __int64 j; // r13
   int VersionAttributes; // eax
-  int v11; // edx
-  int *i; // rax
-  int v13; // ecx
-  int v14; // ecx
-  int v15; // edx
-  _DWORD *v16; // r8
+  __int64 v16; // rax
   bool v17; // zf
-  int v18; // ecx
-  int v19; // ecx
-  int v20; // ecx
-  int v21; // ecx
-  __int64 v22; // rax
-  __int64 v23; // rax
+  __int64 v18; // rax
+  unsigned int v20; // [rsp+88h] [rbp+20h] BYREF
 
-  if ( !a3 )
-    return 0;
-  if ( *(_DWORD *)(a2 + 64) == 1 )
+  v3 = a2;
+  v20 = 0;
+  if ( a3 )
   {
-    v11 = 0;
-    for ( i = (int *)(a1 + 24); ; i += 8 )
+    if ( a2[16] == 1 )
     {
-      v13 = *i;
-      if ( !v11 || v11 == 17 )
-        break;
-      if ( v11 == 28 )
+      v6 = 0;
+      for ( i = (int *)(a1 + 24); ; i += 8 )
       {
-        *((_QWORD *)i - 1) = 1LL;
-LABEL_27:
-        *(i - 6) = 2;
-        v14 = v13 | 1;
-        *((_QWORD *)i - 2) = 4LL;
-        goto LABEL_28;
-      }
-      v14 = v13 | 2;
-LABEL_28:
-      *i = v14;
-      if ( ++v11 >= 34 )
-        return 0;
-    }
-    *((_QWORD *)i - 1) = 0LL;
-    goto LABEL_27;
-  }
-  if ( *(_DWORD *)(a2 + 80) )
-  {
-    v15 = 0;
-    v16 = (_DWORD *)(a1 + 24);
-    do
-    {
-      if ( (unsigned int)v15 > 0x1C )
-      {
-        if ( v15 != 29 && v15 != 30 && v15 != 31 )
+        v8 = *i;
+        if ( !v6 || v6 == 17 )
+          break;
+        if ( v6 == 28 )
         {
-          v17 = v15 == 33;
-LABEL_42:
-          if ( !v17 )
-            *v16 |= 2u;
+          *((_QWORD *)i - 1) = 1LL;
+LABEL_11:
+          *(i - 6) = 2;
+          v9 = v8 | 1;
+          *((_QWORD *)i - 2) = 4LL;
+          goto LABEL_12;
         }
+        v9 = v8 | 2;
+LABEL_12:
+        *i = v9;
+        if ( ++v6 >= 35 )
+          return 0;
       }
-      else if ( v15 != 28 && v15 != 1 && v15 != 17 && v15 != 18 && v15 != 19 )
-      {
-        v17 = v15 == 22;
-        goto LABEL_42;
-      }
-      ++v15;
-      v16 += 8;
+      *((_QWORD *)i - 1) = 0LL;
+      goto LABEL_11;
     }
-    while ( v15 < 34 );
-  }
-  v5 = AslFileMappingEnsure(a2);
-  HeaderAttributesNE = v5;
-  if ( v5 == -1073741801 )
-  {
-    if ( !*(_DWORD *)(a2 + 80) )
+    if ( a2[20] )
     {
-      HeaderAttributesNE = AslpFileLargeEnsureLargeFileMapping(a1, a2);
-      if ( HeaderAttributesNE >= 0 )
-        goto LABEL_6;
+      v10 = 0;
+      a2 = (_DWORD *)(a1 + 24);
+      do
+      {
+        if ( v10 > 22 )
+        {
+          if ( v10 >= 28 && v10 <= 31 )
+            goto LABEL_25;
+        }
+        else if ( v10 == 22 || v10 == 1 || v10 > 16 && v10 <= 19 )
+        {
+          goto LABEL_25;
+        }
+        *a2 |= 2u;
+LABEL_25:
+        ++v10;
+        a2 += 8;
+      }
+      while ( v10 < 35 );
     }
-  }
-  else if ( v5 >= 0 )
-  {
-LABEL_6:
-    v7 = 0;
+    v11 = AslFileMappingEnsure(v3, a2);
+    PeExportNameExeWrapper = v11;
+    if ( v11 == -1073741801 )
+    {
+      if ( v3[20] )
+        goto LABEL_29;
+      PeExportNameExeWrapper = AslpFileLargeEnsureLargeFileMapping(a1, v3);
+      if ( PeExportNameExeWrapper < 0 )
+        goto LABEL_29;
+    }
+    else if ( v11 < 0 )
+    {
+LABEL_29:
+      AslLogCallPrintf(1LL);
+      return (unsigned int)PeExportNameExeWrapper;
+    }
+    v12 = 0;
     for ( j = 0LL; ; j += 32LL )
     {
-      if ( ((a3 >> v7) & 1) != 0 && (*(_DWORD *)(a1 + j + 24) & 3) == 0 )
+      if ( ((a3 >> v12) & 1) != 0 && (*(_DWORD *)(a1 + j + 24) & 3) == 0 )
       {
-        if ( v7 > 17 )
+        if ( v12 > 23 )
         {
-          if ( v7 <= 26 )
+          switch ( v12 )
           {
-            switch ( v7 )
-            {
-              case 26:
-                goto LABEL_81;
-              case 18:
-              case 19:
-                goto LABEL_86;
-              case 20:
-              case 21:
-                HeaderAttributesNE = AslpFileGetHeaderAttributesNE(a1, a2);
-                if ( HeaderAttributesNE < 0 )
-                  goto LABEL_48;
-                goto LABEL_8;
-              case 22:
-                goto LABEL_86;
-            }
-            if ( v7 != 24 )
-            {
-              HeaderAttributesNE = AslpFileGetPeExportNameExeWrapper(a1, a2);
-              if ( HeaderAttributesNE < 0 )
-                break;
-              goto LABEL_8;
-            }
-            goto LABEL_17;
+            case 24:
+              goto LABEL_43;
+            case 25:
+              PeExportNameExeWrapper = AslpFileGetPeExportNameExeWrapper(a1, v3);
+              if ( PeExportNameExeWrapper < 0 )
+                goto LABEL_29;
+              goto LABEL_46;
+            case 26:
+LABEL_74:
+              PeExportNameExeWrapper = AslpFileGetChecksumAttributes(a1, v3);
+              if ( PeExportNameExeWrapper < 0 )
+                goto LABEL_29;
+              goto LABEL_46;
+            case 27:
+              PeExportNameExeWrapper = AslpFileGetClrVersionAttribute(a1, v3);
+              if ( PeExportNameExeWrapper < 0 )
+                goto LABEL_29;
+              goto LABEL_46;
+            case 28:
+              PeExportNameExeWrapper = AslpFileGetFileKindDetailAttribute(a1, v3);
+              if ( PeExportNameExeWrapper < 0 )
+                goto LABEL_29;
+              goto LABEL_46;
           }
-          if ( v7 == 27 )
+          if ( v12 <= 31 )
+            goto LABEL_55;
+          if ( v12 != 32 )
           {
-            HeaderAttributesNE = AslpFileGetClrVersionAttribute(a1, a2);
-            if ( HeaderAttributesNE < 0 )
-              break;
-            goto LABEL_8;
-          }
-          if ( v7 == 28 )
-          {
-            HeaderAttributesNE = AslpFileGetFileKindDetailAttribute(a1, a2);
-            if ( HeaderAttributesNE < 0 )
-              break;
-            goto LABEL_8;
-          }
-          if ( v7 != 32 )
-          {
-LABEL_86:
-            HeaderAttributesNE = AslpFileGetHeaderAttributesPE(a1, a2);
-            if ( HeaderAttributesNE < 0 )
-              break;
-            goto LABEL_8;
+            v17 = v12 == 33;
+            goto LABEL_54;
           }
         }
         else
         {
-          if ( v7 == 17 )
+          if ( v12 == 23 )
           {
-            switch ( *(_DWORD *)(a2 + 64) )
+            PeExportNameExeWrapper = AslpFileGetPeExportNameExeWrapper(a1, v3);
+            if ( PeExportNameExeWrapper < 0 )
+              goto LABEL_29;
+            goto LABEL_46;
+          }
+          if ( v12 > 17 )
+          {
+            if ( v12 > 19 )
             {
-              case 4:
-                v22 = 1LL;
-                break;
-              case 5:
-                v22 = 2LL;
-                break;
-              case 6:
-                v22 = 3LL;
-                break;
-              default:
-                v22 = 0LL;
-                break;
+              if ( v12 <= 21 )
+              {
+                PeExportNameExeWrapper = AslpFileGetHeaderAttributesNE(a1, v3);
+                if ( PeExportNameExeWrapper < 0 )
+                  goto LABEL_29;
+                goto LABEL_46;
+              }
+              v17 = v12 == 22;
+LABEL_54:
+              if ( !v17 )
+                return (unsigned int)-1073741595;
             }
+LABEL_55:
+            PeExportNameExeWrapper = AslpFileGetHeaderAttributesPE(a1, v3);
+            if ( PeExportNameExeWrapper < 0 )
+              goto LABEL_29;
+            goto LABEL_46;
+          }
+          if ( v12 == 17 )
+          {
+            PeExportNameExeWrapper = AslpFileGetModuleType(&v20, v3);
+            if ( PeExportNameExeWrapper < 0 )
+              goto LABEL_29;
+            v16 = v20;
             *(_DWORD *)(a1 + 568) |= 1u;
+            *(_QWORD *)(a1 + 560) = v16;
             *(_DWORD *)(a1 + 544) = 2;
             *(_QWORD *)(a1 + 552) = 4LL;
-            *(_QWORD *)(a1 + 560) = v22;
-            goto LABEL_8;
+            goto LABEL_46;
           }
-          if ( v7 > 8 )
+          if ( v12 )
           {
-            if ( v7 != 9 && v7 != 10 )
+            if ( v12 == 1 )
+              goto LABEL_55;
+            if ( v12 == 2 )
+              goto LABEL_74;
+            if ( (unsigned int)(v12 - 3) > 0xD )
+              return (unsigned int)-1073741595;
+LABEL_43:
+            VersionAttributes = AslpFileGetVersionAttributes(a1, v3);
+            if ( VersionAttributes < 0
+              && !(unsigned int)AslFileResourceNotFound(
+                                  (unsigned int)VersionAttributes,
+                                  (unsigned int)VersionAttributes) )
             {
-              v18 = v7 - 11;
-              if ( v7 != 11 )
-                goto LABEL_53;
-            }
-            goto LABEL_17;
-          }
-          if ( v7 == 8 )
-            goto LABEL_17;
-          if ( v7 )
-          {
-            if ( v7 == 1 )
-              goto LABEL_86;
-            v18 = v7 - 2;
-            if ( v7 == 2 )
-            {
-LABEL_81:
-              HeaderAttributesNE = AslpFileGetChecksumAttributes(a1, a2);
-              if ( HeaderAttributesNE < 0 )
-                break;
-              goto LABEL_8;
-            }
-LABEL_53:
-            v19 = v18 - 1;
-            if ( v19 )
-            {
-              v20 = v19 - 1;
-              if ( v20 )
-              {
-                v21 = v20 - 1;
-                if ( v21 )
-                {
-                  if ( (unsigned int)(v21 - 1) >= 2 )
-                    return (unsigned int)-1073741595;
-                }
-              }
-            }
-LABEL_17:
-            VersionAttributes = AslpFileGetVersionAttributes(a1, a2);
-            if ( VersionAttributes <= -1073741688 || (unsigned int)(VersionAttributes + 1073741684) <= 0x3FFFFF73 )
               AslLogCallPrintf(1LL);
-            goto LABEL_8;
+            }
+            goto LABEL_46;
           }
         }
-        v23 = *(_QWORD *)(a2 + 24);
+        v18 = *((_QWORD *)v3 + 3);
         *(_DWORD *)(a1 + 1048) |= 1u;
         *(_DWORD *)(a1 + 24) |= 1u;
-        *(_QWORD *)(a1 + 16) = (unsigned int)v23;
+        *(_QWORD *)(a1 + 16) = (unsigned int)v18;
         *(_DWORD *)(a1 + 1024) = 3;
         *(_QWORD *)(a1 + 1032) = 8LL;
-        *(_QWORD *)(a1 + 1040) = v23;
+        *(_QWORD *)(a1 + 1040) = v18;
         *(_DWORD *)a1 = 2;
         *(_QWORD *)(a1 + 8) = 4LL;
       }
-LABEL_8:
-      if ( ++v7 >= 34 )
+LABEL_46:
+      if ( ++v12 >= 35 )
         return 0;
     }
   }
-LABEL_48:
-  AslLogCallPrintf(1LL);
-  return (unsigned int)HeaderAttributesNE;
+  return 0;
 }

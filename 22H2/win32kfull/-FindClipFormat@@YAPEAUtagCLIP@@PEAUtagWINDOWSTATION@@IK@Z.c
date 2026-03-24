@@ -1,21 +1,19 @@
 /*
- * XREFs of ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C00131A8
+ * XREFs of ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C002F970
  * Callers:
- *     NtUserIsClipboardFormatAvailable @ 0x1C0013120 (NtUserIsClipboardFormatAvailable.c)
- *     ?InternalSetClipboardData@@YAHPEAUtagWINDOWSTATION@@IPEAXHH@Z @ 0x1C01FC124 (-InternalSetClipboardData@@YAHPEAUtagWINDOWSTATION@@IPEAXHH@Z.c)
- *     ?MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FC35C (-MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z.c)
- *     ?xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FCE8C (-xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD018 (-xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD1B0 (-xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD360 (-xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD43C (-xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetRenderData@@YAPEAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C01FD548 (-xxxGetRenderData@@YAPEAXPEAUtagWINDOWSTATION@@I@Z.c)
- *     InternalGetClipboardMetadata @ 0x1C01FD93C (InternalGetClipboardMetadata.c)
- *     _EnumClipboardFormats @ 0x1C01FDA88 (_EnumClipboardFormats.c)
- *     xxxGetClipboardData @ 0x1C01FDE64 (xxxGetClipboardData.c)
+ *     xxxGetClipboardData @ 0x1C002D328 (xxxGetClipboardData.c)
+ *     ?InternalSetClipboardData@@YAHPEAUtagWINDOWSTATION@@IPEAXHH@Z @ 0x1C002F508 (-InternalSetClipboardData@@YAHPEAUtagWINDOWSTATION@@IPEAXHH@Z.c)
+ *     ?MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C002F6E8 (-MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C015C61C (-xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     _EnumClipboardFormats @ 0x1C015F4E0 (_EnumClipboardFormats.c)
+ *     ?xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021EA7C (-xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021EC24 (-xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021EDD4 (-xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z @ 0x1C021EEB0 (-xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetRenderData@@YAPEAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C021EFBC (-xxxGetRenderData@@YAPEAXPEAUtagWINDOWSTATION@@I@Z.c)
  * Callees:
- *     ?CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z @ 0x1C015644C (-CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z.c)
- *     ?IsFmtBlocked@@YAHI@Z @ 0x1C01FC324 (-IsFmtBlocked@@YAHI@Z.c)
+ *     ?CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z @ 0x1C003013C (-CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z.c)
+ *     ?IsFmtBlocked@@YAHI@Z @ 0x1C021E7E8 (-IsFmtBlocked@@YAHI@Z.c)
  */
 
 struct tagCLIP *__fastcall FindClipFormat(struct tagWINDOWSTATION *a1, unsigned int a2, char a3)
@@ -23,11 +21,8 @@ struct tagCLIP *__fastcall FindClipFormat(struct tagWINDOWSTATION *a1, unsigned 
   __int64 v4; // rbx
   int i; // eax
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // rbx
-  __int64 v11; // rax
-  __int64 v12; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rax
 
   if ( a2 )
   {
@@ -41,20 +36,15 @@ struct tagCLIP *__fastcall FindClipFormat(struct tagWINDOWSTATION *a1, unsigned 
           if ( (a3 & 1) == 0 )
             return (struct tagCLIP *)v4;
           CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
-          v8 = CurrentProcessWin32Process;
-          if ( CurrentProcessWin32Process )
-            v8 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-          if ( (unsigned int)CheckClipboardAccessForIntegrityLevel(*(_QWORD *)(v4 + 20), *(_QWORD *)(v8 + 888))
+          if ( (unsigned int)CheckClipboardAccessForIntegrityLevel(
+                               *(_QWORD *)(v4 + 20),
+                               *(_QWORD *)(CurrentProcessWin32Process + 880))
             || !(unsigned int)IsFmtBlocked(a2) )
           {
             return (struct tagCLIP *)v4;
           }
-          v10 = *(_QWORD *)(v4 + 20);
-          v11 = PsGetCurrentProcessWin32Process(v9);
-          v12 = v11;
-          if ( v11 )
-            v12 = -(__int64)(*(_QWORD *)v11 != 0LL) & v11;
-          EtwTraceUIPIClipboardError(0LL, v12, a2, v10);
+          v9 = PsGetCurrentProcessWin32Process(v8);
+          EtwTraceUIPIClipboardError(0LL, v9, a2, *(_QWORD *)(v4 + 20));
           return 0LL;
         }
         v4 += 32LL;

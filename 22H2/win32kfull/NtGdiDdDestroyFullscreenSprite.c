@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiDdDestroyFullscreenSprite @ 0x1C02701D0
+ * XREFs of NtGdiDdDestroyFullscreenSprite @ 0x1C0277B80
  * Callers:
  *     <none>
  * Callees:
- *     ?SpDdDestroyFullscreenSprite@@YAJPEAUHDC__@@PEAX@Z @ 0x1C0266060 (-SpDdDestroyFullscreenSprite@@YAJPEAUHDC__@@PEAX@Z.c)
+ *     ?SpDdDestroyFullscreenSprite@@YAJPEAUHDC__@@PEAX@Z @ 0x1C026DAF4 (-SpDdDestroyFullscreenSprite@@YAJPEAUHDC__@@PEAX@Z.c)
  */
 
 __int64 __fastcall NtGdiDdDestroyFullscreenSprite(HDC a1, void *a2)

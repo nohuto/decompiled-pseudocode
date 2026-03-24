@@ -1,16 +1,16 @@
 /*
- * XREFs of Endpoint_OnResetSetDequeuePointer @ 0x1C00398A4
+ * XREFs of Endpoint_OnResetSetDequeuePointer @ 0x1C0039624
  * Callers:
- *     Endpoint_OnResetEndpointResetCompletion @ 0x1C0039670 (Endpoint_OnResetEndpointResetCompletion.c)
+ *     Endpoint_OnResetEndpointResetCompletion @ 0x1C00393F0 (Endpoint_OnResetEndpointResetCompletion.c)
  * Callees:
- *     Command_SendCommand @ 0x1C0003D94 (Command_SendCommand.c)
- *     Endpoint_GetDequeuePointer @ 0x1C0004B68 (Endpoint_GetDequeuePointer.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     Endpoint_IsTransferRingEmpty @ 0x1C00389CC (Endpoint_IsTransferRingEmpty.c)
- *     Endpoint_StreamsOnResetSetDequeuePointerComplete @ 0x1C003A790 (Endpoint_StreamsOnResetSetDequeuePointerComplete.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C0008334 (Endpoint_GetDequeuePointer.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Endpoint_IsTransferRingEmpty @ 0x1C003874C (Endpoint_IsTransferRingEmpty.c)
+ *     Endpoint_StreamsOnResetSetDequeuePointerComplete @ 0x1C003A3E4 (Endpoint_StreamsOnResetSetDequeuePointerComplete.c)
  */
 
-__int64 __fastcall Endpoint_OnResetSetDequeuePointer(__int64 *a1, unsigned int a2)
+char __fastcall Endpoint_OnResetSetDequeuePointer(__int64 *a1, unsigned int a2)
 {
   __int64 v2; // rdi
   __int64 v6; // rbx

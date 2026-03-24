@@ -1,9 +1,9 @@
 /*
- * XREFs of _VerifyTHQBlob @ 0x1C01D19F8
+ * XREFs of _VerifyTHQBlob @ 0x1C01D5F4C
  * Callers:
- *     ?CoreSignatureVerify@@YAHGGPEAEPEAK@Z @ 0x1C01E6A0C (-CoreSignatureVerify@@YAHGGPEAEPEAK@Z.c)
+ *     ?CoreSignatureVerify@@YAHGGPEAEPEAK@Z @ 0x1C01EC138 (-CoreSignatureVerify@@YAHGGPEAEPEAK@Z.c)
  * Callees:
- *     ?_HashTHQAText@@YAHPEAEKPEAPEAEPEAK@Z @ 0x1C01D0E30 (-_HashTHQAText@@YAHPEAEKPEAPEAEPEAK@Z.c)
+ *     ?_HashTHQAText@@YAHPEAEKPEAPEAEPEAK@Z @ 0x1C01D5310 (-_HashTHQAText@@YAHPEAEKPEAPEAEPEAK@Z.c)
  */
 
 _BOOL8 __fastcall VerifyTHQBlob(__int16 a1, __int64 a2, UCHAR *a3, UCHAR *a4)

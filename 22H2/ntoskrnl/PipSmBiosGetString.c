@@ -1,10 +1,10 @@
 /*
- * XREFs of PipSmBiosGetString @ 0x140B3F1E0
+ * XREFs of PipSmBiosGetString @ 0x140A5C8BC
  * Callers:
- *     PipInitComputerIds @ 0x140B3D92C (PipInitComputerIds.c)
+ *     PipInitComputerIds @ 0x140A5B730 (PipInitComputerIds.c)
  * Callees:
- *     strchr @ 0x1403DAA40 (strchr.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
+ *     strchr @ 0x1403D2FF0 (strchr.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
  */
 
 NTSTATUS __fastcall PipSmBiosGetString(
@@ -14,83 +14,90 @@ NTSTATUS __fastcall PipSmBiosGetString(
         int a4,
         UNICODE_STRING *DestinationString)
 {
-  char *v5; // rcx
-  unsigned __int64 v6; // r9
-  int v7; // r8d
-  char v8; // al
-  unsigned __int16 v9; // bx
-  char *v10; // rdi
-  bool v12; // zf
+  unsigned int v5; // r10d
+  char *v6; // rcx
+  unsigned __int64 v7; // r8
+  int v8; // edx
+  char v9; // al
+  unsigned __int16 v10; // bx
+  char *v11; // rdi
+  char v12; // al
+  bool v14; // zf
   STRING SourceString; // [rsp+20h] [rbp-18h] BYREF
 
+  v5 = a2;
   SourceString = 0LL;
   if ( !a2 )
     return -1073741275;
-  v5 = (char *)(*(unsigned __int8 *)(a1 + 1) + a1);
-  v6 = a3 + (unsigned int)(a4 - 1);
-  v7 = 1;
-  if ( a2 > 1u )
+  v6 = (char *)(*(unsigned __int8 *)(a1 + 1) + a1);
+  v7 = a3 + (unsigned int)(a4 - 1);
+  v8 = 1;
+  if ( v5 > 1 )
   {
-    v8 = *v5;
-    while ( !v8 )
+    v9 = *v6;
+    while ( !v9 )
     {
 LABEL_7:
-      if ( !++v5 )
+      if ( !++v6 )
         return -1073741275;
-      v8 = *v5;
-      if ( !*v5 )
-        return -1073741275;
-      if ( ++v7 >= (unsigned int)a2 )
-        goto LABEL_12;
+      v9 = *v6;
+      if ( !*v6 )
+      {
+        v6 = 0LL;
+        goto LABEL_10;
+      }
+      if ( ++v8 >= v5 )
+        goto LABEL_10;
     }
-    while ( (unsigned __int64)++v5 < v6 )
+    while ( (unsigned __int64)++v6 < v7 )
     {
-      if ( !*v5 )
+      if ( !*v6 )
         goto LABEL_7;
     }
     return -1073741275;
   }
-  if ( !v5 )
+LABEL_10:
+  if ( !v6 )
     return -1073741275;
-LABEL_12:
-  v9 = 0;
-  SourceString.Buffer = v5;
+  v10 = 0;
+  SourceString.Buffer = v6;
   SourceString.Length = 0;
-  v10 = v5;
-  while ( *v5 )
+  v11 = v6;
+  while ( *v6 )
   {
-    ++v9;
-    ++v5;
-    SourceString.Length = v9;
-    if ( (unsigned __int64)v5 >= v6 || v9 > 0x40u )
+    ++v10;
+    ++v6;
+    SourceString.Length = v10;
+    if ( (unsigned __int64)v6 >= v7 || v10 > 0x40u )
       return -1073741275;
   }
-  if ( v5 == (char *)-1LL )
+  if ( v6 == (char *)-1LL )
     return -1073741275;
-  if ( *v10 )
+  v12 = *v11;
+  if ( *v11 )
   {
     do
     {
-      if ( !strchr(" \t\r", *v10) )
+      if ( !strchr(" \t\r", v12) )
         break;
-      --v9;
-      ++v10;
-      SourceString.Length = v9;
+      ++v11;
+      SourceString.Length = --v10;
+      v12 = *v11;
     }
-    while ( *v10 );
-    SourceString.Buffer = v10;
+    while ( *v11 );
+    SourceString.Buffer = v11;
   }
-  if ( v9 )
+  if ( v10 )
   {
     do
     {
-      if ( !strchr(" \t\r", v10[v9 - 1]) )
+      if ( !strchr(" \t\r", v11[v10 - 1]) )
         break;
-      v12 = v9-- == 1;
-      SourceString.Length = v9;
+      v14 = v10-- == 1;
+      SourceString.Length = v10;
     }
-    while ( !v12 );
+    while ( !v14 );
   }
-  SourceString.MaximumLength = v9 + 1;
+  SourceString.MaximumLength = v10 + 1;
   return RtlAnsiStringToUnicodeString(DestinationString, &SourceString, 1u);
 }

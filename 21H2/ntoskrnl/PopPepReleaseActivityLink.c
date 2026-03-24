@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPepReleaseActivityLink @ 0x1403565F8
+ * XREFs of PopPepReleaseActivityLink @ 0x140261C28
  * Callers:
- *     PopPepTryPowerDownDevice @ 0x140355DFC (PopPepTryPowerDownDevice.c)
- *     PopPepProcessEvent @ 0x140356454 (PopPepProcessEvent.c)
- *     PopPepSurprisePowerOn @ 0x140397B04 (PopPepSurprisePowerOn.c)
- *     PopPepUpdateConstraints @ 0x1403B17EC (PopPepUpdateConstraints.c)
- *     PopPepComponentSetLatency @ 0x14045E4C2 (PopPepComponentSetLatency.c)
- *     PopPepCompleteComponentIdleState @ 0x1405D4C64 (PopPepCompleteComponentIdleState.c)
- *     PopPepComponentSetResidency @ 0x1405D4D6C (PopPepComponentSetResidency.c)
- *     PopPepComponentSetWakeHint @ 0x1405D4E64 (PopPepComponentSetWakeHint.c)
+ *     PopPepTryPowerDownDevice @ 0x140261410 (PopPepTryPowerDownDevice.c)
+ *     PopPepProcessEvent @ 0x140261A84 (PopPepProcessEvent.c)
+ *     PopPepSurprisePowerOn @ 0x14038BB98 (PopPepSurprisePowerOn.c)
+ *     PopPepUpdateConstraints @ 0x1403A056C (PopPepUpdateConstraints.c)
+ *     PopPepCompleteComponentIdleState @ 0x140574194 (PopPepCompleteComponentIdleState.c)
+ *     PopPepComponentSetLatency @ 0x14057429C (PopPepComponentSetLatency.c)
+ *     PopPepComponentSetResidency @ 0x140574388 (PopPepComponentSetResidency.c)
+ *     PopPepComponentSetWakeHint @ 0x140574480 (PopPepComponentSetWakeHint.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopPepReleaseActivityLink(__int64 a1, volatile LONG *a2, char a3, unsigned __int8 a4)

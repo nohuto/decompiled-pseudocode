@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhSyncSendDeviceIoctl @ 0x1C002D414
+ * XREFs of UsbhSyncSendDeviceIoctl @ 0x1C002E828
  * Callers:
- *     UsbhAcquireHubName @ 0x1C0048360 (UsbhAcquireHubName.c)
- *     UsbhBuildWmiConnectionNotification @ 0x1C0048514 (UsbhBuildWmiConnectionNotification.c)
+ *     UsbhAcquireHubName @ 0x1C00496E0 (UsbhAcquireHubName.c)
+ *     UsbhBuildWmiConnectionNotification @ 0x1C0049894 (UsbhBuildWmiConnectionNotification.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhReferenceListAdd @ 0x1C001AD54 (UsbhReferenceListAdd.c)
- *     UsbhReferenceListRemove @ 0x1C001DCEC (UsbhReferenceListRemove.c)
+ *     UsbhReferenceListAdd @ 0x1C0001AE8 (UsbhReferenceListAdd.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhReferenceListRemove @ 0x1C001B88C (UsbhReferenceListRemove.c)
  */
 
 __int64 __fastcall UsbhSyncSendDeviceIoctl(__int64 a1, __int64 a2, void *a3, unsigned int a4)

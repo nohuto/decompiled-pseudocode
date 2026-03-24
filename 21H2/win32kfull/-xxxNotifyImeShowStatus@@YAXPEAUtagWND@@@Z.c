@@ -1,20 +1,20 @@
 /*
- * XREFs of ?xxxNotifyImeShowStatus@@YAXPEAUtagWND@@@Z @ 0x1C01DE204
+ * XREFs of ?xxxNotifyImeShowStatus@@YAXPEAUtagWND@@@Z @ 0x1C01E2D64
  * Callers:
- *     ?xxxSetIMEShowStatus@@YAHHHPEAH@Z @ 0x1C0120DDC (-xxxSetIMEShowStatus@@YAHHHPEAH@Z.c)
- *     NtUserBroadcastImeShowStatusChange @ 0x1C01F16D0 (NtUserBroadcastImeShowStatusChange.c)
+ *     xxxSetIMEShowStatus @ 0x1C00DB6F4 (xxxSetIMEShowStatus.c)
+ *     xxxBroadcastImeShowStatusChange @ 0x1C01E34C0 (xxxBroadcastImeShowStatusChange.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     unsafe_cast_fnid_or_class_to_PIMEWND @ 0x1C0082CB8 (unsafe_cast_fnid_or_class_to_PIMEWND.c)
- *     ?xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z @ 0x1C00DFE44 (-xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z.c)
- *     ?xxxSendOpenStatusNotify@@YAXPEAUtagTHREADINFO@@PEAUtagIMEUI@@PEAUtagWND@@H@Z @ 0x1C01DE5F0 (-xxxSendOpenStatusNotify@@YAXPEAUtagTHREADINFO@@PEAUtagIMEUI@@PEAUtagWND@@H@Z.c)
+ *     unsafe_cast_fnid_or_class_to_PIMEWND @ 0x1C0033BFC (unsafe_cast_fnid_or_class_to_PIMEWND.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     ?xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z @ 0x1C00F7808 (-xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z.c)
+ *     ?xxxSendOpenStatusNotify@@YAXPEAUtagTHREADINFO@@PEAUtagIMEUI@@PEAUtagWND@@H@Z @ 0x1C01E3150 (-xxxSendOpenStatusNotify@@YAXPEAUtagTHREADINFO@@PEAUtagIMEUI@@PEAUtagWND@@H@Z.c)
  */
 
 void __fastcall xxxNotifyImeShowStatus(struct tagWND *a1)
 {
   int v2; // r13d
   ULONG64 *v3; // rsi
-  PRKPROCESS **v4; // rdi
+  __int64 v4; // rdi
   ULONG64 v5; // rsi
   ULONG64 v6; // rax
   BOOL v7; // r15d
@@ -26,21 +26,21 @@ void __fastcall xxxNotifyImeShowStatus(struct tagWND *a1)
     v3 = (ULONG64 *)unsafe_cast_fnid_or_class_to_PIMEWND(a1);
     if ( v3 )
     {
-      v4 = (PRKPROCESS **)*((_QWORD *)a1 + 2);
-      if ( v4 != (PRKPROCESS **)gptiCurrent )
-        KeAttachProcess(*v4[53]);
+      v4 = *((_QWORD *)a1 + 2);
+      if ( v4 != gptiCurrent )
+        KeAttachProcess(**(PRKPROCESS **)(v4 + 424));
       v5 = *v3;
       v6 = v5;
       if ( v5 >= MmUserProbeAddress )
         v6 = MmUserProbeAddress;
-      v7 = (*(_DWORD *)(v6 + 44) & 0x20) != 0 && HIDWORD(WPP_MAIN_CB.Dpc.SystemArgument1);
+      v7 = (*(_DWORD *)(v6 + 44) & 0x20) != 0 && HIDWORD(WPP_MAIN_CB.Dpc.DeferredRoutine);
       v8 = (struct tagWND *)HMValidateHandleNoSecure(*(_QWORD *)(v5 + 16), 1);
       if ( v8 || (v8 = *(struct tagWND **)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 432LL) + 112LL)) != 0LL )
       {
         v2 = 1;
         *(_DWORD *)(v5 + 44) ^= (v7 ^ *(_DWORD *)(v5 + 44)) & 1;
       }
-      if ( v4 != (PRKPROCESS **)gptiCurrent )
+      if ( v4 != gptiCurrent )
         KeDetachProcess();
       if ( v2 )
         xxxSendOpenStatusNotify((struct tagTHREADINFO *)v4, (struct tagIMEUI *)v5, v8, v7);

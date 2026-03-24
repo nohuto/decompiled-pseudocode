@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_G?$SignedWithClassSignature@VDMMVIDEOPRESENTTARGETSET@@@@UEAAPEAXI@Z @ 0x1C0068A20
+ * XREFs of ??_G?$SignedWithClassSignature@VDMMVIDEOPRESENTTARGETSET@@@@UEAAPEAXI@Z @ 0x1C005BB20
  * Callers:
  *     <none>
  * Callees:

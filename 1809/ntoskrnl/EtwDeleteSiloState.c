@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwDeleteSiloState @ 0x1408B9240
+ * XREFs of EtwDeleteSiloState @ 0x1408B9220
  * Callers:
- *     PspDeleteServerSiloGlobals @ 0x140887198 (PspDeleteServerSiloGlobals.c)
+ *     PspDeleteServerSiloGlobals @ 0x140887178 (PspDeleteServerSiloGlobals.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExFreeCacheAwareRundownProtection @ 0x14010C8C0 (ExFreeCacheAwareRundownProtection.c)
- *     KeBugCheck @ 0x1401BBB80 (KeBugCheck.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x14010C8E0 (ExFreeCacheAwareRundownProtection.c)
+ *     KeBugCheck @ 0x1401BBBA0 (KeBugCheck.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

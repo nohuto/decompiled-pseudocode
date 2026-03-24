@@ -1,28 +1,27 @@
 /*
- * XREFs of NtEnableLastKnownGood @ 0x14080B090
+ * XREFs of NtEnableLastKnownGood @ 0x14077C3F0
  * Callers:
  *     <none>
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwDeleteFile @ 0x14041D260 (ZwDeleteFile.c)
- *     ZwDeleteKey @ 0x14041D280 (ZwDeleteKey.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x14078014C (_PnpCtxGetCachedContextBaseKey.c)
- *     IopFileUtilWalkDirectoryTreeBottomUp @ 0x14080B370 (IopFileUtilWalkDirectoryTreeBottomUp.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwDeleteFile @ 0x1403FBE00 (ZwDeleteFile.c)
+ *     ZwDeleteKey @ 0x1403FBE20 (ZwDeleteKey.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     IopFileUtilWalkDirectoryTreeBottomUp @ 0x14077C6B8 (IopFileUtilWalkDirectoryTreeBottomUp.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 NtEnableLastKnownGood()
 {
   int CachedContextBaseKey; // ebx
   char v1; // bl
-  OBJECT_ATTRIBUTES v3; // [rsp+20h] [rbp-89h] BYREF
-  UNICODE_STRING ValueName; // [rsp+50h] [rbp-59h] BYREF
+  UNICODE_STRING ValueName; // [rsp+20h] [rbp-89h] BYREF
+  OBJECT_ATTRIBUTES v4; // [rsp+30h] [rbp-79h] BYREF
   PVOID P; // [rsp+60h] [rbp-49h] BYREF
   UNICODE_STRING SourceString; // [rsp+68h] [rbp-41h] BYREF
   UNICODE_STRING v7; // [rsp+78h] [rbp-31h] BYREF
@@ -34,41 +33,38 @@ __int64 NtEnableLastKnownGood()
   HANDLE v13; // [rsp+120h] [rbp+77h] BYREF
   void *v14; // [rsp+128h] [rbp+7Fh] BYREF
 
-  v14 = 0LL;
   KeyHandle = 0LL;
   Handle = 0LL;
   v13 = 0LL;
+  v14 = 0LL;
   P = 0LL;
   DestinationString = 0LL;
   SourceString = 0LL;
   v9 = 0LL;
   v7 = 0LL;
-  memset(&v3, 0, 44);
+  memset(&v4, 0, sizeof(v4));
   ValueName = 0LL;
   if ( KeGetCurrentThread()->PreviousMode == 1 )
   {
-    if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, 1) || PsIsCurrentThreadInServerSilo() )
-    {
-      CachedContextBaseKey = -1073741727;
-    }
-    else
+    if ( SeSinglePrivilegeCheck(SeTcbPrivilege, 1) )
     {
       CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 4, (__int64)&v14);
       if ( CachedContextBaseKey >= 0 )
       {
+        *(&ObjectAttributes.Length + 1) = 0;
         memset(&ObjectAttributes.Attributes + 1, 0, 20);
         ValueName.Buffer = (wchar_t *)L"Control\\Pnp";
         ObjectAttributes.RootDirectory = v14;
-        *(_QWORD *)&ObjectAttributes.Length = 48LL;
-        ObjectAttributes.ObjectName = &ValueName;
         *(_DWORD *)&ValueName.Length = 1572886;
+        ObjectAttributes.ObjectName = &ValueName;
+        ObjectAttributes.Length = 48;
         ObjectAttributes.Attributes = 576;
         CachedContextBaseKey = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
         if ( CachedContextBaseKey >= 0 )
         {
           v1 = 0;
           if ( IopGetRegistryValue(KeyHandle, L"DisableLKG", 0, &P) < 0 )
-            goto LABEL_26;
+            goto LABEL_25;
           if ( *((_DWORD *)P + 1) == 4 && *((_DWORD *)P + 3) == 4 )
             v1 = *((_BYTE *)P + *((unsigned int *)P + 2));
           ExFreePoolWithTag(P, 0);
@@ -80,47 +76,51 @@ __int64 NtEnableLastKnownGood()
             if ( CachedContextBaseKey >= 0 )
             {
               RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\LastKnownGoodRecovery\\LastGood");
-              v3.RootDirectory = 0LL;
-              v3.ObjectName = &DestinationString;
-              v3.Length = 48;
-              v3.Attributes = 576;
-              *(_OWORD *)&v3.SecurityDescriptor = 0LL;
-              if ( ZwOpenKey(&Handle, 0xF003Fu, &v3) >= 0 )
+              v4.RootDirectory = 0LL;
+              v4.ObjectName = &DestinationString;
+              v4.Length = 48;
+              v4.Attributes = 576;
+              *(_OWORD *)&v4.SecurityDescriptor = 0LL;
+              if ( ZwOpenKey(&Handle, 0xF003Fu, &v4) >= 0 )
                 ZwDeleteKey(Handle);
               RtlInitUnicodeString(&v9, L"\\Registry\\Machine\\System\\LastKnownGoodRecovery\\LastGood.Tmp");
-              v3.RootDirectory = 0LL;
-              v3.ObjectName = &v9;
-              v3.Length = 48;
-              v3.Attributes = 576;
-              *(_OWORD *)&v3.SecurityDescriptor = 0LL;
-              if ( ZwOpenKey(&v13, 0xF003Fu, &v3) >= 0 )
+              v4.RootDirectory = 0LL;
+              v4.ObjectName = &v9;
+              v4.Length = 48;
+              v4.Attributes = 576;
+              *(_OWORD *)&v4.SecurityDescriptor = 0LL;
+              if ( ZwOpenKey(&v13, 0xF003Fu, &v4) >= 0 )
                 ZwDeleteKey(v13);
               RtlInitUnicodeString(&SourceString, L"\\SystemRoot\\LastGood");
               IopFileUtilWalkDirectoryTreeBottomUp(&SourceString);
-              v3.RootDirectory = 0LL;
-              v3.ObjectName = &SourceString;
-              v3.Length = 48;
-              v3.Attributes = 64;
-              *(_OWORD *)&v3.SecurityDescriptor = 0LL;
-              ZwDeleteFile(&v3);
+              v4.RootDirectory = 0LL;
+              v4.ObjectName = &SourceString;
+              v4.Length = 48;
+              v4.Attributes = 64;
+              *(_OWORD *)&v4.SecurityDescriptor = 0LL;
+              ZwDeleteFile(&v4);
               RtlInitUnicodeString(&v7, L"\\SystemRoot\\LastGood.Tmp");
               IopFileUtilWalkDirectoryTreeBottomUp(&v7);
-              v3.RootDirectory = 0LL;
-              v3.ObjectName = &v7;
-              v3.Length = 48;
-              *(_OWORD *)&v3.SecurityDescriptor = 0LL;
-              v3.Attributes = 64;
-              ZwDeleteFile(&v3);
+              v4.RootDirectory = 0LL;
+              v4.ObjectName = &v7;
+              v4.Length = 48;
+              *(_OWORD *)&v4.SecurityDescriptor = 0LL;
+              v4.Attributes = 64;
+              ZwDeleteFile(&v4);
               CachedContextBaseKey = 0;
             }
           }
           else
           {
-LABEL_26:
+LABEL_25:
             CachedContextBaseKey = -1073741823;
           }
         }
       }
+    }
+    else
+    {
+      CachedContextBaseKey = -1073741727;
     }
     if ( Handle )
       ZwClose(Handle);

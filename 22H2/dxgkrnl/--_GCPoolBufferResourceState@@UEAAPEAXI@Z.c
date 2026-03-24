@@ -1,14 +1,14 @@
 /*
- * XREFs of ??_GCPoolBufferResourceState@@UEAAPEAXI@Z @ 0x1C00858A0
+ * XREFs of ??_GCPoolBufferResourceState@@UEAAPEAXI@Z @ 0x1C006C0F0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CFlipResourceState@@MEAA@XZ @ 0x1C00856DC (--1CFlipResourceState@@MEAA@XZ.c)
+ *     ??1CFlipResourceState@@MEAA@XZ @ 0x1C006BFAC (--1CFlipResourceState@@MEAA@XZ.c)
  */
 
-CFlipResource **__fastcall CPoolBufferResourceState::`scalar deleting destructor'(CFlipResource **P, char a2)
+CFlipResourceState *__fastcall CPoolBufferResourceState::`scalar deleting destructor'(CFlipResourceState *P, char a2)
 {
-  *P = (CFlipResource *)&CPoolBufferResourceState::`vftable';
+  *(_QWORD *)P = &CPoolBufferResourceState::`vftable';
   CFlipResourceState::~CFlipResourceState(P);
   if ( (a2 & 1) != 0 )
     ExFreePoolWithTag(P, 0);

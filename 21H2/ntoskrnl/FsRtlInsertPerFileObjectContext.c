@@ -1,29 +1,28 @@
 /*
- * XREFs of FsRtlInsertPerFileObjectContext @ 0x1402A3510
+ * XREFs of FsRtlInsertPerFileObjectContext @ 0x1402A2990
  * Callers:
  *     <none>
  * Callees:
- *     IoGetFileObjectFilterContext @ 0x1402A3610 (IoGetFileObjectFilterContext.c)
- *     IoChangeFileObjectFilterContext @ 0x1402A3984 (IoChangeFileObjectFilterContext.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x1402A3C30 (ExAcquireAutoExpandPushLockExclusive.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x1402AC890 (ExReleaseAutoExpandPushLockExclusive.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     IoGetFileObjectFilterContext @ 0x1402A2A8C (IoGetFileObjectFilterContext.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     IoChangeFileObjectFilterContext @ 0x140356BBC (IoChangeFileObjectFilterContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall FsRtlInsertPerFileObjectContext(PFILE_OBJECT FileObject, PFSRTL_PER_FILEOBJECT_CONTEXT Ptr)
 {
   NTSTATUS result; // eax
-  _OWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   __int64 v6; // r8
   void *v7; // rbx
-  _OWORD *v8; // rdx
-  _QWORD *v9; // rax
+  _QWORD *v8; // rax
   struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR v11; // rbx
-  struct _LIST_ENTRY *v12; // rax
-  struct _LIST_ENTRY *v13; // rcx
+  ULONG_PTR v10; // rbx
+  struct _LIST_ENTRY *v11; // rax
+  struct _LIST_ENTRY *v12; // rcx
   ULONG_PTR BugCheckParameter2; // [rsp+30h] [rbp+8h] BYREF
 
   BugCheckParameter2 = 0LL;
@@ -34,19 +33,17 @@ NTSTATUS __stdcall FsRtlInsertPerFileObjectContext(PFILE_OBJECT FileObject, PFSR
   {
     if ( BugCheckParameter2 )
       goto LABEL_6;
-    Pool2 = (_OWORD *)ExAllocatePool2(66LL, 32LL, 1480806214LL);
-    BugCheckParameter2 = (ULONG_PTR)Pool2;
-    v7 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x58434F46u);
+    BugCheckParameter2 = (ULONG_PTR)PoolWithTag;
+    v7 = PoolWithTag;
+    if ( !PoolWithTag )
       return -1073741670;
+    *PoolWithTag = 0LL;
     LOBYTE(v6) = 1;
-    *Pool2 = 0LL;
-    *(_QWORD *)Pool2 = 0LL;
-    v8 = Pool2;
-    v9 = Pool2 + 1;
-    v9[1] = v9;
-    *v9 = v9;
-    if ( (int)IoChangeFileObjectFilterContext(FileObject, v8, v6) >= 0
+    v8 = PoolWithTag + 1;
+    v8[1] = v8;
+    *v8 = v8;
+    if ( (int)IoChangeFileObjectFilterContext(FileObject, v7, v6) >= 0
       || (ExFreePoolWithTag(v7, 0),
           IoGetFileObjectFilterContext(FileObject, &BugCheckParameter2, 0LL),
           BugCheckParameter2) )
@@ -54,18 +51,18 @@ NTSTATUS __stdcall FsRtlInsertPerFileObjectContext(PFILE_OBJECT FileObject, PFSR
 LABEL_6:
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v11 = BugCheckParameter2;
-      ExAcquireAutoExpandPushLockExclusive(BugCheckParameter2, 0LL);
-      v12 = (struct _LIST_ENTRY *)(v11 + 16);
-      v13 = *(struct _LIST_ENTRY **)(v11 + 16);
-      if ( v13->Blink != (struct _LIST_ENTRY *)(v11 + 16) )
+      v10 = BugCheckParameter2;
+      ExAcquirePushLockExclusiveEx(BugCheckParameter2, 0LL);
+      v11 = (struct _LIST_ENTRY *)(v10 + 8);
+      v12 = *(struct _LIST_ENTRY **)(v10 + 8);
+      if ( v12->Blink != (struct _LIST_ENTRY *)(v10 + 8) )
         __fastfail(3u);
-      Ptr->Links.Flink = v13;
-      Ptr->Links.Blink = v12;
-      v13->Blink = &Ptr->Links;
-      v12->Flink = &Ptr->Links;
-      ExReleaseAutoExpandPushLockExclusive(v11, 0LL);
-      KiLeaveCriticalRegionUnsafe(KeGetCurrentThread());
+      Ptr->Links.Flink = v12;
+      Ptr->Links.Blink = v11;
+      v12->Blink = &Ptr->Links;
+      v11->Flink = &Ptr->Links;
+      ExReleasePushLockEx(v10, 0LL);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       return 0;
     }
     else

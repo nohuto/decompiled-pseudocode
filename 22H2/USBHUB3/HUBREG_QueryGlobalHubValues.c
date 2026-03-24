@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBREG_QueryGlobalHubValues @ 0x1C008463C
+ * XREFs of HUBREG_QueryGlobalHubValues @ 0x1C007EB84
  * Callers:
- *     DriverEntry @ 0x1C0092234 (DriverEntry.c)
+ *     DriverEntry @ 0x1C0088008 (DriverEntry.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
@@ -13,7 +13,7 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
   char v3; // al
   unsigned __int16 v4; // r9
   __int64 v5; // [rsp+28h] [rbp-18h]
-  int v6; // [rsp+80h] [rbp+40h] BYREF
+  unsigned int v6; // [rsp+80h] [rbp+40h] BYREF
   __int64 v7; // [rsp+88h] [rbp+48h] BYREF
 
   v6 = 0;
@@ -27,8 +27,8 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
              0LL,
              &v7);
   if ( (int)result < 0 )
-    goto LABEL_58;
-  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
+    goto LABEL_57;
+  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, unsigned int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
              WdfDriverGlobals,
              v7,
              L"24",
@@ -41,9 +41,9 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
     if ( (_DWORD)result != -1073741772 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_58;
+        goto LABEL_57;
       v4 = 42;
-      goto LABEL_57;
+      goto LABEL_56;
     }
   }
   else if ( v6 )
@@ -51,7 +51,7 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
     _InterlockedOr((volatile signed __int32 *)(a1 + 4), 2u);
   }
   v6 = 0;
-  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
+  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, unsigned int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
              WdfDriverGlobals,
              v7,
              L"$&",
@@ -64,12 +64,12 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
     if ( (_DWORD)result != -1073741772 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_58;
+        goto LABEL_57;
       v4 = 44;
-      goto LABEL_57;
+      goto LABEL_56;
     }
   }
-  else if ( v6 && (unsigned int)(v6 - 1) >= 2 )
+  else if ( v6 > 2 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
@@ -79,7 +79,7 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
         2u,
         2u,
         0x2Bu,
-        (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
+        (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
         v5);
     }
   }
@@ -88,7 +88,7 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
     *(_DWORD *)(a1 + 8) = v6;
   }
   v6 = 0;
-  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
+  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, unsigned int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
              WdfDriverGlobals,
              v7,
              L"(*",
@@ -101,9 +101,9 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
     if ( (_DWORD)result != -1073741772 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_58;
+        goto LABEL_57;
       v4 = 45;
-      goto LABEL_57;
+      goto LABEL_56;
     }
   }
   else if ( v6 )
@@ -111,7 +111,7 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
     _InterlockedOr((volatile signed __int32 *)(a1 + 4), 8u);
   }
   v6 = 0;
-  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
+  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, unsigned int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
              WdfDriverGlobals,
              v7,
              L"&(",
@@ -124,9 +124,9 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
     if ( (_DWORD)result != -1073741772 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_58;
+        goto LABEL_57;
       v4 = 46;
-      goto LABEL_57;
+      goto LABEL_56;
     }
   }
   else if ( !v6 )
@@ -134,7 +134,7 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
     _InterlockedAnd((volatile signed __int32 *)(a1 + 4), 0xFFFFFF7F);
   }
   v6 = 0;
-  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
+  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, unsigned int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
              WdfDriverGlobals,
              v7,
              L"\"$",
@@ -147,9 +147,9 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
     if ( (_DWORD)result != -1073741772 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_58;
+        goto LABEL_57;
       v4 = 47;
-      goto LABEL_57;
+      goto LABEL_56;
     }
   }
   else if ( v6 )
@@ -157,7 +157,7 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
     _InterlockedOr((volatile signed __int32 *)(a1 + 4), 0x10u);
   }
   v6 = 0;
-  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
+  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, unsigned int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
              WdfDriverGlobals,
              v7,
              L"02",
@@ -170,9 +170,9 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
     if ( (_DWORD)result != -1073741772 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_58;
+        goto LABEL_57;
       v4 = 48;
-      goto LABEL_57;
+      goto LABEL_56;
     }
   }
   else
@@ -192,7 +192,7 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
       _InterlockedOr((volatile signed __int32 *)(a1 + 4), 0x4000u);
   }
   v6 = 0;
-  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
+  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *, __int64, unsigned int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
              WdfDriverGlobals,
              v7,
              &g_WakeOnConnectUI,
@@ -205,9 +205,9 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
     if ( (_DWORD)result != -1073741772 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_58;
+        goto LABEL_57;
       v4 = 49;
-      goto LABEL_57;
+      goto LABEL_56;
     }
   }
   else if ( v6 )
@@ -215,7 +215,7 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
     _InterlockedOr((volatile signed __int32 *)(a1 + 4), 0x40u);
   }
   v6 = 0;
-  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
+  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, unsigned int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
              WdfDriverGlobals,
              v7,
              L"NP",
@@ -226,22 +226,22 @@ __int64 __fastcall HUBREG_QueryGlobalHubValues(__int64 a1)
   if ( (int)result < 0 )
   {
     if ( (_DWORD)result == -1073741772 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_58;
+      goto LABEL_57;
     v4 = 50;
-LABEL_57:
+LABEL_56:
     LODWORD(v5) = result;
     result = WPP_RECORDER_SF_d(
                *(_QWORD *)(a1 + 64),
                2u,
                2u,
                v4,
-               (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
+               (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
                v5);
-    goto LABEL_58;
+    goto LABEL_57;
   }
   if ( v6 )
     _InterlockedOr((volatile signed __int32 *)(a1 + 4), 0x10000u);
-LABEL_58:
+LABEL_57:
   if ( v7 )
     return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1848))(WdfDriverGlobals);
   return result;

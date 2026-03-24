@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwNotifyChangeSession @ 0x1401BA410
+ * XREFs of ZwNotifyChangeSession @ 0x1401BA430
  * Callers:
  *     <none>
  * Callees:

@@ -1,41 +1,40 @@
 /*
- * XREFs of NtAlpcCreateSectionView @ 0x1407BA080
+ * XREFs of NtAlpcCreateSectionView @ 0x1406FFC00
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     AlpcpDeleteView @ 0x14071C158 (AlpcpDeleteView.c)
- *     AlpcReferenceBlobByHandle @ 0x14071DC68 (AlpcReferenceBlobByHandle.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
- *     AlpcpCreateSectionView @ 0x1407BA274 (AlpcpCreateSectionView.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     AlpcReferenceBlobByHandle @ 0x1406D9700 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpDeleteView @ 0x1406DB348 (AlpcpDeleteView.c)
+ *     AlpcpCreateSectionView @ 0x1406FFE28 (AlpcpCreateSectionView.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtAlpcCreateSectionView(HANDLE Handle, int a2, unsigned __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax
-  char PreviousMode; // si
+  char PreviousMode; // r14
   __int64 v7; // rcx
   KPROCESSOR_MODE v8; // r9
   NTSTATUS SectionView; // ebx
-  PVOID v10; // r13
+  struct _DMA_ADAPTER *v10; // r13
   void *v11; // r15
-  ULONG_PTR v12; // rsi
+  ULONG_PTR v12; // r14
   PVOID Object[2]; // [rsp+30h] [rbp-48h] BYREF
   __int128 v15; // [rsp+40h] [rbp-38h]
   __int128 v16; // [rsp+50h] [rbp-28h]
   ULONG_PTR BugCheckParameter2; // [rsp+98h] [rbp+20h] BYREF
 
   v15 = 0LL;
-  *(_QWORD *)&v16 = 0LL;
-  DWORD2(v16) = 0;
+  v16 = 0LL;
   BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   if ( a2 )
-    goto LABEL_24;
+    goto LABEL_22;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
@@ -56,7 +55,7 @@ __int64 __fastcall NtAlpcCreateSectionView(HANDLE Handle, int a2, unsigned __int
   }
   if ( (_DWORD)v15 || !*((_QWORD *)&v16 + 1) || (_QWORD)v16 )
   {
-LABEL_24:
+LABEL_22:
     SectionView = -1073741811;
   }
   else
@@ -66,7 +65,7 @@ LABEL_24:
     SectionView = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, v8, Object, 0LL);
     if ( SectionView >= 0 )
     {
-      v10 = Object[0];
+      v10 = (struct _DMA_ADAPTER *)Object[0];
       v11 = (void *)AlpcReferenceBlobByHandle(
                       (_QWORD *)(*((_QWORD *)Object[0] + 2) + 40LL),
                       SDWORD2(v15),
@@ -99,7 +98,7 @@ LABEL_24:
       {
         SectionView = -1073741816;
       }
-      ObfDereferenceObject(v10);
+      HalPutDmaAdapter(v10);
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());

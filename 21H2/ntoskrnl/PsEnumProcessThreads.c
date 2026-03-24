@@ -1,13 +1,13 @@
 /*
- * XREFs of PsEnumProcessThreads @ 0x140814B24
+ * XREFs of PsEnumProcessThreads @ 0x140797BC8
  * Callers:
- *     EtwpProcessEnumCallback @ 0x140814660 (EtwpProcessEnumCallback.c)
- *     PopUpdateSingleProcessHeteroPolicies @ 0x1408823E0 (PopUpdateSingleProcessHeteroPolicies.c)
- *     sub_140AD7DE4 @ 0x140AD7DE4 (sub_140AD7DE4.c)
+ *     EtwpProcessEnumCallback @ 0x140797740 (EtwpProcessEnumCallback.c)
+ *     PopUpdateSingleProcessHeteroPolicies @ 0x1408F14D0 (PopUpdateSingleProcessHeteroPolicies.c)
+ *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PsGetNextProcessThread @ 0x1407E7750 (PsGetNextProcessThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PsGetNextProcessThread @ 0x14070A2F0 (PsGetNextProcessThread.c)
  */
 
 __int64 __fastcall PsEnumProcessThreads(__int64 a1, __int64 (__fastcall *a2)(__int64, _QWORD *, __int64), __int64 a3)

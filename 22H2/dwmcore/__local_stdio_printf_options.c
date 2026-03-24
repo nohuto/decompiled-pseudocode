@@ -1,14 +1,15 @@
 /*
- * XREFs of __local_stdio_printf_options @ 0x18010EEC4
+ * XREFs of __local_stdio_printf_options @ 0x1800E6A9C
  * Callers:
- *     initialize_legacy_wide_specifiers @ 0x18010EEA0 (initialize_legacy_wide_specifiers.c)
- *     initialize_msvcrt_compatibility @ 0x18010EEF0 (initialize_msvcrt_compatibility.c)
- *     __scrt_initialize_default_local_stdio_options @ 0x18010FF88 (__scrt_initialize_default_local_stdio_options.c)
- *     _vsnwprintf @ 0x180110100 (_vsnwprintf.c)
- *     swprintf_s @ 0x180110168 (swprintf_s.c)
- *     _vsnprintf @ 0x1801101C0 (_vsnprintf.c)
- *     vsprintf_s @ 0x180110228 (vsprintf_s.c)
- *     _vscprintf @ 0x18011028C (_vscprintf.c)
+ *     initialize_printf_standard_rounding @ 0x1800E6A80 (initialize_printf_standard_rounding.c)
+ *     initialize_legacy_wide_specifiers @ 0x1800E6AD0 (initialize_legacy_wide_specifiers.c)
+ *     initialize_msvcrt_compatibility @ 0x1800E6B10 (initialize_msvcrt_compatibility.c)
+ *     sprintf_s @ 0x1800E782C (sprintf_s.c)
+ *     __scrt_initialize_default_local_stdio_options @ 0x1800E7C88 (__scrt_initialize_default_local_stdio_options.c)
+ *     _vsnwprintf @ 0x1800E7F68 (_vsnwprintf.c)
+ *     swprintf_s @ 0x1800E7FD0 (swprintf_s.c)
+ *     _vsnprintf @ 0x1800E8028 (_vsnprintf.c)
+ *     _scprintf @ 0x1800E8090 (_scprintf.c)
  * Callees:
  *     <none>
  */

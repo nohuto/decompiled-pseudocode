@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIThermalEvent @ 0x1C0060D00
+ * XREFs of ACPIThermalEvent @ 0x1C005FF20
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIThermalLoopEx @ 0x1C00209D8 (ACPIThermalLoopEx.c)
- *     WPP_RECORDER_SF_Dqssdddd @ 0x1C0021818 (WPP_RECORDER_SF_Dqssdddd.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
+ *     WPP_RECORDER_SF_dqssdddd @ 0x1C0014820 (WPP_RECORDER_SF_dqssdddd.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 void __fastcall ACPIThermalEvent(ULONG_PTR a1, int a2)
@@ -22,12 +22,12 @@ void __fastcall ACPIThermalEvent(ULONG_PTR a1, int a2)
   union _LARGE_INTEGER Time; // [rsp+70h] [rbp-38h] BYREF
   struct _TIME_FIELDS TimeFields; // [rsp+78h] [rbp-30h] BYREF
 
-  v3 = &unk_1C006FB8B;
+  v3 = &unk_1C00701BA;
   TimeFields = 0LL;
   v4 = 0;
   DeviceExtension = (_QWORD *)ACPIInternalGetDeviceExtension(a1);
   v6 = 0;
-  v7 = &unk_1C006FB8B;
+  v7 = &unk_1C00701BA;
   Time.QuadPart = MEMORY[0xFFFFF78000000008];
   RtlTimeToTimeFields(&Time, &TimeFields);
   if ( DeviceExtension )
@@ -36,13 +36,13 @@ void __fastcall ACPIThermalEvent(ULONG_PTR a1, int a2)
     v6 = (char)DeviceExtension;
     if ( (v8 & 0x200000000000LL) != 0 )
     {
-      v3 = (void *)DeviceExtension[76];
+      v3 = (void *)DeviceExtension[71];
       if ( (v8 & 0x400000000000LL) != 0 )
-        v7 = (void *)DeviceExtension[77];
+        v7 = (void *)DeviceExtension[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_Dqssdddd(
+    WPP_RECORDER_SF_dqssdddd(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       (unsigned int)TimeFields.Minute,
       (unsigned int)TimeFields.Hour,

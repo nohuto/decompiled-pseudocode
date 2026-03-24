@@ -1,28 +1,28 @@
 /*
- * XREFs of BiTranslateSymbolicLinkFile @ 0x140A5D2E8
+ * XREFs of BiTranslateSymbolicLinkFile @ 0x14097001C
  * Callers:
- *     BiGetPartitionVhdFilePathFromUnicodeString @ 0x140808F6C (BiGetPartitionVhdFilePathFromUnicodeString.c)
+ *     BiGetPartitionVhdFilePathFromUnicodeString @ 0x1407853D4 (BiGetPartitionVhdFilePathFromUnicodeString.c)
  * Callees:
- *     wcsrchr @ 0x1403DB4B0 (wcsrchr.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     BiTranslateSymbolicLink @ 0x14080A234 (BiTranslateSymbolicLink.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     wcsrchr @ 0x1403D3A00 (wcsrchr.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     BiTranslateSymbolicLink @ 0x140782ABC (BiTranslateSymbolicLink.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiTranslateSymbolicLinkFile(wchar_t *SourceString, wchar_t **a2)
 {
   _WORD *v4; // rdi
-  wchar_t *v5; // rbp
+  wchar_t *v5; // r15
   wchar_t *v6; // rsi
-  char v7; // r15
+  char v7; // r12
   wchar_t *v8; // rbx
   NTSTATUS v9; // eax
   __int64 v10; // rax
   __int64 v11; // rsi
   size_t v12; // rsi
-  wchar_t *Pool2; // rax
-  wchar_t *v14; // r13
+  wchar_t *PoolWithTag; // rax
+  wchar_t *v14; // rbp
   unsigned int v15; // ebx
   unsigned int Size; // [rsp+60h] [rbp+8h]
   void *Src; // [rsp+70h] [rbp+18h] BYREF
@@ -59,21 +59,24 @@ __int64 __fastcall BiTranslateSymbolicLinkFile(wchar_t *SourceString, wchar_t **
           ++v10;
         while ( v8[v10] );
         Size = 2 * v10 + 2;
-        Pool2 = (wchar_t *)ExAllocatePool2(258LL, (unsigned int)v12 + Size, 1262764866LL);
-        *a2 = Pool2;
-        v14 = Pool2;
-        if ( !Pool2 )
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v12 + Size, 0x4B444342u);
+        *a2 = PoolWithTag;
+        v14 = PoolWithTag;
+        if ( !PoolWithTag )
         {
           v15 = -1073741801;
           goto LABEL_20;
         }
-        memmove(Pool2, v4, v12);
+        memmove(PoolWithTag, v4, v12);
         memmove((char *)v14 + v12, v8, Size);
         if ( v5 != SourceString )
+        {
           ExFreePoolWithTag(v5, 0x4B444342u);
-        v5 = *a2;
-        v8 = (wchar_t *)((char *)*a2 + v12);
-        *v8 = 0;
+          v14 = *a2;
+        }
+        v8 = (wchar_t *)((char *)v14 + v12);
+        v5 = v14;
+        *(wchar_t *)((char *)v14 + v12) = 0;
       }
       v6 = v8;
     }

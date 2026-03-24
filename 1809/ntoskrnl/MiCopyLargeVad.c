@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCopyLargeVad @ 0x14085CD74
+ * XREFs of MiCopyLargeVad @ 0x14085CD54
  * Callers:
- *     MiMapChildLargePageVads @ 0x14085E8D4 (MiMapChildLargePageVads.c)
+ *     MiMapChildLargePageVads @ 0x14085E8B4 (MiMapChildLargePageVads.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiLocateVadEvent @ 0x140027BCC (MiLocateVadEvent.c)
- *     ExUnlockUserBuffer @ 0x14011A6F8 (ExUnlockUserBuffer.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     ExLockUserBuffer @ 0x14069E938 (ExLockUserBuffer.c)
- *     MiMapUserLargePages @ 0x14085D578 (MiMapUserLargePages.c)
+ *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
+ *     MiMapUserLargePages @ 0x14085D558 (MiMapUserLargePages.c)
  */
 
 __int64 __fastcall MiCopyLargeVad(_KPROCESS *BugCheckParameter1, __int64 a2, __int64 a3)

@@ -1,17 +1,17 @@
 /*
- * XREFs of ?GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z @ 0x180284590
+ * XREFs of ?GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z @ 0x180230350
  * Callers:
  *     <none>
  * Callees:
- *     _anonymous_namespace_::ResetInteractionOutput @ 0x180039E00 (_anonymous_namespace_--ResetInteractionOutput.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetCurrentMicroSecTime@QpcTimeConverter@@QEBA_KXZ @ 0x180284780 (-GetCurrentMicroSecTime@QpcTimeConverter@@QEBA_KXZ.c)
- *     ?PeekFirst@?$CQueue@PEAVCBufferedInteractionOutput@@@@QEAAPEAXPEAXPEAPEAVCBufferedInteractionOutput@@@Z @ 0x180284DC4 (-PeekFirst@-$CQueue@PEAVCBufferedInteractionOutput@@@@QEAAPEAXPEAXPEAPEAVCBufferedInteractionOut.c)
- *     ?_UpdateInteractionOutput@CInteractionContextWrapper@@AEAAXPEBUINTERACTION_CONTEXT_OUTPUT@@PEAUInteractionOutput@@@Z @ 0x180285734 (-_UpdateInteractionOutput@CInteractionContextWrapper@@AEAAXPEBUINTERACTION_CONTEXT_OUTPUT@@PEAUI.c)
+ *     _anonymous_namespace_::ResetInteractionOutput @ 0x1800B6078 (_anonymous_namespace_--ResetInteractionOutput.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrentMicroSecTime@QpcTimeConverter@@QEBA_KXZ @ 0x180230528 (-GetCurrentMicroSecTime@QpcTimeConverter@@QEBA_KXZ.c)
+ *     ?PeekFirst@?$CQueue@PEAVCBufferedInteractionOutput@@@@QEAAPEAXPEAXPEAPEAVCBufferedInteractionOutput@@@Z @ 0x180230B9C (-PeekFirst@-$CQueue@PEAVCBufferedInteractionOutput@@@@QEAAPEAXPEAXPEAPEAVCBufferedInteractionOut.c)
+ *     ?_UpdateInteractionOutput@CInteractionContextWrapper@@AEAAXPEBUINTERACTION_CONTEXT_OUTPUT@@PEAUInteractionOutput@@@Z @ 0x180231538 (-_UpdateInteractionOutput@CInteractionContextWrapper@@AEAAXPEBUINTERACTION_CONTEXT_OUTPUT@@PEAUI.c)
  */
 
 __int64 __fastcall CInteractionContextWrapper::GetBufferedOutputRaw(
-        struct _RTL_CRITICAL_SECTION *this,
+        CInteractionContextWrapper *this,
         unsigned __int64 a2,
         unsigned __int64 a3,
         struct InteractionOutput *a4)
@@ -34,13 +34,13 @@ __int64 __fastcall CInteractionContextWrapper::GetBufferedOutputRaw(
   v5 = a4;
   CurrentMicroSecTime = a3;
   if ( !a3 )
-    CurrentMicroSecTime = QpcTimeConverter::GetCurrentMicroSecTime((QpcTimeConverter *)&this[15].OwningThread);
+    CurrentMicroSecTime = QpcTimeConverter::GetCurrentMicroSecTime((CInteractionContextWrapper *)((char *)this + 624));
   anonymous_namespace_::ResetInteractionOutput((__int64)v5, 0);
-  if ( ((unsigned __int8 (__fastcall *)(struct _RTL_CRITICAL_SECTION *))this->DebugInfo[2].ProcessLocksList.Flink)(this)
-    && LODWORD(this[13].SpinCount) )
+  if ( (*(unsigned __int8 (__fastcall **)(CInteractionContextWrapper *))(*(_QWORD *)this + 112LL))(this)
+    && *((_DWORD *)this + 140) )
   {
-    EnterCriticalSection(this + 14);
-    v9 = CQueue<CBufferedInteractionOutput *>::PeekFirst(&this[13].OwningThread, v8, &v14);
+    EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 568));
+    v9 = CQueue<CBufferedInteractionOutput *>::PeekFirst((char *)this + 544, v8, &v14);
     if ( v9 )
     {
       v10 = v14;
@@ -49,27 +49,27 @@ __int64 __fastcall CInteractionContextWrapper::GetBufferedOutputRaw(
         if ( *(_QWORD *)v10 >= v15 && *(_QWORD *)v10 < CurrentMicroSecTime )
         {
           CInteractionContextWrapper::_UpdateInteractionOutput(
-            (CInteractionContextWrapper *)this,
+            this,
             (const struct INTERACTION_CONTEXT_OUTPUT *)(v10 + 12),
             v5);
           ++v4;
         }
         v10 = 0LL;
         v11 = 0LL;
-        EnterCriticalSection(this + 14);
-        if ( v9 && *(struct _RTL_CRITICAL_SECTION **)v9 != (struct _RTL_CRITICAL_SECTION *)&this[13].OwningThread )
+        EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 568));
+        if ( v9 && *(CInteractionContextWrapper **)v9 != (CInteractionContextWrapper *)((char *)this + 544) )
         {
           v11 = *(_QWORD *)v9;
           v10 = *(_QWORD *)(*(_QWORD *)v9 + 16LL);
         }
-        LeaveCriticalSection(this + 14);
+        LeaveCriticalSection((LPCRITICAL_SECTION)((char *)this + 568));
         v12 = v11 == 0;
         v9 = v11;
         v5 = v16;
       }
       while ( !v12 );
     }
-    LeaveCriticalSection(this + 14);
+    LeaveCriticalSection((LPCRITICAL_SECTION)((char *)this + 568));
   }
   return v4;
 }

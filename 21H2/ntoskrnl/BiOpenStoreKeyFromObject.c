@@ -1,13 +1,13 @@
 /*
- * XREFs of BiOpenStoreKeyFromObject @ 0x14064CC20
+ * XREFs of BiOpenStoreKeyFromObject @ 0x1405C3A50
  * Callers:
- *     BiSetFirmwareModifiedFromObject @ 0x14064CD04 (BiSetFirmwareModifiedFromObject.c)
+ *     BiSetFirmwareModifiedFromObject @ 0x1405C3B34 (BiSetFirmwareModifiedFromObject.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryKey @ 0x14041BA20 (ZwQueryKey.c)
- *     memset @ 0x140435E00 (memset.c)
- *     BiOpenKey @ 0x140813164 (BiOpenKey.c)
- *     BiCloseKey @ 0x1408132F0 (BiCloseKey.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryKey @ 0x1403FA660 (ZwQueryKey.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     BiOpenKey @ 0x140784404 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14078458C (BiCloseKey.c)
  */
 
 __int64 __fastcall BiOpenStoreKeyFromObject(HANDLE KeyHandle, _QWORD *a2)
@@ -26,10 +26,16 @@ __int64 __fastcall BiOpenStoreKeyFromObject(HANDLE KeyHandle, _QWORD *a2)
   else
   {
     Key = ZwQueryKey(KeyHandle, KeyNameInformation, KeyInformation, 0xA0u, ResultLength);
-    if ( Key < 0
-      || KeyInformation[0] >= 0x4Cu
-      && (HIWORD(KeyInformation[15]) = 0, Key = BiOpenKey(0LL, &KeyInformation[1], 131103LL, a2), Key < 0) )
+    if ( Key < 0 )
+      goto LABEL_12;
+    if ( KeyInformation[0] >= 0x4Cu )
     {
+      HIWORD(KeyInformation[15]) = 0;
+      Key = BiOpenKey(0LL, &KeyInformation[1], 131103LL, a2);
+    }
+    if ( Key < 0 )
+    {
+LABEL_12:
       if ( *a2 )
       {
         BiCloseKey();

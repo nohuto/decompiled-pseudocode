@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmEndHighPerfRequest @ 0x140177AE8
+ * XREFs of PpmEndHighPerfRequest @ 0x140177B08
  * Callers:
- *     PopIssueActionRequest @ 0x1406DE870 (PopIssueActionRequest.c)
- *     PoClearBroadcast @ 0x1406E0A68 (PoClearBroadcast.c)
- *     PopUserShutdownCancelled @ 0x1406E2290 (PopUserShutdownCancelled.c)
- *     PopSetupHighPerfPowerRequest @ 0x140763A70 (PopSetupHighPerfPowerRequest.c)
- *     PdcPoPerfOverride @ 0x14086ECC0 (PdcPoPerfOverride.c)
+ *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
+ *     PoClearBroadcast @ 0x1406E0A48 (PoClearBroadcast.c)
+ *     PopUserShutdownCancelled @ 0x1406E2270 (PopUserShutdownCancelled.c)
+ *     PopSetupHighPerfPowerRequest @ 0x140763A50 (PopSetupHighPerfPowerRequest.c)
+ *     PdcPoPerfOverride @ 0x14086ECA0 (PdcPoPerfOverride.c)
  * Callees:
  *     PoClearPowerRequestInternal @ 0x1400027C4 (PoClearPowerRequestInternal.c)
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PpmEndHighPerfRequest(int a1)

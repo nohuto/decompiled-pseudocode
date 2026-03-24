@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpLoadPolicyLanguageSpec @ 0x140906718
+ * XREFs of RtlpLoadPolicyLanguageSpec @ 0x1409066F8
  * Callers:
- *     RtlpLoadLanguageConfigList @ 0x14073DA04 (RtlpLoadLanguageConfigList.c)
+ *     RtlpLoadLanguageConfigList @ 0x14073D9E4 (RtlpLoadLanguageConfigList.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     LdrpQueryValueKey @ 0x14073E390 (LdrpQueryValueKey.c)
- *     RtlpMuiRegGetOrAddString @ 0x14073ECE4 (RtlpMuiRegGetOrAddString.c)
- *     RtlCultureNameToLCID @ 0x14073EF20 (RtlCultureNameToLCID.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140906E58 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     LdrpQueryValueKey @ 0x14073E370 (LdrpQueryValueKey.c)
+ *     RtlpMuiRegGetOrAddString @ 0x14073ECC4 (RtlpMuiRegGetOrAddString.c)
+ *     RtlCultureNameToLCID @ 0x14073EF00 (RtlCultureNameToLCID.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140906E38 (RtlpMuiRegGetInstalledLanguageIndex.c)
  */
 
 __int64 __fastcall RtlpLoadPolicyLanguageSpec(HANDLE KeyHandle, __int64 a2, _BYTE *a3, __int16 *a4)

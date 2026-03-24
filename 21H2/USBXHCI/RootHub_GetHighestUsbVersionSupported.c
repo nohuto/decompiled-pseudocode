@@ -1,7 +1,7 @@
 /*
- * XREFs of RootHub_GetHighestUsbVersionSupported @ 0x1C0015838
+ * XREFs of RootHub_GetHighestUsbVersionSupported @ 0x1C0015734
  * Callers:
- *     Controller_SetDeviceDescription @ 0x1C006DFF8 (Controller_SetDeviceDescription.c)
+ *     Controller_SetDeviceDescription @ 0x1C006C400 (Controller_SetDeviceDescription.c)
  * Callees:
  *     <none>
  */

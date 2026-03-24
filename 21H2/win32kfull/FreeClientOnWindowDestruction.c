@@ -1,38 +1,34 @@
 /*
- * XREFs of FreeClientOnWindowDestruction @ 0x1C005FDA0
+ * XREFs of FreeClientOnWindowDestruction @ 0x1C01EE720
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
+ *     <none>
  * Callees:
  *     <none>
  */
 
-_UNKNOWN **__fastcall FreeClientOnWindowDestruction(struct _LIST_ENTRY *a1)
+void __fastcall FreeClientOnWindowDestruction(struct _LIST_ENTRY *a1)
 {
-  _UNKNOWN **result; // rax
   struct _LIST_ENTRY *Flink; // rbx
-  struct _LIST_ENTRY *v4; // rsi
-  struct _LIST_ENTRY *v5; // rdi
-  struct _LIST_ENTRY *v6; // rcx
+  struct _LIST_ENTRY *v3; // rsi
+  struct _LIST_ENTRY *v4; // rdi
+  struct _LIST_ENTRY *v5; // rcx
   struct _LIST_ENTRY *Blink; // rax
-  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
-  result = &retaddr;
   Flink = gPointerDeviceClients.Flink;
   while ( Flink != &gPointerDeviceClients )
   {
-    v4 = Flink - 1;
-    v5 = Flink;
+    v3 = Flink - 1;
+    v4 = Flink;
     Flink = Flink->Flink;
-    if ( a1 == v4->Flink )
+    if ( a1 == v3->Flink )
     {
-      HMAssignmentUnlock(v4);
-      v6 = v5->Flink;
-      if ( v5->Flink->Blink != v5 || (Blink = v5->Blink, Blink->Flink != v5) )
+      HMAssignmentUnlock(v3);
+      v5 = v4->Flink;
+      if ( v4->Flink->Blink != v4 || (Blink = v4->Blink, Blink->Flink != v4) )
         __fastfail(3u);
-      Blink->Flink = v6;
-      v6->Blink = Blink;
-      result = (_UNKNOWN **)Win32FreePool(v4);
+      Blink->Flink = v5;
+      v5->Blink = Blink;
+      Win32FreePool(v3);
     }
   }
-  return result;
 }

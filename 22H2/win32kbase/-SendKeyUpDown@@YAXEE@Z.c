@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SendKeyUpDown@@YAXEE@Z @ 0x1C01EA818
+ * XREFs of ?SendKeyUpDown@@YAXEE@Z @ 0x1C01B0504
  * Callers:
- *     ?MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z @ 0x1C01E9F78 (-MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z.c)
+ *     ?MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z @ 0x1C01AFF00 (-MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z.c)
  * Callees:
- *     InternalMapVirtualKeyEx @ 0x1C006BBB0 (InternalMapVirtualKeyEx.c)
- *     xxxProcessKeyEvent @ 0x1C00C90C0 (xxxProcessKeyEvent.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     GetCurrentKbdTables @ 0x1C01EA8B0 (GetCurrentKbdTables.c)
+ *     InternalMapVirtualKeyEx @ 0x1C003E420 (InternalMapVirtualKeyEx.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     GetCurrentKbdTables @ 0x1C01B05A0 (GetCurrentKbdTables.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1150 (xxxProcessKeyEvent.c)
  */
 
 void __fastcall SendKeyUpDown(unsigned __int8 a1, char a2)
@@ -22,6 +22,6 @@ void __fastcall SendKeyUpDown(unsigned __int8 a1, char a2)
     WORD1(v4[0]) = a1 | 0xC000;
   CurrentKbdTables = GetCurrentKbdTables();
   if ( CurrentKbdTables )
-    LOBYTE(v4[0]) = InternalMapVirtualKeyEx(v2, 0, CurrentKbdTables);
-  xxxProcessKeyEvent((unsigned __int16 *)v4, 0LL, 1u, 0, 0LL, 0LL);
+    LOBYTE(v4[0]) = InternalMapVirtualKeyEx(v2, 0LL, CurrentKbdTables);
+  xxxProcessKeyEvent(v4, 0LL, 1LL, 0LL, 0LL, 0LL);
 }

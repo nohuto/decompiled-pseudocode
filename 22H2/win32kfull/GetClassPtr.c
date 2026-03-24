@@ -1,34 +1,30 @@
 /*
- * XREFs of GetClassPtr @ 0x1C00B4D40
+ * XREFs of GetClassPtr @ 0x1C00BF150
  * Callers:
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
- *     _GetWOWClass @ 0x1C01BE188 (_GetWOWClass.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
+ *     _GetClassInfoEx @ 0x1C00BC208 (_GetClassInfoEx.c)
+ *     _GetWOWClass @ 0x1C01E8D14 (_GetWOWClass.c)
  * Callees:
- *     _InnerGetClassPtr @ 0x1C00CC96C (_InnerGetClassPtr.c)
+ *     _InnerGetClassPtr @ 0x1C007A5B0 (_InnerGetClassPtr.c)
  */
 
-__int64 __fastcall GetClassPtr(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+_QWORD *__fastcall GetClassPtr(__int16 a1, __int64 a2, __int64 a3)
 {
-  __int64 v4; // rbp
-  unsigned __int16 v6; // bx
-  __int64 result; // rax
-  __int64 v8; // r9
-  __int64 v9; // r9
-  __int64 v10; // rdi
-  __int64 v11; // r9
+  _QWORD *v3; // rbp
+  _QWORD *result; // rax
+  __int64 v7; // rdi
 
-  v4 = a2 + 344;
-  v6 = a1;
-  result = InnerGetClassPtr(a1, a2 + 344, a3, a4);
+  v3 = (_QWORD *)(a2 + 344);
+  result = InnerGetClassPtr(a1, (_QWORD *)(a2 + 344), a3);
   if ( !result )
   {
-    result = InnerGetClassPtr(v6, a2 + 352, 0LL, v8);
+    result = InnerGetClassPtr(a1, (_QWORD *)(a2 + 352), 0LL);
     if ( !result )
     {
-      v10 = hModClient;
-      result = InnerGetClassPtr(v6, v4, hModClient, v9);
+      v7 = hModClient;
+      result = InnerGetClassPtr(a1, v3, hModClient);
       if ( !result )
-        return InnerGetClassPtr(v6, a2 + 352, v10, v11);
+        return InnerGetClassPtr(a1, (_QWORD *)(a2 + 352), v7);
     }
   }
   return result;

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmKeyBodyRemapToVirtualForEnum @ 0x14063EDD0
+ * XREFs of CmKeyBodyRemapToVirtualForEnum @ 0x14063EDB0
  * Callers:
  *     NtQueryMultipleValueKey @ 0x1405B7130 (NtQueryMultipleValueKey.c)
  *     NtEnumerateKey @ 0x1405D22F0 (NtEnumerateKey.c)
  *     NtEnumerateValueKey @ 0x1405D3890 (NtEnumerateValueKey.c)
- *     NtQueryKey @ 0x14063FBB0 (NtQueryKey.c)
- *     NtQueryValueKey @ 0x140640360 (NtQueryValueKey.c)
+ *     NtQueryKey @ 0x14063FB90 (NtQueryKey.c)
+ *     NtQueryValueKey @ 0x140640340 (NtQueryValueKey.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObFastReferenceObject @ 0x14004D840 (ObFastReferenceObject.c)
@@ -17,9 +17,9 @@
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     ObFastReferenceObjectLocked @ 0x14007DFF4 (ObFastReferenceObjectLocked.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmObReferenceObjectByName @ 0x140581128 (CmObReferenceObjectByName.c)
  *     SeCreateAccessStateFromSubjectContext @ 0x140582A30 (SeCreateAccessStateFromSubjectContext.c)
@@ -27,14 +27,14 @@
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
  *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
- *     CmpIsKcbInsideVirtualizedHive @ 0x14063F500 (CmpIsKcbInsideVirtualizedHive.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406441C0 (CmpDereferenceKeyControlBlock.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpFreeExtraParameter @ 0x1407EC5FC (CmpFreeExtraParameter.c)
- *     CmVirtualKCBToRealPath @ 0x1407F21C0 (CmVirtualKCBToRealPath.c)
- *     CmpReparseToVirtualPath @ 0x1407F371C (CmpReparseToVirtualPath.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
+ *     CmpIsKcbInsideVirtualizedHive @ 0x14063F4E0 (CmpIsKcbInsideVirtualizedHive.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406441A0 (CmpDereferenceKeyControlBlock.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpFreeExtraParameter @ 0x1407EC5DC (CmpFreeExtraParameter.c)
+ *     CmVirtualKCBToRealPath @ 0x1407F21A0 (CmVirtualKCBToRealPath.c)
+ *     CmpReparseToVirtualPath @ 0x1407F36FC (CmpReparseToVirtualPath.c)
  */
 
 __int64 __fastcall CmKeyBodyRemapToVirtualForEnum(__int64 *a1, char a2, ACCESS_MASK a3, PVOID *a4)

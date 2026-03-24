@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhPortResumeComplete @ 0x1C001B2A0
+ * XREFs of UsbhPortResumeComplete @ 0x1C0018460
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhRawWait @ 0x1C001A650 (UsbhRawWait.c)
- *     UsbhSignalResumeEvent @ 0x1C001B0E8 (UsbhSignalResumeEvent.c)
- *     UsbhSS_SignalPdoWake @ 0x1C001B37C (UsbhSS_SignalPdoWake.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     UsbhSignalResumeEvent @ 0x1C00015A0 (UsbhSignalResumeEvent.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSS_SignalPdoWake @ 0x1C00183BC (UsbhSS_SignalPdoWake.c)
+ *     UsbhRawWait @ 0x1C0018570 (UsbhRawWait.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
 __int64 __fastcall UsbhPortResumeComplete(__int64 a1, __int64 a2, __int64 a3)

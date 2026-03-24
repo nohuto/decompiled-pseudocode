@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?ValidateMockDriverState@MOCKDRIVERSTATE@@QEAAXW4MOCKDRIVERSTATE_VALIDATE_TYPE@@PEAX@Z @ 0x1C0009CBC
+ * Callers:
+ *     ?DdiDestroyAllocation@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_DESTROYALLOCATION@@E@Z @ 0x1C012B570 (-DdiDestroyAllocation@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_DESTROYALLOCATION@@E@Z.c)
+ * Callees:
+ *     ?ValidatePlaneHelper@MOCKDRIVERSTATE@@AEAAXPEAU_MOCKDRIVERSTATE_VALIDATE_PLANE@@@Z @ 0x1C004E588 (-ValidatePlaneHelper@MOCKDRIVERSTATE@@AEAAXPEAU_MOCKDRIVERSTATE_VALIDATE_PLANE@@@Z.c)
+ */
+
+void __fastcall MOCKDRIVERSTATE::ValidateMockDriverState(
+        MOCKDRIVERSTATE *a1,
+        int a2,
+        struct _MOCKDRIVERSTATE_VALIDATE_PLANE *a3)
+{
+  if ( *((_BYTE *)a1 + 2728) )
+  {
+    if ( !a2 )
+      MOCKDRIVERSTATE::ValidatePlaneHelper(a1, a3);
+  }
+}

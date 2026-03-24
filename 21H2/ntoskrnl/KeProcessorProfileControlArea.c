@@ -1,13 +1,13 @@
 /*
- * XREFs of KeProcessorProfileControlArea @ 0x14056A228
+ * XREFs of KeProcessorProfileControlArea @ 0x1405142CC
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
  * Callees:
- *     KiIsIntelPebsSupported @ 0x1403D8548 (KiIsIntelPebsSupported.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KiIsIntelPebsSupported @ 0x1403B6688 (KiIsIntelPebsSupported.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KeProcessorProfileControlArea(__int64 a1, int a2, char a3)
@@ -60,21 +60,21 @@ __int64 __fastcall KeProcessorProfileControlArea(__int64 a1, int a2, char a3)
   }
   if ( v5 )
   {
-    v14 = *(_QWORD *)(v10 + 34968);
+    v14 = *(_QWORD *)(v10 + 33944);
     if ( v14 )
     {
       *(_QWORD *)a1 = v14;
       v13 = -1073741302;
       goto LABEL_20;
     }
-    *(_QWORD *)(v10 + 34968) = v6;
-    *(_QWORD *)(v10 + 34976) = v6 + 40;
+    *(_QWORD *)(v10 + 33944) = v6;
+    *(_QWORD *)(v10 + 33952) = v6 + 40;
     *(_QWORD *)a1 = v6;
     v6 = 0LL;
     goto LABEL_19;
   }
   *(_QWORD *)a1 = 0LL;
-  if ( *(_QWORD *)(v10 + 34968) )
+  if ( *(_QWORD *)(v10 + 33944) )
   {
 LABEL_19:
     v13 = 0;

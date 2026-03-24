@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlReleaseFileNameInformation @ 0x1406E5900
+ * XREFs of FsRtlReleaseFileNameInformation @ 0x1406C1040
  * Callers:
- *     EtwpCancelTraceImageUnloadApc @ 0x14062E9B0 (EtwpCancelTraceImageUnloadApc.c)
+ *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 FsRtlReleaseFileNameInformation()

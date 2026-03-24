@@ -1,68 +1,66 @@
 /*
- * XREFs of CmpUpdateParentForEachSon @ 0x140A24DE4
+ * XREFs of CmpUpdateParentForEachSon @ 0x14087B338
  * Callers:
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x140A28588 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x14087EF14 (CmpLightWeightCommitRenameKeyUoW.c)
  * Callees:
- *     CmpFindSubKeyByNumber @ 0x1406DAFB0 (CmpFindSubKeyByNumber.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByNumber @ 0x1405F34E0 (CmpFindSubKeyByNumber.c)
  */
 
-__int64 __fastcall CmpUpdateParentForEachSon(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)
+char __fastcall CmpUpdateParentForEachSon(__int64 a1, __int64 a2, char a3)
 {
-  int v3; // r12d
-  __int64 CellFlat; // rax
-  _DWORD *v5; // r14
-  unsigned int v6; // esi
-  unsigned int v7; // r15d
-  int SubKeyByNumber; // edi
-  __int64 CellPaged; // rax
-  __int64 v11; // [rsp+60h] [rbp+40h] BYREF
-  ULONG_PTR BugCheckParameter4; // [rsp+70h] [rbp+50h] BYREF
-  __int64 v13; // [rsp+78h] [rbp+58h] BYREF
+  char v3; // bl
+  int v4; // r15d
+  __int64 (__fastcall *v5)(__int64, __int64, int *); // rax
+  __int64 v7; // rax
+  _DWORD *v8; // r14
+  unsigned int v9; // ebp
+  unsigned int v10; // esi
+  __int64 v11; // rax
+  int v13; // [rsp+50h] [rbp+8h] BYREF
+  int v14; // [rsp+54h] [rbp+Ch]
+  unsigned int v15; // [rsp+60h] [rbp+18h] BYREF
+  int v16; // [rsp+68h] [rbp+20h] BYREF
+  int v17; // [rsp+6Ch] [rbp+24h]
 
-  LODWORD(BugCheckParameter4) = 0;
-  v13 = 0xFFFFFFFFLL;
-  v3 = a2;
-  v11 = 0xFFFFFFFFLL;
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(BugCheckParameter3, a2, &v13);
-  else
-    CellFlat = HvpGetCellPaged(BugCheckParameter3, a2, (unsigned int *)&v13);
-  v5 = (_DWORD *)CellFlat;
-  v6 = 0;
-  v7 = *(_DWORD *)(CellFlat + 20) + *(_DWORD *)(CellFlat + 24);
+  LOBYTE(v15) = a3;
+  v16 = -1;
+  v13 = -1;
+  v17 = 0;
+  v3 = 0;
+  v14 = 0;
+  v4 = a2;
+  v5 = *(__int64 (__fastcall **)(__int64, __int64, int *))(a1 + 8);
+  v15 = 0;
+  v7 = v5(a1, a2, &v16);
+  v8 = (_DWORD *)v7;
   if ( v7 )
   {
-    while ( 1 )
+    v9 = 0;
+    v10 = *(_DWORD *)(v7 + 20) + *(_DWORD *)(v7 + 24);
+    if ( v10 )
     {
-      SubKeyByNumber = CmpFindSubKeyByNumber(BugCheckParameter3, v5, v6, &BugCheckParameter4);
-      if ( SubKeyByNumber < 0 )
-        break;
-      if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-        CellPaged = HvpGetCellFlat(BugCheckParameter3, (unsigned int)BugCheckParameter4, &v11);
-      else
-        CellPaged = HvpGetCellPaged(BugCheckParameter3, BugCheckParameter4, (unsigned int *)&v11);
-      *(_DWORD *)(CellPaged + 16) = v3;
-      if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(BugCheckParameter3, &v11);
-      else
-        HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v11);
-      if ( ++v6 >= v7 )
-        goto LABEL_13;
+      while ( 1 )
+      {
+        CmpFindSubKeyByNumber(a1, v8, v9, &v15);
+        if ( v15 == -1 )
+          break;
+        v11 = (*(__int64 (__fastcall **)(__int64, _QWORD, int *))(a1 + 8))(a1, v15, &v13);
+        if ( !v11 )
+          break;
+        *(_DWORD *)(v11 + 16) = v4;
+        (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v13);
+        if ( ++v9 >= v10 )
+          goto LABEL_6;
+      }
     }
+    else
+    {
+LABEL_6:
+      v3 = 1;
+    }
+    (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v16);
   }
-  else
-  {
-LABEL_13:
-    SubKeyByNumber = 0;
-  }
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(BugCheckParameter3, &v13);
-  else
-    HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v13);
-  return (unsigned int)SubKeyByNumber;
+  return v3;
 }

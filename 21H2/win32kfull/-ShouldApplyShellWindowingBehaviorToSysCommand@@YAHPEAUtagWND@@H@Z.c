@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ShouldApplyShellWindowingBehaviorToSysCommand@@YAHPEAUtagWND@@H@Z @ 0x1C021D188
+ * XREFs of ?ShouldApplyShellWindowingBehaviorToSysCommand@@YAHPEAUtagWND@@H@Z @ 0x1C0223AE0
  * Callers:
- *     xxxSysCommand @ 0x1C011BA1C (xxxSysCommand.c)
+ *     xxxSysCommand @ 0x1C0130714 (xxxSysCommand.c)
  * Callees:
- *     ?CompositeAppHasForeground@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C00024C8 (-CompositeAppHasForeground@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
- *     ?WindowSubjectToBehavior@ShellWindowManagement@@YA_NPEBUtagWND@@K@Z @ 0x1C006A110 (-WindowSubjectToBehavior@ShellWindowManagement@@YA_NPEBUtagWND@@K@Z.c)
- *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C006A158 (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
- *     ?IsThreadHung@@YAHPEBUtagTHREADINFO@@K@Z @ 0x1C00A93A4 (-IsThreadHung@@YAHPEBUtagTHREADINFO@@K@Z.c)
+ *     ?CompositeAppHasForeground@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C000798C (-CompositeAppHasForeground@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
+ *     IsThreadHung @ 0x1C003E194 (IsThreadHung.c)
+ *     ?WindowSubjectToBehavior@ShellWindowManagement@@YA_NPEAUtagWND@@K@Z @ 0x1C004B5EC (-WindowSubjectToBehavior@ShellWindowManagement@@YA_NPEAUtagWND@@K@Z.c)
+ *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C004B630 (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
  */
 
 __int64 __fastcall ShouldApplyShellWindowingBehaviorToSysCommand(struct tagWND *a1, int a2, unsigned int a3)
@@ -18,15 +18,15 @@ __int64 __fastcall ShouldApplyShellWindowingBehaviorToSysCommand(struct tagWND *
 
   v3 = 0;
   if ( ((a2 - 61440) & 0xFFFFFFEF) == 0
-    && ShellWindowManagement::WindowSubjectToBehavior((ShellWindowManagement **)a1, (const struct tagWND *)0xC, a3) )
+    && ShellWindowManagement::WindowSubjectToBehavior((ShellWindowManagement **)a1, (struct tagWND *)0xC, a3) )
   {
     v6 = (ShellWindowManagement *)*((_QWORD *)a1 + 3);
     if ( v6 )
     {
-      v7 = *((_QWORD *)v6 + 40);
+      v7 = *((_QWORD *)v6 + 41);
       if ( v7 )
       {
-        if ( !(unsigned int)IsThreadHung(*(const struct tagTHREADINFO **)(v7 + 16), 0)
+        if ( !(unsigned int)IsThreadHung(*(_QWORD **)(v7 + 16), 0)
           && (unsigned int)CoreWindowProp::CompositeAppHasForeground(a1) )
         {
           v8 = 4LL;

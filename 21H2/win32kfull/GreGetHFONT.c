@@ -1,11 +1,11 @@
 /*
- * XREFs of GreGetHFONT @ 0x1C029E3FC
+ * XREFs of GreGetHFONT @ 0x1C029FAC4
  * Callers:
- *     xxxDrawState @ 0x1C024DD1C (xxxDrawState.c)
- *     IsSysFontAndDefaultMode @ 0x1C025BB6C (IsSysFontAndDefaultMode.c)
+ *     xxxDrawState @ 0x1C0250D44 (xxxDrawState.c)
+ *     IsSysFontAndDefaultMode @ 0x1C025EF48 (IsSysFontAndDefaultMode.c)
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall GreGetHFONT(HDC a1)

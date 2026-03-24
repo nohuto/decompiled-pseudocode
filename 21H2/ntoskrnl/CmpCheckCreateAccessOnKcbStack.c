@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCheckCreateAccessOnKcbStack @ 0x1406689D4
+ * XREFs of CmpCheckCreateAccessOnKcbStack @ 0x14069D680
  * Callers:
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
  * Callees:
- *     CmpCheckCreateAccess @ 0x140668AEC (CmpCheckCreateAccess.c)
- *     CmpSetAccessStateForBackupRestore @ 0x1406B52CC (CmpSetAccessStateForBackupRestore.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x140721BF0 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405EF460 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpCheckCreateAccess @ 0x14069D74C (CmpCheckCreateAccess.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x14076EEF4 (CmpSetAccessStateForBackupRestore.c)
  */
 
 char __fastcall CmpCheckCreateAccessOnKcbStack(
@@ -17,37 +17,35 @@ char __fastcall CmpCheckCreateAccessOnKcbStack(
         int a6,
         char a7,
         __int64 a8,
-        __int64 a9,
-        int a10,
-        _DWORD *a11)
+        _DWORD *a9)
 {
   __int64 SecurityCacheEntryForKcbStack; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r9
-  __int64 v16; // rsi
-  char v17; // bl
-  __int64 v18; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // r9
+  __int64 v14; // rsi
+  char v15; // bl
+  __int64 v16; // rcx
 
   SecurityCacheEntryForKcbStack = CmpGetSecurityCacheEntryForKcbStack(a2, a8, 0LL);
-  v16 = SecurityCacheEntryForKcbStack;
-  v17 = 1;
+  v14 = SecurityCacheEntryForKcbStack;
+  v15 = 1;
   if ( a7
-    && (LOBYTE(v14) = a5,
-        LOBYTE(v15) = 1,
-        (int)CmpSetAccessStateForBackupRestore(a4, v14, SecurityCacheEntryForKcbStack + 32, v15) < 0)
-    || (v18 = a6 | *(_DWORD *)(a4 + 24) | 4u, ((unsigned int)v18 & *(_DWORD *)(a3 + 96)) != (_DWORD)v18) )
+    && (LOBYTE(v12) = a5,
+        LOBYTE(v13) = 1,
+        (int)CmpSetAccessStateForBackupRestore(a4, v12, SecurityCacheEntryForKcbStack + 32, v13) < 0)
+    || (v16 = a6 | *(_DWORD *)(a4 + 24) | 4u, ((unsigned int)v16 & *(_DWORD *)(a3 + 96)) != (_DWORD)v16) )
   {
-    v17 = 0;
-    *a11 = -1073741790;
+    v15 = 0;
+    *a9 = -1073741790;
   }
   else if ( !a7 || *(_DWORD *)(a4 + 16) )
   {
-    LOBYTE(v15) = a5;
-    return CmpCheckCreateAccess(v18, v16 + 32, a4, v15, a6, a8, a9, a10, a11);
+    LOBYTE(v13) = a5;
+    return CmpCheckCreateAccess(v16, v14 + 32, a4, v13, a6, a9);
   }
   else
   {
-    *a11 = 0;
+    *a9 = 0;
   }
-  return v17;
+  return v15;
 }

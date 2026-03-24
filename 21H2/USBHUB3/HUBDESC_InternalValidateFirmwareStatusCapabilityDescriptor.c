@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBDESC_InternalValidateFirmwareStatusCapabilityDescriptor @ 0x1C003774C
+ * XREFs of HUBDESC_InternalValidateFirmwareStatusCapabilityDescriptor @ 0x1C0036ED4
  * Callers:
- *     HUBDESC_InternalValidateDeviceCapabilityDescriptor @ 0x1C0038C7C (HUBDESC_InternalValidateDeviceCapabilityDescriptor.c)
+ *     HUBDESC_InternalValidateDeviceCapabilityDescriptor @ 0x1C0038400 (HUBDESC_InternalValidateDeviceCapabilityDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_DD @ 0x1C0002204 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_DDD @ 0x1C0026F14 (WPP_RECORDER_SF_DDD.c)
- *     WPP_RECORDER_SF_DDDD @ 0x1C0032B34 (WPP_RECORDER_SF_DDDD.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C0026A64 (WPP_RECORDER_SF_DDD.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C00322CC (WPP_RECORDER_SF_DDDD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDESC_InternalValidateFirmwareStatusCapabilityDescriptor(
@@ -61,7 +61,7 @@ __int64 __fastcall HUBDESC_InternalValidateFirmwareStatusCapabilityDescriptor(
                  2u,
                  a3,
                  0xA6u,
-                 (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids,
+                 (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
                  v11,
                  *a1,
                  8);
@@ -76,7 +76,7 @@ __int64 __fastcall HUBDESC_InternalValidateFirmwareStatusCapabilityDescriptor(
         2u,
         5u,
         0xA5u,
-        (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids,
+        (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
         v11,
         *a1,
         8,
@@ -91,7 +91,7 @@ __int64 __fastcall HUBDESC_InternalValidateFirmwareStatusCapabilityDescriptor(
       LODWORD(v17) = 8;
       LODWORD(v16) = *a1;
       LODWORD(v15) = v11;
-      WPP_RECORDER_SF_DDD(v10, 2u, a3, 0xA7u, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids, v15, v16, v17);
+      WPP_RECORDER_SF_DDD(v10, 2u, a3, 0xA7u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v15, v16, v17);
     }
     (*(void (__fastcall **)(_QWORD, __int64))(a2 + 24))(*(_QWORD *)(a2 + 40), 264LL);
   }
@@ -106,7 +106,7 @@ __int64 __fastcall HUBDESC_InternalValidateFirmwareStatusCapabilityDescriptor(
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
           LODWORD(v15) = *((_DWORD *)a1 + 1);
-          WPP_RECORDER_SF_d(v10, 2u, 5u, 0xAAu, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids, v15);
+          WPP_RECORDER_SF_d(v10, 2u, 5u, 0xAAu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v15);
         }
         (*(void (__fastcall **)(_QWORD, __int64))(a2 + 24))(*(_QWORD *)(a2 + 40), 265LL);
       }
@@ -126,12 +126,12 @@ __int64 __fastcall HUBDESC_InternalValidateFirmwareStatusCapabilityDescriptor(
       {
         LODWORD(v16) = (*((_DWORD *)a1 + 1) >> 1) & 1;
         LODWORD(v15) = *((_DWORD *)a1 + 1) & 1;
-        result = WPP_RECORDER_SF_DD(
+        result = WPP_RECORDER_SF_dD(
                    v10,
                    4u,
                    5u,
                    0xABu,
-                   (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids,
+                   (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
                    v15,
                    v16);
       }
@@ -141,7 +141,7 @@ __int64 __fastcall HUBDESC_InternalValidateFirmwareStatusCapabilityDescriptor(
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LODWORD(v15) = a1[3];
-      WPP_RECORDER_SF_d(v10, 2u, 5u, 0xA9u, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids, v15);
+      WPP_RECORDER_SF_d(v10, 2u, 5u, 0xA9u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v15);
     }
     v14 = 265LL;
   }
@@ -152,7 +152,7 @@ __int64 __fastcall HUBDESC_InternalValidateFirmwareStatusCapabilityDescriptor(
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LODWORD(v15) = v11;
-      WPP_RECORDER_SF_d(v10, 2u, 5u, 0xA8u, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids, v15);
+      WPP_RECORDER_SF_d(v10, 2u, 5u, 0xA8u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v15);
     }
     v14 = 261LL;
   }
@@ -161,7 +161,7 @@ LABEL_44:
   if ( *v7 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      return WPP_RECORDER_SF_(v10, 2u, 5u, 0xACu, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids);
+      return WPP_RECORDER_SF_(v10, 2u, 5u, 0xACu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
   }
   return result;
 }

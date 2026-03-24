@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_ECCD_BTL@@MEAAPEAXI@Z @ 0x1C006AEE0
+ * XREFs of ??_ECCD_BTL@@MEAAPEAXI@Z @ 0x1C005DCD0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CCD_BTL@@MEAA@XZ @ 0x1C03AA864 (--1CCD_BTL@@MEAA@XZ.c)
+ *     ??1CCD_BTL@@MEAA@XZ @ 0x1C02ECF38 (--1CCD_BTL@@MEAA@XZ.c)
  */
 
 CCD_BTL *__fastcall CCD_BTL::`vector deleting destructor'(CCD_BTL *P, char a2)

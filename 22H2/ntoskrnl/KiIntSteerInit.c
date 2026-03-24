@@ -1,49 +1,52 @@
 /*
- * XREFs of KiIntSteerInit @ 0x140B53C08
+ * XREFs of KiIntSteerInit @ 0x140A4D1CC
  * Callers:
- *     KeInitSystem @ 0x140B53548 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     KiIntPartInit @ 0x140B53D44 (KiIntPartInit.c)
- *     KiIntSteerDetermineSteeringEnabled @ 0x140B75650 (KiIntSteerDetermineSteeringEnabled.c)
+ *     KeAddProcessorAffinityEx @ 0x140229340 (KeAddProcessorAffinityEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5310 (HviIsAnyHypervisorPresent.c)
+ *     HviIsXboxNanovisorPresent @ 0x1403CE094 (HviIsXboxNanovisorPresent.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall KiIntSteerInit(int a1)
+__int64 KiIntSteerInit()
 {
-  unsigned int v1; // ebx
-  __int64 Pool2; // rax
-  int v4; // [rsp+40h] [rbp+8h] BYREF
+  bool v0; // bl
+  __int64 result; // rax
+  int v2; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = 0;
-  if ( a1 == 1 )
+  v0 = 0;
+  KiIntSteerMask = 1310721;
+  KiIntTrackRootCount = 0;
+  qword_140C2B2F8 = (__int64)&KiIntTrackRootList;
+  KiIntTrackRootList = (__int64)&KiIntTrackRootList;
+  KiIntTrackSpinlock = 0LL;
+  memset(&unk_140C2B244, 0, 0xA4uLL);
+  KeAddProcessorAffinityEx(&KiIntSteerMask, 0);
+  KiIntSteerAffinitizedInterrupts[0] = 1310721;
+  memset(&unk_140C2B184, 0, 0xA4uLL);
+  v2 = 0;
+  ((void (__fastcall *)(__int64, __int64, int *, int *))off_140C00A68[0])(39LL, 4LL, &KiInterruptControllerInfo, &v2);
+  if ( !KiInterruptSteeringDisabled
+    && (unsigned __int16)KiActiveGroups <= 1u
+    && KeQueryActiveProcessorCountEx(0) >= 2
+    && !(_BYTE)dword_140CFB19C
+    && !HviIsXboxNanovisorPresent() )
   {
-    KiIntTrackRootCount = 0;
-    qword_140C414E8 = (__int64)&KiIntTrackRootList;
-    KiIntTrackRootList = (__int64)&KiIntTrackRootList;
-    KiIntTrackSpinlock = 0LL;
-    KiIntSteerMask = 2097153;
-    memset(&unk_140C41504, 0, 0x104uLL);
-    KeAddProcessorAffinityEx((unsigned __int16 *)&KiIntSteerMask, 0);
-    KiIntSteerAffinitizedInterrupts[0] = 2097153;
-    memset(&unk_140C41624, 0, 0x104uLL);
-    v4 = 0;
-    ((void (__fastcall *)(__int64, __int64, int *, int *))off_140C020E8[0])(39LL, 4LL, &KiInterruptControllerInfo, &v4);
-    KiIntSteerEnabled = KiIntSteerDetermineSteeringEnabled();
-    if ( KiIntSteerEnabled )
+    if ( HvlHypervisorConnected )
     {
-      KiIntSteerDistributionContext = (void *)ExAllocatePool2(64LL, 0x204uLL, 0x6B725449u);
-      Pool2 = ExAllocatePool2(64LL, 0x200uLL, 0x6B725449u);
-      KiIntSteerPerProcIsrDpcTimeAffinitized = Pool2;
-      if ( !KiIntSteerDistributionContext || !Pool2 )
-        return (unsigned int)-1073741670;
+      if ( (HvlpFlags & 2) != 0 && (HvlpRootFlags & 0x400) == 0 )
+        goto LABEL_8;
+    }
+    else if ( !HviIsAnyHypervisorPresent() )
+    {
+LABEL_8:
+      v0 = KeQueryActiveProcessorCountEx(0) <= 0x10;
     }
   }
-  else if ( a1 == 2 && KiIntSteerEnabled )
-  {
-    return (unsigned int)KiIntPartInit();
-  }
-  return v1;
+  result = 0LL;
+  KiIntSteerEnabled = v0;
+  return result;
 }

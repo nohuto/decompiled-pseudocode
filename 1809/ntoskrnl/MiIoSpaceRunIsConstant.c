@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIoSpaceRunIsConstant @ 0x1400E5C70
+ * XREFs of MiIoSpaceRunIsConstant @ 0x1400E5C90
  * Callers:
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
  * Callees:
- *     MiIoSpaceIsConstant @ 0x1400E6390 (MiIoSpaceIsConstant.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiIoSpaceIsConstant @ 0x1400E63B0 (MiIoSpaceIsConstant.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiIoSpaceRunIsConstant(__int64 a1, __int64 a2, __int64 a3)

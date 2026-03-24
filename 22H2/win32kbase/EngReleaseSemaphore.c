@@ -1,24 +1,21 @@
 /*
- * XREFs of EngReleaseSemaphore @ 0x1C009CE40
+ * XREFs of EngReleaseSemaphore @ 0x1C0080B10
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C016BCC0 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C014CD50 (McTemplateK0pz_EtwWriteTransfer.c)
  */
 
 void __stdcall EngReleaseSemaphore(HSEMAPHORE hsem)
 {
-  int v2; // ecx
-  int v3; // r8d
+  int v1; // r8d
+  __int64 v3; // rcx
 
-  if ( *(_DWORD *)(*(_QWORD *)(SGDGetSessionState(hsem) + 24) + 180LL)
-    && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
-  {
-    McTemplateK0pz_EtwWriteTransfer(v2, (unsigned int)&LockRelease, v3, (_DWORD)hsem, (__int64)L"hsem");
-  }
+  if ( gbLockEtw && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
+    McTemplateK0pz_EtwWriteTransfer((_DWORD)hsem, (unsigned int)&LockRelease, v1, (__int64)hsem);
   if ( hsem )
   {
     ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)hsem);
-    PsLeavePriorityRegion();
+    PsLeavePriorityRegion(v3);
   }
 }

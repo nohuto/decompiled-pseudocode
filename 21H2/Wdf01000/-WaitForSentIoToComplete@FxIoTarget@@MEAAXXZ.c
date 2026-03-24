@@ -1,5 +1,5 @@
 /*
- * XREFs of ?WaitForSentIoToComplete@FxIoTarget@@MEAAXXZ @ 0x1C0074A80
+ * XREFs of ?WaitForSentIoToComplete@FxIoTarget@@MEAAXXZ @ 0x1C0066290
  * Callers:
  *     <none>
  * Callees:

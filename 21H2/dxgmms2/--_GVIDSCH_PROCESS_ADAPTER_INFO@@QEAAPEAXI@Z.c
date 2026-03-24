@@ -1,8 +1,8 @@
 /*
- * XREFs of ??_GVIDSCH_PROCESS_ADAPTER_INFO@@QEAAPEAXI@Z @ 0x1C0018D10
+ * XREFs of ??_GVIDSCH_PROCESS_ADAPTER_INFO@@QEAAPEAXI@Z @ 0x1C0015C68
  * Callers:
- *     VidSchiCloseProcessAdapterInfo @ 0x1C0097E38 (VidSchiCloseProcessAdapterInfo.c)
- *     VidSchiOpenProcessAdapterInfo @ 0x1C0097FF0 (VidSchiOpenProcessAdapterInfo.c)
+ *     VidSchiCloseProcessAdapterInfo @ 0x1C0080F38 (VidSchiCloseProcessAdapterInfo.c)
+ *     VidSchiOpenProcessAdapterInfo @ 0x1C00810F4 (VidSchiOpenProcessAdapterInfo.c)
  * Callees:
  *     <none>
  */

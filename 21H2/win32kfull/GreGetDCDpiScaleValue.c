@@ -1,17 +1,17 @@
 /*
- * XREFs of GreGetDCDpiScaleValue @ 0x1C00C3E00
+ * XREFs of GreGetDCDpiScaleValue @ 0x1C0107724
  * Callers:
- *     NtGdiCreateDIBSection @ 0x1C0029440 (NtGdiCreateDIBSection.c)
- *     GreCreateDIBitmapReal @ 0x1C002BC78 (GreCreateDIBitmapReal.c)
- *     BitBltSysBmp @ 0x1C00C2FD4 (BitBltSysBmp.c)
- *     PrepareHDCBITSBitmap @ 0x1C00C37D8 (PrepareHDCBITSBitmap.c)
- *     NtUserBitBltSysBmp @ 0x1C014C140 (NtUserBitBltSysBmp.c)
- *     NtGdiGetDCDpiScaleValue @ 0x1C01702A0 (NtGdiGetDCDpiScaleValue.c)
+ *     NtGdiCreateDIBSection @ 0x1C00ABAE0 (NtGdiCreateDIBSection.c)
+ *     GreCreateDIBitmapReal @ 0x1C00AC12C (GreCreateDIBitmapReal.c)
+ *     BitBltSysBmp @ 0x1C010723C (BitBltSysBmp.c)
+ *     NtUserBitBltSysBmp @ 0x1C0107390 (NtUserBitBltSysBmp.c)
+ *     PrepareHDCBITSBitmap @ 0x1C010759C (PrepareHDCBITSBitmap.c)
+ *     NtGdiGetDCDpiScaleValue @ 0x1C01621E0 (NtGdiGetDCDpiScaleValue.c)
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?GetCachedDpiScaleValue@DC@@QEBAJXZ @ 0x1C00C3E50 (-GetCachedDpiScaleValue@DC@@QEBAJXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?GetCachedDpiScaleValue@DC@@QEBAJXZ @ 0x1C0107774 (-GetCachedDpiScaleValue@DC@@QEBAJXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreGetDCDpiScaleValue(HDC a1)

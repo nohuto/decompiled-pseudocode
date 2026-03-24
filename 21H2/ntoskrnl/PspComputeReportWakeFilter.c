@@ -1,8 +1,8 @@
 /*
- * XREFs of PspComputeReportWakeFilter @ 0x1406793A4
+ * XREFs of PspComputeReportWakeFilter @ 0x14067FC98
  * Callers:
- *     PspAllocateAndQueryNotificationChannel @ 0x140678C4C (PspAllocateAndQueryNotificationChannel.c)
- *     PspFreezeJobTree @ 0x140679034 (PspFreezeJobTree.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x14067F620 (PspAllocateAndQueryNotificationChannel.c)
+ *     PspFreezeJobTree @ 0x14067F9E8 (PspFreezeJobTree.c)
  * Callees:
  *     <none>
  */
@@ -15,12 +15,12 @@ __int64 __fastcall PspComputeReportWakeFilter(_DWORD *a1, __int64 a2, _QWORD *a3
   *(_QWORD *)a2 = *a3;
   if ( a4 )
   {
-    *(_DWORD *)a2 &= ~a1[286];
-    *(_DWORD *)(a2 + 4) &= ~a1[287];
+    *(_DWORD *)a2 &= ~a1[238];
+    *(_DWORD *)(a2 + 4) &= ~a1[239];
   }
-  v4 = a1[288] & *(_DWORD *)(a2 + 4);
+  v4 = a1[240] & *(_DWORD *)(a2 + 4);
   *(_DWORD *)(a2 + 4) = v4;
   result = (unsigned int)~v4;
-  a1[288] &= result;
+  a1[240] &= result;
   return result;
 }

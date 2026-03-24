@@ -1,14 +1,14 @@
 /*
- * XREFs of PoIssueCoalescingNotification @ 0x1402DB650
+ * XREFs of PoIssueCoalescingNotification @ 0x1402DB750
  * Callers:
- *     CmpIssueNewDirtyCallback @ 0x1406CAFC4 (CmpIssueNewDirtyCallback.c)
- *     PopCoalescingCallbackWorker @ 0x14086B540 (PopCoalescingCallbackWorker.c)
+ *     CmpIssueNewDirtyCallback @ 0x1406CAFA4 (CmpIssueNewDirtyCallback.c)
+ *     PopCoalescingCallbackWorker @ 0x14086B520 (PopCoalescingCallbackWorker.c)
  * Callees:
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReferenceCallBackBlock @ 0x140088AF0 (ExReferenceCallBackBlock.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall PoIssueCoalescingNotification(__int64 a1, int a2)

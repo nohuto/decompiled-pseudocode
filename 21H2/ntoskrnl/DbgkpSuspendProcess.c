@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkpSuspendProcess @ 0x14092AC20
+ * XREFs of DbgkpSuspendProcess @ 0x140887CE0
  * Callers:
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
- *     DbgkpSendApiMessage @ 0x14092A070 (DbgkpSendApiMessage.c)
- *     DbgkpSendApiMessageLpc @ 0x14092A168 (DbgkpSendApiMessageLpc.c)
- *     DbgkpSendErrorMessage @ 0x14092A29C (DbgkpSendErrorMessage.c)
+ *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     DbgkpSendApiMessage @ 0x140887154 (DbgkpSendApiMessage.c)
+ *     DbgkpSendApiMessageLpc @ 0x140887240 (DbgkpSendApiMessageLpc.c)
+ *     DbgkpSendErrorMessage @ 0x140887370 (DbgkpSendErrorMessage.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     PsFreezeProcess @ 0x1406C03F0 (PsFreezeProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     PsFreezeProcess @ 0x14067CC1C (PsFreezeProcess.c)
  */
 
 char __fastcall DbgkpSuspendProcess(ULONG_PTR a1)

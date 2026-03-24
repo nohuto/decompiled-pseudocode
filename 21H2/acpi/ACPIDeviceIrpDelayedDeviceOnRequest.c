@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIDeviceIrpDelayedDeviceOnRequest @ 0x1C004F740
+ * XREFs of ACPIDeviceIrpDelayedDeviceOnRequest @ 0x1C00508B0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qLqss @ 0x1C0003A80 (WPP_RECORDER_SF_qLqss.c)
- *     ACPIInternalDecrementIrpReferenceCount @ 0x1C000575C (ACPIInternalDecrementIrpReferenceCount.c)
+ *     ACPIInternalDecrementIrpReferenceCount @ 0x1C000E778 (ACPIInternalDecrementIrpReferenceCount.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C001E3E0 (WPP_RECORDER_SF_qLqss.c)
  */
 
 LONG __fastcall ACPIDeviceIrpDelayedDeviceOnRequest(__int64 a1, IRP *a2, int a3)
@@ -16,18 +16,18 @@ LONG __fastcall ACPIDeviceIrpDelayedDeviceOnRequest(__int64 a1, IRP *a2, int a3)
   _IO_STACK_LOCATION *CurrentStackLocation; // rax
   _IO_STACK_LOCATION *v11; // rax
 
-  v4 = (const char *)&unk_1C006FB8B;
+  v4 = (const char *)&unk_1C00701BA;
   v5 = 0;
-  v8 = (const char *)&unk_1C006FB8B;
+  v8 = (const char *)&unk_1C00701BA;
   if ( a1 )
   {
     v5 = a1;
     v9 = *(_QWORD *)(a1 + 8);
     if ( (v9 & 0x200000000000LL) != 0 )
     {
-      v4 = *(const char **)(a1 + 608);
+      v4 = *(const char **)(a1 + 568);
       if ( (v9 & 0x400000000000LL) != 0 )
-        v8 = *(const char **)(a1 + 616);
+        v8 = *(const char **)(a1 + 576);
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -36,16 +36,16 @@ LONG __fastcall ACPIDeviceIrpDelayedDeviceOnRequest(__int64 a1, IRP *a2, int a3)
       4u,
       0xAu,
       0x1Du,
-      (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       (char)a2,
       a3,
       v5,
       v4,
       v8);
-  *(_BYTE *)(a1 + 556) = 0;
+  *(_BYTE *)(a1 + 516) = 0;
   if ( a3 >= 0 )
   {
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 728));
+    _InterlockedIncrement((volatile signed __int32 *)(a1 + 688));
     CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
     *(_OWORD *)&CurrentStackLocation[-1].MajorFunction = *(_OWORD *)&CurrentStackLocation->MajorFunction;
     *(_OWORD *)&CurrentStackLocation[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&CurrentStackLocation->Parameters.NotifyDirectoryEx.CompletionFilter;
@@ -57,7 +57,7 @@ LONG __fastcall ACPIDeviceIrpDelayedDeviceOnRequest(__int64 a1, IRP *a2, int a3)
     v11[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))ACPIBuildRegOnRequest;
     v11[-1].Context = ACPIDeviceIrpCompleteRequest;
     v11[-1].Control = -32;
-    PoCallDriver(*(PDEVICE_OBJECT *)(a1 + 776), a2);
+    PoCallDriver(*(PDEVICE_OBJECT *)(a1 + 736), a2);
   }
   else
   {

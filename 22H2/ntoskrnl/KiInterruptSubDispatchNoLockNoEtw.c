@@ -1,71 +1,70 @@
 /*
- * XREFs of KiInterruptSubDispatchNoLockNoEtw @ 0x1404204A0
+ * XREFs of KiInterruptSubDispatchNoLockNoEtw @ 0x1403FF4B0
  * Callers:
- *     KiInterruptDispatchNoLockNoEtw @ 0x140420E30 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x1403FFDA0 (KiInterruptDispatchNoLockNoEtw.c)
  * Callees:
- *     KiEndThreadAccountingPeriod @ 0x140248410 (KiEndThreadAccountingPeriod.c)
- *     KiCallInterruptServiceRoutine @ 0x140324770 (KiCallInterruptServiceRoutine.c)
- *     KiEntropyQueueDpc @ 0x14035E1A0 (KiEntropyQueueDpc.c)
- *     KzSetIrqlUnsafe @ 0x14056C100 (KzSetIrqlUnsafe.c)
+ *     KiEndThreadAccountingPeriod @ 0x140230CF0 (KiEndThreadAccountingPeriod.c)
+ *     KiEntropyQueueDpc @ 0x14031D4A0 (KiEntropyQueueDpc.c)
+ *     KiCallInterruptServiceRoutine @ 0x1403439C0 (KiCallInterruptServiceRoutine.c)
+ *     KzSetIrqlUnsafe @ 0x140512B80 (KzSetIrqlUnsafe.c)
  */
 
-char __fastcall KiInterruptSubDispatchNoLockNoEtw()
+char __fastcall KiInterruptSubDispatchNoLockNoEtw(__int64 a1, __int64 a2, __int64 CurrentThread, __int64 a4)
 {
-  __int64 v0; // rbp
-  __int64 v1; // rsi
-  unsigned __int64 v2; // rcx
+  __int64 v4; // rbp
+  __int64 v5; // rsi
+  unsigned __int64 v6; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rcx
-  unsigned __int64 v5; // rax
+  unsigned __int64 v9; // rax
   unsigned int EntropyCount; // r11d
-  unsigned int *v7; // r10
-  __int64 CurrentThread; // r8
-  __int64 v9; // rax
-  __int64 v10; // rdx
-  unsigned __int64 v11; // rdx
-  int v12; // ecx
+  unsigned int *v11; // r10
+  unsigned __int64 v12; // rax
+  __int64 v13; // rdx
+  unsigned __int64 v14; // rdx
+  int v15; // ecx
   char result; // al
 
-  v2 = *(unsigned __int8 *)(v1 + 93);
+  v6 = *(unsigned __int8 *)(v5 + 93);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KzSetIrqlUnsafe(v2);
+    CurrentIrql = KzSetIrqlUnsafe(v6);
   }
   else
   {
     CurrentIrql = KeGetCurrentIrql();
-    __writecr8(v2);
+    __writecr8(v6);
   }
-  *(_BYTE *)(v0 - 87) = CurrentIrql;
-  *(_DWORD *)(v0 - 96) = 0;
+  *(_BYTE *)(v4 - 87) = CurrentIrql;
+  *(_DWORD *)(v4 - 96) = 0;
   CurrentPrcb = KeGetCurrentPrcb();
   if ( ++CurrentPrcb->NestingLevel == 1 )
   {
-    v5 = __rdtsc();
+    v9 = __rdtsc();
     EntropyCount = CurrentPrcb->EntropyTimingState.EntropyCount;
-    v7 = &CurrentPrcb->EntropyTimingState.Buffer[(unsigned __int16)(EntropyCount & 0x7FF) >> 5];
-    *v7 = v5 ^ __ROR4__(*v7, 5);
+    v11 = &CurrentPrcb->EntropyTimingState.Buffer[(unsigned __int16)(EntropyCount & 0x7FF) >> 5];
+    *v11 = v9 ^ __ROR4__(*v11, 5);
     CurrentPrcb->EntropyTimingState.EntropyCount = ++EntropyCount;
     if ( (EntropyCount & 0x3FF) == 0 )
-      *(_DWORD *)(v0 - 96) = 1;
+      *(_DWORD *)(v4 - 96) = 1;
     CurrentThread = (__int64)CurrentPrcb->CurrentThread;
-    v9 = v5 - CurrentPrcb->StartCycles;
-    *(_QWORD *)(CurrentThread + 72) += v9;
-    v10 = *(unsigned int *)(CurrentThread + 80);
-    CurrentPrcb->StartCycles += v9;
-    v11 = v9 + v10;
-    v12 = v11;
-    if ( HIDWORD(v11) )
-      v12 = -1;
-    *(_DWORD *)(CurrentThread + 80) = v12;
-    if ( (*(_BYTE *)(CurrentThread + 2) & 0xBE) != 0 )
-      KiEndThreadAccountingPeriod((__int64)KeGetCurrentPrcb(), CurrentThread, v9);
+    v12 = v9 - CurrentPrcb->StartCycles;
+    *(_QWORD *)(CurrentThread + 72) += v12;
+    v13 = *(unsigned int *)(CurrentThread + 80);
+    CurrentPrcb->StartCycles += v12;
+    v14 = v12 + v13;
+    v15 = v14;
+    if ( HIDWORD(v14) )
+      v15 = -1;
+    *(_DWORD *)(CurrentThread + 80) = v15;
+    if ( (*(_BYTE *)(CurrentThread + 2) & 0x3E) != 0 )
+      KiEndThreadAccountingPeriod((__int64)KeGetCurrentPrcb(), CurrentThread, v12);
   }
   _enable();
-  if ( *(_DWORD *)(v0 - 96) )
+  if ( *(_DWORD *)(v4 - 96) )
     KiEntropyQueueDpc((__int64)KeGetCurrentPrcb());
-  *(_QWORD *)(v1 + 136) = v0 - 128;
-  result = KiCallInterruptServiceRoutine(v1, 0);
+  *(_QWORD *)(v5 + 136) = v4 - 128;
+  result = KiCallInterruptServiceRoutine(v5, 0LL, CurrentThread, a4);
   _disable();
   return result;
 }

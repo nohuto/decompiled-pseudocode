@@ -1,7 +1,7 @@
 /*
- * XREFs of PspLockProcessExclusive @ 0x14013961C
+ * XREFs of PspLockProcessExclusive @ 0x14013963C
  * Callers:
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  */

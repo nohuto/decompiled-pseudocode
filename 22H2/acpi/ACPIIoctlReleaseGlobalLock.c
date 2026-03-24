@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIIoctlReleaseGlobalLock @ 0x1C0031438
+ * XREFs of ACPIIoctlReleaseGlobalLock @ 0x1C00582E0
  * Callers:
- *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIIrpDispatchDeviceControl @ 0x1C000B8A0 (ACPIIrpDispatchDeviceControl.c)
  * Callees:
- *     ACPIReleaseGlobalLock @ 0x1C003939C (ACPIReleaseGlobalLock.c)
+ *     ACPIReleaseGlobalLock @ 0x1C000F4A4 (ACPIReleaseGlobalLock.c)
  */
 
 __int64 __fastcall ACPIIoctlReleaseGlobalLock(__int64 a1, IRP *a2, __int64 a3)
@@ -21,7 +21,7 @@ __int64 __fastcall ACPIIoctlReleaseGlobalLock(__int64 a1, IRP *a2, __int64 a3)
     if ( *(_DWORD *)&MasterIrp->Type == 1281847873 )
     {
       MdlAddress = MasterIrp->MdlAddress;
-      v5 = ACPIReleaseGlobalLock(MdlAddress);
+      v5 = ACPIReleaseGlobalLock((__int64)MdlAddress);
       ExFreePoolWithTag(MdlAddress, 0x4C706341u);
     }
     else

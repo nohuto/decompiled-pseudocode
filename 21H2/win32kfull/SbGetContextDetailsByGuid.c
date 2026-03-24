@@ -1,7 +1,7 @@
 /*
- * XREFs of SbGetContextDetailsByGuid @ 0x1C00EB008
+ * XREFs of SbGetContextDetailsByGuid @ 0x1C00FEEB8
  * Callers:
- *     SetManifestWinVer @ 0x1C00EAEE0 (SetManifestWinVer.c)
+ *     SetManifestWinVer @ 0x1C00FED90 (SetManifestWinVer.c)
  * Callees:
  *     <none>
  */

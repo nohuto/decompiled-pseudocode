@@ -1,12 +1,12 @@
 /*
- * XREFs of WMI_ExecuteMethodUsbWmiStdData @ 0x1C0086570
+ * XREFs of WMI_ExecuteMethodUsbWmiStdData @ 0x1C0084920
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     WMI_AcquireHubName @ 0x1C0085ED8 (WMI_AcquireHubName.c)
- *     WMI_AcquireBusInfo @ 0x1C0085FBC (WMI_AcquireBusInfo.c)
- *     WMI_AcquireControllerName @ 0x1C00860B8 (WMI_AcquireControllerName.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     WMI_AcquireHubName @ 0x1C0084268 (WMI_AcquireHubName.c)
+ *     WMI_AcquireBusInfo @ 0x1C008434C (WMI_AcquireBusInfo.c)
+ *     WMI_AcquireControllerName @ 0x1C0084448 (WMI_AcquireControllerName.c)
  */
 
 __int64 __fastcall WMI_ExecuteMethodUsbWmiStdData(
@@ -33,7 +33,7 @@ __int64 __fastcall WMI_ExecuteMethodUsbWmiStdData(
   v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          v8,
-         off_1C0067198);
+         off_1C0066170);
   if ( *a5 != 4 )
   {
     switch ( *a5 )

@@ -1,32 +1,28 @@
 /*
- * XREFs of ?BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z @ 0x1C005A99C
+ * XREFs of ?BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z @ 0x1C00EABE8
  * Callers:
- *     zzzDecomposeDesktop @ 0x1C005861C (zzzDecomposeDesktop.c)
- *     zzzComposeDesktop @ 0x1C0058DA4 (zzzComposeDesktop.c)
+ *     zzzDecomposeDesktop @ 0x1C00EAA3C (zzzDecomposeDesktop.c)
+ *     zzzComposeDesktop @ 0x1C00EC528 (zzzComposeDesktop.c)
  * Callees:
- *     xxxSendMessageBSM @ 0x1C0061FF0 (xxxSendMessageBSM.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     xxxSendMessageBSM @ 0x1C003EB40 (xxxSendMessageBSM.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
  */
 
 void __fastcall BroadcastCompositionChange(const struct tagDESKTOP *a1)
 {
-  _DWORD v2[2]; // [rsp+30h] [rbp-38h] BYREF
-  __int128 v3; // [rsp+38h] [rbp-30h]
-  __int128 v4; // [rsp+48h] [rbp-20h]
-  char v5; // [rsp+70h] [rbp+8h] BYREF
+  _DWORD v2[14]; // [rsp+30h] [rbp-38h] BYREF
+  char v3; // [rsp+70h] [rbp+8h] BYREF
 
   v2[0] = 8;
   v2[1] = 178;
-  v3 = 0LL;
-  v4 = 0LL;
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v5);
-  ((void (__fastcall *)(_QWORD, __int64, _QWORD, _QWORD, _DWORD *, int))xxxSendMessageBSM)(
-    *(_QWORD *)(*((_QWORD *)a1 + 1) + 24LL),
-    798LL,
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v3);
+  xxxSendMessageBSM(
+    *(struct tagWND **)(*((_QWORD *)a1 + 1) + 24LL),
+    0x31Eu,
     0LL,
     0LL,
-    v2,
+    (struct tagBROADCASTSYSTEMMSGPARAMS *)v2,
     1);
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v5);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v3);
 }

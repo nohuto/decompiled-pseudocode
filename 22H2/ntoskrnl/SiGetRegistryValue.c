@@ -1,17 +1,17 @@
 /*
- * XREFs of SiGetRegistryValue @ 0x1407C033C
+ * XREFs of SiGetRegistryValue @ 0x140687CA4
  * Callers:
- *     SiIsWinPEBoot @ 0x1407C0020 (SiIsWinPEBoot.c)
- *     SiGetBootDeviceNameFromRegistry @ 0x1407C02C0 (SiGetBootDeviceNameFromRegistry.c)
- *     SiDisambiguateSystemDevice @ 0x140A5F9E4 (SiDisambiguateSystemDevice.c)
+ *     SiIsWinPEBoot @ 0x140687A00 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceNameFromRegistry @ 0x140687C28 (SiGetBootDeviceNameFromRegistry.c)
+ *     SiDisambiguateSystemDevice @ 0x140973B54 (SiDisambiguateSystemDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     SiOpenRegistryKey @ 0x1407C04B0 (SiOpenRegistryKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SiOpenRegistryKey @ 0x140687E18 (SiOpenRegistryKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3, __int64 a4, _QWORD *a5, ULONG *a6)
@@ -20,22 +20,23 @@ __int64 __fastcall SiGetRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3, _
   ULONG *v7; // r14
   _DWORD *v8; // rsi
   HANDLE v9; // rdi
-  __int64 v11; // r8
-  int v12; // eax
-  NTSTATUS v13; // ebx
-  NTSTATUS v14; // eax
-  _DWORD *Pool2; // rax
-  void *v16; // rax
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  int v13; // eax
+  NTSTATUS v14; // ebx
+  NTSTATUS v15; // eax
+  _DWORD *PoolWithTag; // rax
+  PVOID v17; // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  ULONG v19; // [rsp+70h] [rbp+30h] BYREF
-  int v20; // [rsp+74h] [rbp+34h]
+  ULONG v20; // [rsp+70h] [rbp+30h] BYREF
+  int v21; // [rsp+74h] [rbp+34h]
   HANDLE Handle; // [rsp+80h] [rbp+40h] BYREF
   ULONG ResultLength; // [rsp+88h] [rbp+48h] BYREF
 
-  v20 = HIDWORD(a1);
+  v21 = HIDWORD(a1);
   v6 = a5;
   v7 = a6;
-  v19 = 0;
+  v20 = 0;
   v8 = 0LL;
   ResultLength = 0;
   v9 = 0LL;
@@ -44,42 +45,42 @@ __int64 __fastcall SiGetRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3, _
   DestinationString = 0LL;
   Handle = 0LL;
   RtlInitUnicodeString(&DestinationString, a2);
-  if ( !a3 || (v12 = SiOpenRegistryKey(0LL, a3, v11, &Handle), v9 = Handle, v13 = v12, v12 >= 0) )
+  if ( !a3 || (v13 = SiOpenRegistryKey(v11, a3, v12, &Handle), v9 = Handle, v14 = v13, v13 >= 0) )
   {
-    v14 = ZwQueryValueKey(v9, &DestinationString, KeyValuePartialInformation, 0LL, 0, &ResultLength);
-    v13 = v14;
-    if ( v14 == -1073741789 )
+    v15 = ZwQueryValueKey(v9, &DestinationString, KeyValuePartialInformation, 0LL, 0, &ResultLength);
+    v14 = v15;
+    if ( v15 == -1073741789 )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(256LL, ResultLength, 1263556947LL);
-      v8 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, ResultLength, 0x4B505953u);
+      v8 = PoolWithTag;
+      if ( !PoolWithTag )
       {
 LABEL_16:
-        v13 = -1073741670;
+        v14 = -1073741670;
         goto LABEL_9;
       }
-      v13 = ZwQueryValueKey(v9, &DestinationString, KeyValuePartialInformation, Pool2, ResultLength, &v19);
-      if ( v13 < 0 )
+      v14 = ZwQueryValueKey(v9, &DestinationString, KeyValuePartialInformation, PoolWithTag, ResultLength, &v20);
+      if ( v14 < 0 )
         goto LABEL_9;
       if ( v8[1] == 1 )
       {
         ResultLength -= 12;
-        v16 = (void *)ExAllocatePool2(256LL, ResultLength, 1263556947LL);
-        *v6 = v16;
-        if ( v16 )
+        v17 = ExAllocatePoolWithTag(PagedPool, ResultLength, 0x4B505953u);
+        *v6 = v17;
+        if ( v17 )
         {
-          memmove(v16, v8 + 3, ResultLength);
-          v13 = 0;
+          memmove(v17, v8 + 3, ResultLength);
+          v14 = 0;
           *v7 = ResultLength;
           goto LABEL_9;
         }
         goto LABEL_16;
       }
-      v13 = -1073741788;
+      v14 = -1073741788;
     }
-    else if ( v14 >= 0 )
+    else if ( v15 >= 0 )
     {
-      v13 = -1073741823;
+      v14 = -1073741823;
     }
   }
 LABEL_9:
@@ -87,5 +88,5 @@ LABEL_9:
     ZwClose(v9);
   if ( v8 )
     ExFreePoolWithTag(v8, 0);
-  return (unsigned int)v13;
+  return (unsigned int)v14;
 }

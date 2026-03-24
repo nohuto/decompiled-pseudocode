@@ -1,23 +1,23 @@
 /*
- * XREFs of PiAuditDeviceOperation @ 0x14095B69C
+ * XREFs of PiAuditDeviceOperation @ 0x1408B5648
  * Callers:
- *     PiPnpRtlSetObjectProperty @ 0x140771524 (PiPnpRtlSetObjectProperty.c)
- *     PiAuditDeviceEnableDisableAction @ 0x14095B624 (PiAuditDeviceEnableDisableAction.c)
- *     PiAuditDeviceEnableDisableRequest @ 0x14095B658 (PiAuditDeviceEnableDisableRequest.c)
- *     PiAuditDeviceStart @ 0x14095BD0C (PiAuditDeviceStart.c)
+ *     PiPnpRtlSetObjectProperty @ 0x14074578C (PiPnpRtlSetObjectProperty.c)
+ *     PiAuditDeviceEnableDisableAction @ 0x1408B55D0 (PiAuditDeviceEnableDisableAction.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x1408B5604 (PiAuditDeviceEnableDisableRequest.c)
+ *     PiAuditDeviceStart @ 0x1408B5C54 (PiAuditDeviceStart.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PnpFindAlternateStringData @ 0x1407734D8 (PnpFindAlternateStringData.c)
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     SeAuditPlugAndPlay @ 0x1409C78B8 (SeAuditPlugAndPlay.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     PnpFindAlternateStringData @ 0x1406B16AC (PnpFindAlternateStringData.c)
+ *     SeAuditPlugAndPlay @ 0x14091DE78 (SeAuditPlugAndPlay.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
 {
-  void *v4; // r12
+  void *v4; // r13
   int v5; // edx
   int v6; // edx
   int v7; // edx
@@ -25,37 +25,37 @@ __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
   int v9; // edx
   unsigned int v10; // ebx
   int v11; // r14d
-  __int64 i; // rdx
-  __int64 Pool2; // rax
-  void *v14; // r13
+  SIZE_T i; // rdx
+  PVOID PoolWithTag; // rax
+  void *v14; // r12
   int ObjectProperty; // eax
   __int16 v16; // ax
-  __int64 v17; // rax
-  void *v18; // r15
-  int v19; // eax
-  __int16 v20; // ax
-  __int64 v21; // rdx
-  __int64 v22; // rax
-  int v23; // eax
-  __int16 v24; // ax
-  __int64 v25; // rdx
-  __int64 j; // rdx
-  __int64 v27; // rax
-  void *v28; // rsi
-  int v29; // eax
-  __int64 v30; // rax
-  _WORD *v31; // rdi
+  SIZE_T v17; // rdx
+  PVOID v18; // rax
+  void *v19; // r15
+  int v20; // eax
+  __int16 v21; // ax
+  SIZE_T v22; // rdx
+  PVOID v23; // rax
+  int v24; // eax
+  __int16 v25; // ax
+  __int64 v26; // rdx
+  SIZE_T j; // rdx
+  PVOID v28; // rax
+  void *v29; // rsi
+  int v30; // eax
+  _WORD *v31; // rax
+  _WORD *v32; // rdi
   int k; // eax
-  __int64 v33; // rax
+  _WORD *v34; // rax
   int AlternateStringData; // eax
-  const WCHAR *v35; // rdx
-  int v37; // [rsp+68h] [rbp-69h] BYREF
-  unsigned int v38; // [rsp+6Ch] [rbp-65h] BYREF
-  unsigned int v39; // [rsp+70h] [rbp-61h] BYREF
+  const WCHAR *v36; // rdx
+  int v38; // [rsp+68h] [rbp-69h] BYREF
+  SIZE_T v39; // [rsp+6Ch] [rbp-65h] BYREF
   unsigned int v40; // [rsp+74h] [rbp-5Dh] BYREF
   char v41; // [rsp+78h] [rbp-59h]
-  unsigned int v42; // [rsp+7Ch] [rbp-55h] BYREF
-  unsigned int v43; // [rsp+80h] [rbp-51h] BYREF
+  unsigned int NumberOfBytes; // [rsp+7Ch] [rbp-55h] BYREF
+  unsigned int NumberOfBytes_4; // [rsp+80h] [rbp-51h] BYREF
   int v44; // [rsp+84h] [rbp-4Dh] BYREF
   const WCHAR *v45; // [rsp+88h] [rbp-49h] BYREF
   __int64 v46; // [rsp+90h] [rbp-41h]
@@ -71,12 +71,11 @@ __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
   v46 = a1;
   v40 = 0;
   v45 = 0LL;
-  v43 = 0;
+  NumberOfBytes_4 = 0;
+  v39 = 0LL;
   v4 = 0LL;
-  v38 = 0;
-  v39 = 0;
   v44 = 0;
-  v37 = 0;
+  v38 = 0;
   v52 = 0LL;
   v53 = 0LL;
   DestinationString = 0LL;
@@ -133,12 +132,12 @@ __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
   {
     v11 = 0;
   }
-  v42 = 512;
-  for ( i = 512LL; ; i = v42 )
+  NumberOfBytes = 512;
+  for ( i = 512LL; ; i = NumberOfBytes )
   {
-    Pool2 = ExAllocatePool2(256LL, i, 538996816LL);
-    v14 = (void *)Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, i, 0x20207050u);
+    v14 = PoolWithTag;
+    if ( !PoolWithTag )
       return (unsigned int)-1073741670;
     ObjectProperty = PnpGetObjectProperty(
                        *(__int64 *)&PiPnpRtlCtx,
@@ -147,256 +146,252 @@ __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
                        0LL,
                        0LL,
                        (__int64)&DEVPKEY_Device_HardwareIds,
-                       (__int64)&v37,
-                       Pool2,
-                       v42,
-                       (__int64)&v42,
+                       (__int64)&v38,
+                       (__int64)PoolWithTag,
+                       NumberOfBytes,
+                       (__int64)&NumberOfBytes,
                        0);
     if ( ObjectProperty != -1073741789 )
       break;
     ExFreePoolWithTag(v14, 0);
   }
-  if ( ObjectProperty >= 0 && v37 == 8210 )
+  if ( ObjectProperty >= 0 && v38 == 8210 )
   {
-    v16 = v42;
+    v16 = NumberOfBytes;
   }
   else
   {
     ExFreePoolWithTag(v14, 0);
     v16 = 0;
     v14 = 0LL;
-    v42 = 0;
+    NumberOfBytes = 0;
   }
   LOWORD(v49) = v16;
+  v17 = 512LL;
   WORD1(v49) = v16;
   *((_QWORD *)&v49 + 1) = v14;
-  v38 = 512;
-  v17 = ExAllocatePool2(256LL, 512LL, 538996816LL);
-  v18 = (void *)v17;
-  if ( v17 )
+  LODWORD(v39) = 512;
+  while ( 1 )
   {
-    while ( 1 )
+    v18 = ExAllocatePoolWithTag(PagedPool, v17, 0x20207050u);
+    v19 = v18;
+    if ( !v18 )
     {
-      v19 = PnpGetObjectProperty(
-              *(__int64 *)&PiPnpRtlCtx,
-              *(_QWORD *)(a1 + 8),
-              1LL,
-              0LL,
-              0LL,
-              (__int64)&DEVPKEY_Device_CompatibleIds,
-              (__int64)&v37,
-              v17,
-              v38,
-              (__int64)&v38,
-              0);
-      if ( v19 != -1073741789 )
-        break;
-      ExFreePoolWithTag(v18, 0);
-      v17 = ExAllocatePool2(256LL, v38, 538996816LL);
-      v18 = (void *)v17;
-      if ( !v17 )
-        goto LABEL_26;
+      v10 = -1073741670;
+      goto LABEL_74;
     }
-    if ( v19 >= 0 && v37 == 8210 )
+    v20 = PnpGetObjectProperty(
+            *(__int64 *)&PiPnpRtlCtx,
+            *(_QWORD *)(a1 + 8),
+            1LL,
+            0LL,
+            0LL,
+            (__int64)&DEVPKEY_Device_CompatibleIds,
+            (__int64)&v38,
+            (__int64)v18,
+            v39,
+            (__int64)&v39,
+            0);
+    if ( v20 != -1073741789 )
+      break;
+    ExFreePoolWithTag(v19, 0);
+    v17 = (unsigned int)v39;
+  }
+  if ( v20 >= 0 && v38 == 8210 )
+  {
+    v21 = v39;
+  }
+  else
+  {
+    ExFreePoolWithTag(v19, 0);
+    v21 = 0;
+    v19 = 0LL;
+    LODWORD(v39) = 0;
+  }
+  v22 = 64LL;
+  LOWORD(v48) = v21;
+  HIDWORD(v39) = 64;
+  WORD1(v48) = v21;
+  *((_QWORD *)&v48 + 1) = v19;
+  while ( 1 )
+  {
+    v23 = ExAllocatePoolWithTag(PagedPool, v22, 0x20207050u);
+    v4 = v23;
+    if ( !v23 )
+      break;
+    v24 = PnpGetObjectProperty(
+            *(__int64 *)&PiPnpRtlCtx,
+            *(_QWORD *)(a1 + 8),
+            1LL,
+            0LL,
+            0LL,
+            (__int64)&DEVPKEY_Device_LocationInfo,
+            (__int64)&v38,
+            (__int64)v23,
+            SHIDWORD(v39),
+            (__int64)&v39 + 4,
+            0);
+    if ( v24 != -1073741789 )
     {
-      v20 = v38;
-    }
-    else
-    {
-      ExFreePoolWithTag(v18, 0);
-      v20 = 0;
-      v18 = 0LL;
-      v38 = 0;
-    }
-    v21 = 64LL;
-    LOWORD(v48) = v20;
-    v39 = 64;
-    WORD1(v48) = v20;
-    *((_QWORD *)&v48 + 1) = v18;
-    while ( 1 )
-    {
-      v22 = ExAllocatePool2(256LL, v21, 538996816LL);
-      v4 = (void *)v22;
-      if ( !v22 )
-        break;
-      v23 = PnpGetObjectProperty(
-              *(__int64 *)&PiPnpRtlCtx,
-              *(_QWORD *)(a1 + 8),
-              1LL,
-              0LL,
-              0LL,
-              (__int64)&DEVPKEY_Device_LocationInfo,
-              (__int64)&v37,
-              v22,
-              v39,
-              (__int64)&v39,
-              0);
-      if ( v23 != -1073741789 )
+      if ( v24 >= 0 && v38 == 18 )
       {
-        if ( v23 >= 0 && v37 == 18 )
-        {
-          v24 = v39;
-        }
-        else
-        {
-          ExFreePoolWithTag(v4, 0);
-          v24 = 0;
-          v4 = 0LL;
-          v39 = 0;
-        }
-        v25 = *(_QWORD *)(a1 + 8);
-        LOWORD(v47) = v24;
-        WORD1(v47) = v24;
-        v44 = 16;
-        *((_QWORD *)&v47 + 1) = v4;
-        if ( (int)PnpGetObjectProperty(
-                    *(__int64 *)&PiPnpRtlCtx,
-                    v25,
-                    1LL,
-                    0LL,
-                    0LL,
-                    (__int64)&DEVPKEY_Device_ClassGuid,
-                    (__int64)&v37,
-                    (__int64)&v53,
-                    16,
-                    (__int64)&v44,
-                    0) < 0
-          || v37 != 13
-          || v44 != 16 )
-        {
-          v53 = 0LL;
-        }
-        v43 = 32;
-        for ( j = 32LL; ; j = v43 )
-        {
-          v27 = ExAllocatePool2(256LL, j, 538996816LL);
-          v28 = (void *)v27;
-          if ( !v27 )
-            goto LABEL_35;
-          v29 = PnpGetObjectProperty(
+        v25 = WORD2(v39);
+      }
+      else
+      {
+        ExFreePoolWithTag(v4, 0);
+        v25 = 0;
+        v4 = 0LL;
+        HIDWORD(v39) = 0;
+      }
+      v26 = *(_QWORD *)(a1 + 8);
+      LOWORD(v47) = v25;
+      WORD1(v47) = v25;
+      v44 = 16;
+      *((_QWORD *)&v47 + 1) = v4;
+      if ( (int)PnpGetObjectProperty(
+                  *(__int64 *)&PiPnpRtlCtx,
+                  v26,
+                  1LL,
+                  0LL,
+                  0LL,
+                  (__int64)&DEVPKEY_Device_ClassGuid,
+                  (__int64)&v38,
+                  (__int64)&v53,
+                  16,
+                  (__int64)&v44,
+                  0) < 0
+        || v38 != 13
+        || v44 != 16 )
+      {
+        v53 = 0LL;
+      }
+      NumberOfBytes_4 = 32;
+      for ( j = 32LL; ; j = NumberOfBytes_4 )
+      {
+        v28 = ExAllocatePoolWithTag(PagedPool, j, 0x20207050u);
+        v29 = v28;
+        if ( !v28 )
+          goto LABEL_35;
+        v30 = PnpGetObjectProperty(
+                *(__int64 *)&PiPnpRtlCtx,
+                *(_QWORD *)(a1 + 8),
+                1LL,
+                0LL,
+                0LL,
+                (__int64)&DEVPKEY_Device_Class,
+                (__int64)&v38,
+                (__int64)v28,
+                NumberOfBytes_4,
+                (__int64)&NumberOfBytes_4,
+                0);
+        if ( v30 != -1073741789 )
+          break;
+        ExFreePoolWithTag(v29, 0);
+      }
+      if ( v30 < 0 || v38 != 18 )
+      {
+        ExFreePoolWithTag(v29, 0);
+        v29 = 0LL;
+        NumberOfBytes_4 = 0;
+      }
+      RtlInitUnicodeString(&DestinationString, (PCWSTR)v29);
+      v40 = 32;
+      v31 = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x20207050u);
+      v32 = v31;
+      if ( !v31 )
+      {
+LABEL_54:
+        v10 = -1073741670;
+LABEL_70:
+        if ( v29 )
+          ExFreePoolWithTag(v29, 0);
+        goto LABEL_72;
+      }
+      for ( k = PnpGetObjectProperty(
                   *(__int64 *)&PiPnpRtlCtx,
                   *(_QWORD *)(a1 + 8),
                   1LL,
                   0LL,
                   0LL,
-                  (__int64)&DEVPKEY_Device_Class,
-                  (__int64)&v37,
-                  v27,
-                  v43,
-                  (__int64)&v43,
+                  (__int64)&DEVPKEY_NAME,
+                  (__int64)&v38,
+                  (__int64)v31,
+                  v40,
+                  (__int64)&v40,
                   0);
-          if ( v29 != -1073741789 )
-            break;
-          ExFreePoolWithTag(v28, 0);
-        }
-        if ( v29 < 0 || v37 != 18 )
-        {
-          ExFreePoolWithTag(v28, 0);
-          v28 = 0LL;
-          v43 = 0;
-        }
-        RtlInitUnicodeString(&DestinationString, (PCWSTR)v28);
-        v40 = 32;
-        v30 = ExAllocatePool2(256LL, 32LL, 538996816LL);
-        v31 = (_WORD *)v30;
-        if ( !v30 )
-        {
-LABEL_54:
-          v10 = -1073741670;
-LABEL_70:
-          if ( v28 )
-            ExFreePoolWithTag(v28, 0);
-          goto LABEL_72;
-        }
-        for ( k = PnpGetObjectProperty(
-                    *(__int64 *)&PiPnpRtlCtx,
-                    *(_QWORD *)(a1 + 8),
-                    1LL,
-                    0LL,
-                    0LL,
-                    (__int64)&DEVPKEY_NAME,
-                    (__int64)&v37,
-                    v30,
-                    v40,
-                    (__int64)&v40,
-                    0);
-              ;
-              k = PnpGetObjectProperty(
-                    *(__int64 *)&PiPnpRtlCtx,
-                    *(_QWORD *)(v46 + 8),
-                    1LL,
-                    0LL,
-                    0LL,
-                    (__int64)&DEVPKEY_NAME,
-                    (__int64)&v37,
-                    v33,
-                    v40,
-                    (__int64)&v40,
-                    0) )
-        {
-          v10 = k;
-          if ( k != -1073741789 )
-            break;
-          ExFreePoolWithTag(v31, 0);
-          v33 = ExAllocatePool2(256LL, v40, 538996816LL);
-          v31 = (_WORD *)v33;
-          if ( !v33 )
-            goto LABEL_54;
-        }
-        if ( k < 0 )
-          goto LABEL_67;
-        if ( v37 == 25 )
-        {
-          AlternateStringData = PnpFindAlternateStringData(v31, v40, &v45, &v50);
-          v37 = 18;
-          v35 = v31;
-          if ( AlternateStringData )
-            v35 = v45;
-          goto LABEL_68;
-        }
-        if ( v37 == 18 )
-        {
-          v35 = v31;
-        }
-        else
-        {
-LABEL_67:
-          v10 = 0;
-          ExFreePoolWithTag(v31, 0);
-          v40 = 0;
-          v31 = 0LL;
-          v35 = 0LL;
-        }
-LABEL_68:
-        RtlInitUnicodeString(&v52, v35);
-        SeAuditPlugAndPlay(
-          v46,
-          (unsigned int)&v52,
-          (unsigned int)&v49,
-          (unsigned int)&v48,
-          (__int64)&v47,
-          (__int64)&v53,
-          (__int64)&DestinationString,
-          v11,
-          v41);
-        if ( v31 )
-          ExFreePoolWithTag(v31, 0);
-        goto LABEL_70;
+            ;
+            k = PnpGetObjectProperty(
+                  *(__int64 *)&PiPnpRtlCtx,
+                  *(_QWORD *)(v46 + 8),
+                  1LL,
+                  0LL,
+                  0LL,
+                  (__int64)&DEVPKEY_NAME,
+                  (__int64)&v38,
+                  (__int64)v34,
+                  v40,
+                  (__int64)&v40,
+                  0) )
+      {
+        v10 = k;
+        if ( k != -1073741789 )
+          break;
+        ExFreePoolWithTag(v32, 0);
+        v34 = ExAllocatePoolWithTag(PagedPool, v40, 0x20207050u);
+        v32 = v34;
+        if ( !v34 )
+          goto LABEL_54;
       }
-      ExFreePoolWithTag(v4, 0);
-      v21 = v39;
+      if ( k < 0 )
+        goto LABEL_67;
+      if ( v38 == 25 )
+      {
+        AlternateStringData = PnpFindAlternateStringData(v32, v40, &v45, &v50);
+        v38 = 18;
+        v36 = v32;
+        if ( AlternateStringData )
+          v36 = v45;
+        goto LABEL_68;
+      }
+      if ( v38 == 18 )
+      {
+        v36 = v32;
+      }
+      else
+      {
+LABEL_67:
+        v10 = 0;
+        ExFreePoolWithTag(v32, 0);
+        v40 = 0;
+        v32 = 0LL;
+        v36 = 0LL;
+      }
+LABEL_68:
+      RtlInitUnicodeString(&v52, v36);
+      SeAuditPlugAndPlay(
+        v46,
+        (unsigned int)&v52,
+        (unsigned int)&v49,
+        (unsigned int)&v48,
+        (__int64)&v47,
+        (__int64)&v53,
+        (__int64)&DestinationString,
+        v11,
+        v41);
+      if ( v32 )
+        ExFreePoolWithTag(v32, 0);
+      goto LABEL_70;
     }
+    ExFreePoolWithTag(v4, 0);
+    v22 = HIDWORD(v39);
+  }
 LABEL_35:
-    v10 = -1073741670;
+  v10 = -1073741670;
 LABEL_72:
-    if ( v18 )
-      ExFreePoolWithTag(v18, 0);
-  }
-  else
-  {
-LABEL_26:
-    v10 = -1073741670;
-  }
+  if ( v19 )
+    ExFreePoolWithTag(v19, 0);
+LABEL_74:
   if ( v14 )
     ExFreePoolWithTag(v14, 0);
   if ( v4 )

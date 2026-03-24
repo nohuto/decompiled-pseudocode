@@ -5,8 +5,8 @@
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
  * Callees:
  *     KiAbOwnerComputeCpuPriorityKey @ 0x140024F9C (KiAbOwnerComputeCpuPriorityKey.c)
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
  */
 
 char __fastcall KiAbEntryUpdateOwnerTreePosition(__int64 a1, __int64 a2)

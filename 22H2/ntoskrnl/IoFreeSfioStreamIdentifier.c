@@ -1,21 +1,21 @@
 /*
- * XREFs of IoFreeSfioStreamIdentifier @ 0x1405569A0
+ * XREFs of IoFreeSfioStreamIdentifier @ 0x140505720
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopGetFileObjectExtension @ 0x14030169C (IopGetFileObjectExtension.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     IopGetFileObjectExtension @ 0x1402D6F90 (IopGetFileObjectExtension.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoFreeSfioStreamIdentifier(PFILE_OBJECT FileObject, PVOID Signature)
 {
-  __int64 v3; // rcx
   void **FileObjectExtension; // rbx
+  __int64 v4; // r9
   NTSTATUS v5; // esi
-  volatile signed __int64 *v6; // rbp
+  KSPIN_LOCK *v6; // rbp
   KIRQL v7; // al
   PVOID *v8; // rcx
   unsigned __int64 v9; // rdi
@@ -31,8 +31,8 @@ NTSTATUS __stdcall IoFreeSfioStreamIdentifier(PFILE_OBJECT FileObject, PVOID Sig
   v5 = -1073741275;
   if ( FileObjectExtension )
   {
-    v6 = (volatile signed __int64 *)(v3 + 184);
-    v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v3 + 184));
+    v6 = (KSPIN_LOCK *)(v4 + 184);
+    v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 184));
     v8 = (PVOID *)*FileObjectExtension;
     v9 = v7;
     if ( *FileObjectExtension != FileObjectExtension )
@@ -58,16 +58,19 @@ LABEL_5:
     KxReleaseSpinLock(v6);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v15 = (v14 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v14;
-        if ( v15 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+          v15 = (v14 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v14;
+          if ( v15 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v9);

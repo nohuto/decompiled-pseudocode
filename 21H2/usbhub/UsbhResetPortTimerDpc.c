@@ -1,16 +1,16 @@
 /*
- * XREFs of UsbhResetPortTimerDpc @ 0x1C0038A80
+ * XREFs of UsbhResetPortTimerDpc @ 0x1C0039D70
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhReferenceListAdd @ 0x1C001AD54 (UsbhReferenceListAdd.c)
- *     Usbh_UsbdReadFrameCounter @ 0x1C001AE7C (Usbh_UsbdReadFrameCounter.c)
- *     UsbhReferenceListRemove @ 0x1C001DCEC (UsbhReferenceListRemove.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhPCE_QueueChangeObject @ 0x1C0033E78 (UsbhPCE_QueueChangeObject.c)
+ *     UsbhReferenceListAdd @ 0x1C0001AE8 (UsbhReferenceListAdd.c)
+ *     Usbh_UsbdReadFrameCounter @ 0x1C0001BF8 (Usbh_UsbdReadFrameCounter.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhReferenceListRemove @ 0x1C001B88C (UsbhReferenceListRemove.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhPCE_QueueChangeObject @ 0x1C00351DC (UsbhPCE_QueueChangeObject.c)
  */
 
 void __fastcall UsbhResetPortTimerDpc(

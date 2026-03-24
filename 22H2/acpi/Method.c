@@ -1,68 +1,81 @@
 /*
- * XREFs of Method @ 0x1C0050B00
+ * XREFs of Method @ 0x1C0028A20
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     AddObjSymbol @ 0x1C004D6A0 (AddObjSymbol.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
- *     CreateNameSpaceObject @ 0x1C004F12C (CreateNameSpaceObject.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall Method(__int64 a1, _QWORD *a2)
+__int64 __fastcall Method(__int64 a1, __int64 a2)
 {
-  __int64 *v2; // r15
-  unsigned int NameSpaceObject; // eax
-  unsigned int v6; // esi
-  __int64 v7; // rax
-  __int64 v8; // rdi
+  __int64 *v2; // r14
+  unsigned int NameSpaceObject; // ebx
+  __int64 v6; // rax
+  __int64 v7; // r15
+  __int64 v8; // r13
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v10; // rdi
+  KIRQL v11; // dl
 
-  v2 = a2 + 8;
+  v2 = (__int64 *)(a2 + 64);
   NameSpaceObject = CreateNameSpaceObject(
                       *(_QWORD *)(a1 + 320),
-                      *(unsigned __int8 **)(a2[10] + 32LL),
+                      *(unsigned __int8 **)(*(_QWORD *)(a2 + 80) + 32LL),
                       *(_QWORD *)(a1 + 80),
                       *(struct _EX_RUNDOWN_REF **)(a1 + 88),
-                      a2 + 8,
+                      (_QWORD *)(a2 + 64),
                       0);
-  v6 = NameSpaceObject;
-  if ( NameSpaceObject )
-  {
-    if ( NameSpaceObject == -1073741771 && g_SimulatorCallbackObject )
-    {
-      v6 = 0;
-      *(_QWORD *)(a1 + 120) = a2[5];
-    }
-  }
-  else
+  if ( !NameSpaceObject )
   {
     *(_WORD *)(*v2 + 66) = 8;
-    *(_DWORD *)(*v2 + 88) = *((_DWORD *)a2 + 10) - *(_DWORD *)(a1 + 120) + 194;
-    v7 = HeapAlloc(*(_QWORD *)(a1 + 320), 1413827912, *(_DWORD *)(*v2 + 88));
-    *(_QWORD *)(*v2 + 96) = v7;
-    if ( v7 )
+    *(_DWORD *)(*v2 + 88) = *(_DWORD *)(a2 + 40) - *(_DWORD *)(a1 + 120) + 194;
+    v6 = HeapAlloc(*(struct _SLIST_ENTRY **)(a1 + 320), 1413827912, *(_DWORD *)(*v2 + 88));
+    *(_QWORD *)(*v2 + 96) = v6;
+    if ( !v6 )
     {
-      v8 = *(_QWORD *)(*v2 + 96);
-      AddObjSymbol(v8 + 194, *v2);
-      memset(*(void **)(*v2 + 96), 0, *(unsigned int *)(*v2 + 88));
-      *(_BYTE *)(v8 + 193) = *(_BYTE *)(*(_QWORD *)(a1 + 120) - 1LL);
-      memmove((void *)(v8 + 194), *(const void **)(a1 + 120), a2[5] - *(_QWORD *)(a1 + 120));
-      *(_QWORD *)(a1 + 120) = a2[5];
-      KeInitializeSpinLock((PKSPIN_LOCK)(v8 + 184));
-      *(_QWORD *)(v8 + 24) = v8 + 16;
-      *(_QWORD *)(v8 + 16) = v8 + 16;
+      NameSpaceObject = -1073741670;
+      LogError(3221225626LL);
+      AcpiDiagTraceAmlError(a1, 3221225626LL);
+      PrintDebugMessage(104, 0, 0, 0, 0LL);
+      return NameSpaceObject;
     }
-    else
+    v7 = *v2;
+    v8 = *(_QWORD *)(*v2 + 96);
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x536C6D41u);
+    v10 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v6 = -1073741670;
-      LogError(-1073741670);
-      AcpiDiagTraceAmlError(a1, -1073741670);
-      PrintDebugMessage(104, 0LL, 0LL, 0LL, 0LL);
+      *PoolWithTag = 0LL;
+      PoolWithTag[1] = 0LL;
+      PoolWithTag[2] = v8 + 194;
+      PoolWithTag[3] = v7;
+      v11 = ExAcquireSpinLockExclusive(&ACPINamespaceLock);
+      if ( P )
+      {
+        v10[1] = P;
+        *(_QWORD *)P = v10;
+      }
+      P = v10;
+      ExReleaseSpinLockExclusive(&ACPINamespaceLock, v11);
     }
+    memset(*(void **)(*v2 + 96), 0, *(unsigned int *)(*v2 + 88));
+    *(_BYTE *)(v8 + 193) = *(_BYTE *)(*(_QWORD *)(a1 + 120) - 1LL);
+    memmove((void *)(v8 + 194), *(const void **)(a1 + 120), *(_QWORD *)(a2 + 40) - *(_QWORD *)(a1 + 120));
+    *(_QWORD *)(a1 + 120) = *(_QWORD *)(a2 + 40);
+    KeInitializeSpinLock((PKSPIN_LOCK)(v8 + 184));
+    *(_QWORD *)(v8 + 24) = v8 + 16;
+    *(_QWORD *)(v8 + 16) = v8 + 16;
   }
-  return v6;
+  if ( NameSpaceObject == -1073741771 && g_SimulatorCallbackObject )
+  {
+    NameSpaceObject = 0;
+    *(_QWORD *)(a1 + 120) = *(_QWORD *)(a2 + 40);
+  }
+  return NameSpaceObject;
 }

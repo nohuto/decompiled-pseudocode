@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRenderingEffect@CWARPDrawListEntry@@UEBAPEAVCRenderingEffect@@XZ @ 0x1801E8340
+ * XREFs of ?GetRenderingEffect@CWARPDrawListEntry@@UEBAPEAVCRenderingEffect@@XZ @ 0x1800E2760
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct CRenderingEffect *__fastcall CWARPDrawListEntry::GetRenderingEffect(CWARPDrawListEntry *this)
 {
-  return (struct CRenderingEffect *)(((unsigned __int64)this + 64) & -(__int64)(this != 0LL));
+  return (CWARPDrawListEntry *)((char *)this - 32);
 }

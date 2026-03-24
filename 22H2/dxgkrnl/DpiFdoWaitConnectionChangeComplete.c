@@ -1,53 +1,68 @@
 /*
- * XREFs of DpiFdoWaitConnectionChangeComplete @ 0x1C039DC8C
+ * XREFs of DpiFdoWaitConnectionChangeComplete @ 0x1C02CD224
  * Callers:
- *     DxgkIddHandleSetDisplayConfig @ 0x1C02F4AB8 (DxgkIddHandleSetDisplayConfig.c)
- *     DxgkIddHandleSetDisplayConfig2 @ 0x1C02F5670 (DxgkIddHandleSetDisplayConfig2.c)
+ *     DxgkIddHandleSetDisplayConfig @ 0x1C025B8CC (DxgkIddHandleSetDisplayConfig.c)
  * Callees:
- *     DxgkIsAdapterCoreSyncAcquired @ 0x1C01F3B24 (DxgkIsAdapterCoreSyncAcquired.c)
+ *     DxgkIsAdapterCoreSyncAcquired @ 0x1C0217F3C (DxgkIsAdapterCoreSyncAcquired.c)
  */
 
-__int64 __fastcall DpiFdoWaitConnectionChangeComplete(__int64 a1)
+__int64 __fastcall DpiFdoWaitConnectionChangeComplete(__int64 a1, __int64 a2)
 {
-  unsigned int v1; // ebx
-  __int64 v2; // rdi
-  bool v3; // si
-  NTSTATUS v4; // eax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
+  unsigned int v2; // ebx
+  __int64 v3; // rdi
+  bool v4; // si
+  NTSTATUS v5; // eax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // rbp
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  _QWORD *v13; // rax
+  __int64 v14; // rax
   PVOID Object[3]; // [rsp+40h] [rbp-18h] BYREF
 
-  v1 = 0;
-  if ( !a1 || (v2 = *(_QWORD *)(a1 + 64)) == 0 || *(_DWORD *)(v2 + 16) != 1953656900 || *(_DWORD *)(v2 + 20) != 2 )
+  v2 = 0;
+  if ( a1 && (v3 = *(_QWORD *)(a1 + 64)) != 0 && *(_DWORD *)(v3 + 16) == 1953656900 && *(_DWORD *)(v3 + 20) == 2 )
   {
-    v5 = -1073741811LL;
-    v1 = -1073741811;
-    v6 = 2LL;
-    goto LABEL_13;
-  }
-  v3 = 1;
-  v4 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v2 + 64), DxgkQueryConnectionChanges, File, 1u, 0x20u);
-  if ( v4 < 0 )
-  {
-    v5 = v4;
-    v6 = 3LL;
-LABEL_13:
-    WdLogSingleEntry1(v6, v5);
-    return v1;
-  }
-  if ( !DxgkIsAdapterCoreSyncAcquired(*(DXGADAPTER **)(v2 + 3912), 1) )
-    v3 = ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v2 + 168)) != 0;
-  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v2 + 64), DxgkQueryConnectionChanges, 0x20u);
-  if ( v3 )
-  {
-    v1 = -1073741811;
-    WdLogSingleEntry3(0LL, 275LL, 21LL, -1073741811LL);
+    v4 = 1;
+    v5 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v3 + 64), DxgkQueryConnectionChanges, File, 1u, 0x20u);
+    v9 = v5;
+    if ( v5 >= 0 )
+    {
+      if ( !DxgkIsAdapterCoreSyncAcquired(*(DXGADAPTER **)(v3 + 3896), 1LL) )
+        v4 = ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v3 + 168)) != 0;
+      IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v3 + 64), DxgkQueryConnectionChanges, 0x20u);
+      if ( v4 )
+      {
+        v2 = -1073741811;
+        v13 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v12, v11);
+        v13[3] = 275LL;
+        v13[4] = 21LL;
+        v13[5] = -1073741811LL;
+        WdLogEvent5_WdCriticalError(v13);
+      }
+      else
+      {
+        Object[0] = (PVOID)(v3 + 3528);
+        Object[1] = (PVOID)(v3 + 3696);
+        return (unsigned int)KeWaitForMultipleObjects(2u, Object, WaitAll, Executive, 0, 0, 0LL, 0LL);
+      }
+    }
+    else
+    {
+      v10 = WdLogNewEntry5_WdWarning(v7, v6, v8);
+      *(_QWORD *)(v10 + 24) = v9;
+      WdLogEvent5_WdWarning(v10);
+    }
   }
   else
   {
-    Object[0] = (PVOID)(v2 + 3544);
-    Object[1] = (PVOID)(v2 + 3712);
-    return (unsigned int)KeWaitForMultipleObjects(2u, Object, WaitAll, Executive, 0, 0, 0LL, 0LL);
+    v2 = -1073741811;
+    v14 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v14 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v14);
   }
-  return v1;
+  return v2;
 }

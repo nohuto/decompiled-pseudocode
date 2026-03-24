@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlAcquireEofLock @ 0x1400E1230
+ * XREFs of FsRtlAcquireEofLock @ 0x1400E1250
  * Callers:
  *     <none>
  * Callees:
@@ -9,10 +9,10 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     FsRtlpWaitForIoAtEof @ 0x1400E1488 (FsRtlpWaitForIoAtEof.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030F934 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     FsRtlpWaitForIoAtEof @ 0x1400E14A8 (FsRtlpWaitForIoAtEof.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
  */
 
 __int64 __fastcall FsRtlAcquireEofLock(__int64 a1, volatile signed __int32 *a2)

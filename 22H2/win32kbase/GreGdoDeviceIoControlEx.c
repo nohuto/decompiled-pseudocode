@@ -1,9 +1,9 @@
 /*
- * XREFs of GreGdoDeviceIoControlEx @ 0x1C00CBA10
+ * XREFs of GreGdoDeviceIoControlEx @ 0x1C00C4CB0
  * Callers:
- *     <none>
+ *     xxxRemoteConnect @ 0x1C0117AB0 (xxxRemoteConnect.c)
  * Callees:
- *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C001E270 (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
+ *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C001E47C (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
  */
 
 __int64 __fastcall GreGdoDeviceIoControlEx(

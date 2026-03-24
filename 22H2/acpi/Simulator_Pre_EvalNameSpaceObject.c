@@ -1,11 +1,12 @@
 /*
- * XREFs of Simulator_Pre_EvalNameSpaceObject @ 0x1C0049718
+ * XREFs of Simulator_Pre_EvalNameSpaceObject @ 0x1C0064048
  * Callers:
- *     AMLIEvalNameSpaceObject @ 0x1C0047BBC (AMLIEvalNameSpaceObject.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
  * Callees:
- *     Simulator_AllocAndInitTestData @ 0x1C0048EE4 (Simulator_AllocAndInitTestData.c)
- *     Simulator_Copy_Arguments @ 0x1C00490A8 (Simulator_Copy_Arguments.c)
- *     Simulator_TestNotify @ 0x1C0049990 (Simulator_TestNotify.c)
+ *     Simulator_AllocAndInitTestData @ 0x1C006381C (Simulator_AllocAndInitTestData.c)
+ *     Simulator_Copy_Arguments @ 0x1C00639E8 (Simulator_Copy_Arguments.c)
+ *     Simulator_TestNotify @ 0x1C00642C0 (Simulator_TestNotify.c)
  */
 
 __int64 __fastcall Simulator_Pre_EvalNameSpaceObject(
@@ -17,7 +18,7 @@ __int64 __fastcall Simulator_Pre_EvalNameSpaceObject(
         __int64 a6)
 {
   __int64 v7; // rsi
-  void *inited; // rax
+  PVOID inited; // rax
   int v11; // ecx
   __int64 v12; // rdx
   _DWORD *v13; // rcx

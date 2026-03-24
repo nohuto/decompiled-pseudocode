@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsCHSBaseFont@@YAHPEBGI@Z @ 0x1C000B988
+ * XREFs of ?IsCHSBaseFont@@YAHPEBGI@Z @ 0x1C00A3F88
  * Callers:
- *     ?bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C000D9EC (-bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_E.c)
+ *     ?bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C00A3930 (-bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_E.c)
  * Callees:
- *     SearchInCHSBaseFontFileNameSuffixes @ 0x1C0118BF4 (SearchInCHSBaseFontFileNameSuffixes.c)
+ *     <none>
  */
 
 _BOOL8 __fastcall IsCHSBaseFont(const unsigned __int16 *a1, int a2)
@@ -11,7 +11,8 @@ _BOOL8 __fastcall IsCHSBaseFont(const unsigned __int16 *a1, int a2)
   __int64 v2; // rax
   __int64 v3; // r8
   unsigned __int16 *v4; // rax
-  const UNICODE_STRING *v6; // rbx
+  const UNICODE_STRING *v6; // rdi
+  int v7; // ebx
   struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   if ( !gcwcFontsDirectory )
@@ -29,9 +30,19 @@ _BOOL8 __fastcall IsCHSBaseFont(const unsigned __int16 *a1, int a2)
   {
     if ( v4 != gSimsunFontFileNamePrefix )
       return 0LL;
-    v6 = (const UNICODE_STRING *)&gSimSunFontFileNameSuffixes;
+    v6 = (const UNICODE_STRING *)&unk_1C02E10B0;
   }
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, &a1[v3 + 4]);
-  return (int)SearchInCHSBaseFontFileNameSuffixes(&DestinationString, v6) >= 0;
+  v7 = 0;
+  while ( !RtlEqualUnicodeString(&DestinationString, v6, 0) )
+  {
+    ++v6;
+    if ( (unsigned int)++v7 >= 3 )
+    {
+      v7 = -1;
+      break;
+    }
+  }
+  return v7 >= 0;
 }

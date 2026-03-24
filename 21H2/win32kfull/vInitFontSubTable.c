@@ -1,14 +1,15 @@
 /*
- * XREFs of vInitFontSubTable @ 0x1C0391C50
+ * XREFs of vInitFontSubTable @ 0x1C0394D50
  * Callers:
  *     <none>
  * Callees:
- *     PREALLOCMEM2 @ 0x1C011D46C (PREALLOCMEM2.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     PREALLOCMEM2 @ 0x1C0132890 (PREALLOCMEM2.c)
  */
 
-char *vInitFontSubTable()
+void *vInitFontSubTable()
 {
-  char *result; // rax
+  void *result; // rax
   _OWORD *v1; // rcx
   _OWORD *v2; // rcx
   char *v3; // rcx
@@ -33,43 +34,39 @@ char *vInitFontSubTable()
   RtlQueryRegistryValues(3u, L"FontSubstitutes", &QueryTable, &Context, 0LL);
   if ( gpfsTable )
   {
-    result = (char *)gcfsTable;
+    result = (void *)gcfsTable;
     if ( Context <= gcfsTable )
       goto LABEL_5;
     result = PREALLOCMEM2(gpfsTable, 196 * gcfsTable, 196 * gcfsTable, 0x62736647u);
     if ( !result )
       goto LABEL_5;
   }
-  else if ( 196 * gcfsTable )
-  {
-    result = (char *)Win32AllocPoolZInit(196 * gcfsTable, 1651729991LL);
-  }
   else
   {
-    result = 0LL;
+    result = PALLOCMEM2(196 * gcfsTable, 1651729991LL, 1);
   }
   gpfsTable = result;
 LABEL_5:
   v1 = gpfsTable;
   if ( gpfsTable )
   {
-    *(_OWORD *)gpfsTable = xmmword_1C02E8E48;
-    v1[1] = xmmword_1C02E8E58;
+    *(_OWORD *)gpfsTable = xmmword_1C02EC398;
+    v1[1] = xmmword_1C02EC3A8;
     *((_DWORD *)v1 + 8) = 6684777;
     *((_WORD *)v1 + 18) = 0;
     v2 = gpfsTable;
-    *((_OWORD *)gpfsTable + 4) = xmmword_1C02E8E20;
-    v2[5] = xmmword_1C02E8E30;
+    *((_OWORD *)gpfsTable + 4) = xmmword_1C02EC370;
+    v2[5] = xmmword_1C02EC380;
     *((_DWORD *)v2 + 24) = 4587593;
     *((_WORD *)v2 + 50) = 0;
     v3 = (char *)gpfsTable;
-    *(_OWORD *)((char *)gpfsTable + 130) = xmmword_1C02E8E70;
+    *(_OWORD *)((char *)gpfsTable + 130) = xmmword_1C02EC3C0;
     *(_QWORD *)(v3 + 146) = 0x49005200450053LL;
     *(_DWORD *)(v3 + 154) = 70;
     *((_BYTE *)gpfsTable + 128) = 1;
     *((_BYTE *)gpfsTable + 129) = 1;
     *((_BYTE *)gpfsTable + 194) = 1;
-    result = (char *)gpfsTable;
+    result = gpfsTable;
     *((_BYTE *)gpfsTable + 195) = 1;
   }
   else

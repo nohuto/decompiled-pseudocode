@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CManipulationManager@@IEAA@PEAVCComposition@@@Z @ 0x18002BD14
+ * XREFs of ??0CManipulationManager@@IEAA@PEAVCComposition@@@Z @ 0x1800B5DF8
  * Callers:
- *     ??0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z @ 0x18002BCB4 (--0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z.c)
+ *     ??0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z @ 0x1800B5D58 (--0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z.c)
  * Callees:
- *     ??0QpcTimeConverter@@QEAA@XZ @ 0x18002C0F8 (--0QpcTimeConverter@@QEAA@XZ.c)
+ *     ??0QpcTimeConverter@@QEAA@XZ @ 0x1800B6258 (--0QpcTimeConverter@@QEAA@XZ.c)
  */
 
 CManipulationManager *__fastcall CManipulationManager::CManipulationManager(

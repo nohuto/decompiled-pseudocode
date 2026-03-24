@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CSecondarySysmemBitmap@@UEBA?AUPixelFormatInfo@@XZ @ 0x180108E6C
+ * XREFs of ?GetPixelFormatInfo@CSecondarySysmemBitmap@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800E2530
  * Callers:
- *     ?GetPixelFormatInfo@CSecondarySysmemBitmap@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x180123F60 (-GetPixelFormatInfo@CSecondarySysmemBitmap@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CSecondarySysmemBitmap@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1800F5C00 (-GetPixelFormatInfo@CSecondarySysmemBitmap@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
  * Callees:
  *     <none>
  */

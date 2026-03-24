@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCopyBitMapEx @ 0x14033E4B0
+ * XREFs of RtlCopyBitMapEx @ 0x1402FA2A0
  * Callers:
- *     MiSelectRelocationStartHint @ 0x1406AACDC (MiSelectRelocationStartHint.c)
- *     MiResizeAweBitMap @ 0x140A42180 (MiResizeAweBitMap.c)
+ *     MiSelectRelocationStartHint @ 0x14066AE90 (MiSelectRelocationStartHint.c)
+ *     MiResizeAweBitMap @ 0x1408D6534 (MiResizeAweBitMap.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlpCopyBitMapTailToHeadEx @ 0x1405A9384 (RtlpCopyBitMapTailToHeadEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlpCopyBitMapTailToHeadEx @ 0x140588574 (RtlpCopyBitMapTailToHeadEx.c)
  */
 
 unsigned __int64 __fastcall RtlCopyBitMapEx(__int64 a1, _QWORD *a2, unsigned __int64 a3)
@@ -13,26 +13,22 @@ unsigned __int64 __fastcall RtlCopyBitMapEx(__int64 a1, _QWORD *a2, unsigned __i
   unsigned __int64 result; // rax
   unsigned __int64 v6; // rbx
   __int64 v7; // rcx
-  __int64 *v8; // r9
+  __int64 *v8; // r11
   unsigned __int64 v9; // rdx
   unsigned __int64 v10; // rsi
   unsigned __int64 v11; // rdi
   unsigned __int64 v12; // rbx
   size_t v13; // rdi
   _BYTE *v14; // r9
-  __int64 v15; // rdi
-  unsigned __int64 v16; // rbp
-  unsigned __int64 *v17; // r11
-  __int64 v18; // rsi
-  __int64 v19; // r8
-  unsigned __int64 v20; // r13
-  __int64 v21; // rsi
-  unsigned __int64 v22; // r14
-  __int64 v23; // r8
-  unsigned __int64 v24; // rax
-  __int64 v25; // r14
-  unsigned __int64 v26; // r15
-  __int64 v27; // r10
+  __int64 v15; // r9
+  __int64 *v16; // r8
+  __int64 v17; // rsi
+  unsigned __int64 v18; // rbp
+  unsigned __int64 v19; // rax
+  __int64 v20; // rsi
+  char v21; // di
+  __int64 v22; // rbp
+  __int64 v23; // r10
 
   result = *(_QWORD *)a1;
   v6 = *a2 - a3;
@@ -54,45 +50,39 @@ unsigned __int64 __fastcall RtlCopyBitMapEx(__int64 a1, _QWORD *a2, unsigned __i
       if ( (a3 & 7) != 0 )
       {
         v15 = a3 & 0x3F;
-        v16 = 64 - v15;
-        v17 = (unsigned __int64 *)(v7 + 8 * (a3 >> 6));
-        v18 = 1LL << (64 - (unsigned __int8)v15);
-        v19 = 1LL << v15;
-        if ( v6 < 0x40 )
-          goto LABEL_17;
-        v20 = *v17;
-        v21 = v18 - 1;
-        v22 = v6 >> 6;
-        v23 = v19 - 1;
-        v6 += -64LL * (v6 >> 6);
-        do
+        v16 = (__int64 *)(v7 + 8 * (a3 >> 6));
+        if ( v6 >= 0x40 )
         {
-          *v17++ = ((v21 & *v8) << v15) | v20 & v23;
-          v24 = ~v21 & *v8++;
-          result = v24 >> v16;
-          v20 = result | *v17 & ~v23;
-          *v17 = v20;
-          --v22;
+          v17 = *v16;
+          v18 = v6 >> 6;
+          v6 += -64LL * (v6 >> 6);
+          do
+          {
+            *v16++ = ((((1LL << (64 - (unsigned __int8)v15)) - 1) & *v8) << v15) | v17 & ((1LL << v15) - 1);
+            v19 = ~((1LL << (64 - (unsigned __int8)v15)) - 1) & *v8++;
+            result = v19 >> (64 - (unsigned __int8)v15);
+            v17 = result | *v16 & ~((1LL << v15) - 1);
+            *v16 = v17;
+            --v18;
+          }
+          while ( v18 );
         }
-        while ( v22 );
-        v19 = 1LL << v15;
-        v18 = 1LL << (64 - (unsigned __int8)v15);
         if ( v6 )
         {
-LABEL_17:
-          v25 = *v8;
-          v26 = *v17;
-          if ( v6 > v16 )
+          v20 = *v8;
+          v21 = 64 - v15;
+          v22 = *v16;
+          if ( v6 > 64 - v15 )
           {
-            *v17 = v26 & (v19 - 1) | ((v25 & (v18 - 1)) << v15);
-            v27 = 1LL << ((unsigned __int8)v6 + (unsigned __int8)v15 - 64);
-            result = (*v8 & (unsigned __int64)((v27 - 1) << v16)) >> v16;
-            v17[1] = result | v17[1] & ~(v27 - 1);
+            *v16 = v22 & ((1LL << v15) - 1) | ((v20 & ((1LL << v21) - 1)) << v15);
+            v23 = 1LL << ((unsigned __int8)v6 + (unsigned __int8)v15 - 64);
+            result = (*v8 & (unsigned __int64)((v23 - 1) << v21)) >> v21;
+            v16[1] = result | v16[1] & ~(v23 - 1);
           }
           else
           {
-            result = ((v25 & ((1LL << v6) - 1)) << v15) | v26 & ~(((1LL << v6) - 1) << v15);
-            *v17 = result;
+            result = ((v20 & ((1LL << v6) - 1)) << v15) | v22 & ~(((1LL << v6) - 1) << v15);
+            *v16 = result;
           }
         }
       }

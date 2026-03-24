@@ -1,16 +1,15 @@
 /*
- * XREFs of ?PrepareStagingBuffer@DXGPRESENT@@QEAAJPEAVDXGDEVICE@@IPEAVCOREDEVICEACCESS@@PEAI@Z @ 0x1C0331EE0
+ * XREFs of ?PrepareStagingBuffer@DXGPRESENT@@QEAAJPEAVDXGDEVICE@@IPEAVCOREDEVICEACCESS@@PEAI@Z @ 0x1C0281750
  * Callers:
- *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C017D520 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C00FDFA0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     ??0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z @ 0x1C017D4D0 (--0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z.c)
- *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C017EAE0 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
- *     ?CreateStagingSurface2@DXGDEVICE@@QEAAJPEAU_D3DKMDT_STAGINGSURFACEDATA@@PEAVCOREDEVICEACCESS@@PEAI2@Z @ 0x1C02E440C (-CreateStagingSurface2@DXGDEVICE@@QEAAJPEAU_D3DKMDT_STAGINGSURFACEDATA@@PEAVCOREDEVICEACCESS@@PE.c)
- *     ?DestroyStagingSurface@DXGDEVICE@@QEAAXIIPEAVCOREDEVICEACCESS@@@Z @ 0x1C02E4610 (-DestroyStagingSurface@DXGDEVICE@@QEAAXIIPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C00FDE00 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ??0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z @ 0x1C00FF580 (--0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z.c)
+ *     ?CreateStagingSurface2@DXGDEVICE@@QEAAJPEAU_D3DKMDT_STAGINGSURFACEDATA@@PEAVCOREDEVICEACCESS@@PEAI2@Z @ 0x1C0254008 (-CreateStagingSurface2@DXGDEVICE@@QEAAJPEAU_D3DKMDT_STAGINGSURFACEDATA@@PEAVCOREDEVICEACCESS@@PE.c)
+ *     ?DestroyStagingSurface@DXGDEVICE@@QEAAXIIPEAVCOREDEVICEACCESS@@@Z @ 0x1C02541B8 (-DestroyStagingSurface@DXGDEVICE@@QEAAXIIPEAVCOREDEVICEACCESS@@@Z.c)
  */
 
 __int64 __fastcall DXGPRESENT::PrepareStagingBuffer(
@@ -21,151 +20,145 @@ __int64 __fastcall DXGPRESENT::PrepareStagingBuffer(
         unsigned int *a5)
 {
   __int64 v7; // r15
-  int v9; // eax
-  int v10; // ebx
-  unsigned int v11; // r8d
-  __int64 v12; // rbp
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  int v15; // r9d
-  __int64 v16; // rax
-  __int64 v17; // r9
-  int v18; // edx
-  struct _EX_RUNDOWN_REF *v19; // rdx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  int v12; // eax
+  int v13; // ebx
+  unsigned int v14; // r8d
+  __int64 v15; // rbp
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  int v18; // r9d
+  __int64 v19; // rax
+  __int64 v20; // r9
+  int v21; // edx
+  __int64 v22; // rdx
+  __int64 v23; // rax
+  struct _EX_RUNDOWN_REF *v24; // rdx
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  _QWORD *v30; // rax
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // rax
   UINT Pitch; // eax
-  struct _EX_RUNDOWN_REF *v22; // [rsp+50h] [rbp-68h] BYREF
-  struct _D3DKMDT_STAGINGSURFACEDATA v23; // [rsp+58h] [rbp-60h] BYREF
+  __int64 v35; // rax
+  _QWORD *v36; // rax
+  struct _EX_RUNDOWN_REF *v38; // [rsp+30h] [rbp-68h] BYREF
+  struct _D3DKMDT_STAGINGSURFACEDATA v39; // [rsp+38h] [rbp-60h] BYREF
 
   v7 = a3;
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*((_QWORD *)a2 + 2) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 11415LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pDevice->GetRenderCore()->IsCoreResourceSharedOwner()",
-      11415LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdAssertion(v10, v9);
+    *(_QWORD *)(v11 + 24) = 11206LL;
+    WdLogEvent5_WdAssertion(v11);
   }
-  v9 = *((_DWORD *)this + 1);
-  v10 = 0;
-  if ( (v9 & 0x40) != 0 )
+  v12 = *((_DWORD *)this + 1);
+  v13 = 0;
+  if ( (v12 & 0x40) != 0 )
   {
-    v11 = *((_DWORD *)this + 105);
-    *((_DWORD *)this + 1) = v9 & 0xFFFFFFBF;
-    if ( v11 )
+    v14 = *((_DWORD *)this + 105);
+    *((_DWORD *)this + 1) = v12 & 0xFFFFFFBF;
+    if ( v14 )
     {
-      DXGDEVICE::DestroyStagingSurface(a2, 0, v11, a4);
+      DXGDEVICE::DestroyStagingSurface(a2, 0, v14, a4);
       *((_QWORD *)this + 52) = 0LL;
     }
   }
   if ( !*((_DWORD *)this + 105) )
   {
-    v12 = *((_QWORD *)a2 + 5);
+    v15 = *((_QWORD *)a2 + 5);
     KeEnterCriticalRegion();
-    if ( !(unsigned __int8)ExTryAcquirePushLockSharedEx(v12 + 248, 0LL) )
+    if ( !(unsigned __int8)ExTryAcquirePushLockSharedEx(v15 + 208, 0LL) )
     {
       if ( bTracingEnabled )
       {
-        v15 = *(_DWORD *)(v12 + 272);
-        if ( v15 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-          McTemplateK0q_EtwWriteTransfer(v13, (const EVENT_DESCRIPTOR *)"g", v14, v15);
+        v18 = *(_DWORD *)(v15 + 232);
+        if ( v18 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+          McTemplateK0q_EtwWriteTransfer(v16, &EventBlockThread, v17, v18);
       }
-      ExAcquirePushLockSharedEx(v12 + 248, 0LL);
+      ExAcquirePushLockSharedEx(v15 + 208, 0LL);
     }
-    v16 = ((unsigned int)v7 >> 6) & 0xFFFFFF;
-    if ( (unsigned int)v16 < *(_DWORD *)(v12 + 296) )
+    v19 = ((unsigned int)v7 >> 6) & 0xFFFFFF;
+    if ( (unsigned int)v19 < *(_DWORD *)(v15 + 256) )
     {
-      v17 = *(_QWORD *)(v12 + 280);
-      v18 = *(_DWORD *)(v17 + 16 * v16 + 8);
-      if ( (((unsigned int)v7 >> 25) & 0x60) == (*(_BYTE *)(v17 + 16 * v16 + 8) & 0x60)
-        && (v18 & 0x2000) == 0
-        && (v18 & 0x1F) != 0 )
+      v20 = *(_QWORD *)(v15 + 240);
+      v21 = *(_DWORD *)(v20 + 16 * v19 + 8);
+      if ( (((unsigned int)v7 >> 25) & 0x60) == (*(_BYTE *)(v20 + 16 * v19 + 8) & 0x60)
+        && (v21 & 0x2000) == 0
+        && (v21 & 0x1F) != 0 )
       {
-        if ( (v18 & 0x1F) == 5 )
+        v22 = v21 & 0x1F;
+        if ( (_BYTE)v22 == 5 )
         {
-          v19 = *(struct _EX_RUNDOWN_REF **)(v17 + 16LL * (unsigned int)v16);
+          v24 = *(struct _EX_RUNDOWN_REF **)(v20 + 16LL * (unsigned int)v19);
           goto LABEL_20;
         }
-        WdLogSingleEntry1(2LL, 267LL);
-        DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 267LL, 0LL, 0LL, 0LL, 0LL);
+        v23 = WdLogNewEntry5_WdError(((unsigned int)v7 >> 25) & 0x60, v22);
+        *(_QWORD *)(v23 + 24) = 316LL;
+        WdLogEvent5_WdError(v23);
       }
     }
-    v19 = 0LL;
+    v24 = 0LL;
 LABEL_20:
-    DXGALLOCATIONREFERENCE::DXGALLOCATIONREFERENCE((DXGALLOCATIONREFERENCE *)&v22, v19);
-    ExReleasePushLockSharedEx(v12 + 248, 0LL);
+    DXGALLOCATIONREFERENCE::DXGALLOCATIONREFERENCE((DXGALLOCATIONREFERENCE *)&v38, v24);
+    ExReleasePushLockSharedEx(v15 + 208, 0LL);
     KeLeaveCriticalRegion();
-    if ( v22 )
+    if ( v38 )
     {
-      if ( *(_QWORD *)(*(_QWORD *)(v22[1].Count + 16) + 16LL) == *(_QWORD *)(*((_QWORD *)a2 + 2) + 16LL) )
+      v28 = *(_QWORD *)(v38[1].Count + 16);
+      v29 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 16LL);
+      if ( *(_QWORD *)(v28 + 16) == v29 )
       {
-        v23.Width = *((_DWORD *)this + 19);
-        v23.Height = *((_DWORD *)this + 20);
-        v23.Pitch = 0;
-        v10 = DXGDEVICE::CreateStagingSurface2(a2, &v23, a4, (unsigned int *)this + 104, (unsigned int *)this + 105);
-        if ( v10 >= 0 )
+        v39.Width = *((_DWORD *)this + 19);
+        v39.Height = *((_DWORD *)this + 20);
+        v39.Pitch = 0;
+        v13 = DXGDEVICE::CreateStagingSurface2(a2, &v39, a4, (unsigned int *)this + 104, (unsigned int *)this + 105);
+        if ( v13 >= 0 )
         {
           if ( !*((_DWORD *)this + 104) )
           {
-            WdLogSingleEntry1(1LL, 11462LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              262146,
-              -1,
-              (__int64)L"NULL != m_hStagingBufferAllocation",
-              11462LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
+            v33 = WdLogNewEntry5_WdAssertion(v32, v31);
+            *(_QWORD *)(v33 + 24) = 11253LL;
+            WdLogEvent5_WdAssertion(v33);
           }
-          Pitch = v23.Pitch;
-          if ( !v23.Pitch )
+          Pitch = v39.Pitch;
+          if ( !v39.Pitch )
           {
-            WdLogSingleEntry1(1LL, 11464LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              262146,
-              -1,
-              (__int64)L"0 != StagingSurfaceData.Pitch",
-              11464LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-            Pitch = v23.Pitch;
+            v35 = WdLogNewEntry5_WdAssertion(v32, v31);
+            *(_QWORD *)(v35 + 24) = 11255LL;
+            WdLogEvent5_WdAssertion(v35);
+            Pitch = v39.Pitch;
           }
           *((_DWORD *)this + 106) = Pitch;
         }
       }
       else
       {
-        v10 = -1073741811;
-        WdLogSingleEntry3(2LL, a2, v22, -1073741811LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Device 0x%p does not match allocation 0x%p owner, returning 0x%I64x",
-          (__int64)a2,
-          (__int64)v22,
-          -1073741811LL,
-          0LL,
-          0LL);
+        v30 = (_QWORD *)WdLogNewEntry5_WdError(v29, v28);
+        v13 = -1073741811;
+        v30[3] = a2;
+        v30[4] = v38;
+        v30[5] = -1073741811LL;
+        WdLogEvent5_WdError(v30);
       }
     }
     else
     {
-      v10 = -1073741811;
-      WdLogSingleEntry3(3LL, -1073741811LL, this, v7);
+      v36 = (_QWORD *)WdLogNewEntry5_WdWarning(v26, v25, v27);
+      v13 = -1073741811;
+      v36[3] = -1073741811LL;
+      v36[4] = this;
+      v36[5] = v7;
+      WdLogEvent5_WdWarning(v36);
     }
-    DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v22);
+    DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v38, v31);
   }
   *a5 = *((_DWORD *)this + 104);
-  return (unsigned int)v10;
+  return (unsigned int)v13;
 }

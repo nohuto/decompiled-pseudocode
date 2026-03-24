@@ -1,30 +1,22 @@
 /*
- * XREFs of DxgkExtractBundleObject @ 0x1C0327D00
+ * XREFs of DxgkExtractBundleObject @ 0x1C0278C90
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     DxgkExtractBundleObjectInternal @ 0x1C0327D84 (DxgkExtractBundleObjectInternal.c)
+ *     DxgkExtractBundleObjectInternal @ 0x1C0278CE8 (DxgkExtractBundleObjectInternal.c)
  */
 
 __int64 __fastcall DxgkExtractBundleObject(__int64 a1)
 {
   __int64 v2; // rdx
   __int64 v3; // rcx
+  __int64 v4; // rax
 
   if ( (unsigned __int8)PsGetCurrentThreadPreviousMode() != 1 )
   {
-    WdLogSingleEntry1(1LL, 2850LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"PsGetCurrentThreadPreviousMode() == UserMode",
-      2850LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v4 = WdLogNewEntry5_WdAssertion(v3, v2);
+    *(_QWORD *)(v4 + 24) = 2615LL;
+    WdLogEvent5_WdAssertion(v4);
   }
   LOBYTE(v2) = 1;
   LOBYTE(v3) = 1;

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpFreeNvsBuffers @ 0x140A96F44
+ * XREFs of HalpFreeNvsBuffers @ 0x140998EA8
  * Callers:
- *     HalpPowerStateCallback @ 0x1403B0040 (HalpPowerStateCallback.c)
- *     HalpMapNvsArea @ 0x140A96FC0 (HalpMapNvsArea.c)
+ *     HalpPowerStateCallback @ 0x1403A67F0 (HalpPowerStateCallback.c)
+ *     HalpMapNvsArea @ 0x140998E18 (HalpMapNvsArea.c)
  * Callees:
- *     MmUnmapIoSpace @ 0x140335B30 (MmUnmapIoSpace.c)
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
+ *     MmUnmapIoSpace @ 0x1402EA680 (MmUnmapIoSpace.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
  */
 
 void __fastcall HalpFreeNvsBuffers(__int64 a1)

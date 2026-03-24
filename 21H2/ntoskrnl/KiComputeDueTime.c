@@ -1,9 +1,10 @@
 /*
- * XREFs of KiComputeDueTime @ 0x140357790
+ * XREFs of KiComputeDueTime @ 0x1402600B0
  * Callers:
- *     KiCommitThreadWait @ 0x1402B5240 (KiCommitThreadWait.c)
- *     KiResumeThread @ 0x1402EF710 (KiResumeThread.c)
- *     KeSetTimerEx @ 0x1403575C0 (KeSetTimerEx.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     KeSetTimerEx @ 0x14025FF30 (KeSetTimerEx.c)
+ *     KiResumeThread @ 0x1402798D0 (KiResumeThread.c)
+ *     KiCommitThreadWait @ 0x140345FB0 (KiCommitThreadWait.c)
  * Callees:
  *     <none>
  */

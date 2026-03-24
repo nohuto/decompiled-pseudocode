@@ -1,10 +1,10 @@
 /*
- * XREFs of HvFreeUnreconciledData @ 0x1407DA014
+ * XREFs of HvFreeUnreconciledData @ 0x1406970EC
  * Callers:
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
- *     HvFoldBackUnreconciledData @ 0x140A20B9C (HvFoldBackUnreconciledData.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
+ *     HvFoldBackUnreconciledData @ 0x140876A74 (HvFoldBackUnreconciledData.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HvFreeUnreconciledData(__int64 a1)
@@ -13,26 +13,26 @@ void __fastcall HvFreeUnreconciledData(__int64 a1)
   __int64 i; // rdi
   void *v4; // rcx
 
-  v2 = *(void **)(a1 + 1776);
+  v2 = *(void **)(a1 + 1768);
   if ( v2 )
   {
     ExFreePoolWithTag(v2, 0);
-    *(_QWORD *)(a1 + 1776) = 0LL;
-    *(_BYTE *)(a1 + 1732) = 0;
+    *(_QWORD *)(a1 + 1768) = 0LL;
+    *(_BYTE *)(a1 + 1724) = 0;
   }
-  if ( *(_QWORD *)(a1 + 1744) )
+  if ( *(_QWORD *)(a1 + 1736) )
   {
-    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 1768); i = (unsigned int)(i + 1) )
+    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 1760); i = (unsigned int)(i + 1) )
     {
-      v4 = *(void **)(*(_QWORD *)(a1 + 1760) + 24 * i + 8);
+      v4 = *(void **)(*(_QWORD *)(a1 + 1752) + 24 * i + 8);
       if ( v4 )
         ExFreePoolWithTag(v4, 0);
     }
-    ExFreePoolWithTag(*(PVOID *)(a1 + 1760), 0);
-    ExFreePoolWithTag(*(PVOID *)(a1 + 1744), 0);
-    *(_QWORD *)(a1 + 1760) = 0LL;
-    *(_DWORD *)(a1 + 1768) = 0;
-    *(_DWORD *)(a1 + 1736) = 0;
-    *(_QWORD *)(a1 + 1744) = 0LL;
+    ExFreePoolWithTag(*(PVOID *)(a1 + 1752), 0);
+    ExFreePoolWithTag(*(PVOID *)(a1 + 1736), 0);
+    *(_QWORD *)(a1 + 1752) = 0LL;
+    *(_DWORD *)(a1 + 1760) = 0;
+    *(_DWORD *)(a1 + 1728) = 0;
+    *(_QWORD *)(a1 + 1736) = 0LL;
   }
 }

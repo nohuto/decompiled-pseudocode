@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetBufferProperty@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0223470
+ * XREFs of ?SetBufferProperty@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E9440
  * Callers:
  *     <none>
  * Callees:
- *     ?IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJPEA_N@Z @ 0x1C02233FC (-IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJ.c)
- *     DirectComposition::SetGuidProperty @ 0x1C02234CC (DirectComposition--SetGuidProperty.c)
+ *     ?IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJPEA_N@Z @ 0x1C01E93CC (-IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJ.c)
+ *     DirectComposition::SetGuidProperty @ 0x1C01E949C (DirectComposition--SetGuidProperty.c)
  */
 
 __int64 __fastcall DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler::SetBufferProperty(

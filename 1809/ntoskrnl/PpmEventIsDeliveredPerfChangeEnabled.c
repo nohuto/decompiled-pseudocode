@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmEventIsDeliveredPerfChangeEnabled @ 0x140141F04
+ * XREFs of PpmEventIsDeliveredPerfChangeEnabled @ 0x140141F24
  * Callers:
- *     PpmCheckUpdateDeliveredPerformanceIfTracingEnabled @ 0x140141EE0 (PpmCheckUpdateDeliveredPerformanceIfTracingEnabled.c)
+ *     PpmCheckUpdateDeliveredPerformanceIfTracingEnabled @ 0x140141F00 (PpmCheckUpdateDeliveredPerformanceIfTracingEnabled.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
  */

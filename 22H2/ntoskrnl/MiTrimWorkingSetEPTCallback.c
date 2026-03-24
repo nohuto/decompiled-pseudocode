@@ -1,34 +1,58 @@
 /*
- * XREFs of MiTrimWorkingSetEPTCallback @ 0x140635540
+ * XREFs of MiTrimWorkingSetEPTCallback @ 0x14053C200
  * Callers:
  *     <none>
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiTrimmedEnough @ 0x1402E3814 (MiTrimmedEnough.c)
- *     MiTrimPteWorker @ 0x1402E38D8 (MiTrimPteWorker.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiTrimPteWorker @ 0x14053C128 (MiTrimPteWorker.c)
+ *     MiTrimmedEnough @ 0x14053C374 (MiTrimmedEnough.c)
  */
 
 __int64 __fastcall MiTrimWorkingSetEPTCallback(
         __int64 a1,
-        _QWORD *a2,
-        unsigned __int64 a3,
+        __int64 *a2,
+        _BYTE *a3,
         unsigned __int64 a4,
-        __int64 a5)
+        unsigned __int64 a5)
 {
   __int64 v5; // r14
-  __int64 v11; // rbx
-  unsigned __int8 v12; // bl
-  unsigned __int64 v13; // rax
+  unsigned __int64 v11; // rax
+  __int64 v12; // rcx
+  unsigned __int64 v13; // rbx
+  __int64 v14; // rdi
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v16; // rax
+  __int64 v17; // rdx
 
   v5 = a5;
-  if ( MiTrimmedEnough(*(_QWORD *)(a1 + 24), a5) )
+  if ( (unsigned int)MiTrimmedEnough(*(_QWORD *)(a1 + 24), a5) )
     return 1LL;
-  v11 = MI_READ_PTE_LOCK_FREE(a3);
+  v11 = MI_READ_PTE_LOCK_FREE((unsigned __int64)a3);
+  v12 = *a2;
   a5 = v11;
-  if ( (*a2 & 2) != 0 )
-    v12 = (v11 & 0x20) != 0;
+  v13 = v11;
+  if ( (v12 & 2) != 0 )
+    v14 = (v11 >> 5) & 1;
   else
-    v12 = (*a2 & 1) != 0;
-  v13 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&a5);
-  return MiTrimPteWorker(a1, a3, a4, 48 * ((v13 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL, v5, v12, 0LL);
+    LOBYTE(v14) = (v12 & 1) != 0;
+  if ( MiPteInShadowRange((unsigned __int64)&a5)
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && (v13 & 1) != 0
+    && ((v13 & 0x20) == 0 || (v13 & 0x42) == 0) )
+  {
+    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( Flink )
+    {
+      v16 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&a5 >> 3) & 0x1FF));
+      v17 = v13 | 0x20;
+      if ( (v16 & 0x20) == 0 )
+        v17 = v13;
+      v13 = v17;
+      if ( (v16 & 0x42) != 0 )
+        v13 = v17 | 0x42;
+    }
+  }
+  return MiTrimPteWorker(a1, a3, a4, 48 * ((v13 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL, v5, v14, 0LL);
 }

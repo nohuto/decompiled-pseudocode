@@ -1,11 +1,11 @@
 /*
- * XREFs of ?TrimBetween@?$CBezier@MVCMilPoint2F@@@@QEAA_NMM@Z @ 0x1802A1284
+ * XREFs of ?TrimBetween@?$CBezier@MVCMilPoint2F@@@@QEAA_NMM@Z @ 0x180260980
  * Callers:
- *     ?InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z @ 0x1802A06CC (-InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z.c)
+ *     ?InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z @ 0x18025EBEC (-InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z.c)
  * Callees:
- *     ?GetPoint@?$CBezier@MVCMilPoint2F@@@@QEBAXMAEAVCMilPoint2F@@@Z @ 0x1802A11D8 (-GetPoint@-$CBezier@MVCMilPoint2F@@@@QEBAXMAEAVCMilPoint2F@@@Z.c)
- *     ?TrimToEndAt@?$CBezier@MVCMilPoint2F@@@@QEAAXM@Z @ 0x1802A132C (-TrimToEndAt@-$CBezier@MVCMilPoint2F@@@@QEAAXM@Z.c)
- *     ?TrimToStartAt@?$CBezier@MVCMilPoint2F@@@@QEAAXM@Z @ 0x1802A1474 (-TrimToStartAt@-$CBezier@MVCMilPoint2F@@@@QEAAXM@Z.c)
+ *     ?GetPoint@?$CBezier@MVCMilPoint2F@@@@QEBAXMAEAVCMilPoint2F@@@Z @ 0x1802608D4 (-GetPoint@-$CBezier@MVCMilPoint2F@@@@QEBAXMAEAVCMilPoint2F@@@Z.c)
+ *     ?TrimToEndAt@?$CBezier@MVCMilPoint2F@@@@QEAAXM@Z @ 0x180260A28 (-TrimToEndAt@-$CBezier@MVCMilPoint2F@@@@QEAAXM@Z.c)
+ *     ?TrimToStartAt@?$CBezier@MVCMilPoint2F@@@@QEAAXM@Z @ 0x180260B70 (-TrimToStartAt@-$CBezier@MVCMilPoint2F@@@@QEAAXM@Z.c)
  */
 
 char __fastcall CBezier<float,CMilPoint2F>::TrimBetween(float *a1, float a2, float a3)

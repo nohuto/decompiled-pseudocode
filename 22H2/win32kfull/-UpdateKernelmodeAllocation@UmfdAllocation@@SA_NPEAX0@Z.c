@@ -1,25 +1,25 @@
 /*
- * XREFs of ?UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z @ 0x1C03064A4
+ * XREFs of ?UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z @ 0x1C02DE53C
  * Callers:
- *     ?TryResurrectUmfdAllocations@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z @ 0x1C02E1038 (-TryResurrectUmfdAllocations@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z.c)
+ *     ?TryResurrectUmfdAllocations@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z @ 0x1C02C1C08 (-TryResurrectUmfdAllocations@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z.c)
  * Callees:
- *     ??1?$CAutoExclusiveCReaderWriterLock@VCPlatformReaderWriterLock@NSInstrumentation@@@NSInstrumentation@@QEAA@XZ @ 0x1C005B560 (--1-$CAutoExclusiveCReaderWriterLock@VCPlatformReaderWriterLock@NSInstrumentation@@@NSInstrument.c)
- *     ?Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z @ 0x1C008D700 (-Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z.c)
- *     ?Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C00A32C0 (-Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z.c)
- *     ?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z @ 0x1C00B8848 (-ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z.c)
+ *     ?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z @ 0x1C009F51C (-ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z.c)
+ *     ?Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C009F5D8 (-Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z.c)
+ *     ?Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z @ 0x1C00D20AC (-Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z.c)
+ *     ??1?$CAutoExclusiveCReaderWriterLock@VCPlatformReaderWriterLock@NSInstrumentation@@@NSInstrumentation@@QEAA@XZ @ 0x1C01E8738 (--1-$CAutoExclusiveCReaderWriterLock@VCPlatformReaderWriterLock@NSInstrumentation@@@NSInstrument.c)
  */
 
 char __fastcall UmfdAllocation::UpdateKernelmodeAllocation(char *a1, char *a2)
 {
   char *v2; // rsi
   char *v4; // rdi
-  __int64 v6; // r14
-  void *v7; // rbx
-  NSInstrumentation::CPointerHashTable *v8; // rcx
-  unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // rdx
-  const void *v11; // rdx
-  void *v12; // [rsp+40h] [rbp+8h] BYREF
+  PVOID v6; // rbx
+  unsigned __int64 v7; // rdx
+  unsigned __int64 v8; // rdx
+  NSInstrumentation::CPointerHashTable *v9; // rcx
+  const void *v10; // rdx
+  PVOID v11; // [rsp+40h] [rbp+8h] BYREF
+  void *v12; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = a1 - 28;
   v4 = a2 - 28;
@@ -28,45 +28,44 @@ char __fastcall UmfdAllocation::UpdateKernelmodeAllocation(char *a1, char *a2)
     UmfdAllocation::ReleaseKernelmodeAllocation(a2);
     return 1;
   }
-  v6 = *(_QWORD *)(SGDGetSessionState(a1) + 40);
-  v12 = *(void **)(v6 + 8);
-  v7 = v12;
+  v6 = UmfdAllocation::s_allocationLookupLock;
+  v11 = UmfdAllocation::s_allocationLookupLock;
   KeEnterCriticalRegion();
-  ExAcquirePushLockExclusiveEx(v7, 0LL);
+  ExAcquirePushLockExclusiveEx(v6, 0LL);
   if ( *((_DWORD *)v2 + 1) == *((_DWORD *)v4 + 1) && *((_DWORD *)v2 + 6) == *((_DWORD *)v4 + 6) && *(_DWORD *)v4 <= 1u )
   {
-    v8 = *(NSInstrumentation::CPointerHashTable **)v6;
-    if ( *(_QWORD *)v6 )
+    if ( UmfdAllocation::s_allocationLookup )
     {
-      v9 = *((_QWORD *)v2 + 2);
-      if ( v9 )
+      v7 = *((_QWORD *)v2 + 2);
+      if ( v7 )
       {
         v12 = 0LL;
-        NSInstrumentation::CPointerHashTable::Remove(v8, v9, &v12);
+        NSInstrumentation::CPointerHashTable::Remove(
+          (NSInstrumentation::CPointerHashTable *)UmfdAllocation::s_allocationLookup,
+          v7,
+          &v12);
       }
-      v10 = *((_QWORD *)v4 + 2);
-      if ( v10 )
+      v8 = *((_QWORD *)v4 + 2);
+      if ( v8 )
       {
         v12 = 0LL;
-        NSInstrumentation::CPointerHashTable::Remove(*(NSInstrumentation::CPointerHashTable **)v6, v10, &v12);
+        NSInstrumentation::CPointerHashTable::Remove(
+          (NSInstrumentation::CPointerHashTable *)UmfdAllocation::s_allocationLookup,
+          v8,
+          &v12);
       }
     }
+    v9 = (NSInstrumentation::CPointerHashTable *)UmfdAllocation::s_allocationLookup;
     *((_QWORD *)v2 + 1) = *((_QWORD *)v4 + 1);
-    v11 = (const void *)*((_QWORD *)v4 + 2);
-    *((_QWORD *)v2 + 2) = v11;
-    if ( NSInstrumentation::CPointerHashTable::Insert(*(NSInstrumentation::CPointerHashTable **)v6, v11, a1) )
+    v10 = (const void *)*((_QWORD *)v4 + 2);
+    *((_QWORD *)v2 + 2) = v10;
+    if ( NSInstrumentation::CPointerHashTable::Insert(v9, v10, a1) )
     {
       EngFreeMem(v4);
-      ExReleasePushLockExclusiveEx(v7, 0LL);
-      KeLeaveCriticalRegion();
+      NSInstrumentation::CAutoExclusiveCReaderWriterLock<NSInstrumentation::CPlatformReaderWriterLock>::~CAutoExclusiveCReaderWriterLock<NSInstrumentation::CPlatformReaderWriterLock>(&v11);
       return 1;
     }
-    ExReleasePushLockExclusiveEx(v7, 0LL);
-    KeLeaveCriticalRegion();
   }
-  else
-  {
-    NSInstrumentation::CAutoExclusiveCReaderWriterLock<NSInstrumentation::CPlatformReaderWriterLock>::~CAutoExclusiveCReaderWriterLock<NSInstrumentation::CPlatformReaderWriterLock>(&v12);
-  }
+  NSInstrumentation::CAutoExclusiveCReaderWriterLock<NSInstrumentation::CPlatformReaderWriterLock>::~CAutoExclusiveCReaderWriterLock<NSInstrumentation::CPlatformReaderWriterLock>(&v11);
   return 0;
 }

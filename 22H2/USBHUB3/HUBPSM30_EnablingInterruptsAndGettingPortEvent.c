@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPSM30_EnablingInterruptsAndGettingPortEvent @ 0x1C0013920
+ * XREFs of HUBPSM30_EnablingInterruptsAndGettingPortEvent @ 0x1C0012400
  * Callers:
  *     <none>
  * Callees:
- *     HUBHTX_Get30PortChangeEvent @ 0x1C000569C (HUBHTX_Get30PortChangeEvent.c)
- *     HUBMUX_ReEnableInterruptTransfer @ 0x1C0010C2C (HUBMUX_ReEnableInterruptTransfer.c)
+ *     HUBHTX_Get30PortChangeEvent @ 0x1C0004FF8 (HUBHTX_Get30PortChangeEvent.c)
+ *     HUBMUX_ReEnableInterruptTransfer @ 0x1C000F800 (HUBMUX_ReEnableInterruptTransfer.c)
  */
 
 __int64 __fastcall HUBPSM30_EnablingInterruptsAndGettingPortEvent(__int64 a1)

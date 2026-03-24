@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInsertPhysicalPteMapping @ 0x14010FE60
+ * XREFs of MiInsertPhysicalPteMapping @ 0x14010FE80
  * Callers:
- *     MiMapLockedPagesInUserSpaceHelper @ 0x14010FC18 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiInsertViewOfPhysicalSection @ 0x14018CC74 (MiInsertViewOfPhysicalSection.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x14010FC38 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiInsertViewOfPhysicalSection @ 0x14018CC94 (MiInsertViewOfPhysicalSection.c)
  * Callees:
  *     MiProtectionToCacheAttribute @ 0x14002BD80 (MiProtectionToCacheAttribute.c)
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
@@ -11,13 +11,13 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiGetUsedPtesHandle @ 0x140098700 (MiGetUsedPtesHandle.c)
- *     MiIncreaseUsedPtesCount @ 0x140110044 (MiIncreaseUsedPtesCount.c)
- *     MiLookupIoPageNode @ 0x1401100C0 (MiLookupIoPageNode.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiAssignInitialPageAttribute @ 0x14018D1B4 (MiAssignInitialPageAttribute.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiShowBadMapper @ 0x1402A5944 (MiShowBadMapper.c)
+ *     MiIncreaseUsedPtesCount @ 0x140110064 (MiIncreaseUsedPtesCount.c)
+ *     MiLookupIoPageNode @ 0x1401100E0 (MiLookupIoPageNode.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiAssignInitialPageAttribute @ 0x14018D1D4 (MiAssignInitialPageAttribute.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiShowBadMapper @ 0x1402A5A44 (MiShowBadMapper.c)
  */
 
 __int64 __fastcall MiInsertPhysicalPteMapping(unsigned __int64 a1, ULONG_PTR a2, unsigned int a3)

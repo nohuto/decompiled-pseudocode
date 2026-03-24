@@ -1,14 +1,14 @@
 /*
- * XREFs of PspEnforceLimits @ 0x1406A3240
+ * XREFs of PspEnforceLimits @ 0x140617F9C
  * Callers:
- *     PspJobTimeLimitsWork @ 0x1406A3180 (PspJobTimeLimitsWork.c)
+ *     PspJobTimeLimitsWork @ 0x140616500 (PspJobTimeLimitsWork.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     memset @ 0x140435400 (memset.c)
- *     PspGetNextJob @ 0x1406A3338 (PspGetNextJob.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PspGetNextJob @ 0x1406180A0 (PspGetNextJob.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140618450 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
 __int64 __fastcall PspEnforceLimits(char a1)
@@ -34,9 +34,9 @@ __int64 __fastcall PspEnforceLimits(char a1)
     v4 = (void *)result;
     if ( !result )
       break;
-    if ( !*(_QWORD *)(result + 1288) && (!a1 || (*(_DWORD *)(result + 1536) & 0x100000) != 0) )
+    if ( !*(_QWORD *)(result + 1072) && (!a1 || (*(_DWORD *)(result + 1320) & 0x100000) != 0) )
     {
-      _InterlockedAnd((volatile signed __int32 *)(result + 1536), 0xFFEFFFFF);
+      _InterlockedAnd((volatile signed __int32 *)(result + 1320), 0xFFEFFFFF);
       memset(v6, 0, sizeof(v6));
       PspEnumJobsAndProcessesInJobHierarchy(v4, (__int64)v6, 6);
     }

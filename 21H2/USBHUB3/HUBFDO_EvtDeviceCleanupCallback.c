@@ -1,14 +1,13 @@
 /*
- * XREFs of HUBFDO_EvtDeviceCleanupCallback @ 0x1C000CCA0
+ * XREFs of HUBFDO_EvtDeviceCleanupCallback @ 0x1C000C8C0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006D20 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     HUBMISC_WaitForSignal @ 0x1C0030194 (HUBMISC_WaitForSignal.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     TUNNEL_CloseAllUsb4RemoteTargets @ 0x1C0088B88 (TUNNEL_CloseAllUsb4RemoteTargets.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_WaitForSignal @ 0x1C002FAF4 (HUBMISC_WaitForSignal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 NTSTATUS __fastcall HUBFDO_EvtDeviceCleanupCallback(__int64 a1)
@@ -31,11 +30,10 @@ NTSTATUS __fastcall HUBFDO_EvtDeviceCleanupCallback(__int64 a1)
   v1 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0067198);
+         off_1C0066170);
   v3 = v1;
   if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink & 2) != 0 )
     McTemplateK0p_EtwWriteTransfer(v2, (const EVENT_DESCRIPTOR *)"'", 0LL, *(_QWORD *)(v1 + 248));
-  TUNNEL_CloseAllUsb4RemoteTargets(v3);
   v4 = *(void **)(v3 + 2640);
   if ( v4 )
   {
@@ -47,8 +45,8 @@ NTSTATUS __fastcall HUBFDO_EvtDeviceCleanupCallback(__int64 a1)
         *(_QWORD *)(v3 + 2520),
         2u,
         3u,
-        0x22u,
-        (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids,
+        0x1Eu,
+        (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids,
         v14);
     }
     *(_QWORD *)(v3 + 2640) = 0LL;
@@ -64,8 +62,8 @@ NTSTATUS __fastcall HUBFDO_EvtDeviceCleanupCallback(__int64 a1)
         *(_QWORD *)(v3 + 2520),
         2u,
         3u,
-        0x23u,
-        (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids,
+        0x1Fu,
+        (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids,
         v13);
     }
     *(_QWORD *)(v3 + 2568) = 0LL;
@@ -81,8 +79,8 @@ NTSTATUS __fastcall HUBFDO_EvtDeviceCleanupCallback(__int64 a1)
         *(_QWORD *)(v3 + 2520),
         2u,
         3u,
-        0x24u,
-        (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids,
+        0x20u,
+        (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids,
         v13);
     }
     *(_QWORD *)(v3 + 2560) = 0LL;

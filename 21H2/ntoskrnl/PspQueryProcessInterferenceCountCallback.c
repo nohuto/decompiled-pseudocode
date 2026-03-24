@@ -1,13 +1,13 @@
 /*
- * XREFs of PspQueryProcessInterferenceCountCallback @ 0x1409B04E0
+ * XREFs of PspQueryProcessInterferenceCountCallback @ 0x140909130
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     ObReferenceObjectSafeWithTag @ 0x140302BD0 (ObReferenceObjectSafeWithTag.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     PsInvokeWin32Callout @ 0x1406F83A0 (PsInvokeWin32Callout.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PspQueryProcessInterferenceCountCallback(__int64 Object, __int64 a2)
@@ -28,18 +28,18 @@ __int64 __fastcall PspQueryProcessInterferenceCountCallback(__int64 Object, __in
   else
   {
     v5 = 0;
-    if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(Object + 1112)) )
+    if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(Object + 1112)) )
     {
-      v9 = *(_DWORD *)(*(_QWORD *)(a2 + 8) + 576LL);
+      v9 = *(_DWORD *)(*(_QWORD *)(a2 + 8) + 480LL);
       if ( v9 <= 0xFFFFFFFD )
       {
         *(_QWORD *)&v7 = Object;
         *((_QWORD *)&v7 + 1) = &v8;
-        v5 = PsInvokeWin32Callout(24, (__int64)&v7, 1, &v9);
+        v5 = PsInvokeWin32Callout(24, (__int64)&v7, 1, (__int64)&v9);
         if ( v5 >= 0 )
           **(_QWORD **)a2 += v8;
       }
-      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(Object + 1112));
+      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(Object + 1112));
     }
     ObfDereferenceObjectWithTag((PVOID)Object, 0x624A7350u);
   }

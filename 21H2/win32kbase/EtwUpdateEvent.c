@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwUpdateEvent @ 0x1C009AEB0
+ * XREFs of EtwUpdateEvent @ 0x1C0091D60
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C015051C (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0125EE0 (McTemplateK0pq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwUpdateEvent(__int64 a1, int a2, __int64 a3)

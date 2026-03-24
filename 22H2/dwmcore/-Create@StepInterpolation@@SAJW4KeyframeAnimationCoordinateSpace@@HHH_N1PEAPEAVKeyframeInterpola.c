@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Create@StepInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@HHH_N1PEAPEAVKeyframeInterpolation@@@Z @ 0x1800D87AC
+ * XREFs of ?Create@StepInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@HHH_N1PEAPEAVKeyframeInterpolation@@@Z @ 0x1800AA008
  * Callers:
- *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x180055F08 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
+ *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x1800AAD18 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
  * Callees:
- *     ??2KeyframeInterpolation@@SAPEAX_K@Z @ 0x1800D8900 (--2KeyframeInterpolation@@SAPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??2KeyframeInterpolation@@SAPEAX_K@Z @ 0x1800AC800 (--2KeyframeInterpolation@@SAPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall StepInterpolation::Create(
@@ -48,14 +48,14 @@ __int64 __fastcall StepInterpolation::Create(
   {
     v10 = a6;
     if ( a5 && a6 )
-      goto LABEL_24;
+      goto LABEL_26;
   }
   else if ( a4 == a3 )
   {
     if ( a5 || (v10 = a6) != 0 )
     {
       v9 = 0;
-LABEL_24:
+LABEL_26:
       v10 = 0;
     }
   }
@@ -76,13 +76,15 @@ LABEL_24:
     *v13 = 0LL;
     v13[1] = 0LL;
     v13[2] = 0LL;
+    *((_DWORD *)v13 + 2) = 0;
     *(_QWORD *)v13 = &StepInterpolation::`vftable';
-    ((void (__fastcall *)(_OWORD *))StepInterpolation::`vftable')(v13);
   }
   else
   {
     v14 = 0LL;
   }
+  if ( v14 )
+    (**(void (__fastcall ***)(_OWORD *))v14)(v14);
   *((_DWORD *)v14 + 9) = v9;
   *((_DWORD *)v14 + 10) = v10;
   *((float *)v14 + 11) = 1.0 / (float)(v12 - v11 + 1);

@@ -1,31 +1,14 @@
 /*
- * XREFs of PopPublishPowerButtonState @ 0x140996C34
+ * XREFs of PopPublishPowerButtonState @ 0x1408F2248
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x140599180 (PopPowerButtonWorkCallback.c)
+ *     PopPowerButtonWorkCallback @ 0x140578790 (PopPowerButtonWorkCallback.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
  */
 
-__int64 __fastcall PopPublishPowerButtonState(__int64 a1)
+__int64 __fastcall PopPublishPowerButtonState(_DWORD *a1)
 {
-  DbgPrintEx(
-    0x92u,
-    3u,
-    "Power button hold update (down: %d, time: %d ms, sequence: %d, InstanceGuid: %08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X)\n",
-    *(_DWORD *)a1 & 1,
-    *(_DWORD *)a1 >> 1,
-    *(_DWORD *)(a1 + 4),
-    *(_DWORD *)(a1 + 8),
-    *(unsigned __int16 *)(a1 + 12),
-    *(unsigned __int16 *)(a1 + 14),
-    *(unsigned __int8 *)(a1 + 16),
-    *(unsigned __int8 *)(a1 + 17),
-    *(unsigned __int8 *)(a1 + 18),
-    *(unsigned __int8 *)(a1 + 19),
-    *(unsigned __int8 *)(a1 + 20),
-    *(unsigned __int8 *)(a1 + 21),
-    *(unsigned __int8 *)(a1 + 22),
-    *(unsigned __int8 *)(a1 + 23));
-  return ZwUpdateWnfStateData((__int64)&WNF_PO_POWER_BUTTON_STATE, a1);
+  DbgPrintEx(0x92u, 3u, "Power button hold update (down: %d, time: %d ms, sequence: %d)\n", *a1 & 1, *a1 >> 1, a1[1]);
+  return ZwUpdateWnfStateData((__int64)&WNF_PO_POWER_BUTTON_STATE, (__int64)a1);
 }

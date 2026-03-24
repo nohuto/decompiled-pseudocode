@@ -2,14 +2,14 @@
  * XREFs of RtlAddMandatoryAce @ 0x1406308A0
  * Callers:
  *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
- *     IopCreateSecurityDescriptorPerType @ 0x1406527CC (IopCreateSecurityDescriptorPerType.c)
- *     ObpVerifyAccessToBoundaryEntry @ 0x140654070 (ObpVerifyAccessToBoundaryEntry.c)
- *     CmpGenerateAppHiveSecurityDescriptor @ 0x1407F5238 (CmpGenerateAppHiveSecurityDescriptor.c)
+ *     IopCreateSecurityDescriptorPerType @ 0x1406527AC (IopCreateSecurityDescriptorPerType.c)
+ *     ObpVerifyAccessToBoundaryEntry @ 0x140654050 (ObpVerifyAccessToBoundaryEntry.c)
+ *     CmpGenerateAppHiveSecurityDescriptor @ 0x1407F5218 (CmpGenerateAppHiveSecurityDescriptor.c)
  *     SepInitSystemDacls @ 0x1409AD07C (SepInitSystemDacls.c)
  *     ExpKeyedEventInitialization @ 0x1409DA2F8 (ExpKeyedEventInitialization.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     RtlFirstFreeAce @ 0x1406309F0 (RtlFirstFreeAce.c)
  *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
  *     RtlValidAcl @ 0x140631700 (RtlValidAcl.c)

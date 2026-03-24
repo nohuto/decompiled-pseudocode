@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnNameQueryWorker @ 0x14034DF00
+ * XREFs of PfSnNameQueryWorker @ 0x140308320
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PfSnVolumeKeyQuery @ 0x1407BEC48 (PfSnVolumeKeyQuery.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PfSnVolumeKeyQuery @ 0x14067985C (PfSnVolumeKeyQuery.c)
  */
 
 void __fastcall PfSnNameQueryWorker(struct _EX_RUNDOWN_REF *a1)
 {
-  volatile LONG *v1; // r14
+  volatile LONG *v1; // rbp
   KIRQL v3; // al
   unsigned __int64 *Count; // rsi
   unsigned __int64 v5; // rdi
@@ -44,21 +44,24 @@ void __fastcall PfSnNameQueryWorker(struct _EX_RUNDOWN_REF *a1)
     ExReleaseSpinLockExclusiveFromDpcLevel(v1);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-        v11 = (v10 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v10;
-        if ( v11 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+          v11 = (v10 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v10;
+          if ( v11 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v5);
     v6 = (void *)Count[1];
-    if ( (*(int (__fastcall **)(unsigned __int64, void *, __int64 *))(qword_140C651C8 + 16))(a1[44].Count, v6, &v16) >= 0 )
+    if ( (*(int (__fastcall **)(unsigned __int64, void *, __int64 *))(qword_140C503F8 + 16))(a1[44].Count, v6, &v16) >= 0 )
       PfSnVolumeKeyQuery(a1, v16, v6);
     ObfDereferenceObjectWithTag(v6, 0x746C6644u);
   }
@@ -66,18 +69,21 @@ void __fastcall PfSnNameQueryWorker(struct _EX_RUNDOWN_REF *a1)
   ExReleaseSpinLockExclusiveFromDpcLevel(v1);
   if ( KiIrqlFlags )
   {
-    v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v12 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v13 = KeGetCurrentPrcb();
-      v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-      v15 = v13->SchedulerAssist;
-      v11 = (v14 & v15[5]) == 0;
-      v15[5] &= v14;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick(v13);
+      v12 = KeGetCurrentIrql();
+      if ( v12 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v12 >= 2u )
+      {
+        v13 = KeGetCurrentPrcb();
+        v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v15 = v13->SchedulerAssist;
+        v11 = (v14 & v15[5]) == 0;
+        v15[5] &= v14;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick(v13);
+      }
     }
   }
   __writecr8(v5);
-  ExReleaseRundownProtection_0(a1 + 45);
+  ExReleaseRundownProtection(a1 + 45);
 }

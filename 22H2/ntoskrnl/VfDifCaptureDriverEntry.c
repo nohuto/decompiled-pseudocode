@@ -1,32 +1,26 @@
 /*
- * XREFs of VfDifCaptureDriverEntry @ 0x140209F6C
+ * XREFs of VfDifCaptureDriverEntry @ 0x14037D8D4
  * Callers:
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
- *     IopInitializeBuiltinDriver @ 0x140B41264 (IopInitializeBuiltinDriver.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140A5E618 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     VfTargetDriversGetNode @ 0x140209FAC (VfTargetDriversGetNode.c)
- *     ViDifCheckCallbackInterception @ 0x14020A54C (ViDifCheckCallbackInterception.c)
- *     ViDifCaptureDriverEntry @ 0x1405CEFDC (ViDifCaptureDriverEntry.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ViDifCheckCallbackInterception @ 0x14037D908 (ViDifCheckCallbackInterception.c)
+ *     ViDifAllocateCallbackStorage @ 0x1405A0B78 (ViDifAllocateCallbackStorage.c)
+ *     ViDifCaptureDriverEntry @ 0x1405A0BBC (ViDifCaptureDriverEntry.c)
  */
 
 char __fastcall VfDifCaptureDriverEntry(__int64 a1)
 {
-  __int64 Node; // rax
-  __int64 Pool2; // rax
+  __int64 v1; // rdi
+  __int64 CallbackStorage; // rax
 
-  if ( *(_QWORD *)(a1 + 88) )
-  {
-    Node = VfTargetDriversGetNode();
-    if ( Node )
-      *(_QWORD *)(Node + 48) = a1;
-  }
-  if ( !(unsigned __int8)ViDifCheckCallbackInterception(a1) )
+  v1 = *(_QWORD *)(a1 + 48);
+  if ( !(unsigned __int8)ViDifCheckCallbackInterception() )
     return 0;
-  Pool2 = ExAllocatePool2(64LL, 256LL, 1229940310LL);
-  if ( !Pool2 )
+  CallbackStorage = ViDifAllocateCallbackStorage();
+  if ( !CallbackStorage )
     return 0;
-  *(_QWORD *)(*(_QWORD *)(a1 + 48) + 64LL) = Pool2;
+  *(_QWORD *)(v1 + 64) = CallbackStorage;
   ViDifCaptureDriverEntry(a1);
   return 1;
 }

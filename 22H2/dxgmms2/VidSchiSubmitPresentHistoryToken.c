@@ -1,16 +1,16 @@
 /*
- * XREFs of VidSchiSubmitPresentHistoryToken @ 0x1C0016900
+ * XREFs of VidSchiSubmitPresentHistoryToken @ 0x1C000288C
  * Callers:
- *     VidSchiUnwaitMonitoredFences @ 0x1C00073A0 (VidSchiUnwaitMonitoredFences.c)
- *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C00091C0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
- *     VidSchiFlushQueuePacket @ 0x1C003A958 (VidSchiFlushQueuePacket.c)
- *     VidSchiRedirectedFlipWaitOnSyncObject @ 0x1C003B4A8 (VidSchiRedirectedFlipWaitOnSyncObject.c)
- *     ?VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z @ 0x1C00416F4 (-VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z.c)
+ *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C000A0C0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
+ *     VidSchiUnwaitMonitoredFences @ 0x1C000CCD0 (VidSchiUnwaitMonitoredFences.c)
+ *     VidSchiFlushQueuePacket @ 0x1C002FBEC (VidSchiFlushQueuePacket.c)
+ *     VidSchiRedirectedFlipWaitOnSyncObject @ 0x1C0030850 (VidSchiRedirectedFlipWaitOnSyncObject.c)
+ *     ?VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0036548 (-VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
  * Callees:
- *     ?VidSchiProcessPresentHistoryToken@@YAXPEAU_VIDSCH_GLOBAL@@PEAVHwQueueStagingList@@PEAU_VIDSCH_CONTEXT@@PEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_DEVICE@@PEAUVIDSCH_SUBMIT_DATA2@@T_ULARGE_INTEGER@@_N7@Z @ 0x1C00169D8 (-VidSchiProcessPresentHistoryToken@@YAXPEAU_VIDSCH_GLOBAL@@PEAVHwQueueStagingList@@PEAU_VIDSCH_C.c)
- *     ?VidSchiCheckPlaneIndependentFlipCondition@@YA_NPEAU_VIDSCH_GLOBAL@@II@Z @ 0x1C003549C (-VidSchiCheckPlaneIndependentFlipCondition@@YA_NPEAU_VIDSCH_GLOBAL@@II@Z.c)
- *     ?VidSchiCheckTokenIndependentFlipCondition@@YA_NPEAU_VIDSCH_GLOBAL@@PEBUVIDSCH_SUBMIT_DATA2@@@Z @ 0x1C0035570 (-VidSchiCheckTokenIndependentFlipCondition@@YA_NPEAU_VIDSCH_GLOBAL@@PEBUVIDSCH_SUBMIT_DATA2@@@Z.c)
- *     ?VidSchiPostponePresentHistoryToken@@YAXPEAU_VIDSCH_CONTEXT@@PEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_DEVICE@@PEAUVIDSCH_SUBMIT_DATA2@@T_ULARGE_INTEGER@@PEAU_VIDSCH_GLOBAL@@@Z @ 0x1C0035D24 (-VidSchiPostponePresentHistoryToken@@YAXPEAU_VIDSCH_CONTEXT@@PEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_DE.c)
+ *     ?VidSchiProcessPresentHistoryToken@@YAXPEAU_VIDSCH_GLOBAL@@PEAVHwQueueStagingList@@PEAU_VIDSCH_CONTEXT@@PEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_DEVICE@@PEAUVIDSCH_SUBMIT_DATA2@@T_ULARGE_INTEGER@@_N7@Z @ 0x1C00029D0 (-VidSchiProcessPresentHistoryToken@@YAXPEAU_VIDSCH_GLOBAL@@PEAVHwQueueStagingList@@PEAU_VIDSCH_C.c)
+ *     ?VidSchiCheckPlaneIndependentFlipCondition@@YA_NPEAU_VIDSCH_GLOBAL@@II@Z @ 0x1C002A6E4 (-VidSchiCheckPlaneIndependentFlipCondition@@YA_NPEAU_VIDSCH_GLOBAL@@II@Z.c)
+ *     ?VidSchiCheckTokenIndependentFlipCondition@@YA_NPEAU_VIDSCH_GLOBAL@@PEBUVIDSCH_SUBMIT_DATA2@@@Z @ 0x1C002A760 (-VidSchiCheckTokenIndependentFlipCondition@@YA_NPEAU_VIDSCH_GLOBAL@@PEBUVIDSCH_SUBMIT_DATA2@@@Z.c)
+ *     ?VidSchiPostponePresentHistoryToken@@YAXPEAU_VIDSCH_CONTEXT@@PEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_DEVICE@@PEAUVIDSCH_SUBMIT_DATA2@@T_ULARGE_INTEGER@@PEAU_VIDSCH_GLOBAL@@@Z @ 0x1C002B684 (-VidSchiPostponePresentHistoryToken@@YAXPEAU_VIDSCH_CONTEXT@@PEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_DE.c)
  */
 
 void __fastcall VidSchiSubmitPresentHistoryToken(
@@ -22,28 +22,30 @@ void __fastcall VidSchiSubmitPresentHistoryToken(
 {
   bool v5; // di
   struct _VIDSCH_CONTEXT *v8; // r13
-  __int64 v9; // r12
+  __int64 v9; // r10
   __int64 v10; // r15
   __int64 v11; // rax
   __int64 v12; // rbp
-  __int64 v13; // rdx
+  __int64 v13; // r12
   bool v14; // al
-  char v15; // r8
-  bool v16; // zf
-  unsigned int v17; // ecx
-  char v18; // al
-  char v19; // cl
-  __int64 v20; // rdx
-  __int64 v21; // r14
-  int v22; // eax
-  unsigned int v23; // r8d
-  unsigned int v24; // edx
-  __int64 v25; // rax
-  __int64 v26; // rcx
-  unsigned int v27; // [rsp+50h] [rbp-48h]
-  unsigned int v28; // [rsp+54h] [rbp-44h]
+  unsigned int v15; // r8d
+  unsigned int v16; // edx
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  char v19; // dl
+  bool v20; // zf
+  unsigned int v21; // ecx
+  char v22; // al
+  char v23; // cl
+  __int64 v24; // rdx
+  __int64 v25; // r14
+  struct VIDSCH_HW_QUEUE *v26; // rdx
+  int v27; // eax
+  unsigned int v28; // [rsp+50h] [rbp-48h]
+  struct VIDSCH_HW_QUEUE *v29; // [rsp+58h] [rbp-40h]
 
   v5 = 0;
+  v29 = 0LL;
   v8 = 0LL;
   v9 = 0LL;
   v10 = 0LL;
@@ -60,6 +62,7 @@ void __fastcall VidSchiSubmitPresentHistoryToken(
     else
     {
       v9 = a2[12];
+      v29 = (struct VIDSCH_HW_QUEUE *)v9;
       v10 = *(_QWORD *)(*(_QWORD *)(v9 + 40) + 8LL);
     }
     v12 = *(_QWORD *)(v10 + 32);
@@ -69,77 +72,37 @@ void __fastcall VidSchiSubmitPresentHistoryToken(
     v12 = a5;
   }
   v13 = *((unsigned int *)a3 + 29);
-  v28 = *((_DWORD *)a3 + 29);
   if ( (*(_DWORD *)a3 & 0x1000000) == 0 )
   {
-    if ( *(_QWORD *)((char *)a3 + 156) && (_DWORD)v13 != -1 && *(_QWORD *)(v12 + 8 * v13 + 3200) )
+    if ( a3[19] && (_DWORD)v13 != -1 && *(_QWORD *)(v12 + 8 * v13 + 3104) )
     {
-      v23 = *(_DWORD *)(v12 + 152);
-      v24 = 0;
-      if ( !v23 )
+      v15 = *(_DWORD *)(v12 + 144);
+      v16 = 0;
+      if ( v15 )
       {
-        v14 = 0;
-        goto LABEL_8;
-      }
-      while ( 1 )
-      {
-        v25 = *(int *)(288LL * v24 + *(_QWORD *)(v12 + 8LL * *((unsigned int *)a3 + 29) + 3200) + 188);
-        if ( (int)v25 > -1 )
+        while ( 1 )
         {
-          v26 = *(_QWORD *)(v12 + 3328) + 160 * v25;
-          if ( v26 )
+          v17 = *(int *)(216LL * v16 + *(_QWORD *)(v12 + 8 * v13 + 3104) + 172);
+          v18 = (int)v17 > -1 ? *(_QWORD *)(v12 + 3232) + 152 * v17 : 0LL;
+          if ( v18
+            && *((_DWORD *)a3 + 38) == *(_DWORD *)v18
+            && *((_DWORD *)a3 + 39) == *(_DWORD *)(v18 + 4)
+            && a3[20] == *(_QWORD *)(v18 + 8)
+            && *(_DWORD *)(v18 + 112) == 3 )
           {
-            if ( *((_DWORD *)a3 + 39) == *(_DWORD *)v26
-              && *((_DWORD *)a3 + 40) == *(_DWORD *)(v26 + 4)
-              && a3[21] == *(_QWORD *)(v26 + 8)
-              && *(_DWORD *)(v26 + 112) == 3 )
-            {
-              goto LABEL_22;
-            }
+            goto LABEL_35;
           }
+          if ( ++v16 >= v15 )
+            goto LABEL_7;
         }
-        if ( ++v24 >= v23 )
-          goto LABEL_7;
       }
-    }
-    goto LABEL_7;
-  }
-  v15 = -1;
-  v16 = !_BitScanForward(&v17, a3[75] & 0x3FF);
-  v18 = v17;
-  v19 = 0;
-  if ( !v16 )
-    v15 = v18;
-  if ( v15 != -1 )
-    v19 = v15;
-  v27 = v19;
-  v20 = *(int *)(*(_QWORD *)(v12 + 8 * v13 + 3200) + 288LL * (unsigned int)v19 + 188);
-  if ( (int)v20 <= -1 )
-    goto LABEL_7;
-  v21 = *(_QWORD *)(v12 + 3328) + 160 * v20;
-  if ( !v21 )
-    goto LABEL_7;
-  if ( *(_QWORD *)(v21 + 120) == v21 + 120 )
-  {
-    v22 = *(_DWORD *)(v21 + 112);
-    if ( v22 == 3 )
-    {
-      if ( *((_DWORD *)a3 + 39) == *(_DWORD *)v21
-        && *((_DWORD *)a3 + 40) == *(_DWORD *)(v21 + 4)
-        && a3[21] == *(_QWORD *)(v21 + 8) )
-      {
-LABEL_22:
-        v14 = 1;
-        goto LABEL_8;
-      }
-LABEL_7:
       v14 = 0;
 LABEL_8:
       VidSchiProcessPresentHistoryToken(
         (struct _VIDSCH_GLOBAL *)v12,
         a1,
         v8,
-        (struct VIDSCH_HW_QUEUE *)v9,
+        v29,
         (struct _VIDSCH_DEVICE *)v10,
         (struct VIDSCH_SUBMIT_DATA2 *)a3,
         a4,
@@ -147,26 +110,68 @@ LABEL_8:
         v14);
       return;
     }
-    if ( v22 != 1
+    goto LABEL_7;
+  }
+  v19 = -1;
+  v20 = !_BitScanForward(&v21, a3[72] & 0x3FF);
+  v22 = v21;
+  v23 = 0;
+  if ( !v20 )
+    v19 = v22;
+  if ( v19 != -1 )
+    v23 = v19;
+  v28 = v23;
+  v24 = *(int *)(*(_QWORD *)(v12 + 8 * v13 + 3104) + 216LL * (unsigned int)v23 + 172);
+  if ( (int)v24 <= -1 )
+    v25 = 0LL;
+  else
+    v25 = *(_QWORD *)(v12 + 3232) + 152 * v24;
+  if ( !v25 )
+    goto LABEL_7;
+  if ( *(_QWORD *)(v25 + 120) == v25 + 120 )
+  {
+    v27 = *(_DWORD *)(v25 + 112);
+    if ( v27 == 3 )
+    {
+      if ( *((_DWORD *)a3 + 38) == *(_DWORD *)v25
+        && *((_DWORD *)a3 + 39) == *(_DWORD *)(v25 + 4)
+        && a3[20] == *(_QWORD *)(v25 + 8) )
+      {
+LABEL_35:
+        v14 = 1;
+        goto LABEL_8;
+      }
+      goto LABEL_7;
+    }
+    if ( v27 != 1
       || !VidSchiCheckTokenIndependentFlipCondition(
             (struct _VIDSCH_GLOBAL *)v12,
             (const struct VIDSCH_SUBMIT_DATA2 *)a3) )
     {
       goto LABEL_7;
     }
-    if ( !*(_BYTE *)(v21 + 97) )
+    if ( !*(_BYTE *)(v25 + 97) )
     {
       v14 = 0;
       v5 = 1;
-      *(_BYTE *)(v21 + 97) = 1;
+      *(_BYTE *)(v25 + 97) = 1;
       goto LABEL_8;
     }
-    if ( VidSchiCheckPlaneIndependentFlipCondition((struct _VIDSCH_GLOBAL *)v12, v28, v27) )
-      goto LABEL_7;
+    if ( VidSchiCheckPlaneIndependentFlipCondition((struct _VIDSCH_GLOBAL *)v12, v13, v28) )
+    {
+LABEL_7:
+      v14 = 0;
+      goto LABEL_8;
+    }
+    v26 = v29;
+  }
+  else
+  {
+    v26 = (struct VIDSCH_HW_QUEUE *)v9;
   }
   VidSchiPostponePresentHistoryToken(
     v8,
-    (struct VIDSCH_HW_QUEUE *)v9,
+    v26,
     (struct _VIDSCH_DEVICE *)v10,
     (struct VIDSCH_SUBMIT_DATA2 *)a3,
     a4,

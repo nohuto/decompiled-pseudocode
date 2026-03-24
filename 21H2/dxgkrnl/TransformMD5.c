@@ -1,8 +1,8 @@
 /*
- * XREFs of TransformMD5 @ 0x1C01ACD40
+ * XREFs of TransformMD5 @ 0x1C013129C
  * Callers:
- *     ?DX_MD5Final@@YAXPEAUMD5_CTX@@@Z @ 0x1C01ACC2C (-DX_MD5Final@@YAXPEAUMD5_CTX@@@Z.c)
- *     ?DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z @ 0x1C01AD620 (-DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z.c)
+ *     ?DX_MD5Final@@YAXPEAUMD5_CTX@@@Z @ 0x1C0131188 (-DX_MD5Final@@YAXPEAUMD5_CTX@@@Z.c)
+ *     ?DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z @ 0x1C0131B7C (-DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z.c)
  * Callees:
  *     <none>
  */

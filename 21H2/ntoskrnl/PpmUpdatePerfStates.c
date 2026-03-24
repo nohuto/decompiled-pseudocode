@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmUpdatePerfStates @ 0x14098EE60
+ * XREFs of PpmUpdatePerfStates @ 0x1408E6590
  * Callers:
  *     <none>
  * Callees:
- *     PpmReleaseLock @ 0x140224C00 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     PpmPerfUpdateDomainPolicy @ 0x14069DDE8 (PpmPerfUpdateDomainPolicy.c)
- *     PpmReinitializeHeteroEngine @ 0x140848BE8 (PpmReinitializeHeteroEngine.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x14078B5DC (PpmPerfUpdateDomainPolicy.c)
+ *     PpmReinitializeHeteroEngine @ 0x1407B9AE8 (PpmReinitializeHeteroEngine.c)
  */
 
-void __fastcall PpmUpdatePerfStates(_DWORD *a1)
+char __fastcall PpmUpdatePerfStates(_DWORD *a1)
 {
   __int64 v2; // rdx
   __int64 v3; // r10
@@ -29,12 +29,12 @@ void __fastcall PpmUpdatePerfStates(_DWORD *a1)
     v4 = 0;
     while ( (__int64 *)v2 != &PpmPerfDomainHead )
     {
-      v5 = *(_DWORD *)(v2 + 296);
+      v5 = *(_DWORD *)(v2 + 200);
       v6 = 0;
       v3 = v2;
       if ( v5 )
       {
-        v7 = *(_QWORD *)(v2 + 312);
+        v7 = *(_QWORD *)(v2 + 216);
         while ( 1 )
         {
           v8 = 136LL * v6;
@@ -56,23 +56,24 @@ LABEL_8:
   }
   else
   {
-    v9 = *(_QWORD *)(KeGetPrcb(a1[1]) + 33968);
+    v9 = *(_QWORD *)(KeGetPrcb(a1[1]) + 33128);
   }
   if ( v9 )
   {
-    if ( *(_DWORD *)(v9 + 444) == *a1 )
+    if ( *(_DWORD *)(v9 + 320) == *a1 )
     {
-      PpmReleaseLock(&PpmPerfPolicyLock);
+      LOBYTE(v9) = PpmReleaseLock(&PpmPerfPolicyLock);
     }
     else
     {
-      *(_DWORD *)(v9 + 444) = *a1;
-      PpmPerfUpdateDomainPolicy(1);
+      *(_DWORD *)(v9 + 320) = *a1;
+      LOBYTE(v9) = PpmPerfUpdateDomainPolicy(1);
     }
     if ( (unsigned int)PpmPerfDomainCount > 1 )
     {
       PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-      PpmReinitializeHeteroEngine(1);
+      LOBYTE(v9) = PpmReinitializeHeteroEngine(1);
     }
   }
+  return v9;
 }

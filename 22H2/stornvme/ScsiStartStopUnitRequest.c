@@ -1,11 +1,11 @@
 /*
- * XREFs of ScsiStartStopUnitRequest @ 0x1C001ACF0
+ * XREFs of ScsiStartStopUnitRequest @ 0x1C00171FC
  * Callers:
- *     ScsiToNVMe @ 0x1C00015C0 (ScsiToNVMe.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
  * Callees:
- *     SrbAssignQueueId @ 0x1C0001E60 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     NVMeSetSenseData @ 0x1C00241F8 (NVMeSetSenseData.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
 __int64 __fastcall ScsiStartStopUnitRequest(__int64 a1, __int64 a2)
@@ -32,12 +32,12 @@ __int64 __fastcall ScsiStartStopUnitRequest(__int64 a1, __int64 a2)
   }
   if ( (*(_BYTE *)(v4 + 4) & 1) != 0 )
   {
-    v9 = *(_DWORD *)(v6 + 32);
+    v9 = *(_DWORD *)(v6 + 24);
     if ( (v9 & 0x200) == 0 )
     {
       v10 = 0;
-      *(_DWORD *)(v6 + 32) = v9 | 0x200;
-      *(_DWORD *)(v6 + 236) = 0;
+      *(_DWORD *)(v6 + 24) = v9 | 0x200;
+      *(_DWORD *)(v6 + 212) = 0;
 LABEL_9:
       *(_BYTE *)(SrbExtension + 4253) = *(_BYTE *)(SrbExtension + 4253) & 0xFC | 1;
       SrbAssignQueueId(v6, v2);
@@ -48,10 +48,10 @@ LABEL_9:
       return 0LL;
     }
   }
-  else if ( ++*(_DWORD *)(v6 + 236) >= *(_DWORD *)(v6 + 220) )
+  else if ( ++*(_DWORD *)(v6 + 212) >= *(_DWORD *)(v6 + 196) )
   {
-    v11 = *(_QWORD *)(v6 + 1840);
-    *(_DWORD *)(v6 + 32) &= ~0x200u;
+    v11 = *(_QWORD *)(v6 + 1624);
+    *(_DWORD *)(v6 + 24) &= ~0x200u;
     v10 = *(_BYTE *)(v11 + 263);
     goto LABEL_9;
   }

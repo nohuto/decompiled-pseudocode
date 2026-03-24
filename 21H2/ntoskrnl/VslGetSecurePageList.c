@@ -1,20 +1,20 @@
 /*
- * XREFs of VslGetSecurePageList @ 0x14054E34C
+ * XREFs of VslGetSecurePageList @ 0x1404FC6D0
  * Callers:
- *     HvlDiscardSecurePagesFromHibernation @ 0x14054991C (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlIterateSecurePagesForHibernation @ 0x140549A48 (HvlIterateSecurePagesForHibernation.c)
- *     HvlAddSecurePagesCallbackRoutine @ 0x14054A610 (HvlAddSecurePagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromSecureKernel @ 0x14054B018 (HvlpGetEncryptedDataFromSecureKernel.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x1404F7CB4 (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlIterateSecurePagesForHibernation @ 0x1404F7DE0 (HvlIterateSecurePagesForHibernation.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x1404F88D0 (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromSecureKernel @ 0x1404F9284 (HvlpGetEncryptedDataFromSecureKernel.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslGetSecurePageList(unsigned __int8 a1, __int64 a2, _DWORD *a3, _BYTE *a4)
+NTSTATUS __fastcall VslGetSecurePageList(unsigned __int8 a1, __int64 a2, _DWORD *a3, _BYTE *a4)
 {
   __int64 v5; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD v9[14]; // [rsp+20h] [rbp-98h] BYREF
 
   v5 = a1;
@@ -22,7 +22,7 @@ __int64 __fastcall VslGetSecurePageList(unsigned __int8 a1, __int64 a2, _DWORD *
   v9[1] = v5;
   v9[2] = a2;
   result = VslpEnterIumSecureMode(2u, 2050, 0, (__int64)v9);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     *a4 = v9[2];
     if ( a3 )

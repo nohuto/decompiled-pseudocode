@@ -1,16 +1,16 @@
 /*
- * XREFs of SepSetServerSiloToken @ 0x14089C000
+ * XREFs of SepSetServerSiloToken @ 0x14089BFE0
  * Callers:
  *     SepCopyAnonymousTokenAndSetSilo @ 0x1405828D0 (SepCopyAnonymousTokenAndSetSilo.c)
- *     SepCopyClientTokenAndSetSilo @ 0x14089BCF0 (SepCopyClientTokenAndSetSilo.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x14089BCD0 (SepCopyClientTokenAndSetSilo.c)
  * Callees:
  *     SepDeReferenceLogonSessionDirect @ 0x1400140A0 (SepDeReferenceLogonSessionDirect.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     SepReferenceLogonSessionSilo @ 0x1405BD728 (SepReferenceLogonSessionSilo.c)
- *     SepAddTokenLogonSession @ 0x1408A2760 (SepAddTokenLogonSession.c)
- *     SepRemoveTokenLogonSession @ 0x1408A2B20 (SepRemoveTokenLogonSession.c)
+ *     SepAddTokenLogonSession @ 0x1408A2740 (SepAddTokenLogonSession.c)
+ *     SepRemoveTokenLogonSession @ 0x1408A2B00 (SepRemoveTokenLogonSession.c)
  */
 
 __int64 __fastcall SepSetServerSiloToken(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhD3ColdSupportInterfaceReference @ 0x1C0053590
+ * XREFs of UsbhD3ColdSupportInterfaceReference @ 0x1C0054BF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall UsbhD3ColdSupportInterfaceReference(__int64 a1))(_QWORD)

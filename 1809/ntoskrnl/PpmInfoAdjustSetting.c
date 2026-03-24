@@ -3,7 +3,7 @@
  * Callers:
  *     PpmSetProfilePolicySetting @ 0x14058ABB4 (PpmSetProfilePolicySetting.c)
  * Callees:
- *     PpmPerfComputePerfReductionTolerance @ 0x1402DB1F4 (PpmPerfComputePerfReductionTolerance.c)
+ *     PpmPerfComputePerfReductionTolerance @ 0x1402DB2F4 (PpmPerfComputePerfReductionTolerance.c)
  *     PpmInfoWriteData @ 0x14058BA70 (PpmInfoWriteData.c)
  */
 

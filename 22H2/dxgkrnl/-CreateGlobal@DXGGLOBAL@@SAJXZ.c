@@ -1,58 +1,48 @@
 /*
- * XREFs of ?CreateGlobal@DXGGLOBAL@@SAJXZ @ 0x1C02142D4
+ * XREFs of ?CreateGlobal@DXGGLOBAL@@SAJXZ @ 0x1C017AC54
  * Callers:
- *     DriverEntry @ 0x1C03DEE7C (DriverEntry.c)
+ *     DriverEntry @ 0x1C03072C8 (DriverEntry.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C02143F8 (-Initialize@DXGGLOBAL@@QEAAJXZ.c)
- *     ??0DXGGLOBAL@@AEAA@XZ @ 0x1C02167C4 (--0DXGGLOBAL@@AEAA@XZ.c)
- *     ?DestroyGlobal@DXGGLOBAL@@SAXXZ @ 0x1C0312694 (-DestroyGlobal@DXGGLOBAL@@SAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C017B444 (-Initialize@DXGGLOBAL@@QEAAJXZ.c)
+ *     ??0DXGGLOBAL@@AEAA@XZ @ 0x1C017DA1C (--0DXGGLOBAL@@AEAA@XZ.c)
+ *     ?DestroyGlobal@DXGGLOBAL@@SAXXZ @ 0x1C0269654 (-DestroyGlobal@DXGGLOBAL@@SAXXZ.c)
  */
 
-__int64 __fastcall DXGGLOBAL::CreateGlobal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall DXGGLOBAL::CreateGlobal(__int64 a1, __int64 a2)
 {
-  DXGGLOBAL *v4; // rax
-  DXGGLOBAL *v5; // rax
+  DXGGLOBAL *v2; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
   __int64 result; // rax
-  unsigned int v7; // ebx
+  unsigned int v8; // ebx
+  __int64 v9; // rax
 
-  if ( *(_QWORD *)&DXGGLOBAL::m_pGlobal )
+  if ( DXGGLOBAL::m_pGlobal )
   {
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(a1, a2, a3, a4) + 24) = -1073741823LL;
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(a1, a2) + 24) = -1073741823LL;
     return 3221225473LL;
   }
-  v4 = (DXGGLOBAL *)operator new[](0x4A8C0uLL, 0x4B677844u, 64LL);
-  if ( !v4 )
+  v2 = (DXGGLOBAL *)operator new[](0x4A720uLL, 0x4B677844u, (POOL_TYPE)512);
+  if ( v2 )
+    v2 = DXGGLOBAL::DXGGLOBAL(v2);
+  DXGGLOBAL::m_pGlobal = v2;
+  if ( !v2 )
   {
-    *(_QWORD *)&DXGGLOBAL::m_pGlobal = 0LL;
-    goto LABEL_9;
+    v9 = WdLogNewEntry5_WdLowResource(v4, v3, v5, v6);
+    v8 = -1073741801;
+    *(_QWORD *)(v9 + 24) = -1073741801LL;
+    WdLogEvent5_WdLowResource(v9);
+    return v8;
   }
-  v5 = DXGGLOBAL::DXGGLOBAL(v4);
-  *(_QWORD *)&DXGGLOBAL::m_pGlobal = v5;
-  if ( !v5 )
-  {
-LABEL_9:
-    v7 = -1073741801;
-    WdLogSingleEntry1(6LL, -1073741801LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Failed to allocate DXGGLOBAL returning 0x%I64x",
-      -1073741801LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return v7;
-  }
-  result = DXGGLOBAL::Initialize(v5);
-  v7 = result;
+  result = DXGGLOBAL::Initialize(v2);
+  v8 = result;
   if ( (int)result < 0 )
   {
     DXGGLOBAL::DestroyGlobal();
-    return v7;
+    return v8;
   }
   return result;
 }

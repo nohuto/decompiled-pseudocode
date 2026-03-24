@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ReleaseResources@CEffectBrush@@AEAAXXZ @ 0x180040394
+ * XREFs of ?ReleaseResources@CEffectBrush@@AEAAXXZ @ 0x1800CFC54
  * Callers:
- *     ?ProcessSetTemplate@CEffectBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_EFFECTBRUSH_SETTEMPLATE@@@Z @ 0x180035D28 (-ProcessSetTemplate@CEffectBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_EFFECTBRUSH_SETTEMPLATE.c)
- *     ??1CEffectBrush@@MEAA@XZ @ 0x180040464 (--1CEffectBrush@@MEAA@XZ.c)
+ *     ?ProcessSetTemplate@CEffectBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_EFFECTBRUSH_SETTEMPLATE@@@Z @ 0x18004823C (-ProcessSetTemplate@CEffectBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_EFFECTBRUSH_SETTEMPLATE.c)
+ *     ??1CEffectBrush@@MEAA@XZ @ 0x1800CFAC4 (--1CEffectBrush@@MEAA@XZ.c)
  * Callees:
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D0F68 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D5C3C (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?InternalRelease@?$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EA9A4 (-InternalRelease@-$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800C0048 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C8F44 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C930C (-InternalRelease@-$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
  */
 
 void __fastcall CEffectBrush::ReleaseResources(CEffectBrush *this)
@@ -20,28 +20,28 @@ void __fastcall CEffectBrush::ReleaseResources(CEffectBrush *this)
   __int64 v6; // rbp
   __int64 v7; // rbx
 
-  v1 = *((_QWORD *)this + 9);
+  v1 = *((_QWORD *)this + 8);
   if ( v1 )
   {
     *(_DWORD *)(v1 + 40) = 0;
-    DynArrayImpl<0>::ShrinkToSize(v1 + 16, 24LL);
+    DynArrayImpl<0>::ShrinkToSize(v1 + 16, 0x18u);
     *(_BYTE *)(v1 + 200) = 1;
-    Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease((char *)this + 72);
+    Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease((__int64 *)this + 8);
   }
-  v3 = *((_QWORD *)this + 13);
+  v3 = *((_QWORD *)this + 12);
   if ( v3 )
   {
-    *(_QWORD *)(v3 + 80) = 0LL;
-    Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease((char *)this + 104);
+    *(_QWORD *)(v3 + 72) = 0LL;
+    Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease((__int64 *)this + 12);
   }
-  v4 = *((_DWORD *)this + 36);
+  v4 = *((_DWORD *)this + 34);
   if ( v4 )
   {
     v5 = 0LL;
     v6 = v4;
     do
     {
-      v7 = *((_QWORD *)this + 15);
+      v7 = *((_QWORD *)this + 14);
       CResource::UnRegisterNotifierInternal(this, *(struct CResource **)(v5 + v7));
       *(_QWORD *)(v5 + v7) = 0LL;
       v5 += 8LL;
@@ -49,9 +49,9 @@ void __fastcall CEffectBrush::ReleaseResources(CEffectBrush *this)
     }
     while ( v6 );
   }
-  *((_DWORD *)this + 36) = 0;
-  DynArrayImpl<0>::ShrinkToSize((char *)this + 120, 8LL);
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((char *)this + 112);
-  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 12));
-  *((_QWORD *)this + 12) = 0LL;
+  *((_DWORD *)this + 34) = 0;
+  DynArrayImpl<0>::ShrinkToSize((__int64)this + 112, 8u);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((char *)this + 104);
+  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 11));
+  *((_QWORD *)this + 11) = 0LL;
 }

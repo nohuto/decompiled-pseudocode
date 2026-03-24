@@ -1,38 +1,33 @@
 /*
- * XREFs of _anonymous_namespace_::ScrubDelegatedWindow_tagBWND___ @ 0x1C0135690
+ * XREFs of _anonymous_namespace_::ScrubDelegatedWindow_tagBWND___ @ 0x1C011E0A0
  * Callers:
- *     ?ScrubDelegateThreadWindows@DelegationAPI@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C009AEB0 (-ScrubDelegateThreadWindows@DelegationAPI@@YAXPEAUtagTHREADINFO@@@Z.c)
- *     CleanupInputDelegation @ 0x1C009AF40 (CleanupInputDelegation.c)
+ *     CleanupInputDelegation @ 0x1C0092110 (CleanupInputDelegation.c)
+ *     ?ScrubDelegateThreadWindows@DelegationAPI@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C0092158 (-ScrubDelegateThreadWindows@DelegationAPI@@YAXPEAUtagTHREADINFO@@@Z.c)
  * Callees:
- *     IsClearDelegationCaptureSupported @ 0x1C009B050 (IsClearDelegationCaptureSupported.c)
- *     _anonymous_namespace_::ScrubDelegateThread @ 0x1C009B07C (_anonymous_namespace_--ScrubDelegateThread.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     IsClearDelegationCaptureSupported @ 0x1C0098E04 (IsClearDelegationCaptureSupported.c)
+ *     ClearDelegationCapture @ 0x1C0099F84 (ClearDelegationCapture.c)
+ *     _anonymous_namespace_::ScrubDelegateThread @ 0x1C00B0FA4 (_anonymous_namespace_--ScrubDelegateThread.c)
  */
 
 char __fastcall anonymous_namespace_::ScrubDelegatedWindow_tagBWND___(__int64 a1)
 {
   __int64 v1; // rbx
-  __int64 v4; // rax
+  __int64 v3; // rax
 
   v1 = *(_QWORD *)(a1 + 64);
   if ( !v1 )
-  {
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000, 39);
     return 0;
-  }
-  v4 = *(_QWORD *)(a1 + 16);
+  v3 = *(_QWORD *)(a1 + 16);
   *(_QWORD *)(a1 + 64) = 0LL;
   *(_DWORD *)(a1 + 72) = 0;
-  --*(_DWORD *)(v4 + 1344);
-  --*(_DWORD *)(v1 + 1344);
+  --*(_DWORD *)(v3 + 1272);
+  --*(_DWORD *)(v1 + 1272);
   if ( (int)IsClearDelegationCaptureSupported() >= 0
-    && *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 432LL) + 144LL) == a1 )
+    && *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 432LL) + 136LL) == a1 )
   {
-    if ( qword_1C0295578 )
-      qword_1C0295578();
+    ClearDelegationCapture();
   }
-  if ( *(_DWORD *)(v1 + 1344) )
+  if ( *(_DWORD *)(v1 + 1272) )
     return 0;
   anonymous_namespace_::ScrubDelegateThread(v1);
   return 1;

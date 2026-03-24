@@ -1,22 +1,23 @@
 /*
- * XREFs of ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x18029A484
+ * XREFs of ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x180258114
  * Callers:
- *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x180299F98 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800F2900 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
  * Callees:
- *     ?Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z @ 0x1800572F0 (-Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOverlayContext@@@Z @ 0x18007E114 (-BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOv.c)
- *     ?EndFrame@CDrawingContext@@QEAAJXZ @ 0x18007E408 (-EndFrame@CDrawingContext@@QEAAJXZ.c)
- *     ?InternalRelease@?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F65A4 (-InternalRelease@-$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?IsEmpty@CDirtyRegion@@QEBA_NXZ @ 0x1800FE910 (-IsEmpty@CDirtyRegion@@QEBA_NXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ @ 0x1801932D8 (-GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ.c)
- *     ??4?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@QEAAAEAV012@PEAVIRenderTargetBitmap@@@Z @ 0x180201384 (--4-$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@QEAAAEAV012@PEAVIRenderTargetBitmap@@@Z.c)
- *     ?CalculateViewTransformForVisualTree@CStereoscopicContentManager@@QEAA?BVCMILMatrix@@PEBVCVisualTree@@IIHH@Z @ 0x180297470 (-CalculateViewTransformForVisualTree@CStereoscopicContentManager@@QEAA-BVCMILMatrix@@PEBVCVisual.c)
- *     ?RenderDirtyRegion@CHolographicInteropTarget@@AEAAJPEAVCHolographicInteropTexture@@PEAVCVisualTree@@PEBVCDirtyRegion@@IIPEAVIRenderTargetBitmap@@PEAVCDrawingContext@@@Z @ 0x18029A220 (-RenderDirtyRegion@CHolographicInteropTarget@@AEAAJPEAVCHolographicInteropTexture@@PEAVCVisualTr.c)
- *     ?BeginFrame@CHolographicInteropTexture@@QEAAPEAVIRenderTargetBitmap@@II@Z @ 0x18029B0F8 (-BeginFrame@CHolographicInteropTexture@@QEAAPEAVIRenderTargetBitmap@@II@Z.c)
- *     ?EndFrame@CHolographicInteropTexture@@QEAAXII_N@Z @ 0x18029B35C (-EndFrame@CHolographicInteropTexture@@QEAAXII_N@Z.c)
- *     ?EnsureRenderBuffers@CHolographicInteropTexture@@QEAAJPEAVCD3DDevice@@W4DXGI_FORMAT@@@Z @ 0x18029B3F0 (-EnsureRenderBuffers@CHolographicInteropTexture@@QEAAJPEAVCD3DDevice@@W4DXGI_FORMAT@@@Z.c)
+ *     ?InternalRelease@?$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ @ 0x18001B590 (-InternalRelease@-$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z @ 0x180041A78 (-Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOverlayContext@@@Z @ 0x18007A2A8 (-BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOv.c)
+ *     ?IsEmpty@CDirtyRegion@@QEBA_NXZ @ 0x1800900DC (-IsEmpty@CDirtyRegion@@QEBA_NXZ.c)
+ *     ?EndFrame@CDrawingContext@@QEAAJXZ @ 0x1800908C4 (-EndFrame@CDrawingContext@@QEAAJXZ.c)
+ *     ?GetFrameContainsMonitorSpecificContent@CDrawingContext@@QEBA_NXZ @ 0x1800DB56C (-GetFrameContainsMonitorSpecificContent@CDrawingContext@@QEBA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ @ 0x180155AC4 (-GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ.c)
+ *     ??4?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@QEAAAEAV012@PEAVIRenderTargetBitmap@@@Z @ 0x1801E40B8 (--4-$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@QEAAAEAV012@PEAVIRenderTargetBitmap@@@Z.c)
+ *     ?CalculateViewTransformForVisualTree@CStereoscopicContentManager@@QEAA?BVCMILMatrix@@PEBVCVisualTree@@IIHH@Z @ 0x180255444 (-CalculateViewTransformForVisualTree@CStereoscopicContentManager@@QEAA-BVCMILMatrix@@PEBVCVisual.c)
+ *     ?RenderDirtyRegion@CHolographicInteropTarget@@AEAAJPEAVCHolographicInteropTexture@@PEAVCVisualTree@@PEBVCDirtyRegion@@IIPEAVIRenderTargetBitmap@@PEAVCDrawingContext@@@Z @ 0x180257EA4 (-RenderDirtyRegion@CHolographicInteropTarget@@AEAAJPEAVCHolographicInteropTexture@@PEAVCVisualTr.c)
+ *     ?BeginFrame@CHolographicInteropTexture@@QEAAPEAVIRenderTargetBitmap@@II@Z @ 0x180258BB8 (-BeginFrame@CHolographicInteropTexture@@QEAAPEAVIRenderTargetBitmap@@II@Z.c)
+ *     ?EndFrame@CHolographicInteropTexture@@QEAAXII_N@Z @ 0x180258E08 (-EndFrame@CHolographicInteropTexture@@QEAAXII_N@Z.c)
+ *     ?EnsureRenderBuffers@CHolographicInteropTexture@@QEAAJPEAVCD3DDevice@@W4DXGI_FORMAT@@@Z @ 0x180258E9C (-EnsureRenderBuffers@CHolographicInteropTexture@@QEAAJPEAVCD3DDevice@@W4DXGI_FORMAT@@@Z.c)
  */
 
 __int64 __fastcall CHolographicInteropTarget::RenderTexture(
@@ -38,18 +39,18 @@ __int64 __fastcall CHolographicInteropTarget::RenderTexture(
   struct IRenderTargetBitmap *v17; // rbx
   __int64 v18; // rdx
   __int64 v19; // r8
-  __int64 v20; // r9
-  struct CD3DDevice **v21; // rdi
+  struct CD3DDevice **v20; // rdi
   struct IStereoscopicContentManager *StereoscopicContentManager; // rax
-  __int64 v23; // rax
-  __int128 v24; // xmm1
-  __int128 v25; // xmm0
-  __int128 v26; // xmm1
-  struct CMILMatrix *v27; // rax
-  struct IDeviceTarget *v28; // rax
-  int v29; // eax
-  CHolographicInteropTarget *v30; // rcx
-  int v31; // eax
+  __int64 v22; // rax
+  __int128 v23; // xmm1
+  __int128 v24; // xmm0
+  __int128 v25; // xmm1
+  struct CMILMatrix *v26; // rax
+  struct IDeviceTarget *v27; // rax
+  int v28; // eax
+  CHolographicInteropTarget *v29; // rcx
+  int v30; // eax
+  __int64 v31; // rcx
   unsigned int v33; // [rsp+28h] [rbp-E0h]
   struct CVisualTree *v34; // [rsp+48h] [rbp-C0h]
   _OWORD v35[4]; // [rsp+58h] [rbp-B0h] BYREF
@@ -62,25 +63,25 @@ __int64 __fastcall CHolographicInteropTarget::RenderTexture(
   int v43; // [rsp+1A0h] [rbp+98h]
 
   v43 = a4;
-  v5 = (RTL_SRWLOCK *)((char *)a3 + 408);
+  v5 = (RTL_SRWLOCK *)((char *)a3 + 392);
   v42 = 0LL;
   LOBYTE(v43) = 0;
   v9 = 0;
-  AcquireSRWLockExclusive((PSRWLOCK)a3 + 51);
-  v10 = (const struct CDirtyRegion *)*((_QWORD *)a3 + 14);
+  AcquireSRWLockExclusive((PSRWLOCK)a3 + 49);
+  v10 = (const struct CDirtyRegion *)*((_QWORD *)a3 + 12);
   ReleaseSRWLockExclusive(v5);
-  v11 = CHolographicInteropTexture::EnsureRenderBuffers(a3, this[22], (enum DXGI_FORMAT)*((_DWORD *)this + 50));
+  v11 = CHolographicInteropTexture::EnsureRenderBuffers(a3, this[21], (enum DXGI_FORMAT)*((_DWORD *)this + 45));
   v14 = v11;
   if ( v11 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v11, 0x166u);
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v11, 0x159u, 0LL);
   }
   else
   {
-    v34 = (struct CVisualTree *)*((_QWORD *)a3 + 12);
-    if ( (*((_BYTE *)a3 + 236) & 1) == 0 )
+    v34 = (struct CVisualTree *)*((_QWORD *)a3 + 11);
+    if ( (*((_BYTE *)a3 + 220) & 1) == 0 )
     {
-      if ( *((_QWORD *)a3 + 12) )
+      if ( *((_QWORD *)a3 + 11) )
       {
         if ( v10 )
         {
@@ -92,54 +93,54 @@ __int64 __fastcall CHolographicInteropTarget::RenderTexture(
           {
             if ( !CDirtyRegion::IsEmpty(v10) )
             {
-              v21 = this;
+              v20 = this;
               v38 = 0;
-              StereoscopicContentManager = CComposition::GetStereoscopicContentManager(this[2], v18, v19, v20);
+              StereoscopicContentManager = CComposition::GetStereoscopicContentManager(this[2], v18, v19);
               if ( StereoscopicContentManager )
               {
-                v23 = CStereoscopicContentManager::CalculateViewTransformForVisualTree(
+                v22 = CStereoscopicContentManager::CalculateViewTransformForVisualTree(
                         (__int64)StereoscopicContentManager,
                         (__int64)v39,
                         (__int64)v34,
                         v15,
-                        *((_DWORD *)a3 + 56));
-                v24 = *(_OWORD *)(v23 + 16);
-                v35[0] = *(_OWORD *)v23;
-                v25 = *(_OWORD *)(v23 + 32);
-                v35[1] = v24;
-                v26 = *(_OWORD *)(v23 + 48);
-                LODWORD(v23) = *(_DWORD *)(v23 + 64);
-                v35[2] = v25;
-                v35[3] = v26;
-                v36 = v23;
+                        *((_DWORD *)a3 + 52));
+                v23 = *(_OWORD *)(v22 + 16);
+                v35[0] = *(_OWORD *)v22;
+                v24 = *(_OWORD *)(v22 + 32);
+                v35[1] = v23;
+                v25 = *(_OWORD *)(v22 + 48);
+                LODWORD(v22) = *(_DWORD *)(v22 + 64);
+                v35[2] = v24;
+                v35[3] = v25;
+                v36 = v22;
                 CMILMatrix::Multiply(
                   (const struct CMILMatrix *)v35,
-                  (struct CHolographicInteropTexture *)((char *)a3 + 268),
+                  (struct CHolographicInteropTexture *)((char *)a3 + 252),
                   (struct CMILMatrix *)v37);
-                v27 = (struct CMILMatrix *)v37;
+                v26 = (struct CMILMatrix *)v37;
               }
               else
               {
-                v27 = (struct CHolographicInteropTexture *)((char *)a3 + 268);
+                v26 = (struct CHolographicInteropTexture *)((char *)a3 + 252);
               }
-              v41 = v27;
-              v28 = (struct IDeviceTarget *)(*(__int64 (__fastcall **)(struct IRenderTargetBitmap *))(*(_QWORD *)v17 + 64LL))(v17);
-              v29 = CDrawingContext::BeginFrame(a2, v28, v41, (const struct _D3DCOLORVALUE *)((char *)v21 + 204), 0LL);
-              v14 = v29;
-              if ( v29 < 0 )
+              v41 = v26;
+              v27 = (struct IDeviceTarget *)(*(__int64 (__fastcall **)(struct IRenderTargetBitmap *))(*(_QWORD *)v17 + 64LL))(v17);
+              v28 = CDrawingContext::BeginFrame(a2, v27, v41, (const struct _D3DCOLORVALUE *)(v20 + 23), 0LL);
+              v14 = v28;
+              if ( v28 < 0 )
               {
-                MilInstrumentationCheckHR_MaybeFailFast((__int64)v30, 0LL, 0LL, v29, 0x193u);
+                MilInstrumentationCheckHR_MaybeFailFast((__int64)v29, 0LL, 0, v28, 0x186u, 0LL);
               }
               else
               {
                 LOBYTE(v43) = 1;
-                v31 = CHolographicInteropTarget::RenderDirtyRegion(v30, a3, v34, v10, v33, v15, v17, a2);
-                v14 = v31;
-                if ( v31 < 0 )
+                v30 = CHolographicInteropTarget::RenderDirtyRegion(v29, a3, v34, v10, v33, v15, v17, a2);
+                v14 = v30;
+                if ( v30 < 0 )
                 {
-                  MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0LL, v31, 0x1A7u);
+                  MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0, v30, 0x19Au, 0LL);
                 }
-                else if ( *((_BYTE *)a2 + 7964) || *((_BYTE *)a2 + 7965) && *((_DWORD *)g_pComposition + 108) )
+                else if ( *((_BYTE *)a2 + 5948) || CDrawingContext::GetFrameContainsMonitorSpecificContent(a2) )
                 {
                   v9 = 1;
                 }
@@ -153,6 +154,6 @@ __int64 __fastcall CHolographicInteropTarget::RenderTexture(
       }
     }
   }
-  Microsoft::WRL::ComPtr<IRenderTargetBitmap>::InternalRelease((__int64 *)&v42);
+  Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease((__int64 *)&v42);
   return v14;
 }

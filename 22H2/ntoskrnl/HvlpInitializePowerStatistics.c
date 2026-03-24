@@ -1,52 +1,53 @@
 /*
- * XREFs of HvlpInitializePowerStatistics @ 0x140546FEC
+ * XREFs of HvlpInitializePowerStatistics @ 0x1404F8010
  * Callers:
- *     HvlPhase1Initialize @ 0x1403872A4 (HvlPhase1Initialize.c)
+ *     HvlPhase1Initialize @ 0x1403CF458 (HvlPhase1Initialize.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 HvlpInitializePowerStatistics()
 {
-  __int64 result; // rax
-  PHYSICAL_ADDRESS *v1; // rbx
-  PHYSICAL_ADDRESS *v2; // rdi
-  __int16 v3; // ax
-  unsigned int v4; // ebx
-  __int128 v5; // [rsp+20h] [rbp-40h] BYREF
-  __int64 v6; // [rsp+30h] [rbp-30h]
-  __int64 v7; // [rsp+38h] [rbp-28h]
-  __int128 v8; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v9; // [rsp+50h] [rbp-10h]
-  __int64 v10; // [rsp+58h] [rbp-8h]
+  unsigned int v0; // esi
+  _QWORD *v2; // rbx
+  _QWORD *v3; // rax
+  __int64 v4; // r8
+  _QWORD *v5; // rdi
+  __int64 v6; // rdx
+  __int64 v7; // r9
+  __int128 v8; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v9; // [rsp+30h] [rbp-38h]
+  __int128 v10; // [rsp+40h] [rbp-28h] BYREF
+  __int128 v11; // [rsp+50h] [rbp-18h]
 
-  result = 0LL;
+  v0 = 0;
+  v10 = 0LL;
+  v11 = 0LL;
   v8 = 0LL;
   v9 = 0LL;
-  LODWORD(v10) = 0;
-  v5 = 0LL;
-  v6 = 0LL;
-  LODWORD(v7) = 0;
-  if ( (HvlEnlightenments & 0x400) != 0 )
+  if ( (HvlEnlightenments & 0x408) == 0 )
+    return 0LL;
+  v2 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v10, 1, 0LL, 8LL);
+  v3 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v8, 2, 0LL, 392LL);
+  v4 = *((_QWORD *)&v9 + 1);
+  v5 = v3;
+  v6 = *((_QWORD *)&v11 + 1);
+  *v2 = 0LL;
+  *(_DWORD *)v2 = 4;
+  if ( (unsigned __int16)HvcallInitiateHypercall(155, v6, v4, v7) )
   {
-    v1 = HvlpAcquireHypercallPage((__int64)&v8, 1, 0LL, 8LL);
-    v2 = HvlpAcquireHypercallPage((__int64)&v5, 2, 0LL, 392LL);
-    v1->QuadPart = 0LL;
-    v1->LowPart = 4;
-    v3 = HvcallInitiateHypercall(155);
-    if ( !v3 )
-    {
-      xmmword_140D17A38 = *(_OWORD *)&v2->LowPart;
-      xmmword_140D17A48 = *(_OWORD *)&v2[2].LowPart;
-      unk_140D17A58 = *(_OWORD *)&v2[4].LowPart;
-      qword_140D17A68 = v2[6].QuadPart;
-    }
-    v4 = v3 != 0 ? 0xC0000001 : 0;
-    HvlpReleaseHypercallPage((__int64)&v5);
-    HvlpReleaseHypercallPage((__int64)&v8);
-    return v4;
+    v0 = -1073741823;
   }
-  return result;
+  else
+  {
+    xmmword_140CED550 = *(_OWORD *)v5;
+    xmmword_140CED560 = *((_OWORD *)v5 + 1);
+    unk_140CED570 = *((_OWORD *)v5 + 2);
+    qword_140CED580 = v5[6];
+  }
+  HvlpReleaseHypercallPage((__int64)&v8);
+  HvlpReleaseHypercallPage((__int64)&v10);
+  return v0;
 }

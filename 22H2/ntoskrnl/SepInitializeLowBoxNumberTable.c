@@ -1,30 +1,30 @@
 /*
- * XREFs of SepInitializeLowBoxNumberTable @ 0x1407F5AE0
+ * XREFs of SepInitializeLowBoxNumberTable @ 0x14078E458
  * Callers:
- *     SepSetTokenLowboxNumber @ 0x1407F4DBC (SepSetTokenLowboxNumber.c)
+ *     SepSetTokenLowboxNumber @ 0x14070F0FC (SepSetTokenLowboxNumber.c)
  * Callees:
- *     RtlClearAllBits @ 0x140290C30 (RtlClearAllBits.c)
- *     RtlCreateHashTable @ 0x14036F030 (RtlCreateHashTable.c)
- *     RtlDeleteHashTable @ 0x1403C14B0 (RtlDeleteHashTable.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlClearAllBits @ 0x140361940 (RtlClearAllBits.c)
+ *     RtlCreateHashTable @ 0x140376230 (RtlCreateHashTable.c)
+ *     RtlDeleteHashTable @ 0x140378E20 (RtlDeleteHashTable.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepInitializeLowBoxNumberTable(__int64 a1)
 {
   PRTL_DYNAMIC_HASH_TABLE *v1; // rsi
   unsigned int v3; // ebx
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
 
   v1 = (PRTL_DYNAMIC_HASH_TABLE *)(a1 + 24);
   v3 = 0;
   *(_QWORD *)(a1 + 24) = 0LL;
   if ( !RtlCreateHashTable((PRTL_DYNAMIC_HASH_TABLE *)(a1 + 24), 0, 0) )
     return 3221225626LL;
-  Pool2 = ExAllocatePool2(256LL, 128LL, 1934386515LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x80uLL, 0x734C6553u);
+  if ( PoolWithTag )
   {
     *(_DWORD *)(a1 + 8) = 1024;
-    *(_QWORD *)(a1 + 16) = Pool2;
+    *(_QWORD *)(a1 + 16) = PoolWithTag;
     RtlClearAllBits((PRTL_BITMAP)(a1 + 8));
     *(_BYTE *)(a1 + 32) = 1;
   }

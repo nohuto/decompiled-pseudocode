@@ -1,112 +1,108 @@
 /*
- * XREFs of FormInquiryStandardData @ 0x1C000CF58
+ * XREFs of FormInquiryStandardData @ 0x1C0012348
  * Callers:
- *     ScsiInquiryRequest @ 0x1C00056F8 (ScsiInquiryRequest.c)
+ *     ScsiInquiryRequest @ 0x1C0005E04 (ScsiInquiryRequest.c)
  * Callees:
- *     GetSrbScsiAddress @ 0x1C00051F4 (GetSrbScsiAddress.c)
- *     NVMeCopyFirmwareRevision @ 0x1C000D0EC (NVMeCopyFirmwareRevision.c)
- *     NVMeSetSenseData @ 0x1C000E3C0 (NVMeSetSenseData.c)
- *     __security_check_cookie @ 0x1C000E880 (__security_check_cookie.c)
- *     memmove @ 0x1C0010700 (memmove.c)
+ *     __security_check_cookie @ 0x1C00066D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0007D80 (memmove.c)
+ *     NVMeCopyFirmwareRevision @ 0x1C0014264 (NVMeCopyFirmwareRevision.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
 __int64 __fastcall FormInquiryStandardData(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi
-  bool v5; // zf
-  void *v6; // r14
+  bool v3; // zf
+  __int64 v6; // rax
   unsigned int *v7; // r15
-  __int128 v8; // xmm0
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  unsigned int v12; // edi
-  __int64 v13; // r8
-  __int64 v14; // r9
-  unsigned int v15; // ebx
-  unsigned int v16; // ecx
-  __int64 v17; // rdx
-  unsigned int v19; // [rsp+30h] [rbp-29h] BYREF
-  int v20; // [rsp+34h] [rbp-25h] BYREF
-  int v21; // [rsp+38h] [rbp-21h] BYREF
-  __int128 Src; // [rsp+40h] [rbp-19h] BYREF
-  __int128 v23; // [rsp+50h] [rbp-9h]
-  __int128 v24; // [rsp+60h] [rbp+7h] BYREF
-  __int64 v25; // [rsp+70h] [rbp+17h]
-  int v26; // [rsp+78h] [rbp+1Fh]
+  void *v8; // r14
+  char v9; // r12
+  char v10; // r13
+  unsigned __int8 v11; // cl
+  __int128 v12; // xmm0
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  unsigned int v16; // edi
+  __int64 v17; // r8
+  __int64 v18; // r9
+  unsigned int v19; // ebx
+  unsigned int v20; // ecx
+  int v21; // r10d
+  unsigned int v22; // edx
+  unsigned __int8 v24; // [rsp+30h] [rbp-50h]
+  __int128 Src; // [rsp+38h] [rbp-48h] BYREF
+  __int128 v26; // [rsp+48h] [rbp-38h]
+  __int128 v27; // [rsp+58h] [rbp-28h] BYREF
+  __int64 v28; // [rsp+68h] [rbp-18h]
+  int v29; // [rsp+70h] [rbp-10h]
 
-  v2 = *(_QWORD *)(a1 + 1640);
-  v21 = 0;
-  v20 = 0;
-  v19 = 0;
-  v5 = *(_BYTE *)(a2 + 2) == 40;
+  v2 = *(_QWORD *)(a1 + 1624);
+  v3 = *(_BYTE *)(a2 + 2) == 40;
+  v28 = 0LL;
+  v29 = 0;
   Src = 0LL;
-  v25 = 0LL;
-  v23 = 0LL;
-  v26 = 0;
-  v24 = 0LL;
-  if ( v5 )
+  v26 = 0LL;
+  v27 = 0LL;
+  if ( v3 )
   {
-    v6 = *(void **)(a2 + 64);
+    v6 = *(unsigned int *)(a2 + 52);
     v7 = (unsigned int *)(a2 + 60);
+    v8 = *(void **)(a2 + 64);
+    v9 = *(_BYTE *)(v6 + a2 + 8);
+    v10 = *(_BYTE *)(v6 + a2 + 9);
+    v11 = *(_BYTE *)(v6 + a2 + 10);
   }
   else
   {
-    v6 = *(void **)(a2 + 24);
+    v8 = *(void **)(a2 + 24);
     v7 = (unsigned int *)(a2 + 16);
+    v9 = *(_BYTE *)(a2 + 5);
+    v10 = *(_BYTE *)(a2 + 6);
+    v11 = *(_BYTE *)(a2 + 7);
   }
-  GetSrbScsiAddress(a2, &v21, &v20, &v19);
   BYTE1(Src) &= ~0x80u;
-  BYTE2(Src) = 6;
   BYTE3(Src) = BYTE3(Src) & 0xE0 | 0x12;
-  if ( *(_BYTE *)(*(_QWORD *)(a1 + 8LL * v19 + 1752) + 66LL) )
+  v24 = v11;
+  BYTE2(Src) = 6;
+  if ( *(_BYTE *)(*(_QWORD *)(a1 + 8LL * v11 + 1736) + 66LL) )
     BYTE5(Src) |= 1u;
-  v8 = *(_OWORD *)(v2 + 24);
+  v12 = *(_OWORD *)(v2 + 24);
   BYTE7(Src) |= 2u;
   BYTE4(Src) = 55;
-  LODWORD(v24) = 538976288;
-  v23 = v8;
+  LODWORD(v27) = 538976288;
+  v26 = v12;
   *((_QWORD *)&Src + 1) = 0x20202020654D564ELL;
-  NVMeCopyFirmwareRevision(v2, &v24, 4LL);
+  NVMeCopyFirmwareRevision(v2, &v27, 4LL);
   if ( (*(_BYTE *)(v2 + 256) & 1) != 0 )
-    HIWORD(v26) = -16129;
-  v12 = *v7;
-  if ( *v7 >= 0x3C )
+    HIWORD(v29) = -16129;
+  v16 = 60;
+  if ( *v7 < 0x3C )
+    v16 = *v7;
+  if ( v16 && v8 )
   {
-    v12 = 60;
-  }
-  else if ( !v12 )
-  {
-    goto LABEL_16;
-  }
-  if ( v6 )
-  {
-    memmove(v6, &Src, v12);
-    *v7 = v12;
+    memmove(v8, &Src, v16);
+    *v7 = v16;
     *(_BYTE *)(a2 + 3) = 1;
-    v15 = 0;
-    goto LABEL_11;
+    v19 = 0;
   }
-LABEL_16:
-  LOBYTE(v11) = 36;
-  LOBYTE(v10) = 5;
-  LOBYTE(v9) = 48;
-  NVMeSetSenseData(a2, v9, v10, v11);
-  v15 = -1056964602;
-LABEL_11:
-  v16 = *(_DWORD *)(a1 + 212);
-  if ( v16 )
+  else
   {
-    LOBYTE(v14) = v19;
-    LOBYTE(v13) = v20;
-    v17 = *(unsigned __int16 *)(a1 + 302) * (unsigned int)*(unsigned __int16 *)(a1 + 304) % v16;
-    LOBYTE(v17) = v21;
-    StorPortSetDeviceQueueDepth(
-      a1,
-      v17,
-      v13,
-      v14,
-      *(unsigned __int16 *)(a1 + 302) * (unsigned int)*(unsigned __int16 *)(a1 + 304) / v16);
+    LOBYTE(v15) = 36;
+    LOBYTE(v14) = 5;
+    LOBYTE(v13) = 48;
+    NVMeSetSenseData(a2, v13, v14, v15);
+    v19 = -1056964602;
   }
-  return v15;
+  v20 = *(_DWORD *)(a1 + 196);
+  if ( v20 )
+  {
+    v21 = *(unsigned __int16 *)(a1 + 286);
+    LOBYTE(v17) = v10;
+    LOBYTE(v18) = v24;
+    v22 = v21 * (unsigned int)*(unsigned __int16 *)(a1 + 288) % v20;
+    LOBYTE(v22) = v9;
+    StorPortSetDeviceQueueDepth(a1, v22, v17, v18, v21 * (unsigned int)*(unsigned __int16 *)(a1 + 288) / v20);
+  }
+  return v19;
 }

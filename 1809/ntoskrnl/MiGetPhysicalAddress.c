@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetPhysicalAddress @ 0x1401210D8
+ * XREFs of MiGetPhysicalAddress @ 0x1401210F8
  * Callers:
- *     MmGetPhysicalAddress @ 0x1401210B0 (MmGetPhysicalAddress.c)
+ *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiVaToPfn @ 0x140099010 (MiVaToPfn.c)
  *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiSetNonPagedPoolNoSteal @ 0x14015ECD4 (MiSetNonPagedPoolNoSteal.c)
+ *     MiSetNonPagedPoolNoSteal @ 0x14015ECF4 (MiSetNonPagedPoolNoSteal.c)
  */
 
 __int64 __fastcall MiGetPhysicalAddress(unsigned __int64 a1, __int64 *a2, _DWORD *a3)

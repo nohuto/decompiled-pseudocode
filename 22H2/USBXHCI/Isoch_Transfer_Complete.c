@@ -1,11 +1,11 @@
 /*
- * XREFs of Isoch_Transfer_Complete @ 0x1C00453C0
+ * XREFs of Isoch_Transfer_Complete @ 0x1C0042730
  * Callers:
- *     Isoch_RetrieveNextStage @ 0x1C0003800 (Isoch_RetrieveNextStage.c)
+ *     Isoch_RetrieveNextStage @ 0x1C0002D30 (Isoch_RetrieveNextStage.c)
  * Callees:
- *     TR_QueueDpcForTransferCompletion @ 0x1C000F2B4 (TR_QueueDpcForTransferCompletion.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Isoch_Transfer_PrepareForCompletion @ 0x1C0045768 (Isoch_Transfer_PrepareForCompletion.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000E954 (TR_QueueDpcForTransferCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Isoch_Transfer_PrepareForCompletion @ 0x1C0042AD8 (Isoch_Transfer_PrepareForCompletion.c)
  */
 
 void __fastcall Isoch_Transfer_Complete(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)

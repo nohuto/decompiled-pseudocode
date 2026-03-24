@@ -1,92 +1,95 @@
 /*
- * XREFs of ?DxgkSetProcessStatus@@YAXPEAU_D3DKMT_PROCESS_STATUS_INTERNAL@@@Z @ 0x1C01DC100
+ * XREFs of ?DxgkSetProcessStatus@@YAXPEAU_D3DKMT_PROCESS_STATUS_INTERNAL@@@Z @ 0x1C015C780
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     McTemplateK0pt_EtwWriteTransfer @ 0x1C0044CF4 (McTemplateK0pt_EtwWriteTransfer.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C003A2E0 (McTemplateK0pq_EtwWriteTransfer.c)
  */
 
-void __fastcall DxgkSetProcessStatus(struct _D3DKMT_PROCESS_STATUS_INTERNAL *a1)
+void __fastcall DxgkSetProcessStatus(struct _D3DKMT_PROCESS_STATUS_INTERNAL *a1, __int64 a2)
 {
-  __int64 v2; // rbp
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rbp
+  __int64 v6; // rdx
+  __int64 v7; // rcx
   __int64 ProcessDxgProcess; // rbx
-  __int64 v4; // r8
-  int v5; // edx
-  bool v6; // zf
-  signed __int32 v7; // eax
-  signed __int32 v8; // ett
-  signed __int32 v9; // ett
-  __int64 v10; // rbx
-  const wchar_t *v11; // r9
+  __int64 v9; // r8
+  int v10; // edx
+  bool v11; // zf
+  signed __int32 v12; // eax
+  __int64 v13; // rcx
+  signed __int32 v14; // ett
+  bool v15; // al
+  signed __int32 v16; // ett
+  __int64 v17; // rax
 
-  if ( *((_DWORD *)DXGGLOBAL_GetGlobal() + 432)
-    && _InterlockedCompareExchange((volatile signed __int32 *)DXGGLOBAL_GetGlobal() + 431, 1, 1) )
+  if ( *((_DWORD *)DXGGLOBAL::GetGlobal((__int64)a1, a2) + 390)
+    && _InterlockedCompareExchange((volatile signed __int32 *)DXGGLOBAL::GetGlobal(v4, v3) + 389, 1, 1) )
   {
     return;
   }
-  v2 = *(_QWORD *)a1;
+  v5 = *(_QWORD *)a1;
   ProcessDxgProcess = PsGetProcessDxgProcess(*(_QWORD *)a1);
   if ( !ProcessDxgProcess )
   {
-    v10 = 4113LL;
-    WdLogSingleEntry1(1LL, 4113LL);
-    v11 = L"Current process does not have DxgProcess!";
-    goto LABEL_24;
+    v17 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v17 + 24) = 4054LL;
+    goto LABEL_25;
   }
   if ( *((_DWORD *)a1 + 2) == 1 )
   {
-    v5 = 1;
+    v10 = 1;
     goto LABEL_5;
   }
   if ( *((_DWORD *)a1 + 2) != 2 )
   {
-    v10 = 4073LL;
-    WdLogSingleEntry1(1LL, 4073LL);
-    v11 = L"Invalid DxgProcess state!";
-LABEL_24:
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)v11, v10, 0LL, 0LL, 0LL, 0LL);
+    v17 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v17 + 24) = 4014LL;
+LABEL_25:
+    WdLogEvent5_WdAssertion(v17);
     return;
   }
-  v5 = 2;
+  v10 = 2;
 LABEL_5:
-  v6 = *((_BYTE *)a1 + 12) == 0;
-  _m_prefetchw((const void *)(ProcessDxgProcess + 432));
-  v7 = *(_DWORD *)(ProcessDxgProcess + 432);
-  if ( v6 )
-  {
-    v4 = (unsigned int)~v5;
-    do
-    {
-      v9 = v7;
-      v7 = _InterlockedCompareExchange((volatile signed __int32 *)(ProcessDxgProcess + 432), v4 & v7, v7);
-    }
-    while ( v9 != v7 );
-    if ( (v7 & v5) == 0 )
-      return;
-  }
-  else
+  v11 = *((_BYTE *)a1 + 12) == 0;
+  _m_prefetchw((const void *)(ProcessDxgProcess + 352));
+  v12 = *(_DWORD *)(ProcessDxgProcess + 352);
+  if ( !v11 )
   {
     do
     {
-      v8 = v7;
-      v7 = _InterlockedCompareExchange((volatile signed __int32 *)(ProcessDxgProcess + 432), v5 | v7, v7);
+      v13 = v10 | (unsigned int)v12;
+      v14 = v12;
+      v12 = _InterlockedCompareExchange((volatile signed __int32 *)(ProcessDxgProcess + 352), v13, v12);
     }
-    while ( v8 != v7 );
-    if ( (v5 & v7) != 0 )
+    while ( v14 != v12 );
+    v15 = (v12 & v10) == 0;
+LABEL_8:
+    if ( !v15 )
       return;
+    goto LABEL_13;
   }
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-    McTemplateK0pt_EtwWriteTransfer(
-      (REGHANDLE *)&DxgkControlGuid_Context,
-      &SetProcessStatus,
-      v4,
-      v2,
-      *(_DWORD *)(ProcessDxgProcess + 432));
-  _InterlockedAdd((volatile signed __int32 *)(ProcessDxgProcess + 440), 1u);
-  if ( _InterlockedExchange((volatile __int32 *)(ProcessDxgProcess + 436), 1) )
-    _InterlockedDecrement((volatile signed __int32 *)(ProcessDxgProcess + 440));
+  v9 = (unsigned int)~v10;
+  do
+  {
+    v13 = (unsigned int)v9 & v12;
+    v16 = v12;
+    v12 = _InterlockedCompareExchange((volatile signed __int32 *)(ProcessDxgProcess + 352), v13, v12);
+  }
+  while ( v16 != v12 );
+  if ( (v12 & v10) == 0 )
+  {
+    v15 = 0;
+    goto LABEL_8;
+  }
+LABEL_13:
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+    McTemplateK0pq_EtwWriteTransfer(v13, &SetProcessStatus, v9, v5, *(_DWORD *)(ProcessDxgProcess + 352));
+  _InterlockedAdd((volatile signed __int32 *)(ProcessDxgProcess + 360), 1u);
+  if ( _InterlockedExchange((volatile __int32 *)(ProcessDxgProcess + 356), 1) )
+    _InterlockedDecrement((volatile signed __int32 *)(ProcessDxgProcess + 360));
   else
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)(*(_QWORD *)(ProcessDxgProcess + 64) + 48LL), CriticalWorkQueue);
+    ExQueueWorkItem((PWORK_QUEUE_ITEM)(*(_QWORD *)(ProcessDxgProcess + 64) + 40LL), CriticalWorkQueue);
 }

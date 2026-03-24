@@ -1,65 +1,66 @@
 /*
- * XREFs of ?DrvRemoveAdapterLuid@@YAJU_LUID@@@Z @ 0x1C00187F4
+ * XREFs of ?DrvRemoveAdapterLuid@@YAJU_LUID@@@Z @ 0x1C007EAF4
  * Callers:
- *     ?DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00186C8 (-DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     DrvAddMirrorDriversToRemoteList @ 0x1C00CAEC4 (DrvAddMirrorDriversToRemoteList.c)
- *     DrvCleanupGraphicsDevices @ 0x1C0165C94 (DrvCleanupGraphicsDevices.c)
+ *     ?DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C007E9E4 (-DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     ?DrvAddMirrorDriversToRemoteList@@YAHXZ @ 0x1C00C3560 (-DrvAddMirrorDriversToRemoteList@@YAHXZ.c)
+ *     DrvCleanupGraphicsDevices @ 0x1C0146904 (DrvCleanupGraphicsDevices.c)
  * Callees:
- *     ??8@YA_NAEBU_LUID@@0@Z @ 0x1C0018F8C (--8@YA_NAEBU_LUID@@0@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     ??8@YA_NAEBU_LUID@@0@Z @ 0x1C007EBD8 (--8@YA_NAEBU_LUID@@0@Z.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall DrvRemoveAdapterLuid(struct _LUID a1)
 {
-  int v1; // r12d
-  __int64 v2; // rbp
-  _QWORD *v3; // r14
-  _DWORD *v4; // rsi
-  __int64 v5; // r9
-  unsigned int v6; // r8d
-  int v7; // eax
-  unsigned int v9; // eax
-  unsigned int v10; // edi
-  __int64 v11; // rbx
-  struct _LUID v12; // [rsp+50h] [rbp+8h] BYREF
+  _DWORD *v1; // rsi
+  int v2; // r15d
+  __int64 v3; // rbp
+  __int64 v4; // r8
+  __int64 v5; // r10
+  void *v6; // r11
+  unsigned __int8 *v7; // r12
+  unsigned __int8 *v8; // r14
+  int v10; // eax
+  int v12; // eax
+  unsigned int v13; // edi
+  struct _LUID v14; // [rsp+50h] [rbp+8h] BYREF
 
-  v12 = a1;
-  v1 = 0;
-  v2 = 0LL;
-  v3 = *(_QWORD **)(SGDGetSessionState() + 24);
-  v4 = (_DWORD *)(v3[241] + 1573024LL);
-  if ( *(_DWORD *)(v3[241] + 1573028LL) )
+  v14 = a1;
+  v1 = gpGdiSharedMemory;
+  v2 = 0;
+  v3 = 0LL;
+  v4 = *((unsigned int *)gpGdiSharedMemory + 393257);
+  if ( (_DWORD)v4 )
   {
-    v5 = v3[163];
-    while ( !(unsigned __int8)operator==(&v12, v5 + 8 * v2) )
+    while ( !(unsigned __int8)operator==(&v14, &gpAdapterLuids[v3], v4) )
     {
-      v2 = (unsigned int)(v2 + 1);
-      if ( (unsigned int)v2 >= v6 )
-        goto LABEL_5;
+      v3 = (unsigned int)(v3 + 1);
+      if ( (unsigned int)v3 >= (unsigned int)v4 )
+        goto LABEL_4;
     }
-    if ( !--*(_BYTE *)(v2 + v3[164]) )
+    v7 = gpDevicesPerLuid;
+    v8 = &gpDevicesPerLuid[v3];
+    if ( gpDevicesPerLuid[v3]-- == 1 )
     {
-      v1 = 1;
-      if ( v4[1] - (_DWORD)v2 != 1 )
+      v2 = 1;
+      if ( v1[393257] - (_DWORD)v3 != 1 )
       {
-        v10 = v4[1] - v2 - 1;
-        v11 = (unsigned int)(v2 + 1);
-        memmove((void *)(v3[163] + 8 * v2), (const void *)(v3[163] + 8 * v11), 8LL * v10);
-        memmove((void *)(v3[164] + v2), (const void *)(v3[164] + v11), v10);
+        v13 = v1[393257] - v3 - 1;
+        memmove(v6, (const void *)(v5 + 8LL * (unsigned int)(v3 + 1)), 8LL * v13);
+        memmove(v8, &v7[(unsigned int)(v3 + 1)], v13);
       }
     }
   }
-LABEL_5:
-  v7 = v4[1];
-  if ( (_DWORD)v2 == v7 )
+LABEL_4:
+  v10 = v1[393257];
+  if ( (_DWORD)v3 == v10 )
     return 3221225524LL;
-  if ( v1 )
+  if ( v2 )
   {
-    ++*v4;
-    v9 = v7 - 1;
-    v4[1] = v9;
-    *(_QWORD *)(v3[163] + 8LL * v9) = 0LL;
-    *(_BYTE *)((unsigned int)v4[1] + v3[164]) = 0;
+    ++v1[393256];
+    v12 = v10 - 1;
+    v1[393257] = v12;
+    gpAdapterLuids[v12] = 0LL;
+    gpDevicesPerLuid[v1[393257]] = 0;
   }
   return 0LL;
 }

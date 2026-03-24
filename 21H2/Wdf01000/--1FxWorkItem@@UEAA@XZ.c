@@ -1,26 +1,26 @@
 /*
- * XREFs of ??1FxWorkItem@@UEAA@XZ @ 0x1C0018970
+ * XREFs of ??1FxWorkItem@@UEAA@XZ @ 0x1C00141D0
  * Callers:
- *     ??_EFxWorkItem@@UEAAPEAXI@Z @ 0x1C0018930 (--_EFxWorkItem@@UEAAPEAXI@Z.c)
+ *     ??_EFxWorkItem@@UEAAPEAXI@Z @ 0x1C0014190 (--_EFxWorkItem@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0006180 (--1FxNonPagedObject@@UEAA@XZ.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?Free@MxWorkItem@@QEAAXXZ @ 0x1C001AD70 (-Free@MxWorkItem@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0014230 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?Free@MxWorkItem@@QEAAXXZ @ 0x1C0014268 (-Free@MxWorkItem@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
-void __fastcall FxWorkItem::~FxWorkItem(FxWorkItem *this, unsigned int a2)
+void __fastcall FxWorkItem::~FxWorkItem(FxWorkItem *this)
 {
-  bool v2; // zf
+  bool v1; // zf
   FxObject *m_Object; // rcx
   _FX_DRIVER_GLOBALS *m_Globals; // rbx
   const void *_a1; // rax
 
-  v2 = this->m_RunningDown == 0;
+  v1 = this->m_RunningDown == 0;
   this->__vftable = (FxWorkItem_vtbl *)FxWorkItem::`vftable';
-  if ( v2 && this->m_Callback )
+  if ( v1 && this->m_Callback )
   {
     m_Globals = this->m_Globals;
     _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this);
@@ -35,5 +35,5 @@ void __fastcall FxWorkItem::~FxWorkItem(FxWorkItem *this, unsigned int a2)
   }
   if ( this->m_WorkItem.m_WorkItem )
     MxWorkItem::Free(&this->m_WorkItem);
-  FxNonPagedObject::~FxNonPagedObject(this, a2);
+  FxNonPagedObject::~FxNonPagedObject(this);
 }

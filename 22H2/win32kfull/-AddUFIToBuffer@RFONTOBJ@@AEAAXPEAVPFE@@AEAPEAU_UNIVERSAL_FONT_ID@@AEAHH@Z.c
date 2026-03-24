@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AddUFIToBuffer@RFONTOBJ@@AEAAXPEAVPFE@@AEAPEAU_UNIVERSAL_FONT_ID@@AEAHH@Z @ 0x1C02B38F4
+ * XREFs of ?AddUFIToBuffer@RFONTOBJ@@AEAAXPEAVPFE@@AEAPEAU_UNIVERSAL_FONT_ID@@AEAHH@Z @ 0x1C0114F70
  * Callers:
- *     ?GetLinkedFontUFIs@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C02B4278 (-GetLinkedFontUFIs@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAU_UNIVERSAL_FONT_ID@@H@Z.c)
+ *     ?GetLinkedFontUFIs@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C014F928 (-GetLinkedFontUFIs@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAU_UNIVERSAL_FONT_ID@@H@Z.c)
  * Callees:
- *     ?bCheckEudcFontCaps@RFONTOBJ@@QEBAHAEAVIFIOBJ@@@Z @ 0x1C015C3A8 (-bCheckEudcFontCaps@RFONTOBJ@@QEBAHAEAVIFIOBJ@@@Z.c)
+ *     ?bCheckEudcFontCaps@RFONTOBJ@@QEBAHAEAVIFIOBJ@@@Z @ 0x1C00E8A70 (-bCheckEudcFontCaps@RFONTOBJ@@QEBAHAEAVIFIOBJ@@@Z.c)
  */
 
 void __fastcall RFONTOBJ::AddUFIToBuffer(
@@ -13,21 +13,20 @@ void __fastcall RFONTOBJ::AddUFIToBuffer(
         int *a4,
         int a5)
 {
+  _QWORD **v6; // r10
+  int *v7; // r11
   int v8; // edx
   _QWORD v9[3]; // [rsp+20h] [rbp-18h] BYREF
 
   if ( a2 )
   {
     v9[0] = *((_QWORD *)a2 + 4);
-    if ( (unsigned int)RFONTOBJ::bCheckEudcFontCaps(this, (struct IFIOBJ *)v9) )
+    if ( RFONTOBJ::bCheckEudcFontCaps(this, (struct IFIOBJ *)v9) )
     {
-      v8 = *a4;
-      if ( *a4 < a5 )
-      {
-        *(_QWORD *)*a3 = *(_QWORD *)((char *)a2 + 84);
-        *a3 = (struct _UNIVERSAL_FONT_ID *)((char *)*a3 + 8);
-      }
-      *a4 = v8 + 1;
+      v8 = *v7;
+      if ( *v7 < a5 )
+        *(*v6)++ = *(_QWORD *)((char *)a2 + 84);
+      *v7 = v8 + 1;
     }
   }
 }

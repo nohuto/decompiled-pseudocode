@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfBootDeviceOnD0Exit @ 0x1C001F0A0
+ * XREFs of HUBDSM_CheckingIfBootDeviceOnD0Exit @ 0x1C001C690
  * Callers:
  *     <none>
  * Callees:

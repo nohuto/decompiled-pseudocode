@@ -1,256 +1,251 @@
 /*
- * XREFs of KiIpiSendRequest @ 0x140253F00
+ * XREFs of KiIpiSendRequest @ 0x140343EE0
  * Callers:
- *     KeFlushTb @ 0x140279850 (KeFlushTb.c)
- *     KiIpiSendPacket @ 0x1402C0300 (KiIpiSendPacket.c)
- *     KiIpiSendRequestEx @ 0x1402EB5F0 (KiIpiSendRequestEx.c)
+ *     KxFlushEntireTb @ 0x14022F2F0 (KxFlushEntireTb.c)
+ *     KeFlushMultipleRangeTb @ 0x1402BBCB0 (KeFlushMultipleRangeTb.c)
+ *     KiIpiSendRequestEx @ 0x1402BC030 (KiIpiSendRequestEx.c)
+ *     KiIpiSendPacket @ 0x140343E58 (KiIpiSendPacket.c)
  * Callees:
- *     KeAndGroupAffinityEx @ 0x140254360 (KeAndGroupAffinityEx.c)
- *     KiIpiSetTargetAffinity @ 0x1402543D4 (KiIpiSetTargetAffinity.c)
- *     KiIpiEnlightenedGuestPriorityKick @ 0x140254520 (KiIpiEnlightenedGuestPriorityKick.c)
- *     HalRequestIpiSpecifyVector @ 0x140254570 (HalRequestIpiSpecifyVector.c)
- *     EtwGetKernelTraceTimestampSilo @ 0x1402A2E90 (EtwGetKernelTraceTimestampSilo.c)
- *     HalRequestIpi @ 0x14035BB40 (HalRequestIpi.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     PerfInfoLogIpiSend @ 0x1405FEB30 (PerfInfoLogIpiSend.c)
+ *     KeIsEmptyAffinityEx @ 0x140228520 (KeIsEmptyAffinityEx.c)
+ *     KeSubtractAffinityEx @ 0x14022AFE0 (KeSubtractAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1402BBAE0 (KeCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402BBB30 (KeRemoveProcessorAffinityEx.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402F1D90 (EtwGetKernelTraceTimestamp.c)
+ *     HalRequestIpi @ 0x140343EB0 (HalRequestIpi.c)
+ *     KiIpiEnlightenedGuestPriorityKick @ 0x1403443A4 (KiIpiEnlightenedGuestPriorityKick.c)
+ *     HalRequestIpiSpecifyVector @ 0x1403443F0 (HalRequestIpiSpecifyVector.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PerfInfoLogIpiSend @ 0x1405AA120 (PerfInfoLogIpiSend.c)
  */
 
-__int64 __fastcall KiIpiSendRequest(__int64 a1, int a2, int a3, _OWORD *a4, __int64 a5)
+__int64 __fastcall KiIpiSendRequest(__int64 a1, unsigned int a2, unsigned __int16 *a3, _OWORD *a4, __int64 a5)
 {
-  int v5; // r15d
-  __int64 v8; // rdi
-  __int64 v9; // rsi
-  unsigned __int16 *v10; // r12
-  __int64 v11; // rax
-  int v12; // edx
-  __int64 v13; // rbx
-  int v14; // ecx
-  __int64 result; // rax
-  unsigned int v16; // r14d
+  __int64 v8; // r14
+  unsigned __int16 *v9; // rsi
+  _QWORD *v10; // r15
+  unsigned __int16 v11; // ax
+  __int64 v12; // rcx
+  __int64 v13; // r12
+  _OWORD *v14; // rbx
+  int v15; // edi
+  __int64 v16; // rbx
   __int64 v17; // rdx
-  unsigned __int64 v18; // rcx
-  __int64 v19; // rsi
-  _QWORD *v20; // r11
-  int v21; // r9d
-  unsigned __int64 v22; // rdx
-  __int64 v23; // r8
-  __int64 v24; // r10
-  signed __int64 *v25; // rcx
-  bool v26; // zf
-  signed __int64 v27; // rax
-  signed __int64 v28; // rdx
-  unsigned int v29; // ecx
-  unsigned int v30; // r8d
-  __int64 v31; // rcx
-  unsigned __int16 *v32; // rdx
-  __int64 v33; // rcx
-  __int64 v34; // rax
-  ULONG_PTR BugCheckParameter4; // rbx
-  char v36; // [rsp+30h] [rbp-81h]
-  int v37; // [rsp+34h] [rbp-7Dh]
-  int v38; // [rsp+38h] [rbp-79h]
-  int v39; // [rsp+3Ch] [rbp-75h]
-  unsigned int v40; // [rsp+40h] [rbp-71h]
-  int v41; // [rsp+48h] [rbp-69h] BYREF
-  unsigned int v42; // [rsp+50h] [rbp-61h]
-  __int128 v43; // [rsp+58h] [rbp-59h]
-  __int64 v44; // [rsp+68h] [rbp-49h]
-  int v45; // [rsp+70h] [rbp-41h]
-  signed __int64 v46; // [rsp+78h] [rbp-39h]
-  __int64 v47; // [rsp+80h] [rbp-31h]
-  __int64 v48; // [rsp+88h] [rbp-29h]
-  __int128 v49; // [rsp+90h] [rbp-21h] BYREF
-  _OWORD v50[2]; // [rsp+A0h] [rbp-11h] BYREF
+  unsigned __int64 v18; // r8
+  int v19; // ecx
+  __int64 result; // rax
+  __int64 v21; // r9
+  unsigned int v22; // r11d
+  __int64 v23; // rax
+  __int64 v24; // rcx
+  _QWORD *v25; // rdi
+  int v26; // r9d
+  unsigned __int64 v27; // rdx
+  __int64 v28; // r8
+  __int64 v29; // r10
+  signed __int64 *v30; // rdx
+  signed __int64 v31; // rax
+  signed __int64 v32; // rcx
+  unsigned int v33; // ecx
+  unsigned int v34; // r8d
+  __int64 v35; // rcx
+  _QWORD *v36; // rdx
+  __int64 v37; // rcx
+  __int64 v38; // rax
+  char v39; // [rsp+30h] [rbp-81h]
+  unsigned int v40; // [rsp+34h] [rbp-7Dh]
+  int v41; // [rsp+38h] [rbp-79h]
+  unsigned int v42; // [rsp+3Ch] [rbp-75h]
+  unsigned int v43; // [rsp+40h] [rbp-71h]
+  __int64 v44; // [rsp+50h] [rbp-61h]
+  unsigned __int16 v45; // [rsp+58h] [rbp-59h]
+  signed __int64 v46; // [rsp+68h] [rbp-49h]
+  unsigned __int64 v49; // [rsp+88h] [rbp-29h]
+  _OWORD v50[3]; // [rsp+98h] [rbp-19h] BYREF
 
-  v48 = a1;
-  v5 = 0;
-  v41 = a2;
-  v44 = 0LL;
-  v46 = 0LL;
+  LODWORD(v46) = 0;
   v8 = a1;
-  v43 = 0LL;
-  memset(v50, 0, sizeof(v50));
+  memset(v50, 0, 32);
   if ( (DWORD2(PerfGlobalGroupMask) & 0x400000) != 0 )
   {
-    v36 = 1;
-    EtwGetKernelTraceTimestampSilo(v50, 1077936128LL, 0LL);
+    v39 = 1;
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v50, 1077936128LL, (__int64)a3, (__int64)a4);
   }
   else
   {
-    v36 = 0;
+    v39 = 0;
   }
-  v9 = v8 + 12232;
-  *(_QWORD *)(v8 + 12232) = 2097153LL;
-  v10 = (unsigned __int16 *)(v8 + 12496);
-  memset((void *)(v8 + 12240), 0, 0x100uLL);
-  *(_QWORD *)(v8 + 12496) = 2097153LL;
-  memset((void *)(v8 + 12504), 0, 0x100uLL);
-  KiIpiSetTargetAffinity(v8, (unsigned int)&v41, (unsigned int)&a5, a3, v8 + 12232);
-  v11 = a5 & 0xF;
-  *(_DWORD *)(v8 + 11648) = 1;
-  v37 = 0;
-  v12 = 0;
-  v13 = v11 | ((_QWORD)a4 << 7);
-  v39 = 0;
-  v14 = 0;
-  v42 = *(_DWORD *)(v8 + 36);
-  result = (unsigned __int16)KiSubNodeCount;
-  v16 = 0;
-  *(_DWORD *)(v8 + 11652) = (unsigned __int16)KiSubNodeCount;
-  v38 = 0;
-  v40 = 0;
-  v49 = 0LL;
-  if ( !(_DWORD)result )
-    goto LABEL_25;
-  do
+  v9 = (unsigned __int16 *)(v8 + 12040);
+  v10 = (_QWORD *)(v8 + 12208);
+  if ( a2 )
   {
-    v17 = *(_QWORD *)(KiSubNodes + 8LL * v16);
-    if ( !v17 )
+    KeCopyAffinityEx(v8 + 12040, (unsigned __int16 *)KeActiveProcessors);
+    if ( a2 == 1 )
+      KeRemoveProcessorAffinityEx((unsigned __int16 *)(v8 + 12040), *(_DWORD *)(v8 + 36));
+    v13 = a5;
+    if ( (a5 & 0x80000000) != 0 )
     {
-      v37 = ++v5;
-      goto LABEL_22;
+      LODWORD(v13) = a5 & 0x7FFFFFFF;
+      if ( !(unsigned int)KeIsEmptyAffinityEx(&KeSleepingProcessors) )
+      {
+        a2 = 0;
+        KeSubtractAffinityEx(
+          (unsigned __int16 *)(v8 + 12040),
+          (unsigned __int16 *)&KeSleepingProcessors,
+          (_BYTE *)(v8 + 12040));
+      }
     }
-    v49 = *(unsigned __int64 *)(v17 + 128);
-    WORD4(v49) = *(_WORD *)(v17 + 136);
-    if ( !(unsigned int)KeAndGroupAffinityEx(v9, &v49, &v49) )
+  }
+  else
+  {
+    *v9 = *a3;
+    *(_WORD *)(v8 + 12042) = a3[1];
+    v11 = 0;
+    for ( *(_DWORD *)(v8 + 12044) = 0; v11 < *a3; *(_QWORD *)&v9[4 * v12 + 4] = *(_QWORD *)&a3[4 * v12 + 4] )
+      v12 = v11++;
+    v13 = a5;
+  }
+  v14 = a4;
+  v15 = (unsigned __int16)KeNumberNodes;
+  *(_DWORD *)(v8 + 11652) = (unsigned __int16)KeNumberNodes;
+  v16 = v13 & 0xF | ((_QWORD)v14 << 7);
+  v43 = *(_DWORD *)(v8 + 36);
+  *(_DWORD *)(v8 + 11648) = 1;
+  *v10 = 1310721LL;
+  memset((void *)(v8 + 12216), 0, 0xA0uLL);
+  v42 = 0;
+  v19 = 0;
+  v41 = 0;
+  result = 0LL;
+  v40 = 0;
+  v21 = 0LL;
+  v22 = 0;
+  if ( v15 )
+  {
+    do
     {
-      v37 = ++v5;
-      goto LABEL_22;
-    }
-    v18 = v49;
-    v19 = v42;
-    v20 = 0LL;
-    LOWORD(v44) = WORD4(v49);
-    v21 = WORD4(v49);
-    *((_QWORD *)&v43 + 1) = v49;
-    *(_QWORD *)&v43 = 0LL;
-    while ( 1 )
-    {
-      v45 = 0;
-      if ( !v18 )
-        break;
-LABEL_8:
-      v21 = (unsigned __int16)v44;
-      _BitScanForward64(&v22, v18);
-      v45 = v22;
-      *((_QWORD *)&v43 + 1) = v18 & ~(1LL << v22);
-      v23 = (unsigned int)KiProcessorNumberToIndexMappingTable[64 * (unsigned __int16)v44 + (unsigned __int8)v22];
-      v47 = v23;
-      v24 = KiProcessorBlock[v23];
-      _m_prefetchw((const void *)(v24 + 37696));
-      v25 = (signed __int64 *)(v24 + ((v19 + 763) << 6));
-      _m_prefetchw(v25);
-      if ( !v20 )
+      v50[2] = 0LL;
+      v23 = KeNodeBlock[v22];
+      v24 = *(unsigned __int16 *)(v23 + 144);
+      v17 = *(_QWORD *)(v23 + 136);
+      if ( *v9 > (unsigned __int16)v24 && (v18 = v17 & *(_QWORD *)&v9[4 * v24 + 4], (v49 = v18) != 0) )
       {
-        v20 = v25 + 7;
-        v23 = v47;
-        *((_DWORD *)v25 + 14) = (unsigned int)((0x101010101010101LL
-                                              * (((((_QWORD)v49 - (((unsigned __int64)v49 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-                                                + ((((unsigned __int64)v49
-                                                   - (((unsigned __int64)v49 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
-                                                + (((((_QWORD)v49 - (((unsigned __int64)v49 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-                                                  + ((((unsigned __int64)v49
-                                                     - (((unsigned __int64)v49 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24;
-      }
-      v26 = a5 == 5;
-      v25[6] = (signed __int64)v20;
-      if ( v26 )
-      {
-        *((_OWORD *)v25 + 1) = *a4;
-        *((_OWORD *)v25 + 2) = a4[1];
-        v46 = v25[5];
-      }
-      v25[1] = v13;
-      v27 = *(_QWORD *)(v24 + 37696);
-      do
-      {
-        v28 = v27;
-        *v25 = v27;
-        v27 = _InterlockedCompareExchange64((volatile signed __int64 *)(v24 + 37696), (signed __int64)v25, v27);
-      }
-      while ( v27 != v28 );
-      if ( v27 )
-      {
-        v38 = 1;
+        v25 = 0LL;
+        v45 = *(_WORD *)(v23 + 144);
+        v26 = v45;
+        while ( v18 )
+        {
+LABEL_12:
+          v26 = v45;
+          _BitScanForward64(&v27, v18);
+          v44 = v18 & ~(1LL << v27);
+          v28 = (unsigned int)KiProcessorNumberToIndexMappingTable[64 * v45 + (unsigned __int8)v27];
+          v29 = KiProcessorBlock[v28];
+          _m_prefetchw((const void *)(v29 + 35904));
+          v30 = (signed __int64 *)(v29 + ((v43 + 699LL) << 6));
+          _m_prefetchw(v30);
+          if ( !v25 )
+          {
+            v25 = v30 + 7;
+            *((_DWORD *)v30 + 14) = (unsigned int)((0x101010101010101LL
+                                                  * ((((v49 - ((v49 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                                                    + (((v49 - ((v49 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
+                                                    + ((((v49 - ((v49 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                                                      + (((v49 - ((v49 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24;
+          }
+          v30[6] = (signed __int64)v25;
+          if ( v13 == 5 )
+          {
+            *((_OWORD *)v30 + 1) = *a4;
+            *((_OWORD *)v30 + 2) = a4[1];
+            v46 = v30[5];
+          }
+          v30[1] = v16;
+          v31 = *(_QWORD *)(v29 + 35904);
+          do
+          {
+            v32 = v31;
+            *v30 = v31;
+            v31 = _InterlockedCompareExchange64((volatile signed __int64 *)(v29 + 35904), (signed __int64)v30, v31);
+          }
+          while ( v31 != v32 );
+          if ( v31 )
+          {
+            v40 = 1;
+          }
+          else
+          {
+            v33 = KiProcessorIndexToNumberMappingTable[v28];
+            v34 = v33 & 0x3F;
+            v35 = v33 >> 6;
+            v41 = 1;
+            if ( *(unsigned __int16 *)v10 <= (unsigned int)v35 )
+              *(_WORD *)v10 = v35 + 1;
+            v36 = &v10[v35];
+            v37 = v36[1];
+            _bittestandset64(&v37, v34);
+            v36[1] = v37;
+          }
+          v38 = *(_QWORD *)(v29 + 33976);
+          if ( v38 )
+            _InterlockedIncrement((volatile signed __int32 *)(v38 + 32));
+          v18 = v44;
+        }
+        while ( 1 )
+        {
+          v17 = ++v45;
+          if ( v45 >= (unsigned int)(v26 + 1) )
+            break;
+          v18 = *(_QWORD *)(8LL * v45 + 8);
+          if ( v18 )
+            goto LABEL_12;
+        }
+        v21 = v42;
       }
       else
       {
-        v29 = KiProcessorIndexToNumberMappingTable[v23];
-        v30 = v29 & 0x3F;
-        v31 = v29 >> 6;
-        v39 = 1;
-        if ( *v10 > (unsigned int)v31 )
-          goto LABEL_16;
-        if ( v10[1] > (unsigned int)v31 )
-        {
-          *v10 = v31 + 1;
-LABEL_16:
-          v32 = &v10[4 * v31];
-          v33 = *((_QWORD *)v32 + 1);
-          _bittestandset64(&v33, v30);
-          *((_QWORD *)v32 + 1) = v33;
-        }
+        v21 = (unsigned int)(v21 + 1);
+        v42 = v21;
       }
-      v34 = *(_QWORD *)(v24 + 35000);
-      if ( v34 )
-        _InterlockedIncrement((volatile signed __int32 *)(v34 + 32));
-      v18 = *((_QWORD *)&v43 + 1);
+      ++v22;
     }
-    while ( 1 )
+    while ( v22 < (unsigned __int16)KeNumberNodes );
+    v8 = a1;
+    if ( (_DWORD)v21 )
     {
-      LOWORD(v44) = v44 + 1;
-      if ( (unsigned __int16)v44 >= (unsigned int)(v21 + 1) )
-        break;
-      *((_QWORD *)&v43 + 1) = *(_QWORD *)(8LL * (unsigned __int16)v44 + 8);
-      v18 = *((_QWORD *)&v43 + 1);
-      if ( *((_QWORD *)&v43 + 1) )
-        goto LABEL_8;
+      v21 = (unsigned int)-(int)v21;
+      result = (unsigned int)(v21 + _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 11652), v21));
+      if ( !(_DWORD)result )
+      {
+        *(_DWORD *)(a1 + 11648) = 0;
+        return result;
+      }
     }
-    v8 = v48;
-    v16 = v40;
-    v5 = v37;
-    v9 = v48 + 12232;
-LABEL_22:
-    result = (unsigned __int16)KiSubNodeCount;
-    v40 = ++v16;
+    v19 = v41;
+    result = v40;
   }
-  while ( v16 < (unsigned __int16)KiSubNodeCount );
-  if ( v5 )
+  if ( v13 != 5 && (_DWORD)result )
   {
-    result = (unsigned int)(_InterlockedExchangeAdd((volatile signed __int32 *)(v8 + 11652), -v5) - v5);
-    if ( !(_DWORD)result )
+    if ( v19 )
     {
-      *(_DWORD *)(v8 + 11648) = 0;
-      return result;
-    }
-  }
-  v12 = v39;
-  v14 = v38;
-LABEL_25:
-  BugCheckParameter4 = v41;
-  if ( a5 != 5 && v14 )
-  {
-    if ( v12 )
-    {
-      ++*(_DWORD *)(v8 + 35024);
-      KiIpiEnlightenedGuestPriorityKick(v10);
-      result = HalRequestIpi(0LL, v10);
+      ++*(_DWORD *)(v8 + 34000);
+      KiIpiEnlightenedGuestPriorityKick(v10, v17, v18, v21);
+      result = HalRequestIpi(0, (__int64)v10);
     }
   }
   else
   {
-    if ( (unsigned int)(v41 - 1) <= 1 )
-      ++*(_DWORD *)(v8 + 35020);
+    if ( a2 - 1 <= 1 )
+      ++*(_DWORD *)(v8 + 33996);
     else
-      ++*(_DWORD *)(v8 + 35024);
-    KiIpiEnlightenedGuestPriorityKick(v9);
-    result = HalRequestIpiSpecifyVector((unsigned int)BugCheckParameter4, v9, 225LL);
+      ++*(_DWORD *)(v8 + 34000);
+    KiIpiEnlightenedGuestPriorityKick(v9, v17, v18, v21);
+    result = HalRequestIpiSpecifyVector(a2, v9, 225LL);
     if ( (int)result < 0 )
-      KeBugCheckEx(0x5Cu, 0x201uLL, HalpInterruptController, (int)result, BugCheckParameter4);
+      KeBugCheckEx(0x5Cu, 0x201uLL, HalpInterruptController, (int)result, (int)a2);
   }
-  if ( v36 )
-    return PerfInfoLogIpiSend((unsigned int)v50, a5, v46, BugCheckParameter4, v9);
+  if ( v39 )
+    return PerfInfoLogIpiSend((unsigned int)v50, v13, v46, a2, (__int64)v9);
   return result;
 }

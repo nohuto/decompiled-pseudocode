@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpViewMapMakeViewRangeValid @ 0x14068DB00
+ * XREFs of HvpViewMapMakeViewRangeValid @ 0x140723924
  * Callers:
- *     HvpViewMapPromoteRangeToMapping @ 0x14068D310 (HvpViewMapPromoteRangeToMapping.c)
- *     HvpViewMapCreateViewsForRegion @ 0x14068D778 (HvpViewMapCreateViewsForRegion.c)
- *     HvpViewMapExtendStorage @ 0x14068F044 (HvpViewMapExtendStorage.c)
+ *     HvpViewMapCreateViewsForRegion @ 0x140723598 (HvpViewMapCreateViewsForRegion.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x140724B50 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapExtendStorage @ 0x140724E8C (HvpViewMapExtendStorage.c)
  * Callees:
- *     CmSiProtectViewOfSection @ 0x14020B57C (CmSiProtectViewOfSection.c)
- *     CmSiPrefetchVirtualMemoryRange @ 0x14020B5BC (CmSiPrefetchVirtualMemoryRange.c)
- *     CmSiLockViewOfSection @ 0x14020B76C (CmSiLockViewOfSection.c)
- *     HvpViewMapTouchPages @ 0x14068E100 (HvpViewMapTouchPages.c)
+ *     CmSiProtectViewOfSection @ 0x14036286C (CmSiProtectViewOfSection.c)
+ *     CmSiPrefetchVirtualMemoryRange @ 0x1403628AC (CmSiPrefetchVirtualMemoryRange.c)
+ *     CmSiLockViewOfSection @ 0x140362B90 (CmSiLockViewOfSection.c)
+ *     HvpViewMapTouchPages @ 0x140723F48 (HvpViewMapTouchPages.c)
  */
 
 __int64 __fastcall HvpViewMapMakeViewRangeValid(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4, char a5)

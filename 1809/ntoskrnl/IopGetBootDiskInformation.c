@@ -1,24 +1,24 @@
 /*
- * XREFs of IopGetBootDiskInformation @ 0x1409F4A94
+ * XREFs of IopGetBootDiskInformation @ 0x1409F4AA4
  * Callers:
- *     IoGetBootDiskInformation @ 0x14081C460 (IoGetBootDiskInformation.c)
+ *     IoGetBootDiskInformation @ 0x14081C440 (IoGetBootDiskInformation.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     IofCallDriver @ 0x1400B8DD0 (IofCallDriver.c)
- *     IopBuildDeviceIoControlRequest @ 0x1400DDCD0 (IopBuildDeviceIoControlRequest.c)
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
- *     RtlEqualString @ 0x1400F2DB0 (RtlEqualString.c)
- *     RtlStringCchPrintfA @ 0x14018DFA0 (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
+ *     IopBuildDeviceIoControlRequest @ 0x1400DDCF0 (IopBuildDeviceIoControlRequest.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
+ *     RtlEqualString @ 0x1400F2DD0 (RtlEqualString.c)
+ *     RtlStringCchPrintfA @ 0x14018DFC0 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     IoGetDeviceObjectPointer @ 0x140661EB0 (IoGetDeviceObjectPointer.c)
- *     IoGetConfigurationInformation @ 0x14070F540 (IoGetConfigurationInformation.c)
- *     IopVerifyDiskSignature @ 0x140763778 (IopVerifyDiskSignature.c)
+ *     IoGetDeviceObjectPointer @ 0x140661E90 (IoGetDeviceObjectPointer.c)
+ *     IoGetConfigurationInformation @ 0x14070F520 (IoGetConfigurationInformation.c)
+ *     IopVerifyDiskSignature @ 0x140763758 (IopVerifyDiskSignature.c)
  */
 
 __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)

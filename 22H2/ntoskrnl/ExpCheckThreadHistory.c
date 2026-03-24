@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpCheckThreadHistory @ 0x14035499C
+ * XREFs of ExpCheckThreadHistory @ 0x140311EF0
  * Callers:
- *     ExpWorkerFactoryCheckCreate @ 0x1402B8D10 (ExpWorkerFactoryCheckCreate.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x140242860 (ExpWorkerFactoryCheckCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall ExpCheckThreadHistory(__int64 a1)
@@ -25,7 +25,7 @@ char __fastcall ExpCheckThreadHistory(__int64 a1)
   char v17; // di
   _OWORD v18[2]; // [rsp+0h] [rbp-38h] BYREF
 
-  v1 = *(_DWORD *)(a1 + 408);
+  v1 = *(_DWORD *)(a1 + 312);
   memset(v18, 0, sizeof(v18));
   if ( (v1 & 7) == 4 )
     return 0;
@@ -65,7 +65,7 @@ char __fastcall ExpCheckThreadHistory(__int64 a1)
     v17 = j;
     if ( v8 - j >= 2 )
       break;
-LABEL_19:
+LABEL_20:
     ++v4;
     if ( v15 > v9 )
       return 0;
@@ -73,7 +73,7 @@ LABEL_19:
   while ( *((_QWORD *)v18 + v4) != *((_QWORD *)v18 + v17) || ++v16 < 3 )
   {
     if ( 3 - v16 > v8 - ++v17 )
-      goto LABEL_19;
+      goto LABEL_20;
   }
   return 1;
 }

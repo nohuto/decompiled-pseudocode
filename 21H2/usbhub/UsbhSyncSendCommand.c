@@ -1,58 +1,58 @@
 /*
- * XREFs of UsbhSyncSendCommand @ 0x1C0019810
+ * XREFs of UsbhSyncSendCommand @ 0x1C000A740
  * Callers:
- *     UsbhSshSuspendHub @ 0x1C00063E0 (UsbhSshSuspendHub.c)
- *     UsbhSshResumeDownstream @ 0x1C0009090 (UsbhSshResumeDownstream.c)
- *     UsbhSuspendPort @ 0x1C000D884 (UsbhSuspendPort.c)
- *     UsbhQueryPortState @ 0x1C0018E60 (UsbhQueryPortState.c)
- *     UsbhSyncPowerOnPorts @ 0x1C001A270 (UsbhSyncPowerOnPorts.c)
- *     UsbhHubAckPortChange @ 0x1C001A524 (UsbhHubAckPortChange.c)
- *     UsbhResumePort @ 0x1C001A9D0 (UsbhResumePort.c)
- *     UsbhResetPort @ 0x1C001AB54 (UsbhResetPort.c)
- *     UsbhFlushPortChange @ 0x1C002A85C (UsbhFlushPortChange.c)
- *     UsbhGetDescriptor @ 0x1C002AFDC (UsbhGetDescriptor.c)
- *     UsbhGetPortStatus @ 0x1C002C190 (UsbhGetPortStatus.c)
- *     UsbhGetStatus @ 0x1C002C278 (UsbhGetStatus.c)
- *     UsbhIsHighSpeedCapable @ 0x1C002C998 (UsbhIsHighSpeedCapable.c)
- *     UsbhSetHubRemoteWake @ 0x1C002CF94 (UsbhSetHubRemoteWake.c)
- *     UsbhSetPortPower @ 0x1C002D208 (UsbhSetPortPower.c)
- *     UsbhSetPortIndicator @ 0x1C002EB18 (UsbhSetPortIndicator.c)
- *     UsbhClearTt @ 0x1C003664C (UsbhClearTt.c)
- *     UsbhDisablePort @ 0x1C0036D8C (UsbhDisablePort.c)
- *     UsbhHubAckHubChange @ 0x1C0037F88 (UsbhHubAckHubChange.c)
- *     UsbhQueryHubState @ 0x1C00386EC (UsbhQueryHubState.c)
- *     UsbhPdoCheckBootDeviceReady @ 0x1C0054050 (UsbhPdoCheckBootDeviceReady.c)
+ *     UsbhResetPort @ 0x1C00018E8 (UsbhResetPort.c)
+ *     UsbhQueryPortState @ 0x1C000A080 (UsbhQueryPortState.c)
+ *     UsbhSyncPowerOnPorts @ 0x1C000BBF0 (UsbhSyncPowerOnPorts.c)
+ *     UsbhSshResumeDownstream @ 0x1C000C0F0 (UsbhSshResumeDownstream.c)
+ *     UsbhSshSuspendHub @ 0x1C000D970 (UsbhSshSuspendHub.c)
+ *     UsbhSuspendPort @ 0x1C00138BC (UsbhSuspendPort.c)
+ *     UsbhResumePort @ 0x1C001BFA0 (UsbhResumePort.c)
+ *     UsbhHubAckPortChange @ 0x1C001C03C (UsbhHubAckPortChange.c)
+ *     UsbhFlushPortChange @ 0x1C002BBD0 (UsbhFlushPortChange.c)
+ *     UsbhGetDescriptor @ 0x1C002C3D0 (UsbhGetDescriptor.c)
+ *     UsbhGetPortStatus @ 0x1C002D5B4 (UsbhGetPortStatus.c)
+ *     UsbhGetStatus @ 0x1C002D6A0 (UsbhGetStatus.c)
+ *     UsbhIsHighSpeedCapable @ 0x1C002DDB8 (UsbhIsHighSpeedCapable.c)
+ *     UsbhSetHubRemoteWake @ 0x1C002E394 (UsbhSetHubRemoteWake.c)
+ *     UsbhSetPortPower @ 0x1C002E61C (UsbhSetPortPower.c)
+ *     UsbhSetPortIndicator @ 0x1C002FEE8 (UsbhSetPortIndicator.c)
+ *     UsbhClearTt @ 0x1C003796C (UsbhClearTt.c)
+ *     UsbhDisablePort @ 0x1C0038040 (UsbhDisablePort.c)
+ *     UsbhHubAckHubChange @ 0x1C0039260 (UsbhHubAckHubChange.c)
+ *     UsbhQueryHubState @ 0x1C00399BC (UsbhQueryHubState.c)
+ *     UsbhPdoCheckBootDeviceReady @ 0x1C00556E0 (UsbhPdoCheckBootDeviceReady.c)
  * Callees:
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     WPP_RECORDER_SF_qDDDDDDDDD @ 0x1C002E178 (WPP_RECORDER_SF_qDDDDDDDDD.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_qDDDDDDDDD @ 0x1C002F554 (WPP_RECORDER_SF_qDDDDDDDDD.c)
  */
 
 __int64 __fastcall UsbhSyncSendCommand(__int64 a1, __int64 a2, __int64 a3, _WORD *a4, int a5, _DWORD *a6)
 {
-  _WORD *v6; // rdi
+  _WORD *v6; // rsi
   __int64 v10; // r13
   PIRP v11; // rax
   IRP *v12; // rdx
-  NTSTATUS Status; // edx
   _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  NTSTATUS Status; // r8d
   __int64 v15; // r9
-  __int64 v16; // r8
+  __int64 v16; // rdx
   __int64 v17; // rcx
-  int *Pool2; // r14
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  PIRP v22; // r8
-  __int64 v23; // rdx
-  __int64 v24; // rcx
+  int *PoolWithTag; // rbx
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  PIRP v21; // r8
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  int v24; // eax
   int v25; // eax
-  int v26; // eax
-  NTSTATUS v27; // eax
-  int v28; // ebx
-  __int64 v29; // r8
-  __int64 v30; // rdx
-  __int64 v31; // rcx
-  __int64 v32; // rax
-  __int64 v33; // rdx
+  NTSTATUS v26; // eax
+  int v27; // edi
+  __int64 v28; // r8
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // r8
+  __int64 v32; // rdx
   int OutputBuffer; // [rsp+28h] [rbp-A9h]
   IRP *v35; // [rsp+88h] [rbp-49h]
   struct _IO_STATUS_BLOCK v36; // [rsp+90h] [rbp-41h] BYREF
@@ -130,57 +130,69 @@ __int64 __fastcall UsbhSyncSendCommand(__int64 a1, __int64 a2, __int64 a3, _WORD
   }
   else
   {
-    Pool2 = (int *)ExAllocatePool2(64LL, 136LL, 1112885333LL);
+    PoolWithTag = (int *)ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 0x88uLL, 0x42554855u);
+    if ( PoolWithTag )
+    {
+      *(_OWORD *)PoolWithTag = 0LL;
+      *((_OWORD *)PoolWithTag + 1) = 0LL;
+      *((_OWORD *)PoolWithTag + 2) = 0LL;
+      *((_OWORD *)PoolWithTag + 3) = 0LL;
+      *((_OWORD *)PoolWithTag + 4) = 0LL;
+      *((_OWORD *)PoolWithTag + 5) = 0LL;
+      *((_OWORD *)PoolWithTag + 6) = 0LL;
+      *((_OWORD *)PoolWithTag + 7) = 0LL;
+      *((_QWORD *)PoolWithTag + 16) = 0LL;
+    }
     if ( (UsbhLogMask & 8) != 0 )
     {
-      v20 = *(_QWORD *)(a1 + 64);
-      if ( v20 )
+      v19 = *(_QWORD *)(a1 + 64);
+      if ( v19 )
       {
         a5 = 811823987;
-        v21 = *(_QWORD *)(v20 + 888)
+        v20 = *(_QWORD *)(v19 + 888)
             + 32LL
-            * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v20 + 880)) & *(_DWORD *)(v20 + 884));
-        *(_DWORD *)v21 = a5;
-        *(_QWORD *)(v21 + 8) = 0LL;
-        *(_QWORD *)(v21 + 16) = Pool2;
-        *(_QWORD *)(v21 + 24) = 0LL;
+            * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v19 + 880)) & *(_DWORD *)(v19 + 884));
+        *(_DWORD *)v20 = a5;
+        *(_QWORD *)(v20 + 8) = 0LL;
+        *(_QWORD *)(v20 + 16) = PoolWithTag;
+        *(_QWORD *)(v20 + 24) = 0LL;
       }
     }
-    if ( Pool2 )
+    if ( PoolWithTag )
     {
       KeInitializeEvent(&Object, NotificationEvent, 0);
-      v22 = IoBuildDeviceIoControlRequest(0x220003u, *(PDEVICE_OBJECT *)(v10 + 1208), 0LL, 0, 0LL, 0, 1u, &Object, &v36);
-      v35 = v22;
+      v21 = IoBuildDeviceIoControlRequest(0x220003u, *(PDEVICE_OBJECT *)(v10 + 1208), 0LL, 0, 0LL, 0, 1u, &Object, &v36);
+      v35 = v21;
       if ( (UsbhLogMask & 8) != 0 )
       {
-        v23 = *(_QWORD *)(a1 + 64);
-        if ( v23 )
+        v22 = *(_QWORD *)(a1 + 64);
+        if ( v22 )
         {
           a5 = 828601203;
-          v24 = *(_QWORD *)(v23 + 888)
+          v23 = *(_QWORD *)(v22 + 888)
               + 32LL
-              * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v23 + 880)) & *(_DWORD *)(v23 + 884));
-          *(_DWORD *)v24 = a5;
-          *(_QWORD *)(v24 + 24) = &v36;
-          *(_QWORD *)(v24 + 8) = 0LL;
-          *(_QWORD *)(v24 + 16) = v22;
+              * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v22 + 880)) & *(_DWORD *)(v22 + 884));
+          *(_DWORD *)v23 = a5;
+          *(_QWORD *)(v23 + 24) = &v36;
+          *(_QWORD *)(v23 + 8) = 0LL;
+          *(_QWORD *)(v23 + 16) = v21;
         }
       }
-      if ( v22 )
+      if ( v21 )
       {
-        Pool2[8] = 10;
-        v25 = Pool2[8];
-        *((_QWORD *)Pool2 + 1) = 0LL;
-        *Pool2 = 3276936;
+        PoolWithTag[8] = 10;
+        v24 = PoolWithTag[8];
+        *((_QWORD *)PoolWithTag + 1) = 0LL;
+        *PoolWithTag = 3276936;
         if ( *(char *)a2 < 0 )
-          v25 = 11;
-        Pool2[8] = v25;
-        v26 = (unsigned __int16)*v6;
-        *((_QWORD *)Pool2 + 5) = a3;
-        *((_QWORD *)Pool2 + 6) = 0LL;
-        Pool2[9] = v26;
-        Pool2[14] = 2000;
-        *((_QWORD *)Pool2 + 16) = *(_QWORD *)a2;
+          v24 = 11;
+        PoolWithTag[8] = v24;
+        v25 = (unsigned __int16)*v6;
+        *((_QWORD *)PoolWithTag + 5) = a3;
+        *((_QWORD *)PoolWithTag + 6) = 0LL;
+        PoolWithTag[9] = v25;
+        PoolWithTag[14] = 2000;
+        *((_QWORD *)PoolWithTag + 16) = *(_QWORD *)a2;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
         {
           WPP_RECORDER_SF_qDDDDDDDDD(
@@ -199,61 +211,61 @@ __int64 __fastcall UsbhSyncSendCommand(__int64 a1, __int64 a2, __int64 a3, _WORD
             HIBYTE(*(_WORD *)(a2 + 4)),
             *(_WORD *)(a2 + 4),
             *(_WORD *)(a2 + 6));
-          v22 = v35;
+          v21 = v35;
           v6 = v42;
         }
-        v22->Tail.Overlay.CurrentStackLocation[-1].Parameters.WMI.ProviderId = (unsigned __int64)Pool2;
-        v27 = IofCallDriver(*(PDEVICE_OBJECT *)(v10 + 1208), v22);
-        v28 = v27;
-        if ( v27 == 259 )
+        v21->Tail.Overlay.CurrentStackLocation[-1].Parameters.WMI.ProviderId = (unsigned __int64)PoolWithTag;
+        v26 = IofCallDriver(*(PDEVICE_OBJECT *)(v10 + 1208), v21);
+        v27 = v26;
+        if ( v26 == 259 )
         {
           KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
-          v28 = v36.Status;
+          v27 = v36.Status;
         }
         else
         {
-          v36.Status = v27;
+          v36.Status = v26;
         }
-        v29 = Pool2[1];
+        v28 = PoolWithTag[1];
         if ( (UsbhLogMask & 8) != 0 )
         {
-          v30 = *(_QWORD *)(a1 + 64);
-          if ( v30 )
+          v29 = *(_QWORD *)(a1 + 64);
+          if ( v29 )
           {
             a5 = 845378419;
-            v31 = *(_QWORD *)(v30 + 888)
+            v30 = *(_QWORD *)(v29 + 888)
                 + 32LL
-                * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v30 + 880)) & *(_DWORD *)(v30 + 884));
-            *(_DWORD *)v31 = a5;
-            *(_QWORD *)(v31 + 16) = v28;
-            *(_QWORD *)(v31 + 8) = 0LL;
-            *(_QWORD *)(v31 + 24) = v29;
+                * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v29 + 880)) & *(_DWORD *)(v29 + 884));
+            *(_DWORD *)v30 = a5;
+            *(_QWORD *)(v30 + 16) = v27;
+            *(_QWORD *)(v30 + 8) = 0LL;
+            *(_QWORD *)(v30 + 24) = v28;
           }
         }
         if ( a6 )
-          *a6 = Pool2[1];
-        *v6 = *((_WORD *)Pool2 + 18);
-        ExFreePoolWithTag(Pool2, 0);
+          *a6 = PoolWithTag[1];
+        *v6 = *((_WORD *)PoolWithTag + 18);
+        ExFreePoolWithTag(PoolWithTag, 0);
         if ( (UsbhLogMask & 8) != 0 )
         {
-          v32 = *(_QWORD *)(a1 + 64);
-          if ( v32 )
+          v31 = *(_QWORD *)(a1 + 64);
+          if ( v31 )
           {
             a5 = 1046705011;
-            v33 = *(_QWORD *)(v32 + 888)
+            v32 = *(_QWORD *)(v31 + 888)
                 + 32LL
-                * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v32 + 880)) & *(_DWORD *)(v32 + 884));
-            *(_DWORD *)v33 = a5;
-            *(_QWORD *)(v33 + 16) = v28;
-            *(_QWORD *)(v33 + 8) = 0LL;
-            *(_QWORD *)(v33 + 24) = 0LL;
+                * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v31 + 880)) & *(_DWORD *)(v31 + 884));
+            *(_DWORD *)v32 = a5;
+            *(_QWORD *)(v32 + 16) = v27;
+            *(_QWORD *)(v32 + 8) = 0LL;
+            *(_QWORD *)(v32 + 24) = 0LL;
           }
         }
-        return (unsigned int)v28;
+        return (unsigned int)v27;
       }
       else
       {
-        ExFreePoolWithTag(Pool2, 0);
+        ExFreePoolWithTag(PoolWithTag, 0);
         return 3221225626LL;
       }
     }

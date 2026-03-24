@@ -1,9 +1,9 @@
 /*
- * XREFs of ?NewConversation@@YAHPEAPEAUtagDDECONV@@0PEAUtagWND@@1@Z @ 0x1C02150FC
+ * XREFs of ?NewConversation@@YAHPEAPEAUtagDDECONV@@0PEAUtagWND@@1@Z @ 0x1C021ADC0
  * Callers:
- *     xxxDDETrackSendHook @ 0x1C0218378 (xxxDDETrackSendHook.c)
+ *     xxxDDETrackSendHook @ 0x1C021D3BC (xxxDDETrackSendHook.c)
  * Callees:
- *     ?AddConvProp@@YAHPEAUtagWND@@0KPEAUtagDDECONV@@1@Z @ 0x1C0214BD0 (-AddConvProp@@YAHPEAUtagWND@@0KPEAUtagDDECONV@@1@Z.c)
+ *     ?AddConvProp@@YAHPEAUtagWND@@0KPEAUtagDDECONV@@1@Z @ 0x1C021A918 (-AddConvProp@@YAHPEAUtagWND@@0KPEAUtagDDECONV@@1@Z.c)
  */
 
 __int64 __fastcall NewConversation(

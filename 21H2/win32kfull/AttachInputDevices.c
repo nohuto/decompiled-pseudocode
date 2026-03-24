@@ -1,7 +1,7 @@
 /*
- * XREFs of AttachInputDevices @ 0x1C0153768
+ * XREFs of AttachInputDevices @ 0x1C0163710
  * Callers:
- *     xxxRemoteReconnect @ 0x1C01528E0 (xxxRemoteReconnect.c)
+ *     xxxRemoteReconnect @ 0x1C0162570 (xxxRemoteReconnect.c)
  * Callees:
  *     <none>
  */

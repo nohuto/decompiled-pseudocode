@@ -1,163 +1,140 @@
 /*
- * XREFs of MmResourcesAvailable @ 0x1402AEEA0
+ * XREFs of MmResourcesAvailable @ 0x1402BECF0
  * Callers:
- *     ExAllocatePool3 @ 0x140AAF430 (ExAllocatePool3.c)
- *     ExpAllocatePoolWithTagPriority @ 0x140AAFCF4 (ExpAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1402BC770 (ExAllocatePoolWithTagPriority.c)
  * Callees:
- *     KePulseEvent @ 0x1402206C0 (KePulseEvent.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032F8C8 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreeExcessSegments @ 0x140624A8C (MiFreeExcessSegments.c)
- *     MiIssuePageExtendRequest @ 0x14063AD8C (MiIssuePageExtendRequest.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiFreeExcessSegments @ 0x1402953D0 (MiFreeExcessSegments.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KePulseEvent @ 0x14033AAD0 (KePulseEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiIssuePageExtendRequest @ 0x140543884 (MiIssuePageExtendRequest.c)
  */
 
 __int64 __fastcall MmResourcesAvailable(char a1, unsigned __int64 a2, int a3)
 {
-  __int64 v3; // rdi
-  int v4; // r10d
-  __int64 v5; // rax
-  unsigned __int64 v6; // rax
-  unsigned int v7; // ebx
-  unsigned __int64 v8; // rcx
-  unsigned __int64 v10; // rcx
-  struct _KTHREAD *CurrentThread; // r14
-  struct _KTHREAD *v12; // rsi
-  unsigned int AbEntrySummary; // eax
-  unsigned int v14; // ecx
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  signed __int32 v17; // eax
-  signed __int32 v18; // ett
-  int SessionId; // eax
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  unsigned __int64 v22; // rcx
-  unsigned __int64 OldIrql; // rdi
+  ULONG_PTR *v3; // rbx
+  unsigned int v4; // esi
+  ULONG_PTR v8; // rdi
+  unsigned __int64 v9; // r9
+  int v10; // ebp
+  __int64 v11; // r10
+  unsigned __int64 v12; // rdx
+  unsigned __int64 v13; // rax
+  unsigned __int64 v14; // r8
+  __int64 v15; // r10
+  unsigned __int64 v16; // r10
+  unsigned __int64 v17; // rax
+  ULONG_PTR v18; // rax
+  ULONG_PTR v19; // r8
+  struct _KEVENT *v20; // rcx
+  unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *v25; // r10
-  _DWORD *v26; // r9
-  bool v27; // zf
-  __int64 v28; // r9
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v25; // edx
+  bool v26; // zf
+  struct _KTHREAD *CurrentThread; // rdi
+  struct _KEVENT *v29; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
-  unsigned int v30; // [rsp+60h] [rbp+8h]
 
-  v3 = 0LL;
+  v3 = &MiSystemPartition;
+  v4 = 0;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v4 = a1 & 1;
-  if ( (a1 & 1) != 0 )
-    v5 = qword_140C69A38 - qword_140C69A28;
-  else
-    v5 = MiState[0] - qword_140C65588;
-  v6 = v5 << 12;
-  v7 = 0;
-  if ( a3 == 16 )
-    v8 = a2 + 0x80000;
-  else
-    v8 = a2 + 0x200000;
-  if ( v8 <= v6 )
+  v8 = (a2 >> 12) + ((a2 & 0xFFF) != 0);
+  v9 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
+  v10 = a1 & 1;
+  if ( (a1 & 1) == 0 )
   {
-    if ( v4 )
-    {
-      v10 = qword_140C6F508 - qword_140C6F9A8;
-      if ( qword_140C6F9A8 > (unsigned __int64)qword_140C6F508 )
-        v10 = 0LL;
-      if ( (a2 >> 12) + ((a2 & 0xFFF) != 0) > v10 )
-      {
-        MiIssuePageExtendRequest(&MiSystemPartition, (a2 >> 12) + ((a2 & 0xFFF) != 0), 2LL);
-        goto LABEL_15;
-      }
-    }
-    v8 = a2 + 10485760;
-    if ( a2 + 10485760 < v6 || qword_140C6F790 < 0x40000 )
-      return 1LL;
-    v7 = 1;
+    v11 = MiState[0] - qword_140C4C8C8;
+LABEL_8:
+    v16 = v11 << 12;
+    goto LABEL_9;
   }
-  if ( v4 )
+  if ( (a1 & 0x20) == 0 )
   {
-LABEL_15:
-    CurrentThread = KeGetCurrentThread();
-    --CurrentThread->SpecialApcDisable;
-    v12 = KeGetCurrentThread();
-    _disable();
-    AbEntrySummary = v12->AbEntrySummary;
-    if ( v12->AbEntrySummary || (AbEntrySummary = KiAbTryReclaimOrphanedEntries(v8, v12)) != 0 )
+    v11 = qword_140C4EF38 - qword_140C4EF28;
+    goto LABEL_8;
+  }
+  v12 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
+  v13 = (__int64)*(int *)(v12 + 868) << 21;
+  v14 = *(_QWORD *)(v12 + 184) << 12;
+  v15 = v13 - v14;
+  if ( v13 <= v14 )
+    v15 = 0LL;
+  v16 = ((0x10000LL - *(unsigned int *)(v12 + 872)) << 21) + v15;
+  v3 = *(ULONG_PTR **)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(v9 + 430));
+LABEL_9:
+  v17 = a2 + 0x80000;
+  if ( a3 != 16 )
+    v17 = a2 + 0x200000;
+  if ( v17 <= v16 )
+  {
+    if ( (a1 & 1) == 0 )
+      goto LABEL_30;
+    v18 = 0LL;
+    v19 = v3[933];
+    if ( v19 <= v3[777] )
+      v18 = v3[777] - v19;
+    if ( v8 > v18 )
     {
-      _BitScanForward(&v14, AbEntrySummary);
-      v30 = v14;
-      v12->AbEntrySummary = AbEntrySummary & ~(1 << v14);
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-      if ( SchedulerAssist )
+      MiIssuePageExtendRequest(v3, v8, 2LL, 0LL);
+    }
+    else
+    {
+LABEL_30:
+      if ( a2 + 10485760 < v16 || v3[866] < 0x40000 )
+        return 1LL;
+      v4 = 1;
+    }
+  }
+  if ( (a1 & 0x20) == 0 )
+  {
+    if ( v10 )
+    {
+      CurrentThread = KeGetCurrentThread();
+      --CurrentThread->SpecialApcDisable;
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4EF18, 0LL);
+      v29 = (struct _KEVENT *)v3[31];
+      if ( !v29->Header.SignalState )
+        KePulseEvent(v29, 0, 0);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4EF18, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C4EF18);
+      KeAbPostRelease((ULONG_PTR)&qword_140C4EF18);
+      KiLeaveGuardedRegionUnsafe(CurrentThread);
+    }
+    else
+    {
+      KeAcquireInStackQueuedSpinLock(v3 + 616, &LockHandle);
+      v20 = (struct _KEVENT *)v3[33];
+      if ( !v20->Header.SignalState )
+        KePulseEvent(v20, 0, 0);
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      OldIrql = LockHandle.OldIrql;
+      if ( KiIrqlFlags )
       {
-        _m_prefetchw(SchedulerAssist);
-        v17 = *SchedulerAssist;
-        do
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          v18 = v17;
-          v17 = _InterlockedCompareExchange(SchedulerAssist, v17 & 0xFFDFFFFF, v17);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v25 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v26 = (v25 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v25;
+            if ( v26 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
-        while ( v18 != v17 );
-        if ( (v17 & 0x200000) != 0 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
-      _enable();
-      v3 = (__int64)(&v12[1].Process + 12 * v30);
-      if ( (unsigned __int64)&qword_140C69A18 - qword_140C65AE8 < 0x8000000000LL )
-        SessionId = MmGetSessionIdEx((__int64)v12->ApcState.Process);
-      else
-        SessionId = -1;
-      *(_DWORD *)(v3 + 8) = SessionId;
-      *(_QWORD *)v3 = (unsigned __int64)&qword_140C69A18 & 0x7FFFFFFFFFFFFFFCLL;
+      __writecr8(OldIrql);
     }
-    if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140C69A18, 0LL) )
-      ExfAcquirePushLockExclusiveEx(&qword_140C69A18, v3, &qword_140C69A18);
-    if ( v3 )
-      *(_BYTE *)(v3 + 18) = 1;
-    if ( !qword_140C6B610->Header.SignalState )
-      KePulseEvent(qword_140C6B610, 0, 0);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C69A18, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&qword_140C69A18);
-    KeAbPostRelease((ULONG_PTR)&qword_140C69A18);
-    v27 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v27 )
-    {
-      v22 = (unsigned __int64)&CurrentThread->152;
-      if ( *(_QWORD *)v22 != v22 )
-        KiCheckForKernelApcDelivery(v22, v20, v21, v28);
-    }
-    goto LABEL_50;
+    MiFreeExcessSegments();
   }
-  KeAcquireInStackQueuedSpinLock(&qword_140C6F300, &LockHandle);
-  if ( !qword_140C6B620->Header.SignalState )
-    KePulseEvent(qword_140C6B620, 0, 0);
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-  v22 = (unsigned int)KiIrqlFlags;
-  OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
-  {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
-    {
-      v25 = KeGetCurrentPrcb();
-      v26 = v25->SchedulerAssist;
-      v22 = (unsigned int)LockHandle.OldIrql + 1;
-      v20 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v27 = ((unsigned int)v20 & v26[5]) == 0;
-      v21 = (unsigned int)v20 & v26[5];
-      v26[5] = v21;
-      if ( v27 )
-        KiRemoveSystemWorkPriorityKick(v25);
-    }
-  }
-  __writecr8(OldIrql);
-LABEL_50:
-  MiFreeExcessSegments(v22, v20, v21);
-  return v7;
+  return v4;
 }

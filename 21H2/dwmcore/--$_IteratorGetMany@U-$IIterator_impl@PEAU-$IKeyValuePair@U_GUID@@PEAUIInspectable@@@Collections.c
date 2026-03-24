@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$_IteratorGetMany@U?$IIterator_impl@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@$00@Collections@Foundation@Windows@@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@234@@Detail@Collections@Foundation@Windows@@YAJPEAU?$IIterator_impl@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@$00@123@IPEAPEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@123@PEAI@Z @ 0x18028169C
+ * XREFs of ??$_IteratorGetMany@U?$IIterator_impl@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@$00@Collections@Foundation@Windows@@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@234@@Detail@Collections@Foundation@Windows@@YAJPEAU?$IIterator_impl@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@$00@123@IPEAPEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@123@PEAI@Z @ 0x180241A04
  * Callers:
- *     ?GetMany@?$IIterator_impl@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@$00@Collections@Foundation@Windows@@UEAAJIPEAPEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@234@PEAI@Z @ 0x180285F70 (-GetMany@-$IIterator_impl@PEAU-$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@.c)
+ *     ?GetMany@?$IIterator_impl@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@$00@Collections@Foundation@Windows@@UEAAJIPEAPEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@234@PEAI@Z @ 0x1802453E0 (-GetMany@-$IIterator_impl@PEAU-$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@.c)
  * Callees:
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Windows::Foundation::Collections::Detail::_IteratorGetMany<Windows::Foundation::Collections::IIterator_impl<Windows::Foundation::Collections::IKeyValuePair<_GUID,IInspectable *> *,1>,Windows::Foundation::Collections::IKeyValuePair<_GUID,IInspectable *> *>(
@@ -26,6 +26,19 @@ __int64 __fastcall Windows::Foundation::Collections::Detail::_IteratorGetMany<Wi
   *a4 = 0;
   v9 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)a1 + 56LL))(a1, &v12);
   if ( v9 < 0 )
+    goto LABEL_8;
+  do
+  {
+    if ( !v12 || (unsigned int)v8 >= a2 )
+      break;
+    v9 = (*(__int64 (__fastcall **)(__int64, _QWORD *))(*(_QWORD *)a1 + 48LL))(a1, &v4[v8]);
+    if ( v9 < 0 )
+      goto LABEL_8;
+    v8 = (unsigned int)(v8 + 1);
+    v9 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)a1 + 64LL))(a1, &v12);
+  }
+  while ( v9 >= 0 );
+  if ( v9 < 0 )
   {
 LABEL_8:
     if ( *a4 )
@@ -42,22 +55,6 @@ LABEL_8:
   }
   else
   {
-    while ( v12 )
-    {
-      if ( (unsigned int)v8 < a2 )
-      {
-        v9 = (*(__int64 (__fastcall **)(__int64, _QWORD *))(*(_QWORD *)a1 + 48LL))(a1, &v4[v8]);
-        if ( v9 < 0 )
-          goto LABEL_8;
-        v8 = (unsigned int)(v8 + 1);
-        v9 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)a1 + 64LL))(a1, &v12);
-        if ( v9 >= 0 )
-          continue;
-      }
-      if ( v9 < 0 )
-        goto LABEL_8;
-      break;
-    }
     *a4 = v8;
   }
   return (unsigned int)v9;

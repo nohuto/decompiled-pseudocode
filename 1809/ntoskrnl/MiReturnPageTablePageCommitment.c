@@ -13,9 +13,9 @@
  *     MiReturnFullProcessCharges @ 0x14007FF10 (MiReturnFullProcessCharges.c)
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
  *     MiBitmapRangeZero @ 0x140097470 (MiBitmapRangeZero.c)
- *     MiCreateSystemWsles @ 0x1400F3184 (MiCreateSystemWsles.c)
- *     MiUpdateChargedWsles @ 0x1402CB58C (MiUpdateChargedWsles.c)
- *     MiGetAweVadPageSize @ 0x14084FF24 (MiGetAweVadPageSize.c)
+ *     MiCreateSystemWsles @ 0x1400F31A4 (MiCreateSystemWsles.c)
+ *     MiUpdateChargedWsles @ 0x1402CB68C (MiUpdateChargedWsles.c)
+ *     MiGetAweVadPageSize @ 0x14084FF04 (MiGetAweVadPageSize.c)
  */
 
 __int64 __fastcall MiReturnPageTablePageCommitment(

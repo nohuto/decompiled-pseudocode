@@ -1,30 +1,29 @@
 /*
- * XREFs of ?GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18000923C
+ * XREFs of ?GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180014924
  * Callers:
- *     ?GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18010B930 (-GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMi.c)
- *     ?GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18010C010 (-GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUM.c)
- *     ?GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18010C2B0 (-GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUM.c)
+ *     ?GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800F8B80 (-GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMi.c)
+ *     ?GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800F8E30 (-GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUM.c)
+ *     ?GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800F8FF0 (-GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUM.c)
  * Callees:
- *     ?CalcImageTransform@CBitmapRealization@@QEBA_NPEAVCMILMatrix@@@Z @ 0x1800093A4 (-CalcImageTransform@CBitmapRealization@@QEBA_NPEAVCMILMatrix@@@Z.c)
- *     ?CalcRotationTransform@CBitmapRealization@@QEBA_NAEBUD2D_SIZE_U@@PEAVCMILMatrix@@@Z @ 0x180009460 (-CalcRotationTransform@CBitmapRealization@@QEBA_NAEBUD2D_SIZE_U@@PEAVCMILMatrix@@@Z.c)
- *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x18003CF50 (-Translate@CMILMatrix@@QEAAXMM@Z.c)
- *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x18009A3CC (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
- *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x1800A6570 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?CalcImageTransform@CBitmapRealization@@QEBA_NPEAVCMILMatrix@@@Z @ 0x180014A7C (-CalcImageTransform@CBitmapRealization@@QEBA_NPEAVCMILMatrix@@@Z.c)
+ *     ?CalcRotationTransform@CBitmapRealization@@QEBA_NAEBUD2D_SIZE_U@@PEAVCMILMatrix@@@Z @ 0x180014B30 (-CalcRotationTransform@CBitmapRealization@@QEBA_NAEBUD2D_SIZE_U@@PEAVCMILMatrix@@@Z.c)
+ *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180041AC8 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
+ *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x180041F4C (-Translate@CMILMatrix@@QEAAXMM@Z.c)
+ *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x1800837D0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall CDxHandleBitmapRealization::GetTransform(__int64 a1, __int64 a2, float *a3)
 {
-  char v6; // al
-  int *v7; // rax
-  int *v8; // rsi
-  int *v9; // r14
-  int v10; // ecx
-  int v11; // edx
-  UINT32 v12; // eax
-  _BYTE v14[64]; // [rsp+20h] [rbp-68h] BYREF
-  int v15; // [rsp+60h] [rbp-28h]
-  struct D2D_SIZE_U v16; // [rsp+90h] [rbp+8h] BYREF
+  int *v6; // rax
+  int *v7; // rsi
+  int *v8; // r14
+  int v9; // ecx
+  int v10; // edx
+  UINT32 v11; // eax
+  _BYTE v13[64]; // [rsp+20h] [rbp-68h] BYREF
+  int v14; // [rsp+60h] [rbp-28h]
+  D2D_SIZE_U v15; // [rsp+90h] [rbp+8h] BYREF
 
   *(_QWORD *)a2 = 1065353216LL;
   *(_QWORD *)(a2 + 8) = 0LL;
@@ -36,37 +35,35 @@ bool __fastcall CDxHandleBitmapRealization::GetTransform(__int64 a1, __int64 a2,
   *(_QWORD *)(a2 + 48) = 0LL;
   *(_DWORD *)(a2 + 56) = 0;
   *(_DWORD *)(a2 + 60) = 1065353216;
-  v6 = *(_BYTE *)(a2 + 65) & 0xD7;
-  *(_BYTE *)(a2 + 64) = 85;
-  *(_BYTE *)(a2 + 65) = v6 | 0x17;
+  *(_WORD *)(a2 + 64) = 32085;
   if ( *(_QWORD *)(a1 - 88) )
   {
-    v7 = (int *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(a1 - 104) + 48LL))(a1 - 104);
-    v8 = v7;
-    v9 = v7 + 1;
-    if ( *v7 || (v10 = *v9, v11 = 0, *v9) )
+    v6 = (int *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(a1 - 104) + 40LL))(a1 - 104);
+    v7 = v6;
+    v8 = v6 + 1;
+    if ( *v6 || (v9 = *v8, v10 = 0, *v8) )
     {
       CMILMatrix::Translate(
         (CMILMatrix *)a2,
-        COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*v7) ^ _xmm),
-        COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*v9) ^ _xmm));
-      v11 = *v8;
-      v10 = v8[1];
+        COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*v6) ^ _xmm),
+        COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*v8) ^ _xmm));
+      v10 = *v7;
+      v9 = v7[1];
     }
-    v16.width = v8[2] - v11;
-    v12 = v8[3] - v10;
-    v15 = 0;
-    v16.height = v12;
-    if ( CBitmapRealization::CalcRotationTransform((CBitmapRealization *)(a1 - 464), &v16, (struct CMILMatrix *)v14) )
-      CMILMatrix::Multiply((CMILMatrix *)a2, (const struct CMILMatrix *)v14);
-    if ( CBitmapRealization::CalcImageTransform((CBitmapRealization *)(a1 - 464), (struct CMILMatrix *)v14) )
-      CMILMatrix::Multiply((CMILMatrix *)a2, (const struct CMILMatrix *)v14);
+    v15.width = v7[2] - v10;
+    v11 = v7[3] - v9;
+    v14 = 0;
+    v15.height = v11;
+    if ( CBitmapRealization::CalcRotationTransform((CBitmapRealization *)(a1 - 432), &v15, (struct CMILMatrix *)v13) )
+      CMILMatrix::Multiply((CMILMatrix *)a2, (const struct CMILMatrix *)v13);
+    if ( CBitmapRealization::CalcImageTransform((CBitmapRealization *)(a1 - 432), (struct CMILMatrix *)v13) )
+      CMILMatrix::Multiply((CMILMatrix *)a2, (const struct CMILMatrix *)v13);
     if ( a3 )
     {
-      *a3 = (float)*v8;
-      a3[1] = (float)*v9;
-      a3[2] = (float)v8[2];
-      a3[3] = (float)v8[3];
+      *a3 = (float)*v7;
+      a3[1] = (float)*v8;
+      a3[2] = (float)v7[2];
+      a3[3] = (float)v7[3];
     }
   }
   else if ( a3 )

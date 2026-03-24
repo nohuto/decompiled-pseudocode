@@ -3,8 +3,8 @@
  * Callers:
  *     KiLoadMTRRTarget @ 0x140573B20 (KiLoadMTRRTarget.c)
  * Callees:
- *     KeFlushCurrentTbImmediately @ 0x140173B40 (KeFlushCurrentTbImmediately.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeFlushCurrentTbImmediately @ 0x140173B60 (KeFlushCurrentTbImmediately.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     KiLockStepExecution @ 0x14056E738 (KiLockStepExecution.c)
  *     KiWriteFixedMtrr @ 0x14056E77C (KiWriteFixedMtrr.c)
  *     KiReadFixedMtrr @ 0x14056E88C (KiReadFixedMtrr.c)

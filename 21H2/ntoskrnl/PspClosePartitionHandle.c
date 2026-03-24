@@ -1,9 +1,9 @@
 /*
- * XREFs of PspClosePartitionHandle @ 0x1409B3320
+ * XREFs of PspClosePartitionHandle @ 0x14090CF20
  * Callers:
- *     PspAllocatePartition @ 0x14085BD34 (PspAllocatePartition.c)
+ *     <none>
  * Callees:
- *     PsDereferencePartition @ 0x1403606C4 (PsDereferencePartition.c)
+ *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
  */
 
 void __fastcall PspClosePartitionHandle(__int64 a1, __int64 a2)

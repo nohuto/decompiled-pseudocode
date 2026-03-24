@@ -1,24 +1,24 @@
 /*
- * XREFs of SdbpGetIndex @ 0x140757728
+ * XREFs of SdbpGetIndex @ 0x140759384
  * Callers:
- *     SdbpFindNextIndexedWildCardTag @ 0x1407575F8 (SdbpFindNextIndexedWildCardTag.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x140758F00 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x140752DDC (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140758F78 (SdbpFindFirstIndexedWildCardTag.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpGetMappedTagData @ 0x140740E9C (SdbpGetMappedTagData.c)
- *     SdbGetTagDataSize @ 0x1407580A0 (SdbGetTagDataSize.c)
- *     SdbGetTagFromTagID @ 0x140758190 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbpGetMappedTagData @ 0x1407595F4 (SdbpGetMappedTagData.c)
+ *     SdbGetTagDataSize @ 0x140759B30 (SdbGetTagDataSize.c)
+ *     SdbGetTagFromTagID @ 0x140759BE4 (SdbGetTagFromTagID.c)
  */
 
-__int64 __fastcall SdbpGetIndex(__int64 a1, __int64 a2, unsigned int *a3)
+__int64 __fastcall SdbpGetIndex(__int64 a1, __int64 a2, unsigned int *a3, __int64 a4)
 {
-  unsigned int v4; // ebx
+  unsigned int v5; // ebx
 
-  v4 = a2;
-  if ( (unsigned __int16)SdbGetTagFromTagID(a1, a2, a3) == 0x9801 )
+  v5 = a2;
+  if ( (unsigned __int16)SdbGetTagFromTagID(a1, a2, a3, a4) == 0x9801 )
   {
-    *a3 = (unsigned int)SdbGetTagDataSize(a1, v4) / 0xC;
-    return SdbpGetMappedTagData(a1, v4);
+    *a3 = (unsigned int)SdbGetTagDataSize(a1, v5) / 0xC;
+    return SdbpGetMappedTagData(a1, v5);
   }
   else
   {

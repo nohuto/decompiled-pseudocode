@@ -1,12 +1,12 @@
 /*
- * XREFs of Usbh_SSH_HubFailedResume @ 0x1C0058D7C
+ * XREFs of Usbh_SSH_HubFailedResume @ 0x1C005A44C
  * Callers:
- *     Usbh_SSH_Event @ 0x1C0004D80 (Usbh_SSH_Event.c)
- *     UsbhFdoReturnPortStatus @ 0x1C00186F0 (UsbhFdoReturnPortStatus.c)
+ *     UsbhFdoReturnPortStatus @ 0x1C00099C0 (UsbhFdoReturnPortStatus.c)
+ *     Usbh_SSH_Event @ 0x1C0012810 (Usbh_SSH_Event.c)
  * Callees:
- *     UsbhUnlockSSH @ 0x1C0002A5C (UsbhUnlockSSH.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhUnlockSSH @ 0x1C001CC84 (UsbhUnlockSSH.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
  */
 
 __int64 __fastcall Usbh_SSH_HubFailedResume(__int64 a1, __int64 a2, __int64 a3)

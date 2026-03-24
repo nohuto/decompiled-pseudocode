@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpSetValueDataExisting @ 0x1406CE45C
+ * XREFs of CmpSetValueDataExisting @ 0x1406CE43C
  * Callers:
  *     CmpSetValueKeyExisting @ 0x1405AE27C (CmpSetValueKeyExisting.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     HvReallocateCell @ 0x1405AD9CC (HvReallocateCell.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
  *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)

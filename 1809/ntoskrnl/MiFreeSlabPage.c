@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreeSlabPage @ 0x1402C24CC
+ * XREFs of MiFreeSlabPage @ 0x1402C25CC
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  * Callees:
- *     MiFreePageToSlabAllocator @ 0x1402C1E80 (MiFreePageToSlabAllocator.c)
+ *     MiFreePageToSlabAllocator @ 0x1402C1F80 (MiFreePageToSlabAllocator.c)
  */
 
 __int64 __fastcall MiFreeSlabPage(__int64 a1)

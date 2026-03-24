@@ -1,256 +1,275 @@
 /*
- * XREFs of KiAbProcessContextSwitch @ 0x1402B4EC0
+ * XREFs of KiAbProcessContextSwitch @ 0x140347C50
  * Callers:
- *     KeSetSchedulingGroupRankBias @ 0x140207F60 (KeSetSchedulingGroupRankBias.c)
- *     KeCpuSetReportParkedProcessors @ 0x14020E1DC (KeCpuSetReportParkedProcessors.c)
- *     KiSetLegacyAffinityThread @ 0x14020E6EC (KiSetLegacyAffinityThread.c)
- *     KeSetUserAffinityThread @ 0x14020E9E8 (KeSetUserAffinityThread.c)
- *     KiReadyOutSwappedThreads @ 0x1402112F8 (KiReadyOutSwappedThreads.c)
- *     KiAbThreadUnboostCpuPriority @ 0x14022B5D8 (KiAbThreadUnboostCpuPriority.c)
- *     KeBoostPriorityThread @ 0x140255110 (KeBoostPriorityThread.c)
- *     KiQuantumEnd @ 0x14028FFD0 (KiQuantumEnd.c)
- *     KiCheckForThreadDispatch @ 0x140294824 (KiCheckForThreadDispatch.c)
- *     KeYieldExecution @ 0x14029B310 (KeYieldExecution.c)
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     KiSwapThread @ 0x1402B3140 (KiSwapThread.c)
- *     KeRemoveQueueEx @ 0x1402B7FA0 (KeRemoveQueueEx.c)
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     KeSetBasePriorityThread @ 0x1402EBF30 (KeSetBasePriorityThread.c)
- *     KiSchedulerApc @ 0x1402EFA40 (KiSchedulerApc.c)
- *     PsImpersonateContainerOfThread @ 0x14030F330 (PsImpersonateContainerOfThread.c)
- *     KiProcessDeferredReadyList @ 0x140344800 (KiProcessDeferredReadyList.c)
- *     KiAbForceProcessLockEntry @ 0x14039C4BC (KiAbForceProcessLockEntry.c)
- *     KeSetCpuSetsProcess @ 0x1403D2D98 (KeSetCpuSetsProcess.c)
- *     KeUpdateThreadCpuSets @ 0x1403D2F9C (KeUpdateThreadCpuSets.c)
- *     KxDispatchInterrupt @ 0x140428BA0 (KxDispatchInterrupt.c)
- *     KeRevertToUserMultipleGroupAffinityThread @ 0x14056B410 (KeRevertToUserMultipleGroupAffinityThread.c)
- *     KeSetSystemMultipleGroupAffinityThread @ 0x14056B9FC (KeSetSystemMultipleGroupAffinityThread.c)
- *     KeRecomputeCpuSetAffinityProcess @ 0x140572774 (KeRecomputeCpuSetAffinityProcess.c)
- *     KeSetSelectedCpuSetsThread @ 0x140572A90 (KeSetSelectedCpuSetsThread.c)
- *     KiSetHeteroPolicyThread @ 0x140574FA4 (KiSetHeteroPolicyThread.c)
- *     KeSetThreadSchedulerAssist @ 0x140576AA4 (KeSetThreadSchedulerAssist.c)
+ *     KeRemoveQueueEx @ 0x1402047D0 (KeRemoveQueueEx.c)
+ *     PsImpersonateContainerOfThread @ 0x14021BC90 (PsImpersonateContainerOfThread.c)
+ *     KiProcessDeferredReadyList @ 0x140230BD0 (KiProcessDeferredReadyList.c)
+ *     KiReadyOutSwappedThreads @ 0x140248460 (KiReadyOutSwappedThreads.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     KiQuantumEnd @ 0x140257CF0 (KiQuantumEnd.c)
+ *     KeSetBasePriorityThread @ 0x140258E60 (KeSetBasePriorityThread.c)
+ *     KiCheckForThreadDispatch @ 0x1402783B4 (KiCheckForThreadDispatch.c)
+ *     KiSchedulerApc @ 0x140279C00 (KiSchedulerApc.c)
+ *     KeSetSchedulingGroupRankBias @ 0x140288488 (KeSetSchedulingGroupRankBias.c)
+ *     KiAbThreadUnboostCpuPriority @ 0x140293A50 (KiAbThreadUnboostCpuPriority.c)
+ *     KeYieldExecution @ 0x14029E1B0 (KeYieldExecution.c)
+ *     KeCpuSetReportParkedProcessors @ 0x1402AAD9C (KeCpuSetReportParkedProcessors.c)
+ *     KeBoostPriorityThread @ 0x1402E2510 (KeBoostPriorityThread.c)
+ *     KeSetLegacyAffinityThread @ 0x1402ECAF0 (KeSetLegacyAffinityThread.c)
+ *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
+ *     KiAbForceProcessLockEntry @ 0x14038FA84 (KiAbForceProcessLockEntry.c)
+ *     KeSetAffinityThread @ 0x1403993CC (KeSetAffinityThread.c)
+ *     KeSetCpuSetsProcess @ 0x1403C5FB4 (KeSetCpuSetsProcess.c)
+ *     KeUpdateThreadCpuSets @ 0x1403C60DC (KeUpdateThreadCpuSets.c)
+ *     KxDispatchInterrupt @ 0x1404065E0 (KxDispatchInterrupt.c)
+ *     KeRecomputeCpuSetAffinityProcess @ 0x14051C938 (KeRecomputeCpuSetAffinityProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x14051CBE0 (KeSetSelectedCpuSetsThread.c)
+ *     KeSetThreadSchedulerAssist @ 0x14051E5C8 (KeSetThreadSchedulerAssist.c)
+ *     KiSetHeteroPolicyThread @ 0x140520364 (KiSetHeteroPolicyThread.c)
  * Callees:
- *     IoBoostThreadIoPriority @ 0x140280754 (IoBoostThreadIoPriority.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiCheckForThreadDispatch @ 0x140294824 (KiCheckForThreadDispatch.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     ObReferenceObjectSafeWithTag @ 0x140302BD0 (ObReferenceObjectSafeWithTag.c)
- *     KiAbTryIncrementIoWaiterCounts @ 0x14033E1B0 (KiAbTryIncrementIoWaiterCounts.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140340300 (KiFlushSoftwareInterruptBatch.c)
- *     KiDeferredReadySingleThread @ 0x1403405E0 (KiDeferredReadySingleThread.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1403494F0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KiAbEntryGetLockedHeadEntry @ 0x14034F230 (KiAbEntryGetLockedHeadEntry.c)
- *     KiAbPropagateBoosts @ 0x140359140 (KiAbPropagateBoosts.c)
- *     KiAbDetermineMaxWaiterPriority @ 0x14035A0F0 (KiAbDetermineMaxWaiterPriority.c)
- *     KiAbIoBoostOwners @ 0x14035A160 (KiAbIoBoostOwners.c)
- *     KiAbCpuBoostOwners @ 0x14035A264 (KiAbCpuBoostOwners.c)
- *     KiAbEntryUpdateOwnerTreePosition @ 0x14035A364 (KiAbEntryUpdateOwnerTreePosition.c)
- *     KiAbSetMinimumThreadPriority @ 0x14035A424 (KiAbSetMinimumThreadPriority.c)
- *     KiAbEntryGetCpuPriorityKey @ 0x14035A6C8 (KiAbEntryGetCpuPriorityKey.c)
- *     KiAbEntryUpdateWaiterTreePosition @ 0x14035A718 (KiAbEntryUpdateWaiterTreePosition.c)
- *     KiAbOwnerComputeCpuPriorityKey @ 0x14035A7F8 (KiAbOwnerComputeCpuPriorityKey.c)
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KiCheckForThreadDispatch @ 0x1402783B4 (KiCheckForThreadDispatch.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
+ *     KiAbDetermineMaxWaiterPriority @ 0x1402EF4E0 (KiAbDetermineMaxWaiterPriority.c)
+ *     KiAbIoBoostOwners @ 0x1402F0D60 (KiAbIoBoostOwners.c)
+ *     KiAbCpuBoostOwners @ 0x1402F0E64 (KiAbCpuBoostOwners.c)
+ *     KiAbProcessThreadLocks @ 0x1402F10C4 (KiAbProcessThreadLocks.c)
+ *     KiAbEntryUpdateOwnerTreePosition @ 0x1402F1CD0 (KiAbEntryUpdateOwnerTreePosition.c)
+ *     KiAbSetMinimumThreadPriority @ 0x1402F1D84 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbEntryGetLockedHeadEntry @ 0x1402F2040 (KiAbEntryGetLockedHeadEntry.c)
+ *     KiAbEntryUpdateWaiterTreePosition @ 0x1402F261C (KiAbEntryUpdateWaiterTreePosition.c)
+ *     KiAbEntryGetCpuPriorityKey @ 0x1402F26F0 (KiAbEntryGetCpuPriorityKey.c)
+ *     KiAbTryIncrementIoWaiterCounts @ 0x1402F2738 (KiAbTryIncrementIoWaiterCounts.c)
+ *     KiAbOwnerComputeCpuPriorityKey @ 0x1402F282C (KiAbOwnerComputeCpuPriorityKey.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
+ *     IoBoostThreadIoPriority @ 0x140358630 (IoBoostThreadIoPriority.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall KiAbProcessContextSwitch(__int64 a1, int a2)
 {
-  struct _KPRCB *CurrentPrcb; // r12
-  unsigned __int8 v5; // cl
-  unsigned __int8 v6; // al
-  char v7; // r15
-  _SINGLE_LIST_ENTRY *p_AbSelfIoBoostsList; // rdx
+  int i; // ebx
+  __int64 v3; // r9
+  struct _KPRCB *CurrentPrcb; // r14
+  __int64 v5; // rdx
+  char v6; // al
+  __int64 p_AbSelfIoBoostsList; // r12
+  __int64 v8; // rax
   unsigned int v9; // esi
   bool v10; // zf
-  __int64 v11; // rcx
-  __int64 v12; // r12
-  __int64 v13; // rcx
-  __int64 v14; // r14
-  __int64 v15; // rax
+  __int64 v11; // rbx
+  __int64 v12; // rdi
+  __int64 v13; // rax
+  int v14; // r15d
   __int64 LockedHeadEntry; // rax
-  __int64 v17; // r13
-  _QWORD *v18; // rbx
-  __int64 v19; // rax
-  char v20; // r9
-  char CpuPriorityKey; // al
-  int v22; // r10d
-  char v23; // r13
-  char v24; // al
-  char v25; // r9
-  char v26; // cl
-  __int64 v27; // r14
-  __int64 ExtensionTable; // rax
-  _QWORD *v30; // [rsp+30h] [rbp-19h] BYREF
-  __int64 v31; // [rsp+38h] [rbp-11h] BYREF
-  _SINGLE_LIST_ENTRY *v32; // [rsp+40h] [rbp-9h]
-  struct _KPRCB *v33; // [rsp+48h] [rbp-1h]
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+50h] [rbp+7h] BYREF
-  int v35; // [rsp+B0h] [rbp+67h] BYREF
-  char v36; // [rsp+C0h] [rbp+77h]
-  int v37; // [rsp+C8h] [rbp+7Fh] BYREF
+  __int64 v16; // r8
+  __int64 v17; // r9
+  __int64 v18; // r14
+  _QWORD *v19; // rcx
+  _QWORD *v20; // rcx
+  __int64 v21; // rax
+  char v22; // r9
+  char v23; // r12
+  __int64 v24; // rdx
+  __int64 v25; // r8
+  int v26; // r10d
+  char CpuPriorityKey; // r13
+  char v28; // al
+  char v29; // r9
+  __int64 v30; // r8
+  char v31; // cl
+  _DWORD *v32; // rdi
+  unsigned __int64 ExtensionTable; // rax
+  volatile signed __int16 *v35; // rdi
+  signed __int32 v36[8]; // [rsp+0h] [rbp-69h] BYREF
+  _QWORD *v37; // [rsp+40h] [rbp-29h] BYREF
+  _QWORD *v38; // [rsp+48h] [rbp-21h] BYREF
+  _SINGLE_LIST_ENTRY *v39; // [rsp+50h] [rbp-19h]
+  struct _KPRCB *v40; // [rsp+58h] [rbp-11h]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+68h] [rbp-1h] BYREF
+  int v42; // [rsp+D0h] [rbp+67h] BYREF
+  int v43; // [rsp+D8h] [rbp+6Fh]
+  int v44; // [rsp+E0h] [rbp+77h] BYREF
+  int v45; // [rsp+E8h] [rbp+7Fh]
 
-  if ( (*(unsigned __int8 *)(a1 + 792) | *(unsigned __int8 *)(a1 + 870)) != 0x3F )
+  v43 = a2;
+  i = a2;
+  if ( (*(char *)(a1 + 792) | *(char *)(a1 + 870)) == 0x3F )
+    return;
+  v3 = 0LL;
+  CurrentPrcb = KeGetCurrentPrcb();
+  v5 = *(unsigned __int8 *)(a1 + 792);
+  v6 = v5 | *(_BYTE *)(a1 + 870);
+  v37 = 0LL;
+  v38 = 0LL;
+  p_AbSelfIoBoostsList = (__int64)&CurrentPrcb->AbSelfIoBoostsList;
+  v39 = &CurrentPrcb->AbSelfIoBoostsList;
+  v40 = CurrentPrcb;
+  v45 = 0;
+  if ( v6 == 63 )
   {
-    CurrentPrcb = KeGetCurrentPrcb();
-    v5 = *(_BYTE *)(a1 + 792);
-    v6 = *(_BYTE *)(a1 + 870);
-    v7 = 0;
-    v33 = CurrentPrcb;
-    v30 = 0LL;
-    p_AbSelfIoBoostsList = &CurrentPrcb->AbSelfIoBoostsList;
-    v32 = &CurrentPrcb->AbSelfIoBoostsList;
-    v31 = 0LL;
-    v35 = 0;
-    if ( (v5 | v6) != 63 )
+    v20 = v37;
+    goto LABEL_20;
+  }
+  v5 = (unsigned int)*(char *)(a1 + 792);
+  v8 = *(_QWORD *)(a1 + 800);
+  v9 = (v5 | *(char *)(a1 + 870)) ^ 0x3F;
+  v10 = !_BitScanForward((unsigned int *)&a1, v9);
+  if ( v10 )
+    goto LABEL_18;
+  v11 = v8;
+  do
+  {
+    v9 &= v9 - 1;
+    v12 = v11 + 96 * a1;
+    v13 = *(_QWORD *)(v12 + 32);
+    if ( !v13 || (v13 & 2) != 0 || (v13 & 1) != 0 )
+      goto LABEL_15;
+    if ( v13 >= 0 )
+      goto LABEL_9;
+    if ( (*(_BYTE *)(v12 + 27) & 1) != 0 )
+      goto LABEL_15;
+    if ( (*(_BYTE *)(v12 + 25) & 1) == 0 )
     {
-      v9 = (*(unsigned __int8 *)(a1 + 792) | *(unsigned __int8 *)(a1 + 870)) ^ 0x3F;
-      v10 = !_BitScanForward((unsigned int *)&v11, v9);
-      if ( !v10 )
+      if ( KiAbOwnerComputeCpuPriorityKey(v11 + 96 * a1) == *(_BYTE *)(v12 + 48) )
+        goto LABEL_15;
+LABEL_9:
+      v42 = v3;
+      v44 = v3;
+      v14 = v3;
+      memset(&LockHandle, 0, sizeof(LockHandle));
+      LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v12, 1, &LockHandle);
+      v18 = LockedHeadEntry;
+      if ( !LockedHeadEntry )
+        goto LABEL_15;
+      if ( (*(_BYTE *)(v12 + 25) & 1) == 0 )
       {
-        v12 = (__int64)&CurrentPrcb->AbSelfIoBoostsList;
-        while ( 1 )
+        if ( v12 != LockedHeadEntry )
+          KiAbEntryUpdateOwnerTreePosition(v12, LockedHeadEntry, v16);
+        KiAbDetermineMaxWaiterPriority(v18, (__int64)&v42);
+        if ( !v42 )
+          goto LABEL_14;
+        if ( (unsigned int)KiAbSetMinimumThreadPriority(
+                             v12,
+                             (__int64)&v42,
+                             (__int64)&v37,
+                             &v38,
+                             p_AbSelfIoBoostsList,
+                             &v44)
+          && v12 != v18 )
         {
-          v9 &= v9 - 1;
-          v13 = 96 * v11;
-          v14 = v13 + a1 + 1696;
-          v15 = *(_QWORD *)v14;
-          if ( !*(_QWORD *)v14 || (v15 & 2) != 0 || (v15 & 1) != 0 )
-            goto LABEL_15;
-          if ( v15 < 0 )
-          {
-            if ( (*(_BYTE *)(v14 + 19) & 1) != 0 )
-              goto LABEL_15;
-            if ( *(_BYTE *)(v14 + 17) )
-            {
-              v26 = *(_BYTE *)(v14 - 96LL * *(unsigned __int8 *)(v14 + 16) - 1501);
-              if ( v26 > 30 )
-                v26 = 30;
-              if ( v26 == *(_BYTE *)(v14 + 48) )
-                goto LABEL_15;
-            }
-            else if ( (unsigned __int8)KiAbOwnerComputeCpuPriorityKey(v13 + a1 + 1696) == *(_BYTE *)(v14 + 48) )
-            {
-              goto LABEL_15;
-            }
-          }
-          v35 = 0;
-          v37 = 0;
-          memset(&LockHandle, 0, sizeof(LockHandle));
-          LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v14, 1LL, &LockHandle);
-          v17 = LockedHeadEntry;
-          if ( LockedHeadEntry )
-          {
-            if ( *(_BYTE *)(v14 + 17) )
-            {
-              if ( v14 != LockedHeadEntry )
-                KiAbEntryUpdateWaiterTreePosition(v14, LockedHeadEntry);
-              v19 = *(_QWORD *)(v17 + 56);
-              if ( v19 )
-                v20 = *(_BYTE *)(v19 + 24);
-              else
-                v20 = 30;
-              LOBYTE(v35) = v20;
-              if ( !*(_BYTE *)(v17 + 17) )
-              {
-                v24 = KiAbOwnerComputeCpuPriorityKey(v17);
-                if ( v24 < v25 )
-                  LOBYTE(v35) = v24;
-              }
-              KiAbTryIncrementIoWaiterCounts(v14, v17);
-              CpuPriorityKey = KiAbEntryGetCpuPriorityKey(v14);
-              v36 = CpuPriorityKey;
-              if ( (char)v35 < CpuPriorityKey )
-              {
-                if ( v22 )
-                {
-LABEL_38:
-                  KiAbIoBoostOwners(v17, v22, (unsigned int)&v30, (unsigned int)&v31, v12);
-                  CpuPriorityKey = v36;
-                }
-                KiAbCpuBoostOwners(v17, (unsigned __int8)CpuPriorityKey, (unsigned int)&v30, (unsigned int)&v31, v12);
-LABEL_40:
-                KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-                v23 = v37;
-                if ( v37 )
-                {
-                  v27 = v14 - 96LL * *(unsigned __int8 *)(v14 + 16) - 1696;
-                  if ( (unsigned __int8)ObReferenceObjectSafeWithTag(v27, 1953261124LL) )
-                  {
-                    if ( (v23 & 1) != 0 )
-                      IoBoostThreadIoPriority((KSPIN_LOCK *)v27, 2, 0x80000000);
-                    if ( (v23 & 2) != 0 )
-                    {
-                      if ( *(_DWORD *)(v27 + 1448) )
-                      {
-                        ExtensionTable = ExGetExtensionTable(IopIoRateExtensionHost);
-                        if ( ExtensionTable )
-                        {
-                          (*(void (__fastcall **)(__int64))(ExtensionTable + 16))(v27);
-                          ExReleaseRundownProtection((PEX_RUNDOWN_REF)(IopIoRateExtensionHost + 64));
-                        }
-                      }
-                    }
-                    ObDereferenceObjectDeferDeleteWithTag((PVOID)v27, 0x746C6644u);
-                  }
-                }
-                goto LABEL_15;
-              }
-              if ( v22 )
-                goto LABEL_38;
-            }
-            else
-            {
-              if ( v14 != LockedHeadEntry )
-                KiAbEntryUpdateOwnerTreePosition(v14, LockedHeadEntry);
-              KiAbDetermineMaxWaiterPriority(v17, &v35);
-              if ( v35 )
-              {
-                if ( (unsigned int)KiAbSetMinimumThreadPriority(
-                                     v14,
-                                     (unsigned int)&v35,
-                                     (unsigned int)&v30,
-                                     (unsigned int)&v31,
-                                     v12,
-                                     (__int64)&v37)
-                  && v14 != v17 )
-                {
-                  KiAbEntryUpdateOwnerTreePosition(v14, v17);
-                }
-                goto LABEL_40;
-              }
-            }
-            KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-          }
-LABEL_15:
-          v10 = !_BitScanForward((unsigned int *)&v11, v9);
-          if ( v10 )
-          {
-            CurrentPrcb = v33;
-            p_AbSelfIoBoostsList = v32;
-            break;
-          }
+          KiAbEntryUpdateOwnerTreePosition(v12, v18, v30);
+        }
+        v14 = v44;
+        goto LABEL_37;
+      }
+      if ( v12 != LockedHeadEntry )
+        KiAbEntryUpdateWaiterTreePosition(v12, LockedHeadEntry, v16, v17);
+      v21 = *(_QWORD *)(v18 + 56);
+      if ( v21 )
+        v22 = *(_BYTE *)(v21 + 48);
+      else
+        v22 = 15;
+      v23 = v22;
+      if ( (*(_BYTE *)(v18 + 25) & 1) == 0 )
+      {
+        v28 = KiAbOwnerComputeCpuPriorityKey(v18);
+        if ( v28 < v29 )
+          v23 = v28;
+      }
+      KiAbTryIncrementIoWaiterCounts((unsigned __int8 *)v12, v18);
+      CpuPriorityKey = KiAbEntryGetCpuPriorityKey((unsigned __int8 *)v12, v24, v25);
+      if ( v23 < CpuPriorityKey )
+      {
+        if ( !v26 )
+        {
+          p_AbSelfIoBoostsList = (__int64)v39;
+          goto LABEL_36;
         }
       }
-    }
-    KiAbPropagateBoosts(&v31, p_AbSelfIoBoostsList, &v30);
-    v18 = v30;
-    if ( v30 )
-    {
-      v30 = (_QWORD *)*v30;
-      do
+      else if ( !v26 )
       {
-        KiDeferredReadySingleThread(CurrentPrcb, v18 - 27, &v30);
-        v18 = v30;
-        ++v7;
-        if ( v30 )
-          v30 = (_QWORD *)*v30;
-        if ( (v7 & 0xF) == 0 )
-          KiFlushSoftwareInterruptBatch(&CurrentPrcb->DeferredDispatchInterrupts);
+        p_AbSelfIoBoostsList = (__int64)v39;
+LABEL_14:
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+        goto LABEL_15;
       }
-      while ( v18 );
+      p_AbSelfIoBoostsList = (__int64)v39;
+      KiAbIoBoostOwners(v18, v26, (int)&v37, (int)&v38, (__int64)v39);
+LABEL_36:
+      KiAbCpuBoostOwners(v18, CpuPriorityKey, (int)&v37, (int)&v38, p_AbSelfIoBoostsList);
+LABEL_37:
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      if ( v14 )
+      {
+        v32 = (_DWORD *)(v12 - 16LL * *(unsigned __int8 *)(v12 + 24));
+        if ( (unsigned __int8)ObReferenceObjectSafeWithTag(v32, 1953261124LL) )
+        {
+          if ( (v14 & 1) != 0 )
+            IoBoostThreadIoPriority(v32, 2LL, 0x80000000LL);
+          if ( (v14 & 2) != 0 )
+          {
+            if ( v32[342] )
+            {
+              ExtensionTable = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)IopIoRateExtensionHost);
+              if ( ExtensionTable )
+              {
+                (*(void (__fastcall **)(_DWORD *))(ExtensionTable + 16))(v32);
+                ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(IopIoRateExtensionHost + 64));
+              }
+            }
+          }
+          ObDereferenceObjectDeferDeleteWithTag(v32, 0x746C6644u);
+        }
+      }
+      goto LABEL_15;
     }
-    KiFlushSoftwareInterruptBatch(&CurrentPrcb->DeferredDispatchInterrupts);
-    if ( a2 )
-      KiCheckForThreadDispatch((__int64)CurrentPrcb, 2u);
+    v31 = *(_BYTE *)(v12 - 16LL * *(unsigned __int8 *)(v12 + 24) + 195);
+    if ( v31 > 15 )
+      v31 = 15;
+    if ( v31 != *(_BYTE *)(v12 + 48) )
+      goto LABEL_9;
+LABEL_15:
+    v10 = !_BitScanForward((unsigned int *)&a1, v9);
+    v3 = 0LL;
+    v45 = a1;
+  }
+  while ( !v10 );
+  v19 = v38;
+  for ( i = v43; v38; v19 = v38 )
+  {
+    v35 = (volatile signed __int16 *)(v19 - 101);
+    v38 = (_QWORD *)*v19;
+    *v19 = 1LL;
+    _InterlockedOr(v36, 0);
+    if ( *((_BYTE *)v19 - 15) )
+      KiAbProcessThreadLocks((__int64)(v19 - 101), 0, 1, 0, (__int64)&v37, (__int64)&v38, p_AbSelfIoBoostsList);
+    _InterlockedDecrement16(v35 + 434);
+  }
+  CurrentPrcb = v40;
+LABEL_18:
+  v20 = v37;
+  if ( v37 )
+    v37 = (_QWORD *)*v37;
+LABEL_20:
+  if ( v20 )
+  {
+    while ( 1 )
+    {
+      KiDeferredReadySingleThread((__int64)CurrentPrcb, (ULONG_PTR)(v20 - 27), (__int64)&v37, v3);
+      v20 = v37;
+      if ( !v37 )
+        break;
+      v37 = (_QWORD *)*v37;
+    }
+  }
+  if ( i )
+  {
+    LOBYTE(v5) = 2;
+    KiCheckForThreadDispatch((__int64)CurrentPrcb, v5);
   }
 }

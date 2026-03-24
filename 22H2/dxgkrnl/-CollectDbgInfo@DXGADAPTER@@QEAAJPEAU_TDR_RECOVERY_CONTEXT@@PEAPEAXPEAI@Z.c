@@ -1,11 +1,10 @@
 /*
- * XREFs of ?CollectDbgInfo@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@PEAPEAXPEAI@Z @ 0x1C02B5CA8
+ * XREFs of ?CollectDbgInfo@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@PEAPEAXPEAI@Z @ 0x1C020C0E0
  * Callers:
- *     ?DxgkCollectCoreDbgInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAXI@Z @ 0x1C02CE3E0 (-DxgkCollectCoreDbgInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAXI@Z.c)
+ *     ?DxgkCollectCoreDbgInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAXI@Z @ 0x1C0221A68 (-DxgkCollectCoreDbgInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAXI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0005BA8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?CollectDbgInfo@ADAPTER_DISPLAY@@QEAAJPEAUDXGADAPTERDBGINFO@@@Z @ 0x1C02BB5F4 (-CollectDbgInfo@ADAPTER_DISPLAY@@QEAAJPEAUDXGADAPTERDBGINFO@@@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0002910 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?CollectDbgInfo@ADAPTER_DISPLAY@@QEAAJPEAUDXGADAPTERDBGINFO@@@Z @ 0x1C0211500 (-CollectDbgInfo@ADAPTER_DISPLAY@@QEAAJPEAUDXGADAPTERDBGINFO@@@Z.c)
  */
 
 __int64 __fastcall DXGADAPTER::CollectDbgInfo(
@@ -14,57 +13,61 @@ __int64 __fastcall DXGADAPTER::CollectDbgInfo(
         void **a3,
         unsigned int *a4)
 {
-  char *v8; // rbx
-  _OWORD *v9; // rcx
-  __int64 v10; // rdx
-  _OWORD *v11; // rax
-  __int128 v12; // xmm1
-  ADAPTER_DISPLAY *v13; // rcx
-  PERESOURCE v14; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  char *v11; // rdx
+  _OWORD *v12; // rax
+  __int64 v13; // r8
+  _OWORD *v14; // rcx
+  __int128 v15; // xmm1
+  ADAPTER_DISPLAY *v16; // rcx
+  PERESOURCE v17; // rax
 
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this) )
   {
-    WdLogSingleEntry1(1LL, 10154LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceExclusiveOwner()", 10154LL, 0LL, 0LL, 0LL, 0LL);
+    v9 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v9 + 24) = 9533LL;
+    WdLogEvent5_WdAssertion(v9);
   }
-  if ( *a4 < 0x438 )
+  if ( *a4 < 0x430 )
     return 2147483653LL;
-  v8 = (char *)*a3;
-  v9 = this + 277;
-  v10 = 4LL;
-  *(_DWORD *)v8 = 1885430849;
-  v11 = v8 + 8;
+  v11 = (char *)*a3;
+  v12 = this + 249;
+  v13 = 4LL;
+  *(_DWORD *)v11 = 1885430849;
+  v14 = v11 + 8;
   do
   {
-    *v11 = *v9;
-    v11[1] = v9[1];
-    v11[2] = v9[2];
-    v11[3] = v9[3];
-    v11[4] = v9[4];
-    v11[5] = v9[5];
-    v11[6] = v9[6];
-    v11 += 8;
-    v12 = v9[7];
-    v9 += 8;
-    *(v11 - 1) = v12;
-    --v10;
+    *v14 = *v12;
+    v14[1] = v12[1];
+    v14[2] = v12[2];
+    v14[3] = v12[3];
+    v14[4] = v12[4];
+    v14[5] = v12[5];
+    v14[6] = v12[6];
+    v14 += 8;
+    v15 = v12[7];
+    v12 += 8;
+    *(v14 - 1) = v15;
+    --v13;
   }
-  while ( v10 );
-  *v11 = *v9;
-  v11[1] = v9[1];
-  v11[2] = v9[2];
-  v11[3] = v9[3];
-  v11[4] = v9[4];
-  v13 = (ADAPTER_DISPLAY *)this[365];
-  if ( v13 )
-    ADAPTER_DISPLAY::CollectDbgInfo(v13, (struct DXGADAPTERDBGINFO *)v8);
-  v14 = this[366];
-  if ( v14 )
+  while ( v13 );
+  *v14 = *v12;
+  v14[1] = v12[1];
+  v14[2] = v12[2];
+  v14[3] = v12[3];
+  *((_QWORD *)v14 + 8) = *((_QWORD *)v12 + 8);
+  v16 = (ADAPTER_DISPLAY *)this[337];
+  if ( v16 )
+    ADAPTER_DISPLAY::CollectDbgInfo(v16, (struct DXGADAPTERDBGINFO *)v11);
+  v17 = this[338];
+  if ( v17 )
   {
-    *(_OWORD *)(v8 + 792) = *(_OWORD *)&v14[7].SpinLock;
-    *(_OWORD *)(v8 + 808) = *(_OWORD *)&v14[8].SystemResourcesList.Blink;
+    *((_OWORD *)v11 + 49) = *(_OWORD *)&v17[6].NumberOfSharedWaiters;
+    *((_OWORD *)v11 + 50) = *(_OWORD *)&v17[6].Address;
   }
-  *a3 = (char *)*a3 + 1080;
-  *a4 -= 1080;
+  *a3 = (char *)*a3 + 1072;
+  *a4 -= 1072;
   return 0LL;
 }

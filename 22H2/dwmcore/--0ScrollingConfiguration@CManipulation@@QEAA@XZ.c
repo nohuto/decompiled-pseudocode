@@ -1,5 +1,5 @@
 /*
- * XREFs of ??0ScrollingConfiguration@CManipulation@@QEAA@XZ @ 0x180106F60
+ * XREFs of ??0ScrollingConfiguration@CManipulation@@QEAA@XZ @ 0x1800E2B60
  * Callers:
  *     <none>
  * Callees:

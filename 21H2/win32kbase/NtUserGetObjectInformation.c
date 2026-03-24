@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserGetObjectInformation @ 0x1C0092BE0
+ * XREFs of NtUserGetObjectInformation @ 0x1C0085460
  * Callers:
  *     <none>
  * Callees:
- *     ApiSetEditionGetUserObjectInformationEntryPoint @ 0x1C0092C04 (ApiSetEditionGetUserObjectInformationEntryPoint.c)
+ *     ApiSetEditionGetUserObjectInformationEntryPoint @ 0x1C0085484 (ApiSetEditionGetUserObjectInformationEntryPoint.c)
  */
 
 __int64 __fastcall NtUserGetObjectInformation(int a1, int a2, int a3, int a4, __int64 a5)

@@ -1,29 +1,27 @@
 /*
- * XREFs of ?IsKernelDebuggerPresent@@YAHXZ @ 0x18026C098
+ * XREFs of ?IsKernelDebuggerPresent@@YAHXZ @ 0x18021698C
  * Callers:
- *     ?SetStateOnDevice@CBrushRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEAI@Z @ 0x1800388E0 (-SetStateOnDevice@CBrushRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEAI@Z.c)
- *     ?GetBitmapInternal@CD2DBitmapCache@@IEAAJU_LUID@@VDisplayId@@_NPEAPEAVID2DBitmap@@@Z @ 0x1800686F0 (-GetBitmapInternal@CD2DBitmapCache@@IEAAJU_LUID@@VDisplayId@@_NPEAPEAVID2DBitmap@@@Z.c)
- *     ?CreateRenderingEffect@CCommonRenderingEffectFactory@@UEAAJV?$span@PEBVCDrawListBrush@@$0?0@gsl@@PEAPEAVCRenderingEffect@@@Z @ 0x1800AEC60 (-CreateRenderingEffect@CCommonRenderingEffectFactory@@UEAAJV-$span@PEBVCDrawListBrush@@$0-0@gsl@.c)
- *     ?Create@CDrawListCache@@SAJPEAPEAV1@@Z @ 0x1800AF4F4 (-Create@CDrawListCache@@SAJPEAPEAV1@@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?QueryInterface@CGDIBitmapRealization@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800B2F10 (-QueryInterface@CGDIBitmapRealization@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
- *     ?GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ @ 0x1800B2FA8 (-GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ.c)
- *     ?InternalQueryInterface@?$CMILCOMBaseT@UIUnknown@@@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800B3118 (-InternalQueryInterface@-$CMILCOMBaseT@UIUnknown@@@@IEAAJAEBU_GUID@@PEAPEAX@Z.c)
- *     ?ExtractBuiltHWPrimitiveEntry@CDrawListEntryBuilder@@AEAAJ_NPEAVCPrimitiveColor@@PEBU_D3DCOLORVALUE@@@Z @ 0x1800B3EB0 (-ExtractBuiltHWPrimitiveEntry@CDrawListEntryBuilder@@AEAAJ_NPEAVCPrimitiveColor@@PEBU_D3DCOLORVA.c)
- *     ?Render@CDrawListEntryBatch@@UEAAJXZ @ 0x1800B4BB0 (-Render@CDrawListEntryBatch@@UEAAJXZ.c)
- *     ?GetAttachedChannel@CComposition@@QEAAJIPEAPEAVCChannelContext@@@Z @ 0x1800BDCA4 (-GetAttachedChannel@CComposition@@QEAAJIPEAPEAVCChannelContext@@@Z.c)
- *     ?GetCache@CDrawListCacheSet@@QEAAJIIPEBVIDeviceTarget@@PEAPEAVCDrawListCache@@@Z @ 0x1800C8140 (-GetCache@CDrawListCacheSet@@QEAAJIIPEBVIDeviceTarget@@PEAPEAVCDrawListCache@@@Z.c)
- *     ?Release@?$CMILRefCountBaseT@VCRenderingEffect@@@@UEAAKXZ @ 0x1800C9F70 (-Release@-$CMILRefCountBaseT@VCRenderingEffect@@@@UEAAKXZ.c)
- *     ?Release@?$CMILRefCountBaseT@UIMILRefCount@@@@UEAAKXZ @ 0x1800CA3B0 (-Release@-$CMILRefCountBaseT@UIMILRefCount@@@@UEAAKXZ.c)
- *     ?AddRef@?$CMILRefCountBaseT@UIMILRefCount@@@@UEAAKXZ @ 0x1800CAA60 (-AddRef@-$CMILRefCountBaseT@UIMILRefCount@@@@UEAAKXZ.c)
- *     ?AddRef@CDxHandleBitmapRealization@@UEAAKXZ @ 0x1800CCB00 (-AddRef@CDxHandleBitmapRealization@@UEAAKXZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800D193C (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ?AddRef@CAtlasBitmapResource@@UEAAKXZ @ 0x1800D3C9C (-AddRef@CAtlasBitmapResource@@UEAAKXZ.c)
- *     ?AddRef@CDrawListEntryBatch@@UEAAKXZ @ 0x1800D5BF0 (-AddRef@CDrawListEntryBatch@@UEAAKXZ.c)
- *     ??1CPartitionVerticalBlankScheduler@@UEAA@XZ @ 0x1801AD988 (--1CPartitionVerticalBlankScheduler@@UEAA@XZ.c)
- *     DebugInspectSysMemSurface_NoOpt @ 0x1802629C0 (DebugInspectSysMemSurface_NoOpt.c)
- *     ?MilUnexpectedError@@YAXJPEBG@Z @ 0x18026BE1C (-MilUnexpectedError@@YAXJPEBG@Z.c)
- *     ??1CHolographicInteropTexture@@MEAA@XZ @ 0x18029AA34 (--1CHolographicInteropTexture@@MEAA@XZ.c)
+ *     ?GetBitmapInternal@CD2DBitmapCache@@IEAAJU_LUID@@VDisplayId@@_NPEAPEAVID2DBitmap@@@Z @ 0x180063C60 (-GetBitmapInternal@CD2DBitmapCache@@IEAAJU_LUID@@VDisplayId@@_NPEAPEAVID2DBitmap@@@Z.c)
+ *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18006DBD0 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
+ *     ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18006E020 (-OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?Present@CRenderTargetManager@@QEAAJXZ @ 0x18006E814 (-Present@CRenderTargetManager@@QEAAJXZ.c)
+ *     ?GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ @ 0x18006E9E8 (-GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ.c)
+ *     ?InternalQueryInterface@CMILCOMBase@@QEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006EAC0 (-InternalQueryInterface@CMILCOMBase@@QEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?TelemetryFillFrameInfo@CPartitionVerticalBlankScheduler@@AEAAXPEAUTelFrameInfo@CAnimationTracking@@PEAVCFrameInfo@@@Z @ 0x18006EB4C (-TelemetryFillFrameInfo@CPartitionVerticalBlankScheduler@@AEAAXPEAUTelFrameInfo@CAnimationTracki.c)
+ *     ?ComputeOverlayConfiguration@CRenderTargetManager@@AEAAJXZ @ 0x18006EE40 (-ComputeOverlayConfiguration@CRenderTargetManager@@AEAAJXZ.c)
+ *     ?GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18006F2C0 (-GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x18006F5A0 (-WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
+ *     ?QueryInterface@CCompositionSurfaceBitmap@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006F910 (-QueryInterface@CCompositionSurfaceBitmap@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18006F99C (-WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z @ 0x180076494 (-PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z.c)
+ *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180077330 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     ?ScheduleCompositionPass@CPartitionVerticalBlankScheduler@@UEAAXKW4CompositionReason@@@Z @ 0x1800C2FC0 (-ScheduleCompositionPass@CPartitionVerticalBlankScheduler@@UEAAXKW4CompositionReason@@@Z.c)
+ *     ??1CPartitionVerticalBlankScheduler@@UEAA@XZ @ 0x180153AB4 (--1CPartitionVerticalBlankScheduler@@UEAA@XZ.c)
+ *     ?MilUnexpectedError@@YAXJPEBG@Z @ 0x180216A00 (-MilUnexpectedError@@YAXJPEBG@Z.c)
+ *     ?DrawLegacyCommandList@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAUID2D1PrivateCompositorCommandList@@MW4D2D1_ANTIALIAS_MODE@@W4D2D1_DRAW_COMPOSITOR_COMMAND_LIST_OPTIONS@@I_N@Z @ 0x18023BAD0 (-DrawLegacyCommandList@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAUID2D1PrivateCompositorCommand.c)
+ *     ?FillRectangleWithSolidColor@CD2DContext@@UEAAJPEBVID2DContextOwner@@AEBUD2D_RECT_F@@AEBU_D3DCOLORVALUE@@W4D2D1_ANTIALIAS_MODE@@W4D2D1_PRIMITIVE_BLEND@@@Z @ 0x18023C3B0 (-FillRectangleWithSolidColor@CD2DContext@@UEAAJPEBVID2DContextOwner@@AEBUD2D_RECT_F@@AEBU_D3DCOL.c)
+ *     ??1CHolographicInteropTexture@@MEAA@XZ @ 0x1802586E4 (--1CHolographicInteropTexture@@MEAA@XZ.c)
  * Callees:
  *     <none>
  */
@@ -34,22 +32,22 @@ __int64 IsKernelDebuggerPresent(void)
   char v1; // cl
   unsigned int v2; // ebx
 
-  v0 = word_1803D1AB8;
-  if ( !(_BYTE)word_1803D1AB8 )
+  v0 = word_180345AE8;
+  if ( !(_BYTE)word_180345AE8 )
     return 0;
-  v1 = HIBYTE(word_1803D1AB8);
+  v1 = HIBYTE(word_180345AE8);
   v2 = 1;
-  if ( HIBYTE(word_1803D1AB8) )
+  if ( HIBYTE(word_180345AE8) )
   {
-    if ( NtQuerySystemInformation(SystemKernelDebuggerInformation, &word_1803D1AB8, 2u, 0LL) >= 0 )
+    if ( NtQuerySystemInformation(SystemKernelDebuggerInformation, &word_180345AE8, 2u, 0LL) >= 0 )
     {
-      v1 = HIBYTE(word_1803D1AB8);
-      v0 = word_1803D1AB8;
+      v1 = HIBYTE(word_180345AE8);
+      v0 = word_180345AE8;
     }
     else
     {
       v0 = 1;
-      word_1803D1AB8 = 257;
+      word_180345AE8 = 257;
       v1 = 1;
     }
   }

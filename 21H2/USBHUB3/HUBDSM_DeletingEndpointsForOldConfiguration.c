@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_DeletingEndpointsForOldConfiguration @ 0x1C0021810
+ * XREFs of HUBDSM_DeletingEndpointsForOldConfiguration @ 0x1C00213C0
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C0025F40 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
+ *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C0025AB4 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
  */
 
 __int64 __fastcall HUBDSM_DeletingEndpointsForOldConfiguration(__int64 a1)

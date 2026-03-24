@@ -1,27 +1,27 @@
 /*
- * XREFs of PopPowerAggregatorSnapDiagnosticContext @ 0x140883B6C
+ * XREFs of PopPowerAggregatorSnapDiagnosticContext @ 0x1408EEB54
  * Callers:
- *     PopIdlePhaseWatchdogCallback @ 0x1403D51B0 (PopIdlePhaseWatchdogCallback.c)
+ *     PopIdlePhaseWatchdogCallback @ 0x140576510 (PopIdlePhaseWatchdogCallback.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PopPowerAggregatorSnapDiagnosticContext(_QWORD *a1)
 {
-  void *Pool2; // rax
-  void *v3; // rbx
+  PVOID PoolWithTag; // rax
+  PVOID v3; // rbx
 
   *a1 = 0LL;
   PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
-  Pool2 = (void *)ExAllocatePool2(256LL, 4440LL, 1734960208LL);
-  v3 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1368uLL, 0x67696450u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memmove(Pool2, &PopPowerAggregatorContext, 0x1158uLL);
+    memmove(PoolWithTag, &PopPowerAggregatorContext, 0x1368uLL);
     *a1 = v3;
   }
-  PopReleaseRwLock(&PopPowerAggregatorLock);
+  PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
 }

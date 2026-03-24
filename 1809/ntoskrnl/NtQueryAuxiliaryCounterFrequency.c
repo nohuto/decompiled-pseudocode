@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQueryAuxiliaryCounterFrequency @ 0x1408DA390
+ * XREFs of NtQueryAuxiliaryCounterFrequency @ 0x1408DA370
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
  */
 

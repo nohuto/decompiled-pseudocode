@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhPdoPower_Sequence @ 0x1C003C230
+ * XREFs of UsbhPdoPower_Sequence @ 0x1C003D410
  * Callers:
  *     <none>
  * Callees:
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     UsbhIncPdoIoCount @ 0x1C000EF40 (UsbhIncPdoIoCount.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     UsbhIncPdoIoCount @ 0x1C0014F6C (UsbhIncPdoIoCount.c)
  */
 
 __int64 __fastcall UsbhPdoPower_Sequence(ULONG_PTR BugCheckParameter3, IRP *BugCheckParameter4)

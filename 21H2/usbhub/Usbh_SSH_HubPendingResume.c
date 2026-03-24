@@ -1,36 +1,30 @@
 /*
- * XREFs of Usbh_SSH_HubPendingResume @ 0x1C00041F0
+ * XREFs of Usbh_SSH_HubPendingResume @ 0x1C00140B0
  * Callers:
- *     Usbh_SSH_Event @ 0x1C0004D80 (Usbh_SSH_Event.c)
+ *     UsbhFdoReturnPortStatus @ 0x1C00099C0 (UsbhFdoReturnPortStatus.c)
+ *     Usbh_SSH_Event @ 0x1C0012810 (Usbh_SSH_Event.c)
  * Callees:
- *     UsbhUnlockSSH @ 0x1C0002A5C (UsbhUnlockSSH.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhSshResumeDownstream @ 0x1C0009090 (UsbhSshResumeDownstream.c)
- *     UsbhDisarmHubForWakeDetect @ 0x1C001D300 (UsbhDisarmHubForWakeDetect.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhLockSSH @ 0x1C005873C (UsbhLockSSH.c)
+ *     UsbhSshResumeDownstream @ 0x1C000C0F0 (UsbhSshResumeDownstream.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhDisarmHubForWakeDetect @ 0x1C001B180 (UsbhDisarmHubForWakeDetect.c)
+ *     UsbhUnlockSSH @ 0x1C001CC84 (UsbhUnlockSSH.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhLockSSH @ 0x1C0059E0C (UsbhLockSSH.c)
  */
 
-__int64 __fastcall Usbh_SSH_HubPendingResume(__int64 a1, int a2, __int64 a3)
+__int64 __fastcall Usbh_SSH_HubPendingResume(__int64 a1, unsigned int a2, __int64 a3)
 {
-  unsigned int v6; // ebx
-  _DWORD *v7; // r14
-  int v8; // edi
-  int v9; // edi
-  int v10; // edi
-  int v11; // edi
-  int v12; // edi
-  int v13; // edi
-  int v14; // edi
-  int v15; // edi
-  __int64 v16; // rax
-  __int64 v18; // rax
-  __int64 v19; // rcx
-  int v20; // edx
-  int v21; // eax
+  _DWORD *v6; // rbx
+  __int64 v7; // rax
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  unsigned int v10; // ebx
+  _DWORD *v12; // rax
+  _DWORD *v13; // rax
+  void *v14; // rcx
+  unsigned int v15; // eax
 
-  v6 = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
@@ -39,69 +33,79 @@ __int64 __fastcall Usbh_SSH_HubPendingResume(__int64 a1, int a2, __int64 a3)
       15,
       (__int64)&WPP_03d34bb4a9b33093dcdc7450a7e79093_Traceguids);
   if ( !a1 )
-    UsbhTrapFatal_Dbg(0LL, 0LL);
-  v7 = *(_DWORD **)(a1 + 64);
-  if ( !v7 )
-    UsbhTrapFatal_Dbg(a1, 0LL);
-  if ( *v7 != 541218120 )
-    UsbhTrapFatal_Dbg(a1, *(_QWORD *)(a1 + 64));
-  v8 = a2 - 1;
-  if ( !v8 )
-  {
-    v20 = 5;
-LABEL_29:
-    UsbhUnlockSSH(a3, v20);
-    return v6;
-  }
-  v9 = v8 - 1;
-  if ( !v9 || (v10 = v9 - 1) == 0 || (v11 = v10 - 1) == 0 || (v12 = v11 - 1) == 0 )
-  {
-    v19 = a3;
-    goto LABEL_27;
-  }
-  v13 = v12 - 1;
-  if ( !v13 )
-  {
-    UsbhUnlockSSH(a3, 5);
-    KeWaitForSingleObject(v7 + 846, Executive, 0, 0, 0LL);
-    v20 = UsbhLockSSH(a3, 6LL);
-    v21 = 0;
-    if ( v20 == 6 )
-      v21 = -1073741823;
-    v6 = v21;
     goto LABEL_29;
-  }
-  v14 = v13 - 1;
-  if ( !v14 )
+  v6 = *(_DWORD **)(a1 + 64);
+  if ( !v6 )
+    UsbhTrapFatal_Dbg(a1, 0LL);
+  if ( *v6 != 541218120 )
+    UsbhTrapFatal_Dbg(a1, *(_QWORD *)(a1 + 64));
+  switch ( a2 )
   {
-    v18 = FdoExt(*(_QWORD *)(a3 + 8));
-    *(_DWORD *)(v18 + 3124) = 1;
-    *(_DWORD *)(32LL * *(unsigned int *)(v18 + 3456) + v18 + 3468) = 1;
-    *(_DWORD *)(a3 + 120) = 1734964085;
-    *(_QWORD *)(v18 + 3192) = 0LL;
-    KeReleaseSemaphore((PRKSEMAPHORE)(v18 + 3128), 16, 1, 0);
-    return v6;
+    case 5u:
+      v7 = *(_QWORD *)(a3 + 8);
+      if ( v7 )
+      {
+        v8 = *(_QWORD *)(v7 + 64);
+        if ( !v8 )
+          UsbhTrapFatal_Dbg(*(_QWORD *)(a3 + 8), 0LL);
+        if ( *(_DWORD *)v8 != 541218120 )
+          UsbhTrapFatal_Dbg(*(_QWORD *)(a3 + 8), *(_QWORD *)(v7 + 64));
+        v9 = *(unsigned int *)(v8 + 3456);
+        *(_DWORD *)(v8 + 3124) = 5;
+        *(_DWORD *)(32 * v9 + v8 + 3468) = 5;
+        *(_DWORD *)(a3 + 120) = 1734964085;
+        *(_QWORD *)(v8 + 3192) = 0LL;
+        KeReleaseSemaphore((PRKSEMAPHORE)(v8 + 3128), 16, 1, 0);
+        return (unsigned int)-1073741823;
+      }
+LABEL_29:
+      UsbhTrapFatal_Dbg(0LL, 0LL);
+    case 7u:
+      v13 = FdoExt(*(_QWORD *)(a3 + 8));
+      v10 = 0;
+      v13[781] = 1;
+      v13[8 * v13[864] + 867] = 1;
+      *(_DWORD *)(a3 + 120) = 1734964085;
+      *((_QWORD *)v13 + 399) = 0LL;
+      KeReleaseSemaphore((PRKSEMAPHORE)(v13 + 782), 16, 1, 0);
+      break;
+    case 8u:
+      v12 = FdoExt(*(_QWORD *)(a3 + 8));
+      v10 = 0;
+      v12[781] = 5;
+      v12[8 * v12[864] + 867] = 5;
+      *(_DWORD *)(a3 + 120) = 1734964085;
+      *((_QWORD *)v12 + 399) = 0LL;
+      KeReleaseSemaphore((PRKSEMAPHORE)(v12 + 782), 16, 1, 0);
+      UsbhSshResumeDownstream(a1, a3, 1);
+      break;
+    default:
+      switch ( a2 )
+      {
+        case 1u:
+          UsbhUnlockSSH(a3, 5LL);
+          v10 = 0;
+          break;
+        case 6u:
+          UsbhUnlockSSH(a3, 5LL);
+          v14 = v6 + 846;
+          v10 = 0;
+          KeWaitForSingleObject(v14, Executive, 0, 0, 0LL);
+          v15 = UsbhLockSSH(a3, a2);
+          if ( v15 == 6 )
+            v10 = -1073741823;
+          UsbhUnlockSSH(a3, v15);
+          break;
+        case 9u:
+          UsbhUnlockSSH(a3, 6LL);
+          UsbhDisarmHubForWakeDetect(a1);
+          v10 = 0;
+          break;
+        default:
+          UsbhUnlockSSH(a3, 5LL);
+          return (unsigned int)-1073741823;
+      }
+      break;
   }
-  v15 = v14 - 1;
-  if ( v15 )
-  {
-    v19 = a3;
-    if ( v15 == 1 )
-    {
-      UsbhUnlockSSH(a3, 6);
-      UsbhDisarmHubForWakeDetect(a1);
-      return v6;
-    }
-LABEL_27:
-    UsbhUnlockSSH(v19, 5);
-    return (unsigned int)-1073741823;
-  }
-  v16 = FdoExt(*(_QWORD *)(a3 + 8));
-  *(_DWORD *)(v16 + 3124) = 5;
-  *(_DWORD *)(32LL * *(unsigned int *)(v16 + 3456) + v16 + 3468) = 5;
-  *(_DWORD *)(a3 + 120) = 1734964085;
-  *(_QWORD *)(v16 + 3192) = 0LL;
-  KeReleaseSemaphore((PRKSEMAPHORE)(v16 + 3128), 16, 1, 0);
-  UsbhSshResumeDownstream(a1);
-  return v6;
+  return v10;
 }

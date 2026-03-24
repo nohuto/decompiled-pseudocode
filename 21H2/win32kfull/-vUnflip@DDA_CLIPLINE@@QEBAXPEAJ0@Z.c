@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z @ 0x1C0143F58
+ * XREFs of ?vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z @ 0x1C014B88C
  * Callers:
- *     ?vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C0143DEC (-vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
- *     ?bEnumStartLine@XCLIPOBJ@@QEAAHK@Z @ 0x1C0143E74 (-bEnumStartLine@XCLIPOBJ@@QEAAHK@Z.c)
- *     ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C01441C0 (-bFindFirstSegment@XCLIPOBJ@@IEAAHXZ.c)
- *     ?vIntersectHorizontal@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C02CE318 (-vIntersectHorizontal@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
+ *     ?vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C014B720 (-vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
+ *     ?bEnumStartLine@XCLIPOBJ@@QEAAHK@Z @ 0x1C014B7A8 (-bEnumStartLine@XCLIPOBJ@@QEAAHK@Z.c)
+ *     ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C014BAF4 (-bFindFirstSegment@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?vIntersectHorizontal@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C02CFE14 (-vIntersectHorizontal@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
  * Callees:
  *     <none>
  */

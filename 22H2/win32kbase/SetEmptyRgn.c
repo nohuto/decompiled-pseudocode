@@ -1,9 +1,9 @@
 /*
- * XREFs of SetEmptyRgn @ 0x1C008A4F0
+ * XREFs of SetEmptyRgn @ 0x1C0080E50
  * Callers:
  *     <none>
  * Callees:
- *     GreSetRectRgn @ 0x1C008A530 (GreSetRectRgn.c)
+ *     GreSetRectRgn @ 0x1C0080E90 (GreSetRectRgn.c)
  */
 
 __int64 __fastcall SetEmptyRgn(HRGN a1)

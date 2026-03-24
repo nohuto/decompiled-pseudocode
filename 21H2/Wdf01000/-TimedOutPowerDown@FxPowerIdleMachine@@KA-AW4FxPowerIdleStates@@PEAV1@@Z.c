@@ -1,5 +1,5 @@
 /*
- * XREFs of ?TimedOutPowerDown@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C000BF40
+ * XREFs of ?TimedOutPowerDown@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C000DEA0
  * Callers:
  *     <none>
  * Callees:

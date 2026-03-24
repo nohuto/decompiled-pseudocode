@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_RECORDER_SF_qsLLdqss @ 0x1C000FE70
+ * XREFs of WPP_RECORDER_SF_qsLLdqss @ 0x1C0020800
  * Callers:
- *     ACPIIsPowerRequestBlocked @ 0x1C000DEE0 (ACPIIsPowerRequestBlocked.c)
- *     ACPIDevicePowerDpc @ 0x1C000F880 (ACPIDevicePowerDpc.c)
+ *     ACPIDevicePowerDpc @ 0x1C0020030 (ACPIDevicePowerDpc.c)
+ *     ACPIIsPowerRequestBlocked @ 0x1C002942C (ACPIIsPowerRequestBlocked.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qsLLdqss(
@@ -12,20 +12,20 @@ __int64 __fastcall WPP_RECORDER_SF_qsLLdqss(
         __int64 a2,
         __int64 a3,
         __int64 a4,
-        __int64 a5,
+        int a5,
         char a6,
         const char *a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11,
+        char a8,
+        char a9,
+        int a10,
+        char a11,
         __int64 a12,
         __int64 a13)
 {
   __int64 v13; // rbx
   __int64 v14; // rsi
   __int64 v16; // rbp
-  const char *v17; // rdi
+  __int64 v17; // rdi
   __int64 v18; // rax
   __int64 v19; // rcx
   __int64 v21; // r8
@@ -37,7 +37,7 @@ __int64 __fastcall WPP_RECORDER_SF_qsLLdqss(
   v13 = -1LL;
   v14 = a13;
   v16 = a12;
-  v17 = a7;
+  v17 = (__int64)a7;
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
   {
     if ( a13 )
@@ -67,7 +67,7 @@ __int64 __fastcall WPP_RECORDER_SF_qsLLdqss(
     pfnWppTraceMessage(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+      &WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       48LL,
       &a6,
       8LL,
@@ -91,12 +91,8 @@ __int64 __fastcall WPP_RECORDER_SF_qsLLdqss(
   {
     do
       ++v13;
-    while ( v17[v13] );
-  }
-  else
-  {
-    v17 = "NULL";
+    while ( *(_BYTE *)(v17 + v13) );
   }
   LOWORD(v25) = 48;
-  return WppAutoLogTrace(a1, 4LL, 10LL, &WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids, v25, &a6, 8LL, v17);
+  return WppAutoLogTrace(a1, 4LL, 10LL, &WPP_095c070a05c4368bad966ca54a81e920_Traceguids, v25, &a6);
 }

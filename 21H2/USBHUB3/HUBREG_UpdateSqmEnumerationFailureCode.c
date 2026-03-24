@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBREG_UpdateSqmEnumerationFailureCode @ 0x1C0083244
+ * XREFs of HUBREG_UpdateSqmEnumerationFailureCode @ 0x1C0081CD4
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00167A0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00162D0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
  * Callees:
- *     HUBREG_WriteValueToDeviceHardwareKey @ 0x1C00812DC (HUBREG_WriteValueToDeviceHardwareKey.c)
+ *     HUBREG_WriteValueToDeviceHardwareKey @ 0x1C007FD70 (HUBREG_WriteValueToDeviceHardwareKey.c)
  */
 
 __int64 __fastcall HUBREG_UpdateSqmEnumerationFailureCode(__int64 a1)

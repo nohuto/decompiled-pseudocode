@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGenerate8dot3Name @ 0x14069D180
+ * XREFs of RtlGenerate8dot3Name @ 0x14069D160
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     GetNextWchar @ 0x14069D54C (GetNextWchar.c)
- *     RtlComputeLfnChecksum @ 0x14069D630 (RtlComputeLfnChecksum.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     GetNextWchar @ 0x14069D52C (GetNextWchar.c)
+ *     RtlComputeLfnChecksum @ 0x14069D610 (RtlComputeLfnChecksum.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

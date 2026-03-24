@@ -1,30 +1,30 @@
 /*
- * XREFs of ObInitializeProcessor @ 0x140821FA4
+ * XREFs of ObInitializeProcessor @ 0x14079106C
  * Callers:
- *     KiStartDynamicProcessor @ 0x1409738B8 (KiStartDynamicProcessor.c)
- *     ObInitSystem @ 0x140B4E9F8 (ObInitSystem.c)
+ *     KiStartDynamicProcessor @ 0x1408BA6C8 (KiStartDynamicProcessor.c)
+ *     ObInitSystem @ 0x140A3D968 (ObInitSystem.c)
  * Callees:
- *     MmIsThisAnNtAsSystem @ 0x1402907D0 (MmIsThisAnNtAsSystem.c)
- *     ExInitializeSystemLookasideList @ 0x140A8BD08 (ExInitializeSystemLookasideList.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MmIsThisAnNtAsSystem @ 0x1402E6A80 (MmIsThisAnNtAsSystem.c)
+ *     ExInitializeSystemLookasideList @ 0x14099BFA4 (ExInitializeSystemLookasideList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObInitializeProcessor(_QWORD *a1)
 {
   BOOLEAN IsThisAnNtAsSystem; // bp
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v4; // rbx
-  __int64 v5; // rax
+  PVOID v5; // rax
   void *v6; // rbx
   __int64 result; // rax
 
   IsThisAnNtAsSystem = MmIsThisAnNtAsSystem();
   a1[265] = &ObpCreateInfoLookasideList;
-  Pool2 = ExAllocatePool2(64LL, 128LL, 1229152847LL);
-  v4 = (void *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x80uLL, 0x4943624Fu);
+  v4 = PoolWithTag;
+  if ( PoolWithTag )
     ExInitializeSystemLookasideList(
-      Pool2,
+      (_DWORD)PoolWithTag,
       512,
       64,
       1229152847,
@@ -34,11 +34,11 @@ __int64 __fastcall ObInitializeProcessor(_QWORD *a1)
     v4 = &ObpCreateInfoLookasideList;
   a1[264] = v4;
   a1[267] = &ObpNameBufferLookasideList;
-  v5 = ExAllocatePool2(64LL, 128LL, 1296982607LL);
-  v6 = (void *)v5;
+  v5 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x80uLL, 0x4D4E624Fu);
+  v6 = v5;
   if ( v5 )
     ExInitializeSystemLookasideList(
-      v5,
+      (_DWORD)v5,
       1,
       248,
       1296982607,

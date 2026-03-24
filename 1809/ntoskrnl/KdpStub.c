@@ -3,7 +3,7 @@
  * Callers:
  *     KdTrap @ 0x1400A33EC (KdTrap.c)
  * Callees:
- *     KdEnableDebugger @ 0x14028BEE0 (KdEnableDebugger.c)
+ *     KdEnableDebugger @ 0x14028BFE0 (KdEnableDebugger.c)
  *     KdpTrap @ 0x140919518 (KdpTrap.c)
  */
 

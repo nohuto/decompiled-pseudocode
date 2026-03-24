@@ -1,32 +1,27 @@
 /*
- * XREFs of ?ClearTreeEffect@CLayerVisual@@AEAAXXZ @ 0x18022355C
+ * XREFs of ?ClearTreeEffect@CLayerVisual@@AEAAXXZ @ 0x18001F614
  * Callers:
- *     ??1CLayerVisual@@UEAA@XZ @ 0x1800F4F14 (--1CLayerVisual@@UEAA@XZ.c)
- *     ?ProcessSetEffect@CLayerVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LAYERVISUAL_SETEFFECT@@@Z @ 0x1802239BC (-ProcessSetEffect@CLayerVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LAYERVISUAL_SETEFFECT@@@Z.c)
+ *     ?ProcessSetEffect@CLayerVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LAYERVISUAL_SETEFFECT@@@Z @ 0x18001EA30 (-ProcessSetEffect@CLayerVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LAYERVISUAL_SETEFFECT@@@Z.c)
+ *     ??1CLayerVisual@@UEAA@XZ @ 0x1800D5AA4 (--1CLayerVisual@@UEAA@XZ.c)
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall CLayerVisual::ClearTreeEffect(struct CResource ***this)
+void __fastcall CLayerVisual::ClearTreeEffect(CLayerVisual *this)
 {
-  __int64 v2; // rdx
-  struct CResource **v3; // rdi
-  struct CResource *v4; // rcx
+  struct CResource **v2; // rbx
+  struct CResource *v3; // rcx
 
-  CResource::UnRegisterNotifierInternal((CResource *)this, *this[92]);
-  v3 = this[92];
-  if ( v3 )
+  v2 = (struct CResource **)(*(__int64 (__fastcall **)(CLayerVisual *))(*(_QWORD *)this + 240LL))(this);
+  CResource::UnRegisterNotifierInternal(this, *v2);
+  v3 = *v2;
+  if ( *v2 )
   {
-    v4 = *v3;
-    if ( *v3 )
-    {
-      *v3 = 0LL;
-      (*(void (__fastcall **)(struct CResource *))(*(_QWORD *)v4 + 16LL))(v4);
-    }
-    DefaultHeap::Free(v3);
+    *v2 = 0LL;
+    (*(void (__fastcall **)(struct CResource *))(*(_QWORD *)v3 + 16LL))(v3);
   }
-  this[92] = 0LL;
-  CLayerVisual::UpdateBackdropBlurFlagForTreeEffect((CLayerVisual *)this, v2);
+  operator delete(v2);
+  *((_QWORD *)this + 78) = 0LL;
 }

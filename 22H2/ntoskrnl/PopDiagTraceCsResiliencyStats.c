@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceCsResiliencyStats @ 0x14098E080
+ * XREFs of PopDiagTraceCsResiliencyStats @ 0x1408E9A38
  * Callers:
- *     PopSleepstudyCaptureResiliencyStatistics @ 0x140993304 (PopSleepstudyCaptureResiliencyStatistics.c)
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x1408FA0C4 (PopSleepstudyCaptureResiliencyStatistics.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceCsResiliencyStats(__int64 a1)
@@ -92,9 +92,9 @@ char __fastcall PopDiagTraceCsResiliencyStats(__int64 a1)
   v3 = 0LL;
   if ( v2 )
     v3 = *(_QWORD *)(a1 + 128);
-  if ( (unsigned int)dword_140C03950 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    LOBYTE(v1) = tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL);
+    LOBYTE(v1) = tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL);
     if ( (_BYTE)v1 )
     {
       v17 = PopWdiCurrentScenarioInstanceId;
@@ -164,10 +164,10 @@ char __fastcall PopDiagTraceCsResiliencyStats(__int64 a1)
       v72 = 8LL;
       LODWORD(v16) = v2;
       v74 = 4LL;
-      v76 = 88LL;
+      v76 = 80LL;
       LOBYTE(v1) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140C03950,
-                     (unsigned __int8 *)byte_14002DDC9,
+                     (__int64)&dword_140C02228,
+                     (unsigned __int8 *)byte_140027085,
                      0LL,
                      0LL,
                      0x19u,

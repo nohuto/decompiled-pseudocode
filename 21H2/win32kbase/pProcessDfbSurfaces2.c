@@ -1,80 +1,91 @@
 /*
- * XREFs of pProcessDfbSurfaces2 @ 0x1C0061C30
+ * XREFs of pProcessDfbSurfaces2 @ 0x1C00BE440
  * Callers:
- *     bDynamicProcessAllDriverRealizations @ 0x1C00617A0 (bDynamicProcessAllDriverRealizations.c)
- *     pProcessDfbSurfaces @ 0x1C016F6B0 (pProcessDfbSurfaces.c)
+ *     bDynamicProcessAllDriverRealizations @ 0x1C000D9A0 (bDynamicProcessAllDriverRealizations.c)
+ *     pProcessDfbSurfaces @ 0x1C013F8B0 (pProcessDfbSurfaces.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C002E800 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     pProcessDfbSurfacesInternal @ 0x1C0061CD0 (pProcessDfbSurfacesInternal.c)
- *     bDfbSurfacesMigrated @ 0x1C00626A0 (bDfbSurfacesMigrated.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     bDfbSurfacesMigrated @ 0x1C001B6D0 (bDfbSurfacesMigrated.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C0038B54 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     pProcessDfbSurfacesInternal @ 0x1C00BE530 (pProcessDfbSurfacesInternal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall pProcessDfbSurfaces2(__int64 a1, __int64 a2, int a3, int a4, __int64 a5)
+__int64 __fastcall pProcessDfbSurfaces2(SURFACE *this, __int64 a2, int a3, int a4, __int64 a5)
 {
   __int64 v8; // rcx
   __int64 v9; // rdi
   __int64 v11; // rax
   __int64 v12; // rcx
-  int v13; // eax
-  HSEMAPHORE v14; // [rsp+20h] [rbp-18h] BYREF
+  int v14; // eax
+  int v15; // eax
+  int v16; // eax
+  HSEMAPHORE v17; // [rsp+20h] [rbp-18h] BYREF
 
-  v14 = ghsemDwmState;
+  v17 = ghsemDwmState;
   EngAcquireSemaphore(ghsemDwmState);
   v9 = 0LL;
-  if ( a3 && (!qword_1C029ADD8 || !(unsigned int)qword_1C029ADD8(v8)) )
-    goto LABEL_6;
-  if ( (*(_DWORD *)(a1 + 116) & 1) == 0 )
-    goto LABEL_5;
-  v11 = *(_QWORD *)(a1 + 48);
-  if ( !_bittest((const signed __int32 *)(v11 + 2096), 0x10u)
-    || !a5
-    || !_bittest((const signed __int32 *)(a5 + 2096), 0x10u) )
+  if ( a3 )
   {
-    if ( !_bittest((const signed __int32 *)(v11 + 40), 0x11u) )
+    if ( !(qword_1C0256058 ? qword_1C0256058(v8) : 0) )
+      goto LABEL_11;
+  }
+  if ( (*((_DWORD *)this + 29) & 1) == 0 )
+    goto LABEL_10;
+  v11 = *((_QWORD *)this + 6);
+  if ( (*(_DWORD *)(v11 + 2128) & 0x10000) != 0 && a5 && (*(_DWORD *)(a5 + 2128) & 0x10000) != 0 )
+  {
+    if ( (*(_DWORD *)(v11 + 40) & 0x20000) != 0 && (*(_DWORD *)(a5 + 40) & 0x20000) != 0 )
     {
-      v12 = *(_QWORD *)(v11 + 24);
-      if ( _bittest((const signed __int32 *)(v12 + 40), 0x11u) )
+      if ( qword_1C02562E0 )
+        v14 = qword_1C02562E0(v8);
+      else
+        v14 = -1073741637;
+      if ( v14 >= 0 )
       {
-        if ( a4 )
+        if ( qword_1C02562E8 )
         {
-          v9 = 1LL;
-          goto LABEL_6;
+          v15 = qword_1C02562E8((char *)this + 24, a5);
+LABEL_32:
+          LODWORD(v9) = v15;
+          goto LABEL_33;
         }
-        if ( qword_1C029B050 && (int)qword_1C029B050(v12) >= 0 )
-        {
-          if ( qword_1C029B058 )
-          {
-            v13 = qword_1C029B058(*(_QWORD *)(a1 + 144));
-            goto LABEL_26;
-          }
-          goto LABEL_27;
-        }
-        goto LABEL_6;
+        goto LABEL_33;
       }
+      goto LABEL_11;
     }
-LABEL_5:
-    v9 = pProcessDfbSurfacesInternal((struct SURFACE *)a1);
-    goto LABEL_6;
+    bDfbSurfacesMigrated(a5, (__int64)this);
+LABEL_10:
+    v9 = pProcessDfbSurfacesInternal(this);
+    goto LABEL_11;
   }
-  if ( !_bittest((const signed __int32 *)(v11 + 40), 0x11u) || !_bittest((const signed __int32 *)(a5 + 40), 0x11u) )
+  if ( (*(_DWORD *)(v11 + 40) & 0x20000) != 0 )
+    goto LABEL_10;
+  v12 = *(_QWORD *)(v11 + 24);
+  if ( (*(_DWORD *)(v12 + 40) & 0x20000) == 0 )
+    goto LABEL_10;
+  if ( a4 )
   {
-    bDfbSurfacesMigrated(a5, a1);
-    goto LABEL_5;
+    v9 = 1LL;
   }
-  if ( qword_1C029B060 && (int)qword_1C029B060(v8) >= 0 )
+  else
   {
-    if ( qword_1C029B068 )
+    if ( qword_1C02562D0 )
+      v16 = qword_1C02562D0(v12);
+    else
+      v16 = -1073741637;
+    if ( v16 >= 0 )
     {
-      v13 = qword_1C029B068(a1 + 24, a5);
-LABEL_26:
-      LODWORD(v9) = v13;
+      if ( qword_1C02562D8 )
+      {
+        v15 = qword_1C02562D8(*((_QWORD *)this + 18));
+        goto LABEL_32;
+      }
+LABEL_33:
+      v9 = (int)v9;
     }
-LABEL_27:
-    v9 = (int)v9;
   }
-LABEL_6:
-  SEMOBJ::vUnlock((PERESOURCE *)&v14);
+LABEL_11:
+  SEMOBJ::vUnlock((PERESOURCE *)&v17);
   return v9;
 }

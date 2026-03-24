@@ -1,12 +1,12 @@
 /*
- * XREFs of ViCheckMdlLength @ 0x140AC931C
+ * XREFs of ViCheckMdlLength @ 0x1409CDC64
  * Callers:
- *     VfBuildScatterGatherList @ 0x140AC6650 (VfBuildScatterGatherList.c)
- *     VfBuildScatterGatherListEx @ 0x140AC69B0 (VfBuildScatterGatherListEx.c)
- *     VfGetScatterGatherList @ 0x140AC7800 (VfGetScatterGatherList.c)
- *     VfGetScatterGatherListEx @ 0x140AC7BD0 (VfGetScatterGatherListEx.c)
- *     VfMapTransfer @ 0x140AC7F00 (VfMapTransfer.c)
- *     VfMapTransferEx @ 0x140AC80B0 (VfMapTransferEx.c)
+ *     VfBuildScatterGatherList @ 0x1409CB010 (VfBuildScatterGatherList.c)
+ *     VfBuildScatterGatherListEx @ 0x1409CB370 (VfBuildScatterGatherListEx.c)
+ *     VfGetScatterGatherList @ 0x1409CC100 (VfGetScatterGatherList.c)
+ *     VfGetScatterGatherListEx @ 0x1409CC4C0 (VfGetScatterGatherListEx.c)
+ *     VfMapTransfer @ 0x1409CC880 (VfMapTransfer.c)
+ *     VfMapTransferEx @ 0x1409CCA40 (VfMapTransferEx.c)
  * Callees:
  *     <none>
  */
@@ -19,28 +19,27 @@ __int64 __fastcall ViCheckMdlLength(__int64 *a1, unsigned __int64 a2, unsigned i
 
   if ( !a3 )
     return 0LL;
-  while ( a1 )
+  if ( a1 )
   {
-    v4 = *((unsigned int *)a1 + 10);
-    if ( a2 <= v4 )
+    do
     {
-      do
-      {
-        if ( !a3 )
-          break;
-        v5 = *((_DWORD *)a1 + 10);
-        a1 = (__int64 *)*a1;
-        v6 = v5 - a2;
-        if ( v6 >= a3 )
-          v6 = a3;
-        LODWORD(a2) = 0;
-        a3 -= v6;
-      }
-      while ( a1 );
-      return a3;
+      v4 = *((unsigned int *)a1 + 10);
+      if ( a2 <= v4 )
+        break;
+      a1 = (__int64 *)*a1;
+      a2 -= v4;
     }
-    a1 = (__int64 *)*a1;
-    a2 -= v4;
+    while ( a1 );
+    while ( a1 && a3 )
+    {
+      v5 = *((_DWORD *)a1 + 10);
+      a1 = (__int64 *)*a1;
+      v6 = v5 - a2;
+      if ( v6 >= a3 )
+        v6 = a3;
+      a3 -= v6;
+      LODWORD(a2) = 0;
+    }
   }
   return a3;
 }

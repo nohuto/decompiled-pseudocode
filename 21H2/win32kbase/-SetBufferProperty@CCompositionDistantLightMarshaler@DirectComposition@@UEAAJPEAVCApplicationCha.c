@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CCompositionDistantLightMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00C2220
+ * XREFs of ?SetBufferProperty@CCompositionDistantLightMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00B44B0
  * Callers:
  *     <none>
  * Callees:
@@ -26,17 +26,17 @@ __int64 __fastcall DirectComposition::CCompositionDistantLightMarshaler::SetBuff
     {
       v9 = *(_OWORD *)a4;
       *((_DWORD *)this + 4) |= 0x100u;
-      *(_OWORD *)((char *)this + 104) = v9;
+      *((_OWORD *)this + 6) = v9;
       goto LABEL_5;
     }
     return (unsigned int)-1073741811;
   }
   if ( a3 != 5 || a5 != 12 )
     return (unsigned int)-1073741811;
-  *((_QWORD *)this + 16) = *(_QWORD *)a4;
+  *((_QWORD *)this + 15) = *(_QWORD *)a4;
   v7 = a4[2];
   *((_DWORD *)this + 4) |= 0x400u;
-  *((_DWORD *)this + 34) = v7;
+  *((_DWORD *)this + 32) = v7;
 LABEL_5:
   *a6 = 1;
   return v6;

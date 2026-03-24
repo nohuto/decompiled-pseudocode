@@ -1,15 +1,16 @@
 /*
- * XREFs of KiProcessPendingForegroundBoosts @ 0x1403D0240
+ * XREFs of KiProcessPendingForegroundBoosts @ 0x14035B430
  * Callers:
  *     <none>
  * Callees:
- *     KiDeferredReadySingleThread @ 0x14023A2B0 (KiDeferredReadySingleThread.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KeSetTimer2 @ 0x140250130 (KeSetTimer2.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252640 (KiFlushSoftwareInterruptBatch.c)
- *     KiApplyForegroundBoostThread @ 0x14034FED8 (KiApplyForegroundBoostThread.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeSetTimer2 @ 0x14022BEC0 (KeSetTimer2.c)
+ *     KiReadyDeferredReadyList @ 0x1402306D0 (KiReadyDeferredReadyList.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiReleaseThreadLockSafe @ 0x1402F1590 (KiReleaseThreadLockSafe.c)
+ *     KiApplyForegroundBoostThread @ 0x14035B5EC (KiApplyForegroundBoostThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KiProcessPendingForegroundBoosts(
@@ -21,93 +22,105 @@ void __fastcall KiProcessPendingForegroundBoosts(
   __int64 *v4; // rbx
   unsigned int v5; // esi
   int v6; // edi
-  __int64 *v7; // rcx
-  bool v8; // di
+  __int64 *v7; // rdx
+  __int64 *v8; // rax
+  unsigned int v9; // ecx
+  __int64 v10; // r8
+  __int64 **v11; // rcx
+  bool v12; // di
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  __int64 *v16; // rsi
+  __int64 v17; // rsi
   struct _KPRCB *CurrentPrcb; // rdi
-  char v10; // si
-  _QWORD *v11; // rbx
-  __int64 *v12; // rax
-  unsigned int v13; // edx
-  __int64 **v14; // rdx
-  __int64 *v15; // rcx
-  __int64 *v16; // rdi
-  __int64 v17; // rdi
-  int v18; // [rsp+20h] [rbp-20h] BYREF
-  _QWORD *v19; // [rsp+28h] [rbp-18h] BYREF
-  __int128 v20; // [rsp+30h] [rbp-10h] BYREF
+  _DWORD *SchedulerAssist; // rcx
+  _DWORD *v20; // rcx
+  int v21; // eax
+  int v22; // eax
+  int v23; // [rsp+20h] [rbp-38h] BYREF
+  _QWORD *v24; // [rsp+28h] [rbp-30h] BYREF
+  __int128 v25; // [rsp+30h] [rbp-28h] BYREF
 
-  v19 = 0LL;
+  v24 = 0LL;
+  v25 = 0LL;
   v4 = 0LL;
-  v20 = 0LL;
   v5 = 0;
   v6 = MEMORY[0xFFFFF78000000320];
-  KxAcquireSpinLock(&qword_140C42538);
-  v7 = (__int64 *)qword_140C42528;
-  while ( v7 != &qword_140C42528 )
+  KxAcquireSpinLock(&qword_140C31F98);
+  v7 = (__int64 *)qword_140C31F88;
+  while ( v7 != &qword_140C31F88 )
   {
-    v12 = v7;
+    v8 = v7;
     v7 = (__int64 *)*v7;
-    v13 = v6 - *((_DWORD *)v12 - 2);
-    if ( v13 < KiForegroundBoostTicks )
+    v9 = v6 - *((_DWORD *)v8 - 2);
+    if ( v9 < KiForegroundBoostTicks )
     {
-      if ( v13 > v5 )
-        v5 = v6 - *((_DWORD *)v12 - 2);
+      if ( v9 > v5 )
+        v5 = v6 - *((_DWORD *)v8 - 2);
     }
     else
     {
-      v14 = (__int64 **)v12[1];
-      if ( (__int64 *)v7[1] != v12 || *v14 != v12 )
+      v10 = *v8;
+      v11 = (__int64 **)v8[1];
+      if ( *(__int64 **)(*v8 + 8) != v8 || *v11 != v8 )
         __fastfail(3u);
-      *v14 = v7;
-      v7[1] = (__int64)v14;
-      *v12 = (__int64)v4;
-      v4 = v12;
-      v12[1] = 0LL;
-      _InterlockedAdd16((volatile signed __int16 *)v12 - 6, 1u);
+      *v11 = (__int64 *)v10;
+      *(_QWORD *)(v10 + 8) = v11;
+      *v8 = (__int64)v4;
+      v4 = v8;
+      v8[1] = 0LL;
+      _InterlockedAdd16((volatile signed __int16 *)v8 - 6, 1u);
     }
   }
-  v8 = qword_140C42528 != (_QWORD)&qword_140C42528;
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C42538);
-  if ( v8 )
+  v12 = qword_140C31F88 != (_QWORD)&qword_140C31F88;
+  KxReleaseSpinLock(&qword_140C31F98);
+  if ( v12 )
   {
-    *((_QWORD *)&v20 + 1) = -1LL;
-    KeSetTimer2((__int64)&KiForegroundState, -150000LL * (KiForegroundBoostTicks - v5), 0LL, (__int64)&v20);
+    *((_QWORD *)&v25 + 1) = -1LL;
+    KeSetTimer2((__int64)&KiForegroundState, -150000LL * (KiForegroundBoostTicks - v5), 0LL, (__int64)&v25);
   }
   while ( v4 )
   {
-    v15 = v4;
-    v18 = 0;
     v16 = v4;
     v4 = (__int64 *)*v4;
     v17 = (__int64)(v16 - 110);
-    *v15 = 1LL;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(v17 + 64), 0LL) )
+    *(_QWORD *)(v17 + 880) = 1LL;
+    CurrentPrcb = KeGetCurrentPrcb();
+    v23 = 0;
+    while ( 1 )
     {
+      SchedulerAssist = CurrentPrcb->SchedulerAssist;
+      if ( SchedulerAssist )
+      {
+        if ( CurrentPrcb->NestingLevel <= 1u )
+        {
+          v21 = SchedulerAssist[6];
+          SchedulerAssist[6] = v21 + 1;
+          if ( v21 == -1 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
+      }
+      if ( !_interlockedbittestandset64((volatile signed __int32 *)(v17 + 64), 0LL) )
+        break;
+      v20 = CurrentPrcb->SchedulerAssist;
+      if ( v20 )
+      {
+        if ( CurrentPrcb->NestingLevel <= 1u )
+        {
+          v22 = v20[6] - 1;
+          v20[6] = v22;
+          if ( !v22 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
+      }
       do
-        KeYieldProcessorEx(&v18);
+        KeYieldProcessorEx(&v23, v13, v14, v15);
       while ( *(_QWORD *)(v17 + 64) );
     }
-    KiApplyForegroundBoostThread(v17, &v19);
-    *(_QWORD *)(v17 + 64) = 0LL;
+    KiApplyForegroundBoostThread(v17, &v24);
+    KiReleaseThreadLockSafe(v17);
     _InterlockedAdd16((volatile signed __int16 *)(v17 + 868), 0xFFFFu);
   }
-  CurrentPrcb = KeGetCurrentPrcb();
-  v10 = 0;
-  v11 = v19;
-  if ( v19 )
-  {
-    v19 = (_QWORD *)*v19;
-    do
-    {
-      KiDeferredReadySingleThread((__int64)CurrentPrcb, (unsigned __int64)(v11 - 27), (__int64)&v19);
-      v11 = v19;
-      ++v10;
-      if ( v19 )
-        v19 = (_QWORD *)*v19;
-      if ( (v10 & 0xF) == 0 )
-        KiFlushSoftwareInterruptBatch(&CurrentPrcb->DeferredDispatchInterrupts.Level);
-    }
-    while ( v11 );
-  }
-  KiFlushSoftwareInterruptBatch(&CurrentPrcb->DeferredDispatchInterrupts.Level);
+  KiReadyDeferredReadyList((__int64)KeGetCurrentPrcb(), &v24);
 }

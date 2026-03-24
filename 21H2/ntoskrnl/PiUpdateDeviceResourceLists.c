@@ -1,21 +1,21 @@
 /*
- * XREFs of PiUpdateDeviceResourceLists @ 0x14095B1A4
+ * XREFs of PiUpdateDeviceResourceLists @ 0x1408B513C
  * Callers:
- *     PiProcessQueryDeviceState @ 0x140749F30 (PiProcessQueryDeviceState.c)
+ *     PiProcessQueryDeviceState @ 0x140749A3C (PiProcessQueryDeviceState.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PnpCopyResourceList @ 0x14095813C (PnpCopyResourceList.c)
- *     IopQueryBusResourceUpdateInterface @ 0x140958764 (IopQueryBusResourceUpdateInterface.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PnpCopyResourceList @ 0x1408B25A0 (PnpCopyResourceList.c)
+ *     IopQueryBusResourceUpdateInterface @ 0x1408B2B80 (IopQueryBusResourceUpdateInterface.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiUpdateDeviceResourceLists(_QWORD *a1)
 {
   struct _DEVICE_OBJECT *v2; // rcx
-  void *v3; // rsi
-  void *v4; // rdi
+  PVOID v3; // rsi
+  PVOID v4; // rdi
   __int64 result; // rax
   void (__fastcall **v6)(_QWORD); // r14
   int v7; // ebx
@@ -31,7 +31,7 @@ __int64 __fastcall PiUpdateDeviceResourceLists(_QWORD *a1)
   v3 = 0LL;
   P = 0LL;
   v4 = 0LL;
-  result = IopQueryBusResourceUpdateInterface(v2, (USHORT **)&P);
+  result = IopQueryBusResourceUpdateInterface(v2, &P);
   if ( (int)result < 0 )
     return result;
   v6 = (void (__fastcall **)(_QWORD))P;

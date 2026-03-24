@@ -1,11 +1,11 @@
 /*
- * XREFs of PipConvertResolutionsToReservations @ 0x14095440C
+ * XREFs of PipConvertResolutionsToReservations @ 0x1407CD638
  * Callers:
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x140882FB8 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PipDeleteAllDependencyRelations @ 0x1409544C0 (PipDeleteAllDependencyRelations.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x14074C7F0 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PipDeleteAllDependencyRelations @ 0x1407CD520 (PipDeleteAllDependencyRelations.c)
  * Callees:
- *     PipSetDependency @ 0x140839894 (PipSetDependency.c)
- *     PipDeleteBindingIds @ 0x140954644 (PipDeleteBindingIds.c)
+ *     PipDeleteBindingIds @ 0x1407CD6A0 (PipDeleteBindingIds.c)
+ *     PipSetDependency @ 0x14089E044 (PipSetDependency.c)
  */
 
 __int64 __fastcall PipConvertResolutionsToReservations(__int64 a1, __int64 a2)
@@ -13,16 +13,13 @@ __int64 __fastcall PipConvertResolutionsToReservations(__int64 a1, __int64 a2)
   unsigned int v3; // ebp
   _QWORD *v4; // r14
   _QWORD *v5; // rbx
-  _QWORD *v6; // rsi
-  _QWORD *v7; // rdi
-  _QWORD *v8; // rdx
-  _DWORD *v9; // rdx
+  _QWORD *v7; // rsi
+  _QWORD *v8; // rdi
+  _QWORD *v9; // rdx
   __int64 v10; // rax
-  __int64 v12; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v13; // [rsp+28h] [rbp-20h]
+  __int128 v11; // [rsp+20h] [rbp-28h] BYREF
 
-  v12 = 0LL;
-  LODWORD(v13) = 0;
+  v11 = 0LL;
   if ( a1 )
   {
     v3 = 0;
@@ -31,25 +28,24 @@ __int64 __fastcall PipConvertResolutionsToReservations(__int64 a1, __int64 a2)
     v5 = *(_QWORD **)(a1 + 32);
     while ( v5 != v4 )
     {
-      v6 = v5;
+      v7 = v5;
       v5 = (_QWORD *)*v5;
-      if ( !*((_BYTE *)v6 + 56) )
+      if ( !*((_BYTE *)v7 + 56) )
       {
-        v7 = (_QWORD *)v6[5];
-        while ( v7 != v6 + 5 )
+        v8 = (_QWORD *)v7[5];
+        while ( v8 != v7 + 5 )
         {
-          v8 = v7;
-          v7 = (_QWORD *)*v7;
-          v9 = v8 + 2;
-          if ( *v9 == 1 )
+          v9 = v8;
+          v8 = (_QWORD *)*v8;
+          if ( *((_DWORD *)v9 + 4) == 1 )
           {
-            v10 = v6[3];
-            LODWORD(v12) = 0;
-            v13 = *(_QWORD *)(v10 + 48);
-            v3 = PipSetDependency((__int64)&v12, (__int64)v9);
+            v10 = v7[3];
+            LODWORD(v11) = 0;
+            *((_QWORD *)&v11 + 1) = *(_QWORD *)(v10 + 48);
+            v3 = PipSetDependency(&v11);
           }
         }
-        *((_BYTE *)v6 + 56) = 1;
+        *((_BYTE *)v7 + 56) = 1;
       }
     }
   }

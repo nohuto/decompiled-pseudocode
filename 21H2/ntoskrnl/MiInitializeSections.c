@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeSections @ 0x14081D9C8
+ * XREFs of MiInitializeSections @ 0x14079CB94
  * Callers:
- *     MiInitializePartition @ 0x14081D450 (MiInitializePartition.c)
- *     MiInitNucleus @ 0x140AF47DC (MiInitNucleus.c)
+ *     MiInitializePartition @ 0x14079C65C (MiInitializePartition.c)
+ *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
  * Callees:
- *     InitializeSListHead @ 0x1402A05A0 (InitializeSListHead.c)
- *     KeInitializeSemaphore @ 0x1402A4940 (KeInitializeSemaphore.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeInitializeTimerEx @ 0x1402F4820 (KeInitializeTimerEx.c)
+ *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     KeInitializeSemaphore @ 0x140356600 (KeInitializeSemaphore.c)
+ *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
  */
 
 void __fastcall MiInitializeSections(__int64 a1)
@@ -35,8 +35,8 @@ void __fastcall MiInitializeSections(__int64 a1)
   KeInitializeEvent((PRKEVENT)(a1 + 1376), NotificationEvent, 0);
   KeInitializeEvent((PRKEVENT)(a1 + 1752), SynchronizationEvent, 0);
   KeInitializeTimerEx((PKTIMER)(a1 + 1616), SynchronizationTimer);
-  KeInitializeEvent((PRKEVENT)(a1 + 1976), NotificationEvent, 0);
-  InitializeSListHead((PSLIST_HEADER)(a1 + 2000));
+  KeInitializeEvent((PRKEVENT)(a1 + 1808), NotificationEvent, 0);
+  InitializeSListHead((PSLIST_HEADER)(a1 + 1840));
   *(_QWORD *)(a1 + 1464) = 1LL;
   *(_QWORD *)(a1 + 1432) = 0LL;
   *(_QWORD *)(a1 + 1472) = 0LL;

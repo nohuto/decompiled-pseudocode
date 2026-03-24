@@ -1,21 +1,21 @@
 /*
- * XREFs of PopDiagTraceThermalCoolingMode @ 0x140850FEC
+ * XREFs of PopDiagTraceThermalCoolingMode @ 0x1407C0970
  * Callers:
- *     PopThermalWorker @ 0x140850980 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x1407C0270 (PopThermalWorker.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14036B86C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceThermalCoolingMode(__int64 a1, __int16 a2)
 {
   _UNKNOWN **DeviceAttachmentBaseRefWithTag; // rax
   void *v5; // rbx
-  __int64 v6; // rax
+  __int64 v6; // rdx
   __int64 v7; // rax
   const WCHAR *v8; // rdx
   unsigned __int16 v10; // [rsp+38h] [rbp-19h] BYREF
@@ -44,31 +44,37 @@ char __fastcall PopDiagTraceThermalCoolingMode(__int64 a1, __int16 a2)
       DeviceAttachmentBaseRefWithTag = (_UNKNOWN **)IoGetDeviceAttachmentBaseRefWithTag(a1, 0x67446F50u);
       v5 = DeviceAttachmentBaseRefWithTag;
       if ( DeviceAttachmentBaseRefWithTag )
-      {
         v6 = *((_QWORD *)DeviceAttachmentBaseRefWithTag[39] + 5);
-        if ( v6 )
-        {
-          v10 = *(_WORD *)(v6 + 128) >> 1;
-          UserData.Ptr = (ULONGLONG)&v10;
-          *(_QWORD *)&UserData.Size = 2LL;
-          v7 = *(_QWORD *)(v6 + 136);
-          v15 = 2 * v10;
-          v8 = L"active";
-          v14 = v7;
-          v16 = 0;
-          if ( a2 )
-            v8 = L"passive";
-          RtlInitUnicodeString(&DestinationString, v8);
-          v11 = DestinationString.Length >> 1;
-          v17 = &v11;
-          Buffer = DestinationString.Buffer;
-          v20 = 2 * (DestinationString.Length >> 1);
-          v18 = 2LL;
-          v21 = 0;
-          EtwWrite(PopDiagHandle, &POP_ETW_EVENT_COOLING_MODE, 0LL, 4u, &UserData);
-        }
-        LOBYTE(DeviceAttachmentBaseRefWithTag) = ObfDereferenceObjectWithTag(v5, 0x67446F50u);
+      else
+        v6 = 0LL;
+      if ( v6 )
+      {
+        v10 = *(_WORD *)(v6 + 128) >> 1;
+        UserData.Ptr = (ULONGLONG)&v10;
+        *(_QWORD *)&UserData.Size = 2LL;
+        v7 = *(_QWORD *)(v6 + 136);
+        v8 = L"active";
+        v15 = 2 * v10;
+        v14 = v7;
+        v16 = 0;
+        if ( a2 )
+          v8 = L"passive";
+        RtlInitUnicodeString(&DestinationString, v8);
+        v11 = DestinationString.Length >> 1;
+        v17 = &v11;
+        Buffer = DestinationString.Buffer;
+        v20 = 2 * (DestinationString.Length >> 1);
+        v18 = 2LL;
+        v21 = 0;
+        LOBYTE(DeviceAttachmentBaseRefWithTag) = EtwWrite(
+                                                   PopDiagHandle,
+                                                   &POP_ETW_EVENT_COOLING_MODE,
+                                                   0LL,
+                                                   4u,
+                                                   &UserData);
       }
+      if ( v5 )
+        LOBYTE(DeviceAttachmentBaseRefWithTag) = ObfDereferenceObjectWithTag(v5, 0x67446F50u);
     }
   }
   return (char)DeviceAttachmentBaseRefWithTag;

@@ -1,24 +1,22 @@
 /*
- * XREFs of CcSlowReferenceSharedCacheMapFileObject @ 0x1402A1C28
+ * XREFs of CcSlowReferenceSharedCacheMapFileObject @ 0x140275E80
  * Callers:
- *     CcReferenceSharedCacheMapFileObject @ 0x1402A13B0 (CcReferenceSharedCacheMapFileObject.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x140275E50 (CcReferenceSharedCacheMapFileObject.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
+ *     ObFastReferenceObjectLocked @ 0x1402062F8 (ObFastReferenceObjectLocked.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
  */
 
-void *__fastcall CcSlowReferenceSharedCacheMapFileObject(__int64 a1)
+unsigned __int64 __fastcall CcSlowReferenceSharedCacheMapFileObject(__int64 a1)
 {
-  void *v2; // rbx
+  unsigned __int64 v2; // rbx
 
   ExAcquirePushLockSharedEx((ULONG_PTR)&CcChangeSharedCacheMapFileLock, 0LL);
-  v2 = (void *)(*(_QWORD *)(a1 + 96) & 0xFFFFFFFFFFFFFFF0uLL);
-  if ( v2 )
-    ObfReferenceObjectWithTag(v2, 0x63536343u);
+  v2 = ObFastReferenceObjectLocked((_QWORD *)(a1 + 96));
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CcChangeSharedCacheMapFileLock, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared(&CcChangeSharedCacheMapFileLock);
+    ExfReleasePushLockShared((signed __int64 *)&CcChangeSharedCacheMapFileLock);
   KeAbPostRelease((ULONG_PTR)&CcChangeSharedCacheMapFileLock);
   return v2;
 }

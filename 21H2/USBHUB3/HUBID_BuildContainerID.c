@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBID_BuildContainerID @ 0x1C001C4B8
+ * XREFs of HUBID_BuildContainerID @ 0x1C001BF74
  * Callers:
- *     HUBPDO_AssignPDOIds @ 0x1C007A95C (HUBPDO_AssignPDOIds.c)
+ *     HUBPDO_AssignPDOIds @ 0x1C007945C (HUBPDO_AssignPDOIds.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     RtlUnicodeStringPrintf @ 0x1C000BFF4 (RtlUnicodeStringPrintf.c)
- *     RtlUnicodeStringCbCatStringN @ 0x1C001B594 (RtlUnicodeStringCbCatStringN.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000BBF4 (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringCbCatStringN @ 0x1C001AFF4 (RtlUnicodeStringCbCatStringN.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBID_BuildContainerID(__int64 a1, __int64 a2)
@@ -25,7 +25,7 @@ void __fastcall HUBID_BuildContainerID(__int64 a1, __int64 a2)
   NTSTATUS v14; // eax
   const wchar_t *v15; // rdx
   size_t v16; // r8
-  UCHAR *Pool2; // rax
+  UCHAR *PoolWithTag; // rax
   UCHAR *v18; // rax
   __int64 dwFlags; // [rsp+28h] [rbp-41h]
   UCHAR pbOutput[4]; // [rsp+40h] [rbp-29h] BYREF
@@ -52,7 +52,7 @@ void __fastcall HUBID_BuildContainerID(__int64 a1, __int64 a2)
   if ( (v2 & 0x10) != 0 || (v2 & 8) != 0 || (v2 & 0x40) == 0 )
     goto LABEL_33;
   v9 = *(_DWORD *)(a1 + 2148) + 28;
-  DestinationString.Buffer = (wchar_t *)ExAllocatePool2(64LL, v9, 1681082453LL);
+  DestinationString.Buffer = (wchar_t *)ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, v9, 0x64334855u);
   if ( DestinationString.Buffer )
   {
     v10 = *(unsigned __int16 *)(a1 + 1990);
@@ -103,11 +103,11 @@ void __fastcall HUBID_BuildContainerID(__int64 a1, __int64 a2)
       Property = -1073741306;
       goto LABEL_36;
     }
-    Pool2 = (UCHAR *)ExAllocatePool2(64LL, *(unsigned int *)pbOutput, 1681082453LL);
-    v6 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (UCHAR *)ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, *(unsigned int *)pbOutput, 0x64334855u);
+    v6 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      Property = BCryptCreateHash(phAlgorithm, &phHash, Pool2, *(ULONG *)pbOutput, 0LL, 0, 0);
+      Property = BCryptCreateHash(phAlgorithm, &phHash, PoolWithTag, *(ULONG *)pbOutput, 0LL, 0, 0);
       if ( Property < 0 )
         goto LABEL_36;
       Property = BCryptHashData(phHash, (PUCHAR)&pbInput, 0x10u, 0);
@@ -124,7 +124,7 @@ void __fastcall HUBID_BuildContainerID(__int64 a1, __int64 a2)
         Property = -1073741811;
         goto LABEL_36;
       }
-      v18 = (UCHAR *)ExAllocatePool2(64LL, *(unsigned int *)pbOutput, 1681082453LL);
+      v18 = (UCHAR *)ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, *(unsigned int *)pbOutput, 0x64334855u);
       v7 = v18;
       if ( v18 )
       {
@@ -173,7 +173,7 @@ LABEL_42:
       2u,
       5u,
       0xCu,
-      (__int64)&WPP_383dd33ad5aa36822a5ed6eec24c7223_Traceguids,
+      (__int64)&WPP_7fec0416b3b03b46e271cc8e8691f9a7_Traceguids,
       dwFlags);
   }
 }

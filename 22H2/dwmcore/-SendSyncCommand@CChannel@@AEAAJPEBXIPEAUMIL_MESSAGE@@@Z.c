@@ -1,51 +1,50 @@
 /*
- * XREFs of ?SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z @ 0x1801D08BC
+ * XREFs of ?SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z @ 0x180150C54
  * Callers:
- *     ?SyncIndirectSwapchainRenderTargetCreate@CChannel@@UEAAJIPEAXU_LUID@@I@Z @ 0x1801D0970 (-SyncIndirectSwapchainRenderTargetCreate@CChannel@@UEAAJIPEAXU_LUID@@I@Z.c)
- *     ?SyncLegacyVisualCaptureRenderTargetCaptureBits@CChannel@@UEAAJIIMHHHH_KPEAW4DXGI_FORMAT@@PEAPEAX@Z @ 0x1801D0A60 (-SyncLegacyVisualCaptureRenderTargetCaptureBits@CChannel@@UEAAJIIMHHHH_KPEAW4DXGI_FORMAT@@PEAPEA.c)
- *     ?SyncMagnifierRenderTargetCaptureBits@CChannel@@UEAAJIII_KU?$TMILFlagsEnum@W4FlagsEnum@MilRenderPassFlags@@@@AEBUMAGN_UPDATE_TEXTURES_PARAM@@@Z @ 0x1801D0B90 (-SyncMagnifierRenderTargetCaptureBits@CChannel@@UEAAJIII_KU-$TMILFlagsEnum@W4FlagsEnum@MilRender.c)
+ *     ?SyncIndirectSwapchainRenderTargetCreate@CChannel@@UEAAJIPEAXU_LUID@@I@Z @ 0x180150D10 (-SyncIndirectSwapchainRenderTargetCreate@CChannel@@UEAAJIPEAXU_LUID@@I@Z.c)
+ *     ?SyncLegacyVisualCaptureRenderTargetCaptureBits@CChannel@@UEAAJIIMHHHH_KPEAW4DXGI_FORMAT@@PEAPEAX@Z @ 0x180150E10 (-SyncLegacyVisualCaptureRenderTargetCaptureBits@CChannel@@UEAAJIIMHHHH_KPEAW4DXGI_FORMAT@@PEAPEA.c)
+ *     ?SyncMagnifierRenderTargetCaptureBits@CChannel@@UEAAJIII_KU?$TMILFlagsEnum@W4FlagsEnum@MilRenderPassFlags@@@@IAEBUMAGN_UPDATE_TEXTURES_PARAM@@PEAI@Z @ 0x180150F60 (-SyncMagnifierRenderTargetCaptureBits@CChannel@@UEAAJIII_KU-$TMILFlagsEnum@W4FlagsEnum@MilRender.c)
  * Callees:
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044610 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     ?SyncFlushInternal@CChannel@@AEAAJXZ @ 0x1800CDA08 (-SyncFlushInternal@CChannel@@AEAAJXZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?SyncFlush@CChannel@@UEAAJXZ @ 0x180027BA0 (-SyncFlush@CChannel@@UEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005E108 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
  */
 
 __int64 __fastcall CChannel::SendSyncCommand(CChannel *this, void *a2, unsigned int a3, struct MIL_MESSAGE *a4)
 {
-  int v6; // esi
-  __int64 v7; // rdx
+  int v6; // eax
+  __int64 v7; // rcx
+  unsigned int v8; // ebx
   int v9; // eax
-  __int64 v10; // xmm1_8
-  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v10; // rcx
+  int v11; // eax
+  __int64 v12; // xmm1_8
 
-  *((_OWORD *)this + 9) = 0LL;
-  *((_QWORD *)this + 20) = 0LL;
-  *((_DWORD *)this + 42) = 0;
+  *((_OWORD *)this + 8) = 0LL;
+  *((_QWORD *)this + 18) = 0LL;
+  *((_DWORD *)this + 38) = 0;
   v6 = CChannel::SendCommand(this, a2, a3);
+  v8 = v6;
   if ( v6 < 0 )
   {
-    v7 = 222LL;
-LABEL_3:
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)v7,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-      (const char *)(unsigned int)v6);
-    return (unsigned int)v6;
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xDEu, 0LL);
   }
-  v6 = CChannel::SyncFlushInternal(this);
-  if ( v6 < 0 )
+  else
   {
-    v7 = 225LL;
-    goto LABEL_3;
+    v9 = CChannel::SyncFlush(this);
+    v8 = v9;
+    if ( v9 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xE1u, 0LL);
+    }
+    else if ( a4 )
+    {
+      v11 = *((_DWORD *)this + 38);
+      v12 = *((_QWORD *)this + 18);
+      *(_OWORD *)a4 = *((_OWORD *)this + 8);
+      *((_QWORD *)a4 + 2) = v12;
+      *((_DWORD *)a4 + 6) = v11;
+    }
   }
-  if ( a4 )
-  {
-    v9 = *((_DWORD *)this + 42);
-    v10 = *((_QWORD *)this + 20);
-    *(_OWORD *)a4 = *((_OWORD *)this + 9);
-    *((_QWORD *)a4 + 2) = v10;
-    *((_DWORD *)a4 + 6) = v9;
-  }
-  return 0LL;
+  return v8;
 }

@@ -1,29 +1,15 @@
 /*
- * XREFs of RIMIDEValidateInjectionTime @ 0x1C01975DC
+ * XREFs of RIMIDEValidateInjectionTime @ 0x1C0169E6C
  * Callers:
- *     RIMIDEGetTimeStampDelta @ 0x1C0195710 (RIMIDEGetTimeStampDelta.c)
+ *     RIMIDEGetTimeStampDelta @ 0x1C01686AC (RIMIDEGetTimeStampDelta.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall RIMIDEValidateInjectionTime(int a1, int a2, unsigned int a3, int a4, int a5)
+_BOOL8 __fastcall RIMIDEValidateInjectionTime(int a1, int a2, unsigned int a3, int a4, int a5)
 {
-  char result; // al
-  unsigned int v7; // ecx
-
-  result = 0;
-  if ( a4 && !a1 || !a2 && !a1 )
-    return 1;
-  if ( a4 )
-    return (unsigned int)((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - a1 <= 0x1388;
-  if ( a2 || !a1 || a5 )
-  {
-    v7 = a1 - a2;
-    if ( v7 )
-    {
-      if ( v7 <= a3 )
-        return (unsigned int)((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - a1 <= 0x1388;
-    }
-  }
-  return result;
+  return a4 && !a1
+      || !a2 && !a1
+      || (a4 || (a2 || !a1 || a5) && a1 != a2 && a1 - a2 <= a3)
+      && (unsigned int)((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - a1 <= 0x1388;
 }

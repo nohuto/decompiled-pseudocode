@@ -1,13 +1,13 @@
 /*
- * XREFs of KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15A4
+ * XREFs of KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15C4
  * Callers:
  *     KiComputeThreadAffinity @ 0x14008A430 (KiComputeThreadAffinity.c)
- *     KeStartThread @ 0x1400D3994 (KeStartThread.c)
- *     KiSetSystemAffinityThread @ 0x1400D63E0 (KiSetSystemAffinityThread.c)
- *     KiApplyForegroundBoostThread @ 0x1400D7E4C (KiApplyForegroundBoostThread.c)
- *     KeUpdateThreadSchedulingProperties @ 0x1400F4810 (KeUpdateThreadSchedulingProperties.c)
- *     KiSetAffinityThread @ 0x14011545C (KiSetAffinityThread.c)
- *     KeSetIdealProcessorThreadEx @ 0x14015CE2C (KeSetIdealProcessorThreadEx.c)
+ *     KeStartThread @ 0x1400D39B4 (KeStartThread.c)
+ *     KiSetSystemAffinityThread @ 0x1400D6400 (KiSetSystemAffinityThread.c)
+ *     KiApplyForegroundBoostThread @ 0x1400D7E6C (KiApplyForegroundBoostThread.c)
+ *     KeUpdateThreadSchedulingProperties @ 0x1400F4830 (KeUpdateThreadSchedulingProperties.c)
+ *     KiSetAffinityThread @ 0x14011547C (KiSetAffinityThread.c)
+ *     KeSetIdealProcessorThreadEx @ 0x14015CE4C (KeSetIdealProcessorThreadEx.c)
  * Callees:
  *     <none>
  */

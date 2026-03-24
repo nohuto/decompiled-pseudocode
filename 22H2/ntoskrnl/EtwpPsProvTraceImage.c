@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpPsProvTraceImage @ 0x1409E63D4
+ * XREFs of EtwpPsProvTraceImage @ 0x140629388
  * Callers:
- *     EtwpTraceImageUnload @ 0x140211D88 (EtwpTraceImageUnload.c)
- *     PerfLogImageLoad @ 0x1406AD914 (PerfLogImageLoad.c)
+ *     EtwpTraceImageUnload @ 0x140259F1C (EtwpTraceImageUnload.c)
+ *     PerfLogImageLoad @ 0x14061ADD8 (PerfLogImageLoad.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpPsProvTraceImage(unsigned __int16 *a1, ULONGLONG a2, __int16 a3, int a4)
@@ -38,36 +38,37 @@ NTSTATUS __fastcall EtwpPsProvTraceImage(unsigned __int16 *a1, ULONGLONG a2, __i
   if ( a3 == 5121 )
   {
     v5 = &ImageLoad;
+LABEL_3:
+    UserData.Reserved = 0;
+    v10 = 0;
+    v13 = 0;
+    v16 = 0;
+    v19 = 0;
+    v22 = 0;
+    v25 = 0;
+    v28 = 0;
+    v8 = a2 + 8;
+    v12 = 4;
+    v11 = a2 + 16;
+    v15 = 4;
+    v14 = a2 + 20;
+    v17 = a2 + 24;
+    v20 = a2 + 32;
+    v23 = *((_QWORD *)a1 + 1);
+    v24 = *a1;
+    v26 = &EtwpNull;
+    v18 = 4;
+    UserData.Ptr = a2;
+    UserData.Size = 8;
+    v9 = 8;
+    v21 = 8;
+    v27 = 2;
+    return EtwWriteEx(EtwpPsProvRegHandle, v5, 0LL, a4 != 0, 0LL, 0LL, 8u, &UserData);
   }
-  else
+  if ( a3 == 5122 )
   {
-    if ( a3 != 5122 )
-      return result;
     v5 = (const EVENT_DESCRIPTOR *)ImageUnload;
+    goto LABEL_3;
   }
-  UserData.Reserved = 0;
-  v10 = 0;
-  v13 = 0;
-  v16 = 0;
-  v19 = 0;
-  v22 = 0;
-  v25 = 0;
-  v28 = 0;
-  v8 = a2 + 8;
-  v12 = 4;
-  v11 = a2 + 16;
-  v15 = 4;
-  v14 = a2 + 20;
-  v17 = a2 + 24;
-  v20 = a2 + 32;
-  v23 = *((_QWORD *)a1 + 1);
-  v24 = *a1;
-  v26 = &EtwpNull;
-  v18 = 4;
-  UserData.Ptr = a2;
-  UserData.Size = 8;
-  v9 = 8;
-  v21 = 8;
-  v27 = 2;
-  return EtwWriteEx(EtwpPsProvRegHandle, v5, 0LL, a4 != 0, 0LL, 0LL, 8u, &UserData);
+  return result;
 }

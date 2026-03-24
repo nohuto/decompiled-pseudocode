@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetHardwareType@CInputSystemMetrics@@AEBAKPEBUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01F83F0
+ * XREFs of ?GetHardwareType@CInputSystemMetrics@@AEBAKPEBUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01BDB24
  * Callers:
- *     ?UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z @ 0x1C01F8448 (-UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z.c)
+ *     ?UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z @ 0x1C01BDB98 (-UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall CInputSystemMetrics::GetHardwareType(
@@ -31,14 +31,14 @@ __int64 __fastcall CInputSystemMetrics::GetHardwareType(
         goto LABEL_8;
       }
 LABEL_11:
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(this, a2, a2);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 138);
       return 0LL;
     }
     v4 = 132;
   }
 LABEL_8:
   result = v4 | 0x40;
-  if ( *((_DWORD *)a2 + 192) <= 1u )
+  if ( *((_DWORD *)a2 + 180) <= 1u )
     return v4;
   return result;
 }

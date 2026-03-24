@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpReleaseSecondaryIcEntryShared @ 0x1404593D2
+ * XREFs of HalpReleaseSecondaryIcEntryShared @ 0x1404D14C4
  * Callers:
- *     HalpDisableSecondaryInterrupt @ 0x14051D1A0 (HalpDisableSecondaryInterrupt.c)
- *     HalpHandleMaskUnmaskSecondaryInterrupt @ 0x14051D410 (HalpHandleMaskUnmaskSecondaryInterrupt.c)
- *     HalpInterruptRequestSecondaryInterrupt @ 0x14051D768 (HalpInterruptRequestSecondaryInterrupt.c)
- *     HalpUnregisterSecondaryIcInterface @ 0x14051DAC0 (HalpUnregisterSecondaryIcInterface.c)
- *     HalpEnableSecondaryInterrupt @ 0x140909678 (HalpEnableSecondaryInterrupt.c)
- *     HalpQueryPrimaryInterruptInformation @ 0x140909764 (HalpQueryPrimaryInterruptInformation.c)
+ *     HalpDisableSecondaryInterrupt @ 0x1404D0BAC (HalpDisableSecondaryInterrupt.c)
+ *     HalpHandleMaskUnmaskSecondaryInterrupt @ 0x1404D0E1C (HalpHandleMaskUnmaskSecondaryInterrupt.c)
+ *     HalpInterruptRequestSecondaryInterrupt @ 0x1404D1174 (HalpInterruptRequestSecondaryInterrupt.c)
+ *     HalpUnregisterSecondaryIcInterface @ 0x1404D1510 (HalpUnregisterSecondaryIcInterface.c)
+ *     HalpEnableSecondaryInterrupt @ 0x1408654E4 (HalpEnableSecondaryInterrupt.c)
+ *     HalpQueryPrimaryInterruptInformation @ 0x1408655D0 (HalpQueryPrimaryInterruptInformation.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     HalpInsertSecondarySignalList @ 0x14051D4F4 (HalpInsertSecondarySignalList.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     HalpInsertSecondarySignalList @ 0x1404D0F00 (HalpInsertSecondarySignalList.c)
  */
 
-LONG __fastcall HalpReleaseSecondaryIcEntryShared(__int64 a1, __int64 a2)
+LONG __fastcall HalpReleaseSecondaryIcEntryShared(__int64 a1, char a2)
 {
   LONG result; // eax
 
   result = _InterlockedDecrement((volatile signed __int32 *)(a1 + 112));
-  if ( (_BYTE)a2 )
+  if ( a2 )
   {
     if ( result == 1 )
     {
@@ -27,7 +27,7 @@ LONG __fastcall HalpReleaseSecondaryIcEntryShared(__int64 a1, __int64 a2)
         if ( KeGetCurrentIrql() <= 2u )
           return KeSetEvent((PRKEVENT)(a1 + 120), 0, 0);
         else
-          return HalpInsertSecondarySignalList(a1, a2, 0LL);
+          return HalpInsertSecondarySignalList(a1);
       }
     }
   }

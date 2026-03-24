@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeTbFlushList @ 0x1400EDB64
+ * XREFs of MiInitializeTbFlushList @ 0x1400EDB84
  * Callers:
- *     MiEliminateZeroPages @ 0x14066BED0 (MiEliminateZeroPages.c)
- *     MiUnmapRetpolineStubs @ 0x140853E30 (MiUnmapRetpolineStubs.c)
- *     MiClearDriverHotPatchPtes @ 0x140854920 (MiClearDriverHotPatchPtes.c)
- *     MmDeleteShadowMapping @ 0x140858EEC (MmDeleteShadowMapping.c)
+ *     MiEliminateZeroPages @ 0x14066BEB0 (MiEliminateZeroPages.c)
+ *     MiUnmapRetpolineStubs @ 0x140853E10 (MiUnmapRetpolineStubs.c)
+ *     MiClearDriverHotPatchPtes @ 0x140854900 (MiClearDriverHotPatchPtes.c)
+ *     MmDeleteShadowMapping @ 0x140858ECC (MmDeleteShadowMapping.c)
  * Callees:
  *     <none>
  */

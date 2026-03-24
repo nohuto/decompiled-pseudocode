@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBBOOT_RegisterBootDevice @ 0x1C003DC88
+ * XREFs of HUBBOOT_RegisterBootDevice @ 0x1C003D608
  * Callers:
- *     HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001A650 (HUBPDO_EvtDeviceUsageNotificationEx.c)
+ *     HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001A100 (HUBPDO_EvtDeviceUsageNotificationEx.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBBOOT_RegisterBootDevice(__int64 a1, __int64 a2)

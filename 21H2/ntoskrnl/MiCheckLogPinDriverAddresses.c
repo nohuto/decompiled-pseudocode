@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckLogPinDriverAddresses @ 0x140267708
+ * XREFs of MiCheckLogPinDriverAddresses @ 0x140271CE8
  * Callers:
- *     MiWorkingSetManager @ 0x140267320 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
  */
 
 void MiCheckLogPinDriverAddresses()
@@ -21,40 +21,40 @@ void MiCheckLogPinDriverAddresses()
   unsigned int v10; // r11d
   _DWORD *v11; // r8
 
-  if ( *(_QWORD *)&qword_140C53448 )
+  if ( *(_QWORD *)&qword_140C4EEE0 )
   {
-    if ( dword_140C29560 )
+    if ( dword_140C2A0C0 )
     {
-      if ( (unsigned int)dword_140C29560 > 1 )
+      if ( (unsigned int)dword_140C2A0C0 > 1 )
       {
-        v0 = (_DWORD *)qword_140C29568;
-        v1 = *(_DWORD *)qword_140C29568;
-        v2 = qword_140C29568 + 4 * ((unsigned __int64)(unsigned int)(dword_140C29560 - 1) >> 5);
-        if ( qword_140C29568 != v2 )
+        v0 = (_DWORD *)qword_140C2A0C8;
+        v1 = *(_DWORD *)qword_140C2A0C8;
+        v2 = qword_140C2A0C8 + 4 * ((unsigned __int64)(unsigned int)(dword_140C2A0C0 - 1) >> 5);
+        if ( qword_140C2A0C8 != v2 )
         {
           for ( i = v1 == 0; i; i = *v0 == 0 )
           {
             if ( ++v0 == (_DWORD *)v2 )
             {
-              v4 = ((0xFFFFFFFF >> ~(dword_140C29560 - 1)) & *v0) == 0;
+              v4 = ((0xFFFFFFFF >> ~(dword_140C2A0C0 - 1)) & *v0) == 0;
               goto LABEL_10;
             }
           }
           goto LABEL_20;
         }
-        v4 = (v1 & (0xFFFFFFFF >> (32 - dword_140C29560))) == 0;
+        v4 = (v1 & (0xFFFFFFFF >> (32 - dword_140C2A0C0))) == 0;
 LABEL_10:
         v5 = v4;
         goto LABEL_11;
       }
-      if ( dword_140C29560 == 1 )
+      if ( dword_140C2A0C0 == 1 )
       {
-        v5 = !_bittest((const signed __int32 *)qword_140C29568, 0);
+        v5 = !_bittest((const signed __int32 *)qword_140C2A0C8, 0);
 LABEL_11:
         if ( v5 )
         {
           v6 = 0;
-          v7 = (char *)&unk_140C29670;
+          v7 = (char *)&unk_140C2A1D0;
 LABEL_13:
           v8 = 0;
           v9 = v7;
@@ -82,12 +82,12 @@ LABEL_14:
       }
     }
 LABEL_20:
-    if ( !_InterlockedCompareExchange16(&word_140C296D0, 1, 0) )
+    if ( !_InterlockedCompareExchange16(&word_140C2A230, 1, 0) )
     {
-      stru_140C296B0.Parameter = 0LL;
-      stru_140C296B0.List.Flink = 0LL;
-      stru_140C296B0.WorkerRoutine = (void (__fastcall *)(void *))MiLogPinDriverAddressesWorker;
-      ExQueueWorkItem(&stru_140C296B0, DelayedWorkQueue);
+      WorkItem.Parameter = 0LL;
+      WorkItem.List.Flink = 0LL;
+      WorkItem.WorkerRoutine = (void (__fastcall *)(void *))MiLogPinDriverAddressesWorker;
+      ExQueueWorkItem(&WorkItem, DelayedWorkQueue);
     }
   }
 }

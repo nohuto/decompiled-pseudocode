@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmHeteroUtilityToNormalizedUtility @ 0x1402E4370
+ * XREFs of PpmHeteroUtilityToNormalizedUtility @ 0x1402E4470
  * Callers:
- *     PpmParkDistributeUtility @ 0x140103700 (PpmParkDistributeUtility.c)
- *     PpmCheckComputeHeteroResponse @ 0x1402E3BB0 (PpmCheckComputeHeteroResponse.c)
+ *     PpmParkDistributeUtility @ 0x140103720 (PpmParkDistributeUtility.c)
+ *     PpmCheckComputeHeteroResponse @ 0x1402E3CB0 (PpmCheckComputeHeteroResponse.c)
  * Callees:
  *     <none>
  */

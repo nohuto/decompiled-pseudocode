@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwInitializeNlsFiles @ 0x1401BA090
+ * XREFs of ZwInitializeNlsFiles @ 0x1401BA0B0
  * Callers:
  *     <none>
  * Callees:

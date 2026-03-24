@@ -1,1 +1,79 @@
-/*\n * XREFs of MouseClassCleanupQueue @ 0x1C0002708\n * Callers:\n *     MouseClassRemoveDevice @ 0x1C00038FC (MouseClassRemoveDevice.c)\n * Callees:\n *     <none>\n */\n\n__int64 **__fastcall MouseClassCleanupQueue(__int64 a1, __int64 a2, __int64 *a3)\n{\n  KSPIN_LOCK *v4; // rdi\n  KIRQL v6; // r8\n  __int64 ***v7; // rcx\n  __int64 **v8; // rdx\n  __int64 ****v9; // rax\n  _QWORD *v10; // rax\n  __int64 *v11; // rbx\n  __int64 **result; // rax\n  __int64 *v13; // rax\n  __int64 *v14; // [rsp+20h] [rbp-10h] BYREF\n  __int64 **v15; // [rsp+28h] [rbp-8h]\n\n  v15 = &v14;\n  v4 = (KSPIN_LOCK *)(a2 + 144);\n  v14 = (__int64 *)&v14;\n  v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 144));\n  v7 = *(__int64 ****)(a2 + 152);\n  if ( v7 != (__int64 ***)(a2 + 152) )\n  {\n    do\n    {\n      v8 = *v7;\n      if ( !a3 || v7[2][6] == a3 )\n      {\n        if ( v8[1] != (__int64 *)v7 || (v9 = (__int64 ****)v7[1], *v9 != v7) )\nLABEL_16:\n          __fastfail(3u);\n        *v9 = (__int64 ***)v8;\n        v8[1] = (__int64 *)v9;\n        if ( _InterlockedExchange64((volatile __int64 *)v7 - 8, 0LL) )\n        {\n          *(v7 - 14) = 0LL;\n          *((_DWORD *)v7 - 30) = -1073741536;\n          v10 = v15;\n          if ( *v15 != (__int64 *)&v14 )\n            goto LABEL_16;\n          v7[1] = v15;\n          *v7 = &v14;\n          *v10 = v7;\n          v15 = (__int64 **)v7;\n        }\n        else\n        {\n          v7[1] = (__int64 **)v7;\n          *v7 = (__int64 **)v7;\n        }\n      }\n      v7 = (__int64 ***)v8;\n    }\n    while ( v8 != (__int64 **)(a2 + 152) );\n  }\n  KeReleaseSpinLock(v4, v6);\n  while ( 1 )\n  {\n    v11 = v14;\n    result = &v14;\n    if ( v14 == (__int64 *)&v14 )\n      return result;\n    if ( (__int64 **)v14[1] != &v14 )\n      goto LABEL_16;\n    v13 = (__int64 *)*v14;\n    if ( *(__int64 **)(*v14 + 8) != v14 )\n      goto LABEL_16;\n    v14 = (__int64 *)*v14;\n    v13[1] = (__int64)&v14;\n    IofCompleteRequest((PIRP)(v11 - 21), 0);\n    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(a2 + 32), v11 - 21, 0x20u);\n  }\n}\n
+/*
+ * XREFs of MouseClassCleanupQueue @ 0x1C0002708
+ * Callers:
+ *     MouseClassRemoveDevice @ 0x1C00038FC (MouseClassRemoveDevice.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 **__fastcall MouseClassCleanupQueue(__int64 a1, __int64 a2, __int64 *a3)
+{
+  KSPIN_LOCK *v4; // rdi
+  KIRQL v6; // r8
+  __int64 ***v7; // rcx
+  __int64 **v8; // rdx
+  __int64 ****v9; // rax
+  _QWORD *v10; // rax
+  __int64 *v11; // rbx
+  __int64 **result; // rax
+  __int64 *v13; // rax
+  __int64 *v14; // [rsp+20h] [rbp-10h] BYREF
+  __int64 **v15; // [rsp+28h] [rbp-8h]
+
+  v15 = &v14;
+  v4 = (KSPIN_LOCK *)(a2 + 144);
+  v14 = (__int64 *)&v14;
+  v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 144));
+  v7 = *(__int64 ****)(a2 + 152);
+  if ( v7 != (__int64 ***)(a2 + 152) )
+  {
+    do
+    {
+      v8 = *v7;
+      if ( !a3 || v7[2][6] == a3 )
+      {
+        if ( v8[1] != (__int64 *)v7 || (v9 = (__int64 ****)v7[1], *v9 != v7) )
+LABEL_16:
+          __fastfail(3u);
+        *v9 = (__int64 ***)v8;
+        v8[1] = (__int64 *)v9;
+        if ( _InterlockedExchange64((volatile __int64 *)v7 - 8, 0LL) )
+        {
+          *(v7 - 14) = 0LL;
+          *((_DWORD *)v7 - 30) = -1073741536;
+          v10 = v15;
+          if ( *v15 != (__int64 *)&v14 )
+            goto LABEL_16;
+          v7[1] = v15;
+          *v7 = &v14;
+          *v10 = v7;
+          v15 = (__int64 **)v7;
+        }
+        else
+        {
+          v7[1] = (__int64 **)v7;
+          *v7 = (__int64 **)v7;
+        }
+      }
+      v7 = (__int64 ***)v8;
+    }
+    while ( v8 != (__int64 **)(a2 + 152) );
+  }
+  KeReleaseSpinLock(v4, v6);
+  while ( 1 )
+  {
+    v11 = v14;
+    result = &v14;
+    if ( v14 == (__int64 *)&v14 )
+      return result;
+    if ( (__int64 **)v14[1] != &v14 )
+      goto LABEL_16;
+    v13 = (__int64 *)*v14;
+    if ( *(__int64 **)(*v14 + 8) != v14 )
+      goto LABEL_16;
+    v14 = (__int64 *)*v14;
+    v13[1] = (__int64)&v14;
+    IofCompleteRequest((PIRP)(v11 - 21), 0);
+    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(a2 + 32), v11 - 21, 0x20u);
+  }
+}

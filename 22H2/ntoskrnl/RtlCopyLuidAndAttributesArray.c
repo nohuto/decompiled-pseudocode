@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlCopyLuidAndAttributesArray @ 0x1409BC0D0
+ * XREFs of RtlCopyLuidAndAttributesArray @ 0x1405D9EB0
  * Callers:
- *     CmpBuildAdminInformation @ 0x140A18A0C (CmpBuildAdminInformation.c)
+ *     CmpBuildAdminInformation @ 0x1405D9BE0 (CmpBuildAdminInformation.c)
  * Callees:
  *     <none>
  */

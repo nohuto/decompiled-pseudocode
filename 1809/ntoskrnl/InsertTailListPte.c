@@ -2,14 +2,14 @@
  * XREFs of InsertTailListPte @ 0x140079D00
  * Callers:
  *     MiReleaseSystemCacheView @ 0x1400795B0 (MiReleaseSystemCacheView.c)
- *     MiExpandSystemCache @ 0x1400F61AC (MiExpandSystemCache.c)
- *     MiExpandSpecialPool @ 0x1402AC35C (MiExpandSpecialPool.c)
- *     MiRemoveSpecialPoolRange @ 0x1402AC7D0 (MiRemoveSpecialPoolRange.c)
+ *     MiExpandSystemCache @ 0x1400F61CC (MiExpandSystemCache.c)
+ *     MiExpandSpecialPool @ 0x1402AC45C (MiExpandSpecialPool.c)
+ *     MiRemoveSpecialPoolRange @ 0x1402AC8D0 (MiRemoveSpecialPoolRange.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 struct _KTHREAD *__fastcall InsertTailListPte(struct _KTHREAD **a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of _PnpOpenObjectRegKeyDispatch @ 0x14077CA18
+ * XREFs of _PnpOpenObjectRegKeyDispatch @ 0x140637958
  * Callers:
- *     _PnpOpenObjectRegKey @ 0x14077C924 (_PnpOpenObjectRegKey.c)
+ *     _PnpOpenObjectRegKey @ 0x140637864 (_PnpOpenObjectRegKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _PnpCtxGetObjectDispatchCallback @ 0x14077DE44 (_PnpCtxGetObjectDispatchCallback.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _PnpCtxGetObjectDispatchCallback @ 0x140637F68 (_PnpCtxGetObjectDispatchCallback.c)
  */
 
 __int64 __fastcall PnpOpenObjectRegKeyDispatch(

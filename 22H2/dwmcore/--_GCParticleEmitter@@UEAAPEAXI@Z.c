@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_GCParticleEmitter@@UEAAPEAXI@Z @ 0x1802419B0
+ * XREFs of ??_GCParticleEmitter@@UEAAPEAXI@Z @ 0x1801DC410
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ??1CResource@@MEAA@XZ @ 0x18009A260 (--1CResource@@MEAA@XZ.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801051B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ??1CResource@@MEAA@XZ @ 0x1800A132C (--1CResource@@MEAA@XZ.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1B00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 CParticleEmitter *__fastcall CParticleEmitter::`scalar deleting destructor'(CParticleEmitter *this, char a2)
@@ -14,7 +14,7 @@ CParticleEmitter *__fastcall CParticleEmitter::`scalar deleting destructor'(CPar
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x70);
     else
       operator delete(this);
   }

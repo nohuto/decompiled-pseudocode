@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetCurrentZ@CDrawingContext@@UEBAHXZ @ 0x1800F9850
+ * XREFs of ?GetCurrentZ@CDrawingContext@@UEBAHXZ @ 0x1800E2360
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CDrawingContext::GetCurrentZ(CDrawingContext *this)
 {
-  return *((unsigned int *)this + 1984);
+  return *((unsigned int *)this + 1480);
 }

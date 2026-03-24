@@ -1,10 +1,10 @@
 /*
- * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_bae9fe91ffe7d2a32ffd5f56c8eed0c9___ @ 0x1C000EE34
+ * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_bae9fe91ffe7d2a32ffd5f56c8eed0c9___ @ 0x1C0060B40
  * Callers:
- *     ?EmitUpdateCommands@CComponentTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000EF60 (-EmitUpdateCommands@CComponentTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CComponentTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0060BF0 (-EmitUpdateCommands@CComponentTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_bae9fe91ffe7d2a32ffd5f56c8eed0c9___(
@@ -27,12 +27,12 @@ char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda
   v6 = v5 + 1;
   memset(v5 + 1, 0, 0x48uLL);
   *v6 = 73;
-  v6[1] = *(_DWORD *)(a1 + 32);
+  v6[1] = *(_DWORD *)(a1 + 24);
   v7 = *a3;
-  *(_OWORD *)(v6 + 2) = *(_OWORD *)(*a3 + 156);
-  *(_OWORD *)(v6 + 6) = *(_OWORD *)(v7 + 172);
-  *(_OWORD *)(v6 + 10) = *(_OWORD *)(v7 + 188);
-  v8 = *(_OWORD *)(v7 + 204);
+  *(_OWORD *)(v6 + 2) = *(_OWORD *)(*a3 + 148);
+  *(_OWORD *)(v6 + 6) = *(_OWORD *)(v7 + 164);
+  *(_OWORD *)(v6 + 10) = *(_OWORD *)(v7 + 180);
+  v8 = *(_OWORD *)(v7 + 196);
   result = 1;
   *(_OWORD *)(v6 + 14) = v8;
   return result;

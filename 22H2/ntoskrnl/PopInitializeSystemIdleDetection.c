@@ -1,12 +1,12 @@
 /*
- * XREFs of PopInitializeSystemIdleDetection @ 0x140B75A74
+ * XREFs of PopInitializeSystemIdleDetection @ 0x140A731B8
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x140252440 (KeSetCoalescableTimer.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopPulseSystemIdleEvent @ 0x1407A8AEC (PopPulseSystemIdleEvent.c)
+ *     KeSetCoalescableTimer @ 0x14025F4D0 (KeSetCoalescableTimer.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopPulseSystemIdleEvent @ 0x14078E850 (PopPulseSystemIdleEvent.c)
  */
 
 void PopInitializeSystemIdleDetection()
@@ -31,5 +31,5 @@ void PopInitializeSystemIdleDetection()
       1000 * PopIdleScanInterval,
       0x3E8u,
       &PopIdleScanDpc);
-  PopReleaseRwLock(&PopSystemIdleLock);
+  PopReleaseRwLock((ULONG_PTR)&PopSystemIdleLock);
 }

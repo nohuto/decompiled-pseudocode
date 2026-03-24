@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCoverageEnsureUserModeView @ 0x1406D43E8
+ * XREFs of EtwpCoverageEnsureUserModeView @ 0x140771C44
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x1406D435C (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x140771BB8 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     MiUnmapViewOfSection @ 0x1406F8D30 (MiUnmapViewOfSection.c)
- *     MmMapViewOfSection @ 0x140785150 (MmMapViewOfSection.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     MmMapViewOfSection @ 0x140612470 (MmMapViewOfSection.c)
+ *     MiUnmapViewOfSection @ 0x14061E0F0 (MiUnmapViewOfSection.c)
  */
 
 __int64 __fastcall EtwpCoverageEnsureUserModeView(__int64 a1)
@@ -22,22 +22,22 @@ __int64 __fastcall EtwpCoverageEnsureUserModeView(__int64 a1)
   int v8; // [rsp+50h] [rbp-38h]
   __int64 v9; // [rsp+60h] [rbp-28h] BYREF
   _QWORD v10[4]; // [rsp+68h] [rbp-20h] BYREF
-  __int64 v11; // [rsp+A0h] [rbp+18h] BYREF
+  unsigned __int64 v11; // [rsp+A0h] [rbp+18h] BYREF
   _KPROCESS *v12; // [rsp+A8h] [rbp+20h]
 
   v11 = 0LL;
   Process = KeGetCurrentThread()->ApcState.Process;
   v12 = Process;
-  v10[0] = 0LL;
-  v2 = Process[1].Affinity.StaticBitmap[24];
+  v2 = Process[1].AffinityPadding[4];
   if ( *(_QWORD *)(v2 + 1952) )
   {
     v8 = 0;
   }
   else
   {
+    v10[0] = 0LL;
     v9 = 0LL;
-    v8 = MmMapViewOfSection(*(_QWORD *)(a1 + 8), Process, &v11, 0LL, 0LL, v10, &v9, 1, 0, 2);
+    v8 = MmMapViewOfSection(*(_QWORD *)(a1 + 8), (__int64)Process, &v11, 0LL, 0, (__int64)v10, &v9, 1, 0, 2);
     if ( v8 >= 0 )
     {
       CurrentThread = KeGetCurrentThread();
@@ -50,7 +50,7 @@ __int64 __fastcall EtwpCoverageEnsureUserModeView(__int64 a1)
         v11 = 0LL;
       }
       v4 = 0LL;
-      v5 = (__int64 *)Process[1].Affinity.StaticBitmap[30];
+      v5 = (__int64 *)Process[1].AffinityPadding[10];
       if ( v5 )
         v4 = *v5;
       if ( v4 )
@@ -65,9 +65,9 @@ __int64 __fastcall EtwpCoverageEnsureUserModeView(__int64 a1)
     if ( (v6 & 2) != 0 && (v6 & 4) == 0 )
       ExfTryToWakePushLock(&EtwpCoverageLock);
     KeAbPostRelease((ULONG_PTR)&EtwpCoverageLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   if ( v11 )
-    MiUnmapViewOfSection((ULONG_PTR)Process);
+    MiUnmapViewOfSection(Process, v11, 0, 0LL);
   return (unsigned int)v8;
 }

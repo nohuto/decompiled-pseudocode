@@ -1,5 +1,5 @@
 /*
- * XREFs of ?_Destroy@?$_Ref_count_resource@PEAEU?$default_delete@$$BY0A@E@std@@@std@@EEAAXXZ @ 0x1802543D0
+ * XREFs of ?_Destroy@?$_Ref_count_resource@PEAEU?$default_delete@$$BY0A@E@std@@@std@@EEAAXXZ @ 0x1801EFFF0
  * Callers:
  *     <none>
  * Callees:

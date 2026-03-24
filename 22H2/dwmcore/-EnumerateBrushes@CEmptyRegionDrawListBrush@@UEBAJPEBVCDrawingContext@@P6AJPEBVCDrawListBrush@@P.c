@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EnumerateBrushes@CEmptyRegionDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX@Z2@Z @ 0x1800198F0
+ * XREFs of ?EnumerateBrushes@CEmptyRegionDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX@Z2@Z @ 0x1800F3670
  * Callers:
  *     <none>
  * Callees:
- *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x180042744 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800DCA44 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x18009B7D4 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800C47D0 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CEmptyRegionDrawListBrush::EnumerateBrushes(
@@ -16,15 +16,15 @@ __int64 __fastcall CEmptyRegionDrawListBrush::EnumerateBrushes(
         void *a4)
 {
   __int64 v4; // rax
-  __int64 v8; // rax
-  int v9; // eax
-  unsigned int v10; // ecx
-  unsigned int v11; // edi
-  __m128i v13; // xmm1
+  __m128i v8; // xmm1
+  __int64 v9; // rax
+  unsigned int v10; // xmm0_4
+  int v11; // eax
+  FastRegion::Internal::CRgnData *v12; // rcx
+  unsigned int v13; // edi
   __int64 v14; // rax
-  unsigned int v15; // xmm0_4
-  int v16; // eax
-  FastRegion::Internal::CRgnData *v17; // rcx
+  int v15; // eax
+  __int64 v16; // rcx
   __int128 v18; // [rsp+30h] [rbp-58h]
   _BYTE v19[8]; // [rsp+40h] [rbp-48h] BYREF
   unsigned __int64 v20; // [rsp+48h] [rbp-40h]
@@ -43,30 +43,30 @@ __int64 __fastcall CEmptyRegionDrawListBrush::EnumerateBrushes(
     while ( v21 < v20 )
     {
       *((float *)&v18 + 1) = (float)*(int *)v21;
-      v13 = _mm_cvtsi32_si128(*(_DWORD *)(v21 + 8));
+      v8 = _mm_cvtsi32_si128(*(_DWORD *)(v21 + 8));
       *(float *)&v18 = (float)*(int *)(v22 + 8LL * v23);
-      v14 = *((_QWORD *)this + 10);
-      *(float *)&v15 = (float)*(int *)(v22 + 8LL * v23 + 4);
-      *(_DWORD *)(v14 + 48) = 0;
-      *(_BYTE *)(v14 + 52) = 1;
-      *((_QWORD *)&v18 + 1) = __PAIR64__(_mm_cvtepi32_ps(v13).m128_u32[0], v15);
-      *(_OWORD *)(v14 + 32) = v18;
-      v16 = ((__int64 (__fastcall *)(_QWORD, void *))a3)(*((_QWORD *)this + 10), a4);
-      v11 = v16;
-      if ( v16 < 0 )
+      v9 = *((_QWORD *)this + 10);
+      *(float *)&v10 = (float)*(int *)(v22 + 8LL * v23 + 4);
+      *(_DWORD *)(v9 + 48) = 0;
+      *(_BYTE *)(v9 + 52) = 1;
+      *((_QWORD *)&v18 + 1) = __PAIR64__(_mm_cvtepi32_ps(v8).m128_u32[0], v10);
+      *(_OWORD *)(v9 + 32) = v18;
+      v11 = ((__int64 (__fastcall *)(_QWORD, void *))a3)(*((_QWORD *)this + 10), a4);
+      v13 = v11;
+      if ( v11 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v17, 0LL, 0, v16, 0x92u, 0LL);
-        return v11;
+        MilInstrumentationCheckHR_MaybeFailFast((__int64)v12, 0LL, 0, v11, 0x92u, 0LL);
+        return v13;
       }
-      FastRegion::Internal::CRgnData::StepIterator(v17, (struct FastRegion::CRegion::Iterator *)v19);
+      FastRegion::Internal::CRgnData::StepIterator(v12, (struct FastRegion::CRegion::Iterator *)v19);
     }
   }
-  v8 = *((_QWORD *)this + 9);
-  *(_OWORD *)(v8 + 8) = *(_OWORD *)((char *)this + 8);
-  *(_QWORD *)(v8 + 24) = *((_QWORD *)this + 3);
-  v9 = ((__int64 (__fastcall *)(_QWORD, void *))a3)(*((_QWORD *)this + 9), a4);
-  v11 = v9;
-  if ( v9 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x98u, 0LL);
-  return v11;
+  v14 = *((_QWORD *)this + 9);
+  *(_OWORD *)(v14 + 8) = *(_OWORD *)((char *)this + 8);
+  *(_QWORD *)(v14 + 24) = *((_QWORD *)this + 3);
+  v15 = ((__int64 (__fastcall *)(_QWORD, void *))a3)(*((_QWORD *)this + 9), a4);
+  v13 = v15;
+  if ( v15 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x98u, 0LL);
+  return v13;
 }

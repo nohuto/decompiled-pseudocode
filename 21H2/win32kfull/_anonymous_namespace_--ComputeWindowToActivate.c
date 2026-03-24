@@ -1,51 +1,85 @@
 /*
- * XREFs of _anonymous_namespace_::ComputeWindowToActivate @ 0x1C00CD884
+ * XREFs of _anonymous_namespace_::ComputeWindowToActivate @ 0x1C00279F0
  * Callers:
- *     ?xxxActivateWindowWithOptions@@YA_NPEAUtagWND@@W4ActivateWindowKind@@W4ComputeWindowToActivateStrategy@@W4WindowActivateReason@@@Z @ 0x1C007CC00 (-xxxActivateWindowWithOptions@@YA_NPEAUtagWND@@W4ActivateWindowKind@@W4ComputeWindowToActivateSt.c)
+ *     ?xxxActivateWindowWithOptions@@YA_NPEAUtagWND@@W4ActivateWindowKind@@W4ComputeWindowToActivateStrategy@@W4WindowActivateReason@@@Z @ 0x1C0039B68 (-xxxActivateWindowWithOptions@@YA_NPEAUtagWND@@W4ActivateWindowKind@@W4ComputeWindowToActivateSt.c)
  * Callees:
- *     ?IsWindowActivateable@@YA_NPEBUtagWND@@@Z @ 0x1C00CE218 (-IsWindowActivateable@@YA_NPEBUtagWND@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ?IsWindowActivateable@@YA_NPEBUtagWND@@@Z @ 0x1C00282E8 (-IsWindowActivateable@@YA_NPEBUtagWND@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall anonymous_namespace_::ComputeWindowToActivate(const struct tagWND *a1, char a2, int a3, _OWORD *a4)
 {
-  int *v8; // rbx
+  int v4; // eax
+  int *v9; // rbx
   bool result; // al
-  __int128 v10; // [rsp+20h] [rbp-18h]
+  __int128 v11; // [rsp+20h] [rbp-18h]
 
-  if ( (dword_1C033639C & 1) == 0 )
+  v4 = dword_1C033B0E0;
+  if ( (dword_1C033B0E0 & 1) == 0 )
   {
-    dword_1C032BEE0 = 2;
-    dword_1C033639C |= 1u;
-    qword_1C032BED8 = (__int64)lambda_18e42bef8aab6193ee3628fe412f6142_::_lambda_invoker_cdecl_;
-    qword_1C032BEE8 = (__int64)lambda_1a8a671d465f8785bc97c99107a222a3_::_lambda_invoker_cdecl_;
-    qword_1C032BEF8 = (__int64)lambda_b12a9ee524689ad3f22c234f981ca7cb_::_lambda_invoker_cdecl_;
-    qword_1C032BF08 = (__int64)lambda_dc07bf9eeab06415d9a9c521953e95b1_::_lambda_invoker_cdecl_;
-    qword_1C032BF18 = (__int64)lambda_9e1c073be7703093e3ca0af05debe537_::_lambda_invoker_cdecl_;
-    dword_1C032BEF0 = 8;
-    dword_1C032BF00 = 16;
-    dword_1C032BF10 = 32;
+    v4 = dword_1C033B0E0 | 1;
+    dword_1C033B0E0 |= 1u;
+  }
+  if ( (v4 & 2) == 0 )
+  {
+    v4 |= 2u;
+    dword_1C033B0E0 = v4;
+  }
+  if ( (v4 & 4) == 0 )
+  {
+    v4 |= 4u;
+    dword_1C033B0E0 = v4;
+  }
+  if ( (v4 & 8) == 0 )
+  {
+    v4 |= 8u;
+    dword_1C033B0E0 = v4;
+  }
+  if ( (v4 & 0x10) == 0 )
+  {
+    v4 |= 0x10u;
+    dword_1C033B0E0 = v4;
+  }
+  if ( (v4 & 0x20) == 0 )
+  {
+    v4 |= 0x20u;
+    dword_1C033B0E0 = v4;
+  }
+  if ( (v4 & 0x40) == 0 )
+  {
+    dword_1C0330B80 = 2;
+    dword_1C033B0E0 = v4 | 0x40;
+    qword_1C0330B78 = (__int64)lambda_18e42bef8aab6193ee3628fe412f6142_::_lambda_invoker_cdecl_;
+    qword_1C0330B88 = (__int64)lambda_1a8a671d465f8785bc97c99107a222a3_::_lambda_invoker_cdecl_;
+    qword_1C0330B98 = (__int64)lambda_cb10391b5661d01073277e9ca426a942_::_lambda_invoker_cdecl_;
+    qword_1C0330BA8 = (__int64)lambda_beb7e60510a54e82b7f39bd19dd130e9_::_lambda_invoker_cdecl_;
+    qword_1C0330BB8 = (__int64)lambda_dc07bf9eeab06415d9a9c521953e95b1_::_lambda_invoker_cdecl_;
+    qword_1C0330BC8 = (__int64)lambda_9e1c073be7703093e3ca0af05debe537_::_lambda_invoker_cdecl_;
+    dword_1C0330B90 = 4;
+    dword_1C0330BA0 = 8;
+    dword_1C0330BB0 = 16;
+    dword_1C0330BC0 = 32;
   }
   *a4 = 0LL;
   if ( (a2 & 1) != 0 && IsWindowActivateable(a1) )
   {
-    *(_QWORD *)&v10 = a1;
+    *(_QWORD *)&v11 = a1;
     result = 1;
-    DWORD2(v10) = 1;
-    *a4 = v10;
+    DWORD2(v11) = 1;
+    *a4 = v11;
   }
   else
   {
     if ( (a2 & 2) != 0 )
     {
-      v8 = (int *)&unk_1C032BED0;
+      v9 = (int *)&unk_1C0330B70;
       do
       {
-        if ( (a3 & *v8) != 0 && (*((unsigned __int8 (__fastcall **)(const struct tagWND *, _OWORD *))v8 + 1))(a1, a4) )
+        if ( (a3 & *v9) != 0 && (*((unsigned __int8 (__fastcall **)(const struct tagWND *, _OWORD *))v9 + 1))(a1, a4) )
           break;
-        v8 += 4;
+        v9 += 4;
       }
-      while ( v8 != &g_cTimerId );
+      while ( v9 != &g_cTimerId );
     }
     return *(_QWORD *)a4 != 0LL;
   }

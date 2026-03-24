@@ -1,10 +1,10 @@
 /*
- * XREFs of ?NotifyVmmsProcessDestroyed@DXGVIRTUALGPUMANAGER@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C03581F4
+ * XREFs of ?NotifyVmmsProcessDestroyed@DXGVIRTUALGPUMANAGER@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C02302BC
  * Callers:
- *     ?NotifyDxgProcessDestroyed@ADAPTER_RENDER@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C0358158 (-NotifyDxgProcessDestroyed@ADAPTER_RENDER@@QEAAXPEAVDXGPROCESS@@@Z.c)
+ *     ?NotifyDxgProcessDestroyed@ADAPTER_RENDER@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C0230210 (-NotifyDxgProcessDestroyed@ADAPTER_RENDER@@QEAAXPEAVDXGPROCESS@@@Z.c)
  * Callees:
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DXGVIRTUALGPUMANAGER::NotifyVmmsProcessDestroyed(DXGVIRTUALGPUMANAGER *this, struct DXGPROCESS *a2)
@@ -15,7 +15,7 @@ void __fastcall DXGVIRTUALGPUMANAGER::NotifyVmmsProcessDestroyed(DXGVIRTUALGPUMA
   struct DXGPROCESS **v6; // rcx
 
   v2 = (char *)this + 40;
-  v4 = (_QWORD **)((char *)this + 104);
+  v4 = (_QWORD **)((char *)this + 72);
   DXGPUSHLOCK::AcquireExclusive((DXGVIRTUALGPUMANAGER *)((char *)this + 40));
   v5 = *v4;
   while ( v5 != v4 )

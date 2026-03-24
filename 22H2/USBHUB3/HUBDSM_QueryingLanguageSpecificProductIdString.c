@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_QueryingLanguageSpecificProductIdString @ 0x1C00206A0
+ * XREFs of HUBDSM_QueryingLanguageSpecificProductIdString @ 0x1C001DC80
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_GetProductIdStringDescriptorUsingControlTransfer @ 0x1C002B528 (HUBDTX_GetProductIdStringDescriptorUsingControlTransfer.c)
+ *     HUBDTX_GetProductIdStringDescriptorUsingControlTransfer @ 0x1C00288AC (HUBDTX_GetProductIdStringDescriptorUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBDSM_QueryingLanguageSpecificProductIdString(__int64 a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiCreatePaletteInternal @ 0x1C0109ED0
+ * XREFs of NtGdiCreatePaletteInternal @ 0x1C0121030
  * Callers:
  *     <none>
  * Callees:

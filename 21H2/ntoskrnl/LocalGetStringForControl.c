@@ -1,13 +1,13 @@
 /*
- * XREFs of LocalGetStringForControl @ 0x1406768BC
+ * XREFs of LocalGetStringForControl @ 0x1406771A0
  * Callers:
- *     LocalConvertSDToStringSD_Rev1 @ 0x140676314 (LocalConvertSDToStringSD_Rev1.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x140676E30 (LocalConvertSDToStringSD_Rev1.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
- *     wcsncpy_s @ 0x1403E7870 (wcsncpy_s.c)
- *     __report_rangecheckfailure @ 0x140502A3C (__report_rangecheckfailure.c)
- *     SddlpAlloc @ 0x14067757C (SddlpAlloc.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
+ *     wcsncpy_s @ 0x1403D8420 (wcsncpy_s.c)
+ *     __report_rangecheckfailure @ 0x1404B646C (__report_rangecheckfailure.c)
+ *     SddlpAlloc @ 0x140674548 (SddlpAlloc.c)
  */
 
 __int64 __fastcall LocalGetStringForControl(unsigned __int16 a1, int a2, wchar_t **a3)
@@ -24,7 +24,7 @@ __int64 __fastcall LocalGetStringForControl(unsigned __int16 a1, int a2, wchar_t
   if ( !a3 )
     return 87LL;
   *a3 = 0LL;
-  v7 = &dword_1400070BC;
+  v7 = &dword_1400075BC;
   for ( i = 0; i < 6; ++i )
   {
     if ( (a2 & v7[1]) == a2 )

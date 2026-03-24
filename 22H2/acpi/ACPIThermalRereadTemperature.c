@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIThermalRereadTemperature @ 0x1C0041E54
+ * XREFs of ACPIThermalRereadTemperature @ 0x1C0060164
  * Callers:
- *     AcpiDiagThermalPollingTimerRoutine @ 0x1C0007430 (AcpiDiagThermalPollingTimerRoutine.c)
+ *     AcpiDiagThermalPollingTimerRoutine @ 0x1C0049650 (AcpiDiagThermalPollingTimerRoutine.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     ACPIThermalLoopEx @ 0x1C0041110 (ACPIThermalLoopEx.c)
- *     WPP_RECORDER_SF_qssdddd @ 0x1C0043644 (WPP_RECORDER_SF_qssdddd.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_qssdddd @ 0x1C0060648 (WPP_RECORDER_SF_qssdddd.c)
  */
 
 void __fastcall ACPIThermalRereadTemperature(__int64 a1)

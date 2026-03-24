@@ -1,19 +1,18 @@
 /*
- * XREFs of IvtInvalidateRemappingTableEntries @ 0x1404598B2
+ * XREFs of IvtInvalidateRemappingTableEntries @ 0x1404E07BC
  * Callers:
- *     IvtInvalidateRemappingTableEntry @ 0x140459930 (IvtInvalidateRemappingTableEntry.c)
- *     IvtUpdateRemappingDestination @ 0x14052FC00 (IvtUpdateRemappingDestination.c)
- *     IvtInitializeIommu @ 0x140A63CE0 (IvtInitializeIommu.c)
+ *     IvtInvalidateRemappingTableEntry @ 0x1404E0810 (IvtInvalidateRemappingTableEntry.c)
+ *     IvtUpdateRemappingDestination @ 0x1404E11A0 (IvtUpdateRemappingDestination.c)
+ *     IvtInitializeIommu @ 0x1409A9950 (IvtInitializeIommu.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IvtIommuSendCommand @ 0x14052F378 (IvtIommuSendCommand.c)
- *     IvtIommuWaitCommand @ 0x14052F618 (IvtIommuWaitCommand.c)
+ *     IvtIommuSendCommand @ 0x1404E0830 (IvtIommuSendCommand.c)
+ *     IvtIommuWaitCommand @ 0x1404E0A30 (IvtIommuWaitCommand.c)
  */
 
 __int64 __fastcall IvtInvalidateRemappingTableEntries(__int64 a1, _DWORD *a2)
 {
   __int64 v3; // rdx
-  _QWORD v5[2]; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v5[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v5[1] = 0LL;
   v5[0] = 4LL;

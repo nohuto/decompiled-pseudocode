@@ -1,11 +1,10 @@
 /*
- * XREFs of ?RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C0026CEC
+ * XREFs of ?RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C0021D80
  * Callers:
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01A0EB0 (DxgkDisplayConfigDeviceInfo.c)
- *     ?InitializeDisplayUserModeDriverNames@ADAPTER_RENDER@@AEAAJPEAU_UNICODE_STRING@@0@Z @ 0x1C0204438 (-InitializeDisplayUserModeDriverNames@ADAPTER_RENDER@@AEAAJPEAU_UNICODE_STRING@@0@Z.c)
- *     ?InitializeUserModeDriverNames@ADAPTER_RENDER@@AEAAJPEAU_UNICODE_STRING@@0@Z @ 0x1C0204944 (-InitializeUserModeDriverNames@ADAPTER_RENDER@@AEAAJPEAU_UNICODE_STRING@@0@Z.c)
- *     DpiAppendStringToString @ 0x1C0204A0C (DpiAppendStringToString.c)
- *     ?Initialize@CTTMDEVICE@@QEAAJPEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IKPEBG@Z @ 0x1C0205680 (-Initialize@CTTMDEVICE@@QEAAJPEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IKPEBG@Z.c)
+ *     ?InitializeDisplayUserModeDriverNames@ADAPTER_RENDER@@AEAAJPEAU_UNICODE_STRING@@0@Z @ 0x1C018A560 (-InitializeDisplayUserModeDriverNames@ADAPTER_RENDER@@AEAAJPEAU_UNICODE_STRING@@0@Z.c)
+ *     ?InitializeUserModeDriverNames@ADAPTER_RENDER@@AEAAJPEAU_UNICODE_STRING@@0@Z @ 0x1C018AA8C (-InitializeUserModeDriverNames@ADAPTER_RENDER@@AEAAJPEAU_UNICODE_STRING@@0@Z.c)
+ *     DpiAppendStringToString @ 0x1C018AB50 (DpiAppendStringToString.c)
+ *     ?Initialize@CTTMDEVICE@@AEAAJPEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IK@Z @ 0x1C018B11C (-Initialize@CTTMDEVICE@@AEAAJPEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IK@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +12,7 @@
 __int64 __fastcall RtlStringCbLengthW(const unsigned __int16 *a1, unsigned __int64 a2, unsigned __int64 *a3)
 {
   unsigned __int64 v3; // rdx
-  __int64 v5; // rax
+  unsigned __int64 v5; // rax
   unsigned __int64 i; // r8
   signed int v7; // ecx
 
@@ -28,7 +27,10 @@ __int64 __fastcall RtlStringCbLengthW(const unsigned __int16 *a1, unsigned __int
       ++a1;
     }
     v7 = i == 0 ? 0xC000000D : 0;
-    v5 = (v3 - i) & -(__int64)(i != 0);
+    if ( i )
+      v5 = v3 - i;
+    else
+      v5 = 0LL;
   }
   else
   {

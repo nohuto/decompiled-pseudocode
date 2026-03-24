@@ -1,104 +1,105 @@
 /*
- * XREFs of EtwActivityIdControl @ 0x1402DFD70
+ * XREFs of EtwActivityIdControl @ 0x1402B1640
  * Callers:
- *     IoReuseIrp @ 0x14020BE20 (IoReuseIrp.c)
- *     IoSetActivityIdIrp @ 0x14020C120 (IoSetActivityIdIrp.c)
- *     IopInitActivityIdIrp @ 0x140556BE4 (IopInitActivityIdIrp.c)
- *     VrpPreLoadKey @ 0x14069061C (VrpPreLoadKey.c)
- *     VrpPostEnumerateKey @ 0x140691CD8 (VrpPostEnumerateKey.c)
- *     VrpIoctlDeviceDispatch @ 0x140692780 (VrpIoctlDeviceDispatch.c)
- *     VrpPreOpenOrCreate @ 0x14077E168 (VrpPreOpenOrCreate.c)
- *     VrpPostOpenOrCreate @ 0x1407806B0 (VrpPostOpenOrCreate.c)
- *     VrpPostQueryKey @ 0x140780AA8 (VrpPostQueryKey.c)
- *     VrpRegistryCallback @ 0x140780EF0 (VrpRegistryCallback.c)
- *     VrpPostUnloadKey @ 0x140926C70 (VrpPostUnloadKey.c)
- *     VrpPreFlushKey @ 0x140926D10 (VrpPreFlushKey.c)
- *     VrpPreQueryKeyName @ 0x140926DD8 (VrpPreQueryKeyName.c)
- *     IoCaptureLiveDump @ 0x14093A0B8 (IoCaptureLiveDump.c)
- *     IoWriteDeferredLiveDumpData @ 0x14093A954 (IoWriteDeferredLiveDumpData.c)
+ *     IoReuseIrp @ 0x1402EDC30 (IoReuseIrp.c)
+ *     IoSetActivityIdIrp @ 0x140379200 (IoSetActivityIdIrp.c)
+ *     IopInitActivityIdIrp @ 0x140500C9C (IopInitActivityIdIrp.c)
+ *     VrpIoctlDeviceDispatch @ 0x1405D3110 (VrpIoctlDeviceDispatch.c)
+ *     VrpPostEnumerateKey @ 0x1405D37A4 (VrpPostEnumerateKey.c)
+ *     VrpRegistryCallback @ 0x1405D3FD0 (VrpRegistryCallback.c)
+ *     VrpPostOpenOrCreate @ 0x1405D4420 (VrpPostOpenOrCreate.c)
+ *     VrpPreOpenOrCreate @ 0x1405D4868 (VrpPreOpenOrCreate.c)
+ *     VrpPostQueryKey @ 0x1405D551C (VrpPostQueryKey.c)
+ *     VrpPostUnloadKey @ 0x140883218 (VrpPostUnloadKey.c)
+ *     VrpPreFlushKey @ 0x1408832B8 (VrpPreFlushKey.c)
+ *     VrpPreLoadKey @ 0x14088338C (VrpPreLoadKey.c)
+ *     VrpPreQueryKeyName @ 0x140883EF0 (VrpPreQueryKeyName.c)
+ *     IoCaptureLiveDump @ 0x140896298 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x140896A20 (IoWriteDeferredLiveDumpData.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall EtwActivityIdControl(ULONG ControlCode, LPGUID ActivityId)
 {
-  volatile signed __int64 *EtwSupport; // rax
+  volatile signed __int64 *EtwSupport; // rcx
   struct _KTHREAD *CurrentThread; // r8
-  GUID *Teb; // r9
-  _KPROCESS *Process; // r8
-  GUID *v7; // r9
-  __int16 v8; // ax
-  ULONG v9; // ecx
+  char *Teb; // r8
+  unsigned __int64 v6; // r9
+  GUID *v7; // rax
+  ULONG v8; // ecx
+  __int16 v9; // ax
   ULONG v10; // ecx
-  volatile signed __int64 *v11; // rax
-  GUID v12; // xmm1
-  NTSTATUS v13; // [rsp+0h] [rbp-28h]
-  GUID *v14; // [rsp+8h] [rbp-20h]
+  ULONG v11; // ecx
+  volatile signed __int64 *v12; // rdx
+  GUID v13; // xmm1
+  NTSTATUS v14; // [rsp+0h] [rbp-38h]
+  volatile signed __int64 *v15; // [rsp+8h] [rbp-30h]
 
-  v13 = 0;
+  v14 = 0;
   if ( ControlCode == 3 )
   {
     EtwSupport = (volatile signed __int64 *)KeGetCurrentPrcb()->EtwSupport;
     *(_QWORD *)ActivityId->Data4 = _InterlockedIncrement64(EtwSupport + 1);
     *(_QWORD *)&ActivityId->Data1 = *EtwSupport;
-    return v13;
+    return v14;
   }
   CurrentThread = KeGetCurrentThread();
-  if ( (CurrentThread->MiscFlags & 0x400) == 0 && CurrentThread->ApcStateIndex != 1 )
+  if ( (CurrentThread->MiscFlags & 0x400) != 0 || CurrentThread->ApcStateIndex == 1 )
+    Teb = 0LL;
+  else
+    Teb = (char *)CurrentThread->Teb;
+  if ( Teb )
   {
-    Teb = (GUID *)CurrentThread->Teb;
-    if ( Teb )
+    v15 = (volatile signed __int64 *)(Teb + 5904);
+    v6 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+    if ( v6 && ((v9 = *(_WORD *)(v6 + 8), v9 == 332) || v9 == 452) )
     {
-      v14 = Teb + 369;
-      Process = KeGetCurrentThread()->ApcState.Process;
-      if ( Process[1].Affinity.StaticBitmap[30]
-        && ((v8 = WORD2(Process[2].Affinity.StaticBitmap[20]), v8 == 332) || v8 == 452) )
+      v7 = (GUID *)(Teb + 12112);
+      v15 = (volatile signed __int64 *)(Teb + 12112);
+    }
+    else
+    {
+      v7 = (GUID *)(Teb + 5904);
+    }
+    v8 = ControlCode - 1;
+    if ( v8 )
+    {
+      v10 = v8 - 1;
+      if ( v10 )
       {
-        v7 = Teb + 757;
-        v14 = v7;
-      }
-      else
-      {
-        v7 = Teb + 369;
-      }
-      if ( ControlCode == 1 )
-      {
-        *ActivityId = *v7;
-      }
-      else
-      {
-        v9 = ControlCode - 2;
-        if ( v9 )
+        v11 = v10 - 2;
+        if ( v11 )
         {
-          v10 = v9 - 2;
-          if ( v10 )
+          if ( v11 == 1 )
           {
-            if ( v10 == 1 )
-            {
-              *ActivityId = *v7;
-              v11 = (volatile signed __int64 *)KeGetCurrentPrcb()->EtwSupport;
-              *(_QWORD *)v14->Data4 = _InterlockedIncrement64(v11 + 1);
-              *(_QWORD *)&v14->Data1 = *v11;
-            }
-            else
-            {
-              return -1073741811;
-            }
+            *ActivityId = *v7;
+            v12 = (volatile signed __int64 *)KeGetCurrentPrcb()->EtwSupport;
+            *((_QWORD *)v15 + 1) = _InterlockedIncrement64(v12 + 1);
+            *v15 = *v12;
           }
           else
           {
-            v12 = *v7;
-            *v7 = *ActivityId;
-            *ActivityId = v12;
+            return -1073741811;
           }
         }
         else
         {
+          v13 = *v7;
           *v7 = *ActivityId;
+          *ActivityId = v13;
         }
       }
-      return v13;
+      else
+      {
+        *v7 = *ActivityId;
+      }
     }
+    else
+    {
+      *ActivityId = *v7;
+    }
+    return v14;
   }
   return -1073741637;
 }

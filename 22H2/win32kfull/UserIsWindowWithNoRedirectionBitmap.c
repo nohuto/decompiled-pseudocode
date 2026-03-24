@@ -1,22 +1,21 @@
 /*
- * XREFs of UserIsWindowWithNoRedirectionBitmap @ 0x1C000B35C
+ * XREFs of UserIsWindowWithNoRedirectionBitmap @ 0x1C0118E1C
  * Callers:
- *     GreGetDxSharedSurface @ 0x1C000AE98 (GreGetDxSharedSurface.c)
- *     GreTransferDwmStateToSpriteState @ 0x1C00587CC (GreTransferDwmStateToSpriteState.c)
- *     GreTransferSpriteStateToDwmState @ 0x1C00597AC (GreTransferSpriteStateToDwmState.c)
+ *     GreTransferSpriteStateToDwmState @ 0x1C00EA26C (GreTransferSpriteStateToDwmState.c)
+ *     GreTransferDwmStateToSpriteState @ 0x1C00EAC4C (GreTransferDwmStateToSpriteState.c)
+ *     GreGetDxSharedSurface @ 0x1C0118B5C (GreGetDxSharedSurface.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
  */
 
-__int64 __fastcall UserIsWindowWithNoRedirectionBitmap(__int64 a1, __int64 a2)
+__int64 __fastcall UserIsWindowWithNoRedirectionBitmap(unsigned __int64 a1)
 {
-  unsigned int v2; // ebx
-  __int64 v3; // rax
+  unsigned int v1; // ebx
+  __int64 v2; // rax
 
-  v2 = 0;
-  LOBYTE(a2) = 1;
-  v3 = HMValidateHandleNoSecure(a1, a2);
-  if ( v3 )
-    return (*(_BYTE *)(*(_QWORD *)(v3 + 40) + 26LL) & 0x20) != 0;
-  return v2;
+  v1 = 0;
+  v2 = HMValidateHandleNoSecure(a1, 1);
+  if ( v2 )
+    return (*(_BYTE *)(*(_QWORD *)(v2 + 40) + 26LL) & 0x20) != 0;
+  return v1;
 }

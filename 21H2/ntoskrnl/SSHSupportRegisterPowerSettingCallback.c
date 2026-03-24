@@ -1,9 +1,9 @@
 /*
- * XREFs of SSHSupportRegisterPowerSettingCallback @ 0x140828B8C
+ * XREFs of SSHSupportRegisterPowerSettingCallback @ 0x140796B5C
  * Callers:
- *     SshpSubscribeCallbacks @ 0x140B019D0 (SshpSubscribeCallbacks.c)
+ *     SshpSubscribeCallbacks @ 0x140A40C14 (SshpSubscribeCallbacks.c)
  * Callees:
- *     PoRegisterPowerSettingCallback @ 0x140762500 (PoRegisterPowerSettingCallback.c)
+ *     PoRegisterPowerSettingCallback @ 0x14067BD00 (PoRegisterPowerSettingCallback.c)
  */
 
 NTSTATUS SSHSupportRegisterPowerSettingCallback()

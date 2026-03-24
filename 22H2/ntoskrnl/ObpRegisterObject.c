@@ -1,90 +1,81 @@
 /*
- * XREFs of ObpRegisterObject @ 0x14097D464
+ * XREFs of ObpRegisterObject @ 0x1408DEE1C
  * Callers:
- *     SepDuplicateToken @ 0x140729BF0 (SepDuplicateToken.c)
- *     IopAllocRealFileObject @ 0x14072F370 (IopAllocRealFileObject.c)
- *     CmpCreateKeyBody @ 0x14072F7D0 (CmpCreateKeyBody.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
+ *     CmpCreateKeyBody @ 0x140649DB0 (CmpCreateKeyBody.c)
+ *     IopAllocRealFileObject @ 0x140650820 (IopAllocRealFileObject.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     RtlStringCbCopyA @ 0x140347B88 (RtlStringCbCopyA.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObpGetObjectRefInfo @ 0x14097CD34 (ObpGetObjectRefInfo.c)
- *     ObpIsObjectPoolTagTraced @ 0x14097D184 (ObpIsObjectPoolTagTraced.c)
- *     EtwTraceObject @ 0x1409E5C88 (EtwTraceObject.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlStringCbCopyA @ 0x1402640B0 (RtlStringCbCopyA.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObpGetObjectRefInfo @ 0x1408DE6C4 (ObpGetObjectRefInfo.c)
+ *     ObpIsObjectPoolTagTraced @ 0x1408DEB58 (ObpIsObjectPoolTagTraced.c)
+ *     EtwTraceObject @ 0x140936674 (EtwTraceObject.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall ObpRegisterObject(__int64 a1)
 {
-  struct _KTHREAD *v2; // rax
+  char result; // al
   struct _KTHREAD *CurrentThread; // rax
   char *v4; // r9
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   unsigned int v6; // r8d
-  _QWORD *v7; // rcx
-  char *v8; // rdi
-  char v9; // al
-  char v10; // cl
-  char *v13; // [rsp+48h] [rbp+10h] BYREF
+  char *v7; // rdi
+  char v8; // al
+  char v9; // cl
+  char *v10; // [rsp+38h] [rbp+10h] BYREF
 
-  if ( (xmmword_140D1EAD0 & 0x80u) != 0LL )
+  if ( (xmmword_140CFC490 & 0x80u) != 0LL )
     EtwTraceObject(4400LL, a1);
-  LOBYTE(v2) = ObpTraceFlags;
+  result = ObpTraceFlags;
   if ( (ObpTraceFlags & 0x73) != 0 )
   {
     CurrentThread = KeGetCurrentThread();
-    v13 = 0LL;
+    v10 = 0LL;
     --CurrentThread->SpecialApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&ObpStackTraceLock, 0LL);
     if ( (ObpTraceFlags & 0x73) != 0
       && ((ObpTraceFlags & 0x20) == 0 || (KeGetCurrentThread()->ApcState.Process[1].DirectoryTableBase & 0x200) != 0)
       && ObpIsObjectPoolTagTraced(a1)
-      && (int)ObpGetObjectRefInfo(a1, (unsigned __int16 **)&v13) >= 0 )
+      && (int)ObpGetObjectRefInfo(a1, (unsigned __int16 **)&v10) >= 0 )
     {
-      v4 = v13;
-      if ( v13 )
+      v4 = v10;
+      if ( v10 )
         goto LABEL_12;
-      Pool2 = ExAllocatePool2(64LL, 6136LL, 1951556175LL);
-      v13 = (char *)Pool2;
-      v4 = (char *)Pool2;
-      if ( Pool2 )
+      PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x17F8uLL, 0x7452624Fu);
+      v10 = PoolWithTag;
+      v4 = PoolWithTag;
+      if ( PoolWithTag )
       {
         v6 = (((unsigned int)(a1 + 48) >> 4) & 0xFFFFF) % 0x191;
-        v7 = ObpObjectTable;
-        *(_QWORD *)(Pool2 + 8) = *((_QWORD *)ObpObjectTable + v6);
-        v7[v6] = Pool2;
-        *(_WORD *)(Pool2 + 34) = 508;
+        *((_QWORD *)PoolWithTag + 1) = *((_QWORD *)ObpObjectTable + v6);
+        *((_QWORD *)ObpObjectTable + v6) = PoolWithTag;
+        *((_WORD *)PoolWithTag + 17) = 508;
 LABEL_12:
         ++ObpNumTracedObjects;
         *(_QWORD *)v4 = a1;
-        v8 = v13;
+        v7 = v10;
         RtlStringCbCopyA(
-          v13 + 16,
+          v10 + 16,
           0x10uLL,
           (NTSTRSAFE_PCSTR)&KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors);
-        *((_WORD *)v8 + 16) = 0;
-        memset(v8 + 36, 0, 12LL * *((unsigned __int16 *)v8 + 17));
-        v9 = ObpTraceFlags;
-        v10 = *(_BYTE *)(a1 + 25) | 1;
-        *(_BYTE *)(a1 + 25) = v10;
-        if ( (v9 & 0x40) != 0 )
-          *(_BYTE *)(a1 + 25) = v10 | 2;
+        *((_WORD *)v7 + 16) = 0;
+        memset(v7 + 36, 0, 12LL * *((unsigned __int16 *)v7 + 17));
+        v8 = ObpTraceFlags;
+        v9 = *(_BYTE *)(a1 + 25) | 1;
+        *(_BYTE *)(a1 + 25) = v9;
+        if ( (v8 & 0x40) != 0 )
+          *(_BYTE *)(a1 + 25) = v9 | 2;
       }
     }
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ObpStackTraceLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&ObpStackTraceLock);
     KeAbPostRelease((ULONG_PTR)&ObpStackTraceLock);
-    v2 = KeGetCurrentThread();
-    if ( v2->SpecialApcDisable++ == -1 )
-    {
-      v2 = (struct _KTHREAD *)((char *)v2 + 152);
-      if ( *(struct _KTHREAD **)&v2->Header.Lock != v2 )
-        LOBYTE(v2) = KiCheckForKernelApcDelivery();
-    }
+    return KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   }
-  return (char)v2;
+  return result;
 }

@@ -1,31 +1,29 @@
 /*
- * XREFs of MiUpdateWorkingSetPrivateSize @ 0x1402ED354
+ * XREFs of MiUpdateWorkingSetPrivateSize @ 0x14036A858
  * Callers:
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
- *     MiDemoteCombinedPte @ 0x1402F37B4 (MiDemoteCombinedPte.c)
- *     MiBuildForkPte @ 0x140662270 (MiBuildForkPte.c)
+ *     MiConvertPrivateToProto @ 0x1403699A0 (MiConvertPrivateToProto.c)
+ *     MiDemoteCombinedPte @ 0x14036ABB0 (MiDemoteCombinedPte.c)
+ *     MiBuildForkPte @ 0x1405581FC (MiBuildForkPte.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025ABF0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
  */
 
-void __fastcall MiUpdateWorkingSetPrivateSize(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4)
+void __fastcall MiUpdateWorkingSetPrivateSize(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
 {
-  volatile LONG *SharedVm; // rax
-  volatile LONG *v9; // rax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
+  memset(&LockHandle, 0, sizeof(LockHandle));
   if ( !a4 )
   {
-    SharedVm = (volatile LONG *)MiGetSharedVm(a1);
-    ExAcquireSpinLockSharedAtDpcLevel(SharedVm + 16);
+    LockHandle.LockQueue.Next = 0LL;
+    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(MiGetSharedVm(a1) + 16);
+    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)LockHandle.LockQueue.Lock);
   }
-  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 152), a3);
+  *(_QWORD *)(a1 + 144) += a3;
   if ( a2 < 0xFFFFF68000000000uLL || a2 > 0xFFFFF6FFFFFFFFFFuLL )
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 136), a3);
+    *(_QWORD *)(a1 + 128) += a3;
   if ( !a4 )
-  {
-    v9 = (volatile LONG *)MiGetSharedVm(a1);
-    ExReleaseSpinLockSharedFromDpcLevel(v9 + 16);
-  }
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
 }

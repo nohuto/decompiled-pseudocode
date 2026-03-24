@@ -1,69 +1,51 @@
 /*
- * XREFs of KiGenerateHeteroSets @ 0x140461040
+ * XREFs of KiGenerateHeteroSets @ 0x14051F1F8
  * Callers:
- *     KiCheckPreferredHeteroProcessor @ 0x1402C8460 (KiCheckPreferredHeteroProcessor.c)
- *     KiHeteroChooseTargetProcessor @ 0x1404612B6 (KiHeteroChooseTargetProcessor.c)
- *     KiEvaluatePreemptionSwapTarget @ 0x1405770A0 (KiEvaluatePreemptionSwapTarget.c)
- *     KiSetHeteroPolicyThread @ 0x140577A9C (KiSetHeteroPolicyThread.c)
- *     KiTallyHeteroSoftParkElectionVotes @ 0x14057E47C (KiTallyHeteroSoftParkElectionVotes.c)
+ *     KeClockInterruptNotify @ 0x140221600 (KeClockInterruptNotify.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x140258460 (KiCheckPreferredHeteroProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x14051F440 (KiHeteroChooseTargetProcessor.c)
+ *     KiSetHeteroPolicyThread @ 0x1405202A4 (KiSetHeteroPolicyThread.c)
  * Callees:
- *     KeIsMultiCoreClassesEnabled @ 0x140255E20 (KeIsMultiCoreClassesEnabled.c)
+ *     <none>
  */
 
-__int64 __fastcall KiGenerateHeteroSets(
-        __int64 a1,
-        __int64 a2,
-        int a3,
-        unsigned __int8 a4,
-        int a5,
-        int a6,
-        __int64 *a7)
+__int64 __fastcall KiGenerateHeteroSets(__int64 a1, __int64 a2, int a3, _QWORD *a4, __int64 *a5, __int64 *a6)
 {
-  int v7; // edi
-  __int64 v9; // rsi
-  BOOL IsMultiCoreClassesEnabled; // eax
-  unsigned int v12; // r9d
-  __int64 v13; // rdx
-  __int64 v14; // rbp
-  __int64 v15; // r8
-  __int64 v16; // rax
-  __int64 v17; // rdx
+  __int64 v6; // r8
+  __int64 v7; // r11
+  __int64 v8; // rax
+  __int64 v9; // r10
+  unsigned int v10; // r8d
   __int64 result; // rax
 
-  v7 = a4;
-  v9 = a2;
-  IsMultiCoreClassesEnabled = KeIsMultiCoreClassesEnabled(a1, a2);
-  v12 = 0;
-  v13 = *(_QWORD *)(a1 + 192);
-  if ( IsMultiCoreClassesEnabled )
-    a3 = a6 + 2 * a5;
-  v14 = v7 + (unsigned int)*(unsigned __int8 *)(a1 + 185) * a3;
-  v15 = *(_QWORD *)(v13 + 24 * v14) & v9;
-  v16 = v9 & *(_QWORD *)(v13 + 24 * v14 + 8);
-  v17 = v9 & *(_QWORD *)(v13 + 24 * v14 + 16);
-  if ( v17 )
+  v6 = 3LL * a3;
+  v7 = a2 & *(_QWORD *)(a1 + 8 * v6 + 184);
+  v8 = a2 & *(_QWORD *)(a1 + 8 * v6 + 192);
+  v9 = a2 & *(_QWORD *)(a1 + 8 * v6 + 200);
+  if ( v9 )
   {
-    if ( v16 )
+    v10 = 0;
+    if ( v8 )
     {
-      v9 = v15;
-      if ( !v15 )
-        v9 = v16;
+      a2 = v7;
+      if ( !v7 )
+        a2 = v8;
     }
     else
     {
-      v16 = v17;
-      v9 = v17;
+      v8 = v9;
+      a2 = v9;
     }
   }
   else
   {
-    v17 = v9;
-    v16 = v9;
-    v12 = 1;
+    v9 = a2;
+    v8 = a2;
+    v10 = 1;
   }
-  *a7 = v9;
-  a7[1] = v16;
-  result = v12;
-  a7[2] = v17;
+  *a4 = a2;
+  *a5 = v8;
+  result = v10;
+  *a6 = v9;
   return result;
 }

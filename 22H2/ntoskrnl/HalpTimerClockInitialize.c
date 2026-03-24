@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerClockInitialize @ 0x1403509B0
+ * XREFs of HalpTimerClockInitialize @ 0x140325990
  * Callers:
- *     HalpTimerClockPowerChange @ 0x1405084F4 (HalpTimerClockPowerChange.c)
+ *     HalpTimerClockPowerChange @ 0x1404BF450 (HalpTimerClockPowerChange.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpTimerSetProblemEx @ 0x140509444 (HalpTimerSetProblemEx.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpTimerSetProblemEx @ 0x1404C035C (HalpTimerSetProblemEx.c)
  */
 
 __int64 HalpTimerClockInitialize()
@@ -21,7 +21,7 @@ __int64 HalpTimerClockInitialize()
   result = (*(__int64 (__fastcall **)(__int64))(v0 + 104))(InternalData);
   if ( (int)result < 0 )
   {
-    HalpTimerSetProblemEx(v0, 15, result, (unsigned int)"minkernel\\hals\\lib\\timers\\common\\clockint.c", 1489);
+    HalpTimerSetProblemEx(v0, 15, result, (unsigned int)"minkernel\\hals\\lib\\timers\\common\\clockint.c", 1465);
     KeBugCheckEx(0x5Cu, 0x110uLL, v0, HalpTimerLastProblem, BugCheckParameter4);
   }
   return result;

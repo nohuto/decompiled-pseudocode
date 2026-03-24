@@ -1,5 +1,5 @@
 /*
- * XREFs of EngProbeForRead @ 0x1C016A320
+ * XREFs of EngProbeForRead @ 0x1C014B510
  * Callers:
  *     <none>
  * Callees:
@@ -8,14 +8,11 @@
 
 void __stdcall EngProbeForRead(PVOID Address, SIZE_T Length, ULONG Alignment)
 {
-  char *v3; // rdx
-
   if ( Length )
   {
     if ( ((Alignment - 1) & (unsigned int)Address) != 0 )
       ExRaiseDatatypeMisalignment();
-    v3 = (char *)Address + Length;
-    if ( (unsigned __int64)v3 > MmUserProbeAddress || v3 < Address )
+    if ( (unsigned __int64)Address + Length > MmUserProbeAddress || (char *)Address + Length < Address )
       *(_BYTE *)MmUserProbeAddress = 0;
   }
 }

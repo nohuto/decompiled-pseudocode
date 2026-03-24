@@ -1,8 +1,8 @@
 /*
- * XREFs of ?cjOTMAWSize@@YAIPEAU_IFIMETRICS@@PEAI@Z @ 0x1C0017FD4
+ * XREFs of ?cjOTMAWSize@@YAIPEAU_IFIMETRICS@@PEAI@Z @ 0x1C009BD84
  * Callers:
- *     cjIFIMetricsToOTMW @ 0x1C0013FC0 (cjIFIMetricsToOTMW.c)
- *     GreGetOutlineTextMetricsInternalW @ 0x1C0018120 (GreGetOutlineTextMetricsInternalW.c)
+ *     cjIFIMetricsToOTMW @ 0x1C0064510 (cjIFIMetricsToOTMW.c)
+ *     GreGetOutlineTextMetricsInternalW @ 0x1C009BA88 (GreGetOutlineTextMetricsInternalW.c)
  * Callees:
  *     <none>
  */

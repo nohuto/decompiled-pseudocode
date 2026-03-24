@@ -1,41 +1,63 @@
 /*
- * XREFs of RtlpApplyAclToObject @ 0x140727F00
+ * XREFs of RtlpApplyAclToObject @ 0x14065EE40
  * Callers:
- *     ExpWnfSpecializeSecurityDescriptor @ 0x14066FDE8 (ExpWnfSpecializeSecurityDescriptor.c)
- *     RtlpSetSecurityObject @ 0x140726700 (RtlpSetSecurityObject.c)
+ *     ExpWnfSpecializeSecurityDescriptor @ 0x140610CD8 (ExpWnfSpecializeSecurityDescriptor.c)
+ *     RtlpSetSecurityObject @ 0x14065E3C0 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x1406FF5F0 (RtlpNewSecurityObject.c)
  * Callees:
- *     RtlMapGenericMask @ 0x140728CB0 (RtlMapGenericMask.c)
+ *     <none>
  */
 
-void __fastcall RtlpApplyAclToObject(__int64 a1, GENERIC_MAPPING *a2)
+void __fastcall RtlpApplyAclToObject(__int64 a1, _DWORD *a2)
 {
-  ACCESS_MASK *v3; // rbx
-  unsigned int v4; // edi
-  int v6; // r15d
-  unsigned int v7; // eax
-  int GenericAll; // eax
+  unsigned int v4; // r8d
+  unsigned __int8 *v5; // rax
+  int v6; // r11d
+  int v7; // edx
+  int v8; // edx
+  unsigned int v9; // ecx
+  int v10; // ecx
 
   if ( a1 )
   {
-    v3 = (ACCESS_MASK *)(a1 + 8);
     v4 = 0;
+    v5 = (unsigned __int8 *)(a1 + 8);
     if ( *(_WORD *)(a1 + 4) )
     {
       v6 = 1651;
       do
       {
-        if ( (*(_BYTE *)v3 < 0xBu || (unsigned __int8)(*(_BYTE *)v3 - 13) <= 1u) && (*((_BYTE *)v3 + 1) & 8) == 0 )
+        if ( (*v5 < 0xBu || (unsigned __int8)(*v5 - 13) <= 1u) && (v5[1] & 8) == 0 )
         {
-          RtlMapGenericMask(v3 + 1, a2);
-          v7 = *(unsigned __int8 *)v3;
-          if ( (unsigned __int8)v7 <= 0xAu && _bittest(&v6, v7) )
-            GenericAll = a2->GenericAll;
+          v7 = *((_DWORD *)v5 + 1);
+          if ( v7 < 0 )
+          {
+            v7 |= *a2;
+            *((_DWORD *)v5 + 1) = v7;
+          }
+          if ( (v7 & 0x40000000) != 0 )
+          {
+            v7 |= a2[1];
+            *((_DWORD *)v5 + 1) = v7;
+          }
+          if ( (v7 & 0x20000000) != 0 )
+          {
+            v7 |= a2[2];
+            *((_DWORD *)v5 + 1) = v7;
+          }
+          if ( (v7 & 0x10000000) != 0 )
+            v7 |= a2[3];
+          v8 = v7 & 0xFFFFFFF;
+          *((_DWORD *)v5 + 1) = v8;
+          v9 = *v5;
+          if ( (unsigned __int8)v9 <= 0xAu && _bittest(&v6, v9) )
+            v10 = a2[3];
           else
-            GenericAll = a2->GenericAll | 0x1000000;
-          v3[1] &= GenericAll;
+            v10 = a2[3] | 0x1000000;
+          *((_DWORD *)v5 + 1) = v8 & v10;
         }
         ++v4;
-        v3 = (ACCESS_MASK *)((char *)v3 + *((unsigned __int16 *)v3 + 1));
+        v5 += *((unsigned __int16 *)v5 + 1);
       }
       while ( v4 < *(unsigned __int16 *)(a1 + 4) );
     }

@@ -1,135 +1,142 @@
 /*
- * XREFs of CmSetCallbackObjectContext @ 0x14068F0A0
+ * XREFs of CmSetCallbackObjectContext @ 0x1405D5830
  * Callers:
- *     VrpPostOpenOrCreate @ 0x14068DF0C (VrpPostOpenOrCreate.c)
- *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A578 (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpPreLoadKey @ 0x14077A954 (VrpPreLoadKey.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpPostOpenOrCreate @ 0x1405D4420 (VrpPostOpenOrCreate.c)
+ *     VrpPreLoadKey @ 0x1408833DC (VrpPreLoadKey.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     CmpLockContextListExclusive @ 0x14068F02C (CmpLockContextListExclusive.c)
- *     CmpUnlockContextList @ 0x14068F210 (CmpUnlockContextList.c)
- *     CmpUnlockCallbackList @ 0x14068F274 (CmpUnlockCallbackList.c)
- *     CmpLockCallbackListShared @ 0x14068F2D8 (CmpLockCallbackListShared.c)
- *     CmpLockContextListShared @ 0x14068F348 (CmpLockContextListShared.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall CmSetCallbackObjectContext(PVOID Object, PLARGE_INTEGER Cookie, PVOID NewContext, PVOID *OldContext)
 {
-  NTSTATUS v5; // ebx
-  char v6; // r12
-  _QWORD *v10; // r9
-  _QWORD *v11; // r14
-  _QWORD *v12; // rsi
-  __int64 *v13; // rdi
-  LARGE_INTEGER *Pool2; // rax
-  LONGLONG *v15; // rcx
-  __int64 *v16; // rdi
-  LARGE_INTEGER *v17; // rax
-  LARGE_INTEGER **v18; // rdx
-  LONGLONG v19; // rax
-  LONGLONG v20; // rdx
+  char v4; // r12
+  NTSTATUS v9; // edi
+  struct _KTHREAD *CurrentThread; // rax
+  struct _KTHREAD *v11; // rax
+  _QWORD *v12; // r14
+  _QWORD *v13; // rsi
+  __int64 *v14; // rbx
+  struct _KTHREAD *v15; // rax
+  LARGE_INTEGER *PoolWithTag; // rax
+  LONGLONG *v17; // rcx
+  __int64 *v18; // rbx
+  LARGE_INTEGER *v19; // rax
+  LARGE_INTEGER **v20; // rdx
+  LONGLONG v21; // rax
+  LONGLONG v22; // rdx
   LONGLONG QuadPart; // rcx
-  void *v23; // rbp
-  __int64 v24[7]; // [rsp+20h] [rbp-38h] BYREF
+  void *v25; // rax
 
-  v5 = 0;
-  *(_OWORD *)v24 = 0LL;
-  v6 = 0;
-  CmpInitializeThreadInfo((__int64)v24);
-  if ( Object && *(_DWORD *)Object == 1803104306 )
+  v4 = 0;
+  v9 = -1073741275;
+  if ( !Object || *(_DWORD *)Object != 1803104306 )
+    return -1073741585;
+  if ( OldContext )
+    *OldContext = 0LL;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquirePushLockSharedEx((ULONG_PTR)&CmpCallbackListLock, 0LL);
+  v11 = KeGetCurrentThread();
+  --v11->KernelApcDisable;
+  ExAcquirePushLockSharedEx((ULONG_PTR)&CmpContextListLock, 0LL);
+  v12 = (char *)Object + 72;
+  while ( 1 )
   {
-    if ( v10 )
-      *v10 = 0LL;
-    CmpLockCallbackListShared();
-    CmpLockContextListShared();
-    v11 = (char *)Object + 72;
-    while ( 1 )
+    v13 = (_QWORD *)*v12;
+    if ( (_QWORD *)*v12 != v12 )
     {
-      v12 = (_QWORD *)*v11;
-      if ( (_QWORD *)*v11 != v11 )
-        break;
-LABEL_7:
-      if ( v6 )
+      QuadPart = Cookie->QuadPart;
+      while ( v13[4] != QuadPart )
       {
-        v13 = (__int64 *)CallbackListHead;
-        if ( (__int64 *)CallbackListHead == &CallbackListHead )
-          goto LABEL_28;
-        while ( Cookie->QuadPart != v13[3] )
+        if ( v13[4] >= QuadPart )
         {
-          v13 = (__int64 *)*v13;
-          if ( v13 == &CallbackListHead )
+          v13 = (_QWORD *)*v13;
+          if ( v13 != v12 )
+            continue;
+        }
+        goto LABEL_7;
+      }
+      v25 = (void *)_InterlockedExchange64(v13 + 7, (__int64)NewContext);
+      if ( OldContext )
+        *OldContext = v25;
+      v9 = 0;
+    }
+LABEL_7:
+    if ( v9 >= 0 )
+      break;
+    if ( v4 )
+    {
+      v14 = (__int64 *)CallbackListHead;
+      if ( (__int64 *)CallbackListHead == &CallbackListHead )
+      {
+LABEL_28:
+        v14 = 0LL;
+      }
+      else
+      {
+        while ( Cookie->QuadPart != v14[3] )
+        {
+          v14 = (__int64 *)*v14;
+          if ( v14 == &CallbackListHead )
             goto LABEL_28;
         }
-        if ( !v13 )
+      }
+      if ( v14 )
+      {
+        v9 = 0;
+        PoolWithTag = (LARGE_INTEGER *)ExAllocatePoolWithTag(PagedPool, 0x40uLL, 0x63634D43u);
+        v17 = (LONGLONG *)PoolWithTag;
+        if ( PoolWithTag )
         {
-LABEL_28:
-          v5 = -1073741584;
+          PoolWithTag[5].QuadPart = (LONGLONG)v14;
+          v18 = v14 + 8;
+          PoolWithTag[4] = *Cookie;
+          v19 = PoolWithTag + 2;
+          v17[7] = (LONGLONG)NewContext;
+          v17[6] = (LONGLONG)Object;
+          v20 = (LARGE_INTEGER **)v18[1];
+          if ( *v20 != (LARGE_INTEGER *)v18
+            || (v19->QuadPart = (LONGLONG)v18,
+                v17[3] = (LONGLONG)v20,
+                *v20 = v19,
+                v18[1] = (__int64)v19,
+                v21 = v13[1],
+                v22 = *(_QWORD *)v21,
+                *(_QWORD *)(*(_QWORD *)v21 + 8LL) != v21) )
+          {
+            __fastfail(3u);
+          }
+          *v17 = v22;
+          v17[1] = v21;
+          *(_QWORD *)(v22 + 8) = v17;
+          *(_QWORD *)v21 = v17;
         }
         else
         {
-          Pool2 = (LARGE_INTEGER *)ExAllocatePool2(256LL, 64LL, 1667452227LL);
-          v15 = (LONGLONG *)Pool2;
-          if ( Pool2 )
-          {
-            Pool2[5].QuadPart = (LONGLONG)v13;
-            v16 = v13 + 8;
-            Pool2[4] = *Cookie;
-            v17 = Pool2 + 2;
-            v15[7] = (LONGLONG)NewContext;
-            v15[6] = (LONGLONG)Object;
-            v18 = (LARGE_INTEGER **)v16[1];
-            if ( *v18 != (LARGE_INTEGER *)v16
-              || (v17->QuadPart = (LONGLONG)v16,
-                  v15[3] = (LONGLONG)v18,
-                  *v18 = v17,
-                  v16[1] = (__int64)v17,
-                  v19 = v12[1],
-                  v20 = *(_QWORD *)v19,
-                  *(_QWORD *)(*(_QWORD *)v19 + 8LL) != v19) )
-            {
-              __fastfail(3u);
-            }
-            *v15 = v20;
-            v15[1] = v19;
-            *(_QWORD *)(v20 + 8) = v15;
-            *(_QWORD *)v19 = v15;
-          }
-          else
-          {
-            v5 = -1073741670;
-          }
+          v9 = -1073741670;
         }
-        goto LABEL_18;
       }
-      CmpUnlockContextList();
-      v6 = 1;
-      CmpLockContextListExclusive();
-    }
-    QuadPart = Cookie->QuadPart;
-    while ( v12[4] != QuadPart )
-    {
-      if ( v12[4] >= QuadPart )
+      else
       {
-        v12 = (_QWORD *)*v12;
-        if ( v12 != v11 )
-          continue;
+        v9 = -1073741584;
       }
-      goto LABEL_7;
+      break;
     }
-    v23 = (void *)_InterlockedExchange64(v12 + 7, (__int64)NewContext);
-    if ( OldContext )
-      *OldContext = v23;
-LABEL_18:
-    CmpUnlockContextList();
-    CmpUnlockCallbackList();
-    CmCleanupThreadInfo(v24);
-    return v5;
+    ExReleasePushLockEx((ULONG_PTR)&CmpContextListLock, 0LL);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    v15 = KeGetCurrentThread();
+    v4 = 1;
+    --v15->KernelApcDisable;
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&CmpContextListLock, 0LL);
   }
-  else
-  {
-    CmCleanupThreadInfo(v24);
-    return -1073741585;
-  }
+  ExReleasePushLockEx((ULONG_PTR)&CmpContextListLock, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  ExReleasePushLockEx((ULONG_PTR)&CmpCallbackListLock, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return v9;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of TR_StopMapping @ 0x1C000D10C
+ * XREFs of TR_StopMapping @ 0x1C000F4D0
  * Callers:
- *     ESM_StoppingMappingOnCancelStart @ 0x1C000CE10 (ESM_StoppingMappingOnCancelStart.c)
- *     ESM_StoppingMappingAfterControllerResetInEnabled @ 0x1C004FBC0 (ESM_StoppingMappingAfterControllerResetInEnabled.c)
+ *     ESM_StoppingMappingOnCancelStart @ 0x1C000F1E0 (ESM_StoppingMappingOnCancelStart.c)
+ *     ESM_StoppingMappingAfterControllerResetInEnabled @ 0x1C004F070 (ESM_StoppingMappingAfterControllerResetInEnabled.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall TR_StopMapping(__int64 a1)

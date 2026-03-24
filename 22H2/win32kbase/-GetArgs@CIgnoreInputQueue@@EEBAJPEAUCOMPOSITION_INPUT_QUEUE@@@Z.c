@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetArgs@CIgnoreInputQueue@@EEBAJPEAUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C00B2FE0
+ * XREFs of ?GetArgs@CIgnoreInputQueue@@EEBAJPEAUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C00A6230
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CIgnoreInputQueue::GetArgs(CIgnoreInputQueue *this, struct COMPOSITION_INPUT_QUEUE *a2)

@@ -1,10 +1,11 @@
 /*
- * XREFs of UsbhDecrementHubIsrWorkerReference @ 0x1C0036ACC
+ * XREFs of UsbhDecrementHubIsrWorkerReference @ 0x1C001BAA4
  * Callers:
- *     UsbhBusPnpStop_Action @ 0x1C0030B18 (UsbhBusPnpStop_Action.c)
+ *     UsbhHubIsrWorker @ 0x1C001B9C0 (UsbhHubIsrWorker.c)
+ *     UsbhBusPnpStop_Action @ 0x1C0031EC0 (UsbhBusPnpStop_Action.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 void __fastcall UsbhDecrementHubIsrWorkerReference(__int64 a1)

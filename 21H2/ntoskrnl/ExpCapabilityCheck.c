@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpCapabilityCheck @ 0x1409FB924
+ * XREFs of ExpCapabilityCheck @ 0x14094F534
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1409FC784 (ExpFirmwareAccessAppContainerCheck.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x140950400 (ExpFirmwareAccessAppContainerCheck.c)
  * Callees:
- *     RtlCapabilityCheck @ 0x140660AF0 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x140913350 (RtlCapabilityCheck.c)
  */
 
 bool __fastcall ExpCapabilityCheck(UNICODE_STRING *SourceString)

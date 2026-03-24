@@ -5,10 +5,10 @@
  *     MiTerminateWsle @ 0x14007ACA0 (MiTerminateWsle.c)
  *     MiTerminateWsleCluster @ 0x14007B968 (MiTerminateWsleCluster.c)
  *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
- *     MiFreeWsleList @ 0x1400B2A90 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
  * Callees:
- *     MiCountWslesInPageTable @ 0x1400F8210 (MiCountWslesInPageTable.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiCountWslesInPageTable @ 0x1400F8230 (MiCountWslesInPageTable.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall MiRebuildPageTableLeafAges(__int64 a1, unsigned __int64 a2)

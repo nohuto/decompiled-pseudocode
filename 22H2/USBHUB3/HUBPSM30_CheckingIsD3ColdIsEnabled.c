@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM30_CheckingIsD3ColdIsEnabled @ 0x1C0012C00
+ * XREFs of HUBPSM30_CheckingIsD3ColdIsEnabled @ 0x1C00116D0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_IsD3ColdSupported @ 0x1C0033BF0 (HUBMISC_IsD3ColdSupported.c)
+ *     HUBMISC_IsD3ColdSupported @ 0x1C0030B88 (HUBMISC_IsD3ColdSupported.c)
  */
 
 __int64 __fastcall HUBPSM30_CheckingIsD3ColdIsEnabled(__int64 a1)

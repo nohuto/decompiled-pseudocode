@@ -1,12 +1,12 @@
 /*
- * XREFs of KeRestoreMtrrBroadcast @ 0x140A8F8CC
+ * XREFs of KeRestoreMtrrBroadcast @ 0x14099F07C
  * Callers:
- *     PnprWakeProcessors @ 0x140A9E0DC (PnprWakeProcessors.c)
- *     KiInitializeDynamicProcessorDpc @ 0x140A9F3A0 (KiInitializeDynamicProcessorDpc.c)
- *     KiInitializeMTRR @ 0x140B631C0 (KiInitializeMTRR.c)
+ *     PnprWakeProcessors @ 0x1409AEF5C (PnprWakeProcessors.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x1409AF4D0 (KiInitializeDynamicProcessorDpc.c)
+ *     KiInitializeMTRR @ 0x140A4CEC4 (KiInitializeMTRR.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     KeIpiGenericCall @ 0x14039A940 (KeIpiGenericCall.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x1403A4420 (KeIpiGenericCall.c)
  */
 
 void KeRestoreMtrrBroadcast()
@@ -16,7 +16,7 @@ void KeRestoreMtrrBroadcast()
   void *v2; // [rsp+30h] [rbp-18h]
 
   v1 = 0LL;
-  if ( byte_140C41970 )
+  if ( byte_140C2B3D0 )
   {
     LODWORD(Context) = 0;
     HIDWORD(Context) = KeQueryActiveProcessorCountEx(0xFFFFu) - 1;

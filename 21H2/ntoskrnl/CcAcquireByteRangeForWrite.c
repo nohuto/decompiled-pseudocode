@@ -1,25 +1,26 @@
 /*
- * XREFs of CcAcquireByteRangeForWrite @ 0x140289260
+ * XREFs of CcAcquireByteRangeForWrite @ 0x14030FF40
  * Callers:
- *     CcFlushCachePriv @ 0x140283030 (CcFlushCachePriv.c)
- *     CcNotifyOfMappedWrite @ 0x140310AD0 (CcNotifyOfMappedWrite.c)
+ *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
+ *     CcNotifyOfMappedWrite @ 0x14022D68C (CcNotifyOfMappedWrite.c)
  * Callees:
- *     CcInsertIntoCleanSharedCacheMapList @ 0x1402368F4 (CcInsertIntoCleanSharedCacheMapList.c)
- *     CcFindBitmapRangeToClean @ 0x140242ECC (CcFindBitmapRangeToClean.c)
- *     FsRtlIsNtstatusExpected @ 0x140247160 (FsRtlIsNtstatusExpected.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     CcUnpinFileDataEx @ 0x14028A370 (CcUnpinFileDataEx.c)
- *     CcDeductDirtyPages @ 0x14028AD10 (CcDeductDirtyPages.c)
- *     CcFindBcb @ 0x14028B018 (CcFindBcb.c)
- *     PsBoostThreadIoEx @ 0x1402ACD80 (PsBoostThreadIoEx.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     CcFindBitmapRangeToClean @ 0x1402B9E1C (CcFindBitmapRangeToClean.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C2240 (FsRtlIsNtstatusExpected.c)
+ *     CcInsertIntoCleanSharedCacheMapList @ 0x1402F2878 (CcInsertIntoCleanSharedCacheMapList.c)
+ *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
+ *     CcFindBcb @ 0x14030F12C (CcFindBcb.c)
+ *     CcDeductDirtyPages @ 0x140312DEC (CcDeductDirtyPages.c)
+ *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 bool __fastcall CcAcquireByteRangeForWrite(
@@ -30,10 +31,10 @@ bool __fastcall CcAcquireByteRangeForWrite(
         _QWORD *a5,
         unsigned int *a6,
         __int64 *a7,
-        char a8,
-        __int64 *a9)
+        char a8)
 {
-  __int64 *v11; // r12
+  __int64 v10; // rax
+  __int64 *BitmapRangeToClean; // r12
   int *v12; // rsi
   int v13; // edi
   __int64 v14; // rbx
@@ -49,86 +50,90 @@ bool __fastcall CcAcquireByteRangeForWrite(
   _QWORD *v24; // rdx
   __int64 v25; // rax
   __int64 v26; // rcx
-  unsigned int v27; // ecx
-  __int64 v28; // rdi
-  unsigned int v29; // ecx
-  unsigned int v30; // eax
-  __int64 v31; // rdx
-  __int64 v32; // rcx
-  unsigned int v34; // ecx
-  signed __int64 v35; // r11
-  __int64 v36; // r9
-  __int64 v37; // r11
-  unsigned __int64 v38; // rcx
-  __int64 v39; // r8
-  __int64 v40; // rdx
-  unsigned __int64 v41; // rax
-  __int64 v42; // rax
-  __int64 v43; // r11
-  unsigned __int64 v44; // rax
-  int v45; // r8d
-  int v46; // eax
-  unsigned int v47; // ebx
-  unsigned int v48; // edx
-  int v49; // eax
+  unsigned int v27; // r11d
+  unsigned int v28; // ecx
+  __int64 v29; // rdi
+  unsigned int v30; // ecx
+  unsigned int v31; // eax
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  _DWORD *v35; // r9
+  _DWORD *v36; // r9
+  unsigned int v37; // ecx
+  signed __int64 v38; // r13
+  __int64 v39; // r9
+  unsigned __int64 v40; // rcx
+  __int64 v41; // r8
+  __int64 v42; // rdx
+  unsigned __int64 v43; // rax
+  signed __int64 v44; // rax
+  __int64 v45; // r13
+  unsigned __int64 v46; // rax
+  int v47; // r8d
+  int v48; // eax
+  unsigned int v49; // ecx
   unsigned int v50; // eax
-  __int64 v51; // rbx
-  int v52; // eax
+  unsigned int v51; // eax
+  unsigned int v52; // eax
+  __int64 v53; // rbx
+  unsigned int v54; // eax
+  unsigned int v55; // eax
   unsigned __int64 OldIrql; // rbx
-  __int64 v54; // rcx
-  unsigned int v55; // ecx
-  signed __int64 v56; // rax
-  __int64 *BitmapRangeToClean; // rax
-  unsigned __int64 v58; // rax
-  unsigned __int64 v59; // rcx
-  unsigned __int64 v60; // rdx
-  __int64 v61; // r9
-  unsigned __int64 v62; // r8
-  __int64 v63; // rcx
-  __int64 v64; // r9
+  __int64 v57; // rax
+  __int64 v58; // rcx
+  __int64 *v59; // rax
+  unsigned __int64 v60; // rcx
+  _DWORD *v61; // r9
+  unsigned __int64 v62; // rdx
+  __int64 v63; // r9
+  unsigned __int64 v64; // r8
+  __int64 v65; // rcx
+  __int64 v66; // r9
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  int v68; // eax
-  bool v69; // zf
+  int v70; // eax
+  bool v71; // zf
   struct _FAST_MUTEX *Mutex; // [rsp+50h] [rbp-118h]
-  signed __int64 v71; // [rsp+58h] [rbp-110h]
-  int v72; // [rsp+60h] [rbp-108h]
-  __int64 v73; // [rsp+68h] [rbp-100h]
-  unsigned __int64 v74; // [rsp+70h] [rbp-F8h]
-  __int64 v75; // [rsp+78h] [rbp-F0h] BYREF
-  unsigned __int64 v76; // [rsp+80h] [rbp-E8h]
-  int v77; // [rsp+94h] [rbp-D4h]
-  __int64 v78; // [rsp+A8h] [rbp-C0h] BYREF
-  __int64 v79; // [rsp+B0h] [rbp-B8h]
-  __int64 v80; // [rsp+B8h] [rbp-B0h]
-  __int64 v81; // [rsp+C0h] [rbp-A8h]
-  unsigned int *v82; // [rsp+C8h] [rbp-A0h]
-  __int64 v83; // [rsp+F0h] [rbp-78h]
-  __int64 v84; // [rsp+F8h] [rbp-70h]
-  __int64 v85; // [rsp+100h] [rbp-68h]
+  int v73; // [rsp+58h] [rbp-110h]
+  __int64 v74; // [rsp+60h] [rbp-108h]
+  unsigned __int64 v75; // [rsp+68h] [rbp-100h]
+  __int64 v76; // [rsp+70h] [rbp-F8h]
+  __int64 v77; // [rsp+78h] [rbp-F0h] BYREF
+  unsigned __int64 v78; // [rsp+80h] [rbp-E8h]
+  int v79; // [rsp+94h] [rbp-D4h]
+  __int64 v80; // [rsp+A8h] [rbp-C0h]
+  __int64 v81; // [rsp+B0h] [rbp-B8h]
+  __int64 Partition; // [rsp+B8h] [rbp-B0h]
+  unsigned int *v83; // [rsp+C0h] [rbp-A8h]
+  __int64 v84; // [rsp+E8h] [rbp-80h]
+  __int64 v85; // [rsp+F0h] [rbp-78h]
+  __int64 v86; // [rsp+100h] [rbp-68h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+108h] [rbp-60h] BYREF
 
-  v82 = a6;
-  v80 = a1;
+  v10 = a1;
+  v83 = a6;
+  v81 = a1;
+  v77 = 0LL;
+  v80 = 0LL;
+  v73 = 0;
+  v79 = 0;
+  BitmapRangeToClean = 0LL;
   v75 = 0LL;
-  v79 = 0LL;
-  v72 = 0;
-  v77 = 0;
-  v11 = 0LL;
-  v74 = 0LL;
   v12 = 0LL;
   v13 = 0;
-  v71 = 0LL;
-  v83 = 0LL;
-  v76 = 0LL;
+  v74 = 0LL;
+  v84 = 0LL;
+  v78 = 0LL;
   v14 = 0x7FFFFFFFFFFFFFFFLL;
-  v84 = 0x7FFFFFFFFFFFFFFFLL;
+  v85 = 0x7FFFFFFFFFFFFFFFLL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( a8 )
+  {
     PsBoostThreadIoEx(KeGetCurrentThread(), 0LL, 0LL, 0LL);
-  v81 = *(_QWORD *)(a1 + 528);
-  v85 = v81;
+    v10 = a1;
+  }
+  Partition = CcGetPartition(v10);
   *a5 = 0LL;
   *a6 = 0;
   if ( a4 )
@@ -137,415 +142,419 @@ bool __fastcall CcAcquireByteRangeForWrite(
   ExAcquireFastMutex((PFAST_MUTEX)(a1 + 280));
   v15 = a1;
   v16 = *(_QWORD *)(a1 + 160);
-  v73 = v16;
+  v76 = v16;
   if ( v16 && *(_DWORD *)(v16 + 8) && (*(_DWORD *)(v16 + 4) || a3) )
   {
-    if ( a2 )
+    if ( !a2 )
     {
-      v71 = *a2 >> 12;
-      v14 = (a3 + *a2 - 1) >> 12;
-      BitmapRangeToClean = CcFindBitmapRangeToClean(v16, v71);
-      v11 = BitmapRangeToClean;
-      v39 = BitmapRangeToClean[2];
-      if ( v14 < v39 + *((unsigned int *)BitmapRangeToClean + 6) )
-        goto LABEL_6;
-      v58 = *((unsigned int *)BitmapRangeToClean + 7);
-      if ( v37 > (__int64)(v58 + v39) )
-        goto LABEL_6;
-      v40 = v11[5];
-      if ( v14 < (__int64)(v58 + v39) )
-        v41 = v40 + 4 * (((unsigned __int64)(v14 - v39) >> 5) & 0x7FFFFFF);
-      else
-        v41 = v40 + 4 * (v58 >> 5);
-    }
-    else
-    {
-      v35 = 0LL;
+      v38 = 0LL;
       if ( !a3 )
-        v35 = *(_QWORD *)(v16 + 32);
-      if ( a9 )
-        v35 = *a9 >> 12;
-      v11 = CcFindBitmapRangeToClean(v16, v35);
-      v38 = *((unsigned int *)v11 + 7);
-      v39 = v11[2];
-      if ( v37 > (__int64)(v38 + v39) )
-        v37 = v39 + *((unsigned int *)v11 + 6);
-      v40 = v11[5];
-      v41 = v40 + 4 * (v38 >> 5);
+        v38 = *(_QWORD *)(v16 + 32);
+      BitmapRangeToClean = CcFindBitmapRangeToClean(v16, v38);
+      v40 = *((unsigned int *)BitmapRangeToClean + 7);
+      v41 = BitmapRangeToClean[2];
+      if ( v38 > (__int64)(v40 + v41) )
+        v38 = v41 + *((unsigned int *)BitmapRangeToClean + 6);
+      v42 = BitmapRangeToClean[5];
+      goto LABEL_70;
     }
-    v74 = v41;
-    v42 = v37;
-    v43 = v39 + *((unsigned int *)v11 + 6);
-    if ( v42 >= v43 )
-      v43 = v42;
-    v71 = v43;
-    v44 = (unsigned int)(v43 - *((_DWORD *)v11 + 4));
-    v45 = v43 - *((_DWORD *)v11 + 4);
-    v76 = v44;
-    v12 = (int *)(v40 + 4 * (v44 >> 5));
-    v13 = -1 << (v43 % 32);
-    v46 = *v12;
-    if ( (*v12 & v13) == 0 )
+    v38 = *a2 >> 12;
+    v74 = v38;
+    v14 = (a3 + *a2 - 1) >> 12;
+    v59 = CcFindBitmapRangeToClean(v16, v38);
+    BitmapRangeToClean = v59;
+    v41 = v59[2];
+    if ( v14 >= v41 + *((unsigned int *)v59 + 6) )
     {
-      v13 = -1;
-      v43 &= 0xFFFFFFFFFFFFFFE0uLL;
-      v59 = v74;
-      do
+      v40 = *((unsigned int *)v59 + 7);
+      if ( v38 <= (__int64)(v40 + v41) )
       {
-        ++v12;
-        v43 += 32LL;
-        v71 = v43;
-        if ( (unsigned __int64)v12 > v59 )
+        v42 = v59[5];
+        v39 = v76;
+        if ( v14 < (__int64)(v40 + v41) )
         {
-          if ( !a3 )
-            *((_DWORD *)v11 + 7) = v45 - 1;
+          v43 = v42 + 4 * (((unsigned __int64)(v14 - v41) >> 5) & 0x7FFFFFF);
+          goto LABEL_71;
+        }
+LABEL_70:
+        v43 = v42 + 4 * (v40 >> 5);
+LABEL_71:
+        v75 = v43;
+        v44 = v38;
+        v45 = v41 + *((unsigned int *)BitmapRangeToClean + 6);
+        if ( v44 >= v45 )
+          v45 = v44;
+        v74 = v45;
+        v46 = (unsigned int)(v45 - *((_DWORD *)BitmapRangeToClean + 4));
+        v47 = v45 - *((_DWORD *)BitmapRangeToClean + 4);
+        v78 = v46;
+        v12 = (int *)(v42 + 4 * (v46 >> 5));
+        v13 = -1 << (v45 % 32);
+        v48 = *v12;
+        if ( (*v12 & v13) == 0 )
+        {
+          v13 = -1;
+          v45 &= 0xFFFFFFFFFFFFFFE0uLL;
+          v60 = v75;
           do
           {
-            v11 = (__int64 *)*v11;
-            if ( v11 == (__int64 *)(v36 + 16) )
+            ++v12;
+            v45 += 32LL;
+            v74 = v45;
+            if ( (unsigned __int64)v12 > v60 )
             {
-              if ( a3 )
+              if ( !v27 )
+                *((_DWORD *)BitmapRangeToClean + 7) = v47 - 1;
+              do
+              {
+                BitmapRangeToClean = (__int64 *)*BitmapRangeToClean;
+                if ( BitmapRangeToClean == (__int64 *)(v39 + 16) )
+                {
+                  if ( v27 )
+                    goto LABEL_6;
+                  BitmapRangeToClean = (__int64 *)*BitmapRangeToClean;
+                }
+              }
+              while ( !*((_DWORD *)BitmapRangeToClean + 8) );
+              v62 = *((unsigned int *)BitmapRangeToClean + 6);
+              v63 = BitmapRangeToClean[2];
+              if ( v14 < (__int64)(v63 + v62) )
                 goto LABEL_6;
-              v11 = (__int64 *)*v11;
+              v64 = *((unsigned int *)BitmapRangeToClean + 7);
+              if ( v45 > (__int64)(v64 + v63) )
+                goto LABEL_6;
+              v65 = BitmapRangeToClean[5];
+              v12 = (int *)(v65 + 4 * (v62 >> 5));
+              v75 = v65 + 4 * (v64 >> 5);
+              v45 = v63 + ((unsigned int)v62 & 0xFFFFFFE0);
+              v74 = v45;
+              v47 = *((_DWORD *)BitmapRangeToClean + 6);
+              v78 = (unsigned int)v62;
+              v39 = v76;
+              v60 = v75;
+            }
+            v48 = *v12;
+          }
+          while ( !*v12 );
+        }
+        v13 = -v13;
+        if ( (v48 & v13) == 0 )
+        {
+          do
+          {
+            v13 *= 2;
+            ++v45;
+          }
+          while ( (v48 & v13) == 0 );
+          v74 = v45;
+        }
+        if ( !a2 )
+        {
+LABEL_76:
+          if ( (gCcTrace & 1) != 0 )
+          {
+            if ( a2 )
+              v66 = *a2;
+            else
+              v66 = 0LL;
+            DbgPrintEx(
+              0x7Fu,
+              0,
+              "CcAcquireByteRange (AcceptPage) [0x%I64x, 0x%x]: %p (0x%I64x) BM:%p Dirty: 0x%x\n",
+              v66,
+              v27,
+              (const void *)v15,
+              v45,
+              BitmapRangeToClean,
+              *((_DWORD *)BitmapRangeToClean + 8));
+            v27 = a3;
+          }
+          while ( (v13 & *v12) != 0 )
+          {
+            if ( a2 && v45 + *a6 >= (unsigned int)((*a2 + 4095 + v27) >> 12) )
+              break;
+            if ( (unsigned __int64)v12 > BitmapRangeToClean[5]
+                                       + 4 * ((unsigned __int64)*((unsigned int *)BitmapRangeToClean + 7) >> 5) )
+              KeBugCheckEx(0x34u, 0x11D4uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+            if ( !a2 && *a6 >= CcMaxLazyWritePages )
+              break;
+            *v12 -= v13;
+            ++*a6;
+            v13 *= 2;
+            if ( !v13 )
+            {
+              ++v12;
+              v13 = 1;
+              if ( (unsigned __int64)v12 > v75 )
+                break;
             }
           }
-          while ( !*((_DWORD *)v11 + 8) );
-          v60 = *((unsigned int *)v11 + 6);
-          v61 = v11[2];
-          if ( v14 < (__int64)(v61 + v60) )
-            goto LABEL_6;
-          v62 = *((unsigned int *)v11 + 7);
-          if ( v43 > (__int64)(v62 + v61) )
-            goto LABEL_6;
-          v63 = v11[5];
-          v12 = (int *)(v63 + 4 * (v60 >> 5));
-          v74 = v63 + 4 * (v62 >> 5);
-          v43 = v61 + ((unsigned int)v60 & 0xFFFFFFE0);
-          v71 = v43;
-          v45 = *((_DWORD *)v11 + 6);
-          v76 = (unsigned int)v60;
-          v36 = v73;
-          v59 = v74;
+          v49 = *a6;
+          v50 = *(_DWORD *)(v76 + 4);
+          if ( *a6 < v50 )
+            v51 = v50 - v49;
+          else
+            v51 = 0;
+          *(_DWORD *)(v76 + 4) = v51;
+          v52 = *(_DWORD *)(v76 + 8);
+          if ( v52 < v49 )
+            KeBugCheckEx(0x34u, 0x1203uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+          *(_DWORD *)(v76 + 8) = v52 - v49;
+          *((_DWORD *)BitmapRangeToClean + 8) -= v49;
+          v53 = Partition;
+          KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(Partition + 128), &LockHandle);
+          CcDeductDirtyPages(a1, *a6);
+          v54 = *(_DWORD *)(v53 + 496);
+          if ( v54 <= *a6 )
+            v55 = 0;
+          else
+            v55 = v54 - *a6;
+          *(_DWORD *)(v53 + 496) = v55;
+          if ( !*(_DWORD *)(a1 + 112) )
+            CcInsertIntoCleanSharedCacheMapList(a1);
+          KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+          OldIrql = LockHandle.OldIrql;
+          if ( KiIrqlFlags )
+          {
+            if ( (KiIrqlFlags & 1) != 0 )
+            {
+              CurrentIrql = KeGetCurrentIrql();
+              if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+              {
+                CurrentPrcb = KeGetCurrentPrcb();
+                SchedulerAssist = CurrentPrcb->SchedulerAssist;
+                v70 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+                v71 = (v70 & SchedulerAssist[5]) == 0;
+                SchedulerAssist[5] &= v70;
+                if ( v71 )
+                  KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              }
+            }
+          }
+          __writecr8(OldIrql);
+          if ( *((_DWORD *)BitmapRangeToClean + 8) )
+          {
+            v58 = *v83;
+            if ( *((_DWORD *)BitmapRangeToClean + 6) == (_DWORD)v78 )
+              *((_DWORD *)BitmapRangeToClean + 6) = v58 + v45 - *((_DWORD *)BitmapRangeToClean + 4);
+            if ( a3 )
+              goto LABEL_95;
+            v57 = v58 + v45;
+          }
+          else
+          {
+            *((_DWORD *)BitmapRangeToClean + 6) = -1;
+            *((_DWORD *)BitmapRangeToClean + 7) = 0;
+            v57 = BitmapRangeToClean[2] + 0x2000;
+          }
+          *(_QWORD *)(v76 + 32) = v57;
+LABEL_95:
+          if ( *(_QWORD *)(a1 + 16) == a1 + 16 )
+            *(_DWORD *)(a1 + 192) = *(_DWORD *)(v76 + 4);
+          KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a1 + 280));
+          *a6 <<= 12;
+          *a5 = v45 << 12;
+          *a7 = 0LL;
+          goto LABEL_41;
         }
-        v46 = *v12;
+        if ( v45 < (v27 + *a2 + 4095) >> 12 )
+        {
+          if ( *(_QWORD *)(v15 + 16) == v15 + 16 )
+            goto LABEL_76;
+          v73 = 1;
+        }
       }
-      while ( !*v12 );
-    }
-    v13 = -v13;
-    if ( (v13 & v46) == 0 )
-    {
-      do
-      {
-        v13 *= 2;
-        ++v43;
-      }
-      while ( (v13 & v46) == 0 );
-      v71 = v43;
-    }
-    if ( !a2 )
-      goto LABEL_74;
-    if ( v43 < (a3 + *a2 + 4095) >> 12 )
-    {
-      if ( *(_QWORD *)(v15 + 16) == v15 + 16 )
-        goto LABEL_74;
-      v72 = 1;
     }
   }
 LABEL_6:
-  v17 = (__int64 *)(v80 + 200);
-  v18 = v79;
-  while ( 1 )
+  v17 = (__int64 *)(v81 + 200);
+  v18 = v80;
+  while ( 2 )
   {
     v19 = *(_QWORD *)(v15 + 24) - 16LL;
-    v75 = v19;
+    v77 = v19;
     if ( (*(_DWORD *)(v15 + 152) & 0x200) != 0 )
     {
       if ( a2 )
         v17 = a2;
       if ( *v17 )
       {
-        v78 = *v17 + 4096;
-        Bcb = CcFindBcb(v15, v17, &v78, &v75);
+        v86 = *v17 + 4096;
+        Bcb = CcFindBcb(v15, (__int64)v17, &v86, &v77);
         v15 = a1;
         if ( Bcb )
         {
-          v19 = v75;
+          v19 = v77;
         }
         else
         {
-          v19 = *(_QWORD *)(v75 + 24) - 16LL;
-          v75 = v19;
+          v19 = *(_QWORD *)(v77 + 24) - 16LL;
+          v77 = v19;
         }
       }
     }
     v21 = v15 + 16;
-    if ( v19 + 16 != v15 + 16 )
+    if ( v19 + 16 == v15 + 16 )
     {
-      while ( 1 )
-      {
-        if ( *(_WORD *)v19 != 765 )
-          goto LABEL_15;
-        if ( (*(_DWORD *)(v15 + 152) & 0x1000000) != 0 && a4 && *(_QWORD *)(v19 + 48) > *a4 )
-        {
-          v22 = *(_QWORD *)(v19 + 24);
-          ++CcDbgLsnLargerThanHint;
-          goto LABEL_16;
-        }
-        if ( a2 && *a2 + a3 <= *(_QWORD *)(v19 + 8) )
-          goto LABEL_17;
-        v25 = *a6;
-        if ( (_DWORD)v25 )
-        {
-          v24 = a5;
-          if ( !*(_BYTE *)(v19 + 2)
-            || (v26 = *(_QWORD *)(v19 + 8), v26 != *a5 + v25)
-            || *(_DWORD *)(v19 + 64)
-            || (v26 & 0x1FFFFFF) == 0 )
-          {
-            v23 = (struct _FAST_MUTEX *)(a1 + 280);
-            goto LABEL_27;
-          }
-        }
-        else
-        {
-          if ( !*(_BYTE *)(v19 + 2) )
-            goto LABEL_15;
-          if ( a2 )
-          {
-            if ( *a2 >= *(_QWORD *)(v19 + 32) )
-              goto LABEL_15;
-          }
-          else if ( *(_QWORD *)(v19 + 8) < *(_QWORD *)(v15 + 200) )
-          {
-            goto LABEL_15;
-          }
-          if ( v72 )
-          {
-            v43 = v71;
-            if ( v71 <= (unsigned int)(*(__int64 *)(v19 + 8) >> 12) )
-              goto LABEL_149;
-          }
-        }
-        ++*(_DWORD *)(v19 + 64);
-        KeReleaseGuardedMutex(Mutex);
-        if ( (*(_DWORD *)(a1 + 152) & 0x202) != 0x200 )
-          break;
-        if ( !ExAcquireResourceExclusiveLite((PERESOURCE)(v19 + 72), *a6 == 0) )
-        {
-          CcUnpinFileDataEx((PVOID)v19);
-          v23 = (struct _FAST_MUTEX *)(a1 + 280);
-          ExAcquireFastMutex(Mutex);
-          goto LABEL_18;
-        }
-        ExAcquireFastMutex(Mutex);
-        if ( *(_BYTE *)(v19 + 2) )
-        {
-          v15 = a1;
-          if ( (*(_DWORD *)(a1 + 152) & 0x1000000) == 0 || !a4 || *(_QWORD *)(v19 + 48) <= *a4 )
-            goto LABEL_49;
-          ++CcDbgLsnLargerThanHint;
-        }
-        KeReleaseGuardedMutex(Mutex);
-        CcUnpinFileDataEx((PVOID)v19);
-        v23 = (struct _FAST_MUTEX *)(a1 + 280);
-        ExAcquireFastMutex(Mutex);
-        if ( *a6 )
-          goto LABEL_18;
-        v15 = a1;
-        v22 = *(_QWORD *)(a1 + 24);
-        v21 = a1 + 16;
-LABEL_16:
-        v19 = v22 - 16;
-        v75 = v19;
-        if ( v19 + 16 == v21 )
-          goto LABEL_17;
-      }
-      CcUnpinFileDataEx((PVOID)v19);
-      ExAcquireFastMutex(Mutex);
-      v15 = a1;
-LABEL_49:
-      v72 = 0;
-      v34 = *a6;
-      if ( !*a6 )
-        *a5 = *(_QWORD *)(v19 + 8);
-      *a7 = v19;
-      *a6 = *(_DWORD *)(v19 + 4) + v34;
-      if ( (*(_DWORD *)(v15 + 152) & 0x3000000) != 0 && *(_QWORD *)(v19 + 48) > v18 )
-        v18 = *(_QWORD *)(v19 + 48);
-      v21 = v15 + 16;
-LABEL_15:
-      v22 = *(_QWORD *)(v19 + 24);
-      goto LABEL_16;
-    }
 LABEL_17:
+      v23 = (struct _FAST_MUTEX *)(a1 + 280);
+      goto LABEL_18;
+    }
+    while ( 1 )
+    {
+      if ( *(_WORD *)v19 != 765 )
+        goto LABEL_15;
+      if ( (*(_DWORD *)(v15 + 152) & 0x1000000) != 0 && a4 && *(_QWORD *)(v19 + 48) > *a4 )
+      {
+        v22 = *(_QWORD *)(v19 + 24);
+        ++CcDbgLsnLargerThanHint;
+        goto LABEL_16;
+      }
+      if ( a2 )
+      {
+        v27 = a3;
+        if ( *a2 + a3 <= *(_QWORD *)(v19 + 8) )
+        {
+          v23 = (struct _FAST_MUTEX *)(a1 + 280);
+          v24 = a5;
+          goto LABEL_32;
+        }
+      }
+      v25 = *a6;
+      if ( (_DWORD)v25 )
+      {
+        v24 = a5;
+        if ( !*(_BYTE *)(v19 + 2)
+          || (v26 = *(_QWORD *)(v19 + 8), v26 != *a5 + v25)
+          || *(_DWORD *)(v19 + 64)
+          || (v26 & 0x1FFFFFF) == 0 )
+        {
+          v23 = (struct _FAST_MUTEX *)(a1 + 280);
+          goto LABEL_31;
+        }
+      }
+      else
+      {
+        if ( !*(_BYTE *)(v19 + 2) )
+          goto LABEL_15;
+        if ( a2 )
+        {
+          if ( *a2 >= *(_QWORD *)(v19 + 32) )
+            goto LABEL_15;
+        }
+        else if ( *(_QWORD *)(v19 + 8) < *(_QWORD *)(v15 + 200) )
+        {
+          goto LABEL_15;
+        }
+        if ( v73 && v74 <= (unsigned int)(*(__int64 *)(v19 + 8) >> 12) )
+        {
+          v27 = a3;
+          goto LABEL_147;
+        }
+      }
+      ++*(_DWORD *)(v19 + 64);
+      KeReleaseGuardedMutex(Mutex);
+      if ( (*(_DWORD *)(a1 + 152) & 0x202) != 0x200 )
+      {
+        CcUnpinFileDataEx((char *)v19, 1, 2, v35);
+        ExAcquireFastMutex(Mutex);
+        v15 = a1;
+LABEL_52:
+        v73 = 0;
+        v37 = *a6;
+        if ( !*a6 )
+          *a5 = *(_QWORD *)(v19 + 8);
+        *a7 = v19;
+        *a6 = *(_DWORD *)(v19 + 4) + v37;
+        if ( (*(_DWORD *)(v15 + 152) & 0x3000000) != 0 && *(_QWORD *)(v19 + 48) > v18 )
+          v18 = *(_QWORD *)(v19 + 48);
+        v21 = v15 + 16;
+LABEL_15:
+        v22 = *(_QWORD *)(v19 + 24);
+        goto LABEL_16;
+      }
+      if ( !ExAcquireResourceExclusiveLite((PERESOURCE)(v19 + 72), *a6 == 0) )
+        break;
+      ExAcquireFastMutex(Mutex);
+      if ( *(_BYTE *)(v19 + 2) )
+      {
+        v15 = a1;
+        if ( (*(_DWORD *)(a1 + 152) & 0x1000000) == 0 || !a4 || *(_QWORD *)(v19 + 48) <= *a4 )
+          goto LABEL_52;
+        ++CcDbgLsnLargerThanHint;
+      }
+      KeReleaseGuardedMutex(Mutex);
+      CcUnpinFileDataEx((char *)v19, 0, 0, v61);
+      v23 = (struct _FAST_MUTEX *)(a1 + 280);
+      ExAcquireFastMutex(Mutex);
+      if ( *a6 )
+        goto LABEL_18;
+      v15 = a1;
+      v22 = *(_QWORD *)(a1 + 24);
+      v21 = a1 + 16;
+LABEL_16:
+      v19 = v22 - 16;
+      v77 = v19;
+      if ( v19 + 16 == v21 )
+        goto LABEL_17;
+    }
+    CcUnpinFileDataEx((char *)v19, 1, 0, v36);
     v23 = (struct _FAST_MUTEX *)(a1 + 280);
+    ExAcquireFastMutex(Mutex);
 LABEL_18:
     v24 = a5;
-LABEL_27:
-    if ( v72 )
-      break;
-    v27 = *a6;
+LABEL_31:
+    v27 = a3;
+LABEL_32:
+    if ( v73 )
+    {
+      v15 = a1;
+LABEL_147:
+      v45 = v74;
+      goto LABEL_76;
+    }
+    v28 = *a6;
     if ( *a6 )
     {
-      v28 = a1;
+      v29 = a1;
       if ( !a2 )
       {
-        *(_QWORD *)(a1 + 200) = *v24 + v27;
-        v29 = v27 >> 12;
-        v30 = *(_DWORD *)(a1 + 192);
-        if ( v30 <= v29 )
+        *(_QWORD *)(a1 + 200) = *v24 + v28;
+        v30 = v28 >> 12;
+        v31 = *(_DWORD *)(a1 + 192);
+        if ( v31 <= v30 )
           *(_DWORD *)(a1 + 192) = 0;
         else
-          *(_DWORD *)(a1 + 192) = v30 - v29;
+          *(_DWORD *)(a1 + 192) = v31 - v30;
       }
-      goto LABEL_32;
     }
-    v15 = a1;
-    v17 = (__int64 *)(a1 + 200);
-    if ( !*(_QWORD *)(a1 + 200) || a2 )
+    else
     {
-      v28 = a1;
-LABEL_32:
-      KeReleaseGuardedMutex(v23);
-      if ( v18 )
+      v15 = a1;
+      v17 = (__int64 *)(a1 + 200);
+      if ( *(_QWORD *)(a1 + 200) && !a2 )
       {
-        v32 = *(_QWORD *)(v80 + 240);
-        if ( (*(_DWORD *)(v28 + 152) & 0x2000000) != 0 )
-          (*(void (__fastcall **)(__int64, __int64))(v28 + 248))(v32, v18);
-        else
-          (*(void (__fastcall **)(_QWORD, __int64))(v32 + 8))(*(_QWORD *)v32, v18);
+        *v17 = 0LL;
+        continue;
       }
-      goto LABEL_36;
+      v29 = a1;
     }
-    *v17 = 0LL;
+    break;
   }
-  v15 = a1;
-  v43 = v71;
-LABEL_149:
-  v36 = v73;
-LABEL_74:
-  if ( (gCcTrace & 1) != 0 )
+  KeReleaseGuardedMutex(v23);
+  if ( v18 )
   {
-    if ( a2 )
-      v64 = *a2;
+    v33 = *(_QWORD *)(v81 + 240);
+    if ( (*(_DWORD *)(v29 + 152) & 0x2000000) != 0 )
+      (*(void (__fastcall **)(__int64, __int64))(v29 + 248))(v33, v18);
     else
-      v64 = 0LL;
-    v47 = a3;
-    DbgPrintEx(
-      0x7Fu,
-      0,
-      "CcAcquireByteRange (AcceptPage) [0x%I64x, 0x%x]: %p (0x%I64x) BM:%p Dirty: 0x%x\n",
-      v64,
-      a3,
-      (const void *)v15,
-      v43,
-      v11,
-      *((_DWORD *)v11 + 8));
-    v43 = v71;
-    v36 = v73;
+      (*(void (__fastcall **)(_QWORD, __int64))(v33 + 8))(*(_QWORD *)v33, v18);
   }
-  else
-  {
-    v47 = a3;
-  }
-  while ( (v13 & *v12) != 0 )
-  {
-    if ( a2 && v43 + *a6 >= (unsigned int)((*a2 + 4095 + v47) >> 12) )
-      break;
-    if ( (unsigned __int64)v12 > v11[5] + 4 * ((unsigned __int64)*((unsigned int *)v11 + 7) >> 5) )
-      KeBugCheckEx(0x34u, 0x127EuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-    if ( !a2 && *a6 >= CcMaxLazyWritePages )
-      break;
-    *v12 -= v13;
-    ++*a6;
-    v13 *= 2;
-    if ( !v13 )
-    {
-      ++v12;
-      v13 = 1;
-      if ( (unsigned __int64)v12 > v74 )
-        break;
-    }
-  }
-  v48 = *a6;
-  v49 = *(_DWORD *)(v36 + 4) - *a6;
-  if ( *a6 >= *(_DWORD *)(v36 + 4) )
-    v49 = 0;
-  *(_DWORD *)(v36 + 4) = v49;
-  v50 = *(_DWORD *)(v36 + 8);
-  if ( v50 < v48 )
-    KeBugCheckEx(0x34u, 0x12ADuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-  *(_DWORD *)(v36 + 8) = v50 - v48;
-  *((_DWORD *)v11 + 8) -= v48;
-  v51 = v81;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v81 + 704), &LockHandle);
-  CcDeductDirtyPages(a1, *a6);
-  v52 = *(_DWORD *)(v51 + 912) - *a6;
-  if ( *(_DWORD *)(v51 + 912) <= *a6 )
-    v52 = 0;
-  *(_DWORD *)(v51 + 912) = v52;
-  if ( !*(_DWORD *)(a1 + 112) )
-    CcInsertIntoCleanSharedCacheMapList(a1);
-  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
-  {
-    if ( (KiIrqlFlags & 1) != 0 )
-    {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
-      {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v68 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v69 = (v68 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v68;
-        if ( v69 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-      }
-    }
-  }
-  __writecr8(OldIrql);
-  if ( *((_DWORD *)v11 + 8) )
-  {
-    if ( *((_DWORD *)v11 + 6) == (_DWORD)v76 )
-    {
-      v55 = *a6;
-      *((_DWORD *)v11 + 6) = *a6 + v71 - *((_DWORD *)v11 + 4);
-    }
-    else
-    {
-      v55 = *v82;
-    }
-    if ( a3 )
-    {
-      v54 = v73;
-    }
-    else
-    {
-      v56 = v71 + v55;
-      v54 = v73;
-      *(_QWORD *)(v73 + 32) = v56;
-    }
-  }
-  else
-  {
-    *((_DWORD *)v11 + 6) = -1;
-    *((_DWORD *)v11 + 7) = 0;
-    v54 = v73;
-    *(_QWORD *)(v73 + 32) = v11[2] + 0x2000;
-  }
-  if ( *(_QWORD *)(a1 + 16) == a1 + 16 )
-    *(_DWORD *)(a1 + 192) = *(_DWORD *)(v54 + 4);
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a1 + 280));
-  *a6 <<= 12;
-  *a5 = v71 << 12;
-  *a7 = 0LL;
-LABEL_36:
+LABEL_41:
   if ( a8 )
   {
-    LOBYTE(v31) = 1;
-    PsBoostThreadIoEx(KeGetCurrentThread(), v31, 0LL, 0LL);
+    LOBYTE(v32) = 1;
+    PsBoostThreadIoEx(KeGetCurrentThread(), v32, 0LL, 0LL);
   }
   return *a6 != 0;
 }

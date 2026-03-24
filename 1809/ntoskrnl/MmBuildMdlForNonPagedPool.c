@@ -1,18 +1,18 @@
 /*
- * XREFs of MmBuildMdlForNonPagedPool @ 0x140101FA0
+ * XREFs of MmBuildMdlForNonPagedPool @ 0x140101FC0
  * Callers:
- *     MiCreateMdl @ 0x140101F2C (MiCreateMdl.c)
- *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14014C4E4 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
- *     HvlGetCoverageData @ 0x140270B14 (HvlGetCoverageData.c)
- *     VslpLockMdlForTransfer @ 0x14027C388 (VslpLockMdlForTransfer.c)
- *     VslpLockPagesForTransfer @ 0x14027C414 (VslpLockPagesForTransfer.c)
- *     SmKmIssueVolumeIo @ 0x140307424 (SmKmIssueVolumeIo.c)
- *     MmRotatePhysicalView @ 0x14066B930 (MmRotatePhysicalView.c)
- *     PopAllocateHiberContext @ 0x1406DF554 (PopAllocateHiberContext.c)
- *     HvlpDynamicUpdateMicrocode @ 0x140817B10 (HvlpDynamicUpdateMicrocode.c)
- *     SmKmStoreFileWriteHeader @ 0x1408AE470 (SmKmStoreFileWriteHeader.c)
- *     EtwpBuildMdlForTraceBuffer @ 0x1408C9DD4 (EtwpBuildMdlForTraceBuffer.c)
- *     VslpIumPhase0Initialize @ 0x1409F45F8 (VslpIumPhase0Initialize.c)
+ *     MiCreateMdl @ 0x140101F4C (MiCreateMdl.c)
+ *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14014C504 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
+ *     HvlGetCoverageData @ 0x140270C14 (HvlGetCoverageData.c)
+ *     VslpLockMdlForTransfer @ 0x14027C488 (VslpLockMdlForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x14027C514 (VslpLockPagesForTransfer.c)
+ *     SmKmIssueVolumeIo @ 0x140307524 (SmKmIssueVolumeIo.c)
+ *     MmRotatePhysicalView @ 0x14066B910 (MmRotatePhysicalView.c)
+ *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
+ *     HvlpDynamicUpdateMicrocode @ 0x140817AF0 (HvlpDynamicUpdateMicrocode.c)
+ *     SmKmStoreFileWriteHeader @ 0x1408AE450 (SmKmStoreFileWriteHeader.c)
+ *     EtwpBuildMdlForTraceBuffer @ 0x1408C9DB4 (EtwpBuildMdlForTraceBuffer.c)
+ *     VslpIumPhase0Initialize @ 0x1409F4600 (VslpIumPhase0Initialize.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  */

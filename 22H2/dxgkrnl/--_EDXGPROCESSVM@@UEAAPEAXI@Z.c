@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_EDXGPROCESSVM@@UEAAPEAXI@Z @ 0x1C0056500
+ * XREFs of ??_EDXGPROCESSVM@@UEAAPEAXI@Z @ 0x1C00489F0
  * Callers:
  *     <none>
  * Callees:
- *     ??1DXGPROCESSVM@@UEAA@XZ @ 0x1C0056450 (--1DXGPROCESSVM@@UEAA@XZ.c)
+ *     ??1DXGPROCESSVM@@UEAA@XZ @ 0x1C004893C (--1DXGPROCESSVM@@UEAA@XZ.c)
  */
 
 DXGPROCESSVM *__fastcall DXGPROCESSVM::`vector deleting destructor'(DXGPROCESSVM *P, char a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0zqqqqq_EventWriteTransfer @ 0x1801CB9C0
+ * XREFs of McTemplateU0zqqqqq_EventWriteTransfer @ 0x1801578FC
  * Callers:
- *     ?SendLongtermStatistics@CAnimationTracking@@AEAAXXZ @ 0x1801CAF80 (-SendLongtermStatistics@CAnimationTracking@@AEAAXXZ.c)
+ *     ?SendLongtermStatistics@CAnimationTracking@@AEAAXXZ @ 0x180156F98 (-SendLongtermStatistics@CAnimationTracking@@AEAAXXZ.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateU0zqqqqq_EventWriteTransfer(

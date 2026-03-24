@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxIdleDevicesFromSx @ 0x140142DEC
+ * XREFs of PopFxIdleDevicesFromSx @ 0x140142E0C
  * Callers:
  *     PoBroadcastSystemState @ 0x1405681E0 (PoBroadcastSystemState.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PoFxIdleDevice @ 0x140159F08 (PoFxIdleDevice.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PoFxIdleDevice @ 0x140159F28 (PoFxIdleDevice.c)
  */
 
 _QWORD *PopFxIdleDevicesFromSx()

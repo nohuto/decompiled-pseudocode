@@ -1,32 +1,34 @@
 /*
- * XREFs of MiCreateZeroThreadContext @ 0x1403D3CA0
+ * XREFs of MiCreateZeroThreadContext @ 0x1403B0C88
  * Callers:
- *     MiZeroNodePages @ 0x1403D3960 (MiZeroNodePages.c)
+ *     MiZeroNodePages @ 0x1403B0220 (MiZeroNodePages.c)
+ *     MiInitializePartitionThreads @ 0x1408C7C54 (MiInitializePartitionThreads.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MiInitializeColorTable @ 0x14025BFE0 (MiInitializeColorTable.c)
- *     MiCreateUltraThreadContext @ 0x14026A574 (MiCreateUltraThreadContext.c)
- *     ExAllocatePoolMm @ 0x14030B860 (ExAllocatePoolMm.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiCreateUltraThreadContext @ 0x1402E30FC (MiCreateUltraThreadContext.c)
+ *     MiInitializeColorTable @ 0x1403B0D1C (MiInitializeColorTable.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-PVOID __fastcall MiCreateZeroThreadContext(__int64 a1)
+PVOID __fastcall MiCreateZeroThreadContext(__int64 a1, int a2)
 {
-  unsigned int v1; // ebx
-  _DWORD *PoolMm; // rax
-  PVOID v4; // rdi
+  _BYTE *Pool; // rax
+  PVOID v5; // rbx
 
-  v1 = *(_DWORD *)(a1 + 80);
-  PoolMm = ExAllocatePoolMm(64LL, 0x130uLL, 0x745A694Du, v1 | 0x80000000);
-  v4 = PoolMm;
-  if ( PoolMm )
+  Pool = MiAllocatePool(64, 0x130uLL, 0x20206D4Du);
+  v5 = Pool;
+  if ( Pool )
   {
-    MiInitializeColorTable(PoolMm + 62, v1);
-    if ( (unsigned int)MiCreateUltraThreadContext((__int64)v4 + 88, *((_DWORD *)v4 + 65), 14) )
+    if ( a2 )
+      Pool[80] = 1;
+    MiInitializeColorTable(Pool + 248);
+    if ( (unsigned int)MiCreateUltraThreadContext((__int64)v5 + 88, *((_DWORD *)v5 + 65), 15) )
     {
-      *((_QWORD *)v4 + 29) = a1;
-      return v4;
+      *((_QWORD *)v5 + 29) = a1;
+      return v5;
     }
-    ExFreePoolWithTag(v4, 0);
+    ExFreePoolWithTag(v5, 0);
   }
   return 0LL;
 }

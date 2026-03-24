@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_CompletingPDORequestForGetPortStatusFromConfigWithIntTransferWithNoSuchDevice @ 0x1C0008320
+ * XREFs of HUBHSM_CompletingPDORequestForGetPortStatusFromConfigWithIntTransferWithNoSuchDevice @ 0x1C0008010
  * Callers:
  *     <none>
  * Callees:
- *     HUBHTX_CompleteGetPortStatusWithFailedStatus @ 0x1C00061AC (HUBHTX_CompleteGetPortStatusWithFailedStatus.c)
+ *     HUBHTX_CompleteGetPortStatusWithFailedStatus @ 0x1C0005F24 (HUBHTX_CompleteGetPortStatusWithFailedStatus.c)
  */
 
 __int64 __fastcall HUBHSM_CompletingPDORequestForGetPortStatusFromConfigWithIntTransferWithNoSuchDevice(__int64 a1)

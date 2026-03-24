@@ -1,79 +1,76 @@
 /*
- * XREFs of Controller_LowerAndTrackIrql @ 0x1C00074EC
+ * XREFs of Controller_LowerAndTrackIrql @ 0x1C00052C8
  * Callers:
- *     Isoch_EP_StartMapping @ 0x1C0001C10 (Isoch_EP_StartMapping.c)
- *     Isoch_MapStage @ 0x1C0004840 (Isoch_MapStage.c)
- *     Controller_WdfEvtWatchdogTimerFunc @ 0x1C0005010 (Controller_WdfEvtWatchdogTimerFunc.c)
- *     Control_WdfEvtIoDefault @ 0x1C0005C90 (Control_WdfEvtIoDefault.c)
- *     Control_Transfer_Map @ 0x1C0007348 (Control_Transfer_Map.c)
- *     Interrupter_WdfEvtInterruptIsr @ 0x1C0007790 (Interrupter_WdfEvtInterruptIsr.c)
- *     Interrupter_DeferredWorkProcessor @ 0x1C0008C10 (Interrupter_DeferredWorkProcessor.c)
- *     Command_HandleCommandCompletionEvent @ 0x1C000A2E4 (Command_HandleCommandCompletionEvent.c)
- *     Command_SendCommand @ 0x1C000A850 (Command_SendCommand.c)
- *     Interrupter_AcquireEventRingLock @ 0x1C000F52C (Interrupter_AcquireEventRingLock.c)
- *     Interrupter_WdfEvtInterruptDisable @ 0x1C000F780 (Interrupter_WdfEvtInterruptDisable.c)
- *     Bulk_EP_StartMapping @ 0x1C0011CE0 (Bulk_EP_StartMapping.c)
- *     Bulk_WdfEvtIoQueueReadyNotification @ 0x1C0011E50 (Bulk_WdfEvtIoQueueReadyNotification.c)
- *     Bulk_MapStage @ 0x1C00122F0 (Bulk_MapStage.c)
- *     Control_EP_StartMapping @ 0x1C00134C0 (Control_EP_StartMapping.c)
- *     Interrupter_WdfEvtInterruptEnable @ 0x1C00139D0 (Interrupter_WdfEvtInterruptEnable.c)
- *     RootHub_AcquireReadModifyWriteLock @ 0x1C0018344 (RootHub_AcquireReadModifyWriteLock.c)
- *     Command_HandleCommandRingStoppedEvent @ 0x1C002FC74 (Command_HandleCommandRingStoppedEvent.c)
- *     Interrupter_WdfEvtInterruptWorkItem @ 0x1C003E240 (Interrupter_WdfEvtInterruptWorkItem.c)
- *     Control_WdfEvtWorkItemForTransferCompletion @ 0x1C0043360 (Control_WdfEvtWorkItemForTransferCompletion.c)
- *     Isoch_WdfEvtWorkItemForTransferCompletion @ 0x1C0045E40 (Isoch_WdfEvtWorkItemForTransferCompletion.c)
- *     Bulk_WdfEvtWorkItemForTransferCompletion @ 0x1C00473C0 (Bulk_WdfEvtWorkItemForTransferCompletion.c)
- *     ESM_SmWorker @ 0x1C00512B0 (ESM_SmWorker.c)
- *     SecureDmaEnabler_FreeCommonBufferPage @ 0x1C0051ED8 (SecureDmaEnabler_FreeCommonBufferPage.c)
- *     SecureDmaEnabler_PrepareMemoryForDma @ 0x1C0051F50 (SecureDmaEnabler_PrepareMemoryForDma.c)
- *     SecureDmaEnabler_ReleaseResourcesAfterDma @ 0x1C00520B0 (SecureDmaEnabler_ReleaseResourcesAfterDma.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     Isoch_EP_StartMapping @ 0x1C0001C90 (Isoch_EP_StartMapping.c)
+ *     Isoch_MapStage @ 0x1C0003780 (Isoch_MapStage.c)
+ *     Control_WdfEvtIoDefault @ 0x1C0003DB0 (Control_WdfEvtIoDefault.c)
+ *     Control_Transfer_Map @ 0x1C00040CC (Control_Transfer_Map.c)
+ *     Interrupter_WdfEvtInterruptIsr @ 0x1C00053F0 (Interrupter_WdfEvtInterruptIsr.c)
+ *     Command_HandleCommandCompletionEvent @ 0x1C0006928 (Command_HandleCommandCompletionEvent.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
+ *     Interrupter_WdfEvtInterruptDisable @ 0x1C000A840 (Interrupter_WdfEvtInterruptDisable.c)
+ *     Bulk_EP_StartMapping @ 0x1C000C8B0 (Bulk_EP_StartMapping.c)
+ *     Bulk_WdfEvtIoQueueReadyNotification @ 0x1C000CBA0 (Bulk_WdfEvtIoQueueReadyNotification.c)
+ *     Bulk_MapStage @ 0x1C000D4EC (Bulk_MapStage.c)
+ *     Control_EP_StartMapping @ 0x1C000ED30 (Control_EP_StartMapping.c)
+ *     Interrupter_WdfEvtInterruptEnable @ 0x1C000F340 (Interrupter_WdfEvtInterruptEnable.c)
+ *     RootHub_AcquireReadModifyWriteLock @ 0x1C0013DD0 (RootHub_AcquireReadModifyWriteLock.c)
+ *     Command_HandleCommandRingStoppedEvent @ 0x1C002E2A4 (Command_HandleCommandRingStoppedEvent.c)
+ *     Interrupter_WdfEvtInterruptWorkItem @ 0x1C003BFA0 (Interrupter_WdfEvtInterruptWorkItem.c)
+ *     Control_WdfEvtWorkItemForTransferCompletion @ 0x1C0040640 (Control_WdfEvtWorkItemForTransferCompletion.c)
+ *     Isoch_WdfEvtWorkItemForTransferCompletion @ 0x1C00431A0 (Isoch_WdfEvtWorkItemForTransferCompletion.c)
+ *     Bulk_WdfEvtWorkItemForTransferCompletion @ 0x1C0044A50 (Bulk_WdfEvtWorkItemForTransferCompletion.c)
+ *     ESM_SmWorker @ 0x1C004E770 (ESM_SmWorker.c)
+ *     SecureDmaEnabler_FreeCommonBufferPage @ 0x1C004F208 (SecureDmaEnabler_FreeCommonBufferPage.c)
+ *     SecureDmaEnabler_PrepareMemoryForDma @ 0x1C004F278 (SecureDmaEnabler_PrepareMemoryForDma.c)
+ *     SecureDmaEnabler_ReleaseResourcesAfterDma @ 0x1C004F3D0 (SecureDmaEnabler_ReleaseResourcesAfterDma.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Controller_ReportFatalError @ 0x1C0034670 (Controller_ReportFatalError.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
  */
 
 void __fastcall Controller_LowerAndTrackIrql(_QWORD *a1)
 {
-  __int64 CurrentProcessorNumber; // rsi
-  int v3; // edx
-  __int64 v4; // rax
+  ULONG CurrentProcessorNumber; // eax
+  int CurrentIrql; // edx
+  __int64 v4; // r9
   int v5; // edx
   KIRQL v6; // cl
   ULONG_PTR v7; // rax
   ULONG_PTR v8; // rax
-  KIRQL CurrentIrql; // al
+  char v9; // al
   int v10; // edx
-  int v11; // edx
-  int v12; // r8d
-  int v13; // r9d
+  int v11; // r8d
+  int v12; // r9d
   int BugCheckParameter4; // [rsp+20h] [rbp-28h]
 
   CurrentProcessorNumber = KeGetCurrentProcessorNumberEx(0LL);
-  if ( KeGetCurrentIrql() == 2 )
+  CurrentIrql = KeGetCurrentIrql();
+  if ( (_BYTE)CurrentIrql == 2 )
   {
-    if ( (unsigned int)CurrentProcessorNumber >= *((_DWORD *)a1 + 218) )
+    if ( CurrentProcessorNumber >= *((_DWORD *)a1 + 204) )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v3) = 2;
+        LOBYTE(CurrentIrql) = 2;
         WPP_RECORDER_SF_d(
           a1[9],
-          v3,
+          CurrentIrql,
           4,
-          318,
-          (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids,
+          308,
+          (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
           CurrentProcessorNumber);
       }
       v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 264))(WdfDriverGlobals, *a1);
       KeBugCheckEx(0x144u, 4uLL, v7, 2uLL, 1uLL);
     }
-    v4 = a1[108];
+    v4 = a1[101];
     v5 = 0;
-    v6 = *(_BYTE *)(v4 + 2 * CurrentProcessorNumber + 1);
-    if ( !*(_BYTE *)(v4 + 2 * CurrentProcessorNumber) )
+    v6 = *(_BYTE *)(v4 + 2LL * CurrentProcessorNumber + 1);
+    if ( !*(_BYTE *)(v4 + 2LL * CurrentProcessorNumber) )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
@@ -82,33 +79,33 @@ void __fastcall Controller_LowerAndTrackIrql(_QWORD *a1)
           a1[9],
           v5,
           4,
-          319,
-          (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids,
+          309,
+          (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
           CurrentProcessorNumber);
       }
       v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 264))(WdfDriverGlobals, *a1);
       KeBugCheckEx(0x144u, 4uLL, v8, 2uLL, 2uLL);
     }
-    *(_BYTE *)(v4 + 2 * CurrentProcessorNumber) = 0;
-    *(_BYTE *)(a1[108] + 2 * CurrentProcessorNumber + 1) = -1;
+    *(_BYTE *)(v4 + 2LL * CurrentProcessorNumber) = 0;
+    *(_BYTE *)(a1[101] + 2LL * CurrentProcessorNumber + 1) = -1;
     KeLowerIrql(v6);
   }
   else
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      LOBYTE(v10) = 2;
-      WPP_RECORDER_SF_d(a1[9], v10, 4, 320, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, CurrentIrql);
+      v9 = KeGetCurrentIrql();
+      LOBYTE(CurrentIrql) = 2;
+      WPP_RECORDER_SF_d(a1[9], CurrentIrql, 4, 310, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v9);
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_sds(
           WPP_GLOBAL_Control->DeviceExtension,
+          v10,
           v11,
           v12,
-          v13,
           BugCheckParameter4,
           (__int64)"onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\controller.c",
-          237,
+          12,
           (__int64)"Expected to be called at DISPATCH_LEVEL.");
     }
     if ( !KdRefreshDebuggerNotPresent() )

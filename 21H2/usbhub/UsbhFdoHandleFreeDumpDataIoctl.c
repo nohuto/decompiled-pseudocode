@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhFdoHandleFreeDumpDataIoctl @ 0x1C002FB38
+ * XREFs of UsbhFdoHandleFreeDumpDataIoctl @ 0x1C0030ED0
  * Callers:
- *     UsbhPdoInternalDeviceControl @ 0x1C0017C10 (UsbhPdoInternalDeviceControl.c)
+ *     UsbhPdoInternalDeviceControl @ 0x1C0009690 (UsbhPdoInternalDeviceControl.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
  */
 
 __int64 __fastcall UsbhFdoHandleFreeDumpDataIoctl(__int64 a1, ULONG_PTR a2, IRP *a3)

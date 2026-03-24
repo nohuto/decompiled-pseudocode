@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FxLibraryCleanup@@YAXXZ @ 0x1C0052A38
+ * XREFs of ?FxLibraryCleanup@@YAXXZ @ 0x1C002D6FC
  * Callers:
- *     DriverEntry @ 0x1C0032660 (DriverEntry.c)
- *     DriverUnload @ 0x1C0052C70 (DriverUnload.c)
+ *     DriverEntry @ 0x1C002DDE0 (DriverEntry.c)
+ *     DriverUnload @ 0x1C002E050 (DriverUnload.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
  */
 
 void FxLibraryCleanup(void)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ??0VIDMM_PROCESS_ADAPTER_INFO@@QEAA@XZ @ 0x1C009D380
+ * XREFs of ??0VIDMM_PROCESS_ADAPTER_INFO@@QEAA@XZ @ 0x1C0084544
  * Callers:
- *     ?InitializeProcessAdapterInfo@VIDMM_PROCESS@@IEAAPEAUVIDMM_PROCESS_ADAPTER_INFO@@PEAVVIDMM_GLOBAL@@@Z @ 0x1C009CD60 (-InitializeProcessAdapterInfo@VIDMM_PROCESS@@IEAAPEAUVIDMM_PROCESS_ADAPTER_INFO@@PEAVVIDMM_GLOBA.c)
+ *     ?InitializeProcessAdapterInfo@VIDMM_PROCESS@@IEAAPEAUVIDMM_PROCESS_ADAPTER_INFO@@PEAVVIDMM_GLOBAL@@@Z @ 0x1C0082804 (-InitializeProcessAdapterInfo@VIDMM_PROCESS@@IEAAPEAUVIDMM_PROCESS_ADAPTER_INFO@@PEAVVIDMM_GLOBA.c)
  * Callees:
- *     ??0_unnamed_type__Policy_@VIDMM_PROCESS_ADAPTER_INFO@@QEAA@XZ @ 0x1C0014AC8 (--0_unnamed_type__Policy_@VIDMM_PROCESS_ADAPTER_INFO@@QEAA@XZ.c)
- *     memset @ 0x1C001DC40 (memset.c)
+ *     ??0_unnamed_type__Policy_@VIDMM_PROCESS_ADAPTER_INFO@@QEAA@XZ @ 0x1C00124C4 (--0_unnamed_type__Policy_@VIDMM_PROCESS_ADAPTER_INFO@@QEAA@XZ.c)
  */
 
 VIDMM_PROCESS_ADAPTER_INFO *__fastcall VIDMM_PROCESS_ADAPTER_INFO::VIDMM_PROCESS_ADAPTER_INFO(
         VIDMM_PROCESS_ADAPTER_INFO *this)
 {
-  _OWORD *v1; // rdi
+  _OWORD *v1; // rbx
+  VIDMM_PROCESS_ADAPTER_INFO *result; // rax
 
   v1 = (_OWORD *)((char *)this + 472);
   *((_QWORD *)this + 6) = 0LL;
@@ -31,33 +31,15 @@ VIDMM_PROCESS_ADAPTER_INFO *__fastcall VIDMM_PROCESS_ADAPTER_INFO::VIDMM_PROCESS
   *((_QWORD *)this + 63) = 0LL;
   *((_QWORD *)this + 64) = 0LL;
   *((_QWORD *)this + 65) = 0LL;
-  memset((char *)this + 528, 0, 0x108uLL);
-  *((_BYTE *)this + 792) = 0;
-  memset((char *)this + 800, 0, 0x15CuLL);
-  *((_BYTE *)this + 1148) = 0;
-  *((_OWORD *)this + 72) = 0LL;
-  *((_OWORD *)this + 73) = 0LL;
-  *((_OWORD *)this + 74) = 0LL;
-  *((_QWORD *)this + 150) = 0LL;
-  *((_DWORD *)this + 302) = 0;
-  *((_BYTE *)this + 1212) = 0;
-  memset((char *)this + 1216, 0, 0x210uLL);
-  *((_BYTE *)this + 1744) = 0;
-  *((_QWORD *)this + 219) = 0LL;
-  *((_QWORD *)this + 220) = 0LL;
-  *((_DWORD *)this + 442) = 0;
-  *((_BYTE *)this + 1772) = 0;
-  *((_QWORD *)this + 222) = 0LL;
-  memset((char *)this + 1784, 0, 0x3C8uLL);
-  *((_BYTE *)this + 2752) = 0;
   *v1 = 0LL;
   *(_OWORD *)((char *)this + 488) = 0LL;
   *((_QWORD *)this + 55) = 0LL;
   *((_OWORD *)this + 28) = 0LL;
   *((_QWORD *)this + 58) = 0LL;
-  *((_QWORD *)this + 51) = 0LL;
-  *((_QWORD *)this + 52) = 0LL;
   *((_QWORD *)this + 54) = (char *)this + 424;
   *((_QWORD *)this + 53) = (char *)this + 424;
-  return this;
+  result = this;
+  *((_QWORD *)this + 51) = 0LL;
+  *((_QWORD *)this + 52) = 0LL;
+  return result;
 }

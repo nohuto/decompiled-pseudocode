@@ -1,25 +1,25 @@
 /*
- * XREFs of NtGdiCheckBitmapBits @ 0x1C02CEC80
+ * XREFs of NtGdiCheckBitmapBits @ 0x1C02B5ED0
  * Callers:
  *     <none>
  * Callees:
- *     ?GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z @ 0x1C02CE430 (-GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z.c)
+ *     ?GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z @ 0x1C02B56DC (-GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z.c)
  */
 
 __int64 __fastcall NtGdiCheckBitmapBits(HDC a1, void *a2, char *a3, int a4, SIZE_T Size, int a6, int a7, char *Address)
 {
-  unsigned int v11; // edi
+  unsigned int v11; // esi
   unsigned __int64 v12; // rax
   unsigned int v13; // ecx
   char *v14; // r8
   HANDLE v15; // r14
   HANDLE v16; // rax
-  void *v17; // rsi
+  void *v17; // rdi
   ULONG v19; // ecx
-  _DWORD v20[4]; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v21; // [rsp+50h] [rbp-38h]
-  int v22; // [rsp+58h] [rbp-30h]
-  int v23; // [rsp+5Ch] [rbp-2Ch]
+  _DWORD v20[4]; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v21; // [rsp+50h] [rbp-48h]
+  int v22; // [rsp+58h] [rbp-40h]
+  int v23; // [rsp+5Ch] [rbp-3Ch]
 
   v23 = 0;
   v11 = 1;

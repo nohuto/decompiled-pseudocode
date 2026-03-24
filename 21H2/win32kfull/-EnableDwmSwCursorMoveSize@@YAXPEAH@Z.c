@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EnableDwmSwCursorMoveSize@@YAXPEAH@Z @ 0x1C0209B58
+ * XREFs of ?EnableDwmSwCursorMoveSize@@YAXPEAH@Z @ 0x1C020ADE4
  * Callers:
- *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C020EBC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ *     xxxMoveSize @ 0x1C0212874 (xxxMoveSize.c)
  * Callees:
- *     ChangeComposableCursor @ 0x1C01CFAF0 (ChangeComposableCursor.c)
+ *     ChangeComposableCursor @ 0x1C01D42BC (ChangeComposableCursor.c)
  */
 
 void __fastcall EnableDwmSwCursorMoveSize(int *a1)

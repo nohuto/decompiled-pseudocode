@@ -1,44 +1,35 @@
 /*
- * XREFs of KiCheckKeepAlive @ 0x1402BFF1C
+ * XREFs of KiCheckKeepAlive @ 0x140310D70
  * Callers:
- *     KeAccumulateTicks @ 0x1402C7AE0 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x1402243D0 (KeAccumulateTicks.c)
  * Callees:
- *     KeCheckProcessorAffinityEx @ 0x140257240 (KeCheckProcessorAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C0280 (KeRemoveProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140229340 (KeAddProcessorAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402BBB30 (KeRemoveProcessorAffinityEx.c)
  */
 
-char __fastcall KiCheckKeepAlive(__int64 a1)
+char __fastcall KiCheckKeepAlive(int a1)
 {
-  unsigned int v1; // edi
-  char v2; // bl
-  wchar_t *v5; // rcx
+  char v2; // di
+  unsigned __int64 v3; // r8
+  char v4; // dl
+  unsigned __int64 v5; // r8
 
-  v1 = *(_DWORD *)(a1 + 36);
   v2 = 0;
-  if ( KiClockTimerPerCpuTickScheduling )
+  v3 = (unsigned int)KiProcessorIndexToNumberMappingTable[a1];
+  v4 = v3 & 0x3F;
+  v5 = v3 >> 6;
+  if ( ((*(_QWORD *)&KiClockCheckPending[4 * v5 + 4] >> v4) & 1) != 0 )
   {
-    if ( (unsigned int)KeCheckProcessorAffinityEx(KiClockCheckReady, v1) )
+    if ( ((*((_QWORD *)&KiClockCheckReady + v5 + 1) >> v4) & 1) != 0 )
     {
-      v5 = KiClockCheckReady;
-      goto LABEL_7;
+      KeRemoveProcessorAffinityEx((unsigned __int16 *)&KiClockCheckReady, a1);
+      KeRemoveProcessorAffinityEx((unsigned __int16 *)KiClockCheckPending, a1);
+      return 1;
     }
-    if ( *(_BYTE *)(a1 + 36488) && MEMORY[0xFFFFF78000000008] > *(_QWORD *)(a1 + 36352) )
-      goto LABEL_4;
-  }
-  else if ( (unsigned int)KeCheckProcessorAffinityEx(KiClockCheckPending, v1) )
-  {
-    if ( !(unsigned int)KeCheckProcessorAffinityEx(KiClockCheckReady, v1) )
+    else
     {
-LABEL_4:
-      KeAddProcessorAffinityEx(KiClockCheckReady, v1);
-      return v2;
+      KeAddProcessorAffinityEx(&KiClockCheckReady, a1);
     }
-    KeRemoveProcessorAffinityEx(KiClockCheckReady, v1);
-    v5 = KiClockCheckPending;
-LABEL_7:
-    KeRemoveProcessorAffinityEx(v5, v1);
-    return 1;
   }
   return v2;
 }

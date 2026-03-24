@@ -1,67 +1,59 @@
 /*
- * XREFs of EmonRemoveProfileSource @ 0x140521670
+ * XREFs of EmonRemoveProfileSource @ 0x1404D4430
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     KeCheckProcessorAffinityEx @ 0x140345D30 (KeCheckProcessorAffinityEx.c)
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpRemoveProfileSourceFromList @ 0x14050BA34 (HalpRemoveProfileSourceFromList.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpRemoveProfileSourceFromList @ 0x1404BF12C (HalpRemoveProfileSourceFromList.c)
  */
 
-__int64 __fastcall EmonRemoveProfileSource(__int64 a1)
+__int64 __fastcall EmonRemoveProfileSource(int *a1)
 {
-  unsigned int v1; // ebp
+  unsigned int v1; // ebx
   unsigned int v2; // edi
-  ULONG ActiveProcessorCount; // r14d
-  int v6; // ebx
-  __int64 v7; // rax
+  ULONG ActiveProcessorCount; // ebp
+  ULONG v6; // r8d
+  int *v7; // r10
   unsigned int v8; // ecx
   unsigned __int64 v9; // rbx
-  __int64 v10; // rdx
-  char v11; // si
-  __int64 v12; // rcx
+  char v10; // si
+  __int64 v11; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v16; // eax
-  bool v17; // zf
-  __int64 v18; // rbx
-  __int64 v19; // rcx
-  __int64 v20; // [rsp+40h] [rbp+8h] BYREF
+  int v15; // eax
+  bool v16; // zf
+  __int64 v17; // rbx
+  __int64 v18; // rcx
+  __int64 v19; // [rsp+48h] [rbp+10h] BYREF
 
-  v1 = *(_DWORD *)a1;
+  v1 = *a1;
   v2 = 0;
-  v20 = 0LL;
+  v19 = 0LL;
   if ( v1 <= 0x24 )
     return 3221225659LL;
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
   v6 = 0;
   if ( ActiveProcessorCount )
   {
-    while ( 1 )
+    v7 = KiProcessorIndexToNumberMappingTable;
+    while ( ((*(_QWORD *)&a1[2 * ((unsigned int)*v7 >> 6) + 4] >> (*(_BYTE *)v7 & 0x3F)) & 1) == 0
+         || !EmonNumberCounters )
     {
-      if ( (unsigned int)KeCheckProcessorAffinityEx((unsigned __int16 *)(a1 + 8), v6) )
-      {
-        v7 = HalpCounterStatus;
-        if ( HalpProfileInterface != &DefaultProfileInterface )
-          v7 = HalpCounterStatus + 8LL * (unsigned int)(v6 * HalpNumberOfCounters);
-        v8 = 0;
-        if ( EmonNumberCounters )
-          break;
-      }
 LABEL_11:
-      if ( ++v6 >= ActiveProcessorCount )
+      ++v6;
+      ++v7;
+      if ( v6 >= ActiveProcessorCount )
         goto LABEL_12;
     }
-    while ( *(_DWORD *)(*(_QWORD *)v7 + 24LL) == 3 || *(_DWORD *)(*(_QWORD *)v7 + 32LL) != v1 )
+    v8 = v6 * EmonNumberCounters;
+    while ( *(_DWORD *)(EmonCounterStatus + 16LL * v8) == 3 || *(_DWORD *)(EmonCounterStatus + 16LL * v8 + 4) != v1 )
     {
-      ++v8;
-      v7 += 8LL;
-      if ( v8 >= EmonNumberCounters )
+      if ( ++v8 - v6 * EmonNumberCounters >= EmonNumberCounters )
         goto LABEL_11;
     }
     return 2147483665LL;
@@ -69,9 +61,9 @@ LABEL_11:
   else
   {
 LABEL_12:
-    v9 = HalpAcquireHighLevelLock(&HalpProfileSourceDescriptorListLock);
-    v11 = HalpRemoveProfileSourceFromList((int *)a1, v10, &v20);
-    KxReleaseSpinLock(&HalpProfileSourceDescriptorListLock);
+    v9 = HalpAcquireHighLevelLock(&EmonProfileSourceDescriptorListLock);
+    v10 = HalpRemoveProfileSourceFromList(a1, (_QWORD **)&EmonProfileSourceDescriptorListHead, &v19);
+    KxReleaseSpinLock(&EmonProfileSourceDescriptorListLock);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
@@ -80,25 +72,25 @@ LABEL_12:
         if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v12 = (unsigned int)(v9 + 1);
+          v11 = (unsigned int)(v9 + 1);
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-          v17 = (v16 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v16;
-          if ( v17 )
+          v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+          v16 = (v15 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v15;
+          if ( v16 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }
     __writecr8(v9);
-    if ( v11 )
+    if ( v10 )
     {
-      v18 = v20;
-      HalpMmAllocCtxFree(v12, *(_QWORD *)(v20 + 296));
-      HalpMmAllocCtxFree(v19, v18);
-      --HalpProfileSourceDescriptorCount;
+      v17 = v19;
+      HalpMmAllocCtxFree(v11, *(_QWORD *)(v19 + 200));
+      HalpMmAllocCtxFree(v18, v17);
+      --EmonProfileSourceDescriptorCount;
     }
-    else if ( !v20 )
+    else if ( !v19 )
     {
       return (unsigned int)-1073741823;
     }

@@ -1,16 +1,16 @@
 /*
- * XREFs of WheaReportHwErrorDeviceDriverEx @ 0x140611690
+ * XREFs of WheaReportHwErrorDeviceDriverEx @ 0x1405BC0F0
  * Callers:
- *     WheaReportHwErrorDeviceDriver @ 0x140A07C90 (WheaReportHwErrorDeviceDriver.c)
+ *     WheaReportHwErrorDeviceDriver @ 0x14095D290 (WheaReportHwErrorDeviceDriver.c)
  * Callees:
- *     RtlStringCchCopyA @ 0x1403C2DCC (RtlStringCchCopyA.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     WheaAddHwErrorReportSectionDeviceDriver @ 0x140611170 (WheaAddHwErrorReportSectionDeviceDriver.c)
- *     WheaCreateHwErrorReportDeviceDriver @ 0x140611280 (WheaCreateHwErrorReportDeviceDriver.c)
- *     WheaHwErrorReportAbandonDeviceDriver @ 0x1406112B0 (WheaHwErrorReportAbandonDeviceDriver.c)
- *     WheaHwErrorReportGetLogDataBufferDeviceDriver @ 0x1406112E0 (WheaHwErrorReportGetLogDataBufferDeviceDriver.c)
- *     WheaHwErrorReportSetSeverityDeviceDriver @ 0x140611410 (WheaHwErrorReportSetSeverityDeviceDriver.c)
- *     WheaHwErrorReportSubmitDeviceDriver @ 0x140611450 (WheaHwErrorReportSubmitDeviceDriver.c)
+ *     RtlStringCchCopyA @ 0x140321BD4 (RtlStringCchCopyA.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     WheaAddHwErrorReportSectionDeviceDriver @ 0x1405BBBF0 (WheaAddHwErrorReportSectionDeviceDriver.c)
+ *     WheaCreateHwErrorReportDeviceDriver @ 0x1405BBCF0 (WheaCreateHwErrorReportDeviceDriver.c)
+ *     WheaHwErrorReportAbandonDeviceDriver @ 0x1405BBD20 (WheaHwErrorReportAbandonDeviceDriver.c)
+ *     WheaHwErrorReportGetLogDataBufferDeviceDriver @ 0x1405BBD50 (WheaHwErrorReportGetLogDataBufferDeviceDriver.c)
+ *     WheaHwErrorReportSetSeverityDeviceDriver @ 0x1405BBE80 (WheaHwErrorReportSetSeverityDeviceDriver.c)
+ *     WheaHwErrorReportSubmitDeviceDriver @ 0x1405BBEC0 (WheaHwErrorReportSubmitDeviceDriver.c)
  */
 
 __int64 __fastcall WheaReportHwErrorDeviceDriverEx(
@@ -26,7 +26,7 @@ __int64 __fastcall WheaReportHwErrorDeviceDriverEx(
         const char *pszSrc)
 {
   size_t v10; // rsi
-  char *HwErrorReportDeviceDriver; // rdi
+  __int64 HwErrorReportDeviceDriver; // rdi
   int v13; // ebx
   void *v15[2]; // [rsp+28h] [rbp-30h] BYREF
   NTSTRSAFE_PSTR pszDest[2]; // [rsp+38h] [rbp-20h]
@@ -36,13 +36,13 @@ __int64 __fastcall WheaReportHwErrorDeviceDriverEx(
   *(_OWORD *)v15 = 0LL;
   *(_OWORD *)pszDest = 0LL;
   v17 = 0LL;
-  HwErrorReportDeviceDriver = (char *)WheaCreateHwErrorReportDeviceDriver(a1);
+  HwErrorReportDeviceDriver = WheaCreateHwErrorReportDeviceDriver(a1);
   if ( HwErrorReportDeviceDriver )
   {
     WheaHwErrorReportSetSeverityDeviceDriver();
     WheaHwErrorReportGetLogDataBufferDeviceDriver();
     memmove(0LL, Src, Size);
-    v13 = WheaAddHwErrorReportSectionDeviceDriver((__int64)HwErrorReportDeviceDriver, v10, (__int64)v15);
+    v13 = WheaAddHwErrorReportSectionDeviceDriver(HwErrorReportDeviceDriver, v10, (__int64)v15);
     if ( v13 >= 0 )
     {
       memmove(*(void **)((char *)v15 + 4), a3, v10);

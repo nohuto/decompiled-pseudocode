@@ -1,14 +1,14 @@
 /*
- * XREFs of ?EnsureMetadataBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801C68F4
+ * XREFs of ?EnsureMetadataBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x180189BF8
  * Callers:
- *     ?NotifyOcclusionChange@CIndirectSwapchainRenderTarget@@UEAAJXZ @ 0x1801C6AF0 (-NotifyOcclusionChange@CIndirectSwapchainRenderTarget@@UEAAJXZ.c)
- *     ?Render@CIndirectSwapchainRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801C7118 (-Render@CIndirectSwapchainRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?ReportSizeChangeMetaData@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801C7218 (-ReportSizeChangeMetaData@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
+ *     ?Render@CIndirectSwapchainRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EE1F8 (-Render@CIndirectSwapchainRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?NotifyOcclusionChange@CIndirectSwapchainRenderTarget@@UEAAJXZ @ 0x180189DF0 (-NotifyOcclusionChange@CIndirectSwapchainRenderTarget@@UEAAJXZ.c)
+ *     ?ReportSizeChangeMetaData@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x18018A3BC (-ReportSizeChangeMetaData@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D0F68 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?AddMultipleAndSet@?$DynArray@E$0A@@@QEAAJPEFBEI@Z @ 0x1801C6584 (-AddMultipleAndSet@-$DynArray@E$0A@@@QEAAJPEFBEI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800C0048 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?AddMultipleAndSet@?$DynArray@E$0A@@@QEAAJPEFBEI@Z @ 0x1801898BC (-AddMultipleAndSet@-$DynArray@E$0A@@@QEAAJPEFBEI@Z.c)
  */
 
 __int64 __fastcall CIndirectSwapchainRenderTarget::EnsureMetadataBuffer(CIndirectSwapchainRenderTarget *this)
@@ -31,61 +31,52 @@ __int64 __fastcall CIndirectSwapchainRenderTarget::EnsureMetadataBuffer(CIndirec
   int v18; // [rsp+30h] [rbp-20h] BYREF
   _QWORD v19[2]; // [rsp+38h] [rbp-18h] BYREF
 
-  v1 = (char *)this + 1896;
-  *((_DWORD *)this + 480) = 0;
-  DynArrayImpl<0>::ShrinkToSize((__int64)this + 1896, 1u);
+  v1 = (char *)this + 1912;
+  *((_DWORD *)this + 484) = 0;
+  DynArrayImpl<0>::ShrinkToSize((__int64)this + 1912, 1u);
   v3 = *((_QWORD *)this + 2);
   v18 = 3;
-  v19[0] = *(_QWORD *)(v3 + 608);
+  v19[0] = *(_QWORD *)(v3 + 456);
   v19[1] = g_qpcFrequency.QuadPart;
-  v4 = DynArray<unsigned char,0>::AddMultipleAndSet((unsigned __int64)v1, &v18, 4u);
+  v4 = DynArray<unsigned char,0>::AddMultipleAndSet((__int64)v1, &v18, 4u);
   v6 = v4;
   if ( v4 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, v4, 0x1D0u);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x1D0u, 0LL);
   }
   else
   {
-    v7 = DynArray<unsigned char,0>::AddMultipleAndSet((unsigned __int64)v1, v19, 0x10u);
+    v7 = DynArray<unsigned char,0>::AddMultipleAndSet((__int64)v1, v19, 0x10u);
     v6 = v7;
     if ( v7 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x1D1u);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x1D1u, 0LL);
     }
-    else if ( *((_BYTE *)this + 1757)
-           && (v18 = 4,
-               v9 = DynArray<unsigned char,0>::AddMultipleAndSet((unsigned __int64)v1, &v18, 4u),
-               v6 = v9,
-               v9 < 0) )
+    else if ( *((_BYTE *)this + 1773)
+           && (v18 = 4, v9 = DynArray<unsigned char,0>::AddMultipleAndSet((__int64)v1, &v18, 4u), v6 = v9, v9 < 0) )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0x1D7u);
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x1D7u, 0LL);
     }
-    else if ( *((_BYTE *)this + 1930)
-           || (v18 = 2,
-               v11 = DynArray<unsigned char,0>::AddMultipleAndSet((unsigned __int64)v1, &v18, 4u),
-               v6 = v11,
-               v11 >= 0) )
+    else if ( *((_BYTE *)this + 1946)
+           || (v18 = 2, v11 = DynArray<unsigned char,0>::AddMultipleAndSet((__int64)v1, &v18, 4u), v6 = v11, v11 >= 0) )
     {
-      if ( *((_BYTE *)this + 1929)
-        && (v18 = 1,
-            v13 = DynArray<unsigned char,0>::AddMultipleAndSet((unsigned __int64)v1, &v18, 4u),
-            v6 = v13,
-            v13 < 0) )
+      if ( *((_BYTE *)this + 1945)
+        && (v18 = 1, v13 = DynArray<unsigned char,0>::AddMultipleAndSet((__int64)v1, &v18, 4u), v6 = v13, v13 < 0) )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0x1E3u);
+        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x1E3u, 0LL);
       }
-      else if ( *((_BYTE *)this + 1928) )
+      else if ( *((_BYTE *)this + 1944) )
       {
         v18 = 0;
-        v15 = DynArray<unsigned char,0>::AddMultipleAndSet((unsigned __int64)v1, &v18, 4u);
+        v15 = DynArray<unsigned char,0>::AddMultipleAndSet((__int64)v1, &v18, 4u);
         v6 = v15;
         if ( v15 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0LL, v15, 0x1E9u);
+          MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x1E9u, 0LL);
       }
     }
     else
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0x1DDu);
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x1DDu, 0LL);
     }
   }
   return v6;

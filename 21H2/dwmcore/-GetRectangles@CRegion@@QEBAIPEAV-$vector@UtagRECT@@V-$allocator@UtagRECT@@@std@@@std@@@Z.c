@@ -1,67 +1,69 @@
 /*
- * XREFs of ?GetRectangles@CRegion@@QEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800B8414
+ * XREFs of ?GetRectangles@CRegion@@QEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800EE504
  * Callers:
- *     ?UpdateRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAA_NPEAVISwapChainRealization@@PEBUCSM_BUFFER_ATTRIBUTES@@PEAUHRGN__@@PEBUScrollOptimization@@@Z @ 0x180069110 (-UpdateRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAA_NPEAVISwapChainRealization@@PEBU.c)
- *     ?Present@CLegacyRenderTarget@@UEAAJ_N@Z @ 0x1800BCFA4 (-Present@CLegacyRenderTarget@@UEAAJ_N@Z.c)
- *     ?GetDirtyRects@CLegacySwapChain@@UEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800E628C (-GetDirtyRects@CLegacySwapChain@@UEBAIPEAV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@.c)
- *     ?AddTransientDirtyRegion@CDrawingContext@@QEAAXAEBVCRegion@@@Z @ 0x1801AF69C (-AddTransientDirtyRegion@CDrawingContext@@QEAAXAEBVCRegion@@@Z.c)
- *     ?GetDirtyRects@CDDisplaySwapChain@@UEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1801C86D0 (-GetDirtyRects@CDDisplaySwapChain@@UEBAIPEAV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std.c)
- *     ?Present@CDDisplayRenderTarget@@UEAAJ_N@Z @ 0x1801C890C (-Present@CDDisplayRenderTarget@@UEAAJ_N@Z.c)
- *     ?Present@CDDARenderTarget@@UEAAJ_N@Z @ 0x1801E1250 (-Present@CDDARenderTarget@@UEAAJ_N@Z.c)
- *     ?GetDirtyRects@CConversionSwapChain@@UEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x180292AA8 (-GetDirtyRects@CConversionSwapChain@@UEBAIPEAV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@s.c)
- *     ?PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x180292F84 (-PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPL.c)
+ *     ?GetDirtyRects@CDDisplaySwapChain@@UEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800EE4F0 (-GetDirtyRects@CDDisplaySwapChain@@UEBAIPEAV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std.c)
+ *     ?GetDirtyRects@CLegacySwapChain@@UEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800F2504 (-GetDirtyRects@CLegacySwapChain@@UEBAIPEAV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@.c)
+ *     ?PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x18024FBE8 (-PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPL.c)
  * Callees:
- *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800B4B40 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     ?GetRectangleCount@CRegion@FastRegion@@QEBAIXZ @ 0x1800B84E0 (-GetRectangleCount@CRegion@FastRegion@@QEBAIXZ.c)
- *     ?reserve@?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@QEAAX_K@Z @ 0x1800B851C (-reserve@-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@QEAAX_K@Z.c)
- *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800D2754 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ??$_Emplace_reallocate@AEAUtagRECT@@@?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@QEAAPEAUtagRECT@@QEAU2@AEAU2@@Z @ 0x1801AEF84 (--$_Emplace_reallocate@AEAUtagRECT@@@-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@QEAAP.c)
+ *     ?GetRectangleCount@CRegion@FastRegion@@QEBAIXZ @ 0x18009B318 (-GetRectangleCount@CRegion@FastRegion@@QEBAIXZ.c)
+ *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x18009B354 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800C4980 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?_Xlength@?$vector@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@2@@std@@CAXXZ @ 0x1800EB3A0 (-_Xlength@-$vector@V-$unique_ptr@VCCheckMPOCache@@U-$default_delete@VCCheckMPOCache@@@std@@@std@.c)
+ *     ??$_Emplace_reallocate@AEAUtagRECT@@@?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@QEAAPEAUtagRECT@@QEAU2@AEAU2@@Z @ 0x1800EE3B8 (--$_Emplace_reallocate@AEAUtagRECT@@@-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@QEAAP.c)
+ *     ?_Reallocate_exactly@?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@AEAAX_K@Z @ 0x1800EE860 (-_Reallocate_exactly@-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@AEAAX_K@Z.c)
  */
 
-__int64 __fastcall CRegion::GetRectangles(FastRegion::CRegion *a1, _QWORD *a2)
+__int64 __fastcall CRegion::GetRectangles(int **a1, _QWORD *a2)
 {
   unsigned int RectangleCount; // eax
   unsigned int v5; // edi
-  FastRegion::Internal::CRgnData *v6; // rcx
-  __int64 v7; // rdx
-  int v8; // eax
-  _OWORD *v9; // rdx
-  _BYTE v11[8]; // [rsp+20h] [rbp-50h] BYREF
-  unsigned __int64 v12; // [rsp+28h] [rbp-48h]
-  _DWORD *v13; // [rsp+30h] [rbp-40h]
-  FastRegion::Internal::CRgnData *v14; // [rsp+38h] [rbp-38h]
-  int v15; // [rsp+40h] [rbp-30h]
-  __int128 v16; // [rsp+50h] [rbp-20h] BYREF
+  unsigned __int64 v6; // rdx
+  FastRegion::Internal::CRgnData *v7; // rcx
+  __int64 v8; // rdx
+  int v9; // eax
+  _BYTE *v10; // rdx
+  _BYTE v12[8]; // [rsp+20h] [rbp-50h] BYREF
+  unsigned __int64 v13; // [rsp+28h] [rbp-48h]
+  _DWORD *v14; // [rsp+30h] [rbp-40h]
+  FastRegion::Internal::CRgnData *v15; // [rsp+38h] [rbp-38h]
+  int v16; // [rsp+40h] [rbp-30h]
+  __int128 v17; // [rsp+50h] [rbp-20h] BYREF
 
   RectangleCount = FastRegion::CRegion::GetRectangleCount(a1);
   v5 = RectangleCount;
   if ( RectangleCount )
   {
-    std::vector<tagRECT>::reserve(a2, RectangleCount + ((__int64)(a2[1] - *a2) >> 4));
-    FastRegion::Internal::CRgnData::BeginIterator(
-      *(FastRegion::Internal::CRgnData **)a1,
-      (struct FastRegion::CRegion::Iterator *)v11);
-    while ( (unsigned __int64)v13 < v12 )
+    v6 = RectangleCount + ((__int64)(a2[1] - *a2) >> 4);
+    if ( v6 > (__int64)(a2[2] - *a2) >> 4 )
     {
-      DWORD1(v16) = *v13;
-      v6 = v14;
-      HIDWORD(v16) = v13[2];
-      v7 = 2 * v15;
-      LODWORD(v16) = *((_DWORD *)v14 + v7);
-      v8 = *((_DWORD *)v14 + v7 + 1);
-      v9 = (_OWORD *)a2[1];
-      DWORD2(v16) = v8;
-      if ( v9 == (_OWORD *)a2[2] )
+      if ( v6 > 0xFFFFFFFFFFFFFFFLL )
+        std::vector<std::unique_ptr<CCheckMPOCache>>::_Xlength();
+      std::vector<tagRECT>::_Reallocate_exactly(a2);
+    }
+    FastRegion::Internal::CRgnData::BeginIterator(
+      (FastRegion::Internal::CRgnData *)*a1,
+      (struct FastRegion::CRegion::Iterator *)v12);
+    while ( (unsigned __int64)v14 < v13 )
+    {
+      DWORD1(v17) = *v14;
+      v7 = v15;
+      HIDWORD(v17) = v14[2];
+      v8 = 2 * v16;
+      LODWORD(v17) = *((_DWORD *)v15 + v8);
+      v9 = *((_DWORD *)v15 + v8 + 1);
+      v10 = (_BYTE *)a2[1];
+      DWORD2(v17) = v9;
+      if ( (_BYTE *)a2[2] == v10 )
       {
-        std::vector<tagRECT>::_Emplace_reallocate<tagRECT &>(a2, v9, &v16);
+        std::vector<tagRECT>::_Emplace_reallocate<tagRECT &>(a2, v10, &v17);
       }
       else
       {
-        *v9 = v16;
+        *(_OWORD *)v10 = v17;
         a2[1] += 16LL;
       }
-      FastRegion::Internal::CRgnData::StepIterator(v6, (struct FastRegion::CRegion::Iterator *)v11);
+      FastRegion::Internal::CRgnData::StepIterator(v7, (struct FastRegion::CRegion::Iterator *)v12);
     }
   }
   return v5;

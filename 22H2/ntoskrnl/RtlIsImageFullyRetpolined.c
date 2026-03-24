@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlIsImageFullyRetpolined @ 0x14035F928
+ * XREFs of RtlIsImageFullyRetpolined @ 0x140372608
  * Callers:
- *     MiLogRetpolineImageLoadEvents @ 0x1407D49B0 (MiLogRetpolineImageLoadEvents.c)
- *     MiIsImageFullyRetpolined @ 0x140A342F8 (MiIsImageFullyRetpolined.c)
- *     MiInitializeRetpoline @ 0x140B48688 (MiInitializeRetpoline.c)
- *     MiApplyBootLoadedDriversFixups @ 0x140B493C4 (MiApplyBootLoadedDriversFixups.c)
- *     MiImportOptimizationCompatibleWithDriverRelocation @ 0x140B4AA08 (MiImportOptimizationCompatibleWithDriverRelocation.c)
- *     MiIsBootImageTargetFullyRetpolined @ 0x140B9A9A0 (MiIsBootImageTargetFullyRetpolined.c)
+ *     MiLogRetpolineImageLoadEvents @ 0x14075C4B0 (MiLogRetpolineImageLoadEvents.c)
+ *     MiIsImageFullyRetpolined @ 0x1408D0B04 (MiIsImageFullyRetpolined.c)
+ *     MiReloadBootLoadedDrivers @ 0x140A4F9F0 (MiReloadBootLoadedDrivers.c)
+ *     MiImportOptimizationCompatibleWithDriverRelocation @ 0x140A503EC (MiImportOptimizationCompatibleWithDriverRelocation.c)
+ *     MiInitializeRetpoline @ 0x140A56538 (MiInitializeRetpoline.c)
+ *     MiIsBootImageTargetFullyRetpolined @ 0x140A924F0 (MiIsBootImageTargetFullyRetpolined.c)
  * Callees:
- *     LdrImageDirectoryEntryToLoadConfig @ 0x1407D4B48 (LdrImageDirectoryEntryToLoadConfig.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x14075C6CC (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
 __int64 __fastcall RtlIsImageFullyRetpolined(__int64 a1)

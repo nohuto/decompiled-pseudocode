@@ -1,34 +1,34 @@
 /*
- * XREFs of MiWaitForFreePage @ 0x1405B8348
+ * XREFs of MiWaitForFreePage @ 0x14055C1FC
  * Callers:
- *     MiMakePageAvoidRead @ 0x1402BBEE0 (MiMakePageAvoidRead.c)
- *     MiGetSystemPage @ 0x1402E6738 (MiGetSystemPage.c)
- *     MiWalkPageTablesRecursively @ 0x14031A5C0 (MiWalkPageTablesRecursively.c)
- *     MmAccessFault @ 0x14031C860 (MmAccessFault.c)
- *     MiAllocateKernelStackPages @ 0x14033B770 (MiAllocateKernelStackPages.c)
- *     MiMakeOutswappedPageResident @ 0x1405803C8 (MiMakeOutswappedPageResident.c)
- *     MiSwitchToTransition @ 0x1405954F4 (MiSwitchToTransition.c)
- *     MiSplitDirectMapPage @ 0x1405A0B10 (MiSplitDirectMapPage.c)
- *     MiBuildForkPte @ 0x1405B88D8 (MiBuildForkPte.c)
- *     MiDoneWithThisPageGetAnother @ 0x1405BA768 (MiDoneWithThisPageGetAnother.c)
- *     MiHandleForkTransitionPte @ 0x1405BB090 (MiHandleForkTransitionPte.c)
- *     MiCopyOnWriteCheckConditions @ 0x1405BCAF8 (MiCopyOnWriteCheckConditions.c)
- *     MiAllocateDriverPage @ 0x14079D08C (MiAllocateDriverPage.c)
- *     MiAllocateTopLevelPage @ 0x1407F1AF8 (MiAllocateTopLevelPage.c)
- *     MmAllocateIndependentPagesEx @ 0x140829CBC (MmAllocateIndependentPagesEx.c)
- *     MiFillPerSessionProtos @ 0x140983680 (MiFillPerSessionProtos.c)
+ *     MiWalkPageTablesRecursively @ 0x14020BDA0 (MiWalkPageTablesRecursively.c)
+ *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
+ *     MiAllocateKernelStackPages @ 0x14023E800 (MiAllocateKernelStackPages.c)
+ *     MiGetSystemPage @ 0x140270ED8 (MiGetSystemPage.c)
+ *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
+ *     MiSwitchToTransition @ 0x140539F14 (MiSwitchToTransition.c)
+ *     MiSplitDirectMapPage @ 0x14054213C (MiSplitDirectMapPage.c)
+ *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
+ *     MiDoneWithThisPageGetAnother @ 0x14055A138 (MiDoneWithThisPageGetAnother.c)
+ *     MiHandleForkTransitionPte @ 0x14055AA64 (MiHandleForkTransitionPte.c)
+ *     MiCopyOnWriteCheckConditions @ 0x14055BEF8 (MiCopyOnWriteCheckConditions.c)
+ *     MiAllocateTopLevelPage @ 0x1406D0824 (MiAllocateTopLevelPage.c)
+ *     MiAllocateDriverPage @ 0x1406D1A78 (MiAllocateDriverPage.c)
+ *     MmAllocateIndependentPagesEx @ 0x140762A0C (MmAllocateIndependentPagesEx.c)
+ *     MiFillPerSessionProtos @ 0x1408D7FE0 (MiFillPerSessionProtos.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiSufficientAvailablePages @ 0x140285380 (MiSufficientAvailablePages.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiObtainFreePages @ 0x140596A58 (MiObtainFreePages.c)
- *     MiNoPagesLastChance @ 0x1405B379C (MiNoPagesLastChance.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     MiSufficientAvailablePages @ 0x140275470 (MiSufficientAvailablePages.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiObtainFreePages @ 0x14053B584 (MiObtainFreePages.c)
+ *     MiNoPagesLastChance @ 0x1405507C8 (MiNoPagesLastChance.c)
  */
 
 __int64 __fastcall MiWaitForFreePage(_QWORD *a1)
@@ -52,11 +52,11 @@ __int64 __fastcall MiWaitForFreePage(_QWORD *a1)
   _QWORD v18[14]; // [rsp+58h] [rbp-49h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v2 = a1 + 1960;
+  v2 = a1 + 616;
   v3 = *((_DWORD *)&KeGetCurrentThread()[1].SwapListEntry + 3) & 2;
   v4 = v3 != 0 ? 34 : 160;
-  v5 = (struct _KEVENT *)((char *)a1 + (-(__int64)(v3 != 0) & 0xFFFFFFFFFFFFFFE0uLL) + 15720);
-  KeAcquireInStackQueuedSpinLock(a1 + 1960, &LockHandle);
+  v5 = (struct _KEVENT *)((char *)a1 + (-(__int64)(v3 != 0) & 0xFFFFFFFFFFFFFFE0uLL) + 4968);
+  KeAcquireInStackQueuedSpinLock(a1 + 616, &LockHandle);
   Lock = v5[1].Header.Lock;
   while ( !(unsigned int)MiSufficientAvailablePages((__int64)a1, v4) )
   {

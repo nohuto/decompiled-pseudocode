@@ -1,16 +1,16 @@
 /*
- * XREFs of ACPIEnableInitializeACPI @ 0x1C0036910
+ * XREFs of ACPIEnableInitializeACPI @ 0x1C0010040
  * Callers:
- *     ACPIInitialize @ 0x1C00A8F88 (ACPIInitialize.c)
+ *     ACPIInitialize @ 0x1C00BED6C (ACPIInitialize.c)
  * Callees:
- *     ACPIGpeClearRegisters @ 0x1C002C260 (ACPIGpeClearRegisters.c)
- *     ACPIGpeEnableDisableEvents @ 0x1C002C2BC (ACPIGpeEnableDisableEvents.c)
- *     ACPIEnableEnterACPIMode @ 0x1C00367B8 (ACPIEnableEnterACPIMode.c)
- *     CLEAR_PM1_STATUS_REGISTER @ 0x1C0038C34 (CLEAR_PM1_STATUS_REGISTER.c)
- *     READ_PM1_CONTROL @ 0x1C0038D20 (READ_PM1_CONTROL.c)
- *     READ_PM1_STATUS @ 0x1C0038E90 (READ_PM1_STATUS.c)
- *     WRITE_PM1_CONTROL @ 0x1C0038F44 (WRITE_PM1_CONTROL.c)
- *     WRITE_PM1_ENABLE @ 0x1C00390B4 (WRITE_PM1_ENABLE.c)
+ *     WRITE_PM1_CONTROL @ 0x1C000FDF0 (WRITE_PM1_CONTROL.c)
+ *     ACPIEnableEnterACPIMode @ 0x1C000FF0C (ACPIEnableEnterACPIMode.c)
+ *     READ_PM1_CONTROL @ 0x1C00100C8 (READ_PM1_CONTROL.c)
+ *     READ_PM1_STATUS @ 0x1C0010154 (READ_PM1_STATUS.c)
+ *     CLEAR_PM1_STATUS_REGISTER @ 0x1C00101E0 (CLEAR_PM1_STATUS_REGISTER.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C00265D0 (ACPIGpeEnableDisableEvents.c)
+ *     ACPIGpeClearRegisters @ 0x1C0026834 (ACPIGpeClearRegisters.c)
+ *     WRITE_PM1_ENABLE @ 0x1C00269B0 (WRITE_PM1_ENABLE.c)
  */
 
 void *__fastcall ACPIEnableInitializeACPI(__int64 a1, __int64 a2)
@@ -19,9 +19,8 @@ void *__fastcall ACPIEnableInitializeACPI(__int64 a1, __int64 a2)
   char v3; // bl
   __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // rdx
-  unsigned __int16 v7; // ax
-  __int64 v8; // rdx
+  __int16 v6; // ax
+  __int64 v7; // rcx
 
   result = AcpiInformation;
   v3 = a1;
@@ -47,11 +46,11 @@ void *__fastcall ACPIEnableInitializeACPI(__int64 a1, __int64 a2)
     if ( v3 )
     {
       ACPIGpeClearRegisters();
-      ACPIGpeEnableDisableEvents(1, v6);
+      LOBYTE(v7) = 1;
+      ACPIGpeEnableDisableEvents(v7);
     }
-    v7 = READ_PM1_CONTROL(v5, v4);
-    LOBYTE(v8) = 1;
-    return (void *)WRITE_PM1_CONTROL(v7 & 0xDFFD, v8);
+    v6 = READ_PM1_CONTROL(v5, v4);
+    return (void *)WRITE_PM1_CONTROL(v6 & 0xDFFD, 1);
   }
   return result;
 }

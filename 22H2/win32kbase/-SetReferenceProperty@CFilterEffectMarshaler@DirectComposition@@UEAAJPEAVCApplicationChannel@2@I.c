@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetReferenceProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C020EC20
+ * XREFs of ?SetReferenceProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01DFEE0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z @ 0x1C0092B30 (-IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z.c)
- *     ?SetInput@CEffectInputSet@DirectComposition@@QEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@@Z @ 0x1C020EF58 (-SetInput@CEffectInputSet@DirectComposition@@QEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarsha.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?SetInput@CEffectInputSet@DirectComposition@@QEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@@Z @ 0x1C01E0204 (-SetInput@CEffectInputSet@DirectComposition@@QEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarsha.c)
  */
 
 __int64 __fastcall DirectComposition::CFilterEffectMarshaler::SetReferenceProperty(
@@ -14,28 +14,29 @@ __int64 __fastcall DirectComposition::CFilterEffectMarshaler::SetReferenceProper
         struct DirectComposition::CResourceMarshaler *a4,
         bool *a5)
 {
-  signed int v9; // r9d
-  unsigned int v10; // r10d
+  signed int v9; // ebx
 
+  *a5 = 0;
   v9 = (a3 & 0xC0000000) != 0x40000000 ? 0xC000000D : 0;
-  if ( !a4
-    || DirectComposition::CResourceMarshaler::IsDerivedResourceType(*((_DWORD *)a4 + 9), 61)
-    || DirectComposition::CResourceMarshaler::IsDerivedResourceType(v10, 42) )
+  if ( a4
+    && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+          a4,
+          59LL)
+    && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+          a4,
+          40LL) )
   {
-    if ( v9 >= 0 )
-    {
-      v9 = DirectComposition::CEffectInputSet::SetInput(
-             (DirectComposition::CFilterEffectMarshaler *)((char *)this + 72),
-             a2,
-             a3 & 0x3FFFFFFF,
-             a4);
-      if ( v9 >= 0 )
-        *a5 = 1;
-    }
+    v9 = -1073741811;
   }
-  else
+  if ( v9 >= 0 )
   {
-    return (unsigned int)-1073741811;
+    v9 = DirectComposition::CEffectInputSet::SetInput(
+           (DirectComposition::CFilterEffectMarshaler *)((char *)this + 72),
+           a2,
+           a3 & 0x3FFFFFFF,
+           a4);
+    if ( v9 >= 0 )
+      *a5 = 1;
   }
   return (unsigned int)v9;
 }

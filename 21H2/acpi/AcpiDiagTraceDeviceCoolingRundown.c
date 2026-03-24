@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiDiagTraceDeviceCoolingRundown @ 0x1C004840C
+ * XREFs of AcpiDiagTraceDeviceCoolingRundown @ 0x1C0049A60
  * Callers:
- *     AcpiDiagTraceControlCallback @ 0x1C00481C0 (AcpiDiagTraceControlCallback.c)
+ *     AcpiDiagTraceControlCallback @ 0x1C0049960 (AcpiDiagTraceControlCallback.c)
  * Callees:
- *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0021FCC (ACPIAmliBuildObjectPathnameUnicode.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0010920 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 void __fastcall AcpiDiagTraceDeviceCoolingRundown(__int64 a1, char a2, char a3)
@@ -29,7 +29,7 @@ void __fastcall AcpiDiagTraceDeviceCoolingRundown(__int64 a1, char a2, char a3)
   RtlInitUnicodeString(&DestinationString, 0LL);
   if ( AcpiDiagHandle
     && EtwEventEnabled(AcpiDiagHandle, &ACPI_ETW_EVENT_DEVICE_COOLING_RUNDOWN)
-    && (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 760), (__int64)&DestinationString, 1) >= 0 )
+    && (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 720), (__int64)&DestinationString) >= 0 )
   {
     UserData.Ptr = (unsigned __int64)&v5;
     Buffer = DestinationString.Buffer;

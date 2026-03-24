@@ -1,1 +1,219 @@
-/*\n * XREFs of MouseClassCreate @ 0x1C0001C70\n * Callers:\n *     <none>\n * Callees:\n *     WPP_RECORDER_SF_qqdDdd @ 0x1C0002530 (WPP_RECORDER_SF_qqdDdd.c)\n *     MouClassTraceLoggingDeniedCreateForReadWithSFAC @ 0x1C0004820 (MouClassTraceLoggingDeniedCreateForReadWithSFAC.c)\n *     MouseClassLogError @ 0x1C0004BA8 (MouseClassLogError.c)\n *     WPP_RECORDER_SF_ @ 0x1C0005CCC (WPP_RECORDER_SF_.c)\n *     WPP_RECORDER_SF_qq @ 0x1C00063F4 (WPP_RECORDER_SF_qq.c)\n *     WPP_RECORDER_SF_qqDdd @ 0x1C0006518 (WPP_RECORDER_SF_qqDdd.c)\n *     WPP_RECORDER_SF_qqdq @ 0x1C0006C30 (WPP_RECORDER_SF_qqdq.c)\n *     WPP_RECORDER_SF_qqq @ 0x1C0006E60 (WPP_RECORDER_SF_qqq.c)\n *     MouEnableDisablePort @ 0x1C000D230 (MouEnableDisablePort.c)\n */\n\n__int64 __fastcall MouseClassCreate(__int64 a1, IRP *a2, __int64 a3, int a4)\n{\n  IRP *v4; // rbx\n  char v6; // r12\n  struct _IO_STACK_LOCATION *CurrentStackLocation; // r15\n  __int64 v8; // rbp\n  char v9; // di\n  struct _IO_REMOVE_LOCK *v10; // r13\n  NTSTATUS v11; // esi\n  KPROCESSOR_MODE RequestorMode; // dl\n  int v13; // r8d\n  int v14; // r9d\n  KIRQL v15; // al\n  __int64 v16; // rcx\n  int v17; // edx\n  int v18; // r8d\n  int v19; // r9d\n  __int64 v20; // rdx\n  int v22; // edx\n  unsigned int v23; // r13d\n  char *v24; // rax\n  char v25; // di\n  int v26; // edx\n  __int64 v27; // rcx\n  int v28; // r8d\n  unsigned int v29; // edi\n  ULONG RemlockSize; // [rsp+20h] [rbp-78h]\n  LUID PrivilegeValue; // [rsp+A0h] [rbp+8h]\n\n  v4 = a2;\n  v6 = 0;\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )\n  {\n    LOBYTE(a2) = 5;\n    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, a2, 2LL);\n  }\n  CurrentStackLocation = v4->Tail.Overlay.CurrentStackLocation;\n  v8 = *(_QWORD *)(a1 + 64);\n  v9 = (CurrentStackLocation->Flags & 1) != 0;\n  if ( v4->RequestorMode == 1 || (CurrentStackLocation->Flags & 1) != 0 )\n  {\n    v22 = *(_DWORD *)(CurrentStackLocation->Parameters.WMI.ProviderId + 16);\n    if ( (v22 & 1) != 0 )\n    {\n      v11 = -1073741790;\n      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n        WPP_RECORDER_SF_qqdDdd(WPP_GLOBAL_Control->DeviceExtension, v22, (unsigned int)&WPP_RECORDER_INITIALIZED, a4);\n      if ( !v4->RequestorMode && v9 )\n        MouClassTraceLoggingDeniedCreateForReadWithSFAC(*(unsigned int *)(CurrentStackLocation->Parameters.WMI.ProviderId\n                                                                        + 16));\n      goto LABEL_19;\n    }\n  }\n  v10 = (struct _IO_REMOVE_LOCK *)(v8 + 32);\n  v11 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v8 + 32), v4, File, 1u, 0x20u);\n  if ( v11 >= 0 )\n  {\n    if ( *(_BYTE *)(v8 + 64) && !*(_BYTE *)(v8 + 65) )\n    {\n      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n        WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 2, 2, 31, RemlockSize, a1, (char)v4);\n      v11 = -1073741823;\n      goto LABEL_18;\n    }\n    if ( *(_QWORD *)v8 == *(_QWORD *)(v8 + 8) )\n    {\n      if ( v9 )\n        RequestorMode = 1;\n      else\n        RequestorMode = v4->RequestorMode;\n      if ( SeSinglePrivilegeCheck((LUID)7LL, RequestorMode) )\n      {\n        v15 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v8 + 144));\n        CurrentStackLocation->FileObject->FsContext2 = DriverEntry;\n        ++*(_DWORD *)(v8 + 80);\n        KeReleaseSpinLock((PKSPIN_LOCK)(v8 + 144), v15);\n      }\n      else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n      {\n        WPP_RECORDER_SF_qqDdd(\n          WPP_GLOBAL_Control->DeviceExtension,\n          CurrentStackLocation->Parameters.WMI.ProviderId,\n          v13,\n          v14,\n          RemlockSize,\n          a1,\n          (char)v4,\n          *(_DWORD *)(CurrentStackLocation->Parameters.WMI.ProviderId + 16),\n          v4->RequestorMode,\n          v9);\n      }\n    }\n    ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n    if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels == v8 )\n    {\n      if ( ++HIDWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) != 1 )\n      {\n        ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n        goto LABEL_18;\n      }\n      if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )\n      {\n        v23 = 0;\n        do\n        {\n          v24 = (char *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v23;\n          PrivilegeValue = (LUID)v24;\n          if ( !v24[19] )\n          {\n            v25 = v24[16];\n            v24[16] = 1;\n            ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n            if ( !v25 )\n            {\n              LOBYTE(v27) = 1;\n              v11 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))MouEnableDisablePort)(\n                      v27,\n                      v4,\n                      *(_QWORD *)(*(_QWORD *)&PrivilegeValue + 8LL),\n                      PrivilegeValue);\n            }\n            if ( v11 )\n            {\n              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n                WPP_RECORDER_SF_qqq(WPP_GLOBAL_Control->DeviceExtension, v26, v28, 33);\n              MouseClassLogError(a1, -1073414135, 20120, v11, 0, 0LL, CurrentStackLocation->MajorFunction);\n              *(_BYTE *)(*(_QWORD *)&PrivilegeValue + 16LL) = 0;\n            }\n            else\n            {\n              v6 = 1;\n            }\n            ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n          }\n          ++v23;\n        }\n        while ( v23 < LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) );\n        v10 = (struct _IO_REMOVE_LOCK *)(v8 + 32);\n      }\n      ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n      if ( !v6 )\n        goto LABEL_18;\n    }\n    else\n    {\n      ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n      if ( *(_QWORD *)(v8 + 8) != a1 )\n      {\n        ++v4->CurrentLocation;\n        ++v4->Tail.Overlay.CurrentStackLocation;\n        v29 = IofCallDriver(*(PDEVICE_OBJECT *)(v8 + 16), v4);\n        IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v8 + 32), v4, 0x20u);\n        return v29;\n      }\n      LOBYTE(v16) = 1;\n      v11 = MouEnableDisablePort(v16, v4, v8, &CurrentStackLocation->FileObject);\n      if ( v11 )\n      {\n        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n          WPP_RECORDER_SF_qqdq(\n            WPP_GLOBAL_Control->DeviceExtension,\n            v17,\n            v18,\n            v19,\n            RemlockSize,\n            a1,\n            (char)v4,\n            v11,\n            *(_QWORD *)(v8 + 16));\n        goto LABEL_18;\n      }\n    }\n    v11 = 0;\nLABEL_18:\n    IoReleaseRemoveLockEx(v10, v4, 0x20u);\n  }\nLABEL_19:\n  v4->IoStatus.Status = v11;\n  v4->IoStatus.Information = 0LL;\n  IofCompleteRequest(v4, 0);\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n  {\n    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )\n    {\n      LOBYTE(v20) = 5;\n      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v20, 2LL);\n    }\n  }\n  return (unsigned int)v11;\n}\n
+/*
+ * XREFs of MouseClassCreate @ 0x1C00012F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qqdDdd @ 0x1C0001BF0 (WPP_RECORDER_SF_qqdDdd.c)
+ *     MouClassTraceLoggingDeniedCreateForReadWithSFAC @ 0x1C00041C8 (MouClassTraceLoggingDeniedCreateForReadWithSFAC.c)
+ *     MouClassTraceLoggingPrivilegeNotFoundForCreate @ 0x1C0004240 (MouClassTraceLoggingPrivilegeNotFoundForCreate.c)
+ *     MouseClassLogError @ 0x1C00045F8 (MouseClassLogError.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000572C (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0005E54 (WPP_RECORDER_SF_qq.c)
+ *     WPP_RECORDER_SF_qqDdd @ 0x1C0005F78 (WPP_RECORDER_SF_qqDdd.c)
+ *     WPP_RECORDER_SF_qqdq @ 0x1C0006698 (WPP_RECORDER_SF_qqdq.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C00068D0 (WPP_RECORDER_SF_qqq.c)
+ *     MouEnableDisablePort @ 0x1C000C010 (MouEnableDisablePort.c)
+ */
+
+__int64 __fastcall MouseClassCreate(__int64 a1, IRP *a2, __int64 a3, int a4)
+{
+  char v4; // r13
+  IRP *v5; // rbx
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // r14
+  __int64 v8; // rsi
+  unsigned __int8 v9; // di
+  KPROCESSOR_MODE RequestorMode; // cl
+  struct _IO_REMOVE_LOCK *v11; // r12
+  NTSTATUS v12; // ebp
+  KPROCESSOR_MODE v13; // dl
+  int v14; // r8d
+  int v15; // r9d
+  KIRQL v16; // al
+  __int64 v17; // rcx
+  int v18; // edx
+  int v19; // r8d
+  int v20; // r9d
+  __int64 v21; // rdx
+  int v23; // edx
+  unsigned int v24; // r12d
+  char *v25; // r13
+  char v26; // di
+  int v27; // edx
+  __int64 v28; // rcx
+  int v29; // r8d
+  unsigned int v30; // edi
+  ULONG RemlockSize; // [rsp+20h] [rbp-78h]
+  char v32; // [rsp+A0h] [rbp+8h]
+
+  v4 = 0;
+  v5 = a2;
+  v32 = 0;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, a2, 2LL);
+  }
+  CurrentStackLocation = v5->Tail.Overlay.CurrentStackLocation;
+  v8 = *(_QWORD *)(a1 + 64);
+  v9 = (CurrentStackLocation->Flags & 1) != 0;
+  RequestorMode = v5->RequestorMode;
+  if ( RequestorMode == 1 || (CurrentStackLocation->Flags & 1) != 0 )
+  {
+    v23 = *(_DWORD *)(CurrentStackLocation->Parameters.WMI.ProviderId + 16);
+    if ( (v23 & 1) != 0 )
+    {
+      v12 = -1073741790;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        WPP_RECORDER_SF_qqdDdd(WPP_GLOBAL_Control->DeviceExtension, v23, (unsigned int)&WPP_RECORDER_INITIALIZED, a4);
+        RequestorMode = v5->RequestorMode;
+      }
+      if ( !RequestorMode && v9 )
+        MouClassTraceLoggingDeniedCreateForReadWithSFAC(*(unsigned int *)(CurrentStackLocation->Parameters.WMI.ProviderId
+                                                                        + 16));
+      goto LABEL_19;
+    }
+  }
+  v11 = (struct _IO_REMOVE_LOCK *)(v8 + 32);
+  v12 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v8 + 32), v5, File, 1u, 0x20u);
+  if ( v12 >= 0 )
+  {
+    if ( *(_BYTE *)(v8 + 64) && !*(_BYTE *)(v8 + 65) )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 2, 2, 31, RemlockSize, a1, (char)v5);
+      v12 = -1073741823;
+      goto LABEL_18;
+    }
+    if ( *(_QWORD *)v8 == *(_QWORD *)(v8 + 8) )
+    {
+      if ( v9 )
+        v13 = 1;
+      else
+        v13 = v5->RequestorMode;
+      if ( SeSinglePrivilegeCheck((LUID)7LL, v13) )
+      {
+        v16 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v8 + 144));
+        CurrentStackLocation->FileObject->FsContext2 = DriverEntry;
+        ++*(_DWORD *)(v8 + 80);
+        KeReleaseSpinLock((PKSPIN_LOCK)(v8 + 144), v16);
+      }
+      else
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_qqDdd(
+            WPP_GLOBAL_Control->DeviceExtension,
+            CurrentStackLocation->Parameters.WMI.ProviderId,
+            v14,
+            v15,
+            RemlockSize,
+            a1,
+            (char)v5,
+            *(_DWORD *)(CurrentStackLocation->Parameters.WMI.ProviderId + 16),
+            v5->RequestorMode,
+            v9);
+        MouClassTraceLoggingPrivilegeNotFoundForCreate(
+          *(unsigned int *)(CurrentStackLocation->Parameters.WMI.ProviderId + 16),
+          (unsigned __int8)v5->RequestorMode,
+          v9);
+      }
+    }
+    ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+    if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels == v8 )
+    {
+      if ( ++HIDWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) != 1 )
+      {
+        ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+        goto LABEL_18;
+      }
+      if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )
+      {
+        v24 = 0;
+        do
+        {
+          v25 = (char *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v24;
+          if ( v25[19] )
+          {
+            v4 = v32;
+          }
+          else
+          {
+            v26 = v25[16];
+            v25[16] = 1;
+            ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+            if ( !v26 )
+            {
+              LOBYTE(v28) = 1;
+              v12 = MouEnableDisablePort(v28, v5, *((_QWORD *)v25 + 1), v25);
+            }
+            if ( v12 )
+            {
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                WPP_RECORDER_SF_qqq(WPP_GLOBAL_Control->DeviceExtension, v27, v29, 33);
+              MouseClassLogError(a1, -1073414135, 20120, v12, 0, 0LL, CurrentStackLocation->MajorFunction);
+              v25[16] = 0;
+              v4 = v32;
+            }
+            else
+            {
+              v4 = 1;
+              v32 = 1;
+            }
+            ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+          }
+          ++v24;
+        }
+        while ( v24 < LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) );
+        v11 = (struct _IO_REMOVE_LOCK *)(v8 + 32);
+      }
+      ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+      if ( !v4 )
+        goto LABEL_18;
+    }
+    else
+    {
+      ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+      if ( *(_QWORD *)(v8 + 8) != a1 )
+      {
+        ++v5->CurrentLocation;
+        ++v5->Tail.Overlay.CurrentStackLocation;
+        v30 = IofCallDriver(*(PDEVICE_OBJECT *)(v8 + 16), v5);
+        IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v8 + 32), v5, 0x20u);
+        return v30;
+      }
+      LOBYTE(v17) = 1;
+      v12 = MouEnableDisablePort(v17, v5, v8, &CurrentStackLocation->FileObject);
+      if ( v12 )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_qqdq(
+            WPP_GLOBAL_Control->DeviceExtension,
+            v18,
+            v19,
+            v20,
+            RemlockSize,
+            a1,
+            (char)v5,
+            v12,
+            *(_QWORD *)(v8 + 16));
+        goto LABEL_18;
+      }
+    }
+    v12 = 0;
+LABEL_18:
+    IoReleaseRemoveLockEx(v11, v5, 0x20u);
+  }
+LABEL_19:
+  v5->IoStatus.Status = v12;
+  v5->IoStatus.Information = 0LL;
+  IofCompleteRequest(v5, 0);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v21) = 5;
+      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v21, 2LL);
+    }
+  }
+  return (unsigned int)v12;
+}

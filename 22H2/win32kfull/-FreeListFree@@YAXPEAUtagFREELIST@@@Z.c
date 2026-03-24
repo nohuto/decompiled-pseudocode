@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C00CFBE0
+ * XREFs of ?FreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C00F13D0
  * Callers:
- *     UpdateMonitorForWindowAndChildren @ 0x1C008E52C (UpdateMonitorForWindowAndChildren.c)
- *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00CF14C (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
- *     xxxInheritWindowMonitor @ 0x1C00D0C30 (xxxInheritWindowMonitor.c)
- *     xxxCleanupAndFreeDdeConv @ 0x1C01FB100 (xxxCleanupAndFreeDdeConv.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     xxxInheritWindowMonitor @ 0x1C006C7D8 (xxxInheritWindowMonitor.c)
+ *     UpdateMonitorForWindowAndChildren @ 0x1C00F12BC (UpdateMonitorForWindowAndChildren.c)
+ *     xxxCleanupAndFreeDdeConv @ 0x1C021C6D0 (xxxCleanupAndFreeDdeConv.c)
  * Callees:
  *     <none>
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpBoostIoAfterAcquire @ 0x140108250
+ * XREFs of ExpBoostIoAfterAcquire @ 0x140108270
  * Callers:
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ExpAcquireResourceSharedLite @ 0x140050960 (ExpAcquireResourceSharedLite.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1400B19F0 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireSharedWaitForExclusive @ 0x140165E60 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x1400B1A10 (ExpAcquireSharedStarveExclusive.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x140165E80 (ExAcquireSharedWaitForExclusive.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     PsGetBaseIoPriorityThread @ 0x1400B6DA0 (PsGetBaseIoPriorityThread.c)
- *     PsBoostThreadIo @ 0x1400BBF50 (PsBoostThreadIo.c)
- *     ExpFindCurrentThread @ 0x1401083A0 (ExpFindCurrentThread.c)
- *     IoBoostThreadIoPriority @ 0x14010863C (IoBoostThreadIoPriority.c)
- *     ExGetExtensionTable @ 0x14010DBE4 (ExGetExtensionTable.c)
- *     KiAbQueueAutoBoostDpc @ 0x14010EDBC (KiAbQueueAutoBoostDpc.c)
- *     KiAbThreadInsertList @ 0x140128DB8 (KiAbThreadInsertList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     PsGetBaseIoPriorityThread @ 0x1400B6DC0 (PsGetBaseIoPriorityThread.c)
+ *     PsBoostThreadIo @ 0x1400BBF70 (PsBoostThreadIo.c)
+ *     ExpFindCurrentThread @ 0x1401083C0 (ExpFindCurrentThread.c)
+ *     IoBoostThreadIoPriority @ 0x14010865C (IoBoostThreadIoPriority.c)
+ *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
+ *     KiAbQueueAutoBoostDpc @ 0x14010EDDC (KiAbQueueAutoBoostDpc.c)
+ *     KiAbThreadInsertList @ 0x140128DD8 (KiAbThreadInsertList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall ExpBoostIoAfterAcquire(__int64 a1, __int64 a2, int a3)

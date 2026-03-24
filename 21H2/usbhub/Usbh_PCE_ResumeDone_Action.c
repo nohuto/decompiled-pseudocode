@@ -1,16 +1,16 @@
 /*
- * XREFs of Usbh_PCE_ResumeDone_Action @ 0x1C00352A0
+ * XREFs of Usbh_PCE_ResumeDone_Action @ 0x1C003655C
  * Callers:
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhPCE_Suspend @ 0x1C000F8DC (UsbhPCE_Suspend.c)
- *     UsbhLockPcqWithTag @ 0x1C001D1A0 (UsbhLockPcqWithTag.c)
- *     UsbhUnlockPcqWithTag @ 0x1C0034A70 (UsbhUnlockPcqWithTag.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhPCE_Suspend @ 0x1C0016A98 (UsbhPCE_Suspend.c)
+ *     UsbhLockPcqWithTag @ 0x1C001AE80 (UsbhLockPcqWithTag.c)
+ *     UsbhUnlockPcqWithTag @ 0x1C0035D2C (UsbhUnlockPcqWithTag.c)
  */
 
-void __fastcall Usbh_PCE_ResumeDone_Action(__int64 a1, __int64 a2, int a3)
+void __fastcall Usbh_PCE_ResumeDone_Action(__int64 a1, __int64 a2, __int64 a3)
 {
   int v6; // eax
   __int64 v7; // r9

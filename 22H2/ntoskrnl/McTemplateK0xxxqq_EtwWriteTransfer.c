@@ -1,14 +1,13 @@
 /*
- * XREFs of McTemplateK0xxxqq_EtwWriteTransfer @ 0x14053F194
+ * XREFs of McTemplateK0xxxqq_EtwWriteTransfer @ 0x1404F0F08
  * Callers:
- *     FsRtlDedupChangeLogWrite @ 0x14093E7E0 (FsRtlDedupChangeLogWrite.c)
- *     FsRtlHeatLogIo @ 0x14093FA70 (FsRtlHeatLogIo.c)
+ *     FsRtlHeatLogIo @ 0x14088CFC0 (FsRtlHeatLogIo.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403C3C60 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036E304 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-NTSTATUS McTemplateK0xxxqq_EtwWriteTransfer(REGHANDLE *a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)
+NTSTATUS McTemplateK0xxxqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-39h] BYREF
   va_list v5; // [rsp+40h] [rbp-29h]
@@ -47,11 +46,11 @@ NTSTATUS McTemplateK0xxxqq_EtwWriteTransfer(REGHANDLE *a1, const EVENT_DESCRIPTO
   va_copy(v5, va);
   v8 = 8LL;
   va_copy(v7, va1);
+  v10 = 8LL;
   va_copy(v9, va2);
   va_copy(v11, va3);
   va_copy(v13, va4);
-  v10 = 8LL;
   v12 = 4LL;
   v14 = 4LL;
-  return McGenEventWrite_EtwWriteTransfer(a1, a2, a3, 6u, &v4);
+  return McGenEventWrite_EtwWriteTransfer(MS_StorageTiering_Provider_Context, a2, a3, 6u, &v4);
 }

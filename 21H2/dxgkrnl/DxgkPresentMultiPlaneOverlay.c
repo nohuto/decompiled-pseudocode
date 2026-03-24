@@ -1,34 +1,33 @@
 /*
- * XREFs of DxgkPresentMultiPlaneOverlay @ 0x1C031A190
+ * XREFs of DxgkPresentMultiPlaneOverlay @ 0x1C02A7530
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$DXGPOINTERARRAYORDEREDACQUIRE@VDXGCONTEXT@@$1?AcquireContextLock@@YAXPEAV1@@Z$1?ReleaseContextLock@@YAX0@Z$03@@QEAA@XZ @ 0x1C0001960 (--1-$DXGPOINTERARRAYORDEREDACQUIRE@VDXGCONTEXT@@$1-AcquireContextLock@@YAXPEAV1@@Z$1-ReleaseCont.c)
- *     ??0?$DXGPOINTERARRAYORDEREDACQUIRE@VDXGCONTEXT@@$1?AcquireContextLock@@YAXPEAV1@@Z$1?ReleaseContextLock@@YAX0@Z$03@@QEAA@PEAPEAVDXGCONTEXT@@IEE@Z @ 0x1C0001DB4 (--0-$DXGPOINTERARRAYORDEREDACQUIRE@VDXGCONTEXT@@$1-AcquireContextLock@@YAXPEAV1@@Z$1-ReleaseCont.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGCONTEXTBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGCONTEXT@@_N2@Z @ 0x1C0008FF0 (--0DXGCONTEXTBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGCONTEXT@@_N2@Z.c)
- *     ??1DXGCONTEXTBYHANDLE@@QEAA@XZ @ 0x1C0009178 (--1DXGCONTEXTBYHANDLE@@QEAA@XZ.c)
- *     ?IsVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@I@Z @ 0x1C0009418 (-IsVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@I@Z.c)
- *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C000955C (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
- *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C00096EC (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
- *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0009730 (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ??1COREACCESS@@QEAA@XZ @ 0x1C000BC90 (--1COREACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C000C040 (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3A0 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3FC (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C000FB18 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     McTemplateK0qqqqdqqq_EtwWriteTransfer @ 0x1C0055734 (McTemplateK0qqqqdqqq_EtwWriteTransfer.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?CapturePresentMultiPlaneOverlayArgs@@YAJPEBUD3DKMT_PRESENT_MULTIPLANE_OVERLAY@@PEAU1@PEAPEAUD3DKMT_MULTIPLANE_OVERLAY@@PEAPEAUtagRECT@@@Z @ 0x1C0318DC4 (-CapturePresentMultiPlaneOverlayArgs@@YAJPEBUD3DKMT_PRESENT_MULTIPLANE_OVERLAY@@PEAU1@PEAPEAUD3D.c)
- *     ?PresentMultiPlaneOverlay@DXGCONTEXT@@QEAAJPEBUD3DKMT_PRESENT_MULTIPLANE_OVERLAY@@PEAVCOREDEVICEACCESS@@PEAPEAV1@@Z @ 0x1C0319C90 (-PresentMultiPlaneOverlay@DXGCONTEXT@@QEAAJPEBUD3DKMT_PRESENT_MULTIPLANE_OVERLAY@@PEAVCOREDEVICE.c)
- *     ?CloseInternalCddPrimaryHandle@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C032FFB4 (-CloseInternalCddPrimaryHandle@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ??0DXGCONTEXTBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGCONTEXT@@_N@Z @ 0x1C0001E14 (--0DXGCONTEXTBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGCONTEXT@@_N@Z.c)
+ *     ?IsVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@I@Z @ 0x1C0002258 (-IsVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEPEBVDXGDEVICE@@I@Z.c)
+ *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C00022BC (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ??1COREACCESS@@QEAA@XZ @ 0x1C00040C0 (--1COREACCESS@@QEAA@XZ.c)
+ *     ??1DXGCONTEXTBYHANDLE@@QEAA@XZ @ 0x1C0004200 (--1DXGCONTEXTBYHANDLE@@QEAA@XZ.c)
+ *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0004300 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00065B8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0006614 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C0006CE0 (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
+ *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C00073EC (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0007464 (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     ??0?$DXGPOINTERARRAYORDEREDACQUIRE@VDXGCONTEXT@@$1?AcquireContextLock@@YAXPEAV1@@Z$1?ReleaseContextLock@@YAX0@Z$03@@QEAA@PEAPEAVDXGCONTEXT@@IE@Z @ 0x1C001A500 (--0-$DXGPOINTERARRAYORDEREDACQUIRE@VDXGCONTEXT@@$1-AcquireContextLock@@YAXPEAV1@@Z$1-ReleaseCont.c)
+ *     ??1?$DXGPOINTERARRAYORDEREDACQUIRE@VDXGCONTEXT@@$1?AcquireContextLock@@YAXPEAV1@@Z$1?ReleaseContextLock@@YAX0@Z$03@@QEAA@XZ @ 0x1C001A824 (--1-$DXGPOINTERARRAYORDEREDACQUIRE@VDXGCONTEXT@@$1-AcquireContextLock@@YAXPEAV1@@Z$1-ReleaseCont.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     McTemplateK0qqqqqqq_EtwWriteTransfer @ 0x1C0027F48 (McTemplateK0qqqqqqq_EtwWriteTransfer.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?CloseInternalCddPrimaryHandle@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C027FAB4 (-CloseInternalCddPrimaryHandle@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?CapturePresentMultiPlaneOverlayArgs@@YAJPEBUD3DKMT_PRESENT_MULTIPLANE_OVERLAY@@PEAU1@PEAPEAUD3DKMT_MULTIPLANE_OVERLAY@@PEAPEAUtagRECT@@@Z @ 0x1C02A3394 (-CapturePresentMultiPlaneOverlayArgs@@YAJPEBUD3DKMT_PRESENT_MULTIPLANE_OVERLAY@@PEAU1@PEAPEAUD3D.c)
+ *     ?PresentMultiPlaneOverlay@DXGCONTEXT@@QEAAJPEBUD3DKMT_PRESENT_MULTIPLANE_OVERLAY@@PEAVCOREDEVICEACCESS@@PEAPEAV1@@Z @ 0x1C02A5D5C (-PresentMultiPlaneOverlay@DXGCONTEXT@@QEAAJPEBUD3DKMT_PRESENT_MULTIPLANE_OVERLAY@@PEAVCOREDEVICE.c)
  */
 
 __int64 __fastcall DxgkPresentMultiPlaneOverlay(struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY *a1)
@@ -38,390 +37,362 @@ __int64 __fastcall DxgkPresentMultiPlaneOverlay(struct D3DKMT_PRESENT_MULTIPLANE
   __int64 v4; // r8
   __int64 v5; // rdx
   __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  struct DXGPROCESS *Current; // r13
-  __int64 CurrentProcess; // rax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  __int64 v19; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  struct DXGPROCESS *Current; // r15
+  __int64 v10; // rbx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rbx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // rcx
   __int64 v20; // rdx
   __int64 v21; // rcx
   __int64 v22; // r8
-  __int64 v23; // r9
-  __int64 v24; // rax
+  __int64 *v23; // rsi
+  _QWORD *v24; // rbx
   __int64 v25; // rdx
   __int64 v26; // rcx
-  __int64 v27; // r8
-  __int64 v28; // r9
-  __int64 v29; // rax
-  __int64 VidPnSourceId; // rcx
-  const wchar_t *v31; // r9
-  __int64 v32; // rdx
-  __int64 v33; // rcx
-  __int64 v34; // r8
-  __int64 v35; // r9
-  __int64 *v36; // rsi
-  __int64 v37; // rax
-  struct DXGDEVICE *v38; // rdx
-  __int64 v39; // r9
-  __int64 v40; // rbx
-  _QWORD *Pool2; // rax
-  __int64 v42; // rbx
-  __int64 v43; // rax
-  __int64 v44; // r9
-  int v45; // ecx
-  __int64 v46; // rdx
-  __int64 v47; // r8
-  __int64 v48; // rdx
+  __int64 v27; // rax
+  unsigned __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // rax
+  ULONG v32; // r14d
+  _BYTE *PoolWithTag; // rax
+  __int64 v34; // rcx
+  unsigned int v35; // ebx
+  __int64 v36; // rax
+  __int64 v37; // r9
+  __int64 v38; // rax
+  __int64 v39; // rdx
+  __int64 v40; // r8
+  __int64 v41; // rdx
+  __int64 v42; // rdx
+  __int64 v43; // rcx
+  __int64 v44; // r8
+  __int64 v45; // rax
+  _QWORD *v46; // rax
+  __int64 v47; // rax
+  __int64 v48; // rax
   __int64 v49; // r9
-  __int64 v50; // rax
-  __int64 v51; // r9
-  __int64 v52; // rdx
-  __int64 v53; // rcx
-  __int64 v54; // r8
-  __int64 v55; // r9
-  __int64 v56; // rax
-  const struct DXGDEVICE *v57; // rdx
+  __int64 v50; // rdx
+  __int64 v51; // rcx
+  __int64 v52; // r8
+  __int64 v53; // rbx
+  __int64 v54; // rdx
+  __int64 v55; // rcx
+  const struct DXGDEVICE *v56; // rdx
+  __int64 v57; // rcx
   __int64 v58; // rcx
   __int64 v59; // rdx
   __int64 v60; // rcx
-  __int64 v61; // rax
+  __int64 v61; // rbx
   __int64 v62; // rdx
   __int64 v63; // rcx
-  __int64 v64; // r8
-  __int64 v65; // r9
-  __int64 v66; // rax
+  __int64 v64; // rdx
+  __int64 v65; // rcx
+  __int64 v66; // rbx
   __int64 v67; // rdx
   __int64 v68; // rcx
   __int64 v69; // rax
   __int64 v70; // rdx
   __int64 v71; // rcx
   __int64 v72; // r8
-  __int64 v74; // [rsp+68h] [rbp-A0h] BYREF
-  struct DXGCONTEXT *v75[2]; // [rsp+70h] [rbp-98h] BYREF
-  PVOID P; // [rsp+80h] [rbp-88h]
-  _BYTE v77[32]; // [rsp+88h] [rbp-80h] BYREF
-  unsigned int v78; // [rsp+A8h] [rbp-60h]
-  _BYTE v79[8]; // [rsp+B0h] [rbp-58h] BYREF
-  __int64 v80; // [rsp+B8h] [rbp-50h]
-  char v81; // [rsp+C0h] [rbp-48h]
-  struct D3DKMT_MULTIPLANE_OVERLAY *v82[2]; // [rsp+C8h] [rbp-40h] BYREF
-  int v83; // [rsp+D8h] [rbp-30h] BYREF
-  __int64 v84; // [rsp+E0h] [rbp-28h]
-  int *v85; // [rsp+E8h] [rbp-20h]
-  __int64 *v86; // [rsp+F0h] [rbp-18h]
-  _BYTE v87[16]; // [rsp+F8h] [rbp-10h] BYREF
-  _QWORD v88[6]; // [rsp+108h] [rbp+0h] BYREF
-  char v89; // [rsp+138h] [rbp+30h]
-  D3DKMT_PRESENT_MULTIPLANE_OVERLAY v90; // [rsp+148h] [rbp+40h] BYREF
-  _BYTE v91[8]; // [rsp+278h] [rbp+170h] BYREF
-  _BYTE v92[64]; // [rsp+280h] [rbp+178h] BYREF
-  _BYTE v93[88]; // [rsp+2C0h] [rbp+1B8h] BYREF
+  int v74; // [rsp+50h] [rbp-B0h] BYREF
+  struct DXGCONTEXT *v75[2]; // [rsp+58h] [rbp-A8h] BYREF
+  _BYTE v76[8]; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v77; // [rsp+70h] [rbp-90h]
+  char v78; // [rsp+78h] [rbp-88h]
+  PVOID P; // [rsp+80h] [rbp-80h]
+  _BYTE v80[32]; // [rsp+88h] [rbp-78h] BYREF
+  ULONG v81; // [rsp+A8h] [rbp-58h]
+  struct D3DKMT_MULTIPLANE_OVERLAY *v82[2]; // [rsp+B0h] [rbp-50h] BYREF
+  int v83; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v84; // [rsp+C8h] [rbp-38h]
+  int *v85; // [rsp+D0h] [rbp-30h]
+  int *v86; // [rsp+D8h] [rbp-28h]
+  _BYTE v87[16]; // [rsp+E0h] [rbp-20h] BYREF
+  _QWORD v88[6]; // [rsp+F0h] [rbp-10h] BYREF
+  char v89; // [rsp+120h] [rbp+20h]
+  D3DKMT_PRESENT_MULTIPLANE_OVERLAY v90; // [rsp+130h] [rbp+30h] BYREF
+  _BYTE v91[8]; // [rsp+260h] [rbp+160h] BYREF
+  _BYTE v92[64]; // [rsp+268h] [rbp+168h] BYREF
+  _BYTE v93[88]; // [rsp+2A8h] [rbp+1A8h] BYREF
 
   v2 = -1073741811;
-  LODWORD(v74) = -1073741811;
+  v74 = -1073741811;
   memset(&v90, 0, sizeof(v90));
-  v83 = 2092;
-  v84 = 0LL;
   v85 = (int *)&v90;
   v86 = &v74;
-  if ( (qword_1C012F870 & 2) != 0 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+  v84 = 0LL;
+  v83 = 2092;
+  if ( (qword_1C00B19B0 & 2) != 0 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
     McTemplateK0q_EtwWriteTransfer(v3, &EventProfilerEnter, v4, 2092);
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v83, 2092);
-  Current = DXGPROCESS::GetCurrent(v6, v5, v7, v8);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v83, 2092LL);
+  Current = DXGPROCESS::GetCurrent(v6, v5);
   if ( !a1 )
   {
-    LODWORD(v74) = -1073741811;
-    CurrentProcess = PsGetCurrentProcess(v10, v9, v11, v12);
-    WdLogSingleEntry2(2LL, (int)v74, CurrentProcess);
-    v19 = PsGetCurrentProcess(v16, v15, v17, v18);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Presenting multi plane overlay from unexpected process 0x%I64x 0x%I64x",
-      (int)v74,
-      v19,
-      0LL,
-      0LL,
-      0LL);
+    v74 = -1073741811;
+    v10 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v10 + 24) = v74;
+    *(_QWORD *)(v10 + 32) = PsGetCurrentProcess(v12, v11);
+    WdLogEvent5_WdError(v10);
     v2 = v74;
     goto LABEL_74;
   }
   *(_OWORD *)v82 = 0LL;
-  LODWORD(v74) = CapturePresentMultiPlaneOverlayArgs(a1, &v90, v82, (struct tagRECT **)&v82[1]);
-  if ( (int)v74 >= 0 )
+  v74 = CapturePresentMultiPlaneOverlayArgs(a1, &v90, v82, (struct tagRECT **)&v82[1]);
+  if ( v74 < 0 )
   {
-    if ( v90.VidPnSourceId >= 0x10 )
+    v16 = WdLogNewEntry5_WdError(v15, v14);
+    *(_QWORD *)(v16 + 24) = v74;
+    *(_QWORD *)(v16 + 32) = PsGetCurrentProcess(v18, v17);
+    v19 = v16;
+LABEL_10:
+    WdLogEvent5_WdError(v19);
+    v2 = v74;
+    goto LABEL_73;
+  }
+  if ( v90.VidPnSourceId >= 0x10 )
+  {
+    v74 = -1073741811;
+    v19 = WdLogNewEntry5_WdError(v15, v14);
+    *(_QWORD *)(v19 + 24) = v90.VidPnSourceId;
+    *(_QWORD *)(v19 + 32) = v74;
+    goto LABEL_10;
+  }
+  v75[0] = 0LL;
+  DXGCONTEXTBYHANDLE::DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v87, v90.hDevice, Current, v75, 0);
+  v23 = (__int64 *)v75[0];
+  if ( !v75[0] )
+  {
+    v74 = -1073741811;
+    v24 = (_QWORD *)WdLogNewEntry5_WdWarning(v21, v20, v22);
+    v24[3] = v74;
+    v24[4] = PsGetCurrentProcess(v26, v25);
+    v24[5] = v90.hDevice;
+    WdLogEvent5_WdWarning(v24);
+LABEL_64:
+    v2 = v74;
+    goto LABEL_72;
+  }
+  if ( (*((_DWORD *)v75[0] + 105) & 8) != 0 )
+  {
+    v27 = WdLogNewEntry5_WdWarning(v21, v20, v22);
+    *(_QWORD *)(v27 + 24) = 326LL;
+    WdLogEvent5_WdWarning(v27);
+    goto LABEL_72;
+  }
+  DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE(
+    (DXGDEVICEACCESSLOCKEXCLUSIVE *)v75,
+    *((struct DXGDEVICE **)v75[0] + 2));
+  if ( v90.BroadcastContextCount > 0x40 )
+  {
+    v31 = WdLogNewEntry5_WdWarning(v29, v28, v30);
+    *(_QWORD *)(v31 + 24) = v23;
+    *(_QWORD *)(v31 + 32) = -1073741811LL;
+    WdLogEvent5_WdWarning(v31);
+    goto LABEL_70;
+  }
+  v32 = v90.BroadcastContextCount + 1;
+  P = 0LL;
+  v81 = 0;
+  if ( v90.BroadcastContextCount + 1 <= 4 )
+  {
+    PoolWithTag = v80;
+  }
+  else
+  {
+    v28 = 0xFFFFFFFFFFFFFFFFuLL % v32;
+    if ( 0xFFFFFFFFFFFFFFFFuLL / v32 < 8 )
     {
-      LODWORD(v74) = -1073741811;
-      WdLogSingleEntry2(2LL, v90.VidPnSourceId, -1073741811LL);
-      VidPnSourceId = v90.VidPnSourceId;
-      v31 = L"Invalid VidPnSoureId 0x%I64x specified in DxgkPresentMultiPlaneOverlay, returning 0x%I64x";
-      v29 = (int)v74;
-      goto LABEL_10;
-    }
-    v75[0] = 0LL;
-    DXGCONTEXTBYHANDLE::DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v87, v90.hDevice, Current, v75, 0, 1);
-    v36 = (__int64 *)v75[0];
-    if ( !v75[0] )
-    {
-      LODWORD(v74) = -1073741811;
-      v37 = PsGetCurrentProcess(v33, v32, v34, v35);
-      WdLogSingleEntry3(3LL, (int)v74, v37, v90.hDevice);
-LABEL_71:
-      v2 = v74;
-      goto LABEL_72;
-    }
-    v38 = (struct DXGDEVICE *)*((_QWORD *)v75[0] + 2);
-    if ( (*(_DWORD *)(*(_QWORD *)(*((_QWORD *)v38 + 2) + 16LL) + 2664LL) & 8) != 0 )
-    {
-      WdLogSingleEntry1(2LL, v90.hDevice);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Present is not supported on MCDM adapter context 0x%I64x",
-        v90.hDevice,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-LABEL_72:
-      DXGCONTEXTBYHANDLE::~DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v87);
-      goto LABEL_73;
-    }
-    if ( (*((_DWORD *)v75[0] + 101) & 8) != 0 )
-    {
-      WdLogSingleEntry1(3LL, 332LL);
-      goto LABEL_72;
-    }
-    DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v75, v38);
-    if ( v90.BroadcastContextCount > 0x40 )
-    {
-      WdLogSingleEntry2(3LL, v36, -1073741811LL);
-LABEL_58:
-      if ( v75[0] )
-        DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v75);
-      goto LABEL_72;
-    }
-    v40 = v90.BroadcastContextCount + 1;
-    P = 0LL;
-    v78 = 0;
-    if ( (unsigned int)v40 <= 4 )
-    {
-      P = v77;
-      memset(v77, 0, 8LL * (unsigned int)v40);
-      Pool2 = P;
-    }
-    else
-    {
-      if ( 0xFFFFFFFFFFFFFFFFuLL / (unsigned int)v40 < 8 )
-        goto LABEL_25;
-      Pool2 = (_QWORD *)ExAllocatePool2(256LL, 8 * v40, 1265072196LL, v39);
-      P = Pool2;
-    }
-    v78 = v40;
-    if ( !Pool2 )
-    {
-LABEL_25:
-      WdLogSingleEntry1(3LL, 354LL);
+LABEL_65:
+      v69 = WdLogNewEntry5_WdWarning(v29, v28, v30);
+      *(_QWORD *)(v69 + 24) = 348LL;
+      WdLogEvent5_WdWarning(v69);
       v2 = -1073741801;
-LABEL_54:
-      if ( P != v77 && P )
-        ExFreePoolWithTag(P, 0);
-      P = 0LL;
-      v78 = 0;
-      goto LABEL_58;
+      goto LABEL_66;
     }
-    *Pool2 = v36;
-    DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v79, Current);
-    v42 = 0LL;
-    if ( !v90.BroadcastContextCount )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8LL * v32, 0x4B677844u);
+  }
+  P = PoolWithTag;
+  v81 = v32;
+  if ( !PoolWithTag )
+    goto LABEL_65;
+  memset(PoolWithTag, 0, 8LL * v32);
+  if ( !P )
+    goto LABEL_65;
+  *(_QWORD *)P = v23;
+  DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v76, (struct _KTHREAD **)Current);
+  v35 = 0;
+  if ( !v90.BroadcastContextCount )
+  {
+LABEL_35:
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v76);
+    DXGPOINTERARRAYORDEREDACQUIRE<DXGCONTEXT,&void AcquireContextLock(DXGCONTEXT *),&void ReleaseContextLock(DXGCONTEXT *),4>::DXGPOINTERARRAYORDEREDACQUIRE<DXGCONTEXT,&void AcquireContextLock(DXGCONTEXT *),&void ReleaseContextLock(DXGCONTEXT *),4>(
+      (__int64)v88,
+      P,
+      v81);
+    if ( v89 )
     {
-LABEL_38:
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v79);
-      DXGPOINTERARRAYORDEREDACQUIRE<DXGCONTEXT,&void AcquireContextLock(DXGCONTEXT *),&void ReleaseContextLock(DXGCONTEXT *),4>::DXGPOINTERARRAYORDEREDACQUIRE<DXGCONTEXT,&void AcquireContextLock(DXGCONTEXT *),&void ReleaseContextLock(DXGCONTEXT *),4>(
-        (__int64)v88,
-        P,
-        v78,
-        v49,
-        1);
-      if ( v89 )
+      if ( v88[0] )
       {
-        if ( v88[0] )
-        {
-          WdLogSingleEntry1(3LL, 410LL);
-        }
-        else
-        {
-          WdLogSingleEntry1(3LL, 405LL);
-          v2 = -1073741801;
-        }
+        v47 = WdLogNewEntry5_WdWarning(v43, v42, v44);
+        *(_QWORD *)(v47 + 24) = 404LL;
+        WdLogEvent5_WdWarning(v47);
       }
       else
       {
-        v50 = v36[2];
-        v81 = 0;
-        v80 = *(_QWORD *)(*(_QWORD *)(v50 + 16) + 16LL);
-        DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v79);
-        COREDEVICEACCESS::COREDEVICEACCESS((__int64)v91, v36[2], 1, v51, 0);
-        LODWORD(v74) = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v91, 0LL);
-        if ( (int)v74 >= 0 )
+        v45 = WdLogNewEntry5_WdWarning(v43, v42, v44);
+        *(_QWORD *)(v45 + 24) = 399LL;
+        WdLogEvent5_WdWarning(v45);
+        v2 = -1073741801;
+      }
+    }
+    else
+    {
+      v48 = v23[2];
+      v78 = 0;
+      v77 = *(_QWORD *)(*(_QWORD *)(v48 + 16) + 16LL);
+      DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v76);
+      COREDEVICEACCESS::COREDEVICEACCESS((__int64)v91, v23[2], 1, v49, 0);
+      v74 = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v91, 0LL);
+      if ( v74 >= 0 )
+      {
+        v56 = (const struct DXGDEVICE *)v23[2];
+        v57 = *((_QWORD *)v56 + 231);
+        if ( v57 )
         {
-          v57 = (const struct DXGDEVICE *)v36[2];
-          v58 = *((_QWORD *)v57 + 231);
-          if ( v58 )
+          if ( *((_BYTE *)Current + 346)
+            || ADAPTER_DISPLAY::IsVidPnSourceOwner(*(DXGADAPTER ***)(v57 + 2696), v56, v90.VidPnSourceId) )
           {
-            if ( (*((_DWORD *)Current + 106) & 4) != 0
-              || ADAPTER_DISPLAY::IsVidPnSourceOwner(*(DXGADAPTER ***)(v58 + 2792), v57, v90.VidPnSourceId) )
+            v64 = v23[2];
+            v65 = *(_QWORD *)(*(_QWORD *)(v64 + 16) + 16LL);
+            if ( *(_QWORD *)(v64 + 1848) == v65 )
             {
-              v67 = v36[2];
-              v68 = *(_QWORD *)(*(_QWORD *)(v67 + 16) + 16LL);
-              if ( *(_QWORD *)(v67 + 1848) == v68 )
-              {
-                LODWORD(v74) = DXGCONTEXT::PresentMultiPlaneOverlay(
-                                 (DXGCONTEXT *)v36,
-                                 &v90,
-                                 (struct COREDEVICEACCESS *)v91,
-                                 (struct DXGCONTEXT **)P);
-                if ( (_DWORD)v74 == -1071775482 )
-                  DXGDEVICE::CloseInternalCddPrimaryHandle((DXGDEVICE *)v36[2], (struct COREDEVICEACCESS *)v91);
-              }
-              else
-              {
-                v69 = PsGetCurrentProcess(v68, v67, v54, v55);
-                WdLogSingleEntry2(3LL, -1073741811LL, v69);
-                LODWORD(v74) = -1073741811;
-              }
-              COREACCESS::~COREACCESS((COREACCESS *)v93);
-              COREACCESS::~COREACCESS((COREACCESS *)v92);
-              if ( v81 )
-                DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v79);
-              DXGPOINTERARRAYORDEREDACQUIRE<DXGCONTEXT,&void AcquireContextLock(DXGCONTEXT *),&void ReleaseContextLock(DXGCONTEXT *),4>::~DXGPOINTERARRAYORDEREDACQUIRE<DXGCONTEXT,&void AcquireContextLock(DXGCONTEXT *),&void ReleaseContextLock(DXGCONTEXT *),4>((__int64)v88);
-              if ( P != v77 && P )
-                ExFreePoolWithTag(P, 0);
-              P = 0LL;
-              v78 = 0;
-              if ( v75[0] )
-                DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v75);
-              goto LABEL_71;
+              v2 = DXGCONTEXT::PresentMultiPlaneOverlay(
+                     (DXGCONTEXT *)v23,
+                     &v90,
+                     (struct COREDEVICEACCESS *)v91,
+                     (struct DXGCONTEXT **)P);
             }
-            LODWORD(v74) = -1073741790;
-            v61 = PsGetCurrentProcess(v60, v59, v54, v55);
-            WdLogSingleEntry2(2LL, (int)v74, v61);
-            v66 = PsGetCurrentProcess(v63, v62, v64, v65);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"Presenting multi plane overlay is only supported from the DWM process 0x%I64x 0x%I64x",
-              (int)v74,
-              v66,
-              0LL,
-              0LL,
-              0LL);
+            else
+            {
+              v66 = WdLogNewEntry5_WdWarning(v65, v64, v52);
+              *(_QWORD *)(v66 + 24) = -1073741811LL;
+              *(_QWORD *)(v66 + 32) = PsGetCurrentProcess(v68, v67);
+              WdLogEvent5_WdWarning(v66);
+            }
+            v74 = v2;
+            if ( v2 == -1071775482 )
+              DXGDEVICE::CloseInternalCddPrimaryHandle((DXGDEVICE *)v23[2], (struct COREDEVICEACCESS *)v91);
+            COREACCESS::~COREACCESS((COREACCESS *)v93);
+            COREACCESS::~COREACCESS((COREACCESS *)v92);
+            if ( v78 )
+              DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v76);
+            DXGPOINTERARRAYORDEREDACQUIRE<DXGCONTEXT,&void AcquireContextLock(DXGCONTEXT *),&void ReleaseContextLock(DXGCONTEXT *),4>::~DXGPOINTERARRAYORDEREDACQUIRE<DXGCONTEXT,&void AcquireContextLock(DXGCONTEXT *),&void ReleaseContextLock(DXGCONTEXT *),4>((__int64)v88);
+            if ( P != v80 && P )
+              ExFreePoolWithTag(P, 0);
+            P = 0LL;
+            v81 = 0;
+            if ( v75[0] )
+              DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v75);
+            goto LABEL_64;
           }
-          else
-          {
-            LODWORD(v74) = -1073741811;
-            WdLogSingleEntry1(2LL, -1073741811LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"PresentMultiPlaneOverlay called on a render only adapter, returning 0x%I64x",
-              (int)v74,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-          }
+          v74 = -1073741790;
+          v61 = WdLogNewEntry5_WdError(v60, v59);
+          *(_QWORD *)(v61 + 24) = v74;
+          *(_QWORD *)(v61 + 32) = PsGetCurrentProcess(v63, v62);
+          v58 = v61;
         }
         else
         {
-          v56 = PsGetCurrentProcess(v53, v52, v54, v55);
-          WdLogSingleEntry2(3LL, (int)v74, v56);
+          v74 = -1073741811;
+          v58 = WdLogNewEntry5_WdError(0LL, v56);
+          *(_QWORD *)(v58 + 24) = v74;
         }
-        v2 = v74;
-        COREACCESS::~COREACCESS((COREACCESS *)v93);
-        COREACCESS::~COREACCESS((COREACCESS *)v92);
-        if ( v81 )
-          DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v79);
+        WdLogEvent5_WdError(v58);
       }
-      DXGPOINTERARRAYORDEREDACQUIRE<DXGCONTEXT,&void AcquireContextLock(DXGCONTEXT *),&void ReleaseContextLock(DXGCONTEXT *),4>::~DXGPOINTERARRAYORDEREDACQUIRE<DXGCONTEXT,&void AcquireContextLock(DXGCONTEXT *),&void ReleaseContextLock(DXGCONTEXT *),4>((__int64)v88);
-      goto LABEL_54;
-    }
-    while ( 1 )
-    {
-      v43 = (v90.BroadcastContext[v42] >> 6) & 0xFFFFFF;
-      if ( (unsigned int)v43 < *((_DWORD *)Current + 74) )
+      else
       {
-        v44 = *((_QWORD *)Current + 35);
-        v45 = *(_DWORD *)(v44 + 16 * v43 + 8);
-        if ( ((v90.BroadcastContext[v42] >> 25) & 0x60) == (*(_BYTE *)(v44 + 16 * v43 + 8) & 0x60)
-          && (v45 & 0x2000) == 0
-          && (v45 & 0x1F) != 0 )
-        {
-          if ( (v45 & 0x1F) == 7 )
-          {
-            v46 = *(_QWORD *)(v44 + 16LL * (unsigned int)v43);
-            goto LABEL_34;
-          }
-          WdLogSingleEntry1(2LL, 267LL);
-          DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 267LL, 0LL, 0LL, 0LL, 0LL);
-        }
+        v53 = WdLogNewEntry5_WdWarning(v51, v50, v52);
+        *(_QWORD *)(v53 + 24) = v74;
+        *(_QWORD *)(v53 + 32) = PsGetCurrentProcess(v55, v54);
+        WdLogEvent5_WdWarning(v53);
       }
-      v46 = 0LL;
-LABEL_34:
-      v47 = (unsigned int)(v42 + 1);
-      *((_QWORD *)P + v47) = v46;
-      v48 = *((_QWORD *)P + v47);
-      if ( !v48 || (*(_DWORD *)(v48 + 404) & 8) != 0 || *(_QWORD *)(v48 + 16) != v36[2] )
-      {
-        WdLogSingleEntry4(2LL, v36, v90.BroadcastContext[v42], v42, -1073741811LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"0x%I64x failed with invalid broadcast context 0x%I64x at index %I64d returning 0x%I64x",
-          (__int64)v36,
-          v90.BroadcastContext[v42],
-          v42,
-          -1073741811LL,
-          0LL);
-        DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v79);
-        goto LABEL_54;
-      }
-      v42 = (unsigned int)v47;
-      if ( (unsigned int)v47 >= v90.BroadcastContextCount )
-        goto LABEL_38;
+      v2 = v74;
+      COREACCESS::~COREACCESS((COREACCESS *)v93);
+      COREACCESS::~COREACCESS((COREACCESS *)v92);
+      if ( v78 )
+        DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v76);
     }
+    DXGPOINTERARRAYORDEREDACQUIRE<DXGCONTEXT,&void AcquireContextLock(DXGCONTEXT *),&void ReleaseContextLock(DXGCONTEXT *),4>::~DXGPOINTERARRAYORDEREDACQUIRE<DXGCONTEXT,&void AcquireContextLock(DXGCONTEXT *),&void ReleaseContextLock(DXGCONTEXT *),4>((__int64)v88);
+    goto LABEL_66;
   }
-  v24 = PsGetCurrentProcess(v21, v20, v22, v23);
-  WdLogSingleEntry2(2LL, (int)v74, v24);
-  v29 = PsGetCurrentProcess(v26, v25, v27, v28);
-  VidPnSourceId = (int)v74;
-  v31 = L"Failed to capture multi plane overlay parameters 0x%I64x 0x%I64x";
-LABEL_10:
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v31, VidPnSourceId, v29, 0LL, 0LL, 0LL);
-  v2 = v74;
+  while ( 1 )
+  {
+    v36 = (v90.BroadcastContext[v35] >> 6) & 0xFFFFFF;
+    if ( (unsigned int)v36 < *((_DWORD *)Current + 64) )
+    {
+      v37 = *((_QWORD *)Current + 30);
+      v34 = *(unsigned int *)(v37 + 16 * v36 + 8);
+      if ( ((v90.BroadcastContext[v35] >> 25) & 0x60) == (*(_BYTE *)(v37 + 16 * v36 + 8) & 0x60)
+        && (v34 & 0x2000) == 0
+        && (v34 & 0x1F) != 0 )
+      {
+        v34 &= 0x1Fu;
+        if ( (_BYTE)v34 == 7 )
+        {
+          v39 = *(_QWORD *)(v37 + 16LL * (unsigned int)v36);
+          goto LABEL_31;
+        }
+        v38 = WdLogNewEntry5_WdError(v34, (v90.BroadcastContext[v35] >> 25) & 0x60);
+        *(_QWORD *)(v38 + 24) = 316LL;
+        WdLogEvent5_WdError(v38);
+      }
+    }
+    v39 = 0LL;
+LABEL_31:
+    v40 = v35 + 1;
+    *((_QWORD *)P + v40) = v39;
+    v41 = *((_QWORD *)P + v40);
+    if ( !v41 || (*(_DWORD *)(v41 + 420) & 8) != 0 || *(_QWORD *)(v41 + 16) != v23[2] )
+      break;
+    ++v35;
+    if ( (unsigned int)v40 >= v90.BroadcastContextCount )
+      goto LABEL_35;
+  }
+  v46 = (_QWORD *)WdLogNewEntry5_WdError(v34, v41);
+  v46[3] = v23;
+  v46[4] = v90.BroadcastContext[v35];
+  v46[5] = v35;
+  v46[6] = -1073741811LL;
+  WdLogEvent5_WdError(v46);
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v76);
+LABEL_66:
+  if ( P != v80 && P )
+    ExFreePoolWithTag(P, 0);
+  P = 0LL;
+  v81 = 0;
+LABEL_70:
+  if ( v75[0] )
+    DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v75);
+LABEL_72:
+  DXGCONTEXTBYHANDLE::~DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v87);
 LABEL_73:
   operator delete[](v82[0]);
   operator delete[](v82[1]);
 LABEL_74:
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v83);
-  if ( (qword_1C012F870 & 2) != 0 )
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v83, v13);
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-      McTemplateK0qqqqdqqq_EtwWriteTransfer(
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+      McTemplateK0qqqqqqq_EtwWriteTransfer(
         (REGHANDLE *)&DxgkControlGuid_Context,
         v70,
         v72,
@@ -431,9 +402,8 @@ LABEL_74:
         v85[68],
         v85[69],
         v85[70],
-        v85[74],
-        *(_DWORD *)v86);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+        *v86);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(v71, &EventProfilerExit, v72, v83);
   }
   return v2;

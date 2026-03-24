@@ -1,12 +1,12 @@
 /*
- * XREFs of VfWdInit @ 0x140ADF0B8
+ * XREFs of VfWdInit @ 0x1409E0C38
  * Callers:
- *     ViIovInitialization @ 0x140ADD358 (ViIovInitialization.c)
+ *     VfInitVerifierComponents @ 0x1409C6E80 (VfInitVerifierComponents.c)
  * Callees:
- *     KeInitializeTimerEx @ 0x1402BE630 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x1403C2C70 (ExInitializeNPagedLookasideListInternal.c)
- *     VfWdSetCancelTimeout @ 0x140ADF17C (VfWdSetCancelTimeout.c)
+ *     KeInitializeTimerEx @ 0x140341AF0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VfWdSetCancelTimeout @ 0x1409E0D00 (VfWdSetCancelTimeout.c)
  */
 
 __int64 VfWdInit()
@@ -15,26 +15,23 @@ __int64 VfWdInit()
 
   if ( !VfSafeMode )
   {
-    result = (unsigned int)ViWdInitialized;
-    if ( !ViWdInitialized )
-    {
-      VfWdIrpListLock = 0LL;
-      qword_140D70690 = (__int64)&VfWdIrpListHead;
-      VfWdIrpListHead = (__int64)&VfWdIrpListHead;
-      ExInitializeNPagedLookasideListInternal(
-        (__int64)&ViWdIrpLookasideList,
-        0LL,
-        (void (__stdcall *)(PVOID))VfUtilFreePoolDispatchLevel,
-        512,
-        32,
-        1683449430,
-        16,
-        VfInitializedWithoutReboot);
-      KeInitializeTimerEx(&ViWdIrpTimer, NotificationTimer);
-      KeInitializeDpc(&ViWdIrpTimerDpc, ViWdIrpTimerDpcRoutine, 0LL);
-      VfWdSetCancelTimeout((unsigned int)VfWdIrpTimeoutMsec);
-      return (unsigned int)_InterlockedExchange(&ViWdInitialized, 1);
-    }
+    VfWdIrpListLock = 0LL;
+    qword_140D4A208 = (__int64)&VfWdIrpListHead;
+    VfWdIrpListHead = (__int64)&VfWdIrpListHead;
+    pXdvExInitializeNPagedLookasideList(
+      (int)&ViWdIrpLookasideList,
+      0,
+      (int)VfUtilFreePoolDispatchLevel,
+      512,
+      32LL,
+      1683449430,
+      16,
+      VfInitializedWithoutReboot,
+      (__int64)ExInitializeNPagedLookasideListInternal);
+    KeInitializeTimerEx(&ViWdIrpTimer, NotificationTimer);
+    KeInitializeDpc(&ViWdIrpTimerDpc, ViWdIrpTimerDpcRoutine, 0LL);
+    VfWdSetCancelTimeout((unsigned int)VfWdIrpTimeoutMsec);
+    return (unsigned int)_InterlockedExchange(&ViWdInitialized, 1);
   }
   return result;
 }

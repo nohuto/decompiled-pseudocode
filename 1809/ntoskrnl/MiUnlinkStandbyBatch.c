@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlinkStandbyBatch @ 0x140105CB0
+ * XREFs of MiUnlinkStandbyBatch @ 0x140105CD0
  * Callers:
- *     MmCheckCachedPageStates @ 0x1400B0290 (MmCheckCachedPageStates.c)
+ *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
  * Callees:
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
- *     MiUserPdeOrAbove @ 0x1400F962C (MiUserPdeOrAbove.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiUserPdeOrAbove @ 0x1400F964C (MiUserPdeOrAbove.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiUnlinkStandbyBatch(

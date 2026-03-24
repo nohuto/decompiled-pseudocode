@@ -1,19 +1,15 @@
 /*
- * XREFs of ?IsSuperWetCompatible@CSynchronousSuperWetInk@@UEAA_NPEAVCD3DDevice@@AEBUDCompWetInkStrokeRenderState@@_N@Z @ 0x180241510
+ * XREFs of ?IsSuperWetCompatible@CSynchronousSuperWetInk@@UEAA_NPEAVCD3DDevice@@AEBUDCompWetInkStrokeRenderState@@@Z @ 0x1801EFBC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char __fastcall CSynchronousSuperWetInk::IsSuperWetCompatible(
+bool __fastcall CSynchronousSuperWetInk::IsSuperWetCompatible(
         CSynchronousSuperWetInk *this,
         struct CD3DDevice *a2,
-        const struct DCompWetInkStrokeRenderState *a3,
-        char a4)
+        const struct DCompWetInkStrokeRenderState *a3)
 {
-  if ( a4 )
-    return 0;
-  else
-    return CSynchronousSuperWetInk::IsSuperWetCompatible(this);
+  return CSynchronousSuperWetInk::IsSuperWetCompatible((CSynchronousSuperWetInk *)((char *)this - 112));
 }

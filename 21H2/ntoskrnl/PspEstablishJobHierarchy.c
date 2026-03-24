@@ -1,25 +1,25 @@
 /*
- * XREFs of PspEstablishJobHierarchy @ 0x1406822EC
+ * XREFs of PspEstablishJobHierarchy @ 0x14071FA0C
  * Callers:
- *     PspImplicitAssignProcessToJob @ 0x140682900 (PspImplicitAssignProcessToJob.c)
- *     PspAssignProcessToJob @ 0x1406879B8 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x140605FB0 (PspImplicitAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
  * Callees:
- *     KeRemoveSchedulingGroup @ 0x1402075A4 (KeRemoveSchedulingGroup.c)
- *     KeInsertSchedulingGroup @ 0x140208434 (KeInsertSchedulingGroup.c)
- *     PsGetProcessSessionId @ 0x14028AF60 (PsGetProcessSessionId.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     IoSetDiskIoAttributionOnProcess @ 0x140360E3C (IoSetDiskIoAttributionOnProcess.c)
- *     PspAddSchedulingGroupToJobChain @ 0x140679480 (PspAddSchedulingGroupToJobChain.c)
- *     MmLinkJobProcess @ 0x1406825AC (MmLinkJobProcess.c)
- *     PspBindProcessSessionToJob @ 0x1406827E8 (PspBindProcessSessionToJob.c)
- *     PspUnlinkJobProcess @ 0x140683ED4 (PspUnlinkJobProcess.c)
- *     PspSetEffectiveJobLimits @ 0x1406CC024 (PspSetEffectiveJobLimits.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FF880 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspEstablishDfssHierarchy @ 0x1409B01E0 (PspEstablishDfssHierarchy.c)
- *     PspSetEffectiveRateControlJob @ 0x1409B07A8 (PspSetEffectiveRateControlJob.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     PsGetProcessSessionId @ 0x140252EB0 (PsGetProcessSessionId.c)
+ *     IoSetDiskIoAttributionOnProcess @ 0x1402535E0 (IoSetDiskIoAttributionOnProcess.c)
+ *     KeInsertSchedulingGroup @ 0x140285278 (KeInsertSchedulingGroup.c)
+ *     KeRemoveSchedulingGroup @ 0x140287B64 (KeRemoveSchedulingGroup.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PspBindProcessSessionToJob @ 0x140613568 (PspBindProcessSessionToJob.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspAddSchedulingGroupToJobChain @ 0x14067F06C (PspAddSchedulingGroupToJobChain.c)
+ *     PspSetEffectiveJobLimits @ 0x1406B0614 (PspSetEffectiveJobLimits.c)
+ *     PspUnlinkJobProcess @ 0x1406B40E8 (PspUnlinkJobProcess.c)
+ *     MmLinkJobProcess @ 0x14071FCB8 (MmLinkJobProcess.c)
+ *     PspEstablishDfssHierarchy @ 0x140908D28 (PspEstablishDfssHierarchy.c)
+ *     PspSetEffectiveRateControlJob @ 0x1409093F8 (PspSetEffectiveRateControlJob.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PspEstablishJobHierarchy(char *Object, __int64 a2, __int64 a3, unsigned int a4)
@@ -36,34 +36,33 @@ __int64 __fastcall PspEstablishJobHierarchy(char *Object, __int64 a2, __int64 a3
   char v18; // al
   int i; // r8d
   __int64 v20; // rax
-  bool v21; // zf
-  void *v22; // rcx
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25[2]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v26; // [rsp+40h] [rbp-28h]
+  void *v21; // rcx
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24[2]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v25; // [rsp+40h] [rbp-28h]
 
-  *(_OWORD *)v25 = 0LL;
-  v26 = 0LL;
+  *(_OWORD *)v24 = 0LL;
+  v25 = 0LL;
   if ( a4 != 1 )
   {
     if ( a4 != 2 )
     {
       if ( a4 == 3 )
       {
-        PspUnlinkJobProcess(a3);
+        PspUnlinkJobProcess(a3, a2);
         MmLinkJobProcess(Object, a2);
         ObfReferenceObjectWithTag(Object, 0x73507350u);
         ObfDereferenceObjectWithTag((PVOID)a3, 0x73507350u);
-        v24 = *((_QWORD *)Object + 193);
-        if ( !*((_DWORD *)Object + 385) )
+        v23 = *((_QWORD *)Object + 169);
+        if ( !*((_DWORD *)Object + 337) )
         {
-          if ( !v24 )
-            goto LABEL_68;
-          v24 = *(_QWORD *)(v24 + 1544);
+          if ( !v23 )
+            goto LABEL_67;
+          v23 = *(_QWORD *)(v23 + 1352);
         }
-        IoSetDiskIoAttributionOnProcess(v24, a2);
-        goto LABEL_68;
+        IoSetDiskIoAttributionOnProcess(v23, a2);
+        goto LABEL_67;
       }
       if ( a4 == 4 || a4 == 5 )
         goto LABEL_13;
@@ -76,7 +75,7 @@ __int64 __fastcall PspEstablishJobHierarchy(char *Object, __int64 a2, __int64 a3
         }
 LABEL_13:
         PoolWithTag = 0LL;
-        v12 = *(_QWORD *)(a3 + 1296) + 1LL;
+        v12 = *(_QWORD *)(a3 + 1104) + 1LL;
         if ( v12 > 2 )
         {
           PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8 * v12 - 16, 0x624A7350u);
@@ -85,22 +84,22 @@ LABEL_13:
         }
         if ( a4 - 4 <= 1 )
         {
-          v8 = PspBindProcessSessionToJob(Object, a2);
+          v8 = PspBindProcessSessionToJob((__int64)Object, a2);
           if ( v8 < 0 )
             goto LABEL_39;
         }
-        v13 = (unsigned __int16 *)*((_QWORD *)Object + 151);
+        v13 = (unsigned __int16 *)*((_QWORD *)Object + 127);
         if ( v13 )
         {
           KeRemoveSchedulingGroup(v13);
-          if ( (*(_DWORD *)(a3 + 1512) & 0x20) == 0 )
+          if ( (*(_DWORD *)(a3 + 1320) & 0x20) == 0 )
           {
             v8 = PspAddSchedulingGroupToJobChain(a3, 0LL);
             if ( v8 < 0 )
             {
               KeInsertSchedulingGroup(
-                *((_QWORD *)Object + 150) + 128LL,
-                *(_QWORD *)(*((_QWORD *)Object + 150) + 128LL),
+                *((_QWORD *)Object + 126) + 128LL,
+                *(_QWORD *)(*((_QWORD *)Object + 126) + 128LL),
                 0LL);
 LABEL_39:
               if ( PoolWithTag )
@@ -109,121 +108,121 @@ LABEL_39:
             }
           }
           KeInsertSchedulingGroup(
-            *((_QWORD *)Object + 150) + 128LL,
-            *(_QWORD *)(*((_QWORD *)Object + 150) + 128LL),
-            *(_QWORD *)(a3 + 1200) + 128LL);
+            *((_QWORD *)Object + 126) + 128LL,
+            *(_QWORD *)(*((_QWORD *)Object + 126) + 128LL),
+            *(_QWORD *)(a3 + 1008) + 128LL);
         }
         else
         {
-          v14 = *(_QWORD *)(a3 + 1208);
+          v14 = *(_QWORD *)(a3 + 1016);
           if ( v14 )
-            *((_QWORD *)Object + 151) = v14;
+            *((_QWORD *)Object + 127) = v14;
         }
         v15 = Object;
         if ( a4 != 4 )
           v15 = (PVOID)a3;
         ObfReferenceObjectWithTag(v15, 0x73507350u);
-        v16 = *(_QWORD **)(a3 + 1256);
-        v17 = Object + 1232;
-        if ( *v16 != a3 + 1248 )
+        v16 = *(_QWORD **)(a3 + 1064);
+        v17 = Object + 1040;
+        if ( *v16 != a3 + 1056 )
           __fastfail(3u);
-        *v17 = a3 + 1248;
-        *((_QWORD *)Object + 155) = v16;
+        *v17 = a3 + 1056;
+        *((_QWORD *)Object + 131) = v16;
         *v16 = v17;
-        *(_QWORD *)(a3 + 1256) = v17;
-        *((_QWORD *)Object + 158) = a3;
-        *((_QWORD *)Object + 159) = *(_QWORD *)(a3 + 1272);
-        v18 = *(_BYTE *)(a3 + 1066) + 1;
-        *((_QWORD *)Object + 162) = v12;
-        Object[1066] = v18;
+        *(_QWORD *)(a3 + 1064) = v17;
+        *((_QWORD *)Object + 134) = a3;
+        *((_QWORD *)Object + 135) = *(_QWORD *)(a3 + 1080);
+        v18 = *(_BYTE *)(a3 + 874) + 1;
+        *((_QWORD *)Object + 138) = v12;
+        Object[874] = v18;
         if ( v12 > 2 )
         {
           if ( v12 > 3 )
           {
-            v23 = *(_QWORD *)(a3 + 1296) - 2LL;
-            if ( *(_QWORD *)(a3 + 1296) != 2LL )
+            v22 = *(_QWORD *)(a3 + 1104) - 2LL;
+            if ( *(_QWORD *)(a3 + 1104) != 2LL )
             {
               do
               {
-                PoolWithTag[v23] = *(_QWORD *)(*(_QWORD *)(a3 + 1304) + 8 * v23 - 8);
-                --v23;
+                PoolWithTag[v22] = *(_QWORD *)(*(_QWORD *)(a3 + 1112) + 8 * v22 - 8);
+                --v22;
               }
-              while ( v23 );
+              while ( v22 );
             }
           }
-          *PoolWithTag = *(_QWORD *)(a3 + 1264);
-          *((_QWORD *)Object + 163) = PoolWithTag;
+          *PoolWithTag = *(_QWORD *)(a3 + 1072);
+          *((_QWORD *)Object + 139) = PoolWithTag;
           PoolWithTag = 0LL;
         }
         if ( a4 == 4 )
         {
-          PspUnlinkJobProcess(a3);
+          PspUnlinkJobProcess(a3, a2);
           MmLinkJobProcess(Object, a2);
         }
-        PspSetEffectiveJobLimits(Object, 0LL);
-        *((_DWORD *)Object + 262) += *(_DWORD *)(a3 + 1048);
-        *((_DWORD *)Object + 264) += *(_DWORD *)(a3 + 1056);
-        *((_DWORD *)Object + 263) += *(_DWORD *)(a3 + 1052);
-        *((_DWORD *)Object + 265) += *(_DWORD *)(a3 + 1060);
-        *((_QWORD *)Object + 221) = *(_QWORD *)(a3 + 1768);
-        if ( (*(_DWORD *)(a3 + 1512) & 0x1841000) != 0 )
-          _InterlockedOr((volatile signed __int32 *)Object + 378, *(_DWORD *)(a3 + 1512) & 0x1841000);
+        PspSetEffectiveJobLimits((__int64)Object, 0LL);
+        *((_DWORD *)Object + 214) += *(_DWORD *)(a3 + 856);
+        *((_DWORD *)Object + 216) += *(_DWORD *)(a3 + 864);
+        *((_DWORD *)Object + 215) += *(_DWORD *)(a3 + 860);
+        *((_DWORD *)Object + 217) += *(_DWORD *)(a3 + 868);
+        *((_QWORD *)Object + 197) = *(_QWORD *)(a3 + 1576);
+        if ( (*(_DWORD *)(a3 + 1320) & 0x1841000) != 0 )
+          _InterlockedOr((volatile signed __int32 *)Object + 330, *(_DWORD *)(a3 + 1320) & 0x1841000);
         for ( i = 0; i < 3; ++i )
         {
-          if ( (unsigned int)(i - 1) > 1 && *(_QWORD *)(a3 + 1024) )
+          if ( (unsigned int)(i - 1) > 1 && *(_QWORD *)(a3 + 832) )
             PspSetEffectiveRateControlJob(Object);
         }
-        if ( *(_DWORD *)(a3 + 1540) )
+        if ( *(_DWORD *)(a3 + 1348) )
         {
           v20 = a3;
-          v21 = a3 == 0;
         }
         else
         {
-          v20 = *(_QWORD *)(a3 + 1544);
-          v21 = v20 == 0;
+          v20 = *(_QWORD *)(a3 + 1352);
+          if ( v20 )
+            goto LABEL_60;
         }
+        if ( !v20 )
+        {
+          if ( *((_DWORD *)Object + 337) && a4 == 4 )
+            IoSetDiskIoAttributionOnProcess(*((_QWORD *)Object + 169), a2);
+          goto LABEL_34;
+        }
+LABEL_60:
+        v24[1] = v20;
+        LOBYTE(v25) = 1;
+        PspEnumJobsAndProcessesInJobHierarchy(Object, (int)PspSetJobIoAttributionJobPreCallback, 0, 0, (__int64)v24, 5);
+LABEL_34:
+        v21 = *(void **)(a3 + 1560);
         if ( v21 )
         {
-          if ( *((_DWORD *)Object + 385) && a4 == 4 )
-            IoSetDiskIoAttributionOnProcess(*((_QWORD *)Object + 193), a2);
-        }
-        else
-        {
-          v25[1] = v20;
-          LOBYTE(v26) = 1;
-          PspEnumJobsAndProcessesInJobHierarchy(Object, (__int64)v25, 5);
-        }
-        v22 = *(void **)(a3 + 1752);
-        if ( v22 )
-        {
-          ObfReferenceObjectWithTag(v22, 0x624A7350u);
-          *((_QWORD *)Object + 219) = *(_QWORD *)(a3 + 1752);
-          *((_QWORD *)Object + 220) = *(_QWORD *)(a3 + 1760);
+          ObfReferenceObjectWithTag(v21, 0x624A7350u);
+          *((_QWORD *)Object + 195) = *(_QWORD *)(a3 + 1560);
+          *((_QWORD *)Object + 196) = *(_QWORD *)(a3 + 1568);
         }
         if ( a4 == 7 )
-          _interlockedbittestandset((volatile signed __int32 *)Object + 379, 0);
+          _interlockedbittestandset((volatile signed __int32 *)Object + 331, 0);
         v8 = 0;
         goto LABEL_39;
       }
-      _interlockedbittestandset((volatile signed __int32 *)Object + 379, 0);
+      _interlockedbittestandset((volatile signed __int32 *)Object + 331, 0);
     }
-LABEL_68:
+LABEL_67:
     v8 = 0;
     goto LABEL_6;
   }
-  v8 = PspBindProcessSessionToJob(Object, a2);
+  v8 = PspBindProcessSessionToJob((__int64)Object, a2);
   if ( v8 >= 0 )
   {
     ObfReferenceObjectWithTag(Object, 0x73507350u);
     MmLinkJobProcess(Object, a2);
   }
-  v9 = *((_QWORD *)Object + 193);
-  if ( !*((_DWORD *)Object + 385) )
+  v9 = *((_QWORD *)Object + 169);
+  if ( !*((_DWORD *)Object + 337) )
   {
     if ( !v9 )
       goto LABEL_6;
-    v9 = *(_QWORD *)(v9 + 1544);
+    v9 = *(_QWORD *)(v9 + 1352);
   }
   IoSetDiskIoAttributionOnProcess(v9, a2);
 LABEL_6:

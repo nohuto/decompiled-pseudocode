@@ -1,26 +1,33 @@
 /*
- * XREFs of ?RemoveAndDeleteProp@CWindowProp@@QEAAXXZ @ 0x1C00C9470
+ * XREFs of ?RemoveAndDeleteProp@CWindowProp@@QEAAXXZ @ 0x1C00EF434
  * Callers:
- *     ?_GetWindowCompositionVisualBitmap@@YAJPEAUtagWND@@PEAPEAUCompositionObject@@@Z @ 0x1C0015424 (-_GetWindowCompositionVisualBitmap@@YAJPEAUtagWND@@PEAPEAUCompositionObject@@@Z.c)
- *     ?_DetachWindowCompositionTarget@@YAHPEAUtagWND@@K@Z @ 0x1C0058D0C (-_DetachWindowCompositionTarget@@YAHPEAUtagWND@@K@Z.c)
- *     ?_AttachWindowCompositionTarget@@YAJPEAUtagWND@@KPEAUCompositionObject@@@Z @ 0x1C005950C (-_AttachWindowCompositionTarget@@YAJPEAUtagWND@@KPEAUCompositionObject@@@Z.c)
- *     UserDetachQueueFromInputWindow @ 0x1C00A9568 (UserDetachQueueFromInputWindow.c)
- *     RemoveVisRgnTracker @ 0x1C00C96FC (RemoveVisRgnTracker.c)
- *     ?AttachInputQueueToWindow@@YAJPEAUtagWND@@PEAVIInputQueue@@@Z @ 0x1C00E2830 (-AttachInputQueueToWindow@@YAJPEAUtagWND@@PEAVIInputQueue@@@Z.c)
- *     ?CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z @ 0x1C00EE714 (-CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z.c)
+ *     ?_AttachWindowCompositionTarget@@YAJPEAUtagWND@@HPEAUCompositionObject@@@Z @ 0x1C00ECB14 (-_AttachWindowCompositionTarget@@YAJPEAUtagWND@@HPEAUCompositionObject@@@Z.c)
+ *     ?_DetachWindowCompositionTarget@@YAHPEAUtagWND@@H@Z @ 0x1C00ECE24 (-_DetachWindowCompositionTarget@@YAHPEAUtagWND@@H@Z.c)
+ *     RemoveVisRgnTracker @ 0x1C00EF09C (RemoveVisRgnTracker.c)
+ *     UserDetachQueueFromInputWindow @ 0x1C00F2C08 (UserDetachQueueFromInputWindow.c)
+ *     ?AttachInputQueueToWindow@@YAJPEAUtagWND@@PEAVIInputQueue@@@Z @ 0x1C010AAC0 (-AttachInputQueueToWindow@@YAJPEAUtagWND@@PEAVIInputQueue@@@Z.c)
  * Callees:
- *     InternalRemoveProp @ 0x1C00C94BC (InternalRemoveProp.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CWindowProp::RemoveAndDeleteProp(CWindowProp *this)
 {
   unsigned __int16 v2; // ax
-  void (__fastcall **v3)(CWindowProp *); // rax
+  __int64 v3; // rdx
+  bool v4; // zf
+  __int64 v5; // rax
+  __int64 v6; // rcx
+  void (__fastcall **v7)(CWindowProp *); // rax
 
   v2 = (*(__int64 (__fastcall **)(CWindowProp *))(*(_QWORD *)this + 8LL))(this);
-  InternalRemoveProp(*((_QWORD *)this + 2), v2, 1LL);
-  v3 = *(void (__fastcall ***)(CWindowProp *))this;
-  *((_QWORD *)this + 2) = 0LL;
-  (*v3)(this);
+  v3 = v2;
+  v4 = v2 == (unsigned __int16)word_1C0339F44;
+  v5 = *((_QWORD *)this + 1);
+  v6 = *(_QWORD *)(v5 + 144);
+  if ( v4 )
+    *(_QWORD *)(*(_QWORD *)(v5 + 40) + 312LL) = 0LL;
+  RealInternalRemoveProp(v6, v3, 1LL);
+  v7 = *(void (__fastcall ***)(CWindowProp *))this;
+  *((_QWORD *)this + 1) = 0LL;
+  (*v7)(this);
 }

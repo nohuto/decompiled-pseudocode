@@ -1,15 +1,15 @@
 /*
- * XREFs of HUBREG_UpdateUxdSettings @ 0x1C0086398
+ * XREFs of HUBREG_UpdateUxdSettings @ 0x1C00808CC
  * Callers:
- *     HUBFDO_IoctlCyclePort @ 0x1C007A988 (HUBFDO_IoctlCyclePort.c)
- *     HUBPDO_AssignPDOIds @ 0x1C007DBAC (HUBPDO_AssignPDOIds.c)
+ *     HUBFDO_IoctlCyclePort @ 0x1C0076D30 (HUBFDO_IoctlCyclePort.c)
+ *     HUBPDO_AssignPDOIds @ 0x1C007945C (HUBPDO_AssignPDOIds.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0044EC0 (memset.c)
- *     HUBREG_QueryGlobalUxdSettings @ 0x1C0085AE4 (HUBREG_QueryGlobalUxdSettings.c)
- *     HUBREG_QueryUxdPortKey @ 0x1C0085E2C (HUBREG_QueryUxdPortKey.c)
- *     HUBREG_QueryUxdDeviceKey @ 0x1C00860B4 (HUBREG_QueryUxdDeviceKey.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
+ *     HUBREG_QueryGlobalUxdSettings @ 0x1C0080018 (HUBREG_QueryGlobalUxdSettings.c)
+ *     HUBREG_QueryUxdPortKey @ 0x1C0080360 (HUBREG_QueryUxdPortKey.c)
+ *     HUBREG_QueryUxdDeviceKey @ 0x1C00805E8 (HUBREG_QueryUxdDeviceKey.c)
  */
 
 __int64 __fastcall HUBREG_UpdateUxdSettings(__int64 a1, __int64 a2, _BYTE *a3)
@@ -18,17 +18,17 @@ __int64 __fastcall HUBREG_UpdateUxdSettings(__int64 a1, __int64 a2, _BYTE *a3)
   __int128 v7; // xmm1
   __int128 v8; // xmm0
   __int128 v9; // xmm1
-  __int64 v10; // rsi
+  __int64 v10; // r14
   int v11; // eax
   __int128 v12; // xmm1
   int v13; // eax
   __int128 v14; // xmm0
   __int128 v15; // xmm1
   _OWORD Source1[5]; // [rsp+20h] [rbp-79h] BYREF
-  _OWORD Source2[5]; // [rsp+70h] [rbp-29h] BYREF
+  _OWORD Source2[4]; // [rsp+70h] [rbp-29h] BYREF
+  int v19; // [rsp+B0h] [rbp+17h]
 
   memset(Source1, 0, 0x44uLL);
-  memset(Source2, 0, 0x44uLL);
   if ( a3 )
     *a3 = 0;
   _InterlockedAnd((volatile signed __int32 *)(a2 + 1632), 0xFFFFFFFE);
@@ -36,7 +36,7 @@ __int64 __fastcall HUBREG_UpdateUxdSettings(__int64 a1, __int64 a2, _BYTE *a3)
   v7 = *(_OWORD *)(a2 + 1680);
   Source2[0] = *(_OWORD *)(a2 + 1664);
   v8 = *(_OWORD *)(a2 + 1696);
-  LODWORD(Source2[4]) = v6;
+  v19 = v6;
   Source2[1] = v7;
   v9 = *(_OWORD *)(a2 + 1712);
   Source2[2] = v8;
@@ -44,7 +44,7 @@ __int64 __fastcall HUBREG_UpdateUxdSettings(__int64 a1, __int64 a2, _BYTE *a3)
   v10 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
           WdfDriverGlobals,
           WdfDriverGlobals->Driver,
-          off_1C00691E8);
+          off_1C00661C0);
   if ( (int)HUBREG_QueryGlobalUxdSettings(v10) >= 0 )
   {
     v11 = *(_DWORD *)(v10 + 4);

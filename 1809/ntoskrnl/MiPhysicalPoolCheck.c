@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPhysicalPoolCheck @ 0x140164528
+ * XREFs of MiPhysicalPoolCheck @ 0x140164548
  * Callers:
- *     MiFindContiguousMemoryInPool @ 0x1401625B4 (MiFindContiguousMemoryInPool.c)
- *     MiCheckPoolForContiguousPages @ 0x1401643F4 (MiCheckPoolForContiguousPages.c)
+ *     MiFindContiguousMemoryInPool @ 0x1401625D4 (MiFindContiguousMemoryInPool.c)
+ *     MiCheckPoolForContiguousPages @ 0x140164414 (MiCheckPoolForContiguousPages.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  */

@@ -3,7 +3,7 @@
  * Callers:
  *     PnpRecordBlackbox @ 0x140005BB0 (PnpRecordBlackbox.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)

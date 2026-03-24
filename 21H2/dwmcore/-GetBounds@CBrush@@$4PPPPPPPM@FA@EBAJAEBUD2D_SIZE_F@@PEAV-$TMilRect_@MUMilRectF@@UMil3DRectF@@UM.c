@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBounds@CBrush@@$4PPPPPPPM@FA@EBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180107670
+ * XREFs of ?GetBounds@CBrush@@$4PPPPPPPM@FA@EBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800F6620
  * Callers:
  *     <none>
  * Callees:

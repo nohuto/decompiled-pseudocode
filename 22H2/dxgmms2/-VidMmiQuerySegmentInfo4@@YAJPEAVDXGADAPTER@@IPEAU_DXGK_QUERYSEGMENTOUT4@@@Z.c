@@ -1,138 +1,156 @@
 /*
- * XREFs of ?VidMmiQuerySegmentInfo4@@YAJPEAVDXGADAPTER@@IPEAU_DXGK_QUERYSEGMENTOUT4@@@Z @ 0x1C00BB174
+ * XREFs of ?VidMmiQuerySegmentInfo4@@YAJPEAVDXGADAPTER@@IPEAU_DXGK_QUERYSEGMENTOUT4@@@Z @ 0x1C00964B4
  * Callers:
- *     ?VidMmiInit@@YAPEAVVIDMM_GLOBAL@@PEAVADAPTER_RENDER@@I@Z @ 0x1C00BA90C (-VidMmiInit@@YAPEAVVIDMM_GLOBAL@@PEAVADAPTER_RENDER@@I@Z.c)
+ *     ?VidMmiInit@@YAPEAVVIDMM_GLOBAL@@PEAVADAPTER_RENDER@@@Z @ 0x1C00948A4 (-VidMmiInit@@YAPEAVVIDMM_GLOBAL@@PEAVADAPTER_RENDER@@@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0005500 (--3@YAXPEAX@Z.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0005FB8 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C0019238 (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0001FC0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C001773C (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
+ *     memset @ 0x1C0018D80 (memset.c)
  */
 
 __int64 __fastcall VidMmiQuerySegmentInfo4(struct DXGADAPTER *this, int a2, struct _DXGK_QUERYSEGMENTOUT4 *a3)
 {
   __int64 v4; // rcx
-  char v6; // r12
-  unsigned int v7; // r13d
-  int AdapterInfo; // eax
-  unsigned int v9; // edi
-  __int64 v10; // rbx
-  __int64 v11; // rax
-  __int64 v12; // rax
-  _DWORD *v13; // rsi
-  int v14; // eax
-  __int64 v15; // rax
-  _DWORD *v16; // rcx
-  __int128 v17; // xmm1
-  SIZE_T v18; // xmm0_8
+  char v6; // r13
+  unsigned int v7; // r12d
+  int v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // rbx
+  unsigned int v13; // r14d
+  SIZE_T v14; // rax
+  _DWORD *v15; // rax
+  __int64 v16; // rcx
+  _DWORD *v17; // rsi
+  int v18; // eax
+  __int64 v19; // rdx
   __int64 v20; // rcx
-  __int64 v21; // rcx
-  __int64 v22; // rcx
-  __int64 v23; // rcx
-  __int128 v24; // [rsp+50h] [rbp-39h] BYREF
-  __int128 v25; // [rsp+60h] [rbp-29h]
-  __int64 v26; // [rsp+70h] [rbp-19h]
-  _DXGKARG_QUERYADAPTERINFO v27; // [rsp+78h] [rbp-11h] BYREF
-  unsigned int DriverVersion; // [rsp+F0h] [rbp+67h]
-  int v29; // [rsp+F8h] [rbp+6Fh] BYREF
+  __int64 v21; // r8
+  unsigned int v22; // edi
+  _DWORD *v23; // rax
+  __int64 v24; // rcx
+  __int128 v25; // xmm1
+  SIZE_T v26; // xmm0_8
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rax
+  __int64 v31; // rax
+  __int64 v32; // rax
+  __int128 v33; // [rsp+20h] [rbp-60h] BYREF
+  __int128 v34; // [rsp+30h] [rbp-50h]
+  __int64 v35; // [rsp+40h] [rbp-40h]
+  _DXGKARG_QUERYADAPTERINFO v36; // [rsp+48h] [rbp-38h] BYREF
+  unsigned int DriverVersion; // [rsp+C0h] [rbp+40h]
+  int v38; // [rsp+C8h] [rbp+48h] BYREF
 
-  v29 = a2;
-  *((_DWORD *)&v27.Type + 1) = 0;
+  v38 = a2;
+  *((_DWORD *)&v36.Type + 1) = 0;
   v4 = *((_QWORD *)this + 27);
-  *(&v27.InputDataSize + 1) = 0;
-  *(_QWORD *)&v27.Flags.0 = 0LL;
-  HIDWORD(v27.hKmdProcessHandle) = 0;
-  v25 = 0LL;
-  v26 = 0LL;
-  v27.InputDataSize = 4;
+  *(&v36.InputDataSize + 1) = 0;
+  *(_QWORD *)&v36.Flags.0 = 0LL;
+  HIDWORD(v36.hKmdProcessHandle) = 0;
+  v34 = 0LL;
+  v35 = 0LL;
+  v36.InputDataSize = 4;
   DriverVersion = DpiGetDriverVersion(v4);
-  v24 = 0uLL;
-  v27.pInputData = &v29;
+  v33 = 0uLL;
+  v36.pInputData = &v38;
   v6 = 0;
-  v27.pOutputData = &v24;
+  v36.pOutputData = &v33;
   v7 = 0;
-  v27.Type = DXGKQAITYPE_QUERYSEGMENT4;
-  v27.OutputDataSize = 40;
-  AdapterInfo = DXGADAPTER::DdiQueryAdapterInfo(
-                  this,
-                  (struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 *)&v27);
-  v9 = AdapterInfo;
-  if ( AdapterInfo < 0 )
+  v36.Type = DXGKQAITYPE_QUERYSEGMENT4;
+  v36.OutputDataSize = 40;
+  v8 = DXGADAPTER::DdiQueryAdapterInfo(this, &v36);
+  v12 = v8;
+  if ( v8 < 0 )
   {
-    WdLogSingleEntry1(3LL, AdapterInfo);
-    return v9;
+    v28 = WdLogNewEntry5_WdWarning(v10, v9);
+    *(_QWORD *)(v28 + 24) = v12;
+    WdLogEvent5_WdWarning(v28);
+    return (unsigned int)v12;
   }
-  v10 = (unsigned int)v24;
-  if ( (unsigned int)v24 > 0x20 )
+  v13 = v33;
+  if ( (unsigned int)v33 > 0x20 )
   {
-    WdLogSingleEntry1(1LL, 76LL);
-    DxgkLogInternalTriageEvent(v20, 0x40000LL);
-    return (unsigned int)-1073741823;
+    v29 = WdLogNewEntry5_WdAssertion(v10, v9, v11);
+    *(_QWORD *)(v29 + 24) = 76LL;
+    WdLogEvent5_WdAssertion(v29);
+    LODWORD(v12) = -1073741823;
+    return (unsigned int)v12;
   }
-  v11 = 104LL * (unsigned int)v24;
-  if ( !is_mul_ok((unsigned int)v24, 0x68uLL) )
-    v11 = -1LL;
-  v12 = operator new[](v11, 0x31326956u, 256LL);
-  v13 = (_DWORD *)v12;
-  if ( !v12 )
+  v14 = 104LL * (unsigned int)v33;
+  if ( !is_mul_ok((unsigned int)v33, 0x68uLL) )
+    v14 = -1LL;
+  v15 = operator new[](v14, 0x31326956u, PagedPool);
+  v17 = v15;
+  if ( !v15 )
   {
-    _InterlockedIncrement(&dword_1C00767C8);
-    WdLogSingleEntry1(6LL, v10);
-    DxgkLogInternalTriageEvent(v21, 262145LL);
+    _InterlockedIncrement(&dword_1C00506B8);
+    v30 = WdLogNewEntry5_WdLowResource(v16);
+    *(_QWORD *)(v30 + 24) = v13;
+    WdLogEvent5_WdLowResource(v30);
     return 3221225495LL;
   }
-  *((_QWORD *)&v24 + 1) = v12;
-  v26 = 104LL;
-  v14 = DXGADAPTER::DdiQueryAdapterInfo(this, (struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 *)&v27);
-  v9 = v14;
-  if ( v14 < 0 )
+  memset(v15, 0, 104LL * v13);
+  *((_QWORD *)&v33 + 1) = v17;
+  v35 = 104LL;
+  v18 = DXGADAPTER::DdiQueryAdapterInfo(this, &v36);
+  v12 = v18;
+  if ( v18 < 0 )
   {
-    WdLogSingleEntry1(1LL, v14);
-    DxgkLogInternalTriageEvent(v22, 0x40000LL);
+    v31 = WdLogNewEntry5_WdAssertion(v20, v19, v21);
+    *(_QWORD *)(v31 + 24) = v12;
+    WdLogEvent5_WdAssertion(v31);
     goto LABEL_25;
   }
-  v15 = 0LL;
-  if ( !(_DWORD)v10 )
+  v22 = 0;
+  if ( !v13 )
   {
 LABEL_13:
-    v17 = v25;
-    *(_OWORD *)&a3->NbSegment = v24;
-    v18 = v26;
-    *(_OWORD *)&a3->PagingBufferSegmentId = v17;
-    a3->SegmentDescriptorStride = v18;
-    return v9;
+    v25 = v34;
+    *(_OWORD *)&a3->NbSegment = v33;
+    v26 = v35;
+    *(_OWORD *)&a3->PagingBufferSegmentId = v25;
+    a3->SegmentDescriptorStride = v26;
+    return (unsigned int)v12;
   }
-  v16 = v13 + 23;
+  v23 = v17 + 23;
   while ( 1 )
   {
     if ( DriverVersion < 0x7005 )
     {
-      *v16 = 0;
+      *v23 = 0;
       goto LABEL_12;
     }
-    if ( *v16 > 1u )
+    v24 = (unsigned int)*v23;
+    if ( (unsigned int)v24 > 1 )
       break;
-    if ( *v16 )
+    if ( (_DWORD)v24 )
     {
       if ( v6 )
       {
-        WdLogSingleEntry2(1LL, v7, (unsigned int)v15);
+        v32 = WdLogNewEntry5_WdAssertion(v24, DriverVersion, v21);
+        *(_QWORD *)(v32 + 24) = v7;
+        *(_QWORD *)(v32 + 32) = v22;
         goto LABEL_24;
       }
       v6 = 1;
-      v7 = v15;
+      v7 = v22;
     }
 LABEL_12:
-    v15 = (unsigned int)(v15 + 1);
-    v16 += 26;
-    if ( (unsigned int)v15 >= (unsigned int)v10 )
+    ++v22;
+    v23 += 26;
+    if ( v22 >= v13 )
       goto LABEL_13;
   }
-  WdLogSingleEntry1(1LL, (unsigned int)v13[26 * v15 + 23]);
+  v32 = WdLogNewEntry5_WdAssertion(v24, DriverVersion, v21);
+  *(_QWORD *)(v32 + 24) = (unsigned int)v17[26 * v22 + 23];
 LABEL_24:
-  DxgkLogInternalTriageEvent(v23, 0x40000LL);
-  v9 = -1073741823;
+  WdLogEvent5_WdAssertion(v32);
+  LODWORD(v12) = -1073741823;
 LABEL_25:
-  operator delete(v13);
-  return v9;
+  operator delete(v17);
+  return (unsigned int)v12;
 }

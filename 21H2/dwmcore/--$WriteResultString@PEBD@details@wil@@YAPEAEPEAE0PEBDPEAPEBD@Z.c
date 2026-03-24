@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$WriteResultString@PEBD@details@wil@@YAPEAEPEAE0PEBDPEAPEBD@Z @ 0x180177500
+ * XREFs of ??$WriteResultString@PEBD@details@wil@@YAPEAEPEAE0PEBDPEAPEBD@Z @ 0x18014CDBC
  * Callers:
- *     ?Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z @ 0x1801787EC (-Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z.c)
+ *     ?Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z @ 0x18014E830 (-Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z.c)
  * Callees:
- *     memcpy_s @ 0x18002952C (memcpy_s.c)
- *     ?ResultStringSize@details@wil@@YA_KPEBD@Z @ 0x1801786F8 (-ResultStringSize@details@wil@@YA_KPEBD@Z.c)
+ *     memcpy_s @ 0x1800AF644 (memcpy_s.c)
+ *     ?ResultStringSize@details@wil@@YA_KPEBD@Z @ 0x18014E714 (-ResultStringSize@details@wil@@YA_KPEBD@Z.c)
  */
 
 char *__fastcall wil::details::WriteResultString<char const *>(

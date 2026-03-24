@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPlNotifyDeviceDState @ 0x1403B171C
+ * XREFs of PopPlNotifyDeviceDState @ 0x1403A049C
  * Callers:
- *     PopPepDeviceDState @ 0x1403B1624 (PopPepDeviceDState.c)
+ *     PopPepDeviceDState @ 0x1403A0220 (PopPepDeviceDState.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x14024A9B0 (_tlgWriteEx_EtwWriteEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     _tlgCreate1Sz_char @ 0x1403699D0 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PopPlCalculateDevicePowerDraw @ 0x1405DE2E4 (PopPlCalculateDevicePowerDraw.c)
- *     PopPlPublishSystemPowerChange @ 0x1405DE728 (PopPlPublishSystemPowerChange.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPlCalculateDevicePowerDraw @ 0x14057E364 (PopPlCalculateDevicePowerDraw.c)
+ *     PopPlPublishSystemPowerChange @ 0x14057E778 (PopPlPublishSystemPowerChange.c)
  */
 
 void __fastcall PopPlNotifyDeviceDState(__int64 a1, int a2, int a3, char a4)
@@ -83,7 +83,7 @@ void __fastcall PopPlNotifyDeviceDState(__int64 a1, int a2, int a3, char a4)
       v11 = PopPlCalculateDevicePowerDraw(a1, &v33, 0LL, 0LL);
       *(_DWORD *)(v4 + 32) = v11;
       v12 = v11 - v10;
-      if ( (unsigned int)dword_140C03A00 > 5 )
+      if ( (unsigned int)dword_140C02228 > 5 )
       {
         v13 = *(unsigned __int16 *)(a1 + 216);
         v39 = &v32;
@@ -144,8 +144,8 @@ void __fastcall PopPlNotifyDeviceDState(__int64 a1, int a2, int a3, char a4)
         v37 = v12 + v21;
         v54 = v20;
         tlgWriteEx_EtwWriteEx(
-          (__int64)&dword_140C03A00,
-          (unsigned __int8 *)&byte_1400322B8,
+          (__int64)&dword_140C02228,
+          (unsigned __int8 *)&dword_14002A22C,
           v22,
           v23,
           v30,

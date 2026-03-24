@@ -1,5 +1,5 @@
 /*
- * XREFs of PspQueryHwTracingThread @ 0x1409AD5A0
+ * XREFs of PspQueryHwTracingThread @ 0x140907730
  * Callers:
  *     <none>
  * Callees:

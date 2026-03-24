@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryInformationPort @ 0x140849B60
+ * XREFs of NtQueryInformationPort @ 0x140849B40
  * Callers:
  *     <none>
  * Callees:

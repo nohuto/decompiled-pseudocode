@@ -1,7 +1,7 @@
 /*
- * XREFs of DesktopVerifyHeapPointer @ 0x1C00E7480
+ * XREFs of DesktopVerifyHeapPointer @ 0x1C00FD378
  * Callers:
- *     DesktopVerifyHeapRange @ 0x1C00E7440 (DesktopVerifyHeapRange.c)
+ *     DesktopVerifyHeapRange @ 0x1C00FD338 (DesktopVerifyHeapRange.c)
  * Callees:
  *     <none>
  */

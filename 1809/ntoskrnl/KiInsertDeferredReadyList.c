@@ -1,21 +1,21 @@
 /*
- * XREFs of KiInsertDeferredReadyList @ 0x1400ACBA8
+ * XREFs of KiInsertDeferredReadyList @ 0x1400ACBC8
  * Callers:
- *     KiWakeQueueWaiter @ 0x1400AC9F0 (KiWakeQueueWaiter.c)
- *     KeSetPriorityBoost @ 0x1400CEEC0 (KeSetPriorityBoost.c)
- *     KiSetPriorityThread @ 0x1400CF620 (KiSetPriorityThread.c)
- *     KiQuantumEnd @ 0x1400D0000 (KiQuantumEnd.c)
- *     KiSelectNextThread @ 0x1400D7148 (KiSelectNextThread.c)
- *     KiApplyForegroundBoostThread @ 0x1400D7E4C (KiApplyForegroundBoostThread.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x140114D84 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x140115688 (KiRescheduleThreadAfterAffinityChange.c)
- *     KiPrepareReadyThreadForRescheduling @ 0x1401172F4 (KiPrepareReadyThreadForRescheduling.c)
- *     KiMoveScbThreadsToNewReadylist @ 0x140117350 (KiMoveScbThreadsToNewReadylist.c)
- *     KiSetHeteroPolicyThread @ 0x140298F5C (KiSetHeteroPolicyThread.c)
- *     KeTransitionProcessorParkState @ 0x14029CC9C (KeTransitionProcessorParkState.c)
- *     KiFlushReadyLists @ 0x14029D1C8 (KiFlushReadyLists.c)
+ *     KiWakeQueueWaiter @ 0x1400ACA10 (KiWakeQueueWaiter.c)
+ *     KeSetPriorityBoost @ 0x1400CEEE0 (KeSetPriorityBoost.c)
+ *     KiSetPriorityThread @ 0x1400CF640 (KiSetPriorityThread.c)
+ *     KiQuantumEnd @ 0x1400D0020 (KiQuantumEnd.c)
+ *     KiSelectNextThread @ 0x1400D7168 (KiSelectNextThread.c)
+ *     KiApplyForegroundBoostThread @ 0x1400D7E6C (KiApplyForegroundBoostThread.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140114DA4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x1401156A8 (KiRescheduleThreadAfterAffinityChange.c)
+ *     KiPrepareReadyThreadForRescheduling @ 0x140117314 (KiPrepareReadyThreadForRescheduling.c)
+ *     KiMoveScbThreadsToNewReadylist @ 0x140117370 (KiMoveScbThreadsToNewReadylist.c)
+ *     KiSetHeteroPolicyThread @ 0x14029905C (KiSetHeteroPolicyThread.c)
+ *     KeTransitionProcessorParkState @ 0x14029CD9C (KeTransitionProcessorParkState.c)
+ *     KiFlushReadyLists @ 0x14029D2C8 (KiFlushReadyLists.c)
  * Callees:
- *     KiSetThreadState @ 0x1401B4B6C (KiSetThreadState.c)
+ *     KiSetThreadState @ 0x1401B4B8C (KiSetThreadState.c)
  */
 
 __int64 __fastcall KiInsertDeferredReadyList(__int64 a1, __int64 a2)

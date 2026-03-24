@@ -1,28 +1,33 @@
 /*
- * XREFs of IcAddGicInstance @ 0x1C009EB0C
+ * XREFs of IcAddGicInstance @ 0x1C00B75E0
  * Callers:
- *     AcpiIrqLibConfigureLibrary @ 0x1C00ABA58 (AcpiIrqLibConfigureLibrary.c)
- *     IrqLibpParseMadt @ 0x1C00ABCA8 (IrqLibpParseMadt.c)
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00BD584 (AcpiIrqLibConfigureLibrary.c)
+ *     IrqLibpParseMadt @ 0x1C00BD72C (IrqLibpParseMadt.c)
  * Callees:
- *     <none>
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall IcAddGicInstance(int a1)
 {
-  __int64 Pool2; // rax
-  __int64 v4; // rcx
+  PVOID PoolWithTag; // rax
+  __int64 v3; // rbx
+  __int64 result; // rax
+  __int64 v5; // rax
 
-  Pool2 = ExAllocatePool2(256LL, 32032LL, 1232102209LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x7D20uLL, 0x49706341u);
+  v3 = (__int64)PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *(_DWORD *)(Pool2 + 16) = a1;
-  *(_DWORD *)(Pool2 + 20) = 159;
-  v4 = IcListHead;
+  memset(PoolWithTag, 0, 0x7D20uLL);
+  *(_DWORD *)(v3 + 16) = a1;
+  *(_DWORD *)(v3 + 20) = 159;
+  v5 = IcListHead;
   if ( *(__int64 **)(IcListHead + 8) != &IcListHead )
     __fastfail(3u);
-  *(_QWORD *)Pool2 = IcListHead;
-  *(_QWORD *)(Pool2 + 8) = &IcListHead;
-  *(_QWORD *)(v4 + 8) = Pool2;
-  IcListHead = Pool2;
-  return 0LL;
+  *(_QWORD *)v3 = IcListHead;
+  *(_QWORD *)(v3 + 8) = &IcListHead;
+  *(_QWORD *)(v5 + 8) = v3;
+  result = 0LL;
+  IcListHead = v3;
+  return result;
 }

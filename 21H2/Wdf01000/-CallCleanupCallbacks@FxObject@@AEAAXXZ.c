@@ -1,15 +1,15 @@
 /*
- * XREFs of ?CallCleanupCallbacks@FxObject@@AEAAXXZ @ 0x1C000DC54
+ * XREFs of ?CallCleanupCallbacks@FxObject@@AEAAXXZ @ 0x1C0059E94
  * Callers:
- *     ?Dispose@FxRequestBase@@MEAAEXZ @ 0x1C0002C40 (-Dispose@FxRequestBase@@MEAAEXZ.c)
- *     ?DeleteObject@FxObject@@UEAAXXZ @ 0x1C0008430 (-DeleteObject@FxObject@@UEAAXXZ.c)
- *     ?Dispose@FxIoTarget@@MEAAEXZ @ 0x1C0034F20 (-Dispose@FxIoTarget@@MEAAEXZ.c)
- *     ?Dispose@FxDevice@@UEAAEXZ @ 0x1C0035760 (-Dispose@FxDevice@@UEAAEXZ.c)
- *     ?Dispose@FxCompanionTarget@@EEAAEXZ @ 0x1C0061010 (-Dispose@FxCompanionTarget@@EEAAEXZ.c)
- *     ?Dispose@FxMpDevice@@UEAAEXZ @ 0x1C0066EB0 (-Dispose@FxMpDevice@@UEAAEXZ.c)
+ *     ?Dispose@FxRequestBase@@MEAAEXZ @ 0x1C0004320 (-Dispose@FxRequestBase@@MEAAEXZ.c)
+ *     ?DeleteObject@FxObject@@UEAAXXZ @ 0x1C0005D70 (-DeleteObject@FxObject@@UEAAXXZ.c)
+ *     ?Dispose@FxCompanionTarget@@EEAAEXZ @ 0x1C0043640 (-Dispose@FxCompanionTarget@@EEAAEXZ.c)
+ *     ?Dispose@FxMpDevice@@UEAAEXZ @ 0x1C004CDE0 (-Dispose@FxMpDevice@@UEAAEXZ.c)
+ *     ?Dispose@FxDevice@@UEAAEXZ @ 0x1C0051E20 (-Dispose@FxDevice@@UEAAEXZ.c)
+ *     ?Dispose@FxIoTarget@@MEAAEXZ @ 0x1C0064A70 (-Dispose@FxIoTarget@@MEAAEXZ.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxObject::CallCleanupCallbacks(FxObject *this)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFreeLargePageView @ 0x14085D394
+ * XREFs of MiFreeLargePageView @ 0x14085D374
  * Callers:
  *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiDeletePartialCloneVads @ 0x14085E4E8 (MiDeletePartialCloneVads.c)
+ *     MiDeletePartialCloneVads @ 0x14085E4C8 (MiDeletePartialCloneVads.c)
  * Callees:
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
  *     MiGetVadWakeList @ 0x140068270 (MiGetVadWakeList.c)

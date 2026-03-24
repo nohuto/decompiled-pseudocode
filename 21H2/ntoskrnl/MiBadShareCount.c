@@ -1,19 +1,16 @@
 /*
- * XREFs of MiBadShareCount @ 0x1405AD6C8
+ * XREFs of MiBadShareCount @ 0x1403F4934
  * Callers:
- *     MiReduceShareCount @ 0x14022876C (MiReduceShareCount.c)
- *     MiDecrementShareCount @ 0x140273FD0 (MiDecrementShareCount.c)
- *     MiDeleteClusterSection @ 0x140276E5C (MiDeleteClusterSection.c)
- *     MiMakePageAvoidRead @ 0x1402BBEE0 (MiMakePageAvoidRead.c)
- *     MiWsleFree @ 0x1402C2AD0 (MiWsleFree.c)
- *     MiDeleteTransitionPte @ 0x1402C3100 (MiDeleteTransitionPte.c)
- *     MiDeletePteList @ 0x1402C3BA0 (MiDeletePteList.c)
- *     MiDeletePteRun @ 0x1402C8FD0 (MiDeletePteRun.c)
- *     MiDeleteBatch @ 0x1402C9E70 (MiDeleteBatch.c)
- *     MiDeleteClusterPage @ 0x1402CC0F0 (MiDeleteClusterPage.c)
- *     MiDeleteValidSystemPage @ 0x14033BEC0 (MiDeleteValidSystemPage.c)
+ *     MiDeletePteList @ 0x140231820 (MiDeletePteList.c)
+ *     MiDeletePteRun @ 0x140236C60 (MiDeletePteRun.c)
+ *     MiDeleteBatch @ 0x140238450 (MiDeleteBatch.c)
+ *     MiDeleteClusterSection @ 0x1403003E0 (MiDeleteClusterSection.c)
+ *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
+ *     MiWsleFree @ 0x140327ED0 (MiWsleFree.c)
+ *     MiDeleteValidSystemPage @ 0x140328E20 (MiDeleteValidSystemPage.c)
+ *     MiDeleteClusterPage @ 0x14032B830 (MiDeleteClusterPage.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn MiBadShareCount(__int64 a1)
@@ -21,7 +18,7 @@ void __fastcall __noreturn MiBadShareCount(__int64 a1)
   KeBugCheckEx(
     0x4Eu,
     0x99uLL,
-    0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4),
+    (a1 + 0x58000000000LL) / 48,
     *(_BYTE *)(a1 + 34) & 7,
     *(_QWORD *)(a1 + 24) & 0x3FFFFFFFFFFFFFFFLL);
 }

@@ -1,63 +1,87 @@
 /*
- * XREFs of KeAlertThread @ 0x140309720
+ * XREFs of KeAlertThread @ 0x14035BE90
  * Callers:
- *     KeRequestTerminationThread @ 0x1403098CC (KeRequestTerminationThread.c)
- *     IopCancelIrpsInCurrentThreadListSpecialApc @ 0x140365380 (IopCancelIrpsInCurrentThreadListSpecialApc.c)
- *     IoDecrementKeepAliveCount @ 0x140558060 (IoDecrementKeepAliveCount.c)
- *     KeAlertResumeThread @ 0x14056ED70 (KeAlertResumeThread.c)
- *     NtAlertThread @ 0x1409B5FB0 (NtAlertThread.c)
+ *     IopCancelIrpsInCurrentThreadListSpecialApc @ 0x1403230F0 (IopCancelIrpsInCurrentThreadListSpecialApc.c)
+ *     KeRequestTerminationThread @ 0x14035BD28 (KeRequestTerminationThread.c)
+ *     IoDecrementKeepAliveCount @ 0x140506B30 (IoDecrementKeepAliveCount.c)
+ *     KeAlertResumeThread @ 0x140512EA0 (KeAlertResumeThread.c)
+ *     NtAlertThread @ 0x14090C6F0 (NtAlertThread.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD50 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KiSignalThread @ 0x1402B85A0 (KiSignalThread.c)
+ *     KiSignalThread @ 0x140245E10 (KiSignalThread.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x1402C4150 (KiExitDispatcher.c)
+ *     KiReleaseThreadLockSafe @ 0x1402F1590 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall KeAlertThread(__int64 a1, char a2)
+char __fastcall KeAlertThread(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  __int64 v2; // r15
-  unsigned __int8 CurrentIrql; // si
-  struct _KPRCB *CurrentPrcb; // r14
-  char v6; // bp
-  _DWORD *SchedulerAssist; // r9
-  __int64 v9; // rdx
-  char v10; // al
+  __int64 v4; // r14
+  unsigned __int8 CurrentIrql; // bp
+  struct _KPRCB *CurrentPrcb; // r15
+  _DWORD *v8; // rcx
+  char v9; // si
   char v11; // al
-  int v12; // [rsp+68h] [rbp+10h] BYREF
+  _DWORD *v12; // rcx
+  int v13; // eax
+  int v14; // eax
+  int v15; // [rsp+68h] [rbp+10h] BYREF
 
-  v2 = a2;
+  v4 = (char)a2;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 2 )
-      LODWORD(v9) = 4;
-    else
-      v9 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v9;
+    a2 = (-1LL << (CurrentIrql + 1)) & 4;
+    a3 = (unsigned int)a2 | SchedulerAssist[5];
+    SchedulerAssist[5] = a3;
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  v12 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
+  v15 = 0;
+  while ( 1 )
   {
+    v8 = CurrentPrcb->SchedulerAssist;
+    if ( v8 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v13 = v8[6];
+        v8[6] = v13 + 1;
+        if ( v13 == -1 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
+    }
+    if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
+      break;
+    v12 = CurrentPrcb->SchedulerAssist;
+    if ( v12 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v14 = v12[6] - 1;
+        v12[6] = v14;
+        if ( !v14 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
+    }
     do
-      KeYieldProcessorEx(&v12);
+      KeYieldProcessorEx(&v15, a2, a3, (__int64)SchedulerAssist);
     while ( *(_QWORD *)(a1 + 64) );
   }
-  v6 = *(_BYTE *)(v2 + a1 + 114);
-  if ( !v6 )
+  v9 = *(_BYTE *)(v4 + a1 + 114);
+  if ( !v9 )
   {
     if ( *(_BYTE *)(a1 + 388) != 5
-      || (v10 = *(_BYTE *)(a1 + 112) & 7, v10 == 4)
-      || v10 == 3
+      || (unsigned __int8)((*(_BYTE *)(a1 + 112) & 7) - 3) <= 1u
       || (*(_DWORD *)(a1 + 116) & 0x10) == 0
-      || (char)v2 > *(char *)(a1 + 391)
+      || (char)v4 > *(char *)(a1 + 391)
       || (v11 = KiSignalThread((__int64)CurrentPrcb, a1, 257LL, 0LL), *(_BYTE *)(a1 + 112) |= 0x80u, !v11) )
     {
-      *(_BYTE *)(v2 + a1 + 114) = 1;
+      *(_BYTE *)(v4 + a1 + 114) = 1;
     }
   }
-  *(_QWORD *)(a1 + 64) = 0LL;
-  KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 2u, CurrentIrql);
-  return v6;
+  KiReleaseThreadLockSafe(a1);
+  KiExitDispatcher((__int64)CurrentPrcb, 0LL, 1LL, 2LL, CurrentIrql);
+  return v9;
 }

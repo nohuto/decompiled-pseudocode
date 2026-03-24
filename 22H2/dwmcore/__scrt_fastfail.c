@@ -1,13 +1,13 @@
 /*
- * XREFs of __scrt_fastfail @ 0x18010FD44
+ * XREFs of __scrt_fastfail @ 0x1800E78A0
  * Callers:
- *     __scrt_initialize_onexit_tables @ 0x18010F2C8 (__scrt_initialize_onexit_tables.c)
- *     dllmain_crt_process_attach @ 0x18010F528 (dllmain_crt_process_attach.c)
- *     dllmain_crt_process_detach @ 0x18010F650 (dllmain_crt_process_detach.c)
- *     __scrt_initialize_thread_safe_statics @ 0x18010F8B0 (__scrt_initialize_thread_safe_statics.c)
+ *     __scrt_initialize_onexit_tables @ 0x1800E6F10 (__scrt_initialize_onexit_tables.c)
+ *     dllmain_crt_process_attach @ 0x1800E7198 (dllmain_crt_process_attach.c)
+ *     dllmain_crt_process_detach @ 0x1800E72B4 (dllmain_crt_process_detach.c)
+ *     __scrt_initialize_thread_safe_statics @ 0x1800E74C0 (__scrt_initialize_thread_safe_statics.c)
  * Callees:
- *     __crt_debugger_hook @ 0x18010FD34 (__crt_debugger_hook.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
+ *     __crt_debugger_hook @ 0x1800E7890 (__crt_debugger_hook.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
  */
 
 void __fastcall _scrt_fastfail(unsigned int a1)

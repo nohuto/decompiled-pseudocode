@@ -1,11 +1,11 @@
 /*
- * XREFs of CreateScreenPalette @ 0x1C0228088
+ * XREFs of CreateScreenPalette @ 0x1C024376C
  * Callers:
- *     ?PasteScreenPalette@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FC61C (-PasteScreenPalette@@YAXPEAUtagWINDOWSTATION@@@Z.c)
- *     xxxSnapWindow @ 0x1C02281E8 (xxxSnapWindow.c)
+ *     xxxSnapWindow @ 0x1C016040C (xxxSnapWindow.c)
+ *     ?PasteScreenPalette@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C021E820 (-PasteScreenPalette@@YAXPEAUtagWINDOWSTATION@@@Z.c)
  * Callees:
- *     GreGetSystemPaletteUse @ 0x1C001F4AC (GreGetSystemPaletteUse.c)
- *     GreGetSystemPaletteEntries @ 0x1C02D1750 (GreGetSystemPaletteEntries.c)
+ *     GreGetSystemPaletteUse @ 0x1C012D988 (GreGetSystemPaletteUse.c)
+ *     GreGetSystemPaletteEntries @ 0x1C02B72F0 (GreGetSystemPaletteEntries.c)
  */
 
 __int64 __fastcall CreateScreenPalette(HDC a1, _QWORD *a2, __int64 *a3)
@@ -33,7 +33,7 @@ __int64 __fastcall CreateScreenPalette(HDC a1, _QWORD *a2, __int64 *a3)
   v9 = 4LL * (unsigned int)DeviceCaps;
   if ( v9 > 0xFFFFFFFF || (unsigned int)v9 >= 0xFFFFFFF8 )
     return 3221225485LL;
-  v10 = (char *)Win32AllocPoolWithQuotaZInit((unsigned int)(v9 + 8), 1650684757LL);
+  v10 = (char *)Win32AllocPoolWithQuota((unsigned int)(v9 + 8), 1650684757LL);
   if ( v10 )
   {
     *((_WORD *)v10 + 1) = DeviceCaps;

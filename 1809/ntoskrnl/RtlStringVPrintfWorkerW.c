@@ -2,9 +2,9 @@
  * XREFs of RtlStringVPrintfWorkerW @ 0x140015FF0
  * Callers:
  *     RtlStringCchPrintfExW @ 0x140015EF4 (RtlStringCchPrintfExW.c)
- *     RtlStringCbPrintfExW @ 0x140128C98 (RtlStringCbPrintfExW.c)
+ *     RtlStringCbPrintfExW @ 0x140128CB8 (RtlStringCbPrintfExW.c)
  * Callees:
- *     _vsnwprintf @ 0x140194C00 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x140194C20 (_vsnwprintf.c)
  */
 
 NTSTATUS __stdcall RtlStringVPrintfWorkerW(

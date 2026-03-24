@@ -1,19 +1,19 @@
 /*
- * XREFs of SeCaptureUnicodeStringStructures @ 0x1406A0E10
+ * XREFs of SeCaptureUnicodeStringStructures @ 0x140601730
  * Callers:
- *     SepCaptureUnicodeStringArray @ 0x1406A0BF0 (SepCaptureUnicodeStringArray.c)
+ *     SepCaptureUnicodeStringArray @ 0x140601510 (SepCaptureUnicodeStringArray.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SeCaptureUnicodeStringStructures(unsigned __int64 a1, unsigned int a2, char a3, __int64 *a4)
+__int64 __fastcall SeCaptureUnicodeStringStructures(SIZE_T a1, unsigned int a2, char a3, _QWORD *a4)
 {
   unsigned int v7; // ebx
-  __int64 v8; // r15
-  int v9; // r14d
-  __int64 Pool2; // rcx
+  SIZE_T v8; // r14
+  int v9; // r15d
+  _OWORD *PoolWithTag; // rcx
 
   v7 = 0;
   *a4 = 0LL;
@@ -42,8 +42,8 @@ __int64 __fastcall SeCaptureUnicodeStringStructures(unsigned __int64 a1, unsigne
   }
   if ( v9 >= 0 )
   {
-    Pool2 = ExAllocatePool2(256LL, v8, 1934976339LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v8, 0x73556553u);
+    if ( PoolWithTag )
     {
       if ( v8 )
       {
@@ -54,10 +54,10 @@ __int64 __fastcall SeCaptureUnicodeStringStructures(unsigned __int64 a1, unsigne
       }
       while ( v7 < a2 )
       {
-        *(_OWORD *)(Pool2 + 16LL * v7) = *(_OWORD *)(a1 + 16LL * v7);
+        PoolWithTag[v7] = *(_OWORD *)(a1 + 16LL * v7);
         ++v7;
       }
-      *a4 = Pool2;
+      *a4 = PoolWithTag;
     }
     else
     {

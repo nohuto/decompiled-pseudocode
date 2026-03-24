@@ -1,9 +1,9 @@
 /*
- * XREFs of __tailMerge_d3d12_dll @ 0x1801028B6
+ * XREFs of __tailMerge_d3d12_dll @ 0x1800E8C28
  * Callers:
- *     __imp_load_D3D12CreateDevice @ 0x1801028AA (__imp_load_D3D12CreateDevice.c)
+ *     __imp_load_D3D12CreateDevice @ 0x1800E8C1C (__imp_load_D3D12CreateDevice.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x1800F39B0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE920 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_d3d12_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

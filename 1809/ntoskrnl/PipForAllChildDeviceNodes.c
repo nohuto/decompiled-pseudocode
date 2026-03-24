@@ -3,7 +3,7 @@
  * Callers:
  *     PipForDeviceNodeSubtree @ 0x140585750 (PipForDeviceNodeSubtree.c)
  *     PipForAllDeviceNodesCallback @ 0x140585790 (PipForAllDeviceNodesCallback.c)
- *     PnprCollectResources @ 0x140834810 (PnprCollectResources.c)
+ *     PnprCollectResources @ 0x1408347F0 (PnprCollectResources.c)
  * Callees:
  *     PipForAllDeviceNodesCallback @ 0x140585790 (PipForAllDeviceNodesCallback.c)
  */

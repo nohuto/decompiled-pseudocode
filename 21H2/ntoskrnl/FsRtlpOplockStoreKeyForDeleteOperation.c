@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlpOplockStoreKeyForDeleteOperation @ 0x1402A6980
+ * XREFs of FsRtlpOplockStoreKeyForDeleteOperation @ 0x140354950
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x1402A5D00 (FsRtlCheckOplockEx2.c)
- *     FsRtlCheckOplock @ 0x1402A68A0 (FsRtlCheckOplock.c)
+ *     FsRtlCheckOplockEx2 @ 0x140353D20 (FsRtlCheckOplockEx2.c)
+ *     FsRtlCheckOplock @ 0x140354D00 (FsRtlCheckOplock.c)
  * Callees:
- *     IoGetOplockKeyContextEx @ 0x1402A3840 (IoGetOplockKeyContextEx.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlpAllocateOplock @ 0x1406BE148 (FsRtlpAllocateOplock.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     IoGetOplockKeyContextEx @ 0x1403576E0 (IoGetOplockKeyContextEx.c)
+ *     FsRtlpAllocateOplock @ 0x1406A6478 (FsRtlpAllocateOplock.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall FsRtlpOplockStoreKeyForDeleteOperation(__int64 *a1, __int64 a2, int a3)
@@ -21,7 +21,7 @@ void __fastcall FsRtlpOplockStoreKeyForDeleteOperation(__int64 *a1, __int64 a2, 
   __int64 v10; // rdx
   __int64 v11; // rcx
   __int64 v12; // r15
-  _OWORD *Pool2; // rax
+  _OWORD *PoolWithTag; // rax
 
   v5 = *(_QWORD *)(a2 + 184);
   Oplock = *a1;
@@ -44,13 +44,13 @@ void __fastcall FsRtlpOplockStoreKeyForDeleteOperation(__int64 *a1, __int64 a2, 
         if ( (a3 & 0x20000000) == 0 )
           ExAcquireFastMutexUnsafe(*(PFAST_MUTEX *)(Oplock + 152));
         v7 = 1;
-        Pool2 = *(_OWORD **)(Oplock + 136);
-        if ( !Pool2 )
+        PoolWithTag = *(_OWORD **)(Oplock + 136);
+        if ( !PoolWithTag )
         {
-          Pool2 = (_OWORD *)ExAllocatePool2(290LL, 16LL, 1869763398LL);
-          *(_QWORD *)(Oplock + 136) = Pool2;
+          PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)17, 0x10uLL, 0x6F725346u);
+          *(_QWORD *)(Oplock + 136) = PoolWithTag;
         }
-        *Pool2 = *(_OWORD *)(v12 + 4);
+        *PoolWithTag = *(_OWORD *)(v12 + 4);
       }
     }
   }

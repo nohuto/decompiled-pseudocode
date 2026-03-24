@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlStringCchCopyNExW @ 0x1402DFEFC
+ * XREFs of RtlStringCchCopyNExW @ 0x1402655E8
  * Callers:
- *     DrvDbSplitDeviceIdDriverInfMatch @ 0x1407473E8 (DrvDbSplitDeviceIdDriverInfMatch.c)
- *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x1407697FC (_CmGetDeviceInterfaceSymbolicLinkName.c)
- *     _CmGetDeviceInterfaceSubkeyPath @ 0x14077ED0C (_CmGetDeviceInterfaceSubkeyPath.c)
- *     _CmValidateDeviceInterfaceName @ 0x14077F150 (_CmValidateDeviceInterfaceName.c)
- *     punycode_encode @ 0x1409BC59C (punycode_encode.c)
- *     _CmSplitDevicePanelId @ 0x140A295FC (_CmSplitDevicePanelId.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x140640854 (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1406419CC (_CmValidateDeviceInterfaceName.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x14073BB94 (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x140749720 (_CmGetDeviceInterfaceSymbolicLinkName.c)
+ *     _CmSplitDevicePanelId @ 0x1407AFCD8 (_CmSplitDevicePanelId.c)
+ *     punycode_encode @ 0x140916F24 (punycode_encode.c)
  * Callees:
- *     RtlStringCopyWorkerW_0 @ 0x1402E0030 (RtlStringCopyWorkerW_0.c)
- *     memset @ 0x140435E00 (memset.c)
- *     StringExHandleOtherFlagsW @ 0x14055F3E4 (StringExHandleOtherFlagsW.c)
+ *     RtlStringCopyWorkerW_0 @ 0x140265750 (RtlStringCopyWorkerW_0.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     StringExHandleOtherFlagsW @ 0x14050C398 (StringExHandleOtherFlagsW.c)
  */
 
 NTSTATUS __stdcall RtlStringCchCopyNExW(
@@ -44,66 +44,76 @@ NTSTATUS __stdcall RtlStringCchCopyNExW(
   {
     if ( cchDest )
       *pszDest = 0;
+    return v9;
+  }
+  v15 = pszDest;
+  v10 = pszDest;
+  pcchNewDestLength[0] = cchDest;
+  v11 = cchDest;
+  if ( cchToCopy >= 0x7FFFFFFF )
+  {
+    v9 = -1073741811;
+    if ( cchDest )
+      *pszDest = 0;
+LABEL_11:
+    if ( v9 >= 0 )
+    {
+LABEL_12:
+      if ( ppszDestEnd )
+        *ppszDestEnd = v10;
+      if ( pcchRemaining )
+        *pcchRemaining = v11;
+      return v9;
+    }
+    goto LABEL_28;
+  }
+  if ( (dwFlags & 0x100) != 0 && !pszSrc )
+  {
+    pszSrc = (STRSAFE_PCNZWCH)&cchOriginalDestLength;
+    cchToCopy = 0LL;
+  }
+  v9 = 0;
+  if ( (dwFlags & 0xFFFFE000) != 0 )
+  {
+    v9 = -1073741811;
+    if ( cchDest )
+      *pszDest = 0;
+  }
+  else if ( cchDest )
+  {
+    pcchNewDestLength[0] = 0LL;
+    v12 = RtlStringCopyWorkerW_0(pszDest, cchDest, pcchNewDestLength, pszSrc, cchToCopy);
+    v13 = pcchNewDestLength[0];
+    v9 = v12;
+    v11 = cchDest - pcchNewDestLength[0];
+    pcchNewDestLength[0] = cchDest - pcchNewDestLength[0];
+    v10 = &pszDest[v13];
+    v15 = v10;
+    if ( v12 >= 0 )
+    {
+      if ( (dwFlags & 0x200) != 0 && v11 > 1 )
+      {
+        pszSrc = (STRSAFE_PCNZWCH)(2 * v11);
+        if ( 2 * v11 > 2 )
+          memset(v10 + 1, (unsigned __int8)dwFlags, (size_t)(pszSrc - 1));
+      }
+      goto LABEL_11;
+    }
   }
   else
   {
-    v15 = pszDest;
-    v10 = pszDest;
-    pcchNewDestLength[0] = cchDest;
-    v11 = cchDest;
-    if ( cchToCopy >= 0x7FFFFFFF )
-      goto LABEL_22;
-    if ( (dwFlags & 0x100) != 0 && !pszSrc )
-    {
-      pszSrc = &cchOriginalDestLength;
-      cchToCopy = 0LL;
-    }
-    v9 = 0;
-    if ( (dwFlags & 0xFFFFE000) != 0 )
-    {
-LABEL_22:
-      v9 = -1073741811;
-      if ( cchDest )
-        *pszDest = 0;
-    }
-    else if ( cchDest )
-    {
-      pcchNewDestLength[0] = 0LL;
-      v12 = RtlStringCopyWorkerW_0(pszDest, cchDest, pcchNewDestLength, pszSrc, cchToCopy);
-      v13 = pcchNewDestLength[0];
-      v9 = v12;
-      v11 = cchDest - pcchNewDestLength[0];
-      pcchNewDestLength[0] = cchDest - pcchNewDestLength[0];
-      v10 = &pszDest[v13];
-      v15 = v10;
-      if ( v12 >= 0 )
-      {
-        if ( (dwFlags & 0x200) != 0 && v11 > 1 && 2 * v11 > 2 )
-          memset(v10 + 1, (unsigned __int8)dwFlags, 2 * v11 - 2);
-        goto LABEL_11;
-      }
-    }
-    else
-    {
-      if ( !cchToCopy || !*pszSrc )
-      {
-LABEL_11:
-        if ( ppszDestEnd )
-          *ppszDestEnd = v10;
-        if ( pcchRemaining )
-          *pcchRemaining = v11;
-        return v9;
-      }
-      v9 = pszDest != 0LL ? -2147483643 : -1073741811;
-    }
-    if ( (dwFlags & 0x1C00) != 0 && cchDest )
-    {
-      StringExHandleOtherFlagsW(pszDest, 2 * cchDest, (size_t)pszSrc, &v15, pcchNewDestLength, dwFlags);
-      v10 = v15;
-      v11 = pcchNewDestLength[0];
-    }
-    if ( (int)(v9 + 0x80000000) < 0 || v9 == -2147483643 )
-      goto LABEL_11;
+    if ( !cchToCopy || !*pszSrc )
+      goto LABEL_12;
+    v9 = pszDest != 0LL ? -2147483643 : -1073741811;
   }
+LABEL_28:
+  if ( (dwFlags & 0x1C00) != 0 && cchDest )
+  {
+    StringExHandleOtherFlagsW(pszDest, 2 * cchDest, (size_t)pszSrc, &v15, pcchNewDestLength, dwFlags);
+    v10 = v15;
+    v11 = pcchNewDestLength[0];
+  }
+  if ( (int)(v9 + 0x80000000) < 0 || v9 == -2147483643 )
+    goto LABEL_12;
   return v9;
 }

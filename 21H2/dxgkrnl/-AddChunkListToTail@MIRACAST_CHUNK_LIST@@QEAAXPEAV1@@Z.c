@@ -1,8 +1,8 @@
 /*
- * XREFs of ?AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z @ 0x1C0060B54
+ * XREFs of ?AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z @ 0x1C0052EA8
  * Callers:
- *     ?MiracastProcessPendingDPCChunks@@YAEPEAX@Z @ 0x1C0060D70 (-MiracastProcessPendingDPCChunks@@YAEPEAX@Z.c)
- *     DpiMiracastMoveChunkList @ 0x1C0061C90 (DpiMiracastMoveChunkList.c)
+ *     ?MiracastProcessPendingDPCChunks@@YAEPEAX@Z @ 0x1C00530D0 (-MiracastProcessPendingDPCChunks@@YAEPEAX@Z.c)
+ *     DpiMiracastMoveChunkList @ 0x1C0054030 (DpiMiracastMoveChunkList.c)
  * Callees:
  *     <none>
  */

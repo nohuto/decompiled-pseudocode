@@ -1,10 +1,9 @@
 /*
- * XREFs of IoGetActivityIdThread @ 0x14031E470
+ * XREFs of IoGetActivityIdThread @ 0x14026EEA0
  * Callers:
- *     IopAttachDeviceToDeviceStackSafe @ 0x14035F2C4 (IopAttachDeviceToDeviceStackSafe.c)
- *     IopMountVolume @ 0x140701598 (IopMountVolume.c)
- *     PnpInsertEventInQueue @ 0x140786840 (PnpInsertEventInQueue.c)
- *     IoRegisterFsRegistrationChangeMountAware @ 0x1408577F0 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     PnpInsertEventInQueue @ 0x140634C88 (PnpInsertEventInQueue.c)
+ *     IopMountVolume @ 0x14065E0D0 (IopMountVolume.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x1407C9B60 (IoRegisterFsRegistrationChangeMountAware.c)
  * Callees:
  *     <none>
  */

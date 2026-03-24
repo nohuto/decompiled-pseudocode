@@ -1,7 +1,7 @@
 /*
- * XREFs of Command_IsProxyCommandRing @ 0x1C0008264
+ * XREFs of Command_IsProxyCommandRing @ 0x1C00058B8
  * Callers:
- *     Command_Create @ 0x1C006FFA4 (Command_Create.c)
+ *     Command_Create @ 0x1C0070AFC (Command_Create.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiTpEmulateMovzx @ 0x140AF515C
+ * XREFs of KiTpEmulateMovzx @ 0x140A12FCC
  * Callers:
- *     KiTpEmulateInstruction @ 0x140AF4944 (KiTpEmulateInstruction.c)
+ *     KiTpEmulateInstruction @ 0x140A128C0 (KiTpEmulateInstruction.c)
  * Callees:
- *     KiTpAccessMemory @ 0x140AF4008 (KiTpAccessMemory.c)
- *     KiTpDecodeModRm @ 0x140AF41F4 (KiTpDecodeModRm.c)
- *     KiTpDecodeModRmOperand @ 0x140AF42E0 (KiTpDecodeModRmOperand.c)
- *     KiTpGetRegisterAddressByIndex @ 0x140AF53F8 (KiTpGetRegisterAddressByIndex.c)
+ *     KiTpAccessMemory @ 0x140A12008 (KiTpAccessMemory.c)
+ *     KiTpDecodeModRm @ 0x140A12168 (KiTpDecodeModRm.c)
+ *     KiTpDecodeModRmOperand @ 0x140A12254 (KiTpDecodeModRmOperand.c)
+ *     KiTpGetRegisterAddressByIndex @ 0x140A13254 (KiTpGetRegisterAddressByIndex.c)
  */
 
 __int64 __fastcall KiTpEmulateMovzx(_BYTE *a1, __int64 a2, unsigned __int8 a3, int *a4)

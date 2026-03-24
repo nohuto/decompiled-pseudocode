@@ -1,7 +1,7 @@
 /*
- * XREFs of ?VidMmiAllocationMeetsCriteria@@YA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_D3DKMT_EVICTION_CRITERIA@@@Z @ 0x1C00DD1F4
+ * XREFs of ?VidMmiAllocationMeetsCriteria@@YA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_D3DKMT_EVICTION_CRITERIA@@@Z @ 0x1C00B7750
  * Callers:
- *     ?VidMmEvictAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAU_D3DKMT_EVICTION_CRITERIA@@@Z @ 0x1C00DBE30 (-VidMmEvictAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@.c)
+ *     ?VidMmEvictAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAU_D3DKMT_EVICTION_CRITERIA@@@Z @ 0x1C00B60B8 (-VidMmEvictAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ bool __fastcall VidMmiAllocationMeetsCriteria(struct _VIDMM_GLOBAL_ALLOC *a1, st
     v3 = *((_QWORD *)a1 + 2);
     if ( v3 < a2->MinimumSize
       || v3 > a2->MaximumSize
-      || (a2->Value & 1) != 0 && (**((_DWORD **)a1 + 66) & 0xC0000000) == 0 )
+      || (a2->Value & 1) != 0 && (**((_DWORD **)a1 + 64) & 0xC0000000) == 0 )
     {
       return 0;
     }

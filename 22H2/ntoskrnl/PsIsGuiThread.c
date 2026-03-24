@@ -1,12 +1,12 @@
 /*
- * XREFs of PsIsGuiThread @ 0x1409AE6E4
+ * XREFs of PsIsGuiThread @ 0x1409078F4
  * Callers:
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall PsIsGuiThread(__int64 a1)
+char __fastcall PsIsGuiThread(__int64 a1)
 {
-  return (*(_DWORD *)(a1 + 120) & 0x80) != 0;
+  return *(_BYTE *)(a1 + 120) >> 7;
 }

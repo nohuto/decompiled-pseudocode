@@ -1,92 +1,98 @@
 /*
- * XREFs of CmpBuildVirtualReplicationStack @ 0x140A18D48
+ * XREFs of CmpBuildVirtualReplicationStack @ 0x14086FC7C
  * Callers:
- *     CmpReplicateKeyToVirtual @ 0x140A1A058 (CmpReplicateKeyToVirtual.c)
+ *     CmpReplicateKeyToVirtual @ 0x140870A14 (CmpReplicateKeyToVirtual.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpBuildVirtualReplicationStack(__int64 a1, __int64 a2, _DWORD *a3, _QWORD *a4)
 {
-  int v6; // eax
-  __int64 v7; // rbx
-  _DWORD *Pool2; // r9
+  int v5; // eax
+  __int64 v7; // rdi
+  SIZE_T v9; // rsi
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v11; // rbx
   __int64 result; // rax
-  __int64 v11; // r8
-  _WORD *v12; // rdx
-  __int16 v13; // cx
+  __int64 v13; // r8
   _WORD *v14; // rdx
   __int16 v15; // cx
-  __int64 v16; // r10
-  __int16 v17; // ax
+  _WORD *v16; // rdx
+  __int16 v17; // cx
+  __int64 v18; // r9
+  __int16 v19; // ax
 
-  v6 = (*(_DWORD *)(a1 + 8) >> 21) & 0x3FF;
-  v7 = a1;
+  v5 = (*(_DWORD *)(a1 + 8) >> 21) & 0x3FF;
   *a4 = 0LL;
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, (unsigned int)(48 * v6), 538987843LL);
-  if ( !Pool2 )
+  v7 = a1;
+  v9 = (unsigned int)(48 * v5);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x20204D43u);
+  v11 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  LODWORD(v11) = 4;
-  v12 = *(_WORD **)(a2 + 8);
-  v13 = *(_OWORD *)a2;
+  memset(PoolWithTag, 0, v9);
+  LODWORD(v13) = 4;
+  v14 = *(_WORD **)(a2 + 8);
+  v15 = *(_OWORD *)a2;
   while ( 1 )
   {
-    if ( *v12 == 92 )
+    if ( *v14 == 92 )
     {
-      LODWORD(v11) = v11 - 1;
-      if ( !(_DWORD)v11 )
+      LODWORD(v13) = v13 - 1;
+      if ( !(_DWORD)v13 )
         break;
     }
-    v13 -= 2;
-    if ( !v13 )
+    v15 -= 2;
+    if ( !v15 )
     {
 LABEL_21:
-      ExFreePoolWithTag(Pool2, 0);
+      ExFreePoolWithTag(v11, 0);
       return 3221225485LL;
     }
-    ++v12;
+    ++v14;
   }
-  v14 = v12 + 1;
-  v15 = v13 - 2;
-  while ( v15 )
+  v16 = v14 + 1;
+  v17 = v15 - 2;
+  while ( v17 )
   {
-    v16 = 6LL * (unsigned int)v11;
-    *(_QWORD *)&Pool2[12 * (unsigned int)v11 + 2] = v14;
+    v18 = 6LL * (unsigned int)v13;
+    *(_QWORD *)&v11[12 * (unsigned int)v13 + 2] = v16;
     do
     {
-      if ( *v14 == 92 )
+      if ( *v16 == 92 )
         break;
-      LOWORD(Pool2[12 * (unsigned int)v11]) += 2;
-      ++v14;
-      v15 -= 2;
+      LOWORD(v11[12 * (unsigned int)v13]) += 2;
+      ++v16;
+      v17 -= 2;
     }
-    while ( v15 );
-    v17 = Pool2[12 * (unsigned int)v11];
-    LODWORD(v11) = v11 + 1;
-    HIWORD(Pool2[2 * v16]) = v17;
-    if ( !v15 )
+    while ( v17 );
+    v19 = v11[12 * (unsigned int)v13];
+    LODWORD(v13) = v13 + 1;
+    HIWORD(v11[2 * v18]) = v19;
+    if ( !v17 )
       break;
     do
     {
-      if ( *v14 != 92 )
+      if ( *v16 != 92 )
         break;
-      ++v14;
-      v15 -= 2;
+      ++v16;
+      v17 -= 2;
     }
-    while ( v15 );
+    while ( v17 );
   }
-  *a3 = v11;
-  while ( (unsigned int)v11 > 1 )
+  *a3 = v13;
+  while ( (unsigned int)v13 > 1 )
   {
     if ( !v7 )
       goto LABEL_21;
-    v11 = (unsigned int)(v11 - 1);
-    Pool2[12 * v11 + 10] = *(_DWORD *)(v7 + 40) >> 31;
+    v13 = (unsigned int)(v13 - 1);
+    v11[12 * v13 + 10] = *(_DWORD *)(v7 + 40) >> 31;
     v7 = *(_QWORD *)(v7 + 72);
   }
-  Pool2[10] = 0;
+  v11[10] = 0;
   result = 0LL;
-  *a4 = Pool2;
+  *a4 = v11;
   return result;
 }

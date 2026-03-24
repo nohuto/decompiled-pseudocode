@@ -1,7 +1,7 @@
 /*
- * XREFs of SmKmVirtualLockContextIncreaseWsMin @ 0x1403079F8
+ * XREFs of SmKmVirtualLockContextIncreaseWsMin @ 0x140307AF8
  * Callers:
- *     SmKmVirtualLockCtxLockMemory @ 0x140307CBC (SmKmVirtualLockCtxLockMemory.c)
+ *     SmKmVirtualLockCtxLockMemory @ 0x140307DBC (SmKmVirtualLockCtxLockMemory.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -11,9 +11,9 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MmQueryWorkingSetInformation @ 0x1400F10C8 (MmQueryWorkingSetInformation.c)
- *     MmAdjustWorkingSetSizeEx @ 0x14013C044 (MmAdjustWorkingSetSizeEx.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MmQueryWorkingSetInformation @ 0x1400F10E8 (MmQueryWorkingSetInformation.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14013C064 (MmAdjustWorkingSetSizeEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall SmKmVirtualLockContextIncreaseWsMin(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned __int64 a3)

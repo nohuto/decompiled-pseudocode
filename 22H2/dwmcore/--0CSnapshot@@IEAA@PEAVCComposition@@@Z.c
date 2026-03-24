@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CSnapshot@@IEAA@PEAVCComposition@@@Z @ 0x1801C1418
+ * XREFs of ??0CSnapshot@@IEAA@PEAVCComposition@@@Z @ 0x18016AFA4
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C6E4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2488 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
- *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x1800B9448 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x18009F484 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
  */
 
 CSnapshot *__fastcall CSnapshot::CSnapshot(CSnapshot *this, struct CComposition *a2)
@@ -14,22 +14,22 @@ CSnapshot *__fastcall CSnapshot::CSnapshot(CSnapshot *this, struct CComposition 
   __int64 v5; // rcx
   CSnapshot *result; // rax
 
-  *((_QWORD *)this + 8) = &CSnapshot::`vbtable'{for `CContent'};
-  *((_QWORD *)this + 16) = &CInk::`vbtable'{for `IContent'};
-  *((_QWORD *)this + 15) = &IContent::`vftable'{for `IContent'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 16) + 4LL) + 128) = &COverlaySwapChainBase::`vftable'{for `IUnknown'};
+  *((_QWORD *)this + 7) = &CSnapshot::`vbtable'{for `CContent'};
+  *((_QWORD *)this + 15) = &CInk::`vbtable'{for `IContent'};
+  *((_QWORD *)this + 14) = &IContent::`vftable'{for `IContent'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 15) + 4LL) + 120) = &ILegacySwapChain::`vftable'{for `IUnknown'};
   CContent::CContent(this, a2);
-  v3 = *(_QWORD *)(v2 + 64);
+  v3 = *(_QWORD *)(v2 + 56);
   *(_QWORD *)v2 = &CSnapshot::`vftable';
-  *(_QWORD *)(*(int *)(v3 + 4) + v2 + 64) = &CSnapshot::`vftable'{for `IUnknown'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 64) + 8LL) + v2 + 64) = &CSnapshot::`vftable'{for `IContent'};
-  v4 = *(int *)(*(_QWORD *)(v2 + 64) + 4LL);
-  *(_DWORD *)(v4 + v2 + 60) = v4 - 40;
-  v5 = *(int *)(*(_QWORD *)(v2 + 64) + 8LL);
-  *(_DWORD *)(v5 + v2 + 60) = v5 - 56;
+  *(_QWORD *)(*(int *)(v3 + 4) + v2 + 56) = &CD2DPrimitiveProperties::`vftable'{for `IUnknown'};
+  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 56) + 8LL) + v2 + 56) = &CSnapshot::`vftable'{for `IContent'};
+  v4 = *(int *)(*(_QWORD *)(v2 + 56) + 4LL);
+  *(_DWORD *)(v4 + v2 + 52) = v4 - 40;
+  v5 = *(int *)(*(_QWORD *)(v2 + 56) + 8LL);
+  *(_DWORD *)(v5 + v2 + 52) = v5 - 56;
+  *(_QWORD *)(v2 + 64) = 0LL;
   *(_QWORD *)(v2 + 72) = 0LL;
-  *(_QWORD *)(v2 + 80) = 0LL;
   result = (CSnapshot *)v2;
-  *(_WORD *)(v2 + 88) = 0;
+  *(_WORD *)(v2 + 80) = 0;
   return result;
 }

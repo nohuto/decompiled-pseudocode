@@ -1,11 +1,11 @@
 /*
- * XREFs of PipDgqFreeEntry @ 0x14095EC14
+ * XREFs of PipDgqFreeEntry @ 0x1408B9258
  * Callers:
- *     PiDmaGuardQueueRemoveEntry @ 0x140564DE8 (PiDmaGuardQueueRemoveEntry.c)
- *     PipDmgFlushQueueAndRestartDevices @ 0x140956ADC (PipDmgFlushQueueAndRestartDevices.c)
+ *     PiDmaGuardQueueRemoveEntry @ 0x1405105E8 (PiDmaGuardQueueRemoveEntry.c)
+ *     PipDmgFlushQueueAndRestartDevices @ 0x1408B1468 (PipDmgFlushQueueAndRestartDevices.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PipDgqFreeEntry(PVOID *P)

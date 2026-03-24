@@ -1,7 +1,7 @@
 /*
- * XREFs of RunningHash @ 0x1C00B1378
+ * XREFs of RunningHash @ 0x1C01FFFFC
  * Callers:
- *     ComputeEventEntryHash @ 0x1C00B12E8 (ComputeEventEntryHash.c)
+ *     ComputeEventEntryHash @ 0x1C01FF790 (ComputeEventEntryHash.c)
  * Callees:
  *     <none>
  */

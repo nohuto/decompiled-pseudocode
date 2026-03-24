@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetHandleProperty@CHolographicViewerMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C022E010
+ * XREFs of ?SetHandleProperty@CHolographicViewerMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C01EE6E0
  * Callers:
  *     <none>
  * Callees:
- *     CallerHasScreenDuplicationCapability @ 0x1C022DC98 (CallerHasScreenDuplicationCapability.c)
+ *     CallerHasScreenDuplicationCapability @ 0x1C01EE378 (CallerHasScreenDuplicationCapability.c)
  */
 
 __int64 __fastcall DirectComposition::CHolographicViewerMarshaler::SetHandleProperty(
@@ -17,17 +17,17 @@ __int64 __fastcall DirectComposition::CHolographicViewerMarshaler::SetHandleProp
   v4 = 0;
   if ( (_DWORD)a2 == 3 )
   {
-    if ( (*((_DWORD *)this + 17) & 8) != 0 || !a3 )
+    if ( (*((_DWORD *)this + 15) & 8) != 0 || !a3 )
     {
       return (unsigned int)-1073741790;
     }
     else
     {
-      *((_QWORD *)this + 14) = a3;
-      *((_QWORD *)this + 17) = PsGetCurrentProcess(this, a2, a3, a4);
+      *((_QWORD *)this + 13) = a3;
+      *((_QWORD *)this + 16) = PsGetCurrentProcess(this, a2);
       if ( CallerHasScreenDuplicationCapability() )
-        *((_DWORD *)this + 33) |= 1u;
-      *((_DWORD *)this + 17) |= 8u;
+        *((_DWORD *)this + 31) |= 1u;
+      *((_DWORD *)this + 15) |= 8u;
       *a4 = 1;
     }
   }

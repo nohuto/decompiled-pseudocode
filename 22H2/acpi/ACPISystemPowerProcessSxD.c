@@ -1,23 +1,23 @@
 /*
- * XREFs of ACPISystemPowerProcessSxD @ 0x1C00951D8
+ * XREFs of ACPISystemPowerProcessSxD @ 0x1C00A1914
  * Callers:
- *     ACPISystemPowerInitializeRootMapping @ 0x1C003DEC4 (ACPISystemPowerInitializeRootMapping.c)
+ *     ACPISystemPowerInitializeRootMapping @ 0x1C002BBB0 (ACPISystemPowerInitializeRootMapping.c)
  * Callees:
- *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
- *     ACPISystemPowerGetSxD @ 0x1C0094FD0 (ACPISystemPowerGetSxD.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     ACPISystemPowerGetSxD @ 0x1C009E290 (ACPISystemPowerGetSxD.c)
  */
 
-__int64 __fastcall ACPISystemPowerProcessSxD(_QWORD *a1, __int64 a2, _BYTE *a3)
+__int64 __fastcall ACPISystemPowerProcessSxD(__int64 *a1, __int64 a2, _BYTE *a3)
 {
   int *v3; // rbx
   int i; // edi
   int v7; // eax
   int SxD; // eax
-  char v9; // r8
-  const char *v10; // r10
-  const char *v11; // rdx
-  __int64 v12; // rcx
-  int v13; // eax
+  char v10; // r8
+  char *v11; // r10
+  char *v12; // rdx
+  __int64 v13; // rcx
+  int v14; // eax
   int v15; // [rsp+70h] [rbp+18h] BYREF
 
   v15 = 0;
@@ -28,43 +28,43 @@ __int64 __fastcall ACPISystemPowerProcessSxD(_QWORD *a1, __int64 a2, _BYTE *a3)
     v7 = AcpiSupportedSystemStates;
     if ( _bittest(&v7, i) )
     {
-      SxD = ACPISystemPowerGetSxD((__int64)a1, i, &v15);
+      SxD = ACPISystemPowerGetSxD(a1, i, &v15);
       if ( SxD != -1073741772 )
       {
         if ( SxD >= 0 )
         {
-          v13 = v15;
+          v14 = v15;
           *a3 = 1;
-          if ( v13 > *v3 )
-            *v3 = v13;
+          if ( v14 > *v3 )
+            *v3 = v14;
         }
         else
         {
-          v9 = 0;
-          v10 = byte_1C00622D0;
-          v11 = byte_1C00622D0;
+          v10 = 0;
+          v11 = byte_1C00701BA;
+          v12 = byte_1C00701BA;
           if ( a1 )
           {
-            v12 = a1[1];
-            v9 = (char)a1;
-            if ( (v12 & 0x200000000000LL) != 0 )
+            v13 = a1[1];
+            v10 = (char)a1;
+            if ( (v13 & 0x200000000000LL) != 0 )
             {
-              v10 = (const char *)a1[76];
-              if ( (v12 & 0x400000000000LL) != 0 )
-                v11 = (const char *)a1[77];
+              v11 = (char *)a1[71];
+              if ( (v13 & 0x400000000000LL) != 0 )
+                v12 = (char *)a1[72];
             }
           }
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_dqss(
+            WPP_RECORDER_SF_Lqss(
               (__int64)WPP_GLOBAL_Control->DeviceExtension,
               2u,
               0xFu,
               0x11u,
               (__int64)&WPP_63048e4611d63d39c0d94317710a082a_Traceguids,
               SxD,
-              v9,
               v10,
-              v11);
+              (__int64)v11,
+              (__int64)v12);
         }
       }
     }

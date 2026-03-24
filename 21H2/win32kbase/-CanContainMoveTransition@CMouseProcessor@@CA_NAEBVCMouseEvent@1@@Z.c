@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CanContainMoveTransition@CMouseProcessor@@CA_NAEBVCMouseEvent@1@@Z @ 0x1C00A7160
+ * XREFs of ?CanContainMoveTransition@CMouseProcessor@@CA_NAEBVCMouseEvent@1@@Z @ 0x1C00959E0
  * Callers:
  *     <none>
  * Callees:

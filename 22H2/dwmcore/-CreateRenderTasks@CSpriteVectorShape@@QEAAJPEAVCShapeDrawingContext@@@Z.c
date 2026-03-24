@@ -1,219 +1,213 @@
 /*
- * XREFs of ?CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z @ 0x1800845B8
+ * XREFs of ?CreateRenderTasks@CSpriteVectorShape@@QEAAJPEAVCShapeDrawingContext@@@Z @ 0x1801ECF04
  * Callers:
- *     ??$Walk@VCShapeDrawingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeDrawingContext@@@Z @ 0x180083DD0 (--$Walk@VCShapeDrawingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeDrawingCont.c)
+ *     ?PreSubgraph@CShapeDrawingContext@@QEAAJPEA_N@Z @ 0x180261538 (-PreSubgraph@CShapeDrawingContext@@QEAAJPEA_N@Z.c)
  * Callees:
- *     ?EnsureStrokeStyleForRender@CSpriteVectorShape@@AEAAJXZ @ 0x18001DE78 (-EnsureStrokeStyleForRender@CSpriteVectorShape@@AEAAJXZ.c)
- *     ?CreateRenderTask@CShapeDrawingContext@@QEAAJPEAPEAVCShapeRenderTask@@@Z @ 0x18001F250 (-CreateRenderTask@CShapeDrawingContext@@QEAAJPEAPEAVCShapeRenderTask@@@Z.c)
- *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180061790 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ??$_Emplace_reallocate@$$V@?$vector@VCShapeRenderTask@@V?$allocator@VCShapeRenderTask@@@std@@@std@@QEAAPEAVCShapeRenderTask@@QEAV2@@Z @ 0x180084AE8 (--$_Emplace_reallocate@$$V@-$vector@VCShapeRenderTask@@V-$allocator@VCShapeRenderTask@@@std@@@st.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?IsAxisAlignedRectangle@CShapePtr@@QEBA_NXZ @ 0x180011B18 (-IsAxisAlignedRectangle@CShapePtr@@QEBA_NXZ.c)
+ *     ?IsEmpty@CShapePtr@@QEBA_NXZ @ 0x18001A758 (-IsEmpty@CShapePtr@@QEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180087AD0 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C876C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?EnsureStrokeStyleForRender@CSpriteVectorShape@@AEAAJXZ @ 0x1801ED3B8 (-EnsureStrokeStyleForRender@CSpriteVectorShape@@AEAAJXZ.c)
+ *     ?CreateRenderTask@CShapeDrawingContext@@QEAAJPEAPEAVCShapeRenderTask@@@Z @ 0x180261134 (-CreateRenderTask@CShapeDrawingContext@@QEAAJPEAPEAVCShapeRenderTask@@@Z.c)
  */
 
 __int64 __fastcall CSpriteVectorShape::CreateRenderTasks(CSpriteVectorShape *this, struct CShapeDrawingContext *a2)
 {
   CGeometry *v4; // rcx
   int ShapeData; // eax
-  unsigned int v6; // ecx
-  unsigned int v7; // edi
+  __int64 v6; // rcx
+  unsigned int v7; // ebx
   __int64 v8; // rcx
-  _DWORD *v9; // rdx
+  int v9; // eax
   __int64 v10; // rcx
-  __int64 v11; // rax
-  __int64 v12; // rdx
+  struct CShapeRenderTask *v11; // rax
+  __int64 v12; // rcx
   __int128 v13; // xmm0
   __int64 v14; // rcx
-  _DWORD *v16; // rdx
-  __int64 v17; // rdx
-  __int64 v18; // rax
-  float v19; // xmm6_4
-  int v20; // eax
-  unsigned int v21; // ecx
-  int v22; // eax
-  unsigned int v23; // ecx
-  __int64 v24; // rdx
-  struct CShapeRenderTask *v25; // rcx
-  __int64 v26; // rax
-  __int64 v27; // r8
-  __int128 v28; // xmm0
-  int v29; // eax
-  unsigned int v30; // ecx
-  struct CShapeRenderTask *v31; // rax
-  __int64 v32; // rcx
-  __int128 v33; // xmm0
-  int v34; // eax
-  unsigned int v35; // ecx
-  struct CShapeRenderTask *v36; // rcx
-  __int64 v37; // rax
-  __int64 v38; // rdx
-  __int64 v39; // r8
-  __int128 v40; // xmm0
-  __int64 v41; // [rsp+30h] [rbp-30h] BYREF
-  char v42; // [rsp+38h] [rbp-28h]
-  __int128 v43; // [rsp+40h] [rbp-20h]
-  char v44; // [rsp+80h] [rbp+20h] BYREF
-  struct CShapeRenderTask *v45; // [rsp+90h] [rbp+30h] BYREF
+  float v15; // xmm6_4
+  int v16; // eax
+  __int64 v17; // rcx
+  int v18; // eax
+  __int64 v19; // rcx
+  __int64 v20; // rdx
+  struct CShapeRenderTask *v21; // rcx
+  __int64 v22; // rax
+  __int64 v23; // r8
+  __int128 v24; // xmm0
+  int v25; // eax
+  __int64 v26; // rcx
+  __int64 v27; // rdx
+  struct CShapeRenderTask *v28; // rcx
+  __int64 v29; // rax
+  int v30; // eax
+  __int64 v31; // rcx
+  struct CShapeRenderTask *v32; // rcx
+  __int64 v33; // rax
+  __int64 v34; // rdx
+  __int128 v35; // xmm0
+  int v36; // eax
+  __int64 v37; // rcx
+  struct CShapeRenderTask *v38; // rcx
+  __int64 v39; // rax
+  __int64 v40; // rdx
+  __int64 v41; // r8
+  __int128 v42; // xmm0
+  CShape *v44; // [rsp+30h] [rbp-30h] BYREF
+  char v45; // [rsp+38h] [rbp-28h]
+  __int128 v46; // [rsp+40h] [rbp-20h]
+  char v47; // [rsp+80h] [rbp+20h] BYREF
+  struct CShapeRenderTask *v48; // [rsp+90h] [rbp+30h] BYREF
 
-  v4 = (CGeometry *)*((_QWORD *)this + 15);
-  v41 = 0LL;
-  v42 = 0;
-  ShapeData = CGeometry::GetShapeData(v4, 0LL, (struct CShapePtr *)&v41);
+  v4 = (CGeometry *)*((_QWORD *)this + 14);
+  v44 = 0LL;
+  v45 = 0;
+  ShapeData = CGeometry::GetShapeData(v4, 0LL, (struct CShapePtr *)&v44);
   v7 = ShapeData;
   if ( ShapeData < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, ShapeData, 0x14Fu, 0LL);
-    goto LABEL_16;
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, ShapeData, 0x14Au, 0LL);
+    goto LABEL_36;
   }
-  if ( v41 && !(*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v41 + 16LL))(v41) )
+  if ( !CShapePtr::IsEmpty((CShapePtr *)&v44) )
   {
-    v8 = *((_QWORD *)this + 13);
+    v8 = *((_QWORD *)this + 12);
     if ( v8
-      && (*(unsigned __int8 (__fastcall **)(__int64, _QWORD, char *))(*(_QWORD *)v8 + 288LL))(v8, 0LL, &v44)
-      && !v44 )
+      && (*(unsigned __int8 (__fastcall **)(__int64, _QWORD, char *))(*(_QWORD *)v8 + 296LL))(v8, 0LL, &v47)
+      && !v47 )
     {
-      if ( v41
-        && (*(unsigned __int8 (__fastcall **)(__int64, struct CShapeRenderTask **))(*(_QWORD *)v41 + 64LL))(v41, &v45)
-        && (_DWORD)v45 == 1
-        && !(*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 13) + 56LL))(
-              *((_QWORD *)this + 13),
-              137LL) )
+      if ( !CShapePtr::IsAxisAlignedRectangle(&v44)
+        || (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 12) + 56LL))(
+             *((_QWORD *)this + 12),
+             136LL) )
       {
-        v29 = CShapeDrawingContext::CreateRenderTask(a2, &v45);
-        v7 = v29;
-        if ( v29 < 0 )
+        if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 12) + 56LL))(
+               *((_QWORD *)this + 12),
+               20LL) )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v30, 0LL, 0, v29, 0x15Bu, 0LL);
-          goto LABEL_16;
+          v25 = CShapeDrawingContext::CreateRenderTask(a2, &v48);
+          v7 = v25;
+          if ( v25 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0x15Du, 0LL);
+            goto LABEL_36;
+          }
+          v27 = *((_QWORD *)this + 12);
+          v28 = v48;
+          v29 = *((_QWORD *)this + 14);
+          *(_DWORD *)v48 = 2;
+          *((_QWORD *)v28 + 1) = v29;
+          *((_OWORD *)v28 + 1) = *(_OWORD *)(v27 + 80);
         }
-        v31 = v45;
-        v32 = *((_QWORD *)this + 13);
-        *(_DWORD *)v45 = 4;
-        v33 = *((_OWORD *)this + 9);
-        *((_QWORD *)v31 + 3) = v32;
-        v43 = v33;
-        *(_OWORD *)((char *)v31 + 8) = v33;
-        goto LABEL_15;
+        else if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 12) + 56LL))(
+                    *((_QWORD *)this + 12),
+                    69LL) )
+        {
+          v30 = CShapeDrawingContext::CreateRenderTask(a2, &v48);
+          v7 = v30;
+          if ( v30 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0, v30, 0x164u, 0LL);
+            goto LABEL_36;
+          }
+          v32 = v48;
+          v33 = *((_QWORD *)this + 14);
+          v34 = *((_QWORD *)this + 12);
+          *(_DWORD *)v48 = 3;
+          *((_QWORD *)v32 + 1) = v33;
+          v35 = *(_OWORD *)((char *)this + 136);
+          *((_QWORD *)v32 + 4) = v34;
+          v46 = v35;
+          *((_OWORD *)v32 + 1) = v35;
+        }
       }
-      if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 13) + 56LL))(
-             *((_QWORD *)this + 13),
-             22LL) )
+      else
       {
-        v16 = (_DWORD *)*((_QWORD *)a2 + 64);
-        if ( v16 == *((_DWORD **)a2 + 65) )
+        v9 = CShapeDrawingContext::CreateRenderTask(a2, &v48);
+        v7 = v9;
+        if ( v9 < 0 )
         {
-          std::vector<CShapeRenderTask>::_Emplace_reallocate<>();
+          MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x156u, 0LL);
+          goto LABEL_36;
         }
-        else
-        {
-          *v16 = 0;
-          *((_QWORD *)a2 + 64) += 56LL;
-        }
-        v17 = *((_QWORD *)this + 13);
-        v10 = *((_QWORD *)a2 + 64);
-        v18 = *((_QWORD *)this + 15);
-        *(_DWORD *)(v10 - 56) = 2;
-        *(_QWORD *)(v10 - 48) = v18;
-        v13 = *(_OWORD *)(v17 + 88);
-        goto LABEL_14;
-      }
-      if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 13) + 56LL))(
-             *((_QWORD *)this + 13),
-             73LL) )
-      {
-        v9 = (_DWORD *)*((_QWORD *)a2 + 64);
-        if ( v9 == *((_DWORD **)a2 + 65) )
-        {
-          std::vector<CShapeRenderTask>::_Emplace_reallocate<>();
-        }
-        else
-        {
-          *v9 = 0;
-          *((_QWORD *)a2 + 64) += 56LL;
-        }
-        v10 = *((_QWORD *)a2 + 64);
-        v11 = *((_QWORD *)this + 15);
-        v12 = *((_QWORD *)this + 13);
-        *(_DWORD *)(v10 - 56) = 3;
-        *(_QWORD *)(v10 - 48) = v11;
-        v13 = *((_OWORD *)this + 9);
-        *(_QWORD *)(v10 - 24) = v12;
-        v43 = v13;
-LABEL_14:
-        *(_OWORD *)(v10 - 40) = v13;
-        v7 = 0;
+        v11 = v48;
+        v12 = *((_QWORD *)this + 12);
+        *(_DWORD *)v48 = 4;
+        v13 = *(_OWORD *)((char *)this + 136);
+        *((_QWORD *)v11 + 3) = v12;
+        v46 = v13;
+        *(_OWORD *)((char *)v11 + 8) = v13;
       }
     }
-LABEL_15:
-    v14 = *((_QWORD *)this + 14);
+    v14 = *((_QWORD *)this + 13);
     if ( v14
-      && (*(unsigned __int8 (__fastcall **)(__int64, _QWORD, char *))(*(_QWORD *)v14 + 288LL))(v14, 0LL, &v44)
-      && !v44
-      && *((_QWORD *)this + 16) )
+      && (*(unsigned __int8 (__fastcall **)(__int64, _QWORD, char *))(*(_QWORD *)v14 + 296LL))(v14, 0LL, &v47)
+      && !v47
+      && *((_QWORD *)this + 15) )
     {
-      v19 = fmaxf(0.0, *((float *)this + 52));
-      if ( *((_BYTE *)this + 212) )
-        v19 = v19 * fminf(*((float *)a2 + 124), *((float *)a2 + 125));
-      v20 = CSpriteVectorShape::EnsureStrokeStyleForRender(this);
-      v7 = v20;
-      if ( v20 < 0 )
+      v15 = fmaxf(0.0, *((float *)this + 50));
+      if ( *((_BYTE *)this + 204) )
+        v15 = v15 * fminf(*((float *)a2 + 124), *((float *)a2 + 125));
+      v16 = CSpriteVectorShape::EnsureStrokeStyleForRender(this);
+      v7 = v16;
+      if ( v16 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x17Bu, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x176u, 0LL);
       }
-      else if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 14) + 56LL))(
-                  *((_QWORD *)this + 14),
-                  22LL) )
+      else if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 13) + 56LL))(
+                  *((_QWORD *)this + 13),
+                  20LL) )
       {
-        v22 = CShapeDrawingContext::CreateRenderTask(a2, &v45);
-        v7 = v22;
-        if ( v22 < 0 )
+        v18 = CShapeDrawingContext::CreateRenderTask(a2, &v48);
+        v7 = v18;
+        if ( v18 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x180u, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x17Bu, 0LL);
         }
         else
         {
-          v24 = *((_QWORD *)this + 14);
-          v25 = v45;
-          v26 = *((_QWORD *)this + 15);
-          v27 = *((_QWORD *)this + 17);
-          *(_DWORD *)v45 = 5;
-          *((_QWORD *)v25 + 1) = v26;
-          v28 = *(_OWORD *)(v24 + 88);
-          *((_QWORD *)v25 + 5) = v27;
-          *((float *)v25 + 8) = v19;
-          *((_OWORD *)v25 + 1) = v28;
+          v20 = *((_QWORD *)this + 13);
+          v21 = v48;
+          v22 = *((_QWORD *)this + 14);
+          v23 = *((_QWORD *)this + 16);
+          *(_DWORD *)v48 = 5;
+          *((_QWORD *)v21 + 1) = v22;
+          v24 = *(_OWORD *)(v20 + 80);
+          *((_QWORD *)v21 + 5) = v23;
+          *((float *)v21 + 8) = v15;
+          *((_OWORD *)v21 + 1) = v24;
         }
       }
-      else if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 14) + 56LL))(
-                  *((_QWORD *)this + 14),
-                  73LL) )
+      else if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 13) + 56LL))(
+                  *((_QWORD *)this + 13),
+                  69LL) )
       {
-        v34 = CShapeDrawingContext::CreateRenderTask(a2, &v45);
-        v7 = v34;
-        if ( v34 < 0 )
+        v36 = CShapeDrawingContext::CreateRenderTask(a2, &v48);
+        v7 = v36;
+        if ( v36 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v35, 0LL, 0, v34, 0x18Bu, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v36, 0x186u, 0LL);
         }
         else
         {
-          v36 = v45;
-          v37 = *((_QWORD *)this + 15);
-          v38 = *((_QWORD *)this + 14);
-          v39 = *((_QWORD *)this + 17);
-          *(_DWORD *)v45 = 6;
-          *((_QWORD *)v36 + 1) = v37;
-          v40 = *((_OWORD *)this + 9);
-          *((_QWORD *)v36 + 4) = v38;
-          *((float *)v36 + 10) = v19;
-          v43 = v40;
-          *((_QWORD *)v36 + 6) = v39;
-          *((_OWORD *)v36 + 1) = v40;
+          v38 = v48;
+          v39 = *((_QWORD *)this + 14);
+          v40 = *((_QWORD *)this + 13);
+          v41 = *((_QWORD *)this + 16);
+          *(_DWORD *)v48 = 6;
+          *((_QWORD *)v38 + 1) = v39;
+          v42 = *(_OWORD *)((char *)this + 136);
+          *((_QWORD *)v38 + 4) = v40;
+          *((float *)v38 + 10) = v15;
+          v46 = v42;
+          *((_QWORD *)v38 + 6) = v41;
+          *((_OWORD *)v38 + 1) = v42;
         }
       }
     }
   }
-LABEL_16:
-  if ( v42 && v41 )
-    (**(void (__fastcall ***)(__int64, __int64))v41)(v41, 1LL);
+LABEL_36:
+  CShapePtr::Release((CShapePtr *)&v44);
   return v7;
 }

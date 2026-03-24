@@ -1,18 +1,18 @@
 /*
- * XREFs of ExReleaseAutoExpandPushLockExclusive @ 0x140117B80
+ * XREFs of ExReleaseAutoExpandPushLockExclusive @ 0x140117BA0
  * Callers:
  *     MiDeletePagablePteRange @ 0x140067FE0 (MiDeletePagablePteRange.c)
- *     MiUnlockLoaderEntry @ 0x1400DBB0C (MiUnlockLoaderEntry.c)
- *     MiFreePhysicalPageChain @ 0x1402B04BC (MiFreePhysicalPageChain.c)
- *     MiFreePhysicalPages @ 0x1402B07E0 (MiFreePhysicalPages.c)
- *     MiUnlockAwePagesExclusive @ 0x1402B1FB8 (MiUnlockAwePagesExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x1402B200C (MiUnlockAweVadsExclusive.c)
+ *     MiUnlockLoaderEntry @ 0x1400DBB2C (MiUnlockLoaderEntry.c)
+ *     MiFreePhysicalPageChain @ 0x1402B05BC (MiFreePhysicalPageChain.c)
+ *     MiFreePhysicalPages @ 0x1402B08E0 (MiFreePhysicalPages.c)
+ *     MiUnlockAwePagesExclusive @ 0x1402B20B8 (MiUnlockAwePagesExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x1402B210C (MiUnlockAweVadsExclusive.c)
  * Callees:
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExpAeUpdateStatsForExclusiveRelease @ 0x140117BFC (ExpAeUpdateStatsForExclusiveRelease.c)
- *     ExpReleaseFannedOutPushLockExclusive @ 0x140167620 (ExpReleaseFannedOutPushLockExclusive.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ExpAeUpdateStatsForExclusiveRelease @ 0x140117C1C (ExpAeUpdateStatsForExclusiveRelease.c)
+ *     ExpReleaseFannedOutPushLockExclusive @ 0x140167640 (ExpReleaseFannedOutPushLockExclusive.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExReleaseAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)

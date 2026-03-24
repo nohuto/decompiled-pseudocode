@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCrimsonProvEnableCallback @ 0x1407E80F0
+ * XREFs of EtwpCrimsonProvEnableCallback @ 0x1407BF290
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     EtwProviderEnabled @ 0x140304190 (EtwProviderEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwpPsProvCaptureState @ 0x1409EFA84 (EtwpPsProvCaptureState.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     EtwProviderEnabled @ 0x14025F0A0 (EtwProviderEnabled.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwpPsProvCaptureState @ 0x14093EB28 (EtwpPsProvCaptureState.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpCrimsonProvEnableCallback(
@@ -34,12 +34,12 @@ void __fastcall EtwpCrimsonProvEnableCallback(
   unsigned __int64 v18; // rax
   int v19; // ecx
   unsigned int v20; // r8d
-  struct _WORK_QUEUE_ITEM *Pool2; // rax
-  REGHANDLE v22; // rsi
-  int v23; // ebx
-  int v24; // edi
-  BOOLEAN v25; // al
-  int v26; // ecx
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
+  int v22; // edi
+  BOOLEAN v23; // al
+  int v24; // ecx
+  REGHANDLE v25; // rsi
+  int v26; // ebx
   int v27; // [rsp+30h] [rbp-50h] BYREF
   unsigned int v28; // [rsp+34h] [rbp-4Ch]
   int v29; // [rsp+38h] [rbp-48h]
@@ -52,14 +52,14 @@ void __fastcall EtwpCrimsonProvEnableCallback(
   {
     if ( (_DWORD)CallbackContext == 0x2000000 )
     {
-      v22 = EtwpFileProvRegHandle;
-      v23 = EtwProviderEnabled(EtwpFileProvRegHandle, 0, 0x10uLL) != 0 ? 0x200 : 0;
+      v25 = EtwpFileProvRegHandle;
+      v26 = EtwProviderEnabled(EtwpFileProvRegHandle, 0, 0x10uLL) != 0 ? 0x200 : 0;
       v27 = 100663808;
-      v24 = v23 | 0x2000000;
-      if ( !EtwProviderEnabled(v22, 0, 0x60uLL) )
-        v24 = v23;
-      v25 = EtwProviderEnabled(v22, 0, 0x1FA0uLL);
-      v26 = v24 | 0x4000000;
+      v22 = v26 | 0x2000000;
+      if ( !EtwProviderEnabled(v25, 0, 0x60uLL) )
+        v22 = v26;
+      v23 = EtwProviderEnabled(v25, 0, 0x1FA0uLL);
+      v24 = v22 | 0x4000000;
     }
     else
     {
@@ -67,19 +67,19 @@ void __fastcall EtwpCrimsonProvEnableCallback(
       {
         v27 = (int)CallbackContext;
         v28 = ControlCode != 0 ? (unsigned int)CallbackContext : 0;
-LABEL_30:
+LABEL_26:
         v15 = 1LL;
         goto LABEL_13;
       }
       v27 = 545783808;
-      v24 = EtwProviderEnabled(EtwpMemoryProvRegHandle, 0, 0x420uLL) != 0 ? 0x20080000 : 0;
-      v25 = EtwProviderEnabled(EtwpMemoryProvRegHandle, 0, 0x40uLL);
-      v26 = v24 | 0x20800000;
+      v22 = EtwProviderEnabled(EtwpMemoryProvRegHandle, 0, 0x420uLL) != 0 ? 0x20080000 : 0;
+      v23 = EtwProviderEnabled(EtwpMemoryProvRegHandle, 0, 0x40uLL);
+      v24 = v22 | 0x20800000;
     }
-    if ( !v25 )
-      v26 = v24;
-    v28 = v26;
-    goto LABEL_30;
+    if ( !v23 )
+      v24 = v22;
+    v28 = v24;
+    goto LABEL_26;
   }
   v9 = EtwpPsProvRegHandle;
   v10 = 0;
@@ -113,18 +113,18 @@ LABEL_13:
     v19 = v16[1] & 0x1FFFFFFF;
     v20 = *v16 & ~v16[1];
     v16 += 2;
-    *(_DWORD *)(EtwpHostSiloState + 4 * v18 + 4540) |= v19;
-    *(_DWORD *)(v17 + 4 * ((unsigned __int64)v20 >> 29) + 4540) &= ~(v20 & 0x1FFFFFFF);
+    *(_DWORD *)(EtwpHostSiloState + 4 * v18 + 4516) |= v19;
+    *(_DWORD *)(v17 + 4 * ((unsigned __int64)v20 >> 29) + 4516) &= ~(v20 & 0x1FFFFFFF);
     --v15;
   }
   while ( v15 );
   KeReleaseMutex(&EtwpCrimsonMaskMutex, 0);
-  Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(64LL, 32LL, 1467446341LL);
-  if ( Pool2 )
+  PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x57777445u);
+  if ( PoolWithTag )
   {
-    Pool2->List.Flink = 0LL;
-    Pool2->WorkerRoutine = (void (__fastcall *)(void *))EtwpUpdateKernelGroupsWork;
-    Pool2->Parameter = Pool2;
-    ExQueueWorkItem(Pool2, DelayedWorkQueue);
+    PoolWithTag->List.Flink = 0LL;
+    PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))EtwpUpdateKernelGroupsWork;
+    PoolWithTag->Parameter = PoolWithTag;
+    ExQueueWorkItem(PoolWithTag, DelayedWorkQueue);
   }
 }

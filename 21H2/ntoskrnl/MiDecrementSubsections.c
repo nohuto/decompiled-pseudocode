@@ -1,25 +1,26 @@
 /*
- * XREFs of MiDecrementSubsections @ 0x140286920
+ * XREFs of MiDecrementSubsections @ 0x1403150C0
  * Callers:
- *     MiDecrementSubsection @ 0x14023F9CC (MiDecrementSubsection.c)
- *     MiReleaseFaultCharges @ 0x140250924 (MiReleaseFaultCharges.c)
- *     MmPurgeSection @ 0x14027F360 (MmPurgeSection.c)
- *     MiFlushRelease @ 0x1402867DC (MiFlushRelease.c)
- *     MiUnmapViewSubsections @ 0x1402875B0 (MiUnmapViewSubsections.c)
- *     MiDecrementPartialVadSubsections @ 0x1402ED0C4 (MiDecrementPartialVadSubsections.c)
- *     MiAddViewsForSection @ 0x140311CC0 (MiAddViewsForSection.c)
- *     MiUpControlAreaRefs @ 0x14058C330 (MiUpControlAreaRefs.c)
- *     MiUpdateActiveSubsection @ 0x140597C48 (MiUpdateActiveSubsection.c)
+ *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
+ *     MmPurgeSection @ 0x140238BA0 (MmPurgeSection.c)
+ *     MiReleaseFaultCharges @ 0x1402C8F9C (MiReleaseFaultCharges.c)
+ *     MiDecrementSubsection @ 0x1402EE404 (MiDecrementSubsection.c)
+ *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
+ *     MiFlushRelease @ 0x140315010 (MiFlushRelease.c)
+ *     MiAddViewsForSection @ 0x1403155F0 (MiAddViewsForSection.c)
+ *     MiUpControlAreaRefs @ 0x14052AB70 (MiUpControlAreaRefs.c)
+ *     MiUpdateActiveSubsection @ 0x14053CEE0 (MiUpdateActiveSubsection.c)
  * Callees:
- *     MiInsertUnusedSubsection @ 0x140220AAC (MiInsertUnusedSubsection.c)
- *     MiDecrementSubsectionViewCount @ 0x1402869C0 (MiDecrementSubsectionViewCount.c)
+ *     MiInsertUnusedSubsection @ 0x140263D60 (MiInsertUnusedSubsection.c)
+ *     MiDecrementSubsectionViewCount @ 0x140315170 (MiDecrementSubsectionViewCount.c)
  */
 
-__int64 __fastcall MiDecrementSubsections(ULONG_PTR BugCheckParameter2, __int64 a2, int a3)
+__int64 __fastcall MiDecrementSubsections(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3)
 {
   ULONG_PTR v5; // rbx
   __int64 v6; // r14
-  __int64 v7; // rsi
+  __int64 v7; // rbp
+  unsigned int v8; // ecx
 
   v5 = BugCheckParameter2;
   v6 = 0LL;
@@ -32,14 +33,16 @@ __int64 __fastcall MiDecrementSubsections(ULONG_PTR BugCheckParameter2, __int64 
       if ( v7 )
       {
         if ( !*(_QWORD *)(v5 + 96) && (*(_BYTE *)(v5 + 34) & 1) == 0 )
-          v6 += MiInsertUnusedSubsection(v5);
+          v6 += MiInsertUnusedSubsection((_QWORD *)v5);
       }
     }
     if ( v5 == a2 )
       break;
     v5 = *(_QWORD *)(v5 + 16);
-    if ( !v7 )
-      a3 &= ~8u;
+    v8 = a3 & 0xFFFFFFF7;
+    if ( v7 )
+      v8 = a3;
+    a3 = v8;
   }
   while ( v5 );
   return v6;

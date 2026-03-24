@@ -1,14 +1,15 @@
 /*
- * XREFs of ?SetMask@ShadowIntermediates@CDropShadow@@QEAAJPEAV2@PEAVCBrush@@@Z @ 0x1800F8C08
+ * XREFs of ?SetMask@ShadowIntermediates@CDropShadow@@QEAAJPEAV2@PEAVCBrush@@@Z @ 0x1800E19E8
  * Callers:
- *     ??0CDropShadow@@QEAA@PEAVCComposition@@@Z @ 0x1800F8A60 (--0CDropShadow@@QEAA@PEAVCComposition@@@Z.c)
- *     ?ProcessSetMask@CDropShadow@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DROPSHADOW_SETMASK@@@Z @ 0x18022A80C (-ProcessSetMask@CDropShadow@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DROPSHADOW_SETMASK@@@Z.c)
- *     ?UpdateShadowIntermediates@CDropShadow@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x18022AF5C (-UpdateShadowIntermediates@CDropShadow@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
+ *     ?PrepareForDrawing@CDropShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x180008790 (-PrepareForDrawing@CDropShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
+ *     ??0CDropShadow@@QEAA@PEAVCComposition@@@Z @ 0x1800E18AC (--0CDropShadow@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?EnsureMask@CDropShadow@@AEAAJXZ @ 0x1801BEE1C (-EnsureMask@CDropShadow@@AEAAJXZ.c)
+ *     ?ProcessSetMask@CDropShadow@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DROPSHADOW_SETMASK@@@Z @ 0x1801BF12C (-ProcessSetMask@CDropShadow@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DROPSHADOW_SETMASK@@@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18004A8DC (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E9DB4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D9B0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?DestroyIntermediates@ShadowIntermediates@CDropShadow@@QEAAX_N@Z @ 0x1801BEDAC (-DestroyIntermediates@ShadowIntermediates@CDropShadow@@QEAAX_N@Z.c)
  */
 
 __int64 __fastcall CDropShadow::ShadowIntermediates::SetMask(
@@ -17,30 +18,30 @@ __int64 __fastcall CDropShadow::ShadowIntermediates::SetMask(
         struct CBrush *a3)
 {
   struct CResource *v5; // rdx
-  unsigned int v7; // ebx
+  unsigned int v7; // edi
   CResource *v9; // rcx
   int v10; // eax
   __int64 v11; // rcx
 
-  v5 = (struct CResource *)*((_QWORD *)this + 6);
+  v5 = (struct CResource *)*((_QWORD *)this + 1);
   if ( a3 != v5 )
   {
-    v9 = (CResource *)*((_QWORD *)this + 5);
+    v9 = *(CResource **)this;
     if ( v9 )
     {
       CResource::UnRegisterNotifierInternal(v9, v5);
-      *((_QWORD *)this + 6) = 0LL;
+      *((_QWORD *)this + 1) = 0LL;
     }
     v10 = CResource::RegisterNotifier(a2, a3);
     v7 = v10;
     if ( v10 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x2AFu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x297u, 0LL);
       return v7;
     }
-    *((_QWORD *)this + 6) = a3;
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset((__int64 *)this + 7);
+    *((_QWORD *)this + 1) = a3;
+    CDropShadow::ShadowIntermediates::DestroyIntermediates(this, 1);
   }
-  *((_QWORD *)this + 5) = a2;
+  *(_QWORD *)this = a2;
   return 0;
 }

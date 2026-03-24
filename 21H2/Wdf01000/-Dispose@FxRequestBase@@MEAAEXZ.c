@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Dispose@FxRequestBase@@MEAAEXZ @ 0x1C0002C40
+ * XREFs of ?Dispose@FxRequestBase@@MEAAEXZ @ 0x1C0004320
  * Callers:
  *     <none>
  * Callees:
- *     ?CallCleanupCallbacks@FxObject@@AEAAXXZ @ 0x1C000DC54 (-CallCleanupCallbacks@FxObject@@AEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?Vf_VerifyDispose@FxRequestBase@@IEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C7C8C (-Vf_VerifyDispose@FxRequestBase@@IEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?CallCleanupCallbacks@FxObject@@AEAAXXZ @ 0x1C0059E94 (-CallCleanupCallbacks@FxObject@@AEAAXXZ.c)
+ *     ?Vf_VerifyDispose@FxRequestBase@@IEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C6BA0 (-Vf_VerifyDispose@FxRequestBase@@IEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 unsigned __int8 __fastcall FxRequestBase::Dispose(FxRequestBase *this)
@@ -17,7 +17,7 @@ unsigned __int8 __fastcall FxRequestBase::Dispose(FxRequestBase *this)
   m_Globals = this->m_Globals;
   if ( m_Globals->FxVerifierOn )
     FxRequestBase::Vf_VerifyDispose(this, m_Globals);
-  if ( _bittest16((const signed __int16 *)&this->24, 0xAu) )
+  if ( (this->m_ObjectFlags & 0x400) != 0 )
     FxObject::CallCleanupCallbacks(this);
   m_RequestContext = this->m_RequestContext;
   if ( m_RequestContext )

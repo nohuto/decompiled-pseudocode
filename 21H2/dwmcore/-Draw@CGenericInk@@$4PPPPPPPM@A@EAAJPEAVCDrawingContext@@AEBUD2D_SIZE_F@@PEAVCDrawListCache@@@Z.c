@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Draw@CGenericInk@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180105B90
+ * XREFs of ?Draw@CGenericInk@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F4E30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-int __fastcall CGenericInk::Draw(
+__int64 __fastcall CGenericInk::Draw(
         __int64 a1,
         struct CDrawingContext *a2,
         const struct D2D_SIZE_F *a3,

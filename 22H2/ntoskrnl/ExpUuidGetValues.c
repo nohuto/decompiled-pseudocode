@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpUuidGetValues @ 0x140872708
+ * XREFs of ExpUuidGetValues @ 0x1407D3574
  * Callers:
- *     ExUuidCreate @ 0x140688920 (ExUuidCreate.c)
+ *     ExUuidCreate @ 0x14071FC80 (ExUuidCreate.c)
  * Callees:
- *     ExpAllocateUuids @ 0x1407E25B8 (ExpAllocateUuids.c)
+ *     ExpAllocateUuids @ 0x14069CDD4 (ExpAllocateUuids.c)
  */
 
 __int64 __fastcall ExpUuidGetValues(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall ExpUuidGetValues(__int64 a1)
   v8 = 0LL;
   v7 = 0;
   v6 = 0;
-  v2 = ExpAllocateUuids((__int64)&v8, &v7, &v6);
+  v2 = ExpAllocateUuids((__int64)&v8, (unsigned int *)&v7, &v6);
   if ( v2 == -1073741267 )
     return 3221226029LL;
   if ( v2 < 0 )

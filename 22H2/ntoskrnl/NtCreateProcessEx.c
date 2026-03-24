@@ -1,16 +1,16 @@
 /*
- * XREFs of NtCreateProcessEx @ 0x1409ADCF0
+ * XREFs of NtCreateProcessEx @ 0x140906FC0
  * Callers:
- *     NtCreateProcess @ 0x1409ADC60 (NtCreateProcess.c)
+ *     NtCreateProcess @ 0x140906F30 (NtCreateProcess.c)
  * Callees:
- *     PspCreateProcess @ 0x14085CC20 (PspCreateProcess.c)
+ *     PspCreateProcess @ 0x1407CE380 (PspCreateProcess.c)
  */
 
 NTSTATUS __fastcall NtCreateProcessEx(
-        _QWORD *a1,
+        unsigned __int64 a1,
         int a2,
         __int64 a3,
-        ULONG_PTR a4,
+        void *a4,
         int a5,
         void *a6,
         void *a7,
@@ -25,8 +25,8 @@ NTSTATUS __fastcall NtCreateProcessEx(
   if ( PreviousMode )
   {
     v12 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v12 = (__int64)a1;
+    if ( a1 < 0x7FFFFFFF0000LL )
+      v12 = a1;
     *(_QWORD *)v12 = *(_QWORD *)v12;
   }
   return PspCreateProcess(a1, a2, a3, a4, PreviousMode, a5, a6, a7, a8);

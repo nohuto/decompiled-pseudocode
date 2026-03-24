@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPDO_EvtDeviceWdmIrpQueryInterfacePreprocess @ 0x1C0017C50
+ * XREFs of HUBPDO_EvtDeviceWdmIrpQueryInterfacePreprocess @ 0x1C0016738
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00177F0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00162D0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_EvtDeviceWdmIrpQueryInterfacePreprocess(__int64 a1, IRP *a2)
@@ -17,7 +17,7 @@ __int64 __fastcall HUBPDO_EvtDeviceWdmIrpQueryInterfacePreprocess(__int64 a1, IR
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00690F8);
+         off_1C00660D0);
   v5 = v4;
   if ( (*(_DWORD *)(*(_QWORD *)(v4 + 24) + 1636LL) & 2) != 0 )
   {

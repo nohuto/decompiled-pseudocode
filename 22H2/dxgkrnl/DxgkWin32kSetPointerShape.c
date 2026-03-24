@@ -1,16 +1,15 @@
 /*
- * XREFs of DxgkWin32kSetPointerShape @ 0x1C033AEF0
+ * XREFs of DxgkWin32kSetPointerShape @ 0x1C027EC30
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C00076A0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C01AC934 (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
- *     ?DxgkSetPointerShape@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@IIHHH@Z @ 0x1C01F2650 (-DxgkSetPointerShape@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@IIHH.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?DxgkSetPointerShape@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@IIHH@Z @ 0x1C011FCA0 (-DxgkSetPointerShape@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@IIHH.c)
+ *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C0121C38 (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
  */
 
 __int64 __fastcall DxgkWin32kSetPointerShape(
@@ -19,117 +18,68 @@ __int64 __fastcall DxgkWin32kSetPointerShape(
         struct _DXGKARG_SETPOINTERSHAPE *a3,
         int a4)
 {
+  __int64 v8; // rdx
+  __int64 v9; // rcx
   DXGGLOBAL *Global; // rax
-  struct DXGADAPTER *v9; // rax
-  struct DXGADAPTER *v10; // rsi
-  __int64 v11; // rax
-  unsigned int v12; // ebx
+  struct DXGADAPTER *v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  struct DXGADAPTER *v14; // rsi
+  _QWORD *v15; // rax
+  __int64 v16; // rcx
   unsigned int Value; // eax
-  const wchar_t *v14; // r9
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  int v18; // [rsp+50h] [rbp-48h] BYREF
-  __int64 v19; // [rsp+58h] [rbp-40h]
-  char v20; // [rsp+60h] [rbp-38h]
-  unsigned __int64 v21; // [rsp+B0h] [rbp+18h] BYREF
+  unsigned int v18; // ebx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  int v22; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v23; // [rsp+48h] [rbp-30h]
+  char v24; // [rsp+50h] [rbp-28h]
+  unsigned __int64 v25; // [rsp+90h] [rbp+18h] BYREF
 
-  v18 = -1;
-  v19 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v22 = -1;
+  v23 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v20 = 1;
-    v18 = 2129;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v24 = 1;
+    v22 = 2129;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)a1, &EventProfilerEnter, (__int64)a3, 2129);
   }
   else
   {
-    v20 = 0;
+    v24 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v18, 2129);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v22, 2129LL);
   if ( !a3 )
-    goto LABEL_20;
-  Global = DXGGLOBAL::GetGlobal();
-  v9 = DXGGLOBAL::ReferenceAdapterByLuid(Global, *a1, &v21);
-  v10 = v9;
-  if ( v9 )
+    goto LABEL_14;
+  Global = DXGGLOBAL::GetGlobal(v9, v8);
+  v11 = DXGGLOBAL::ReferenceAdapterByLuid(Global, *a1, &v25);
+  v14 = v11;
+  if ( !v11 )
   {
-    v11 = *((_QWORD *)v9 + 365);
-    if ( v11 )
-    {
-      if ( a2->VidPnSourceId >= *(_DWORD *)(v11 + 96) )
-      {
-        WdLogSingleEntry1(2LL, a2->VidPnSourceId);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"VidPn source id (0x%I64x) is invalid",
-          a2->VidPnSourceId,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        goto LABEL_12;
-      }
-      Value = a2->Flags.Value;
-      if ( Value >= 4 || (Value & 2) != 0 )
-      {
-        WdLogSingleEntry3(2LL, a1->HighPart, a1->LowPart, a2->VidPnSourceId);
-        v14 = L"Invalid DXGKARG_SETPOINTERPOSITION passed in DxgkWin32kSetPointerShape function: Adapter LUID: (0x%I64x%08"
-               "I64x) VidpnSourceId: (0x%I64x).";
-      }
-      else
-      {
-        if ( (Value & 1) != 0 )
-        {
-          v12 = DxgkSetPointerShape(v10, a2, a3, a3->Width, a3->Height, a4, 1, 1);
-          DXGADAPTER::ReleaseReference(v10);
-          goto LABEL_21;
-        }
-        WdLogSingleEntry3(2LL, a1->HighPart, a1->LowPart, a2->VidPnSourceId);
-        v14 = L"Cannot send shape if cursor is not visible: Adapter LUID: (0x%I64x%08I64x) VidpnSourceId: (0x%I64x).";
-      }
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v14, a1->HighPart, a1->LowPart, a2->VidPnSourceId, 0LL, 0LL);
-    }
-    else
-    {
-      WdLogSingleEntry2(2LL, a1->HighPart, a1->LowPart);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Adapter LUID (0x%I64x%08I64x) passed to DxgkWin32kSetPointerShape is not a display adapter",
-        a1->HighPart,
-        a1->LowPart,
-        0LL,
-        0LL,
-        0LL);
-    }
-LABEL_20:
-    v12 = -1073741811;
-    goto LABEL_21;
+    v15 = (_QWORD *)WdLogNewEntry5_WdError(v13, v12);
+    v15[3] = a1->HighPart;
+    v15[4] = a1->LowPart;
+LABEL_13:
+    WdLogEvent5_WdError(v15);
+LABEL_14:
+    v18 = -1073741811;
+    goto LABEL_15;
   }
-  WdLogSingleEntry2(2LL, a1->HighPart, a1->LowPart);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Failed to reference adapter by LUID (0x%I64x%08I64x) in DxgkWin32kSetPointerShape function.",
-    a1->HighPart,
-    a1->LowPart,
-    0LL,
-    0LL,
-    0LL);
-LABEL_12:
-  v12 = -1071774937;
-LABEL_21:
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v18);
-  if ( v20 )
+  v16 = *(unsigned int *)(*((_QWORD *)v11 + 337) + 80LL);
+  if ( a2->VidPnSourceId >= (unsigned int)v16 || (Value = a2->Flags.Value, Value >= 4) || (Value & 2) != 0 )
   {
-    LOBYTE(v15) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v15, &EventProfilerExit, v16, v18);
+    v15 = (_QWORD *)WdLogNewEntry5_WdError(v16, v12);
+    v15[3] = a1->HighPart;
+    v15[4] = a1->LowPart;
+    v15[5] = a2->VidPnSourceId;
+    goto LABEL_13;
   }
-  return v12;
+  v18 = DxgkSetPointerShape(v14, a2, a3, a3->Width, a3->Height, a4, 1);
+  DXGADAPTER::ReleaseReference(v14);
+LABEL_15:
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v22, v8);
+  if ( v24 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v19, &EventProfilerExit, v20, v22);
+  return v18;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpDisableDeviceCompletionQueueWatchdog @ 0x140159CB0
+ * XREFs of PnpDisableDeviceCompletionQueueWatchdog @ 0x140159CD0
  * Callers:
- *     PnpDeviceCompletionRequestDestroy @ 0x140159C60 (PnpDeviceCompletionRequestDestroy.c)
+ *     PnpDeviceCompletionRequestDestroy @ 0x140159C80 (PnpDeviceCompletionRequestDestroy.c)
  * Callees:
  *     PnpDisableWatchdog @ 0x140005B60 (PnpDisableWatchdog.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)

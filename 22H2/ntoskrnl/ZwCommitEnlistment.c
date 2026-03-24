@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCommitEnlistment @ 0x14041B9C0
+ * XREFs of ZwCommitEnlistment @ 0x1403FAD00
  * Callers:
- *     DifZwCommitEnlistmentWrapper @ 0x1405EDFF0 (DifZwCommitEnlistmentWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

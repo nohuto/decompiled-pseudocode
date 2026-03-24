@@ -2,16 +2,16 @@
  * XREFs of CmpTrimHive @ 0x1405B0000
  * Callers:
  *     CmpLoadKeyCommon @ 0x140010994 (CmpLoadKeyCommon.c)
- *     CmpUpdatePhaseAccessBit @ 0x14075E7E0 (CmpUpdatePhaseAccessBit.c)
+ *     CmpUpdatePhaseAccessBit @ 0x14075E7C0 (CmpUpdatePhaseAccessBit.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     HvTrimHive @ 0x1406BDD40 (HvTrimHive.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     HvTrimHive @ 0x1406BDD20 (HvTrimHive.c)
  */
 
 void __fastcall CmpTrimHive(__int64 a1)

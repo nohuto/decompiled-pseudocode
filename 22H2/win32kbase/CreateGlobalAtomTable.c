@@ -1,5 +1,5 @@
 /*
- * XREFs of CreateGlobalAtomTable @ 0x1C009D7C0
+ * XREFs of CreateGlobalAtomTable @ 0x1C009D250
  * Callers:
  *     <none>
  * Callees:
@@ -21,7 +21,7 @@ NTSTATUS __fastcall CreateGlobalAtomTable(PRTL_ATOM_TABLE *AtomTable)
   if ( result >= 0 )
   {
     v3 = 0;
-    for ( i = off_1C0241B20; ; ++i )
+    for ( i = off_1C0209890; ; ++i )
     {
       v5 = RtlAddAtomToAtomTable(*AtomTable, *i, &Atom);
       v6 = *AtomTable;

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?pxrlStrRead16@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02C1C30
+ * XREFs of ?pxrlStrRead16@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02C33A0
  * Callers:
  *     <none>
  * Callees:
- *     XLATEOBJ_iXlate @ 0x1C00D5950 (XLATEOBJ_iXlate.c)
+ *     XLATEOBJ_iXlate @ 0x1C00C8500 (XLATEOBJ_iXlate.c)
  */
 
 struct _XRUNLEN *__fastcall pxrlStrRead16(
@@ -90,7 +90,7 @@ struct _XRUNLEN *__fastcall pxrlStrRead16(
           v29 = v44;
           v28 = v47;
         }
-        if ( (dword_1C02ED6E0[v30] & v28) != 0 )
+        if ( (dword_1C02F0B60[v30] & v28) != 0 )
         {
           v34 = *(unsigned int *)v31;
           if ( (_DWORD)v34 )

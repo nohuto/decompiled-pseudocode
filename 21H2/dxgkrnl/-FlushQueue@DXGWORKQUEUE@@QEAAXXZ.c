@@ -1,9 +1,10 @@
 /*
- * XREFs of ?FlushQueue@DXGWORKQUEUE@@QEAAXXZ @ 0x1C002EF98
+ * XREFs of ?FlushQueue@DXGWORKQUEUE@@QEAAXXZ @ 0x1C0047098
  * Callers:
- *     DxgkSubmitPresentToHwQueue @ 0x1C0313260 (DxgkSubmitPresentToHwQueue.c)
+ *     DxgkSubmitPresentToHwQueue @ 0x1C0271F60 (DxgkSubmitPresentToHwQueue.c)
+ *     DxgkPresentMultiPlaneOverlay3 @ 0x1C02A8530 (DxgkPresentMultiPlaneOverlay3.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DXGWORKQUEUE::FlushQueue(PLIST_ENTRY ListHead)

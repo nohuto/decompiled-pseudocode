@@ -1,11 +1,11 @@
 /*
- * XREFs of ?RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z @ 0x1C024F9A0
+ * XREFs of ?RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z @ 0x1C02529B4
  * Callers:
- *     ?Deinitialize@InteractiveControlManager@@AEAAXXZ @ 0x1C011EFA4 (-Deinitialize@InteractiveControlManager@@AEAAXXZ.c)
- *     ?OnDeviceRemoval@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C024F7BC (-OnDeviceRemoval@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?Deinitialize@InteractiveControlManager@@AEAAXXZ @ 0x1C0133D90 (-Deinitialize@InteractiveControlManager@@AEAAXXZ.c)
+ *     ?OnDeviceRemoval@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C02527D0 (-OnDeviceRemoval@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
- *     ?FindDevice@InteractiveControlManager@@AEAAJKPEAXPEAPEAVInteractiveControlDevice@@PEAK@Z @ 0x1C024ED28 (-FindDevice@InteractiveControlManager@@AEAAJKPEAXPEAPEAVInteractiveControlDevice@@PEAK@Z.c)
- *     ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0253B4C (-Deinitialize@InteractiveControlDevice@@QEAAXXZ.c)
+ *     ?FindDevice@InteractiveControlManager@@AEAAJKPEAXPEAPEAVInteractiveControlDevice@@PEAK@Z @ 0x1C0251D38 (-FindDevice@InteractiveControlManager@@AEAAJKPEAXPEAPEAVInteractiveControlDevice@@PEAK@Z.c)
+ *     ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0256DD4 (-Deinitialize@InteractiveControlDevice@@QEAAXXZ.c)
  */
 
 __int64 __fastcall InteractiveControlManager::RemoveDevice(InteractiveControlManager *this, void **a2)
@@ -20,7 +20,7 @@ __int64 __fastcall InteractiveControlManager::RemoveDevice(InteractiveControlMan
   {
     v4 = v6;
     InteractiveControlDevice::Deinitialize(*((InteractiveControlDevice **)this + v6 + 5));
-    Win32FreePool(*((_QWORD *)this + v4 + 5));
+    Win32FreePool(*((void **)this + v4 + 5));
     *((_QWORD *)this + v4 + 5) = 0LL;
     --*((_DWORD *)this + 20);
   }

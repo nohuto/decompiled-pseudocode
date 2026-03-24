@@ -1,22 +1,22 @@
 /*
- * XREFs of ?Initialize@CInpLockGuard@@QEAAHXZ @ 0x1C0081E0C
+ * XREFs of ?Initialize@CInpLockGuard@@QEAAHXZ @ 0x1C006CCE4
  * Callers:
- *     ??0CTouchProcessor@@QEAA@XZ @ 0x1C008187C (--0CTouchProcessor@@QEAA@XZ.c)
- *     ?Initialize@DelayZonePalmRejection@@AEAAXXZ @ 0x1C0081CF0 (-Initialize@DelayZonePalmRejection@@AEAAXXZ.c)
- *     ?Initialize@CFrameIdGenerator@@SAJXZ @ 0x1C0082A70 (-Initialize@CFrameIdGenerator@@SAJXZ.c)
+ *     ?Initialize@DelayZonePalmRejection@@AEAAXXZ @ 0x1C006CB90 (-Initialize@DelayZonePalmRejection@@AEAAXXZ.c)
+ *     ??0CTouchProcessor@@QEAA@XZ @ 0x1C008AD94 (--0CTouchProcessor@@QEAA@XZ.c)
+ *     _anonymous_namespace_::CFrameIdGenerator::Initialize @ 0x1C008C1FC (_anonymous_namespace_--CFrameIdGenerator--Initialize.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall CInpLockGuard::Initialize(CInpLockGuard *this)
 {
-  struct _ERESOURCE *Pool2; // rax
+  struct _ERESOURCE *PoolWithTag; // rax
 
   *((_QWORD *)this + 1) = 0LL;
   *(_QWORD *)this = 0LL;
-  Pool2 = (struct _ERESOURCE *)ExAllocatePool2(64LL, 104LL, 1919251285LL);
-  *(_QWORD *)this = Pool2;
-  if ( Pool2 && ExInitializeResourceLite(Pool2) >= 0 )
+  PoolWithTag = (struct _ERESOURCE *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x68uLL, 0x72657355u);
+  *(_QWORD *)this = PoolWithTag;
+  if ( PoolWithTag && ExInitializeResourceLite(PoolWithTag) >= 0 )
     return 1LL;
   if ( *(_QWORD *)this )
   {

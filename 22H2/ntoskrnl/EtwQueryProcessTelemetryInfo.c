@@ -1,27 +1,26 @@
 /*
- * XREFs of EtwQueryProcessTelemetryInfo @ 0x140754D60
+ * XREFs of EtwQueryProcessTelemetryInfo @ 0x140611674
  * Callers:
- *     NtQueryInformationProcess @ 0x1406FCB40 (NtQueryInformationProcess.c)
- *     PfSnLogScenarioDecision @ 0x140752F04 (PfSnLogScenarioDecision.c)
+ *     NtQueryInformationProcess @ 0x1406216C0 (NtQueryInformationProcess.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329A0 (PsReferencePrimaryTokenWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     PsGetProcessSessionId @ 0x140297500 (PsGetProcessSessionId.c)
- *     ObFastDereferenceObject @ 0x140297B60 (ObFastDereferenceObject.c)
- *     PsGetProcessStartKey @ 0x1402F6CA0 (PsGetProcessStartKey.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeQueryUserSidToken @ 0x140714EB0 (SeQueryUserSidToken.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     PsAcquireProcessExitSynchronization @ 0x1407550D0 (PsAcquireProcessExitSynchronization.c)
- *     EtwpQueryProcessCommandLine @ 0x1407550F8 (EtwpQueryProcessCommandLine.c)
- *     EtwpQueryProcessOtherInfo @ 0x1407552D4 (EtwpQueryProcessOtherInfo.c)
- *     EtwpQueryTokenPackageInfo @ 0x140755314 (EtwpQueryTokenPackageInfo.c)
- *     MmGetSessionCreateTime @ 0x1407553E0 (MmGetSessionCreateTime.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     PsGetProcessSessionId @ 0x140252710 (PsGetProcessSessionId.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     PsGetProcessStartKey @ 0x14025ED50 (PsGetProcessStartKey.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ObFastDereferenceObject @ 0x140345620 (ObFastDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     EtwpQueryTokenPackageInfo @ 0x1406023FC (EtwpQueryTokenPackageInfo.c)
+ *     EtwpQueryProcessOtherInfo @ 0x140602928 (EtwpQueryProcessOtherInfo.c)
+ *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
+ *     MmGetSessionCreateTime @ 0x1406119DC (MmGetSessionCreateTime.c)
+ *     PsAcquireProcessExitSynchronization @ 0x140611A10 (PsAcquireProcessExitSynchronization.c)
+ *     PsReferencePrimaryToken @ 0x140654390 (PsReferencePrimaryToken.c)
+ *     SeQueryUserSidToken @ 0x1406544B4 (SeQueryUserSidToken.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwQueryProcessTelemetryInfo(
@@ -29,76 +28,72 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
         char *Address,
         SIZE_T Length,
         char a4,
-        ULONG *a5)
+        unsigned int *a5)
 {
   SIZE_T v5; // r15
   int v8; // ebx
-  __int64 *v9; // rcx
-  ULONG_PTR v10; // r12
-  int v11; // edi
-  ULONG v12; // edi
-  size_t v13; // r8
-  __int64 v14; // rcx
-  __int64 v15; // rbx
-  char *v16; // rdi
-  unsigned __int16 *v17; // rbx
+  __int64 *v9; // r13
+  struct _DMA_ADAPTER *v10; // r12
+  int UserSidToken; // edi
+  _DWORD *v12; // r9
+  unsigned int v13; // edi
+  unsigned int v14; // r13d
+  unsigned __int16 *v15; // rbx
+  char *v16; // rbx
+  char *v17; // rbx
   char *v18; // rbx
-  char *v19; // rbx
-  char *v20; // rbx
-  ULONG Size; // [rsp+24h] [rbp-2A4h] BYREF
-  int Size_4; // [rsp+28h] [rbp-2A0h]
-  int v25; // [rsp+2Ch] [rbp-29Ch] BYREF
-  __int64 v26; // [rsp+30h] [rbp-298h] BYREF
-  const void **v27; // [rsp+38h] [rbp-290h]
-  PVOID P[2]; // [rsp+40h] [rbp-288h] BYREF
-  ULONG_PTR v29; // [rsp+50h] [rbp-278h]
-  __int64 v30; // [rsp+58h] [rbp-270h]
-  size_t v31[52]; // [rsp+60h] [rbp-268h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v32; // [rsp+200h] [rbp-C8h] BYREF
-  _BYTE Src[80]; // [rsp+230h] [rbp-98h] BYREF
+  int v21; // [rsp+2Ch] [rbp-2ACh] BYREF
+  __int64 v22; // [rsp+30h] [rbp-2A8h] BYREF
+  PVOID P[2]; // [rsp+38h] [rbp-2A0h] BYREF
+  unsigned int *v24; // [rsp+48h] [rbp-290h]
+  const void **v25; // [rsp+50h] [rbp-288h]
+  struct _DMA_ADAPTER *v26; // [rsp+58h] [rbp-280h]
+  __int64 v27; // [rsp+60h] [rbp-278h]
+  size_t v28[52]; // [rsp+70h] [rbp-268h] BYREF
+  _OWORD v29[3]; // [rsp+210h] [rbp-C8h] BYREF
+  _BYTE Src[80]; // [rsp+240h] [rbp-98h] BYREF
 
   v5 = (unsigned int)Length;
-  v30 = BugCheckParameter1;
-  memset(&v32, 0, sizeof(v32));
-  memset(v31, 0, 0x198uLL);
+  v27 = BugCheckParameter1;
+  v24 = a5;
+  memset(v29, 0, sizeof(v29));
+  memset(v28, 0, 0x198uLL);
   memset(Src, 0, 0x44uLL);
-  Size = 0;
   *(_OWORD *)P = 0LL;
   v8 = 0;
-  v26 = 0LL;
+  v22 = 0LL;
   v9 = &EmptyUnicodeString;
   if ( *(_QWORD *)(BugCheckParameter1 + 1472) )
     v9 = *(__int64 **)(BugCheckParameter1 + 1472);
-  v27 = (const void **)v9;
-  v10 = PsReferencePrimaryTokenWithTag(BugCheckParameter1, 0x746C6644u);
-  v29 = v10;
-  v25 = 0;
-  EtwpQueryTokenPackageInfo(v10, v31, &v25);
-  v11 = SeQueryUserSidToken(v10, Src, 0x44u, &Size);
-  if ( v11 >= 0 )
+  v25 = (const void **)v9;
+  v10 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken((PEPROCESS)BugCheckParameter1);
+  v26 = v10;
+  v21 = 0;
+  EtwpQueryTokenPackageInfo((__int64)v10, (__int64)v28, &v21);
+  UserSidToken = SeQueryUserSidToken(v10, Src, 68LL);
+  if ( UserSidToken >= 0 )
   {
     if ( (int)PsAcquireProcessExitSynchronization(BugCheckParameter1) >= 0 )
     {
-      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v32);
-      EtwpQueryProcessOtherInfo(BugCheckParameter1, &v26);
-      EtwpQueryProcessCommandLine(BugCheckParameter1, P);
-      KiUnstackDetachProcess(&v32);
-      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
-      v8 = v26;
+      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v29, v12);
+      EtwpQueryProcessOtherInfo(BugCheckParameter1, (__int64)&v22);
+      EtwpQueryProcessCommandLine(BugCheckParameter1, (__int64)P);
+      KiUnstackDetachProcess((__int64)v29, 0);
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
+      v8 = v22;
     }
-    v12 = Size + 100 + LODWORD(v31[0]) + LODWORD(v31[1]) + *(unsigned __int16 *)v27 + LOWORD(P[0]);
-    if ( a5 )
-      *a5 = v12;
+    v13 = LODWORD(v28[0]) + LODWORD(v28[1]) + *(unsigned __int16 *)v9 + LOWORD(P[0]) + 100;
+    v14 = v13;
+    if ( v24 )
+      *v24 = v13;
     if ( a4 )
       ProbeForWrite(Address, v5, 4u);
-    v13 = (unsigned int)v5;
-    if ( v12 < (unsigned int)v5 )
-      v13 = v12;
-    memset(Address, 0, v13);
+    if ( v13 >= (unsigned int)v5 )
+      v14 = v5;
+    memset(Address, 0, v14);
     if ( (unsigned int)v5 < 0x60 )
     {
-      v11 = -1073741820;
-      Size_4 = -1073741820;
+      UserSidToken = -1073741820;
     }
     else
     {
@@ -110,40 +105,37 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
       *((_QWORD *)Address + 4) = *(_QWORD *)(BugCheckParameter1 + 2312);
       *((_QWORD *)Address + 5) = *(_QWORD *)(BugCheckParameter1 + 2296);
       *((_QWORD *)Address + 6) = MmGetSessionCreateTime();
-      *((_DWORD *)Address + 14) = PsGetProcessSessionId(v14);
+      *((_DWORD *)Address + 14) = PsGetProcessSessionId(BugCheckParameter1);
       *((_DWORD *)Address + 15) = MEMORY[0xFFFFF780000002C4];
       *((_DWORD *)Address + 16) = v8;
-      *((_DWORD *)Address + 17) = HIDWORD(v26);
-      if ( (unsigned int)v5 >= v12 )
+      *((_DWORD *)Address + 17) = HIDWORD(v22);
+      if ( (unsigned int)v5 >= v13 )
       {
         *((_DWORD *)Address + 18) = 96;
-        v15 = Size;
-        memmove(Address + 96, Src, Size);
-        v16 = &Address[v15 + 96];
-        *((_DWORD *)Address + 19) = v15 + 96;
-        v17 = (unsigned __int16 *)v27;
-        memmove(v16, v27[1], *(unsigned __int16 *)v27);
-        v18 = &v16[*v17 + 2];
-        *((_DWORD *)Address + 20) = (_DWORD)v18 - (_DWORD)Address;
-        memmove(v18, &v31[2], v31[0]);
-        v19 = &v18[v31[0]];
-        *((_DWORD *)Address + 21) = (_DWORD)v19 - (_DWORD)Address;
-        memmove(v19, &v31[34], v31[1]);
-        v20 = &v19[v31[1]];
-        *((_DWORD *)Address + 22) = (_DWORD)v20 - (_DWORD)Address;
-        memmove(v20, P[1], LOWORD(P[0]));
-        v11 = 0;
+        memmove(Address + 96, Src, 0LL);
+        *((_DWORD *)Address + 19) = 96;
+        v15 = (unsigned __int16 *)v25;
+        memmove(Address + 96, v25[1], *(unsigned __int16 *)v25);
+        v16 = &Address[*v15 + 98];
+        *((_DWORD *)Address + 20) = (_DWORD)v16 - (_DWORD)Address;
+        memmove(v16, &v28[2], v28[0]);
+        v17 = &v16[v28[0]];
+        *((_DWORD *)Address + 21) = (_DWORD)v17 - (_DWORD)Address;
+        memmove(v17, &v28[34], v28[1]);
+        v18 = &v17[v28[1]];
+        *((_DWORD *)Address + 22) = (_DWORD)v18 - (_DWORD)Address;
+        memmove(v18, P[1], LOWORD(P[0]));
+        UserSidToken = 0;
       }
       else
       {
-        v11 = -2147483643;
-        Size_4 = -2147483643;
+        UserSidToken = -2147483643;
       }
     }
   }
   if ( P[1] )
     ExFreePoolWithTag(P[1], 0);
   if ( v10 )
-    ObFastDereferenceObject((signed __int64 *)(BugCheckParameter1 + 1208), v10, 0x746C6644u);
-  return (unsigned int)v11;
+    ObFastDereferenceObject((signed __int64 *)(BugCheckParameter1 + 1208), v10);
+  return (unsigned int)UserSidToken;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of NtSetWnfProcessNotificationEvent @ 0x1406C4A10
+ * XREFs of NtSetWnfProcessNotificationEvent @ 0x1406A7CB0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpWnfCreateProcessContext @ 0x1406C4AE4 (ExpWnfCreateProcessContext.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExpWnfCreateProcessContext @ 0x1406A7D84 (ExpWnfCreateProcessContext.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)
@@ -21,7 +21,7 @@ __int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v7 = Process[1].EndPadding[2];
+  v7 = Process[1].EndPadding[7];
   v4 = v7;
   if ( !v7 )
   {
@@ -36,7 +36,7 @@ __int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)
   {
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 128), (signed __int64)Object, 0LL) )
     {
-      ObfDereferenceObject(Object);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
       v5 = -1073740008;
     }
     else
@@ -45,6 +45,6 @@ __int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)
     }
   }
 LABEL_5:
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)v5;
 }

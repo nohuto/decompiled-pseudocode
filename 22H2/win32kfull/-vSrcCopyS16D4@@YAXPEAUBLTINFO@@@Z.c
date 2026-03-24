@@ -1,20 +1,20 @@
 /*
- * XREFs of ?vSrcCopyS16D4@@YAXPEAUBLTINFO@@@Z @ 0x1C02E9B00
+ * XREFs of ?vSrcCopyS16D4@@YAXPEAUBLTINFO@@@Z @ 0x1C02C9360
  * Callers:
  *     <none>
  * Callees:
- *     XLATEOBJ_iXlate @ 0x1C008CAC0 (XLATEOBJ_iXlate.c)
+ *     XLATEOBJ_iXlate @ 0x1C00C77F0 (XLATEOBJ_iXlate.c)
  */
 
 void __fastcall vSrcCopyS16D4(struct BLTINFO *a1)
 {
   int *v1; // rdi
-  __int64 v2; // rsi
+  __int64 v2; // rdx
   int v3; // ebx
   _BYTE *v4; // rsi
-  unsigned __int16 *v5; // r14
+  unsigned __int16 *v5; // rbp
   XLATEOBJ *v6; // rax
-  int v7; // ebp
+  int v7; // r14d
   _BYTE *v8; // r15
   unsigned __int16 *v9; // r12
   int v10; // r13d
@@ -28,11 +28,12 @@ void __fastcall vSrcCopyS16D4(struct BLTINFO *a1)
   v2 = *((int *)a1 + 14);
   v3 = v2 + *((_DWORD *)a1 + 7);
   v4 = (_BYTE *)(*((_QWORD *)a1 + 2) + (v2 >> 1));
-  v14 = v3;
-  v5 = (unsigned __int16 *)(*((_QWORD *)a1 + 1) + 2LL * *((int *)a1 + 12));
+  v5 = (unsigned __int16 *)(*((_QWORD *)a1 + 1) + 2 * *((_DWORD *)a1 + 12));
   v15 = *((_DWORD *)a1 + 8);
   v6 = *(XLATEOBJ **)a1;
-  for ( pxlo = *(XLATEOBJ **)a1; ; v6 = pxlo )
+  pxlo = *(XLATEOBJ **)a1;
+  v14 = v3;
+  while ( 1 )
   {
     v7 = v1[14];
     v8 = v4;
@@ -67,5 +68,6 @@ void __fastcall vSrcCopyS16D4(struct BLTINFO *a1)
       break;
     v5 = (unsigned __int16 *)((char *)v5 + v1[10]);
     v4 += v1[11];
+    v6 = pxlo;
   }
 }

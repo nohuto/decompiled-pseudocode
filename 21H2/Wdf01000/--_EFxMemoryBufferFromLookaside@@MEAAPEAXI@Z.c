@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_EFxMemoryBufferFromLookaside@@MEAAPEAXI@Z @ 0x1C006A4B0
+ * XREFs of ??_EFxMemoryBufferFromLookaside@@MEAAPEAXI@Z @ 0x1C0054A60
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxObject@@UEAA@XZ @ 0x1C00083A0 (--1FxObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxObject@@UEAA@XZ @ 0x1C00079A0 (--1FxObject@@UEAA@XZ.c)
  */
 
 FxMemoryBufferFromPoolLookaside *__fastcall FxMemoryBufferFromLookaside::`vector deleting destructor'(
@@ -13,7 +13,7 @@ FxMemoryBufferFromPoolLookaside *__fastcall FxMemoryBufferFromLookaside::`vector
         unsigned int a3)
 {
   char v3; // bl
-  FX_POOL_TRACKER *p_m_DisposeSingleEntry; // rcx
+  FxMemoryBufferFromPoolLookaside *v5; // rcx
 
   v3 = a2;
   this->FxMemoryBufferFromLookaside::FxMemoryObject::FxObject::__vftable = (FxMemoryBufferFromPoolLookaside_vtbl *)FxMemoryBufferFromLookaside::`vftable'{for `FxObject'};
@@ -21,10 +21,10 @@ FxMemoryBufferFromPoolLookaside *__fastcall FxMemoryBufferFromLookaside::`vector
   FxObject::~FxObject(this, a2, a3);
   if ( (v3 & 1) != 0 )
   {
-    p_m_DisposeSingleEntry = (FX_POOL_TRACKER *)&this[-1].m_DisposeSingleEntry;
+    v5 = (FxMemoryBufferFromPoolLookaside *)((char *)this - 48);
     if ( SLOBYTE(this->m_ObjectFlags) >= 0 )
-      p_m_DisposeSingleEntry = (FX_POOL_TRACKER *)this;
-    FxPoolFree(p_m_DisposeSingleEntry);
+      v5 = this;
+    FxPoolFree((FX_POOL_TRACKER *)v5);
   }
   return this;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwClearEvent @ 0x14041AE60
+ * XREFs of ZwClearEvent @ 0x1403FA1E0
  * Callers:
  *     <none>
  * Callees:

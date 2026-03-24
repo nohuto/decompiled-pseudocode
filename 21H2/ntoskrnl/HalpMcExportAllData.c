@@ -1,45 +1,45 @@
 /*
- * XREFs of HalpMcExportAllData @ 0x1408249CC
+ * XREFs of HalpMcExportAllData @ 0x140791900
  * Callers:
- *     HalpMcExportAndChargeNeededData @ 0x140824960 (HalpMcExportAndChargeNeededData.c)
- *     HalpLoadMicrocode @ 0x14090A1A0 (HalpLoadMicrocode.c)
+ *     HalpMcExportAndChargeNeededData @ 0x140791838 (HalpMcExportAndChargeNeededData.c)
+ *     HalpLoadMicrocode @ 0x140866020 (HalpLoadMicrocode.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void *__fastcall HalpMcExportAllData(unsigned int *a1, __int64 a2)
+PVOID __fastcall HalpMcExportAllData(unsigned int *a1, __int64 a2, POOL_TYPE a3)
 {
-  unsigned int v2; // ebx
-  void *Pool2; // rdi
-  unsigned int v7; // [rsp+40h] [rbp+8h] BYREF
-  unsigned int v8; // [rsp+50h] [rbp+18h] BYREF
+  unsigned int v3; // ebx
+  PVOID PoolWithTag; // rdi
+  PVOID result; // rax
+  unsigned int v9; // [rsp+40h] [rbp+8h] BYREF
+  unsigned int v10; // [rsp+58h] [rbp+20h] BYREF
 
-  v2 = 0;
-  v7 = 0;
-  Pool2 = 0LL;
+  v3 = 0;
+  v9 = 0;
+  PoolWithTag = 0LL;
   if ( HalpMcUpdateExportDataFunc )
   {
-    if ( (unsigned int)HalpMcUpdateExportDataFunc(0LL, &v7, 0LL) == -1073741789 )
+    if ( (unsigned int)HalpMcUpdateExportDataFunc(0LL, &v9, a2) == -1073741789 )
     {
-      v7 = (v7 + 4095) & 0xFFFFF000;
-      Pool2 = (void *)ExAllocatePool2(a2, v7, 1668047176LL);
-      if ( Pool2 )
+      v9 = (v9 + 4095) & 0xFFFFF000;
+      PoolWithTag = ExAllocatePoolWithTag(a3, v9, 0x206C6148u);
+      if ( PoolWithTag )
       {
-        v8 = v7;
-        if ( (int)HalpMcUpdateExportDataFunc(Pool2, &v8, 0LL) < 0 )
+        v10 = v9;
+        if ( (int)HalpMcUpdateExportDataFunc(PoolWithTag, &v10, a2) < 0 )
         {
-          ExFreePoolWithTag(Pool2, 0x636C6148u);
-          Pool2 = 0LL;
+          ExFreePoolWithTag(PoolWithTag, 0x206C6148u);
+          PoolWithTag = 0LL;
         }
-        else
-        {
-          v2 = v7;
-        }
+        if ( PoolWithTag )
+          v3 = v9;
       }
     }
   }
-  *a1 = v2;
-  return Pool2;
+  result = PoolWithTag;
+  *a1 = v3;
+  return result;
 }

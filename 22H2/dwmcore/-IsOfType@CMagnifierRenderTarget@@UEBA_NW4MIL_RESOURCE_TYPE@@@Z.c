@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CMagnifierRenderTarget@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801F02C0
+ * XREFs of ?IsOfType@CMagnifierRenderTarget@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18018B2B0
  * Callers:
  *     <none>
  * Callees:
@@ -12,11 +12,11 @@ bool __fastcall CMagnifierRenderTarget::IsOfType(__int64 a1, int a2)
   __int64 v3; // rcx
   bool result; // al
 
-  v2 = (unsigned int)(a2 - 104);
+  v2 = (unsigned int)(a2 - 102);
   result = 0;
-  if ( (unsigned int)v2 <= 0x2A )
+  if ( (unsigned int)v2 <= 0x2C )
   {
-    v3 = 0x40000000401LL;
+    v3 = 0x100000000401LL;
     if ( _bittest64(&v3, v2) )
       return 1;
   }

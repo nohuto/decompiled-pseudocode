@@ -1,25 +1,25 @@
 /*
- * XREFs of CheckIntegrityAccessToCapture @ 0x1C01E7C80
+ * XREFs of CheckIntegrityAccessToCapture @ 0x1C01AE3D0
  * Callers:
  *     <none>
  * Callees:
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C005304C (_anonymous_namespace_--GetMouseProcessor.c)
- *     _anonymous_namespace_::ValidateUIPI @ 0x1C01FB800 (_anonymous_namespace_--ValidateUIPI.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0043E8C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     _anonymous_namespace_::ValidateUIPI @ 0x1C00ADF68 (_anonymous_namespace_--ValidateUIPI.c)
  */
 
-__int64 __fastcall CheckIntegrityAccessToCapture(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall CheckIntegrityAccessToCapture(__int64 a1)
 {
   __int64 MouseProcessor; // rax
-  unsigned int v6; // edi
+  unsigned int v3; // edi
 
-  MouseProcessor = anonymous_namespace_::GetMouseProcessor(a1, a2, a3, a4);
+  MouseProcessor = anonymous_namespace_::GetMouseProcessor();
   if ( !MouseProcessor )
     return 0;
-  v6 = 1;
-  if ( !_InterlockedCompareExchange((volatile signed __int32 *)(MouseProcessor + 3696), 1, 1)
-    || !(unsigned __int8)anonymous_namespace_::ValidateUIPI(a1, MouseProcessor + 3576) )
+  v3 = 1;
+  if ( !_InterlockedCompareExchange((volatile signed __int32 *)(MouseProcessor + 3688), 1, 1)
+    || !anonymous_namespace_::ValidateUIPI(a1, (_DWORD *)(MouseProcessor + 3568)) )
   {
     return 0;
   }
-  return v6;
+  return v3;
 }

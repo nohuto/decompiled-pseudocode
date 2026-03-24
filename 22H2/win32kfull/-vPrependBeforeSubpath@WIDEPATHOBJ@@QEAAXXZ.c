@@ -1,18 +1,18 @@
 /*
- * XREFs of ?vPrependBeforeSubpath@WIDEPATHOBJ@@QEAAXXZ @ 0x1C02F3288
+ * XREFs of ?vPrependBeforeSubpath@WIDEPATHOBJ@@QEAAXXZ @ 0x1C02CEF58
  * Callers:
- *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C015DC7A (-bWiden@WIDENER@@IEAAHXZ.c)
+ *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C0140328 (-bWiden@WIDENER@@IEAAHXZ.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall WIDEPATHOBJ::vPrependBeforeSubpath(WIDEPATHOBJ *this)
 {
-  __int64 v1; // rbx
-  __int64 v3; // r10
+  __int64 v1; // r11
+  __int64 v3; // r8
   __int64 v4; // rdx
   int i; // eax
-  __int64 v6; // r8
+  __int64 v6; // r9
   __int64 v7; // rcx
   int j; // eax
   _QWORD *v9; // rax

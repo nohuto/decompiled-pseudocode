@@ -1,14 +1,13 @@
 /*
- * XREFs of ?Create@CComputeScribbleFramebuffer@@SAJPEAVCD3DDevice@@PEAUID3D12Resource@@IPEAPEAV1@@Z @ 0x180204C88
+ * XREFs of ?Create@CComputeScribbleFramebuffer@@SAJPEAVCD3DDevice@@PEAUID3D12Resource@@IPEAPEAV1@@Z @ 0x1801A5F14
  * Callers:
- *     ?EnsureComputeScribbleResources@CSwapChainBuffer@@QEAAJPEAVCLegacySwapChain@@@Z @ 0x18029BDD8 (-EnsureComputeScribbleResources@CSwapChainBuffer@@QEAAJPEAVCLegacySwapChain@@@Z.c)
+ *     ?EnsureComputeScribbleResources@CSwapChainBuffer@@QEAAJPEAVCLegacySwapChain@@@Z @ 0x1802521B8 (-EnsureComputeScribbleResources@CSwapChainBuffer@@QEAAJPEAVCLegacySwapChain@@@Z.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??1?$com_ptr_t@VCComputeScribbleFramebuffer@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1801D75C4 (--1-$com_ptr_t@VCComputeScribbleFramebuffer@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??0CComputeScribbleFramebuffer@@AEAA@PEAVCD3DDevice@@PEAUID3D12Resource@@I@Z @ 0x18020476C (--0CComputeScribbleFramebuffer@@AEAA@PEAVCD3DDevice@@PEAUID3D12Resource@@I@Z.c)
- *     ?Initialize@CComputeScribbleFramebuffer@@AEAAJXZ @ 0x180204FD4 (-Initialize@CComputeScribbleFramebuffer@@AEAAJXZ.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??0CComputeScribbleFramebuffer@@AEAA@PEAVCD3DDevice@@PEAUID3D12Resource@@I@Z @ 0x1801A5B5C (--0CComputeScribbleFramebuffer@@AEAA@PEAVCD3DDevice@@PEAUID3D12Resource@@I@Z.c)
+ *     ?Initialize@CComputeScribbleFramebuffer@@AEAAJXZ @ 0x1801A6140 (-Initialize@CComputeScribbleFramebuffer@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CComputeScribbleFramebuffer::Create(
@@ -18,48 +17,49 @@ __int64 __fastcall CComputeScribbleFramebuffer::Create(
         struct CComputeScribbleFramebuffer **a4)
 {
   CComputeScribbleFramebuffer *v8; // rax
-  volatile signed __int32 *v9; // rax
-  CComputeScribbleFramebuffer *v10; // rdi
+  volatile signed __int32 *v9; // rdi
+  CDrawListEntry *v10; // rbx
   int v11; // eax
-  unsigned int v12; // ebx
-  __int64 v13; // r9
-  __int64 v14; // rdx
-  volatile signed __int32 *v16; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v12; // esi
   wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
 
-  v8 = (CComputeScribbleFramebuffer *)DefaultHeap::Alloc(0xF8uLL);
-  if ( !v8 )
+  v8 = (CComputeScribbleFramebuffer *)DefaultHeap::Alloc(0xF0uLL);
+  if ( v8 )
+    v9 = (volatile signed __int32 *)CComputeScribbleFramebuffer::CComputeScribbleFramebuffer(v8, a1, a2, a3);
+  else
+    v9 = 0LL;
+  v10 = (CDrawListEntry *)v9;
+  if ( v9 )
   {
-    v16 = 0LL;
-    goto LABEL_7;
+    _InterlockedIncrement(v9 + 2);
+    v11 = CComputeScribbleFramebuffer::Initialize((CComputeScribbleFramebuffer *)v9);
+    v12 = v11;
+    if ( v11 >= 0 )
+    {
+      v10 = 0LL;
+      *a4 = (struct CComputeScribbleFramebuffer *)v9;
+      v12 = 0;
+    }
+    else
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x2B,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribbleframebuffer.cpp",
+        (const char *)(unsigned int)v11);
+      v10 = (CDrawListEntry *)v9;
+    }
   }
-  v9 = (volatile signed __int32 *)CComputeScribbleFramebuffer::CComputeScribbleFramebuffer(v8, a1, a2, a3);
-  v16 = v9;
-  v10 = (CComputeScribbleFramebuffer *)v9;
-  if ( !v9 )
+  else
   {
-LABEL_7:
     v12 = -2147024882;
-    v14 = 41LL;
-    v13 = 2147942414LL;
-    goto LABEL_8;
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x29,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribbleframebuffer.cpp",
+      (const char *)0x8007000ELL);
   }
-  CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v9 + 2));
-  v11 = CComputeScribbleFramebuffer::Initialize(v10);
-  v12 = v11;
-  if ( v11 >= 0 )
-  {
-    *a4 = v10;
-    return 0LL;
-  }
-  v13 = (unsigned int)v11;
-  v14 = 43LL;
-LABEL_8:
-  wil::details::in1diag3::Return_Hr(
-    retaddr,
-    (void *)v14,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribbleframebuffer.cpp",
-    (const char *)v13);
-  wil::com_ptr_t<CComputeScribbleFramebuffer,wil::err_returncode_policy>::~com_ptr_t<CComputeScribbleFramebuffer,wil::err_returncode_policy>(&v16);
+  if ( v10 )
+    CDrawListEntry::Release(v10);
   return v12;
 }

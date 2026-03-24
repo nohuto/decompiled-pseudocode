@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CancelBuffer@SendHost@CoreMessagingK@@SAJPEAUIMessageCallSendHost@@PEA_KIPEAXI@Z @ 0x1C0235250
+ * XREFs of ?CancelBuffer@SendHost@CoreMessagingK@@SAJPEAUIMessageCallSendHost@@PEA_KIPEAXI@Z @ 0x1C01FF320
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@BufferCache@CoreMessagingK@@SAXPEAX@Z @ 0x1C006A73C (-Free@BufferCache@CoreMessagingK@@SAXPEAX@Z.c)
+ *     ?Free@BufferCache@CoreMessagingK@@SAXPEAX@Z @ 0x1C004E3D4 (-Free@BufferCache@CoreMessagingK@@SAXPEAX@Z.c)
  */
 
 __int64 __fastcall CoreMessagingK::SendHost::CancelBuffer(

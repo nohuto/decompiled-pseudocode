@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlCharToInteger @ 0x140823C40
+ * XREFs of RtlCharToInteger @ 0x14079D6E0
  * Callers:
- *     IopCheckDiskName @ 0x140387828 (IopCheckDiskName.c)
- *     EmpParseTargetRuleStringIndexList @ 0x140B565CC (EmpParseTargetRuleStringIndexList.c)
+ *     IopCheckDiskName @ 0x1403B3AC8 (IopCheckDiskName.c)
+ *     EmpParseTargetRuleStringIndexList @ 0x140A46D1C (EmpParseTargetRuleStringIndexList.c)
  * Callees:
  *     <none>
  */

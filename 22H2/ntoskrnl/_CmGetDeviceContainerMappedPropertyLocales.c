@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmGetDeviceContainerMappedPropertyLocales @ 0x140A642A4
+ * XREFs of _CmGetDeviceContainerMappedPropertyLocales @ 0x140976208
  * Callers:
- *     _PnpDispatchDeviceContainer @ 0x14079AF90 (_PnpDispatchDeviceContainer.c)
+ *     _PnpDispatchDeviceContainer @ 0x14068CEB0 (_PnpDispatchDeviceContainer.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ __int64 __fastcall CmGetDeviceContainerMappedPropertyLocales(
   DEVPROPKEY *v10; // r8
   __int64 v11; // rdx
 
-  v7 = &off_14000B110;
+  v7 = &off_140007BC0;
   v8 = -1073741802;
   v9 = 0;
   *a7 = 0;

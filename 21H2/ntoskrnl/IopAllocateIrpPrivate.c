@@ -1,38 +1,38 @@
 /*
- * XREFs of IopAllocateIrpPrivate @ 0x1402AACD0
+ * XREFs of IopAllocateIrpPrivate @ 0x140351A70
  * Callers:
- *     IopAllocateIrpWithExtension @ 0x14020B830 (IopAllocateIrpWithExtension.c)
- *     IoAllocateIrpEx @ 0x14022CFA0 (IoAllocateIrpEx.c)
- *     IoAllocateIrp @ 0x1402AAB20 (IoAllocateIrp.c)
- *     IopAllocateIrpExReturn @ 0x1402AACA0 (IopAllocateIrpExReturn.c)
- *     IovAllocateIrp @ 0x140A7FE00 (IovAllocateIrp.c)
+ *     IoAllocateIrpEx @ 0x1402A1700 (IoAllocateIrpEx.c)
+ *     IopAllocateIrpWithExtension @ 0x1402ED748 (IopAllocateIrpWithExtension.c)
+ *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
+ *     IoAllocateIrp @ 0x140361FF0 (IoAllocateIrp.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x140345170 (KeInsertQueueDpc.c)
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IopInitActivityIdIrp @ 0x140556BE4 (IopInitActivityIdIrp.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopInitActivityIdIrp @ 0x140500C9C (IopInitActivityIdIrp.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
+PVOID __fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
 {
   char v3; // r13
   char v5; // si
   struct _KPRCB *CurrentPrcb; // rdi
   unsigned int *v7; // rcx
-  __int64 v8; // r12
-  unsigned __int16 v9; // bp
-  __int64 v10; // r12
-  __int16 v11; // bp
-  _GENERAL_LOOKASIDE *L; // r12
-  PSLIST_ENTRY v13; // rbx
+  __int64 v8; // rbx
+  __int64 v9; // r12
+  unsigned __int16 v10; // bp
+  __int64 v11; // r12
+  __int16 v12; // bp
+  __int64 v13; // r12
   char v14; // r14
   char v15; // r14
-  _SLIST_ENTRY **v16; // rcx
-  __int64 result; // rax
-  char v18; // [rsp+68h] [rbp+10h]
-  __int64 v19; // [rsp+78h] [rbp+20h]
+  __int64 v16; // rcx
+  PVOID result; // rax
+  __int64 v19; // [rsp+20h] [rbp-48h]
+  char v20; // [rsp+78h] [rbp+10h]
 
   v3 = 0;
   v5 = a2;
@@ -45,9 +45,9 @@ __int64 __fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
   if ( (IopIrpStackProfilerFlags & 3) != 0 && (IopIrpStackProfilerFlags & 4) != 0 && v5 < 20 )
   {
     v7 = &CurrentPrcb->MxCsr + v5;
-    ++v7[8944];
+    ++v7[8688];
     ++CurrentPrcb->IoIrpStackProfilerCurrent.TotalIrps;
-    if ( v7[8944] - v7[8965] > IopIrpStackProfilerMinSizeThreshold
+    if ( v7[8688] - v7[8709] > IopIrpStackProfilerMinSizeThreshold
       && CurrentPrcb->IoIrpStackProfilerCurrent.TotalIrps - CurrentPrcb->IoIrpStackProfilerPrevious.TotalIrps > IopIrpStackProfilerSampleSize )
     {
       _m_prefetchw(&IopIrpStackProfilerFlags);
@@ -55,102 +55,103 @@ __int64 __fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
         KeInsertQueueDpc(&IopIrpStackProfilerDpc, 0LL, 0LL);
     }
   }
-  v8 = v5;
-  v18 = 0;
-  v9 = 72 * v5 + 208;
-  if ( v5 > (char)IopLargeIrpStackLocations || a3 && CurrentPrcb->LookasideIrpFloat <= 0 )
-    goto LABEL_38;
-  v18 = 4;
-  if ( v5 == 1 )
+  v8 = 0LL;
+  v9 = v5;
+  v20 = 0;
+  v10 = 72 * v5 + 208;
+  if ( v5 <= (char)IopLargeIrpStackLocations && (!a3 || CurrentPrcb->LookasideIrpFloat > 0) )
   {
-    v19 = 0LL;
-    v10 = 2048LL;
-  }
-  else
-  {
-    if ( v5 <= (char)IopMediumIrpStackLocations )
+    v20 = 4;
+    if ( v5 == 1 )
     {
-      v19 = 1LL;
-      v10 = 2064LL;
-      v11 = 9 * (char)IopMediumIrpStackLocations;
+      v11 = 2048LL;
     }
     else
     {
-      v19 = 2LL;
-      v10 = 2080LL;
-      v11 = 9 * (char)IopLargeIrpStackLocations;
-    }
-    v9 = 8 * v11 + 208;
-  }
-  L = *(_GENERAL_LOOKASIDE **)((char *)&CurrentPrcb->MxCsr + v10);
-  ++L->TotalAllocates;
-  v13 = RtlpInterlockedPopEntrySList(&L->ListHead);
-  if ( !v13 )
-  {
-    ++L->AllocateMisses;
-    L = CurrentPrcb->PPLookasideList[v19].L;
-    ++L->TotalAllocates;
-    v13 = RtlpInterlockedPopEntrySList(&L->ListHead);
-    if ( !v13 )
-      ++L->AllocateMisses;
-  }
-  if ( (IopIrpStackProfilerFlags & 3) != 0 )
-  {
-    if ( v13 )
-    {
-      if ( *((_QWORD *)&v13[3].Next + 1) >= (unsigned __int64)(unsigned __int16)(72 * v5 + 208) )
+      if ( v5 <= (char)IopMediumIrpStackLocations )
       {
-        v9 = *((_QWORD *)&v13[3].Next + 1);
-        goto LABEL_19;
+        v8 = 16LL;
+        v11 = 2064LL;
+        v12 = 9 * (char)IopMediumIrpStackLocations;
       }
-      ++L->TotalFrees;
-      ExFreePoolWithTag(v13, 0);
+      else
+      {
+        v8 = 32LL;
+        v11 = 2080LL;
+        v12 = 9 * (char)IopLargeIrpStackLocations;
+      }
+      v10 = 8 * v12 + 208;
     }
+    v13 = *(_QWORD *)((char *)&CurrentPrcb->MxCsr + v11);
+    v19 = v8;
+    ++*(_DWORD *)(v13 + 20);
+    v8 = (__int64)RtlpInterlockedPopEntrySList((PSLIST_HEADER)v13);
+    if ( !v8 )
+    {
+      ++*(_DWORD *)(v13 + 24);
+      v13 = *(__int64 *)((char *)&CurrentPrcb->PPLookasideList[0].L + v19);
+      ++*(_DWORD *)(v13 + 20);
+      v8 = (__int64)RtlpInterlockedPopEntrySList((PSLIST_HEADER)v13);
+      if ( !v8 )
+        ++*(_DWORD *)(v13 + 24);
+    }
+    if ( (IopIrpStackProfilerFlags & 3) != 0 && v8 )
+    {
+      if ( *(_QWORD *)(v8 + 56) < (unsigned __int64)(unsigned __int16)(72 * v5 + 208) )
+      {
+        ++*(_DWORD *)(v13 + 28);
+        ExFreePoolWithTag((PVOID)v8, 0);
+        goto LABEL_43;
+      }
+      v10 = *(_QWORD *)(v8 + 56);
+    }
+    v9 = v5;
   }
-  else if ( v13 )
+  v14 = 0;
+  if ( v8 )
   {
-LABEL_19:
-    v14 = 0;
     if ( a3 && IopIrpCreditsEnabled > 1 )
     {
       _InterlockedDecrement(&CurrentPrcb->LookasideIrpFloat);
       v14 = 8;
     }
-    v8 = v5;
     a3 = 0;
-    goto LABEL_21;
+    goto LABEL_23;
   }
-  v8 = v5;
-LABEL_38:
-  result = ExAllocatePool2((a3 != 0) + 64LL, v9, 544240201LL);
-  v13 = (PSLIST_ENTRY)result;
+LABEL_43:
+  if ( a3 )
+    result = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, v10, 0x20707249u);
+  else
+    result = ExAllocatePoolWithTag(NonPagedPoolNx, v10, 0x20707249u);
+  v8 = (__int64)result;
   if ( !result )
     return result;
+  v9 = v5;
   v14 = 0;
-LABEL_21:
-  memset(v13, 0, v9);
-  v15 = v18 | v14;
-  BYTE2(v13[4].Next) = v5;
-  LOWORD(v13->Next) = 6;
-  BYTE3(v13[4].Next) = v5 + 1;
-  WORD1(v13->Next) = v9;
-  BYTE6(v13[4].Next) = KeGetCurrentThread()->ApcStateIndex;
-  *((_QWORD *)&v13[2].Next + 1) = v13 + 2;
-  v13[2].Next = v13 + 2;
-  v16 = &v13[4 * v8 + 13].Next + v8;
-  *((_QWORD *)&v13[11].Next + 1) = v16;
-  WORD2(v13->Next) = CurrentPrcb->Number;
-  HIBYTE(v13[4].Next) = v15;
+LABEL_23:
+  memset((void *)v8, 0, v10);
+  v15 = v20 | v14;
+  *(_BYTE *)(v8 + 66) = v5;
+  *(_WORD *)v8 = 6;
+  *(_BYTE *)(v8 + 67) = v5 + 1;
+  *(_WORD *)(v8 + 2) = v10;
+  *(_BYTE *)(v8 + 70) = KeGetCurrentThread()->ApcStateIndex;
+  *(_QWORD *)(v8 + 40) = v8 + 32;
+  *(_QWORD *)(v8 + 32) = v8 + 32;
+  v16 = v8 + 8 * (v9 + 8 * v9 + 26);
+  *(_QWORD *)(v8 + 184) = v16;
+  *(_WORD *)(v8 + 4) = CurrentPrcb->Number;
+  *(_BYTE *)(v8 + 71) = v15;
   if ( a3 )
-    HIBYTE(v13[4].Next) = v15 | 1;
+    *(_BYTE *)(v8 + 71) = v15 | 1;
   if ( v3 )
   {
-    BYTE3(v13[4].Next) -= 2;
-    BYTE2(v13[4].Next) -= 2;
-    *((_QWORD *)&v13[11].Next + 1) = v16 - 18;
-    *((_QWORD *)&v13[12].Next + 1) = v16 - 18;
+    *(_BYTE *)(v8 + 67) -= 2;
+    *(_BYTE *)(v8 + 66) -= 2;
+    *(_QWORD *)(v8 + 184) = v16 - 144;
+    *(_QWORD *)(v8 + 200) = v16 - 144;
     if ( (IopFunctionPointerMask & 4) != 0 && (IopIrpExtensionStatus & 1) != 0 )
-      IopInitActivityIdIrp(v13);
+      IopInitActivityIdIrp(v8);
   }
-  return (__int64)v13;
+  return (PVOID)v8;
 }

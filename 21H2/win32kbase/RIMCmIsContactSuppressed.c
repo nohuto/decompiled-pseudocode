@@ -1,25 +1,29 @@
 /*
- * XREFs of RIMCmIsContactSuppressed @ 0x1C01B6958
+ * XREFs of RIMCmIsContactSuppressed @ 0x1C0180440
  * Callers:
- *     rimApplyPointerDevicePolicies @ 0x1C00E70E4 (rimApplyPointerDevicePolicies.c)
- *     rimAbIsPointerSuppressedByOtherDeviceContacts @ 0x1C0187010 (rimAbIsPointerSuppressedByOtherDeviceContacts.c)
- *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C0187FE0 (rimAbUpdateDeadzonesAndResurrectContacts.c)
- *     RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C01AE2AC (RIMUpdatePrimaryAndFinalizePointerFlags.c)
- *     rimFinalizePointerFlags @ 0x1C01B0BC4 (rimFinalizePointerFlags.c)
- *     rimProcessPointerDeviceButtonContact @ 0x1C01B1EB4 (rimProcessPointerDeviceButtonContact.c)
- *     rimProcessPointerDeviceContact @ 0x1C01B2140 (rimProcessPointerDeviceContact.c)
- *     RIMCmAddContactSuppressionReasons @ 0x1C01B61C4 (RIMCmAddContactSuppressionReasons.c)
- *     RIMCmDeactivateContact @ 0x1C01B6684 (RIMCmDeactivateContact.c)
- *     RIMCmIsButtonContactActiveAndNotSuppressed @ 0x1C01B688C (RIMCmIsButtonContactActiveAndNotSuppressed.c)
- *     RIMCmIsContactDeliveringAnyData @ 0x1C01B68C8 (RIMCmIsContactDeliveringAnyData.c)
- *     RIMCmRemoveContactSuppressionReasons @ 0x1C01B69D4 (RIMCmRemoveContactSuppressionReasons.c)
+ *     rimAbIsPointerSuppressedByOtherDeviceContacts @ 0x1C0158E64 (rimAbIsPointerSuppressedByOtherDeviceContacts.c)
+ *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C0159CF4 (rimAbUpdateDeadzonesAndResurrectContacts.c)
+ *     RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C0178CF4 (RIMUpdatePrimaryAndFinalizePointerFlags.c)
+ *     rimApplyPointerDevicePolicies @ 0x1C0179080 (rimApplyPointerDevicePolicies.c)
+ *     rimFinalizePointerFlags @ 0x1C017B4A4 (rimFinalizePointerFlags.c)
+ *     rimProcessPointerDeviceButtonContact @ 0x1C017C5EC (rimProcessPointerDeviceButtonContact.c)
+ *     rimProcessPointerDeviceContact @ 0x1C017C828 (rimProcessPointerDeviceContact.c)
+ *     RIMCmAddContactSuppressionReasons @ 0x1C017FE94 (RIMCmAddContactSuppressionReasons.c)
+ *     RIMCmDeactivateContact @ 0x1C01801B0 (RIMCmDeactivateContact.c)
+ *     RIMCmIsButtonContactActiveAndNotSuppressed @ 0x1C01803B8 (RIMCmIsButtonContactActiveAndNotSuppressed.c)
+ *     RIMCmMarkSuppressedContactForDelivery @ 0x1C0180500 (RIMCmMarkSuppressedContactForDelivery.c)
+ *     RIMCmRemoveContactSuppressionReasons @ 0x1C0180588 (RIMCmRemoveContactSuppressionReasons.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-_BOOL8 __fastcall RIMCmIsContactSuppressed(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RIMCmIsContactSuppressed(__int64 a1)
 {
+  unsigned int v1; // ebx
+
+  v1 = 0;
   if ( (*(_DWORD *)(a1 + 32) & 2) == 0 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  return *(_DWORD *)(a1 + 8) != 0;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 534);
+  LOBYTE(v1) = *(_DWORD *)(a1 + 8) != 0;
+  return v1;
 }

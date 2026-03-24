@@ -7,7 +7,7 @@
  *     WbReEncryptEncryptionSegment @ 0x140583EC8 (WbReEncryptEncryptionSegment.c)
  *     WbGetInitializedEncryptionSegment @ 0x140583F8C (WbGetInitializedEncryptionSegment.c)
  *     WbGetWarbirdEncryptionSegment @ 0x14058410C (WbGetWarbirdEncryptionSegment.c)
- *     WbInPlaceEncryptionUnloadModule @ 0x1406B0AC8 (WbInPlaceEncryptionUnloadModule.c)
+ *     WbInPlaceEncryptionUnloadModule @ 0x1406B0AA8 (WbInPlaceEncryptionUnloadModule.c)
  * Callees:
  *     WbFreeWarbirdEncryptionSegment @ 0x140584AE0 (WbFreeWarbirdEncryptionSegment.c)
  */

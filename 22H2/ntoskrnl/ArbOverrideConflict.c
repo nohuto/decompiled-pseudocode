@@ -1,10 +1,10 @@
 /*
- * XREFs of ArbOverrideConflict @ 0x1409362F0
+ * XREFs of ArbOverrideConflict @ 0x1407CCE20
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetFirstRange @ 0x14082B380 (RtlGetFirstRange.c)
- *     RtlGetNextRange @ 0x14082B6E0 (RtlGetNextRange.c)
+ *     RtlGetNextRange @ 0x14075FE50 (RtlGetNextRange.c)
+ *     RtlGetFirstRange @ 0x14075FF00 (RtlGetFirstRange.c)
  */
 
 char __fastcall ArbOverrideConflict(__int64 a1, __int64 a2)
@@ -34,7 +34,7 @@ char __fastcall ArbOverrideConflict(__int64 a1, __int64 a2)
       if ( v5 > *v4 )
       {
         if ( v4[1] < v5 )
-          goto LABEL_13;
+          goto LABEL_6;
         v7 = v5 < v6;
       }
       if ( (!v7 || *(_QWORD *)(a2 + 24) >= v6) && ((_BYTE)v4[4] & *(_BYTE *)(a2 + 67)) == 0 )
@@ -45,7 +45,7 @@ char __fastcall ArbOverrideConflict(__int64 a1, __int64 a2)
         *(_QWORD *)(a2 + 8) = *(_QWORD *)(a2 + 24);
         *(_QWORD *)a2 = v5;
       }
-LABEL_13:
+LABEL_6:
       RtlGetNextRange(v9, &v10, 1);
       v4 = v10;
     }

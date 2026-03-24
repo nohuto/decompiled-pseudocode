@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pqzzzzzzz @ 0x140288B94
+ * XREFs of McTemplateK0pqzzzzzzz @ 0x140288C94
  * Callers:
  *     PiDqIrpQueryCreate @ 0x140590B08 (PiDqIrpQueryCreate.c)
  * Callees:
- *     McGenEventWrite @ 0x14015D6A0 (McGenEventWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x14015D6C0 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 ULONG McTemplateK0pqzzzzzzz(__int64 a1, __int64 a2, const GUID *a3, ...)

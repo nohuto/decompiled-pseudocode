@@ -5,13 +5,13 @@
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     AlpcpSignal @ 0x1400D37D0 (AlpcpSignal.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     AlpcpSignal @ 0x1400D37F0 (AlpcpSignal.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     AlpcpReceiveMessage @ 0x1406322B0 (AlpcpReceiveMessage.c)
  *     AlpcpProcessSynchronousRequest @ 0x140633A30 (AlpcpProcessSynchronousRequest.c)
  *     AlpcpSendMessage @ 0x1406348F0 (AlpcpSendMessage.c)
- *     AlpcpTrackPortReferences @ 0x1406C3FE4 (AlpcpTrackPortReferences.c)
+ *     AlpcpTrackPortReferences @ 0x1406C3FC4 (AlpcpTrackPortReferences.c)
  */
 
 __int64 __fastcall NtAlpcSendWaitReceivePort(

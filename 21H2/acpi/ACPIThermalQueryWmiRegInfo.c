@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIThermalQueryWmiRegInfo @ 0x1C00A1C80
+ * XREFs of ACPIThermalQueryWmiRegInfo @ 0x1C00A36D0
  * Callers:
  *     <none>
  * Callees:

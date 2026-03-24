@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpBuildAdminInformation @ 0x1407F2310
+ * XREFs of CmpBuildAdminInformation @ 0x1407F22F0
  * Callers:
- *     CmpCheckAdminAccess @ 0x1407F27A4 (CmpCheckAdminAccess.c)
+ *     CmpCheckAdminAccess @ 0x1407F2784 (CmpCheckAdminAccess.c)
  * Callees:
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
- *     RtlSidHashInitialize @ 0x1400CC420 (RtlSidHashInitialize.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
+ *     RtlSidHashInitialize @ 0x1400CC440 (RtlSidHashInitialize.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlCopySidAndAttributesArray @ 0x14062CDA0 (RtlCopySidAndAttributesArray.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
- *     CmpEffectiveTokenForSubject @ 0x1406B20F4 (CmpEffectiveTokenForSubject.c)
- *     RtlCopyLuidAndAttributesArray @ 0x140893D30 (RtlCopyLuidAndAttributesArray.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
+ *     CmpEffectiveTokenForSubject @ 0x1406B20D4 (CmpEffectiveTokenForSubject.c)
+ *     RtlCopyLuidAndAttributesArray @ 0x140893D10 (RtlCopyLuidAndAttributesArray.c)
  */
 
 __int64 __fastcall CmpBuildAdminInformation(_QWORD *a1, __int64 *a2)

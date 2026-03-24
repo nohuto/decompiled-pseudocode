@@ -1,12 +1,12 @@
 /*
- * XREFs of PdcPoPerfOverride @ 0x140997A58
+ * XREFs of PdcPoPerfOverride @ 0x1408EF958
  * Callers:
- *     PopPowerAggregatorEnterScreenOff @ 0x1408781A4 (PopPowerAggregatorEnterScreenOff.c)
- *     PopPowerAggregatorModernStandbyExitStateHandler @ 0x140993B90 (PopPowerAggregatorModernStandbyExitStateHandler.c)
+ *     PopPowerAggregatorModernStandbyExitStateHandler @ 0x1408EE5D0 (PopPowerAggregatorModernStandbyExitStateHandler.c)
+ *     PopPowerAggregatorScreenOffExitStateHandler @ 0x1408EE9F0 (PopPowerAggregatorScreenOffExitStateHandler.c)
  * Callees:
- *     PpmEndHighPerfRequest @ 0x14036E4A0 (PpmEndHighPerfRequest.c)
- *     PpmBeginHighPerfRequest @ 0x14036E924 (PpmBeginHighPerfRequest.c)
- *     PpmDisableHighPerfRequestDeferredExpiration @ 0x140597E20 (PpmDisableHighPerfRequestDeferredExpiration.c)
+ *     PpmEndHighPerfRequest @ 0x1403A6560 (PpmEndHighPerfRequest.c)
+ *     PpmBeginHighPerfRequest @ 0x1403A72D0 (PpmBeginHighPerfRequest.c)
+ *     PpmDisableHighPerfRequestDeferredExpiration @ 0x140576EF8 (PpmDisableHighPerfRequestDeferredExpiration.c)
  */
 
 __int64 PdcPoPerfOverride()

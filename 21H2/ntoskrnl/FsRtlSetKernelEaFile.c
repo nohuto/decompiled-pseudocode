@@ -1,17 +1,18 @@
 /*
- * XREFs of FsRtlSetKernelEaFile @ 0x1406A3540
+ * XREFs of FsRtlSetKernelEaFile @ 0x140689CB0
  * Callers:
- *     SPCallServerHandleFileIntegrityUpdate @ 0x14065EA54 (SPCallServerHandleFileIntegrityUpdate.c)
+ *     CmpAdjustFileCFSafety @ 0x1403F057C (CmpAdjustFileCFSafety.c)
+ *     SPCallServerHandleFileIntegrityUpdate @ 0x140727A04 (SPCallServerHandleFileIntegrityUpdate.c)
  * Callees:
- *     IoAllocateIrpEx @ 0x14022CFA0 (IoAllocateIrpEx.c)
- *     IoCancelIrp @ 0x14022D160 (IoCancelIrp.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
- *     FsRtlCancellableWaitForMultipleObjects @ 0x1407A11A0 (FsRtlCancellableWaitForMultipleObjects.c)
- *     FsRtlpFreeMdlChain @ 0x14092EF10 (FsRtlpFreeMdlChain.c)
+ *     IoAllocateIrpEx @ 0x1402A1700 (IoAllocateIrpEx.c)
+ *     IoCancelIrp @ 0x1402BB2C0 (IoCancelIrp.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     FsRtlCancellableWaitForMultipleObjects @ 0x1405FCB60 (FsRtlCancellableWaitForMultipleObjects.c)
+ *     FsRtlpFreeMdlChain @ 0x14088C460 (FsRtlpFreeMdlChain.c)
  */
 
 __int64 __fastcall FsRtlSetKernelEaFile(PFILE_OBJECT FileObject, void *a2, int a3)
@@ -24,9 +25,10 @@ __int64 __fastcall FsRtlSetKernelEaFile(PFILE_OBJECT FileObject, void *a2, int a
   __int64 v11; // rax
   unsigned int Status; // edi
   struct _MDL *MdlAddress; // rcx
-  PIRP Irp; // [rsp+30h] [rbp-28h]
-  struct _KEVENT Object; // [rsp+38h] [rbp-20h] BYREF
-  PDEVICE_OBJECT DeviceObject; // [rsp+78h] [rbp+20h] BYREF
+  PIRP Irp; // [rsp+30h] [rbp-38h]
+  PVOID ObjectArray; // [rsp+38h] [rbp-30h] BYREF
+  struct _KEVENT Object; // [rsp+40h] [rbp-28h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+88h] [rbp+20h]
 
   v6 = 0LL;
   memset(&Object, 0, sizeof(Object));
@@ -63,8 +65,8 @@ __int64 __fastcall FsRtlSetKernelEaFile(PFILE_OBJECT FileObject, void *a2, int a
       *(_BYTE *)(v11 - 69) = -32;
       if ( IofCallDriver(DeviceObject, Irp) == 259 )
       {
-        DeviceObject = (PDEVICE_OBJECT)&Object;
-        if ( FsRtlCancellableWaitForMultipleObjects(1u, (PVOID *)&DeviceObject, WaitAll, 0LL, 0LL, 0LL) == -1073741749 )
+        ObjectArray = &Object;
+        if ( FsRtlCancellableWaitForMultipleObjects(1u, &ObjectArray, WaitAll, 0LL, 0LL, 0LL) == -1073741749 )
         {
           IoCancelIrp(Irp);
           KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);

@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_EvtPsmCleanup @ 0x1C002F7A0
+ * XREFs of HUBMISC_EvtPsmCleanup @ 0x1C002F100
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBMISC_EvtPsmCleanup(__int64 a1)
@@ -14,7 +14,7 @@ __int64 __fastcall HUBMISC_EvtPsmCleanup(__int64 a1)
   result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
              WdfDriverGlobals,
              a1,
-             off_1C0067330);
+             off_1C00662E8);
   v2 = (_QWORD *)result;
   if ( *(_QWORD *)(result + 1264) )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0FxSelfManagedIoMachine@@QEAA@PEAVFxPkgPnp@@@Z @ 0x1C0020C08
+ * XREFs of ??0FxSelfManagedIoMachine@@QEAA@PEAVFxPkgPnp@@@Z @ 0x1C008B294
  * Callers:
- *     ?_CreateAndInit@FxSelfManagedIoMachine@@SAJPEAPEAV1@PEAVFxPkgPnp@@@Z @ 0x1C0020B34 (-_CreateAndInit@FxSelfManagedIoMachine@@SAJPEAPEAV1@PEAVFxPkgPnp@@@Z.c)
+ *     ?_CreateAndInit@FxSelfManagedIoMachine@@SAJPEAPEAV1@PEAVFxPkgPnp@@@Z @ 0x1C008B560 (-_CreateAndInit@FxSelfManagedIoMachine@@SAJPEAPEAV1@PEAVFxPkgPnp@@@Z.c)
  * Callees:
- *     ??0FxWaitLockInternal@@QEAA@XZ @ 0x1C00239E0 (--0FxWaitLockInternal@@QEAA@XZ.c)
+ *     ??0FxWaitLockInternal@@QEAA@XZ @ 0x1C00622B4 (--0FxWaitLockInternal@@QEAA@XZ.c)
  */
 
 void __fastcall FxSelfManagedIoMachine::FxSelfManagedIoMachine(FxSelfManagedIoMachine *this, FxPkgPnp *PkgPnp)

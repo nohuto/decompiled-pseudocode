@@ -1,72 +1,36 @@
 /*
- * XREFs of GreSelectFont @ 0x1C011BD80
+ * XREFs of GreSelectFont @ 0x1C0045E80
  * Callers:
- *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C013BB08 (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
- *     MNAllocMenuState @ 0x1C01FF0D0 (MNAllocMenuState.c)
+ *     xxxMenuDraw @ 0x1C0043668 (xxxMenuDraw.c)
+ *     xxxDrawMenuItem @ 0x1C004470C (xxxDrawMenuItem.c)
+ *     DrawFrameControl @ 0x1C0045B98 (DrawFrameControl.c)
+ *     xxxMNCompute @ 0x1C0047BA4 (xxxMNCompute.c)
+ *     ?xxxMNItemSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAUtagPOINT@@@Z @ 0x1C0048148 (-xxxMNItemSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAU.c)
+ *     ?GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z @ 0x1C00DB224 (-GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z.c)
+ *     xxxDrawMenuBarUnderlines @ 0x1C00E1BE0 (xxxDrawMenuBarUnderlines.c)
+ *     xxxSetNCFonts @ 0x1C00E2938 (xxxSetNCFonts.c)
+ *     ValidateExternalLogFont @ 0x1C00E2FD0 (ValidateExternalLogFont.c)
+ *     ?UserReinitializeStockFonts@@YAXKH@Z @ 0x1C00E4EE0 (-UserReinitializeStockFonts@@YAXKH@Z.c)
+ *     FinalUserInit @ 0x1C00E4FC8 (FinalUserInit.c)
+ *     MNSetupAnimationDC @ 0x1C00E5F18 (MNSetupAnimationDC.c)
+ *     _ServerFixupMenuDC @ 0x1C0106800 (_ServerFixupMenuDC.c)
+ *     xxxDrawCaptionTemp @ 0x1C0158B14 (xxxDrawCaptionTemp.c)
+ *     CreateCompatiblePublicDC @ 0x1C0159590 (CreateCompatiblePublicDC.c)
+ *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C0168AB4 (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
+ *     CreateScaledFont @ 0x1C01E9E50 (CreateScaledFont.c)
+ *     MNAllocMenuState @ 0x1C0221278 (MNAllocMenuState.c)
+ *     ?PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z @ 0x1C0222CD0 (-PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z.c)
+ *     SfnINLPKDRAWSWITCHWND @ 0x1C022B720 (SfnINLPKDRAWSWITCHWND.c)
+ *     ?xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z @ 0x1C0242388 (-xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z.c)
+ *     ?xxxTooltipRender@@YAXPEAUtagTOOLTIPWND@@PEAUHDC__@@@Z @ 0x1C0242A6C (-xxxTooltipRender@@YAXPEAUtagTOOLTIPWND@@PEAUHDC__@@@Z.c)
+ *     xxxMNInvertItem @ 0x1C024C7C0 (xxxMNInvertItem.c)
+ *     ?SelectFont@@YAXPEAU_SELECT_FONT@@@Z @ 0x1C0250620 (-SelectFont@@YAXPEAU_SELECT_FONT@@@Z.c)
+ *     xxxDrawState @ 0x1C0250784 (xxxDrawState.c)
  * Callees:
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C011CD7C (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
- *     ??B?$HmgLockResultBase@VMETA@@@@QEBA_NXZ @ 0x1C0138BF0 (--B-$HmgLockResultBase@VMETA@@@@QEBA_NXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C013E430 (--0-$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ.c)
- *     ??0?$HmgShareLockResult@VLFONT@@@@QEAA@PEAU_BASEOBJECT@@@Z @ 0x1C013FF7C (--0-$HmgShareLockResult@VLFONT@@@@QEAA@PEAU_BASEOBJECT@@@Z.c)
- *     ??1?$HmgShareLockResult@VLFONT@@@@QEAA@XZ @ 0x1C013FFC8 (--1-$HmgShareLockResult@VLFONT@@@@QEAA@XZ.c)
+ *     GreSelectFontInternal @ 0x1C016C948 (GreSelectFontInternal.c)
  */
 
-__int64 __fastcall GreSelectFont(HDC a1, __int64 a2)
+__int64 __fastcall GreSelectFont(HDC a1)
 {
-  __int64 v2; // rdi
-  __int64 v5; // rdx
-  __int64 v6; // rax
-  __int64 *v7; // rcx
-  __int64 v8; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  _QWORD v12[5]; // [rsp+20h] [rbp-60h] BYREF
-  __int64 v13; // [rsp+48h] [rbp-38h] BYREF
-  int v14; // [rsp+50h] [rbp-30h]
-  int v15; // [rsp+54h] [rbp-2Ch]
-  _BYTE v16[40]; // [rsp+58h] [rbp-28h] BYREF
-
-  v2 = 0LL;
-  v13 = 0LL;
-  v14 = 0;
-  v15 = 0;
-  UnexpectedThreadTerminationHandler<DCOBJ>::UnexpectedThreadTerminationHandler<DCOBJ>(v16);
-  XDCOBJ::vLock((XDCOBJ *)&v13, a1);
-  v6 = v13;
-  if ( v13 )
-  {
-    v7 = *(__int64 **)(v13 + 152);
-    if ( v7 )
-      v2 = *v7;
-    if ( a2 != v2 )
-    {
-      LOBYTE(v5) = 10;
-      v8 = HmgShareLockCheck(a2, v5);
-      HmgShareLockResult<LFONT>::HmgShareLockResult<LFONT>(v12, v8);
-      if ( !(unsigned __int8)HmgLockResultBase<META>::operator bool(v12, v9)
-        || (*(_BYTE *)(HmgPentryFromPobj(v12[0]) + 15) & 2) != 0 )
-      {
-        v2 = 0LL;
-      }
-      else
-      {
-        DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT(*(struct LFONT **)(v13 + 152));
-        v10 = v12[0];
-        v12[0] = 0LL;
-        *(_QWORD *)(v13 + 152) = v10;
-        *(_QWORD *)(*(_QWORD *)(v13 + 976) + 296LL) = a2;
-        *(_QWORD *)(v13 + 1744) = 0LL;
-        *(_DWORD *)(*(_QWORD *)(v13 + 976) + 152LL) |= 0x10u;
-        *(_DWORD *)(*(_QWORD *)(v13 + 976) + 152LL) &= ~0x20u;
-      }
-      HmgShareLockResult<LFONT>::~HmgShareLockResult<LFONT>(v12);
-      v6 = v13;
-    }
-    if ( v6 )
-      XDCOBJ::vUnlockFast((XDCOBJ *)&v13);
-  }
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v16);
-  return v2;
+  return GreSelectFontInternal(a1);
 }

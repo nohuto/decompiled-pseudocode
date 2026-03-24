@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpSetProviderTraitsCommon @ 0x1406BE544
+ * XREFs of EtwpSetProviderTraitsCommon @ 0x1406BC01C
  * Callers:
- *     EtwpSetProviderTraitsUm @ 0x1406BE3A0 (EtwpSetProviderTraitsUm.c)
- *     EtwpSetProviderTraitsKm @ 0x1407D76F8 (EtwpSetProviderTraitsKm.c)
+ *     EtwpSetProviderTraitsUm @ 0x1406BBE50 (EtwpSetProviderTraitsUm.c)
+ *     EtwpSetProviderTraitsKm @ 0x14077F048 (EtwpSetProviderTraitsKm.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x1402284E0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     RtlRbRemoveNode @ 0x14024B910 (RtlRbRemoveNode.c)
- *     RtlRbInsertNodeEx @ 0x14024CCA0 (RtlRbInsertNodeEx.c)
- *     RtlUIntAdd @ 0x1402504BC (RtlUIntAdd.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     strnlen @ 0x1403DAF60 (strnlen.c)
- *     Feature_1109720378__private_IsEnabledDeviceUsage @ 0x1404118C4 (Feature_1109720378__private_IsEnabledDeviceUsage.c)
- *     EtwpGetProviderGroupFromTraits @ 0x1406BE800 (EtwpGetProviderGroupFromTraits.c)
- *     EtwpAddRegEntryToGroup @ 0x1406BE860 (EtwpAddRegEntryToGroup.c)
- *     EtwpReleaseProviderTraitsReference @ 0x1406C0210 (EtwpReleaseProviderTraitsReference.c)
- *     TraitsCompare @ 0x1407BD0EC (TraitsCompare.c)
- *     AddDecodeGuidToSessions @ 0x1407E9FA0 (AddDecodeGuidToSessions.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlULongAdd @ 0x140200578 (RtlULongAdd.c)
+ *     RtlRbInsertNodeEx @ 0x1402C0B10 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x1402C1170 (RtlRbRemoveNode.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     strnlen @ 0x1403D34D0 (strnlen.c)
+ *     Feature_1445264698__private_IsEnabledDeviceUsage @ 0x1403F8A24 (Feature_1445264698__private_IsEnabledDeviceUsage.c)
+ *     TraitsCompare @ 0x1406799E0 (TraitsCompare.c)
+ *     EtwpReleaseProviderTraitsReference @ 0x14067DEA8 (EtwpReleaseProviderTraitsReference.c)
+ *     EtwpGetProviderGroupFromTraits @ 0x1406BC308 (EtwpGetProviderGroupFromTraits.c)
+ *     EtwpAddRegEntryToGroup @ 0x1406BC360 (EtwpAddRegEntryToGroup.c)
+ *     AddDecodeGuidToSessions @ 0x140941B9C (AddDecodeGuidToSessions.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpSetProviderTraitsCommon(
@@ -30,42 +30,47 @@ __int64 __fastcall EtwpSetProviderTraitsCommon(
         PFAST_MUTEX FastMutex,
         __int64 a8)
 {
-  _DWORD *v8; // rsi
-  char v9; // r14
-  struct _FAST_MUTEX *v10; // rdi
-  bool v12; // r12
-  char *v13; // r13
-  NTSTATUS v14; // ebx
-  __int64 v15; // rcx
+  char *v8; // rdi
+  struct _FAST_MUTEX *v9; // r15
+  bool v11; // r14
+  char *v12; // rbp
+  __int16 v13; // r13
+  unsigned int v14; // ebx
+  __int64 v15; // rdx
   bool v16; // zf
-  unsigned int v17; // edx
-  bool v18; // bl
-  unsigned __int64 v19; // rdi
-  __int64 v20; // rax
-  int v21; // eax
-  unsigned __int64 v22; // rax
-  UINT v23; // eax
-  UINT v24; // eax
+  ULONG *v17; // r14
+  unsigned __int64 v18; // rbx
+  __int64 v19; // rax
+  bool v20; // bp
+  char v21; // r15
+  unsigned int v22; // r9d
+  int v23; // eax
+  unsigned __int64 v24; // rax
   int IsEnabledDeviceUsage; // eax
-  __int16 v26; // ax
-  _OWORD *ProviderGroupFromTraits; // rax
-  bool v29; // [rsp+30h] [rbp-88h]
-  UINT puResult; // [rsp+38h] [rbp-80h] BYREF
-  int v31; // [rsp+3Ch] [rbp-7Ch]
-  __int64 v32; // [rsp+40h] [rbp-78h]
-  __int64 v33; // [rsp+48h] [rbp-70h]
-  PKGUARDED_MUTEX Mutex[2]; // [rsp+50h] [rbp-68h] BYREF
+  ULONG v26; // eax
+  NTSTATUS v27; // eax
+  int v28; // eax
+  bool v29; // dl
+  __int128 *ProviderGroupFromTraits; // rax
+  bool v32; // [rsp+30h] [rbp-88h]
+  ULONG pulResult; // [rsp+34h] [rbp-84h] BYREF
+  int v34; // [rsp+38h] [rbp-80h]
+  PKGUARDED_MUTEX Mutex; // [rsp+40h] [rbp-78h]
+  __int64 v36; // [rsp+48h] [rbp-70h]
+  __int64 v37; // [rsp+50h] [rbp-68h]
+  __int128 v38; // [rsp+58h] [rbp-60h] BYREF
 
-  v8 = P;
-  v9 = 0;
-  v10 = FastMutex;
-  v12 = 0;
-  v13 = (char *)P;
-  v32 = a3;
-  v31 = a2;
-  v33 = a1;
-  Mutex[0] = FastMutex;
-  puResult = 0;
+  v8 = (char *)P;
+  v9 = FastMutex;
+  v11 = 0;
+  v12 = (char *)P;
+  v36 = a3;
+  v13 = 0;
+  v34 = a2;
+  v37 = a1;
+  Mutex = FastMutex;
+  pulResult = 0;
+  *(_QWORD *)&v38 = P;
   if ( a6 < 3 )
     goto LABEL_2;
   if ( *((unsigned __int16 *)P + 14) != a6 )
@@ -78,148 +83,153 @@ __int64 __fastcall EtwpSetProviderTraitsCommon(
   {
     while ( (int)v15 + 2 <= a6 )
     {
-      v17 = *(unsigned __int16 *)&P[v15 + 28];
-      if ( v17 < 3 )
-        break;
-      v15 = v17 + (unsigned int)v15;
+      LODWORD(v15) = *(unsigned __int16 *)&P[v15 + 28] + (_DWORD)v15;
       v16 = (_DWORD)v15 == a6;
       if ( (unsigned int)v15 >= a6 )
-        goto LABEL_9;
+        goto LABEL_8;
     }
 LABEL_2:
     v14 = -1073741566;
-    goto LABEL_50;
+    goto LABEL_48;
   }
-LABEL_9:
+LABEL_8:
   if ( !v16 )
     goto LABEL_2;
+  v17 = (ULONG *)(P + 24);
   *(_OWORD *)P = 0LL;
   *((_QWORD *)P + 2) = 0LL;
-  v18 = 1;
   *((_DWORD *)P + 6) = 1;
   ExAcquireFastMutex(FastMutex);
-  v12 = (unsigned int)Feature_1109720378__private_IsEnabledDeviceUsage() != 0;
-  v29 = v12;
+  v32 = (unsigned int)Feature_1445264698__private_IsEnabledDeviceUsage() != 0;
   if ( (*(_BYTE *)(a8 + 8) & 1) != 0 )
   {
-    v19 = *(_QWORD *)a8;
+    v18 = *(_QWORD *)a8;
     if ( !*(_QWORD *)a8 )
     {
+LABEL_14:
+      v18 = 0LL;
+      v20 = 0;
+      v21 = 0;
 LABEL_15:
-      v19 = 0LL;
-      v18 = 0;
-LABEL_29:
-      RtlRbInsertNodeEx((unsigned __int64 *)a8, v19, v18, (unsigned __int64)P);
-      v13 = 0LL;
-      goto LABEL_30;
+      RtlRbInsertNodeEx((unsigned __int64 *)a8, v18, v20, (unsigned __int64)P);
+      v22 = 0;
+      v12 = 0LL;
+      goto LABEL_16;
     }
-    v20 = a8 ^ v19;
+    v19 = a8 ^ v18;
   }
   else
   {
-    v20 = *(_QWORD *)a8;
     v19 = *(_QWORD *)a8;
+    v18 = *(_QWORD *)a8;
   }
-  if ( !v20 )
-    goto LABEL_15;
   if ( !v19 )
-  {
-LABEL_28:
-    v18 = 0;
-    goto LABEL_29;
-  }
+    goto LABEL_14;
+  v20 = 0;
+  v21 = 0;
+  if ( !v18 )
+    goto LABEL_27;
   while ( 1 )
   {
-    v21 = TraitsCompare(P, v19);
-    if ( v21 > 0 )
-    {
-      v22 = *(_QWORD *)(v19 + 8);
-      if ( !v22 )
-        goto LABEL_29;
-      goto LABEL_22;
-    }
-    if ( v21 >= 0 )
+    v23 = TraitsCompare((__int64)P, v18);
+    if ( v23 <= 0 )
       break;
-    v22 = *(_QWORD *)v19;
-    if ( !*(_QWORD *)v19 )
-      goto LABEL_28;
-LABEL_22:
-    v19 = v22;
+    v24 = *(_QWORD *)(v18 + 8);
+    if ( !v24 )
+    {
+      v20 = 1;
+      goto LABEL_15;
+    }
+LABEL_25:
+    v18 = v24;
   }
-  v9 = 1;
-  v8 = (_DWORD *)v19;
-  v16 = (unsigned int)Feature_1109720378__private_IsEnabledDeviceUsage() == 0;
-  v23 = *(_DWORD *)(v19 + 24);
+  if ( v23 < 0 )
+  {
+    v24 = *(_QWORD *)v18;
+    if ( !*(_QWORD *)v18 )
+      goto LABEL_15;
+    goto LABEL_25;
+  }
+  v21 = 1;
+LABEL_27:
+  if ( !v21 )
+    goto LABEL_15;
+  v8 = (char *)v18;
+  IsEnabledDeviceUsage = Feature_1445264698__private_IsEnabledDeviceUsage();
+  v22 = 0;
+  v17 = (ULONG *)(v18 + 24);
+  v16 = IsEnabledDeviceUsage == 0;
+  v26 = *(_DWORD *)(v18 + 24);
   if ( v16 )
   {
-    v24 = v23 + 1;
-LABEL_27:
-    *(_DWORD *)(v19 + 24) = v24;
-LABEL_30:
+    v12 = (char *)v38;
+    *v17 = v26 + 1;
+LABEL_16:
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a4 + 104), (signed __int64)v8, 0LL) )
     {
-      if ( v9 )
+      if ( v21 )
       {
-        --v8[6];
+        --*v17;
       }
       else
       {
         RtlRbRemoveNode((unsigned __int64 *)a8, (unsigned __int64)v8);
-        v13 = (char *)v8;
+        v12 = v8;
       }
       v14 = -1073741823;
     }
     else
     {
-      v14 = 0;
+      v14 = v22;
     }
-    IsEnabledDeviceUsage = Feature_1109720378__private_IsEnabledDeviceUsage();
-    v10 = Mutex[0];
-    v12 = 0;
-    if ( !IsEnabledDeviceUsage )
-      v12 = v29;
-    KeReleaseGuardedMutex(Mutex[0]);
-    if ( v14 )
-      goto LABEL_50;
-    if ( *((_WORD *)v8 + 14) == 22 && *(_DWORD *)((char *)v8 + 30) == 33559296 )
+    v28 = Feature_1445264698__private_IsEnabledDeviceUsage();
+    v29 = 0;
+    v9 = Mutex;
+    if ( !v28 )
+      v29 = v32;
+    v11 = v29;
+    KeReleaseGuardedMutex(Mutex);
+    if ( !v14 )
     {
-      if ( (unsigned __int8)AddDecodeGuidToSessions(a4) )
+      if ( *((_WORD *)v8 + 14) == 22 && *(_DWORD *)(v8 + 30) == 33559296 )
       {
-        v26 = 1024;
-LABEL_48:
-        _InterlockedOr16((volatile signed __int16 *)(a4 + 98), v26 | 0x200);
-        goto LABEL_50;
+        if ( (unsigned __int8)AddDecodeGuidToSessions(a4) )
+          v13 = 1024;
       }
-    }
-    else if ( !*(_QWORD *)(a4 + 40) )
-    {
-      *(_OWORD *)Mutex = 0LL;
-      ProviderGroupFromTraits = (_OWORD *)EtwpGetProviderGroupFromTraits();
-      if ( ProviderGroupFromTraits )
+      else if ( !*(_QWORD *)(a4 + 40) )
       {
-        *(_OWORD *)Mutex = *ProviderGroupFromTraits;
-        v14 = EtwpAddRegEntryToGroup(a4, (unsigned int)Mutex, v33, v31, v32);
-        if ( v14 )
+        ProviderGroupFromTraits = (__int128 *)EtwpGetProviderGroupFromTraits();
+        if ( ProviderGroupFromTraits )
         {
-          EtwpReleaseProviderTraitsReference(a4);
-          goto LABEL_50;
+          v38 = *ProviderGroupFromTraits;
+          v14 = EtwpAddRegEntryToGroup(a4, (unsigned int)&v38, v37, v34, v36);
+          if ( v14 )
+          {
+            EtwpReleaseProviderTraitsReference(a4);
+            goto LABEL_48;
+          }
         }
       }
+      _InterlockedOr16((volatile signed __int16 *)(a4 + 98), v13 | 0x200);
     }
-    v26 = 0;
-    goto LABEL_48;
   }
-  v14 = RtlUIntAdd(v23, 1u, &puResult);
-  if ( v14 >= 0 )
+  else
   {
-    v24 = puResult;
-    goto LABEL_27;
+    v27 = RtlULongAdd(v26, 1u, &pulResult);
+    v12 = (char *)v38;
+    v14 = v27;
+    if ( v27 >= 0 )
+    {
+      *v17 = pulResult;
+      goto LABEL_16;
+    }
+    v11 = v32;
+    v9 = Mutex;
   }
-  v10 = Mutex[0];
-LABEL_50:
-  if ( (unsigned int)Feature_1109720378__private_IsEnabledDeviceUsage() && v12 )
-    KeReleaseGuardedMutex(v10);
-  if ( v13 )
-    ExFreePoolWithTag(v13, 0);
-  return (unsigned int)v14;
+LABEL_48:
+  if ( (unsigned int)Feature_1445264698__private_IsEnabledDeviceUsage() && v11 )
+    KeReleaseGuardedMutex(v9);
+  if ( v12 )
+    ExFreePoolWithTag(v12, 0);
+  return v14;
 }

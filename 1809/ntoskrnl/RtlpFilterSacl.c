@@ -3,7 +3,7 @@
  * Callers:
  *     SeQuerySecurityDescriptorInfo @ 0x1405CB720 (SeQuerySecurityDescriptorInfo.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall RtlpFilterSacl(__int64 *a1, __int64 i, unsigned int *a3, unsigned int a4)

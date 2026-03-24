@@ -1,13 +1,13 @@
 /*
- * XREFs of DxgkFreeUnicodeString @ 0x1C021D03C
+ * XREFs of DxgkFreeUnicodeString @ 0x1C0196230
  * Callers:
- *     DpiMiracastInterfaceChange @ 0x1C0060160 (DpiMiracastInterfaceChange.c)
- *     DpiMiracastTargetDeviceChange @ 0x1C0061330 (DpiMiracastTargetDeviceChange.c)
- *     DpiGetAdapterInfo @ 0x1C01FB478 (DpiGetAdapterInfo.c)
- *     ?CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C021C410 (-CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
- *     ?CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C021C49C (-CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
- *     DpiFreeAdapterInfo @ 0x1C0399088 (DpiFreeAdapterInfo.c)
- *     DpiFdoResetFdo @ 0x1C039D034 (DpiFdoResetFdo.c)
+ *     DpiMiracastInterfaceChange @ 0x1C0053650 (DpiMiracastInterfaceChange.c)
+ *     DpiMiracastTargetDeviceChange @ 0x1C00548C0 (DpiMiracastTargetDeviceChange.c)
+ *     ?CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C019231C (-CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
+ *     ?CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C0192A24 (-CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
+ *     DpiGetAdapterInfo @ 0x1C0192E7C (DpiGetAdapterInfo.c)
+ *     DpiFreeAdapterInfo @ 0x1C02C6A74 (DpiFreeAdapterInfo.c)
+ *     DpiFdoResetFdo @ 0x1C02CC204 (DpiFdoResetFdo.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBFDO_LogHubResetRecoveryWasInvoked @ 0x1C007B79C
+ * XREFs of HUBFDO_LogHubResetRecoveryWasInvoked @ 0x1C00775C4
  * Callers:
- *     HUBHSM_ConfiguringHubAfterReset @ 0x1C0008830 (HUBHSM_ConfiguringHubAfterReset.c)
- *     HUBHSM_LoggingHubWasReset @ 0x1C0008A50 (HUBHSM_LoggingHubWasReset.c)
+ *     HUBHSM_ConfiguringHubAfterReset @ 0x1C0008070 (HUBHSM_ConfiguringHubAfterReset.c)
+ *     HUBHSM_LoggingHubWasReset @ 0x1C0008290 (HUBHSM_LoggingHubWasReset.c)
  * Callees:
- *     HUBREG_WriteValueToHubHardwareKey @ 0x1C0084DC4 (HUBREG_WriteValueToHubHardwareKey.c)
+ *     HUBREG_WriteValueToHubHardwareKey @ 0x1C007F2FC (HUBREG_WriteValueToHubHardwareKey.c)
  */
 
 __int64 __fastcall HUBFDO_LogHubResetRecoveryWasInvoked(__int64 a1)

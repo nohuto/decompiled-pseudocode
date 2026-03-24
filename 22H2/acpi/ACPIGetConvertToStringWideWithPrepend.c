@@ -1,10 +1,11 @@
 /*
- * XREFs of ACPIGetConvertToStringWideWithPrepend @ 0x1C002AA84
+ * XREFs of ACPIGetConvertToStringWideWithPrepend @ 0x1C0055D3C
  * Callers:
- *     ACPIGetConvertToCompatibleIDWide @ 0x1C00298C4 (ACPIGetConvertToCompatibleIDWide.c)
+ *     ACPIGetConvertToCompatibleIDWide @ 0x1C0027D58 (ACPIGetConvertToCompatibleIDWide.c)
  * Callees:
- *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
- *     ACPIAnsiStringToWideHelper @ 0x1C004390C (ACPIAnsiStringToWideHelper.c)
+ *     RtlStringCchPrintfA @ 0x1C000C948 (RtlStringCchPrintfA.c)
+ *     ACPIAnsiStringToWideHelper @ 0x1C000C9C4 (ACPIAnsiStringToWideHelper.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall ACPIGetConvertToStringWideWithPrepend(__int64 a1, int a2, __int64 a3, int a4, char **a5, _DWORD *a6)
@@ -13,14 +14,15 @@ __int64 __fastcall ACPIGetConvertToStringWideWithPrepend(__int64 a1, int a2, __i
   __int64 v10; // rax
   _BYTE *v11; // rcx
   _BYTE *v12; // rdx
-  char v13; // si
-  int v14; // r14d
-  __int64 v15; // rax
-  __int64 v16; // rbx
+  _BYTE *v13; // rax
+  char v14; // bp
+  int v15; // r14d
+  __int64 v16; // rax
   __int64 v17; // rbx
-  char *Pool2; // rax
-  char *v19; // rbp
-  __int64 v20; // rcx
+  __int64 v18; // rbx
+  char *PoolWithTag; // rax
+  char *v20; // rsi
+  __int64 v21; // rcx
 
   if ( a2 < 0 )
     return (unsigned int)a2;
@@ -36,9 +38,8 @@ __int64 __fastcall ACPIGetConvertToStringWideWithPrepend(__int64 a1, int a2, __i
     {
       if ( *v12 == 92 )
       {
-        if ( &v11[v10] )
-          goto LABEL_14;
-        break;
+        v13 = &v11[v10];
+        goto LABEL_11;
       }
       v10 = (unsigned int)(v10 + 1);
       ++v12;
@@ -46,47 +47,49 @@ __int64 __fastcall ACPIGetConvertToStringWideWithPrepend(__int64 a1, int a2, __i
         break;
     }
   }
-  if ( *v11 == 42 )
+  v13 = 0LL;
+LABEL_11:
+  if ( v13 || *v11 == 42 )
   {
-LABEL_14:
-    v13 = 0;
     v14 = 0;
+    v15 = 0;
   }
   else
   {
-    v13 = 1;
-    v14 = 5;
+    v14 = 1;
+    v15 = 5;
   }
-  v15 = -1LL;
   v16 = -1LL;
+  v17 = -1LL;
   do
-    ++v16;
-  while ( v11[v16] );
-  v17 = (unsigned int)(v16 + 1);
-  if ( v13 )
+    ++v17;
+  while ( v11[v17] );
+  v18 = (unsigned int)(v17 + 1);
+  if ( v14 )
   {
     do
-      ++v15;
-    while ( v11[v15] );
-    v17 = (unsigned int)(v14 + v15 + v17 + 1);
+      ++v16;
+    while ( v11[v16] );
+    v18 = (unsigned int)(v15 + v16 + v18 + 1);
   }
-  Pool2 = (char *)ExAllocatePool2(
-                    (-(__int64)((a4 & 0x8000000) != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256,
-                    2 * v17,
-                    1399874369LL);
-  v19 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(
+                          (POOL_TYPE)((a4 & 0x8000000) != 0 ? NonPagedPoolNx : PagedPool),
+                          2 * v18,
+                          0x53706341u);
+  v20 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  v20 = 0LL;
-  if ( v13 )
+  memset(PoolWithTag, 0, 2 * v18);
+  v21 = 0LL;
+  if ( v14 )
   {
-    RtlStringCchPrintfA(Pool2, (unsigned int)v17, "ACPI\\%s", *(const char **)(a3 + 32));
-    v20 = (unsigned int)(v14 + *(_DWORD *)(a3 + 24));
+    RtlStringCchPrintfA(v20, (unsigned int)v18, "ACPI\\%s", *(const char **)(a3 + 32));
+    v21 = (unsigned int)(v15 + *(_DWORD *)(a3 + 24));
   }
-  RtlStringCchPrintfA(&v19[v20], (unsigned int)(v17 - v20), "%s", *(const char **)(a3 + 32));
-  ACPIAnsiStringToWideHelper(v19, 2 * v17);
-  *a5 = v19;
+  RtlStringCchPrintfA(&v20[v21], (unsigned int)(v18 - v21), "%s", *(const char **)(a3 + 32));
+  ACPIAnsiStringToWideHelper(v20, 2 * v18);
+  *a5 = v20;
   if ( a6 )
-    *a6 = 2 * v17;
+    *a6 = 2 * v18;
   return 0LL;
 }

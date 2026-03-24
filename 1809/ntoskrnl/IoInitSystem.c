@@ -1,10 +1,10 @@
 /*
  * XREFs of IoInitSystem @ 0x1409D2354
  * Callers:
- *     Phase1Initialization @ 0x14074B5D0 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x14074B5B0 (Phase1Initialization.c)
  * Callees:
- *     PnpSerializeBoot @ 0x140192D98 (PnpSerializeBoot.c)
- *     IopRegistryInitializeCallbacks @ 0x14074B6C8 (IopRegistryInitializeCallbacks.c)
+ *     PnpSerializeBoot @ 0x140192DB8 (PnpSerializeBoot.c)
+ *     IopRegistryInitializeCallbacks @ 0x14074B6A8 (IopRegistryInitializeCallbacks.c)
  *     VfNotifyVerifierOfEvent @ 0x140925D20 (VfNotifyVerifierOfEvent.c)
  *     HdlspKernelAddLogEntry @ 0x14094C904 (HdlspKernelAddLogEntry.c)
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)

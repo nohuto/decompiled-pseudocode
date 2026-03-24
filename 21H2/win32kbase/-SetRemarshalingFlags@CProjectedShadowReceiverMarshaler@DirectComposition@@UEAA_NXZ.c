@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CProjectedShadowReceiverMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C0236BF0
+ * XREFs of ?SetRemarshalingFlags@CProjectedShadowReceiverMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01F6340
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0216428 (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DFBB4 (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CProjectedShadowReceiverMarshaler::SetRemarshalingFlags(
@@ -15,10 +15,10 @@ char __fastcall DirectComposition::CProjectedShadowReceiverMarshaler::SetRemarsh
 
   DirectComposition::CPropertyChangeResourceMarshaler::SetRemarshalingFlags(this);
   v2 = *((_DWORD *)this + 4);
-  if ( *((_QWORD *)this + 10) )
+  if ( *((_QWORD *)this + 9) )
     v2 |= 0x80u;
   v3 = v2 | 0x100;
-  v4 = *((_QWORD *)this + 12) == 0LL;
+  v4 = *((_QWORD *)this + 11) == 0LL;
   *((_DWORD *)this + 4) = v3;
   if ( !v4 )
     *((_DWORD *)this + 4) = v3 | 0x200;

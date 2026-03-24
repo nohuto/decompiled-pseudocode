@@ -1,11 +1,11 @@
 /*
- * XREFs of SeCaptureAtomTableCallout @ 0x140241C40
+ * XREFs of SeCaptureAtomTableCallout @ 0x1402BB4B4
  * Callers:
- *     PsConvertToGuiThread @ 0x1406BC9D0 (PsConvertToGuiThread.c)
+ *     PsConvertToGuiThread @ 0x14069EF80 (PsConvertToGuiThread.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PsInvokeWin32Callout @ 0x1406F83A0 (PsInvokeWin32Callout.c)
- *     PsReferenceEffectiveToken @ 0x1407B3B60 (PsReferenceEffectiveToken.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
+ *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
  */
 
 LONG_PTR SeCaptureAtomTableCallout()
@@ -20,17 +20,22 @@ LONG_PTR SeCaptureAtomTableCallout()
 
   v7 = 0LL;
   v4 = 0;
-  v0 = PsReferenceEffectiveToken(KeGetCurrentThread(), 1953654867LL, &v6, &v4, &v5, 0LL);
+  v0 = PsReferenceEffectiveToken(
+         (unsigned int)KeGetCurrentThread(),
+         (unsigned int)&v6,
+         (unsigned int)&v4,
+         (unsigned int)&v5,
+         0LL);
   v1 = (_QWORD *)v0;
   if ( (*(_DWORD *)(v0 + 200) & 0x4000) != 0 && !*(_QWORD *)(*(_QWORD *)(v0 + 1080) + 48LL) )
   {
-    v3 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[16];
-    if ( !v3 || (*(_DWORD *)(v3 + 544) & 0x20) == 0 )
+    v3 = KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[16];
+    if ( !v3 || (*(_DWORD *)(v3 + 448) & 0x20) == 0 )
     {
       PsInvokeWin32Callout(2LL, &v7, 0LL, 0LL);
       if ( v7 && !_InterlockedCompareExchange64((volatile signed __int64 *)(v1[135] + 48LL), v7, 0LL) )
         _InterlockedIncrement((volatile signed __int32 *)(v7 + 4));
     }
   }
-  return ObfDereferenceObjectWithTag(v1, 0x74726853u);
+  return ObfDereferenceObjectWithTag(v1, 0x746C6644u);
 }

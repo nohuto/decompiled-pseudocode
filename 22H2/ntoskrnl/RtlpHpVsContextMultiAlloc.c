@@ -1,48 +1,54 @@
 /*
- * XREFs of RtlpHpVsContextMultiAlloc @ 0x140249D90
+ * XREFs of RtlpHpVsContextMultiAlloc @ 0x140303964
  * Callers:
- *     ExAllocateHeapPool @ 0x1402AD2B0 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x1402BC8A0 (ExAllocateHeapPool.c)
  * Callees:
- *     RtlpHpVsContextAllocateInternal @ 0x14024A090 (RtlpHpVsContextAllocateInternal.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x140289AC0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1402BC110 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x1402BF450 (RtlpHpVsContextAllocateInternal.c)
  */
 
-__int64 __fastcall RtlpHpVsContextMultiAlloc(__int64 a1, int a2, unsigned int a3, int a4, _QWORD *a5, _QWORD *a6)
+__int64 __fastcall RtlpHpVsContextMultiAlloc(
+        __int64 a1,
+        unsigned int a2,
+        unsigned int a3,
+        __int64 a4,
+        char **a5,
+        char **a6)
 {
-  _QWORD *v6; // rdi
-  _QWORD *v11; // rsi
-  unsigned int v12; // ebx
-  _QWORD *Internal; // rax
+  char *v6; // rsi
+  char *v7; // rbx
+  unsigned int v8; // edi
+  char *v12; // rax
   __int64 result; // rax
-  __int128 v15; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v16; // [rsp+40h] [rbp-38h]
-  int v17; // [rsp+90h] [rbp+18h] BYREF
+  __int128 v14; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v15; // [rsp+40h] [rbp-28h]
+  int v16; // [rsp+88h] [rbp+20h] BYREF
 
+  v16 = 0;
   v6 = 0LL;
-  v17 = 0;
-  v16 = 0LL;
-  v11 = 0LL;
-  v12 = 0;
+  v7 = 0LL;
+  v8 = 0;
   v15 = 0LL;
+  v14 = 0LL;
   if ( a3 )
   {
     do
     {
-      Internal = (_QWORD *)RtlpHpVsContextAllocateInternal(a1, a2, a2, a4, (__int64)&v15, (__int64)&v17);
-      if ( !Internal )
+      v12 = RtlpHpVsContextAllocateInternal(a1, a2, a2, 0, &v14, &v16);
+      if ( !v12 )
         break;
-      if ( !v11 )
-        v11 = Internal;
-      ++v12;
-      *Internal = v6;
-      v6 = Internal;
+      *(_QWORD *)v12 = v6;
+      v6 = v12;
+      if ( !v7 )
+        v7 = v12;
+      ++v8;
     }
-    while ( v12 < a3 );
-    if ( v17 && (a4 & 1) == 0 )
-      RtlpHpReleaseQueuedLockExclusive(*(unsigned int *)(a1 + 8), &v15);
+    while ( v8 < a3 );
+    if ( v16 )
+      RtlpHpReleaseQueuedLockExclusive(*(_DWORD *)(a1 + 8), (__int64)&v14);
   }
-  result = v12;
+  result = v8;
   *a5 = v6;
-  *a6 = v11;
+  *a6 = v7;
   return result;
 }

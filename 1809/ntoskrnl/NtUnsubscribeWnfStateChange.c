@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExpWnfAcquireSubscriptionByName @ 0x140606C70 (ExpWnfAcquireSubscriptionByName.c)
  *     ExpWnfDeleteSubscription @ 0x140607CA4 (ExpWnfDeleteSubscription.c)
  *     ExpCaptureWnfStateName @ 0x14060F868 (ExpCaptureWnfStateName.c)

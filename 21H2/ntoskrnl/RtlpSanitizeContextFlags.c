@@ -1,38 +1,33 @@
 /*
- * XREFs of RtlpSanitizeContextFlags @ 0x140298720
+ * XREFs of RtlpSanitizeContextFlags @ 0x140276574
  * Callers:
- *     KiContinuePreviousModeUser @ 0x140298420 (KiContinuePreviousModeUser.c)
- *     KyRaiseException @ 0x140576820 (KyRaiseException.c)
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x14057C724 (KiUnwindUserSspForApcContextCopyBypass.c)
- *     PspSetContextThreadInternal @ 0x1407043D0 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x1407045D0 (PspGetContextThreadInternal.c)
- *     NtCreateThread @ 0x1409ACDC0 (NtCreateThread.c)
+ *     KiRaiseException @ 0x140521E90 (KiRaiseException.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x140525194 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     PspSetContextThreadInternal @ 0x140647C9C (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x140647E54 (PspGetContextThreadInternal.c)
+ *     KeCopyContextFromUch @ 0x1408BE180 (KeCopyContextFromUch.c)
+ *     KeCopyContextFromUmsContext @ 0x1408BE43C (KeCopyContextFromUmsContext.c)
+ *     KeCopyContextToUch @ 0x1408BE5F0 (KeCopyContextToUch.c)
+ *     KeCopyContextToUmsContext @ 0x1408BE85C (KeCopyContextToUmsContext.c)
+ *     NtCreateThread @ 0x140907010 (NtCreateThread.c)
  * Callees:
- *     <none>
+ *     RtlpValidateContextFlags @ 0x140276D30 (RtlpValidateContextFlags.c)
  */
 
 __int64 __fastcall RtlpSanitizeContextFlags(unsigned int *a1, char a2)
 {
-  unsigned int v2; // eax
+  __int64 result; // rax
 
-  v2 = *a1;
-  if ( (*a1 & 0x10000) != 0 && (v2 & 0x27FEFF80) == 0
-    || (v2 & 0x7FFFF20) == 0x100000
-    || (v2 & 0x7FFFFF0) == 0x200000
-    || (v2 & 0x7FFFFE0) == 0x400000 )
+  result = RtlpValidateContextFlags(*a1, 0LL);
+  if ( (int)result >= 0 && (*a1 & 0x100000) == 0 )
+    result = 3221225485LL;
+  if ( (_DWORD)result == -1073741811 )
   {
-    if ( ((v2 & 0x100040) == 1048640 || (v2 & 0x10040) == 65600) && !MEMORY[0xFFFFF780000003D8]
-      || (v2 & 0x100080) == 0x100080 && !(_BYTE)KiKernelCetEnabled )
+    if ( a2 )
     {
-      return 3221225659LL;
-    }
-    if ( (v2 & 0x100000) != 0 )
+      *a1 = *a1 & 0xD800001F | 0x100000;
       return 0LL;
+    }
   }
-  if ( a2 )
-  {
-    *a1 = v2 & 0xF800001F | 0x100000;
-    return 0LL;
-  }
-  return 3221225485LL;
+  return result;
 }

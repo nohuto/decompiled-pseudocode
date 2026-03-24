@@ -1,8 +1,8 @@
 /*
- * XREFs of ??1DXGK_ENUMERATE_KSR_MEMORY_CONTEXT@@QEAA@XZ @ 0x1C03A50CC
+ * XREFs of ??1DXGK_ENUMERATE_KSR_MEMORY_CONTEXT@@QEAA@XZ @ 0x1C02D22E8
  * Callers:
- *     DpiKsrRestore @ 0x1C03A62B0 (DpiKsrRestore.c)
- *     DpiKsrRestoreAdapterDriverState @ 0x1C03A641C (DpiKsrRestoreAdapterDriverState.c)
+ *     DpiKsrRestore @ 0x1C02D32DC (DpiKsrRestore.c)
+ *     DpiKsrRestoreAdapterDriverState @ 0x1C02D33DC (DpiKsrRestoreAdapterDriverState.c)
  * Callees:
  *     <none>
  */

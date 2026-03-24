@@ -1,140 +1,156 @@
 /*
- * XREFs of _BtlPreAcquireSharedAccess_&CCD_BTL_ACTIVE_PATHS_COLLECTOR::_CollectActiveAdaptersCallback_1_1_ @ 0x1C01A17A0
+ * XREFs of _BtlPreAcquireSharedAccess_&CCD_BTL_ACTIVE_PATHS_COLLECTOR::_CollectActiveAdaptersCallback_1_1_ @ 0x1C012FAE0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsBddFallbackDriver@DXGADAPTER@@QEBAEXZ @ 0x1C0004F9C (-IsBddFallbackDriver@DXGADAPTER@@QEBAEXZ.c)
- *     ?reset@?$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z @ 0x1C0005DCC (-reset@-$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z.c)
- *     ?reset@?$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z @ 0x1C00070E4 (-reset@-$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z.c)
- *     ?AcquireLastClientCommittedVidPnRef@VIDPN_MGR@@QEBAPEBVDMMVIDPN@@XZ @ 0x1C0007298 (-AcquireLastClientCommittedVidPnRef@VIDPN_MGR@@QEBAPEBVDMMVIDPN@@XZ.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00072BC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C00073B4 (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@XZ @ 0x1C0025AC8 (--1-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@XZ.c)
- *     DxgkIsMSBDDFallbackEnabled @ 0x1C005F0CC (DxgkIsMSBDDFallbackEnabled.c)
- *     ?CreateClientVidPnFromLastClientCommitedVidPn@VIDPN_MGR@@QEAAJPEAV?$auto_rc@VDMMVIDPN@@@@@Z @ 0x1C019B54C (-CreateClientVidPnFromLastClientCommitedVidPn@VIDPN_MGR@@QEAAJPEAV-$auto_rc@VDMMVIDPN@@@@@Z.c)
- *     ?_ProcessVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@AEAAJPEAVDMMVIDPN@@_N@Z @ 0x1C01E20E4 (-_ProcessVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@AEAAJPEAVDMMVIDPN@@_N@Z.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?reset@?$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z @ 0x1C0006764 (-reset@-$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C0009550 (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?IsBddFallbackDriver@DXGADAPTER@@QEBAEXZ @ 0x1C0009D98 (-IsBddFallbackDriver@DXGADAPTER@@QEBAEXZ.c)
+ *     ?reset@?$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z @ 0x1C000ADEC (-reset@-$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     DxgkIsMSBDDFallbackEnabled @ 0x1C0052924 (DxgkIsMSBDDFallbackEnabled.c)
+ *     ?_ProcessVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@AEAAJPEAVDMMVIDPN@@_N@Z @ 0x1C013A244 (-_ProcessVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@AEAAJPEAVDMMVIDPN@@_N@Z.c)
+ *     ?CreateClientVidPnFromLastClientCommitedVidPn@VIDPN_MGR@@QEAAJPEAV?$auto_rc@VDMMVIDPN@@@@@Z @ 0x1C014164C (-CreateClientVidPnFromLastClientCommitedVidPn@VIDPN_MGR@@QEAAJPEAV-$auto_rc@VDMMVIDPN@@@@@Z.c)
  */
 
 __int64 __fastcall BtlPreAcquireSharedAccess__CCD_BTL_ACTIVE_PATHS_COLLECTOR::_CollectActiveAdaptersCallback_1_1_(
-        struct DXGADAPTER *a1,
-        CCD_BTL_ACTIVE_PATHS_COLLECTOR *this)
+        DXGADAPTER *this,
+        CCD_BTL_ACTIVE_PATHS_COLLECTOR *a2)
 {
   __int64 v4; // rax
-  VIDPN_MGR *v5; // rbx
-  const struct DMMVIDPN *ClientCommittedVidPnRef; // rax
-  struct DXGADAPTER *const v7; // rdx
-  int v8; // eax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rbx
-  __int64 v14; // rdi
-  VIDPN_MGR *v15; // rdi
+  __int64 v5; // rbx
+  __int64 v6; // rax
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  int v9; // eax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rbx
+  __int64 v13; // rdi
+  struct VIDPN_MGR *v14; // rdi
   int ClientVidPnFromLastClientCommitedVidPn; // eax
-  _QWORD *v18; // rax
-  __int64 v19; // rcx
-  __int64 v20; // r14
-  struct DMMVIDPN *v21; // [rsp+30h] [rbp-89h] BYREF
-  __int64 v22; // [rsp+38h] [rbp-81h] BYREF
-  __int64 v23; // [rsp+40h] [rbp-79h] BYREF
-  _BYTE v24[8]; // [rsp+48h] [rbp-71h] BYREF
-  struct DXGADAPTER *v25; // [rsp+50h] [rbp-69h]
-  char v26; // [rsp+58h] [rbp-61h]
-  _BYTE v27[8]; // [rsp+60h] [rbp-59h] BYREF
-  _BYTE v28[64]; // [rsp+68h] [rbp-51h] BYREF
-  _BYTE v29[72]; // [rsp+A8h] [rbp-11h] BYREF
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // rdx
+  _QWORD *v21; // rax
+  _QWORD *v22; // rsi
+  __int64 v23; // rcx
+  __int64 v24; // rdx
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  __int64 v29; // rax
+  struct DMMVIDPN *v30; // [rsp+20h] [rbp-99h] BYREF
+  __int64 v31; // [rsp+28h] [rbp-91h] BYREF
+  __int64 v32; // [rsp+30h] [rbp-89h] BYREF
+  __int64 v33; // [rsp+38h] [rbp-81h] BYREF
+  _BYTE v34[8]; // [rsp+40h] [rbp-79h] BYREF
+  DXGADAPTER *v35; // [rsp+48h] [rbp-71h]
+  char v36; // [rsp+50h] [rbp-69h]
+  _BYTE v37[144]; // [rsp+60h] [rbp-59h] BYREF
 
-  v25 = a1;
-  v26 = 0;
-  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v24);
-  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v24);
-  v4 = *((_QWORD *)a1 + 365);
-  if ( v4 && *(_DWORD *)(v4 + 96) && *((_DWORD *)a1 + 50) == 1 )
+  v35 = this;
+  v36 = 0;
+  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v34);
+  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v34);
+  v4 = *((_QWORD *)this + 337);
+  if ( v4 && *(_DWORD *)(v4 + 80) && *((_DWORD *)this + 50) == 1 )
   {
-    v5 = *(VIDPN_MGR **)(*((_QWORD *)a1 + 365) + 104LL);
-    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>((__int64)&v23, (__int64)v5);
-    ClientCommittedVidPnRef = VIDPN_MGR::AcquireLastClientCommittedVidPnRef(v5);
-    v21 = ClientCommittedVidPnRef;
-    if ( ClientCommittedVidPnRef && *((_QWORD *)ClientCommittedVidPnRef + 17) )
+    v5 = *(_QWORD *)(*((_QWORD *)this + 337) + 88LL);
+    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v33, v5);
+    v6 = *(_QWORD *)(v5 + 88);
+    if ( v6 )
     {
-      auto_rc<DMMVIDPN const>::reset((__int64 *)&v21, 0LL);
-      DXGFASTMUTEX::Release((struct _KTHREAD **)(v23 + 40));
-      v27[1] = 0;
-      COREACCESS::COREACCESS((COREACCESS *)v28, a1);
-      COREACCESS::COREACCESS((COREACCESS *)v29, v7);
-      v8 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v27, 0LL);
-      LODWORD(v13) = v8;
-      if ( v8 < 0 )
+      _InterlockedIncrement((volatile signed __int32 *)(v6 + 32));
+      v7 = *(_QWORD *)(v5 + 88);
+      v32 = v7;
+      if ( v7 && *(_QWORD *)(v7 + 136) )
       {
-        if ( v8 != -1073741130 )
-          goto LABEL_13;
-        v18 = (_QWORD *)WdLogNewEntry5_WdTrace(v10, v9, v11, v12);
-        v18[3] = a1;
-        v18[4] = *((int *)a1 + 102);
-        v18[5] = *((unsigned int *)a1 + 101);
-        v18[6] = this;
-      }
-      else if ( !*((_BYTE *)a1 + 2833) && (!DXGADAPTER::IsBddFallbackDriver(a1) || DxgkIsMSBDDFallbackEnabled()) )
-      {
-        v14 = *((_QWORD *)a1 + 365);
-        if ( v14 )
+        auto_rc<DMMVIDPN const>::reset(&v32, 0LL);
+        DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v33 + 40), v8);
+        COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v37, this, 0LL);
+        v9 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v37, 0LL);
+        LODWORD(v12) = v9;
+        if ( v9 < 0 )
         {
-          v15 = *(VIDPN_MGR **)(v14 + 104);
-          EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>((__int64)&v22, (__int64)v15);
-          v21 = 0LL;
-          ClientVidPnFromLastClientCommitedVidPn = VIDPN_MGR::CreateClientVidPnFromLastClientCommitedVidPn(
-                                                     v15,
-                                                     (__int64 *)&v21);
-          v13 = ClientVidPnFromLastClientCommitedVidPn;
-          if ( ClientVidPnFromLastClientCommitedVidPn < 0 )
-          {
-            if ( !*((_QWORD *)v15 + 1) )
-              WdLogSingleEntry0(1LL);
-            v19 = *((_QWORD *)v15 + 1);
-            v20 = *(unsigned int *)(*(_QWORD *)(v19 + 16) + 404LL);
-            if ( !v19 )
-              WdLogSingleEntry0(1LL);
-            WdLogSingleEntry5(
-              2LL,
-              v13,
-              v15,
-              *(_QWORD *)(*(_QWORD *)this + 64LL),
-              *(int *)(*(_QWORD *)(*((_QWORD *)v15 + 1) + 16LL) + 408LL),
-              v20);
-          }
-          else
-          {
-            LODWORD(v13) = CCD_BTL_ACTIVE_PATHS_COLLECTOR::_ProcessVidPn(this, v21, 1);
-            if ( (int)v13 >= 0 )
-            {
-              auto_rc<DMMVIDPN>::reset((__int64 *)&v21, 0LL);
-              DXGFASTMUTEX::Release((struct _KTHREAD **)(v22 + 40));
-LABEL_13:
-              COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v27);
-              goto LABEL_14;
-            }
-          }
-          auto_rc<DMMVIDPN>::reset((__int64 *)&v21, 0LL);
-          EXCLUSIVEACCESS<VIDPN_MGR>::~EXCLUSIVEACCESS<VIDPN_MGR>((__int64)&v22);
-          goto LABEL_13;
+          if ( v9 != -1073741130 )
+            goto LABEL_14;
+          v21 = (_QWORD *)WdLogNewEntry5_WdTrace(v11, v10);
+          v21[3] = this;
+          v21[4] = *((int *)this + 80);
+          v21[5] = *((unsigned int *)this + 79);
+          v21[6] = a2;
         }
-      }
-      LODWORD(v13) = 0;
-      goto LABEL_13;
-    }
-    auto_rc<DMMVIDPN const>::reset((__int64 *)&v21, 0LL);
-    DXGFASTMUTEX::Release((struct _KTHREAD **)(v23 + 40));
-  }
-  LODWORD(v13) = 0;
+        else if ( !*((_BYTE *)this + 2609) && (!DXGADAPTER::IsBddFallbackDriver(this) || DxgkIsMSBDDFallbackEnabled()) )
+        {
+          v13 = *((_QWORD *)this + 337);
+          if ( v13 )
+          {
+            v14 = *(struct VIDPN_MGR **)(v13 + 88);
+            EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v31, (__int64)v14);
+            v30 = 0LL;
+            ClientVidPnFromLastClientCommitedVidPn = VIDPN_MGR::CreateClientVidPnFromLastClientCommitedVidPn(v14);
+            v12 = ClientVidPnFromLastClientCommitedVidPn;
+            if ( ClientVidPnFromLastClientCommitedVidPn < 0 )
+            {
+              v22 = (_QWORD *)WdLogNewEntry5_WdError(v17, v16);
+              v22[3] = v12;
+              v22[4] = v14;
+              v23 = *(_QWORD *)a2;
+              v24 = *(_QWORD *)(*(_QWORD *)a2 + 64LL);
+              v22[5] = v24;
+              v25 = *((_QWORD *)v14 + 1);
+              if ( !v25 )
+              {
+                v26 = WdLogNewEntry5_WdAssertion(v23, v24);
+                WdLogEvent5_WdAssertion(v26);
+                v25 = *((_QWORD *)v14 + 1);
+              }
+              v27 = *(int *)(*(_QWORD *)(v25 + 16) + 320LL);
+              v22[6] = v27;
+              v28 = *((_QWORD *)v14 + 1);
+              if ( !v28 )
+              {
+                v29 = WdLogNewEntry5_WdAssertion(v27, v24);
+                WdLogEvent5_WdAssertion(v29);
+                v28 = *((_QWORD *)v14 + 1);
+              }
+              v22[7] = *(unsigned int *)(*(_QWORD *)(v28 + 16) + 316LL);
+              WdLogEvent5_WdError(v22);
+            }
+            else
+            {
+              LODWORD(v12) = CCD_BTL_ACTIVE_PATHS_COLLECTOR::_ProcessVidPn(a2, v30, 1);
+            }
+            auto_rc<DMMVIDPN>::reset((__int64 *)&v30, 0LL);
+            DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v31 + 40), v18);
+            goto LABEL_14;
+          }
+        }
+        LODWORD(v12) = 0;
 LABEL_14:
-  if ( v26 )
-    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v24);
-  return (unsigned int)v13;
+        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v37, v10);
+        goto LABEL_18;
+      }
+    }
+    else
+    {
+      v32 = 0LL;
+    }
+    auto_rc<DMMVIDPN const>::reset(&v32, 0LL);
+    DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v33 + 40), v19);
+  }
+  LODWORD(v12) = 0;
+LABEL_18:
+  if ( v36 )
+    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v34);
+  return (unsigned int)v12;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of WdipSemMergeEvents @ 0x140834468
+ * XREFs of WdipSemMergeEvents @ 0x140795950
  * Callers:
- *     WdipSemMergeScenarios @ 0x14083176C (WdipSemMergeScenarios.c)
- *     WdipSemAddContextEventToScenario @ 0x1408317FC (WdipSemAddContextEventToScenario.c)
- *     WdipSemAddEndEventToScenario @ 0x1408343B4 (WdipSemAddEndEventToScenario.c)
+ *     WdipSemMergeScenarios @ 0x14079576C (WdipSemMergeScenarios.c)
+ *     WdipSemAddContextEventToScenario @ 0x1407957FC (WdipSemAddContextEventToScenario.c)
+ *     WdipSemAddEndEventToScenario @ 0x1407958BC (WdipSemAddEndEventToScenario.c)
  * Callees:
  *     <none>
  */

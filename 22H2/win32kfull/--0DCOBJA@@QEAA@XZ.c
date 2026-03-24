@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0DCOBJA@@QEAA@XZ @ 0x1C013FF48
+ * XREFs of ??0DCOBJA@@QEAA@XZ @ 0x1C016C520
  * Callers:
- *     GreCancelDC @ 0x1C02AA280 (GreCancelDC.c)
+ *     GreCancelDC @ 0x1C029F410 (GreCancelDC.c)
  * Callees:
- *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJA@@@@QEAA@XZ @ 0x1C013E478 (--0-$UnexpectedThreadTerminationHandler@VDCOBJA@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJA@@@@QEAA@XZ @ 0x1C0169DF4 (--0-$UnexpectedThreadTerminationHandler@VDCOBJA@@@@QEAA@XZ.c)
  */
 
 DCOBJA *__fastcall DCOBJA::DCOBJA(DCOBJA *this)

@@ -1,17 +1,18 @@
 /*
- * XREFs of PspOneDirectionSecurityDomainCombine @ 0x14066CC94
+ * XREFs of PspOneDirectionSecurityDomainCombine @ 0x140607210
  * Callers:
- *     PspDisablePrimaryTokenExchange @ 0x140702AF8 (PspDisablePrimaryTokenExchange.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1406478CC (PspDisablePrimaryTokenExchange.c)
  * Callees:
- *     PspIsParentProcess @ 0x1402033F0 (PspIsParentProcess.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SeDeleteAccessState @ 0x14066C150 (SeDeleteAccessState.c)
- *     SeCreateAccessStateEx @ 0x14071F190 (SeCreateAccessStateEx.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     PsLookupProcessByProcessId @ 0x1407A8720 (PsLookupProcessByProcessId.c)
+ *     PspIsParentProcess @ 0x140252390 (PspIsParentProcess.c)
+ *     SepDeleteAccessState @ 0x14027C660 (SepDeleteAccessState.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     PsLookupProcessByProcessId @ 0x140625880 (PsLookupProcessByProcessId.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessStateEx @ 0x1406618D0 (SeCreateAccessStateEx.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
  */
 
 void __fastcall PspOneDirectionSecurityDomainCombine(__int64 Object)
@@ -64,11 +65,12 @@ LABEL_17:
       }
       v3 = Process;
     }
-    SeDeleteAccessState((struct _SECURITY_SUBJECT_CONTEXT *)&PassedAccessState);
+    SepDeleteAccessState((__int64)&PassedAccessState);
+    SeReleaseSubjectContext(&PassedAccessState.SubjectSecurityContext);
   }
 LABEL_12:
   if ( Handle )
     ObCloseHandle(Handle, 0);
   if ( v3 )
-    ObfDereferenceObject(v3);
+    HalPutDmaAdapter((PADAPTER_OBJECT)v3);
 }

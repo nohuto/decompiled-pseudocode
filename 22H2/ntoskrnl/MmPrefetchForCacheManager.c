@@ -1,68 +1,74 @@
 /*
- * XREFs of MmPrefetchForCacheManager @ 0x14073F12C
+ * XREFs of MmPrefetchForCacheManager @ 0x1406360AC
  * Callers:
- *     CcFetchDataForRead @ 0x1402621A0 (CcFetchDataForRead.c)
- *     CcAsyncReadPrefetch @ 0x1402BDACC (CcAsyncReadPrefetch.c)
- *     CcPerformReadAhead @ 0x14030E840 (CcPerformReadAhead.c)
+ *     CcAsyncReadPrefetch @ 0x14027A1F4 (CcAsyncReadPrefetch.c)
+ *     CcPerformReadAhead @ 0x14027A470 (CcPerformReadAhead.c)
+ *     CcFetchDataForRead @ 0x1402A10C0 (CcFetchDataForRead.c)
  * Callees:
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiReturnCcAccessLog @ 0x1402F4D30 (MiReturnCcAccessLog.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     MiReleaseReadListResources @ 0x1407213C0 (MiReleaseReadListResources.c)
- *     MiPfExecuteReadList @ 0x140724164 (MiPfExecuteReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x140744BF0 (MiPfPrepareSequentialReadList.c)
- *     MiGetCcAccessLog @ 0x1407494A0 (MiGetCcAccessLog.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiPfPutPagesInTransition @ 0x14027BCA0 (MiPfPutPagesInTransition.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiReturnCcAccessLog @ 0x1403215BC (MiReturnCcAccessLog.c)
+ *     MiReleaseReadListResources @ 0x140636234 (MiReleaseReadListResources.c)
+ *     MiPfExecuteReadList @ 0x140636824 (MiPfExecuteReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x14063B4F0 (MiPfPrepareSequentialReadList.c)
+ *     MiGetCcAccessLog @ 0x1406901BC (MiGetCcAccessLog.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmPrefetchForCacheManager(
         __int64 a1,
         int a2,
-        int a3,
+        __int64 a3,
         unsigned __int64 a4,
         unsigned int a5,
         __int64 a6,
         __int64 a7,
         PVOID *a8)
 {
-  _QWORD *CcAccessLog; // rdi
+  signed __int64 CcAccessLog; // rdi
   struct _KTHREAD *CurrentThread; // rsi
-  unsigned int v13; // ebp
-  __int64 v14; // r12
-  PVOID *v15; // rbx
+  unsigned int v12; // ebp
+  __int64 v13; // r15
+  PVOID *v14; // rbx
+  int v15; // eax
+  PVOID v16; // rcx
   __int64 result; // rax
-  PVOID P; // [rsp+80h] [rbp+8h] BYREF
+  PVOID P; // [rsp+70h] [rbp+18h] BYREF
 
   P = 0LL;
   CcAccessLog = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v13 = a5;
-  v14 = **(_QWORD **)(a1 + 40);
-  if ( dword_140C680E8 && a5 >= dword_140C680EC )
-    CcAccessLog = (_QWORD *)MiGetCcAccessLog(a1, a4 >> 12);
-  if ( (int)MiPfPrepareSequentialReadList((_DWORD)CcAccessLog, v14, a2, a3, a4, v13, -1, 0LL, (__int64)&P) >= 0 && P )
+  v12 = a5;
+  v13 = **(_QWORD **)(a1 + 40);
+  if ( dword_140C4E828 && a5 >= dword_140C4E82C )
+    CcAccessLog = MiGetCcAccessLog(a1, a4 >> 12);
+  if ( (int)MiPfPrepareSequentialReadList(CcAccessLog, v13, a2, 0, a4, v12, -1, (__int64)&P) >= 0 && P )
   {
-    v15 = a8;
+    v14 = a8;
     *((_DWORD *)P + 26) = 1;
-    if ( !*v15 )
+    if ( !*v14 )
       --CurrentThread->SpecialApcDisable;
-    if ( (int)MiPfPutPagesInTransition((__int64)P, 0, 1, -1) >= 0 && *((PVOID *)P + 15) != (char *)P + 120 )
+    v15 = MiPfPutPagesInTransition((__int64)P, 0LL, 1);
+    v16 = P;
+    if ( v15 >= 0 && *((PVOID *)P + 15) != (char *)P + 120 )
     {
       if ( CcAccessLog )
+      {
         MiReturnCcAccessLog(CcAccessLog, 1);
-      MiPfExecuteReadList((__int64)P, 1, 0xFFFFFFFF, a7);
+        v16 = P;
+      }
+      MiPfExecuteReadList(v16, 1LL, 0xFFFFFFFFLL, a7);
       result = 1LL;
-      *(_QWORD *)P = *v15;
-      *v15 = P;
+      *(_QWORD *)P = *v14;
+      *v14 = P;
       return result;
     }
-    if ( !*v15
-      && CurrentThread->SpecialApcDisable++ == -1
-      && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( !*v14 )
     {
-      KiCheckForKernelApcDelivery();
+      KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+      v16 = P;
     }
-    MiReleaseReadListResources((__int64)P);
+    MiReleaseReadListResources(v16);
     ExFreePoolWithTag(P, 0);
   }
   if ( CcAccessLog )

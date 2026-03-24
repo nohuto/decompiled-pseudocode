@@ -1,177 +1,186 @@
 /*
- * XREFs of DxgkReleaseSwapChain @ 0x1C035CB40
+ * XREFs of DxgkReleaseSwapChain @ 0x1C02AF170
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ?SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDHH@Z @ 0x1C035A5A4 (-SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDHH@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z @ 0x1C02AD11C (-SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z.c)
  */
 
 __int64 __fastcall DxgkReleaseSwapChain(ULONG64 a1, __int64 a2, __int64 a3)
 {
-  void *v4; // r14
-  void *v5; // rbx
-  _OWORD *v6; // rax
-  __int64 v7; // rbx
-  const wchar_t *v8; // r9
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  unsigned __int64 v12; // rax
-  void *v13; // rax
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  NTSTATUS v16; // eax
-  int v17; // esi
-  void *v18; // r8
-  PVOID v19; // r12
-  _DWORD *v20; // r8
-  __int64 v21; // r9
-  _QWORD *v22; // rdx
-  _QWORD *v23; // rdx
-  ULONG64 v24; // rax
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  int v27; // [rsp+50h] [rbp-88h] BYREF
-  __int64 v28; // [rsp+58h] [rbp-80h]
-  char v29; // [rsp+60h] [rbp-78h]
-  HANDLE Handle[2]; // [rsp+70h] [rbp-68h] BYREF
-  __int128 v31; // [rsp+80h] [rbp-58h]
-  void *v32[2]; // [rsp+90h] [rbp-48h]
-  void *Src[2]; // [rsp+A0h] [rbp-38h]
-  PVOID Object; // [rsp+E8h] [rbp+10h] BYREF
-  void *v35; // [rsp+F0h] [rbp+18h]
+  __int64 v4; // rdx
+  void *v5; // r14
+  void *v6; // rdi
+  _OWORD *v7; // rax
+  __int64 v8; // rsi
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  SIZE_T v14; // rax
+  PVOID v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  __int64 v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  HANDLE v24; // r12
+  NTSTATUS v25; // eax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // rsi
+  __int64 v30; // rax
+  __int64 v31; // rdx
+  void *v32; // r8
+  PVOID v33; // r12
+  _DWORD *v34; // r8
+  __int64 v35; // r9
+  _QWORD *v36; // rdx
+  _QWORD *v37; // rdx
+  ULONG64 v38; // rcx
+  __int64 v39; // rcx
+  __int64 v40; // r8
+  int v41; // [rsp+30h] [rbp-88h] BYREF
+  __int64 v42; // [rsp+38h] [rbp-80h]
+  char v43; // [rsp+40h] [rbp-78h]
+  HANDLE Handle[2]; // [rsp+50h] [rbp-68h] BYREF
+  __int128 v45; // [rsp+60h] [rbp-58h]
+  void *v46[2]; // [rsp+70h] [rbp-48h]
+  void *Src[2]; // [rsp+80h] [rbp-38h]
+  PVOID Object; // [rsp+C8h] [rbp+10h] BYREF
+  PVOID v49; // [rsp+D0h] [rbp+18h]
 
-  v27 = -1;
-  v28 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v41 = -1;
+  v42 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v29 = 1;
-    v27 = 2112;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v43 = 1;
+    v41 = 2112;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2112);
   }
   else
   {
-    v29 = 0;
+    v43 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v27, 2112);
-  v4 = 0LL;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v41, 2112LL);
   v5 = 0LL;
-  v35 = 0LL;
-  v6 = (_OWORD *)a1;
+  v6 = 0LL;
+  v49 = 0LL;
+  v7 = (_OWORD *)a1;
   if ( a1 >= MmUserProbeAddress )
-    v6 = (_OWORD *)MmUserProbeAddress;
-  *(_OWORD *)Handle = *v6;
-  v31 = v6[1];
-  *(_OWORD *)v32 = v6[2];
-  *(_OWORD *)Src = v6[3];
+    v7 = (_OWORD *)MmUserProbeAddress;
+  *(_OWORD *)Handle = *v7;
+  v45 = v7[1];
+  *(_OWORD *)v46 = v7[2];
+  *(_OWORD *)Src = v7[3];
+  v8 = LODWORD(Src[0]);
   if ( LODWORD(Src[0]) > 0x32 )
   {
-    v7 = LODWORD(Src[0]);
-    WdLogSingleEntry1(2LL, LODWORD(Src[0]));
-    v8 = L"Caller specified 0x%I64x deferred list size, this is over the maximum";
+    v9 = WdLogNewEntry5_WdError(MmUserProbeAddress, v4);
+    *(_QWORD *)(v9 + 24) = v8;
 LABEL_12:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v8, v7, 0LL, 0LL, 0LL, 0LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v27);
-    if ( v29 )
+    WdLogEvent5_WdError(v9);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v41, v10);
+    if ( v43 )
     {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-        McTemplateK0q_EtwWriteTransfer(v9, &EventProfilerExit, v10, v27);
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v11, &EventProfilerExit, v12, v41);
     }
     return 3221225485LL;
   }
   if ( LODWORD(Src[0]) )
   {
-    v4 = Src[1];
+    v5 = Src[1];
     if ( !Src[1] )
     {
-      v7 = 1263LL;
-      WdLogSingleEntry1(2LL, 1263LL);
-      v8 = L"Caller specified non-zero free list size but failed to provide buffer";
+      v9 = WdLogNewEntry5_WdError(MmUserProbeAddress, v4);
+      *(_QWORD *)(v9 + 24) = 1264LL;
       goto LABEL_12;
     }
-    v12 = 4LL * LODWORD(Src[0]);
+    v14 = 4LL * LODWORD(Src[0]);
     if ( !is_mul_ok(LODWORD(Src[0]), 4uLL) )
-      v12 = -1LL;
-    v13 = (void *)operator new[](v12, 0x4B677844u, 256LL);
-    v5 = v13;
-    v35 = v13;
-    if ( !v13 )
+      v14 = -1LL;
+    v15 = operator new[](v14, 0x4B677844u, PagedPool);
+    v6 = v15;
+    v49 = v15;
+    if ( !v15 )
     {
-      WdLogSingleEntry1(6LL, 1270LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to allocate deferred list",
-        1270LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v27);
-      if ( v29 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-        McTemplateK0q_EtwWriteTransfer(v14, &EventProfilerExit, v15, v27);
+      v20 = WdLogNewEntry5_WdLowResource(v17, v16, v18, v19);
+      *(_QWORD *)(v20 + 24) = 1271LL;
+      WdLogEvent5_WdLowResource(v20);
+      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v41, v21);
+      if ( v43 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v22, &EventProfilerExit, v23, v41);
       return 3221225495LL;
     }
-    Src[1] = v13;
+    memset(v15, 0, 4 * v8);
+    Src[1] = v6;
   }
   Object = 0LL;
-  v16 = ObReferenceObjectByHandle(Handle[0], 0x20000u, g_pDxgkSharedSwapChainObjectType, 1, &Object, 0LL);
-  v17 = v16;
-  if ( v16 >= 0 )
+  v24 = Handle[0];
+  v25 = ObReferenceObjectByHandle(Handle[0], 0x20000u, g_pDxgkSharedSwapChainObjectType, 1, &Object, 0LL);
+  v29 = v25;
+  if ( v25 >= 0 )
   {
-    v18 = v32[1];
-    v32[1] = 0LL;
-    v19 = Object;
-    v17 = SwapChainReleaseInternal(
-            *(struct DXGSWAPCHAIN **)Object,
-            (struct _D3DKMT_RELEASESWAPCHAIN *)Handle,
-            v18,
-            1,
-            0);
-    if ( v17 >= 0 )
+    v32 = v46[1];
+    v46[1] = 0LL;
+    v33 = Object;
+    LODWORD(v29) = SwapChainReleaseInternal(
+                     *(struct DXGSWAPCHAIN **)Object,
+                     (struct _D3DKMT_RELEASESWAPCHAIN *)Handle,
+                     v32,
+                     1);
+    if ( (int)v29 >= 0 )
     {
-      v20 = (_DWORD *)(a1 + 48);
+      v34 = (_DWORD *)(a1 + 48);
       if ( a1 + 48 >= MmUserProbeAddress )
-        v20 = (_DWORD *)MmUserProbeAddress;
-      v21 = LODWORD(Src[0]);
-      *v20 = Src[0];
-      if ( (_QWORD)v31 )
+        v34 = (_DWORD *)MmUserProbeAddress;
+      v35 = LODWORD(Src[0]);
+      *v34 = Src[0];
+      if ( (_QWORD)v45 )
       {
-        v22 = (_QWORD *)(a1 + 16);
+        v36 = (_QWORD *)(a1 + 16);
         if ( a1 + 16 >= MmUserProbeAddress )
-          v22 = (_QWORD *)MmUserProbeAddress;
-        *v22 = v31;
-        v23 = (_QWORD *)(a1 + 24);
+          v36 = (_QWORD *)MmUserProbeAddress;
+        *v36 = v45;
+        v37 = (_QWORD *)(a1 + 24);
         if ( a1 + 24 >= MmUserProbeAddress )
-          v23 = (_QWORD *)MmUserProbeAddress;
-        *v23 = *((_QWORD *)&v31 + 1);
+          v37 = (_QWORD *)MmUserProbeAddress;
+        *v37 = *((_QWORD *)&v45 + 1);
       }
-      if ( (_DWORD)v21 )
+      if ( (_DWORD)v35 )
       {
-        v24 = (ULONG64)v4 + 4 * v21;
-        if ( v24 > MmUserProbeAddress || v24 <= (unsigned __int64)v4 )
+        v38 = (ULONG64)v5 + 4 * v35;
+        if ( v38 > MmUserProbeAddress || v38 <= (unsigned __int64)v5 )
           *(_BYTE *)MmUserProbeAddress = 0;
-        memmove(v4, Src[1], 4 * v21);
+        memmove(v5, Src[1], 4 * v35);
       }
     }
-    ObfDereferenceObject(v19);
+    ObfDereferenceObject(v33);
   }
   else
   {
-    WdLogSingleEntry2(3LL, Handle[0], v16);
+    v30 = WdLogNewEntry5_WdWarning(v27, v26, v28);
+    *(_QWORD *)(v30 + 24) = v24;
+    *(_QWORD *)(v30 + 32) = v29;
+    WdLogEvent5_WdWarning(v30);
   }
-  if ( v5 )
-    operator delete(v5);
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v27);
-  if ( v29 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v25, &EventProfilerExit, v26, v27);
-  return (unsigned int)v17;
+  if ( v6 )
+    operator delete[](v6);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v41, v31);
+  if ( v43 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v39, &EventProfilerExit, v40, v41);
+  return (unsigned int)v29;
 }

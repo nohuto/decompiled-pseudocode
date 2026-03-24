@@ -1,16 +1,16 @@
 /*
- * XREFs of KiForceIdleUpdateSchedulerParkState @ 0x14029B200
+ * XREFs of KiForceIdleUpdateSchedulerParkState @ 0x14029B300
  * Callers:
- *     KiForceIdleStartDpcRoutine @ 0x14029B000 (KiForceIdleStartDpcRoutine.c)
- *     KiForceIdleStopDpcRoutine @ 0x14029B110 (KiForceIdleStopDpcRoutine.c)
+ *     KiForceIdleStartDpcRoutine @ 0x14029B100 (KiForceIdleStartDpcRoutine.c)
+ *     KiForceIdleStopDpcRoutine @ 0x14029B210 (KiForceIdleStopDpcRoutine.c)
  * Callees:
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     KeCountSetBitsAffinityEx @ 0x1400ED920 (KeCountSetBitsAffinityEx.c)
- *     KeCopyAffinityEx @ 0x1400EDA90 (KeCopyAffinityEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiForceIdleParkUnparkProcessor @ 0x14029AEA8 (KiForceIdleParkUnparkProcessor.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     KeCountSetBitsAffinityEx @ 0x1400ED940 (KeCountSetBitsAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiForceIdleParkUnparkProcessor @ 0x14029AFA8 (KiForceIdleParkUnparkProcessor.c)
  */
 
 __int64 __fastcall KiForceIdleUpdateSchedulerParkState(unsigned __int8 a1)

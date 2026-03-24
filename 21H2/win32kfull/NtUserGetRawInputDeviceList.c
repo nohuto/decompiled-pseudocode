@@ -1,32 +1,34 @@
 /*
- * XREFs of NtUserGetRawInputDeviceList @ 0x1C00043A0
+ * XREFs of NtUserGetRawInputDeviceList @ 0x1C01FBDF0
  * Callers:
  *     <none>
  * Callees:
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserGetRawInputDeviceList(volatile void *Address, unsigned int *a2, int a3)
 {
-  unsigned int v6; // r15d
+  unsigned int v6; // r14d
   unsigned int v7; // edi
-  CInpPushLock *Lock; // rbx
+  __int64 v8; // rdx
+  __int64 v9; // r8
   struct DEVICEINFO *i; // rax
-  unsigned int v10; // r14d
-  unsigned int *v11; // rax
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  unsigned int v13; // ebx
+  unsigned int *v14; // rax
   struct DEVICEINFO *j; // rax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  char v16; // [rsp+B0h] [rbp+18h] BYREF
-  int v17; // [rsp+B8h] [rbp+20h]
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  CInpPushLock *Lock; // [rsp+48h] [rbp-40h]
+  _BYTE v20[32]; // [rsp+50h] [rbp-38h] BYREF
 
   v6 = 0;
   v7 = -1;
-  v17 = -1;
-  EnterSharedCrit();
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v16);
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v20);
   if ( a3 == 16 )
   {
     Lock = CBaseInput::TmpGetLock(gpHidInput);
@@ -35,29 +37,29 @@ __int64 __fastcall NtUserGetRawInputDeviceList(volatile void *Address, unsigned 
       ++v6;
     if ( Address )
     {
-      v10 = 0;
-      v11 = a2;
+      v13 = 0;
+      v14 = a2;
       if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-        v11 = (unsigned int *)MmUserProbeAddress;
-      if ( *v11 < v6 )
-      {
-        if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-          a2 = (unsigned int *)MmUserProbeAddress;
-        *a2 = v6;
-        UserSetLastError(122LL);
-      }
-      else
+        v14 = (unsigned int *)MmUserProbeAddress;
+      if ( *v14 >= v6 )
       {
         ProbeForWrite(Address, 16LL * v6, 8u);
         for ( j = CBaseInput::TmpGetDeviceList(gpHidInput); j; j = (struct DEVICEINFO *)*((_QWORD *)j + 7) )
         {
-          v13 = 2LL * v10;
-          *((_QWORD *)Address + v13) = *(_QWORD *)j;
-          *((_DWORD *)Address + 2 * v13 + 2) = *((unsigned __int8 *)j + 48);
-          if ( ++v10 >= v6 )
+          v16 = 2LL * v13;
+          *((_QWORD *)Address + v16) = *(_QWORD *)j;
+          *((_DWORD *)Address + 2 * v16 + 2) = *((unsigned __int8 *)j + 48);
+          if ( ++v13 >= v6 )
             break;
         }
-        v7 = v10;
+        v7 = v13;
+      }
+      else
+      {
+        if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+          a2 = (unsigned int *)MmUserProbeAddress;
+        *a2 = v6;
+        UserSetLastError(122LL, v11, v12);
       }
     }
     else
@@ -71,9 +73,9 @@ __int64 __fastcall NtUserGetRawInputDeviceList(volatile void *Address, unsigned 
   }
   else
   {
-    UserSetLastError(87LL);
+    UserSetLastError(87LL, v8, v9);
   }
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v16);
-  UserSessionSwitchLeaveCrit(v14);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v20);
+  UserSessionSwitchLeaveCrit(v17);
   return v7;
 }

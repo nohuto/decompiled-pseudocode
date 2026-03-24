@@ -1,12 +1,12 @@
 /*
- * XREFs of ?PanMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@@Z @ 0x1C029C590
+ * XREFs of ?PanMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@@Z @ 0x1C0295500
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C029CB80 (-PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z.c)
- *     ?vPanningUpdate@@YAXPEAU_PANDEV@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C029DE88 (-vPanningUpdate@@YAXPEAU_PANDEV@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z.c)
- *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C029DFE0 (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ?PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C0295AF0 (-PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z.c)
+ *     ?vPanningUpdate@@YAXPEAU_PANDEV@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C0296DA0 (-vPanningUpdate@@YAXPEAU_PANDEV@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z.c)
+ *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C0296EF8 (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
  */
 
 void __fastcall PanMovePointer(struct _SURFOBJ *a1, LONG a2, unsigned int a3, struct _RECTL *a4)
@@ -16,7 +16,7 @@ void __fastcall PanMovePointer(struct _SURFOBJ *a1, LONG a2, unsigned int a3, st
   int v10; // edi
   struct _RECTL *v11; // rdx
   int v12; // eax
-  int v13; // ecx
+  LONG v13; // ecx
   int v14; // ecx
   HSEMAPHORE v15; // [rsp+50h] [rbp+8h] BYREF
 
@@ -29,37 +29,42 @@ void __fastcall PanMovePointer(struct _SURFOBJ *a1, LONG a2, unsigned int a3, st
   v10 = a1->sizlBitmap.cy + a3;
   v11 = (struct _RECTL *)(dhpdev + 4);
   v12 = 0;
-  if ( a2 < *((_DWORD *)dhpdev + 4) )
+  if ( a2 >= *((_DWORD *)dhpdev + 4) )
+  {
+    v13 = *((_DWORD *)dhpdev + 6);
+  }
+  else
   {
     v12 = 1;
     v13 = a2 + *(_DWORD *)dhpdev;
     v11->left = a2;
     *((_DWORD *)dhpdev + 6) = v13;
   }
-  if ( a2 > *((_DWORD *)dhpdev + 6) )
+  if ( a2 > v13 )
   {
     *((_DWORD *)dhpdev + 6) = a2;
     v12 = 1;
     v11->left = a2 - *(_DWORD *)dhpdev;
   }
-  if ( v10 < *((_DWORD *)dhpdev + 5) )
+  if ( v10 >= *((_DWORD *)dhpdev + 5) )
   {
-    v14 = *((_DWORD *)dhpdev + 1);
-    v12 = 1;
-    *((_DWORD *)dhpdev + 5) = v10;
-    *((_DWORD *)dhpdev + 7) = v10 + v14;
+    v14 = *((_DWORD *)dhpdev + 7);
   }
-  if ( v10 > *((_DWORD *)dhpdev + 7) )
+  else
+  {
+    v12 = 1;
+    v14 = v10 + *((_DWORD *)dhpdev + 1);
+    *((_DWORD *)dhpdev + 5) = v10;
+    *((_DWORD *)dhpdev + 7) = v14;
+  }
+  if ( v10 > v14 )
   {
     *((_DWORD *)dhpdev + 7) = v10;
+    v12 = 1;
     *((_DWORD *)dhpdev + 5) = v10 - *((_DWORD *)dhpdev + 1);
-LABEL_13:
-    vPanningUpdate((struct _PANDEV *)dhpdev, v11, 0LL);
-    goto LABEL_14;
   }
   if ( v12 )
-    goto LABEL_13;
-LABEL_14:
+    vPanningUpdate((struct _PANDEV *)dhpdev, v11, 0LL);
   PANDEVLOCK::vUnLock((PANDEVLOCK *)&v15);
   PanSynchronize(dhpdev, 0LL);
   PANDEVLOCK::vUnLock((PANDEVLOCK *)&v15);

@@ -1,18 +1,18 @@
 /*
- * XREFs of SepCleanupMarkedForDeletionEntries @ 0x140206780
+ * XREFs of SepCleanupMarkedForDeletionEntries @ 0x140251A94
  * Callers:
- *     SepAddLuidToIndexEntry @ 0x140672348 (SepAddLuidToIndexEntry.c)
+ *     SepAddLuidToIndexEntry @ 0x140604128 (SepAddLuidToIndexEntry.c)
  * Callees:
- *     SepGetSingletonEntryFromIndexNumber @ 0x1402058C0 (SepGetSingletonEntryFromIndexNumber.c)
- *     RtlEnumerateEntryHashTable @ 0x140206880 (RtlEnumerateEntryHashTable.c)
- *     RtlRemoveEntryHashTable @ 0x1402069A0 (RtlRemoveEntryHashTable.c)
- *     RtlEndEnumerationHashTable @ 0x140206B00 (RtlEndEnumerationHashTable.c)
- *     RtlInitEnumerationHashTable @ 0x140206B50 (RtlInitEnumerationHashTable.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x14028AB90 (AuthzBasepFreeSecurityAttributesList.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x140251564 (SepGetSingletonEntryFromIndexNumber.c)
+ *     RtlEnumerateEntryHashTable @ 0x140251BA0 (RtlEnumerateEntryHashTable.c)
+ *     RtlRemoveEntryHashTable @ 0x140251CC0 (RtlRemoveEntryHashTable.c)
+ *     RtlInitEnumerationHashTable @ 0x1402C5710 (RtlInitEnumerationHashTable.c)
+ *     RtlEndEnumerationHashTable @ 0x1402C5D20 (RtlEndEnumerationHashTable.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402F5290 (AuthzBasepFreeSecurityAttributesList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void SepCleanupMarkedForDeletionEntries()
@@ -53,7 +53,7 @@ void SepCleanupMarkedForDeletionEntries()
         v5 = v3;
         if ( v4 )
         {
-          AuthzBasepFreeSecurityAttributesList();
+          AuthzBasepFreeSecurityAttributesList(v4);
           ExFreePoolWithTag(*((PVOID *)v2 + 2), 0x74446553u);
           *((_QWORD *)v2 + 2) = 0LL;
         }

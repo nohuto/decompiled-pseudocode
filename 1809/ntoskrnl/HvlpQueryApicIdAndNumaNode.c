@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpQueryApicIdAndNumaNode @ 0x140272228
+ * XREFs of HvlpQueryApicIdAndNumaNode @ 0x140272328
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x14017EA70 (HvlStartBootLogicalProcessors.c)
- *     HvlpSelectLpSet @ 0x140272350 (HvlpSelectLpSet.c)
+ *     HvlStartBootLogicalProcessors @ 0x14017EA90 (HvlStartBootLogicalProcessors.c)
+ *     HvlpSelectLpSet @ 0x140272450 (HvlpSelectLpSet.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HvlpQueryApicIdAndNumaNode(__int64 a1, _DWORD *a2, _WORD *a3)

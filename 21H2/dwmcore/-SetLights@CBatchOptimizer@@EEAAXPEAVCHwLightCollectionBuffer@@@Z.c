@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetLights@CBatchOptimizer@@EEAAXPEAVCHwLightCollectionBuffer@@@Z @ 0x1800FAED0
+ * XREFs of ?SetLights@CBatchOptimizer@@EEAAXPEAVCHwLightCollectionBuffer@@@Z @ 0x1800E2810
  * Callers:
  *     <none>
  * Callees:

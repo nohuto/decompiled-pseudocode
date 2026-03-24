@@ -1,46 +1,41 @@
 /*
- * XREFs of ?DisablePinnedAllocation@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z @ 0x1C01EF7C8
+ * XREFs of ?DisablePinnedAllocation@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z @ 0x1C01767A8
  * Callers:
- *     ?UnpinDeviceResources@DXGDEVICE@@QEAAXXZ @ 0x1C01EF72C (-UnpinDeviceResources@DXGDEVICE@@QEAAXXZ.c)
+ *     ?DisablePinnedHardware@DXGDEVICE@@QEAAXXZ @ 0x1C0176688 (-DisablePinnedHardware@DXGDEVICE@@QEAAXXZ.c)
+ *     ?UnpinDeviceResources@DXGDEVICE@@QEAAXXZ @ 0x1C0176710 (-UnpinDeviceResources@DXGDEVICE@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0005BA8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C02EDA48 (-UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0002910 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0171EFC (-UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z.c)
  */
 
 void __fastcall DXGDEVICE::DisablePinnedAllocation(DXGDEVICE *this, struct DXGALLOCATION *a2)
 {
-  unsigned int v4; // r8d
-  unsigned int v5; // edx
-  struct DXGALLOCATION *v6; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  unsigned int v7; // edx
+  __int64 v8; // rax
+  struct DXGALLOCATION *v9; // [rsp+48h] [rbp+10h] BYREF
 
-  v6 = a2;
+  v9 = a2;
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(*((_QWORD *)this + 2) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 481LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceExclusiveOwner()",
-      481LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v8 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v8 + 24) = 465LL;
+    WdLogEvent5_WdAssertion(v8);
   }
   if ( (*((_DWORD *)a2 + 18) & 0x800) != 0 )
   {
-    (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 760LL) + 8LL) + 224LL))(
-      *(_QWORD *)(*((_QWORD *)this + 2) + 768LL),
+    (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL) + 8LL) + 240LL))(
+      *(_QWORD *)(*((_QWORD *)this + 2) + 648LL),
       *((_QWORD *)a2 + 3));
     *((_DWORD *)a2 + 18) &= ~0x800u;
   }
-  v5 = *(_DWORD *)(*((_QWORD *)a2 + 6) + 4LL);
-  if ( (v5 & 0x2000) != 0 )
+  v7 = *(_DWORD *)(*((_QWORD *)a2 + 6) + 4LL);
+  if ( (v7 & 0x2000) != 0 )
   {
     if ( *((_QWORD *)a2 + 3) )
-      DXGDEVICE::UnpinDirectFlipAllocation(this, (v5 >> 6) & 0xF, v4, &v6, 0LL);
+      DXGDEVICE::UnpinDirectFlipAllocation(this, (v7 >> 6) & 0xF, v6, &v9, 0LL);
   }
 }

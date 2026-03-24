@@ -1,20 +1,21 @@
 /*
- * XREFs of ExpPcwHostCallback @ 0x140859CC0
+ * XREFs of ExpPcwHostCallback @ 0x1407CC330
  * Callers:
  *     <none>
  * Callees:
- *     PsIsDiskCountersEnabled @ 0x1403ABBC0 (PsIsDiskCountersEnabled.c)
- *     EtwRegisterCounters @ 0x140859BEC (EtwRegisterCounters.c)
- *     ExpRegisterCounterSet @ 0x140859ED0 (ExpRegisterCounterSet.c)
- *     PcwUnregister @ 0x140A01930 (PcwUnregister.c)
+ *     PsIsDiskCountersEnabled @ 0x1403CA4B0 (PsIsDiskCountersEnabled.c)
+ *     PcwRegister @ 0x1407817E0 (PcwRegister.c)
+ *     EtwRegisterCounters @ 0x1407CC538 (EtwRegisterCounters.c)
+ *     PcwUnregister @ 0x140956DE0 (PcwUnregister.c)
  */
 
 void __fastcall ExpPcwHostCallback(int a1)
 {
   int v1; // ecx
-  struct _PCW_REGISTRATION_INFORMATION Info; // [rsp+20h] [rbp-40h] BYREF
+  __int64 v2; // [rsp+20h] [rbp-40h] BYREF
+  const wchar_t *v3; // [rsp+28h] [rbp-38h]
+  struct _PCW_REGISTRATION_INFORMATION Info; // [rsp+30h] [rbp-30h] BYREF
 
-  *(&Info.Version + 1) = 0;
   v1 = a1 - 1;
   if ( v1 )
   {
@@ -45,11 +46,6 @@ void __fastcall ExpPcwHostCallback(int a1)
         PcwUnregister(PcwpProcessorCounterSet);
         PcwpProcessorCounterSet = 0LL;
       }
-      if ( PcwpProcessCounterSet )
-      {
-        PcwUnregister(PcwpProcessCounterSet);
-        PcwpProcessCounterSet = 0LL;
-      }
       if ( PcwpFileSystemDiskIOCounterSet )
       {
         PcwUnregister(PcwpFileSystemDiskIOCounterSet);
@@ -65,56 +61,53 @@ void __fastcall ExpPcwHostCallback(int a1)
   else
   {
     EtwRegisterCounters();
-    *(_QWORD *)&Info.Version = 512LL;
-    Info.Name = (const _UNICODE_STRING *)&`PcwpInitRegistrationInformationSynchCounterSet'::`2'::Name;
+    v2 = 2097182LL;
+    v3 = L"Synchronization";
+    *(_QWORD *)&Info.Version = 256LL;
+    Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpRegisterSynchCounterSet'::`2'::Descriptors;
     *(_QWORD *)&Info.CounterCount = 42LL;
-    Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpInitRegistrationInformationSynchNumaCounterSet'::`2'::Descriptors;
     Info.Callback = (int (__fastcall *)(_PCW_CALLBACK_TYPE, _PCW_CALLBACK_INFORMATION *, void *))KiSynchCounterSetCallback;
-    *(_QWORD *)&Info.Flags = 0LL;
     Info.CallbackContext = 0LL;
-    ExpRegisterCounterSet(&PcwpSynchCounterSet, &Info);
-    *(_QWORD *)&Info.Version = 512LL;
-    Info.Name = (const _UNICODE_STRING *)L"&(";
+    Info.Name = (const _UNICODE_STRING *)&v2;
+    PcwRegister(&PcwpSynchCounterSet, &Info);
+    v2 = 2621478LL;
+    v3 = L"SynchronizationNuma";
+    *(_QWORD *)&Info.Version = 256LL;
+    Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpRegisterSynchCounterSet'::`2'::Descriptors;
     *(_QWORD *)&Info.CounterCount = 42LL;
-    Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpInitRegistrationInformationSynchNumaCounterSet'::`2'::Descriptors;
-    *(_QWORD *)&Info.Flags = 0LL;
     Info.Callback = (int (__fastcall *)(_PCW_CALLBACK_TYPE, _PCW_CALLBACK_INFORMATION *, void *))KiSynchNumaCounterSetCallback;
+    Info.Name = (const _UNICODE_STRING *)&v2;
     Info.CallbackContext = 0LL;
-    ExpRegisterCounterSet(&PcwpSynchNumaCounterSet, &Info);
-    *(_QWORD *)&Info.Version = 512LL;
-    Info.Name = (const _UNICODE_STRING *)L"*,";
+    PcwRegister(&PcwpSynchNumaCounterSet, &Info);
+    v2 = 2883626LL;
+    v3 = L"Processor Information";
+    *(_QWORD *)&Info.Version = 256LL;
+    Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpRegisterProcessorCounterSet'::`2'::Descriptors;
     *(_QWORD *)&Info.CounterCount = 35LL;
-    Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpInitRegistrationInformationProcessorCounterSet'::`2'::Descriptors;
-    *(_QWORD *)&Info.Flags = 1LL;
     Info.Callback = (int (__fastcall *)(_PCW_CALLBACK_TYPE, _PCW_CALLBACK_INFORMATION *, void *))ExProcessorCounterSetCallback;
+    Info.Name = (const _UNICODE_STRING *)&v2;
     Info.CallbackContext = 0LL;
-    ExpRegisterCounterSet(&PcwpProcessorCounterSet, &Info);
-    *(_QWORD *)&Info.Version = 512LL;
-    Info.Name = (const _UNICODE_STRING *)&`PcwpInitRegistrationInformationProcessCounterSet'::`2'::Name;
-    *(_QWORD *)&Info.CounterCount = 30LL;
-    Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpInitRegistrationInformationProcessCounterSet'::`2'::Descriptors;
-    *(_QWORD *)&Info.Flags = 1LL;
-    Info.Callback = (int (__fastcall *)(_PCW_CALLBACK_TYPE, _PCW_CALLBACK_INFORMATION *, void *))ExProcessCounterSetCallback;
-    Info.CallbackContext = 0LL;
-    ExpRegisterCounterSet(&PcwpProcessCounterSet, &Info);
+    PcwRegister(&PcwpProcessorCounterSet, &Info);
     if ( PsIsDiskCountersEnabled() )
     {
-      *(_QWORD *)&Info.Version = 512LL;
-      Info.Name = (const _UNICODE_STRING *)L"02";
+      v2 = 3276848LL;
+      v3 = L"FileSystem Disk Activity";
+      *(_QWORD *)&Info.Version = 256LL;
+      Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpRegisterFileSystemDiskIOCounterSet'::`2'::Descriptors;
       *(_QWORD *)&Info.CounterCount = 2LL;
-      Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpInitRegistrationInformationFileSystemDiskIOCounterSet'::`2'::Descriptors;
-      *(_QWORD *)&Info.Flags = 0LL;
       Info.Callback = (int (__fastcall *)(_PCW_CALLBACK_TYPE, _PCW_CALLBACK_INFORMATION *, void *))FsRtlDiskIOCounterSetCallback;
+      Info.Name = (const _UNICODE_STRING *)&v2;
       Info.CallbackContext = 0LL;
-      ExpRegisterCounterSet(&PcwpFileSystemDiskIOCounterSet, &Info);
+      PcwRegister(&PcwpFileSystemDiskIOCounterSet, &Info);
     }
-    *(_QWORD *)&Info.Version = 512LL;
-    Info.Name = (const _UNICODE_STRING *)L"02";
+    v2 = 3276848LL;
+    v3 = L"Thermal Zone Information";
+    *(_QWORD *)&Info.Version = 256LL;
+    Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpRegisterThermalCounterSet'::`2'::Descriptors;
     *(_QWORD *)&Info.CounterCount = 4LL;
-    Info.Counters = (_PCW_COUNTER_DESCRIPTOR *)`PcwpInitRegistrationInformationThermalCounterSet'::`2'::Descriptors;
-    *(_QWORD *)&Info.Flags = 0LL;
     Info.Callback = (int (__fastcall *)(_PCW_CALLBACK_TYPE, _PCW_CALLBACK_INFORMATION *, void *))PoThermalCounterSetCallback;
+    Info.Name = (const _UNICODE_STRING *)&v2;
     Info.CallbackContext = 0LL;
-    ExpRegisterCounterSet(&PcwpThermalCounterSet, &Info);
+    PcwRegister(&PcwpThermalCounterSet, &Info);
   }
 }

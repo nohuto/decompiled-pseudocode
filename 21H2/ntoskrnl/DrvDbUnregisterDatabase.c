@@ -1,11 +1,10 @@
 /*
- * XREFs of DrvDbUnregisterDatabase @ 0x140A304B4
+ * XREFs of DrvDbUnregisterDatabase @ 0x14097E810
  * Callers:
- *     PiDrvDbRegisterNode @ 0x14082666C (PiDrvDbRegisterNode.c)
- *     PiDrvDbUnregisterNode @ 0x14095E00C (PiDrvDbUnregisterNode.c)
+ *     PiDrvDbRegisterNode @ 0x1407A3878 (PiDrvDbRegisterNode.c)
  * Callees:
- *     DrvDbFindDatabaseNode @ 0x1406C2248 (DrvDbFindDatabaseNode.c)
- *     DrvDbDestroyDatabaseNode @ 0x140A30510 (DrvDbDestroyDatabaseNode.c)
+ *     DrvDbFindDatabaseNode @ 0x14060258C (DrvDbFindDatabaseNode.c)
+ *     DrvDbDestroyDatabaseNode @ 0x14097E86C (DrvDbDestroyDatabaseNode.c)
  */
 
 __int64 __fastcall DrvDbUnregisterDatabase(__int64 a1, const WCHAR *a2)
@@ -22,14 +21,14 @@ __int64 __fastcall DrvDbUnregisterDatabase(__int64 a1, const WCHAR *a2)
   if ( (int)result >= 0 )
   {
     v5 = v6;
-    if ( (*(_DWORD *)&v6[4].Length & 1) != 0 )
+    if ( ((__int64)v6[3].Buffer & 1) != 0 )
     {
       return 3221225485LL;
     }
     else
     {
-      if ( *(const UNICODE_STRING **)(v2 + 48) == v6 )
-        *(_QWORD *)(v2 + 48) = 0LL;
+      if ( *(const UNICODE_STRING **)(v2 + 40) == v6 )
+        *(_QWORD *)(v2 + 40) = 0LL;
       return DrvDbDestroyDatabaseNode(v2, v5, v4);
     }
   }

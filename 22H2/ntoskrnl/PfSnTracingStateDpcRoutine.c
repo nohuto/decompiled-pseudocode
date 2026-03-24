@@ -1,12 +1,16 @@
 /*
- * XREFs of PfSnTracingStateDpcRoutine @ 0x1405830B0
+ * XREFs of PfSnTracingStateDpcRoutine @ 0x14032D0F0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
  */
 
-void __fastcall PfSnTracingStateDpcRoutine(__int64 a1, struct _WORK_QUEUE_ITEM *a2)
+void __fastcall PfSnTracingStateDpcRoutine(
+        struct _KDPC *Dpc,
+        struct _WORK_QUEUE_ITEM *DeferredContext,
+        PVOID SystemArgument1,
+        PVOID SystemArgument2)
 {
-  ExQueueWorkItem(a2 + 4, DelayedWorkQueue);
+  ExQueueWorkItem(DeferredContext + 4, DelayedWorkQueue);
 }

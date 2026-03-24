@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Swap@RawUsageIndex@details_abi@wil@@QEAAXAEAV123@@Z @ 0x18019A72C
+ * XREFs of ?Swap@RawUsageIndex@details_abi@wil@@QEAAXAEAV123@@Z @ 0x1800B0108
  * Callers:
- *     ?RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z @ 0x18019A1A8 (-RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z.c)
+ *     ?RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z @ 0x1800AF1E8 (-RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z.c)
  * Callees:
- *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x180104770 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
+ *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x1800DE2A0 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
  */
 
 void __fastcall wil::details_abi::RawUsageIndex::Swap(

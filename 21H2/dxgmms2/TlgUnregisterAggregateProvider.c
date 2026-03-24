@@ -1,68 +1,67 @@
 /*
- * XREFs of TlgUnregisterAggregateProvider @ 0x1C00F7338
+ * XREFs of TlgUnregisterAggregateProvider @ 0x1C00D4B30
  * Callers:
- *     ?DeInitGlobals@VIDMM_GLOBAL@@SAXXZ @ 0x1C00D5A40 (-DeInitGlobals@VIDMM_GLOBAL@@SAXXZ.c)
+ *     ?DeInitGlobals@VIDMM_GLOBAL@@SAXXZ @ 0x1C00AE80C (-DeInitGlobals@VIDMM_GLOBAL@@SAXXZ.c)
  * Callees:
- *     LookUpTableFlushComplete @ 0x1C00B88CC (LookUpTableFlushComplete.c)
- *     CancelTimerCallbacksAndDeleteTimer @ 0x1C00F7060 (CancelTimerCallbacksAndDeleteTimer.c)
- *     DestroyAggregateSession @ 0x1C00F70F0 (DestroyAggregateSession.c)
+ *     LookUpTableFlushComplete @ 0x1C0099C68 (LookUpTableFlushComplete.c)
+ *     CancelTimerCallbacksAndDeleteTimer @ 0x1C00D47F0 (CancelTimerCallbacksAndDeleteTimer.c)
+ *     DestroyAggregateSession @ 0x1C00D4880 (DestroyAggregateSession.c)
  */
 
 void TlgUnregisterAggregateProvider()
 {
-  _QWORD *v0; // rdi
-  __int64 v1; // rcx
-  __int64 *v2; // rdx
-  __int64 *v3; // rax
-  REGHANDLE v4; // rcx
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  REGHANDLE v7; // rcx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  REGHANDLE v10; // rcx
+  REGHANDLE v0; // rcx
+  _QWORD *v1; // rdi
+  __int64 v2; // rcx
+  __int64 *v3; // rdx
+  __int64 *v4; // rax
+  REGHANDLE v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  REGHANDLE v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // r8
 
-  if ( (void (__fastcall *)(const struct _GUID *, __int64, char, __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, _QWORD *))qword_1C006E070 == TlgAggregateInternalRegisteredProviderEtwCallback )
+  if ( (void (__fastcall *)(const struct _GUID *, __int64, char, __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, _QWORD *))qword_1C0050070 == TlgAggregateInternalRegisteredProviderEtwCallback )
   {
-    v0 = 0LL;
-    ExAcquirePushLockExclusiveEx(&unk_1C006E6F8, 0LL);
-    v1 = qword_1C006E900;
-    v2 = &qword_1C006E900;
-    while ( v1 )
+    v1 = 0LL;
+    ExAcquirePushLockExclusiveEx(&unk_1C0050668, 0LL);
+    v2 = qword_1C00508B8;
+    v3 = &qword_1C00508B8;
+    while ( v2 )
     {
-      v3 = (__int64 *)(v1 + 352);
-      if ( *(int **)(v1 + 344) == &dword_1C006E048 )
+      v4 = (__int64 *)(v2 + 352);
+      if ( *(int **)(v2 + 344) == &dword_1C0050048 )
       {
-        v0 = (_QWORD *)v1;
-        *v2 = *v3;
-        LookUpTableFlushComplete(v1);
-        if ( !qword_1C006E900 )
+        v1 = (_QWORD *)v2;
+        *v3 = *v4;
+        LookUpTableFlushComplete(v2);
+        if ( !qword_1C00508B8 )
         {
-          v4 = qword_1C006E0A0;
-          qword_1C006E0A0 = 0LL;
-          dword_1C006E080 = 0;
-          EtwUnregister(v4);
+          v5 = qword_1C00500A0;
+          qword_1C00500A0 = 0LL;
+          dword_1C0050080 = 0;
+          EtwUnregister(v5);
         }
         break;
       }
-      v1 = *v3;
-      v2 = v3;
+      v2 = *v4;
+      v3 = v4;
     }
-    ExReleasePushLockExclusiveEx(&unk_1C006E6F8, 0LL);
-    if ( v0 )
-      CancelTimerCallbacksAndDeleteTimer((__int64)v0, v5, v6);
-    v7 = RegHandle;
+    ExReleasePushLockExclusiveEx(&unk_1C0050668, 0LL);
+    if ( v1 )
+      CancelTimerCallbacksAndDeleteTimer((__int64)v1, v6, v7);
+    v8 = RegHandle;
     RegHandle = 0LL;
-    dword_1C006E048 = 0;
-    EtwUnregister(v7);
-    qword_1C006E070 = 0LL;
-    DestroyAggregateSession(v0, v8, v9);
+    dword_1C0050048 = 0;
+    EtwUnregister(v8);
+    DestroyAggregateSession(v1, v9, v10);
   }
   else
   {
-    v10 = RegHandle;
+    v0 = RegHandle;
     RegHandle = 0LL;
-    dword_1C006E048 = 0;
-    EtwUnregister(v10);
+    dword_1C0050048 = 0;
+    EtwUnregister(v0);
   }
 }

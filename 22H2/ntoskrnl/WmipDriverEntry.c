@@ -1,26 +1,27 @@
 /*
- * XREFs of WmipDriverEntry @ 0x140B3C550
+ * XREFs of WmipDriverEntry @ 0x140A69AA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     IoDeleteDevice @ 0x140304E10 (IoDeleteDevice.c)
- *     KiInitializeMutant @ 0x14033ABEC (KiInitializeMutant.c)
- *     IoCreateDevice @ 0x14076B4E0 (IoCreateDevice.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     IoRegisterShutdownNotification @ 0x1408110B0 (IoRegisterShutdownNotification.c)
- *     IoWMIRegistrationControl @ 0x14086C380 (IoWMIRegistrationControl.c)
- *     IoCreateSymbolicLink @ 0x140870130 (IoCreateSymbolicLink.c)
- *     WmipInitializeDataStructs @ 0x140B3C6E4 (WmipInitializeDataStructs.c)
- *     WmipInitializeSecurity @ 0x140B3C860 (WmipInitializeSecurity.c)
- *     WmipInitializeRegistration @ 0x140B3CAE8 (WmipInitializeRegistration.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     KeInitializeMutex @ 0x14035FBE0 (KeInitializeMutex.c)
+ *     IoDeleteDevice @ 0x140360200 (IoDeleteDevice.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     IoCreateDevice @ 0x140719130 (IoCreateDevice.c)
+ *     IoWMIRegistrationControl @ 0x140754720 (IoWMIRegistrationControl.c)
+ *     IoCreateSymbolicLink @ 0x14076D2F0 (IoCreateSymbolicLink.c)
+ *     IoRegisterShutdownNotification @ 0x1407BE9A0 (IoRegisterShutdownNotification.c)
+ *     WmipInitializeSecurity @ 0x140A69C2C (WmipInitializeSecurity.c)
+ *     WmipInitializeDataStructs @ 0x140A69EBC (WmipInitializeDataStructs.c)
+ *     WmipInitializeRegistration @ 0x140A6A038 (WmipInitializeRegistration.c)
  */
 
 NTSTATUS __fastcall WmipDriverEntry(PDRIVER_OBJECT DriverObject)
 {
+  __int64 v2; // rdx
   NTSTATUS result; // eax
-  NTSTATUS v3; // ebx
+  NTSTATUS v4; // ebx
   UNICODE_STRING DeviceName; // [rsp+40h] [rbp-38h] BYREF
   STRING DestinationString; // [rsp+50h] [rbp-28h] BYREF
   UNICODE_STRING SymbolicLinkName; // [rsp+60h] [rbp-18h] BYREF
@@ -28,8 +29,8 @@ NTSTATUS __fastcall WmipDriverEntry(PDRIVER_OBJECT DriverObject)
   DeviceName = 0LL;
   SymbolicLinkName = 0LL;
   DestinationString = 0LL;
-  KiInitializeMutant((__int64)&WmipSMMutex, 0, 1, 0);
-  WmipInitializeRegistration(0LL);
+  KeInitializeMutex(&WmipSMMutex, 0);
+  WmipInitializeRegistration(0LL, v2);
   WmipEventWorkQueueItem.Parameter = 0LL;
   WmipEventWorkQueueItem.List.Flink = 0LL;
   WmipNPNotificationSpinlock = 0LL;
@@ -47,8 +48,8 @@ NTSTATUS __fastcall WmipDriverEntry(PDRIVER_OBJECT DriverObject)
       if ( result >= 0 )
       {
         RtlInitUnicodeString(&SymbolicLinkName, L"\\DosDevices\\WMIDataDevice");
-        v3 = IoCreateSymbolicLink(&SymbolicLinkName, &DeviceName);
-        if ( v3 < 0 )
+        v4 = IoCreateSymbolicLink(&SymbolicLinkName, &DeviceName);
+        if ( v4 < 0 )
         {
           IoDeleteDevice(WmipServiceDeviceObject);
         }
@@ -64,7 +65,7 @@ NTSTATUS __fastcall WmipDriverEntry(PDRIVER_OBJECT DriverObject)
           IoWMIRegistrationControl(WmipServiceDeviceObject, 1u);
           IoRegisterShutdownNotification(WmipServiceDeviceObject);
         }
-        return v3;
+        return v4;
       }
     }
   }

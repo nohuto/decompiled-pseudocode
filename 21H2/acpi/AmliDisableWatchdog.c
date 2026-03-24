@@ -1,10 +1,10 @@
 /*
- * XREFs of AmliDisableWatchdog @ 0x1C00641E0
+ * XREFs of AmliDisableWatchdog @ 0x1C0062EB8
  * Callers:
- *     FreeContext @ 0x1C00694F8 (FreeContext.c)
+ *     FreeContext @ 0x1C0068074 (FreeContext.c)
  * Callees:
- *     AcpiQueueRecordBlackboxInformation @ 0x1C0063F38 (AcpiQueueRecordBlackboxInformation.c)
- *     AmliWatchdogTimeoutAction @ 0x1C0064394 (AmliWatchdogTimeoutAction.c)
+ *     AcpiQueueRecordBlackboxInformation @ 0x1C0062BF8 (AcpiQueueRecordBlackboxInformation.c)
+ *     AmliWatchdogTimeoutAction @ 0x1C0063064 (AmliWatchdogTimeoutAction.c)
  */
 
 void __fastcall AmliDisableWatchdog(__int64 *a1)

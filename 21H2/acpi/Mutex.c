@@ -1,11 +1,11 @@
 /*
- * XREFs of Mutex @ 0x1C002AE10
+ * XREFs of Mutex @ 0x1C0010280
  * Callers:
  *     <none>
  * Callees:
- *     CreateNameSpaceObject @ 0x1C0013250 (CreateNameSpaceObject.c)
- *     PerformMutexDriverCallbacks @ 0x1C002AEB8 (PerformMutexDriverCallbacks.c)
- *     InitMutex @ 0x1C002AFB0 (InitMutex.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     PerformMutexDriverCallbacks @ 0x1C0010328 (PerformMutexDriverCallbacks.c)
+ *     InitMutex @ 0x1C0010410 (InitMutex.c)
  */
 
 __int64 __fastcall Mutex(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall Mutex(__int64 a1, __int64 a2)
              *(unsigned __int8 **)(*(_QWORD *)(a2 + 80) + 32LL),
              *(_QWORD *)(a1 + 80),
              *(struct _EX_RUNDOWN_REF **)(a1 + 88),
-             (__int64 *)(a2 + 64),
+             (_QWORD *)(a2 + 64),
              0);
   if ( !(_DWORD)result )
   {

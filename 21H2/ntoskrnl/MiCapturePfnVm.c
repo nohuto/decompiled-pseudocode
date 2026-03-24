@@ -1,223 +1,183 @@
 /*
- * XREFs of MiCapturePfnVm @ 0x14026AEB0
+ * XREFs of MiCapturePfnVm @ 0x140368100
  * Callers:
- *     MiProcessCrcList @ 0x1406F2C30 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x140726B20 (MiProcessCrcList.c)
  * Callees:
- *     MiReferenceOwningSession @ 0x1402313B4 (MiReferenceOwningSession.c)
- *     MiGetTopLevelPfn @ 0x14026B1C0 (MiGetTopLevelPfn.c)
- *     MiGetCombineDomain @ 0x14026B2D4 (MiGetCombineDomain.c)
- *     MiCheckProcessCombineSequence @ 0x14026B2EC (MiCheckProcessCombineSequence.c)
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MiCombineCandidate @ 0x1403137B0 (MiCombineCandidate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ObpPushStackInfo @ 0x1405C5EC8 (ObpPushStackInfo.c)
- *     VmCheckPageCombine @ 0x140882E88 (VmCheckPageCombine.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiIsStoreProcess @ 0x14026A4B0 (MiIsStoreProcess.c)
+ *     MiGetTopLevelPfn @ 0x14026A4F0 (MiGetTopLevelPfn.c)
+ *     MiReferenceOwningSession @ 0x14029947C (MiReferenceOwningSession.c)
+ *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
+ *     MiCombineCandidate @ 0x1403697A0 (MiCombineCandidate.c)
+ *     MiHashIsCommon @ 0x140369D2C (MiHashIsCommon.c)
+ *     MiGetCombineDomain @ 0x140369E6C (MiGetCombineDomain.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmCheckPageCombine @ 0x14092E828 (VmCheckPageCombine.c)
  */
 
-__int64 __fastcall MiCapturePfnVm(
+char *__fastcall MiCapturePfnVm(
         __int64 *a1,
         ULONG_PTR a2,
         unsigned int a3,
         __int64 a4,
-        _QWORD *a5,
+        unsigned __int64 *a5,
         unsigned __int64 *a6,
         int *a7,
         __int64 *a8)
 {
-  _QWORD *v8; // rbx
-  unsigned __int64 *v9; // rsi
-  int *v11; // r14
-  unsigned int v13; // r10d
-  __int64 v15; // r13
-  unsigned int v16; // edx
-  _QWORD *v17; // rax
-  unsigned int v18; // r15d
-  int *CurrentIrql; // rcx
-  unsigned int v20; // ebp
-  int v21; // ecx
-  __int64 TopLevelPfn; // r14
-  __int64 v23; // r8
-  unsigned __int64 v24; // rbx
-  __int64 AnyMultiplexedVm; // rsi
-  __int64 v26; // rax
-  signed __int64 v27; // rax
-  signed __int64 v28; // rtt
-  unsigned __int8 v29; // di
-  __int64 CombineDomain; // rax
+  unsigned __int64 *v10; // rdi
+  int *v12; // rsi
+  __int64 v13; // r14
+  __int64 v14; // rdx
+  __int64 v15; // r8
   _DWORD *SchedulerAssist; // r9
-  __int64 v33; // rax
-  unsigned __int8 v34; // di
-  unsigned __int8 v35; // al
-  struct _KPRCB *v36; // r9
-  _DWORD *v37; // r8
-  int v38; // eax
-  bool v39; // zf
-  unsigned __int8 v40; // al
+  unsigned __int8 CurrentIrql; // r13
+  __int64 v18; // r8
+  __int64 v19; // r9
+  unsigned int v20; // r14d
+  int v21; // ecx
+  __int64 TopLevelPfn; // rsi
+  unsigned __int64 v23; // rdi
+  char *AnyMultiplexedVm; // rbp
+  unsigned int v25; // eax
+  __int64 CombineDomain; // rax
+  _QWORD *v28; // rax
+  unsigned __int8 v29; // al
+  struct _KPRCB *v30; // r9
+  _DWORD *v31; // r8
+  int v32; // eax
+  bool v33; // zf
+  unsigned __int8 v34; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v42; // r8
-  int v43; // eax
+  _DWORD *v36; // r8
+  int v37; // eax
+  int v38; // [rsp+70h] [rbp+28h]
 
-  v8 = a5;
-  v9 = a6;
-  v11 = a7;
-  v13 = *((_DWORD *)a1 + 14);
-  v15 = *a1;
-  v16 = 0;
-  v17 = (_QWORD *)a1[5];
+  v10 = a6;
+  v12 = a7;
+  v13 = *a1;
   *a5 = 0LL;
-  *v9 = 0LL;
-  *v11 = 24;
-  if ( v13 )
+  *v10 = 0LL;
+  *v12 = 24;
+  if ( (unsigned int)MiHashIsCommon(a1, a4, 0LL) )
   {
-    while ( a4 != *v17 )
-    {
-      ++v16;
-      ++v17;
-      if ( v16 >= v13 )
-        goto LABEL_4;
-    }
-    v18 = 1;
-    *a8 = qword_140C51DD0;
+    v38 = 1;
+    *a8 = qword_140C4E550;
   }
   else
   {
-LABEL_4:
-    v18 = 0;
+    v38 = 0;
   }
-  CurrentIrql = (int *)KeGetCurrentIrql();
-  a7 = CurrentIrql;
+  CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    SchedulerAssist[5] |= (-1 << ((_BYTE)CurrentIrql + 1)) & 4;
+    v14 = (-1LL << (CurrentIrql + 1)) & 4;
+    v15 = (unsigned int)v14 | SchedulerAssist[5];
+    SchedulerAssist[5] = v15;
   }
   LODWORD(a6) = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(a2 + 24), 0x3FuLL) )
   {
     do
-      KeYieldProcessorEx(&a6);
+      KeYieldProcessorEx(&a6, v14, v15, (__int64)SchedulerAssist);
     while ( *(__int64 *)(a2 + 24) < 0 );
   }
-  v20 = MiCombineCandidate(v15, a3, a2);
+  v20 = MiCombineCandidate(v13, a3, a2);
   if ( v20 )
   {
     v21 = (*(_DWORD *)(a2 + 16) >> 5) & 0x1F;
-    *v9 = *(_QWORD *)(a2 + 8) | 0x8000000000000000uLL;
-    *v11 = v21;
+    *v10 = *(_QWORD *)(a2 + 8) | 0x8000000000000000uLL;
+    *v12 = v21;
     if ( v20 == 1 )
     {
-      TopLevelPfn = MiGetTopLevelPfn(a2);
-      v23 = 0LL;
-      v24 = (*(_QWORD *)TopLevelPfn >> 13) & 0x7FFFFFFFFFF0LL | 0xFFFF800000000000uLL;
-      AnyMultiplexedVm = v24 + 1664;
-      v26 = *(_QWORD *)(qword_140C51F48 + 8LL * *(unsigned __int16 *)(v24 + 0x72E));
-      if ( *(_DWORD *)(v26 + 1176) && *(_QWORD *)(v26 + 1296) == v24 )
+      TopLevelPfn = MiGetTopLevelPfn(a2, 0x8000000000000000uLL, v18, v19);
+      v23 = (*(_QWORD *)TopLevelPfn >> 13) & 0x7FFFFFFFFFF0LL | 0xFFFF800000000000uLL;
+      AnyMultiplexedVm = (char *)(v23 + 1664);
+      if ( (unsigned int)MiIsStoreProcess(v23) )
         AnyMultiplexedVm = 0LL;
-      if ( !v18
-        && ((*(_DWORD *)(((*(_QWORD *)TopLevelPfn >> 13) & 0x7FFFFFFFFFF0LL | 0xFFFF800000000000uLL) + 0x9D4) & 0x1000) != 0
-         || !(unsigned int)MiCheckProcessCombineSequence(v24, *((unsigned int *)a1 + 60))) )
-      {
-        AnyMultiplexedVm = v23;
-      }
-      _m_prefetchw((const void *)(v24 - 48));
-      v27 = *(_QWORD *)(v24 - 48);
-      if ( v27 )
-      {
-        while ( 1 )
-        {
-          v28 = v27;
-          v27 = _InterlockedCompareExchange64((volatile signed __int64 *)(v24 - 48), v27 + 1, v27);
-          if ( v28 == v27 )
-            break;
-          if ( !v27 )
-            goto LABEL_52;
-        }
-        if ( ObpTraceFlags )
-          ObpPushStackInfo(v24 - 48);
-        *a5 = v24;
-      }
+      if ( (*(_DWORD *)(v23 + 2516) & 0x1000) != 0 && !v38 )
+        AnyMultiplexedVm = 0LL;
+      if ( ObReferenceObjectSafeWithTag(v23) )
+        *a5 = v23;
       else
-      {
-LABEL_52:
-        AnyMultiplexedVm = v23;
-      }
-      v8 = a5;
+        AnyMultiplexedVm = 0LL;
       if ( TopLevelPfn != a2 )
         _InterlockedAnd64((volatile signed __int64 *)(TopLevelPfn + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      goto LABEL_22;
+      goto LABEL_14;
     }
-    if ( !v18 )
-      goto LABEL_36;
+    if ( !v38 )
+      goto LABEL_25;
     if ( v20 == 2 )
     {
-      AnyMultiplexedVm = MiGetAnyMultiplexedVm(2LL);
-      goto LABEL_22;
+      AnyMultiplexedVm = MiGetAnyMultiplexedVm(2);
+      goto LABEL_14;
     }
-    v33 = MiReferenceOwningSession(a2);
-    if ( v33 )
+    v28 = MiReferenceOwningSession(a2, 0x8000000000000000uLL, v18, v19);
+    if ( v28 )
     {
-      AnyMultiplexedVm = *(_QWORD *)(v33 + 1368) + 192LL;
-      *a5 = v33;
+      AnyMultiplexedVm = (char *)(v28[171] + 256LL);
+      *a5 = (unsigned __int64)v28;
     }
     else
     {
-LABEL_36:
+LABEL_25:
       AnyMultiplexedVm = 0LL;
     }
-LABEL_22:
+LABEL_14:
     _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    v29 = (unsigned __int8)a7;
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v40 = KeGetCurrentIrql();
-        if ( v40 <= 0xFu && (unsigned __int8)a7 <= 0xFu && v40 >= 2u )
+        v34 = KeGetCurrentIrql();
+        if ( v34 <= 0xFu && CurrentIrql <= 0xFu && v34 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v42 = CurrentPrcb->SchedulerAssist;
-          v43 = ~(unsigned __int16)(-1LL << ((unsigned __int8)a7 + 1));
-          v39 = (v43 & v42[5]) == 0;
-          v42[5] &= v43;
-          if ( v39 )
+          v36 = CurrentPrcb->SchedulerAssist;
+          v37 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v33 = (v37 & v36[5]) == 0;
+          v36[5] &= v37;
+          if ( v33 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }
-    __writecr8(v29);
+    __writecr8(CurrentIrql);
     if ( AnyMultiplexedVm )
     {
-      if ( !v18 )
+      v25 = v38;
+      if ( !v38 )
       {
         CombineDomain = MiGetCombineDomain(v20, AnyMultiplexedVm);
         *a8 = CombineDomain;
+        v25 = 0;
       }
-      if ( v20 == 1 && *(_QWORD *)(*v8 + 2288LL) && !(unsigned int)VmCheckPageCombine(*v8, v18) )
+      if ( v20 == 1 && *(_QWORD *)(*a5 + 2288) && !(unsigned int)VmCheckPageCombine(*a5, v25) )
         return 0LL;
     }
     return AnyMultiplexedVm;
   }
   _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  v34 = (unsigned __int8)a7;
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v35 = KeGetCurrentIrql();
-      if ( v35 <= 0xFu && (unsigned __int8)a7 <= 0xFu && v35 >= 2u )
+      v29 = KeGetCurrentIrql();
+      if ( v29 <= 0xFu && CurrentIrql <= 0xFu && v29 >= 2u )
       {
-        v36 = KeGetCurrentPrcb();
-        v37 = v36->SchedulerAssist;
-        v38 = ~(unsigned __int16)(-1LL << ((unsigned __int8)a7 + 1));
-        v39 = (v38 & v37[5]) == 0;
-        v37[5] &= v38;
-        if ( v39 )
-          KiRemoveSystemWorkPriorityKick(v36);
+        v30 = KeGetCurrentPrcb();
+        v31 = v30->SchedulerAssist;
+        v32 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v33 = (v32 & v31[5]) == 0;
+        v31[5] &= v32;
+        if ( v33 )
+          KiRemoveSystemWorkPriorityKick(v30);
       }
     }
   }
-  __writecr8(v34);
+  __writecr8(CurrentIrql);
   return 0LL;
 }

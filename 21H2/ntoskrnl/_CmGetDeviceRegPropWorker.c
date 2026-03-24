@@ -1,23 +1,23 @@
 /*
- * XREFs of _CmGetDeviceRegPropWorker @ 0x14077CF10
+ * XREFs of _CmGetDeviceRegPropWorker @ 0x1406415EC
  * Callers:
- *     _CmGetDeviceRegProp @ 0x14077CD90 (_CmGetDeviceRegProp.c)
+ *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
  * Callees:
- *     RtlStringCbCopyNExW @ 0x14024AB14 (RtlStringCbCopyNExW.c)
- *     _MapCmDevicePropertyToRegType @ 0x1402DE400 (_MapCmDevicePropertyToRegType.c)
- *     _CmDevicePropertyRead @ 0x1402DF5A4 (_CmDevicePropertyRead.c)
- *     _MapCmDevicePropertyToNtProperty @ 0x1402DF5E0 (_MapCmDevicePropertyToNtProperty.c)
- *     _MapCmDevicePropertyToRegValue @ 0x1402DF64C (_MapCmDevicePropertyToRegValue.c)
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     wcschr @ 0x1403E32C0 (wcschr.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _CmGetInstallerClassRegProp @ 0x1406BDAE4 (_CmGetInstallerClassRegProp.c)
- *     _NtPlugPlayGetDeviceProperty @ 0x1406D4FE0 (_NtPlugPlayGetDeviceProperty.c)
- *     _CmGetDeviceRegProp @ 0x14077CD90 (_CmGetDeviceRegProp.c)
- *     _PnpCtxRegQueryValueIndirect @ 0x14077D29C (_PnpCtxRegQueryValueIndirect.c)
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     _CmOpenDeviceRegKey @ 0x14077F2EC (_CmOpenDeviceRegKey.c)
+ *     _CmDevicePropertyRead @ 0x1402657C4 (_CmDevicePropertyRead.c)
+ *     _MapCmDevicePropertyToNtProperty @ 0x140265800 (_MapCmDevicePropertyToNtProperty.c)
+ *     _MapCmDevicePropertyToRegValue @ 0x14026586C (_MapCmDevicePropertyToRegValue.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCbCopyNExW @ 0x1402CAA50 (RtlStringCbCopyNExW.c)
+ *     _MapCmDevicePropertyToRegType @ 0x1402D0450 (_MapCmDevicePropertyToRegType.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     wcschr @ 0x1403D3F10 (wcschr.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
+ *     _PnpCtxRegQueryValueIndirect @ 0x140641970 (_PnpCtxRegQueryValueIndirect.c)
+ *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     _NtPlugPlayGetDeviceProperty @ 0x1406BCD54 (_NtPlugPlayGetDeviceProperty.c)
+ *     _CmGetInstallerClassRegProp @ 0x14073F798 (_CmGetInstallerClassRegProp.c)
  */
 
 __int64 __fastcall CmGetDeviceRegPropWorker(
@@ -51,8 +51,8 @@ __int64 __fastcall CmGetDeviceRegPropWorker(
   __int64 v29; // rax
   HANDLE v30; // r8
   NTSTATUS DeviceRegProp; // eax
-  __int64 v32; // rcx
-  int v33; // r9d
+  int v32; // ecx
+  HANDLE v33; // r9
   NTSTATUS ObjectProperty; // eax
   NTSTRSAFE_PWSTR *ppszDestEnd; // [rsp+20h] [rbp-E0h]
   size_t *pcbRemaining; // [rsp+28h] [rbp-D8h]
@@ -78,7 +78,7 @@ __int64 __fastcall CmGetDeviceRegPropWorker(
   if ( a8 )
     return (unsigned int)-1073741811;
   if ( !a7 || !a5 )
-    goto LABEL_60;
+    goto LABEL_62;
   v11 = *a7;
   if ( *a7 )
   {
@@ -97,7 +97,7 @@ __int64 __fastcall CmGetDeviceRegPropWorker(
     v16 = 0LL;
     inited = v17;
     if ( v17 < 0 )
-      goto LABEL_27;
+      goto LABEL_26;
     v11 = cbDest;
     v15 = v41;
     v13 = v43;
@@ -121,13 +121,13 @@ __int64 __fastcall CmGetDeviceRegPropWorker(
                                   ppszDestEnd,
                                   pcbRemaining,
                                   dwFlags);
-LABEL_44:
+LABEL_46:
         inited = InstallerClassRegProp;
-        goto LABEL_27;
+        goto LABEL_26;
       }
-LABEL_60:
+LABEL_62:
       inited = -1073741811;
-      goto LABEL_27;
+      goto LABEL_26;
     case 8:
       v30 = Handle;
       HIDWORD(cbDest) = 78;
@@ -146,31 +146,31 @@ LABEL_60:
       if ( DeviceRegProp == -1073741789 )
       {
         inited = -1073741595;
-        goto LABEL_27;
+        goto LABEL_26;
       }
       if ( DeviceRegProp )
-        goto LABEL_27;
+        goto LABEL_26;
       v32 = v43;
       v46 = 0;
       *a7 = cbDest;
       InstallerClassRegProp = CmGetInstallerClassRegProp(
                                 v32,
-                                (__int64)v45,
-                                0LL,
+                                (unsigned int)v45,
+                                0,
                                 8,
                                 (__int64)a5,
                                 (__int64)v12,
                                 (__int64)a7);
-      goto LABEL_44;
+      goto LABEL_46;
     case 36:
-      v33 = (int)Handle;
+      v33 = Handle;
       if ( v15 )
-        v33 = (int)v15;
+        v33 = v15;
       ObjectProperty = PnpGetObjectProperty(
                          v13,
-                         (_DWORD)a2,
-                         1,
-                         v33,
+                         (__int64)a2,
+                         1LL,
+                         (__int64)v33,
                          v16,
                          (__int64)&DEVPKEY_Device_LocationPaths,
                          (__int64)&v42,
@@ -181,20 +181,20 @@ LABEL_60:
       *a5 = 7;
       inited = ObjectProperty;
       if ( ObjectProperty != -1073741772 )
-        goto LABEL_27;
-      goto LABEL_33;
+        goto LABEL_26;
+      goto LABEL_29;
   }
   LODWORD(v41) = MapCmDevicePropertyToNtProperty(v13, a4);
   if ( (_DWORD)v41 )
   {
     inited = RtlInitUnicodeStringEx(&DestinationString, a2);
     if ( inited < 0 )
-      goto LABEL_27;
+      goto LABEL_26;
     DeviceProperty = NtPlugPlayGetDeviceProperty(
                        v43,
-                       (__int64)&DestinationString,
-                       (unsigned int)v41,
-                       (__int64)v12,
+                       (unsigned int)&DestinationString,
+                       (_DWORD)v41,
+                       (_DWORD)v12,
                        v11,
                        (__int64)&cbDest);
     inited = DeviceProperty;
@@ -205,15 +205,15 @@ LABEL_60:
         *a7 = cbDest;
         *a5 = MapCmDevicePropertyToRegType(a4);
       }
-      goto LABEL_27;
+      goto LABEL_26;
     }
-    goto LABEL_33;
+    goto LABEL_29;
   }
   v19 = MapCmDevicePropertyToRegValue(v18, a4);
   if ( !v19 )
   {
     inited = -1073741264;
-    goto LABEL_27;
+    goto LABEL_26;
   }
   v23 = (int)Handle;
   HIDWORD(cbDest) = v11;
@@ -228,23 +228,23 @@ LABEL_60:
                             (__int64)&cbDest + 4,
                             v22);
   if ( InstallerClassRegProp == -1073741772 || InstallerClassRegProp == -1073741444 )
-    goto LABEL_33;
+    goto LABEL_29;
   if ( (int)(InstallerClassRegProp + 0x80000000) >= 0 && InstallerClassRegProp != -1073741789 )
-    goto LABEL_44;
+    goto LABEL_46;
   if ( (v25 = v39, v39 == 1) && HIDWORD(cbDest) < 2
     || HIDWORD(cbDest) < 2 && v39 == 7
     || v39 == 4 && HIDWORD(cbDest) != 4 )
   {
-LABEL_33:
+LABEL_29:
     inited = -1073741275;
-    goto LABEL_27;
+    goto LABEL_26;
   }
   *a7 = HIDWORD(cbDest);
   *a5 = v25;
   if ( InstallerClassRegProp || !(_DWORD)cbDest )
 LABEL_36:
     inited = -1073741789;
-LABEL_27:
+LABEL_26:
   if ( Handle )
     ZwClose(Handle);
   return (unsigned int)inited;

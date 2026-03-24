@@ -1,108 +1,119 @@
 /*
- * XREFs of HalpInterruptSetDestinationInternal @ 0x1405044CC
+ * XREFs of HalpInterruptSetDestinationInternal @ 0x1403784DC
  * Callers:
- *     HalpInterruptSetDestination @ 0x14031F770 (HalpInterruptSetDestination.c)
+ *     HalpInterruptSetDestination @ 0x140378400 (HalpInterruptSetDestination.c)
  * Callees:
- *     HalpInterruptDestinationToTarget @ 0x14031FA9C (HalpInterruptDestinationToTarget.c)
- *     HalpInterruptFindLines @ 0x14031FCA0 (HalpInterruptFindLines.c)
- *     HalpInterruptLookupController @ 0x14031FD00 (HalpInterruptLookupController.c)
- *     HalpInterruptFindBestRouting @ 0x14037CB74 (HalpInterruptFindBestRouting.c)
- *     HalpInterruptSetLineStateInternal @ 0x14037D080 (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptApplyOverrides @ 0x14037D0F8 (HalpInterruptApplyOverrides.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HalpInterruptSetProblemEx @ 0x14051AAC8 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14037861C (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptFindBestRouting @ 0x140378690 (HalpInterruptFindBestRouting.c)
+ *     HalpInterruptFindLines @ 0x140378710 (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x140378770 (HalpInterruptLookupController.c)
+ *     HalpInterruptDestinationToTarget @ 0x1403787A0 (HalpInterruptDestinationToTarget.c)
+ *     HalpInterruptApplyOverrides @ 0x140378894 (HalpInterruptApplyOverrides.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpInterruptSetDestinationInternal(__int64 *a1, __int64 a2, __int64 a3)
 {
-  __int64 v5; // rax
-  ULONG_PTR *v6; // rax
-  __int64 v7; // rbx
-  _QWORD *Lines; // rdi
-  _BYTE *v9; // rcx
-  __int64 v10; // r13
-  __int128 v11; // xmm1
-  __int128 v12; // xmm0
-  _DWORD *v13; // r15
-  int v14; // r8d
-  __int64 v15; // rax
-  __int128 v16; // xmm1
-  __int128 v17; // xmm0
-  int v18; // edx
-  int v19; // ecx
-  signed __int32 v21[8]; // [rsp+0h] [rbp-70h] BYREF
-  ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-50h]
+  __int64 v3; // rax
+  __int64 v6; // rax
+  ULONG_PTR v7; // rax
+  ULONG_PTR v8; // rbx
+  __int64 Lines; // rdi
+  __int64 v10; // rcx
+  char v11; // r12
+  __int64 v12; // r15
+  __int128 v13; // xmm1
+  __int128 v14; // xmm0
+  _DWORD *v15; // r14
+  int v16; // edx
+  __int128 v18; // xmm1
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  __int128 v21; // xmm0
+  signed __int32 v22[8]; // [rsp+0h] [rbp-70h] BYREF
   __int128 v23; // [rsp+30h] [rbp-40h]
   __int128 v24; // [rsp+40h] [rbp-30h]
   __int128 v25; // [rsp+50h] [rbp-20h]
   __int64 v26; // [rsp+60h] [rbp-10h]
-  __int64 v27; // [rsp+C8h] [rbp+58h] BYREF
+  unsigned int v27; // [rsp+B0h] [rbp+40h] BYREF
+  __int64 v28; // [rsp+C8h] [rbp+58h] BYREF
 
-  v27 = *a1;
-  HalpInterruptApplyOverrides(&v27, 0LL, 0LL);
-  LODWORD(v5) = v27;
+  v3 = *a1;
+  v27 = 0;
+  v28 = v3;
+  HalpInterruptApplyOverrides(&v28, 0LL, 0LL);
+  LODWORD(v6) = v28;
   while ( 1 )
   {
-    v6 = HalpInterruptLookupController(v5);
-    v7 = (__int64)v6;
-    if ( !v6 )
-      break;
-    if ( (v6[31] & 2) != 0 )
-      KeBugCheckEx(0x5Cu, 0x200uLL, HalpInterruptLastProblem, (ULONG_PTR)v6, 0x7931847uLL);
-    Lines = HalpInterruptFindLines((unsigned int *)&v27);
+    v7 = HalpInterruptLookupController((unsigned int)v6);
+    v8 = v7;
+    if ( !v7 )
+    {
+      HalpInterruptLastProblem = 17;
+      return (unsigned int)-1073741275;
+    }
+    if ( (*(_DWORD *)(v7 + 224) & 2) != 0 )
+      KeBugCheckEx(0x5Cu, 0x200uLL, HalpInterruptLastProblem, v7, 0x7931847uLL);
+    Lines = HalpInterruptFindLines(&v28, &v27);
     if ( !Lines )
     {
-      LODWORD(BugCheckParameter4) = 1071;
-      v18 = 18;
-      v19 = v7;
-      goto LABEL_15;
+      *(_DWORD *)(v8 + 296) = 0;
+      HalpInterruptLastProblem = 18;
+      *(_DWORD *)(v8 + 292) = 18;
+      *(_QWORD *)(v8 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\connect.c";
+      *(_DWORD *)(v8 + 312) = 1067;
+      return (unsigned int)-1073741275;
     }
-    v9 = (_BYTE *)Lines[6];
-    if ( *v9 )
+    v10 = *(_QWORD *)(Lines + 48);
+    if ( *(_BYTE *)(v10 + 16LL * v27) )
     {
-      HalpInterruptSetProblemEx(v7, 19, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 1084);
-      return (unsigned int)-1073741811;
+      *(_DWORD *)(v8 + 296) = 0;
+      HalpInterruptLastProblem = 19;
+      v16 = -1073741811;
+      *(_DWORD *)(v8 + 292) = 19;
+      *(_QWORD *)(v8 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\connect.c";
+      *(_DWORD *)(v8 + 312) = 1080;
+      return (unsigned int)v16;
     }
-    v10 = Lines[5];
-    v11 = *(_OWORD *)(v10 + 16);
-    v23 = *(_OWORD *)v10;
-    v12 = *(_OWORD *)(v10 + 32);
-    v24 = v11;
-    *(_QWORD *)&v11 = *(_QWORD *)(v10 + 48);
-    v25 = v12;
-    v26 = v11;
-    HalpInterruptDestinationToTarget((__int64)v9, a2, v10 + 24);
-    v13 = (_DWORD *)(v10 + 16);
-    HalpInterruptFindBestRouting((int *)&v27, *(_QWORD *)a3);
-    _InterlockedOr(v21, 0);
-    v14 = HalpInterruptSetLineStateInternal(v7, (__int64)&v27, v10);
-    if ( v14 < 0 )
-    {
-      HalpInterruptSetProblemEx(v7, 7, v14, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 1123);
-      v15 = Lines[5];
-      v16 = v24;
-      *(_OWORD *)v15 = v23;
-      v17 = v25;
-      *(_OWORD *)(v15 + 16) = v16;
-      *(_QWORD *)&v16 = v26;
-      *(_OWORD *)(v15 + 32) = v17;
-      *(_QWORD *)(v15 + 48) = v16;
-      return (unsigned int)v14;
-    }
-    if ( *(_DWORD *)(v10 + 20) == *(_DWORD *)(a3 + 4) && *v13 == *(_DWORD *)a3 )
-      return (unsigned int)v14;
-    v5 = *(_QWORD *)v13;
-    v27 = *(_QWORD *)v13;
+    v11 = 1;
+    v12 = *(_QWORD *)(Lines + 40) + 56LL * v27;
+    v13 = *(_OWORD *)(v12 + 16);
+    v23 = *(_OWORD *)v12;
+    v14 = *(_OWORD *)(v12 + 32);
+    v24 = v13;
+    *(_QWORD *)&v13 = *(_QWORD *)(v12 + 48);
+    v25 = v14;
+    v26 = v13;
+    HalpInterruptDestinationToTarget(v10, a2, v12 + 24);
+    v15 = (_DWORD *)(v12 + 16);
+    HalpInterruptFindBestRouting(&v28, *(_QWORD *)a3, v12 + 16);
+    _InterlockedOr(v22, 0);
+    v16 = HalpInterruptSetLineStateInternal(v8, &v28);
+    if ( v16 < 0 )
+      break;
+    v11 = 0;
+    if ( *(_DWORD *)(v12 + 20) == *(_DWORD *)(a3 + 4) && *v15 == *(_DWORD *)a3 )
+      goto LABEL_9;
+    v6 = *(_QWORD *)v15;
+    v28 = *(_QWORD *)v15;
   }
-  LODWORD(BugCheckParameter4) = 1047;
-  v18 = 17;
-  v19 = 0;
-LABEL_15:
-  HalpInterruptSetProblemEx(
-    v19,
-    v18,
-    0,
-    (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c",
-    BugCheckParameter4);
-  return (unsigned int)-1073741275;
+  *(_DWORD *)(v8 + 296) = v16;
+  HalpInterruptLastProblem = 7;
+  *(_DWORD *)(v8 + 292) = 7;
+  *(_QWORD *)(v8 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\connect.c";
+  *(_DWORD *)(v8 + 312) = 1119;
+LABEL_9:
+  if ( v16 < 0 && v11 )
+  {
+    v18 = v24;
+    v19 = 56LL * v27;
+    v20 = *(_QWORD *)(Lines + 40);
+    *(_OWORD *)(v19 + v20) = v23;
+    v21 = v25;
+    *(_OWORD *)(v19 + v20 + 16) = v18;
+    *(_QWORD *)&v18 = v26;
+    *(_OWORD *)(v19 + v20 + 32) = v21;
+    *(_QWORD *)(v19 + v20 + 48) = v18;
+  }
+  return (unsigned int)v16;
 }

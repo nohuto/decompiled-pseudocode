@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpSaAllocatorAllocate @ 0x1401677E8
+ * XREFs of ExpSaAllocatorAllocate @ 0x140167808
  * Callers:
- *     ExSaAllocate @ 0x140167774 (ExSaAllocate.c)
+ *     ExSaAllocate @ 0x140167794 (ExSaAllocate.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
@@ -14,10 +14,10 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExpSaPageGroupAllocateMemory @ 0x140167B08 (ExpSaPageGroupAllocateMemory.c)
- *     ExpSaPageGroupDescriptorAllocate @ 0x140167D80 (ExpSaPageGroupDescriptorAllocate.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     ExpSaAllocatorOptimizeList @ 0x14031F3A4 (ExpSaAllocatorOptimizeList.c)
+ *     ExpSaPageGroupAllocateMemory @ 0x140167B28 (ExpSaPageGroupAllocateMemory.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x140167DA0 (ExpSaPageGroupDescriptorAllocate.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExpSaAllocatorOptimizeList @ 0x14031F4A4 (ExpSaAllocatorOptimizeList.c)
  */
 
 __int64 __fastcall ExpSaAllocatorAllocate(ULONG_PTR BugCheckParameter2, unsigned int a2, int a3)

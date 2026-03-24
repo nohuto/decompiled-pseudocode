@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhSyncBusDisconnect @ 0x1C0030E28
+ * XREFs of UsbhSyncBusDisconnect @ 0x1C00321D0
  * Callers:
- *     UsbhFdoD0Worker_Action @ 0x1C00070B0 (UsbhFdoD0Worker_Action.c)
- *     UsbhHardReset_Action @ 0x1C003C838 (UsbhHardReset_Action.c)
- *     Usbh_HRS_Queued @ 0x1C003D128 (Usbh_HRS_Queued.c)
+ *     UsbhFdoD0Worker_Action @ 0x1C000DC30 (UsbhFdoD0Worker_Action.c)
+ *     UsbhHardReset_Action @ 0x1C003DA18 (UsbhHardReset_Action.c)
+ *     Usbh_HRS_Queued @ 0x1C003E308 (Usbh_HRS_Queued.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDispatch_BusEvent @ 0x1C000FC10 (UsbhDispatch_BusEvent.c)
+ *     UsbhDispatch_BusEvent @ 0x1C0002AF0 (UsbhDispatch_BusEvent.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 __int64 __fastcall UsbhSyncBusDisconnect(struct _DEVICE_OBJECT *a1, __int64 a2)

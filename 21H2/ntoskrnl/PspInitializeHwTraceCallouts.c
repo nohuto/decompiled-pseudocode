@@ -1,9 +1,9 @@
 /*
- * XREFs of PspInitializeHwTraceCallouts @ 0x140B1E41C
+ * XREFs of PspInitializeHwTraceCallouts @ 0x140A47C94
  * Callers:
- *     PspInitPhase1 @ 0x140B1E0A8 (PspInitPhase1.c)
+ *     PspInitPhase1 @ 0x140A4B338 (PspInitPhase1.c)
  * Callees:
- *     ExRegisterHost @ 0x1408486C4 (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x14079DA20 (ExRegisterHost.c)
  */
 
 __int64 __fastcall PspInitializeHwTraceCallouts(__int64 a1, __int64 a2)

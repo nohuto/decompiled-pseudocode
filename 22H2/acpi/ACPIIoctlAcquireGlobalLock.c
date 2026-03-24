@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIIoctlAcquireGlobalLock @ 0x1C002F3BC
+ * XREFs of ACPIIoctlAcquireGlobalLock @ 0x1C005721C
  * Callers:
- *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIIrpDispatchDeviceControl @ 0x1C000B8A0 (ACPIIrpDispatchDeviceControl.c)
  * Callees:
- *     ACPIAsyncAcquireGlobalLock @ 0x1C0039150 (ACPIAsyncAcquireGlobalLock.c)
+ *     ACPIAsyncAcquireGlobalLock @ 0x1C000F580 (ACPIAsyncAcquireGlobalLock.c)
  */
 
 __int64 __fastcall ACPIIoctlAcquireGlobalLock(__int64 a1, IRP *a2, __int64 a3)
@@ -12,7 +12,7 @@ __int64 __fastcall ACPIIoctlAcquireGlobalLock(__int64 a1, IRP *a2, __int64 a3)
   unsigned int v5; // ebx
   __int64 result; // rax
   _IRP *MasterIrp; // rbx
-  __int64 Pool2; // rax
+  _MDL *PoolWithTag; // rax
 
   v3 = *(_DWORD *)(a3 + 8);
   a2->IoStatus.Information = 0LL;
@@ -30,17 +30,19 @@ LABEL_3:
     v5 = -1073741585;
     goto LABEL_3;
   }
-  Pool2 = ExAllocatePool2(64LL, 32LL, 1282433857LL);
-  if ( !Pool2 )
+  PoolWithTag = (_MDL *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x4C706341u);
+  if ( !PoolWithTag )
   {
     v5 = -1073741670;
     goto LABEL_3;
   }
-  MasterIrp->MdlAddress = (_MDL *)Pool2;
+  *(_OWORD *)&PoolWithTag->Next = 0LL;
+  *(_OWORD *)&PoolWithTag->Process = 0LL;
+  MasterIrp->MdlAddress = PoolWithTag;
   a2->IoStatus.Information = 16LL;
-  *(_QWORD *)Pool2 = a2;
-  *(_WORD *)(Pool2 + 8) = 1;
-  v5 = ACPIAsyncAcquireGlobalLock(Pool2);
+  PoolWithTag->Next = (_MDL *)a2;
+  PoolWithTag->Size = 1;
+  v5 = ACPIAsyncAcquireGlobalLock((__int64)PoolWithTag);
   result = 259LL;
   if ( v5 != 259 )
     goto LABEL_3;

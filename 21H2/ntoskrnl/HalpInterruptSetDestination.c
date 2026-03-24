@@ -1,16 +1,15 @@
 /*
- * XREFs of HalpInterruptSetDestination @ 0x140251DC0
+ * XREFs of HalpInterruptSetDestination @ 0x140378990
  * Callers:
- *     ExtEnvSetVpptTarget @ 0x14050C264 (ExtEnvSetVpptTarget.c)
+ *     ExtEnvSetVpptTarget @ 0x1404BF7A4 (ExtEnvSetVpptTarget.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpInterruptSetDestinationInternal @ 0x140251EA0 (HalpInterruptSetDestinationInternal.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptGsiToLine @ 0x140252380 (HalpInterruptGsiToLine.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpInterruptSetRemappedDestination @ 0x140508270 (HalpInterruptSetRemappedDestination.c)
- *     HalpInterruptSetRemappedDestinationHv @ 0x140508364 (HalpInterruptSetRemappedDestinationHv.c)
- *     HalpInterruptSetProblemEx @ 0x14051E038 (HalpInterruptSetProblemEx.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpInterruptSetDestinationInternal @ 0x140378A6C (HalpInterruptSetDestinationInternal.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpInterruptSetRemappedDestination @ 0x1404BB7C8 (HalpInterruptSetRemappedDestination.c)
+ *     HalpInterruptSetRemappedDestinationHv @ 0x1404BB8C0 (HalpInterruptSetRemappedDestinationHv.c)
  */
 
 __int64 __fastcall HalpInterruptSetDestination(__int64 a1, __int64 a2, unsigned int *a3)
@@ -22,24 +21,24 @@ __int64 __fastcall HalpInterruptSetDestination(__int64 a1, __int64 a2, unsigned 
   _DWORD *SchedulerAssist; // r9
   int v12; // eax
   bool v13; // zf
-  __int64 v14; // [rsp+30h] [rbp-20h] BYREF
-  _DWORD v15[2]; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v16; // [rsp+40h] [rbp-10h]
-  __int64 v17; // [rsp+48h] [rbp-8h]
-  int v18; // [rsp+78h] [rbp+28h] BYREF
-  int v19; // [rsp+7Ch] [rbp+2Ch]
+  __int64 v14; // [rsp+20h] [rbp-28h] BYREF
+  _DWORD v15[2]; // [rsp+28h] [rbp-20h] BYREF
+  __int64 v16; // [rsp+30h] [rbp-18h]
+  __int64 v17; // [rsp+38h] [rbp-10h]
+  int v18; // [rsp+68h] [rbp+20h] BYREF
+  int v19; // [rsp+6Ch] [rbp+24h]
 
-  v14 = 0LL;
   v15[1] = 0;
-  if ( qword_140C4C4A8 )
+  v14 = 0LL;
+  if ( qword_140C4A1A8 )
     return (unsigned int)HalpInterruptSetRemappedDestinationHv(a3, a1, a2);
-  if ( (*(_DWORD *)(HalpInterruptController + 228) & 0x100) != 0 )
+  if ( (*(_DWORD *)(HalpInterruptController + 220) & 0x100) != 0 )
     return (unsigned int)HalpInterruptSetRemappedDestination(a3, a1, a2);
   if ( !a3 )
     return (unsigned int)-1073741811;
   if ( (int)HalpInterruptGsiToLine(*a3, &v14) < 0 )
   {
-    HalpInterruptSetProblemEx(0, 18, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 570);
+    HalpInterruptLastProblem = 18;
     return (unsigned int)-1073741811;
   }
   v18 = -1;

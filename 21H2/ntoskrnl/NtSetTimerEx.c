@@ -1,21 +1,21 @@
 /*
- * XREFs of NtSetTimerEx @ 0x1402E3150
+ * XREFs of NtSetTimerEx @ 0x1402491A0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExpSetTimerObject2 @ 0x1402D594C (ExpSetTimerObject2.c)
- *     ExpSetTimerObject @ 0x1402E33D0 (ExpSetTimerObject.c)
- *     PoDestroyReasonContext @ 0x14036B090 (PoDestroyReasonContext.c)
- *     PoCaptureReasonContext @ 0x14036B98C (PoCaptureReasonContext.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     ExpSetTimerObject @ 0x140249420 (ExpSetTimerObject.c)
+ *     ExpSetTimerObject2 @ 0x14028026C (ExpSetTimerObject2.c)
+ *     PoDestroyReasonContext @ 0x140282BD8 (PoDestroyReasonContext.c)
+ *     PoCaptureReasonContext @ 0x14028363C (PoCaptureReasonContext.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtSetTimerEx(HANDLE Handle, int a2, __int128 *a3, unsigned int a4)
 {
   __int128 *v4; // rbx
-  unsigned __int8 PreviousMode; // r14
+  unsigned __int8 v6; // r14
   unsigned __int64 v7; // rcx
   unsigned int v8; // esi
   __int64 v9; // rcx
@@ -40,8 +40,8 @@ __int64 __fastcall NtSetTimerEx(HANDLE Handle, int a2, __int128 *a3, unsigned in
   v23 = 0LL;
   v17[0] = 0;
   P = 0LL;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode && a4 )
+  v6 = KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
+  if ( v6 && a4 )
   {
     if ( ((unsigned __int8)a3 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
@@ -53,7 +53,7 @@ __int64 __fastcall NtSetTimerEx(HANDLE Handle, int a2, __int128 *a3, unsigned in
     return 3221225475LL;
   if ( a4 != 48 )
     return 3221225476LL;
-  if ( PreviousMode )
+  if ( v6 )
   {
     v21 = *a3;
     v22 = a3[1];
@@ -72,7 +72,7 @@ LABEL_14:
     v11 = *((_QWORD *)v4 + 2);
     v12 = *((_QWORD *)v4 + 1);
     Object = 0LL;
-    v13 = ObReferenceObjectByHandle(Handle, 2u, 0LL, PreviousMode, &Object, 0LL);
+    v13 = ObReferenceObjectByHandle(Handle, 2u, 0LL, v6, &Object, 0LL);
     if ( v13 < 0 )
     {
 LABEL_19:
@@ -85,7 +85,7 @@ LABEL_19:
     {
       if ( !v12 && !v11 && !P && !v18 && !v10 )
       {
-        v15 = ExpSetTimerObject2(Object, (__int64 *)v4, 10000LL * v8, 0LL);
+        v15 = ExpSetTimerObject2(Object);
         goto LABEL_18;
       }
       ObfDereferenceObjectWithTag(Object, 0x746C6644u);
@@ -108,7 +108,7 @@ LABEL_36:
       PoDestroyReasonContext(P);
     return (unsigned int)v13;
   }
-  result = PoCaptureReasonContext(v9, PreviousMode, 0, 0, (__int64)v17, (__int64)&P);
+  result = PoCaptureReasonContext(v9, v6, 0, 0, (__int64)v17, (__int64)&P);
   if ( (int)result >= 0 )
   {
     v8 = *((_DWORD *)v4 + 8);
